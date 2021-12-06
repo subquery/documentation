@@ -10206,7 +10206,7 @@ vuepress-plugin-typescript@^0.3.1:
     cache-loader "^3.0.0"
     ts-loader "^7.0.3"
 
-vuepress-theme-hope@^1.20.5:
+vuepress-theme-hope@^1.21.0:
   version "1.21.0"
   resolved "https://registry.yarnpkg.com/vuepress-theme-hope/-/vuepress-theme-hope-1.21.0.tgz#a82fa7f353de3ae92ba1e470a069f738e948bb7e"
   integrity sha512-tMEPA3ku98Oyg9h2xliBxLHn4qu0SaSJZ0J28XjZ1Mk0z19ZdVTAdR6sXXOQIwq+u5N9tQqvSeKhc+R5UgB1gA==
