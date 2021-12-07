@@ -15,11 +15,6 @@ jobs:
       - run: npm install -g yarn
       - run: yarn install
       - run: yarn docs:build
-      - shell: bash
-        env: 
-          AWS-ACCESS: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        run: |
-          echo "$AWS-ACCESS"
       - uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
