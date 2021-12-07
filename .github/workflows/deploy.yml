@@ -15,6 +15,7 @@ jobs:
       - run: npm install -g yarn
       - run: yarn install
       - run: yarn docs:build
+      - run: echo "$GITHUB_CONTEXT"
       - uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
