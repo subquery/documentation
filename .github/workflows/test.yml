@@ -1,4 +1,4 @@
-name: TEST CD w doc.thechaindata.com
+name: Deploy to DEV - doc.thechaindata.comd
 on:
   push:
     branches:
