@@ -1,4 +1,4 @@
-name: Deploy to DEV - doc.thechaindata.comd
+name: Deploy to DEV - doc.thechaindata.com
 on:
   push:
     branches:
