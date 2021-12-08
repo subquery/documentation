@@ -2,7 +2,7 @@ name: Deploy to DEV - doc.thechaindata.com
 on:
   pull_request:
     branches:
-      - main
+      - master
     paths:
       - 'docs/**'
     
