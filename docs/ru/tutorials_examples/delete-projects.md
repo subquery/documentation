@@ -12,9 +12,8 @@
 
 ![Удаление проекта из промежуточного слота](/assets/img/delete_staging.png)
 
-## Удаление проекта из производственного слота
+## Deleting a project from the production slot
 
 Чтобы удалить проект из производственного слота, вам придется вместо этого удалить весь проект. Перейдите в верхний правый угол и нажмите на 3 точки, которые являются настройками для всего проекта. Затем выберите «Удалить проект».
 
-![Deleting a project from the production slot
-](/assets/img/delete_production.png)
+![Deleting a project from the production slot](/assets/img/delete_production.png)
