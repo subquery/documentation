@@ -28,10 +28,10 @@
 
 ### 处理器选项：
 
-| 属性      | 类型               | 必填 | 描述                                                                                                         |
-| ------- | ---------------- | -- | ---------------------------------------------------------------------------------------------------------- |
-| abi     | String           | No | The ABI that is used by the processor to parse arguments. MUST be a key of `assets`                        |
-| address | String or `null` | No | A contract address where the event is from or call is made to. `null` will capture contract creation calls |
+| 属性      | 类型               | 必填 | 描述                                                                                                                                                     |
+| ------- | ---------------- | -- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| abi     | String           | No | The ABI that is used by the processor to parse arguments. MUST be a key of `assets` MUST be a key of `assets`                                          |
+| address | String or `null` | No | A contract address where the event is from or call is made to. `null` will capture contract creation calls `null` will capture contract creation calls |
 
 ## MoonbeamCall
 
