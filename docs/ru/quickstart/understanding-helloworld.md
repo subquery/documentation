@@ -10,7 +10,7 @@ This does the heavy lifting and creates a whole bunch of files for you. As noted
 
 - The Manifest in `project.yaml`
 - The GraphQL Schema in `schema.graphql`
-- The Mapping functions in `src/mappings/` directory
+- В основном вы будете работать со следующими файлами:
 
 ![key subql files](/assets/img/main_subql_files.png)
 
@@ -57,7 +57,7 @@ subquery-node_1   | 2021-06-06T02:04:25.490Z <fetch> INFO fetch block [1, 100]
 
 that you know that the SubQuery node has started to synchronise.
 
-## Summary
+## Заключение
 
 Now that you've had an insight into what is happening under the covers, the question is where to from here? If you are feeling confident, you can jump into learning about how to [create a project](../create/introduction.md) and learn more about the three key files. The manifest file, the GraphQL schema, and the mappings file.
 
