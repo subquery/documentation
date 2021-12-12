@@ -52,9 +52,14 @@ subql init --starter PROJECT_NAME
 
 最后，在项目目录下，运行以下命令来安装新项目的依赖关系。
 
-<CodeGroup> cd PROJECT_NAME # Yarn yarn install # NPM npm install 您将主要处理以下文件：
+<CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
+<CodeGroupItem title="NPM"> ```bash cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
 
-- 在 `project.yaml`
+## Configure and Build the Starter Project
+
+In the starter package that you just initialised, we have provided a standard configuration for your new project. You will mainly be working on the following files:
+
+- The Manifest in `project.yaml`
 - `schema.graphql`中的 GraphQL 架构
 - `src/mappings/` 目录中的映射函数
 
@@ -62,29 +67,32 @@ subql init --starter PROJECT_NAME
 
 ### GraphQL 模型生成
 
-为了 [索引](../run/run.md) 您的 SubQuery 项目，您必须首先生成您在 GraphQL Schema 文件中定义的 GraphQL 模型(`Schema)。 在项目目录的根目录中运行此命令。</p>
+为了 [索引](../run/run.md) 您的 SubQuery 项目，您必须首先生成您在 GraphQL Schema 文件中定义的 GraphQL 模型(`Schema)。 在项目目录的根目录中运行此命令。
 
-<p spaces-before="0">
+<CodeGroup> cd PROJECT_NAME # Yarn yarn install # NPM npm install 您将主要处理以下文件：
 
-<CodeGroup>
-  # Yarn
-yarn codegen
+- 在 `project.yaml`</p>
 
-# NPM
-npm run-script codegen</p>
+## Build the Project
 
-<h2 spaces-before="0">构建项目</h2>
+将您的新项目发布到 SubQuery Projects 。
 
-<p spaces-before="0">为了在本地托管的 SubQuery 节点上运行您的SubQuery 项目，您需要构建您的工作。</p>
+从项目的根目录运行构建命令。
 
-<p spaces-before="0">从项目的根目录运行构建命令。</p>
+<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem>
+<CodeGroupItem title="NPM"> ```bash npm run-script build ``` </CodeGroupItem> </CodeGroup>
 
-<p spaces-before="0">
+## Running and Querying your Starter Project
 
-<CodeGroup>
-  在此 <code>docker-compose.yml` 文件中定义了控制子查询节点如何运行的所有配置。 对于刚刚初始化的新项目，您无需在此处更改任何内容，但您可以在我们的 [Run a Project section](../run/run.md)部分阅读有关文件和设置的更多信息。
+Although you can quickly publish your new project to [SubQuery Projects](https://project.subquery.network) and query it using our [Explorer](https://explorer.subquery.network), the easiest way to run SubQuery nodes locally is in a Docker container, if you don't already have Docker you can install it from [docker.com](https://docs.docker.com/get-docker/).
 
-在项目目录下运行以下命令：
+[_Skip this and publish your new project to SubQuery Projects_](../publish/publish.md)
+
+### Run your SubQuery Project
+
+All configuration that controls how a SubQuery node is run is defined in this `docker-compose.yml` file. 对于刚刚初始化的新项目，您无需在此处更改任何内容，但您可以在我们的 [Run a Project section](../run/run.md)部分阅读有关文件和设置的更多信息。
+
+Under the project directory run following command:
 
 ```shell
 docker-compose pull && docker-compose up
@@ -118,4 +126,4 @@ docker-compose pull && docker-compose up
 
 恭喜，您现在有一个本地运行的 SubQuery 项目，该项目接受 GraphQL API 对示例数据的请求。 在下一个指南中， 我们会向您展示如何发布您的新项目到
 
-[将您的新项目发布到 SubQuery Projects 。](../publish/publish.md)
+[Publish your new project to SubQuery Projects](../publish/publish.md)
