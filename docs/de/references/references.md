@@ -53,7 +53,7 @@ This displays the current version.
 Use this flag to start the SubQuery project.
 
 ```shell
-subql-node -f . // OR
+subql-node -f . subql-node -f . // OR
 subql-node --subquery .
 ```
 
@@ -62,7 +62,7 @@ subql-node --subquery .
 This flag allows you to provide a name for your project which acts as if it creates an instance of your project. Upon providing a new name, a new database schema is created and block synchronisation starts from zero.
 
 ```shell
-subql-node -f . --subquery-name=test2
+subql-node -f . subql-node -f . --subquery-name=test2
 ```
 
 ### -c, --config
@@ -72,7 +72,7 @@ All these various configurations can be placed into a .yml or .json file and the
 Sample subquery_config.yml file:
 
 ```shell
-subquery: . // Mandatory. This is the local path of the project. The period here means the current local directory.
+subquery: . subquery: . // Mandatory. This is the local path of the project. The period here means the current local directory.
 subqueryName: hello // Optional name
 batchSize: 55 // Optional config
 ```
@@ -93,12 +93,16 @@ subql-node -f . --local
 
 Note that once you use this flag, removing it won't mean that it will point to another database. To repoint to another database you will have to create a NEW database and change the env settings to this new database. In other words, "export DB_DATABASE=<new_db_here>"
 
+### --force-clean
+
+This flag forces the project schemas and tables to be regenerated, helpful to use when iteratively developing graphql schemas such that new runs of the project are always working with a clean state. Note that this flag will also wipe all indexed data.
+
 ### --batch-size
 
 This flag allows you to set the batch size in the command line. If batch size is also set in the config file, this takes precedent.
 
 ```shell
-> subql-node -f . --batch-size=20
+> subql-node -f . > subql-node -f . --batch-size=20
 2021-08-09T23:24:43.775Z <fetch> INFO fetch block [6601,6620], total 20 blocks
 2021-08-09T23:24:45.606Z <fetch> INFO fetch block [6621,6640], total 20 blocks
 2021-08-09T23:24:47.415Z <fetch> INFO fetch block [6641,6660], total 20 blocks
@@ -112,7 +116,7 @@ This flag allows you to set the batch size in the command line. If batch size is
 This outputs debug information to the console output and forcefully sets the log level to debug.
 
 ```shell
-> subql-node -f . --debug
+> subql-node -f . > subql-node -f . --debug
 2021-08-10T11:45:39.471Z <db> DEBUG Executing (1b0d0c23-d7c7-4adb-a703-e4e5c414e035): INSERT INTO "subquery_1"."starter_entities" ("id","block_height","created_at","updated_at") VALUES ($1,$2,$3,$4) ON CONFLICT ("id") DO UPDATE SET "id"=EXCLUDED."id","block_height"=EXCLUDED."block_height","updated_at"=EXCLUDED."updated_at" RETURNING "id","block_height","created_at","updated_at";
 2021-08-10T11:45:39.472Z <db> DEBUG Executing (default): UPDATE "subqueries" SET "next_block_height"=$1,"updated_at"=$2 WHERE "id" = $3
 2021-08-10T11:45:39.472Z <db> DEBUG Executing (1b0d0c23-d7c7-4adb-a703-e4e5c414e035): COMMIT;
@@ -123,7 +127,7 @@ This outputs debug information to the console output and forcefully sets the log
 This shows profiler information.
 
 ```shell
-subql-node -f . --local --profiler
+subql-node -f . --local subql-node -f . --local --profiler
 2021-08-10T10:57:07.234Z <profiler> INFO FetchService, fetchMeta, 3876 ms
 2021-08-10T10:57:08.095Z <profiler> INFO FetchService, fetchMeta, 774 ms
 2021-08-10T10:57:10.361Z <profiler> INFO SubstrateUtil, fetchBlocksBatches, 2265 ms
@@ -135,7 +139,7 @@ subql-node -f . --local --profiler
 This flag allows users to override the network endpoint configuration from the manifest file.
 
 ```shell
-subql-node -f . --network-endpoint="wss://polkadot.api.onfinality.io/public-ws"
+subql-node -f . subql-node -f . --network-endpoint="wss://polkadot.api.onfinality.io/public-ws"
 ```
 
 Note that this must also be set in the manifest file, otherwise you'll get:
@@ -152,12 +156,12 @@ An instance of ProjectManifestImpl has failed the validation:
 There are two different terminal output formats. JSON or colored. Colored is the default and contains colored text.
 
 ```shell
-> subql-node -f . --output-fmt=json
+> subql-node -f . > subql-node -f . --output-fmt=json
 {"level":"info","timestamp":"2021-08-10T11:58:18.087Z","pid":24714,"hostname":"P.local","category":"fetch","message":"fetch block [10501,10600], total 100 blocks"}
 ```
 
 ```shell
-> subql-node -f . --output-fmt=colored
+> subql-node -f . > subql-node -f . --output-fmt=colored
 2021-08-10T11:57:41.480Z <subql-node> INFO node started
 (node:24707) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
 2021-08-10T11:57:48.981Z <fetch> INFO fetch block [10201,10300], total 100 blocks
@@ -191,7 +195,7 @@ There are 7 options to choose from. “fatal”, “error”, “warn”, “inf
 By default this is true. when set to false with:
 
 ```shell
-> subql-node -f . –timestamp-field=false
+> subql-node -f . > subql-node -f . –timestamp-field=false
 ```
 
 This removes the created_at and updated_at columns in the starter_entities table.
@@ -203,7 +207,7 @@ This allows you to specify a dictionary endpoint which is a free service that is
 Typically this would be set in your manifest file but below shows an example of using it as an argument in the command line.
 
 ```shell
-subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot"
+subql-node -f . subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot"
 ```
 
 [Read more about how a SubQuery Dictionary works](../tutorials_examples/dictionary.md).
@@ -242,13 +246,13 @@ This displays the current version.
 This flag is used to start the query service. If the --subquery-name flag is not provided when running an indexer, the name here will refer to the default project name. If --subquery-name is set, then the name here should match what was set.
 
 ```shell
-> subql-node -f . // --subquery-name not set
+> subql-node -f . > subql-node -f . // --subquery-name not set
 
 > subql-query -n subql-helloworld  --playground // the name defaults to the project directory name
 ```
 
 ```shell
-> subql-node -f . --subquery-name=hiworld // --subquery-name set
+> subql-node -f . > subql-node -f . --subquery-name=hiworld // --subquery-name set
 
 > subql-query -n hiworld --playground  // the name points to the subql-helloworld project but with the name of hiworld
 ```
