@@ -43,3 +43,21 @@ Signed transaction extrinsics are transactions that contain a signature of the a
 Unsigned transactions extrinsics are transactions that do not contain a signature of the account that issued the transaction. Unsigned transactions extrinsics should be used with care because there is nobody paying a fee, becaused it is signed. Because of this, the transaction queue lacks economic logic to prevent spam.
 
 For more information, click [here](https://substrate.dev/docs/en/knowledgebase/learn-substrate/extrinsics).
+
+## What is the endpoint for the Kusama network?
+
+The network.endpoint for the Kusama network is `wss://kusama.api.onfinality.io/public-ws`.
+
+## What is the endpoint for the Polkadot mainnet network?
+
+The network.endpoint for the Polkadot network is `wss://polkadot.api.onfinality.io/public-ws`.
+
+## How do I iteratively develop my project schema?
+
+A known issue with developing a changing project schema is that when lauching your Subquery node for testing, the previously indexed blocks will be incompatible with your new schema. In order to iteratively develop schemas the indexed blocks stored in the database must be cleared, this can be achieved by launching your node with the `--force-clean` flag. Example
+
+```shell
+subql-node -f . --force-clean --subquery-name=<project-name>
+```
+
+Note that it is recommended to use `--force-clean` when changing the `startBlock` within the project manifest (`project.yaml`) in order to begin reindexing from the configured block. If `startBlock` is changed without a `--force-clean` of the project then the indexer will continue indexing with the previously configured `startBlock`.
