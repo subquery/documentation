@@ -20,10 +20,10 @@ node --inspect-brk <path to subql-node> -f <path to subQuery project>
 
 例如：
 ```shell
-node --inspect-brk /usr/local/bin/subql-node -f ~/Code/subQuery/projects/subql-helloworld/
-Debugger listening on ws://127.0.0.1:9229/56156753-c07d-4bbe-af2d-2c7ff4bcc5ad
-For help, see: https://nodejs.org/en/docs/inspector
-Debugger attached.
+node --expect-brk /usr/local/bin/subql-node -f ~/Code/subQuery/projects/subql-Helloworld/
+Debugger 监听ws:127.0.0.1:9229/56156753-c07d-4bbe-af2d-2c7ff4bcc5ad
+关于帮助，请参阅：https://nodejs.org/en/docs/spector
+Debugger 已附后。
 ```
 
 ## Chrome 开发工具
