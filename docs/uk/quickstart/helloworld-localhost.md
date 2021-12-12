@@ -2,28 +2,28 @@
 
 Welcome to this SubQuery Hello World quick start. The quick start aims to show you how you get the default starter project running in Docker in a few simple steps.
 
-## Learning objectives
+## Мета навчання
 
-At the end of this quick start, you should:
+Наприкінці цього швидкого початку, ви повинен:
 
-- understand the required pre-requisites
+- розуміти необхідні передреквізити
 - understand the basic common commands
 - be able to navigate to localhost:3000 and view the playground
 - run a simple query to get the block height of the Polkadot mainnet
 
-## Intended audience
+## Інтентифікована аудиторія
 
-This guide is geared towards new developers who have some development experience and are interested in learning more about SubQuery.
+Це керівництво орієнтоване на нових розробників, які мають певний досвід розробки і зацікавлені в вивченні більше про SubQuery.
 
-## Video guide
+## Відеоінструкція
 
 <figure class="video_container">
   <iframe src="https://www.youtube.com/embed/j034cyUYb7k" frameborder="0" allowfullscreen="true"></iframe>
 </figure>
 
-## Pre-requisites
+## Пре-реєстрація
 
-You will need:
+Вам потрібно:
 
 - yarn or npm package manager
 - SubQuery CLI (`@subql/cli`)
@@ -185,6 +185,6 @@ SubQuery playground on localhost.
 
 The block count in the playground should match the block count (technically the block height) in the terminal as well.
 
-## Summary
+## Підсумок
 
 In this quick start, we demonstrated the basic steps to get a starter project up and running within a Docker environment and then navigated to localhost:3000 and ran a query to return the block number of the mainnet Polkadot network.
