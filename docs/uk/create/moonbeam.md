@@ -30,7 +30,7 @@ Supported networks:
 
 | Field   | Type             | Required | Description                                                                                                |
 | ------- | ---------------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| abi     | String           | No       | The ABI that is used by the processor to parse arguments. MUST be a key of `assets`                        |
+| abi     | Рядок            | No       | The ABI that is used by the processor to parse arguments. MUST be a key of `assets`                        |
 | address | String or `null` | No       | A contract address where the event is from or call is made to. `null` will capture contract creation calls |
 
 ## MoonbeamCall
@@ -44,10 +44,10 @@ Works in the same way as [substrate/CallHandler](../create/mapping/#call-handler
 
 ### Call Filters
 
-| Field    | Type   | Example(s)                                    | Description                                                                                                                                                                      |
-| -------- | ------ | --------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| function | String | 0x095ea7b3, approve(address to,uint256 value) | Either [Function Signature](https://docs.ethers.io/v5/api/utils/abi/fragments/#FunctionFragment) strings or the function `sighash` to filter the function called on the contract |
-| from     | String | 0x6bd193ee6d2104f14f94e2ca6efefae561a4334b    | An Ethereum address that sent the transaction                                                                                                                                    |
+| Field    | Type  | Example(s)                                    | Description                                                                                                                                                                      |
+| -------- | ----- | --------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| function | Рядок | 0x095ea7b3, approve(address to,uint256 value) | Either [Function Signature](https://docs.ethers.io/v5/api/utils/abi/fragments/#FunctionFragment) strings or the function `sighash` to filter the function called on the contract |
+| from     | Рядок | 0x6bd193ee6d2104f14f94e2ca6efefae561a4334b    | An Ethereum address that sent the transaction                                                                                                                                    |
 
 ### Handlers
 
