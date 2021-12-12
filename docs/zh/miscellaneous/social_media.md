@@ -12,17 +12,17 @@ SubQuery 是一个活跃的项目，通过许多社交媒体与我们的用户�
 - [Twitter](https://twitter.com/subquerynetwork)
 - [Telegram](https://t.me/subquerynetwork) (公告频道)
 - [GitHub](https://github.com/SubQuery/subql)
-- [Matrix/Riot ](https://matrix.to/#/#subquery:matrix.org)
+- [Matrix/Riot](https://matrix.to/#/#subquery:matrix.org)
 - [LinkedIn](https://www.linkedin.com/company/subquery)
 
 ## SubQuery非官方社区
 
 这些社区并不是由SubQuery团队搭建的，但我们的大使可能在那里提供支持。 请注意防骗，因为SubQuery **不** 负责它们内部发生的事情。
 
-- [Telegram (Chinese) ](https://t.me/subquerychina)
-- [Telegram (Russian) ](https://t.me/SubQuery_russia)
-- [Telegram (Spanish) ](https://t.me/SubQueryES)
+- [Telegram (Chinese)](https://t.me/subquerychina)
+- [Telegram (Russian)](https://t.me/SubQuery_russia)
+- [Telegram (Spanish)](https://t.me/SubQueryES)
 - [Telegram (Thai)](https://t.me/subquerynetworkthai)
 - [Telegram (Turkish)](https://t.me/subquery_TR)
 - [Telegram (Vietname)](https://t.me/subqueryvietnam)
-- [Telegram (Vietnamese Announcement) ](https://t.me/subqueryannvn)
+- [Telegram (Vietnamese Announcement)](https://t.me/subqueryannvn)
