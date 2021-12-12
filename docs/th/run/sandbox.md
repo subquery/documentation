@@ -1,6 +1,6 @@
 # The Sandbox
 
-ในสถานการณ์การใช้งานที่คาดการณ์ไว้ โหนด SubQuery มักจะถูกเรียกใช้โดยโฮสต์ที่เชื่อถือได้ และรหัสของโปรเจ็กต์ SubQuery ที่ผู้ใช้ส่งไปยังโหนดนั้นไม่น่าเชื่อถือโดยสิ้นเชิง
+ในสถานการณ์การใช้งานที่เราได้คิดไว้คือ โหนดของ SubQuery จะถูกรันโดยโฮสต์ที่เชื่อถือได้ ในขณะที่โค้ดของโปรเจ็ก SubQuery ที่ผู้ใช้ส่งไปยังโหนดนั้น ไม่น่าเชื่อถือไปทั้งหมด
 
 Some malicious code is likely to attack the host or even compromise it, and cause damage to the data of other projects in the same host. Therefore, we use the [VM2](https://www.npmjs.com/package/vm2) sandbox secured mechanism to reduce risks. This:
 
