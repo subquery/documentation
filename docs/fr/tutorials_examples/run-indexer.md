@@ -8,7 +8,7 @@
 
 ## Introduction
 
-Running an indexer node is another option outside of using Docker or having a project hosted for you at [SubQuery Projects](https://project.subquery.network/). It requires more time and effort but will enhance your understanding of how SubQuery works under the covers.
+Exécuter un nœud d'indexation est une autre option en dehors de l'utilisation de Docker ou d'avoir un projet hébergé pour vous sur [SubQuery Projects](https://project.subquery.network/). Cela demande plus de temps et d'efforts, mais vous permettra de mieux comprendre comment SubQuery fonctionne sous les couvertures.
 
 ## Postgres
 
