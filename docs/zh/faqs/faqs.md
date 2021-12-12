@@ -4,7 +4,7 @@
 
 SubQuery 是一个开放源代码项目，它允许开发者索引、转换和查询 Substrate 链数据为他们的应用程序提供动力。
 
-SubQuery 还为开发者提供免费的项目生产级托管，免除人员配置基础设施的责任。 并让开发者能实现最佳的编写程序。
+SubQuery 还为开发者提供免费的项目生产级托管，免除人员配置基础设施的责任。
 
 ## SubQuery的最佳入门方式是什么？
 
@@ -34,7 +34,7 @@ SubQuery 目前有两个可用的插槽。 一个中转插槽和一个生产插�
 
 ## 什么是外部状态？
 
-如果你已经熟悉区块链基本概念，你可以将外部状态理解为区块链中的交易。 但更加正式的理解是，外部状态是一种来自链外并被包含在一个区块中的信息。 外部状态的类别包含3种， 分别为：inherents、signed transactions、unsigned transactions。
+如果你已经熟悉区块链基本概念，你可以将外部状态理解为区块链中的交易。 但更加正式的理解是，外部状态是一种来自链外并被包含在一个区块中的信息。 There are three categories of extrinsics. They are inherents, signed transactions, and unsigned transactions.
 
 Inherent外部状态是指未经签名且仅由区块作者插入区块的信息。
 
@@ -51,3 +51,13 @@ Kusama 网络端点的介绍 `wss://kusama.api.onfinality.io/publicws`。
 ## Polkadot 主网的端点是什么？
 
 Polkadot网络端点的介绍 `wss://polkadot.api.onfinality.io/publicws`。
+
+## How do I iteratively develop my project schema?
+
+A known issue with developing a changing project schema is that when lauching your Subquery node for testing, the previously indexed blocks will be incompatible with your new schema. In order to iteratively develop schemas the indexed blocks stored in the database must be cleared, this can be achieved by launching your node with the `--force-clean` flag. 示例
+
+```shell
+subql-node -f . --force-clean --subquery-name=<project-name>
+```
+
+Note that it is recommended to use `--force-clean` when changing the `startBlock` within the project manifest (`project.yaml`) in order to begin reindexing from the configured block. If `startBlock` is changed without a `--force-clean` of the project then the indexer will continue indexing with the previously configured `startBlock`.
