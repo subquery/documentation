@@ -1,24 +1,24 @@
 # Frequently Asked Questions
 
-## What is SubQuery?
+## Qu'est-ce que SubQuery ?
 
-SubQuery is an open source project that allows developers to index, transform, and query Substrate chain data to power their applications.
+SubQuery est un projet open source qui permet aux développeurs d'indexer, transformer et interroger les données de la chaîne Substrate pour alimenter leurs applications.
 
 SubQuery also provides free, production grade hosting of projects for developers removing the responsiblity of manging infrastructure, and letting developers do what they do best - build.
 
-## What is the best way to get started with SubQuery?
+## Quelle est la meilleure façon de commencer avec SubQuery ?
 
-The best way to get started with SubQuery is to try out our [Hello World tutorial](../quickstart/helloworld-localhost.md). This is a simple 5 min walk through of downloading the starter template, building the project, and then using Docker to run a node on your localhost and running a simple query.
+The best way to get started with SubQuery is to try out our [Hello World tutorial](../quickstart/helloworld-localhost.md). Il s'agit d'une prise en main de 5 minutes pour télécharger le modèle de démarrage, construire le projet, puis en utilisant Docker pour exécuter un noeud sur votre serveur local et en exécutant une requête simple.
 
-## How can I contribute or give feedback to SubQuery?
+## Comment puis-je contribuer ou faire un retour à SubQuery?
 
-We love contributions and feedback from the community. To contribute code, fork the repository of interest and make your changes. Then submit a PR or Pull Request. Oh, don't forget to test as well! Also check out our contributions guide lines (TBA).
+Nous aimons les contributions et les commentaires de la communauté. Pour contribuer au code, faire un fork du répertoire d'intérêt et apporter vos changements. Ensuite soumettez une PR ou une Pull Request. Oh, n'oubliez pas de tester aussi! Also check out our contributions guide lines (TBA).
 
 To give feedback, contact us at hello@subquery.network or jump onto our [discord channel](https://discord.com/invite/78zg8aBSMG)
 
-## How much does it cost to host my project in SubQuery Projects?
+## Combien coûte l'hébergement de mon projet dans SubQuery Projects?
 
-Hosting your project in SubQuery Projects is absolutely free - it's is our way of giving back to the community. To learn how to host your project with us, please check out the [Hello World (SubQuery hosted)](../quickstart/helloworld-hosted.md) tutorial.
+Héberger votre projet dans SubQuery Projects est absolument gratuit - c'est notre façon de le rendre à la communauté. To learn how to host your project with us, please check out the [Hello World (SubQuery hosted)](../quickstart/helloworld-hosted.md) tutorial.
 
 ## What are deployment slots?
 
@@ -51,3 +51,13 @@ The network.endpoint for the Kusama network is `wss://kusama.api.onfinality.io/p
 ## What is the endpoint for the Polkadot mainnet network?
 
 The network.endpoint for the Polkadot network is `wss://polkadot.api.onfinality.io/public-ws`.
+
+## How do I iteratively develop my project schema?
+
+A known issue with developing a changing project schema is that when lauching your Subquery node for testing, the previously indexed blocks will be incompatible with your new schema. In order to iteratively develop schemas the indexed blocks stored in the database must be cleared, this can be achieved by launching your node with the `--force-clean` flag. For example:
+
+```shell
+subql-node -f . --force-clean --subquery-name=<project-name>
+```
+
+Note that it is recommended to use `--force-clean` when changing the `startBlock` within the project manifest (`project.yaml`) in order to begin reindexing from the configured block. If `startBlock` is changed without a `--force-clean` of the project then the indexer will continue indexing with the previously configured `startBlock`.
