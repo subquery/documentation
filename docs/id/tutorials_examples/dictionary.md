@@ -1,18 +1,18 @@
 # Bagaimana cara kerja kamus SubQuery?
 
-Seluruh ide dari proyek kamus generik adalah untuk mengindeks semua data dari blockchain dan merekam peristiwa, ekstrinsik, dan jenisnya (modul dan metode) dalam database dalam urutan tinggi blok. Proyek lain kemudian dapat menanyakan titik akhir `network.dictionary` ini alih-alih `network.dictionary` default yang ditentukan dalam file manifes.
+The whole idea of a generic dictionary project is to index all the data from a blockchain and record the events, extrinsics, and its types (module and method) in a database in order of block height. Another project can then query this `network.dictionary` endpoint instead of the default `network.endpoint` defined in the manifest file.
 
-Titik akhir `network.dictionary` adalah parameter opsional yang jika ada, SDK akan secara otomatis mendeteksi dan menggunakannya. `network.endpoint` adalah wajib dan tidak akan dikompilasi jika tidak ada.
+The `network.dictionary` endpoint is an optional parameter that if present, the SDK will automatically detect and use. `network.endpoint` is mandatory and will not compile if not present.
 
-Mengambil proyek kamus SubQuery sebagai contoh, file skema mendefinisikan 3 entitas; ekstrinsik, peristiwa, specVersion. 3 entitas ini masing-masing berisi 6, 4, dan 2 bidang. Ketika proyek ini dijalankan, bidang ini tercermin dalam tabel database.
+Taking the [SubQuery dictionary](https://github.com/subquery/subql-dictionary) project as an example, the [schema](https://github.com/subquery/subql-dictionary/blob/main/schema.graphql) file defines 3 entities; extrinsic, events, specVersion. These 3 entities contain 6, 4, and 2 fields respectively. When this project is run, these fields are reflected in the database tables.
 
 ![tabel ekstrinsik](/assets/img/extrinsics_table.png) ![tabel peristiwa](/assets/img/events_table.png) ![tabel spekversi](/assets/img/specversion_table.png)
 
-Data dari blockchain kemudian disimpan dalam tabel ini dan diindeks untuk kinerja. Proyek kemudian di-host di Proyek SubQuery dan titik akhir API tersedia untuk ditambahkan ke file manifes.
+Data from the blockchain is then stored in these tables and indexed for performance. The project is then hosted in SubQuery Projects and the API endpoint is available to be added to the manifest file.
 
 ## Bagaimana cara memasukkan kamus ke dalam proyek Anda?
 
-Tambah `kamus: https://api.subquery.network/sq/subquery/dictionary-polkadot` ke bagian jaringan manifes. Misalnya:
+Add `dictionary: https://api.subquery.network/sq/subquery/dictionary-polkadot` to the network section of the manifest. Eg:
 
 ```shell
 jaringan:
@@ -22,22 +22,22 @@ jaringan:
 
 ## Apa yang terjadi jika kamus TIDAK digunakan?
 
-Ketika kamus TIDAK digunakan, pengindeks akan mengambil setiap blok data melalui api polkadot sesuai dengan ukuran batch bendera yang 100 secara default, dan menempatkan ini dalam buffer untuk diproses. Kemudian, pengindeks mengambil semua blok ini dari buffer dan saat memproses data blok, memeriksa apakah peristiwa dan ekstrinsik dalam blok ini cocok dengan filter yang ditentukan pengguna.
+When a dictionary is NOT used, an indexer will fetch every block data via the polkadot api according to the `batch-size` flag which is 100 by default, and place this in a buffer for processing. Later, the indexer takes all these blocks from the buffer and while processing the block data, checks whether the event and extrinsic in these blocks match the user-defined filter.
 
 ## Apa yang terjadi ketika kamus IS digunakan?
 
-Ketika kamus IS digunakan, pengindeks pertama-tama akan mengambil panggilan dan filter peristiwa sebagai parameter dan menggabungkannya ke dalam kueri GraphQL. Kemudian menggunakan API kamus untuk mendapatkan daftar ketinggian blok yang relevan saja yang berisi peristiwa dan ekstrinsik tertentu. Seringkali ini secara substansial kurang dari 100 jika default digunakan.
+When a dictionary IS used, the indexer will first take the call and event filters as parameters and merge this into a GraphQL query. It then uses the dictionary's API to obtain a list of relevant block heights only that contains the specific events and extrinsics. Often this is substantially less than 100 if the default is used.
 
-Misalnya, bayangkan situasi di mana Anda mengindeks peristiwa transfer. Tidak semua blok memiliki event ini (pada gambar di bawah tidak ada event transfer di blok 3 dan 4).
+For example, imagine a situation where you're indexing transfer events. Not all blocks have this event (in the image below there are no transfer events in blocks 3 and 4).
 
 ![blok kamus](/assets/img/dictionary_blocks.png)
 
-Kamus memungkinkan proyek Anda untuk melewati ini jadi daripada mencari di setiap blok untuk acara transfer, itu melompat ke hanya blok 1, 2, dan 5. Ini karena kamus adalah referensi pra-komputasi untuk semua panggilan dan acara di masing-masing memblokir.
+The dictionary allows your project to skip this so rather than looking in each block for a transfer event, it skips to just blocks 1, 2, and 5. This is because the dictionary is a pre-computed reference to all calls and events in each block.
 
-Ini berarti bahwa menggunakan kamus dapat mengurangi jumlah data yang diperoleh pengindeks dari rantai dan mengurangi jumlah blok "yang tidak diinginkan" yang disimpan di buffer lokal. Tetapi dibandingkan dengan metode tradisional, ini menambahkan langkah tambahan untuk mendapatkan data dari API kamus.
+This means that using a dictionary can reduce the amount of data that the indexer obtains from the chain and reduce the number of “unwanted” blocks stored in the local buffer. But compared to the traditional method, it adds an additional step to get data from the dictionary’s API.
 
 ## Kapan kamus TIDAK berguna?
 
-Ketika penangan blok digunakan untuk mengambil data dari rantai, setiap blok perlu diproses. Oleh karena itu, menggunakan kamus dalam hal ini tidak memberikan keuntungan apa pun dan pengindeks akan secara otomatis beralih ke pendekatan non-kamus default.
+When [block handlers](https://doc.subquery.network/create/mapping.html#block-handler) are used to grab data from a chain, every block needs to be processed. Therefore, using a dictionary in this case does not provide any advantage and the indexer will automatically switch to the default non-dictionary approach.
 
 Juga, ketika berhadapan dengan peristiwa atau ekstrinsik yang terjadi atau ada di setiap blok seperti `timestamp.set`, menggunakan kamus tidak akan menawarkan keuntungan tambahan.
