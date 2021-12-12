@@ -93,6 +93,10 @@ subql-node -f . --local
 
 Note that once you use this flag, removing it won't mean that it will point to another database. To repoint to another database you will have to create a NEW database and change the env settings to this new database. In other words, "export DB_DATABASE=<new_db_here>"
 
+### --force-clean
+
+This flag forces the project schemas and tables to be regenerated, helpful to use when iteratively developing graphql schemas such that new runs of the project are always working with a clean state. Note that this flag will also wipe all indexed data.
+
 ### --batch-size
 
 This flag allows you to set the batch size in the command line. If batch size is also set in the config file, this takes precedent.
