@@ -12,7 +12,7 @@
 docker-compose pull && docker-compose up
 ```
 
-필요한 패키지([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query) 및 Postgres) 를 처음 다운로드하는 데 시간이 걸릴 수 있지만 곧 실행 중인 것을 볼 수 있습니다. 서브쿼리 노드.
+필요한 패키지([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query) 및 Postgres) 를 처음 다운로드하는 데 시간이 걸릴 수 있지만 곧 실행 중인 것을 볼 수 있습니다.
 
 ## 인덱서 실행 (subql/node)
 
@@ -59,7 +59,7 @@ subql-node -f your-project-path
 subql-node --network-dictionary=https://api.subquery.network/sq/subquery/dictionary-polkadot
 ```
 
-[SubQuery 사전 작동 방식에 대해 자세히 알아보기](../tutorials_examples/dictionary.md)
+SubQuery 사전 작동 방식에 대해 자세히 알아보기
 
 #### 데이터베이스에 연결
 
@@ -143,7 +143,7 @@ subql-node -f your-project-path --local
 
 `http://localhost:3000/health`는 성공하면 HTTP 200을 반환합니다.
 
-인덱서가 정상이 아니면 500 오류가 반환됩니다. 인덱서가 정상이 아니면 500 오류가 반환됩니다.
+A 500 error will be returned if the indexer is not healthy. This can often be seen when the node is booting up.
 
 ```shell
 {
@@ -175,9 +175,8 @@ node --inspect-brk <path to subql-node> -f <path to subQuery project>
 node --inspect-brk /usr/local/bin/subql-node -f ~/Code/subQuery/projects/subql-helloworld/
 ws://127.0.0.1:9229/56156753-c07d-4bbe-af2d-2c7ff4bcc5ad에서 수신하는 디버거
 도움이 필요하면 https://nodejs.org/en/docs/inspector를 참조하세요.
-디버거가 연결되었습니다.
 ```
-그런 다음 Chrome 개발 도구를 열고 소스 > 파일 시스템을 만들고 프로젝트를 작업 공간에 추가하고 디버깅을 시작합니다. 자세한 내용은 다음을 확인하세요. [SubQuery 프로젝트를 디버그하는 방법](https://doc.subquery.network/tutorials_examples/debug-projects/)
+Then open up the Chrome dev tools, go to Source > Filesystem and add your project to the workspace and start debugging. 자세한 내용은 다음을 확인하세요. [SubQuery 프로젝트를 디버그하는 방법](https://doc.subquery.network/tutorials_examples/debug-projects/)
 ## 쿼리 서비스 실행(subql/query)
 
 ### 설치
