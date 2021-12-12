@@ -8,8 +8,7 @@ The [@subql/cli](https://github.com/subquery/subql/tree/docs-new-section/package
 
 Install SubQuery CLI globally on your terminal by using Yarn or NPM:
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn global add @subql/cli ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```bash npm install -g @subql/cli ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn global add @subql/cli ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```bash npm install -g @subql/cli ``` </CodeGroupItem> </CodeGroup>
 
 You can then run help to see available commands and usage provide by CLI:
 
@@ -22,8 +21,7 @@ A SubQuery node is an implementation that extracts substrate-based blockchain da
 
 Install SubQuery node globally on your terminal by using Yarn or NPM:
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn global add @subql/node ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```bash npm install -g @subql/node ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn global add @subql/node ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```bash npm install -g @subql/node ``` </CodeGroupItem> </CodeGroup>
 
 Once installed, you can can start a node with:
 
