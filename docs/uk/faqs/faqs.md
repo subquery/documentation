@@ -34,30 +34,30 @@ SubQuery також забезпечує безкоштовний промисл
 
 ## Для чого призначено розширення?
 
-Якщо ви вже знайомі з поняттями блокчейну, ви можете розглядати додаткові процеси, порівнюючи з транзакціями. Хоча, зовнішня частина інформації знаходиться поза ланцюжком і включається у блок. There are three categories of extrinsics. They are inherents, signed transactions, and unsigned transactions.
+Якщо ви вже знайомі з поняттями блокчейну, ви можете розглядати додаткові процеси, порівнюючи з транзакціями. Хоча, зовнішня частина інформації знаходиться поза ланцюжком і включається у блок. Існує три категорій блоків. Це властиві, підписані транзакції та непідписані транзакції.
 
-Inherent extrinsics are pieces of information that are not signed and only inserted into a block by the block author.
+Успадкована додаткова система - це уривки інформації, які не підписані і тільки вставлені в блок автором блоків.
 
-Signed transaction extrinsics are transactions that contain a signature of the account that issued the transaction. They stands to pay a fee to have the transaction included on chain.
+Підписані деталі транзакції це транзакції, які містять підпис облікового запису, який видав транзакцію. Вони позичають плату за те, що транзакція включена в ланцюжок.
 
-Unsigned transactions extrinsics are transactions that do not contain a signature of the account that issued the transaction. Unsigned transactions extrinsics should be used with care because there is nobody paying a fee, becaused it is signed. Because of this, the transaction queue lacks economic logic to prevent spam.
+Підписані деталі транзакції це транзакції, які містять підпис облікового запису, який видав транзакцію. Непідписані деталі операцій повинні використовуватися з обережністю, бо ніхто не платить сплати за це, оскільки, він підписаний. Через це в черзі транзакції відсутня економічна логіка, щоб запобігти спаму.
 
-For more information, click [here](https://substrate.dev/docs/en/knowledgebase/learn-substrate/extrinsics).
+Для отримання додаткової інформації натисніть [тут](https://substrate.dev/docs/en/knowledgebase/learn-substrate/extrinsics).
 
-## What is the endpoint for the Kusama network?
+## Що таке кінцева точка в мережі Кусама?
 
-The network.endpoint for the Kusama network is `wss://kusama.api.onfinality.io/public-ws`.
+Мережа.endpoint для мережі Kusama `ws://kusama.api.onfinality.io/public-ws`.
 
-## What is the endpoint for the Polkadot mainnet network?
+## Що таке кінцева точка для материкової мережі Полкадот?
 
-The network.endpoint for the Polkadot network is `wss://polkadot.api.onfinality.io/public-ws`.
+Мережа.endpoint для мережі Kusama `ws://polkadot.api.onfinality.io/public-ws`.
 
-## How do I iteratively develop my project schema?
+## Як я буду складати схему свого проекту?
 
-A known issue with developing a changing project schema is that when lauching your Subquery node for testing, the previously indexed blocks will be incompatible with your new schema. In order to iteratively develop schemas the indexed blocks stored in the database must be cleared, this can be achieved by launching your node with the `--force-clean` flag. For example:
+Проблема з розробкою зміни схеми проекту полягає в тому, що під час оновлення вузла Subquery для тестування, раніше індексовані блоки будуть несумісні з новою схемою. Для того, щоб ітеративно розробити схему індексуючих блоків, що зберігаються в базі даних повинні бути очищені, можна досягти за допомогою запуску вашого вузла на прапорець `--force-clean`. До прикладу:
 
 ```shell
-subql-node -f . --force-clean --subquery-name=<project-name>
+підql-вузол -f. --force-clean --subquery-name=<project-name>
 ```
 
-Note that it is recommended to use `--force-clean` when changing the `startBlock` within the project manifest (`project.yaml`) in order to begin reindexing from the configured block. If `startBlock` is changed without a `--force-clean` of the project then the indexer will continue indexing with the previously configured `startBlock`.
+Зверніть увагу, що рекомендується використовувати `--force-clean` під час зміни на початку `` в маніфесті проекту (`aml`), щоб почати переіндексування з налаштованого блоку. Якщо `startBlock` змінений без `--force-clean` проекту то індексатор буде продовжувати індексувати із попередньо налаштованим `startBlock`.
