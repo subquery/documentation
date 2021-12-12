@@ -1,10 +1,10 @@
 # Chạy SubQuery trên môi trường local
 
-Hướng dẫn này sẽ chỉ dẫn cách khởi chạy một node SubQuery một cách cục bộ trên cơ sở hạ tầng của bạn, bao gồm cả trình lập index và dịch vụ truy vấn. Bạn không muốn phải lo lắng khi khởi chạy SubQuery trên môi trường của riêng mình? SubQuery cung cấp [ dịch vụ lưu trữ có quản lý](https://explorer.subquery.network) miễn phí cho cộng đồng. [Hãy làm theo hướng dẫn của chúng tôi ](../publish/publish.md)để biết cách upload dự án của bạn lên [SubQuery](https://project.subquery.network).
+This guide works through how to run a local SubQuery node on your infrastructure, which includes both the indexer and query service. Don't want to worry about running your own SubQuery infrastructure? SubQuery provides a [managed hosted service](https://explorer.subquery.network) to the community for free. [Follow our publishing guide](../publish/publish.md) to see how you can upload your project to [SubQuery Projects](https://project.subquery.network).
 
 ## Sử dụng Docker
 
-Một giải pháp thay thế là chạy trên môi trường <strong>Docker Container</strong> được quy định bởi tệp `docker-comp.yml`. Đối với một dự án mới vừa được khởi tạo, bạn sẽ không cần phải thay đổi bất cứ điều gì trong đó.
+An alternative solution is to run a <strong>Docker Container</strong>, defined by the `docker-compose.yml` file. For a new project that has been just initialised you won't need to change anything here.
 
 Trong thư mục dự án, hãy chạy lệnh sau:
 
@@ -18,7 +18,7 @@ Trong lần đầu tiên có thể bạn sẽ mất chút thời gian để tả
 
 Cần có:
 
-- Cơ sở dữ liệu [Postgres](https://www.postgresql.org/) (phiên bản 12 trở lên). Trong lúc [node SubQuery ](#start-a-local-subquery-node) đang lập index cho blockchain, dữ liệu trích xuất sẽ được lưu trữ trong một phiên bản cơ sở dữ liệu (database instance) bên ngoài.
+- [Postgres](https://www.postgresql.org/) database (version 12 or higher). While the [SubQuery node](#start-a-local-subquery-node) is indexing the blockchain, the extracted data is stored in an external database instance.
 
 Một node SubQuery sẽ triển khai trích xuất dữ liệu blockchain dựa trên chất nền (substrate) cho mỗi dự án SubQuery và lưu nó vào cơ sở dữ liệu Postgres.
 
@@ -39,7 +39,7 @@ subql-node <command>
 
 ### Các lệnh chính
 
-Các lệnh sau sẽ hỗ trợ bạn hoàn thành việc cài đặt cấu hình cho node SubQuery và bắt đầu lập chỉ mục. Để tìm hiểu thêm, bạn có thể gõ lệnh `--help`.
+The following commands will assist you to complete the configuration of a SubQuery node and begin indexing. To find out more, you can always run `--help`.
 
 #### Trỏ đến đường dẫn dự án trên môi trường local
 
@@ -49,7 +49,7 @@ subql-node -f your-project-path
 
 #### Sử dụng Từ điển
 
-Việc sử dụng từ điển đầy đủ cho blockchain có thể tăng tốc đáng kể thời gian xử lý dự án SubQuery trong quá trình thử nghiệm hoặc trong lần lập chỉ mục đầu tiên của bạn. Trong một số trường hợp, hiệu suất lập chỉ mục có thể tăng gấp 10 lần.
+Using a full chain dictionary can dramatically speed up the processing of a SubQuery project during testing or during your first index. In some cases, we've seen indexing performance increases of up to 10x.
 
 Bộ từ điển này sẽ lập sẵn đầy đủ chỉ mục về vị trí của tất cả các sự kiện và yếu tố ngoại vi (extrinsics) trong blockchain liên quan và cho phép dịch vụ node của bạn chuyển đến các vị trí hợp lý khi lập chỉ mục thay vì phải kiểm tra từng block.
 
@@ -59,6 +59,8 @@ Bạn có thể trực tiếp thêm điểm cuối (endpoint) của từ điển
 subql-node --network-dictionary=https://api.subquery.network/sq/subquery/dictionary-polkadot
 ```
 
+Tùy thuộc vào cấu hình cơ sở dữ liệu Postgres của bạn (ví dụ: có một mật khẩu cơ sở dữ liệu khác), hãy đảm bảo rằng cả trình lập chỉ mục (`subql/node`) và dịch vụ truy vấn (`subql/query`) đều có thể kết nối với CSDL ấy.
+
 #### Kết nối với cơ sở dữ liệu
 
 ```
@@ -67,18 +69,18 @@ export DB_PASS=postgres
 export DB_DATABASE=postgres
 export DB_HOST=localhost
 export DB_PORT=5432
-subql-node -f your-project-path
-```
+subql-node -f your-project-path 
+````
 
-Tùy thuộc vào cấu hình cơ sở dữ liệu Postgres của bạn (ví dụ: có một mật khẩu cơ sở dữ liệu khác), hãy đảm bảo rằng cả trình lập chỉ mục (`subql/node`) và dịch vụ truy vấn (`subql/query`) đều có thể kết nối với CSDL ấy.
+Depending on the configuration of your Postgres database (e.g. a different database password), please ensure also that both the indexer (`subql/node`) and the query service (`subql/query`) can establish a connection to it.
 
-#### Chỉ định tệp cấu hình
+#### Specify a configuration file
 
 ```
 subql-node -c your-project-config.yml
 ```
 
-Thao tác này sẽ trỏ node truy vấn đến tệp cấu hình có định dạng YAML hoặc JSON. Lihat contoh di bawah ini.
+This will point the query node to a configuration file which can be in YAML or JSON format. Check out the example below.
 
 ```yaml
 subquery: ../../../../subql-example/extrinsics
@@ -87,7 +89,7 @@ batchSize:100
 localMode:true
 ```
 
-#### Thay đổi kích thước lô tìm nạp block
+#### Chỉ định tệp cấu hình
 
 ```
 subql-node -f your-project-path --batch-size 200
@@ -97,18 +99,86 @@ Result:
 [IndexerManager] fetch block [403, 602]
 ```
 
-Khi chain được lập chỉ mục lần đầu tiên, việc tìm nạp (fetching) các block đơn lẻ sẽ làm giảm đáng kể hiệu suất. Phương thức tăng batch size để điều chỉnh số lượng block được tìm nạp sẽ giúp làm giảm thời gian xử lý tổng thể. Batch size mặc định hiện đang là 100.
+When the indexer first indexes the chain, fetching single blocks will significantly decrease the performance. Increasing the batch size to adjust the number of blocks fetched will decrease the overall processing time. The current default batch size is 100.
 
-#### Chế độ local
+#### Thay đổi kích thước lô tìm nạp block
 
 ```
 subql-node -f your-project-path --local
 ```
 
-Người dùng có thể để node chạy ở chế độ local nhằm phục vụ việc gỡ bug. Viêc chuyển sang chế độ local sẽ tạo các bảng Postgres trong sơ đồ `công khai` mặc định.
+For debugging purposes, users can run the node in local mode. Switching to local model will create Postgres tables in the default schema `public`.
 
 Nếu chế độ local không được sử dụng, một sơ đồ Postgres mới (với dữ liệu `subquery_` ban đầu) và các bảng dự án tương ứng sẽ được khởi tạo.
 
+
+#### Chế độ local
+
+Xin lưu ý rằng chúng tôi **KHÔNG** khuyến khích sử dụng `yarn global` vì khâu quản lý phụ thuộc của nó rất kém, có thể dẫn đến sai sót trong dây chuyền.
+
+- Health check endpoint that returns a simple 200 response
+- Metadata endpoint that includes additional analytics of your running SubQuery node
+
+Append this to the base URL of your SubQuery node. Eg `http://localhost:3000/meta` will return:
+
+```bash
+{
+    "currentProcessingHeight": 1000699,
+    "currentProcessingTimestamp": 1631517883547,
+    "targetHeight": 6807295,
+    "bestHeight": 6807298,
+    "indexerNodeVersion": "0.19.1",
+    "lastProcessedHeight": 1000699,
+    "lastProcessedTimestamp": 1631517883555,
+    "uptime": 41.151789063,
+    "polkadotSdkVersion": "5.4.1",
+    "apiConnected": true,
+    "injectedApiConnected": true,
+    "usingDictionary": false,
+    "chain": "Polkadot",
+    "specName": "polkadot",
+    "genesisHash": "0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3",
+    "blockTime": 6000
+}
+```
+
+`http://localhost:3000/health` will return HTTP 200 if successful.
+
+A 500 error will be returned if the indexer is not healthy. This can often be seen when the node is booting up.
+
+```shell
+{
+    "status": 500,
+    "error": "Indexer is not healthy"
+}
+```
+
+If an incorrect URL is used, a 404 not found error will be returned.
+
+```shell
+{
+"statusCode": 404,
+"message": "Cannot GET /healthy",
+"error": "Not Found"
+}
+```
+
+#### Debug your project
+
+Use the [node inspector](https://nodejs.org/en/docs/guides/debugging-getting-started/) to run the following command.
+
+```shell
+node --inspect-brk <path to subql-node> -f <path to subQuery project>
+```
+
+Ví dụ:
+```shell
+node --inspect-brk /usr/local/bin/subql-node -f ~/Code/subQuery/projects/subql-helloworld/
+Debugger listening on ws://127.0.0.1:9229/56156753-c07d-4bbe-af2d-2c7ff4bcc5ad
+For help, see: https://nodejs.org/en/docs/inspector
+Debugger attached.
+```
+Then open up the Chrome dev tools, go to Source > Filesystem and add your project to the workspace and start debugging. For more information, check out [How to debug a SubQuery project](https://doc.subquery.network/tutorials_examples/debug-projects/)
 ## Khởi chạy Dịch vụ Truy vấn (subql/query)
 
 ### Cài đặt
@@ -118,12 +188,11 @@ Nếu chế độ local không được sử dụng, một sơ đồ Postgres m�
 npm install -g @subql/query
 ```
 
-Xin lưu ý rằng chúng tôi **KHÔNG** khuyến khích sử dụng `yarn global` vì khâu quản lý phụ thuộc của nó rất kém, có thể dẫn đến sai sót trong dây chuyền.
+Xin lưu ý rằng chúng tôi **KHÔNG** khuyến khích sử dụng `yarn toàn cầu` do việc quản lý phụ thuộc kém có thể dẫn đến sai sót trong dây chuyền.
 
 ### Menjalankan layanan Kueri
-
 ``` export DB_HOST=localhost subql-query --name <project_name> --playground ````
 
-Đảm bảo rằng tên dự án này trùng với tên bạn đã đặt từ lúc [khởi tạo dự án](../quickstart/quickstart.md#initialise-the-starter-subquery-project). Ngoài ra, hãy kiểm tra xem các biến môi trường đã chuẩn hay chưa.
+Make sure the project name is the same as the project name when you [initialize the project](../quickstart/quickstart.md#initialise-the-starter-subquery-project). Also, check the environment variables are correct.
 
-Sau khi chạy thành công dịch vụ truy vấn subql, hãy mở trình duyệt và truy cập địa chỉ `http://localhost:3000`. Bạn sẽ thấy một GraphQL Playground hiển thị trong trình duyệt với sơ đồ đã sẵn sàng để truy vấn.
+After running the subql-query service successfully, open your browser and head to `http://localhost:3000`. You should see a GraphQL playground showing in the Explorer and the schema that is ready to query.
