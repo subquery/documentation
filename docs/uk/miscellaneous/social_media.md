@@ -1,6 +1,6 @@
-# Social Media Links
+# Посилання на соціальні медіа
 
-SubQuery is an active project that maintains and communicates with our followers through many social media channels.
+SubQuery є активним проектом, який підтримує зв'язок зі своїми підписниками через різнi канали соціальних мереж.
 
 It is our aim to always listen and engage with our loyal community so please join the conversation and send us your ideas or questions!
 
