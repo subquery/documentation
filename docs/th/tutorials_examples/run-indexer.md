@@ -8,7 +8,7 @@
 
 ## บทนำ
 
-การรัน indexer node เป็นอีกตัวเลือกหนึ่งนอกเหนือจากการใช้ Docker หรือการโฮสต์โปรเจ็กต์ของคุณที่ [SubQuery Projects ](https://project.subquery.network/) ซึ่งต้องใช้เวลาและความพยายามมากขึ้น แต่จะช่วยเพิ่มความเข้าใจเกี่ยวกับวิธีการทำงานของ SubQuery เบื้องหลังให้กับคุณมากยิ่งขึ้น It requires more time and effort but will enhance your understanding of how SubQuery works under the covers.
+การรัน indexer node เป็นอีกตัวเลือกหนึ่งนอกเหนือจากการใช้ Docker หรือการโฮสต์โปรเจ็กต์ของคุณที่ [SubQuery Projects ](https://project.subquery.network/) ซึ่งต้องใช้เวลาและความพยายามมากขึ้น แต่จะช่วยเพิ่มความเข้าใจเกี่ยวกับวิธีการทำงานของ SubQuery เบื้องหลังให้กับคุณมากยิ่งขึ้น แม้จะต้องต้องใช้เวลาและความพยายามมากกว่า แต่การรันโหนดนี้จะช่วยให้คุณเข้าใจการทำงานของ SubQuery ในเบื้องลึกมากขึ้น
 
 ## Postgres
 
