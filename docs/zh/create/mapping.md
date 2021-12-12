@@ -3,8 +3,9 @@
 映射函数定义了如何将链数据转换为我们先前在`schema.GraphQL`文件中定义的优化GraphQL的具体解决办法。
 
 - 映射在`src/Mappings`目录中定义，并作为函数导出
-- 这些映射也可以在`src/index.ts中导出</li>
+- 这些映射也可以在`src/index.ts中导出&lt;/li&gt;
 <li>映射文件在映射处理程序下的<code>project.yaml`中引用。
+- The mappings files are reference in `project.yaml` under the mapping handlers.
 
 共有三类映射函数的: [Block handlers](#block-handler)，[Event Handlers](#event-handler)和[Call Handlers](#call-handler)。
 
@@ -57,7 +58,7 @@ export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
 }
 ```
 
-[SubstrateExtrinsic](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L21) 继承了 [ GenericExtrinsic ](https://github.com/polkadot-js/api/blob/a9c9fb5769dec7ada8612d6068cf69de04aa15ed/packages/types/src/extrinsic/Extrinsic.ts#L170). 它被分配了一个 `id` (该外包属于的方块)，并提供了扩展此方块中的事件的外在属性。 此外，它还记录了这个外包的成功状态。
+[SubstrateExtrinsic](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L21) 继承了 [ GenericExtrinsic ](https://github.com/polkadot-js/api/blob/a9c9fb5769dec7ada8612d6068cf69de04aa15ed/packages/types/src/extrinsic/Extrinsic.ts#L170). 它被分配了一个 `id` (该外包属于的方块)，并提供了扩展此方块中的事件的外在属性。 It is assigned an `id` (the block to which this extrinsic belongs) and provides an extrinsic property that extends the events among this block. 此外，它还记录了这个外包的成功状态。
 
 ## Query States
 我们的目标是通过映射处理函数为用户提供所有数据源(不仅仅是上述三种接口事件类型)。 因此，我们开放了一些@polkadot/api的接口来丰富能力。
@@ -72,8 +73,8 @@ export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
 - ~~api.derive.*~~
 - ~~api.query.&lt;module&gt;.&lt;method&gt;.at~~
 - ~~api.query.&lt;module&gt;.&lt;method&gt;.entriesAt~~
-- ~~api.query.&lt;module&gt;.&lt;method&gt;.entriesAt~~
-- ~~api.query.&lt;module&gt;.&lt;method&gt;.entriesAt~~
+- ~~api.query.&lt;module&gt;.&lt;method&gt;.entriesPaged~~
+- ~~api.query.&lt;module&gt;.&lt;method&gt;.hash~~
 - ~~api.query.&lt;module&gt;.&lt;method&gt;.keysAt~~
 - ~~api.query.&lt;module&gt;.&lt;method&gt;.keysPaged~~
 - ~~api.query.&lt;module&gt;.&lt;method&gt;.range~~
@@ -265,9 +266,10 @@ export async function kittyApiHandler(): Promise<void> {
 
 ### 自定义链的 rpc 调用
 
-为了支持自定义链的RPC调用，我们必须为允许per-spec 配置的`typesBundle`手动注入RPC 定义。 你可以在 `project.yml`中定义 `typesBundle`。 并且请记住我们只支持 ` isHistoric ` 类型的调用。
+为了支持自定义链的RPC调用，我们必须为允许per-spec 配置的`typesBundle`手动注入RPC 定义。 你可以在 `project.yml`中定义 `typesBundle`。 并且请记住我们只支持 `isHistoric` 类型的调用。
 ```yaml
 ...
+  ...
   ...
   types: {
     "KittyIndex": "u32",
