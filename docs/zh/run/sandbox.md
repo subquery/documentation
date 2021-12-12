@@ -15,7 +15,6 @@
 
 - 为了限制访问某些内置模块，只有 `conflict`, `buffer` `crypto`,`util` 和 `path` ，上述代码是白名单。
 
-- 我们支持使用**CommonJS**和**CommonJS**库编写的
-第三方模块，如`@polkadt/*`，它们默认使用ESM。</p></li> 
-  
-  - 禁止使用`HTTP`和`WebSocket`的任何模块。</ul>
+- 我们支持使用**CommonJS**和**CommonJS**库编写的 第三方模块，如`@polkadt/*`，它们默认使用ESM。
+
+- 禁止使用`HTTP`和`WebSocket`的任何模块。
