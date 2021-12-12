@@ -1,40 +1,40 @@
-# Frequently Asked Questions
+# Найбільш поширенні питання
 
-## What is SubQuery?
+## Що таке SubQuery?
 
-SubQuery is an open source project that allows developers to index, transform, and query Substrate chain data to power their applications.
+SubQuery - це проект з відкритим вихідним кодом, який дозволяє розробникам індексувати, змінювати та шукати Субстраційні дані ланцюгів до живлення їх додатків.
 
-SubQuery also provides free, production grade hosting of projects for developers removing the responsiblity of manging infrastructure, and letting developers do what they do best - build.
+SubQuery також забезпечує безкоштовний промисловий хостинг проектів для розробників, видає відповідальність за розкручування інфраструктури, і дозволяє розробникам робити те, що вони роблять найкраще.
 
-## What is the best way to get started with SubQuery?
+## Який найкращий спосіб розпочати роботу з SubQuery?
 
-The best way to get started with SubQuery is to try out our [Hello World tutorial](../quickstart/helloworld-localhost.md). This is a simple 5 min walk through of downloading the starter template, building the project, and then using Docker to run a node on your localhost and running a simple query.
+Найкращий спосіб розпочати роботу з SubQuery це спробувати наш <Hello world>. Це проста 5 хвилинна ходьба через завантаження шаблону старту, будівництво проекту, а потім використовуючи Docker для запуску вузла на вашому localhost і запуску простого запиту.
 
-## How can I contribute or give feedback to SubQuery?
+## Як я можу залишити свій внесок або відгук для SubQuery?
 
-We love contributions and feedback from the community. To contribute code, fork the repository of interest and make your changes. Then submit a PR or Pull Request. Oh, don't forget to test as well! Also check out our contributions guide lines (TBA).
+Ми любимо внески та відгуки від спільноти. Щоб внести свій код, зробіть форк репозиторію інтересу та внесіть зміни. Сформуйте PR або Pull Request. О, не забудьте також протестувати! Також перегляньте наші пошукові інструкції (TBA).
 
-To give feedback, contact us at hello@subquery.network or jump onto our [discord channel](https://discord.com/invite/78zg8aBSMG)
+Щоб залишити зворотний зв'язок, зв'яжіться з нами за hello@subquery.network або стрибніть у наш [dicord канал](https://discord.com/invite/78zg8aBSMG)
 
-## How much does it cost to host my project in SubQuery Projects?
+## Скільки коштує провести мій проект в Проектах SubQuery замовлення?
 
-Hosting your project in SubQuery Projects is absolutely free - it's is our way of giving back to the community. To learn how to host your project with us, please check out the [Hello World (SubQuery hosted)](../quickstart/helloworld-hosted.md) tutorial.
+Хостинг вашого проекту в SubQuery проекти абсолютно безкоштовний - це наш спосіб віддати спільноті. Щоб дізнатися, як розмістити ваш проект у нас, будь ласка, перевірте навчання [Привіт світ (вступний запит)](../quickstart/helloworld-hosted.md) на цьому пристрої.
 
-## What are deployment slots?
+## Що таке слоти розгортання?
 
-Deployment slots are a feature in [SubQuery Projects](https://project.subquery.network) that is the equivalent of a development environment. For example, in any software organisation there is normally a development environment and a production environment as a minimum (ignoring localhost that is). Typically additional environments such as staging and pre-prod or even QA are included depending on the needs of the organisation and their development set up.
+Слоти розгортання є функцією в [Проектах для обробки інформації](https://project.subquery.network) що є еквівалентом середовища розробника. Наприклад, у будь-якій програмній організації зазвичай існує середовище розробки і виробниче середовище як мінімум (ігнорування місцевості, що є). Зазвичай додаткові оточення, такі як постановка та дошкільна діяльність або навіть QA, включені в залежності від потреб організації та налаштувань їх розвитку.
 
-SubQuery currently has two slots available. A staging slot and a production slot. This allows developers to deploy their SubQuery to the staging environment and all going well, "promote to production" at the click of a button.
+Підзапит наразі має два слоти. Стабільний слот і випуск слота. Це дозволить розробникам розгорнути її SubQuery в постановки і все пройшло добре, "підвищувати виробництво за один клік.
 
-## What is the advantage of a staging slot?
+## Яка користь від постановки слота?
 
-The main benefit of using a staging slot is that it allows you to prepare a new release of your SubQuery project without exposing it publicly. You can wait for the staging slot to reindex all data without affecting your production applications.
+Основною перевагою використання стажирного слоту є те, що він дозволяє підготувати новий реліз вашого проекту SubQuery без публічного його викриття. Ви можете дочекатися переіндексування всіх даних, не впливаючи на виробничі програми.
 
-The staging slot is not shown to the public in the [Explorer](https://explorer.subquery.network/) and has a unique URL that is visible only to you. And of course, the separate environment allows you to test your new code without affecting production.
+Провізійний слот не відображається публічно в [Explorer](https://explorer.subquery.network/) і має унікальний URL, який видно лише вам. І, звичайно, окреме середовище дозволяє перевірити ваш новий код, не впливаючи на виробництво.
 
-## What are extrinsics?
+## Для чого призначено розширення?
 
-If you are already familiar with blockchain concepts, you can think of extrinsics as comparable to transactions. More formally though, an extrinsic is a piece of information that comes from outside the chain and is included in a block. There are three categories of extrinsics. They are inherents, signed transactions, and unsigned transactions.
+Якщо ви вже знайомі з поняттями блокчейну, ви можете розглядати додаткові процеси, порівнюючи з транзакціями. Хоча, зовнішня частина інформації знаходиться поза ланцюжком і включається у блок. There are three categories of extrinsics. They are inherents, signed transactions, and unsigned transactions.
 
 Inherent extrinsics are pieces of information that are not signed and only inserted into a block by the block author.
 
