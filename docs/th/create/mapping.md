@@ -1,8 +1,8 @@
 # การทำ Mapping
 
-Mapping functions define how chain data is transformed into the optimised GraphQL entities that we have previously defined in the `schema.graphql` file.
+ฟังก์ชันการทำ Mapping นั้นช่วยกำหนดวิธีการแปลงข้อมูลเครือข่ายเป็นเอนทิตี GraphQL ที่ปรับให้เหมาะสม ซึ่งเราได้กำหนดไว้แล้วในไฟล์ `schema.graphql`
 
-- Mappings are defined in the `src/mappings` directory and are exported as a function
+- การทำ Mapping นั้นได้ถูกกำหนดไว้ในไดเรกทอรี่ `src/mappings` และถูก export ออกมาเป็นฟังก์ชั่น
 - These mappings are also exported in `src/index.ts`
 - The mappings files are reference in `project.yaml` under the mapping handlers.
 
