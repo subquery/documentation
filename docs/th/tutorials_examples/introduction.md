@@ -1,16 +1,16 @@
-# Tutorials & Examples
+# บทช่วยสอนและตัวอย่าง
 
-Here we will list our tutorials and explore various examples to help you get up and running in the easiest and fastest manner.
+เราจะแสดงรายการบทช่วยสอนของเราและตัวอย่างต่างๆไว้ที่นี่ เพื่อช่วยให้คุณเริ่มต้นใช้งานได้ง่ายที่สุดและรวดเร็วที่สุด
 
-## Tutorials
+## บทช่วยสอน
 
 
 
-## SubQuery Example Projects
+## โปรเจคตัวอย่างของ SubQuery
 
-| Example                                                                                       | Description                                                                                                              | Topics                                                                                                                        |
+| ตัวอย่าง                                                                                      | คำอธิบาย                                                                                                                 | หัวข้อ                                                                                                                        |
 | --------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------- |
-| [extrinsic-finalized-block](https://github.com/subquery/tutorials-extrinsic-finalised-blocks) | Indexes extrinsics so they can be queried by their hash                                                                  | The simplest example with a __block handler__ function                                                                        |
+| [extrinsic-finalized-block](https://github.com/subquery/tutorials-extrinsic-finalised-blocks) | จัดทำดัชนีของ extrinsic ต่างๆ เพื่อให้สามารถสืบค้นด้วยแฮช                                                                | The simplest example with a __block handler__ function                                                                        |
 | [block-timestamp](https://github.com/subquery/tutorials-block-timestamp)                      | Indexes timestamp of each finalized block                                                                                | Another simple __call handler__ function                                                                                      |
 | [validator-threshold](https://github.com/subquery/tutorials-validator-threshold)              | Indexes the least staking amount required for a validator to be elected.                                                 | More complicated __block handler__ function that makes __external calls__ to the `@polkadot/api` for additional on-chain data |
 | [sum-reward](https://github.com/subquery/tutorials-sum-reward)                                | Indexes staking bond, rewards, and slashes from the events of finalized block                                            | More complicated __event handlers__ with a __one-to-many__ relationship                                                       |
