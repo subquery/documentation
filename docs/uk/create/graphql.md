@@ -1,15 +1,15 @@
 # GraphQL Schema
 
-## Defining Entities
+## Визначення об'єктів
 
-The `schema.graphql` file defines the various GraphQL schemas. Due to the way that the GraphQL query language works, the schema file essentially dictates the shape of your data from SubQuery. To learn more about how to write in GraphQL schema language, we recommend checking out [Schemas and Types](https://graphql.org/learn/schema/#type-language).
+Файл `schema.graphql` визначає різні схеми GraphQL. Відповідно до того, як працює мова запитів GraphQL, файл схема, по суті, диктує форму ваших даних від SubQuery. Щоб дізнатися більше про те, як писати в мові GraphQL, ми рекомендуємо переглянути [схему і типи](https://graphql.org/learn/schema/#type-language).
 
-**Important: When you make any changes to the schema file, please ensure that you regenerate your types directory with the following command `yarn codegen`**
+**Важливо: після внесення будь-яких змін до файлу схеми, будь ласка, переконайтеся, що ви регенеруєте каталог типів за допомогою наступної команди `yarn codegen`**
 
-### Entities
-Each entity must define its required fields `id` with the type of `ID!`. It is used as the primary key and unique among all entities of the same type.
+### Об'єкти
+Кожний об'єкт повинен визначити свої обов'язкові поля `id` з типом `ID!`. Він використовується як первинний ключ і унікальний серед всіх об'єктів одного типу.
 
-Non-nullable fields in the entity are indicated by `!`. Please see the example below:
+Недопустимі поля в об'єкті `!`. Будь ласка, перегляньте наведений нижче приклад:
 
 ```graphql
 type Example @entity {
@@ -19,49 +19,49 @@ type Example @entity {
 }
 ```
 
-### Supported scalars and types
+### Підтримувані скаляри та типи
 
-We currently supporting flowing scalars types:
+На даний момент ми підтримуємо типи скалярних елементів:
 - `ID`
 - `Int`
-- `String`
+- `Рядок`
 - `BigInt`
-- `Float`
-- `Date`
-- `Boolean`
-- `<EntityName>` for nested relationship entities, you might use the defined entity's name as one of the fields. Please see in [Entity Relationships](#entity-relationships).
-- `JSON` can alternatively store structured data, please see [JSON type](#json-type)
-- `<EnumName>` types are a special kind of enumerated scalar that is restricted to a particular set of allowed values. Please see [Graphql Enum](https://graphql.org/learn/schema/#enumeration-types)
+- `Плаваючий`
+- `Дата`
+- `Логічний тип`
+- `<EntityName>` для вкладених відношень, ви можете використовувати ім'я визначеного об'єкту як один із полів. Будь ласка, побачити в [зв'язок істот](#entity-relationships).
+- `JSON` може альтернативно зберігати структуровані дані, будь ласка, перегляньте [тип JSON](#json-type)
+- `<EnumName>` типи є спеціальним видом перерахованого скаляру, який обмежується конкретним набором допустимих значень. Будь ласка, погляньте [Graphql Enum](https://graphql.org/learn/schema/#enumeration-types)
 
-## Indexing by non-primary-key field
+## Індексування по полю не основного ключа
 
-To improve query performance, index an entity field simply by implementing the `@index` annotation on a non-primary-key field.
+Для поліпшення продуктивності запитів, індексувати поле об'єкта просто шляхом впровадження анотації `@index` в поле без основного ключа.
 
-However, we don't allow users to add `@index` annotation on any [JSON](#json-type) object. By default, indexes are automatically added to foreign keys and for JSON fields in the database, but only to enhance query service performance.
+Проте, ми не дозволяємо користувачам додавати `@індекс` анотації на будь-якому об'єкті [JSON](#json-type). За замовчуванням індекси автоматично додаються до зовнішніх ключів та до полів JSON в базі даних, але лише для покращення продуктивності сервісу запитів.
 
-Here is an example.
+Ось приклад:
 
 ```graphql
-type User @entity {
+type Example @entity {
   id: ID!
-  name: String! @index(unique: true) # unique can be set to true or false
-  title: Title! # Indexes are automatically added to foreign key field 
+  назва: Рядок! @index(унікальний: істина) # унікальний може бути встановлений значення true або false
+  title: Назва! # Індекси автоматично додаються до зовнішнього ключового поля 
 }
 
-type Title @entity {
+тип Title @entity {
   id: ID!  
-  name: String! @index(unique:true)
+  назва: Рядок! @index(unique:true)
 }
 ```
-Assuming we knew this user's name, but we don't know the exact id value, rather than extract all users and then filtering by name we can add `@index` behind the name field. This makes querying much faster and we can additionally pass the `unique: true` to  ensure uniqueness.
+Припускаючи, що ми знали ім'я користувача, але ми не знаємо точної ідентифікаційної цінності, замість того, щоб вилучати всіх користувачів, а потім фільтрувати за назвою, яку ми можемо додати `@index` за полем. Цей процес робить запит набагато швидшим і додатково ми можемо передати `унікальність: true` для удосконалення унікальності.
 
-**If a field is not unique, the maximum result set size is 100**
+**Якщо поле не є унікальним, максимальний розмір цього результату 100**
 
-When code generation is run, this will automatically create a `getByName` under the `User` model, and the foreign key field `title` will create a `getByTitleId` method, which both can directly be accessed in the mapping function.
+Коли запущено генерацію коду, це автоматично створить `getByName` під моделлю `користувача,` і поле стороннього ключа, `заголовок` створить метод `getByTitleId` до якого можна отримати безпосередній доступ в функції.мап.
 
 ```sql
-/* Prepare a record for title entity */
-INSERT INTO titles (id, name) VALUES ('id_1', 'Captain')
+/* Підготувати запис для об'єкта title */
+INSERT INTO (id, ім'я) VALUES ('id_1', 'Капітан')
 ```
 
 ```typescript
@@ -76,51 +76,47 @@ const captainTitle = await Title.getByName('Captain');
 const pirateLords = await User.getByTitleId(captainTitle.id); // List of all Captains
 ```
 
-## Entity Relationships
+## Зв'язки об'єктів
 
-An entity often has nested relationships with other entities. Setting the field value to another entity name will define a one-to-one relationship between these two entities by default.
+В сутності часто є вкладені стосунки з іншими суб'єктами. Встановлення значення поля в іншу назву сутності визначає типовий зв'язок між цими двома сутностями.
 
-Different entity relationships (one-to-one, one-to-many, and many-to-many) can be configured using the examples below.
+Маси відповідності сутності (один до одного і багато-багатьох) можна налаштувати на прикладах нижче.
 
-### One-to-One Relationships
+### Багато в одному відношенні
 
-One-to-one relationships are the default when only a single entity is mapped to another.
+Одне до одного відношення є типовим, коли лише один об'єкт накладається на інший об'єкт.
 
-Example: A passport will only belong to one person and a person only has one passport (in this example):
+Приклад: паспорт належить лише одній особі і має лише один паспорт (у цьому прикладі):
 
 ```graphql
-type Person @entity {
+type Example @entity {
   id: ID!
-}
-
-type Passport @entity {
+}type Example @entity {
   id: ID!
   owner: Person!
 }
 ```
 
-or
+або
 
 ```graphql
-type Person @entity {
+type Example @entity {
   id: ID!
   passport: Passport!
-}
-
-type Passport @entity {
+}type Example @entity {
   id: ID!
   owner: Person!
 }
 ```
 
-### One-to-Many relationships
+### Багато в одному відношення
 
 You can use square brackets to indicate that a field type includes multiple entities.
 
 Example: A person can have multiple accounts.
 
 ```graphql
-type Person @entity {
+type Example @entity {
   id: ID!
   accounts: [Account] 
 }
@@ -137,9 +133,9 @@ A many-to-many relationship can be achieved by implementing a mapping entity to 
 Example: Each person is a part of multiple groups (PersonGroup) and groups have multiple different people (PersonGroup).
 
 ```graphql
-type Person @entity {
+type Example @entity {
   id: ID!
-  name: String!
+  назва: Рядок!
   groups: [PersonGroup]
 }
 
@@ -151,7 +147,7 @@ type PersonGroup @entity {
 
 type Group @entity {
   id: ID!
-  name: String!
+  назва: Рядок!
   persons: [PersonGroup]
 }
 ```
