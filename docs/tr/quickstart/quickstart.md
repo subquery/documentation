@@ -52,8 +52,7 @@ Başlatma işlemi tamamlandıktan sonra, dizin içinde proje adınızın oluştu
 
 Son olarak, proje dizini altında, yeni projenin bağımlılıklarını yüklemek için aşağıdaki komutu çalıştırın.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```bash cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```bash cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
 
 ## Başlangıç Projesini Yapılandırma ve Oluşturma
 
@@ -69,8 +68,7 @@ Kendi SubQuerynuzu yazma hakkında daha fazla bilgi için [ Create a Projec](../
 
 SubQuery projenizi [index](../run/run.md) için, önce GraphQL Şema dosyanızda tanımladığınız gerekli GraphQL modellerini oluşturmalısınız (`schema.graphql`). Bu komutu proje dizininin kökünde çalıştırın.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```bash npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```bash npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
 
 Oluşturulan modelleri `/src/types/models` dizininde bulabilirsiniz
 
@@ -80,8 +78,7 @@ SubQuery Projenizi yerel olarak barındırılan bir SubQuery Node çalıştırma
 
 Yapı komutunu projenin kök dizininden çalıştırın.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```bash npm run-script build ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```bash npm run-script build ``` </CodeGroupItem> </CodeGroup>
 
 ## Başlangıç Projenizi Çalıştırma ve Sorgulama
 
