@@ -36,7 +36,7 @@ SubQuery 项目是您管理上传到SubQuery平台的所有托管项目的地方
 - **GitHub 存储库 URL：** 这必须是包含您的 SubQuery 项目的公共存储库的有效 GitHub URL。 `schema.graphql` 文件必须是您目录的根目录([了解更多关于目录结构](../create/introduction.md#directory-structure))。
 - **隐藏项目：** 如果选中，如果选中，这将在公共 SubQuery 浏览器中隐藏项目。 如果您想要与社区分享您的 SubQuery，请保持此选项！ ![Create your first Project](/assets/img/projects-create.png)
 
-创建您的项目，您将在 SubQuery 项目列表中看到。 *到这里，就即将完成了！ 我们只需要再部署一个新版本。*
+创建您的项目，您将在 SubQuery 项目列表中看到。 *到这里，就即将完成了！ 我们只需要再部署一个新版本。 *
 
 ![Created Project with no deployment](/assets/img/projects-no-deployment.png)
 
@@ -56,11 +56,11 @@ SubQuery 项目是您管理上传到SubQuery平台的所有托管项目的地方
 ## 下一步 - 连接到您的项目
 一旦您的部署成功完成并且我们的节点已经从该链中为您的数据编制了索引， 您可以通过显示的 GraphQL 查询端点连接到您的项目。
 
-![Project being deployed and synced](/assets/img/projects-deploy-sync.png)
+![正在部署和同步的项目](/assets/img/projects-deploy-sync.png)
 
 或者，您可以点击项目标题旁边的"..."并在 SubQuery Explorer 上查看它。 您可以在这里使用浏览器内的播放场开始 - [阅读更多关于如何在这里使用我们的资源管理器](../query/query.md) 的信息。
 
-![Projects in SubQuery Explorer](/assets/img/projects-explorer.png)
+![SubQuery Explorer 中的项目](/assets/img/projects-explorer.png)
 
 ## 将 GitHub 组织帐户添加到 SubQuery 项目
 
