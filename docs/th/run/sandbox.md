@@ -2,19 +2,19 @@
 
 ในสถานการณ์การใช้งานที่เราได้คิดไว้คือ โหนดของ SubQuery จะถูกรันโดยโฮสต์ที่เชื่อถือได้ ในขณะที่โค้ดของโปรเจ็ก SubQuery ที่ผู้ใช้ส่งไปยังโหนดนั้น ไม่น่าเชื่อถือไปทั้งหมด
 
-Some malicious code is likely to attack the host or even compromise it, and cause damage to the data of other projects in the same host. Therefore, we use the [VM2](https://www.npmjs.com/package/vm2) sandbox secured mechanism to reduce risks. This:
+โค้ดที่เป็นอันตรายบางตัวมีแนวโน้มที่จะโจมตีโฮสต์หรืออาจทำให้โฮสต์อ่อนแอลง แล้วทำให้ข้อมูลของโปรเจ็กต์อื่นๆ ในโฮสต์เดียวกันเสียหาย ดังนั้นเราจึงใช้กลไกการรักษาความปลอดภัยอย่างแซนด์บ็อกซ์ [VM2](https://www.npmjs.com/package/vm2) เพื่อลดความเสี่ยงนี้ โดย:
 
-- Runs untrusted code securely in an isolated context and malicious code will not access the network and file system of the host unless through the exposed interface we injected into the sandbox.
+- เรียกใช้โค้ดที่ไม่น่าเชื่อถือในบริบทที่แยกออกมาเพื่อความปลอดภัย และโค้ดที่เป็นอันตรายนั้นจะเข้าถึงเครือข่ายและระบบไฟล์ของโฮสต์ไม่ได้ เว้นแต่เราจะใส่อินเทอร์เฟซที่เปิดเผยลงในแซนด์บ็อกซ์
 
-- Securely calls methods and exchanges data and callbacks between sandboxes.
+- เรียกใช้ method และแลกเปลี่ยนข้อมูลและการเรียกกลับระหว่างแซนด์บ็อกซ์ต่าง ๆ อย่างปลอดภัย
 
-- Is immune to many known methods of attack.
+- มีภูมิคุ้มกันต่อวิธีการโจมตีที่เป็นที่รู้จักมากมาย
 
 
-## Restriction
+## ข้อจำกัด
 
-- To limit access to certain built-in modules, only `assert`, `buffer`, `crypto`,`util` and `path` are whitelisted.
+- มีเพียง ` assert `, ` buffer `, `crypto`,` util ` และ ` path ` เท่านั้นที่อยู่ในรายการที่อนุญาตพิเศษ เพื่อจำกัดการเข้าถึงโมดูลแบบบิวท์อินบางโมดูล
 
-- We support [3rd party modules](../create/mapping.md#third-party-libraries) written in **CommonJS** and **hybrid** libraries like `@polkadot/*` that use ESM as default.
+- เราสนับสนุน [โมดูลจากแหล่งอื่น](../create/mapping.md#third-party-libraries) ที่เขียนในไลบรารี **CommonJS** และ **ไฮบริด** เช่น `@polkadot/*` ที่ใช้ ESM เป็นค่าเริ่มต้น
 
-- Any modules using `HTTP` and `WebSocket` are forbidden.
+- โมดูลใดๆ ที่ใช้ `HTTP` และ `WebSocket` จะถูกห้ามใช้
