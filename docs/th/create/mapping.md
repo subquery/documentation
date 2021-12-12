@@ -1,4 +1,4 @@
-# Mapping
+# การทำ Mapping
 
 Mapping functions define how chain data is transformed into the optimised GraphQL entities that we have previously defined in the `schema.graphql` file.
 
