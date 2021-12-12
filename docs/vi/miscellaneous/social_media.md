@@ -17,7 +17,7 @@ Mục đích của chúng tôi là lắng nghe và tương tác với cộng đ�
 
 ## Cộng đồng SubQuery không chính thức
 
-Những cộng đồng này không được kiểm duyệt bởi nhóm SubQuery, nhưng các đại sứ của chúng tôi có thể ở đó để hỗ trợ. Hãy cẩn thận với các trò gian lận vì SubQuery **không** chịu trách nhiệm về những gì xảy ra bên trong chúng.
+These communities are not moderated by the SubQuery team, but our ambassadors may be there to provide support. Please be careful of scams as SubQuery is **not** responsible for what happens within them.
 
 - [Telegram (Chinese)](https://t.me/subquerychina)
 - [Telegram (Russian)](https://t.me/SubQuery_russia)
