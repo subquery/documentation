@@ -256,9 +256,7 @@ This command will generate the metadata and a new api-augment for the APIs. As w
       // aquí reemplazamos la mejora @polkadot/api por la nuestra, generado desde la cadena
       "@polkadot/api/augment": ["src/interfaces/augment-api. s"],
       // reemplazar los tipos aumentados por los nuestros, as generated from definitions
-      "@polkadot/types/augment": ["src/interfaces/augment-types. s"]
-    }
-}
+      "@polkadot/types/augment": ["src/interfaces/augment-types.
 ```
 
 ### Uso
