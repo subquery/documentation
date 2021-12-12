@@ -1,12 +1,12 @@
-# Hello World Explained
+# Объяснение по Hello World
 
-In the [Hello World quick start guide](helloworld-localhost.md), we ran through some simple commands and very quickly got an example up and running. This allowed you to ensure that you had all the pre-requisites in place and could use a local playground to make a simple query to get your first data from SubQuery. Here, we take a closer look at what all those commands mean.
+В кратком руководстве Hello World мы выполнили несколько простых команд и очень быстро создали и запустили пример. Это позволило вам убедиться, что у вас есть все предварительные условия, и вы можете использовать локальную площадку для выполнения простого запроса для получения ваших первых данных из SubQuery. Здесь мы подробнее рассмотрим, что означают все эти команды.
 
 ## subql init
 
-The first command we ran was `subql init --starter subqlHelloWorld`.
+Первая команда, которую мы выполнили, была subql init --starter subqlHelloWorld.
 
-This does the heavy lifting and creates a whole bunch of files for you. As noted in the [official documentation](quickstart.md#configure-and-build-the-starter-project), you will mainly be working on the following files:
+Это делает тяжелую работу и создает для вас целую кучу файлов. Как указано в официальной документации, вы в основном будете работать со следующими файлами:
 
 - The Manifest in `project.yaml`
 - The GraphQL Schema in `schema.graphql`
