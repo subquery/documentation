@@ -1,19 +1,19 @@
-# ลบโปรเจค SubQuery ได้อย่างไร?
+# ลบโปรเจคบน SubQuery ได้อย่างไร?
 
 ## บทนำ
 
-มันเป็นเรื่องสำคัญที่คุณจะทำให้โปรเจคต่างๆของคุณใน SubQery Project มีความเกี่ยวข้องและอัปเดตล่าสุดอยู่ตลอด ส่วนโปรเจคต่างๆที่คุณที่อัพโหลดไปยัง SubQuery Project เพียงเพื่อการทดสอบนั้น เราแนะนำให้ลบมันทิ้งภายหลัง เพื่อรักษาทรัพยากรและประหยัดต้นทุน
+เป็นเรื่องสำคัญที่คุณจะทำให้โปรเจคต่างๆของคุณใน SubQuery Project ยังคงมีข้อมูลที่เกี่ยวข้องและอัปเดตล่าสุดอยู่เสมอ ส่วนโปรเจคต่างๆที่คุณที่อัพโหลดไปยัง SubQuery Project เพียงเพื่อการทดสอบนั้น เราแนะนำให้ลบมันทิ้งภายหลัง เพื่อรักษาทรัพยากรและประหยัดต้นทุน
 
-Running an indexer node is another option outside of using Docker or having a project hosted for you at [SubQuery Projects](https://project.subquery.network/). It requires more time and effort but will enhance your understanding of how SubQuery works under the covers.
+การรัน indexer node เป็นอีกทางเลือกหนึ่งนอกเหนือจากการใช้ Docker หรือการที่มีโปรเจคที่โฮสต์ให้คุณที่ [SubQuery Projects](https://project.subquery.network/) แม้จะต้องต้องใช้เวลาและความพยายามมากกว่า แต่การรันโหนดนี้จะช่วยให้คุณเข้าใจการทำงานของ SubQuery ในเบื้องลึกมากขึ้น
 
-## Deleting a project from the staging slot
+## การลบโปรเจคออกจากสล็อต staging
 
-To delete a project from the staging slot, click on the 3 dots in the staging slot section within the deployment details on your project detail dashboard page and select delete.
+การลบโปรเจคจากสล็อต staging นั้น ให้กดไปที่จุดสามอันในส่วนของสล็อต staging ซึ่งอยู่ภายในรายละเอียดของการปรับใช้แดชบอร์ดของโปรเจคคุณ จากนั้นให้เลือก ลบ (delete)
 
-![Deleting a project from the staging slot](/assets/img/delete_staging.png)
+![การลบโปรเจคออกจากสล็อต staging](/assets/img/delete_staging.png)
 
-## Deleting a project from the production slot
+## การลบโปรเจคจากสล็อต production
 
-To delete a project from the production slot, you'll have to delete the entire project instead. Navigate to the top right corner and click on the 3 dots which is the settings for the entire project. Then select "Delete Project".
+ในการลบโปรเจคจากสล็อต production นั้น คุณจำเป็นจะต้องลบโปรเจคทั้งหมด โดยไปที่มุมขวาบนและคลิกบนจุดสามจุด ซึ่งเป็นการตั้งค่าของทั้งโปรเจค จากนั้นเลือก "Delete Project"
 
-![Deleting a project from the production slot](/assets/img/delete_production.png)
+![การลบโปรเจคจากสล็อต production](/assets/img/delete_production.png)
