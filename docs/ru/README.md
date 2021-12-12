@@ -29,7 +29,7 @@
           <div>
             <img src="/assets/img/tutorialsIcon.svg" />
             <span>Учебные материалы и примеры</span>
-            <p>Обучение на практике Учебники и примеры по созданию различных проектов SubQuery.</p>
+            <p>Learning by doing. Обучение на практике Учебники и примеры по созданию различных проектов SubQuery.</p>
           </div>
         </router-link>
       </li>
