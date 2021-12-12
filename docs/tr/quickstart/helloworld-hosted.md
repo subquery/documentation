@@ -20,7 +20,7 @@ Bu kılavuz, bazı geliştirme deneyimine sahip ve SubQuery hakkında daha fazla
 ## Video kılavuzu
 
 <figure class="video_container">
-  <iframe src="ps://www.youtube.com/embed/b-ba8-zPOoo" frameborder="0" allowfullscreen="true"></iframe>
+  <iframe src="https://www.youtube.com/embed/b-ba8-zPOoo" frameborder="0" allowfullscreen="true"></iframe>
 </figure>
 
 ## Önkoşullar
@@ -140,7 +140,7 @@ Projenizi SubQuery Projeleri içinde oluşturduğunuza ve görüntüleme davran�
 
 - **Commit Hash of new Version:** GitHub'dan, dağıtılmasını istediğiniz SubQuery projesi kod tabanının doğru şekilde tamamlanmış olmasını seçin
 - **Indexer Version:** Bu, SubQuery'yi çalıştırmak istediğiniz SubQuery düğüm hizmetinin sürümüdür. Bkz[@subql/node](https://www.npmjs.com/package/@subql/node)
-- **Query Version:** Bu, Bu SubQuery'yu çalıştırmak istediğiniz SubQuery'nin sorgu hizmetinin sürümüdür. Bkz>@subql<0/query</a>
+- **Query Version:** Bu, Bu SubQuery'yu çalıştırmak istediğiniz SubQuery'nin sorgu hizmetinin sürümüdür. Bkz>@subql
 
 Tek bir taahhüdümuz olduğu için, açılır yolda tek bir seçenek var. Ayrıca dizinleyicinin en son sürümü ve sorgu sürümüyle çalışacağız, böylece varsayılanları kabul edeceğiz ve ardından "Deploy Update" ı tıklayacağız.
 
