@@ -81,10 +81,14 @@ cd subqlHelloWorld
 
 Ahora haga una instalación de yarn o node para instalar las distintas dependencias.
 
-<CodeGroup> # Yarn yarn install # NPM npm install
+<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```bash npm run-script build ``` </CodeGroupItem> </CodeGroup>
+
+An example of `yarn build`
 
 ```shell
-> yarn install
+# Yarn yarn install # NPM npm install</p>
+
+<pre><code class="shell">> yarn install
 yarn install v1.22.10
 info No lockfile found.
 [1/4] 🔍  Resolving packages...
@@ -111,11 +115,20 @@ $ ./node_modules/.bin/subql codegen
 * Schema StarterEntity generated !
 * Models index generated !
 * Types index generated !
-✨  Done in 1.02s.
+✨  Done in 1.02s.</p>
+
+<pre><code class="shell">> yarn codegen
+yarn run v1.22.10
+$ ./node_modules/.bin/subql codegen
+===============================
+---------Subql Codegen---------
+===============================
+* Schema StarterEntity generated !
+* Models index generated !
 * Tipo de índice generado!
 * Tipo de índice generado!
-✨ Hecho en 0.06s.
-```
+✨ Hecho en 0.06s. ```
+ ✨  Done in 1.02s. </code></pre>
 
 **Advertencia** Cuando se hacen cambios en el archivo de schema, por favor recuerde volver a ejecutar `yarn codegen` para regenerar el directorio de tipos.
 
@@ -123,10 +136,7 @@ $ ./node_modules/.bin/subql codegen
 
 El siguiente paso es construir el código con `yarn build`.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```bash npm run-script build ``` </CodeGroupItem> </CodeGroup>
-
-An example of `yarn build`
+<CodeGroup mark="crwd-mark"> # Yarn yarn build # NPM npm run-script build
 
 ```shell
 > yarn build
@@ -162,11 +172,15 @@ graphql-engine_1  | 2021-06-05T22:20:43.244Z <express> INFO request completed
 Vaya a http://localhost:3000/ y pegue la siguiente consulta en el lado izquierdo de la pantalla y pulse el botón Reproducir.
 
 ```
-# Yarn
-yarn build
-
-# NPM
-npm run-script build
+{
+ query{
+   starterEntities(last:10, orderBy:FIELD1_ASC ){
+     nodes{
+       field1
+     }
+   }
+ }
+}
 
 ```
 
