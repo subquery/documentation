@@ -1,6 +1,6 @@
 # How to run an indexer node?
 
-## Video guide
+## Відеоінструкція
 
 <figure class="video_container">
   <iframe src="https://www.youtube.com/embed/QfNsR12ItnA" frameborder="0" allowfullscreen="true"></iframe>
@@ -50,7 +50,7 @@ Of course, if you have different values for the above keys, please adjust accord
 To start indexing a project, navigate into your project folder and run the following command:
 
 ```shell
-subql-node -f .
+підql-вузол -f.
 ```
 
 If you do not have a project handy, `git clone https://github.com/subquery/subql-helloworld`. You should see the indexer node kick into life and start indexing blocks.
