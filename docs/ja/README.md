@@ -47,7 +47,7 @@
           <div>
             <img src="/assets/img/networkIcon.svg" />
             <span>SubQuery Network</span>
-            <p>SubQueryの分散型未来。 インデックス作成者と消費者がどのように報酬を与えられるかについての詳細をご覧ください。</p>
+            <p>SubQueryの分散型未来。 インデックス作成者と消費者がどのように報酬を与えられるかについての詳細をご覧ください。 </p>
           </div>
         </a>
       </li>
@@ -92,7 +92,7 @@
         </div>
       </li>
     </ul><br>
-    さらによくある質問については、こちらをご覧ください。 <router-link :to="{path: '/faqs/faqs/'}">FAQ</router-link> ページ    
+    さらによくある質問については、こちらをご覧ください。 <router-link :to="{path: '/faqs/faqs/'}">FAQ's</router-link> ページ    
   </div>
 </section>
 <section class="main">
