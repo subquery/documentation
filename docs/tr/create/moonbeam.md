@@ -10,18 +10,13 @@ Desteklenen ağlar:
 | Moonriver      | `wss://moonriver.api.onfinality.io/public-ws`      | `https://api.subquery.network/sq/subquery/moonriver-dictionary`      |
 | Moonbase Alpha | `wss://moonbeam-alpha.api.onfinality.io/public-ws` | `https://api.subquery.network/sq/subquery/moonbase-alpha-dictionary` |
 
-**Ayrıca bir olay ve çağrı işleyici ile
-temel Moonriver EVM örnek projesine de başvurabilirsiniz. Bu proje ayrıca burada SubQuery Gezgini'nde canlı olarak barındırılmaktadır.</p> 
-
-
+**You can also refer to the [basic Moonriver EVM example project](https://github.com/subquery/tutorials-moonriver-evm-starter) with an event and call handler.** This project is also hosted live in the SubQuery Explorer [here](https://explorer.subquery.network/subquery/subquery/moonriver-evm-starter-project).
 
 ## Başlarken
 
 1. Özel veri kaynağını bir bağımlılık olarak ekleyin `yarn @subql/contract-processors` ekleyin
 2. Aşağıda açıklandığı gibi özel bir veri kaynağı ekleyin
 3. Kodunuza özel veri kaynağı için işleyiciler ekleyin
-
-
 
 ## Veri Kaynağı Spesifikasyonu
 
@@ -31,18 +26,12 @@ temel Moonriver EVM örnek projesine de başvurabilirsiniz. Bu proje ayrıca bur
 | processor.options | [ProcessorOptions](#processor-options)                         | Hayır   | Moonbeam İşlemciye özel seçenekler     |
 | varlıklar         | `{ [key: String]: { file: String }}`                           | Hayır   | Harici varlık dosyalarının bir nesnesi |
 
-
-
-
 ### İşlemci Seçenekleri
 
 | Alan  | Tip              | Gerekli | Açıklama                                                                                                          |
 | ----- | ---------------- | ------- | ----------------------------------------------------------------------------------------------------------------- |
 | abi   | String           | Hayır   | İşlemci tarafından argümanları ayrıştırmak için kullanılan ABI. `varlıkların` anahtarı OLMALIDIR                  |
 | adres | String or `null` | Hayır   | Etkinliğin geldiği veya aramanın yapıldığı bir sözleşme adresi. `null` sözleşme oluşturma çağrılarını yakalayacak |
-
-
-
 
 ## MoonbeamCall
 
@@ -53,9 +42,6 @@ Farklı bir işleyici argümanı ve küçük filtreleme değişiklikleri dışı
 | tür    | 'substrate/MoonbeamCall'        | Evet    | Bunun bir Çağrı türü işleyicisi olduğunu belirtir |
 | filtre | [Çağrı Filtresi](#call-filters) | Hayır   | Yürütülecek veri kaynağını filtreleyin            |
 
-
-
-
 ### Çağrı Filtresi
 
 | Alan      | Tip    | Örnekler                                                | Açıklama                                                                                                                                                           |
@@ -63,20 +49,15 @@ Farklı bir işleyici argümanı ve küçük filtreleme değişiklikleri dışı
 | fonksiyon | String | 0x095ea7b30x095ea7b3, approve(address to,uint256 value) | Sözleşmede çağrılan işlevi filtrelemek için [Fonksiyon İmzası](https://docs.ethers.io/v5/api/utils/abi/fragments/#FunctionFragment) dizeleri veya `sighash` işlevi |
 | gönderici | String | 0x6bd193ee6d2104f14f94e2ca6efefae561a4334b              | İşlemi gönderen bir Ethereum adresi                                                                                                                                |
 
-
-
-
 ### İşleyiciler
 
 Normal bir işleyiciden farklı olarak, parametre olarak bir `SubstrateExtrinsic` almazsınız, bunun yerine Ethers [TransactionResponse](https://docs.ethers.io/v5/api/providers/types/#providers-TransactionResponse) türüne dayalı bir `MoonbeamCall` alırsınız.
 
 `TransactionResponse` türünden değişiklikler:
 
-- `bekle` ve `onaylar `özelliklerine sahip değil
+- `bekle` ve `onaylar`özelliklerine sahip değil
 - İşlemin başarılı olup olmadığını öğrenmek için bir `success` özelliği eklendi
 - `abi` alanı sağlanmışsa ve bağımsız değişkenler başarıyla ayrıştırılabiliyorsa `args` eklenir
-
-
 
 ## MoonbeamEvent
 
@@ -84,11 +65,8 @@ Farklı bir işleyici argümanı ve küçük filtreleme değişiklikleri dışı
 
 | Alan   | Tip                                 | Gerekli | Tarif                                             |
 | ------ | ----------------------------------- | ------- | ------------------------------------------------- |
-| tür    | 'substrate/MoonbeamCall'            | Evet    | Bunun bir Çağrı türü işleyicisi olduğunu belirtir |
+| tür    | 'substrate/MoonbeamEvent'           | Evet    | Bunun bir Çağrı türü işleyicisi olduğunu belirtir |
 | filtre | [Etkinlik Filtresi](#event-filters) | Hayır   | Yürütülecek veri kaynağını filtreleyin            |
-
-
-
 
 ### Etkinlik filtreleri
 
@@ -101,8 +79,6 @@ Farklı bir işleyici argümanı ve küçük filtreleme değişiklikleri dışı
 - Konuların 0 dolgulu olması gerekmez
 - [Etkinlik Parçası](https://docs.ethers.io/v5/api/utils/abi/fragments/#EventFragment) dizeleri sağlanabilir ve otomatik olarak kimliklerine dönüştürülebilir
 
-
-
 ### İşleyiciler
 
 Normal bir işleyiciden farklı olarak, parametre olarak bir `SubstrateExtrinsic` almazsınız, bunun yerine Ethers [TransactionResponse](https://docs.ethers.io/v5/api/providers/types/#providers-Log) türüne dayalı bir `MoonbeamCall` alırsınız.
@@ -111,13 +87,9 @@ Normal bir işleyiciden farklı olarak, parametre olarak bir `SubstrateExtrinsic
 
 - `abi` alanı sağlanmışsa ve bağımsız değişkenler başarıyla ayrıştırılabiliyorsa `args` eklenir
 
-
-
 ## Veri Kaynağı Örneği
 
 Bu, `project.yaml` bildirim dosyasından bir alıntıdır.
-
-
 
 ```yaml
 dataSources:
@@ -151,9 +123,6 @@ dataSources:
             function: approve(address to,uint256 value)
             from: '0x6bd193ee6d2104f14f94e2ca6efefae561a4334b'
 ```
-
-
-
 
 ## Bilinen sınırlamalar
 
