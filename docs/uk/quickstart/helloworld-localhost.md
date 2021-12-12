@@ -4,7 +4,7 @@ Welcome to this SubQuery Hello World quick start. The quick start aims to show y
 
 ## Мета навчання
 
-Наприкінці цього швидкого початку, ви повинен:
+Наприкінці цього швидкого початку, ви повинні:
 
 - розуміти необхідні передреквізити
 - understand the basic common commands
