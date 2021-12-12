@@ -117,7 +117,7 @@
     <a href="mailto:hello@subquery.network">hello@subquery.network</a>
   </div>
   <div>
-    <div>Suis-nous sur les médias sociaux </div>
+    <div>Suis-nous sur les médias sociaux</div>
     <div class="connectWay">
       <a href="https://discord.com/invite/78zg8aBSMG" target="_blank" class="connectDiscord">discord</a>
       <a href="https://twitter.com/subquerynetwork" target="_blank" class="connectTwitter">twitter</a>
