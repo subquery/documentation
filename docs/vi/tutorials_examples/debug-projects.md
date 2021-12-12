@@ -28,10 +28,10 @@ node --inspect-brk /usr/local/bin/subql-node -f ~/Code/subQuery/projects/subql-h
 
 ## Chrome devtools
 
-Mở Chrome DevTools và điều hướng đến tab Sources. Lưu ý rằng nhấp vào biểu tượng màu xanh lá cây sẽ mở ra một cửa sổ mới.
+Open up Chrome DevTools and navigate to the Sources tab. Note that clicking on the green icon will open up a new window.
 
 ![node inspect](/assets/img/node_inspect.png)
 
-Điều hướng đến Filesystem và thêm thư mục dự án của bạn vào không gian làm việc. Sau đó, mở dist > thư mục ánh xạ và chọn mã bạn muốn gỡ lỗi. Sau đó, bước qua mã như với bất kỳ công cụ gỡ lỗi tiêu chuẩn nào.
+Navigate to Filesystem and add your project folder to the workspace. Then open the dist > mappings folder and select the code you wish to debug. Then step through the code as with any standard debugging tool.
 
 ![debugging projects](/assets/img/debugging_projects.png)
