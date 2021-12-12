@@ -101,8 +101,7 @@ dataSources:
       options:
         # Doit être une clé d'actifs
         abi: erc20
-        # Adresse du contrat (ou du destinataire en cas de transfert) à filtrer, si `null`, ce sera pour la création du contrat.
-        address: '0x6bd193ee6d2104f14f94e2ca6efefae561a4334b'
+        # Adresse du contrat (ou du destinataire en cas de transfert) à filtrer, si `null`, ce sera pour la création du contrat. address: '0x6bd193ee6d2104f14f94e2ca6efefae561a4334b'
     assets:
       erc20:
         file: './erc20.abi.json'
@@ -117,8 +116,7 @@ dataSources:
         - handler: handleMoonriverCall
           kind: substrate/MoonbeamCall
           filter:
-            ## La fonction peut être soit un fragment de fonction, soit une signature.
-            # function: '0x095ea7b3'
+            ## La fonction peut être soit un fragment de fonction, soit une signature. # function: '0x095ea7b3'
             # function: '0x7ff36ab500000000000000000000000000000000000000000000000000000000'
             # function: approve(address,uint256)
             function: approve(address to,uint256 value)
