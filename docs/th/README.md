@@ -11,7 +11,7 @@
   <section class="startSection main">
     <div>
       <h2 class="title"><span>คู่มือ</span>สำหรับการเริ่มต้นอย่างรวดเร็ว</h2>
-      <p>Understand SubQuery by getting hands on with a traditional Hello World example. ทำความเข้าใจ SubQuery โดยลองใช้ตัวอย่าง Hello World แบบทั่วไป การใช้โปรเจ็กต์เทมเพลตภายในสภาพแวดล้อมของ Docker ทำให้คุณสร้างโหนดและทำงานได้อย่างรวดเร็ว และเริ่มการสืบค้นบล็อกเชนในเวลาเพียงไม่กี่นาทีด้วยคำสั่งง่ายๆ
+      <p>ทำความเข้าใจ SubQuery โดยการลองใช้ตัวอย่าง Hello World การใช้โปรเจ็กต์เทมเพลตภายในสภาพแวดล้อมของ Docker ทำให้คุณสร้างโหนดและทำงานได้อย่างรวดเร็ว และเริ่มการสืบค้นบล็อกเชนในเวลาเพียงไม่กี่นาทีด้วยคำสั่งง่ายๆ
       </p>
       <span class="button">
         <router-link :to="{path: '/quickstart/helloworld-localhost/'}">
@@ -29,7 +29,7 @@
           <div>
             <img src="/assets/img/tutorialsIcon.svg" />
             <span>บทแนะนำและตัวอย่าง</span>
-            <p>Learning by doing. เรียนรู้จากการลงมือทำ บทช่วยสอนและตัวอย่างเกี่ยวกับวิธีสร้างโปรเจ็กต์ SubQuery</p>
+            <p>เรียนรู้จากการลงมือทำ บทช่วยสอนและตัวอย่างเกี่ยวกับวิธีสร้างโปรเจ็กต์ SubQuery</p>
           </div>
         </router-link>
       </li>
