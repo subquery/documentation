@@ -29,7 +29,7 @@
           <div>
             <img src="/assets/img/tutorialsIcon.svg" />
             <span>教程 & 案例</span>
-            <p>在实践中学习 如何构建各种子查询项目的教程和示例。</p>
+            <p>Learning by doing. 在实践中学习 如何构建各种子查询项目的教程和示例。</p>
           </div>
         </router-link>
       </li>
