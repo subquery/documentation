@@ -63,8 +63,8 @@ The [SubstrateExtrinsic](https://github.com/OnFinality-io/subql/blob/a5ab06526dc
 Our goal is to cover all data sources for users for mapping handlers (more than just the three interface event types above). Therefore, we have exposed some of the @polkadot/api interfaces to increase capabilities.
 
 These are the interfaces we currently support:
-- [api.query. &lt;module&gt;. &lt;method&gt;()](https://polkadot.js.org/docs/api/start/api.query) sẽ truy vấn khối <strong> hiện tại</strong>.
-- [api.query. &lt;module&gt;. &lt;method&gt;.multi ()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-same-type) sẽ thực hiện nhiều truy vấn loại <strong>giống nhau</strong> tại khối hiện tại.
+- [api.query.&lt;module&gt;.&lt;method&gt;()](https://polkadot.js.org/docs/api/start/api.query) will query the <strong>current</strong> block.
+- [api.query.&lt;module&gt;.&lt;method&gt;.multi()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-same-type) will make multiple queries of the <strong>same</strong> type at the current block.
 - [api.queryMulti()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-distinct-types) sẽ thực hiện nhiều truy vấn thuộc loại <strong>different</strong> tại khối hiện tại.
 
 These are the interfaces we do **NOT** support currently:
@@ -204,7 +204,7 @@ export default {
 
 #### Các gói
 
-- Trong tệp `package.json`, hãy đảm bảo thêm `@polkadot/typegen` làm phụ thuộc phát triển và `@polkadot/api` làm phụ thuộc thông thường ( lý tưởng là cùng một phiên bản). Chúng tôi cũng cần `ts-node` như một phụ thuộc phát triển để giúp chúng tôi chạy các tập lệnh.
+- In the `package.json` file, make sure to add `@polkadot/typegen` as a development dependency and `@polkadot/api` as a regular dependency (ideally the same version). We also need `ts-node` as a development dependency to help us run the scripts.
 - Chúng tôi thêm các tập lệnh để chạy cả hai loại; `generate:defs` và siêu dữ liệu `generate:meta` (theo thứ tự đó, vì vậy siêu dữ liệu có thể sử dụng các loại).
 
 Here is a simplified version of `package.json`. Make sure in the **scripts** section the package name is correct and the directories are valid.
