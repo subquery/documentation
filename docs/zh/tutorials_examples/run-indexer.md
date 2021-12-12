@@ -59,5 +59,4 @@ subql-node -f .
 
 如果您导航到 Postgres，您应该看到两个表已创建。 `public.subquestions` 和`subquery_1.starter_entities`.
 
-`public.subqueries` 仅包含1行，索引器在启动时检查该行以“了解当前状态”，以便知道从哪里继续。 `starter_entities` 表格包含索引。 要查看数据，运行 `select (*) from subquery_1.starter_entities.
-` 。
+`public.subqueries` 仅包含1行，索引器在启动时检查该行以“了解当前状态”，以便知道从哪里继续。 `starter_entities` 表格包含索引。 要查看数据，运行 `select (*) from subquery_1.starter_entities.` 。
