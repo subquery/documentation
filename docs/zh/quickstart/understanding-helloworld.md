@@ -26,7 +26,7 @@ yarn 所做的是查看 `package.json` 文件并下载各种其他依赖项。 p
 
 ![key subql files](/assets/img/dependencies.png)
 
-## yarn codegen
+## yarn 编码器
 
 然后我们运行 `yarn codegen` 或 `npm run-script codegen`。 这样做是为了获取 GraphQL 架构（在`schema.graphql`中）并生成相关的 typescript 模型文件（因此输出文件将具有 .ts 扩展名）。 您不应该更改这些生成的文件中的任何一个，只能更改源 `schema.graphql` 文件。
 
