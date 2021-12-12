@@ -23,7 +23,7 @@
 npm install -g @subql/cli
 ```
 
-Обратите внимание, что мы ** НЕ ** поощряем использование ` yarn global ` из-за его плохого управления зависимостями, что может привести к ошибкам в дальнейшем.
+Обратите внимание, что мы ** НЕ ** поощряем использование `yarn global` из-за его плохого управления зависимостями, что может привести к ошибкам в дальнейшем.
 
 Затем вы можете запустить справку, чтобы увидеть доступные команды и использование, предоставляемые CLI
 
@@ -33,7 +33,7 @@ subql help
 
 ## Инициализировать начальный проект подзапроса
 
-Внутри каталога, в котором вы хотите создать проект SubQuery, просто замените ` PROJECT_NAME ` своим собственным и выполните команду:
+Внутри каталога, в котором вы хотите создать проект SubQuery, просто замените `PROJECT_NAME` своим собственным и выполните команду:
 
 ```shell
 subql init --starter PROJECT_NAME
@@ -45,24 +45,12 @@ subql init --starter PROJECT_NAME
 - Конечная точка RPC (обязательно): укажите URL-адрес wss для работающей конечной точки RPC, которая будет использоваться по умолчанию для этого проекта. Вы можете быстро получить доступ к общедоступным конечным точкам для различных сетей Polkadot или даже создать свой собственный выделенный частный узел с помощью [ OnFinality ](https://app.onfinality.io) или просто использовать конечную точку Polkadot по умолчанию.
 - Авторы (обязательно): введите здесь владельца этого проекта SubQuery
 - Описание (необязательно): вы можете предоставить короткий абзац о своем проекте, описывающий, какие данные он содержит и что пользователи могут с ними делать
-- Версия (обязательно): введите собственный номер версии или используйте значение по умолчанию (` 1.0.0 `)
-- Лицензия (обязательно): предоставьте лицензию на программное обеспечение для этого проекта или примите лицензию по умолчанию (` Apache-2.0 `)
+- Версия (обязательно): введите собственный номер версии или используйте значение по умолчанию (`1.0.0`)
+- Лицензия (обязательно): предоставьте лицензию на программное обеспечение для этого проекта или примите лицензию по умолчанию (`Apache-2.0`)
 
 После завершения процесса инициализации вы должны увидеть, что внутри каталога была создана папка с именем вашего проекта. Содержимое этого каталога должно быть идентично тому, что указано в [ структуре каталога ](../create/introduction.md#directory-structure).
 
 Наконец, в каталоге проекта выполните следующую команду, чтобы установить зависимости нового проекта.
-
-<CodeGroup> cd PROJECT_NAME # Yarn yarn install # NPM npm install В основном вы будете работать со следующими файлами:
-
-- The Manifest in `project.yaml`
-- The GraphQL Schema in `schema.graphql`
-- В основном вы будете работать со следующими файлами: </code>
-
-Для получения дополнительной информации о том, как написать свой собственный подзапрос, ознакомьтесь с нашей документацией в разделе [ Создание проекта ](../create/introduction.md)
-
-### Создание модели GraphQL
-
-Чтобы [ проиндексировать ](../run/run.md) ваш проект SubQuery, вы должны сначала сгенерировать необходимые модели GraphQL, которые вы определили в своем файле схемы GraphQL (` schema.graphql `). Выполните эту команду в корне каталога проекта.
 
 <CodeGroup> # Yarn yarn codegen # NPM npm run-script codegen
 
@@ -73,14 +61,45 @@ subql init --starter PROJECT_NAME
 Запустите команду сборки из корневого каталога проекта.
 
 <CodeGroup> All configuration that controls how a SubQuery node is run is defined in this `docker-compose.yml` file. Для нового проекта, который был только что инициализирован, вам не нужно здесь ничего менять, но вы можете узнать больше о файле и настройках в разделе [ Запуск проекта ](../run/run.md)
+- The GraphQL Schema in `schema.graphql`
+- В основном вы будете работать со следующими файлами: </ul>
+
+Для получения дополнительной информации о том, как написать свой собственный подзапрос, ознакомьтесь с нашей документацией в разделе [ Создание проекта ](../create/introduction.md)
+
+### Создание модели GraphQL
+
+Чтобы [ проиндексировать ](../run/run.md) ваш проект SubQuery, вы должны сначала сгенерировать необходимые модели GraphQL, которые вы определили в своем файле схемы GraphQL (`schema.graphql`). Выполните эту команду в корне каталога проекта.
+
+<CodeGroup> cd PROJECT_NAME # Yarn yarn install # NPM npm install В основном вы будете работать со следующими файлами:
+
+- The Manifest in `project.yaml`</p>
+
+## Следующие шаги
 
 В каталоге проекта выполните следующую команду:
+
+Первая загрузка необходимых пакетов ([`@ subql / node`](https://www.npmjs.com/package/@subql/node), [`@ subql / query`](https://www.npmjs.com/package/@subql/query) и Postgres) может занять некоторое время, но вскоре вы увидите запущенную ноду SubQuery.
+
+<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem>
+<CodeGroupItem title="NPM"> ```bash npm run-script build ``` </CodeGroupItem> </CodeGroup>
+
+## Running and Querying your Starter Project
+
+Although you can quickly publish your new project to [SubQuery Projects](https://project.subquery.network) and query it using our [Explorer](https://explorer.subquery.network), the easiest way to run SubQuery nodes locally is in a Docker container, if you don't already have Docker you can install it from [docker.com](https://docs.docker.com/get-docker/).
+
+[_Skip this and publish your new project to SubQuery Projects_](../publish/publish.md)
+
+### Run your SubQuery Project
+
+All configuration that controls how a SubQuery node is run is defined in this `docker-compose.yml` file. For a new project that has been just initalised you won't need to change anything here, but you can read more about the file and the settings in our [Run a Project section](../run/run.md)
+
+Under the project directory run following command:
 
 ```shell
 docker-compose pull && docker-compose up
 ```
 
-Первая загрузка необходимых пакетов ([` @ subql / node `](https://www.npmjs.com/package/@subql/node), [` @ subql / query `](https://www.npmjs.com/package/@subql/query) и Postgres) может занять некоторое время, но вскоре вы увидите запущенную ноду SubQuery.
+Для нового начального проекта SubQuery вы можете попробовать следующий запрос, чтобы понять, как он работает, или [ узнать больше о языке запросов GraphQL ](../query/graphql.md).
 
 ### Запросите свой проект
 
@@ -88,7 +107,7 @@ docker-compose pull && docker-compose up
 
 Вы должны увидеть игровую площадку GraphQL, отображаемую в проводнике, и схемы, готовые к запросу. В правом верхнем углу игровой площадки вы найдете кнопку _ Документы _, которая откроет розыгрыш документации. Эта документация создается автоматически и помогает вам найти, какие сущности и методы вы можете запрашивать.
 
-Для нового начального проекта SubQuery вы можете попробовать следующий запрос, чтобы понять, как он работает, или [ узнать больше о языке запросов GraphQL ](../query/graphql.md).
+For a new SubQuery starter project, you can try the following query to get a taste of how it works or [learn more about the GraphQL Query language](../query/graphql.md).
 
 ```graphql
 {
@@ -104,7 +123,7 @@ docker-compose pull && docker-compose up
 }
 ```
 
-## Следующие шаги
+## Next Steps
 
 Поздравляем, теперь у вас есть локально работающий проект SubQuery, который принимает запросы GraphQL API для демонстрационных данных. В следующем руководстве мы покажем вам, как опубликовать ваш новый проект в [ SubQuery Projects ](https://project.subquery.network) и запросить его с помощью нашего [ Explorer ](https://explorer.subquery.network)
 
