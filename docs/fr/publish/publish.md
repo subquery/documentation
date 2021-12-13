@@ -58,7 +58,7 @@ Once your deployment has succesfully completed and our nodes have indexed your d
 
 ![Projet en cours de déploiement et de synchronisation](/assets/img/projects-deploy-sync.png)
 
-Vous pouvez également cliquer sur les trois points situés à côté du titre de votre projet, et le visualiser dans l'explorateur de SubQuery. There you can use the in-browser playground to get started - [read more about how to user our Explorer here](../query/query.md).
+Vous pouvez également cliquer sur les trois points situés à côté du titre de votre projet, et le visualiser dans l'explorateur de SubQuery. There you can use the in-browser playground to get started - [read more about how to use our Explorer here](../query/query.md).
 
 ![Projets dans l'explorateur de SubQuery](/assets/img/projects-explorer.png)
 
