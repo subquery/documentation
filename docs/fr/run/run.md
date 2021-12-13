@@ -20,7 +20,7 @@ Requirements:
 
 - [Postgres](https://www.postgresql.org/) database (version 12 or higher). While the [SubQuery node](#start-a-local-subquery-node) is indexing the blockchain, the extracted data is stored in an external database instance.
 
-A SubQuery node is an implementation that extracts substrate-based blockchain data per the SubQuery project and saves it into a Postgres database.
+Un nœud SubQuery est une implémentation qui extrait les données de la blockchain basée sur le substrat par le projet SubQuery et les enregistre dans une base de données Postgres.
 
 ### Installation
 
