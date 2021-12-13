@@ -1,4 +1,4 @@
-# Indicateurs de ligne de commande
+# Options de ligne de commande
 
 ## subql-node
 
@@ -47,7 +47,7 @@ Options:
 
 ### --version
 
-This displays the current version.
+Cela affiche la version actuelle.
 
 ```shell
 > subql-node --version
@@ -56,16 +56,16 @@ This displays the current version.
 
 ### -f, --subquery
 
-Use this flag to start the SubQuery project.
+Utilisez cette option pour démarrer le projet SubQuery.
 
 ```shell
-subql-node -f . // OR
+subql-node -f . // OU
 subql-node --subquery .
 ```
 
 ### --subquery-name
 
-This flag allows you to provide a name for your project which acts as if it creates an instance of your project. Upon providing a new name, a new database schema is created and block synchronisation starts from zero.
+Cette option vous permet de fournir un nom pour votre projet qui agit comme s'il créait une instance de votre projet. En fournissant un nouveau nom, un nouveau schéma de base de données est créé et la synchronisation des blocs reprend à zéro.
 
 ```shell
 subql-node -f . --subquery-name=test2
@@ -73,17 +73,17 @@ subql-node -f . --subquery-name=test2
 
 ### -c, --config
 
-All these various configurations can be placed into a .yml or .json file and then referenced with the config flag.
+Toutes ces diverses configurations peuvent être placées dans un fichier .yml ou .json, puis référencées avec l'option config.
 
-Sample subquery_config.yml file:
+Exemple de fichier subquery_config.yml :
 
 ```shell
-subquery: . // Mandatory. This is the local path of the project. The period here means the current local directory.
-subqueryName: hello // Optional name
-batchSize: 55 // Optional config
+subquery: . // Obligatoire. Il s'agit du chemin local du projet. La point signifie ici le répertoire local courant.
+subqueryName: hello // Nom facultatif
+batchSize: 55 // Configuration facultative
 ```
 
-Place this file in the same directory as the project. Then in the current project directory, run:
+Placez ce fichier dans le même répertoire que le projet. Ensuite, dans le répertoire actuel du projet, exécutez :
 
 ```shell
 > subql-node -c ./subquery_config.yml
@@ -91,21 +91,21 @@ Place this file in the same directory as the project. Then in the current projec
 
 ### --local
 
-This flag is primarily used for debugging purposes where it creates the default starter_entity table in the default "postgres" schema.
+Cette option est principalement utilisé à des fins de débogage où il crée la table starter_entity par défaut dans le schéma "postgres" par défaut.
 
 ```shell
 subql-node -f . --local
 ```
 
-Note that once you use this flag, removing it won't mean that it will point to another database. To repoint to another database you will have to create a NEW database and change the env settings to this new database. In other words, "export DB_DATABASE=<new_db_here>"
+Notez qu'une fois que vous utilisez cette option, le supprimer ne signifie pas qu'il pointera vers une autre base de données. Pour pointer vers une autre base de données, vous devrez créer une NOUVELLE base de données et modifier les paramètres de l'environnement pour cette nouvelle base de données. En d'autres termes, "export DB_DATABASE=<new_db_here>"
 
 ### --force-clean
 
-This flag forces the project schemas and tables to be regenerated, helpful to use when iteratively developing graphql schemas such that new runs of the project are always working with a clean state. Note that this flag will also wipe all indexed data.
+Cette option force les schémas et les tables du projet à être régénérés, utile à utiliser lors du développement itératif des schémas graphql de sorte que les nouvelles exécutions du projet travaillent toujours avec un état propre. Notez que cette option effacera également toutes les données indexées.
 
 ### --batch-size
 
-This flag allows you to set the batch size in the command line. If batch size is also set in the config file, this takes precedent.
+Cette option vous permet de définir la taille du lot dans la ligne de commande. Si la taille du lot est également définie dans le fichier de configuration, elle est prioritaire.
 
 ```shell
 > subql-node -f . --batch-size=20
@@ -119,7 +119,7 @@ This flag allows you to set the batch size in the command line. If batch size is
 
 ### --debug
 
-This outputs debug information to the console output and forcefully sets the log level to debug.
+Cela permet d'afficher des informations de débogage sur la console et de forcer le niveau des logs à déboguer.
 
 ```shell
 > subql-node -f . --debug
@@ -130,7 +130,7 @@ This outputs debug information to the console output and forcefully sets the log
 
 ### --profiler
 
-This shows profiler information.
+Ceci affiche les informations du profil.
 
 ```shell
 subql-node -f . --local --profiler
@@ -142,13 +142,13 @@ subql-node -f . --local --profiler
 
 ### --network-endpoint
 
-This flag allows users to override the network endpoint configuration from the manifest file.
+Cette option permet aux utilisateurs de remplacer la configuration du point d'extrémité du réseau à partir du fichier manifeste.
 
 ```shell
 subql-node -f . --network-endpoint="wss://polkadot.api.onfinality.io/public-ws"
 ```
 
-Note that this must also be set in the manifest file, otherwise you'll get:
+Notez que cela doit également être défini dans le fichier manifest, sinon vous obtiendrez :
 
 ```shell
 ERROR Create Subquery project from given path failed! Error: failed to parse project.yaml.
@@ -159,7 +159,7 @@ An instance of ProjectManifestImpl has failed the validation:
 
 ### --output-fmt
 
-There are two different terminal output formats. JSON or colored. Colored is the default and contains colored text.
+Il existe deux formats de sortie de terminal différents. JSON ou colored. Colored est la valeur par défaut et contient du texte coloré.
 
 ```shell
 > subql-node -f . --output-fmt=json
@@ -176,7 +176,7 @@ There are two different terminal output formats. JSON or colored. Colored is the
 
 ### --log-level
 
-There are 7 options to choose from. “fatal”, “error”, “warn”, “info”, “debug”, “trace”, “silent”. The example below shows silent. Nothing will be printed in the terminal so the only way to tell if the node is working or not is to query the database for row count (select count(\*) from subquery_1.starter_entities) or query the block height.
+Vous avez le choix entre sept options. “fatal”, “error”, “warn”, “info”, “debug”, “trace”, “silent”. L'exemple ci-dessous affiche le silent. Rien ne sera imprimé dans le terminal, donc la seule façon de savoir si le nœud fonctionne ou non est d'interroger la base de données pour le nombre de lignes (select count(\*) from subquery_1.starter_entities) ou demander la hauteur du bloc.
 
 ```shell
 > subql-node -f . --log-level=silent
@@ -198,25 +198,25 @@ There are 7 options to choose from. “fatal”, “error”, “warn”, “inf
 
 ### --timestamp-field
 
-By default this is true. when set to false with:
+Par défaut, c'est vrai. lorsqu'il est mis à faux avec :
 
 ```shell
 > subql-node -f . –timestamp-field=false
 ```
 
-This removes the created_at and updated_at columns in the starter_entities table.
+Cela supprime les colonnes created_at et updated_at de la table starter_entities.
 
 ### -d, --network-dictionary
 
-This allows you to specify a dictionary endpoint which is a free service that is provided and hosted at: [https://explorer.subquery.network/](https://explorer.subquery.network/) (search for dictionary) and presents an API endpoint of: https://api.subquery.network/sq/subquery/dictionary-polkadot
+Cela vous permet de spécifier un point de terminaison de dictionnaire qui est un service gratuit fourni et hébergé à : [https://explorer.subquery.network/](https://explorer.subquery.network/) (recherche de dictionnaire) et présente un point de terminaison API de : https://api.subquery.network/sq/subquery/dictionary-polkadot
 
-Typically this would be set in your manifest file but below shows an example of using it as an argument in the command line.
+En général, ce paramètre est défini dans votre fichier manifeste, mais vous trouverez ci-dessous un exemple d'utilisation de ce paramètre en tant qu'argument dans la ligne de commande.
 
 ```shell
 subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot"
 ```
 
-[Read more about how a SubQuery Dictionary works](../tutorials_examples/dictionary.md).
+[En savoir plus sur le fonctionnement d'un dictionnaire de SubQuery](../tutorials_examples/dictionary.md).
 
 ## subql-query
 
@@ -240,7 +240,7 @@ Options:
 
 ### --version
 
-This displays the current version.
+Cela affiche la version actuelle.
 
 ```shell
 > subql-query --version
@@ -249,23 +249,23 @@ This displays the current version.
 
 ### -n, --name
 
-This flag is used to start the query service. If the --subquery-name flag is not provided when running an indexer, the name here will refer to the default project name. If --subquery-name is set, then the name here should match what was set.
+Cette option est utilisé pour démarrer le service query. Si l'option --subquery-name n'est pas fournie lors de l'exécution d'un indexeur, le nom indiqué ici fera référence au nom de projet par défaut. Si le paramètre --subquery-name est défini, alors le nom doit correspondre à celui qui a été défini.
 
 ```shell
 > subql-node -f . // --subquery-name not set
 
-> subql-query -n subql-helloworld  --playground // the name defaults to the project directory name
+> subql-query -n subql-helloworld  --playground // le nom correspond par défaut au nom du répertoire du projet
 ```
 
 ```shell
 > subql-node -f . --subquery-name=hiworld // --subquery-name set
 
-> subql-query -n hiworld --playground  // the name points to the subql-helloworld project but with the name of hiworld
+> subql-query -n hiworld --playground  // le nom pointe vers le projet subql-helloworld mais avec le nom de hiworld
 ```
 
 ### --playground
 
-This flag enables the graphql playground so should always be included by default to be of any use.
+Cette option active le graphql playground et doit donc toujours être inclus par défaut pour être utile.
 
 ### --output-fmt
 
