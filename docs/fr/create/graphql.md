@@ -31,7 +31,7 @@ Nous prenons actuellement en charge les types de scalars fluides :
 - `Boolean`
 - `<EntityName>` pour les entités de relation imbriquées, vous pouvez utiliser le nom de l'entité définie comme l'un des champs. Veuillez consulter la section [Relations avec les entités](#entity-relationships).
 - `JSON` peut alternativement stocker des données structurées, voir [type JSON](#json-type)
-- `<EnumName>` Les types sont un type spécial de scalaire énuméré qui est limité à un ensemble particulier de valeurs autorisées. Veuillez consulter [Énum Graphql](https://graphql.org/learn/schema/#enumeration-types)
+- `<EnumName>` Les types sont un type spécial de scalaire énuméré qui est limité à un ensemble particulier de valeurs autorisées. Veuillez consulter [Enum Graphql](https://graphql.org/learn/schema/#enumeration-types)
 
 ## Indexation par le champ clé non primaire
 
@@ -65,7 +65,7 @@ INSERT INTO titles (id, name) VALUES ('id_1', 'Captain')
 ```
 
 ```typescript
-// Handler dans la fonction de mapping
+// Gestionnaire dans la fonction de mapping
 import {User} from "../types/models/User"
 import {Title} from "../types/models/Title"
 
@@ -156,7 +156,7 @@ type Group @entity {
 }
 ```
 
-De plus, il est possible de créer une connexion de la même entité dans plusieurs champs de l'entité moyenne.
+De plus, il est possible de créer une connexion de la même entité dans plusieurs champs de l'entité centrale.
 
 Par exemple, un compte peut avoir plusieurs transferts, et chaque transfert a un compte source et de destination.
 
@@ -178,7 +178,7 @@ type Transfer @entity {
 
 ### Recherche inversée
 
-Pour activer une recherche inversée sur une entité à une relation, attachez `@derivedDe` au champ et pointez vers son champ de recherche inversé d'une autre entité.
+Pour activer une recherche inversée sur une entité à une relation, attachez `@derivedFrom` au champ et pointez vers son champ de recherche inversé d'une autre entité.
 
 Cela crée un champ virtuel sur l'entité qui peut être interrogée.
 
@@ -222,7 +222,7 @@ type AddressDetail @jsonField {
 
 type ContactCard @jsonField {
   phone: String!
-  address: AddressDetail # Nested JSON
+  address: AddressDetail # JSON imbriqué
 }
 
 type User @entity {
