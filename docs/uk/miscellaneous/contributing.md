@@ -14,7 +14,7 @@
 
 Вклади у наш репозиторій робляться через Issues та Pull requests (PR). Ось декілька загальних рекомендацій, що охоплюють обидва методи:
 
-* Перш ніж створювати власні питання та PR, пошукайте та переконайтеся в тому, що вони не були створені раніше.
+* Перш ніж створювати власні питання та PR, за допомогою пошука переконайтеся в тому, що вони не були створені раніше.
 * Ми докладаємо всіх зусиль для того, щоб забезпечити своєчасне вирішення проблем, але, залежно від впливу даних проблем, може знадобитися більше часу на дослідження основної причини. Дружня @ згадка відправника або учасника у гілці коментарів може допомогти привернути увагу до вашої проблеми, якщо вона не вирішується.
 
 ## Як зробити вклад у Проект
@@ -29,26 +29,26 @@
 * Поясніть, який результат ви очікували побачити замість отриманого результату, і чому.
 * При можливості додавайте скріншоти.
 
-### Submitting Pull Requests
+### Відправлення Pull Requests
 
-In general, we follow the "fork-and-pull" Git workflow
+Загалом, ми дотримуємось робочого процесу Git, який заснований на принципах «fork-and-pull»
 
-* Fork the repository to your own Github account
-* Clone the project to your machine
-* Create a branch locally with a succinct but descriptive name
-* Commit changes to the branch
-* Following any formatting and testing guidelines specific to this repo
-* Push changes to your fork
-* Open a PR in our repository
+* Форкнути репозиторій у ваш обліковий запис на Github
+* Клонувати проект на ваш комп'ютер
+* Створити локальну гілку (branch) з коротким, але описовим ім'ям
+* Зберегти зміни у гілці
+* Дотримуватися правил форматування та тестування, які притаманні даному репозиторію
+* Надіслати зміни до вашого форку
+* Відкрити PR у нашому репозиторії
 
-## Coding Conventions
+## Стандарт Оформлення Коду
 
-### Git Commit Messages
+### Повідомлення Git Commit
 
-* Use the present tense ("Add feature" not "Added feature")
-* Use the imperative mood ("Move cursor to..." not "Moves cursor to...")
-* Limit the first line to 72 characters or less
+* Використовуйте теперішній час («Додати об'єкт», а не «Доданий об'єкт»)
+* Використовуйте наказовий спосіб («Перемістити курсор у...», а не «Курсор переміщається у...»)
+* Обмежте перший рядок до 72 символів або ще менше
 
-### JavaScript Styleguide
+### Посібник із стилю JavaScript
 
-* All JavaScript code is linted with Prettier and ESLint
+* Весь код JavaScript розміщений на основі Prettier та ESLint
