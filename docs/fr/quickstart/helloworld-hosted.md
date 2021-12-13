@@ -120,7 +120,7 @@ And fill in the various fields with the appropriate details.
 - **Subtitle:** Provide a subtitle for your project.
 - **Description:** Explain what your SubQuery project does.
 - **GitHub Repository URL:** This must be a valid GitHub URL to a public repository that contains your SubQuery project. The schema.graphql file must be in the root of your directory.
-- **Hide project:** If selected, this will hide the project from the public SubQuery explorer. Keep this unselected if you want to share your SubQuery with the community!
+- **Masquer le projet:** Si cette option est sélectionnée, cela masquera le projet de l'explorateur public de SubQuery. Laissez cette option non sélectionnée si vous souhaitez partager avec la communauté SubQuery !
 
 ![Create SubQuery parameters](/assets/img/create_subquery_project_parameters.png)
 
