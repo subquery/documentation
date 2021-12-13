@@ -1,10 +1,10 @@
-# Contributing To SubQuery
+# Вклад у розвиток проекту SubQuery
 
-Welcome and a big thank you for considering contributing to this SubQuery project! Together we can pave the way to a more decentralised future.
+Ласкаво просимо! Ми хочемо подякувати вам за те, що ви розглянули можливість зробити свій вклад у проект SubQuery! Разом ми зможемо прокласти шлях до бiльш децентралізованого майбутнього.
 
-> This documentation is actively maintained by the SubQuery team. We welcome your contributions, you can do so by forking our GitHub project and making changes to all the documentation markdown files under the `docs` directory.
+> Дана документація активно підтримується командою SubQuery. Ми дуже раді вашому вкладу у наш проект. Для початку вам необхідно форкнути наш проект GitHub та внести зміни до всіх файлів markdown документації в каталозі `docs`.
 
-What follows is a set of guidelines (not rules) for contributing to SubQuery. Following these guidelines will help us make the contribution process easy and effective for everyone involved. It also communicates that you agree to respect the time of the developers managing and developing this project. In return, we will reciprocate that respect by addressing your issue, considering changes, collaborating on improvements, and helping you finalise your pull requests.
+Нижче ви можете ознайомитись з інструкціями (не правилами), які допоможуть вам внести свій вклад у проект SubQuery. Дані інструкції допоможуть зробити участь у проекті найбільш ефективною та простою. Дотримуючись цих інструкцій, ви погоджуєтесь поважати час розробників, які керують цим проектом та розробляють його. In return, we will reciprocate that respect by addressing your issue, considering changes, collaborating on improvements, and helping you finalise your pull requests.
 
 ## Code of Conduct
 
