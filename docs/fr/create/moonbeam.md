@@ -31,7 +31,7 @@ Réseaux pris en charge :
 | Champ   | Type             | Requis | Description                                                                                                                |
 | ------- | ---------------- | ------ | -------------------------------------------------------------------------------------------------------------------------- |
 | abi     | String           | Non    | L'ABI qui est utilisé par le processeur pour analyser les arguments. DOIT être une clé d' `actifs`                         |
-| adresse | String or `null` | Non    | Une adresse de contrat d'où l'événement provient ou un appel y ai fait. `null` capturera les appels de création de contrat |
+| adresse | String ou `null` | Non    | Une adresse de contrat d'où l'événement provient ou un appel y ai fait. `null` capturera les appels de création de contrat |
 
 ## MoonbeamCall
 
