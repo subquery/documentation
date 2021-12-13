@@ -8,7 +8,7 @@
 
 ## Giới thiệu
 
-Running an indexer node is another option outside of using Docker or having a project hosted for you at [SubQuery Projects](https://project.subquery.network/). It requires more time and effort but will enhance your understanding of how SubQuery works under the covers.
+Chạy một nút chỉ mục là một tùy chọn khác ngoài việc sử dụng Docker hoặc có một dự án được lưu trữ tại [ Dự án SubQuery ](https://project.subquery.network/). Nó đòi hỏi nhiều thời gian và nỗ lực hơn nhưng sẽ nâng cao hiểu biết của bạn về cách SubQuery hoạt động.
 
 ## Postgres
 
