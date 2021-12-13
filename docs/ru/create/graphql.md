@@ -182,7 +182,7 @@ type Transfer @entity {
 
 Это создает виртуальное поле на cущности, которое может быть запрошено.
 
-The Transfer "from" an Account is accessible from the Account entity by setting the sentTransfer or receivedTransfer as having their value derived from the respective from or to fields.
+Передача «от» Учетной Записи доступна из объекта Учетной Записи путем установки значений отправитьПередачу (sentTransfer) или получитьПередачу (receiveTransfer), полученной из соответствующих полей из (from) или в (to).
 
 ```graphql
 type Account @entity {
