@@ -54,7 +54,7 @@ My docker version is: Docker version 20.10.5, build 55c4c88
 如果你得到了上面的内容，那么你就可以开始了。 如果没有，请按照以下链接安装它们：
 
 - [yarn](https://classic.yarnpkg.com/en/docs/install/) or [npm](https://www.npmjs.com/get-npm)
-- [SubQuery CLI](quickstart.md#install-the-subquery-cli)
+- [SubQuery CLI](md#install-thyquery-cli)
 - [Docker](https://docs.docker.com/get-docker/)
 
 ## 1. 1. 初始化项目
@@ -114,6 +114,12 @@ info No lockfile found.
 [4/4] 🔨  Building fresh packages...
 success Saved lockfile.
 ✨  Done in 31.84s.
+[1/4] 🔍  Resolving packages...
+[2/4] 🚚  Fetching packages...
+[3/4] 🔗  Linking dependencies...
+[4/4] 🔨  Building fresh packages...
+success Saved lockfile.
+✨  Done in 31.84s.
 ```
 
 ## 3. 3. 生成代码
@@ -138,6 +144,9 @@ $ ./node_modules/.bin/subql codegen
 ---------Subql Codegen---------
 ===============================
 * Schema StarterEntity generated !
+* Models index generated !
+* Types index generated !
+✨  Done in 1.02s.
 * Models index generated !
 * Types index generated !
 ✨  Done in 1.02s.
@@ -209,7 +218,7 @@ graphql-engine_1  | 2021-06-05T22:20:43.244Z <express> INFO request completed
 
 ```
 
-## 6. Browse playground
+## 6. 试用例子
 
 导航到 http://localhost:3000/， 并将下面的查询粘贴到屏幕左侧，然后点击播放按钮。
 
