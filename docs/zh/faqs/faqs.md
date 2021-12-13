@@ -34,7 +34,7 @@ SubQuery 目前有两个可用的插槽。 一个中转插槽和一个生产插�
 
 ## 什么是外部状态？
 
-如果你已经熟悉区块链基本概念，你可以将外部状态理解为区块链中的交易。 但更加正式的理解是，外部状态是一种来自链外并被包含在一个区块中的信息。 There are three categories of extrinsics. They are inherents, signed transactions, and unsigned transactions.
+如果你已经熟悉区块链基本概念，你可以将外部状态理解为区块链中的交易。 但更加正式的理解是，外部状态是一种来自链外并被包含在一个区块中的信息。 外部状态的类别包含3种， 分别为：inherents、signed transactions、unsigned transactions。
 
 Inherent外部状态是指未经签名且仅由区块作者插入区块的信息。
 
@@ -52,12 +52,12 @@ Kusama 网络端点的介绍 `wss://kusama.api.onfinality.io/publicws`。
 
 Polkadot网络端点的介绍 `wss://polkadot.api.onfinality.io/publicws`。
 
-## How do I iteratively develop my project schema?
+## 如何反复开发我的项目计划？
 
-A known issue with developing a changing project schema is that when lauching your Subquery node for testing, the previously indexed blocks will be incompatible with your new schema. In order to iteratively develop schemas the indexed blocks stored in the database must be cleared, this can be achieved by launching your node with the `--force-clean` flag. 示例
+开发一个更改项目方案的已知问题是，当放松您的子查询节点进行测试时。 此前索引的块将与您的新方案不兼容。 为了反复开发方案，数据库中储存的索引方块必须清除， 这可以通过使用 `--force-clear` 标志启动您的节点来实现。 示例
 
 ```shell
 subql-node -f . --force-clean --subquery-name=<project-name>
 ```
 
-Note that it is recommended to use `--force-clean` when changing the `startBlock` within the project manifest (`project.yaml`) in order to begin reindexing from the configured block. If `startBlock` is changed without a `--force-clean` of the project then the indexer will continue indexing with the previously configured `startBlock`.
+请注意，建议在项目清单中更改 `startBlock` 时使用 `--force-clear` 。`项目。 aml`) 以开始从已配置的方块进行重新索引。 如果 `startBlock` 在没有 `--force-clean` 的情况下被更改，那么索引器将继续使用先前配置的 `startBlock` 索引。
