@@ -1,4 +1,4 @@
-# Creating a SubQuery Project
+# การสร้าง SubQuery Project ใหม่
 
 In the [quick start](/quickstart/quickstart.md) guide, we very quickly ran through an example to give you a taste of what SubQuery is and how it works. Here we'll take a closer look at the workflow when creating your project and the key files you'll be working with.
 
