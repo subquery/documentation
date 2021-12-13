@@ -1,19 +1,19 @@
-# How to delete a SubQuery project?
+# Làm thế nào để xoá một dự án SubQuery?
 
 ## Giới thiệu
 
-It is important to keep your projects in SubQuery Project relevant and up to date. For any projects that uploaded to SubQuery Project for testing purposes, it is recommended to delete them afterwards to conserve resources and save cost.
+Điều quan trọng là giữ cho các dự án của bạn trong Dự án SubQuery phù hợp và được cập nhật. Đối với bất kỳ dự án nào đã tải lên Dự án SubQuery với mục đích thử nghiệm, bạn nên xóa chúng sau đó để tiết kiệm tài nguyên và tiết kiệm chi phí.
 
-Running an indexer node is another option outside of using Docker or having a project hosted for you at [SubQuery Projects](https://project.subquery.network/). It requires more time and effort but will enhance your understanding of how SubQuery works under the covers.
+Chạy một nút chỉ mục là một tùy chọn khác ngoài việc sử dụng Docker hoặc có một dự án được lưu trữ tại [ Dự án SubQuery ](https://project.subquery.network/). Nó đòi hỏi nhiều thời gian và nỗ lực hơn nhưng sẽ nâng cao hiểu biết của bạn về cách SubQuery hoạt động.
 
-## Deleting a project from the staging slot
+## Xóa một dự án khỏi vị trí dàn dựng
 
-To delete a project from the staging slot, click on the 3 dots in the staging slot section within the deployment details on your project detail dashboard page and select delete.
+Để xóa dự án khỏi vị trí dàn dựng, hãy nhấp vào 3 dấu chấm trong phần vị trí dàn dựng trong chi tiết triển khai trên trang bảng điều khiển chi tiết dự án của bạn và chọn xóa.
 
-![Deleting a project from the staging slot](/assets/img/delete_staging.png)
+![Xóa một dự án khỏi vị trí dàn dựng](/assets/img/delete_staging.png)
 
-## Deleting a project from the production slot
+## Xóa dự án khỏi vị trí sản xuất
 
-To delete a project from the production slot, you'll have to delete the entire project instead. Navigate to the top right corner and click on the 3 dots which is the settings for the entire project. Then select "Delete Project".
+Để xóa dự án khỏi vị trí sản xuất, bạn sẽ phải xóa toàn bộ dự án. Điều hướng đến góc trên cùng bên phải và nhấp vào 3 dấu chấm, đây là cài đặt cho toàn bộ dự án. Sau đó chọn "Xóa dự án".
 
-![Deleting a project from the production slot](/assets/img/delete_production.png)
+![Xóa dự án khỏi vị trí sản xuất](/assets/img/delete_production.png)
