@@ -6,7 +6,7 @@
 
 เมื่อลองดูตัวอย่างโปรเจ็กต์ [ดิกชันนารี่ของ SubQuery](https://github.com/subquery/subql-dictionary) จะพบว่าไฟล์ [ schema ](https://github.com/subquery/subql-dictionary/blob/main/schema.graphql) นั้นกำหนดเอนทิตี 3 รายการ ได้แก่ extrinsic, event และ specVersion โดยทั้ง 3 เอนทิตีนี้ จะประกอบด้วย 6, 4 และ 2 ฟิลด์ตามลำดับ เมื่อใดที่เรารันโปรเจ็กนี้ ฟิลด์เหล่านี้ก็จะแสดงออกมาให้เห็นในตารางฐานข้อมูล
 
-![extrinsics table](/assets/img/extrinsics_table.png) ![events table](/assets/img/events_table.png) ![specversion table](/assets/img/specversion_table.png)
+![ตารางของ extrinsic ต่าง ๆ](/assets/img/extrinsics_table.png) ![ตารางของ event ต่าง ๆ](/assets/img/events_table.png) ![ตารางของ specversion](/assets/img/specversion_table.png)
 
 จากนั้น ข้อมูลจากบล็อกเชนจะถูกเก็บไว้ในตารางเหล่านี้และถูกนำไปทำเป็นดัชนีเพื่อทำให้ข้อมูลนั้นมีประสิทธิภาพ จากนั้นโปรเจ็กก็จะได้โฮสต์อยู่ใน SubQuery Projects และ API endpoint นั้นก็พร้อมที่จะให้เรานำไปเพิ่มลงในไฟล์รายการ
 
@@ -26,18 +26,18 @@ network:
 
 ## จะเกิดอะไรขึ้นเมื่อมีการใช้ดิกชันนารี่?
 
-เมื่อใช้ดิกชันนารี่ indexer จะเริ่มใช้ตัวกรอง call และ event เป็นพารามิเตอร์ก่อน แล้วจึงรวมสิ่งนี้เข้าในการค้นหาของ GraphQL จากนั้นใช้ API ของดิกชันนารี่ เพื่อให้ได้รายการ block height เฉพาะอันที่มี event และ extrinsic ต่าง ๆ ที่เราต้องการ Often this is substantially less than 100 if the default is used.
+เมื่อใช้ดิกชันนารี่ indexer จะเริ่มใช้ตัวกรอง call และ event เป็นพารามิเตอร์ก่อน แล้วจึงรวมสิ่งนี้เข้าในการค้นหาของ GraphQL จากนั้นใช้ API ของดิกชันนารี่ เพื่อให้ได้รายการ block height เฉพาะอันที่มี event และ extrinsic ต่าง ๆ ที่เราต้องการ ซึ่งผลลัพธ์มักจะได้น้อยกว่า 100 รายการ หากตั้งค่าตามค่าเริ่มต้น
 
-For example, imagine a situation where you're indexing transfer events. Not all blocks have this event (in the image below there are no transfer events in blocks 3 and 4).
+ตัวอย่างเช่น ลองนึกภาพสถานการณ์ที่คุณจะสร้างดัชนีของ event (เหตุการณ์) การโอน ซึ่งไม่ใช่ทุกบล็อกที่มีเหตุการณ์นี้ (ในภาพด้านล่าง จะเห็นว่า ไม่มีเหตุการณ์การโอนในบล็อก 3 และ 4)
 
-![dictionary block](/assets/img/dictionary_blocks.png)
+![บล็อกดิกชันนารี่](/assets/img/dictionary_blocks.png)
 
-The dictionary allows your project to skip this so rather than looking in each block for a transfer event, it skips to just blocks 1, 2, and 5. This is because the dictionary is a pre-computed reference to all calls and events in each block.
+ดิกชันนารี่จะช่วยให้โปรเจ็กของคุณข้ามมันได้ โดยแทนที่จะต้องมองหาเหตุการณ์ที่มีการโอนในแต่ละบล็อก มันจะข้ามไปดูที่บล็อก 1, 2 และ 5 เท่านั้น นั่นก็เพราะว่า ดิกชันนารี่นี้เป็นข้อมูลที่ได้คำนวณไว้ล่วงหน้าแล้ว สามารถนำไปใช้ใอ้างอิง call และ event (เหตุการณ์) ทั้งหมดในแต่ละบล็อก
 
-This means that using a dictionary can reduce the amount of data that the indexer obtains from the chain and reduce the number of “unwanted” blocks stored in the local buffer. But compared to the traditional method, it adds an additional step to get data from the dictionary’s API.
+ดังนั้น การใช้ดิกชันนารี่สามารถลดปริมาณข้อมูลที่ indexer ได้รับจากเครือข่าย และลดจำนวนบล็อก "ที่ไม่ต้องการ" ให้ถูกจัดเก็บไว้ในบัฟเฟอร์ของเครื่องลงอีกด้วย แต่เมื่อเทียบกับวิธีการแบบเดิมแล้ว วิธีนี้ก็ทำให้มีขั้นตอนเพิ่มขึ้นในการรับข้อมูลจาก API ของดิกชันนารี่
 
-## When is a dictionary NOT useful?
+## เมื่อไหร่จึงจะบอกว่าดิกชันนารี่ไม่มีประโยชน์
 
-When [block handlers](https://doc.subquery.network/create/mapping.html#block-handler) are used to grab data from a chain, every block needs to be processed. Therefore, using a dictionary in this case does not provide any advantage and the indexer will automatically switch to the default non-dictionary approach.
+เมื่อใช้ [block handlers](https://doc.subquery.network/create/mapping.html#block-handler) ดึงข้อมูลจากเครือข่าย ทุกบล็อกจะต้องได้รับการประมวลผลด้วย ดังนั้น ในกรณีนี้ การใช้ดิกชันนารี่ไม่ได้มีประโยชน์ใด ๆ เลย และ indexer ก็จะสลับไปใช้แนวทางที่ไม่ใช่การใช้ดิกชันนารี่ แนวที่ได้ตั้งเป็นค่าเริ่มต้น โดยอัตโนมัติ
 
-Also, when dealing with events or extrinsic that occur or exist in every block such as `timestamp.set`, using a dictionary will not offer any additional advantage.
+อีกกรณีคือ การใช้ดิกชันนารี่ไปกับ event หรือ extrinsic ที่เกิดขึ้นหรือมีอยู่แล้วในทุกบล็อก เช่น `timestamp.set` ก็ไม่ได้เกิดประโยชน์ใด ๆ เช่นกัน
