@@ -132,15 +132,15 @@ The dashboard contains lots of useful information such as the network it is usin
 
 ## 5. Deploy your project
 
-Now that you have created your project within SubQuery Projects, setting up the display behaviour, the next step is to deploy your project making it operational. Deploying a version triggers a new SubQuery indexing operation to start, and sets up the required query service to start accepting GraphQL requests. You can also deploy new versions to existing projects here.
+Now that you have created your project within SubQuery Projects, setting up the display behaviour, the next step is to deploy your project making it operational. Le déploiement d'une version déclenche le démarrage d'une nouvelle opération d'indexation SubQuery et configure le service de requête requis pour commencer à accepter les requêtes GraphQL. Vous pouvez également déployer de nouvelles versions dans des projets existants ici.
 
 You can choose to deploy to various environments such as a production slot or a staging slot. Here we'll deploy to a production slot. Clicking on the "Deploy" button brings up a screen with the following fields:
 
 ![Deploy to production slot](/assets/img/deploy_production_slot.png)
 
 - **Commit Hash of new Version:** From GitHub select the correct commit of the SubQuery project codebase that you want deployed
-- **Indexer Version:** This is the version of SubQuery's node service that you want to run this SubQuery on. See [@subql/node](https://www.npmjs.com/package/@subql/node)
-- **Query Version:** This is the version of SubQuery's query service that you want to run this SubQuery on. See [@subql/query](https://www.npmjs.com/package/@subql/query)
+- **Version de l'indexeur:** Il s'agit de la version du service de nœud de SubQuery sur laquelle vous souhaitez exécuter cette SubQuery. See [@subql/node](https://www.npmjs.com/package/@subql/node)
+- **Version de la requête:** Il s'agit de la version du service de requête de SubQuery sur laquelle vous souhaitez exécuter cette SubQuery. See [@subql/query](https://www.npmjs.com/package/@subql/query)
 
 Because we only have one commit, there is only a single option in the drop down. We'll also work with the latest version of the indexer and query version so we will accept the defaults and then click "Deploy Update".
 
