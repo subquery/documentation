@@ -1,4 +1,4 @@
-# Deploy a new version of your SubQuery project
+# Déployer une nouvelle version de votre projet SubQuery
 
 ## Guidelines
 
