@@ -13,7 +13,7 @@ Les champs non nullables dans l'entité sont indiqués par `!`. Veuillez consult
 
 ```graphql
 type Exemple @entity {
-  id: ID! # id field is always required and must look like this
+  id: ID! # Le champ id est toujours requis et doit ressembler à ça
   name: String! # Ceci est un champ obligatoire
   address: String # Ceci est un champ facultatif
 }
@@ -238,7 +238,7 @@ L'inconvénient d'utiliser des types JSON se retrouve sur l'efficacité de la re
 Cependant, l'impact est acceptable dans notre service de requêtes. Voici un exemple de comment utiliser l'opérateur `contient` dans la requête GraphQL sur un champ JSON pour trouver les 5 premiers utilisateurs qui possèdent un numéro de téléphone qui contient '0064'.
 
 ```graphql
-#To find the the first 5 users own phone numbers contains '0064'.
+#Pour trouver les 5 premiers utilisateurs qui possèdent des numéros de téléphone contenant '0064'.
 
 query{
   user(
