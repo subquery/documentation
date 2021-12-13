@@ -37,4 +37,4 @@ Ví dụ này đặt kích thước lô thành 50.
 
 ## Tại sao phải thay đổi kích thước lô?
 
-Using a smaller batch size can reduce memory usage and not leave users hanging for large queries. In otherwords, your application can be more responsive. 
+Việc sử dụng kích thước lô nhỏ hơn có thể làm giảm mức sử dụng bộ nhớ và không khiến người dùng bị treo cho các truy vấn lớn. Nói cách khác, ứng dụng của bạn có thể phản hồi nhanh hơn. 
