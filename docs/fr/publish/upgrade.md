@@ -1,35 +1,35 @@
 # Déployer une nouvelle version de votre projet SubQuery
 
-## Guidelines
+## Directives
 
-Although you have the freedom to always upgrade and deploy new versions of your SubQuery project, please be considerate during this process if your SubQuery project is public for the world. Some key points to note:
-- If your upgrade is a breaking change, either create a new project (e.g. `My SubQuery Project V2`) or give your community plenty of warning of the change through social media channels.
-- Deploying a new SubQuery project version causes some downtime as the new version indexes the complete chain from the genesis block.
+Bien que vous ayez la liberté de toujours mettre à jour et de déployer de nouvelles versions de votre projet SubQuery, veuillez faire preuve de considération pendant ce processus si votre projet SubQuery est public pour le monde entier. Quelques points clés à noter :
+- Si votre mise à niveau est un changement de rupture, créez un nouveau projet (par exemple `Mon projet SubQuery V2`) ou prévenez largement votre communauté du changement par le biais des canaux de médias sociaux.
+- Le déploiement d'une nouvelle version du projet SubQuery entraîne un certain temps d'arrêt car la nouvelle version indexe la chaîne complète à partir du bloc de genèse.
 
-## Deploy Changes
+## Déployer les modifications
 
-Log into SubQuery Project and select the project you want to deploy a new version of. You can choose to either deploy to the production or staging slot. These two slots are isolated environments and each has their own databases and synchronise independently.
+Connectez-vous à SubQuery Project et sélectionnez le projet dont vous souhaitez déployer une nouvelle version. Vous pouvez choisir de déployer sur l'emplacement de production ou de mise en scène. Ces deux créneaux sont des environnements isolés et chacun possède ses propres bases de données et se synchronise indépendamment.
 
-We recommend deploying to your staging slot only for final staging testing or when you need to resync your project data. You can then promote it to production with zero downtime. You will find testing is faster when [running a project locally](../run/run.md) as you can more [easily debug issues](../tutorials_examples/debug-projects.md).
+Nous vous recommandons de déployer sur votre emplacement de transit uniquement pour les tests finaux de transit ou lorsque vous devez resynchroniser les données de votre projet. Vous pouvez ensuite le mettre en production sans aucun temps d'arrêt. Vous constaterez que les tests sont plus rapides lorsque [qu'un projet est exécuté localement](../run/run.md) comme ça vous pouvez plus [déboguer facilement les problèmes](../tutorials_examples/debug-projects.md).
 
-The staging slot is perfect for:
-* Final validation of changes to your SubQuery Project in a separate environment. The staging slot has a different URL to production that you can use in your dApps.
-* Warming up and indexing data for an updated SubQuery project to eliminate downtime in your dApp
-* Preparing a new release for your SubQuery Project without exposing it publicly. The staging slot is not shown to the public in the Explorer and has a unique URL that is visible only to you.
+Le staging slot, emplacement de mise à disposition, est parfait pour :
+* Validation finale des modifications apportées à votre projet de SubQuery dans un environnement séparé. Le slot de staging, emplacement de mise à disposition, possède une URL différente de celle de la production que vous pouvez utiliser dans vos dApps.
+* Réchauffer et indexer les données pour un projet SubQuery mis à jour afin d'éliminer les temps d'arrêt dans votre dApp
+* Préparer une nouvelle version de votre projet SubQuery sans l'exposer publiquement. L'emplacement de mise à disposition n'est pas exposé au public dans l'explorateur et possède une URL unique qui n'est visible que par vous.
 
-![Staging slot](/assets/img/staging_slot.png)
+![Emplacement de stage](/assets/img/staging_slot.png)
 
-#### Upgrade to the Latest Indexer and Query Service
+#### Mise à niveau vers la dernière version de l'indexeur et du service de requêtes
 
-If you just want to upgrade to the latest indexer ([`@subql/node`](https://www.npmjs.com/package/@subql/node)) or query service ([`@subql/query`](https://www.npmjs.com/package/@subql/query)) to take advantage of our regular performance and stability improvements, just select a newer versions of our packages and save. This will cause only a few minutes of downtime.
+Si vous souhaitez simplement passer à la dernière version de l'indexeur ([`@subql/node`](https://www.npmjs.com/package/@subql/node)) ou du service de requête ([`@subql/query`](https://www.npmjs.com/package/@subql/query)) pour profiter de nos améliorations régulières en termes de performances et de stabilité, il vous suffit de sélectionner une version plus récente de nos paquets et d'enregistrer. Cela ne causera que quelques minutes de temps d'arrêt.
 
-#### Deploy New Version of your SubQuery Project
+#### Déployer la nouvelle version de votre projet SubQuery
 
-Fill in the Commit Hash from GitHub (copy the full commit hash) of the version of your SubQuery project codebase that you want deployed. This will cause a longer downtime depending on the time it takes to index the current chain. You can always report back here for progress.
+Remplissez le Commit Hash de GitHub (copiez le Commit Hash complet) de la version de la base de code de votre projet SubQuery que vous souhaitez déployer. Cela entraînera un temps d'arrêt plus long en fonction du temps nécessaire à l'indexation de la chaîne actuelle. Vous pouvez toujours rapporter ici les progrès accomplis.
 
 ## Étapes suivantes - Connexion à votre projet
 Une fois que votre déploiement a été effectué avec succès et que nos nœuds ont indexé vos données de la chaîne, vous pourrez vous connecter à votre projet via le point de terminaison GraphQL Query affiché.
 
 ![Projet en cours de déploiement et de synchronisation](/assets/img/projects-deploy-sync.png)
 
-Vous pouvez également cliquer sur les trois points situés à côté du titre de votre projet, et le visualiser dans l'explorateur de SubQuery. There you can use the in browser playground to get started - [read more about how to user our Explorer here](../query/query.md).
+Vous pouvez également cliquer sur les trois points situés à côté du titre de votre projet, et le visualiser dans l'explorateur de SubQuery. Là, vous pouvez utiliser le playground dans le navigateur pour commencer - [lire plus sur la façon d'utiliser notre Explorer ici](../query/query.md).
