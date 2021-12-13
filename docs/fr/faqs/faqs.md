@@ -14,7 +14,7 @@ La meilleure façon de commencer avec SubQuery est d'essayer notre [tutoriel Hel
 
 Nous aimons les contributions et les commentaires de la communauté. Pour contribuer au code, faites un fork du répertoire d'intérêt et apportez vos changements. Ensuite soumettez une PR ou une Pull Request. Oh, n'oubliez pas de tester aussi ! Consultez également notre guide des contributions (TBA).
 
-Pour nous faire part de vos commentaires, contactez-nous à l'adresse <hello@subquery.network> ou connectez-vous à notre [canal discord](https://discord.com/invite/78zg8aBSMG).
+Pour nous faire part de vos commentaires, contactez-nous à l'adresse hello@subquery.network ou connectez-vous à notre [canal discord](https://discord.com/invite/78zg8aBSMG)
 
 ## Combien coûte l'hébergement de mon projet dans SubQuery Projects ?
 
@@ -60,4 +60,4 @@ Un problème connu lors du développement d'un schéma de projet changeant est q
 subql-node -f . --force-clean --subquery-name=<project-name>
 ```
 
-Notez qu'il est recommandé d'utiliser `--force-clean` lors de la modification du `startBlock` dans le manifeste du projet`(project.yaml`) afin de commencer la réindexation à partir du bloc configuré. Si `startBlock` est modifié sans `--force-clean` du projet, l'indexeur continuera l'indexation avec le `startBlock` précédemment configuré.
+Notez qu'il est recommandé d'utiliser `--force-clean` lors de la modification du `startBlock` dans le manifeste du projet(`project.yaml`) afin de commencer la réindexation à partir du bloc configuré. Si `startBlock` est modifié sans `--force-clean` du projet, l'indexeur continuera l'indexation avec le `startBlock` précédemment configuré.
