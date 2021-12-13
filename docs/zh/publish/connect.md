@@ -4,7 +4,7 @@
 
 ![正在部署和同步的项目](/assets/img/projects-deploy-sync.png)
 
-您也可以点击项目标题旁边的“...”图标，从而在 SubQuery 浏览器上查看项目， 您可以通过SubQuery浏览器开始使用。 There you can use the in browser playground to get started.
+您也可以点击项目标题旁边的“...”图标，从而在 SubQuery 浏览器上查看项目， 您可以通过SubQuery浏览器开始使用。 您可以通过SubQuery浏览器开始使用。
 
 ![SubQuery Explorer 中的项目](/assets/img/projects-explorer.png)
 
