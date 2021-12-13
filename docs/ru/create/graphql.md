@@ -78,15 +78,15 @@ const pirateLords = await User.getByTitleId(captainTitle.id); // List of all Cap
 
 ## Entity Relationships
 
-An entity often has nested relationships with other entities. Setting the field value to another entity name will define a one-to-one relationship between these two entities by default.
+Сущности часто имеют вложенные взаимоотношения с другими сущностями. Установка значения в поле имени другой сущности по умолчанию будет означать отношение один-к-одному между этими двумя сущностями.
 
-Different entity relationships (one-to-one, one-to-many, and many-to-many) can be configured using the examples below.
+Различные взаимоотношения отношения сущностей («один-к-одному», «один-ко-многим» и «многие-ко-многим») могут быть настроены с помощью примеров приведенных ниже.
 
-### One-to-One Relationships
+### Взаимоотношения Один-к-Одному
 
-One-to-one relationships are the default when only a single entity is mapped to another.
+Отношения «один-к-одному» используются по умолчанию, когда только один объект сопоставлен с другим.
 
-Example: A passport will only belong to one person and a person only has one passport (in this example):
+Пример: Паспорт будет принадлежать только одному человеку, и человек имеет только один паспорт (в этом примере):
 
 ```graphql
 type Person @entity {
@@ -99,7 +99,7 @@ type Passport @entity {
 }
 ```
 
-or
+или
 
 ```graphql
 type Person @entity {
@@ -113,11 +113,11 @@ type Passport @entity {
 }
 ```
 
-### One-to-Many relationships
+### Взаимоотношения Один-ко-Многим
 
-You can use square brackets to indicate that a field type includes multiple entities.
+Вы можете использовать квадратные скобки, чтобы указать, что тип поля содержит несколько сущностей.
 
-Example: A person can have multiple accounts.
+Пример: Человек может иметь несколько учетных записей.
 
 ```graphql
 type Person @entity {
@@ -131,10 +131,10 @@ type Account @entity {
 }
 ```
 
-### Many-to-Many relationships
-A many-to-many relationship can be achieved by implementing a mapping entity to connect the other two entities.
+### Взаимоотношения Многие-ко-Многим
+Отношения «многие ко многим» могут быть достигнуты путем реализации сопоставления сущности для соединения с двумя другими сущностями.
 
-Example: Each person is a part of multiple groups (PersonGroup) and groups have multiple different people (PersonGroup).
+Пример: Каждый человек является частью нескольких групп (ЧеловекГруппа), и в группах есть несколько разных людей (ЧеловекГруппа).
 
 ```graphql
 type Person @entity {
