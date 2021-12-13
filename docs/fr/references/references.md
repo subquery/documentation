@@ -9,18 +9,19 @@ Cela montre les options d'aide.
 ```shell
 > subql-node --help
 Options:
-      --help                Show help                                  [boolean]
-      --version             Show version number                        [boolean]
-  -f, --subquery            Local path of the subquery project          [string]
-      --subquery-name       Name of the subquery project                [string]
-  -c, --config              Specify configuration file                  [string]
-      --local               Use local mode                             [boolean]
-      --force-clean         Force clean the database, dropping project schemas
-                            and tables                                 [boolean]
-      --batch-size          Batch size of blocks to fetch in one round  [number]
-      --timeout             Timeout for indexer sandbox to execute the mapping
-                            functions                                   [number]
-      --debug               Show debug information to console output. will
+      --help                Montrer l'aide                                  [boolean]
+      --version             Afficher la version                       [boolean]
+  -f, --subquery            Chemin local du projet subquery          [string]
+      --subquery-name       Nom du projet de subquery                [string]
+  -c, --config              Fichier de configuration spécifier                  [string]
+      --local               Utiliser le mode local                             [boolean]
+      --force-clean         Nettoyage forcé de la base de données, en 
+                            supprimant le schéma et les tables du projet                                 [boolean]
+      --batch-size          Taille du lot de blocs à extraire en 
+                            une seule fois  [number]
+      --timeout             Délai d'exécution des fonctions de mapping 
+                            par la sandbox de l'indexeur                                   [number]
+      --debug               Affiche les informations de débogage sur la console. will
                             forcefully set log level to debug
                                                       [boolean] [default: false]
       --profiler            Show profiler information to console output
@@ -269,10 +270,10 @@ Cette option active le graphql playground et doit donc toujours être inclus par
 
 ### --output-fmt
 
-See [--output-fmt](https://doc.subquery.network/references/references.html#output-fmt)
+Voir [--output-fmt](https://doc.subquery.network/references/references.html#output-fmt)
 
 ### --log-level
 
-See [--log-level](https://doc.subquery.network/references/references.html#log-level)
+Voir [--log-level](https://doc.subquery.network/references/references.html#log-level)
 
 <!-- ### --indexer TBA -->
