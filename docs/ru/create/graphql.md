@@ -1,15 +1,15 @@
-# GraphQL Schema
+# Схема GraphQL
 
-## Defining Entities
+## Определение сущностей
 
-The `schema.graphql` file defines the various GraphQL schemas. Due to the way that the GraphQL query language works, the schema file essentially dictates the shape of your data from SubQuery. To learn more about how to write in GraphQL schema language, we recommend checking out [Schemas and Types](https://graphql.org/learn/schema/#type-language).
+В файле ` schema.graphql ` определены различные схемы GraphQL. Из-за способа работы языка запросов GraphQL файл схемы по существу определяет форму ваших данных из SubQuery. Чтобы узнать больше о том, как писать на языке схем GraphQL, мы рекомендуем ознакомиться со схемами и типами.
 
-**Important: When you make any changes to the schema file, please ensure that you regenerate your types directory with the following command `yarn codegen`**
+**Важно: когда вы вносите какие-либо изменения в файл схемы, убедитесь, что вы регенерируете каталог типов с помощью следующей команды ` yarn codegen `**
 
-### Entities
-Each entity must define its required fields `id` with the type of `ID!`. It is used as the primary key and unique among all entities of the same type.
+### Cущности
+Каждая сущность должна определять требуемые поля ID c помощью типа ID. Это используется как главный ключ и он уникален среди всех сущностей одинакового типа.
 
-Non-nullable fields in the entity are indicated by `!`. Please see the example below:
+Не-нулевые поля в сущности обозначаются `!`. Посмотрите на пример ниже:
 
 ```graphql
 type Example @entity {
@@ -29,15 +29,15 @@ We currently supporting flowing scalars types:
 - `Float`
 - `Date`
 - `Boolean`
-- `<EntityName>` for nested relationship entities, you might use the defined entity's name as one of the fields. Please see in [Entity Relationships](#entity-relationships).
-- `JSON` can alternatively store structured data, please see [JSON type](#json-type)
-- `<EnumName>` types are a special kind of enumerated scalar that is restricted to a particular set of allowed values. Please see [Graphql Enum](https://graphql.org/learn/schema/#enumeration-types)
+- `<EntityName>` для вложенных сущностей отношений, вы можете использовать имя определенной сущности в качестве одного из полей. Пожалуйста, смотрите в [Entity Relationships](#entity-relationships).
+- `JSON` может также хранить структурированные данные, пожалуйста, посмотрите [JSON type](#json-type)
+- `<EnumName>` типы это особый вид enum скаляра, который ограничен определенным набором допустимых значений. Please see [Graphql Enum](https://graphql.org/learn/schema/#enumeration-types)
 
 ## Indexing by non-primary-key field
 
-To improve query performance, index an entity field simply by implementing the `@index` annotation on a non-primary-key field.
+Для улучшения производительности запроса необходимо индексировать поле сущности выполнив `@index` для поля не являющегося первичным ключом.
 
-However, we don't allow users to add `@index` annotation on any [JSON](#json-type) object. By default, indexes are automatically added to foreign keys and for JSON fields in the database, but only to enhance query service performance.
+Однако мы не позволяем юзерам добавлять аннотацию `@index` на какой либо из объектов [JSON](#json-type). По умолчанию индексы автоматически добавляются к внешним ключам и к полям JSON в базе данных, но только для повышения производительности службы запросов.
 
 Here is an example.
 
@@ -53,9 +53,9 @@ type Title @entity {
   name: String! @index(unique:true)
 }
 ```
-Assuming we knew this user's name, but we don't know the exact id value, rather than extract all users and then filtering by name we can add `@index` behind the name field. This makes querying much faster and we can additionally pass the `unique: true` to  ensure uniqueness.
+Если предположить, что мы знаем имя этого пользователя, но не знаем точного значения Id, то вместо того, чтобы извлечь всех пользователей и затем фильтровать их по имени, мы можем добавить ` @index ` за полем имени. Это делает выполнение запросов значительно более быстрым, и мы можем дополнительно передать `unique: true` для обеспечения уникальности.
 
-**If a field is not unique, the maximum result set size is 100**
+**Если поле не является уникальным, то максимальный размер набора результатов будет равен 100**
 
 When code generation is run, this will automatically create a `getByName` under the `User` model, and the foreign key field `title` will create a `getByTitleId` method, which both can directly be accessed in the mapping function.
 
