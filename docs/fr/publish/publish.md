@@ -1,16 +1,16 @@
-# Publish your SubQuery project
+# Publiez votre projet SubQuery
 
-## Benefits of hosting your project with SubQuery
-- We'll run your SubQuery projects for you in a high performance, scalable, and managed public service
-- This service is being provided to the community for free!
-- You can make your projects public so that they'll be listed in the [SubQuery Explorer](https://explorer.subquery.network) and anyone around the world can view them
-- We're integrated with GitHub, so anyone in your GitHub organisations will be able to view shared organisation projects
+## Avantages de l'hébergement de votre projet avec SubQuery
+- Nous exécutons vos projets SubQuery dans un service public performant, évolutif et géré
+- Ce service est fourni gratuitement à la communauté !
+- Vous pouvez rendre vos projets publics afin qu'ils soient répertoriés dans le [SubQuery Explorer](https://explorer.subquery.network) et que n'importe qui dans le monde puisse les voir
+- Nous sommes intégrés à GitHub, de sorte que toute personne faisant partie de vos organisations GitHub pourra consulter les projets partagés de l'organisation
 
-## Create your First Project
+## Créez votre premier projet
 
-#### Login to SubQuery Projects
+#### Connexion à SubQuery Projects
 
-Before starting, please make sure that your SubQuery project is online in a public GitHub repository. The `schema.graphql` file must be in the root of your directory.
+Avant de commencer, veuillez vous assurer que votre projet SubQuery est en ligne dans un dépôt GitHub public. The `schema.graphql` file must be in the root of your directory.
 
 To create your first project, head to [project.subquery.network](https://project.subquery.network). You'll need to authenticate with your GitHub account to login.
 
@@ -26,7 +26,7 @@ If you have a GitHub Organization accounts connected, you can use the switcher o
 
 ![Switch between GitHub accounts](/assets/img/projects-account-switcher.png)
 
-#### Create your First Project
+#### Créez votre premier projet
 
 Let's start by clicking on "Create Project". You'll be taken to the New Project form. Please enter the following (you can change this in the future):
 - **GitHub account:** If you have more than one GitHub account, select which account this project will be created under. Projects created in a GitHub organisation account are shared between members in that organisation.
@@ -56,11 +56,11 @@ If deployed successfully, you'll see the indexer start working and report back p
 ## Next Steps - Connect to your Project
 Once your deployment has succesfully completed and our nodes have indexed your data from the chain, you'll be able to connect to your project via the displayed GraphQL Query endpoint.
 
-![Project being deployed and synced](/assets/img/projects-deploy-sync.png)
+![Projet en cours de déploiement et de synchronisation](/assets/img/projects-deploy-sync.png)
 
-Alternatively, you can click on the three dots next to the title of your project, and view it on SubQuery Explorer. There you can use the in-browser playground to get started - [read more about how to user our Explorer here](../query/query.md).
+Vous pouvez également cliquer sur les trois points situés à côté du titre de votre projet, et le visualiser dans l'explorateur de SubQuery. There you can use the in-browser playground to get started - [read more about how to user our Explorer here](../query/query.md).
 
-![Projects in SubQuery Explorer](/assets/img/projects-explorer.png)
+![Projets dans l'explorateur de SubQuery](/assets/img/projects-explorer.png)
 
 ## Add GitHub Organization Account to SubQuery Projects
 
