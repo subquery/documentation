@@ -1,10 +1,10 @@
-# Command Line Flags
+# 命令行标志
 
 ## subql-node
 
 ### --help
 
-This shows the help options.
+这将显示帮助选项。
 
 ```shell
 > subql-node --help
@@ -36,8 +36,7 @@ Options:
                                                        [boolean] [default: true]
   -d, --network-dictionary  Specify the dictionary api for this network [string]
       --proof-of-index      Enable/disable proof of index
-                                                      [boolean] [default: false] will
-                            forcefully set log level to debug
+                                                      [boolean] [default: false] will forcefully set log level to debug
                                                       [boolean] [default: false]
       --profiler            Show profiler information to console output
                                                       [boolean] [default: false]
@@ -53,17 +52,13 @@ Options:
       --timestamp-field     Enable/disable created_at and updated_at in schema
                                                        [boolean] [default: true]
   -d, --network-dictionary  Specify the dictionary api for this network [string]
-  -m, --mmr-path            Local path of the merkle mountain range (.mmr) file
-                                                                        [string]
       --proof-of-index      Enable/disable proof of index
                                                       [boolean] [default: false]
-  -p, --port                The port the service will bind to
-                                                        [number] [default: 3000]
 ```
 
 ### --version
 
-This displays the current version.
+显示当前版本
 
 ```shell
 > subql-node --version
@@ -72,7 +67,7 @@ This displays the current version.
 
 ### -f, --subquery
 
-Use this flag to start the SubQuery project.
+使用此标志启动Subquery项目。
 
 ```shell
 subql-node -f . subql-node -f . // OR
@@ -81,7 +76,7 @@ subql-node --subquery .
 
 ### --subquery-name
 
-This flag allows you to provide a name for your project which acts as if it creates an instance of your project. This flag allows you to provide a name for your project which acts as if it creates an instance of your project. Upon providing a new name, a new database schema is created and block synchronisation starts from zero.
+如果您新建了一个您项目的一个实例，这个标识符将允许您为这个项目提供一个新名称。 This flag allows you to provide a name for your project which acts as if it creates an instance of your project. Upon providing a new name, a new database schema is created and block synchronisation starts from zero.
 
 ```shell
 subql-node -f . subql-node -f . --subquery-name=test2
@@ -89,9 +84,9 @@ subql-node -f . subql-node -f . --subquery-name=test2
 
 ### -c, --config
 
-All these various configurations can be placed into a .yml or .json file and then referenced with the config flag.
+所有这些不同的配置都可以放置到 .yml 或 .json 文件中，然后用配置标识符进行引用。
 
-Sample subquery_config.yml file:
+示例subquery_config.yml文件：
 
 ```shell
 subquery: . // Mandatory. This is the local path of the project. The period here means the current local directory.
@@ -100,7 +95,7 @@ subqueryName: hello // Optional name
 batchSize: 55 // Optional config
 ```
 
-Place this file in the same directory as the project. Then in the current project directory, run: Then in the current project directory, run:
+Place this file in the same directory as the project. Then in the current project directory, run: 然后在当前项目目录中，运行：
 
 ```shell
 > subql-node -c ./subquery_config.yml
@@ -108,13 +103,13 @@ Place this file in the same directory as the project. Then in the current projec
 
 ### --local
 
-This flag is primarily used for debugging purposes where it creates the default starter_entity table in the default "postgres" schema.
+这个标志主要用于调试，在默认的“postgres”模式中创建默认starter_entity 表。
 
 ```shell
 subql-node -f . --local
 ```
 
-Note that once you use this flag, removing it won't mean that it will point to another database. To repoint to another database you will have to create a NEW database and change the env settings to this new database. In other words, "export DB_DATABASE= To repoint to another database you will have to create a NEW database and change the env settings to this new database. In other words, "export DB_DATABASE=<new_db_here>"
+Note that once you use this flag, removing it won't mean that it will point to another database. To repoint to another database you will have to create a NEW database and change the env settings to this new database. In other words, "export DB_DATABASE= 要重新指向另一个数据库，您将需要创建一个新的数据库，并将环境设置更改为这个新数据库。 换言之，“export DB_DATABASE=<new_db_here>"
 
 ### --force-clean
 
@@ -241,7 +236,7 @@ subql-node -f . subql-node -f . -d "https://api.subquery.network/sq/subquery/dic
 
 ### --help
 
-This shows the help options.
+这将显示帮助选项。
 
 ```shell
 ns:
@@ -262,7 +257,7 @@ ns:
 
 ### --version
 
-This displays the current version.
+显示当前版本
 
 ```shell
 > subql-query --version
