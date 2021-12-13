@@ -1,16 +1,16 @@
 # การทำ Mapping
 
-ฟังก์ชันการทำ Mapping นั้นช่วยกำหนดวิธีการแปลงข้อมูลเครือข่ายเป็นเอนทิตี GraphQL ที่ปรับให้เหมาะสม ซึ่งเราได้กำหนดไว้แล้วในไฟล์ `schema.graphql`
+ฟังก์ชัน Map นั้นช่วยกำหนดวิธีการแปลงข้อมูลเครือข่ายเป็นเอนทิตี GraphQL ที่เหมาะสม ซึ่งเราได้กำหนดไว้แล้วในไฟล์ `schema.graphql`
 
-- การทำ Mapping นั้นได้ถูกกำหนดไว้ในไดเรกทอรี่ `src/mappings` และถูก export ออกมาเป็นฟังก์ชั่น
-- These mappings are also exported in `src/index.ts`
-- The mappings files are reference in `project.yaml` under the mapping handlers.
+- การ Map นั้นได้ถูกกำหนดไว้ในไดเรกทอรี่ `src/mappings` และถูก export ออกมาเป็นฟังก์ชั่น
+- การ map เหล่านี้จะถูก export ใน `src/index.ts` ด้วย
+- ไฟล์การ map มีการอ้างอิงใน `project.yaml` ภายใต้ตัวจัดการการแมป (mapping handlers)
 
-There are three classes of mappings functions; [Block handlers](#block-handler), [Event Handlers](#event-handler), and [Call Handlers](#call-handler).
+ฟังก์ชั่น map นั้นมีอยู่ 3 คลาส ได้แก่ [Block handlers](#block-handler), [Event Handlers](#event-handler) และ [Call Handlers](#call-handler)
 
 ## Block Handler
 
-You can use block handlers to capture information each time a new block is attached to the Substrate chain, e.g. block number. To achieve this, a defined BlockHandler will be called once for every block.
+คุณสามารถใช้ block handler ต่าง ๆ เพื่อเก็บข้อมูลทุกครั้งที่มีการแนบบล็อกใหม่เข้ากับเครือข่าย Substrate เช่น หมายเลขบล็อก ซึ่งทำได้โดย BlockHandler ที่ถูกกำหนดไว้แล้ว จะถูกเรียกขึ้นมา 1 ครั้งในทุก ๆ บล็อก
 
 ```ts
 import {SubstrateBlock} from "@subql/types";
@@ -23,7 +23,7 @@ export async function handleBlock(block: SubstrateBlock): Promise<void> {
 }
 ```
 
-A [SubstrateBlock](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L16) is an extended interface type of [signedBlock](https://polkadot.js.org/docs/api/cookbook/blocks/), but also includes the `specVersion` and `timestamp`.
+[SubstrateBlock](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L16) เป็นอินเทอร์เฟซแบบเพิ่มเติมของ [signedBlock](https://polkadot.js.org/docs/api/cookbook/blocks/) แต่ยังรวมถึง `specVersion` และ `timestamp` ด้วย
 
 ## Event Handler
 
@@ -261,7 +261,7 @@ This command will generate the metadata and a new api-augment for the APIs. As w
 }
 ```
 
-### Usage
+### การใช้งาน
 
 Now in the mapping function, we can show how the metadata and types actually decorate the API. The RPC endpoint will support the modules and methods we declared above. And to use custom rpc call, please see section [Custom chain rpc calls](#custom-chain-rpc-calls)
 ```typescript
