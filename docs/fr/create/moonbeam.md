@@ -77,7 +77,7 @@ Fonctionne de la même manière que [substrate/CallHandler](../create/mapping/#e
 <b>Note sur les sujets :</b>
 Il y a quelques améliorations à partir des filtres de log de base :
 
-- Les sujets n'ont pas besoin d'être rembourrés 0
+- Les sujets n'ont pas besoin d'être remplis de 0
 - Les chaînes [fragments d'événement](https://docs.ethers.io/v5/api/utils/abi/fragments/#EventFragment) peuvent être fournies et converties automatiquement à leur id
 
 ### Gestionnaires
@@ -125,6 +125,6 @@ dataSources:
 
 ## Limitations connues
 
-- Il n'y a actuellement aucun moyen de interroger l'état EVM dans un gestionnaire
+- Il n'y a actuellement aucun moyen d'interroger l'état EVM dans un gestionnaire
 - Il n'y a aucun moyen d'obtenir les reçus de transaction avec les gestionnaires d'appel
 - Les propriétés `blockHash` sont actuellement laissées indéfinies, la propriété `blockNumber` peut être utilisée à la place
