@@ -12,22 +12,22 @@
 
 ## Початок роботи
 
-Contributions to our repositories are made through Issues and Pull Requests (PRs). A few general guidelines that cover both:
+Вклади у наш репозиторій робляться через Issues та Pull requests (PR). Ось декілька загальних рекомендацій, що охоплюють обидва методи:
 
-* Search for existing Issues and PRs before creating your own.
-* We work hard to makes sure issues are handled in promptly but, depending on the impact, it could take a while to investigate the root cause. A friendly @ mention in the comment thread to the submitter or a contributor can help draw attention if your issue is blocking.
+* Перш ніж створювати власні питання та PR, пошукайте та переконайтеся в тому, що вони не були створені раніше.
+* Ми докладаємо всіх зусиль для того, щоб забезпечити своєчасне вирішення проблем, але, залежно від впливу даних проблем, може знадобитися більше часу на дослідження основної причини. Дружня @ згадка відправника або учасника у гілці коментарів може допомогти привернути увагу до вашої проблеми, якщо вона не вирішується.
 
-## How to Contribute
+## Як зробити вклад у Проект
 
-### Reporting Bugs
+### Звіт про знайдені помилки/баги
 
-Bugs are tracked as GitHub issues. When logging an issue, explain the problem and include additional details to help maintainers reproduce the problem:
+Всі помилки/баги реєструються як GitHub issues. При реєстрації проблеми постарайтеся дати детальне пояснення та опис проблеми, це допоможе нашим технічним фахівцям швидше відтворити її:
 
-* Use a clear and descriptive title for the issue to identify the problem.
-* Describe the exact steps to reproduce the problem.
-* Describe the behavior you observed after following the steps.
-* Explain which behavior you expected to see instead and why.
-* Include screenshots if possible.
+* Щоб ідентифікувати проблему, намагайтеся використовувати зрозумілу та описову назву.
+* Опишіть точні кроки для вiдтворення проблеми.
+* Опишіть, який результат ви отримали після виконання цих кроків.
+* Поясніть, який результат ви очікували побачити замість отриманого результату, і чому.
+* При можливості додавайте скріншоти.
 
 ### Submitting Pull Requests
 
