@@ -54,7 +54,7 @@ network.endpoint สำหรับเครือข่าย Polkadot คื�
 
 ## How do I iteratively develop my project schema?
 
-A known issue with developing a changing project schema is that when lauching your Subquery node for testing, the previously indexed blocks will be incompatible with your new schema. In order to iteratively develop schemas the indexed blocks stored in the database must be cleared, this can be achieved by launching your node with the `--force-clean` flag. For example:
+A known issue with developing a changing project schema is that when lauching your Subquery node for testing, the previously indexed blocks will be incompatible with your new schema. In order to iteratively develop schemas the indexed blocks stored in the database must be cleared, this can be achieved by launching your node with the `--force-clean` flag. ยกตัวอย่างเช่น:
 
 ```shell
 subql-node -f . --force-clean --subquery-name=<project-name>
