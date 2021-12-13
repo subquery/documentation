@@ -1,54 +1,54 @@
-# Contributing To SubQuery
+# Contribuer à SubQuery
 
-Welcome and a big thank you for considering contributing to this SubQuery project! Together we can pave the way to a more decentralised future.
+Bienvenue et un grand merci d'avoir envisagé de contribuer à ce projet SubQuery ! Ensemble, nous pouvons ouvrir la voie à un avenir plus décentralisé.
 
-> This documentation is actively maintained by the SubQuery team. We welcome your contributions, you can do so by forking our GitHub project and making changes to all the documentation markdown files under the `docs` directory.
+> Cette documentation est activement maintenue par l'équipe SubQuery. Nous accueillons vos contributions, vous pouvez le faire en forkant notre projet GitHub et en apportant des modifications à tous les fichiers markdown de la documentation sous le répertoire `docs`.
 
-What follows is a set of guidelines (not rules) for contributing to SubQuery. Following these guidelines will help us make the contribution process easy and effective for everyone involved. It also communicates that you agree to respect the time of the developers managing and developing this project. In return, we will reciprocate that respect by addressing your issue, considering changes, collaborating on improvements, and helping you finalise your pull requests.
+Ce qui suit est un ensemble de directives (et non de règles) pour contribuer à SubQuery. Le respect de ces directives nous aidera à rendre le processus de contribution facile et efficace pour toutes les personnes impliquées. Il indique également que vous acceptez de respecter le temps des développeurs qui gèrent et développent ce projet. En retour, nous vous rendrons ce respect en traitant votre problème, en envisageant des modifications, en collaborant à des améliorations et en vous aidant à finaliser vos pull requests.
 
-## Code of Conduct
+## Code de conduite
 
-We take our open source community projects and responsibility seriously and hold ourselves and other contributors to high standards of communication. By participating and contributing to this project, you agree to uphold our [Code of Conduct](https://github.com/subquery/subql/blob/contributors-guide/CODE_OF_CONDUCT.md).
+Nous prenons au sérieux nos projets et notre responsabilité dans la communauté des logiciels libres et nous nous imposons, ainsi qu'aux autres contributeurs, des normes de communication élevées. En participant et en contribuant à ce projet, vous acceptez de respecter notre [Code de conduite](https://github.com/subquery/subql/blob/contributors-guide/CODE_OF_CONDUCT.md).
 
 ## Pour commencer
 
-Contributions to our repositories are made through Issues and Pull Requests (PRs). A few general guidelines that cover both:
+Les contributions à nos référentiels se font par le biais de issues et de Pull Requests (PRs). Quelques directives générales qui couvrent les deux :
 
-* Search for existing Issues and PRs before creating your own.
-* We work hard to makes sure issues are handled in promptly but, depending on the impact, it could take a while to investigate the root cause. A friendly @ mention in the comment thread to the submitter or a contributor can help draw attention if your issue is blocking.
+* Recherchez les numéros d'Issues et de PRs existants avant de créer les vôtres.
+* Nous nous efforçons de faire en sorte que les problèmes soient traités rapidement mais, en fonction de l'impact, l'enquête sur la cause profonde peut prendre un certain temps. Une mention amicale @ dans le fil de commentaires à l'auteur de la proposition ou à un contributeur peut aider à attirer l'attention si votre problème est bloquant.
 
-## How to Contribute
+## Comment contribuer
 
-### Reporting Bugs
+### Rapporter des bugs
 
-Bugs are tracked as GitHub issues. When logging an issue, explain the problem and include additional details to help maintainers reproduce the problem:
+Les bugs sont suivis comme des Issues GitHub. Lorsque vous enregistrez un problème, expliquez-le et incluez des détails supplémentaires pour aider les responsables à reproduire le problème :
 
-* Use a clear and descriptive title for the issue to identify the problem.
-* Describe the exact steps to reproduce the problem.
-* Describe the behavior you observed after following the steps.
-* Explain which behavior you expected to see instead and why.
-* Include screenshots if possible.
+* Utilisez un titre clair et descriptif de la question pour identifier le problème.
+* Décrivez les étapes exactes pour reproduire le problème.
+* Décrivez le comportement que vous avez observé après avoir suivi les étapes.
+* Expliquez quel comportement vous vous attendiez à voir à la place et pourquoi.
+* Incluez des captures d'écran si possible.
 
-### Submitting Pull Requests
+### Soumettre des Pull Requests
 
-In general, we follow the "fork-and-pull" Git workflow
+En général, nous suivons le workflow Git "fork-and-pull"
 
-* Fork the repository to your own Github account
-* Clone the project to your machine
-* Create a branch locally with a succinct but descriptive name
-* Commit changes to the branch
-* Following any formatting and testing guidelines specific to this repo
-* Push changes to your fork
-* Open a PR in our repository
+* Fork le dépôt vers votre propre compte Github
+* Clonez le projet sur votre machine
+* Créez une branche locale avec un nom succinct mais descriptif
+* Commit les changements dans la branche
+* Respecter les directives de formatage et d'essai spécifiques à ce dépôt
+* Push les changements vers votre fork
+* Ouvrir une PR dans notre dépôt
 
-## Coding Conventions
+## Conventions de codage
 
-### Git Commit Messages
+### Messages de commit Git
 
-* Use the present tense ("Add feature" not "Added feature")
-* Use the imperative mood ("Move cursor to..." not "Moves cursor to...")
-* Limit the first line to 72 characters or less
+* Utilisez le présent ("Add feature" not "Added feature")
+* Utilisez l'impératif ("Move cursor to..." not "Moves cursor to...")
+* Limiter la première ligne à 72 caractères ou moins
 
-### JavaScript Styleguide
+### Guide de style JavaScript
 
-* All JavaScript code is linted with Prettier and ESLint
+* Tout le code JavaScript est lintégré avec Prettier et ESLint
