@@ -39,7 +39,7 @@ We currently supporting flowing scalars types:
 
 Однако мы не позволяем юзерам добавлять аннотацию `@index` на какой либо из объектов [JSON](#json-type). По умолчанию индексы автоматически добавляются к внешним ключам и к полям JSON в базе данных, но только для повышения производительности службы запросов.
 
-Here is an example.
+Вот пример.
 
 ```graphql
 type User @entity {
@@ -76,7 +76,7 @@ const captainTitle = await Title.getByName('Captain');
 const pirateLords = await User.getByTitleId(captainTitle.id); // List of all Captains
 ```
 
-## Entity Relationships
+## Взаимоотношения сущностей
 
 Сущности часто имеют вложенные взаимоотношения с другими сущностями. Установка значения в поле имени другой сущности по умолчанию будет означать отношение один-к-одному между этими двумя сущностями.
 
@@ -156,11 +156,11 @@ type Group @entity {
 }
 ```
 
-Also, it is possible to create a connection of the same entity in multiple fields of the middle entity.
+Кроме того, возможно создать связь одной и той же сущности в нескольких полях средней сущности.
 
-For example, an account can have multiple transfers, and each transfer has a source and destination account.
+Например, учетная запись может иметь несколько переводов, и каждая передача имеет исходную и конечную учетную запись.
 
-This will establish a bi-directional relationship between two Accounts (from and to) through Transfer table.
+Это установит двунаправленную связь между двумя Учетными Записями (от и до) через Таблицу Переводов.
 
 ```graphql
 type Account @entity {
