@@ -36,7 +36,7 @@ Chez SubQuery, nous travaillons dur pour réaliser ce que nous faisons. De même
 
 Notre programme Ambassadeur comporte plusieurs niveaux, chaque niveau offrant des avantages et des possibilités différents. Vous pouvez gravir les échelons en participant aux activités des ambassadeurs et en travaillant dur pour nous.
 
-Une fois que vous aurez envoyé votre candidature, nous sélectionnerons les candidats qui correspondent à nos valeurs. Si vous êtes sélectionné, vous serez placé dans notre programme de formation et recevrez un dossier d'information qui vous permettra de mieux comprendre SubQuery. Ensuite, vous pouvez commencer à travailler dans le cadre du programme de formation en accomplissant certaines tâches d'accueil (par exemple, la création d'un projet de sous-questionnaire). Nous organiserons des ateliers tout au long de ce processus pour vous soutenir.
+Une fois que vous aurez envoyé votre candidature, nous sélectionnerons les candidats qui correspondent à nos valeurs. Si vous êtes sélectionné, vous serez placé dans notre programme de formation et recevrez un dossier d'information qui vous permettra de mieux comprendre SubQuery. Ensuite, vous pouvez commencer à travailler dans le cadre du programme de formation en accomplissant certaines tâches d'accueil (par exemple, la création d'un projet de SubQuery). Nous organiserons des ateliers tout au long de ce processus pour vous soutenir.
 
 Une fois que vous aurez réussi le programme de formation, vous pourrez vous considérer comme un ambassadeur de SubQuery et serez accepté dans notre programme complet. À partir de là, vous pouvez continuer à travailler dans le cadre du programme et gravir les échelons, en obtenant davantage de récompenses et d'avantages à mesure que vous gravissez les échelons.
 
