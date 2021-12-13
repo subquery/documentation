@@ -4,13 +4,13 @@
 
 > Дана документація активно підтримується командою SubQuery. Ми дуже раді вашому вкладу у наш проект. Для початку вам необхідно форкнути наш проект GitHub та внести зміни до всіх файлів markdown документації в каталозі `docs`.
 
-Нижче ви можете ознайомитись з інструкціями (не правилами), які допоможуть вам внести свій вклад у проект SubQuery. Дані інструкції допоможуть зробити участь у проекті найбільш ефективною та простою. Дотримуючись цих інструкцій, ви погоджуєтесь поважати час розробників, які керують цим проектом та розробляють його. In return, we will reciprocate that respect by addressing your issue, considering changes, collaborating on improvements, and helping you finalise your pull requests.
+Нижче ви можете ознайомитись з інструкціями (не правилами), які допоможуть вам внести свій вклад у проект SubQuery. Дані інструкції допоможуть зробити участь у проекті найбільш ефективною та простою. Дотримуючись цих інструкцій, ви погоджуєтесь поважати час розробників, які керують цим проектом та розробляють його. З нашого боку, ми зробимо все можливе, щоб допомогти вам з вирішенням будь-яких проблем, з якими ви можете зіткнутися, розглянемо питання про внесення змін і разом працюватимемо над покращенням проекту. Також, ми допоможемо вам фіналізувати ваші пул реквести (pull requests).
 
-## Code of Conduct
+## Наш Кодекс Поведінки
 
-We take our open source community projects and responsibility seriously and hold ourselves and other contributors to high standards of communication. By participating and contributing to this project, you agree to uphold our [Code of Conduct](https://github.com/subquery/subql/blob/contributors-guide/CODE_OF_CONDUCT.md).
+Ми серйозно ставимося до наших open source проектів спільноти, та до відповідальності. Також, ми та інші учасники дотримуємося високих стандартів спілкування. Беручи участь у нашому проекті, ви погоджуєтеся дотримуватися нашого [Кодексу Поведінки](https://github.com/subquery/subql/blob/contributors-guide/CODE_OF_CONDUCT.md).
 
-## Getting started
+## Початок роботи
 
 Contributions to our repositories are made through Issues and Pull Requests (PRs). A few general guidelines that cover both:
 
