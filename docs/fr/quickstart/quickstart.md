@@ -6,7 +6,7 @@ At the end of this guide, you'll have a working SubQuery project running on a Su
 
 If you haven't already, we suggest that you familiarise yourself with the [terminology](../#terminology) used in SubQuery.
 
-## Preparation
+## Préparation
 
 ### Local Development Environment
 
@@ -102,7 +102,7 @@ It may take some time to download the required packages ([`@subql/node`](https:/
 
 Open your browser and head to [http://localhost:3000](http://localhost:3000).
 
-You should see a GraphQL playground is showing in the explorer and the schemas that are ready to query. On the top right of the playground, you'll find a _Docs_ button that will open a documentation draw. This documentation is automatically generated and helps you find what entities and methods you can query.
+You should see a GraphQL playground is showing in the explorer and the schemas that are ready to query. On the top right of the playground, you'll find a _Docs_ button that will open a documentation draw. Cette documentation est générée automatiquement et vous aide à trouver les entités et les méthodes que vous pouvez interroger.
 
 For a new SubQuery starter project, you can try the following query to get a taste of how it works or [learn more about the GraphQL Query language](../query/graphql.md).
 
