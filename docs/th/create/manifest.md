@@ -43,28 +43,28 @@ Manifest สามารถอยู่ในรูป YAML หรือ JSON �
 | **version**     | 𐄂                                   | String                      | เวอร์ชั่นโปรเจ็กต์ของคุณ                             |
 | **description** | String                              | String                      | คำอธิบายโปรเจ็กต์ของคุณ                              |
 | **repository**  | String                              | String                      | ตำแหน่ง Git repository ของโปรเจ็กต์คุณ               |
-| **schema**      | String                              | [Schema Spec](#schema-spec) | The location of your GraphQL schema file             |
-| **network**     | [Network Spec](#network-spec)       | Network Spec                | Detail of the network to be indexed                  |
+| **schema**      | String                              | [Schema Spec](#schema-spec) | ตำแหน่งไฟล์ GraphQL schema ของคุณ                    |
+| **network**     | [Network Spec](#network-spec)       | Network Spec                | รายละเอียดของเครือข่ายที่จะถูกนำมา index             |
 | **dataSources** | [DataSource Spec](#datasource-spec) | DataSource Spec             |                                                      |
 
 ### Schema Spec
 
-| Field    | v0.0.1 | v0.2.0 | คำอธิบาย                                 |
-| -------- | ------ | ------ | ---------------------------------------- |
-| **file** | 𐄂      | String | The location of your GraphQL schema file |
+| Field    | v0.0.1 | v0.2.0 | คำอธิบาย                          |
+| -------- | ------ | ------ | --------------------------------- |
+| **file** | 𐄂      | String | ตำแหน่งไฟล์ GraphQL schema ของคุณ |
 
 ### Network Spec
 
-| Field           | v0.0.1 | v0.2.0        | คำอธิบาย                                                                                                                                                                                                   |
-| --------------- | ------ | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **genesisHash** | 𐄂      | String        | The genesis hash of the network                                                                                                                                                                            |
-| **endpoint**    | String | String        | Defines the wss or ws endpoint of the blockchain to be indexed - **This must be a full archive node**. You can retrieve endpoints for all parachains for free from [OnFinality](https://app.onfinality.io) |
-| **dictionary**  | String | String        | It is suggested to provide the HTTP endpoint of a full chain dictionary to speed up processing - read [how a SubQuery Dictionary works](../tutorials_examples/dictionary.md).                              |
-| **chaintypes**  | 𐄂      | {file:String} | Path to chain types file, accept `.json` or `.yaml` format                                                                                                                                                 |
+| Field           | v0.0.1 | v0.2.0        | คำอธิบาย                                                                                                                                                                                   |
+| --------------- | ------ | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **genesisHash** | 𐄂      | String        | Genesis Hash ของเครือข่าย                                                                                                                                                                  |
+| **endpoint**    | String | String        | กำหนด wss หรือ ws ปลายทางของ blockchain ที่ต้องการ index - **จำเป็นต้องเป็น full archive node** คุณสามารถดึงปลายทางได้จากทุก parachains ได้ฟรี จาก [OnFinality](https://app.onfinality.io) |
+| **dictionary**  | String | String        | แนะนำให้คุณกำ HTTP เป็นปลายทางของโฟลเดอร์ full chain เพื่อเพิ่มความเร็วในการทำงาน - อ่าน [how a subQuery Dictionary works](../tutorials_examples/dictionary.md)                            |
+| **chaintypes**  | 𐄂      | {file:String} | เส้นทางไปยัง chain types file รองรับรูปแบบ `.json` หรือ `.yaml`                                                                                                                            |
 
 ### Datasource Spec
 
-Defines the data that will be filtered and extracted and the location of the mapping function handler for the data transformation to be applied.
+กำหนดข้อมูลที่จะถูกกรองหรือดึงออกจากตำแหน่งของ mapping function handler เพื่อนำมาใช้กับข้อมูลที่ถูกแปลง
 | Field          | v0.0.1                                                    | v0.2.0                                                                           | คำอธิบาย                                                                                                                                                                              |
 | -------------- | --------------------------------------------------------- | -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **name**       | String                                                    | 𐄂                                                                                | Name of the data source                                                                                                                                                               |
@@ -137,7 +137,7 @@ The `genesisHash` must always be the hash of the first block of the custom netwo
 
 ![Genesis Hash](/assets/img/genesis-hash.jpg)
 
-Additionally you will need to update the `endpoint`. This defines the wss endpoint of the blockchain to be indexed - **This must be a full archive node**. You can retrieve endpoints for all parachains for free from [OnFinality](https://app.onfinality.io)
+Additionally you will need to update the `endpoint`. This defines the wss endpoint of the blockchain to be indexed - **This must be a full archive node**. คุณสามารถดึงปลายทางได้จากทุก parachains ได้ฟรี จาก [OnFinality](https://app.onfinality.io)
 
 ### Chain Types
 
