@@ -12,7 +12,7 @@
 
 ## Postgres
 
-การรัน indexer node บนโครงสร้างพื้นฐานของคุณจะต้องมีการตั้งค่าฐานข้อมูล Postgres คุณสามารถติดตั้ง Postgres ได้[ที่นี่](https://www.postgresql.org/download/) และตรวจดูให้แน่ใจว่าเป็นเวอร์ชัน 12 ขึ้นไป You can install Postgres from [here](https://www.postgresql.org/download/) and ensure the version is 12 or greater.
+การรัน indexer node บนโครงสร้างพื้นฐานของคุณจะต้องมีการตั้งค่าฐานข้อมูล Postgres คุณสามารถติดตั้ง Postgres ได้[ที่นี่](https://www.postgresql.org/download/) และตรวจดูให้แน่ใจว่าเป็นเวอร์ชัน 12 ขึ้นไป คุณสามารถติดตั้ง Postgres ได้[ที่นี่](https://www.postgresql.org/download/) และตรวจดูให้แน่ใจว่าเป็นเวอร์ชัน 12 ขึ้นไป
 
 ## ติดตั้ง subql/node
 
@@ -22,7 +22,7 @@
 npm install -g @subql/node
 ```
 
-flag -g หมายถึงการติดตั้งแบบ global ซึ่งหมายถึงตำแหน่งจะเป็น /usr/local/lib/node_modules บน OSX
+คำสั่ง -g หมายถึงการติดตั้งแบบ global ซึ่งหมายถึงตำแหน่งจะเป็น /usr/local/lib/node_modules บน OSX
 
 เมื่อติดตั้งแล้ว คุณสามารถตรวจสอบเวอร์ชันได้โดยการรัน:
 
@@ -43,7 +43,7 @@ export DB_HOST=localhost
 export DB_PORT=5432
 ```
 
-Of course, if you have different values for the above keys, please adjust accordingly. แน่นอนว่าหากคุณมีค่าที่ต่างออกไปสำหรับตัวแปรด้านบน โปรดปรับตามนั้น โปรดทราบว่าคำสั่ง `env` จะแสดง environment variables ปัจจุบัน และกระบวนการนี้จะทำตั้งค่าเหล่านี้เพียงชั่วคราวเท่านั้น นั่นคือใช้ได้เฉพาะในช่วงเวลาที่ใช้งานเทอร์มินัล หากต้องการตั้งค่าอย่างถาวร ให้เก็บค่าไว้ใน ~/bash_profile ของคุณแทน That is, they are only valid for the duration of the terminal session. To set them permanently, store them in your ~/bash_profile instead.
+แน่นอนว่าหากคุณมีค่าที่ต่างออกไปสำหรับตัวแปรด้านบน โปรดปรับตามนั้น แน่นอนว่าหากคุณมีค่าที่ต่างออกไปสำหรับตัวแปรด้านบน โปรดปรับตามนั้น โปรดทราบว่าคำสั่ง `env` จะแสดง environment variables ปัจจุบัน และกระบวนการนี้จะทำตั้งค่าเหล่านี้เพียงชั่วคราวเท่านั้น นั่นคือใช้ได้เฉพาะในช่วงเวลาที่ใช้งานเทอร์มินัล หากต้องการตั้งค่าอย่างถาวร ให้เก็บค่าไว้ใน ~/bash_profile ของคุณแทน That is, they are only valid for the duration of the terminal session. To set them permanently, store them in your ~/bash_profile instead.
 
 ## การ Index โปรเจ็กต์
 
