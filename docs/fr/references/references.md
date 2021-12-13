@@ -1,10 +1,10 @@
-# Command Line Flags
+# Indicateurs de ligne de commande
 
 ## subql-node
 
 ### --help
 
-This shows the help options.
+Cela montre les options d'aide.
 
 ```shell
 > subql-node --help
@@ -222,7 +222,7 @@ subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot
 
 ### --help
 
-This shows the help options.
+Cela montre les options d'aide.
 
 ```shell
 Options:
