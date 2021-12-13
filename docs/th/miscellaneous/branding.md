@@ -10,7 +10,7 @@
 
 ไฟล์ Figma ของเรามีคอลเลกชั่นเต็มรูปแบบของทรัพยากรของแบรนด์ทั้งหมด (โลโก้, ฟอนต์, สี, ภาพ, ฯลฯ) สำหรับการ export
 
-[Figma - SubQuery Brand Resources](https://www.figma.com/file/AaCXaOcElrlbxq8fz39sJU/SubQuery-Brand-Resources?node-id=3%3A2)
+[Figma - SubQuery Brand Resources (แหล่งรวมสิ่งต่าง ๆ เกี่ยวกับแบรนด์ของ SubQuery)](https://www.figma.com/file/AaCXaOcElrlbxq8fz39sJU/SubQuery-Brand-Resources?node-id=3%3A2)
 
 ## แพ็คเกจทรัพยากรแบรนด์
 
