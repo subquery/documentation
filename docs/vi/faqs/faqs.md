@@ -8,17 +8,17 @@ SubQuery cũng cung cấp dịch vụ lưu trữ miễn phí, công suất lớn
 
 ## Cách tốt nhất để bắt đầu sử dụng SubQuery là gì?
 
-The best way to get started with SubQuery is to try out our [Hello World tutorial](../quickstart/helloworld-localhost.md). This is a simple 5 min walk through of downloading the starter template, building the project, and then using Docker to run a node on your localhost and running a simple query.
+The best way to get started with SubQuery is to try out our [Hello World tutorial](../quickstart/helloworld-localhost.md). Đây là một hướng dẫn đơn giản trong 5 phút để tải xuống mẫu khởi động, xây dựng dự án và sau đó sử dụng Docker để chạy một nút trên máy chủ cục bộ của bạn và chạy một truy vấn đơn giản.
 
 ## Làm cách nào để tôi có thể đóng góp hoặc gửi phản hồi cho SubQuery?
 
-We love contributions and feedback from the community. To contribute code, fork the repository of interest and make your changes. Then submit a PR or Pull Request. Oh, don't forget to test as well! Also check out our contributions guide lines (TBA).
+Chúng tôi rất mong nhận được ý kiến đóng góp hoặc phản hồi từ cộng đồng. Để đóng góp mã, hãy tạo bản sao cho kho lưu trữ bạn quan tâm và đưa ra những thay đổi. Sau đó hãy sử dụng chức năng Pull Request hay gọi tắt là PR. À, đừng quên chạy thử đấy nhé! Also check out our contributions guide lines (TBA).
 
 Để gửi phản hồi, hãy liên hệ với chúng tôi qua email hello@subquery.network hoặc truy cập [kênh discord](https://discord.com/invite/78zg8aBSMG) của chúng tôi
 
 ## Chi phí để lưu trữ dự án của tôi trong SubQuery Projects là bao nhiêu?
 
-Hosting your project in SubQuery Projects is absolutely free - it's is our way of giving back to the community. To learn how to host your project with us, please check out the [Hello World (SubQuery hosted)](../quickstart/helloworld-hosted.md) tutorial.
+Việc lưu trữ dự án trên SubQuery là hoàn toàn miễn phí - đây là cách chúng tôi cống hiến cho cộng đồng. To learn how to host your project with us, please check out the [Hello World (SubQuery hosted)](../quickstart/helloworld-hosted.md) tutorial.
 
 ## Các vị trí triển khai là gì?
 
