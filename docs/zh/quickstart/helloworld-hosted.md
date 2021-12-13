@@ -52,7 +52,7 @@ yarn build
 
 ![创建 GitHub 仓库](/assets/img/github_repo_url.png)
 
-## 3. Push to GitHub
+## 3. 推送到 GitHub
 
 回到您的项目目录，将其初始化为 git 目录。 否则，您可能会收到"fatal: not a git repository (or any of the parent directories): .git”
 
