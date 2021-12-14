@@ -1,6 +1,6 @@
-# How to change the blockchain fetching batch size?
+# Comment modifier la taille du lot de récupération de la blockchain ?
 
-## Video guide
+## Guide vidéo
 
 <figure class="video_container">
   <iframe src="https://www.youtube.com/embed/LO_Gea_IN_s" frameborder="0" allowfullscreen="true"></iframe>
@@ -8,9 +8,9 @@
 
 ## Introduction
 
-The default batch size is 100, but this can be changed by using the extra command `--batch-size=xx`.
+La taille de lot par défaut est de 100, mais elle peut être modifiée en utilisant la commande supplémentaire `--batch-size=xx`.
 
-You need to this to the command line as an extra flag or if you are using Docker, modify the docker-compose.yml with:
+Vous devez ajouter cette commande à la ligne de commande en tant qu'indicateur supplémentaire ou, si vous utilisez Docker, modifier le fichier docker-compose.yml :
 
 ```shell
 subquery-node:
@@ -33,8 +33,8 @@ subquery-node:
 
 ```
 
-This example sets the batch size to 50.
+Cet exemple définit la taille du lot à 50.
 
-## Why change the batch size?
+## Pourquoi changer la taille du lot ?
 
-Using a smaller batch size can reduce memory usage and not leave users hanging for large queries. In otherwords, your application can be more responsive. 
+L'utilisation d'une taille de lot plus petite peut réduire l'utilisation de la mémoire et ne pas laisser les utilisateurs en suspens pour les grandes requêtes. En d'autres termes, votre application peut être plus réactive. 
