@@ -1,6 +1,6 @@
-# Publish your SubQuery Project
+# Publica tu proyecto de SubQuery
 
-## Benefits of hosting your project with SubQuery
+## Beneficios de alojar tu proyecto con SubQuery
 - We'll run your SubQuery projects for you in a high performance, scalable, and managed public service
 - This service is being provided to the community for free!
 - You can make your projects public so that they'll be listed in the [SubQuery Explorer](https://explorer.subquery.network) and anyone around the world can view them
@@ -56,11 +56,11 @@ If deployed successfully, you'll see the indexer start working and report back p
 ## Next Steps - Connect to your Project
 Once your deployment has succesfully completed and our nodes have indexed your data from the chain, you'll be able to connect to your project via the displayed GraphQL Query endpoint.
 
-![Project being deployed and synced](/assets/img/projects-deploy-sync.png)
+![Proyecto en despliegue y sincronización](/assets/img/projects-deploy-sync.png)
 
-Alternatively, you can click on the three dots next to the title of your project, and view it on SubQuery Explorer. There you can use the in-browser playground to get started - [read more about how to user our Explorer here](../query/query.md).
+Alternativamente, puedes hacer clic en los tres puntos al lado del título de tu proyecto, y verlo en SubQuery Explorer. There you can use the in-browser playground to get started - [read more about how to user our Explorer here](../query/query.md).
 
-![Projects in SubQuery Explorer](/assets/img/projects-explorer.png)
+![Proyectos en el Explorador de SubQuery](/assets/img/projects-explorer.png)
 
 ## Add GitHub Organization Account to SubQuery Projects
 
