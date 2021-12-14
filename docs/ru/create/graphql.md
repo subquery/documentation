@@ -202,12 +202,12 @@ type Transfer @entity {
 
 ## JSON type
 
-We are supporting saving data as a JSON type, which is a fast way to store structured data. We'll automatically generate corresponding JSON interfaces for querying this data and save you time defining and managing entities.
+Мы поддерживаем сохранение данных в формате JSON, который является быстрым способом хранения структурированных данных. Мы автоматически сгенерируем соответствующие JSON интерфейсы для запрашивания этих данных и сэкономим вам время на определение и управление объектами.
 
-We recommend users use the JSON type in the following scenarios:
-- When storing structured data in a single field is more manageable than creating multiple separate entities.
-- Saving arbitrary key/value user preferences (where the value can be boolean, textual, or numeric, and you don't want to have separate columns for different data types)
-- The schema is volatile and changes frequently
+Мы рекомендуем пользователям использовать тип JSON в следующих сценариях:
+- Когда хранение структурированных данных в одном поле более удобно, чем создание нескольких отдельных сущностей.
+- При сохранении произвольных пользовательских настроек ключа/значения (где значение может быть логическим, текстовым или цифровым, и вы не хотите иметь отдельные столбцы для разного типа данных)
+- Схема непостоянна и часто меняется
 
 ### Define JSON directive
 Define the property as a JSON type by adding the `jsonField` annotation in the entity. This will automatically generate interfaces for all JSON objects in your project under `types/interfaces.ts`, and you can access them in your mapping function.
