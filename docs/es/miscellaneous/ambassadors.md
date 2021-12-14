@@ -1,8 +1,8 @@
-# Ambassador Program
+# Programa de Embajador
 
 ![Ambassador Banner Image](/assets/img/ambassador_banner.png)
 
-We understand that one of our biggest strengths is our community, and with your help, we want to grow and establish local ambassadors for communities around the world.
+Entendemos que una de nuestras mayores fortalezas es nuestra comunidad, y con tu ayuda, queremos crecer y establecer embajadores locales para comunidades de todo el mundo.
 
 [Apply Now!](https://forms.gle/GXBbJ6LDpNfM2v1X6)
 
