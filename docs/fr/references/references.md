@@ -22,27 +22,27 @@ Options:
       --timeout             Délai d'exécution des fonctions de mapping 
                             par la sandbox de l'indexeur                                   [number]
       --debug               Affiche les informations de débogage sur la console. will
-                            forcefully set log level to debug
+                            force le niveau du journal à déboguer
                                                       [boolean] [default: false]
-      --profiler            Show profiler information to console output
+      --profiler            Afficher les informations du profileur sur la sortie console
                                                       [boolean] [default: false]
-      --network-endpoint    Blockchain network endpoint to connect      [string]
-      --output-fmt          Print log as json or plain text
+      --network-endpoint    Point de terminaison du réseau blockchain à connecter      [string]
+      --output-fmt          Imprimer le journal en json ou en texte brut
                                            [string] [choices: "json", "colored"]
-      --log-level           Specify log level to print. Ignored when --debug is
-                            used
+      --log-level           Spécifier le niveau du journal à imprimer. Ignoré quand --debug est
+                            utilisé
           [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
                                                                        "silent"]
-      --migrate             Migrate db schema (for management tables only)
+      --migrate             Migration du schéma de la base de données (pour les tables de gestion uniquement)
                                                       [boolean] [default: false]
-      --timestamp-field     Enable/disable created_at and updated_at in schema
+      --timestamp-field     Activer/désactiver created_at et updated_at dans le schéma
                                                        [boolean] [default: true]
-  -d, --network-dictionary  Specify the dictionary api for this network [string]
-  -m, --mmr-path            Local path of the merkle mountain range (.mmr) file
+  -d, --network-dictionary  Spécifiez l'Api du dictionnaire pour ce réseau. [string]
+  -m, --mmr-path            Chemin local de la chaîne de montagne de Merkle fichier (.mmr)
                                                                         [string]
-      --proof-of-index      Enable/disable proof of index
+      --proof-of-index      Activer/désactiver la preuve d'index
                                                       [boolean] [default: false]
-  -p, --port                The port the service will bind to
+  -p, --port                Le port auquel le service sera lié
                                                         [number] [default: 3000]
 ```
 
@@ -227,16 +227,16 @@ Cela montre les options d'aide.
 
 ```shell
 Options:
-      --help        Show help                                          [boolean]
-      --version     Show version number                                [boolean]
-  -n, --name        Project name                             [string] [required]
-      --playground  Enable graphql playground                          [boolean]
-      --output-fmt  Print log as json or plain text
+      --help        Afficher l'aide                                          [boolean]
+      --version     Afficher la version                                [boolean]
+  -n, --name        Nom du projet                             [string] [required]
+      --playground  Activer le terrain de jeu graphql                          [boolean]
+      --output-fmt  Imprimer le journal en json ou en texte brut
                       [string] [choices: "json", "colored"] [default: "colored"]
-      --log-level   Specify log level to print.
+      --log-level   Spécifiez le niveau du journal à imprimer.
           [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
                                                      "silent"] [default: "info"]
-      --indexer     Url that allow query to access indexer metadata     [string]
+      --indexer     Url qui permet à la requête d'accéder aux métadonnées de l'indexeur     [string]
 ```
 
 ### --version
