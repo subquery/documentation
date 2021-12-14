@@ -223,7 +223,7 @@ type Transfer @entity {
 
 通过将Account实体的sentTransfer或receivedTransfer字段设置为从各自的from或to字段派生的值，我们从一个Account实体中访问Transfer中“from” 的Account。
 
-The Transfer "from" an Account is accessible from the Account entity by setting the sentTransfer or receivedTransfer as having their value derived from the respective from or to fields.
+通过将Account实体的sentTransfer或receivedTransfer字段设置为从各自的from或to字段派生的值，我们从一个Account实体中访问Transfer中“from” 的Account。
 
 ```graphql
 type Person @entity {
