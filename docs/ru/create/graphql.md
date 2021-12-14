@@ -209,7 +209,7 @@ type Transfer @entity {
 - При сохранении произвольных пользовательских настроек ключа/значения (где значение может быть логическим, текстовым или цифровым, и вы не хотите иметь отдельные столбцы для разного типа данных)
 - Схема непостоянна и часто меняется
 
-### Define JSON directive
+### Определение директивы JSON
 Define the property as a JSON type by adding the `jsonField` annotation in the entity. This will automatically generate interfaces for all JSON objects in your project under `types/interfaces.ts`, and you can access them in your mapping function.
 
 Unlike the entity, the jsonField directive object does not require any `id` field. A JSON object is also able to nest with other JSON objects.
