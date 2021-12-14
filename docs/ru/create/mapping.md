@@ -10,7 +10,7 @@
 
 ## Обработчик блоков
 
-Вы можете использовать обработчики блоков для сбора информации каждый раз, когда новый блок присоединяется к цепочке Substrate, например, номер блока. To achieve this, a defined BlockHandler will be called once for every block.
+Вы можете использовать обработчики блоков для сбора информации каждый раз, когда новый блок присоединяется к цепочке Substrate, например, номер блока. Для этого определенный обработчик блоков будет вызываться один раз для каждого блока.
 
 ```ts
 import {SubstrateBlock} from "@subql/types";
@@ -23,13 +23,13 @@ export async function handleBlock(block: SubstrateBlock): Promise<void> {
 }
 ```
 
-A [SubstrateBlock](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L16) is an extended interface type of [signedBlock](https://polkadot.js.org/docs/api/cookbook/blocks/), but also includes the `specVersion` and `timestamp`.
+[SubstrateBlock](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L16) является расширенным интерфейсом типа [signedBlock](https://polkadot.js.org/docs/api/cookbook/blocks/), но также включает в себя `specVersion` и `timestamp`.
 
 ## Обработчик событий
 
-You can use event handlers to capture information when certain events are included on a new block. The events that are part of the default Substrate runtime and a block may contain multiple events.
+Вы можете использовать обработчики событий для сбора информации при наступлении определенных событий в новом блоке. События, которые являются частью времени выполнения Substrate по умолчанию, и блок может содержать несколько событий.
 
-During the processing, the event handler will receive a substrate event as an argument with the event's typed inputs and outputs. Any type of event will trigger the mapping, allowing activity with the data source to be captured. You should use [Mapping Filters](./manifest.md#mapping-filters) in your manifest to filter events to reduce the time it takes to index data and improve mapping performance.
+Во время обработки обработчик события получит в качестве аргумента событие-подложку с типизированными входами и выходами события. Любой тип события вызывает сопоставление, позволяя фиксировать активность с источником данных. Вы должны использовать [Mapping Filters](./manifest.md#mapping-filters) в манифесте для фильтрации событий, чтобы сократить время индексирования данных и улучшить производительность отображения.
 
 ```ts
 импортировать {SubstrateEvent} из "@subql/types";
@@ -43,11 +43,11 @@ export async function handleEvent(event: SubstrateEvent): Promise<void> {
     ожидание record.save();
 ```
 
-A [SubstrateEvent](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L30) is an extended interface type of the [EventRecord](https://github.com/polkadot-js/api/blob/f0ce53f5a5e1e5a77cc01bf7f9ddb7fcf8546d11/packages/types/src/interfaces/system/types.ts#L149). Besides the event data, it also includes an `id` (the block to which this event belongs) and the extrinsic inside of this block.
+[SubstrateEvent](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L30) является расширенным интерфейсом типа [EventRecord](https://github.com/polkadot-js/api/blob/f0ce53f5a5e1e5a77cc01bf7f9ddb7fcf8546d11/packages/types/src/interfaces/system/types.ts#L149). Кроме данных о событии, он также включает `id` (блок, к которому принадлежит это событие) и внешние данные внутри этого блока
 
 ## Обработчик вызовов
 
-Call handlers are used when you want to capture information on certain substrate extrinsics.
+Обработчики вызовов используются, когда вы хотите запечатлеть информацию о некоторых substrate extrinsics.
 
 ```ts
 export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
@@ -55,19 +55,20 @@ export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
     record.field4 = extrinsic.block.timestamp;
     await record.save();
 }
+
 ```
 
-The [SubstrateExtrinsic](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L21) extends [GenericExtrinsic](https://github.com/polkadot-js/api/blob/a9c9fb5769dec7ada8612d6068cf69de04aa15ed/packages/types/src/extrinsic/Extrinsic.ts#L170). It is assigned an `id` (the block to which this extrinsic belongs) and provides an extrinsic property that extends the events among this block. Additionally, it records the success status of this extrinsic.
+[SubstrateExtrinsic](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L21) расширяет [GenericExtrinsic](https://github.com/polkadot-js/api/blob/a9c9fb5769dec7ada8612d6068cf69de04aa15ed/packages/types/src/extrinsic/Extrinsic.ts#L170). Ему присваивается `id` (блок, к которому принадлежит данное внешнее свойство) и предоставляется внешнее свойство, расширяющее события этого блока. Кроме того, он регистрирует успешный статус этой надбавки.
 
 ## Состояния запроса
-Our goal is to cover all data sources for users for mapping handlers (more than just the three interface event types above). Therefore, we have exposed some of the @polkadot/api interfaces to increase capabilities.
+Наша цель - охватить все источники данных для пользователей для обработчиков отображения (больше, чем просто три вышеуказанных типа событий интерфейса). Поэтому мы раскрыли некоторые интерфейсы @polkadot/api для расширения возможностей.
 
-These are the interfaces we currently support:
+Это те интерфейсы, которые мы поддерживаем в настоящее время:
 - [api.query.&lt;module&gt;.&lt;method&gt;()](https://polkadot.js.org/docs/api/start/api.query) будет запрашивать <strong>current</strong> блок.
 - [api.query.&lt;module&gt;.&lt;method&gt;.multi()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-same-type) сделает несколько запросов типа <strong>same</strong> в текущем блоке.
 - [api.queryMulti()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-distinct-types) сделает несколько запросов <strong>разных типов</strong> в текущем блоке.
 
-These are the interfaces we do **NOT** support currently:
+Это интерфейсы, которые мы **НЕ** поддерживаем сейчас:
 - ~~api.tx.*~~
 - ~~api.derive.*~~
 - ~~api.query.&lt;module&gt;.&lt;method&gt;.at~~
@@ -79,7 +80,7 @@ These are the interfaces we do **NOT** support currently:
 - ~~api.query.&lt;module&gt;.&lt;method&gt;.range~~
 - ~~api.query.&lt;module&gt;.&lt;method&gt;.sizeAt~~
 
-See an example of using this API in our [validator-threshold](https://github.com/subquery/tutorials-validator-threshold) example use case.
+Посмотрите пример использования этого API в нашем примере использования [validator-threshold](https://github.com/subquery/tutorials-validator-threshold).
 
 ## RPC-вызовы
 
