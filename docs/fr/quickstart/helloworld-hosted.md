@@ -6,32 +6,32 @@ Nous allons prendre le projet de démarrage simple (et tout ce que nous avons ap
 
 ## Objectifs d'apprentissage
 
-At the end of this quick start, you should:
+À la fin de ce démarrage rapide, vous devriez :
 
-- understand the required pre-requisites
-- be able host a project in [SubQuery Projects](https://project.subquery.network/)
-- run a simple query to get the block height of the Polkadot mainnet using the playground
-- run a simple GET query to get the block height of the Polkadot mainnet using cURL
+- comprendre les pré-requis nécessaires
+- pouvoir héberger un projet dans [SubQuery Projects](https://project.subquery.network/)
+- exécuter une requête simple pour obtenir la hauteur de bloc du réseau principal Polkadot en utilisant playground
+- exécuter une simple requête GET pour obtenir la hauteur de bloc du réseau principal Polkadot en utilisant cURL
 
-## Intended audience
+## Public visé
 
-This guide is geared towards new developers who have some development experience and are interested in learning more about SubQuery.
+Ce guide s'adresse aux nouveaux développeurs qui ont une certaine expérience du développement et qui souhaitent en savoir plus sur SubQuery.
 
-## Video guide
+## Guide vidéo
 
 <figure class="video_container">
   <iframe src="https://www.youtube.com/embed/b-ba8-zPOoo" frameborder="0" allowfullscreen="true"></iframe>
 </figure>
 
-## Pre-requisites
+## Pré-requis
 
-You will need:
+Vous aurez besoin :
 
-- a GitHub account
+- un compte GitHub
 
-## 1. Create your project
+## 1. Créez votre projet
 
-Let's create a project called subql_hellowworld and run the obligatory install, codegen and build with your favourite package manager.
+Créons un projet appelé subql_hellowworld et exécutons l'installation, le codage et la construction obligatoires avec votre gestionnaire de paquets préféré.
 
 ```shell
 > subql init --starter subqlHelloWorld
@@ -40,33 +40,33 @@ yarn codegen
 yarn build
 ```
 
-Do NOT run the docker commands though.
+N'exécutez PAS les commandes docker.
 
-## 2. Create a GitHub repo
+## 2. Créer un repo GitHub
 
-In GitHub, create a new public repository. Provide a name and set your visibility to public. Here, everything is kept as the default for now.
+Dans GitHub, créez un nouveau dépôt public. Donnez un nom et définissez votre visibilité comme publique. Ici, tout est gardé par défaut pour le moment.
 
 ![create github repo](/assets/img/github_create_new_repo.png)
 
-Take note of your GitHub URL, this must be public for SubQuery to access it.
+Prenez note de votre URL GitHub, elle doit être publique pour que SubQuery puisse y accéder.
 
 ![create github repo](/assets/img/github_repo_url.png)
 
-## 3. Push to GitHub
+## 3. Push vers GitHub
 
-Back in your project directory, initialise it as a git directory. Otherwise, you might get the error "fatal: not a git repository (or any of the parent directories): .git"
+De retour dans votre répertoire de projet, initialisez-le comme un répertoire git. Sinon, vous risquez d'obtenir l'erreur "fatal : not a git repository (or any of the parent directories) : .git"
 
 ```shell
 git init
 ```
 
-Then add a remote repository with the command:
+Ensuite, ajoutez un dépôt distant avec la commande :
 
 ```shell
 git remote add origin https://github.com/seandotau/subqlHelloWorld.git
 ```
 
-This basically sets your remote repository to “https://github.com/seandotau/subqlHelloWorld.git” and gives it the name “origin” which is the standard nomenclature for a remote repository in GitHub.
+Cette opération consiste à définir votre dépôt distant sur "https://github.com/seandotau/subqlHelloWorld.git" et à lui donner le nom "origin", qui est la nomenclature standard pour un dépôt distant dans GitHub.
 
 Next we add the code to our repo with the following commands:
 
@@ -103,7 +103,7 @@ The push command means "please push my code TO the origin repo FROM my master lo
 
 Now that you have got your code into GitHub, let's look at how we can host it in SubQuery Projects.
 
-## 4. Create your project
+## 4. Créez votre projet
 
 Navigate to [https://project.subquery.network](https://project.subquery.network) and log in with your GitHub account.
 
