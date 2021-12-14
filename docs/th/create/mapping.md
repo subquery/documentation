@@ -29,7 +29,7 @@ export async function handleBlock(block: SubstrateBlock): Promise<void> {
 
 คุณสามารถใช้ event handler ต่าง ๆ ในการเก็บข้อมูล เมื่อมี event นั้น ๆ ในบล็อกใหม่ event ต่าง ๆ ที่เป็นส่วนหนึ่งของค่าเริ่มต้นของรันไทม์ Substrate และบล็อก อาจมีหลาย event ก็ได้
 
-During the processing, the event handler will receive a substrate event as an argument with the event's typed inputs and outputs. Any type of event will trigger the mapping, allowing activity with the data source to be captured. You should use [Mapping Filters](./manifest.md#mapping-filters) in your manifest to filter events to reduce the time it takes to index data and improve mapping performance.
+ในระหว่างการประมวลผล event handler จะได้รับ substrate event เป็น argument ที่มีอินพุตและเอาต์พุตที่พิมพ์แล้วของ event นั้น ๆ ซึ่งไม่ว่าจะเป็น event ประเภทใด ก็จะทริกเกอร์ให้มีการทำ map ทำให้สามารถบันทึกกิจกรรมที่มีแหล่งข้อมูลได้ คุณควรใช้ [ตัวกรองการ map ](./manifest.md#mapping-filters)ในไฟล์รายการ เในการคัดกรอง event เพื่อลดเวลาที่ใช้ในการจัดทำดัชนีข้อมูลและปรับปรุงประสิทธิภาพการทำ map ให้เพิ่มมากขึ้น
 
 ```ts
 import {SubstrateEvent} from "@subql/types";
@@ -43,11 +43,11 @@ export async function handleEvent(event: SubstrateEvent): Promise<void> {
     await record.save();
 ```
 
-A [SubstrateEvent](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L30) is an extended interface type of the [EventRecord](https://github.com/polkadot-js/api/blob/f0ce53f5a5e1e5a77cc01bf7f9ddb7fcf8546d11/packages/types/src/interfaces/system/types.ts#L149). Besides the event data, it also includes an `id` (the block to which this event belongs) and the extrinsic inside of this block.
+[SubstrateEvent](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L30) เป็นอินเทอร์เฟซแบบเพิ่มเติมของ [EventRecord](https://github.com/polkadot-js/api/blob/f0ce53f5a5e1e5a77cc01bf7f9ddb7fcf8546d11/packages/types/src/interfaces/system/types.ts#L149) นอกจากข้อมูล event แล้ว ยังมี `id` (บล็อกที่เป็นของ event นี้) และ extrinsic ที่อยู่ภายในบล็อกนี้ด้วย
 
 ## Call Handler
 
-Call handlers are used when you want to capture information on certain substrate extrinsics.
+Call handler ต่าง ๆ จะใช้เมื่อคุณต้องการบันทึกข้อมูลเกี่ยวกับ substrate extrinsic นั้นๆ
 
 ```ts
 export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
@@ -57,17 +57,18 @@ export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
 }
 ```
 
-The [SubstrateExtrinsic](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L21) extends [GenericExtrinsic](https://github.com/polkadot-js/api/blob/a9c9fb5769dec7ada8612d6068cf69de04aa15ed/packages/types/src/extrinsic/Extrinsic.ts#L170). It is assigned an `id` (the block to which this extrinsic belongs) and provides an extrinsic property that extends the events among this block. Additionally, it records the success status of this extrinsic.
+[SubstrateExtrinsic](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L21) เป็นส่วนที่ไปขยาย [GenericExtrinsic](https://github.com/polkadot-js/api/blob/a9c9fb5769dec7ada8612d6068cf69de04aa15ed/packages/types/src/extrinsic/Extrinsic.ts#L170) มันถูกกำหนด `id` (บล็อกที่ extrinsic นี้อยู่) และให้คุณสมบัติ extrinsic นั้น ๆ ที่ช่วยขยาย event ต่าง ๆ ระหว่างบล็อกนี้ นอกจากนี้ มันยังทำการบันทึกสถานะความสำเร็จของ extrinsic นี้ด้วย
 
-## Query States
-Our goal is to cover all data sources for users for mapping handlers (more than just the three interface event types above). Therefore, we have exposed some of the @polkadot/api interfaces to increase capabilities.
+## สถานะการคิวรี่
+เป้าหมายของเราคือ สามารถครอบคลุมแหล่งข้อมูลทั้งหมดสำหรับผู้ใช้ในการใช้ mapping handler ต่าง ๆ (มากกว่าแค่สามประเภท event ของอินเทอร์เฟซที่กล่าวไปข้างต้น) ดังนั้นเราจึงได้เปิดเผยอินเทอร์เฟซ @polkadot/api บางส่วนเพื่อเพิ่มความสามารถในการทำงานให้มากขึ้น
 
-These are the interfaces we currently support:
-- [api.query.&lt;module&gt;.&lt;method&gt;()](https://polkadot.js.org/docs/api/start/api.query) will query the <strong>current</strong> block.
-- [api.query.&lt;module&gt;.&lt;method&gt;.multi()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-same-type) will make multiple queries of the <strong>same</strong> type at the current block.
-- [api.queryMulti()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-distinct-types) will make multiple queries of <strong>different</strong> types at the current block.
+ซึ่งอินเทอร์เฟซที่เราสนับสนุนในขณะนี้ ได้แก่
+- [api.query.&lt;module&gt;.&lt;method&gt;()](https://polkadot.js.org/docs/api/start/api.query) จะช่วยคิวรี่ในบล็อก <strong>ปัจจุบัน</strong>
+- [api.query.&lt;module&gt;.&lt;method&gt;.multi()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-same-type) ช่วยให้สามารถทำได้หลายคิวรี่ในอินเทอร์เฟซประเภท <strong>เดียวกัน</strong> ที่บล็อกปัจจุบัน
+- [api.queryMulti()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-distinct-types) ช่วยให้สามารถทำได้หลายคิวรี่ในอินเทอร์เฟซประเภท
+ <strong>ต่างกัน</strong> ที่บล็อกปัจจุบัน
 
-These are the interfaces we do **NOT** support currently:
+และนี่คืออินเทอร์เฟซที่ขณะนี้เรา **ไม่ได้** สนับสนุน ซึ่งได้แก่
 - ~~api.tx.*~~
 - ~~api.derive.*~~
 - ~~api.query.&lt;module&gt;.&lt;method&gt;.at~~
@@ -79,13 +80,13 @@ These are the interfaces we do **NOT** support currently:
 - ~~api.query.&lt;module&gt;.&lt;method&gt;.range~~
 - ~~api.query.&lt;module&gt;.&lt;method&gt;.sizeAt~~
 
-See an example of using this API in our [validator-threshold](https://github.com/subquery/tutorials-validator-threshold) example use case.
+ดูตัวอย่างการใช้ API นี้ในกรณีการใช้งานตัวอย่างได้ที่ [validator-threshold](https://github.com/subquery/tutorials-validator-threshold)
 
 ## RPC calls
 
-We also support some API RPC methods that are remote calls that allow the mapping function to interact with the actual node, query, and submission. A core premise of SubQuery is that it's deterministic, and therefore, to keep the results consistent we only allow historical RPC calls.
+เรายังสนับสนุนวิธี API RPC บางอย่างที่เป็นการ call ระยะไกลที่อนุญาตให้ฟังก์ชันแมปสามารถสื่อสารกับโหนด คิวรี่ และการบันทึกข้อมูลได้ ความคิดหลักของ SubQuery คือการกำหนดได้ ดังนั้น เพื่อให้ผลลัพธ์สอดคล้องกัน เราจึงอนุญาตเฉพาะการเรียก RPC ในอดีตเท่านั้น
 
-Documents in [JSON-RPC](https://polkadot.js.org/docs/substrate/rpc/#rpc) provide some methods that take `BlockHash` as an input parameter (e.g. `at?: BlockHash`), which are now permitted. We have also modified these methods to take the current indexing block hash by default.
+เอกสารใน [JSON-RPC](https://polkadot.js.org/docs/substrate/rpc/#rpc) มีวิธีการบางอย่างที่ใช้ `BlockHash` เป็นพารามิเตอร์อินพุต (เช่น `at?: BlockHash`) ซึ่งขณะนี้ได้รับอนุญาตให้ใช้แล้ว นอกจากนี้เรายังได้ปรับวิธีการเหล่านี้เพื่อให้การทำดัชนี hash ณ ขณะนั้นของบล็อก ตั้งเป็นค่าเริ่มต้น
 
 ```typescript
 // Let's say we are currently indexing a block with this hash number
