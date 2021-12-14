@@ -12,7 +12,7 @@ Under the project directory run the following command:
 docker-compose pull && docker-compose up
 ```
 
-It may take some time to download the required packages ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), and Postgres) for the first time but soon you'll see a running SubQuery node.
+Cela peut prendre un certain temps pour télécharger les paquets requis ([`(@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), et Postgres) pour la première fois mais vous verrez bientôt un nœud SubQuery en fonctionnement.
 
 ## Running an Indexer (subql/node)
 
@@ -29,7 +29,7 @@ Un nœud SubQuery est une implémentation qui extrait les données de la blockch
 npm install -g @subql/node
 ```
 
-Please note that we **DO NOT** encourage the use of `yarn global` due to its poor dependency management which may lead to an errors down the line.
+Veuillez noter que nous **n'** encourageons **PAS** l'utilisation de `yarn global` en raison de sa mauvaise gestion des dépendances qui peut entraîner des erreurs en cours de route.
 
 Once installed, you can start a node with the following command:
 
@@ -188,7 +188,7 @@ Then open up the Chrome dev tools, go to Source > Filesystem and add your projec
 npm install -g @subql/query
 ```
 
-Please note that we **DO NOT** encourage the use of `yarn global` due to its poor dependency management which may lead to an errors down the line.
+Veuillez noter que nous **n'** encourageons **PAS** l'utilisation de `yarn global` en raison de sa mauvaise gestion des dépendances qui peut entraîner des erreurs en cours de route.
 
 ### Running the Query service
 ``` export DB_HOST=localhost subql-query --name <project_name> --playground ````
