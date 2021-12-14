@@ -72,7 +72,7 @@ Si votre compte d'organisation GitHub n'apparaît pas dans le sélecteur, il se 
 
 ![Révoquer l'accès au compte GitHub](/assets/img/project_auth_revoke.png)
 
-Une fois que vous avez révoqué l'accès, déconnectez-vous de [SubQuery Projects](https://project.subquery.network) et reconnectez-vous. Vous devriez être redirigé vers une page intitulée *Authorize SubQuery* où vous pouvez demander ou accorder l'accès à SubQuery à votre compte d'organisation GitHub. Si vous n'avez pas les droits d'administrateur, vous devez demander à un administrateur de l'activer pour vous.
+Une fois que vous avez révoqué l'accès, déconnectez-vous de [SubQuery Projects](https://project.subquery.network) et reconnectez-vous. Vous devriez être redirigé vers une page intitulée *Autoriser SubQuery* où vous pouvez demander ou accorder l'accès à SubQuery à votre compte d'organisation GitHub. Si vous n'avez pas les droits d'administrateur, vous devez demander à un administrateur de l'activer pour vous.
 
 ![Révoquer l'approbation d'un compte GitHub](/assets/img/project_auth_request.png)
 
