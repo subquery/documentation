@@ -6,7 +6,7 @@
 
 **重要提示：当您对模式文件做任何更改时， 请确保使用命令`yarn codegen`来重新生成你的类型目录。**
 
-### Entities
+### 实体
 每个实体必须使用 `ID!` 类型定义必填字段 `id`。 它被用作主键，并且在所有相同类型的实体中是唯一的。
 
 实体中非空字段由 `！ `表示。 请参阅下面的示例：
@@ -17,8 +17,8 @@ type Example @entity {
   id: ID! # id 字段总是必需的，必须像这样定义
   name: String! # 这是必填字段
   address: String # 这是一个可选字段
-} # This is a required field
-  address: String # This is an optional field
+} # 这是必填字段
+  address: String # 这是一个可选字段
 }
 ```
 
@@ -40,14 +40,14 @@ type Example @entity {
 
 为了提高查询性能，只需在非主键字段实现 ``@index` 注解，便可索引实体字段。 </p>
 
-<p spaces-before="0">However, we don't allow users to add <code>@index`` annotation on any [JSON](#json-type) object. 默认情况下，索引会自动添加到数据库的外键和JSON字段中，但这只是为了提高查询服务的性能。
+<p spaces-before="0">然而，我们不允许用户在任何 <a href="#json-type">JSON</a> 对象上添加 <code>@index`` 注解。 默认情况下，索引会自动添加到数据库的外键和JSON字段中，但这只是为了提高查询服务的性能。
 
 参见下面的示例。
 
 ```graphql
 type User @entity {
   id: ID!
-  name: String! @index(unique: true) # unique can be set to true or false
+  name: String! @index(unique：true) # unique可以设置为 true 或 false
   title: Title! type User @entity {
   id: ID!
   name: String! @index(unique：true) # unique可以设置为 true 或 false
@@ -84,7 +84,7 @@ const captainTitle = await Title.getByName('Captain');
 const pirateLords = await User.getByTitleId(captainTitle.id); // List of all Captains
 ```
 
-## Entity Relationships
+## 实体关系
 
 一个实体往往与其他实体有嵌套的关系。 默认情况下，将字段值设置为另一个实体名称将定义这两个实体之间的一对一关系。
 
@@ -97,8 +97,8 @@ const pirateLords = await User.getByTitleId(captainTitle.id); // List of all Cap
 或者
 
 ```graphql
-type Person @entity {
-  id: ID!
+type Person @entity { 
+   id: ID!
 }
 
 type Passport @entity {
@@ -110,8 +110,8 @@ type Passport @entity {
 您可以使用方括号来表示某个字段类型包含多个实体。
 
 ```graphql
-type Person @entity {
-  id: ID!
+type Person @entity { 
+   id: ID!
   passport: Passport!
 type Person @entity { 
    id: ID!
@@ -132,8 +132,8 @@ type Passport @entity {
 通过建立一个映射实体，将另外两个实体连接起来，可以实现多对多的关系。
 
 ```graphql
-type Person @entity {
-  id: ID!
+type Person @entity { 
+   id: ID!
   type Account @entity {
   id: ID!
   publicAddress: String!
@@ -155,8 +155,8 @@ type Transfer @entity {
 此外，还可以在中间实体的多个字段中创建同一实体的连接。
 
 ```graphql
-type Person @entity {
-  id: ID!
+type Person @entity { 
+   id: ID!
   name: String!
   type Person @entity {
   id: ID!
