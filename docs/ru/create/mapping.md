@@ -6,11 +6,11 @@
 - Эти сопоставления также экспортированы в `src/index.ts`
 - Файлы сопоставлений являются ссылками в `project.yaml` под обработчиками сопоставлений.
 
-There are three classes of mappings functions; [Block handlers](#block-handler), [Event Handlers](#event-handler), and [Call Handlers](#call-handler).
+Существует три класса функций сопоставления;  [Block handlers](#block-handler), [Event Handlers](#event-handler), и [Call Handlers](#call-handler).
 
 ## Обработчик блоков
 
-You can use block handlers to capture information each time a new block is attached to the Substrate chain, e.g. block number. To achieve this, a defined BlockHandler will be called once for every block.
+Вы можете использовать обработчики блоков для сбора информации каждый раз, когда новый блок присоединяется к цепочке Substrate, например, номер блока. To achieve this, a defined BlockHandler will be called once for every block.
 
 ```ts
 import {SubstrateBlock} from "@subql/types";
