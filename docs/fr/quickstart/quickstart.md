@@ -1,110 +1,113 @@
-# Quick Start Guide
+# Guide de démarrage rapide
 
-In this Quick Start guide, we're going to create a simple starter project that you can be used as a framework for developing your own SubQuery Project.
+Dans ce guide de démarrage rapide, nous allons créer un projet de démarrage simple que vous pouvez utiliser comme cadre pour développer votre propre projet SubQuery.
 
-At the end of this guide, you'll have a working SubQuery project running on a SubQuery node with a GraphQL endpoint that you can query data from.
+À la fin de ce guide, vous aurez un projet SubQuery fonctionnel fonctionnant sur un nœud SubQuery avec un point de terminaison GraphQL à partir duquel vous pourrez interroger des données.
 
-If you haven't already, we suggest that you familiarise yourself with the [terminology](../#terminology) used in SubQuery.
+Si vous ne l'avez pas encore fait, nous vous suggérons de vous familiariser avec la [terminologie](../#terminology) utilisée dans SubQuery.
 
 ## Préparation
 
-### Local Development Environment
+### Environnement de développement local
 
-- [Typescript](https://www.typescriptlang.org/) is required to compile project and define types.
-- Both SubQuery CLI and generated Project have dependencies and require a modern version [Node](https://nodejs.org/en/).
-- SubQuery Nodes require Docker
+- [Typescript](https://www.typescriptlang.org/) est nécessaire pour compiler le projet et définir les types.
+- La CLI de SubQuery et le projet généré ont tous deux des dépendances et nécessitent une version moderne de [Node](https://nodejs.org/en/).
+- Les nœuds SubQuery nécessitent Docker.
 
-### Install the SubQuery CLI
+### Installer SubQuery CLI
 
-Install SubQuery CLI globally on your terminal by using NPM:
+Installez SubQuery CLI globalement sur votre terminal en utilisant NPM :
 
 ```shell
 # NPM
 npm install -g @subql/cli
 ```
 
-Please note that we **DO NOT** encourage the use of `yarn global` due to its poor dependency management which may lead to an errors down the line.
+Veuillez noter que nous **n'** encourageons **PAS** l'utilisation de `yarn global` en raison de sa mauvaise gestion des dépendances qui peut entraîner des erreurs en cours de route.
 
-You can then run help to see available commands and usage provide by CLI
+Vous pouvez ensuite lancer l'aide pour voir les commandes disponibles et l'utilisation fournie par la CLI.
 
 ```shell
 subql help
 ```
 
-## Initialise the Starter SubQuery Project
+## Initialiser le projet Starter SubQuery
 
-Inside the directory in which you want to create a SubQuery project, simply replace `PROJECT_NAME` with your own and run the command:
+Dans le répertoire dans lequel vous voulez créer un projet SubQuery, remplacez simplement `PROJECT_NAME` par votre propre nom et exécutez la commande :
 
 ```shell
 subql init --starter PROJECT_NAME
 ```
 
-You'll be asked certain questions as the SubQuery project is initalised:
+Certaines questions vous seront posées au fur et à mesure de l'initalisation du projet SubQuery :
 
-- Git repository (Optional): Provide a Git URL to a repo that this SubQuery project will be hosted in (when hosted in SubQuery Explorer)
-- RPC endpoint (Required): Provide a wss URL to a running RPC endpoint that will be used by default for this project. You can quickly access public endpoints for different Polkadot networks or even create your own private dedicated node using [OnFinality](https://app.onfinality.io) or just use the default Polkadot endpoint.
-- Authors (Required): Enter the owner of this SubQuery project here
-- Description (Optional): You can provide a short paragraph about your project that describe what data it contains and what users can do with it
-- Version (Required): Enter a custom version number or use the default (`1.0.0`)
-- License (Required): Provide the software license for this project or accept the default (`Apache-2.0`)
+- Dépôt Git (facultatif) : Fournir une URL Git vers un dépôt dans lequel ce projet SubQuery sera hébergé (lorsqu'il est hébergé dans SubQuery Explorer).
+- Point de terminaison RPC (obligatoire) : Fournissez une URL wss vers un point de terminaison RPC en cours d'exécution qui sera utilisé par défaut pour ce projet. Vous pouvez accéder rapidement aux points de terminaison publics pour différents réseaux Polkadot ou même créer votre propre nœud privé dédié en utilisant [OnFinality](https://app.onfinality.io) ou simplement utiliser le point de terminaison Polkadot par défaut.
+- Auteurs (obligatoire) : Entrez le propriétaire de ce projet SubQuery ici
+- Description (facultatif) : Vous pouvez fournir un court paragraphe sur votre projet qui décrit les données qu'il contient et ce que les utilisateurs peuvent faire avec.
+- Version (obligatoire) : Entrez un numéro de version personnalisé ou utilisez la version par défaut`(1.0.0`).
+- Licence (obligatoire) : Indiquez la licence du logiciel pour ce projet ou acceptez la valeur par défaut`(Apache-2.0`).
 
-After the initialisation process is complete, you should see a folder with your project name has been created inside the directory. The contents of this directoy should be identical to what's listed in the [Directory Structure](../create/introduction.md#directory-structure).
+Une fois le processus d'initialisation terminé, vous devriez voir qu'un dossier portant le nom de votre projet a été créé dans le répertoire. Le contenu de ce dossier doit être identique à celui indiqué dans la [structure du répertoire](../create/introduction.md#directory-structure).
 
-Last, under the project directory, run following command to install the new project's dependencies.
+Enfin, sous le répertoire du projet, exécutez la commande suivante pour installer les dépendances du nouveau projet.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```bash cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
+<CodeGroupItem title="NPM"> ```bash cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
 
-## Configure and Build the Starter Project
+## Configurer et construire le projet de démarrage
 
-In the starter package that you just initialised, we have provided a standard configuration for your new project. You will mainly be working on the following files:
+Dans le paquet de démarrage que vous venez d'initialiser, nous avons fourni une configuration standard pour votre nouveau projet. Vous allez principalement travailler sur les fichiers suivants :
 
-- The Manifest in `project.yaml`
-- The GraphQL Schema in `schema.graphql`
-- The Mapping functions in `src/mappings/` directory
+- Le manifeste dans `project.yaml`
+- Le schéma GraphQL dans `schema.graphql`
+- Les fonctions de mappage dans le répertoire `src/mappings/`.
 
-For more information on how to write your own SubQuery, check out our documentation under [Create a Project](../create/introduction.md)
+Pour plus d'informations sur la façon d'écrire votre propre SubQuery, consultez notre documentation sous [Créer un projet](../create/introduction.md).
 
-### GraphQL Model Generation
+### Génération de modèles GraphQL
 
-In order to [index](../run/run.md) your SubQuery project, you must first generate the required GraphQL models that you have defined in your GraphQL Schema file (`schema.graphql`). Run this command in the root of the project directory.
+Afin d'[indexer](../run/run.md) votre projet SubQuery, vous devez d'abord générer les modèles GraphQL requis que vous avez définis dans votre fichier GraphQL Schema (`schema.graphql`). Exécutez cette commande à la racine du répertoire du projet.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```bash npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem>
+<CodeGroupItem title="NPM"> ```bash npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
 
-You'll find the generated models in the `/src/types/models` directory
+Vous trouverez les modèles générés dans le répertoire `/src/types/models`
 
-## Build the Project
+## Construire le projet
 
-In order run your SubQuery Project on a locally hosted SubQuery Node, you need to build your work.
+Afin d'exécuter votre projet SubQuery sur un nœud SubQuery hébergé localement, vous devez construire votre travail.
 
 Exécutez la commande build depuis le répertoire racine du projet.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```bash npm run-script build ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem>
+<CodeGroupItem title="NPM"> ```bash npm run-script build ``` </CodeGroupItem> </CodeGroup>
 
-## Running and Querying your Starter Project
+## Exécution et interrogation de votre projet de démarrage
 
-Although you can quickly publish your new project to [SubQuery Projects](https://project.subquery.network) and query it using our [Explorer](https://explorer.subquery.network), the easiest way to run SubQuery nodes locally is in a Docker container, if you don't already have Docker you can install it from [docker.com](https://docs.docker.com/get-docker/).
+Bien que vous puissiez rapidement publier votre nouveau projet sur [SubQuery Projects](https://project.subquery.network) et l'interroger à l'aide de notre [explorateur](https://explorer.subquery.network), la façon la plus simple d'exécuter les nœuds SubQuery localement est dans un conteneur Docker. Si vous n'avez pas encore Docker, vous pouvez l'installer depuis [docker.com](https://docs.docker.com/get-docker/).
 
-[_Skip this and publish your new project to SubQuery Projects_](../publish/publish.md)
+[_Sautez cette étape et publiez votre nouveau projet dans SubQuery Projects._](../publish/publish.md)
 
-### Run your SubQuery Project
+### Exécutez votre projet SubQuery
 
-All configuration that controls how a SubQuery node is run is defined in this `docker-compose.yml` file. For a new project that has been just initalised you won't need to change anything here, but you can read more about the file and the settings in our [Run a Project section](../run/run.md)
+Toute la configuration qui contrôle la façon dont un nœud SubQuery est exécuté est définie dans le fichier `docker-compose.yml`. Pour un nouveau projet qui vient d'être initialisé, vous n'aurez pas besoin de modifier quoi que ce soit ici, mais vous pouvez en savoir plus sur le fichier et les paramètres dans notre [section Exécuter un projet](../run/run.md).
 
-Under the project directory run following command:
+Dans le répertoire du projet, exécutez la commande suivante :
 
 ```shell
 docker-compose pull && docker-compose up
 ```
 
-It may take some time to download the required packages ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), and Postgres) for the first time but soon you'll see a running SubQuery node.
+Cela peut prendre un certain temps pour télécharger les paquets requis ([`(@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), et Postgres) pour la première fois mais vous verrez bientôt un nœud SubQuery en fonctionnement.
 
-### Query your Project
+### Interrogez votre projet
 
-Open your browser and head to [http://localhost:3000](http://localhost:3000).
+Ouvrez votre navigateur et rendez-vous sur [http://localhost:3000](http://localhost:3000).
 
-You should see a GraphQL playground is showing in the explorer and the schemas that are ready to query. On the top right of the playground, you'll find a _Docs_ button that will open a documentation draw. Cette documentation est générée automatiquement et vous aide à trouver les entités et les méthodes que vous pouvez interroger.
+Vous devriez voir un terrain de jeu GraphQL s'afficher dans l'explorateur et les schémas qui sont prêts à être interrogés. En haut à droite du terrain de jeu, vous trouverez un bouton _Docs_ qui ouvrira un tiroir de documentation. Cette documentation est générée automatiquement et vous aide à trouver les entités et les méthodes que vous pouvez interroger.
 
-For a new SubQuery starter project, you can try the following query to get a taste of how it works or [learn more about the GraphQL Query language](../query/graphql.md).
+Pour un nouveau projet de démarrage SubQuery, vous pouvez essayer la requête suivante pour avoir un aperçu de son fonctionnement ou en [apprendre davantage sur le langage GraphQL Query](../query/graphql.md).
 
 ```graphql
 {
@@ -120,8 +123,8 @@ For a new SubQuery starter project, you can try the following query to get a tas
 }
 ```
 
-## Next Steps
+## Étapes suivantes
 
-Congratulations, you now have a locally running SubQuery project that accepts GraphQL API requests for sample data. In the next guide, we'll show you how to publish your new project to [SubQuery Projects](https://project.subquery.network) and query it using our [Explorer](https://explorer.subquery.network)
+Félicitations, vous disposez maintenant d'un projet SubQuery fonctionnant localement et acceptant les requêtes de l'API GraphQL pour des échantillons de données. Dans le prochain guide, nous vous montrerons comment publier votre nouveau projet dans [SubQuery Projects](https://project.subquery.network) et l'interroger à l'aide de notre [explorateur](https://explorer.subquery.network).
 
-[Publish your new project to SubQuery Projects](../publish/publish.md)
+[Publier votre nouveau projet dans SubQuery Projects](../publish/publish.md)
