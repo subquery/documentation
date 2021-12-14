@@ -1,18 +1,18 @@
-# How does a SubQuery dictionary work?
+# Comment fonctionne un dictionnaire SubQuery ?
 
-The whole idea of a generic dictionary project is to index all the data from a blockchain and record the events, extrinsics, and its types (module and method) in a database in order of block height. Another project can then query this `network.dictionary` endpoint instead of the default `network.endpoint` defined in the manifest file.
+L'idée générale d'un projet de dictionnaire générique est d'indexer toutes les données d'une blockchain et d'enregistrer les événements, les extrinsèques et leurs types (module et méthode) dans une base de données par ordre de hauteur de bloc. Un autre projet peut alors interroger ce point de terminaison `network.dictionary` au lieu du point de terminaison ` network.endpoint` par défaut défini dans le fichier manifest.
 
-The `network.dictionary` endpoint is an optional parameter that if present, the SDK will automatically detect and use. `network.endpoint` is mandatory and will not compile if not present.
+Le point de terminaison `network.dictionary` est un paramètre facultatif qui, s'il est présent, sera automatiquement détecté et utilisé par le SDK. `network.endpoint` est obligatoire et ne sera pas compilé s'il n'est pas présent.
 
-Taking the [SubQuery dictionary](https://github.com/subquery/subql-dictionary) project as an example, the [schema](https://github.com/subquery/subql-dictionary/blob/main/schema.graphql) file defines 3 entities; extrinsic, events, specVersion. These 3 entities contain 6, 4, and 2 fields respectively. When this project is run, these fields are reflected in the database tables.
+En prenant le projet de [dictionnaire SubQuery](https://github.com/subquery/subql-dictionary) comme exemple, le fichier de [schéma](https://github.com/subquery/subql-dictionary/blob/main/schema.graphql) définit 3 entités : extrinsic, events, specVersion. Ces 3 entités contiennent respectivement 6, 4 et 2 champs. Lorsque ce projet est exécuté, ces champs sont reflétés dans les tables de la base de données.
 
 ![extrinsics table](/assets/img/extrinsics_table.png) ![events table](/assets/img/events_table.png) ![specversion table](/assets/img/specversion_table.png)
 
-Data from the blockchain is then stored in these tables and indexed for performance. The project is then hosted in SubQuery Projects and the API endpoint is available to be added to the manifest file.
+Les données de la blockchain sont alors stockées dans ces tables et indexées pour plus de performance. Le projet est ensuite hébergé dans SubQuery Projects et le point de terminaison de l'API est disponible pour être ajouté au fichier manifeste.
 
-## How to incorporate a dictionary into your project?
+## Comment incorporer un dictionnaire dans votre projet ?
 
-Add `dictionary: https://api.subquery.network/sq/subquery/dictionary-polkadot` to the network section of the manifest. Eg:
+Ajoutez le `dictionnaire : https://api.subquery.network/sq/subquery/dictionary-polkadot` à la section réseau du manifeste. Par exemple :
 
 ```shell
 network:
@@ -20,24 +20,24 @@ network:
   dictionary: https://api.subquery.network/sq/subquery/dictionary-polkadot
 ```
 
-## What happens when a dictionary IS NOT used?
+## Que se passe-t-il lorsqu'un dictionnaire N'EST PAS utilisé ?
 
-When a dictionary is NOT used, an indexer will fetch every block data via the polkadot api according to the `batch-size` flag which is 100 by default, and place this in a buffer for processing. Later, the indexer takes all these blocks from the buffer and while processing the block data, checks whether the event and extrinsic in these blocks match the user-defined filter.
+Lorsqu'un dictionnaire n'est PAS utilisé, un indexeur récupère chaque bloc de données via l'api polkadot en fonction de l'indicateur `batch-size` qui est de 100 par défaut, et le place dans un tampon pour traitement. Ensuite, l'indexeur prend tous ces blocs dans la mémoire tampon et, en traitant les données du bloc, vérifie si l'événement et l'extrinsèque dans ces blocs correspondent au filtre défini par l'utilisateur.
 
-## What happens when a dictionary IS used?
+## Que se passe-t-il lorsqu'un dictionnaire est utilisé ?
 
-When a dictionary IS used, the indexer will first take the call and event filters as parameters and merge this into a GraphQL query. It then uses the dictionary's API to obtain a list of relevant block heights only that contains the specific events and extrinsics. Often this is substantially less than 100 if the default is used.
+Lorsqu'un dictionnaire est utilisé, l'indexeur prend d'abord les filtres d'appel et d'événement comme paramètres et les fusionne dans une requête GraphQL. Il utilise ensuite l'API du dictionnaire pour obtenir une liste des hauteurs de bloc pertinentes contenant uniquement les événements et les extrinsèques spécifiques. Souvent, cette liste est nettement inférieure à 100 si la valeur par défaut est utilisée.
 
-For example, imagine a situation where you're indexing transfer events. Not all blocks have this event (in the image below there are no transfer events in blocks 3 and 4).
+Par exemple, imaginez une situation où vous indexez des événements de transfert. Tous les blocs ne possèdent pas cet événement (dans l'image ci-dessous, il n'y a pas d'événements de transfert dans les blocs 3 et 4).
 
 ![dictionary block](/assets/img/dictionary_blocks.png)
 
-The dictionary allows your project to skip this so rather than looking in each block for a transfer event, it skips to just blocks 1, 2, and 5. This is because the dictionary is a pre-computed reference to all calls and events in each block.
+Le dictionnaire permet à votre projet de sauter cette étape. Ainsi, au lieu de rechercher un événement de transfert dans chaque bloc, il passe aux blocs 1, 2 et 5. Ceci est dû au fait que le dictionnaire est une référence pré-calculée à tous les appels et événements dans chaque bloc.
 
-This means that using a dictionary can reduce the amount of data that the indexer obtains from the chain and reduce the number of “unwanted” blocks stored in the local buffer. But compared to the traditional method, it adds an additional step to get data from the dictionary’s API.
+Cela signifie que l'utilisation d'un dictionnaire peut réduire la quantité de données que l'indexeur obtient de la chaîne et réduire le nombre de blocs "indésirables" stockés dans le tampon local. Mais par rapport à la méthode traditionnelle, elle ajoute une étape supplémentaire pour obtenir des données à partir de l'API du dictionnaire.
 
-## When is a dictionary NOT useful?
+## Quand un dictionnaire n'est-il PAS utile ?
 
-When [block handlers](https://doc.subquery.network/create/mapping.html#block-handler) are used to grab data from a chain, every block needs to be processed. Therefore, using a dictionary in this case does not provide any advantage and the indexer will automatically switch to the default non-dictionary approach.
+Lorsque des [gestionnaires de blocs](https://doc.subquery.network/create/mapping.html#block-handler) sont utilisés pour récupérer les données d'une chaîne, chaque bloc doit être traité. Par conséquent, l'utilisation d'un dictionnaire dans ce cas n'apporte aucun avantage et l'indexeur passera automatiquement à l'approche par défaut sans dictionnaire.
 
-Also, when dealing with events or extrinsic that occur or exist in every block such as `timestamp.set`, using a dictionary will not offer any additional advantage.
+De même, lorsque vous traitez des événements ou des extrinsèques qui se produisent ou existent dans chaque bloc, comme `timestamp.set`, l'utilisation d'un dictionnaire n'offre aucun avantage supplémentaire.
