@@ -1,6 +1,6 @@
-# Contributing To SubQuery
+# Contribuyendo a SubQuery
 
-Welcome and a big thank you for considering contributing to this SubQuery project! Together we can pave the way to a more decentralised future. Together we can pave the way to a more decentralised future.
+¡Bienvenido y un gran agradecimiento por considerar contribuir a este proyecto de SubQuery! Together we can pave the way to a more decentralised future.
 
 > This documentation is actively maintained by the SubQuery team. We welcome your contributions, you can do so by forking our GitHub project and making changes to all the documentation markdown files under the `docs` directory.
 
