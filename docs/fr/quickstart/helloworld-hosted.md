@@ -68,7 +68,7 @@ git remote add origin https://github.com/seandotau/subqlHelloWorld.git
 
 Cette opération consiste à définir votre dépôt distant sur "https://github.com/seandotau/subqlHelloWorld.git" et à lui donner le nom "origin", qui est la nomenclature standard pour un dépôt distant dans GitHub.
 
-Next we add the code to our repo with the following commands:
+Ensuite nous ajoutons le code à notre repo avec les commandes suivantes :
 
 ```shell
 > git add .
