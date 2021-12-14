@@ -27,7 +27,7 @@ export async function handleBlock(block: SubstrateBlock): Promise<void> {
 
 ## Event Handler
 
-You can use event handlers to capture information when certain events are included on a new block. The events that are part of the default Substrate runtime and a block may contain multiple events.
+คุณสามารถใช้ event handler ต่าง ๆ ในการเก็บข้อมูล เมื่อมี event นั้น ๆ ในบล็อกใหม่ event ต่าง ๆ ที่เป็นส่วนหนึ่งของค่าเริ่มต้นของรันไทม์ Substrate และบล็อก อาจมีหลาย event ก็ได้
 
 During the processing, the event handler will receive a substrate event as an argument with the event's typed inputs and outputs. Any type of event will trigger the mapping, allowing activity with the data source to be captured. You should use [Mapping Filters](./manifest.md#mapping-filters) in your manifest to filter events to reduce the time it takes to index data and improve mapping performance.
 
