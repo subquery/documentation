@@ -6,11 +6,11 @@ Las funciones de mapeo definen cómo se transforman los datos de la cadena en la
 - Estos mapeos también son exportados en `src/index.ts`
 - Los archivos de mapeo son referencia en `project.yaml` bajo los manejadores de mapeo.
 
-There are three classes of mappings functions; [Block handlers](#block-handler), [Event Handlers](#event-handler), and [Call Handlers](#call-handler).
+Hay tres clases de funciones de mapeo: [Manejadores de bloques](#block-handler), [Manejadores de eventos](#event-handler)y [Manejadores de llamadas](#call-handler).
 
 ## Manejador de bloques
 
-You can use block handlers to capture information each time a new block is attached to the Substrate chain, e.g. block number. To achieve this, a defined BlockHandler will be called once for every block.
+Puede utilizar manejadores de bloques para capturar información cada vez que un nuevo bloque está conectado a la cadena Substrate, por ejemplo, el número de bloque. Para lograrlo, un BlockHandler definido será llamado una vez por cada bloque.
 
 ```ts
 import {SubstrateBlock} from "@subql/types";
@@ -23,13 +23,13 @@ export async function handleBlock(block: SubstrateBlock): Promise<void> {
 }
 ```
 
-A [SubstrateBlock](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L16) is an extended interface type of [signedBlock](https://polkadot.js.org/docs/api/cookbook/blocks/), but also includes the `specVersion` and `timestamp`.
+A SubstrateBlock is an extended interface type of signedBlock, but also includes the specVersion and timestamp.
 
 ## Manejador del Evento
 
-You can use event handlers to capture information when certain events are included on a new block. The events that are part of the default Substrate runtime and a block may contain multiple events.
+Puede utilizar manejadores de eventos para capturar información cuando ciertos eventos son incluidos en un nuevo bloque. Los eventos que son parte del tiempo de ejecución predeterminado de Substrate y un bloque pueden contener múltiples eventos.
 
-During the processing, the event handler will receive a substrate event as an argument with the event's typed inputs and outputs. Any type of event will trigger the mapping, allowing activity with the data source to be captured. You should use [Mapping Filters](./manifest.md#mapping-filters) in your manifest to filter events to reduce the time it takes to index data and improve mapping performance.
+Durante el procesamiento, el manejador de eventos recibirá un evento de substrate como argumento con las entradas y salidas del evento. Cualquier tipo de evento activará el mapeo, permitiendo la captura de la actividad con la fuente de datos. Debe utilizar [Filtros de Mapeo](./manifest.md#mapping-filters) en su manifiesto para filtrar eventos para reducir el tiempo que toma indexar los datos y mejorar el rendimiento de mapeo.
 
 ```ts
 import {SubstrateEvent} from "@subql/types";
@@ -43,11 +43,11 @@ export async function handleEvent(event: SubstrateEvent): Promise<void> {
     await record.save();
 ```
 
-A [SubstrateEvent](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L30) is an extended interface type of the [EventRecord](https://github.com/polkadot-js/api/blob/f0ce53f5a5e1e5a77cc01bf7f9ddb7fcf8546d11/packages/types/src/interfaces/system/types.ts#L149). Besides the event data, it also includes an `id` (the block to which this event belongs) and the extrinsic inside of this block.
+Un [SubstrateEvent](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L30) es un tipo de interfaz extendida del [EventRecord](https://github.com/polkadot-js/api/blob/f0ce53f5a5e1e5a77cc01bf7f9ddb7fcf8546d11/packages/types/src/interfaces/system/types.ts#L149). Además de los datos del evento, también incluye una `id` (el bloque al que pertenece este evento) y el extrínseco dentro de este bloque.
 
 ## Manejador de llamada
 
-Call handlers are used when you want to capture information on certain substrate extrinsics.
+Los manejadores de llamadas se utilizan cuando se desea capturar información sobre ciertos substrate extrínsecos.
 
 ```ts
 export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
@@ -57,17 +57,17 @@ export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
 }
 ```
 
-The [SubstrateExtrinsic](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L21) extends [GenericExtrinsic](https://github.com/polkadot-js/api/blob/a9c9fb5769dec7ada8612d6068cf69de04aa15ed/packages/types/src/extrinsic/Extrinsic.ts#L170). It is assigned an `id` (the block to which this extrinsic belongs) and provides an extrinsic property that extends the events among this block. Additionally, it records the success status of this extrinsic.
+El [SubstrateExtrinsic](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L21) extiende [GenericExtrinsic](https://github.com/polkadot-js/api/blob/a9c9fb5769dec7ada8612d6068cf69de04aa15ed/packages/types/src/extrinsic/Extrinsic.ts#L170). Se le asigna un `id` (el bloque al que pertenece este extrínseco) y proporciona una propiedad extrínseca que extiende los eventos entre este bloque. Además, registra el estado de éxito de este extrínseco.
 
 ## Estados de Consulta
-Our goal is to cover all data sources for users for mapping handlers (more than just the three interface event types above). Therefore, we have exposed some of the @polkadot/api interfaces to increase capabilities.
+Nuestro objetivo es cubrir todas las fuentes de datos para los usuarios de los manejadores de mapeo (más de los tres tipos de eventos de la interfaz anterior). Por lo tanto, hemos expuesto algunas de las interfaces @polkadot/api para aumentar las capacidades.
 
-These are the interfaces we currently support:
+Estas son las interfaces que actualmente soportamos:
 - [api.query.&lt;module&gt;.&lt;method&gt;()](https://polkadot.js.org/docs/api/start/api.query) consultará el bloque <strong></strong> actual.
 - [api.query.&lt;module&gt;.&lt;method&gt;.multi()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-same-type) hará múltiples consultas del mismo tipo <strong></strong> en el bloque actual.
 - [api.queryMulti()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-distinct-types) hará múltiples consultas de <strong>diferentes</strong> tipos en el bloque actual.
 
-These are the interfaces we do **NOT** support currently:
+Estas son las interfaces que actualmente no soportamos **NOT**:
 - ~~api.tx.*~~
 - ~~api.derive.*~~
 - ~~api.query.&lt;module&gt;.&lt;method&gt;.at~~
@@ -79,13 +79,13 @@ These are the interfaces we do **NOT** support currently:
 - ~~api.query.&lt;module&gt;.&lt;method&gt;.range~~
 - ~~api.query.&lt;module&gt;.&lt;method&gt;.sizeAt~~
 
-See an example of using this API in our [validator-threshold](https://github.com/subquery/tutorials-validator-threshold) example use case.
+See an example of using this API in our [validator-threshold](https://github. com/subquery/subql-examples/tree/main/validator-threshold) example use case.
 
 ## Llamadas RPC
 
-We also support some API RPC methods that are remote calls that allow the mapping function to interact with the actual node, query, and submission. A core premise of SubQuery is that it's deterministic, and therefore, to keep the results consistent we only allow historical RPC calls.
+También soportamos algunos métodos RPC API que son llamadas remotas que permiten que la función de mapeo interactúe con el nodo real, la consulta y el envío. Un núcleo principal de SubQuery es que es determinista, y por lo tanto, para mantener los resultados consistentes sólo permitimos llamadas históricas RPC.
 
-Documents in [JSON-RPC](https://polkadot.js.org/docs/substrate/rpc/#rpc) provide some methods that take `BlockHash` as an input parameter (e.g. `at?: BlockHash`), which are now permitted. We have also modified these methods to take the current indexing block hash by default.
+Documentos en [JSON-RPC](https://polkadot.js.org/docs/substrate/rpc/#rpc) proporcionan algunos métodos que toman `BlockHash` como parámetro de entrada (e.. `en?: BlockHash`), que ahora están permitidos. También hemos modificado estos métodos para tomar el hash del bloque de indexación actual por defecto.
 
 ```typescript
 // Digamos que actualmente estamos indexando un bloque con este número hash
@@ -101,53 +101,53 @@ const b2 = await api.rpc.chain.getBlock();
 
 ## Módulos y librerías
 
-To improve SubQuery's data processing capabilities, we have allowed some of the NodeJS's built-in modules for running mapping functions in the [sandbox](#the-sandbox), and have allowed users to call third-party libraries.
+Para mejorar las capacidades de procesamiento de datos de SubQuery, hemos permitido algunos de los módulos incorporados de NodeJS para ejecutar funciones de mapeo en el [sandbox](#the-sandbox), y han permitido a los usuarios llamar a bibliotecas de terceros.
 
-Please note this is an **experimental feature** and you may encounter bugs or issues that may negatively impact your mapping functions. Please report any bugs you find by creating an issue in [GitHub](https://github.com/subquery/subql).
+Tenga en cuenta que esta es una **característica experimental** y puede encontrar errores o problemas que pueden afectar negativamente a sus funciones de mapeo. Por favor, informe de cualquier error que encuentre creando un problema en [GitHub](https://github.com/subquery/subql).
 
 ### Módulos incorporados
 
-Currently, we allow the following NodeJS modules: `assert`, `buffer`, `crypto`, `util`, and `path`.
+Actualmente, permitimos los siguientes módulos de NodeJS: `assert`, `buffer`, `crypto`, `util`, y `path`.
 
-Rather than importing the whole module, we recommend only importing the required method(s) that you need. Some methods in these modules may have dependencies that are unsupported and will fail on import.
+En lugar de importar todo el módulo, recomendamos importar sólo los método(s) requeridos que usted necesita. Algunos métodos en estos módulos pueden tener dependencias que no están soportadas y fallarán al importar.
 
 ```ts
-import {hashMessage} from "ethers/lib/utils"; //Good way
-import {utils} from "ethers" //Bad way
+importar {hashMessage} desde "ethers/lib/utils"; //Good way
+import {utils} from "ethers" //Mala way
 
 export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
-    const record = new starterEntity(extrinsic.block.block.header.hash.toString());
-    record.field1 = hashMessage('Hello');
+    const record = new starterEntity(extrinsic. lock.block.header.hash.toString());
+    record.field1 = hashMessage('Hola');
     await record.save();
 }
 ```
 
 ### Librería de terceros
 
-Due to the limitations of the virtual machine in our sandbox, currently, we only support third-party libraries written by **CommonJS**.
+Import {hashMessage} from "ethers/lib/utils"; //Good way import {utils} from "ethers" //Bad way export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> { const record = new starterEntity(extrinsic. block. block. header. hash. toString()); record. field1 = hashMessage('Hello'); await record. save();}.
 
-We also support a **hybrid** library like `@polkadot/*` that uses ESM as default. However, if any other libraries depend on any modules in **ESM** format, the virtual machine will **NOT** compile and return an error.
+import {hashMessage} from "ethers/lib/utils"; //Good way import {utils} from "ethers" //Bad way export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> { const record = new starterEntity(extrinsic.block.block.header.hash.toString()); record.field1 = hashMessage('Hello'); await record.save(); } Sin embargo, si cualquier otra librería depende de cualquier módulo en formato **ESM**, la máquina virtual **NO** compilará y devolverá un error.
 
 ## Cadenas de Substrate Personalizadas
 
-SubQuery can be used on any Substrate-based chain, not just Polkadot or Kusama.
+SubQuery puede ser usado en cualquier cadena basada en Substrate, no sólo en Polkadot o Kusama.
 
-You can use a custom Substrate-based chain and we provide tools to import types, interfaces, and additional methods automatically using [@polkadot/typegen](https://polkadot.js.org/docs/api/examples/promise/typegen/).
+Puede utilizar una cadena personalizada basada en Substrate y proporcionamos herramientas para importar tipos, interfaces y métodos adicionales automáticamente usando [@polkadot/typegen](https://polkadot.js.org/docs/api/examples/promise/typegen/).
 
-In the following sections, we use our [kitty example](https://github.com/subquery/tutorials-kitty-chain) to explain the integration process.
+En las siguientes secciones, utilizamos nuestro [ejemplo de gatitos](https://github.com/subquery/tutorials-kitty-chain) para explicar el proceso de integración.
 
 ### Preparación
 
-Create a new directory `api-interfaces` under the project `src` folder to store all required and generated files. We also create an `api-interfaces/kitties` directory as we want to add decoration in the API from the `kitties` module.
+Crear un nuevo directorio `api-interfaces` bajo la carpeta `src` del proyecto para almacenar todos los archivos necesarios y generados. También creamos un directorio `api-interfaces/kitties` ya que queremos añadir decoración en la API desde el módulo `kitties`.
 
 #### Metadatos
 
-We need metadata to generate the actual API endpoints. In the kitty example, we use an endpoint from a local testnet, and it provides additional types. Follow the steps in [PolkadotJS metadata setup](https://polkadot.js.org/docs/api/examples/promise/typegen#metadata-setup) to retrieve a node's metadata from its **HTTP** endpoint.
+Necesitamos metadatos para generar los puntos finales actuales de la API. En el ejemplo del kitty utilizamos un punto final de una red de pruebas local, y proporciona tipos adicionales. Siga los pasos de [configuración de metadatos PolkadotJS](https://polkadot.js.org/docs/api/examples/promise/typegen#metadata-setup) para recuperar los metadatos de un nodo de su punto final **HTTP**.
 
 ```shell
 curl -H "Content-Type: application/json" -d '{"id":"1", "jsonrpc":"2.0", "method": "state_getMetadata", "params":[]}' http://localhost:9933
 ```
-or from its **websocket** endpoint with help from [`websocat`](https://github.com/vi/websocat):
+o desde su punto final **websocket** con la ayuda de [`websocat`](https://github.com/vi/websocat):
 
 ```shell
 //Instalar el websocat
@@ -157,12 +157,12 @@ brew install websocat
 echo state_getMetadata | websocat 'ws://127.0.0.1:9944' --jsonrpc
 ```
 
-Next, copy and paste the output to a JSON file. In our [kitty example](https://github.com/subquery/tutorials-kitty-chain), we have created `api-interface/kitty.json`.
+A continuación, copie y pegue la salida a un archivo JSON. In our [kitty example](https://github.com/subquery/subql-examples/tree/main/kitty), we have created `api-interface/kitty.json`.
 
 #### Tipos de definición
-We assume that the user knows the specific types and RPC support from the chain, and it is defined in the [Manifest](./manifest.md).
+Asumimos que el usuario conoce los tipos específicos y el soporte RPC de la cadena, y está definido en el [Manifiesto](./manifest.md).
 
-Following [types setup](https://polkadot.js.org/docs/api/examples/promise/typegen#metadata-setup), we create :
+import {hashMessage} from "ethers/lib/utils"; //Good way import {utils} from "ethers" //Bad way export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> { const record = new starterEntity(extrinsic.block.block.header.hash.toString()); record.field1 = hashMessage('Hello'); await record.save(); }
 - `src/api-interfaces/definitions.ts` - esto exporta todas las definiciones de la sub-carpeta
 
 ```ts
@@ -207,7 +207,7 @@ export default {
 - En el paquete `package.json`, asegúrate de añadir `@polkadot/typegen` como dependencia de desarrollo y `@polkadot/api` como dependencia regular (idealmente la misma versión). También necesitamos `ts-node` como una dependencia de desarrollo para ayudarnos a ejecutar los scripts.
 - Añadimos scripts para ejecutar ambos tipos; `generate:defs` y metadatos `generar:meta` generadores (en ese orden, así los metadatos pueden usar los tipos).
 
-Here is a simplified version of `package.json`. Make sure in the **scripts** section the package name is correct and the directories are valid.
+Aquí hay una versión simplificada de `package.json`. Asegúrate de que en la sección **scripts** el nombre del paquete es correcto y los directorios son válidos.
 
 ```json
 {
@@ -229,7 +229,7 @@ Here is a simplified version of `package.json`. Make sure in the **scripts** sec
 
 ### Generación de Código
 
-Now that preparation is completed, we are ready to generate types and metadata. Run the commands below:
+Ahora que la preparación está completa, estamos preparados para generar tipos y metadatas. Ejecutar los siguientes comandos:
 
 ```shell
 # Yarn para instalar nuevas dependencias
@@ -239,14 +239,14 @@ yarn
 yarn generate:defs
 ```
 
-In each modules folder (eg `/kitties`), there should now be a generated `types.ts` that defines all interfaces from this modules' definitions, also a file `index.ts` that exports them all.
+En cada carpeta de módulos (por ejemplo, `/kitties`), ahora debería haber un manejador `types.ts` que define todas las interfaces de las definiciones de estos módulos, también un archivo `index.ts` que las exporta todas.
 
 ```shell
 # Genera metadatos
 yarn generate:meta
 ```
 
-This command will generate the metadata and a new api-augment for the APIs. As we don't want to use the built-in API, we will need to replace them by adding an explicit override in our `tsconfig.json`. After the updates, the paths in the config will look like this (without the comments):
+Este comando generará los metadatos y un nuevo complemento para las APIs. Como no queremos usar la API incorporada, necesitaremos reemplazarlos agregando una anulación explícita en nuestro `tsconfig.json`. Después de las actualizaciones, las rutas en la configuración se verán así (sin los comentarios):
 
 ```json
 {
@@ -261,7 +261,7 @@ This command will generate the metadata and a new api-augment for the APIs. As w
 
 ### Uso
 
-Now in the mapping function, we can show how the metadata and types actually decorate the API. The RPC endpoint will support the modules and methods we declared above. And to use custom rpc call, please see section [Custom chain rpc calls](#custom-chain-rpc-calls)
+Ahora en la función de mapeo, podemos mostrar cómo los metadatos y los tipos realmente decoran la API. El endpoint RPC soportará los módulos y métodos que declaramos anteriormente. Y para usar una llamada rpc personalizada, por favor vea la sección [Llamadas rpc de cadena personalizadas](#custom-chain-rpc-calls)
 ```typescript
 export async function kittyApiHandler(): Promise<void> {
     // devuelve el tipo de Kitty
@@ -274,11 +274,11 @@ export async function kittyApiHandler(): Promise<void> {
 }
 ```
 
-**If you wish to publish this project to our explorer, please include the generated files in `src/api-interfaces`.**
+**Si desea publicar este proyecto en nuestro explorador, por favor incluya los archivos generados en `src/api-interfaces`.**
 
 ### Llamadas rpc de cadena personalizadas
 
-To support customised chain RPC calls, we must manually inject RPC definitions for `typesBundle`, allowing per-spec configuration. You can define the `typesBundle` in the `project.yml`. And please remember only `isHistoric` type of calls are supported.
+Para soportar llamadas RPC personalizadas, debemos inyectar manualmente definiciones RPC para `typesBundle`, permitiendo la configuración por especificación. Puede definir el `typesBundle` en el `project.yml`. Y por favor recuerde que sólo se soportan los tipos de llamadas `isHistórico`.
 ```yaml
 ...
   types: {
