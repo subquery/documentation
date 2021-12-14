@@ -137,15 +137,15 @@ filter:
 
 ![Genesis Hash](/assets/img/genesis-hash.jpg)
 
-Additionally you will need to update the `endpoint`. This defines the wss endpoint of the blockchain to be indexed - **This must be a full archive node**. Вы можете бесплатно получить конечные точки для всех парачейнов в OnFinality
+Кроме того, вам нужно будет обновить `endpoint`. Определяет конечную точку wss блокчейна для индексирования - **Это должен быть узел полного архива**. Вы можете бесплатно получить конечные точки для всех парачейнов в OnFinality
 
-### Chain Types
+### Типы цепи
 
-You can index data from custom chains by also including chain types in the manifest.
+Вы можете проиндексировать данные из пользовательских цепей, включив в manifest.
 
-We support the additional types used by substrate runtime modules, `typesAlias`, `typesBundle`, `typesChain`, and `typesSpec` are also supported.
+Мы поддерживаем дополнительные типы, используемые модулями runtime substrate, `typesAlias`, Также поддерживается `typesBundle`, `typesChain`, и `typesSpec`.
 
-In the v0.2.0 example below, the `network.chaintypes` are pointing to a file that has all the custom types included, This is a standard chainspec file that declares the specific types supported by this blockchain in either `.json` or `.yaml` format.
+В примере ниже v0.2.0, сеть `. haintypes` указывают на файл, в который включены все пользовательские типы, Это стандартный файл цепочки, который определяет конкретные типы, поддерживаемые блокчейном либо в `. формат son` или `.yaml`.
 
 <CodeGroup> <CodeGroupItem title="v0.2.0" active> ``` yml network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' endpoint: 'ws://host.kittychain.io/public-ws' chaintypes: file: ./types.json # The relative filepath to where custom types are stored ... ``` </CodeGroupItem>
 <CodeGroupItem title="v0.0.1"> ``` yml ... ``` </CodeGroupItem> <CodeGroupItem title="v0.0.1"> ``` yml ... network: endpoint: "ws://host.kittychain.io/public-ws" types: { "KittyIndex": "u32", "Kitty": "[u8; 16]" } # typesChain: { chain: { Type5: 'example' } } # typesSpec: { spec: { Type6: 'example' } } dataSources: - name: runtime kind: substrate/Runtime startBlock: 1 filter:  #Optional specName: kitty-chain mapping: handlers: - handler: handleKittyBred kind: substrate/CallHandler filter: module: kitties method: breed success: true ``` </CodeGroupItem> </CodeGroup>
