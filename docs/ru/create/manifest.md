@@ -8,76 +8,76 @@
 
 ## Migrating from v0.0.1 to v0.2.0 <Badge text="upgrade" type="warning"/>
 
-**If you have a project with specVersion v0.0.1, you can use `subql migrate` to quickly upgrade. [See here](#cli-options) for more information**
+**If you have a project with specVersion v0.0.1, you can use `subql migrate` to quickly upgrade. смотри здесь больше информации</p>
 
-Under `network`:
+В разделе network
 
-- There is a new **required** `genesisHash` field which helps to identify the chain being used.
-- For v0.2.0 and above, you are able to reference an external [chaintype file](#custom-chains) if you are referencing a custom chain.
+- –Появилось новое обязательное поле genesisHash, которое помогает идентифицировать используемую цепочку.
+- В версии 0.2.0 и выше вы можете ссылаться на внешний файл типа цепи, если вы ссылаетесь на пользовательскую цепь.
 
-Under `dataSources`:
+В разделе dataSources
 
-- Can directly link an `index.js` entry point for mapping handlers. By default this `index.js` will be generated from `index.ts` during the build process.
-- Data sources can now be either a regular runtime data source or [custom data source](#custom-data-sources).
+- Можно напрямую связать точку входа index.js для обработчиков отображения. По умолчанию этот ndex.js будет сгенерирован из index.ts в процессе сборки.
+- Источники данных теперь могут быть как обычным источником данных во время выполнения, так и пользовательским источником данных.
 
-### CLI Options
+### Опции CLI
 
-While the v0.2.0 spec version is in beta, you will need to explicitly define it during project initialisation by running `subql init --specVersion 0.2.0 PROJECT_NAME`
+Пока версия v0.2.0 находится в бета-версии, вам необходимо явно определить ее во время инициализации проекта, выполнив команду subql init --specVersion 0.2.0 проект_имя
 
-`subql migrate` can be run in an existing project to migrate the project manifest to the latest version.
+subql migrate можно запустить в существующем проекте, чтобы перенести манифест проекта на последнюю версию.
 
-| Options        | Description                                                |
-| -------------- | ---------------------------------------------------------- |
-| -f, --force    |                                                            |
-| -l, --location | local folder to run migrate in (must contain project.yaml) |
-| --file=file    | to specify the project.yaml to migrate                     |
+| Параметры      | Описание                                                            |
+| -------------- | ------------------------------------------------------------------- |
+| f, --force     |                                                                     |
+| -l, --location | локальная папка для запуска migrate (должна содержать project.yaml) |
+| --file=file    | чтобы указать project.yaml для миграции                             |
 
-## Overview
+## Обзор
 
-### Top Level Spec
+### Спецификация верхнего уровня
 
-| Field           | v0.0.1                              | v0.2.0                      | Description                                                |
-| --------------- | ----------------------------------- | --------------------------- | ---------------------------------------------------------- |
-| **specVersion** | String                              | String                      | `0.0.1` or `0.2.0` - the spec version of the manifest file |
-| **name**        | 𐄂                                   | String                      | Name of your project                                       |
-| **version**     | 𐄂                                   | String                      | Version of your project                                    |
-| **description** | String                              | String                      | Discription of your project                                |
-| **repository**  | String                              | String                      | Git repository address of your project                     |
-| **schema**      | String                              | [Schema Spec](#schema-spec) | The location of your GraphQL schema file                   |
-| **network**     | [Network Spec](#network-spec)       | Network Spec                | Detail of the network to be indexed                        |
-| **dataSources** | [DataSource Spec](#datasource-spec) | DataSource Spec             |                                                            |
+| Поле                    | v0.0.1                              | v0.2.0                      | Описание                                              |
+| ----------------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------- |
+| **спецификация версии** | String                              | String                      | 0.0.1 или 0.2.0 - версия спецификации файла манифеста |
+| **имя**                 | 𐄂                                   | String                      | Название вашего проекта                               |
+| **версия**              | 𐄂                                   | String                      | Версия вашего проекта                                 |
+| **описание**            | String                              | String                      | Описание вашего проекта                               |
+| **репозиторий**         | String                              | String                      | Адрес Git-репозитория вашего проекта                  |
+| **схема**               | String                              | [Schema Spec](#schema-spec) | Расположение вашего файла схемы GraphQL               |
+| **сеть**                | [Network Spec](#network-spec)       | Network Spec                | Деталь сети, подлежащей индексированию                |
+| **источники данных**    | [DataSource Spec](#datasource-spec) | DataSource Spec             |                                                       |
 
-### Schema Spec
+### Спецификация схемы
 
-| Field    | v0.0.1 | v0.2.0 | Description                              |
-| -------- | ------ | ------ | ---------------------------------------- |
-| **file** | 𐄂      | String | The location of your GraphQL schema file |
+| Поле      | v0.0.1 | v0.2.0 | Описание                                |
+| --------- | ------ | ------ | --------------------------------------- |
+| **файла** | 𐄂      | String | Расположение вашего файла схемы GraphQL |
 
-### Network Spec
+### Спецификация сети
 
-| Field           | v0.0.1 | v0.2.0        | Description                                                                                                                                                                                                |
-| --------------- | ------ | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **genesisHash** | 𐄂      | String        | The genesis hash of the network                                                                                                                                                                            |
-| **endpoint**    | String | String        | Defines the wss or ws endpoint of the blockchain to be indexed - **This must be a full archive node**. You can retrieve endpoints for all parachains for free from [OnFinality](https://app.onfinality.io) |
-| **dictionary**  | String | String        | It is suggested to provide the HTTP endpoint of a full chain dictionary to speed up processing - read [how a SubQuery Dictionary works](../tutorials_examples/dictionary.md).                              |
-| **chaintypes**  | 𐄂      | {file:String} | Path to chain types file, accept `.json` or `.yaml` format                                                                                                                                                 |
+| Поле               | v0.0.1 | v0.2.0        | Описание                                                                                                                                                                              |
+| ------------------ | ------ | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **genesisHash**    | 𐄂      | String        | genesis hash сети                                                                                                                                                                     |
+| **конечная точка** | String | String        | Определяет конечную точку wss или ws блокчейна для индексирования - Это должен быть узел полного архива. Вы можете бесплатно получить конечные точки для всех парачейнов в OnFinality |
+| **словарь**        | String | String        | Для ускорения обработки предлагается предоставлять HTTP конечную точку полного словаря цепочки - читайте, как работает SubQuery Dictionary                                            |
+| **типы цепей**     | 𐄂      | {file:String} | Путь к файлу с типами цепей, принимается формат .json или .yaml                                                                                                                       |
 
-### Datasource Spec
+### Спецификация источника данных
 
-Defines the data that will be filtered and extracted and the location of the mapping function handler for the data transformation to be applied.
-| Field          | v0.0.1                                                    | v0.2.0                                                                           | Description                                                                                                                                                                           |
-| -------------- | --------------------------------------------------------- | -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **name**       | String                                                    | 𐄂                                                                                | Name of the data source                                                                                                                                                               |
-| **kind**       | [substrate/Runtime](./manifest/#data-sources-and-mapping) | substrate/Runtime, [substrate/CustomDataSource](./manifest/#custom-data-sources) | We supports data type from default substrate runtime such as block, event and extrinsic(call). <br /> From v0.2.0, we support data from custom runtime, such as smart contract. |
-| **startBlock** | Integer                                                   | Integer                                                                          | This changes your indexing start block, set this higher to skip initial blocks with less data                                                                                         |
-| **mapping**    | Mapping Spec                                              | Mapping Spec                                                                     |                                                                                                                                                                                       |
-| **filter**     | [network-filters](./manifest/#network-filters)            | 𐄂                                                                                | Filter the data source to execute by the network endpoint spec name                                                                                                                   |
+Определяет данные, которые будут отфильтрованы и извлечены, и местоположение обработчика функции отображения для применяемого преобразования данных.
+| Поле               | v0.0.1                                                    | v0.2.0                                        | Описание                                                                                                                                                                              |
+| ------------------ | --------------------------------------------------------- | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **имя**            | String                                                    | 𐄂                                             | Имя источника данных                                                                                                                                                                  |
+| **вид**            | [substrate/Runtime](./manifest/#data-sources-and-mapping) | substrate/Runtime, substrate/CustomDataSource | Мы поддерживаем такие типы данных, как block, event и extrinsic(call) Начиная с версии 0.2.0, мы поддерживаем данные из пользовательской среды исполнения, например, смарт-контракта. |
+| **начальный блок** | Integer                                                   | Integer                                       | Это изменяет начальный блок индексирования, установите это значение выше, чтобы пропускать начальные блоки с меньшим количеством данных                                               |
+| **картирование**   | Mapping Spec                                              | Mapping Spec                                  |                                                                                                                                                                                       |
+| **фильтр**         | [network-filters](./manifest/#network-filters)            | 𐄂                                             | Фильтр источника данных для выполнения по имени спецификации конечной точки сети                                                                                                      |
 
 ### Mapping Spec
 
-| Field                  | v0.0.1                                                                   | v0.2.0                                                                                        | Description                                                                                                                                                                                                                                  |
+| Поле                   | v0.0.1                                                                   | v0.2.0                                                                                        | Описание                                                                                                                                                                                                                                     |
 | ---------------------- | ------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **file**               | String                                                                   | 𐄂                                                                                             | Path to the mapping entry                                                                                                                                                                                                                    |
+| **файла**              | String                                                                   | 𐄂                                                                                             | Path to the mapping entry                                                                                                                                                                                                                    |
 | **handlers & filters** | [Default handlers and filters](./manifest/#mapping-handlers-and-filters) | Default handlers and filters, <br />[Custom handlers and filters](#custom-data-sources) | List all the [mapping functions](./mapping.md) and their corresponding handler types, with additional mapping filters. <br /><br /> For custom runtimes mapping handlers please view [Custom data sources](#custom-data-sources) |
 
 ## Data Sources and Mapping
@@ -100,7 +100,7 @@ The following table explains filters supported by different handlers.
 
 | Handler                                    | Supported filter             |
 | ------------------------------------------ | ---------------------------- |
-| [BlockHandler](./mapping.md#block-handler) | `specVersion`                |
+| [BlockHandler](./mapping.md#block-handler) | `спецификация версии`        |
 | [EventHandler](./mapping.md#event-handler) | `module`,`method`            |
 | [CallHandler](./mapping.md#call-handler)   | `module`,`method` ,`success` |
 
@@ -137,7 +137,7 @@ The `genesisHash` must always be the hash of the first block of the custom netwo
 
 ![Genesis Hash](/assets/img/genesis-hash.jpg)
 
-Additionally you will need to update the `endpoint`. This defines the wss endpoint of the blockchain to be indexed - **This must be a full archive node**. You can retrieve endpoints for all parachains for free from [OnFinality](https://app.onfinality.io)
+Additionally you will need to update the `endpoint`. This defines the wss endpoint of the blockchain to be indexed - **This must be a full archive node**. Вы можете бесплатно получить конечные точки для всех парачейнов в OnFinality
 
 ### Chain Types
 
