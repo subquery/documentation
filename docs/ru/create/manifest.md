@@ -75,65 +75,65 @@ subql migrate можно запустить в существующем прое
 
 ### Mapping Spec
 
-| Поле                   | v0.0.1                                                                   | v0.2.0                                                                                        | Описание                                                                                                                                                                                                                                     |
-| ---------------------- | ------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **файла**              | String                                                                   | 𐄂                                                                                             | Path to the mapping entry                                                                                                                                                                                                                    |
-| **handlers & filters** | [Default handlers and filters](./manifest/#mapping-handlers-and-filters) | Default handlers and filters, <br />[Custom handlers and filters](#custom-data-sources) | List all the [mapping functions](./mapping.md) and their corresponding handler types, with additional mapping filters. <br /><br /> For custom runtimes mapping handlers please view [Custom data sources](#custom-data-sources) |
+| Поле                      | v0.0.1                                                                         | v0.2.0                                                                     | Описание                                                                                                                                                                                                                                                                    |
+| ------------------------- | ------------------------------------------------------------------------------ | -------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **файла**                 | String                                                                         | 𐄂                                                                          | Путь к записи отображения                                                                                                                                                                                                                                                   |
+| **обработчики и фильтры** | [Обработчики и фильтры по умолчанию](./manifest/#mapping-handlers-and-filters) | Обработчики и фильтры по умолчанию, Пользовательские обработчики и фильтры | Список всех функций отображения и соответствующих им типов обработчиков, с дополнительными фильтрами отображения. Для получения информации о пользовательских обработчиках отображения времени выполнения, пожалуйста, просмотрите раздел Пользовательские источники данных |
 
-## Data Sources and Mapping
+## Источники данных и картирование
 
-In this section, we will talk about the default substrate runtime and its mapping. Here is an example:
+В этом разделе мы поговорим о времени выполнения субстрата по умолчанию и его отображении. Вот пример:
 
 ```yaml
 dataSources:
-  - kind: substrate/Runtime # Indicates that this is default runtime
-    startBlock: 1 # This changes your indexing start block, set this higher to skip initial blocks with less data
+  - kind: substrate/Runtime # Указывает, что это время выполнения по умолчанию
+    startBlock: 1 # Это изменяет начальный блок индексирования, установите его выше, чтобы пропускать начальные блоки с меньшим количеством данных
     mapping:
-      file: dist/index.js # Entry path for this mapping
+      file: dist/index.js # Путь входа для этого отображения
 ```
 
-### Mapping handlers and Filters
+### Обработчики и фильтры по умолчанию
 
-The following table explains filters supported by different handlers.
+В следующей таблице описаны фильтры, поддерживаемые различными обработчиками.
 
-**Your SubQuery project will be much more efficient when you only use event and call handlers with appropriate mapping filters**
+**Ваш проект SubQuery будет намного эффективнее, если вы будете использовать только обработчики событий и вызовов с соответствующими фильтрами отображения.**
 
-| Handler                                    | Supported filter             |
-| ------------------------------------------ | ---------------------------- |
-| [BlockHandler](./mapping.md#block-handler) | `спецификация версии`        |
-| [EventHandler](./mapping.md#event-handler) | `module`,`method`            |
-| [CallHandler](./mapping.md#call-handler)   | `module`,`method` ,`success` |
+| Обработчик                                       | Поддерживаемый фильтр |
+| ------------------------------------------------ | --------------------- |
+| [Обработчик блоков](./mapping.md#block-handler)  | `спецификация версии` |
+| [Обработчик событий](./mapping.md#event-handler) | модуль,метод          |
+| [Обработчик вызовов](./mapping.md#call-handler)  | модуль,метод ,успех   |
 
-Default runtime mapping filters are an extremely useful feature to decide what block, event, or extrinsic will trigger a mapping handler.
+Фильтры отображения по умолчанию во время выполнения являются чрезвычайно полезной функцией, позволяющей решить, какой блок, событие или внешнее свойство вызовет обработчик отображения.
 
-Only incoming data that satisfy the filter conditions will be processed by the mapping functions. Mapping filters are optional but are highly recommended as they significantly reduce the amount of data processed by your SubQuery project and will improve indexing performance.
+Только входящие данные, удовлетворяющие условиям фильтра, будут обработаны функциями сопоставления. Фильтры отображения являются необязательными, но настоятельно рекомендуются, поскольку они значительно уменьшают объем данных, обрабатываемых вашим проектом SubQuery, и улучшают производительность индексирования.
 
 ```yaml
-# Example filter from callHandler
-filter:
-  module: balances
-  method: Deposit
-  success: true
+# Пример фильтра из обработчика вызовов
+filter: 
+   module: balances
+   method: Deposit
+   success: true
 ```
 
-- Module and method filters are supported on any substrate-based chain.
-- The `success` filter takes a boolean value and can be used to filter the extrinsic by its success status.
-- The `specVersion` filter specifies the spec version range for a substrate block. The following examples describe how to set version ranges.
+- Фильтры модулей и методов поддерживаются на любой цепи на основе субстрата.
+- Фильтр success принимает логическое значение и может быть использован для фильтрации дополнительных по его статусу успеха.
+- Фильтр по спецификации  определяет диапазон версии спецификации для блока субстрата. В следующих примерах описано, как установить диапазоны версий.
 
 ```yaml
 filter:
-  specVersion: [23, 24]   # Index block with specVersion in between 23 and 24 (inclusive).
-  specVersion: [100]      # Index block with specVersion greater than or equal 100.
-  specVersion: [null, 23] # Index block with specVersion less than or equal 23.
+  specVersion: [23, 24] #Index блок с specVersion в диапазоне от 23 до 24 (включительно).
+  specVersion: [100]      #Index блок со спецификацией больше или равно 100.
+  specVersion: [null, 23] #Индекс блок со специализацией равной или менее 23.
 ```
 
 ## Пользовательские цепочки
 
-### Network Spec
+### Спецификация сети
 
-When connecting to a different Polkadot parachain or even a custom substrate chain, you'll need to edit the [Network Spec](#network-spec) section of this manifest.
+При подключении к другой сети Polkadot или даже к пользовательской подстраховке, вам нужно отредактировать раздел Network Spec этого манифеста.
 
-The `genesisHash` must always be the hash of the first block of the custom network. You can retireve this easily by going to [PolkadotJS](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fkusama.api.onfinality.io%2Fpublic-ws#/explorer/query/0) and looking for the hash on **block 0** (see the image below).
+`genesisHash` должен всегда быть хэшем первого блока пользовательской сети. Вы можете это легко отменить, перейдя к [PolkadotJS](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fkusama.api.onfinality.io%2Fpublic-ws#/explorer/query/0) и ищущая хэш на **блоке 0** (см. изображение ниже).
 
 ![Genesis Hash](/assets/img/genesis-hash.jpg)
 
