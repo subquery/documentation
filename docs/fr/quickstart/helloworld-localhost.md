@@ -4,26 +4,26 @@ Welcome to this SubQuery Hello World quick start. The quick start aims to show y
 
 ## Objectifs d'apprentissage
 
-At the end of this quick start, you should:
+À la fin de ce démarrage rapide, vous devriez :
 
-- understand the required pre-requisites
+- comprendre les pré-requis nécessaires
 - understand the basic common commands
 - be able to navigate to localhost:3000 and view the playground
 - run a simple query to get the block height of the Polkadot mainnet
 
-## Intended audience
+## Public visé
 
-This guide is geared towards new developers who have some development experience and are interested in learning more about SubQuery.
+Ce guide s'adresse aux nouveaux développeurs qui ont une certaine expérience du développement et qui souhaitent en savoir plus sur SubQuery.
 
-## Video guide
+## Guide vidéo
 
 <figure class="video_container">
   <iframe src="https://www.youtube.com/embed/j034cyUYb7k" frameborder="0" allowfullscreen="true"></iframe>
 </figure>
 
-## Pre-requisites
+## Pré-requis
 
-You will need:
+Vous aurez besoin :
 
 - yarn or npm package manager
 - SubQuery CLI (`@subql/cli`)
