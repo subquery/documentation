@@ -152,27 +152,29 @@ filter:
 
 ## Custom Data Sources
 
-Custom Data Sources provide network specific functionality that makes dealing with data easier. They act as a middleware that can provide extra filtering and data transformation.
+Custom Data Sources provide network specific functionality that makes dealing with data easier. Они служат средним ПО, которое может обеспечить дополнительную фильтрацию и преобразование данных.
 
-A good example of this is EVM support, having a custom data source processor for EVM means that you can filter at the EVM level (e.g. filter contract methods or logs) and data is transformed into structures farmiliar to the Ethereum ecosystem as well as parsing parameters with ABIs.
+Хороший пример поддержки EVM, создание собственного процессора данных для EVM означает, что вы можете фильтровать на EVM уровне (e. фильтровать контрактные методы или журналы) и данные трансформируются в структуры farmiliar в экосистему Ethereum, а также анализировать параметры с АБИ.
 
-Custom Data Sources can be used with normal data sources.
+Пользовательские источники данных могут использоваться с обычными источниками данных.
 
-Here is a list of supported custom datasources:
+Вот список пользовательских источников данных:
 
-| Kind                                                  | Supported Handlers                                                                                       | Filters                         | Description                                                                      |
-| ----------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | ------------------------------- | -------------------------------------------------------------------------------- |
-| [substrate/Moonbeam](./moonbeam/#data-source-example) | [substrate/MoonbeamEvent](./moonbeam/#moonbeamevent), [substrate/MoonbeamCall](./moonbeam/#moonbeamcall) | See filters under each handlers | Provides easy interaction with EVM transactions and events on Moonbeams networks |
+[ Подсветки/Луны](./moonbeam/#data-source-example)</td> 
 
-## Network Filters
+</tr> </tbody> </table> 
 
-**Network filters only applies to manifest spec v0.0.1**.
 
-Usually the user will create a SubQuery and expect to reuse it for both their testnet and mainnet environments (e.g Polkadot and Kusama). Between networks, various options are likely to be different (e.g. index start block). Therefore, we allow users to define different details for each data source which means that one SubQuery project can still be used across multiple networks.
 
-Users can add a `filter` on `dataSources` to decide which data source to run on each network.
+## Сетевые Фильтры
 
-Below is an example that shows different data sources for both the Polkadot and Kusama networks.
+**Сетевые фильтры применяются только к спецификации v0. .1**.
+
+Обычно, пользователь создаст подзапрос и ожидает повторного использования его как в testnet, так и в материнской сети (e. Полкадот и Кусама). В разных сетях различные параметры, скорее всего, будут отличаться (например, начальный блок индекса). Поэтому мы позволяем пользователям определять различные детали для каждого источника данных, что означает, что один проект SubQuery может использоваться в нескольких сетях.
+
+Пользователи могут добавить ` filter ` на `dataSources`, чтобы решить, какой источник данных запускать в каждой сети.
+
+Ниже приведен пример, показывающий различные источники данных для сетей Polkadot и Kusama.
 
 <CodeGroup> <CodeGroupItem title="v0.0.1"> ```yaml --- network: endpoint: 'wss://polkadot.api.onfinality.io/public-ws' #Create a template to avoid redundancy definitions: mapping: &mymapping handlers: - handler: handleBlock kind: substrate/BlockHandler dataSources: - name: polkadotRuntime kind: substrate/Runtime filter: #Optional specName: polkadot startBlock: 1000 mapping: *mymapping #use template here - name: kusamaRuntime kind: substrate/Runtime filter: specName: kusama startBlock: 12000 mapping: *mymapping # can reuse or change ``` </CodeGroupItem>
 
