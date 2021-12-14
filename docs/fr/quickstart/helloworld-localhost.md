@@ -1,15 +1,15 @@
 # Hello World (localhost + Docker)
 
-Welcome to this SubQuery Hello World quick start. The quick start aims to show you how you get the default starter project running in Docker in a few simple steps.
+Bienvenue à ce démarrage rapide de SubQuery Hello World. Ce démarrage rapide a pour but de vous montrer comment faire fonctionner le projet de démarrage par défaut dans Docker en quelques étapes simples.
 
 ## Objectifs d'apprentissage
 
 À la fin de ce démarrage rapide, vous devriez :
 
 - comprendre les pré-requis nécessaires
-- understand the basic common commands
-- be able to navigate to localhost:3000 and view the playground
-- run a simple query to get the block height of the Polkadot mainnet
+- comprendre les commandes de base communes
+- être capable de naviguer vers localhost:3000 et de visualiser le terrain de jeu
+- exécuter une requête simple pour obtenir la hauteur de bloc du réseau principal Polkadot.
 
 ## Public visé
 
@@ -23,13 +23,13 @@ Ce guide s'adresse aux nouveaux développeurs qui ont une certaine expérience d
 
 ## Pré-requis
 
-Vous aurez besoin :
+Vous aurez besoin de
 
-- yarn or npm package manager
-- SubQuery CLI (`@subql/cli`)
+- gestionnaire de paquets yarn ou npm
+- CLI SubQuery`(@subql/cli`)
 - Docker
 
-You can run the following commands in a terminal to see if you already have any of these pre-requisites.
+Vous pouvez exécuter les commandes suivantes dans un terminal pour voir si vous disposez déjà de l'un de ces prérequis.
 
 ```shell
 yarn -v (or npm -v)
@@ -37,13 +37,13 @@ subql -v
 docker -v
 ```
 
-For more advanced users, copy and paste the following:
+Pour les utilisateurs plus avancés, copiez et collez ce qui suit :
 
 ```shell
 echo -e "My yarn version is:" `yarn -v` "\nMy subql version is:" `subql -v`  "\nMy docker version is:" `docker -v`
 ```
 
-This should return: (for npm users, replace yarn with npm)
+Ceci devrait renvoyer : (pour les utilisateurs de npm, remplacez yarn par npm)
 
 ```shell
 My yarn version is: 1.22.10
@@ -51,15 +51,15 @@ My subql version is: @subql/cli/0.9.3 darwin-x64 node-v16.3.0
 My docker version is: Docker version 20.10.5, build 55c4c88
 ```
 
-If you get the above, then you are good to go. If not, follow these links to install them:
+Si vous obtenez le résultat ci-dessus, vous êtes prêt à partir. Sinon, suivez ces liens pour les installer :
 
-- [yarn](https://classic.yarnpkg.com/en/docs/install/) or [npm](https://www.npmjs.com/get-npm)
-- [SubQuery CLI](quickstart.md#install-the-subquery-cli)
+- [yarn](https://classic.yarnpkg.com/en/docs/install/) ou [npm](https://www.npmjs.com/get-npm)
+- [CLI SubQuery](quickstart.md#install-the-subquery-cli)
 - [Docker](https://docs.docker.com/get-docker/)
 
-## 1. Initialise project
+## 1. Initialiser le projet
 
-The first step when starting off with SubQuery is to run the `subql init` command. Let's initialise a start project with the name `subqlHelloWorld`. Note that only author is mandatory. Everything else is left empty below.
+La première étape pour démarrer avec SubQuery est d'exécuter la commande `subql init`. Initialisons un projet de départ avec le nom `subqlHelloWorld`. Notez que seul l'auteur est obligatoire. Tout le reste est laissé vide ci-dessous.
 
 ```shell
 > subql init --starter subqlHelloWorld
@@ -73,19 +73,20 @@ Init the starter package... subqlHelloWorld is ready
 
 ```
 
-Don't forget to change into this new directory.
+N'oubliez pas de vous installer dans ce nouveau répertoire.
 
 ```shell
 cd subqlHelloWorld
 ```
 
-## 2. Install dependencies
+## 2. Installer les dépendances
 
-Now do a yarn or node install to install the various dependencies.
+Maintenant, faites un yarn ou un node install pour installer les différentes dépendances.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn install ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```bash npm install ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn install ``` </CodeGroupItem>
+<CodeGroupItem title="NPM"> ```bash npm install ``` </CodeGroupItem> </CodeGroup>
 
-An example of `yarn install`
+Un exemple de `yarn install`
 
 ```shell
 > yarn install
@@ -99,13 +100,14 @@ success Saved lockfile.
 ✨  Done in 31.84s.
 ```
 
-## 3. Generate code
+## 3. Générer du code
 
-Now run `yarn codegen` to generate Typescript from the GraphQL schema.
+Exécutez maintenant `yarn codegen` pour générer du Typescript à partir du schéma GraphQL.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```bash npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem>
+<CodeGroupItem title="NPM"> ```bash npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
 
-An example of `yarn codegen`
+Un exemple de `yarn codegen`
 
 ```shell
 > yarn codegen
@@ -120,15 +122,16 @@ $ ./node_modules/.bin/subql codegen
 ✨  Done in 1.02s.
 ```
 
-**Warning** When changes are made to the schema file, please remember to re-run `yarn codegen` to regenerate your types directory.
+**Attention** Lorsque des modifications sont apportées au fichier de schéma, n'oubliez pas de relancer `yarn codegen` pour régénérer votre répertoire de types.
 
-## 4. Build code
+## 4. Construire le code
 
-The next step is to build the code with `yarn build`.
+L'étape suivante consiste à construire le code avec `yarn build`.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```bash npm run-script build ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem>
+<CodeGroupItem title="NPM"> ```bash npm run-script build ``` </CodeGroupItem> </CodeGroup>
 
-An example of `yarn build`
+Un exemple de `yarn build`
 
 ```shell
 > yarn build
@@ -137,11 +140,11 @@ $ tsc -b
 ✨  Done in 5.68s.
 ```
 
-## 5. Run Docker
+## 5. Exécuter Docker
 
-Using Docker allows you to run this example very quickly because all the required infrastructure can be provided within the Docker image. Run `docker-compose pull && docker-compose up`.
+L'utilisation de Docker vous permet d'exécuter cet exemple très rapidement car toute l'infrastructure requise peut être fournie dans l'image Docker. Exécutez `docker-compose pull && docker-compose up`.
 
-This will kick everything into life where eventually you will get blocks being fetched.
+Cela donnera un coup de fouet à l'ensemble et vous obtiendrez finalement des blocs qui seront récupérés.
 
 ```shell
 > #SNIPPET
@@ -159,9 +162,9 @@ graphql-engine_1  | 2021-06-05T22:20:43.244Z <express> INFO request completed
 
 ```
 
-## 6. Browse playground
+## 6. Parcourir le terrain de jeu
 
-Navigate to http://localhost:3000/ and paste the query below into the left side of the screen and then hit the play button.
+Naviguez vers http://localhost:3000/ et collez la requête ci-dessous dans la partie gauche de l'écran, puis appuyez sur le bouton de lecture.
 
 ```
 {
@@ -176,12 +179,12 @@ Navigate to http://localhost:3000/ and paste the query below into the left side 
 
 ```
 
-SubQuery playground on localhost.
+Terrain de jeux de SubQuery sur localhost.
 
-![playground localhost](/assets/img/subql_playground.png)
+![terrain de jeux localhost](/assets/img/subql_playground.png)
 
-The block count in the playground should match the block count (technically the block height) in the terminal as well.
+Le nombre de blocs dans le terrain de jeu devrait correspondre au nombre de blocs (techniquement la hauteur des blocs) dans le terminal également.
 
-## Summary
+## Résumé
 
-In this quick start, we demonstrated the basic steps to get a starter project up and running within a Docker environment and then navigated to localhost:3000 and ran a query to return the block number of the mainnet Polkadot network.
+Dans ce démarrage rapide, nous avons montré les étapes de base pour obtenir un projet de démarrage opérationnel dans un environnement Docker, puis nous avons navigué vers localhost:3000 et exécuté une requête pour renvoyer le nombre de blocs du réseau principal Polkadot.
