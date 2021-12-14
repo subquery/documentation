@@ -86,19 +86,19 @@ export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
 
 เรายังสนับสนุนวิธี API RPC บางอย่างที่เป็นการ call ระยะไกลที่อนุญาตให้ฟังก์ชันแมปสามารถสื่อสารกับโหนด คิวรี่ และการบันทึกข้อมูลได้ ความคิดหลักของ SubQuery คือการกำหนดได้ ดังนั้น เพื่อให้ผลลัพธ์สอดคล้องกัน เราจึงอนุญาตเฉพาะการเรียก RPC ในอดีตเท่านั้น
 
-เอกสารใน [JSON-RPC](https://polkadot.js.org/docs/substrate/rpc/#rpc) มีวิธีการบางอย่างที่ใช้ `BlockHash` เป็นพารามิเตอร์อินพุต (เช่น `at?: BlockHash`) ซึ่งขณะนี้ได้รับอนุญาตให้ใช้แล้ว นอกจากนี้เรายังได้ปรับวิธีการเหล่านี้เพื่อให้การทำดัชนี hash ณ ขณะนั้นของบล็อก ตั้งเป็นค่าเริ่มต้น
+เอกสารใน [JSON-RPC](https://polkadot.js.org/docs/substrate/rpc/#rpc) มีวิธีการบางอย่างที่ใช้ `BlockHash` เป็นพารามิเตอร์อินพุต (เช่น `at?: BlockHash`) ซึ่งขณะนี้ได้รับอนุญาตให้ใช้แล้ว นอกจากนี้เรายังได้ปรับวิธีการเหล่านี้เพื่อให้การทำดัชนี block hash ณ ขณะนั้น ตั้งเป็นค่าเริ่มต้น
 
 ```typescript
-// Let's say we are currently indexing a block with this hash number
+// สมมติว่าเรากำลังทำดัชนีบล็อกอันหนึ่งด้วยหมายเลข hash นี้
 const blockhash = `0x844047c4cf1719ba6d54891e92c071a41e3dfe789d064871148e9d41ef086f6a`;
 
-// Original method has an optional input is block hash
+// วิธีการดั้งเดิมจะมีอินพุตแบบไม่บังคับเป็น block hash 
 const b1 = await api.rpc.chain.getBlock(blockhash);
 
-// It will use the current block has by default like so
+// มันจะใช้ค่าเริ่มต้นเป็น block hash ปัจจุบัน ดังนี้
 const b2 = await api.rpc.chain.getBlock();
 ```
-- For [Custom Substrate Chains](#custom-substrate-chains) RPC calls, see [usage](#usage).
+- สำหรับ RPC call ต่าง ๆ ที่เป็น [เครือข่าย Substrate แบบกำหนดเอง](#custom-substrate-chains) ดูที่ [การใช้งาน](#usage)
 
 ## Modules and Libraries
 
