@@ -2,9 +2,9 @@
 
 Le but de ce démarrage rapide est de montrer comment vous pouvez faire fonctionner un projet par défaut dans SubQuery Projects (notre service géré) en quelques étapes faciles.
 
-We will take the simple starter project (and everything we've learned thus far) but instead of running it locally within Docker, we'll take advantage of SubQuery's managed hosting infrastructure. In other words, we let SubQuery do all the heavy lifting, running and managing production infrastructure.
+Nous allons prendre le projet de démarrage simple (et tout ce que nous avons appris jusqu'à présent) mais au lieu de l'exécuter localement dans Docker, nous allons profiter de l'infrastructure d'hébergement géré de SubQuery. En d'autres termes, nous laissons SubQuery faire le gros du travail, en exécutant et en gérant l'infrastructure de production.
 
-## Learning objectives
+## Objectifs d'apprentissage
 
 At the end of this quick start, you should:
 
