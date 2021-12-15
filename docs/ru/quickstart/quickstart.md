@@ -28,7 +28,7 @@ npm install -g @subql/cli
 Затем вы можете запустить справку, чтобы увидеть доступные команды и использование, предоставляемые CLI
 
 ```shell
-subql help
+помощь subql
 ```
 
 ## Инициализировать начальный проект подзапроса
@@ -61,7 +61,7 @@ subql init --starter PROJECT_NAME
 Запустите команду сборки из корневого каталога проекта.
 
 <CodeGroup> All configuration that controls how a SubQuery node is run is defined in this `docker-compose.yml` file. Для нового проекта, который был только что инициализирован, вам не нужно здесь ничего менять, но вы можете узнать больше о файле и настройках в разделе [ Запуск проекта ](../run/run.md)
-- The GraphQL Schema in `schema.graphql`
+- Схема GraphQL в  `schema.graphql`
 - В основном вы будете работать со следующими файлами: </ul>
 
 Для получения дополнительной информации о том, как написать свой собственный подзапрос, ознакомьтесь с нашей документацией в разделе [ Создание проекта ](../create/introduction.md)
@@ -83,17 +83,17 @@ subql init --starter PROJECT_NAME
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```bash npm run-script build ``` </CodeGroupItem> </CodeGroup>
 
-## Running and Querying your Starter Project
+## Запуск и запрашивание вашего Стартового Проекта
 
-Although you can quickly publish your new project to [SubQuery Projects](https://project.subquery.network) and query it using our [Explorer](https://explorer.subquery.network), the easiest way to run SubQuery nodes locally is in a Docker container, if you don't already have Docker you can install it from [docker.com](https://docs.docker.com/get-docker/).
+Хотя вы можете быстро опубликовать ваш новый проект в [SubQuery Проекты](https://project.subquery.network) и запросить его, используя наш [Explorer](https://explorer.subquery.network), самый простой способ запуска узлов SubQuery локально находится в контейнере Docker, если у вас еще нет Docker, вы можете установить его с [docker. om](https://docs.docker.com/get-docker/).
 
-[_Skip this and publish your new project to SubQuery Projects_](../publish/publish.md)
+[_Пропустите это и опубликуйте новый проект для проектов подзапросов_](../publish/publish.md)
 
-### Run your SubQuery Project
+### Запустите проект подзапроса
 
-All configuration that controls how a SubQuery node is run is defined in this `docker-compose.yml` file. For a new project that has been just initalised you won't need to change anything here, but you can read more about the file and the settings in our [Run a Project section](../run/run.md)
+В этом `docker-compose, определена вся конфигурация, контролирующая запуск узла SubQuery. ml` файл. Для нового проекта, который только что был запущен, вам не нужно ничего менять, но вы можете прочитать больше о файле и настройках в нашем разделе [Запуск проекта](../run/run.md).
 
-Under the project directory run following command:
+В каталоге проекта выполните следующую команду:
 
 ```shell
 docker-compose pull && docker-compose up
@@ -107,7 +107,7 @@ docker-compose pull && docker-compose up
 
 Вы должны увидеть игровую площадку GraphQL, отображаемую в проводнике, и схемы, готовые к запросу. В правом верхнем углу игровой площадки вы найдете кнопку _ Документы _, которая откроет розыгрыш документации. Эта документация создается автоматически и помогает вам найти, какие сущности и методы вы можете запрашивать.
 
-For a new SubQuery starter project, you can try the following query to get a taste of how it works or [learn more about the GraphQL Query language](../query/graphql.md).
+Для нового стартового проекта SubQuery вы можете попробовать следующий запрос, чтобы узнать, как он работает, или [узнать больше о языке запросов GraphQL](../query/graphql.md).
 
 ```graphql
 {
@@ -123,7 +123,7 @@ For a new SubQuery starter project, you can try the following query to get a tas
 }
 ```
 
-## Next Steps
+## Следующие шаги
 
 Поздравляем, теперь у вас есть локально работающий проект SubQuery, который принимает запросы GraphQL API для демонстрационных данных. В следующем руководстве мы покажем вам, как опубликовать ваш новый проект в [ SubQuery Projects ](https://project.subquery.network) и запросить его с помощью нашего [ Explorer ](https://explorer.subquery.network)
 
