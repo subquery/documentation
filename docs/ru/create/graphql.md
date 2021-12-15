@@ -13,15 +13,15 @@
 
 ```graphql
 type Example @entity {
-  id: ID! # id field is always required and must look like this
-  name: String! # This is a required field
-  address: String # This is an optional field
+  id: ID! # поле id является обязательным и должно выглядеть так.
+  name: String! # Это обязательное поле
+  address: String # Это обязательное поле
 }
 ```
 
-### Supported scalars and types
+### Поддерживаемые скаляры и типы
 
-We currently supporting flowing scalars types:
+В настоящее время мы поддерживаем следующие скалярные типы:
 - `ID`
 - `Int`
 - `String`
@@ -31,9 +31,9 @@ We currently supporting flowing scalars types:
 - `Boolean`
 - `<EntityName>` для вложенных сущностей отношений, вы можете использовать имя определенной сущности в качестве одного из полей. Пожалуйста, смотрите в [Entity Relationships](#entity-relationships).
 - `JSON` может также хранить структурированные данные, пожалуйста, посмотрите [JSON type](#json-type)
-- `<EnumName>` типы это особый вид enum скаляра, который ограничен определенным набором допустимых значений. Please see [Graphql Enum](https://graphql.org/learn/schema/#enumeration-types)
+- `<EnumName>` типы это особый вид enum скаляра, который ограничен определенным набором допустимых значений. Подробнее о [Graphql Enum](https://graphql.org/learn/schema/#enumeration-types)
 
-## Indexing by non-primary-key field
+## Индексирование по непервичному ключу
 
 Для улучшения производительности запроса необходимо индексировать поле сущности выполнив `@index` для поля не являющегося первичным ключом.
 
@@ -44,8 +44,8 @@ We currently supporting flowing scalars types:
 ```graphql
 type User @entity {
   id: ID!
-  name: String! @index(unique: true) # unique can be set to true or false
-  title: Title! # Indexes are automatically added to foreign key field 
+  name: String! @index(unique: true) # unique может быть true или false
+  title: Title! # Индексы автоматически добавляются к полю внешнего ключа 
 }
 
 type Title @entity {
@@ -60,12 +60,12 @@ type Title @entity {
 When code generation is run, this will automatically create a `getByName` under the `User` model, and the foreign key field `title` will create a `getByTitleId` method, which both can directly be accessed in the mapping function.
 
 ```sql
-/* Prepare a record for title entity */
-INSERT INTO titles (id, name) VALUES ('id_1', 'Captain')
+/* Подготовить запись заголовка */
+INSERT INTO заголовки (id, имя) VALUES ('id_1', 'Captain')
 ```
 
 ```typescript
-// Handler in mapping function
+// Обработчик в mapping функции
 import {User} from "../types/models/User"
 import {Title} from "../types/models/Title"
 
@@ -73,7 +73,7 @@ const jack = await User.getByName('Jack Sparrow');
 
 const captainTitle = await Title.getByName('Captain');
 
-const pirateLords = await User.getByTitleId(captainTitle.id); // List of all Captains
+const pirateLords = await User.getByTitleId(captainTitle.id); // Список всех Captains
 ```
 
 ## Отношения сущностей
@@ -127,7 +127,7 @@ type Person @entity {
 
 type Account @entity {
   id: ID!
-  publicAddress: String!
+  публичный адрес: String!
 }
 ```
 
@@ -165,7 +165,7 @@ type Group @entity {
 ```graphql
 type Account @entity {
   id: ID!
-  publicAddress: String!
+  публичный адрес: String!
 }
 
 type Transfer @entity {
@@ -187,7 +187,7 @@ type Transfer @entity {
 ```graphql
 type Account @entity {
   id: ID!
-  publicAddress: String!
+  публичный адрес: String!
   sentTransfers: [Transfer] @derivedFrom(field: "from")
   receivedTransfers: [Transfer] @derivedFrom(field: "to")
 }
@@ -200,7 +200,7 @@ type Transfer @entity {
 }
 ```
 
-## JSON type
+## Тип JSON
 
 Мы поддерживаем сохранение данных в формате JSON, который является быстрым способом хранения структурированных данных. Мы автоматически сгенерируем соответствующие JSON интерфейсы для запрашивания этих данных и сэкономим вам время на определение и управление объектами.
 
@@ -210,9 +210,9 @@ type Transfer @entity {
 - Схема непостоянна и часто меняется
 
 ### Определение директивы JSON
-Define the property as a JSON type by adding the `jsonField` annotation in the entity. This will automatically generate interfaces for all JSON objects in your project under `types/interfaces.ts`, and you can access them in your mapping function.
+Определите свойство как тип JSON, добавив аннотацию `jsonField` в сущность. Это автоматически создаст интерфейсы для всех объектов JSON в вашем проекте в `types/interfaces.ts`, и вы сможете получить к ним доступ в вашей функции отображения.
 
-Unlike the entity, the jsonField directive object does not require any `id` field. A JSON object is also able to nest with other JSON objects.
+В отличие от сущности, объект директивы jsonField не требует поля `id`. Объект JSON также может быть вложен в другие объекты JSON.
 
 ````graphql
 type AddressDetail @jsonField {
@@ -231,14 +231,14 @@ type User @entity {
 }
 ````
 
-### Querying JSON fields
+### Запрос к полям JSON
 
-The drawback of using JSON types is a slight impact on query efficiency when filtering, as each time it performs a text search, it is on the entire entity.
+Недостатком использования типов JSON является небольшое влияние на эффективность запросов при фильтрации, поскольку каждый раз при выполнении текстового поиска он выполняется по всей сущности.
 
-However, the impact is still acceptable in our query service. Here is an example of how to use the `contains` operator in the GraphQL query on a JSON field to find the first 5 users who own a phone number that contains '0064'.
+Однако в нашей службе запросов это влияние все еще приемлемо. Вот пример использования оператора `contains` в GraphQL-запросе на поле JSON для поиска первых 5 пользователей, владеющих номером телефона, который содержит '0064'.
 
 ```graphql
-#To find the the first 5 users own phone numbers contains '0064'.
+# Чтобы найти первые 5 телефонных номеров пользователей, содержащих '0064'.
 
 query{
   user(
