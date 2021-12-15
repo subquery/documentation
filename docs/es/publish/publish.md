@@ -1,10 +1,10 @@
 # Publica tu proyecto de SubQuery
 
 ## Beneficios de alojar tu proyecto con SubQuery
-- We'll run your SubQuery projects for you in a high performance, scalable, and managed public service
-- This service is being provided to the community for free!
-- You can make your projects public so that they'll be listed in the [SubQuery Explorer](https://explorer.subquery.network) and anyone around the world can view them
-- We're integrated with GitHub, so anyone in your GitHub organisations will be able to view shared organisation projects
+- Ejecutaremos tus proyectos de SubQuery en un servicio público de alto rendimiento, escalable y administrado
+- ¡Este servicio está siendo proporcionado a la comunidad gratis!
+- Puedes hacer públicos tus proyectos para que estén listados en el [SubQuery Explorer](https://explorer.subquery.network) y cualquier persona de todo el mundo puede verlos
+- Estamos integrados con GitHub, por lo que cualquiera en sus organizaciones de GitHub podrá ver proyectos de organización compartidos
 
 ## Create your First Project
 
