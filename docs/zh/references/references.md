@@ -76,7 +76,7 @@ subql-node --subquery .
 
 ### --subquery-name
 
-如果您新建了一个您项目的一个实例，这个标识符将允许您为这个项目提供一个新名称。 This flag allows you to provide a name for your project which acts as if it creates an instance of your project. Upon providing a new name, a new database schema is created and block synchronisation starts from zero.
+如果您新建了一个您项目的一个实例，这个标识符将允许您为这个项目提供一个新名称。 在提供一个新名称后，将创建一个新的数据库模式，并从零开始进行块同步。
 
 ```shell
 subql-node -f . subql-node -f . --subquery-name=test2
@@ -95,7 +95,7 @@ subqueryName: hello // Optional name
 batchSize: 55 // Optional config
 ```
 
-Place this file in the same directory as the project. Then in the current project directory, run: 然后在当前项目目录中，运行：
+将此文件放置在与工程相同的目录中。 然后在当前项目目录中，运行：
 
 ```shell
 > subql-node -c ./subquery_config.yml
@@ -109,15 +109,15 @@ Place this file in the same directory as the project. Then in the current projec
 subql-node -f . --local
 ```
 
-Note that once you use this flag, removing it won't mean that it will point to another database. To repoint to another database you will have to create a NEW database and change the env settings to this new database. In other words, "export DB_DATABASE= 要重新指向另一个数据库，您将需要创建一个新的数据库，并将环境设置更改为这个新数据库。 换言之，“export DB_DATABASE=<new_db_here>"
+请注意，一旦您使用此标志，删除它并不意味着它会指向另一个数据库。 要重新指向另一个数据库，您将需要创建一个新的数据库，并将环境设置更改为这个新数据库。 换言之，“export DB_DATABASE=<new_db_here>"
 
 ### --force-clean
 
-This flag forces the project schemas and tables to be regenerated, helpful to use when iteratively developing graphql schemas such that new runs of the project are always working with a clean state. Note that this flag will also wipe all indexed data.
+这个标志迫使重新生成项目计划和表格， 在反复开发图形图解时帮助使用，新运行的项目总是以干净的状态运行。 请注意，此命令符也会清除所有索引数据。
 
 ### --batch-size
 
-This flag allows you to set the batch size in the command line. If batch size is also set in the config file, this takes precedent. If batch size is also set in the config file, this takes precedent.
+此命令符将允许您在命令行中设置批量大小。 如果在配置文件中也设置了批量大小，它将采用先例。
 
 ```shell
 > subql-node -f . > subql-node -f . --batch-size=20
@@ -131,7 +131,7 @@ This flag allows you to set the batch size in the command line. If batch size is
 
 ### --debug
 
-This outputs debug information to the console output and forcefully sets the log level to debug.
+这将输出调试信息到控制台输出，并强制设置日志级别进行调试.
 
 ```shell
 > subql-node -f . > subql-node -f . --debug
@@ -142,7 +142,7 @@ This outputs debug information to the console output and forcefully sets the log
 
 ### --profiler
 
-This shows profiler information.
+这将显示分析器信息。
 
 ```shell
 subql-node -f . subql-node -f . --local --profiler
@@ -154,13 +154,13 @@ subql-node -f . subql-node -f . --local --profiler
 
 ### --network-endpoint
 
-This flag allows users to override the network endpoint configuration from the manifest file.
+此命令符允许用户从清单文件覆盖网络端点配置。
 
 ```shell
 subql-node -f . --local subql-node -f . --network-endpoint="wss://polkadot.api.onfinality.io/public-ws"
 ```
 
-Note that this must also be set in the manifest file, otherwise you'll get:
+请注意，这也必须在清单文件中设置，否则您将会得到：
 
 ```shell
 ERROR Create Subquery project from given path failed! Error: failed to parse project.yaml.
@@ -172,7 +172,7 @@ An instance of ProjectManifestImpl has failed the validation:
 
 ### --output-fmt
 
-There are two different terminal output formats. JSON or colored. There are two different terminal output formats. JSON or colored. Colored is the default and contains colored text.
+有两种不同的终端输出格式。 JSON或者colored。 Colored是默认的，包含着colored文本。
 
 ```shell
 > subql-node -f . > subql-node -f . --output-fmt=json
@@ -189,7 +189,7 @@ There are two different terminal output formats. JSON or colored. There are two 
 
 ### --log-level
 
-There are 7 options to choose from. “fatal”, “error”, “warn”, “info”, “debug”, “trace”, “silent”. The example below shows silent. There are 7 options to choose from. “fatal”, “error”, “warn”, “info”, “debug”, “trace”, “silent”. The example below shows silent. Nothing will be printed in the terminal so the only way to tell if the node is working or not is to query the database for row count (select count(\*) from subquery_1.starter_entities) or query the block height.
+有七个选项可供选择： “fatal”, “error”, “warn”, “info”, “debug”, “trace”, “silent”. 下面的示例显示silent。 终端中不会打印任何内容，所以，判断节点工作与否的唯一方法是查询数据库中的行数（从subquery_1.starter_entities选择计数（\*)）或者查询区块的高度。
 
 ```shell
 > subql-node -f . > subql-node -f . --log-level=silent
@@ -212,25 +212,25 @@ There are 7 options to choose from. “fatal”, “error”, “warn”, “inf
 
 ### --timestamp-field
 
-By default this is true. By default this is true. when set to false with:
+默认情况下是正确的。 当设置成false时：
 
 ```shell
 > subql-node -f . > subql-node -f . –timestamp-field=false
 ```
 
-This removes the created_at and updated_at columns in the starter_entities table.
+这将删除在starter_entities表中的 created_at和updated_at列
 
 ### -d, --network-dictionary
 
-This allows you to specify a dictionary endpoint which is a free service that is provided and hosted at: [https://explorer.subquery.network/](https://explorer.subquery.network/) (search for dictionary) and presents an API endpoint of: https://api.subquery.network/sq/subquery/dictionary-polkadot
+这允许您指定一个字典端点，这是一个免费的服务，其在 [https://explorer.subquery etwork/](https://explorer.subquery.network/) (搜索字典) 上提供和托管。并提供了一个 API 端口： https://api.subquery.network/sq/sq/subquery/dictiony-polkadot
 
-Typically this would be set in your manifest file but below shows an example of using it as an argument in the command line.
+通常，这将在您的清单文件中设置，但在下面显示一个在命令行中使用它作为参数的例子。
 
 ```shell
 subql-node -f . subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot"
 ```
 
-[Read more about how a SubQuery Dictionary works](../tutorials_examples/dictionary.md).
+阅读更多关于 SubQuery 词典的工作原理
 
 ## subql-query
 
@@ -266,7 +266,7 @@ ns:
 
 ### -n, --name
 
-This flag is used to start the query service. This flag is used to start the query service. If the --subquery-name flag is not provided when running an indexer, the name here will refer to the default project name. If --subquery-name is set, then the name here should match what was set. If --subquery-name is set, then the name here should match what was set.
+此标识符用于启动查询服务。 如果运行索引器时没有提供 --subquery-name 标志，此处的名称将指默认项目名称。 如果设置了 --subquery-name, 则此处的名称应该与设置相匹配。
 
 ```shell
 > subql-node -f . > subql-node -f . // --subquery-name not set
@@ -282,14 +282,14 @@ This flag is used to start the query service. This flag is used to start the que
 
 ### --playground
 
-This flag enables the graphql playground so should always be included by default to be of any use.
+这个标识符启用了graphql playground，所以在默认情况下，应该始终包含有任何用途。
 
 ### --output-fmt
 
-See [--output-fmt](https://doc.subquery.network/references/references.html#output-fmt)
+查看 [--output-fmt](https://doc.subquery.network/references/references.html#output-fmt)
 
 ### --log-level
 
-See [--log-level](https://doc.subquery.network/references/references.html#log-level)
+查看 [--loglevel](https://doc.subquery.network/references/references.html#log-level)
 
 <!-- ### --indexer TBA -->
