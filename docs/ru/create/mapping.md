@@ -84,9 +84,9 @@ export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
 
 ## RPC-вызовы
 
-We also support some API RPC methods that are remote calls that allow the mapping function to interact with the actual node, query, and submission. A core premise of SubQuery is that it's deterministic, and therefore, to keep the results consistent we only allow historical RPC calls.
+Мы также поддерживаем некоторые методы API RPC, которые представляют собой удаленные вызовы, позволяющие функции отображения взаимодействовать с реальным узлом, запросом и отправкой. Основной предпосылкой SubQuery является детерминированность, поэтому для сохранения согласованности результатов мы разрешаем только исторические вызовы RPC.
 
-Documents in [JSON-RPC](https://polkadot.js.org/docs/substrate/rpc/#rpc) provide some methods that take `BlockHash` as an input parameter (e.g. `at?: BlockHash`), which are now permitted. We have also modified these methods to take the current indexing block hash by default.
+Документы в [JSON-RPC](https://polkadot.js.org/docs/substrate/rpc/#rpc) предоставляют некоторые методы, которые используют `BlockHash` в качестве входного параметра (e. . `в?: BlockHash`), которые теперь разрешены. Мы также изменили эти методы, чтобы они по умолчанию принимали хэш текущего блока индексации.
 
 ```typescript
 // Скажем, мы сейчас индексируем блок с этим хэшем номером
