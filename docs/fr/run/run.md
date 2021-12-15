@@ -29,7 +29,7 @@ Un nœud SubQuery est une implémentation qui extrait les données de la blockch
 npm install -g @subql/node
 ```
 
-Veuillez noter que nous **n'** encourageons **PAS** l'utilisation de `yarn global` en raison de sa mauvaise gestion des dépendances qui peut entraîner des erreurs en cours de route.
+Veuillez noter que nous n'encourageons **PAS** l'utilisation de `yarn global` en raison de sa mauvaise gestion des dépendances qui peut entraîner des erreurs en cours de route.
 
 Une fois installé, vous pouvez démarrer un nœud avec la commande suivante :
 
@@ -109,7 +109,7 @@ subql-node -f your-project-path --local
 
 À des fins de débogage, les utilisateurs peuvent exécuter le nœud en mode local. Passer au modèle local créera des tables Postgres dans le schéma par défaut `public`.
 
-Si le mode local n'est pas utilisé, un nouveau schéma Postgres avec l'initiale `subquery_` et les tables de projet correspondantes sera créé.
+Si le mode local n'est pas utilisé, un nouveau schéma Postgres avec l'initiale `subquery_` et les tables de projet correspondantes seront créés.
 
 
 #### Vérifiez la santé de votre nœud
@@ -119,7 +119,7 @@ Il existe deux points de terminaison que vous pouvez utiliser pour vérifier et 
 - Point final du bilan de santé qui renvoie une simple réponse 200
 - Point de terminaison des métadonnées qui comprend des analyses supplémentaires de votre nœud SubQuery en cours d'exécution
 
-Ajoutez ceci à l'URL de base de votre nœud SubQuery. Eg `http://localhost:3000/meta` retournera:
+Ajoutez ceci à l'URL de base de votre nœud SubQuery. Ex `http://localhost:3000/meta` retournera:
 
 ```bash
 {
@@ -188,7 +188,7 @@ Ensuite, ouvrez les outils de développement de Chrome, allez dans Source > File
 npm install -g @subql/query
 ```
 
-Veuillez noter que nous **n'** encourageons **PAS** l'utilisation de `yarn global` en raison de sa mauvaise gestion des dépendances qui peut entraîner des erreurs en cours de route.
+Veuillez noter que nous n'encourageons **PAS** l'utilisation de `yarn global` en raison de sa mauvaise gestion des dépendances qui peut entraîner des erreurs en cours de route.
 
 ### Exécution du service de requête
 ``` export DB_HOST=localhost subql-query --name <project_name> --playground ````
