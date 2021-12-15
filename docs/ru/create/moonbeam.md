@@ -44,7 +44,7 @@
 
 ### Фильтры вызовов
 
-| Поле    | Тип    | Example(s)                                        | Описание                                                                                          |
+| Поле    | Тип    | Примеры                                           | Описание                                                                                          |
 | ------- | ------ | ------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
 | Функции | Строка | 0x095ea7b3, подтвердить (адрес, значение uint256) | Либо строки подписи функции, либо sighash функции для фильтрации функции, вызываемой в контракте. |
 | откуда  | String | 0x6bd193ee6d2104f14f94e2ca6efefae561a4334b        | Адрес Ethereum, по которому была отправлена ​​транзакция.                                         |
@@ -74,23 +74,23 @@
 | ---- | ------------- | ------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
 | темы | Массив строк. | Передача (адрес проиндексирован, адрес проиндексирован, значение uint256) | Фильтр тем соответствует фильтрам журнала Ethereum JSON-PRC, дополнительную документацию можно найти здесь. |
 
-<b>Note on topics:</b>
-There are a couple of improvements from basic log filters:
+<b> Примечание по темам:</b>
+Есть несколько улучшений по сравнению с базовыми фильтрами журналов:
 
-- Topics don't need to be 0 padded
-- [Event Fragment](https://docs.ethers.io/v5/api/utils/abi/fragments/#EventFragment) strings can be provided and automatically converted to their id
+- Темы не должны быть заполнены на 0
+- Могут быть предоставлены строки фрагмента события
 
 ### Обработчики
 
-Unlike a normal handler you will not get a `SubstrateEvent` as the parameter, instead you will get a `MoonbeamEvent` which is based on Ethers [Log](https://docs.ethers.io/v5/api/providers/types/#providers-Log) type.
+В отличие от обычного обработчика, вы не получите `SubstrateEvent` в качестве параметра, вместо этого вы получите `MoonbeamEvent`, основанный на типе Ethers [Log](https://docs.ethers.io/v5/api/providers/types/#providers-Log).
 
-Changes from the `Log` type:
+Изменяется по сравнению с типом `Log`:
 
 - `args` добавляется, если указано поле `abi` и аргументы могут быть успешно проанализированы
 
-## Data Source Example
+## Пример источника данных
 
-This is an extract from the `project.yaml` manifest file.
+Это выдержка из файла манифеста `project.yaml`
 
 ```yaml
 dataSources:
