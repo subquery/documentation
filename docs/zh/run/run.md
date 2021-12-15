@@ -195,4 +195,4 @@ npm install -g @subql/query
 
 当您 [初始化项目](../quickstart/quickstart.md#initialise-the-starter-subquery-project) 时，请确保项目名称的相同。 此外，请检查环境变量是否配置正确。
 
-成功运行subql查询服务后，打开浏览器并转到`http://localhost:3000`. 您应该看到在 Explorer 中显示的 GraphQL 播放地和准备查询的模式。 You should see a GraphQL playground showing in the Explorer and the schema that is ready to query.
+成功运行subql查询服务后，打开浏览器并转到`http://localhost:3000`. 您应该看到在 Explorer 中显示的 GraphQL 播放地和准备查询的模式。 您应该看到在 Explorer 中显示的 GraphQL 播放地和准备查询的模式。
