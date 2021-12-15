@@ -22,7 +22,7 @@
 npm install -g @subql/node
 ```
 
-The -g flag means to install it globally which means on OSX, the location will be /usr/local/lib/node_modules.
+Флаг -g означает глобальную установку, что означает, что на OSX местоположение будет /usr/local/lib/node_modules.
 
 После установки вы можете проверить версию, запустив:
 
