@@ -44,7 +44,7 @@ subql-node <command>
 #### Укажите путь к локальному проекту
 
 ```
-subql-node -f your-project-path
+subql-node -f ваш путь к проекту
 ```
 
 #### Используй словарь
@@ -69,7 +69,7 @@ subql-node --network-dictionary=https://api.subquery.network/sq/subquery/diction
 #### Укажите файл конфигурации
 
 ```
-subql-node -c your-project-config.yml
+subql-node -f ваш путь к проекту
 ```
 
 Это укажет узлу запроса на файл конфигурации, который может быть в формате YAML или JSON. Посмотрите на пример ниже.
@@ -96,7 +96,7 @@ Result:
 #### Запуск в локальном режиме
 
 ```
-subql-node -f your-project-path --local
+subql-node -f ваш путь к проекту
 ```
 
 В целях отладки пользователи могут запускать узел в локальном режиме. При переключении на локальную модель таблицы Postgres будут созданы в схеме по умолчанию `public`.
@@ -167,8 +167,8 @@ node --inspect-brk <path to subql-node> -f <path to subQuery project>
 ```shell
 node --inspect-brk /usr/local/bin/subql-node -f ~/Code/subQuery/projects/subql-helloworld/
 Debugger listening on ws://127.0.0.1:9229/56156753-c07d-4bbe-af2d-2c7ff4bcc5ad
-For help, see: https://nodejs.org/en/docs/inspector
-Debugger attached.
+Для помощи смотрите: https://nodejs.org/en/docs/inspector 
+Прилагается отладчик.
 ```
 Затем откройте инструменты разработчика Chrome, перейдите в Source & # 062; Filesystem, добавьте свой проект в рабочую область и начните отладку. Для получения дополнительной информации ознакомьтесь с [ Как отлаживать проект SubQuery ](https://doc.subquery.network/tutorials_examples/debug-projects/)
 ## Запуск службы запросов (subql / query)
