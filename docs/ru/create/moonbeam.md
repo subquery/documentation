@@ -18,61 +18,61 @@
 2. Добавьте пользовательский источник данных, как описано ниже
 3. Добавьте обработчики для пользовательского источника данных в свой код
 
-## Data Source Spec
+## Спецификация Источника Данных
 
 | Область           | Тип                                                            | Необходимый | Описание                                   |
 | ----------------- | -------------------------------------------------------------- | ----------- | ------------------------------------------ |
 | processor.file    | `'./node_modules/@subql/contract-processors/dist/moonbeam.js'` | Да          | Ссылка на файл с кодом обработчика данных  |
 | processor.options | [ProcessorOptions](#processor-options)                         | Нет         | Опции, характерные для процессора Moonbeam |
-| assets            | `{ [key: String]: { file: String }}`                           | Нет         | Объект внешних файлов активов              |
+| ресурсы           | `{ [key: String]: { file: String }}`                           | Нет         | Объект внешних файлов активов              |
 
-### Processor Options
+### Настройки процессора
 
-| Поле    | Тип              | Необходимый | Описание                                                                                                   |
-| ------- | ---------------- | ----------- | ---------------------------------------------------------------------------------------------------------- |
-| abi     | String           | Нет         | The ABI that is used by the processor to parse arguments. MUST be a key of `assets`                        |
-| address | String or `null` | Нет         | A contract address where the event is from or call is made to. `null` will capture contract creation calls |
+| Поле    | Тип              | Необходимый | Описание                                                                                                                          |
+| ------- | ---------------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| abi     | String           | Нет         | ABI, который используется процессором для анализа аргументов. ДОЛЖЕН быть ключом `assets`                                         |
+| address | String or `null` | Нет         | Адрес контракта, откуда происходит мероприятие или на который делается звонок. `null` будет фиксировать вызовы создания контракта |
 
 ## MoonbeamCall
 
-Works in the same way as [substrate/CallHandler](../create/mapping/#call-handler) except with a different handler argument and minor filtering changes.
+Работает так же, как [substrate/CallHandler](../create/mapping/#call-handler), только с другим аргументом обработчика и незначительными изменениями фильтрации.
 
-| Поле   | Тип                          | Необходимый | Описание                                    |
-| ------ | ---------------------------- | ----------- | ------------------------------------------- |
-| вид    | 'substrate/MoonbeamCall'     | Да          | Specifies that this is an Call type handler |
-| фильтр | [Call Filter](#call-filters) | Нет         | Filter the data source to execute           |
+| Поле   | Тип                          | Необходимый | Описание                                     |
+| ------ | ---------------------------- | ----------- | -------------------------------------------- |
+| вид    | 'substrate/MoonbeamCall'     | Да          | Указывает, что это обработчик типа вызова    |
+| фильтр | [Call Filter](#call-filters) | Нет         | Отфильтровать источник данных для выполнения |
 
-### Call Filters
+### Фильтры вызовов
 
-| Поле     | Тип    | Example(s)                                    | Описание                                                                                                                                                                         |
-| -------- | ------ | --------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| function | String | 0x095ea7b3, approve(address to,uint256 value) | Either [Function Signature](https://docs.ethers.io/v5/api/utils/abi/fragments/#FunctionFragment) strings or the function `sighash` to filter the function called on the contract |
-| from     | String | 0x6bd193ee6d2104f14f94e2ca6efefae561a4334b    | An Ethereum address that sent the transaction                                                                                                                                    |
+| Поле    | Тип    | Example(s)                                        | Описание                                                                                          |
+| ------- | ------ | ------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| Функции | Строка | 0x095ea7b3, подтвердить (адрес, значение uint256) | Либо строки подписи функции, либо sighash функции для фильтрации функции, вызываемой в контракте. |
+| откуда  | String | 0x6bd193ee6d2104f14f94e2ca6efefae561a4334b        | Адрес Ethereum, по которому была отправлена ​​транзакция.                                         |
 
-### Handlers
+### Обработчики
 
-Unlike a normal handler you will not get a `SubstrateExtrinsic` as the parameter, instead you will get a `MoonbeamCall` which is based on Ethers [TransactionResponse](https://docs.ethers.io/v5/api/providers/types/#providers-TransactionResponse) type.
+В отличие от обычного обработчика, вы не получите `SubstrateExtrinsic` в качестве параметра, вместо этого вы получите  `MoonbeamCall`, основанный на типе Ethers  [TransactionResponse](https://docs.ethers.io/v5/api/providers/types/#providers-TransactionResponse).
 
-Changes from the `TransactionResponse` type:
+Отличия от типа `TransactionResponse` :
 
-- It doesn't have `wait` and `confirmations` properties
-- A `success` property is added to know if the transaction was a success
-- `args` is added if the `abi` field is provided and the arguments can be successfully parsed
+- Нет свойств `ожидания` и `подтверждения`.
+- Добавляется свойство `успех`, чтобы узнать, была ли транзакция успешной.
+- `args` добавляется, если указано поле `abi` и аргументы могут быть успешно проанализированы
 
 ## MoonbeamEvent
 
-Works in the same way as [substrate/EventHandler](../create/mapping/#event-handler) except with a different handler argument and minor filtering changes.
+Работает так же, как [substrate/EventHandler](../create/mapping/#event-handler), только с другим аргументом обработчика и незначительными изменениями фильтрации.
 
 | Поле   | Тип                            | Необходимый | Описание                                     |
 | ------ | ------------------------------ | ----------- | -------------------------------------------- |
-| вид    | 'substrate/MoonbeamEvent'      | Да          | Specifies that this is an Event type handler |
-| фильтр | [Event Filter](#event-filters) | Нет         | Filter the data source to execute            |
+| вид    | 'substrate/MoonbeamEvent'      | Да          | Указывает, что это обработчик типа события   |
+| фильтр | [Event Filter](#event-filters) | Нет         | Отфильтровать источник данных для выполнения |
 
-### Event Filters
+### Фильтр событий
 
-| Поле   | Тип          | Example(s)                                                      | Описание                                                                                                                                         |
-| ------ | ------------ | --------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| topics | String array | Transfer(address indexed from,address indexed to,uint256 value) | The topics filter follows the Ethereum JSON-PRC log filters, more documentation can be found [here](https://docs.ethers.io/v5/concepts/events/). |
+| Поле | Тип           | Примеры                                                                   | Описание                                                                                                    |
+| ---- | ------------- | ------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| темы | Массив строк. | Передача (адрес проиндексирован, адрес проиндексирован, значение uint256) | Фильтр тем соответствует фильтрам журнала Ethereum JSON-PRC, дополнительную документацию можно найти здесь. |
 
 <b>Note on topics:</b>
 There are a couple of improvements from basic log filters:
@@ -80,13 +80,13 @@ There are a couple of improvements from basic log filters:
 - Topics don't need to be 0 padded
 - [Event Fragment](https://docs.ethers.io/v5/api/utils/abi/fragments/#EventFragment) strings can be provided and automatically converted to their id
 
-### Handlers
+### Обработчики
 
 Unlike a normal handler you will not get a `SubstrateEvent` as the parameter, instead you will get a `MoonbeamEvent` which is based on Ethers [Log](https://docs.ethers.io/v5/api/providers/types/#providers-Log) type.
 
 Changes from the `Log` type:
 
-- `args` is added if the `abi` field is provided and the arguments can be successfully parsed
+- `args` добавляется, если указано поле `abi` и аргументы могут быть успешно проанализированы
 
 ## Data Source Example
 
