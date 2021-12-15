@@ -6,65 +6,65 @@
 - Puedes hacer públicos tus proyectos para que estén listados en el [SubQuery Explorer](https://explorer.subquery.network) y cualquier persona de todo el mundo puede verlos
 - Estamos integrados con GitHub, por lo que cualquiera en sus organizaciones de GitHub podrá ver proyectos de organización compartidos
 
-## Create your First Project
+## Cree su primer proyecto
 
-#### Login to SubQuery Projects
+#### Iniciar sesión en los proyectos de SubQuery
 
-Before starting, please make sure that your SubQuery project is online in a public GitHub repository. The `schema.graphql` file must be in the root of your directory.
+Antes de comenzar, asegúrese de que su proyecto SubQuery está en línea en un repositorio público de GitHub. El archivo `schema.graphql` debe estar en la raíz de su directorio.
 
-To create your first project, head to [project.subquery.network](https://project.subquery.network). You'll need to authenticate with your GitHub account to login.
+Para crear tu primer proyecto, dirígete a [project.subquery.network](https://project.subquery.network). Necesitarás autenticarte con tu cuenta de GitHub para iniciar sesión.
 
-On first login, you will be asked to authorize SubQuery. We only need your email address to identify your account, and we don't use any other data from your GitHub account for any other reasons. In this step, you can also request or grant access to your GitHub Organization account so you can post SubQuery projects under your GitHub Organization instead of your personal account.
+En el primer inicio de sesión, se le pedirá que autorice SubQuery. Sólo necesitamos tu dirección de correo electrónico para identificar tu cuenta, y no utilizamos ningún otro dato de tu cuenta de GitHub por otras razones. En este paso, también puedes solicitar o conceder acceso a tu cuenta de la Organización de GitHub para que puedas publicar proyectos de SubQuery bajo tu Organización de GitHub en lugar de tu cuenta personal.
 
 ![Revoke approval from a GitHub account](/assets/img/project_auth_request.png)
 
-SubQuery Projects is where you manage all your hosted projects uploaded to the SubQuery platform. You can create, delete, and even upgrade projects all from this application.
+SubQuery Projects es donde administras todos los proyectos alojados subidos a la plataforma SubQuery. Puede crear, eliminar e incluso actualizar proyectos desde esta aplicación.
 
 ![Projects Login](/assets/img/projects-dashboard.png)
 
-If you have a GitHub Organization accounts connected, you can use the switcher on the header to change between your personal account and your GitHub Organization account. Projects created in a GitHub Organization account are shared between members in that GitHub Organization. To connect your GitHub Organization account, you can [follow the steps here](#add-github-organization-account-to-subquery-projects).
+Si tiene una cuenta de la organización de GitHub conectada, puedes usar el interruptor de la cabecera para cambiar entre tu cuenta personal y tu cuenta de la organización de GitHub. Los proyectos creados en una cuenta de la organización de GitHub son compartidos entre los miembros de esa organización de GitHub. Para conectar su cuenta de la Organización de GitHub, puede [seguir los pasos aquí](#add-github-organization-account-to-subquery-projects).
 
 ![Switch between GitHub accounts](/assets/img/projects-account-switcher.png)
 
-#### Create your First Project
+#### Cree su primer proyecto
 
-Let's start by clicking on "Create Project". You'll be taken to the New Project form. Please enter the following (you can change this in the future):
-- **GitHub account:** If you have more than one GitHub account, select which account this project will be created under. Projects created in a GitHub organisation account are shared between members in that organisation.
-- **Name**
-- **Subtitle**
+Empecemos haciendo clic en "Crear proyecto". Serás llevado al formulario de Proyecto Nuevo. Por favor, introduzca lo siguiente (puede cambiar esto en el futuro):
+- **Cuenta de GitHub:** Si tienes más de una cuenta de GitHub, selecciona la cuenta bajo la que se creará este proyecto. Los proyectos creados en una cuenta de la organización de GitHub son compartidos entre los miembros de esa organización de GitHub.
+- **Nombre**
+- **Subtítulo**
 - **Descripción**
-- **GitHub Repository URL:** This must be a valid GitHub URL to a public repository that has your SubQuery project. The `schema.graphql` file must be in the root of your directory ([learn more about the directory structure](../create/introduction.md#directory-structure)).
-- **Hide project:** If selected, this will hide the project from the public SubQuery explorer. Keep this unselected if you want to share your SubQuery with the community! ![Create your first Project](/assets/img/projects-create.png)
+- **URL del repositorio de GitHub:** Esta debe ser una URL válida de GitHub para un repositorio público que contiene su proyecto de SubQuery. El archivo `schema.graphql` debe estar en la raíz de su directorio ([aprender más sobre la estructura de directorio](../create/introduction.md#directory-structure)).
+- **Ocultar proyecto:** Si se selecciona, esto ocultará el proyecto del explorador público de SubQuery. ¡Mantén esta opción sin seleccionar si quieres compartir tu SubQuery con la comunidad! ![Create your first Project](/assets/img/projects-create.png)
 
-Create your project and you'll see it on your SubQuery Project's list. *We're almost there! We just need to deploy a new version of it. </p>
+Crea tu proyecto y lo verás en la lista de proyectos de SubQuery. *¡Ya casi hemos llegado! Ahora solo necesitamos desplegar una version </p>
 
 ![Created Project with no deployment](/assets/img/projects-no-deployment.png)
 
-#### Deploy your first Version
+#### Despliega tu primera versión
 
-While creating a project will setup the display behaviour of the project, you must deploy a version of it before it becomes operational. Deploying a version triggers a new SubQuery indexing operation to start, and sets up the required query service to start accepting GraphQL requests. You can also deploy new versions to existing projects here.
+Al crear un proyecto configurará el comportamiento de visualización del proyecto, debe desplegar una versión antes de que se ponga en marcha. Desplegar una versión activa una nueva operación de indexación de SubQuery para iniciar, y configurar el servicio de consultas requerido para comenzar a aceptar solicitudes GraphQL. También puede desplegar nuevas versiones a proyectos existentes aquí.
 
-With your new project, you'll see a Deploy New Version button. Click this, and fill in the required information about the deployment:
-- **Commit Hash of new Version:** From GitHub, copy the full commit hash of the version of your SubQuery project codebase that you want deployed
-- **Indexer Version:** This is the version of SubQuery's node service that you want to run this SubQuery on. See [`@subql/node`](https://www.npmjs.com/package/@subql/node)
-- **Query Version:** This is the version of SubQuery's query service that you want to run this SubQuery on. See [`@subql/query`](https://www.npmjs.com/package/@subql/query)
+Con su nuevo proyecto, verá un botón Desplegar Nueva versión. Haga clic en esto y rellene la información requerida sobre el despliegue:
+- **Commit Hash de la nueva versión:** Desde GitHub seleccione el commit correcto del código base del proyecto SubQuery que desea desplegar
+- **Versión del indexador:** Esta es la versión del servicio de nodos de SubQuery en la que desea ejecutar esta SubQuery. Ver [`@subql/node`](https://www.npmjs.com/package/@subql/node)
+- **Versión de consulta:** Esta es la versión del servicio de consulta de SubQuery en la que desea ejecutar esta SubQuery. Ver [`@subql/query`](https://www.npmjs.com/package/@subql/query)
 
 ![Deploy your first Project](https://static.subquery.network/media/projects/projects-first-deployment.png)
 
-If deployed successfully, you'll see the indexer start working and report back progress on indexing the current chain. This process may take time until it reaches 100%.
+Si se implementa con éxito, verás que el indexador empieza a funcionar e informa de los avances en la indexación de la cadena actual. Este proceso puede llevar tiempo hasta que llegue al 100%.
 
-## Next Steps - Connect to your Project
-Once your deployment has succesfully completed and our nodes have indexed your data from the chain, you'll be able to connect to your project via the displayed GraphQL Query endpoint.
+## Siguiente paso - Conecta a tu proyecto
+Una vez que el despliegue se ha completado correctamente y nuestros nodos han indexado sus datos de la cadena, podrás conectarte a tu proyecto a través del punto final de la Consulta mostrada en GraphQL.
 
 ![Proyecto en despliegue y sincronización](/assets/img/projects-deploy-sync.png)
 
-Alternativamente, puedes hacer clic en los tres puntos al lado del título de tu proyecto, y verlo en SubQuery Explorer. There you can use the in-browser playground to get started - [read more about how to user our Explorer here](../query/query.md).
+Alternativamente, puedes hacer clic en los tres puntos al lado del título de tu proyecto, y verlo en SubQuery Explorer. Allí puedes usar el playground del navegador para empezar. [lee más sobre cómo usar nuestro explorador aquí](../query/query.md).
 
 ![Proyectos en el Explorador de SubQuery](/assets/img/projects-explorer.png)
 
-## Add GitHub Organization Account to SubQuery Projects
+## Añadir cuenta de la organización de GitHub a SubQuery Projects
 
-It is common to publish your SubQuery project under the name of your GitHub Organization account rather than your personal GitHub account. At any point your can change your currently selected account on [SubQuery Projects](https://project.subquery.network) using the account switcher.
+Es común publicar su proyecto SubQuery bajo el nombre de su cuenta de la Organización de GitHub en lugar de su cuenta personal de GitHub. En cualquier momento puede cambiar su cuenta seleccionada en [SubQuery Proyects](https://project.subquery.network) usando el switcher de cuenta.
 
 ![Switch between GitHub accounts](/assets/img/projects-account-switcher.png)
 
