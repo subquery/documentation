@@ -44,20 +44,20 @@ Inherent Extrinsics - это части информации, которые н�
 
 Для получения дополнительной информации нажмите [here](https://substrate.dev/docs/en/knowledgebase/learn-substrate/extrinsics).
 
-## What is the endpoint for the Kusama network?
+## Что такое конечная точка для сети Кусама?
 
-The network.endpoint for the Kusama network is `wss://kusama.api.onfinality.io/public-ws`.
+Конечная точка сети Kusama - `wss://kusama.api.onfinality.io/public-ws`.
 
-## What is the endpoint for the Polkadot mainnet network?
+## Какова конечная точка для магистральной сети Polkado?
 
-The network.endpoint for the Polkadot network is `wss://polkadot.api.onfinality.io/public-ws`.
+Конечная точка сети Polkadot - `wss://polkadot.api.onfinality.io/public-ws`.
 
-## How do I iteratively develop my project schema?
+## Как итеративно развить свою схему проекта?
 
-A known issue with developing a changing project schema is that when lauching your Subquery node for testing, the previously indexed blocks will be incompatible with your new schema. In order to iteratively develop schemas the indexed blocks stored in the database must be cleared, this can be achieved by launching your node with the `--force-clean` flag. Example
+Известной проблемой при разработке изменяющейся схемы проекта является то, что при запуске узла Subquery для тестирования ранее проиндексированные блоки будут несовместимы с новой схемой. Для итеративной разработки схем индексированные блоки, хранящиеся в базе данных, должны быть очищены, этого можно добиться, запустив узел с флагом `--force-clean`. Например:
 
 ```shell
 subql-node -f . --force-clean --subquery-name=<project-name>
 ```
 
-Note that it is recommended to use `--force-clean` when changing the `startBlock` within the project manifest (`project.yaml`) in order to begin reindexing from the configured block. If `startBlock` is changed without a `--force-clean` of the project then the indexer will continue indexing with the previously configured `startBlock`.
+Обратите внимание, что рекомендуется использовать `--force-clean` при изменении `startBlock` в манифесте проекта (`проекта). aml`) чтобы начать переиндексацию из настроенного блока. Если `startBlock` изменен без `--force-clean` проекта, то индексатор продолжит индексирование с ранее настроенным `startBlock`.
