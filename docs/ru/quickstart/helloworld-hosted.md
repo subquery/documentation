@@ -1,4 +1,4 @@
-# Hello World (SubQuery hosted)
+# Здравствуй мир (SubQuery hosted)
 
 Цель этого краткого руководства - показать, как можно за несколько простых шагов запустить стартовый проект по умолчанию в SubQuery Projects (наша управляемая служба).
 
@@ -99,7 +99,7 @@ To https://github.com/seandotau/subqlHelloWorld.git
 
 Команда push означает «пожалуйста, отправьте мой код В исходное репо ИЗ моего главного локального репозитория». При обновлении GitHub должен отображаться весь код в GitHub.
 
-![First commit](/assets/img/first_commit.png)
+![Первая фиксация](/assets/img/first_commit.png)
 
 Теперь, когда у вас есть код в GitHub, давайте посмотрим, как мы можем разместить его в проектах SubQuery.
 
