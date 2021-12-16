@@ -11,7 +11,7 @@ Instalar SubQuery CLI globalmente en tu terminal usando Yarn o NPM:
 <CodeGroup> # Yarn yarn global add @subql/cli # NPM npm install -g @subql/cli
 ## Install @subql/node
 
-Un nodo de SubQuery es una implementación que extrae datos de blockchain basados en substrate por el proyecto SubQuery y lo guarda en una base de datos de Postgres.
+A SubQuery node is an implementation that extracts substrate-based blockchain data per the SubQuery project and saves it into a Postgres database.
 
 Instala la consulta de SubQuery globalmente en tu terminal usando Yarn o NPM:
 
