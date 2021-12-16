@@ -100,9 +100,9 @@ const b2 = await api.rpc.chain.getBlock();
 ```
 - สำหรับ RPC call ต่าง ๆ ที่เป็น [เครือข่าย Substrate แบบกำหนดเอง](#custom-substrate-chains) ดูที่ [การใช้งาน](#usage)
 
-## Modules and Libraries
+## โมดูลและไลบรารีต่าง ๆ
 
-To improve SubQuery's data processing capabilities, we have allowed some of the NodeJS's built-in modules for running mapping functions in the [sandbox](#the-sandbox), and have allowed users to call third-party libraries.
+เพื่อปรับปรุงความสามารถในการประมวลผลข้อมูลของ SubQuery เราได้อนุญาตโมดูลในตัวของ NodeJS บางส่วน ให้สามารถเรียกใช้ฟังก์ชัน map ใน [ sandbox ](#the-sandbox) และอนุญาตให้ผู้ใช้เรียกใช้ไลบรารีของบุคคลที่สามได้
 
 Please note this is an **experimental feature** and you may encounter bugs or issues that may negatively impact your mapping functions. Please report any bugs you find by creating an issue in [GitHub](https://github.com/subquery/subql).
 
