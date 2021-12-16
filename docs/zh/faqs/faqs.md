@@ -4,7 +4,7 @@
 
 SubQuery 是一个开放源代码项目，它允许开发者索引、转换和查询 Substrate 链数据为他们的应用程序提供动力。
 
-SubQuery 还为开发者提供免费的项目生产级托管，免除人员配置基础设施的责任。 并让开发者能实现最佳的编写程序。
+SubQuery 还为开发者提供免费的项目生产级托管，免除人员配置基础设施的责任。
 
 ## SubQuery的最佳入门方式是什么？
 
@@ -51,3 +51,13 @@ Kusama 网络端点的介绍 `wss://kusama.api.onfinality.io/publicws`。
 ## Polkadot 主网的端点是什么？
 
 Polkadot网络端点的介绍 `wss://polkadot.api.onfinality.io/publicws`。
+
+## 如何反复开发我的项目计划？
+
+开发一个更改项目方案的已知问题是，当放松您的子查询节点进行测试时。 此前索引的块将与您的新方案不兼容。 为了反复开发方案，数据库中储存的索引方块必须清除， 这可以通过使用 `--force-clear` 标志启动您的节点来实现。 示例
+
+```shell
+subql-node -f . --force-clean --subquery-name=<project-name>
+```
+
+请注意，建议在项目清单中更改 `startBlock` 时使用 `--force-clear` 。`项目。 aml`) 以开始从已配置的方块进行重新索引。 如果 `startBlock` 在没有 `--force-clean` 的情况下被更改，那么索引器将继续使用先前配置的 `startBlock` 索引。

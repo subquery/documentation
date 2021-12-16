@@ -11,7 +11,7 @@
   <section class="startSection main">
     <div>
       <h2 class="title">Cara Memulai <span>Panduan</span></h2>
-      <p>Memahami SubQuery dengan mengenali contoh tradisional Halo Dunia. Menggunakan proyek templat dari Docker, anda bisa dengan cepat memulai dan menjalankan node dan mulai query blockchain dalam beberapa menit saja menggunakan perintah sederhana.
+      <p>Understand SubQuery by getting hands on with a traditional Hello World example. Using a template project within a Docker environment, you can quickly get a node up and running and start querying a blockchain in just a few minutes with a few simple commands.
       </p>
       <span class="button">
         <router-link :to="{path: '/quickstart/helloworld-localhost/'}">
@@ -29,7 +29,7 @@
           <div>
             <img src="/assets/img/tutorialsIcon.svg" />
             <span>Tutorial dan Contoh</span>
-            <p>Belajar dengan melakukan. Tutorial dan contoh tentang cara membangun berbagai proyek SubQuery.</p>
+            <p>Learning by doing. Tutorials and examples on how to build various SubQuery projects.</p>
           </div>
         </router-link>
       </li>
@@ -38,7 +38,7 @@
           <div>
             <img src="/assets/img/docsIcon.svg" />
             <span>Dokumen Referensi Teknis</span>
-            <p>Ditulis oleh pengembang untuk pengembang. Temukan apa yang Anda butuhkan untuk membangun dApps yang luar biasa dengan cepat.</p>
+            <p>Written by developers for developers. Find what you need to build awesome dApps quickly.</p>
           </div>
         </router-link>
       </li>
@@ -46,8 +46,8 @@
         <a href="https://static.subquery.network/whitepaper.pdf" target="_blank">
           <div>
             <img src="/assets/img/networkIcon.svg" />
-            <span>Jaringan SubQuery</span>
-            <p>Masa depan terdesentralisasi SubQuery. Cari tahu lebih lanjut tentang bagaimana indexer dan konsumen bisa mendapat hadiah.</p>
+            <span>The SubQuery Network</span>
+            <p>SubQuery’s decentralised future. Read more about how indexers and consumers are rewarded.</p>
           </div>
         </a>
       </li>
@@ -70,13 +70,13 @@
       <li>
         <div class="title">Apa cara terbaik untuk memulai SubQuery?</div>
         <div class="content">
-          <p>Cara terbaik untuk memulai SubQuery adalah dengan mencoba <a href="/quickstart/helloworld-localhost/">tutorial Hello World</a> kami. Ini adalah tutorial 5 menit yang simpel berisikan pengunduhan templat, membangun proyek, kemudian menggunakan Docker untuk menjalankan node di localhost dan menjalankan query yang sederhana. </p>
+          <p>The best way to get started with SubQuery is to try out our <a href="/quickstart/helloworld-localhost/">Hello World tutorial</a>. This is a simple 5 min walk through of downloading the starter template, building the project, and then using Docker to run a node on your localhost and running a simple query. </p>
         </div>
       </li>
       <li>
         <div class="title">Bagaimana saya bisa berkontribusi atau memberi masukan ke SubQuery?</div>
         <div class="content">
-          <p>Kami sangat menghargai kontribusi dan masukan dari komunitas. Untuk mengkontribusi kode, fork repositori yang menarik dan buat perubahan yang anda inginkan. Lalu kirimkan PR atau Pull Request. Oh, jangan lupa untuk mengetesnya dulu! Periksa juga panduan kontribusi kami (segera hadir). </p>
+          <p>We love contributions and feedback from the community. To contribute code, fork the repository of interest and make your changes. Then submit a PR or Pull Request. Oh, don't forget to test as well! Also check out our contributions guidelines (coming soon). </p>
           <span class="more">
             <router-link :to="{path: '/faqs/faqs/#what-is-the-best-way-to-get-started-with-subquery'}">BACA SELENGKAPNYA</router-link>
           </span>
@@ -85,7 +85,7 @@
       <li>
         <div class="title">Berapa biaya untuk hosting proyek saya di SubQuery Projects?</div>
         <div class="content">
-          <p>Hosting proyek anda di SubQuery Projects sepenuhnya gratis - ini adalah cara kami untuk memberi kembali kepada komunitas kami. Untuk mempelajari cara meng-host proyek Anda bersama kami, silakan lihat tutorial <a href="/quickstart/helloworld-hosted/">Hello World (SubQuery Hosted)</a>.</p>
+          <p>Hosting your project in SubQuery Projects is absolutely free - it's is our way of giving back to the community. To learn how to host your project with us, please check out the <a href="/quickstart/helloworld-hosted/">Hello World (SubQuery Hosted)</a> tutorial.</p>
           <span class="more">
             <router-link :to="{path: '/publish/publish/'}">MENYEDIAKAN PROYEK ANDA</router-link>
           </span>
@@ -99,14 +99,14 @@
   <div>
     <div class="lastIntroduce lastIntroduce_1">
         <h5>Mengintegrasi Custom Chain anda?</h5>
-        <p>Baik anda sedang membangun parachain baru atau blockchain baru di Substrate - SubQuery bisa membantu anda mengindeks dan menyelesaikan masalah di data chain anda. SubQuery didesain agar mudah diintegrasi dengan custom Substrate chain.</p>
+        <p>Whether you're building a new parachain or an entirely new blockchain on Substrate - SubQuery can help you index and troubleshoot your chain's data. SubQuery is designed to easily integrate with a custom Substrate based chain.</p>
         <span class="more">
           <router-link :to="{path: '/create/mapping/#custom-substrate-chains'}">PELAJARI CARA MENGINTEGRASI DENGAN RANTAI ANDA</router-link>
         </span>
     </div>
     <div class="lastIntroduce lastIntroduce_2">
         <h5>Dukung dan Kontribusi</h5>
-        <p>Punya pertanyaan atau berminat untuk cari tahu cara anda bisa berkontribusi? Kami dengan senang hati akan menjawab anda. Silakan hubungi kami via email atau media sosial dari tautan di bawah. Butuh ahli teknis? Gabung komunitas Discord kami dan dapatkan bantuan dari anggota komunitas kami. </p>
+        <p>Have a question or interested to know more or how you can contribute? We’d love to hear from you. Please contact us via email or social media from the links below. Need technical expertise? Join our Discord community and receive support from our passionate community members. </p>
         <a class="more" target="_blank" href="https://discord.com/invite/78zg8aBSMG">GABUNG PERBINCANGAN DI DISCORD</a>
     </div>
     </div>

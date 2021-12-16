@@ -7,10 +7,10 @@
 以下の例では、 [クイックスタート](../quickstart/quickstart.md) セクションでスターターパッケージを正常に初期化したと仮定します。 そのスターターパッケージから、SubQueryプロジェクトをカスタマイズして実装するための標準プロセスを説明します。
 
 1. `subql init --specVersion 0.2.0 PROJECT_NAME` を使用してプロジェクトを初期化します。 または、古い仕様のバージョン `subql init PROJECT_NAME` を使用することもできます。
-2. マニフェストファイル（`project.yaml`）を更新して、ブロックチェーンとマッピングするエンティティに関する情報を含めます。（[マニフェストファイル](./manifest.md)を参照）
-3. スキーマ（`schema.graphql`）にGraphQLエンティティを作成し、クエリのために抽出・保存するデータの型を定義します。（[GraphQL Schema](./graphql.md)を参照）
-4. チェーンデータを定義したGraphQLエンティティに変換するために呼び出したいすべてのマッピング関数（例：`mappingHandlers.ts`）を追加します。（[Mapping](./mapping.md)を参照）
-5. コードの生成、ビルド、SubQuery Projectsへの公開（または自分のローカル・ノードでの実行）をします。（クイック・スタート・ガイドの[Running and Querying your Starter Project](./quickstart.md#running-and-querying-your-starter-project)を参照）
+2. マニフェストファイル（`project.yaml`）を更新して、ブロックチェーンとマッピングするエンティティに関する情報を含めます。 （[マニフェストファイル](./manifest.md)を参照）
+3. スキーマ（`schema.graphql`）にGraphQLエンティティを作成し、クエリのために抽出・保存するデータの型を定義します。 （[GraphQL Schema](./graphql.md)を参照）
+4. チェーンデータを定義したGraphQLエンティティに変換するために呼び出したいすべてのマッピング関数（例：`mappingHandlers.ts`）を追加します。 （[Mapping](./mapping.md)を参照）
+5. コードの生成、ビルド、SubQuery Projectsへの公開（または自分のローカル・ノードでの実行）をします。 （クイック・スタート・ガイドの[Running and Querying your Starter Project](./quickstart.md#running-and-querying-your-starter-project)を参照）
 
 ## ディレクトリ構造
 
@@ -43,7 +43,7 @@ GraphQL エンティティを変更するたびに、次のコマンドで types
 yarn codegen
 ```
 
-これは`schema.graphql`内で事前に定義した型ごとに生成されたエンティティ・クラスを含む `src/types` ディレクトリを作成します（または既存のディレクトリを更新します）。 これらのクラスは、タイプセーフなエンティティのロード、エンティティフィールドへの読み取りと書き込みのアクセスを提供します。（このプロセスについては、[the GraphQL Schema](./graphql.md)を参照）
+これは`schema.graphql`内で事前に定義した型ごとに生成されたエンティティ・クラスを含む `src/types` ディレクトリを作成します（または既存のディレクトリを更新します）。 これらのクラスは、タイプセーフなエンティティのロード、エンティティフィールドへの読み取りと書き込みのアクセスを提供します。 （このプロセスについては、[the GraphQL Schema](./graphql.md)を参照）
 
 ## ビルド
 
@@ -51,12 +51,11 @@ yarn codegen
 
 プロジェクトのルートディレクトリからbuild コマンドを実行します。
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```bash npm run-script build ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```bash npm run-script build ``` </CodeGroupItem> </CodeGroup>
 
 ## ログ出力
 
-`console.log` 関数は **もうサポートが終了してます。** 代わりに、 `logger` モジュールが型に組み込まれています。つまり、さまざまなロガーレベルを受け入れることができるロガーをサポートすることができます。</p>
+`console.log` 関数は **もうサポートが終了してます。 ** 代わりに、 `logger` モジュールが型に組み込まれています。 つまり、さまざまなロガーレベルを受け入れることができるロガーをサポートすることができます。
 
 ```typescript
 logger.info('Info level message');

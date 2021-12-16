@@ -1,12 +1,12 @@
 # How to run an indexer node?
 
-## Video guide
+## Відеоінструкція
 
 <figure class="video_container">
   <iframe src="https://www.youtube.com/embed/QfNsR12ItnA" frameborder="0" allowfullscreen="true"></iframe>
 </figure>
 
-## Introduction
+## Вступ
 
 Running an indexer node is another option outside of using Docker or having a project hosted for you at [SubQuery Projects](https://project.subquery.network/). It requires more time and effort but will enhance your understanding of how SubQuery works under the covers.
 
@@ -50,7 +50,7 @@ Of course, if you have different values for the above keys, please adjust accord
 To start indexing a project, navigate into your project folder and run the following command:
 
 ```shell
-subql-node -f .
+підql-вузол -f.
 ```
 
 If you do not have a project handy, `git clone https://github.com/subquery/subql-helloworld`. You should see the indexer node kick into life and start indexing blocks.

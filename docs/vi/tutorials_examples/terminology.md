@@ -1,4 +1,4 @@
-## Thuật ngữ
+# Thuật ngữ
 
 - Dự án SubQuery (_nơi phép màu nảy sinh_): Định nghĩa ([`@subql/cli`](https://www.npmjs.com/package/@subql/cli)) về cách SubQuery Node sẽ đi qua và tổng hợp một mạng dự án, về cách dữ liệu sẽ được chuyển đổi và lưu trữ để kích hoạt các truy vấn GraphQL hữu ích
 - SubQuery Node (_nơi công việc được hoàn thành_): package này ([`@subql/node`](https://www.npmjs.com/package/@subql/node)) sẽ chấp nhận định nghĩa của dự án SubQuery và chạy một node có tác dụng liên tục lập Index cho mạng được kết nối gắn với một cơ sở dữ liệu

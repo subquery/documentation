@@ -10,7 +10,7 @@
 
 我们的 Figma 文件包含了所有品牌资产(logos、字体、颜色、图像等)，以供导出。
 
-[Figma - SubQuery 品牌资源](https://www.figma.com/file/AaCXaOccrlbxq8fz39sJU/ SubQuery-Brand-Resources?node-id=3%3A2)
+[\[Figma - SubQuery 品牌资源\](https://www.figma.com/file/AaCXaOccrlbxq8fz39sJU/ SubQuery-Brand-Resources?node-id=3%3A2)](https://www.figma.com/file/AaCXaOcElrlbxq8fz39sJU/SubQuery-Brand-Resources?node-id=3%3A2)
 
 ## 品牌资源包
 

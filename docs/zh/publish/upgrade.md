@@ -17,11 +17,11 @@
 * 为更新的SubQuery项目预热和索引数据，以消除dApp中的停机时间。
 * 为您的SubQuery Project准备一个新版本，而不公开它。 中转插槽不会在Explorer中显示给公众，它有一个唯一的URL，仅对您可见。
 
-![Staging slot](/assets/img/staging_slot.png)
+![暂存槽位](/assets/img/staging_slot.png)
 
 #### 升级到最新索引和查询服务
 
-如果你只是想升级到最新的索引器([`@subql/node`](https://www.npmjs.com/package/@subql/node))或查询服务([`@subql/quy`](https://www.npmjs.com/package/@subql/query))来利用我们的正常性能和稳定性改进。 只需选择我们的软件包的新版本就可以保存。 这只会导致几分钟的停用。
+如果你只是想升级到最新的索引器([`@subql/node`](https://www.npmjs.com/package/@subql/node))或查询服务([`@subql/quy`](https://www.npmjs.com/package/@subql/query))来利用我们的正常性能和稳定性改进。 这只会导致几分钟的停用。
 
 #### 部署您的 SubQuery 项目的新版本
 
@@ -30,6 +30,6 @@
 ## 下一步 - 连接到您的项目
 一旦您的部署成功完成并且我们的节点已经从该链中为您的数据编制了索引， 您可以通过显示的 GraphQL 查询端点连接到您的项目。
 
-![Project being deployed and synced](/assets/img/projects-deploy-sync.png)
+![正在部署和同步的项目](/assets/img/projects-deploy-sync.png)
 
-您也可以点击项目标题旁边的三个小点图标，从而在 SubQuery 浏览器上查看项目， 在这里您可以使用我们的区块链浏览器开始—— [阅读更多关于如何在这里使用](../query/query.md) 的信息。
+您也可以点击项目标题旁边的三个小点图标，从而在 SubQuery 浏览器上查看项目， 在这里您可以使用我们的区块链浏览器开始—— [阅读更多关于如何在这里使用](../query/query.md) 的信息。 在这里您可以使用我们的区块链浏览器开始—— [阅读更多关于如何在这里使用](../query/query.md) 的信息。

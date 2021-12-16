@@ -11,7 +11,7 @@
   <section class="startSection main">
     <div>
       <h2 class="title">Guide de <span>Démarrage rapide</span></h2>
-      <p>Comprenez SubQuery en mettant la main sur un exemple traditionnel de Hello World. Utiliser un projet de modèle dans un environnement Docker, vous pouvez rapidement faire démarrer un nœud et commencer à interroger une blockchain en quelques minutes à l'aide de quelques commandes simples.
+      <p>Comprenez SubQuery en mettant la main sur un exemple traditionnel de Hello World. Utiliser un projet modèle dans un environnement Docker, vous pouvez rapidement faire démarrer un nœud et commencer à interroger une blockchain en quelques minutes à l'aide de quelques commandes simples.
       </p>
       <span class="button">
         <router-link :to="{path: '/quickstart/helloworld-localhost/'}">
@@ -99,7 +99,7 @@
   <div>
     <div class="lastIntroduce lastIntroduce_1">
         <h5>Intégrer à votre chaîne personnalisée ?</h5>
-        <p>Que vous construisiez un nouveau parachain ou une toute nouvelle blockchain sur Substrate - SubQuery peut vous aider à indexer et à résoudre les données de votre chaîne. SubQuery est conçu pour s'intégrer facilement à une chaîne personnalisée basée sur Substrate.</p>
+        <p>Que vous construisiez une nouvelle parachain ou une toute nouvelle blockchain sur Substrate - SubQuery peut vous aider à indexer et à résoudre les données de votre chaîne. SubQuery est conçu pour s'intégrer facilement à une chaîne personnalisée basée sur Substrate.</p>
         <span class="more">
           <router-link :to="{path: '/create/mapping/#custom-substrate-chains'}">APPRENDRE COMMENT INTÉGRER AVEC VOTRE CHAIN</router-link>
         </span>
@@ -117,7 +117,7 @@
     <a href="mailto:hello@subquery.network">hello@subquery.network</a>
   </div>
   <div>
-    <div>Suis-nous sur les médias sociaux </div>
+    <div>Suis-nous sur les médias sociaux</div>
     <div class="connectWay">
       <a href="https://discord.com/invite/78zg8aBSMG" target="_blank" class="connectDiscord">discord</a>
       <a href="https://twitter.com/subquerynetwork" target="_blank" class="connectTwitter">twitter</a>

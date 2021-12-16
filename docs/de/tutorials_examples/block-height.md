@@ -46,4 +46,4 @@ If you are using the Polkadot network, you can visit [https://polkascan.io/](htt
 
 ## Do I have to do a rebuild or a codegen?
 
-No. Because you are modifying the project.yaml file, which is essentially a configuration file, you will not have to rebuild or regenerate the typescript code.
+No. No. Because you are modifying the project.yaml file, which is essentially a configuration file, you will not have to rebuild or regenerate the typescript code.

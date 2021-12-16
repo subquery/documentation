@@ -1,10 +1,10 @@
 # การรัน SubQuery ภายในเครื่อง
 
-คู่มือนี้จะศึกษาวิธีการรันโหนด SubQuery บนโครงสร้างพื้นฐานของคุณ ซึ่งรวมถึง indexer และ query service คุณไม่อยากที่จะต้องคอยกังวลเกี่ยวกับการรันโครงสร้างพื้นฐาน SubQuery ของคุณเองใช่หรือไม่? SubQuery ให้บริการ [โฮสต์ที่มีการจัดการ](https://explorer.subquery.network) แก่ชุมชนฟรี [ทำตามคู่มือการเผยแพร่ของเรา](../publish/publish.md) เพื่อดูว่าคุณสามารถอัปโหลดโครงการของคุณไปยัง [SubQuery Projects](https://project.subquery.network)ได้อย่างไร
+คู่มือนี้จะศึกษาวิธีการรันโหนด SubQuery บนโครงสร้างพื้นฐานของคุณ ซึ่งรวมถึง indexer และ query service คุณไม่อยากที่จะต้องคอยกังวลเกี่ยวกับการรันโครงสร้างพื้นฐาน SubQuery ของคุณเองใช่หรือไม่? Don't want to worry about running your own SubQuery infrastructure? SubQuery provides a [managed hosted service](https://explorer.subquery.network) to the community for free. SubQuery ให้บริการ [โฮสต์ที่มีการจัดการ](https://explorer.subquery.network) แก่ชุมชนฟรี [ทำตามคู่มือการเผยแพร่ของเรา](../publish/publish.md) เพื่อดูว่าคุณสามารถอัปโหลดโครงการของคุณไปยัง [SubQuery Projects](https://project.subquery.network)ได้อย่างไร
 
 ## การใช้กับ Docker
 
-ทางเลือกหนึ่ง คือการรัน <strong>Docker Container</strong> ซึ่งกำหนดจากไฟล์ `docker-compose.yml` สำหรับโปรเจ็กต์ใหม่ที่เพิ่งเริ่มต้น คุณไม่จำเป็นต้องเปลี่ยนแปลงอะไรในส่วนนี้
+ทางเลือกหนึ่ง คือการรัน <strong>Docker Container</strong> ซึ่งกำหนดจากไฟล์ `docker-compose.yml` สำหรับโปรเจ็กต์ใหม่ที่เพิ่งเริ่มต้น คุณไม่จำเป็นต้องเปลี่ยนแปลงอะไรในส่วนนี้ For a new project that has been just initialised you won't need to change anything here.
 
 ภายใต้ไดเร็กทอรีของโปรเจ็กต์ ให้รันคำสั่งต่อไปนี้:
 
@@ -18,7 +18,7 @@ docker-compose pull && docker-compose up
 
 สิ่งที่ต้องมี:
 
-- ฐานข้อมูล [Postgres](https://www.postgresql.org/) (เวอร์ชัน 12 ขึ้นไป) ในขณะที่ [โหนด SubQuery](#start-a-local-subquery-node) กำลังทำการ index บล็อกเชน ข้อมูลที่ออกมาจะถูกเก็บไว้ในอินสแตนซ์ของฐานข้อมูลภายนอก
+- [Postgres](https://www.postgresql.org/) database (version 12 or higher). ฐานข้อมูล [Postgres](https://www.postgresql.org/) (เวอร์ชัน 12 ขึ้นไป) ในขณะที่ [โหนด SubQuery](#start-a-local-subquery-node) กำลังทำการ index บล็อกเชน ข้อมูลที่ออกมาจะถูกเก็บไว้ในอินสแตนซ์ของฐานข้อมูลภายนอก
 
 โหนด SubQuery เป็นการทำงานที่ดึงข้อมูลบล็อกเชนที่ใช้ substrate ตามโปรเจ็กต์ SubQuery และบันทึกลงในฐานข้อมูล Postgres
 
@@ -39,7 +39,7 @@ subql-node <command>
 
 ### คำสั่งที่สำคัญ
 
-คำสั่งต่อไปนี้จะช่วยคุณในการตั้งค่าโหนด SubQuery ให้เสร็จสมบูรณ์และเริ่มการ index หากต้องการข้อมูลเพิ่มเติม คุณสามารถรันคำสั่ง `--help` ได้ตลอดเวลา
+คำสั่งต่อไปนี้จะช่วยคุณในการตั้งค่าโหนด SubQuery ให้เสร็จสมบูรณ์และเริ่มการ index หากต้องการข้อมูลเพิ่มเติม คุณสามารถรันคำสั่ง `--help` ได้ตลอดเวลา To find out more, you can always run `--help`.
 
 #### ชี้ไปที่ local path ของโปรเจ็กต์
 
@@ -49,7 +49,7 @@ subql-node -f your-project-path
 
 #### การใช้ Dictionary
 
-การใช้ full chain dictionary สามารถเร่งการประมวลผลโปรเจ็กต์ SubQuery ได้อย่างมาก ทั้งในระหว่างการทดสอบหรือระหว่างการ index ครั้งแรกของคุณ ในบางกรณี เราพบว่าประสิทธิภาพการ index เพิ่มขึ้นถึง 10 เท่า
+การใช้ full chain dictionary สามารถเร่งการประมวลผลโปรเจ็กต์ SubQuery ได้อย่างมาก ทั้งในระหว่างการทดสอบหรือระหว่างการ index ครั้งแรกของคุณ ในบางกรณี เราพบว่าประสิทธิภาพการ index เพิ่มขึ้นถึง 10 เท่า In some cases, we've seen indexing performance increases of up to 10x.
 
 chain dictionary แบบเต็มรูปแบบจะทำการ index ข้อมูลตำแหน่งเหตุการณ์และปัจจัยภายนอกทั้งหมดที่เกิดขึ้นภายในแต่ละเฉพาะ chain ไว้ล่วงหน้า ช่วยให้โหนดของคุณสามารถข้ามไปยังตำแหน่งที่เกี่ยวข้องเมื่อมีการ index แทนที่จะตรวจสอบทีละบล็อก
 
@@ -59,7 +59,7 @@ chain dictionary แบบเต็มรูปแบบจะทำการ in
 subql-node --network-dictionary=https://api.subquery.network/sq/subquery/dictionary-polkadot
 ```
 
-[อ่านเพิ่มเติมเกี่ยวกับวิธีการทำงานของ SubQuery Dictionary](../tutorials_examples/dictionary.md)
+อ่านเพิ่มเติมเกี่ยวกับวิธีการทำงานของ SubQuery Dictionary
 
 #### การเชื่อมต่อกับฐานข้อมูล
 
@@ -75,11 +75,13 @@ subql-node -f your-project-path
 
 #### ระบุไฟล์สำหรับกำหนดค่า
 
+#### Specify a configuration file
+
 ```
 subql-node -c your-project-config.yml
 ```
 
-สิ่งนี้จะชี้โหนดการสืบค้นไปยังไฟล์การกำหนดค่าซึ่งจะอยู่ในรูปแบบไฟล์ YAML หรือ JSON Check out the example below.
+สิ่งนี้จะชี้โหนดการสืบค้นไปยังไฟล์การกำหนดค่าซึ่งจะอยู่ในรูปแบบไฟล์ YAML หรือ JSON Check out the example below. Check out the example below.
 
 ```yaml
 subquery: ../../../../subql-example/extrinsics
@@ -98,7 +100,7 @@ Result:
 [IndexerManager] fetch block [403, 602]
 ```
 
-เมื่อ indexer ทำการ index chain ในครั้งแรก การ fetch ทีละบล็อกจะลดประสิทธิภาพการทำงานลงอย่างมาก การเพิ่ม batch size เพื่อปรับจำนวนบล็อคที่ fetch จะลดเวลาดำเนินการโดยรวมได้ batch size เริ่มต้นในปัจจุบันคือ 100
+เมื่อ indexer ทำการ index chain ในครั้งแรก การ fetch ทีละบล็อกจะลดประสิทธิภาพการทำงานลงอย่างมาก การเพิ่ม batch size เพื่อปรับจำนวนบล็อคที่ fetch จะลดเวลาดำเนินการโดยรวมได้ batch size เริ่มต้นในปัจจุบันคือ 100 Increasing the batch size to adjust the number of blocks fetched will decrease the overall processing time. The current default batch size is 100.
 
 #### การรันในโหมด local
 
@@ -106,7 +108,7 @@ Result:
 subql-node -f your-project-path --local
 ```
 
-เพื่อจุดประสงค์ในการ debug ผู้ใช้สามารถเรียกใช้โหนดในโหมด local ได้ การเปลี่ยนไปใช้โหมด local จะสร้างตาราง Postgres ใน ` public ` ซึ่งเป็น default schema
+For debugging purposes, users can run the node in local mode. เพื่อจุดประสงค์ในการ debug ผู้ใช้สามารถเรียกใช้โหนดในโหมด local ได้ การเปลี่ยนไปใช้โหมด local จะสร้างตาราง Postgres ใน `public` ซึ่งเป็น default schema
 
 หากไม่ได้ใช้โหมด local, Postgres schema ใหม่ที่มี `subquery_` เริ่มต้นและตารางโปรเจ็กต์ที่เกี่ยวข้องจะถูกสร้างขึ้น
 
@@ -118,7 +120,7 @@ subql-node -f your-project-path --local
 - Health check endpoint ที่ส่งคืนค่า response 200 อย่างง่าย
 - Metadata endpoint ที่รวมการวิเคราะห์เพิ่มเติมเกี่ยวกับโหนด SubQuery ของคุณที่กำลังทำงานอยู่
 
-เพิ่มสิ่งนี้ไปกับ URL พื้นฐานของโหนด SubQuery ของคุณ ตัวอย่างเช่น` http://localhost:3000/meta` จะส่งคืนค่า:
+เพิ่มสิ่งนี้ไปกับ URL พื้นฐานของโหนด SubQuery ของคุณ ตัวอย่างเช่น`http://localhost:3000/meta` จะส่งคืนค่า: Eg `http://localhost:3000/meta` will return:
 
 ```bash
 {
@@ -143,7 +145,7 @@ subql-node -f your-project-path --local
 
 `http://localhost:3000/health` จะคืนค่า HTTP 200 ถ้าสำเร็จ
 
-ค่า 500 error จะถูกส่งเมื่อ indexer ไม่สมบูรณ์ ซึ่งมักจะเห็นได้เมื่อโหนดกำลังทำการบูทอัพ
+A 500 error will be returned if the indexer is not healthy. This can often be seen when the node is booting up.
 
 ```shell
 {
@@ -177,7 +179,7 @@ Debugger listening on ws://127.0.0.1:9229/56156753-c07d-4bbe-af2d-2c7ff4bcc5ad
 For help, see: https://nodejs.org/en/docs/inspector
 Debugger attached.
 ```
-จากนั้นเปิดเครื่องมือ Chrome dev ไปที่ Source > Filesystem และเพิ่มโปรเจ็กต์ของคุณลงในเวิร์กสเปซ แล้วเริ่มการ debug ดูรายละเอียดเพิ่มเติมได้ที่ [วิธี debug โปรเจ็กต์ SubQuery](https://doc.subquery.network/tutorials_examples/debug-projects/)
+จากนั้นเปิดเครื่องมือ Chrome dev ไปที่ Source > Filesystem และเพิ่มโปรเจ็กต์ของคุณลงในเวิร์กสเปซ แล้วเริ่มการ debug ดูรายละเอียดเพิ่มเติมได้ที่ [วิธี debug โปรเจ็กต์ SubQuery](https://doc.subquery.network/tutorials_examples/debug-projects/) For more information, check out [How to debug a SubQuery project](https://doc.subquery.network/tutorials_examples/debug-projects/)
 ## การรัน Query Service (subql/query)
 
 ### การติดตั้ง
@@ -192,6 +194,6 @@ npm install -g @subql/query
 ### การรัน Query service
 ``` export DB_HOST=localhost subql-query --name <project_name> --playground ````
 
-ตรวจสอบให้แน่ใจว่าชื่อโปรเจ็กต์นี้ตรงกับชื่อโปรเจ็กต์เมื่อคุณ [เริ่มต้นโปรเจ็กต์](../quickstart/quickstart.md#initialise-the-starter-subquery-project) ตรวจสอบ environment variables ด้วยว่าถูกต้องหรือไม่
+ตรวจสอบให้แน่ใจว่าชื่อโปรเจ็กต์นี้ตรงกับชื่อโปรเจ็กต์เมื่อคุณ [เริ่มต้นโปรเจ็กต์](../quickstart/quickstart.md#initialise-the-starter-subquery-project) ตรวจสอบ environment variables ด้วยว่าถูกต้องหรือไม่ Also, check the environment variables are correct.
 
-หลังจากรัน service subql-query สำเร็จแล้ว ให้เปิดเบราว์เซอร์ของคุณ แล้วไปที่ `http://localhost:3000` คุณควรเห็น GraphQL playground แสดงใน Explorer และมี schema ที่พร้อมสำหรับการสืบค้น
+หลังจากรัน service subql-query สำเร็จแล้ว ให้เปิดเบราว์เซอร์ของคุณ แล้วไปที่ `http://localhost:3000` คุณควรเห็น GraphQL playground แสดงใน Explorer และมี schema ที่พร้อมสำหรับการสืบค้น You should see a GraphQL playground showing in the Explorer and the schema that is ready to query.

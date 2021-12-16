@@ -1,20 +1,20 @@
-# Creating a SubQuery Project
+# การสร้าง SubQuery Project ใหม่
 
-In the [quick start](/quickstart/quickstart.md) guide, we very quickly ran through an example to give you a taste of what SubQuery is and how it works. Here we'll take a closer look at the workflow when creating your project and the key files you'll be working with.
+ในคู่มือ [quick start](/quickstart/quickstart.md) พวกเราจะพาคุณเริ่มต้นจากตัวอย่างได้อย่างรวดเร็ว เพื่อให้ลิ้มรสความหมายของ SubQuery และเข้าใจถึงว่าทำงานได้อย่างไร ในที่นี้ เราจะพามาดูขั้นตอนการทำงานเมื่อคุณเริ่มสร้าง Project ของคุณ และ Key files ที่คุณจะทำงานด้วย
 
-## The Basic Workflow
+## ขั้นตอนการทำงานเบื้องต้น
 
-Some of the following examples will assume you have successfully initialized the starter package in the [Quick start](../quickstart/quickstart.md) section. From that starter package, we'll walk through the standard process to customise and implement your SubQuery project.
+นี่คือตัวอย่างที่คุณสามารถเริ่มต้นสร้างโครงการเสร็จสิ้น และได้เริ่มต้นจากส่วนของ [Quick start](../quickstart/quickstart.md) จากชุดเริ่มต้น พวกเราจะนำคุณผ่านกระบวนการมาตรฐานเพื่อที่จะปรับแต่ง และพัฒนา SubQuery Project ของคุณ
 
-1. Initialise your project using `subql init --specVersion 0.2.0 PROJECT_NAME`. alternatively you can use the old spec version `subql init PROJECT_NAME`
-2. Update the Manifest file (`project.yaml`) to include information about your blockchain, and the entities that you will map - see [Manifest File](./manifest.md)
-3. Create GraphQL entities in your schema (`schema.graphql`) that define the shape of the data that you will extract and persist for querying - see [GraphQL Schema](./graphql.md)
-4. Add all the mapping functions (eg `mappingHandlers.ts`) you wish to invoke to transform chain data to the GraphQL entities that you have defined - see [Mapping](./mapping.md)
-5. Generate, build, and publish your code to SubQuery Projects (or run in your own local node) - see [Running and Querying your Starter Project](./quickstart.md#running-and-querying-your-starter-project) in our quick start guide.
+1. เริ่มต้น Project ของคุณโดยใช้คำสั่ง `subql init --specVersion 0.2.0 PROJECT_NAME` หรือคุณสามารถใช้เวอชันเก่า ด้วยคำสั่ง `subql init PROJECT_NAME`
+2. อัพเดท Manifest file (`project.yaml`) เพื่อใส่ข้อมูลที่เกี่ยวกับ blockchain และ entities ที่คุณจะเชื่อมโยง โปรดดู [Manifest File](./manifest.md)
+3. สร้าง GraphQL entities ภายใน Schema ของคุณ (`schema.graphql<0>) เพื่อกำหนดรูปร่างของข้อมูลที่คุณจะดึงข้อมูลออกมา โปรดดู <a href="./graphql.md">GraphQL Schema</a></li>
+<li>เพิ่ม Mapping Function (ตัวอย่าง <code>mappingHandlers.ts`) คุณจะเรียกข้อมูลเพื่อแปลงข้อมูลที่อยู่บน chain ให้เป็น GraphQL entities ที่คุณได้กำหนด - โปรดดู [Mapping](./mapping.md)
+5. การสร้างและเผยแพร่ Code ของคุณไปยัง SubQuery Projects (หรือรันอยู่บนเครื่องของคุณเอง) - โปรดดู [Running and Querying your Starter Project](./quickstart.md#running-and-querying-your-starter-project) ที่อยู่ใน Quick Start Guide
 
 ## Directory Structure
 
-The following map provides an overview of the directory structure of a SubQuery project when the `init` command is run.
+จากการเชื่อมโยงที่กำหนด จะเห็นภาพรวมของโครงสร้างโฟลเดอร์ที่ใช้ใน SubQuery project เมื่อเริ่มคำสั่ง `init`
 
 ```
 - project-name
@@ -31,32 +31,32 @@ The following map provides an overview of the directory structure of a SubQuery 
   L .gitignore
 ```
 
-For example:
+ยกตัวอย่างเช่น:
 
 ![SubQuery directory structure](/assets/img/subQuery_directory_stucture.png)
 
 ## Code Generation
 
-Whenever you change your GraphQL entities, you must regenerate your types directory with the following command.
+เมื่อใดก็ตามที่คุณเปลี่ยนแปลง GraphQL entities คุณต้องสร้างชนิดของโฟลเดอร์ใหม่ ซึ่งประกอบด้วยคำสั่ง
 
 ```
 yarn codegen
 ```
 
-This will create a new directory (or update the existing) `src/types` which contain generated entity classes for each type you have defined previously in `schema.graphql`. These classes provide type-safe entity loading, read and write access to entity fields - see more about this process in [the GraphQL Schema](./graphql.md).
+นี่จะสร้างโฟลเดอร์ใหม่ (หรืออัพเดทโฟลเดอร์เดิมที่มีอยู่) `src/types` โดยกำหนด class entity ที่ถูกสร้างสำหรับแต่ละชนิดที่คุณได้กำหนดไว้ใน `schema.graphql` Class เหล่านี้จะทำให้คุณโหลด type-safe entity ที่จะใช้สิทธิในการอ่านและเขียนลงไปในช่องข้อมูลของ entity - อ่านต่อในกระบวนการนี้ได้ใน [the GraphQL Schema](./graphql.md)
 
 ## Build
 
-In order to run your SubQuery Project on a locally hosted SubQuery Node, you need to first build your work.
+ในการรันโปรเจ็กต์ SubQuery ของคุณบนโหนด SubQuery ที่โฮสต์ในเครื่อง คุณต้องเริ่มต้นจากการ build งานของคุณก่อน
 
-Run the build command from the project's root directory.
+รันคำสั่ง build จากรูทไดเร็กทอรีของโปรเจ็กต์
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```bash npm run-script build ``` </CodeGroupItem> </CodeGroup>
 
 ## Logging
 
-The `console.log` method is **no longer supported**. Instead, a `logger` module has been injected in the types, which means we can support a logger that can accept various logging levels.
+The `console.log` method is **no longer supported**. ในขณะเดียวกัน โมดูล `logger` จะถูกเชื่อมกับชนิด นั่นหมายความว่าเราสามารถจะรองรับการเก็บ logs ได้ในหลายระดับ
 
 ```typescript
 logger.info('Info level message');
@@ -64,16 +64,16 @@ logger.debug('Debugger level message');
 logger.warn('Warning level message');
 ```
 
-To use `logger.info` or `logger.warn`, just place the line into your mapping file.
+การใช้ `logger.info` หรือ `logger.warn` จะวางไว้บรรทัดหนึ่งในไฟล์ mapping ของคุณ
 
 ![logging.info](/assets/img/logging_info.png)
 
-To use `logger.debug`, an additional step is required. Add `--log-level=debug` to your command line.
+การใช้ `logger.debug` คุณจำเป็นจะต้อง เพิ่ม `--log-level=debug` ไปยัง command line
 
-If you are running a docker container, add this line to your `docker-compose.yaml` file.
+ถ้าหากคุณรันอยู่ใน docker container ให้เพิ่มบรรทัดนี้ไปยังไฟล์ `docker-compose.yaml`
 
 ![logging.debug](/assets/img/logging_debug.png)
 
-You should now see the new logging in the terminal screen.
+คุณควรจะเห็น logging อยู่บน terminal screen ของคุณ
 
 ![logging.debug](/assets/img/subquery_logging.png)

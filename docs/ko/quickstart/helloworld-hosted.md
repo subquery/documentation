@@ -97,13 +97,13 @@ To https://github.com/seandotau/subqlHelloWorld.git
 
 ```
 
-Push 명령은 "내 코드를 내 마스터 로컬 저장소에서 원본 저장소로 푸시하세요"를 의미합니다 GitHub를 새로 고치면 GitHub의 모든 코드가 표시됩니다.
+Push 명령은 "내 코드를 내 마스터 로컬 저장소에서 원본 저장소로 푸시하세요"를 의미합니다 GitHub를 새로 고치면 GitHub의 모든 코드가 표시됩니다. Refreshing GitHub should show all the code in GitHub.
 
 ![First commit](/assets/img/first_commit.png)
 
 이제 GitHub에 코드를 가져왔으므로 SubQuery 프로젝트에서 호스트하는 방법을 살펴보겠습니다.
 
-## 4. Create your project
+## 4. Step 1: Create your project
 
 https://project.subquery.network로 이동하여 GitHub 계정으로 로그인합니다.
 

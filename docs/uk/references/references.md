@@ -15,6 +15,8 @@ Options:
       --subquery-name       Name of the subquery project                [string]
   -c, --config              Specify configuration file                  [string]
       --local               Use local mode                             [boolean]
+      --force-clean         Force clean the database, dropping project schemas
+                            and tables                                 [boolean]
       --batch-size          Batch size of blocks to fetch in one round  [number]
       --timeout             Timeout for indexer sandbox to execute the mapping
                             functions                                   [number]
@@ -35,8 +37,12 @@ Options:
       --timestamp-field     Enable/disable created_at and updated_at in schema
                                                        [boolean] [default: true]
   -d, --network-dictionary  Specify the dictionary api for this network [string]
+  -m, --mmr-path            Local path of the merkle mountain range (.mmr) file
+                                                                        [string]
       --proof-of-index      Enable/disable proof of index
                                                       [boolean] [default: false]
+  -p, --port                The port the service will bind to
+                                                        [number] [default: 3000]
 ```
 
 ### --version
@@ -53,7 +59,7 @@ This displays the current version.
 Use this flag to start the SubQuery project.
 
 ```shell
-subql-node -f . // OR
+підql-вузол -f. // OR
 subql-node --subquery .
 ```
 
@@ -62,7 +68,7 @@ subql-node --subquery .
 This flag allows you to provide a name for your project which acts as if it creates an instance of your project. Upon providing a new name, a new database schema is created and block synchronisation starts from zero.
 
 ```shell
-subql-node -f . --subquery-name=test2
+підql-вузол -f. --subquery-name=test2
 ```
 
 ### -c, --config
@@ -88,10 +94,14 @@ Place this file in the same directory as the project. Then in the current projec
 This flag is primarily used for debugging purposes where it creates the default starter_entity table in the default "postgres" schema.
 
 ```shell
-subql-node -f . --local
+підql-вузол -f. --local
 ```
 
 Note that once you use this flag, removing it won't mean that it will point to another database. To repoint to another database you will have to create a NEW database and change the env settings to this new database. In other words, "export DB_DATABASE=<new_db_here>"
+
+### --force-clean
+
+This flag forces the project schemas and tables to be regenerated, helpful to use when iteratively developing graphql schemas such that new runs of the project are always working with a clean state. Note that this flag will also wipe all indexed data.
 
 ### --batch-size
 
@@ -123,7 +133,7 @@ This outputs debug information to the console output and forcefully sets the log
 This shows profiler information.
 
 ```shell
-subql-node -f . --local --profiler
+підql-вузол -f. --local --profiler
 2021-08-10T10:57:07.234Z <profiler> INFO FetchService, fetchMeta, 3876 ms
 2021-08-10T10:57:08.095Z <profiler> INFO FetchService, fetchMeta, 774 ms
 2021-08-10T10:57:10.361Z <profiler> INFO SubstrateUtil, fetchBlocksBatches, 2265 ms
@@ -135,7 +145,7 @@ subql-node -f . --local --profiler
 This flag allows users to override the network endpoint configuration from the manifest file.
 
 ```shell
-subql-node -f . --network-endpoint="wss://polkadot.api.onfinality.io/public-ws"
+підql-вузол -f. --network-endpoint="wss://polkadot.api.onfinality.io/public-ws"
 ```
 
 Note that this must also be set in the manifest file, otherwise you'll get:
@@ -203,7 +213,7 @@ This allows you to specify a dictionary endpoint which is a free service that is
 Typically this would be set in your manifest file but below shows an example of using it as an argument in the command line.
 
 ```shell
-subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot"
+підql-вузол -f. -d "https://api.subquery.network/sq/subquery/dictionary-polkadot"
 ```
 
 [Read more about how a SubQuery Dictionary works](../tutorials_examples/dictionary.md).
@@ -215,11 +225,11 @@ subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot
 This shows the help options.
 
 ```shell
-ns:
+Options:
       --help        Show help                                          [boolean]
       --version     Show version number                                [boolean]
-  -n, --name        project name                             [string] [required]
-      --playground  enable graphql playground                          [boolean]
+  -n, --name        Project name                             [string] [required]
+      --playground  Enable graphql playground                          [boolean]
       --output-fmt  Print log as json or plain text
                       [string] [choices: "json", "colored"] [default: "colored"]
       --log-level   Specify log level to print.

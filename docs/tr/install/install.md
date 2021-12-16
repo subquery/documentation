@@ -8,8 +8,7 @@ The [@subql/cli](https://github.com/subquery/subql/tree/docs-new-section/package
 
 Yarn veya NPM kullanarak SubQuery CLI'yi global biçimde terminalinize kurun:
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn global add @subql/cli ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```bash npm install -g @subql/cli ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn global add @subql/cli ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```bash npm install -g @subql/cli ``` </CodeGroupItem> </CodeGroup>
 
 Ardından, CLI tarafından sağlanan kullanılabilir komutları ve kullanım biçimlerini görüntülemek için help komutunu çalıştırabilirsiniz:
 
@@ -22,8 +21,7 @@ Bir SubQuery node'u, SubQuery projesindeki alt-tabanlı blok zinciri verilerini 
 
 Yarn veya NPM kullanarak SubQuery node'unu global biçimde terminalinize kurun:
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn global add @subql/node ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```bash npm install -g @subql/node ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn global add @subql/node ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```bash npm install -g @subql/node ``` </CodeGroupItem> </CodeGroup>
 
 Kurulduktan sonra, aşağıdaki şekilde bir node başlatabilirsiniz:
 

@@ -1,18 +1,18 @@
-# Tutorials & Examples
+# บทช่วยสอนและตัวอย่างต่าง ๆ
 
-Here we will list our tutorials and explore various examples to help you get up and running in the easiest and fastest manner.
+เราจะแสดงรายการบทช่วยสอนของเราและตัวอย่างต่าง ๆ ไว้ที่นี่ เพื่อช่วยให้คุณเริ่มต้นใช้งานได้ง่ายและรวดเร็วที่สุด
 
-## Tutorials
+## บทช่วยสอน
 
 
 
-## SubQuery Example Projects
+## ตัวอย่างโปรเจคต่าง ๆ ของ SubQuery
 
-| Example                                                                                       | Description                                                                                                              | Topics                                                                                                                        |
-| --------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------- |
-| [extrinsic-finalized-block](https://github.com/subquery/tutorials-extrinsic-finalised-blocks) | Indexes extrinsics so they can be queried by their hash                                                                  | The simplest example with a __block handler__ function                                                                        |
-| [block-timestamp](https://github.com/subquery/tutorials-block-timestamp)                      | Indexes timestamp of each finalized block                                                                                | Another simple __call handler__ function                                                                                      |
-| [validator-threshold](https://github.com/subquery/tutorials-validator-threshold)              | Indexes the least staking amount required for a validator to be elected.                                                 | More complicated __block handler__ function that makes __external calls__ to the `@polkadot/api` for additional on-chain data |
-| [sum-reward](https://github.com/subquery/tutorials-sum-reward)                                | Indexes staking bond, rewards, and slashes from the events of finalized block                                            | More complicated __event handlers__ with a __one-to-many__ relationship                                                       |
-| [entity-relation](https://github.com/subquery/tutorials-entity-relations)                     | Indexes balance transfers between accounts, also indexes utility batchAll to find out the content of the extrinsic calls | __One-to-many__ and __many-to-many__ relationships and complicated __extrinsic handling__                                     |
-| [kitty](https://github.com/subquery/tutorials-kitty-chain)                                    | Indexes birth info of kitties.                                                                                           | Complex __call handlers__ and __event handlers__, with data indexed from a __custom chain__                                   |
+| ตัวอย่าง                                                                                      | คำอธิบาย                                                                                                          | หัวข้อ                                                                                                                           |
+| --------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| [extrinsic-finalized-block](https://github.com/subquery/tutorials-extrinsic-finalised-blocks) | จัดทำดัชนีของ extrinsic ต่างๆ เพื่อให้สามารถสืบค้นได้ด้วยแฮช                                                      | ตัวอย่างที่ง่ายที่สุดซึ่งมีการใช้ฟังก์ชัน __block handler__                                                                      |
+| [block-timestamp](https://github.com/subquery/tutorials-block-timestamp)                      | ดัชนีการบันทึกเวลาของแต่ละบล็อกที่สิ้นสุดแล้ว                                                                     | อีกหนึ่งตัวอย่างง่าย ๆ ของการใช้ฟังก์ชั่น __call handler__                                                                       |
+| [validator-threshold](https://github.com/subquery/tutorials-validator-threshold)              | จัดทำดัชนีของจำนวนเงินขั้นต่ำในการ stake สำหรับ validator ที่จะถูกเลือก                                           | ฟังก์ชัน __block handler__ ที่ซับซ้อนยิ่งขึ้น ซึ่งทำการ__external calls__ไปยัง `@polkadot/api` เพื่อดูข้อมูลในเครือข่ายเพิ่มเติม |
+| [sum-reward](https://github.com/subquery/tutorials-sum-reward)                                | จัดทำดัชนีของ staking bond, ผลตอบแทน และการลงโทษจาก event ต่าง ๆ ของบล็อกที่สิ้นสุดแล้ว                           | ฟังก์ชั่น __event handlers__ ที่ซับซ้อนยิ่งขึ้นด้วยความสัมพันธ์แบบ __one-to-many__                                               |
+| [entity-relation](https://github.com/subquery/tutorials-entity-relations)                     | จัดทำดัชนีการโอนยอดคงเหลือระหว่างบัญชี รวมถึงจัดทำดัชนีชุดยูทิลิตี้ batchAll เพื่อค้นหาเนื้อหาของ extrinsic calls | ความสัมพันธ์ของ __One-to-many__ และ __many-to-many__ และ __extrinsic handling__ ที่ซับซ้อน                                       |
+| [kitty](https://github.com/subquery/tutorials-kitty-chain)                                    | จัดทำดัชนีข้อมูลการเกิดของลูกแมว                                                                                  | __call handlers__ และ __event handlers__ ที่ซับซ้อน โดยมีการจัดทำดัชนีข้อมูลจาก __เครือข่ายที่กำหนดเอง__                         |

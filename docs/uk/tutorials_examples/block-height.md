@@ -1,16 +1,16 @@
 # How to start at a different block height?
 
-## Video guide
+## Відеоінструкція
 
 <figure class="video_container">
   <iframe src="https://www.youtube.com/embed/ZiNSXDMHmBk" frameborder="0" allowfullscreen="true"></iframe>
 </figure>
 
-## Introduction
+## Вступ
 
-By default, all starter projects start synchronising the blockchain from the genesis block. In otherwords, from block 1. For large blockchains, this can typically take days or even weeks to fully synchronise.
+By default, all starter projects start synchronising the blockchain from the genesis block. Іншими словами, з блоку 1. Для великих блокчейнів це зазвичай може зайняти дні або навіть тижні для повної синхронізації.
 
-To start a SubQuery node synchronising from a non-zero height, all you have to do is to modify your project.yaml file and change the startBlock key.
+Щоб запустити синхронізацію вузла SubQuery з нульовою висотою, необхідно лише змінити ваш project.yaml файл, а також клавішу startBlock.
 
 Below is a project.yaml file where the start block has been set to 1,000,000
 

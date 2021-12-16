@@ -3,7 +3,7 @@
 ## Видеоинструкция
 
 <figure class="video_container">
-  <iframe src="https://www.youtube.com/embed/WSN5BaCzsbo" frameborder="0" allowfullscreen="true"></iframe>
+  <iframe src="https://www.youtube.com/embed/ZiNSXDMHmBk" frameborder="0" allowfullscreen="true"></iframe>
 </figure>
 
 ## Вступление
@@ -44,6 +44,6 @@ dataSources:
 
 Если вы используете сеть Polkadot, вы можете посетить [https://polkascan.io/](https://polkascan.io/), выбрать сеть, а затем просмотреть номер "Finalised Block".
 
-## Do I have to do a rebuild or a codegen?
+## Должен ли я перестроить код?
 
-No. Поскольку вы изменяете файл project.yaml, который по сути является файлом конфигурации, вам не нужно будет перестраивать или регенерировать код машинописного текста.
+Нет. Поскольку вы изменяете файл project.yaml, который по сути является файлом конфигурации, вам не нужно будет перестраивать или регенерировать код машинописного текста.

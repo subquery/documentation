@@ -1,8 +1,8 @@
 # SubQuery 字典如何工作？
 
-一个通用字典项目的整个想法是从区块链中对所有数据进行索引并记录事件，插件及其类型(模块和方法)，并按区块高度排序。 另一个项目然后可以查询此 `network.dictionary ` endpoint，而不是默认 `network.endpoint` 定义在清单文件中。
+一个通用字典项目的整个想法是从区块链中对所有数据进行索引并记录事件，插件及其类型(模块和方法)，并按区块高度排序。 另一个项目然后可以查询此 `network.dictionary` endpoint，而不是默认 `network.endpoint` 定义在清单文件中。
 
-`network. dictionary ` endpoint 是一个可选的参数，如果存在，SDK 将自动检测和使用。 `network.endpoint` 是强制性的，如果不存在，将不会编译。
+`network. dictionary` endpoint 是一个可选的参数，如果存在，SDK 将自动检测和使用。 `network.endpoint` 是强制性的，如果不存在，将不会编译。
 
 将 [SubQuery dictionary](https://github.com/subquery/subql-dictionary) 项目作为示例。 [schema](https://github.com/subquery/subql-dictionary/blob/main/schema.graphql) 文件定义了3个实体；外观、事件、旁观版本。 这3个实体分别含有6、4和2个字段。 当这个项目运行时，这些字段将反映在数据库表中。
 
@@ -12,7 +12,7 @@
 
 ## 如何将字典纳入您的项目中？
 
-添加 ` dictionary: https://api.subquery.network/sq/subquery/dictiony-polkadot` 到清单的网络部分。 比如
+添加 `dictionary: https://api.subquery.network/sq/subquery/dictiony-polkadot` 到清单的网络部分。 比如
 
 ```shell
 network:

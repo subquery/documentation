@@ -8,7 +8,7 @@
 
 ## Giới thiệu
 
-Kích thước lô mặc định là 100, nhưng điều này có thể được thay đổi bằng cách sử dụng lệnh bổ sung ` --batch-size = xx `.
+Kích thước lô mặc định là 100, nhưng điều này có thể được thay đổi bằng cách sử dụng lệnh bổ sung `--batch-size = xx`.
 
 Bạn cần làm điều này bằng dòng lệnh như một cờ bổ sung hoặc nếu bạn đang sử dụng Docker, hãy sửa đổi docker-compos.yml thành:
 

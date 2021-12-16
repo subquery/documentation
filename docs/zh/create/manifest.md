@@ -4,8 +4,7 @@
 
 该清单文件可以是YAML或JSON格式。 在本文档中，我们将在所有示例中使用YAML格式。 下面是`project.yaml`文件的标准示例。
 
-<CodeGroup> <CodeGroupItem title="v0.2.0" active> ``` yml specVersion: 0.2.0 name: example-project # Provide the project name version: 1.0.0  # Project version description: '' # Description of your project repository: 'https://github.com/subquery/subql-starter' # Git repository address of your project schema: file: ./schema.graphql # The location of your GraphQL schema file network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' # Genesis hash of the network endpoint: 'wss://polkadot.api.onfinality.io/public-ws' # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing dictionary: 'https://api.subquery.network/sq/subquery/dictionary-polkadot' dataSources: - kind: substrate/Runtime startBlock: 1 # This changes your indexing start block, set this higher to skip initial blocks with less data mapping: file: "./dist/index.js" handlers: - handler: handleBlock kind: substrate/BlockHandler - handler: handleEvent kind: substrate/EventHandler filter: #Filter is optional module: balances method: Deposit - handler: handleCall kind: substrate/CallHandler ```` </CodeGroupItem>
-<CodeGroupItem title="v0.0.1"> ``` yml specVersion: "0.0.1" description: '' # Description of your project repository: 'https://github.com/subquery/subql-starter' # Git repository address of your project schema: ./schema.graphql # The location of your GraphQL schema file network: endpoint: 'wss://polkadot.api.onfinality.io/public-ws' # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing dictionary: 'https://api.subquery.network/sq/subquery/dictionary-polkadot' dataSources: - name: main kind: substrate/Runtime startBlock: 1 # This changes your indexing start block, set this higher to skip initial blocks with less data mapping: handlers: - handler: handleBlock kind: substrate/BlockHandler - handler: handleEvent kind: substrate/EventHandler filter: #Filter is optional but suggested to speed up event processing module: balances method: Deposit - handler: handleCall kind: substrate/CallHandler ```` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="v0.2.0" active> ``` yml specVersion: 0.2.0 name: example-project # Provide the project name version: 1.0.0  # Project version description: '' # Description of your project repository: 'https://github.com/subquery/subql-starter' # Git repository address of your project schema: file: ./schema.graphql # The location of your GraphQL schema file network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' # Genesis hash of the network endpoint: 'wss://polkadot.api.onfinality.io/public-ws' # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing dictionary: 'https://api.subquery.network/sq/subquery/dictionary-polkadot' dataSources: - kind: substrate/Runtime startBlock: 1 # This changes your indexing start block, set this higher to skip initial blocks with less data mapping: file: "./dist/index.js" handlers: - handler: handleBlock kind: substrate/BlockHandler - handler: handleEvent kind: substrate/EventHandler filter: #Filter is optional module: balances method: Deposit - handler: handleCall kind: substrate/CallHandler ```` </CodeGroupItem> <CodeGroupItem title="v0.0.1"> ``` yml specVersion: "0.0.1" description: '' # Description of your project repository: 'https://github.com/subquery/subql-starter' # Git repository address of your project schema: ./schema.graphql # The location of your GraphQL schema file network: endpoint: 'wss://polkadot.api.onfinality.io/public-ws' # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing dictionary: 'https://api.subquery.network/sq/subquery/dictionary-polkadot' dataSources: - name: main kind: substrate/Runtime startBlock: 1 # This changes your indexing start block, set this higher to skip initial blocks with less data mapping: handlers: - handler: handleBlock kind: substrate/BlockHandler - handler: handleEvent kind: substrate/EventHandler filter: #Filter is optional but suggested to speed up event processing module: balances method: Deposit - handler: handleCall kind: substrate/CallHandler ```` </CodeGroupItem> </CodeGroup>
 
 ## 从v0.0.1迁移到v0.2.0
 
@@ -18,7 +17,7 @@
 
 在 `数据源` 下：
 
-- 可以直接链接映射处理器的 `index.js` 条目。 默认情况下，此 `index.js` 将从 `索引生成。ts` 在构建过程中。
+- 可以直接链接映射处理器的 `index.js` 条目。 默认情况下，此 `index.js` 将从 `索引生成。 ts` 在构建过程中。
 - 数据源现在可以是常规运行时的数据源或 [自定义数据源](#custom-data-sources)。
 
 ### CLI 选项
@@ -27,7 +26,7 @@ v0.2。 spec 版本处于测试阶段，您需要在项目初始化过程中运�
 
 `subql migrate` 可以在一个现有的项目中运行，将项目清单迁移到最新版本。
 
-| 选项             | 描述                             |
+| 选项             | Description                    |
 | -------------- | ------------------------------ |
 | -f, --force    |                                |
 | -l, --location | 要运行迁移的本地文件夹 (必须包含 project.yml) |
@@ -40,46 +39,46 @@ v0.2。 spec 版本处于测试阶段，您需要在项目初始化过程中运�
 | Field           | v0.0.1                              | v0.2.0                      | Description                       |
 | --------------- | ----------------------------------- | --------------------------- | --------------------------------- |
 | **specVersion** | String                              | String                      | `0.0.1` 或 `0.2.0` - 清单文件的 spec 版本 |
-| **name**        | 𐄂                                   | String                      | 项目名称                              |
-| **version**     | 𐄂                                   | String                      | 项目版本                              |
+| **name**        | String                              | String                      | 项目名称                              |
+| **version**     | String                              | String                      | 项目版本                              |
 | **description** | String                              | String                      | 项目描述                              |
 | **repository**  | String                              | String                      | 项目的 Git 仓库地址                      |
 | **schema**      | String                              | [Schema Spec](#schema-spec) | GraphQL schema文件的位置               |
-| **network**     | [Network Spec](#network-spec)       | Network Spec                | 要索引的网络详情                          |
-| **dataSources** | [DataSource Spec](#datasource-spec) | DataSource Spec             |                                   |
+| **network**     | [Network Spec](#network Spec)       | Network Spec                | 要索引的网络详情                          |
+| **dataSources** | [DataSource Spec](#dataSource Spec) | DataSource Spec             |                                   |
 
-### Schema 说明
+### Schema Spec
 
 | Field    | v0.0.1 | v0.2.0 | Description         |
 | -------- | ------ | ------ | ------------------- |
-| **file** | 𐄂      | String | GraphQL schema文件的位置 |
+| **file** | String | String | GraphQL schema文件的位置 |
 
 ### Network Spec
 
 | Field           | v0.0.1 | v0.2.0        | Description                                                                                                     |
 | --------------- | ------ | ------------- | --------------------------------------------------------------------------------------------------------------- |
-| **genesisHash** | 𐄂      | String        | 网络起源哈希值                                                                                                         |
+| **genesisHash** | String | String        | 网络起源哈希值                                                                                                         |
 | **endpoint**    | String | String        | `network.endpoint`定义要索引的区块链的wss或ws端点-**必须是完整的存档节点**。 您可以免费从 [Onfinality](https://app.onfinality.io) 检索所有传送端点的终点 |
 | **dictionary**  | String | String        | `network.dictionary`可选地提供全链字典的HTTP端点以加快处理-[了解SubQuery字典的工作方式](../tutorials_examples/dictionary.md)。             |
-| **chaintypes**  | 𐄂      | {file:String} | 链式文件路径，接受 `.json` 或 `.yaml` 格式                                                                                  |
+| **chaintypes**  | String | {file:String} | 链式文件路径，接受 `.json` 或 `.yaml` 格式                                                                                  |
 
 ### Datasource 说明
 
 DataSources定义要过滤和提取的数据以及要应用的数据转换的映射函数处理程序的位置。
-| Field          | v0.0.1                                                    | v0.2.0                                                                           | Description                                                                  |
-| -------------- | --------------------------------------------------------- | -------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| **name**       | String                                                    | 𐄂                                                                                | 数据源名称                                                                        |
-| **kind**       | [substrate/Runtime](./manifest/#data-sources-and-mapping) | substrate/Runtime, [substrate/CustomDataSource](./manifest/#custom-data-sources) | 我们支持默认底层运行时间的数据类型，如块、事件和额外(调用)。 <br /> 从 v0.2.0，我们支持自定义运行时间的数据，例如智能合约。 |
-| **startBlock** | Integer                                                   | Integer                                                                          | 这将更改您的索引开始块，设置此更高以跳过最初的块，减少数据                                                |
-| **mapping**    | Mapping Spec                                              | Mapping Spec                                                                     |                                                                              |
-| **filter**     | [network-filters](./manifest/#network-filters)            | 𐄂                                                                                | 通过网络端点速度名称筛选要执行的数据源                                                          |
+| Field          | v0.0.1                                            | v0.2.0                                                                           | Description                                                                  |
+| -------------- | ------------------------------------------------- | -------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| **name**       | String                                            | String                                                                           | 数据源名称                                                                        |
+| **kind**       | [substrate/Runtime](./manifest/#data-sources-map) | substrate/Runtime, [substrate/CustomDataSource](./manifest/#custom-data-sources) | 我们支持默认底层运行时间的数据类型，如块、事件和额外(调用)。 <br /> 从 v0.2.0，我们支持自定义运行时间的数据，例如智能合约。 |
+| **startBlock** | Integer                                           | Integer                                                                          | 这将更改您的索引开始块，设置此更高以跳过最初的块，减少数据                                                |
+| **mapping**    | Mapping Spec                                      | Mapping Spec                                                                     |                                                                              |
+| **filter**     | [network-filters](./manifest/#network-filters)    | String                                                                           | 通过网络端点速度名称筛选要执行的数据源                                                          |
 
-### Mapping 说明
+### Mapping Spec
 
-| Field                  | v0.0.1                                                                   | v0.2.0                                                                                        | Description                                                                                                                |
-| ---------------------- | ------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| **file**               | String                                                                   | 𐄂                                                                                             | 映射条目路径                                                                                                                     |
-| **handlers & filters** | [Default handlers and filters](./manifest/#mapping-handlers-and-filters) | Default handlers and filters, <br />[Custom handlers and filters](#custom-data-sources) | 列出所有 [映射函数](./mapping.md) 及其相应的处理类型，并添加附加映射筛选器。 <br /><br /> 对于自定义运行时映射处理程序，请查看 [自定义数据源](#custom-data-sources) |
+| Field                  | v0.0.1                                                           | v0.2.0                                                                                        | Description                                                                                                                |
+| ---------------------- | ---------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| **file**               | String                                                           | String                                                                                        | 映射条目路径                                                                                                                     |
+| **handlers & filters** | [Default handlers and filters](./manifest/#mapping-hand-filters) | Default handlers and filters, <br />[Custom handlers and filters](#custom-data-sources) | 列出所有 [映射函数](./mapping.md) 及其相应的处理类型，并添加附加映射筛选器。 <br /><br /> 对于自定义运行时映射处理程序，请查看 [自定义数据源](#custom-data-sources) |
 
 ## 数据来源和映射
 
@@ -125,12 +124,15 @@ filter:
 filter:
   specVersion: [23, 24]   # Index block with specVersion in between 23 and 24 (inclusive).
   specVersion: [100]      # Index block with specVersion greater than or equal 100.
+  filter:
+  specVersion: [23, 24]   # Index block with specVersion in between 23 and 24 (inclusive).
+  specVersion: [100]      # Index block with specVersion greater than or equal 100.
   specVersion: [null, 23] # Index block with specVersion less than or equal 23.
 ```
 
 ## 自定义链
 
-### Network 说明
+### Network Spec
 
 当连接到不同的 Polkadot parachain，甚至一个自定义的底层链时， 您需要编辑此清单的 [网络Spec](#network-spec) 部分。
 
@@ -149,7 +151,7 @@ filter:
 在 v0.2.0 示例中， `网络。 hainintypes` 指向一个包含所有自定义类型的文件。 这是一个标准的链条文件，用 `声明此区块链支持的特定类型。 son` 或 `.yaml` 格式。
 
 <CodeGroup> <CodeGroupItem title="v0.2.0" active> ``` yml network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' endpoint: 'ws://host.kittychain.io/public-ws' chaintypes: file: ./types.json # The relative filepath to where custom types are stored ... ``` </CodeGroupItem>
-<CodeGroupItem title="v0.0.1"> ``` yml ... network: endpoint: "ws://host.kittychain.io/public-ws" types: { "KittyIndex": "u32", "Kitty": "[u8; 16]" } # typesChain: { chain: { Type5: 'example' } } # typesSpec: { spec: { Type6: 'example' } } dataSources: - name: runtime kind: substrate/Runtime startBlock: 1 filter:  #Optional specName: kitty-chain mapping: handlers: - handler: handleKittyBred kind: substrate/CallHandler filter: module: kitties method: breed success: true ``` </CodeGroupItem> </CodeGroup>< 3 >自定义数据源> < / 3
+<CodeGroupItem title="v0.0.1"> ``` yml ... <CodeGroupItem title="v0.2.0" active> ``` yml network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' endpoint: 'ws://host.kittychain.io/public-ws' chaintypes: file: ./types.json # The relative filepath to where custom types are stored ... ``` </CodeGroupItem> <CodeGroupItem title="v0.0.1"> ``` yml ... network: endpoint: "ws://host.kittychain.io/public-ws" types: { "KittyIndex": "u32", "Kitty": "[u8; 16]" } # typesChain: { chain: { Type5: 'example' } } # typesSpec: { spec: { Type6: 'example' } } dataSources: - name: runtime kind: substrate/Runtime startBlock: 1 filter:  #Optional specName: kitty-chain mapping: handlers: - handler: handleKittyBred kind: substrate/CallHandler filter: module: kitties method: breed success: true ``` </CodeGroupItem> </CodeGroup>< 3 >自定义数据源> < / 3
 
 自定义数据源提供了特定于网络的功能，使处理数据更容易。 它们充当中间件，可以提供额外的过滤和数据转换 一个很好的例子就是对EVM的支持，拥有一个自定义的EVM数据源处理器意味着你可以在EVM级别进行过滤(例如过滤合约方法或日志)，数据被转换成熟悉以太坊生态系统的结构，并使用ABIs解析参数
 
@@ -161,6 +163,8 @@ filter:
 < < 11 >网络过滤器/ 11 >
 
 **网络过滤器仅适用于manifest规范v0.0.1**. . 通常用户会创建一个SubQuery，并希望在他们的测试网和主网环境中重用它(例如Polkadot和Kusama)。 在不同的网络环境之间，一些设置可能会发生变化（例如索引起始块）。 因此，我们允许用户为每个数据源定义不同的细节，这意味着一个子查询项目仍然可以在多个网络中使用。
+
+用户可以在 `上添加一个` 过滤器 `数据源` 来决定在每个网络上运行哪个数据源。 在不同的网络环境之间，一些设置可能会发生变化（例如索引起始块）。 因此，我们允许用户为每个数据源定义不同的细节，这意味着一个子查询项目仍然可以在多个网络中使用。
 
 用户可以在 `上添加一个` 过滤器 `数据源` 来决定在每个网络上运行哪个数据源。
 

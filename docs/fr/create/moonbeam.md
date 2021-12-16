@@ -31,7 +31,7 @@ Réseaux pris en charge :
 | Champ   | Type             | Requis | Description                                                                                                                |
 | ------- | ---------------- | ------ | -------------------------------------------------------------------------------------------------------------------------- |
 | abi     | String           | Non    | L'ABI qui est utilisé par le processeur pour analyser les arguments. DOIT être une clé d' `actifs`                         |
-| adresse | String or `null` | Non    | Une adresse de contrat d'où l'événement provient ou un appel y ai fait. `null` capturera les appels de création de contrat |
+| adresse | String ou `null` | Non    | Une adresse de contrat d'où l'événement provient ou un appel y ai fait. `null` capturera les appels de création de contrat |
 
 ## MoonbeamCall
 
@@ -77,7 +77,7 @@ Fonctionne de la même manière que [substrate/CallHandler](../create/mapping/#e
 <b>Note sur les sujets :</b>
 Il y a quelques améliorations à partir des filtres de log de base :
 
-- Les sujets n'ont pas besoin d'être rembourrés 0
+- Les sujets n'ont pas besoin d'être remplis de 0
 - Les chaînes [fragments d'événement](https://docs.ethers.io/v5/api/utils/abi/fragments/#EventFragment) peuvent être fournies et converties automatiquement à leur id
 
 ### Gestionnaires
@@ -101,8 +101,7 @@ dataSources:
       options:
         # Doit être une clé d'actifs
         abi: erc20
-        # Adresse du contrat (ou du destinataire en cas de transfert) à filtrer, si `null`, ce sera pour la création du contrat.
-        address: '0x6bd193ee6d2104f14f94e2ca6efefae561a4334b'
+        # Adresse du contrat (ou du destinataire en cas de transfert) à filtrer, si `null`, ce sera pour la création du contrat. address: '0x6bd193ee6d2104f14f94e2ca6efefae561a4334b'
     assets:
       erc20:
         file: './erc20.abi.json'
@@ -117,8 +116,7 @@ dataSources:
         - handler: handleMoonriverCall
           kind: substrate/MoonbeamCall
           filter:
-            ## La fonction peut être soit un fragment de fonction, soit une signature.
-            # function: '0x095ea7b3'
+            ## La fonction peut être soit un fragment de fonction, soit une signature. # function: '0x095ea7b3'
             # function: '0x7ff36ab500000000000000000000000000000000000000000000000000000000'
             # function: approve(address,uint256)
             function: approve(address to,uint256 value)
@@ -127,6 +125,6 @@ dataSources:
 
 ## Limitations connues
 
-- Il n'y a actuellement aucun moyen de interroger l'état EVM dans un gestionnaire
+- Il n'y a actuellement aucun moyen d'interroger l'état EVM dans un gestionnaire
 - Il n'y a aucun moyen d'obtenir les reçus de transaction avec les gestionnaires d'appel
 - Les propriétés `blockHash` sont actuellement laissées indéfinies, la propriété `blockNumber` peut être utilisée à la place

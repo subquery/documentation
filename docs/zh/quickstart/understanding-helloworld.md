@@ -16,7 +16,7 @@
 
 这些文件是我们所做一切的核心。 因此，我们将在另一篇文章中花更多时间来介绍这些文件。 不过现在，只需要知道这样的模式包含了用户可以从 SubQuery API 请求的数据的描述，project yaml 文件包含了“配置”类型参数，当然还有包含了含有 typescript 的 mappingHandlers — 其 typescript 有转换数据的功能。
 
-## yarn install
+## yarn 安装
 
 我们所做的下一个事情是 `yarn install`。 您也可以使用 `npm install` 。
 
@@ -26,7 +26,7 @@ yarn 所做的是查看 `package.json` 文件并下载各种其他依赖项。 p
 
 ![key subql files](/assets/img/dependencies.png)
 
-## yarn codegen
+## yarn 编码器
 
 然后我们运行 `yarn codegen` 或 `npm run-script codegen`。 这样做是为了获取 GraphQL 架构（在`schema.graphql`中）并生成相关的 typescript 模型文件（因此输出文件将具有 .ts 扩展名）。 您不应该更改这些生成的文件中的任何一个，只能更改源 `schema.graphql` 文件。
 

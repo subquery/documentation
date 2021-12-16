@@ -10,7 +10,7 @@ Ada tiga kelas fungsi pemetaan; [Penangan blokir](#block-handler), [Penangan Per
 
 ## Penanganan Balok
 
-Anda dapat menggunakan penangan blok untuk menangkap informasi setiap kali blok baru dilampirkan ke rantai Substrat, mis. nomor blok. Untuk mencapai ini, BlockHandler yang ditentukan akan dipanggil sekali untuk setiap blok.
+You can use block handlers to capture information each time a new block is attached to the Substrate chain, e.g. block number. To achieve this, a defined BlockHandler will be called once for every block.
 
 ```ts
 import {SubstrateBlock} from "@subql/types";
@@ -27,9 +27,9 @@ export async function handleBlock(block: SubstrateBlock): Promise<void> {
 
 ## Penanganan Acara
 
-Anda dapat menggunakan event handler untuk menangkap informasi saat event tertentu disertakan pada blok baru. Peristiwa yang merupakan bagian dari runtime Substrat default dan blok dapat berisi beberapa peristiwa.
+You can use event handlers to capture information when certain events are included on a new block. The events that are part of the default Substrate runtime and a block may contain multiple events.
 
-Selama pemrosesan, event handler akan menerima event substrat sebagai argumen dengan input dan output yang diketik dari event. Semua jenis peristiwa akan memicu pemetaan, memungkinkan aktivitas dengan sumber data ditangkap. Anda harus menggunakan [Filter Pemetaan](./manifest.md#mapping-filters) dalam manifes Anda untuk memfilter peristiwa guna mengurangi waktu yang diperlukan untuk mengindeks data dan meningkatkan kinerja pemetaan.
+During the processing, the event handler will receive a substrate event as an argument with the event's typed inputs and outputs. Any type of event will trigger the mapping, allowing activity with the data source to be captured. You should use [Mapping Filters](./manifest.md#mapping-filters) in your manifest to filter events to reduce the time it takes to index data and improve mapping performance.
 
 ```ts
 import {SubstrateEvent} from "@subql/types";
@@ -43,7 +43,7 @@ export async function handleEvent(event: SubstrateEvent): Promise<void> {
     await record.save();
 ```
 
-[SubstrateEvent](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L30) adalah jenis interface yang diperluas dari [EventRecord](https://github.com/polkadot-js/api/blob/f0ce53f5a5e1e5a77cc01bf7f9ddb7fcf8546d11/packages/types/src/interfaces/system/types.ts#L149). Selain data acara, ini juga menyertakan `id` (blok tempat kejadian ini berada) dan ekstrinsik di dalam blok ini.
+A [SubstrateEvent](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L30) is an extended interface type of the [EventRecord](https://github.com/polkadot-js/api/blob/f0ce53f5a5e1e5a77cc01bf7f9ddb7fcf8546d11/packages/types/src/interfaces/system/types.ts#L149). Besides the event data, it also includes an `id` (the block to which this event belongs) and the extrinsic inside of this block.
 
 ## Penanganan Telepon
 
@@ -57,10 +57,10 @@ export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
 }
 ```
 
-[SubstrateExtrinsic](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L21) memperluas [GenericExtrinsic](https://github.com/polkadot-js/api/blob/a9c9fb5769dec7ada8612d6068cf69de04aa15ed/packages/types/src/extrinsic/Extrinsic.ts#L170). Ini diberi `id` (blok tempat ekstrinsik ini berada) dan menyediakan properti ekstrinsik yang memperluas kejadian di antara blok ini. Selain itu, ia mencatat status keberhasilan ekstrinsik ini.
+The [SubstrateExtrinsic](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L21) extends [GenericExtrinsic](https://github.com/polkadot-js/api/blob/a9c9fb5769dec7ada8612d6068cf69de04aa15ed/packages/types/src/extrinsic/Extrinsic.ts#L170). It is assigned an `id` (the block to which this extrinsic belongs) and provides an extrinsic property that extends the events among this block. Additionally, it records the success status of this extrinsic.
 
 ## Keadaan Kueri
-Tujuan kami adalah mencakup semua sumber data bagi pengguna untuk pengendali pemetaan (lebih dari tiga jenis peristiwa antarmuka di atas). Oleh karena itu, kami telah mengekspos beberapa antarmuka @polkadot/api untuk meningkatkan kemampuan.
+Our goal is to cover all data sources for users for mapping handlers (more than just the three interface event types above). Therefore, we have exposed some of the @polkadot/api interfaces to increase capabilities.
 
 Ini adalah antarmuka yang saat ini kami dukung:
 - [api.query.&lt;module&gt;.&lt;method&gt;()](https://polkadot.js.org/docs/api/start/api.query) akan mengkueri balok <strong>current</strong>.
@@ -83,9 +83,9 @@ Lihat contoh penggunaan API ini dalam contoh kasus penggunaan [validator-thresho
 
 ## Panggilan RPC
 
-Kami juga mendukung beberapa metode API RPC yang merupakan panggilan jarak jauh yang memungkinkan fungsi pemetaan berinteraksi dengan node, kueri, dan pengiriman aktual. Premis inti SubQuery adalah sifatnya yang deterministik, dan oleh karena itu, untuk menjaga agar hasil tetap konsisten, kami hanya mengizinkan panggilan RPC historis.
+We also support some API RPC methods that are remote calls that allow the mapping function to interact with the actual node, query, and submission. A core premise of SubQuery is that it's deterministic, and therefore, to keep the results consistent we only allow historical RPC calls.
 
-Dokumen di [JSON-RPC](https://polkadot.js.org/docs/substrate/rpc/#rpc) menyediakan beberapa metode yang menggunakan `BlockHash` sebagai parameter input (mis. `di?: BlockHash`), yang sekarang diizinkan. Kami juga telah memodifikasi metode ini untuk mengambil hash blok pengindeksan saat ini secara default.
+Documents in [JSON-RPC](https://polkadot.js.org/docs/substrate/rpc/#rpc) provide some methods that take `BlockHash` as an input parameter (e.g. `at?: BlockHash`), which are now permitted. We have also modified these methods to take the current indexing block hash by default.
 
 ```typescript
 // Mari menganggap kita saat ini mengindeks balok dengan nomor hash ini
@@ -103,13 +103,13 @@ const b2 = await api.rpc.chain.getBlock();
 
 Untuk meningkatkan kemampuan pemrosesan data SubQuery, kami telah mengizinkan beberapa modul bawaan NodeJS untuk menjalankan fungsi pemetaan di [sandbox](#the-sandbox), dan mengizinkan pengguna untuk memanggil perpustakaan pihak ketiga.
 
-Harap perhatikan bahwa ini adalah **fitur eksperimental** dan Anda mungkin mengalami bug atau masalah yang dapat berdampak negatif pada fungsi pemetaan Anda. Laporkan setiap bug yang Anda temukan dengan membuat masalah di [GitHub](https://github.com/subquery/subql).
+Please note this is an **experimental feature** and you may encounter bugs or issues that may negatively impact your mapping functions. Please report any bugs you find by creating an issue in [GitHub](https://github.com/subquery/subql).
 
 ### Modul bawaan
 
-Saat ini, kami mengizinkan modul NodeJS berikut: `assert`, `buffer`, `crypto`, `util`, dan `path `.
+Saat ini, kami mengizinkan modul NodeJS berikut: `assert`, `buffer`, `crypto`, `util`, dan `path`.
 
-Daripada mengimpor seluruh modul, kami sarankan hanya mengimpor metode yang diperlukan yang Anda butuhkan. Beberapa metode dalam modul ini mungkin memiliki dependensi yang tidak didukung dan akan gagal saat diimpor.
+Rather than importing the whole module, we recommend only importing the required method(s) that you need. Some methods in these modules may have dependencies that are unsupported and will fail on import.
 
 ```ts
 import {hashMessage} from "ethers/lib/utils"; //Good way
@@ -126,7 +126,7 @@ export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
 
 Karena keterbatasan mesin virtual di kotak pasir kami, saat ini, kami hanya mendukung pustaka pihak ketiga yang ditulis oleh **CommonJS**.
 
-Kami juga mendukung pustaka **hibrida** seperti `@polkadot/*` yang menggunakan ESM sebagai default. Namun, jika ada pustaka lain yang bergantung pada modul apa pun dalam format **ESM**, mesin virtual akan **TIDAK** mengompilasi dan mengembalikan kesalahan.
+We also support a **hybrid** library like `@polkadot/*` that uses ESM as default. However, if any other libraries depend on any modules in **ESM** format, the virtual machine will **NOT** compile and return an error.
 
 ## Chain Substrat Kustom
 
@@ -138,11 +138,11 @@ Di bagian berikut, kami menggunakan [contoh kitty](https://github.com/subquery/t
 
 ### Persiapan
 
-Buat direktori baru `api-interfaces` di bawah folder proyek `src` untuk menyimpan semua file yang diperlukan dan dibuat. Kami juga membuat direktori `api-interfaces/kitties` karena kami ingin menambahkan dekorasi di API dari modul `kitties`.
+Create a new directory `api-interfaces` under the project `src` folder to store all required and generated files. We also create an `api-interfaces/kitties` directory as we want to add decoration in the API from the `kitties` module.
 
 #### Metadata
 
-Kami membutuhkan metadata untuk menghasilkan titik akhir API yang sebenarnya. Dalam contoh kitty, kami menggunakan endpoint dari testnet lokal, dan menyediakan tipe tambahan. Ikuti langkah-langkah di [penyiapan metadata PolkadotJS](https://polkadot.js.org/docs/api/examples/promise/typegen#metadata-setup) untuk mengambil metadata node dari titik akhir **HTTP**-nya.
+We need metadata to generate the actual API endpoints. In the kitty example, we use an endpoint from a local testnet, and it provides additional types. Follow the steps in [PolkadotJS metadata setup](https://polkadot.js.org/docs/api/examples/promise/typegen#metadata-setup) to retrieve a node's metadata from its **HTTP** endpoint.
 
 ```shell
 curl -H "Content-Type: application/json" -d '{"id":"1", "jsonrpc":"2.0", "method": "state_getMetadata", "params":[]}' http://localhost:9933
@@ -157,7 +157,7 @@ brew install websocat
 echo state_getMetadata | websocat 'ws://127.0.0.1:9944' --jsonrpc
 ```
 
-Selanjutnya, salin dan tempel hasilnya ke file JSON. Dalam [contoh kitty](https://github.com/subquery/tutorials-kitty-chain) kami, kami telah membuat `api-interface/kitty.json`.
+Next, copy and paste the output to a JSON file. In our [kitty example](https://github.com/subquery/tutorials-kitty-chain), we have created `api-interface/kitty.json`.
 
 #### Definisi jenis
 Kami berasumsi bahwa pengguna mengetahui jenis spesifik dan dukungan RPC dari rantai, dan itu didefinisikan dalam [Manifest](./manifest.md).
@@ -204,10 +204,10 @@ export default {
 
 #### Paket
 
-- Di file `package.json`, pastikan untuk menambahkan `@polkadot/typegen` sebagai ketergantungan pembangunan dan `@polkadot/api` sebagai ketergantungan biasa (idealnya versi yang sama). Kita juga memerlukan `ts-node` sebagai ketergantungan pembangunan untuk membantu kita menjalankan script.
+- In the `package.json` file, make sure to add `@polkadot/typegen` as a development dependency and `@polkadot/api` as a regular dependency (ideally the same version). We also need `ts-node` as a development dependency to help us run the scripts.
 - Kita menambahkan script untuk menjalankan kedua jenis; `generate:defs` dan penghasil `generate:meta` metadata (dalam urutan itu, sehingga metadata bisa menggunakan jenisnya).
 
-Berikut adalah versi sederhana dari `package.json`. Pastikan di bagian **scripts** nama paket sudah benar dan direktorinya valid.
+Here is a simplified version of `package.json`. Make sure in the **scripts** section the package name is correct and the directories are valid.
 
 ```json
 {
@@ -229,7 +229,7 @@ Berikut adalah versi sederhana dari `package.json`. Pastikan di bagian **scripts
 
 ### Penghasil jenis
 
-Sekarang setelah persiapan selesai, kami siap untuk menghasilkan jenis dan metadata. Jalankan perintah di bawah ini:
+Now that preparation is completed, we are ready to generate types and metadata. Run the commands below:
 
 ```shell
 # Yarn untuk menginstal ketergantungan baru
@@ -246,7 +246,7 @@ Di setiap folder modul (misalnya `/kitties`), sekarang seharusnya ada `types.ts`
 yarn generate:meta
 ```
 
-Perintah ini akan menghasilkan metadata dan penambahan api baru untuk API. Karena kami tidak ingin menggunakan API bawaan, kami perlu menggantinya dengan menambahkan penggantian eksplisit di `tsconfig.json` kami. Setelah pembaruan, jalur di konfigurasi akan terlihat seperti ini (tanpa komentar):
+This command will generate the metadata and a new api-augment for the APIs. As we don't want to use the built-in API, we will need to replace them by adding an explicit override in our `tsconfig.json`. After the updates, the paths in the config will look like this (without the comments):
 
 ```json
 {
@@ -263,7 +263,7 @@ Perintah ini akan menghasilkan metadata dan penambahan api baru untuk API. Karen
 
 ### Penggunaan
 
-Sekarang dalam fungsi pemetaan, kita dapat menunjukkan bagaimana metadata dan tipe benar-benar menghiasi API. Titik akhir RPC akan mendukung modul dan metode yang kami nyatakan di atas. Dan untuk menggunakan panggilan rpc khusus, silakan lihat bagian [Panggilan rpc berantai khusus](#custom-chain-rpc-calls)
+Now in the mapping function, we can show how the metadata and types actually decorate the API. The RPC endpoint will support the modules and methods we declared above. And to use custom rpc call, please see section [Custom chain rpc calls](#custom-chain-rpc-calls)
 ```typescript
 export async function kittyApiHandler(): Promise<void> {
     //mengembalikan jenis KittyIndex
@@ -280,7 +280,7 @@ export async function kittyApiHandler(): Promise<void> {
 
 ### Panggilan rpc chain kustom
 
-Untuk mendukung panggilan RPC berantai yang disesuaikan, kita harus memasukkan definisi RPC secara manual untuk `typesBundle`, yang memungkinkan konfigurasi per spesifikasi. Anda dapat menentukan `typesBundle` di `project.yml`. Dan harap diingat hanya jenis panggilan `isHistoric` yang didukung.
+To support customised chain RPC calls, we must manually inject RPC definitions for `typesBundle`, allowing per-spec configuration. You can define the `typesBundle` in the `project.yml`. And please remember only `isHistoric` type of calls are supported.
 ```yaml
 ...
   types: {

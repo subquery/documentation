@@ -15,7 +15,7 @@
 
 本指南面向具有一些开发经验并有兴趣了解更多关于 SubQuery 开发的开发人员。
 
-##
+## 视频指南
 
 <figure class="video_container">
   <iframe src="https://www.youtube.com/embed/j034cyUYb7k" frameborder="0" allowfullscreen="true"></iframe>
@@ -54,10 +54,10 @@ My docker version is: Docker version 20.10.5, build 55c4c88
 如果你得到了上面的内容，那么你就可以开始了。 如果没有，请按照以下链接安装它们：
 
 - [yarn](https://classic.yarnpkg.com/en/docs/install/) or [npm](https://www.npmjs.com/get-npm)
-- [SubQuery CLI](quickstart.md#install-the-subquery-cli)
+- [SubQuery CLI](md#install-thyquery-cli)
 - [Docker](https://docs.docker.com/get-docker/)
 
-## 1. 初始化项目
+## 1. 1. 初始化项目
 
 开始使用 SubQuery 的第一步是运行 `subql init` 命令。 让我们初始化一个名为 `subqlHelloWorld` 的启动项目。 请注意，只有作者是强制性的。 其他所有内容都在下面都是空着的。
 
@@ -79,7 +79,7 @@ Init the starter package... subqlHelloWorld is ready
 cd subqlHelloWorld
 ```
 
-## 2. 安装依赖
+## 2. 2. 安装依赖
 
 现在执行 yarn 或 node install 以安装各种依赖包。
 
@@ -102,12 +102,39 @@ success Saved lockfile.
 success Saved lockfile.
 ✨  Done in 31.84s.
 ```
+</p>
 
-## 3. 生成代码
+```shell
+> yarn install
+yarn install v1.22.10
+info No lockfile found.
+[1/4] 🔍  Resolving packages...
+[2/4] 🚚  Fetching packages...
+[3/4] 🔗  Linking dependencies...
+[4/4] 🔨  Building fresh packages...
+success Saved lockfile.
+✨  Done in 31.84s.
+[1/4] 🔍  Resolving packages...
+[2/4] 🚚  Fetching packages...
+[3/4] 🔗  Linking dependencies...
+[4/4] 🔨  Building fresh packages...
+success Saved lockfile.
+✨  Done in 31.84s.
+```
+
+## 3. 3. 生成代码
 
 现在运行 `yarn codegen` 生成来自 GraphQL schema 的Typescript。
 
-<CodeGroup> # Yarn yarn codegen # NPM npm run-script codegen
+<CodeGroup> # Yarn yarn build # NPM npm run-script build
+
+```shell
+> yarn build
+yarn run v1.22.10
+$ tsc -b
+✨  Done in 5.68s.
+```
+</p>
 
 ```shell
 > yarn codegen
@@ -127,11 +154,28 @@ $ ./node_modules/.bin/subql codegen
 
 **警告** 当更改schema 文件时，请记住重新运行 `yarn codegen` 以重新生成您的类型目录。
 
-## 4. `yarn build` 示例
+## 4. Build code
 
 下一步是使用 `yarn building` 来构建代码。
 
-<CodeGroup> # Yarn yarn build # NPM npm run-script build
+<CodeGroup> # Yarn yarn codegen # NPM npm run-script codegen
+
+```shell
+> yarn codegen
+yarn run v1.22.10
+$ ./node_modules/.bin/subql codegen
+===============================
+---------Subql Codegen---------
+===============================
+* Schema StarterEntity generated !
+* Models index generated !
+* Types index generated !
+✨  Done in 1.02s.
+* Models index generated !
+* Types index generated !
+✨  Done in 1.02s.
+```
+</p>
 
 ```shell
 > yarn build
@@ -140,7 +184,7 @@ $ tsc -b
 ✨  Done in 5.68s.
 ```
 
-## 5. 运行 Docker
+## 5. 5. 运行 Docker
 
 使用 Docker 可以让您非常快速地运行此示例，因为 Docker 中提供所有必需的基础设施。 运行 `docker-compose praw && docker-compose up`.
 
@@ -153,6 +197,12 @@ subquery-node_1   | 2021-06-05T22:20:35.134Z <fetch> INFO fetch block [1, 100]
 subqlhelloworld_graphql-engine_1 exited with code 0
 subquery-node_1   | 2021-06-05T22:20:38.412Z <fetch> INFO fetch block [101, 200]
 graphql-engine_1  | 2021-06-05T22:20:39.353Z <nestjs> INFO Starting Nest application...
+graphql-engine_1  | 2021-06-05T22:20:39.382Z <nestjs> INFO AppModule dependencies initialized
+graphql-engine_1  | 2021-06-05T22:20:39.382Z <nestjs> INFO ConfigureModule dependencies initialized
+graphql-engine_1  | 2021-06-05T22:20:39.383Z <nestjs> INFO GraphqlModule dependencies initialized
+graphql-engine_1  | 2021-06-05T22:20:39.809Z <nestjs> INFO Nest application successfully started
+subquery-node_1   | 2021-06-05T22:20:41.122Z <fetch> INFO fetch block [201, 300]
+graphql-engine_1  | 2021-06-05T22:20:43.244Z <express> INFO request completed
 graphql-engine_1  | 2021-06-05T22:20:39.382Z <nestjs> INFO AppModule dependencies initialized
 graphql-engine_1  | 2021-06-05T22:20:39.382Z <nestjs> INFO ConfigureModule dependencies initialized
 graphql-engine_1  | 2021-06-05T22:20:39.383Z <nestjs> INFO GraphqlModule dependencies initialized

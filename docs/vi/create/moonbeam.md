@@ -1,96 +1,96 @@
-# Moonbeam EVM Support
+# Hỗ trợ Moonbeam EVM
 
-We provide a custom data source processor for Moonbeam's and Moonriver's EVM. This offers a simple way to filter and index both EVM and Substrate activity on Moonbeam's networks within a single SubQuery project.
+Chúng tôi cung cấp bộ xử lý nguồn dữ liệu tùy chỉnh cho EVM của Moonbeam và Moonriver. Nó cung cấp một cách đơn giản để lọc và lập chỉ mục cả hoạt động EVM và Substrate trên các mạng của Moonbeam với một dự án SubQuery duy nhất.
 
-Supported networks:
+Các mạng được hỗ trợ:
 
-| Network Name   | Websocket Endpoint                                 | Dictionary Endpoint                                                  |
+| Tên Mạng       | Điểm cuối Websocket                                | Điểm cuối Dictionary                                                 |
 | -------------- | -------------------------------------------------- | -------------------------------------------------------------------- |
-| Moonbeam       | _Coming soon_                                      | _Coming soon_                                                        |
+| Moonbeam       | _Sắp ra mắt_                                       | _Sắp ra mắt_                                                         |
 | Moonriver      | `wss://moonriver.api.onfinality.io/public-ws`      | `https://api.subquery.network/sq/subquery/moonriver-dictionary`      |
 | Moonbase Alpha | `wss://moonbeam-alpha.api.onfinality.io/public-ws` | `https://api.subquery.network/sq/subquery/moonbase-alpha-dictionary` |
 
-**You can also refer to the [basic Moonriver EVM example project](https://github.com/subquery/tutorials-moonriver-evm-starter) with an event and call handler.** This project is also hosted live in the SubQuery Explorer [here](https://explorer.subquery.network/subquery/subquery/moonriver-evm-starter-project).
+**Bạn cũng có thể tham khảo [dự án ví dụ Moonriver EVM cơ bản](https://github.com/subquery/tutorials-moonriver-evm-starter) với một event và call handler.** Dự án này cũng được lưu trữ trực tiếp trong SubQuery Explorer [tại đây](https://explorer.subquery.network/subquery/subquery/moonriver-evm-starter-project).
 
-## Getting started
+## Bắt đầu
 
-1. Add the custom data source as a dependency `yarn add @subql/contract-processors`
-2. Add a custom data source as described below
-3. Add handlers for the custom data source to your code
+1. Thêm custom data source dưới dạng dependency ` fiber add @ subql / contract-processors `
+2. Thêm một custom data source như được mô tả bên dưới
+3. Thêm handlers cho custom data source vào code của bạn
 
-## Data Source Spec
+## Thông số kỹ thuật Data Source
 
-| Field             | Type                                                           | Required | Description                                |
-| ----------------- | -------------------------------------------------------------- | -------- | ------------------------------------------ |
-| processor.file    | `'./node_modules/@subql/contract-processors/dist/moonbeam.js'` | Yes      | File reference to the data processor code  |
-| processor.options | [ProcessorOptions](#processor-options)                         | No       | Options specific to the Moonbeam Processor |
-| assets            | `{ [key: String]: { file: String }}`                           | No       | An object of external asset files          |
+| Trường            | Kiểu dữ liệu                                                   | Bắt buộc | Mô tả                                          |
+| ----------------- | -------------------------------------------------------------- | -------- | ---------------------------------------------- |
+| processor.file    | `'./node_modules/@subql/contract-processors/dist/moonbeam.js'` | Có       | Tệp tham chiếu đến mã data processor           |
+| processor.options | [ProcessorOptions](#processor-options)                         | Không    | Các tùy chọn dành riêng cho Moonbeam Processor |
+| assets            | `{ [key: String]: { file: String }}`                           | Không    | Đối tượng của tệp asset bên ngoài              |
 
-### Processor Options
+### Tuỳ chọn Processor
 
-| Field   | Type             | Required | Description                                                                                                |
-| ------- | ---------------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| abi     | String           | No       | The ABI that is used by the processor to parse arguments. MUST be a key of `assets`                        |
-| address | String or `null` | No       | A contract address where the event is from or call is made to. `null` will capture contract creation calls |
+| Trường  | Kiểu dữ liệu     | Bắt buộc | Mô tả                                                                                                                |
+| ------- | ---------------- | -------- | -------------------------------------------------------------------------------------------------------------------- |
+| abi     | String           | Không    | ABI được bộ xử lý sử dụng để phân tích cú pháp các đối số. Phải là key của `assets`                                  |
+| address | String or `null` | Không    | Địa chỉ hợp đồng, nơi mà bắt đầu sự kiện hoặc cuộc gọi được thực hiện tới. ` null ` sẽ bắt các lệnh gọi tạo hợp đồng |
 
 ## MoonbeamCall
 
-Works in the same way as [substrate/CallHandler](../create/mapping/#call-handler) except with a different handler argument and minor filtering changes.
+Hoạt động giống như [substrate/CallHandler](../create/mapping/#call-handler) ngoại trừ với different handler argument và minor filtering changes.
 
-| Field  | Type                         | Required | Description                                 |
-| ------ | ---------------------------- | -------- | ------------------------------------------- |
-| kind   | 'substrate/MoonbeamCall'     | Yes      | Specifies that this is an Call type handler |
-| filter | [Call Filter](#call-filters) | No       | Filter the data source to execute           |
+| Trường | Kiểu dữ liệu                 | Bắt buộc | Mô tả                                     |
+| ------ | ---------------------------- | -------- | ----------------------------------------- |
+| kind   | 'substrate/MoonbeamCall'     | Có       | Xác định đây là một loại trình xử lý Call |
+| filter | [Call Filter](#call-filters) | Không    | Lọc data source để thực thi               |
 
 ### Call Filters
 
-| Field    | Type   | Example(s)                                    | Description                                                                                                                                                                      |
-| -------- | ------ | --------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| function | String | 0x095ea7b3, approve(address to,uint256 value) | Either [Function Signature](https://docs.ethers.io/v5/api/utils/abi/fragments/#FunctionFragment) strings or the function `sighash` to filter the function called on the contract |
-| from     | String | 0x6bd193ee6d2104f14f94e2ca6efefae561a4334b    | An Ethereum address that sent the transaction                                                                                                                                    |
+| Trường   | Kiểu dữ liệu | Các ví dụ                                     | Mô tả                                                                                                                                                            |
+| -------- | ------------ | --------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| function | String       | 0x095ea7b3, approve(address to,uint256 value) | Hoặc chuỗi [Function Signature](https://docs.ethers.io/v5/api/utils/abi/fragments/#FunctionFragment) hoặc hàm ` sighash ` dùng để lọc hàm được gọi trên hợp đồng |
+| from     | String       | 0x6bd193ee6d2104f14f94e2ca6efefae561a4334b    | Một địa chỉ Ethereum đã gửi giao dịch                                                                                                                            |
 
 ### Handlers
 
-Unlike a normal handler you will not get a `SubstrateExtrinsic` as the parameter, instead you will get a `MoonbeamCall` which is based on Ethers [TransactionResponse](https://docs.ethers.io/v5/api/providers/types/#providers-TransactionResponse) type.
+Không giống như một handler thông thường, bạn sẽ không nhận được tham số `SubstrateExtriuality`, thay vào đó bạn sẽ nhận được một `MoonbeamCall` dựa trên kiểu [TransactionResponse](https://docs.ethers.io/v5/api/providers/types/#providers-TransactionResponse) của Ethers.
 
-Changes from the `TransactionResponse` type:
+Thay đổi từ kiểu `TransactionResponse`:
 
-- It doesn't have `wait` and `confirmations` properties
-- A `success` property is added to know if the transaction was a success
-- `args` is added if the `abi` field is provided and the arguments can be successfully parsed
+- Nó không có thuộc tính `wait` và `confirmations`
+- Một thuộc tính `success` được thêm vào để biết liệu giao dịch có thành công hay không
+- `args` được thêm vào nếu trường `abi` được cung cấp và có thể phân tích cú pháp thành công các đối số
 
 ## MoonbeamEvent
 
-Works in the same way as [substrate/EventHandler](../create/mapping/#event-handler) except with a different handler argument and minor filtering changes.
+Hoạt động giống như [substrate/EventHandler](../create/mapping/#event-handler) ngoại trừ với different handler argument và minor filtering changes.
 
-| Field  | Type                           | Required | Description                                  |
-| ------ | ------------------------------ | -------- | -------------------------------------------- |
-| kind   | 'substrate/MoonbeamEvent'      | Yes      | Specifies that this is an Event type handler |
-| filter | [Event Filter](#event-filters) | No       | Filter the data source to execute            |
+| Trường | Kiểu dữ liệu                   | Bắt buộc | Mô tả                                      |
+| ------ | ------------------------------ | -------- | ------------------------------------------ |
+| kind   | 'substrate/MoonbeamEvent'      | Có       | Xác định đây là một loại trình xử lý Event |
+| filter | [Event Filter](#event-filters) | Không    | Lọc data source để thực thi                |
 
 ### Event Filters
 
-| Field  | Type         | Example(s)                                                      | Description                                                                                                                                      |
-| ------ | ------------ | --------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| topics | String array | Transfer(address indexed from,address indexed to,uint256 value) | The topics filter follows the Ethereum JSON-PRC log filters, more documentation can be found [here](https://docs.ethers.io/v5/concepts/events/). |
+| Trường | Kiểu dữ liệu | Các ví dụ                                                       | Mô tả                                                                                                                                         |
+| ------ | ------------ | --------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| topics | String array | Transfer(address indexed from,address indexed to,uint256 value) | Bộ lọc chủ đề tuân theo bộ lọc nhật ký Ethereum JSON-PRC, bạn có thể tìm thêm tài liệu [tại đây](https://docs.ethers.io/v5/concepts/events/). |
 
-<b>Note on topics:</b>
-There are a couple of improvements from basic log filters:
+<b>Ghi chú về các topic:</b>
+Có một vài cải tiến từ các bộ lọc nhật ký cơ bản:
 
-- Topics don't need to be 0 padded
-- [Event Fragment](https://docs.ethers.io/v5/api/utils/abi/fragments/#EventFragment) strings can be provided and automatically converted to their id
+- Các Topics không cần thêm 0
+- Các chuỗi [Event Fragment](https://docs.ethers.io/v5/api/utils/abi/fragments/#EventFragment) có thể được cung cấp và tự động chuyển đổi thành id của chúng
 
 ### Handlers
 
-Unlike a normal handler you will not get a `SubstrateEvent` as the parameter, instead you will get a `MoonbeamEvent` which is based on Ethers [Log](https://docs.ethers.io/v5/api/providers/types/#providers-Log) type.
+Không giống như một handler thông thường, bạn sẽ không nhận được tham số `SubstrateEvent`, thay vào đó bạn sẽ nhận được một `MoonbeamEvent` dựa trên kiểu [Log](https://docs.ethers.io/v5/api/providers/types/#providers-Log) của Ethers.
 
-Changes from the `Log` type:
+Thay đổi từ kiểu `Log`:
 
-- `args` is added if the `abi` field is provided and the arguments can be successfully parsed
+- `args` được thêm vào nếu trường `abi` được cung cấp và có thể phân tích cú pháp thành công các đối số
 
-## Data Source Example
+## Data Source ví dụ
 
-This is an extract from the `project.yaml` manifest file.
+Đây là phần trích xuất từ tệp manifest `project.yaml`.
 
 ```yaml
 dataSources:
@@ -99,9 +99,9 @@ dataSources:
     processor:
       file: './node_modules/@subql/contract-processors/dist/moonbeam.js'
       options:
-        # Must be a key of assets
+        # Phải là key của assets
         abi: erc20
-        # Contract address (or recipient if transfer) to filter, if `null` should be for contract creation
+        # Địa chỉ hợp đồng (hoặc địa chỉ người nhận nếu chuyển khoản) để lọc, nếu `null` phải dành cho việc tạo hợp đồng
         address: '0x6bd193ee6d2104f14f94e2ca6efefae561a4334b'
     assets:
       erc20:
@@ -117,16 +117,19 @@ dataSources:
         - handler: handleMoonriverCall
           kind: substrate/MoonbeamCall
           filter:
-            ## The function can either be the function fragment or signature
+            ## Hàm có thể là đoạn hàm hoặc chữ ký
             # function: '0x095ea7b3'
             # function: '0x7ff36ab500000000000000000000000000000000000000000000000000000000'
             # function: approve(address,uint256)
             function: approve(address to,uint256 value)
             from: '0x6bd193ee6d2104f14f94e2ca6efefae561a4334b'
+ 
+Text
+Xpath: /pre/code
 ```
 
-## Known Limitations
+## Những hạn chế đã biết
 
-- There is currently no way to query EVM state within a handler
-- There is no way to get the transaction receipts with call handlers
-- `blockHash` properties are currently left undefined, the `blockNumber` property can be used instead
+- Hiện tại không có cách nào để truy vấn trạng thái EVM trong một handler
+- Không có cách nào để lấy biên lai giao dịch bằng handlers
+- Các thuộc tính `blockHash` hiện không được xác định, thuộc tính `blockNumber` có thể được sử dụng để thay thế

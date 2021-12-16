@@ -6,15 +6,18 @@
 
 **重要提示：当您对模式文件做任何更改时， 请确保使用命令`yarn codegen`来重新生成你的类型目录。**
 
-### Entities
+### 实体
 每个实体必须使用 `ID!` 类型定义必填字段 `id`。 它被用作主键，并且在所有相同类型的实体中是唯一的。
 
-实体中非空字段由 `！`表示。 请参阅下面的示例：
+实体中非空字段由 `！ `表示。 请参阅下面的示例：
 
 ```graphql
 type Example @entity {
+  id: ID! type Example @entity {
   id: ID! # id 字段总是必需的，必须像这样定义
   name: String! # 这是必填字段
+  address: String # 这是一个可选字段
+} # 这是必填字段
   address: String # 这是一个可选字段
 }
 ```
@@ -31,14 +34,13 @@ type Example @entity {
 - `Boolean`
 - `<EntityName>` 对于嵌套关系实体，您可以使用定义实体的名称作为字段之一。 请在 [Entity Relationships](#entity-relationships) 中查看。
 - `JSON` 也可以存储结构化数据，请查看 [JSON 类型](#json-type)
-- `&lt; EnumName&gt; 类型是一种特殊类型的标量，仅限于特定的一组允许的值。 请查看 <a href="https://graphql.org/learn/schema/#enumeration-types">Graphql Enum</a></li>
-</ul>
+- `&lt; EnumName&gt; 类型是一种特殊类型的标量，仅限于特定的一组允许的值。 请查看 <a href="https://graphql.org/learn/schema/#enumeration-types">Graphql Enum</a>
 
-<h2 spaces-before="0">按非主键字段索引</h2>
+## 按非主键字段索引
 
-<p spaces-before="0">为了提高查询性能，只需在非主键字段实现 <code>@index` 注解，便可索引实体字段。 </p>
+为了提高查询性能，只需在非主键字段实现 ``@index` 注解，便可索引实体字段。 </p>
 
-但是，我们不允许用户在任何 `JSON` 对象上添加 [@index](#json-type) 注解。 默认情况下，索引会自动添加到数据库的外键和JSON字段中，但这只是为了提高查询服务的性能。
+<p spaces-before="0">然而，我们不允许用户在任何 <a href="#json-type">JSON</a> 对象上添加 <code>@index`` 注解。 默认情况下，索引会自动添加到数据库的外键和JSON字段中，但这只是为了提高查询服务的性能。
 
 参见下面的示例。
 
@@ -46,11 +48,16 @@ type Example @entity {
 type User @entity {
   id: ID!
   name: String! @index(unique：true) # unique可以设置为 true 或 false
+  title: Title! type User @entity {
+  id: ID!
+  name: String! @index(unique：true) # unique可以设置为 true 或 false
   title: Title! #索引被自动添加到外键字段
 }
 
 type Title @entity {
   id: ID!  
+  name: String! @index(unique:true)
+}  
   name: String! @index(unique:true)
 }
 ```
@@ -77,35 +84,21 @@ const captainTitle = await Title.getByName('Captain');
 const pirateLords = await User.getByTitleId(captainTitle.id); // List of all Captains
 ```
 
-## Entity Relationships
+## 实体关系
 
 一个实体往往与其他实体有嵌套的关系。 默认情况下，将字段值设置为另一个实体名称将定义这两个实体之间的一对一关系。
 
-不同的实体关系（一对一、 一对多、 多对多）可以使用下面的例子进行配置。
+当只有一个实体被映射到另一个实体时，实体关系被默认为一对一。
 
 ### 一对一关系
 
-当只有一个实体被映射到另一个实体时，实体关系被默认为一对一。
-
 例如：护照只能属于一人，一个人只能持有一本护照（参考下面的例子）：
-
-```graphql
-type Person @entity { 
-   id: ID!
-}
-
-type Passport @entity {
-  id: ID!
-  owner: Person!
-}
-```
 
 或者
 
 ```graphql
 type Person @entity { 
    id: ID!
-  passport: Passport!
 }
 
 type Passport @entity {
@@ -114,35 +107,58 @@ type Passport @entity {
 }
 ```
 
-### 一对多关系
-
 您可以使用方括号来表示某个字段类型包含多个实体。
+
+```graphql
+type Person @entity { 
+   id: ID!
+  passport: Passport!
+type Person @entity { 
+   id: ID!
+}
+
+type Passport @entity {
+  id: ID!
+  owner: Person!
+}
+  owner: Person!
+}
+```
+
+### 一对多关系
 
 例如：一个人可以拥有多个帐户。
 
-```graphql
-type Person @entity {
-  id: ID!
-  type Person @entity {
-  id: ID!
-  accounts: [Account] 
-}
+通过建立一个映射实体，将另外两个实体连接起来，可以实现多对多的关系。
 
-type Account @entity {
+```graphql
+type Person @entity { 
+   id: ID!
+  type Account @entity {
   id: ID!
   publicAddress: String!
+}
+
+type Transfer @entity {
+  id: ID!
+  amount: BigInt
+  from: Account!
+  to: Account!
 }
   publicAddress: String!
 }
 ```
 
 ### 多对多关系
-通过建立一个映射实体，将另外两个实体连接起来，可以实现多对多的关系。
-
 示例: 每个人是多个组(PersonGroup) 的一部分，而组中有多个不同的人(PersonGroup)。
 
+此外，还可以在中间实体的多个字段中创建同一实体的连接。
+
 ```graphql
-type Person @entity {
+type Person @entity { 
+   id: ID!
+  name: String!
+  type Person @entity {
   id: ID!
   name: String!
   groups: [PersonGroup]
@@ -159,17 +175,37 @@ type Group @entity {
   name: String!
   persons: [PersonGroup]
 }
-```
+  person: Person!
+  Group: Group!
+}
 
-此外，还可以在中间实体的多个字段中创建同一实体的连接。
+type Group @entity {
+  id: ID!
+  name: String!
+  persons: [PersonGroup]
+}
+```
 
 例如，一个帐户可以有多个转账，每个转账都有一个源帐户和目标帐户。
 
 下面的例子通过 Transfer 表在两个 Accounts (from 和 to) 之间建立双向关系。
 
+要在一个实体上反向查找它的关系，请将 `@derivedFrom` 添加到字段并指向另一个实体的反向查找字段。
+
 ```graphql
+type Person @entity {
+  id: ID!
+  type Person @entity {
+  id: ID!
+  accounts: [Account] 
+}
+
 type Account @entity {
   id: ID!
+  publicAddress: String!
+}
+  publicAddress: String!
+}
   publicAddress: String!
 }
 
@@ -183,14 +219,28 @@ type Transfer @entity {
 
 ### 反向查询
 
-要在一个实体上反向查找它的关系，请将 `@derivedFrom` 添加到字段并指向另一个实体的反向查找字段。
-
 这将在实体上创建一个可以查询的虚拟字段。
 
 通过将Account实体的sentTransfer或receivedTransfer字段设置为从各自的from或to字段派生的值，我们从一个Account实体中访问Transfer中“from” 的Account。
 
+通过将Account实体的sentTransfer或receivedTransfer字段设置为从各自的from或to字段派生的值，我们从一个Account实体中访问Transfer中“from” 的Account。
+
 ```graphql
+type Person @entity {
+  id: ID!
+  type Person @entity {
+  id: ID!
+  accounts: [Account] 
+}
+
 type Account @entity {
+  id: ID!
+  publicAddress: String!
+}
+  publicAddress: String!
+}
+  publicAddress: String!
+  type Account @entity {
   id: ID!
   publicAddress: String!
   sentTransfers: [Transfer] @derivedFrom(field: "from")
@@ -199,6 +249,10 @@ type Account @entity {
 
 type Transfer @entity {
   id: ID!
+  amount: BigInt
+  from: Account!
+  to: Account!
+}
   amount: BigInt
   from: Account!
   to: Account!
@@ -224,12 +278,21 @@ type AddressDetail @jsonField {
   street: String!
   district: String!
 }
+
+type ContactCard @jsonField {
+  phone: String!
+  type AddressDetail @jsonField {
+  street: String!
+  district: String!
+}
   address: AddressDetail # Nested JSON
 }
 
 type User @entity {
   id: ID! 
   contact: [ContactCard] # 储存一系列JSON 对象
+} 
+  contact: [ContactCard] # Store a list of JSON objects
 }
 ````
 

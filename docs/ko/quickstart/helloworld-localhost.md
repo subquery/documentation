@@ -83,10 +83,15 @@ cd subqlHelloWorld
 
 이제 다양한 종속성을 설치하기 위해 원사 또는 노드 설치를 수행합니다.
 
-<CodeGroup> # Yarn yarn install # NPM npm install
+<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn install ``` </CodeGroupItem>
+<CodeGroupItem title="NPM"> ```bash npm install ``` </CodeGroupItem> </CodeGroup>
+
+An example of `yarn install`
 
 ```shell
-> yarn install
+# Yarn yarn install # NPM npm install</p>
+
+<pre><code class="shell">> yarn install
 yarn install v1.22.10
 info No lockfile found.
 [1/4] 🔍  Resolving packages...
@@ -104,7 +109,15 @@ success Saved lockfile.
 <CodeGroup> # Yarn yarn codegen # NPM npm run-script codegen
 
 ```shell
-> yarn codegen
+&gt; yarn codegen
+yarn run v1.22.10
+$ ./node_modules/.bin/subql codegen
+===============================
+---------Subql Codegen---------
+===============================
+* Schema StarterEntity generated !</p>
+
+<pre><code class="shell">> yarn codegen
 yarn run v1.22.10
 $ ./node_modules/.bin/subql codegen
 ===============================
@@ -123,6 +136,13 @@ $ ./node_modules/.bin/subql codegen
 다음 단계는 `yarn build`로 코드를 빌드하는 것입니다.
 
 <CodeGroup> # Yarn yarn build # NPM npm run-script build
+
+```shell
+> yarn build
+yarn run v1.22.10
+$ tsc -b
+✨  Done in 5.68s. ```
+</p>
 
 ```shell
 > yarn build

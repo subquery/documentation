@@ -29,7 +29,7 @@
 
 - 一个 GitHub 帐户
 
-## 1. 第 1 步：创建您的项目
+## 1. 4. 创建项目
 
 让我们创建一个叫做subql_hellowworld 的项目，并使用您最喜欢的软件包管理器运行必需的安装、代码生成和构建。
 
@@ -42,7 +42,7 @@ yarn build
 
 不要运行 docker 命令。
 
-## 2. 第 2 步：创建 GitHub 存储库
+## 2. 2. 第 2 步：创建 GitHub 存储库
 
 在 GitHub 中，创建一个新的公共资源库。 提供一个名称并将您的可见性设置为公开。 在这里，一切都会被保留为默认值。
 
@@ -52,7 +52,7 @@ yarn build
 
 ![创建 GitHub 仓库](/assets/img/github_repo_url.png)
 
-## 3. 第 3 步：推送到 GitHub
+## 3. 推送到 GitHub
 
 回到您的项目目录，将其初始化为 git 目录。 否则，您可能会收到"fatal: not a git repository (or any of the parent directories): .git”
 
@@ -71,6 +71,7 @@ git remote add origin https://github.com/seandotau/subqlHelloWorld.git
 下一步，我们通过以下命令将代码添加到我们的存储库中：
 
 ```shell
+> git add .
 > git add .
 > git add .
 > git commit -m "First commit"
@@ -102,6 +103,13 @@ Writing objects: 100% (14/14), 59.35 KiB | 8.48 MiB/s, done.
 Total 14 (delta 0), reused 0 (delta 0)
 To https://github.com/seandotau/subqlHelloWorld.git
  * [new branch]      master -> master
+Counting objects: 100% (14/14), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (13/13), done.
+Writing objects: 100% (14/14), 59.35 KiB | 8.48 MiB/s, done.
+Total 14 (delta 0), reused 0 (delta 0)
+To https://github.com/seandotau/subqlHelloWorld.git
+ * [new branch]      master -> master
 
 ```
 
@@ -111,7 +119,7 @@ push 命令的意思是“请将我的代码从我的主本地存储库推送到
 
 现在你已经将你的代码存入GitHub, 让我们来看看如何能够在 SubQuery Projects 中托管它。
 
-## 4. 创建项目
+## 4. 4. 创建项目
 
 浏览此网址 [https://project.subquery.network](https://project.subquery.network) 并使用您的 GitHub 帐户登录。
 
@@ -138,7 +146,7 @@ push 命令的意思是“请将我的代码从我的主本地存储库推送到
 
 控制面板包含许多有用的信息，例如它使用的网络、它运行的源代码的 GitHub 存储库 URL、它的创建时间和上次更新时间，尤其是部署的详细信息。
 
-## 5. Step 5: Deploy your project
+## 5. 5. Step 5: Deploy your project
 
 现在您已经在 SubQuery Projects 项目中创建了您的项目，设置显示行为后，下一步是部署您的项目，使其能够运行。 部署一个版本会触发一个新的 SubQuery 索引操作来启动，并设置所需的查询服务来开始接受 GraphQL 请求。 您也可以在这里部署新版本到现有的项目。
 
@@ -160,7 +168,7 @@ push 命令的意思是“请将我的代码从我的主本地存储库推送到
 
 ![正在进行部署](/assets/img/deployment_running.png)
 
-## 6. Step 6: Testing your project
+## 6. 6. Step 6: Testing your project
 
 要测试您的项目，请单击省略号并选择“在SubQuery浏览器上查看”。
 
@@ -170,7 +178,7 @@ push 命令的意思是“请将我的代码从我的主本地存储库推送到
 
 ![Subquery 项目列表](/assets/img/subquery_playground.png)
 
-## 7. 奖励步骤
+## 7. 7. 奖励步骤
 
 对于我们中的敏锐者，您会记得在学习目标中，最后一点是运行一个简单的 GET 查询。 为此，我们需要获取部署详细信息中显示的“查询端点”。
 

@@ -42,7 +42,7 @@ subql init --starter PROJECT_NAME
 คุณจะถูกถามคำถามเมื่อโปรเจ็กต์ SubQuery เริ่มต้นขึ้น:
 
 - Git repository (ไม่บังคับ): ระบุ Git URL ไปยัง repo ที่จะโฮสต์โปรเจ็กต์ SubQuery นี้ (เมื่อโฮสต์ใน SubQuery Explorer)
-- RPC endpoint (จำเป็น): ระบุ wss URL ไปยัง RPC endpoint ที่ทำงานอยู่ซึ่งจะถูกใช้เป็นค่าเริ่มต้นสำหรับโปรเจ็กต์นี้ คุณสามารถเข้าถึง endpoint สาธารณะได้อย่างรวดเร็วสำหรับเครือข่าย Polkadot ต่างๆ หรือแม้แต่สร้างโหนดส่วนตัวเฉพาะของคุณเองโดยใช้ [OnFinality](https://app.onfinality.io) หรือเพียงแค่ใช้ Polkadot endpoint ที่เป็นค่าเริ่มต้น
+- RPC endpoint (จำเป็น): ระบุ wss URL ไปยัง RPC endpoint ที่ทำงานอยู่ซึ่งจะถูกใช้เป็นค่าเริ่มต้นสำหรับโปรเจ็กต์นี้ RPC endpoint (จำเป็น): ระบุ wss URL ไปยัง RPC endpoint ที่ทำงานอยู่ซึ่งจะถูกใช้เป็นค่าเริ่มต้นสำหรับโปรเจ็กต์นี้ คุณสามารถเข้าถึง endpoint สาธารณะได้อย่างรวดเร็วสำหรับเครือข่าย Polkadot ต่างๆ หรือแม้แต่สร้างโหนดส่วนตัวเฉพาะของคุณเองโดยใช้ [OnFinality](https://app.onfinality.io) หรือเพียงแค่ใช้ Polkadot endpoint ที่เป็นค่าเริ่มต้น
 - Authors (จำเป็น): กรอกชื่อเจ้าของโปรเจ็กต์ SubQuery นี้ที่นี่
 - Description (ไม่บังคับ): คุณสามารถระบุข้อความสั้นๆ เกี่ยวกับโปรเจ็กต์ของคุณซึ่งอธิบายว่ามีข้อมูลใดบ้างและผู้ใช้สามารถทำอะไรกับมันได้บ้าง
 - Version (จำเป็น): ระบุหมายเลขเวอร์ชันที่กำหนดเองหรือใช้ค่าเริ่มต้น (`1.0.0`)
@@ -52,12 +52,13 @@ subql init --starter PROJECT_NAME
 
 สุดท้ายนี้ ภายใต้ไดเร็กทอรีของโปรเจ็กต์ ให้รันคำสั่งต่อไปนี้เพื่อติดตั้ง dependencies ของโปรเจ็กต์ใหม่นี้
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```bash cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```bash cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
 
 ## การกำหนดค่าและการ build Starter Project
 
 ใน starter package ที่คุณเพิ่งติดตั้ง เราได้จัดเตรียมการกำหนดค่ามาตรฐานสำหรับโปรเจ็กต์ใหม่ของคุณ XPath: /p[11]/CodeGroup/text คุณจะต้องทำงานในไฟล์ต่อไปนี้เป็นหลัก:
+
+- The Manifest in `project.yaml` คุณจะต้องทำงานในไฟล์ต่อไปนี้เป็นหลัก:</p>
 
 - The Manifest in `project.yaml`
 - GraphQL Schema ใน `schema.graphql`
@@ -67,10 +68,9 @@ subql init --starter PROJECT_NAME
 
 ### การสร้าง GraphQL Model
 
-ในการทำ [index](../run/run.md) สำหรับโปรเจ็กต์ SubQuery ของคุณ ก่อนอื่นคุณต้องสร้างโมเดล GraphQL ที่จำเป็น ซึ่งคุณได้กำหนดไว้ในไฟล์ GraphQL Schema (`schema.graphql`) รันคำสั่งนี้ในรูทไดเร็กทอรีของโปรเจ็กต์
+ในการทำ [index](../run/run.md) สำหรับโปรเจ็กต์ SubQuery ของคุณ ก่อนอื่นคุณต้องสร้างโมเดล GraphQL ที่จำเป็น ซึ่งคุณได้กำหนดไว้ในไฟล์ GraphQL Schema (`schema.graphql`) รันคำสั่งนี้ในรูทไดเร็กทอรีของโปรเจ็กต์ รันคำสั่งนี้ในรูทไดเร็กทอรีของโปรเจ็กต์
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```bash npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```bash npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
 
 คุณจะพบโมเดลที่สร้างขึ้นในไดเร็กทอรี `/src/types/models`
 
@@ -80,8 +80,7 @@ subql init --starter PROJECT_NAME
 
 รันคำสั่ง build จากรูทไดเร็กทอรีของโปรเจ็กต์
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```bash npm run-script build ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```bash npm run-script build ``` </CodeGroupItem> </CodeGroup>
 
 ## การรันและการ query Starter Project ของคุณ
 
@@ -91,7 +90,7 @@ subql init --starter PROJECT_NAME
 
 ### รัน SubQuery Project ของคุณ
 
-การกำหนดค่าทั้งหมดที่ควบคุมวิธีการเรียกใช้โหนด SubQuery จะถูกกำหนดในไฟล์ `docker-compose.yml` นี้ สำหรับโปรเจ็กต์ใหม่ที่เพิ่งเริ่มต้น คุณไม่จำเป็นต้องเปลี่ยนแปลงอะไรในนี้ แต่คุณสามารถอ่านเพิ่มเติมเกี่ยวกับไฟล์และการตั้งค่าได้ใน [ส่วนการรันโปรเจ็กต์](../run/run.md)
+การกำหนดค่าทั้งหมดที่ควบคุมวิธีการเรียกใช้โหนด SubQuery จะถูกกำหนดในไฟล์ `docker-compose.yml` นี้ สำหรับโปรเจ็กต์ใหม่ที่เพิ่งเริ่มต้น คุณไม่จำเป็นต้องเปลี่ยนแปลงอะไรในนี้ แต่คุณสามารถอ่านเพิ่มเติมเกี่ยวกับไฟล์และการตั้งค่าได้ใน [ส่วนการรันโปรเจ็กต์](../run/run.md) สำหรับโปรเจ็กต์ใหม่ที่เพิ่งเริ่มต้น คุณไม่จำเป็นต้องเปลี่ยนแปลงอะไรในนี้ แต่คุณสามารถอ่านเพิ่มเติมเกี่ยวกับไฟล์และการตั้งค่าได้ใน [ส่วนการรันโปรเจ็กต์](../run/run.md)
 
 ให้รันคำสั่งต่อไปนี้ ภายใต้ไดเร็กทอรีของโปรเจ็กต์:
 
@@ -105,7 +104,7 @@ docker-compose pull && docker-compose up
 
 เปิดเบราว์เซอร์ของคุณและไปที่ [http://localhost:3000](http://localhost:3000)
 
-คุณควรเห็น GraphQL playground แสดงใน explorer และ schemas ที่พร้อมสำหรับการ query ที่ด้านบนขวาของ Playground คุณจะพบปุ่ม _Docs_ ที่จะเปิดการร่างเอกสาร เอกสารนี้ถูกสร้างขึ้นโดยอัตโนมัติและช่วยให้คุณค้นหา entities และ methods ที่คุณสามารถค้นหาได้
+คุณควรเห็น GraphQL playground แสดงใน explorer และ schemas ที่พร้อมสำหรับการ query ที่ตำแหน่งด้านบนขวาของ Playground คุณจะพบปุ่ม _Docs_ ที่จะเปิดการร่างเอกสาร เอกสารนี้ถูกสร้างขึ้นโดยอัตโนมัติและช่วยให้คุณค้นหา entities และ methods ที่คุณสามารถค้นหาได้
 
 สำหรับ SubQuery starter project ใหม่ คุณสามารถลองใช้ query ต่อไปนี้เพื่อดูว่ามันทำงานอย่างไร หรือ [เรียนรู้เพิ่มเติมเกี่ยวกับภาษาของ GraphQL Query](../query/graphql.md)
 

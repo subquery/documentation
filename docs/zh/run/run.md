@@ -18,7 +18,7 @@ docker-compose pull && docker-compose up
 
 需求：
 
-- [Postgres](https://www.postgresql.org/) 数据库 (版本12或更高). 当[SubQuery node](#start-a-local-subquery-node)  对区块链进行索引时，提取的数据将会存储在外部数据库实例中。
+- [Postgres](https://www.postgresql.org/) database (version 12 or higher). [Postgres](https://www.postgresql.org/) 数据库 (版本12或更高). 当[SubQuery node](#start-a-local-subquery-node)  对区块链进行索引时，提取的数据将会存储在外部数据库实例中。
 
 SubQuery 节点需要一个加载的过程，它能够从 SubQuery 项目中提取基于子区块链的数据，并将其保存到 Postgres 数据库。
 
@@ -59,7 +59,7 @@ subql-node -f your-project-path
 subql-node --network-dictionary=https://api.subquery.network/sq/subquery/dictionary-polkadot
 ```
 
-[阅读更多关于 SubQuery 词典的工作原理](../tutorials_examples/dictionary.md)
+阅读更多关于 SubQuery 词典的工作原理
 
 #### 连接数据库
 
@@ -74,21 +74,13 @@ subql-node -f your-project-path
 
 根据您的 Postgres 数据库的配置(例如不同的数据库密码) ，请确保索引器(‘ subql/node’)和查询服务(‘ subql/query’)都能与其建立连接。
 
-
-
 #### 指定一个配置文件
 
 ```
 subql-node -c your-project-config.yml
 ```
 
-这将把查询节点指向一个可以是 YAML 或 JSON 格式的配置文件。看看下面的例子。
-
-```yaml
-subquery:../../../../subql-example/extrinsics
-subqueryName: extrinsics
-batchSize: 100
-localMode: true 查看下面的示例。
+这将把查询节点指向一个可以是 YAML 或 JSON 格式的配置文件。 看看下面的例子。
 
 ```yaml
 subquery: ../../../../subql-example/extrinsics
@@ -203,4 +195,4 @@ npm install -g @subql/query
 
 当您 [初始化项目](../quickstart/quickstart.md#initialise-the-starter-subquery-project) 时，请确保项目名称的相同。 此外，请检查环境变量是否配置正确。
 
-成功运行subql查询服务后，打开浏览器并转到`http://localhost:3000`. 您应该看到在 Explorer 中显示的 GraphQL 播放地和准备查询的模式。
+成功运行subql查询服务后，打开浏览器并转到`http://localhost:3000`. 您应该看到在 Explorer 中显示的 GraphQL 播放地和准备查询的模式。 您应该看到在 Explorer 中显示的 GraphQL 播放地和准备查询的模式。

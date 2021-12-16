@@ -29,7 +29,7 @@ You will need:
 
 - a GitHub account
 
-## Step 1: Create your project
+## 1. Step 1: Create your project
 
 Let's create a project called subql_hellowworld and run the obligatory install, codegen and build with your favourite package manager.
 
@@ -42,7 +42,7 @@ yarn build
 
 Do NOT run the docker commands though.
 
-## Step 2: Create a GitHub repo
+## 2. Step 2: Create a GitHub repo
 
 In GitHub, create a new public repository. Provide a name and set your visibility to public. Here, everything is kept as the default for now.
 
@@ -52,7 +52,7 @@ Take note of your GitHub URL, this must be public for SubQuery to access it.
 
 ![create github repo](/assets/img/github_repo_url.png)
 
-## Step 3: Push to GitHub
+## 3. Step 3: Push to GitHub
 
 Back in your project directory, initialise it as a git directory. Otherwise, you might get the error "fatal: not a git repository (or any of the parent directories): .git"
 
@@ -103,7 +103,7 @@ The push command means "please push my code TO the origin repo FROM my master lo
 
 Now that you have got your code into GitHub, let's look at how we can host it in SubQuery Projects.
 
-## Step 4: Create your project
+## 4. Step 1: Create your project
 
 Navigate to [https://project.subquery.network](https://project.subquery.network) and log in with your GitHub account.
 
@@ -120,7 +120,7 @@ And fill in the various fields with the appropriate details.
 - **Subtitle:** Provide a subtitle for your project.
 - **Description:** Explain what your SubQuery project does.
 - **GitHub Repository URL:** This must be a valid GitHub URL to a public repository that contains your SubQuery project. The schema.graphql file must be in the root of your directory.
-- **Hide project:** If selected, this will hide the project from the public SubQuery explorer. Keep this unselected if you want to share your SubQuery with the community!
+- **Ocultar proyecto:** Si se selecciona, esto ocultará el proyecto del explorador público de SubQuery. ¡Mantén esta opción sin seleccionar si quieres compartir tu SubQuery con la comunidad!
 
 ![Create SubQuery parameters](/assets/img/create_subquery_project_parameters.png)
 
@@ -130,17 +130,17 @@ When you click create, you'll be taken to your dashboard.
 
 The dashboard contains lots of useful information such as the network it is using, the GitHub repository URL of the source code it is running, when it was created and last updated, and in particular the deployment details.
 
-## Step 5: Deploy your project
+## 5. Step 5: Deploy your project
 
-Now that you have created your project within SubQuery Projects, setting up the display behaviour, the next step is to deploy your project making it operational. Deploying a version triggers a new SubQuery indexing operation to start, and sets up the required query service to start accepting GraphQL requests. You can also deploy new versions to existing projects here.
+Now that you have created your project within SubQuery Projects, setting up the display behaviour, the next step is to deploy your project making it operational. Desplegar una versión activa una nueva operación de indexación de SubQuery para iniciar, y configurar el servicio de consultas requerido para comenzar a aceptar solicitudes GraphQL. También puede desplegar nuevas versiones a proyectos existentes aquí.
 
 You can choose to deploy to various environments such as a production slot or a staging slot. Here we'll deploy to a production slot. Clicking on the "Deploy" button brings up a screen with the following fields:
 
 ![Deploy to production slot](/assets/img/deploy_production_slot.png)
 
 - **Commit Hash of new Version:** From GitHub select the correct commit of the SubQuery project codebase that you want deployed
-- **Indexer Version:** This is the version of SubQuery's node service that you want to run this SubQuery on. See [@subql/node](https://www.npmjs.com/package/@subql/node)
-- **Query Version:** This is the version of SubQuery's query service that you want to run this SubQuery on. See [@subql/query](https://www.npmjs.com/package/@subql/query)
+- **Versión del indexador:** Esta es la versión del servicio de nodos de SubQuery en la que desea ejecutar esta SubQuery. See [@subql/node](https://www.npmjs.com/package/@subql/node)
+- **Versión de consulta:** Esta es la versión del servicio de consulta de SubQuery en la que desea ejecutar esta SubQuery. See [@subql/query](https://www.npmjs.com/package/@subql/query)
 
 Because we only have one commit, there is only a single option in the drop down. We'll also work with the latest version of the indexer and query version so we will accept the defaults and then click "Deploy Update".
 
@@ -152,7 +152,7 @@ The deployment is now running.
 
 ![Deployment running](/assets/img/deployment_running.png)
 
-## Step 6: Testing your project
+## 6. Step 6: Testing your project
 
 To test your project, click on the 3 ellipsis and select "View on SubQuery Explorer".
 
@@ -162,7 +162,7 @@ This will take you to the ever familiar "Playground" where you can click the pla
 
 ![Subquery playground](/assets/img/subquery_playground.png)
 
-## Step 7: Bonus step
+## 7. Step 7: Bonus step
 
 For the astute amongst us, you will recall that in the learning objectives, the last point was to run a simple GET query. To do this, we will need to grab the "Query Endpoint" displayed in the deployment details.
 

@@ -43,13 +43,19 @@ Aquí tenemos un ejemplo.
 
 ```graphql
 type User @entity {
-  id: ID!
+  id:
+  ID!
+  name: String!
+  groups: ID!
   name: String! @index(unique: true) # unique puede establecerse en verdadero o falso
  title: Title! # Los índices se añaden automáticamente al campo de clave foránea 
 }
 
 type Title @entity {
-  id: ID!  
+  id:  
+  ID!
+  name: String!
+  groups: ID!  
   name: String! @index(unique:true)
 }
 ```
@@ -90,12 +96,14 @@ Ejemplo: Un pasaporte sólo pertenecerá a una persona y una persona sólo tiene
 
 ```graphql
 type Person @entity {
-  id: ID!
+  id:
+ID!
 }
 
 type Passport @entity {
-  id: ID!
-  owner: Person!
+  id:
+  ID!
+  owner:
 }
 ```
 
@@ -103,13 +111,15 @@ o
 
 ```graphql
 type Person @entity {
-  id: ID!
+  id:
   passport: Passport!
+ID!
 }
 
 type Passport @entity {
-  id: ID!
-  owner: Person!
+  id:
+  ID!
+  owner:
 }
 ```
 
@@ -121,13 +131,15 @@ Ejemplo: Una persona puede tener múltiples cuentas.
 
 ```graphql
 type Person @entity {
-  id: ID!
-  accounts: [Account] 
+  id:
+  ID!
+  passport: Passport!
 }
 
-type Account @entity {
-  id: ID!
-  publicAddress: String!
+type Passport @entity {
+  id:
+  ID!
+  owner:
 }
 ```
 
@@ -138,19 +150,27 @@ Ejemplo: Cada persona es parte de múltiples grupos (PersonGrup) y los grupos ti
 
 ```graphql
 type Person @entity {
-  id: ID!
+  id:
+  ID!
   name: String!
-  groups: [PersonGroup]
+  groups:
+  [PersonGroup]
 }
 
 type PersonGroup @entity {
   id: ID!
   person: Person!
+  person: Person!
   Group: Group!
+Group: Group!
 }
 
 type Group @entity {
-  id: ID!
+  id:
+  ID!
+  name: String!
+  groups:
+  ID!
   name: String!
   persons: [PersonGroup]
 }
@@ -164,15 +184,19 @@ Esto establecerá una relación bidireccional entre dos Cuentas (de y a) a trav�
 
 ```graphql
 type Account @entity {
-  id: ID!
+  id:
+  ID!
   publicAddress: String!
 }
 
 type Transfer @entity {
-  id: ID!
-  amount: BigInt
-  from: Account!
-  to: Account!
+  id:
+ID!
+  amount:
+  BigInt
+  from:
+  Account!
+  to:
 }
 ```
 
@@ -186,17 +210,20 @@ La transferencia "de" una Cuenta es accesible desde la entidad de la Cuenta esta
 
 ```graphql
 type Account @entity {
-  id: ID!
+  id:
+  ID!
   publicAddress: String!
-  sentTransfers: [Transfer] @derivedFrom(field: "from")
+}
+  [Transfer] @derivedFrom(field: "from")
   receivedTransfers: [Transfer] @derivedFrom(field: "to")
 }
 
 type Transfer @entity {
-  id: ID!
-  amount: BigInt
-  from: Account!
-  to: Account!
+  id:
+  BigInt
+  from:
+  Account!
+  to:
 }
 ```
 
@@ -216,17 +243,21 @@ A diferencia de la entidad, el objeto de directiva jsonField no requiere ningún
 
 ````graphql
 type AddressDetail @jsonField {
-  street: String!
-  district: String!
+  street:
+  String!
+  district:
+String!
 }
 
 type ContactCard @jsonField {
   phone: String!
-  address: AddressDetail # Nested JSON
+  address:
+  AddressDetail # Nested JSON
 }
 
 type User @entity {
-  id: ID! 
+  id: 
+  ID! 
   contact: [ContactCard] # Almacenar una lista de objetos JSON
 }
 ````

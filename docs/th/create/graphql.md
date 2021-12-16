@@ -1,27 +1,27 @@
-# GraphQL Schema
+# Schema ของ GraphQL
 
-## Defining Entities
+## การนิยาม Entities
 
-The `schema.graphql` file defines the various GraphQL schemas. Due to the way that the GraphQL query language works, the schema file essentially dictates the shape of your data from SubQuery. To learn more about how to write in GraphQL schema language, we recommend checking out [Schemas and Types](https://graphql.org/learn/schema/#type-language).
+ไฟล์ `schema.graphql` นั้นนิยาม schema หลายหลายของ GraphQL เนื่องจากวิธีที่ภาษา GraphQL ใช้ในการดึงข้อมูลทำงานนั้น ไฟล์ schema เป็นสิ่งสำคัญที่กำหนดรูปร่างข้อข้อมูลจาก SubQuery เพื่อที่จะเรียนรู้เพิ่มเติมเกี่ยวกับการเขียนภาษาของ GraphQL schema เราแนะนำให้เช็ค [Schema และ Types](https://graphql.org/learn/schema/#type-language)
 
-**Important: When you make any changes to the schema file, please ensure that you regenerate your types directory with the following command `yarn codegen`**
+**สำคัญ: เมื่อคุณทำการเปลี่ยนแปลงใดๆ กับไฟล์ schema โปรดตรวจสอบให้แน่ใจว่าคุณได้สร้างโฟลเดอร์ types ของคุณใหม่ด้วยคำสั่ง `yarn codegen`**
 
 ### Entities
-Each entity must define its required fields `id` with the type of `ID!`. It is used as the primary key and unique among all entities of the same type.
+แต่ละ entity ต้องนิยาม fields ที่จำเป็น `id` ด้วย type ของ `ID!` สิ่งนี้จะถูกใช้เป็น primary key และไม่ซ้ำกันกับ entities ทั้งหมดที่มี type เดียวกัน
 
-Non-nullable fields in the entity are indicated by `!`. Please see the example below:
+Field ที่ไม่สามารถปล่อยว่างได้จะมีเครื่องหมาย `!` กำกับไว้ สามารถดูตัวอย่างโค้ดได้ด้านล่าง:
 
 ```graphql
 type Example @entity {
-  id: ID! # id field is always required and must look like this
-  name: String! # This is a required field
-  address: String # This is an optional field
+  id: ID! # id field จะต้องการตลอด และต้องเป็นลักษณะดังนี้
+  name: String! # เป็น field ที่จำเป็น
+  address: String # เป็น field ที่ไม่จำเป็น
 }
 ```
 
-### Supported scalars and types
+### การรองรับ Scalars และ Types
 
-We currently supporting flowing scalars types:
+ขณะนี้เราได้รองรับ scalars types ดังนี้:
 - `ID`
 - `Int`
 - `String`
@@ -29,23 +29,23 @@ We currently supporting flowing scalars types:
 - `Float`
 - `Date`
 - `Boolean`
-- `<EntityName>` for nested relationship entities, you might use the defined entity's name as one of the fields. Please see in [Entity Relationships](#entity-relationships).
-- `JSON` can alternatively store structured data, please see [JSON type](#json-type)
-- `<EnumName>` types are a special kind of enumerated scalar that is restricted to a particular set of allowed values. Please see [Graphql Enum](https://graphql.org/learn/schema/#enumeration-types)
+- `<EntityName>` สำหรับความสัมพันธ์แบบซ้อนของ entities (Nested relationship), คุณอาจต้องใช้ชื่อของ entity ที่ระบุไว้แล้วเป็นหนึ่งใน fields อ่านเพิ่มเติมได้ใน [ความสัมพันธ์ของ Entity](#entity-relationships)
+- `JSON` เป็นอีกหนึ่งทางเลือกสำหรับการจัดเก็บข้อมูลที่เป็นระเบียบ (structured data) สามารถอ่านเพิ่มใน [JSON type](#json-type)
+- `<EnumName>` types เป็นชนิดพิเศษของ enumerated scalar ที่จำกัดแก่เซ็ตค่าจำเพาะที่อนุญาตไว้ โปรอ่านเพิ่มเติมที่ [Graphql Enum](https://graphql.org/learn/schema/#enumeration-types)
 
-## Indexing by non-primary-key field
+## การ Index ด้วย non-primary-key field
 
-To improve query performance, index an entity field simply by implementing the `@index` annotation on a non-primary-key field.
+เพื่อที่จะพัฒนาความสามารถในการดึงข้อมูล การ index และ entity field อย่างง่ายสามารถทำได้ด้วยการกำกับ `@index` บน non-primary-key field
 
-However, we don't allow users to add `@index` annotation on any [JSON](#json-type) object. By default, indexes are automatically added to foreign keys and for JSON fields in the database, but only to enhance query service performance.
+อย่างไรก็ตาม เราไม่อนุญาติให้เพิ่มการกำกับ `@index` บน [JSON](#json-type) object ใดๆ โดยปกติแล้ว index จะถูกเพิ่มเข้าไปใน foreign key และสำหรับ JSON field ในฐานข้อมูลโดยอัตโนมัติ เพื่อเพิ่มประสิทธิภาพของการดึงข้อมูล
 
-Here is an example.
+ตัวอย่างดังนี้
 
 ```graphql
 type User @entity {
   id: ID!
-  name: String! @index(unique: true) # unique can be set to true or false
-  title: Title! # Indexes are automatically added to foreign key field 
+  name: String! @index(unique: true) # unique สามารถเลือกเป็น true หรือ false
+  title: Title! # Index จะถูกเพิ่มใน field foreign key อัตโนมัติ
 }
 
 type Title @entity {
@@ -53,19 +53,19 @@ type Title @entity {
   name: String! @index(unique:true)
 }
 ```
-Assuming we knew this user's name, but we don't know the exact id value, rather than extract all users and then filtering by name we can add `@index` behind the name field. This makes querying much faster and we can additionally pass the `unique: true` to  ensure uniqueness.
+สมมุติว่าเรารู้ชื่อของผู้ใช้งานแต่เราไม่รู้ค่า id ที่ถูกต้อง แทนที่จะดึงข้อมูลผู้ใช้งานทั้งหมดและกรองตามชื่อ เราสามารถเพิ่ม `@index` หลัง field ชื่อได้ วิธีนี้ทำให้การดึงข้อมูลนั้นเร็วกว่ามาก และเราสามารถเพิ่ม `unique: true` เพื่อการันตีว่าข้อมูลนั้นไม่เหมือนกัน
 
-**If a field is not unique, the maximum result set size is 100**
+**หากแต่ละ field นั้นไม่มีซ้ำกัน จำนวนผลลัพท์สูงสุดจะถูกตั้งไว้ที่ 100**
 
-When code generation is run, this will automatically create a `getByName` under the `User` model, and the foreign key field `title` will create a `getByTitleId` method, which both can directly be accessed in the mapping function.
+เมื่อการสร้างโค้ดนั้นเริ่มต้นรันแล้ว `getByName` จะถูกสร้างขึ้นโดยอัตโนมัติภายใต้ `User` model และ field ของ foreign key `title` จะสร้าง method `getByTitleId` ซึ่งจะทั้งคู่จะสามารถเข้าถึงได้โดยตรงผ่าน mapping function
 
 ```sql
-/* Prepare a record for title entity */
+/*เตรียมการบันทึกสำหรับ title entity */
 INSERT INTO titles (id, name) VALUES ('id_1', 'Captain')
 ```
 
 ```typescript
-// Handler in mapping function
+// Handler ใน mapping function
 import {User} from "../types/models/User"
 import {Title} from "../types/models/Title"
 
@@ -73,20 +73,20 @@ const jack = await User.getByName('Jack Sparrow');
 
 const captainTitle = await Title.getByName('Captain');
 
-const pirateLords = await User.getByTitleId(captainTitle.id); // List of all Captains
+const pirateLords = await User.getByTitleId(captainTitle.id); // รายการของกัปตันทั้งหมด
 ```
 
-## Entity Relationships
+## ความสัมพันธ์ของ Entity
 
-An entity often has nested relationships with other entities. Setting the field value to another entity name will define a one-to-one relationship between these two entities by default.
+Entity น้ันโดนทั่วไปจะเป็นความสัมพันธ์ซ้อน​ (nested relationships) กับ entities อื่นๆ การต้ังค่า field ให้แก่ entity name อื่นจะนิยามความสัมพันธ์แบบ หนึ่ง-ต่อ-หนึ่ง (one-to-one) ระหว่างสอง entities เป็นค่าเริ่มต้น
 
-Different entity relationships (one-to-one, one-to-many, and many-to-many) can be configured using the examples below.
+ความสัมพันธ์ของ entity ที่ต่างกัน (one-to-one, one-to-many, และ many-to-many) สามารถตั้งค่าได้ตากตัวอย่างด้านล่าง
 
-### One-to-One Relationships
+### ความสัมพันธ์แบบ One-to-One
 
-One-to-one relationships are the default when only a single entity is mapped to another.
+ความสัมพันธ์แบบ One-to-one จะเป็นค่าเริ่มต้นเมื่อมี entity เพียงตัวเดียวเชื่อมโยงกับตัวอื่น
 
-Example: A passport will only belong to one person and a person only has one passport (in this example):
+ตัวอย่างเช่น: พาสปอร์ตที่เป็นเจ้าของโดยคนเดียว และคนเดียวจะต้องมีเพียงหนึ่งพาสปอร์ต (ในตัวอย่างนี้):
 
 ```graphql
 type Person @entity {
@@ -99,7 +99,7 @@ type Passport @entity {
 }
 ```
 
-or
+หรือ
 
 ```graphql
 type Person @entity {
@@ -113,11 +113,11 @@ type Passport @entity {
 }
 ```
 
-### One-to-Many relationships
+### ความสัมพันธ์แบบ One-to-Many
 
-You can use square brackets to indicate that a field type includes multiple entities.
+คุณสามารถใช้วงเล็บเหลี่ยม เพื่อระบุว่า field type ไหนมี entities หลายตัว
 
-Example: A person can have multiple accounts.
+ตัวอย่าง: คนหนึ่งคนสามารถมีได้หลายบัญชี
 
 ```graphql
 type Person @entity {
@@ -131,10 +131,10 @@ type Account @entity {
 }
 ```
 
-### Many-to-Many relationships
-A many-to-many relationship can be achieved by implementing a mapping entity to connect the other two entities.
+### ความสัมพันธ์แบบ Many-to-Many
+ความสัมพันธ์แบบ many-to-many สามารถได้รับด้วยการใช้งาน mapping entity เพื่อเชื่อมต่อกับ entities อีกสองอัน
 
-Example: Each person is a part of multiple groups (PersonGroup) and groups have multiple different people (PersonGroup).
+ตัวอย่าง: แต่ละคนสามารถเป็นส่วนหนึ่งของหลายๆกลุ่ม (PersonGroup) และกลุ่มสามารถมีหลายๆคนที่ต่างกันได้ (PersonGroup)
 
 ```graphql
 type Person @entity {
@@ -156,11 +156,11 @@ type Group @entity {
 }
 ```
 
-Also, it is possible to create a connection of the same entity in multiple fields of the middle entity.
+นอกจากนี้ เรายังสามารถสร้างการเชื่อมต่อระหว่าง entity ที่เหมือนกันในหลายๆ fiels ของ entity กลาง
 
-For example, an account can have multiple transfers, and each transfer has a source and destination account.
+ตัวอย่างเช่น บัญชีสามารถโอนได้หลายครั้ง และในแต่ละการโอนจะมีบัญชีต้นทางและบัญชีปลายทาง
 
-This will establish a bi-directional relationship between two Accounts (from and to) through Transfer table.
+สิ่งนี้จะสร้างความสัมพันธ์แบบสองทาง ระหว่างบัญชี (จาก และ ถึง) ผ่านตาราง Transfer
 
 ```graphql
 type Account @entity {
@@ -176,13 +176,13 @@ type Transfer @entity {
 }
 ```
 
-### Reverse Lookups
+### การเรียกดูย้อนกลับ (Reverse Lookups)
 
-To enable a reverse lookup on an entity to a relation, attach `@derivedFrom` to the field and point to its reverse lookup field of another entity.
+เพื่อที่จะอนุญาตการเรียกดูย้อนกลับบน entity สู่ความสัมพันธ์ ให้แนบ `@derivedFrom` จาก field ที่ชี้ไป field ที่ต้องการจะเรียกดูย้อนกับของ entity อีกตัว
 
-This creates a virtual field on the entity that can be queried.
+สิ่งนี้สามารถสร้าง field จำลองบน entity ที่สามารถเรียกใช้ได้
 
-The Transfer "from" an Account is accessible from the Account entity by setting the sentTransfer or receivedTransfer as having their value derived from the respective from or to fields.
+Transfer "จาก (from)" Account นั้นสามารถเข้าถึงได้จาก entity Account ด้วยการตั้งค่า sentTransfer หรือ receivedTransfer เพราะการมีค่าที่เรียกมาจาก fields from หรือ to
 
 ```graphql
 type Account @entity {
@@ -200,19 +200,19 @@ type Transfer @entity {
 }
 ```
 
-## JSON type
+## Type รูปแบบ JSON
 
-We are supporting saving data as a JSON type, which is a fast way to store structured data. We'll automatically generate corresponding JSON interfaces for querying this data and save you time defining and managing entities.
+เรารองรับการเซฟข้อมูลในรูปแบบของ JSOn ซึ่งเป็นวิธีที่รวดเร็วในการเก็บข้อมูล เราจะสร้าง JSON interfaces ที่สอดคล้องอัตโนมัติ เพื่อการดึงข้อมูลชนินนี้ และช่วยประหยัดเวลาในการนิยามและจัดการ entities
 
-We recommend users use the JSON type in the following scenarios:
-- When storing structured data in a single field is more manageable than creating multiple separate entities.
-- Saving arbitrary key/value user preferences (where the value can be boolean, textual, or numeric, and you don't want to have separate columns for different data types)
-- The schema is volatile and changes frequently
+เราแนะนำให้ผู้ใช้งานใช้ JSON สำหรับกรณีดังกล่าว:
+- เมื่อการกักเก็บข้อมูลอย่างเป็นระเบียบใน field เดี่ยวนั้น สามารถจัดการได้ง่ายกว่าการสร้าง entities หลายอันที่แยกกันไป
+- บันทึก key/value ใดก็ตามของที่ผู้ใช้งานต้องการ (โดย value สามารถเป็น boolean ลายลักษณ์อักษร หรือ ตัวเลข และคุณไม่ต้องการที่จะมีคอลลัมน์แยกสำหรับ type ต่างๆ)
+- Schema นั้นมีการเปลี่ยนแปลงที่บ่อยและไม่แน่นอน
 
-### Define JSON directive
-Define the property as a JSON type by adding the `jsonField` annotation in the entity. This will automatically generate interfaces for all JSON objects in your project under `types/interfaces.ts`, and you can access them in your mapping function.
+### การนิยามคำสั่ง JSON
+กำหนดคุณสมบัติเป็น JSON ด้วยการเพิ่ม `jsonField` ไว้ใน entity ด้วยวิธีการนี้ จะสร้างรูปแบบการเชื่อมต่อโดยอัตโนมัติสำหรับ JSON object ในโปรเจคภายใต้ `types/interfaces.ts` และคุณสามารถเข้าถึงมันด้วย mapping function ของคุณ
 
-Unlike the entity, the jsonField directive object does not require any `id` field. A JSON object is also able to nest with other JSON objects.
+ไม่เหมือนกับ entity เพราะ คำสั่งจาก jsonField object ไม่ต้องการ field `id` JSON object ยังสามารถซ้อนกับ JSON objects อื่นๆได้อีกด้วย
 
 ````graphql
 type AddressDetail @jsonField {
@@ -222,23 +222,23 @@ type AddressDetail @jsonField {
 
 type ContactCard @jsonField {
   phone: String!
-  address: AddressDetail # Nested JSON
+  address: AddressDetail # JSON ซ้อน
 }
 
 type User @entity {
   id: ID! 
-  contact: [ContactCard] # Store a list of JSON objects
+  contact: [ContactCard] # เก็บรายการของ JSON objects
 }
 ````
 
-### Querying JSON fields
+### การดึงข้อมูลจาก JSON fields
 
-The drawback of using JSON types is a slight impact on query efficiency when filtering, as each time it performs a text search, it is on the entire entity.
+ข้อเสียของการใช้ type ชนิด JSON คือผลกระทบของการดึงข้อมูลที่มีประสิทธิภาพเมื่อมีการกรองมาแล้ว และแต่ละครั้งที่มีการค้นหาตัวอักษร มันจะอยู่บน entity ทั้งหมด
 
-However, the impact is still acceptable in our query service. Here is an example of how to use the `contains` operator in the GraphQL query on a JSON field to find the first 5 users who own a phone number that contains '0064'.
+อย่างไรก็ตาม ผลกระทบนั้นยังอยู่ในระดับที่รับได้ในบริการของการดึงข้อมูล นี่คือตัวอย่างของการใช้คำสั่ง `contains` ใน GraphQL ที่ดึงข้อมูลบน field ของ JSON เพื่อค้นหาผู้ใช้งาน 5 คนแรกที่มีเบอร์โทรศัพท์ที่มีตัวเลข '0064'
 
 ```graphql
-#To find the the first 5 users own phone numbers contains '0064'.
+# เพื่อหาผู้ใช้งาน 5 คนแรกที่มีเบอร์มือถือที่มี '0064'
 
 query{
   user(

@@ -18,8 +18,7 @@ subquery-node:
     depends_on:
       - "postgres"
     restart: always
-    environment:
-      DB_USER: postgres
+    environment: DB_USER: postgres
       DB_PASS: postgres
       DB_DATABASE: postgres
       DB_HOST: postgres

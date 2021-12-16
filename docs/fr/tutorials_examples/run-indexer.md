@@ -1,6 +1,6 @@
-# How to run an indexer node?
+# Comment exécuter un nœud d'indexation ?
 
-## Video guide
+## Guide vidéo
 
 <figure class="video_container">
   <iframe src="https://www.youtube.com/embed/QfNsR12ItnA" frameborder="0" allowfullscreen="true"></iframe>
@@ -8,32 +8,32 @@
 
 ## Introduction
 
-Running an indexer node is another option outside of using Docker or having a project hosted for you at [SubQuery Projects](https://project.subquery.network/). It requires more time and effort but will enhance your understanding of how SubQuery works under the covers.
+Exécuter un nœud d'indexation est une autre option en dehors de l'utilisation de Docker ou d'avoir un projet hébergé pour vous sur [SubQuery Projects](https://project.subquery.network/). Cela demande plus de temps et d'efforts, mais vous permettra de mieux comprendre comment SubQuery fonctionne sous les couvertures.
 
 ## Postgres
 
-Running an indexer node on your infrastructure will require the setup of a Postgres database. You can install Postgres from [here](https://www.postgresql.org/download/) and ensure the version is 12 or greater.
+L'exécution d'un nœud d'indexation sur votre infrastructure nécessitera la configuration d'une base de données Postgres. Vous pouvez installer Postgres à partir d'[ici](https://www.postgresql.org/download/) et vous assurer que la version est égal ou supérieur à 12.
 
-## Install subql/node
+## Installez subql/node
 
-Then to run a SubQuery node, run the following command:
+Ensuite, pour exécuter un nœud SubQuery, exécutez la commande suivante :
 
 ```shell
 npm install -g @subql/node
 ```
 
-The -g flag means to install it globally which means on OSX, the location will be /usr/local/lib/node_modules.
+Le drapeau -g signifie l'installer globalement, ce qui signifie que sous OSX, l'emplacement sera /usr/local/lib/node_modules.
 
-Once installed, you can check the version by running:
+Une fois installé, vous pouvez vérifier la version en exécutant :
 
 ```shell
 > subql-node --version
 0.19.1
 ```
 
-## Setting DB configs
+## Configuration de la base de données
 
-Next, you need to set the following environmental variables:
+Ensuite, vous devez définir les variables environnementales suivantes :
 
 ```shell
 export DB_USER=postgres
@@ -43,20 +43,20 @@ export DB_HOST=localhost
 export DB_PORT=5432
 ```
 
-Of course, if you have different values for the above keys, please adjust accordingly. Note that the `env` command will display the current environment variables and that this process only sets these values temporarily. That is, they are only valid for the duration of the terminal session. To set them permanently, store them in your ~/bash_profile instead.
+Bien sûr, si vous avez des valeurs différentes pour les clés ci-dessus, veuillez les ajuster en conséquence. Notez que la commande `env` affichera les variables d'environnement actuelles et que ce processus ne définit ces valeurs que temporairement. C'est-à-dire qu'elles ne sont valables que pour la durée de la session du terminal. Pour les définir de manière permanente, stockez-les plutôt dans votre ~/bash_profile.
 
-## Indexing a project
+## Indexation d'un projet
 
-To start indexing a project, navigate into your project folder and run the following command:
+Pour commencer à indexer un projet, naviguez dans le dossier de votre projet et exécutez la commande suivante :
 
 ```shell
 subql-node -f .
 ```
 
-If you do not have a project handy, `git clone https://github.com/subquery/subql-helloworld`. You should see the indexer node kick into life and start indexing blocks.
+Si vous n'avez pas de projet sous la main, `clonez git https://github.com/subquery/subql-helloworld`. Vous devriez voir le nœud d'indexation se mettre en marche et commencer à indexer les blocs.
 
-## Inspecting Postgres
+## Inspection de Postgres
 
-If you navigate to Postgres, you should see two tables created. `public.subqueries` and `subquery_1.starter_entities`.
+Si vous naviguez vers Postgres, vous devriez voir deux tables créées. `public.subqueries` et `subquery_1.starter_entities`.
 
-`public.subqueries` only contains 1 row which the indexer checks upon start up to “understand the current state” so it knows where to continue from. The `starter_entities` table contains the indexes. To view the data, run `select (*) from subquery_1.starter_entities`.
+`public.subqueries` ne contient qu'une seule ligne que l'indexeur vérifie au démarrage pour "comprendre l'état actuel" afin de savoir où continuer. La table `starter_entities` contient les index. Pour afficher les données, exécutez `select (*) from subquery_1.starter_entities`.

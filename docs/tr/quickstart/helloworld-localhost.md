@@ -83,8 +83,7 @@ cd subqlHelloWorld
 
 Şimdi çeşitli bağımlılıkları yüklemek için bir iplik veya düğüm yüklemesi yapın.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn install ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```bash npm install ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn install ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```bash npm install ``` </CodeGroupItem> </CodeGroup>
 
 Bir örnek `yarn install`
 
@@ -104,8 +103,7 @@ başarı Kilit dosyası kaydedildi.
 
 Şimdi GraphQL şemasından Typescript oluşturmak için `yarn codegen` çalıştırın.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```bash npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```bash npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
 
 Bir örnek`yarn codegen`
 
@@ -128,8 +126,7 @@ $ ./node_modules/.bin/subql codegen
 
 Bir sonraki adım, kodu `yarn build` ile oluşturmaktır.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```bash npm run-script build ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```bash npm run-script build ``` </CodeGroupItem> </CodeGroup>
 
 Bir örnek `yarn build`
 

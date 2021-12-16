@@ -3,7 +3,7 @@
 ## 视频教程
 
 <figure class="video_container">
-  <iframe src="https://www.youtube.com/embed/l9jvKWKmRfs" frameborder="0" allowfullscreen="true"></iframe>
+  <iframe src="https://www.youtube.com/embed/LO_Gea_IN_s" frameborder="0" allowfullscreen="true"></iframe>
 </figure>
 
 ## 简介

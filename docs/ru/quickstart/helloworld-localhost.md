@@ -27,7 +27,7 @@
 
 - yarn или npm менеджер пакетов
 - SubQuery CLI (`@subql/cli`)
-- Докер
+- Docker
 
 Вы можете запустить следующие команды в терминале, чтобы узнать, есть ли у вас какие-либо из этих предварительных условий.
 
@@ -59,7 +59,7 @@ echo -e "My yarn version is:" `yarn -v` "\nMy subql version is:" `subql -v`  "\n
 
 ## 1. Step 1: Initialise project
 
-Первым шагом при запуске с SubQuery является выполнение команды ` subql init `. Давайте инициализируем стартовый проект с именем ` subqlHelloWorld `. Обратите внимание, что только автор является обязательным. Все остальное внизу остается пустым.
+Первым шагом при запуске с SubQuery является выполнение команды `subql init`. Давайте инициализируем стартовый проект с именем `subqlHelloWorld`. Обратите внимание, что только автор является обязательным. Все остальное внизу остается пустым.
 
 ```shell
 > subql init --starter subqlHelloWorld
@@ -79,14 +79,19 @@ Init the starter package... subqlHelloWorld is ready
 cd subqlHelloWorld
 ```
 
-## 2. Step 2: Install dependencies
+## 4. Step 2: Install dependencies
 
 Теперь выполните установку yarn или node, чтобы установить различные зависимости.
 
-<CodeGroup> # Yarn yarn install # NPM npm install
+<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn install ``` </CodeGroupItem>
+<CodeGroupItem title="NPM"> ```bash npm install ``` </CodeGroupItem> </CodeGroup>
+
+An example of `yarn install`
 
 ```shell
-> yarn install
+# Yarn yarn install # NPM npm install</p>
+
+<pre><code class="shell">> yarn install
 yarn install v1.22.10
 info No lockfile found.
 [1/4] 🔍  Resolving packages...
@@ -99,12 +104,20 @@ success Saved lockfile.
 
 ## 3. Step 3: Generate code
 
-Теперь запустите ` yarn codegen `, чтобы сгенерировать Typescript из схемы GraphQL.
+Теперь запустите `yarn codegen`, чтобы сгенерировать Typescript из схемы GraphQL.
 
 <CodeGroup> # Yarn yarn codegen # NPM npm run-script codegen
 
 ```shell
-> yarn codegen
+&gt; yarn codegen
+yarn run v1.22.10
+$ ./node_modules/.bin/subql codegen
+===============================
+---------Subql Codegen---------
+===============================
+* Schema StarterEntity generated !</p>
+
+<pre><code class="shell">> yarn codegen
 yarn run v1.22.10
 $ ./node_modules/.bin/subql codegen
 ===============================
@@ -116,13 +129,20 @@ $ ./node_modules/.bin/subql codegen
 ✨  Done in 1.02s.
 ```
 
-** Предупреждение ** При внесении изменений в файл схемы, пожалуйста, не забудьте повторно запустить ` yarn codegen `, чтобы заново сгенерировать каталог типов.
+** Предупреждение ** При внесении изменений в файл схемы, пожалуйста, не забудьте повторно запустить `yarn codegen`, чтобы заново сгенерировать каталог типов.
 
 ## 4. Step 4: Build code
 
-Следующим шагом является создание кода с помощью ` yarn build `.
+Следующим шагом является создание кода с помощью `yarn build`.
 
 <CodeGroup> # Yarn yarn build # NPM npm run-script build
+
+```shell
+> yarn build
+yarn run v1.22.10
+$ tsc -b
+✨  Done in 5.68s. ```
+</p>
 
 ```shell
 > yarn build

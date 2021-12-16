@@ -1,27 +1,27 @@
-# GraphQL Schema
+# Схема GraphQL
 
-## Defining Entities
+## Определение сущностей
 
-The `schema.graphql` file defines the various GraphQL schemas. Due to the way that the GraphQL query language works, the schema file essentially dictates the shape of your data from SubQuery. To learn more about how to write in GraphQL schema language, we recommend checking out [Schemas and Types](https://graphql.org/learn/schema/#type-language).
+В файле ` schema.graphql ` определены различные схемы GraphQL. Из-за способа работы языка запросов GraphQL файл схемы по существу определяет форму ваших данных из SubQuery. Чтобы узнать больше о том, как писать на языке схем GraphQL, мы рекомендуем ознакомиться со схемами и типами.
 
-**Important: When you make any changes to the schema file, please ensure that you regenerate your types directory with the following command `yarn codegen`**
+**Важно: когда вы вносите какие-либо изменения в файл схемы, убедитесь, что вы регенерируете каталог типов с помощью следующей команды ` yarn codegen `**
 
-### Entities
-Each entity must define its required fields `id` with the type of `ID!`. It is used as the primary key and unique among all entities of the same type.
+### Cущности
+Каждая сущность должна определять требуемые поля ID c помощью типа ID. Это используется как главный ключ и он уникален среди всех сущностей одинакового типа.
 
-Non-nullable fields in the entity are indicated by `!`. Please see the example below:
+Не-нулевые поля в сущности обозначаются `!`. Посмотрите на пример ниже:
 
 ```graphql
 type Example @entity {
-  id: ID! # id field is always required and must look like this
-  name: String! # This is a required field
-  address: String # This is an optional field
+  id: ID! # поле id является обязательным и должно выглядеть так.
+  name: String! # Это обязательное поле
+  address: String # Это обязательное поле
 }
 ```
 
-### Supported scalars and types
+### Поддерживаемые скаляры и типы
 
-We currently supporting flowing scalars types:
+В настоящее время мы поддерживаем следующие скалярные типы:
 - `ID`
 - `Int`
 - `String`
@@ -29,23 +29,23 @@ We currently supporting flowing scalars types:
 - `Float`
 - `Date`
 - `Boolean`
-- `<EntityName>` for nested relationship entities, you might use the defined entity's name as one of the fields. Please see in [Entity Relationships](#entity-relationships).
-- `JSON` can alternatively store structured data, please see [JSON type](#json-type)
-- `<EnumName>` types are a special kind of enumerated scalar that is restricted to a particular set of allowed values. Please see [Graphql Enum](https://graphql.org/learn/schema/#enumeration-types)
+- `<EntityName>` для вложенных сущностей отношений, вы можете использовать имя определенной сущности в качестве одного из полей. Пожалуйста, смотрите в [Entity Relationships](#entity-relationships).
+- `JSON` может также хранить структурированные данные, пожалуйста, посмотрите [JSON type](#json-type)
+- `<EnumName>` типы это особый вид enum скаляра, который ограничен определенным набором допустимых значений. Подробнее о [Graphql Enum](https://graphql.org/learn/schema/#enumeration-types)
 
-## Indexing by non-primary-key field
+## Индексирование по непервичному ключу
 
-To improve query performance, index an entity field simply by implementing the `@index` annotation on a non-primary-key field.
+Для улучшения производительности запроса необходимо индексировать поле сущности выполнив `@index` для поля не являющегося первичным ключом.
 
-However, we don't allow users to add `@index` annotation on any [JSON](#json-type) object. By default, indexes are automatically added to foreign keys and for JSON fields in the database, but only to enhance query service performance.
+Однако мы не позволяем юзерам добавлять аннотацию `@index` на какой либо из объектов [JSON](#json-type). По умолчанию индексы автоматически добавляются к внешним ключам и к полям JSON в базе данных, но только для повышения производительности службы запросов.
 
-Here is an example.
+Вот пример.
 
 ```graphql
 type User @entity {
   id: ID!
-  name: String! @index(unique: true) # unique can be set to true or false
-  title: Title! # Indexes are automatically added to foreign key field 
+  name: String! @index(unique: true) # unique может быть true или false
+  title: Title! # Индексы автоматически добавляются к полю внешнего ключа 
 }
 
 type Title @entity {
@@ -53,19 +53,19 @@ type Title @entity {
   name: String! @index(unique:true)
 }
 ```
-Assuming we knew this user's name, but we don't know the exact id value, rather than extract all users and then filtering by name we can add `@index` behind the name field. This makes querying much faster and we can additionally pass the `unique: true` to  ensure uniqueness.
+Если предположить, что мы знаем имя этого пользователя, но не знаем точного значения Id, то вместо того, чтобы извлечь всех пользователей и затем фильтровать их по имени, мы можем добавить ` @index ` за полем имени. Это делает выполнение запросов значительно более быстрым, и мы можем дополнительно передать `unique: true` для обеспечения уникальности.
 
-**If a field is not unique, the maximum result set size is 100**
+**Если поле не является уникальным, то максимальный размер набора результатов будет равен 100**
 
 When code generation is run, this will automatically create a `getByName` under the `User` model, and the foreign key field `title` will create a `getByTitleId` method, which both can directly be accessed in the mapping function.
 
 ```sql
-/* Prepare a record for title entity */
-INSERT INTO titles (id, name) VALUES ('id_1', 'Captain')
+/* Подготовить запись заголовка */
+INSERT INTO заголовки (id, имя) VALUES ('id_1', 'Captain')
 ```
 
 ```typescript
-// Handler in mapping function
+// Обработчик в mapping функции
 import {User} from "../types/models/User"
 import {Title} from "../types/models/Title"
 
@@ -73,20 +73,20 @@ const jack = await User.getByName('Jack Sparrow');
 
 const captainTitle = await Title.getByName('Captain');
 
-const pirateLords = await User.getByTitleId(captainTitle.id); // List of all Captains
+const pirateLords = await User.getByTitleId(captainTitle.id); // Список всех Captains
 ```
 
-## Entity Relationships
+## Отношения сущностей
 
-An entity often has nested relationships with other entities. Setting the field value to another entity name will define a one-to-one relationship between these two entities by default.
+Сущности часто имеют вложенные взаимоотношения с другими сущностями. Установка значения в поле имени другой сущности по умолчанию будет означать отношение один-к-одному между этими двумя сущностями.
 
-Different entity relationships (one-to-one, one-to-many, and many-to-many) can be configured using the examples below.
+Различные взаимоотношения отношения сущностей («один-к-одному», «один-ко-многим» и «многие-ко-многим») могут быть настроены с помощью примеров приведенных ниже.
 
-### One-to-One Relationships
+### Отношения Один-к-Одному
 
-One-to-one relationships are the default when only a single entity is mapped to another.
+Отношения «один-к-одному» используются по умолчанию, когда только один объект сопоставлен с другим.
 
-Example: A passport will only belong to one person and a person only has one passport (in this example):
+Пример: Паспорт будет принадлежать только одному человеку, и человек имеет только один паспорт (в этом примере):
 
 ```graphql
 type Person @entity {
@@ -99,7 +99,7 @@ type Passport @entity {
 }
 ```
 
-or
+или
 
 ```graphql
 type Person @entity {
@@ -113,11 +113,11 @@ type Passport @entity {
 }
 ```
 
-### One-to-Many relationships
+### Отношения Один-ко-Многим
 
-You can use square brackets to indicate that a field type includes multiple entities.
+Вы можете использовать квадратные скобки, чтобы указать, что тип поля содержит несколько сущностей.
 
-Example: A person can have multiple accounts.
+Пример: Человек может иметь несколько учетных записей.
 
 ```graphql
 type Person @entity {
@@ -127,14 +127,14 @@ type Person @entity {
 
 type Account @entity {
   id: ID!
-  publicAddress: String!
+  публичный адрес: String!
 }
 ```
 
-### Many-to-Many relationships
-A many-to-many relationship can be achieved by implementing a mapping entity to connect the other two entities.
+### Отношения Многие-ко-Многим
+Отношения «многие ко многим» могут быть достигнуты путем реализации сопоставления сущности для соединения с двумя другими сущностями.
 
-Example: Each person is a part of multiple groups (PersonGroup) and groups have multiple different people (PersonGroup).
+Пример: Каждый человек является частью нескольких групп (ЧеловекГруппа), и в группах есть несколько разных людей (ЧеловекГруппа).
 
 ```graphql
 type Person @entity {
@@ -156,16 +156,16 @@ type Group @entity {
 }
 ```
 
-Also, it is possible to create a connection of the same entity in multiple fields of the middle entity.
+Кроме того, возможно создать связь одной и той же сущности в нескольких полях средней сущности.
 
-For example, an account can have multiple transfers, and each transfer has a source and destination account.
+Например, учетная запись может иметь несколько переводов, и каждая передача имеет исходную и конечную учетную запись.
 
-This will establish a bi-directional relationship between two Accounts (from and to) through Transfer table.
+Это установит двунаправленную связь между двумя Учетными Записями (от и до) через Таблицу Переводов.
 
 ```graphql
 type Account @entity {
   id: ID!
-  publicAddress: String!
+  публичный адрес: String!
 }
 
 type Transfer @entity {
@@ -176,18 +176,18 @@ type Transfer @entity {
 }
 ```
 
-### Reverse Lookups
+### Обратный просмотр
 
-To enable a reverse lookup on an entity to a relation, attach `@derivedFrom` to the field and point to its reverse lookup field of another entity.
+Чтобы включить обратный поиск cущности в отношении, прикрепите ` @dehibitedFrom ` к полю и укажите на его поле обратного просмотра другой сущности.
 
-This creates a virtual field on the entity that can be queried.
+Это создает виртуальное поле на cущности, которое может быть запрошено.
 
-The Transfer "from" an Account is accessible from the Account entity by setting the sentTransfer or receivedTransfer as having their value derived from the respective from or to fields.
+Передача «от» Учетной Записи доступна из объекта Учетной Записи путем установки значений отправитьПередачу (sentTransfer) или получитьПередачу (receiveTransfer), полученной из соответствующих полей из (from) или в (to).
 
 ```graphql
 type Account @entity {
   id: ID!
-  publicAddress: String!
+  публичный адрес: String!
   sentTransfers: [Transfer] @derivedFrom(field: "from")
   receivedTransfers: [Transfer] @derivedFrom(field: "to")
 }
@@ -200,19 +200,19 @@ type Transfer @entity {
 }
 ```
 
-## JSON type
+## Тип JSON
 
-We are supporting saving data as a JSON type, which is a fast way to store structured data. We'll automatically generate corresponding JSON interfaces for querying this data and save you time defining and managing entities.
+Мы поддерживаем сохранение данных в формате JSON, который является быстрым способом хранения структурированных данных. Мы автоматически сгенерируем соответствующие JSON интерфейсы для запрашивания этих данных и сэкономим вам время на определение и управление объектами.
 
-We recommend users use the JSON type in the following scenarios:
-- When storing structured data in a single field is more manageable than creating multiple separate entities.
-- Saving arbitrary key/value user preferences (where the value can be boolean, textual, or numeric, and you don't want to have separate columns for different data types)
-- The schema is volatile and changes frequently
+Мы рекомендуем пользователям использовать тип JSON в следующих сценариях:
+- Когда хранение структурированных данных в одном поле более удобно, чем создание нескольких отдельных сущностей.
+- При сохранении произвольных пользовательских настроек ключа/значения (где значение может быть логическим, текстовым или цифровым, и вы не хотите иметь отдельные столбцы для разного типа данных)
+- Схема непостоянна и часто меняется
 
-### Define JSON directive
-Define the property as a JSON type by adding the `jsonField` annotation in the entity. This will automatically generate interfaces for all JSON objects in your project under `types/interfaces.ts`, and you can access them in your mapping function.
+### Определение директивы JSON
+Определите свойство как тип JSON, добавив аннотацию `jsonField` в сущность. Это автоматически создаст интерфейсы для всех объектов JSON в вашем проекте в `types/interfaces.ts`, и вы сможете получить к ним доступ в вашей функции отображения.
 
-Unlike the entity, the jsonField directive object does not require any `id` field. A JSON object is also able to nest with other JSON objects.
+В отличие от сущности, объект директивы jsonField не требует поля `id`. Объект JSON также может быть вложен в другие объекты JSON.
 
 ````graphql
 type AddressDetail @jsonField {
@@ -231,14 +231,14 @@ type User @entity {
 }
 ````
 
-### Querying JSON fields
+### Запрос к полям JSON
 
-The drawback of using JSON types is a slight impact on query efficiency when filtering, as each time it performs a text search, it is on the entire entity.
+Недостатком использования типов JSON является небольшое влияние на эффективность запросов при фильтрации, поскольку каждый раз при выполнении текстового поиска он выполняется по всей сущности.
 
-However, the impact is still acceptable in our query service. Here is an example of how to use the `contains` operator in the GraphQL query on a JSON field to find the first 5 users who own a phone number that contains '0064'.
+Однако в нашей службе запросов это влияние все еще приемлемо. Вот пример использования оператора `contains` в GraphQL-запросе на поле JSON для поиска первых 5 пользователей, владеющих номером телефона, который содержит '0064'.
 
 ```graphql
-#To find the the first 5 users own phone numbers contains '0064'.
+# Чтобы найти первые 5 телефонных номеров пользователей, содержащих '0064'.
 
 query{
   user(

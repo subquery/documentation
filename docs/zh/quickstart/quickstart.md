@@ -62,35 +62,45 @@ subql init --starter PROJECT_NAME
 
 ### GraphQL 模型生成
 
-为了 [索引](../run/run.md) 您的 SubQuery 项目，您必须首先生成您在 GraphQL Schema 文件中定义的 GraphQL 模型(`Schema)。 在项目目录的根目录中运行此命令。</p>
+为了 [索引](../run/run.md) 您的 SubQuery 项目，您必须首先生成您在 GraphQL Schema 文件中定义的 GraphQL 模型(`Schema)。 在项目目录的根目录中运行此命令。
 
-<p spaces-before="0">
+<CodeGroup> cd PROJECT_NAME # Yarn yarn install # NPM npm install 您将主要处理以下文件：
 
-<CodeGroup>
-  # Yarn
-yarn codegen
+- 在 `project.yaml`</p>
 
-# NPM
-npm run-script codegen</p>
+## 构建项目
 
-<h2 spaces-before="0">构建项目</h2>
+将您的新项目发布到 SubQuery Projects 。
 
-<p spaces-before="0">为了在本地托管的 SubQuery 节点上运行您的SubQuery 项目，您需要构建您的工作。</p>
+从项目的根目录运行构建命令。
 
-<p spaces-before="0">从项目的根目录运行构建命令。</p>
+<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem>
+<CodeGroupItem title="NPM"> ```bash npm run-script build ``` </CodeGroupItem> </CodeGroup>
 
-<p spaces-before="0">
+## 运行和查询您的启动项目
 
-<CodeGroup>
-  在此 <code>docker-compose.yml` 文件中定义了控制子查询节点如何运行的所有配置。 对于刚刚初始化的新项目，您无需在此处更改任何内容，但您可以在我们的 [Run a Project section](../run/run.md)部分阅读有关文件和设置的更多信息。
+尽管您可以快速发布您的新项目到 [SubQuery 项目](https://project.subquery.network) 并通过我们的 [Explorer](https://explorer.subquery.network)进行查询， 本地运行 SubQuery 节点的最简单方法是 Docker 容器， 如果你没有停靠栏，你可以从 [停靠栏安装它。 om](https://docs.docker.com/get-docker/)
+
+__ 跳过这个项目并将您的新项目发布到 SubQuery 项目_</a></p> 
+
+
+
+### 运行您的 SubQuery 项目
+
+所有控制在此 `docker-compose 如何定义SubQuery 节点的配置. ml` 文件。 对于刚刚初始化的新项目，您无需在此处更改任何内容，但您可以在我们的 [Run a Project section](../run/run.md)部分阅读有关文件和设置的更多信息。
 
 在项目目录下运行以下命令：
+
+
 
 ```shell
 docker-compose pull && docker-compose up
 ```
 
+
 下载所需软件包可能需要一些时间([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/quiry`](https://www.npmjs.com/package/@subql/query), and Postgress) ，但很快你会看到一个运行中的 SubQuery 节点。
+
+
 
 ### 查询您的项目
 
@@ -99,6 +109,8 @@ docker-compose pull && docker-compose up
 您应该会看到 GraphQL playground 显示在资源管理器中，其模式是准备查询。 在 Playground 的右上角，您会找到一个_Docs_按钮，该按钮将打开文档绘图。 该文档是自动生成的，可帮助您查找实体和方法。
 
 对于一个新的 SubQuery 入门项目，您可以尝试以下查询以了解其工作原理，或者 [了解更多关于 GraphQL 查询语言](../query/graphql.md)的信息。
+
+
 
 ```graphql
 {
@@ -113,6 +125,9 @@ docker-compose pull && docker-compose up
   }
 }
 ```
+
+
+
 
 ## 下一步
 

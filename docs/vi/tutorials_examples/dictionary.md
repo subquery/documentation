@@ -40,4 +40,4 @@ Từ điển cho phép dự án của bạn bỏ qua điều này, vì vậy tha
 
 Khi [block handlers](https://doc.subquery.network/create/mapping.html#block-handler) được sử dụng để lấy dữ liệu từ một chuỗi, mọi khối cần được xử lý. Do đó, việc sử dụng từ điển trong trường hợp này không mang lại bất kỳ lợi thế nào và trình lập chỉ mục sẽ tự động chuyển sang cách tiếp cận không dùng từ điển mặc định.
 
-Ngoài ra, khi xử lý các sự kiện hoặc nội tại xảy ra hoặc tồn tại trong mọi khối như ` timestamp.set `, việc sử dụng từ điển sẽ không mang lại bất kỳ lợi thế nào.
+Ngoài ra, khi xử lý các sự kiện hoặc nội tại xảy ra hoặc tồn tại trong mọi khối như `timestamp.set`, việc sử dụng từ điển sẽ không mang lại bất kỳ lợi thế nào.

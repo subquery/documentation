@@ -1,14 +1,15 @@
-# Mapping
+# 映射
 
 映射函数定义了如何将链数据转换为我们先前在`schema.GraphQL`文件中定义的优化GraphQL的具体解决办法。
 
 - 映射在`src/Mappings`目录中定义，并作为函数导出
-- 这些映射也可以在`src/index.ts中导出</li>
+- 这些映射也可以在`src/index.ts中导出&lt;/li&gt;
 <li>映射文件在映射处理程序下的<code>project.yaml`中引用。
+- 映射文件是映射处理器下的 `project.yaml` 的参考文件。
 
 共有三类映射函数的: [Block handlers](#block-handler)，[Event Handlers](#event-handler)和[Call Handlers](#call-handler)。
 
-## Block Handler
+## 区块处理器
 
 当一个新的区块底层链产生时，您可以使用区块处理程序来获取信息，例如，区块号。 为了实现这一点，将为每个区块调用一次已定义的BlockHandler。
 
@@ -25,7 +26,7 @@ export async function handleBlock(block: SubstrateBlock): Promise<void> {
 
 [SubstrateBlock](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L16)是[signedBlock](https://polkadot.js.org/docs/api/cookbook/blocks/)的扩展接口类型，同样包括`specVersion`和`timestamp`。
 
-## Event Handler
+## 事件处理器
 
 在某些事件写入一个新的区块上时，您可以使用事件处理程序来捕获信息。 一部分事件是默认的 Substrate 运行时间, 一个区块可能会包括多个事件。
 
@@ -45,7 +46,7 @@ export async function handleEvent(event: SubstrateEvent): Promise<void> {
 
 [SubstrateEvent](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L30) 是 [ EventRecord ](https://github.com/polkadot-js/api/blob/f0ce53f5a5e1e5a77cc01bf7f9ddb7fcf8546d11/packages/types/src/interfaces/system/types.ts#L149) 的扩展接口类型。 除了事件数据外，它还包括一个 `id` (该事件所属的区块) 以及此区块的外部地址。
 
-## Call Handler
+## 调用处理器
 
 当您想要捕获某些底层外部的信息时，可以使用 Call handlers。
 
@@ -57,9 +58,9 @@ export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
 }
 ```
 
-[SubstrateExtrinsic](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L21) 继承了 [ GenericExtrinsic ](https://github.com/polkadot-js/api/blob/a9c9fb5769dec7ada8612d6068cf69de04aa15ed/packages/types/src/extrinsic/Extrinsic.ts#L170). 它被分配了一个 `id` (该外包属于的方块)，并提供了扩展此方块中的事件的外在属性。 此外，它还记录了这个外包的成功状态。
+[SubstrateExtrinsic](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L21) 继承了 [ GenericExtrinsic ](https://github.com/polkadot-js/api/blob/a9c9fb5769dec7ada8612d6068cf69de04aa15ed/packages/types/src/extrinsic/Extrinsic.ts#L170). 它被分配了一个 `id` (该外包属于的方块)，并提供了扩展此方块中的事件的外在属性。 它被赋值`id`(此外部事件所属的块)，并提供一个扩展该块之间事件的外部属性。 此外，它还记录了这个外包的成功状态。
 
-## Query States
+## 查询状态
 我们的目标是通过映射处理函数为用户提供所有数据源(不仅仅是上述三种接口事件类型)。 因此，我们开放了一些@polkadot/api的接口来丰富能力。
 
 这些是我们当前支持的接口：
@@ -81,7 +82,7 @@ export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
 
 请看我们在 [alidator-threshold](https://github.com/subquery/tutorials-validator-threshold) 实例中使用此 API 的例子。
 
-## RPC calls
+## RPC调用
 
 我们还支持一些API RPC方法，这些方法是允许映射函数能够与实际节点、查询和提交进行交互的远程调用。 SubQuery的一个核心前提是，它具有确定性，因此为了保证结果一致我们只允许已经发生的RPC调用。
 
@@ -99,13 +100,13 @@ const b2 = await api.rpc.chain.getBlock();
 ```
 - 对于 [自定义 Substrate 链](#custom-substrate-chains) 的RPC 调用，请参阅 [使用方法](#usage)。
 
-## Modules and Libraries
+## 模块和库
 
 为了提高SubQuery的数据处理能力, 我们已经允许NodeJS 的一些内置模块在 [沙盒](#the-sandbox)中运行映射函, 并且允许用户调用第三方库。
 
 请注意这是一个 **实验性功能** ，您可能遇到可能对您的映射功能产生不利影响的bug或问题。 如果您发现了任何bug, 请在 [GitHub](https://github.com/subquery/subql) 中创建一个issue来报告给我们。
 
-### Built-in modules
+### 内置模块
 
 目前，我们允许下列NodeJS 模块： `assert`, `buffer`, `crypto`, `util`, and `path`.
 
@@ -122,13 +123,13 @@ export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
 }
 ```
 
-### Third-party libraries
+### 第三方库
 
 由于虚拟机在我们的沙盒中的局限性，我们目前只支持由 **CommonJS** 编写的第三方库。
 
 我们还支持一个 ** hybrid ** 库，如默认使用ESM`@polkadot/*` 。 然而，如果任何第三方库依赖于 **ESM** 格式的任何模块，虚拟机将**不会** 编译并返回错误。
 
-## Custom Substrate Chains
+## 自定义Substrate 链
 
 SubQuery 可以用于任何基于 Substrate 的链，而不仅仅是 Polkadot 或 Kusama。
 
@@ -265,9 +266,10 @@ export async function kittyApiHandler(): Promise<void> {
 
 ### 自定义链的 rpc 调用
 
-为了支持自定义链的RPC调用，我们必须为允许per-spec 配置的`typesBundle`手动注入RPC 定义。 你可以在 `project.yml`中定义 `typesBundle`。 并且请记住我们只支持 ` isHistoric ` 类型的调用。
+为了支持自定义链的RPC调用，我们必须为允许per-spec 配置的`typesBundle`手动注入RPC 定义。 你可以在 `project.yml`中定义 `typesBundle`。 并且请记住我们只支持 `isHistoric` 类型的调用。
 ```yaml
 ...
+  ...
   ...
   types: {
     "KittyIndex": "u32",

@@ -8,8 +8,7 @@
 
 使用 Yarn 或 NPM在您的电脑上全局安装 SubQuery CLI ：
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn global addition @subql/cli ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```bash npm install -g @subql/cli ``` </CodeGroupItem> </CodeGroup></p>
+<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn global addition @subql/cli ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```bash npm install -g @subql/cli ``` </CodeGroupItem> </CodeGroup></p>
 
 然后您可以运行帮助查看可用的命令和使用 CLI：
 
@@ -22,8 +21,7 @@ SubQuery 节点能够从 SubQuery 项目提取基于底层的区块链数据并�
 
 使用 Yarn 或 NPM在您的终端上全局安装SubQuery节点：
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn global added @subql/node ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```bash npm install -g @subql/node ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn global added @subql/node ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```bash npm install -g @subql/node ``` </CodeGroupItem> </CodeGroup>
 
 一旦安装完毕， 您可以用以下方式开始一个节点：
 

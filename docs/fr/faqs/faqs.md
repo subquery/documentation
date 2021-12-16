@@ -1,53 +1,63 @@
-# Frequently Asked Questions
+# Questions fréquemment posées
 
-## What is SubQuery?
+## Qu'est-ce que SubQuery ?
 
-SubQuery is an open source project that allows developers to index, transform, and query Substrate chain data to power their applications.
+SubQuery est un projet open source qui permet aux développeurs d'indexer, transformer et interroger les données de la chaîne Substrate pour alimenter leurs applications.
 
-SubQuery also provides free, production grade hosting of projects for developers removing the responsiblity of manging infrastructure, and letting developers do what they do best - build.
+SubQuery fournit également l'hébergement gratuit de projets de production pour les développeurs, en supprimant la responsabilité de la gestion de l'infrastructure et en laissant les développeurs faire ce qu'ils font le mieux - construire.
 
-## What is the best way to get started with SubQuery?
+## Quelle est la meilleure façon de commencer avec SubQuery ?
 
-The best way to get started with SubQuery is to try out our [Hello World tutorial](../quickstart/helloworld-localhost.md). This is a simple 5 min walk through of downloading the starter template, building the project, and then using Docker to run a node on your localhost and running a simple query.
+La meilleure façon de commencer avec SubQuery est d'essayer notre [tutoriel Hello World](../quickstart/helloworld-localhost.md). Il s'agit d'une prise en main de 5 minutes pour télécharger le modèle de démarrage, construire le projet, puis en utilisant Docker pour exécuter un noeud sur votre serveur local et en exécutant une requête simple.
 
-## How can I contribute or give feedback to SubQuery?
+## Comment puis-je contribuer ou faire un retour à SubQuery ?
 
-We love contributions and feedback from the community. To contribute code, fork the repository of interest and make your changes. Then submit a PR or Pull Request. Oh, don't forget to test as well! Also check out our contributions guide lines (TBA).
+Nous aimons les contributions et les commentaires de la communauté. Pour contribuer au code, faites un fork du répertoire d'intérêt et apportez vos changements. Ensuite soumettez une PR ou une Pull Request. Oh, n'oubliez pas de tester aussi ! Consultez également notre guide des contributions (TBA).
 
-To give feedback, contact us at hello@subquery.network or jump onto our [discord channel](https://discord.com/invite/78zg8aBSMG)
+Pour nous faire part de vos commentaires, contactez-nous à l'adresse hello@subquery.network ou connectez-vous à notre [canal discord](https://discord.com/invite/78zg8aBSMG)
 
-## How much does it cost to host my project in SubQuery Projects?
+## Combien coûte l'hébergement de mon projet dans SubQuery Projects ?
 
-Hosting your project in SubQuery Projects is absolutely free - it's is our way of giving back to the community. To learn how to host your project with us, please check out the [Hello World (SubQuery hosted)](../quickstart/helloworld-hosted.md) tutorial.
+Héberger votre projet dans SubQuery Projects est absolument gratuit - c'est notre façon de le rendre à la communauté. Pour apprendre comment héberger votre projet chez nous, veuillez consulter le tutoriel [Hello World (hébergé par SubQuery)](../quickstart/helloworld-hosted.md).
 
-## What are deployment slots?
+## Que sont les créneaux de déploiement ?
 
-Deployment slots are a feature in [SubQuery Projects](https://project.subquery.network) that is the equivalent of a development environment. For example, in any software organisation there is normally a development environment and a production environment as a minimum (ignoring localhost that is). Typically additional environments such as staging and pre-prod or even QA are included depending on the needs of the organisation and their development set up.
+Les créneaux de déploiement sont une fonctionnalité des [projets SubQuery](https://project.subquery.network) qui est l'équivalent d'un environnement de développement. Par exemple, dans toute organisation logicielle, il y a normalement un environnement de développement et un environnement de production au minimum (en ignorant localhost). En général, des environnements supplémentaires tels que les environnements de développement et de pré-production, voire d'assurance qualité, sont inclus en fonction des besoins de l'organisation et de sa structure de développement.
 
-SubQuery currently has two slots available. A staging slot and a production slot. This allows developers to deploy their SubQuery to the staging environment and all going well, "promote to production" at the click of a button.
+SubQuery a actuellement deux slots disponibles. Un emplacement d'étape et un emplacement de production. Cela permet aux développeurs de déployer leur SubQuery dans l'environnement de test et, si tout va bien, de le "promouvoir en production" en cliquant sur un bouton.
 
-## What is the advantage of a staging slot?
+## Quel est l'avantage d'un emplacement de test ?
 
-The main benefit of using a staging slot is that it allows you to prepare a new release of your SubQuery project without exposing it publicly. You can wait for the staging slot to reindex all data without affecting your production applications.
+Le principal avantage de l'utilisation d'un créneau de mise à disposition est qu'il vous permet de préparer une nouvelle version de votre projet SubQuery sans l'exposer publiquement. Vous pouvez attendre que le slot d'indexation réindexe toutes les données sans affecter vos applications de production.
 
-The staging slot is not shown to the public in the [Explorer](https://explorer.subquery.network/) and has a unique URL that is visible only to you. And of course, the separate environment allows you to test your new code without affecting production.
+Le slot de préparation n'est pas visible par le public dans l'[explorateur](https://explorer.subquery.network/) et possède une URL unique que vous seul pouvez voir. Et bien sûr, l'environnement séparé vous permet de tester votre nouveau code sans affecter la production.
 
-## What are extrinsics?
+## Que sont les extrinsèques ?
 
-If you are already familiar with blockchain concepts, you can think of extrinsics as comparable to transactions. More formally though, an extrinsic is a piece of information that comes from outside the chain and is included in a block. There are three categories of extrinsics. They are inherents, signed transactions, and unsigned transactions.
+Si vous êtes déjà familiarisé avec les concepts de blockchain, vous pouvez considérer les extrinsèques comme comparables aux transactions. Plus formellement cependant, un extrinsèque est un élément d'information qui provient de l'extérieur de la chaîne et qui est inclus dans un bloc. Il existe trois catégories d'extrinsèques. Ce sont les inhérents, les transactions signées et les transactions non signées.
 
-Inherent extrinsics are pieces of information that are not signed and only inserted into a block by the block author.
+Les extrinsèques inhérents sont des éléments d'information qui ne sont pas signés et qui sont uniquement insérés dans un bloc par l'auteur du bloc.
 
-Signed transaction extrinsics are transactions that contain a signature of the account that issued the transaction. They stands to pay a fee to have the transaction included on chain.
+Les extrinsèques de transaction signés sont des transactions qui contiennent une signature du compte qui a émis la transaction. Ils doivent payer des frais pour que la transaction soit incluse dans la chaîne.
 
-Unsigned transactions extrinsics are transactions that do not contain a signature of the account that issued the transaction. Unsigned transactions extrinsics should be used with care because there is nobody paying a fee, becaused it is signed. Because of this, the transaction queue lacks economic logic to prevent spam.
+Les transactions extrinsèques non signées sont des transactions qui ne contiennent pas la signature du compte qui a émis la transaction. Les transactions extrinsèques non signées doivent être utilisées avec précaution car personne ne paie de frais parce qu'elles sont signées. De ce fait, la file d'attente des transactions manque de logique économique pour éviter le spam.
 
-For more information, click [here](https://substrate.dev/docs/en/knowledgebase/learn-substrate/extrinsics).
+Pour plus d'informations, cliquez [ici](https://substrate.dev/docs/en/knowledgebase/learn-substrate/extrinsics).
 
-## What is the endpoint for the Kusama network?
+## Quel est le point de terminaison pour le réseau Kusama ?
 
-The network.endpoint for the Kusama network is `wss://kusama.api.onfinality.io/public-ws`.
+Le point de terminaison du réseau Kusama est `wss://kusama.api.onfinality.io/public-ws`.
 
-## What is the endpoint for the Polkadot mainnet network?
+## Quel est le point de terminaison du réseau mainnet de Polkadot ?
 
-The network.endpoint for the Polkadot network is `wss://polkadot.api.onfinality.io/public-ws`.
+Le point de terminaison du réseau Polkadot est `wss://polkadot.api.onfinality.io/public-ws`.
+
+## Comment puis-je développer de manière itérative le schéma de mon projet ?
+
+Un problème connu lors du développement d'un schéma de projet changeant est que lors du lancement de votre nœud Subquery pour les tests, les blocs précédemment indexés seront incompatibles avec votre nouveau schéma. Afin de développer itérativement les schémas, les blocs indexés stockés dans la base de données doivent être effacés, ceci peut être réalisé en lançant votre nœud avec l'option `--force-clean`. Par exemple :
+
+```shell
+subql-node -f . --force-clean --subquery-name=<project-name>
+```
+
+Notez qu'il est recommandé d'utiliser `--force-clean` lors de la modification du `startBlock` dans le manifeste du projet(`project.yaml`) afin de commencer la réindexation à partir du bloc configuré. Si `startBlock` est modifié sans `--force-clean` du projet, l'indexeur continuera l'indexation avec le `startBlock` précédemment configuré.

@@ -1,74 +1,74 @@
 # Hello World (SubQuery hosted)
 
-The aim of this quick start is to show how you can get the default starter project running in SubQuery Projects (our managed service) in a few easy steps.
+Метою цього швидкого старту є показати, як ви можете отримати початковий проект, що працює в SubQuery проектах (наш керований сервіс) за декілька простих кроків.
 
-We will take the simple starter project (and everything we've learned thus far) but instead of running it locally within Docker, we'll take advantage of SubQuery's managed hosting infrastructure. In other words, we let SubQuery do all the heavy lifting, running and managing production infrastructure.
+Ми візьмемо простий стартовий проект (і все, що ми до цього досягнули), але замість того, щоб запускати його локально всередині Docker, ми скористаємося перевагами керованої хостинг-інфраструктури SubQuery. Іншими словами, ми дозволяємо SubQuery робити всі важкі підйоми та керування виробничою інфраструктурою.
 
-## Learning objectives
+## Мета навчання
 
-At the end of this quick start, you should:
+Наприкінці цього швидкого початку, ви повинен:
 
-- understand the required pre-requisites
-- be able host a project in [SubQuery Projects](https://project.subquery.network/)
-- run a simple query to get the block height of the Polkadot mainnet using the playground
-- run a simple GET query to get the block height of the Polkadot mainnet using cURL
+- розуміти необхідні передреквізити
+- Ви можете спробувати самі зараз у [Проектах SubQuery ](https://project.subquery.network/)
+- виконувати простий запит щоб отримати висоту блоків Polkadot mainnet за допомогою playground
+- виконати простий запит GET, щоб отримати граничну висоту компонента Polkadot за допомогою cURL
 
-## Intended audience
+## Інтентифікована аудиторія
 
-This guide is geared towards new developers who have some development experience and are interested in learning more about SubQuery.
+Це керівництво орієнтоване на нових розробників, які мають певний досвід розробки і зацікавлені в вивченні більше про SubQuery.
 
-## Video guide
+## Відеоінструкція
 
 <figure class="video_container">
   <iframe src="https://www.youtube.com/embed/b-ba8-zPOoo" frameborder="0" allowfullscreen="true"></iframe>
 </figure>
 
-## Pre-requisites
+## Пре-реєстрація
 
-You will need:
+Вам потрібно:
 
 - a GitHub account
 
-## Step 1: Create your project
+## 1. Створити проект
 
-Let's create a project called subql_hellowworld and run the obligatory install, codegen and build with your favourite package manager.
+Давайте створимо проект під назвою subql_hellowсвіти та виконаємо обов'язкову установку, код та збудуйте за допомогою вашого улюбленого менеджера пакетів.
 
 ```shell
-> subql init --starter subqlHelloWorld
+> init subql init --starter subqlHelloWorld
 yarn install
 yarn codegen
-yarn build
+
 ```
 
-Do NOT run the docker commands though.
+НЕ запускати команди докерів.
 
-## Step 2: Create a GitHub repo
+## 2. Створюємо GitHub репозиторій...
 
-In GitHub, create a new public repository. Provide a name and set your visibility to public. Here, everything is kept as the default for now.
+У GitHub, створіть новий публічний репозиторій. Вкажіть назву та встановіть видимість для перегляду. Тут, на даний момент все зберігається за замовчуванням.
 
-![create github repo](/assets/img/github_create_new_repo.png)
+![Створити GitHub репозиторій](/assets/img/github_create_new_repo.png)
 
-Take note of your GitHub URL, this must be public for SubQuery to access it.
+Зверніть увагу на ваш GitHub URL, він має бути публічним для доступу до SubQuery
 
-![create github repo](/assets/img/github_repo_url.png)
+![Створити GitHub репозиторій](/assets/img/github_repo_url.png)
 
-## Step 3: Push to GitHub
+## 3. Відправити на GitHub
 
-Back in your project directory, initialise it as a git directory. Otherwise, you might get the error "fatal: not a git repository (or any of the parent directories): .git"
+Поверніться до каталогу проекту, ініціалізуйте її як git directory. В іншому випадку ви можете отримати помилку "фатальний: не репозиторій git (або будь-які з батьківських каталогів): .git"
 
 ```shell
 git init
 ```
 
-Then add a remote repository with the command:
+Потім додайте віддалений репозиторій за допомогою команди:
 
 ```shell
-git remote add origin https://github.com/seandotau/subqlHelloWorld.git
+git Add origin https://github.com/seandotau/subqlHelloWorld.git
 ```
 
-This basically sets your remote repository to “https://github.com/seandotau/subqlHelloWorld.git” and gives it the name “origin” which is the standard nomenclature for a remote repository in GitHub.
+Це в основному задає свій віддалений репозиторій на “https://github.com/seandotau/subqlHelloWorld.git” і дозволяє йому назвати "origin" стандартну номенклатуру для віддаленого сховища на GitHub.
 
-Next we add the code to our repo with the following commands:
+Далі додамо код до нашого репозиторію наступними командами:
 
 ```shell
 > git add .
@@ -87,104 +87,104 @@ create mode 100644 tsconfig.json
 create mode 100644 yarn.lock
 > git push origin master
 Enumerating objects: 14, done.
-Counting objects: 100% (14/14), done.
-Delta compression using up to 12 threads
-Compressing objects: 100% (13/13), done.
-Writing objects: 100% (14/14), 59.35 KiB | 8.48 MiB/s, done.
+Compressing objects: 100% (5/5), done.
+Дельта стиснення використовує до 12 потоків
+Стиснення об'єктів: 100% (13/13), готово.
+Writing objects: 100% (5/5), 266.37 KiB | 0 bytes/s, done.
 Total 14 (delta 0), reused 0 (delta 0)
 To https://github.com/seandotau/subqlHelloWorld.git
  * [new branch]      master -> master
 
 ```
 
-The push command means "please push my code TO the origin repo FROM my master local repo". Refreshing GitHub should show all the code in GitHub.
+Команда push означає "будь ласка, відправте мій код на reo FROM мій головний місцевий репозиторій". Оновлення GitHub повинне відображати весь код на GitHub.
 
-![First commit](/assets/img/first_commit.png)
+![Перший коміт](/assets/img/first_commit.png)
 
-Now that you have got your code into GitHub, let's look at how we can host it in SubQuery Projects.
+Тепер, коли ви отримали ваш код у GitHub, давайте поглянемо на те, як ми можемо розмістити його у проектах SubQuery .
 
-## Step 4: Create your project
+## 4. Створити проект
 
-Navigate to [https://project.subquery.network](https://project.subquery.network) and log in with your GitHub account.
+Перейдіть до [https://project.subquery.network](https://project.subquery.network) і увійдіть до свого облікового запису GitHub.
 
-![Welcome to SubQuery Projects](/assets/img/welcome_to_subquery_projects.png)
+![Ласкаво просимо в Sandbox Projects](/assets/img/welcome_to_subquery_projects.png)
 
-Then create a new project,
+створити новий проект
 
-![Welcome to SubQuery Projects](/assets/img/subquery_create_project.png)
+![Ласкаво просимо в Sandbox Projects](/assets/img/subquery_create_project.png)
 
-And fill in the various fields with the appropriate details.
+І заповніть різні поля відповідною інформацією.
 
-- **GitHub account:** If you have more than one GitHub account, select what account this project will be created under. Projects created in an GitHub organisation account are shared between members in that organisation.
-- **Project Name:** Give your project a name here.
-- **Subtitle:** Provide a subtitle for your project.
-- **Description:** Explain what your SubQuery project does.
-- **GitHub Repository URL:** This must be a valid GitHub URL to a public repository that contains your SubQuery project. The schema.graphql file must be in the root of your directory.
-- **Hide project:** If selected, this will hide the project from the public SubQuery explorer. Keep this unselected if you want to share your SubQuery with the community!
+- **Обліковий запис на GitHub:** Якщо у вас є більше одного облікового запису GitHub, виберіть обліковий запис з цього проекту буде створено. Проекти, створені в обліковому записі організації GitHub, поділяються між учасниками цієї організації.
+- **Ім'я проекту:** Дайте назву своєму проекту тут.
+- **Subtitle:** надає субтитри для вашого проекту.
+- **Опис:** Поясніть, що зробить ваш проект підробки.
+- **GitHub репозиторій URL:** Це має бути валідний GitHub до публічного репозиторію, який містить ваш проект SubQuery Схема має бути в корені вашого каталогу.
+- **Приховати проект:** Якщо вибрано, це приховає проект з громадського засобу обробки підкадрів. Зберігайте це необрано, якщо ви хочете поділитися підробкою із спільнотою!
 
-![Create SubQuery parameters](/assets/img/create_subquery_project_parameters.png)
+![Створити параметри файлу](/assets/img/create_subquery_project_parameters.png)
 
-When you click create, you'll be taken to your dashboard.
+Коли клацнете по створенню, ви будете зайняті до панелі керування.
 
-![SubQuery Project dashboard](/assets/img/subquery_project_dashboard.png)
+![Панель моніторингу запитів](/assets/img/subquery_project_dashboard.png)
 
-The dashboard contains lots of useful information such as the network it is using, the GitHub repository URL of the source code it is running, when it was created and last updated, and in particular the deployment details.
+В інформаційній панелі міститься багато корисної інформації, такої як мережа, яку вона використовує, URL-адреса репозиторія GitHub з вихідним кодом, який він запущений, коли він був створений і останній оновлений, і зокрема деталі розгортання.
 
-## Step 5: Deploy your project
+## 5. Розгорніть ваш проект
 
-Now that you have created your project within SubQuery Projects, setting up the display behaviour, the next step is to deploy your project making it operational. Deploying a version triggers a new SubQuery indexing operation to start, and sets up the required query service to start accepting GraphQL requests. You can also deploy new versions to existing projects here.
+Тепер, коли ви створили свій проект в проектах SubQuery налаштування поведінки відображення наступного кроку - розгортання вашого проекту, що робить його робочим. Розгортання версії викликає нову операцію індексування підзапити для початку і налаштує необхідний сервіс запитів для прийняття графічних запитів. Ви також можете розгорнути нові версії на існуючі проекти.
 
-You can choose to deploy to various environments such as a production slot or a staging slot. Here we'll deploy to a production slot. Clicking on the "Deploy" button brings up a screen with the following fields:
+Ви можете обрати для розгортання в різних середовищах, таких як слот виробництва чи постановка слота. Тут ми будемо розгортати у production слот. Натискання на кнопку "Розгорнути" викликає екран із наступними полями:
 
-![Deploy to production slot](/assets/img/deploy_production_slot.png)
+![Розгортати у слот виробництва](/assets/img/deploy_production_slot.png)
 
-- **Commit Hash of new Version:** From GitHub select the correct commit of the SubQuery project codebase that you want deployed
-- **Indexer Version:** This is the version of SubQuery's node service that you want to run this SubQuery on. See [@subql/node](https://www.npmjs.com/package/@subql/node)
-- **Query Version:** This is the version of SubQuery's query service that you want to run this SubQuery on. See [@subql/query](https://www.npmjs.com/package/@subql/query)
+- **Закомітити хеш нової версії:** З GitHub виберіть правильний коміт кодової бази проекту SubQuery який ви хочете розгорнути
+- **Версія індексера:** Це версія служби вузла SubQuery, на якій ви хочете запустити цей SubQuery далі. Або [`npm`](https://www.npmjs.com/package/jest):
+- **Версія індексера:** Це версія служби вузла SubQuery, на якій ви хочете запустити цей SubQuery далі. Або [`npm`](https://www.npmjs.com/package/jest):
 
-Because we only have one commit, there is only a single option in the drop down. We'll also work with the latest version of the indexer and query version so we will accept the defaults and then click "Deploy Update".
+Тому що у нас є лише один рахунок, є лише одна опція у падінні вниз. Ми також будемо працювати з останньою версією індексатора та версією запиту, щоб ми прийняли типові значення і потім натисніть кнопку "Розгорнути оновлення".
 
-You’ll then see your deployment in “Processing” status. Here, your code is getting deployed onto the SubQuery's managed infrastructure. Basically a server is getting spun up on demand and being provisioned for you. This will take a few minutes so time to grab a coffee!
+Потім ви побачите розгортання в статусі "Обробка". Тут код розгортається на керовану інфраструктуру SubQuery. По суті, сервер стає все більшим за попитом та за його підтримкою. На це знадобиться ще кілька хвилин, щоб схопити каву!
 
-![Deployment processing](/assets/img/deployment_processing.png)
+![Обробка розгортання](/assets/img/deployment_processing.png)
 
-The deployment is now running.
+Зараз відбувається розгортання.
 
-![Deployment running](/assets/img/deployment_running.png)
+![Працює розгортання](/assets/img/deployment_running.png)
 
-## Step 6: Testing your project
+## 6. Протестуй свій проєкт.
 
-To test your project, click on the 3 ellipsis and select "View on SubQuery Explorer".
+Щоб перевірити свій проект, натисніть на 3 еліпси і виберіть "Перегляд в провіднику SubQuery Explorer".
 
-![View Subquery project](/assets/img/view_on_subquery.png)
+![Переглянути за проектом](/assets/img/view_on_subquery.png)
 
-This will take you to the ever familiar "Playground" where you can click the play button and see the results of the query.
+Ви відправитесь до коли-небудь знайомого "Playground", де зможете натиснути кнопку "Грати" і побачити результати запиту.
 
-![Subquery playground](/assets/img/subquery_playground.png)
+![Ігровий майданчик з підзапитом](/assets/img/subquery_playground.png)
 
-## Step 7: Bonus step
+## 7. Бонусний крок
 
-For the astute amongst us, you will recall that in the learning objectives, the last point was to run a simple GET query. To do this, we will need to grab the "Query Endpoint" displayed in the deployment details.
+Під впливом серед нас ви згадаєте, що в навчальних цілях ми маємо використовувати простий запит GET. Щоб це зробити, нам потрібно буде захопити "Query Endpoint", яка відображається в деталях розгортання.
 
-![Query endpoing](/assets/img/query_endpoint.png)
+![Черги](/assets/img/query_endpoint.png)
 
-You can then send a GET request to this endpoint either using your favourite client such as [Postman](https://www.postman.com/) or [Mockoon](https://mockoon.com/) or via cURL in your terminal. For simplicity, cURL will be shown below.
+Ви можете надіслати GET запит до цієї кінцевої точки або ж використати ваш улюблений клієнт, наприклад [Postman](https://www.postman.com/) or [Mockoon](https://mockoon.com/) або через cURL у вашому терміналі. Для спрощення відображення URL нижче відображається URL.
 
-The curl command to run is:
-
-```shell
-curl https://api.subquery.network/sq/seandotau/subqueryhelloworld -d "query=query { starterEntities (first: 5, orderBy: CREATED_AT_DESC) { totalCount nodes { id field1 field2 field3 } } }"
-```
-
-giving the results of:
+Корінь curl команда запустити:
 
 ```shell
-{"data":{"starterEntities":{"totalCount":23098,"nodes":[{"id":"0x29dfe9c8e5a1d51178565c2c23f65d249b548fe75a9b6d74cebab777b961b1a6","field1":23098,"field2":null,"field3":null},{"id":"0xab7d3e0316a01cdaf9eda420cf4021dd53bb604c29c5136fef17088c8d9233fb","field1":23097,"field2":null,"field3":null},{"id":"0x534e89bbae0857f2f07b0dea8dc42a933f9eb2d95f7464bf361d766a644d17e3","field1":23096,"field2":null,"field3":null},{"id":"0xd0af03ab2000a58b40abfb96a61d312a494069de3670b509454bd06157357db6","field1":23095,"field2":null,"field3":null},{"id":"0xc9f5a92f4684eb039e11dffa4b8b22c428272b2aa09aff291169f71c1ba0b0f7","field1":23094,"field2":null,"field3":null}]}}}
+curl https://api.subquery.network/sq/seandotau/subqueryhelloWorld -d "query=query { starterEntities (перше: 5, orderBy: CREATED_DESC) { totalCount nodes { id field1 field2 field3 }}"
+```
+
+даючи результат:
+
+```shell
+{"data":{"starterEntities":{"totalCount":23098,"nodes":[{"id":"0x29dfe9c8e5a1d511765c2c23f65d249b548fe75a9b6d74cebab777b961b1a6","field1":230,"field2":null,"field3":null},{"id":"0xab7d316a01cdafed9a420f4020cd53b60429cfe5f1709329c8f17093f170933230fb96","230b304n9,"field8n7},4n3":n3":n74n8n8full}},{"id74b3a66","4
 
 ```
 
-Readability is not a concern here as you will probably have some front end code to consume and parse this JSON response.
+Тут читабельність не викликає занепокоєння, так як ви, ймовірно, будете мати деякий код переднього кінця, щоб споживати та обробляти цю відповідь JSON.
 
-## Summary
+## Підсумок
 
-In this SubQuery hosted quick start we showed how quick and easy it was to take a Subql project and deploy it to [SubQuery Projects](https://project.subquery.network) where all the infrastructure is provided for your convenience. There is an inbuilt playground for running various queries as well as an API endpoint for your code to integrate with.
+У цьому вкладеному запиті ми провели швидкий старт, ми показали, як швидко і легко можна було взяти проект Subql і розгорнути його в [SubQuery Projects](https://project.subquery.network) де вся інфраструктура забезпечується для вашої зручності. Існує інпобудований ігровий майданчик для виконання різних запитів, а також кінцева точка коду для інтегрування.

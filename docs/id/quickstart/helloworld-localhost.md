@@ -1,6 +1,6 @@
 # Hello World (localhost + Docker)
 
-Selamat datang di quick start SubQuery Hello World ini. Quick start ini bertujuan untuk menunjukkan kepada Anda cara menjalankan proyek starter default di Docker dengan beberapa langkah sederhana.
+Welcome to this SubQuery Hello World quick start. The quick start aims to show you how you get the default starter project running in Docker in a few simple steps.
 
 ## Tujuan Pembelajaran
 
@@ -51,15 +51,15 @@ My subql version is: @subql/cli/0.9.3 darwin-x64 node-v16.3.0
 My docker version is: Docker version 20.10.5, build 55c4c88
 ```
 
-Jika Anda mendapatkan hal di atas, maka Anda siap untuk lanjut. Jika tidak, ikuti tautan ini untuk menginstalnya:
+If you get the above, then you are good to go. If not, follow these links to install them:
 
 - [yarn](https://classic.yarnpkg.com/en/docs/install/) atau [npm](https://www.npmjs.com/get-npm)
 - [SubQuery CLI](quickstart.md#install-the-subquery-cli)
 - [Docker](https://docs.docker.com/get-docker/)
 
-## Langkah 1: Inisialisasi proyek
+## 1. Initialise project
 
-Langkah pertama saat memulai dengan SubQuery adalah menjalankan perintah `subql init`. Mari kita inisialisasi proyek awal dengan nama `subqlHelloWorld`. Perhatikan bahwa hanya author yang wajib diisi. Segala sesuatu yang lain dibiarkan kosong di bawah.
+The first step when starting off with SubQuery is to run the `subql init` command. Let's initialise a start project with the name `subqlHelloWorld`. Note that only author is mandatory. Everything else is left empty below.
 
 ```shell
 > subql init --starter subqlHelloWorld
@@ -79,19 +79,14 @@ Jangan lupa untuk pindah ke direktori baru ini.
 cd subqlHelloWorld
 ```
 
-## Langkah 2: Instal dependencies
+## 2. Install dependencies
 
 Sekarang lakukan instal yarn atau node untuk menginstal berbagai dependencies.
 
-```shell
-# Yarn
-yarn install
+<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn install ``` </CodeGroupItem>
+<CodeGroupItem title="NPM"> ```bash npm install ``` </CodeGroupItem> </CodeGroup>
 
-# NPM
-npm install
-```
-
-Contoh `yarn install`
+An example of `yarn install`
 
 ```shell
 > yarn install
@@ -105,19 +100,14 @@ success Saved lockfile.
 ✨  Done in 31.84s.
 ```
 
-## Langkah 3: Hasilkan kode
+## 3. Generate code
 
 Sekarang jalankan `yarn codegen` untuk menghasilkan TypeScript dari skema GraphQL.
 
-```shell
-# Yarn
-yarn codegen
+<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem>
+<CodeGroupItem title="NPM"> ```bash npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
 
-# NPM
-npm run-script codegen
-```
-
-Contoh `yarn codegen`
+An example of `yarn codegen`
 
 ```shell
 > yarn codegen
@@ -134,19 +124,14 @@ $ ./node_modules/.bin/subql codegen
 
 **Peringatan** Ketika perubahan dibuat pada file skema, harap ingat untuk menjalankan kembali `yarn codegen` untuk membuat ulang direktori jenis Anda.
 
-## Langkah 4: Membuat kode
+## 4. Build code
 
 Langkah selanjutnya adalah membuat kode dengan `yarn build`.
 
-```shell
-# Yarn
-yarn build
+<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem>
+<CodeGroupItem title="NPM"> ```bash npm run-script build ``` </CodeGroupItem> </CodeGroup>
 
-# NPM
-npm run-script build
-```
-
-Contoh `yarn build`
+An example of `yarn build`
 
 ```shell
 > yarn build
@@ -155,9 +140,9 @@ $ tsc -b
 ✨  Done in 5.68s.
 ```
 
-## Langkah 5: Jalankan Docker
+## 5. Run Docker
 
-Dengan menggunakan Docker memungkinkan Anda menjalankan contoh ini dengan sangat cepat karena semua infrastruktur yang diperlukan dapat tersediakan di dalam image Docker. Jalankan `docker-compose pull && docker-compose up`.
+Using Docker allows you to run this example very quickly because all the required infrastructure can be provided within the Docker image. Run `docker-compose pull && docker-compose up`.
 
 Ini akan menendang segalanya menjadi hidup di mana pada akhirnya Anda akan mendapatkan blok terambil.
 
@@ -177,7 +162,7 @@ graphql-engine_1  | 2021-06-05T22:20:43.244Z <express> INFO request completed
 
 ```
 
-## Langkah 6: Jelajahi playground
+## 6. Browse playground
 
 Arahkan ke http://localhost:3000/ dan paste kueri di bawah ini ke sisi kiri layar lalu tekan tombol putar atau play.
 

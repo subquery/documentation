@@ -1,16 +1,16 @@
-# How to change the blockchain fetching batch size?
+# Як змінити розмір пакета отримуваного на блокчейні?
 
-## Video guide
+## Відеоінструкція
 
 <figure class="video_container">
   <iframe src="https://www.youtube.com/embed/LO_Gea_IN_s" frameborder="0" allowfullscreen="true"></iframe>
 </figure>
 
-## Introduction
+## Вступ
 
 The default batch size is 100, but this can be changed by using the extra command `--batch-size=xx`.
 
-You need to this to the command line as an extra flag or if you are using Docker, modify the docker-compose.yml with:
+Вам потрібно вказати це в командному рядку як додатковий прапорець або, якщо ви використовуєте Docker, змініть docker-compose.yml за допомогою:
 
 ```shell
 subquery-node:
@@ -33,8 +33,8 @@ subquery-node:
 
 ```
 
-This example sets the batch size to 50.
+У цьому прикладі розмір пакету встановлюється на 50.
 
-## Why change the batch size?
+## Навіщо змінювати розмір пакета?
 
-Using a smaller batch size can reduce memory usage and not leave users hanging for large queries. In otherwords, your application can be more responsive. 
+Використання меншого розміру пакету може зменшити використання пам’яті та не змушувати користувачів довго очікувати відповіді від великих запитів. Іншими словами, додаток стане працювати швидше. 
