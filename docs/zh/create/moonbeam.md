@@ -1,4 +1,4 @@
-# Moonbeam EVM 支持
+# SubQuery 支持 Moonbeam EVM
 
 我们为Moonbeam和Moonriver的EVM提供了一个自定义数据源处理器。 这为单一的 SubQuery 项目中提供了一种简单的方法来筛选和索引Moonbeam的网络上的 EVM 和 底层活动。
 
@@ -20,34 +20,34 @@
 
 ## 数据源说明
 
-| 属性                | 类型                                                             | 必填  | 描述                                         |
-| ----------------- | -------------------------------------------------------------- | --- | ------------------------------------------ |
-| processor.file    | `'./node_modules/@subql/contract-processors/dist/moonbeam.js'` | Yes | File reference to the data processor code  |
-| processor.options | [ProcessorOptions](#processor-options)                         | No  | Options specific to the Moonbeam Processor |
-| assets            | `{ [key: String]: { file: String }}`                           | No  | An object of external asset files          |
+| 属性                | 类型                                                             | 必填  | 描述                                |
+| ----------------- | -------------------------------------------------------------- | --- | --------------------------------- |
+| processor.file    | `'./node_modules/@subql/contract-processors/dist/moonbeam.js'` | Yes | 数据处理器代码的文件引用                      |
+| processor.options | [ProcessorOptions](#processor-options)                         | No  | 月光束处理器特有的选项                       |
+| assets            | `{ [key: String]: { file: String }}`                           | No  | An object of external asset files |
 
 ### 处理器选项：
 
-| 属性      | 类型               | 必填 | 描述                                                                                                                                                     |
-| ------- | ---------------- | -- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| abi     | String           | No | The ABI that is used by the processor to parse arguments. MUST be a key of `assets` MUST be a key of `assets`                                          |
-| address | String or `null` | No | A contract address where the event is from or call is made to. `null` will capture contract creation calls `null` will capture contract creation calls |
+| 属性      | 类型               | 必填 | 描述                                   |
+| ------- | ---------------- | -- | ------------------------------------ |
+| abi     | String           | No | 处理器使用的 ABI 解析参数。 MUST 是 `asset的一个密钥` |
+| address | String or `null` | No | 事件发生或打电话的合同地址。 `null` 将捕获合同创建调用      |
 
 ## MoonbeamCall
 
 使用 [Substrate/CallHandler](../create/mapping/#call-handler) 的同样方式，区别是不同的处理程序参数和较小的过滤更改。
 
-| 属性     | 类型:                          | 必填  | 描述                                          |
-| ------ | ---------------------------- | --- | ------------------------------------------- |
-| kind   | 'substrate/MoonbeamCall'     | Yes | Specifies that this is an Call type handler |
-| filter | [Call Filter](#call-filters) | No  | Filter the data source to execute           |
+| 属性     | 类型:                          | 必填  | 描述             |
+| ------ | ---------------------------- | --- | -------------- |
+| kind   | 'substrate/MoonbeamCall'     | Yes | 指定这是一个通话类型处理程序 |
+| filter | [Call Filter](#call-filters) | No  | 筛选要执行的数据源      |
 
 ### 调用过滤器
 
-| 属性       | 类型:    | 示例                                            | 描述                                                                                                                                                                               |
-| -------- | ------ | --------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| function | String | 0x095ea7b3, approve(address to,uint256 value) | Either [Function Signature](https://docs.ethers.io/v5/api/utils/abi/fragments/#FunctionFragment) strings or the function `sighash` to filter the function called on the contract |
-| from     | String | 0x6bd193ee6d2104f14f94e2ca6efefae561a4334b    | An Ethereum address that sent the transaction                                                                                                                                    |
+| 属性       | 类型:    | 示例                                            | 描述                                                                                                |
+| -------- | ------ | --------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| function | String | 0x095ea7b3, approve(address to,uint256 value) | [函数签名](https://docs.ethers.io/v5/api/utils/abi/fragments/#FunctionFragment) 字符串或函数 `视野` 过滤被调用的函数。 |
+| from     | String | 0x6bd193ee6d2104f14f94e2ca6efefae561a4334b    | 发送交易的以太坊地址                                                                                        |
 
 ### 处理程序
 
@@ -63,16 +63,16 @@
 
 使用 [Substrate/CallHandler](../create/mapping/#event-handler) 的同样方式，区别是不同的处理程序参数和较小的过滤更改。
 
-| 属性     | 类型                             | 必填  | 描述                                           |
-| ------ | ------------------------------ | --- | -------------------------------------------- |
-| kind   | 'substrate/MoonbeamEvent'      | Yes | Specifies that this is an Event type handler |
-| filter | [Event Filter](#event-filters) | No  | Filter the data source to execute            |
+| 属性     | 类型                             | 必填  | 描述             |
+| ------ | ------------------------------ | --- | -------------- |
+| kind   | 'substrate/MoonbeamEvent'      | Yes | 指定这是一个通话类型处理程序 |
+| filter | [Event Filter](#event-filters) | No  | 筛选要执行的数据源      |
 
 ### Event 过滤器
 
-| 属性     | 类型           | 示例                                                              | 描述                                                                                                                                               |
-| ------ | ------------ | --------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| topics | String array | Transfer(address indexed from,address indexed to,uint256 value) | The topics filter follows the Ethereum JSON-PRC log filters, more documentation can be found [here](https://docs.ethers.io/v5/concepts/events/). |
+| 属性     | 类型           | 示例                                                              | 描述                                                                                        |
+| ------ | ------------ | --------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| topics | String array | Transfer(address indexed from,address indexed to,uint256 value) | 主题筛选器遵循Etherum JSON-PRC 日志过滤器，在这里可以找到更多文档 [](https://docs.ethers.io/v5/concepts/events/)。 |
 
 <b>关于主题的说明：</b>
 基本日志过滤器有一些改进：
