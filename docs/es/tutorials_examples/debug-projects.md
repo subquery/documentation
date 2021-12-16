@@ -15,11 +15,11 @@ Para depurar proyectos de SubQuery como pasar por el código, establecer puntos 
 Ejecuta el siguiente comando en tu terminal.
 
 ```shell
-export DB_USER=postgres
-export DB_PASS=postgres
-export DB_DATABASE=postgres
-export DB_HOST=localhost
-export DB_PORT=5432
+export Db_USER=postgres
+export Db_PASS=postgres
+export Db_DATABASE=postgres
+export Db_HOST=localhost
+export Db_PORT=5432
 subql-node -f your-project-path
 ```
 
