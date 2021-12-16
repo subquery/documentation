@@ -16,7 +16,7 @@
 
 这些文件是我们所做一切的核心。 因此，我们将在另一篇文章中花更多时间来介绍这些文件。 不过现在，只需要知道这样的模式包含了用户可以从 SubQuery API 请求的数据的描述，project yaml 文件包含了“配置”类型参数，当然还有包含了含有 typescript 的 mappingHandlers — 其 typescript 有转换数据的功能。
 
-## yarn install
+## yarn 安装
 
 我们所做的下一个事情是 `yarn install`。 您也可以使用 `npm install` 。
 
