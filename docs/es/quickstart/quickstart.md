@@ -55,8 +55,8 @@ Por último, bajo el directorio del proyecto, ejecute el siguiente comando para 
 <CodeGroup> cd PROJECT_NAME # Yarn yarn install # NPM npm install. Usted trabajará principalmente en los siguientes archivos:
 
 - El manifiesto en `project.yaml`
-- El esquema GraphQL en `schema.graphql`
-- Las funciones de mapeo en el directorio `src/mappings/`
+- The GraphQL Schema in `schema.graphql`
+- The Mapping functions in `src/mappings/` directory
 
 Para más información sobre cómo escribir su propia SubQuery, consulte nuestra documentación en [Crear un proyecto](../create/introduction.md)
 
