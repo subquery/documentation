@@ -1,10 +1,10 @@
-# Command Line Flags
+# Cờ dòng lệnh
 
 ## subql-node
 
 ### --help
 
-This shows the help options.
+Cờ hiển thị các tùy chọn trợ giúp.
 
 ```shell
 > subql-node --help
@@ -47,7 +47,7 @@ Options:
 
 ### --version
 
-This displays the current version.
+Cờ sẽ hiển thị phiên bản hiện tại.
 
 ```shell
 > subql-node --version
@@ -56,16 +56,16 @@ This displays the current version.
 
 ### -f, --subquery
 
-Use this flag to start the SubQuery project.
+Sử dụng cờ này để bắt đầu dự án SubQuery.
 
 ```shell
-subql-node -f . // OR
+subql-node -f . // Hoặc
 subql-node --subquery .
 ```
 
 ### --subquery-name
 
-This flag allows you to provide a name for your project which acts as if it creates an instance of your project. Upon providing a new name, a new database schema is created and block synchronisation starts from zero.
+Cờ này cho phép bạn cung cấp tên cho dự án của mình, tên này hoạt động như thể nó tạo ra một phiên bản của dự án của bạn. Sau khi cung cấp một tên mới, một lược đồ cơ sở dữ liệu mới được tạo và đồng bộ hóa khối bắt đầu từ số không.
 
 ```shell
 subql-node -f . --subquery-name=test2
@@ -73,17 +73,17 @@ subql-node -f . --subquery-name=test2
 
 ### -c, --config
 
-All these various configurations can be placed into a .yml or .json file and then referenced with the config flag.
+Tất cả các cấu hình khác nhau này có thể được đặt vào tệp .yml hoặc .json và sau đó được tham chiếu với cờ cấu hình.
 
-Sample subquery_config.yml file:
+Tệp subquery_config.yml mẫu:
 
 ```shell
-subquery: . // Mandatory. This is the local path of the project. The period here means the current local directory.
+subquery: . // Bắt buộc. This is the local path of the project. The period here means the current local directory.
 subqueryName: hello // Optional name
 batchSize: 55 // Optional config
 ```
 
-Place this file in the same directory as the project. Then in the current project directory, run:
+Đặt tệp này trong cùng thư mục với dự án. Sau đó, trong thư mục dự án hiện tại, hãy chạy:
 
 ```shell
 > subql-node -c ./subquery_config.yml
@@ -91,21 +91,21 @@ Place this file in the same directory as the project. Then in the current projec
 
 ### --local
 
-This flag is primarily used for debugging purposes where it creates the default starter_entity table in the default "postgres" schema.
+Cờ này chủ yếu được sử dụng cho mục đích gỡ lỗi trong đó nó tạo bảng starter_entity mặc định trong lược đồ "postgres" mặc định.
 
 ```shell
 subql-node -f . --local
 ```
 
-Note that once you use this flag, removing it won't mean that it will point to another database. To repoint to another database you will have to create a NEW database and change the env settings to this new database. In other words, "export DB_DATABASE=<new_db_here>"
+Lưu ý rằng một khi bạn sử dụng cờ này, việc loại bỏ nó sẽ không có nghĩa là nó sẽ trỏ đến một cơ sở dữ liệu khác. Để đặt lại cơ sở dữ liệu khác, bạn sẽ phải tạo một cơ sở dữ liệu MỚI và thay đổi cài đặt env cho cơ sở dữ liệu mới này. Nói cách khác, "export DB_DATABASE =<new_db_here>"
 
 ### --force-clean
 
-This flag forces the project schemas and tables to be regenerated, helpful to use when iteratively developing graphql schemas such that new runs of the project are always working with a clean state. Note that this flag will also wipe all indexed data.
+Cờ này buộc các lược đồ và bảng của dự án phải được tạo lại, hữu ích để sử dụng khi phát triển lặp đi lặp lại các lược đồ graphql sao cho các lần chạy mới của dự án luôn hoạt động ở trạng thái sạch. Lưu ý rằng cờ này cũng sẽ xóa tất cả dữ liệu được lập chỉ mục.
 
 ### --batch-size
 
-This flag allows you to set the batch size in the command line. If batch size is also set in the config file, this takes precedent.
+Cờ này cho phép bạn đặt kích thước lô trong dòng lệnh. Nếu kích thước lô cũng được đặt trong tệp cấu hình, nó sẽ được ưu tiên.
 
 ```shell
 > subql-node -f . --batch-size=20
@@ -119,7 +119,7 @@ This flag allows you to set the batch size in the command line. If batch size is
 
 ### --debug
 
-This outputs debug information to the console output and forcefully sets the log level to debug.
+Xuất thông tin gỡ lỗi đến đầu ra bảng điều khiển và cài đặt cấp độ nhật ký để gỡ lỗi một cách mạnh mẽ.
 
 ```shell
 > subql-node -f . --debug
@@ -130,7 +130,7 @@ This outputs debug information to the console output and forcefully sets the log
 
 ### --profiler
 
-This shows profiler information.
+Hiển thị thông tin hồ sơ.
 
 ```shell
 subql-node -f . --local --profiler
@@ -142,13 +142,13 @@ subql-node -f . --local --profiler
 
 ### --network-endpoint
 
-This flag allows users to override the network endpoint configuration from the manifest file.
+Cờ này cho phép người dùng ghi đè cấu hình điểm cuối mạng từ tệp kê khai.
 
 ```shell
 subql-node -f . --network-endpoint="wss://polkadot.api.onfinality.io/public-ws"
 ```
 
-Note that this must also be set in the manifest file, otherwise you'll get:
+Lưu ý rằng đoạn này cũng phải được đặt trong tệp kê khai, nếu không bạn sẽ nhận được:
 
 ```shell
 ERROR Create Subquery project from given path failed! Error: failed to parse project.yaml.
@@ -159,7 +159,7 @@ An instance of ProjectManifestImpl has failed the validation:
 
 ### --output-fmt
 
-There are two different terminal output formats. JSON or colored. Colored is the default and contains colored text.
+Có hai định dạng đầu ra khác nhau. JSON hoặc colored. Colored là mặc định và chứa văn bản được bôi màu.
 
 ```shell
 > subql-node -f . --output-fmt=json
@@ -176,7 +176,7 @@ There are two different terminal output formats. JSON or colored. Colored is the
 
 ### --log-level
 
-There are 7 options to choose from. “fatal”, “error”, “warn”, “info”, “debug”, “trace”, “silent”. The example below shows silent. Nothing will be printed in the terminal so the only way to tell if the node is working or not is to query the database for row count (select count(\*) from subquery_1.starter_entities) or query the block height.
+Có 7 tùy chọn để lựa chọn. “fatal”, “error”, “warn”, “info”, “debug”, “trace”, “silent”. Ví dụ dưới đây cho thấy sự im lặng. Không có gì sẽ được in trong thiết bị đầu cuối vì vậy cách duy nhất để biết nút có hoạt động hay không là truy vấn cơ sở dữ liệu về số hàng (select count(\*) from subquery_1.starter_entities) hoặc truy vấn chiều cao khối.
 
 ```shell
 > subql-node -f . --log-level=silent
@@ -222,7 +222,7 @@ subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot
 
 ### --help
 
-This shows the help options.
+Cờ hiển thị các tùy chọn trợ giúp.
 
 ```shell
 Options:
@@ -240,7 +240,7 @@ Options:
 
 ### --version
 
-This displays the current version.
+Cờ sẽ hiển thị phiên bản hiện tại.
 
 ```shell
 > subql-query --version
