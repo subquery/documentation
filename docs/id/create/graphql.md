@@ -1,15 +1,15 @@
-# GraphQL Schema
+# Skema GraphQL
 
-## Defining Entities
+## Mendefinisikan Entitas
 
-The `schema.graphql` file defines the various GraphQL schemas. Due to the way that the GraphQL query language works, the schema file essentially dictates the shape of your data from SubQuery. To learn more about how to write in GraphQL schema language, we recommend checking out [Schemas and Types](https://graphql.org/learn/schema/#type-language).
+File `schema.graphql` mendefinisikan berbagai skema GraphQL. Karena cara kerja bahasa kueri GraphQL, file skema pada dasarnya menentukan bentuk data Anda dari SubQuery. Untuk mempelajari lebih lanjut tentang cara menulis dalam bahasa skema GraphQL, sebaiknya periksa [Skema dan Jenis](https://graphql.org/learn/schema/#type-language).
 
-**Important: When you make any changes to the schema file, please ensure that you regenerate your types directory with the following command `yarn codegen`**
+**Penting: Saat Anda membuat perubahan apa pun pada file skema, harap pastikan bahwa Anda membuat ulang direktori jenis Anda dengan perintah berikut `yarn codegen`**
 
-### Entities
-Each entity must define its required fields `id` with the type of `ID!`. It is used as the primary key and unique among all entities of the same type.
+### Entitas
+Setiap entitas harus menentukan bidang wajib `id` dengan jenis `ID!`. Ini digunakan sebagai kunci utama dan unik di antara semua entitas dengan tipe yang sama.
 
-Non-nullable fields in the entity are indicated by `!`. Please see the example below:
+Bidang yang tidak dapat dibatalkan dalam entitas ditunjukkan dengan `!`. Silakan lihat contoh di bawah ini:
 
 ```graphql
 type Example @entity {
@@ -19,9 +19,9 @@ type Example @entity {
 }
 ```
 
-### Supported scalars and types
+### Skalar dan jenis yang didukung
 
-We currently supporting flowing scalars types:
+Saat ini kami mendukung jenis skalar mengalir:
 - `ID`
 - `Int`
 - `String`
