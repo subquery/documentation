@@ -57,7 +57,7 @@ subquery-node_1   | 2021-06-06T02:04:25.490Z <fetch> INFO fetch block [1, 100]
 
 that you know that the SubQuery node has started to synchronise.
 
-## Summary
+## Resúmen
 
 Now that you've had an insight into what is happening under the covers, the question is where to from here? If you are feeling confident, you can jump into learning about how to [create a project](../create/introduction.md) and learn more about the three key files. The manifest file, the GraphQL schema, and the mappings file.
 
