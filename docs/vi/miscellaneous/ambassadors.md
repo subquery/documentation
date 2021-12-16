@@ -10,48 +10,48 @@ Chúng tôi hiểu rằng, một trong những thế mạnh lớn nhất của c
 
 Nhóm chúng tôi đã cùng nhau hợp tác với tầm nhìn chung là xây dựng nền tảng dịch vụ dữ liệu linh hoạt và toàn diện cho hệ sinh thái Polkadot.
 
-**Built by developers, for developers:** SubQuery is a growing community that focuses on providing the best products and services for our developers, and builders in our ecosystem. SubQuery is only successful if the Polkadot ecosystem is successful, and so everything we do is with our customers in mind.
+** Được xây dựng bởi các nhà phát triển, dành cho các nhà phát triển: ** SubQuery là một cộng đồng đang phát triển tập trung vào việc cung cấp các sản phẩm và dịch vụ tốt nhất cho các nhà phát triển và những người xây dựng trong hệ sinh thái của chúng tôi. Thành công của SubQuery phụ thuộc vào sự thành công của hệ sinh thái Polkadot, vì vậy mọi thứ chúng tôi làm đều hướng đến khách hàng của mình.
 
-**Integrity and Accountability:** We have team members in Auckland, Shanghai, and Sydney so remote work is important to us. We expect that our team is empowered and works autonomously together to achieve our goals. A key requirement for this is for our team to be accountable for their actions and maintain their integrity.
+** Chính trực và Trách nhiệm: ** Chúng tôi có các thành viên trong nhóm ở Auckland, Thượng Hải và Sydney và vì vậy công việc từ xa rất quan trọng đối với chúng tôi. Chúng tôi mong rằng cả nhóm luôn có động lực cùng nhau làm việc một cách tự chủ, độc lập để đạt được mục tiêu. Yêu cầu chính cho việc này là nhóm của chúng tôi phải chịu trách nhiệm về các hành động của họ và duy trì tính chính trực của họ.
 
-**Inclusive Guidance and Support:** Blockchain is hard, and everyone needs help sometimes. There is no such thing as a stupid question in our community and everyone in our team is expected to help support our users. We learn some of the most valuable insights about our service (and how we can improve it) directly from our community.
+**Hướng dẫn và Hỗ trợ Toàn diện:** Blockchain là một lĩnh vực rất khó, và nhều khi mọi người cũng cần được hỗ trợ. Trong cộng đồng của chúng tôi, không có câu hỏi nào là ngu ngốc, tất cả mọi người trong nhóm đều có trách nhiệm hỗ trợ các người dùng. Chúng tôi tìm hiểu một số thông tin chi tiết có giá trị nhất về dịch vụ của chúng tôi (và cách chúng tôi có thể cải thiện nó) trực tiếp từ cộng đồng của chúng tôi.
 
 ## Chương trình Đại sứ của Chúng tôi
 
-Our SubQuery Ambassador program aims to find community leaders passionate about Polkadot and SubQuery. We’re looking for self-starters that can spread the word about SubQuery in their local areas and provide support to new developers that want to use SubQuery to build amazing apps and services on Polkadot.
+Chương trình Đại sứ SubQuery của chúng tôi nhằm mục đích tìm kiếm các nhà lãnh đạo cộng đồng đam mê Polkadot và SubQuery. Mục tiêu của chúng tôi là tìm kiếm những người luôn tự chủ và có thể quảng bá rộng rãi về SubQuery ở các khu vực mà họ đang sinh sống và hỗ trợ cho các nhà phát triển mới xây dựng các ứng dụng và dịch vụ trên Polkadot.
 
 ### Quyền lợi của Đại sứ
 
-At SubQuery, we work hard to achieve what we do. Similarly, Ambassadors are expected to commit some time when joining our team but will be rewarded with benefits.
+Tại SubQuery, chúng tôi làm việc chăm chỉ để đạt được những gì chúng tôi mong muốn. Tương tự, các Đại sứ phải cam kết một thời gian khi tham gia nhóm của chúng tôi nhưng sẽ được thưởng bằng các quyền lợi.
 
-**Funding and Support:** You may be rewarded for good work with early opportunities into private sales and bounties. Additionally, we’ll be providing funding grants for you to run community meetups.
+** Tài trợ và hỗ trợ: ** Bạn có thể được thưởng cho công việc tốt với cơ hội sớm tham gia private sale và tiền thưởng. Ngoài ra, chúng tôi sẽ cung cấp các khoản tài trợ để bạn tổ chức các buổi gặp mặt cộng đồng.
 
 **Quyền truy cập vào nhóm SubQuery:** Bạn sẽ có quyền truy cập trực tiếp vào core team của SubQuery và có cơ hội được đào tạo thực hành, tham gia AMA (giải đáp) độc quyền với các nhà lãnh đạo và nhà phát triển của chúng tôi, cũng như thông tin chi tiết về lộ trình phát triển của chúng tôi.
 
-**Network Development:** Expect to grow your professional network by being an Ambassador for one of the top Polkadot projects. Meet other ambassadors around the world and receive introductions to local Polkadot projects that we need to support locally. You might even get free entry to represent SubQuery in events in your local area.
+** Phát triển mạng lưới: ** Mong đợi phát triển mạng lưới chuyên nghiệp của bạn bằng cách trở thành Đại sứ cho một trong những dự án Polkadot hàng đầu. Gặp gỡ các đại sứ khác trên khắp thế giới và nhận giới thiệu về các dự án Polkadot địa phương mà chúng tôi cần hỗ trợ tại địa phương. Bạn thậm chí có thể được vào cửa miễn phí để đại diện cho SubQuery trong các sự kiện ở khu vực địa phương của bạn.
 
-**Swag and other free stuff:** Everyone likes free stuff! Receive an annual allocation of SubQuery swag that’ll make you stand out in the crowd. Plus additional allocation that you can share around at community events. You’ll also receive an exclusive NFT for your Ambassador status.
+** Swag và những thứ miễn phí khác: ** Mọi người đều thích những thứ miễn phí! Nhận được phân bổ hàng năm của SubQuery swag sẽ khiến bạn nổi bật trong đám đông. Cộng với phân bổ bổ sung mà bạn có thể chia sẻ tại các sự kiện cộng đồng. Bạn cũng sẽ nhận được một NFT độc quyền cho tư cách Đại sứ của bạn.
 
 ## Cách thực hoạt động của Chương trình
 
-Our Ambassador program has multiple tiers, each tier has different benefits and capabilities. You can move up tiers by participating in Ambassador activities and working hard for us.
+Chương trình Đại sứ của chúng tôi có nhiều cấp, mỗi cấp có những lợi ích và khả năng khác nhau. Bạn có thể thăng hạng bằng cách tham gia vào các hoạt động của Đại sứ và làm việc chăm chỉ cho chúng tôi.
 
-Once you have sent through an application, we will select candidates that align with our values. If selected you are placed in our trainee program and will receive an information package, expanding your understanding of SubQuery. After this, you can start to work through the trainee program by completing certain onboarding tasks (e.g. creating a SubQuery Project). We will host workshops throughout this process to support you.
+Khi bạn đã gửi đơn đăng ký, chúng tôi sẽ chọn những ứng viên phù hợp với giá trị của chúng tôi. Nếu được chọn, bạn sẽ được đưa vào chương trình thực tập sinh của chúng tôi và sẽ nhận được một gói thông tin, mở rộng hiểu biết của bạn về SubQuery. Sau đó, bạn có thể bắt đầu làm việc thông qua chương trình học viên bằng cách hoàn thành một số nhiệm vụ giới thiệu (ví dụ: tạo Dự án SubQuery). Chúng tôi sẽ tổ chức các hội thảo trong suốt quá trình này để hỗ trợ bạn.
 
-Once you pass the trainee program, you can call yourself a SubQuery ambassador and will be accepted into our full program. From here on you can continue to work through the program and progress up the tiers, earning more rewards and benefits as you climb the ranks.
+Sau khi vượt qua chương trình thực tập sinh, bạn có thể tự gọi mình là đại sứ SubQuery và sẽ được nhận vào chương trình đầy đủ của chúng tôi. Từ đây trở đi, bạn có thể tiếp tục công việc thông qua chương trình đại sứ và thăng hạng dần dần, kiếm thêm nhiều phần thưởng và quyền lợi với mỗi lần thăng hạng.
 
 [Đăng ký Ngay!](https://forms.gle/GXBbJ6LDpNfM2v1X6)
 
 ## Các Hoạt động của Đại sứ
 
-SubQuery Ambassadors are able to contribute through four main areas, including event management, content creation, translation, and community moderation. You can participate in as many areas as you want, you’re not bound to any single one.
+Các Đại sứ SubQuery có thể đóng góp thông qua bốn lĩnh vực chính, bao gồm quản lý sự kiện, sáng tạo nội dung, dịch thuật và kiểm duyệt cộng đồng. Bạn có thể tham gia vào bao nhiêu lĩnh vực tùy thích, không bị ràng buộc vào bất kỳ lĩnh vực nào.
 
-**Event Management:** Build local communities by hosting, organising, and managing different events. Building a local community will be a key part of growing the SubQuery community. SubQuery will support you by providing funding for events, sending swag/merchandise to be given away, as well as attending Q&As or online events as speakers or in AMA sessions.
+** Quản lý sự kiện: ** Xây dựng cộng đồng địa phương bằng cách tổ chức, tổ chức và quản lý các sự kiện khác nhau. Xây dựng cộng đồng địa phương sẽ là một phần quan trọng trong việc phát triển cộng đồng SubQuery. SubQuery sẽ hỗ trợ bạn bằng cách cung cấp tài chính cho các sự kiện, gửi swag / hàng hóa được tặng, cũng như tham dự Q&As hoặc các sự kiện trực tuyến với tư cách là diễn giả hoặc trong các phiên AMA.
 
-**Content Creation:** We have a long list of content and support material that we need help creating. Remember, our success relies on the ability of our customers to build amazing things on our service, so we need your help to make that easier. Content includes videos, infographics, tutorials, animations, or any other related material, to inform, educate, or inspire community members within the SubQuery Ecosystem. SubQuery will support Content Creators by providing branding assets and expertise. We’ll also use SubQuery’s marketing channels to increase awareness of your content (and yourself).
+**Sáng tạo Nội dung:** Chúng tôi có một danh sách dài các nội dung và tài liệu tham khảo cần được tạo. Hãy nhớ rằng, thành công của chúng tôi dựa vào khả năng khách hàng có thể tạo ra những điều tuyệt vời trên dịch vụ của chúng tôi, vì vậy chúng tôi cần sự giúp đỡ của bạn để thực hiện điều đó dễ dàng hơn. Các nội dung bao gồm video, infographics, hướng dẫn, animation hoặc bất kỳ tài liệu liên quan nào khác, để giúp thông báo, cung cấp kiến thức hoặc truyền cảm hứng cho các thành viên trong cộng đồng Hệ sinh thái SubQuery. SubQuery sẽ hỗ trợ các Nhà Sáng tạo Nội dung bằng cách cung cấp các tài sản thương hiệu và kiến thức chuyên môn. Chúng tôi cũng sẽ sử dụng các kênh tiếp thị của SubQuery để nâng cao nhận thức về nội dung của bạn (và chính bạn).
 
-**Translation:** Our customers don’t just speak English! We need your help making SubQuery more accessible by translating our content into your own language, as well as helping sharing the word to our international community.
+**Dịch thuật** Khách hàng của chúng tôi không chỉ nói tiếng Anh! Chúng tôi cần sự trợ giúp của bạn để khiến SubQuery trở nên dễ tiếp cận hơn bằng cách dịch nội dung của chúng tôi sang ngôn ngữ của bạn, cũng như giúp chia sẻ SubQuery với cộng đồng quốc tế.
 
-**Community Moderation:** Moderators will help grow the SubQuery community by ensuring that official community channels are active and engaging. SubQuery will support Moderators by promoting the channels that they monitor, as well as provide guidelines for our expectations.
+**Kiểm duyệt cộng đồng:** Người kiểm duyệt sẽ giúp phát triển cộng đồng SubQuery bằng cách đảm bảo rằng các kênh cộng đồng chính thức hoạt động tích cực và thu hút. SubQuery sẽ hỗ trợ Người kiểm duyệt bằng cách quảng cáo các kênh mà họ giám sát, và cung cấp các danh sách các kỳ vọng của chúng tôi.
 
 [Đăng ký Ngay!](https://forms.gle/GXBbJ6LDpNfM2v1X6)
