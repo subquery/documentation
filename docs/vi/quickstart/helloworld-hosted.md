@@ -2,7 +2,7 @@
 
 Mục đích của bài quick start này là hướng dẫn cách bạn có thể chạy dự án khởi động mặc định trong SubQuery Projects (dịch vụ được quản lý của chúng tôi) trong một vài bước đơn giản.
 
-We will take the simple starter project (and everything we've learned thus far) but instead of running it locally within Docker, we'll take advantage of SubQuery's managed hosting infrastructure. In other words, we let SubQuery do all the heavy lifting, running and managing production infrastructure.
+Chúng tôi sẽ sử dụng dự án khởi động đơn giản (và mọi thứ chúng tôi đã học được cho đến nay) nhưng thay vì chạy nó cục bộ trong Docker, chúng tôi sẽ tận dụng cơ sở hạ tầng lưu trữ được quản lý của SubQuery. Nói cách khác, chúng tôi để SubQuery thực hiện tất cả các công việc nặng nhọc, vận hành và quản lý cơ sở hạ tầng sản xuất.
 
 ## Mục tiêu học tập
 
@@ -29,7 +29,7 @@ Bạn sẽ cần:
 
 - một tài khoản GitHub
 
-## 1. Create your project
+## 1. Tạo dự án của bạn
 
 Hãy tạo một dự án có tên là subql_hellowworld và chạy cài đặt bắt buộc, codegen và xây dựng với trình quản lý gói yêu thích của bạn.
 
@@ -42,9 +42,9 @@ yarn build
 
 KHÔNG chạy các lệnh docker.
 
-## 2. Create a GitHub repo
+## 2. Tạo repo GitHub
 
-In GitHub, create a new public repository. Provide a name and set your visibility to public. Here, everything is kept as the default for now.
+Trong GitHub, hãy tạo một repository công khai mới. Cung cấp tên và đặt khả năng hiển thị của bạn ở chế độ công khai. Ở đây, mọi thứ được giữ theo mặc định.
 
 ![create github repo](/assets/img/github_create_new_repo.png)
 
@@ -52,9 +52,9 @@ Hãy lưu ý URL GitHub của bạn, URL này phải được công khai để S
 
 ![create github repo](/assets/img/github_repo_url.png)
 
-## 3. Push to GitHub
+## 3. Push tới GitHub
 
-Back in your project directory, initialise it as a git directory. Otherwise, you might get the error "fatal: not a git repository (or any of the parent directories): .git"
+Quay lại thư mục dự án của bạn, khởi tạo nó dưới dạng thư mục git. Nếu không, bạn có thể gặp lỗi "nghiêm trọng: không phải là kho lưu trữ git (hoặc bất kỳ thư mục mẹ nào): .git"
 
 ```shell
 git init
@@ -97,13 +97,13 @@ To https://github.com/seandotau/subqlHelloWorld.git
 
 ```
 
-The push command means "please push my code TO the origin repo FROM my master local repo". Refreshing GitHub should show all the code in GitHub.
+Lệnh push có nghĩa là "vui lòng đẩy mã của tôi ĐẾN kho lưu trữ gốc TỪ kho lưu trữ cục bộ chính của tôi". Làm mới GitHub sẽ hiển thị tất cả mã trong GitHub.
 
 ![First commit](/assets/img/first_commit.png)
 
 Bây giờ bạn đã có code của mình vào GitHub, hãy xem cách chúng tôi có thể lưu trữ code đó trong Dự án SubQuery.
 
-## 4. Create your project
+## 4. Tạo dự án của bạn
 
 Điều hướng đến [https://project.subquery.network](https://project.subquery.network) và đăng nhập bằng tài khoản GitHub của bạn.
 
@@ -115,12 +115,12 @@ Sau đó, tạo một dự án mới,
 
 Và điền vào các trường khác nhau với các chi tiết thích hợp.
 
-- **GitHub account:** If you have more than one GitHub account, select what account this project will be created under. Projects created in an GitHub organisation account are shared between members in that organisation.
+- **Tài khoản GitHub:** Nếu bạn có nhiều tài khoản GitHub, hãy chọn tài khoản mà dự án này sẽ được tạo. Các dự án được tạo trong tài khoản tổ chức GitHub được chia sẻ giữa các thành viên trong tổ chức đó.
 - **Tên dự án:** Đặt tên cho dự án của bạn ở đây.
 - **Phụ đề:** Cung cấp phụ đề cho dự án của bạn.
 - **Mô tả:** Giải thích những gì dự án SubQuery của bạn thực hiện.
-- **GitHub Repository URL:** This must be a valid GitHub URL to a public repository that contains your SubQuery project. The schema.graphql file must be in the root of your directory.
-- **Hide project:** If selected, this will hide the project from the public SubQuery explorer. Keep this unselected if you want to share your SubQuery with the community!
+- **GitHub Repository URL:** Đây phải là URL GitHub hợp lệ tới kho lưu trữ công cộng có chứa dự án SubQuery của bạn. Tệp schema.graphql phải nằm trong thư mục root của bạn.
+- **Ẩn dự án:** Nếu được chọn, điều này sẽ ẩn dự án khỏi trình khám phá SubQuery công khai. Hãy bỏ chọn mục này nếu bạn muốn chia sẻ SubQuery của mình với cộng đồng!
 
 ![Tạo thông số SubQuery](/assets/img/create_subquery_project_parameters.png)
 
@@ -130,11 +130,11 @@ Khi bạn nhấp vào tạo, bạn sẽ được đưa đến trang tổng quan 
 
 Trang tổng quan chứa nhiều thông tin hữu ích như mạng mà nó đang sử dụng, URL kho lưu trữ GitHub của mã nguồn đang chạy, thời điểm nó được tạo và cập nhật lần cuối và đặc biệt là chi tiết triển khai.
 
-## 5. Deploy your project
+## 5. Triển khai dự án của bạn
 
-Now that you have created your project within SubQuery Projects, setting up the display behaviour, the next step is to deploy your project making it operational. Deploying a version triggers a new SubQuery indexing operation to start, and sets up the required query service to start accepting GraphQL requests. You can also deploy new versions to existing projects here.
+Bây giờ bạn đã tạo dự án của mình trong SubQuery Projects, thiết lập hành vi hiển thị, bước tiếp theo là triển khai dự án của bạn để làm cho nó hoạt động. Triển khai một phiên bản sẽ kích hoạt khởi động lập chỉ mục SubQuery mới để bắt đầu, và cài đặt dịch vụ query bắt buộc để chấp nhận các yêu cầu từ GraphQl. Bạn cũng có thể triển khai các phiên bản mới đối với các dự án hiện tại tại đây.
 
-You can choose to deploy to various environments such as a production slot or a staging slot. Here we'll deploy to a production slot. Clicking on the "Deploy" button brings up a screen with the following fields:
+Bạn có thể chọn triển khai cho các môi trường khác nhau như vị trí triển khai hoặc vị trí dàn dựng. Here we'll deploy to a production slot. Clicking on the "Deploy" button brings up a screen with the following fields:
 
 ![Triển khai đến production slot](/assets/img/deploy_production_slot.png)
 
