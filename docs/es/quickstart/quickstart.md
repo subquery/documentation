@@ -55,8 +55,8 @@ Por último, bajo el directorio del proyecto, ejecute el siguiente comando para 
 <CodeGroup> cd PROJECT_NAME # Yarn yarn install # NPM npm install. Usted trabajará principalmente en los siguientes archivos:
 
 - El manifiesto en `project.yaml`
-- The GraphQL Schema in `schema.graphql`
-- The Mapping functions in `src/mappings/` directory
+- El esquema GraphQL en `schema.graphql`
+- Las funciones de mapeo en el directorio `src/mappings/`
 
 Para más información sobre cómo escribir su propia SubQuery, consulte nuestra documentación en [Crear un proyecto](../create/introduction.md)
 
@@ -80,7 +80,7 @@ Bajo el directorio del proyecto ejecute el siguiente comando:
 docker-compose pull && docker-compose up
 ```
 
-Puede tomar algo de tiempo descargar los paquetes necesarios ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), y Postgres) por primera vez, pero pronto verás un nodo SubQuery en ejecución.
+It may take some time to download the required packages ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), and Postgres) for the first time but soon you'll see a running SubQuery node.
 
 ### Consulta tu proyecto
 
