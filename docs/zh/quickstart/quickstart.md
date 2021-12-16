@@ -52,14 +52,9 @@ subql init --starter PROJECT_NAME
 
 最后，在项目目录下，运行以下命令来安装新项目的依赖关系。
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```bash cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> cd PROJECT_NAME # Yarn yarn install # NPM npm install 您将主要处理以下文件：
 
-## Configure and Build the Starter Project
-
-In the starter package that you just initialised, we have provided a standard configuration for your new project. You will mainly be working on the following files:
-
-- The Manifest in `project.yaml`
+- 在 `project.yaml`
 - `schema.graphql`中的 GraphQL 架构
 - `src/mappings/` 目录中的映射函数
 
@@ -73,7 +68,7 @@ In the starter package that you just initialised, we have provided a standard co
 
 - 在 `project.yaml`</p>
 
-## Build the Project
+## 构建项目
 
 将您的新项目发布到 SubQuery Projects 。
 
@@ -82,23 +77,30 @@ In the starter package that you just initialised, we have provided a standard co
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```bash npm run-script build ``` </CodeGroupItem> </CodeGroup>
 
-## Running and Querying your Starter Project
+## 运行和查询您的启动项目
 
-Although you can quickly publish your new project to [SubQuery Projects](https://project.subquery.network) and query it using our [Explorer](https://explorer.subquery.network), the easiest way to run SubQuery nodes locally is in a Docker container, if you don't already have Docker you can install it from [docker.com](https://docs.docker.com/get-docker/).
+尽管您可以快速发布您的新项目到 [SubQuery 项目](https://project.subquery.network) 并通过我们的 [Explorer](https://explorer.subquery.network)进行查询， 本地运行 SubQuery 节点的最简单方法是 Docker 容器， 如果你没有停靠栏，你可以从 [停靠栏安装它。 om](https://docs.docker.com/get-docker/)
 
-[_Skip this and publish your new project to SubQuery Projects_](../publish/publish.md)
+__ 跳过这个项目并将您的新项目发布到 SubQuery 项目_</a></p> 
 
-### Run your SubQuery Project
 
-All configuration that controls how a SubQuery node is run is defined in this `docker-compose.yml` file. 对于刚刚初始化的新项目，您无需在此处更改任何内容，但您可以在我们的 [Run a Project section](../run/run.md)部分阅读有关文件和设置的更多信息。
 
-Under the project directory run following command:
+### 运行您的 SubQuery 项目
+
+所有控制在此 `docker-compose 如何定义SubQuery 节点的配置. ml` 文件。 对于刚刚初始化的新项目，您无需在此处更改任何内容，但您可以在我们的 [Run a Project section](../run/run.md)部分阅读有关文件和设置的更多信息。
+
+在项目目录下运行以下命令：
+
+
 
 ```shell
 docker-compose pull && docker-compose up
 ```
 
+
 下载所需软件包可能需要一些时间([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/quiry`](https://www.npmjs.com/package/@subql/query), and Postgress) ，但很快你会看到一个运行中的 SubQuery 节点。
+
+
 
 ### 查询您的项目
 
@@ -107,6 +109,8 @@ docker-compose pull && docker-compose up
 您应该会看到 GraphQL playground 显示在资源管理器中，其模式是准备查询。 在 Playground 的右上角，您会找到一个_Docs_按钮，该按钮将打开文档绘图。 该文档是自动生成的，可帮助您查找实体和方法。
 
 对于一个新的 SubQuery 入门项目，您可以尝试以下查询以了解其工作原理，或者 [了解更多关于 GraphQL 查询语言](../query/graphql.md)的信息。
+
+
 
 ```graphql
 {
@@ -122,8 +126,11 @@ docker-compose pull && docker-compose up
 }
 ```
 
+
+
+
 ## 下一步
 
 恭喜，您现在有一个本地运行的 SubQuery 项目，该项目接受 GraphQL API 对示例数据的请求。 在下一个指南中， 我们会向您展示如何发布您的新项目到
 
-[Publish your new project to SubQuery Projects](../publish/publish.md)
+[将您的新项目发布到 SubQuery Projects 。](../publish/publish.md)
