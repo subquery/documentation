@@ -22,7 +22,7 @@ Mientras que la v0.2. la versión de especificación está en beta, necesitará 
 
 `subql migrate` se puede ejecutar en un proyecto existente para migrar el manifiesto del proyecto a la última versión.
 
-| Opciones       | Descripción                                                           |
+| Opciones       | Description                                                           |
 | -------------- | --------------------------------------------------------------------- |
 | -f, --force    |                                                                       |
 | -l, --location | carpeta local en la que ejecutar migrate (debe contener project.yaml) |
@@ -32,7 +32,7 @@ Mientras que la v0.2. la versión de especificación está en beta, necesitará 
 
 ### Disco de nivel superior
 
-| Campo                | v0.0.1                                                     | v0.2.0                                     | Descripción                                                    |
+| Campo                | v0.0.1                                                     | v0.2.0                                     | Description                                                    |
 | -------------------- | ---------------------------------------------------------- | ------------------------------------------ | -------------------------------------------------------------- |
 | **specVersion**      | String                                                     | String                                     | `0.0.1` o `0.2.0` - la versión específica del archivo manifest |
 | **nombre**           | 𐄂                                                          | String                                     | Nombre de tu proyecto                                          |
@@ -45,13 +45,13 @@ Mientras que la v0.2. la versión de especificación está en beta, necesitará 
 
 ### Especificación del esquema
 
-| Campo       | v0.0.1 | v0.2.0 | Descripción                                 |
+| Campo       | v0.0.1 | v0.2.0 | Description                                 |
 | ----------- | ------ | ------ | ------------------------------------------- |
 | **archivo** | 𐄂      | String | La ubicación del archivo de esquema GraphQL |
 
 ### Especificaciones de red
 
-| Campo               | v0.0.1 | v0.2.0        | Descripción                                                                                                                                                                                                 |
+| Campo               | v0.0.1 | v0.2.0        | Description                                                                                                                                                                                                 |
 | ------------------- | ------ | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **genesisHash**     | 𐄂      | String        | El hash de génesis de la red                                                                                                                                                                                |
 | **endpoint**        | String | String        | Define el punto final del blockchain para indexarse - **Este debe ser un nodo completo de archivo**. Puedes recuperar endpoints para todas las parachains gratis de [OnFinality](https://app.onfinality.io) |
@@ -61,7 +61,7 @@ Mientras que la v0.2. la versión de especificación está en beta, necesitará 
 ### Fuente de datos especifica
 
 Define los datos que serán filtrados y extraídos y la ubicación del manejador de funciones de mapeo para que la transformación de datos sea aplicada.
-| Campo          | v0.0.1                                                                | v0.2.0                                                                           | Descripción                                                                                                                                                                                                                           |
+| Campo          | v0.0.1                                                                | v0.2.0                                                                           | Description                                                                                                                                                                                                                           |
 | -------------- | --------------------------------------------------------------------- | -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **nombre**     | String                                                                | 𐄂                                                                                | Nombre de la fuente de datos                                                                                                                                                                                                          |
 | **clase**      | [substrate/tiempo de ejecución](./manifest/#data-sources-and-mapping) | substrate/Runtime, [substrate/CustomDataSource](./manifest/#custom-data-sources) | Soportamos el tipo de datos desde el tiempo de ejecución por defecto de substrate como bloque, evento y extrinsic(call). <br /> Desde v0.2.0, soportamos datos de tiempo de ejecución personalizado, como contrato inteligente. |
@@ -71,7 +71,7 @@ Define los datos que serán filtrados y extraídos y la ubicación del manejador
 
 ### Especificación de mapeo
 
-| Campo                       | v0.0.1                                                                              | v0.2.0                                                                                                          | Descripción                                                                                                                                                                                                                                                                                     |
+| Campo                       | v0.0.1                                                                              | v0.2.0                                                                                                          | Description                                                                                                                                                                                                                                                                                     |
 | --------------------------- | ----------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **archivo**                 | String                                                                              | 𐄂                                                                                                               | Ruta a la entrada de mapeo                                                                                                                                                                                                                                                                      |
 | **manipuladores y filtros** | [Controladores y filtros predeterminados](./manifest/#mapping-handlers-and-filters) | Controladores y filtros por defecto, <br />[Controladores y filtros personalizados](#custom-data-sources) | Lista todas las [funciones de mapeo](./mapping.md) y sus correspondientes tipos de manejador, con filtros de mapeo adicionales. <br /><br /> Para manejadores de mapeo de tiempo de ejecución personalizados, por favor vea [fuentes de datos personalizadas](#custom-data-sources) |
