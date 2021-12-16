@@ -29,7 +29,7 @@
           <div>
             <img src="/assets/img/tutorialsIcon.svg" />
             <span>教程 & 案例</span>
-            <p>Learning by doing. 在实践中学习 如何构建各种子查询项目的教程和示例。</p>
+            <p>在实践中学习 如何构建各种子查询项目的教程和示例。</p>
           </div>
         </router-link>
       </li>
@@ -47,7 +47,7 @@
           <div>
             <img src="/assets/img/networkIcon.svg" />
             <span>SubQuery 网络</span>
-            <p>SubQuery 的分散未来。 阅读更多关于如何奖励索引器和消费者的信息。 </p>
+            <p>SubQuery 的去中心化未来。 阅读更多关于如何奖励索引提供者和索引使用者。 </p>
           </div>
         </a>
       </li>
@@ -59,9 +59,9 @@
     <h2 class="title">常见问题</h2>
     <ul class="faqList">
       <li>
-        <div class="title">什么是子查询？</div>
+        <div class="title">什么是SubQuery？</div>
         <div class="content">
-          <p>SubQuery 是一个开放源代码项目，它允许开发者索引、转换和查询 Substrate 链数据为他们的应用程序提供动力。</p>
+          <p>SubQuery 是一个开放源代码项目，它允许开发者索引、转换和查询底层链数据为他们的应用程序提供动力。</p>
           <span class="more">
             <router-link :to="{path: '/faqs/faqs/#what-is-subquery'}">查看更多</router-link>
           </span>
@@ -76,7 +76,7 @@
       <li>
         <div class="title">我如何向SubQuer贡献或反馈？</div>
         <div class="content">
-          <p>我们热爱社区的贡献和反馈。 若要贡献代码，请分派感兴趣的仓库并做出更改。 然后提交 PR 或 Pull 请求。 哦，不要忘记测试！ 还查阅我们的贡献指南(即将到来)。 </p>
+          <p>我们热爱社区的贡献和反馈。 若要贡献代码，请分派感兴趣的仓库并做出更改。 然后提交 PR 或 Pull 请求。 哦，不要忘记测试！ 你也可以查阅我们给贡献者的指南(即将出台)。 </p>
           <span class="more">
             <router-link :to="{path: '/faqs/faqs/#what-is-the-best-way-to-get-started-with-subquery'}">查看更多</router-link>
           </span>
@@ -99,7 +99,7 @@
   <div>
     <div class="lastIntroduce lastIntroduce_1">
         <h5>与您的自定义链集成？</h5>
-        <p>无论您在 Substrate 上构建一个新的 parachain，还是一个全新的区块链——SubQuery 都可以帮助您索引并排除您的链中的数据。 SubQuery 旨在轻松地与基于自定义的 Substrate 链集成。</p>
+        <p>无论您在底层上构建一个新的平行链，还是一个全新的区块链——SubQuery 都可以帮助您索引并帮您链中的数据做数据纠错。 SubQuery 旨在轻松地与基于自定义的底层链集成。</p>
         <span class="more">
           <router-link :to="{path: '/create/mapping/#custom-substrate-chains'}">学习如何整合你自己的链</router-link>
         </span>
@@ -107,7 +107,7 @@
     <div class="lastIntroduce lastIntroduce_2">
         <h5>支持和贡献</h5>
         <p>有问题或有兴趣了解更多信息或如何贡献？ 我们很乐意听到您的声音。 请通过以下链接通过电子邮件或社交媒体联系我们。 需要技术专门知识？ 加入我们的 Discord 社区并得到我们热情的社区成员的支持。 </p>
-        <a class="more" target="_blank" href="https://discord.com/invite/78zg8aBSMG">加入禁产条约</a>
+        <a class="more" target="_blank" href="https://discord.com/invite/78zg8aBSMG">加入我们的DISCORD 一起来讨论</a>
     </div>
     </div>
 </section>
