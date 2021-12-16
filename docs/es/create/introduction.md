@@ -49,7 +49,7 @@ Esto creará un nuevo directorio (o actualizará el existente) `src/types` que c
 
 Para ejecutar tu proyecto SubQuery en un nodo SubQuery alojado localmente, primero necesitas compilar tu trabajo.
 
-Ejecuta el comando de compilación desde el directorio raíz del proyecto.
+Run the build command from the project's root directory.
 
 <CodeGroup> The `console.log` method is **no longer supported**. En su lugar, se ha inyectado un módulo `logger` en los tipos, lo que significa que podemos soportar un registrador que puede aceptar varios niveles de registro.
 
