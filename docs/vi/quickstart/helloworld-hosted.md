@@ -46,11 +46,11 @@ KHÔNG chạy các lệnh docker.
 
 Trong GitHub, hãy tạo một repository công khai mới. Cung cấp tên và đặt khả năng hiển thị của bạn ở chế độ công khai. Ở đây, mọi thứ được giữ theo mặc định.
 
-![create github repo](/assets/img/github_create_new_repo.png)
+![tạo repo github](/assets/img/github_create_new_repo.png)
 
 Hãy lưu ý URL GitHub của bạn, URL này phải được công khai để SubQuery có thể truy cập.
 
-![create github repo](/assets/img/github_repo_url.png)
+![tạo repo github](/assets/img/github_repo_url.png)
 
 ## 3. Push tới GitHub
 
@@ -99,7 +99,7 @@ To https://github.com/seandotau/subqlHelloWorld.git
 
 Lệnh push có nghĩa là "vui lòng đẩy mã của tôi ĐẾN kho lưu trữ gốc TỪ kho lưu trữ cục bộ chính của tôi". Làm mới GitHub sẽ hiển thị tất cả mã trong GitHub.
 
-![First commit](/assets/img/first_commit.png)
+![Đẩy lên lần đầu](/assets/img/first_commit.png)
 
 Bây giờ bạn đã có code của mình vào GitHub, hãy xem cách chúng tôi có thể lưu trữ code đó trong Dự án SubQuery.
 
@@ -134,17 +134,17 @@ Trang tổng quan chứa nhiều thông tin hữu ích như mạng mà nó đang
 
 Bây giờ bạn đã tạo dự án của mình trong SubQuery Projects, thiết lập hành vi hiển thị, bước tiếp theo là triển khai dự án của bạn để làm cho nó hoạt động. Triển khai một phiên bản sẽ kích hoạt khởi động lập chỉ mục SubQuery mới để bắt đầu, và cài đặt dịch vụ query bắt buộc để chấp nhận các yêu cầu từ GraphQl. Bạn cũng có thể triển khai các phiên bản mới đối với các dự án hiện tại tại đây.
 
-Bạn có thể chọn triển khai cho các môi trường khác nhau như vị trí triển khai hoặc vị trí dàn dựng. Here we'll deploy to a production slot. Clicking on the "Deploy" button brings up a screen with the following fields:
+Bạn có thể chọn triển khai cho các môi trường khác nhau như vị trí triển khai hoặc vị trí dàn dựng. Ở đây, chúng tôi sẽ triển khai cho 1 vị trí sàn xuất. Nhấp vào nút "Triển khai" sẽ xuất hiện màn hình với các trường sau:
 
 ![Triển khai đến production slot](/assets/img/deploy_production_slot.png)
 
 - **Commit Hash of new Version:** Từ GitHub, chọn cam kết chính xác của cơ sở mã dự án SubQuery mà bạn muốn triển khai
-- **Indexer Version:** This is the version of SubQuery's node service that you want to run this SubQuery on. See [@subql/node](https://www.npmjs.com/package/@subql/node)
-- **Query Version:** This is the version of SubQuery's query service that you want to run this SubQuery on. See [@subql/query](https://www.npmjs.com/package/@subql/query)
+- **Indexer Version:** Đây là phiên bản của dịch vụ nút SubQuery mà bạn muốn chạy SubQuery này. Xem [@subql/node](https://www.npmjs.com/package/@subql/node)
+- **Query Version:** Đây là phiên bản của dịch vụ truy vấn SubQuery mà bạn muốn chạy SubQuery này. Xem [@subql/query](https://www.npmjs.com/package/@subql/query)
 
-Because we only have one commit, there is only a single option in the drop down. We'll also work with the latest version of the indexer and query version so we will accept the defaults and then click "Deploy Update".
+Bởi vì chúng tôi chỉ có một commit, chỉ có một tùy chọn duy nhất trong trình đơn thả xuống. Chúng tôi cũng sẽ làm việc với phiên bản mới nhất của trình lập chỉ mục và phiên bản truy vấn, vì vậy chúng tôi sẽ chấp nhận các giá trị mặc định và sau đó nhấp vào "Deploy Update".
 
-You’ll then see your deployment in “Processing” status. Here, your code is getting deployed onto the SubQuery's managed infrastructure. Basically a server is getting spun up on demand and being provisioned for you. This will take a few minutes so time to grab a coffee!
+Sau đó, bạn sẽ thấy việc triển khai của mình ở trạng thái “Processing”. Tại đây, mã của bạn đang được triển khai trên cơ sở hạ tầng được quản lý của SubQuery. Về cơ bản, một máy chủ đang hoạt động theo yêu cầu và được cung cấp cho bạn. Quá trình này sẽ mất vài phút vì vậy hãy dành thời gian để uống một ly cà phê!
 
 ![Triển khai đang thực hiện](/assets/img/deployment_processing.png)
 
@@ -152,7 +152,7 @@ Việc triển khai hiện đang chạy.
 
 ![Triển khai đang chạy](/assets/img/deployment_running.png)
 
-## 6. Testing your project
+## 6. Kiểm thử dự án của bạn
 
 Để kiểm tra dự án của bạn, hãy nhấp vào 3 dấu chấm lửng và chọn "View on SubQuery Explorer".
 
@@ -160,15 +160,15 @@ Việc triển khai hiện đang chạy.
 
 Thao tác này sẽ đưa bạn đến "Playground" quen thuộc, nơi bạn có thể nhấp vào nút play và xem kết quả của truy vấn.
 
-![Subquery playground](/assets/img/subquery_playground.png)
+![Sân chơi Subquery](/assets/img/subquery_playground.png)
 
-## 7. Bonus step
+## 7. Bước thêm
 
-For the astute amongst us, you will recall that in the learning objectives, the last point was to run a simple GET query. To do this, we will need to grab the "Query Endpoint" displayed in the deployment details.
+Đối với những người sắc sảo trong số chúng ta, bạn sẽ nhớ lại rằng trong mục tiêu học tập, điểm cuối cùng là chạy một truy vấn GET đơn giản. Để làm điều này, chúng tôi sẽ cần lấy "Query Endpoint" được hiển thị trong chi tiết triển khai.
 
 ![Kết thúc truy vấn](/assets/img/query_endpoint.png)
 
-You can then send a GET request to this endpoint either using your favourite client such as [Postman](https://www.postman.com/) or [Mockoon](https://mockoon.com/) or via cURL in your terminal. For simplicity, cURL will be shown below.
+Sau đó, bạn có thể gửi một yêu cầu GET tới điểm cuối này bằng cách sử dụng ứng dụng khách yêu thích của bạn như [Postman](https://www.postman.com/) hoặc [Mockoon](https://mockoon.com/) hoặc qua cURL trong thiết bị đầu cuối của bạn. Để đơn giản, cURL sẽ được hiển thị bên dưới.
 
 Lệnh curl để chạy là:
 
@@ -187,4 +187,4 @@ Khả năng đọc không phải là mối quan tâm ở đây vì bạn có th�
 
 ## Tóm lược
 
-In this SubQuery hosted quick start we showed how quick and easy it was to take a Subql project and deploy it to [SubQuery Projects](https://project.subquery.network) where all the infrastructure is provided for your convenience. There is an inbuilt playground for running various queries as well as an API endpoint for your code to integrate with.
+Trong phần khởi động nhanh được lưu trữ trên SubQuery này, chúng tôi đã cho thấy việc thực hiện một dự án Subql và triển khai nó cho [Dự án SubQuery](https://project.subquery.network) nhanh chóng và dễ dàng như thế nào để thuận tiện cho bạn. Có một inbuilt playground có để chạy các truy vấn khác nhau cũng như một điểm cuối API để tích hợp mã của bạn.
