@@ -78,7 +78,7 @@ Tất cả các cấu hình khác nhau này có thể được đặt vào tệp
 Tệp subquery_config.yml mẫu:
 
 ```shell
-subquery: . // Bắt buộc. This is the local path of the project. The period here means the current local directory.
+subquery: . // Mandatory. This is the local path of the project. The period here means the current local directory.
 subqueryName: hello // Optional name
 batchSize: 55 // Optional config
 ```
@@ -198,25 +198,25 @@ Có 7 tùy chọn để lựa chọn. “fatal”, “error”, “warn”, “i
 
 ### --timestamp-field
 
-By default this is true. when set to false with:
+Mặc định là true. khi được đặt thành false với:
 
 ```shell
 > subql-node -f . –timestamp-field=false
 ```
 
-This removes the created_at and updated_at columns in the starter_entities table.
+Thao tác này sẽ xóa các cột created_at và updated_at trong bảng starter_entities.
 
 ### -d, --network-dictionary
 
-This allows you to specify a dictionary endpoint which is a free service that is provided and hosted at: [https://explorer.subquery.network/](https://explorer.subquery.network/) (search for dictionary) and presents an API endpoint of: https://api.subquery.network/sq/subquery/dictionary-polkadot
+Điều này cho phép bạn chỉ định điểm cuối từ điển là dịch vụ miễn phí được cung cấp và lưu trữ tại: [https://explorer.subquery.network/](https://explorer.subquery.network/) (tìm kiếm từ điển) và trình bày điểm cuối API là: https://api.subquery.network/sq/subquery/dictionary-polkadot
 
-Typically this would be set in your manifest file but below shows an example of using it as an argument in the command line.
+Thông thường, nó sẽ được đặt trong tệp manifest của bạn nhưng bên dưới cho thấy một ví dụ về việc sử dụng nó làm đối số trong dòng lệnh.
 
 ```shell
 subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot"
 ```
 
-[Read more about how a SubQuery Dictionary works](../tutorials_examples/dictionary.md).
+[ Đọc thêm về cách thức hoạt động của Từ điển SubQuery](../tutorials_examples/dictionary.md).
 
 ## subql-query
 
@@ -243,13 +243,13 @@ Options:
 Cờ sẽ hiển thị phiên bản hiện tại.
 
 ```shell
-> subql-query --version
+> subql-node --version
 0.7.0
 ```
 
 ### -n, --name
 
-This flag is used to start the query service. If the --subquery-name flag is not provided when running an indexer, the name here will refer to the default project name. If --subquery-name is set, then the name here should match what was set.
+Cờ này được sử dụng để bắt đầu dịch vụ truy vấn. Nếu cờ - subquery-name không được cung cấp khi chạy trình lập chỉ mục, thì tên ở đây sẽ tham chiếu đến tên dự án mặc định. Nếu - subquery-name được đặt, thì tên ở đây phải khớp với những gì đã được đặt.
 
 ```shell
 > subql-node -f . // --subquery-name not set
@@ -265,14 +265,14 @@ This flag is used to start the query service. If the --subquery-name flag is not
 
 ### --playground
 
-This flag enables the graphql playground so should always be included by default to be of any use.
+Cờ này cho phép sân chơi graphql hoạt động, vì vậy nó luôn được thêm vào theo mặc định để sử dụng.
 
 ### --output-fmt
 
-See [--output-fmt](https://doc.subquery.network/references/references.html#output-fmt)
+Xem [--output-fmt](https://doc.subquery.network/references/references.html#output-fmt)
 
 ### --log-level
 
-See [--log-level](https://doc.subquery.network/references/references.html#log-level)
+Xem [--log-level](https://doc.subquery.network/references/references.html#log-level)
 
 <!-- ### --indexer TBA -->
