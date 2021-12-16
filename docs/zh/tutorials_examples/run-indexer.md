@@ -53,7 +53,7 @@ export DB_PORT=5432
 subql-node -f .
 ```
 
-如果你还没有项目，请使用 `git clone https://github.com/subquery/subql-helloworld`。 您应该看到indexer节点开始运行并开始索引块。
+如果你还没有项目，请使用 `git clone https://github.com/subquery/subql-helloworld`。 您应该看到索引器节点开始运行并开始索引块。
 
 ## 检查Postgres
 
