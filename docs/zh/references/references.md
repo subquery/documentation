@@ -67,7 +67,7 @@ subql-node --subquery .
 如果您新建了一个项目的实例，这个命令行将允许您为这个项目提供一个新名称。 在提供一个新名称后，将创建一个新的数据库模式，并从零开始进行区块同步。
 
 ```shell
-subql-node -f . subql-node -f . --subquery-name=test2
+subql-node -f . --subquery-name=test2
 ```
 
 ### -c, --config
@@ -77,7 +77,6 @@ subql-node -f . subql-node -f . --subquery-name=test2
 示例subquery_config.yml文件：
 
 ```shell
-subquery: . // Mandatory. This is the local path of the project. The period here means the current local directory.
 subquery: . // Mandatory. This is the local path of the project. The period here means the current local directory.
 subqueryName: hello // Optional name
 batchSize: 55 // Optional config
@@ -108,7 +107,7 @@ subql-node -f . --local
 此命令行将允许您在命令行中设置批量大小。 如果在配置文件中也设置了批量大小，它将采用前一个例子。
 
 ```shell
-> subql-node -f . > subql-node -f . --batch-size=20
+> subql-node -f . --batch-size=20
 2021-08-09T23:24:43.775Z <fetch> INFO fetch block [6601,6620], total 20 blocks
 2021-08-09T23:24:45.606Z <fetch> INFO fetch block [6621,6640], total 20 blocks
 2021-08-09T23:24:47.415Z <fetch> INFO fetch block [6641,6660], total 20 blocks
@@ -238,7 +237,7 @@ Options:
       --indexer     Url that allow query to access indexer metadata     [string]
 ```
 
-### --version
+### 版本
 
 显示当前版本
 
