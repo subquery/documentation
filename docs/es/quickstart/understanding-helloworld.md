@@ -9,8 +9,8 @@ The first command we ran was `subql init --starter subqlHelloWorld`.
 This does the heavy lifting and creates a whole bunch of files for you. As noted in the [official documentation](quickstart.md#configure-and-build-the-starter-project), you will mainly be working on the following files:
 
 - The Manifest in `project.yaml`
-- The GraphQL Schema in `schema.graphql`
-- The Mapping functions in `src/mappings/` directory
+- El esquema GraphQL en `schema.graphql`
+- Las funciones de mapeo en el directorio `src/mappings/`
 
 ![key subql files](/assets/img/main_subql_files.png)
 
