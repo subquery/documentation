@@ -1,4 +1,4 @@
-# How to debug a SubQuery project?
+# Як дебажити проект SubQuery?
 
 ## Відеоінструкція
 
