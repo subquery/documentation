@@ -10,11 +10,11 @@
 
 ทีมงานของเรามาพร้อมกับวิสัยทัศน์เดียวกันที่จะสร้างรากฐานของบริการข้อมูลที่ยืดหยุ่นและครอบคลุมสำหรับระบบนิเวศ Polkadot
 
-**สร้างโดยนักพัฒนาเพื่อนักพัฒนา:** SubQuery เป็นชุมชนที่กำลังเติบโตซึ่งมุ่งเน้นการจัดหาผลิตภัณฑ์และบริการที่ดีที่สุดสำหรับนักพัฒนาและผู้สร้างในระบบนิเวศของเรา SubQuery จะประสบความสำเร็จก็ต่อเมื่อระบบนิเวศของ Polkadot ประสบความสำเร็จ ดังนั้นทุกสิ่งที่ทำเราจะคำนึงถึงลูกค้าของเราเสมอ SubQuery is only successful if the Polkadot ecosystem is successful, and so everything we do is with our customers in mind.
+**สร้างโดยนักพัฒนาเพื่อนักพัฒนา:** SubQuery เป็นชุมชนที่กำลังเติบโตซึ่งมุ่งเน้นการจัดหาผลิตภัณฑ์และบริการที่ดีที่สุดสำหรับนักพัฒนาและผู้สร้างในระบบนิเวศของเรา SubQuery จะประสบความสำเร็จก็ต่อเมื่อระบบนิเวศของ Polkadot ประสบความสำเร็จ ดังนั้นทุกสิ่งที่ทำเราจะคำนึงถึงลูกค้าของเราเสมอ
 
-**ความซื่อสัตย์และความรับผิดชอบ:** เรามีสมาชิกทีมในโอ๊คแลนด์ เซี่ยงไฮ้ และซิดนีย์ ดังนั้นการทำงานทางไกลจึงสำคัญสำหรับเรา เราคาดหวังว่าสมาชิกในทีมจะได้รับพลังและทำงานร่วมกันอย่างอิสระเพื่อให้บรรลุเป้าหมายของเรา ซึ่งเงื่อนไขที่สำคัญต่อสิ่งนี้คือทีมของเราต้องรับผิดชอบต่อการกระทำของพวกเขาและรักษาความซื่อสัตย์ We expect that our team is empowered and works autonomously together to achieve our goals. A key requirement for this is for our team to be accountable for their actions and maintain their integrity.
+**ความซื่อสัตย์และความรับผิดชอบ:** เรามีสมาชิกทีมในโอ๊คแลนด์ เซี่ยงไฮ้ และซิดนีย์ ดังนั้นการทำงานทางไกลจึงสำคัญสำหรับเรา เราคาดหวังว่าสมาชิกในทีมจะได้รับพลังและทำงานร่วมกันอย่างอิสระเพื่อให้บรรลุเป้าหมายของเรา ซึ่งเงื่อนไขที่สำคัญต่อสิ่งนี้คือทีมของเราต้องรับผิดชอบต่อการกระทำของพวกเขาและรักษาความซื่อสัตย์
 
-**Inclusive Guidance and Support:** Blockchain is hard, and everyone needs help sometimes. There is no such thing as a stupid question in our community and everyone in our team is expected to help support our users. We learn some of the most valuable insights about our service (and how we can improve it) directly from our community.
+**คำแนะนำและการสนับสนุนที่ครอบคลุม:** บล็อกเชนนั้นเป็นเรื่องยาก และทุกคนก็ต้องการความช่วยเหลือในบางครั้ง จะไม่มีการกล่าวว่าคำถามโง่ๆ ในชุมชนของเรา และทุกคนในทีมพร้อมให้การช่วยเหลือและสนับสนุนผู้ใช้ของเรา เราได้เรียนรู้ข้อมูลเชิงลึกที่มีค่าที่สุดบางอย่างเกี่ยวกับบริการของเรา (และวิธีที่เราจะปรับปรุงบริการให้ดีขึ้น) โดยตรงจากชุมชนของเรา
 
 ## โปรแกรมแอมบาสเดอร์ของเรา
 
@@ -22,15 +22,15 @@ Our SubQuery Ambassador program aims to find community leaders passionate about 
 
 ### สิทธิประโยชน์ของแอมบาสเดอร์
 
-At SubQuery, we work hard to achieve what we do. Similarly, Ambassadors are expected to commit some time when joining our team but will be rewarded with benefits.
+ที่ SubQuery เราทำงานอย่างหนักเพื่อบรรลุสิ่งที่เราต้องการ และแอมบาสเดอร์ก็จะต้องใช้เวลาพอสมควรเช่นกันเมื่อเข้าร่วมโปรแกรมกับเรา แต่จะได้รับรางวัลเป็นสิทธิประโยชน์ต่างๆ มากมาย
 
-**เงินทุนและการสนับสนุน:** คุณอาจได้รับรางวัลสำหรับการทำงานที่ดีเป็นโอกาสในการเข้าร่วม private sales และ bounties ก่อนคนอื่น นอกจากนี้ เรายังมีทุนสนับสนุนเพื่อให้คุณจัดการพบปะสังสรรค์สำหรับชุมชนอีกด้วย Additionally, we’ll be providing funding grants for you to run community meetups.
+**เงินทุนและการสนับสนุน:** คุณอาจได้รับรางวัลสำหรับการทำงานที่ดีเป็นโอกาสในการเข้าร่วม private sales และ bounties ก่อนคนอื่น นอกจากนี้ เรายังมีทุนสนับสนุนเพื่อให้คุณจัดการพบปะสังสรรค์สำหรับชุมชนอีกด้วย
 
 **การเข้าถึงทีม SubQuery:** คุณจะสามารถเข้าถึงทีมหลัก SubQuery ได้โดยตรงพร้อมโอกาสในการฝึกอบรมภาคปฏิบัติ, AMA สุดพิเศษกับผู้นำและนักพัฒนาของเรา, รวมถึงรับรู้ข้อมูลเชิงลึกเกี่ยวกับแผนงานของเรา
 
-**การพัฒนาเครือข่าย:** คุณจะสามารถขยายเครือข่ายมืออาชีพของคุณด้วยการเป็นแอมบาสเดอร์ให้หนึ่งในโปรเจกต์ชั้นนำของ Polkadot รวมถึงพบกับแอมบาสเดอร์คนอื่นๆ ทั่วโลกและรับการแนะนำสู่โปรเจกต์ Polkadot ในท้องถิ่นที่เราจำเป็นต้องสนับสนุน โดยคุณอาจได้รับสิทธิ์เข้าร่วมเพื่อเป็นตัวแทนของ SubQuery สำหรับกิจกรรมในพื้นที่ของคุณฟรีอีกด้วย Meet other ambassadors around the world and receive introductions to local Polkadot projects that we need to support locally. You might even get free entry to represent SubQuery in events in your local area.
+**การพัฒนาเครือข่าย:** คุณจะสามารถขยายเครือข่ายมืออาชีพของคุณด้วยการเป็นแอมบาสเดอร์ให้หนึ่งในโปรเจกต์ชั้นนำของ Polkadot รวมถึงพบกับแอมบาสเดอร์คนอื่นๆ ทั่วโลกและรับการแนะนำสู่โปรเจกต์ Polkadot ในท้องถิ่นที่เราจำเป็นต้องสนับสนุน โดยคุณอาจได้รับสิทธิ์เข้าร่วมเพื่อเป็นตัวแทนของ SubQuery สำหรับกิจกรรมในพื้นที่ของคุณฟรีอีกด้วย
 
-**ขอที่ระลึกและของฟรีอื่นๆ:** ใครๆ ก็ชอบของฟรี! Receive an annual allocation of SubQuery swag that’ll make you stand out in the crowd. Plus additional allocation that you can share around at community events. You’ll also receive an exclusive NFT for your Ambassador status.
+**ของที่ระลึกและของฟรีอื่นๆ:** ใครๆ ก็ชอบของฟรี! Receive an annual allocation of SubQuery swag that’ll make you stand out in the crowd. Plus additional allocation that you can share around at community events. You’ll also receive an exclusive NFT for your Ambassador status.
 
 ## ระบบของโปรแกรมแอมบาสเดอร์
 
