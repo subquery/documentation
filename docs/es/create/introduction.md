@@ -1,8 +1,8 @@
-# Tutorials & Examples
+# Tutoriales y ejemplos
 
 En la guía [de inicio rápido](/quickstart/quickstart.md) encontraremos un ejemplo para darle una muestra de lo que es SubQuery y cómo funciona. Aquí veremos más de cerca el flujo de trabajo al crear tu proyecto y los archivos clave con los que trabajarás.
 
-## SubQuery Examples
+## SubQuery Ejemplos
 
 Algunos de los siguientes ejemplos asumirán que ha iniciado con éxito el paquete de inicio en la sección [Inicio rápido](../quickstart/quickstart.md). Desde ese paquete de inicio, pasaremos por el proceso estándar para personalizar e implementar su proyecto SubQuery.
 
@@ -31,7 +31,7 @@ El siguiente mapa proporciona una visión general de la estructura de directorio
   L .gitignore
 ```
 
-Example
+Ejemplo
 
 ![Estructura de directorios de SubQuery](/assets/img/subQuery_directory_stucture.png)
 
@@ -49,9 +49,9 @@ Esto creará un nuevo directorio (o actualizará el existente) `src/types` que c
 
 Para ejecutar tu proyecto SubQuery en un nodo SubQuery alojado localmente, primero necesitas compilar tu trabajo.
 
-Run the build command from the project's root directory.
+Ejecuta el comando de compilación desde el directorio raíz del proyecto.
 
-<CodeGroup> The `console.log` method is **no longer supported**. En su lugar, se ha inyectado un módulo `logger` en los tipos, lo que significa que podemos soportar un registrador que puede aceptar varios niveles de registro.
+<CodeGroup> El metodo `console.log` **ya no es compatible**. En su lugar, se ha inyectado un módulo `logger` en los tipos, lo que significa que podemos soportar un registrador que puede aceptar varios niveles de registro.
 
 ```typescript
 logger.info('Mensaje de nivel de información');
