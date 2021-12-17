@@ -2,9 +2,9 @@
 
 ## Вступ
 
-It is important to keep your projects in SubQuery Project relevant and up to date. For any projects that uploaded to SubQuery Project for testing purposes, it is recommended to delete them afterwards to conserve resources and save cost.
+Важливо зберігати ваші проекти в проекті SubQuery в актуальному стані. Для всіх проектів, що завантажуються в SubQuery Project для тестування, рекомендується видалити їх пізніше, щоб зберегти ресурси та заощадити витрати.
 
-Running an indexer node is another option outside of using Docker or having a project hosted for you at [SubQuery Projects](https://project.subquery.network/). It requires more time and effort but will enhance your understanding of how SubQuery works under the covers.
+Запуск вузла індексера є іншою опцією за межами Docker або виконання проекту, розміщеного для вас за адресою SubQuery Projects. Це потребує більше часу та зусиль, але покращить ваше розуміння того, як працює SubQuery "під капотом".
 
 ## Deleting a project from the staging slot
 
