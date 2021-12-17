@@ -102,11 +102,11 @@ const b2 = await api.rpc.chain.getBlock();
 
 ## โมดูลและไลบรารีต่าง ๆ
 
-เพื่อปรับปรุงความสามารถในการประมวลผลข้อมูลของ SubQuery เราได้อนุญาตโมดูลในตัวของ NodeJS บางส่วน ให้สามารถเรียกใช้ฟังก์ชัน map ใน [ sandbox ](#the-sandbox) และอนุญาตให้ผู้ใช้เรียกใช้ไลบรารีของบุคคลที่สามได้
+เพื่อปรับปรุงความสามารถในการประมวลผลข้อมูลของ SubQuery เราได้อนุญาตให้โมดูลต่าง ๆ ที่บิวท์อินของ NodeJS บางส่วน สามารถเรียกใช้ฟังก์ชัน map ใน [ sandbox ](#the-sandbox) และอนุญาตให้ผู้ใช้เรียกใช้ไลบรารีของบุคคลที่สามได้
 
-Please note this is an **experimental feature** and you may encounter bugs or issues that may negatively impact your mapping functions. Please report any bugs you find by creating an issue in [GitHub](https://github.com/subquery/subql).
+โปรดทราบว่านี่เป็นเพียง **คุณลักษณะทดลอง** และคุณอาจพบข้อบกพร่องหรือปัญหาที่อาจส่งผลเสียต่อฟังก์ชัน map ของคุณ โปรดรายงานปัญหาที่คุณพบโดยการสร้างหัวข้อใน [GitHub](https://github.com/subquery/subql)
 
-### Built-in modules
+### โมดูลต่าง ๆ ที่บิวท์อิน
 
 Currently, we allow the following NodeJS modules: `assert`, `buffer`, `crypto`, `util`, and `path`.
 
