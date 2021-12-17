@@ -54,7 +54,7 @@ El network.endpoint para la red Polkadot es `wss://polkadot.api.onfinality.io/pu
 
 ## ¿Cómo desarrollo iterativamente el esquema de mi proyecto?
 
-Un problema conocido con el desarrollo de un esquema de proyecto cambiante es que al lauchar su nodo de Subconsulta para pruebas, los bloques previamente indexados serán incompatibles con su nuevo esquema. Para desarrollar esquemas de forma iterativa, los bloques indexados almacenados en la base de datos deben ser borrados, esto puede lograrse lanzando su nodo con la bandera `--force-clean`. Example
+Un problema conocido con el desarrollo de un esquema de proyecto cambiante es que al lauchar su nodo de Subconsulta para pruebas, los bloques previamente indexados serán incompatibles con su nuevo esquema. Para desarrollar esquemas de forma iterativa, los bloques indexados almacenados en la base de datos deben ser borrados, esto puede lograrse lanzando su nodo con la bandera `--force-clean`. Ejemplo
 
 ```shell
 subql-node -f . --force-clean --subquery-name=<project-name>
