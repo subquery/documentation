@@ -108,9 +108,9 @@ const b2 = await api.rpc.chain.getBlock();
 
 ### โมดูลต่าง ๆ ที่บิวท์อิน
 
-Currently, we allow the following NodeJS modules: `assert`, `buffer`, `crypto`, `util`, and `path`.
+ในขณะนี้ โมดูล NodeJS ที่ได้รับอนุญาต ได้แก่ `assert`, `buffer`, `crypto`, `util`, และ `path`.
 
-Rather than importing the whole module, we recommend only importing the required method(s) that you need. Some methods in these modules may have dependencies that are unsupported and will fail on import.
+เราขอแนะนำให้คุณนำเข้ามาเฉพาะ method ที่คุณต้องการ แทนที่จะนำเข้ามาทั้งโมดูล เนื่องจาก method บางอย่างในโมดูลเหล่านี้ อาจเกี่ยวข้องกับสิ่งที่ยังไม่ได้รับการสนับสนุน จึงอาจจะทำให้นำเข้าไม่สำเร็จ
 
 ```ts
 import {hashMessage} from "ethers/lib/utils"; //Good way
@@ -123,9 +123,9 @@ export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
 }
 ```
 
-### Third-party libraries
+### ไลบรารีของบุคคลที่สาม
 
-Due to the limitations of the virtual machine in our sandbox, currently, we only support third-party libraries written by **CommonJS**.
+เนื่องจากข้อจำกัดของ virtual machine ในแซนด์บ็อกซ์ของเรา ขณะนี้เราจึงรองรับเฉพาะไลบรารีของบุคคลที่สามที่เขียนด้วย **CommonJS** เท่านั้น
 
 We also support a **hybrid** library like `@polkadot/*` that uses ESM as default. However, if any other libraries depend on any modules in **ESM** format, the virtual machine will **NOT** compile and return an error.
 
