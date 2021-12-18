@@ -92,10 +92,10 @@ localMode:true
 #### Cambiar el tamaño del lote de la búsqueda de bloques
 
 ```
-subql-node -f your-project-path --batch-size 200
-
-Result: [IndexerManager] fetch block [203, 402]
-[IndexerManager] fetch block [403, 602]
+subquery: ../../../../subql-example/extrinsics
+subqueryName: extrinsics
+batchSize:100
+localMode:true
 ```
 
 Cuando el indexador primero indexa la cadena, la obtención de bloques individuales reducirá significativamente el rendimiento. Aumentar el tamaño del lote para ajustar el número de bloques obtenidos reducirá el tiempo total de procesamiento. El tamaño del lote por defecto actual es 100.
