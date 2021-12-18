@@ -127,9 +127,9 @@ export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
 
 เนื่องจากข้อจำกัดของ virtual machine ในแซนด์บ็อกซ์ของเรา ขณะนี้เราจึงรองรับเฉพาะไลบรารีของบุคคลที่สามที่เขียนด้วย **CommonJS** เท่านั้น
 
-We also support a **hybrid** library like `@polkadot/*` that uses ESM as default. However, if any other libraries depend on any modules in **ESM** format, the virtual machine will **NOT** compile and return an error.
+และเรายังสนับสนุนไลบรารี **ไฮบริด** ด้วย เช่น `@polkadot/*` ที่ใช้ ESM เป็นค่าเริ่มต้น อย่างไรก็ตาม หากไลบรารีอื่นขึ้นอยู่กับโมดูลในรูปแบบ **ESM** จะทำให้ virtual machine **ไม่** รวบรวมข้อมูลและส่งผลให้เกิดความผิดพลาด
 
-## Custom Substrate Chains
+## เครือข่าย Substrate แบบกำหนดเอง
 
 SubQuery can be used on any Substrate-based chain, not just Polkadot or Kusama.
 
