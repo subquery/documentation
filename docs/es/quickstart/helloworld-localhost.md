@@ -1,4 +1,4 @@
-# Hola Mundo (localhost + Docker)
+# Hola Mundo (host local + Docker)
 
 Bienvenido a este inicio rápido de SubQuery Hola Mundo. El inicio rápido apunta a mostrarle cómo se ejecuta el proyecto inicial predeterminado en Docker en unos pocos pasos.
 
@@ -40,7 +40,7 @@ docker -v
 Para usuarios más avanzados, copie y pegue lo siguiente:
 
 ```shell
-echo -e "Mi versión yarn es:" `yarn -v` "\nMi versión de subql es:" `subql -v` "\nMi versión docker es:" `docker -v`
+echo -e "My yarn version is:" `yarn -v` "\nMy subql version is:" `subql -v`  "\nMy docker version is:" `docker -v`
 ```
 
 Esto debería regresar: (para usuarios de npm, reemplace yarn con npm)
@@ -83,10 +83,14 @@ cd subqlHelloWorld
 
 Ahora haga una instalación de yarn o node para instalar las distintas dependencias.
 
-<CodeGroup> # Yarn yarn install # Npm npm install
+<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```bash npm run-script build ``` </CodeGroupItem> </CodeGroup>
+
+An example of `yarn build`
 
 ```shell
-> yarn install
+# Yarn yarn install # NPM npm install</p>
+
+<pre><code class="shell">> yarn install
 yarn install v1.22.10
 info No lockfile found.
 [1/4] 🔍  Resolving packages...
@@ -104,7 +108,7 @@ Ahora ejecuta `yarn codegen` para generar Typescript desde el esquema GraphQL.
 <CodeGroup> # Yarn yarn codegen # NPM npm run-script codegen
 
 ```shell
-&gt; yarn codegen
+> yarn codegen
 yarn run v1.22.10
 $ ./node_modules/.bin/subql codegen
 ===============================
@@ -127,8 +131,9 @@ $ ./node_modules/.bin/subql codegen
 ✨ Done in 1.02s.
 * Tipo de índice generado!
 * Tipo de índice generado!
-✨ Hecho en 1.02s.
-```
+* Tipo de índice generado!
+✨ Hecho en 0.06s. ```
+ ✨ Hecho en 1.02s. </code></pre>
 
 **Advertencia** Cuando se hacen cambios en el archivo de schema, por favor recuerde volver a ejecutar `yarn codegen` para regenerar el directorio de tipos.
 
@@ -136,7 +141,7 @@ $ ./node_modules/.bin/subql codegen
 
 El siguiente paso es construir el código con `yarn build`.
 
-<CodeGroup> # Yarn yarn build # NPM npm run-script build
+<CodeGroup mark="crwd-mark"> # Yarn yarn build # NPM npm run-script build
 
 ```shell
 > yarn build
@@ -147,7 +152,7 @@ $ tsc -b
 
 ## 5. Ejecutar Docker
 
-El uso de Docker le permite ejecutar este ejemplo muy rápidamente, ya que toda la infraestructura necesaria se puede proporcionar dentro de la imagen Docker. Ejecute `docker-compose pull && docker-compose up`.
+El uso de Docker le permite ejecutar este ejemplo muy rápidamente, ya que toda la infraestructura necesaria se puede proporcionar dentro de la imagen Docker. Ejecuta `docker-compose pull && docker-compose up`.
 
 Esto hará que todo salga a la vida donde eventualmente conseguirás que se obtengan bloques.
 
