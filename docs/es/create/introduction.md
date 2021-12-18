@@ -31,7 +31,7 @@ El siguiente mapa proporciona una visión general de la estructura de directorio
   L .gitignore
 ```
 
-Ejemplo
+Example
 
 ![Estructura de directorios de SubQuery](/assets/img/subQuery_directory_stucture.png)
 
