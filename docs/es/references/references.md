@@ -4,7 +4,7 @@
 
 ### --help
 
-This shows the help options.
+Esto muestra las opciones de ayuda.
 
 ```shell
 > subql-node --help
@@ -40,7 +40,7 @@ Options:
 
 ### --version
 
-This displays the current version.
+Esto muestra la versión actual.
 
 ```shell
 > subql-node --version
