@@ -79,7 +79,7 @@ Estas son las interfaces que actualmente no soportamos **NOT**:
 - ~~api.query.&lt;module&gt;.&lt;method&gt;.range~~
 - ~~api.query.&lt;module&gt;.&lt;method&gt;.sizeAt~~
 
-See an example of using this API in our [validator-threshold](https://github. com/subquery/subql-examples/tree/main/validator-threshold) example use case.
+Ver un ejemplo de uso de esta API en nuestro ejemplo de uso de ejemplo de [validator-threshold](https://github.com/subquery/tutorials-validator-threshold).
 
 ## Llamadas RPC
 
@@ -136,7 +136,7 @@ Puede utilizar una cadena personalizada basada en Substrate y proporcionamos her
 
 En las siguientes secciones, utilizamos nuestro [ejemplo de gatitos](https://github.com/subquery/tutorials-kitty-chain) para explicar el proceso de integración.
 
-### Preparation
+### Preparación
 
 Crear un nuevo directorio `api-interfaces` bajo la carpeta `src` del proyecto para almacenar todos los archivos necesarios y generados. También creamos un directorio `api-interfaces/kitties` ya que queremos añadir decoración en la API desde el módulo `kitties`.
 
