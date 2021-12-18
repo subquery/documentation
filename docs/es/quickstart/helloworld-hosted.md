@@ -63,7 +63,7 @@ git init
 A continuación, añada un repositorio remoto con el comando:
 
 ```shell
-git remoto añadir origen https://github.com/seandotau/subqlHelloWorld.git
+git remote add origin https://github.com/seandotau/subqlHelloWorld.git
 ```
 
 Esto básicamente establece su repositorio remoto en “https://github.com/seandotau/subqlHelloWorld.git” y le da el nombre “origin” que es la nomenclatura estándar para un repositorio remoto en GitHub.
@@ -139,12 +139,12 @@ Usted puede elegir desplegar en varios entornos tales como una ranura para produ
 ![Desplegar a la ranura de producción](/assets/img/deploy_production_slot.png)
 
 - **Commit Hash de la nueva versión:** Desde GitHub seleccione el commit correcto del código base del proyecto SubQuery que desea desplegar
-- **Versión del indexador:** Esta es la versión del servicio de nodos de SubQuery en la que desea ejecutar esta SubQuery. See [@subql/node](https://www.npmjs.com/package/@subql/node)
-- **Versión de consulta:** Esta es la versión del servicio de consulta de SubQuery en la que desea ejecutar esta SubQuery. See [@subql/query](https://www.npmjs.com/package/@subql/query)
+- **Versión del indexador:** Esta es la versión del servicio de nodos de SubQuery en la que desea ejecutar esta SubQuery. Ver [@subql/node](https://www.npmjs.com/package/@subql/node)
+- **Versión de consulta:** Esta es la versión del servicio de consulta de SubQuery en la que desea ejecutar esta SubQuery. Ver [@subql/query](https://www.npmjs.com/package/@subql/query)
 
 Dado que solo tenemos un compromiso, solo hay una opción en la caída hacia abajo. También trabajaremos con la última versión del indexador y la versión de consulta, así que aceptaremos los valores por defecto y luego haremos clic en "Desplegar actualización".
 
-Luego verás tu despliegue en el estado "Procesando". Aquí, tu código se está desplegando en la infraestructura administrada de SubQuery. Básicamente, un servidor se está volviendo sobre la demanda y se está proporcionando para usted. This will take a few minutes so time to grab a coffee!
+Luego verás tu despliegue en el estado "Procesando". Aquí, tu código se está desplegando en la infraestructura administrada de SubQuery. Básicamente, un servidor se está volviendo sobre la demanda y se está proporcionando para usted. ¡Esto tomará unos minutos así que tenemos tiempo para tomar un café!
 
 ![Procesamiento de despliegue](/assets/img/deployment_processing.png)
 
