@@ -131,19 +131,19 @@ export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
 
 ## เครือข่าย Substrate แบบกำหนดเอง
 
-SubQuery can be used on any Substrate-based chain, not just Polkadot or Kusama.
+SubQuery สามารถใช้กับเครือข่ายใดก็ได้ ที่มีพื้นฐานมาจาก Substrate ไม่จำเป็นต้องใช้กับ Polkadot หรือ Kusama เท่านั้น
 
-You can use a custom Substrate-based chain and we provide tools to import types, interfaces, and additional methods automatically using [@polkadot/typegen](https://polkadot.js.org/docs/api/examples/promise/typegen/).
+ซึ่งคุณสามารถจะใช้เครือข่ายที่มี Substrate เป็นพื้นฐานแบบกำหนดเองได้ โดยเรามีเครื่องมือสำหรับนำเข้า ประเภทต่าง ๆ อินเทอร์เฟซ และ method เพิ่มเติมโดยอัตโนมัติโดยใช้ [@polkadot/typegen](https://polkadot.js.org/docs/api/examples/promise/typegen/)
 
-In the following sections, we use our [kitty example](https://github.com/subquery/tutorials-kitty-chain) to explain the integration process.
+ในส่วนต่อไปนี้ เราใช้[ตัวอย่างลูกแมว](https://github.com/subquery/tutorials-kitty-chain)เพื่ออธิบายขั้นตอนการรวมระบบ
 
-### Preparation
+### การเตรียมพร้อม
 
-Create a new directory `api-interfaces` under the project `src` folder to store all required and generated files. We also create an `api-interfaces/kitties` directory as we want to add decoration in the API from the `kitties` module.
+สร้างไดเร็กทอรีใหม่ `api-interfaces` ภายใต้โฟลเดอร์โปรเจ็กต์ `src` เพื่อจัดเก็บไฟล์ที่จำเป็นและสร้างขึ้นทั้งหมด นอกจากนี้เรายังสร้างไดเร็กทอรี `api-interfaces/kitties` เนื่องจากเราต้องการเพิ่มการตกแต่งใน API จากโมดูล `kitty`
 
 #### Metadata
 
-We need metadata to generate the actual API endpoints. In the kitty example, we use an endpoint from a local testnet, and it provides additional types. Follow the steps in [PolkadotJS metadata setup](https://polkadot.js.org/docs/api/examples/promise/typegen#metadata-setup) to retrieve a node's metadata from its **HTTP** endpoint.
+เราต้องการข้อมูล Metadata เพื่อสร้าง endpoint ของ API In the kitty example, we use an endpoint from a local testnet, and it provides additional types. Follow the steps in [PolkadotJS metadata setup](https://polkadot.js.org/docs/api/examples/promise/typegen#metadata-setup) to retrieve a node's metadata from its **HTTP** endpoint.
 
 ```shell
 curl -H "Content-Type: application/json" -d '{"id":"1", "jsonrpc":"2.0", "method": "state_getMetadata", "params":[]}' http://localhost:9933
