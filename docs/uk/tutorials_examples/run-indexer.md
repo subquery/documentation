@@ -12,28 +12,28 @@
 
 ## Postgres
 
-Running an indexer node on your infrastructure will require the setup of a Postgres database. You can install Postgres from [here](https://www.postgresql.org/download/) and ensure the version is 12 or greater.
+Запуск вузла індексування на вашу інфраструктуру потребує налаштування бази даних Postgres. Ви можете встановити Postgres [тут](https://www.postgresql.org/download/) і переконатися, що версія 12 або вище.
 
-## Install subql/node
+## Встановлення subql/node
 
-Then to run a SubQuery node, run the following command:
+Потім для запуску вузла SubQuery запустіть наступну команду:
 
 ```shell
 npm install -g @subql/node
 ```
 
-The -g flag means to install it globally which means on OSX, the location will be /usr/local/lib/node_modules.
+-g прапорець означає, встановлення його глобально, що означає на OSX, місцезнаходження буде /usr/local/lib/node_modules.
 
-Once installed, you can check the version by running:
+Після установки ви можете перевірити версію виконавши команду:
 
 ```shell
 > subql-node --version
 0.19.1
 ```
 
-## Setting DB configs
+## Встановлення налаштувань бази даних
 
-Next, you need to set the following environmental variables:
+Далі, вам потрібно встановити наступні змінні для навколишнього середовища:
 
 ```shell
 export DB_USER=postgres
@@ -43,20 +43,20 @@ export DB_HOST=localhost
 export DB_PORT=5432
 ```
 
-Of course, if you have different values for the above keys, please adjust accordingly. Note that the `env` command will display the current environment variables and that this process only sets these values temporarily. That is, they are only valid for the duration of the terminal session. To set them permanently, store them in your ~/bash_profile instead.
+Звичайно, якщо у вас є різні значення для вищезгаданих ключів, будь ласка, відрегулюйте відповідним чином. Зверніть увагу, що команда `env` відобразить змінні середовища і що цей процес тимчасово встановлює ці значення. Тобто вони дійсні лише протягом тривалості сеансу терміналу. Щоб встановити їх назавжди. Зберігайте їх у вашому ~/bash_profile.
 
-## Indexing a project
+## Індексація проекту
 
-To start indexing a project, navigate into your project folder and run the following command:
+Щоб почати індексування проекту, перейдіть в папку вашого проекту і виконайте наступну команду:
 
 ```shell
-підql-вузол -f.
+subql-node -f .
 ```
 
-If you do not have a project handy, `git clone https://github.com/subquery/subql-helloworld`. You should see the indexer node kick into life and start indexing blocks.
+Якщо у вас немає проекту під рукою, `git clone https://github.com/subquery/subql-helloworld`. Ви повинні побачити, як вузол індексатора запускається і починає індексувати блоки.
 
-## Inspecting Postgres
+## Інспекція Postgres
 
-If you navigate to Postgres, you should see two tables created. `public.subqueries` and `subquery_1.starter_entities`.
+При переході в Postgres, ви повинні побачити створені дві таблиці. public.subqueries та subquery_1.starter_entities.
 
-`public.subqueries` only contains 1 row which the indexer checks upon start up to “understand the current state” so it knows where to continue from. The `starter_entities` table contains the indexes. To view the data, run `select (*) from subquery_1.starter_entities`.
+`public.subqueries` містить тільки 1 рядок, який перевіряє індексатор при запуску "зрозуміти поточний стан". Таким чином, він знає, звідки продовжувати. У таблиці `starter_entity` містяться індекси. Щоб переглянути дані, запустіть `select (*) from subquery_1.starter_entities`.
