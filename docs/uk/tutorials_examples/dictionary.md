@@ -1,6 +1,6 @@
 # Як працює словник SubQuery?
 
-The whole idea of a generic dictionary project is to index all the data from a blockchain and record the events, extrinsics, and its types (module and method) in a database in order of block height. Another project can then query this `network.dictionary` endpoint instead of the default `network.endpoint` defined in the manifest file.
+Уся ідея проекту загального словника полягає в тому, щоб індексувати всі дані з блокчейна і записувати події, екстрінсіки та її типи (модулі та методи) в базі даних у порядку зростання блоків. Another project can then query this `network.dictionary` endpoint instead of the default `network.endpoint` defined in the manifest file.
 
 The `network.dictionary` endpoint is an optional parameter that if present, the SDK will automatically detect and use. `network.endpoint` is mandatory and will not compile if not present.
 
