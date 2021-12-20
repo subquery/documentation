@@ -32,6 +32,6 @@ Debugger attached.
 
 ![node inspect](/assets/img/node_inspect.png)
 
-Navigate to Filesystem and add your project folder to the workspace. ไปที่ Filesystem และเพิ่มโฟลเดอร์โปรเจ็กต์ของคุณไป workspace จากนั้นเปิด dist > โฟลเดอร์ mappings และเลือกโค้ดคุณต้องการ debug จากนั้นตรวจสอบโค้ดเช่นเดียวกับเครื่องมือสำหรับ debug มาตรฐานทั่วไป Then step through the code as with any standard debugging tool.
+ไปที่ Filesystem และเพิ่มโฟลเดอร์โปรเจ็กต์ของคุณไป workspace ไปที่ Filesystem และเพิ่มโฟลเดอร์โปรเจ็กต์ของคุณไป workspace จากนั้นเปิด dist > โฟลเดอร์ mappings และเลือกโค้ดคุณต้องการ debug จากนั้นตรวจสอบโค้ดเช่นเดียวกับเครื่องมือสำหรับ debug มาตรฐานทั่วไป Then step through the code as with any standard debugging tool.
 
 ![การ debug projects](/assets/img/debugging_projects.png)
