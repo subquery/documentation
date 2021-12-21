@@ -1,15 +1,15 @@
-# GraphQL Schema
+# GraphQ Şema
 
-## Defining Entities
+## Varlıkları Tanımlama
 
-The `schema.graphql` file defines the various GraphQL schemas. Due to the way that the GraphQL query language works, the schema file essentially dictates the shape of your data from SubQuery. To learn more about how to write in GraphQL schema language, we recommend checking out [Schemas and Types](https://graphql.org/learn/schema/#type-language).
+`schema.graphql` dosyası çeşitli GraphQL şemalarını tanımlar. GraphQL sorgu dilinin çalışma biçimi nedeniyle, şema dosyası temel olarak verilerinizin şeklini SubQuery'den belirler. GraphQL şema dilinde yazma hakkında daha fazla bilgi edinmek için [Schemas and Types](https://graphql.org/learn/schema/#type-language).'a göz atmanızı öneririz.
 
-**Important: When you make any changes to the schema file, please ensure that you regenerate your types directory with the following command `yarn codegen`**
+**Önemli: Şema dosyasında herhangi bir değişiklik yaptığınızda, lütfen aşağıdaki komutla türler dizininizi yeniden <>yarn codegen</code>**
 
-### Entities
-Each entity must define its required fields `id` with the type of `ID!`. It is used as the primary key and unique among all entities of the same type.
+### Varlık
+Her varlık gerekli alanlarını < `ID!` türünde `id` olarak tanımlamalıdır. Birincil anahtar olarak kullanılır ve aynı türdeki tüm varlıklar arasında benzersizdir.
 
-Non-nullable fields in the entity are indicated by `!`. Please see the example below:
+Varlıktaki null olmayan alanlar `!` ile gösterilir. Lütfen aşağıdaki örneğe bakın:
 
 ```graphql
 type Example @entity {
