@@ -2,7 +2,7 @@
 
 ## Xác định các thực thể
 
-` schema.graphql ` xác định các schema GraphQL khác nhau. Do cách thức hoạt động của ngôn ngữ truy vấn GraphQL, schema về cơ bản sẽ chỉ ra hình dạng dữ liệu của bạn từ SubQuery. Để tìm hiểu thêm về cách viết bằng ngôn ngữ schema GraphQL, chúng tôi khuyên bạn nên xem [Schemas và kiểu dữ liệu](https://graphql.org/learn/schema/#type-language).
+` schema.graphql ` xác định các lược đồ GraphQL khác nhau. Do cách thức hoạt động của ngôn ngữ truy vấn GraphQL, lược đồ về cơ bản sẽ chỉ ra hình dạng dữ liệu của bạn từ SubQuery. Để tìm hiểu thêm về cách viết bằng ngôn ngữ lược đồ GraphQL, chúng tôi khuyên bạn nên xem [Schemas và kiểu dữ liệu](https://graphql.org/learn/schema/#type-language).
 
 **Quan trọng: Khi bạn thực hiện bất kỳ thay đổi nào đối với tệp schema, hãy đảm bảo rằng bạn tạo thư types của mình bằng lệnh sau `yarn codegen`**
 
