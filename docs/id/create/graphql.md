@@ -2,20 +2,20 @@
 
 ## Mendefinisikan Entitas
 
-File `schema.graphql` mendefinisikan berbagai skema GraphQL. Karena cara kerja bahasa kueri GraphQL, file skema pada dasarnya menentukan bentuk data Anda dari SubQuery. Untuk mempelajari lebih lanjut tentang cara menulis dalam bahasa skema GraphQL, sebaiknya periksa [Skema dan Jenis](https://graphql.org/learn/schema/#type-language).
+File `schema.graphql` mendefinisikan berbagai skema GraphQL. Karena cara kerja bahasa kueri GraphQL, file skema pada dasarnya menentukan bentuk data Anda dari SubQuery. Untuk mempelajari lebih lanjut tentang cara menulis dalam bahasa skema GraphQL, sebaiknya periksa [Skema dan Type](https://graphql.org/learn/schema/#type-language).
 
 **Penting: Saat Anda membuat perubahan apa pun pada file skema, harap pastikan bahwa Anda membuat ulang direktori jenis Anda dengan perintah berikut `yarn codegen`**
 
 ### Entitas
 Setiap entitas harus menentukan bidang wajib `id` dengan jenis `ID!`. Ini digunakan sebagai kunci utama dan unik di antara semua entitas dengan tipe yang sama.
 
-Bidang yang tidak dapat dibatalkan dalam entitas ditunjukkan dengan `!`. Silakan lihat contoh di bawah ini:
+Bidang yang non-nullable dalam entitas ditunjukkan dengan `!`. Silakan lihat contoh di bawah ini:
 
 ```graphql
 type Example @entity {
-  id: ID! # id field is always required and must look like this
-  name: String! # This is a required field
-  address: String # This is an optional field
+  id: ID! # id field selalu diperlukan dan harus terlihat seperti ini
+  name: String! # Ini adalah field yang harus diisi
+  address: String # Ini adalah field opsional
 }
 ```
 
@@ -29,23 +29,23 @@ Saat ini kami mendukung jenis skalar mengalir:
 - `Float`
 - `Date`
 - `Boolean`
-- `<EntityName>` for nested relationship entities, you might use the defined entity's name as one of the fields. Please see in [Entity Relationships](#entity-relationships).
-- `JSON` can alternatively store structured data, please see [JSON type](#json-type)
-- `<EnumName>` types are a special kind of enumerated scalar that is restricted to a particular set of allowed values. Please see [Graphql Enum](https://graphql.org/learn/schema/#enumeration-types)
+- `<EntityName>` untuk entitas nested relationship, Anda dapat menggunakan nama entitas yang ditentukan sebagai salah satu field. Mohon lihat di [Hubungan Entitas](#entity-relationships).
+- `JSON` secara alternatif bisa menyimpan data yang terstruktur, mohon lihat [jenis JSON](#json-type)
+- Jenis `<EnumName>` adalah jenis skalar enumerasi khusus yang dibatasi pada kumpulan nilai tertentu yang diizinkan. Silakan lihat [Graphql Enum](https://graphql.org/learn/schema/#enumeration-types)
 
-## Indexing by non-primary-key field
+## Mengindeks berdasarkan field non-primary-key
 
-To improve query performance, index an entity field simply by implementing the `@index` annotation on a non-primary-key field.
+Untuk meningkatkan performa kueri, indeks bidang entitas dengan mengimplementasikan anotasi `@index` di field non-primary-key.
 
-However, we don't allow users to add `@index` annotation on any [JSON](#json-type) object. By default, indexes are automatically added to foreign keys and for JSON fields in the database, but only to enhance query service performance.
+Namun, kami tidak mengizinkan pengguna untuk menambahkan anotasi `@index` pada objek [JSON](#json-type) apa pun. Secara default, indeks secara otomatis ditambahkan ke foreign keys dan untuk bidang JSON dalam database, tetapi hanya untuk meningkatkan kinerja layanan kueri.
 
-Here is an example.
+Berikut ini contohnya.
 
 ```graphql
 type User @entity {
   id: ID!
-  name: String! @index(unique: true) # unique can be set to true or false
-  title: Title! # Indexes are automatically added to foreign key field 
+  name: String! @index(unique: true) # unique bisa diatur menjadi true atau false
+  title: Title! # Indeks secara otomatis ditambahkan ke field foreign key
 }
 
 type Title @entity {
@@ -53,19 +53,19 @@ type Title @entity {
   name: String! @index(unique:true)
 }
 ```
-Assuming we knew this user's name, but we don't know the exact id value, rather than extract all users and then filtering by name we can add `@index` behind the name field. This makes querying much faster and we can additionally pass the `unique: true` to  ensure uniqueness.
+Berasumsi kita mengetahui nama pengguna ini, tetapi kita tidak mengetahui nilai id persisnya, daripada mengekstrak semua pengguna dan kemudian memfilter berdasarkan nama kita bisa menambahkan `@index`di belakang bidang nama. Ini menjadikan kueri jauh lebih cepat dan kita bisa dengan tambahan melewati `unique: true`untuk memastikan keunikan.
 
-**If a field is not unique, the maximum result set size is 100**
+**Jika sebuah field tidak unik, ukuran hasil maksimalnya adalah 100**
 
-When code generation is run, this will automatically create a `getByName` under the `User` model, and the foreign key field `title` will create a `getByTitleId` method, which both can directly be accessed in the mapping function.
+Ketika pembuatan kode dijalankan, ini akan secara otomatis membuat `getByName` di bawah model `User`, dan field foreign key `title` akan membuat method ` getByTitleId`, yang keduanya dapat langsung diakses dalam fungsi pemetaan.
 
 ```sql
-/* Prepare a record for title entity */
+/* Persiapkan catatan untuk entitas judul */
 INSERT INTO titles (id, name) VALUES ('id_1', 'Captain')
 ```
 
 ```typescript
-// Handler in mapping function
+// Handler dalam fungsi mapping
 import {User} from "../types/models/User"
 import {Title} from "../types/models/Title"
 
@@ -76,17 +76,17 @@ const captainTitle = await Title.getByName('Captain');
 const pirateLords = await User.getByTitleId(captainTitle.id); // List of all Captains
 ```
 
-## Entity Relationships
+## Hubungan Entitas
 
-An entity often has nested relationships with other entities. Setting the field value to another entity name will define a one-to-one relationship between these two entities by default.
+Entitas sering kali memiliki nested relationship dengan entitas lain. Mengatur nilai field ke nama entitas lain akan menentukan hubungan satu per satu di antara dua entitas ini secara default.
 
-Different entity relationships (one-to-one, one-to-many, and many-to-many) can be configured using the examples below.
+Hubungan entitas berbeda (satu per satu, satu ke banyak, dan banyak ke banyak) bisa dikonfigurasikan menggunakan contoh di bawah ini.
 
-### One-to-One Relationships
+### Hubungan Satu ke Satu
 
-One-to-one relationships are the default when only a single entity is mapped to another.
+Hubungan satu ke satu adalah hubungan default saat hanya satu entitas yang dipetakan.
 
-Example: A passport will only belong to one person and a person only has one passport (in this example):
+Contoh: Sebuah paspor hanya milik satu orang saja dan satu orang hanya memiliki satu paspor (dalam contoh ini):
 
 ```graphql
 type Person @entity {
@@ -99,7 +99,7 @@ type Passport @entity {
 }
 ```
 
-or
+atau
 
 ```graphql
 type Person @entity {
@@ -113,11 +113,11 @@ type Passport @entity {
 }
 ```
 
-### One-to-Many relationships
+### Hubungan Satu ke Banyak
 
-You can use square brackets to indicate that a field type includes multiple entities.
+Anda bisa menggunakan tanda kurung siku untuk mengindikasikan bahwa sebuah jenis bidang menyertakan beberapa entitas.
 
-Example: A person can have multiple accounts.
+Contoh: Seseorang bisa memiliki beberapa akun.
 
 ```graphql
 type Person @entity {
@@ -131,10 +131,10 @@ type Account @entity {
 }
 ```
 
-### Many-to-Many relationships
-A many-to-many relationship can be achieved by implementing a mapping entity to connect the other two entities.
+### Hubungan Banyak ke Banyak
+Hubungan banyak ke banyak bisa diraih dengan mengimplementasikan entitas pemetaan untuk menghubungkan dua entitas lainnya.
 
-Example: Each person is a part of multiple groups (PersonGroup) and groups have multiple different people (PersonGroup).
+Contoh: Setiap orang merupakan bagian dari beberapa kelompok (PersonGroup) dan kelompok memiliki beberapa orang berbeda (PersonGroup).
 
 ```graphql
 type Person @entity {
