@@ -9,64 +9,64 @@ Tệp kê khai có thể ở định dạng YAML hoặc JSON. Trong tài liệu 
 
 ## Di chuyển từ v0.0.1 sang v0.2.0<Badge text="upgrade" type="warning"/>
 
-**Nếu bạn có một dự án với specVersion v0.0.1, bạn có thể sử dụng `subql migrate` để nâng cấp nhanh chóng. [See here](#cli-options) for more information**
+**Nếu bạn có một dự án với specVersion v0.0.1, bạn có thể sử dụng `subql migrate` để nâng cấp nhanh chóng. [Xem tại đây](#cli-options) để biết thêm thông tin **
 
-Under `network`:
+Trong `network`:
 
-- There is a new **required** `genesisHash` field which helps to identify the chain being used.
-- For v0.2.0 and above, you are able to reference an external [chaintype file](#custom-chains) if you are referencing a custom chain.
+- Có một trường mới ** bắt buộc ** ` genesisHash ` giúp xác định chuỗi đang được sử dụng.
+- Đối với v0.2.0 trở lên, bạn có thể tham chiếu đến [chaintype file](#custom-chains) bên ngoài nếu bạn đang tham chiếu đến một chuỗi tùy chỉnh.
 
-Under `dataSources`:
+Trong `dataSources`:
 
-- Can directly link an `index.js` entry point for mapping handlers. By default this `index.js` will be generated from `index.ts` during the build process.
-- Data sources can now be either a regular runtime data source or [custom data source](#custom-data-sources).
+- Có thể liên kết trực tiếp `index.js` điểm vào cho các trình xử lý ánh xạ. Theo mặc định, `index.js` này sẽ được tạo từ `index.ts` trong quá trình xây dựng.
+- Nguồn dữ liệu có thể là nguồn dữ liệu thời gian chạy thông thường hoặc [nguồn dữ liệu tùy chỉnh](#custom-data-sources).
 
-### CLI Options
+### Tùy chọn CLI
 
-While the v0.2.0 spec version is in beta, you will need to explicitly define it during project initialisation by running `subql init --specVersion 0.2.0 PROJECT_NAME`
+Trong khi phiên bản kỹ thuật v0.2.0 đang trong giai đoạn thử nghiệm, bạn sẽ cần xác định rõ ràng nó trong quá trình khởi tạo dự án bằng cách chạy `subql init --specVersion 0.2.0 PROJECT_NAME`
 
-`subql migrate` can be run in an existing project to migrate the project manifest to the latest version.
+`subql migrate` có thể chạy trong một dự án hiện có để di chuyển tệp kê khai dự án sang phiên bản mới nhất.
 
-| Options        | Description                                                |
-| -------------- | ---------------------------------------------------------- |
-| -f, --force    |                                                            |
-| -l, --location | local folder to run migrate in (must contain project.yaml) |
-| --file=file    | to specify the project.yaml to migrate                     |
+| Các Tùy chọn   | Mô tả                                                         |
+| -------------- | ------------------------------------------------------------- |
+| -f, --force    |                                                               |
+| -l, --location | thư mục cục bộ để chạy di chuyển vào (phải chứa project.yaml) |
+| --file=file    | để chỉ định project.yaml di chuyển                            |
 
-## Overview
+## Tổng quan
 
-### Top Level Spec
+### Thông số kỹ thuật cấp cao nhất
 
-| Field           | v0.0.1                              | v0.2.0                      | Description                                                |
-| --------------- | ----------------------------------- | --------------------------- | ---------------------------------------------------------- |
-| **specVersion** | String                              | String                      | `0.0.1` or `0.2.0` - the spec version of the manifest file |
-| **name**        | 𐄂                                   | String                      | Name of your project                                       |
-| **version**     | 𐄂                                   | String                      | Version of your project                                    |
-| **description** | String                              | String                      | Discription of your project                                |
-| **repository**  | String                              | String                      | Git repository address of your project                     |
-| **schema**      | String                              | [Schema Spec](#schema-spec) | The location of your GraphQL schema file                   |
-| **network**     | [Network Spec](#network-spec)       | Network Spec                | Detail of the network to be indexed                        |
-| **dataSources** | [DataSource Spec](#datasource-spec) | DataSource Spec             |                                                            |
+| Trường          | v0.0.1                              | v0.2.0                      | Mô tả                                                             |
+| --------------- | ----------------------------------- | --------------------------- | ----------------------------------------------------------------- |
+| **specVersion** | String                              | String                      | `0.0.1` or `0.2.0` - thông số kỹ thuật phiên bản của tệp manifest |
+| **name**        | 𐄂                                   | String                      | Tên của dự án                                                     |
+| **version**     | 𐄂                                   | String                      | Phiên bản dự án của bạn                                           |
+| **description** | String                              | String                      | Mô tả dự án của bạn                                               |
+| **repository**  | String                              | String                      | Địa chỉ kho lưu trữ Git của dự án của bạn                         |
+| **schema**      | String                              | [Schema Spec](#schema-spec) | Vị trí của tệp lược đồ GraphQL của bạn                            |
+| **network**     | [Network Spec](#network-spec)       | Network Spec                | Chi tiết của mạng được lập chỉ mục                                |
+| **dataSources** | [DataSource Spec](#datasource-spec) | DataSource Spec             |                                                                   |
 
 ### Schema Spec
 
-| Field    | v0.0.1 | v0.2.0 | Description                              |
-| -------- | ------ | ------ | ---------------------------------------- |
-| **file** | 𐄂      | String | The location of your GraphQL schema file |
+| Trường   | v0.0.1 | v0.2.0 | Mô tả                                  |
+| -------- | ------ | ------ | -------------------------------------- |
+| **file** | 𐄂      | String | Vị trí của tệp lược đồ GraphQL của bạn |
 
 ### Network Spec
 
-| Field           | v0.0.1 | v0.2.0        | Description                                                                                                                                                                                                |
-| --------------- | ------ | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **genesisHash** | 𐄂      | String        | The genesis hash of the network                                                                                                                                                                            |
-| **endpoint**    | String | String        | Defines the wss or ws endpoint of the blockchain to be indexed - **This must be a full archive node**. You can retrieve endpoints for all parachains for free from [OnFinality](https://app.onfinality.io) |
-| **dictionary**  | String | String        | It is suggested to provide the HTTP endpoint of a full chain dictionary to speed up processing - read [how a SubQuery Dictionary works](../tutorials_examples/dictionary.md).                              |
-| **chaintypes**  | 𐄂      | {file:String} | Path to chain types file, accept `.json` or `.yaml` format                                                                                                                                                 |
+| Trường          | v0.0.1 | v0.2.0        | Mô tả                                                                                                                                                                                                                |
+| --------------- | ------ | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **genesisHash** | 𐄂      | String        | Hàm băm gốc của mạng                                                                                                                                                                                                 |
+| **endpoint**    | String | String        | Xác định điểm cuối wss hoặc ws của chuỗi khối được lập chỉ mục - **Đây phải là một nút lưu trữ đầy đủ**. Bạn có thể truy xuất điểm cuối cho tất cả các parachain miễn phí từ [OnFinality](https://app.onfinality.io) |
+| **dictionary**  | String | String        | It is suggested to provide the HTTP endpoint of a full chain dictionary to speed up processing - read [how a SubQuery Dictionary works](../tutorials_examples/dictionary.md).                                        |
+| **chaintypes**  | 𐄂      | {file:String} | Path to chain types file, accept `.json` or `.yaml` format                                                                                                                                                           |
 
-### Datasource Spec
+### Thông số kỹ thuật Data Source
 
-Defines the data that will be filtered and extracted and the location of the mapping function handler for the data transformation to be applied.
-| Field          | v0.0.1                                                    | v0.2.0                                                                           | Description                                                                                                                                                                           |
+DataSources xác định dữ liệu sẽ được lọc và trích xuất và vị trí của trình xử lý hàm ánh xạ để áp dụng chuyển đổi dữ liệu.
+| Trường         | v0.0.1                                                    | v0.2.0                                                                           | Mô tả                                                                                                                                                                                 |
 | -------------- | --------------------------------------------------------- | -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **name**       | String                                                    | 𐄂                                                                                | Name of the data source                                                                                                                                                               |
 | **kind**       | [substrate/Runtime](./manifest/#data-sources-and-mapping) | substrate/Runtime, [substrate/CustomDataSource](./manifest/#custom-data-sources) | We supports data type from default substrate runtime such as block, event and extrinsic(call). <br /> From v0.2.0, we support data from custom runtime, such as smart contract. |
@@ -74,14 +74,14 @@ Defines the data that will be filtered and extracted and the location of the map
 | **mapping**    | Mapping Spec                                              | Mapping Spec                                                                     |                                                                                                                                                                                       |
 | **filter**     | [network-filters](./manifest/#network-filters)            | 𐄂                                                                                | Filter the data source to execute by the network endpoint spec name                                                                                                                   |
 
-### Mapping Spec
+### Thông số kỹ thuật ánh xạ
 
-| Field                  | v0.0.1                                                                   | v0.2.0                                                                                        | Description                                                                                                                                                                                                                                  |
+| Trường                 | v0.0.1                                                                   | v0.2.0                                                                                        | Mô tả                                                                                                                                                                                                                                        |
 | ---------------------- | ------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **file**               | String                                                                   | 𐄂                                                                                             | Path to the mapping entry                                                                                                                                                                                                                    |
 | **handlers & filters** | [Default handlers and filters](./manifest/#mapping-handlers-and-filters) | Default handlers and filters, <br />[Custom handlers and filters](#custom-data-sources) | List all the [mapping functions](./mapping.md) and their corresponding handler types, with additional mapping filters. <br /><br /> For custom runtimes mapping handlers please view [Custom data sources](#custom-data-sources) |
 
-## Data Sources and Mapping
+## Nguồn dữ liệu và ánh xạ
 
 In this section, we will talk about the default substrate runtime and its mapping. Here is an example:
 
@@ -130,7 +130,7 @@ filter:
 
 ## Chuỗi tùy chỉnh
 
-### Network Spec
+### Thông số kỹ thuật mạng
 
 When connecting to a different Polkadot parachain or even a custom substrate chain, you'll need to edit the [Network Spec](#network-spec) section of this manifest.
 
@@ -138,11 +138,11 @@ The `genesisHash` must always be the hash of the first block of the custom netwo
 
 ![Genesis Hash](/assets/img/genesis-hash.jpg)
 
-Additionally you will need to update the `endpoint`. This defines the wss endpoint of the blockchain to be indexed - **This must be a full archive node**. You can retrieve endpoints for all parachains for free from [OnFinality](https://app.onfinality.io)
+Additionally you will need to update the `endpoint`. This defines the wss endpoint of the blockchain to be indexed - **This must be a full archive node**. Bạn có thể truy xuất điểm cuối cho tất cả các parachain miễn phí từ [OnFinality](https://app.onfinality.io)
 
-### Chain Types
+### Các loại chuỗi
 
-You can index data from custom chains by also including chain types in the manifest.
+Bạn có thể lập chỉ mục dữ liệu từ các chuỗi tùy chỉnh bằng cách bao gồm các loại chuỗi trong manifest.
 
 We support the additional types used by substrate runtime modules, `typesAlias`, `typesBundle`, `typesChain`, and `typesSpec` are also supported.
 
