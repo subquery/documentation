@@ -1,4 +1,4 @@
-# Lập bản đồ
+# Ánh xạ
 
 Các hàm ánh xạ xác định cách dữ liệu chuỗi được chuyển đổi thành các thực thể GraphQL được tối ưu hóa mà chúng tôi đã xác định trước đó trong tệp `schema.graphql`.
 
