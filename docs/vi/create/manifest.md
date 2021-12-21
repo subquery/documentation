@@ -153,23 +153,23 @@ Trong ví dụ v0.2.0 bên dưới, `network.chaintypes` đang trỏ đến mộ
 
 ## Nguồn dữ liệu tùy chỉnh
 
-Nguồn dữ liệu tùy chỉnh cung cấp chức năng cụ thể của mạng giúp việc xử lý dữ liệu dễ dàng hơn. They act as a middleware that can provide extra filtering and data transformation.
+Nguồn dữ liệu tùy chỉnh cung cấp chức năng cụ thể của mạng giúp việc xử lý dữ liệu dễ dàng hơn. Chúng hoạt động như một phần mềm trung gian có thể cung cấp thêm khả năng lọc và chuyển đổi dữ liệu.
 
-A good example of this is EVM support, having a custom data source processor for EVM means that you can filter at the EVM level (e.g. filter contract methods or logs) and data is transformed into structures farmiliar to the Ethereum ecosystem as well as parsing parameters with ABIs.
+Một ví dụ điển hình về điều này là hỗ trợ EVM, có bộ xử lý nguồn dữ liệu tùy chỉnh cho EVM có nghĩa là bạn có thể lọc ở cấp EVM (ví dụ: lọc các phương pháp hợp đồng hoặc nhật ký) và dữ liệu được chuyển đổi thành các cấu trúc trang trại riêng cho hệ sinh thái Ethereum cũng như các tham số phân tích cú pháp với ABIs.
 
-Custom Data Sources can be used with normal data sources.
+Nguồn dữ liệu tùy chỉnh có thể được sử dụng với các nguồn dữ liệu thông thường.
 
-Here is a list of supported custom datasources:
+Dưới đây là danh sách các nguồn dữ liệu tùy chỉnh được hỗ trợ:
 
-| Kind                                                  | Supported Handlers                                                                                       | Filters                         | Description                                                                      |
-| ----------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | ------------------------------- | -------------------------------------------------------------------------------- |
-| [substrate/Moonbeam](./moonbeam/#data-source-example) | [substrate/MoonbeamEvent](./moonbeam/#moonbeamevent), [substrate/MoonbeamCall](./moonbeam/#moonbeamcall) | See filters under each handlers | Provides easy interaction with EVM transactions and events on Moonbeams networks |
+| Kind                                                  | Trình xử lý được hỗ trợ                                                                                  | Bộ lọc                              | Mô tả                                                                                    |
+| ----------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | ----------------------------------- | ---------------------------------------------------------------------------------------- |
+| [substrate/Moonbeam](./moonbeam/#data-source-example) | [substrate/MoonbeamEvent](./moonbeam/#moonbeamevent), [substrate/MoonbeamCall](./moonbeam/#moonbeamcall) | Xem các bộ lọc dưới mỗi trình xử lý | Cung cấp khả năng tương tác dễ dàng với các giao dịch và sự kiện EVM trên mạng Moonbeams |
 
-## Network Filters
+## Bộ lọc mạng
 
-**Network filters only applies to manifest spec v0.0.1**.
+**Bộ lọc mạng chỉ áp dụng cho thông số tệp manifest v0.0.1**.
 
-Usually the user will create a SubQuery and expect to reuse it for both their testnet and mainnet environments (e.g Polkadot and Kusama). Giữa các mạng, các tùy chọn khác nhau có thể khác nhau (ví dụ: khối bắt đầu lập chỉ mục). Do đó, chúng tôi cho phép người dùng xác định các chi tiết khác nhau cho từng nguồn dữ liệu, có nghĩa là một dự án SubQuery vẫn có thể được sử dụng trên nhiều mạng.
+Thông thường người dùng sẽ tạo SubQuery và mong muốn sử dụng lại nó cho cả môi trường testnet và mainnet của họ (ví dụ: Polkadot và Kusama). Giữa các mạng, các tùy chọn khác nhau có thể khác nhau (ví dụ: khối bắt đầu lập chỉ mục). Do đó, chúng tôi cho phép người dùng xác định các chi tiết khác nhau cho từng nguồn dữ liệu, có nghĩa là một dự án SubQuery vẫn có thể được sử dụng trên nhiều mạng.
 
 Người dùng có thể thêm `filter` trên `dataSources` để quyết định nguồn dữ liệu nào sẽ chạy trên mỗi mạng.
 
