@@ -30,7 +30,7 @@ Desteklenen ağlar:
 
 | Alan  | Tip              | Gerekli | Açıklama                                                                                                          |
 | ----- | ---------------- | ------- | ----------------------------------------------------------------------------------------------------------------- |
-| abi   | String           | Hayır   | İşlemci tarafından argümanları ayrıştırmak için kullanılan ABI. `varlıkların` anahtarı OLMALIDIR                  |
+| abi   | Dizgi            | Hayır   | İşlemci tarafından argümanları ayrıştırmak için kullanılan ABI. `varlıkların` anahtarı OLMALIDIR                  |
 | adres | String or `null` | Hayır   | Etkinliğin geldiği veya aramanın yapıldığı bir sözleşme adresi. `null` sözleşme oluşturma çağrılarını yakalayacak |
 
 ## MoonbeamCall
@@ -44,10 +44,10 @@ Farklı bir işleyici argümanı ve küçük filtreleme değişiklikleri dışı
 
 ### Çağrı Filtresi
 
-| Alan      | Tip    | Örnekler                                                | Açıklama                                                                                                                                                           |
-| --------- | ------ | ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| fonksiyon | String | 0x095ea7b30x095ea7b3, approve(address to,uint256 value) | Sözleşmede çağrılan işlevi filtrelemek için [Fonksiyon İmzası](https://docs.ethers.io/v5/api/utils/abi/fragments/#FunctionFragment) dizeleri veya `sighash` işlevi |
-| gönderici | String | 0x6bd193ee6d2104f14f94e2ca6efefae561a4334b              | İşlemi gönderen bir Ethereum adresi                                                                                                                                |
+| Alan      | Tip   | Örnekler                                                | Açıklama                                                                                                                                                           |
+| --------- | ----- | ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| fonksiyon | Dizgi | 0x095ea7b30x095ea7b3, approve(address to,uint256 value) | Sözleşmede çağrılan işlevi filtrelemek için [Fonksiyon İmzası](https://docs.ethers.io/v5/api/utils/abi/fragments/#FunctionFragment) dizeleri veya `sighash` işlevi |
+| gönderici | Dizgi | 0x6bd193ee6d2104f14f94e2ca6efefae561a4334b              | İşlemi gönderen bir Ethereum adresi                                                                                                                                |
 
 ### İşleyiciler
 
