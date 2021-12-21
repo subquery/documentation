@@ -109,13 +109,9 @@ module.exports = config({
         {
           id: 'G-MY90N76MNK',
         },
+        'fulltext-search',
       ],
     ],
-    algolia: {
-      appId: 'BH4D9OD16A',
-      apiKey: '428771a0ad4007642cf305d46ca6be3d',
-      indexName: 'subquery'
-    },
     markdown: {
       extractHeaders: ['h2', 'h3'],
     }
