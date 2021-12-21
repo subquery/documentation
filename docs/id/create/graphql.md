@@ -156,11 +156,11 @@ type Group @entity {
 }
 ```
 
-Also, it is possible to create a connection of the same entity in multiple fields of the middle entity.
+Memungkinkan juga halnya untuk membuat koneksi entitas yang sama di beberapa field entitas tengah.
 
-For example, an account can have multiple transfers, and each transfer has a source and destination account.
+Contohnya, sebuah akun bisa memiliki beberapa transfer, dan masing-masing transfer memiliki sumber dan akun tujuan.
 
-This will establish a bi-directional relationship between two Accounts (from and to) through Transfer table.
+Ini akan mendasarkan hubungan dua arah antara dua Akun (dari dan ke) melalui tabel Transfer.
 
 ```graphql
 type Account @entity {
@@ -176,13 +176,13 @@ type Transfer @entity {
 }
 ```
 
-### Reverse Lookups
+### Pencarian Terbalik
 
-To enable a reverse lookup on an entity to a relation, attach `@derivedFrom` to the field and point to its reverse lookup field of another entity.
+Untuk mengaktfikan pencarian terbalik di sebuah entitas ke hubungan, lampirkan `@derivedFrom` ke field dan tunjuk ke field pencarian terbaliknya di entitas lain.
 
-This creates a virtual field on the entity that can be queried.
+Ini menciptakan bidang virtual pada entitas yang bisa dikuerikan.
 
-The Transfer "from" an Account is accessible from the Account entity by setting the sentTransfer or receivedTransfer as having their value derived from the respective from or to fields.
+Transfer "dari" sebuah Akun bisa diakses dari entitas Akun dengan mengatur sentTransfer atau receivedTransfer dari field dari atau ke.
 
 ```graphql
 type Account @entity {
@@ -200,19 +200,19 @@ type Transfer @entity {
 }
 ```
 
-## JSON type
+## Jenis JSON
 
-We are supporting saving data as a JSON type, which is a fast way to store structured data. We'll automatically generate corresponding JSON interfaces for querying this data and save you time defining and managing entities.
+Kami mendukung penyimpanan data sebagai jenis JSON, yang merupakan cara cepat untuk menyimpan data terstruktur. Kami akan secara otomatis menghasilkan antarmuka JSON yang berkaitan untuk mengkueri data ini dan menghemat waktu Anda menentukan dan mengatur entitas.
 
-We recommend users use the JSON type in the following scenarios:
-- When storing structured data in a single field is more manageable than creating multiple separate entities.
-- Saving arbitrary key/value user preferences (where the value can be boolean, textual, or numeric, and you don't want to have separate columns for different data types)
-- The schema is volatile and changes frequently
+Kami menyarankan pengguna menggunakan jenis JSON di skenario berikut:
+- Saat menyimpan data terstruktur di satu field lebih bisa diatur daripada membuat beberapa entitas berbeda.
+- Menyimpan kunci yang berubah-ubah/preferensi nilai pengguna (di mana nilai bisa menjadi boolean, tekstual, atau numerik, dan Anda tidak ingin memiliki kolom terpisah untuk jenis data berbeda)
+- Skema ini tidak stabil dan sering berubah
 
-### Define JSON directive
-Define the property as a JSON type by adding the `jsonField` annotation in the entity. This will automatically generate interfaces for all JSON objects in your project under `types/interfaces.ts`, and you can access them in your mapping function.
+### Menentukan direktif JSON
+Menentukan properti sebagai jenis JSON dengan menambahkan anotasi `jsonField` di entitas. Ini akan secara otomatis menghasilkan antarmuka untuk semua obyek JSON di proyek Anda di bawah `types/interfaces.ts`, dan Anda bisa mengaksesnya di fungsi pemetaan Anda.
 
-Unlike the entity, the jsonField directive object does not require any `id` field. A JSON object is also able to nest with other JSON objects.
+Tidak seperti entitas, obyek direktif jsonField tidak memerlukan bidang `id` apa pun. Obyek JSON juga bisa bersarang dengan obyek JSON lainnya.
 
 ````graphql
 type AddressDetail @jsonField {
@@ -231,14 +231,14 @@ type User @entity {
 }
 ````
 
-### Querying JSON fields
+### Mengkueri field JSON
 
-The drawback of using JSON types is a slight impact on query efficiency when filtering, as each time it performs a text search, it is on the entire entity.
+Kekurangan menggunakan jenis JSON adalah dampak sekilas pada efisiensi kueri saat memfilter, karena setiap kali melakukan pencarian teks, begitu pula di seluruh entitas.
 
-However, the impact is still acceptable in our query service. Here is an example of how to use the `contains` operator in the GraphQL query on a JSON field to find the first 5 users who own a phone number that contains '0064'.
+Akan tetapi, dampaknya masih bisa diterima di layanan kueri kami. Berikut sebuah contoh cara menggunakan operator `contains` di kueri GraphQL pada field JSON untuk mencari 5 pengguna pertama yang memiliki nomor telepon yang mengandung '0064'.
 
 ```graphql
-#To find the the first 5 users own phone numbers contains '0064'.
+#Untuk mencari 5 pengguna pertama yang memiliki nomor telepon yang mengandung '0064'.
 
 query{
   user(
