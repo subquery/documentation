@@ -74,23 +74,23 @@
 | ---- | ------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
 | теми | Масиви рядків | Transfer(адреса, індексована адреса, індексована в,uint256 значення) | Фільтр тем слідкує за фільтрами журналів Ethereum JSON-PRC, більше документації можна знайти [ here ](https://docs.ethers.io/v5/concepts/events/). |
 
-<b>Note on topics:</b>
-There are a couple of improvements from basic log filters:
+<b> Примітка до тем: </b>
+Є кілька вдосконалень від основних фільтрів журналів:
 
-- Topics don't need to be 0 padded
-- [Event Fragment](https://docs.ethers.io/v5/api/utils/abi/fragments/#EventFragment) strings can be provided and automatically converted to their id
+- Теми не потрібно 0 підкладати
+- [ Рядки фрагмента події ](https://docs.ethers.io/v5/api/utils/abi/fragments/#EventFragment) можна надати та автоматично перетворити на їх ідентифікатор
 
 ### Обробники
 
-Unlike a normal handler you will not get a `SubstrateEvent` as the parameter, instead you will get a `MoonbeamEvent` which is based on Ethers [Log](https://docs.ethers.io/v5/api/providers/types/#providers-Log) type.
+На відміну від звичайного обробника, ви не отримаєте параметр ` SubstrateEvent `, натомість ви отримаєте ` MoonbeamEvent `, який базується на Ethers [ Log ](https://docs.ethers.io/v5/api/providers/types/#providers-Log).
 
-Changes from the `Log` type:
+Зміни з ` Log `:
 
 - ` args ` додається, якщо поле ` abi ` надано і аргументи можна успішно проаналізувати
 
-## Data Source Example
+## Приклад джерела даних
 
-This is an extract from the `project.yaml` manifest file.
+Це витяг з файлу маніфесту `project.yaml`.
 
 ```yaml
 dataSources:
@@ -125,8 +125,8 @@ dataSources:
             from: '0x6bd193ee6d2104f14f94e2ca6efefae561a4334b'
 ```
 
-## Known Limitations
+## Відомі обмеження
 
-- There is currently no way to query EVM state within a handler
-- There is no way to get the transaction receipts with call handlers
-- `blockHash` properties are currently left undefined, the `blockNumber` property can be used instead
+- Наразі немає можливості запитувати стан EVM у обробнику
+- Немає можливості отримати квитанції про транзакції з обробниками дзвінків
+- Властивості ` blockHash ` в даний час залишаються невизначеними, натомість можна використовувати властивість ` blockNumber `
