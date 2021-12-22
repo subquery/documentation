@@ -1,30 +1,30 @@
-# Installing SubQuery
+# 서브쿼리 설치
 
-There are various components required when creating a SubQuery project. The [@subql/cli](https://github.com/subquery/subql/tree/docs-new-section/packages/cli) tool is used to create SubQuery projects. The [@subql/node](https://github.com/subquery/subql/tree/docs-new-section/packages/node) component is required to run an indexer. The [@subql/query](https://github.com/subquery/subql/tree/docs-new-section/packages/query) library is required to generate queries.
+서브쿼리 프로젝트를 생성할 때는 여러 요소가 필요합니다. [@subql/cli](https://github.com/subquery/subql/tree/docs-new-section/packages/cli) 도구는 SubQuery 프로젝트를 만드는 데 사용됩니다. 인덱스를 실행하려면 [@subql/node](https://github.com/subquery/subql/tree/docs-new-section/packages/node) 요소가 필요합니다. 쿼리를 생성하려면 [@subql/query](https://github.com/subquery/subql/tree/docs-new-section/packages/query) 라이브러리가 필요합니다.
 
-## Install @subql/cli
+## @subql/cli 설치
 
-The [@subql/cli](https://github.com/subquery/subql/tree/docs-new-section/packages/cli) library helps to create a project framework or scaffold meaning you don't have to start from scratch.
+[@subql/cli](https://github.com/subquery/subql/tree/docs-new-section/packages/cli) 라이브러리는 맨 처음부터 시작할 필요없는 프로젝트 프레임워크 또는 스캐폴드를 생성토록 합니다.
 
-Install SubQuery CLI globally on your terminal by using Yarn or NPM:
+Yarn 또는 NPM을 사용하여 서브쿼리 CLI를 단말기에 글로벌 설치:
 
 <CodeGroup> # Yarn yarn global add @subql/cli # NPM npm install -g @subql/cli
-## Install @subql/node
+## @subql/node 설치
 
-A SubQuery node is an implementation that extracts substrate-based blockchain data per the SubQuery project and saves it into a Postgres database.
+서브쿼리 노드는 서브쿼리 프로젝트별 Substrate 기반 블록체인 데이터을 추출하고, Postgres 데이터베이스에 저장합니다.
 
-Install SubQuery node globally on your terminal by using Yarn or NPM:
+Yarn 또는 NPM을 사용하여 단말기에 서브쿼리 노드를 글로벌 설치:
 
 <CodeGroup> # Yarn yarn global add @subql/node # NPM npm install -g @subql/node
-> Note: If you are using Docker or hosting your project in SubQuery Projects, you do can skip this step. This is because the SubQuery node is already provided in the Docker container and the hosting infrastructure.
+> 주의: Docker를 사용하거나 서브쿼리 프로젝트에서 프로젝트를 호스팅하는 경우라면, 이 단계를 건너뛸 수 있습니다. 이는 서브쿼리 노드가 이미 Docker 컨테이너 및 호스팅 인프라에 제공되고 있기 때문입니다.
 
-## Install @subql/query
+## @subql/query 설치
 
-The SubQuery query library provides a service that allows you to query your project in a "playground" environment via your browser.
+서브쿼리 쿼리 라이브러리는 브라우저를 통해 "놀이터(playground)" 환경에서 프로젝트를 쿼리할 수 있는 서비스를 제공합니다.
 
-Install SubQuery query globally on your terminal by using Yarn or NPM:
+Yarn 또는 NPM을 사용하여 서브쿼리 쿼리를 단말기에 글로벌 설치:
 
 <CodeGroup> <CodeGroupItem title="YARN" active> # Yarn yarn global add @subql/query # NPM npm install -g @subql/query </CodeGroupItem>
 <CodeGroupItem title="NPM"> subql-node &lt;command&gt; </CodeGroupItem> </CodeGroup>
 
-> Note: If you are using Docker or hosting your project in SubQuery Projects, you do can skip this step also. This is because the SubQuery node is already provided in the Docker container and the hosting infrastructure. 
+> 주의: Docker를 사용하거나 서브쿼리 프로젝트에서 프로젝트를 호스팅하는 경우라면, 이 단계를 건너뛸 수 있습니다. 이는 서브쿼리 노드가 이미 Docker 컨테이너 및 호스팅 인프라에 제공되고 있기 때문입니다. 
