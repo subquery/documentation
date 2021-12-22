@@ -118,8 +118,6 @@ ID!
 
 type Passport @entity {
   id:
-  ID!
-  owner:
 }
 ```
 
