@@ -1,16 +1,16 @@
-# Mapping
+# Картографування
 
-Mapping functions define how chain data is transformed into the optimised GraphQL entities that we have previously defined in the `schema.graphql` file.
+Функції картографування визначають, як дані ланцюга перетворюються на оптимізовані об'єкти GraphQL, які ми раніше визначали у файлі ` schema.graphql `.
 
-- Mappings are defined in the `src/mappings` directory and are exported as a function
-- These mappings are also exported in `src/index.ts`
-- The mappings files are reference in `project.yaml` under the mapping handlers.
+- Картинки визначені в каталозі ` src / mappings ` і експортуються як функція
+- Ці відображення також експортуються в ` src / index.ts `
+- Файли відображень посилаються на ` project.yaml ` під обробниками картографування.
 
-There are three classes of mappings functions; [Block handlers](#block-handler), [Event Handlers](#event-handler), and [Call Handlers](#call-handler).
+Існує три класи функцій картографування; [ Обробники блоків ](#block-handler), [ Обробники подій ](#event-handler) та [ Обробники викликів ](#call-handler).
 
-## Block Handler
+## Обробник блоків
 
-You can use block handlers to capture information each time a new block is attached to the Substrate chain, e.g. block number. To achieve this, a defined BlockHandler will be called once for every block.
+Ви можете використовувати обробники блоків для збору інформації кожного разу, коли новий блок приєднаний до ланцюга Substrate, наприклад. номер блоку. Щоб досягти цього, визначений обробник блоків буде викликаний один раз для кожного блоку.
 
 ```ts
 import {SubstrateBlock} from "@subql/types";
@@ -23,13 +23,13 @@ export async function handleBlock(block: SubstrateBlock): Promise<void> {
 }
 ```
 
-A [SubstrateBlock](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L16) is an extended interface type of [signedBlock](https://polkadot.js.org/docs/api/cookbook/blocks/), but also includes the `specVersion` and `timestamp`.
+[ SubstrateBlock ](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L16) - це розширений тип інтерфейсу [ signedBlock ](https://polkadot.js.org/docs/api/cookbook/blocks/), але також включає ` specVersion ` та ` timestamp `.
 
-## Event Handler
+## Обробники подій
 
-You can use event handlers to capture information when certain events are included on a new block. The events that are part of the default Substrate runtime and a block may contain multiple events.
+Ви можете використовувати обробники подій для збору інформації, коли певні події включаються до нового блоку. Події, що входять до часу виконання Substrate за замовчуванням та блоку, можуть містити кілька подій.
 
-During the processing, the event handler will receive a substrate event as an argument with the event's typed inputs and outputs. Any type of event will trigger the mapping, allowing activity with the data source to be captured. You should use [Mapping Filters](./manifest.md#mapping-filters) in your manifest to filter events to reduce the time it takes to index data and improve mapping performance.
+Під час обробки обробник подій отримає подію підкладки як аргумент із набраними входами та виходами події. Будь-який тип події спричинить відображення, дозволяючи захоплювати активність із джерелом даних. Ви повинні використовувати [ Mapping Filters ](./manifest.md#mapping-filters) у своєму маніфесті для фільтрації подій, щоб скоротити час, необхідний для індексації даних та покращення продуктивності відображення.
 
 ```ts
 import {SubstrateEvent} from "@subql/types";
@@ -43,9 +43,9 @@ export async function handleEvent(event: SubstrateEvent): Promise<void> {
     await record.save();
 ```
 
-A [SubstrateEvent](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L30) is an extended interface type of the [EventRecord](https://github.com/polkadot-js/api/blob/f0ce53f5a5e1e5a77cc01bf7f9ddb7fcf8546d11/packages/types/src/interfaces/system/types.ts#L149). Besides the event data, it also includes an `id` (the block to which this event belongs) and the extrinsic inside of this block.
+[ SubstrateEvent ](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L30) - це розширений тип інтерфейсу [ EventRecord ](https://github.com/polkadot-js/api/blob/f0ce53f5a5e1e5a77cc01bf7f9ddb7fcf8546d11/packages/types/src/interfaces/system/types.ts#L149). Окрім даних про події, він також включає ` id ` (блок, до якого належить ця подія) та зовнішню всередині цього блоку.
 
-## Call Handler
+## Обробник дзвінків
 
 Call handlers are used when you want to capture information on certain substrate extrinsics.
 
