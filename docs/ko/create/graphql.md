@@ -27,7 +27,7 @@ type Example @entity {
 - `String`
 - `BigInt`
 - `Float`
-- `Date`
+- `날짜`
 - `Boolean`
 - `<EntityName>` for nested relationship entities, you might use the defined entity's name as one of the fields. Please see in [Entity Relationships](#entity-relationships).
 - `JSON` can alternatively store structured data, please see [JSON type](#json-type)
@@ -55,7 +55,7 @@ type Title @entity {
 ```
 Assuming we knew this user's name, but we don't know the exact id value, rather than extract all users and then filtering by name we can add `@index` behind the name field. This makes querying much faster and we can additionally pass the `unique: true` to  ensure uniqueness.
 
-**If a field is not unique, the maximum result set size is 100**
+**필드가 고유하지 않은 경우 최대 결과 집합 크기는 100입니다.**
 
 When code generation is run, this will automatically create a `getByName` under the `User` model, and the foreign key field `title` will create a `getByTitleId` method, which both can directly be accessed in the mapping function.
 
@@ -199,14 +199,14 @@ type Transfer @entity {
 }
 ```
 
-## JSON type
+## JSON 유형
 
-We are supporting saving data as a JSON type, which is a fast way to store structured data. We'll automatically generate corresponding JSON interfaces for querying this data and save you time defining and managing entities.
+JSON 유형의 데이터 저장을 지원하여 구조화된 데이터를 빠르게 저장할 수 있습니다. 데이터 쿼리에 필요한 해당 JSON 인터페이스를 자동으로 생성함으로써 엔티티를 정의하고 관리하는 시간을 절약합니다.
 
-We recommend users use the JSON type in the following scenarios:
-- When storing structured data in a single field is more manageable than creating multiple separate entities.
+다음 시나리오의 사용자는 JSON 유형의 사용을 권장합니다.
+- 구조화된 데이터를 단일 필드에 저장하는 것이 여러 개의 개별 엔티티를 생성하는 것보다 용이한 경우
 - Saving arbitrary key/value user preferences (where the value can be boolean, textual, or numeric, and you don't want to have separate columns for different data types)
-- The schema is volatile and changes frequently
+- 스키마가 휘발성이고 자주 변경되는 경우
 
 ### Define JSON directive
 Define the property as a JSON type by adding the `jsonField` annotation in the entity. This will automatically generate interfaces for all JSON objects in your project under `types/interfaces.ts`, and you can access them in your mapping function.
@@ -230,11 +230,11 @@ type User @entity {
 }
 ````
 
-### Querying JSON fields
+### JSON 필드 쿼리하기
 
-The drawback of using JSON types is a slight impact on query efficiency when filtering, as each time it performs a text search, it is on the entire entity.
+JSON 유형을 사용하면, 텍스트 검색을 수행할 때마다 전체 엔티티에 적용되기 때문에 필터링 시 쿼리 효율성을 일부 저하시키는 단점이 있습니다.
 
-However, the impact is still acceptable in our query service. Here is an example of how to use the `contains` operator in the GraphQL query on a JSON field to find the first 5 users who own a phone number that contains '0064'.
+그러나, 효율성 저하는 쿼리 서비스가 수용할 수 있는 수준입니다. Here is an example of how to use the `contains` operator in the GraphQL query on a JSON field to find the first 5 users who own a phone number that contains '0064'.
 
 ```graphql
 #To find the the first 5 users own phone numbers contains '0064'.
