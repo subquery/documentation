@@ -1,4 +1,4 @@
-# 술어
+# 용어
 
 - SubQuery 프로젝트(*마법이 일어나는 곳*): SubQuery 노드가 프로젝트 네트워크를 순회하고 집계하는 방법과 데이터가 변환되는 방법에 대한 정의([`@subql/cli`](https://www.npmjs.com/package/@subql/cli)) 유용한 GraphQL 쿼리를 활성화하기 위해 저장
 - SubQuery 노드(*작업이 완료된 곳*): SubQuery 프로젝트 정의를 수락하고 연결된 네트워크를 지속적으로 인덱싱하는 노드를 실행하는 패키지([`@subql/node`](https://www.npmjs.com/package/@subql/node)) 데이터베이스에
