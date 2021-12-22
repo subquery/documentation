@@ -105,7 +105,6 @@ type Example @entity {
   passport: Passport!
 }type Example @entity {
   id: ID!
-  owner: Person!
 }
 ```
 
