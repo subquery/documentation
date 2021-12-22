@@ -1,78 +1,78 @@
-# Moonbeam EVM Support
+# Підтримка Moonbeam EVM
 
-We provide a custom data source processor for Moonbeam's and Moonriver's EVM. This offers a simple way to filter and index both EVM and Substrate activity on Moonbeam's networks within a single SubQuery project.
+Ми надаємо спеціальний процесор джерела даних для EVM Moonbeam та Moonriver Це пропонує простий спосіб фільтрації та індексації як EVM, так і Substrate активності в мережах Moonbeam в рамках одного проекту SubQuery.
 
-Supported networks:
+Підтримувані мережі:
 
-| Network Name   | Websocket Endpoint                                 | Dictionary Endpoint                                                  |
+| Назва мережі   | Websocket кінцева точка                            | Кінцева точка словника                                               |
 | -------------- | -------------------------------------------------- | -------------------------------------------------------------------- |
-| Moonbeam       | _Coming soon_                                      | _Coming soon_                                                        |
+| Moonbeam       | _Найближчим часом_                                 | _Найближчим часом_                                                   |
 | Moonriver      | `wss://moonriver.api.onfinality.io/public-ws`      | `https://api.subquery.network/sq/subquery/moonriver-dictionary`      |
 | Moonbase Alpha | `wss://moonbeam-alpha.api.onfinality.io/public-ws` | `https://api.subquery.network/sq/subquery/moonbase-alpha-dictionary` |
 
-**You can also refer to the [basic Moonriver EVM example project](https://github.com/subquery/tutorials-moonriver-evm-starter) with an event and call handler.** This project is also hosted live in the SubQuery Explorer [here](https://explorer.subquery.network/subquery/subquery/moonriver-evm-starter-project).
+** Ви також можете звернутися до [ базового прикладу EVM Moonriver ](https://github.com/subquery/tutorials-moonriver-evm-starter) з обробником подій та викликів.** Цей проект також розміщений у прямому ефірі в Провіднику SubQuery [ тут ](https://explorer.subquery.network/subquery/subquery/moonriver-evm-starter-project).
 
-## Getting started
+## Початок роботи
 
-1. Add the custom data source as a dependency `yarn add @subql/contract-processors`
-2. Add a custom data source as described below
-3. Add handlers for the custom data source to your code
+1. Додати джерело даних в якості залежності `yarn add @subql/contract-processors`
+2. Додати джерело даних, як описано нижче
+3. Додайте обробники для джерела даних для вашого коду
 
-## Data Source Spec
+## Специфікація ресурсу даних
 
-| поле              | Type                                                           | Required | Описання                                   |
-| ----------------- | -------------------------------------------------------------- | -------- | ------------------------------------------ |
-| processor.file    | `'./node_modules/@subql/contract-processors/dist/moonbeam.js'` | Yes      | File reference to the data processor code  |
-| processor.options | [ProcessorOptions](#processor-options)                         | No       | Options specific to the Moonbeam Processor |
-| assets            | `{ [key: String]: { file: String }}`                           | No       | An object of external asset files          |
+| поле              | Тип                                                            | Обов’язково | Описання                                 |
+| ----------------- | -------------------------------------------------------------- | ----------- | ---------------------------------------- |
+| processor.file    | `'./node_modules/@subql/contract-processors/dist/moonbeam.js'` | Так         | Посилання на код обробки даних           |
+| processor.options | [Параметри процесора](#processor-options)                      | Ні          | Опції, характерні для Процесора Moonbeam |
+| assets            | `{ [key: String]: { file: String }}`                           | Ні          | Об'єкт зовнішніх медіафайлів             |
 
-### Processor Options
+### Параметри процесора
 
-| поле    | Type             | Required | Описання                                                                                                   |
-| ------- | ---------------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| abi     | Рядок            | No       | The ABI that is used by the processor to parse arguments. MUST be a key of `assets`                        |
-| address | String or `null` | No       | A contract address where the event is from or call is made to. `null` will capture contract creation calls |
+| поле    | Тип              | Обов’язково | Описання                                                                                                     |
+| ------- | ---------------- | ----------- | ------------------------------------------------------------------------------------------------------------ |
+| abi     | String           | Ні          | Процесор ABI використовується для аналізу аргументів. ПОВИНЕН бути ключем ` assets `                         |
+| Address | String or `null` | Ні          | Адреса контракту, з якої здійснюється подія або дзвінок. `null` буде захоплювати виклики створення контракту |
 
-## MoonbeamCall
+## Виклик Moonbeam
 
-Works in the same way as [substrate/CallHandler](../create/mapping/#call-handler) except with a different handler argument and minor filtering changes.
+Працює так само, як [ substrate / CallHandler ](../create/mapping/#call-handler), за винятком іншого аргументу обробника та незначних змін фільтрації.
 
-| поле   | Type                         | Required | Описання                                    |
-| ------ | ---------------------------- | -------- | ------------------------------------------- |
-| вид    | 'substrate/MoonbeamCall'     | Yes      | Specifies that this is an Call type handler |
-| Фільтр | [Call Filter](#call-filters) | No       | Filter the data source to execute           |
+| поле   | Тип                              | Обов’язково | Описання                            |
+| ------ | -------------------------------- | ----------- | ----------------------------------- |
+| вид    | 'substrate/MoonbeamCall'         | Так         | Вказує, що це обробник типу виклику |
+| Фільтр | [Фільтр викликів](#call-filters) | Ні          | Фільтр джерела даних для виконання  |
 
-### Call Filters
+### Фільтр викликів
 
-| поле     | Type  | Example(s)                                    | Описання                                                                                                                                                                         |
-| -------- | ----- | --------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| function | Рядок | 0x095ea7b3, approve(address to,uint256 value) | Either [Function Signature](https://docs.ethers.io/v5/api/utils/abi/fragments/#FunctionFragment) strings or the function `sighash` to filter the function called on the contract |
-| from     | Рядок | 0x6bd193ee6d2104f14f94e2ca6efefae561a4334b    | An Ethereum address that sent the transaction                                                                                                                                    |
+| поле    | Тип    | Приклади                                            | Описання                                                                                                                                                                   |
+| ------- | ------ | --------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Функція | String | 0x095ea7b3, затвердити (адресу на,uint256 значення) | Або [ Function Signature ](https://docs.ethers.io/v5/api/utils/abi/fragments/#FunctionFragment), або функція ` sighash ` для фільтрації функції, що викликається договором |
+| від     | String | 0x6bd193ee6d2104f14f94e2ca6efefae561a4334b          | Ethereum адреса, яка надіслала транзакцію                                                                                                                                  |
 
-### Handlers
+### Обробники
 
-Unlike a normal handler you will not get a `SubstrateExtrinsic` as the parameter, instead you will get a `MoonbeamCall` which is based on Ethers [TransactionResponse](https://docs.ethers.io/v5/api/providers/types/#providers-TransactionResponse) type.
+На відміну від звичайного обробника, ви не отримаєте параметр ` SubstrateExtrinsic `, натомість ви отримаєте тип ` MoonbeamCall `, який базується на Ethers [ TransactionResponse ](https://docs.ethers.io/v5/api/providers/types/#providers-TransactionResponse).
 
-Changes from the `TransactionResponse` type:
+Зміни від `типу TransactionResponse`:
 
-- It doesn't have `wait` and `confirmations` properties
-- A `success` property is added to know if the transaction was a success
-- `args` is added if the `abi` field is provided and the arguments can be successfully parsed
+- Він не має ` wait ` та ` confirmations ` властивостей
+- Властивість ` success ` додається щоб знати, якщо транзакція була успішною
+- ` args ` додається, якщо поле ` abi ` надано і аргументи можна успішно проаналізувати
 
-## MoonbeamEvent
+## Подія Moonbeam
 
-Works in the same way as [substrate/EventHandler](../create/mapping/#event-handler) except with a different handler argument and minor filtering changes.
+Працює так само, як [ substrate / EventHandler ](../create/mapping/#event-handler), за винятком іншого аргументу обробника та незначних змін фільтрації.
 
-| поле   | Type                           | Required | Описання                                     |
-| ------ | ------------------------------ | -------- | -------------------------------------------- |
-| вид    | 'substrate/MoonbeamEvent'      | Yes      | Specifies that this is an Event type handler |
-| Фільтр | [Event Filter](#event-filters) | No       | Filter the data source to execute            |
+| поле   | Тип                            | Обов’язково | Описання                           |
+| ------ | ------------------------------ | ----------- | ---------------------------------- |
+| вид    | 'substrate/MoonbeamEvent'      | Так         | Вказує, що це обробник типу події  |
+| Фільтр | [Event Filter](#event-filters) | Ні          | Фільтр джерела даних для виконання |
 
-### Event Filters
+### Фільтри події
 
-| поле   | Type         | Example(s)                                                      | Описання                                                                                                                                         |
-| ------ | ------------ | --------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| topics | String array | Transfer(address indexed from,address indexed to,uint256 value) | The topics filter follows the Ethereum JSON-PRC log filters, more documentation can be found [here](https://docs.ethers.io/v5/concepts/events/). |
+| поле | Тип           | Приклади                                                             | Описання                                                                                                                                           |
+| ---- | ------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| теми | Масиви рядків | Transfer(адреса, індексована адреса, індексована в,uint256 значення) | Фільтр тем слідкує за фільтрами журналів Ethereum JSON-PRC, більше документації можна знайти [ here ](https://docs.ethers.io/v5/concepts/events/). |
 
 <b>Note on topics:</b>
 There are a couple of improvements from basic log filters:
@@ -80,13 +80,13 @@ There are a couple of improvements from basic log filters:
 - Topics don't need to be 0 padded
 - [Event Fragment](https://docs.ethers.io/v5/api/utils/abi/fragments/#EventFragment) strings can be provided and automatically converted to their id
 
-### Handlers
+### Обробники
 
 Unlike a normal handler you will not get a `SubstrateEvent` as the parameter, instead you will get a `MoonbeamEvent` which is based on Ethers [Log](https://docs.ethers.io/v5/api/providers/types/#providers-Log) type.
 
 Changes from the `Log` type:
 
-- `args` is added if the `abi` field is provided and the arguments can be successfully parsed
+- ` args ` додається, якщо поле ` abi ` надано і аргументи можна успішно проаналізувати
 
 ## Data Source Example
 
