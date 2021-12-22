@@ -1,4 +1,4 @@
-# GraphQL Schema
+# Схема GraphQL
 
 ## Визначення об'єктів
 
@@ -108,33 +108,30 @@ type Example @entity {
 }
 ```
 
-### Багато в одному відношення
+### стосунків багато-багато
 
-You can use square brackets to indicate that a field type includes multiple entities.
+Ви можете використовувати квадратні дужки, щоб вказати, що тип поля включає декілька сутностей.
 
-Example: A person can have multiple accounts.
+Приклад: людина може мати кілька облікових записів.
 
 ```graphql
 type Example @entity {
   id: ID!
   accounts: [Account] 
 }
-
-type Account @entity {
-  id: ID!
-  publicAddress: String!
+  публічна адреса: Стрічка!
 }
 ```
 
-### Many-to-Many relationships
-A many-to-many relationship can be achieved by implementing a mapping entity to connect the other two entities.
+### стосунків багато-багато
+Взаємовідносини багато-багато можна досягти, реалізуючи суб'єкт картографування для з'єднання двох інших об'єктів.
 
-Example: Each person is a part of multiple groups (PersonGroup) and groups have multiple different people (PersonGroup).
+Приклад: Кожна людина є частиною декількох груп (PersonGroup), а групи мають безліч різних людей (PersonGroup).
 
 ```graphql
 type Example @entity {
   id: ID!
-  назва: Рядок!
+  name: String!
   groups: [PersonGroup]
 }
 
@@ -146,16 +143,16 @@ type PersonGroup @entity {
 
 type Group @entity {
   id: ID!
-  назва: Рядок!
+  name: String!
   persons: [PersonGroup]
 }
 ```
 
-Also, it is possible to create a connection of the same entity in multiple fields of the middle entity.
+Також можна створити з'єднання одного і того ж об'єкта в декількох полях середнього об'єкта.
 
-For example, an account can have multiple transfers, and each transfer has a source and destination account.
+Наприклад, обліковий запис може мати кілька переказів, і кожен переказ має джерело та обліковий запис призначення.
 
-This will establish a bi-directional relationship between two Accounts (from and to) through Transfer table.
+Це встановить двонаправлений зв’язок між двома Рахунками (від та до) через таблицю передачі.
 
 ```graphql
 type Account @entity {
@@ -171,13 +168,13 @@ type Transfer @entity {
 }
 ```
 
-### Reverse Lookups
+### Зворотні пошуки
 
-To enable a reverse lookup on an entity to a relation, attach `@derivedFrom` to the field and point to its reverse lookup field of another entity.
+Щоб увімкнути зворотний пошук сутності до відношення, приєднайте ` @ похідне від ` до поля та вкажіть на його зворотне поле пошуку іншого об'єкта.
 
-This creates a virtual field on the entity that can be queried.
+Це створює віртуальне поле для сутності, яке можна запитувати.
 
-The Transfer "from" an Account is accessible from the Account entity by setting the sentTransfer or receivedTransfer as having their value derived from the respective from or to fields.
+Переказ "з" облікового запису доступний від суб'єкта рахунку, встановивши надісланий Передавач або отриманий Передача як такий, що має їх значення, отримане з відповідних полів або з них.
 
 ```graphql
 type Account @entity {
@@ -195,19 +192,19 @@ type Transfer @entity {
 }
 ```
 
-## JSON type
+## Тип JSON
 
-We are supporting saving data as a JSON type, which is a fast way to store structured data. We'll automatically generate corresponding JSON interfaces for querying this data and save you time defining and managing entities.
+Ми підтримуємо збереження даних як тип JSON, що є швидким способом зберігання структурованих даних. Ми автоматично створимо відповідні інтерфейси JSON для запиту цих даних і заощадимо час на визначення та управління об'єктами.
 
-We recommend users use the JSON type in the following scenarios:
-- When storing structured data in a single field is more manageable than creating multiple separate entities.
-- Saving arbitrary key/value user preferences (where the value can be boolean, textual, or numeric, and you don't want to have separate columns for different data types)
-- The schema is volatile and changes frequently
+Ми рекомендуємо користувачам використовувати тип JSON у таких сценаріях:
+- Зберігання структурованих даних в одному полі є більш керованим, ніж створення декількох окремих об'єктів.
+- Збереження довільних налаштувань користувача ключа / значення (де значення може бути булевим, текстовим або числовим, і ви не хочете мати окремі стовпці для різних типів даних)
+- Схема мінлива і часто змінюється
 
-### Define JSON directive
-Define the property as a JSON type by adding the `jsonField` annotation in the entity. This will automatically generate interfaces for all JSON objects in your project under `types/interfaces.ts`, and you can access them in your mapping function.
+### Визначте директиву JSON
+Визначте властивість як тип JSON, додавши в суб'єкт господарювання ` jsonField `. Це автоматично генерує інтерфейси для всіх об'єктів JSON у вашому проекті під ` types / interfaces.ts `, і ви можете отримати доступ до них у своїй функції картографування.
 
-Unlike the entity, the jsonField directive object does not require any `id` field. A JSON object is also able to nest with other JSON objects.
+На відміну від сутності, об'єкт директиви jsonField не вимагає поля ` id `. Об'єкт JSON також здатний гніздитися з іншими об'єктами JSON.
 
 ````graphql
 type AddressDetail @jsonField {
@@ -226,14 +223,14 @@ type User @entity {
 }
 ````
 
-### Querying JSON fields
+### Запит полів JSON
 
-The drawback of using JSON types is a slight impact on query efficiency when filtering, as each time it performs a text search, it is on the entire entity.
+Недолік використання типів JSON незначний вплив на ефективність запиту при фільтруванні, оскільки кожен раз, коли він здійснює пошук тексту, він відбувається на всій сутності.
 
-However, the impact is still acceptable in our query service. Here is an example of how to use the `contains` operator in the GraphQL query on a JSON field to find the first 5 users who own a phone number that contains '0064'.
+Однак вплив все ще прийнятний у нашій службі запитів. Ось приклад того, як використовувати оператор ` містить ` у запиті GraphQL на полі JSON, щоб знайти перших 5 користувачів, які мають номер телефону, який містить '0064'.
 
 ```graphql
-#To find the the first 5 users own phone numbers contains '0064'.
+#Щоб знайти перші 5 користувачів власних телефонних номерів містить '0064'.
 
 query{
   user(
