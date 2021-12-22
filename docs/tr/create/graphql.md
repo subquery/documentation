@@ -127,7 +127,6 @@ kişi @entity { yazın
 
 Passport @entity { yazın
   id: Kimlik!
-  sahibi: Kişi!
 }
 ```
 
