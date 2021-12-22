@@ -1,13 +1,13 @@
-# GraphQL Schema
+# GraphQL 개요
 
-## Defining Entities
+## 엔티티 정의
 
-The `schema.graphql` file defines the various GraphQL schemas. Due to the way that the GraphQL query language works, the schema file essentially dictates the shape of your data from SubQuery. To learn more about how to write in GraphQL schema language, we recommend checking out [Schemas and Types](https://graphql.org/learn/schema/#type-language).
+`schema.graphql` 파일은 다양한 GraphQL 스키마를 정의합니다. GraphQL 쿼리 언어가 작동하는 방식으로 인하여 스키마 파일은 본질적으로 서브쿼리의 데이터 모양을 결정합니다. GraphQL 스키마 언어로 작성하는 방법에 대해 자세히 알아보려면 [스키마 및 유형](https://graphql.org/learn/schema/#type-language)을 확인하시기 바랍니다.
 
-**Important: When you make any changes to the schema file, please ensure that you regenerate your types directory with the following command `yarn codegen`**
+**중요: 스키마 파일을 변경할 때, 반드시 `yarn codegen` 명령을 통해 디렉토리 타입을 재생성해야 합니다.**
 
-### Entities
-Each entity must define its required fields `id` with the type of `ID!`. It is used as the primary key and unique among all entities of the same type.
+### 엔티티
+각 엔티티는 `ID!` 형식의 필수 필드 `id`를 정의해야 합니다. 이는 동일한 유형의 모든 엔티티에서 기본 키로 사용되며 고유의 값을 갖습니다.
 
 Non-nullable fields in the entity are indicated by `!`. Please see the example below:
 
@@ -19,9 +19,9 @@ type Example @entity {
 }
 ```
 
-### Supported scalars and types
+### 지원되는 스칼라 및 유형
 
-We currently supporting flowing scalars types:
+현재 지원되는 스칼라 및 유형은 다음과 같습니다.
 - `ID`
 - `Int`
 - `String`
