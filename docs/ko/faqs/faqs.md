@@ -38,9 +38,9 @@
 
 고유의 외인성은 서명되지 않았고 블록 작성자에 의해 블록에 삽입되기만 하는 정보입니다.
 
-서명된 트랜잭션 외인성은 트랜잭션을 발생시킨 계정의 서명을 포함한 트랜잭션들입니다. They stands to pay a fee to have the transaction included on chain.
+서명된 트랜잭션 외인성은 트랜잭션을 발생시킨 계정의 서명을 포함한 트랜잭션들입니다. 이것은 트랜잭션을 체인에 포함시키기 위해 수수료를 지불해야 합니다.
 
-Unsigned transactions extrinsics are transactions that do not contain a signature of the account that issued the transaction. Unsigned transactions extrinsics should be used with care because there is nobody paying a fee, becaused it is signed. Because of this, the transaction queue lacks economic logic to prevent spam.
+서명되지 않은 트랜잭션 외인성은 트랜잭션을 발행한 계정의 서명을 포함하지 않는 트랜잭션입니다. 서명되어 있기 때문에 수수료를 지불하는 사람이 없으므로 서명되지 않은 외부 거래는 주의가 필요합니다. 그래서 트랜잭션 대기열은 스팸을 방지하기 위한 경제 논리가 부족합니다.
 
 보다 자세한 정보를 원하시면, [here](https://substrate.dev/docs/en/knowledgebase/learn-substrate/extrinsics)을 클릭해주세요.
 
@@ -52,9 +52,9 @@ Kusama 네트워크의 network.endpoint는 `wss://kusama.api.onfinality.io/publi
 
 Polkadot 네트워크의 network.endpoint는 `wss://polkadot.api.onfinality.io/public-ws`입니다.
 
-## How do I iteratively develop my project schema?
+## 내 프로젝트의 스키마를 어떻게 반복적으로 개발할 수 있습니까?
 
-A known issue with developing a changing project schema is that when lauching your Subquery node for testing, the previously indexed blocks will be incompatible with your new schema. In order to iteratively develop schemas the indexed blocks stored in the database must be cleared, this can be achieved by launching your node with the `--force-clean` flag. 예제:
+프로젝트 스키마를 변경하는 작업 중의 이슈는, 여러분의 서브쿼리 노드를 테스트런칭할 때 앞서 인덱싱된 블록들은 새로운 스키마와 호환되지 않는다는 것입니다. 반복적인 스키마 작업을 위해서는 데이터베이스에 저장된 인덱싱된 블록들은 반드시 정리되어야 하며, 이것은 여러분의 노드를 `--force-clean` flag 와 함께 런칭함으로써 해결할 수 있습니다. 예제:
 
 ```shell
 subql-node -f . --force-clean --subquery-name=<project-name>
