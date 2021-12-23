@@ -1,44 +1,44 @@
-# Installing SubQuery
+# Встановлення SubQuery
 
-There are various components required when creating a SubQuery project. The [@subql/cli](https://github.com/subquery/subql/tree/docs-new-section/packages/cli) tool is used to create SubQuery projects. The [@subql/node](https://github.com/subquery/subql/tree/docs-new-section/packages/node) component is required to run an indexer. The [@subql/query](https://github.com/subquery/subql/tree/docs-new-section/packages/query) library is required to generate queries.
+Існують різні компоненти, необхідні при створенні проекту SubQuery. Інструмент [ @ subql / cli ](https://github.com/subquery/subql/tree/docs-new-section/packages/cli) використовується для створення проектів SubQuery. Для запуску індексатора необхідний компонент [ @ subql / node ](https://github.com/subquery/subql/tree/docs-new-section/packages/node). Для створення запитів потрібна бібліотека [ @ subql / query ](https://github.com/subquery/subql/tree/docs-new-section/packages/query).
 
-## Install @subql/cli
+## Встановлення @subql/cli
 
-The [@subql/cli](https://github.com/subquery/subql/tree/docs-new-section/packages/cli) library helps to create a project framework or scaffold meaning you don't have to start from scratch.
+Інструмент [ @ subql / cli ](https://github.com/subquery/subql/tree/docs-new-section/packages/cli) допомагає створити рамку проекту або риштування, тобто не потрібно починати з нуля.
 
-Install SubQuery CLI globally on your terminal by using Yarn or NPM:
+Встановіть SubQuery CLI у всьому світі на свій термінал, використовуючи пряжу або NPM:
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn global add @subql/cli ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```bash npm install -g @subql/cli ``` </CodeGroupItem> </CodeGroup>
 
-You can then run help to see available commands and usage provide by CLI:
+Потім ви можете запустити довідку, щоб побачити доступні команди та використання, надані CLI:
 
 ```shell
 subql help
 ```
-## Install @subql/node
+## Встановіть @subql/node
 
-A SubQuery node is an implementation that extracts substrate-based blockchain data per the SubQuery project and saves it into a Postgres database.
+Вузол SubQuery - це реалізація, яка витягує дані блокчейна на основі субстрату за проектом SubQuery і зберігає їх у базі даних Postgres.
 
-Install SubQuery node globally on your terminal by using Yarn or NPM:
+Встановіть вузол SubQuery у всьому світі на своєму терміналі за допомогою пряжі або NPM:
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn global add @subql/node ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```bash npm install -g @subql/node ``` </CodeGroupItem> </CodeGroup>
 
-Once installed, you can can start a node with:
+Після встановлення ви можете запустити вузол з:
 
 ```shell
 subql-node <command>
 ```
-> Note: If you are using Docker or hosting your project in SubQuery Projects, you do can skip this step. This is because the SubQuery node is already provided in the Docker container and the hosting infrastructure.
+> Примітка. Якщо ви використовуєте Docker або розміщуєте свій проект у проектах SubQuery, ви можете пропустити цей крок. Це тому, що вузол SubQuery вже передбачений у контейнері Docker та хостинговій інфраструктурі.
 
-## Install @subql/query
+## Встановіть @subql/query
 
-The SubQuery query library provides a service that allows you to query your project in a "playground" environment via your browser.
+Бібліотека запитів SubQuery надає послугу, яка дозволяє запитувати проект у середовищі "playground" через браузер.
 
-Install SubQuery query globally on your terminal by using Yarn or NPM:
+Встановіть запит SubQuery у всьому світі на своєму терміналі за допомогою пряжі або NPM:
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn global add @subql/query ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```bash npm install -g @subql/query ``` </CodeGroupItem> </CodeGroup>
 
-> Note: If you are using Docker or hosting your project in SubQuery Projects, you do can skip this step also. This is because the SubQuery node is already provided in the Docker container and the hosting infrastructure. 
+> Примітка. Якщо ви використовуєте Docker або розміщуєте свій проект у проектах SubQuery, ви також можете пропустити цей крок. Це тому, що вузол SubQuery вже передбачений у контейнері Docker та хостинговій інфраструктурі. 
