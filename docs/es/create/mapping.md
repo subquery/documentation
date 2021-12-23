@@ -79,7 +79,7 @@ Estas son las interfaces que actualmente no soportamos **NOT**:
 - ~~api.query.&lt;module&gt;.&lt;method&gt;.range~~
 - ~~api.query.&lt;module&gt;.&lt;method&gt;.sizeAt~~
 
-See an example of using this API in our [validator-threshold](https://github. com/subquery/subql-examples/tree/main/validator-threshold) example use case.
+Ver un ejemplo de uso de esta API en nuestro ejemplo de uso de ejemplo de [validator-threshold](https://github.com/subquery/tutorials-validator-threshold).
 
 ## Llamadas RPC
 

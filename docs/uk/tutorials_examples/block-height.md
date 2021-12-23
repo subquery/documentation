@@ -1,4 +1,4 @@
-# How to start at a different block height?
+# Як почати з іншої висоти блоку?
 
 ## Відеоінструкція
 
@@ -8,11 +8,11 @@
 
 ## Вступ
 
-By default, all starter projects start synchronising the blockchain from the genesis block. Іншими словами, з блоку 1. Для великих блокчейнів це зазвичай може зайняти дні або навіть тижні для повної синхронізації.
+За замовчуванням усі стартові проекти починають синхронізувати блокчейн із блоку генезису. Іншими словами, з блоку 1. Для великих блокчейнів це зазвичай може зайняти дні або навіть тижні для повної синхронізації.
 
 Щоб запустити синхронізацію вузла SubQuery з нульовою висотою, необхідно лише змінити ваш project.yaml файл, а також клавішу startBlock.
 
-Below is a project.yaml file where the start block has been set to 1,000,000
+Нижче навдено приклад файлу project.yaml, де початковий блок був встановлений на 10000
 
 ```shell
 specVersion: 0.0.1
@@ -32,18 +32,18 @@ dataSources:
           kind: substrate/BlockHandler
 ```
 
-## Why not start from zero?
+## Чому б не почати з нуля?
 
-The main reason is that it can reduce the time to synchronise the blockchain. This means that if you are only interested in transactions in the last 3 months, you can only synchronise the last 3 months worth meaning less waiting time and you can start your development faster.
+Основна причина в тому, що це може зменшити час для синхронізації блокчейну. Це означає, що якщо вам потрібні дані по транзакціям лише за останні 3 місяці, ви можете синхронізувати тільки останні 3 місяці, що займе менше часу і Ви зможете швидше присутпити до роботи.
 
-## What are the drawbacks of not starting from zero?
+## Які недоліки при початку з нуля?
 
-The most obvious drawback will be that you won’t be able to query for data on the blockchain for blocks that you don’t have.
+Найбільш очевидним недоліком буде те, що ви не зможете запитувати дані в блокчейні для блоків, яких у вас немає.
 
-## How to figure out the current blockchain height?
+## Як визначити поточну висоту блокчейну?
 
-If you are using the Polkadot network, you can visit [https://polkascan.io/](https://polkascan.io/), select the network, and then view the  "Finalised Block" figure.
+Якщо ви використовуєте мережу Polkadot, ви можете відвідати [https://polkascan.io/](https://polkascan.io/), обрати мережу, а потім переглянути фігуру "Finalised Block".
 
-## Do I have to do a rebuild or a codegen?
+## Чи повинен я робити rebuild або codegen?
 
-No. Because you are modifying the project.yaml file, which is essentially a configuration file, you will not have to rebuild or regenerate the typescript code.
+Ні. Оскільки ви змінюєте файл project.yaml, який, по суті, є файлом конфігурації, вам не доведеться перебудовувати або відновлювати код typescript.

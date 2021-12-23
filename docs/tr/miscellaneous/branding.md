@@ -1,19 +1,19 @@
-# Branding Materials
+# Markalaşma Materyalleri
 
-**All of SubQuery’s brand features are proprietary and we take our brand extremely seriously.**
+**SubQuery'nin tüm marka özellikleri tescillidir ve markamızı son derece ciddiye alıyoruz.**
 
-If you opt to use any trademarks, logos, designs, or other brand features, please carefully follow the guidelines here or reach out to us via social media for clarification.
+Herhangi bir ticari marka, logo, tasarım veya diğer marka özelliklerini kullanmayı tercih ederseniz, lütfen buradaki yönergeleri dikkatle izleyin veya açıklama için sosyal medya üzerinden bize ulaşın.
 
-If in doubt, please ask!
+Şüpheniz varsa, lütfen bize sorun!
 
-## Exportable Figma File
+## Dışa Aktarılabilir Figma Dosyası
 
-Our Figma file has a full collection of all brand assets (logos,  fonts, colours, imagery etc) for export.
+Figma dosyamız, ihracat için tüm marka varlıklarının (logolar, yazı tipleri, renkler, görüntüler vb.) tam bir koleksiyonuna sahiptir.
 
-[Figma - SubQuery Brand Resources](https://www.figma.com/file/AaCXaOcElrlbxq8fz39sJU/SubQuery-Brand-Resources?node-id=3%3A2)
+[Figma - SubQuery Marka Kaynakları](https://www.figma.com/file/AaCXaOcElrlbxq8fz39sJU/SubQuery-Brand-Resources?node-id=3%3A2)
 
-## Brand Assets Package
+## Marka Varlıkları Paketi
 
-A smaller ZIP package of brand assets
+Marka varlıklarının daha küçük bir ZIP paketi
 
 [public_branding.zip](https://static.subquery.network/public_branding.zip)

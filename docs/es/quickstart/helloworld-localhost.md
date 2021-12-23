@@ -32,7 +32,7 @@ Necesitarás:
 Puede ejecutar los siguientes comandos en un terminal para ver si ya tiene alguno de estos requisitos previos.
 
 ```shell
-yarn -v (or npm -v)
+yarn -v (o npm -v)
 subql -v
 docker -v
 ```
@@ -46,9 +46,9 @@ echo -e "My yarn version is:" `yarn -v` "\nMy subql version is:" `subql -v`  "\n
 Esto debería regresar: (para usuarios de npm, reemplace yarn con npm)
 
 ```shell
-My yarn version is: 1.22.10
-My subql version is: @subql/cli/0.9.3 darwin-x64 node-v16.3.0
-My docker version is: Docker version 20.10.5, build 55c4c88
+Mi versión de yarn es: 1.22.10
+Mi versión de subql es: @subql/cli/0.9.3 darwin-x64 node-v16.3.0
+Mi versión de docker es: Docker versión 20.10.5, compilar 55c4c88
 ```
 
 Si usted consigue lo anterior, entonces tiene luz verde para continuar. Si no, sigue estos enlaces para instalarlos:
@@ -57,17 +57,19 @@ Si usted consigue lo anterior, entonces tiene luz verde para continuar. Si no, s
 - [SubQuery CLI](quickstart.md#install-the-subquery-cli)
 - [Docker](https://docs.docker.com/get-docker/)
 
-## 1. Step 1: Initialise project
+## 1. Paso 1: iniciar el proyecto
 
 El primer paso al comenzar con SubQuery es ejecutar el comando `subql init`. Inicialicemos un proyecto inicial con el nombre `subqlHelloWorld`. Tenga en cuenta que sólo el autor es obligatorio. Todo lo demás queda vacío.
 
 ```shell
 > subql init --starter subqlHelloWorld
-Git repository: RPC endpoint [wss://polkadot.api.onfinality.io/public-ws]:
-Authors: sa
-Description: Version: [1.0.0]:
-License: [Apache-2.0]:
-Init the starter package... subqlHelloWorld is ready
+repositorio Git:
+endpoint RPC [wss://polkadot.api.onfinality. o/public-ws]:
+Autores: sa
+Descripción:
+Versión: [1.0.0]:
+Licencia: [Apache-2.0]:
+Init the starter package... subqlHelloWorld está listo
 
 ```
 
@@ -77,7 +79,7 @@ No olvides cambiar a este nuevo directorio.
 cd subqlHelloWorld
 ```
 
-## 2. Step 2: Install dependencies
+## 2. Paso 2: Instalar dependencias
 
 Ahora haga una instalación de yarn o node para instalar las distintas dependencias.
 
@@ -99,7 +101,7 @@ success Saved lockfile.
 ✨  Done in 31.84s.
 ```
 
-## 3. Step 3: Generate code
+## 3. Step 3: Generador de codigo
 
 Ahora ejecuta `yarn codegen` para generar Typescript desde el esquema GraphQL.
 
@@ -115,7 +117,7 @@ $ ./node_modules/.bin/subql codegen
 * Schema StarterEntity generated !
 * Models index generated !
 * Types index generated !
-✨  Done in 1.02s.</p>
+✨  Done in 1.02s</p>
 
 <pre><code class="shell">> yarn codegen
 yarn run v1.22.10
@@ -125,14 +127,17 @@ $ ./node_modules/.bin/subql codegen
 ===============================
 * Schema StarterEntity generated !
 * Models index generated !
+* Types index generated !
+✨ Done in 1.02s.
+* Tipo de índice generado!
 * Tipo de índice generado!
 * Tipo de índice generado!
 ✨ Hecho en 0.06s. ```
- ✨  Done in 1.02s. </code></pre>
+ ✨ Hecho en 1.02s. </code></pre>
 
 **Advertencia** Cuando se hacen cambios en el archivo de schema, por favor recuerde volver a ejecutar `yarn codegen` para regenerar el directorio de tipos.
 
-## 4. Step 4: Build code
+## 4. Paso 4: Contruye el codigo
 
 El siguiente paso es construir el código con `yarn build`.
 
@@ -167,20 +172,16 @@ graphql-engine_1  | 2021-06-05T22:20:43.244Z <express> INFO request completed
 
 ```
 
-## 6. Navegar playground
+## 6. Examinar parque
 
 Vaya a http://localhost:3000/ y pegue la siguiente consulta en el lado izquierdo de la pantalla y pulse el botón Reproducir.
 
 ```
-{
- query{
-   starterEntities(last:10, orderBy:FIELD1_ASC ){
-     nodes{
-       field1
-     }
-   }
- }
-}
+# Yarn
+yarn build
+
+# NPM
+npm run-script build
 
 ```
 

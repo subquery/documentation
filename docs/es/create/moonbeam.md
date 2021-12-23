@@ -23,7 +23,7 @@ Redes soportadas:
 | Campo             | Tipo                                                           | Requerido | Descripción                                             |
 | ----------------- | -------------------------------------------------------------- | --------- | ------------------------------------------------------- |
 | processor.file    | `'./node_modules/@subql/contract-processors/dist/moonbeam.js'` | Si        | Referencia de archivo al código del procesador de datos |
-| processor.options | [ProcessorOptions](#processor-options)                         | No        | Opciones específicas del procesador de Moonbeam         |
+| processor.options | [ProcessorOptions](#opciones de procesador)                    | No        | Opciones específicas del procesador de Moonbeam         |
 | activos           | `{ [key: String]: { file: String }}`                           | No        | Un objeto de archivos de activos externos               |
 
 ### Opciones de procesador
@@ -37,10 +37,10 @@ Redes soportadas:
 
 Funciona de la misma manera que [substrate/CallHandler](../create/mapping/#call-handler) excepto con un argumento de manejador diferente y cambios menores de filtrado.
 
-| Campo  | Tipo                                | Requerido | Descripción                                         |
-| ------ | ----------------------------------- | --------- | --------------------------------------------------- |
-| clase  | 'substrate/MoonbeamCall'            | Si        | Especifica que este es un manejador de tipo llamada |
-| filtro | [Filtro de llamadas](#call-filters) | No        | Filtrar la fuente de datos para ejecutar            |
+| Campo  | Tipo                                      | Requerido | Descripción                                         |
+| ------ | ----------------------------------------- | --------- | --------------------------------------------------- |
+| clase  | 'substrate/MoonbeamCall'                  | Si        | Especifica que este es un manejador de tipo llamada |
+| filtro | [Filtro de llamadas](#filtros de llamada) | No        | Filtrar la fuente de datos para ejecutar            |
 
 ### Filtro de llamadas
 
@@ -63,10 +63,10 @@ Cambios del tipo `TransactionResponse`:
 
 Funciona de la misma manera que [substrate/EventHandler](../create/mapping/#event-handler) excepto con un argumento de manejador diferente y cambios menores de filtrados.
 
-| Campo  | Tipo                                | Requerido | Descripción                                           |
-| ------ | ----------------------------------- | --------- | ----------------------------------------------------- |
-| clase  | 'substrate/MoonbeamEvent'           | Si        | Especifica que este es un manejador de tipo de evento |
-| filtro | [Filtro de eventos](#event-filters) | No        | Filtrar la fuente de datos para ejecutar              |
+| Campo  | Tipo                                    | Requerido | Descripción                                           |
+| ------ | --------------------------------------- | --------- | ----------------------------------------------------- |
+| clase  | 'substrate/MoonbeamEvent'               | Si        | Especifica que este es un manejador de tipo de evento |
+| filtro | [Filtro de eventos](Filtros de #evento) | No        | Filtrar la fuente de datos para ejecutar              |
 
 ### Filtros de eventos
 

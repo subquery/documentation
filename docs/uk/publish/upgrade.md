@@ -1,35 +1,35 @@
-# Deploy a New Version of your SubQuery Project
+# Розгорніть нову версію проекту SubQuery
 
-## Guidelines
+## Керівні принципи
 
-Although you have the freedom to always upgrade and deploy new versions of your SubQuery project, please be considerate during this process if your SubQuery project is public for the world. Some key points to note:
-- If your upgrade is a breaking change, either create a new project (e.g. `My SubQuery Project V2`) or give your community plenty of warning of the change through social media channels.
-- Deploying a new SubQuery project version causes some downtime as the new version indexes the complete chain from the genesis block.
+Хоча у вас є свобода завжди оновлювати та розгортати нові версії вашого проекту SubQuery, будь ласка, будьте уважні під час цього процесу, якщо ваш проект SubQuery є загальнодоступним для світу. Деякі ключові точки для замітки:
+- Якщо оновлення є зміною, або створіть новий проект (наприклад,. ` Мій проект SubQuery V2 `) або повідомте вашій громаді багато попередження про зміни через канали соціальних медіа. Trans
+- Розгортання нової версії проекту SubQuery спричиняє деякий час простою, оскільки нова версія індексує повний ланцюг із блоку генезису.
 
-## Deploy Changes
+## Зміни розгортання
 
-Log into SubQuery Project and select the project you want to deploy a new version of. You can choose to either deploy to the production or staging slot. These two slots are isolated environments and each has their own databases and synchronise independently.
+Увійдіть у проект SubQuery та виберіть проект, який потрібно розгорнути нову версію. Ви можете вибрати або розгорнутись у виробничому або інсценізаційному слоті. Ці два слоти є ізольованим середовищем, і кожен має свої бази даних і синхронізується незалежно.
 
-We recommend deploying to your staging slot only for final staging testing or when you need to resync your project data. You can then promote it to production with zero downtime. You will find testing is faster when [running a project locally](../run/run.md) as you can more [easily debug issues](../tutorials_examples/debug-projects.md).
+Ми рекомендуємо розгорнути ваш інсценізаційний слот лише для остаточного тестування інсценування або коли вам потрібно повторно синхронізувати дані проекту. Потім ви можете просувати його у виробництво з нульовим простоєм. Ви знайдете тестування швидше, коли [ запускаєте проект локально ](../run/run.md), оскільки ви можете більше [ легко відключити проблеми ](../tutorials_examples/debug-projects.md).
 
-The staging slot is perfect for:
-* Final validation of changes to your SubQuery Project in a separate environment. The staging slot has a different URL to production that you can use in your dApps.
-* Warming up and indexing data for an updated SubQuery project to eliminate downtime in your dApp
-* Preparing a new release for your SubQuery Project without exposing it publicly. The staging slot is not shown to the public in the Explorer and has a unique URL that is visible only to you.
+Слот для постановки ідеально підходить для:
+* Остаточна перевірка змін у вашому проекті SubQuery в окремому середовищі. Слот для постановки має іншу URL-адресу для виробництва, яку ви можете використовувати у своїх dApps.
+* Прогрівання та індексація даних для оновленого проекту SubQuery для усунення простоїв у вашому dApp
+* Підготовка нового випуску для вашого проекту SubQuery, не розкриваючи його публічно. Слот для постановки не відображається для публіки в Explorer і має унікальну URL-адресу, яку видно лише вам.
 
-![Staging slot](/assets/img/staging_slot.png)
+![Постановка слота](/assets/img/staging_slot.png)
 
-#### Upgrade to the Latest Indexer and Query Service
+#### Оновити до останнього індексування та сервісу запиту
 
-If you just want to upgrade to the latest indexer ([`@subql/node`](https://www.npmjs.com/package/@subql/node)) or query service ([`@subql/query`](https://www.npmjs.com/package/@subql/query)) to take advantage of our regular performance and stability improvements, just select a newer versions of our packages and save. This will cause only a few minutes of downtime.
+Якщо ви просто хочете оновити до останнього індексатора ([` @ subql / node `](https://www.npmjs.com/package/@subql/node)) або послуги запитів ([` @ subql / query `](https://www.npmjs.com/package/@subql/query)), щоб скористатися нашими регулярними поліпшеннями продуктивності та стабільності, просто виберіть новіші версії наших пакетів і збережіть. Це спричинить лише кілька хвилин простоїв.
 
-#### Deploy New Version of your SubQuery Project
+#### Розгорніть нову версію проекту SubQuery
 
-Fill in the Commit Hash from GitHub (copy the full commit hash) of the version of your SubQuery project codebase that you want deployed. This will cause a longer downtime depending on the time it takes to index the current chain. You can always report back here for progress.
+Заповніть хеш-консистенцію від GitHub (копіюйте повний хеш-комплект) версії кодової бази проекту SubQuery, яку ви хочете розгорнути. Це призведе до більш тривалого простоїв, залежно від часу, необхідного для індексації поточного ланцюга. Ви завжди можете повідомити про це назад на прогрес.
 
-## Next Steps - Connect to your Project
-Once your deployment has succesfully completed and our nodes have indexed your data from the chain, you'll be able to connect to your project via the displayed GraphQL Query endpoint.
+## Наступні етапи - Підключіться до вашого проекту
+Після того, як ваше розгортання успішно завершиться і наші вузли індексують ваші дані з ланцюга, ви зможете підключитися до вашого проекту через відображену кінцеву точку GraphQL Query.
 
-![Project being deployed and synced](/assets/img/projects-deploy-sync.png)
+![Проект розгортається та синхронізується](/assets/img/projects-deploy-sync.png)
 
-Alternatively, you can click on the three dots next to the title of your project, and view it on SubQuery Explorer. There you can use the in browser playground to get started - [read more about how to user our Explorer here](../query/query.md).
+Крім того, ви можете натиснути на три точки поруч із заголовком проекту та переглянути його на SubQuery Explorer. Там ви можете використовувати ігровий майданчик для браузера, щоб розпочати роботу - [ читайте більше про те, як користуватися нашим Explorer тут ](../query/query.md).

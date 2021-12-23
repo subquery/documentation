@@ -1,12 +1,12 @@
-# Tutorial & Contoh
+# Membuat Proyek SubQuery
 
-In the [quick start](/quickstart/quickstart.md) guide, we very quickly ran through an example to give you a taste of what SubQuery is and how it works. Here we'll take a closer look at the workflow when creating your project and the key files you'll be working with.
+Dalam panduan [mulai cepat](/quickstart/quickstart.md), kami dengan cepat menjalankan contoh untuk memberi Anda gambaran tentang apa itu SubQuery dan cara kerjanya. Di sini kita akan melihat lebih dekat alur kerja saat membuat proyek Anda dan file kunci yang akan Anda ikut sertakan.
 
-## Contoh SubQuery
+## Alur Kerja Dasar
 
-Some of the following examples will assume you have successfully initialized the starter package in the [Quick start](../quickstart/quickstart.md) section. From that starter package, we'll walk through the standard process to customise and implement your SubQuery project.
+Beberapa contoh berikut akan menganggap Anda telah berhasil menginisialisasi paket starter di bagian [Mulai cepat](../quickstart/quickstart.md). Dari paket awal itu, kita akan menjalani proses standar untuk menyesuaikan dan mengimplementasikan proyek SubQuery Anda.
 
-1. Initialise your project using `subql init --specVersion 0.2.0 PROJECT_NAME`. alternatively you can use the old spec version `subql init PROJECT_NAME`
+1. Inisialisasi proyek Anda menggunakan `subql init --specVersion 0.2.0 PROJECT_NAME`. sebagai alternatif, Anda dapat menggunakan versi spesifikasi lama `subql init PROJECT_NAME`
 2. Perbarui file Manifest (`project.yaml`) untuk menyertakan informasi tentang blockchain Anda, dan entitas yang akan Anda petakan - lihat [File Manifest](./manifest.md)
 3. Buat entitas GraphQL di skema Anda (`schema.graphql`) yang menentuakn bentuk data yang akan Anda ekstrak dan coba untuk kueri - lihat [Skema GraphQL](./graphql.md)
 4. Tambahkan semua fungsi pemetaan (mis `mappingHandlers.ts` yang ingin Anda minta untuk ubah data chainnya ke entitas GraphQL yang sudah Anda tentukan - lihat [Pemetaan](./mapping.md)
@@ -31,7 +31,7 @@ Peta berikut ini memberikan gambaran struktur direktori proyek SubQuery saat per
   L .gitignore
 ```
 
-Contohnya:
+Sebagai contoh:
 
 ![Struktur direktori SubQuery](/assets/img/subQuery_directory_stucture.png)
 
@@ -43,7 +43,7 @@ Kapan pun Anda mengubah entitas GraphQL Anda, Anda harus menghasilkan ulang dire
 yarn codegen
 ```
 
-This will create a new directory (or update the existing) `src/types` which contain generated entity classes for each type you have defined previously in `schema.graphql`. These classes provide type-safe entity loading, read and write access to entity fields - see more about this process in [the GraphQL Schema](./graphql.md).
+Ini akan membuat direktori baru (atau memperbarui yang sudah ada) `src/types` yang berisi kelas entitas yang dihasilkan untuk setiap jenis yang telah Anda tetapkan sebelumnya di `schema.graphql`. Kelas-kelas ini menyediakan akses entitas yang aman untuk memuat, membaca dan menulis ke bidang entitas - lihat selengkapnya tentang proses ini di [Skema GraphQL](./graphql.md).
 
 ## Bentuk
 
@@ -56,7 +56,7 @@ Jalankan perintah bentuk dari direktori proyek.
 
 ## Logging
 
-The `console.log` method is **no longer supported**. Instead, a `logger` module has been injected in the types, which means we can support a logger that can accept various logging levels.
+Metode `console.log` **tidak lagi didukung**. Sebagai gantinya, modul `logger` telah disuntikkan ke dalam tipe, yang berarti kami dapat mendukung logger yang dapat menerima berbagai level logging.
 
 ```typescript
 logger.info('Info level message');
@@ -68,7 +68,7 @@ Untuk menggunakan `logger.info` atau `logger.warn`, tempatkan barisannya ke file
 
 ![logging.info](/assets/img/logging_info.png)
 
-To use `logger.debug`, an additional step is required. Add `--log-level=debug` to your command line.
+Untuk menggunakan `logger.debug`, langkah tambahan diperlukan. Tambahkan `--log-level=debug` ke baris perintah Anda.
 
 Jika Anda sedang menjalankan docker container, tambahkan barisan ini ke file `docker-compose.yaml` Anda.
 

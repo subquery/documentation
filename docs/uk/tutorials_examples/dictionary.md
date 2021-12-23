@@ -1,18 +1,18 @@
-# How does a SubQuery dictionary work?
+# Як працює словник SubQuery?
 
-The whole idea of a generic dictionary project is to index all the data from a blockchain and record the events, extrinsics, and its types (module and method) in a database in order of block height. Another project can then query this `network.dictionary` endpoint instead of the default `network.endpoint` defined in the manifest file.
+Уся ідея проекту загального словника полягає в тому, щоб індексувати всі дані з блокчейна і записувати події, екстрінсіки та її типи (модулі та методи) в базі даних у порядку зростання блоків. Інший проект може вимагати використання цього network.dictionary endpoint замість стандартного network.endpoint, визначеної у файлі маніфесту.
 
-The `network.dictionary` endpoint is an optional parameter that if present, the SDK will automatically detect and use. `network.endpoint` is mandatory and will not compile if not present.
+Значення network.dictionary endpoint є додатковим параметром, який у разі присутності, будет автоматично виявлений та використаний за допомогою SDK. network.endpoint є обов'язковим і проект не скомпілюється без нього.
 
-Taking the [SubQuery dictionary](https://github.com/subquery/subql-dictionary) project as an example, the [schema](https://github.com/subquery/subql-dictionary/blob/main/schema.graphql) file defines 3 entities; extrinsic, events, specVersion. These 3 entities contain 6, 4, and 2 fields respectively. When this project is run, these fields are reflected in the database tables.
+Взявши проект SubQuery dictionary за приклад, файл schema визначає 3 сутності: extrinsic, events, specVersion. Ці 3 сутності містять відповідно 6, 4 та 2 поля. Коли цей проект запущено, ці поля відображаються в таблицях бази даних.
 
-![extrinsics table](/assets/img/extrinsics_table.png) ![events table](/assets/img/events_table.png) ![specversion table](/assets/img/specversion_table.png)
+![таблиця екстринсиків](/assets/img/extrinsics_table.png) ![таблиця подій](/assets/img/events_table.png) ![таблиця specversion](/assets/img/specversion_table.png)
 
-Data from the blockchain is then stored in these tables and indexed for performance. The project is then hosted in SubQuery Projects and the API endpoint is available to be added to the manifest file.
+Потім дані з ланцюжка блоків зберігаються в цих таблицях та індексуються для продуктивності. Потім проект розміщено в SubQuery Project і кінцева точка API доступна для додавання в файл маніфесту.
 
-## How to incorporate a dictionary into your project?
+## Як включити словник у ваш проект?
 
-Add `dictionary: https://api.subquery.network/sq/subquery/dictionary-polkadot` to the network section of the manifest. Eg:
+Додайте dictionary:https://api.subquery.network/sq/subquery/dictionary-polkadot до розділу мережі маніфесту. Наприклад.
 
 ```shell
 network:
@@ -20,24 +20,24 @@ network:
   dictionary: https://api.subquery.network/sq/subquery/dictionary-polkadot
 ```
 
-## What happens when a dictionary IS NOT used?
+## Що відбувається, коли словник НЕ використовується?
 
-When a dictionary is NOT used, an indexer will fetch every block data via the polkadot api according to the `batch-size` flag which is 100 by default, and place this in a buffer for processing. Later, the indexer takes all these blocks from the buffer and while processing the block data, checks whether the event and extrinsic in these blocks match the user-defined filter.
+Якщо словник не використовується,  індексатор отримуватиме всі дані блоку за допомогою polkadot api згідно batch-size , що за замовчуванням становить 100, і поставить це в буфер для обробки. Пізніше, індексатор бере всі ці блоки з буфера та під час обробки даних блоку, перевіряє, чи підходить фільтр за вказаними користувачами подіями і зовнішніми блоками.
 
-## What happens when a dictionary IS used?
+## Що відбувається, коли словник використовується?
 
-When a dictionary IS used, the indexer will first take the call and event filters as parameters and merge this into a GraphQL query. It then uses the dictionary's API to obtain a list of relevant block heights only that contains the specific events and extrinsics. Often this is substantially less than 100 if the default is used.
+Коли словник використовується, індексатор спочатку прийме фільтри виклику та подій як параметри, а потім об'єднає їх у запит GraphQL. Потім він використовує API словника, щоб отримати список з релевантною висотою блоків, що містить лише певні події та додаткові ознаки. Часто це істотно менше, ніж 100, якщо використовуються налаштування за замовчуванням.
 
-For example, imagine a situation where you're indexing transfer events. Not all blocks have this event (in the image below there are no transfer events in blocks 3 and 4).
+Наприклад, уявіть собі ситуацію, де ви індексуєте подію "трансфер". Не всі блоки мають цю подію (на зображенні нижче, подія "трансфер" відсутня в блоках 3 та 4).
 
-![dictionary block](/assets/img/dictionary_blocks.png)
+![блок словника](/assets/img/dictionary_blocks.png)
 
-The dictionary allows your project to skip this so rather than looking in each block for a transfer event, it skips to just blocks 1, 2, and 5. This is because the dictionary is a pre-computed reference to all calls and events in each block.
+Словник дозволяє вашому проекту пропустити цю подію "трансфер", а не шукати її у кожному блоці, він пропустить її для блоків 1, 2 і 5. Це тому, що словник є попередньо налаштованим посиланням на всі виклики та події в кожному блоці.
 
-This means that using a dictionary can reduce the amount of data that the indexer obtains from the chain and reduce the number of “unwanted” blocks stored in the local buffer. But compared to the traditional method, it adds an additional step to get data from the dictionary’s API.
+Це означає, що за допомогою словника можна зменшити кількість даних, які отримує індексатор з ланцюга, а також зменшити кількість "не бажаних" блоків, які зберігаються в локальному буфері. Але, порівняно з традиційним методом, це додає додатковий крок, щоб отримати дані з API словника.
 
-## When is a dictionary NOT useful?
+## Коли словник НЕ корисний?
 
-When [block handlers](https://doc.subquery.network/create/mapping.html#block-handler) are used to grab data from a chain, every block needs to be processed. Therefore, using a dictionary in this case does not provide any advantage and the indexer will automatically switch to the default non-dictionary approach.
+Коли block handlers використовується, щоб забрати дані з ланцюга, кожен блок повинен бути оброблений. Тому використання словника у цьому випадку не дає жодної переваги. Індексер перемикається автоматично на стандратний підхід, не використовуючи словники.
 
-Also, when dealing with events or extrinsic that occur or exist in every block such as `timestamp.set`, using a dictionary will not offer any additional advantage.
+Також, коли він має справу з подіями або зовнішніми ознаками, що зустрічається або існує в кожному блоці, наприклад, timestamp.set, в такому випадку словник також не дасть ніяких додаткових переваг.

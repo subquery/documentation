@@ -1,4 +1,4 @@
-# Lập bản đồ
+# Ánh xạ
 
 Các hàm ánh xạ xác định cách dữ liệu chuỗi được chuyển đổi thành các thực thể GraphQL được tối ưu hóa mà chúng tôi đã xác định trước đó trong tệp `schema.graphql`.
 
@@ -6,11 +6,11 @@ Các hàm ánh xạ xác định cách dữ liệu chuỗi được chuyển đ�
 - Các ánh xạ này cũng được xuất dưới dạng `src / index.ts`
 - Các tệp ánh xạ là tham chiếu trong `project.yaml` dưới trình xử lý ánh xạ.
 
-There are three classes of mappings functions; [Block handlers](#block-handler), [Event Handlers](#event-handler), and [Call Handlers](#call-handler).
+Có ba lớp hàm ánh xạ; [Trình xử lý khối](#block-handler), [Trình xử lý sự kiện](#event-handler) và [ Trình xử lý cuộc gọi](#call-handler).
 
 ## Trình xử lý khối
 
-You can use block handlers to capture information each time a new block is attached to the Substrate chain, e.g. block number. To achieve this, a defined BlockHandler will be called once for every block.
+Bạn có thể sử dụng trình xử lý khối để nắm bắt thông tin mỗi khi khối mới được gắn vào chuỗi Chất nền, ví dụ: chặn số. Để đạt được điều này, một BlockHandler đã xác định sẽ được gọi một lần cho mỗi khối.
 
 ```ts
 import {SubstrateBlock} from "@subql/types";
@@ -23,13 +23,13 @@ export async function handleBlock(block: SubstrateBlock): Promise<void> {
 }
 ```
 
-A [SubstrateBlock](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L16) is an extended interface type of [signedBlock](https://polkadot.js.org/docs/api/cookbook/blocks/), but also includes the `specVersion` and `timestamp`.
+[SubstrateBlock](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L16) là kiểu giao diện mở rộng của [signBlock](https://polkadot.js.org/docs/api/cookbook/blocks/), nhưng cũng bao gồm `specVersion` và `timestamp`.
 
 ## Xử lý sự kiện
 
-You can use event handlers to capture information when certain events are included on a new block. The events that are part of the default Substrate runtime and a block may contain multiple events.
+Bạn có thể sử dụng trình xử lý sự kiện để nắm bắt thông tin khi các sự kiện nhất định được đưa vào một khối mới. Các sự kiện là một phần của thời gian chạy Substrate mặc định và một khối có thể chứa nhiều sự kiện.
 
-During the processing, the event handler will receive a substrate event as an argument with the event's typed inputs and outputs. Any type of event will trigger the mapping, allowing activity with the data source to be captured. You should use [Mapping Filters](./manifest.md#mapping-filters) in your manifest to filter events to reduce the time it takes to index data and improve mapping performance.
+Trong quá trình xử lý, trình xử lý sự kiện sẽ nhận một sự kiện cơ chất như một đối số với các đầu vào và đầu ra đã nhập của sự kiện. Bất kỳ loại sự kiện nào cũng sẽ kích hoạt ánh xạ, cho phép ghi lại hoạt động với nguồn dữ liệu. Bạn nên sử dụng [Bộ lọc ánh xạ](./manifest.md#mapping-filters) trong tệp kê khai của mình để lọc các sự kiện nhằm giảm thời gian lập chỉ mục dữ liệu và cải thiện hiệu suất ánh xạ.
 
 ```ts
 import {SubstrateEvent} from "@subql/types";
@@ -43,11 +43,11 @@ export async function handleEvent(event: SubstrateEvent): Promise<void> {
     await record.save();
 ```
 
-A [SubstrateEvent](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L30) is an extended interface type of the [EventRecord](https://github.com/polkadot-js/api/blob/f0ce53f5a5e1e5a77cc01bf7f9ddb7fcf8546d11/packages/types/src/interfaces/system/types.ts#L149). Besides the event data, it also includes an `id` (the block to which this event belongs) and the extrinsic inside of this block.
+[SubstrateEvent](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L30) là kiểu giao diện mở rộng của [EventRecord](https://github.com/polkadot-js/api/blob/f0ce53f5a5e1e5a77cc01bf7f9ddb7fcf8546d11/packages/types/src/interfaces/system/types.ts#L149). Bên cạnh dữ liệu sự kiện, nó cũng bao gồm một `id` (khối chứa sự kiện này) và phần bên ngoài bên trong của khối này.
 
 ## Trình xử lý cuộc gọi
 
-Call handlers are used when you want to capture information on certain substrate extrinsics.
+Trình xử lý cuộc gọi được sử dụng khi bạn muốn nắm bắt thông tin về một số ngoại vi chất nền nhất định.
 
 ```ts
 export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
@@ -57,17 +57,17 @@ export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
 }
 ```
 
-The [SubstrateExtrinsic](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L21) extends [GenericExtrinsic](https://github.com/polkadot-js/api/blob/a9c9fb5769dec7ada8612d6068cf69de04aa15ed/packages/types/src/extrinsic/Extrinsic.ts#L170). It is assigned an `id` (the block to which this extrinsic belongs) and provides an extrinsic property that extends the events among this block. Additionally, it records the success status of this extrinsic.
+[SubstrateExtrinsic](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L21) mở rộng [GenericExtriuality](https://github.com/polkadot-js/api/blob/a9c9fb5769dec7ada8612d6068cf69de04aa15ed/packages/types/src/extrinsic/Extrinsic.ts#L170). Nó được gán một `id` (khối mà khối bên ngoài này thuộc về) và cung cấp một thuộc tính bên ngoài để mở rộng các sự kiện giữa khối này. Ngoài ra, nó ghi lại trạng thái thành công của ngoại cảnh này.
 
 ## Các trạng thái truy vấn
-Our goal is to cover all data sources for users for mapping handlers (more than just the three interface event types above). Therefore, we have exposed some of the @polkadot/api interfaces to increase capabilities.
+Mục tiêu của chúng tôi là cung cấp tất cả các nguồn dữ liệu cho người dùng để xử lý ánh xạ (không chỉ là ba loại sự kiện giao diện ở trên). Do đó, chúng tôi đã đưa ra một số giao diện @ polkadot / api để tăng khả năng.
 
-These are the interfaces we currently support:
-- [api.query.&lt;module&gt;.&lt;method&gt;()](https://polkadot.js.org/docs/api/start/api.query) will query the <strong>current</strong> block.
-- [api.query.&lt;module&gt;.&lt;method&gt;.multi()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-same-type) will make multiple queries of the <strong>same</strong> type at the current block.
+Đây là những giao diện chúng tôi hiện đang hỗ trợ:
+- [api.query. &lt;module&gt;. &lt;method&gt;()](https://polkadot.js.org/docs/api/start/api.query) sẽ truy vấn khối <strong> hiện tại</strong>.
+- [api.query. &lt;module&gt;. &lt;method&gt;.multi ()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-same-type) sẽ thực hiện nhiều truy vấn loại <strong>giống nhau</strong> tại khối hiện tại.
 - [api.queryMulti()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-distinct-types) sẽ thực hiện nhiều truy vấn thuộc loại <strong>different</strong> tại khối hiện tại.
 
-These are the interfaces we do **NOT** support currently:
+Đây là những giao diện mà chúng tôi **KHÔNG** hỗ trợ hiện tại:
 - ~~api.tx.*~~
 - ~~api.derive.*~~
 - ~~api.query.&lt;module&gt;.&lt;method&gt;.at~~
@@ -79,13 +79,13 @@ These are the interfaces we do **NOT** support currently:
 - ~~api.query.&lt;module&gt;.&lt;method&gt;.range~~
 - ~~api.query.&lt;module&gt;.&lt;method&gt;.sizeAt~~
 
-See an example of using this API in our [validator-threshold](https://github.com/subquery/tutorials-validator-threshold) example use case.
+Xem ví dụ về việc sử dụng API này trong trường hợp sử dụng mẫu [ ngưỡng trình xác thực ](https://github.com/subquery/tutorials-validator-threshold) của chúng tôi.
 
 ## Cuộc gọi RPC
 
-We also support some API RPC methods that are remote calls that allow the mapping function to interact with the actual node, query, and submission. A core premise of SubQuery is that it's deterministic, and therefore, to keep the results consistent we only allow historical RPC calls.
+Chúng tôi cũng hỗ trợ một số phương thức API RPC là các lệnh gọi từ xa cho phép hàm ánh xạ tương tác với node, truy vấn và trình thực tế. Tiền đề cốt lõi của SubQuery là nó có tính xác định và do đó, để giữ kết quả nhất quán, chúng tôi chỉ cho phép các lệnh gọi RPC lịch sử.
 
-Documents in [JSON-RPC](https://polkadot.js.org/docs/substrate/rpc/#rpc) provide some methods that take `BlockHash` as an input parameter (e.g. `at?: BlockHash`), which are now permitted. We have also modified these methods to take the current indexing block hash by default.
+Các tài liệu trong [JSON-RPC](https://polkadot.js.org/docs/substrate/rpc/#rpc) cung cấp một số phương thức sử dụng `BlockHash` làm tham số đầu vào (ví dụ: `at?:BlockHash`), hiện được cho phép. Chúng tôi cũng đã sửa đổi các phương pháp này để lấy băm khối lập chỉ mục hiện tại theo mặc định.
 
 ```typescript
 // Let's say we are currently indexing a block with this hash number
@@ -101,15 +101,15 @@ const b2 = await api.rpc.chain.getBlock();
 
 ## Mô-đun và Thư viện
 
-To improve SubQuery's data processing capabilities, we have allowed some of the NodeJS's built-in modules for running mapping functions in the [sandbox](#the-sandbox), and have allowed users to call third-party libraries.
+Để cải thiện khả năng xử lý dữ liệu của SubQuery, chúng tôi đã cho phép một số mô-đun tích hợp của NodeJS chạy các chức năng ánh xạ trong [sandbox](#the-sandbox) và cho phép người dùng gọi các thư viện của bên thứ ba.
 
-Please note this is an **experimental feature** and you may encounter bugs or issues that may negatively impact your mapping functions. Please report any bugs you find by creating an issue in [GitHub](https://github.com/subquery/subql).
+Xin lưu ý rằng đây là một **tính năng thử nghiệm** và bạn có thể gặp phải lỗi hoặc sự cố có thể ảnh hưởng tiêu cực đến chức năng ánh xạ của bạn. Vui lòng báo cáo bất kỳ lỗi nào bạn tìm thấy bằng cách tạo sự cố trong [GitHub](https://github.com/subquery/subql).
 
 ### Mô-đun tích hợp
 
-Currently, we allow the following NodeJS modules: `assert`, `buffer`, `crypto`, `util`, and `path`.
+Hiện tại, chúng tôi cho phép các mô-đun NodeJS sau: `assert`, `buffer`, `crypto`, `util` và `path`.
 
-Rather than importing the whole module, we recommend only importing the required method(s) that you need. Some methods in these modules may have dependencies that are unsupported and will fail on import.
+Thay vì nhập toàn bộ mô-đun, chúng tôi khuyên bạn chỉ nên nhập (các) phương pháp bắt buộc mà bạn cần. Một số phương thức trong các mô-đun này có thể có các phụ thuộc không được hỗ trợ và sẽ không thành công khi nhập.
 
 ```ts
 import {hashMessage} from "ethers/lib/utils"; //Good way
@@ -124,30 +124,30 @@ export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
 
 ### Thư viện bên thứ ba
 
-Due to the limitations of the virtual machine in our sandbox, currently, we only support third-party libraries written by **CommonJS**.
+Do các hạn chế của máy ảo trong hộp cát của chúng tôi, hiện tại, chúng tôi chỉ hỗ trợ các thư viện của bên thứ ba được viết bởi **CommonJS**.
 
-We also support a **hybrid** library like `@polkadot/*` that uses ESM as default. However, if any other libraries depend on any modules in **ESM** format, the virtual machine will **NOT** compile and return an error.
+Chúng tôi cũng hỗ trợ thư viện **hybrid** như `@polkadot/*` sử dụng ESM làm mặc định. Tuy nhiên, nếu bất kỳ thư viện nào khác phụ thuộc vào bất kỳ mô-đun nào ở định dạng **ESM**, máy ảo sẽ **KHÔNG** biên dịch và trả về lỗi.
 
-## Custom Substrate Chains
+## Chuỗi Substrate tùy chỉnh
 
-SubQuery can be used on any Substrate-based chain, not just Polkadot or Kusama.
+SubQuery có thể được sử dụng trên bất kỳ chuỗi nào dựa trên Substrate, không chỉ Polkadot hoặc Kusama.
 
-You can use a custom Substrate-based chain and we provide tools to import types, interfaces, and additional methods automatically using [@polkadot/typegen](https://polkadot.js.org/docs/api/examples/promise/typegen/).
+Bạn có thể sử dụng chuỗi dựa trên Chất nền tùy chỉnh và chúng tôi cung cấp các công cụ để tự động nhập các loại, giao diện và các phương pháp bổ sung bằng cách sử dụng [@polkadot/typegen](https://polkadot.js.org/docs/api/examples/promise/typegen/).
 
-In the following sections, we use our [kitty example](https://github.com/subquery/tutorials-kitty-chain) to explain the integration process.
+Trong các phần sau, chúng tôi sử dụng ví dụ [kitty example](https://github.com/subquery/tutorials-kitty-chain) để giải thích quá trình tích hợp.
 
 ### Sự chuẩn bị
 
-Create a new directory `api-interfaces` under the project `src` folder to store all required and generated files. We also create an `api-interfaces/kitties` directory as we want to add decoration in the API from the `kitties` module.
+Tạo một thư mục mới `api-interface` trong thư mục `src` của dự án để lưu trữ tất cả các tệp được yêu cầu và được tạo. Chúng tôi cũng tạo một thư mục `api-interface/kitties` khi chúng tôi muốn thêm trang trí trong API từ mô-đun `kitties`.
 
-#### Metadata
+#### Siêu dữ liệu
 
-We need metadata to generate the actual API endpoints. In the kitty example, we use an endpoint from a local testnet, and it provides additional types. Follow the steps in [PolkadotJS metadata setup](https://polkadot.js.org/docs/api/examples/promise/typegen#metadata-setup) to retrieve a node's metadata from its **HTTP** endpoint.
+Chúng tôi cần siêu dữ liệu để tạo các điểm cuối API thực tế. Trong ví dụ về kitty, chúng tôi sử dụng một điểm cuối từ một mạng thử nghiệm cục bộ và nó cung cấp các loại bổ sung. Làm theo các bước trong [thiết lập siêu dữ liệu PolkadotJS](https://polkadot.js.org/docs/api/examples/promise/typegen#metadata-setup) để truy xuất siêu dữ liệu của nút từ điểm cuối ** HTTP ** của nó.
 
 ```shell
 curl -H "Content-Type: application/json" -d '{"id":"1", "jsonrpc":"2.0", "method": "state_getMetadata", "params":[]}' http://localhost:9933
 ```
-or from its **websocket** endpoint with help from [`websocat`](https://github.com/vi/websocat):
+hoặc từ điểm cuối **websocket** của nó với sự trợ giúp từ [`websocat`](https://github.com/vi/websocat):
 
 ```shell
 //Install the websocat
@@ -157,12 +157,12 @@ brew install websocat
 echo state_getMetadata | websocat 'ws://127.0.0.1:9944' --jsonrpc
 ```
 
-Next, copy and paste the output to a JSON file. In our [kitty example](https://github.com/subquery/tutorials-kitty-chain), we have created `api-interface/kitty.json`.
+Tiếp theo, sao chép và dán đầu ra vào tệp JSON. Trong [ví dụ về kitty](https://github.com/subquery/tutorials-kitty-chain), chúng tôi đã tạo `api-interface/kitty.json`.
 
 #### Loại định nghĩa
-We assume that the user knows the specific types and RPC support from the chain, and it is defined in the [Manifest](./manifest.md).
+Chúng tôi giả định rằng người dùng biết các loại cụ thể và hỗ trợ RPC từ chuỗi và nó được định nghĩa trong [Manifest](./manifest.md).
 
-Following [types setup](https://polkadot.js.org/docs/api/examples/promise/typegen#metadata-setup), we create :
+Sau khi thiết lập [types setup](https://polkadot.js.org/docs/api/examples/promise/typegen#metadata-setup), chúng tôi tạo:
 - `src/api-interface/define.ts` - điều này xuất tất cả các định folder definitions
 
 ```ts
@@ -204,10 +204,10 @@ export default {
 
 #### Các gói
 
-- In the `package.json` file, make sure to add `@polkadot/typegen` as a development dependency and `@polkadot/api` as a regular dependency (ideally the same version). We also need `ts-node` as a development dependency to help us run the scripts.
+- Trong tệp `package.json`, hãy đảm bảo thêm `@polkadot/typegen` làm phụ thuộc phát triển và `@polkadot/api` làm phụ thuộc thông thường ( lý tưởng là cùng một phiên bản). Chúng tôi cũng cần `ts-node` như một phụ thuộc phát triển để giúp chúng tôi chạy các tập lệnh.
 - Chúng tôi thêm các tập lệnh để chạy cả hai loại; `generate:defs` và siêu dữ liệu `generate:meta` (theo thứ tự đó, vì vậy siêu dữ liệu có thể sử dụng các loại).
 
-Here is a simplified version of `package.json`. Make sure in the **scripts** section the package name is correct and the directories are valid.
+Đây là phiên bản đơn giản của `package.json`. Đảm bảo trong phần **scripts**, tên gói là chính xác và các thư mục hợp lệ.
 
 ```json
 {
@@ -227,9 +227,9 @@ Here is a simplified version of `package.json`. Make sure in the **scripts** sec
 }
 ```
 
-### Gõ generation
+### Loại generation
 
-Now that preparation is completed, we are ready to generate types and metadata. Run the commands below:
+Bây giờ việc chuẩn bị đã hoàn tất, chúng tôi đã sẵn sàng tạo các kiểu dữ liệu và siêu dữ liệu. Chạy các lệnh dưới đây:
 
 ```shell
 # Yarn để cài đặt các phụ thuộc mới
@@ -239,14 +239,14 @@ yarn
 yarn generate:defs
 ```
 
-In each modules folder (eg `/kitties`), there should now be a generated `types.ts` that defines all interfaces from this modules' definitions, also a file `index.ts` that exports them all.
+Trong mỗi thư mục mô-đun (ví dụ: `/kitties`), bây giờ sẽ có `styles.ts` được tạo để xác định tất cả các giao diện từ định nghĩa của mô-đun này, cũng là một chỉ mục tệp `index.ts` xuất tất cả chúng.
 
 ```shell
 # Tạo siêu dữ liệu 
 yarn generate:meta
 ```
 
-This command will generate the metadata and a new api-augment for the APIs. As we don't want to use the built-in API, we will need to replace them by adding an explicit override in our `tsconfig.json`. After the updates, the paths in the config will look like this (without the comments):
+Lệnh này sẽ tạo metadata và một api-augment mới cho các API. Vì chúng tôi không muốn sử dụng API tích hợp sẵn, chúng tôi sẽ cần thay thế chúng bằng cách thêm ghi đè rõ ràng trong `tsconfig.json` của chúng tôi. Sau khi cập nhật, các đường dẫn trong cấu hình sẽ trông như thế này (không có chú thích):
 
 ```json
 {
@@ -263,7 +263,7 @@ This command will generate the metadata and a new api-augment for the APIs. As w
 
 ### Sử dụng
 
-Now in the mapping function, we can show how the metadata and types actually decorate the API. The RPC endpoint will support the modules and methods we declared above. And to use custom rpc call, please see section [Custom chain rpc calls](#custom-chain-rpc-calls)
+Bây giờ trong chức năng ánh xạ, chúng tôi có thể hiển thị cách siêu dữ liệu và các loại thực sự trang trí API. Điểm cuối RPC sẽ hỗ trợ các mô-đun và phương thức mà chúng tôi đã khai báo ở trên. Và để sử dụng lệnh gọi rpc tùy chỉnh, vui lòng xem phần[Custom chain rpc calls](#custom-chain-rpc-calls)
 ```typescript
 export async function kittyApiHandler(): Promise<void> {
     //return the KittyIndex type
@@ -276,11 +276,11 @@ export async function kittyApiHandler(): Promise<void> {
 }
 ```
 
-**If you wish to publish this project to our explorer, please include the generated files in `src/api-interfaces`.**
+**Nếu bạn muốn xuất bản dự án này cho người khám phá của chúng tôi, vui lòng đưa các tệp đã tạo vào `src/api-interface`.**
 
 ### Lệnh gọi rpc chuỗi tùy chỉnh
 
-To support customised chain RPC calls, we must manually inject RPC definitions for `typesBundle`, allowing per-spec configuration. You can define the `typesBundle` in the `project.yml`. And please remember only `isHistoric` type of calls are supported.
+Để hỗ trợ các lệnh gọi RPC chuỗi tùy chỉnh, chúng tôi phải đưa các định nghĩa RPC cho `typesBundle` theo cách thủ công, cho phép cấu hình theo từng thông số kỹ thuật. Bạn có thể xác định `stylesBundle` trong `project.yml`. Và hãy nhớ chỉ hỗ trợ loại cuộc gọi `isHistoric`.
 ```yaml
 ...
   types: {

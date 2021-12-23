@@ -1,16 +1,16 @@
-# Mapping
+# Картографування
 
-Mapping functions define how chain data is transformed into the optimised GraphQL entities that we have previously defined in the `schema.graphql` file.
+Функції картографування визначають, як дані ланцюга перетворюються на оптимізовані об'єкти GraphQL, які ми раніше визначали у файлі ` schema.graphql `.
 
-- Mappings are defined in the `src/mappings` directory and are exported as a function
-- These mappings are also exported in `src/index.ts`
-- The mappings files are reference in `project.yaml` under the mapping handlers.
+- Картинки визначені в каталозі ` src / mappings ` і експортуються як функція
+- Ці відображення також експортуються в ` src / index.ts `
+- Файли відображень посилаються на ` project.yaml ` під обробниками картографування.
 
-There are three classes of mappings functions; [Block handlers](#block-handler), [Event Handlers](#event-handler), and [Call Handlers](#call-handler).
+Існує три класи функцій картографування; [ Обробники блоків ](#block-handler), [ Обробники подій ](#event-handler) та [ Обробники викликів ](#call-handler).
 
-## Block Handler
+## Обробник блоків
 
-You can use block handlers to capture information each time a new block is attached to the Substrate chain, e.g. block number. To achieve this, a defined BlockHandler will be called once for every block.
+Ви можете використовувати обробники блоків для збору інформації кожного разу, коли новий блок приєднаний до ланцюга Substrate, наприклад. номер блоку. Щоб досягти цього, визначений обробник блоків буде викликаний один раз для кожного блоку.
 
 ```ts
 import {SubstrateBlock} from "@subql/types";
@@ -23,13 +23,13 @@ export async function handleBlock(block: SubstrateBlock): Promise<void> {
 }
 ```
 
-A [SubstrateBlock](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L16) is an extended interface type of [signedBlock](https://polkadot.js.org/docs/api/cookbook/blocks/), but also includes the `specVersion` and `timestamp`.
+[ SubstrateBlock ](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L16) - це розширений тип інтерфейсу [ signedBlock ](https://polkadot.js.org/docs/api/cookbook/blocks/), але також включає ` specVersion ` та ` timestamp `.
 
-## Event Handler
+## Обробники подій
 
-You can use event handlers to capture information when certain events are included on a new block. The events that are part of the default Substrate runtime and a block may contain multiple events.
+Ви можете використовувати обробники подій для збору інформації, коли певні події включаються до нового блоку. Події, що входять до часу виконання Substrate за замовчуванням та блоку, можуть містити кілька подій.
 
-During the processing, the event handler will receive a substrate event as an argument with the event's typed inputs and outputs. Any type of event will trigger the mapping, allowing activity with the data source to be captured. You should use [Mapping Filters](./manifest.md#mapping-filters) in your manifest to filter events to reduce the time it takes to index data and improve mapping performance.
+Під час обробки обробник подій отримає подію підкладки як аргумент із набраними входами та виходами події. Будь-який тип події спричинить відображення, дозволяючи захоплювати активність із джерелом даних. Ви повинні використовувати [ Mapping Filters ](./manifest.md#mapping-filters) у своєму маніфесті для фільтрації подій, щоб скоротити час, необхідний для індексації даних та покращення продуктивності відображення.
 
 ```ts
 import {SubstrateEvent} from "@subql/types";
@@ -43,11 +43,11 @@ export async function handleEvent(event: SubstrateEvent): Promise<void> {
     await record.save();
 ```
 
-A [SubstrateEvent](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L30) is an extended interface type of the [EventRecord](https://github.com/polkadot-js/api/blob/f0ce53f5a5e1e5a77cc01bf7f9ddb7fcf8546d11/packages/types/src/interfaces/system/types.ts#L149). Besides the event data, it also includes an `id` (the block to which this event belongs) and the extrinsic inside of this block.
+[ SubstrateEvent ](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L30) - це розширений тип інтерфейсу [ EventRecord ](https://github.com/polkadot-js/api/blob/f0ce53f5a5e1e5a77cc01bf7f9ddb7fcf8546d11/packages/types/src/interfaces/system/types.ts#L149). Окрім даних про події, він також включає ` id ` (блок, до якого належить ця подія) та зовнішню всередині цього блоку.
 
-## Call Handler
+## Обробник дзвінків
 
-Call handlers are used when you want to capture information on certain substrate extrinsics.
+Обробники викликів використовуються, коли ви хочете фіксувати інформацію про певні екстринти substrate.
 
 ```ts
 export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
@@ -57,17 +57,17 @@ export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
 }
 ```
 
-The [SubstrateExtrinsic](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L21) extends [GenericExtrinsic](https://github.com/polkadot-js/api/blob/a9c9fb5769dec7ada8612d6068cf69de04aa15ed/packages/types/src/extrinsic/Extrinsic.ts#L170). It is assigned an `id` (the block to which this extrinsic belongs) and provides an extrinsic property that extends the events among this block. Additionally, it records the success status of this extrinsic.
+[ SubstrateEvent ](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L21) - це розширений тип інтерфейсу [ EventRecord ](https://github.com/polkadot-js/api/blob/a9c9fb5769dec7ada8612d6068cf69de04aa15ed/packages/types/src/extrinsic/Extrinsic.ts#L170). Йому присвоюється ` id ` (блок, до якого належить цей зовнішній) і забезпечує зовнішню властивість, яка розширює події серед цього блоку. Крім того, він фіксує статус успіху цього зовнішнього.
 
-## Query States
-Our goal is to cover all data sources for users for mapping handlers (more than just the three interface event types above). Therefore, we have exposed some of the @polkadot/api interfaces to increase capabilities.
+## Форма запиту
+Наша мета - охопити всі джерела даних для користувачів для обробників карт (більше ніж лише три типи подій інтерфейсу вище). Тому ми виявили деякі інтерфейси @polkadot / api для збільшення можливостей.
 
-These are the interfaces we currently support:
-- [api.query.&lt;module&gt;.&lt;method&gt;()](https://polkadot.js.org/docs/api/start/api.query) will query the <strong>current</strong> block.
-- [api.query.&lt;module&gt;.&lt;method&gt;.multi()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-same-type) will make multiple queries of the <strong>same</strong> type at the current block.
-- [api.queryMulti()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-distinct-types) will make multiple queries of <strong>different</strong> types at the current block.
+Це інтерфейси, які ми зараз підтримуємо:
+- [api.query.&lt;module&gt;.&lt;method&gt;()](https://polkadot.js.org/docs/api/start/api.query) буде запитувати <strong>поточний</strong> блок.
+- [api.query.&lt;module&gt;.&lt;method&gt;.multi()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-same-type) зробить декілька запитів <strong>того ж</strong> типу в поточному блоці.
+- [api.query.&lt;module&gt;.&lt;method&gt;.multi()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-same-type) зробить декілька запитів <strong>того ж</strong> типу в поточному блоці.
 
-These are the interfaces we do **NOT** support currently:
+Це інтерфейси, які ми робимо **НЕ** підтримуємо:
 - ~~api.tx.*~~
 - ~~api.derive.*~~
 - ~~api.query.&lt;module&gt;.&lt;method&gt;.at~~
@@ -79,13 +79,13 @@ These are the interfaces we do **NOT** support currently:
 - ~~api.query.&lt;module&gt;.&lt;method&gt;.range~~
 - ~~api.query.&lt;module&gt;.&lt;method&gt;.sizeAt~~
 
-See an example of using this API in our [validator-threshold](https://github.com/subquery/tutorials-validator-threshold) example use case.
+Дивіться приклад використання цього API у нашому прикладі використання [ validator-threshold ](https://github.com/subquery/tutorials-validator-threshold).
 
-## RPC calls
+## Дзвінки RPC
 
-We also support some API RPC methods that are remote calls that allow the mapping function to interact with the actual node, query, and submission. A core premise of SubQuery is that it's deterministic, and therefore, to keep the results consistent we only allow historical RPC calls.
+Ми також підтримуємо деякі методи RPC API, які є віддаленими дзвінками, які дозволяють функції відображення взаємодіяти з фактичним вузлом, запитом та поданням. Основна передумова SubQuery полягає в тому, що він є детермінованим, а отже, щоб підтримувати результати послідовними, ми дозволяємо лише історичні дзвінки RPC.
 
-Documents in [JSON-RPC](https://polkadot.js.org/docs/substrate/rpc/#rpc) provide some methods that take `BlockHash` as an input parameter (e.g. `at?: BlockHash`), which are now permitted. We have also modified these methods to take the current indexing block hash by default.
+Документи в [ JSON-RPC ](https://polkadot.js.org/docs/substrate/rpc/#rpc) містять деякі методи, які приймають ` BlockHash ` як вхідний параметр (наприклад,. ` в?: BlockHash `), які зараз дозволені. Ми також змінили ці методи, щоб за замовчуванням взяти поточний хеш-блок індексації.
 
 ```typescript
 // Let's say we are currently indexing a block with this hash number
@@ -97,19 +97,19 @@ const b1 = await api.rpc.chain.getBlock(blockhash);
 // It will use the current block has by default like so
 const b2 = await api.rpc.chain.getBlock();
 ```
-- For [Custom Substrate Chains](#custom-substrate-chains) RPC calls, see [usage](#usage).
+- Для [Custom Substrate Chains](#custom-substrate-chains) RPC викликів, див. [ usage.](#usage).
 
-## Modules and Libraries
+## Модулі та Сервіси
 
-To improve SubQuery's data processing capabilities, we have allowed some of the NodeJS's built-in modules for running mapping functions in the [sandbox](#the-sandbox), and have allowed users to call third-party libraries.
+Щоб покращити можливості обробки даних SubQuery, ми дозволили деяким вбудованим модулям NodeJS для запуску функцій картографування в [ sandbox ](#the-sandbox) і дозволили користувачам телефонувати стороннім бібліотекам.
 
-Please note this is an **experimental feature** and you may encounter bugs or issues that may negatively impact your mapping functions. Please report any bugs you find by creating an issue in [GitHub](https://github.com/subquery/subql).
+Зверніть увагу, що це ** експериментальна функція **, і ви можете зіткнутися з помилками або проблемами, які можуть негативно вплинути на ваші функції картографування. Будь ласка, повідомте про будь-які помилки, які ви виявите, створивши проблему в [GitHub](https://github.com/subquery/subql).
 
-### Built-in modules
+### Вбудовані модулі
 
-Currently, we allow the following NodeJS modules: `assert`, `buffer`, `crypto`, `util`, and `path`.
+В даний час ми дозволяємо наступні модулі NodeJS: `assert`, `buffer` `крипто`, `util`, та `шлях`.
 
-Rather than importing the whole module, we recommend only importing the required method(s) that you need. Some methods in these modules may have dependencies that are unsupported and will fail on import.
+Замість того, щоб імпортувати весь модуль, ми рекомендуємо лише імпортувати необхідний метод (и), який вам потрібен. Деякі методи в цих модулях можуть мати непідтримувані залежності і не вдасться імпортувати.
 
 ```ts
 import {hashMessage} from "ethers/lib/utils"; //Good way
@@ -122,32 +122,32 @@ export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
 }
 ```
 
-### Third-party libraries
+### Сторонні бібліотеки
 
-Due to the limitations of the virtual machine in our sandbox, currently, we only support third-party libraries written by **CommonJS**.
+Через обмеження віртуальної машини в нашій пісочниці, ми підтримуємо лише сторонні бібліотеки, написані ** CommonJS **
 
-We also support a **hybrid** library like `@polkadot/*` that uses ESM as default. However, if any other libraries depend on any modules in **ESM** format, the virtual machine will **NOT** compile and return an error.
+Ми також підтримуємо бібліотеку ** hybrid ** на зразок ` @ polkadot / * `, яка використовує ESM за замовчуванням. Однак якщо будь-які інші бібліотеки залежать від будь-яких модулів у форматі ** ESM **, віртуальна машина ** НЕ ** складе та поверне помилку.
 
-## Custom Substrate Chains
+## Користувацькі ланцюжки Substrate
 
-SubQuery can be used on any Substrate-based chain, not just Polkadot or Kusama.
+SubQuery можна використовувати в будь-якій ланцюжку на основі Substrate, а не лише в Polkadot або Kusama.
 
-You can use a custom Substrate-based chain and we provide tools to import types, interfaces, and additional methods automatically using [@polkadot/typegen](https://polkadot.js.org/docs/api/examples/promise/typegen/).
+Ви можете використовувати власну ланцюжок на основі Substrate, і ми надаємо інструменти для імпорту типів, інтерфейсів та додаткових методів автоматично, використовуючи [ @ polkadot / typegen ](https://polkadot.js.org/docs/api/examples/promise/typegen/).
 
-In the following sections, we use our [kitty example](https://github.com/subquery/tutorials-kitty-chain) to explain the integration process.
+У наступних розділах ми використовуємо наш [ kitty example ](https://github.com/subquery/tutorials-kitty-chain) для пояснення процесу інтеграції.
 
-### Preparation
+### Підготовка
 
-Create a new directory `api-interfaces` under the project `src` folder to store all required and generated files. We also create an `api-interfaces/kitties` directory as we want to add decoration in the API from the `kitties` module.
+Створіть новий каталог ` api-interfaces ` у папці проекту ` src ` для зберігання всіх необхідних та створених файлів. Ми також створили директорію `api-interfaces/kitties` коли ми хочемо додати прикраси в API з модуля `кодів`.
 
-#### Metadata
+#### Метаданні
 
-We need metadata to generate the actual API endpoints. In the kitty example, we use an endpoint from a local testnet, and it provides additional types. Follow the steps in [PolkadotJS metadata setup](https://polkadot.js.org/docs/api/examples/promise/typegen#metadata-setup) to retrieve a node's metadata from its **HTTP** endpoint.
+Нам потрібні метадані для створення фактичних кінцевих точок API. У прикладі kitty ми використовуємо кінцеву точку з локальної тестової мережі, і вона надає додаткові типи. Виконайте кроки в [ Налаштування метаданих PolkadotJS ](https://polkadot.js.org/docs/api/examples/promise/typegen#metadata-setup), щоб отримати метадані вузла з його кінцевої точки ** HTTP **.
 
 ```shell
 curl -H "Content-Type: application/json" -d '{"id":"1", "jsonrpc":"2.0", "method": "state_getMetadata", "params":[]}' http://localhost:9933
 ```
-or from its **websocket** endpoint with help from [`websocat`](https://github.com/vi/websocat):
+або зі свого **websocket** кінцевої точки з допомогою [`websocat`](https://github.com/vi/websocat):
 
 ```shell
 //Install the websocat
@@ -157,19 +157,19 @@ brew install websocat
 echo state_getMetadata | websocat 'ws://127.0.0.1:9944' --jsonrpc
 ```
 
-Next, copy and paste the output to a JSON file. In our [kitty example](https://github.com/subquery/tutorials-kitty-chain), we have created `api-interface/kitty.json`.
+Далі, скопіюйте і вставте вихід у файл JSON. У нашому [kitty example](https://github.com/subquery/tutorials-kitty-chain)ми створили `api-interface/kitty.json`.
 
-#### Type definitions
-We assume that the user knows the specific types and RPC support from the chain, and it is defined in the [Manifest](./manifest.md).
+#### Визначення типів
+Ми припускаємо, що користувач знає конкретні типи та підтримку RPC з ланцюга, і це визначено в [ Маніфесті ](./manifest.md).
 
-Following [types setup](https://polkadot.js.org/docs/api/examples/promise/typegen#metadata-setup), we create :
-- `src/api-interfaces/definitions.ts` - this exports all the sub-folder definitions
+Наступні [types setup](https://polkadot.js.org/docs/api/examples/promise/typegen#metadata-setup), ми створюємо :
+- `src/api-interfaces/definitions.ts` - цей експорт всіх визначень підтек
 
 ```ts
 export { default as kitties } from './kitties/definitions';
 ```
 
-- `src/api-interfaces/kitties/definitions.ts` - type definitions for the kitties module
+- `src/api-interfaces/kitties/definitions.ts` - визначення типів для модуля kitties
 ```ts
 export default {
     // custom types
@@ -202,12 +202,12 @@ export default {
 }
 ```
 
-#### Packages
+#### Пакети
 
-- In the `package.json` file, make sure to add `@polkadot/typegen` as a development dependency and `@polkadot/api` as a regular dependency (ideally the same version). We also need `ts-node` as a development dependency to help us run the scripts.
-- We add scripts to run both types; `generate:defs` and metadata `generate:meta` generators (in that order, so metadata can use the types).
+- В пакеті `. son` файл, не забудьте додати `@polkadot/typegen` як залежність від розробників і `@polkadot/api` як регулярну залежність (в ідеалі та сама версія). Нам також потрібно `ts-node` в якості залежності від розробки, щоб допомогти нам запустити сценарії.
+- Ми додаємо сценарії для запуску обох типів; ` generate:defs ` та метадані ` generate:meta ` генератори (у такому порядку, тому метадані можуть використовувати типи).
 
-Here is a simplified version of `package.json`. Make sure in the **scripts** section the package name is correct and the directories are valid.
+Ось спрощена версія ` package.json `. Переконайтесь, що в розділі ** scripts ** ім'я пакета є правильним, а каталоги дійсними.
 
 ```json
 {
@@ -227,9 +227,9 @@ Here is a simplified version of `package.json`. Make sure in the **scripts** sec
 }
 ```
 
-### Type generation
+### Генерація коду
 
-Now that preparation is completed, we are ready to generate types and metadata. Run the commands below:
+Тепер, коли підготовка завершена, ми готові генерувати типи та метадані. Виконайте команди нижче:
 
 ```shell
 # Yarn to install new dependencies
@@ -239,14 +239,14 @@ yarn
 yarn generate:defs
 ```
 
-In each modules folder (eg `/kitties`), there should now be a generated `types.ts` that defines all interfaces from this modules' definitions, also a file `index.ts` that exports them all.
+У кожній папці модулів (наприклад, ` / kitties `) тепер має бути сформований ` types.ts `, який визначає всі інтерфейси з визначень цих модулів, також файл ` index.ts ` що експортує їх усіх.
 
 ```shell
 # Generate metadata
 yarn generate:meta
 ```
 
-This command will generate the metadata and a new api-augment for the APIs. As we don't want to use the built-in API, we will need to replace them by adding an explicit override in our `tsconfig.json`. After the updates, the paths in the config will look like this (without the comments):
+Ця команда генерує метадані та новий апі-аугмент для API. Оскільки ми не хочемо використовувати вбудований API, нам потрібно буде замінити їх, додавши явне перекриття в нашому ` tsconfig.json `. Після оновлень шляхи в конфігурації будуть виглядати так (без коментарів) :
 
 ```json
 {
@@ -261,9 +261,9 @@ This command will generate the metadata and a new api-augment for the APIs. As w
 }
 ```
 
-### Usage
+### Використання
 
-Now in the mapping function, we can show how the metadata and types actually decorate the API. The RPC endpoint will support the modules and methods we declared above. And to use custom rpc call, please see section [Custom chain rpc calls](#custom-chain-rpc-calls)
+Тепер у функції картографування ми можемо показати, як метадані та типи насправді прикрашають API. Кінцева точка RPC підтримуватиме модулі та методи, які ми заявили вище. А щоб використовувати спеціальний дзвінок rpc, перегляньте розділ [ Спеціальні дзвінки rpc ](#custom-chain-rpc-calls)
 ```typescript
 export async function kittyApiHandler(): Promise<void> {
     //return the KittyIndex type
@@ -276,14 +276,15 @@ export async function kittyApiHandler(): Promise<void> {
 }
 ```
 
-**If you wish to publish this project to our explorer, please include the generated files in `src/api-interfaces`.**
+**Якщо ви хочете опублікувати цей проект нашому досліднику, будь ласка, включіть створені файли у ` src / api-interfaces `.**
 
-### Custom chain rpc calls
+### Користувальницькі ланцюжки викликів rpc
 
-To support customised chain RPC calls, we must manually inject RPC definitions for `typesBundle`, allowing per-spec configuration. You can define the `typesBundle` in the `project.yml`. And please remember only `isHistoric` type of calls are supported.
+Для підтримки налаштованих мережевих дзвінків RPC ми повинні вручну вводити визначення RPC для ` typesBundle `, дозволяючи конфігурацію за специфікацією. Ви можете визначити `typesBundle` в `project.yml`. Як ласка, запам'ятайте, підтримуються лише ` isHistoric ` тип.
 ```yaml
 ...
-  types: {
+  
+ types: {
     "KittyIndex": "u32",
     "Kitty": "[u8; 16]",
   }

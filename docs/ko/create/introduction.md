@@ -1,12 +1,12 @@
-# Tutorials & Examples
+# SubQuery 프로젝트 생성하기
 
-[quick start](/quickstart/quickstart.md) 가이드에서는 SubQuery의 기능과 작동 방식을 보여 주는 예제를 빠르게 살펴보았습니다. 여기서는 프로젝트를 만들 때의 워크플로우와 작업할 키 파일을 자세히 살펴보겠습니다.
+[quick start](/quickstart/quickstart.md) 가이드에서는 SubQuery의 기능과 작동 방식을 보여 주는 예제를 간략히 살펴보았습니다. 여기서는 프로젝트 생성 시 작업 순서와 필요한 주요 파일에 대해 자세히 살펴보겠습니다.
 
-## SubQuery Examples
+## 기본 작업 순서
 
 다음 예제 중 일부는 [Quick start](../quickstart/quickstart.md) 섹션에서 스타터 패키지를 성공적으로 초기화했다고 가정합니다. 이 시작 패키지에서 SubQuery 프로젝트를 사용자 정의 및 구현하기 위한 표준 프로세스를 살펴보겠습니다.
 
-1. Initialise your project using `subql init --specVersion 0.2.0 PROJECT_NAME`. alternatively you can use the old spec version `subql init PROJECT_NAME`
+1. `subql init --specVersion 0.2.0 PROJECT_NAME`을 사용하여 프로젝트를 초기화합니다. `subql init PROJECT_NAME` 사용도 가능합니다.
 2. Manifest 파일 (`project.yaml`)을 업데이트하여 블록 체인과 매핑할 엔티티에 대한 정보를 포함하세요. [Manifest File](./manifest.md) 참조
 3. Schema(`schema.graphql`)에서 추출하고 Query하기 위해 유지할 데이터의 모양을 정의하는 GraphQL 엔터티 만들기 - [GraphQL Schema](./graphql.md) 참조하세요
 4. 체인 데이터를 정의한 GraphQL 엔터티에 변환하기 위해 호출할 모든 매핑 기능(예. `mappingHandlers.ts`) 추가 - [Mapping](./mapping.md) 참조
@@ -31,7 +31,7 @@
   L .gitignore
 ```
 
-Example
+예제:
 
 ![SubQuery 디렉터리 구조](/assets/img/subQuery_directory_stucture.png)
 

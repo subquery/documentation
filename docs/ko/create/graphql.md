@@ -1,13 +1,13 @@
-# GraphQL Schema
+# GraphQL 개요
 
-## Defining Entities
+## 엔티티 정의
 
-The `schema.graphql` file defines the various GraphQL schemas. Due to the way that the GraphQL query language works, the schema file essentially dictates the shape of your data from SubQuery. To learn more about how to write in GraphQL schema language, we recommend checking out [Schemas and Types](https://graphql.org/learn/schema/#type-language).
+`schema.graphql` 파일은 다양한 GraphQL 스키마를 정의합니다. GraphQL 쿼리 언어가 작동하는 방식으로 인하여 스키마 파일은 본질적으로 서브쿼리의 데이터 모양을 결정합니다. GraphQL 스키마 언어로 작성하는 방법에 대해 자세히 알아보려면 [스키마 및 유형](https://graphql.org/learn/schema/#type-language)을 확인하시기 바랍니다.
 
-**Important: When you make any changes to the schema file, please ensure that you regenerate your types directory with the following command `yarn codegen`**
+**중요: 스키마 파일을 변경할 때, 반드시 `yarn codegen` 명령을 통해 디렉토리 타입을 재생성해야 합니다.**
 
-### Entities
-Each entity must define its required fields `id` with the type of `ID!`. It is used as the primary key and unique among all entities of the same type.
+### 엔티티
+각 엔티티는 `ID!` 형식의 필수 필드 `id`를 정의해야 합니다. 이는 동일한 유형의 모든 엔티티에서 기본 키로 사용되며 고유의 값을 갖습니다.
 
 Non-nullable fields in the entity are indicated by `!`. Please see the example below:
 
@@ -19,15 +19,15 @@ type Example @entity {
 }
 ```
 
-### Supported scalars and types
+### 지원되는 스칼라 및 유형
 
-We currently supporting flowing scalars types:
+현재 지원되는 스칼라 및 유형은 다음과 같습니다.
 - `ID`
 - `Int`
 - `String`
 - `BigInt`
 - `Float`
-- `Date`
+- `날짜`
 - `Boolean`
 - `<EntityName>` for nested relationship entities, you might use the defined entity's name as one of the fields. Please see in [Entity Relationships](#entity-relationships).
 - `JSON` can alternatively store structured data, please see [JSON type](#json-type)
@@ -55,7 +55,7 @@ type Title @entity {
 ```
 Assuming we knew this user's name, but we don't know the exact id value, rather than extract all users and then filtering by name we can add `@index` behind the name field. This makes querying much faster and we can additionally pass the `unique: true` to  ensure uniqueness.
 
-**If a field is not unique, the maximum result set size is 100**
+**필드가 고유하지 않은 경우 최대 결과 집합 크기는 100입니다.**
 
 When code generation is run, this will automatically create a `getByName` under the `User` model, and the foreign key field `title` will create a `getByTitleId` method, which both can directly be accessed in the mapping function.
 
@@ -109,7 +109,6 @@ type Person @entity {
 
 type Passport @entity {
   id: ID!
-  owner: Person!
 }
 ```
 
@@ -200,14 +199,14 @@ type Transfer @entity {
 }
 ```
 
-## JSON type
+## JSON 유형
 
-We are supporting saving data as a JSON type, which is a fast way to store structured data. We'll automatically generate corresponding JSON interfaces for querying this data and save you time defining and managing entities.
+JSON 유형의 데이터 저장을 지원하여 구조화된 데이터를 빠르게 저장할 수 있습니다. 데이터 쿼리에 필요한 해당 JSON 인터페이스를 자동으로 생성함으로써 엔티티를 정의하고 관리하는 시간을 절약합니다.
 
-We recommend users use the JSON type in the following scenarios:
-- When storing structured data in a single field is more manageable than creating multiple separate entities.
+다음 시나리오의 사용자는 JSON 유형의 사용을 권장합니다.
+- 구조화된 데이터를 단일 필드에 저장하는 것이 여러 개의 개별 엔티티를 생성하는 것보다 용이한 경우
 - Saving arbitrary key/value user preferences (where the value can be boolean, textual, or numeric, and you don't want to have separate columns for different data types)
-- The schema is volatile and changes frequently
+- 스키마가 휘발성이고 자주 변경되는 경우
 
 ### Define JSON directive
 Define the property as a JSON type by adding the `jsonField` annotation in the entity. This will automatically generate interfaces for all JSON objects in your project under `types/interfaces.ts`, and you can access them in your mapping function.
@@ -231,11 +230,11 @@ type User @entity {
 }
 ````
 
-### Querying JSON fields
+### JSON 필드 쿼리하기
 
-The drawback of using JSON types is a slight impact on query efficiency when filtering, as each time it performs a text search, it is on the entire entity.
+JSON 유형을 사용하면, 텍스트 검색을 수행할 때마다 전체 엔티티에 적용되기 때문에 필터링 시 쿼리 효율성을 일부 저하시키는 단점이 있습니다.
 
-However, the impact is still acceptable in our query service. Here is an example of how to use the `contains` operator in the GraphQL query on a JSON field to find the first 5 users who own a phone number that contains '0064'.
+그러나, 효율성 저하는 쿼리 서비스가 수용할 수 있는 수준입니다. Here is an example of how to use the `contains` operator in the GraphQL query on a JSON field to find the first 5 users who own a phone number that contains '0064'.
 
 ```graphql
 #To find the the first 5 users own phone numbers contains '0064'.

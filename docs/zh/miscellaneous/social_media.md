@@ -6,7 +6,7 @@ SubQuery 是一个活跃的项目，通过许多社交媒体与我们的用户�
 
 ## SubQuery官方社区
 
-- [链接树](https://linktr.ee/subquerynetwork)
+- [链接](https://linktr.ee/subquerynetwork)
 - [Discord](https://discord.com/invite/subquery) (拥有专业技术支持频道的主社区)
 - [ Medium ](https://subquery.medium.com) (主要通知公告)
 - [Twitter](https://twitter.com/subquerynetwork)

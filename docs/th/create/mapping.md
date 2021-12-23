@@ -100,17 +100,17 @@ const b2 = await api.rpc.chain.getBlock();
 ```
 - สำหรับ RPC call ต่าง ๆ ที่เป็น [เครือข่าย Substrate แบบกำหนดเอง](#custom-substrate-chains) ดูที่ [การใช้งาน](#usage)
 
-## Modules and Libraries
+## โมดูลและไลบรารีต่าง ๆ
 
-To improve SubQuery's data processing capabilities, we have allowed some of the NodeJS's built-in modules for running mapping functions in the [sandbox](#the-sandbox), and have allowed users to call third-party libraries.
+เพื่อปรับปรุงความสามารถในการประมวลผลข้อมูลของ SubQuery เราได้อนุญาตให้โมดูลต่าง ๆ ที่บิวท์อินของ NodeJS บางส่วน สามารถเรียกใช้ฟังก์ชัน map ใน [ sandbox ](#the-sandbox) และอนุญาตให้ผู้ใช้เรียกใช้ไลบรารีของบุคคลที่สามได้
 
-Please note this is an **experimental feature** and you may encounter bugs or issues that may negatively impact your mapping functions. Please report any bugs you find by creating an issue in [GitHub](https://github.com/subquery/subql).
+โปรดทราบว่านี่เป็นเพียง **คุณลักษณะทดลอง** และคุณอาจพบข้อบกพร่องหรือปัญหาที่อาจส่งผลเสียต่อฟังก์ชัน map ของคุณ โปรดรายงานปัญหาที่คุณพบโดยการสร้างหัวข้อใน [GitHub](https://github.com/subquery/subql)
 
-### Built-in modules
+### โมดูลต่าง ๆ ที่บิวท์อิน
 
-Currently, we allow the following NodeJS modules: `assert`, `buffer`, `crypto`, `util`, and `path`.
+ในขณะนี้ โมดูล NodeJS ที่ได้รับอนุญาต ได้แก่ `assert`, `buffer`, `crypto`, `util`, และ `path`.
 
-Rather than importing the whole module, we recommend only importing the required method(s) that you need. Some methods in these modules may have dependencies that are unsupported and will fail on import.
+เราขอแนะนำให้คุณนำเข้ามาเฉพาะ method ที่คุณต้องการ แทนที่จะนำเข้ามาทั้งโมดูล เนื่องจาก method บางอย่างในโมดูลเหล่านี้ อาจเกี่ยวข้องกับสิ่งที่ยังไม่ได้รับการสนับสนุน จึงอาจจะทำให้นำเข้าไม่สำเร็จ
 
 ```ts
 import {hashMessage} from "ethers/lib/utils"; //Good way
@@ -123,32 +123,32 @@ export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
 }
 ```
 
-### Third-party libraries
+### ไลบรารีของบุคคลที่สาม
 
-Due to the limitations of the virtual machine in our sandbox, currently, we only support third-party libraries written by **CommonJS**.
+เนื่องจากข้อจำกัดของ virtual machine ในแซนด์บ็อกซ์ของเรา ขณะนี้เราจึงรองรับเฉพาะไลบรารีของบุคคลที่สามที่เขียนด้วย **CommonJS** เท่านั้น
 
-We also support a **hybrid** library like `@polkadot/*` that uses ESM as default. However, if any other libraries depend on any modules in **ESM** format, the virtual machine will **NOT** compile and return an error.
+และเรายังสนับสนุนไลบรารี **ไฮบริด** ด้วย เช่น `@polkadot/*` ที่ใช้ ESM เป็นค่าเริ่มต้น อย่างไรก็ตาม หากไลบรารีอื่นขึ้นอยู่กับโมดูลในรูปแบบ **ESM** จะทำให้ virtual machine **ไม่** รวบรวมข้อมูลและส่งผลให้เกิดความผิดพลาด
 
-## Custom Substrate Chains
+## เครือข่าย Substrate แบบกำหนดเอง
 
-SubQuery can be used on any Substrate-based chain, not just Polkadot or Kusama.
+SubQuery สามารถใช้กับเครือข่ายใดก็ได้ ที่มีพื้นฐานมาจาก Substrate ไม่จำเป็นต้องใช้กับ Polkadot หรือ Kusama เท่านั้น
 
-You can use a custom Substrate-based chain and we provide tools to import types, interfaces, and additional methods automatically using [@polkadot/typegen](https://polkadot.js.org/docs/api/examples/promise/typegen/).
+ซึ่งคุณสามารถจะใช้เครือข่ายที่มี Substrate เป็นพื้นฐานแบบกำหนดเองได้ โดยเรามีเครื่องมือสำหรับนำเข้า ประเภทต่าง ๆ อินเทอร์เฟซ และ method เพิ่มเติมโดยอัตโนมัติโดยใช้ [@polkadot/typegen](https://polkadot.js.org/docs/api/examples/promise/typegen/)
 
-In the following sections, we use our [kitty example](https://github.com/subquery/tutorials-kitty-chain) to explain the integration process.
+ในส่วนต่อไปนี้ เราใช้[ตัวอย่างลูกแมว](https://github.com/subquery/tutorials-kitty-chain)เพื่ออธิบายขั้นตอนการรวมระบบ
 
-### Preparation
+### การเตรียมพร้อม
 
-Create a new directory `api-interfaces` under the project `src` folder to store all required and generated files. We also create an `api-interfaces/kitties` directory as we want to add decoration in the API from the `kitties` module.
+สร้างไดเร็กทอรีใหม่ `api-interfaces` ภายใต้โฟลเดอร์โปรเจ็กต์ `src` เพื่อจัดเก็บไฟล์ที่จำเป็นและสร้างขึ้นทั้งหมด นอกจากนี้เรายังสร้างไดเร็กทอรี `api-interfaces/kitties` เนื่องจากเราต้องการเพิ่มการตกแต่งใน API จากโมดูล `kitty`
 
 #### Metadata
 
-We need metadata to generate the actual API endpoints. In the kitty example, we use an endpoint from a local testnet, and it provides additional types. Follow the steps in [PolkadotJS metadata setup](https://polkadot.js.org/docs/api/examples/promise/typegen#metadata-setup) to retrieve a node's metadata from its **HTTP** endpoint.
+เราต้องการข้อมูล Metadata เพื่อสร้าง endpoint ของ API อย่างถูกต้องตามจริง ในตัวอย่างเรื่องลูกแมวนี้ เราใช้ endpoint จากเครือข่ายทดสอบในเครื่อง และมีเพิ่มประเภทต่าง ๆ เข้าไป ทำตามขั้นตอนใน [การตั้งค่า metadata ที่ PolkadotJS](https://polkadot.js.org/docs/api/examples/promise/typegen#metadata-setup) เพื่อดึง metadata ของโหนดจาก endpoint **HTTP**
 
 ```shell
 curl -H "Content-Type: application/json" -d '{"id":"1", "jsonrpc":"2.0", "method": "state_getMetadata", "params":[]}' http://localhost:9933
 ```
-or from its **websocket** endpoint with help from [`websocat`](https://github.com/vi/websocat):
+หรือจาก endpoint **websocket** ด้วยความช่วยเหลือจาก [`websocat`](https://github.com/vi/websocat):
 
 ```shell
 //Install the websocat
@@ -158,19 +158,19 @@ brew install websocat
 echo state_getMetadata | websocat 'ws://127.0.0.1:9944' --jsonrpc
 ```
 
-Next, copy and paste the output to a JSON file. In our [kitty example](https://github.com/subquery/tutorials-kitty-chain), we have created `api-interface/kitty.json`.
+จากนั้น ก็อปปี้และวางผลที่ได้ที่ไฟล์ JSON ใน [ตัวอย่างเรื่องลูกแมว](https://github.com/subquery/tutorials-kitty-chain) เราได้สร้าง `api-interface/kitty.json`
 
-#### Type definitions
-We assume that the user knows the specific types and RPC support from the chain, and it is defined in the [Manifest](./manifest.md).
+#### คำจำกัดความต่าง ๆ ของประเภท
+เราคิดว่า ผู้ใช้รู้จัก ประเภทเฉพาะและการสนับสนุน RPC จากเครือข่ายอยู่แล้ว ซึ่งมันถูกกำหนดไว้ใน [Manifest](./manifest.md)
 
-Following [types setup](https://polkadot.js.org/docs/api/examples/promise/typegen#metadata-setup), we create :
-- `src/api-interfaces/definitions.ts` - this exports all the sub-folder definitions
+ตาม [การตั้งค่าของประเภทต่าง ๆ](https://polkadot.js.org/docs/api/examples/promise/typegen#metadata-setup) เราสร้าง:
+- `src/api-interfaces/definitions.ts` - ซึ่งช่วยส่งออกคำจำกัดความของโฟลเดอร์ย่อยทั้งหมด
 
 ```ts
 export { default as kitties } from './kitties/definitions';
 ```
 
-- `src/api-interfaces/kitties/definitions.ts` - type definitions for the kitties module
+- `src/api-interfaces/kitty/definitions.ts` - คำจำกัดความต่าง ๆ เรื่องประเภทสำหรับโมดูลลูกแมว
 ```ts
 export default {
     // custom types
@@ -205,10 +205,10 @@ export default {
 
 #### Packages
 
-- In the `package.json` file, make sure to add `@polkadot/typegen` as a development dependency and `@polkadot/api` as a regular dependency (ideally the same version). We also need `ts-node` as a development dependency to help us run the scripts.
-- We add scripts to run both types; `generate:defs` and metadata `generate:meta` generators (in that order, so metadata can use the types).
+- ในไฟล์ `package.json` ตรวจสอบให้แน่ใจว่าได้เพิ่ม `@polkadot/typegen` เป็น dependency การพัฒนาและ `@polkadot/api` เป็น dependency ทั่วไป (ควรจะเป็นเวอร์ชั่นเดียวกัน) นอกจากนี้เรายังต้องการ `ts-node` ใน dependency การพัฒนา เพื่อช่วยเราในการเรียกใช้สคริปต์ด้วย
+- โดยเราเพิ่มสคริปต์เพื่อใช้ทั้งสองประเภท ได้แก่ `generate:defs` และ metadata `generate:meta` (เรียงตามลำดับนี้ ทำให้ metadata สามารถใช้ประเภทดังกล่าวได้)
 
-Here is a simplified version of `package.json`. Make sure in the **scripts** section the package name is correct and the directories are valid.
+ส่วนนี่เป็นเวอร์ชันที่เรียบง่ายของ `package.json` กรุณาตรวจสอบให้แน่ใจว่า ส่วน **สคริปต์** นั้น ชื่อแพ็คเกจถูกต้องและมีไดเร็กทอรีนั้น ๆ อยู่
 
 ```json
 {
@@ -228,9 +228,9 @@ Here is a simplified version of `package.json`. Make sure in the **scripts** sec
 }
 ```
 
-### Type generation
+### การสร้างประเภท
 
-Now that preparation is completed, we are ready to generate types and metadata. Run the commands below:
+เมื่อการเตรียมการเสร็จสิ้น เราก็พร้อมที่จะสร้างประเภทและ metadata แล้ว รันคำสั่งต่อไปนี้
 
 ```shell
 # Yarn to install new dependencies
@@ -240,14 +240,14 @@ yarn
 yarn generate:defs
 ```
 
-In each modules folder (eg `/kitties`), there should now be a generated `types.ts` that defines all interfaces from this modules' definitions, also a file `index.ts` that exports them all.
+ในแต่ละโฟลเดอร์ของโมดูล (เช่น `/kitties`) ตอนนี้ควรมี `types.ts` ที่สร้างขึ้น ซึ่งกำหนดอินเทอร์เฟซทั้งหมดจากคำจำกัดความของโมดูลนี้ รวมทั้งไฟล์ ` index.ts` ที่ส่งออกทั้งหมด
 
 ```shell
 # Generate metadata
 yarn generate:meta
 ```
 
-This command will generate the metadata and a new api-augment for the APIs. As we don't want to use the built-in API, we will need to replace them by adding an explicit override in our `tsconfig.json`. After the updates, the paths in the config will look like this (without the comments):
+คำสั่งนี้จะสร้าง metadata และ api-augment ใหม่สำหรับ API ต่าง ๆ เนื่องจากเราไม่ต้องการใช้ API แบบบิวท์อิน เราจึงต้องเพิ่มการแทนที่ที่ชัดเจนใน `tsconfig.json` ของเรา หลังจากอัปเดตแล้ว path ในการกำหนดค่าจะมีลักษณะดังนี้ (โดยไม่มีความคิดเห็นใด ๆ):
 
 ```json
 {
@@ -264,7 +264,7 @@ This command will generate the metadata and a new api-augment for the APIs. As w
 
 ### การใช้งาน
 
-Now in the mapping function, we can show how the metadata and types actually decorate the API. The RPC endpoint will support the modules and methods we declared above. And to use custom rpc call, please see section [Custom chain rpc calls](#custom-chain-rpc-calls)
+ในฟังก์ชัน map เราสามารถแสดงให้เห็นว่า metadata และประเภทต่าง ๆ จะเติมแต่ง API อย่างไร RPC endpoint จะสนับสนุนโมดูลและวิธีการต่าง ๆ ที่เราประกาศไว้ข้างต้น และหากต้องการใช้ rpc call แบบกำหนดเอง โปรดดูส่วน [การเรียก rpc ของเครือข่ายแบบกำหนดเอง](#custom-chain-rpc-calls)
 ```typescript
 export async function kittyApiHandler(): Promise<void> {
     //return the KittyIndex type
@@ -277,11 +277,11 @@ export async function kittyApiHandler(): Promise<void> {
 }
 ```
 
-**If you wish to publish this project to our explorer, please include the generated files in `src/api-interfaces`.**
+**หากคุณต้องการเผยแพร่โครงการนี้ให้กับ explorer ของเรา โปรดรวมไฟล์ที่สร้างขึ้นใน `src/api-interfaces`**
 
-### Custom chain rpc calls
+### การกำหนดค่า rpc call ต่าง ๆ ของเครือข่าย
 
-To support customised chain RPC calls, we must manually inject RPC definitions for `typesBundle`, allowing per-spec configuration. You can define the `typesBundle` in the `project.yml`. And please remember only `isHistoric` type of calls are supported.
+เพื่อรองรับการกำหนดค่า RPC call ต่าง ๆ ของเครือข่าย เราต้องใส่คำจำกัดความ RPC ของ `typesBundle` เอง เพื่อให้สามารถกำหนดค่าตามข้อกำหนดได้ โดยคุณสามารถกำหนด `typesBundle` ใน `project.yml` ได้ และโปรดทราบว่า ในประเภทต่าง ๆ ของ call จะมีเพียง `isHistoric` เท่านั้นที่เรารองรับ
 ```yaml
 ...
   types: {

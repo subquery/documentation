@@ -1,20 +1,20 @@
-# Tutorials & Examples
+# Підручники та приклади
 
-In the [quick start](/quickstart/quickstart.md) guide, we very quickly ran through an example to give you a taste of what SubQuery is and how it works. Here we'll take a closer look at the workflow when creating your project and the key files you'll be working with.
+У посібнику [ quick start ](/quickstart/quickstart.md) ми дуже швидко пройшли приклад, щоб дати вам смак того, що таке SubQuery і як він працює. Тут ми детальніше розглянемо робочий процес під час створення вашого проекту та ключові файли, з якими ви будете працювати.
 
-## SubQuery Examples
+## Приклади SubQuery
 
-Some of the following examples will assume you have successfully initialized the starter package in the [Quick start](../quickstart/quickstart.md) section. From that starter package, we'll walk through the standard process to customise and implement your SubQuery project.
+Деякі з наступних прикладів припускають, що ви успішно ініціалізували стартовий пакет у розділі [ Quick start ](../quickstart/quickstart.md). З цього стартового пакету ми пройдемо стандартний процес для налаштування та реалізації вашого проекту SubQuery.
 
-1. Initialise your project using `subql init --specVersion 0.2.0 PROJECT_NAME`. alternatively you can use the old spec version `subql init PROJECT_NAME`
-2. Update the Manifest file (`project.yaml`) to include information about your blockchain, and the entities that you will map - see [Manifest File](./manifest.md)
-3. Create GraphQL entities in your schema (`schema.graphql`) that define the shape of the data that you will extract and persist for querying - see [GraphQL Schema](./graphql.md)
-4. Add all the mapping functions (eg `mappingHandlers.ts`) you wish to invoke to transform chain data to the GraphQL entities that you have defined - see [Mapping](./mapping.md)
-5. Generate, build, and publish your code to SubQuery Projects (or run in your own local node) - see [Running and Querying your Starter Project](./quickstart.md#running-and-querying-your-starter-project) in our quick start guide.
+1. Ініціалізуйте свій проект, використовуючи ` subql init --specVersion 0.2.0 PROJECT_NAME `. альтернативно ви можете використовувати стару версію специфікації ` subql init PROJECT_NAME `
+2. Оновіть файл Manifest (` project.yaml `), щоб включити інформацію про ваш блокчейн та об'єкти, які ви будете відображати - див. [ Manifest File ](./manifest.md)
+3. Створення графічних об'єктів у вашій схемі (`схемі. raphql`), що визначає форму даних, які ви будете вилучати і зберігати запити - дивіться [GraphQL Схема](./graphql.md)
+4. Додайте всі функції відображення (наприклад, ` mappingHandlers.ts `), які ви хочете викликати для перетворення даних ланцюга в визначені вами об'єкти GraphQL - див. [ Mapping ](./mapping.md)
+5. Створіть, побудуйте та опублікуйте свій код у проектах SubQuery (або запустіть у власному локальному вузлі) - див. [ Running and Querying your Starter Project ](./quickstart.md#running-and-querying-your-starter-project) у нашому швидкому посібнику з запуску.
 
-## Directory Structure
+## Структура каталогу
 
-The following map provides an overview of the directory structure of a SubQuery project when the `init` command is run.
+Наступна карта надає огляд структури каталогів проекту SubQuery, коли запускається команда ` init `.
 
 ```
 - project-name
@@ -31,32 +31,32 @@ The following map provides an overview of the directory structure of a SubQuery 
   L .gitignore
 ```
 
-For example:
+Наприклад:
 
 ![SubQuery directory structure](/assets/img/subQuery_directory_stucture.png)
 
-## Code Generation
+## Генерація коду
 
-Whenever you change your GraphQL entities, you must regenerate your types directory with the following command.
+Щоразу, коли ви змінюєте об'єкти GraphQL, ви повинні регенерувати каталог типів за допомогою наступної команди.
 
 ```
 yarn codegen
 ```
 
-This will create a new directory (or update the existing) `src/types` which contain generated entity classes for each type you have defined previously in `schema.graphql`. These classes provide type-safe entity loading, read and write access to entity fields - see more about this process in [the GraphQL Schema](./graphql.md).
+Це створить новий каталог (або оновить існуючий) ` src / types `, які містять створені класи сутності для кожного типу, який ви визначили раніше, у ` schema.graphql `. Ці класи забезпечують безпечне для типу об'єкт завантаження, читання та запис доступу до полів сутності - детальніше про цей процес див. У [ Схемі GraphQL ](./graphql.md).
 
-## Build
+## Побудова
 
-In order to run your SubQuery Project on a locally hosted SubQuery Node, you need to first build your work.
+Для того, щоб запустити проект SubQuery на локально розміщеному вузлі SubQuery, потрібно спочатку створити свою роботу.
 
-Run the build command from the project's root directory.
+Запустіть команду збірки з кореневого каталогу проекту.
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```bash npm run-script build ``` </CodeGroupItem> </CodeGroup>
 
 ## Logging
 
-The `console.log` method is **no longer supported**. Instead, a `logger` module has been injected in the types, which means we can support a logger that can accept various logging levels.
+The `console.log` method is **no longer supported**. Натомість в типи введено модуль ` logger `, а це означає, що ми можемо підтримувати реєстратор, який може приймати різні рівні реєстрації.
 
 ```typescript
 logger.info('Info level message');
@@ -64,16 +64,16 @@ logger.debug('Debugger level message');
 logger.warn('Warning level message');
 ```
 
-To use `logger.info` or `logger.warn`, just place the line into your mapping file.
+Щоб використовувати ` logger.info ` або ` logger.warn `, просто помістіть рядок у файл відображення.
 
 ![logging.info](/assets/img/logging_info.png)
 
-To use `logger.debug`, an additional step is required. Add `--log-level=debug` to your command line.
+Для використання ` logger.debug ` необхідний додатковий крок. Додайте `--log-level=debug` до вашого командного рядка.
 
-If you are running a docker container, add this line to your `docker-compose.yaml` file.
+Якщо ви працюєте з контейнером докера, додайте цей рядок у файл ` docker-compose.yaml `.
 
 ![logging.debug](/assets/img/logging_debug.png)
 
-You should now see the new logging in the terminal screen.
+Тепер ви повинні побачити новий журнал на екрані терміналу.
 
 ![logging.debug](/assets/img/subquery_logging.png)

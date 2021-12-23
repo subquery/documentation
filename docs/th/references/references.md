@@ -154,7 +154,7 @@ An instance of ProjectManifestImpl has failed the validation:
 
 ### --output-fmt
 
-There are two different terminal output formats. JSON or colored. Colored is the default and contains colored text.
+มีรูปแบบเอาต์พุตของเทอร์มินัลสองแบบที่แตกต่างกัน JSON หรือ colored โดย colored จะเป็นค่าเริ่มต้นและมีข้อความแบบสี
 
 ```shell
 > subql-node -f . --output-fmt=json
@@ -169,7 +169,7 @@ There are two different terminal output formats. JSON or colored. Colored is the
 
 ### --log-level
 
-There are 7 options to choose from. “fatal”, “error”, “warn”, “info”, “debug”, “trace”, “silent”. The example below shows silent. จะมี 7 ตัวเลือกให้เลือก “fatal”, “error”, “warn”, “info”, “debug”, “trace”, “silent” ตัวอย่างด้านล่างแสดงผลของตัวเลือก silent จะไม่มีการพิมพ์สิ่งใดในเทอร์มินัล ดังนั้นวิธีเดียวที่จะบอกได้ว่าโหนดทำงานหรือไม่คือการสืบค้นฐานข้อมูลสำหรับนับจำนวนแถว (select count(\*) from subquery_1.starter_entities) หรือสืบค้น block height
+จะมี 7 ตัวเลือกให้เลือก “fatal”, “error”, “warn”, “info”, “debug”, “trace”, “silent”. ตัวอย่างด้านล่างแสดงผลของตัวเลือก silent จะไม่มีการพิมพ์สิ่งใดในเทอร์มินัล ดังนั้นวิธีเดียวที่จะบอกได้ว่าโหนดทำงานหรือไม่คือการสืบค้นฐานข้อมูลสำหรับนับจำนวนแถว (select count(\*) from subquery_1.starter_entities) หรือสืบค้น block height
 
 ```shell
 > subql-node -f . --log-level=silent
@@ -191,19 +191,19 @@ There are 7 options to choose from. “fatal”, “error”, “warn”, “inf
 
 ### --timestamp-field
 
-ค่าเริ่มต้นสิ่งนี้ คือ true โดยสามารถตั้งค่าเป็น false ด้วย: when set to false with:
+ค่าเริ่มต้นสิ่งนี้ คือ true โดยสามารถตั้งค่าเป็น false ด้วย:
 
 ```shell
 > subql-node -f . –timestamp-field=false
 ```
 
-สิ่งนี้ทำให้คุณสามารถระบุ dictionary endpoint ซึ่งเป็นบริการฟรีที่มีให้และโฮสต์ที่: [https://explorer.subquery.network/](https://explorer.subquery.network/) (ค้นหา dictionary) และ API endpoint ของ: https://api.subquery.network/sq/subquery/dictionary-polkadot
+สิ่งนี้จะลบคอลัมน์ created_at และ updated_at ในตาราง starter_entities
 
 ### -d, --network-dictionary
 
-โดยปกติจะมีการตั้งค่านี้ในไฟล์ manifest ของคุณ แต่ด้านล่างจะแสดงตัวอย่างการใช้แบบเป็น argument ใน command line
+สิ่งนี้ทำให้คุณสามารถระบุ dictionary endpoint ซึ่งเป็นบริการฟรีที่มีให้และโฮสต์ที่: [https://explorer.subquery.network/](https://explorer.subquery.network/) (ค้นหา dictionary) และ API endpoint ของ: https://api.subquery.network/sq/subquery/dictionary-polkadot
 
-Typically this would be set in your manifest file but below shows an example of using it as an argument in the command line.
+โดยปกติจะมีการตั้งค่านี้ในไฟล์ manifest ของคุณ แต่ด้านล่างจะแสดงตัวอย่างการใช้แบบเป็น argument ใน command line
 
 ```shell
 subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot"
@@ -218,11 +218,11 @@ subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot
 นี่จะแสดงเวอร์ชันปัจจุบัน
 
 ```shell
-ns:
+Options:
       --help        Show help                                          [boolean]
       --version     Show version number                                [boolean]
-  -n, --name        project name                             [string] [required]
-      --playground  enable graphql playground                          [boolean]
+  -n, --name        Project name                             [string] [required]
+      --playground  Enable graphql playground                          [boolean]
       --output-fmt  Print log as json or plain text
                       [string] [choices: "json", "colored"] [default: "colored"]
       --log-level   Specify log level to print.
@@ -233,7 +233,7 @@ ns:
 
 ### --version
 
-flag นี้ใช้เพื่อเริ่มบริการ query service หากไม่มีการตั้งค่าสถานะ --subquery-name เมื่อทำการรัน indexer ชื่อที่นี่จะอ้างอิงถึงชื่อโปรเจ็กต์เริ่มต้น หากมีการตั้งค่า --subquery-name ชื่อที่นี่ควรตรงกับที่ตั้งไว้
+นี่จะแสดงเวอร์ชันปัจจุบัน
 
 ```shell
 > subql-query --version
@@ -242,12 +242,12 @@ flag นี้ใช้เพื่อเริ่มบริการ query se
 
 ### -n, --name
 
-This flag is used to start the query service. If the --subquery-name flag is not provided when running an indexer, the name here will refer to the default project name. If --subquery-name is set, then the name here should match what was set.
+Flag นี้ใช้เพื่อเริ่มบริการ query service หากไม่มีการตั้งค่าสถานะ --subquery-name เมื่อทำการรัน indexer ชื่อที่นี่จะอ้างอิงถึงชื่อโปรเจ็กต์เริ่มต้น หากมีการตั้งค่า --subquery-name ชื่อที่นี่ควรตรงกับที่ตั้งไว้
 
 ```shell
-> subql-node -f . --subquery-name=hiworld // --subquery-name set
+> subql-node -f . // --subquery-name not set
 
-> subql-query -n hiworld --playground  // the name points to the subql-helloworld project but with the name of hiworld
+> subql-query -n subql-helloworld  --playground // the name defaults to the project directory name
 ```
 
 ```shell
@@ -258,14 +258,14 @@ This flag is used to start the query service. If the --subquery-name flag is not
 
 ### --playground
 
-อ่าน [--output-fmt](https://doc.subquery.network/references/references.html#output-fmt)
+Flag นี้เปิดใช้งาน graphql playground ดังนั้นควรใส่ไว้ตามค่าเริ่มต้นเสมอเพื่อการใช้งานใดๆ
 
 ### --output-fmt
 
-อ่าน [--log-level](https://doc.subquery.network/references/references.html#log-level)
+อ่าน [--output-fmt](https://doc.subquery.network/references/references.html#output-fmt)
 
 ### --log-level
 
-See [--log-level](https://doc.subquery.network/references/references.html#log-level)
+อ่าน [--log-level](https://doc.subquery.network/references/references.html#log-level)
 
 <!-- ### --indexer TBA -->

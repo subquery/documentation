@@ -1,19 +1,19 @@
-# Hello World (localhost + Docker)
+# Привіт, світ (localhost + Docker)
 
-Welcome to this SubQuery Hello World quick start. The quick start aims to show you how you get the default starter project running in Docker in a few simple steps.
+Ласкаво просимо до цього SubQuery Hello Світ швидко запускається. Швидкий старт має на меті показати вам, як ви отримуєте проект стартера за замовчуванням у Docker за кілька простих кроків.
 
-## Мета навчання
+## Цілі навчання
 
-Наприкінці цього швидкого початку, ви повинні:
+Наприкінці цього швидкого старту слід:
 
-- розуміти необхідні передреквізити
-- understand the basic common commands
-- be able to navigate to localhost:3000 and view the playground
-- run a simple query to get the block height of the Polkadot mainnet
+- зрозуміти необхідні передумови
+- зрозуміти основні загальні команди
+- мати можливість перейти до localhost: 3000 та переглянути ігровий майданчик
+- запустіть простий запит, щоб отримати висоту блоку мережі Polkadot
 
-## Інтентифікована аудиторія
+## Навмисна аудиторія
 
-Це керівництво орієнтоване на нових розробників, які мають певний досвід розробки і зацікавлені в вивченні більше про SubQuery.
+Цей посібник орієнтований на нових розробників, які мають певний досвід розвитку та зацікавлені дізнатися більше про SubQuery.
 
 ## Відеоінструкція
 
@@ -25,11 +25,11 @@ Welcome to this SubQuery Hello World quick start. The quick start aims to show y
 
 Вам потрібно:
 
-- yarn or npm package manager
+- Менеджер пакунків yarn або npm
 - SubQuery CLI (`@subql/cli`)
 - Docker
 
-You can run the following commands in a terminal to see if you already have any of these pre-requisites.
+Ви можете запустити наступні команди в терміналі, щоб побачити, чи є у вас вже якісь із цих попередніх реквізитів.
 
 ```shell
 yarn -v (or npm -v)
@@ -37,13 +37,13 @@ subql -v
 docker -v
 ```
 
-For more advanced users, copy and paste the following:
+Для більш просунутих користувачів скопіюйте та вставте наступне:
 
 ```shell
-echo -e "My yarn version is:" `yarn -v` "\nMy subql version is:" `subql -v`  "\nMy docker version is:" `docker -v`
+echo -e "Моя версія yarn is:" `yarn -v`\nМоя версія subql :" `subql -v`\nМоя версія docker :" `docker -v`
 ```
 
-This should return: (for npm users, replace yarn with npm)
+Це повинно повернутися: (для користувачів npm замініть yarn на npm)
 
 ```shell
 My yarn version is: 1.22.10
@@ -51,15 +51,15 @@ My subql version is: @subql/cli/0.9.3 darwin-x64 node-v16.3.0
 My docker version is: Docker version 20.10.5, build 55c4c88
 ```
 
-If you get the above, then you are good to go. If not, follow these links to install them:
+Якщо ви отримаєте вищесказане, то вам добре піти. Якщо ні, дотримуйтесь цих посилань, щоб встановити їх:
 
 - [yarn](https://classic.yarnpkg.com/en/docs/install/) or [npm](https://www.npmjs.com/get-npm)
 - [SubQuery CLI](quickstart.md#install-the-subquery-cli)
 - [Docker](https://docs.docker.com/get-docker/)
 
-## 1. Initialise project
+## 1. Ініціалізація проекту
 
-The first step when starting off with SubQuery is to run the `subql init` command. Let's initialise a start project with the name `subqlHelloWorld`. Note that only author is mandatory. Everything else is left empty below.
+Перший крок при запуску з SubQuery - це запуск команди ` subql init `. Давайте ініціалізуємо стартовий проект із назвою ` subqlHelloWorld `. Зауважте, що обов'язковий лише автор. Все інше залишається порожнім внизу.
 
 ```shell
 > subql init --starter subqlHelloWorld
@@ -73,15 +73,15 @@ Init the starter package... subqlHelloWorld is ready
 
 ```
 
-Don't forget to change into this new directory.
+Не забудьте перейти в цей новий каталог.
 
 ```shell
 cd subqlHelloWorld
 ```
 
-## 2. Install dependencies
+## 2. Встановіть залежності
 
-Now do a yarn or node install to install the various dependencies.
+Тепер зробіть встановлення пряжі або вузла, щоб встановити різні залежності.
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn install ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```bash npm install ``` </CodeGroupItem> </CodeGroup>
@@ -100,9 +100,9 @@ success Saved lockfile.
 ✨  Done in 31.84s.
 ```
 
-## 3. Generate code
+## 3. Створити код
 
-Now run `yarn codegen` to generate Typescript from the GraphQL schema.
+Тепер запустіть ` yarn codegen `, щоб генерувати Typescript зі схеми GraphQL.
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```bash npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
@@ -122,11 +122,11 @@ $ ./node_modules/.bin/subql codegen
 ✨  Done in 1.02s.
 ```
 
-**Warning** When changes are made to the schema file, please remember to re-run `yarn codegen` to regenerate your types directory.
+** Попередження ** Коли в файл схеми вносяться зміни, будь ласка, не забудьте повторно запустити ` yarn codegen ` для відновлення каталогу типів.
 
-## 4. Build code
+## 4. Створіть код
 
-The next step is to build the code with `yarn build`.
+Наступний крок - побудувати код із ` yarn build `.
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```bash npm run-script build ``` </CodeGroupItem> </CodeGroup>
@@ -140,11 +140,11 @@ $ tsc -b
 ✨  Done in 5.68s.
 ```
 
-## 5. Run Docker
+## 5. Запустити Докер
 
-Using Docker allows you to run this example very quickly because all the required infrastructure can be provided within the Docker image. Run `docker-compose pull && docker-compose up`.
+Використання Docker дозволяє запустити цей приклад дуже швидко, оскільки вся необхідна інфраструктура може бути надана в межах зображення Docker. Виконати `docker-compose pull && docker-compose up`.
 
-This will kick everything into life where eventually you will get blocks being fetched.
+Це призведе до життя все, де в кінцевому підсумку ви отримаєте блоки.
 
 ```shell
 > #SNIPPET
@@ -162,9 +162,9 @@ graphql-engine_1  | 2021-06-05T22:20:43.244Z <express> INFO request completed
 
 ```
 
-## 6. Browse playground
+## 6. Огляд ігрового майданчика
 
-Navigate to http://localhost:3000/ and paste the query below into the left side of the screen and then hit the play button.
+Перейдіть до http://localhost: 3000 / та вставте запит внизу в ліву частину екрана, а потім натисніть кнопку відтворення.
 
 ```
 {
@@ -179,12 +179,12 @@ Navigate to http://localhost:3000/ and paste the query below into the left side 
 
 ```
 
-SubQuery playground on localhost.
+Ігровий майданчик SubQuery на місцевому приході.
 
 ![playground localhost](/assets/img/subql_playground.png)
 
-The block count in the playground should match the block count (technically the block height) in the terminal as well.
+Кількість блоків на ігровому майданчику також повинна відповідати кількості блоків (технічно висота блоку) в терміналі.
 
 ## Підсумок
 
-In this quick start, we demonstrated the basic steps to get a starter project up and running within a Docker environment and then navigated to localhost:3000 and ran a query to return the block number of the mainnet Polkadot network.
+У цьому швидкому старті ми продемонстрували основні кроки для запуску та запуску стартового проекту в середовищі Docker, а потім перейшли до localhost: 3000 та запустили запит, щоб повернути номер блоку мережі Polkadot.

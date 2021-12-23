@@ -1,89 +1,90 @@
-# Manifest File
+# Файл маніфесту
 
-The Manifest `project.yaml` file can be seen as an entry point of your project and it defines most of the details on how SubQuery will index and transform the chain data.
+Файл Manifest ` project.yaml ` можна розглядати як точку входу вашого проекту, і він визначає більшість деталей про те, як SubQuery буде індексувати та трансформувати дані ланцюга.
 
-The Manifest can be in either YAML or JSON format. In this document, we will use YAML in all the examples. Below is a standard example of a basic `project.yaml`.
+Маніфест може бути у форматі YAML або JSON. У цьому документі ми будемо використовувати YAML у всіх прикладах. Нижче наведено стандартний приклад базового ` project.yaml `.
 
 <CodeGroup> <CodeGroupItem title="v0.2.0" active> ``` yml specVersion: 0.2.0 name: example-project # Provide the project name version: 1.0.0  # Project version description: '' # Description of your project repository: 'https://github.com/subquery/subql-starter' # Git repository address of your project schema: file: ./schema.graphql # The location of your GraphQL schema file network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' # Genesis hash of the network endpoint: 'wss://polkadot.api.onfinality.io/public-ws' # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing dictionary: 'https://api.subquery.network/sq/subquery/dictionary-polkadot' dataSources: - kind: substrate/Runtime startBlock: 1 # This changes your indexing start block, set this higher to skip initial blocks with less data mapping: file: "./dist/index.js" handlers: - handler: handleBlock kind: substrate/BlockHandler - handler: handleEvent kind: substrate/EventHandler filter: #Filter is optional module: balances method: Deposit - handler: handleCall kind: substrate/CallHandler ```` </CodeGroupItem>
 <CodeGroupItem title="v0.0.1"> ``` yml specVersion: "0.0.1" description: '' # Description of your project repository: 'https://github.com/subquery/subql-starter' # Git repository address of your project schema: ./schema.graphql # The location of your GraphQL schema file network: endpoint: 'wss://polkadot.api.onfinality.io/public-ws' # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing dictionary: 'https://api.subquery.network/sq/subquery/dictionary-polkadot' dataSources: - name: main kind: substrate/Runtime startBlock: 1 # This changes your indexing start block, set this higher to skip initial blocks with less data mapping: handlers: - handler: handleBlock kind: substrate/BlockHandler - handler: handleEvent kind: substrate/EventHandler filter: #Filter is optional but suggested to speed up event processing module: balances method: Deposit - handler: handleCall kind: substrate/CallHandler ```` </CodeGroupItem> </CodeGroup>
 
 ## Migrating from v0.0.1 to v0.2.0 <Badge text="upgrade" type="warning"/>
 
-**If you have a project with specVersion v0.0.1, you can use `subql migrate` to quickly upgrade. [See here](#cli-options) for more information**
+**If you have a project with specVersion v0.0.1, you can use `subql migrate` to quickly upgrade. [ Див. Тут ](#cli-options) для отримання додаткової інформації **
 
-Under `network`:
+Під ` network `:
 
-- There is a new **required** `genesisHash` field which helps to identify the chain being used.
-- For v0.2.0 and above, you are able to reference an external [chaintype file](#custom-chains) if you are referencing a custom chain.
+- Існує нове поле ** required ** ` genesisHash `, яке допомагає визначити ланцюг, що використовується.
+- Для v0.2.0 і вище ви можете посилатися на зовнішній [ chaintype file](#custom-chains), якщо ви посилаєтесь на спеціальний ланцюг.
 
-Under `dataSources`:
+Під ` dataSources `:
 
-- Can directly link an `index.js` entry point for mapping handlers. By default this `index.js` will be generated from `index.ts` during the build process.
-- Data sources can now be either a regular runtime data source or [custom data source](#custom-data-sources).
+- Можна безпосередньо пов'язати точку входу ` index.js ` для обробників карт. За замовчуванням цей ` index.js ` буде генеруватися з ` index.ts ` під час процесу збирання.
+- Джерела даних тепер можуть бути або звичайним джерелом даних у режимі виконання, або [ custom data source ](#custom-data-sources).
 
-### CLI Options
+### Параметри CLI
 
-While the v0.2.0 spec version is in beta, you will need to explicitly define it during project initialisation by running `subql init --specVersion 0.2.0 PROJECT_NAME`
+Хоча версія специфікації v0.2.0 знаходиться в бета-версії, вам потрібно буде чітко визначити її під час ініціалізації проекту, запустивши ` subql init --specVersion 0.2.0 PROJECT_NAME `
 
-`subql migrate` can be run in an existing project to migrate the project manifest to the latest version.
+` subql migrate ` можна запустити в існуючому проекті для перенесення маніфесту проекту на останню версію.
 
-| Options        | Description                                                |
-| -------------- | ---------------------------------------------------------- |
-| -f, --force    |                                                            |
-| -l, --location | local folder to run migrate in (must contain project.yaml) |
-| --file=file    | to specify the project.yaml to migrate                     |
+| Параметри      | Описання                                                              |
+| -------------- | --------------------------------------------------------------------- |
+| -f, --force    |                                                                       |
+| -l, --location | локальна папка, щоб запустити міграцію (повинна містити project.yaml) |
+| --file=файл    | уточнити проект.yaml для міграції                                     |
 
-## Overview
+## Огляд
 
-### Top Level Spec
+### Специфікація верхнього рівня
 
-| Field           | v0.0.1                              | v0.2.0                      | Description                                                |
-| --------------- | ----------------------------------- | --------------------------- | ---------------------------------------------------------- |
-| **specVersion** | Рядок                               | Рядок                       | `0.0.1` or `0.2.0` - the spec version of the manifest file |
-| **name**        | 𐄂                                   | Рядок                       | Name of your project                                       |
-| **version**     | 𐄂                                   | Рядок                       | Version of your project                                    |
-| **description** | Рядок                               | Рядок                       | Discription of your project                                |
-| **repository**  | Рядок                               | Рядок                       | Git repository address of your project                     |
-| **schema**      | Рядок                               | [Schema Spec](#schema-spec) | The location of your GraphQL schema file                   |
-| **network**     | [Network Spec](#network-spec)       | Network Spec                | Detail of the network to be indexed                        |
-| **dataSources** | [DataSource Spec](#datasource-spec) | DataSource Spec             |                                                            |
+| поле                    | v0.0.1                              | v0.2.0                      | Описання                                                |
+| ----------------------- | ----------------------------------- | --------------------------- | ------------------------------------------------------- |
+| **версія специфікації** | String                              | String                      | `0.1` або `0.2.0` - версія специфікації файлу маніфесту |
+| **ім’я**                | 𐄂                                   | String                      | Назва проекту                                           |
+| **версія**              | 𐄂                                   | String                      | Версія вашого проекту                                   |
+| **описання**            | String                              | String                      | Опис вашого проекту                                     |
+| **репозиторій:**        | String                              | String                      | Адреса Git репозиторію вашого проекту                   |
+| **схема**               | String                              | [Schema Spec](#schema-spec) | Розташування файлу схеми GraphQL                        |
+| **мережа**              | [Network Spec](#network-spec)       | Network Spec                | Детальна інформація мережі, яка буде проіндексована     |
+| **Джерела даних**       | [DataSource Spec](#datasource-spec) | DataSource Spec             |                                                         |
 
 ### Schema Spec
 
-| Field    | v0.0.1 | v0.2.0 | Description                              |
-| -------- | ------ | ------ | ---------------------------------------- |
-| **file** | 𐄂      | Рядок  | The location of your GraphQL schema file |
+| поле     | v0.0.1 | v0.2.0 | Описання                         |
+| -------- | ------ | ------ | -------------------------------- |
+| **file** | 𐄂      | String | Розташування файлу схеми GraphQL |
 
 ### Network Spec
 
-| Field           | v0.0.1 | v0.2.0        | Description                                                                                                                                                                                                |
-| --------------- | ------ | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **genesisHash** | 𐄂      | Рядок         | The genesis hash of the network                                                                                                                                                                            |
-| **endpoint**    | Рядок  | Рядок         | Defines the wss or ws endpoint of the blockchain to be indexed - **This must be a full archive node**. You can retrieve endpoints for all parachains for free from [OnFinality](https://app.onfinality.io) |
-| **dictionary**  | Рядок  | Рядок         | It is suggested to provide the HTTP endpoint of a full chain dictionary to speed up processing - read [how a SubQuery Dictionary works](../tutorials_examples/dictionary.md).                              |
-| **chaintypes**  | 𐄂      | {file:String} | Path to chain types file, accept `.json` or `.yaml` format                                                                                                                                                 |
+| поле               | v0.0.1 | v0.2.0        | Описання                                                                                                                                                                                                                      |
+| ------------------ | ------ | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **genesisHash**    | 𐄂      | String        | Хеш генезису мережі                                                                                                                                                                                                           |
+| **гранична точка** | String | String        | Визначає кінцеву точку wss або ws блокчейна, що підлягає індексації - ** Це повинен бути повний вузол архіву **. Ви можете отримати кінцеві точки для всіх парашаїв безкоштовно від [ OnFinality ](https://app.onfinality.io) |
+| **словник**        | String | String        | Пропонується надати кінцеву точку HTTP повного словника ланцюга для прискорення обробки - прочитайте [ як працює словник підзапиту ](../tutorials_examples/dictionary.md).                                                    |
+| **типи ланцюгів**  | 𐄂      | {file:String} | Шлях до файлу типів ланцюга, приймайте формат ` .json ` або ` .yaml `                                                                                                                                                         |
 
-### Datasource Spec
+### Специфікація ресурсу даних
 
-Defines the data that will be filtered and extracted and the location of the mapping function handler for the data transformation to be applied.
-| Field          | v0.0.1                                                    | v0.2.0                                                                           | Description                                                                                                                                                                           |
-| -------------- | --------------------------------------------------------- | -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **name**       | Рядок                                                     | 𐄂                                                                                | Name of the data source                                                                                                                                                               |
-| **kind**       | [substrate/Runtime](./manifest/#data-sources-and-mapping) | substrate/Runtime, [substrate/CustomDataSource](./manifest/#custom-data-sources) | We supports data type from default substrate runtime such as block, event and extrinsic(call). <br /> From v0.2.0, we support data from custom runtime, such as smart contract. |
-| **startBlock** | Integer                                                   | Integer                                                                          | This changes your indexing start block, set this higher to skip initial blocks with less data                                                                                         |
-| **mapping**    | Mapping Spec                                              | Mapping Spec                                                                     |                                                                                                                                                                                       |
-| **filter**     | [network-filters](./manifest/#network-filters)            | 𐄂                                                                                | Filter the data source to execute by the network endpoint spec name                                                                                                                   |
+Визначає дані, які будуть відфільтровані та вилучені, та розташування обробника функцій відображення для перетворення даних, що застосовуються.
+| поле             | v0.0.1                                                    | v0.2.0                                                                           | Описання                                                                                                                                                                                                                 |
+| ---------------- | --------------------------------------------------------- | -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **ім’я**         | String                                                    | 𐄂                                                                                | Ім'я джерела даних                                                                                                                                                                                                       |
+| **вид**          | [substrate/Runtime](./manifest/#data-sources-and-mapping) | substrate/Runtime, [substrate/CustomDataSource](./manifest/#custom-data-sources) | Ми підтримуємо тип даних із часу виконання підкладки за замовчуванням, таких як блок, подія та зовнішній (дзвінок). <0 /> З v0.2.0 ми підтримуємо дані від користувацького часу виконання, наприклад, розумний контракт. |
+| **почати блок**  | Integer                                                   | Integer                                                                          | Це змінює блок запуску індексації, встановіть це вище, щоб пропустити початкові блоки з меншою кількістю даних                                                                                                           |
+| **Відображення** | Mapping Spec                                              | Mapping Spec                                                                     |                                                                                                                                                                                                                          |
+| **Фільтр**       | [network-filters](./manifest/#network-filters)            | 𐄂                                                                                | Фільтруйте джерело даних для виконання за назвою специфікації кінцевої точки мережі                                                                                                                                      |
 
-### Mapping Spec
+### Специфікація карт
 
-| Field                  | v0.0.1                                                                   | v0.2.0                                                                                        | Description                                                                                                                                                                                                                                  |
-| ---------------------- | ------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **file**               | Рядок                                                                    | 𐄂                                                                                             | Path to the mapping entry                                                                                                                                                                                                                    |
-| **handlers & filters** | [Default handlers and filters](./manifest/#mapping-handlers-and-filters) | Default handlers and filters, <br />[Custom handlers and filters](#custom-data-sources) | List all the [mapping functions](./mapping.md) and their corresponding handler types, with additional mapping filters. <br /><br /> For custom runtimes mapping handlers please view [Custom data sources](#custom-data-sources) |
+Перерахуйте всі  mapping functions<0> та відповідні типи обробників за допомогою додаткових фільтрів відображення. <0 /> <0 /> Для користувацьких обробників відображення часу перегляньте [ Спеціальні джерела даних ](#custom-data-sources)</td> </tr> </tbody> </table> 
 
-## Data Sources and Mapping
 
-In this section, we will talk about the default substrate runtime and its mapping. Here is an example:
+
+## Джерела даних та картографування
+
+У цьому розділі ми поговоримо про час виконання підкладки за замовчуванням та його відображення. До прикладу:
+
+
 
 ```yaml
 dataSources:
@@ -93,21 +94,27 @@ dataSources:
       file: dist/index.js # Entry path for this mapping
 ```
 
-### Mapping handlers and Filters
 
-The following table explains filters supported by different handlers.
 
-**Your SubQuery project will be much more efficient when you only use event and call handlers with appropriate mapping filters**
 
-| Handler                                    | Supported filter             |
-| ------------------------------------------ | ---------------------------- |
-| [BlockHandler](./mapping.md#block-handler) | `specVersion`                |
-| [EventHandler](./mapping.md#event-handler) | `module`,`method`            |
-| [CallHandler](./mapping.md#call-handler)   | `module`,`method` ,`success` |
+### Картографування обробників та фільтрів
 
-Default runtime mapping filters are an extremely useful feature to decide what block, event, or extrinsic will trigger a mapping handler.
+Наступна таблиця пояснює фільтри, підтримувані різними обробниками.
 
-Only incoming data that satisfy the filter conditions will be processed by the mapping functions. Mapping filters are optional but are highly recommended as they significantly reduce the amount of data processed by your SubQuery project and will improve indexing performance.
+**Bаш проект SubQuery буде набагато ефективнішим, коли ви використовуєте лише обробники подій та викликів із відповідними фільтрами відображення**
+
+| Обробник                                          | Підтримуваний фільтр      |
+| ------------------------------------------------- | ------------------------- |
+| [Обробник блокування](./mapping.md#block-handler) | `версія специфікації`     |
+| [Подіяльний обробник](./mapping.md#event-handler) | `модуль`,`метод`          |
+| [Обробник дзвінків](./mapping.md#call-handler)    | `модуль`,`метод` ,`успіx` |
+
+
+Фільтри відображення часу виконання за замовчуванням є надзвичайно корисною функцією для вирішення того, який блок, подія чи зовнішній вигляд спричинить обробник карт.
+
+Функції картографування будуть оброблятися лише вхідні дані, що відповідають умовам фільтра. Картографування фільтрів є необов'язковим, але настійно рекомендується, оскільки вони значно зменшують кількість даних, оброблених вашим проектом SubQuery, і покращать ефективність індексації.
+
+
 
 ```yaml
 # Example filter from callHandler
@@ -117,9 +124,12 @@ filter:
   success: true
 ```
 
-- Module and method filters are supported on any substrate-based chain.
-- The `success` filter takes a boolean value and can be used to filter the extrinsic by its success status.
-- The `specVersion` filter specifies the spec version range for a substrate block. The following examples describe how to set version ranges.
+
+- Модульні та методичні фільтри підтримуються на будь-якій ланцюзі на основі підкладки.
+- Фільтр ` success ` приймає булеве значення і може використовуватися для фільтрації екстрин за його статусом успіху.
+- Фільтр ` specVersion ` визначає діапазон версій специфікації для блоку підкладки. Наступні приклади описують, як встановити діапазони версій.
+
+
 
 ```yaml
 filter:
@@ -128,52 +138,65 @@ filter:
   specVersion: [null, 23] # Index block with specVersion less than or equal 23.
 ```
 
-## Custom Chains
 
-### Network Spec
 
-When connecting to a different Polkadot parachain or even a custom substrate chain, you'll need to edit the [Network Spec](#network-spec) section of this manifest.
 
-The `genesisHash` must always be the hash of the first block of the custom network. You can retireve this easily by going to [PolkadotJS](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fkusama.api.onfinality.io%2Fpublic-ws#/explorer/query/0) and looking for the hash on **block 0** (see the image below).
+## Спеціальні ланцюги
+
+
+
+### Специфікація мережі
+
+Підключившись до іншого парашана Polkadot або навіть до користувацької ланцюга підкладки, вам потрібно буде відредагувати розділ [ Network Spec ](#network-spec) цього маніфесту.
+
+` genesisHash ` завжди повинен бути хешем першого блоку користувацької мережі. Ви можете легко вийти на пенсію, перейшовши на [ PolkadotJS ](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fkusama.api.onfinality.io%2Fpublic-ws#/explorer/query/0) і шукаючи хеш на ** block 0 ** (див. Зображення нижче).
 
 ![Genesis Hash](/assets/img/genesis-hash.jpg)
 
-Additionally you will need to update the `endpoint`. This defines the wss endpoint of the blockchain to be indexed - **This must be a full archive node**. You can retrieve endpoints for all parachains for free from [OnFinality](https://app.onfinality.io)
+Крім того, вам потрібно буде оновити ` endpoint `. Це визначає кінцеву точку wss блокчейна, що підлягає індексації - ** Це повинен бути повний вузол архіву **. Ви можете отримати кінцеві точки для всіх парашаїв безкоштовно від [ OnFinality ](https://app.onfinality.io)
 
-### Chain Types
 
-You can index data from custom chains by also including chain types in the manifest.
 
-We support the additional types used by substrate runtime modules, `typesAlias`, `typesBundle`, `typesChain`, and `typesSpec` are also supported.
+### Типи ланцюгів
 
-In the v0.2.0 example below, the `network.chaintypes` are pointing to a file that has all the custom types included, This is a standard chainspec file that declares the specific types supported by this blockchain in either `.json` or `.yaml` format.
+Ви можете індексувати дані з користувацьких ланцюжків, включно з типами ланцюжків у маніфесті.
+
+Ми підтримуємо додаткові типи, які використовуються підкладковими модулями виконання, ` typesAlias `, ` typesBundle `, ` typesChain ` та ` typesSpec ` також підтримуються.
+
+У прикладі v0.2.0 нижче ` network.chaintypes ` вказують на файл, у якому включені всі користувацькі типи. Це стандартний файл bainspec, який оголошує конкретні типи, підтримувані цим blockchain, або ` .json ` або ` .yaml ` формат.
 
 <CodeGroup> <CodeGroupItem title="v0.2.0" active> ``` yml network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' endpoint: 'ws://host.kittychain.io/public-ws' chaintypes: file: ./types.json # The relative filepath to where custom types are stored ... ``` </CodeGroupItem>
+
 <CodeGroupItem title="v0.0.1"> ``` yml ... network: endpoint: "ws://host.kittychain.io/public-ws" types: { "KittyIndex": "u32", "Kitty": "[u8; 16]" } # typesChain: { chain: { Type5: 'example' } } # typesSpec: { spec: { Type6: 'example' } } dataSources: - name: runtime kind: substrate/Runtime startBlock: 1 filter:  #Optional specName: kitty-chain mapping: handlers: - handler: handleKittyBred kind: substrate/CallHandler filter: module: kitties method: breed success: true ``` </CodeGroupItem> </CodeGroup>
+
+
 
 ## Custom Data Sources
 
-Custom Data Sources provide network specific functionality that makes dealing with data easier. They act as a middleware that can provide extra filtering and data transformation.
+Custom Data Sources provide network specific functionality that makes dealing with data easier. Вони діють як середнє програмне забезпечення, яке може забезпечити додаткову фільтрацію та трансформацію даних.
 
-A good example of this is EVM support, having a custom data source processor for EVM means that you can filter at the EVM level (e.g. filter contract methods or logs) and data is transformed into structures farmiliar to the Ethereum ecosystem as well as parsing parameters with ABIs.
+Хорошим прикладом цього є підтримка EVM, наявність користувальницького процесора джерела даних для EVM означає, що ви можете фільтрувати на рівні EVM (наприклад,. фільтрують договірні методи або журнали) і дані перетворюються на структури, схожі на екосистему Ethereum, а також параметри розбору з ABI.
 
-Custom Data Sources can be used with normal data sources.
+Звичайні джерела даних можна використовувати з нормальними джерелами даних.
 
-Here is a list of supported custom datasources:
+Ось список підтримуваних спеціальних джерел даних: 
 
-| Kind                                                  | Supported Handlers                                                                                       | Filters                         | Description                                                                      |
-| ----------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | ------------------------------- | -------------------------------------------------------------------------------- |
-| [substrate/Moonbeam](./moonbeam/#data-source-example) | [substrate/MoonbeamEvent](./moonbeam/#moonbeamevent), [substrate/MoonbeamCall](./moonbeam/#moonbeamcall) | See filters under each handlers | Provides easy interaction with EVM transactions and events on Moonbeams networks |
+| Biд                                                       | Підтримувані обробники                                                                                           | Фільтри                            | Опис                                                                         |
+| --------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------- | ---------------------------------------------------------------------------- |
+| [ substrate / Moonbeam ](./moonbeam/#data-source-example) | [ substrate / MoonbeamEvent ](./moonbeam/#moonbeamevent), [ substrate / MoonbeamCall ](./moonbeam/#moonbeamcall) | Див. Фільтри під кожним обробником | Забезпечує легку взаємодію з транзакціями EVM та подіями в мережах Moonbeams |
 
-## Network Filters
 
-**Network filters only applies to manifest spec v0.0.1**.
 
-Usually the user will create a SubQuery and expect to reuse it for both their testnet and mainnet environments (e.g Polkadot and Kusama). Between networks, various options are likely to be different (e.g. index start block). Therefore, we allow users to define different details for each data source which means that one SubQuery project can still be used across multiple networks.
 
-Users can add a `filter` on `dataSources` to decide which data source to run on each network.
+## Мережеві фільтри 
 
-Below is an example that shows different data sources for both the Polkadot and Kusama networks.
+** Мережеві фільтри застосовуються лише до маніфесту специфікації v0.0.1 **.
+
+Зазвичай користувач створить SubQuery і розраховує повторно використовувати його як для тестового, так і для основного середовища (наприклад, Polkadot і Kusama). Між мережами різні варіанти, ймовірно, будуть різними (наприклад,. блок запуску індексу). Тому ми дозволяємо користувачам визначати різні деталі для кожного джерела даних, а це означає, що один проект SubQuery все ще може використовуватися в декількох мережах.
+
+Користувачі можуть додати ` filter ` на ` dataSources `, щоб вирішити, яке джерело даних працювати в кожній мережі.
+
+Нижче наведено приклад, який показує різні джерела даних як для мереж Polkadot, так і для Kusama.
 
 <CodeGroup> <CodeGroupItem title="v0.0.1"> ```yaml --- network: endpoint: 'wss://polkadot.api.onfinality.io/public-ws' #Create a template to avoid redundancy definitions: mapping: &mymapping handlers: - handler: handleBlock kind: substrate/BlockHandler dataSources: - name: polkadotRuntime kind: substrate/Runtime filter: #Optional specName: polkadot startBlock: 1000 mapping: *mymapping #use template here - name: kusamaRuntime kind: substrate/Runtime filter: specName: kusama startBlock: 12000 mapping: *mymapping # can reuse or change ``` </CodeGroupItem>
 
