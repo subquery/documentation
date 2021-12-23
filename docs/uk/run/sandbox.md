@@ -1,20 +1,19 @@
-# The Sandbox
+# Пісочниця
 
-In our envisioned usage scenario, the SubQuery node is usually run by a trusted host, and the code of the SubQuery project submitted by the user to the node is not entirely trustworthy.
+У нашому передбачуваному сценарії використання SubQuery node зазвичай працює надійним хостом, а код проекту SubQuery, поданий користувачем у вузол, не є повністю надійним.
 
-Some malicious code is likely to attack the host or even compromise it, and cause damage to the data of other projects in the same host. Therefore, we use the [VM2](https://www.npmjs.com/package/vm2) sandbox secured mechanism to reduce risks. This:
+Якийсь шкідливий код, ймовірно, нападе на хоста або навіть поставить під загрозу його та завдасть шкоди даним інших проектів того ж хоста. Тому ми використовуємо захищений механізм [ VM2 ](https://www.npmjs.com/package/vm2) для зменшення ризиків. Це:
 
-- Runs untrusted code securely in an isolated context and malicious code will not access the network and file system of the host unless through the exposed interface we injected into the sandbox.
+- Безпечно запускає ненадійний код в ізольованому контексті, і шкідливий код не отримає доступ до мережі та файлової системи хоста, якщо через відкритий інтерфейс ми не ввели в пісочницю.
 
-- Securely calls methods and exchanges data and callbacks between sandboxes.
+- Безпечно викликає методи та обмінюється даними та зворотними дзвінками між пісочницями.
 
-- Is immune to many known methods of attack.
+- Не застрахований від багатьох відомих методів нападу.
 
 
-## Restriction
+## Обмеження
 
-- To limit access to certain built-in modules, only `assert`, `buffer`, `crypto`,`util` and `path` are whitelisted.
+- Щоб обмежити доступ до певних вбудованих модулів, лише ` Assert `, ` buffer `, ` crypto `, ` util ` та ` path < / 0> білі.</p></li>
+<li><p spaces-before="0">Ми підтримуємо <a href="../create/mapping.md#third-party-libraries"> сторонні модулі </a>, написані в <strong x-id="1"> CommonJS </strong> та <strong x-id="1"> hybrid </strong> бібліотек, таких як <code> @ polkadot / * `, які використовують ESM як за замовчуванням.
 
-- We support [3rd party modules](../create/mapping.md#third-party-libraries) written in **CommonJS** and **hybrid** libraries like `@polkadot/*` that use ESM as default.
-
-- Any modules using `HTTP` and `WebSocket` are forbidden.
+- Будь-які модулі, що використовують ` HTTP ` та ` WebSocket `, заборонені.
