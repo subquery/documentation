@@ -1,53 +1,52 @@
-# Command Line Flags
+# Прапори командної лінії
 
 ## subql-node
 
-### --help
+### --допомогти
 
-This shows the help options.
+Це показує варіанти допомоги.
 
 ```shell
-> subql-node --help
-Options:
-      --help                Show help                                  [boolean]
-      --version             Show version number                        [boolean]
-  -f, --subquery            Local path of the subquery project          [string]
-      --subquery-name       Name of the subquery project                [string]
-  -c, --config              Specify configuration file                  [string]
-      --local               Use local mode                             [boolean]
-      --force-clean         Force clean the database, dropping project schemas
-                            and tables                                 [boolean]
-      --batch-size          Batch size of blocks to fetch in one round  [number]
-      --timeout             Timeout for indexer sandbox to execute the mapping
-                            functions                                   [number]
-      --debug               Show debug information to console output. will
-                            forcefully set log level to debug
-                                                      [boolean] [default: false]
-      --profiler            Show profiler information to console output
-                                                      [boolean] [default: false]
-      --network-endpoint    Blockchain network endpoint to connect      [string]
-      --output-fmt          Print log as json or plain text
-                                           [string] [choices: "json", "colored"]
-      --log-level           Specify log level to print. Ignored when --debug is
-                            used
-          [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
-                                                                       "silent"]
-      --migrate             Migrate db schema (for management tables only)
-                                                      [boolean] [default: false]
-      --timestamp-field     Enable/disable created_at and updated_at in schema
-                                                       [boolean] [default: true]
-  -d, --network-dictionary  Specify the dictionary api for this network [string]
-  -m, --mmr-path            Local path of the merkle mountain range (.mmr) file
-                                                                        [string]
-      --proof-of-index      Enable/disable proof of index
-                                                      [boolean] [default: false]
-  -p, --port                The port the service will bind to
-                                                        [number] [default: 3000]
+& gt; subql-node --help
+Варіанти:
+      --help Показати допомогу                                  [булевий]      --version Показати номер версії [булева]
+  -f, --підзапит Місцевий шлях проекту підзапиту [рядок]
+      --підзапит-назва Назва проекту підзапиту [рядок]
+  -c, --config Вкажіть файл конфігурації [string]
+      --local Використовуйте локальний режим [булевий]
+      --force-clean Force очищає базу даних, скидаючи схеми проекту
+                            та таблиці [булеві]
+      --batch-size Розмір партії блоків для отримання в одному раунді [кількість]
+      --timeout Timeout для індексатора пісочниці для виконання карти
+                            функції [кількість]
+      --debug Показати інформацію про налагодження для консольного виводу. буде
+                            насильно встановити рівень журналу для налагодження
+                                                      [булева] [за замовчуванням: false]
+      --profiler Показати інформацію про профілер для консольного виводу
+                                                      [булева] [за замовчуванням: false]
+      --network-endpoint Blockchain endpoint для підключення [string]
+      --output-fmt Друк журналу як json або звичайний текст
+                                           [string] [вибір: "json", "кольоровий"]
+      --log-рівень Вкажіть рівень журналу для друку. Ігнорується, коли - налагодження
+                            б / в
+          [string] [вибір: "фатальний", "помилка", "попереджається", "інформація", "налагодження", "слід",
+                                                                       "мовчазний"]
+      --migrate Migrate db схема (лише для таблиць управління)
+                                                      [булева] [за замовчуванням: false]
+      --timestamp-field Увімкнути / вимкнути create_at та оновлено_at у схемі
+                                                       [булева] [за замовчуванням: правда]
+  -d, --network-dictionary Вкажіть словник api для цієї мережі [string]
+  -m, --mmr-path Місцевий шлях гірського хребта Меркле (.mmr)
+                                                                        [рядок]
+      --proof-of-index Увімкнення / вимкнення підтвердження індексу
+                                                      [булева] [за замовчуванням: false]
+  -p, --port Порт, до якого буде пов'язана служба
+                                                        [кількість] [за замовчуванням: 3000]
 ```
 
-### --version
+### --версія
 
-This displays the current version.
+Це відображає поточну версію.
 
 ```shell
 > subql-node --version
@@ -56,34 +55,34 @@ This displays the current version.
 
 ### -f, --subquery
 
-Use this flag to start the SubQuery project.
+Використовуйте цей прапор для запуску проекту SubQuery.
 
 ```shell
-підql-вузол -f. // OR
+subql-node -f . // OR
 subql-node --subquery .
 ```
 
 ### --subquery-name
 
-This flag allows you to provide a name for your project which acts as if it creates an instance of your project. Upon providing a new name, a new database schema is created and block synchronisation starts from zero.
+Цей прапор дозволяє надати назву для вашого проекту, який діє так, ніби він створює екземпляр вашого проекту. Після надання нового імені створюється нова схема бази даних, а синхронізація блоків починається з нуля.
 
 ```shell
-підql-вузол -f. --subquery-name=test2
+subql-node -f . --subquery-name=test2
 ```
 
 ### -c, --config
 
-All these various configurations can be placed into a .yml or .json file and then referenced with the config flag.
+Усі ці різні конфігурації можна розмістити у файлі .yml або .json, а потім посилатися на прапор конфігурації.
 
-Sample subquery_config.yml file:
+Зразок файлу subquery_config.yml:
 
 ```shell
-subquery: . // Mandatory. This is the local path of the project. The period here means the current local directory.
+subquery: . // Mandatory. Це місцевий шлях проекту. Період тут означає поточний локальний каталог.
 subqueryName: hello // Optional name
 batchSize: 55 // Optional config
 ```
 
-Place this file in the same directory as the project. Then in the current project directory, run:
+Помістіть цей файл у той самий каталог, що і проект. Потім у поточному каталозі проектів запустіть:
 
 ```shell
 > subql-node -c ./subquery_config.yml
@@ -91,21 +90,21 @@ Place this file in the same directory as the project. Then in the current projec
 
 ### --local
 
-This flag is primarily used for debugging purposes where it creates the default starter_entity table in the default "postgres" schema.
+Цей прапор використовується в основному для налагодження, коли він створює таблицю starter_entity за замовчуванням у схемі "postgres" за замовчуванням.
 
 ```shell
-підql-вузол -f. --local
+subql-node -f . --local
 ```
 
-Note that once you use this flag, removing it won't mean that it will point to another database. To repoint to another database you will have to create a NEW database and change the env settings to this new database. In other words, "export DB_DATABASE=<new_db_here>"
+Зауважте, що після використання цього прапора видалення його не означає, що він буде вказувати на іншу базу даних. Щоб переробити іншу базу даних, вам доведеться створити НОВУ базу даних та змінити налаштування env на цю нову базу даних. Іншими словами, "експорт DB_DATABASE =<new_db_here>"
 
 ### --force-clean
 
-This flag forces the project schemas and tables to be regenerated, helpful to use when iteratively developing graphql schemas such that new runs of the project are always working with a clean state. Note that this flag will also wipe all indexed data.
+Цей прапор змушує регенерувати схеми та таблиці проектів, корисні для використання при ітераційній розробці схем graphql таким чином, що нові запуски проекту завжди працюють з чистим станом. Зауважте, що цей прапор також видалить усі індексовані дані.
 
 ### --batch-size
 
-This flag allows you to set the batch size in the command line. If batch size is also set in the config file, this takes precedent.
+Цей прапор дозволяє встановити розмір партії в командному рядку. Якщо розмір партії також встановлений у конфігураційному файлі, це має прецедент.
 
 ```shell
 > subql-node -f . --batch-size=20
@@ -119,7 +118,7 @@ This flag allows you to set the batch size in the command line. If batch size is
 
 ### --debug
 
-This outputs debug information to the console output and forcefully sets the log level to debug.
+Цей вихід налагоджує інформацію на вихід консолі і насильно встановлює рівень журналу для налагодження.
 
 ```shell
 > subql-node -f . --debug
@@ -130,10 +129,10 @@ This outputs debug information to the console output and forcefully sets the log
 
 ### --profiler
 
-This shows profiler information.
+Це показує інформацію про профілер.
 
 ```shell
-підql-вузол -f. --local --profiler
+subql-node -f . --local --profiler
 2021-08-10T10:57:07.234Z <profiler> INFO FetchService, fetchMeta, 3876 ms
 2021-08-10T10:57:08.095Z <profiler> INFO FetchService, fetchMeta, 774 ms
 2021-08-10T10:57:10.361Z <profiler> INFO SubstrateUtil, fetchBlocksBatches, 2265 ms
@@ -142,24 +141,24 @@ This shows profiler information.
 
 ### --network-endpoint
 
-This flag allows users to override the network endpoint configuration from the manifest file.
+Цей прапор дозволяє користувачам перекрити конфігурацію кінцевої точки мережі з маніфестного файлу.
 
 ```shell
-підql-вузол -f. --network-endpoint="wss://polkadot.api.onfinality.io/public-ws"
+subql-node -f . --network-endpoint="wss://polkadot.api.onfinality.io/public-ws"
 ```
 
-Note that this must also be set in the manifest file, otherwise you'll get:
+Зауважте, що це також має бути встановлено у маніфестному файлі, інакше ви отримаєте:
 
 ```shell
-ERROR Create Subquery project from given path failed! Error: failed to parse project.yaml.
-An instance of ProjectManifestImpl has failed the validation:
- - property network has failed the following constraints: isObject
- - property network.network has failed the following constraints: nestedValidation
+ПОМИЛКА Створіть проект підзапиту з заданого шляху! Помилка: не вдалося проаналізувати проект.yaml.
+Екземпляр ProjectManifestImpl не зміг перевірити:
+ - мережа властивостей зазнала таких обмежень: isObject
+ - mainity network не виконала таких обмежень: nestedValidation
 ```
 
 ### --output-fmt
 
-There are two different terminal output formats. JSON or colored. Colored is the default and contains colored text.
+Існує два різних формати виводу терміналів. JSON або кольоровий. Кольоровий за замовчуванням і містить кольоровий текст.
 
 ```shell
 > subql-node -f . --output-fmt=json
@@ -172,75 +171,75 @@ There are two different terminal output formats. JSON or colored. Colored is the
 (node:24707) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
 2021-08-10T11:57:48.981Z <fetch> INFO fetch block [10201,10300], total 100 blocks
 2021-08-10T11:57:51.862Z <fetch> INFO fetch block [10301,10400], total 100 blocks
+
 ```
 
-### --log-level
+### --log-рівень
 
-There are 7 options to choose from. “fatal”, “error”, “warn”, “info”, “debug”, “trace”, “silent”. The example below shows silent. Nothing will be printed in the terminal so the only way to tell if the node is working or not is to query the database for row count (select count(\*) from subquery_1.starter_entities) or query the block height.
+Є 7 варіантів на вибір. “fatal”, “error”, “warn”, “info”, “debug”, “trace”, “silent”. Наведений нижче приклад показує мовчання. У терміналі нічого не буде надруковано, тому єдиний спосіб визначити, працює чи ні вузол, - це запитувати базу даних для підрахунку рядків  (select count(\*) from subquery_1.starter_entities) або запитувати висоту блоку.
 
 ```shell
-> subql-node -f . --log-level=silent
-(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
-(Use `node --trace-warnings ...` to show where the warning was created)
-(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
-(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
-(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
-(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
-(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
-(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
-(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
-(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
-(node:24686) [DEP0152] DeprecationWarning: Custom PerformanceEntry accessors are deprecated. Please use the detail property.
-(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
+> subql-node -f . --log-level = мовчазний
+(node: 24686) [PINODEP007] Попередження: bindings.level застаріло, замість цього використовуйте опцію options.level
+(Використовуйте `node --trace-warnings ...`, щоб показати, де було створено попередження)
+(node: 24686) [PINODEP007] Попередження: bindings.level застаріло, замість цього використовуйте опцію options.level
+(node: 24686) [PINODEP007] Попередження: bindings.level застаріло, замість цього використовуйте опцію options.level
+(node: 24686) [PINODEP007] Попередження: bindings.level застаріло, замість цього використовуйте опцію options.level
+(node: 24686) [PINODEP007] Попередження: bindings.level застаріло, замість цього використовуйте опцію options.level
+(node: 24686) [PINODEP007] Попередження: bindings.level застаріло, замість цього використовуйте опцію options.level
+(node: 24686) [PINODEP007] Попередження: bindings.level застаріло, замість цього використовуйте опцію options.level
+(node: 24686) [PINODEP007] Попередження: bindings.level застаріло, замість цього використовуйте опцію options.level
+(node: 24686) [PINODEP007] Попередження: bindings.level застаріло, замість цього використовуйте опцію options.level
+(node: 24686) [DEP0152] ДепресіяПопередження: Спеціальна продуктивністьДоступники для вступу застаріли. Будь ласка, використовуйте детальнішу властивість.
+(node: 24686) [PINODEP007] Попередження: bindings.level застаріло, замість цього використовуйте опцію options.level
 ```
 
 <!-- ### --migrate TBA -->
 
 ### --timestamp-field
 
-By default this is true. when set to false with:
+За замовчуванням це правда. коли встановлено значення false з:
 
 ```shell
 > subql-node -f . –timestamp-field=false
 ```
 
-This removes the created_at and updated_at columns in the starter_entities table.
+Це видаляє created_at та updated_at стовпці в таблиці starter_entities.
 
 ### -d, --network-dictionary
 
-This allows you to specify a dictionary endpoint which is a free service that is provided and hosted at: [https://explorer.subquery.network/](https://explorer.subquery.network/) (search for dictionary) and presents an API endpoint of: https://api.subquery.network/sq/subquery/dictionary-polkadot
+Це дозволяє вказати кінцеву точку словника, яка є безкоштовною послугою, яка надається та розміщується за адресою: [ https://explorer.subquery.network/](https://explorer.subquery.network/) (пошук у словнику) та представляє кінцеву точку API: https ://api.subquery.network/sq/subquery/diction-polkadot
 
-Typically this would be set in your manifest file but below shows an example of using it as an argument in the command line.
+Зазвичай це буде встановлено у вашому маніфестному файлі, але нижче показаний приклад використання його як аргументу в командному рядку.
 
 ```shell
-підql-вузол -f. -d "https://api.subquery.network/sq/subquery/dictionary-polkadot"
+subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot"
 ```
 
-[Read more about how a SubQuery Dictionary works](../tutorials_examples/dictionary.md).
+[Детальніше про те, як працює словник підзапиту ](../tutorials_examples/dictionary.md)
 
 ## subql-query
 
-### --help
+### --допомогти
 
-This shows the help options.
+Це показує варіанти допомоги.
 
 ```shell
-Options:
-      --help        Show help                                          [boolean]
-      --version     Show version number                                [boolean]
-  -n, --name        Project name                             [string] [required]
-      --playground  Enable graphql playground                          [boolean]
-      --output-fmt  Print log as json or plain text
-                      [string] [choices: "json", "colored"] [default: "colored"]
-      --log-level   Specify log level to print.
+Варіанти:
+      --help Показати допомогу                                          [булевий]      --version Показати номер версії [булева]
+  -n, - назва Назва проекту [рядок] [обов'язково]
+      --playground Увімкніть ігровий майданчик graphql [булевий]
+      --output-fmt Друк журналу як json або звичайний текст
+                      [string] [вибір: "json", "кольоровий"] [за замовчуванням: "кольоровий"]
+      --log-рівень Вкажіть рівень журналу для друку.
           [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
                                                      "silent"] [default: "info"]
-      --indexer     Url that allow query to access indexer metadata     [string]
+      --indexer Url, що дозволяє запиту отримати доступ до метаданих індексатора [string]
 ```
 
-### --version
+### --версія
 
-This displays the current version.
+Це відображає поточну версію.
 
 ```shell
 > subql-query --version
@@ -249,7 +248,7 @@ This displays the current version.
 
 ### -n, --name
 
-This flag is used to start the query service. If the --subquery-name flag is not provided when running an indexer, the name here will refer to the default project name. If --subquery-name is set, then the name here should match what was set.
+Цей прапор використовується для запуску служби запитів. Якщо прапор --subquery-name не вказаний під час запуску індексатора, тут ім'я буде посилатися на назву проекту за замовчуванням. Якщо встановлено ім'я підзапиту, то ім'я тут повинно відповідати встановленому.
 
 ```shell
 > subql-node -f . // --subquery-name not set
@@ -260,19 +259,19 @@ This flag is used to start the query service. If the --subquery-name flag is not
 ```shell
 > subql-node -f . --subquery-name=hiworld // --subquery-name set
 
-> subql-query -n hiworld --playground  // the name points to the subql-helloworld project but with the name of hiworld
+> subql-query -n hiworld --playground  // назва вказує на проект subql-helloworld, але з назвою hiworld
 ```
 
-### --playground
+### Ігрове поле
 
-This flag enables the graphql playground so should always be included by default to be of any use.
+Цей прапор дозволяє ігровому майданчику graphql, тому його завжди слід включати за замовчуванням, щоб мати будь-яке використання.
 
 ### --output-fmt
 
-See [--output-fmt](https://doc.subquery.network/references/references.html#output-fmt)
+Дивіться [--output-fmt](https://doc.subquery.network/references/references.html#output-fmt)
 
-### --log-level
+### --log-рівень
 
-See [--log-level](https://doc.subquery.network/references/references.html#log-level)
+Дивіться [--log-level](https://doc.subquery.network/references/references.html#log-level)
 
 <!-- ### --indexer TBA -->
