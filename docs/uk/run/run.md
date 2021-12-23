@@ -1,12 +1,12 @@
-# Running SubQuery Locally
+# Запуск SubQuery Місцево
 
-This guide works through how to run a local SubQuery node on your infrastructure, which includes both the indexer and query service. Don't want to worry about running your own SubQuery infrastructure? SubQuery provides a [managed hosted service](https://explorer.subquery.network) to the community for free. [Follow our publishing guide](../publish/publish.md) to see how you can upload your project to [SubQuery Projects](https://project.subquery.network).
+Цей посібник працює над тим, як запустити локальний вузол SubQuery на вашій інфраструктурі, який включає як індексатор, так і службу запитів. Не хочете турбуватися про роботу власної інфраструктури SubQuery? SubQuery надає спільноті [ керований ходовий сервіс ](https://explorer.subquery.network) безкоштовно. [ Дотримуйтесь нашого видавничого посібника ](../publish/publish.md), щоб побачити, як ви можете завантажити свій проект на [ SubQuery Projects ](https://project.subquery.network).
 
-## Using Docker
+## Використання Docker
 
-An alternative solution is to run a <strong>Docker Container</strong>, defined by the `docker-compose.yml` file. For a new project that has been just initialised you won't need to change anything here.
+Альтернативним рішенням є запуск <strong> Docker Container </strong>, визначеного файлом ` docker-compose.yml `. Для нового проекту, який був тільки ініціалізований, вам тут нічого не потрібно буде змінювати.
 
-Under the project directory run the following command:
+У каталозі проекту запустіть таку команду:
 
 ```shell
 docker-compose pull && docker-compose up
@@ -14,31 +14,31 @@ docker-compose pull && docker-compose up
 
 Можливо, знадобиться певний час, щоб завантажити необхідні пакети ([` @ subql / node `](https://www.npmjs.com/package/@subql/node), [` @ subql / query `](https://www.npmjs.com/package/@subql/query) та Postgres) вперше, але незабаром ви побачите запущений вузол SubQuery.
 
-## Running an Indexer (subql/node)
+## Запуск індексатора (subql / node)
 
-Requirements:
+Вимоги:
 
-- [Postgres](https://www.postgresql.org/) database (version 12 or higher). While the [SubQuery node](#start-a-local-subquery-node) is indexing the blockchain, the extracted data is stored in an external database instance.
+- [Postgres](https://www.postgresql.org/) база даних (версія 12 або вище). Хоча вузол [ SubQuery ](#start-a-local-subquery-node) індексує блокчейн, витягнуті дані зберігаються у зовнішньому екземплярі бази даних.
 
-Вузол SubQuery - це реалізація, яка витягує дані блокчейна на основі субстрату за проектом SubQuery і зберігає їх у базі даних Postgres.
+SubQuery  node - це реалізація, яка витягує дані блокчейна на основі субстрату за проектом SubQuery і зберігає їх у базі даних Postgres.
 
-### Installation
+### Установка
 
 ```shell
 # NPM
 npm install -g @subql/node
 ```
 
-Зверніть увагу, що ми ** DO NOT ** заохочуємо використовувати ` yarn global </ 1> через погане управління залежністю, що може призвести до помилок у лінії.</p>
+Зверніть увагу, що ми ** НЕ ** заохочуємо використовувати ` ріг глобального </ 1> через погане управління залежністю, що може призвести до помилок у лінії.</p>
 
-<p spaces-before="0">Once installed, you can start a node with the following command:</p>
+<p spaces-before="0">Після встановлення ви можете запустити вузол за допомогою наступної команди:</p>
 
 <pre><code class="shell">subql-node <command>
 `</pre>
 
-### Key Commands
+### Основні команди
 
-The following commands will assist you to complete the configuration of a SubQuery node and begin indexing. To find out more, you can always run `--help`.
+Наступні команди допоможуть вам виконати конфігурацію вузла SubQuery та розпочати індексацію. Щоб дізнатися більше, завжди можна запустити ` - help `.
 
 #### Point to local project path
 
@@ -180,7 +180,7 @@ Debugger attached.
 Then open up the Chrome dev tools, go to Source > Filesystem and add your project to the workspace and start debugging. For more information, check out [How to debug a SubQuery project](https://doc.subquery.network/tutorials_examples/debug-projects/)
 ## Running a Query Service (subql/query)
 
-### Installation
+### Установка
 
 ```shell
 # NPM
