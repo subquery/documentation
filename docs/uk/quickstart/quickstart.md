@@ -1,113 +1,112 @@
-# Quick Start Guide
+# Швидкий посібник із початку роботи
 
-In this Quick Start guide, we're going to create a simple starter project that you can be used as a framework for developing your own SubQuery Project.
+У цьому посібнику з швидкого старту ми створимо простий стартовий проект, який можна використовувати як основу для розробки власного проекту SubQuery.
 
-At the end of this guide, you'll have a working SubQuery project running on a SubQuery node with a GraphQL endpoint that you can query data from.
+В кінці цього посібника у вас буде робочий проект SubQuery, який працює на вузлі SubQuery з кінцевою точкою GraphQL, з якої можна запитувати дані.
 
-If you haven't already, we suggest that you familiarise yourself with the [terminology](../#terminology) used in SubQuery.
+Якщо ви ще цього не зробили, ми пропонуємо вам ознайомитись із [ terminology ](../#terminology), що використовується в SubQuery.
 
 ## Підготовка
 
-### Local Development Environment
+### Місцеве середовище розвитку
 
-- [Typescript](https://www.typescriptlang.org/) is required to compile project and define types.
-- Both SubQuery CLI and generated Project have dependencies and require a modern version [Node](https://nodejs.org/en/).
-- SubQuery Nodes require Docker
+- [ Typescript ](https://www.typescriptlang.org/) необхідний для складання проекту та визначення типів
+- Як SubQuery CLI, так і створений Project мають залежності і потребують сучасної версії [ Node ](https://nodejs.org/en/).
+- SubQuery Nodes потребують Docker
 
-### Install the SubQuery CLI
+### Встановити SubQuery CLI
 
-Install SubQuery CLI globally on your terminal by using NPM:
+Встановіть SubQuery CLI у всьому світі на свій термінал за допомогою NPM :
 
 ```shell
 # NPM
 npm install -g @subql/cli
 ```
 
-Please note that we **DO NOT** encourage the use of `yarn global` due to its poor dependency management which may lead to an errors down the line.
+Зверніть увагу, що ми ** DO NOT ** заохочуємо використовувати ` yarn global </ 1> через погане управління залежністю, що може призвести до помилок у лінії.</p>
 
-You can then run help to see available commands and usage provide by CLI
+<p spaces-before="0">Потім ви можете запустити довідку, щоб побачити доступні команди та використання, надані CLI</p>
 
-```shell
-subql help
-```
+<pre><code class="shell">subql help
+`</pre>
 
-## Initialise the Starter SubQuery Project
+## Ініціалізувати проект Starter SubQuery
 
-Inside the directory in which you want to create a SubQuery project, simply replace `PROJECT_NAME` with your own and run the command:
+Всередині каталогу, в якому ви хочете створити проект SubQuery, просто замініть ` PROJECT_NAME ` на свій власний і запустіть команду :
 
 ```shell
 subql init --starter PROJECT_NAME
 ```
 
-You'll be asked certain questions as the SubQuery project is initalised:
+Вам будуть задані певні запитання, оскільки проект SubQuery є італізованим:
 
-- Git repository (Optional): Provide a Git URL to a repo that this SubQuery project will be hosted in (when hosted in SubQuery Explorer)
-- RPC endpoint (Required): Provide a wss URL to a running RPC endpoint that will be used by default for this project. You can quickly access public endpoints for different Polkadot networks or even create your own private dedicated node using [OnFinality](https://app.onfinality.io) or just use the default Polkadot endpoint.
-- Authors (Required): Enter the owner of this SubQuery project here
-- Description (Optional): You can provide a short paragraph about your project that describe what data it contains and what users can do with it
-- Version (Required): Enter a custom version number or use the default (`1.0.0`)
-- License (Required): Provide the software license for this project or accept the default (`Apache-2.0`)
+- Сховище Git (необов’язково): надайте URL-адресу Git репо, в якому буде розміщений цей проект SubQuery (при розміщенні в SubQuery Explorer)
+- Кінцева точка RPC (Обов’язково): Надайте URL-адресу wss на кінцеву точку RPC, яка буде використана за замовчуванням для цього проекту. Ви можете швидко отримати доступ до загальнодоступних кінцевих точок для різних мереж Polkadot або навіть створити власний приватний виділений вузол, використовуючи [ OnFinality ](https://app.onfinality.io) або просто використовувати кінцеву точку Polkadot за замовчуванням.
+- Автори (Обов’язково): Введіть власника цього проекту SubQuery тут
+- Опис (необов’язково): Ви можете надати короткий абзац про свій проект, який описує, які дані він містить та що користувачі можуть з ним зробити
+- Версія (Обов'язково): Введіть власний номер версії або використовуйте типову (`1.0.0`)
+- Ліцензія (обов'язково): Забезпечуйте ліцензію для цього проекту або прийміть за замовчуванням (`Apache-2.0`)
 
-After the initialisation process is complete, you should see a folder with your project name has been created inside the directory. The contents of this directoy should be identical to what's listed in the [Directory Structure](../create/introduction.md#directory-structure).
+Після завершення процесу ініціалізації ви побачите папку з назвою проекту, створену всередині каталогу. Вміст цього приводу повинен бути ідентичним тому, що вказано в [Directory Structure](../create/introduction.md#directory-structure).
 
-Last, under the project directory, run following command to install the new project's dependencies.
+Останнє, у каталозі проектів запустіть наступну команду для встановлення залежностей нового проекту.
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```bash cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
 
-## Configure and Build the Starter Project
+## Налаштуйте та побудуйте стартовий проек
 
-In the starter package that you just initialised, we have provided a standard configuration for your new project. You will mainly be working on the following files:
+У стартовому пакеті, який ви тільки що ініціалізували, ми надали стандартну конфігурацію для вашого нового проекту. Ви працюватимете над наступними файлами:
 
-- The Manifest in `project.yaml`
-- The GraphQL Schema in `schema.graphql`
-- The Mapping functions in `src/mappings/` directory
+- Маніфест в `проекті .yaml`
+- Схема GraphQL в `схемі a.graphql`
+- Картографування функціонує в каталозі ` src / mappings / `
 
-For more information on how to write your own SubQuery, check out our documentation under [Create a Project](../create/introduction.md)
+Для отримання додаткової інформації про те, як написати власний SubQuery, ознайомтеся з нашою документацією під [ Створити проект ](../create/introduction.md)
 
-### GraphQL Model Generation
+### Генерація моделі GraphQL
 
-In order to [index](../run/run.md) your SubQuery project, you must first generate the required GraphQL models that you have defined in your GraphQL Schema file (`schema.graphql`). Run this command in the root of the project directory.
+Для того, щоб [ індексувати ](../run/run.md) ваш проект SubQuery, спочатку потрібно створити необхідні моделі GraphQL, які ви визначили у своєму файлі GraphQL Schema (` schema.graphql `). Запустіть цю команду в корені каталогу проектів.
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```bash npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
 
-You'll find the generated models in the `/src/types/models` directory
+Ви знайдете створені моделі в каталозі `/src/types/models` directory
 
-## Build the Project
+## Побудуйте проект
 
-In order run your SubQuery Project on a locally hosted SubQuery Node, you need to build your work.
+Для того, щоб запустити проект SubQuery на локально розміщеному вузлі SubQuery, вам потрібно створити свою роботу.
 
 Запустіть команду збірки з кореневого каталогу проекту.
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```bash npm run-script build ``` </CodeGroupItem> </CodeGroup>
 
-## Running and Querying your Starter Project
+## Запуск та запит на ваш стартовий проект
 
-Although you can quickly publish your new project to [SubQuery Projects](https://project.subquery.network) and query it using our [Explorer](https://explorer.subquery.network), the easiest way to run SubQuery nodes locally is in a Docker container, if you don't already have Docker you can install it from [docker.com](https://docs.docker.com/get-docker/).
+Хоча ви можете швидко опублікувати свій новий проект на  [SubQuery Projects](https://project.subquery.network)  і запитати його за допомогою нашого [Explorer](https://explorer.subquery.network), найпростіший спосіб локального запуску вузлів SubQuery знаходиться в контейнері Docker, якщо у вас ще немає Docker, ви можете встановити його з [docker.com](https://docs.docker.com/get-docker/).
 
 [_Skip this and publish your new project to SubQuery Projects_](../publish/publish.md)
 
 ### Run your SubQuery Project
 
-All configuration that controls how a SubQuery node is run is defined in this `docker-compose.yml` file. For a new project that has been just initalised you won't need to change anything here, but you can read more about the file and the settings in our [Run a Project section](../run/run.md)
+All configuration that controls how a SubQuery node is run is defined in this `docker-compose.yml` file. Для нового проекту, який щойно був інтиталізований, вам тут нічого не потрібно буде змінювати, але ви можете прочитати більше про файл та налаштування в нашому розділі [ Запустити проект ](../run/run.md)
 
-Under the project directory run following command:
+У каталозі проекту запустіть наступну команду:
 
 ```shell
 docker-compose pull && docker-compose up
 ```
 
-It may take some time to download the required packages ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), and Postgres) for the first time but soon you'll see a running SubQuery node.
+Можливо, знадобиться певний час, щоб завантажити необхідні пакети ([` @ subql / node `](https://www.npmjs.com/package/@subql/node), [` @ subql / query `](https://www.npmjs.com/package/@subql/query) та Postgres) вперше, але незабаром ви побачите запущений вузол SubQuery.
 
-### Query your Project
+### Запитайте свій проект
 
-Open your browser and head to [http://localhost:3000](http://localhost:3000).
+Відкрийте веб-переглядач і перейдіть до [ http: //localhost: 3000 ](http://localhost:3000).
 
-You should see a GraphQL playground is showing in the explorer and the schemas that are ready to query. On the top right of the playground, you'll find a _Docs_ button that will open a documentation draw. This documentation is automatically generated and helps you find what entities and methods you can query.
+Ви повинні побачити ігровий майданчик GraphQL, який відображається у досліднику, та схеми, готові до запиту. У верхньому правому куті ігрового майданчика ви знайдете кнопку _ Docs _, яка відкриє розіграш документації. Ця документація генерується автоматично і допомагає вам знайти, які сутності та методи ви можете запитувати.
 
-For a new SubQuery starter project, you can try the following query to get a taste of how it works or [learn more about the GraphQL Query language](../query/graphql.md).
+Для нового стартового проекту SubQuery ви можете спробувати наступний запит, щоб скуштувати, як він працює, або [ дізнатися більше про мову запитів GraphQL ](../query/graphql.md).
 
 ```graphql
 {
@@ -123,8 +122,8 @@ For a new SubQuery starter project, you can try the following query to get a tas
 }
 ```
 
-## Next Steps
+## Настуні кроки
 
-Congratulations, you now have a locally running SubQuery project that accepts GraphQL API requests for sample data. In the next guide, we'll show you how to publish your new project to [SubQuery Projects](https://project.subquery.network) and query it using our [Explorer](https://explorer.subquery.network)
+Вітаємо, тепер у вас є локальний проект SubQuery, який приймає запити GraphQL API для вибіркових даних. У наступному посібнику ми покажемо вам, як опублікувати ваш новий проект на [ Проекти SubQuery ](https://project.subquery.network) та запитайте його за допомогою нашого [ Explorer ](https://explorer.subquery.network)
 
-[Publish your new project to SubQuery Projects](../publish/publish.md)
+[Опублікуйте свій новий проект на SubQuery Projects](../publish/publish.md)
