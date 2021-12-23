@@ -32,13 +32,13 @@
 
 스테이징 슬롯은 [Explorer](https://explorer.subquery.network/)에서는 일반에는 공개되지 않고, 유저만이 참조할 수 있는 일의 URL이 있습니다. 물론 별도의 환경을 통해 가동에 영향을 주지 않고 새로운 코드를 테스트할 수 있습니다.
 
-## What are extrinsics?
+## 외인성은 무엇인가요?
 
-If you are already familiar with blockchain concepts, you can think of extrinsics as comparable to transactions. More formally though, an extrinsic is a piece of information that comes from outside the chain and is included in a block. There are three categories of extrinsics. They are inherents, signed transactions, and unsigned transactions.
+만약 여러분이 이미 블록체인의 개념에 익숙하시다면, 여러분은 외인성을 트랜잭션과 비교해 생각해볼 수 있을 것입니다. 정확히 말하자면, 외인성은 체인 외부로부터 오는 정보의 일부이며 블록 내에 포함되어 있습니다. 외인성은 세가지 카테고리로 분류해볼 수 있습니다. 바로 고유성, 서명된 트랜잭션, 서명되지 않은 트랜잭션입니다.
 
-Inherent extrinsics are pieces of information that are not signed and only inserted into a block by the block author.
+고유의 외인성은 서명되지 않았고 블록 작성자에 의해 블록에 삽입되기만 하는 정보입니다.
 
-Signed transaction extrinsics are transactions that contain a signature of the account that issued the transaction. They stands to pay a fee to have the transaction included on chain.
+서명된 트랜잭션 외인성은 트랜잭션을 발생시킨 계정의 서명을 포함한 트랜잭션들입니다. They stands to pay a fee to have the transaction included on chain.
 
 Unsigned transactions extrinsics are transactions that do not contain a signature of the account that issued the transaction. Unsigned transactions extrinsics should be used with care because there is nobody paying a fee, becaused it is signed. Because of this, the transaction queue lacks economic logic to prevent spam.
 
@@ -54,7 +54,7 @@ Polkadot 네트워크의 network.endpoint는 `wss://polkadot.api.onfinality.io/p
 
 ## How do I iteratively develop my project schema?
 
-A known issue with developing a changing project schema is that when lauching your Subquery node for testing, the previously indexed blocks will be incompatible with your new schema. In order to iteratively develop schemas the indexed blocks stored in the database must be cleared, this can be achieved by launching your node with the `--force-clean` flag. Example
+A known issue with developing a changing project schema is that when lauching your Subquery node for testing, the previously indexed blocks will be incompatible with your new schema. In order to iteratively develop schemas the indexed blocks stored in the database must be cleared, this can be achieved by launching your node with the `--force-clean` flag. 예제:
 
 ```shell
 subql-node -f . --force-clean --subquery-name=<project-name>
