@@ -12,7 +12,7 @@ Under the project directory run the following command:
 docker-compose pull && docker-compose up
 ```
 
-It may take some time to download the required packages ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), and Postgres) for the first time but soon you'll see a running SubQuery node.
+Можливо, знадобиться певний час, щоб завантажити необхідні пакети ([` @ subql / node `](https://www.npmjs.com/package/@subql/node), [` @ subql / query `](https://www.npmjs.com/package/@subql/query) та Postgres) вперше, але незабаром ви побачите запущений вузол SubQuery.
 
 ## Running an Indexer (subql/node)
 
@@ -29,13 +29,12 @@ Requirements:
 npm install -g @subql/node
 ```
 
-Please note that we **DO NOT** encourage the use of `yarn global` due to its poor dependency management which may lead to an errors down the line.
+Зверніть увагу, що ми ** DO NOT ** заохочуємо використовувати ` yarn global </ 1> через погане управління залежністю, що може призвести до помилок у лінії.</p>
 
-Once installed, you can start a node with the following command:
+<p spaces-before="0">Once installed, you can start a node with the following command:</p>
 
-```shell
-subql-node <command>
-```
+<pre><code class="shell">subql-node <command>
+`</pre>
 
 ### Key Commands
 
@@ -188,11 +187,15 @@ Then open up the Chrome dev tools, go to Source > Filesystem and add your projec
 npm install -g @subql/query
 ```
 
-Please note that we **DO NOT** encourage the use of `yarn global` due to its poor dependency management which may lead to an errors down the line.
+Зверніть увагу, що ми ** DO NOT ** заохочуємо використовувати ` yarn global </ 1> через погане управління залежністю, що може призвести до помилок у лінії.</p>
 
-### Running the Query service
-``` export DB_HOST=localhost subql-query --name <project_name> --playground ````
+<h3 spaces-before="0">Running the Query service</h3>
 
-Make sure the project name is the same as the project name when you [initialize the project](../quickstart/quickstart.md#initialise-the-starter-subquery-project). Also, check the environment variables are correct.
+<p spaces-before="0">```
+export DB_HOST=localhost
+subql-query --name <project_name> --playground
+````</p>
 
-After running the subql-query service successfully, open your browser and head to `http://localhost:3000`. You should see a GraphQL playground showing in the Explorer and the schema that is ready to query.
+<p spaces-before="0">Make sure the project name is the same as the project name when you <a href="../quickstart/quickstart.md#initialise-the-starter-subquery-project">initialize the project</a>. Also, check the environment variables are correct.</p>
+
+<p spaces-before="0">After running the subql-query service successfully, open your browser and head to <code>http://localhost:3000`. You should see a GraphQL playground showing in the Explorer and the schema that is ready to query.
