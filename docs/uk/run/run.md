@@ -40,27 +40,27 @@ npm install -g @subql/node
 
 Наступні команди допоможуть вам виконати конфігурацію вузла SubQuery та розпочати індексацію. Щоб дізнатися більше, завжди можна запустити ` - help `.
 
-#### Point to local project path
+#### Вкажіть на місцевий шлях проекту
 
 ```
 subql-node -f your-project-path
 ```
 
-#### Using a Dictionary
+#### Використовуйте словник
 
-Using a full chain dictionary can dramatically speed up the processing of a SubQuery project during testing or during your first index. In some cases, we've seen indexing performance increases of up to 10x.
+Використання повного словника ланцюга може різко прискорити обробку проекту SubQuery під час тестування або під час першого індексу. У деяких випадках ми спостерігаємо підвищення продуктивності до 10 разів.
 
-A full chain dictionary pre-indexes the location of all events and extrinsics within the specific chain and allows your node service to skip to relevant locations when indexing rather than inspecting each block.
+Повний словник ланцюга попередньо індексує розташування всіх подій та екстринік у межах конкретного ланцюга та дозволяє службі вузлів переходити до відповідних місць при індексації, а не перевіряти кожен блок.
 
-You can add the dictionary endpoint in your `project.yaml` file (see [Manifest File](../create/manifest.md)), or specify it at run time using the following command:
+Ви можете додати кінцеву точку словника у файл ` project.yaml ` (див. [ Файл маніфесту ](../create/manifest.md)) або вказати його під час виконання за допомогою наступної команди:
 
 ```
 subql-node --network-dictionary=https://api.subquery.network/sq/subquery/dictionary-polkadot
 ```
 
-Залежно від конфігурації вашої бази даних Postgres (наприклад, іншого пароля бази даних) переконайтеся, що індексатор (`subql/node`) та служба запитів (`subql/query`) можуть встановити з’єднання з нею.
+[ Детальніше про те, як працює SubQuery Dictionary ](../tutorials_examples/dictionary.md).
 
-#### Connect to database
+#### Підключіться до бази даних
 
 ```
 export DB_USER=postgres
@@ -71,7 +71,7 @@ export DB_PORT=5432
 subql-node -f your-project-path 
 ````
 
-Depending on the configuration of your Postgres database (e.g. a different database password), please ensure also that both the indexer (`subql/node`) and the query service (`subql/query`) can establish a connection to it.
+Залежно від конфігурації вашої бази даних Postgres (наприклад,. інший пароль бази даних), будь ласка, переконайтеся також, що і індексатор (`subql / node`), і служба запитів (`subql / query`) можуть встановити з'єднання з ним.
 
 #### Specify a configuration file
 
@@ -79,7 +79,7 @@ Depending on the configuration of your Postgres database (e.g. a different datab
 subql-node -c your-project-config.yml
 ```
 
-This will point the query node to a configuration file which can be in YAML or JSON format. Check out the example below.
+Це вкаже вузол запиту на файл конфігурації, який може бути у форматі YAML або JSON. Подивіться на приклади нижче.
 
 ```yaml
 subquery: ../../../../subql-example/extrinsics
@@ -88,7 +88,7 @@ batchSize:100
 localMode:true
 ```
 
-#### Change the block fetching batch size
+#### Змініть розмір партії, що отримує блок
 
 ```
 subql-node -f your-project-path --batch-size 200
@@ -98,27 +98,27 @@ Result:
 [IndexerManager] fetch block [403, 602]
 ```
 
-When the indexer first indexes the chain, fetching single blocks will significantly decrease the performance. Increasing the batch size to adjust the number of blocks fetched will decrease the overall processing time. The current default batch size is 100.
+Коли індексатор вперше індексує ланцюг, отримання одиночних блоків значно знизить продуктивність. Збільшення розміру партії для регулювання кількості отриманих блоків зменшить загальний час обробки. Поточний розмір пакета по замовчуванню дорівнює 100.
 
-#### Run in local mode
+#### Запуск у локальному режимі
 
 ```
 subql-node -f your-project-path --local
 ```
 
-For debugging purposes, users can run the node in local mode. Switching to local model will create Postgres tables in the default schema `public`.
+Для налагодження користувачі можуть запускати вузол у локальному режимі. Перехід на локальну модель створить таблиці Postgres у схемі за замовчуванням ` public `.
 
-If local mode is not used, a new Postgres schema with the initial `subquery_` and corresponding project tables will be created.
+Якщо локальний режим не використовується, буде створена нова схема Postgres з початковою ` subquery_ ` та відповідними таблицями проектів.
 
 
-#### Local mode
+#### Перевірте стан свого вузла
 
-There are 2 endpoints that you can use to check and monitor the health of a running SubQuery node.
+Є 2 кінцеві точки, які ви можете використовувати для перевірки та моніторингу стану здоров'я запущеного вузла SubQuery.
 
-- Health check endpoint that returns a simple 200 response
-- Metadata endpoint that includes additional analytics of your running SubQuery node
+- Кінцева точка перевірки здоров’я, яка повертає просту відповідь 200
+- Кінцева точка метаданих, яка включає додаткову аналітику вашого запущеного вузла SubQuery
 
-Append this to the base URL of your SubQuery node. Eg `http://localhost:3000/meta` will return:
+Додайте це до базової URL-адреси SubQuery node. Наприклад, ` http: //localhost: 3000 / meta ` повернеться:
 
 ```bash
 {
@@ -141,9 +141,9 @@ Append this to the base URL of your SubQuery node. Eg `http://localhost:3000/met
 }
 ```
 
-`http://localhost:3000/health` will return HTTP 200 if successful.
+` http: //localhost: 3000 / health ` поверне HTTP 200 у разі успіху.
 
-A 500 error will be returned if the indexer is not healthy. This can often be seen when the node is booting up.
+Помилка 500 буде повернута, якщо індексатор не здоровий. Це часто можна побачити, коли вузол завантажується.
 
 ```shell
 {
@@ -152,7 +152,7 @@ A 500 error will be returned if the indexer is not healthy. This can often be se
 }
 ```
 
-If an incorrect URL is used, a 404 not found error will be returned.
+Якщо використовується неправильна URL-адреса, 404 не знайдена помилка буде повернуто.
 
 ```shell
 {
@@ -162,9 +162,9 @@ If an incorrect URL is used, a 404 not found error will be returned.
 }
 ```
 
-#### Debug your project
+#### Налагоджуйте проект
 
-Use the [node inspector](https://nodejs.org/en/docs/guides/debugging-getting-started/) to run the following command.
+Використовуйте [ node inspector ](https://nodejs.org/en/docs/guides/debugging-getting-started/) для виконання наступної команди.
 
 ```shell
 node --inspect-brk <path to subql-node> -f <path to subQuery project>
@@ -177,8 +177,8 @@ Debugger listening on ws://127.0.0.1:9229/56156753-c07d-4bbe-af2d-2c7ff4bcc5ad
 For help, see: https://nodejs.org/en/docs/inspector
 Debugger attached.
 ```
-Then open up the Chrome dev tools, go to Source > Filesystem and add your project to the workspace and start debugging. For more information, check out [How to debug a SubQuery project](https://doc.subquery.network/tutorials_examples/debug-projects/)
-## Running a Query Service (subql/query)
+Потім відкрийте інструменти для розробки Chrome, перейдіть до Source & # 062; Файлова система та додайте свій проект до робочої області та починайте налагоджувати. Для отримання додаткової інформації перевірте [ Як налагодити проект SubQuery ](https://doc.subquery.network/tutorials_examples/debug-projects/)
+## Запуск служби запитів (підql / запит)
 
 ### Установка
 
@@ -187,15 +187,15 @@ Then open up the Chrome dev tools, go to Source > Filesystem and add your projec
 npm install -g @subql/query
 ```
 
-Зверніть увагу, що ми ** DO NOT ** заохочуємо використовувати ` yarn global </ 1> через погане управління залежністю, що може призвести до помилок у лінії.</p>
+Зверніть увагу, що ми ** НЕ ** заохочуємо використовувати ` ріг глобального </ 1> через погане управління залежністю, що може призвести до помилок у лінії.</p>
 
-<h3 spaces-before="0">Running the Query service</h3>
+<h3 spaces-before="0">Запуск служби запитів</h3>
 
 <p spaces-before="0">```
 export DB_HOST=localhost
 subql-query --name <project_name> --playground
 ````</p>
 
-<p spaces-before="0">Make sure the project name is the same as the project name when you <a href="../quickstart/quickstart.md#initialise-the-starter-subquery-project">initialize the project</a>. Also, check the environment variables are correct.</p>
+<p spaces-before="0">Переконайтесь, що назва проекту збігається з назвою проекту, коли ви <a href="../quickstart/quickstart.md#initialise-the-starter-subquery-project"> ініціалізуєте проект </a>. Також перевірте, чи є змінні середовища правильними.</p>
 
-<p spaces-before="0">After running the subql-query service successfully, open your browser and head to <code>http://localhost:3000`. You should see a GraphQL playground showing in the Explorer and the schema that is ready to query.
+<p spaces-before="0">Після успішного запуску послуги subql-query відкрийте веб-переглядач і перейдіть до <code> http: //localhost: 3000 `. Ви повинні побачити ігровий майданчик GraphQL, який відображається в Провіднику, і схему, яка готова до запиту.
