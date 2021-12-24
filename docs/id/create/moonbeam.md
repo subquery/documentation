@@ -1,18 +1,18 @@
-# Moonbeam EVM Support
+# Dukungan Moonbeam EVM
 
-We provide a custom data source processor for Moonbeam's and Moonriver's EVM. This offers a simple way to filter and index both EVM and Substrate activity on Moonbeam's networks within a single SubQuery project.
+Kami menyediakan prosesor sumber data khusus untuk EVM Moonbeam dan Moonriver. Ini menawarkan cara sederhana untuk memfilter dan mengindeks aktivitas EVM dan Substrate di jaringan Moonbeam dalam satu proyek SubQuery.
 
-Supported networks:
+Jaringan yang didukung:
 
-| Network Name   | Websocket Endpoint                                 | Dictionary Endpoint                                                  |
+| Nama Jaringan  | Websocket Endpoint                                 | Dictionary Endpoint                                                  |
 | -------------- | -------------------------------------------------- | -------------------------------------------------------------------- |
-| Moonbeam       | _Coming soon_                                      | _Coming soon_                                                        |
+| Moonbeam       | _Segera Hadir_                                     | _Segera Hadir_                                                       |
 | Moonriver      | `wss://moonriver.api.onfinality.io/public-ws`      | `https://api.subquery.network/sq/subquery/moonriver-dictionary`      |
 | Moonbase Alpha | `wss://moonbeam-alpha.api.onfinality.io/public-ws` | `https://api.subquery.network/sq/subquery/moonbase-alpha-dictionary` |
 
-**You can also refer to the [basic Moonriver EVM example project](https://github.com/subquery/tutorials-moonriver-evm-starter) with an event and call handler.** This project is also hosted live in the SubQuery Explorer [here](https://explorer.subquery.network/subquery/subquery/moonriver-evm-starter-project).
+**Anda juga dapat merujuk ke [contoh proyek dasar Moonriver EVM](https://github.com/subquery/tutorials-moonriver-evm-starter) dengan event dan call handler.** Proyek ini juga dihosting secara langsung di SubQuery Explorer [di sini](https://explorer.subquery.network/subquery/subquery/moonriver-evm-starter-project).
 
-## Getting started
+## Memulai
 
 1. Add the custom data source as a dependency `yarn add @subql/contract-processors`
 2. Add a custom data source as described below
