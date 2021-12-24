@@ -12,39 +12,39 @@ Supported networks:
 
 **You can also refer to the [basic Moonriver EVM example project](https://github.com/subquery/tutorials-moonriver-evm-starter) with an event and call handler.** This project is also hosted live in the SubQuery Explorer [here](https://explorer.subquery.network/subquery/subquery/moonriver-evm-starter-project).
 
-## Getting started
+## 시작하기
 
 1. Add the custom data source as a dependency `yarn add @subql/contract-processors`
 2. Add a custom data source as described below
 3. Add handlers for the custom data source to your code
 
-## Data Source Spec
+## 데이터 소스 사양
 
-| Field             | Type                                                           | Required | Description                                |
-| ----------------- | -------------------------------------------------------------- | -------- | ------------------------------------------ |
-| processor.file    | `'./node_modules/@subql/contract-processors/dist/moonbeam.js'` | Yes      | File reference to the data processor code  |
-| processor.options | [ProcessorOptions](#processor-options)                         | No       | Options specific to the Moonbeam Processor |
-| assets            | `{ [key: String]: { file: String }}`                           | No       | An object of external asset files          |
+| 필드                | 타입                                                             | 요구사항 | 설명                                         |
+| ----------------- | -------------------------------------------------------------- | ---- | ------------------------------------------ |
+| processor.file    | `'./node_modules/@subql/contract-processors/dist/moonbeam.js'` | 네    | File reference to the data processor code  |
+| processor.options | [ProcessorOptions](#processor-options)                         | 아니오  | Options specific to the Moonbeam Processor |
+| assets            | `{ [key: String]: { file: String }}`                           | 아니오  | An object of external asset files          |
 
-### Processor Options
+### 프로세서 옵션
 
-| Field   | Type             | Required | Description                                                                                                |
-| ------- | ---------------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| abi     | String           | No       | The ABI that is used by the processor to parse arguments. MUST be a key of `assets`                        |
-| address | String or `null` | No       | A contract address where the event is from or call is made to. `null` will capture contract creation calls |
+| 필드      | 타입               | 요구사항 | 설명                                                                |
+| ------- | ---------------- | ---- | ----------------------------------------------------------------- |
+| abi     | String           | 아니오  | ABI는 프로세서가 변수 분석을 위해 사용. MUST be a key of `assets`                |
+| address | String 또는 `null` | 아니오  | 이벤트 또는 콜이 만들어진 거래 주소. `null` will capture contract creation calls |
 
 ## MoonbeamCall
 
 Works in the same way as [substrate/CallHandler](../create/mapping/#call-handler) except with a different handler argument and minor filtering changes.
 
-| Field  | Type                         | Required | Description                                 |
-| ------ | ---------------------------- | -------- | ------------------------------------------- |
-| kind   | 'substrate/MoonbeamCall'     | Yes      | Specifies that this is an Call type handler |
-| filter | [Call Filter](#call-filters) | No       | Filter the data source to execute           |
+| 필드     | 타입                           | 요구사항 | 설명                                          |
+| ------ | ---------------------------- | ---- | ------------------------------------------- |
+| kind   | 'substrate/MoonbeamCall'     | 네    | Specifies that this is an Call type handler |
+| filter | [Call Filter](#call-filters) | 아니오  | Filter the data source to execute           |
 
 ### Call Filters
 
-| Field    | Type   | Example(s)                                    | Description                                                                                                                                                                      |
+| 필드       | 타입     | Example(s)                                    | 설명                                                                                                                                                                               |
 | -------- | ------ | --------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | function | String | 0x095ea7b3, approve(address to,uint256 value) | Either [Function Signature](https://docs.ethers.io/v5/api/utils/abi/fragments/#FunctionFragment) strings or the function `sighash` to filter the function called on the contract |
 | from     | String | 0x6bd193ee6d2104f14f94e2ca6efefae561a4334b    | An Ethereum address that sent the transaction                                                                                                                                    |
@@ -53,9 +53,9 @@ Works in the same way as [substrate/CallHandler](../create/mapping/#call-handler
 
 Unlike a normal handler you will not get a `SubstrateExtrinsic` as the parameter, instead you will get a `MoonbeamCall` which is based on Ethers [TransactionResponse](https://docs.ethers.io/v5/api/providers/types/#providers-TransactionResponse) type.
 
-Changes from the `TransactionResponse` type:
+`TransactionResponse` 타입과의 차이:
 
-- It doesn't have `wait` and `confirmations` properties
+- `wait` 및 `confirmations` 특성을 갖지 않습니다.
 - A `success` property is added to know if the transaction was a success
 - `args` is added if the `abi` field is provided and the arguments can be successfully parsed
 
@@ -63,14 +63,14 @@ Changes from the `TransactionResponse` type:
 
 Works in the same way as [substrate/EventHandler](../create/mapping/#event-handler) except with a different handler argument and minor filtering changes.
 
-| Field  | Type                           | Required | Description                                  |
-| ------ | ------------------------------ | -------- | -------------------------------------------- |
-| kind   | 'substrate/MoonbeamEvent'      | Yes      | Specifies that this is an Event type handler |
-| filter | [Event Filter](#event-filters) | No       | Filter the data source to execute            |
+| 필드     | 타입                             | 요구사항 | Description                                  |
+| ------ | ------------------------------ | ---- | -------------------------------------------- |
+| kind   | 'substrate/MoonbeamEvent'      | 네    | Specifies that this is an Event type handler |
+| filter | [Event Filter](#event-filters) | 아니오  | Filter the data source to execute            |
 
-### Event Filters
+### 이벤트 필터
 
-| Field  | Type         | Example(s)                                                      | Description                                                                                                                                      |
+| Field  | 타입           | Example(s)                                                      | Description                                                                                                                                      |
 | ------ | ------------ | --------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
 | topics | String array | Transfer(address indexed from,address indexed to,uint256 value) | The topics filter follows the Ethereum JSON-PRC log filters, more documentation can be found [here](https://docs.ethers.io/v5/concepts/events/). |
 
@@ -88,9 +88,9 @@ Changes from the `Log` type:
 
 - `args` is added if the `abi` field is provided and the arguments can be successfully parsed
 
-## Data Source Example
+## 데이터 소스 예제
 
-This is an extract from the `project.yaml` manifest file.
+본 예제는 `project.yaml` 매니페스트 파일에서 추출하였습니다.
 
 ```yaml
 dataSources:
@@ -125,8 +125,8 @@ dataSources:
             from: '0x6bd193ee6d2104f14f94e2ca6efefae561a4334b'
 ```
 
-## Known Limitations
+## 알려진 제약사항
 
-- There is currently no way to query EVM state within a handler
+- 현재 핸들러 내부에서 EVM 스테이트의 쿼리는 지원하지 않습니다.
 - There is no way to get the transaction receipts with call handlers
 - `blockHash` properties are currently left undefined, the `blockNumber` property can be used instead
