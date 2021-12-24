@@ -1,10 +1,10 @@
-# Command Line Flags
+# 커맨드 라인 플래그
 
 ## subql-node
 
 ### --help
 
-This shows the help options.
+도움말 옵션이 표시됩니다.
 
 ```shell
 > subql-node --help
@@ -41,7 +41,7 @@ Options:
 
 ### --version
 
-This displays the current version.
+현재 버젼이 표시됩니다.
 
 ```shell
 > subql-node --version
@@ -50,7 +50,7 @@ This displays the current version.
 
 ### -f, --subquery
 
-Use this flag to start the SubQuery project.
+SubQuery 프로젝트를 시작하기 위해 이 플래그를 사용하세요.
 
 ```shell
 subql-node -f . // OR
@@ -59,7 +59,7 @@ subql-node --subquery .
 
 ### --subquery-name
 
-This flag allows you to provide a name for your project which acts as if it creates an instance of your project. Upon providing a new name, a new database schema is created and block synchronisation starts from zero.
+이 플래그를 사용하면 프로젝트의 인스턴스를 생성하는 것처럼 작동하는 프로젝트 이름을 제공할 수 있습니다. 새 이름을 제공하면, 새 데이터베이스 스키마가 생성되고 블록 동기화가 0부터 시작됩니다.
 
 ```shell
 subql-node -f . --subquery-name=test2
@@ -67,17 +67,17 @@ subql-node -f . --subquery-name=test2
 
 ### -c, --config
 
-All these various configurations can be placed into a .yml or .json file and then referenced with the config flag.
+이러한 다양한 구성은 모두 .yml 또는 .json 파일에 배치한 다음 config 플래그로 참조할 수 있습니다.
 
 Sample subquery_config.yml file:
 
 ```shell
-subquery: . // Mandatory. This is the local path of the project. The period here means the current local directory.
+subquery: . // Mandatory. 프로젝트의 로컬 패스입니다. 여기서 기간은 현재 로컬 디렉토리를 말합니다.
 subqueryName: hello // Optional name
 batchSize: 55 // Optional config
 ```
 
-Place this file in the same directory as the project. Then in the current project directory, run:
+이 파일을 같은 디렉토리에 배치하세요. 그리고 현재 디렉토리를 작동시킵니다.
 
 ```shell
 > subql-node -c ./subquery_config.yml
@@ -216,7 +216,7 @@ subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot
 
 ### --help
 
-This shows the help options.
+도움말 옵션이 표시됩니다.
 
 ```shell
 ns:
@@ -234,7 +234,7 @@ ns:
 
 ### --version
 
-This displays the current version.
+현재 버젼이 표시됩니다.
 
 ```shell
 > subql-query --version
