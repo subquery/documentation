@@ -1,10 +1,10 @@
-# Ambassador Program
+# 앰버서더 프로그램
 
 ![Ambassador Banner Image](/assets/img/ambassador_banner.png)
 
-We understand that one of our biggest strengths is our community, and with your help, we want to grow and establish local ambassadors for communities around the world.
+우리의 가장 큰 강점은 우리 커뮤니티라는 점을 이해하고 있으며, 전 세계 커뮤니티를 위한 로컬 앰버서더를 양성하고자 합니다.
 
-[Apply Now!](https://forms.gle/GXBbJ6LDpNfM2v1X6)
+[지금 신청하세요!](https://forms.gle/GXBbJ6LDpNfM2v1X6)
 
 ## What we Believe In
 
@@ -40,7 +40,7 @@ Once you have sent through an application, we will select candidates that align 
 
 Once you pass the trainee program, you can call yourself a SubQuery ambassador and will be accepted into our full program. From here on you can continue to work through the program and progress up the tiers, earning more rewards and benefits as you climb the ranks.
 
-[Apply Now!](https://forms.gle/GXBbJ6LDpNfM2v1X6)
+[지금 신청하세요!](https://forms.gle/GXBbJ6LDpNfM2v1X6)
 
 ## Ambassador Activities
 
@@ -54,4 +54,4 @@ SubQuery Ambassadors are able to contribute through four main areas, including e
 
 **Community Moderation:** Moderators will help grow the SubQuery community by ensuring that official community channels are active and engaging. SubQuery will support Moderators by promoting the channels that they monitor, as well as provide guidelines for our expectations.
 
-[Apply Now!](https://forms.gle/GXBbJ6LDpNfM2v1X6)
+[지금 신청하세요!](https://forms.gle/GXBbJ6LDpNfM2v1X6)
