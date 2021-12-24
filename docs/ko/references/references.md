@@ -124,7 +124,7 @@ This outputs debug information to the console output and forcefully sets the log
 
 ### --profiler
 
-This shows profiler information.
+프로파일러의 정보를 보여줍니다.
 
 ```shell
 subql-node -f . --local --profiler
@@ -136,13 +136,13 @@ subql-node -f . --local --profiler
 
 ### --network-endpoint
 
-This flag allows users to override the network endpoint configuration from the manifest file.
+이 플래그는 사용자가 manifest 파일에서 Network Endpoint 배열을 중단시킬 수 있게 해줍니다.
 
 ```shell
 subql-node -f . --network-endpoint="wss://polkadot.api.onfinality.io/public-ws"
 ```
 
-Note that this must also be set in the manifest file, otherwise you'll get:
+이것은 반드시 manifest 파일 내에서 설정되어야 합니다. 그렇지 않으면 다음과 같은 에러 메시지가 뜰 것입니다.
 
 ```shell
 ERROR Create Subquery project from given path failed! Error: failed to parse project.yaml.
@@ -153,7 +153,7 @@ An instance of ProjectManifestImpl has failed the validation:
 
 ### --output-fmt
 
-There are two different terminal output formats. JSON or colored. Colored is the default and contains colored text.
+터미널 출력에는 두가지 다른 형식이 있습니다. JSON 과 colored 입니다. Colored is the default and contains colored text.
 
 ```shell
 > subql-node -f . --output-fmt=json
