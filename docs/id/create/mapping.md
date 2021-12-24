@@ -10,13 +10,13 @@ Ada tiga kelas fungsi pemetaan; [Penangan blokir](#block-handler), [Penangan Per
 
 ## Penanganan Balok
 
-You can use block handlers to capture information each time a new block is attached to the Substrate chain, e.g. block number. To achieve this, a defined BlockHandler will be called once for every block.
+Anda dapat menggunakan block handler untuk menangkap informasi setiap kali blok baru dilampirkan ke rantai Substrate, mis. nomor blok. Untuk mencapai ini, BlockHandler yang ditentukan akan dipanggil sekali untuk setiap blok.
 
 ```ts
 import {SubstrateBlock} from "@subql/types";
 
 export async function handleBlock(block: SubstrateBlock): Promise<void> {
-    // Buat baru dengan StarterEntity with the block hash as it's ID
+    // Buat StarterEntity baru dengan hash blok sebagai ID-nya
     const record = new starterEntity(block.block.header.hash.toString());
     record.field1 = block.block.header.number.toNumber();
     await record.save();
@@ -25,11 +25,11 @@ export async function handleBlock(block: SubstrateBlock): Promise<void> {
 
 [SubstrateBlock](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L16) adalah jenis interface yang diperluas dari [signedBlock](https://polkadot.js.org/docs/api/cookbook/blocks/), tetapi juga menyertakan `specVersion` dan `timestamp`.
 
-## Penanganan Acara
+## Event Handler
 
-You can use event handlers to capture information when certain events are included on a new block. The events that are part of the default Substrate runtime and a block may contain multiple events.
+Anda dapat menggunakan event handler untuk menangkap informasi saat event tertentu disertakan pada blok baru. Event yang merupakan bagian dari runtime Substrate default dan blok dapat berisi beberapa event.
 
-During the processing, the event handler will receive a substrate event as an argument with the event's typed inputs and outputs. Any type of event will trigger the mapping, allowing activity with the data source to be captured. You should use [Mapping Filters](./manifest.md#mapping-filters) in your manifest to filter events to reduce the time it takes to index data and improve mapping performance.
+Selama pemrosesan, event handler akan menerima event substrate sebagai argumen dengan input dan output yang diketik dari event. Semua jenis event akan memicu pemetaan, memungkinkan aktivitas dengan sumber data ditangkap. Anda harus menggunakan [Filter Pemetaan](./manifest.md#mapping-filters) dalam manifes Anda untuk memfilter event guna mengurangi waktu yang diperlukan untuk mengindeks data dan meningkatkan kinerja pemetaan.
 
 ```ts
 import {SubstrateEvent} from "@subql/types";
@@ -43,11 +43,11 @@ export async function handleEvent(event: SubstrateEvent): Promise<void> {
     await record.save();
 ```
 
-A [SubstrateEvent](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L30) is an extended interface type of the [EventRecord](https://github.com/polkadot-js/api/blob/f0ce53f5a5e1e5a77cc01bf7f9ddb7fcf8546d11/packages/types/src/interfaces/system/types.ts#L149). Besides the event data, it also includes an `id` (the block to which this event belongs) and the extrinsic inside of this block.
+[SubstrateEvent](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L30) adalah jenis interface yang diperluas dari [EventRecord](https://github.com/polkadot-js/api/blob/f0ce53f5a5e1e5a77cc01bf7f9ddb7fcf8546d11/packages/types/src/interfaces/system/types.ts#L149). Selain event data, ini juga menyertakan `id` (blok tempat kejadian ini berada) dan ekstrinsik di dalam blok ini.
 
-## Penanganan Telepon
+## Call Handler
 
-Penangan panggilan digunakan bila Anda ingin menangkap informasi tentang ekstrinsik media tertentu.
+Call Handler digunakan bila Anda ingin menangkap informasi tentang ekstrinsik media tertentu.
 
 ```ts
 export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
@@ -57,17 +57,17 @@ export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
 }
 ```
 
-The [SubstrateExtrinsic](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L21) extends [GenericExtrinsic](https://github.com/polkadot-js/api/blob/a9c9fb5769dec7ada8612d6068cf69de04aa15ed/packages/types/src/extrinsic/Extrinsic.ts#L170). It is assigned an `id` (the block to which this extrinsic belongs) and provides an extrinsic property that extends the events among this block. Additionally, it records the success status of this extrinsic.
+[SubstrateExtrinsic](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L21) memperluas [GenericExtrinsic](https://github.com/polkadot-js/api/blob/a9c9fb5769dec7ada8612d6068cf69de04aa15ed/packages/types/src/extrinsic/Extrinsic.ts#L170). Ini diberi `id` (blok tempat ekstrinsik ini berada) dan menyediakan properti ekstrinsik yang memperluas event di antara blok ini. Selain itu, ia mencatat status keberhasilan ekstrinsik ini.
 
 ## Keadaan Kueri
-Our goal is to cover all data sources for users for mapping handlers (more than just the three interface event types above). Therefore, we have exposed some of the @polkadot/api interfaces to increase capabilities.
+Tujuan kami adalah mencakup semua sumber data bagi pengguna untuk mapping handler (lebih dari tiga jenis interface event di atas). Oleh karena itu, kami telah mengekspos beberapa interface @polkadot/api untuk meningkatkan kemampuan.
 
-Ini adalah antarmuka yang saat ini kami dukung:
+Ini adalah interface yang saat ini kami dukung:
 - [api.query.&lt;module&gt;.&lt;method&gt;()](https://polkadot.js.org/docs/api/start/api.query) akan mengkueri balok <strong>current</strong>.
 - [api.query.&lt;module&gt;.&lt;method&gt;.multi()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-same-type) akan membuat beberapa jenis kueri yang <strong>sama</strong> di balok saat ini.
 - [api.queryMulti()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-distinct-types) akan membuat beberapa jenis kueri <strong>berbeda</strong> di balok saat ini.
 
-Ini adalah antarmuka yang kami **TIDAK** dukung saat ini:
+Ini adalah interface yang kami **TIDAK** dukung saat ini:
 - ~~api.tx.*~~
 - ~~api.derive.*~~
 - ~~api.query.&lt;module&gt;.&lt;method&gt;.at~~
@@ -83,33 +83,33 @@ Lihat contoh penggunaan API ini dalam contoh kasus penggunaan [validator-thresho
 
 ## Panggilan RPC
 
-We also support some API RPC methods that are remote calls that allow the mapping function to interact with the actual node, query, and submission. A core premise of SubQuery is that it's deterministic, and therefore, to keep the results consistent we only allow historical RPC calls.
+Kami juga mendukung beberapa method API RPC yang merupakan panggilan jarak jauh yang memungkinkan fungsi pemetaan berinteraksi dengan node, kueri, dan pengiriman aktual. Premis inti SubQuery adalah sifatnya yang deterministik, dan oleh karena itu, untuk menjaga agar hasil tetap konsisten, kami hanya mengizinkan panggilan RPC historis.
 
-Documents in [JSON-RPC](https://polkadot.js.org/docs/substrate/rpc/#rpc) provide some methods that take `BlockHash` as an input parameter (e.g. `at?: BlockHash`), which are now permitted. We have also modified these methods to take the current indexing block hash by default.
+Dokumen di [JSON-RPC](https://polkadot.js.org/docs/substrate/rpc/#rpc) menyediakan beberapa metode yang menggunakan `BlockHash` sebagai parameter input (mis. `at?: BlockHash`), yang sekarang diizinkan. Kami juga telah memodifikasi metode ini untuk mengambil hash blok pengindeksan saat ini secara default.
 
 ```typescript
-// Mari menganggap kita saat ini mengindeks balok dengan nomor hash ini
+// Anggap saja kita saat ini mengindeks balok dengan nomor hash ini
 const blockhash = `0x844047c4cf1719ba6d54891e92c071a41e3dfe789d064871148e9d41ef086f6a`;
 
-// Metode asli memiliki input opsional yang merupakan block hash
+// Method asli memiliki input opsional yang merupakan block hash
 const b1 = await api.rpc.chain.getBlock(blockhash);
 
 // Akan menggunakan balok saat ini secara default
 const b2 = await api.rpc.chain.getBlock();
 ```
-- Untuk panggilan RPC [Chain Substrat Kustom](#custom-substrate-chains), lihat [penggunaan](#usage).
+- Untuk panggilan RPC [Chain Substrate Kustom](#custom-substrate-chains), lihat [penggunaan](#usage).
 
-## Modul dan Perpustakaan
+## Modul dan Library
 
-Untuk meningkatkan kemampuan pemrosesan data SubQuery, kami telah mengizinkan beberapa modul bawaan NodeJS untuk menjalankan fungsi pemetaan di [sandbox](#the-sandbox), dan mengizinkan pengguna untuk memanggil perpustakaan pihak ketiga.
+Untuk meningkatkan kemampuan pemrosesan data SubQuery, kami telah mengizinkan beberapa modul bawaan NodeJS untuk menjalankan fungsi pemetaan di [sandbox](#the-sandbox), dan mengizinkan pengguna untuk memanggil library pihak ketiga.
 
-Please note this is an **experimental feature** and you may encounter bugs or issues that may negatively impact your mapping functions. Please report any bugs you find by creating an issue in [GitHub](https://github.com/subquery/subql).
+Harap perhatikan bahwa ini adalah **fitur eksperimental** dan Anda mungkin mengalami bug atau masalah yang dapat berdampak negatif pada fungsi pemetaan Anda. Mohon laporkan bugs apa pun yang Anda temukan dengan membuat isu di [GitHub](https://github.com/subquery/subql).
 
 ### Modul bawaan
 
 Saat ini, kami mengizinkan modul NodeJS berikut: `assert`, `buffer`, `crypto`, `util`, dan `path`.
 
-Rather than importing the whole module, we recommend only importing the required method(s) that you need. Some methods in these modules may have dependencies that are unsupported and will fail on import.
+Daripada mengimpor seluruh modul, kami sarankan hanya mengimpor method yang diperlukan dan yang Anda butuhkan. Beberapa method dalam modul ini mungkin memiliki dependensi yang tidak didukung dan akan gagal saat diimpor.
 
 ```ts
 import {hashMessage} from "ethers/lib/utils"; //Good way
@@ -122,32 +122,32 @@ export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
 }
 ```
 
-### Perpustakaan pihak ketiga
+### Library pihak ketiga
 
-Karena keterbatasan mesin virtual di kotak pasir kami, saat ini, kami hanya mendukung pustaka pihak ketiga yang ditulis oleh **CommonJS**.
+Karena keterbatasan mesin virtual di sandbox kami, saat ini, kami hanya mendukung library pihak ketiga yang ditulis oleh **CommonJS**.
 
-We also support a **hybrid** library like `@polkadot/*` that uses ESM as default. However, if any other libraries depend on any modules in **ESM** format, the virtual machine will **NOT** compile and return an error.
+Kami juga mendukung library **hybrid** seperti `@polkadot/*` yang menggunakan ESM sebagai default. Akan tetapi, jika library lain bergantung pada modul apa pun dalam format **ESM**, mesin virtual **TIDAK** akan mengcompile dan mengembalikan error.
 
-## Chain Substrat Kustom
+## Chain Substrate Kustom
 
-SubQuery dapat digunakan pada rantai berbasis Substrat, tidak hanya Polkadot atau Kusama.
+SubQuery dapat digunakan pada rantai berbasis Substrate, tidak hanya Polkadot atau Kusama.
 
-Anda dapat menggunakan rantai berbasis Substrat khusus dan kami menyediakan alat untuk mengimpor jenis, antarmuka, dan metode tambahan secara otomatis menggunakan [@polkadot/typegen](https://polkadot.js.org/docs/api/examples/promise/typegen/).
+Anda dapat menggunakan rantai berbasis Substrate khusus dan kami menyediakan alat untuk mengimpor type, interface, dan method tambahan secara otomatis menggunakan [@polkadot/typegen](https://polkadot.js.org/docs/api/examples/promise/typegen/).
 
 Di bagian berikut, kami menggunakan [contoh kitty](https://github.com/subquery/tutorials-kitty-chain) kami untuk menjelaskan proses integrasi.
 
 ### Persiapan
 
-Create a new directory `api-interfaces` under the project `src` folder to store all required and generated files. We also create an `api-interfaces/kitties` directory as we want to add decoration in the API from the `kitties` module.
+Buat direktori baru `api-interfaces` di bawah folder proyek `src` untuk menyimpan semua file yang diperlukan dan dibuat. Kami juga membuat direktori `api-interfaces/kitties` karena kami ingin menambahkan dekorasi di API dari modul `kitties`.
 
 #### Metadata
 
-We need metadata to generate the actual API endpoints. In the kitty example, we use an endpoint from a local testnet, and it provides additional types. Follow the steps in [PolkadotJS metadata setup](https://polkadot.js.org/docs/api/examples/promise/typegen#metadata-setup) to retrieve a node's metadata from its **HTTP** endpoint.
+Kami memerlukan metadata untuk menghasilkan endpoint API yang sesungguhnya. Dalam contoh kitty, kami menggunakan endpoint dari testnet lokal, dan menyediakan tipe tambahan. Ikuti langkah-langkah di pengaturan metadata [PolkadotJS](https://polkadot.js.org/docs/api/examples/promise/typegen#metadata-setup) untuk mengambil metadata node dari endpoint **HTTP**.
 
 ```shell
 curl -H "Content-Type: application/json" -d '{"id":"1", "jsonrpc":"2.0", "method": "state_getMetadata", "params":[]}' http://localhost:9933
 ```
-atau dari titik akhir **websocket** dengan bantuan dari [`websocat`](https://github.com/vi/websocat):
+atau dari endpoint **websocket** dengan bantuan dari [`websocat`](https://github.com/vi/websocat):
 
 ```shell
 //Instal websocat
@@ -157,7 +157,7 @@ brew install websocat
 echo state_getMetadata | websocat 'ws://127.0.0.1:9944' --jsonrpc
 ```
 
-Next, copy and paste the output to a JSON file. In our [kitty example](https://github.com/subquery/tutorials-kitty-chain), we have created `api-interface/kitty.json`.
+Selanjutnya, salin dan tempel hasilnya ke file JSON. Dalam [contoh kitty](https://github.com/subquery/tutorials-kitty-chain) kami, kami telah membuat `api-interface/kitty.json`.
 
 #### Definisi jenis
 Kami berasumsi bahwa pengguna mengetahui jenis spesifik dan dukungan RPC dari rantai, dan itu didefinisikan dalam [Manifest](./manifest.md).
@@ -204,10 +204,10 @@ export default {
 
 #### Paket
 
-- In the `package.json` file, make sure to add `@polkadot/typegen` as a development dependency and `@polkadot/api` as a regular dependency (ideally the same version). We also need `ts-node` as a development dependency to help us run the scripts.
-- Kita menambahkan script untuk menjalankan kedua jenis; `generate:defs` dan penghasil `generate:meta` metadata (dalam urutan itu, sehingga metadata bisa menggunakan jenisnya).
+- Di file `package.json`, pastikan untuk menambahkan `@polkadot/typegen` sebagai dependensi development dan `@polkadot/api` sebagai dependensi biasa (idealnya versi yang sama). Kita juga memerlukan `ts-node` sebagai dependensi development untuk membantu kita menjalankan script.
+- Kita menambahkan script untuk menjalankan kedua jenis; `generate:defs` dan metadata `generate:meta` generator (dalam urutan itu, sehingga metadata bisa menggunakan jenisnya).
 
-Here is a simplified version of `package.json`. Make sure in the **scripts** section the package name is correct and the directories are valid.
+Berikut adalah versi sederhana dari `package.json`. Pastikan di bagian **scripts** nama paketnya betul dan direktorinya valid.
 
 ```json
 {
@@ -227,31 +227,31 @@ Here is a simplified version of `package.json`. Make sure in the **scripts** sec
 }
 ```
 
-### Penghasil jenis
+### Pembuatan jenis
 
-Now that preparation is completed, we are ready to generate types and metadata. Run the commands below:
+Sekarang setelah persiapannya selesai, kita siap untuk membuat jenis dan metadata. Jalankan perintah di bawah ini:
 
 ```shell
-# Yarn untuk menginstal ketergantungan baru
+# Yarn untuk menginstal dependensi baru
 yarn
 
 # Menghasilkan jenis
 yarn generate:defs
 ```
 
-Di setiap folder modul (misalnya `/kitties`), sekarang seharusnya ada `types.ts` yang dihasilkan yang mendefinisikan semua antarmuka dari definisi modul ini, juga file `indeks.ts` yang mengekspor semuanya.
+Di setiap folder modul (misalnya `/kitties`), sekarang seharusnya ada `types.ts` yang dihasilkan yang mendefinisikan semua interface dari definisi modul ini, juga file `indeks.ts` yang mengekspor semuanya.
 
 ```shell
 # Menghasilkan metadata
 yarn generate:meta
 ```
 
-This command will generate the metadata and a new api-augment for the APIs. As we don't want to use the built-in API, we will need to replace them by adding an explicit override in our `tsconfig.json`. After the updates, the paths in the config will look like this (without the comments):
+Perintah ini akan menghasilkan metadata dan api-augment baru untuk API. Karena kami tidak ingin menggunakan API bawaan, kami perlu menggantinya dengan menambahkan penggantian eksplisit di `tsconfig.json` kami. Setelah pembaruan, path di config akan terlihat seperti ini (tanpa komentarnya):
 
 ```json
 {
   "compilerOptions": {
-      // ini adalah nama paket yang kita gunakan (in the interface imports, --package for generators) */
+      // ini adalah nama paket yang kita gunakan (di interface impor, --package untuk generator) */
       "kitty-birthinfo/*": ["src/*"],
       // di sini kita mengganti augmentasi @polkadot/api dengan milik kita sendiri, dihasilkan dari chain
       "@polkadot/api/augment": ["src/interfaces/augment-api.ts"],
@@ -263,7 +263,7 @@ This command will generate the metadata and a new api-augment for the APIs. As w
 
 ### Penggunaan
 
-Now in the mapping function, we can show how the metadata and types actually decorate the API. The RPC endpoint will support the modules and methods we declared above. And to use custom rpc call, please see section [Custom chain rpc calls](#custom-chain-rpc-calls)
+Sekarang dalam fungsi pemetaan, kita dapat menunjukkan bagaimana metadata dan tipe benar-benar menghiasi API. Endpoint RPC akan mendukung modul dan metode yang kita nyatakan di atas. Dan untuk menggunakan panggilan rpc kustom, mohon lihat bagian [Panggilan rpc chain kustom](#custom-chain-rpc-calls)
 ```typescript
 export async function kittyApiHandler(): Promise<void> {
     //mengembalikan jenis KittyIndex
@@ -280,7 +280,7 @@ export async function kittyApiHandler(): Promise<void> {
 
 ### Panggilan rpc chain kustom
 
-To support customised chain RPC calls, we must manually inject RPC definitions for `typesBundle`, allowing per-spec configuration. You can define the `typesBundle` in the `project.yml`. And please remember only `isHistoric` type of calls are supported.
+Untuk mendukung panggilan RPC chain yang dikustom, kita harus secara manual memasukkan definisi RPC untuk `typesBundle`, mengizinkan konfigurasi per-spek. Anda bisa menentukan `typesBundle` di `project.yml`. Dan harap diingat hanya jenis panggilan `isHistoric` yang didukung.
 ```yaml
 ...
   types: {
