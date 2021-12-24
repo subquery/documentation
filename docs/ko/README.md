@@ -29,7 +29,7 @@
           <div>
             <img src="/assets/img/tutorialsIcon.svg" />
             <span>튜토리얼 및 예제</span>
-            <p>Learning by doing. Tutorials and examples on how to build various SubQuery projects.</p>
+            <p>따라하기. 다양한 서브쿼리 프로젝트 개발을 위한 튜토리얼 및 예제</p>
           </div>
         </router-link>
       </li>
@@ -38,7 +38,7 @@
           <div>
             <img src="/assets/img/docsIcon.svg" />
             <span>기술 참조 문서</span>
-            <p>Written by developers for developers. Find what you need to build awesome dApps quickly.</p>
+            <p>개발자를 위한 기술 문서. 훌륭한 디앱들을 신속히 개발하기 위해 필요한 것들을 발견할 수 있습니다.</p>
           </div>
         </router-link>
       </li>
@@ -70,7 +70,7 @@
       <li>
         <div class="title">서브쿼리를 시작하는 가장 좋은 방법은 무엇입니까?</div>
         <div class="content">
-          <p>The best way to get started with SubQuery is to try out our <a href="/quickstart/helloworld-localhost/">Hello World tutorial</a>. 쿼리를 실행하는 과정을 5분 만에 쉽게 구동할 수 있습니다. 일단 스타트 템플릿을 다운로드하고 프로젝트를 빌드한 다음, Docker를 이용하여 로컬 호스트에서 노드를 실행합니다. </p>
+          <p>서브쿼리를 시작하는 가장 좋은 방법은 <a href="/quickstart/helloworld-localhost/">Hello World 튜토리얼</a>을 따라해보는 것입니다. 쿼리를 실행하는 과정을 5분 만에 쉽게 구동할 수 있습니다. 일단 스타트 템플릿을 다운로드하고 프로젝트를 빌드한 다음, Docker를 이용하여 로컬 호스트에서 노드를 실행합니다. </p>
         </div>
       </li>
       <li>
@@ -85,14 +85,14 @@
       <li>
         <div class="title">서브쿼리 프로젝트에서 내 프로젝트를 호스팅하는 데 비용이 얼마나 듭니까?</div>
         <div class="content">
-          <p>서브쿼리 프로젝트에서 프로젝트를 호스팅하는 비용은 무료입니다! 이것이 저희가 커뮤니티에 보답하는 방법입니다! To learn how to host your project with us, please check out the <a href="/quickstart/helloworld-hosted/">Hello World (SubQuery Hosted)</a> tutorial.</p>
+          <p>서브쿼리 프로젝트에서 프로젝트를 호스팅하는 비용은 무료입니다! 이것이 저희가 커뮤니티에 보답하는 방법입니다! 프로젝트를 호스팅하는 방법이 궁금하시면 <a href="/quickstart/helloworld-hosted/">Hello World(SubQuery Hosted)</a> 튜토리얼을 참조해주세요.</p>
           <span class="more">
-            <router-link :to="{path: '/publish/publish/'}">HOSTING YOUR PROJECT</router-link>
+            <router-link :to="{path: '/publish/publish/'}">프로젝트 호스팅하기</router-link>
           </span>
         </div>
       </li>
     </ul><br>
-    For further frequently asked questions, please see our <router-link :to="{path: '/faqs/faqs/'}">FAQ's</router-link> page.    
+    추가적인 자주 묻는 질문을 원하신다면, <router-link :to="{path: '/faqs/faqs/'}">자주 묻는 질문</router-link> 페이지를 확인해주세요.    
   </div>
 </section>
 <section class="main">
