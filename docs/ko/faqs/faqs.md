@@ -60,4 +60,4 @@ Polkadot 네트워크의 network.endpoint는 `wss://polkadot.api.onfinality.io/p
 subql-node -f . --force-clean --subquery-name=<project-name>
 ```
 
-Note that it is recommended to use `--force-clean` when changing the `startBlock` within the project manifest (`project.yaml`) in order to begin reindexing from the configured block. If `startBlock` is changed without a `--force-clean` of the project then the indexer will continue indexing with the previously configured `startBlock`.
+설정된 블록으로부터 재인덱싱을 시작하기 위해서 프로젝트 manifest(`project.yaml`) 내의 `startBlock` 를 변경할 때는 `--force-clean` 를 사용하세요. 만약 `startBlock`이 프로젝트의 `--force-clean` 없이 변경된다면 인덱서는 이전에 설정된 `startBlock`없이 인덱싱을 계속할 것입니다.
