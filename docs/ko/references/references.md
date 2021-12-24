@@ -85,21 +85,21 @@ batchSize: 55 // Optional config
 
 ### --local
 
-This flag is primarily used for debugging purposes where it creates the default starter_entity table in the default "postgres" schema.
+이 플래그는 주로 기본 "postgres" 스키마의 starter_entity table 디버깅 목적으로 사용됩니다.
 
 ```shell
 subql-node -f . --local
 ```
 
-Note that once you use this flag, removing it won't mean that it will point to another database. To repoint to another database you will have to create a NEW database and change the env settings to this new database. In other words, "export DB_DATABASE=<new_db_here>"
+이 플래그를 사용할 때, 플래그를 제거하는 것이 다른 데이터베이스를 포인팅하는 것은 아닙니다. 다른 데이터베이스를 재 포인팅하기 위해서 여러분은 새로운 데이터베이스를 만들고 환경설정을 새로운 데이터베이스로 재설정해야만 합니다. 다르게 말하면, "export DB_DATABASE=<new_db_here>"
 
 ### --force-clean
 
-This flag forces the project schemas and tables to be regenerated, helpful to use when iteratively developing graphql schemas such that new runs of the project are always working with a clean state. Note that this flag will also wipe all indexed data.
+이 플래그는 프로젝트 스키마와 테이블이 재생성되도록 해주고, 프로젝트가 항상 정상조건으로 작동하는 등 연속적인 graphql 개발에 도움을 줍니다. 이 플래그는 또한 인덱싱된 모든 데이터를 처리해줄 것입니다.
 
 ### --batch-size
 
-This flag allows you to set the batch size in the command line. If batch size is also set in the config file, this takes precedent.
+이 플래그는 커맨드 라인에서 배치크기를 세팅할 수 있게 해줍니다. 만약 배치 사이즈가 config file에서 설정된다면, 선행될 것입니다.
 
 ```shell
 > subql-node -f . --batch-size=20
