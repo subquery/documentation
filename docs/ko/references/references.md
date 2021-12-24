@@ -153,7 +153,7 @@ An instance of ProjectManifestImpl has failed the validation:
 
 ### --output-fmt
 
-터미널 출력에는 두가지 다른 형식이 있습니다. JSON 과 colored 입니다. Colored is the default and contains colored text.
+터미널 출력에는 두가지 다른 형식이 있습니다. JSON 과 colored 입니다. Colored는 기본 값이며 colored text를 포함합니다.
 
 ```shell
 > subql-node -f . --output-fmt=json
@@ -170,7 +170,7 @@ An instance of ProjectManifestImpl has failed the validation:
 
 ### --log-level
 
-There are 7 options to choose from. “fatal”, “error”, “warn”, “info”, “debug”, “trace”, “silent”. The example below shows silent. Nothing will be printed in the terminal so the only way to tell if the node is working or not is to query the database for row count (select count(\*) from subquery_1.starter_entities) or query the block height.
+다음 일곱가지 옵션 중에서 선택할 수 있습니다. “fatal”, “error”, “warn”, “info”, “debug”, “trace”, “silent”. The example below shows silent. Nothing will be printed in the terminal so the only way to tell if the node is working or not is to query the database for row count (select count(\*) from subquery_1.starter_entities) or query the block height.
 
 ```shell
 > subql-node -f . --log-level=silent
