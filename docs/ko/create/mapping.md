@@ -1,16 +1,16 @@
 # 맵핑
 
-매핑 기능는 체인데이터를 이전 `schema.graphql` 파일에 정의한 최적화된 GraphQL 엔티티로 변환하는 방법을 정의합니다.
+맵핑 기능은 체인데이터를 앞서 `schema.graphql` 파일에서 정의했었던 최적화된 GraphQL 엔티티로 변환하는 방법을 정의합니다.
 
-- 매핑은 `src/mappings` 디렉토리에 정의되며 기능로 내보냅니다.
-- 이들 매핑도 `src/index.ts`으로 수출 됩니다.
-- 매핑 파일은 매핑 핸들러의 `project.yaml`으로 참조됩니다.
+- 맵핑은 `src/mappings` 디렉토리에 정의되어 있으며 함수로 호출됩니다.
+- 이러한 맵핑은 `src/index.ts`으로도 내보내집니다.
+- 맵핑 파일은 맵핑 핸들러의 `project.yaml`에 있는 참조입니다.
 
-There are three classes of mappings functions; [Block handlers](#block-handler), [Event Handlers](#event-handler), and [Call Handlers](#call-handler).
+맵핑 기능에는 [Block handlers](#block-handler), [Event Handlers](#event-handler), 그리고 [Call Handlers](#call-handler)의 3 개 클래스로 구분됩니다.
 
 ## 블록 핸들러
 
-You can use block handlers to capture information each time a new block is attached to the Substrate chain, e.g. block number. To achieve this, a defined BlockHandler will be called once for every block.
+블록 핸들러를 사용하여 새로운 블록이 Substrate 체인에 접속될 때마다 정보를 캡처할 수 있습니다, 예: 블록 번호. 이를 위해서는 정의된 블록 핸들러를 매 블록마다 1회 호출해야 합니다.
 
 ```ts
 import {SubstrateBlock} from "@subql/types";
@@ -23,13 +23,13 @@ export async function handleBlock(block: SubstrateBlock): Promise<void> {
 }
 ```
 
-A [SubstrateBlock](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L16) is an extended interface type of [signedBlock](https://polkadot.js.org/docs/api/cookbook/blocks/), but also includes the `specVersion` and `timestamp`.
+[SubstrateBlock](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L16) 은 [signedBlock](https://polkadot.js.org/docs/api/cookbook/blocks/) 의 확장 인터페이스 타입 이지만, `specVersion` 및 `타임스탬프` 도 갖추고 있습니다.
 
 ## 이벤트 핸들러
 
-You can use event handlers to capture information when certain events are included on a new block. The events that are part of the default Substrate runtime and a block may contain multiple events.
+이벤트 핸들러를 사용하여 특정 이벤트가 새 블록에 포함될 때 정보를 캡처할 수 있습니다. 디폴트 Substrate 런타임 및 블록의 일부인 이벤트에는 여러 이벤트가 포함될 수 있습니다.
 
-During the processing, the event handler will receive a substrate event as an argument with the event's typed inputs and outputs. Any type of event will trigger the mapping, allowing activity with the data source to be captured. You should use [Mapping Filters](./manifest.md#mapping-filters) in your manifest to filter events to reduce the time it takes to index data and improve mapping performance.
+처리중에 이벤트 핸들러는 이벤트 입력 및 출력을 가진 인자로서 Substrate 이벤트를 수신합니다. 임의의 유형의 이벤트가 맵핑을 트리거하고 데이터 원본에서의 액티비티를 캡처할 수 있습니다. 데이터 인덱싱 소요시간 단축 및 맵핑 성능 향상을 위해 이벤트를 필터링할 때는 매니페스트의 [Mapping Filters](./manifest.md#mapping-filters)을 사용해야 합니다.
 
 ```ts
 import {SubstrateEvent} from "@subql/types";
