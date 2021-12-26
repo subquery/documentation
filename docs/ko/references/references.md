@@ -192,7 +192,7 @@ An instance of ProjectManifestImpl has failed the validation:
 
 ### --timestamp-field
 
-By default this is true. when set to false with:
+디폴트 값으로 true를 갖습니다. 값이 false로 설정된 경우:
 
 ```shell
 > subql-node -f . –timestamp-field=false
@@ -243,7 +243,7 @@ ns:
 
 ### -n, --name
 
-This flag is used to start the query service. If the --subquery-name flag is not provided when running an indexer, the name here will refer to the default project name. If --subquery-name is set, then the name here should match what was set.
+이 플래그는 쿼리 서비스 시작을 위해 사용됩니다. 인덱서를 실행할 때 --subquery-name 플래그가 제공되지 않는다면 name은 기본 프로젝트 이름과 같을 것입니다. --subquery-name이 설정된 경우, name은 설정된 값으로 매칭됩니다.
 
 ```shell
 > subql-node -f . // --subquery-name not set
@@ -259,14 +259,14 @@ This flag is used to start the query service. If the --subquery-name flag is not
 
 ### --playground
 
-This flag enables the graphql playground so should always be included by default to be of any use.
+이 플래그는 graphql playground를 활성화하므로 어떤 용도로든 기본적으로 항상 포함되어야 합니다.
 
 ### --output-fmt
 
-See [--output-fmt](https://doc.subquery.network/references/references.html#output-fmt)
+[--output-fmt](https://doc.subquery.network/references/references.html#output-fmt)을 확인해보세요.
 
 ### --log-level
 
-See [--log-level](https://doc.subquery.network/references/references.html#log-level)
+[--log-level](https://doc.subquery.network/references/references.html#log-level)을 확인해보세요.
 
 <!-- ### --indexer TBA -->
