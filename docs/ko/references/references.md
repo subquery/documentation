@@ -170,7 +170,7 @@ An instance of ProjectManifestImpl has failed the validation:
 
 ### --log-level
 
-다음 일곱가지 옵션 중에서 선택할 수 있습니다. “fatal”, “error”, “warn”, “info”, “debug”, “trace”, “silent”. The example below shows silent. Nothing will be printed in the terminal so the only way to tell if the node is working or not is to query the database for row count (select count(\*) from subquery_1.starter_entities) or query the block height.
+다음 일곱가지 옵션 중에서 선택할 수 있습니다. “fatal”, “error”, “warn”, “info”, “debug”, “trace”, “silent”. 다음 예제는 silent를 보여줍니다. Nothing will be printed in the terminal so the only way to tell if the node is working or not is to query the database for row count (select count(\*) from subquery_1.starter_entities) or query the block height.
 
 ```shell
 > subql-node -f . --log-level=silent
@@ -184,7 +184,7 @@ An instance of ProjectManifestImpl has failed the validation:
 (node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
 (node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
 (node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
-(node:24686) [DEP0152] DeprecationWarning: Custom PerformanceEntry accessors are deprecated. Please use the detail property.
+(node:24686) [DEP0152] DeprecationWarning: Custom PerformanceEntry accessors are deprecated. 상세한 대상의 변수를 사용하세요.
 (node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
 ```
 
