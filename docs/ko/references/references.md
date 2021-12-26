@@ -113,7 +113,7 @@ subql-node -f . --local
 
 ### --debug
 
-This outputs debug information to the console output and forcefully sets the log level to debug.
+이는 디버그 정보를 콘솔 출력으로 출력하고 로그 레벨을 디버그로 강제 설정합니다.
 
 ```shell
 > subql-node -f . --debug
@@ -170,7 +170,7 @@ An instance of ProjectManifestImpl has failed the validation:
 
 ### --log-level
 
-다음 일곱가지 옵션 중에서 선택할 수 있습니다. “fatal”, “error”, “warn”, “info”, “debug”, “trace”, “silent”. 다음 예제는 silent를 보여줍니다. Nothing will be printed in the terminal so the only way to tell if the node is working or not is to query the database for row count (select count(\*) from subquery_1.starter_entities) or query the block height.
+다음 일곱가지 옵션 중에서 선택할 수 있습니다. “fatal”, “error”, “warn”, “info”, “debug”, “trace”, “silent”. 다음 예제는 silent를 보여줍니다. 터미널에 아무 것도 출력되지 않으므로 노드의 작동 여부를 알 수 있는 유일한 방법은 데이터베이스에 행 수를 쿼리하거나(subquery_1.starter_entities에서 count(\*) 선택) 블록 높이를 쿼리하는 것입니다.
 
 ```shell
 > subql-node -f . --log-level=silent
@@ -198,19 +198,19 @@ An instance of ProjectManifestImpl has failed the validation:
 > subql-node -f . –timestamp-field=false
 ```
 
-This removes the created_at and updated_at columns in the starter_entities table.
+그러면 starter_entities 테이블에서 created_at 및 updated_at 열이 제거됩니다.
 
 ### -d, --network-dictionary
 
-This allows you to specify a dictionary endpoint which is a free service that is provided and hosted at: [https://explorer.subquery.network/](https://explorer.subquery.network/) (search for dictionary) and presents an API endpoint of: https://api.subquery.network/sq/subquery/dictionary-polkadot
+이를 통해 [https://explorer.subquery.network/](https://explorer.subquery.network/)(사전 검색)에서 제공 및 호스팅되는 무료 서비스인 사전 엔드포인트을 지정할 수 있으며 다음 API 엔드포인트 https://api.subquery.network/sq/subquery/dictionary-polkadot을 제공합니다.
 
-Typically this would be set in your manifest file but below shows an example of using it as an argument in the command line.
+일반적으로 이것은 매니페스트 파일에 설정되지만 다음은 명령줄에서 인자로 사용하는 예를 보입니다.
 
 ```shell
 subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot"
 ```
 
-[Read more about how a SubQuery Dictionary works](../tutorials_examples/dictionary.md).
+[SubQuery 사전 작동 방식에 대해 자세히 알아보기](../tutorials_examples/dictionary.md)
 
 ## subql-query
 
