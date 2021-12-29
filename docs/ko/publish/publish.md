@@ -1,20 +1,20 @@
-# Publish your SubQuery Project
+# 여러분의 서브쿼리 프로젝트를 퍼블리싱 하세요
 
-## Benefits of hosting your project with SubQuery
-- We'll run your SubQuery projects for you in a high performance, scalable, and managed public service
-- This service is being provided to the community for free!
-- You can make your projects public so that they'll be listed in the [SubQuery Explorer](https://explorer.subquery.network) and anyone around the world can view them
-- We're integrated with GitHub, so anyone in your GitHub organisations will be able to view shared organisation projects
+## 서브쿼리를 이용하여 프로젝트를 호스팅하는 것의 이점
+- 서브쿼리 프로젝트를 고성능, 확장성, 관리성 높은 공공서비스로 실행합니다.
+- 이 서비스는 커뮤니티에 무료로 제공되고 있어요!
+- 프로젝트를 퍼블리싱하고 [SubQuery Explorer](https://explorer.subquery.network) 에 등록할 수 있으며 누구나 프로젝트를 참조할 수 있습니다.
+- 저희는 깃허브과 통합이 되어 있으므로 깃허브에서 누구나 공유된 프로젝트를 볼 수 있습니다.
 
-## Create your First Project
+## 첫번째 프로젝트 생성
 
-#### Login to SubQuery Projects
+#### 서브쿼리 프로젝트에 로그인
 
-Before starting, please make sure that your SubQuery project is online in a public GitHub repository. The `schema.graphql` file must be in the root of your directory.
+시작하기 전, 여러분의 서브쿼리 프로젝트가 깃허브 저장소에 온라인 되어있는지 확인하세요. `schema.graphql` 파일은 반드시 디렉토리에 있어야 합니다.
 
-To create your first project, head to [project.subquery.network](https://project.subquery.network). You'll need to authenticate with your GitHub account to login.
+첫 번째 프로젝트를 생성하려면 [project.subquery.network](https://project.subquery.network)로 이동합니다. 로그인을 하려면 깃허브 계정으로 인증해야 합니다.
 
-On first login, you will be asked to authorize SubQuery. We only need your email address to identify your account, and we don't use any other data from your GitHub account for any other reasons. In this step, you can also request or grant access to your GitHub Organization account so you can post SubQuery projects under your GitHub Organization instead of your personal account.
+최초 로그인 후 SubQuery를 허용하도록 요청됩니다. 여러분의 계정을 식별하기 위해 이메일 주소가 필요하며, 그 외의 다른 깃허브 계정 데이터는 사용하지 않습니다. In this step, you can also request or grant access to your GitHub Organization account so you can post SubQuery projects under your GitHub Organization instead of your personal account.
 
 ![Revoke approval from a GitHub account](/assets/img/project_auth_request.png)
 
@@ -26,7 +26,7 @@ If you have a GitHub Organization accounts connected, you can use the switcher o
 
 ![Switch between GitHub accounts](/assets/img/projects-account-switcher.png)
 
-#### Create your First Project
+#### 첫번째 프로젝트 생성
 
 Let's start by clicking on "Create Project". You'll be taken to the New Project form. Please enter the following (you can change this in the future):
 - **GitHub account:** If you have more than one GitHub account, select which account this project will be created under. Projects created in a GitHub organisation account are shared between members in that organisation.
