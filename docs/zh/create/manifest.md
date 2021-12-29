@@ -4,7 +4,77 @@
 
 该清单文件可以是YAML或JSON格式。 在本文档中，我们将在所有示例中使用YAML格式。 下面是`project.yaml`文件的标准示例。
 
-<CodeGroup> <CodeGroupItem title="v0.2.0" active> ``` yml specVersion: 0.2.0 name: example-project # Provide the project name version: 1.0.0  # Project version description: '' # Description of your project repository: 'https://github.com/subquery/subql-starter' # Git repository address of your project schema: file: ./schema.graphql # The location of your GraphQL schema file network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' # Genesis hash of the network endpoint: 'wss://polkadot.api.onfinality.io/public-ws' # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing dictionary: 'https://api.subquery.network/sq/subquery/dictionary-polkadot' dataSources: - kind: substrate/Runtime startBlock: 1 # This changes your indexing start block, set this higher to skip initial blocks with less data mapping: file: "./dist/index.js" handlers: - handler: handleBlock kind: substrate/BlockHandler - handler: handleEvent kind: substrate/EventHandler filter: #Filter is optional module: balances method: Deposit - handler: handleCall kind: substrate/CallHandler ```` </CodeGroupItem> <CodeGroupItem title="v0.0.1"> ``` yml specVersion: "0.0.1" description: '' # Description of your project repository: 'https://github.com/subquery/subql-starter' # Git repository address of your project schema: ./schema.graphql # The location of your GraphQL schema file network: endpoint: 'wss://polkadot.api.onfinality.io/public-ws' # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing dictionary: 'https://api.subquery.network/sq/subquery/dictionary-polkadot' dataSources: - name: main kind: substrate/Runtime startBlock: 1 # This changes your indexing start block, set this higher to skip initial blocks with less data mapping: handlers: - handler: handleBlock kind: substrate/BlockHandler - handler: handleEvent kind: substrate/EventHandler filter: #Filter is optional but suggested to speed up event processing module: balances method: Deposit - handler: handleCall kind: substrate/CallHandler ```` </CodeGroupItem> </CodeGroup>
+<CodeGroup>
+  <CodeGroupItem title="v0.2.0" active>
+  
+``` yml
+specVersion: 0.2.0
+name: example-project # Provide the project name
+version: 1.0.0  # Project version
+description: '' # Description of your project
+repository: 'https://github.com/subquery/subql-starter' # Git repository address of your project
+
+schema:
+  file: ./schema.graphql # The location of your GraphQL schema file
+
+network:
+  genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' # Genesis hash of the network
+  endpoint: 'wss://polkadot.api.onfinality.io/public-ws'
+  # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
+  dictionary: 'https://api.subquery.network/sq/subquery/dictionary-polkadot'
+
+dataSources:
+  - kind: substrate/Runtime
+    startBlock: 1 # This changes your indexing start block, set this higher to skip initial blocks with less data
+    mapping:
+      file: "./dist/index.js"
+      handlers:
+        - handler: handleBlock
+          kind: substrate/BlockHandler
+        - handler: handleEvent
+          kind: substrate/EventHandler
+          filter: #Filter is optional
+            module: balances
+            method: Deposit
+        - handler: handleCall
+          kind: substrate/CallHandler
+````
+  </CodeGroupItem>
+
+  <CodeGroupItem title="v0.0.1">
+  
+``` yml
+specVersion: "0.0.1"
+description: '' # Description of your project
+repository: 'https://github.com/subquery/subql-starter' # Git repository address of your project
+
+schema: ./schema.graphql # The location of your GraphQL schema file
+
+network:
+  endpoint: 'wss://polkadot.api.onfinality.io/public-ws'
+  # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
+  dictionary: 'https://api.subquery.network/sq/subquery/dictionary-polkadot'
+
+dataSources:
+  - name: main
+    kind: substrate/Runtime
+    startBlock: 1 # This changes your indexing start block, set this higher to skip initial blocks with less data
+    mapping:
+      handlers:
+        - handler: handleBlock
+          kind: substrate/BlockHandler
+        - handler: handleEvent
+          kind: substrate/EventHandler
+          filter: #Filter is optional but suggested to speed up event processing
+            module: balances
+            method: Deposit
+        - handler: handleCall
+          kind: substrate/CallHandler
+````
+
+  </CodeGroupItem>
+</CodeGroup>
+
 
 ## 从v0.0.1迁移到v0.2.0
 
@@ -150,8 +220,46 @@ filter:
 
 在 v0.2.0 示例中， `网络。 hainintypes` 指向一个包含所有自定义类型的文件。 这是一个标准的链条文件，用 `声明此区块链支持的特定类型。 son` 或 `.yaml` 格式。
 
-<CodeGroup> <CodeGroupItem title="v0.2.0" active> ``` yml network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' endpoint: 'ws://host.kittychain.io/public-ws' chaintypes: file: ./types.json # The relative filepath to where custom types are stored ... ``` </CodeGroupItem>
-<CodeGroupItem title="v0.0.1"> ``` yml ... <CodeGroupItem title="v0.2.0" active> ``` yml network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' endpoint: 'ws://host.kittychain.io/public-ws' chaintypes: file: ./types.json # The relative filepath to where custom types are stored ... ``` </CodeGroupItem> <CodeGroupItem title="v0.0.1"> ``` yml ... network: endpoint: "ws://host.kittychain.io/public-ws" types: { "KittyIndex": "u32", "Kitty": "[u8; 16]" } # typesChain: { chain: { Type5: 'example' } } # typesSpec: { spec: { Type6: 'example' } } dataSources: - name: runtime kind: substrate/Runtime startBlock: 1 filter:  #Optional specName: kitty-chain mapping: handlers: - handler: handleKittyBred kind: substrate/CallHandler filter: module: kitties method: breed success: true ``` </CodeGroupItem> </CodeGroup>< 3 >自定义数据源> < / 3
+<CodeGroup>
+  <CodeGroupItem title="v0.2.0" active>
+``` yml
+network:
+  genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3'
+  endpoint: 'ws://host.kittychain.io/public-ws'
+  chaintypes:
+    file: ./types.json # The relative filepath to where custom types are stored
+...
+```
+  </CodeGroupItem>
+
+  <CodeGroupItem title="v0.0.1">
+``` yml
+...
+network:
+  endpoint: "ws://host.kittychain.io/public-ws"
+  types: {
+    "KittyIndex": "u32",
+    "Kitty": "[u8; 16]"
+  }
+# typesChain: { chain: { Type5: 'example' } }
+# typesSpec: { spec: { Type6: 'example' } }
+dataSources:
+  - name: runtime
+    kind: substrate/Runtime
+    startBlock: 1
+    filter:  #Optional
+      specName: kitty-chain 
+    mapping:
+      handlers:
+        - handler: handleKittyBred
+          kind: substrate/CallHandler
+          filter:
+            module: kitties
+            method: breed
+            success: true
+```
+  </CodeGroupItem>
+</CodeGroup>
 
 自定义数据源提供了特定于网络的功能，使处理数据更容易。 它们充当中间件，可以提供额外的过滤和数据转换 一个很好的例子就是对EVM的支持，拥有一个自定义的EVM数据源处理器意味着你可以在EVM级别进行过滤(例如过滤合约方法或日志)，数据被转换成熟悉以太坊生态系统的结构，并使用ABIs解析参数
 
@@ -170,6 +278,36 @@ filter:
 
 下方示例是Polkadot和Kusama网络中不同的数据源。
 
-<CodeGroup> <CodeGroupItem title="v0.0.1"> ```yaml --- network: endpoint: 'wss://polkadot.api.onfinality.io/public-ws' #Create a template to avoid redundancy definitions: mapping: &mymapping handlers: - handler: handleBlock kind: substrate/BlockHandler dataSources: - name: polkadotRuntime kind: substrate/Runtime filter: #Optional specName: polkadot startBlock: 1000 mapping: *mymapping #use template here - name: kusamaRuntime kind: substrate/Runtime filter: specName: kusama startBlock: 12000 mapping: *mymapping # can reuse or change ``` </CodeGroupItem>
+<CodeGroup>
+  <CodeGroupItem title="v0.0.1">
+
+```yaml
+---
+network:
+  endpoint: 'wss://polkadot.api.onfinality.io/public-ws'
+
+#Create a template to avoid redundancy
+definitions:
+  mapping: &mymapping
+    handlers:
+      - handler: handleBlock
+        kind: substrate/BlockHandler
+
+dataSources:
+  - name: polkadotRuntime
+    kind: substrate/Runtime
+    filter: #Optional
+      specName: polkadot
+    startBlock: 1000
+    mapping: *mymapping #use template here
+  - name: kusamaRuntime
+    kind: substrate/Runtime
+    filter:
+      specName: kusama
+    startBlock: 12000
+    mapping: *mymapping # can reuse or change
+```
+
+  </CodeGroupItem>
 
 </CodeGroup>
