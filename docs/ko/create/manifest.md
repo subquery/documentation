@@ -18,13 +18,13 @@ Manifest `project.yaml` 파일은 프로젝트의 시작점으로 볼 수 있으
 `dataSources` 기반:
 
 - 매핑 핸들러에 대한 `index.js` 엔트리 포인트는 직접 연결할 수 있습니다. 기본적으로 이 `index.js`는 빌드 프로세스 중 `index.ts`에서 생성됩니다.
-- Data sources can now be either a regular runtime data source or [custom data source](#custom-data-sources).
+- 이제 데이터 소스는 일반 런타임 데이터 소스 또는 [커스텀 데이터 소스](#custom-data-sources)가 될 수 있습니다.
 
 ### CLI 옵션
 
-While the v0.2.0 spec version is in beta, you will need to explicitly define it during project initialisation by running `subql init --specVersion 0.2.0 PROJECT_NAME`
+현재 v0.2.0 사양 버전은 베타 버전이나, 프로젝트 초기화 과정에서 `subql init --specVersion 0.2.0 PROJECT_NAME`을 실행하여 에 이를 명시적으로 정의해야 합니다.
 
-`subql migrate` can be run in an existing project to migrate the project manifest to the latest version.
+`subql migrate`는 기존 프로젝트에서 실행하여 프로젝트 Manifest를 최신 버전으로 마이그레이션할 수 있습니다.
 
 | 옵션             | 설명                                          |
 | -------------- | ------------------------------------------- |
@@ -36,16 +36,16 @@ While the v0.2.0 spec version is in beta, you will need to explicitly define it 
 
 ### 상위레벨 스펙
 
-| 필드              | v0.0.1                              | v0.2.0                      | 설명                                                         |
-| --------------- | ----------------------------------- | --------------------------- | ---------------------------------------------------------- |
-| **specVersion** | String                              | String                      | `0.0.1` or `0.2.0` - the spec version of the manifest file |
-| **name**        | 𐄂                                   | String                      | 프로젝트명                                                      |
-| **version**     | 𐄂                                   | String                      | 프로젝트 버전                                                    |
-| **description** | String                              | String                      | 프로젝트 설명                                                    |
-| **repository**  | String                              | String                      | Git repository address of your project                     |
-| **schema**      | String                              | [Schema Spec](#schema-spec) | The location of your GraphQL schema file                   |
-| **network**     | [Network Spec](#network-spec)       | Network Spec                | Detail of the network to be indexed                        |
-| **dataSources** | [DataSource Spec](#datasource-spec) | DataSource Spec             |                                                            |
+| 필드              | v0.0.1                              | v0.2.0                      | 설명                                       |
+| --------------- | ----------------------------------- | --------------------------- | ---------------------------------------- |
+| **specVersion** | String                              | String                      | `0.0.1` 또는 `0.2.0` - Manifest 파일의 사양 버전  |
+| **name**        | 𐄂                                   | String                      | 프로젝트명                                    |
+| **version**     | 𐄂                                   | String                      | 프로젝트 버전                                  |
+| **description** | String                              | String                      | 프로젝트 설명                                  |
+| **repository**  | String                              | String                      | Git repository address of your project   |
+| **schema**      | String                              | [Schema Spec](#schema-spec) | The location of your GraphQL schema file |
+| **network**     | [Network Spec](#network-spec)       | Network Spec                | Detail of the network to be indexed      |
+| **dataSources** | [DataSource Spec](#datasource-spec) | DataSource Spec             |                                          |
 
 ### Schema Spec
 
