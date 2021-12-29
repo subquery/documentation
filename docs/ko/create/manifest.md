@@ -1,47 +1,47 @@
 # Manifest 파일
 
-Manifest `project.yaml` 파일은 프로젝트의 시작점으로 볼 수 있으며 서브쿼리가 가 체인 데이터를 인덱스화 및 변환하는 방법에 대한 대부분의 세부사항에 대한 부분을 정의하게 됩니다.
+Manifest `project.yaml` 파일은 프로젝트의 시작점으로 볼 수 있으며 서브쿼리가 체인 데이터를 인덱스화 및 변환하는 방법에 대한 대부분의 세부사항을 정의합니다.
 
-매니페스트는 YAML 또는 JSON 형식일 수 있습니다. 이 문서에서는 모든 예제에서 YAML을 사용합니다. 다음은 기본`project.yaml`의 표준 예시입니다.
+매니페스트는 YAML 또는 JSON 형식일 수 있습니다. 이 문서의 모든 예제는 YAML을 기준으로 합니다. 다음은 기본 `project.yaml`의 표준 예시입니다.
 
 <CodeGroup> <CodeGroupItem title="v0.2.0" active> ``` yml specVersion: 0.2.0 name: example-project # Provide the project name version: 1.0.0  # Project version description: '' # Description of your project repository: 'https://github.com/subquery/subql-starter' # Git repository address of your project schema: file: ./schema.graphql # The location of your GraphQL schema file network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' # Genesis hash of the network endpoint: 'wss://polkadot.api.onfinality.io/public-ws' # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing dictionary: 'https://api.subquery.network/sq/subquery/dictionary-polkadot' dataSources: - kind: substrate/Runtime startBlock: 1 # This changes your indexing start block, set this higher to skip initial blocks with less data mapping: file: "./dist/index.js" handlers: - handler: handleBlock kind: substrate/BlockHandler - handler: handleEvent kind: substrate/EventHandler filter: #Filter is optional module: balances method: Deposit - handler: handleCall kind: substrate/CallHandler ```` </CodeGroupItem> <CodeGroupItem title="v0.0.1"> ``` yml specVersion: "0.0.1" description: '' # Description of your project repository: 'https://github.com/subquery/subql-starter' # Git repository address of your project schema: ./schema.graphql # The location of your GraphQL schema file network: endpoint: 'wss://polkadot.api.onfinality.io/public-ws' # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing dictionary: 'https://api.subquery.network/sq/subquery/dictionary-polkadot' dataSources: - name: main kind: substrate/Runtime startBlock: 1 # This changes your indexing start block, set this higher to skip initial blocks with less data mapping: handlers: - handler: handleBlock kind: substrate/BlockHandler - handler: handleEvent kind: substrate/EventHandler filter: #Filter is optional but suggested to speed up event processing module: balances method: Deposit - handler: handleCall kind: substrate/CallHandler ```` </CodeGroupItem> </CodeGroup>
 
-## Migrating from v0.0.1 to v0.2.0 <Badge text="upgrade" type="warning"/>
+## v0.0.1에서 v0.2.0으로 업그레이드<Badge text="upgrade" type="warning"/>
 
-**If you have a project with specVersion v0.0.1, you can use `subql migrate` to quickly upgrade. [See here](#cli-options) for more information**
+**specVersion v0.0.1에 따른 프로젝트의 경우, `subql migrate`을 통해 빠른 업그레이드가 가능합니다. 보다 많은 정보를 원하신다면, [이곳을](#cli-options) 참조해주십시오.**
 
-Under `network`:
+`network` 기반:
 
-- There is a new **required** `genesisHash` field which helps to identify the chain being used.
-- For v0.2.0 and above, you are able to reference an external [chaintype file](#custom-chains) if you are referencing a custom chain.
+- 사용 중인 체인 식별에 도움을 줄 수 있는 새로운 **요구되는** `genesisHas` 필드가 있습니다.
+- v0.2.0 이상에서 사용자 지정 체인을 참조하는 경우에는 외부 [chaintype 파일](#custom-chains)을 참조할 수 있습니다.
 
-Under `dataSources`:
+`dataSources` 기반:
 
-- Can directly link an `index.js` entry point for mapping handlers. By default this `index.js` will be generated from `index.ts` during the build process.
+- 매핑 핸들러에 대한 `index.js` 엔트리 포인트는 직접 연결할 수 있습니다. 기본적으로 이 `index.js`는 빌드 프로세스 중 `index.ts`에서 생성됩니다.
 - Data sources can now be either a regular runtime data source or [custom data source](#custom-data-sources).
 
-### CLI Options
+### CLI 옵션
 
 While the v0.2.0 spec version is in beta, you will need to explicitly define it during project initialisation by running `subql init --specVersion 0.2.0 PROJECT_NAME`
 
 `subql migrate` can be run in an existing project to migrate the project manifest to the latest version.
 
-| Options        | Description                                                |
-| -------------- | ---------------------------------------------------------- |
-| -f, --force    |                                                            |
-| -l, --location | local folder to run migrate in (must contain project.yaml) |
-| --file=file    | to specify the project.yaml to migrate                     |
+| 옵션             | 설명                                          |
+| -------------- | ------------------------------------------- |
+| -f, --force    |                                             |
+| -l, --location | 마이그레이션을 실행할 로컬 폴더 (반드시 project.yaml 포함해야 함) |
+| --file=file    | 마이그레이션할 project.yaml을 지정                    |
 
-## Overview
+## 개요
 
-### Top Level Spec
+### 상위레벨 스펙
 
-| Field           | v0.0.1                              | v0.2.0                      | Description                                                |
+| 필드              | v0.0.1                              | v0.2.0                      | 설명                                                         |
 | --------------- | ----------------------------------- | --------------------------- | ---------------------------------------------------------- |
 | **specVersion** | String                              | String                      | `0.0.1` or `0.2.0` - the spec version of the manifest file |
-| **name**        | 𐄂                                   | String                      | Name of your project                                       |
-| **version**     | 𐄂                                   | String                      | Version of your project                                    |
-| **description** | String                              | String                      | Discription of your project                                |
+| **name**        | 𐄂                                   | String                      | 프로젝트명                                                      |
+| **version**     | 𐄂                                   | String                      | 프로젝트 버전                                                    |
+| **description** | String                              | String                      | 프로젝트 설명                                                    |
 | **repository**  | String                              | String                      | Git repository address of your project                     |
 | **schema**      | String                              | [Schema Spec](#schema-spec) | The location of your GraphQL schema file                   |
 | **network**     | [Network Spec](#network-spec)       | Network Spec                | Detail of the network to be indexed                        |
@@ -49,13 +49,13 @@ While the v0.2.0 spec version is in beta, you will need to explicitly define it 
 
 ### Schema Spec
 
-| Field    | v0.0.1 | v0.2.0 | Description                              |
+| 필드       | v0.0.1 | v0.2.0 | 설명                                       |
 | -------- | ------ | ------ | ---------------------------------------- |
 | **file** | 𐄂      | String | The location of your GraphQL schema file |
 
 ### Network Spec
 
-| Field           | v0.0.1 | v0.2.0        | Description                                                                                                                                                                                                |
+| 필드              | v0.0.1 | v0.2.0        | 설명                                                                                                                                                                                                         |
 | --------------- | ------ | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **genesisHash** | 𐄂      | String        | The genesis hash of the network                                                                                                                                                                            |
 | **endpoint**    | String | String        | Defines the wss or ws endpoint of the blockchain to be indexed - **This must be a full archive node**. You can retrieve endpoints for all parachains for free from [OnFinality](https://app.onfinality.io) |
@@ -65,7 +65,7 @@ While the v0.2.0 spec version is in beta, you will need to explicitly define it 
 ### Datasource Spec
 
 Defines the data that will be filtered and extracted and the location of the mapping function handler for the data transformation to be applied.
-| Field          | v0.0.1                                                    | v0.2.0                                                                           | Description                                                                                                                                                                           |
+| 필드             | v0.0.1                                                    | v0.2.0                                                                           | 설명                                                                                                                                                                                    |
 | -------------- | --------------------------------------------------------- | -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **name**       | String                                                    | 𐄂                                                                                | Name of the data source                                                                                                                                                               |
 | **kind**       | [substrate/Runtime](./manifest/#data-sources-and-mapping) | substrate/Runtime, [substrate/CustomDataSource](./manifest/#custom-data-sources) | We supports data type from default substrate runtime such as block, event and extrinsic(call). <br /> From v0.2.0, we support data from custom runtime, such as smart contract. |
@@ -75,7 +75,7 @@ Defines the data that will be filtered and extracted and the location of the map
 
 ### Mapping Spec
 
-| Field                  | v0.0.1                                                                   | v0.2.0                                                                                        | Description                                                                                                                                                                                                                                  |
+| 필드                     | v0.0.1                                                                   | v0.2.0                                                                                        | 설명                                                                                                                                                                                                                                           |
 | ---------------------- | ------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **file**               | String                                                                   | 𐄂                                                                                             | Path to the mapping entry                                                                                                                                                                                                                    |
 | **handlers & filters** | [Default handlers and filters](./manifest/#mapping-handlers-and-filters) | Default handlers and filters, <br />[Custom handlers and filters](#custom-data-sources) | List all the [mapping functions](./mapping.md) and their corresponding handler types, with additional mapping filters. <br /><br /> For custom runtimes mapping handlers please view [Custom data sources](#custom-data-sources) |
@@ -98,7 +98,7 @@ The following table explains filters supported by different handlers.
 
 **Your SubQuery project will be much more efficient when you only use event and call handlers with appropriate mapping filters**
 
-| Handler                                    | Supported filter             |
+| 핸들러                                        | 지원되는 필터                      |
 | ------------------------------------------ | ---------------------------- |
 | [BlockHandler](./mapping.md#block-handler) | `specVersion`                |
 | [EventHandler](./mapping.md#event-handler) | `module`,`method`            |
@@ -129,7 +129,7 @@ filter:
 
 ## 커스텀 체인
 
-### Network Spec
+### 네트워크 스펙
 
 When connecting to a different Polkadot parachain or even a custom substrate chain, you'll need to edit the [Network Spec](#network-spec) section of this manifest.
 
@@ -139,7 +139,7 @@ The `genesisHash` must always be the hash of the first block of the custom netwo
 
 Additionally you will need to update the `endpoint`. This defines the wss endpoint of the blockchain to be indexed - **This must be a full archive node**. You can retrieve endpoints for all parachains for free from [OnFinality](https://app.onfinality.io)
 
-### Chain Types
+### 체인 유형
 
 You can index data from custom chains by also including chain types in the manifest.
 
@@ -171,7 +171,7 @@ Usually the user will create a SubQuery and expect to reuse it for both their te
 
 Users can add a `filter` on `dataSources` to decide which data source to run on each network.
 
-Below is an example that shows different data sources for both the Polkadot and Kusama networks.
+다음은 Polkadot 네트워크와 Kusama 네트워크에 대한 데이터 소스를 보이는 예입니다.
 
 <CodeGroup> <CodeGroupItem title="v0.0.1"> ```yaml --- network: endpoint: 'wss://polkadot.api.onfinality.io/public-ws' #Create a template to avoid redundancy definitions: mapping: &mymapping handlers: - handler: handleBlock kind: substrate/BlockHandler dataSources: - name: polkadotRuntime kind: substrate/Runtime filter: #Optional specName: polkadot startBlock: 1000 mapping: *mymapping #use template here - name: kusamaRuntime kind: substrate/Runtime filter: specName: kusama startBlock: 12000 mapping: *mymapping # can reuse or change ``` </CodeGroupItem>
 
