@@ -36,38 +36,38 @@ Manifest `project.yaml` 파일은 프로젝트의 시작점으로 볼 수 있으
 
 ### 상위레벨 스펙
 
-| 필드              | v0.0.1                              | v0.2.0                      | 설명                                       |
-| --------------- | ----------------------------------- | --------------------------- | ---------------------------------------- |
-| **specVersion** | String                              | String                      | `0.0.1` 또는 `0.2.0` - Manifest 파일의 사양 버전  |
-| **name**        | 𐄂                                   | String                      | 프로젝트명                                    |
-| **version**     | 𐄂                                   | String                      | 프로젝트 버전                                  |
-| **description** | String                              | String                      | 프로젝트 설명                                  |
-| **repository**  | String                              | String                      | Git repository address of your project   |
-| **schema**      | String                              | [Schema Spec](#schema-spec) | The location of your GraphQL schema file |
-| **network**     | [Network Spec](#network-spec)       | Network Spec                | Detail of the network to be indexed      |
-| **dataSources** | [DataSource Spec](#datasource-spec) | DataSource Spec             |                                          |
+| 필드              | v0.0.1                            | v0.2.0                      | 설명                                      |
+| --------------- | --------------------------------- | --------------------------- | --------------------------------------- |
+| **specVersion** | String                            | String                      | `0.0.1` 또는 `0.2.0` - Manifest 파일의 사양 버전 |
+| **name**        | 𐄂                                 | String                      | 프로젝트명                                   |
+| **version**     | 𐄂                                 | String                      | 프로젝트 버전                                 |
+| **description** | String                            | String                      | 프로젝트 설명                                 |
+| **repository**  | String                            | String                      | Git repository 주소                       |
+| **schema**      | String                            | [Schema Spec](#schema-spec) | GraphQL schema file의 위치                 |
+| **network**     | [Network Spec](#network-spec)     | Network Spec                | 인덱싱될 네트워크의 상세내용                         |
+| **dataSources** | [DataSource 사양](#datasource-spec) | DataSource 사양               |                                         |
 
 ### Schema Spec
 
-| 필드       | v0.0.1 | v0.2.0 | 설명                                       |
-| -------- | ------ | ------ | ---------------------------------------- |
-| **file** | 𐄂      | String | The location of your GraphQL schema file |
+| 필드       | v0.0.1 | v0.2.0 | 설명                      |
+| -------- | ------ | ------ | ----------------------- |
+| **file** | 𐄂      | String | GraphQL schema file의 위치 |
 
 ### Network Spec
 
-| 필드              | v0.0.1 | v0.2.0        | 설명                                                                                                                                                                                                         |
-| --------------- | ------ | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **genesisHash** | 𐄂      | String        | The genesis hash of the network                                                                                                                                                                            |
-| **endpoint**    | String | String        | Defines the wss or ws endpoint of the blockchain to be indexed - **This must be a full archive node**. You can retrieve endpoints for all parachains for free from [OnFinality](https://app.onfinality.io) |
-| **dictionary**  | String | String        | It is suggested to provide the HTTP endpoint of a full chain dictionary to speed up processing - read [how a SubQuery Dictionary works](../tutorials_examples/dictionary.md).                              |
-| **chaintypes**  | 𐄂      | {file:String} | Path to chain types file, accept `.json` or `.yaml` format                                                                                                                                                 |
+| 필드              | v0.0.1 | v0.2.0        | 설명                                                                                                                                                                                  |
+| --------------- | ------ | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **genesisHash** | 𐄂      | String        | 네트워크의 Genesis Hash                                                                                                                                                                  |
+| **endpoint**    | String | String        | `network. endpoint` 은 인덱스화하는 블록체인의 wss 또는 ws 엔드포인트를 정의합니다. **풀 아카이브 노드여야 합니다**. You can retrieve endpoints for all parachains for free from [OnFinality](https://app.onfinality.io) |
+| **dictionary**  | String | String        | 처리속도를 높이기 위한 풀 체인 Dictionary의 HTTP endpoint 제공이 제안됩니다. - [how a SubQuery Dictionary works](../tutorials_examples/dictionary.md)를 참고하세요.                                             |
+| **chaintypes**  | 𐄂      | {file:String} | Path to chain types file, accept `.json` or `.yaml` format                                                                                                                          |
 
 ### Datasource Spec
 
-Defines the data that will be filtered and extracted and the location of the mapping function handler for the data transformation to be applied.
+DataSources는, 필터링 및 추출하는 데이터와 적용하는 데이터 변환의 맵핑 기능 핸들러의 장소를 정의합니다.
 | 필드             | v0.0.1                                                    | v0.2.0                                                                           | 설명                                                                                                                                                                                    |
 | -------------- | --------------------------------------------------------- | -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **name**       | String                                                    | 𐄂                                                                                | Name of the data source                                                                                                                                                               |
+| **name**       | String                                                    | 𐄂                                                                                | DataSource의 이름                                                                                                                                                                        |
 | **kind**       | [substrate/Runtime](./manifest/#data-sources-and-mapping) | substrate/Runtime, [substrate/CustomDataSource](./manifest/#custom-data-sources) | We supports data type from default substrate runtime such as block, event and extrinsic(call). <br /> From v0.2.0, we support data from custom runtime, such as smart contract. |
 | **startBlock** | Integer                                                   | Integer                                                                          | This changes your indexing start block, set this higher to skip initial blocks with less data                                                                                         |
 | **mapping**    | Mapping Spec                                              | Mapping Spec                                                                     |                                                                                                                                                                                       |
