@@ -79,7 +79,7 @@ Init the starter package... subqlHelloWorld is ready
 cd subqlHelloWorld
 ```
 
-## 2. Step 2: Install dependencies
+## 2. Step 2: dependencies 설치하기
 
 이제 다양한 종속성을 설치하기 위해 원사 또는 노드 설치를 수행합니다.
 
@@ -98,11 +98,11 @@ info No lockfile found.
 [2/4] 🚚  Fetching packages...
 [3/4] 🔗  Linking dependencies...
 [4/4] 🔨  Building fresh packages...
-success Saved lockfile.
+lockfile 저장 성공
 ✨  Done in 31.84s.
 ```
 
-## 3. Step 3: Generate code
+## 3. Step 3: 코드 생성하기
 
 이제 `yarn codegen`을 실행하여 GraphQL 스키마에서 Typescript를 생성합니다.
 
@@ -151,7 +151,7 @@ $ tsc -b
 ✨  Done in 5.68s.
 ```
 
-## 5. Run Docker
+## 5. Docker 실행
 
 Docker를 사용하면 필요한 모든 인프라가 Docker 이미지 내에서 제공될 수 있기 때문에 이 예제를 매우 빠르게 실행할 수 있습니다. `docker-compose pull && docker-compose up`을 실행합니다.
 
@@ -173,7 +173,7 @@ graphql-engine_1  | 2021-06-05T22:20:43.244Z <express> INFO request completed
 
 ```
 
-## 6. Browse playground
+## 6. 플레이그라운드 둘러보기
 
 http://localhost:3000/으로 이동하여 화면 왼쪽에 아래 쿼리를 붙여넣고 재생 버튼을 누릅니다.
 
@@ -192,7 +192,7 @@ http://localhost:3000/으로 이동하여 화면 왼쪽에 아래 쿼리를 붙�
 
 localhost의 SubQuery 플레이그라운드.
 
-![playground localhost](/assets/img/subql_playground.png)
+![플레이그라운드 로컬호스트](/assets/img/subql_playground.png)
 
 놀이터의 블록 수는 터미널의 블록 수(기술적으로 블록 높이)와도 일치해야 합니다.
 
