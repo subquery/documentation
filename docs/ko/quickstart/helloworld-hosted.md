@@ -42,15 +42,15 @@ yarn build
 
 그러나 docker 명령을 실행하지 마십시오.
 
-## 2. Step 2: Create a GitHub repo
+## 2. Step 2: GitHub repo 생성하기
 
 GitHub에서 새 공용 저장소를 만듭니다. 이름을 부여하고 공개 여부를 설정합니다. 여기에서는 모든 것이 현재 기본값으로 유지됩니다.
 
-![create github repo](/assets/img/github_create_new_repo.png)
+![github repo 생성하기](/assets/img/github_create_new_repo.png)
 
 GitHub URL을 기록해 둡니다. SubQuery가 액세스하려면 이 URL이 공개되어야 합니다.
 
-![create github repo](/assets/img/github_repo_url.png)
+![github repo 생성하기](/assets/img/github_repo_url.png)
 
 ## 3. Step 3: Push to GitHub
 
@@ -99,7 +99,7 @@ To https://github.com/seandotau/subqlHelloWorld.git
 
 Push 명령은 "내 코드를 내 마스터 로컬 저장소에서 원본 저장소로 푸시하세요"를 의미합니다 GitHub를 새로 고치면 GitHub의 모든 코드가 표시됩니다. GitHub 새로고침을 하면 GitHub의 모든 코드가 표시됩니다.
 
-![First commit](/assets/img/first_commit.png)
+![첫번째 commit](/assets/img/first_commit.png)
 
 이제 GitHub에 코드를 가져왔으므로 SubQuery 프로젝트에서 호스트하는 방법을 살펴보겠습니다.
 
@@ -107,11 +107,11 @@ Push 명령은 "내 코드를 내 마스터 로컬 저장소에서 원본 저장
 
 https://project.subquery.network로 이동하여 GitHub 계정으로 로그인합니다.
 
-![Welcome to SubQuery Projects](/assets/img/welcome_to_subquery_projects.png)
+![SubQuery Projects에 오신 것을 환영합니다](/assets/img/welcome_to_subquery_projects.png)
 
 그런 다음 새 프로젝트를 만들고,
 
-![Welcome to SubQuery Projects](/assets/img/subquery_create_project.png)
+![SubQuery Projects에 오신 것을 환영합니다](/assets/img/subquery_create_project.png)
 
 그리고 적절한 세부 정보로 다양한 필드를 채우십시오.
 
@@ -122,11 +122,11 @@ https://project.subquery.network로 이동하여 GitHub 계정으로 로그인�
 - **GitHub Repository URL:**SubQuery 프로젝트가 포함된 공용 저장소에 대한 유효한 GitHub URL이어야 합니다. 이 schema.graphql 파일은 디렉토리의 루트에 있어야 합니다.
 - **Hide project:**선택하면, 공개 SubQuery 탐색기에서 프로젝트를 숨깁니다. 커뮤니티와 SubQuery를 공유하려면 이 항목을 선택하지 않은 상태로 유지하십시오!
 
-![Create SubQuery parameters](/assets/img/create_subquery_project_parameters.png)
+![SubQuery parameters 생성하기](/assets/img/create_subquery_project_parameters.png)
 
 만들기를 클릭하면, 대시보드로 이동합니다.
 
-![SubQuery Project dashboard](/assets/img/subquery_project_dashboard.png)
+![SubQuery Project 대쉬보드](/assets/img/subquery_project_dashboard.png)
 
 대시보드에는 사용 중인 네트워크, 실행 중인 소스 코드의 GitHub 저장소 URL, 생성 및 마지막 업데이트 시간, 특히 배포 세부 정보와 같은 유용한 정보가 많이 포함되어 있습니다.
 
@@ -136,7 +136,7 @@ https://project.subquery.network로 이동하여 GitHub 계정으로 로그인�
 
 프로덕션 슬롯 또는 스테이징 슬롯과 같은 다양한 환경에 배포하도록 선택할 수 있습니다. 여기에서 프로덕션 슬롯에 배포합니다. "배포" 버튼을 클릭하면 다음 파일이 있는 화면이 나타납니다.
 
-![Deploy to production slot](/assets/img/deploy_production_slot.png)
+![Production slot 배치하기](/assets/img/deploy_production_slot.png)
 
 - **Commit Hash of new Version:**GitHub에서 배포하려는 SubQuery 프로젝트 코드베이스의 올바른 커밋을 선택합니다.
 - **Indexer Version:**이 SubQuery를 실행하려는 SubQuery의 노드 서비스 버전입니다. [@subql/node](https://www.npmjs.com/package/@subql/node) 참조
@@ -146,27 +146,27 @@ https://project.subquery.network로 이동하여 GitHub 계정으로 로그인�
 
 그러면 "처리 중" 상태의 배포가 표시됩니다. 여기에서 코드가 SubQuery의 관리 인프라에 배포되고 있습니다. 기본적으로 서버는 요청 시 가동되고 공급됩니다. 이것은 몇 분 정도 걸릴 것이므로 커피를 마실 시간입니다!
 
-![Deployment processing](/assets/img/deployment_processing.png)
+![Processing 배치](/assets/img/deployment_processing.png)
 
 이제 배포가 실행 중입니다.
 
-![Deployment running](/assets/img/deployment_running.png)
+![실행 배치](/assets/img/deployment_running.png)
 
 ## 6. Step 6: Testing your project
 
 프로젝트를 테스트하려면 3개의 줄임표를 클릭하고 "SubQuery Explorer에서 보기"를 선택합니다.
 
-![View Subquery project](/assets/img/view_on_subquery.png)
+![Subquery project 살펴보기](/assets/img/view_on_subquery.png)
 
 이렇게 하면 재생 버튼을 클릭하고 쿼리 결과를 볼 수 있는 친숙한 "Playground"로 이동합니다.
 
-![Subquery playground](/assets/img/subquery_playground.png)
+![Subquery 플레이그라운드](/assets/img/subquery_playground.png)
 
 ## 7. Step 7: Bonus step
 
 우리 중 똑똑한 사람들을 위해, 학습 목표에서 마지막 요점은 간단한 GET 쿼리를 실행하는 것이었음을 기억할 것입니다. 이렇게 하려면, 배포 세부 정보에 표시된 "쿼리 끝점"을 가져와야 합니다.
 
-![Query endpoing](/assets/img/query_endpoint.png)
+![쿼리 endpoing](/assets/img/query_endpoint.png)
 
 그런 다음 [Postman](https://www.postman.com/) 또는 [Mockoon](https://mockoon.com/)과 같은 자주 사용하는 클라이언트를 사용하거나 터미널의 cURL을 통해 이 끝점에 GET 요청을 보낼 수 있습니다. 간단하게 cURL이 아래에 표시됩니다.
 
