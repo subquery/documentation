@@ -1,4 +1,4 @@
-# Program Duta Besar
+# Program Ambassador
 
 ![Gambar Spanduk Duta Besar](/assets/img/ambassador_banner.png)
 
