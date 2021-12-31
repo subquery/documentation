@@ -206,9 +206,9 @@ JSON 유형의 데이터 저장을 지원하여 구조화된 데이터를 빠르
 - 스키마가 휘발성이고 자주 변경되는 경우
 
 ### JSON 지시어 정의
-Entity에 `jsonField` 주석을 추가하여 속성을 JSON 유형으로 정의합니다. This will automatically generate interfaces for all JSON objects in your project under `types/interfaces.ts`, and you can access them in your mapping function.
+Entity에 `jsonField` 주석을 추가하여 속성을 JSON 유형으로 정의합니다. 이렇게 하면 프로젝트의 모든 JSON 개체에 대한 인터페이스가 `types/interfaces.ts`에 자동으로 생성되며 맵핑기능에서 액세스할 수 있습니다.
 
-Unlike the entity, the jsonField directive object does not require any `id` field. A JSON object is also able to nest with other JSON objects.
+엔티티와 달리 jsonField 지시문 개체에는 `id` Field가 필요하지 않습니다. JSON 개체는 다른 JSON 개체와 중첩할 수도 있습니다.
 
 ````graphql
 type AddressDetail @jsonField {
@@ -231,10 +231,10 @@ type User @entity {
 
 JSON 유형을 사용하면, 텍스트 검색을 수행할 때마다 전체 엔티티에 적용되기 때문에 필터링 시 쿼리 효율성을 일부 저하시키는 단점이 있습니다.
 
-그러나, 효율성 저하는 쿼리 서비스가 수용할 수 있는 수준입니다. Here is an example of how to use the `contains` operator in the GraphQL query on a JSON field to find the first 5 users who own a phone number that contains '0064'.
+그러나, 효율성 저하는 쿼리 서비스가 수용할 수 있는 수준입니다. 다음은 JSON 필드의 GraphQL Query에 `contains` 포함 연산자를 사용하여 '0064'가 포함된 전화번호를 소유한 처음 5명의 사용자를 찾는 방법의 예입니다.
 
 ```graphql
-#To find the the first 5 users own phone numbers contains '0064'.
+#처음 5명의 사용자의 핸드폰 번호에는 '0064'가 포함되어 있습니다.
 
 query{
   user(
