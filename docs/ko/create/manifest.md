@@ -55,14 +55,14 @@ Manifest `project.yaml` 파일은 프로젝트의 시작점으로 볼 수 있으
 
 ### Network Spec
 
-| 필드              | v0.0.1 | v0.2.0        | 설명                                                                                                                                                                                  |
-| --------------- | ------ | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **genesisHash** | 𐄂      | String        | 네트워크의 Genesis Hash                                                                                                                                                                  |
-| **endpoint**    | String | String        | `network. endpoint` 은 인덱스화하는 블록체인의 wss 또는 ws 엔드포인트를 정의합니다. **풀 아카이브 노드여야 합니다**. You can retrieve endpoints for all parachains for free from [OnFinality](https://app.onfinality.io) |
-| **dictionary**  | String | String        | 처리속도를 높이기 위한 풀 체인 Dictionary의 HTTP endpoint 제공이 제안됩니다. - [how a SubQuery Dictionary works](../tutorials_examples/dictionary.md)를 참고하세요.                                             |
-| **chaintypes**  | 𐄂      | {file:String} | Path to chain types file, accept `.json` or `.yaml` format                                                                                                                          |
+| 필드              | v0.0.1 | v0.2.0        | 설명                                                                                                                                                          |
+| --------------- | ------ | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **genesisHash** | 𐄂      | String        | 네트워크의 Genesis Hash                                                                                                                                          |
+| **endpoint**    | String | String        | `network. endpoint` 은 인덱스화하는 블록체인의 wss 또는 ws 엔드포인트를 정의합니다. **풀 아카이브 노드여야 합니다**. [OnFinality](https://app.onfinality.io)에서 모든 파라체인의 endpoint를 무료로 검색할 수 있습니다 |
+| **dictionary**  | String | String        | 처리속도를 높이기 위한 풀 체인 Dictionary의 HTTP endpoint 제공이 제안됩니다. - [how a SubQuery Dictionary works](../tutorials_examples/dictionary.md)를 참고하세요.                     |
+| **chaintypes**  | 𐄂      | {file:String} | 체인 형식의 파일을 찾으려면 `.json` 또는 `.yaml` 포맷을 이용하세요                                                                                                                |
 
-### Datasource Spec
+### DataSource 사양
 
 DataSources는, 필터링 및 추출하는 데이터와 적용하는 데이터 변환의 맵핑 기능 핸들러의 장소를 정의합니다.
 | 필드             | v0.0.1                                                    | v0.2.0                                                                           | 설명                                                                                                                                                                                    |
@@ -80,9 +80,9 @@ DataSources는, 필터링 및 추출하는 데이터와 적용하는 데이터 �
 | **file**               | String                                                                   | 𐄂                                                                                             | Path to the mapping entry                                                                                                                                                                                                                    |
 | **handlers & filters** | [Default handlers and filters](./manifest/#mapping-handlers-and-filters) | Default handlers and filters, <br />[Custom handlers and filters](#custom-data-sources) | List all the [mapping functions](./mapping.md) and their corresponding handler types, with additional mapping filters. <br /><br /> For custom runtimes mapping handlers please view [Custom data sources](#custom-data-sources) |
 
-## Data Sources and Mapping
+## Data Source와 맵핑
 
-In this section, we will talk about the default substrate runtime and its mapping. Here is an example:
+이 섹션에서는 기본 substrate 런타임과 맵핑을 알아보려고 합니다. Here is an example:
 
 ```yaml
 dataSources:
@@ -137,7 +137,7 @@ The `genesisHash` must always be the hash of the first block of the custom netwo
 
 ![Genesis Hash](/assets/img/genesis-hash.jpg)
 
-Additionally you will need to update the `endpoint`. This defines the wss endpoint of the blockchain to be indexed - **This must be a full archive node**. You can retrieve endpoints for all parachains for free from [OnFinality](https://app.onfinality.io)
+Additionally you will need to update the `endpoint`. This defines the wss endpoint of the blockchain to be indexed - **This must be a full archive node**. [OnFinality](https://app.onfinality.io)에서 모든 파라체인의 endpoint를 무료로 검색할 수 있습니다
 
 ### 체인 유형
 
