@@ -82,7 +82,7 @@ DataSources는, 필터링 및 추출하는 데이터와 적용하는 데이터 �
 
 ## Data Source와 맵핑
 
-이 섹션에서는 기본 substrate 런타임과 맵핑을 알아보려고 합니다. Here is an example:
+이 섹션에서는 기본 substrate 런타임과 맵핑을 알아보려고 합니다. 아래 예제를 참고하세요:
 
 ```yaml
 dataSources:
@@ -92,15 +92,15 @@ dataSources:
       file: dist/index.js # Entry path for this mapping
 ```
 
-### Mapping handlers and Filters
+### 맵핑 핸들러와 필터
 
-The following table explains filters supported by different handlers.
+다음 표는 다양한 핸들러로 지원되는 필터를 나타냅니다.
 
-**Your SubQuery project will be much more efficient when you only use event and call handlers with appropriate mapping filters**
+**여러분의 서브쿼리 프로젝트는 적절한 맵핑 필터를 포함한 핸들러나 이벤트를 사용할 때만 더 효율적으로 구동됩니다**
 
 | 핸들러                                        | 지원되는 필터                      |
 | ------------------------------------------ | ---------------------------- |
-| [BlockHandler](./mapping.md#block-handler) | `specVersion`                |
+| [블록핸들러](./mapping.md#block-handler)        | `specVersion`                |
 | [EventHandler](./mapping.md#event-handler) | `module`,`method`            |
 | [CallHandler](./mapping.md#call-handler)   | `module`,`method` ,`success` |
 
