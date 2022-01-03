@@ -71,7 +71,7 @@ DataSources는, 필터링 및 추출하는 데이터와 적용하는 데이터 �
 | **kind**       | [substrate/Runtime](./manifest/#data-sources-and-mapping) | substrate/Runtime, [substrate/CustomDataSource](./manifest/#custom-data-sources) | 블록, 이벤트와 외인성 등의 기본적인 substrate 런타임으로부터의 데이터 유형을 지원합니다. <br /> v0.2.0 버전부터, 스마트컨트랙트와 같은 커스텀 런타임으로부터의 데이터를 지원합니다. |
 | **startBlock** | Integer                                                   | Integer                                                                          | 이것은 여러분의 블록생성을 인덱싱하는 것을 바꾸고, 더 적은 데이터와 초기블록들을 스킵하도록 세팅합니다.                                                            |
 | **mapping**    | Mapping Spec                                              | Mapping Spec                                                                     |                                                                                                                       |
-| **filter**     | [network-filters](./manifest/#network-filters)            | 𐄂                                                                                | Filter the data source to execute by the network endpoint spec name                                                   |
+| **filter**     | [network-filters](./manifest/#network-filters)            | 𐄂                                                                                | 네트워크 endpoint 사양 이름으로 실행하기 위한 data source를 필터링 하세요                                                                    |
 
 ### Mapping Spec
 
