@@ -10,9 +10,9 @@
 
 우리 팀은 Polkadot 생태계를 위한 유연하고 포괄적인 데이터 서비스의 기반 구축이라는 공통된 비전을 가지고 함께 해나가고 있습니다.
 
-**개발자에 의한, 개발자를 위한 구축:** SubQuery는 개발자와 생태계의 빌더에게 최고의 제품 및 서비스 제공에 중점을 두고 성장하는 커뮤니티입니다. SubQuery is only successful if the Polkadot ecosystem is successful, and so everything we do is with our customers in mind.
+**개발자에 의한, 개발자를 위한 구축:** SubQuery는 개발자와 생태계의 빌더에게 최고의 제품 및 서비스 제공에 중점을 두고 성장하는 커뮤니티입니다. 서브쿼리는 폴카닷 생태계의 성패를 따르기 때문에 우리는 모든 일에서 고객을 염두에 두고 있습니다.
 
-**Integrity and Accountability:** We have team members in Auckland, Shanghai, and Sydney so remote work is important to us. We expect that our team is empowered and works autonomously together to achieve our goals. A key requirement for this is for our team to be accountable for their actions and maintain their integrity.
+**Integrity and Accountability:** 우리팀은 오클랜드, 상하이, 그리고 시드니에 위치하고 있기 때문에 원격 업무수행이 중요합니다. 우리는 활력적, 자율적으로 협력해 목표를 달성하기를 기대합니다. 이를 위한 중요한 요건은 저희 팀이 그들의 행동에 책임을 지고 그들의 성실함을 유지하는 것입니다.
 
 **Inclusive Guidance and Support:** Blockchain is hard, and everyone needs help sometimes. There is no such thing as a stupid question in our community and everyone in our team is expected to help support our users. We learn some of the most valuable insights about our service (and how we can improve it) directly from our community.
 
