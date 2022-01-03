@@ -14,7 +14,7 @@
 
 **Integrity and Accountability:** 우리팀은 오클랜드, 상하이, 그리고 시드니에 위치하고 있기 때문에 원격 업무수행이 중요합니다. 우리는 활력적, 자율적으로 협력해 목표를 달성하기를 기대합니다. 이를 위한 중요한 요건은 저희 팀이 그들의 행동에 책임을 지고 그들의 성실함을 유지하는 것입니다.
 
-**Inclusive Guidance and Support:** Blockchain is hard, and everyone needs help sometimes. There is no such thing as a stupid question in our community and everyone in our team is expected to help support our users. We learn some of the most valuable insights about our service (and how we can improve it) directly from our community.
+**Inclusive Guidance and Support:** 블록체인은 어렵고 누구나 때로는 도움을 필요로 합니다. 우리 커뮤니티에서 멍청한 질문이라는 건 없습니다. 저희 팀 모두는 저희 사용자를 서포트하기를 기대하고 있습니다. 저희는 저희의 서비스에 대한 가장 가치 있는 통찰력(그리고 저희가 그것을 어떻게 개선할 수 있는가) 을 커뮤니티로부터 직접 배웁니다.
 
 ## 앰배서더 프로그램
 
