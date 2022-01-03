@@ -6,9 +6,9 @@
 - 이러한 맵핑은 `src/index.ts`으로도 내보내집니다.
 - 맵핑 파일은 맵핑 핸들러의 `project.yaml`에 있는 참조입니다.
 
-맵핑 기능에는 [Block handlers](#block-handler), [Event Handlers](#event-handler), 그리고 [Call Handlers](#call-handler)의 3 개 클래스로 구분됩니다.
+맵핑 기능에는 [Block 핸들러](#block-handler), [Event 핸들러](#event-handler), 그리고 [Call 핸들러](#call-handler)의 3 개 클래스로 구분됩니다.
 
-## 블록 핸들러
+## Block 핸들러
 
 블록 핸들러를 사용하여 새로운 블록이 Substrate 체인에 접속될 때마다 정보를 캡처할 수 있습니다, 예: 블록 번호. 이를 위해서는 정의된 블록 핸들러를 매 블록마다 1회 호출해야 합니다.
 
@@ -25,7 +25,7 @@ export async function handleBlock(block: SubstrateBlock): Promise<void> {
 
 [SubstrateBlock](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L16) 은 [signedBlock](https://polkadot.js.org/docs/api/cookbook/blocks/) 의 확장 인터페이스 타입 이지만, `specVersion` 및 `타임스탬프` 도 갖추고 있습니다.
 
-## 이벤트 핸들러
+## Event 핸들러
 
 이벤트 핸들러를 사용하여 특정 이벤트가 새 블록에 포함될 때 정보를 캡처할 수 있습니다. 디폴트 Substrate 런타임 및 블록의 일부인 이벤트에는 여러 이벤트가 포함될 수 있습니다.
 
@@ -43,9 +43,9 @@ export async function handleEvent(event: SubstrateEvent): Promise<void> {
     await record.save();
 ```
 
-A [SubstrateEvent](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L30) is an extended interface type of the [EventRecord](https://github.com/polkadot-js/api/blob/f0ce53f5a5e1e5a77cc01bf7f9ddb7fcf8546d11/packages/types/src/interfaces/system/types.ts#L149). Besides the event data, it also includes an `id` (the block to which this event belongs) and the extrinsic inside of this block.
+[SubstrateEvent](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L30)는 [EventRecord](https://github.com/polkadot-js/api/blob/f0ce53f5a5e1e5a77cc01bf7f9ddb7fcf8546d11/packages/types/src/interfaces/system/types.ts#L149)의 확장 인터페이스 타입입니다. 이벤트 데이터 외에도 (이벤트가 속한 블록의) `id` 및 블록의 extrinsic insider를 포함합니다.
 
-## Call Handler
+## Call 핸들러
 
 Call handlers are used when you want to capture information on certain substrate extrinsics.
 
@@ -140,7 +140,7 @@ In the following sections, we use our [kitty example](https://github.com/subquer
 
 Create a new directory `api-interfaces` under the project `src` folder to store all required and generated files. We also create an `api-interfaces/kitties` directory as we want to add decoration in the API from the `kitties` module.
 
-#### Metadata
+#### 메타데이터
 
 We need metadata to generate the actual API endpoints. In the kitty example, we use an endpoint from a local testnet, and it provides additional types. Follow the steps in [PolkadotJS metadata setup](https://polkadot.js.org/docs/api/examples/promise/typegen#metadata-setup) to retrieve a node's metadata from its **HTTP** endpoint.
 
