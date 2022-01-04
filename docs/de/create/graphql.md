@@ -1,13 +1,13 @@
 # GraphQL Schema
 
-## Defining Entities
+## Definition von Entitäten
 
-The `schema.graphql` file defines the various GraphQL schemas. Due to the way that the GraphQL query language works, the schema file essentially dictates the shape of your data from SubQuery. To learn more about how to write in GraphQL schema language, we recommend checking out [Schemas and Types](https://graphql.org/learn/schema/#type-language).
+Die Datei `schema.graphql` definiert die verschiedenen GraphQL-Schemas. Aufgrund der Funktionsweise der GraphQL-Abfragesprache bestimmt die Schemadatei im Wesentlichen die Form Ihrer Daten aus SubQuery. Um mehr über das Schreiben in der GraphQL-Schemasprache zu erfahren, empfehlen wir Ihnen, sich [Schemas und Typen](https://graphql.org/learn/schema/#type-language) anzusehen.
 
-**Important: When you make any changes to the schema file, please ensure that you regenerate your types directory with the following command `yarn codegen`**
+**Wichtig: Wenn Sie Änderungen an der Schemadatei vornehmen, stellen Sie bitte sicher, dass Sie Ihr Typenverzeichnis mit dem folgenden Befehl `yarn codegen` . neu generieren**
 
-### Entities
-Each entity must define its required fields `id` with the type of `ID!`. It is used as the primary key and unique among all entities of the same type.
+### Entitäten
+Jede Entität muss ihre Pflichtfelder `id` mit dem Typ `ID!` definieren. Er wird als Primärschlüssel verwendet und ist unter allen Entitäten desselben Typs eindeutig.
 
 Non-nullable fields in the entity are indicated by `!`. Please see the example below:
 
