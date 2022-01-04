@@ -54,7 +54,7 @@ Network.endpoint cho mạng Polkadot là `wss: //polkadot.api.onfinality.io/publ
 
 ## Làm cách nào để phát triển lặp đi lặp lại lược đồ dự án của tôi?
 
-Một vấn đề đã biết với việc phát triển lược đồ dự án đang thay đổi là khi chạy nút Subquery của bạn để thử nghiệm, các khối được lập chỉ mục trước đó sẽ không tương thích với lược đồ mới của bạn. Để phát triển lặp đi lặp lại các lược đồ, các khối được lập chỉ mục được lưu trữ trong cơ sở dữ liệu phải được xóa, điều này có thể đạt được bằng cách khởi chạy nút của bạn với cờ ` --force-clean `. Ví dụ:
+Một vấn đề đã biết với việc phát triển lược đồ dự án đang thay đổi là khi chạy nút Subquery của bạn để thử nghiệm, các khối được lập chỉ mục trước đó sẽ không tương thích với lược đồ mới của bạn. Để phát triển lặp đi lặp lại các lược đồ, các khối được lập chỉ mục được lưu trữ trong cơ sở dữ liệu phải được xóa, điều này có thể đạt được bằng cách khởi chạy nút của bạn với cờ `--force-clean`. Ví dụ:
 
 ```shell
 subql-node -f . --force-clean --subquery-name=<project-name>
