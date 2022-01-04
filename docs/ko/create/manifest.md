@@ -77,7 +77,7 @@ DataSources는, 필터링 및 추출하는 데이터와 적용하는 데이터 �
 
 | 필드                     | v0.0.1                                                 | v0.2.0                                                                      | 설명                                                                                                                                                                      |
 | ---------------------- | ------------------------------------------------------ | --------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **file**               | String                                                 | 𐄂                                                                           | Path to the mapping entry                                                                                                                                               |
+| **file**               | String                                                 | 𐄂                                                                           | Entry 맵핑을 위한 path                                                                                                                                                       |
 | **handlers & filters** | [기본 핸들러와 필터](./manifest/#mapping-handlers-and-filters) | 기본 핸들러와 필터, <br />[Custom handlers and filters](#custom-data-sources) | [mapping functions](./mapping.md) 과 그에 상응하는 핸들러 유형을 추가적인 맵핑 필터와 함께 나열하세요. <br /><br /> 커스텀 런타임 맵핑을 위해서는 [Custom data sources](#custom-data-sources)을 참조하세요. |
 
 ## Data Source와 맵핑
@@ -98,11 +98,11 @@ dataSources:
 
 **여러분의 서브쿼리 프로젝트는 적절한 맵핑 필터를 포함한 핸들러나 이벤트를 사용할 때만 더 효율적으로 구동됩니다**
 
-| 핸들러                                        | 지원되는 필터                      |
-| ------------------------------------------ | ---------------------------- |
-| [블록핸들러](./mapping.md#block-handler)        | `specVersion`                |
-| [EventHandler](./mapping.md#event-handler) | `module`,`method`            |
-| [CallHandler](./mapping.md#call-handler)   | `module`,`method` ,`success` |
+| 핸들러                                   | 지원되는 필터                      |
+| ------------------------------------- | ---------------------------- |
+| [블록핸들러](./mapping.md#block-handler)   | `specVersion`                |
+| [이벤트 핸들러](./mapping.md#event-handler) | `module`,`method`            |
+| [콜핸들러](./mapping.md#call-handler)     | `module`,`method` ,`success` |
 
 Default runtime mapping filters are an extremely useful feature to decide what block, event, or extrinsic will trigger a mapping handler.
 
