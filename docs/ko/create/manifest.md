@@ -104,25 +104,25 @@ dataSources:
 | [이벤트 핸들러](./mapping.md#event-handler) | `module`,`method`            |
 | [콜핸들러](./mapping.md#call-handler)     | `module`,`method` ,`success` |
 
-Default runtime mapping filters are an extremely useful feature to decide what block, event, or extrinsic will trigger a mapping handler.
+기본 런타임 맵핑 필터는 블록과 이벤트, 맵핑 핸들러를 트리거 하는 외인성 등을 결정하는 데 매우 유용합니다.
 
-Only incoming data that satisfy the filter conditions will be processed by the mapping functions. Mapping filters are optional but are highly recommended as they significantly reduce the amount of data processed by your SubQuery project and will improve indexing performance.
+맵핑 기능에 의해서 처리되는 것은, 필터 조건에 맞는 착신 데이터 뿐입니다. 맵핑 필터는 옵션이지만 SubQuery 프로젝트에서 처리되는 데이터 양이 대폭 줄어들고 인덱스 성능이 향상되므로 매우 권장됩니다.
 
 ```yaml
-# Example filter from callHandler
+# 콜핸들러의 필터 예제
 filter:
   module: balances
   method: Deposit
   success: true
 ```
 
-- Module and method filters are supported on any substrate-based chain.
-- The `success` filter takes a boolean value and can be used to filter the extrinsic by its success status.
-- The `specVersion` filter specifies the spec version range for a substrate block. The following examples describe how to set version ranges.
+- Module 및 Method 필터는 Substrate 기반 체인에서 지원됩니다.
+- `success` 필터는 Boolean 값을 취해, 성공적인 상태의 외인성을 필터링 하기 위해서 사용할 수 있습니다.
+- `specVersion` 필터는 Substrate 블록의 스펙 버전 범위를 지정합니다. 다음은 버전 범위를 설정하는 예제입니다.
 
 ```yaml
 filter:
-  specVersion: [23, 24]   # Index block with specVersion in between 23 and 24 (inclusive).
+  specVersion: [23, 24]   #Index block with specVersion in between 23 and 24 (inclusive).
   specVersion: [100]      # Index block with specVersion greater than or equal 100.
   specVersion: [null, 23] # Index block with specVersion less than or equal 23.
 ```
