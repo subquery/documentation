@@ -6,7 +6,7 @@ At the end of this guide, you'll have a working SubQuery project running on a Su
 
 If you haven't already, we suggest that you familiarise yourself with the [terminology](../#terminology) used in SubQuery.
 
-## Preparation
+## Vorbereitung
 
 ### Local Development Environment
 
