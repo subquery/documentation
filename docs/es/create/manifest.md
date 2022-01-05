@@ -141,18 +141,54 @@ Puede indexar datos de cadenas personalizadas incluyendo también tipos de caden
 
 Soportamos los tipos adicionales usados por módulos de tiempo de ejecución substrate, `typesAlias`, `typesBundle`, `typesChain`, y `typesSpec` también son compatibles.
 
-En el ejemplo v0.2.0 de abajo, la red `. haintypes` están apuntando a un archivo que tiene todos los tipos personalizados incluidos, Este es un archivo estándar de chainspec que declara los tipos específicos soportados por este blockchain en cualquiera de los dos `. son` o formato `.yaml`.
+In the v0.2.0 example below, the `network.chaintypes` are pointing to a file that has all the custom types included, This is a standard chainspec file that declares the specific types supported by this blockchain in either `.json`, `.yaml` or `.js` format.
 
 <CodeGroup> <CodeGroupItem title="v0.2.0" active> ``` yml network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' endpoint: 'ws://host.kittychain.io/public-ws' chaintypes: file: ./types.json # la ruta relativa al lugar donde se almacenan los tipos personalizados ... ``` </CodeGroupItem> <CodeGroupItem title="v0.0.1"> ``` yml ... network: endpoint: "ws://host.kittychain.io/public-ws" types: { "KittyIndex": "u32", "Kitty": "[u8; 16]" } # typesChain: { chain: { Type5: 'example' } } # typesSpec: { spec: { Type6: 'example' } } dataSources: - name: runtime kind: substrate/Runtime startBlock: 1 filter:  #Optional specName: kitty-chain mapping: handlers: - handler: handleKittyBred kind: substrate/CallHandler filter: module: kitties method: breed success: true ``` </CodeGroupItem> </CodeGroup>
 
+To use typescript for your chain types file include it in the `src` folder (e.g. `./src/types.ts`), run `yarn build` and then point to the generated js file located in the `dist` folder.
+
+```yml
+network:
+  chaintypes:
+    file: ./dist/types.js # Will be generated after yarn run build
+...
+```
+
+Things to note about using the chain types file with extension `.ts` or `.js`:
+
+- Your manifest version must be v0.2.0 or above.
+- Only the default export will be included in the [polkadot api](https://polkadot.js.org/docs/api/start/types.extend/) when fetching blocks.
+
+Here is an example of a `.ts` chain types file:
+
+<CodeGroup> <CodeGroupItem title="types.ts"> ```ts
+import { typesBundleDeprecated } from "moonbeam-types-bundle"
+export default { typesBundle: typesBundleDeprecated }; ``` </CodeGroupItem> </CodeGroup>
+
 ## Custom Data Sources
 
-Custom Data Sources provide network specific functionality that makes dealing with data easier. Actúan como un software intermedio que puede proporcionar un filtrado adicional y una transformación de datos. Entre redes, es probable que varias opciones sean diferentes (por ejemplo, el bloque de inicio del índice). Por lo tanto, permitimos a los usuarios definir diferentes detalles para cada fuente de datos, lo que significa que un proyecto de SubQuery puede ser utilizado en múltiples redes.
+Custom Data Sources provide network specific functionality that makes dealing with data easier. They act as a middleware that can provide extra filtering and data transformation.
 
-Los usuarios pueden añadir un `filtro` en `fuentes de datos` para decidir qué fuente de datos ejecutar en cada red.
+A good example of this is EVM support, having a custom data source processor for EVM means that you can filter at the EVM level (e.g. filter contract methods or logs) and data is transformed into structures farmiliar to the Ethereum ecosystem as well as parsing parameters with ABIs.
 
-A continuación se muestra un ejemplo que muestra diferentes fuentes de datos tanto para las redes Polkadot como Kusama.
+Custom Data Sources can be used with normal data sources.
 
-<CodeGroup> <CodeGroupItem title="v0.0.1"> ```yaml --- network: endpoint: 'wss://polkadot.api.onfinality.io/public-ws' #Crea una plantilla para evitar redundancia definitions: mapping: &mymapping handlers: - handler: handleBlock kind: substrate/BlockHandler dataSources: - name: polkadotRuntime kind: substrate/Runtime filter: #Optional specName: polkadot startBlock: 1000 mapping: *mymapping #use la plantilla aqui - name: kusamaRuntime kind: substrate/Runtime filter: specName: kusama startBlock: 12000 mapping: *mymapping # puede reutilizar o cambiar ``` </CodeGroupItem>
+Here is a list of supported custom datasources:
+
+| Kind                                                  | Supported Handlers                                                                                       | Filters                         | Description                                                                      |
+| ----------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | ------------------------------- | -------------------------------------------------------------------------------- |
+| [substrate/Moonbeam](./moonbeam/#data-source-example) | [substrate/MoonbeamEvent](./moonbeam/#moonbeamevent), [substrate/MoonbeamCall](./moonbeam/#moonbeamcall) | See filters under each handlers | Provides easy interaction with EVM transactions and events on Moonbeams networks |
+
+## Network Filters
+
+**Network filters only applies to manifest spec v0.0.1**.
+
+Usually the user will create a SubQuery and expect to reuse it for both their testnet and mainnet environments (e.g Polkadot and Kusama). Between networks, various options are likely to be different (e.g. index start block). Therefore, we allow users to define different details for each data source which means that one SubQuery project can still be used across multiple networks.
+
+Users can add a `filter` on `dataSources` to decide which data source to run on each network.
+
+Below is an example that shows different data sources for both the Polkadot and Kusama networks.
+
+<CodeGroup> <CodeGroupItem title="v0.0.1"> ```yaml --- network: endpoint: 'wss://polkadot.api.onfinality.io/public-ws' #Create a template to avoid redundancy definitions: mapping: &mymapping handlers: - handler: handleBlock kind: substrate/BlockHandler dataSources: - name: polkadotRuntime kind: substrate/Runtime filter: #Optional specName: polkadot startBlock: 1000 mapping: *mymapping #use template here - name: kusamaRuntime kind: substrate/Runtime filter: specName: kusama startBlock: 12000 mapping: *mymapping # can reuse or change ``` </CodeGroupItem>
 
 </CodeGroup>
