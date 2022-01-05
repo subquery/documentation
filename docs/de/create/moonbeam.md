@@ -40,7 +40,7 @@ Works in the same way as [substrate/CallHandler](../create/mapping/#call-handler
 | Bereich | Type                         | Required | Beschreibung                                |
 | ------- | ---------------------------- | -------- | ------------------------------------------- |
 | kind    | 'substrate/MoonbeamCall'     | Yes      | Specifies that this is an Call type handler |
-| filter  | [Call Filter](#call-filters) | No       | Filter the data source to execute           |
+| Filter  | [Call Filter](#call-filters) | No       | Filter the data source to execute           |
 
 ### Call Filters
 
@@ -66,7 +66,7 @@ Works in the same way as [substrate/EventHandler](../create/mapping/#event-handl
 | Bereich | Type                           | Required | Beschreibung                                 |
 | ------- | ------------------------------ | -------- | -------------------------------------------- |
 | kind    | 'substrate/MoonbeamEvent'      | Yes      | Specifies that this is an Event type handler |
-| filter  | [Event Filter](#event-filters) | No       | Filter the data source to execute            |
+| Filter  | [Event Filter](#event-filters) | No       | Filter the data source to execute            |
 
 ### Event Filters
 
