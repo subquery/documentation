@@ -257,8 +257,7 @@ dataSources:
   </CodeGroupItem>
 </CodeGroup>
 
-To use typescript for the chaintypes file include your `types.ts` in the `src` folder, run `yarn build` and then point to the generated file in `./dist`.
-Note that `.js` file type cannot be used at all with manifest v0.0.1.
+To use typescript for your chain types file include it in the `src` folder (e.g. `./src/types.ts`), run `yarn build` and then point to the generated js file located in the `dist` folder.
 
 ```yml
 network:
@@ -266,6 +265,23 @@ network:
     file: ./dist/types.js # Will be generated after yarn run build
 ...
 ```
+
+Things to note about using the chain types file with extension `.ts` or `.js`:
+
+- Your manifest version must be v0.2.0 or above.
+- Only the default export will be included in the [polkadot api](https://polkadot.js.org/docs/api/start/types.extend/) when fetching blocks.
+
+Here is an example of a `.ts` chain types file:
+
+<CodeGroup>
+  <CodeGroupItem title="types.ts">
+
+```ts
+import { typesBundleDeprecated } from "moonbeam-types-bundle"
+export default { typesBundle: typesBundleDeprecated };
+```
+ </CodeGroupItem>
+</CodeGroup>
 
 ## Custom Data Sources
 
