@@ -15,6 +15,8 @@ Options:
       --subquery-name       Name of the subquery project                [string]
   -c, --config              Specify configuration file                  [string]
       --local               Use local mode                             [boolean]
+      --force-clean         Force clean the database, dropping project schemas
+                            and tables                                 [boolean]
       --batch-size          Batch size of blocks to fetch in one round  [number]
       --timeout             Timeout for indexer sandbox to execute the mapping
                             functions                                   [number]
@@ -35,8 +37,12 @@ Options:
       --timestamp-field     Enable/disable created_at and updated_at in schema
                                                        [boolean] [default: true]
   -d, --network-dictionary  Specify the dictionary api for this network [string]
+  -m, --mmr-path            Local path of the merkle mountain range (.mmr) file
+                                                                        [string]
       --proof-of-index      Enable/disable proof of index
                                                       [boolean] [default: false]
+  -p, --port                The port the service will bind to
+                                                        [number] [default: 3000]
 ```
 
 ### --version
@@ -59,7 +65,7 @@ subql-node --subquery .
 
 ### --subquery-name
 
-This flag allows you to provide a name for your project which acts as if it creates an instance of your project. flag นี้อนุญาตให้คุณระบุชื่อสำหรับโปรเจ็กต์ของคุณ ซึ่งทำหน้าที่เสมือนว่าได้ทำการสร้างอินสแตนซ์ของโปรเจ็กต์ของคุณ เมื่อมีการระบุชื่อใหม่ schema ของฐานข้อมูลใหม่จะถูกสร้างขึ้น และบล็อกการซิงโครไนซ์จะเริ่มต้นจากศูนย์
+flag นี้อนุญาตให้คุณระบุชื่อสำหรับโปรเจ็กต์ของคุณ ซึ่งทำหน้าที่เสมือนว่าได้ทำการสร้างอินสแตนซ์ของโปรเจ็กต์ของคุณ เมื่อมีการระบุชื่อใหม่ schema ของฐานข้อมูลใหม่จะถูกสร้างขึ้น และบล็อกการซิงโครไนซ์จะเริ่มต้นจากศูนย์
 
 ```shell
 subql-node -f . --subquery-name=test2
@@ -72,12 +78,12 @@ subql-node -f . --subquery-name=test2
 ตัวอย่างไฟล์ subquery_config.yml
 
 ```shell
-subquery: . // Mandatory. This is the local path of the project. The period here means the current local directory.
-subqueryName: hello // Optional name
-batchSize: 55 // Optional config
+subquery: . // จำเป็นต้องมี นี่คือ local path ของโปรเจ็กต์ ซึ่งหมายถึงไดเร็กทอรีภายในเครื่องปัจจุบัน
+subqueryName: hello // ชื่อเสริม (Optional)
+batchSize: 55 // การกำหนดค่าเสริม (Optional)
 ```
 
-Place this file in the same directory as the project. วางไฟล์นี้ในไดเร็กทอรีเดียวกันกับโปรเจ็กต์ จากนั้น ในไดเร็กทอรีโปรเจ็กต์ปัจจุบัน ให้รัน:
+วางไฟล์นี้ในไดเร็กทอรีเดียวกันกับโปรเจ็กต์ จากนั้น ในไดเร็กทอรีโปรเจ็กต์ปัจจุบัน ให้รัน:
 
 ```shell
 > subql-node -c ./subquery_config.yml
@@ -91,15 +97,15 @@ flag นี้ใช้เพื่อจุดประสงค์ในกา
 subql-node -f . --local
 ```
 
-โปรดทราบว่าเมื่อคุณใช้ flag นี้ การลบ flag นี้ไม่ได้หมายความว่า flag นี้จะชี้ไปที่ฐานข้อมูลอื่น หากต้องการชี้ไปยังฐานข้อมูลอื่น คุณจะต้องสร้างฐานข้อมูลใหม่และเปลี่ยนการตั้งค่า env เป็นฐานข้อมูลใหม่ กล่าวอีกนัยหนึ่ง "export DB_DATABASE= To repoint to another database you will have to create a NEW database and change the env settings to this new database. In other words, "export DB_DATABASE=<new_db_here>"
+โปรดทราบว่าเมื่อคุณใช้ flag นี้ การลบ flag นี้ไม่ได้หมายความว่า flag นี้จะชี้ไปที่ฐานข้อมูลอื่น หากต้องการชี้ไปยังฐานข้อมูลอื่น คุณจะต้องสร้างฐานข้อมูลใหม่และเปลี่ยนการตั้งค่า env เป็นฐานข้อมูลใหม่ กล่าวอีกนัยหนึ่ง "export DB_DATABASE=<new_db_here>"
 
 ### --force-clean
 
-This flag forces the project schemas and tables to be regenerated, helpful to use when iteratively developing graphql schemas such that new runs of the project are always working with a clean state. Note that this flag will also wipe all indexed data.
+ใช้ flag นี้เพื่อบังคับให้ project schemas และ tables ถูกสร้างขึ้นใหม่ จะช่วยให้พัฒนา graphql schemas เหมือนเริ่มต้นโปรเจ็คใหม่และทำงานอยู่ใน clean state ข้อควรระวัง flag นี้จะลบข้อมูลที่ทำดัชนีไว้แล้วทั้งหมด
 
 ### --batch-size
 
-flag นี้อนุญาตให้คุณตั้งค่าขนาด batch size ผ่าน command line หากมีการตั้งค่า batch size ในไฟล์ config ด้วยเช่นกัน การดำเนินการนี้จะมีความสำคัญเหนือกว่า If batch size is also set in the config file, this takes precedent.
+Flag นี้อนุญาตให้คุณตั้งค่าขนาด batch size ผ่าน command line หากมีการตั้งค่า batch size ในไฟล์ config ด้วยเช่นกัน การดำเนินการนี้จะมีความสำคัญเหนือกว่า
 
 ```shell
 > subql-node -f . --batch-size=20
@@ -113,19 +119,18 @@ flag นี้อนุญาตให้คุณตั้งค่าขนา
 
 ### --debug
 
-ข้อมูลนี้แสดงข้อมูลตัวสร้างโปรไฟล์
+ข้อมูลนี้จะส่งออกข้อมูลการ debug ไปยังเอาต์พุตคอนโซลและบังคับตั้งค่าระดับ log เป็น debug
 
 ```shell
-> subql-node -f . --output-fmt=colored
-2021-08-10T11:57:41.480Z <subql-node> INFO node started
-(node:24707) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
-2021-08-10T11:57:48.981Z <fetch> INFO fetch block [10201,10300], total 100 blocks
-2021-08-10T11:57:51.862Z <fetch> INFO fetch block [10301,10400], total 100 blocks
+> subql-node -f . --debug
+2021-08-10T11:45:39.471Z <db> DEBUG Executing (1b0d0c23-d7c7-4adb-a703-e4e5c414e035): INSERT INTO "subquery_1"."starter_entities" ("id","block_height","created_at","updated_at") VALUES ($1,$2,$3,$4) ON CONFLICT ("id") DO UPDATE SET "id"=EXCLUDED."id","block_height"=EXCLUDED."block_height","updated_at"=EXCLUDED."updated_at" RETURNING "id","block_height","created_at","updated_at";
+2021-08-10T11:45:39.472Z <db> DEBUG Executing (default): UPDATE "subqueries" SET "next_block_height"=$1,"updated_at"=$2 WHERE "id" = $3
+2021-08-10T11:45:39.472Z <db> DEBUG Executing (1b0d0c23-d7c7-4adb-a703-e4e5c414e035): COMMIT;
 ```
 
 ### --profiler
 
-flag นี้อนุญาตให้ผู้ใช้แทนที่การกำหนดค่า endpoint ของเครือข่ายจากไฟล์ manifest
+ข้อมูลนี้แสดงข้อมูลตัวสร้างโปรไฟล์
 
 ```shell
 subql-node -f . --local --profiler
