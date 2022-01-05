@@ -163,40 +163,63 @@ filter:
 
 Ми підтримуємо додаткові типи, які використовуються підкладковими модулями виконання, ` typesAlias `, ` typesBundle `, ` typesChain ` та ` typesSpec ` також підтримуються.
 
-У прикладі v0.2.0 нижче ` network.chaintypes ` вказують на файл, у якому включені всі користувацькі типи. Це стандартний файл bainspec, який оголошує конкретні типи, підтримувані цим blockchain, або ` .json ` або ` .yaml ` формат.
+In the v0.2.0 example below, the `network.chaintypes` are pointing to a file that has all the custom types included, This is a standard chainspec file that declares the specific types supported by this blockchain in either `.json`, `.yaml` or `.js` format.
 
 <CodeGroup> <CodeGroupItem title="v0.2.0" active> ``` yml network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' endpoint: 'ws://host.kittychain.io/public-ws' chaintypes: file: ./types.json # The relative filepath to where custom types are stored ... ``` </CodeGroupItem>
 
 <CodeGroupItem title="v0.0.1"> ``` yml ... network: endpoint: "ws://host.kittychain.io/public-ws" types: { "KittyIndex": "u32", "Kitty": "[u8; 16]" } # typesChain: { chain: { Type5: 'example' } } # typesSpec: { spec: { Type6: 'example' } } dataSources: - name: runtime kind: substrate/Runtime startBlock: 1 filter:  #Optional specName: kitty-chain mapping: handlers: - handler: handleKittyBred kind: substrate/CallHandler filter: module: kitties method: breed success: true ``` </CodeGroupItem> </CodeGroup>
 
+To use typescript for your chain types file include it in the `src` folder (e.g. `./src/types.ts`), run `yarn build` and then point to the generated js file located in the `dist` folder.
+
+
+
+```yml
+network:
+  chaintypes:
+    file: ./dist/types.js # Will be generated after yarn run build
+...
+```
+
+
+Things to note about using the chain types file with extension `.ts` or `.js`:
+
+- Your manifest version must be v0.2.0 or above.
+- Only the default export will be included in the [polkadot api](https://polkadot.js.org/docs/api/start/types.extend/) when fetching blocks.
+
+Here is an example of a `.ts` chain types file:
+
+<CodeGroup> <CodeGroupItem title="types.ts"> ```ts
+import { typesBundleDeprecated } from "moonbeam-types-bundle"
+export default { typesBundle: typesBundleDeprecated }; ``` </CodeGroupItem> </CodeGroup>
+
 
 
 ## Custom Data Sources
 
-Custom Data Sources provide network specific functionality that makes dealing with data easier. Вони діють як середнє програмне забезпечення, яке може забезпечити додаткову фільтрацію та трансформацію даних.
+Custom Data Sources provide network specific functionality that makes dealing with data easier. They act as a middleware that can provide extra filtering and data transformation.
 
-Хорошим прикладом цього є підтримка EVM, наявність користувальницького процесора джерела даних для EVM означає, що ви можете фільтрувати на рівні EVM (наприклад,. фільтрують договірні методи або журнали) і дані перетворюються на структури, схожі на екосистему Ethereum, а також параметри розбору з ABI.
+A good example of this is EVM support, having a custom data source processor for EVM means that you can filter at the EVM level (e.g. filter contract methods or logs) and data is transformed into structures farmiliar to the Ethereum ecosystem as well as parsing parameters with ABIs.
 
-Звичайні джерела даних можна використовувати з нормальними джерелами даних.
+Custom Data Sources can be used with normal data sources.
 
-Ось список підтримуваних спеціальних джерел даних: 
+Here is a list of supported custom datasources:
 
-| Biд                                                       | Підтримувані обробники                                                                                           | Фільтри                            | Опис                                                                         |
-| --------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------- | ---------------------------------------------------------------------------- |
-| [ substrate / Moonbeam ](./moonbeam/#data-source-example) | [ substrate / MoonbeamEvent ](./moonbeam/#moonbeamevent), [ substrate / MoonbeamCall ](./moonbeam/#moonbeamcall) | Див. Фільтри під кожним обробником | Забезпечує легку взаємодію з транзакціями EVM та подіями в мережах Moonbeams |
-
-
+| Kind                                                  | Supported Handlers                                                                                       | Filters                         | Description                                                                      |
+| ----------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | ------------------------------- | -------------------------------------------------------------------------------- |
+| [substrate/Moonbeam](./moonbeam/#data-source-example) | [substrate/MoonbeamEvent](./moonbeam/#moonbeamevent), [substrate/MoonbeamCall](./moonbeam/#moonbeamcall) | See filters under each handlers | Provides easy interaction with EVM transactions and events on Moonbeams networks |
 
 
-## Мережеві фільтри 
 
-** Мережеві фільтри застосовуються лише до маніфесту специфікації v0.0.1 **.
 
-Зазвичай користувач створить SubQuery і розраховує повторно використовувати його як для тестового, так і для основного середовища (наприклад, Polkadot і Kusama). Між мережами різні варіанти, ймовірно, будуть різними (наприклад,. блок запуску індексу). Тому ми дозволяємо користувачам визначати різні деталі для кожного джерела даних, а це означає, що один проект SubQuery все ще може використовуватися в декількох мережах.
+## Network Filters
 
-Користувачі можуть додати ` filter ` на ` dataSources `, щоб вирішити, яке джерело даних працювати в кожній мережі.
+**Network filters only applies to manifest spec v0.0.1**.
 
-Нижче наведено приклад, який показує різні джерела даних як для мереж Polkadot, так і для Kusama.
+Usually the user will create a SubQuery and expect to reuse it for both their testnet and mainnet environments (e.g Polkadot and Kusama). Between networks, various options are likely to be different (e.g. index start block). Therefore, we allow users to define different details for each data source which means that one SubQuery project can still be used across multiple networks.
+
+Users can add a `filter` on `dataSources` to decide which data source to run on each network.
+
+Below is an example that shows different data sources for both the Polkadot and Kusama networks.
 
 <CodeGroup> <CodeGroupItem title="v0.0.1"> ```yaml --- network: endpoint: 'wss://polkadot.api.onfinality.io/public-ws' #Create a template to avoid redundancy definitions: mapping: &mymapping handlers: - handler: handleBlock kind: substrate/BlockHandler dataSources: - name: polkadotRuntime kind: substrate/Runtime filter: #Optional specName: polkadot startBlock: 1000 mapping: *mymapping #use template here - name: kusamaRuntime kind: substrate/Runtime filter: specName: kusama startBlock: 12000 mapping: *mymapping # can reuse or change ``` </CodeGroupItem>
 
