@@ -8,54 +8,54 @@ Das Manifest kann entweder im YAML- oder im JSON-Format vorliegen. In diesem Dok
 
 ## Migrating from v0.0.1 to v0.2.0 <Badge text="upgrade" type="warning"/>
 
-**If you have a project with specVersion v0.0.1, you can use `subql migrate` to quickly upgrade. [See here](#cli-options) for more information**
+**If you have a project with specVersion v0.0.1, you can use `subql migrate` to quickly upgrade. [Siehe hier](#cli-options) für weitere Info**
 
-Under `network`:
+Unter `Netzwerk`:
 
-- There is a new **required** `genesisHash` field which helps to identify the chain being used.
-- For v0.2.0 and above, you are able to reference an external [chaintype file](#custom-chains) if you are referencing a custom chain.
+- Es gibt ein neues **erforderliches** `genesisHash`-Feld, das hilft, die verwendete Chain zu identifizieren.
+- Ab v0.2.0 können Sie auf eine externe [Chaintyp Datei](#custom-chains) verweisen, wenn Sie auf eine benutzerdefinierte Chain verweisen.
 
-Under `dataSources`:
+Unter `dataSources`:
 
-- Can directly link an `index.js` entry point for mapping handlers. By default this `index.js` will be generated from `index.ts` during the build process.
-- Data sources can now be either a regular runtime data source or [custom data source](#custom-data-sources).
+- Kann einen `index.js`-Einstiegspunkt für Mapping-Handler direkt verknüpfen. Standardmäßig wird diese `index.js` während des Build-Prozesses aus `index.ts` generiert.
+- Datenquellen können jetzt entweder eine reguläre Laufzeitdatenquelle oder eine [benutzerdefinierte Datenquelle](#custom-data-sources) sein.
 
-### CLI Options
+### CLI-Optionen
 
-While the v0.2.0 spec version is in beta, you will need to explicitly define it during project initialisation by running `subql init --specVersion 0.2.0 PROJECT_NAME`
+Während sich die v0.2.0-Spezifikationsversion in der Betaphase befindet, müssen Sie sie während der Projektinitialisierung explizit definieren, indem Sie `subql init --specVersion 0.2.0 PROJECT_NAME` ausführen
 
-`subql migrate` can be run in an existing project to migrate the project manifest to the latest version.
+`subql migrate`  kann in einem vorhandenen Projekt ausgeführt werden, um das Projektmanifest auf die neueste Version zu migrieren.
 
-| Options        | Description                                                |
-| -------------- | ---------------------------------------------------------- |
-| -f, --force    |                                                            |
-| -l, --location | local folder to run migrate in (must contain project.yaml) |
-| --file=file    | to specify the project.yaml to migrate                     |
+| Optionen       | Beschreibung                                                                              |
+| -------------- | ----------------------------------------------------------------------------------------- |
+| -f, --force    |                                                                                           |
+| -l, --Standort | lokaler Ordner, in dem die Migration ausgeführt werden soll (muss project.yaml enthalten) |
+| --file=Datei   | um die zu migrierende project.yaml anzugeben                                              |
 
-## Overview
+## Überblick
 
-### Top Level Spec
+### Top-Level-Spezifikation
 
-| Field           | v0.0.1                              | v0.2.0                      | Description                                                |
-| --------------- | ----------------------------------- | --------------------------- | ---------------------------------------------------------- |
-| **specVersion** | String                              | String                      | `0.0.1` or `0.2.0` - the spec version of the manifest file |
-| **name**        | 𐄂                                   | String                      | Name of your project                                       |
-| **version**     | 𐄂                                   | String                      | Version of your project                                    |
-| **description** | String                              | String                      | Discription of your project                                |
-| **repository**  | String                              | String                      | Git repository address of your project                     |
-| **schema**      | String                              | [Schema Spec](#schema-spec) | The location of your GraphQL schema file                   |
-| **network**     | [Network Spec](#network-spec)       | Network Spec                | Detail of the network to be indexed                        |
-| **dataSources** | [DataSource Spec](#datasource-spec) | DataSource Spec             |                                                            |
+| Bereich          | v0.0.1                                   | v0.2.0                      | Beschreibung                                                       |
+| ---------------- | ---------------------------------------- | --------------------------- | ------------------------------------------------------------------ |
+| **specVersion**  | String                                   | String                      | `0.0.1` oder `0.2.0` – die Spezifikationsversion der Manifestdatei |
+| **Name**         | 𐄂                                        | String                      | Name Ihres Projekts                                                |
+| **Version**      | 𐄂                                        | String                      | Version Ihres Projekts                                             |
+| **Beschreibung** | String                                   | String                      | Beschreibung Ihres Projekts                                        |
+| **Repository**   | String                                   | String                      | Git-Repository-Adresse Ihres Projekts                              |
+| **Schema**       | String                                   | [Schema Spec](#schema-spec) | Der Speicherort Ihrer GraphQL-Schemadatei                          |
+| **Netzwerk**     | [Netzwerkspezifikationen](#network-spec) | Netzwerkspezifikationen     | Detail of the network to be indexed                                |
+| **dataSources**  | [DataSource Spec](#datasource-spec)      | DataSource Spec             |                                                                    |
 
 ### Schema Spec
 
-| Field    | v0.0.1 | v0.2.0 | Description                              |
-| -------- | ------ | ------ | ---------------------------------------- |
-| **file** | 𐄂      | String | The location of your GraphQL schema file |
+| Bereich  | v0.0.1 | v0.2.0 | Beschreibung                              |
+| -------- | ------ | ------ | ----------------------------------------- |
+| **file** | 𐄂      | String | Der Speicherort Ihrer GraphQL-Schemadatei |
 
-### Network Spec
+### Netzwerkspezifikationen
 
-| Field           | v0.0.1 | v0.2.0        | Description                                                                                                                                                                                                |
+| Bereich         | v0.0.1 | v0.2.0        | Beschreibung                                                                                                                                                                                               |
 | --------------- | ------ | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **genesisHash** | 𐄂      | String        | The genesis hash of the network                                                                                                                                                                            |
 | **endpoint**    | String | String        | Defines the wss or ws endpoint of the blockchain to be indexed - **This must be a full archive node**. You can retrieve endpoints for all parachains for free from [OnFinality](https://app.onfinality.io) |
@@ -65,9 +65,9 @@ While the v0.2.0 spec version is in beta, you will need to explicitly define it 
 ### Datasource Spec
 
 Defines the data that will be filtered and extracted and the location of the mapping function handler for the data transformation to be applied.
-| Field          | v0.0.1                                                    | v0.2.0                                                                           | Description                                                                                                                                                                           |
+| Bereich        | v0.0.1                                                    | v0.2.0                                                                           | Beschreibung                                                                                                                                                                          |
 | -------------- | --------------------------------------------------------- | -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **name**       | String                                                    | 𐄂                                                                                | Name of the data source                                                                                                                                                               |
+| **Name**       | String                                                    | 𐄂                                                                                | Name of the data source                                                                                                                                                               |
 | **kind**       | [substrate/Runtime](./manifest/#data-sources-and-mapping) | substrate/Runtime, [substrate/CustomDataSource](./manifest/#custom-data-sources) | We supports data type from default substrate runtime such as block, event and extrinsic(call). <br /> From v0.2.0, we support data from custom runtime, such as smart contract. |
 | **startBlock** | Integer                                                   | Integer                                                                          | This changes your indexing start block, set this higher to skip initial blocks with less data                                                                                         |
 | **mapping**    | Mapping Spec                                              | Mapping Spec                                                                     |                                                                                                                                                                                       |
@@ -75,7 +75,7 @@ Defines the data that will be filtered and extracted and the location of the map
 
 ### Mapping Spec
 
-| Field                  | v0.0.1                                                                   | v0.2.0                                                                                        | Description                                                                                                                                                                                                                                  |
+| Bereich                | v0.0.1                                                                   | v0.2.0                                                                                        | Beschreibung                                                                                                                                                                                                                                 |
 | ---------------------- | ------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **file**               | String                                                                   | 𐄂                                                                                             | Path to the mapping entry                                                                                                                                                                                                                    |
 | **handlers & filters** | [Default handlers and filters](./manifest/#mapping-handlers-and-filters) | Default handlers and filters, <br />[Custom handlers and filters](#custom-data-sources) | List all the [mapping functions](./mapping.md) and their corresponding handler types, with additional mapping filters. <br /><br /> For custom runtimes mapping handlers please view [Custom data sources](#custom-data-sources) |
@@ -129,7 +129,7 @@ filter:
 
 ## Kundenspezifische Ketten
 
-### Network Spec
+### Netzwerkspezifikationen
 
 When connecting to a different Polkadot parachain or even a custom substrate chain, you'll need to edit the [Network Spec](#network-spec) section of this manifest.
 
