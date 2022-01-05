@@ -70,27 +70,27 @@ Funktioniert genauso wie [substrate/EventHandler](../create/mapping/#event-handl
 
 ### Event Filter
 
-| Bereich | Typ          | Beispiele                                                       | Beschreibung                                                                                                                                     |
-| ------- | ------------ | --------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Themen  | String Array | Transfer(address indexed from,address indexed to,uint256 value) | The topics filter follows the Ethereum JSON-PRC log filters, more documentation can be found [here](https://docs.ethers.io/v5/concepts/events/). |
+| Bereich | Typ          | Beispiele                                                        | Beschreibung                                                                                                                                        |
+| ------- | ------------ | ---------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Themen  | String Array | Transfer(Addresse indexed von,Addresse indexed zu,uint256 value) | Der Themenfilter folgt den Ethereum JSON-PRC-Protokollfiltern, weitere Dokumentation finden Sie [hier](https://docs.ethers.io/v5/concepts/events/). |
 
-<b>Note on topics:</b>
-There are a couple of improvements from basic log filters:
+<b>Hinweis zu Themen:</b>
+Es gibt einige Verbesserungen der grundlegenden Protokollfilter:
 
-- Topics don't need to be 0 padded
-- [Event Fragment](https://docs.ethers.io/v5/api/utils/abi/fragments/#EventFragment) strings can be provided and automatically converted to their id
+- Themen müssen nicht 0 gepolstert sein
+- [Ereignisfragment](https://docs.ethers.io/v5/api/utils/abi/fragments/#EventFragment)-Strings können bereitgestellt und automatisch in ihre ID konvertiert werden
 
 ### Handlers
 
-Unlike a normal handler you will not get a `SubstrateEvent` as the parameter, instead you will get a `MoonbeamEvent` which is based on Ethers [Log](https://docs.ethers.io/v5/api/providers/types/#providers-Log) type.
+Im Gegensatz zu einem normalen Handler erhalten Sie als Parameter kein `SubstrateEvent`, sondern ein `MoonbeamEvent`, das auf dem Ethers-Typ [Log](https://docs.ethers.io/v5/api/providers/types/#providers-Log) basiert.
 
-Changes from the `Log` type:
+Änderungen vom Typ `Log`:
 
 - `args` wird hinzugefügt, wenn das Feld `abi` bereitgestellt wird und die Argumente erfolgreich geparst werden können
 
-## Data Source Example
+## Data Source Beispiele
 
-This is an extract from the `project.yaml` manifest file.
+Dies ist ein Auszug aus der Manifestdatei `project.yaml`.
 
 ```yaml
 dataSources:
@@ -125,8 +125,8 @@ dataSources:
             from: '0x6bd193ee6d2104f14f94e2ca6efefae561a4334b'
 ```
 
-## Known Limitations
+## Bekannte Einschränkungen
 
-- There is currently no way to query EVM state within a handler
-- There is no way to get the transaction receipts with call handlers
-- `blockHash` properties are currently left undefined, the `blockNumber` property can be used instead
+- Es gibt derzeit keine Möglichkeit, den EVM-Status innerhalb eines Handlers abzufragen
+- Es gibt keine Möglichkeit, die Transaktionsquittungen mit Call-Handlern zu erhalten
+- `blockHash`-Eigenschaften sind derzeit nicht definiert, stattdessen kann die `blockNumber`-Eigenschaft verwendet werden
