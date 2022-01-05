@@ -163,7 +163,7 @@ filter:
 
 Ми підтримуємо додаткові типи, які використовуються підкладковими модулями виконання, ` typesAlias `, ` typesBundle `, ` typesChain ` та ` typesSpec ` також підтримуються.
 
-In the v0.2.0 example below, the `network.chaintypes` are pointing to a file that has all the custom types included, This is a standard chainspec file that declares the specific types supported by this blockchain in either `.json`, `.yaml` or `.js` format.
+У прикладі v0.2.0 нижче ` network.chaintypes ` вказують на файл, у якому включені всі користувацькі типи. Це стандартний файл bainspec, який оголошує конкретні типи, підтримувані цим blockchain, у форматі ` .json `, ` 0> або <code> .js `.
 
 <CodeGroup> <CodeGroupItem title="v0.2.0" active> ``` yml network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' endpoint: 'ws://host.kittychain.io/public-ws' chaintypes: file: ./types.json # The relative filepath to where custom types are stored ... ``` </CodeGroupItem>
 
@@ -181,7 +181,7 @@ network:
 ```
 
 
-Things to note about using the chain types file with extension `.ts` or `.js`:
+Що слід зазначити про використання файлу типів ланцюга з розширенням ` .ts ` або ` .js `:
 
 - Your manifest version must be v0.2.0 or above.
 - Only the default export will be included in the [polkadot api](https://polkadot.js.org/docs/api/start/types.extend/) when fetching blocks.
