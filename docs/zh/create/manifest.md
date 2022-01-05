@@ -148,27 +148,54 @@ filter:
 
 我们支持Substrate 运行模式所使用的额外类型， `类型别名`， `类型Bundle`, `类型链`, 和 `类型Spec` 也被支持。
 
-在 v0.2.0 示例中， `网络。 hainintypes` 指向一个包含所有自定义类型的文件。 这是一个标准的链条文件，用 `声明此区块链支持的特定类型。 son` 或 `.yaml` 格式。
+In the v0.2.0 example below, the `network.chaintypes` are pointing to a file that has all the custom types included, This is a standard chainspec file that declares the specific types supported by this blockchain in either `.json`, `.yaml` or `.js` format.
 
 <CodeGroup> <CodeGroupItem title="v0.2.0" active> ``` yml network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' endpoint: 'ws://host.kittychain.io/public-ws' chaintypes: file: ./types.json # The relative filepath to where custom types are stored ... ``` </CodeGroupItem>
-<CodeGroupItem title="v0.0.1"> ``` yml ... <CodeGroupItem title="v0.2.0" active> ``` yml network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' endpoint: 'ws://host.kittychain.io/public-ws' chaintypes: file: ./types.json # The relative filepath to where custom types are stored ... ``` </CodeGroupItem> <CodeGroupItem title="v0.0.1"> ``` yml ... network: endpoint: "ws://host.kittychain.io/public-ws" types: { "KittyIndex": "u32", "Kitty": "[u8; 16]" } # typesChain: { chain: { Type5: 'example' } } # typesSpec: { spec: { Type6: 'example' } } dataSources: - name: runtime kind: substrate/Runtime startBlock: 1 filter:  #Optional specName: kitty-chain mapping: handlers: - handler: handleKittyBred kind: substrate/CallHandler filter: module: kitties method: breed success: true ``` </CodeGroupItem> </CodeGroup>< 3 >自定义数据源> < / 3
+<CodeGroupItem title="v0.0.1"> ``` yml ... network: endpoint: "ws://host.kittychain.io/public-ws" types: { "KittyIndex": "u32", "Kitty": "[u8; 16]" } # typesChain: { chain: { Type5: 'example' } } # typesSpec: { spec: { Type6: 'example' } } dataSources: - name: runtime kind: substrate/Runtime startBlock: 1 filter:  #Optional specName: kitty-chain mapping: handlers: - handler: handleKittyBred kind: substrate/CallHandler filter: module: kitties method: breed success: true ``` </CodeGroupItem> </CodeGroup>
 
-自定义数据源提供了特定于网络的功能，使处理数据更容易。 它们充当中间件，可以提供额外的过滤和数据转换 一个很好的例子就是对EVM的支持，拥有一个自定义的EVM数据源处理器意味着你可以在EVM级别进行过滤(例如过滤合约方法或日志)，数据被转换成熟悉以太坊生态系统的结构，并使用ABIs解析参数
+To use typescript for your chain types file include it in the `src` folder (e.g. `./src/types.ts`), run `yarn build` and then point to the generated js file located in the `dist` folder.
 
-自定义数据源可以与普通数据源一起使用 以下是受支持的自定义数据源列表
+```yml
+network:
+  chaintypes:
+    file: ./dist/types.js # Will be generated after yarn run build
+...
+```
+
+Things to note about using the chain types file with extension `.ts` or `.js`:
+
+- Your manifest version must be v0.2.0 or above.
+- Only the default export will be included in the [polkadot api](https://polkadot.js.org/docs/api/start/types.extend/) when fetching blocks.
+
+Here is an example of a `.ts` chain types file:
+
+<CodeGroup> <CodeGroupItem title="types.ts"> ```ts
+import { typesBundleDeprecated } from "moonbeam-types-bundle"
+export default { typesBundle: typesBundleDeprecated }; ``` </CodeGroupItem> </CodeGroup>
+
+## Custom Data Sources
+
+Custom Data Sources provide network specific functionality that makes dealing with data easier. They act as a middleware that can provide extra filtering and data transformation.
+
+A good example of this is EVM support, having a custom data source processor for EVM means that you can filter at the EVM level (e.g. filter contract methods or logs) and data is transformed into structures farmiliar to the Ethereum ecosystem as well as parsing parameters with ABIs.
+
+Custom Data Sources can be used with normal data sources.
+
+Here is a list of supported custom datasources:
 
 | Kind                                                  | Supported Handlers                                                                                       | Filters                         | Description                                                                      |
 | ----------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | ------------------------------- | -------------------------------------------------------------------------------- |
 | [substrate/Moonbeam](./moonbeam/#data-source-example) | [substrate/MoonbeamEvent](./moonbeam/#moonbeamevent), [substrate/MoonbeamCall](./moonbeam/#moonbeamcall) | See filters under each handlers | Provides easy interaction with EVM transactions and events on Moonbeams networks |
-< < 11 >网络过滤器/ 11 >
 
-**网络过滤器仅适用于manifest规范v0.0.1**. . 通常用户会创建一个SubQuery，并希望在他们的测试网和主网环境中重用它(例如Polkadot和Kusama)。 在不同的网络环境之间，一些设置可能会发生变化（例如索引起始块）。 因此，我们允许用户为每个数据源定义不同的细节，这意味着一个子查询项目仍然可以在多个网络中使用。
+## Network Filters
 
-用户可以在 `上添加一个` 过滤器 `数据源` 来决定在每个网络上运行哪个数据源。 在不同的网络环境之间，一些设置可能会发生变化（例如索引起始块）。 因此，我们允许用户为每个数据源定义不同的细节，这意味着一个子查询项目仍然可以在多个网络中使用。
+**Network filters only applies to manifest spec v0.0.1**.
 
-用户可以在 `上添加一个` 过滤器 `数据源` 来决定在每个网络上运行哪个数据源。
+Usually the user will create a SubQuery and expect to reuse it for both their testnet and mainnet environments (e.g Polkadot and Kusama). Between networks, various options are likely to be different (e.g. index start block). Therefore, we allow users to define different details for each data source which means that one SubQuery project can still be used across multiple networks.
 
-下方示例是Polkadot和Kusama网络中不同的数据源。
+Users can add a `filter` on `dataSources` to decide which data source to run on each network.
+
+Below is an example that shows different data sources for both the Polkadot and Kusama networks.
 
 <CodeGroup> <CodeGroupItem title="v0.0.1"> ```yaml --- network: endpoint: 'wss://polkadot.api.onfinality.io/public-ws' #Create a template to avoid redundancy definitions: mapping: &mymapping handlers: - handler: handleBlock kind: substrate/BlockHandler dataSources: - name: polkadotRuntime kind: substrate/Runtime filter: #Optional specName: polkadot startBlock: 1000 mapping: *mymapping #use template here - name: kusamaRuntime kind: substrate/Runtime filter: specName: kusama startBlock: 12000 mapping: *mymapping # can reuse or change ``` </CodeGroupItem>
 
