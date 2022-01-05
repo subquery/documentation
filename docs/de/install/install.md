@@ -1,30 +1,44 @@
-# Installing SubQuery
+# Installierung von SubQuery
 
-There are various components required when creating a SubQuery project. The [@subql/cli](https://github.com/subquery/subql/tree/docs-new-section/packages/cli) tool is used to create SubQuery projects. The [@subql/node](https://github.com/subquery/subql/tree/docs-new-section/packages/node) component is required to run an indexer. The [@subql/query](https://github.com/subquery/subql/tree/docs-new-section/packages/query) library is required to generate queries.
+Beim Erstellen eines SubQuery-Projekts sind verschiedene Komponenten erforderlich. Das Tool [@subql/cli](https://github.com/subquery/subql/tree/docs-new-section/packages/cli) wird verwendet, um SubQuery-Projekte zu erstellen. Die Komponente [@subql/node](https://github.com/subquery/subql/tree/docs-new-section/packages/node) ist zum Ausführen eines Indexers erforderlich. Die Bibliothek [@subql/query](https://github.com/subquery/subql/tree/docs-new-section/packages/query) ist zum Generieren von Abfragen erforderlich.
 
-## Install @subql/cli
+## Installieren Sie bitte @subql/cli
 
 The [@subql/cli](https://github.com/subquery/subql/tree/docs-new-section/packages/cli) library helps to create a project framework or scaffold meaning you don't have to start from scratch.
 
-Install SubQuery CLI globally on your terminal by using Yarn or NPM:
+Installieren Sie SubQuery CLI global auf Ihrem Terminal, indem Sie Yarn oder NPM verwenden:
 
-<CodeGroup> # Yarn yarn global add @subql/cli # NPM npm install -g @subql/cli
-## Install @subql/node
+<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn global add @subql/cli ``` </CodeGroupItem>
+<CodeGroupItem title="NPM"> ```bash npm install -g @subql/cli ``` </CodeGroupItem> </CodeGroup>
 
-A SubQuery node is an implementation that extracts substrate-based blockchain data per the SubQuery project and saves it into a Postgres database.
+You can then run help to see available commands and usage provide by CLI:
 
-Install SubQuery node globally on your terminal by using Yarn or NPM:
+```shell
+subql help
+```
+## Installieren Sie bitte @subql/node
 
-<CodeGroup> # Yarn yarn global add @subql/node # NPM npm install -g @subql/node
-> Note: If you are using Docker or hosting your project in SubQuery Projects, you do can skip this step. This is because the SubQuery node is already provided in the Docker container and the hosting infrastructure.
+Eine SubQuery-Node ist eine Implementierung, die substratbasierte Blockchain-Daten pro SubQuery-Projekt extrahiert und in einer Postgres-Datenbank speichert.
 
-## Install @subql/query
+Installieren Sie die SubQuery-Node global auf Ihrem Terminal, indem Sie Yarn oder NPM verwenden:
 
-The SubQuery query library provides a service that allows you to query your project in a "playground" environment via your browser.
+<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn global add @subql/node ``` </CodeGroupItem>
+<CodeGroupItem title="NPM"> ```bash npm install -g @subql/node ``` </CodeGroupItem> </CodeGroup>
 
-Install SubQuery query globally on your terminal by using Yarn or NPM:
+Once installed, you can can start a node with:
 
-<CodeGroup> <CodeGroupItem title="YARN" active> # Yarn yarn global add @subql/query # NPM npm install -g @subql/query </CodeGroupItem>
-<CodeGroupItem title="NPM"> subql-node &lt;command&gt; </CodeGroupItem> </CodeGroup>
+```shell
+subql-node <command>
+```
+> Hinweis: Wenn Sie Docker verwenden oder Ihr Projekt in SubQuery-Projekten hosten, können Sie diesen Schritt überspringen. Dies liegt daran, dass die SubQuery-Node bereits im Docker-Container und der Hosting-Infrastruktur bereitgestellt wird.
 
-> Note: If you are using Docker or hosting your project in SubQuery Projects, you do can skip this step also. This is because the SubQuery node is already provided in the Docker container and the hosting infrastructure. 
+## Installieren Sie bitte @subql/query
+
+Die SubQuery-Abfragebibliothek stellt einen Dienst bereit, mit dem Sie Ihr Projekt in einer "Spielplatz"-Umgebung über Ihren Browser abfragen können.
+
+Installieren Sie die SubQuery-Abfrage global auf Ihrem Terminal, indem Sie Yarn oder NPM verwenden:
+
+<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn global add @subql/query ``` </CodeGroupItem>
+<CodeGroupItem title="NPM"> ```bash npm install -g @subql/query ``` </CodeGroupItem> </CodeGroup>
+
+> Hinweis: Wenn Sie Docker verwenden oder Ihr Projekt in SubQuery-Projekten hosten, können Sie diesen Schritt auch überspringen. Dies liegt daran, dass die SubQuery-Node bereits im Docker-Container und der Hosting-Infrastruktur bereitgestellt wird. 
