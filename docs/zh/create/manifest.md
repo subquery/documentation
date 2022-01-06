@@ -148,23 +148,23 @@ filter:
 
 我们支持Substrate 运行模式所使用的额外类型， `类型别名`， `类型Bundle`, `类型链`, 和 `类型Spec` 也被支持。
 
-In the v0.2.0 example below, the `network.chaintypes` are pointing to a file that has all the custom types included, This is a standard chainspec file that declares the specific types supported by this blockchain in either `.json`, `.yaml` or `.js` format.
+在 v0.2.0 示例中， `network. hainintypes` 指向一个包含所有自定义类型的文件。 这是一个标准的链规格文件，用 `声明此区块链支持的特定类型。 son` 或 `.yaml` 格式。
 
 <CodeGroup> <CodeGroupItem title="v0.2.0" active> ``` yml network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' endpoint: 'ws://host.kittychain.io/public-ws' chaintypes: file: ./types.json # The relative filepath to where custom types are stored ... ``` </CodeGroupItem>
-<CodeGroupItem title="v0.0.1"> ``` yml ... network: endpoint: "ws://host.kittychain.io/public-ws" types: { "KittyIndex": "u32", "Kitty": "[u8; 16]" } # typesChain: { chain: { Type5: 'example' } } # typesSpec: { spec: { Type6: 'example' } } dataSources: - name: runtime kind: substrate/Runtime startBlock: 1 filter:  #Optional specName: kitty-chain mapping: handlers: - handler: handleKittyBred kind: substrate/CallHandler filter: module: kitties method: breed success: true ``` </CodeGroupItem> </CodeGroup>
+<CodeGroupItem title="v0.0.1"> ``` yml ... <CodeGroupItem title="v0.2.0" active> ``` yml network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' endpoint: 'ws://host.kittychain.io/public-ws' chaintypes: file: ./types.json # The relative filepath to where custom types are stored ... ``` </CodeGroupItem> <CodeGroupItem title="v0.0.1"> ``` yml ... network: endpoint: "ws://host.kittychain.io/public-ws" types: { "KittyIndex": "u32", "Kitty": "[u8; 16]" } # typesChain: { chain: { Type5: 'example' } } # typesSpec: { spec: { Type6: 'example' } } dataSources: - name: runtime kind: substrate/Runtime startBlock: 1 filter:  #Optional specName: kitty-chain mapping: handlers: - handler: handleKittyBred kind: substrate/CallHandler filter: module: kitties method: breed success: true ``` </CodeGroupItem> </CodeGroup>< 3 >自定义数据源> < / 3
 
-To use typescript for your chain types file include it in the `src` folder (e.g. `./src/types.ts`), run `yarn build` and then point to the generated js file located in the `dist` folder.
+自定义数据源提供了特定于网络的功能，使处理数据更容易。
 
 ```yml
 network:
-  chaintypes:
-    file: ./dist/types.js # Will be generated after yarn run build
+  chainpypes:
+    file: ./dist/types.js # 将在 yarn 运行后生成
 ...
 ```
 
-Things to note about using the chain types file with extension `.ts` or `.js`:
+关于使用后缀名 `.ts` 或 `.js` 的链式文件的规范：
 
-- Your manifest version must be v0.2.0 or above.
+- 您的版本必须是 v0.2.0 或以上。
 - Only the default export will be included in the [polkadot api](https://polkadot.js.org/docs/api/start/types.extend/) when fetching blocks.
 
 Here is an example of a `.ts` chain types file:
