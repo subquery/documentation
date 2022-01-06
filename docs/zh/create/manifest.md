@@ -47,7 +47,7 @@ v0.2。 spec 版本处于测试阶段，您需要在项目初始化过程中运�
 | **network**     | [Network Spec](#network Spec)       | Network Spec                | 要索引的网络详情                          |
 | **dataSources** | [DataSource Spec](#dataSource Spec) | DataSource Spec             |                                   |
 
-### Schema Spec
+### Schema 说明
 
 | Field    | v0.0.1 | v0.2.0 | Description         |
 | -------- | ------ | ------ | ------------------- |
@@ -165,38 +165,86 @@ network:
 关于使用后缀名 `.ts` 或 `.js` 的链式文件的规范：
 
 - 您的版本必须是 v0.2.0 或以上。
-- Only the default export will be included in the [polkadot api](https://polkadot.js.org/docs/api/start/types.extend/) when fetching blocks.
+- 获取方块时， [polkadot api](https://polkadot.js.org/docs/api/start/types.extend/) 只会包含默认导出。
 
-Here is an example of a `.ts` chain types file:
+下面是一个 `.ts` 链类型文件的示例：
 
 <CodeGroup> <CodeGroupItem title="types.ts"> ```ts
 import { typesBundleDeprecated } from "moonbeam-types-bundle"
 export default { typesBundle: typesBundleDeprecated }; ``` </CodeGroupItem> </CodeGroup>
 
-## Custom Data Sources
+## 自定义数据源
 
-Custom Data Sources provide network specific functionality that makes dealing with data easier. They act as a middleware that can provide extra filtering and data transformation.
+自定义数据源提供网络特定功能，使得处理数据变得更容易。 它们起着中间件的作用，能够提供额外的过滤和数据转换。
 
-A good example of this is EVM support, having a custom data source processor for EVM means that you can filter at the EVM level (e.g. filter contract methods or logs) and data is transformed into structures farmiliar to the Ethereum ecosystem as well as parsing parameters with ABIs.
+EVM支持就是一个很好的例子，拥有一个用于EVM的自定义数据源处理器意味着您可以在EVM级别进行过滤（例如，过滤契约方法或日志），数据被转换为以太坊生态系统的结构，以及使用ABI解析参数。
 
-Custom Data Sources can be used with normal data sources.
+自定义数据源可以与普通数据源一起使用。
 
-Here is a list of supported custom datasources:
+这里是支持的自定义数据源列表：
 
-| Kind                                                  | Supported Handlers                                                                                       | Filters                         | Description                                                                      |
-| ----------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | ------------------------------- | -------------------------------------------------------------------------------- |
-| [substrate/Moonbeam](./moonbeam/#data-source-example) | [substrate/MoonbeamEvent](./moonbeam/#moonbeamevent), [substrate/MoonbeamCall](./moonbeam/#moonbeamcall) | See filters under each handlers | Provides easy interaction with EVM transactions and events on Moonbeams networks |
+<table spaces-before="0">
+  <tr>
+    <th>
+      Kind
+    </th>
+    
+    <th>
+      支持的处理程序
+    </th>
+    
+    <th>
+      过滤器
+    </th>
+    
+    <th>
+      <th>
+        描述
+      </th></tr> </thead> 
+      
+      <tr>
+        <td>
+          <a href="./moonbeam/#data-source-example">substrate/Moonbeam</a>
+        </td>
+        
+        <td>
+          <a href="./moonbeam/#moonbeamevent">substrate/MoonbeamEvent</a>, <a href="./moonbeam/#moonbeamcall">Substrate/MoonbeamCall</a>
+        </td>
+        
+        <td>
+          查看每个处理程序下的过滤规则
+        </td>
+        
+        <td>
+          提供与模拟器网络上的 EVM 交易和事件的轻松交互
+        </td>
+      </tr></table>
 
-## Network Filters
+<h2 spaces-before="0">
+  Network 过滤器
+</h2>
 
-**Network filters only applies to manifest spec v0.0.1**.
+<p spaces-before="0">
+  <strong x-id="1">Network 过滤器仅适用于manic v0.1</strong>。
+</p>
 
-Usually the user will create a SubQuery and expect to reuse it for both their testnet and mainnet environments (e.g Polkadot and Kusama). Between networks, various options are likely to be different (e.g. index start block). Therefore, we allow users to define different details for each data source which means that one SubQuery project can still be used across multiple networks.
+<p spaces-before="0">
+  通常，用户将创建 SubQuery 并期望将其重新用于测试网和主网环境 ，例如 Polkadot和Kusama环境。 在不同的网络环境之间，一些设置可能会发生变化（例如索引起始块）。 因此，我们允许用户为每个数据源定义不同的细节，这意味着一个子查询项目仍然可以在多个网络中使用。
+</p>
 
-Users can add a `filter` on `dataSources` to decide which data source to run on each network.
+<p spaces-before="0">
+  用户可以在 <code>上添加一个</code> 过滤器 <code>数据源</code> 来决定在每个网络上运行哪个数据源。
+</p>
 
-Below is an example that shows different data sources for both the Polkadot and Kusama networks.
+<p spaces-before="0">
+  下方示例是Polkadot和Kusama网络中不同的数据源。
+</p>
+
+<p spaces-before="0">
 
 <CodeGroup> <CodeGroupItem title="v0.0.1"> ```yaml --- network: endpoint: 'wss://polkadot.api.onfinality.io/public-ws' #Create a template to avoid redundancy definitions: mapping: &mymapping handlers: - handler: handleBlock kind: substrate/BlockHandler dataSources: - name: polkadotRuntime kind: substrate/Runtime filter: #Optional specName: polkadot startBlock: 1000 mapping: *mymapping #use template here - name: kusamaRuntime kind: substrate/Runtime filter: specName: kusama startBlock: 12000 mapping: *mymapping # can reuse or change ``` </CodeGroupItem>
+</p>
 
-</CodeGroup>
+<p spaces-before="0">
+  </CodeGroup>
+</p>
