@@ -146,7 +146,7 @@ Bạn có thể lập chỉ mục dữ liệu từ các chuỗi tùy chỉnh b�
 
 Chúng tôi hỗ trợ các kiểu bổ sung được sử dụng bởi các mô-đun thời gian chạy nền, `typeAlias​`, `typeBundle`, `typeChain` và `typeSpec` cũng được hỗ trợ.
 
-In the v0.2.0 example below, the `network.chaintypes` are pointing to a file that has all the custom types included, This is a standard chainspec file that declares the specific types supported by this blockchain in either `.json`, `.yaml` or `.js` format.
+Trong ví dụ v0.2.0 bên dưới, `network.chaintypes` đang trỏ đến một tệp có tất cả các loại tùy chỉnh được nhúng vào, Đây là tệp chainpec tiêu chuẩn khai báo các kiểu cụ thể được hỗ trợ bởi chuỗi khối này trong cả định dạng `.json`, `.yaml` hoặc `.js`.
 
 <CodeGroup> <CodeGroupItem title="v0.2.0" active> ``` yml network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' endpoint: 'ws://host.kittychain.io/public-ws' chaintypes: file: ./types.json # The relative filepath to where custom types are stored ... ``` </CodeGroupItem>
 <CodeGroupItem title="v0.0.1"> ``` yml ... network: endpoint: "ws://host.kittychain.io/public-ws" types: { "KittyIndex": "u32", "Kitty": "[u8; 16]" } # typesChain: { chain: { Type5: 'example' } } # typesSpec: { spec: { Type6: 'example' } } dataSources: - name: runtime kind: substrate/Runtime startBlock: 1 filter:  #Optional specName: kitty-chain mapping: handlers: - handler: handleKittyBred kind: substrate/CallHandler filter: module: kitties method: breed success: true ``` </CodeGroupItem> </CodeGroup>
