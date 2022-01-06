@@ -2,56 +2,56 @@
 
 Това ръководство показва как да стартирате локален SubQuery нод във вашата инфраструктура, който включва индексатора и услугата за заявки. Не желаете да се занимавате със стартирането на собствена SubQuery инфраструктура? SubQuery предоставя [управлявана хоствана услуга](https://explorer.subquery.network) безплатно за общността. [Следвайте нашето ръководство](../publish/publish.md) за да разберете как да качите вашия проект в [SubQuery Projects](https://project.subquery.network).
 
-## Using Docker
+## Използване на Docker
 
-An alternative solution is to run a <strong>Docker Container</strong>, defined by the `docker-compose.yml` file. For a new project that has been just initialised you won't need to change anything here.
+Алтернативно решение е да стартирате <strong>Docker Container</strong>, дефиниран от файла `docker-compose.yml`. За нов проект, който току-що е инициализиран, няма да е необходимо да променяте нищо тук.
 
-Under the project directory run the following command:
+Под директорията на проекта изпълнете следната команда:
 
 ```shell
 docker-compose pull && docker-compose up
 ```
 
-It may take some time to download the required packages ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), and Postgres) for the first time but soon you'll see a running SubQuery node.
+Може да отнеме известно време, за да изтеглите необходимите пакети ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), и Postgres) за първи път, но скоро ще видите работещ SubQuery нод.
 
-## Running an Indexer (subql/node)
+## Изпълнение на индексатор (subql/node)
 
-Requirements:
+Изисквания:
 
-- [Postgres](https://www.postgresql.org/) database (version 12 or higher). While the [SubQuery node](#start-a-local-subquery-node) is indexing the blockchain, the extracted data is stored in an external database instance.
+- База данни [Postgres](https://www.postgresql.org/) (версия 12 или по-нова). Докато [SubQuery нодът ](#start-a-local-subquery-node) индексира блокчейна, извлечените данни се съхраняват във външна база данни.
 
-A SubQuery node is an implementation that extracts substrate-based blockchain data per the SubQuery project and saves it into a Postgres database.
+SubQuery нодът е реализация, която извлича базирани на Substrate блокчейн данни за проекта SubQuery и ги записва в базата данни на Postgres.
 
-### Installation
+### Инсталация
 
 ```shell
 # NPM
 npm install -g @subql/node
 ```
 
-Please note that we **DO NOT** encourage the use of `yarn global` due to its poor dependency management which may lead to an errors down the line.
+Моля, имайте предвид, че ние **НЕ** насърчаваме използването на `yarn global` поради лошото управление на зависимостта, което може да доведе до грешки в бъдеще.
 
-Once installed, you can start a node with the following command:
+Веднъж инсталиран, можете да стартирате нода със следната команда:
 
 ```shell
 subql-node <command>
 ```
 
-### Key Commands
+### Ключови команди
 
-The following commands will assist you to complete the configuration of a SubQuery node and begin indexing. To find out more, you can always run `--help`.
+Следващите команди ще ви помогнат да завършите конфигурацията на SubQuery нода и да започнете индексирането. За да научите повече, винаги можете да стартирате `--help`.
 
-#### Point to local project path
+#### Посочете пътя към локалния проект
 
 ```
 subql-node -f your-project-path
 ```
 
-#### Use a Dictionary
+#### Използвайте речник
 
-Using a full chain dictionary can dramatically speed up the processing of a SubQuery project during testing or during your first index. In some cases, we've seen indexing performance increases of up to 10x.
+Използването на речник за цяла верига може драстично да ускори обработката на SubQuery проект по време на тестване или по време на първия ви индекс. В някои случаи сме виждали увеличение на ефективността на индексирането до 10 пъти.
 
-A full chain dictionary pre-indexes the location of all events and extrinsics within the specific chain and allows your node service to skip to relevant locations when indexing rather than inspecting each block.
+Цял верижен речник предварително индексира местоположението на всички събития и ненужни данни в рамките на конкретната верига и позволява на вашата нод услуга да прескача до съществените местоположения при индексиране, вместо да инспектира всеки блок.
 
 You can add the dictionary endpoint in your `project.yaml` file (see [Manifest File](../create/manifest.md)), or specify it at run time using the following command:
 
@@ -181,7 +181,7 @@ Debugger attached.
 Then open up the Chrome dev tools, go to Source > Filesystem and add your project to the workspace and start debugging. For more information, check out [How to debug a SubQuery project](https://doc.subquery.network/tutorials_examples/debug-projects/)
 ## Running a Query Service (subql/query)
 
-### Installation
+### Инсталация
 
 ```shell
 # NPM
