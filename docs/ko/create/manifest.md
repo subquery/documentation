@@ -131,13 +131,13 @@ filter:
 
 ### 네트워크 스펙
 
-When connecting to a different Polkadot parachain or even a custom substrate chain, you'll need to edit the [Network Spec](#network-spec) section of this manifest.
+다른 폴카닷 파라체인이나 커스텀 substrate 체인에 연결할 때, 이 manifest의 [Network Spec](#network-spec) 섹션을 수정해야 합니다.
 
-The `genesisHash` must always be the hash of the first block of the custom network. You can retireve this easily by going to [PolkadotJS](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fkusama.api.onfinality.io%2Fpublic-ws#/explorer/query/0) and looking for the hash on **block 0** (see the image below).
+`genesisHash` 는 항상 커스텀 네트워크의 첫번째 블록의 해쉬가 되어야 합니다. [PolkadotJS](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fkusama.api.onfinality.io%2Fpublic-ws#/explorer/query/0) 에서 **block 0**의 해쉬를 찾음으로써 쉽게 검색할 수 있습니다(아래의 이미지를 참고하세요).
 
 ![Genesis Hash](/assets/img/genesis-hash.jpg)
 
-Additionally you will need to update the `endpoint`. This defines the wss endpoint of the blockchain to be indexed - **This must be a full archive node**. [OnFinality](https://app.onfinality.io)에서 모든 파라체인의 endpoint를 무료로 검색할 수 있습니다
+추가적으로 `endpoint`를 업데이트해야 합니다. This defines the wss endpoint of the blockchain to be indexed - **This must be a full archive node**. [OnFinality](https://app.onfinality.io)에서 모든 파라체인의 endpoint를 무료로 검색할 수 있습니다
 
 ### 체인 유형
 
