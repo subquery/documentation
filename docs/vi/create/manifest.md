@@ -151,7 +151,7 @@ Trong ví dụ v0.2.0 bên dưới, `network.chaintypes` đang trỏ đến mộ
 <CodeGroup> <CodeGroupItem title="v0.2.0" active> ``` yml network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' endpoint: 'ws://host.kittychain.io/public-ws' chaintypes: file: ./types.json # The relative filepath to where custom types are stored ... ``` </CodeGroupItem>
 <CodeGroupItem title="v0.0.1"> ``` yml ... network: endpoint: "ws://host.kittychain.io/public-ws" types: { "KittyIndex": "u32", "Kitty": "[u8; 16]" } # typesChain: { chain: { Type5: 'example' } } # typesSpec: { spec: { Type6: 'example' } } dataSources: - name: runtime kind: substrate/Runtime startBlock: 1 filter:  #Optional specName: kitty-chain mapping: handlers: - handler: handleKittyBred kind: substrate/CallHandler filter: module: kitties method: breed success: true ``` </CodeGroupItem> </CodeGroup>
 
-To use typescript for your chain types file include it in the `src` folder (e.g. `./src/types.ts`), run `yarn build` and then point to the generated js file located in the `dist` folder.
+Để sử dụng typescript cho các loại chuỗi của bạn, hãy bao gồm tệp đó trong thư mục `src` (ví dụ: `./src/types.ts`), chạy `yarn build` và sau đó trỏ đến tệp js đã tạo nằm trong thư mục `dist`.
 
 ```yml
 network:
@@ -160,9 +160,9 @@ network:
 ...
 ```
 
-Things to note about using the chain types file with extension `.ts` or `.js`:
+Những điều cần lưu ý khi sử dụng tệp loại chuỗi có phần mở rộng `.ts` hoặc `.js`:
 
-- Your manifest version must be v0.2.0 or above.
+- Phiên bản manifest của bạn phải từ v0.2.0 trở lên.
 - Only the default export will be included in the [polkadot api](https://polkadot.js.org/docs/api/start/types.extend/) when fetching blocks.
 
 Here is an example of a `.ts` chain types file:
