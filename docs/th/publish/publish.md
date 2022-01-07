@@ -14,29 +14,29 @@
 
 ในการสร้างโปรเจ็กต์แรกของคุณ ให้ไปที่ [project.subquery.network](https://project.subquery.network) คุณจะต้องตรวจสอบสิทธิ์ด้วยบัญชี GitHub ของคุณเพื่อเข้าสู่ระบบ คุณจะต้องอนุญาตการเข้าถึงบัญชี Github ของคุณเพื่อเข้าสู่ระบบ
 
-ในการเข้าสู่ระบบในครั้งแรก คุณจะถูกขออนุญาตการเข้าถึงโดย SubQuery We only need your email address to identify your account, and we don't use any other data from your GitHub account for any other reasons. ในการเข้าสู่ระบบครั้งแรก คุณจะถูกขอให้ทำการ authorize แก่ SubQuery เราต้องการเพียงที่อยู่อีเมลของคุณเพื่อระบุบัญชีของคุณ และเราไม่ใช้ข้อมูลอื่นใดจากบัญชี GitHub ของคุณด้วยเหตุผลอื่นๆ ในขั้นตอนนี้ คุณยังสามารถขอหรือให้สิทธิ์การเข้าถึงบัญชี GitHub Organization ของคุณเพื่อโพสต์โปรเจ็กต์ SubQuery ภายใต้ GitHub Organization แทนบัญชีส่วนตัวของคุณ
+ในการเข้าสู่ระบบในครั้งแรก คุณจะถูกขออนุญาตการเข้าถึงโดย SubQuery เราต้องการเพียงที่อยู่อีเมลเพื่อระบุบัญชีของคุณ เราไม่ใช้ข้อมูลอื่นๆจากบัญชี Github ของคุณเพื่อเหตุผลอื่นๆ ในการเข้าสู่ระบบครั้งแรก คุณจะถูกขอให้ทำการ authorize แก่ SubQuery เราต้องการเพียงที่อยู่อีเมลของคุณเพื่อระบุบัญชีของคุณ และเราไม่ใช้ข้อมูลอื่นใดจากบัญชี GitHub ของคุณด้วยเหตุผลอื่นๆ ในขั้นตอนนี้ คุณยังสามารถขอหรือให้สิทธิ์การเข้าถึงบัญชี GitHub Organization ของคุณเพื่อโพสต์โปรเจ็กต์ SubQuery ภายใต้ GitHub Organization แทนบัญชีส่วนตัวของคุณ
 
 ![เพิกถอนการอนุมัติจากบัญชี GitHub](/assets/img/project_auth_request.png)
 
-SubQuery Projects คือที่ที่คุณจัดการโปรเจ็กต์ที่โฮสต์อยู่ทั้งหมดของคุณ ที่อัปโหลดไปยังแพลตฟอร์ม SubQuery คุณสามารถสร้าง ลบ หรือแม้กระทั่งอัปเกรดโปรเจ็กต์ทั้งหมดจากแอปพลิเคชันนี้ You can create, delete, and even upgrade projects all from this application.
+SubQuery Projects คือที่ที่คุณจัดการโปรเจ็กต์ที่โฮสต์อยู่ทั้งหมดของคุณ ที่อัปโหลดไปยังแพลตฟอร์ม SubQuery คุณสามารถสร้าง ลบ หรือแม้กระทั่งอัปเกรดโปรเจ็กต์ทั้งหมดจากแอปพลิเคชันนี้ คุณสามารถสร้าง ลบ หรือแม้กระทั่งอัปเกรดโปรเจ็กต์ทั้งหมดจาแอปพลิเคชันนี้
 
 ![Projects Login](/assets/img/projects-dashboard.png)
 
-หากคุณมีบัญชี GitHub Organization ที่เชื่อมต่ออยู่ คุณสามารถใช้ switcher ที่ header เพื่อเปลี่ยนระหว่างบัญชีส่วนตัวและบัญชี GitHub Organization ได้ โปรเจ็กต์ที่สร้างในบัญชี GitHub Organization จะแชร์ระหว่างสมาชิกใน GitHub Organization นั้นๆ ในการเชื่อมต่อบัญชี GitHub Organization ของคุณ คุณสามารถ[ทำตามขั้นตอนที่นี่](#add-github-organization-account-to-subquery-projects) Projects created in a GitHub Organization account are shared between members in that GitHub Organization. To connect your GitHub Organization account, you can [follow the steps here](#add-github-organization-account-to-subquery-projects).
+หากคุณมีบัญชี GitHub Organization ที่เชื่อมต่ออยู่ คุณสามารถใช้ switcher ที่ header เพื่อเปลี่ยนระหว่างบัญชีส่วนตัวและบัญชี GitHub Organization ได้ โปรเจ็กต์ที่สร้างในบัญชี GitHub Organization จะแชร์ระหว่างสมาชิกใน GitHub Organization นั้นๆ ในการเชื่อมต่อบัญชี GitHub Organization ของคุณ คุณสามารถ[ทำตามขั้นตอนที่นี่](#add-github-organization-account-to-subquery-projects) โปรเจ็กต์ที่สร้างในบัญชี Github แบบองค์กร สามารถแบ่งปันกันระหว่างสมาชิกภายในองค์กรได้ ในการเชื่อมต่อบัญชี Github องค์กร คุณสามารถทำตามขั้นนี้
 
 ![สลับระหว่างบัญชี GitHub](/assets/img/projects-account-switcher.png)
 
 #### สร้างโปรเจ็กต์แรกของคุณ
 
-Let's start by clicking on "Create Project". You'll be taken to the New Project form. Please enter the following (you can change this in the future):
-- **บัญชี GitHub:** หากคุณมีบัญชี GitHub มากกว่าหนึ่งบัญชี ให้เลือกบัญชีที่จะใช้สร้างโปรเจ็กต์นี้ โปรเจ็กต์ที่สร้างขึ้นในบัญชี GitHub organisation จะถูกแชร์ระหว่างสมาชิกใน organisation นั้นๆ Projects created in a GitHub organisation account are shared between members in that organisation.
+เริ่มต้นด้วยการคลิกที่ "Create Project" คุณจะถูกนำไปที่แบบฟอร์มการสร้างโปรเจ็กต์ใหม่ กรุณากรอกข้อมูลตามนี้ (สามารถเปลี่ยนแปลงได้ในอนาคต)
+- **บัญชี GitHub:** หากคุณมีบัญชี GitHub มากกว่าหนึ่งบัญชี ให้เลือกบัญชีที่จะใช้สร้างโปรเจ็กต์นี้ โปรเจ็กต์ที่สร้างขึ้นในบัญชี GitHub organisation จะถูกแชร์ระหว่างสมาชิกใน organisation นั้นๆ โปรเจ็กต์ที่สร้างในบัญชี Github แบบองค์กร สามารถแบ่งปันกันระหว่างสมาชิกภายในองค์กรได้
 - **ชื่อ**
 - **ชื่อรอง (Subtitle)**
 - **คำอธิบาย**
-- **GitHub Repository URL:** ต้องเป็น GitHub URL ที่ใช้งานได้ซึ่งชี้ไปยัง repositoryสาธารณะที่มีโปรเจ็กต์ SubQuery ของคุณ ไฟล์ `schema.graphql` ต้องอยู่ในรูทของไดเร็กทอรีของคุณ ([เรียนรู้เพิ่มเติมเกี่ยวกับโครงสร้างไดเร็กทอรี](../create/introduction.md#directory-structure)) The `schema.graphql` file must be in the root of your directory ([learn more about the directory structure](../create/introduction.md#directory-structure)).
-- **Hide project:** หากเลือก จะเป็นการซ่อนโปรเจ็กต์จาก SubQuery explorer สาธารณะ อย่าเลือกตัวเลือกนี้หากคุณต้องการแชร์ SubQuery ของคุณกับชุมชน! Keep this unselected if you want to share your SubQuery with the community! ![สร้างโปรเจ็กต์แรกของคุณ](/assets/img/projects-create.png)
+- **GitHub Repository URL:** ต้องเป็น GitHub URL ที่ใช้งานได้ซึ่งชี้ไปยัง repositoryสาธารณะที่มีโปรเจ็กต์ SubQuery ของคุณ ไฟล์ `schema.graphql` ต้องอยู่ในรูทของไดเร็กทอรีของคุณ ([เรียนรู้เพิ่มเติมเกี่ยวกับโครงสร้างไดเร็กทอรี](../create/introduction.md#directory-structure)) ไฟล์ schema.graphql ต้องอยู่ในไดเร็กทอรีเริ่มต้นของคุณ (เรียนรู้เพิ่มเติมเกี่ยวกับโครงสร้างไดเร็กทอรี)
+- **Hide project:** หากเลือก จะเป็นการซ่อนโปรเจ็กต์จาก SubQuery explorer สาธารณะ อย่าเลือกตัวเลือกนี้หากคุณต้องการแชร์ SubQuery ของคุณกับชุมชน! อย่าเลือกตัวเลือกนี้ หากคุณต้องการแบ่งปันโปรเจ็กต์ SubQuery ของคุณแก่ชุมชน ![สร้างโปรเจ็กต์แรกของคุณ](/assets/img/projects-create.png)
 
-สร้างโปรเจ็กต์ของคุณ แล้วคุณจะเห็นในลิสต์รายการโปรเจ็กต์ SubQuery ของคุณ *ใกล้แล้ว! *We're almost there! เราแค่ต้องทำการ deploy เป็นเวอร์ชันใหม่* </p>
+สร้างโปรเจ็กต์ของคุณ แล้วคุณจะเห็นในลิสต์รายการโปรเจ็กต์ SubQuery ของคุณ *ใกล้แล้ว! ใกล้แล้ว! เราแค่ต้องทำการ deploy เป็นเวอร์ชันใหม่*
 
 ![สร้างโปรเจ็กต์โดยไม่มีการ deploy](/assets/img/projects-no-deployment.png)
 
