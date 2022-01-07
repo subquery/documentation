@@ -10,11 +10,11 @@
 
 #### เข้าสู่ระบบโปรเจ็กต์ SubQuery
 
-ก่อนเริ่มต้น โปรดตรวจสอบให้แน่ใจว่าโปรเจ็กต์ SubQuery ของคุณออนไลน์อยู่ใน GitHub repository แบบสาธารณะ ไฟล์ `schema.graphql` ต้องอยู่ในรูทไดเร็กทอรีของคุณ The `schema.graphql` file must be in the root of your directory.
+ก่อนเริ่มต้น โปรดตรวจสอบให้แน่ใจว่าโปรเจ็กต์ SubQuery ของคุณออนไลน์อยู่ใน GitHub repository แบบสาธารณะ ไฟล์ `schema.graphql` ต้องอยู่ในรูทไดเร็กทอรีของคุณ ไฟล์ schema.graphql ต้องอยู่ในไดเร็กทอรีเริ่มต้นของคุณ
 
-ในการสร้างโปรเจ็กต์แรกของคุณ ให้ไปที่ [project.subquery.network](https://project.subquery.network) คุณจะต้องตรวจสอบสิทธิ์ด้วยบัญชี GitHub ของคุณเพื่อเข้าสู่ระบบ You'll need to authenticate with your GitHub account to login.
+ในการสร้างโปรเจ็กต์แรกของคุณ ให้ไปที่ [project.subquery.network](https://project.subquery.network) คุณจะต้องตรวจสอบสิทธิ์ด้วยบัญชี GitHub ของคุณเพื่อเข้าสู่ระบบ คุณจะต้องอนุญาตการเข้าถึงบัญชี Github ของคุณเพื่อเข้าสู่ระบบ
 
-On first login, you will be asked to authorize SubQuery. We only need your email address to identify your account, and we don't use any other data from your GitHub account for any other reasons. ในการเข้าสู่ระบบครั้งแรก คุณจะถูกขอให้ทำการ authorize แก่ SubQuery เราต้องการเพียงที่อยู่อีเมลของคุณเพื่อระบุบัญชีของคุณ และเราไม่ใช้ข้อมูลอื่นใดจากบัญชี GitHub ของคุณด้วยเหตุผลอื่นๆ ในขั้นตอนนี้ คุณยังสามารถขอหรือให้สิทธิ์การเข้าถึงบัญชี GitHub Organization ของคุณเพื่อโพสต์โปรเจ็กต์ SubQuery ภายใต้ GitHub Organization แทนบัญชีส่วนตัวของคุณ
+ในการเข้าสู่ระบบในครั้งแรก คุณจะถูกขออนุญาตการเข้าถึงโดย SubQuery We only need your email address to identify your account, and we don't use any other data from your GitHub account for any other reasons. ในการเข้าสู่ระบบครั้งแรก คุณจะถูกขอให้ทำการ authorize แก่ SubQuery เราต้องการเพียงที่อยู่อีเมลของคุณเพื่อระบุบัญชีของคุณ และเราไม่ใช้ข้อมูลอื่นใดจากบัญชี GitHub ของคุณด้วยเหตุผลอื่นๆ ในขั้นตอนนี้ คุณยังสามารถขอหรือให้สิทธิ์การเข้าถึงบัญชี GitHub Organization ของคุณเพื่อโพสต์โปรเจ็กต์ SubQuery ภายใต้ GitHub Organization แทนบัญชีส่วนตัวของคุณ
 
 ![เพิกถอนการอนุมัติจากบัญชี GitHub](/assets/img/project_auth_request.png)
 
