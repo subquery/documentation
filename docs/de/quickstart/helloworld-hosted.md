@@ -121,7 +121,7 @@ And fill in the various fields with the appropriate details.
 - **Subtitle:** Provide a subtitle for your project.
 - **Description:** Explain what your SubQuery project does.
 - **GitHub Repository URL:** This must be a valid GitHub URL to a public repository that contains your SubQuery project. The schema.graphql file must be in the root of your directory.
-- **Hide project:** If selected, this will hide the project from the public SubQuery explorer. Keep this unselected if you want to share your SubQuery with the community!
+- **Hide project:** Wenn ausgewählt, wird das Projekt im öffentlichen SubQuery-Explorer ausgeblendet. Lassen Sie diese Option deaktiviert, wenn Sie Ihre SubQuery mit der Community teilen möchten!
 
 ![Create SubQuery parameters](/assets/img/create_subquery_project_parameters.png)
 
@@ -133,7 +133,7 @@ The dashboard contains lots of useful information such as the network it is usin
 
 ## 5. Step 5: Deploy your project
 
-Now that you have created your project within SubQuery Projects, setting up the display behaviour, the next step is to deploy your project making it operational. Deploying a version triggers a new SubQuery indexing operation to start, and sets up the required query service to start accepting GraphQL requests. You can also deploy new versions to existing projects here.
+Now that you have created your project within SubQuery Projects, setting up the display behaviour, the next step is to deploy your project making it operational. Das Bereitstellen einer Version löst den Start eines neuen SubQuery-Indizierungsvorgangs aus und richtet den erforderlichen Abfragedienst ein, um GraphQL-Anforderungen zu akzeptieren. Sie können hier auch neue Versionen für bestehende Projekte bereitstellen.
 
 You can choose to deploy to various environments such as a production slot or a staging slot. Here we'll deploy to a production slot. Clicking on the "Deploy" button brings up a screen with the following fields:
 
