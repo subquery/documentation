@@ -52,12 +52,12 @@ network.endpoint สำหรับเครือข่าย Kusama คือ 
 
 network.endpoint สำหรับเครือข่าย Polkadot คือ `wss://polkadot.api.onfinality.io/public-ws`
 
-## ฉันจะพัฒนาสคีมาของโปรเจคของฉันได้อย่างไร
+## ฉันจะพัฒนา Schema ของโปรเจคของฉันได้อย่างไร
 
-A known issue with developing a changing project schema is that when lauching your Subquery node for testing, the previously indexed blocks will be incompatible with your new schema. In order to iteratively develop schemas the indexed blocks stored in the database must be cleared, this can be achieved by launching your node with the `--force-clean` flag. ยกตัวอย่างเช่น:
+ปัญหาที่เราทราบกับการพัฒนาและเปลี่ยนโปรเจ็กค์ schema คือเมื่อคุณเริ่มต้น Subquery node สำหรับทดสอบ ข้อมูลที่ทำ index แล้วจะเข้ากับ schema ใหม่ของคุณไม่ได้ ในการพัฒนา schemas ข้อมูล indexed block ที่ถูกเก็บไว้ในฐานข้อมูลจะถูกลบออก ในกระบวนการนี้สามารถทำได้โดยการเริ่มต้น node ของคุณด้วย flag `--force-clean` ยกตัวอย่างเช่น:
 
 ```shell
 subql-node -f . --force-clean --subquery-name=<project-name>
 ```
 
-Note that it is recommended to use `--force-clean` when changing the `startBlock` within the project manifest (`project.yaml`) in order to begin reindexing from the configured block. If `startBlock` is changed without a `--force-clean` of the project then the indexer will continue indexing with the previously configured `startBlock`.
+แนะนำว่าควรใช้ `--force-clean` เมื่อเปลี่ยน `startBlock` ที่อยู่ใน project manifest (`project.yaml`) เพื่มเริ่มต้นการทำ indexing ใหม่จาก block ที่ถูกตั้งค่าไว้ ถ้า `startBlock` ถูกเปลี่ยนโดยไม่ได้ใช้ `--force-clean` ของโปรเจ็กค์ จากนั้น indexer จะทำการ index ต่อจากการตั้งค่าเดิมของ `startBlock`
