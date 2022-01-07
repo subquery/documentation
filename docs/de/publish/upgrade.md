@@ -1,4 +1,4 @@
-# Deploy a New Version of your SubQuery Project
+# Stellen Sie eine neue Version Ihres SubQuery-Projekts bereit
 
 ## Richtlinien
 
@@ -8,28 +8,28 @@ Obwohl Sie jederzeit die Freiheit haben, neue Versionen Ihres SubQuery-Projekts 
 
 ## Deploy-Änderungen
 
-Login to SubQuery Projects, and find the project that you want to deploy a new version of. Sie können wählen, ob Sie entweder im Produktions- oder Staging-Slot bereitstellen möchten. Diese beiden Slots sind isolierte Umgebungen und haben jeweils ihre eigenen Datenbanken und werden unabhängig synchronisiert.
+Melden Sie sich bei SubQuery Project an und wählen Sie das Projekt aus, von dem Sie eine neue Version bereitstellen möchten. Sie können wählen, ob Sie entweder im Produktions- oder Staging-Slot bereitstellen möchten. Diese beiden Slots sind isolierte Umgebungen und haben jeweils ihre eigenen Datenbanken und werden unabhängig synchronisiert.
 
-Wir empfehlen die Bereitstellung in Ihrem Staging-Slot nur für abschließende Staging-Tests oder wenn Sie Ihre Projektdaten erneut synchronisieren müssen. You can then promote it to production with zero downtime. You will find testing is faster when [running a project locally](../run/run.md) as you can more [easily debug issues](../tutorials_examples/debug-projects.md).
+Wir empfehlen die Bereitstellung in Ihrem Staging-Slot nur für abschließende Staging-Tests oder wenn Sie Ihre Projektdaten erneut synchronisieren müssen. Sie können es dann ohne Ausfallzeiten in die Produktion überführen. Man kann feststellen, dass das Testen schneller ist, wenn man [ein Projekt lokal ausführt](../run/run.md), da man [Probleme leichter beheben](../tutorials_examples/debug-projects.md) könnte.
 
-The staging slot is perfect for:
-* Final validation of changes to your SubQuery Project in a separate environment. The staging slot has a different URL to production that you can use in your dApps.
-* Warming up and indexing data for an updated SubQuery project to eliminate downtime in your dApp
-* Preparing a new release for your SubQuery Project without exposing it publicly. The staging slot is not shown to the public in the Explorer and has a unique URL that is visible only to you.
+Der Staging-Slot ist perfekt für:
+* Abschließende Validierung von Änderungen an Ihrem SubQuery-Projekt in einer separaten Umgebung. Der Staging-Slot hat eine andere URL als die Produktion, die Sie in Ihren dApps verwenden können.
+* Aufwärmen und Indizierung von Daten für ein aktualisiertes SubQuery-Projekt, um Ausfallzeiten in Ihrer dApp zu vermeiden
+* Vorbereitung einer neuen Version für Ihr SubQuery-Projekt, ohne sie öffentlich zugänglich zu machen. Der Staging-Slot wird im Explorer nicht öffentlich angezeigt und hat eine eindeutige URL, die nur für Sie sichtbar ist.
 
-![Staging slot](/assets/img/staging_slot.png)
+![Staging-Slot](/assets/img/staging_slot.png)
 
-#### Upgrade to the Latest Indexer and Query Service
+#### Upgrade auf den neuesten Indexer- und Abfragedienst
 
-If you just want to upgrade to the latest indexer ([`@subql/node`](https://www.npmjs.com/package/@subql/node)) or query service ([`@subql/query`](https://www.npmjs.com/package/@subql/query)) to take advantage of our regular performance and stability improvements, just select a newer versions of our packages and save. This will cause only a few minutes of downtime.
+Wenn Sie nur auf den neuesten Indexer ([`@subql/node`](https://www.npmjs.com/package/@subql/node)) oder den Abfragedienst ([`@subql/query`](https://www.npmjs.com/package/@subql/query)) aktualisieren möchten, um von unseren regelmäßigen Leistungs- und Stabilitätsverbesserungen zu profitieren, Wählen Sie einfach eine neuere Version unserer Pakete aus und sparen Sie. Dies führt zu einer Ausfallzeit nur von wenigen Minuten.
 
-#### Deploy New Version of your SubQuery Project
+#### Stellen Sie eine neue Version Ihres SubQuery-Projekts bereit
 
-Fill in the Commit Hash from GitHub (copy the full commit hash) of the version of your SubQuery project codebase that you want deployed. This will cause a longer downtime depending on the time it takes to index the current chain. You can always report back here for progress.
+Geben Sie den Commit-Hash von GitHub ein (kopieren Sie den vollständigen Commit-Hash) der Version Ihrer SubQuery-Projektcodebasis, die Sie bereitstellen möchten. Dies führt zu einer längeren Ausfallzeit, je nachdem, wie lange es dauert, die aktuelle Chain zu indizieren. Hier können Sie jederzeit über Fortschritte berichten.
 
 ## Nächste Schritte - Verbinden Sie sich mit Ihrem Projekt
 Sobald Ihre Bereitstellung erfolgreich abgeschlossen wurde und unsere Nodes Ihre Daten aus der Chain indiziert haben, können Sie über den angezeigten GraphQL-Abfrageendpunkt eine Verbindung zu Ihrem Projekt herstellen.
 
 ![Projekt wird bereitgestellt und synchronisiert](/assets/img/projects-deploy-sync.png)
 
-Alternativ können Sie auf die drei Punkte neben dem Titel Ihres Projekts klicken und es im SubQuery Explorer anzeigen. There you can use the in browser playground to get started - [read more about how to user our Explorer here](../query/query.md).
+Alternativ können Sie auf die drei Punkte neben dem Titel Ihres Projekts klicken und es im SubQuery Explorer anzeigen. Dort können Sie den In-Browser-Playground verwenden, um loszulegen - [lesen Sie hier mehr darüber, wie Sie unseren Explorer verwenden](../query/query.md).
