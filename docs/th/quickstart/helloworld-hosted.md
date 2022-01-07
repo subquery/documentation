@@ -120,7 +120,7 @@ To https://github.com/seandotau/subqlHelloWorld.git
 - **Subtitle:** กรอกชื่อรองสำหรับชื่อโปรเจ็กต์ของคุณ
 - **Description:** อธิบายว่าโครงการ SubQuery ของคุณทำอะไร
 - **GitHub Repository URL:** ต้องเป็น GitHub URL ที่ใช้งานได้ซึ่งชี้ไปยัง repositoryสาธารณะที่มีโปรเจ็กต์ SubQuery ของคุณ ไฟล์ schema.graphql ต้องอยู่ในรูทไดเร็กทอรีของคุณ The schema.graphql file must be in the root of your directory.
-- **Hide project:** หากเลือก จะเป็นการซ่อนโปรเจ็กต์จาก SubQuery explorer สาธารณะ อย่าเลือกตัวเลือกนี้หากคุณต้องการแชร์ SubQuery ของคุณกับชุมชน! Keep this unselected if you want to share your SubQuery with the community!
+- **Hide project:** หากเลือก จะเป็นการซ่อนโปรเจ็กต์จาก SubQuery explorer สาธารณะ อย่าเลือกตัวเลือกนี้หากคุณต้องการแชร์ SubQuery ของคุณกับชุมชน! อย่าเลือกตัวเลือกนี้ หากคุณต้องการแบ่งปันโปรเจ็กต์ SubQuery ของคุณแก่ชุมชน
 
 ![สร้าง SubQuery parameters](/assets/img/create_subquery_project_parameters.png)
 
