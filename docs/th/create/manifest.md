@@ -65,24 +65,24 @@ Manifest สามารถอยู่ในรูป YAML หรือ JSON �
 ### Datasource Spec
 
 กำหนดข้อมูลที่จะถูกกรองหรือดึงออกจากตำแหน่งของ mapping function handler เพื่อนำมาใช้กับข้อมูลที่ถูกแปลง
-| Field          | v0.0.1                                                    | v0.2.0                                                                           | คำอธิบาย                                                                                                                                                                              |
-| -------------- | --------------------------------------------------------- | -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **name**       | String                                                    | 𐄂                                                                                | Name of the data source                                                                                                                                                               |
-| **kind**       | [substrate/Runtime](./manifest/#data-sources-and-mapping) | substrate/Runtime, [substrate/CustomDataSource](./manifest/#custom-data-sources) | We supports data type from default substrate runtime such as block, event and extrinsic(call). <br /> From v0.2.0, we support data from custom runtime, such as smart contract. |
-| **startBlock** | Integer                                                   | Integer                                                                          | This changes your indexing start block, set this higher to skip initial blocks with less data                                                                                         |
-| **mapping**    | Mapping Spec                                              | Mapping Spec                                                                     |                                                                                                                                                                                       |
-| **filter**     | [network-filters](./manifest/#network-filters)            | 𐄂                                                                                | Filter the data source to execute by the network endpoint spec name                                                                                                                   |
+| Field          | v0.0.1                                                    | v0.2.0                                                                           | คำอธิบาย                                                                                                                                                                    |
+| -------------- | --------------------------------------------------------- | -------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **name**       | String                                                    | 𐄂                                                                                | ชื่อของแหล่งข้อมูล                                                                                                                                                          |
+| **kind**       | [substrate/Runtime](./manifest/#data-sources-and-mapping) | substrate/Runtime, [substrate/CustomDataSource](./manifest/#custom-data-sources) | เรารองรับชนิดข้อมูลจาก substrate runtime เริ่มต้น อย่างเช่น block, event และ extrinsic(call) ตั้งแต่ v. 0.2.0 พวกเรารองรับข้อมูลจาก custom runtime อย่างเช่น smart contract |
+| **startBlock** | Integer                                                   | Integer                                                                          | ระบุ block เริ่มต้นที่ต้องการทำ indexing หากตั้งค่าสูงขึ้นจะข้าม block เริ่มต้น ส่งผลให้ข้อมูลน้อยลง                                                                        |
+| **mapping**    | Mapping Spec                                              | Mapping Spec                                                                     |                                                                                                                                                                             |
+| **filter**     | [network-filters](./manifest/#network-filters)            | 𐄂                                                                                | กรองข้อมูลที่รันด้วย network endpoint spec name                                                                                                                             |
 
 ### Mapping Spec
 
-| Field                  | v0.0.1                                                                   | v0.2.0                                                                                        | คำอธิบาย                                                                                                                                                                                                                                     |
-| ---------------------- | ------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **file**               | String                                                                   | 𐄂                                                                                             | Path to the mapping entry                                                                                                                                                                                                                    |
-| **handlers & filters** | [Default handlers and filters](./manifest/#mapping-handlers-and-filters) | Default handlers and filters, <br />[Custom handlers and filters](#custom-data-sources) | List all the [mapping functions](./mapping.md) and their corresponding handler types, with additional mapping filters. <br /><br /> For custom runtimes mapping handlers please view [Custom data sources](#custom-data-sources) |
+| Field                  | v0.0.1                                                                   | v0.2.0                                                                                        | คำอธิบาย                                                                                                                                                                                                                                       |
+| ---------------------- | ------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **file**               | String                                                                   | 𐄂                                                                                             | ตำแหน่งไฟล์ของ mapping entry                                                                                                                                                                                                                   |
+| **handlers & filters** | [Default handlers and filters](./manifest/#mapping-handlers-and-filters) | Default handlers and filters, <br />[Custom handlers and filters](#custom-data-sources) | ลิสท์รายการ [mapping functions](./mapping.md) ทั้งหมด และ handler type ที่เกี่ยวข้อง รวมไปถึง mapping filters <br /><br /> สำหรับการใช้ custom runtimes mapping handlers กรุณาดูต่อที่ [Custom data sources](#custom-data-sources) |
 
 ## Data Sources and Mapping
 
-In this section, we will talk about the default substrate runtime and its mapping. Here is an example:
+ในรายการนี้ พวกเราจะพูดถึงการใช้งาน default substrate runtime และการ mapping ตัวอย่างดังนี้:
 
 ```yaml
 dataSources:
@@ -94,19 +94,19 @@ dataSources:
 
 ### Mapping handlers and Filters
 
-The following table explains filters supported by different handlers.
+จากตารางต่อไปนี้ จะอธิบาย filters ที่รองรับกับ handlers ที่หลากหลาย
 
-**Your SubQuery project will be much more efficient when you only use event and call handlers with appropriate mapping filters**
+**โปรเจ็คต์ SubQuery ของคุณจะมีประสิทธิภาพเพิ่มมากขึ้นเป็นอย่างมาก เมื่อคุณใช้เพียง event และ call handlers ร่วมกับ mapping filters ที่เหมาะสม**
 
-| Handler                                    | Supported filter             |
-| ------------------------------------------ | ---------------------------- |
-| [BlockHandler](./mapping.md#block-handler) | `specVersion`                |
-| [EventHandler](./mapping.md#event-handler) | `module`,`method`            |
-| [CallHandler](./mapping.md#call-handler)   | `module`,`method` ,`success` |
+| Handlers (ตัวดำเนินการ)                    | Supported filter (ตัวกรองที่รองรับ) |
+| ------------------------------------------ | ----------------------------------- |
+| [BlockHandler](./mapping.md#block-handler) | `specVersion`                       |
+| [EventHandler](./mapping.md#event-handler) | `module`,`method`                   |
+| [CallHandler](./mapping.md#call-handler)   | `module`,`method` ,`success`        |
 
-Default runtime mapping filters are an extremely useful feature to decide what block, event, or extrinsic will trigger a mapping handler.
+Runtime mapping filters เบื้องต้น เป็นฟีเจอร์ที่มีประโยชน์เป็นอย่างมาก ใช้ในการตัดสินใจว่า block, event หรือ extrinsic ใดจะใช้เรียก mapping handler
 
-Only incoming data that satisfy the filter conditions will be processed by the mapping functions. Mapping filters are optional but are highly recommended as they significantly reduce the amount of data processed by your SubQuery project and will improve indexing performance.
+มีเพียงข้อมูลที่เข้ามาใหม่เท่านั้นที่จะเข้ากับเงื่อนไขในการกรอง และจะถูกประมวลผลโดย mapping functions Mapping filters เป็นตัวเลือกหนึ่ง แต่เราแนะนำเป็นอย่างยิ่งให้ใช้ เนื่องจากจะสามารถลดปริมาณข้อมูลที่จะต้องประมวลผลด้วยโปรเจ็กต์ SubQuery ของคุณได้มหาศาล และมันจะช่วยเพิ่มประสิทธิภาพในการทำ indexing
 
 ```yaml
 # Example filter from callHandler
@@ -116,9 +116,9 @@ filter:
   success: true
 ```
 
-- Module and method filters are supported on any substrate-based chain.
-- The `success` filter takes a boolean value and can be used to filter the extrinsic by its success status.
-- The `specVersion` filter specifies the spec version range for a substrate block. The following examples describe how to set version ranges.
+- Module และ method filters รองรับบน substrate-based chain ใดๆ
+- `success` filter จะรับค่า boolean และใช้ในการกรอง extrinsic ที่ผ่านสถานะ success
+- `specVersion` filter จะใช้กำหนด spec version ที่อยู่ในช่วงที่กำหนดสำหรับ substrate block ตัวอย่างดังต่อไปนี้จะอธิบายว่าจะกำหนด version ranges ได้อย่างไร
 
 ```yaml
 filter:
@@ -131,23 +131,24 @@ filter:
 
 ### Network Spec
 
-When connecting to a different Polkadot parachain or even a custom substrate chain, you'll need to edit the [Network Spec](#network-spec) section of this manifest.
+เมื่อเชื่อมต่อกับ Polkadot parachain อื่น หรือแม้แต่ custom substrate chain คุณจำเป็นจะต้องแก้ไขในส่วน [Network Spec](#network-spec) ของไฟล์ manifest นี้
 
-The `genesisHash` must always be the hash of the first block of the custom network. You can retireve this easily by going to [PolkadotJS](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fkusama.api.onfinality.io%2Fpublic-ws#/explorer/query/0) and looking for the hash on **block 0** (see the image below).
+`genesisHash` มักจะเป็น hash ของ block แรกในแต่ละเครือข่าย คุณสามารถอ่านค่าเหล่านี้ได้ง่ายๆ เพียงไปที่ [PolkadotJS](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fkusama.api.onfinality.io%2Fpublic-ws#/explorer/query/0) และมองหา hash บน **block 0** (ดูรูปประกอบด้านล่าง)
 
 ![Genesis Hash](/assets/img/genesis-hash.jpg)
 
-Additionally you will need to update the `endpoint`. This defines the wss endpoint of the blockchain to be indexed - **This must be a full archive node**. คุณสามารถดึงปลายทางได้จากทุก parachains ได้ฟรี จาก [OnFinality](https://app.onfinality.io)
+นอกจากนี้ คุณจำเป็นจะต้องอัพเดท `endpoint` กำหนด wss หรือ ws ปลายทางของ blockchain ที่ต้องการ index - **จำเป็นต้องเป็น full archive node** คุณสามารถดึงปลายทางได้จากทุก parachains ได้ฟรี จาก [OnFinality](https://app.onfinality.io)
 
 ### Chain Types
 
-You can index data from custom chains by also including chain types in the manifest.
+คุณสามารถทำดัชนีข้อมูลจาก custom chains ได้ โดยการกำหนด chain types ใน manifest
 
-We support the additional types used by substrate runtime modules, `typesAlias`, `typesBundle`, `typesChain`, and `typesSpec` are also supported.
+พวกเรารองรับชนิดเพิ่มเติมที่ถูกใช้โดย substrate runtime modules โดยรองรับ `typesAlias`, `typesBundle`, `typesChain`, และ `typesSpec`
 
-In the v0.2.0 example below, the `network.chaintypes` are pointing to a file that has all the custom types included, This is a standard chainspec file that declares the specific types supported by this blockchain in either `.json`, `.yaml` or `.js` format.
+ใน v0.2.0 ตัวอย่างดังต่อไปนี้ `network.chaintypes` จะถูกชี้ไปที่ไฟล์ที่มี custom types ทั้งหมด นี่จะเป็นมาตรฐานของไฟล์ chainspec ที่ใช้ในการประกาศ และระบุชินที่มีความจำเพาะ รองรับกับ blockchain โดยรองรับทั้งรูปแบบ `.json`, `.yaml` หรือ `.js`.
 
-<CodeGroup> <CodeGroupItem title="v0.2.0" active> ``` yml network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' endpoint: 'ws://host.kittychain.io/public-ws' chaintypes: file: ./types.json # The relative filepath to where custom types are stored ... ``` </CodeGroupItem> <CodeGroupItem title="v0.0.1"> ``` yml ... network: endpoint: "ws://host.kittychain.io/public-ws" types: { "KittyIndex": "u32", "Kitty": "[u8; 16]" } # typesChain: { chain: { Type5: 'example' } } # typesSpec: { spec: { Type6: 'example' } } dataSources: - name: runtime kind: substrate/Runtime startBlock: 1 filter:  #Optional specName: kitty-chain mapping: handlers: - handler: handleKittyBred kind: substrate/CallHandler filter: module: kitties method: breed success: true ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="v0.2.0" active> ``` yml network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' endpoint: 'ws://host.kittychain.io/public-ws' chaintypes: file: ./types.json # The relative filepath to where custom types are stored ... ``` </CodeGroupItem>
+<CodeGroupItem title="v0.0.1"> ``` yml ... network: endpoint: "ws://host.kittychain.io/public-ws" types: { "KittyIndex": "u32", "Kitty": "[u8; 16]" } # typesChain: { chain: { Type5: 'example' } } # typesSpec: { spec: { Type6: 'example' } } dataSources: - name: runtime kind: substrate/Runtime startBlock: 1 filter:  #Optional specName: kitty-chain mapping: handlers: - handler: handleKittyBred kind: substrate/CallHandler filter: module: kitties method: breed success: true ``` </CodeGroupItem> </CodeGroup>
 
 To use typescript for your chain types file include it in the `src` folder (e.g. `./src/types.ts`), run `yarn build` and then point to the generated js file located in the `dist` folder.
 
@@ -158,12 +159,12 @@ network:
 ...
 ```
 
-Things to note about using the chain types file with extension `.ts` or `.js`:
+สิ่งที่คุณจะต้องทราบเกี่ยวกับการใช้งาน chain types file ด้วยนามสกุล `.ts` หรือ `.js`:
 
-- Your manifest version must be v0.2.0 or above.
-- Only the default export will be included in the [polkadot api](https://polkadot.js.org/docs/api/start/types.extend/) when fetching blocks.
+- ไฟล์ manifest version ต้องเป็น v0.2.0 หรือสูงกว่า
+- มีเพียง default export เท่านั้นที่จะถูกรวมไปใน [polkadot api](https://polkadot.js.org/docs/api/start/types.extend/) เมื่อดึงข้อมูลจาก blocks
 
-Here is an example of a `.ts` chain types file:
+นี่คือตัวอย่างของ `.ts` ไฟล์ chain types:
 
 <CodeGroup> <CodeGroupItem title="types.ts"> ```ts
 import { typesBundleDeprecated } from "moonbeam-types-bundle"
@@ -171,27 +172,27 @@ export default { typesBundle: typesBundleDeprecated }; ``` </CodeGroupItem> </Co
 
 ## Custom Data Sources
 
-Custom Data Sources provide network specific functionality that makes dealing with data easier. They act as a middleware that can provide extra filtering and data transformation.
+Custom Data Sources จะระบุฟังก์ชันของ network ที่กำหนด ที่จะทำให้จัดการกับข้อมูลได้ง่ายยิ่งขึ้น โดยจะทำงานเหมือนตัวกลาง ที่จะช่วยกรองเพิ่มขึ้น และการแปลงข้อมูล
 
-A good example of this is EVM support, having a custom data source processor for EVM means that you can filter at the EVM level (e.g. filter contract methods or logs) and data is transformed into structures farmiliar to the Ethereum ecosystem as well as parsing parameters with ABIs.
+ตัวอย่างที่ดีของอันนี้ คือการรองรับ EVM สามารถมีการประมวลผล data source สำหรับ EVM หมายความว่าคุณสามารถทำการกรองได้ตั้งแต่ระดับ EVM (e.g. กรอง contract methods หรือ logs) และข้อมูลเหล่านั้นจะถูกแปลงเป็นโครงสร้างที่ใกล้เคียงกับ Ethereum ecosystem เฉกเช่นเดียวกับการดึง parameters ด้วย ABIs.
 
-Custom Data Sources can be used with normal data sources.
+Custom Data Sources สามารถใช้ร่วมกับ normal data sources.
 
-Here is a list of supported custom datasources:
+นี่คือรายการ custom datasources ที่รองรับ:
 
-| Kind                                                  | Supported Handlers                                                                                       | Filters                         | Description                                                                      |
-| ----------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | ------------------------------- | -------------------------------------------------------------------------------- |
-| [substrate/Moonbeam](./moonbeam/#data-source-example) | [substrate/MoonbeamEvent](./moonbeam/#moonbeamevent), [substrate/MoonbeamCall](./moonbeam/#moonbeamcall) | See filters under each handlers | Provides easy interaction with EVM transactions and events on Moonbeams networks |
+| Kind                                                  | Supported Handlers                                                                                       | Filters                         | Description                                                                         |
+| ----------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------- |
+| [substrate/Moonbeam](./moonbeam/#data-source-example) | [substrate/MoonbeamEvent](./moonbeam/#moonbeamevent), [substrate/MoonbeamCall](./moonbeam/#moonbeamcall) | See filters under each handlers | ช่วยให้กระทำกับ EVM trsnaction ได้ง่าย และเหตุการณ์ที่เกิดขึ้นบน Moonbeams networks |
 
 ## Network Filters
 
-**Network filters only applies to manifest spec v0.0.1**.
+**Network filters จะใช้เฉพาะใน manifest spec v0.0.1**.
 
-Usually the user will create a SubQuery and expect to reuse it for both their testnet and mainnet environments (e.g Polkadot and Kusama). Between networks, various options are likely to be different (e.g. index start block). Therefore, we allow users to define different details for each data source which means that one SubQuery project can still be used across multiple networks.
+โดยทั่วไป user จะสร้าง SubQuery และคาดว่าจะนำมาใช้ทั้ง testnet และ mainnet environments (e.g. Polkdaot และ Kusama) ระหว่างเครือข่าย การตั้งค่าต่างๆอาจมีการเปลี่ยนแปลง (e.g. index start block) นอกจากนี้ เราอนุญาติให้ผู้ใช้งานสามารถกำหนดรายละเอียดในแต่ละ data source ได้ นั่นหมายความว่าในหนึ่งโปรเจ็คต์ Subquery จะสามารถนำไปใช้ได้หลายเครือข่าย
 
-Users can add a `filter` on `dataSources` to decide which data source to run on each network.
+ผู้ใช้งานสามารถเพิ่ม `filter` บน `dataSources` เพื่อเลือกว่า data source ใดจะใช้ในแต่ละเครือข่าย
 
-Below is an example that shows different data sources for both the Polkadot and Kusama networks.
+ตัวอย่างดังต่อไปนี้ จะแสดงการใช้งาน data sources ที่ต่างกัน สำหรับทั้งเครือข่าย Polkadot และ Kusama
 
 <CodeGroup> <CodeGroupItem title="v0.0.1"> ```yaml --- network: endpoint: 'wss://polkadot.api.onfinality.io/public-ws' #Create a template to avoid redundancy definitions: mapping: &mymapping handlers: - handler: handleBlock kind: substrate/BlockHandler dataSources: - name: polkadotRuntime kind: substrate/Runtime filter: #Optional specName: polkadot startBlock: 1000 mapping: *mymapping #use template here - name: kusamaRuntime kind: substrate/Runtime filter: specName: kusama startBlock: 12000 mapping: *mymapping # can reuse or change ``` </CodeGroupItem>
 
