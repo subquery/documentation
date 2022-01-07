@@ -163,37 +163,37 @@ network:
 Những điều cần lưu ý khi sử dụng tệp loại chuỗi có phần mở rộng `.ts` hoặc `.js`:
 
 - Phiên bản manifest của bạn phải từ v0.2.0 trở lên.
-- Only the default export will be included in the [polkadot api](https://polkadot.js.org/docs/api/start/types.extend/) when fetching blocks.
+- Chỉ có xuất mặc định sẽ được bao gồm trong api [polkadot](https://polkadot.js.org/docs/api/start/types.extend/) khi lấy khối.
 
-Here is an example of a `.ts` chain types file:
+Đây là ví dụ về tệp loại chuỗi `.ts`:
 
 <CodeGroup> <CodeGroupItem title="types.ts"> ```ts
 import { typesBundleDeprecated } from "moonbeam-types-bundle"
 export default { typesBundle: typesBundleDeprecated }; ``` </CodeGroupItem> </CodeGroup>
 
-## Custom Data Sources
+## Nguồn dữ liệu tùy chỉnh
 
-Custom Data Sources provide network specific functionality that makes dealing with data easier. They act as a middleware that can provide extra filtering and data transformation.
+Nguồn dữ liệu tùy chỉnh cung cấp chức năng cụ thể của mạng giúp việc xử lý dữ liệu dễ dàng hơn. Chúng hoạt động như một phần mềm trung gian có thể cung cấp thêm khả năng lọc và chuyển đổi dữ liệu.
 
-A good example of this is EVM support, having a custom data source processor for EVM means that you can filter at the EVM level (e.g. filter contract methods or logs) and data is transformed into structures farmiliar to the Ethereum ecosystem as well as parsing parameters with ABIs.
+Một ví dụ điển hình về điều này là hỗ trợ EVM, có bộ xử lý nguồn dữ liệu tùy chỉnh cho EVM có nghĩa là bạn có thể lọc ở cấp EVM (ví dụ: lọc các phương pháp hợp đồng hoặc nhật ký) và dữ liệu được chuyển đổi thành các cấu trúc trang trại riêng cho hệ sinh thái Ethereum cũng như các tham số phân tích cú pháp với ABIs.
 
-Custom Data Sources can be used with normal data sources.
+Nguồn dữ liệu tùy chỉnh có thể được sử dụng với các nguồn dữ liệu thông thường.
 
-Here is a list of supported custom datasources:
+Dưới đây là danh sách các nguồn dữ liệu tùy chỉnh được hỗ trợ:
 
-| Kind                                                  | Supported Handlers                                                                                       | Filters                         | Description                                                                      |
-| ----------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | ------------------------------- | -------------------------------------------------------------------------------- |
-| [substrate/Moonbeam](./moonbeam/#data-source-example) | [substrate/MoonbeamEvent](./moonbeam/#moonbeamevent), [substrate/MoonbeamCall](./moonbeam/#moonbeamcall) | See filters under each handlers | Provides easy interaction with EVM transactions and events on Moonbeams networks |
+| Kind                                                  | Trình xử lý được hỗ trợ                                                                                  | Bộ lọc                              | Mô tả                                                                                    |
+| ----------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | ----------------------------------- | ---------------------------------------------------------------------------------------- |
+| [substrate/Moonbeam](./moonbeam/#data-source-example) | [substrate/MoonbeamEvent](./moonbeam/#moonbeamevent), [substrate/MoonbeamCall](./moonbeam/#moonbeamcall) | Xem các bộ lọc dưới mỗi trình xử lý | Cung cấp khả năng tương tác dễ dàng với các giao dịch và sự kiện EVM trên mạng Moonbeams |
 
-## Network Filters
+## Bộ lọc mạng
 
-**Network filters only applies to manifest spec v0.0.1**.
+**Bộ lọc mạng chỉ áp dụng cho thông số tệp manifest v0.0.1**.
 
-Usually the user will create a SubQuery and expect to reuse it for both their testnet and mainnet environments (e.g Polkadot and Kusama). Between networks, various options are likely to be different (e.g. index start block). Therefore, we allow users to define different details for each data source which means that one SubQuery project can still be used across multiple networks.
+Thông thường người dùng sẽ tạo SubQuery và mong muốn sử dụng lại nó cho cả môi trường testnet và mainnet của họ (ví dụ: Polkadot và Kusama). Giữa các mạng, các tùy chọn khác nhau có thể khác nhau (ví dụ: khối bắt đầu lập chỉ mục). Do đó, chúng tôi cho phép người dùng xác định các chi tiết khác nhau cho từng nguồn dữ liệu, có nghĩa là một dự án SubQuery vẫn có thể được sử dụng trên nhiều mạng.
 
-Users can add a `filter` on `dataSources` to decide which data source to run on each network.
+Người dùng có thể thêm `filter` trên `dataSources` để quyết định nguồn dữ liệu nào sẽ chạy trên mỗi mạng.
 
-Below is an example that shows different data sources for both the Polkadot and Kusama networks.
+Dưới đây là một ví dụ hiển thị các nguồn dữ liệu khác nhau cho cả mạng Polkadot và Kusama.
 
 <CodeGroup> <CodeGroupItem title="v0.0.1"> ```yaml --- network: endpoint: 'wss://polkadot.api.onfinality.io/public-ws' #Create a template to avoid redundancy definitions: mapping: &mymapping handlers: - handler: handleBlock kind: substrate/BlockHandler dataSources: - name: polkadotRuntime kind: substrate/Runtime filter: #Optional specName: polkadot startBlock: 1000 mapping: *mymapping #use template here - name: kusamaRuntime kind: substrate/Runtime filter: specName: kusama startBlock: 12000 mapping: *mymapping # can reuse or change ``` </CodeGroupItem>
 
