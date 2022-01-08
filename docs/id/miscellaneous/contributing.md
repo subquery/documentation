@@ -12,16 +12,16 @@ Kami menganggap serius proyek dan tanggung jawab komunitas open source kami dan 
 
 ## Memulai
 
-Kontribusi ke repositori kami dilakukan melalui Issue and Pull Request (PR). A few general guidelines that cover both:
+Kontribusi ke repositori kami dilakukan melalui Issue and Pull Request (PR). Beberapa pedoman umum yang mencakup keduanya:
 
 * Cari Issue and PR yang ada terlebih dahulu sebelum membuat milik Anda sendiri.
-* We work hard to makes sure issues are handled in promptly but, depending on the impact, it could take a while to investigate the root cause. A friendly @ mention in the comment thread to the submitter or a contributor can help draw attention if your issue is blocking.
+* Kami bekerja keras untuk memastikan issue ditangani dengan segera, tetapi tergantung pada dampaknya, mungkin bisa memakan waktu cukup lama untuk menyelidiki akar masalahnya. Sebuah @ sebutan ramah di utas komentar kepada pengirim atau kontributor dapat membantu menarik perhatian jika issue Anda terblokir.
 
 ## Bagaimana Berkontribusi
 
 ### Melaporkan Bug
 
-Bugs are tracked as GitHub issues. When logging an issue, explain the problem and include additional details to help maintainers reproduce the problem:
+Bug dilacak sebagai issue GitHub. Saat mencatatkan log issue, jelaskan masalahnya dan sertakan detail tambahan untuk membantu pengelola mereproduksi masalah itu:
 
 * Gunakan judul issue yang jelas dan deskriptif untuk mengidentifikasi masalah.
 * Jelaskan langkah-langkah yang akurat untuk mereproduksi masalah.
@@ -46,7 +46,7 @@ Secara umum, kami mengikuti alur kerja "fork-and-pull" Git
 ### Pesan Git Commit
 
 * Gunakan bentuk waktu kini ("Tambahkan fitur" bukan "Fitur yang ditambahkan")
-* Use the imperative mood ("Move cursor to..." not "Moves cursor to...")
+* Gunakan suasana perintah ("Pindahkan kursor ke..." bukan "Memindahkan kursor ke...")
 * Batasi baris pertama hingga 72 karakter atau kurang
 
 ### JavaScript Styleguide
