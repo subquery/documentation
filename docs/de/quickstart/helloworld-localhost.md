@@ -2,28 +2,28 @@
 
 Welcome to this SubQuery Hello World quick start. The quick start aims to show you how you get the default starter project running in Docker in a few simple steps.
 
-## Learning objectives
+## Lernziele
 
-At the end of this quick start, you should:
+Am Ende dieses Schnellstarts sollten Sie:
 
-- understand the required pre-requisites
+- die erforderlichen Voraussetzungen verstehen
 - understand the basic common commands
 - be able to navigate to localhost:3000 and view the playground
 - run a simple query to get the block height of the Polkadot mainnet
 
-## Intended audience
+## Zielgruppe
 
-This guide is geared towards new developers who have some development experience and are interested in learning more about SubQuery.
+Dieses Handbuch richtet sich an neue Entwickler, die über einige Entwicklungserfahrungen verfügen und daran interessiert sind, mehr über SubQuery zu erfahren.
 
-## Video guide
+## Videoanleitung
 
 <figure class="video_container">
   <iframe src="https://www.youtube.com/embed/j034cyUYb7k" frameborder="0" allowfullscreen="true"></iframe>
 </figure>
 
-## Pre-requisites
+## Voraussetzungen
 
-You will need:
+Was Sie noch brauchen:
 
 - yarn or npm package manager
 - SubQuery CLI (`@subql/cli`)
