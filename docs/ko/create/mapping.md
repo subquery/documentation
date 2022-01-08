@@ -47,7 +47,7 @@ export async function handleEvent(event: SubstrateEvent): Promise<void> {
 
 ## Call 핸들러
 
-Call handlers are used when you want to capture information on certain substrate extrinsics.
+Call handlers는 특정 Substrate 외부의 정보를 캡처할 경우에 사용합니다.
 
 ```ts
 export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
@@ -57,17 +57,17 @@ export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
 }
 ```
 
-The [SubstrateExtrinsic](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L21) extends [GenericExtrinsic](https://github.com/polkadot-js/api/blob/a9c9fb5769dec7ada8612d6068cf69de04aa15ed/packages/types/src/extrinsic/Extrinsic.ts#L170). It is assigned an `id` (the block to which this extrinsic belongs) and provides an extrinsic property that extends the events among this block. Additionally, it records the success status of this extrinsic.
+[SubstrateExtrinsic](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L21)은 [GenericExtrinsic](https://github.com/polkadot-js/api/blob/a9c9fb5769dec7ada8612d6068cf69de04aa15ed/packages/types/src/extrinsic/Extrinsic.ts#L170)을 확장합니다. `id`(이 외부 요소가 속한 블록)가 지정되고 이 블록 사이에서 이벤트를 확장하는 외부 속성을 제공합니다. 또, 이 외인성의 성공 상태를 기록합니다.
 
 ## Query 상태
-Our goal is to cover all data sources for users for mapping handlers (more than just the three interface event types above). Therefore, we have exposed some of the @polkadot/api interfaces to increase capabilities.
+우리의 목표는 맵핑 핸들러(위의 세 가지 인터페이스 이벤트 유형 이상)에 대한 사용자의 모든 데이터 소스를 다루는 것입니다. 따라서, 기능을 향상시키기 위해 일부 @polkadot/api 인터페이스를 공개했습니다.
 
-These are the interfaces we currently support:
-- [api.query.&lt;module&gt;.&lt;method&gt;()](https://polkadot.js.org/docs/api/start/api.query) 은,<strong>현재의</strong>> 블록을 조회합니다.
-- [api.query.&lt;module&gt;.&lt;method&gt;.multi()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-same-type)는 현재의 블록으로 <strong>같은</strong> 타입의 여러 Query를 생성합니다.
-- [api.queryMulti()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-distinct-types)은 현재 블럭으로 <strong>다른</strong> 타입의 여러 Query를 생성합니다.
+현재 지원되는 인터페이스는 다음과 같습니다:
+- [api.query.&lt;module&gt;.&lt;method&gt;()](https://polkadot.js.org/docs/api/start/api.query) 은 <strong>현재의</strong> 블록을 쿼리합니다.
+- [api.query.&lt;module&gt;.&lt;method&gt;.multi()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-same-type)는 현재의 블록과 <strong>같은</strong> 타입의 여러 Query를 생성합니다.
+- [api.queryMulti()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-distinct-types)은 현재 블럭과 <strong>다른</strong> 타입의 여러 Query를 생성합니다.
 
-These are the interfaces we do **NOT** support currently:
+현재 **지원하고 있지 않은** 인터페이스는 다음과 같습니다:
 - ~~api.tx.*~~
 - ~~api.derive.*~~
 - ~~api.query.&lt;module&gt;.&lt;method&gt;.at~~
@@ -79,11 +79,11 @@ These are the interfaces we do **NOT** support currently:
 - ~~api.query.&lt;module&gt;.&lt;method&gt;.range~~
 - ~~api.query.&lt;module&gt;.&lt;method&gt;.sizeAt~~
 
-See an example of using this API in our [validator-threshold](https://github.com/subquery/tutorials-validator-threshold) example use case.
+[validator-threshold](https://github.com/subquery/tutorials-validator-threshold) 예제 사용 사례에서 이 API를 사용하는 예시를 참조하세요.
 
 ## RPC 콜
 
-We also support some API RPC methods that are remote calls that allow the mapping function to interact with the actual node, query, and submission. A core premise of SubQuery is that it's deterministic, and therefore, to keep the results consistent we only allow historical RPC calls.
+또한 맵핑 기능이 실제 노드, 쿼리, 제출과 상호작용할 수 있도록 하는 원격호출인 일부 API RPC 방법을 지원합니다. SubQuery의 핵심 전제는 결정론적이기 때문에, 결과의 일관성을 유지하기 위해 RPC 호출 이력만을 허용하는 것입니다.
 
 Documents in [JSON-RPC](https://polkadot.js.org/docs/substrate/rpc/#rpc) provide some methods that take `BlockHash` as an input parameter (e.g. `at?: BlockHash`), which are now permitted. We have also modified these methods to take the current indexing block hash by default.
 
@@ -157,12 +157,12 @@ brew install websocat
 echo state_getMetadata | websocat 'ws://127.0.0.1:9944' --jsonrpc
 ```
 
-Next, copy and paste the output to a JSON file. In our [kitty example](https://github.com/subquery/tutorials-kitty-chain), we have created `api-interface/kitty.json`.
+다음으로, 출력을 JSON 파일에 복사와 붙여넣기 합니다. In our [kitty example](https://github.com/subquery/tutorials-kitty-chain), we have created `api-interface/kitty.json`.
 
 #### 유형 정의
-We assume that the user knows the specific types and RPC support from the chain, and it is defined in the [Manifest](./manifest.md).
+여기에서는 사용자가 체인으로부터 특정 유형과 RPC 지원을 알고 있는 것을 전제로 하고 있으며 이는 [Manifest](./manifest.md)에서 정의되어 있습니다.
 
-Following [types setup](https://polkadot.js.org/docs/api/examples/promise/typegen#metadata-setup), we create :
+[types setup](https://polkadot.js.org/docs/api/examples/promise/typegen#metadata-setup)에 따라 다음을 생성합니다:
 - < 0 > srcapi-interfaces definitions.ts < 0 >: 모든 서브폴더 정의를 내보냅니다.
 
 ```ts
@@ -207,7 +207,7 @@ export default {
 - `package.json` 파일, 개발 의존 관계로서 `@polkadot/typegen`를 추가해, 통상의 의존 관계로서 `@polkadot/api`을 추가합니다(같은 버전을 사용합니다). 또한 스크립트를 실행하는 데 도움이 되는 개발 종속성으로 `ts-node` 도 필요합니다.
 - 두 유형을 모두 수행할 스크립트를 추가합니다: `generate:defs` 와 Metadata `generate:meta` 생성기(Metadata가 타입을 사용할 수 있도록 하기 위해입니다).
 
-Here is a simplified version of `package.json`. Make sure in the **scripts** section the package name is correct and the directories are valid.
+다음은 `package.json`의 간소화된 버전입니다. **scripts** 섹션에서 패키지명이 올바르고, 디렉토리가 유효한지 확인하십시오.
 
 ```json
 {
@@ -229,7 +229,7 @@ Here is a simplified version of `package.json`. Make sure in the **scripts** sec
 
 ### 타이프 생성
 
-Now that preparation is completed, we are ready to generate types and metadata. Run the commands below:
+준비가 완료되었으므로 타입과 Metadata를 생성할 준비가 되었습니다. 다음 명령을 수행합니다:
 
 ```shell
 # 새로운 의존성을 설치하기 위한 Yarn
@@ -239,14 +239,14 @@ Now that preparation is completed, we are ready to generate types and metadata. 
 원사 생성: defs
 ```
 
-In each modules folder (eg `/kitties`), there should now be a generated `types.ts` that defines all interfaces from this modules' definitions, also a file `index.ts` that exports them all.
+각 모듈 폴더(예 `/kitties`)에는 이 모듈의 정의에서 모든 인터페이스를 정의하는 생성된 `types.ts` 이 있으며 모든 인터페이스를 내보내는 파일 `index.ts` 이 있습니다.
 
 ```shell
 # 메타데이터 생성
 yarn generate:meta
 ```
 
-This command will generate the metadata and a new api-augment for the APIs. As we don't want to use the built-in API, we will need to replace them by adding an explicit override in our `tsconfig.json`. After the updates, the paths in the config will look like this (without the comments):
+이 명령어는 API의 Metadata와 새로운 api-augment를 생성합니다. 임베디드 API를 사용하지 않기 때문에 `tsconfig.json`에 명시적인 오버라이드를 추가해 교체할 필요가 있습니다. 업데이트 후 설정 내 경로는 다음과 같습니다(주석 없이):
 
 ```json
 {
@@ -263,7 +263,7 @@ This command will generate the metadata and a new api-augment for the APIs. As w
 
 ### 사용방법
 
-Now in the mapping function, we can show how the metadata and types actually decorate the API. The RPC endpoint will support the modules and methods we declared above. And to use custom rpc call, please see section [Custom chain rpc calls](#custom-chain-rpc-calls)
+이제 맵핑 기능에서 메타데이터와 유형이 실제로 API를 장식하는 방법을 보여줄 수 있습니다. RPC 엔드포인트는 위에서 선언한 모듈 및 방식을 지원합니다. 커스텀 RPC 콜을 사용하려면, [Custom chain rpc calls](#custom-chain-rpc-calls) 섹션을 참조해 주세요.
 ```typescript
 export async function kittyApiHandler(): Promise<void> {
     //return the KittyIndex type
@@ -276,11 +276,11 @@ export async function kittyApiHandler(): Promise<void> {
 }
 ```
 
-**If you wish to publish this project to our explorer, please include the generated files in `src/api-interfaces`.**
+**프로젝트를 익스플로러에 공개하려면 생성된 파일을 `src/api-interfaces`에 포함해야 합니다.**
 
 ### 커스텀 체인 rpc 콜
 
-To support customised chain RPC calls, we must manually inject RPC definitions for `typesBundle`, allowing per-spec configuration. You can define the `typesBundle` in the `project.yml`. And please remember only `isHistoric` type of calls are supported.
+커스텀 체인 RPC 호출을 지원하려면 `typesBundle`에 대한 RPC 정의를 수동으로 주입하여 사양별 구성을 허용해야 합니다. `project.yml` 에서 `typesBundle`을 정의할 수 있습니다. 또, `isHistoric` 타입의 콜만이 지원되고 있음을 주의하기 바랍니다.
 ```yaml
 ...
   types: {
