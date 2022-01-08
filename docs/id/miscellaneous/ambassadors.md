@@ -1,6 +1,6 @@
 # Program Ambassador
 
-![Gambar Spanduk Duta Besar](/assets/img/ambassador_banner.png)
+![Gambar Spanduk Ambassador](/assets/img/ambassador_banner.png)
 
 Kami memahami bahwa salah satu kekuatan terbesar kami adalah komunitas kami, dan dengan bantuan Anda, kami ingin mengembangkan dan membentuk ambassador lokal untuk komunitas di seluruh dunia.
 
