@@ -1,6 +1,6 @@
 # Berkontribusi Untuk SubQuery
 
-Welcome and a big thank you for considering contributing to this SubQuery project! Together we can pave the way to a more decentralised future.
+Selamat datang dan terima kasih banyak telah mempertimbangkan untuk berkontribusi pada proyek SubQuery ini! Bersama-sama kita dapat membuka jalan menuju masa depan yang lebih terdesentralisasi.
 
 > This documentation is actively maintained by the SubQuery team. We welcome your contributions, you can do so by forking our GitHub project and making changes to all the documentation markdown files under the `docs` directory.
 
