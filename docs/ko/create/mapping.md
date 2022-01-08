@@ -85,31 +85,31 @@ export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
 
 또한 맵핑 기능이 실제 노드, 쿼리, 제출과 상호작용할 수 있도록 하는 원격호출인 일부 API RPC 방법을 지원합니다. SubQuery의 핵심 전제는 결정론적이기 때문에, 결과의 일관성을 유지하기 위해 RPC 호출 이력만을 허용하는 것입니다.
 
-Documents in [JSON-RPC](https://polkadot.js.org/docs/substrate/rpc/#rpc) provide some methods that take `BlockHash` as an input parameter (e.g. `at?: BlockHash`), which are now permitted. We have also modified these methods to take the current indexing block hash by default.
+[JSON-RPC](https://polkadot.js.org/docs/substrate/rpc/#rpc)의 문서는 `BlockHash`를 입력 매개변수로 사용하는 몇 가지 방법을 제공합니다(예: `at?: BlockHash`). 또한 기본적으로 현재의 인덱스 블록 해시를 사용하도록 방법을 수정하였습니다.
 
 ```typescript
-// Let's say we are currently indexing a block with this hash number
+// 현재 이 해시 번호로 블록을 인덱싱한다고 가정해 보겠습니다.
 const blockhash = `0x844047c4cf1719ba6d54891e92c071a41e3dfe789d064871148e9d41ef086f6a`;
 
-// Original method has an optional input is block hash
+// 원래 방법에서는 블록 해시의 입력은 선택사항입니다.
 const b1 = await api.rpc.chain.getBlock(blockhash);
 
-// It will use the current block has by default like so
+// 기본적으로 현재 블록을 다음과 같이 사용합니다.
 const b2 = await api.rpc.chain.getBlock();
 ```
 - [Custom Substrate Chains](#custom-substrate-chains)RPC 콜에 대해서는,[usage](#usage)을 참조해 주세요.
 
 ## 모듈 및 라이브러리
 
-To improve SubQuery's data processing capabilities, we have allowed some of the NodeJS's built-in modules for running mapping functions in the [sandbox](#the-sandbox), and have allowed users to call third-party libraries.
+SubQuery의 데이터 처리 기능을 개선하기 위해 [샌드박스](#the-sandbox)에서 맵핑 기능을 실행하기 위한 NodeJS의 내장 모듈 중 일부를 허용하고 사용자가 타사 라이브러리를 호출할 수 있도록 허용했습니다.
 
-Please note this is an **experimental feature** and you may encounter bugs or issues that may negatively impact your mapping functions. Please report any bugs you find by creating an issue in [GitHub](https://github.com/subquery/subql).
+이는 **실험적 기능**이며 맵핑 기능에 부정적인 영향을 줄 수 있는 버그나 문제가 발생할 수 있습니다. 발견한 버그는 [GitHub](https://github.com/subquery/subql)에서 이슈 생성을 통해 보고해 주세요.
 
 ### 임베디드 모듈
 
-Currently, we allow the following NodeJS modules: `assert`, `buffer`, `crypto`, `util`, and `path`.
+현재 다음 NodeJS 모듈을 허용합니다: `assert`, `buffer`, `crypto`, `util`와 `path`.
 
-Rather than importing the whole module, we recommend only importing the required method(s) that you need. Some methods in these modules may have dependencies that are unsupported and will fail on import.
+모듈 전체를 가져오기를 하는 것이 아니라 필요한 방법만 가져오기를 할 것을 권장합니다. 이러한 모듈의 일부 방식은 지원되지 않고 가져오기에 실패하는 종속성이 있을 수 있습니다.
 
 ```ts
 import {hashMessage} from "ethers/lib/utils"; //Good way
@@ -124,30 +124,30 @@ export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
 
 ### 제 3자의 라이브러리
 
-Due to the limitations of the virtual machine in our sandbox, currently, we only support third-party libraries written by **CommonJS**.
+샌드박스에 있는 가상 머신의 제한으로 인해 현재는 **CommonJS**이 생성한 타사 라이브러리만을 지원합니다.
 
-We also support a **hybrid** library like `@polkadot/*` that uses ESM as default. However, if any other libraries depend on any modules in **ESM** format, the virtual machine will **NOT** compile and return an error.
+ESM 를 디폴트로 사용하는 `@polkadot/*`과 같은**hybrid** 라이브러리도 지원합니다. 그러나, 다른 라이브러리가 **ESM** 형식의 모듈에 의존하고 있는 경우, 가상 머신은 컴파일 하고 에러를 반환하지 **않을 것입니다.**
 
 ## 커스텀 Substrate 체인
 
-SubQuery can be used on any Substrate-based chain, not just Polkadot or Kusama.
+SubQuery는 Polkadot이나 Kusama 뿐만 아니라 Substrate 기반의 체인에서도 사용이 가능합니다.
 
-You can use a custom Substrate-based chain and we provide tools to import types, interfaces, and additional methods automatically using [@polkadot/typegen](https://polkadot.js.org/docs/api/examples/promise/typegen/).
+커스텀 Substrate 기반 체인을 사용할 수 있으며 [@polkadot/typegen](https://polkadot.js.org/docs/api/examples/promise/typegen/)을 사용하여 타입, 인터페이스 및 추가 방법을 자동으로 들여오게 하는 도구를 제공합니다.
 
-In the following sections, we use our [kitty example](https://github.com/subquery/tutorials-kitty-chain) to explain the integration process.
+다음 섹션에서는 [kitty 예시](https://github.com/subquery/tutorials-kitty-chain)를 사용하여 통합 프로세스를 설명합니다.
 
 ### 준비
 
-Create a new directory `api-interfaces` under the project `src` folder to store all required and generated files. We also create an `api-interfaces/kitties` directory as we want to add decoration in the API from the `kitties` module.
+프로젝트 `src` 폴더 아래에 새 디렉토리`api-interfaces` 를 생성하여 필요한 파일과 생성된 파일을 모두 저장합니다. 또한 `kitties`모듈에서 API에 데코레이션을 추가하기 위해 `api-interfaces/kitties`디렉토리도 만듭니다.
 
 #### 메타데이터
 
-We need metadata to generate the actual API endpoints. In the kitty example, we use an endpoint from a local testnet, and it provides additional types. Follow the steps in [PolkadotJS metadata setup](https://polkadot.js.org/docs/api/examples/promise/typegen#metadata-setup) to retrieve a node's metadata from its **HTTP** endpoint.
+실제 API 엔드포인트를 생성하려면 Metadata가 필요합니다. Kitty의 예에서는 로컬 테스트넷의 엔드포인트를 사용하여 추가 유형을 제공합니다. [PolkadotJS metadata setup](https://polkadot.js.org/docs/api/examples/promise/typegen#metadata-setup)의 단계에 따라 **HTTP** 엔드포인트에서 노드의 메타데이터를 검색합니다.
 
 ```shell
 curl -H "Content-Type: application/json" -d '{"id":"1", "jsonrpc":"2.0", "method": "state_getMetadata", "params":[]}' http://localhost:9933
 ```
-or from its **websocket** endpoint with help from [`websocat`](https://github.com/vi/websocat):
+또는 [`websocat`](https://github.com/vi/websocat)의 도움으로 **websocket** 엔드포인트에서:
 
 ```shell
 //Install the websocat
@@ -157,7 +157,7 @@ brew install websocat
 echo state_getMetadata | websocat 'ws://127.0.0.1:9944' --jsonrpc
 ```
 
-다음으로, 출력을 JSON 파일에 복사와 붙여넣기 합니다. In our [kitty example](https://github.com/subquery/tutorials-kitty-chain), we have created `api-interface/kitty.json`.
+다음으로, 출력을 JSON 파일에 복사와 붙여넣기 합니다. [키티 예시](https://github.com/subquery/tutorials-kitty-chain)에서 `api-interface/kitty.json`을 생성했습니다.
 
 #### 유형 정의
 여기에서는 사용자가 체인으로부터 특정 유형과 RPC 지원을 알고 있는 것을 전제로 하고 있으며 이는 [Manifest](./manifest.md)에서 정의되어 있습니다.
