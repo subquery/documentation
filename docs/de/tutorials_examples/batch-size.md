@@ -1,6 +1,6 @@
 # How to change the blockchain fetching batch size?
 
-## Video guide
+## Videoanleitung
 
 <figure class="video_container">
   <iframe src="https://www.youtube.com/embed/LO_Gea_IN_s" frameborder="0" allowfullscreen="true"></iframe>
