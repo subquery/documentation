@@ -137,15 +137,15 @@ filter:
 
 ![Genesis Hash](/assets/img/genesis-hash.jpg)
 
-추가적으로 `endpoint`를 업데이트해야 합니다. This defines the wss endpoint of the blockchain to be indexed - **This must be a full archive node**. [OnFinality](https://app.onfinality.io)에서 모든 파라체인의 endpoint를 무료로 검색할 수 있습니다
+추가적으로 `endpoint`를 업데이트해야 합니다. 이것은 인덱싱할 블록체인의 wss 엔드포인트를 정의합니다. **전체 아카이브 노드여야 합니다**. [OnFinality](https://app.onfinality.io)에서 모든 파라체인의 endpoint를 무료로 검색할 수 있습니다
 
 ### 체인 유형
 
-You can index data from custom chains by also including chain types in the manifest.
+Manifest에 체인 유형도 포함하여 사용자 지정 체인의 데이터를 인덱싱할 수 있습니다.
 
-We support the additional types used by substrate runtime modules, `typesAlias`, `typesBundle`, `typesChain`, and `typesSpec` are also supported.
+Substrate 런타임 모듈에서 사용하는 추가 유형과 `typesAlias`, `typesBundle`, `typesChain` 및 `typesSpec`을 지원합니다.
 
-In the v0.2.0 example below, the `network.chaintypes` are pointing to a file that has all the custom types included, This is a standard chainspec file that declares the specific types supported by this blockchain in either `.json`, `.yaml` or `.js` format.
+아래 v0.2.0 예시에서 `network.chaintypes`는 모든 사용자 정의 유형이 포함된 파일을 가리키고 있습니다. 이것은 블록체인이 지원하는 특정 유형을 `.json`, `.yaml` 또는 `.js` 포맷으로 선언하는 표준 체인사양 파일입니다.
 
 <CodeGroup> <CodeGroupItem title="v0.2.0" active> ``` yml network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' endpoint: 'ws://host.kittychain.io/public-ws' chaintypes: file: ./types.json # The relative filepath to where custom types are stored ... ``` </CodeGroupItem> <CodeGroupItem title="v0.0.1"> ``` yml ... network: endpoint: "ws://host.kittychain.io/public-ws" types: { "KittyIndex": "u32", "Kitty": "[u8; 16]" } # typesChain: { chain: { Type5: 'example' } } # typesSpec: { spec: { Type6: 'example' } } dataSources: - name: runtime kind: substrate/Runtime startBlock: 1 filter:  #Optional specName: kitty-chain mapping: handlers: - handler: handleKittyBred kind: substrate/CallHandler filter: module: kitties method: breed success: true ``` </CodeGroupItem> </CodeGroup>
 
@@ -158,20 +158,20 @@ network:
 ...
 ```
 
-Things to note about using the chain types file with extension `.ts` or `.js`:
+`.ts` or `.js` 확장자를 갖는 체인 유형 파일 사용 시, 주의할 점:
 
-- Your manifest version must be v0.2.0 or above.
-- Only the default export will be included in the [polkadot api](https://polkadot.js.org/docs/api/start/types.extend/) when fetching blocks.
+- Manifest 버전은 v0.2.0 이상이어야 합니다.
+- 블록을 가져올 때 기본 내보내기만 [polkadot api](https://polkadot.js.org/docs/api/start/types.extend/)에 포함됩니다.
 
-Here is an example of a `.ts` chain types file:
+다음은 `.ts` 체인 유형 파일의 예입니다.
 
 <CodeGroup> <CodeGroupItem title="types.ts"> ```ts
 import { typesBundleDeprecated } from "moonbeam-types-bundle"
 export default { typesBundle: typesBundleDeprecated }; ``` </CodeGroupItem> </CodeGroup>
 
-## Custom Data Sources
+## 사용자 정의 데이터 소스
 
-Custom Data Sources provide network specific functionality that makes dealing with data easier. They act as a middleware that can provide extra filtering and data transformation.
+사용자 지정 데이터 소스는 데이터를 더 쉽게 처리할 수 있도록 하는 네트워크 기능을 제공합니다. They act as a middleware that can provide extra filtering and data transformation.
 
 A good example of this is EVM support, having a custom data source processor for EVM means that you can filter at the EVM level (e.g. filter contract methods or logs) and data is transformed into structures farmiliar to the Ethereum ecosystem as well as parsing parameters with ABIs.
 
