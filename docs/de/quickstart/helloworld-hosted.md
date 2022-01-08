@@ -1,37 +1,37 @@
-# Hello World (SubQuery hosted)
+# Hallo die Welt (SubQuery gehostet)
 
-The aim of this quick start is to show how you can get the default starter project running in SubQuery Projects (our managed service) in a few easy steps.
+Das Ziel dieser Schnellstartanleitung besteht darin, zu zeigen, wie Sie in wenigen einfachen Schritten das standardmäßige Startprojekt in SubQuery Projects (unserem verwalteten Dienst) ausführen können.
 
-We will take the simple starter project (and everything we've learned thus far) but instead of running it locally within Docker, we'll take advantage of SubQuery's managed hosting infrastructure. In other words, we let SubQuery do all the heavy lifting, running and managing production infrastructure.
+Wir nehmen das einfache Starterprojekt (und alles, was wir bisher gelernt haben), aber anstatt es lokal in Docker auszuführen, nutzen wir die verwaltete Hosting-Infrastruktur von SubQuery. Mit anderen Worten, wir überlassen SubQuery die ganze schwere Arbeit, den Betrieb und die Verwaltung der Produktionsinfrastruktur.
 
-## Learning objectives
+## Lernziele
 
-At the end of this quick start, you should:
+Am Ende dieses Schnellstarts sollten Sie:
 
-- understand the required pre-requisites
-- be able host a project in [SubQuery Projects](https://project.subquery.network/)
-- run a simple query to get the block height of the Polkadot mainnet using the playground
-- run a simple GET query to get the block height of the Polkadot mainnet using cURL
+- die erforderlichen Voraussetzungen verstehen
+- ein Projekt in [SubQuery-Projekten](https://project.subquery.network/) hosten können
+- eine einfache Abfrage ausführen, um die Blockhöhe des Polkadot-Mainnets über den Spielplatz zu erhalten
+- eine einfache GET-Abfrage ausführen, um die Blockhöhe des Polkadot-Mainnets mit cURL zu erhalten
 
-## Intended audience
+## Zielgruppe
 
-This guide is geared towards new developers who have some development experience and are interested in learning more about SubQuery.
+Dieses Handbuch richtet sich an neue Entwickler, die über einige Entwicklungserfahrungen verfügen und daran interessiert sind, mehr über SubQuery zu erfahren.
 
-## Video guide
+## Videoanleitung
 
 <figure class="video_container">
   <iframe src="https://www.youtube.com/embed/b-ba8-zPOoo" frameborder="0" allowfullscreen="true"></iframe>
 </figure>
 
-## Pre-requisites
+## Voraussetzungen
 
-You will need:
+Was Sie noch brauchen:
 
-- a GitHub account
+- Github-Konto
 
-## 1. Create your project
+## 1. Erstellen Sie das Projekt
 
-Let's create a project called subql_hellowworld and run the obligatory install, codegen and build with your favourite package manager.
+Lassen Sie uns ein Projekt namens subql_hellowworld erstellen und die obligatorische Installation, Codegen und Build mit Ihrem bevorzugten Paketmanager ausführen.
 
 ```shell
 > subql init --starter subqlHelloWorld
@@ -40,11 +40,11 @@ yarn codegen
 yarn build
 ```
 
-Do NOT run the docker commands though.
+Führen Sie die Docker-Befehle jedoch NICHT aus.
 
 ## 2. Step 2: Create a GitHub repo
 
-In GitHub, create a new public repository. Provide a name and set your visibility to public. Here, everything is kept as the default for now.
+Erstellen Sie in GitHub ein neues öffentliches Repository. Geben Sie einen Namen an und stellen Sie Ihre Sichtbarkeit auf öffentlich ein. Here, everything is kept as the default for now.
 
 ![create github repo](/assets/img/github_create_new_repo.png)
 
