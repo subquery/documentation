@@ -171,27 +171,27 @@ export default { typesBundle: typesBundleDeprecated }; ``` </CodeGroupItem> </Co
 
 ## 사용자 정의 데이터 소스
 
-사용자 지정 데이터 소스는 데이터를 더 쉽게 처리할 수 있도록 하는 네트워크 기능을 제공합니다. They act as a middleware that can provide extra filtering and data transformation.
+사용자 지정 데이터 소스는 데이터를 더 쉽게 처리할 수 있도록 하는 네트워크 기능을 제공합니다. 추가 필터링 및 데이터 변환을 제공할 수 있는 미들웨어 역할을 합니다.
 
-A good example of this is EVM support, having a custom data source processor for EVM means that you can filter at the EVM level (e.g. filter contract methods or logs) and data is transformed into structures farmiliar to the Ethereum ecosystem as well as parsing parameters with ABIs.
+이에 대한 좋은 예는 EVM 지원입니다. EVM을 위한 사용자 정의 데이터 소스 프로세서가 있다는 것은 EVM 레벨에서 필터링할 수 있음(예: 필터 계약 방법 또는 로그)과 데이터는 ABI를 사용하여 매개변수를 파싱할 뿐만 아니라 이더리움 생태계에 친숙한 구조로 변환됨을 의미합니다.
 
-Custom Data Sources can be used with normal data sources.
+사용자 정의 데이터 소스는 일반 데이터 소스와 함께 사용할 수 있습니다.
 
-Here is a list of supported custom datasources:
+다음은 지원되는 사용자 지정 데이터 소스 목록입니다:
 
-| Kind                                                  | Supported Handlers                                                                                       | Filters                         | Description                                                                      |
-| ----------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | ------------------------------- | -------------------------------------------------------------------------------- |
-| [substrate/Moonbeam](./moonbeam/#data-source-example) | [substrate/MoonbeamEvent](./moonbeam/#moonbeamevent), [substrate/MoonbeamCall](./moonbeam/#moonbeamcall) | See filters under each handlers | Provides easy interaction with EVM transactions and events on Moonbeams networks |
+| 종류                                                    | 지원되는 핸들러                                                                                                 | 필터           | 설명                                            |
+| ----------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | ------------ | --------------------------------------------- |
+| [substrate/Moonbeam](./moonbeam/#data-source-example) | [substrate/MoonbeamEvent](./moonbeam/#moonbeamevent), [substrate/MoonbeamCall](./moonbeam/#moonbeamcall) | 각 핸들러의 필터 참조 | Moonbeams 네트워크에서 EVM 트랜잭션 및 이벤트와 손쉬운 상호 작용 제공 |
 
-## Network Filters
+## 네트워크 필터
 
-**Network filters only applies to manifest spec v0.0.1**.
+**네트워크 필터는 Manifest 사양 v0.0.1에만 적용됩니다.**.
 
-Usually the user will create a SubQuery and expect to reuse it for both their testnet and mainnet environments (e.g Polkadot and Kusama). Between networks, various options are likely to be different (e.g. index start block). Therefore, we allow users to define different details for each data source which means that one SubQuery project can still be used across multiple networks.
+일반적으로 사용자는 SubQuery를 만들고 테스트넷과 메인넷 환경(예: Polkadot 및 Kusama) 모두에서 재사용할 것으로 예상합니다. 네트워크 간에는 여러 옵션이 다를 수 있습니다(예: 인덱스 시작 블록). 따라서 사용자는 각 데이터 소스에 대해 서로 다른 세부정보를 정의함으로써 하나의 SubQuery 프로젝트를 여러 네트워크에서 계속 사용할 수 있습니다.
 
-Users can add a `filter` on `dataSources` to decide which data source to run on each network.
+사용자는 `dataSources`에 `필터`를 추가하여 각 네트워크에서 실행할 데이터 소스를 결정할 수 있습니다.
 
-Below is an example that shows different data sources for both the Polkadot and Kusama networks.
+다음은 Polkadot 및 Kusama 네트워크에 서로 다른 데이터 소스를 적용하는 예입니다.
 
 <CodeGroup> <CodeGroupItem title="v0.0.1"> ```yaml --- network: endpoint: 'wss://polkadot.api.onfinality.io/public-ws' #Create a template to avoid redundancy definitions: mapping: &mymapping handlers: - handler: handleBlock kind: substrate/BlockHandler dataSources: - name: polkadotRuntime kind: substrate/Runtime filter: #Optional specName: polkadot startBlock: 1000 mapping: *mymapping #use template here - name: kusamaRuntime kind: substrate/Runtime filter: specName: kusama startBlock: 12000 mapping: *mymapping # can reuse or change ``` </CodeGroupItem>
 
