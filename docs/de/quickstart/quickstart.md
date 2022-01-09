@@ -1,22 +1,22 @@
-# Quick Start Guide
+# Schnellstartanleitung
 
-In this Quick Start guide, we're going to create a simple starter project that you can be used as a framework for developing your own SubQuery Project.
+In dieser Kurzanleitung erstellen wir ein einfaches Starterprojekt, das Sie als Framework für die Entwicklung Ihres eigenen SubQuery-Projekts verwenden können.
 
-At the end of this guide, you'll have a working SubQuery project running on a SubQuery node with a GraphQL endpoint that you can query data from.
+Am Ende dieses Handbuchs haben Sie ein funktionierendes SubQuery-Projekt, das auf einer SubQuery-Node mit einem GraphQL-Endpunkt ausgeführt wird, von dem Sie Daten abfragen können.
 
-If you haven't already, we suggest that you familiarise yourself with the [terminology](../#terminology) used in SubQuery.
+Falls noch nicht geschehen, empfehlen wir Ihnen, sich mit der [Terminologie](../#terminology) vertraut zu machen, die in SubQuery verwendet wird.
 
 ## Vorbereitung
 
-### Local Development Environment
+### Lokale Entwicklungsumgebung
 
-- [Typescript](https://www.typescriptlang.org/) is required to compile project and define types.
-- Both SubQuery CLI and generated Project have dependencies and require a modern version [Node](https://nodejs.org/en/).
-- SubQuery Nodes require Docker
+- [Typescript](https://www.typescriptlang.org/) ist erforderlich, um Projekte zu kompilieren und Typen zu definieren.
+- Sowohl die SubQuery-CLI als auch das generierte Projekt haben Abhängigkeiten und erfordern eine moderne Version [Node](https://nodejs.org/en/).
+- SubQuery-Nodes erfordern Docker
 
-### Install the SubQuery CLI
+### Installieren Sie die SubQuery-CLI
 
-Install SubQuery CLI globally on your terminal by using NPM:
+Installieren Sie SubQuery CLI global auf Ihrem Terminal, indem Sie NPM verwenden:
 
 ```shell
 # NPM
