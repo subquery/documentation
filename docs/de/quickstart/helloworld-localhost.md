@@ -1,15 +1,15 @@
-# Hello World (localhost + Docker)
+# Hallo die Welt (Localhost + Docker)
 
-Welcome to this SubQuery Hello World quick start. The quick start aims to show you how you get the default starter project running in Docker in a few simple steps.
+Herzlich Willkommen bei dieser Schnellstartanleitung für SubQuery Hallo die Welt. Der Schnellstart soll Ihnen zeigen, wie Sie in wenigen einfachen Schritten das Standard-Starterprojekt in Docker zum Laufen bringen.
 
 ## Lernziele
 
 Am Ende dieses Schnellstarts sollten Sie:
 
 - die erforderlichen Voraussetzungen verstehen
-- understand the basic common commands
-- be able to navigate to localhost:3000 and view the playground
-- run a simple query to get the block height of the Polkadot mainnet
+- die grundlegenden allgemeinen Befehle verstehen
+- in der Lage sein, zu localhost:3000 zu navigieren und den Playground anzuzeigen
+- eine einfache Abfrage ausführen, um die Blockhöhe des Polkadot-Mainnets zu erhalten
 
 ## Zielgruppe
 
@@ -25,11 +25,11 @@ Dieses Handbuch richtet sich an neue Entwickler, die über einige Entwicklungser
 
 Was Sie noch brauchen:
 
-- yarn or npm package manager
+- arn- oder npm-Paketmanager
 - SubQuery CLI (`@subql/cli`)
 - Docker
 
-You can run the following commands in a terminal to see if you already have any of these pre-requisites.
+Sie können die folgenden Befehle in einem Terminal ausführen, um festzustellen, ob Sie bereits über eine dieser Voraussetzungen verfügen.
 
 ```shell
 yarn -v (or npm -v)
@@ -37,7 +37,7 @@ subql -v
 docker -v
 ```
 
-For more advanced users, copy and paste the following:
+Für fortgeschrittene Benutzer kopieren Sie Folgendes und fügen Sie es ein:
 
 ```shell
 echo -e "My yarn version is:" `yarn -v` "\nMy subql version is:" `subql -v`  "\nMy docker version is:" `docker -v`
