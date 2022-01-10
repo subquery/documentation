@@ -8,7 +8,7 @@
 
 ## Pengantar
 
-Running an indexer node is another option outside of using Docker or having a project hosted for you at [SubQuery Projects](https://project.subquery.network/). It requires more time and effort but will enhance your understanding of how SubQuery works under the covers.
+Menjalankan node pengindeks adalah opsi lain selain menggunakan Docker atau memiliki proyek yang dihosting untuk Anda di [Proyek SubQuery](https://project.subquery.network/). Ini membutuhkan lebih banyak waktu dan usaha tetapi akan meningkatkan pemahaman Anda tentang bagaimana SubQuery bekerja di bawah selimut.
 
 ## Postgres
 
