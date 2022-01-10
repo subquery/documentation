@@ -1,53 +1,53 @@
-# Command Line Flags
+# Bendera Baris Perintah
 
 ## subql-node
 
 ### --help
 
-This shows the help options.
+Ini menunjukkan opsi bantuan.
 
 ```shell
-> subql-node --help
-Options:
-      --help                Show help                                  [boolean]
-      --version             Show version number                        [boolean]
-  -f, --subquery            Local path of the subquery project          [string]
-      --subquery-name       Name of the subquery project                [string]
-  -c, --config              Specify configuration file                  [string]
-      --local               Use local mode                             [boolean]
-      --force-clean         Force clean the database, dropping project schemas
-                            and tables                                 [boolean]
-      --batch-size          Batch size of blocks to fetch in one round  [number]
-      --timeout             Timeout for indexer sandbox to execute the mapping
-                            functions                                   [number]
-      --debug               Show debug information to console output. will
-                            forcefully set log level to debug
-                                                      [boolean] [default: false]
-      --profiler            Show profiler information to console output
-                                                      [boolean] [default: false]
-      --network-endpoint    Blockchain network endpoint to connect      [string]
-      --output-fmt          Print log as json or plain text
-                                           [string] [choices: "json", "colored"]
-      --log-level           Specify log level to print. Ignored when --debug is
-                            used
-          [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
-                                                                       "silent"]
-      --migrate             Migrate db schema (for management tables only)
-                                                      [boolean] [default: false]
-      --timestamp-field     Enable/disable created_at and updated_at in schema
-                                                       [boolean] [default: true]
-  -d, --network-dictionary  Specify the dictionary api for this network [string]
-  -m, --mmr-path            Local path of the merkle mountain range (.mmr) file
-                                                                        [string]
-      --proof-of-index      Enable/disable proof of index
-                                                      [boolean] [default: false]
-  -p, --port                The port the service will bind to
-                                                        [number] [default: 3000]
+> subql-simpul --help
+Pilihan:
+       --help Tampilkan bantuan [boolean]
+       --version Tampilkan nomor versi [boolean]
+   -f, --subquery Jalur lokal dari proyek subquery [string]
+       --subquery-name Nama proyek subquery [string]
+   -c, --config Tentukan file konfigurasi [string]
+       --local Gunakan mode lokal [boolean]
+       --force-clean Memaksa membersihkan database, menghapus skema proyek
+                             dan tabel [boolean]
+       --batch-size Ukuran batch blok yang akan diambil dalam satu putaran [angka]
+       --timeout Timeout untuk sandbox pengindeks untuk menjalankan pemetaan
+                             fungsi [nomor]
+       --debug Menampilkan informasi debug ke keluaran konsol. akan
+                             secara paksa mengatur level log ke debug
+                                                       [boolean] [default: salah]
+       --profiler Tampilkan informasi profiler ke keluaran konsol
+                                                       [boolean] [default: salah]
+       --network-endpoint Titik akhir jaringan blockchain untuk menghubungkan [string]
+       --output-fmt Cetak log sebagai json atau teks biasa
+                                            [string] [pilihan: "json", "berwarna"]
+       --log-level Tentukan level log yang akan dicetak. Diabaikan ketika --debug adalah
+                            digunakan
+          [string] [pilihan: "fatal", "error", "warn", "info", "debug", "trace",
+                                                                       "diam"]
+      --migrate Migrate db schema (hanya untuk tabel manajemen)
+                                                      [boolean] [default: salah]
+      --timestamp-field Aktifkan/nonaktifkan create_at dan updated_at dalam skema
+                                                       [boolean] [default: benar]
+  -d, --network-dictionary Tentukan kamus api untuk jaringan ini [string]
+  -m, --mmr-path Jalur lokal dari berkas pegunungan merkle (.mmr)
+                                                                        [rangkaian]
+      --proof-of-index Mengaktifkan/menonaktifkan bukti indeks
+                                                      [boolean] [default: salah]
+  -p, --port Port yang akan diikat oleh layanan
+                                                        [angka] [default: 3000]
 ```
 
 ### --version
 
-This displays the current version.
+Ini menampilkan versi saat ini.
 
 ```shell
 > subql-node --version
@@ -56,16 +56,16 @@ This displays the current version.
 
 ### -f, --subquery
 
-Use this flag to start the SubQuery project.
+Gunakan tanda ini untuk memulai proyek SubQuery.
 
 ```shell
-subql-node -f . // OR
+subql-node -f . // Atau
 subql-node --subquery .
 ```
 
 ### --subquery-name
 
-This flag allows you to provide a name for your project which acts as if it creates an instance of your project. Upon providing a new name, a new database schema is created and block synchronisation starts from zero.
+Bendera ini memungkinkan Anda untuk memberikan nama untuk proyek Anda yang bertindak seolah-olah itu membuat turunan dari proyek Anda. Setelah memberikan nama baru, skema database baru dibuat dan sinkronisasi blok dimulai dari nol.
 
 ```shell
 subql-node -f . --subquery-name=test2
@@ -73,17 +73,17 @@ subql-node -f . --subquery-name=test2
 
 ### -c, --config
 
-All these various configurations can be placed into a .yml or .json file and then referenced with the config flag.
+Semua berbagai konfigurasi ini dapat ditempatkan ke dalam file .yml atau .json dan kemudian dirujuk dengan flag config.
 
-Sample subquery_config.yml file:
+Contoh file subquery_config.yml:
 
 ```shell
-subquery: . // Mandatory. This is the local path of the project. The period here means the current local directory.
-subqueryName: hello // Optional name
-batchSize: 55 // Optional config
+subquery: . // Mandatory. Ini adalah jalur lokal proyek. Titik di sini berarti direktori lokal saat ini.
+subqueryName: halo // Nama opsional
+batchSize: 55 // Konfigurasi opsional
 ```
 
-Place this file in the same directory as the project. Then in the current project directory, run:
+Tempatkan file ini di direktori yang sama dengan proyek. Kemudian di direktori proyek saat ini, jalankan:
 
 ```shell
 > subql-node -c ./subquery_config.yml
@@ -91,21 +91,21 @@ Place this file in the same directory as the project. Then in the current projec
 
 ### --local
 
-This flag is primarily used for debugging purposes where it creates the default starter_entity table in the default "postgres" schema.
+Bendera ini terutama digunakan untuk tujuan debugging di mana ia membuat tabel starter_entity default dalam skema "postgres" default.
 
 ```shell
 subql-node -f . --local
 ```
 
-Note that once you use this flag, removing it won't mean that it will point to another database. To repoint to another database you will have to create a NEW database and change the env settings to this new database. In other words, "export DB_DATABASE=<new_db_here>"
+Perhatikan bahwa setelah Anda menggunakan bendera ini, menghapusnya tidak berarti bahwa itu akan mengarah ke database lain. Untuk menunjuk kembali ke database lain, Anda harus membuat database BARU dan mengubah pengaturan env ke database baru ini. Dengan kata lain, "ekspor DB_DATABASE=<new_db_here>"
 
 ### --force-clean
 
-This flag forces the project schemas and tables to be regenerated, helpful to use when iteratively developing graphql schemas such that new runs of the project are always working with a clean state. Note that this flag will also wipe all indexed data.
+Bendera ini memaksa skema dan tabel proyek untuk dibuat ulang, berguna untuk digunakan saat mengembangkan skema graphql secara iteratif sehingga proyek yang baru berjalan selalu bekerja dengan keadaan bersih. Perhatikan bahwa tanda ini juga akan menghapus semua data yang diindeks.
 
 ### --batch-size
 
-This flag allows you to set the batch size in the command line. If batch size is also set in the config file, this takes precedent.
+Bendera ini memungkinkan Anda untuk mengatur ukuran batch di baris perintah. Jika ukuran batch juga diatur dalam file konfigurasi, ini akan menjadi preseden.
 
 ```shell
 > subql-node -f . --batch-size=20
@@ -119,7 +119,7 @@ This flag allows you to set the batch size in the command line. If batch size is
 
 ### --debug
 
-This outputs debug information to the console output and forcefully sets the log level to debug.
+Ini mengeluarkan informasi debug ke keluaran konsol dan secara paksa menyetel level log ke debug.
 
 ```shell
 > subql-node -f . --debug
@@ -130,7 +130,7 @@ This outputs debug information to the console output and forcefully sets the log
 
 ### --profiler
 
-This shows profiler information.
+Ini menunjukkan informasi profiler.
 
 ```shell
 subql-node -f . --local --profiler
@@ -142,13 +142,13 @@ subql-node -f . --local --profiler
 
 ### --network-endpoint
 
-This flag allows users to override the network endpoint configuration from the manifest file.
+Bendera ini memungkinkan pengguna untuk mengganti konfigurasi titik akhir jaringan dari file manifes.
 
 ```shell
 subql-node -f . --network-endpoint="wss://polkadot.api.onfinality.io/public-ws"
 ```
 
-Note that this must also be set in the manifest file, otherwise you'll get:
+Perhatikan bahwa ini juga harus diatur dalam file manifes, jika tidak, Anda akan mendapatkan:
 
 ```shell
 ERROR Create Subquery project from given path failed! Error: failed to parse project.yaml.
@@ -159,7 +159,7 @@ An instance of ProjectManifestImpl has failed the validation:
 
 ### --output-fmt
 
-There are two different terminal output formats. JSON or colored. Colored is the default and contains colored text.
+Ada dua format keluaran terminal yang berbeda. JSON atau berwarna. Berwarna adalah default dan berisi teks berwarna.
 
 ```shell
 > subql-node -f . --output-fmt=json
@@ -176,7 +176,7 @@ There are two different terminal output formats. JSON or colored. Colored is the
 
 ### --log-level
 
-There are 7 options to choose from. “fatal”, “error”, “warn”, “info”, “debug”, “trace”, “silent”. The example below shows silent. Nothing will be printed in the terminal so the only way to tell if the node is working or not is to query the database for row count (select count(\*) from subquery_1.starter_entities) or query the block height.
+Ada 7 pilihan yang bisa dipilih. “fatal”, “error”, “warn”, “info”, “debug”, “trace”, “silent”. Contoh di bawah ini menunjukkan diam. Tidak ada yang akan dicetak di terminal sehingga satu-satunya cara untuk mengetahui apakah node berfungsi atau tidak adalah dengan menanyakan database untuk jumlah baris (pilih count(\*) dari subquery_1.starter_entities) atau kueri ketinggian blok.
 
 ```shell
 > subql-node -f . --log-level=silent
@@ -190,7 +190,7 @@ There are 7 options to choose from. “fatal”, “error”, “warn”, “inf
 (node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
 (node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
 (node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
-(node:24686) [DEP0152] DeprecationWarning: Custom PerformanceEntry accessors are deprecated. Please use the detail property.
+(node:24686) [DEP0152] DeprecationWarning: Custom PerformanceEntry accessors are deprecated. Silakan gunakan properti detail.
 (node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
 ```
 
@@ -198,49 +198,49 @@ There are 7 options to choose from. “fatal”, “error”, “warn”, “inf
 
 ### --timestamp-field
 
-By default this is true. when set to false with:
+Secara default ini benar. ketika disetel ke false dengan:
 
 ```shell
 > subql-node -f . –timestamp-field=false
 ```
 
-This removes the created_at and updated_at columns in the starter_entities table.
+Ini menghapus kolom create_at dan updated_at di tabel starter_entities.
 
 ### -d, --network-dictionary
 
-This allows you to specify a dictionary endpoint which is a free service that is provided and hosted at: [https://explorer.subquery.network/](https://explorer.subquery.network/) (search for dictionary) and presents an API endpoint of: https://api.subquery.network/sq/subquery/dictionary-polkadot
+Ini memungkinkan Anda untuk menentukan titik akhir kamus yang merupakan layanan gratis yang disediakan dan dihosting di: [https://explorer.subquery.network/](https://explorer.subquery.network/) (mencari kamus) dan menyajikan titik akhir API: https //api.subquery.network/sq/subquery/dictionary-polkadot
 
-Typically this would be set in your manifest file but below shows an example of using it as an argument in the command line.
+Biasanya ini akan diatur dalam file manifes Anda, tetapi di bawah ini menunjukkan contoh penggunaannya sebagai argumen di baris perintah.
 
 ```shell
 subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot"
 ```
 
-[Read more about how a SubQuery Dictionary works](../tutorials_examples/dictionary.md).
+[Baca selengkapnya tentang cara kerja Kamus SubQuery](../tutorials_examples/dictionary.md).
 
 ## subql-query
 
 ### --help
 
-This shows the help options.
+Ini menunjukkan opsi bantuan.
 
 ```shell
-Options:
-      --help        Show help                                          [boolean]
-      --version     Show version number                                [boolean]
-  -n, --name        Project name                             [string] [required]
-      --playground  Enable graphql playground                          [boolean]
-      --output-fmt  Print log as json or plain text
-                      [string] [choices: "json", "colored"] [default: "colored"]
-      --log-level   Specify log level to print.
-          [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
-                                                     "silent"] [default: "info"]
-      --indexer     Url that allow query to access indexer metadata     [string]
+Pilihan:
+       --help Tampilkan bantuan [boolean]
+       --version Tampilkan nomor versi [boolean]
+   -n, --name Nama proyek [string] [wajib]
+       --playground Aktifkan taman bermain graphql [boolean]
+       --output-fmt Cetak log sebagai json atau teks biasa
+                       [string] [pilihan: "json", "berwarna"] [default: "berwarna"]
+       --log-level Tentukan level log yang akan dicetak.
+          [string] [pilihan: "fatal", "error", "warn", "info", "debug", "trace",
+                                                      "diam"] [default: "info"]
+       --indexer Url yang memungkinkan kueri mengakses metadata pengindeks [string]
 ```
 
 ### --version
 
-This displays the current version.
+Ini menampilkan versi saat ini.
 
 ```shell
 > subql-query --version
@@ -249,30 +249,30 @@ This displays the current version.
 
 ### -n, --name
 
-This flag is used to start the query service. If the --subquery-name flag is not provided when running an indexer, the name here will refer to the default project name. If --subquery-name is set, then the name here should match what was set.
+Bendera ini digunakan untuk memulai layanan kueri. Jika flag --subquery-name tidak disediakan saat menjalankan pengindeks, nama di sini akan merujuk ke nama proyek default. Jika --subquery-name disetel, maka nama di sini harus sesuai dengan yang disetel.
 
 ```shell
-> subql-node -f . // --subquery-name not set
+> subql-node -f . // --nama-subquery tidak disetel
 
-> subql-query -n subql-helloworld  --playground // the name defaults to the project directory name
+> subql-query -n subql-helloworld --playground // nama default ke nama direktori proyek
 ```
 
 ```shell
 > subql-node -f . --subquery-name=hiworld // --subquery-name set
 
-> subql-query -n hiworld --playground  // the name points to the subql-helloworld project but with the name of hiworld
+> subql-query -n hiworld --playground // nama menunjuk ke proyek subql-helloworld tetapi dengan nama hiworld
 ```
 
 ### --playground
 
-This flag enables the graphql playground so should always be included by default to be of any use.
+Bendera ini mengaktifkan taman bermain graphql sehingga harus selalu disertakan secara default untuk digunakan apa pun.
 
 ### --output-fmt
 
-See [--output-fmt](https://doc.subquery.network/references/references.html#output-fmt)
+Lihat [--output-fmt](https://doc.subquery.network/references/references.html#output-fmt)
 
 ### --log-level
 
-See [--log-level](https://doc.subquery.network/references/references.html#log-level)
+Lihat [--log-level](https://doc.subquery.network/references/references.html#log-level)
 
 <!-- ### --indexer TBA -->
