@@ -23,23 +23,23 @@ Installieren Sie SubQuery CLI global auf Ihrem Terminal, indem Sie NPM verwenden
 npm install -g @subql/cli
 ```
 
-Please note that we **DO NOT** encourage the use of `yarn global` due to its poor dependency management which may lead to an errors down the line.
+Beachten Sie bitte, dass wir **NICHT** zur Verwendung von `yarn global` ermutigen, da dies aufgrund seines schlechten Abhängigkeitsmanagements zu Fehlern auf der ganzen Linie führen kann.
 
-You can then run help to see available commands and usage provide by CLI
+Sie können dann die Hilfe ausführen, um die verfügbaren Befehle und die Verwendung anzuzeigen, die von CLI bereitgestellt werden
 
 ```shell
 subql help
 ```
 
-## Initialise the Starter SubQuery Project
+## Initialisieren Sie das Starter-SubQuery-Projekt
 
-Inside the directory in which you want to create a SubQuery project, simply replace `PROJECT_NAME` with your own and run the command:
+Ersetzen Sie in dem Verzeichnis, in dem Sie ein SubQuery-Projekt erstellen möchten, einfach `PROJECT_NAME` durch Ihr eigenes und führen Sie den Befehl aus:
 
 ```shell
 subql init --starter PROJECT_NAME
 ```
 
-You'll be asked certain questions as the SubQuery project is initalised:
+Beim Initialisieren des SubQuery-Projekts werden Ihnen bestimmte Fragen gestellt:
 
 - Git repository (Optional): Provide a Git URL to a repo that this SubQuery project will be hosted in (when hosted in SubQuery Explorer)
 - RPC endpoint (Required): Provide a wss URL to a running RPC endpoint that will be used by default for this project. You can quickly access public endpoints for different Polkadot networks or even create your own private dedicated node using [OnFinality](https://app.onfinality.io) or just use the default Polkadot endpoint.
