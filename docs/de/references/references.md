@@ -1,10 +1,10 @@
-# Command Line Flags
+# Befehlszeilen-Flags
 
 ## subql-node
 
 ### --help
 
-This shows the help options.
+Dies zeigt die Hilfeoptionen an.
 
 ```shell
 > subql-node --help
@@ -216,7 +216,7 @@ subql-node -f . subql-node -f . -d "https://api.subquery.network/sq/subquery/dic
 
 ### --help
 
-This shows the help options.
+Dies zeigt die Hilfeoptionen an.
 
 ```shell
 ns:
