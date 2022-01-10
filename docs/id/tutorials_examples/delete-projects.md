@@ -10,10 +10,10 @@ Menjalankan node pengindeks adalah opsi lain selain menggunakan Docker atau memi
 
 Untuk menghapus project dari staging slot, klik titik tiga di staging slot di dalam deployment details yang bisa anda temukan di halaman detail dashboard project anda dan pilih delete.
 
-![Menghapus proyek dari staging slot](/assets/img/delete_staging.png)
+![Menghapus proyek dari slot pementasan](/assets/img/delete_staging.png)
 
 ## Menghapus project dari production slot
 
-Untuk menghapus proyek dari slot produksi, Anda harus menghapus seluruh proyek. Navigate to the top right corner and click on the 3 dots which is the settings for the entire project. Then select "Delete Project".
+Untuk menghapus proyek dari slot produksi, Anda harus menghapus seluruh proyek. Arahkan ke sudut kanan atas dan klik pada 3 titik yang merupakan pengaturan untuk seluruh proyek. Kemudian pilih "Hapus Proyek".
 
-![Menghapus proyek dari production slot](/assets/img/delete_production.png)
+![Menghapus proyek dari slot produksi](/assets/img/delete_production.png)
