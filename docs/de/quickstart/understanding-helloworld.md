@@ -1,64 +1,64 @@
-# Hello World Explained
+# Die Erklärung von Hello World
 
-In the [Hello World quick start guide](helloworld-localhost.md), we ran through some simple commands and very quickly got an example up and running. This allowed you to ensure that you had all the pre-requisites in place and could use a local playground to make a simple query to get your first data from SubQuery. Here, we take a closer look at what all those commands mean.
+In der [Hello World-Kurzanleitung](helloworld-localhost.md) sind wir einige einfache Befehle durchgegangen und haben sehr schnell ein Beispiel zum Laufen gebracht. Auf diese Weise konnten Sie sicherstellen, dass alle Voraussetzungen erfüllt sind und Sie einen lokalen Playground verwenden können, um eine einfache Abfrage durchzuführen, um Ihre ersten Daten von SubQuery abzurufen. Hier sehen wir uns genauer an, was all diese Befehle bedeuten.
 
 ## subql init
 
-The first command we ran was `subql init --starter subqlHelloWorld`.
+Der erste Befehl, den wir ausgeführt haben, war `subql init --starter subqlHelloWorld`.
 
-This does the heavy lifting and creates a whole bunch of files for you. Wie in der [offiziellen Dokumentation](quickstart.md#configure-and-build-the-starter-project) vermerkt, arbeiten Sie hauptsächlich an den folgenden Dateien:
+Dies erledigt die schwere Arbeit und erstellt eine ganze Reihe von Dateien für Sie. Wie in der [offiziellen Dokumentation](quickstart.md#configure-and-build-the-starter-project) vermerkt, arbeiten Sie hauptsächlich an den folgenden Dateien:
 
-- The Manifest in `project.yaml`
-- The GraphQL Schema in `schema.graphql`
-- The Mapping functions in `src/mappings/` directory
+- Das Manifest in `project.yaml`
+- Das GraphQL-Schema in `schema.graphql`
+- Die Mapping-Funktionen im Verzeichnis `src/mappings/`directory
 
 ![key subql files](/assets/img/main_subql_files.png)
 
-These files are the core of everything we do. As such, we'll dedicate more time to these files in another article. For now though, just know that the schema contains a description of the data users can request from the SubQuery API, the project yaml file which contains "configuration" type parameters and of course the mappingHandlers containing typescript which contains functions that transform the data.
+Diese Dateien sind der Kern von allem, was wir tun. Daher widmen wir diesen Dateien in einem anderen Artikel mehr Zeit. Vorerst sollten Sie jedoch nur wissen, dass das Schema eine Beschreibung der Daten enthält, die Benutzer von der SubQuery-API anfordern können, die Projekt-Yaml-Datei, die Parameter des Typs "Konfiguration" enthält, und natürlich die Zuordnungshandler, die Typskript enthalten, das Funktionen enthält, die die Daten umwandeln.
 
 ## yarn install
 
-The next thing we did was `yarn install`. `npm install` can be used as well.
+Als nächstes haben wir `yarn install` gemacht. `npm install` kann auch verwendet werden.
 
-> A short history lesson. Node Package Manager or npm was initially released in 2010 and is a tremendously popular package manager among JavaScript developers. It is the default package that is automatically installed whenever you install Node.js on your system. Yarn was initially released by Facebook in 2016 with the intention to address some of the performance and security shortcomings of working with npm (at that time).
+> Eine kurze Geschichtsstunde. Node Package Manager oder npm wurde ursprünglich im Jahr 2010 veröffentlicht und ist ein unter JavaScript-Entwicklern äußerst beliebter Paketmanager. Es ist das Standardpaket, das automatisch installiert wird, wenn Sie Node.js auf Ihrem System installieren. Yarn wurde ursprünglich 2016 von Facebook mit der Absicht veröffentlicht, einige der Leistungs- und Sicherheitsmängel bei der Arbeit mit npm (damals) zu beheben.
 
-What yarn does is look at the `package.json` file and download various other dependencies. Looking at the `package.json` file, it doesn't look like there are many dependencies, but when you run the command, you'll notice that 18,983 files are added. This is because each dependency will also have its own dependencies.
+Yarn sieht sich die Datei `package.json` an und lädt verschiedene andere Abhängigkeiten herunter. Wenn Sie sich die Datei `package.json` ansehen, sieht es nicht so aus, als gäbe es viele Abhängigkeiten, aber wenn Sie den Befehl ausführen, werden Sie feststellen, dass 18.983 Dateien hinzugefügt werden. Dies liegt daran, dass jede Abhängigkeit auch ihre eigenen Abhängigkeiten hat.
 
 ![key subql files](/assets/img/dependencies.png)
 
 ## yarn codegen
 
-Then we ran `yarn codegen` or `npm run-script codegen`. What this does is fetch the GraphQL schema (in the `schema.graphql`) and generates the associated typescript model files (Hence the output files will have a .ts extension). You should never change any of these generated files, only change the source `schema.graphql` file.
+Dann haben wir `yarn codegen` oder `npm run-script codegen` ausgeführt. Dies bewirkt, dass das GraphQL-Schema (in der `schema.graphql`) abgerufen und die zugehörigen Typoskript-Modelldateien generiert werden (daher haben die Ausgabedateien die Erweiterung .ts). Sie sollten keine dieser generierten Dateien ändern, sondern nur die Quelldatei `schema.graphql`.
 
 ![key subql files](/assets/img/typescript.png)
 
 ## yarn build
 
-`yarn build` or `npm run-script build` was then executed. This should be familiar for seasoned programmers. It creates a distribution folder performing things such as code optimisation preparing for a deployment.
+Anschließend wurde `yarn build` oder `npm run-script build` ausgeführt. Dies sollte erfahrenen Programmierern bekannt sein. Es erstellt einen Verteilungsordner, der Aufgaben wie die Codeoptimierung zur Vorbereitung einer Bereitstellung durchführt.
 
 ![key subql files](/assets/img/distribution_folder.png)
 
 ## docker-compose
 
-The final step was the combined docker command `docker-compose pull && docker-compose up` (can be run separately as well). The `pull` command grabs all the required images from Docker Hub and the `up` command starts the container.
+Der letzte Schritt war der kombinierte Docker-Befehl `docker-compose pull && docker-compose up` (kann auch separat ausgeführt werden). Der Befehl `pull` ruft alle erforderlichen Images von Docker Hub ab und der Befehl `up` startet den Container.
 
 ```shell
 > docker-compose pull
-Pulling postgres        ... done
-Pulling subquery-node   ... done
-Pulling graphql-engine  ... done
+Pulling postgres        ... fertig
+Pulling subquery-node   ... fertig
+Pulling graphql-engine  ... fertig
 ```
 
-When the container is started, you'll see the terminal spit out lots of text showing the status of the node and the GraphQL engine. It's when you see:
+Wenn der Container gestartet wird, werden Sie sehen, dass das Terminal viel Text ausgibt, der den Status der Node und der GraphQL-Engine anzeigt. Es ist, wenn Sie sehen:
 
 ```
 subquery-node_1   | 2021-06-06T02:04:25.490Z <fetch> INFO fetch block [1, 100]
 ```
 
-that you know that the SubQuery node has started to synchronise.
+jetzt wissen Sie, dass die SubQuery-Node mit der Synchronisierung begonnen hat.
 
 ## Zusammenfassung
 
-Now that you've had an insight into what is happening under the covers, the question is where to from here? If you are feeling confident, you can jump into learning about how to [create a project](../create/introduction.md) and learn more about the three key files. The manifest file, the GraphQL schema, and the mappings file.
+Nachdem Sie nun einen Einblick in das Geschehen unter der Decke bekommen haben, stellt sich die Frage, wo Sie von hier aus weiterkommen können. Wenn Sie sich sicher fühlen, können Sie gleich mit dem [Erstellen eines Projekts](../create/introduction.md) beginnen und mehr über die drei Schlüsseldateien erfahren. Die Manifestdatei, das GraphQL-Schema und die Zuordnungsdatei.
 
-Otherwise, continue to our tutorials section where we look at how we can run this Hello World example on SubQuery's hosted infrastructure, we'll look at modifying the start block, and we'll take a deeper dive at running SubQuery projects by running readily available and open source projects.
+Fahren Sie andernfalls mit unserem Tutorial-Abschnitt fort, in dem wir uns ansehen, wie wir dieses Hello World-Beispiel in der gehosteten Infrastruktur von SubQuery ausführen können, wir werden uns das Ändern des Startblocks ansehen und tiefer in die Ausführung von SubQuery-Projekten eintauchen, indem wir sie sofort ausführen und Open-Source-Projekte.
