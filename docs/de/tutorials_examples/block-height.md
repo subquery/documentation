@@ -1,4 +1,4 @@
-# How to start at a different block height?
+# Wie starte ich mit einer anderen Blockhöhe?
 
 ## Videoanleitung
 
@@ -6,13 +6,13 @@
   <iframe src="https://www.youtube.com/embed/ZiNSXDMHmBk" frameborder="0" allowfullscreen="true"></iframe>
 </figure>
 
-## Introduction
+## Die Einführung
 
-By default, all starter projects start synchronising the blockchain from the genesis block. In otherwords, from block 1. For large blockchains, this can typically take days or even weeks to fully synchronise.
+Standardmäßig beginnen alle Starterprojekte mit der Synchronisierung der Blockchain aus dem Genesis-Block. Mit anderen Worten, ab Block 1. Bei großen Blockchains kann die vollständige Synchronisierung normalerweise Tage oder sogar Wochen dauern.
 
-To start a SubQuery node synchronising from a non-zero height, all you have to do is to modify your project.yaml file and change the startBlock key.
+Um eine SubQuery-Node mit der Synchronisierung aus einer Höhe ungleich Null zu starten, müssen Sie lediglich Ihre Datei project.yaml und den startBlock-Schlüssel ändern.
 
-Below is a project.yaml file where the start block has been set to 1,000,000
+Unten ist eine Datei project.yaml, in der der Startblock auf 1.000.000  gesetzt wurde
 
 ```shell
 specVersion: 0.0.1
@@ -32,18 +32,18 @@ dataSources:
           kind: substrate/BlockHandler
 ```
 
-## Why not start from zero?
+## Warum nicht bei Null anfangen?
 
-The main reason is that it can reduce the time to synchronise the blockchain. This means that if you are only interested in transactions in the last 3 months, you can only synchronise the last 3 months worth meaning less waiting time and you can start your development faster.
+Der Hauptgrund ist, dass es die Zeit zum Synchronisieren der Blockchain verkürzen kann. Dies bedeutet, dass Sie, wenn Sie nur an Transaktionen der letzten 3 Monate interessiert sind, nur die letzten 3 Monate synchronisieren können, was weniger Wartezeit bedeutet und Sie schneller mit Ihrer Entwicklung beginnen können.
 
-## What are the drawbacks of not starting from zero?
+## Welche Nachteile hat es, nicht bei Null anzufangen?
 
-The most obvious drawback will be that you won’t be able to query for data on the blockchain for blocks that you don’t have.
+Der offensichtlichste Nachteil ist, dass Sie keine Daten in der Blockchain für Blöcke abfragen können, die Sie nicht haben.
 
-## How to figure out the current blockchain height?
+## Wie finde ich die aktuelle Blockchain-Höhe heraus?
 
-If you are using the Polkadot network, you can visit [https://polkascan.io/](https://polkascan.io/), select the network, and then view the  "Finalised Block" figure.
+Wenn Sie das Polkadot-Netzwerk verwenden, können Sie [https://polkascan.io/](https://polkascan.io/) besuchen, das Netzwerk auswählen und dann die Abbildung "Abgeschlossener Block" anzeigen.
 
-## Do I have to do a rebuild or a codegen?
+## Muss ich einen Rebuild oder Codegen machen?
 
-No. No. Because you are modifying the project.yaml file, which is essentially a configuration file, you will not have to rebuild or regenerate the typescript code.
+Nein Da Sie die Datei project.yaml ändern, bei der es sich im Wesentlichen um eine Konfigurationsdatei handelt, müssen Sie den Typoskriptcode nicht neu erstellen oder generieren.
