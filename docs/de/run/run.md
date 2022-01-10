@@ -1,12 +1,12 @@
-# Running SubQuery Locally
+# SubQuery lokal ausführen
 
-This guide works through how to run a local SubQuery node on your infrastructure, which includes both the indexer and query service. Don't want to worry about running your own SubQuery infrastructure? SubQuery provides a [managed hosted service](https://explorer.subquery.network) to the community for free. [Follow our publishing guide](../publish/publish.md) to see how you can upload your project to [SubQuery Projects](https://project.subquery.network).
+In dieser Anleitung erfahren Sie, wie Sie eine lokale SubQuery-Node in Ihrer Infrastruktur ausführen, der sowohl den Indexer als auch den Abfragedienst umfasst. Sie möchten sich nicht um den Betrieb Ihrer eigenen SubQuery-Infrastruktur kümmern? SubQuery stellt der Community einen [verwalteten gehosteten Dienst](https://explorer.subquery.network) kostenlos zur Verfügung. [Folgen Sie unserem Veröffentlichungsleitfaden](../publish/publish.md), um zu erfahren, wie Sie Ihr Projekt in [SubQuery-Projekte](https://project.subquery.network) hochladen können.
 
-## Using Docker
+## Die Verwendung von Docker
 
-An alternative solution is to run a <strong>Docker Container</strong>, defined by the `docker-compose.yml` file. For a new project that has been just initialised you won't need to change anything here.
+Eine alternative Lösung besteht darin, einen <strong>Docker-Container</strong> auszuführen, der durch die Datei `docker-compose.yml` definiert wird. Für ein neues Projekt, das gerade initialisiert wurde, müssen Sie hier nichts ändern.
 
-Under the project directory run the following command:
+Führen Sie im Projektverzeichnis den folgenden Befehl aus:
 
 ```shell
 docker-compose pull && docker-compose up
@@ -14,11 +14,11 @@ docker-compose pull && docker-compose up
 
 Es kann einige Zeit dauern, die erforderlichen Pakete ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query) und Postgres) zum ersten Mal herunterzuladen, aber bald sehen Sie eine laufende SubQuery-Node.
 
-## Running an Indexer (subql/node)
+## Die Ausführung eines Indexers (subql/node)
 
-Requirements:
+Anforderungen:
 
-- [Postgres](https://www.postgresql.org/) database (version 12 or higher). While the [SubQuery node](#start-a-local-subquery-node) is indexing the blockchain, the extracted data is stored in an external database instance.
+- [Postgres](https://www.postgresql.org/)-Datenbank (Version 12 oder höher). Während die [SubQuery-Node](#start-a-local-subquery-node) die Blockchain indiziert, werden die extrahierten Daten in einer externen Datenbankinstanz gespeichert.
 
 Eine SubQuery-Node ist eine Implementierung, die substratbasierte Blockchain-Daten pro SubQuery-Projekt extrahiert und in einer Postgres-Datenbank speichert.
 
@@ -31,17 +31,17 @@ npm install -g @subql/node
 
 Beachten Sie bitte, dass wir **NICHT** zur Verwendung von `yarn global` ermutigen, da dies aufgrund seines schlechten Abhängigkeitsmanagements zu Fehlern auf der ganzen Linie führen kann.
 
-Once installed, you can start a node with the following command:
+Nach der Installation können Sie eine Node mit dem folgenden Befehl starten:
 
 ```shell
 subql-node <command>
 ```
 
-### Key Commands
+### Tastenbefehle
 
-The following commands will assist you to complete the configuration of a SubQuery node and begin indexing. To find out more, you can always run `--help`.
+Die folgenden Befehle helfen Ihnen, die Konfiguration einer SubQuery-Node abzuschließen und mit der Indizierung zu beginnen. Um mehr zu erfahren, können Sie jederzeit `--help` ausführen.
 
-#### Point to local project path
+#### Zeigen Sie auf den lokalen Projektpfad
 
 ```
 subql-node -f your-project-path
@@ -49,11 +49,11 @@ subql-node -f your-project-path
 
 #### Using a Dictionary
 
-Using a full chain dictionary can dramatically speed up the processing of a SubQuery project during testing or during your first index. In some cases, we've seen indexing performance increases of up to 10x.
+Die Verwendung eines vollständigen Chainwörterbuchs kann die Verarbeitung eines SubQuery-Projekts während des Tests oder während Ihres ersten Indexes erheblich beschleunigen. In einigen Fällen konnten wir eine bis zu 10-fache Leistungssteigerung bei der Indizierung feststellen.
 
-A full chain dictionary pre-indexes the location of all events and extrinsics within the specific chain and allows your node service to skip to relevant locations when indexing rather than inspecting each block.
+Ein vollständiges Chainwörterbuch indiziert die Position aller Ereignisse und Extrinsiken innerhalb der spezifischen Chain vor und ermöglicht Ihrem Nodedienst, bei der Indizierung zu relevanten Positionen zu springen, anstatt jeden Block zu überprüfen.
 
-You can add the dictionary endpoint in your `project.yaml` file (see [Manifest File](../create/manifest.md)), or specify it at run time using the following command:
+Sie können den Wörterbuchendpunkt zu Ihrer Datei `project.yaml` hinzufügen (siehe [Manifestdatei](../create/manifest.md)) oder ihn zur Laufzeit mit dem folgenden Befehl angeben:
 
 ```
 subql-node --network-dictionary=https://api.subquery.network/sq/subquery/dictionary-polkadot
@@ -61,7 +61,7 @@ subql-node --network-dictionary=https://api.subquery.network/sq/subquery/diction
 
 Depending on the configuration of your Postgres database (e.g. a different database password), please ensure also that both the indexer (`subql/node`) and the query service (`subql/query`) can establish a connection to it.
 
-#### Connect to database
+#### Mit Datenbank verbinden
 
 ```
 export DB_USER=postgres
