@@ -183,43 +183,14 @@ network:
 
 Що слід зазначити про використання файлу типів ланцюга з розширенням ` .ts ` або ` .js `:
 
-- Your manifest version must be v0.2.0 or above.
-- Only the default export will be included in the [polkadot api](https://polkadot.js.org/docs/api/start/types.extend/) when fetching blocks.
+- Ваша версія маніфесту має бути v0.2.0 або новішої.
+- При отриманні блоків будуть включені лише експорт за замовчуванням до програми polkadot api.
 
-Here is an example of a `.ts` chain types file:
+Ось приклад файлу типів ланцюга.ts:
 
-<CodeGroup> <CodeGroupItem title="types.ts"> ```ts
-import { typesBundleDeprecated } from "moonbeam-types-bundle"
-export default { typesBundle: typesBundleDeprecated }; ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> ```ts import { typesBundleDeprecated } з "moonbeam-types-bundle" експорт за замовчуванням { typesBundle: typesBundleDeprecated }. Вони діють як проміжне програмне забезпечення, яке може забезпечити додаткову фільтрацію та перетворення даних. Між мережами різні варіанти, ймовірно, будуть різними (наприклад,. блок запуску індексу). Тому ми дозволяємо користувачам визначати різні деталі для кожного джерела даних, що означає, що один проект SubQuery все ще може використовуватися в кількох мережах.
 
-
-
-## Custom Data Sources
-
-Custom Data Sources provide network specific functionality that makes dealing with data easier. They act as a middleware that can provide extra filtering and data transformation.
-
-A good example of this is EVM support, having a custom data source processor for EVM means that you can filter at the EVM level (e.g. filter contract methods or logs) and data is transformed into structures farmiliar to the Ethereum ecosystem as well as parsing parameters with ABIs.
-
-Custom Data Sources can be used with normal data sources.
-
-Here is a list of supported custom datasources:
-
-| Kind                                                  | Supported Handlers                                                                                       | Filters                         | Description                                                                      |
-| ----------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | ------------------------------- | -------------------------------------------------------------------------------- |
-| [substrate/Moonbeam](./moonbeam/#data-source-example) | [substrate/MoonbeamEvent](./moonbeam/#moonbeamevent), [substrate/MoonbeamCall](./moonbeam/#moonbeamcall) | See filters under each handlers | Provides easy interaction with EVM transactions and events on Moonbeams networks |
-
-
-
-
-## Network Filters
-
-**Network filters only applies to manifest spec v0.0.1**.
-
-Usually the user will create a SubQuery and expect to reuse it for both their testnet and mainnet environments (e.g Polkadot and Kusama). Between networks, various options are likely to be different (e.g. index start block). Therefore, we allow users to define different details for each data source which means that one SubQuery project can still be used across multiple networks.
-
-Users can add a `filter` on `dataSources` to decide which data source to run on each network.
-
-Below is an example that shows different data sources for both the Polkadot and Kusama networks.
+Нижче наведено приклад, який показує різні джерела даних для мереж Polkadot і Kusama.
 
 <CodeGroup> <CodeGroupItem title="v0.0.1"> ```yaml --- network: endpoint: 'wss://polkadot.api.onfinality.io/public-ws' #Create a template to avoid redundancy definitions: mapping: &mymapping handlers: - handler: handleBlock kind: substrate/BlockHandler dataSources: - name: polkadotRuntime kind: substrate/Runtime filter: #Optional specName: polkadot startBlock: 1000 mapping: *mymapping #use template here - name: kusamaRuntime kind: substrate/Runtime filter: specName: kusama startBlock: 12000 mapping: *mymapping # can reuse or change ``` </CodeGroupItem>
 
