@@ -99,27 +99,27 @@ subql-node -f your-project-path --batch-size 200
 [IndexerManager] fetch block [403, 602]
 ```
 
-When the indexer first indexes the chain, fetching single blocks will significantly decrease the performance. Increasing the batch size to adjust the number of blocks fetched will decrease the overall processing time. The current default batch size is 100.
+Когато индексаторът първо индексира веригата, извличането на единични блокове значително ще намали производителността. Увеличаването на размера на партидата, с цел регулиране на броя на извлечените блокове, ще намали общото време за обработка. Текущият размер на партидата по подразбиране е 100.
 
-#### Run in local mode
+#### Работете в локален мод (режим)
 
 ```
 subql-node -f your-project-path --local
 ```
 
-For debugging purposes, users can run the node in local mode. Switching to local model will create Postgres tables in the default schema `public`.
+За целите на отстраняване на грешки, потребителите могат да стартират нода в локален режим. Преминаването към локален модел ще създаде Postgres таблици схемата по подразбиране - `public`.
 
-If local mode is not used, a new Postgres schema with the initial `subquery_` and corresponding project tables will be created.
+Ако не се използва локален режим, ще бъде създадена нова Postgres схема с първоначалната `subquery_` и съответните таблици на проектите.
 
 
-#### Check your node health
+#### Проверете здравето на вашия нод
 
-There are 2 endpoints that you can use to check and monitor the health of a running SubQuery node.
+Има 2 крайни точки, които можете да използвате за проверка и наблюдение на здравето на работещ SubQuery нод.
 
-- Health check endpoint that returns a simple 200 response
-- Metadata endpoint that includes additional analytics of your running SubQuery node
+- Крайна точка за проверка на състоянието, която връща опростен 200 отговор
+- Крайна точка с метаданни, която включва допълнителни анализи на вашия работещ SubQuery нод
 
-Append this to the base URL of your SubQuery node. Eg `http://localhost:3000/meta` will return:
+Добавете това към основния URL адрес на вашия SubQuery нод. Например: `http://localhost:3000/meta` ще върне:
 
 ```bash
 {
@@ -142,9 +142,9 @@ Append this to the base URL of your SubQuery node. Eg `http://localhost:3000/met
 }
 ```
 
-`http://localhost:3000/health` will return HTTP 200 if successful.
+`http://localhost:3000/health` ще върне HTTP 200 ако е успешно.
 
-A 500 error will be returned if the indexer is not healthy. This can often be seen when the node is booting up.
+Ще бъде върната грешка 500, ако индексаторът не е здрав. Това често може да се види, когато нодът се зарежда.
 
 ```shell
 {
@@ -153,7 +153,7 @@ A 500 error will be returned if the indexer is not healthy. This can often be se
 }
 ```
 
-If an incorrect URL is used, a 404 not found error will be returned.
+Ако е използван грешен URL, грешка 404 „не е намерено“ ще се появи, отново.
 
 ```shell
 {
@@ -163,23 +163,23 @@ If an incorrect URL is used, a 404 not found error will be returned.
 }
 ```
 
-#### Debug your project
+#### Отстранете грешките в проекта си
 
-Use the [node inspector](https://nodejs.org/en/docs/guides/debugging-getting-started/) to run the following command.
+Използвайте [node inspector](https://nodejs.org/en/docs/guides/debugging-getting-started/) за да изпълните следната команда.
 
 ```shell
 node --inspect-brk <path to subql-node> -f <path to subQuery project>
 ```
 
-For example:
+Например:
 ```shell
 node --inspect-brk /usr/local/bin/subql-node -f ~/Code/subQuery/projects/subql-helloworld/
 Debugger listening on ws://127.0.0.1:9229/56156753-c07d-4bbe-af2d-2c7ff4bcc5ad
 For help, see: https://nodejs.org/en/docs/inspector
 Debugger attached.
 ```
-Then open up the Chrome dev tools, go to Source > Filesystem and add your project to the workspace and start debugging. For more information, check out [How to debug a SubQuery project](https://doc.subquery.network/tutorials_examples/debug-projects/)
-## Running a Query Service (subql/query)
+След това отворете инструментите за разработка на Chrome, отидете на Source > Filesystem и добавете проекта си към работното пространство и започнете да отстранявате грешки. За повече информация вижте: [Как да отстраните грешки в SubQuery проект](https://doc.subquery.network/tutorials_examples/debug-projects/)
+## Изпълнение на услуга за заявки (subql/query)
 
 ### Инсталация
 
@@ -188,11 +188,11 @@ Then open up the Chrome dev tools, go to Source > Filesystem and add your projec
 npm install -g @subql/query
 ```
 
-Please note that we **DO NOT** encourage the use of `yarn global` due to its poor dependency management which may lead to an errors down the line.
+Моля, имайте предвид, че ние **НЕ** насърчаваме използването на `yarn global` поради лошото управление на зависимостта, което може да доведе до грешки в бъдеще.
 
-### Running the Query service
+### Изпълнение на Query услуга
 ``` export DB_HOST=localhost subql-query --name <project_name> --playground ````
 
-Make sure the project name is the same as the project name when you [initialize the project](../quickstart/quickstart.md#initialise-the-starter-subquery-project). Also, check the environment variables are correct.
+Уверете се, че името на проекта е същото като името на проекта, когато [инициализирате проекта](../quickstart/quickstart.md#initialise-the-starter-subquery-project). Също така проверете дали променливите на средата са правилни.
 
-After running the subql-query service successfully, open your browser and head to `http://localhost:3000`. You should see a GraphQL playground showing in the Explorer and the schema that is ready to query.
+След като стартирате успешно услугата subql-query, отворете браузъра си и се насочете към `http://localhost:3000`. Трябва да видите работното меню на GraphQL, показващo се в Explorer и схемата, която е готова за заявка.
