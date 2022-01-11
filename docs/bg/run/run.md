@@ -53,15 +53,15 @@ subql-node -f your-project-path
 
 Цял верижен речник предварително индексира местоположението на всички събития и ненужни данни в рамките на конкретната верига и позволява на вашата нод услуга да прескача до съществените местоположения при индексиране, вместо да инспектира всеки блок.
 
-You can add the dictionary endpoint in your `project.yaml` file (see [Manifest File](../create/manifest.md)), or specify it at run time using the following command:
+Можете да добавите крайната точка на речника във вашия `project.yaml` файл (вижте [Manifest File](../create/manifest.md)), или го посочете по време на изпълнението, като използвате следната команда:
 
 ```
 subql-node --network-dictionary=https://api.subquery.network/sq/subquery/dictionary-polkadot
 ```
 
-[Read more about how a SubQuery Dictionary works](../tutorials_examples/dictionary.md).
+[Прочетете повече за това как работи SubQuery речникът.](../tutorials_examples/dictionary.md).
 
-#### Connect to database
+#### Свържете се с базата данни
 
 ```
 export DB_USER=postgres
@@ -72,15 +72,15 @@ export DB_PORT=5432
 subql-node -f your-project-path 
 ````
 
-Depending on the configuration of your Postgres database (e.g. a different database password), please ensure also that both the indexer (`subql/node`) and the query service (`subql/query`) can establish a connection to it.
+В зависимост от конфигурацията на вашата Postgres база данни (например различна парола за базата данни), моля, уверете се, че индексаторът (`subql/node`) и услугата за заявки (`subql/query`) могат да установят връзка с нея.
 
-#### Specify a configuration file
+#### Посочете конфигурационен файл
 
 ```
 subql-node -c your-project-config.yml
 ```
 
-This will point the query node to a configuration file which can be in YAML or JSON format. Check out the example below.
+Това ще насочи нода на заявката към конфигурационен файл, който може да бъде във формат - YAML или JSON. Вижте примера по-долу.
 
 ```yaml
 subquery: ../../../../subql-example/extrinsics
@@ -89,12 +89,12 @@ batchSize:100
 localMode:true
 ```
 
-#### Change the block fetching batch size
+#### Промяна размера на партидата за извличане на блок
 
 ```
 subql-node -f your-project-path --batch-size 200
 
-Result:
+Резултат:
 [IndexerManager] fetch block [203, 402]
 [IndexerManager] fetch block [403, 602]
 ```
