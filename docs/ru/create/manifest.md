@@ -6,9 +6,9 @@
 
 <CodeGroup> <CodeGroupItem title="v0.2.0" active> ``` yml specVersion: 0.2.0 name: example-project # Provide the project name version: 1.0.0  # Project version description: '' # Description of your project repository: 'https://github.com/subquery/subql-starter' # Git repository address of your project schema: file: ./schema.graphql # The location of your GraphQL schema file network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' # Genesis hash of the network endpoint: 'wss://polkadot.api.onfinality.io/public-ws' # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing dictionary: 'https://api.subquery.network/sq/subquery/dictionary-polkadot' dataSources: - kind: substrate/Runtime startBlock: 1 # This changes your indexing start block, set this higher to skip initial blocks with less data mapping: file: "./dist/index.js" handlers: - handler: handleBlock kind: substrate/BlockHandler - handler: handleEvent kind: substrate/EventHandler filter: #Filter is optional module: balances method: Deposit - handler: handleCall kind: substrate/CallHandler ```` </CodeGroupItem> <CodeGroupItem title="v0.0.1"> ``` yml specVersion: "0.0.1" description: '' # Description of your project repository: 'https://github.com/subquery/subql-starter' # Git repository address of your project schema: ./schema.graphql # The location of your GraphQL schema file network: endpoint: 'wss://polkadot.api.onfinality.io/public-ws' # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing dictionary: 'https://api.subquery.network/sq/subquery/dictionary-polkadot' dataSources: - name: main kind: substrate/Runtime startBlock: 1 # This changes your indexing start block, set this higher to skip initial blocks with less data mapping: handlers: - handler: handleBlock kind: substrate/BlockHandler - handler: handleEvent kind: substrate/EventHandler filter: #Filter is optional but suggested to speed up event processing module: balances method: Deposit - handler: handleCall kind: substrate/CallHandler ```` </CodeGroupItem> </CodeGroup>
 
-## Migrating from v0.0.1 to v0.2.0 <Badge text="upgrade" type="warning"/>
+## Миграция с версии v0.0.1 до v0.2.0 <Badge text="upgrade" type="warning"/>
 
-**If you have a project with specVersion v0.0.1, you can use `subql migrate` to quickly upgrade. смотри здесь больше информации</p>
+**Если у вас есть проект с версией спецификации v0.0.1, вы можете воспользоваться `subql migrate` для быстрого обновления. смотри здесь больше информации</p>
 
 В разделе network
 
@@ -17,7 +17,7 @@
 
 В разделе dataSources
 
-- Можно напрямую связать точку входа index.js для обработчиков отображения. По умолчанию этот ndex.js будет сгенерирован из index.ts в процессе сборки.
+- Можно напрямую связать точку входа index.js для обработчиков отображения. По умолчанию этот index.js будет сгенерирован из index.ts в процессе сборки.
 - Источники данных теперь могут быть как обычным источником данных во время выполнения, так и пользовательским источником данных.
 
 ### Опции CLI
