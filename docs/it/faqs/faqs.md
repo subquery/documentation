@@ -1,6 +1,6 @@
-# Frequently Asked Questions
+# Domande frequenti
 
-## What is SubQuery?
+## Cos'è SubQuery?
 
 SubQuery is an open source project that allows developers to index, transform, and query Substrate chain data to power their applications.
 
