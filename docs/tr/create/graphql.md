@@ -30,7 +30,7 @@ type Example @entity {
 - `Boolean`
 - `<EntityName>` iç içe geçmiş ilişki varlıkları için, tanımlanan varlığın adını alanlardan biri olarak kullanabilirsiniz. Lütfen [Entity Relations](#entity-relationships) bakın.
 - `JSON` yapılandırılmış verileri alternatif olarak depolayabilir, lütfen bkz[JSON türü](#json-type)
-- `<EnumName>` types are a special kind of enumerated scalar that is restricted to a particular set of allowed values. Please see [Graphql Enum](https://graphql.org/learn/schema/#enumeration-types)
+- `<EnumName>` türler, belirli bir izin verilen değerler kümesiyle sınırlandırılmış özel bir numaralandırılmış skalerdir. Bakınız [Graphql Enum](https://graphql.org/learn/schema/#enumeration-types)
 
 ## Birincil anahtar olmayan alana göre dizin oluşturma
 
