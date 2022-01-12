@@ -18,13 +18,13 @@
 
 ## 앰배서더 프로그램
 
-Our SubQuery Ambassador program aims to find community leaders passionate about Polkadot and SubQuery. We’re looking for self-starters that can spread the word about SubQuery in their local areas and provide support to new developers that want to use SubQuery to build amazing apps and services on Polkadot.
+서브쿼리 앰버서더 프로그램은 폴카닷과 서브쿼리에 열정이 있는 커뮤니티 리더를 발굴하는 것이 목표입니다. 저희는 각 지역에서 서브쿼리에 대한 정보를 알리거나 서브쿼리를 이용해 폴카닷 상에 멋진 앱과 서비스를 구축하길 원하는 새로운 개발자들을 지원할 자원자를 찾고 있습니다.
 
 ### 앰배서더 혜택
 
-At SubQuery, we work hard to achieve what we do. Similarly, Ambassadors are expected to commit some time when joining our team but will be rewarded with benefits.
+서브 쿼리에서 저희는 저희의 일을 달성하기 위해 노력할 것입니다. 마찬가지로 앰배사더들은 저희 팀에 합류할 때 일정한 시간을 할애할 것으로 예상되지만 혜택을 받을 수 있습니다.
 
-**Funding and Support:** You may be rewarded for good work with early opportunities into private sales and bounties. Additionally, we’ll be providing funding grants for you to run community meetups.
+**Funding and Support:** 앰배서더로서 좋은 활동을 한다면 프라이빗 세일과 바운티 등을 보상받을 수 있습니다. Additionally, we’ll be providing funding grants for you to run community meetups.
 
 **SubQuery Team Access:** You’ll have direct access to the core SubQuery team with opportunities for hands-on training, exclusive AMAs with our leaders and developers, and insight into our roadmap.
 
