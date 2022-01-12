@@ -15,7 +15,7 @@
       </p>
       <span class="button">
         <router-link :to="{path: '/quickstart/helloworld-localhost/'}">
-          <span>Get started</span>
+          <span>Baslat</span>
         </router-link>
       </span>
     </div>
@@ -63,7 +63,7 @@
         <div class="content">
           <p>SubQuery, geliştiricilerin uygulamalarını güç sağlamak için Substrat zinciri verilerini dizine almalarına, dönüştürmelerine ve sorgulamalarına olanak tanıyan açık kaynaklı bir projedir.</p>
           <span class="more">
-            <router-link :to="{path: '/faqs/faqs/#what-is-subquery'}">READ MORE</router-link>
+            <router-link :to="{path: '/faqs/faqs/#what-is-subquery'}">DAHA FAZLA OKU</router-link>
           </span>
         </div>
       </li>
@@ -78,7 +78,7 @@
         <div class="content">
           <p>Topluluktan gelen katkıları ve geri bildirimleri seviyoruz. Koda katkıda bulunmak için, ilgi alanı deponuzu çatallayın ve değişikliklerinizi yapın. Ardından bir PR veya Çekme İsteği gönderin. Test etmeyi de unutma! Ayrıca katkı yönergelerimize de göz atın (yakında). </p>
           <span class="more">
-            <router-link :to="{path: '/faqs/faqs/#what-is-the-best-way-to-get-started-with-subquery'}">READ MORE</router-link>
+            <router-link :to="{path: '/faqs/faqs/#what-is-the-best-way-to-get-started-with-subquery'}">DAHA FAZLA OKU</router-link>
           </span>
         </div>
       </li>
