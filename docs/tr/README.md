@@ -113,8 +113,8 @@
 </section>
 <section class="main connectSection">
   <div class="email">
-    <span>Contact us</span>
-    <a href="mailto:hello@subquery.network">hello@subquery.network</a>
+    <span>Bize Ulaşın</span>
+    <a href="mailto:hello@subquery.network">merhaba@subquery.network</a>
   </div>
   <div>
     <div>Bizi socialbn'de takip edin</div>
