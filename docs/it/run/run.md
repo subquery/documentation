@@ -4,52 +4,52 @@ Questa guida spiega come eseguire un nodo locale di SubQuery sulla tua infrastru
 
 ## Usando Docker
 
-An alternative solution is to run a <strong>Docker Container</strong>, defined by the `docker-compose.yml` file. For a new project that has been just initialised you won't need to change anything here.
+Una soluzione alternativa è quella di eseguire un <strong>Docker Container</strong> definito dal `docker-compose.yml` file. Per un nuovo progetto che è stato appena inizializzato non avrete bisogno di cambiare nulla qui.
 
-Under the project directory run the following command:
+Sotto la directory del progetto eseguite il seguente comando:
 
 ```shell
 docker-compose pull && docker-compose up
 ```
 
-It may take some time to download the required packages ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), and Postgres) for the first time but soon you'll see a running SubQuery node.
+Potrebbe volerci del tempo per scaricare i pacchetti richiesti ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), e Postgres) per la prima volta, ma presto si vedrà un nodo SubQuery in esecuzione.
 
-## Running an Indexer (subql/node)
+## Eseguire un indicizzatore (subql/node)
 
-Requirements:
+Requisiti:
 
-- [Postgres](https://www.postgresql.org/) database (version 12 or higher). While the [SubQuery node](#start-a-local-subquery-node) is indexing the blockchain, the extracted data is stored in an external database instance.
+- [Postgres](https://www.postgresql.org/) database (versione 12 o superiore). Mentre il [SubQuery node](#start-a-local-subquery-node) indicizza la blockchain, i dati estratti vengono memorizzati in un'istanza di database esterno.
 
-A SubQuery node is an implementation that extracts substrate-based blockchain data per the SubQuery project and saves it into a Postgres database.
+Un nodo SubQuery è un'implementazione che estrae i dati della blockchain basati sul substrato secondo il progetto SubQuery e li salva in un database Postgres.
 
-### Installation
+### Installazione
 
 ```shell
 # NPM
 npm install -g @subql/node
 ```
 
-Please note that we **DO NOT** encourage the use of `yarn global` due to its poor dependency management which may lead to an errors down the line.
+Si prega di notare che **NON** incoraggiamo l'uso di `yarn global` a causa della sua scarsa gestione delle dipendenze che può portare a un errore lungo la linea.
 
-Once installed, you can start a node with the following command:
+Una volta installato, potete avviare un nodo con il seguente comando:
 
 ```shell
 subql-node <command>
 ```
 
-### Key Commands
+### Comandi chiave
 
-The following commands will assist you to complete the configuration of a SubQuery node and begin indexing. To find out more, you can always run `--help`.
+I seguenti comandi ti aiuteranno a completare la configurazione di un nodo SubQuery e a iniziare l'indicizzazione. Per saperne di più, puoi sempre eseguire `--help`.
 
-#### Point to local project path
+#### Punta al percorso locale del progetto
 
 ```
 subql-node -f your-project-path
 ```
 
-#### Using a Dictionary
+#### Usare un dizionario
 
-Using a full chain dictionary can dramatically speed up the processing of a SubQuery project during testing or during your first index. In some cases, we've seen indexing performance increases of up to 10x.
+L'utilizzo di un dizionario a catena completo può accelerare drasticamente l'elaborazione di un progetto SubQuery durante i test o durante il vostro primo indice. In some cases, we've seen indexing performance increases of up to 10x.
 
 A full chain dictionary pre-indexes the location of all events and extrinsics within the specific chain and allows your node service to skip to relevant locations when indexing rather than inspecting each block.
 
@@ -185,7 +185,7 @@ Debugger attached.
 Then open up the Chrome dev tools, go to Source > Filesystem and add your project to the workspace and start debugging. For more information, check out [How to debug a SubQuery project](https://doc.subquery.network/tutorials_examples/debug-projects/)
 ## Running a Query Service (subql/query)
 
-### Installation
+### Installazione
 
 ```shell
 # NPM
