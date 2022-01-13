@@ -13,49 +13,49 @@ Bildirim YAML veya JSON biçiminde olabilir. Bu belgede, tüm örneklerde YAML k
 Under `network`:
 
 - There is a new **required** `genesisHash` field which helps to identify the chain being used.
-- For v0.2.0 and above, you are able to reference an external [chaintype file](#custom-chains) if you are referencing a custom chain.
+- V0.2.0 ve üstü için, özel bir zincire başvuruyorsanız, harici bir [ zincir türü dosyasına](#custom-chains) başvurabilirsiniz.
 
 Under `dataSources`:
 
-- Can directly link an `index.js` entry point for mapping handlers. By default this `index.js` will be generated from `index.ts` during the build process.
+- Doğrudan eşleme işleyicileri için `index.js` giriş noktası bağlantı kurabilirsiniz. By default this `index.js` will be generated from `index.ts` during the build process.
 - Data sources can now be either a regular runtime data source or [custom data source](#custom-data-sources).
 
-### CLI Options
+### CLI Secenekler
 
 While the v0.2.0 spec version is in beta, you will need to explicitly define it during project initialisation by running `subql init --specVersion 0.2.0 PROJECT_NAME`
 
-`subql migrate` can be run in an existing project to migrate the project manifest to the latest version.
+`subql migrate` proje bildirimini en son sürüme geçirmek için varolan bir projede çalıştırılabilir.
 
-| Options        | Description                                                |
-| -------------- | ---------------------------------------------------------- |
-| -f, --force    |                                                            |
-| -l, --location | local folder to run migrate in (must contain project.yaml) |
-| --file=file    | to specify the project.yaml to migrate                     |
+| Seçenekler     | Tanım                                                                   |
+| -------------- | ----------------------------------------------------------------------- |
+| -f, --force    |                                                                         |
+| -l, --location | migrate'i çalıştırmak için yerel klasör (içermesi gerekir project.yaml) |
+| --file=file    | belirtmek için project.yaml geçirmek                                    |
 
-## Overview
+## Genel bakış
 
-### Top Level Spec
+### Üst Düzey Spec
 
-| Field           | v0.0.1                              | v0.2.0                      | Description                                                |
-| --------------- | ----------------------------------- | --------------------------- | ---------------------------------------------------------- |
-| **specVersion** | Dizgi                               | Dizgi                       | `0.0.1` or `0.2.0` - the spec version of the manifest file |
-| **name**        | 𐄂                                   | Dizgi                       | Name of your project                                       |
-| **version**     | 𐄂                                   | Dizgi                       | Version of your project                                    |
-| **description** | Dizgi                               | Dizgi                       | Discription of your project                                |
-| **repository**  | Dizgi                               | Dizgi                       | Git repository address of your project                     |
-| **schema**      | Dizgi                               | [Schema Spec](#schema-spec) | The location of your GraphQL schema file                   |
-| **network**     | [Network Spec](#network-spec)       | Network Spec                | Detail of the network to be indexed                        |
-| **dataSources** | [DataSource Spec](#datasource-spec) | DataSource Spec             |                                                            |
+| Field            | v0.0.1                              | v0.2.0                           | Tanım                                                |
+| ---------------- | ----------------------------------- | -------------------------------- | ---------------------------------------------------- |
+| **spekversiyon** | Dizgi                               | Dizgi                            | `0.0.1` or `0.2.0` - bildirim dosyasının özel sürümü |
+| **isim**         | 𐄂                                   | Dizgi                            | Projenizin adı                                       |
+| **sürüm**        | 𐄂                                   | Dizgi                            | Projenizin sürümü                                    |
+| **tanım**        | Dizgi                               | Dizgi                            | Projenizin tanımı                                    |
+| **repository**   | Dizgi                               | Dizgi                            | Projenizin Git repository adresi                     |
+| **şema**         | Dizgi                               | [Şema Özellikleri](#schema-spec) | GraphQL şema dosyanızın konumu                       |
+| **network**      | [Network Spec](#network-spec)       | Network Spec                     | Detail of the network to be indexed                  |
+| **dataSources**  | [DataSource Spec](#datasource-spec) | DataSource Spec                  |                                                      |
 
-### Schema Spec
+### Şema Özellikleri
 
-| Field    | v0.0.1 | v0.2.0 | Description                              |
-| -------- | ------ | ------ | ---------------------------------------- |
-| **file** | 𐄂      | Dizgi  | The location of your GraphQL schema file |
+| Field    | v0.0.1 | v0.2.0 | Tanım                          |
+| -------- | ------ | ------ | ------------------------------ |
+| **file** | 𐄂      | Dizgi  | GraphQL şema dosyanızın konumu |
 
 ### Network Spec
 
-| Field           | v0.0.1 | v0.2.0        | Description                                                                                                                                                                                                |
+| Field           | v0.0.1 | v0.2.0        | Tanım                                                                                                                                                                                                      |
 | --------------- | ------ | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **genesisHash** | 𐄂      | Dizgi         | The genesis hash of the network                                                                                                                                                                            |
 | **endpoint**    | Dizgi  | Dizgi         | Defines the wss or ws endpoint of the blockchain to be indexed - **This must be a full archive node**. You can retrieve endpoints for all parachains for free from [OnFinality](https://app.onfinality.io) |
@@ -65,9 +65,9 @@ While the v0.2.0 spec version is in beta, you will need to explicitly define it 
 ### Datasource Spec
 
 Defines the data that will be filtered and extracted and the location of the mapping function handler for the data transformation to be applied.
-| Field          | v0.0.1                                                    | v0.2.0                                                                           | Description                                                                                                                                                                           |
+| Field          | v0.0.1                                                    | v0.2.0                                                                           | Tanım                                                                                                                                                                                 |
 | -------------- | --------------------------------------------------------- | -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **name**       | Dizgi                                                     | 𐄂                                                                                | Name of the data source                                                                                                                                                               |
+| **isim**       | Dizgi                                                     | 𐄂                                                                                | Name of the data source                                                                                                                                                               |
 | **kind**       | [substrate/Runtime](./manifest/#data-sources-and-mapping) | substrate/Runtime, [substrate/CustomDataSource](./manifest/#custom-data-sources) | We supports data type from default substrate runtime such as block, event and extrinsic(call). <br /> From v0.2.0, we support data from custom runtime, such as smart contract. |
 | **startBlock** | Integer                                                   | Integer                                                                          | This changes your indexing start block, set this higher to skip initial blocks with less data                                                                                         |
 | **mapping**    | Mapping Spec                                              | Mapping Spec                                                                     |                                                                                                                                                                                       |
@@ -75,7 +75,7 @@ Defines the data that will be filtered and extracted and the location of the map
 
 ### Mapping Spec
 
-| Field                  | v0.0.1                                                                   | v0.2.0                                                                                        | Description                                                                                                                                                                                                                                  |
+| Field                  | v0.0.1                                                                   | v0.2.0                                                                                        | Tanım                                                                                                                                                                                                                                        |
 | ---------------------- | ------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **file**               | Dizgi                                                                    | 𐄂                                                                                             | Path to the mapping entry                                                                                                                                                                                                                    |
 | **handlers & filters** | [Default handlers and filters](./manifest/#mapping-handlers-and-filters) | Default handlers and filters, <br />[Custom handlers and filters](#custom-data-sources) | List all the [mapping functions](./mapping.md) and their corresponding handler types, with additional mapping filters. <br /><br /> For custom runtimes mapping handlers please view [Custom data sources](#custom-data-sources) |
@@ -100,7 +100,7 @@ The following table explains filters supported by different handlers.
 
 | Handler                                    | Supported filter             |
 | ------------------------------------------ | ---------------------------- |
-| [BlockHandler](./mapping.md#block-handler) | `specVersion`                |
+| [BlockHandler](./mapping.md#block-handler) | `spekversiyon`               |
 | [EventHandler](./mapping.md#event-handler) | `module`,`method`            |
 | [CallHandler](./mapping.md#call-handler)   | `module`,`method` ,`success` |
 
