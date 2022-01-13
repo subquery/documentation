@@ -24,19 +24,19 @@
 
 서브 쿼리에서 저희는 저희의 일을 달성하기 위해 노력할 것입니다. 마찬가지로 앰배사더들은 저희 팀에 합류할 때 일정한 시간을 할애할 것으로 예상되지만 혜택을 받을 수 있습니다.
 
-**Funding and Support:** 앰배서더로서 좋은 활동을 한다면 프라이빗 세일과 바운티 등을 보상받을 수 있습니다. Additionally, we’ll be providing funding grants for you to run community meetups.
+**Funding and Support:** 앰배서더로서 좋은 활동을 한다면 프라이빗 세일과 바운티 등을 보상받을 수 있습니다. 또한 저희는 여러분이 커뮤니티 밋업을 운영할 수 있도록 기금을 제공합니다.
 
-**SubQuery Team Access:** You’ll have direct access to the core SubQuery team with opportunities for hands-on training, exclusive AMAs with our leaders and developers, and insight into our roadmap.
+**SubQuery Team Access:**실천적인 훈련, 리더 및 개발자와의 독점적인 AMA 및 로드맵의 통찰력을 갖춘 코어 서브쿼리 팀에 직접 액세스 할 수 있습니다.
 
-**Network Development:** Expect to grow your professional network by being an Ambassador for one of the top Polkadot projects. Meet other ambassadors around the world and receive introductions to local Polkadot projects that we need to support locally. You might even get free entry to represent SubQuery in events in your local area.
+**Network Development:** 폴카닷 탑 프로젝트 중의 하나인 서브쿼리의 앰배서더를 맡음으로써, 여러분의 전문적인 네트워크가 성장하는 것을 기대하세요. 전 세계 다른 앰배서더들을 만나고 현지에서 지원이 필요한 현지 폴카닷 프로젝트를 소개받으세요. 여러분의 지역 이벤트에서 서브쿼리를 대표함으로써 무료 엔트리를 얻을 수도 있습니다.
 
-**Swag and other free stuff:** Everyone likes free stuff! Receive an annual allocation of SubQuery swag that’ll make you stand out in the crowd. Plus additional allocation that you can share around at community events. You’ll also receive an exclusive NFT for your Ambassador status.
+**Swag and other free stuff:** 누구나 무료를 좋아합니다! 서브쿼리 스웨그를 연간 할당받아 여러 사람들 속에서 돋보일 수 있습니다. 게다가 커뮤니티 이벤트에서 공유할 수 있는 추가 할당이 있습니다. 또한 앰배서더 지위에 대한 독점 NFT도 받습니다.
 
-## How does it work
+## 어떻게 해야 되나요?
 
-Our Ambassador program has multiple tiers, each tier has different benefits and capabilities. You can move up tiers by participating in Ambassador activities and working hard for us.
+앰배서더 프로그램은 여러 티어로 구성되어 있고, 각 티어는 다른 혜택과 역할이 있습니다. 앰버서더로서 서브쿼리를 위해 열심히 활동함으로써, 더 높은 티어에 오를 수 있습니다.
 
-Once you have sent through an application, we will select candidates that align with our values. If selected you are placed in our trainee program and will receive an information package, expanding your understanding of SubQuery. After this, you can start to work through the trainee program by completing certain onboarding tasks (e.g. creating a SubQuery Project). We will host workshops throughout this process to support you.
+신청서를 보낸 후에, 저희는 저희의 가치에 맞는 후보자를 선택할 것입니다. 만약 선택이 되면 트레이닝 프로그램에 등록되어 정보패키지를 받게 되며 서브쿼리에 대한 이해를 넓힐 수 있을 것입니다. After this, you can start to work through the trainee program by completing certain onboarding tasks (e.g. creating a SubQuery Project). We will host workshops throughout this process to support you.
 
 Once you pass the trainee program, you can call yourself a SubQuery ambassador and will be accepted into our full program. From here on you can continue to work through the program and progress up the tiers, earning more rewards and benefits as you climb the ranks.
 
