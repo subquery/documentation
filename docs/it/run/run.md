@@ -49,19 +49,19 @@ subql-node -f your-project-path
 
 #### Usare un dizionario
 
-L'utilizzo di un dizionario a catena completo può accelerare drasticamente l'elaborazione di un progetto SubQuery durante i test o durante il vostro primo indice. In some cases, we've seen indexing performance increases of up to 10x.
+L'utilizzo di un dizionario a catena completo può accelerare drasticamente l'elaborazione di un progetto SubQuery durante i test o durante il vostro primo indice. In alcuni casi, abbiamo visto un aumento delle prestazioni di indicizzazione fino a 10 volte.
 
-A full chain dictionary pre-indexes the location of all events and extrinsics within the specific chain and allows your node service to skip to relevant locations when indexing rather than inspecting each block.
+Un dizionario completo della catena pre-indicizza la posizione di tutti gli eventi e le estrinsecazioni all'interno della catena specifica e permette al tuo servizio di nodi di saltare alle posizioni rilevanti durante l'indicizzazione piuttosto che ispezionare ogni blocco.
 
-You can add the dictionary endpoint in your `project.yaml` file (see [Manifest File](../create/manifest.md)), or specify it at run time using the following command:
+Puoi aggiungere l'endpoint del dizionario nel tuo `project.yaml` file (vedere [Manifest File](../create/manifest.md)), o specificarlo in fase di esecuzione usando il seguente comando:
 
 ```
 subql-node --network-dictionary=https://api.subquery.network/sq/subquery/dictionary-polkadot
 ```
 
-Depending on the configuration of your Postgres database (e.g. a different database password), please ensure also that both the indexer (`subql/node`) and the query service (`subql/query`) can establish a connection to it.
+[Leggi di più su come funziona un dizionario SubQuery](../tutorials_examples/dictionary.md).
 
-#### Connect to database
+#### Connettersi al database
 
 ```
 export DB_USER=postgres
@@ -72,23 +72,24 @@ export DB_PORT=5432
 subql-node -f your-project-path 
 ````
 
-Depending on the configuration of your Postgres database (e.g. a different database password), please ensure also that both the indexer (`subql/node`) and the query service (`subql/query`) can establish a connection to it.
+A seconda della configurazione del tuo database Postgres (ad esempio una password diversa per il database), assicurati anche che sia l'indicizzatore (`subql/node`) che il servizio di query (`subql/query`) possano stabilire una connessione ad esso.
 
-#### Specify a configuration file
+#### Specificare un file di configurazione
 
 ```
 subql-node -c your-project-config.yml
 ```
 
-This will point the query node to a configuration file which can be in YAML or JSON format. Check out the example below.
+Questo punterà il nodo di query a un file di configurazione che può essere in formato YAML o JSON. Guarda l'esempio qui sotto.
 
+```yaml
 subquery: ../../../../subql-example/extrinsics
 subqueryName: extrinsics
 batchSize:100
 localMode:true
 ```
 
-#### Change the block fetching batch size
+#### Cambiare la dimensione del lotto di recupero dei blocchi
 
 ```
 subql-node -f your-project-path --batch-size 200
@@ -98,27 +99,27 @@ Result:
 [IndexerManager] fetch block [403, 602]
 ```
 
-When the indexer first indexes the chain, fetching single blocks will significantly decrease the performance. Increasing the batch size to adjust the number of blocks fetched will decrease the overall processing time. The current default batch size is 100.
+Quando l'indicizzatore indicizza per la prima volta la catena, il recupero di singoli blocchi diminuisce significativamente le prestazioni. Aumentando la dimensione del batch per regolare il numero di blocchi recuperati si riduce il tempo complessivo di elaborazione. L'attuale dimensione predefinita del lotto è 100.
 
-#### Run in local mode
+#### Eseguire in modalità locale
 
 ```
 subql-node -f your-project-path --local
 ```
 
-For debugging purposes, users can run the node in local mode. Switching to local model will create Postgres tables in the default schema `public`.
+Per scopi di debug, gli utenti possono eseguire il nodo in modalità locale. Passare al modello locale creerà tabelle Postgres nello schema predefinito `public`.
 
-If local mode is not used, a new Postgres schema with the initial `subquery_` and corresponding project tables will be created.
+Se non si usa la modalità locale, verrà creato un nuovo schema Postgres con l'iniziale `subquery_` e le corrispondenti tabelle del progetto.
 
 
-#### Local mode
+#### Controlla la salute del tuo nodo
 
-There are 2 endpoints that you can use to check and monitor the health of a running SubQuery node.
+Ci sono 2 endpoint che puoi usare per controllare e monitorare la salute di un nodo SubQuery in esecuzione.
 
-- Health check endpoint that returns a simple 200 response
-- Metadata endpoint that includes additional analytics of your running SubQuery node
+- Endpoint di verifica dello stato di salute che restituisce una semplice risposta 200
+- Endpoint metadati che include ulteriori analisi del tuo nodo SubQuery in esecuzione
 
-Append this to the base URL of your SubQuery node. Eg `http://localhost:3000/meta` will return:
+Aggiungilo all'URL di base del tuo nodo SubQuery. Eg `http://localhost:3000/meta` tornerà:
 
 ```bash
 {
@@ -141,9 +142,9 @@ Append this to the base URL of your SubQuery node. Eg `http://localhost:3000/met
 }
 ```
 
-`http://localhost:3000/health` will return HTTP 200 if successful.
+`http://localhost:3000/health` restituirà HTTP 200 se ha successo.
 
-A 500 error will be returned if the indexer is not healthy. This can often be seen when the node is booting up.
+Verrà restituito un errore 500 se l'indicizzatore non è sano. Questo può essere visto spesso quando il nodo si sta avviando.
 
 ```shell
 {
@@ -152,7 +153,7 @@ A 500 error will be returned if the indexer is not healthy. This can often be se
 }
 ```
 
-If an incorrect URL is used, a 404 not found error will be returned.
+Se viene utilizzato un URL errato, verrà restituito un errore 404 not found.
 
 ```shell
 {
@@ -162,28 +163,23 @@ If an incorrect URL is used, a 404 not found error will be returned.
 }
 ```
 
-#### Debug your project
+#### Debug del tuo progetto
 
-Use the [node inspector](https://nodejs.org/en/docs/guides/debugging-getting-started/) to run the following command.
+Usate il [node inspector](https://nodejs.org/en/docs/guides/debugging-getting-started/) per eseguire il seguente comando.
 
 ```shell
-export DB_USER=postgres
-export DB_PASS=postgres
-export DB_DATABASE=postgres
-export DB_HOST=localhost
-export DB_PORT=5432
-subql-node -f your-project-path
+node --inspect-brk <path to subql-node> -f <path to subQuery project>
 ```
 
-Example
+Esempio:
 ```shell
 node --inspect-brk /usr/local/bin/subql-node -f ~/Code/subQuery/projects/subql-helloworld/
 Debugger listening on ws://127.0.0.1:9229/56156753-c07d-4bbe-af2d-2c7ff4bcc5ad
-For help, see: https://nodejs.org/en/docs/inspector
-Debugger attached.
+Per aiuto, vedere: https://nodejs.org/en/docs/inspector
+Debugger allegato.
 ```
-Then open up the Chrome dev tools, go to Source > Filesystem and add your project to the workspace and start debugging. For more information, check out [How to debug a SubQuery project](https://doc.subquery.network/tutorials_examples/debug-projects/)
-## Running a Query Service (subql/query)
+Poi aprite gli strumenti di sviluppo di Chrome, andate su Source > Filesystem e aggiungi il tuo progetto all'area di lavoro e inizia il debug. Per ulteriori informazioni, controlla [How to debug a SubQuery project](https://doc.subquery.network/tutorials_examples/debug-projects/)
+## Eseguire un servizio di query (subql/query)
 
 ### Installazione
 
@@ -192,11 +188,11 @@ Then open up the Chrome dev tools, go to Source > Filesystem and add your projec
 npm install -g @subql/query
 ```
 
-Please note that we **DO NOT** encourage the use of `yarn global` due to its poor dependency management which may lead to an errors down the line.
+Si prega di notare che noi **NON** incoraggiamo l'uso di `yarn global` a causa della sua scarsa gestione delle dipendenze che può portare a un errore lungo la linea.
 
-### Running the Query service
+### Eseguire il servizio Query
 ``` export DB_HOST=localhost subql-query --name <project_name> --playground ````
 
-Make sure the project name is the same as the project name when you [initialize the project](../quickstart/quickstart.md#initialise-the-starter-subquery-project). Also, check the environment variables are correct.
+Assicurati che il nome del progetto sia lo stesso di quando [inizializzi il progetto](../quickstart/quickstart.md#initialise-the-starter-subquery-project). Inoltre, controllate che le variabili d'ambiente siano corrette.
 
-After running the subql-query service successfully, open your browser and head to `http://localhost:3000`. You should see a GraphQL playground showing in the Explorer and the schema that is ready to query.
+Dopo aver eseguito con successo il servizio subql-query, apri il tuo browser e vai a `http://localhost:3000`. Dovresti vedere un campo da gioco GraphQL nell'Explorer e lo schema pronto per essere interrogato.
