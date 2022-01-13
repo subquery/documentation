@@ -1,4 +1,4 @@
-# La sabbiera
+# The Sandbox
 
 Nel nostro scenario d'uso previsto, il nodo SubQuery è solitamente eseguito da un host fidato, e il codice del progetto SubQuery inviato dall'utente al nodo non è completamente affidabile.
 
@@ -13,8 +13,8 @@ Alcuni codici maligni possono attaccare l'host o addirittura comprometterlo, e c
 
 ## Restrizione
 
-- Per limitare l'accesso a certi moduli integrati, solo assert, buffer, crypto, util e path sono inseriti nella lista bianca.
+- Accesso limitato a certi moduli incorporati, solo `assert`, `buffer`, `crypto`,`util` и `path` sono inseriti nella lista bianca.
 
-- Supportiamo moduli di terze parti scritti in CommonJS e librerie ibride come @polkadot/* che usano ESM come default.
+- Noi sosteniamo [Moduli di terze parti](../create/mapping.md#third-party-libraries) scritto in **CommonJS** e **ibrido** biblioteche come `@polkadot/*` che usano ESM come predefinito.
 
-- Any modules using `HTTP` and `WebSocket` are forbidden.
+- Tutti i moduli che usano `HTTP` e `WebSocket` sono proibiti.
