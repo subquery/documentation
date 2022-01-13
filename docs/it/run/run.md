@@ -1,8 +1,8 @@
-# Running SubQuery Locally
+# Eseguire la Subquery localmente
 
-This guide works through how to run a local SubQuery node on your infrastructure, which includes both the indexer and query service. Don't want to worry about running your own SubQuery infrastructure? SubQuery provides a [managed hosted service](https://explorer.subquery.network) to the community for free. [Follow our publishing guide](../publish/publish.md) to see how you can upload your project to [SubQuery Projects](https://project.subquery.network).
+Questa guida spiega come eseguire un nodo locale di SubQuery sulla tua infrastruttura, che include sia l'indicizzatore che il servizio di query. Non vuoi preoccuparti di gestire la tua infrastruttura SubQuery? SubQuery fornisce un [servizio gestito in hosting](https://explorer.subquery.network) alla comunità gratuitamente. [Segui la nostra guida alla pubblicazione](../publish/publish.md) per vedere come puoi caricare il tuo progetto su [SubQuery Projects](https://project.subquery.network).
 
-## Using Docker
+## Usando Docker
 
 An alternative solution is to run a <strong>Docker Container</strong>, defined by the `docker-compose.yml` file. For a new project that has been just initialised you won't need to change anything here.
 
