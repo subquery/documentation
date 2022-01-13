@@ -75,4 +75,5 @@ Docker kapsayıcısı çalıştırıyorsanız, bu satırı `docker-compose.yaml`
 
 Şimdi terminal ekranında yeni günlüğe kaydetmeyi görmeniz gerekir.
 
-![logging.debug](/assets/img/subquery_logging.png)
+![logging.debug
+](/assets/img/subquery_logging.png)
