@@ -2,13 +2,13 @@
 
 ## Cos'è SubQuery?
 
-SubQuery is an open source project that allows developers to index, transform, and query Substrate chain data to power their applications.
+SubQuery è un progetto open source che permette agli sviluppatori di indicizzare, trasformare e interrogare i dati della catena Substrate per alimentare le loro applicazioni.
 
-SubQuery also provides free, production grade hosting of projects for developers removing the responsiblity of manging infrastructure, and letting developers do what they do best - build.
+SubQuery fornisce anche l'hosting gratuito di progetti di produzione per gli sviluppatori, eliminando la responsabilità di gestire l'infrastruttura e lasciando che gli sviluppatori facciano ciò che sanno fare meglio: costruire.
 
-## What is the best way to get started with SubQuery?
+## Qual è il modo migliore per iniziare con SubQuery?
 
-The best way to get started with SubQuery is to try out our [Hello World tutorial](../quickstart/helloworld-localhost.md). This is a simple 5 min walk through of downloading the starter template, building the project, and then using Docker to run a node on your localhost and running a simple query.
+Il modo migliore per iniziare con SubQuery è provare il nostro [tutorial Ciao Mondo](../quickstart/helloworld-localhost.md). This is a simple 5 min walk through of downloading the starter template, building the project, and then using Docker to run a node on your localhost and running a simple query.
 
 ## How can I contribute or give feedback to SubQuery?
 
