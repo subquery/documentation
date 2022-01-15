@@ -200,9 +200,9 @@ function getSidebar(locale, language){
         `${locale}/run_publish/upgrade.md`,
         `${locale}/run_publish/connect.md`,
         `${locale}/run_publish/run.md`,
-        `${locale}/run_publish/sandbox.md`,
         `${locale}/run_publish/query.md`,
-        `${locale}/run_publish/graphql.md`
+        `${locale}/run_publish/graphql.md`,
+        `${locale}/run_publish/sandbox.md`,
       ]
     },
     {
@@ -210,7 +210,10 @@ function getSidebar(locale, language){
       path: `${locale}/subquery_network/indexers`,
       collapsable: true,
       children: [
+        `${locale}/subquery_network/subquery_token.md`,
         `${locale}/subquery_network/indexers.md`,
+        `${locale}/subquery_network/delegators.md`,
+        `${locale}/subquery_network/subquery_foundation.md`,
       ]
     },
     {
