@@ -1,6 +1,6 @@
-# Module 1: Getting started
+## Module 1: Getting started
 
-## Lesson 1: Hello World with Docker
+### Lesson 1: Hello World with Docker
 
 **Documentation reference**
 
@@ -8,7 +8,7 @@
 
 [Hello World explained](/quickstart/understanding-helloworld.md)
 
-### Exercise
+#### Exercise
 **Workbook**: [Hello World](/assets/pdf/Hello_World_Lab.pdf)
 
 **Github**: [Subql Starter](https://github.com/subquery/subql-starter)
