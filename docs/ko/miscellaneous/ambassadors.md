@@ -36,17 +36,17 @@
 
 앰배서더 프로그램은 여러 티어로 구성되어 있고, 각 티어는 다른 혜택과 역할이 있습니다. 앰버서더로서 서브쿼리를 위해 열심히 활동함으로써, 더 높은 티어에 오를 수 있습니다.
 
-신청서를 보낸 후에, 저희는 저희의 가치에 맞는 후보자를 선택할 것입니다. 만약 선택이 되면 트레이닝 프로그램에 등록되어 정보패키지를 받게 되며 서브쿼리에 대한 이해를 넓힐 수 있을 것입니다. After this, you can start to work through the trainee program by completing certain onboarding tasks (e.g. creating a SubQuery Project). We will host workshops throughout this process to support you.
+신청서를 보낸 후에, 저희는 저희의 가치에 맞는 후보자를 선택할 것입니다. 만약 선택이 되면 트레이닝 프로그램에 등록되어 정보패키지를 받게 되며 서브쿼리에 대한 이해를 넓힐 수 있을 것입니다. 그런 다음 특정 온보드 태스크(예를 들어 서브 쿼리 프로젝트생성)를 완료함으로써 연수생 프로그램 작업을 시작할 수 있습니다. 저희는 여러분을 지원하기 위해 이 과정을 통해 워크숍을 개최할 것입니다.
 
-Once you pass the trainee program, you can call yourself a SubQuery ambassador and will be accepted into our full program. From here on you can continue to work through the program and progress up the tiers, earning more rewards and benefits as you climb the ranks.
+훈련생 프로그램을 통과하면, 서브쿼리 앰배서더라는 이름으로 저희의 전체 프로그램에 참여할 수 있습니다. 여기서부터 여러분은 프로그램을 지속적으로 진행하여 단계적으로 발전하고 귀하가 승진함에 따라 더 많은 보상과 이익을 얻을 수 있습니다.
 
 [지금 신청하세요!](https://forms.gle/GXBbJ6LDpNfM2v1X6)
 
 ## 앰배서더 활동
 
-SubQuery Ambassadors are able to contribute through four main areas, including event management, content creation, translation, and community moderation. You can participate in as many areas as you want, you’re not bound to any single one.
+서브쿼리 앰배서더는 이벤트 관리, 콘텐츠 작성, 번역, 커뮤니티 관리 등 4개 주요 영역을 통해 기여할 수 있습니다. 원하는 만큼 많은 분야에 참여할 수 있고, 어떤 분야에도 구속받지 않습니다.
 
-**Event Management:** Build local communities by hosting, organising, and managing different events. Building a local community will be a key part of growing the SubQuery community. SubQuery will support you by providing funding for events, sending swag/merchandise to be given away, as well as attending Q&As or online events as speakers or in AMA sessions.
+**Event Management:** 다양한 이벤트를 개최하고, 편성 및 관리함으로써 로컬 커뮤니티를 구축합니다. 지역 커뮤니티를 구축하는 것은 서브쿼리 커뮤니티를 성장시키는데 중요한 부분이 됩니다. SubQuery will support you by providing funding for events, sending swag/merchandise to be given away, as well as attending Q&As or online events as speakers or in AMA sessions.
 
 **Content Creation:** We have a long list of content and support material that we need help creating. Remember, our success relies on the ability of our customers to build amazing things on our service, so we need your help to make that easier. Content includes videos, infographics, tutorials, animations, or any other related material, to inform, educate, or inspire community members within the SubQuery Ecosystem. SubQuery will support Content Creators by providing branding assets and expertise. We’ll also use SubQuery’s marketing channels to increase awareness of your content (and yourself).
 
