@@ -46,9 +46,9 @@
 
 서브쿼리 앰배서더는 이벤트 관리, 콘텐츠 작성, 번역, 커뮤니티 관리 등 4개 주요 영역을 통해 기여할 수 있습니다. 원하는 만큼 많은 분야에 참여할 수 있고, 어떤 분야에도 구속받지 않습니다.
 
-**Event Management:** 다양한 이벤트를 개최하고, 편성 및 관리함으로써 로컬 커뮤니티를 구축합니다. 지역 커뮤니티를 구축하는 것은 서브쿼리 커뮤니티를 성장시키는데 중요한 부분이 됩니다. SubQuery will support you by providing funding for events, sending swag/merchandise to be given away, as well as attending Q&As or online events as speakers or in AMA sessions.
+**Event Management:** 다양한 이벤트를 개최하고, 편성 및 관리함으로써 로컬 커뮤니티를 구축합니다. 지역 커뮤니티를 구축하는 것은 서브쿼리 커뮤니티를 성장시키는데 중요한 부분이 됩니다. 서브쿼리는 이벤트에 대한 예산 제공, 증정되는 스웨그 상품의 배송을 지원하며, 온라인 이벤트의 연사, AMA 세션 등의 참석도 지원할 것입니다.
 
-**Content Creation:** We have a long list of content and support material that we need help creating. Remember, our success relies on the ability of our customers to build amazing things on our service, so we need your help to make that easier. Content includes videos, infographics, tutorials, animations, or any other related material, to inform, educate, or inspire community members within the SubQuery Ecosystem. SubQuery will support Content Creators by providing branding assets and expertise. We’ll also use SubQuery’s marketing channels to increase awareness of your content (and yourself).
+**Content Creation:** 작성에 필요한 컨텐츠와 서포트 자료의 리스트가 다수 있습니다. 저희의 성공은 고객이 저희의 서비스에 놀라운 것을 구축할 수 있느냐에 달려있음을 기억해주세요. 이를 쉽게 하기 위해서는 여러분의 도움이 필요합니다. Content includes videos, infographics, tutorials, animations, or any other related material, to inform, educate, or inspire community members within the SubQuery Ecosystem. SubQuery will support Content Creators by providing branding assets and expertise. We’ll also use SubQuery’s marketing channels to increase awareness of your content (and yourself).
 
 **Translation:** Our customers don’t just speak English! We need your help making SubQuery more accessible by translating our content into your own language, as well as helping sharing the word to our international community.
 
