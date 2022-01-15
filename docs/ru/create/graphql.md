@@ -31,7 +31,7 @@ type Example @entity {
 - `Boolean`
 - `<EntityName>` для вложенных сущностей отношений, вы можете использовать имя определенной сущности в качестве одного из полей. Смотрите в [Entity Relationships](#entity-relationships).
 - `JSON` может также хранить структурированные данные, смотрите [JSON type](#json-type)
-- `<EnumName>` типы это особый вид enum скаляра, который ограничен определенным набором допустимых значений. Подробнее о [Graphql Enum](https://graphql.org/learn/schema/#enumeration-types)
+- `<EnumName>` типы это особый вид нумерованного скаляра, который ограничен определенным набором допустимых значений. Подробнее о [Graphql Enum](https://graphql.org/learn/schema/#enumeration-types)
 
 ## Индексирование по непервичному ключу
 
@@ -57,7 +57,7 @@ type Title @entity {
 
 **Если поле не является уникальным, то максимальный размер набора результатов будет равен 100**
 
-When code generation is run, this will automatically create a `getByName` under the `User` model, and the foreign key field `title` will create a `getByTitleId` method, which both can directly be accessed in the mapping function.
+Запуск генерации кода автоматически создает `getByName` в модели `User`, а поле внешнего ключа `title` создает метод `getByTitleId`, к обоим методам можно получить прямой доступ в функции сопоставления.
 
 ```sql
 /* Подготовить запись заголовка */
