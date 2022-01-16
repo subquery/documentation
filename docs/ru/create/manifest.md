@@ -159,20 +159,20 @@ network:
 ...
 ```
 
-Things to note about using the chain types file with extension `.ts` or `.js`:
+Что следует отметить при использовании файла типов цепочек с расширением .ts или .js:
 
-- Your manifest version must be v0.2.0 or above.
+- Версия вашего manifest должна быть v0.2.0 или выше.
 - Only the default export will be included in the [polkadot api](https://polkadot.js.org/docs/api/start/types.extend/) when fetching blocks.
 
-Here is an example of a `.ts` chain types file:
+Вот пример файла типов цепочек `.ts`:
 
 <CodeGroup> <CodeGroupItem title="types.ts"> ```ts
 import { typesBundleDeprecated } from "moonbeam-types-bundle"
 export default { typesBundle: typesBundleDeprecated }; ``` </CodeGroupItem> </CodeGroup>
 
-## Custom Data Sources
+## Пользовательские источники данных
 
-Custom Data Sources provide network specific functionality that makes dealing with data easier. Они служат средним ПО, которое может обеспечить дополнительную фильтрацию и преобразование данных.
+Настраиваемые источники данных предоставляют специфические для сети функциональные возможности, облегчающие работу с данными. Они служат средним ПО, которое может обеспечить дополнительную фильтрацию и преобразование данных.
 
 Хороший пример поддержки EVM, создание собственного процессора данных для EVM означает, что вы можете фильтровать на EVM уровне (e. фильтровать контрактные методы или журналы) и данные трансформируются в структуры farmiliar в экосистему Ethereum, а также анализировать параметры с АБИ.
 
