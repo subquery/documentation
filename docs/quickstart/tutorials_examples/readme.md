@@ -1,10 +1,6 @@
 # Tutorials & Examples
 
-Here we will list our tutorials and explore various examples to help you get up and running in the easiest and fastest manner.
-
-## Tutorials
-
-
+Here we list our "How to's" and explore various examples projects to help you get up and running in the easiest and fastest manner.
 
 ## SubQuery Example Projects
 
