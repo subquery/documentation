@@ -8,30 +8,30 @@ Prenderemo il semplice progetto iniziale (e tutto ciò che abbiamo imparato fino
 
 Alla fine di questo inizio rapido, dovreste:
 
-- understand the required pre-requisites
-- be able host a project in [SubQuery Projects](https://project.subquery.network/)
-- run a simple query to get the block height of the Polkadot mainnet using the playground
-- run a simple GET query to get the block height of the Polkadot mainnet using cURL
+- capire i pre-requisiti richiesti
+- essere in grado di ospitare un progetto in [Progetti SubQuery](https://project.subquery.network/)
+- eseguire una semplice query per ottenere l'altezza del blocco della mainnet Polkadot utilizzando il parco giochi
+- eseguire una semplice query GET per ottenere l'altezza del blocco della mainnet Polkadot usando cURL
 
-## Intended audience
+## Pubblico interessato
 
-This guide is geared towards new developers who have some development experience and are interested in learning more about SubQuery.
+Questa guida è orientata ai nuovi sviluppatori che hanno qualche esperienza di sviluppo e sono interessati a saperne di più su SubQuery.
 
-## Video guide
+## Video guida
 
 <figure class="video_container">
   <iframe src="https://www.youtube.com/embed/b-ba8-zPOoo" frameborder="0" allowfullscreen="true"></iframe>
 </figure>
 
-## Pre-requisites
+## Prerequisiti
 
-You will need:
+Avrete bisogno di:
 
-- a GitHub account
+- un account GitHub
 
-## 1. Step 1: Create your project
+## 1. Crea il tuo progetto
 
-Let's create a project called subql_hellowworld and run the obligatory install, codegen and build with your favourite package manager.
+Creiamo un progetto chiamato subql_hellowworld ed eseguiamo l'obbligatorio install, codegen e build con il vostro gestore di pacchetti preferito.
 
 ```shell
 > subql init --starter subqlHelloWorld
@@ -40,35 +40,35 @@ yarn codegen
 yarn build
 ```
 
-Do NOT run the docker commands though.
+NON eseguire i comandi docker però.
 
-## 2. Step 2: Create a GitHub repo
+## 2. Creare un repo GitHub
 
-In GitHub, create a new public repository. Provide a name and set your visibility to public. Here, everything is kept as the default for now.
+Create a GitHub repo. Fornisci un nome e imposta la tua visibilità su pubblico. Qui, tutto è mantenuto come predefinito per ora.
 
 ![create github repo](/assets/img/github_create_new_repo.png)
 
-Take note of your GitHub URL, this must be public for SubQuery to access it.
+Prendi nota del tuo URL GitHub, questo deve essere pubblico perché SubQuery possa accedervi.
 
 ![create github repo](/assets/img/github_repo_url.png)
 
-## 3. Step 3: Push to GitHub
+## 3. Spingi su GitHub
 
-Back in your project directory, initialise it as a git directory. Otherwise, you might get the error "fatal: not a git repository (or any of the parent directories): .git"
+Di nuovo nella directory del vostro progetto, inizializzatelo come una directory git. Altrimenti, potresti ottenere l'errore "fatal: not a git repository (or any of the parent directories): .git"
 
 ```shell
 git init
 ```
 
-Then add a remote repository with the command:
+Poi aggiungi un repository remoto con il comando:
 
 ```shell
 git remote add origin https://github.com/seandotau/subqlHelloWorld.git
 ```
 
-This basically sets your remote repository to “https://github.com/seandotau/subqlHelloWorld.git” and gives it the name “origin” which is the standard nomenclature for a remote repository in GitHub.
+Questo fondamentalmente imposta il tuo repository remoto su "https://github.com/seandotau/subqlHelloWorld.git" e gli dà il nome "origin" che è la nomenclatura standard per un repository remoto in GitHub.
 
-Next we add the code to our repo with the following commands:
+Poi aggiungiamo il codice al nostro repo con i seguenti comandi:
 
 ```shell
 > git add .
@@ -97,38 +97,38 @@ To https://github.com/seandotau/subqlHelloWorld.git
 
 ```
 
-The push command means "please push my code TO the origin repo FROM my master local repo". Refreshing GitHub should show all the code in GitHub.
+Il comando push significa "per favore spingi il mio codice nel repo di origine dal mio repo locale master". Aggiornare GitHub dovrebbe mostrare tutto il codice in GitHub.
 
 ![First commit](/assets/img/first_commit.png)
 
-Now that you have got your code into GitHub, let's look at how we can host it in SubQuery Projects.
+Ora che hai messo il tuo codice su GitHub, vediamo come possiamo ospitarlo in SubQuery Projects.
 
-## 4. Step 1: Create your project
+## 4. Crea il tuo progetto
 
-Navigate to [https://project.subquery.network](https://project.subquery.network) and log in with your GitHub account.
+Vai a [https://project.subquery.network](https://project.subquery.network) e accedi con il tuo account GitHub.
 
 ![Welcome to SubQuery Projects](/assets/img/welcome_to_subquery_projects.png)
 
-Then create a new project,
+Poi crea un nuovo progetto,
 
 ![Welcome to SubQuery Projects](/assets/img/subquery_create_project.png)
 
-And fill in the various fields with the appropriate details.
+E riempire i vari campi con i dettagli appropriati.
 
-- **GitHub account:** If you have more than one GitHub account, select what account this project will be created under. Projects created in an GitHub organisation account are shared between members in that organisation.
-- **Project Name:** Give your project a name here.
-- **Subtitle:** Provide a subtitle for your project.
-- **Description:** Explain what your SubQuery project does.
-- **GitHub Repository URL:** This must be a valid GitHub URL to a public repository that contains your SubQuery project. The schema.graphql file must be in the root of your directory.
-- **Hide project:** If selected, this will hide the project from the public SubQuery explorer. Keep this unselected if you want to share your SubQuery with the community!
+- **Account GitHub:** Se hai più di un account GitHub, seleziona con quale account sarà creato questo progetto. I progetti creati in un account dell'organizzazione GitHub sono condivisi tra i membri di quell'organizzazione.
+- **Nome del progetto:** Dai un nome al tuo progetto qui.
+- **Sottotitolo:** Fornisci un sottotitolo per il tuo progetto.
+- **Descrizione:** Spiega cosa fa il tuo progetto SubQuery.
+- **GitHub Repository URL:** Questo deve essere un URL GitHub valido per un repository pubblico che contiene il tuo progetto SubQuery. Il file schema.graphql deve essere nella root della vostra directory.
+- **Nascondi progetto:** Se selezionato, questo nasconderà il progetto dall'esploratore pubblico di SubQuery. Tieni questo non selezionato se vuoi condividere la tua SubQuery con la comunità!
 
 ![Create SubQuery parameters](/assets/img/create_subquery_project_parameters.png)
 
-When you click create, you'll be taken to your dashboard.
+Quando clicchi su crea, verrai portato alla tua dashboard.
 
 ![SubQuery Project dashboard](/assets/img/subquery_project_dashboard.png)
 
-The dashboard contains lots of useful information such as the network it is using, the GitHub repository URL of the source code it is running, when it was created and last updated, and in particular the deployment details.
+La dashboard contiene molte informazioni utili come la rete che sta usando, l'URL del repository GitHub del codice sorgente che sta eseguendo, quando è stato creato e aggiornato l'ultima volta, e in particolare i dettagli di distribuzione.
 
 ## 5. Step 5: Deploy your project
 
