@@ -162,7 +162,7 @@ network:
 При использовании файла типов цепочек с расширением .ts или .js:
 
 - Версия вашего manifest должна быть v0.2.0 или выше.
-- Only the default export will be included in the [polkadot api](https://polkadot.js.org/docs/api/start/types.extend/) when fetching blocks.
+- При выборке блоков только экспорт по умолчанию будет включен в polkadot api.
 
 Вот пример файла типов цепочек `.ts`:
 
