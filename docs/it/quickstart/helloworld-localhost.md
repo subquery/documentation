@@ -2,9 +2,9 @@
 
 Welcome to this SubQuery Hello World quick start. The quick start aims to show you how you get the default starter project running in Docker in a few simple steps.
 
-## Learning objectives
+## Obiettivi di apprendimento
 
-At the end of this quick start, you should:
+Alla fine di questo inizio rapido, dovreste:
 
 - understand the required pre-requisites
 - understand the basic common commands
