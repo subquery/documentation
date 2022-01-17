@@ -211,13 +211,11 @@ function getSidebar(locale, language){
     },
     {
       title: 'The SubQuery Network',
-      path: `${locale}/subquery_network/indexers`,
+      path: `${locale}/subquery_network/delegators`,
       collapsable: true,
       children: [
-        `${locale}/subquery_network/subquery_token.md`,
-        `${locale}/subquery_network/indexers.md`,
         `${locale}/subquery_network/delegators.md`,
-        `${locale}/subquery_network/subquery_foundation.md`,
+
       ]
     },
     {
