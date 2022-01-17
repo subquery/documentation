@@ -23,10 +23,10 @@ type Example @entity {
 Şu anda akan skalers türlerini destekliyoruz:
 - `ID`
 - `Int`
-- `Dizgi`
+- `String`
 - `BigInt`
 - `Float`
-- `Tarih`
+- `Date`
 - `Boolean`
 - `<EntityName>` iç içe geçmiş ilişki varlıkları için, tanımlanan varlığın adını alanlardan biri olarak kullanabilirsiniz. Lütfen [Entity Relations](#entity-relationships) bakın.
 - `JSON` yapılandırılmış verileri alternatif olarak depolayabilir, lütfen bkz[JSON türü](#json-type)
