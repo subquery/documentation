@@ -156,7 +156,7 @@ function getSidebar(locale, language){
       collapsable: true,
     },
     {
-      title: 'Quick Start Guide',
+      title: 'Quick Start',
       path: `${locale}/quickstart/quickstart`,
       collapsable: true,
       children: [
@@ -164,90 +164,61 @@ function getSidebar(locale, language){
         `${locale}/quickstart/helloworld-localhost.md`,
         `${locale}/quickstart/understanding-helloworld.md`,
         `${locale}/quickstart/helloworld-hosted.md`,
+        `${locale}/quickstart/herocourse/welcome.md`,
+        `${locale}/quickstart/herocourse/module1.md`,
+        `${locale}/quickstart/herocourse/module2.md`,
+        `${locale}/quickstart/herocourse/module3.md`,
+        `${locale}/quickstart/herocourse/module4.md`,
+        `${locale}/quickstart/herocourse/module5.md`,
+        `${locale}/quickstart/herocourse/module6.md`,
+        `${locale}/quickstart/tutorials_examples/introduction.md`,
+        `${locale}/quickstart/tutorials_examples/block-height.md`,
+        `${locale}/quickstart/tutorials_examples/batch-size.md`,
+        `${locale}/quickstart/tutorials_examples/run-indexer.md`,
+        `${locale}/quickstart/tutorials_examples/dictionary.md`,
+        `${locale}/quickstart/tutorials_examples/debug-projects.md`,
+        `${locale}/quickstart/tutorials_examples/delete-projects.md`,
+        `${locale}/quickstart/tutorials_examples/terminology.md`,
+        `${locale}/quickstart/faqs.md`,
       ]
     },
     {
-      title: 'Installation',
-      path: `${locale}/install/install`,
+      title: 'Build',
+      path: `${locale}/build/introduction`,
       collapsable: true,
       children: [
-        `${locale}/install/install.md`
+        `${locale}/build/introduction.md`,
+        `${locale}/build/install.md`,
+        `${locale}/build/manifest.md`,
+        `${locale}/build/graphql.md`,
+        `${locale}/build/mapping.md`,
+        `${locale}/build/moonbeam.md`
       ]
     },
     {
-      title: 'Create a Project',
-      path: `${locale}/create/introduction`,
+      title: 'Run & Publish',
+      path: `${locale}/run_publish/publish`,
       collapsable: true,
       children: [
-        `${locale}/create/introduction.md`,
-        `${locale}/create/manifest.md`,
-        `${locale}/create/graphql.md`,
-        `${locale}/create/mapping.md`,
-        `${locale}/create/moonbeam.md`
+        `${locale}/run_publish/publish.md`,
+        `${locale}/run_publish/upgrade.md`,
+        `${locale}/run_publish/connect.md`,
+        `${locale}/run_publish/run.md`,
+        `${locale}/run_publish/query.md`,
+        `${locale}/run_publish/graphql.md`,
+        `${locale}/run_publish/sandbox.md`,
       ]
     },
     {
-      title: 'Run a Project',
-      path: `${locale}/run/run`,
+      title: 'The SubQuery Network',
+      path: `${locale}/subquery_network/indexers`,
       collapsable: true,
       children: [
-        `${locale}/run/run.md`,
-        `${locale}/run/sandbox.md`,
+        `${locale}/subquery_network/subquery_token.md`,
+        `${locale}/subquery_network/indexers.md`,
+        `${locale}/subquery_network/delegators.md`,
+        `${locale}/subquery_network/subquery_foundation.md`,
       ]
-    },
-    {
-      title: 'Publish a Project',
-      path: `${locale}/publish/publish`,
-      collapsable: true,
-      children: [
-        `${locale}/publish/publish.md`,
-        `${locale}/publish/upgrade.md`,
-        `${locale}/publish/connect.md`,
-      ]
-    },
-    {
-      title: 'Query your Data',
-      path: `${locale}/query/query`,
-      collapsable: true,
-      children: [
-        `${locale}/query/query.md`,
-        `${locale}/query/graphql.md`
-      ]
-    },
-    {
-      title: 'Tutorials & Examples',
-      path: `${locale}/tutorials_examples/introduction`,
-      collapsable: true,
-      children: [
-        `${locale}/tutorials_examples/introduction`,
-        `${locale}/tutorials_examples/block-height.md`,
-        `${locale}/tutorials_examples/batch-size.md`,
-        `${locale}/tutorials_examples/run-indexer.md`,
-        `${locale}/tutorials_examples/dictionary.md`,
-        `${locale}/tutorials_examples/debug-projects.md`,
-        `${locale}/tutorials_examples/delete-projects.md`,
-        `${locale}/tutorials_examples/terminology.md`,
-      ]
-    },
-    {
-      title: 'The Hero Course',
-      path: `${locale}/academy/herocourse`,
-      collapsable: true,
-      children: [
-        `${locale}/academy/herocourse/`,
-        `${locale}/academy/herocourse/module1.md`,
-        `${locale}/academy/herocourse/module2.md`,
-        `${locale}/academy/herocourse/module3.md`,
-        `${locale}/academy/herocourse/module4.md`,
-        `${locale}/academy/herocourse/module5.md`,
-        `${locale}/academy/herocourse/module6.md`,
-      ]
-    },
-    {
-      title: 'FAQs',
-      path: `${locale}/faqs/faqs.md`,
-      collapsable: true,
-      children: []
     },
     {
       title: 'Miscellaneous',
