@@ -1,12 +1,12 @@
-# Hello World (SubQuery hosted)
+# Ciao mondo (SubQuery hosted)
 
-The aim of this quick start is to show how you can get the default starter project running in SubQuery Projects (our managed service) in a few easy steps.
+Lo scopo di questo avvio rapido è mostrare come si può ottenere il progetto di avvio predefinito in esecuzione in SubQuery Projects (il nostro servizio gestito) in pochi semplici passi.
 
-We will take the simple starter project (and everything we've learned thus far) but instead of running it locally within Docker, we'll take advantage of SubQuery's managed hosting infrastructure. In other words, we let SubQuery do all the heavy lifting, running and managing production infrastructure.
+Prenderemo il semplice progetto iniziale (e tutto ciò che abbiamo imparato finora) ma invece di eseguirlo localmente in Docker, approfitteremo dell'infrastruttura di hosting gestito di SubQuery. In altre parole, lasciamo che SubQuery faccia tutto il lavoro pesante, eseguendo e gestendo l'infrastruttura di produzione.
 
-## Learning objectives
+## Obiettivi di apprendimento
 
-At the end of this quick start, you should:
+Alla fine di questo inizio rapido, dovreste:
 
 - understand the required pre-requisites
 - be able host a project in [SubQuery Projects](https://project.subquery.network/)
