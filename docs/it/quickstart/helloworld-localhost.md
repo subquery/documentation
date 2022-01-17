@@ -1,15 +1,15 @@
-# Hello World (localhost + Docker)
+# Ciao Mondo (localhost + Docker)
 
-Welcome to this SubQuery Hello World quick start. The quick start aims to show you how you get the default starter project running in Docker in a few simple steps.
+Benvenuti a questo inizio rapido di SubQuery Hello World. L'avvio rapido ha lo scopo di mostrarvi come far funzionare il progetto iniziale predefinito in Docker in pochi semplici passi.
 
 ## Obiettivi di apprendimento
 
 Alla fine di questo inizio rapido, dovreste:
 
 - capire i pre-requisiti richiesti
-- understand the basic common commands
-- be able to navigate to localhost:3000 and view the playground
-- run a simple query to get the block height of the Polkadot mainnet
+- capire i comandi comuni di base
+- essere in grado di navigare verso localhost:3000 e visualizzare il parco giochi
+- eseguire una semplice query per ottenere l'altezza del blocco della rete principale Polkadot
 
 ## Pubblico interessato
 
@@ -176,6 +176,6 @@ SubQuery playground on localhost.
 
 The block count in the playground should match the block count (technically the block height) in the terminal as well.
 
-## Summary
+## Riassunto
 
 In this quick start, we demonstrated the basic steps to get a starter project up and running within a Docker environment and then navigated to localhost:3000 and ran a query to return the block number of the mainnet Polkadot network.
