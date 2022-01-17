@@ -78,4 +78,4 @@ Un-bonding: 200 SQT
 * Indexers cannot delegate to another Indexer (ie Indexers cannot be a Delegator with their stake)
 * In the lock period, when in the unbonded state, tokens do not receive any rewards.
     * If this was not true, Delegators could bond and immediately unbond and continue receiving rewards.
-    * 
+    
