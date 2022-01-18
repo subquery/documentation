@@ -67,9 +67,9 @@ subql-node -f . // OR
 subql-node --subquery .
 ```
 
-### --subquery-name (depreacted)
+### --subquery-name (deprecated)
 
-This flag allows you to provide a name for your project which acts as if it creates an instance of your project. Upon providing a new name, a new database schema is created and block synchronisation starts from zero.
+This flag allows you to provide a name for your project which acts as if it creates an instance of your project. Upon providing a new name, a new database schema is created and block synchronisation starts from zero. Deprecated in favour of `--db-schema`
 
 ```shell
 subql-node -f . --subquery-name=test2
@@ -267,7 +267,13 @@ Options:
       --log-level   Specify log level to print.
           [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
                                                      "silent"] [default: "info"]
-      --indexer     Url that allow query to access indexer metadata     [string]
+      --log-path    Path to create log file e.g ./src/name.log          [string]
+      --log-rotate  Rotate log files in directory specified by log-path
+                                                      [boolean] [default: false]
+      --indexer     Url that allows query to access indexer metadata    [string]
+      --unsafe      Disable limits on query depth and allowable number returned
+                    query records                                      [boolean]
+  -p, --port        The port the service will bind to                   [number
 ```
 
 ### --version
@@ -307,4 +313,22 @@ See [--output-fmt](https://doc.subquery.network/references/references.html#outpu
 
 See [--log-level](https://doc.subquery.network/references/references.html#log-level)
 
-<!-- ### --indexer TBA -->
+### --log-path
+
+Enable file logging by providing a path to a file to log to
+
+### --log-rotate
+
+Enable file log rotations with the options of a 1d rotation interval, a maximum of 7 files and with a max file size of 1GB
+
+### --indexer
+
+Set a custom url for the location of the endpoints of the indexer, the query service uses these endpoints for indexer health, metadata and readiness status
+
+### --unsafe
+
+The query service has a limit of 100 entities for unbounded graphql queries. The unsafe flag removes this limit which may cause strain on the query service. It is recommended instead that queries are [paginated](https://graphql.org/learn/pagination/). Note that the SubQuery hosted service does not support the unsafe flag.
+
+### --port
+
+The port the subquery query service binds to, by default this is set to `3000`
