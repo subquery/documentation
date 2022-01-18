@@ -29,7 +29,7 @@ Avrete bisogno di:
 - SubQuery CLI (`@subql/cli`)
 - Docker
 
-You can run the following commands in a terminal to see if you already have any of these pre-requisites.
+Potete eseguire i seguenti comandi in un terminale per vedere se avete già qualcuno di questi pre-requisiti.
 
 ```shell
 yarn -v (or npm -v)
@@ -37,13 +37,13 @@ subql -v
 docker -v
 ```
 
-For more advanced users, copy and paste the following:
+Per gli utenti più avanzati, copiate e incollate quanto segue:
 
 ```shell
 echo -e "My yarn version is:" `yarn -v` "\nMy subql version is:" `subql -v`  "\nMy docker version is:" `docker -v`
 ```
 
-This should return: (for npm users, replace yarn with npm)
+Questo dovrebbe restituire: (per gli utenti di npm, sostituire yarn con npm
 
 ```shell
 My yarn version is: 1.22.10
