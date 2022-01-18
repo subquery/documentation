@@ -160,10 +160,17 @@ function getSidebar(locale, language){
       path: `${locale}/quickstart/quickstart`,
       collapsable: true,
       children: [
-        `${locale}/quickstart/quickstart.md`,
-        `${locale}/quickstart/helloworld-localhost.md`,
-        `${locale}/quickstart/understanding-helloworld.md`,
-        `${locale}/quickstart/helloworld-hosted.md`,
+        {
+          title: 'Quick Start Guide',
+          path: `${locale}/quickstart/quickstart`,
+          collapsable: true,
+          children: [
+            `${locale}/quickstart/quickstart.md`,
+            `${locale}/quickstart/helloworld-localhost.md`,
+            `${locale}/quickstart/understanding-helloworld.md`,
+            `${locale}/quickstart/helloworld-hosted.md`,
+          ]
+        },
         {
           title: 'Hero Course',
           path: `${locale}/quickstart/herocourse/welcome`,
@@ -179,10 +186,11 @@ function getSidebar(locale, language){
           ]
         },
         {
-          title: 'Tutorials Examples',
+          title: 'Tutorials & Examples',
           path: `${locale}/quickstart/tutorials_examples/introduction`,
           collapsable: true,
           children: [
+            `${locale}/quickstart/tutorials_examples/introduction.md`,
             `${locale}/quickstart/tutorials_examples/block-height.md`,
             `${locale}/quickstart/tutorials_examples/batch-size.md`,
             `${locale}/quickstart/tutorials_examples/run-indexer.md`,
@@ -224,13 +232,11 @@ function getSidebar(locale, language){
     },
     {
       title: 'The SubQuery Network',
-      path: `${locale}/subquery_network/indexers`,
+      path: `${locale}/subquery_network/delegators`,
       collapsable: true,
       children: [
-        `${locale}/subquery_network/subquery_token.md`,
-        `${locale}/subquery_network/indexers.md`,
         `${locale}/subquery_network/delegators.md`,
-        `${locale}/subquery_network/subquery_foundation.md`,
+
       ]
     },
     {

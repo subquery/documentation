@@ -1,4 +1,4 @@
-# Hero Course
+# Introduction
 
 ![SubQuery Academy Banner](/assets/img/academy.png)
 
@@ -26,75 +26,3 @@ Within each module there are several 5 to 10 minute lessons which are delivered 
 > _“SubQuery has been designed to help developers unlock value from blockchain data easily and quickly. That’s why onboarding new developers and teaching them the skills they need to build the dApps of tomorrow is incredibly important to the success of our community. The SubQuery Hero Course is going to be the first of many courses teaching valuable skills in our new SubQuery Academy”_ — James Bayly (Head of Business Development)
 
 In the next few months, we will be adding bonus content to our SubQuery Hero Course so please watch out for updates. In addition, we will also be translating the existing course material to various languages to help drive towards our mission of making the world’s decentralised data more accessible!
-
-## Module 1: Getting started
-
-### Lesson 1: Hello World with Docker
-
-**Documentation reference**
-
-[Hello World (localhost with Docker)](/quickstart/helloworld-localhost.md)
-
-[Hello World explained](/quickstart/understanding-helloworld.md)
-
-#### Exercise
-**Workbook**: [Hello World](/assets/pdf/Hello_World_Lab.pdf)
-
-**Github**: [Subql Starter](https://github.com/subquery/subql-starter)
-
-## Module 2: SubQuery Basics
-
-### Lesson 1: The Manifest File
-
-<figure class="video_container">
-  <iframe src="https://www.youtube.com/embed/u84It8y4g90" frameborder="0" allowfullscreen="true"></iframe>
-</figure>
-
-**Documentation reference**
-
-[The manifest file](/create/manifest.md)
-
-### Lesson 2: The Schema File
-
-<figure class="video_container">
-  <iframe src="https://www.youtube.com/embed/aqje6qe1M2M" frameborder="0" allowfullscreen="true"></iframe>
-</figure>
-
-**Documentation reference**
-
-[GraphQL Schema](/create/graphql.md)
-
-### Lesson 3: The Mappings File - Block Handler
-
-<figure class="video_container">
-  <iframe src="https://www.youtube.com/embed/HNbnVuWxWwA" frameborder="0" allowfullscreen="true"></iframe>
-</figure>
-
-**Documentation reference**
-
-[Block Handler](/create/mapping.md#block-handler)
-
-### Lesson 4: The Mappings File - Event Handler
-
-<figure class="video_container">
-  <iframe src="https://www.youtube.com/embed/QbbReVvThPA" frameborder="0" allowfullscreen="true"></iframe>
-</figure>
-
-**Documentation reference**
-
-[Event Handler](/create/mapping.md#event-handler)
-
-### Lesson 5: The Mappings File - Call Handler
-
-<figure class="video_container">
-  <iframe src="https://www.youtube.com/embed/dKmWw9kr5jc" frameborder="0" allowfullscreen="true"></iframe>
-</figure>
-
-**Documentation reference**
-
-[Call Handler](/create/mapping.md#call-handler)
-
-#### Exercise
-**Workbook**: [Account Balances](/assets/pdf/Account_Balances.pdf)
-
-**Github**: [Account Balances](https://github.com/subquery/tutorials-account-balances)

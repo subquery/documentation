@@ -1,4 +1,4 @@
-# Quick Start Guide
+# Welcome
 
 In this Quick Start guide, we're going to create a simple starter project that you can be used as a framework for developing your own SubQuery Project.
 
