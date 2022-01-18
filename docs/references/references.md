@@ -248,7 +248,7 @@ subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot
 
 ### -p, --port
 
-The port the subquery indexing service binds to, by default this is set to `3000`
+The port the subquery indexing service binds to. By default this is set to `3000`
 
 ## subql-query
 
@@ -331,4 +331,4 @@ The query service has a limit of 100 entities for unbounded graphql queries. The
 
 ### --port
 
-The port the subquery query service binds to, by default this is set to `3000`
+The port the subquery query service binds to. By default this is set to `3000`
