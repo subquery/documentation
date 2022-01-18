@@ -51,15 +51,15 @@ My subql version is: @subql/cli/0.9.3 darwin-x64 node-v16.3.0
 My docker version is: Docker version 20.10.5, build 55c4c88
 ```
 
-If you get the above, then you are good to go. If not, follow these links to install them:
+Se si ottiene quanto sopra, allora si è pronti a partire. In caso contrario, seguite questi link per installarli:
 
 - [yarn](https://classic.yarnpkg.com/en/docs/install/) or [npm](https://www.npmjs.com/get-npm)
 - [SubQuery CLI](quickstart.md#install-the-subquery-cli)
 - [Docker](https://docs.docker.com/get-docker/)
 
-## 1. Step 1: Initialise project
+## 1. Initialise project
 
-The first step when starting off with SubQuery is to run the `subql init` command. Let's initialise a start project with the name `subqlHelloWorld`. Note that only author is mandatory. Everything else is left empty below.
+Il primo passo per iniziare con SubQuery è eseguire il comando `subql init`. Inizializziamo un progetto iniziale con il nome `subqlHelloWorld`. Si noti che solo l'autore è obbligatorio. Tutto il resto è lasciato vuoto sotto.
 
 ```shell
 > subql init --starter subqlHelloWorld
@@ -73,17 +73,20 @@ Init the starter package... subqlHelloWorld is ready
 
 ```
 
-Don't forget to change into this new directory.
+Non dimenticate di cambiare in questa nuova directory.
 
 ```shell
 cd subqlHelloWorld
 ```
 
-## 2. Step 2: Install dependencies
+## 2. Install dependencies
 
-Now do a yarn or node install to install the various dependencies.
+Ora fate un'installazione di yarn o node per installare le varie dipendenze.
 
-<CodeGroup> # Yarn yarn install # NPM npm install
+<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn install ``` </CodeGroupItem>
+<CodeGroupItem title="NPM"> ```bash npm install ``` </CodeGroupItem> </CodeGroup>
+
+An example of `yarn install`
 
 ```shell
 > yarn install
@@ -97,11 +100,14 @@ success Saved lockfile.
 ✨  Done in 31.84s.
 ```
 
-## 3. Step 3: Generate code
+## 3. Generate code
 
-Now run `yarn codegen` to generate Typescript from the GraphQL schema.
+Ora esegui `yarn codegen` per generare Typescript dallo schema GraphQL.
 
-<CodeGroup> # Yarn yarn codegen # NPM npm run-script codegen
+<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem>
+<CodeGroupItem title="NPM"> ```bash npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
+
+An example of `yarn codegen`
 
 ```shell
 > yarn codegen
@@ -116,13 +122,16 @@ $ ./node_modules/.bin/subql codegen
 ✨  Done in 1.02s.
 ```
 
-**Warning** When changes are made to the schema file, please remember to re-run `yarn codegen` to regenerate your types directory.
+**Attenzione** Quando vengono fatte delle modifiche al file dello schema, ricordatevi di rieseguire `yarn codegen` per rigenerare la vostra directory dei tipi.
 
-## 4. Step 4: Build code
+## 4. Build code
 
-The next step is to build the code with `yarn build`.
+Il prossimo passo è costruire il codice con `yarn build`.
 
-<CodeGroup> # Yarn yarn build # NPM npm run-script build
+<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem>
+<CodeGroupItem title="NPM"> ```bash npm run-script build ``` </CodeGroupItem> </CodeGroup>
+
+An example of `yarn build`
 
 ```shell
 > yarn build
@@ -133,9 +142,9 @@ $ tsc -b
 
 ## 5. Run Docker
 
-Using Docker allows you to run this example very quickly because all the required infrastructure can be provided within the Docker image. Run `docker-compose pull && docker-compose up`.
+L'uso di Docker permette di eseguire questo esempio molto rapidamente perché tutta l'infrastruttura necessaria può essere fornita all'interno dell'immagine Docker. Run `docker-compose pull && docker-compose up`.
 
-This will kick everything into life where eventually you will get blocks being fetched.
+Questo darà il via a tutto, dove alla fine si otterrà che i blocchi vengano recuperati.
 
 ```shell
 > #SNIPPET
@@ -155,7 +164,7 @@ graphql-engine_1  | 2021-06-05T22:20:43.244Z <express> INFO request completed
 
 ## 6. Browse playground
 
-Navigate to http://localhost:3000/ and paste the query below into the left side of the screen and then hit the play button.
+Naviga su http://localhost:3000/ e incolla la query qui sotto nella parte sinistra dello schermo e poi premi il pulsante play.
 
 ```
 {
@@ -170,12 +179,12 @@ Navigate to http://localhost:3000/ and paste the query below into the left side 
 
 ```
 
-SubQuery playground on localhost.
+SubQuery playground su localhost.
 
 ![playground localhost](/assets/img/subql_playground.png)
 
-The block count in the playground should match the block count (technically the block height) in the terminal as well.
+Il conteggio dei blocchi nel parco giochi dovrebbe corrispondere al conteggio dei blocchi (tecnicamente l'altezza dei blocchi) anche nel terminale.
 
 ## Riassunto
 
-In this quick start, we demonstrated the basic steps to get a starter project up and running within a Docker environment and then navigated to localhost:3000 and ran a query to return the block number of the mainnet Polkadot network.
+In questo avvio rapido, abbiamo dimostrato i passi di base per ottenere un progetto iniziale e funzionante in un ambiente Docker e poi abbiamo navigato verso localhost:3000 ed eseguito una query per restituire il numero di blocco della rete principale Polkadot.
