@@ -183,6 +183,7 @@ function getSidebar(locale, language){
           path: `${locale}/quickstart/tutorials_examples/introduction`,
           collapsable: true,
           children: [
+            `${locale}/quickstart/tutorials_examples/introduction.md`,
             `${locale}/quickstart/tutorials_examples/block-height.md`,
             `${locale}/quickstart/tutorials_examples/batch-size.md`,
             `${locale}/quickstart/tutorials_examples/run-indexer.md`,
