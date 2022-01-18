@@ -1,4 +1,4 @@
-# Hello World (localhost and Docker)
+# Hello World (localhost & Docker)
 
 Welcome to this SubQuery Hello World quick start. The quick start aims to show you how you get the default starter project running in Docker in a few simple steps.
 
