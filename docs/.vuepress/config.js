@@ -178,14 +178,20 @@ function getSidebar(locale, language){
             `${locale}/quickstart/herocourse/module6.md`,
           ]
         },
-        `${locale}/quickstart/tutorials_examples/introduction.md`,
-        `${locale}/quickstart/tutorials_examples/block-height.md`,
-        `${locale}/quickstart/tutorials_examples/batch-size.md`,
-        `${locale}/quickstart/tutorials_examples/run-indexer.md`,
-        `${locale}/quickstart/tutorials_examples/dictionary.md`,
-        `${locale}/quickstart/tutorials_examples/debug-projects.md`,
-        `${locale}/quickstart/tutorials_examples/delete-projects.md`,
-        `${locale}/quickstart/tutorials_examples/terminology.md`,
+        {
+          title: 'Tutorials Examples',
+          path: `${locale}/quickstart/tutorials_examples/introduction`,
+          collapsable: true,
+          children: [
+            `${locale}/quickstart/tutorials_examples/block-height.md`,
+            `${locale}/quickstart/tutorials_examples/batch-size.md`,
+            `${locale}/quickstart/tutorials_examples/run-indexer.md`,
+            `${locale}/quickstart/tutorials_examples/dictionary.md`,
+            `${locale}/quickstart/tutorials_examples/debug-projects.md`,
+            `${locale}/quickstart/tutorials_examples/delete-projects.md`,
+            `${locale}/quickstart/tutorials_examples/terminology.md`,
+          ]
+        },
         `${locale}/quickstart/faqs.md`,
       ]
     },
