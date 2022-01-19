@@ -16,15 +16,15 @@ Per creare il tuo primo progetto, vai a [progetto.subquery.network](https://proj
 
 Al primo accesso, ti verrà chiesto di autorizzare SubQuery. Abbiamo bisogno solo del tuo indirizzo email per identificare il tuo account, e non usiamo nessun altro dato dal tuo account GitHub per altre ragioni. In questo passo, puoi anche richiedere o concedere l'accesso al tuo account GitHub Organization in modo da poter pubblicare i progetti SubQuery sotto la tua GitHub Organization invece del tuo account personale.
 
-![Revoke approval from a GitHub account](/assets/img/project_auth_request.png)
+![Revocare l'approvazione di un account GitHub](/assets/img/project_auth_request.png)
 
 SubQuery Projects è dove gestisci tutti i tuoi progetti ospitati caricati sulla piattaforma SubQuery. È possibile creare, eliminare e persino aggiornare i progetti da questa applicazione.
 
-![Projects Login](/assets/img/projects-dashboard.png)
+![Accesso ai progetti](/assets/img/projects-dashboard.png)
 
 Se hai un account dell'organizzazione GitHub collegato, puoi usare il selettore sull'intestazione per passare dal tuo account personale a quello dell'organizzazione GitHub. I progetti creati in un account dell'organizzazione GitHub sono condivisi tra i membri di quell'organizzazione GitHub. Per collegare il tuo account GitHub Organization, puoi [seguire i passi qui](#add-github-organization-account-to-subquery-projects).
 
-![Switch between GitHub accounts](/assets/img/projects-account-switcher.png)
+![Passare da un account GitHub all'altro](/assets/img/projects-account-switcher.png)
 
 #### Crea il tuo primo progetto
 
@@ -34,46 +34,46 @@ Cominciamo cliccando su "Create Project". Sarai portato al modulo Nuovo progetto
 - **Sottotitolo**
 - **Descrizione**
 - **GitHub Repository URL:** Questo deve essere un URL GitHub valido per un repository pubblico che ha il tuo progetto SubQuery. Il file `schema.graphql` deve essere nella root della tua directory ([imparare di più sulla struttura delle directory](../create/introduction.md#directory-structure)).
-- **Nascondi progetto:** Se selezionato, questo nasconderà il progetto dall'esploratore pubblico di SubQuery. Tieni questo non selezionato se vuoi condividere la tua SubQuery con la comunità! ![Create your first Project](/assets/img/projects-create.png)
+- **Nascondi progetto:** Se selezionato, questo nasconderà il progetto dall'esploratore pubblico di SubQuery. Tieni questo non selezionato se vuoi condividere la tua SubQuery con la comunità! ![Crea il tuo primo progetto](/assets/img/projects-create.png)
 
 Crea il tuo progetto e lo vedrai nella lista del tuo progetto SubQuery. *Ci siamo quasi! Abbiamo solo bisogno di distribuire una nuova versione di esso.*
 
-![Created Project with no deployment](/assets/img/projects-no-deployment.png)
+![Progetto creato senza distribuzione](/assets/img/projects-no-deployment.png)
 
-#### Deploy your first Version
+#### Distribuisci la tua prima versione
 
-While creating a project will setup the display behaviour of the project, you must deploy a version of it before it becomes operational. Deploying a version triggers a new SubQuery indexing operation to start, and sets up the required query service to start accepting GraphQL requests. You can also deploy new versions to existing projects here.
+Mentre la creazione di un progetto imposterà il comportamento di visualizzazione del progetto, è necessario distribuire una versione di esso prima che diventi operativo. Il deploy di una versione innesca una nuova operazione di indicizzazione SubQuery per iniziare, e imposta il servizio di query richiesto per iniziare ad accettare le richieste GraphQL. Qui puoi anche distribuire nuove versioni a progetti esistenti.
 
-With your new project, you'll see a Deploy New Version button. Click this, and fill in the required information about the deployment:
-- **Commit Hash of new Version:** From GitHub, copy the full commit hash of the version of your SubQuery project codebase that you want deployed
-- **Indexer Version:** This is the version of SubQuery's node service that you want to run this SubQuery on. See [`@subql/node`](https://www.npmjs.com/package/@subql/node)
-- **Query Version:** This is the version of SubQuery's query service that you want to run this SubQuery on. See [`@subql/query`](https://www.npmjs.com/package/@subql/query)
+Con il tuo nuovo progetto, vedrai un pulsante Deploy New Version. Fai clic su questo e compila le informazioni richieste sull'installazione:
+- **Commit Hash della nuova versione:** Da GitHub, copia l'hash completo di commit della versione del codice del tuo progetto SubQuery che vuoi distribuire
+- **Indexer Version:** Questa è la versione del servizio del nodo di SubQuery su cui si vuole eseguire questa SubQuery. Vedere [`@subql/node`](https://www.npmjs.com/package/@subql/node)
+- **Query Version:** Questa è la versione del servizio di query di SubQuery su cui si vuole eseguire questa SubQuery. Vedere [`@subql/query`](https://www.npmjs.com/package/@subql/query)
 
-![Deploy your first Project](https://static.subquery.network/media/projects/projects-first-deployment.png)
+![Distribuisci il tuo primo progetto](https://static.subquery.network/media/projects/projects-first-deployment.png)
 
-If deployed successfully, you'll see the indexer start working and report back progress on indexing the current chain. This process may take time until it reaches 100%.
+Se distribuito con successo, vedrai l'indicizzatore iniziare a lavorare e riferire il progresso dell'indicizzazione della catena corrente. Questo processo può richiedere tempo fino a raggiungere il 100%.
 
-## Next Steps - Connect to your Project
-Once your deployment has succesfully completed and our nodes have indexed your data from the chain, you'll be able to connect to your project via the displayed GraphQL Query endpoint.
+## Passi successivi - Collegati al tuo progetto
+Una volta che il tuo deployment è stato completato con successo e i nostri nodi hanno indicizzato i tuoi dati dalla catena, sarai in grado di connetterti al tuo progetto tramite l'endpoint GraphQL Query visualizzato.
 
 ![Progetto distribuito e sincronizzato](/assets/img/projects-deploy-sync.png)
 
-In alternativa, puoi cliccare sui tre puntini accanto al titolo del tuo progetto e visualizzarlo su SubQuery Explorer. There you can use the in-browser playground to get started - [read more about how to user our Explorer here](../query/query.md).
+In alternativa, puoi cliccare sui tre puntini accanto al titolo del tuo progetto e visualizzarlo su SubQuery Explorer. Lì puoi usare il parco giochi in-browser per iniziare - [leggi di più su come usare il nostro Explorer qui](../query/query.md).
 
 ![Progetti nell'esploratore di subquery](/assets/img/projects-explorer.png)
 
-## Add GitHub Organization Account to SubQuery Projects
+## Aggiungere l'account dell'organizzazione GitHub ai progetti SubQuery
 
-It is common to publish your SubQuery project under the name of your GitHub Organization account rather than your personal GitHub account. At any point your can change your currently selected account on [SubQuery Projects](https://project.subquery.network) using the account switcher.
+È comune pubblicare il tuo progetto SubQuery sotto il nome del tuo account GitHub Organization piuttosto che il tuo account GitHub personale. In qualsiasi momento puoi cambiare il tuo account attualmente selezionato su [Progetti SubQuery](https://project.subquery.network) usando il selettore di account.
 
-![Switch between GitHub accounts](/assets/img/projects-account-switcher.png)
+![Passare da un account GitHub all'altro](/assets/img/projects-account-switcher.png)
 
-If you can't see your GitHub Organization account listed in the switcher, the you may need to grant access to SubQuery for your GitHub Organization (or request it from an administrator). To do this, you first need to revoke permissions from your GitHub account to the SubQuery Application. To do this, login to your account settings in GitHub, go to Applications, and under the Authorized OAuth Apps tab, revoke SubQuery - [you can follow the exact steps here](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/reviewing-your-authorized-applications-oauth). **Don't worry, this will not delete your SubQuery project and you will not lose any data.**
+Se non riesci a vedere il tuo account dell'organizzazione GitHub elencato nello switcher, potrebbe essere necessario concedere l'accesso a SubQuery per la tua organizzazione GitHub (o richiederlo a un amministratore). Per fare questo, devi prima revocare i permessi dal tuo account GitHub all'applicazione SubQuery. Per farlo, accedi alle impostazioni del tuo account su GitHub, vai su Applicazioni, e sotto la scheda Applicazioni autorizzate OAuth, revoca SubQuery - [Puoi seguire i passi esatti qui](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/reviewing-your-authorized-applications-oauth). **Non preoccuparti, questo non cancellerà il tuo progetto SubQuery e non perderai nessun dato.**
 
-![Revoke access to GitHub account](/assets/img/project_auth_revoke.png)
+![Revocare l'accesso all'account GitHub](/assets/img/project_auth_revoke.png)
 
-Once you have revoked access, log out of [SubQuery Projects](https://project.subquery.network) and log back in again. You should be redirected to a page titled _Authorize SubQuery_ where you can request or grant SubQuery access to your GitHub Organization account. If you don't have admin permissions, you must make a request for an adminstrator to enable this for you.
+Una volta che hai revocato l'accesso, esci da [Progetti SubQuery](https://project.subquery.network) e accedi di nuovo. Dovresti essere reindirizzato ad una pagina intitolata *Autorizza SubQuery* dove puoi richiedere o concedere l'accesso di SubQuery al tuo account GitHub Organization. Se non hai i permessi di amministratore, devi fare una richiesta per un amministratore che lo abiliti per te.
 
-![Revoke approval from a GitHub account](/assets/img/project_auth_request.png)
+![Revoke approval of a GitHub account](/assets/img/project_auth_request.png)
 
-Once this request has been approved by your administrator (or if are able to grant it youself), you will see the correct GitHub Organization account in the account switcher.
+Una volta che questa richiesta è stata approvata dal tuo amministratore (o se sei in grado di concederla tu stesso), vedrai l'account GitHub Organization corretto nel commutatore di account.
