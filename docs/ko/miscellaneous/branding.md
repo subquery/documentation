@@ -1,4 +1,4 @@
-# Branding Materials
+# 브랜딩 자료
 
 **All of SubQuery’s brand features are proprietary and we take our brand extremely seriously.**
 
