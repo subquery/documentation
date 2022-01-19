@@ -56,11 +56,11 @@ If deployed successfully, you'll see the indexer start working and report back p
 ## Next Steps - Connect to your Project
 Once your deployment has succesfully completed and our nodes have indexed your data from the chain, you'll be able to connect to your project via the displayed GraphQL Query endpoint.
 
-![Project being deployed and synced](/assets/img/projects-deploy-sync.png)
+![Progetto distribuito e sincronizzato](/assets/img/projects-deploy-sync.png)
 
-Alternatively, you can click on the three dots next to the title of your project, and view it on SubQuery Explorer. There you can use the in-browser playground to get started - [read more about how to user our Explorer here](../query/query.md).
+In alternativa, puoi cliccare sui tre puntini accanto al titolo del tuo progetto e visualizzarlo su SubQuery Explorer. There you can use the in-browser playground to get started - [read more about how to user our Explorer here](../query/query.md).
 
-![Projects in SubQuery Explorer](/assets/img/projects-explorer.png)
+![Progetti nell'esploratore di subquery](/assets/img/projects-explorer.png)
 
 ## Add GitHub Organization Account to SubQuery Projects
 
