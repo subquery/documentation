@@ -46,9 +46,9 @@ echo -e "My yarn version is:" `yarn -v` "\nMy subql version is:" `subql -v`  "\n
 Bu döndürülmelidir: (npm kullanıcıları için ipliği npm ile değiştirin) vv
 
 ```shell
-My yarn version is: 1.22.10
-My subql version is: @subql/cli/0.9.3 darwin-x64 node-v16.3.0
-My docker version is: Docker version 20.10.5, build 55c4c88
+Benim yarn versiyonum: 1.22.10
+Benim subql versiyonum: @subql/cli/0.9.3 darwin-x64 node-v16.3.0
+Benim docker versiyonum: Docker version 20.10.5, build 55c4c88
 ```
 
 Yukarıdakileri alırsanız, gitmeye hazırsınız demektir. Değilse, yüklemek için şu bağlantıları izleyin:
