@@ -64,11 +64,11 @@ Once your deployment has succesfully completed and our nodes have indexed your d
 
 ## SubQuery 프로젝트에 GitHub 계정 추가하기
 
-It is common to publish your SubQuery project under the name of your GitHub Organization account rather than your personal GitHub account. At any point your can change your currently selected account on [SubQuery Projects](https://project.subquery.network) using the account switcher.
+개인 GitHub 계정이 아닌 GitHub 조직 계정으로 SubQuery 프로젝트를 공개하는 것이 일반적입니다. 언제든지[SubQuery Projects](https://project.subquery.network)에서 계정 스위처를 사용하여 현재 선택된 계정을 변경할 수 있습니다.
 
 ![Switch between GitHub accounts](/assets/img/projects-account-switcher.png)
 
-If you can't see your GitHub Organization account listed in the switcher, the you may need to grant access to SubQuery for your GitHub Organization (or request it from an administrator). To do this, you first need to revoke permissions from your GitHub account to the SubQuery Application. To do this, login to your account settings in GitHub, go to Applications, and under the Authorized OAuth Apps tab, revoke SubQuery - [you can follow the exact steps here](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/reviewing-your-authorized-applications-oauth). **Don't worry, this will not delete your SubQuery project and you will not lose any data.**
+스위처에서 GitHub 조직 계정이 나타나지 않을 경우, GitHub 조직에 SubQuery 접근을 허용하거나 관리자에게 요청해야 합니다. 그러기 위해서는 먼저 GitHub 계정에서 SubQuery 신청서에 대한 권한을 취소해야 합니다. To do this, login to your account settings in GitHub, go to Applications, and under the Authorized OAuth Apps tab, revoke SubQuery - [you can follow the exact steps here](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/reviewing-your-authorized-applications-oauth). **Don't worry, this will not delete your SubQuery project and you will not lose any data.**
 
 ![Revoke access to GitHub account](/assets/img/project_auth_revoke.png)
 
