@@ -1,10 +1,10 @@
 # SubQuery'i Kurmak
 
-Bir SubQuery projesi oluştururken gerekli olan bazı bileşenler var. The [@subql/cli](https://github.com/subquery/subql/tree/docs-new-section/packages/cli) tool is used to create SubQuery projects. Bir dizin oluşturucuyu çalıştırmak için [@subql/node](https://github.com/subquery/subql/tree/docs-new-section/packages/node) bileşeni gereklidir. Sorguları oluşturmak için [@subql/query](https://github.com/subquery/subql/tree/docs-new-section/packages/query) kütüphanesi gereklidir.
+Bir SubQuery projesi oluştururken gerekli olan bazı bileşenler var. Alt sorgu projeleri oluşturmak için [@subql/clı](https://github.com/subquery/subql/tree/docs-new-section/packages/cli) aracı kullanılır. Bir dizin oluşturucuyu çalıştırmak için [@subql/node](https://github.com/subquery/subql/tree/docs-new-section/packages/node) bileşeni gereklidir. Sorguları oluşturmak için [@subql/query](https://github.com/subquery/subql/tree/docs-new-section/packages/query) kütüphanesi gereklidir.
 
 ## @subql/cli'yi kurun
 
-The [@subql/cli](https://github.com/subquery/subql/tree/docs-new-section/packages/cli) tool helps to create a project framework or scaffold meaning you don't have to start from scratch.
+[@subql /clı ](https://github.com/subquery/subql/tree/docs-new-section/packages/cli) aracı, sıfırdan başlamak zorunda olmadığınız anlamına gelen bir proje çerçevesi veya iskele oluşturmanıza yardımcı olur.
 
 Yarn veya NPM kullanarak SubQuery CLI'yi global biçimde terminalinize kurun:
 
