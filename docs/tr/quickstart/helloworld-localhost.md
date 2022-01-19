@@ -54,7 +54,7 @@ My docker version is: Docker version 20.10.5, build 55c4c88
 Yukarıdakileri alırsanız, gitmeye hazırsınız demektir. Değilse, yüklemek için şu bağlantıları izleyin:
 
 - [yarn](https://classic.yarnpkg.com/en/docs/install/) veya [npm](https://www.npmjs.com/get-npm)
-- [SubQuery CLI](quickstart.md#install-the-subquery-cli)
+- [SubQuery CLISubQuery CLI](quickstart.md#install-the-subquery-cli)
 - [Docker](https://docs.docker.com/get-docker/)
 
 ## 1. Projeyi başlat
