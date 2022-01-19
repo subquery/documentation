@@ -1,42 +1,42 @@
-# Publish your SubQuery Project
+# Pubblica il tuo progetto SubQuery
 
-## Benefits of hosting your project with SubQuery
-- We'll run your SubQuery projects for you in a high performance, scalable, and managed public service
-- This service is being provided to the community for free!
-- You can make your projects public so that they'll be listed in the [SubQuery Explorer](https://explorer.subquery.network) and anyone around the world can view them
-- We're integrated with GitHub, so anyone in your GitHub organisations will be able to view shared organisation projects
+## Vantaggi di ospitare il tuo progetto con SubQuery
+- Eseguiremo i tuoi progetti SubQuery per te in un servizio pubblico ad alte prestazioni, scalabile e gestito
+- Questo servizio viene fornito alla comunità gratuitamente!
+- Puoi rendere i tuoi progetti pubblici in modo che siano elencati nel [SubQuery Explorer](https://explorer.subquery.network) e chiunque nel mondo possa vederli
+- Siamo integrati con GitHub, quindi chiunque nelle tue organizzazioni GitHub sarà in grado di visualizzare i progetti condivisi dell'organizzazione
 
-## Create your First Project
+## Crea il tuo primo progetto
 
-#### Login to SubQuery Projects
+#### Accesso ai progetti SubQuery
 
-Before starting, please make sure that your SubQuery project is online in a public GitHub repository. The `schema.graphql` file must be in the root of your directory.
+Prima di iniziare, assicurati che il tuo progetto SubQuery sia online in un repository GitHub pubblico. Il file `schema.graphql` deve essere nella radice della vostra directory.
 
-To create your first project, head to [project.subquery.network](https://project.subquery.network). You'll need to authenticate with your GitHub account to login.
+Per creare il tuo primo progetto, vai a [progetto.subquery.network](https://project.subquery.network). Dovrai autenticarti con il tuo account GitHub per accedere.
 
-On first login, you will be asked to authorize SubQuery. We only need your email address to identify your account, and we don't use any other data from your GitHub account for any other reasons. In this step, you can also request or grant access to your GitHub Organization account so you can post SubQuery projects under your GitHub Organization instead of your personal account.
+Al primo accesso, ti verrà chiesto di autorizzare SubQuery. Abbiamo bisogno solo del tuo indirizzo email per identificare il tuo account, e non usiamo nessun altro dato dal tuo account GitHub per altre ragioni. In questo passo, puoi anche richiedere o concedere l'accesso al tuo account GitHub Organization in modo da poter pubblicare i progetti SubQuery sotto la tua GitHub Organization invece del tuo account personale.
 
 ![Revoke approval from a GitHub account](/assets/img/project_auth_request.png)
 
-SubQuery Projects is where you manage all your hosted projects uploaded to the SubQuery platform. You can create, delete, and even upgrade projects all from this application.
+SubQuery Projects è dove gestisci tutti i tuoi progetti ospitati caricati sulla piattaforma SubQuery. È possibile creare, eliminare e persino aggiornare i progetti da questa applicazione.
 
 ![Projects Login](/assets/img/projects-dashboard.png)
 
-If you have a GitHub Organization accounts connected, you can use the switcher on the header to change between your personal account and your GitHub Organization account. Projects created in a GitHub Organization account are shared between members in that GitHub Organization. To connect your GitHub Organization account, you can [follow the steps here](#add-github-organization-account-to-subquery-projects).
+Se hai un account dell'organizzazione GitHub collegato, puoi usare il selettore sull'intestazione per passare dal tuo account personale a quello dell'organizzazione GitHub. I progetti creati in un account dell'organizzazione GitHub sono condivisi tra i membri di quell'organizzazione GitHub. Per collegare il tuo account GitHub Organization, puoi [seguire i passi qui](#add-github-organization-account-to-subquery-projects).
 
 ![Switch between GitHub accounts](/assets/img/projects-account-switcher.png)
 
-#### Create your First Project
+#### Crea il tuo primo progetto
 
-Let's start by clicking on "Create Project". You'll be taken to the New Project form. Please enter the following (you can change this in the future):
-- **GitHub account:** If you have more than one GitHub account, select which account this project will be created under. Projects created in a GitHub organisation account are shared between members in that organisation.
-- **Name**
-- **Subtitle**
-- **Description**
-- **GitHub Repository URL:** This must be a valid GitHub URL to a public repository that has your SubQuery project. The `schema.graphql` file must be in the root of your directory ([learn more about the directory structure](../create/introduction.md#directory-structure)).
-- **Hide project:** If selected, this will hide the project from the public SubQuery explorer. Keep this unselected if you want to share your SubQuery with the community! ![Create your first Project](/assets/img/projects-create.png)
+Cominciamo cliccando su "Create Project". Sarai portato al modulo Nuovo progetto. Inserisci i seguenti dati (puoi cambiarli in futuro):
+- **Account GitHub:** Se hai più di un account GitHub, seleziona con quale account sarà creato questo progetto. I progetti creati in un account dell'organizzazione GitHub sono condivisi tra i membri di quell'organizzazione.
+- **Nome**
+- **Sottotitolo**
+- **Descrizione**
+- **GitHub Repository URL:** Questo deve essere un URL GitHub valido per un repository pubblico che ha il tuo progetto SubQuery. Il file `schema.graphql` deve essere nella root della tua directory ([imparare di più sulla struttura delle directory](../create/introduction.md#directory-structure)).
+- **Nascondi progetto:** Se selezionato, questo nasconderà il progetto dall'esploratore pubblico di SubQuery. Tieni questo non selezionato se vuoi condividere la tua SubQuery con la comunità! ![Create your first Project](/assets/img/projects-create.png)
 
-Create your project and you'll see it on your SubQuery Project's list. *We're almost there! We just need to deploy a new version of it. </p>
+Crea il tuo progetto e lo vedrai nella lista del tuo progetto SubQuery. *Ci siamo quasi! Abbiamo solo bisogno di distribuire una nuova versione di esso.*
 
 ![Created Project with no deployment](/assets/img/projects-no-deployment.png)
 
