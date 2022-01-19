@@ -38,12 +38,12 @@ La ragione principale è che può ridurre il tempo per sincronizzare la blockcha
 
 ## Quali sono gli inconvenienti di non partire da zero?
 
-The most obvious drawback will be that you won’t be able to query for data on the blockchain for blocks that you don’t have.
+Lo svantaggio più ovvio sarà che non sarete in grado di interrogare i dati sulla blockchain per i blocchi che non avete.
 
-## How to figure out the current blockchain height?
+## Come capire l'altezza attuale della blockchain?
 
-If you are using the Polkadot network, you can visit [https://polkascan.io/](https://polkascan.io/), select the network, and then view the  "Finalised Block" figure.
+Se si utilizza la rete Polkadot, è possibile visitare < 0 > https ://polkascan.io/</0 >, selezionare la rete e quindi visualizzare la figura «Blocco finalizzato».
 
-## Do I have to do a rebuild or a codegen?
+## Devo fare una ricostruzione o un codegen?
 
-No. Because you are modifying the project.yaml file, which is essentially a configuration file, you will not have to rebuild or regenerate the typescript code.
+No. Poiché si sta modificando il file project.yaml, che è essenzialmente un file di configurazione, non sarà necessario ricostruire o rigenerare il codice tipografico.
