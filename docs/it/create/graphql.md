@@ -2,14 +2,14 @@
 
 ## Defining Entities
 
-The `schema.graphql` file defines the various GraphQL schemas. Due to the way that the GraphQL query language works, the schema file essentially dictates the shape of your data from SubQuery. To learn more about how to write in GraphQL schema language, we recommend checking out [Schemas and Types](https://graphql.org/learn/schema/#type-language).
+The `schema.graphql` file defines the various GraphQL schemas. A causa del modo in cui funziona il linguaggio di query GraphQL, il file schema determina essenzialmente la forma dei dati dalla Subquery. To learn more about how to write in GraphQL schema language, we recommend checking out [Schemas and Types](https://graphql.org/learn/schema/#type-language).
 
 **Important: When you make any changes to the schema file, please ensure that you regenerate your types directory with the following command `yarn codegen`**
 
 ### Entities
 Each entity must define its required fields `id` with the type of `ID!`. It is used as the primary key and unique among all entities of the same type.
 
-Non-nullable fields in the entity are indicated by `!`. Please see the example below:
+Non-nullable fields in the entity are indicated by `!`. Si prega di vedere l'esempio qui sotto:
 
 ```graphql
 type Example @entity {
@@ -107,12 +107,12 @@ type Person @entity {
   passport: Passport!
 }
 
-type Passport @entity {
-  id: ID!
+tipo Passport @ entity {
+ id: ID!
 }
 ```
 
-### One-to-Many relationships
+### One-to-Many rapporto
 
 You can use square brackets to indicate that a field type includes multiple entities.
 
