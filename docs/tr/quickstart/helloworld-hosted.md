@@ -87,10 +87,10 @@ create mode 100644 tsconfig.json
 create mode 100644 yarn.lock
 > git push origin master
 Enumerating objects: 14, done.
-Counting objects: 100% (14/14), done.
-Delta compression using up to 12 threads
-Compressing objects: 100% (13/13), done.
-Writing objects: 100% (14/14), 59.35 KiB | 8.48 MiB/s, done.
+Nesneleri sayma:% 100 (14/14), bitti.
+12 dişe kadar Delta sıkıştırma
+Nesneleri sıkıştırma:% 100 (13/13), bitti.
+Yazma nesneleri:% 100 (14/14), 59.35 KiB | 8.48 MiB /s, tamam.
 Total 14 (delta 0), reused 0 (delta 0)
 To https://github.com/seandotau/subqlHelloWorld.git
  * [new branch]      master -> master
@@ -173,7 +173,7 @@ Daha sonra bu uç noktaya [Postman](https://www.postman.com/) veya [Mockoon](htt
 Çalıştıracak kıvrılma komutu:
 
 ```shell
-curl https://api.subquery.network/sq/seandotau/subqueryhelloworld -d "query=query { starterEntities (first: 5, orderBy: CREATED_AT_DESC) { totalCount nodes { id field1 field2 field3 } } }"
+curl https://api.subquery.network/sq/seandotau/subqueryhelloworld -d "query=query { starterEntities (first: 5, orderBy: CREATED_AT_DESC) { totalCount nodes { id field1 field2 field3 }
 ```
 
 sonuçlarını vererek:
