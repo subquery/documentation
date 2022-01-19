@@ -33,25 +33,25 @@ GitHub 조직 계정이 연결되어 있다면 헤더의 switcher를 이용하�
 - **이름**
 - **부제목**
 - **설명**
-- **GitHub Repository URL:** This must be a valid GitHub URL to a public repository that has your SubQuery project. The `schema.graphql` file must be in the root of your directory ([learn more about the directory structure](../create/introduction.md#directory-structure)).
+- **GitHub 저장 URL:** 이것은 SubQuery 프로젝트가 있는 공개 저장소에 대한 유효한 GitHub URL이어야 합니다. `schema.graphql` 파일은 디렉토리의 루트에 있어야 합니다([디렉토리 구조에 대해 자세히 알아보기](../create/introduction.md#directory-structure)).
 - **프로젝트 숨기기:** 선택 시, 공개 SubQuery 익스플로러에서 프로젝트를 숨깁니다. SubQuery 커뮤니티와 공유하려면 이 항목을 선택하지 않은 상태로 유지하십시오! ![Create your first Project](/assets/img/projects-create.png)
 
-Create your project and you'll see it on your SubQuery Project's list. *We're almost there! We just need to deploy a new version of it. </p>
+프로젝트를 생성하면 SubQuery Project 목록에 프로젝트가 나타납니다. *거의 다 왔어요! 신규 프로젝트를 배포하기만 하면 됩니다.*
 
 ![Created Project with no deployment](/assets/img/projects-no-deployment.png)
 
 #### 최초 버전 배포하기
 
-While creating a project will setup the display behaviour of the project, you must deploy a version of it before it becomes operational. Deploying a version triggers a new SubQuery indexing operation to start, and sets up the required query service to start accepting GraphQL requests. You can also deploy new versions to existing projects here.
+프로젝트를 생성하면 프로젝트의 표시 동작이 설정되지만 반드시 실행 전에 프로젝트를 배포해야 합니다. Deploying a version triggers a new SubQuery indexing operation to start, and sets up the required query service to start accepting GraphQL requests. You can also deploy new versions to existing projects here.
 
-With your new project, you'll see a Deploy New Version button. Click this, and fill in the required information about the deployment:
+새로운 프로젝트에서는 새로운 버전 배포 버튼이 나타납니다. 이를 클릭하고 배포에 필요한 정보를 입력합니다:
 - **Commit Hash of new Version:** From GitHub, copy the full commit hash of the version of your SubQuery project codebase that you want deployed
 - **Indexer Version:** This is the version of SubQuery's node service that you want to run this SubQuery on. See [`@subql/node`](https://www.npmjs.com/package/@subql/node)
 - **Query Version:** This is the version of SubQuery's query service that you want to run this SubQuery on. See [`@subql/query`](https://www.npmjs.com/package/@subql/query)
 
 ![Deploy your first Project](https://static.subquery.network/media/projects/projects-first-deployment.png)
 
-If deployed successfully, you'll see the indexer start working and report back progress on indexing the current chain. This process may take time until it reaches 100%.
+배포에 성공하면, 인덱스가 동작을 개시하여 현재 체인의 인덱스 작성 진행 상황을 보고할 것입니다. 이 과정이 100% 완료되기까지는 일부 시간이 소요될 수 있습니다.
 
 ## 다음 단계 - 프로젝트 연결하기
 Once your deployment has succesfully completed and our nodes have indexed your data from the chain, you'll be able to connect to your project via the displayed GraphQL Query endpoint.
@@ -62,7 +62,7 @@ Once your deployment has succesfully completed and our nodes have indexed your d
 
 ![SubQuery 탐색기 프로젝트](/assets/img/projects-explorer.png)
 
-## Add GitHub Organization Account to SubQuery Projects
+## SubQuery 프로젝트에 GitHub 계정 추가하기
 
 It is common to publish your SubQuery project under the name of your GitHub Organization account rather than your personal GitHub account. At any point your can change your currently selected account on [SubQuery Projects](https://project.subquery.network) using the account switcher.
 
