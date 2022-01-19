@@ -8,7 +8,7 @@
 
 ## Introduction
 
-Running an indexer node is another option outside of using Docker or having a project hosted for you at [SubQuery Projects](https://project.subquery.network/). It requires more time and effort but will enhance your understanding of how SubQuery works under the covers.
+L'esecuzione di un nodo indicizzatore è un'altra opzione al di fuori dell'utilizzo di Docker o di un progetto ospitato in < 0 > Progetti SubQuery </0 >. Richiede più tempo e sforzo, ma migliorerà la comprensione di come SubQuery funziona sotto le copertine.
 
 ## Postgres
 
