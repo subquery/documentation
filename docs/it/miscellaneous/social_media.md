@@ -1,28 +1,28 @@
-# Social Media Links
+# Link ai social media
 
-SubQuery is an active project that maintains and communicates with our followers through many social media channels.
+SubQuery è un progetto attivo che mantiene e comunica con i nostri seguaci attraverso molti canali di social media.
 
-It is our aim to always listen and engage with our loyal community so please join the conversation and send us your ideas or questions!
+Il nostro obiettivo è quello di ascoltare e coinvolgere sempre la nostra fedele comunità, quindi per favore unisciti alla conversazione e mandaci le tue idee o domande!
 
-## Official SubQuery Communities
+## Comunità ufficiali di SubQuery
 
 - [Linktree](https://linktr.ee/subquerynetwork)
-- [Discord](https://discord.com/invite/subquery) (Primary Community with dedicated technical support channels)
-- [Medium](https://subquery.medium.com) (Primary announcements channel)
+- [Discord](https://discord.com/invite/subquery) (Comunità primaria con canali di supporto tecnico dedicati)
+- [Medium](https://subquery.medium.com) (canale degli annunci primari)
 - [Twitter](https://twitter.com/subquerynetwork)
-- [Telegram](https://t.me/subquerynetwork) (Announcements channel only)
+- [Telegram](https://t.me/subquerynetwork) (solo canale annunci)
 - [GitHub](https://github.com/SubQuery/subql)
 - [Matrix/Riot](https://matrix.to/#/#subquery:matrix.org)
 - [LinkedIn](https://www.linkedin.com/company/subquery)
 
-## Unofficial SubQuery Communities
+## Comunità non ufficiali di SubQuery
 
-These communities are not moderated by the SubQuery team, but our ambassadors may be there to provide support. Please be careful of scams as SubQuery is **not** responsible for what happens within them.
+Queste comunità non sono moderate dal team di SubQuery, ma i nostri ambasciatori possono essere presenti per fornire supporto. Fai attenzione alle truffe poiché SubQuery **non** è responsabile di ciò che accade al loro interno.
 
-- [Telegram (Chinese)](https://t.me/subquerychina)
-- [Telegram (Russian)](https://t.me/SubQuery_russia)
-- [Telegram (Spanish)](https://t.me/SubQueryES)
-- [Telegram (Thai)](https://t.me/subquerynetworkthai)
-- [Telegram (Turkish)](https://t.me/subquery_TR)
+- [Telegram (cinese)](https://t.me/subquerychina)
+- [Telegram (russo)](https://t.me/SubQuery_russia)
+- [Telegram (spagnolo)](https://t.me/SubQueryES)
+- [Telegram (tailandese)](https://t.me/subquerynetworkthai)
+- [Telegram (turco)](https://t.me/subquery_TR)
 - [Telegram (Vietnamese)](https://t.me/subqueryvietnam)
 - [Telegram (Vietnamese Announcement)](https://t.me/subqueryannvn)
