@@ -235,7 +235,9 @@ function getSidebar(locale, language){
       path: `${locale}/subquery_network/delegators`,
       collapsable: true,
       children: [
+        `${locale}/subquery_network/token.md`,
         `${locale}/subquery_network/delegators.md`,
+        `${locale}/subquery_network/foundation.md`,
 
       ]
     },
