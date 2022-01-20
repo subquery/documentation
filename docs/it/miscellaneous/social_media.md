@@ -19,10 +19,10 @@ Il nostro obiettivo è quello di ascoltare e coinvolgere sempre la nostra fedele
 
 Queste comunità non sono moderate dal team di SubQuery, ma i nostri ambasciatori possono essere presenti per fornire supporto. Fai attenzione alle truffe poiché SubQuery **non** è responsabile di ciò che accade al loro interno.
 
-- [Telegram (cinese)](https://t.me/subquerychina)
-- [Telegram (russo)](https://t.me/SubQuery_russia)
-- [Telegram (spagnolo)](https://t.me/SubQueryES)
-- [Telegram (tailandese)](https://t.me/subquerynetworkthai)
-- [Telegram (turco)](https://t.me/subquery_TR)
-- [Telegram (Vietnamese)](https://t.me/subqueryvietnam)
-- [Telegram (Vietnamese Announcement)](https://t.me/subqueryannvn)
+- [Telegram (Cinese)](https://t.me/subquerychina)
+- [Telegram (Russo)](https://t.me/SubQuery_russia)
+- [Telegram (Spagnolo)](https://t.me/SubQueryES)
+- [Telegram (Tailandese)](https://t.me/subquerynetworkthai)
+- [Telegram (Turco)](https://t.me/subquery_TR)
+- [Telegram (Vietnamita)](https://t.me/subqueryvietnam)
+- [Telegram (Annuncio Vietnamita)](https://t.me/subqueryannvn)
