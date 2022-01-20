@@ -1,27 +1,27 @@
-# GraphQL Schema
+# GraphQL схема
 
-## Defining Entities
+## Дефиниране на обекти
 
-The `schema.graphql` file defines the various GraphQL schemas. Due to the way that the GraphQL query language works, the schema file essentially dictates the shape of your data from SubQuery. To learn more about how to write in GraphQL schema language, we recommend checking out [Schemas and Types](https://graphql.org/learn/schema/#type-language).
+Файлът `schema.graphql` дефинира различните схеми на GraphQL. Поради начина, по който езикът за заявки GraphQL работи, файлът със схемата по същество диктува формата на вашите данни от SubQuery. За да научите повече за това как да пишете на езика на схемите GraphQL, препоръчваме да разгледате [Схеми и типове](https://graphql.org/learn/schema/#type-language).
 
-**Important: When you make any changes to the schema file, please ensure that you regenerate your types directory with the following command `yarn codegen`**
+**Важно: Когато правите промени във файла на схемата, моля, уверете се, че регенерирате директорията си с типове със следната команда `yarn codegen`**
 
-### Entities
-Each entity must define its required fields `id` with the type of `ID!`. It is used as the primary key and unique among all entities of the same type.
+### Oбекти
+Всеки обект трябва да дефинира своите задължителни `id` полета с типа `ID!`. Използва се като първичен ключ и e уникален сред всички обекти от един и същи тип.
 
-Non-nullable fields in the entity are indicated by `!`. Please see the example below:
+Не-нулеви полета в обекта са обозначени с `!`. Моля, вижте примера по-долу:
 
 ```graphql
-type Example @entity {
-  id: ID! # id field is always required and must look like this
-  name: String! # This is a required field
-  address: String # This is an optional field
+пример за тип @entity {
+  id: ID! # id полето е винаги задължително и трябва да изглежда така
+  name: String! # Това е задължително поле 
+  address: String # Това е задължително поле 
 }
 ```
 
-### Supported scalars and types
+### Поддържани скалари и типове
 
-We currently supporting flowing scalars types:
+Понастоящем поддържаме следните типове скалари:
 - `ID`
 - `Int`
 - `String`
@@ -29,9 +29,9 @@ We currently supporting flowing scalars types:
 - `Float`
 - `Date`
 - `Boolean`
-- `<EntityName>` for nested relationship entities, you might use the defined entity's name as one of the fields. Please see in [Entity Relationships](#entity-relationships).
-- `JSON` can alternatively store structured data, please see [JSON type](#json-type)
-- `<EnumName>` types are a special kind of enumerated scalar that is restricted to a particular set of allowed values. Please see [Graphql Enum](https://graphql.org/learn/schema/#enumeration-types)
+- `<EntityName>` за вече вложени, свързани обекти, можете да използвате името на дефинирания обект като едно от полетата. Моля, вижте във [Свързване на обектите](#entity-relationships).
+- `JSON` може алтернативно да съхранява структурирани данни, моля, вижте [JSON type](#json-type)
+- `<EnumName>` типовете, са специален вид скалар, който е ограничен до определен набор от разрешени стойности. Моля, вижте [Graphql Enum](https://graphql.org/learn/schema/#enumeration-types)
 
 ## Indexing by non-primary-key field
 
