@@ -25,11 +25,11 @@ export async function handleBlock(block: SubstrateBlock): Promise<void> {
 
 [SubstrateBlock](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L16) е разширен тип интерфейс на [signedBlock](https://polkadot.js.org/docs/api/cookbook/blocks/), но също така включва `specVersion` и `timestamp`.
 
-## Event Handler
+## Манипулатор на събития
 
-You can use event handlers to capture information when certain events are included on a new block. The events that are part of the default Substrate runtime and a block may contain multiple events.
+Можете да използвате манипулатори на събития за улавяне на информация, когато определени събития са включени в нов блок. Събитията, които са част от времето за изпълнение на Substrate по подразбиране и блок, могат да съдържат няколко събития.
 
-During the processing, the event handler will receive a substrate event as an argument with the event's typed inputs and outputs. Any type of event will trigger the mapping, allowing activity with the data source to be captured. You should use [Mapping Filters](./manifest.md#mapping-filters) in your manifest to filter events to reduce the time it takes to index data and improve mapping performance.
+По време на обработката, манипулаторът на събития ще получи Substrate събитие като аргумент с въведените входове и изходи на събитието. Всеки тип събитие ще задейства мапинг, който позволява да бъде уловена дейност с източника на данни. Трябва да използвате [Мапинг филтри](./manifest.md#mapping-filters) във вашия манифест, за да филтрирате събития, за да намалите времето, необходимо за индексиране на данни и да подобрите ефективността на мапинга.
 
 ```ts
 import {SubstrateEvent} from "@subql/types";
@@ -43,11 +43,11 @@ export async function handleEvent(event: SubstrateEvent): Promise<void> {
     await record.save();
 ```
 
-A [SubstrateEvent](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L30) is an extended interface type of the [EventRecord](https://github.com/polkadot-js/api/blob/f0ce53f5a5e1e5a77cc01bf7f9ddb7fcf8546d11/packages/types/src/interfaces/system/types.ts#L149). Besides the event data, it also includes an `id` (the block to which this event belongs) and the extrinsic inside of this block.
+[SubstrateEvent](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L30) е разширен тип интерфейс на [EventRecord](https://github.com/polkadot-js/api/blob/f0ce53f5a5e1e5a77cc01bf7f9ddb7fcf8546d11/packages/types/src/interfaces/system/types.ts#L149). Освен данните за събитието, той включва и `id` (блока, към който принадлежи това събитие) за външен елемент вътре в този блок.
 
-## Call Handler
+## Манипулатор на изпълнение
 
-Call handlers are used when you want to capture information on certain substrate extrinsics.
+Манипулаторите на изпълнения се използват, когато искате да уловите информация за определени външни елементи на Substrate.
 
 ```ts
 export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
@@ -57,17 +57,17 @@ export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
 }
 ```
 
-The [SubstrateExtrinsic](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L21) extends [GenericExtrinsic](https://github.com/polkadot-js/api/blob/a9c9fb5769dec7ada8612d6068cf69de04aa15ed/packages/types/src/extrinsic/Extrinsic.ts#L170). It is assigned an `id` (the block to which this extrinsic belongs) and provides an extrinsic property that extends the events among this block. Additionally, it records the success status of this extrinsic.
+[SubstrateExtrinsic](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L21) разширява [GenericExtrinsic](https://github.com/polkadot-js/api/blob/a9c9fb5769dec7ada8612d6068cf69de04aa15ed/packages/types/src/extrinsic/Extrinsic.ts#L170). Прилага му се `id` (блокът, към който принадлежи този външен елемент) и предоставя външен елемент, който разширява събитията между този блок. Освен това, той записва статуса на успех на този външен елемент.
 
-## Query States
-Our goal is to cover all data sources for users for mapping handlers (more than just the three interface event types above). Therefore, we have exposed some of the @polkadot/api interfaces to increase capabilities.
+## Състояния на заявка
+Нашата цел е да покрием всички източници на данни за потребители за манипулатори на мапинг (повече от трите типа събития на интерфейса по-горе). Ето защо ние разкрихме някои от @polkadot/api интерфейсите, за да увеличим възможностите.
 
-These are the interfaces we currently support:
-- [api.query.&lt;module&gt;.&lt;method&gt;()](https://polkadot.js.org/docs/api/start/api.query) will query the <strong>current</strong> block.
-- [api.query.&lt;module&gt;.&lt;method&gt;.multi()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-same-type) will make multiple queries of the <strong>same</strong> type at the current block.
-- [api.queryMulti()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-distinct-types) will make multiple queries of <strong>different</strong> types at the current block.
+Това са интерфейсите, които в момента поддържаме:
+- [api.query.&lt;module&gt;.&lt;method&gt;()](https://polkadot.js.org/docs/api/start/api.query) ще направи заявка към <strong>текущия</strong> блок.
+- [api.query.&lt;module&gt;.&lt;method&gt;.multi()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-same-type) ще направи множество заявки от <strong>един</strong> тип към текущия блок.
+- [api.queryMulti()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-distinct-types) ще направи множество заявки от <strong>различен</strong> тип към текущия блок.
 
-These are the interfaces we do **NOT** support currently:
+Това са интерфейсите, които **НЕ ** поддържаме в момента:
 - ~~api.tx.*~~
 - ~~api.derive.*~~
 - ~~api.query.&lt;module&gt;.&lt;method&gt;.at~~
@@ -79,31 +79,31 @@ These are the interfaces we do **NOT** support currently:
 - ~~api.query.&lt;module&gt;.&lt;method&gt;.range~~
 - ~~api.query.&lt;module&gt;.&lt;method&gt;.sizeAt~~
 
-See an example of using this API in our [validator-threshold](https://github.com/subquery/tutorials-validator-threshold) example use case.
+Вижте пример за използване на този API в нашия пример за използване на [validator-threshold](https://github.com/subquery/tutorials-validator-threshold).
 
-## RPC calls
+## RPC повиквания
 
-We also support some API RPC methods that are remote calls that allow the mapping function to interact with the actual node, query, and submission. A core premise of SubQuery is that it's deterministic, and therefore, to keep the results consistent we only allow historical RPC calls.
+Ние поддържаме някои API RPC методи, които са отдалечени повиквания, които позволяват на функцията за мапинг да взаимодейства с действителния нод, заявка и подаване. Основната предпоставка на SubQuery е, че е детерминистична и следователно, за да поддържаме резултатите последователни, позволяваме само исторически RPC повиквания.
 
-Documents in [JSON-RPC](https://polkadot.js.org/docs/substrate/rpc/#rpc) provide some methods that take `BlockHash` as an input parameter (e.g. `at?: BlockHash`), which are now permitted. We have also modified these methods to take the current indexing block hash by default.
+Документите в [JSON-RPC](https://polkadot.js.org/docs/substrate/rpc/#rpc) предоставят някои методи, които приема `BlockHash` като входен параметър (например `at?: BlockHash`), който вече е разрешен. Ние също така променихме тези методи, за да приемем хеш на текущия индексиращ блок по подразбиране.
 
 ```typescript
-// Let's say we are currently indexing a block with this hash number
+// Да приемем, че в момента индексираме блок с този хеш номер
 const blockhash = `0x844047c4cf1719ba6d54891e92c071a41e3dfe789d064871148e9d41ef086f6a`;
 
-// Original method has an optional input is block hash
+// Оригиналният метод има избираем вход в блок хеш
 const b1 = await api.rpc.chain.getBlock(blockhash);
 
-// It will use the current block has by default like so
+// Ще използва текущия блок по подразбиране, по този начин:
 const b2 = await api.rpc.chain.getBlock();
 ```
-- For [Custom Substrate Chains](#custom-substrate-chains) RPC calls, see [usage](#usage).
+- За [Персонализирани Substrate Вериги](#custom-substrate-chains) RPC повиквания, вижте [употреба](#usage).
 
-## Modules and Libraries
+## Модули и библиотеки
 
-To improve SubQuery's data processing capabilities, we have allowed some of the NodeJS's built-in modules for running mapping functions in the [sandbox](#the-sandbox), and have allowed users to call third-party libraries.
+За да подобрим възможностите на SubQuery за обработка на данни, ние разрешихме някои от вградените модули на NodeJS за изпълнение на функции за мапинг в [sandbox](#the-sandbox), и позволихме на потребителите да изпълняват библиотеки на трети страни.
 
-Please note this is an **experimental feature** and you may encounter bugs or issues that may negatively impact your mapping functions. Please report any bugs you find by creating an issue in [GitHub](https://github.com/subquery/subql).
+Моля, имайте предвид, че това е **експериментална функция** и може да срещнете грешки или проблеми, които могат да повлияят негативно на функциите ви за мапинг. Моля, докладвайте всички грешки, които откриете, като създадете казус в [GitHub](https://github.com/subquery/subql).
 
 ### Built-in modules
 
