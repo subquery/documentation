@@ -148,9 +148,9 @@ filter:
 В примере ниже v0.2.0, сеть `. haintypes` указывают на файл, в который включены все пользовательские типы, Это стандартный файл цепочки, который определяет конкретные типы, поддерживаемые блокчейном либо в `. формат son` или `.yaml`.
 
 <CodeGroup> <CodeGroupItem title="v0.2.0" active> ``` yml сети: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' endpoint: 'ws://host. ittychain.io/public-ws' chaintypes: file: ./types.json # Относительный путь к которому хранятся пользовательские типы ... ``` </CodeGroupItem>
-<CodeGroupItem title="v0.0.1"> ``` yml ... network: endpoint: "ws://host.kittychain.io/public-ws" types: { "KittyIndex": "u32", "Kitty": "[u8; 16]" } # typesChain: { chain: { Type5: 'example' } } # typesSpec: { spec: { Type6: 'example' } } dataSources: - name: runtime kind: substrate/Runtime startBlock: 1 filter:  #Optional specName: kitty-chain mapping: handlers: - handler: handleKittyBred kind: substrate/CallHandler filter: module: kitties method: breed success: true ``` </CodeGroupItem> </CodeGroup>
+<CodeGroupItem title="v0.0.1"> ``` yml ... network: endpoint: «ws://host.kittychain. o/public-ws" типы: { "KittyIndex": "u32", "Kitty": "[u8; 16]" } # typesChain: { chain: { Type5: 'example' } } # typesSpec: { spec: { Type6: 'example' } } dataSources: - name: runtime kind: substrate/Runtime startBlock: 1 filter: #Optional specName: kitty-chain mapping: handlers: - обработчик: handleKittyBred kind: substrate/CallHandler filter: module: kitties method: breed success: true ``` </CodeGroupItem> </CodeGroup></p>
 
-To use typescript for your chain types file include it in the `src` folder (e.g. `./src/types.ts`), run `yarn build` and then point to the generated js file located in the `dist` folder.
+Чтобы использовать typescript для вашего файла типов цепи включают его в папку `src` (e. . `./src/типов. с`), запустите `yarn build` , а затем укажите сгенерированный js файл, расположенный в папке `dist`.
 
 ```yml
 network:
