@@ -1,4 +1,4 @@
-# How to run an indexer node?
+# Wie führe ich einen Indexer Node aus?
 
 ## Videoanleitung
 
@@ -12,28 +12,28 @@ Das Ausführen einer Indexer-Node ist eine weitere Option, außer Docker zu verw
 
 ## Postgres
 
-Running an indexer node on your infrastructure will require the setup of a Postgres database. You can install Postgres from [here](https://www.postgresql.org/download/) and ensure the version is 12 or greater.
+Das Ausführen eines Indexer-Node in Ihrer Infrastruktur erfordert die Einrichtung einer Postgres-Datenbank.  Sie können Postgres von [aus hier](https://www.postgresql.org/download/) installieren und sicherstellen, dass die Version 12 oder höher ist.
 
-## Install subql/node
+## Subql/Knoten installieren
 
-Then to run a SubQuery node, run the following command:
+Um dann einen SubQuery Node auszuführen, führen Sie folgenden Befehl aus:
 
 ```shell
 npm install -g @subql/node
 ```
 
-The -g flag means to install it globally which means on OSX, the location will be /usr/local/lib/node_modules.
+Das -g flag bedeutet, es global zu installieren, was unter OSX bedeutet, das Verzeichnis wird /usr/local/lib/node_module sein.
 
-Once installed, you can check the version by running:
+Sobald installiert, können Sie die Version überprüfen, indem Sie ausführen:
 
 ```shell
 > subql-node --version
 0.19.1
 ```
 
-## Setting DB configs
+## DB Einstellungen
 
-Next, you need to set the following environmental variables:
+Als nächstes müssen die folgenden Umgebungsvariablen festgelegt werden:
 
 ```shell
 export DB_USER=postgres
@@ -43,20 +43,20 @@ export DB_HOST=localhost
 export DB_PORT=5432
 ```
 
-Of course, if you have different values for the above keys, please adjust accordingly. Note that the `env` command will display the current environment variables and that this process only sets these values temporarily. That is, they are only valid for the duration of the terminal session. To set them permanently, store them in your ~/bash_profile instead.
+Wenn Sie für die oben genannten Tasten unterschiedliche Werte haben, passen Sie diese bitte entsprechend an. Beachten Sie, dass der Befehl `env` die aktuellen Umgebungsvariablen anzeigt und dass dieser Prozess diese Werte nur vorübergehend setzt. Das heißt, sie sind nur für die Dauer der Terminalsitzung gültig. Um sie dauerhaft einzustellen, speichern Sie sie stattdessen in Ihrem ~/bash_profil.
 
-## Indexing a project
+## Ein Projekt indizieren
 
-To start indexing a project, navigate into your project folder and run the following command:
+Um ein Projekt zu indizieren, navigiere in deinen Projektordner und führe den folgenden Befehl aus:
 
 ```shell
 subql-node -f .
 ```
 
-If you do not have a project handy, `git clone https://github.com/subquery/subql-helloworld`. You should see the indexer node kick into life and start indexing blocks.
+Wenn Sie kein praktisches Projekt haben, `git clone https://github.com/subquery/subql-helloworld`. Sie sollten den Index Node ins Leben rufen und mit der Indexierung beginnen.
 
-## Inspecting Postgres
+## Überprüfe Posts
 
-If you navigate to Postgres, you should see two tables created. `public.subqueries` and `subquery_1.starter_entities`.
+Wenn Sie zu Postgres wechseln, sollten Sie zwei Tabellen sehen. `public.subqueries` and `subquery_1.starter_entities`.
 
-`public.subqueries` only contains 1 row which the indexer checks upon start up to “understand the current state” so it knows where to continue from. The `starter_entities` table contains the indexes. To view the data, run `select (*) from subquery_1.starter_entities`.
+`öffentlich. ubqueries` enthält nur eine Zeile, die der Indexer beim Start prüft, um den aktuellen Status zu verstehen, so dass er weiß, woher er er weitergehen soll. Die `starter_entities` Tabelle enthält die Indizes. Um die Daten anzuzeigen, wählen Sie `(*) aus subquery_1.starter_entities` aus.
