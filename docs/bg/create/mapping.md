@@ -1,16 +1,16 @@
-# Mapping
+# Мапинг
 
-Mapping functions define how chain data is transformed into the optimised GraphQL entities that we have previously defined in the `schema.graphql` file.
+Мапинг функциите дефинират как данните от веригата се трансформират в оптимизираните GraphQL обекти, които по-рано сме дефинирали във файла `schema.graphql`.
 
-- Mappings are defined in the `src/mappings` directory and are exported as a function
-- These mappings are also exported in `src/index.ts`
-- The mappings files are reference in `project.yaml` under the mapping handlers.
+- Мапингите се дефинират в директорията `src/mappings` и се експортират като функция
+- Мапингите също се експортират `src/index.ts`
+- Мапинг файловете са препратки в `project.yaml` под манипулаторите за мапинг.
 
-There are three classes of mappings functions; [Block handlers](#block-handler), [Event Handlers](#event-handler), and [Call Handlers](#call-handler).
+Има три класа функции за мапинг; [Манипулатори на блокове](#block-handler), [Манипулатори на събития](#event-handler) и [Манипулатори на изпълнение](#call-handler).
 
-## Block Handler
+## Манипулатор на блокове
 
-You can use block handlers to capture information each time a new block is attached to the Substrate chain, e.g. block number. To achieve this, a defined BlockHandler will be called once for every block.
+Можете да използвате манипулатори на блокове, за да улавяте информация всеки път, когато нов блок е прикачен към веригата на Substrate, напр. номер на блока. За да се постигне това, дефиниран BlockHandler ще бъде заявен веднъж за всеки блок.
 
 ```ts
 import {SubstrateBlock} from "@subql/types";
@@ -23,7 +23,7 @@ export async function handleBlock(block: SubstrateBlock): Promise<void> {
 }
 ```
 
-A [SubstrateBlock](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L16) is an extended interface type of [signedBlock](https://polkadot.js.org/docs/api/cookbook/blocks/), but also includes the `specVersion` and `timestamp`.
+[SubstrateBlock](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L16) е разширен тип интерфейс на [signedBlock](https://polkadot.js.org/docs/api/cookbook/blocks/), но също така включва `specVersion` и `timestamp`.
 
 ## Event Handler
 
