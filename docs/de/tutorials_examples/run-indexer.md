@@ -59,4 +59,4 @@ Wenn Sie kein praktisches Projekt haben, `git clone https://github.com/subquery/
 
 Wenn Sie zu Postgres wechseln, sollten Sie zwei Tabellen sehen. `public.subqueries` and `subquery_1.starter_entities`.
 
-`öffentlich. ubqueries` enthält nur eine Zeile, die der Indexer beim Start prüft, um den aktuellen Status zu verstehen, so dass er weiß, woher er er weitergehen soll. Die `starter_entities` Tabelle enthält die Indizes. Um die Daten anzuzeigen, wählen Sie `(*) aus subquery_1.starter_entities` aus.
+`public. ubqueries` enthält nur eine Zeile, die der Indexer beim Start prüft, um den aktuellen Status zu verstehen, so dass er weiß, woher er er weitergehen soll. Die `starter_entities` Tabelle enthält die Indizes. Um die Daten anzuzeigen, wählen Sie `(*)  subquery_1.starter_entities` aus.
