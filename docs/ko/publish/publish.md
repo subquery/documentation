@@ -72,7 +72,7 @@ GitHub 조직 계정이 연결되어 있다면 헤더의 switcher를 이용하�
 
 ![Revoke access to GitHub account](/assets/img/project_auth_revoke.png)
 
-Once you have revoked access, log out of [SubQuery Projects](https://project.subquery.network) and log back in again. You should be redirected to a page titled _Authorize SubQuery_ where you can request or grant SubQuery access to your GitHub Organization account. If you don't have admin permissions, you must make a request for an adminstrator to enable this for you.
+접근을 취소하면 [SubQuery Projects](https://project.subquery.network) 에서 로그아웃 하고 다시 로그인 하세요. *Authorize SubQuery* 이라는 제목의 페이지로 리다이렉트 되어 깃허브 단체 계정에 대한 SubQuery 접근을 요구하거나 허용할 수 있습니다. If you don't have admin permissions, you must make a request for an adminstrator to enable this for you.
 
 ![Revoke approval from a GitHub account](/assets/img/project_auth_request.png)
 
