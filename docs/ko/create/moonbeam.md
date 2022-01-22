@@ -4,19 +4,21 @@
 
 지원되는 네트워크:
 
-| 네트워크 이름        | Websocket Endpoint                                 | Dictionary Endpoint                                                  |
-| -------------- | -------------------------------------------------- | -------------------------------------------------------------------- |
-| Moonbeam       | _Coming soon_                                      | _Coming soon_                                                        |
-| Moonriver      | `wss://moonriver.api.onfinality.io/public-ws`      | `https://api.subquery.network/sq/subquery/moonriver-dictionary`      |
-| Moonbase Alpha | `wss://moonbeam-alpha.api.onfinality.io/public-ws` | `https://api.subquery.network/sq/subquery/moonbase-alpha-dictionary` |
+| 네트워크 이름 | 웹소켓 엔드포인트                                                         | 딕셔너리 엔드포인트                                                           |
+| ------- | ----------------------------------------------------------------- | -------------------------------------------------------------------- |
+| 문빔      | _출시 예정_                                                           | _출시 예정_                                                              |
+| 문리버     | `wss://moonriver.api.onfinality.io/public-ws
+Contextrequest`      | `https://api.subquery.network/sq/subquery/moonriver-dictionary`      |
+| 문베이스 알파 | `wss://moonbeam-alpha.api.onfinality.io/public-ws
+Contextrequest` | `https://api.subquery.network/sq/subquery/moonbase-alpha-dictionary` |
 
 **[기본 Moonriver EVM 프로젝트](https://github.com/subquery/tutorials-moonriver-evm-starter)와 더불어 이벤트 및 콜 핸들러를 참조하세요.** 또한 본 프로젝트는 [서브쿼리 익스플로러](https://explorer.subquery.network/subquery/subquery/moonriver-evm-starter-project)를 통해 실시간 호스팅됩니다.
 
 ## 시작하기
 
-1. Add the custom data source as a dependency `yarn add @subql/contract-processors`
-2. Add a custom data source as described below
-3. Add handlers for the custom data source to your code
+1. 디펜던시 커스텀 데이터 소스를 추가하세요`yarn add @subql/contract-processors`
+2. 아래에 나와있는 것처럼 커스텀 데이터소스를 추가하세요
+3. 여러분의 코드에 커스텀 데이터 소스용 핸들러를 추가하세요
 
 ## 데이터 소스 사양
 
@@ -28,10 +30,10 @@
 
 ### 프로세서 옵션
 
-| 필드      | 타입               | 요구사항 | 설명                                                                |
-| ------- | ---------------- | ---- | ----------------------------------------------------------------- |
-| abi     | String           | 아니오  | ABI는 프로세서가 인자 파싱을 위해 사용. MUST be a key of `assets`                |
-| address | String 또는 `null` | 아니오  | 이벤트 또는 콜이 만들어진 거래 주소. `null` will capture contract creation calls |
+| 필드   | 타입               | 요구사항 | 설명                                                                |
+| ---- | ---------------- | ---- | ----------------------------------------------------------------- |
+| abi  | String           | 아니오  | ABI는 프로세서가 인자 파싱을 위해 사용. 반드시 `assets`의 키여야 합니다                    |
+| 어드레스 | String 또는 `null` | 아니오  | 이벤트 또는 콜이 만들어진 거래 주소. `null` will capture contract creation calls |
 
 ## MoonbeamCall
 
