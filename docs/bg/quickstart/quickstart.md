@@ -77,7 +77,7 @@ You'll find the generated models in the `/src/types/models` directory
 
 In order run your SubQuery Project on a locally hosted SubQuery Node, you need to build your work.
 
-Run the build command from the project's root directory.
+Изпълнете командата за изграждане от основната директория на проекта.
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```bash npm run-script build ``` </CodeGroupItem> </CodeGroup>
