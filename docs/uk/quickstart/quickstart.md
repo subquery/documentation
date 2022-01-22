@@ -54,7 +54,7 @@ subql init --starter PROJECT_NAME
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```bash cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
 
-## Налаштуйте та побудуйте стартовий проек
+## Налаштуйте та побудуйте стартовий проект
 
 У стартовому пакеті, який ви тільки що ініціалізували, ми надали стандартну конфігурацію для вашого нового проекту. Ви працюватимете над наступними файлами:
 
@@ -73,11 +73,11 @@ subql init --starter PROJECT_NAME
 
 Ви знайдете створені моделі в каталозі `/src/types/models` directory
 
-## Побудуйте проект
+## Побудуйте проєкт
 
-Для того, щоб запустити проект SubQuery на локально розміщеному вузлі SubQuery, вам потрібно створити свою роботу.
+Для того, щоб запустити проєкт SubQuery на локально розміщеному вузлі SubQuery, вам потрібно створити свою роботу.
 
-Запустіть команду збірки з кореневого каталогу проекту.
+Запустіть команду збірки з кореневого каталогу проєкту.
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```bash npm run-script build ``` </CodeGroupItem> </CodeGroup>
@@ -100,7 +100,7 @@ docker-compose pull && docker-compose up
 
 Можливо, знадобиться певний час, щоб завантажити необхідні пакети ([` @ subql / node `](https://www.npmjs.com/package/@subql/node), [` @ subql / query `](https://www.npmjs.com/package/@subql/query) та Postgres) вперше, але незабаром ви побачите запущений вузол SubQuery.
 
-### Запитайте свій проект
+### Запитайте свій проєкт
 
 Відкрийте веб-переглядач і перейдіть до [ http: //localhost: 3000 ](http://localhost:3000).
 
