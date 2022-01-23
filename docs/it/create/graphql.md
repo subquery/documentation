@@ -2,26 +2,26 @@
 
 ## Defining Entities
 
-The `schema.graphql` file defines the various GraphQL schemas. A causa del modo in cui funziona il linguaggio di query GraphQL, il file schema determina essenzialmente la forma dei dati dalla Subquery. To learn more about how to write in GraphQL schema language, we recommend checking out [Schemas and Types](https://graphql.org/learn/schema/#type-language).
+The `schema.graphql` file defines the various GraphQL schemas. A causa del modo in cui funziona il linguaggio di query GraphQL, il file schema determina essenzialmente la forma dei dati dalla Subquery. Per ulteriori informazioni su come scrivere in GraphQL schema language, si consiglia di controllare [Schemas and Types](https://graphql.org/learn/schema/#type-language).
 
-**Important: When you make any changes to the schema file, please ensure that you regenerate your types directory with the following command `yarn codegen`**
+**Importante: quando si apportano modifiche al file dello schema, assicurarsi di rigenerare la directory dei tipi con il seguente comando `yarn codegen`**
 
 ### Entities
-Each entity must define its required fields `id` with the type of `ID!`. It is used as the primary key and unique among all entities of the same type.
+Ogni entità deve definire i propri campi obbligatori `id` con il tipo di `ID!`. Viene utilizzata come chiave primaria e unica tra tutte le entità dello stesso tipo.
 
-Non-nullable fields in the entity are indicated by `!`. Si prega di vedere l'esempio qui sotto:
+I campi non annullabili nell'entità sono indicati da `!`. Si prega di vedere l'esempio qui sotto:
 
 ```graphql
 type Example @entity {
-  id: ID! # id field is always required and must look like this
-  name: String! # This is a required field
+  id: ID! Il campo # id è sempre obbligatorio e deve assomigliare a questo
+  nome: Stringa! # This is a required field
   address: String # This is an optional field
 }
 ```
 
-### Supported scalars and types
+### Scalari e tipi supportati
 
-We currently supporting flowing scalars types:
+Attualmente supportiamo tipi di scalari fluidi:
 - `ID`
 - `Int`
 - `String`
@@ -29,17 +29,17 @@ We currently supporting flowing scalars types:
 - `Float`
 - `Date`
 - `Boolean`
-- `<EntityName>` for nested relationship entities, you might use the defined entity's name as one of the fields. Please see in [Entity Relationships](#entity-relationships).
-- `JSON` can alternatively store structured data, please see [JSON type](#json-type)
-- `<EnumName>` types are a special kind of enumerated scalar that is restricted to a particular set of allowed values. Please see [Graphql Enum](https://graphql.org/learn/schema/#enumeration-types)
+- `<EntityName>` per le entità di relazione nidificate, è possibile utilizzare il nome dell'entità definita come uno dei campi. Vedi in [Entity Relationships](#entity-relationships).
+- `JSON` può in alternativa memorizzare dati strutturati, vedi [ JSON type](#json-type)
+- I tipi `<EnumName>` sono un tipo speciale di scalare enumerato limitato a un particolare insieme di valori consentiti. Please see [Graphql Enum](https://graphql.org/learn/schema/#enumeration-types)
 
 ## Indexing by non-primary-key field
 
-To improve query performance, index an entity field simply by implementing the `@index` annotation on a non-primary-key field.
+Per migliorare le prestazioni della query, indicizza un campo entità semplicemente implementando l'annotazione `@index` su un campo non chiave primaria.
 
-However, we don't allow users to add `@index` annotation on any [JSON](#json-type) object. By default, indexes are automatically added to foreign keys and for JSON fields in the database, but only to enhance query service performance.
+Tuttavia, non consentiamo agli utenti di aggiungere annotazioni `@index` su alcun oggetto [JSON](#json-type). Per impostazione predefinita, gli indici vengono aggiunti automaticamente alle chiavi esterne e ai campi JSON nel database, ma solo per migliorare le prestazioni del servizio di query.
 
-Here is an example.
+Ecco un esempio.
 
 ```graphql
 type User @entity {
@@ -53,9 +53,9 @@ type Title @entity {
   name: String! @index(unique:true)
 }
 ```
-Assuming we knew this user's name, but we don't know the exact id value, rather than extract all users and then filtering by name we can add `@index` behind the name field. This makes querying much faster and we can additionally pass the `unique: true` to  ensure uniqueness.
+Supponendo di conoscere il nome di questo utente, ma non conosciamo il valore id esatto, invece di estrarre tutti gli utenti e quindi filtrare per nome possiamo aggiungere `@index` dietro il campo del nome. Ciò rende le query molto più veloci e possiamo inoltre passare il `unique: true` per garantire l'unicità.
 
-**If a field is not unique, the maximum result set size is 100**
+**Se un campo non è univoco, la dimensione massima del set di risultati è 100**
 
 When code generation is run, this will automatically create a `getByName` under the `User` model, and the foreign key field `title` will create a `getByTitleId` method, which both can directly be accessed in the mapping function.
 
@@ -78,13 +78,13 @@ const pirateLords = await User.getByTitleId(captainTitle.id); // List of all Cap
 
 ## Entity Relationships
 
-An entity often has nested relationships with other entities. Setting the field value to another entity name will define a one-to-one relationship between these two entities by default.
+Un'entità ha spesso relazioni nidificate con altre entità. L'impostazione del valore del campo su un altro nome di entità definirà una relazione uno-a-uno tra queste due entità per impostazione predefinita.
 
 Different entity relationships (one-to-one, one-to-many, and many-to-many) can be configured using the examples below.
 
 ### One-to-One Relationships
 
-One-to-one relationships are the default when only a single entity is mapped to another.
+One-to-one le relazioni sono l'impostazione predefinita quando solo una singola entità è mappata a un'altra.
 
 Example: A passport will only belong to one person and a person only has one passport (in this example):
 
