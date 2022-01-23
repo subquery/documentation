@@ -106,7 +106,7 @@ success Saved lockfile.
 
 이제 `yarn codegen`을 실행하여 GraphQL 스키마에서 Typescript를 생성합니다.
 
-<CodeGroup> # Yarn yarn codegen # NPM npm run-script codegen
+# Yarn yarn codegen # NPM npm run-script codegen
 
 ```shell
 &gt; yarn codegen
@@ -135,7 +135,7 @@ $ ./node_modules/.bin/subql codegen
 
 다음 단계는 `yarn build`로 코드를 빌드하는 것입니다.
 
-<CodeGroup> # Yarn yarn build # NPM npm run-script build
+# Yarn yarn build # NPM npm run-script build
 
 ```shell
 > yarn build
