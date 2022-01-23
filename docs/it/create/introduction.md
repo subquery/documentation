@@ -14,44 +14,44 @@ Alcuni degli esempi seguenti presuppongono che tu abbia inizializzato con succes
 
 ## Struttura dell'elenco
 
-The following map provides an overview of the directory structure of a SubQuery project when the `init` command is run.
+La mappa seguente fornisce una panoramica della struttura delle directory di un progetto SubQuery quando viene eseguito il comando `init`.
 
 ```
 - project-name
   L package.json
-  L project.yaml
+  L project. aml
   L README.md
   L schema.graphql
-  L tsconfig.json
+  L tsconfig. son
   L docker-compose.yml
   L src
-    L index.ts
-    L mappings
+    L index. s
+    Mappature L
       L mappingHandlers.ts
   L .gitignore
 ```
 
 Example
 
-![SubQuery directory structure](/assets/img/subQuery_directory_stucture.png)
+![Struttura della directory SubQuery](/assets/img/subQuery_directory_stucture.png)
 
-## Code Generation
+## Generazione del codice
 
-Whenever you change your GraphQL entities, you must regenerate your types directory with the following command.
+Ogni volta che cambiate le vostre entità GraphQL, dovete rigenerare la vostra directory dei tipi con il seguente comando.
 
 ```
 yarn codegen
 ```
 
-This will create a new directory (or update the existing) `src/types` which contain generated entity classes for each type you have defined previously in `schema.graphql`. These classes provide type-safe entity loading, read and write access to entity fields - see more about this process in [the GraphQL Schema](./graphql.md).
+Questo creerà una nuova directory (o aggiornerà quella esistente) `src/types` che contiene le classi entità generate per ogni tipo che hai definito precedentemente in `schema.graphql`. Queste classi forniscono il caricamento sicuro delle entità, l'accesso in lettura e scrittura ai campi delle entità - vedi di più su questo processo in [the GraphQL Schema](./graphql.md).
 
 ## Build
 
-In order to run your SubQuery Project on a locally hosted SubQuery Node, you need to first build your work.
+Per eseguire il tuo progetto SubQuery su un SubQuery Node ospitato localmente, devi prima costruire il tuo lavoro.
 
-Run the build command from the project's root directory.
+Eseguite il comando di compilazione dalla directory principale del progetto.
 
-<CodeGroup> The `console.log` method is **no longer supported**. Instead, a `logger` module has been injected in the types, which means we can support a logger that can accept various logging levels.
+<CodeGroup> The `console.log` method is **no longer supported**. Invece, un modulo `logger` è stato iniettato nei tipi, il che significa che possiamo supportare un logger che può accettare vari livelli di registrazione.
 
 ```typescript
 logger.info('Info level message');
@@ -59,16 +59,16 @@ logger.debug('Debugger level message');
 logger.warn('Warning level message');
 ```
 
-To use `logger.info` or `logger.warn`, just place the line into your mapping file.
+Per utilizzare `logger.info` o `logger.warn`, basta posizionare la riga nel file di mappatura.
 
 ![logging.info](/assets/img/logging_info.png)
 
-To use `logger.debug`, an additional step is required. Add `--log-level=debug` to your command line.
+Per usare `logger.debug`, è necessario un ulteriore passo. Aggiungi `--log-level=debug` alla riga di comando.
 
-If you are running a docker container, add this line to your `docker-compose.yaml` file.
+Se stai eseguendo un contenitore docker, aggiungi questa linea al tuo file `docker-compose.yaml`.
 
 ![logging.debug](/assets/img/logging_debug.png)
 
-You should now see the new logging in the terminal screen.
+Ora dovresti vedere il nuovo log nella schermata del terminale.
 
 ![logging.debug](/assets/img/subquery_logging.png)
