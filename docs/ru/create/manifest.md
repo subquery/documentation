@@ -155,7 +155,7 @@ filter:
 ```yml
 network:
   chaintypes:
-    file: ./dist/types.js # Will be generated after yarn run build
+    file: ./dist/types.js # Будет сгенерирован после yarn run build
 ...
 ```
 
