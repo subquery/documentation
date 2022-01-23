@@ -23,4 +23,4 @@
 </figure>
 
 ### Exercise
-**Workbook**: [Deplying a project to SubQuery Explorer](/assets/pdf/Deploying_Subquery_Project)
+**Workbook**: [Deplying a project to SubQuery Explorer](/assets/pdf/Deploying_Subquery_Project.pdf)
