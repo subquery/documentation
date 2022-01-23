@@ -145,10 +145,10 @@ subql-node -f . --network-endpoint="wss://polkadot.api.onfinality.io/public-ws"
 Bunun manifest dosyasında da ayarlanması gerektiğini unutmayın, aksi takdirde şunlarla karşılaşırsınız:
 
 ```shell
-Verilen yoldan Subquery projesi oluşturma hatası başarısız oldu! Error: failed to parse project.yaml.
-An instance of ProjectManifestImpl has failed the validation:
- - property network has failed the following constraints: isObject
- - property network.network has failed the following constraints: nestedValidation
+Verilen yoldan Subquery projesi oluşturma hatası başarısız oldu! Hata: proje.yaml ayrıştırılamadı.
+ProjectManifestImpl örneği doğrulamada başarısız oldu:
+  - özellik ağı aşağıdaki kısıtlamalarda başarısız oldu: isObject
+  - özellik network.network aşağıdaki kısıtlamalarda başarısız oldu: iç içe Doğrulama
 ```
 
 ### --output-fmt
