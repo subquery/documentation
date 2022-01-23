@@ -83,7 +83,7 @@ cd subqlHelloWorld
 
 Now do a yarn or node install to install the various dependencies.
 
-<CodeGroup> # Yarn yarn install # NPM npm install
+# Yarn yarn install # NPM npm install
 
 ```shell
 > yarn install
@@ -97,11 +97,12 @@ success Saved lockfile.
 ✨  Done in 31.84s.
 ```
 
+
 ## 3. Step 3: Generate code
 
 Now run `yarn codegen` to generate Typescript from the GraphQL schema.
 
-<CodeGroup> # Yarn yarn codegen # NPM npm run-script codegen
+# Yarn yarn codegen # NPM npm run-script codegen
 
 ```shell
 > yarn codegen
@@ -116,13 +117,27 @@ $ ./node_modules/.bin/subql codegen
 ✨  Done in 1.02s.
 ```
 
+
 **Warning** When changes are made to the schema file, please remember to re-run `yarn codegen` to regenerate your types directory.
 
 ## 4. Step 4: Build code
 
 The next step is to build the code with `yarn build`.
 
-<CodeGroup> # Yarn yarn build # NPM npm run-script build
+<CodeGroup>
+  <CodeGroupItem title="YARN" active>
+  ```shell
+  yarn build
+  ```
+  </CodeGroupItem>
+
+  <CodeGroupItem title="NPM">
+  ```bash
+  npm run-script build
+  ```
+  </CodeGroupItem>
+</CodeGroup>
+
 
 ```shell
 > yarn build
