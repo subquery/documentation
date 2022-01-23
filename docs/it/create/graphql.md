@@ -131,9 +131,9 @@ type Account @entity {
 ```
 
 ### Many-to-Many relationships
-A many-to-many relationship can be achieved by implementing a mapping entity to connect the other two entities.
+È possibile ottenere una relazione molti-a-molti implementando un'entità di mappatura per collegare le altre due entità.
 
-Example: Each person is a part of multiple groups (PersonGroup) and groups have multiple different people (PersonGroup).
+Esempio: ogni persona fa parte di più gruppi (PersonGroup) e i gruppi hanno più persone diverse (PersonGroup).
 
 ```graphql
 type Person @entity {
@@ -155,11 +155,11 @@ type Group @entity {
 }
 ```
 
-Also, it is possible to create a connection of the same entity in multiple fields of the middle entity.
+Inoltre, è possibile creare una connessione della stessa entità in più campi dell'entità centrale.
 
-For example, an account can have multiple transfers, and each transfer has a source and destination account.
+Ad esempio, un account può avere più trasferimenti e ogni trasferimento ha un account di origine e di destinazione.
 
-This will establish a bi-directional relationship between two Accounts (from and to) through Transfer table.
+Ciò stabilirà una relazione bidirezionale tra due Conti (da e verso) tramite la tabella di trasferimento.
 
 ```graphql
 type Account @entity {
