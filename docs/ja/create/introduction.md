@@ -6,7 +6,7 @@
 
 以下の例では、 [クイックスタート](../quickstart/quickstart.md) セクションでスターターパッケージを正常に初期化したと仮定します。 そのスターターパッケージから、SubQueryプロジェクトをカスタマイズして実装するための標準プロセスを説明します。
 
-1. `subql init --specVersion 0.2.0 PROJECT_NAME` を使用してプロジェクトを初期化します。 または、古い仕様のバージョン `subql init PROJECT_NAME` を使用することもできます。
+1. Initialise your project using `subql init PROJECT_NAME`.
 2. マニフェストファイル（`project.yaml`）を更新して、ブロックチェーンとマッピングするエンティティに関する情報を含めます。 （[マニフェストファイル](./manifest.md)を参照）
 3. スキーマ（`schema.graphql`）にGraphQLエンティティを作成し、クエリのために抽出・保存するデータの型を定義します。 （[GraphQL Schema](./graphql.md)を参照）
 4. チェーンデータを定義したGraphQLエンティティに変換するために呼び出したいすべてのマッピング関数（例：`mappingHandlers.ts`）を追加します。 （[Mapping](./mapping.md)を参照）
@@ -67,7 +67,7 @@ logger.warn('Warning level message');
 
 ![logging.info](/assets/img/logging_info.png)
 
-`logger.debug`を使用するには、追加のステップが必要です。 コマンドラインに `--log-level=debug` を追加します。
+To use `logger.debug`, an additional flag is required. コマンドラインに `--log-level=debug` を追加します。
 
 Docker containerを実行している場合は、 `docker-compose.yaml` ファイルにこの行を追加してください。
 
