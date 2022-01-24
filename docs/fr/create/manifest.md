@@ -23,15 +23,21 @@ Sous `dataSources`:
 
 ### Options CLI
 
-Tant que la version de spec v0.2 est en bêta, vous devrez la définir explicitement lors de l'initialisation du projet en exécutant `subql init --specVersion 0.2.0 PROJECT_NAME`
+By default the CLI will generate SubQuery projects for spec verison v0.2.0. This behaviour can be overridden by running `subql init --specVersion 0.0.1 PROJECT_NAME`, although this is not recommended as the project will not be supported by the SubQuery hosted service in the future
 
 `subql migrate` peut être exécutée dans un projet existant pour migrer le manifeste du projet vers la dernière version.
 
-| Options        | Description                                                                  |
-| -------------- | ---------------------------------------------------------------------------- |
-| -f, --force    |                                                                              |
-| -l, --location | dossier local dans lequel exécuter la migration (doit contenir project.yaml) |
-| --file=file    | pour spécifier le project.yaml à migrer                                      |
+USAGE $ subql init [PROJECTNAME]
+
+ARGUMENTS PROJECTNAME  Give the starter project name
+
+| Options                 | Description                                                                  |
+| ----------------------- | ---------------------------------------------------------------------------- |
+| -f, --force             |                                                                              |
+| -l, --location=location | local folder to create the project in                                        |
+| --install-dependencies  | Install dependencies as well                                                 |
+| --npm                   | Force using NPM instead of yarn, only works with `install-dependencies` flag |
+| --specVersion=0.0.1     | 0.2.0  [default: 0.2.0] | The spec version to be used by the project         |
 
 ## Aperçu 
 
@@ -65,14 +71,14 @@ Tant que la version de spec v0.2 est en bêta, vous devrez la définir explicite
 
 ### Datasource Spec
 
-Définit les données qui seront filtrées et extraites et l'emplacement du gestionnaire de la fonction de mappage pour la transformation des données à appliquer.
-| Champ          | v0.0.1                                                    | v0.2.0                                                                           | Description                                                                                                                                                                                                                           |
-| -------------- | --------------------------------------------------------- | -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **name**       | String                                                    | 𐄂                                                                                | Nom de la source de données                                                                                                                                                                                                           |
-| **kind**       | [substrate/Runtime](./manifest/#data-sources-and-mapping) | substrate/Runtime, [substrate/CustomDataSource](./manifest/#custom-data-sources) | Nous prenons en charge le type de données par défaut de substrate runtime tels que block, event et extrinsic(call). <br /> Depuis v0.2.0, nous prenons en charge les données de l'exécution, telles que le contrat intelligent. |
-| **startBlock** | Integer                                                   | Integer                                                                          | Cela modifie votre bloc d'indexation de démarrage, définissez ceci plus haut pour passer les blocs initiaux avec moins de données                                                                                                     |
-| **mapping**    | Mapping Spec                                              | Mapping Spec                                                                     |                                                                                                                                                                                                                                       |
-| **filter**     | [network-filters](./manifest/#network-filters)            | 𐄂                                                                                | Filtrer la source de données à exécuter par le nom de la spécification du point de terminaison réseau                                                                                                                                 |
+Defines the data that will be filtered and extracted and the location of the mapping function handler for the data transformation to be applied.
+| Champ          | v0.0.1                                                    | v0.2.0                                                                           | Description                                                                                                                                                                           |
+| -------------- | --------------------------------------------------------- | -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **name**       | String                                                    | 𐄂                                                                                | Name of the data source                                                                                                                                                               |
+| **kind**       | [substrate/Runtime](./manifest/#data-sources-and-mapping) | substrate/Runtime, [substrate/CustomDataSource](./manifest/#custom-data-sources) | We supports data type from default substrate runtime such as block, event and extrinsic(call). <br /> From v0.2.0, we support data from custom runtime, such as smart contract. |
+| **startBlock** | Integer                                                   | Integer                                                                          | This changes your indexing start block, set this higher to skip initial blocks with less data                                                                                         |
+| **mapping**    | Mapping Spec                                              | Mapping Spec                                                                     |                                                                                                                                                                                       |
+| **filter**     | [network-filters](./manifest/#network-filters)            | 𐄂                                                                                | Filter the data source to execute by the network endpoint spec name                                                                                                                   |
 
 ### Mapping Spec
 
@@ -83,7 +89,7 @@ Définit les données qui seront filtrées et extraites et l'emplacement du gest
 
 ## Sources de données et mapping
 
-Dans cette section, nous allons parler de l'exécution par défaut de substrate et de son mapping. Voici un exemple :
+In this section, we will talk about the default substrate runtime and its mapping. Here is an example:
 
 ```yaml
 dataSources:
@@ -95,9 +101,9 @@ dataSources:
 
 ### Gestionnaires de mapping et Filtres
 
-Le tableau suivant explique les filtres supportés par différents gestionnaires.
+The following table explains filters supported by different handlers.
 
-**Votre projet SubQuery sera beaucoup plus efficace lorsque vous n'utiliserez que les gestionnaires d'événements et d'appels avec les filtres de mappage appropriés**
+**Your SubQuery project will be much more efficient when you only use event and call handlers with appropriate mapping filters**
 
 | Gestionnaire                               | Filtres pris en charge       |
 | ------------------------------------------ | ---------------------------- |
@@ -105,9 +111,9 @@ Le tableau suivant explique les filtres supportés par différents gestionnaires
 | [EventHandler](./mapping.md#event-handler) | `module`,`method`            |
 | [CallHandler](./mapping.md#call-handler)   | `module`,`method` ,`success` |
 
-Les filtres de mappage par défaut sont une fonctionnalité extrêmement utile pour décider quel bloc, événement ou extrinsèque déclenchera un gestionnaire de mapping.
+Default runtime mapping filters are an extremely useful feature to decide what block, event, or extrinsic will trigger a mapping handler.
 
-Seules les données entrantes qui satisfont les conditions de filtrage seront traitées par les fonctions de mapping. Les filtres de cartographie sont optionnels mais sont fortement recommandés car ils réduisent considérablement la quantité de données traitées par votre projet SubQuery et améliorent les performances d'indexation.
+Only incoming data that satisfy the filter conditions will be processed by the mapping functions. Mapping filters are optional but are highly recommended as they significantly reduce the amount of data processed by your SubQuery project and will improve indexing performance.
 
 ```yaml
 # Exemple de filtre depuis callHandler
@@ -132,23 +138,24 @@ filter:
 
 ### Network Spec
 
-Lors de la connexion à une parachain Polkadot différente ou même à une chaîne de substrat personnalisée, vous devrez modifier la section [Network Spec](#network-spec) de ce manifeste.
+When connecting to a different Polkadot parachain or even a custom substrate chain, you'll need to edit the [Network Spec](#network-spec) section of this manifest.
 
-Le `genesisHash` doit toujours être le hachage du premier bloc du réseau personnalisé. Vous pouvez le retrouver facilement en allant sur [PolkadotJS](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fkusama.api.onfinality.io%2Fpublic-ws#/explorer/query/0) et en cherchant le hachage sur **bloc 0** (voir l'image ci-dessous).
+The `genesisHash` must always be the hash of the first block of the custom network. You can retireve this easily by going to [PolkadotJS](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fkusama.api.onfinality.io%2Fpublic-ws#/explorer/query/0) and looking for the hash on **block 0** (see the image below).
 
-![Hash de la Genèse](/assets/img/genesis-hash.jpg)
+![Genesis Hash](/assets/img/genesis-hash.jpg)
 
-De plus, vous devrez mettre à jour le `point de terminaison (endpoint)`. Définit le point de terminaison wss de la blockchain à indexer - **Ce doit être un noeud d'archive complet**. Vous pouvez récupérer les points de terminaison (endpoints) pour toutes les parachains gratuitement depuis [OnFinality](https://app.onfinality.io)
+Additionally you will need to update the `endpoint`. This defines the wss endpoint of the blockchain to be indexed - **This must be a full archive node**. Vous pouvez récupérer les points de terminaison (endpoints) pour toutes les parachains gratuitement depuis [OnFinality](https://app.onfinality.io)
 
 ### Types de chaînes
 
-Vous pouvez indexer des données à partir de chaînes personnalisées en incluant également les types de chaînes dans le manifeste.
+You can index data from custom chains by also including chain types in the manifest.
 
-Nous prenons en charge les types supplémentaires utilisés par les modules d'exécution de substrate, `typesAlias`, `typesBundle`, `typesChain`, et `typesSpec` sont également pris en charge.
+We support the additional types used by substrate runtime modules, `typesAlias`, `typesBundle`, `typesChain`, and `typesSpec` are also supported.
 
 In the v0.2.0 example below, the `network.chaintypes` are pointing to a file that has all the custom types included, This is a standard chainspec file that declares the specific types supported by this blockchain in either `.json`, `.yaml` or `.js` format.
 
-<CodeGroup> <CodeGroupItem title="v0.2.0" active> ``` yml network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' endpoint: 'ws://host.kittychain.io/public-ws' chaintypes: file: ./types.json # The relative filepath to where custom types are stored ... ``` </CodeGroupItem> <CodeGroupItem title="v0.0.1"> ``` yml ... network: endpoint: "ws://host.kittychain.io/public-ws" types: { "KittyIndex": "u32", "Kitty": "[u8; 16]" } # typesChain: { chain: { Type5: 'example' } } # typesSpec: { spec: { Type6: 'example' } } dataSources: - name: runtime kind: substrate/Runtime startBlock: 1 filter:  #Optional specName: kitty-chain mapping: handlers: - handler: handleKittyBred kind: substrate/CallHandler filter: module: kitties method: breed success: true ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="v0.2.0" active> ``` yml network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' endpoint: 'ws://host.kittychain.io/public-ws' chaintypes: file: ./types.json # The relative filepath to where custom types are stored ... ``` </CodeGroupItem>
+<CodeGroupItem title="v0.0.1"> ``` yml ... network: endpoint: "ws://host.kittychain.io/public-ws" types: { "KittyIndex": "u32", "Kitty": "[u8; 16]" } # typesChain: { chain: { Type5: 'example' } } # typesSpec: { spec: { Type6: 'example' } } dataSources: - name: runtime kind: substrate/Runtime startBlock: 1 filter:  #Optional specName: kitty-chain mapping: handlers: - handler: handleKittyBred kind: substrate/CallHandler filter: module: kitties method: breed success: true ``` </CodeGroupItem> </CodeGroup>
 
 To use typescript for your chain types file include it in the `src` folder (e.g. `./src/types.ts`), run `yarn build` and then point to the generated js file located in the `dist` folder.
 
