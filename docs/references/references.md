@@ -19,7 +19,7 @@ Options:
                             and tables                                 [boolean]
       --db-schema           Db schema name of the project               [string]
       --unsafe              Allows usage of any built-in module within the
-                            sandbox                                    [boolean]
+                            sandbox                    [boolean][default: false]
       --batch-size          Batch size of blocks to fetch in one round  [number]
       --scale-batch-size    scale batch size based on memory usage
                                                       [boolean] [default: false]
