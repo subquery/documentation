@@ -36,17 +36,19 @@ subql help
 在您要创建 SubQuery 项目的目录中，只需将`PROJECT_NAME` 替换为您自己的项目名称并运行命令：
 
 ```shell
-subql init --starter PROJECT_NAME
+subql init PROJECT_NAME
 ```
 
 在初始化 SubQuery project 时，您会被问到一些问题：
 
-- Git 存储库（可选）：提供指向此 SubQuery 项目的，并将在其中托管的存储库的 Git URL（当托管在 SubQuery Explorer 中时）
-- RPC 端点(必填)：提供一个 wss URL给一个正在运行的 RPC 端点，该端点将默认用于此项目。 您可以快速访问不同的 Polkadot 网络的公共端点，甚至可以使用 [OnFinality](https://app.onfinality.io) 或仅使用默认的 Polkadot 端点创建您自己的专用节点。
-- 作者(必填)：在此处输入此 SubQuery 项目的所有者
-- 描述(可选)：您可以提供一个简短的段落介绍您的项目，描述它包含哪些数据以及用户可以做些什么。
-- 版本 (必填)：输入一个自定义版本号或使用默认版本(`1.0.0`)
-- 许可证(必填)：提供此项目的软件许可或接受默认设置(`Apache-2.0`)
+- Network: A blockchain network that this SubQuery project will be developed to index
+- Template: Select a SubQuery project template that will provide a starting point to begin development
+- Git repository (Optional): Provide a Git URL to a repo that this SubQuery project will be hosted in (when hosted in SubQuery Explorer)
+- RPC endpoint (Required): Provide a websocket (wss) URL to a running RPC endpoint that will be used by default for this project. You can quickly access public endpoints for different Polkadot networks or even create your own private dedicated node using [OnFinality](https://app.onfinality.io) or just use the default Polkadot endpoint. This RPC node must be an archive node (have the full chain state).
+- Authors (Required): Enter the owner of this SubQuery project here
+- Description (Optional): You can provide a short paragraph about your project that describe what data it contains and what users can do with it
+- Version (Required): Enter a custom version number or use the default (`1.0.0`)
+- License (Required): Provide the software license for this project or accept the default (`Apache-2.0`)
 
 在初始化过程完成后，您应该看到目录内创建了一个项目名称的文件夹。 此目录的内容应该与 [Directory Structure](../create/introduction.md#directory-structure) 中列出的内容完全相同。
 
