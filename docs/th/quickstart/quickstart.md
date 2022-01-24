@@ -36,17 +36,19 @@ subql help
 ภายในไดเรกทอรีที่คุณต้องการสร้างโปรเจ็กต์ SubQuery เพียงแทนที่ `PROJECT_NAME` ด้วยชื่อของคุณเองและรันคำสั่ง:
 
 ```shell
-subql init --starter PROJECT_NAME
+subql init PROJECT_NAME
 ```
 
 คุณจะถูกถามคำถามเมื่อโปรเจ็กต์ SubQuery เริ่มต้นขึ้น:
 
-- Git repository (ไม่บังคับ): ระบุ Git URL ไปยัง repo ที่จะโฮสต์โปรเจ็กต์ SubQuery นี้ (เมื่อโฮสต์ใน SubQuery Explorer)
-- RPC endpoint (จำเป็น): ระบุ wss URL ไปยัง RPC endpoint ที่ทำงานอยู่ซึ่งจะถูกใช้เป็นค่าเริ่มต้นสำหรับโปรเจ็กต์นี้ RPC endpoint (จำเป็น): ระบุ wss URL ไปยัง RPC endpoint ที่ทำงานอยู่ซึ่งจะถูกใช้เป็นค่าเริ่มต้นสำหรับโปรเจ็กต์นี้ คุณสามารถเข้าถึง endpoint สาธารณะได้อย่างรวดเร็วสำหรับเครือข่าย Polkadot ต่างๆ หรือแม้แต่สร้างโหนดส่วนตัวเฉพาะของคุณเองโดยใช้ [OnFinality](https://app.onfinality.io) หรือเพียงแค่ใช้ Polkadot endpoint ที่เป็นค่าเริ่มต้น
-- Authors (จำเป็น): กรอกชื่อเจ้าของโปรเจ็กต์ SubQuery นี้ที่นี่
-- Description (ไม่บังคับ): คุณสามารถระบุข้อความสั้นๆ เกี่ยวกับโปรเจ็กต์ของคุณซึ่งอธิบายว่ามีข้อมูลใดบ้างและผู้ใช้สามารถทำอะไรกับมันได้บ้าง
-- Version (จำเป็น): ระบุหมายเลขเวอร์ชันที่กำหนดเองหรือใช้ค่าเริ่มต้น (`1.0.0`)
-- License (จำเป็น): ระบุใบอนุญาตซอฟต์แวร์สำหรับโปรเจ็กต์นี้หรือใช้ค่าเริ่มต้น (`Apache-2.0`)
+- Network: A blockchain network that this SubQuery project will be developed to index
+- Template: Select a SubQuery project template that will provide a starting point to begin development
+- Git repository (Optional): Provide a Git URL to a repo that this SubQuery project will be hosted in (when hosted in SubQuery Explorer)
+- RPC endpoint (Required): Provide a websocket (wss) URL to a running RPC endpoint that will be used by default for this project. You can quickly access public endpoints for different Polkadot networks or even create your own private dedicated node using [OnFinality](https://app.onfinality.io) or just use the default Polkadot endpoint. This RPC node must be an archive node (have the full chain state).
+- Authors (Required): Enter the owner of this SubQuery project here
+- Description (Optional): You can provide a short paragraph about your project that describe what data it contains and what users can do with it
+- Version (Required): Enter a custom version number or use the default (`1.0.0`)
+- License (Required): Provide the software license for this project or accept the default (`Apache-2.0`)
 
 หลังจากกระบวนการในการเริ่มต้นเสร็จสมบูรณ์ คุณควรเห็นโฟลเดอร์ที่มีชื่อโปรเจ็กต์ของคุณถูกสร้างขึ้นภายในไดเร็กทอรี เนื้อหาของไดเร็กทอรีนี้ควรเหมือนกับที่ระบุไว้ใน [Directory Structure](../create/introduction.md#directory-structure)
 
