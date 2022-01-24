@@ -31,10 +31,10 @@
 
 ## 1. สร้างโปรเจ็กต์ของคุณ
 
-เริ่มสร้างโปรเจ็กต์ชื่อ subql_hellowworld และรันการติดตั้ง codegen และทำการ build ด้วยตัวจัดการแพ็คเกจที่คุณชื่นชอบ
+Let's create a project called subqlHelloWorld by running `subql init` and selecting to build the project with the `Polkadot` network and initialize the project with the `subql-starter` template. We must run the obligatory install, codegen and build with your favourite package manager.
 
 ```shell
-> subql init --starter subqlHelloWorld
+> subql init subqlHelloWorld
 yarn install
 yarn codegen
 yarn build
