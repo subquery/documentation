@@ -8,9 +8,10 @@ Bir SubQuery projesi oluştururken gerekli olan bazı bileşenler var. Alt sorgu
 
 Yarn veya NPM kullanarak SubQuery CLI'yi global biçimde terminalinize kurun:
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn global add @subql/cli ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```bash npm install -g @subql/cli ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="NPM"> ```bash npm install -g @subql/cli ``` </CodeGroupItem>
+<CodeGroupItem title="YARN" active> ```shell yarn global add @subql/cli ``` </CodeGroupItem> </CodeGroup>
 
-Ardından, CLI tarafından sağlanan kullanılabilir komutları ve kullanım biçimlerini görüntülemek için help komutunu çalıştırabilirsiniz:
+You can then run help to see available commands and usage provide by CLI:
 
 ```shell
 subql help
@@ -21,9 +22,10 @@ Bir SubQuery node'u, SubQuery projesindeki alt-tabanlı blok zinciri verilerini 
 
 Yarn veya NPM kullanarak SubQuery node'unu global biçimde terminalinize kurun:
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn global add @subql/node ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```bash npm install -g @subql/node ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="NPM"> ```bash npm install -g @subql/node ``` </CodeGroupItem>
+<CodeGroupItem title="YARN" active> ```shell yarn global add @subql/node ``` </CodeGroupItem> </CodeGroup>
 
-Kurulduktan sonra, aşağıdaki şekilde bir node başlatabilirsiniz:
+Once installed, you can can start a node with:
 
 ```shell
 subql-node <command>
@@ -36,7 +38,7 @@ SubQuery sorgu kütüphanesi, projenizi tarayıcınız aracılığıyla bir "ça
 
 Yarn veya NPM kullanarak SubQuery sorgusunu global biçimde terminalinize kurun:
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn global add @subql/query ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```bash npm install -g @subql/query ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="NPM"> ```bash npm install -g @subql/query ``` </CodeGroupItem>
+<CodeGroupItem title="YARN" active> ```shell yarn global add @subql/query ``` </CodeGroupItem> </CodeGroup>
 
 > Not: Docker kullanıyorsanız veya projenizi SubQuery Projelerinde barındırıyorsanız, bu adımı atlayabilirsiniz. Bunun nedeni, SubQuery node'unun Docker konteynerında ve barındırma altyapısında zaten sağlanmış olmasıdır. 
