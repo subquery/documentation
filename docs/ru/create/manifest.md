@@ -22,15 +22,21 @@
 
 ### Опции CLI
 
-Пока версия v0.2.0 находится в бете, вам необходимо определить ее во время инициализации проекта, запустив команду subql init --specVersion 0.2.0 проект_имя
+By default the CLI will generate SubQuery projects for spec verison v0.2.0. This behaviour can be overridden by running `subql init --specVersion 0.0.1 PROJECT_NAME`, although this is not recommended as the project will not be supported by the SubQuery hosted service in the future
 
 subql migrate функцию можно запустить в существующем проекте, чтобы мигрировать файл манифест проекта на последнюю версию.
 
-| Параметры      | Описание                                                                      |
-| -------------- | ----------------------------------------------------------------------------- |
-| f, --force     |                                                                               |
-| -l, --location | локальная папка для запуска параметра migrate (должна содержать project.yaml) |
-| --file=file    | для указания проекта yaml для миграции                                        |
+USAGE $ subql init [PROJECTNAME]
+
+ARGUMENTS PROJECTNAME  Give the starter project name
+
+| Параметры               | Описание                                                                     |
+| ----------------------- | ---------------------------------------------------------------------------- |
+| f, --force              |                                                                              |
+| -l, --location=location | local folder to create the project in                                        |
+| --install-dependencies  | Install dependencies as well                                                 |
+| --npm                   | Force using NPM instead of yarn, only works with `install-dependencies` flag |
+| --specVersion=0.0.1     | 0.2.0  [default: 0.2.0] | The spec version to be used by the project         |
 
 ## Обзор
 
@@ -64,14 +70,14 @@ subql migrate функцию можно запустить в существую
 
 ### Спецификация источника данных
 
-Определяет данные, которые будут отфильтрованы и извлечены, и местоположение обработчика функции отображения для применяемого преобразования данных.
-| Поле               | v0.0.1                                                    | v0.2.0                                        | Описание                                                                                                                                                                              |
-| ------------------ | --------------------------------------------------------- | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **имя**            | String                                                    | 𐄂                                             | Имя источника данных                                                                                                                                                                  |
-| **вид**            | [substrate/Runtime](./manifest/#data-sources-and-mapping) | substrate/Runtime, substrate/CustomDataSource | Мы поддерживаем такие типы данных, как block, event и extrinsic(call) Начиная с версии 0.2.0, мы поддерживаем данные из пользовательской среды исполнения, например, смарт-контракта. |
-| **начальный блок** | Integer                                                   | Integer                                       | Это изменяет начальный блок индексирования, установите это значение выше, чтобы пропускать начальные блоки с меньшим количеством данных                                               |
-| **картирование**   | Mapping Spec                                              | Mapping Spec                                  |                                                                                                                                                                                       |
-| **фильтр**         | [network-filters](./manifest/#network-filters)            | 𐄂                                             | Фильтр источника данных для выполнения по имени спецификации конечной точки сети                                                                                                      |
+Defines the data that will be filtered and extracted and the location of the mapping function handler for the data transformation to be applied.
+| Поле           | v0.0.1                                                    | v0.2.0                                                                           | Описание                                                                                                                                                                              |
+| -------------- | --------------------------------------------------------- | -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **имя**        | String                                                    | 𐄂                                                                                | Name of the data source                                                                                                                                                               |
+| **вид**        | [substrate/Runtime](./manifest/#data-sources-and-mapping) | substrate/Runtime, [substrate/CustomDataSource](./manifest/#custom-data-sources) | We supports data type from default substrate runtime such as block, event and extrinsic(call). <br /> From v0.2.0, we support data from custom runtime, such as smart contract. |
+| **startBlock** | Integer                                                   | Integer                                                                          | This changes your indexing start block, set this higher to skip initial blocks with less data                                                                                         |
+| **mapping**    | Mapping Spec                                              | Mapping Spec                                                                     |                                                                                                                                                                                       |
+| **фильтр**     | [network-filters](./manifest/#network-filters)            | 𐄂                                                                                | Filter the data source to execute by the network endpoint spec name                                                                                                                   |
 
 ### Mapping Spec
 
@@ -82,7 +88,7 @@ subql migrate функцию можно запустить в существую
 
 ## Источники данных и картирование
 
-В этом разделе мы поговорим о времени выполнения субстрата по умолчанию и его отображении. Вот пример:
+In this section, we will talk about the default substrate runtime and its mapping. Here is an example:
 
 ```yaml
 dataSources:
@@ -94,9 +100,9 @@ dataSources:
 
 ### Обработчики и фильтры по умолчанию
 
-В следующей таблице объяснены фильтры, поддерживаемые различными обработчиками.
+The following table explains filters supported by different handlers.
 
-**Ваш SubQuery проект будет намного эффективнее, если вы будете использовать только обработчики событий и вызовов с соответствующими фильтрами сопоставления**
+**Your SubQuery project will be much more efficient when you only use event and call handlers with appropriate mapping filters**
 
 | Обработчик                                       | Поддерживаемый фильтр |
 | ------------------------------------------------ | --------------------- |
@@ -104,9 +110,9 @@ dataSources:
 | [Обработчик событий](./mapping.md#event-handler) | модуль,метод          |
 | [Обработчик вызовов](./mapping.md#call-handler)  | модуль,метод ,успех   |
 
-Фильтры сопоставления по умолчанию являются чрезвычайно полезной функцией, позволяющей решить, какой блок, событие или внешнее свойство вызовет обработчик сопоставления.
+Default runtime mapping filters are an extremely useful feature to decide what block, event, or extrinsic will trigger a mapping handler.
 
-Только входящие данные, которые удовлетворяют условиям фильтра, будут обработаны функциями сопоставления. Фильтры отображения являются необязательными, но они настоятельно рекомендуются, поскольку они значительно уменьшают объем данных, обрабатываемых вашим проектом SubQuery, и улучшают производительность индексирования.
+Only incoming data that satisfy the filter conditions will be processed by the mapping functions. Mapping filters are optional but are highly recommended as they significantly reduce the amount of data processed by your SubQuery project and will improve indexing performance.
 
 ```yaml
 # Пример фильтра из обработчика вызовов
@@ -131,26 +137,26 @@ filter:
 
 ### Спецификация сети
 
-При подключении к другому парачейну в сети Polkadot или даже к пользовательской сети субстрата, вам нужно отредактировать раздел Network Spec этого манифеста.
+When connecting to a different Polkadot parachain or even a custom substrate chain, you'll need to edit the [Network Spec](#network-spec) section of this manifest.
 
-`genesisHash` должен всегда быть хешем первого блока пользовательской сети. Вы можете это легко устранить, перейдя в [PolkadotJS](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fkusama.api.onfinality.io%2Fpublic-ws#/explorer/query/0) и находясь на **блоке 0** (см. изображение ниже).
+The `genesisHash` must always be the hash of the first block of the custom network. You can retireve this easily by going to [PolkadotJS](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fkusama.api.onfinality.io%2Fpublic-ws#/explorer/query/0) and looking for the hash on **block 0** (see the image below).
 
 ![Genesis Hash](/assets/img/genesis-hash.jpg)
 
-Кроме того, вам нужно будет обновить `конечную точку`. Определяет конечную точку wss или ws блокчейна для индексирования - Это должен быть узел полного архива. В OnFinality, Вы можете бесплатно получить конечные точки для всех парачейнов
+Additionally you will need to update the `endpoint`. This defines the wss endpoint of the blockchain to be indexed - **This must be a full archive node**. В OnFinality, Вы можете бесплатно получить конечные точки для всех парачейнов
 
 ### Типы цепи
 
-Вы можете проиндексировать данные из пользовательских цепей, включив в манифест также типы цепей.
+You can index data from custom chains by also including chain types in the manifest.
 
-Мы поддерживаем дополнительные типы, используемые модулями рабочего времени substrate, `typesAlias`, Также поддерживаются `typesBundle`, `typesChain`, и `typesSpec`.
+We support the additional types used by substrate runtime modules, `typesAlias`, `typesBundle`, `typesChain`, and `typesSpec` are also supported.
 
-В примере ниже v0.2.0, сеть `. haintypes` указывают на файл, в который включены все пользовательские типы, Это стандартный файл цепочки, который определяет конкретные типы, поддерживаемые блокчейном либо в `. формат son` или `.yaml`.
+In the v0.2.0 example below, the `network.chaintypes` are pointing to a file that has all the custom types included, This is a standard chainspec file that declares the specific types supported by this blockchain in either `.json`, `.yaml` or `.js` format.
 
-<CodeGroup> <CodeGroupItem title="v0.2.0" active> ``` yml сети: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' endpoint: 'ws://host. ittychain.io/public-ws' chaintypes: file: ./types.json # Относительный путь к которому хранятся пользовательские типы ... ``` </CodeGroupItem>
-<CodeGroupItem title="v0.0.1"> ``` yml ... network: endpoint: «ws://host.kittychain. o/public-ws" типы: { "KittyIndex": "u32", "Kitty": "[u8; 16]" } # typesChain: { chain: { Type5: 'example' } } # typesSpec: { spec: { Type6: 'example' } } dataSources: - name: runtime kind: substrate/Runtime startBlock: 1 filter: #Optional specName: kitty-chain mapping: handlers: - обработчик: handleKittyBred kind: substrate/CallHandler filter: module: kitties method: breed success: true ``` </CodeGroupItem> </CodeGroup></p>
+<CodeGroup> <CodeGroupItem title="v0.2.0" active> ``` yml network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' endpoint: 'ws://host.kittychain.io/public-ws' chaintypes: file: ./types.json # The relative filepath to where custom types are stored ... ``` </CodeGroupItem>
+<CodeGroupItem title="v0.0.1"> ``` yml ... network: endpoint: "ws://host.kittychain.io/public-ws" types: { "KittyIndex": "u32", "Kitty": "[u8; 16]" } # typesChain: { chain: { Type5: 'example' } } # typesSpec: { spec: { Type6: 'example' } } dataSources: - name: runtime kind: substrate/Runtime startBlock: 1 filter:  #Optional specName: kitty-chain mapping: handlers: - handler: handleKittyBred kind: substrate/CallHandler filter: module: kitties method: breed success: true ``` </CodeGroupItem> </CodeGroup>
 
-Чтобы использовать typescript для вашего файла типов цепи включают его в папку `src` (e. . `./src/типов. с`), запустите `yarn build` , а затем укажите сгенерированный js файл, расположенный в папке `dist`.
+To use typescript for your chain types file include it in the `src` folder (e.g. `./src/types.ts`), run `yarn build` and then point to the generated js file located in the `dist` folder.
 
 ```yml
 network:
@@ -159,42 +165,40 @@ network:
 ...
 ```
 
-При использовании файла типов цепочек с расширением .ts или .js:
+Things to note about using the chain types file with extension `.ts` or `.js`:
 
 - Версия вашего manifest должна быть v0.2.0 или выше.
 - При выборке блоков только экспорт по умолчанию будет включен в polkadot api.
 
-Вот пример файла типов цепочек `.ts`:
+Here is an example of a `.ts` chain types file:
 
 <CodeGroup> <CodeGroupItem title="types.ts"> ```ts
 import { typesBundleDeprecated } from "moonbeam-types-bundle"
 export default { typesBundle: typesBundleDeprecated }; ``` </CodeGroupItem> </CodeGroup>
 
-## Пользовательские источники данных
+## Custom Data Sources
 
-Настраиваемые источники данных предоставляют специфические для сети функциональные возможности, облегчающие работу с данными. Они служат средним ПО, которое может обеспечить дополнительную фильтрацию и преобразование данных.
+Custom Data Sources provide network specific functionality that makes dealing with data easier. They act as a middleware that can provide extra filtering and data transformation.
 
-Хороший пример поддержки EVM, создание собственного процессора данных для EVM означает, что вы можете фильтровать на EVM уровне (e. фильтровать контрактные методы или журналы) и данные трансформируются в структуры farmiliar в экосистему Ethereum, а также анализировать параметры с АБИ.
+A good example of this is EVM support, having a custom data source processor for EVM means that you can filter at the EVM level (e.g. filter contract methods or logs) and data is transformed into structures farmiliar to the Ethereum ecosystem as well as parsing parameters with ABIs.
 
-Пользовательские источники данных могут использоваться с обычными источниками данных.
+Custom Data Sources can be used with normal data sources.
 
-Вот список пользовательских источников данных:
+Here is a list of supported custom datasources:
 
-[ Подсветки/Луны](./moonbeam/#data-source-example)</td> 
+| Kind                                                  | Supported Handlers                                                                                       | Filters                         | Description                                                                      |
+| ----------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | ------------------------------- | -------------------------------------------------------------------------------- |
+| [substrate/Moonbeam](./moonbeam/#data-source-example) | [substrate/MoonbeamEvent](./moonbeam/#moonbeamevent), [substrate/MoonbeamCall](./moonbeam/#moonbeamcall) | See filters under each handlers | Provides easy interaction with EVM transactions and events on Moonbeams networks |
 
-</tr> </tbody> </table> 
+## Network Filters
 
+**Network filters only applies to manifest spec v0.0.1**.
 
+Usually the user will create a SubQuery and expect to reuse it for both their testnet and mainnet environments (e.g Polkadot and Kusama). Between networks, various options are likely to be different (e.g. index start block). Therefore, we allow users to define different details for each data source which means that one SubQuery project can still be used across multiple networks.
 
-## Сетевые Фильтры
+Users can add a `filter` on `dataSources` to decide which data source to run on each network.
 
-**Сетевые фильтры применяются только к спецификации v0..1**.
-
-Обычно, пользователь создаст подзапрос и ожидает повторного использования его как в testnet, так и в материнской сети (e. Полкадот и Кусама). Между сетями различные опции, вероятно, отличаются (например, стартовый блок индекса). Поэтому мы позволяем пользователям определять различные детали для каждого источника данных, что означает, что один проект SubQuery может использоваться в нескольких сетях.
-
-Пользователи могут добавить ` filter ` на `dataSources`, чтобы решить, какой источник данных запускать в каждой сети.
-
-Ниже приведен пример, который показывает различные источники данных как для Polkadot так и для Kusama.
+Below is an example that shows different data sources for both the Polkadot and Kusama networks.
 
 <CodeGroup> <CodeGroupItem title="v0.0.1"> ```yaml --- network: endpoint: 'wss://polkadot.api.onfinality.io/public-ws' #Create a template to avoid redundancy definitions: mapping: &mymapping handlers: - handler: handleBlock kind: substrate/BlockHandler dataSources: - name: polkadotRuntime kind: substrate/Runtime filter: #Optional specName: polkadot startBlock: 1000 mapping: *mymapping #use template here - name: kusamaRuntime kind: substrate/Runtime filter: specName: kusama startBlock: 12000 mapping: *mymapping # can reuse or change ``` </CodeGroupItem>
 
