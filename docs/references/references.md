@@ -329,7 +329,9 @@ Set a custom url for the location of the endpoints of the indexer, the query ser
 
 ### --unsafe
 
-The query service has a limit of 100 entities for unbounded graphql queries. The unsafe flag removes this limit which may cause strain on the query service. It is recommended instead that queries are [paginated](https://graphql.org/learn/pagination/). Note that the SubQuery hosted service does not support the unsafe flag.
+The query service has a limit of 100 entities for unbounded graphql queries. The unsafe flag removes this limit which may cause performance issues on the query service. It is recommended instead that queries are [paginated](https://graphql.org/learn/pagination/).
+
+Note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in SubQuery's managed service (https://project.subquery.network).
 
 ### --port
 
