@@ -22,15 +22,21 @@ Under `dataSources`:
 
 ### CLI Options
 
-Mentre la versione delle specifiche v0.2.0 è in versione beta, dovrai definirla esplicitamente durante l'inizializzazione del progetto eseguendo `subql init --specVersion 0.2.0 PROJECT_NAME`
+By default the CLI will generate SubQuery projects for spec verison v0.2.0. This behaviour can be overridden by running `subql init --specVersion 0.0.1 PROJECT_NAME`, although this is not recommended as the project will not be supported by the SubQuery hosted service in the future
 
 `subql migrate` can be run in an existing project to migrate the project manifest to the latest version.
 
-| Options        | Description                                                                 |
-| -------------- | --------------------------------------------------------------------------- |
-| -f, --force    |                                                                             |
-| -l, --location | cartella locale in cui eseguire la migrazione (deve contenere project.yaml) |
-| --file=file    | to specify the project.yaml to migrate                                      |
+USAGE $ subql init [PROJECTNAME]
+
+ARGUMENTS PROJECTNAME  Give the starter project name
+
+| Options                 | Description                                                                  |
+| ----------------------- | ---------------------------------------------------------------------------- |
+| -f, --force             |                                                                              |
+| -l, --location=location | local folder to create the project in                                        |
+| --install-dependencies  | Install dependencies as well                                                 |
+| --npm                   | Force using NPM instead of yarn, only works with `install-dependencies` flag |
+| --specVersion=0.0.1     | 0.2.0  [default: 0.2.0] | The spec version to be used by the project         |
 
 ## Overview
 
@@ -64,14 +70,14 @@ Mentre la versione delle specifiche v0.2.0 è in versione beta, dovrai definirla
 
 ### Datasource Spec
 
-Definisce i dati che verranno filtrati ed estratti e la posizione del gestore della funzione di mappatura per la trasformazione dei dati da applicare.
+Defines the data that will be filtered and extracted and the location of the mapping function handler for the data transformation to be applied.
 | Field          | v0.0.1                                                    | v0.2.0                                                                           | Description                                                                                                                                                                           |
 | -------------- | --------------------------------------------------------- | -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **name**       | String                                                    | 𐄂                                                                                | Name of the data source                                                                                                                                                               |
 | **kind**       | [substrate/Runtime](./manifest/#data-sources-and-mapping) | substrate/Runtime, [substrate/CustomDataSource](./manifest/#custom-data-sources) | We supports data type from default substrate runtime such as block, event and extrinsic(call). <br /> From v0.2.0, we support data from custom runtime, such as smart contract. |
-| **startBlock** | Integer                                                   | Integer                                                                          | Questo cambia il blocco iniziale dell'indicizzazione, impostalo su un valore più alto per saltare i blocchi iniziali con meno dati                                                    |
+| **startBlock** | Integer                                                   | Integer                                                                          | This changes your indexing start block, set this higher to skip initial blocks with less data                                                                                         |
 | **mapping**    | Mapping Spec                                              | Mapping Spec                                                                     |                                                                                                                                                                                       |
-| **filter**     | [network-filters](./manifest/#network-filters)            | 𐄂                                                                                | Filtra l'origine dati da eseguire in base al nome della specifica dell'endpoint di rete                                                                                               |
+| **filter**     | [network-filters](./manifest/#network-filters)            | 𐄂                                                                                | Filter the data source to execute by the network endpoint spec name                                                                                                                   |
 
 ### Mapping Spec
 
@@ -82,7 +88,7 @@ Definisce i dati che verranno filtrati ed estratti e la posizione del gestore de
 
 ## Data Sources and Mapping
 
-In questa sezione parleremo del runtime di substrato predefinito e della sua mappatura. Here is an example:
+In this section, we will talk about the default substrate runtime and its mapping. Here is an example:
 
 ```yaml
 dataSources:
@@ -94,9 +100,9 @@ dataSources:
 
 ### Mapping handlers and Filters
 
-La tabella seguente illustra i filtri supportati da diversi gestori.
+The following table explains filters supported by different handlers.
 
-**Il tuo progetto SubQuery sarà molto più efficiente quando utilizzerai solo gestori di eventi e chiamate con filtri di mappatura appropriati**
+**Your SubQuery project will be much more efficient when you only use event and call handlers with appropriate mapping filters**
 
 | Handler                                    | Supported filter             |
 | ------------------------------------------ | ---------------------------- |
@@ -104,9 +110,9 @@ La tabella seguente illustra i filtri supportati da diversi gestori.
 | [EventHandler](./mapping.md#event-handler) | `module`,`method`            |
 | [CallHandler](./mapping.md#call-handler)   | `module`,`method` ,`success` |
 
-I filtri di mappatura di runtime predefiniti sono una funzionalità estremamente utile per decidere quale blocco, evento o estrinseco attiverà un gestore di mappatura.
+Default runtime mapping filters are an extremely useful feature to decide what block, event, or extrinsic will trigger a mapping handler.
 
-Solo i dati in entrata che soddisfano le condizioni di filtro verranno elaborati dalle funzioni di mappatura. I filtri di mappatura sono facoltativi ma sono altamente consigliati in quanto riducono significativamente la quantità di dati elaborati dal progetto SubQuery e migliorano le prestazioni dell'indicizzazione.
+Only incoming data that satisfy the filter conditions will be processed by the mapping functions. Mapping filters are optional but are highly recommended as they significantly reduce the amount of data processed by your SubQuery project and will improve indexing performance.
 
 ```yaml
 # Example filter from callHandler
@@ -147,7 +153,8 @@ We support the additional types used by substrate runtime modules, `typesAlias`,
 
 In the v0.2.0 example below, the `network.chaintypes` are pointing to a file that has all the custom types included, This is a standard chainspec file that declares the specific types supported by this blockchain in either `.json`, `.yaml` or `.js` format.
 
-<CodeGroup> <CodeGroupItem title="v0.2.0" active> ``` yml network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' endpoint: 'ws://host.kittychain.io/public-ws' chaintypes: file: ./types.json # The relative filepath to where custom types are stored ... ``` </CodeGroupItem> <CodeGroupItem title="v0.0.1"> ``` yml ... network: endpoint: "ws://host.kittychain.io/public-ws" types: { "KittyIndex": "u32", "Kitty": "[u8; 16]" } # typesChain: { chain: { Type5: 'example' } } # typesSpec: { spec: { Type6: 'example' } } dataSources: - name: runtime kind: substrate/Runtime startBlock: 1 filter:  #Optional specName: kitty-chain mapping: handlers: - handler: handleKittyBred kind: substrate/CallHandler filter: module: kitties method: breed success: true ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="v0.2.0" active> ``` yml network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' endpoint: 'ws://host.kittychain.io/public-ws' chaintypes: file: ./types.json # The relative filepath to where custom types are stored ... ``` </CodeGroupItem>
+<CodeGroupItem title="v0.0.1"> ``` yml ... network: endpoint: "ws://host.kittychain.io/public-ws" types: { "KittyIndex": "u32", "Kitty": "[u8; 16]" } # typesChain: { chain: { Type5: 'example' } } # typesSpec: { spec: { Type6: 'example' } } dataSources: - name: runtime kind: substrate/Runtime startBlock: 1 filter:  #Optional specName: kitty-chain mapping: handlers: - handler: handleKittyBred kind: substrate/CallHandler filter: module: kitties method: breed success: true ``` </CodeGroupItem> </CodeGroup>
 
 To use typescript for your chain types file include it in the `src` folder (e.g. `./src/types.ts`), run `yarn build` and then point to the generated js file located in the `dist` folder.
 
@@ -158,12 +165,12 @@ network:
 ...
 ```
 
-Cose da notare sull'utilizzo del file dei tipi di catena con estensione `.ts` o `.js`:
+Things to note about using the chain types file with extension `.ts` or `.js`:
 
 - La tua versione manifest deve essere v0.2.0 o successiva.
 - Solo l'esportazione predefinita verrà inclusa nell'[polkadot api](https://polkadot.js.org/docs/api/start/types.extend/) durante il recupero dei blocchi.
 
-Ecco un esempio di un file di tipi di catena `.ts`:
+Here is an example of a `.ts` chain types file:
 
 <CodeGroup> <CodeGroupItem title="types.ts"> ```ts
 import { typesBundleDeprecated } from "moonbeam-types-bundle"
@@ -187,11 +194,11 @@ Here is a list of supported custom datasources:
 
 **Network filters only applies to manifest spec v0.0.1**.
 
-Usually the user will create a SubQuery and expect to reuse it for both their testnet and mainnet environments (e.g Polkadot and Kusama). Tra le reti, è probabile che varie opzioni siano diverse (ad es. blocco di inizio dell'indice). Therefore, we allow users to define different details for each data source which means that one SubQuery project can still be used across multiple networks.
+Usually the user will create a SubQuery and expect to reuse it for both their testnet and mainnet environments (e.g Polkadot and Kusama). Between networks, various options are likely to be different (e.g. index start block). Therefore, we allow users to define different details for each data source which means that one SubQuery project can still be used across multiple networks.
 
 Users can add a `filter` on `dataSources` to decide which data source to run on each network.
 
-Di seguito è riportato un esempio che mostra diverse origini dati per le reti Polkadot e Kusama.
+Below is an example that shows different data sources for both the Polkadot and Kusama networks.
 
 <CodeGroup> <CodeGroupItem title="v0.0.1"> ```yaml --- network: endpoint: 'wss://polkadot.api.onfinality.io/public-ws' #Create a template to avoid redundancy definitions: mapping: &mymapping handlers: - handler: handleBlock kind: substrate/BlockHandler dataSources: - name: polkadotRuntime kind: substrate/Runtime filter: #Optional specName: polkadot startBlock: 1000 mapping: *mymapping #use template here - name: kusamaRuntime kind: substrate/Runtime filter: specName: kusama startBlock: 12000 mapping: *mymapping # can reuse or change ``` </CodeGroupItem>
 
