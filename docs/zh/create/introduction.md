@@ -51,7 +51,7 @@ yarn 编码器
 
 从项目的根目录运行构建命令。
 
-<CodeGroup> `console.log` 方法**不再受支持**。 相反， `Logger` 模块已被注入到类型中，这意味着我们可以支持一个可以接受不同日志级别的logger。
+`console.log` 方法**不再受支持**。 相反， `Logger` 模块已被注入到类型中，这意味着我们可以支持一个可以接受不同日志级别的logger。
 
 ```typescript
 logger.info('Info level message');
