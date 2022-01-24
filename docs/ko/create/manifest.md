@@ -22,15 +22,21 @@ Manifest `project.yaml` 파일은 프로젝트의 시작점으로 볼 수 있으
 
 ### CLI 옵션
 
-현재 v0.2.0 사양 버전은 베타 버전이나, 프로젝트 초기화 과정에서 `subql init --specVersion 0.2.0 PROJECT_NAME`을 실행하여 에 이를 명시적으로 정의해야 합니다.
+By default the CLI will generate SubQuery projects for spec verison v0.2.0. This behaviour can be overridden by running `subql init --specVersion 0.0.1 PROJECT_NAME`, although this is not recommended as the project will not be supported by the SubQuery hosted service in the future
 
 `subql migrate`는 기존 프로젝트에서 실행하여 프로젝트 Manifest를 최신 버전으로 마이그레이션할 수 있습니다.
 
-| 옵션             | 설명                                          |
-| -------------- | ------------------------------------------- |
-| -f, --force    |                                             |
-| -l, --location | 마이그레이션을 실행할 로컬 폴더 (반드시 project.yaml 포함해야 함) |
-| --file=file    | 마이그레이션할 project.yaml을 지정                    |
+USAGE $ subql init [PROJECTNAME]
+
+ARGUMENTS PROJECTNAME  Give the starter project name
+
+| 옵션                      | 설명                                                                           |
+| ----------------------- | ---------------------------------------------------------------------------- |
+| -f, --force             |                                                                              |
+| -l, --location=location | local folder to create the project in                                        |
+| --install-dependencies  | Install dependencies as well                                                 |
+| --npm                   | Force using NPM instead of yarn, only works with `install-dependencies` flag |
+| --specVersion=0.0.1     | 0.2.0  [default: 0.2.0] | The spec version to be used by the project         |
 
 ## 개요
 
@@ -64,14 +70,14 @@ Manifest `project.yaml` 파일은 프로젝트의 시작점으로 볼 수 있으
 
 ### DataSource 사양
 
-DataSources는, 필터링 및 추출하는 데이터와 적용하는 데이터 변환의 맵핑 기능 핸들러의 장소를 정의합니다.
-| 필드             | v0.0.1                                                    | v0.2.0                                                                           | 설명                                                                                                                    |
-| -------------- | --------------------------------------------------------- | -------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| **name**       | String                                                    | 𐄂                                                                                | DataSource의 이름                                                                                                        |
-| **kind**       | [substrate/Runtime](./manifest/#data-sources-and-mapping) | substrate/Runtime, [substrate/CustomDataSource](./manifest/#custom-data-sources) | 블록, 이벤트와 외인성 등의 기본적인 substrate 런타임으로부터의 데이터 유형을 지원합니다. <br /> v0.2.0 버전부터, 스마트컨트랙트와 같은 커스텀 런타임으로부터의 데이터를 지원합니다. |
-| **startBlock** | Integer                                                   | Integer                                                                          | 이것은 여러분의 블록생성을 인덱싱하는 것을 바꾸고, 더 적은 데이터와 초기블록들을 스킵하도록 세팅합니다.                                                            |
-| **mapping**    | Mapping Spec                                              | Mapping Spec                                                                     |                                                                                                                       |
-| **filter**     | [network-filters](./manifest/#network-filters)            | 𐄂                                                                                | 네트워크 endpoint 사양 이름으로 실행하기 위한 data source를 필터링 하세요                                                                    |
+Defines the data that will be filtered and extracted and the location of the mapping function handler for the data transformation to be applied.
+| 필드             | v0.0.1                                                    | v0.2.0                                                                           | 설명                                                                                                                                                                                    |
+| -------------- | --------------------------------------------------------- | -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **name**       | String                                                    | 𐄂                                                                                | Name of the data source                                                                                                                                                               |
+| **kind**       | [substrate/Runtime](./manifest/#data-sources-and-mapping) | substrate/Runtime, [substrate/CustomDataSource](./manifest/#custom-data-sources) | We supports data type from default substrate runtime such as block, event and extrinsic(call). <br /> From v0.2.0, we support data from custom runtime, such as smart contract. |
+| **startBlock** | Integer                                                   | Integer                                                                          | This changes your indexing start block, set this higher to skip initial blocks with less data                                                                                         |
+| **mapping**    | Mapping Spec                                              | Mapping Spec                                                                     |                                                                                                                                                                                       |
+| **filter**     | [network-filters](./manifest/#network-filters)            | 𐄂                                                                                | Filter the data source to execute by the network endpoint spec name                                                                                                                   |
 
 ### Mapping Spec
 
@@ -82,7 +88,7 @@ DataSources는, 필터링 및 추출하는 데이터와 적용하는 데이터 �
 
 ## Data Source와 맵핑
 
-이 섹션에서는 기본 substrate 런타임과 맵핑을 알아보려고 합니다. 아래 예제를 참고하세요:
+In this section, we will talk about the default substrate runtime and its mapping. Here is an example:
 
 ```yaml
 dataSources:
@@ -94,9 +100,9 @@ dataSources:
 
 ### 맵핑 핸들러와 필터
 
-다음 표는 다양한 핸들러로 지원되는 필터를 나타냅니다.
+The following table explains filters supported by different handlers.
 
-**여러분의 서브쿼리 프로젝트는 적절한 맵핑 필터를 포함한 핸들러나 이벤트를 사용할 때만 더 효율적으로 구동됩니다**
+**Your SubQuery project will be much more efficient when you only use event and call handlers with appropriate mapping filters**
 
 | 핸들러                                   | 지원되는 필터                      |
 | ------------------------------------- | ---------------------------- |
@@ -104,9 +110,9 @@ dataSources:
 | [이벤트 핸들러](./mapping.md#event-handler) | `module`,`method`            |
 | [콜핸들러](./mapping.md#call-handler)     | `module`,`method` ,`success` |
 
-기본 런타임 맵핑 필터는 블록과 이벤트, 맵핑 핸들러를 트리거 하는 외인성 등을 결정하는 데 매우 유용합니다.
+Default runtime mapping filters are an extremely useful feature to decide what block, event, or extrinsic will trigger a mapping handler.
 
-맵핑 기능에 의해서 처리되는 것은, 필터 조건에 맞는 착신 데이터 뿐입니다. 맵핑 필터는 옵션이지만 SubQuery 프로젝트에서 처리되는 데이터 양이 대폭 줄어들고 인덱스 성능이 향상되므로 매우 권장됩니다.
+Only incoming data that satisfy the filter conditions will be processed by the mapping functions. Mapping filters are optional but are highly recommended as they significantly reduce the amount of data processed by your SubQuery project and will improve indexing performance.
 
 ```yaml
 # 콜핸들러의 필터 예제
@@ -131,23 +137,24 @@ filter:
 
 ### 네트워크 스펙
 
-다른 폴카닷 파라체인이나 커스텀 substrate 체인에 연결할 때, 이 manifest의 [Network Spec](#network-spec) 섹션을 수정해야 합니다.
+When connecting to a different Polkadot parachain or even a custom substrate chain, you'll need to edit the [Network Spec](#network-spec) section of this manifest.
 
-`genesisHash` 는 항상 커스텀 네트워크의 첫번째 블록의 해쉬가 되어야 합니다. [PolkadotJS](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fkusama.api.onfinality.io%2Fpublic-ws#/explorer/query/0) 에서 **block 0**의 해쉬를 찾음으로써 쉽게 검색할 수 있습니다(아래의 이미지를 참고하세요).
+The `genesisHash` must always be the hash of the first block of the custom network. You can retireve this easily by going to [PolkadotJS](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fkusama.api.onfinality.io%2Fpublic-ws#/explorer/query/0) and looking for the hash on **block 0** (see the image below).
 
 ![Genesis Hash](/assets/img/genesis-hash.jpg)
 
-추가적으로 `endpoint`를 업데이트해야 합니다. 이것은 인덱싱할 블록체인의 wss 엔드포인트를 정의합니다. **전체 아카이브 노드여야 합니다**. [OnFinality](https://app.onfinality.io)에서 모든 파라체인의 endpoint를 무료로 검색할 수 있습니다
+Additionally you will need to update the `endpoint`. This defines the wss endpoint of the blockchain to be indexed - **This must be a full archive node**. [OnFinality](https://app.onfinality.io)에서 모든 파라체인의 endpoint를 무료로 검색할 수 있습니다
 
 ### 체인 유형
 
-Manifest에 체인 유형도 포함하여 사용자 지정 체인의 데이터를 인덱싱할 수 있습니다.
+You can index data from custom chains by also including chain types in the manifest.
 
-Substrate 런타임 모듈에서 사용하는 추가 유형과 `typesAlias`, `typesBundle`, `typesChain` 및 `typesSpec`을 지원합니다.
+We support the additional types used by substrate runtime modules, `typesAlias`, `typesBundle`, `typesChain`, and `typesSpec` are also supported.
 
-아래 v0.2.0 예시에서 `network.chaintypes`는 모든 사용자 정의 유형이 포함된 파일을 가리키고 있습니다. 이것은 블록체인이 지원하는 특정 유형을 `.json`, `.yaml` 또는 `.js` 포맷으로 선언하는 표준 체인사양 파일입니다.
+In the v0.2.0 example below, the `network.chaintypes` are pointing to a file that has all the custom types included, This is a standard chainspec file that declares the specific types supported by this blockchain in either `.json`, `.yaml` or `.js` format.
 
-<CodeGroup> <CodeGroupItem title="v0.2.0" active> ``` yml network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' endpoint: 'ws://host.kittychain.io/public-ws' chaintypes: file: ./types.json # The relative filepath to where custom types are stored ... ``` </CodeGroupItem> <CodeGroupItem title="v0.0.1"> ``` yml ... network: endpoint: "ws://host.kittychain.io/public-ws" types: { "KittyIndex": "u32", "Kitty": "[u8; 16]" } # typesChain: { chain: { Type5: 'example' } } # typesSpec: { spec: { Type6: 'example' } } dataSources: - name: runtime kind: substrate/Runtime startBlock: 1 filter:  #Optional specName: kitty-chain mapping: handlers: - handler: handleKittyBred kind: substrate/CallHandler filter: module: kitties method: breed success: true ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="v0.2.0" active> ``` yml network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' endpoint: 'ws://host.kittychain.io/public-ws' chaintypes: file: ./types.json # The relative filepath to where custom types are stored ... ``` </CodeGroupItem>
+<CodeGroupItem title="v0.0.1"> ``` yml ... network: endpoint: "ws://host.kittychain.io/public-ws" types: { "KittyIndex": "u32", "Kitty": "[u8; 16]" } # typesChain: { chain: { Type5: 'example' } } # typesSpec: { spec: { Type6: 'example' } } dataSources: - name: runtime kind: substrate/Runtime startBlock: 1 filter:  #Optional specName: kitty-chain mapping: handlers: - handler: handleKittyBred kind: substrate/CallHandler filter: module: kitties method: breed success: true ``` </CodeGroupItem> </CodeGroup>
 
 To use typescript for your chain types file include it in the `src` folder (e.g. `./src/types.ts`), run `yarn build` and then point to the generated js file located in the `dist` folder.
 
@@ -158,40 +165,40 @@ network:
 ...
 ```
 
-`.ts` or `.js` 확장자를 갖는 체인 유형 파일 사용 시, 주의할 점:
+Things to note about using the chain types file with extension `.ts` or `.js`:
 
 - Manifest 버전은 v0.2.0 이상이어야 합니다.
 - 블록을 가져올 때 기본 내보내기만 [polkadot api](https://polkadot.js.org/docs/api/start/types.extend/)에 포함됩니다.
 
-다음은 `.ts` 체인 유형 파일의 예입니다.
+Here is an example of a `.ts` chain types file:
 
 <CodeGroup> <CodeGroupItem title="types.ts"> ```ts
 import { typesBundleDeprecated } from "moonbeam-types-bundle"
 export default { typesBundle: typesBundleDeprecated }; ``` </CodeGroupItem> </CodeGroup>
 
-## 사용자 정의 데이터 소스
+## Custom Data Sources
 
-사용자 지정 데이터 소스는 데이터를 더 쉽게 처리할 수 있도록 하는 네트워크 기능을 제공합니다. 추가 필터링 및 데이터 변환을 제공할 수 있는 미들웨어 역할을 합니다.
+Custom Data Sources provide network specific functionality that makes dealing with data easier. They act as a middleware that can provide extra filtering and data transformation.
 
-이에 대한 좋은 예는 EVM 지원입니다. EVM을 위한 사용자 정의 데이터 소스 프로세서가 있다는 것은 EVM 레벨에서 필터링할 수 있음(예: 필터 계약 방법 또는 로그)과 데이터는 ABI를 사용하여 매개변수를 파싱할 뿐만 아니라 이더리움 생태계에 친숙한 구조로 변환됨을 의미합니다.
+A good example of this is EVM support, having a custom data source processor for EVM means that you can filter at the EVM level (e.g. filter contract methods or logs) and data is transformed into structures farmiliar to the Ethereum ecosystem as well as parsing parameters with ABIs.
 
-사용자 정의 데이터 소스는 일반 데이터 소스와 함께 사용할 수 있습니다.
+Custom Data Sources can be used with normal data sources.
 
-다음은 지원되는 사용자 지정 데이터 소스 목록입니다:
+Here is a list of supported custom datasources:
 
-| 종류                                                    | 지원되는 핸들러                                                                                                 | 필터           | 설명                                            |
-| ----------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | ------------ | --------------------------------------------- |
-| [substrate/Moonbeam](./moonbeam/#data-source-example) | [substrate/MoonbeamEvent](./moonbeam/#moonbeamevent), [substrate/MoonbeamCall](./moonbeam/#moonbeamcall) | 각 핸들러의 필터 참조 | Moonbeams 네트워크에서 EVM 트랜잭션 및 이벤트와 손쉬운 상호 작용 제공 |
+| Kind                                                  | Supported Handlers                                                                                       | Filters                         | Description                                                                      |
+| ----------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | ------------------------------- | -------------------------------------------------------------------------------- |
+| [substrate/Moonbeam](./moonbeam/#data-source-example) | [substrate/MoonbeamEvent](./moonbeam/#moonbeamevent), [substrate/MoonbeamCall](./moonbeam/#moonbeamcall) | See filters under each handlers | Provides easy interaction with EVM transactions and events on Moonbeams networks |
 
-## 네트워크 필터
+## Network Filters
 
-**네트워크 필터는 Manifest 사양 v0.0.1에만 적용됩니다.**.
+**Network filters only applies to manifest spec v0.0.1**.
 
-일반적으로 사용자는 SubQuery를 만들고 테스트넷과 메인넷 환경(예: Polkadot 및 Kusama) 모두에서 재사용할 것으로 예상합니다. 네트워크 간에는 여러 옵션이 다를 수 있습니다(예: 인덱스 시작 블록). 따라서 사용자는 각 데이터 소스에 대해 서로 다른 세부정보를 정의함으로써 하나의 SubQuery 프로젝트를 여러 네트워크에서 계속 사용할 수 있습니다.
+Usually the user will create a SubQuery and expect to reuse it for both their testnet and mainnet environments (e.g Polkadot and Kusama). Between networks, various options are likely to be different (e.g. index start block). Therefore, we allow users to define different details for each data source which means that one SubQuery project can still be used across multiple networks.
 
-사용자는 `dataSources`에 `필터`를 추가하여 각 네트워크에서 실행할 데이터 소스를 결정할 수 있습니다.
+Users can add a `filter` on `dataSources` to decide which data source to run on each network.
 
-다음은 Polkadot 및 Kusama 네트워크에 서로 다른 데이터 소스를 적용하는 예입니다.
+Below is an example that shows different data sources for both the Polkadot and Kusama networks.
 
 <CodeGroup> <CodeGroupItem title="v0.0.1"> ```yaml --- network: endpoint: 'wss://polkadot.api.onfinality.io/public-ws' #Create a template to avoid redundancy definitions: mapping: &mymapping handlers: - handler: handleBlock kind: substrate/BlockHandler dataSources: - name: polkadotRuntime kind: substrate/Runtime filter: #Optional specName: polkadot startBlock: 1000 mapping: *mymapping #use template here - name: kusamaRuntime kind: substrate/Runtime filter: specName: kusama startBlock: 12000 mapping: *mymapping # can reuse or change ``` </CodeGroupItem>
 
