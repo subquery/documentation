@@ -6,7 +6,7 @@
 
 다음 예제 중 일부는 [Quick start](../quickstart/quickstart.md) 섹션에서 스타터 패키지를 성공적으로 초기화했다고 가정합니다. 이 시작 패키지에서 SubQuery 프로젝트를 사용자 정의 및 구현하기 위한 표준 프로세스를 살펴보겠습니다.
 
-1. `subql init --specVersion 0.2.0 PROJECT_NAME`을 사용하여 프로젝트를 초기화합니다. `subql init PROJECT_NAME` 사용도 가능합니다.
+1. Initialise your project using `subql init PROJECT_NAME`.
 2. Manifest 파일 (`project.yaml`)을 업데이트하여 블록 체인과 매핑할 엔티티에 대한 정보를 포함하세요. [Manifest File](./manifest.md) 참조
 3. Schema(`schema.graphql`)에서 추출하고 Query하기 위해 유지할 데이터의 모양을 정의하는 GraphQL 엔터티 만들기 - [GraphQL Schema](./graphql.md) 참조하세요
 4. 체인 데이터를 정의한 GraphQL 엔터티에 변환하기 위해 호출할 모든 매핑 기능(예. `mappingHandlers.ts`) 추가 - [Mapping](./mapping.md) 참조
@@ -63,7 +63,7 @@ logger.warn('Warning level message');
 
 ![logging.info](/assets/img/logging_info.png)
 
-`logger.debug`을 사용하기 위해서는, 추가 단계가 필요합니다. `--log-level=debug`을 명령행에 추가하세요.
+To use `logger.debug`, an additional flag is required. `--log-level=debug`을 명령행에 추가하세요.
 
 도커 컨테이너를 운영하는 경우, `docker-compose.yaml` 파일을 라인에 추가하세요.
 
