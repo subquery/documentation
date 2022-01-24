@@ -4,7 +4,7 @@
 
 ## subql init
 
-Первая команда, которую мы выполнили, была subql init --starter subqlHelloWorld.
+The first command we ran was `subql init subqlHelloWorld`.
 
 Это делает тяжелую работу и создает для вас целую кучу файлов. Как указано в официальной документации, вы в основном будете работать со следующими файлами:
 
