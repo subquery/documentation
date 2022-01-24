@@ -6,7 +6,7 @@ Dalam panduan [mulai cepat](/quickstart/quickstart.md), kami dengan cepat menjal
 
 Beberapa contoh berikut akan menganggap Anda telah berhasil menginisialisasi paket starter di bagian [Mulai cepat](../quickstart/quickstart.md). Dari paket awal itu, kita akan menjalani proses standar untuk menyesuaikan dan mengimplementasikan proyek SubQuery Anda.
 
-1. Inisialisasi proyek Anda menggunakan `subql init --specVersion 0.2.0 PROJECT_NAME`. sebagai alternatif, Anda dapat menggunakan versi spesifikasi lama `subql init PROJECT_NAME`
+1. Initialise your project using `subql init PROJECT_NAME`.
 2. Perbarui file Manifest (`project.yaml`) untuk menyertakan informasi tentang blockchain Anda, dan entitas yang akan Anda petakan - lihat [File Manifest](./manifest.md)
 3. Buat entitas GraphQL di skema Anda (`schema.graphql`) yang menentuakn bentuk data yang akan Anda ekstrak dan coba untuk kueri - lihat [Skema GraphQL](./graphql.md)
 4. Tambahkan semua fungsi pemetaan (mis `mappingHandlers.ts` yang ingin Anda minta untuk ubah data chainnya ke entitas GraphQL yang sudah Anda tentukan - lihat [Pemetaan](./mapping.md)
@@ -68,7 +68,7 @@ Untuk menggunakan `logger.info` atau `logger.warn`, tempatkan barisannya ke file
 
 ![logging.info](/assets/img/logging_info.png)
 
-Untuk menggunakan `logger.debug`, langkah tambahan diperlukan. Tambahkan `--log-level=debug` ke baris perintah Anda.
+To use `logger.debug`, an additional flag is required. Tambahkan `--log-level=debug` ke baris perintah Anda.
 
 Jika Anda sedang menjalankan docker container, tambahkan barisan ini ke file `docker-compose.yaml` Anda.
 
