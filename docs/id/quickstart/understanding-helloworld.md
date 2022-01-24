@@ -4,7 +4,7 @@ Dalam [panduan memulai cepat Hello World](helloworld-localhost.md), kami menjala
 
 ## subql init
 
-Perintah pertama yang kami jalankan adalah `subql init --starter subqlHelloWorld`.
+The first command we ran was `subql init subqlHelloWorld`.
 
 Ini melakukan pekerjaan berat dan membuat banyak file untuk Anda. Sebagaimana dicatat dalam [dokumentasi resmi](quickstart.md#configure-and-build-the-starter-project), Anda terutama akan mengerjakan file-file berikut:
 
