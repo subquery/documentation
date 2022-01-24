@@ -35,17 +35,19 @@ npm install -g @subql/cli
 Всередині каталогу, в якому ви хочете створити проєкт SubQuery, просто замініть ` PROJECT_NAME ` на свій власний і запустіть команду:
 
 ```shell
-subql init --starter PROJECT_NAME
+subql init PROJECT_NAME
 ```
 
 Вам будуть задані певні запитання, оскільки проект SubQuery є італізованим:
 
-- Сховище Git (необов’язково): надайте URL-адресу Git репо, в якому буде розміщений цей проект SubQuery (при розміщенні в SubQuery Explorer)
-- Кінцева точка RPC (Обов’язково): Надайте URL-адресу wss на кінцеву точку RPC, яка буде використана за замовчуванням для цього проекту. Ви можете швидко отримати доступ до загальнодоступних кінцевих точок для різних мереж Polkadot або навіть створити власний приватний виділений вузол, використовуючи [ OnFinality ](https://app.onfinality.io) або просто використовувати кінцеву точку Polkadot за замовчуванням.
-- Автори (Обов’язково): Введіть власника цього проекту SubQuery тут
-- Опис (необов’язково): Ви можете надати короткий абзац про свій проект, який описує, які дані він містить та що користувачі можуть з ним зробити
-- Версія (Обов'язково): Введіть власний номер версії або використовуйте типову (`1.0.0`)
-- Ліцензія (обов'язково): Забезпечуйте ліцензію для цього проекту або прийміть за замовчуванням (`Apache-2.0`)
+- Network: A blockchain network that this SubQuery project will be developed to index
+- Template: Select a SubQuery project template that will provide a starting point to begin development
+- Git repository (Optional): Provide a Git URL to a repo that this SubQuery project will be hosted in (when hosted in SubQuery Explorer)
+- RPC endpoint (Required): Provide a websocket (wss) URL to a running RPC endpoint that will be used by default for this project. You can quickly access public endpoints for different Polkadot networks or even create your own private dedicated node using [OnFinality](https://app.onfinality.io) or just use the default Polkadot endpoint. This RPC node must be an archive node (have the full chain state).
+- Authors (Required): Enter the owner of this SubQuery project here
+- Description (Optional): You can provide a short paragraph about your project that describe what data it contains and what users can do with it
+- Version (Required): Enter a custom version number or use the default (`1.0.0`)
+- License (Required): Provide the software license for this project or accept the default (`Apache-2.0`)
 
 Після завершення процесу ініціалізації ви побачите папку з назвою проекту, створену всередині каталогу. Вміст цього приводу повинен бути ідентичним тому, що вказано в [Directory Structure](../create/introduction.md#directory-structure).
 
