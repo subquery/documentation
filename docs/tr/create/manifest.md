@@ -22,15 +22,21 @@ Under `dataSources`:
 
 ### CLI Secenekler
 
-V0.2.0 spec sürümü betadayken, proje başlatma sırasında `subql init --specVersion 0.2.0 PROJECT_NAME` çalıştırarak açıkça tanımlamanız gerekir
+By default the CLI will generate SubQuery projects for spec verison v0.2.0. This behaviour can be overridden by running `subql init --specVersion 0.0.1 PROJECT_NAME`, although this is not recommended as the project will not be supported by the SubQuery hosted service in the future
 
 `subql migrate` proje bildirimini en son sürüme geçirmek için varolan bir projede çalıştırılabilir.
 
-| Seçenekler     | Tanım                                                                   |
-| -------------- | ----------------------------------------------------------------------- |
-| -f, --force    |                                                                         |
-| -l, --location | migrate'i çalıştırmak için yerel klasör (içermesi gerekir project.yaml) |
-| --file=file    | belirtmek için project.yaml geçirmek                                    |
+USAGE $ subql init [PROJECTNAME]
+
+ARGUMENTS PROJECTNAME  Give the starter project name
+
+| Seçenekler              | Tanım                                                                        |
+| ----------------------- | ---------------------------------------------------------------------------- |
+| -f, --force             |                                                                              |
+| -l, --location=location | local folder to create the project in                                        |
+| --install-dependencies  | Install dependencies as well                                                 |
+| --npm                   | Force using NPM instead of yarn, only works with `install-dependencies` flag |
+| --specVersion=0.0.1     | 0.2.0  [default: 0.2.0] | The spec version to be used by the project         |
 
 ## Genel bakış
 
@@ -64,14 +70,14 @@ V0.2.0 spec sürümü betadayken, proje başlatma sırasında `subql init --spec
 
 ### Datasource Spec
 
-Veri dönüştürmeyi uygulamak için kullanılacak eşleme işlevi işleyicisinin konumunun yanı sıra filtrelenecek ve ayıklanacak verileri tanımlar.
-| Field          | v0.0.1                                                          | v0.2.0                                                                                 | Tanım                                                                                                                                                                                                           |
-| -------------- | --------------------------------------------------------------- | -------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **isim**       | String                                                          | 𐄂                                                                                      | Veri kaynağının adı                                                                                                                                                                                             |
-| **tür**        | [substrat/Çalışma Zamanı](./manifest/#data-sources-and-mapping) | substrat/Çalışma Zamanı, [substrate/CustomDataSource](./manifest/#custom-data-sources) | Blok, olay ve harici (çağrı) gibi varsayılan substrat çalışma zamanından veri türünü destekliyoruz. <br /> v0.2.0'dan itibaren akıllı sözleşme gibi özel çalışma zamanından gelen verileri destekliyoruz. |
-| **startBlock** | Tam sayı                                                        | Tam sayı                                                                               | Bu, dizin oluşturma başlangıç bloğunuzu değiştirir, daha az veri içeren ilk blokları atlamak için bunu daha yükseğe ayarlayın                                                                                   |
-| **eşleme**     | Eşleme Tanımlama                                                | Eşleme Tanımlama                                                                       |                                                                                                                                                                                                                 |
-| **filtre**     | [ağ filtreleri](./manifest/#network-filters)                    | 𐄂                                                                                      | Ağ uç noktası tanımlama adına göre yürütülecek veri kaynağına filtrele                                                                                                                                          |
+Defines the data that will be filtered and extracted and the location of the mapping function handler for the data transformation to be applied.
+| Field          | v0.0.1                                                    | v0.2.0                                                                           | Tanım                                                                                                                                                                                 |
+| -------------- | --------------------------------------------------------- | -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **isim**       | String                                                    | 𐄂                                                                                | Name of the data source                                                                                                                                                               |
+| **tür**        | [substrate/Runtime](./manifest/#data-sources-and-mapping) | substrate/Runtime, [substrate/CustomDataSource](./manifest/#custom-data-sources) | We supports data type from default substrate runtime such as block, event and extrinsic(call). <br /> From v0.2.0, we support data from custom runtime, such as smart contract. |
+| **startBlock** | Integer                                                   | Integer                                                                          | This changes your indexing start block, set this higher to skip initial blocks with less data                                                                                         |
+| **mapping**    | Eşleme Tanımlama                                          | Eşleme Tanımlama                                                                 |                                                                                                                                                                                       |
+| **filtre**     | [network-filters](./manifest/#network-filters)            | 𐄂                                                                                | Filter the data source to execute by the network endpoint spec name                                                                                                                   |
 
 ### Eşleme Tanımlama
 
@@ -82,7 +88,7 @@ Veri dönüştürmeyi uygulamak için kullanılacak eşleme işlevi işleyicisin
 
 ## Veri Kaynakları ve Eşleme
 
-Bu bölümde, varsayılan substrat çalışma zamanı ve haritalaması hakkında konuşacağız. İşte bir örnek:
+In this section, we will talk about the default substrate runtime and its mapping. Here is an example:
 
 ```yaml
 dataSources:
@@ -94,9 +100,9 @@ dataSources:
 
 ### Eşleme işleyicileri ve Filtreler
 
-Aşağıdaki tabloda, farklı işleyiciler tarafından desteklenen filtreler açıklanmaktadır.
+The following table explains filters supported by different handlers.
 
-**Yalnızca uygun eşleme filtrelerine sahip olay ve çağrı işleyicilerini kullandığınızda SubQuery projeniz çok daha verimli olacaktır**
+**Your SubQuery project will be much more efficient when you only use event and call handlers with appropriate mapping filters**
 
 | Handler                                    | Desteklenen filtre           |
 | ------------------------------------------ | ---------------------------- |
@@ -104,9 +110,9 @@ Aşağıdaki tabloda, farklı işleyiciler tarafından desteklenen filtreler aç
 | [EventHandler](./mapping.md#event-handler) | `module`,`method`            |
 | [CallHandler](./mapping.md#call-handler)   | `module`,`method` ,`success` |
 
-Varsayılan çalışma zamanı eşleme filtreleri, hangi bloğun, olayın veya dış öğenin bir eşleme işleyicisini tetikleyeceğine karar vermek için son derece yararlı bir özelliktir.
+Default runtime mapping filters are an extremely useful feature to decide what block, event, or extrinsic will trigger a mapping handler.
 
-Yalnızca filtre koşullarını karşılayan gelen veriler eşleme işlevleri tarafından işlenir. Eşleme filtreleri isteğe bağlıdır, ancak SubQuery projeniz tarafından işlenen veri miktarını önemli ölçüde azalttıkları ve dizin oluşturma performansını artıracakları için şiddetle tavsiye edilir.
+Only incoming data that satisfy the filter conditions will be processed by the mapping functions. Mapping filters are optional but are highly recommended as they significantly reduce the amount of data processed by your SubQuery project and will improve indexing performance.
 
 ```yaml
 # callHandler filtresinden örnek
@@ -131,25 +137,26 @@ filter:
 
 ### Ağ Tanımlama
 
-Farklı bir Polkadot parachain veya hatta özel bir substrat zincirine bağlanırken, bu bildirinin [Network Spec](#network-spec) bölümünü düzenlemeniz gerekir.
+When connecting to a different Polkadot parachain or even a custom substrate chain, you'll need to edit the [Network Spec](#network-spec) section of this manifest.
 
-`genesisHash` her zaman özel ağın ilk bloğunun karma işlevi olmalıdır. [PolkadotJS](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fkusama.api.onfinality.io%2Fpublic-ws#/explorer/query/0)’a giderek ve ** blok 0 **'da karma işlevini arayarak bunu kolayca geri alabilirsiniz (aşağıdaki resme bakın).
+The `genesisHash` must always be the hash of the first block of the custom network. You can retireve this easily by going to [PolkadotJS](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fkusama.api.onfinality.io%2Fpublic-ws#/explorer/query/0) and looking for the hash on **block 0** (see the image below).
 
-![Oluşum Karma İşlevi](/assets/img/genesis-hash.jpg)
+![Genesis Hash](/assets/img/genesis-hash.jpg)
 
-Ayrıca, `uç noktası’nı` güncelleştirmeniz gerekecektir. Bu, dizine eklenecek blok zincirinin wss uç noktasını tanımlar - **Bu tam bir arşiv düğümü olmalıdır**. Tüm parachain'ler için uç noktaları [OnFinality](https://app.onfinality.io)'dan ücretsiz olarak alabilirsiniz
+Additionally you will need to update the `endpoint`. This defines the wss endpoint of the blockchain to be indexed - **This must be a full archive node**. Tüm parachain'ler için uç noktaları [OnFinality](https://app.onfinality.io)'dan ücretsiz olarak alabilirsiniz
 
 ### Zincir Türleri
 
-Bildiriye zincir türlerini de dahil ederek özel zincirlerden veri indeksleyebilirsiniz.
+You can index data from custom chains by also including chain types in the manifest.
 
-Substrat çalışma zamanı modülleri tarafından kullanılan ek türleri destekliyoruz, `typesAlias`, `typesBundle`, `typesChain`, and `typesSpec` da desteklenmektedir.
+We support the additional types used by substrate runtime modules, `typesAlias`, `typesBundle`, `typesChain`, and `typesSpec` are also supported.
 
-Aşağıdaki v0.2.0 örneğinde, `network.chaintypes` tüm özel türleri içeren bir dosyaya işaret ediyor, bu, bu blok zinciri tarafından desteklenen belirli türleri `.json`, `.yaml` veya `.js` şeklinde belirten standart bir chainspec dosyasıdır.
+In the v0.2.0 example below, the `network.chaintypes` are pointing to a file that has all the custom types included, This is a standard chainspec file that declares the specific types supported by this blockchain in either `.json`, `.yaml` or `.js` format.
 
-<CodeGroup> <CodeGroupItem title="v0.2.0" active> ``` yml network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' endpoint: 'ws://host.kittychain.io/public-ws' chaintypes: file: ./types.json # The relative filepath to where custom types are stored ... ``` </CodeGroupItem> <CodeGroupItem title="v0.0.1"> ``` yml ... network: endpoint: "ws://host.kittychain.io/public-ws" types: { "KittyIndex": "u32", "Kitty": "[u8; 16]" } # typesChain: { chain: { Type5: 'example' } } # typesSpec: { spec: { Type6: 'example' } } dataSources: - name: runtime kind: substrate/Runtime startBlock: 1 filter:  #Optional specName: kitty-chain mapping: handlers: - handler: handleKittyBred kind: substrate/CallHandler filter: module: kitties method: breed success: true ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="v0.2.0" active> ``` yml network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' endpoint: 'ws://host.kittychain.io/public-ws' chaintypes: file: ./types.json # The relative filepath to where custom types are stored ... ``` </CodeGroupItem>
+<CodeGroupItem title="v0.0.1"> ``` yml ... network: endpoint: "ws://host.kittychain.io/public-ws" types: { "KittyIndex": "u32", "Kitty": "[u8; 16]" } # typesChain: { chain: { Type5: 'example' } } # typesSpec: { spec: { Type6: 'example' } } dataSources: - name: runtime kind: substrate/Runtime startBlock: 1 filter:  #Optional specName: kitty-chain mapping: handlers: - handler: handleKittyBred kind: substrate/CallHandler filter: module: kitties method: breed success: true ``` </CodeGroupItem> </CodeGroup>
 
-Zincir türleri dosyanızda typescript kullanmak için `src` klasörüne ekleyin (örn.  `./src/types.ts`), ` yarn build`’i çalıştırın ve `dist` klasöründe bulunan oluşturulmuş js dosyası seçeneğine gelin.
+To use typescript for your chain types file include it in the `src` folder (e.g. `./src/types.ts`), run `yarn build` and then point to the generated js file located in the `dist` folder.
 
 ```yml
 network:
@@ -158,41 +165,41 @@ network:
 ...
 ```
 
-`.ts` veya `.js` uzantılı zincir türleri dosyasını kullanma hakkında dikkat edilmesi gerekenler:
+Things to note about using the chain types file with extension `.ts` or `.js`:
 
 - Bildiri sürümünüz v0.2.0 veya üstü olmalıdır.
 - Bloklar getirilirken [polkadot api](https://polkadot.js.org/docs/api/start/types.extend/)’de yalnızca varsayılan dışa aktarma dahil edilecektir.
 
-Aşağıda `.ts` zincir türleri dosyasına bir örnek verilmiştir:
+Here is an example of a `.ts` chain types file:
 
 <CodeGroup> <CodeGroupItem title="types.ts"> ```ts
 import { typesBundleDeprecated } from "moonbeam-types-bundle"
 export default { typesBundle: typesBundleDeprecated }; ``` </CodeGroupItem> </CodeGroup>
 
-## Özel Veri Kaynakları
+## Custom Data Sources
 
-Özel Veri Kaynakları, verilerle başa çıkmayı kolaylaştıran ağa özgü işlevsellik sağlar. Ekstra filtreleme ve veri dönüşümü sağlayabilen bir ara yazılım görevi görürler.
+Custom Data Sources provide network specific functionality that makes dealing with data easier. They act as a middleware that can provide extra filtering and data transformation.
 
-EVM desteği buna iyi bir örnektir. EVM için özel bir veri kaynağı işlemcisine sahip olmak, EVM düzeyinde filtreleyebileceğiniz anlamına gelir (örneğin, sözleşme yöntemlerini veya günlüklerini filtreleyin) ve veriler, API'lerle parametreleri ayrıştırmanın yanı sıra Ethereum ekosistemine benzer yapılara dönüştürülür.
+A good example of this is EVM support, having a custom data source processor for EVM means that you can filter at the EVM level (e.g. filter contract methods or logs) and data is transformed into structures farmiliar to the Ethereum ecosystem as well as parsing parameters with ABIs.
 
-Özel Veri Kaynakları normal veri kaynaklarıyla kullanılabilir.
+Custom Data Sources can be used with normal data sources.
 
-Aşağıda desteklenen özel veri kaynaklarının bir listesi bulunmaktadır:
+Here is a list of supported custom datasources:
 
-| Kind                                                  | Supported Handlers                                                                                       | Filters                                     | Description                                                                   |
-| ----------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | ------------------------------------------- | ----------------------------------------------------------------------------- |
-| [substrate/Moonbeam](./moonbeam/#data-source-example) | [substrate/MoonbeamEvent](./moonbeam/#moonbeamevent), [substrate/MoonbeamCall](./moonbeam/#moonbeamcall) | Her işleyicinin altındaki filtreye göz atın | Moonbeams ağlarındaki EVM işlemleri ve etkinlikleriyle kolay etkileşim sağlar |
+| Kind                                                  | Supported Handlers                                                                                       | Filters                         | Description                                                                      |
+| ----------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | ------------------------------- | -------------------------------------------------------------------------------- |
+| [substrate/Moonbeam](./moonbeam/#data-source-example) | [substrate/MoonbeamEvent](./moonbeam/#moonbeamevent), [substrate/MoonbeamCall](./moonbeam/#moonbeamcall) | See filters under each handlers | Provides easy interaction with EVM transactions and events on Moonbeams networks |
 
-## Ağ Filtreleri
+## Network Filters
 
-**Ağ filtreleri yalnızca bildiri v0.0.1 için geçerlidir**.
+**Network filters only applies to manifest spec v0.0.1**.
 
-Genellikle kullanıcı bir SubQuery oluşturacak ve hem testnet hem de mainnet ortamları (örneğin  Polkadot ve Kusama) için yeniden kullanmayı bekleyecektir. Ağlar arasında, çeşitli seçeneklerin farklı olması muhtemeldir (örneğin, dizin başlangıç bloğu). Bu nedenle, kullanıcıların her veri kaynağı için farklı ayrıntılar tanımlamasına izin veririz, bu da bir SubQuery projesinin birden çok ağda kullanılabileceği anlamına gelir.
+Usually the user will create a SubQuery and expect to reuse it for both their testnet and mainnet environments (e.g Polkadot and Kusama). Between networks, various options are likely to be different (e.g. index start block). Therefore, we allow users to define different details for each data source which means that one SubQuery project can still be used across multiple networks.
 
-Kullanıcılar, her ağda hangi veri kaynağının çalıştırılacağına karar vermek için `dataSources`’a `filtre` ekleyebilir.
+Users can add a `filter` on `dataSources` to decide which data source to run on each network.
 
-Aşağıda, hem Polkadot hem de Kusama ağları için farklı veri kaynaklarını gösteren bir örnek verilmiştir.
+Below is an example that shows different data sources for both the Polkadot and Kusama networks.
 
-<CodeGroup> <CodeGroupItem title="v0.0.1"> ```yaml --- network: endpoint: 'wss://polkadot.api.onfinality.io/public-ws' #Fazlalığı önlemek için bir şablon oluşturun definitions: mapping: &mymapping handlers: - handler: handleBlock kind: substrate/BlockHandler dataSources: - name: polkadotRuntime kind: substrate/Runtime filter: #Tercihe bağlı specName: polkadot startBlock: 1000 mapping: *mymapping #şablonu burada kullanın - name: kusamaRuntime kind: substrate/Runtime filter: specName: kusama startBlock: 12000 mapping: *mymapping # tekrar kullanılabilir veya değiştirilebilir ``` </CodeGroupItem>
+<CodeGroup> <CodeGroupItem title="v0.0.1"> ```yaml --- network: endpoint: 'wss://polkadot.api.onfinality.io/public-ws' #Create a template to avoid redundancy definitions: mapping: &mymapping handlers: - handler: handleBlock kind: substrate/BlockHandler dataSources: - name: polkadotRuntime kind: substrate/Runtime filter: #Optional specName: polkadot startBlock: 1000 mapping: *mymapping #use template here - name: kusamaRuntime kind: substrate/Runtime filter: specName: kusama startBlock: 12000 mapping: *mymapping # can reuse or change ``` </CodeGroupItem>
 
 </CodeGroup>
