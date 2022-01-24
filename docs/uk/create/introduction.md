@@ -6,7 +6,7 @@
 
 Деякі з наступних прикладів припускають, що ви успішно ініціалізували стартовий пакет у розділі [ Quick start ](../quickstart/quickstart.md). З цього стартового пакету ми пройдемо стандартний процес для налаштування та реалізації вашого проекту SubQuery.
 
-1. Ініціалізуйте свій проект, використовуючи ` subql init --specVersion 0.2.0 PROJECT_NAME `. альтернативно ви можете використовувати стару версію специфікації ` subql init PROJECT_NAME `
+1. Initialise your project using `subql init PROJECT_NAME`.
 2. Оновіть файл Manifest (` project.yaml `), щоб включити інформацію про ваш блокчейн та об'єкти, які ви будете відображати - див. [ Manifest File ](./manifest.md)
 3. Створення графічних об'єктів у вашій схемі (`схемі. raphql`), що визначає форму даних, які ви будете вилучати і зберігати запити - дивіться [GraphQL Схема](./graphql.md)
 4. Додайте всі функції відображення (наприклад, ` mappingHandlers.ts `), які ви хочете викликати для перетворення даних ланцюга в визначені вами об'єкти GraphQL - див. [ Mapping ](./mapping.md)
@@ -68,7 +68,7 @@ logger.warn('Warning level message');
 
 ![logging.info](/assets/img/logging_info.png)
 
-Для використання ` logger.debug ` необхідний додатковий крок. Додайте `--log-level=debug` до вашого командного рядка.
+To use `logger.debug`, an additional flag is required. Додайте `--log-level=debug` до вашого командного рядка.
 
 Якщо ви працюєте з контейнером докера, додайте цей рядок у файл ` docker-compose.yaml `.
 
