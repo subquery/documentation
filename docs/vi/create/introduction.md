@@ -6,7 +6,7 @@ Trong hướng dẫn [ bắt đầu nhanh ](/quickstart/quickstart.md), chúng t
 
 Một vài ví dụ sau sẽ xem như bạn đã khởi tạo thành công gói khởi động trong phần [ Bắt đầu nhanh ](../quickstart/quickstart.md). Từ gói khởi động đó, chúng tôi sẽ hướng dẫn quy trình chuẩn để tùy chỉnh và triển khai dự án SubQuery của bạn.
 
-1. Khởi tạo dự án của bạn bằng `subql init PROJECT_NAME`. ngoài ra bạn có thể sử dụng phiên bản thông số kỹ thuật cũ `subql init PROJECT_NAME`
+1. Initialise your project using `subql init PROJECT_NAME`.
 2. Cập nhật tệp kê khai (`project.yaml`) để bao gồm thông tin về chuỗi khối của bạn và các thực thể mà bạn sẽ ánh xạ - xem [Manifest File](./manifest.md)
 3. Tạo các thực thể GraphQL trong lược đồ của bạn (`schema.graphql`) xác định hình dạng của dữ liệu mà bạn sẽ trích xuất và duy trì để truy vấn - xem [Lược đồ GraphQL](./graphql.md)
 4. Thêm tất cả các hàm ánh xạ (ví dụ: `mappingHandlers.ts`) mà bạn muốn gọi để chuyển đổi dữ liệu chuỗi thành các thực thể GraphQL mà bạn đã xác định - xem [Ánh xạ](./mapping.md)
@@ -68,7 +68,7 @@ logger.warn('Warning level message');
 
 ![logging.info](/assets/img/logging_info.png)
 
-Để sử dụng `logger.debug`, cần thực hiện thêm một bước. Thêm `--log-level = debug` vào dòng lệnh của bạn.
+To use `logger.debug`, an additional flag is required. Thêm `--log-level = debug` vào dòng lệnh của bạn.
 
 Nếu bạn đang chạy vùng chứa docker, hãy thêm dòng này vào tệp `docker-comp.yaml` của bạn.
 
