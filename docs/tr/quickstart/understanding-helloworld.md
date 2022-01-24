@@ -4,7 +4,7 @@
 
 ## subql init
 
-Çalıştırdığımız ilk komut `subql init --starter subqlHelloWorld` idi.
+The first command we ran was `subql init subqlHelloWorld`.
 
 Bu ağır kaldırma yapar ve sizin için bir sürü dosya oluşturur. [official documentation](quickstart.md#configure-and-build-the-starter-project) belirtildiği gibi, esas olarak aşağıdaki dosyalar üzerinde çalışacaksınız:
 
