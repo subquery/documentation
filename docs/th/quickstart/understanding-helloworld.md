@@ -4,7 +4,7 @@
 
 ## subql init
 
-คำสั่งแรกที่เราเรียกใช้คือ `subql init --starter subqlHelloWorld`
+The first command we ran was `subql init subqlHelloWorld`.
 
 สิ่งนี้ช่วยจัดการส่วนงานที่หนัก และสร้างไฟล์ทั้งหมดให้คุณ ตามที่ระบุไว้ใน [เอกสารอย่างเป็นทางการ](quickstart.md#configure-and-build-the-starter-project) คุณจะต้องทำงานกับไฟล์ต่อไปนี้เป็นหลัก:
 
