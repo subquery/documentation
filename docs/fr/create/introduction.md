@@ -6,7 +6,7 @@ Dans le guide [de démarrage rapide](/quickstart/quickstart.md) , nous avons rap
 
 Certains des exemples suivants supposent que vous avez initialisé avec succès le paquet de démarrage dans la section [Démarrage rapide](../quickstart/quickstart.md). À partir de ce paquet, nous allons suivre le processus standard pour personnaliser et implémenter votre projet SubQuery.
 
-1. Initialisez votre projet en utilisant `subql init --specVersion 0.2.0 PROJECT_NAME`. vous pouvez également utiliser l'ancienne version de spec `subql init PROJECT_NAME`
+1. Initialise your project using `subql init PROJECT_NAME`.
 2. Mettre à jour le fichier Manifest (`projet. aml`) pour inclure des informations sur votre blockchain, et les entités que vous allez cartographier - voir [Fichier Manifest](./manifest.md)
 3. Créez des entités GraphQL dans votre schéma (`schéma.graphql`) qui définissent la forme des données que vous allez extraire et persister pour interroger - voir [Schéma GraphQL](./graphql.md)
 4. Ajouter toutes les fonctions de mappage (par exemple `mappingHandlers.ts`) que vous souhaitez appeler pour transformer des chaînes de données en entités GraphQL que vous avez définies - voir [Mapping](./mapping.md)
@@ -67,7 +67,7 @@ Pour utiliser `logger.info` ou `logger.warn`, placez simplement la ligne dans vo
 
 ![logging.info](/assets/img/logging_info.png)
 
-Pour utiliser `logger.debug`, une étape supplémentaire est requise. Ajoutez `--log-level=debug` à votre ligne de commande.
+To use `logger.debug`, an additional flag is required. Ajoutez `--log-level=debug` à votre ligne de commande.
 
 Si vous exécutez un conteneur docker, ajoutez cette ligne à votre fichier `docker-compose.yaml`.
 
