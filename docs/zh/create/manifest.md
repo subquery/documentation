@@ -22,15 +22,21 @@
 
 ### CLI 选项
 
-v0.2。 spec 版本处于测试阶段，您需要在项目初始化过程中运行 `subql init --specversion 0来明确定义它。 .0 PROJECT_NAME`
+By default the CLI will generate SubQuery projects for spec verison v0.2.0. This behaviour can be overridden by running `subql init --specVersion 0.0.1 PROJECT_NAME`, although this is not recommended as the project will not be supported by the SubQuery hosted service in the future
 
 `subql migrate` 可以在一个现有的项目中运行，将项目清单迁移到最新版本。
 
-| 选项             | Description                    |
-| -------------- | ------------------------------ |
-| -f, --force    |                                |
-| -l, --location | 要运行迁移的本地文件夹 (必须包含 project.yml) |
-| --file=文件      | 指定要迁移的 project.yaml            |
+USAGE $ subql init [PROJECTNAME]
+
+ARGUMENTS PROJECTNAME  Give the starter project name
+
+| 选项                      | Description                                                                  |
+| ----------------------- | ---------------------------------------------------------------------------- |
+| -f, --force             |                                                                              |
+| -l, --location=location | local folder to create the project in                                        |
+| --install-dependencies  | Install dependencies as well                                                 |
+| --npm                   | Force using NPM instead of yarn, only works with `install-dependencies` flag |
+| --specVersion=0.0.1     | 0.2.0  [default: 0.2.0] | The spec version to be used by the project         |
 
 ## 概述
 
@@ -64,14 +70,14 @@ v0.2。 spec 版本处于测试阶段，您需要在项目初始化过程中运�
 
 ### Datasource 说明
 
-DataSources定义要过滤和提取的数据以及要应用的数据转换的映射函数处理程序的位置。
-| Field          | v0.0.1                                            | v0.2.0                                                                           | Description                                                                  |
-| -------------- | ------------------------------------------------- | -------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| **name**       | String                                            | String                                                                           | 数据源名称                                                                        |
-| **kind**       | [substrate/Runtime](./manifest/#data-sources-map) | substrate/Runtime, [substrate/CustomDataSource](./manifest/#custom-data-sources) | 我们支持默认底层运行时间的数据类型，如块、事件和额外(调用)。 <br /> 从 v0.2.0，我们支持自定义运行时间的数据，例如智能合约。 |
-| **startBlock** | Integer                                           | Integer                                                                          | 这将更改您的索引开始块，设置此更高以跳过最初的块，减少数据                                                |
-| **mapping**    | Mapping Spec                                      | Mapping Spec                                                                     |                                                                              |
-| **filter**     | [network-filters](./manifest/#network-filters)    | String                                                                           | 通过网络端点速度名称筛选要执行的数据源                                                          |
+Defines the data that will be filtered and extracted and the location of the mapping function handler for the data transformation to be applied.
+| Field          | v0.0.1                                                    | v0.2.0                                                                           | Description                                                                                                                                                                           |
+| -------------- | --------------------------------------------------------- | -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **name**       | String                                                    | String                                                                           | Name of the data source                                                                                                                                                               |
+| **kind**       | [substrate/Runtime](./manifest/#data-sources-and-mapping) | substrate/Runtime, [substrate/CustomDataSource](./manifest/#custom-data-sources) | We supports data type from default substrate runtime such as block, event and extrinsic(call). <br /> From v0.2.0, we support data from custom runtime, such as smart contract. |
+| **startBlock** | Integer                                                   | Integer                                                                          | This changes your indexing start block, set this higher to skip initial blocks with less data                                                                                         |
+| **mapping**    | Mapping Spec                                              | Mapping Spec                                                                     |                                                                                                                                                                                       |
+| **filter**     | [network-filters](./manifest/#network-filters)            | String                                                                           | Filter the data source to execute by the network endpoint spec name                                                                                                                   |
 
 ### Mapping Spec
 
@@ -82,7 +88,7 @@ DataSources定义要过滤和提取的数据以及要应用的数据转换的映
 
 ## 数据来源和映射
 
-在本节中，我们将谈论默认的底层运行时间及其映射。 下面是一个示例：
+In this section, we will talk about the default substrate runtime and its mapping. Here is an example:
 
 ```yaml
 dataSources:
@@ -94,9 +100,9 @@ dataSources:
 
 ### 映射处理器和过滤器
 
-下表将说明不同处理程序支持的筛选器。
+The following table explains filters supported by different handlers.
 
-**当您只使用具有适当映射过滤器的事件和呼叫处理程序时，您的子查询项目将会更加有效。**
+**Your SubQuery project will be much more efficient when you only use event and call handlers with appropriate mapping filters**
 
 | 处理程序                                       | 支持的过滤器：                      |
 | ------------------------------------------ | ---------------------------- |
@@ -104,9 +110,9 @@ dataSources:
 | [EventHandler](./mapping.md#event-handler) | `module`,`method`            |
 | [CallHandler](./mapping.md#call-handler)   | `module`,`method` ,`success` |
 
-过滤器映射是一个非常有用的选项，是用决定哪些块、事件或外部程序将触发映射的过滤器。
+Default runtime mapping filters are an extremely useful feature to decide what block, event, or extrinsic will trigger a mapping handler.
 
-映射函数只处理满足筛选条件的传入数据。 映射筛选的选项是可选状态，但我们推荐使用，因为它可以显著减少SubQuery项目处理的数据量，并提高索引性能。
+Only incoming data that satisfy the filter conditions will be processed by the mapping functions. Mapping filters are optional but are highly recommended as they significantly reduce the amount of data processed by your SubQuery project and will improve indexing performance.
 
 ```yaml
 # Example filter from callHandler
@@ -134,26 +140,26 @@ filter:
 
 ### Network Spec
 
-当连接到不同的 Polkadot parachain，甚至一个自定义的底层链时， 您需要编辑此清单的 [网络Spec](#network-spec) 部分。
+When connecting to a different Polkadot parachain or even a custom substrate chain, you'll need to edit the [Network Spec](#network-spec) section of this manifest.
 
-`genesisHash` 必须始终是自定义网络第一个块的哈希。 您可以通过到 [PolkadotJS](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fkusama.api.onfinality.io%2Fpublic-ws#/explorer/query/0) 并在 **block 0** 中寻找散列(见下面的图像)来轻松地退出。
+The `genesisHash` must always be the hash of the first block of the custom network. You can retireve this easily by going to [PolkadotJS](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fkusama.api.onfinality.io%2Fpublic-ws#/explorer/query/0) and looking for the hash on **block 0** (see the image below).
 
 ![Genesis Hash](/assets/img/genesis-hash.jpg)
 
-此外，您将需要更新 `个端点`。 `network.endpoint`定义要索引的区块链的wss或ws端点-**必须是完整的存档节点**。 您可以免费从 [Onfinality](https://app.onfinality.io) 检索所有传送端点的终点
+Additionally you will need to update the `endpoint`. This defines the wss endpoint of the blockchain to be indexed - **This must be a full archive node**. 您可以免费从 [Onfinality](https://app.onfinality.io) 检索所有传送端点的终点
 
 ### Chain 类型
 
-你可以通过在中添加链类型来索引自定义链中的数据。
+You can index data from custom chains by also including chain types in the manifest.
 
-我们支持Substrate 运行模式所使用的额外类型， `类型别名`， `类型Bundle`, `类型链`, 和 `类型Spec` 也被支持。
+We support the additional types used by substrate runtime modules, `typesAlias`, `typesBundle`, `typesChain`, and `typesSpec` are also supported.
 
-在 v0.2.0 示例中， `network. hainintypes` 指向一个包含所有自定义类型的文件。 这是一个标准的链规格文件，用 `声明此区块链支持的特定类型。 son` 或 `.yaml` 格式。
+In the v0.2.0 example below, the `network.chaintypes` are pointing to a file that has all the custom types included, This is a standard chainspec file that declares the specific types supported by this blockchain in either `.json`, `.yaml` or `.js` format.
 
 <CodeGroup> <CodeGroupItem title="v0.2.0" active> ``` yml network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' endpoint: 'ws://host.kittychain.io/public-ws' chaintypes: file: ./types.json # The relative filepath to where custom types are stored ... ``` </CodeGroupItem>
-<CodeGroupItem title="v0.0.1"> ``` yml ... <CodeGroupItem title="v0.2.0" active> ``` yml network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' endpoint: 'ws://host.kittychain.io/public-ws' chaintypes: file: ./types.json # The relative filepath to where custom types are stored ... ``` </CodeGroupItem> <CodeGroupItem title="v0.0.1"> ``` yml ... network: endpoint: "ws://host.kittychain.io/public-ws" types: { "KittyIndex": "u32", "Kitty": "[u8; 16]" } # typesChain: { chain: { Type5: 'example' } } # typesSpec: { spec: { Type6: 'example' } } dataSources: - name: runtime kind: substrate/Runtime startBlock: 1 filter:  #Optional specName: kitty-chain mapping: handlers: - handler: handleKittyBred kind: substrate/CallHandler filter: module: kitties method: breed success: true ``` </CodeGroupItem> </CodeGroup>< 3 >自定义数据源> < / 3
+<CodeGroupItem title="v0.0.1"> ``` yml ... network: endpoint: "ws://host.kittychain.io/public-ws" types: { "KittyIndex": "u32", "Kitty": "[u8; 16]" } # typesChain: { chain: { Type5: 'example' } } # typesSpec: { spec: { Type6: 'example' } } dataSources: - name: runtime kind: substrate/Runtime startBlock: 1 filter:  #Optional specName: kitty-chain mapping: handlers: - handler: handleKittyBred kind: substrate/CallHandler filter: module: kitties method: breed success: true ``` </CodeGroupItem> </CodeGroup>
 
-自定义数据源提供了特定于网络的功能，使处理数据更容易。
+To use typescript for your chain types file include it in the `src` folder (e.g. `./src/types.ts`), run `yarn build` and then point to the generated js file located in the `dist` folder.
 
 ```yml
 network:
@@ -162,89 +168,41 @@ network:
 ...
 ```
 
-关于使用后缀名 `.ts` 或 `.js` 的链式文件的规范：
+Things to note about using the chain types file with extension `.ts` or `.js`:
 
 - 您的版本必须是 v0.2.0 或以上。
 - 获取方块时， [polkadot api](https://polkadot.js.org/docs/api/start/types.extend/) 只会包含默认导出。
 
-下面是一个 `.ts` 链类型文件的示例：
+Here is an example of a `.ts` chain types file:
 
 <CodeGroup> <CodeGroupItem title="types.ts"> ```ts
 import { typesBundleDeprecated } from "moonbeam-types-bundle"
 export default { typesBundle: typesBundleDeprecated }; ``` </CodeGroupItem> </CodeGroup>
 
-## 自定义数据源
+## Custom Data Sources
 
-自定义数据源提供网络特定功能，使得处理数据变得更容易。 它们起着中间件的作用，能够提供额外的过滤和数据转换。
+Custom Data Sources provide network specific functionality that makes dealing with data easier. They act as a middleware that can provide extra filtering and data transformation.
 
-EVM支持就是一个很好的例子，拥有一个用于EVM的自定义数据源处理器意味着您可以在EVM级别进行过滤（例如，过滤契约方法或日志），数据被转换为以太坊生态系统的结构，以及使用ABI解析参数。
+A good example of this is EVM support, having a custom data source processor for EVM means that you can filter at the EVM level (e.g. filter contract methods or logs) and data is transformed into structures farmiliar to the Ethereum ecosystem as well as parsing parameters with ABIs.
 
-自定义数据源可以与普通数据源一起使用。
+Custom Data Sources can be used with normal data sources.
 
-这里是支持的自定义数据源列表：
+Here is a list of supported custom datasources:
 
-<table spaces-before="0">
-  <tr>
-    <th>
-      Kind
-    </th>
-    
-    <th>
-      支持的处理程序
-    </th>
-    
-    <th>
-      过滤器
-    </th>
-    
-    <th>
-      <th>
-        描述
-      </th></tr> </thead> 
-      
-      <tr>
-        <td>
-          <a href="./moonbeam/#data-source-example">substrate/Moonbeam</a>
-        </td>
-        
-        <td>
-          <a href="./moonbeam/#moonbeamevent">substrate/MoonbeamEvent</a>, <a href="./moonbeam/#moonbeamcall">Substrate/MoonbeamCall</a>
-        </td>
-        
-        <td>
-          查看每个处理程序下的过滤规则
-        </td>
-        
-        <td>
-          提供与模拟器网络上的 EVM 交易和事件的轻松交互
-        </td>
-      </tr></table>
+| Kind                                                  | Supported Handlers                                                                                       | Filters                         | Description                                                                      |
+| ----------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | ------------------------------- | -------------------------------------------------------------------------------- |
+| [substrate/Moonbeam](./moonbeam/#data-source-example) | [substrate/MoonbeamEvent](./moonbeam/#moonbeamevent), [substrate/MoonbeamCall](./moonbeam/#moonbeamcall) | See filters under each handlers | Provides easy interaction with EVM transactions and events on Moonbeams networks |
 
-<h2 spaces-before="0">
-  Network 过滤器
-</h2>
+## Network Filters
 
-<p spaces-before="0">
-  <strong x-id="1">Network 过滤器仅适用于manic v0.1</strong>。
-</p>
+**Network filters only applies to manifest spec v0.0.1**.
 
-<p spaces-before="0">
-  通常，用户将创建 SubQuery 并期望将其重新用于测试网和主网环境 ，例如 Polkadot和Kusama环境。 在不同的网络环境之间，一些设置可能会发生变化（例如索引起始块）。 因此，我们允许用户为每个数据源定义不同的细节，这意味着一个子查询项目仍然可以在多个网络中使用。
-</p>
+Usually the user will create a SubQuery and expect to reuse it for both their testnet and mainnet environments (e.g Polkadot and Kusama). Between networks, various options are likely to be different (e.g. index start block). Therefore, we allow users to define different details for each data source which means that one SubQuery project can still be used across multiple networks.
 
-<p spaces-before="0">
-  用户可以在 <code>上添加一个</code> 过滤器 <code>数据源</code> 来决定在每个网络上运行哪个数据源。
-</p>
+Users can add a `filter` on `dataSources` to decide which data source to run on each network.
 
-<p spaces-before="0">
-  下方示例是Polkadot和Kusama网络中不同的数据源。
-</p>
-
-<p spaces-before="0">
+Below is an example that shows different data sources for both the Polkadot and Kusama networks.
 
 <CodeGroup> <CodeGroupItem title="v0.0.1"> ```yaml --- network: endpoint: 'wss://polkadot.api.onfinality.io/public-ws' #Create a template to avoid redundancy definitions: mapping: &mymapping handlers: - handler: handleBlock kind: substrate/BlockHandler dataSources: - name: polkadotRuntime kind: substrate/Runtime filter: #Optional specName: polkadot startBlock: 1000 mapping: *mymapping #use template here - name: kusamaRuntime kind: substrate/Runtime filter: specName: kusama startBlock: 12000 mapping: *mymapping # can reuse or change ``` </CodeGroupItem>
-</p>
 
-<p spaces-before="0">
-  </CodeGroup>
-</p>
+</CodeGroup>
