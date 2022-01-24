@@ -8,10 +8,10 @@ Library [@subql/cli](https://github.com/subquery/subql/tree/docs-new-section/pac
 
 Menginstal SubQuery CLI secara global di terminal Anda dengan menggunakan Yarn atau NPM:
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn global add @subql/cli ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```bash npm install -g @subql/cli ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="NPM"> ```bash npm install -g @subql/cli ``` </CodeGroupItem>
+<CodeGroupItem title="YARN" active> ```shell yarn global add @subql/cli ``` </CodeGroupItem> </CodeGroup>
 
-Anda kemudian dapat menjalankan bantuan untuk melihat perintah dan penggunaan yang tersedia yang disediakan oleh CLI:
+You can then run help to see available commands and usage provide by CLI:
 
 ```shell
 subql help
@@ -22,10 +22,10 @@ Node SubQuery adalah implementasi yang mengekstrak data blockchain berbasis subs
 
 Menginstal node SubQuery secara global di terminal Anda dengan menggunakan Yarn atau NPM:
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn global add @subql/node ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```bash npm install -g @subql/node ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="NPM"> ```bash npm install -g @subql/node ``` </CodeGroupItem>
+<CodeGroupItem title="YARN" active> ```shell yarn global add @subql/node ``` </CodeGroupItem> </CodeGroup>
 
-Setelah terpasang, Anda dapat memulai node dengan:
+Once installed, you can can start a node with:
 
 ```shell
 subql-node <command>
@@ -38,7 +38,7 @@ Library SubQuery query menyediakan layanan yang memungkinkan Anda membuat kueri 
 
 Pasang Subquery query secara global di terminal Anda dengan menggunakan Yarn atau NPM:
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn global add @subql/query ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```bash npm install -g @subql/query ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="NPM"> ```bash npm install -g @subql/query ``` </CodeGroupItem>
+<CodeGroupItem title="YARN" active> ```shell yarn global add @subql/query ``` </CodeGroupItem> </CodeGroup>
 
 > Catatan: Jika Anda menggunakan Docker atau menghosting proyek Anda di Proyek SubQuery, Anda juga dapat melewati langkah ini. Ini karena node SubQuery sudah disediakan di Docker container dan hosting infrastruktur. 
