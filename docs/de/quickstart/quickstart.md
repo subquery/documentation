@@ -36,17 +36,19 @@ subql help
 Ersetzen Sie in dem Verzeichnis, in dem Sie ein SubQuery-Projekt erstellen möchten, einfach `PROJECT_NAME` durch Ihr eigenes und führen Sie den Befehl aus:
 
 ```shell
-subql init --starter PROJECT_NAME
+subql init PROJECT_NAME
 ```
 
 Beim Initialisieren des SubQuery-Projekts werden Ihnen bestimmte Fragen gestellt:
 
-- Git-Repository (optional): Geben Sie eine Git-URL für ein Repository an, in dem dieses SubQuery-Projekt gehostet wird (wenn es im SubQuery-Explorer gehostet wird)
-- RPC-endpoint (erforderlich): Geben Sie eine wss-URL für einen laufenden RPC-Endpunkt an, der standardmäßig für dieses Projekt verwendet wird. Sie können schnell auf öffentliche Endpoints für verschiedene Polkadot-Netzwerke zugreifen oder sogar Ihren eigenen privaten dedizierten Node mit [OnFinality](https://app.onfinality.io) erstellen oder einfach den Standard-Polkadot-Endpoint verwenden.
-- Autoren (erforderlich): Geben Sie hier den Eigentümer dieses SubQuery-Projekts ein
-- Beschreibung (optional): Sie können einen kurzen Absatz zu Ihrem Projekt bereitstellen, in dem beschrieben wird, welche Daten es enthält und was Benutzer damit tun können
-- Version (erforderlich): Geben Sie eine benutzerdefinierte Versionsnummer ein oder verwenden Sie die Standardversion (`1.0.0`).
-- Lizenz (erforderlich): Geben Sie die Softwarelizenz für dieses Projekt an oder akzeptieren Sie die Standardeinstellung (`Apache-2.0`).
+- Network: A blockchain network that this SubQuery project will be developed to index
+- Template: Select a SubQuery project template that will provide a starting point to begin development
+- Git repository (Optional): Provide a Git URL to a repo that this SubQuery project will be hosted in (when hosted in SubQuery Explorer)
+- RPC endpoint (Required): Provide a websocket (wss) URL to a running RPC endpoint that will be used by default for this project. You can quickly access public endpoints for different Polkadot networks or even create your own private dedicated node using [OnFinality](https://app.onfinality.io) or just use the default Polkadot endpoint. This RPC node must be an archive node (have the full chain state).
+- Authors (Required): Enter the owner of this SubQuery project here
+- Description (Optional): You can provide a short paragraph about your project that describe what data it contains and what users can do with it
+- Version (Required): Enter a custom version number or use the default (`1.0.0`)
+- License (Required): Provide the software license for this project or accept the default (`Apache-2.0`)
 
 Nachdem der Initialisierungsvorgang abgeschlossen ist, sollten Sie sehen, dass im Verzeichnis ein Ordner mit Ihrem Projektnamen erstellt wurde. Der Inhalt dieses Verzeichnisses sollte mit dem übereinstimmen, was in der [Verzeichnisstruktur](../create/introduction.md#directory-structure) aufgeführt ist.
 
