@@ -236,6 +236,7 @@ function getSidebar(locale, language){
       collapsable: true,
       children: [
         `${locale}/subquery_network/token.md`,
+        `${locale}/subquery_network/indexers.md`,
         `${locale}/subquery_network/delegators.md`,
         `${locale}/subquery_network/foundation.md`,
 
