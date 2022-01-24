@@ -8,14 +8,28 @@ Lo strumento [@subql/cli](https://github.com/subquery/subql/tree/docs-new-sectio
 
 Installate SubQuery CLI globalmente sul vostro terminale usando Yarn o NPM:
 
-<CodeGroup> # Yarn yarn global add @subql/cli # NPM npm install -g @subql/cli
+<CodeGroup> <CodeGroupItem title="NPM"> ```bash npm install -g @subql/cli ``` </CodeGroupItem>
+<CodeGroupItem title="YARN" active> ```shell yarn global add @subql/cli ``` </CodeGroupItem> </CodeGroup>
+
+You can then run help to see available commands and usage provide by CLI:
+
+```shell
+subql help
+```
 ## Installare @subql/node
 
 Un nodo SubQuery è un'implementazione che estrae i dati della blockchain basati sul substrato secondo il progetto SubQuery e li salva in un database Postgres.
 
 Installate il nodo SubQuery globalmente sul vostro terminale usando Yarn o NPM:
 
-<CodeGroup> # Yarn yarn global add @subql/node # NPM npm install -g @subql/node
+<CodeGroup> <CodeGroupItem title="NPM"> ```bash npm install -g @subql/node ``` </CodeGroupItem>
+<CodeGroupItem title="YARN" active> ```shell yarn global add @subql/node ``` </CodeGroupItem> </CodeGroup>
+
+Once installed, you can can start a node with:
+
+```shell
+subql-node <command>
+```
 > Nota: se state usando Docker o ospitate il vostro progetto in SubQuery Projects, potete saltare questo passo. Questo perché il nodo SubQuery è già fornito nel contenitore Docker e nell'infrastruttura di hosting.
 
 ## Installare @subql/query
@@ -24,7 +38,7 @@ La libreria di query SubQuery fornisce un servizio che ti permette di interrogar
 
 Installate la query SubQuery globalmente sul vostro terminale usando Yarn o NPM:
 
-<CodeGroup> <CodeGroupItem title="YARN" active> # Yarn yarn global add @subql/query # NPM npm install -g @subql/query </CodeGroupItem>
-<CodeGroupItem title="NPM"> subql-node &lt;command&gt; </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="NPM"> ```bash npm install -g @subql/query ``` </CodeGroupItem>
+<CodeGroupItem title="YARN" active> ```shell yarn global add @subql/query ``` </CodeGroupItem> </CodeGroup>
 
 > Nota: se state usando Docker o ospitate il vostro progetto in SubQuery Projects, potete anche saltare questo passo. Questo perché il nodo SubQuery è già fornito nel contenitore Docker e nell'infrastruttura di hosting. 
