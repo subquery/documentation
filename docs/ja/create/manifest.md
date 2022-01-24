@@ -22,15 +22,21 @@
 
 ### コマンドラインオプション
 
-v0.2.0のスペックバージョンはベータ版ですが、プロジェクトの初期化時に`subql init --specVersion 0.2.0 PROJECT_NAME`を実行して、明示的に定義する必要があります。
+By default the CLI will generate SubQuery projects for spec verison v0.2.0. This behaviour can be overridden by running `subql init --specVersion 0.0.1 PROJECT_NAME`, although this is not recommended as the project will not be supported by the SubQuery hosted service in the future
 
 `subql migration` は既存のプロジェクトで実行して、プロジェクトマニフェストを最新バージョンに移行できます。
 
-| オプション          | 説明                                     |
-| -------------- | -------------------------------------- |
-| -f, --force    |                                        |
-| -l, --location | 移行するローカル フォルダ (project.yamlを含む必要があります) |
-| --file=file    | 移行するproject.yaml を指定します                |
+USAGE $ subql init [PROJECTNAME]
+
+ARGUMENTS PROJECTNAME  Give the starter project name
+
+| オプション                   | 説明                                                                           |
+| ----------------------- | ---------------------------------------------------------------------------- |
+| -f, --force             |                                                                              |
+| -l, --location=location | local folder to create the project in                                        |
+| --install-dependencies  | Install dependencies as well                                                 |
+| --npm                   | Force using NPM instead of yarn, only works with `install-dependencies` flag |
+| --specVersion=0.0.1     | 0.2.0  [default: 0.2.0] | The spec version to be used by the project         |
 
 ## 概要
 
@@ -64,14 +70,14 @@ v0.2.0のスペックバージョンはベータ版ですが、プロジェク�
 
 ### データソース仕様
 
-フィルターされ抽出されるデータと、適用されるデータ変換のためのマッピング関数ハンドラーの場所を定義します。
-| フィールド          | v0.0.1                                                    | v0.2.0                                                                           | 説明                                                                                                                          |
-| -------------- | --------------------------------------------------------- | -------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| **name**       | String                                                    | 𐄂                                                                                | データソースの名前                                                                                                                   |
-| **kind**       | [substrate/Runtime](./manifest/#data-sources-and-mapping) | substrate/Runtime, [substrate/CustomDataSource](./manifest/#custom-data-sources) | デフォルトのsubstrateランタイムから、ブロック、イベント、外部関数(コール)などのデータタイプをサポートしています。 <br /> v0.2.0からは、スマートコントラクトなどのカスタムランタイムからのデータをサポートします。 |
-| **startBlock** | Integer                                                   | Integer                                                                          | インデックス開始ブロックを変更します。 データ量が少ない最初のブロックをスキップするように設定します。                                                                         |
-| **mapping**    | Mapping Spec                                              | Mapping Spec                                                                     |                                                                                                                             |
-| **filter**     | [network-filters](./manifest/#network-filters)            | 𐄂                                                                                | ネットワークエンドポイントの仕様名で実行するデータソースをフィルタする                                                                                         |
+Defines the data that will be filtered and extracted and the location of the mapping function handler for the data transformation to be applied.
+| フィールド          | v0.0.1                                                    | v0.2.0                                                                           | 説明                                                                                                                                                                                    |
+| -------------- | --------------------------------------------------------- | -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **name**       | String                                                    | 𐄂                                                                                | Name of the data source                                                                                                                                                               |
+| **kind**       | [substrate/Runtime](./manifest/#data-sources-and-mapping) | substrate/Runtime, [substrate/CustomDataSource](./manifest/#custom-data-sources) | We supports data type from default substrate runtime such as block, event and extrinsic(call). <br /> From v0.2.0, we support data from custom runtime, such as smart contract. |
+| **startBlock** | Integer                                                   | Integer                                                                          | This changes your indexing start block, set this higher to skip initial blocks with less data                                                                                         |
+| **mapping**    | Mapping Spec                                              | Mapping Spec                                                                     |                                                                                                                                                                                       |
+| **filter**     | [network-filters](./manifest/#network-filters)            | 𐄂                                                                                | Filter the data source to execute by the network endpoint spec name                                                                                                                   |
 
 ### Mapping Spec
 
@@ -82,7 +88,7 @@ v0.2.0のスペックバージョンはベータ版ですが、プロジェク�
 
 ## データソースとマッピング
 
-このセクションでは、デフォルトの Substrate ランタイムとそのマッピングについて説明します。 次に例を示します。
+In this section, we will talk about the default substrate runtime and its mapping. Here is an example:
 
 ```yaml
 dataSources:
@@ -94,9 +100,9 @@ dataSources:
 
 ### デフォルトのハンドラとフィルタ
 
-以下の表では、異なるハンドラでサポートされているフィルタについて説明します。
+The following table explains filters supported by different handlers.
 
-**SubQuery プロジェクトは、イベントと適切なマッピングフィルタを使用するだけで、より効率的になります。**
+**Your SubQuery project will be much more efficient when you only use event and call handlers with appropriate mapping filters**
 
 | ハンドラ                                       | サポートされるフィルタ                  |
 | ------------------------------------------ | ---------------------------- |
@@ -104,9 +110,9 @@ dataSources:
 | [EventHandler](./mapping.md#event-handler) | `module`,`method`            |
 | [CallHandler](./mapping.md#call-handler)   | `module`,`method` ,`success` |
 
-デフォルトのランタイムマッピングフィルタは、どのブロック、イベント、または外部のどちらがマッピングハンドラをトリガーするかを決定するために非常に便利な機能です。
+Default runtime mapping filters are an extremely useful feature to decide what block, event, or extrinsic will trigger a mapping handler.
 
-フィルター条件を満たす受信データのみがマッピング関数により処理されます。 マッピングフィルタはオプションですが、SubQuery プロジェクトによって処理されるデータの量を大幅に削減し、インデックス作成のパフォーマンスを向上させるために強く推奨されます。
+Only incoming data that satisfy the filter conditions will be processed by the mapping functions. Mapping filters are optional but are highly recommended as they significantly reduce the amount of data processed by your SubQuery project and will improve indexing performance.
 
 ```yaml
 # Example filter from callHandler
@@ -131,23 +137,23 @@ filter:
 
 ### Network Spec
 
-別のPolkadot parachainやカスタムsubstrateチェーンに接続する場合は、このマニフェストの [ネットワークの仕様](#network-spec) セクションを編集する必要があります。
+When connecting to a different Polkadot parachain or even a custom substrate chain, you'll need to edit the [Network Spec](#network-spec) section of this manifest.
 
-`genesisHash` は常にカスタムネットワークの最初のブロックのハッシュでなければなりません。 [PolkadotJS](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fkusama.api.onfinality.io%2Fpublic-ws#/explorer/query/0) にアクセスして、**block 0** のハッシュを探せば、これを簡単に回収することができます（下の画像参照）。
+The `genesisHash` must always be the hash of the first block of the custom network. You can retireve this easily by going to [PolkadotJS](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fkusama.api.onfinality.io%2Fpublic-ws#/explorer/query/0) and looking for the hash on **block 0** (see the image below).
 
 ![Genesis Hash](/assets/img/genesis-hash.jpg)
 
-さらに、 `エンドポイント` を更新する必要があります。 インデックスするブロックチェーンのwssまたはwsエンドポイントを定義します - **これはフルアーカイブノード** でなければなりません。 [OnFinality](https://app.onfinality.io)では、すべてのパラチェーンのエンドポイントを無料で取得できます。
+Additionally you will need to update the `endpoint`. This defines the wss endpoint of the blockchain to be indexed - **This must be a full archive node**. [OnFinality](https://app.onfinality.io)では、すべてのパラチェーンのエンドポイントを無料で取得できます。
 
 ### チェーンタイプ
 
-マニフェストにチェーンタイプを含めることで、カスタムチェーンからのデータのインデックスを作成できます。
+You can index data from custom chains by also including chain types in the manifest.
 
-substrateランタイムモジュールで使用される追加の型をサポートしています。 `typesAlias`、 `typesBundle`、`typesChain`、`typesSpec`もサポートされています。
+We support the additional types used by substrate runtime modules, `typesAlias`, `typesBundle`, `typesChain`, and `typesSpec` are also supported.
 
 In the v0.2.0 example below, the `network.chaintypes` are pointing to a file that has all the custom types included, This is a standard chainspec file that declares the specific types supported by this blockchain in either `.json`, `.yaml` or `.js` format.
 
-<CodeGroup> <CodeGroupItem title="v0.2.0" active> ``` yml network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' endpoint: 'ws://host.kittychain.io/public-ws' chaintypes: file: ./types.json # The relative filepath to where custom types are stored </CodeGroupItem> <CodeGroupItem title="v0.0.1"> ``` yml ... ``` </CodeGroupItem>
+<CodeGroup> <CodeGroupItem title="v0.2.0" active> ``` yml network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' endpoint: 'ws://host.kittychain.io/public-ws' chaintypes: file: ./types.json # The relative filepath to where custom types are stored ... ``` </CodeGroupItem>
 <CodeGroupItem title="v0.0.1"> ``` yml ... network: endpoint: "ws://host.kittychain.io/public-ws" types: { "KittyIndex": "u32", "Kitty": "[u8; 16]" } # typesChain: { chain: { Type5: 'example' } } # typesSpec: { spec: { Type6: 'example' } } dataSources: - name: runtime kind: substrate/Runtime startBlock: 1 filter:  #Optional specName: kitty-chain mapping: handlers: - handler: handleKittyBred kind: substrate/CallHandler filter: module: kitties method: breed success: true ``` </CodeGroupItem> </CodeGroup>
 
 To use typescript for your chain types file include it in the `src` folder (e.g. `./src/types.ts`), run `yarn build` and then point to the generated js file located in the `dist` folder.
