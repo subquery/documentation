@@ -62,14 +62,19 @@ My docker version is: Docker version 20.10.5, build 55c4c88
 SubQuery를 시작할 때 첫 번째 단계는 `subql init` 명령을 실행하는 것입니다. `subqlHelloWorld`라는 이름으로 시작 프로젝트를 초기화합시다. 오로지 작성자만이 필수라는 것을 기억하세요. 다른 모든 것은 아래에 비어 있습니다.
 
 ```shell
-> subql init --starter subqlHelloWorld
-Git repository:
-RPC endpoint [wss://polkadot.api.onfinality.io/public-ws]:
-Authors: sa
-Description:
-Version: [1.0.0]:
-License: [Apache-2.0]:
-Init the starter package... subqlHelloWorld is ready
+> subql init subqlHelloWorld
+? Select a network Polkadot
+? Select a template project subql-starter     Starter project for subquery
+Cloning project... done
+RPC endpoint: [wss://polkadot.api.onfinality.io/public-ws]:
+Git repository [https://github.com/subquery/subql-starter]:
+Fetching network genesis hash... done
+Author [Ian He & Jay Ji]:
+Description [This project can be use as a starting po...]:
+Version [0.0.4]:
+License [MIT]:
+Preparing project... done
+subqlHelloWorld is ready
 
 ```
 
