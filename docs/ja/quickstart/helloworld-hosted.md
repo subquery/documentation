@@ -31,10 +31,10 @@ You will need:
 
 ## 1. Step 1: Create your project
 
-Let's create a project called subql_hellowworld and run the obligatory install, codegen and build with your favourite package manager.
+Let's create a project called subqlHelloWorld by running `subql init` and selecting to build the project with the `Polkadot` network and initialize the project with the `subql-starter` template. We must run the obligatory install, codegen and build with your favourite package manager.
 
 ```shell
-> subql init --starter subqlHelloWorld
+> subql init subqlHelloWorld
 yarn install
 yarn codegen
 yarn build
