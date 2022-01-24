@@ -62,14 +62,19 @@ echo -e "My yarn version is:" `yarn -v` "\nMy subql version is:" `subql -v`  "\n
 Первым шагом при запуске с SubQuery является выполнение команды `subql init`. Давайте инициализируем стартовый проект с именем `subqlHelloWorld`. Обратите внимание, что только автор является обязательным. Все остальное внизу остается пустым.
 
 ```shell
-> subql init --starter subqlHelloWorld
-Git repository:
-RPC endpoint [wss://polkadot.api.onfinality.io/public-ws]:
-Authors: sa
-Description:
-Version: [1.0.0]:
-License: [Apache-2.0]:
-Init the starter package... subqlHelloWorld is ready
+> subql init subqlHelloWorld
+? Select a network Polkadot
+? Select a template project subql-starter     Starter project for subquery
+Cloning project... done
+RPC endpoint: [wss://polkadot.api.onfinality.io/public-ws]:
+Git repository [https://github.com/subquery/subql-starter]:
+Fetching network genesis hash... done
+Author [Ian He & Jay Ji]:
+Description [This project can be use as a starting po...]:
+Version [0.0.4]:
+License [MIT]:
+Preparing project... done
+subqlHelloWorld is ready
 
 ```
 
@@ -79,7 +84,7 @@ Init the starter package... subqlHelloWorld is ready
 cd subqlHelloWorld
 ```
 
-## 4. Step 2: Install dependencies
+## 2. Step 2: Install dependencies
 
 Теперь выполните установку yarn или node, чтобы установить различные зависимости.
 
