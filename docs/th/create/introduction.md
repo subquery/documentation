@@ -6,7 +6,7 @@
 
 นี่คือตัวอย่างที่คุณสามารถเริ่มต้นสร้างโครงการเสร็จสิ้น และได้เริ่มต้นจากส่วนของ [Quick start](../quickstart/quickstart.md) จากชุดเริ่มต้น พวกเราจะนำคุณผ่านกระบวนการมาตรฐานเพื่อที่จะปรับแต่ง และพัฒนา SubQuery Project ของคุณ
 
-1. เริ่มต้น Project ของคุณโดยใช้คำสั่ง `subql init --specVersion 0.2.0 PROJECT_NAME` หรือคุณสามารถใช้เวอชันเก่า ด้วยคำสั่ง `subql init PROJECT_NAME`
+1. Initialise your project using `subql init PROJECT_NAME`.
 2. อัพเดท Manifest file (`project.yaml`) เพื่อใส่ข้อมูลที่เกี่ยวกับ blockchain และ entities ที่คุณจะเชื่อมโยง โปรดดู [Manifest File](./manifest.md)
 3. สร้าง GraphQL entities ภายใน Schema ของคุณ (`schema.graphql<0>) เพื่อกำหนดรูปร่างของข้อมูลที่คุณจะดึงข้อมูลออกมา โปรดดู <a href="./graphql.md">GraphQL Schema</a></li>
 <li>เพิ่ม Mapping Function (ตัวอย่าง <code>mappingHandlers.ts`) คุณจะเรียกข้อมูลเพื่อแปลงข้อมูลที่อยู่บน chain ให้เป็น GraphQL entities ที่คุณได้กำหนด - โปรดดู [Mapping](./mapping.md)
@@ -68,7 +68,7 @@ logger.warn('Warning level message');
 
 ![logging.info](/assets/img/logging_info.png)
 
-การใช้ `logger.debug` คุณจำเป็นจะต้อง เพิ่ม `--log-level=debug` ไปยัง command line
+To use `logger.debug`, an additional flag is required. เพิ่ม `--log-level=debug` ไปยัง command line
 
 ถ้าหากคุณรันอยู่ใน docker container ให้เพิ่มบรรทัดนี้ไปยังไฟล์ `docker-compose.yaml`
 
