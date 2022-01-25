@@ -40,7 +40,7 @@ type Example @entity {
 
 为了提高查询性能，只需在非主键字段实现 ``@index` 注解，便可索引实体字段。 </p>
 
-<p spaces-before="0">然而，我们不允许用户在任何 <a href="#json-type">JSON</a> 对象上添加 <code>@index`` 注解。 默认情况下，索引会自动添加到数据库的外键和JSON字段中，但这只是为了提高查询服务的性能。
+然而，我们不允许用户在任何对象上添加注解。 默认情况下，索引会自动添加到数据库的外键和JSON字段中，但这只是为了提高查询服务的性能。
 
 参见下面的示例。
 
@@ -92,21 +92,6 @@ const pirateLords = await User.getByTitleId(captainTitle.id); // List of all Cap
 
 例如：护照只能属于一人，一个人只能持有一本护照（参考下面的例子）：
 
-或者
-
-```graphql
-type Person @entity {
-  id: ID!
-}
-
-type Passport @entity {
-  id: ID!
-  owner: Person!
-}
-
-```
-
-或者以另一个方式关联。
 
 ```graphql
 type Person @entity {
@@ -128,12 +113,12 @@ type Passport @entity {
 ```graphql
 type Person @entity {
   id: ID!
-  accounts: [Account] 
 }
 
 type Account @entity {
   id: ID!
   publicAddress: String!
+  owner: Person!
 }
 ```
 
@@ -146,7 +131,6 @@ type Account @entity {
 type Person @entity {
   id: ID!
   name: String!
-  groups: [PersonGroup]
 }
 
 type PersonGroup @entity {
@@ -158,7 +142,6 @@ type PersonGroup @entity {
 type Group @entity {
   id: ID!
   name: String!
-  persons: [PersonGroup]
 }
 ```
 
@@ -166,7 +149,6 @@ type Group @entity {
 
 下面的例子通过 Transfer 表在两个 Accounts (from 和 to) 之间建立双向关系。
 
-要在一个实体上反向查找它的关系，请将 `@derivedFrom` 添加到字段并指向另一个实体的反向查找字段。
 
 ```graphql
 type Account @entity {
@@ -183,6 +165,8 @@ type Transfer @entity {
 ```
 
 ### 反向查询
+
+要在一个实体上反向查找它的关系，请将 `@derivedFrom` 添加到字段并指向另一个实体的反向查找字段。
 
 这将在实体上创建一个可以查询的虚拟字段。
 

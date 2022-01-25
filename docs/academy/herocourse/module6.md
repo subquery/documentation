@@ -209,7 +209,7 @@ record.bool = (data as bool).valueOf();
 ## Logging
 
 To log data to the CLI from within the mappings functions, when a subql node is running, the
-logger.info command can be used:
+`logger.info` command can be used:
 
 
 ```shell
@@ -227,7 +227,7 @@ Chrome developer tools. See [How to debug a SubQuery project?](https://doc.subqu
 To debug a local subql node, the --debug flag can also be used from the command line. Eg
 
 ```shell
-> subql-node -f. --debug
+> subql-node -f . --debug
 ```
 
 - [Subql CLI debug reference](https://doc.subquery.network/references/references/#debug)
