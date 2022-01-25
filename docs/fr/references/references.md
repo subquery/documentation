@@ -1,10 +1,45 @@
 # Options de ligne de commande
 
+## subql (cli)
+
+### --help
+
+```shell
+> subql --help
+
+COMMANDS
+  build     Build this SubQuery project code
+  codegen   Generate schemas for graph node
+  help      display help for subql
+  init      Initialize a scaffold subquery project
+  migrate   Migrate Subquery project manifest v0.0.1 to v0.2.0
+  publish   Upload this SubQuery project to IPFS
+  validate  Check a folder or github repo is a validate subquery project
+```
+
+### build
+
+This command is uses webpack to generate a bundle of a subquery project.
+
+| Options            | Description                                                                                                |
+| ------------------ | ---------------------------------------------------------------------------------------------------------- |
+| -l, --location     | local folder of subquery project (if not in folder already)                                                |
+| -o, --output       | specify output folder of build e.g. build-folder                                                           |
+| --mode=(production | prod                                                        | development | dev) | [ default: production ] |
+
+- With `subql build` you can specify additional entry points in exports field although it will always build `index.ts` automatically
+
+- You need to have @subql/cli v0.19.0 or above to use exports field.
+
+- Any `exports` field must map to string type (e.g. `"entry": "./src/file.ts"`), else it will be ignored from build.
+
+[Futher example](https://doc.subquery.network/create/introduction/#build).
+
 ## subql-node
 
 ### --help
 
-Cela montre les options d'aide.
+This shows the help options.
 
 ```shell
 > subql-node --help
@@ -26,14 +61,14 @@ Options:
       --timeout             Timeout for indexer sandbox to execute the mapping
                             functions                                   [number]
       --debug               Show debug information to console output. will
-                            force le niveau du journal à déboguer
+                            forcefully set log level to debug
                                                       [boolean] [default: false]
-      --profiler            Afficher les informations du profileur sur la sortie console
+      --profiler            Show profiler information to console output
                                                       [boolean] [default: false]
-      --network-endpoint    Point de terminaison du réseau blockchain à connecter      [string]
-      --output-fmt          Imprimer le journal en json ou en texte brut
+      --network-endpoint    Blockchain network endpoint to connect      [string]
+      --output-fmt          Print log as json or plain text
                                            [string] [choices: "json", "colored"]
-      --log-level           Spécifier le niveau du journal à imprimer. Ignored when --debug is
+      --log-level           Specify log level to print. Ignored when --debug is
                             used
           [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
                                                                        "silent"]
@@ -51,7 +86,7 @@ Options:
 
 ### --version
 
-Cela affiche la version actuelle.
+This displays the current version.
 
 ```shell
 > subql-node --version
@@ -60,16 +95,16 @@ Cela affiche la version actuelle.
 
 ### -f, --subquery
 
-Utilisez cette option pour démarrer le projet SubQuery.
+Use this flag to start the SubQuery project.
 
 ```shell
-subql-node -f . // OU
+subql-node -f . // OR
 subql-node --subquery .
 ```
 
 ### --subquery-name (deprecated)
 
-Cette option vous permet de fournir un nom pour votre projet qui agit comme s'il créait une instance de votre projet. En fournissant un nouveau nom, un nouveau schéma de base de données est créé et la synchronisation des blocs reprend à zéro. Deprecated in favour of `--db-schema`
+This flag allows you to provide a name for your project which acts as if it creates an instance of your project. Upon providing a new name, a new database schema is created and block synchronisation starts from zero. Deprecated in favour of `--db-schema`
 
 ```shell
 subql-node -f . --subquery-name=test2
@@ -77,17 +112,17 @@ subql-node -f . --subquery-name=test2
 
 ### -c, --config
 
-Toutes ces diverses configurations peuvent être placées dans un fichier .yml ou .json, puis référencées avec l'option config.
+All these various configurations can be placed into a .yml or .json file and then referenced with the config flag.
 
-Exemple de fichier subquery_config.yml :
+Sample subquery_config.yml file:
 
 ```shell
-subquery: . // Obligatoire. Il s'agit du chemin local du projet. La point signifie ici le répertoire local courant.
-subqueryName: hello // Nom facultatif
-batchSize: 55 // Configuration facultative
+subquery: . // Mandatory. This is the local path of the project. The period here means the current local directory.
+subqueryName: hello // Optional name
+batchSize: 55 // Optional config
 ```
 
-Placez ce fichier dans le même répertoire que le projet. Ensuite, dans le répertoire actuel du projet, exécutez :
+Place this file in the same directory as the project. Then in the current project directory, run:
 
 ```shell
 > subql-node -c ./subquery_config.yml
@@ -95,17 +130,17 @@ Placez ce fichier dans le même répertoire que le projet. Ensuite, dans le rép
 
 ### --local (deprecated)
 
-Cette option est principalement utilisé à des fins de débogage où il crée la table starter_entity par défaut dans le schéma "postgres" par défaut.
+This flag is primarily used for debugging purposes where it creates the default starter_entity table in the default "postgres" schema.
 
 ```shell
 subql-node -f . --local
 ```
 
-Notez qu'une fois que vous utilisez cette option, le supprimer ne signifie pas qu'il pointera vers une autre base de données. Pour pointer vers une autre base de données, vous devrez créer une NOUVELLE base de données et modifier les paramètres de l'environnement pour cette nouvelle base de données. En d'autres termes, "export DB_DATABASE=<new_db_here>"
+Note that once you use this flag, removing it won't mean that it will point to another database. To repoint to another database you will have to create a NEW database and change the env settings to this new database. In other words, "export DB_DATABASE=<new_db_here>"
 
 ### --force-clean
 
-Cette option force les schémas et les tables du projet à être régénérés, utile à utiliser lors du développement itératif des schémas graphql de sorte que les nouvelles exécutions du projet travaillent toujours avec un état propre. Notez que cette option effacera également toutes les données indexées.
+This flag forces the project schemas and tables to be regenerated, helpful to use when iteratively developing graphql schemas such that new runs of the project are always working with a clean state. Note that this flag will also wipe all indexed data.
 
 ### --db-schema
 
@@ -125,7 +160,7 @@ SubQuery Projects are usually run in a javascript sandbox for security to limit 
 
 Although this enhances security we understand that this limits the available functionality of your SubQuery. The `--unsafe` command imports all default javascript modules which greatly increases sandbox functionality with the tradeoff of decreased security.
 
-**Note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in SubQuery's managed service (https://project.subquery.network)**
+**Note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in SubQuery's managed service ([project.subquery.network](https://project.subquery.network))**
 
 ### --batch-size
 
@@ -256,7 +291,7 @@ The port the subquery indexing service binds to. By default this is set to `3000
 
 ### --help
 
-Cela montre les options d'aide.
+This shows the help options.
 
 ```shell
 Options:
@@ -280,7 +315,7 @@ Options:
 
 ### --version
 
-Cela affiche la version actuelle.
+This displays the current version.
 
 ```shell
 > subql-query --version
@@ -331,7 +366,11 @@ Set a custom url for the location of the endpoints of the indexer, the query ser
 
 The query service has a limit of 100 entities for unbounded graphql queries. The unsafe flag removes this limit which may cause performance issues on the query service. It is recommended instead that queries are [paginated](https://graphql.org/learn/pagination/).
 
-Note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in SubQuery's managed service (https://project.subquery.network).
+This flag can also be used to enable certain aggregation functions including sum, max, avg and [others](https://github.com/graphile/pg-aggregates#aggregates).
+
+These are disabled by default due to the entity limit.
+
+**Note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in SubQuery's managed service [project.subquery.network](https://project.subquery.network).**
 
 ### --port
 
