@@ -15,3 +15,13 @@ On the top right of the playground, you'll find a *Docs* button that will open a
 ![SubQuery Documentation](https://static.subquery.network/media/explorer/explorer-documentation.png)
 
 [Learn more about the GraphQL Query language.](./graphql.md)
+
+# Using agregation functions In graphql
+
+Subquery supports using groupby in your query.
+
+![Graphql Groupby](/assets/img/graphql_aggregation.png)
+
+- Functionally this acts similar to SQL `distinct`, as aggregation functions are disabled by default
+
+- These can be enabled using the `--unsafe` flag locally. [Read more](https://doc.subquery.network/references/references/#unsafe-2)
