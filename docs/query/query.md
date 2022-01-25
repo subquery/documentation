@@ -10,18 +10,8 @@ The SubQuery explorer makes getting started easy. We’re hosting these SubQuery
 
 You’ll also note that the SubQuery Explorer provides a playground for discovering available data with example queries - you can test queries directly in your browser without implementing code. Additionally, we’ve made some small improvements to our documentation to better support developers on their journey to better query and analyse the world’s Polkadot data.
 
-On the top right of the playground, you'll find a *Docs* button that will open a documentation draw. This documentation is automatically generated and helps you find what entities and methods you can query. In the example below we're using the [Sum Rewards SubQuery](https://explorer.subquery.network/subquery/OnFinality-io/sum-reward) to get the top 5 most rewarded accounts (in terms of staking revenue) on Polkadot that have never been slashed.
+On the top right of the playground, you'll find a _Docs_ button that will open a documentation draw. This documentation is automatically generated and helps you find what entities and methods you can query. In the example below we're using the [Sum Rewards SubQuery](https://explorer.subquery.network/subquery/OnFinality-io/sum-reward) to get the top 5 most rewarded accounts (in terms of staking revenue) on Polkadot that have never been slashed.
 
 ![SubQuery Documentation](https://static.subquery.network/media/explorer/explorer-documentation.png)
 
 [Learn more about the GraphQL Query language.](./graphql.md)
-
-# Using agregation functions In graphql
-
-Subquery supports using groupby in your query.
-
-![Graphql Groupby](/assets/img/graphql_aggregation.png)
-
-- Functionally this acts similar to SQL `distinct`, as aggregation functions are disabled by default
-
-- These can be enabled using the `--unsafe` flag locally. [Read more](https://doc.subquery.network/references/references/#unsafe-2)

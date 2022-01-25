@@ -207,7 +207,8 @@ function getSidebar(locale, language){
       collapsable: true,
       children: [
         `${locale}/query/query.md`,
-        `${locale}/query/graphql.md`
+        `${locale}/query/graphql.md`,
+        `${locale}/query/aggregate.md`
       ]
     },
     {

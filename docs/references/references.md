@@ -21,14 +21,14 @@ COMMANDS
 
 This command is uses webpack to generate a bundle of a subquery project.
 
-| Options        | Description                                                |
-| -------------- | ---------------------------------------------------------- |
-| -l, --location | local folder of subquery project (if not in folder already)|
-| -o, --output   | specify output folder of build e.g. build-folder           |
-| --mode=(production|prod|development|dev) | [ default: production ]           |
+| Options            | Description                                                 |
+| ------------------ | ----------------------------------------------------------- | ----------- | ---- | ----------------------- |
+| -l, --location     | local folder of subquery project (if not in folder already) |
+| -o, --output       | specify output folder of build e.g. build-folder            |
+| --mode=(production | prod                                                        | development | dev) | [ default: production ] |
 
-- With `subql build` you can specify additional entry points in exports field although it will always build 
-  `index.ts` automatically 
+- With `subql build` you can specify additional entry points in exports field although it will always build
+  `index.ts` automatically
 
 - You need to have @subql/cli v0.19.0 or above to use exports field.
 
@@ -161,7 +161,7 @@ SubQuery Projects are usually run in a javascript sandbox for security to limit 
 
 Although this enhances security we understand that this limits the available functionality of your SubQuery. The `--unsafe` command imports all default javascript modules which greatly increases sandbox functionality with the tradeoff of decreased security.
 
-**Note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in SubQuery's managed service (https://project.subquery.network)**
+**Note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in SubQuery's managed service ([project.subquery.network](https://project.subquery.network))**
 
 ### --batch-size
 
@@ -371,7 +371,7 @@ This flag can also be used to enable certain aggregation functions including sum
 
 These are disabled by default due to the entity limit.
 
-Note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in SubQuery's managed service [network](https://project.subquery.network).
+**Note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in SubQuery's managed service [project.subquery.network](https://project.subquery.network).**
 
 ### --port
 
