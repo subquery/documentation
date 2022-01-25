@@ -1,14 +1,18 @@
 # Aggregate Functions
 
+## Group By
+
 SubQuery supports advanced aggregate functions to allow you to perform a calculation on a set of values during your query.
 
 Aggregate functions are usually used with the GroupBy function in your query.
 
-**Please note that you must enable the `--unsafe` flag on the query service in order to use these functions. [Read more](../references/references.md#unsafe-2)**
+GroupBy allows you to quickly get distinct values in a set from SubQuery in a single query.
 
 ![Graphql Groupby](/assets/img/graphql_aggregation.png)
 
-SubQuery provides the following aggregate functions:
+## Advanced Aggregate Functions
+
+SubQuery provides the following aggregate functions when in unsafe mode:
 
 - `sum` (applies to number-like fields) - the result of adding all the values together
 - `distinctCount` (applies to all fields) - the count of the number of distinct values
@@ -22,4 +26,4 @@ SubQuery provides the following aggregate functions:
 
 SubQuery's implementation of aggregate functions is based on [pg-aggregates](https://github.com/graphile/pg-aggregates), you can find more information there
 
-**Note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in SubQuery's managed service ([project.subquery.network](https://project.subquery.network))**
+**Please note that you must enable the `--unsafe` flag on the query service in order to use these functions. [Read more](../references/references.md#unsafe-2). Note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in SubQuery's managed service ([project.subquery.network](https://project.subquery.network))**
