@@ -51,11 +51,42 @@ yarn codegen
 
 プロジェクトのルートディレクトリからbuild コマンドを実行します。
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```bash npm run-script build ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem>
+<CodeGroupItem title="NPM"> ```bash npm run-script build ``` </CodeGroupItem> </CodeGroup>
 
-## ログ出力
+### Alternative build options
 
-`console.log` 関数は **もうサポートが終了してます。 ** 代わりに、 `logger` モジュールが型に組み込まれています。 つまり、さまざまなロガーレベルを受け入れることができるロガーをサポートすることができます。
+We support additional build options for subquery projects using `subql build`.
+
+With this you can define additional entry points to build using the exports field in package.json.
+
+```json
+"name": "project-name",
+"version": "1.0.0",
+...
+"exports": {
+  "entry_one": "./src/entry_one.ts",
+  "entry_renamed": "./src/entry_two.ts"
+},
+```
+
+Then by running `subql build` it will generate a dist folder with the following structure:
+
+```
+- project-name
+  L dist
+    L entry_one.js
+    L entry_renamed.js
+    L index.js 
+```
+
+Note that it will build `index.ts` whether or not it is specified in the exports field.
+
+For more information on using this including flags, see [cli reference](https://doc.subquery.network/references/references/#build).
+
+## Logging
+
+The `console.log` method is **no longer supported**. Instead, a `logger` module has been injected in the types, which means we can support a logger that can accept various logging levels.
 
 ```typescript
 logger.info('Info level message');
@@ -63,16 +94,16 @@ logger.debug('Debugger level message');
 logger.warn('Warning level message');
 ```
 
-`logger.info` または `logger.warn`を使用するには、マッピングファイルに行を挿入してください。
+To use `logger.info` or `logger.warn`, just place the line into your mapping file.
 
 ![logging.info](/assets/img/logging_info.png)
 
-To use `logger.debug`, an additional flag is required. コマンドラインに `--log-level=debug` を追加します。
+To use `logger.debug`, an additional flag is required. Add `--log-level=debug` to your command line.
 
-Docker containerを実行している場合は、 `docker-compose.yaml` ファイルにこの行を追加してください。
+If you are running a docker container, add this line to your `docker-compose.yaml` file.
 
 ![logging.debug](/assets/img/logging_debug.png)
 
-ターミナル画面に新しいログが表示されます。
+You should now see the new logging in the terminal screen.
 
 ![logging.debug](/assets/img/subquery_logging.png)
