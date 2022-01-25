@@ -1,5 +1,40 @@
 # Command Line Flags
 
+## subql (cli)
+
+### --help
+
+```shell
+> subql --help
+
+COMMANDS
+  build     Build this SubQuery project code
+  codegen   Generate schemas for graph node
+  help      display help for subql
+  init      Initialize a scaffold subquery project
+  migrate   Migrate Subquery project manifest v0.0.1 to v0.2.0
+  publish   Upload this SubQuery project to IPFS
+  validate  Check a folder or github repo is a validate subquery project
+```
+
+### build
+
+This command is uses webpack to generate a bundle of a subquery project.
+
+| オプション              | 説明                                                                                                         |
+| ------------------ | ---------------------------------------------------------------------------------------------------------- |
+| -l, --location     | local folder of subquery project (if not in folder already)                                                |
+| -o, --output       | specify output folder of build e.g. build-folder                                                           |
+| --mode=(production | prod                                                        | development | dev) | [ default: production ] |
+
+- With `subql build` you can specify additional entry points in exports field although it will always build `index.ts` automatically
+
+- You need to have @subql/cli v0.19.0 or above to use exports field.
+
+- Any `exports` field must map to string type (e.g. `"entry": "./src/file.ts"`), else it will be ignored from build.
+
+[Futher example](https://doc.subquery.network/create/introduction/#build).
+
 ## subql-node
 
 ### --help
@@ -125,7 +160,7 @@ SubQuery Projects are usually run in a javascript sandbox for security to limit 
 
 Although this enhances security we understand that this limits the available functionality of your SubQuery. The `--unsafe` command imports all default javascript modules which greatly increases sandbox functionality with the tradeoff of decreased security.
 
-**Note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in SubQuery's managed service (https://project.subquery.network)**
+**Note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in SubQuery's managed service ([project.subquery.network](https://project.subquery.network))**
 
 ### --batch-size
 
@@ -331,7 +366,11 @@ Set a custom url for the location of the endpoints of the indexer, the query ser
 
 The query service has a limit of 100 entities for unbounded graphql queries. The unsafe flag removes this limit which may cause performance issues on the query service. It is recommended instead that queries are [paginated](https://graphql.org/learn/pagination/).
 
-Note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in SubQuery's managed service (https://project.subquery.network).
+This flag can also be used to enable certain aggregation functions including sum, max, avg and [others](https://github.com/graphile/pg-aggregates#aggregates).
+
+These are disabled by default due to the entity limit.
+
+**Note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in SubQuery's managed service [project.subquery.network](https://project.subquery.network).**
 
 ### --port
 
