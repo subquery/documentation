@@ -54,9 +54,39 @@ yarn codegen
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```bash npm run-script build ``` </CodeGroupItem> </CodeGroup>
 
+### Alternative build options
+
+We support additional build options for subquery projects using `subql build`.
+
+With this you can define additional entry points to build using the exports field in package.json.
+
+```json
+"name": "project-name",
+"version": "1.0.0",
+...
+"exports": {
+  "entry_one": "./src/entry_one.ts",
+  "entry_renamed": "./src/entry_two.ts"
+},
+```
+
+Then by running `subql build` it will generate a dist folder with the following structure:
+
+```
+- project-name
+  L dist
+    L entry_one.js
+    L entry_renamed.js
+    L index.js 
+```
+
+Note that it will build `index.ts` whether or not it is specified in the exports field.
+
+For more information on using this including flags, see [cli reference](https://doc.subquery.network/references/references/#build).
+
 ## Logging
 
-`console.log` методът **вече не се поддържа.**. Вместо това `logger` модул е инжектиран в типовете, което означава, че можем да поддържаме регистратор, който може да приема различни нива на регистриране.
+The `console.log` method is **no longer supported**. Instead, a `logger` module has been injected in the types, which means we can support a logger that can accept various logging levels.
 
 ```typescript
 logger.info('Info level message');
@@ -64,16 +94,16 @@ logger.debug('Debugger level message');
 logger.warn('Warning level message');
 ```
 
-За да използвате `logger.info` или `logger.warn`, просто поставете реда във вашия файл за преобразуване.
+To use `logger.info` or `logger.warn`, just place the line into your mapping file.
 
 ![logging.info](/assets/img/logging_info.png)
 
-To use `logger.debug`, an additional flag is required. Добавете `--log-level=debug` към вашия команден ред.
+To use `logger.debug`, an additional flag is required. Add `--log-level=debug` to your command line.
 
-Ако използвате докер контейнер, добавете този ред към вашия файл `docker-compose.yaml`.
+If you are running a docker container, add this line to your `docker-compose.yaml` file.
 
 ![logging.debug](/assets/img/logging_debug.png)
 
-Сега трябва да видите новото регистриране на екрана на терминала.
+You should now see the new logging in the terminal screen.
 
 ![logging.debug](/assets/img/subquery_logging.png)
