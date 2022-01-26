@@ -99,7 +99,7 @@
   <div>
     <div class="lastIntroduce lastIntroduce_1">
         <h5>커스텀 체인과 통합하시겠습니까?</h5>
-        <p>새로운 파라체인을 구축하든, Substrate에 완전히 새로운 블록체인을 구축하든 SubQuery는 체인 데이터를 색인화하고 문제를 해결하는 데 큰 도움이 됩니다. 또한 서브쿼리는 서브스트레이트 기반의 커스텀 체인과 쉽게 통합되도록 설계되었습니다.</p>
+        <p>새로운 파라체인을 구축하든, Substrate에 완전히 새로운 블록체인을 구축하든 SubQuery는 체인 데이터를 색인화하고 문제를 해결하는 데 큰 도움이 됩니다. 또한 SubQuery는 Substrate 기반의 커스텀 체인과 쉽게 통합되도록 설계되었습니다.</p>
         <span class="more">
           <router-link :to="{path: '/create/mapping/#custom-substrate-chains'}">체인 결합 방법 알아보기</router-link>
         </span>
@@ -119,18 +119,18 @@
   <div>
     <div>소셜미디어</div>
     <div class="connectWay">
-      <a href="https://discord.com/invite/78zg8aBSMG" target="_blank" class="connectDiscord">디스코드</a>
-      <a href="https://twitter.com/subquerynetwork" target="_blank" class="connectTwitter">트위터</a>
-      <a href="https://medium.com/@subquery" target="_blank" class="connectMedium">미디움</a>
-      <a href="https://t.me/subquerynetwork" target="_blank" class="connectTelegram">텔레그램</a>
-      <a href="https://github.com/OnFinality-io/subql" target="_blank" class="connectGithub">깃허브</a>
-      <a href="https://matrix.to/#/#subquery:matrix.org" target="_blank" class="connectMatrix">매트릭스</a>
-      <a href="https://www.linkedin.com/company/subquery" target="_blank" class="connectLinkedin">링크드인</a>
+      <a href="https://discord.com/invite/78zg8aBSMG" target="_blank" class="connectDiscord">discord</a>
+      <a href="https://twitter.com/subquerynetwork" target="_blank" class="connectTwitter">twitter</a>
+      <a href="https://medium.com/@subquery" target="_blank" class="connectMedium">medium</a>
+      <a href="https://t.me/subquerynetwork" target="_blank" class="connectTelegram">telegram</a>
+      <a href="https://github.com/OnFinality-io/subql" target="_blank" class="connectGithub">github</a>
+      <a href="https://matrix.to/#/#subquery:matrix.org" target="_blank" class="connectMatrix">matrix</a>
+      <a href="https://www.linkedin.com/company/subquery" target="_blank" class="connectLinkedin">linkedin</a>
     </div>
   </div>
 </section>
 </div> </div>
 <div class="footer">
-  <div class="main"><div>서브쿼리 © 2021</div></div>
+  <div class="main"><div>SubQuery © 2021</div></div>
 </div>
 <script charset="utf-8" src="/assets/js/welcome.js"></script>
