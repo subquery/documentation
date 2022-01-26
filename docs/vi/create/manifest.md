@@ -23,21 +23,21 @@ Trong `dataSources`:
 
 ### Tùy chọn CLI
 
-By default the CLI will generate SubQuery projects for spec verison v0.2.0. This behaviour can be overridden by running `subql init --specVersion 0.0.1 PROJECT_NAME`, although this is not recommended as the project will not be supported by the SubQuery hosted service in the future
+Theo mặc định, CLI sẽ tạo các dự án SubQuery theo phiên bản đặc tả v0.2.0. Hành vi này có thể bị ghi đè bằng cách chạy `subql init --specVersion 0.0.1 PROJECT_NAME`, mặc dù điều này không được khuyến khích vì dự án sẽ không được hỗ trợ bởi dịch vụ được lưu trữ subQuery trong tương lai
 
 `subql migrate` có thể chạy trong một dự án hiện có để di chuyển tệp kê khai dự án sang phiên bản mới nhất.
 
 USAGE $ subql init [PROJECTNAME]
 
-ARGUMENTS PROJECTNAME  Give the starter project name
+ĐỐI SỐ PROJECTNAME Đặt tên dự án khởi động
 
-| Các Tùy chọn            | Mô tả                                                                        |
-| ----------------------- | ---------------------------------------------------------------------------- |
-| -f, --force             |                                                                              |
-| -l, --location=location | local folder to create the project in                                        |
-| --install-dependencies  | Install dependencies as well                                                 |
-| --npm                   | Force using NPM instead of yarn, only works with `install-dependencies` flag |
-| --specVersion=0.0.1     | 0.2.0  [default: 0.2.0] | The spec version to be used by the project         |
+| Các Tùy chọn            | Mô tả                                                                      |
+| ----------------------- | -------------------------------------------------------------------------- |
+| -f, --force             |                                                                            |
+| -l, --location=location | thư mục cục bộ để chứa dự án tạo ra                                        |
+| -install-dependencies   | Cài đặt các phần phụ thuộc                                                 |
+| --npm                   | Buộc sử dụng NPM thay vì yarn, chỉ hoạt động với cờ `install-dependencies` |
+| --specVersion=0.0.1     | 0.2.0 [mặc định: 0.2.0] | Phiên bản đặc tả sẽ được sử dụng bởi dự án       |
 
 ## Tổng quan
 
@@ -71,14 +71,14 @@ ARGUMENTS PROJECTNAME  Give the starter project name
 
 ### Thông số kỹ thuật Data Source
 
-Defines the data that will be filtered and extracted and the location of the mapping function handler for the data transformation to be applied.
-| Trường         | v0.0.1                                                    | v0.2.0                                                                           | Mô tả                                                                                                                                                                                 |
-| -------------- | --------------------------------------------------------- | -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **name**       | String                                                    | String                                                                           | Name of the data source                                                                                                                                                               |
-| **kind**       | [substrate/Runtime](./manifest/#data-sources-and-mapping) | substrate/Runtime, [substrate/CustomDataSource](./manifest/#custom-data-sources) | We supports data type from default substrate runtime such as block, event and extrinsic(call). <br /> From v0.2.0, we support data from custom runtime, such as smart contract. |
-| **startBlock** | Integer                                                   | Integer                                                                          | This changes your indexing start block, set this higher to skip initial blocks with less data                                                                                         |
-| **mapping**    | Thông số kỹ thuật ánh xạ                                  | Thông số kỹ thuật ánh xạ                                                         |                                                                                                                                                                                       |
-| **filter**     | [network-filters](./manifest/#network-filters)            | String                                                                           | Filter the data source to execute by the network endpoint spec name                                                                                                                   |
+Xác định dữ liệu sẽ được lọc và trích xuất và vị trí của trình xử lý hàm ánh xạ để áp dụng chuyển đổi dữ liệu.
+| Trường         | v0.0.1                                                    | v0.2.0                                                                           | Mô tả                                                                                                                                                                                                                                          |
+| -------------- | --------------------------------------------------------- | -------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **name**       | String                                                    | String                                                                           | Tên của nguồn dữ liệu                                                                                                                                                                                                                          |
+| **kind**       | [substrate/Runtime](./manifest/#data-sources-and-mapping) | substrate/Runtime, [substrate/CustomDataSource](./manifest/#custom-data-sources) | Chúng tôi hỗ trợ các kiểu dữ liệu mặc định của thời gian chạy substrate, chẳng hạn như khối, sự kiện và phần bổ sung (cuộc gọi). <br /> Từ v0.2.0, chúng tôi hỗ trợ dữ liệu thời gian chạy tùy chỉnh, chẳng hạn như hợp đồng thông minh. |
+| **startBlock** | Integer                                                   | Integer                                                                          | Thao tác này sẽ thay đổi khối bắt đầu lập chỉ mục, hãy đặt khối này cao hơn để bỏ qua khối ban đầu với ít dữ liệu hơn                                                                                                                          |
+| **mapping**    | Thông số kỹ thuật ánh xạ                                  | Thông số kỹ thuật ánh xạ                                                         |                                                                                                                                                                                                                                                |
+| **filter**     | [network-filters](./manifest/#network-filters)            | String                                                                           | Lọc nguồn dữ liệu để thực thi theo tên thông số điểm cuối mạng                                                                                                                                                                                 |
 
 ### Thông số kỹ thuật ánh xạ
 
@@ -89,7 +89,7 @@ Defines the data that will be filtered and extracted and the location of the map
 
 ## Nguồn dữ liệu và ánh xạ
 
-In this section, we will talk about the default substrate runtime and its mapping. Here is an example:
+Trong phần này, chúng ta sẽ nói về thời gian chạy cơ bản mặc định và ánh xạ của nó. Đây là một ví dụ:
 
 ```yaml
 dataSources:
@@ -101,9 +101,9 @@ dataSources:
 
 ### Trình xử lý ánh xạ và bộ lọc
 
-The following table explains filters supported by different handlers.
+Bảng sau giải thích các bộ lọc được hỗ trợ bởi các trình xử lý khác nhau.
 
-**Your SubQuery project will be much more efficient when you only use event and call handlers with appropriate mapping filters**
+**Dự án SubQuery của bạn sẽ hiệu quả hơn nhiều khi bạn chỉ sử dụng trình xử lý sự kiện và cuộc gọi với các bộ lọc ánh xạ thích hợp**
 
 | Hàm sự kiện                                | Bộ lọc được hỗ trợ           |
 | ------------------------------------------ | ---------------------------- |
@@ -111,9 +111,9 @@ The following table explains filters supported by different handlers.
 | [EventHandler](./mapping.md#event-handler) | `module`,`method`            |
 | [CallHandler](./mapping.md#call-handler)   | `module`,`method` ,`success` |
 
-Default runtime mapping filters are an extremely useful feature to decide what block, event, or extrinsic will trigger a mapping handler.
+Bộ lọc ánh xạ là một tính năng cực kỳ hữu ích để quyết định khối, sự kiện hoặc thông tin ngoại lai nào sẽ kích hoạt trình xử lý ánh xạ.
 
-Only incoming data that satisfy the filter conditions will be processed by the mapping functions. Mapping filters are optional but are highly recommended as they significantly reduce the amount of data processed by your SubQuery project and will improve indexing performance.
+Chỉ dữ liệu đến thỏa mãn các điều kiện lọc sẽ được xử lý bởi các hàm ánh xạ. Bộ lọc ánh xạ là tùy chọn nhưng được khuyến nghị vì chúng làm giảm đáng kể lượng dữ liệu được xử lý bởi dự án SubQuery của bạn và sẽ cải thiện hiệu suất lập chỉ mục.
 
 ```yaml
 # Example filter from callHandler
@@ -138,7 +138,7 @@ filter:
 
 ### Thông số kỹ thuật mạng
 
-When connecting to a different Polkadot parachain or even a custom substrate chain, you'll need to edit the [Network Spec](#network-spec) section of this manifest.
+Khi kết nối với một parachain Polkadot khác hoặc thậm chí là một chuỗi chất nền tùy chỉnh, bạn sẽ cần chỉnh sửa phần [Thông số mạng](#network-spec) của tệp kê khai này.
 
 The `genesisHash` must always be the hash of the first block of the custom network. You can retireve this easily by going to [PolkadotJS](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fkusama.api.onfinality.io%2Fpublic-ws#/explorer/query/0) and looking for the hash on **block 0** (see the image below).
 
@@ -152,12 +152,12 @@ You can index data from custom chains by also including chain types in the manif
 
 We support the additional types used by substrate runtime modules, `typesAlias`, `typesBundle`, `typesChain`, and `typesSpec` are also supported.
 
-In the v0.2.0 example below, the `network.chaintypes` are pointing to a file that has all the custom types included, This is a standard chainspec file that declares the specific types supported by this blockchain in either `.json`, `.yaml` or `.js` format.
+Trong ví dụ v0.2.0 bên dưới, `network.chaintypes` đang trỏ đến một tệp có tất cả các loại tùy chỉnh được nhúng vào, Đây là tệp chainpec tiêu chuẩn khai báo các kiểu cụ thể được hỗ trợ bởi chuỗi khối này trong cả định dạng `.json`, `.yaml` hoặc `.js`.
 
 <CodeGroup> <CodeGroupItem title="v0.2.0" active> ``` yml network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' endpoint: 'ws://host.kittychain.io/public-ws' chaintypes: file: ./types.json # The relative filepath to where custom types are stored ... ``` </CodeGroupItem>
 <CodeGroupItem title="v0.0.1"> ``` yml ... network: endpoint: "ws://host.kittychain.io/public-ws" types: { "KittyIndex": "u32", "Kitty": "[u8; 16]" } # typesChain: { chain: { Type5: 'example' } } # typesSpec: { spec: { Type6: 'example' } } dataSources: - name: runtime kind: substrate/Runtime startBlock: 1 filter:  #Optional specName: kitty-chain mapping: handlers: - handler: handleKittyBred kind: substrate/CallHandler filter: module: kitties method: breed success: true ``` </CodeGroupItem> </CodeGroup>
 
-To use typescript for your chain types file include it in the `src` folder (e.g. `./src/types.ts`), run `yarn build` and then point to the generated js file located in the `dist` folder.
+Để sử dụng typescript cho các loại chuỗi của bạn, hãy bao gồm tệp đó trong thư mục `src` (ví dụ: `./src/types.ts`), chạy `yarn build` và sau đó trỏ đến tệp js đã tạo nằm trong thư mục `dist`.
 
 ```yml
 network:
@@ -166,40 +166,40 @@ network:
 ...
 ```
 
-Things to note about using the chain types file with extension `.ts` or `.js`:
+Những điều cần lưu ý khi sử dụng tệp loại chuỗi có phần mở rộng `.ts` hoặc `.js`:
 
-- Phiên bản manifest của bạn phải từ v0.2.0 trở lên.
+- Phiên bản tệp kê khai của bạn phải là v0.2.0 trở lên.
 - Chỉ có xuất mặc định sẽ được bao gồm trong api [polkadot](https://polkadot.js.org/docs/api/start/types.extend/) khi lấy khối.
 
-Here is an example of a `.ts` chain types file:
+Đây là ví dụ về tệp loại chuỗi `.ts`:
 
 <CodeGroup> <CodeGroupItem title="types.ts"> ```ts
 import { typesBundleDeprecated } from "moonbeam-types-bundle"
 export default { typesBundle: typesBundleDeprecated }; ``` </CodeGroupItem> </CodeGroup>
 
-## Custom Data Sources
+## Nguồn dữ liệu tùy chỉnh
 
-Custom Data Sources provide network specific functionality that makes dealing with data easier. They act as a middleware that can provide extra filtering and data transformation.
+Nguồn dữ liệu tùy chỉnh cung cấp chức năng cụ thể của mạng giúp việc xử lý dữ liệu dễ dàng hơn. Chúng hoạt động như một phần mềm trung gian có thể cung cấp thêm khả năng lọc và chuyển đổi dữ liệu.
 
-A good example of this is EVM support, having a custom data source processor for EVM means that you can filter at the EVM level (e.g. filter contract methods or logs) and data is transformed into structures farmiliar to the Ethereum ecosystem as well as parsing parameters with ABIs.
+Một ví dụ điển hình về điều này là hỗ trợ EVM, có bộ xử lý nguồn dữ liệu tùy chỉnh cho EVM có nghĩa là bạn có thể lọc ở cấp EVM (ví dụ: lọc các phương pháp hợp đồng hoặc nhật ký) và dữ liệu được chuyển đổi thành các cấu trúc trang trại riêng cho hệ sinh thái Ethereum cũng như các tham số phân tích cú pháp với ABIs.
 
-Custom Data Sources can be used with normal data sources.
+Nguồn dữ liệu tùy chỉnh có thể được sử dụng với các nguồn dữ liệu thông thường.
 
-Here is a list of supported custom datasources:
+Dưới đây là danh sách các nguồn dữ liệu tùy chỉnh được hỗ trợ:
 
-| Kind                                                  | Supported Handlers                                                                                       | Filters                         | Description                                                                      |
-| ----------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | ------------------------------- | -------------------------------------------------------------------------------- |
-| [substrate/Moonbeam](./moonbeam/#data-source-example) | [substrate/MoonbeamEvent](./moonbeam/#moonbeamevent), [substrate/MoonbeamCall](./moonbeam/#moonbeamcall) | See filters under each handlers | Provides easy interaction with EVM transactions and events on Moonbeams networks |
+| Kind                                                  | Trình xử lý được hỗ trợ                                                                                  | Bộ lọc                              | Mô tả                                                                                    |
+| ----------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | ----------------------------------- | ---------------------------------------------------------------------------------------- |
+| [substrate/Moonbeam](./moonbeam/#data-source-example) | [substrate/MoonbeamEvent](./moonbeam/#moonbeamevent), [substrate/MoonbeamCall](./moonbeam/#moonbeamcall) | Xem các bộ lọc dưới mỗi trình xử lý | Cung cấp khả năng tương tác dễ dàng với các giao dịch và sự kiện EVM trên mạng Moonbeams |
 
-## Network Filters
+## Bộ lọc mạng
 
-**Network filters only applies to manifest spec v0.0.1**.
+**Bộ lọc mạng chỉ áp dụng cho thông số tệp manifest v0.0.1**.
 
-Usually the user will create a SubQuery and expect to reuse it for both their testnet and mainnet environments (e.g Polkadot and Kusama). Between networks, various options are likely to be different (e.g. index start block). Therefore, we allow users to define different details for each data source which means that one SubQuery project can still be used across multiple networks.
+Thông thường người dùng sẽ tạo SubQuery và mong muốn sử dụng lại nó cho cả môi trường testnet và mainnet của họ (ví dụ: Polkadot và Kusama). Giữa các mạng, các tùy chọn khác nhau có thể khác nhau (ví dụ: khối bắt đầu lập chỉ mục). Do đó, chúng tôi cho phép người dùng xác định các chi tiết khác nhau cho từng nguồn dữ liệu, có nghĩa là một dự án SubQuery vẫn có thể được sử dụng trên nhiều mạng.
 
-Users can add a `filter` on `dataSources` to decide which data source to run on each network.
+Người dùng có thể thêm `filter` trên `dataSources` để quyết định nguồn dữ liệu nào sẽ chạy trên mỗi mạng.
 
-Below is an example that shows different data sources for both the Polkadot and Kusama networks.
+Dưới đây là một ví dụ hiển thị các nguồn dữ liệu khác nhau cho cả mạng Polkadot và Kusama.
 
 <CodeGroup> <CodeGroupItem title="v0.0.1"> ```yaml --- network: endpoint: 'wss://polkadot.api.onfinality.io/public-ws' #Create a template to avoid redundancy definitions: mapping: &mymapping handlers: - handler: handleBlock kind: substrate/BlockHandler dataSources: - name: polkadotRuntime kind: substrate/Runtime filter: #Optional specName: polkadot startBlock: 1000 mapping: *mymapping #use template here - name: kusamaRuntime kind: substrate/Runtime filter: specName: kusama startBlock: 12000 mapping: *mymapping # can reuse or change ``` </CodeGroupItem>
 
