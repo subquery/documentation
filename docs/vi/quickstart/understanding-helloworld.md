@@ -4,7 +4,7 @@ Tại bài [Hướng dẫn nhanh Hello World](helloworld-localhost.md), chúng t
 
 ## subql init
 
-The first command we ran was `subql init subqlHelloWorld`.
+Lệnh đầu tiên chúng tôi chạy là `subql init subqlHelloWorld`.
 
 Lệnh này khá nặng và tạo ra một loạt các tập tin cho bạn. Như đã nhắc đến ở [tài liệu chính thức](quickstart.md#configure-and-build-the-starter-project), bạn sẽ làm việc nhiều nhất với những tập tin sau:
 
