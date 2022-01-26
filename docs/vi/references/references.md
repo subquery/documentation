@@ -160,7 +160,7 @@ SubQuery Projects are usually run in a javascript sandbox for security to limit 
 
 Although this enhances security we understand that this limits the available functionality of your SubQuery. The `--unsafe` command imports all default javascript modules which greatly increases sandbox functionality with the tradeoff of decreased security.
 
-**Note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in SubQuery's managed service ([project.subquery.network](https://project.subquery.network))**
+**Lưu ý rằng lệnh `--unsafe` sẽ ngăn dự án của bạn được chạy trong SubQuery Network, và bạn phải liên hệ với bộ phận hỗ trợ nếu bạn muốn lệnh này được chạy với dự án của mình trong dịch vụ được quản lý của SubQuery ([project.subquery.network](https://project.subquery.network))**
 
 ### --batch-size
 
@@ -291,7 +291,7 @@ The port the subquery indexing service binds to. By default this is set to `3000
 
 ### --help
 
-This shows the help options.
+Cờ hiển thị các tùy chọn trợ giúp.
 
 ```shell
 Options:
@@ -374,4 +374,4 @@ These are disabled by default due to the entity limit.
 
 ### --port
 
-The port the subquery query service binds to. By default this is set to `3000`
+Cổng dịch vụ truy vấn subquery liên kết. Mặc định nó được đặt là `3000`
