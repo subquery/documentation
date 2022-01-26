@@ -1,6 +1,6 @@
-# Aggregate Functions
+# Fungsi Agregat
 
-## Group By
+## Grup Berdasarkan
 
 SubQuery supports advanced aggregate functions to allow you to perform a calculation on a set of values during your query.
 
