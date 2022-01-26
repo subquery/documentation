@@ -11,7 +11,7 @@ Cài đặt SubQuery CLI trên toàn cầu trên thiết bị đầu cuối (ter
 <CodeGroup> <CodeGroupItem title="NPM"> ```bash npm install -g @subql/cli ``` </CodeGroupItem>
 <CodeGroupItem title="YARN" active> ```shell yarn global add @subql/cli ``` </CodeGroupItem> </CodeGroup>
 
-You can then run help to see available commands and usage provide by CLI:
+Sau đó, bạn có thể chạy help để xem các lệnh có sẵn và cách sử dụng do CLI cung cấp:
 
 ```shell
 subql help
@@ -25,7 +25,7 @@ Cài đặt nút SubQuery trên toàn cầu trên thiết bị đầu cuối c�
 <CodeGroup> <CodeGroupItem title="NPM"> ```bash npm install -g @subql/node ``` </CodeGroupItem>
 <CodeGroupItem title="YARN" active> ```shell yarn global add @subql/node ``` </CodeGroupItem> </CodeGroup>
 
-Once installed, you can can start a node with:
+Sau khi cài đặt, bạn có thể bắt đầu một nút với:
 
 ```shell
 subql-node <command>
