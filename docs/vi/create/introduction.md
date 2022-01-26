@@ -80,9 +80,9 @@ Sau đó, bằng cách chạy `subql build` nó sẽ tạo ra một thư mục d
     L index.js 
 ```
 
-Note that it will build `index.ts` whether or not it is specified in the exports field.
+Lưu ý rằng nó sẽ xây dựng `index.ts` cho dù nó có được chỉ định trong trường exports hay không.
 
-For more information on using this including flags, see [cli reference](https://doc.subquery.network/references/references/#build).
+Để biết thêm thông tin về cách sử dụng điều này bao gồm cả cờ, hãy xem [cli reference](https://doc.subquery.network/references/references/#build).
 
 ## Nhật ký
 
