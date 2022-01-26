@@ -41,14 +41,14 @@ subql init PROJECT_NAME
 
 Anda akan ditanya pertanyaan tertentu saat proyek SubQuery diinisialisasi:
 
-- Network: A blockchain network that this SubQuery project will be developed to index
-- Template: Select a SubQuery project template that will provide a starting point to begin development
-- Git repository (Optional): Provide a Git URL to a repo that this SubQuery project will be hosted in (when hosted in SubQuery Explorer)
-- RPC endpoint (Required): Provide a websocket (wss) URL to a running RPC endpoint that will be used by default for this project. You can quickly access public endpoints for different Polkadot networks or even create your own private dedicated node using [OnFinality](https://app.onfinality.io) or just use the default Polkadot endpoint. This RPC node must be an archive node (have the full chain state).
-- Authors (Required): Enter the owner of this SubQuery project here
-- Description (Optional): You can provide a short paragraph about your project that describe what data it contains and what users can do with it
-- Version (Required): Enter a custom version number or use the default (`1.0.0`)
-- License (Required): Provide the software license for this project or accept the default (`Apache-2.0`)
+- Jaringan: Jaringan blockchain yang akan diindeks oleh proyek SubQuery ini
+- Template: Pilih template proyek SubQuery yang akan memberikan titik awal untuk memulai pengembangan
+- Repositori Git (Opsional): Berikan URL Git ke repo tempat proyek SubQuery ini akan dihosting (saat dihosting di SubQuery Explorer)
+- Titik akhir RPC (Diperlukan): Berikan URL soket web (wss) ke titik akhir RPC yang sedang berjalan yang akan digunakan secara default untuk proyek ini. Anda dapat dengan cepat mengakses titik akhir publik untuk jaringan Polkadot yang berbeda atau bahkan membuat simpul khusus pribadi Anda sendiri menggunakan OnFinality atau cukup gunakan titik akhir Polkadot default. Node RPC ini harus berupa node arsip (memiliki status rantai penuh). Anda dapat dengan cepat mengakses titik akhir publik untuk jaringan Polkadot yang berbeda atau bahkan membuat simpul khusus pribadi Anda sendiri menggunakan OnFinality atau cukup gunakan titik akhir Polkadot default. Node RPC ini harus berupa node arsip (memiliki status rantai penuh). Node RPC ini harus berupa node arsip (memiliki status rantai penuh).
+- Penulis (Diperlukan): Masukkan pemilik proyek SubQuery ini di sini
+- Deskripsi (Pilihan): Anda dapat memberikan paragraf singkat tentang proyek Anda yang menjelaskan data apa yang ada di dalamnya dan apa yang dapat dilakukan pengguna dengannya
+- Versi (Diperlukan): Masukkan nomor versi khusus atau gunakan default (`1.0.0`)
+- Lisensi (Diperlukan): Berikan lisensi perangkat lunak untuk proyek ini atau terima default (`Apache-2.0`)
 
 Setelah proses inisialisasi selesai, Anda akan melihat folder dengan nama proyek Anda telah dibuat di dalam direktori. Isi direktori ini harus sama dengan apa yang tercantum dalam [Struktur Direktori](../create/introduction.md#directory-structure).
 
