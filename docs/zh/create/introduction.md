@@ -68,20 +68,20 @@ yarn 编码器
 然后运行 `subql build` 将生成一个具有以下结构的dist 文件夹：
 
 ```
-- project-name
+- 项目名称
   L dist
     L entry_one.js
     L entry_renamed.js
     L index.js 
 ```
 
-Note that it will build `index.ts` whether or not it is specified in the exports field.
+请注意，它将生成 `index.ts` ，不管它是否在导出字段中被指定。
 
-For more information on using this including flags, see [cli reference](https://doc.subquery.network/references/references/#build).
+关于使用此标签的更多信息，请参阅 [cli reference](https://doc.subquery.network/references/references/#build)。
 
-## Logging
+## 日志内容
 
-The `console.log` method is **no longer supported**. Instead, a `logger` module has been injected in the types, which means we can support a logger that can accept various logging levels.
+`console.log` 方法 **不再支持**. 相反， `Logger` 模块已被注入到类型中，这意味着我们可以支持一个可以接受不同日志级别的logger。
 
 ```typescript
 logger.info('Info level message');
@@ -89,16 +89,16 @@ logger.debug('Debugger level message');
 logger.warn('Warning level message');
 ```
 
-To use `logger.info` or `logger.warn`, just place the line into your mapping file.
+要使用 `logger.info` 或 `logger.warn`，只需将行放入您的映射文件。
 
 ![logging.info](/assets/img/logging_info.png)
 
-To use `logger.debug`, an additional flag is required. Add `--log-level=debug` to your command line.
+要使用 `logger.debug`, 需要一个额外的标记。 将 `--log-level=debug` 添加到您的命令行。
 
-If you are running a docker container, add this line to your `docker-compose.yaml` file.
+如果您正在运行一个docker容器，请将此行添加到您的 `docker-compose.yaml` 文件中。
 
 ![logging.debug](/assets/img/logging_debug.png)
 
-You should now see the new logging in the terminal screen.
+现在您应该可以在终端屏幕上看到新的日志记录。
 
 ![logging.debug](/assets/img/subquery_logging.png)
