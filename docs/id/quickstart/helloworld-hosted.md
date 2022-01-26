@@ -31,10 +31,10 @@ Anda akan memerlukan:
 
 ## 1. Buat proyek Anda
 
-Let's create a project called subqlHelloWorld by running `subql init` and selecting to build the project with the `Polkadot` network and initialize the project with the `subql-starter` template. We must run the obligatory install, codegen and build with your favourite package manager.
+Mari buat proyek bernama subqlHelloWorld dengan menjalankan `subql init` dan memilih untuk membangun proyek dengan jaringan `Polkadot` dan menginisialisasi proyek dengan `subql-starter` templat. Kita harus menjalankan instalasi wajib, codegen dan build dengan manajer paket favorit Anda.
 
 ```shell
-> subql init subqlHelloWorld
+> subql init --starter subqlHelloWorld
 yarn install
 yarn codegen
 yarn build
