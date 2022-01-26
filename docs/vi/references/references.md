@@ -61,28 +61,27 @@ Options:
                                                       [boolean] [default: false]
       --timeout             Hết thời gian chờ để sandbox của trình lập chỉ mục
                             thực hiện ánh xạ chức năng                  [number]
-      --debug               Hiển thị thông tin gỡ lỗi cho đầu ra bảng điều khiển. will
-                            forcefully set log level to debug
+      --debug               Hiển thị thông tin gỡ lỗi cho đầu ra bảng điều khiển.
+                            sẽ mạnh mẽ đặt cấp độ nhật ký để gỡ lỗi
                                                       [boolean] [default: false]
-      --profiler            Show profiler information to console output
+      --profiler            Hiển thị thông tin hồ sơ cho đầu ra bảng điều khiển
                                                       [boolean] [default: false]
-      --network-endpoint    Blockchain network endpoint to connect      [string]
-      --output-fmt          Print log as json or plain text
+      --network-endpoint    Điểm cuối mạng chuỗi khối để kết nối        [string]
+      --output-fmt          In nhật ký dưới dạng json hoặc văn bản thuần túy
                                            [string] [choices: "json", "colored"]
-      --log-level           Specify log level to print. Ignored when --debug is
-                            used
+      --log-level           Chỉ định mức nhật ký để in. Bỏ qua khi --debug được
+                            sử dụng
           [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
                                                                        "silent"]
-      --migrate             Migrate db schema (for management tables only)
+      --migrate             Di chuyển giản đồ db (chỉ dành cho bảng quản lý)
                                                       [boolean] [default: false]
-      --timestamp-field     Enable/disable created_at and updated_at in schema
+      --timestamp-field     Bật/tắt create_at và updated_at trong lược đồ
                                                       [boolean] [default: false]
-  -d, --network-dictionary  Specify the dictionary api for this network [string]
-  -m, --mmr-path            Local path of the merkle mountain range (.mmr) file
-                                                                        [string]
-      --proof-of-index      Enable/disable proof of index
+  -d, --network-dictionary  Chỉ định api từ điển cho mạng này           [string]
+  -m, --mmr-path            Đường dẫn cục bộ của tệp merkle (.mmr)      [string]
+      --proof-of-index      Bật/tắt bằng chứng chỉ mục
                                                       [boolean] [default: false]
-  -p, --port                The port the service will bind to           [number]
+  -p, --port                Cổng mà dịch vụ sẽ liên kết với             [number]
 ```
 
 ### --version
@@ -305,13 +304,14 @@ Tùy chọn:
       --log-level   Chỉ định cấp độ nhật ký để in.
           [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
                                                      "silent"] [default: "info"]
-      --log-path    Đường dẫn để tạo tệp nhật ký, ví dụ: ./src/name.log  [string]
-      --log-rotate  Xoay vòng các tệp nhật ký trong thư mục được chỉ định bởi đường dẫn nhật ký
-                                                      [boolean] [default: false]
-      --indexer     Url cho phép truy vấn truy cập siêu dữ liệu của trình lập chỉ mục    [string]
-      --unsafe      Vô hiệu hóa các giới hạn về độ sâu truy vấn và số lượng bản ghi 
-          truy vấn được trả lại cho phép                              [boolean]
-  -p, --port        Cổng mà dịch vụ sẽ liên kết với                   [number
+      --log-path    Đường dẫn để tạo tệp nhật ký, ví dụ: ./src/name.log [string]
+      --log-rotate  Xoay vòng các tệp nhật ký trong thư mục được chỉ định bởi 
+                    đường dẫn nhật ký                 [boolean] [default: false]
+      --indexer     Url cho phép truy vấn truy cập siêu dữ liệu của trình 
+                    lập chỉ mục                                         [string]
+      --unsafe      Vô hiệu hóa các giới hạn về độ sâu truy vấn và số lượng 
+                    bản ghi truy vấn được trả lại cho phép             [boolean]
+  -p, --port        Cổng mà dịch vụ sẽ liên kết với                     [number]
 ```
 
 ### --version
