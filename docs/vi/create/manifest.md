@@ -140,17 +140,17 @@ filter:
 
 Khi kết nối với một parachain Polkadot khác hoặc thậm chí là một chuỗi chất nền tùy chỉnh, bạn sẽ cần chỉnh sửa phần [Thông số mạng](#network-spec) của tệp kê khai này.
 
-The `genesisHash` must always be the hash of the first block of the custom network. You can retireve this easily by going to [PolkadotJS](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fkusama.api.onfinality.io%2Fpublic-ws#/explorer/query/0) and looking for the hash on **block 0** (see the image below).
+`genesisHash` phải luôn là băm của khối đầu tiên của mạng tùy chỉnh. Bạn có thể gỡ bỏ điều này một cách dễ dàng bằng cách truy cập [PolkadotJS](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fkusama.api.onfinality.io%2Fpublic-ws#/explorer/query/0) và tìm mã băm trên **khối 0** (xem hình ảnh bên dưới).
 
 ![Genesis Hash](/assets/img/genesis-hash.jpg)
 
-Additionally you will need to update the `endpoint`. This defines the wss endpoint of the blockchain to be indexed - **This must be a full archive node**. Bạn có thể truy xuất điểm cuối cho tất cả các parachain miễn phí từ [OnFinality](https://app.onfinality.io)
+Ngoài ra, bạn sẽ cần cập nhật `điểm cuối`. Xác định điểm cuối wss hoặc ws của chuỗi khối được lập chỉ mục - **Đây phải là một nút lưu trữ đầy đủ**. Bạn có thể truy xuất điểm cuối cho tất cả các parachain miễn phí từ [OnFinality](https://app.onfinality.io)
 
 ### Các loại chuỗi
 
-You can index data from custom chains by also including chain types in the manifest.
+Bạn có thể lập chỉ mục dữ liệu từ các chuỗi tùy chỉnh bằng cách bao gồm các loại chuỗi trong manifest.
 
-We support the additional types used by substrate runtime modules, `typesAlias`, `typesBundle`, `typesChain`, and `typesSpec` are also supported.
+Chúng tôi hỗ trợ các kiểu bổ sung được sử dụng bởi các mô-đun thời gian chạy nền, `typeAlias​`, `typeBundle`, `typeChain` và `typeSpec` cũng được hỗ trợ.
 
 Trong ví dụ v0.2.0 bên dưới, `network.chaintypes` đang trỏ đến một tệp có tất cả các loại tùy chỉnh được nhúng vào, Đây là tệp chainpec tiêu chuẩn khai báo các kiểu cụ thể được hỗ trợ bởi chuỗi khối này trong cả định dạng `.json`, `.yaml` hoặc `.js`.
 
