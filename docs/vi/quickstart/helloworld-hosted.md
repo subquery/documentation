@@ -31,7 +31,7 @@ Bạn sẽ cần:
 
 ## 1. Tạo dự án của bạn
 
-Let's create a project called subqlHelloWorld by running `subql init` and selecting to build the project with the `Polkadot` network and initialize the project with the `subql-starter` template. We must run the obligatory install, codegen and build with your favourite package manager.
+Hãy tạo một dự án có tên subqlHelloWorld bằng cách chạy `subql init` và lựa chọn xây dựng dự án với mạng `Polkadot` và khởi tạo dự án bằng `subql-starter` mẫu. Chúng tôi bắt buộc phải chạy install, codegen và build với trình quản lý gói yêu thích của bạn.
 
 ```shell
 > subql init subqlHelloWorld
