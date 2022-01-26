@@ -8,59 +8,60 @@
 > subql --help
 
 COMMANDS
-  build     Build this SubQuery project code
-  codegen   Generate schemas for graph node
-  help      display help for subql
-  init      Initialize a scaffold subquery project
-  migrate   Migrate Subquery project manifest v0.0.1 to v0.2.0
-  publish   Upload this SubQuery project to IPFS
-  validate  Check a folder or github repo is a validate subquery project
+  build     Xây dựng mã dự án SubQuery
+  codegen   Tạo lược đồ cho nút đồ thị
+  help      hiển thị trợ giúp cho subql
+  init      Khởi tạo một khung dự án subquery
+  migrate   Di chuyển tệp kê khai dự án truy vấn con v0.0.1 sang v0.2.0
+  publish   Tải dự án SubQuery này lên IPFS
+  validate  Kiểm tra một thư mục hoặc github repo là một dự án subquery xác thực
 ```
 
 ### build
 
-This command is uses webpack to generate a bundle of a subquery project.
+Lệnh này sử dụng webpack để tạo một gói dự án subquery.
 
 | Các Tùy chọn       | Mô tả                                                                                                      |
 | ------------------ | ---------------------------------------------------------------------------------------------------------- |
-| -l, --location     | local folder of subquery project (if not in folder already)                                                |
-| -o, --output       | specify output folder of build e.g. build-folder                                                           |
+| -l, --location     | thư mục cục bộ của dự án subquery (nếu chưa có trong thư mục)                                              |
+| -o, --output       | chỉ định thư mục đầu ra của bản dựng, ví dụ: build-folder                                                  |
 | --mode=(production | prod                                                        | development | dev) | [ default: production ] |
 
-- With `subql build` you can specify additional entry points in exports field although it will always build `index.ts` automatically
+- Với `subql build`, bạn có thể chỉ định các điểm nhập bổ sung trong trường export mặc dù nó sẽ luôn tạo `index.ts` tự động
 
-- You need to have @subql/cli v0.19.0 or above to use exports field.
+- Bạn cần có @subql/cli v0.19.0 trở lên để sử dụng trường exports.
 
-- Any `exports` field must map to string type (e.g. `"entry": "./src/file.ts"`), else it will be ignored from build.
+- Mọi trường `exports` phải ánh xạ tới kiểu chuỗi (ví dụ: `"entry": "./src/file.ts"`), nếu không, nó sẽ bị bỏ qua khỏi bản dựng.
 
-[Futher example](https://doc.subquery.network/create/introduction/#build).
+[Ví dụ khác](https://doc.subquery.network/create/introduction/#build).
 
 ## subql-node
 
 ### --help
 
-This shows the help options.
+Cờ hiển thị các tùy chọn trợ giúp.
 
 ```shell
 > subql-node --help
 Options:
-      --help                Show help                                  [boolean]
-      --version             Show version number                        [boolean]
-  -f, --subquery            Local path of the subquery project          [string]
-      --subquery-name       Name of the subquery project   [deprecated] [string]
-  -c, --config              Specify configuration file                  [string]
-      --local               Use local mode                [deprecated] [boolean]
-      --force-clean         Force clean the database, dropping project schemas
-                            and tables                                 [boolean]
-      --db-schema           Db schema name of the project               [string]
-      --unsafe              Allows usage of any built-in module within the
-                            sandbox                    [boolean][default: false]
-      --batch-size          Batch size of blocks to fetch in one round  [number]
-      --scale-batch-size    scale batch size based on memory usage
+      --help                Hiển thị trợ giúp                          [boolean]
+      --version             Hiển thị số phiên bản                      [boolean]
+  -f, --subquery            Đường dẫn cục bộ của dự án subquery         [string]
+      --subquery-name       Tên của dự án subquery     [không dùng nữa] [string]
+  -c, --config              Chỉ định tệp cấu hình                       [string]
+      --local               Sử dụng chế độ cục bộ [không dùng nữa]     [boolean]
+      --force-clean         Buộc dọn dẹp cơ sở dữ liệu, loại bỏ các lược đồ dự 
+                            án và bảng                                 [boolean]
+      --db-schema           Tên giản đồ Db của dự án                    [string]
+      --unsafe              Cho phép sử dụng bất kỳ mô-đun tích hợp nào trong
+                            sandbox                     boolean][default: false]
+      --batch-size          Kích thước hàng loạt của các khối để tìm nạp trong 
+                            một vòng                                    [number]
+      --scale-batch-size    chia tỷ lệ kích thước lô dựa trên việc sử dụng bộ nhớ
                                                       [boolean] [default: false]
-      --timeout             Timeout for indexer sandbox to execute the mapping
-                            functions                                   [number]
-      --debug               Show debug information to console output. will
+      --timeout             Hết thời gian chờ để sandbox của trình lập chỉ mục
+                            thực hiện ánh xạ chức năng                  [number]
+      --debug               Hiển thị thông tin gỡ lỗi cho đầu ra bảng điều khiển. will
                             forcefully set log level to debug
                                                       [boolean] [default: false]
       --profiler            Show profiler information to console output
@@ -86,7 +87,7 @@ Options:
 
 ### --version
 
-This displays the current version.
+Cờ sẽ hiển thị phiên bản hiện tại.
 
 ```shell
 > subql-node --version
@@ -95,16 +96,16 @@ This displays the current version.
 
 ### -f, --subquery
 
-Use this flag to start the SubQuery project.
+Sử dụng cờ này để bắt đầu dự án SubQuery.
 
 ```shell
-subql-node -f . // OR
+subql-node -f . // Hoặc
 subql-node --subquery .
 ```
 
-### --subquery-name (deprecated)
+### --subquery-name (không được dùng nữa)
 
-This flag allows you to provide a name for your project which acts as if it creates an instance of your project. Upon providing a new name, a new database schema is created and block synchronisation starts from zero. Deprecated in favour of `--db-schema`
+Cờ này cho phép bạn cung cấp tên cho dự án của mình, tên này hoạt động như thể nó tạo ra một phiên bản của dự án của bạn. Sau khi cung cấp một tên mới, một lược đồ cơ sở dữ liệu mới được tạo và đồng bộ hóa khối bắt đầu từ số 0. Không được chấp nhận vì `--db-schema`
 
 ```shell
 subql-node -f . --subquery-name=test2
@@ -112,39 +113,39 @@ subql-node -f . --subquery-name=test2
 
 ### -c, --config
 
-All these various configurations can be placed into a .yml or .json file and then referenced with the config flag.
+Tất cả các cấu hình khác nhau này có thể được đặt vào tệp .yml hoặc .json và sau đó được tham chiếu với cờ cấu hình.
 
-Sample subquery_config.yml file:
+Tệp subquery_config.yml mẫu:
 
 ```shell
-subquery: . // Mandatory. This is the local path of the project. The period here means the current local directory.
-subqueryName: hello // Optional name
-batchSize: 55 // Optional config
+subquery: . // Bắt buộc. Đây là đường dẫn cục bộ của dự án. Dấu chấm ở đây có nghĩa là thư mục cục bộ hiện tại.
+subqueryName: hello // Tên tùy chọn
+batchSize: 55 // Cấu hình tùy chọn
 ```
 
-Place this file in the same directory as the project. Then in the current project directory, run:
+Đặt tệp này trong cùng thư mục với dự án. Sau đó, trong thư mục dự án hiện tại, hãy chạy:
 
 ```shell
 > subql-node -c ./subquery_config.yml
 ```
 
-### --local (deprecated)
+### --local (không được dùng nữa)
 
-This flag is primarily used for debugging purposes where it creates the default starter_entity table in the default "postgres" schema.
+Cờ này chủ yếu được sử dụng cho mục đích gỡ lỗi trong đó nó tạo bảng starter_entity mặc định trong lược đồ "postgres" mặc định.
 
 ```shell
 subql-node -f . --local
 ```
 
-Note that once you use this flag, removing it won't mean that it will point to another database. To repoint to another database you will have to create a NEW database and change the env settings to this new database. In other words, "export DB_DATABASE=<new_db_here>"
+Lưu ý rằng một khi bạn sử dụng cờ này, việc loại bỏ nó sẽ không có nghĩa là nó sẽ trỏ đến một cơ sở dữ liệu khác. Để đặt lại cơ sở dữ liệu khác, bạn sẽ phải tạo một cơ sở dữ liệu MỚI và thay đổi cài đặt env cho cơ sở dữ liệu mới này. Nói cách khác, "export DB_DATABASE =<new_db_here>"
 
 ### --force-clean
 
-This flag forces the project schemas and tables to be regenerated, helpful to use when iteratively developing graphql schemas such that new runs of the project are always working with a clean state. Note that this flag will also wipe all indexed data.
+Cờ này buộc các lược đồ và bảng của dự án phải được tạo lại, hữu ích để sử dụng khi phát triển lặp đi lặp lại các lược đồ graphql sao cho các lần chạy mới của dự án luôn hoạt động ở trạng thái sạch. Lưu ý rằng cờ này cũng sẽ xóa tất cả dữ liệu được lập chỉ mục.
 
 ### --db-schema
 
-This flag allows you to provide a name for the project database schema. Upon providing a new name, a new database schema is created with the configured name and block indexing starts.
+Cờ này cho phép bạn cung cấp tên cho lược đồ cơ sở dữ liệu dự án. Sau khi cung cấp một tên mới, một lược đồ cơ sở dữ liệu mới được tạo với tên được cấu hình và bắt đầu lập chỉ mục khối.
 
 ```shell
 subql-node -f . --db-schema=test2
@@ -152,19 +153,19 @@ subql-node -f . --db-schema=test2
 
 ### --unsafe
 
-SubQuery Projects are usually run in a javascript sandbox for security to limit the scope of access the project has to your system. The sandbox limits the available javascript imports to the following modules:
+Các dự án SubQuery thường được chạy trong javascript sandbox để bảo mật nhằm giới hạn phạm vi truy cập mà dự án có đối với hệ thống của bạn. Sandbox giới hạn các lần nhập javascript có sẵn cho các mô-đun sau:
 
 ```javascript
 ["assert", "buffer", "crypto", "util", "path"];
 ```
 
-Although this enhances security we understand that this limits the available functionality of your SubQuery. The `--unsafe` command imports all default javascript modules which greatly increases sandbox functionality with the tradeoff of decreased security.
+Mặc dù điều này tăng cường bảo mật, chúng tôi hiểu rằng điều này hạn chế chức năng có sẵn của SubQuery của bạn. Lệnh `--unsafe` nhập tất cả các mô-đun javascript mặc định, điều này làm tăng đáng kể chức năng của sandbox với sự đánh đổi của việc giảm bảo mật.
 
 **Lưu ý rằng lệnh `--unsafe` sẽ ngăn dự án của bạn được chạy trong SubQuery Network, và bạn phải liên hệ với bộ phận hỗ trợ nếu bạn muốn lệnh này được chạy với dự án của mình trong dịch vụ được quản lý của SubQuery ([project.subquery.network](https://project.subquery.network))**
 
 ### --batch-size
 
-This flag allows you to set the batch size in the command line. If batch size is also set in the config file, this takes precedent.
+Cờ này cho phép bạn đặt kích thước lô trong dòng lệnh. Nếu kích thước lô cũng được đặt trong tệp cấu hình, nó sẽ được ưu tiên.
 
 ```shell
 > subql-node -f . --batch-size=20
@@ -176,15 +177,15 @@ This flag allows you to set the batch size in the command line. If batch size is
 
 ### --scale-batch-size
 
-Scale the block fetch batch size with memory usage
+Chia tỷ lệ kích thước lô tìm nạp khối với mức sử dụng bộ nhớ
 
 ### --timeout
 
-Set custom timeout for the javascript sandbox to execute mapping functions over a block before the block mapping function throws a timeout exception
+Đặt thời gian chờ tùy chỉnh cho sandbox javascript để thực hiện các chức năng lập ánh xạ trên một khối trước khi hàm ánh xạ khối xuất lỗi ngoại lệ thời gian chờ
 
 ### --debug
 
-This outputs debug information to the console output and forcefully sets the log level to debug.
+Xuất thông tin gỡ lỗi đến đầu ra bảng điều khiển và cài đặt cấp độ nhật ký để gỡ lỗi một cách mạnh mẽ.
 
 ```shell
 > subql-node -f . --debug
@@ -195,7 +196,7 @@ This outputs debug information to the console output and forcefully sets the log
 
 ### --profiler
 
-This shows profiler information.
+Hiển thị thông tin hồ sơ.
 
 ```shell
 subql-node -f . --local --profiler
@@ -207,13 +208,13 @@ subql-node -f . --local --profiler
 
 ### --network-endpoint
 
-This flag allows users to override the network endpoint configuration from the manifest file.
+Cờ này cho phép người dùng ghi đè cấu hình điểm cuối mạng từ tệp kê khai.
 
 ```shell
 subql-node -f . --network-endpoint="wss://polkadot.api.onfinality.io/public-ws"
 ```
 
-Note that this must also be set in the manifest file, otherwise you'll get:
+Lưu ý rằng đoạn này cũng phải được đặt trong tệp kê khai, nếu không bạn sẽ nhận được:
 
 ```shell
 ERROR Create Subquery project from given path failed! Error: failed to parse project.yaml.
@@ -224,7 +225,7 @@ An instance of ProjectManifestImpl has failed the validation:
 
 ### --output-fmt
 
-There are two different terminal output formats. JSON or colored. Colored is the default and contains colored text.
+Có hai định dạng đầu ra khác nhau. JSON hoặc colored. Colored là mặc định và chứa văn bản được bôi màu.
 
 ```shell
 > subql-node -f . --output-fmt=json
@@ -241,7 +242,7 @@ There are two different terminal output formats. JSON or colored. Colored is the
 
 ### --log-level
 
-There are 7 options to choose from. “fatal”, “error”, “warn”, “info”, “debug”, “trace”, “silent”. The example below shows silent. Nothing will be printed in the terminal so the only way to tell if the node is working or not is to query the database for row count (select count(\*) from subquery_1.starter_entities) or query the block height.
+Có 7 tùy chọn để lựa chọn. “fatal”, “error”, “warn”, “info”, “debug”, “trace”, “silent”. Ví dụ dưới đây cho thấy sự im lặng. Không có gì sẽ được in trong thiết bị đầu cuối vì vậy cách duy nhất để biết nút có hoạt động hay không là truy vấn cơ sở dữ liệu về số hàng (select count(\*) from subquery_1.starter_entities) hoặc truy vấn chiều cao khối.
 
 ```shell
 > subql-node -f . --log-level=silent
@@ -263,29 +264,29 @@ There are 7 options to choose from. “fatal”, “error”, “warn”, “inf
 
 ### --timestamp-field
 
-By default this is true. when set to false with:
+Mặc định là true. khi được đặt thành false với:
 
 ```shell
 > subql-node -f . –timestamp-field=false
 ```
 
-This removes the created_at and updated_at columns in the starter_entities table.
+Thao tác này sẽ xóa các cột created_at và updated_at trong bảng starter_entities.
 
 ### -d, --network-dictionary
 
-This allows you to specify a dictionary endpoint which is a free service that is provided and hosted at: [https://explorer.subquery.network/](https://explorer.subquery.network/) (search for dictionary) and presents an API endpoint of: https://api.subquery.network/sq/subquery/dictionary-polkadot
+Điều này cho phép bạn chỉ định điểm cuối từ điển là dịch vụ miễn phí được cung cấp và lưu trữ tại: [https://explorer.subquery.network/](https://explorer.subquery.network/) (tìm kiếm từ điển) và trình bày điểm cuối API là: https://api.subquery.network/sq/subquery/dictionary-polkadot
 
-Typically this would be set in your manifest file but below shows an example of using it as an argument in the command line.
+Thông thường, nó sẽ được đặt trong tệp manifest của bạn nhưng bên dưới cho thấy một ví dụ về việc sử dụng nó làm đối số trong dòng lệnh.
 
 ```shell
 subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot"
 ```
 
-Tùy thuộc vào cấu hình cơ sở dữ liệu Postgres của bạn (ví dụ: có một mật khẩu cơ sở dữ liệu khác), hãy đảm bảo rằng cả trình lập chỉ mục (`subql/node`) và dịch vụ truy vấn (`subql/query`) đều có thể kết nối với CSDL ấy.
+[Đọc thêm về cách hoạt động của Từ điển SubQuery](../tutorials_examples/dictionary.md).
 
 ### -p, --port
 
-The port the subquery indexing service binds to. By default this is set to `3000`
+Cổng dịch vụ lập chỉ mục subquery liên kết. Mặc định nó được đặt là `3000`
 
 ## subql-query
 
@@ -294,83 +295,83 @@ The port the subquery indexing service binds to. By default this is set to `3000
 Cờ hiển thị các tùy chọn trợ giúp.
 
 ```shell
-Options:
-      --help        Show help                                          [boolean]
-      --version     Show version number                                [boolean]
-  -n, --name        Project name                             [string] [required]
-      --playground  Enable graphql playground                          [boolean]
-      --output-fmt  Print log as json or plain text
+Tùy chọn:
+      --help        Hiển thị trợ giúp                                  [boolean]
+      --version     Hiển thị số phiên bản                              [boolean]
+  -n, --name        Tên dự án                                [string] [required]
+      --playground  Bật sân chơi graphql                               [boolean]
+      --output-fmt  In nhật ký dưới dạng json hoặc văn bản thuần túy
                       [string] [choices: "json", "colored"] [default: "colored"]
-      --log-level   Specify log level to print.
+      --log-level   Chỉ định cấp độ nhật ký để in.
           [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
                                                      "silent"] [default: "info"]
-      --log-path    Path to create log file e.g ./src/name.log          [string]
-      --log-rotate  Rotate log files in directory specified by log-path
+      --log-path    Đường dẫn để tạo tệp nhật ký, ví dụ: ./src/name.log  [string]
+      --log-rotate  Xoay vòng các tệp nhật ký trong thư mục được chỉ định bởi đường dẫn nhật ký
                                                       [boolean] [default: false]
-      --indexer     Url that allows query to access indexer metadata    [string]
-      --unsafe      Disable limits on query depth and allowable number returned
-                    query records                                      [boolean]
-  -p, --port        The port the service will bind to                   [number
+      --indexer     Url cho phép truy vấn truy cập siêu dữ liệu của trình lập chỉ mục    [string]
+      --unsafe      Vô hiệu hóa các giới hạn về độ sâu truy vấn và số lượng bản ghi 
+          truy vấn được trả lại cho phép                              [boolean]
+  -p, --port        Cổng mà dịch vụ sẽ liên kết với                   [number
 ```
 
 ### --version
 
-This displays the current version.
+Cờ sẽ hiển thị phiên bản hiện tại.
 
 ```shell
-> subql-query --version
+> subql-node --version
 0.7.0
 ```
 
 ### -n, --name
 
-This flag is used to start the query service. If the --subquery-name flag is not provided when running an indexer, the name here will refer to the default project name. If --subquery-name is set, then the name here should match what was set.
+Cờ này được sử dụng để bắt đầu dịch vụ truy vấn. Nếu cờ - subquery-name không được cung cấp khi chạy trình lập chỉ mục, thì tên ở đây sẽ tham chiếu đến tên dự án mặc định. Nếu - subquery-name được đặt, thì tên ở đây phải khớp với những gì đã được đặt.
 
 ```shell
-> subql-node -f . // --subquery-name not set
+> subql-node -f . // --subquery-name chưa được đặt
 
-> subql-query -n subql-helloworld  --playground // the name defaults to the project directory name
+> subql-query -n subql-helloworld  --playground // tên mặc định cho tên thư mục dự án
 ```
 
 ```shell
 > subql-node -f . --subquery-name=hiworld // --subquery-name set
 
-> subql-query -n hiworld --playground  // the name points to the subql-helloworld project but with the name of hiworld
+> subql-query -n hiworld --playground  // tên chỉ đến dự án subql-helloworld nhưng với tên của hiworld
 ```
 
 ### --playground
 
-This flag enables the graphql playground so should always be included by default to be of any use.
+Cờ này cho phép sân chơi graphql hoạt động, vì vậy nó luôn được thêm vào theo mặc định để sử dụng.
 
 ### --output-fmt
 
-See [--output-fmt](https://doc.subquery.network/references/references.html#output-fmt)
+Xem [--output-fmt](https://doc.subquery.network/references/references.html#output-fmt)
 
 ### --log-level
 
-See [--log-level](https://doc.subquery.network/references/references.html#log-level)
+Xem [--log-level](https://doc.subquery.network/references/references.html#log-level)
 
 ### --log-path
 
-Enable file logging by providing a path to a file to log to
+Cho phép ghi tệp nhật ký bằng cách cung cấp đường dẫn đến tệp để ghi nhật ký
 
 ### --log-rotate
 
-Enable file log rotations with the options of a 1d rotation interval, a maximum of 7 files and with a max file size of 1GB
+Cho phép xoay vòng nhật ký tệp với các tùy chọn khoảng thời gian xoay vòng 1 ngày, tối đa là 7 tệp và với kích thước tệp tối đa là 1GB
 
 ### --indexer
 
-Set a custom url for the location of the endpoints of the indexer, the query service uses these endpoints for indexer health, metadata and readiness status
+Đặt url tùy chỉnh cho vị trí của các điểm cuối của trình lập chỉ mục, dịch vụ truy vấn sử dụng các điểm cuối này cho tình trạng của trình lập chỉ mục, siêu dữ liệu và trạng thái sẵn sàng
 
 ### --unsafe
 
-The query service has a limit of 100 entities for unbounded graphql queries. The unsafe flag removes this limit which may cause performance issues on the query service. It is recommended instead that queries are [paginated](https://graphql.org/learn/pagination/).
+Dịch vụ truy vấn có giới hạn 100 thực thể cho các truy vấn graphql không giới hạn. Cờ unsafe loại bỏ giới hạn này có thể gây ra các vấn đề về hiệu suất trên dịch vụ truy vấn. Thay vào đó, các truy vấn nên được [phân trang](https://graphql.org/learn/pagination/).
 
-This flag can also be used to enable certain aggregation functions including sum, max, avg and [others](https://github.com/graphile/pg-aggregates#aggregates).
+Cờ này cũng có thể được sử dụng để bật một số hàm tổng hợp bao gồm sum, max, avg và [others](https://github.com/graphile/pg-aggregates#aggregates).
 
-These are disabled by default due to the entity limit.
+Các tùy chọn này mặc định bị tắt do giới hạn đối tượng.
 
-**Note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in SubQuery's managed service [project.subquery.network](https://project.subquery.network).**
+**Lưu ý rằng lệnh `--unsafe` sẽ ngăn dự án của bạn được chạy trong SubQuery Network, và bạn phải liên hệ với bộ phận hỗ trợ nếu bạn muốn lệnh này được chạy với dự án của mình trong dịch vụ được quản lý của SubQuery [project.subquery.network](https://project.subquery.network).**
 
 ### --port
 
