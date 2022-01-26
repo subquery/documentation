@@ -54,11 +54,11 @@ Chạy lệnh xây dựng từ thư mục gốc của dự án.
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```bash npm run-script build ``` </CodeGroupItem> </CodeGroup>
 
-### Alternative build options
+### Tùy chọn xây dựng thay thế
 
-We support additional build options for subquery projects using `subql build`.
+Chúng tôi hỗ trợ các tùy chọn xây dựng bổ sung cho các dự án Subquery bằng cách sử dụng `subql build`.
 
-With this you can define additional entry points to build using the exports field in package.json.
+Với điều này, bạn có thể xác định các điểm vào bổ sung để xây dựng bằng cách sử dụng trường exports trong package.json.
 
 ```json
 "name": "project-name",
@@ -70,7 +70,7 @@ With this you can define additional entry points to build using the exports fiel
 },
 ```
 
-Then by running `subql build` it will generate a dist folder with the following structure:
+Sau đó, bằng cách chạy `subql build` nó sẽ tạo ra một thư mục dist với cấu trúc như sau:
 
 ```
 - project-name
@@ -84,9 +84,9 @@ Note that it will build `index.ts` whether or not it is specified in the exports
 
 For more information on using this including flags, see [cli reference](https://doc.subquery.network/references/references/#build).
 
-## Logging
+## Nhật ký
 
-The `console.log` method is **no longer supported**. Instead, a `logger` module has been injected in the types, which means we can support a logger that can accept various logging levels.
+Phương thức `console.log` **không còn được hỗ trợ**. Thay vào đó, mô-đun `logger` đã được đưa vào các kiểu dữ liệu, có nghĩa là chúng tôi có thể hỗ trợ trình ghi nhật ký có thể chấp nhận các cấp độ ghi nhật ký khác nhau.
 
 ```typescript
 logger.info('Info level message');
@@ -94,16 +94,16 @@ logger.debug('Debugger level message');
 logger.warn('Warning level message');
 ```
 
-To use `logger.info` or `logger.warn`, just place the line into your mapping file.
+Để sử dụng `logger.info` hoặc `logger.warn`, chỉ cần đặt dòng vào tệp ánh xạ của bạn.
 
 ![logging.info](/assets/img/logging_info.png)
 
-To use `logger.debug`, an additional flag is required. Add `--log-level=debug` to your command line.
+Để sử dụng `logger.debug`, cần thực hiện thêm một bước. Thêm `--log-level=debug` vào dòng lệnh của bạn.
 
-If you are running a docker container, add this line to your `docker-compose.yaml` file.
+Nếu bạn đang chạy vùng chứa docker, hãy thêm dòng này vào tệp `docker-comp.yaml` của bạn.
 
 ![logging.debug](/assets/img/logging_debug.png)
 
-You should now see the new logging in the terminal screen.
+Bây giờ bạn sẽ thấy đăng nhập mới trong màn hình đầu cuối.
 
 ![logging.debug](/assets/img/subquery_logging.png)
