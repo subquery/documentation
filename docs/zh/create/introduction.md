@@ -6,7 +6,7 @@
 
 以下一些示例将假定您在 [快速启动](../quickstart/quickstart.md) 部分中成功初始化了启动器包。 从这个启动程序包，我们会走过标准进程来定制和执行您的 SubQuery 项目。
 
-1. Initialise your project using `subql init PROJECT_NAME`.
+1. 使用 `subql init PROJECT_NAME` 初始化您的项目.
 2. 更新清单文件(`个项目。 aml`) 以包含关于您的 blockchain 以及您将要映射的实体的信息 - 查看 [清单文件](./manifest.md)
 3. 在您的架构中创建 GraphQL 实体(`架构)。 定义您要提取和持续查询的数据形状的 rapphql`- 参见 [GraphQL Schema](./graphql.md)
 4. 添加所有映射函数 (eg `映射处理器。 s`) 您想要调用来将链式数据转换为您已定义的 GraphQL 实体 - 查看 [映射](./mapping.md)
@@ -51,26 +51,21 @@ yarn 编码器
 
 从项目的根目录运行构建命令。
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```bash npm run-script build ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> `` 方法不再受支持。
 
-### Alternative build options
-
-We support additional build options for subquery projects using `subql build`.
-
-With this you can define additional entry points to build using the exports field in package.json.
+你可以通过这个定义额外的入口点来使用 package.json中的导出字段构建。
 
 ```json
 "name": "project-name",
 "version": "1.0.0",
 ...
-"exports": {
+"exports":
   "entry_one": "./src/entry_one.ts",
   "entry_renamed": "./src/entry_two.ts"
 },
 ```
 
-Then by running `subql build` it will generate a dist folder with the following structure:
+然后运行 `subql build` 将生成一个具有以下结构的dist 文件夹：
 
 ```
 - project-name
