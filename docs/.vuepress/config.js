@@ -239,6 +239,7 @@ function getSidebar(locale, language){
         `${locale}/subquery_network/indexers.md`,
         `${locale}/subquery_network/delegators.md`,
         `${locale}/subquery_network/foundation.md`,
+        `${locale}/subquery_network/terminology.md`,
 
       ]
     },
