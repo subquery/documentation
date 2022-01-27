@@ -1,3 +1,5 @@
+# Delegators
+
 ## What is a Delegator?
 
 A Delegator is a non-technical network role in the SubQuery network and is a great way to start contributing to the SubQuery network. This role enables Delegators to “delegate” their SQT to one or more Indexers. Delegators benefit by having their SQT earn a “commission reward” for their efforts. On the other hand, Indexers benefit by acquiring more SQT to stake towards their projects of interest, thereby increasing their earning potential. 
