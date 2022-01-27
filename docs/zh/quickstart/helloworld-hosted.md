@@ -31,7 +31,7 @@
 
 ## 1. 4. 创建项目
 
-Let's create a project called subqlHelloWorld by running `subql init` and selecting to build the project with the `Polkadot` network and initialize the project with the `subql-starter` template. We must run the obligatory install, codegen and build with your favourite package manager.
+让我们通过运行`subql init`命令来在`Polkadot`网络构建项目来创建一个名为subqlHelloWorld 的项目，并使用`subql-starter`模板初始化该项目。 We must run the obligatory install, codegen and build with your favourite package manager.
 
 ```shell
 > subql init subqlHelloWorld
