@@ -39,7 +39,7 @@ COMMANDS
 
 ### --help
 
-This shows the help options.
+输入该命令行将显示帮助选项。
 
 ```shell
 > subql-node --help
@@ -159,7 +159,7 @@ SubQuery 项目通常在javascript sandbox中运行，以保证安全，限制�
 
 虽然这会增强安全性，但我们理解这会限制您的 SubQuery 可用的功能。 `--unsafe` 命令导入所有默认的 javascript 模块，这些模块大大增加了安全性降低后的沙盒功能。
 
-**注意 `--safe` 命令将防止您的项目在 SubQuery 网络中运行。 如果您想要在 SubQuery 的管理服务中运行此命令，您必须联系支持者([项目)。 ubquery.network](https://project.subquery.network)**
+**请注意，`——unsafe`命令将阻止您的项目在SubQuery网络中运行，如果您想要在SubQuery的托管服务[project.SubQuery.Network ](https://project.subquery.network)中运行此命令，您必须联系支持人员。**
 
 ### --batch-size
 
@@ -240,7 +240,7 @@ An instance of ProjectManifestImpl has failed the validation:
 
 ### --log-level
 
-有七个选项可供选择： “fatal”, “error”, “warn”, “info”, “debug”, “trace”, “silent”. 下面的示例显示silent。 终端中不会打印任何内容，所以，判断节点工作与否的唯一方法是查询数据库中的行数（select count(\*) from subquery_1.starter_entities）或者查询区块的高度。
+有七个选项可供选择： “fatal”, “error”, “warn”, “info”, “debug”, “trace”, “silent”. 下面的示例显示silent。 终端中不会打印任何内容，因此，判断节点是否工作的唯一方法是查询数据库的行数(select count(\*) from subquery_1.starter_entities)或查询块高度。
 
 ```shell
 > subql-node -f . --log-level=silent
@@ -262,35 +262,48 @@ An instance of ProjectManifestImpl has failed the validation:
 
 ### --timestamp-field
 
-By default this is true. when set to false with:
+默认情况下是true。 当设置成false时：
 
 ```shell
 > subql-node -f . –timestamp-field=false
 ```
 
-This removes the created_at and updated_at columns in the starter_entities table.
+这将删除在starter_entities表中的 created_at和updated_at列
 
 ### -d, --network-dictionary
 
-This allows you to specify a dictionary endpoint which is a free service that is provided and hosted at: [https://explorer.subquery.network/](https://explorer.subquery.network/) (search for dictionary) and presents an API endpoint of: https://api.subquery.network/sq/subquery/dictionary-polkadot
+这允许您指定一个字典端点，它是一个免费服务，提供并托管在:
 
-Typically this would be set in your manifest file but below shows an example of using it as an argument in the command line.
+https://explorer.subquery.network/(搜索字典)，并提供:https://api.subquery.network/sq/subquery/dictionary-polkadot的API端点</p> 
+
+通常，这将在您的清单文件中设置，但在下面显示一个在命令行中使用它作为参数的例子。
+
+
 
 ```shell
 subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot"
 ```
 
+
 阅读更多关于 SubQuery 词典的工作原理
+
+
 
 ### -p, --port
 
-The port the subquery indexing service binds to. By default this is set to `3000`
+Subquery索引服务绑定到的端口。 默认设置为 `3000`
+
+
 
 ## subql-query
 
+
+
 ### --help
 
-This shows the help options.
+显示帮助选项。
+
+
 
 ```shell
 Options:
@@ -312,18 +325,28 @@ Options:
   -p, --port        The port the service will bind to                   [number
 ```
 
+
+
+
 ### --version
 
 这将显示当前版本。
+
+
 
 ```shell
 > subql-query --version
 0.7.0
 ```
 
+
+
+
 ### -n, --name
 
-This flag is used to start the query service. If the --subquery-name flag is not provided when running an indexer, the name here will refer to the default project name. If --subquery-name is set, then the name here should match what was set.
+这个命令行用于启动查询服务。 如果运行索引器时没有提供 --subquery-name 标志，此处的名称将指默认项目名称。 如果设置了 --subquery-name, 则此处的名称应该与设置相匹配。
+
+
 
 ```shell
 > subql-node -f . // --subquery-name not set
@@ -331,46 +354,66 @@ This flag is used to start the query service. If the --subquery-name flag is not
 > subql-query -n subql-helloworld  --playground // the name defaults to the project directory name
 ```
 
+
+
+
 ```shell
 > subql-node -f . --subquery-name=hiworld // --subquery-name set
 
 > subql-query -n hiworld --playground  // the name points to the subql-helloworld project but with the name of hiworld
 ```
 
+
+
+
 ### --playground
 
-This flag enables the graphql playground so should always be included by default to be of any use.
+这个命令行启用了graphql playground，所以在默认情况下，应该始终包含有任何用途。
+
+
 
 ### --output-fmt
 
-See [--output-fmt](https://doc.subquery.network/references/references.html#output-fmt)
+查看 [--output-fmt](https://doc.subquery.network/references/references.html#output-fmt)
+
+
 
 ### --log-level
 
-See [--log-level](https://doc.subquery.network/references/references.html#log-level)
+查看 [--loglevel](https://doc.subquery.network/references/references.html#log-level)
+
+
 
 ### --log-path
 
-Enable file logging by providing a path to a file to log to
+通过提供一个文件到日志的路径来启用文件日志
+
+
 
 ### --log-rotate
 
-Enable file log rotations with the options of a 1d rotation interval, a maximum of 7 files and with a max file size of 1GB
+启用文件日志旋转，可设置为1天旋转时间间隔，最多7个文件，最大文件大小为1GB
+
+
 
 ### --indexer
 
-Set a custom url for the location of the endpoints of the indexer, the query service uses these endpoints for indexer health, metadata and readiness status
+设置索引器终点位置的自定义URL。 查询服务将这些端点用于索引器健康、元数据和准备状态
+
+
 
 ### --unsafe
 
-The query service has a limit of 100 entities for unbounded graphql queries. The unsafe flag removes this limit which may cause performance issues on the query service. It is recommended instead that queries are [paginated](https://graphql.org/learn/pagination/).
+查询服务对于无界的graphql查询有100个实体的限制。 不安全的标志取消了这个限制，这可能给查询服务造成性能问题。 相反，建议查询为 [分页](https://graphql.org/learn/pagination/)。
 
-This flag can also be used to enable certain aggregation functions including sum, max, avg and [others](https://github.com/graphile/pg-aggregates#aggregates).
+这个标志也可以用于启用某些聚合功能，包括总和、 最大、 avg 和 [其他](https://github.com/graphile/pg-aggregates#aggregates)。
 
-These are disabled by default due to the entity limit.
+由于实体限制，它们默认被禁用。
 
-**Note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in SubQuery's managed service [project.subquery.network](https://project.subquery.network).**
+**请注意，`——unsafe`命令将阻止您的项目在SubQuery网络中运行，如果您想要在SubQuery的托管服务[project. SubQuery . Network](https://project.subquery.network) 中运行此命令，您必须联系支持人员。**
+
+
 
 ### --port
 
-The port the subquery query service binds to. By default this is set to `3000`
+Subquery索引服务绑定到的端口。 默认设置为 `3000`
