@@ -140,14 +140,14 @@ SubQuery може да се използва във всяка верига, б�
 
 Създайте нова директория `api-interfaces` под папката `src` на проекта, за да съхранявате всички необходими и генерирани файлове. Също създаваме директория `api-interfaces/kitties` тъй като искаме да добавим декорация в API от модула `kitties`.
 
-#### Metadata
+#### Метаданни
 
-We need metadata to generate the actual API endpoints. In the kitty example, we use an endpoint from a local testnet, and it provides additional types. Follow the steps in [PolkadotJS metadata setup](https://polkadot.js.org/docs/api/examples/promise/typegen#metadata-setup) to retrieve a node's metadata from its **HTTP** endpoint.
+Нуждаем се от метаданни, за да генерираме действителните крайни точки на API. В примера с котките, ние използваме крайна точка от локална тестова мрежа и тя предоставя допълнителни типове. Следвайте стъпките в настройката на метаданните на [PolkadotJS metadata setup](https://polkadot.js.org/docs/api/examples/promise/typegen#metadata-setup) за да извлечете метаданните на нода от неговата **HTTP** крайна точка.
 
 ```shell
 curl -H "Content-Type: application/json" -d '{"id":"1", "jsonrpc":"2.0", "method": "state_getMetadata", "params":[]}' http://localhost:9933
 ```
-or from its **websocket** endpoint with help from [`websocat`](https://github.com/vi/websocat):
+или от неговата **websocket** крайна точка с помощта на [`websocat`](https://github.com/vi/websocat):
 
 ```shell
 //Install the websocat
@@ -157,19 +157,19 @@ brew install websocat
 echo state_getMetadata | websocat 'ws://127.0.0.1:9944' --jsonrpc
 ```
 
-Next, copy and paste the output to a JSON file. In our [kitty example](https://github.com/subquery/tutorials-kitty-chain), we have created `api-interface/kitty.json`.
+След това копирайте и поставете резултата в JSON файл. В нашия пример [kitty](https://github.com/subquery/tutorials-kitty-chain), създадохме `api-interface/kitty.json`.
 
-#### Type definitions
-We assume that the user knows the specific types and RPC support from the chain, and it is defined in the [Manifest](./manifest.md).
+#### Дефиниции на типове
+Предполагаме, че потребителят познава специфичните типове и RPC поддръжка от веригата, и това е дефинирано в [Манифеста](./manifest.md).
 
-Following [types setup](https://polkadot.js.org/docs/api/examples/promise/typegen#metadata-setup), we create :
-- `src/api-interfaces/definitions.ts` - this exports all the sub-folder definitions
+Следвайки [видовете сетъпи](https://polkadot.js.org/docs/api/examples/promise/typegen#metadata-setup), създаваме :
+- `src/api-interfaces/definitions.ts` - това експортира всички дефиниции на подпапки
 
 ```ts
 export { default as kitties } from './kitties/definitions';
 ```
 
-- `src/api-interfaces/kitties/definitions.ts` - type definitions for the kitties module
+- `src/api-interfaces/kitties/definitions.ts` - дефиниции на типа за модула Kitties
 ```ts
 export default {
     // custom types
@@ -202,12 +202,12 @@ export default {
 }
 ```
 
-#### Packages
+#### Пакети
 
-- In the `package.json` file, make sure to add `@polkadot/typegen` as a development dependency and `@polkadot/api` as a regular dependency (ideally the same version). We also need `ts-node` as a development dependency to help us run the scripts.
-- We add scripts to run both types; `generate:defs` and metadata `generate:meta` generators (in that order, so metadata can use the types).
+- Във файла `package.json`, не забравяйте да добавите `@polkadot/typegen` като зависимост за разработка и `@polkadot/api` като обикновена зависимост (в идеалния случай същата версия). Нуждаем се и от `ts-node` като зависимост за разработка, за да ни помогне да стартираме скриптовете.
+- Добавяме скриптове за изпълнение на двата типа; `generate:defs` и метадата `generate:meta` генератори (в този ред, така че метаданните могат да използват типовете).
 
-Here is a simplified version of `package.json`. Make sure in the **scripts** section the package name is correct and the directories are valid.
+Ето опростена версия на `package.json`. Уверете се, че в секцията **scripts** името на пакета е правилно и директориите са валидни.
 
 ```json
 {
@@ -227,9 +227,9 @@ Here is a simplified version of `package.json`. Make sure in the **scripts** sec
 }
 ```
 
-### Type generation
+### Генериране на тип
 
-Now that preparation is completed, we are ready to generate types and metadata. Run the commands below:
+След като подготовката е завършена, ние сме готови да генерираме типове и метаданни. Изпълнете командите по-долу:
 
 ```shell
 # Yarn to install new dependencies
