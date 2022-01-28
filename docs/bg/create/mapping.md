@@ -239,14 +239,14 @@ yarn
 yarn generate:defs
 ```
 
-In each modules folder (eg `/kitties`), there should now be a generated `types.ts` that defines all interfaces from this modules' definitions, also a file `index.ts` that exports them all.
+Във всяка папка с модули (напр. `/kitties`), вече трябва да има генериран `types.ts` който дефинира всички интерфейси от дефинициите на тези модули, също и файл `index.ts` който ги експортира всички.
 
 ```shell
 # Generate metadata
 yarn generate:meta
 ```
 
-This command will generate the metadata and a new api-augment for the APIs. As we don't want to use the built-in API, we will need to replace them by adding an explicit override in our `tsconfig.json`. After the updates, the paths in the config will look like this (without the comments):
+Тази команда ще генерира метаданните и нов api-augment за API. Тъй като не искаме да използваме вградения API, ще трябва да ги заменим, като добавим изрично замяна в нашия `tsconfig.json`. След актуализациите, пътищата в конфигурацията ще изглеждат така (без коментарите):
 
 ```json
 {
@@ -261,9 +261,9 @@ This command will generate the metadata and a new api-augment for the APIs. As w
 }
 ```
 
-### Usage
+### Използване
 
-Now in the mapping function, we can show how the metadata and types actually decorate the API. The RPC endpoint will support the modules and methods we declared above. And to use custom rpc call, please see section [Custom chain rpc calls](#custom-chain-rpc-calls)
+Сега във функцията за преобразуване можем да покажем как метаданните и типовете всъщност декорират API. RPC крайната точка ще поддържа модулите и методите, които декларирахме по-горе. И за да използвате персонализирано rpc повикване, моля, вижте раздел [Персонализирани верижни rpc повиквания](#custom-chain-rpc-calls)
 ```typescript
 export async function kittyApiHandler(): Promise<void> {
     //return the KittyIndex type
@@ -276,11 +276,11 @@ export async function kittyApiHandler(): Promise<void> {
 }
 ```
 
-**If you wish to publish this project to our explorer, please include the generated files in `src/api-interfaces`.**
+**Ако искате да публикувате този проект в нашия експлорър, моля, включете генерираните файлове в `src/api-interfaces`.**
 
-### Custom chain rpc calls
+### Rpc повиквания в персонализирана верига
 
-To support customised chain RPC calls, we must manually inject RPC definitions for `typesBundle`, allowing per-spec configuration. You can define the `typesBundle` in the `project.yml`. And please remember only `isHistoric` type of calls are supported.
+За да поддържаме персонализирани верижни RPC преобразувания, трябва ръчно да вкараме RPC дефиниции за `typesBundle`, позволявайки конфигурация по спецификация. Можете да дефинирате `typesBundle` в `project.yml`. И моля, не забравяйте, че се поддържат само повиквания тип `isHistoric`.
 ```yaml
 ...
   types: {
