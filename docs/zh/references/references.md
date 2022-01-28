@@ -254,7 +254,7 @@ An instance of ProjectManifestImpl has failed the validation:
 (node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
 (node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
 (node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
-(node:24686) [DEP0152] DeprecationWarning: Custom PerformanceEntry accessors are deprecated. Please use the detail property.
+(node:24686) [DEP0152] DeprecationWarning: Custom PerformanceEntry accessors are deprecated. 请使用详细的属性。
 (node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
 ```
 
