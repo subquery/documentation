@@ -105,15 +105,15 @@ const b2 = await api.rpc.chain.getBlock();
 
 Моля, имайте предвид, че това е **експериментална функция** и може да срещнете грешки или проблеми, които могат да повлияят негативно на функциите ви за мапинг. Моля, докладвайте всички грешки, които откриете, като създадете казус в [GitHub](https://github.com/subquery/subql).
 
-### Built-in modules
+### Вградени модули
 
-Currently, we allow the following NodeJS modules: `assert`, `buffer`, `crypto`, `util`, and `path`.
+Понастоящем позволяваме следните модули на NodeJS: `assert`, `buffer`, `crypto`, `util` и `path`.
 
-Rather than importing the whole module, we recommend only importing the required method(s) that you need. Some methods in these modules may have dependencies that are unsupported and will fail on import.
+Вместо да импортирате целия модул, препоръчваме да импортирате само необходимия(те) метод(и), от който се нуждаете. Някои методи в тези модули може да имат зависимости, които не се поддържат и няма да се импортират.
 
 ```ts
-import {hashMessage} from "ethers/lib/utils"; //Good way
-import {utils} from "ethers" //Bad way
+импортирайте  {hashMessage} от "ethers/lib/utils"; //Добър начин
+импортирайте  {utils} от "ethers" //Лош начин
 
 export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
     const record = new starterEntity(extrinsic.block.block.header.hash.toString());
@@ -122,23 +122,23 @@ export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
 }
 ```
 
-### Third-party libraries
+### Библиотеки на трети страни
 
-Due to the limitations of the virtual machine in our sandbox, currently, we only support third-party libraries written by **CommonJS**.
+Поради ограниченията на виртуалната машина в нашия sandbox, в момента поддържаме само библиотеки на трети страни, написани на **CommonJS**.
 
-We also support a **hybrid** library like `@polkadot/*` that uses ESM as default. However, if any other libraries depend on any modules in **ESM** format, the virtual machine will **NOT** compile and return an error.
+Ние поддържаме **хибридна** библиотека като `@polkadot/*` която използва ESM по подразбиране. Въпреки това, ако други библиотеки зависят от модули във формат **ESM** виртуалната машина **НЯМА** да компилира и да върне грешка.
 
-## Custom Substrate Chains
+## Персонализирани вериги за Substrate
 
-SubQuery can be used on any Substrate-based chain, not just Polkadot or Kusama.
+SubQuery може да се използва във всяка верига, базирана на Substrate, не само Polkadot или Kusama.
 
-You can use a custom Substrate-based chain and we provide tools to import types, interfaces, and additional methods automatically using [@polkadot/typegen](https://polkadot.js.org/docs/api/examples/promise/typegen/).
+Можете да използвате персонализирана верига, базирана на Substrate, и ние предоставяме инструменти за автоматично импортиране на типове, интерфейси и допълнителни методи, използвайки [@polkadot/typegen](https://polkadot.js.org/docs/api/examples/promise/typegen/).
 
-In the following sections, we use our [kitty example](https://github.com/subquery/tutorials-kitty-chain) to explain the integration process.
+В следващите раздели използваме нашия пример [kitty](https://github.com/subquery/tutorials-kitty-chain), за да обясним процеса на интеграция.
 
-### Preparation
+### Подготовка
 
-Create a new directory `api-interfaces` under the project `src` folder to store all required and generated files. We also create an `api-interfaces/kitties` directory as we want to add decoration in the API from the `kitties` module.
+Създайте нова директория `api-interfaces` под папката `src` на проекта, за да съхранявате всички необходими и генерирани файлове. Също създаваме директория `api-interfaces/kitties` тъй като искаме да добавим декорация в API от модула `kitties`.
 
 #### Metadata
 
