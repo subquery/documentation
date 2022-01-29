@@ -70,27 +70,27 @@ MoonbeamとMoonriverのEVM用にカスタムデータソースプロセッサを
 
 ### イベントフィルタ
 
-| フィールド  | 型            | 例                                                            | 説明                                                                                                                                               |
-| ------ | ------------ | ------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| topics | String array | Transfer(address indexed from,address indexed to,u256 value) | The topics filter follows the Ethereum JSON-PRC log filters, more documentation can be found [here](https://docs.ethers.io/v5/concepts/events/). |
+| フィールド  | 型            | 例                                                            | 説明                                                                                                |
+| ------ | ------------ | ------------------------------------------------------------ | ------------------------------------------------------------------------------------------------- |
+| topics | String array | Transfer(address indexed from,address indexed to,u256 value) | topicsは、Ethereum JSON-PRCログフィルタに従います。詳細なドキュメントは[こちら](https://docs.ethers.io/v5/concepts/events/). |
 
-<b>Note on topics:</b>
-There are a couple of improvements from basic log filters:
+<b>topicsに関する注意:</b>
+基本的なログフィルタにはいくつかの改善点があります:
 
-- Topics don't need to be 0 padded
-- [Event Fragment](https://docs.ethers.io/v5/api/utils/abi/fragments/#EventFragment) strings can be provided and automatically converted to their id
+- topicsを 0 埋めする必要はありません。
+- [Event Fragment](https://docs.ethers.io/v5/api/utils/abi/fragments/#EventFragment) を提供し、そのIDに自動的に変換できます
 
 ### ハンドラ
 
-Unlike a normal handler you will not get a `SubstrateEvent` as the parameter, instead you will get a `MoonbeamEvent` which is based on Ethers [Log](https://docs.ethers.io/v5/api/providers/types/#providers-Log) type.
+通常のハンドラとは異なり、パラメータとして`SubstrateEvent`を得ることはなく、代わりにイーサリアム[Log](https://docs.ethers.io/v5/api/providers/types/#providers-Log)型に基づいた`MoonbeamEvent`を得ることになります。
 
-Changes from the `Log` type:
+`ログ` 型からの変更:
 
 - `args` は `abi` フィールドが指定され、引数が正常に解析される場合に追加されます。
 
-## Data Source Example
+## データソースの例
 
-This is an extract from the `project.yaml` manifest file.
+これは `project.yaml` マニフェストファイルから抽出してます。
 
 ```yaml
 dataSources:
@@ -125,8 +125,8 @@ dataSources:
             from: '0x6bd193ee6d2104f14f94e2ca6efefae561a4334b'
 ```
 
-## Known Limitations
+## 既知の制限事項
 
-- There is currently no way to query EVM state within a handler
-- There is no way to get the transaction receipts with call handlers
-- `blockHash` properties are currently left undefined, the `blockNumber` property can be used instead
+- ハンドラ内のEVM状態を問い合わせる方法は現在ありません。
+- 呼び出しハンドラで戻り値を取得する方法はありません。
+- `blockHash` プロパティは現在未定義のままです。代わりに `blockNumber` プロパティを使用できます。
