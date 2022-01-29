@@ -54,11 +54,13 @@ yarn codegen
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```bash npm run-script build ``` </CodeGroupItem> </CodeGroup>
 
-### Alternative build options
+### 代替のビルド オプション
 
-We support additional build options for subquery projects using `subql build`.
+`subql build`
 
-With this you can define additional entry points to build using the exports field in package.json.
+を使用したsubqueryプロジェクトのための追加ビルドオプションをサポートします。
+
+これにより、package.json の exports フィールドを使用してビルドするための追加のエントリ ポイントを定義できます。
 
 ```json
 "name": "project-name",
