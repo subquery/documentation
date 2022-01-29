@@ -46,9 +46,9 @@
 ### コミットメッセージ
 
 * 現在形を使う（「Added feature」ではなく「Add feature」）。
-* Use the imperative mood ("Move cursor to..." not "Moves cursor to...")
-* Limit the first line to 72 characters or less
+* 命令形を使う ("Moves cursor to..." ではなく "Move cursor to...")
+* 最初の行を72文字以下に制限する
 
 ### JavaScript Styleguide
 
-* All JavaScript code is linted with Prettier and ESLint
+* すべてのJavaScriptコードはPrettierとESLintでリンクされています。
