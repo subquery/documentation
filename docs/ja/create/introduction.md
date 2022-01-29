@@ -6,7 +6,7 @@
 
 以下の例では、 [クイックスタート](../quickstart/quickstart.md) セクションでスターターパッケージを正常に初期化したと仮定します。 そのスターターパッケージから、SubQueryプロジェクトをカスタマイズして実装するための標準プロセスを説明します。
 
-1. Initialise your project using `subql init PROJECT_NAME`.
+1. `subql init PROJECT_NAME` を使用してプロジェクトを初期化します。
 2. マニフェストファイル（`project.yaml`）を更新して、ブロックチェーンとマッピングするエンティティに関する情報を含めます。 （[マニフェストファイル](./manifest.md)を参照）
 3. スキーマ（`schema.graphql`）にGraphQLエンティティを作成し、クエリのために抽出・保存するデータの型を定義します。 （[GraphQL Schema](./graphql.md)を参照）
 4. チェーンデータを定義したGraphQLエンティティに変換するために呼び出したいすべてのマッピング関数（例：`mappingHandlers.ts`）を追加します。 （[Mapping](./mapping.md)を参照）
@@ -72,7 +72,7 @@ yarn codegen
 },
 ```
 
-Then by running `subql build` it will generate a dist folder with the following structure:
+次に、 `subql build` を実行すると、次の構造のdistフォルダが生成されます。
 
 ```
 - project-name
@@ -82,13 +82,13 @@ Then by running `subql build` it will generate a dist folder with the following 
     L index.js 
 ```
 
-Note that it will build `index.ts` whether or not it is specified in the exports field.
+exportsフィールドで指定されているかどうかに関わらず、 `index.ts` をビルドすることに注意してください。
 
-For more information on using this including flags, see [cli reference](https://doc.subquery.network/references/references/#build).
+フラグを含むこれの使用に関する詳細は、 [cli reference](https://doc.subquery.network/references/references/#build) を参照してください。
 
-## Logging
+## ロギング
 
-The `console.log` method is **no longer supported**. Instead, a `logger` module has been injected in the types, which means we can support a logger that can accept various logging levels.
+`console.log` メソッドは **サポートされなくなりました**。 </strong> 代わりに、 `logger` モジュールが型に組み込まれています。 つまり、さまざまなロガーレベルを受け入れることができるロガーをサポートすることができます。
 
 ```typescript
 logger.info('Info level message');
@@ -96,16 +96,16 @@ logger.debug('Debugger level message');
 logger.warn('Warning level message');
 ```
 
-To use `logger.info` or `logger.warn`, just place the line into your mapping file.
+`logger.info` または `logger.warn`を使用するには、マッピングファイルに行を挿入してください。
 
 ![logging.info](/assets/img/logging_info.png)
 
-To use `logger.debug`, an additional flag is required. Add `--log-level=debug` to your command line.
+`logger.debug`を使用するには、追加のステップが必要です。 コマンドラインに `--log-level=debug` を追加します。
 
-If you are running a docker container, add this line to your `docker-compose.yaml` file.
+Docker containerを実行している場合は、 `docker-compose.yaml` ファイルにこの行を追加してください。
 
-![logging.debug](/assets/img/logging_debug.png)
+![logging.debug](/assets/img/logging_info.png)
 
-You should now see the new logging in the terminal screen.
+ターミナル画面に新しいログが表示されます。
 
 ![logging.debug](/assets/img/subquery_logging.png)
