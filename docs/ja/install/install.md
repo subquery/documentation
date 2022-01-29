@@ -41,4 +41,4 @@ Yarn または NPM を使用して、端末に SubQuery CLI をインストー�
 <CodeGroup> <CodeGroupItem title="NPM"> ```bash npm install -g @subql/query ``` </CodeGroupItem>
 <CodeGroupItem title="YARN" active> ```shell yarn global add @subql/query ``` </CodeGroupItem> </CodeGroup>
 
-> 注：Dockerを使用している場合、またはSubQuery Projectsでプロジェクトをホストしている場合は、このステップをスキップすることができます。 これは、SubQueryノードがDockerコンテナとホスティングインフラストラクチャにすでに提供されているためです。 
+> 注意: Dockerを使用している場合、またはSubQuery Projectsでプロジェクトをホスティングしている場合は、この手順をスキップできます。 これは、SubQueryノードがDockerコンテナとホスティングインフラストラクチャにすでに提供されているためです。 
