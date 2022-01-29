@@ -92,7 +92,7 @@
         </div>
       </li>
     </ul><br>
-    さらによくある質問については、こちらをご覧ください。 <router-link :to="{path: '/faqs/faqs/'}">FAQ's</router-link> ページ    
+    さらによくある質問については、こちらをご覧ください。 <router-link :to="{path: '/faqs/faqs/'}">FAQ</router-link> ページ    
   </div>
 </section>
 <section class="main">
