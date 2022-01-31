@@ -1,10 +1,10 @@
-# Connect to your New Project
+# 新しいプロジェクトに接続
 
-Once your deployment has succesfully completed and our nodes have indexed your data from the chain, you'll be able to connect to your project via the displayed Query endpoint.
+デプロイが正常に完了し、ノードがチェーンからデータのインデックスを作成したら、表示されたクエリエンドポイントからプロジェクトに接続することができるようになります。
 
 ![Project being deployed and synced](/assets/img/projects-deploy-sync.png)
 
-Alternatively, you can click on the three dots next to the title of your project, and view it on SubQuery Explorer. There you can use the in browser playground to get started.
+または、プロジェクトのタイトルの横にある3つの点をクリックして、SubQuery Explorer で表示することもできます。 そこでは、ブラウザ内のプレイグラウンドを利用して開始することができます。
 
 ![Projects in SubQuery Explorer](/assets/img/projects-explorer.png)
 
