@@ -1,4 +1,4 @@
-# Hello World (localhost + Docker)
+# Hello World (localhost & Docker)
 
 Bu SubQuery Hello World hızlı başlangıcına hoş geldiniz. Hızlı başlangıç, docker'da çalışan varsayılan başlangıç projesini birkaç basit adımda nasıl elde edersiniz göstermeyi amaçlamaktadır.
 

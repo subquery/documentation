@@ -1,4 +1,4 @@
-# Hello World (localhost + Docker)
+# Hello World (localhost & Docker)
 
 Welcome to this SubQuery Hello World quick start. ยินดีต้อนรับ quick start ของ SubQuery Hello World การ quick start มีจุดมุ่งหมายเพื่อแสดงให้คุณเห็นว่าจะใช้ starter project ที่ได้รับต้นเพื่อรันใน Docker ได้อย่างไรในไม่กี่ขั้นตอนง่ายๆ
 
