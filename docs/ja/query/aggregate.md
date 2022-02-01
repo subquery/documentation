@@ -1,29 +1,29 @@
-# Aggregate Functions
+# 集計関数
 
 ## Group By
 
-SubQuery supports advanced aggregate functions to allow you to perform a calculation on a set of values during your query.
+SubQuery は高度な集約関数をサポートしており、クエリ中に一連の値に対して計算を実行することができます。
 
-Aggregate functions are usually used with the GroupBy function in your query.
+集計関数は通常、クエリのGroupBy関数で使用されます。
 
-GroupBy allows you to quickly get distinct values in a set from SubQuery in a single query.
+GroupByを使用すると、1つのクエリでSubQueryから異なる値をすばやく取得できます。
 
 ![Graphql Groupby](/assets/img/graphql_aggregation.png)
 
-## Advanced Aggregate Functions
+## 高度な集計関数
 
-SubQuery provides the following aggregate functions when in unsafe mode:
+SubQueryはunsafeモードの場合に以下の集約関数を提供します。
 
-- `sum` (applies to number-like fields) - the result of adding all the values together
-- `distinctCount` (applies to all fields) - the count of the number of distinct values
-- `min` (applies to number-like fields) - the smallest value
-- `max` (applies to number-like fields) - the greatest value
-- `average` (applies to number-like fields) - the average (arithmetic mean) value
-- `stddevSample` (applies to number-like fields) - the sample standard deviation of the values
-- `stddevPopulation` (applies to number-like fields) - the population standard deviation of the values
-- `varianceSample` (applies to number-like fields) - the sample variance of the values
-- `variancePopulation` (applies to number-like fields) - the population variance of the values
+- `sum` (数値のようなフィールドに適用) - すべての値を足した結果
+- `distinctCount`（すべてのフィールドに適用） - 異なる値の数をカウントします。
+- `min` (数値のようなフィールドに適用) - 最小の値
+- `max` (数値のようなフィールドに適用) - 最大値
+- `average` (数値のようなフィールドに適用) - 平均 (算術平均) 値
+- `stddevSample` (数値のようなフィールドに適用) - 値の標準偏差のサンプル
+- `stddevPopulation` (数値のようなフィールドに適用) - 値の母集団標準偏差
+- `varianceSample`（数値のようなフィールドに適用） - 値の分散のサンプル
+- `variancePopulation`（数値のようなフィールドに適用） - 値の母分散
 
-SubQuery's implementation of aggregate functions is based on [pg-aggregates](https://github.com/graphile/pg-aggregates), you can find more information there
+SubQueryの集約関数の実装は[pg-aggregates](https://github.com/graphile/pg-aggregates)に基づいており、より詳しい情報はそちらを参照してください。
 
-**Please note that you must enable the `--unsafe` flag on the query service in order to use these functions. [Read more](../references/references.md#unsafe-2). Note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in SubQuery's managed service ([project.subquery.network](https://project.subquery.network))**
+**これらの関数を使用するには、クエリサービスの `--unsafe` フラグを有効にする必要があります。 [続きを読む](../references/references.md#unsafe-2). `--unsafe` コマンドを使用すると、SubQuery Network でプロジェクトを実行できなくなることに注意してください。このコマンドを SubQuery のマネージド サービス ([project.subquery.network](https://project.subquery.network)) でプロジェクトと共に実行したい場合は、サポートに連絡する必要があります。**
