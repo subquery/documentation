@@ -1,29 +1,29 @@
-# Aggregate Functions
+# ฟังก์ชั่นการรวม
 
-## Group By
+## จัดกลุ่มโดย
 
-SubQuery supports advanced aggregate functions to allow you to perform a calculation on a set of values during your query.
+SubQuery รองรับฟังก์ชันการรวมขั้นสูงเพื่อให้คุณสามารถคำนวณชุดของค่าในระหว่างการสืบค้นของคุณได้
 
-Aggregate functions are usually used with the GroupBy function in your query.
+โดยฟังก์ชันการรวมมักใช้กับฟังก์ชัน GroupBy ในการสืบค้น
 
-GroupBy allows you to quickly get distinct values in a set from SubQuery in a single query.
+ซึ่ง GroupBy นั้นจะช่วยให้คุณรับค่าที่แตกต่างกันอย่างรวดเร็วในชุดจาก SubQuery ในการสืบค้นเพียงครั้งเดียว
 
 ![Graphql Groupby](/assets/img/graphql_aggregation.png)
 
-## Advanced Aggregate Functions
+## ฟังก์ชั่นการรวมขั้นสูง
 
-SubQuery provides the following aggregate functions when in unsafe mode:
+SubQuery มีฟังก์ชันการรวมต่อไปนี้เมื่ออยู่ในโหมดที่ไม่ปลอดภัย:
 
-- `sum` (applies to number-like fields) - the result of adding all the values together
-- `distinctCount` (applies to all fields) - the count of the number of distinct values
-- `min` (applies to number-like fields) - the smallest value
-- `max` (applies to number-like fields) - the greatest value
-- `average` (applies to number-like fields) - the average (arithmetic mean) value
-- `stddevSample` (applies to number-like fields) - the sample standard deviation of the values
-- `stddevPopulation` (applies to number-like fields) - the population standard deviation of the values
-- `varianceSample` (applies to number-like fields) - the sample variance of the values
-- `variancePopulation` (applies to number-like fields) - the population variance of the values
+- `sum` (ใช้กับช่องตัวเลข) - ผลลัพธ์ของการเพิ่มค่าทั้งหมดเข้าด้วยกัน
+- `distinctCount` (ใช้กับทุกช่อง) - การนับจำนวนค่าที่ไม่ซ้ำ
+- `min` (ใช้กับช่องตัวเลข) - ค่าที่น้อยที่สุด
+- `max` (ใช้กับช่องตัวเลข) - ค่าที่มากที่สุด
+- `average` (ใช้กับช่องตัวเลข) - ค่าเฉลี่ย (ค่าเฉลี่ยเลขคณิต)
+- `stddevSample` (ใช้กับช่องตัวเลข) - ค่าเบี่ยงเบนมาตรฐานตัวอย่าง
+- `stddevPopulation` (ใช้กับช่องตัวเลข) - ค่าเบี่ยงเบนมาตรฐานประชากร
+- `varianceSample` (ใช้กับช่องตัวเลข) - ความแปรปรวนตัวอย่าง
+- `variancePopulation` (ใช้กับช่องตัวเลข) - ความแปรปรวนประชากร
 
-SubQuery's implementation of aggregate functions is based on [pg-aggregates](https://github.com/graphile/pg-aggregates), you can find more information there
+การใช้งานฟังก์ชันการรวมของ SubQuery ขึ้นอยู่กับ [pg-aggregates](https://github.com/graphile/pg-aggregates) ซึ่งคุณสามารถหาข้อมูลเพิ่มเติมได้ที่นั่น
 
-**Please note that you must enable the `--unsafe` flag on the query service in order to use these functions. [Read more](../references/references.md#unsafe-2). Note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in SubQuery's managed service ([project.subquery.network](https://project.subquery.network))**
+**โปรดทราบว่าคุณต้องเปิดใช้งาน `--unsafe` ในบริการสืบค้นข้อมูลเพื่อใช้ฟังก์ชันเหล่านี้ [อ่านเพิ่มเติมที่นี่](../references/references.md#unsafe-2). โปรดทราบว่าคำสั่ง `--unsafe` จะป้องกันไม่ให้โปรเจ็กต์ของคุณทำงานในเครือข่าย SubQuery และคุณต้องติดต่อฝ่ายสนับสนุนหากต้องการให้คำสั่งนี้รันกับโปรเจ็กต์ของคุณในบริการที่มีการจัดการของ SubQuery ([project.subquery.network](https://project.subquery.network))**
