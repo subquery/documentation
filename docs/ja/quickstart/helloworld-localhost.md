@@ -181,6 +181,6 @@ SubQuery playground on localhost.
 
 The block count in the playground should match the block count (technically the block height) in the terminal as well.
 
-## Summary
+## 概要
 
 In this quick start, we demonstrated the basic steps to get a starter project up and running within a Docker environment and then navigated to localhost:3000 and ran a query to return the block number of the mainnet Polkadot network.
