@@ -11,7 +11,7 @@ Menginstal SubQuery CLI secara global di terminal Anda dengan menggunakan Yarn a
 <CodeGroup> <CodeGroupItem title="NPM"> ```bash npm install -g @subql/cli ``` </CodeGroupItem>
 <CodeGroupItem title="YARN" active> ```shell yarn global add @subql/cli ``` </CodeGroupItem> </CodeGroup>
 
-You can then run help to see available commands and usage provide by CLI:
+Anda kemudian dapat menjalankan bantuan untuk melihat perintah dan penggunaan yang tersedia yang disediakan oleh CLI:
 
 ```shell
 subql help
@@ -22,10 +22,10 @@ Node SubQuery adalah implementasi yang mengekstrak data blockchain berbasis subs
 
 Menginstal node SubQuery secara global di terminal Anda dengan menggunakan Yarn atau NPM:
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn global add @subql/node ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```bash npm install -g @subql/node ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="NPM"> ```bash npm install -g @subql/node ``` </CodeGroupItem>
+<CodeGroupItem title="YARN" active> ```shell yarn global add @subql/node ``` </CodeGroupItem> </CodeGroup>
 
-Setelah terpasang, Anda dapat memulai node dengan:
+Setelah diinstal, Anda dapat memulai simpul dengan:
 
 ```shell
 subql-node <command>
