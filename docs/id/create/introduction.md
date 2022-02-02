@@ -6,7 +6,7 @@ Dalam panduan [mulai cepat](/quickstart/quickstart.md), kami dengan cepat menjal
 
 Beberapa contoh berikut akan menganggap Anda telah berhasil menginisialisasi paket starter di bagian [Mulai cepat](../quickstart/quickstart.md). Dari paket awal itu, kita akan menjalani proses standar untuk menyesuaikan dan mengimplementasikan proyek SubQuery Anda.
 
-1. Initialise your project using `subql init PROJECT_NAME`.
+1. Inisialisasi proyek Anda menggunakan `subql init PROJECT_NAME`.
 2. Perbarui file Manifest (`project.yaml`) untuk menyertakan informasi tentang blockchain Anda, dan entitas yang akan Anda petakan - lihat [File Manifest](./manifest.md)
 3. Buat entitas GraphQL di skema Anda (`schema.graphql`) yang menentuakn bentuk data yang akan Anda ekstrak dan coba untuk kueri - lihat [Skema GraphQL](./graphql.md)
 4. Tambahkan semua fungsi pemetaan (mis `mappingHandlers.ts` yang ingin Anda minta untuk ubah data chainnya ke entitas GraphQL yang sudah Anda tentukan - lihat [Pemetaan](./mapping.md)
@@ -54,11 +54,11 @@ Jalankan perintah bentuk dari direktori proyek.
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```bash npm run-script build ``` </CodeGroupItem> </CodeGroup>
 
-### Alternative build options
+### Opsi pembuatan alternatif
 
-We support additional build options for subquery projects using `subql build`.
+Kami mendukung opsi build tambahan untuk proyek subquery menggunakan`membangun subql`.
 
-With this you can define additional entry points to build using the exports field in package.json.
+Dengan ini, Anda dapat menentukan titik masuk tambahan untuk dibuat menggunakan bidang ekspor di package.json.
 
 ```json
 "name": "project-name",
@@ -70,7 +70,7 @@ With this you can define additional entry points to build using the exports fiel
 },
 ```
 
-Then by running `subql build` it will generate a dist folder with the following structure:
+Kemudian dengan menjalankan `subql build` akan menghasilkan folder dist dengan struktur sebagai berikut:
 
 ```
 - project-name
@@ -80,13 +80,13 @@ Then by running `subql build` it will generate a dist folder with the following 
     L index.js 
 ```
 
-Note that it will build `index.ts` whether or not it is specified in the exports field.
+Perhatikan bahwa itu akan membangun `index.ts` apakah ditentukan atau tidak di bidang ekspor.
 
-For more information on using this including flags, see [cli reference](https://doc.subquery.network/references/references/#build).
+Untuk informasi lebih lanjut tentang menggunakan ini termasuk tanda, lihat [referensi cli](https://doc.subquery.network/references/references/#build).
 
-## Logging
+## Pencatatan
 
-The `console.log` method is **no longer supported**. Instead, a `logger` module has been injected in the types, which means we can support a logger that can accept various logging levels.
+Metode `console.log` **tidak lagi didukung**. Sebagai gantinya, modul `logger` telah disuntikkan ke dalam tipe, yang berarti kami dapat mendukung logger yang dapat menerima berbagai level logging.
 
 ```typescript
 logger.info('Info level message');
@@ -94,16 +94,16 @@ logger.debug('Debugger level message');
 logger.warn('Warning level message');
 ```
 
-To use `logger.info` or `logger.warn`, just place the line into your mapping file.
+Untuk menggunakan `logger.info` atau `logger.warn`, cukup tempatkan baris tersebut ke dalam file pemetaan Anda.
 
 ![logging.info](/assets/img/logging_info.png)
 
-To use `logger.debug`, an additional flag is required. Add `--log-level=debug` to your command line.
+Untuk menggunakan `logger.debug`, diperlukan tanda tambahan. Tambahkan `--log-level=debug` ke baris perintah Anda.
 
-If you are running a docker container, add this line to your `docker-compose.yaml` file.
+Jika Anda menjalankan wadah buruh pelabuhan, tambahkan baris ini ke file `docker-compose.yaml` Anda.
 
 ![logging.debug](/assets/img/logging_debug.png)
 
-You should now see the new logging in the terminal screen.
+Anda sekarang akan melihat logging baru di layar terminal.
 
 ![logging.debug](/assets/img/subquery_logging.png)
