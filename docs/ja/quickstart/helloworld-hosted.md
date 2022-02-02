@@ -1,31 +1,31 @@
-# Hello World (SubQuery hosted)
+# Hello World (SubQuery ホスティング)
 
-The aim of this quick start is to show how you can get the default starter project running in SubQuery Projects (our managed service) in a few easy steps.
+このクイックスタートの目的は、SubQuery Projects（マネージドサービス）でデフォルトのスタータープロジェクトを実行する方法を、いくつかの簡単な手順で紹介することです。
 
-We will take the simple starter project (and everything we've learned thus far) but instead of running it locally within Docker, we'll take advantage of SubQuery's managed hosting infrastructure. In other words, we let SubQuery do all the heavy lifting, running and managing production infrastructure.
+簡単なスタータープロジェクト(およびこれまでに学んだことすべて)を取り上げますが、Docker内でローカルに実行するのではありません。 SubQueryのマネージドホスティングインフラストラクチャを活用します。 つまり、本番インフラの運用・管理という重い仕事をすべてSubQueryに任せているのです。
 
-## Learning objectives
+## 学習のねらい
 
-At the end of this quick start, you should:
+このクイックスタートが終了した時点で、あなたは次のことが出来るようになります。
 
-- understand the required pre-requisites
-- be able host a project in [SubQuery Projects](https://project.subquery.network/)
-- run a simple query to get the block height of the Polkadot mainnet using the playground
-- run a simple GET query to get the block height of the Polkadot mainnet using cURL
+- 必要な前提条件を理解すること
+- [SubQuery Projects](https://project.subquery.network/) でプロジェクトをホストすること
+- プレイグラウンドを使用して、Polkadotメインネットのブロックの高さを取得するための簡単なクエリを実行すること
+- cURLを使用してPolkadotメインネットのブロックの高さを取得するために簡単なGETクエリを実行すること
 
-## Intended audience
+## 対象者
 
-This guide is geared towards new developers who have some development experience and are interested in learning more about SubQuery.
+このガイドは、開発経験があり、SubQueryについてもっと学ぶことに興味がある新規開発者を対象としています。
 
-## Video guide
+## ビデオガイド
 
 <figure class="video_container">
   <iframe src="https://www.youtube.com/embed/b-ba8-zPOoo" frameborder="0" allowfullscreen="true"></iframe>
 </figure>
 
-## Pre-requisites
+## 前提条件
 
-You will need:
+必要なもの
 
 - a GitHub account
 
