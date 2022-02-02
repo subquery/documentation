@@ -10,10 +10,10 @@ SubQueryエクスプローラは簡単に開始できます。 私たちはこ�
 
 ![SubQuery Project](https://static.subquery.network/media/explorer/explorer-project.png)
 
-You’ll also note that the SubQuery Explorer provides a playground for discovering available data with example queries - you can test queries directly in your browser without implementing code. Additionally, we’ve made some small improvements to our documentation to better support developers on their journey to better query and analyse the world’s Polkadot data.
+SubQuery Explorer は、サンプルクエリを使用して利用可能なデータを検出するためのプレイグラウンドを提供していることにも注意してください。コードを実装することなくブラウザで直接クエリをテストすることができます。 さらに、開発者が世界中のPolkadotデータを照会し、分析するための旅をよりよくサポートするために、ドキュメントにいくつかの小さな改良を加えました。
 
-On the top right of the playground, you'll find a _Docs_ button that will open a documentation draw. This documentation is automatically generated and helps you find what entities and methods you can query. In the example below we're using the [Sum Rewards SubQuery](https://explorer.subquery.network/subquery/OnFinality-io/sum-reward) to get the top 5 most rewarded accounts (in terms of staking revenue) on Polkadot that have never been slashed.
+プレイグラウンドの右上には、ドキュメントの描画を開く _Docs_ ボタンがあります。 このドキュメントは自動的に生成され、クエリできるエンティティやメソッドを見つけるのに役立ちます。 In the example below we're using the [Sum Rewards SubQuery](https://explorer.subquery.network/subquery/OnFinality-io/sum-reward) to get the top 5 most rewarded accounts (in terms of staking revenue) on Polkadot that have never been slashed.
 
 ![SubQuery Documentation](https://static.subquery.network/media/explorer/explorer-documentation.png)
 
-[Learn more about the GraphQL Query language.](./graphql.md)
+[GraphQL クエリ言語の詳細を参照してください。](./graphql.md)
