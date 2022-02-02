@@ -1,4 +1,4 @@
-# Bendera Baris Perintah
+# Perintah Line Flags
 
 ## subql (cli)
 
@@ -8,38 +8,38 @@
 > subql --help
 
 COMMANDS
-  build     Build this SubQuery project code
-  codegen   Generate schemas for graph node
-  help      display help for subql
-  init      Initialize a scaffold subquery project
-  migrate   Migrate Subquery project manifest v0.0.1 to v0.2.0
-  publish   Upload this SubQuery project to IPFS
-  validate  Check a folder or github repo is a validate subquery project
+  build     Buat kode proyek SubQuery ini
+  codegen   Hasilkan skema untuk simpul grafik
+  help      Tampilkan bantuan untuk subql
+  init      Inisialisasi proyek subquery scaffold
+  migrate   Migrasikan manifes proyek Subquery v0.0.1 ke v0.2.0
+  publish   Unggah proyek SubQuery ini ke IPFS
+  validate  Periksa folder atau repo github adalah proyek subquery yang valid
 ```
 
-### build
+### membangun
 
-This command is uses webpack to generate a bundle of a subquery project.
+Perintah ini menggunakan webpack untuk menghasilkan bundel proyek subquery.
 
 | Pilihan            | Deskripsi                                                                                                  |
 | ------------------ | ---------------------------------------------------------------------------------------------------------- |
-| -l, --location     | local folder of subquery project (if not in folder already)                                                |
-| -o, --output       | specify output folder of build e.g. build-folder                                                           |
+| -l, --location     | folder lokal proyek subquery (jika belum ada di folder)                                                    |
+| -o, --output       | tentukan folder keluaran build mis. membangun-folder                                                       |
 | --mode=(production | prod                                                        | development | dev) | [ default: production ] |
 
-- With `subql build` you can specify additional entry points in exports field although it will always build `index.ts` automatically
+- Dengan `subql build` Anda dapat menentukan titik masuk tambahan di bidang ekspor meskipun itu akan selalu dibangun `index.ts` secara otomatis
 
-- You need to have @subql/cli v0.19.0 or above to use exports field.
+- Anda harus memiliki @subql/cli v0.19.0 atau lebih tinggi untuk menggunakan bidang ekspor.
 
-- Any `exports` field must map to string type (e.g. `"entry": "./src/file.ts"`), else it will be ignored from build.
+- Setiap bidang `ekspor` harus dipetakan ke tipe string (mis. `"entry": "./src/file.ts"`), jika tidak, akan diabaikan dari build.
 
-[Futher example](https://doc.subquery.network/create/introduction/#build).
+[Contoh lebih lanjut](https://doc.subquery.network/create/introduction/#build).
 
 ## subql-node
 
 ### --help
 
-This shows the help options.
+Ini menunjukkan opsi bantuan.
 
 ```shell
 > subql-node --help
@@ -291,7 +291,7 @@ The port the subquery indexing service binds to. By default this is set to `3000
 
 ### --help
 
-This shows the help options.
+Ini menunjukkan opsi bantuan.
 
 ```shell
 Options:
