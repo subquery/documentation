@@ -2,7 +2,7 @@
 
 ## subql (cli)
 
-### - помощь
+### --help
 
 ```shell
 > subql --help
@@ -19,27 +19,27 @@ COMMANDS
 
 ### build
 
-Эта команда использует webpack для создания пакета подзапросов.
+Эта команда использует webpack для создания пакета проекта subquery.
 
 | Параметры          | Описание                                                                                                   |
 | ------------------ | ---------------------------------------------------------------------------------------------------------- |
-| -l, --location     | local folder of subquery project (if not in folder already)                                                |
-| -o, --output       | specify output folder of build e.g. build-folder                                                           |
+| -l, --location     | локальная папка проекта subquery (если вы еще не в папке)                                                  |
+| -o, --output       | указать выходную папку сборки, например build-folder                                                       |
 | --mode=(production | prod                                                        | development | dev) | [ default: production ] |
 
-- With `subql build` you can specify additional entry points in exports field although it will always build `index.ts` automatically
+- С помощью `subql build` вы можете указать дополнительные точки входа в поле экспорта, хотя он всегда будет создавать `index.ts` автоматически
 
-- You need to have @subql/cli v0.19.0 or above to use exports field.
+- Вам нужно иметь @subql/cli v0.19.0 или выше, чтобы использовать поле экспорта.
 
-- Any `exports` field must map to string type (e.g. `"entry": "./src/file.ts"`), else it will be ignored from build.
+- Любое поле `exports` должно сопоставляться со строковым типом (например, `"entry": "./src/file.ts"`), иначе оно будет проигнорировано при сборке.
 
-[Futher example](https://doc.subquery.network/create/introduction/#build).
+[Еще один пример](https://doc.subquery.network/create/introduction/#build).
 
 ## subql-node
 
-### - помощь
+### --help
 
-This shows the help options.
+Эта команда показывает варианты справки.
 
 ```shell
 > subql-node --help
@@ -289,9 +289,9 @@ The port the subquery indexing service binds to. By default this is set to `3000
 
 ## subql-query
 
-### - помощь
+### --help
 
-This shows the help options.
+Эта команда показывает варианты справки.
 
 ```shell
 Options:
