@@ -33,23 +33,23 @@ Die folgende Karte bietet einen Überblick über die Verzeichnisstruktur eines S
 
 Zum Beispiel:
 
-![SubQuery directory structure](/assets/img/subQuery_directory_stucture.png)
+![SubQuery-Verzeichnisstruktur](/assets/img/subQuery_directory_stucture.png)
 
-## Code Generation
+## Codegenerierung
 
-Whenever you change your GraphQL entities, you must regenerate your types directory with the following command.
+Immer wenn Sie Ihre GraphQL-Entitäten ändern, müssen Sie Ihr Typenverzeichnis mit dem folgenden Befehl neu generieren.
 
 ```
 yarn codegen
 ```
 
-This will create a new directory (or update the existing) `src/types` which contain generated entity classes for each type you have defined previously in `schema.graphql`. These classes provide type-safe entity loading, read and write access to entity fields - see more about this process in [the GraphQL Schema](./graphql.md).
+Dadurch wird ein neues Verzeichnis `src/types` erstellt (oder das vorhandene aktualisiert), das generierte Entitätsklassen für jeden Typ enthält, den Sie zuvor in `schema.graphql` definiert haben. Diese Klassen bieten typsicheres Laden von Entitäten sowie Lese- und Schreibzugriff auf Entitätsfelder – mehr über diesen Prozess erfahren Sie im [GraphQL-Schema](./graphql.md).
 
 ## Build
 
-In order to run your SubQuery Project on a locally hosted SubQuery Node, you need to first build your work.
+Um Ihr SubQuery-Projekt auf einer lokal gehosteten SubQuery-Node auszuführen, müssen Sie zuerst Ihre Arbeit erstellen.
 
-Run the build command from the project's root directory.
+Führen Sie den Build-Befehl im Stammverzeichnis des Projekts aus.
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```bash npm run-script build ``` </CodeGroupItem> </CodeGroup>
