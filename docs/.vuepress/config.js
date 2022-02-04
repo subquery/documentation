@@ -200,7 +200,6 @@ function getSidebar(locale, language){
             `${locale}/quickstart/tutorials_examples/terminology.md`,
           ]
         },
-        `${locale}/quickstart/faqs.md`,
       ]
     },
     {
@@ -232,9 +231,10 @@ function getSidebar(locale, language){
     },
     {
       title: 'The SubQuery Network',
-      path: `${locale}/subquery_network/delegators`,
+      path: `${locale}/subquery_network/intro`,
       collapsable: true,
       children: [
+        `${locale}/subquery_network/intro.md`,
         `${locale}/subquery_network/token.md`,
         `${locale}/subquery_network/indexers.md`,
         `${locale}/subquery_network/delegators.md`,
@@ -260,6 +260,14 @@ function getSidebar(locale, language){
       collapsable: true,
       children: [
         `${locale}/references/references.md`,
+      ]
+    },
+    {
+      title: 'FAQs',
+      path: `${locale}/faq/faqs`,
+      collapsable: true,
+      children: [
+        `${locale}/faq/faqs.md`,
       ]
     }
   ]}
