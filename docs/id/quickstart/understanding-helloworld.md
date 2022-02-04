@@ -1,10 +1,10 @@
-# Halo Dunia Dijelaskan
+# Penjelasan Hello World
 
 Dalam [panduan memulai cepat Hello World](helloworld-localhost.md), kami menjalankan beberapa perintah sederhana dan dengan sangat cepat mendapatkan contoh dan menjalankannya. Ini memungkinkan Anda untuk memastikan bahwa Anda memiliki semua prasyarat dan dapat menggunakan taman bermain lokal untuk membuat kueri sederhana guna mendapatkan data pertama Anda dari SubQuery. Di sini, kita melihat lebih dekat apa arti semua perintah itu.
 
 ## subql init
 
-The first command we ran was `subql init subqlHelloWorld`.
+Perintah pertama yang kami jalankan adalah `subql init subqlHelloWorld`.
 
 Ini melakukan pekerjaan berat dan membuat banyak file untuk Anda. Sebagaimana dicatat dalam [dokumentasi resmi](quickstart.md#configure-and-build-the-starter-project), Anda terutama akan mengerjakan file-file berikut:
 
