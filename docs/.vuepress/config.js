@@ -171,6 +171,7 @@ function getSidebar(locale, language){
             `${locale}/quickstart/helloworld-hosted.md`,
           ]
         },
+        `${locale}/quickstart/subquery101/subquery101.md`,
         {
           title: 'Hero Course',
           path: `${locale}/quickstart/herocourse/welcome`,
