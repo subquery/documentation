@@ -31,7 +31,7 @@
 
 ## 1. สร้างโปรเจ็กต์ของคุณ
 
-เริ่มสร้างโปรเจ็กต์ ที่ชื่อว่า subqlHelloWorld โดยการรัน `subql init` และการเลือกสร้างโปรเจ็กต์ บนเครือข่าย `Polkadot` และ เริ่มต้นโปรเจ็กต์ ด้วยเทมเพลต `subql-starter` We must run the obligatory install, codegen and build with your favourite package manager.
+เริ่มสร้างโปรเจ็กต์ ที่ชื่อว่า subqlHelloWorld โดยการรัน `subql init` และการเลือกสร้างโปรเจ็กต์ บนเครือข่าย `Polkadot` และ เริ่มต้นโปรเจ็กต์ ด้วยเทมเพลต `subql-starter` การรันของเรา จำเป็นต้องติดตั้ง codegen และสร้างด้วยตัวจัดการแพ็คเกจที่คุณต้องการ
 
 ```shell
 > subql init subqlHelloWorld
@@ -164,7 +164,7 @@ To https://github.com/seandotau/subqlHelloWorld.git
 
 ## 7. ขั้นตอนโบนัส
 
-สำหรับผู้ที่ฉลาดหลักแหลมในหมู่พวกเรา คุณจะจำได้ว่าในขั้นตอนสุดท้ายของวัตถุประสงค์การเรียนรู้ คือการรันคำสั่ง GET อย่างง่าย ในการดำเนินการนี้ เราจะต้องสนใจ "Query Endpoint" ที่แสดงในรายละเอียดการ deploy ในการดำเนินการนี้ เราจะต้องสนใจ "Query Endpoint" ที่แสดงในรายละเอียดการ deploy
+สำหรับผู้ที่สังเกตุรายละเอียด คุณจะจำได้ว่าในขั้นตอนสุดท้ายของวัตถุประสงค์การเรียนรู้ คือการรันคำสั่ง GET อย่างง่าย ในการดำเนินการนี้ เราจะต้องสนใจ "Query Endpoint" ที่แสดงในรายละเอียดการ deploy ในการดำเนินการนี้ เราจะต้องสนใจ "Query Endpoint" ที่แสดงในรายละเอียดการ deploy
 
 ![Query endpoint](/assets/img/query_endpoint.png)
 
