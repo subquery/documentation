@@ -72,7 +72,7 @@ Um Ihr SubQuery-Projekt [indizieren](../run/run.md) zu können, müssen Sie zuer
 
 Um Ihr SubQuery-Projekt auf einem lokal gehosteten SubQuery-Node auszuführen, müssen Sie Ihre Arbeit erstellen.
 
-Führen Sie den Build-Befehl aus dem Stammverzeichnis des Projekts aus.
+Run the build command from the project's root directory.
 
 <CodeGroup> All configuration that controls how a SubQuery node is run is defined in this `docker-compose.yml` file. Für ein neues Projekt, das gerade initialisiert wurde, müssen Sie hier nichts ändern, aber Sie können mehr über die Datei und die Einstellungen in unserem Abschnitt [Projekt ausführen](../run/run.md) lesen
 
