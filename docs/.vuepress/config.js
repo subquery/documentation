@@ -171,6 +171,7 @@ function getSidebar(locale, language){
             `${locale}/quickstart/helloworld-hosted.md`,
           ]
         },
+        `${locale}/quickstart/subquery101/subquery101.md`,
         {
           title: 'Hero Course',
           path: `${locale}/quickstart/herocourse/welcome`,
@@ -200,7 +201,6 @@ function getSidebar(locale, language){
             `${locale}/quickstart/tutorials_examples/terminology.md`,
           ]
         },
-        `${locale}/quickstart/faqs.md`,
       ]
     },
     {
@@ -260,6 +260,14 @@ function getSidebar(locale, language){
       collapsable: true,
       children: [
         `${locale}/references/references.md`,
+      ]
+    },
+    {
+      title: 'FAQ',
+      path: `${locale}/faq/faqs`,
+      collapsable: true,
+      children: [
+        `${locale}/faq/faqs.md`,
       ]
     }
   ]}
