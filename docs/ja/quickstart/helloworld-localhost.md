@@ -1,13 +1,13 @@
 # Hello World (localhost + Docker)
 
-Welcome to this SubQuery Hello World quick start. The quick start aims to show you how you get the default starter project running in Docker in a few simple steps.
+SubQuery Hello World のクイックスタートへようこそ。 クイックスタートでは、いくつかの簡単な手順でデフォルトのスタータープロジェクトをDockerで実行する方法を説明します。
 
 ## 学習のねらい
 
 このクイックスタートが終了した時点で、あなたは次のことが出来るようになります。
 
 - 必要な前提条件を理解すること
-- understand the basic common commands
+- 基本的な一般的なコマンドを理解すること
 - be able to navigate to localhost:3000 and view the playground
 - run a simple query to get the block height of the Polkadot mainnet
 
