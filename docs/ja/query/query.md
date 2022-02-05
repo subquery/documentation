@@ -12,7 +12,7 @@ SubQueryエクスプローラは簡単に開始できます。 私たちはこ�
 
 SubQuery Explorer は、サンプルクエリを使用して利用可能なデータを検出するためのプレイグラウンドを提供していることにも注意してください。コードを実装することなくブラウザで直接クエリをテストすることができます。 さらに、開発者が世界中のPolkadotデータを照会し、分析するための旅をよりよくサポートするために、ドキュメントにいくつかの小さな改良を加えました。
 
-プレイグラウンドの右上には、ドキュメントの描画を開く _Docs_ ボタンがあります。 このドキュメントは自動的に生成され、クエリできるエンティティやメソッドを見つけるのに役立ちます。 In the example below we're using the [Sum Rewards SubQuery](https://explorer.subquery.network/subquery/OnFinality-io/sum-reward) to get the top 5 most rewarded accounts (in terms of staking revenue) on Polkadot that have never been slashed.
+プレイグラウンドの右上には、ドキュメントの描画を開く _Docs_ ボタンがあります。 このドキュメントは自動的に生成され、クエリできるエンティティやメソッドを見つけるのに役立ちます。 以下の例では、[Sum Rewards SubQuery](https://explorer.subquery.network/subquery/OnFinality-io/sum-reward)を使用して、Polkadotで最も報酬の多いアカウント（賭け金収入の観点から）上位5つで、一度も値下げされたことがないものを取得しています。
 
 ![SubQuery Documentation](https://static.subquery.network/media/explorer/explorer-documentation.png)
 
