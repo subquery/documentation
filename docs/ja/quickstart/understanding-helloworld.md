@@ -4,11 +4,11 @@
 
 ## subql init
 
-The first command we ran was `subql init subqlHelloWorld`.
+最初に実行したコマンドは `subql init subqlHelloWorld` です。
 
-This does the heavy lifting and creates a whole bunch of files for you. As noted in the [official documentation](quickstart.md#configure-and-build-the-starter-project), you will mainly be working on the following files:
+これは重い作業を行い、あなたのために必要なファイルを集めます。 [official documentation](quickstart.md#configure-and-build-the-starter-project) にあるように、主に以下のファイルを操作することになります。
 
-- The Manifest in `project.yaml`
+- Manifest（`project.yaml`）
 - GraphQL Schema（`schema.graphql`）
 - Mapping functions（ `src/mappings/` ディレクトリ）
 
