@@ -78,17 +78,20 @@ subqlHelloWorld is ready
 
 ```
 
-Don't forget to change into this new directory.
+この新しいディレクトリに移動することを忘れないでください。
 
 ```shell
 cd subqlHelloWorld
 ```
 
-## 2. Step 2: Install dependencies
+## 2. 依存関係をインストールする
 
-Now do a yarn or node install to install the various dependencies.
+ここで様々な依存関係をインストールするために、yarnまたはnodeのインストールを実行します。
 
-<CodeGroup> # Yarn yarn install # NPM npm install
+<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn install ``` </CodeGroupItem>
+<CodeGroupItem title="NPM"> ```bash npm install ``` </CodeGroupItem> </CodeGroup>
+
+例 `yarn install`
 
 ```shell
 > yarn install
@@ -102,11 +105,14 @@ success Saved lockfile.
 ✨  Done in 31.84s.
 ```
 
-## 3. Step 3: Generate code
+## 3. コードを生成する
 
-Now run `yarn codegen` to generate Typescript from the GraphQL schema.
+ここで`yarn codegen`を実行して、GraphQLスキーマからTypescriptを生成します。
 
-<CodeGroup> # Yarn yarn codegen # NPM npm run-script codegen
+<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem>
+<CodeGroupItem title="NPM"> ```bash npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
+
+An example of `yarn codegen`
 
 ```shell
 > yarn codegen
@@ -121,13 +127,16 @@ $ ./node_modules/.bin/subql codegen
 ✨  Done in 1.02s.
 ```
 
-**Warning** When changes are made to the schema file, please remember to re-run `yarn codegen` to regenerate your types directory.
+**警告** スキーマファイルに変更があった場合、`yarn codegen` を再実行し、typesディレクトリを再生成することを忘れないようにしてください。
 
-## 4. Step 4: Build code
+## 4. コードをビルドする
 
-The next step is to build the code with `yarn build`.
+次のステップは、 `yarn build` でコードをビルドすることです。
 
-<CodeGroup> # Yarn yarn build # NPM npm run-script build
+<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem>
+<CodeGroupItem title="NPM"> ```bash npm run-script build ``` </CodeGroupItem> </CodeGroup>
+
+例 `yarn build`
 
 ```shell
 > yarn build
@@ -136,11 +145,11 @@ $ tsc -b
 ✨  Done in 5.68s.
 ```
 
-## 5. Run Docker
+## 5. Docker を実行する
 
-Using Docker allows you to run this example very quickly because all the required infrastructure can be provided within the Docker image. Run `docker-compose pull && docker-compose up`.
+Dockerを使用すると、必要なインフラをすべてDockerイメージ内で提供できるため、この例を非常に迅速に実行することができます。 `docker-compose pull && docker-compose up` を実行する
 
-This will kick everything into life where eventually you will get blocks being fetched.
+これですべてがキックされ、最終的にブロックがフェッチされます。
 
 ```shell
 > #SNIPPET
@@ -158,9 +167,9 @@ graphql-engine_1  | 2021-06-05T22:20:43.244Z <express> INFO request completed
 
 ```
 
-## 6. Browse playground
+## 6. プレイグラウンドを表示する
 
-Navigate to http://localhost:3000/ and paste the query below into the left side of the screen and then hit the play button.
+http://localhost:3000/ にアクセスし、以下のクエリを画面左側に貼り付けて、再生ボタンを押してください。
 
 ```
 {
@@ -175,12 +184,12 @@ Navigate to http://localhost:3000/ and paste the query below into the left side 
 
 ```
 
-SubQuery playground on localhost.
+ローカルホストの SubQuery playground
 
-![playground localhost](/assets/img/subql_playground.png)
+![ローカルホストの playground](/assets/img/subql_playground.png)
 
-The block count in the playground should match the block count (technically the block height) in the terminal as well.
+プレイグラウンドのブロック数は、ターミナルのブロック数（厳密にはブロックの高さ）とも一致させる必要があります。
 
 ## 概要
 
-In this quick start, we demonstrated the basic steps to get a starter project up and running within a Docker environment and then navigated to localhost:3000 and ran a query to return the block number of the mainnet Polkadot network.
+このクイックスタートでは、Docker環境内でプロジェクトを立ち上げて実行する基本的な手順を示した後、localhost:3000にナビゲートして、メインネットPolkadotネットワークのブロック番号を返すクエリーを実行しました。
