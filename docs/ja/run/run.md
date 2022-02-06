@@ -12,7 +12,7 @@ Under the project directory run the following command:
 docker-compose pull && docker-compose up
 ```
 
-It may take some time to download the required packages ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), and Postgres) for the first time but soon you'll see a running SubQuery node.
+初回は必要なパッケージ ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query),Postgres) をダウンロードするのに時間がかかるかもしれませんが、すぐにSubQueryノードが動作するのを確認できると思います。
 
 ## Running an Indexer (subql/node)
 
@@ -29,7 +29,7 @@ SubQueryノードは、SubQueryプロジェクトごとにSubstrateベースの�
 npm install -g @subql/node
 ```
 
-Please note that we **DO NOT** encourage the use of `yarn global` due to its poor dependency management which may lead to an errors down the line.
+なお、`yarn global` の使用は、依存関係の管理が不十分であるため、**推奨しないこと** とし、将来的にエラーを引き起こす可能性があることに注意してください。
 
 Once installed, you can start a node with the following command:
 
@@ -189,7 +189,7 @@ Then open up the Chrome dev tools, go to Source > Filesystem and add your projec
 npm install -g @subql/query
 ```
 
-Please note that we **DO NOT** encourage the use of `yarn global` due to its poor dependency management which may lead to an errors down the line.
+なお、`yarn global` の使用は、依存関係の管理が不十分であるため、**推奨しないこと** とし、将来的にエラーを引き起こす可能性があることに注意してください。
 
 ### Running the Query service
 ``` export DB_HOST=localhost subql-query --name <project_name> --playground ````
