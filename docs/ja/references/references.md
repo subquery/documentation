@@ -1,4 +1,4 @@
-# Command Line Flags
+# コマンドラインフラグ
 
 ## subql (cli)
 
@@ -19,27 +19,27 @@ COMMANDS
 
 ### build
 
-This command is uses webpack to generate a bundle of a subquery project.
+このコマンドはwebpack を使って、SubQueryプロジェクトのバンドルを生成するものです。
 
-| オプション              | 説明                                                                                                         |
-| ------------------ | ---------------------------------------------------------------------------------------------------------- |
-| -l, --location     | local folder of subquery project (if not in folder already)                                                |
-| -o, --output       | specify output folder of build e.g. build-folder                                                           |
-| --mode=(production | prod                                                        | development | dev) | [ default: production ] |
+| オプション              | 説明                                               |
+| ------------------ | ------------------------------------------------ |
+| -l, --location     | SubQueryプロジェクトのローカルフォルダ（フォルダにない場合）。              |
+| -o, --output       | ビルドの出力フォルダを指定します。例: build-folder                 |
+| --mode=(production | prod | development | dev) | [デフォルト: production ] |
 
-- With `subql build` you can specify additional entry points in exports field although it will always build `index.ts` automatically
+- `subql build` では、エクスポートフィールドに追加のエントリポイントを指定できますが、常に自動的に`index.ts` がビルドされます
 
-- You need to have @subql/cli v0.19.0 or above to use exports field.
+- エクスポートフィールドを使用するには、@subql/cli v0.19.0 以上を指定する必要があります。
 
-- Any `exports` field must map to string type (e.g. `"entry": "./src/file.ts"`), else it will be ignored from build.
+- `exports` フィールドは、文字列型(例えば `"entry": "./src/file.ts"`)にマップしなければならず、そうでなければビルドからは無視されます。
 
-[Futher example](https://doc.subquery.network/create/introduction/#build).
+[その他の例](https://doc.subquery.network/create/introduction/#build)。
 
 ## subql-node
 
 ### --help
 
-This shows the help options.
+ヘルプオプションが表示されます。
 
 ```shell
 > subql-node --help
@@ -86,7 +86,7 @@ Options:
 
 ### --version
 
-This displays the current version.
+現在のバージョンが表示されます。
 
 ```shell
 > subql-node --version
@@ -95,16 +95,16 @@ This displays the current version.
 
 ### -f, --subquery
 
-Use this flag to start the SubQuery project.
+このフラグを使用して、SubQuery プロジェクトを開始します。
 
 ```shell
 subql-node -f . // OR
 subql-node --subquery .
 ```
 
-### --subquery-name (deprecated)
+### --subquery-name (非推奨)
 
-This flag allows you to provide a name for your project which acts as if it creates an instance of your project. Upon providing a new name, a new database schema is created and block synchronisation starts from zero. Deprecated in favour of `--db-schema`
+このフラグにより、プロジェクトのインスタンスを作成するように動作するプロジェクトの名前を指定することができます。 新しい名前を指定すると、新しいデータベーススキーマが作成され、ブロック同期がゼロから開始されます。 `--db-schema` には非推奨です
 
 ```shell
 subql-node -f . --subquery-name=test2
@@ -112,9 +112,9 @@ subql-node -f . --subquery-name=test2
 
 ### -c, --config
 
-All these various configurations can be placed into a .yml or .json file and then referenced with the config flag.
+これらの様々な構成はすべて .yml または .json ファイルに配置し、config フラグで参照することができます。
 
-Sample subquery_config.yml file:
+subquery_config.yml ファイルのサンプル:
 
 ```shell
 subquery: . // Mandatory. This is the local path of the project. The period here means the current local directory.
@@ -122,29 +122,29 @@ subqueryName: hello // Optional name
 batchSize: 55 // Optional config
 ```
 
-Place this file in the same directory as the project. Then in the current project directory, run:
+プロジェクトと同じディレクトリにこのファイルを配置します。 次に現在のプロジェクト ディレクトリで次のコマンドを実行します。
 
 ```shell
 > subql-node -c ./subquery_config.yml
 ```
 
-### --local (deprecated)
+### --local (非推奨)
 
-This flag is primarily used for debugging purposes where it creates the default starter_entity table in the default "postgres" schema.
+このフラグは、デフォルトの "postgres" スキーマにデフォルトの starter_entity テーブルを作成する、主にデバッグのために使用されます。
 
 ```shell
 subql-node -f . --local
 ```
 
-Note that once you use this flag, removing it won't mean that it will point to another database. To repoint to another database you will have to create a NEW database and change the env settings to this new database. In other words, "export DB_DATABASE=<new_db_here>"
+このフラグを使用すると、削除することは別のデータベースを指すことを意味しないことに注意してください。 別のデータベースに再指定するには、新しいデータベースを作成し、この新しいデータベースにenvの設定を変更する必要があります。 言い換えれば、"export DB_DATABASE=<new_db_here>"を指定するということです。
 
 ### --force-clean
 
-This flag forces the project schemas and tables to be regenerated, helpful to use when iteratively developing graphql schemas such that new runs of the project are always working with a clean state. Note that this flag will also wipe all indexed data.
+このフラグでは、プロジェクト スキーマとテーブルを強制的に再生成します。 プロジェクトの新しい実行がクリーンな状態で動作するように graphql スキーマを繰り返し開発するときに使用するのに役立ちます。 このフラグはインデックスされたすべてのデータも消去されることに注意してください。
 
 ### --db-schema
 
-This flag allows you to provide a name for the project database schema. Upon providing a new name, a new database schema is created with the configured name and block indexing starts.
+このフラグを使用すると、プロジェクト データベース スキーマの名前を指定できます。 新しい名前を与えると、構成された名前とブロックのインデックスが開始され、新しいデータベーススキーマが作成されます。
 
 ```shell
 subql-node -f . --db-schema=test2
@@ -152,19 +152,19 @@ subql-node -f . --db-schema=test2
 
 ### --unsafe
 
-SubQuery Projects are usually run in a javascript sandbox for security to limit the scope of access the project has to your system. The sandbox limits the available javascript imports to the following modules:
+SubQuery Projectsは通常、プロジェクトのアクセス範囲をシステムに制限するために、javascript サンドボックスで実行されます。 Sandbox は、利用可能な javascript のインポートを以下のモジュールに制限します。
 
 ```javascript
 ["assert", "buffer", "crypto", "util", "path"];
 ```
 
-Although this enhances security we understand that this limits the available functionality of your SubQuery. The `--unsafe` command imports all default javascript modules which greatly increases sandbox functionality with the tradeoff of decreased security.
+これによりセキュリティが強化されますが、SubQueryの利用可能な機能が制限されていることを理解してください。 `--unsafe` コマンドはすべてのデフォルトの javascript モジュールをインポートします。これによりセキュリティのトレードオフが大きくなり、Sandbox 機能が大幅に向上します。
 
 **`--unsafe` コマンドを使用すると、SubQuery Network でプロジェクトを実行できなくなることに注意してください。このコマンドを SubQuery のマネージド サービス ([project.subquery.network](https://project.subquery.network)) でプロジェクトと共に実行したい場合は、サポートに連絡する必要があります。**
 
 ### --batch-size
 
-This flag allows you to set the batch size in the command line. If batch size is also set in the config file, this takes precedent.
+このフラグでは、コマンドラインでバッチサイズを設定できます。 バッチサイズを設定ファイルに設定されている場合、これが優先されます。
 
 ```shell
 > subql-node -f . --batch-size=20
@@ -176,15 +176,15 @@ This flag allows you to set the batch size in the command line. If batch size is
 
 ### --scale-batch-size
 
-Scale the block fetch batch size with memory usage
+メモリ使用量でブロックのバッチサイズを調整する
 
 ### --timeout
 
-Set custom timeout for the javascript sandbox to execute mapping functions over a block before the block mapping function throws a timeout exception
+ブロックマッピング関数がタイムアウト例外をスローする前に、javascript Sandbox がブロックを介してマッピング関数を実行するようにカスタムタイムアウトを設定します
 
 ### --debug
 
-This outputs debug information to the console output and forcefully sets the log level to debug.
+これにより、デバッグ情報がコンソールに出力され、強制的にログレベルが debug に設定されます。
 
 ```shell
 > subql-node -f . --debug
@@ -195,7 +195,7 @@ This outputs debug information to the console output and forcefully sets the log
 
 ### --profiler
 
-This shows profiler information.
+プロファイラ情報を表示します。
 
 ```shell
 subql-node -f . --local --profiler
@@ -207,13 +207,13 @@ subql-node -f . --local --profiler
 
 ### --network-endpoint
 
-This flag allows users to override the network endpoint configuration from the manifest file.
+このフラグにより、ユーザはマニフェストファイルからネットワークエンドポイントの設定を上書きできます。
 
 ```shell
 subql-node -f . --network-endpoint="wss://polkadot.api.onfinality.io/public-ws"
 ```
 
-Note that this must also be set in the manifest file, otherwise you'll get:
+マニフェストファイルにも設定する必要があることに注意してください。それ以外の場合は、以下が表示されます:
 
 ```shell
 ERROR Create Subquery project from given path failed! Error: failed to parse project.yaml.
@@ -224,7 +224,7 @@ An instance of ProjectManifestImpl has failed the validation:
 
 ### --output-fmt
 
-There are two different terminal output formats. JSON or colored. Colored is the default and contains colored text.
+ターミナル出力には2つの異なるフォーマットがあります。 JSONまたはカラー。 カラーはデフォルトで、色付きテキストが含まれています。
 
 ```shell
 > subql-node -f . --output-fmt=json
@@ -241,7 +241,7 @@ There are two different terminal output formats. JSON or colored. Colored is the
 
 ### --log-level
 
-There are 7 options to choose from. “fatal”, “error”, “warn”, “info”, “debug”, “trace”, “silent”. The example below shows silent. Nothing will be printed in the terminal so the only way to tell if the node is working or not is to query the database for row count (select count(\*) from subquery_1.starter_entities) or query the block height.
+7つのオプションから選べます。 “fatal”、“error”、“warn”、“info”、“debug”、“trace”、“silent”。 以下の例は"silent"です。 ターミナルには何も表示されないので、ノードが動作しているかどうかを確認するには、データベースの行数を問い合わせるか (select count(\*) from subquery_1.starter_entities) 、ブロックの高さを問い合わせるしかありません。
 
 ```shell
 > subql-node -f . --log-level=silent
@@ -291,7 +291,7 @@ The port the subquery indexing service binds to. By default this is set to `3000
 
 ### --help
 
-This shows the help options.
+ヘルプオプションが表示されます。
 
 ```shell
 Options:
@@ -315,7 +315,7 @@ Options:
 
 ### --version
 
-This displays the current version.
+現在のバージョンが表示されます。
 
 ```shell
 > subql-query --version
