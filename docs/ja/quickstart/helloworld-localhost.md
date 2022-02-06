@@ -8,8 +8,8 @@ SubQuery Hello World のクイックスタートへようこそ。 クイック�
 
 - 必要な前提条件を理解すること
 - 基本的な一般的なコマンドを理解すること
-- be able to navigate to localhost:3000 and view the playground
-- run a simple query to get the block height of the Polkadot mainnet
+- localhost:3000に移動して、プレイグラウンドを表示できるようになること
+- Polkadotメインネットのブロックの高さを取得するための簡単なクエリを実行すること
 
 ## 対象者
 
@@ -25,11 +25,11 @@ SubQuery Hello World のクイックスタートへようこそ。 クイック�
 
 必要なもの
 
-- yarn or npm package manager
+- yarn または npm パッケージマネージャ
 - SubQuery CLI (`@subql/cli`)
 - Docker
 
-You can run the following commands in a terminal to see if you already have any of these pre-requisites.
+ターミナルで以下のコマンドを実行することで、これらの前提条件がすでに備わっているかどうかを確認することができます。
 
 ```shell
 yarn -v (or npm -v)
@@ -37,13 +37,13 @@ subql -v
 docker -v
 ```
 
-For more advanced users, copy and paste the following:
+上級者の方は、以下をコピー＆ペーストしてください。
 
 ```shell
 echo -e "My yarn version is:" `yarn -v` "\nMy subql version is:" `subql -v`  "\nMy docker version is:" `docker -v`
 ```
 
-This should return: (for npm users, replace yarn with npm)
+これらが表示される必要があります: (npm ユーザの場合、yarn を npm に置き換えてください)
 
 ```shell
 My yarn version is: 1.22.10
@@ -51,15 +51,15 @@ My subql version is: @subql/cli/0.9.3 darwin-x64 node-v16.3.0
 My docker version is: Docker version 20.10.5, build 55c4c88
 ```
 
-If you get the above, then you are good to go. If not, follow these links to install them:
+あなたが上記を取得した場合、問題ありません。 そうでない場合は、以下のリンクに従ってインストールしてください:
 
 - [yarn](https://classic.yarnpkg.com/en/docs/install/) or [npm](https://www.npmjs.com/get-npm)
 - [SubQuery CLI](quickstart.md#install-the-subquery-cli)
 - [Docker](https://docs.docker.com/get-docker/)
 
-## 1. Step 1: Initialise project
+## 1. プロジェクトを初期化する
 
-The first step when starting off with SubQuery is to run the `subql init` command. Let's initialise a start project with the name `subqlHelloWorld`. Note that only author is mandatory. Everything else is left empty below.
+SubQuery で始める最初のステップは、 `subql init` コマンドを実行することです。 `subqlHelloWorld` という名前でプロジェクトを初期化しましょう。 作成者のみが必須であることに注意してください。 以下、すべて空欄のままです。
 
 ```shell
 > subql init subqlHelloWorld
