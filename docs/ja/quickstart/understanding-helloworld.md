@@ -1,6 +1,6 @@
-# Hello World Explained
+# Hello World の説明
 
-In the [Hello World quick start guide](helloworld-localhost.md), we ran through some simple commands and very quickly got an example up and running. This allowed you to ensure that you had all the pre-requisites in place and could use a local playground to make a simple query to get your first data from SubQuery. Here, we take a closer look at what all those commands mean.
+[Hello World クイックスタート ガイド](helloworld-localhost.md)では、いくつかの簡単なコマンドを実行し、非常に迅速にサンプルを立ち上げて実行する方法を説明しました。 これにより、すべての前提条件が整っていることを確認し、ローカルのプレイグラウンドを使用して、SubQueryから最初のデータを取得するための簡単なクエリを作成することができたのです。 ここでは、これらのコマンドの意味を詳しく説明します。
 
 ## subql init
 
@@ -9,8 +9,8 @@ The first command we ran was `subql init subqlHelloWorld`.
 This does the heavy lifting and creates a whole bunch of files for you. As noted in the [official documentation](quickstart.md#configure-and-build-the-starter-project), you will mainly be working on the following files:
 
 - The Manifest in `project.yaml`
-- The GraphQL Schema in `schema.graphql`
-- The Mapping functions in `src/mappings/` directory
+- GraphQL Schema（`schema.graphql`）
+- Mapping functions（ `src/mappings/` ディレクトリ）
 
 ![key subql files](/assets/img/main_subql_files.png)
 
