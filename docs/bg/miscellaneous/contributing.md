@@ -10,7 +10,7 @@ What follows is a set of guidelines (not rules) for contributing to SubQuery. Fo
 
 We take our open source community projects and responsibility seriously and hold ourselves and other contributors to high standards of communication. By participating and contributing to this project, you agree to uphold our [Code of Conduct](https://github.com/subquery/subql/blob/contributors-guide/CODE_OF_CONDUCT.md).
 
-## Getting started
+## Начални стъпки
 
 Contributions to our repositories are made through Issues and Pull Requests (PRs). A few general guidelines that cover both:
 
