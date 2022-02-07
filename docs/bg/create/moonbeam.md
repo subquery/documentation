@@ -35,29 +35,29 @@
 
 ## MoonbeamCall
 
-Works in the same way as [substrate/CallHandler](../create/mapping/#call-handler) except with a different handler argument and minor filtering changes.
+Работи по същия начин като [substrate/CallHandler](../create/mapping/#call-handler), освен с различен аргумент на манипулатора и незначителни промени във филтрирането.
 
-| Field  | Тип                          | Задължително | Description                                 |
-| ------ | ---------------------------- | ------------ | ------------------------------------------- |
-| kind   | 'substrate/MoonbeamCall'     | Да           | Specifies that this is an Call type handler |
-| filter | [Call Filter](#call-filters) | Не           | Filter the data source to execute           |
+| Field  | Тип                                   | Задължително | Описание                                       |
+| ------ | ------------------------------------- | ------------ | ---------------------------------------------- |
+| вид    | 'substrate/MoonbeamCall'              | Да           | Указва, че това е манипулатор на тип повикване |
+| филтър | [Филтър за повиквания](#call-filters) | Не           | Филтрирайте източника на данни за изпълнение   |
 
-### Call Filters
+### Филтър за повиквания
 
-| Field    | Тип    | Example(s)                                    | Description                                                                                                                                                                      |
-| -------- | ------ | --------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| function | String | 0x095ea7b3, approve(address to,uint256 value) | Either [Function Signature](https://docs.ethers.io/v5/api/utils/abi/fragments/#FunctionFragment) strings or the function `sighash` to filter the function called on the contract |
-| from     | String | 0x6bd193ee6d2104f14f94e2ca6efefae561a4334b    | An Ethereum address that sent the transaction                                                                                                                                    |
+| Поле    | Тип | Пример (и)                                    | Описание                                                                                                                                                                       |
+| ------- | --- | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| функция | Низ | 0x095ea7b3, approve(address to,uint256 value) | Или низове [Function Signature](https://docs.ethers.io/v5/api/utils/abi/fragments/#FunctionFragment), или функцията `sighash` за филтриране на функцията, извикана в контракта |
+| от      | Низ | 0x6bd193ee6d2104f14f94e2ca6efefae561a4334b    | An Ethereum address that sent the transaction                                                                                                                                  |
 
-### Handlers
+### Манипулатори
 
-Unlike a normal handler you will not get a `SubstrateExtrinsic` as the parameter, instead you will get a `MoonbeamCall` which is based on Ethers [TransactionResponse](https://docs.ethers.io/v5/api/providers/types/#providers-TransactionResponse) type.
+За разлика от нормалния манипулатор, вие няма да получите `SubstrateExtrinsic` като параметър, вместо това ще получите `MoonbeamCall` който е базиран на Ethers [TransactionResponse](https://docs.ethers.io/v5/api/providers/types/#providers-TransactionResponse) тип.
 
-Changes from the `TransactionResponse` type:
+Промени от типа `TransactionResponse`:
 
-- It doesn't have `wait` and `confirmations` properties
-- A `success` property is added to know if the transaction was a success
-- `args` is added if the `abi` field is provided and the arguments can be successfully parsed
+- Той няма свойства `wait` и `confirmations`
+- Добавя се свойство `success`, за да се знае дали транзакцията е била успешна
+- `args` се добавя, ако е предоставено полето `abi` и аргументите могат да бъдат успешно анализирани
 
 ## MoonbeamEvent
 
@@ -65,12 +65,12 @@ Works in the same way as [substrate/EventHandler](../create/mapping/#event-handl
 
 | Field  | Тип                            | Задължително | Description                                  |
 | ------ | ------------------------------ | ------------ | -------------------------------------------- |
-| kind   | 'substrate/MoonbeamEvent'      | Да           | Specifies that this is an Event type handler |
-| filter | [Event Filter](#event-filters) | Не           | Filter the data source to execute            |
+| вид    | 'substrate/MoonbeamEvent'      | Да           | Specifies that this is an Event type handler |
+| филтър | [Event Filter](#event-filters) | Не           | Филтрирайте източника на данни за изпълнение |
 
 ### Event Filters
 
-| Field  | Тип          | Example(s)                                                      | Description                                                                                                                                      |
+| Field  | Тип          | Пример (и)                                                      | Description                                                                                                                                      |
 | ------ | ------------ | --------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
 | topics | String array | Transfer(address indexed from,address indexed to,uint256 value) | The topics filter follows the Ethereum JSON-PRC log filters, more documentation can be found [here](https://docs.ethers.io/v5/concepts/events/). |
 
@@ -80,17 +80,17 @@ There are a couple of improvements from basic log filters:
 - Topics don't need to be 0 padded
 - [Event Fragment](https://docs.ethers.io/v5/api/utils/abi/fragments/#EventFragment) strings can be provided and automatically converted to their id
 
-### Handlers
+### Манипулатори
 
 Unlike a normal handler you will not get a `SubstrateEvent` as the parameter, instead you will get a `MoonbeamEvent` which is based on Ethers [Log](https://docs.ethers.io/v5/api/providers/types/#providers-Log) type.
 
 Changes from the `Log` type:
 
-- `args` is added if the `abi` field is provided and the arguments can be successfully parsed
+- `args` се добавя, ако е предоставено полето `abi` и аргументите могат да бъдат успешно анализирани
 
-## Data Source Example
+## Пример за източник на данни
 
-This is an extract from the `project.yaml` manifest file.
+Това е извлечение от `project.yaml` манифест файл.
 
 ```yaml
 dataSources:
