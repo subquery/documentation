@@ -1,12 +1,12 @@
-# Running SubQuery Locally
+# ローカルでのSubQueryの実行
 
-This guide works through how to run a local SubQuery node on your infrastructure, which includes both the indexer and query service. Don't want to worry about running your own SubQuery infrastructure? SubQuery provides a [managed hosted service](https://explorer.subquery.network) to the community for free. [Follow our publishing guide](../publish/publish.md) to see how you can upload your project to [SubQuery Projects](https://project.subquery.network).
+このガイドでは、インフラストラクチャ上でローカルのSubQueryノードを実行する方法を説明します。このノードには、インデクサとクエリサービスの両方が含まれます。 SubQueryのインフラストラクチャの運用を心配する必要はないでしょうか？ SubQueryは、[マネージドホスティングサービス](https://explorer.subquery.network)をコミュニティに無償で提供しています。 [公式ガイド](../publish/publish.md) に従って、 [SubQuery Projects](https://project.subquery.network) にプロジェクトをアップロードする方法をご覧ください。
 
-## Using Docker
+## Docker の使用
 
-An alternative solution is to run a <strong>Docker Container</strong>, defined by the `docker-compose.yml` file. For a new project that has been just initialised you won't need to change anything here.
+代替案としては、`docker-compose.yml`ファイルで定義された<strong>Dockerコンテナ</strong>を実行する方法があります。 初期化されたばかりの新しいプロジェクトでは、ここで何も変更する必要はありません。
 
-Under the project directory run the following command:
+プロジェクトディレクトリで、以下のコマンドを実行します。
 
 ```shell
 docker-compose pull && docker-compose up
@@ -14,15 +14,15 @@ docker-compose pull && docker-compose up
 
 初回は必要なパッケージ ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query),Postgres) をダウンロードするのに時間がかかるかもしれませんが、すぐにSubQueryノードが動作するのを確認できると思います。
 
-## Running an Indexer (subql/node)
+## インデクサの実行 (subql/node)
 
-Requirements:
+要件
 
-- [Postgres](https://www.postgresql.org/) database (version 12 or higher). While the [SubQuery node](#start-a-local-subquery-node) is indexing the blockchain, the extracted data is stored in an external database instance.
+- [Postgres](https://www.postgresql.org/) データベース (バージョン12以上)。 [SubQueryノード](#start-a-local-subquery-node) はブロックチェーンのインデックスを作成していますが、抽出されたデータは外部データベース・インスタンスに保存されます。
 
 SubQueryノードは、SubQueryプロジェクトごとにSubstrateベースのブロックチェーンデータを抽出し、Postgresデータベースに保存します。
 
-### Installation
+### インストール
 
 ```shell
 # NPM
@@ -31,13 +31,13 @@ npm install -g @subql/node
 
 なお、`yarn global` の使用は、依存関係の管理が不十分であるため、**推奨しないこと** とし、将来的にエラーを引き起こす可能性があることに注意してください。
 
-Once installed, you can start a node with the following command:
+インストールが完了したら、次のコマンドでノードを起動できます。
 
 ```shell
 subql-node <command>
 ```
 
-### Key Commands
+### キーコマンド
 
 The following commands will assist you to complete the configuration of a SubQuery node and begin indexing. To find out more, you can always run `--help`.
 
@@ -182,7 +182,7 @@ Debugger attached.
 Then open up the Chrome dev tools, go to Source > Filesystem and add your project to the workspace and start debugging. For more information, check out [How to debug a SubQuery project](https://doc.subquery.network/tutorials_examples/debug-projects/)
 ## Running a Query Service (subql/query)
 
-### Installation
+### インストール
 
 ```shell
 # NPM
