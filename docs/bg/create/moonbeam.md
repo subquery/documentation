@@ -10,41 +10,41 @@
 | Moonriver      | `wss://moonriver.api.onfinality.io/public-ws`      | `https://api.subquery.network/sq/subquery/moonriver-dictionary`      |
 | Moonbase Alpha | `wss://moonbeam-alpha.api.onfinality.io/public-ws` | `https://api.subquery.network/sq/subquery/moonbase-alpha-dictionary` |
 
-**You can also refer to the [basic Moonriver EVM example project](https://github.com/subquery/tutorials-moonriver-evm-starter) with an event and call handler.** This project is also hosted live in the SubQuery Explorer [here](https://explorer.subquery.network/subquery/subquery/moonriver-evm-starter-project).
+**Можете също да се обърнете към [основен примерен проект на Moonriver EVM](https://github.com/subquery/tutorials-moonriver-evm-starter) с манипулатор на събитие и повикване. ** Този проект също се хоства на живо в SubQuery Explorer [тук](https://explorer.subquery.network/subquery/subquery/moonriver-evm-starter-project).
 
-## Getting started
+## Начални стъпки
 
-1. Add the custom data source as a dependency `yarn add @subql/contract-processors`
-2. Add a custom data source as described below
-3. Add handlers for the custom data source to your code
+1. Добавете персонализирания източник на данни като зависимост `yarn add @subql/contract-processors`
+2. Добавете персонализиран източник на данни, както е описано по-долу
+3. Добавете манипулатори за персонализирания източник на данни към вашия код
 
-## Data Source Spec
+## Спец. източник на данни
 
-| Field             | Type                                                           | Required | Description                                |
-| ----------------- | -------------------------------------------------------------- | -------- | ------------------------------------------ |
-| processor.file    | `'./node_modules/@subql/contract-processors/dist/moonbeam.js'` | Yes      | File reference to the data processor code  |
-| processor.options | [ProcessorOptions](#processor-options)                         | No       | Options specific to the Moonbeam Processor |
-| assets            | `{ [key: String]: { file: String }}`                           | No       | An object of external asset files          |
+| Поле              | Тип                                                            | Задължително | Описание                                           |
+| ----------------- | -------------------------------------------------------------- | ------------ | -------------------------------------------------- |
+| processor.file    | `'./node_modules/@subql/contract-processors/dist/moonbeam.js'` | Да           | Препратка към файла към кода на процесора на данни |
+| processor.options | [Опции на процесора](#processor-options)                       | Не           | Опции, специфични за процесора Moonbeam            |
+| актив             | `{ [key: String]: { file: String }}`                           | Не           | Обект на външни файлове с активи                   |
 
 ### Processor Options
 
-| Field   | Type             | Required | Description                                                                                                |
-| ------- | ---------------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| abi     | String           | No       | The ABI that is used by the processor to parse arguments. MUST be a key of `assets`                        |
-| address | String or `null` | No       | A contract address where the event is from or call is made to. `null` will capture contract creation calls |
+| Field   | Тип              | Задължително | Description                                                                                                |
+| ------- | ---------------- | ------------ | ---------------------------------------------------------------------------------------------------------- |
+| abi     | String           | Не           | The ABI that is used by the processor to parse arguments. MUST be a key of `assets`                        |
+| address | String or `null` | Не           | A contract address where the event is from or call is made to. `null` will capture contract creation calls |
 
 ## MoonbeamCall
 
 Works in the same way as [substrate/CallHandler](../create/mapping/#call-handler) except with a different handler argument and minor filtering changes.
 
-| Field  | Type                         | Required | Description                                 |
-| ------ | ---------------------------- | -------- | ------------------------------------------- |
-| kind   | 'substrate/MoonbeamCall'     | Yes      | Specifies that this is an Call type handler |
-| filter | [Call Filter](#call-filters) | No       | Filter the data source to execute           |
+| Field  | Тип                          | Задължително | Description                                 |
+| ------ | ---------------------------- | ------------ | ------------------------------------------- |
+| kind   | 'substrate/MoonbeamCall'     | Да           | Specifies that this is an Call type handler |
+| filter | [Call Filter](#call-filters) | Не           | Filter the data source to execute           |
 
 ### Call Filters
 
-| Field    | Type   | Example(s)                                    | Description                                                                                                                                                                      |
+| Field    | Тип    | Example(s)                                    | Description                                                                                                                                                                      |
 | -------- | ------ | --------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | function | String | 0x095ea7b3, approve(address to,uint256 value) | Either [Function Signature](https://docs.ethers.io/v5/api/utils/abi/fragments/#FunctionFragment) strings or the function `sighash` to filter the function called on the contract |
 | from     | String | 0x6bd193ee6d2104f14f94e2ca6efefae561a4334b    | An Ethereum address that sent the transaction                                                                                                                                    |
@@ -63,14 +63,14 @@ Changes from the `TransactionResponse` type:
 
 Works in the same way as [substrate/EventHandler](../create/mapping/#event-handler) except with a different handler argument and minor filtering changes.
 
-| Field  | Type                           | Required | Description                                  |
-| ------ | ------------------------------ | -------- | -------------------------------------------- |
-| kind   | 'substrate/MoonbeamEvent'      | Yes      | Specifies that this is an Event type handler |
-| filter | [Event Filter](#event-filters) | No       | Filter the data source to execute            |
+| Field  | Тип                            | Задължително | Description                                  |
+| ------ | ------------------------------ | ------------ | -------------------------------------------- |
+| kind   | 'substrate/MoonbeamEvent'      | Да           | Specifies that this is an Event type handler |
+| filter | [Event Filter](#event-filters) | Не           | Filter the data source to execute            |
 
 ### Event Filters
 
-| Field  | Type         | Example(s)                                                      | Description                                                                                                                                      |
+| Field  | Тип          | Example(s)                                                      | Description                                                                                                                                      |
 | ------ | ------------ | --------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
 | topics | String array | Transfer(address indexed from,address indexed to,uint256 value) | The topics filter follows the Ethereum JSON-PRC log filters, more documentation can be found [here](https://docs.ethers.io/v5/concepts/events/). |
 
