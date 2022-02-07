@@ -10,20 +10,20 @@ Mit GroupBy können Sie in einer einzigen Abfrage schnell unterschiedliche Werte
 
 ![Graphql Groupby](/assets/img/graphql_aggregation.png)
 
-## Advanced Aggregate Functions
+## Erweiterte Aggregatfunktionen
 
-SubQuery provides the following aggregate functions when in unsafe mode:
+SubQuery bietet im unsicheren Modus die folgenden Aggregatfunktionen:
 
-- `sum` (applies to number-like fields) - the result of adding all the values together
-- `distinctCount` (applies to all fields) - the count of the number of distinct values
-- `min` (applies to number-like fields) - the smallest value
-- `max` (applies to number-like fields) - the greatest value
-- `average` (applies to number-like fields) - the average (arithmetic mean) value
-- `stddevSample` (applies to number-like fields) - the sample standard deviation of the values
-- `stddevPopulation` (applies to number-like fields) - the population standard deviation of the values
-- `varianceSample` (applies to number-like fields) - the sample variance of the values
-- `variancePopulation` (applies to number-like fields) - the population variance of the values
+- `sum` (gilt für zahlenähnliche Felder) – das Ergebnis der Addition aller Werte
+- `distinctCount` (gilt für alle Felder) - die Anzahl der unterschiedlichen Werte
+- `min` (gilt für zahlenähnliche Felder) - der kleinste Wert
+- `max` (gilt für zahlenähnliche Felder) - der größte Wert
+- `average` (gilt für zahlenähnliche Felder) - der durchschnittliche (arithmetische Mittelwert).
+- `stddevSample` (gilt für zahlenähnliche Felder) - die Stichproben-Standardabweichung der Werte
+- `stddevPopulation` (gilt für zahlenähnliche Felder) - die Grundgesamtheits-Standardabweichung der Werte
+- `varianceSample` (gilt für zahlenähnliche Felder) - die Stichprobenvarianz der Werte
+- `variancePopulation` (gilt für zahlenähnliche Felder) - die Populationsvarianz der Werte
 
-SubQuery's implementation of aggregate functions is based on [pg-aggregates](https://github.com/graphile/pg-aggregates), you can find more information there
+Die Implementierung von Aggregatfunktionen in SubQuery basiert auf [pg-aggregates](https://github.com/graphile/pg-aggregates), weitere Info finden Sie dort
 
-**Please note that you must enable the `--unsafe` flag on the query service in order to use these functions. [Read more](../references/references.md#unsafe-2). Note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in SubQuery's managed service ([project.subquery.network](https://project.subquery.network))**
+**Bitte beachten Sie, dass Sie das Flag `--unsafe` im Abfragedienst aktivieren müssen, um diese Funktionen nutzen zu können. [Weiterlesen](../references/references.md#unsafe-2). Beachten Sie, dass der Befehl `--unsafe` verhindert, dass Ihr Projekt im SubQuery-Netzwerk ausgeführt wird, und Sie müssen sich an den Support wenden, wenn Sie möchten, dass dieser Befehl mit Ihrem Projekt im verwalteten Dienst von SubQuery ausgeführt wird ([project.subquery.network](https://project.subquery.network))**
