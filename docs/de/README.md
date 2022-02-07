@@ -4,19 +4,19 @@
     <div class="main">
       <div>
         <h2 class="welcomeTitle">Herzlich Willkommen bei den <span>Dokumenten</span> von SubQuery</h2>
-        <p>Erkunden und transformieren Sie Ihre Kettendaten, um intuitive dApps schneller zu erstellen!</p>
+        <p>Untersuchen und transformieren Sie Ihre Chain-Daten, um schneller intuitive dApps zu erstellen!</p>
       </div>
     </div>
   </section>
   <section class="startSection main">
     <div>
       <h2 class="title">Schnellstart <span>Anleitung</span></h2>
-      <p>Verständnis von SubQuery, indem Sie ein traditionelles Hallo World-Beispiel ausprobieren. Mit einem Vorlagenprojekt in einer Docker-Umgebung können Sie einen Knoten schnell zum Laufen bringen und mit wenigen einfachen Befehlen in wenigen Minuten eine Blockchain abfragen.
+      <p>Verstehen Sie SubQuery, indem Sie sich an einem traditionellen „Hello World“-Beispiel orientieren. Mit einem Vorlagenprojekt in einer Docker-Umgebung können Sie schnell eine Node zum Laufen bringen und mit ein paar einfachen Befehlen in nur wenigen Minuten mit der Abfrage einer Blockchain beginnen.
       </p>
       <span class="button">
         <router-link :to="{path: '/quickstart/helloworld-localhost/'}">
-          <span>Los geht'</span>
-        </router-link>
+           <span>Loslegen</span>
+         </router-link>
       </span>
     </div>
   </section>
