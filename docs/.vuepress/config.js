@@ -237,6 +237,7 @@ function getSidebar(locale, language){
       children: [
         `${locale}/subquery_network/intro.md`,
         `${locale}/subquery_network/token.md`,
+        `${locale}/subquery_network/consumers.md`,
         `${locale}/subquery_network/indexers.md`,
         `${locale}/subquery_network/delegators.md`,
         `${locale}/subquery_network/foundation.md`,
