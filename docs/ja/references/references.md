@@ -263,29 +263,29 @@ An instance of ProjectManifestImpl has failed the validation:
 
 ### --timestamp-field
 
-By default this is true. when set to false with:
+デフォルトでは true です。 false に設定されている場合:
 
 ```shell
 > subql-node -f . –timestamp-field=false
 ```
 
-This removes the created_at and updated_at columns in the starter_entities table.
+これにより、starter_entitiesテーブルのcreated_atおよびupdated_atカラムが削除されます。
 
 ### -d, --network-dictionary
 
-This allows you to specify a dictionary endpoint which is a free service that is provided and hosted at: [https://explorer.subquery.network/](https://explorer.subquery.network/) (search for dictionary) and presents an API endpoint of: https://api.subquery.network/sq/subquery/dictionary-polkadot
+これは、[https://explorer.subquery.network/](https://explorer.subquery.network/)（辞書を検索）で提供され、ホストされている無料のサービスであるディクショナリのエンドポイントを指定することができ、https://api.subquery.network/sq/subquery/dictionary-polkadot のAPIエンドポイントを提示します。
 
-Typically this would be set in your manifest file but below shows an example of using it as an argument in the command line.
+通常、これはマニフェストファイルに設定されますが、以下はコマンドラインの引数として使用する例です。
 
 ```shell
 subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot"
 ```
 
-[Read more about how a SubQuery Dictionary works](../tutorials_examples/dictionary.md).
+[SubQuery Dictionaryの仕組みについて](../tutorials_examples/dictionary.md)
 
 ### -p, --port
 
-The port the subquery indexing service binds to. By default this is set to `3000`
+SubQueryのインデックスサービスがバインドするポート。 デフォルトでは `3000`に設定されています
 
 ## subql-query
 
@@ -324,7 +324,7 @@ Options:
 
 ### -n, --name
 
-This flag is used to start the query service. If the --subquery-name flag is not provided when running an indexer, the name here will refer to the default project name. If --subquery-name is set, then the name here should match what was set.
+このフラグはクエリサービスを開始するために使用されます。 インデクサーの実行時に --subquery-name フラグが指定されていない場合、ここでの名前はデフォルトのプロジェクト名を参照します。 --subquery-name が設定されている場合、ここに設定されている名前と一致する必要があります。
 
 ```shell
 > subql-node -f . // --subquery-name not set
@@ -340,38 +340,38 @@ This flag is used to start the query service. If the --subquery-name flag is not
 
 ### --playground
 
-This flag enables the graphql playground so should always be included by default to be of any use.
+このフラグは graphql のプレイグラウンドを有効にするもので、デフォルトでは常に含まれているべきです。
 
 ### --output-fmt
 
-See [--output-fmt](https://doc.subquery.network/references/references.html#output-fmt)
+[--output-fmt](https://doc.subquery.network/references/references.html#output-fmt)を参照
 
 ### --log-level
 
-See [--log-level](https://doc.subquery.network/references/references.html#log-level)
+[--log-level](https://doc.subquery.network/references/references.html#log-level)を参照
 
 ### --log-path
 
-Enable file logging by providing a path to a file to log to
+ログのファイルパスを指定することで、ファイルのログを有効にします
 
 ### --log-rotate
 
-Enable file log rotations with the options of a 1d rotation interval, a maximum of 7 files and with a max file size of 1GB
+ログファイルのローテーションを有効にする。ローテーション間隔は1日、最大7ファイル、最大ファイルサイズは1GB。
 
 ### --indexer
 
-Set a custom url for the location of the endpoints of the indexer, the query service uses these endpoints for indexer health, metadata and readiness status
+インデクサーのエンドポイントの場所のためのカスタムURLを設定します。クエリーサービスはインデクサーの健全性、メタデータ、および準備状態のためにこれらのエンドポイントを使用します。
 
 ### --unsafe
 
-The query service has a limit of 100 entities for unbounded graphql queries. The unsafe flag removes this limit which may cause performance issues on the query service. It is recommended instead that queries are [paginated](https://graphql.org/learn/pagination/).
+クエリサービスでは、無制限のgraphqlクエリに対して100個という制限を設けています。 unsafeフラグは、クエリサービスにパフォーマンスの問題を引き起こす可能性のあるこの制限を取り除きます。 代わりに、[paginated](https://graphql.org/learn/pagination/) にすることをお勧めします。
 
-This flag can also be used to enable certain aggregation functions including sum, max, avg and [others](https://github.com/graphile/pg-aggregates#aggregates).
+このフラグは、sum、max、avg、 [その他](https://github.com/graphile/pg-aggregates#aggregates) を含む特定の集約関数を有効にするためにも使用できます。
 
-These are disabled by default due to the entity limit.
+エンティティ制限のため、これらはデフォルトで無効にされています。
 
-**Note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in SubQuery's managed service [project.subquery.network](https://project.subquery.network).**
+**`--unsafe` コマンドを使用すると、SubQuery Network でプロジェクトを実行できなくなることに注意してください。このコマンドを SubQuery の管理サービス [project.subquery.network](https://project.subquery.network) でプロジェクトと共に実行したい場合は、サポートに連絡する必要があります。**
 
 ### --port
 
-The port the subquery query service binds to. By default this is set to `3000`
+SubQueryクエリサービスのポートがバインドされます。 デフォルトでは `3000`に設定されています
