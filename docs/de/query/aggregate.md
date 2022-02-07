@@ -1,12 +1,12 @@
-# Aggregate Functions
+# Aggregatfunktionen
 
-## Group By
+## Gruppiere nach
 
-SubQuery supports advanced aggregate functions to allow you to perform a calculation on a set of values during your query.
+SubQuery unterstützt erweiterte Aggregatfunktionen, damit Sie während Ihrer Abfrage eine Berechnung für eine Reihe von Werten durchführen können.
 
-Aggregate functions are usually used with the GroupBy function in your query.
+Aggregatfunktionen werden normalerweise mit der GroupBy-Funktion in Ihrer Abfrage verwendet.
 
-GroupBy allows you to quickly get distinct values in a set from SubQuery in a single query.
+Mit GroupBy können Sie in einer einzigen Abfrage schnell unterschiedliche Werte in einem Satz aus SubQuery abrufen.
 
 ![Graphql Groupby](/assets/img/graphql_aggregation.png)
 
