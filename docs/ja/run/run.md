@@ -100,27 +100,27 @@ Result:
 [IndexerManager] fetch block [403, 602]
 ```
 
-インデクサが最初にチェーンのインデックスを作成するとき、単一ブロックをフェッチすると性能が大幅に低下します。 バッチサイズを大きくしてフェッチするブロック数を調整することで、全体の処理時間を短縮することができます。 The current default batch size is 100.
+インデクサが最初にチェーンのインデックスを作成するとき、単一ブロックをフェッチすると性能が大幅に低下します。 バッチサイズを大きくしてフェッチするブロック数を調整することで、全体の処理時間を短縮することができます。 現在のバッチサイズは100です。
 
-#### Run in local mode
+#### ローカルモードで実行する
 
 ```
 subql-node -f your-project-path --local
 ```
 
-For debugging purposes, users can run the node in local mode. Switching to local model will create Postgres tables in the default schema `public`.
+デバッグのために、ユーザーはローカルモードでノードを実行できます。 ローカルモデルに切り替えると、デフォルトのスキーマ `public` 内に Postgres テーブルが作成されます。
 
-If local mode is not used, a new Postgres schema with the initial `subquery_` and corresponding project tables will be created.
+ローカル モードが使用されていない場合、最初の `subquery_` を持つ新しい Postgres スキーマと対応するプロジェクトテーブルが作成されます。
 
 
-#### Local mode
+#### ノードの健全性を確認する
 
-There are 2 endpoints that you can use to check and monitor the health of a running SubQuery node.
+実行中の SubQuery ノードの正常性をチェックし監視するために使用できる 2 つのエンドポイントがあります。
 
-- Health check endpoint that returns a simple 200 response
-- Metadata endpoint that includes additional analytics of your running SubQuery node
+- シンプルな200応答を返すヘルスチェックエンドポイント
+- 実行中の SubQuery ノードの追加分析を含むメタデータエンドポイント
 
-Append this to the base URL of your SubQuery node. Eg `http://localhost:3000/meta` will return:
+これを SubQuery ノードのベース URL に追加します。 例 `http://localhost:3000/meta` は以下を返します:
 
 ```bash
 {
@@ -143,9 +143,9 @@ Append this to the base URL of your SubQuery node. Eg `http://localhost:3000/met
 }
 ```
 
-`http://localhost:3000/health` will return HTTP 200 if successful.
+`http://localhost:3000/health` は成功するとHTTP 200を返します。
 
-A 500 error will be returned if the indexer is not healthy. This can often be seen when the node is booting up.
+インデクサが正常でない場合は、500 エラーが返されます。 これは、ノードが起動しているときによく見られます。
 
 ```shell
 {
@@ -154,7 +154,7 @@ A 500 error will be returned if the indexer is not healthy. This can often be se
 }
 ```
 
-If an incorrect URL is used, a 404 not found error will be returned.
+不正な URL が使用された場合、404 not found error が返されます。
 
 ```shell
 {
@@ -164,17 +164,12 @@ If an incorrect URL is used, a 404 not found error will be returned.
 }
 ```
 
-#### Debug your project
+#### プロジェクトのデバッグ
 
-Use the [node inspector](https://nodejs.org/en/docs/guides/debugging-getting-started/) to run the following command.
+[ノードインスペクタ](https://nodejs.org/en/docs/guides/debugging-getting-started/)を使い、以下のコマンドを実行します。
 
 ```shell
-export DB_USER=postgres
-export DB_PASS=postgres
-export DB_DATABASE=postgres
-export DB_HOST=localhost
-export DB_PORT=5432
-subql-node -f your-project-path
+node --inspect-brk <path to subql-node> -f <path to subQuery project>
 ```
 
 例
@@ -184,8 +179,8 @@ Debugger listening on ws://127.0.0.1:9229/56156753-c07d-4bbe-af2d-2c7ff4bcc5ad
 For help, see: https://nodejs.org/en/docs/inspector
 Debugger attached.
 ```
-Then open up the Chrome dev tools, go to Source > Filesystem and add your project to the workspace and start debugging. For more information, check out [How to debug a SubQuery project](https://doc.subquery.network/tutorials_examples/debug-projects/)
-## Running a Query Service (subql/query)
+Chrome 開発ツールを開き、ソース > ファイルシステムに移動し、プロジェクトをワークスペースに追加してデバッグを開始します。 詳細については、 [SubQuery プロジェクトのデバッグ方法](https://doc.subquery.network/tutorials_examples/debug-projects/) を参照してください。
+## クエリサービスの実行 (subql/query)
 
 ### インストール
 
@@ -196,9 +191,9 @@ npm install -g @subql/query
 
 なお、`yarn global` の使用は、依存関係の管理が不十分であるため、**推奨しないこと** とし、将来的にエラーを引き起こす可能性があることに注意してください。
 
-### Running the Query service
+### クエリサービスの実行
 ``` export DB_HOST=localhost subql-query --name <project_name> --playground ````
 
-Make sure the project name is the same as the project name when you [initialize the project](../quickstart/quickstart.md#initialise-the-starter-subquery-project). Also, check the environment variables are correct.
+プロジェクト名は、[プロジェクトを初期化](../quickstart/quickstart.md#initialise-the-starter-subquery-project)したときのプロジェクト名と同じにしてください。 また、環境変数が正しいことを確認してください。
 
-After running the subql-query service successfully, open your browser and head to `http://localhost:3000`. You should see a GraphQL playground showing in the Explorer and the schema that is ready to query.
+subql-queryサービスを正常に実行した後、ブラウザを開き、 `http://localhost:3000` に進みます。 エクスプローラーに表示されるGraphQLプレイグラウンドと、クエリーの準備ができたスキーマが表示されるはずです。
