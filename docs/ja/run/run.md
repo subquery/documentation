@@ -39,53 +39,58 @@ subql-node <command>
 
 ### キーコマンド
 
-The following commands will assist you to complete the configuration of a SubQuery node and begin indexing. To find out more, you can always run `--help`.
+以下のコマンドにより、SubQuery ノードの構成を完了し、インデックス作成を開始することができます。 詳細を調べるには、いつでも `--help` を実行してください。
 
-#### Point to local project path
+#### ローカルプロジェクトのパスを指定する
 
 ```
 subql-node -f your-project-path
 ```
 
-#### Using a Dictionary
+#### ディクショナリを使用する
 
-Using a full chain dictionary can dramatically speed up the processing of a SubQuery project during testing or during your first index. In some cases, we've seen indexing performance increases of up to 10x.
+フルチェーンディクショナリを使用すると、テスト時や最初のインデックス作成時に、SubQueryプロジェクトの処理を劇的にスピードアップできます。 場合によっては、インデックスのパフォーマンスが最大10倍に向上することもあります。
 
-A full chain dictionary pre-indexes the location of all events and extrinsics within the specific chain and allows your node service to skip to relevant locations when indexing rather than inspecting each block.
+フルチェーンディクショナリは、特定のチェーン内のすべてのイベントと外部の場所を事前にインデックスを作成し、ノードサービスが各ブロックを検査するのではなく、インデックス作成時に関連する場所にスキップできるようにします。
 
-You can add the dictionary endpoint in your `project.yaml` file (see [Manifest File](../create/manifest.md)), or specify it at run time using the following command:
+ディクショナリのエンドポイントは、`project.yaml`ファイル（「[マニフェストファイル](../create/manifest.md)」参照）で追加するか、以下のコマンドを使用して実行時に指定します。
 
 ```
 subql-node --network-dictionary=https://api.subquery.network/sq/subquery/dictionary-polkadot
 ```
 
-[Read more about how a SubQuery Dictionary works](../tutorials_examples/dictionary.md).
+[SubQuery Dictionaryの仕組みについて](../tutorials_examples/dictionary.md)
 
-#### Connect to database
-
-```
-Depending on the configuration of your Postgres database (e.g. a different database password), please ensure also that both the indexer (<code>subql/node</code>) and the query service (<code>subql/query</code>) can establish a connection to it.
-
-#### Specify a configuration file
+#### データベースに接続する
 
 ```
-) and the query service (subql/query) can establish a connection to it.
+export DB_USER=postgres
+export DB_PASS=postgres
+export DB_DATABASE=postgres
+export DB_HOST=localhost
+export DB_PORT=5432
+subql-node -f your-project-path 
+````
 
-#### Specify a configuration file
+Postgres データベースの設定によっては (例: 異なるデータベースパスワード)、インデクサ (`subql/node`) とクエリサービス (`subql/query`) の両方がデータベースへの接続を確立できることも確認する必要があります。
 
-</code>
+
+#### 設定ファイルを指定する
+
+```
 subql-node -c your-project-config.yml
 ```
 
-This will point the query node to a configuration file which can be in YAML or JSON format. Check out the example below.
+これにより、クエリノードは YAML または JSON 形式の構成ファイルを指すことができます。 詳細は以下をご覧ください。
 
+```yaml
 subquery: ../../../../subql-example/extrinsics
 subqueryName: extrinsics
 batchSize:100
 localMode:true
 ```
 
-#### Change the block fetching batch size
+#### ブロックフェッチのバッチサイズを変更
 
 ```
 subql-node -f your-project-path --batch-size 200
@@ -95,7 +100,7 @@ Result:
 [IndexerManager] fetch block [403, 602]
 ```
 
-When the indexer first indexes the chain, fetching single blocks will significantly decrease the performance. Increasing the batch size to adjust the number of blocks fetched will decrease the overall processing time. The current default batch size is 100.
+インデクサが最初にチェーンのインデックスを作成するとき、単一ブロックをフェッチすると性能が大幅に低下します。 バッチサイズを大きくしてフェッチするブロック数を調整することで、全体の処理時間を短縮することができます。 The current default batch size is 100.
 
 #### Run in local mode
 
