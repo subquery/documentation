@@ -1,4 +1,4 @@
-# How to debug a SubQuery project?
+# SubQueryプロジェクトをデバッグするには？
 
 ## ビデオガイド
 
@@ -6,21 +6,16 @@
   <iframe src="https://www.youtube.com/embed/6NlaO-YN2q4" frameborder="0" allowfullscreen="true"></iframe>
 </figure>
 
-## Introduction
+## はじめに
 
-In order to debug SubQuery projects such as stepping through code, setting breakpoints, and inspecting variables, you will have to use a Node.js inspector in conjunction with Chrome developer tools.
+コードのステップ実行、ブレークポイントの設定、変数の検査など、SubQueryプロジェクトのデバッグを行うには、Chromeの開発者ツールと組み合わせて、Node.jsインスペクタを使用する必要があります。
 
-## Node inspector
+## ノードインスペクター
 
-Run the following command in a terminal screen.
+ターミナル画面で次のコマンドを実行します。
 
 ```shell
-export DB_USER=postgres
-export DB_PASS=postgres
-export DB_DATABASE=postgres
-export DB_HOST=localhost
-export DB_PORT=5432
-subql-node -f your-project-path
+node --inspect-brk <path to subql-node> -f <path to subQuery project>
 ```
 
 例
@@ -31,12 +26,12 @@ For help, see: https://nodejs.org/en/docs/inspector
 Debugger attached.
 ```
 
-## Chrome devtools
+## Chromeの開発ツール
 
-Open up Chrome DevTools and navigate to the Sources tab. Note that clicking on the green icon will open up a new window.
+Chrome 開発ツールを開き、Sourcesタブに移動します。 緑色のアイコンをクリックすると、新しいウィンドウが開きます。
 
-![node inspect](/assets/img/node_inspect.png)
+![ノードインスペクター](/assets/img/node_inspect.png)
 
-Navigate to Filesystem and add your project folder to the workspace. Then open the dist > mappings folder and select the code you wish to debug. Then step through the code as with any standard debugging tool.
+ファイルシステムに移動し、プロジェクトフォルダをワークスペースに追加します。 次にdist > mappingsフォルダを開き、デバッグしたいコードを選択します。 次に、標準的なデバッグツールと同様にコードをステップ実行します。
 
-![debugging projects](/assets/img/debugging_projects.png)
+![プロジェクトのデバッグ](/assets/img/debugging_projects.png)
