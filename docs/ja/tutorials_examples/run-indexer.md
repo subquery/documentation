@@ -6,9 +6,9 @@
   <iframe src="https://www.youtube.com/embed/QfNsR12ItnA" frameborder="0" allowfullscreen="true"></iframe>
 </figure>
 
-## Introduction
+## はじめに
 
-Running an indexer node is another option outside of using Docker or having a project hosted for you at [SubQuery Projects](https://project.subquery.network/). It requires more time and effort but will enhance your understanding of how SubQuery works under the covers.
+Docker を使用するか、[SubQuery Projects](https://project.subquery.network/) でプロジェクトをホストしてもらう以外に、インデクサノードを実行することもできます。 より多くの時間と労力を必要としますが、SubQueryがどのように機能するのか、その理解を深めることができます。
 
 ## Postgres
 
