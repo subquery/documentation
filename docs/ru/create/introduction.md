@@ -6,7 +6,7 @@
 
 Некоторые из следующих примеров предполагают, что вы успешно запустили стартовый пакет из в раздела [Быстрый старт](../quickstart/quickstart.md). С этого стартового пакета мы рассмотрим стандартный процесс по настройке и внедрению вашего SubQuery проекта.
 
-1. Initialise your project using `subql init PROJECT_NAME`.
+1. Инициализируйте ваш проект используя `subql init PROJECT_NAME`.
 2. Обновите файл манифеста (`проект. aml`), чтобы включить информацию о вашем блокчейне, и сущности, которые вы собираетесь сопоставить - см. [Файл манифеста](./manifest.md)
 3. Создайте GraphQL сущности в вашей схеме (`schema.raphql`), которые определяют форму ваших данных, которые вы будете извлекать и использовать для запроса - см. [GraphQL Schema](./graphql.md)
 4. Добавьте все функции сопоставления (например, `mappingHandlers.ts`), которые вы хотите использовать для преобразования данных цепи в GraphQL сущности, которые вы определили ранее - см. [Mapping](./mapping.md)
@@ -54,11 +54,11 @@ yarn codegen
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```bash npm run-script build ``` </CodeGroupItem> </CodeGroup>
 
-### Alternative build options
+### Альтернативные варианты сборки
 
-We support additional build options for subquery projects using `subql build`.
+Мы поддерживаем дополнительные параметры сборки для проектов SubQery с использованием `subql build`.
 
-With this you can define additional entry points to build using the exports field in package.json.
+При этом вы можете определить дополнительные точки входа для build, используя поле экспорта в package.json.
 
 ```json
 "name": "project-name",
@@ -70,7 +70,7 @@ With this you can define additional entry points to build using the exports fiel
 },
 ```
 
-Then by running `subql build` it will generate a dist folder with the following structure:
+Затем, после запуска `subql build`, создастся папка dist со следующей структурой:
 
 ```
 - project-name
@@ -80,30 +80,30 @@ Then by running `subql build` it will generate a dist folder with the following 
     L index.js 
 ```
 
-Note that it will build `index.ts` whether or not it is specified in the exports field.
+Обратите внимание, что `index.ts` создастся независимо от того, указан он в поле экспорта или нет.
 
-For more information on using this including flags, see [cli reference](https://doc.subquery.network/references/references/#build).
+Для получения дополнительной информации об использовании этой команды, включая флаги, см. [ссылку на cli](https://doc.subquery.network/references/references/#build).
 
-## Logging
+## Логгирование
 
-The `console.log` method is **no longer supported**. Instead, a `logger` module has been injected in the types, which means we can support a logger that can accept various logging levels.
+Метод `console.log` **больше не поддерживается**. Вместо этого в типы был внедрен модуль `logger`, что означает, что мы можем поддерживать логгер, который может принимать различные уровни ведения журнала.
 
 ```typescript
-logger.info('Info level message');
-logger.debug('Debugger level message');
-logger.warn('Warning level message');
+logger.info('Сообщение информационного уровня');
+logger.debug('Сообщение уровня дебаггера');
+logger.warn('Сообщение уровня предупреждения');
 ```
 
-To use `logger.info` or `logger.warn`, just place the line into your mapping file.
+Чтобы использовать `logger.info` или `logger.warn`, просто поместите строку в mapping файл.
 
 ![logging.info](/assets/img/logging_info.png)
 
-To use `logger.debug`, an additional flag is required. Add `--log-level=debug` to your command line.
+Для использования `logger.debug` требуется дополнительный флаг. Добавьте `--log-level=debug` в свою командную строку.
 
-If you are running a docker container, add this line to your `docker-compose.yaml` file.
+Если вы используете контейнер Docker, добавьте эту строку в файл `docker-compose.yaml`.
 
 ![logging.debug](/assets/img/logging_debug.png)
 
-You should now see the new logging in the terminal screen.
+Теперь вы должны увидеть новый журнал на экране терминала.
 
 ![logging.debug](/assets/img/subquery_logging.png)
