@@ -11,15 +11,15 @@
   build     สร้างโค้ดโครงการ SubQuery นี้
   codegen   สร้าง schemas สำหรับโหนดกราฟ
   help      แสดงความช่วยเหลือสำหรับ subql
-  init      เริ่มต้นโปรเจ็กต์การสืบค้นย่อยของ scaffold
+  init      เริ่มต้นโปรเจ็กการสืบค้นย่อยของ scaffold
   migrate   โยกย้าย manifest ของโปรเจ็กต์ SubQuery v0.0.1 ถึง v0.2.0
-  publish   อัปโหลดโปรเจ็กต์ SubQuery นี้ไปที่ IPFS
-  validate  ตรวจสอบโฟลเดอร์หรือ github repo ว่าเป็นโปรเจ็กต์การสืบค้นย่อยที่ถูกต้อง
+  publish   อัปโหลดโปรเจ็ก SubQuery นี้ไปที่ IPFS
+  validate  ตรวจสอบโฟลเดอร์หรือ github repo ว่าเป็นโปรเจ็กการสืบค้นย่อยที่ถูกต้อง
 ```
 
 ### การสร้าง
 
-คำสั่งนี้ใช้ webpack เพื่อสร้างบันเดิลของโปรเจ็กต์การสืบค้นย่อย
+คำสั่งนี้ใช้ webpack เพื่อสร้างกลุ่มของโปรเจ็กการสืบค้นย่อย
 
 | ตัวเลือก           | คำอธิบาย                                                                                                       |
 | ------------------ | -------------------------------------------------------------------------------------------------------------- |
@@ -29,7 +29,7 @@
 
 - ด้วย `subql build` คุณสามารถระบุจุดเข้าใช้งานเพิ่มเติมได้ในช่อง exports ถึงแม้ว่าจะมีการสร้าง `index.ts` โดยอัตโนมัติเสมอ
 
-- คุณต้องมี @subql/cli v0.19.0 ขึ้นไปเพื่อใช้ฟิลด์ exports
+- คุณต้องมี @subql/cli v0.19.0 ขึ้นไปเพื่อใช้ช่อง exports
 
 - ช่อง `exports` ใดๆ ต้องแมปกับประเภทสตริง (เช่น `"entry": "./src/file.ts"`) มิฉะนั้นจะถูกละเว้นจากการสร้าง
 
@@ -46,30 +46,30 @@
 Options:
       --help                แสดงการช่วยเหลือ                                  [boolean]
       --version             แสดงหมายเลขเวอร์ชั่น                        [boolean]
-  -f, --subquery            Local path of the subquery project          [string]
-      --subquery-name       Name of the subquery project   [deprecated] [string]
-  -c, --config              Specify configuration file                  [string]
-      --local               Use local mode                [deprecated] [boolean]
-      --force-clean         Force clean the database, dropping project schemas
-                            and tables                                 [boolean]
-      --db-schema           Db schema name of the project               [string]
-      --unsafe              Allows usage of any built-in module within the
-                            sandbox                    [boolean][default: false]
-      --batch-size          Batch size of blocks to fetch in one round  [number]
-      --scale-batch-size    scale batch size based on memory usage
-                                                      [boolean] [default: false]
-      --timeout             Timeout for indexer sandbox to execute the mapping
-                            functions                                   [number]
-      --debug               Show debug information to console output. will
-                            forcefully set log level to debug
-                                                      [boolean] [default: false]
-      --profiler            Show profiler information to console output
-                                                      [boolean] [default: false]
-      --network-endpoint    Blockchain network endpoint to connect      [string]
-      --output-fmt          Print log as json or plain text
-                                           [string] [choices: "json", "colored"]
-      --log-level           Specify log level to print. Ignored when --debug is
-                            used
+  -f, --subquery            เส้นทางภายในของโปรเจ็กการสืบค้นย่อย          [string]
+      --subquery-name       ชื่อของโปรเจ็กการสืบค้นย่อย   [deprecated] [string]
+  -c, --config              ระบุไฟล์การตั้งค่า                  [string]
+      --local               ใช้โหมด local                [deprecated] [boolean]
+      --force-clean         บังคับการคลีน database, เลิกโปรเจ็ก schemas
+                            และตารางต่าง ๆ                                 [boolean]
+      --db-schema           ชื่อ Db schema ของโปรเจ็ก               [string]
+      --unsafe              อนุญาตให้มีการใช้โหมดบิวท์อินต่าง ๆ ภายใน 
+                            sandbox                    [boolean][ค่าเริ่มต้น: false]
+      --batch-size          Batch size ของบล็อกที่จะใช้ในหนึ่งรอบ [number]
+      --scale-batch-size    ปรับขนาด batch size ตามการใช้หน่วยความจำ
+                                                      [boolean] [ค่าเริ่มต้น: false]
+      --timeout            กำหนดระยะเวลาสำหรับ indexer sandbox ในการใช้คำสั่ง mapping
+                                                              [number]
+      --debug               แสดงข้อมูลการ debug ไปยังเอาต์พุตคอนโซล โดยจะ
+                            บังคับให้มีการตั้งค่าเลเวล log เพื่อการ debug
+                                                      [boolean] [ค่าเริ่มต้น: false]
+      --profiler            แสดงข้อมูลตัวสร้างโปรไฟล์ไปยังเอาต์พุตคอนโซล
+                                                      [boolean] [ค่าเริ่มต้น: false]
+      --network-endpoint    Endpoint ของเครือข่ายบล็อกเชนเพื่อการเชื่อมต่อ      [string]
+      --output-fmt          พิมพ์ log เป็น json หรือข้อความธรรมดา
+                                           [string] [ตัวเลือก: "json", "colored"]
+      --log-level           ระบุเลเวล log ที่จะพิมพ์ เพิกเฉยต่อคำสั่ง เมื่อมีการใช้ --debug
+                           
           [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
                                                                        "silent"]
       --migrate             Migrate db schema (for management tables only)
@@ -86,7 +86,7 @@ Options:
 
 ### --version
 
-คำสั่งนี้จำแสดงเวอร์ชันปัจจุบัน
+คำสั่งนี้แสดงเวอร์ชันปัจจุบัน
 
 ```shell
 > subql-node --version
@@ -95,7 +95,7 @@ Options:
 
 ### -f, --subquery
 
-ใช้ flag นี้เพื่อเริ่มการทำงานโปรเจ็กต์ SubQuery
+ใช้ flag นี้เพื่อเริ่มการทำงานโปรเจ็ก SubQuery
 
 ```shell
 subql-node -f . // หรือ
