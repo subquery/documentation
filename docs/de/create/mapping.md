@@ -1,14 +1,14 @@
-# Zuordnung
+# Mapping
 
-Zuordnungsfunktionen definieren, wie Kettendaten in die optimierten GraphQL-Entitäten umgewandelt werden, die wir zuvor in der Datei `schema.graphql` definiert haben.
+Mappingfunktionen definieren, wie Chaindaten in die optimierten GraphQL-Entitäten umgewandelt werden, die wir zuvor in der Datei `schema.graphql` definiert haben.
 
 - Mappings werden im Verzeichnis `src/mappings` definiert und als Funktion exportiert
-- Diese Zuordnungen werden auch in `src/index.ts` exportiert
-- Die Mapping-Dateien sind in `project.yaml` unter den Mapping-Handlern referenziert.
+- Diese Mappings werden auch in `src/index.ts` exportiert
+- Die Mapping-Dateien werden in `project.yaml` unter den Mapping-Handlern referenziert.
 
 Es gibt drei Klassen von Zuordnungsfunktionen; [Blockhandler](#block-handler), [Ereignishandler](#event-handler) und [Callhandler](#call-handler).
 
-## Blockhandler
+## Block Handler
 
 Sie können Blockhandler verwenden, um jedes Mal Informationen zu erfassen, wenn ein neuer Block an die Substratchain angehängt wird, z.B. Blocknummer. Dazu wird für jeden Block einmal ein definierter BlockHandler aufgerufen.
 
@@ -25,22 +25,22 @@ Exportiere Async-Funktion handleBlock(block: SubstrateBlock): Promise<void> {
 
 Ein [SubstrateBlock](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L16) ist ein erweiterter Schnittstellentyp von [signedBlock](https://polkadot.js.org/docs/api/cookbook/blocks/), beinhaltet aber auch die `specVersion` und den `timestamp`.
 
-## Ereignishandler
+## Event-Handler
 
 Sie können Ereignishandler verwenden, um Informationen zu erfassen, wenn bestimmte Ereignisse in einem neuen Block enthalten sind. Die Ereignisse, die Teil der standardmäßigen Substrate-Laufzeit und ein Block sind, können mehrere Ereignisse enthalten.
 
 Während der Verarbeitung erhält der Ereignishandler ein Substratereignis als Argument mit den typisierten Ein- und Ausgängen des Ereignisses. Jede Art von Ereignis löst das Mapping aus, sodass Aktivitäten mit der Datenquelle erfasst werden können. Sie sollten [Zuordnungsfilter](./manifest.md#mapping-filters) in Ihrem Manifest verwenden, um Ereignisse zu filtern, um die Zeit zum Indexieren von Daten zu verkürzen und die Zuordnungsleistung zu verbessern.
 
 ```ts
-importiere {SubstrateEvent} aus "@subql/types";
+import {SubstrateEvent} from "@subql/types";
 
 export async function handleEvent(event: SubstrateEvent): Promise<void> {
-     const {Ereignis: {Daten: [Konto, Kontostand]}} = Ereignis;
-     // Abrufen des Datensatzes nach seiner ID
-     const record = new starterEntity(event.extrinsic.block.block.header.hash.toString());
-     record.field2 = account.toString();
-     record.field3 = (saldo als Balance).toBigInt();
-     warten record.save();
+    const {event: {data: [account, balance]}} = event;
+    // Retrieve the record by its ID
+    const record = new starterEntity(event.extrinsic.block.block.header.hash.toString());
+    record.field2 = account.toString();
+    record.field3 = (balance as Balance).toBigInt();
+    await record.save();
 ```
 
 Ein [SubstrateEvent](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L30) ist ein erweiterter Schnittstellentyp des [EventRecord](https://github.com/polkadot-js/api/blob/f0ce53f5a5e1e5a77cc01bf7f9ddb7fcf8546d11/packages/types/src/interfaces/system/types.ts#L149). Neben den Ereignisdaten enthält es auch eine `id` (der Block, zu dem dieses Ereignis gehört) und die Extrinsic innerhalb dieses Blocks.
