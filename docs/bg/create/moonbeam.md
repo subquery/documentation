@@ -37,7 +37,7 @@
 
 Работи по същия начин като [substrate/CallHandler](../create/mapping/#call-handler), освен с различен аргумент на манипулатора и незначителни промени във филтрирането.
 
-| Field  | Тип                                   | Задължително | Описание                                       |
+| Поле   | Тип                                   | Задължително | Описание                                       |
 | ------ | ------------------------------------- | ------------ | ---------------------------------------------- |
 | вид    | 'substrate/MoonbeamCall'              | Да           | Указва, че това е манипулатор на тип повикване |
 | филтър | [Филтър за повиквания](#call-filters) | Не           | Филтрирайте източника на данни за изпълнение   |
@@ -47,7 +47,7 @@
 | Поле    | Тип | Пример (и)                                    | Описание                                                                                                                                                                       |
 | ------- | --- | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | функция | Низ | 0x095ea7b3, approve(address to,uint256 value) | Или низове [Function Signature](https://docs.ethers.io/v5/api/utils/abi/fragments/#FunctionFragment), или функцията `sighash` за филтриране на функцията, извикана в контракта |
-| от      | Низ | 0x6bd193ee6d2104f14f94e2ca6efefae561a4334b    | An Ethereum address that sent the transaction                                                                                                                                  |
+| от      | Низ | 0x6bd193ee6d2104f14f94e2ca6efefae561a4334b    | Адрес на Ethereum, който е изпратил транзакцията                                                                                                                               |
 
 ### Манипулатори
 
@@ -61,30 +61,30 @@
 
 ## MoonbeamEvent
 
-Works in the same way as [substrate/EventHandler](../create/mapping/#event-handler) except with a different handler argument and minor filtering changes.
+Работи по същия начин като [substrate/EventHandler](../create/mapping/#event-handler), освен с различен аргумент на манипулатора и незначителни промени във филтрирането.
 
-| Field  | Тип                            | Задължително | Description                                  |
-| ------ | ------------------------------ | ------------ | -------------------------------------------- |
-| вид    | 'substrate/MoonbeamEvent'      | Да           | Specifies that this is an Event type handler |
-| филтър | [Event Filter](#event-filters) | Не           | Филтрирайте източника на данни за изпълнение |
+| Поле   | Тип                                 | Задължително | Описание                                     |
+| ------ | ----------------------------------- | ------------ | -------------------------------------------- |
+| вид    | 'substrate/MoonbeamEvent'           | Да           | Указва, че това е манипулатор на тип събитие |
+| филтър | [Филтри за събитие](#event-filters) | Не           | Филтрирайте източника на данни за изпълнение |
 
-### Event Filters
+### Филтри за събитие
 
-| Field  | Тип          | Пример (и)                                                      | Description                                                                                                                                      |
-| ------ | ------------ | --------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| topics | String array | Transfer(address indexed from,address indexed to,uint256 value) | The topics filter follows the Ethereum JSON-PRC log filters, more documentation can be found [here](https://docs.ethers.io/v5/concepts/events/). |
+| Поле | Тип             | Пример (и)                                                      | Описание                                                                                                                                                                   |
+| ---- | --------------- | --------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| теми | Масив на низове | Transfer(address indexed from,address indexed to,uint256 value) | Филтърът за теми следва филтрите за регистрационни файлове на Ethereum JSON-PRC, повече документация можете да намерите [тук](https://docs.ethers.io/v5/concepts/events/). |
 
-<b>Note on topics:</b>
-There are a couple of improvements from basic log filters:
+<b>Бележка по теми:</b>
+Има няколко подобрения от основните филтри за регистрационни файлове:
 
-- Topics don't need to be 0 padded
-- [Event Fragment](https://docs.ethers.io/v5/api/utils/abi/fragments/#EventFragment) strings can be provided and automatically converted to their id
+- Темите не трябва да са подплатени с 0
+- Могат да се предоставят низове на [Event Fragment](https://docs.ethers.io/v5/api/utils/abi/fragments/#EventFragment) и автоматично да се преобразуват в техния идентификатор
 
 ### Манипулатори
 
-Unlike a normal handler you will not get a `SubstrateEvent` as the parameter, instead you will get a `MoonbeamEvent` which is based on Ethers [Log](https://docs.ethers.io/v5/api/providers/types/#providers-Log) type.
+За разлика от нормалния манипулатор, вие няма да получите `SubstrateEvent` като параметър, вместо това ще получите `MoonbeamEvent`, който е базиран на етерски тип[лог](https://docs.ethers.io/v5/api/providers/types/#providers-Log).
 
-Changes from the `Log` type:
+Промени от типа `Лог`:
 
 - `args` се добавя, ако е предоставено полето `abi` и аргументите могат да бъдат успешно анализирани
 
@@ -125,8 +125,8 @@ dataSources:
             from: '0x6bd193ee6d2104f14f94e2ca6efefae561a4334b'
 ```
 
-## Known Limitations
+## Известни ограничения
 
-- There is currently no way to query EVM state within a handler
-- There is no way to get the transaction receipts with call handlers
-- `blockHash` properties are currently left undefined, the `blockNumber` property can be used instead
+- Понастоящем няма начин за запитване на състоянието на EVM в манипулатор
+- Няма начин да получите разписки за транзакциите с манипулатори на повиквания
+- Свойствата на `blockHash` в момента са оставени недефинирани, вместо това може да се използва свойството `blockNumber`
