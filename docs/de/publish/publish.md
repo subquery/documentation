@@ -22,7 +22,7 @@ In SubQuery-Projekte verwalten Sie alle Ihre gehosteten Projekte, die auf die Su
 
 ![Projekte Login](/assets/img/projects-dashboard.png)
 
-Wenn Sie mit einem GitHub-Organisationskonto verbunden sind, können Sie den Umschalter in der Kopfzeile verwenden, um zwischen Ihrem persönlichen Konto und Ihrem GitHub-Organisationskonto zu wechseln. Projekte, die in einem GitHub-Organisationskonto erstellt wurden, werden zwischen Mitgliedern dieser GitHub-Organisation geteilt. Um Ihr GitHub-Organisationskonto zu verbinden, können Sie [die Schritte hier ausführen](#add-github-organization-account-to-subquery-projects).
+Wenn Sie mit einem GitHub-Organisationskonto verbunden sind, können Sie den Umschalter in der Kopfzeile verwenden, um zwischen Ihrem persönlichen Konto und Ihrem GitHub-Organisationskonto zu wechseln. Projekte, die in einem GitHub-Organisationskonto erstellt wurden, werden zwischen Mitgliedern dieser GitHub-Organisation geteilt. Um Ihr GitHub-Organisationskonto zu verbinden, können Sie [diesen Schritten folgen](#add-github-organization-account-to-subquery-projects).
 
 ![Zwischen GitHub-Konten wechseln](/assets/img/projects-account-switcher.png)
 
@@ -36,7 +36,7 @@ Beginnen wir mit einem Klick auf "Create Project". Sie werden zum Formular New P
 - **GitHub-Repository-URL:** Dies muss eine gültige GitHub-URL zu einem öffentlichen Repository sein, das Ihr SubQuery-Projekt enthält. Die Datei `schema.graphql` muss sich im Stammverzeichnis Ihres Verzeichnisses befinden ([weitere Informationen zur Verzeichnisstruktur](../create/introduction.md#directory-structure)).
 - **Hide project:** Wenn ausgewählt, wird das Projekt im öffentlichen SubQuery-Explorer ausgeblendet. Lassen Sie diese Option deaktiviert, wenn Sie Ihre SubQuery mit der Community teilen möchten! ![Erstellen Sie Ihr erstes Projekt](/assets/img/projects-create.png)
 
-Erstellen Sie Ihr Projekt und Sie sehen es in der Liste Ihres SubQuery-Projekts. *Wir sind fast da! We just need to deploy a new version of it. </p>
+Erstellen Sie Ihr Projekt und Sie sehen es in der Liste Ihres SubQuery-Projekts. *Wir sind fast da! Wir müssen nur eine neue Version davon bereitstellen.*
 
 ![Projekt, das ohne Bereitstellung erstellt wurde](/assets/img/projects-no-deployment.png)
 
@@ -58,7 +58,7 @@ Sobald Ihre Bereitstellung erfolgreich abgeschlossen wurde und unsere Nodes Ihre
 
 ![Projekt wird bereitgestellt und synchronisiert](/assets/img/projects-deploy-sync.png)
 
-Alternativ können Sie auf die drei Punkte neben dem Titel Ihres Projekts klicken und es im SubQuery Explorer anzeigen. There you can use the in-browser playground to get started - [read more about how to user our Explorer here](../query/query.md).
+Alternativ können Sie auf die drei Punkte neben dem Titel Ihres Projekts klicken und es im SubQuery Explorer anzeigen. Dort können Sie den Spielplatz im Browser verwenden, um loszulegen - [lesen Sie hier mehr über die Verwendung unseres Explorers](../query/query.md).
 
 ![Projekte im SubQuery Explorer](/assets/img/projects-explorer.png)
 
@@ -72,7 +72,7 @@ Wenn Ihr GitHub-Organisationskonto im Switcher nicht aufgeführt ist, müssen Si
 
 ![Widerrufen Sie den Zugriff auf das GitHub-Konto](/assets/img/project_auth_revoke.png)
 
-Nachdem Sie den Zugriff widerrufen haben, melden Sie sich von [SubQuery Projects](https://project.subquery.network) ab und wieder an. You should be redirected to a page titled _Authorize SubQuery_ where you can request or grant SubQuery access to your GitHub Organization account. Wenn Sie keine Administratorberechtigungen haben, müssen Sie einen Administrator anfordern, um dies für Sie zu aktivieren.
+Nachdem Sie den Zugriff widerrufen haben, melden Sie sich von [SubQuery Projects](https://project.subquery.network) ab und wieder an. Sie sollten zu einer Seite mit dem Titel *SubQuery autorisieren* weitergeleitet werden, auf der Sie SubQuery-Zugriff auf Ihr GitHub-Organisationskonto anfordern oder gewähren können. Wenn Sie keine Administratorberechtigungen haben, müssen Sie einen Administrator anfordern, um dies für Sie zu aktivieren.
 
 ![Genehmigung von einem GitHub-Konto widerrufen](/assets/img/project_auth_request.png)
 
