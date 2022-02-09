@@ -8,11 +8,11 @@ SubQuery bietet außerdem kostenloses Hosting von Projekten in Produktionsqualit
 
 ## Was ist der beste Weg, um mit SubQuery zu beginnen?
 
-Der beste Weg, um mit SubQuery zu beginnen, besteht darin, unser [Hello World-Tutorial](../quickstart/helloworld-localhost.md) auszuprobieren. Dies ist ein einfacher 5-minütiger Spaziergang durch das Herunterladen der Starter-Vorlage, das Erstellen des Projekts und die anschließende Verwendung von Docker, um einen Knoten auf Ihrem localhost auszuführen und eine einfache Abfrage auszuführen.
+Der beste Weg, um mit SubQuery zu beginnen, besteht darin, unser [Hello World-Tutorial](../quickstart/helloworld-localhost.md) auszuprobieren. Dies ist eine einfache 5-minütige Anleitung zum Herunterladen der Startervorlage, zum Erstellen des Projekts und dann zum Ausführen einer Node auf Ihrem lokalen Host mit Docker und zum Ausführen einer einfachen Abfrage.
 
-## Wie kann ich SubQuery beitragen oder Feedback geben?
+## Wie kann ich zu SubQuery beitragen oder Feedback geben?
 
-Wir lieben Beiträge und Feedback aus der Community. Um Code beizutragen, verzweigen Sie das gewünschte Repository und nehmen Sie Ihre Änderungen vor. Senden Sie dann einen PR- oder Pull-Request. Oh, vergiss auch nicht zu testen! Sehen Sie sich auch unsere Beitragsrichtlinien (TBA) an.
+Wir lieben Beiträge und Feedback aus der Community. Um Code beizutragen, verzweigen Sie das gewünschte Repository und nehmen Sie Ihre Änderungen vor. Senden Sie dann einen PR- oder Pull-Request. Oh, vergessen Sie nicht, auch zu testen! Sehen Sie sich auch unsere Beitragsrichtlinien (TBA) an.
 
 Um Feedback zu geben, kontaktieren Sie uns unter hello@subquery.network oder springen Sie auf unseren [Discord-Kanal](https://discord.com/invite/78zg8aBSMG)
 
