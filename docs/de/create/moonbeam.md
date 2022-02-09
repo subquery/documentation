@@ -63,10 +63,10 @@ Im Gegensatz zu einem normalen Handler erhalten Sie als Parameter keinen `Substr
 
 Funktioniert genauso wie [substrate/EventHandler](../create/mapping/#event-handler), außer mit einem anderen Handler-Argument und kleineren Filteränderungen.
 
-| Bereich | Typ                            | Erforderlich | Beschreibung                                   |
-| ------- | ------------------------------ | ------------ | ---------------------------------------------- |
-| kind    | 'substrate/MoonbeamEvent'      | Ja           | Gibt an, dass dies ein Ereignistyp-Handler ist |
-| Filter  | [Event Filter](#event-filters) | Nein         | Filtern Sie die auszuführende Datenquelle      |
+| Bereich | Typ                           | Erforderlich | Beschreibung                                   |
+| ------- | ----------------------------- | ------------ | ---------------------------------------------- |
+| kind    | 'substrate/MoonbeamEvent'     | Ja           | Gibt an, dass dies ein Ereignistyp-Handler ist |
+| Filter  | [Event Filter](#call-filters) | Nein         | Filtern Sie die auszuführende Datenquelle      |
 
 ### Event Filter
 
