@@ -22,19 +22,19 @@ Unter `dataSources`:
 
 ### CLI-Optionen
 
-By default the CLI will generate SubQuery projects for spec verison v0.2.0. This behaviour can be overridden by running `subql init --specVersion 0.0.1 PROJECT_NAME`, although this is not recommended as the project will not be supported by the SubQuery hosted service in the future
+Standardmäßig generiert die CLI SubQuery-Projekte für die Spezifikationsversion v0.2.0. Dieses Verhalten kann durch Ausführen von `subql init --specVersion 0.0.1 PROJECT_NAME` außer Kraft gesetzt werden, obwohl dies nicht empfohlen wird, da das Projekt in Zukunft nicht mehr vom von SubQuery gehosteten Dienst unterstützt wird
 
 `subql migrate`  kann in einem vorhandenen Projekt ausgeführt werden, um das Projektmanifest auf die neueste Version zu migrieren.
 
-USAGE $ subql init [PROJECTNAME]
+VERWENDUNG $ subql init [PROJECTNAME]
 
-ARGUMENTS PROJECTNAME  Give the starter project name
+ARGUMENTE PROJECTNAME Geben Sie den Namen des Startprojekts an
 
 | Optionen                | Beschreibung                                                                 |
 | ----------------------- | ---------------------------------------------------------------------------- |
 | -f, --force             |                                                                              |
-| -l, --location=location | local folder to create the project in                                        |
-| --install-dependencies  | Install dependencies as well                                                 |
+| -l, --location=Standort | lokalen Ordner, in dem das Projekt erstellt werden soll                      |
+| --install-dependencies  | Installieren Sie auch Abhängigkeiten                                         |
 | --npm                   | Force using NPM instead of yarn, only works with `install-dependencies` flag |
 | --specVersion=0.0.1     | 0.2.0  [default: 0.2.0] | The spec version to be used by the project         |
 
