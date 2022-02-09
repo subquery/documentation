@@ -1,4 +1,4 @@
-# How to run an indexer node?
+# インデクサノードの実行方法は？
 
 ## ビデオガイド
 
@@ -12,28 +12,28 @@ Docker を使用するか、[SubQuery Projects](https://project.subquery.network
 
 ## Postgres
 
-Running an indexer node on your infrastructure will require the setup of a Postgres database. You can install Postgres from [here](https://www.postgresql.org/download/) and ensure the version is 12 or greater.
+インフラストラクチャ上でインデクサノードを実行するには、Postgres データベースのセットアップが必要です。 Postgresは [ここ](https://www.postgresql.org/download/)からインストールできます 。バージョンが12以上であることを確認してください。
 
-## Install subql/node
+## subql/nodeをインストールする
 
-Then to run a SubQuery node, run the following command:
+次に、SubQuery ノードを実行するには、次のコマンドを実行します。
 
 ```shell
 npm install -g @subql/node
 ```
 
-The -g flag means to install it globally which means on OSX, the location will be /usr/local/lib/node_modules.
+-g フラグは、OSX 上でインストールすることを意味します。場所は /usr/local/lib/node_modules になります。
 
-Once installed, you can check the version by running:
+インストールが完了したら、以下を実行してバージョンを確認できます。
 
 ```shell
 > subql-node --version
 0.19.1
 ```
 
-## Setting DB configs
+## DBコンフィグの設定
 
-Next, you need to set the following environmental variables:
+次に、以下の環境変数を設定する必要があります。
 
 ```shell
 export DB_USER=postgres
@@ -43,20 +43,20 @@ export DB_HOST=localhost
 export DB_PORT=5432
 ```
 
-Of course, if you have different values for the above keys, please adjust accordingly. Note that the `env` command will display the current environment variables and that this process only sets these values temporarily. That is, they are only valid for the duration of the terminal session. To set them permanently, store them in your ~/bash_profile instead.
+もちろん、上記のキーに異なる値がある場合は、適宜調整してください。 なお、`env`コマンドは現在の環境変数を表示し、この処理はこれらの値を一時的に設定するだけであることに注意してください。 つまり、これらは端末セッションの期間のみ有効です。 恒久的に設定するには、~/bash_profile に保存してください。
 
-## Indexing a project
+## プロジェクトのインデックス作成
 
-To start indexing a project, navigate into your project folder and run the following command:
+プロジェクトのインデックスを開始するには、プロジェクトフォルダに移動し、次のコマンドを実行します。
 
 ```shell
 subql-node -f .
 ```
 
-If you do not have a project handy, `git clone https://github.com/subquery/subql-helloworld`. You should see the indexer node kick into life and start indexing blocks.
+もしプロジェクトがない場合は、`git clone https://github.com/subquery/subql-helloworld` を実行してください。 インデクサノードが起動し、ブロックのインデックス作成を開始するのが見えるはずです。
 
-## Inspecting Postgres
+## Postgresの検査
 
-If you navigate to Postgres, you should see two tables created. `public.subqueries` and `subquery_1.starter_entities`.
+Postgresに移動すると、作成された2つのテーブルが表示されます。 `public.subquery` と `subquery_1.starter_entities`です。
 
-`public.subqueries` only contains 1 row which the indexer checks upon start up to “understand the current state” so it knows where to continue from. The `starter_entities` table contains the indexes. To view the data, run `select (*) from subquery_1.starter_entities`.
+`public ubqueries <code>` には、インデクサが「現在の状態を理解する」ために開始時にチェックする行が 1 つだけ含まれており、どこから継続するかが分かります。 `starter_entities` テーブルには、インデックスが含まれます。 データを表示するには、`select (*) from subquery_1.starter_entities` を実行してください。
