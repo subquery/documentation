@@ -83,9 +83,9 @@
         </div>
       </li>
       <li>
-        <div class="title">Wie viel kostet es, mein Projekt in SubQuery-Projekten zu hosten?</div>
+        <div class="title">How much does it cost to host my project in SubQuery Projects?</div>
         <div class="content">
-          <p>Das Hosten Ihres Projekts in SubQuery Projects ist absolut kostenlos - es ist unsere Art, der Community etwas zurückzugeben. Um zu erfahren, wie Sie Ihr Projekt bei uns hosten, lesen Sie bitte das Tutorial <a href="/quickstart/helloworld-hosted/">Hello World (SubQuery Hosted)</a>.</p>
+          <p>Hosting your project in SubQuery Projects is absolutely free - it's is our way of giving back to the community. Um zu erfahren, wie Sie Ihr Projekt bei uns hosten, lesen Sie bitte das Tutorial <a href="/quickstart/helloworld-hosted/">Hello World (SubQuery Hosted)</a>.</p>
           <span class="more">
             <router-link :to="{path: '/publish/publish/'}">HOSTING IHRES PROJEKTS</router-link>
           </span>
