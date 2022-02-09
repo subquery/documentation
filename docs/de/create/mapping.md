@@ -53,7 +53,7 @@ Call-Handler werden verwendet, wenn Sie Informationen zu bestimmten externen Sub
 export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
     const record = new starterEntity(extrinsic.block.block.header.hash.toString());
     record.field4 = extrinsic.block.timestamp;
-    warten record.save();
+    await record.save();
 }
 ```
 
@@ -64,14 +64,14 @@ Unser Ziel ist es, alle Datenquellen für Benutzer für das Mapping von Handlern
 
 Dies sind die Schnittstellen, die wir derzeit unterstützen:
 - [api.query.&lt;module&gt;.&lt;method&gt;()](https://polkadot.js.org/docs/api/start/api.query) fragt den <strong>aktuellen</strong> Block ab.
-- 72 / 5000 [api.query.&lt;module&gt;.&lt;method&gt;.multi()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-same-type) führt im aktuellen Block mehrere Abfragen des <strong>gleichen</strong>-Typs durch.
+- [api.query.&lt;module&gt;.&lt;method&gt;.multi()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-same-type) führt mehrere Abfragen des <strong>gleichen</strong> Typs im aktuellen Block durch.
 - [api.queryMulti()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-distinct-types) führt im aktuellen Block mehrere Abfragen <strong>verschiedener</strong> Typen durch.
 
 Dies sind die Schnittstellen, die wir derzeit **NICHT** unterstützen:
 - ~~api.tx.*~~
 - ~~api.derive.*~~
 - ~~api.query.&lt;module&gt;.&lt;method&gt;.at~~
-- ~~api.abfrage.&lt;module&gt;.&lt;method&gt;.entriesAt~~
+- ~~api.query.&lt;module&gt;.&lt;method&gt;.entriesAt~~
 - ~~api.query.&lt;module&gt;.&lt;method&gt;.entriesPaged~~
 - ~~api.query.&lt;module&gt;.&lt;method&gt;.hash~~
 - ~~api.query.&lt;module&gt;.&lt;method&gt;.keysAt~~
@@ -81,7 +81,7 @@ Dies sind die Schnittstellen, die wir derzeit **NICHT** unterstützen:
 
 Sehen Sie sich ein Beispiel für die Verwendung dieser API in unserem [validator-threshold](https://github.com/subquery/tutorials-validator-threshold)-Beispielanwendungsfall an.
 
-## RPC-Anrufe
+## RPC-Calls
 
 Wir unterstützen auch einige API-RPC-Methoden, bei denen es sich um Remoteaufrufe handelt, die es der Zuordnungsfunktion ermöglichen, mit dem tatsächlichen Node, der Abfrage und der Übermittlung zu interagieren. Eine Kernprämisse von SubQuery ist, dass es deterministisch ist. Um die Ergebnisse konsistent zu halten, lassen wir daher nur historische RPC-Aufrufe zu.
 
@@ -91,13 +91,13 @@ Dokumente in [JSON-RPC](https://polkadot.js.org/docs/substrate/rpc/#rpc) stellen
 // Nehmen wir an, wir indizieren gerade einen Block mit dieser Hash-Nummer
 const blockhash = `0x844047c4cf1719ba6d54891e92c071a41e3dfe789d064871148e9d41ef086f6a`;
 
-// Originalmethode hat eine optionale Eingabe ist Blockhash
-const b1 = warten api.rpc.chain.getBlock(blockhash);
+// Ursprüngliche Methode hat eine optionale Eingabe ist Block-Hash
+const b1 = await api.rpc.chain.getBlock(blockhash);
 
-// Es wird der aktuelle Block verwendet, der standardmäßig so ist
-const b2 = api.rpc.chain.getBlock() erwarten;
+// Es wird standardmäßig der aktuelle Block verwendet
+const b2 = await api.rpc.chain.getBlock();
 ```
-- Informationen zu [Benutzerdefinierten Substratketten](#custom-substrate-chains) RPC-Aufrufen finden Sie unter [Verwendung](#usage).
+- Informationen zu RPC-Calls für [benutzerdefinierte Substratchain](#custom-substrate-chains) finden Sie unter [Verwendung](#usage).
 
 ## Module und Bibliotheken
 
@@ -105,7 +105,7 @@ Um die Datenverarbeitungsfunktionen von SubQuery zu verbessern, haben wir einige
 
 Beachten Sie bitte, dass dies eine **experimentelle Funktion** ist und Sie möglicherweise auf Fehler oder Probleme stoßen, die sich negativ auf Ihre Mapping-Funktionen auswirken können. Bitte melden Sie alle Fehler, die Sie finden, indem Sie ein Problem in [GitHub](https://github.com/subquery/subql) erstellen.
 
-### Eingebaute Module
+### Built-in Module
 
 Derzeit erlauben wir die folgenden NodeJS-Module: `assert`, `buffer`, `crypto`, `util` und `path `.
 
@@ -189,6 +189,17 @@ export default {
                     type: 'BlockHash',
                     isHistoric: true,
                     isOptional: false
+                },
+                {
+                    name: 'kittyIndex',
+                    type: 'KittyIndex',
+                    isOptional: false
+                }
+            ],
+            type: 'Balance'
+        }
+    }
+}
 ```
 
 #### Pakete
@@ -269,7 +280,7 @@ Async-Funktion exportieren kittyApiHandler(): Promise<void> {
 
 ### Benutzerdefinierte Chain-RPC-Aufrufe
 
-Um benutzerdefinierte Chain-RPC-Aufrufe zu unterstützen, müssen wir RPC-Definitionen für `typesBundle` manuell einfügen, um eine spezifikationsspezifische Konfiguration zu ermöglichen. Sie können das `typesBundle` in der `project.yml` definieren. Und denken Sie bitte daran, dass nur Anrufe vom Typ `isHistoric` unterstützt werden.
+Um benutzerdefinierte Chain-RPC-Aufrufe zu unterstützen, müssen wir RPC-Definitionen für `typesBundle` manuell einfügen, um eine spezifikationsspezifische Konfiguration zu ermöglichen. Sie können das `typesBundle` in der `project.yml` definieren. Und denken Sie bitte daran, dass nur Calls vom Typ `isHistoric` unterstützt werden.
 ```yaml
 ...
   types: {
