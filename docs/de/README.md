@@ -70,13 +70,13 @@
       <li>
         <div class="title">Was ist der beste Weg, um mit SubQuery zu beginnen?</div>
         <div class="content">
-          <p>Der beste Weg, mit der Unterabfrage loszulegen, ist unser <a href="/quickstart/helloworld-localhost/">Hallo World Tutorial</a> auszuprobieren. Dies ist ein einfacher 5-minütiger Spaziergang durch das Herunterladen der Starter-Vorlage, das Erstellen des Projekts und die anschließende Verwendung von Docker, um einen Knoten auf Ihrem localhost auszuführen und eine einfache Abfrage auszuführen. </p>
+          <p>Der beste Weg, mit der Unterabfrage loszulegen, ist unser <a href="/quickstart/helloworld-localhost/">Hallo World Tutorial</a> auszuprobieren. This is a simple 5 min walk through of downloading the starter template, building the project, and then using Docker to run a node on your localhost and running a simple query. </p>
         </div>
       </li>
       <li>
-        <div class="title">Wie kann ich SubQuery beitragen oder Feedback geben?</div>
+        <div class="title">How can I contribute or give feedback to SubQuery?</div>
         <div class="content">
-          <p>Wir lieben Beiträge und Feedback aus der Community. Um Code beizutragen, verzweigen Sie das gewünschte Repository und nehmen Sie Ihre Änderungen vor. Senden Sie dann einen PR- oder Pull-Request. Oh, vergiss auch nicht zu testen! Sehen Sie sich auch unsere Beitragsrichtlinien an (demnächst). </p>
+          <p>We love contributions and feedback from the community. To contribute code, fork the repository of interest and make your changes. Then submit a PR or Pull Request. Oh, don't forget to test as well! Sehen Sie sich auch unsere Beitragsrichtlinien an (demnächst). </p>
           <span class="more">
             <router-link :to="{path: '/faqs/faqs/#what-is-the-best-way-to-get-started-with-subquery'}">MEHR LESEN</router-link>
           </span>
