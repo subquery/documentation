@@ -16,9 +16,9 @@ Wir lieben Beiträge und Feedback aus der Community. Um Code beizutragen, verzwe
 
 Um Feedback zu geben, kontaktieren Sie uns unter hello@subquery.network oder springen Sie auf unseren [Discord-Kanal](https://discord.com/invite/78zg8aBSMG)
 
-## Wie viel kostet es, mein Projekt in SubQuery-Projekten zu hosten?
+## Wie viel kostet es, mein Projekt in SubQuery Projects zu hosten?
 
-Das Hosten Ihres Projekts in SubQuery Projects ist absolut kostenlos - es ist unsere Art, der Community etwas zurückzugeben. Um zu erfahren, wie Sie Ihr Projekt bei uns hosten, lesen Sie bitte das Tutorial [Hello World (SubQuery gehostet)](../quickstart/helloworld-hosted.md).
+Das Hosten Ihres Projekts in SubQuery Projects ist absolut kostenlos – es ist unsere Art, der Community etwas zurückzugeben. Um zu erfahren, wie Sie Ihr Projekt bei uns hosten, lesen Sie bitte das Tutorial [Hello World (SubQuery gehostet)](../quickstart/helloworld-hosted.md).
 
 ## Was sind Bereitstellungsslots?
 
