@@ -2,7 +2,7 @@
 
 Hier listen wir unsere Tutorials auf und erkunden verschiedene Beispiele, die Ihnen helfen, auf einfachste und schnellste Weise in Betrieb zu gehen.
 
-## SubQuery Examples
+## Tutorials
 
 
 
