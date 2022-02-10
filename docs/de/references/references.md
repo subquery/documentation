@@ -7,29 +7,29 @@
 ```shell
 > subql --help
 
-COMMANDS
-  build     Build this SubQuery project code
-  codegen   Generate schemas for graph node
-  help      display help for subql
-  init      Initialize a scaffold subquery project
-  migrate   Migrate Subquery project manifest v0.0.1 to v0.2.0
-  publish   Upload this SubQuery project to IPFS
-  validate  Check a folder or github repo is a validate subquery project
+BEFEHLE
+   build Erstellt diesen SubQuery-Projektcode
+   codegen Erzeugt Schemata für Graph-Node
+   help Zeigt Hilfe für subql an
+   init Initialisiert ein Gerüst-SubQuery-Projekt
+   migrate Migration von  SubQuery-Projektmanifest v0.0.1 auf v0.2.0
+   publish Laden Sie dieses SubQuery-Projekt in IPFS hoch
+   validate Überprüfen Sie, ob ein Ordner oder ein Github-Repo ein validiertes SubQuery-Projekt ist
 ```
 
 ### build
 
-Dieser Befehl verwendet Webpack um ein Paket eines Unterabfrageprojekts zu generieren.
+Dieser Befehl verwendet webpack, um ein Bündel eines SubQuery-Projekts zu generieren.
 
-| Optionen           | Beschreibung                                                                  |
-| ------------------ | ----------------------------------------------------------------------------- |
-| -l, --location     | lokaler Ordner des Subqueryprojekts (falls nicht bereits im Ordner vorhanden) |
-| -o, --output       | specify output folder of build e.g. build-folder                              |
-| --mode=(production | prod | development | dev) | [ Standard: Produktion ]                          |
+| Optionen           | Beschreibung                                                                   |
+| ------------------ | ------------------------------------------------------------------------------ |
+| -l, --Standort     | lokaler Ordner des SubQuery-Projekts (falls nicht bereits im Ordner vorhanden) |
+| -o, --Ausgabe      | Geben Sie den Ausgabeordner des Builds an, z. build-Ordner                     |
+| --mode=(Produktion | prod | development | dev) | [ Standard: Produktion ]                           |
 
 - Mit `subql build` können Sie zusätzliche Einstiegspunkte im Exportfeld angeben, obwohl es immer `index.ts` automatisch bauen wird
 
-- You need to have @subql/cli v0.19.0 or above to use exports field.
+- Sie benötigen @subql/cli v0.19.0 oder höher, um das Exportfeld zu verwenden.
 
 - Alle `Exporte` müssen dem String zugeordnet werden (z.B. `"Eintrag": "./src/file.ts"`), sonst wird es vom Build ignoriert.
 
@@ -43,41 +43,48 @@ Dies zeigt die Hilfeoptionen an.
 
 ```shell
 > subql-node --help
-Options:
-      --help                Show help                                  [boolean]
-      --version             Show version number                        [boolean]
-  -f, --subquery            Local path of the subquery project          [string]
-      --subquery-name       Name of the subquery project                [string]
-  -c, --config              Specify configuration file                  [string]
-      --local               Use local mode                             [boolean]
-      --batch-size          Batch size of blocks to fetch in one round  [number]
-      --timeout             Timeout for indexer sandbox to execute the mapping
-                            functions                                   [number]
-      --debug               Show debug information to console output. will
-                            forcefully set log level to debug
+Optionen:
+      --help Hilfe anzeigen [boolean]
+      --version Versionsnummer anzeigen [boolean]
+  -f, --subquery Lokaler Pfad des Subquery-Projekts [string]
+      --subquery-name Name des SubQuery-Projekts [veraltet] [string]
+  -c, --config Konfigurationsdatei angeben [string]
+      --local Lokalen Modus verwenden [veraltet] [boolean]
+      --force-clean Erzwingt die Bereinigung der Datenbank und löscht Projektschemas
+                            und Tabellen [boolean]
+      --db-schema Db-Schemaname des Projekts [string]
+      --unsafe Erlaubt die Nutzung jedes eingebauten Moduls innerhalb von
+                            Sandkasten [boolean][Standard: falsch]
+      --batch-size Stapelgröße der Blöcke, die in einer Runde abgerufen werden sollen [Zahl]
+      --scale-batch-size Skaliert die Batchgröße basierend auf der Speichernutzung
+                                                      [boolesch] [Standard: falsch]
+      --timeout Timeout für die Indexer-Sandbox zum Ausführen des Mappings
+                            Funktionen [Zahl]
+      --debug Debug-Informationen in der Konsolenausgabe anzeigen. will
+                            Setzt die Protokollebene zwangsweise auf Debug
                                                       [boolean] [default: false]
-      --profiler            Show profiler information to console output
+      --profiler            Zeigt Profiler-Informationen in der Konsolenausgabe an
                                                       [boolean] [default: false]
-      --network-endpoint    Blockchain network endpoint to connect      [string]
-      --output-fmt          Print log as json or plain text
+      --network-endpoint    Blockchain-Netzwerkendpunkt zum Verbinden     [string]
+      --output-fmt          Drückt das Protokoll als json oder einfachen Text
                                            [string] [choices: "json", "colored"]
-      --log-level           Specify log level to print. Ignored when --debug is
-                            used
+      --log-level           Gibt die zu druckende Protokollebene an. Ignoriert, wenn --debug ist
+                             gebraucht
           [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
                                                                        "silent"]
-      --migrate             Migrate db schema (for management tables only)
+      --migrate             DB-Schema migrieren (nur für Verwaltungstabellen)
                                                       [boolean] [default: false]
-      --timestamp-field     Enable/disable created_at and updated_at in schema
+      --timestamp-field    created_at und updated_at im Schema aktivieren/deaktivieren
                                                       [boolean] [default: false]
-  -d, --network-dictionary  Specify the dictionary api for this network [string]
-  -m, --mmr-path            Local path of the merkle mountain range (.mmr) file
+  -d, --network-dictionary  Geben Sie die Wörterbuch-API für dieses Netzwerk an [string]
+  -m, --mmr-path            Lokaler Pfad der Merkle-Bergkette(.mmr) file
                                                                         [string]
-      --proof-of-index      Enable/disable proof of index
+      --proof-of-index       proof of index aktivieren/deaktivieren
                                                       [boolean] [default: false]
-  -p, --port                The port the service will bind to           [number]
+  -p, --port                Der Port, an den der Dienst gebunden wird          [number]
 ```
 
-### --version
+### --Version
 
 Dies zeigt die aktuelle Version an.
 
@@ -95,7 +102,7 @@ subql-node -f . // OR
 subql-node --subquery .
 ```
 
-### --subquery-name (deprecated)
+### --subquery-name (veraltet)
 
 Mit diesem Flag können Sie Ihrem Projekt einen Namen geben, der so wirkt, als ob es eine Instanz Ihres Projekts erstellt. Nach Angabe eines neuen Namens wird ein neues Datenbankschema erstellt und die Blocksynchronisierung beginnt bei Null. Veraltet für `--db-schema`
 
@@ -110,7 +117,7 @@ All diese verschiedenen Konfigurationen können in eine .yml- oder .json-Datei p
 Beispieldatei subquery_config.yml:
 
 ```shell
-subquery: . // Mandatory. This is the local path of the project. The period here means the current local directory.
+subquery: . // Verpflichtend. Dies ist der lokale Pfad des Projekts. Der Punkt bedeutet hier das aktuelle lokale Verzeichnis.
 subqueryName: hello // Optional name
 batchSize: 55 // Optional config
 ```
@@ -121,7 +128,7 @@ Legen Sie diese Datei in das gleiche Verzeichnis wie das Projekt. Führen Sie da
 > subql-node -c ./subquery_config.yml
 ```
 
-### --local (deprecated)
+### --local (veraltet)
 
 Dieses Flag wird hauptsächlich für Debugging-Zwecke verwendet, wo es die Standardtabelle starter_entity im Standardschema "postgres" erstellt.
 
@@ -143,7 +150,7 @@ Dieses Flag erlaubt es Ihnen, einen Namen für das Projektdatenbank-Schema anzug
 subql-node -f . --db-schema=test2
 ```
 
-### --unsafe
+### --unsicher
 
 SubQuery Projekte werden in der Regel in einer Javascript-Sandbox durchgeführt, um den Umfang des Zugriffs auf Ihr System zu begrenzen. Die Sandbox begrenzt die verfügbaren Javascript-Importe auf folgende Module:
 
@@ -151,7 +158,7 @@ SubQuery Projekte werden in der Regel in einer Javascript-Sandbox durchgeführt,
 ["assert", "buffer", "crypto", "util", "path"];
 ```
 
-Obwohl dies die Sicherheit erhöht, verstehen wir, dass dies die verfügbare Funktionalität Ihrer Unterabfrage einschränkt. Der `--unsafe` Befehl importiert alle Standard-Javascript-Module, was die Funktionalität der Sandbox mit dem Ausgleich der verringerten Sicherheit erheblich erhöht.
+Obwohl dies die Sicherheit erhöht, verstehen wir, dass dies die verfügbare Funktionalität Ihrer SubQuery einschränkt. Der `--unsafe` Befehl importiert alle Standard-Javascript-Module, was die Funktionalität der Sandbox mit dem Ausgleich der verringerten Sicherheit erheblich erhöht.
 
 **Beachten Sie, dass der Befehl `--unsafe` verhindert, dass Ihr Projekt im SubQuery-Netzwerk ausgeführt wird, und Sie müssen sich an den Support wenden, wenn Sie möchten, dass dieser Befehl mit Ihrem Projekt im verwalteten Dienst von SubQuery ausgeführt wird ([project.subquery.network](https://project.subquery.network))**
 
@@ -209,10 +216,10 @@ subql-node -f . --network-endpoint="wss://polkadot.api.onfinality.io/public-ws"
 Beachten Sie, dass dies auch in der Manifestdatei festgelegt werden muss, andernfalls erhalten Sie:
 
 ```shell
-ERROR Create Subquery project from given path failed! Error: failed to parse project.yaml.
-An instance of ProjectManifestImpl has failed the validation:
- - property network has failed the following constraints: isObject
- - property network.network has failed the following constraints: nestedValidation
+ERROR Erstellen eines SubQuery-Projekts aus dem angegebenen Pfad wurde fehlgeschlagen! Error: Fehler beim Analysieren von project.yaml.
+Eine Instanz von ProjectManifestImpl hat die Validierung nicht bestanden:
+  - property network hat die folgenden Einschränkungen nicht erfüllt: isObject
+  - property network.network hat die folgenden Einschränkungen nicht erfüllt: nestedValidation
 ```
 
 ### --output-fmt
@@ -227,7 +234,7 @@ Es gibt zwei verschiedene Terminal-Output-Formate. JSON oder bunt. Farblich ist 
 ```shell
 > subql-node -f . --output-fmt=colored
 2021-08-10T11:57:41.480Z <subql-node> INFO node started
-(node:24707) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
+(node:24707) [PINODEP007] Warnung: Bindings.Level ist veraltet, verwenden Sie stattdessen die Option options.level
 2021-08-10T11:57:48.981Z <fetch> INFO fetch block [10201,10300], total 100 blocks
 2021-08-10T11:57:51.862Z <fetch> INFO fetch block [10301,10400], total 100 blocks
 ```
@@ -238,18 +245,18 @@ Es stehen 7 Optionen zur Auswahl. “fatal”, “error”, “warn”, “info�
 
 ```shell
 > subql-node -f . --log-level=silent
-(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
-(Use `node --trace-warnings ...` to show where the warning was created)
-(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
-(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
-(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
-(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
-(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
-(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
-(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
-(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
-(node:24686) [DEP0152] DeprecationWarning: Custom PerformanceEntry accessors are deprecated. Please use the detail property.
-(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
+(node:24686) [PINODEP007] Warnung: bindings.level ist veraltet, verwenden Sie stattdessen die Option options.level
+(Verwenden Sie `node --trace-warnings ...`, um anzuzeigen, wo die Warnung erstellt wurde)
+(node:24686) [PINODEP007] Warnung: bindings.level ist veraltet, verwenden Sie stattdessen die Option options.level
+(node:24686) [PINODEP007] Warnung: bindings.level ist veraltet, verwenden Sie stattdessen die Option options.level
+(node:24686) [PINODEP007] Warnung: bindings.level ist veraltet, verwenden Sie stattdessen die Option options.level
+(node:24686) [PINODEP007] Warnung: bindings.level ist veraltet, verwenden Sie stattdessen die Option options.level
+(node:24686) [PINODEP007] Warnung: bindings.level ist veraltet, verwenden Sie stattdessen die Option options.level
+(node:24686) [PINODEP007] Warnung: bindings.level ist veraltet, verwenden Sie stattdessen die Option options.level
+(node:24686) [PINODEP007] Warnung: bindings.level ist veraltet, verwenden Sie stattdessen die Option options.level
+(node:24686) [PINODEP007] Warnung: bindings.level ist veraltet, verwenden Sie stattdessen die Option options.level
+(node:24686) [DEP0152] DeprecationWarning: Benutzerdefinierte PerformanceEntry-Accessoren sind veraltet. Bitte verwenden Sie die Detaileigenschaft.
+(node:24686) [PINODEP007] Warnung: bindings.level ist veraltet, verwenden Sie stattdessen die Option options.level
 ```
 
 <!-- ### --migrate TBA -->
@@ -287,26 +294,26 @@ Der Port, an den der Indexdienst für Subquery bindet. Standardmäßig ist dies 
 Dies zeigt die Hilfeoptionen an.
 
 ```shell
-Options:
-      --help        Show help                                          [boolean]
-      --version     Show version number                                [boolean]
-  -n, --name        Project name                             [string] [required]
-      --playground  Enable graphql playground                          [boolean]
-      --output-fmt  Print log as json or plain text
-                      [string] [choices: "json", "colored"] [default: "colored"]
-      --log-level   Specify log level to print.
-          [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
-                                                     "silent"] [default: "info"]
-      --log-path    Path to create log file e.g ./src/name.log          [string]
-      --log-rotate  Rotate log files in directory specified by log-path
-                                                      [boolean] [default: false]
-      --indexer     Url that allows query to access indexer metadata    [string]
-      --unsafe      Disable limits on query depth and allowable number returned
-                    query records                                      [boolean]
-  -p, --port        The port the service will bind to                   [number
+Optionen:
+  --help Hilfe anzeigen [boolean]
+       --version Versionsnummer anzeigen [boolean]
+   -n, --name Projektname [string] [erforderlich]
+       --playground Graphql Playground aktivieren [boolean]
+       --output-fmt Protokoll als json oder einfachen Text drucken
+                       [string] [Optionen: "json", "farbig"] [Standard: "farbig"]
+       --log-level Gibt die zu druckende Protokollebene an.
+          [string] [Auswahlmöglichkeiten: "fatal", "error", "warn", "info", "debug", "trace",
+                                                      "leise"] [Standard: "info"]
+       --log-path Pfad zum Erstellen der Protokolldatei, z. B. ./src/name.log [string]
+       --log-rotate Protokolldateien in dem durch Protokollpfad angegebenen Verzeichnis rotieren
+                                                         [boolean] [Standard: falsch]
+       --indexer URL, die der Abfrage den Zugriff auf Indexer-Metadaten ermöglicht [string]
+       --unsafe Deaktiviert die Beschränkungen für die Abfragetiefe und die zulässige zurückgegebene Anzahl
+                     Datensätze abfragen [boolean]
+   -p, --port Der Port, an den der Dienst bindet [Nummer
 ```
 
-### --version
+### --Version
 
 Dies zeigt die aktuelle Version an.
 
@@ -320,15 +327,15 @@ Dies zeigt die aktuelle Version an.
 Dieses Flag wird verwendet, um den Abfragedienst zu starten. Wenn das Flag --subquery-name beim Ausführen eines Indexers nicht bereitgestellt wird, bezieht sich der Name hier auf den Standardprojektnamen. Wenn --subquery-name gesetzt ist, sollte der Name hier mit dem übereinstimmen, der eingestellt wurde.
 
 ```shell
-> subql-node -f . // --subquery-name not set
+> subql-node -f . // --subquery-name nicht gesetzt
 
-> subql-query -n subql-helloworld  --playground // the name defaults to the project directory name
+> subql-query -n subql-helloworld --playground // der Name ist standardmäßig der Name des Projektverzeichnisses
 ```
 
 ```shell
-> subql-node -f . --subquery-name=hiworld // --subquery-name set
+> subql-node -f . --subquery-name=hiworld // --subquery-name gesetzt
 
-> subql-query -n hiworld --playground  // the name points to the subql-helloworld project but with the name of hiworld
+> subql-query -n hiworld --playground // der Name zeigt auf das Projekt subql-helloworld, aber mit dem Namen hiworld
 ```
 
 ### --playground
@@ -351,11 +358,11 @@ Aktiviere Datei-Protokollierung durch Angabe eines Pfades zu einer zu loggenden 
 
 Aktiviere Datei-Log-Rotationen mit den Optionen eines 1d-Rotationsintervalls, maximal 7 Dateien und einer maximalen Dateigröße von 1GB
 
-### --indexer
+### --Indexer
 
-Set a custom url for the location of the endpoints of the indexer, the query service uses these endpoints for indexer health, metadata and readiness status
+Legen Sie eine benutzerdefinierte URL für den Speicherort der Endpunkte des Indexers fest. Der Abfragedienst verwendet diese Endpunkte für Indexerintegrität, Metadaten und Bereitschaftsstatus
 
-### --unsafe
+### --unsicher
 
 Der Abfragedienst hat ein Limit von 100 Entitäten für unbegrenzte Graphql-Abfragen. Das unsichere Flag entfernt dieses Limit, was Performance-Probleme im Abfrage-Dienst verursachen kann. Es wird stattdessen empfohlen, dass Abfragen [paginiert werden](https://graphql.org/learn/pagination/).
 
@@ -365,6 +372,6 @@ Diese sind standardmäßig aufgrund der Entitätsgrenze deaktiviert.
 
 **Beachten Sie, dass der Befehl `--unsafe` verhindert, dass Ihr Projekt im SubQuery-Netzwerk ausgeführt wird, und Sie müssen sich an den Support wenden, wenn Sie möchten, dass dieser Befehl mit Ihrem Projekt im verwalteten Dienst von SubQuery ausgeführt wird ([project.subquery.network](https://project.subquery.network).**
 
-### --port
+### --Port
 
 Der Port, an den der Indexdienst für Subquery bindet. Standardmäßig ist dies auf `3000` gesetzt
