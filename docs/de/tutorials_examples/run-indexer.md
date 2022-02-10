@@ -1,4 +1,4 @@
-# Wie führe ich einen Indexer Node aus?
+# Wie führe ich eine Indexer-Node aus?
 
 ## Videoanleitung
 
@@ -12,11 +12,11 @@ Das Ausführen einer Indexer-Node ist eine weitere Option, außer Docker zu verw
 
 ## Postgres
 
-Das Ausführen eines Indexer-Node in Ihrer Infrastruktur erfordert die Einrichtung einer Postgres-Datenbank.  Sie können Postgres von [aus hier](https://www.postgresql.org/download/) installieren und sicherstellen, dass die Version 12 oder höher ist.
+Das Ausführen einer Indexer-Node in Ihrer Infrastruktur erfordert die Einrichtung einer Postgres-Datenbank.  Sie können Postgres von [aus hier](https://www.postgresql.org/download/) installieren und sicherstellen, dass die Version 12 oder höher ist.
 
-## Subql/Knoten installieren
+## Install subql/node
 
-Um dann einen SubQuery Node auszuführen, führen Sie folgenden Befehl aus:
+Um dann eine SubQuery Node auszuführen, führen Sie folgenden Befehl aus:
 
 ```shell
 npm install -g @subql/node
@@ -53,10 +53,10 @@ Um ein Projekt zu indizieren, navigiere in deinen Projektordner und führe den f
 subql-node -f .
 ```
 
-Wenn Sie kein praktisches Projekt haben, `git clone https://github.com/subquery/subql-helloworld`. Sie sollten den Index Node ins Leben rufen und mit der Indexierung beginnen.
+Wenn Sie kein praktisches Projekt haben, `git clone https://github.com/subquery/subql-helloworld`. Sie sollten die Index-Node ins Leben rufen und mit der Indexierung beginnen.
 
-## Überprüfe Posts
+## Überprüfung von Postgres
 
-Wenn Sie zu Postgres wechseln, sollten Sie zwei Tabellen sehen. `public.subqueries` and `subquery_1.starter_entities`.
+Wenn Sie zu Postgres wechseln, sollten Sie zwei Tabellen sehen. `public.subqueries` und `subquery_1.starter_entities`.
 
 `public. ubqueries` enthält nur eine Zeile, die der Indexer beim Start prüft, um den aktuellen Status zu verstehen, so dass er weiß, woher er er weitergehen soll. Die `starter_entities` Tabelle enthält die Indizes. Um die Daten anzuzeigen, wählen Sie `(*)  subquery_1.starter_entities` aus.
