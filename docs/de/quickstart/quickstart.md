@@ -44,7 +44,7 @@ Beim Initialisieren des SubQuery-Projekts werden Ihnen bestimmte Fragen gestellt
 - Netzwerk: Ein Blockchain-Netzwerk, das dieses Subquery Projekt entwickelt wird, um zu indizieren
 - Vorlage: Wählen Sie eine SubQuery-Projekt Vorlage, die einen Startpunkt für den Beginn der Entwicklung bietet
 - Git-Repository (optional): Geben Sie eine Git-URL für ein Repository an, in dem dieses SubQuery-Projekt gehostet wird (wenn es im SubQuery-Explorer gehostet wird)
-- RPC-endpoint (erforderlich): Geben Sie eine wss-URL für einen laufenden RPC-Endpunkt an, der standardmäßig für dieses Projekt verwendet wird. Sie können schnell auf öffentliche Endpoints für verschiedene Polkadot-Netzwerke zugreifen oder sogar Ihren eigenen privaten dedizierten Node mit [OnFinality](https://app.onfinality.io) erstellen oder einfach den Standard-Polkadot-Endpoint verwenden. Dieser RPC-Node muss ein Archiv Node sein (volle Kettenzustand).
+- RPC-endpoint (erforderlich): Geben Sie eine wss-URL für einen laufenden RPC-Endpunkt an, der standardmäßig für dieses Projekt verwendet wird. Sie können schnell auf öffentliche Endpoints für verschiedene Polkadot-Netzwerke zugreifen oder sogar Ihren eigenen privaten dedizierten Node mit [OnFinality](https://app.onfinality.io) erstellen oder einfach den Standard-Polkadot-Endpoint verwenden. Dieser RPC-Knoten muss eine Archivknode sein (den Zustand der vollständigen Chain haben).
 - Autoren (erforderlich): Geben Sie hier den Eigentümer dieses SubQuery-Projekts ein
 - Beschreibung (optional): Sie können einen kurzen Absatz zu Ihrem Projekt bereitstellen, in dem beschrieben wird, welche Daten es enthält und was Benutzer damit tun können
 - Version (erforderlich): Geben Sie eine benutzerdefinierte Versionsnummer ein oder verwenden Sie die Standardversion (`1.0.0`).
@@ -54,7 +54,12 @@ Nachdem der Initialisierungsvorgang abgeschlossen ist, sollten Sie sehen, dass i
 
 Führen Sie zuletzt im Projektverzeichnis den folgenden Befehl aus, um die Abhängigkeiten des neuen Projekts zu installieren.
 
-<CodeGroup> cd PROJECT_NAME # Yarn yarn install # NPM npm install Sie werden hauptsächlich an den folgenden Dateien arbeiten:
+<CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
+<CodeGroupItem title="NPM"> ```bash cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
+
+## Starterprojekt konfigurieren und erstellen
+
+Im Startpaket, das Sie gerade initialisiert haben, haben wir eine Standardkonfiguration für Ihr neues Projekt bereitgestellt. Sie werden hauptsächlich an den folgenden Dateien arbeiten:
 
 - Das Manifest in `project.yaml`
 - Das GraphQL-Schema in `schema.graphql`
@@ -66,7 +71,10 @@ Weitere Informationen zum Schreiben einer eigenen SubQuery finden Sie in unserer
 
 Um Ihr SubQuery-Projekt [indizieren](../run/run.md) zu können, müssen Sie zuerst die erforderlichen GraphQL-Modelle generieren, die Sie in Ihrer GraphQL-Schemadatei (`schema.graphql`) definiert haben. Führen Sie diesen Befehl im Stammverzeichnis des Projektverzeichnisses aus.
 
-<CodeGroup> # Yarn yarn codegen # NPM npm run-script codegen
+<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem>
+<CodeGroupItem title="NPM"> ```bash npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
+
+Sie finden die generierten Modelle im `/src/types/models` Verzeichnis
 
 ## Bauen Sie das Projekt auf
 
