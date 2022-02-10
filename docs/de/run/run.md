@@ -83,6 +83,7 @@ subql-node -c your-project-config.yml
 
 Dadurch wird die Abfragenode auf eine Konfigurationsdatei verwiesen, die im YAML- oder JSON-Format vorliegen kann. Sehen Sie sich das Beispiel unten an.
 
+```yaml
 subquery: ../../../../subql-example/extrinsics
 subqueryName: extrinsics
 batchSize:100
@@ -112,7 +113,7 @@ Zu Debugging-Zwecken können Benutzer die Node im lokalen Modus ausführen. Beim
 Wenn der lokale Modus nicht verwendet wird, wird ein neues Postgres-Schema mit der anfänglichen `subquery_` und entsprechenden Projekttabellen erstellt.
 
 
-#### Local mode
+#### Überprüfen Sie den Zustand Ihrer Node
 
 Es gibt 2 Endpunkte, die Sie verwenden können, um den Zustand einer laufenden SubQuery-Node zu überprüfen und zu überwachen.
 
