@@ -103,7 +103,7 @@ Der Push-Befehl bedeutet "Bitte schiebe meinen Code VON meinem lokalen Master-Re
 
 Nachdem Sie Ihren Code nun in GitHub eingegeben haben, schauen wir uns an, wie wir ihn in SubQuery-Projekten hosten können.
 
-## 4. Erstellen Sie das Projekt
+## 4. Erstellen Sie Ihr Projekt
 
 Navigieren Sie zu [https://project.subquery.network](https://project.subquery.network) und melden Sie sich mit Ihrem GitHub-Konto an.
 
@@ -130,7 +130,7 @@ Wenn Sie auf create klicken, gelangen Sie zu Ihrem Dashboard.
 
 Das Dashboard enthält viele nützliche Informationen wie das verwendete Netzwerk, die GitHub-Repository-URL des ausgeführten Quellcodes, wann er erstellt und zuletzt aktualisiert wurde, und insbesondere die Bereitstellungsdetails.
 
-## 5. Step 5: Deploy your project
+## 5. Stellen Sie Ihr Projekt bereit
 
 Nachdem Sie Ihr Projekt nun in SubQuery Projects erstellt und das Anzeigeverhalten eingerichtet haben, besteht der nächste Schritt darin, Ihr Projekt bereitzustellen, um es betriebsbereit zu machen. Das Bereitstellen einer Version löst den Start eines neuen SubQuery-Indizierungsvorgangs aus und richtet den erforderlichen Abfragedienst ein, um GraphQL-Anforderungen zu akzeptieren. Sie können hier auch neue Versionen für bestehende Projekte bereitstellen.
 
