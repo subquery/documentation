@@ -25,7 +25,7 @@ Dieses Handbuch richtet sich an neue Entwickler, die über einige Entwicklungser
 
 Was Sie noch brauchen:
 
-- arn- oder npm-Paketmanager
+- yarn- oder npm-Paketmanager
 - SubQuery CLI (`@subql/cli`)
 - Docker
 
@@ -57,13 +57,13 @@ Wenn Sie das oben genannte erhalten, können Sie loslegen. Wenn nicht, folgen Si
 - [SubQuery CLI](quickstart.md#install-the-subquery-cli)
 - [Docker](https://docs.docker.com/get-docker/)
 
-## 1. Step 1: Initialise project
+## 1. Projekt initialisieren
 
 Der erste Schritt beim Starten mit SubQuery besteht darin, den Befehl `subql init` auszuführen. Lassen Sie uns ein Startprojekt mit dem Namen `subqlHelloWorld` initialisieren. Beachten Sie, dass nur der Autor obligatorisch ist. Alle andere wird unten leer gelassen.
 
 ```shell
 > subql init subqlHelloWorld
-? Select a network Polkadot
+? Wählen Sie einen Netzwerk-Polkadot aus
 ? Select a template project subql-starter     Starter project for subquery
 Cloning project... done
 RPC endpoint: [wss://polkadot.api.onfinality.io/public-ws]:
@@ -84,11 +84,14 @@ Vergessen Sie nicht, in dieses neue Verzeichnis zu wechseln.
 cd subqlHelloWorld
 ```
 
-## 2. Step 2: Install dependencies
+## 2. Abhängigkeiten installieren
 
 Führen Sie nun eine Yarn- oder Nodeinstallation durch, um die verschiedenen Abhängigkeiten zu installieren.
 
-<CodeGroup> # Yarn yarn install # NPM npm install
+<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn install ``` </CodeGroupItem>
+<CodeGroupItem title="NPM"> ```bash npm install ``` </CodeGroupItem> </CodeGroup>
+
+Beispiel von`yarn install`
 
 ```shell
 > yarn install
@@ -102,11 +105,14 @@ success Saved lockfile.
 ✨ Fertig in 31,84s.
 ```
 
-## 3. Step 3: Generate code
+## 3. Code generieren
 
 Führen Sie nun `yarn codegen` aus, um Typescript aus dem GraphQL-Schema zu generieren.
 
-<CodeGroup> # Yarn yarn codegen # NPM npm run-script codegen
+<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem>
+<CodeGroupItem title="NPM"> ```bash npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
+
+Beispiel von `yarn codegen`
 
 ```shell
 > yarn codegen
@@ -115,22 +121,22 @@ $ ./node_modules/.bin/subql codegen
 ===============================
 ---------Subql Codegen---------
 ===============================
-*
-Schema StarterEntity generated !
-*
-Models index generated !
-*
-Types index generated !
-✨  Done in 1.02s.
+* Schema StarterEntity generated !
+* Modellindex wurde generiert !
+* Typenindex wurde generiert !
+✨  Fertig in 1.02s.
 ```
 
 **Warnung** Wenn Änderungen an der Schemadatei vorgenommen werden, denken Sie bitte daran, `yarn codegen` erneut auszuführen, um Ihr Typenverzeichnis neu zu generieren.
 
-## 4. Step 4: Build code
+## 4. Code erstellen
 
 Der nächste Schritt besteht darin, den Code mit `yarn build` zu erstellen.
 
-<CodeGroup> # Yarn yarn build # NPM npm run-script build
+<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem>
+<CodeGroupItem title="NPM"> ```bash npm run-script build ``` </CodeGroupItem> </CodeGroup>
+
+Beispiel von`yarn build`
 
 ```shell
 > yarn build
@@ -152,12 +158,6 @@ subquery-node_1   | 2021-06-05T22:20:35.134Z <fetch> INFO fetch block [1, 100]
 subqlhelloworld_graphql-engine_1 exited with code 0
 subquery-node_1   | 2021-06-05T22:20:38.412Z <fetch> INFO fetch block [101, 200]
 graphql-engine_1  | 2021-06-05T22:20:39.353Z <nestjs> INFO Starting Nest application...
-graphql-engine_1  | 2021-06-05T22:20:39.382Z <nestjs> INFO AppModule dependencies initialized
-graphql-engine_1  | 2021-06-05T22:20:39.382Z <nestjs> INFO ConfigureModule dependencies initialized
-graphql-engine_1  | 2021-06-05T22:20:39.383Z <nestjs> INFO GraphqlModule dependencies initialized
-graphql-engine_1  | 2021-06-05T22:20:39.809Z <nestjs> INFO Nest application successfully started
-subquery-node_1   | 2021-06-05T22:20:41.122Z <fetch> INFO fetch block [201, 300]
-graphql-engine_1  | 2021-06-05T22:20:43.244Z <express> INFO request completed
 graphql-engine_1  | 2021-06-05T22:20:39.382Z <nestjs> INFO AppModule dependencies initialized
 graphql-engine_1  | 2021-06-05T22:20:39.382Z <nestjs> INFO ConfigureModule dependencies initialized
 graphql-engine_1  | 2021-06-05T22:20:39.383Z <nestjs> INFO GraphqlModule dependencies initialized
