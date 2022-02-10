@@ -70,21 +70,21 @@ Options:
                                            [string] [ตัวเลือก: "json", "colored"]
       --log-level           ระบุเลเวล log ที่จะพิมพ์ เพิกเฉยต่อคำสั่ง เมื่อมีการใช้ --debug
                            
-          [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
+          [string] [ตัวเลือก: "fatal", "error", "warn", "info", "debug", "trace",
                                                                        "silent"]
-      --migrate             Migrate db schema (for management tables only)
-                                                      [boolean] [default: false]
-      --timestamp-field     Enable/disable created_at and updated_at in schema
-                                                      [boolean] [default: false]
-  -d, --network-dictionary  Specify the dictionary api for this network [string]
-  -m, --mmr-path            Local path of the merkle mountain range (.mmr) file
+      --migrate             ย้าย db schema (สำหรับตารางการจัดการเท่านั้น)
+                                                      [boolean] [ค่าเริ่มต้น: false]
+      --timestamp-field     เปิด/ปิดการใช้ created_at และ updated_at ใน schema
+                                                      [boolean] [ค่าเริ่มต้น: false]
+  -d, --network-dictionary  ระบุ API พจนานุกรมสำหรับเครือข่ายนี้ [string]
+  -m, --mmr-path            Local path ของไฟล์ merkle mountain range (.mmr)
                                                                         [string]
-      --proof-of-index      Enable/disable proof of index
-                                                      [boolean] [default: false]
-  -p, --port                The port the service will bind to           [number]
+      --proof-of-index      เปิด/ปิดการใช้ proof of index
+                                                      [boolean] [ค่าเริ่มต้น: false]
+  -p, --port                พอร์ตที่บริการนี้เชื่อมต่อ           [number]
 ```
 
-### --version
+### --เวอร์ชัน
 
 คำสั่งนี้แสดงเวอร์ชันปัจจุบัน
 
@@ -104,25 +104,25 @@ subql-node --subquery .
 
 ### --subquery-name (เลิกใช้แล้ว)
 
-Flag นี้อนุญาตให้คุณระบุชื่อสำหรับโปรเจ็กต์ของคุณ ซึ่งทำหน้าที่เสมือนว่าได้ทำการสร้างอินสแตนซ์ของโปรเจ็กต์ของคุณ เมื่อมีการระบุชื่อใหม่ schema ของฐานข้อมูลใหม่จะถูกสร้างขึ้น และบล็อกการซิงโครไนซ์จะเริ่มต้นจากศูนย์ เลิกใช้ได้ด้วยคำสั่ง `--db-schema`
+Flag นี้อนุญาตให้คุณระบุชื่อสำหรับโปรเจ็กของคุณ ซึ่งทำหน้าที่เสมือนว่าได้ทำการสร้างอินสแตนซ์ของโปรเจ็กของคุณ เมื่อมีการระบุชื่อใหม่ schema ของฐานข้อมูลใหม่จะถูกสร้างขึ้น และการซิงโครไนซ์บล็อกจะเริ่มต้นจากศูนย์ เลิกใช้ได้ด้วยคำสั่ง `--db-schema`
 
 ```shell
 subql-node -f . --subquery-name=test2
 ```
 
-### -c, --config
+### -c, --การตั้งค่า
 
-การกำหนดค่าต่างๆทั้งหมดเหล่านี้สามารถทำได้ในไฟล์ .yml หรือ .json แล้วอ้างอิงด้วย config flag
+การกำหนดค่าต่าง ๆ ทั้งหมดเหล่านี้สามารถทำได้ในไฟล์ .yml หรือ .json แล้วอ้างอิงด้วย config flag
 
 ตัวอย่างไฟล์ subquery_config.yml
 
 ```shell
-subquery: . // จำเป็นต้องมี นี่คือ local path ของโปรเจ็กต์ ซึ่งหมายถึงไดเร็กทอรีภายในเครื่องปัจจุบัน
-subqueryName: hello // ชื่อเสริม (Optional)
-batchSize: 55 // การกำหนดค่าเสริม (Optional)
+subquery: . // จำเป็นต้องมี นี่คือ local path ของโปรเจ็ก ซึ่งหมายถึงไดเร็กทอรีภายในเครื่องปัจจุบัน
+ขื่อของโปรเจ็กการสืบค้นย่อย: hello // ชื่อเสริม (ไม่บังคับ)
+ขนาด batch: 55 // การกำหนดค่าเสริม (ไม่บังคับ)
 ```
 
-วางไฟล์นี้ในไดเร็กทอรีเดียวกันกับโปรเจ็กต์ จากนั้น ในไดเร็กทอรีโปรเจ็กต์ปัจจุบัน ให้รัน:
+วางไฟล์นี้ในไดเร็กทอรีเดียวกันกับโปรเจ็ก จากนั้น ในไดเร็กทอรีโปรเจ็กปัจจุบัน ให้รัน:
 
 ```shell
 > subql-node -c ./subquery_config.yml
@@ -136,21 +136,21 @@ Flag นี้ใช้เพื่อจุดประสงค์ในกา
 subql-node -f . --local
 ```
 
-โปรดทราบว่าเมื่อคุณใช้ flag นี้ การลบ flag นี้ไม่ได้หมายความว่า flag นี้จะชี้ไปที่ฐานข้อมูลอื่น หากต้องการชี้ไปยังฐานข้อมูลอื่น คุณจะต้องสร้างฐานข้อมูลใหม่และเปลี่ยนการตั้งค่า env เป็นฐานข้อมูลใหม่ กล่าวอีกนัยหนึ่ง "export DB_DATABASE=<new_db_here>"
+โปรดทราบว่าเมื่อคุณใช้ flag นี้ การลบ flag นี้ไม่ได้หมายความว่า flag นี้จะชี้ไปที่ฐานข้อมูลอื่น หากต้องการชี้ไปยังฐานข้อมูลอื่น คุณจะต้องสร้างฐานข้อมูลใหม่และเปลี่ยนการตั้งค่า env เป็นฐานข้อมูลใหม่ กล่าวอีกนัยหนึ่งคือ "export DB_DATABASE=<new_db_here>"
 
-### --force-clean
+### --การบังคับคลีน
 
-ใช้ flag นี้เพื่อบังคับให้ project schemas และ tables ถูกสร้างขึ้นใหม่ จะช่วยให้พัฒนา graphql schemas เหมือนเริ่มต้นโปรเจ็คใหม่และทำงานอยู่ใน clean state ข้อควรระวัง flag นี้จะลบข้อมูลที่ทำดัชนีไว้แล้วทั้งหมด
+ใช้ flag นี้เพื่อบังคับให้ project schemas และ tables ถูกสร้างขึ้นใหม่ จะช่วยให้พัฒนา graphql schemas เหมือนเริ่มต้นโปรเจ็กใหม่และทำงานอยู่ใน clean state ข้อควรระวัง flag นี้จะลบข้อมูลที่ทำดัชนีไว้แล้วทั้งหมด
 
 ### --db-schema
 
-Flag นี้อนุญาตให้คุณระบุชื่อสำหรับ schema ของฐานข้อมูลโปรเจ็กต์ เมื่อระบุชื่อใหม่ Schema ของฐานข้อมูลใหม่จะถูกสร้างขึ้นด้วยชื่อที่กำหนดค่าไว้และการเริ่มต้นสร้างดัชนีบล็อก
+Flag นี้อนุญาตให้คุณระบุชื่อสำหรับ schema ของฐานข้อมูลโปรเจ็ก เมื่อระบุชื่อใหม่ Schema ของฐานข้อมูลใหม่จะถูกสร้างขึ้นด้วยชื่อที่กำหนดค่าไว้และจะเริ่มต้นสร้างดัชนีบล็อก
 
 ```shell
 subql-node -f . --db-schema=test2
 ```
 
-### --unsafe
+### --โหมดไม่ปลอดภัย
 
 โปรเจ็กต์ SubQuery มักจะทำงานใน javascript sandbox เพื่อความปลอดภัย โดยจำกัดขอบเขตของการเข้าถึงโปรเจ็กต์ที่มีให้กับระบบของคุณ ซึ่ง sandbox จะจำกัดการนำเข้า javascript ที่พร้อมใช้งานไปยังโมดูลต่อไปนี้:
 
