@@ -31,7 +31,7 @@ Was Sie noch brauchen:
 
 ## 1. Erstellen Sie das Projekt
 
-Let's create a project called subqlHelloWorld by running `subql init` and selecting to build the project with the `Polkadot` network and initialize the project with the `subql-starter` template. We must run the obligatory install, codegen and build with your favourite package manager.
+Lassen Sie uns ein Projekt namens subqlHelloWorld erstellen, indem Sie `subql init` ausführen und auswählen, das Projekt mit dem `Polkadot`-Netzwerk zu erstellen, und das Projekt mit dem `subql-starter` initialisieren Schablone. Wir müssen die obligatorische Installation, Codegenerierung und Erstellung mit Ihrem bevorzugten Paketmanager ausführen.
 
 ```shell
 > subql init subqlHelloWorld
@@ -42,7 +42,7 @@ yarn build
 
 Führen Sie die Docker-Befehle jedoch NICHT aus.
 
-## 2. Step 2: Create a GitHub repo
+## 2. Erstellen Sie ein GitHub-Repository
 
 Erstellen Sie in GitHub ein neues öffentliches Repository. Geben Sie einen Namen an und stellen Sie Ihre Sichtbarkeit auf öffentlich ein. Hier wird vorerst alles als Standard beibehalten.
 
@@ -52,7 +52,7 @@ Notieren Sie sich Ihre GitHub-URL. Diese muss öffentlich sein, damit SubQuery d
 
 ![Erstellen Sie ein Github-Repository](/assets/img/github_repo_url.png)
 
-## 3. Step 3: Push to GitHub
+## 3. Auf GitHub pushen
 
 Zurück in Ihrem Projektverzeichnis, initialisieren Sie es als Git-Verzeichnis. Andernfalls erhalten Sie möglicherweise die Fehlermeldung "fatal: not a git repository (or any of the parent directory): .git"
 
@@ -72,7 +72,6 @@ Als nächstes fügen wir den Code mit den folgenden Befehlen zu unserem Reposito
 
 ```shell
 > git add .
-> git add .
 > git commit -m "First commit"
 [master (root-commit) a999d88] First commit
 10 files changed, 3512 insertions(+)
@@ -88,7 +87,7 @@ create mode 100644 tsconfig.json
 create mode 100644 yarn.lock
 > git push origin master
 Enumerating objects: 14, done.
-Counting objects: 100% (14/14), done.
+Counting objects: 100% (14/14), fertig.
 Delta-Komprimierung mit bis zu 12 Threads
 Komprimieren von Objekten: 100% (13/13), fertig.
 Schreibobjekte: 100% (14/14), 59,35 KiB | 8,48 MiB/s, fertig.
@@ -104,7 +103,7 @@ Der Push-Befehl bedeutet "Bitte schiebe meinen Code VON meinem lokalen Master-Re
 
 Nachdem Sie Ihren Code nun in GitHub eingegeben haben, schauen wir uns an, wie wir ihn in SubQuery-Projekten hosten können.
 
-## 4. Step 1: Create your project
+## 4. Erstellen Sie das Projekt
 
 Navigieren Sie zu [https://project.subquery.network](https://project.subquery.network) und melden Sie sich mit Ihrem GitHub-Konto an.
 
