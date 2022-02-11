@@ -4,7 +4,7 @@
     <div class="main">
       <div>
         <h2 class="welcomeTitle">SubQueryの <span>ドキュメント</span>へようこそ</h2>
-        <p>直感的なdAppsをより速く構築するために、チェーンデータを探索して変換しましょう！</p>
+        <p>直感的なdAppsをより速く構築するために、チェーンデータを検索して変換しましょう！</p>
       </div>
     </div>
   </section>
@@ -29,7 +29,7 @@
           <div>
             <img src="/assets/img/tutorialsIcon.svg" />
             <span>チュートリアルと使用例</span>
-            <p>実践で学びましょう。 様々な SubQuery プロジェクトをビルドする方法についてのチュートリアルと使用例。</p>
+            <p>実践で学びましょう。 様々な SubQuery プロジェクトをビルドする方法についてのチュートリアルと使用例がこちらです。</p>
           </div>
         </router-link>
       </li>
@@ -37,7 +37,7 @@
         <router-link :to="{path: '/create/introduction/'}">
           <div>
             <img src="/assets/img/docsIcon.svg" />
-            <span>技術参考ドキュメント</span>
+            <span>テクニカルリファレンスドキュメント</span>
             <p>開発者向けに書かれています。 素晴らしいdAppsを素早く構築するために必要なものを見つけましょう。</p>
           </div>
         </router-link>
@@ -47,7 +47,7 @@
           <div>
             <img src="/assets/img/networkIcon.svg" />
             <span>SubQuery Network</span>
-            <p>SubQueryの分散型未来。 インデックス作成者と消費者がどのように報酬を与えられるかについての詳細をご覧ください。 </p>
+            <p>SubQueryの分散型未来。 インデックス作成者と使用者がどのように報酬を与えられるかについての詳細をご覧ください。 </p>
           </div>
         </a>
       </li>
@@ -59,7 +59,7 @@
     <h2 class="title">FAQ</h2>
     <ul class="faqList">
       <li>
-        <div class="title">SubQueryとは?</div>
+        <div class="title">SubQueryとは？</div>
         <div class="content">
           <p>SubQueryは開発者がSubstrateチェーンのデータにインデックスを付け、変換し、クエリを実行して、アプリケーションを強化するためのオープンソースプロジェクトです。</p>
           <span class="more">
@@ -68,15 +68,15 @@
         </div>
       </li>
       <li>
-        <div class="title">SubQueryを始めるための最良の方法は何ですか?</div>
+        <div class="title">SubQueryを始めるための最良の方法は何ですか？</div>
         <div class="content">
-          <p>SubQueryを始める最良の方法は、 <a href="/quickstart/helloworld-localhost/">Hello Worldチュートリアル</a> を試してみることです。 これはスターターテンプレートをダウンロードし、プロジェクトを構築するための簡単な5分です。 次にDocker を使用して、localhost上でノードを実行し、単純なクエリを実行します。 </p>
+          <p>SubQueryを始める最良の方法は、 <a href="/quickstart/helloworld-localhost/">Hello Worldチュートリアル</a> を試してみることです。 スターターテンプレートをダウンロードし、プロジェクトをビルドし、Dockerを使用してローカルホスト上でノードを実行し、簡単なクエリを実行する5分間のウォークスルーです。 </p>
         </div>
       </li>
       <li>
-        <div class="title">SubQueryにどのように貢献したりフィードバックを与えたりできますか?</div>
+        <div class="title">SubQueryにどのように貢献したりフィードバックを与えたりできますか？</div>
         <div class="content">
-          <p>私たちはコミュニティからの貢献とフィードバックが大好きです。 コードに貢献するためには、関心のあるリポジトリをフォークして変更を加えます。 次にPRまたはPullリクエストを送信します。 ああ、テストすることを忘れないでください! 私たちの貢献ガイドラインもチェックしてください(近日公開)。 </p>
+          <p>私たちはコミュニティからの貢献とフィードバックが大好きです。 コードに貢献するためには、関心のあるリポジトリをフォークして変更を加えます。 次にPRまたはPullリクエストを送信します。 ああ、テストすることを忘れないでください！ 私たちの貢献ガイドラインもチェックしてください(近日公開)。 </p>
           <span class="more">
             <router-link :to="{path: '/faqs/faqs/#what-is-the-best-way-to-get-started-with-subquery'}">続きを読む</router-link>
           </span>
