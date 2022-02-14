@@ -63,18 +63,18 @@ echo -e "My yarn version is:" `yarn -v` "\nMy subql version is:" `subql -v`  "\n
 
 ```shell
 > subql init subqlHelloWorld
-? Select a network Polkadot
-? Select a template project subql-starter     Starter project for subquery
-Cloning project... done
-RPC endpoint: [wss://polkadot.api.onfinality.io/public-ws]:
-Git repository [https://github.com/subquery/subql-starter]:
+? > subql init subqlHelloWorld
+? Выберите шаблонный проект subql-starter Стартовый проект для subquery
+Клонирование проекта... готово
+Конечная точка RPC: [wss://polkadot.api.onfinality.io/public-ws]:
+Git-репозиторий [https://github.com/subquery/subql-starter]:
 Fetching network genesis hash... done
-Author [Ian He & Jay Ji]:
-Description [This project can be use as a starting po...]:
-Version [0.0.4]:
-License [MIT]:
-Preparing project... done
-subqlHelloWorld is ready
+Автор [Ian He & Jay Ji]:
+Описание [Этот проект может быть использован в качестве отправной точки...]:
+Версия [0.0.4]:
+Лицензия [MIT]:
+Подготовка проекта... готово
+subqlHelloWorld готов
 
 ```
 
