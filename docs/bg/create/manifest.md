@@ -18,18 +18,18 @@
 
 Под `Източници на данни`:
 
-- Can directly link an `index.js` entry point for mapping handlers. By default this `index.js` will be generated from `index.ts` during the build process.
-- Data sources can now be either a regular runtime data source or [custom data source](#custom-data-sources).
+- Може директно да свържете входната точка `index.js` за мапинг манипулатори. По подразбиране този `index.js` ще се генерира от `index.ts` по време на процеса на изграждане.
+- Източниците на данни вече могат да бъдат или обикновен източник на данни по време на изпълнение, или [персонализиран източник на данни](#custom-data-sources).
 
-### CLI Options
+### CLI Опции
 
-By default the CLI will generate SubQuery projects for spec verison v0.2.0. This behaviour can be overridden by running `subql init --specVersion 0.0.1 PROJECT_NAME`, although this is not recommended as the project will not be supported by the SubQuery hosted service in the future
+По подразбиране CLI ще генерира SubQuery проекти за версия v0.2.0 на спецификацията. Това поведение може да бъде прекратено, чрез стартиране на `subql init --specVersion 0.0.1 PROJECT_NAME`, въпреки че това не се препоръчва, тъй като проектът няма да се поддържа от хостваната SubQuery услуга в бъдеще
 
 `subql migrate` can be run in an existing project to migrate the project manifest to the latest version.
 
 USAGE $ subql init [PROJECTNAME]
 
-ARGUMENTS PROJECTNAME  Give the starter project name
+АРГУМЕНТИ PROJECTNAME  Дава име на началния проект
 
 | Options                 | Description                                                                  |
 | ----------------------- | ---------------------------------------------------------------------------- |
