@@ -6,7 +6,7 @@
 
 Деякі з наступних прикладів припускають, що ви успішно ініціалізували стартовий пакет у розділі [ Quick start ](../quickstart/quickstart.md). З цього стартового пакету ми пройдемо стандартний процес для налаштування та реалізації вашого проекту SubQuery.
 
-1. Initialise your project using `subql init PROJECT_NAME`.
+1. Ініціалізуйте своє проектне використання `subql init Project_name`.
 2. Оновіть файл Manifest (` project.yaml `), щоб включити інформацію про ваш блокчейн та об'єкти, які ви будете відображати - див. [ Manifest File ](./manifest.md)
 3. Створення графічних об'єктів у вашій схемі (`схемі. raphql`), що визначає форму даних, які ви будете вилучати і зберігати запити - дивіться [GraphQL Схема](./graphql.md)
 4. Додайте всі функції відображення (наприклад, ` mappingHandlers.ts `), які ви хочете викликати для перетворення даних ланцюга в визначені вами об'єкти GraphQL - див. [ Mapping ](./mapping.md)
@@ -33,7 +33,7 @@
 
 Наприклад:
 
-![SubQuery directory structure](/assets/img/subQuery_directory_stucture.png)
+![SubQuery структура каталогу](/assets/img/subQuery_directory_stucture.png)
 
 ## Генерація коду
 
@@ -54,11 +54,11 @@ yarn codegen
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```bash npm run-script build ``` </CodeGroupItem> </CodeGroup>
 
-### Alternative build options
+### Альтернатива будують вибір
 
-We support additional build options for subquery projects using `subql build`.
+Ми підтримуємо додатковим будують вибір для використання проектів підзапиту `subql build`.
 
-With this you can define additional entry points to build using the exports field in package.json.
+З цим ви можете визначити додаткові точки входу, щоб побудувати користування полем експорту в package.json.
 
 ```json
 "name": "project-name",
@@ -70,7 +70,7 @@ With this you can define additional entry points to build using the exports fiel
 },
 ```
 
-Then by running `subql build` it will generate a dist folder with the following structure:
+Потім бігши `subql build ` це робитиме dist теку з наступною структурою:
 
 ```
 - project-name
@@ -80,30 +80,30 @@ Then by running `subql build` it will generate a dist folder with the following 
     L index.js 
 ```
 
-Note that it will build `index.ts` whether or not it is specified in the exports field.
+Зауважте, що він буде створювати ` index.ts </ 0> чи не вказано в поле експорту. </p>
 
-For more information on using this including flags, see [cli reference](https://doc.subquery.network/references/references/#build).
+<p spaces-before="0">Для отримання додаткової інформації про використання цього, включаючи прапори, див. Розділ <a href="https://doc.subquery.network/references/references/#build"> Довідник </ 0>.</p>
 
-## Logging
+<h2 spaces-before="0">Ведення журналу</h2>
 
-The `console.log` method is **no longer supported**. Instead, a `logger` module has been injected in the types, which means we can support a logger that can accept various logging levels.
+<p spaces-before="0">Метод <code>console.log` **більше не підтримується**. Замість цього ` logger ` модуль був введений в типи, який означає, що ми можемо підтримувати лісоруба, який може прийняти різні реєстраційні рівні.
 
 ```typescript
-logger.info('Info level message');
-logger.debug('Debugger level message');
-logger.warn('Warning level message');
+logger.info('Інформаційне повідомлення ');
+logger.debug('Рівень повідомлення про Debugger ');
+logger.warn('Попередження про рівень повідомлень ');
 ```
 
-To use `logger.info` or `logger.warn`, just place the line into your mapping file.
+Для використання ` logger.info` чи `logger.warn`, просто розмістіть лінію у вашому файлі відображення.
 
 ![logging.info](/assets/img/logging_info.png)
 
-To use `logger.debug`, an additional flag is required. Add `--log-level=debug` to your command line.
+Для використання ` logger.debug ` необхідний додатковий крок. Додайте `--log-level=debug` до вашого командного рядка.
 
-If you are running a docker container, add this line to your `docker-compose.yaml` file.
+Якщо ви управляєте контейнером докера, додайте цей рядок до вас `docker-compose.yaml` файл.
 
 ![logging.debug](/assets/img/logging_debug.png)
 
-You should now see the new logging in the terminal screen.
+Тепер ви повинні побачити новий журнал на екрані терміналу.
 
 ![logging.debug](/assets/img/subquery_logging.png)
