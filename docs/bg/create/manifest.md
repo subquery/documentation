@@ -1,22 +1,22 @@
-# Manifest File
+# Манифест Файл
 
-The Manifest `project.yaml` file can be seen as an entry point of your project and it defines most of the details on how SubQuery will index and transform the chain data.
+Файлът Manifest `project.yaml` може да се разглежда като входящата точка на вашия проект, той дефинира повечето подробности за това как SubQuery ще индексира и трансформира данните от веригата.
 
-The Manifest can be in either YAML or JSON format. In this document, we will use YAML in all the examples. Below is a standard example of a basic `project.yaml`.
+Манифестът може да бъде във формат YAML или JSON. В този документ ще използваме YAML във всички примери. По-долу е даден стандартен пример за основен `project.yaml`.
 
-<CodeGroup> <CodeGroupItem title="v0.2.0" active> ``` yml specVersion: 0.2.0 name: example-project # Provide the project name version: 1.0.0  # Project version description: '' # Description of your project repository: 'https://github.com/subquery/subql-starter' # Git repository address of your project schema: file: ./schema.graphql # The location of your GraphQL schema file network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' # Genesis hash of the network endpoint: 'wss://polkadot.api.onfinality.io/public-ws' # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing dictionary: 'https://api.subquery.network/sq/subquery/dictionary-polkadot' dataSources: - kind: substrate/Runtime startBlock: 1 # This changes your indexing start block, set this higher to skip initial blocks with less data mapping: file: "./dist/index.js" handlers: - handler: handleBlock kind: substrate/BlockHandler - handler: handleEvent kind: substrate/EventHandler filter: #Filter is optional module: balances method: Deposit - handler: handleCall kind: substrate/CallHandler ```` </CodeGroupItem>
-<CodeGroupItem title="v0.0.1"> ``` yml specVersion: "0.0.1" description: '' # Description of your project repository: 'https://github.com/subquery/subql-starter' # Git repository address of your project schema: ./schema.graphql # The location of your GraphQL schema file network: endpoint: 'wss://polkadot.api.onfinality.io/public-ws' # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing dictionary: 'https://api.subquery.network/sq/subquery/dictionary-polkadot' dataSources: - name: main kind: substrate/Runtime startBlock: 1 # This changes your indexing start block, set this higher to skip initial blocks with less data mapping: handlers: - handler: handleBlock kind: substrate/BlockHandler - handler: handleEvent kind: substrate/EventHandler filter: #Filter is optional but suggested to speed up event processing module: balances method: Deposit - handler: handleCall kind: substrate/CallHandler ```` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="v0.2.0" active> ``` yml specVersion: 0.2.0 name: example-project # version: 1.0.0  # Версия на проекта description: '' # Посочете името на проекта repository: 'https://github.com/subquery/subql-starter' # Git адрес на хранилището на вашия проект schema: file: ./schema.graphql # Местоположението на вашия файл със схема на GraphQL network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' # Генезис хеш на мрежата endpoint: 'wss://polkadot.api.onfinality.io/public-ws' # По избор предоставете HTTP крайната точка на речник с пълна верига, за да ускорите обработката dictionary: 'https://api.subquery.network/sq/subquery/dictionary-polkadot' dataSources: - kind: substrate/Runtime startBlock: 1 # Това променя вашия начален блок за индексиране, задайте го по-високо, за да пропуснете първоначалните блокове с по-малко данни mapping: file: "./dist/index.js" handlers: - handler: handleBlock kind: substrate/BlockHandler - handler: handleEvent kind: substrate/EventHandler filter: #Filter is optional module: balances method: Deposit - handler: handleCall kind: substrate/CallHandler ```` </CodeGroupItem>
+<CodeGroupItem title="v0.0.1"> ``` yml specVersion: "0.0.1" description: '' # Описание на вашия проект repository: 'https://github.com/subquery/subql-starter' # Git адрес на хранилището на вашия проект schema: ./schema.graphql # Местоположението на вашия файл със схема на GraphQL network: endpoint: 'wss://polkadot.api.onfinality.io/public-ws' # По избор предоставете HTTP крайната точка на речник с пълна верига, за да ускорите обработката dictionary: 'https://api.subquery.network/sq/subquery/dictionary-polkadot' dataSources: - name: main kind: substrate/Runtime startBlock: 1 # Това променя вашия начален блок за индексиране, задайте го по-високо, за да пропуснете първоначалните блокове с по-малко данни mapping: handlers: - handler: handleBlock kind: substrate/BlockHandler - handler: handleEvent kind: substrate/EventHandler filter: #Филтърът е по избор, но се препоръчва за ускоряване на обработката на събития module: balances method: Deposit - handler: handleCall kind: substrate/CallHandler ```` </CodeGroupItem> </CodeGroup>
 
-## Migrating from v0.0.1 to v0.2.0 <Badge text="upgrade" type="warning"/>
+## Мигриране от v0.0.1 към v0.2.0 <Badge text="upgrade" type="warning"/>
 
-**If you have a project with specVersion v0.0.1, you can use `subql migrate` to quickly upgrade. [See here](#cli-options) for more information**
+**Ако имате проект със specVersion v0.0.1, можете да използвате `subql migrate` за бързо ъпдейтване. [Вижте тук](#cli-options) за повече информация **
 
-Under `network`:
+Под `мрежа`:
 
-- There is a new **required** `genesisHash` field which helps to identify the chain being used.
-- For v0.2.0 and above, you are able to reference an external [chaintype file](#custom-chains) if you are referencing a custom chain.
+- Има ново**задължително поле ** `genesisHash`, което помага да се идентифицира използваната верига.
+- За v0.2.0 и по-нова версия, можете да свържете външен [chaintype file](#custom-chains), ако препращате към персонализирана верига.
 
-Under `dataSources`:
+Под `Източници на данни`:
 
 - Can directly link an `index.js` entry point for mapping handlers. By default this `index.js` will be generated from `index.ts` during the build process.
 - Data sources can now be either a regular runtime data source or [custom data source](#custom-data-sources).
