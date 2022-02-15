@@ -4,7 +4,7 @@
 
 ## subql init
 
-The first command we ran was `subql init subqlHelloWorld`.
+Перша команда, яку ми запустили, була `subql init subqlHelloWorld`.
 
 Це робить важкий підйом і створює для вас цілу купу файлів. Як зазначається в [ офіційній документації ](quickstart.md#configure-and-build-the-starter-project), ви в основному будете працювати над такими файлами:
 
