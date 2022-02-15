@@ -25,7 +25,7 @@
 
 По подразбиране CLI ще генерира SubQuery проекти за версия v0.2.0 на спецификацията. Това поведение може да бъде прекратено, чрез стартиране на `subql init --specVersion 0.0.1 PROJECT_NAME`, въпреки че това не се препоръчва, тъй като проектът няма да се поддържа от хостваната SubQuery услуга в бъдеще
 
-`subql migrate` can be run in an existing project to migrate the project manifest to the latest version.
+`subql migrate` може да се стартира в съществуващ проект, за да мигрира манифеста на проекта към най-новата версия.
 
 USAGE $ subql init [PROJECTNAME]
 
@@ -62,34 +62,34 @@ USAGE $ subql init [PROJECTNAME]
 
 ### Мрежова спецификация
 
-| Поле            | v0.0.1 | v0.2.0        | Описание                                                                                                                                                                                                   |
-| --------------- | ------ | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **genesisHash** | 𐄂      | String        | The genesis hash of the network                                                                                                                                                                            |
-| **endpoint**    | String | String        | Defines the wss or ws endpoint of the blockchain to be indexed - **This must be a full archive node**. You can retrieve endpoints for all parachains for free from [OnFinality](https://app.onfinality.io) |
-| **dictionary**  | String | String        | It is suggested to provide the HTTP endpoint of a full chain dictionary to speed up processing - read [how a SubQuery Dictionary works](../tutorials_examples/dictionary.md).                              |
-| **chaintypes**  | 𐄂      | {file:String} | Path to chain types file, accept `.json` or `.yaml` format                                                                                                                                                 |
+| Поле            | v0.0.1 | v0.2.0        | Описание                                                                                                                                                                                                                |
+| --------------- | ------ | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **genesisHash** | 𐄂      | Низ           | Генезисният хеш на мрежата                                                                                                                                                                                              |
+| **endpoint**    | Низ    | Низ           | Дефинира wss или ws крайната точка на блокчейна, която да бъде индексирана - **Това трябва да е пълен архивен нод**. Можете да извлечете ендпойнт за всички парачейни безплатно [OnFinality](https://app.onfinality.io) |
+| **dictionary**  | Низ    | Низ           | Препоръчва се да се предостави HTTP еднпойнт на речник с пълна верига, за да се ускори обработката - четене[как работи SubQuery речникът](../tutorials_examples/dictionary.md).                                         |
+| **chaintypes**  | 𐄂      | {file:String} | Път към файла с типове вериги, приема`.json`или`.yaml` формат                                                                                                                                                           |
 
-### Datasource Spec
+### Спец. източник на данни
 
-Defines the data that will be filtered and extracted and the location of the mapping function handler for the data transformation to be applied.
-| Поле           | v0.0.1                                                    | v0.2.0                                                                           | Описание                                                                                                                                                                              |
-| -------------- | --------------------------------------------------------- | -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **name**       | String                                                    | 𐄂                                                                                | Name of the data source                                                                                                                                                               |
-| **вид**        | [substrate/Runtime](./manifest/#data-sources-and-mapping) | substrate/Runtime, [substrate/CustomDataSource](./manifest/#custom-data-sources) | We supports data type from default substrate runtime such as block, event and extrinsic(call). <br /> From v0.2.0, we support data from custom runtime, such as smart contract. |
-| **startBlock** | Integer                                                   | Integer                                                                          | This changes your indexing start block, set this higher to skip initial blocks with less data                                                                                         |
-| **mapping**    | Mapping Spec                                              | Mapping Spec                                                                     |                                                                                                                                                                                       |
-| **филтър**     | [network-filters](./manifest/#network-filters)            | 𐄂                                                                                | Filter the data source to execute by the network endpoint spec name                                                                                                                   |
+Дефинира данните, които ще бъдат филтрирани и извлечени, и местоположението на манипулатора на функцията за преобразуване, за да се приложи трансформацията на данни.
+| Поле           | v0.0.1                                                    | v0.2.0                                                                           | Описание                                                                                                                                                                                                                      |
+| -------------- | --------------------------------------------------------- | -------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **name**       | Низ                                                       | 𐄂                                                                                | Име на източника на данни                                                                                                                                                                                                     |
+| **kind**       | [substrate/Runtime](./manifest/#data-sources-and-mapping) | substrate/Runtime, [substrate/CustomDataSource](./manifest/#custom-data-sources) | Поддържаме тип данни от среда за изпълнение на субстрата по подразбиране, като блок, събитие и външно (повикване). <br /> От v0.2.0 поддържаме данни от персонализирана среда за изпълнение, като интелигентен договор. |
+| **startBlock** | Цяло число                                                | Цяло число                                                                       | Това променя вашия начален блок за индексиране, задайте го по-високо, за да пропуснете първоначалните блокове с по-малко данни                                                                                                |
+| **mapping**    | Мапинг спецификации                                       | Мапинг спецификации                                                              |                                                                                                                                                                                                                               |
+| **filter**     | [network-filters](./manifest/#network-filters)            | 𐄂                                                                                | Филтрирайте източника на данни за изпълнение по името на спецификацията на ендпойнта на мрежата                                                                                                                               |
 
-### Mapping Spec
+### Мапинг спецификации
 
-| Поле                   | v0.0.1                                                                   | v0.2.0                                                                                        | Описание                                                                                                                                                                                                                                     |
-| ---------------------- | ------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **file**               | String                                                                   | 𐄂                                                                                             | Path to the mapping entry                                                                                                                                                                                                                    |
-| **handlers & filters** | [Default handlers and filters](./manifest/#mapping-handlers-and-filters) | Default handlers and filters, <br />[Custom handlers and filters](#custom-data-sources) | List all the [mapping functions](./mapping.md) and their corresponding handler types, with additional mapping filters. <br /><br /> For custom runtimes mapping handlers please view [Custom data sources](#custom-data-sources) |
+| Поле                   | v0.0.1                                                                            | v0.2.0                                                                                                           | Описание                                                                                                                                                                                                                                                                                |
+| ---------------------- | --------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **file**               | Низ                                                                               | 𐄂                                                                                                                | Път до записа за мапинг                                                                                                                                                                                                                                                                 |
+| **handlers & filters** | [Манипулатори и филтри по подразбиране](./manifest/#mapping-handlers-and-filters) | Манипулатори и филтри по подразбиране, <br />[Персонализирани манипулатори и филтри](#custom-data-sources) | Избройте всички [мапинг функции](./mapping.md) и съответните им типове манипулатори, с допълнителни филтри за мапинг. <br /><br /> За персонализирани манипулатори за мапинг по време на изпълнение, моля, вижте [Персонализирани източници на данни](#custom-data-sources) |
 
-## Data Sources and Mapping
+## Източници на данни и мапинг
 
-In this section, we will talk about the default substrate runtime and its mapping. Here is an example:
+В този раздел ще говорим за времето за изпълнение на substrate по подразбиране и неговият мапинг. Ето един пример:
 
 ```yaml
 dataSources:
@@ -99,42 +99,42 @@ dataSources:
       file: dist/index.js # Entry path for this mapping
 ```
 
-### Mapping handlers and Filters
+### Манипулатори на мапинг и филтри
 
-The following table explains filters supported by different handlers.
+Следващата таблица обяснява филтрите, поддържани от различни манипулатори.
 
-**Your SubQuery project will be much more efficient when you only use event and call handlers with appropriate mapping filters**
+**Вашият SubQuery проект ще бъде много по-ефективен, когато използвате само манипулатори на събития и повиквания с подходящи филтри за мапинг**
 
-| Handler                                    | Supported filter             |
+| Манипулатор                                | Поддържан филтър             |
 | ------------------------------------------ | ---------------------------- |
 | [BlockHandler](./mapping.md#block-handler) | `specVersion`                |
 | [EventHandler](./mapping.md#event-handler) | `module`,`method`            |
 | [CallHandler](./mapping.md#call-handler)   | `module`,`method` ,`success` |
 
-Default runtime mapping filters are an extremely useful feature to decide what block, event, or extrinsic will trigger a mapping handler.
+Филтрите за мапинг по време на изпълнение са изключително полезна функция, за да решите кой блок, събитие или външен елемент ще задейства мапинг манипулатор.
 
-Only incoming data that satisfy the filter conditions will be processed by the mapping functions. Mapping filters are optional but are highly recommended as they significantly reduce the amount of data processed by your SubQuery project and will improve indexing performance.
+Само входящите данни, които отговарят на условията на филтъра, ще бъдат обработени от мапинг функциите. Мапинг филтрите не са задължителни, но са силно препоръчителни, тъй като значително намаляват количеството данни, обработвани от вашия SubQuery проект и ще подобрят ефективността на индексирането.
 
 ```yaml
-# Example filter from callHandler
-filter:
+# Примерен филтър от callHandler
+филтър:
   module: balances
   method: Deposit
   success: true
 ```
 
-- Module and method filters are supported on any substrate-based chain.
-- The `success` filter takes a boolean value and can be used to filter the extrinsic by its success status.
-- The `specVersion` filter specifies the spec version range for a substrate block. The following examples describe how to set version ranges.
+- Филтрите за модули и методи се поддържат на всяка верига, базирана на substrate.
+- Филтърът за `успех` приема булева стойност и може да се използва за филтриране на външния по неговия статус на успех.
+- Филтърът `specVersion` определя диапазона на версията на спецификацията за блок на substrate. Следващите примери описват как да зададете диапазони на версиите.
 
 ```yaml
-filter:
-  specVersion: [23, 24]   # Index block with specVersion in between 23 and 24 (inclusive).
-  specVersion: [100]      # Index block with specVersion greater than or equal 100.
-  specVersion: [null, 23] # Index block with specVersion less than or equal 23.
+филтър:
+  specVersion: [23, 24]   # Индексен блок със specVersion между 23 и 24 (включително).
+  specVersion: [100]      # Индексен блок със specVersion по-голям или равен на 100.
+  specVersion: [null, 23] # Индексен блок със specVersion по-малък или равен на 23.
 ```
 
-## Custom Chains
+## Персонализирани вериги
 
 ### Мрежова спецификация
 
@@ -144,7 +144,7 @@ The `genesisHash` must always be the hash of the first block of the custom netwo
 
 ![Genesis Hash](/assets/img/genesis-hash.jpg)
 
-Additionally you will need to update the `endpoint`. This defines the wss endpoint of the blockchain to be indexed - **This must be a full archive node**. You can retrieve endpoints for all parachains for free from [OnFinality](https://app.onfinality.io)
+Additionally you will need to update the `endpoint`. This defines the wss endpoint of the blockchain to be indexed - **This must be a full archive node**. Можете да извлечете ендпойнт за всички парачейни безплатно [OnFinality](https://app.onfinality.io)
 
 ### Chain Types
 
