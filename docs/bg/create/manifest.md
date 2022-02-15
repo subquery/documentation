@@ -31,38 +31,38 @@ USAGE $ subql init [PROJECTNAME]
 
 АРГУМЕНТИ PROJECTNAME  Дава име на началния проект
 
-| Options                 | Description                                                                  |
-| ----------------------- | ---------------------------------------------------------------------------- |
-| -f, --force             |                                                                              |
-| -l, --location=location | local folder to create the project in                                        |
-| --install-dependencies  | Install dependencies as well                                                 |
-| --npm                   | Force using NPM instead of yarn, only works with `install-dependencies` flag |
-| --specVersion=0.0.1     | 0.2.0  [default: 0.2.0] | The spec version to be used by the project         |
+| Опции                   | Описание                                                                                |
+| ----------------------- | --------------------------------------------------------------------------------------- |
+| -f, --force             |                                                                                         |
+| -l, --location=location | локална папка, в която да създадете проекта                                             |
+| --install-dependencies  | Инсталирайте и зависимостите                                                            |
+| --npm                   | Принудително използване на NPM вместо прежда, работи само с флаг `install-dependencies` |
+| --specVersion=0.0.1     | 0.2.0  [default: 0.2.0] | Версията на спецификацията, която ще се използва от проекта   |
 
-## Overview
+## Обзор
 
-### Top Level Spec
+### Най-високо ниво спецификации
 
-| Field           | v0.0.1                              | v0.2.0                      | Description                                                |
-| --------------- | ----------------------------------- | --------------------------- | ---------------------------------------------------------- |
-| **specVersion** | String                              | String                      | `0.0.1` or `0.2.0` - the spec version of the manifest file |
-| **name**        | 𐄂                                   | String                      | Name of your project                                       |
-| **version**     | 𐄂                                   | String                      | Version of your project                                    |
-| **description** | String                              | String                      | Discription of your project                                |
-| **repository**  | String                              | String                      | Git repository address of your project                     |
-| **schema**      | String                              | [Schema Spec](#schema-spec) | The location of your GraphQL schema file                   |
-| **network**     | [Network Spec](#network-spec)       | Network Spec                | Detail of the network to be indexed                        |
-| **dataSources** | [DataSource Spec](#datasource-spec) | DataSource Spec             |                                                            |
+| Поле            | v0.0.1                                                 | v0.2.0                                  | Описание                                                            |
+| --------------- | ------------------------------------------------------ | --------------------------------------- | ------------------------------------------------------------------- |
+| **specVersion** | Низ                                                    | Низ                                     | `0.0.1` or `0.2.0` - версия на спецификацията на файла на манифеста |
+| **name**        | 𐄂                                                      | Низ                                     | Име на проекта                                                      |
+| **version**     | 𐄂                                                      | Низ                                     | Версия на вашия проект                                              |
+| **description** | Низ                                                    | Низ                                     | Описание на вашия проект                                            |
+| **repository**  | Низ                                                    | Низ                                     | Git адрес на хранилището на вашия проект                            |
+| **schema**      | Низ                                                    | [Спецификация на схемата](#schema-spec) | Местоположението на вашия файл със схема на GraphQL                 |
+| **network**     | [Мрежова спецификация](#network-spec)                  | Мрежова спецификация                    | Подробности за мрежата, която трябва да бъде индексирана            |
+| **dataSources** | [Спецификация на източника на данни](#datasource-spec) | Спецификация на източника на данни      |                                                                     |
 
-### Schema Spec
+### Спецификация на схемата
 
-| Field    | v0.0.1 | v0.2.0 | Description                              |
-| -------- | ------ | ------ | ---------------------------------------- |
-| **file** | 𐄂      | String | The location of your GraphQL schema file |
+| Поле     | v0.0.1 | v0.2.0 | Описание                                            |
+| -------- | ------ | ------ | --------------------------------------------------- |
+| **file** | 𐄂      | String | Местоположението на вашия файл със схема на GraphQL |
 
-### Network Spec
+### Мрежова спецификация
 
-| Field           | v0.0.1 | v0.2.0        | Description                                                                                                                                                                                                |
+| Поле            | v0.0.1 | v0.2.0        | Описание                                                                                                                                                                                                   |
 | --------------- | ------ | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **genesisHash** | 𐄂      | String        | The genesis hash of the network                                                                                                                                                                            |
 | **endpoint**    | String | String        | Defines the wss or ws endpoint of the blockchain to be indexed - **This must be a full archive node**. You can retrieve endpoints for all parachains for free from [OnFinality](https://app.onfinality.io) |
@@ -72,7 +72,7 @@ USAGE $ subql init [PROJECTNAME]
 ### Datasource Spec
 
 Defines the data that will be filtered and extracted and the location of the mapping function handler for the data transformation to be applied.
-| Field          | v0.0.1                                                    | v0.2.0                                                                           | Description                                                                                                                                                                           |
+| Поле           | v0.0.1                                                    | v0.2.0                                                                           | Описание                                                                                                                                                                              |
 | -------------- | --------------------------------------------------------- | -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **name**       | String                                                    | 𐄂                                                                                | Name of the data source                                                                                                                                                               |
 | **вид**        | [substrate/Runtime](./manifest/#data-sources-and-mapping) | substrate/Runtime, [substrate/CustomDataSource](./manifest/#custom-data-sources) | We supports data type from default substrate runtime such as block, event and extrinsic(call). <br /> From v0.2.0, we support data from custom runtime, such as smart contract. |
@@ -82,7 +82,7 @@ Defines the data that will be filtered and extracted and the location of the map
 
 ### Mapping Spec
 
-| Field                  | v0.0.1                                                                   | v0.2.0                                                                                        | Description                                                                                                                                                                                                                                  |
+| Поле                   | v0.0.1                                                                   | v0.2.0                                                                                        | Описание                                                                                                                                                                                                                                     |
 | ---------------------- | ------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **file**               | String                                                                   | 𐄂                                                                                             | Path to the mapping entry                                                                                                                                                                                                                    |
 | **handlers & filters** | [Default handlers and filters](./manifest/#mapping-handlers-and-filters) | Default handlers and filters, <br />[Custom handlers and filters](#custom-data-sources) | List all the [mapping functions](./mapping.md) and their corresponding handler types, with additional mapping filters. <br /><br /> For custom runtimes mapping handlers please view [Custom data sources](#custom-data-sources) |
@@ -136,7 +136,7 @@ filter:
 
 ## Custom Chains
 
-### Network Spec
+### Мрежова спецификация
 
 When connecting to a different Polkadot parachain or even a custom substrate chain, you'll need to edit the [Network Spec](#network-spec) section of this manifest.
 
