@@ -1,29 +1,29 @@
-# Aggregate Functions
+# Агрегатні функції
 
 ## Group By
 
-SubQuery supports advanced aggregate functions to allow you to perform a calculation on a set of values during your query.
+SubQuery підтримує розширені агрегатні функції, що дозволяють вам здійснювати обчислення щодо набору значень під час вашого запиту.
 
-Aggregate functions are usually used with the GroupBy function in your query.
+Агрегуючі функції зазвичай використані з функцією GroupBy у вашому запиті.
 
-GroupBy allows you to quickly get distinct values in a set from SubQuery in a single query.
+GroupBy дозволяє вам швидко отримувати чіткі цінності в наборі від SubQuery в єдиному запиті.
 
 ![Graphql Groupby](/assets/img/graphql_aggregation.png)
 
-## Advanced Aggregate Functions
+## Розширені агрегатні функції
 
-SubQuery provides the following aggregate functions when in unsafe mode:
+SubQuery надає наступні агрегатні функції, коли в небезпечному режимі –
 
-- `sum` (applies to number-like fields) - the result of adding all the values together
-- `distinctCount` (applies to all fields) - the count of the number of distinct values
-- `min` (applies to number-like fields) - the smallest value
-- `max` (applies to number-like fields) - the greatest value
-- `average` (applies to number-like fields) - the average (arithmetic mean) value
-- `stddevSample` (applies to number-like fields) - the sample standard deviation of the values
-- `stddevPopulation` (applies to number-like fields) - the population standard deviation of the values
-- `varianceSample` (applies to number-like fields) - the sample variance of the values
-- `variancePopulation` (applies to number-like fields) - the population variance of the values
+- `sum` (застосовується до числових полів) - результат додавання всіх значень разом
+- `distinctCount` (застосовується до всіх полів) - кількість різних значень
+- `min` (застосовується до числових полів) - найменше значення
+- `max` (застосовується до числових полів) - найбільше значення
+- `average` (застосовується до числових полів) - середнє (середнє арифметичне) значення
+- `stddevSample` (застосовується до числових полів) - стандартне відхилення вибірки значень
+- `stddevPopulation` (застосовується до числових полів) - стандартне відхилення величин населення
+- `varianceSample` (застосовується до числових полів) - похибка вибірки значень
+- `variancePopulation` (застосовується до числових полів) - дисперсія генеральної сукупності значень
 
-SubQuery's implementation of aggregate functions is based on [pg-aggregates](https://github.com/graphile/pg-aggregates), you can find more information there
+Реалізація агрегатних функцій SubQuery базується на [pg-aggregates](https://github.com/graphile/pg-aggregates), додаткову інформацію можна знайти там
 
-**Please note that you must enable the `--unsafe` flag on the query service in order to use these functions. [Read more](../references/references.md#unsafe-2). Note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in SubQuery's managed service ([project.subquery.network](https://project.subquery.network))**
+**Зверніть увагу, що для використання цих функцій потрібно ввімкнути позначку `--небезпечна` на службі запитів. [Читати більше](../references/references.md#unsafe-2). Зверніть увагу, що команда `--unsafe` не дозволить вашому проєкту запустити в підпроцесній мережі, і ви повинні звернутися в службу підтримки, якщо хочете, щоб ця команда працювала з вашим проєкт в сервісі керування SubQuery ([проекті. ubquery.network](https://project.subquery.network))**
