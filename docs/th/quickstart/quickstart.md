@@ -39,7 +39,7 @@ subql help
 subql init PROJECT_NAME
 ```
 
-คุณจะถูกถามคำถามเมื่อโปรเจ็กต์ SubQuery เริ่มต้นขึ้น:
+เมื่อเราทำการสร้างโปรเจ็กต์ SubQuery จะมีรายละเอียดให้กรอกคือ:
 
 - Network: A blockchain network that this SubQuery project will be developed to index
 - Template: Select a SubQuery project template that will provide a starting point to begin development
