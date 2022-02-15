@@ -8,10 +8,10 @@
 
 Встановіть SubQuery CLI у всьому світі на свій термінал, використовуючи пряжу або NPM:
 
-<CodeGroup> <CodeGroupItem title="NPM"> ```bash npm install -g @subql/cli ``` </CodeGroupItem>
-<CodeGroupItem title="YARN" active> ```shell yarn global add @subql/cli ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn global add @subql/cli ``` </CodeGroupItem>
+<CodeGroupItem title="NPM"> ```bash npm install -g @subql/cli ``` </CodeGroupItem> </CodeGroup>
 
-You can then run help to see available commands and usage provide by CLI:
+Потім ви можете запустити довідку, щоб побачити доступні команди та використання, надані CLI:
 
 ```shell
 subql help
@@ -22,10 +22,10 @@ subql help
 
 Встановіть вузол SubQuery у всьому світі на своєму терміналі за допомогою пряжі або NPM:
 
-<CodeGroup> <CodeGroupItem title="NPM"> ```bash npm install -g @subql/node ``` </CodeGroupItem>
-<CodeGroupItem title="YARN" active> ```shell yarn global add @subql/node ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn global add @subql/node ``` </CodeGroupItem>
+<CodeGroupItem title="NPM"> ```bash npm install -g @subql/node ``` </CodeGroupItem> </CodeGroup>
 
-Once installed, you can can start a node with:
+Після встановлення ви можете запустити вузол з:
 
 ```shell
 subql-node <command>
