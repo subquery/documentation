@@ -23,13 +23,13 @@
 
 ### Параметри CLI
 
-By default the CLI will generate SubQuery projects for spec verison v0.2.0. This behaviour can be overridden by running `subql init --specVersion 0.0.1 PROJECT_NAME`, although this is not recommended as the project will not be supported by the SubQuery hosted service in the future
+За замовчуванням CLI буде генерувати SubQuery проекти для verison v0.2.0. Ця поведінка може бути перевизначена за керуванням ` SubQL init-specversion 0.0.1 project_name </ 0>, хоча це не рекомендується, оскільки проект не буде підтриманий підзаписом обслуговування в майбутньому</p>
 
-` subql migrate ` можна запустити в існуючому проекті для перенесення маніфесту проекту на останню версію.
+<p spaces-before="0"><code> subql migrate ` можна запустити в існуючому проекті для перенесення маніфесту проекту на останню версію.
 
-USAGE $ subql init [PROJECTNAME]
+Використання $ subql init [назвапроекту]
 
-ARGUMENTS PROJECTNAME  Give the starter project name
+НЕОБХІДНО ДЛЯ НАДАТИ початкову назву проекту
 
 | Параметри               | Описання                                                                     |
 | ----------------------- | ---------------------------------------------------------------------------- |
