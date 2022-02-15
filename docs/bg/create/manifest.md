@@ -138,69 +138,69 @@ dataSources:
 
 ### Мрежова спецификация
 
-When connecting to a different Polkadot parachain or even a custom substrate chain, you'll need to edit the [Network Spec](#network-spec) section of this manifest.
+Когато се свързвате към различен парачейн на Polkadot или дори към персонализирана верига на substrate, ще трябва да редактирате раздела за [мрежови спецификации](#network-spec) на този манифест.
 
-The `genesisHash` must always be the hash of the first block of the custom network. You can retireve this easily by going to [PolkadotJS](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fkusama.api.onfinality.io%2Fpublic-ws#/explorer/query/0) and looking for the hash on **block 0** (see the image below).
+`genesisHash` винаги трябва да бъде хешът на първия блок от персонализираната мрежа. Можете лесно да промените това, като отидете на [PolkadotJS](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fkusama.api.onfinality.io%2Fpublic-ws#/explorer/query/0) and looking for the hash on **block 0** (вижте изображението по-долу).
 
 ![Genesis Hash](/assets/img/genesis-hash.jpg)
 
-Additionally you will need to update the `endpoint`. This defines the wss endpoint of the blockchain to be indexed - **This must be a full archive node**. Можете да извлечете ендпойнт за всички парачейни безплатно [OnFinality](https://app.onfinality.io)
+Освен това, ще трябва да актуализирате `ендпойнта`. Това дефинира ендпойнта wss на блокчейна, която трябва да бъде индексирана - **това трябва да е пълен архивен нод**. Можете да извлечете ендпойнт за всички парачейни безплатно [OnFinality](https://app.onfinality.io)
 
-### Chain Types
+### Видове вериги
 
-You can index data from custom chains by also including chain types in the manifest.
+Можете да индексирате данни от персонализирани вериги, като включите и типове вериги в манифеста.
 
-We support the additional types used by substrate runtime modules, `typesAlias`, `typesBundle`, `typesChain`, and `typesSpec` are also supported.
+Поддържаме допълнителните типове, използвани от модулите на substrate, по време на изпълнение `typesAlias`, `typesBundle`, `typesChain`, поддържат се и `typesSpec`.
 
-In the v0.2.0 example below, the `network.chaintypes` are pointing to a file that has all the custom types included, This is a standard chainspec file that declares the specific types supported by this blockchain in either `.json`, `.yaml` or `.js` format.
+В примера v0.2.0 по-долу, `network.chaintypes` сочат към файл, който включва всички персонализирани типове. Това е стандартен файл със спецификации на веригата, който декларира специфичните типове, поддържани от този блокчейн в `.json`, `.yaml` или `.js` формат.
 
-<CodeGroup> <CodeGroupItem title="v0.2.0" active> ``` yml network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' endpoint: 'ws://host.kittychain.io/public-ws' chaintypes: file: ./types.json # The relative filepath to where custom types are stored ... ``` </CodeGroupItem>
-<CodeGroupItem title="v0.0.1"> ``` yml ... network: endpoint: "ws://host.kittychain.io/public-ws" types: { "KittyIndex": "u32", "Kitty": "[u8; 16]" } # typesChain: { chain: { Type5: 'example' } } # typesSpec: { spec: { Type6: 'example' } } dataSources: - name: runtime kind: substrate/Runtime startBlock: 1 filter:  #Optional specName: kitty-chain mapping: handlers: - handler: handleKittyBred kind: substrate/CallHandler filter: module: kitties method: breed success: true ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="v0.2.0" active> ``` yml network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' endpoint: 'ws://host.kittychain.io/public-ws' chaintypes: file: ./types.json # относителният път на файла до мястото, където се съхраняват персонализирани типове ... ``` </CodeGroupItem>
+<CodeGroupItem title="v0.0.1"> ``` yml ... network: endpoint: "ws://host.kittychain.io/public-ws" types: { "KittyIndex": "u32", "Kitty": "[u8; 16]" } # typesChain: { chain: { Type5: 'example' } } # typesSpec: { spec: { Type6: 'example' } } dataSources: - name: runtime kind: substrate/Runtime startBlock: 1 filter:  #Опционално specName: kitty-chain mapping: handlers: - handler: handleKittyBred kind: substrate/CallHandler filter: module: kitties method: breed success: true ``` </CodeGroupItem> </CodeGroup>
 
-To use typescript for your chain types file include it in the `src` folder (e.g. `./src/types.ts`), run `yarn build` and then point to the generated js file located in the `dist` folder.
+За да използвате машинопис за вашия файл с типове вериги, включете го в папка `src` (например `./src/types.ts`), стартирайте `yarn build` и след това посочете генерирания js файл, разположен в папка `dist`.
 
 ```yml
 network:
   chaintypes:
-    file: ./dist/types.js # Will be generated after yarn run build
+    file: ./dist/types.js # Ще бъде генерирано след изграждане на прежда
 ...
 ```
 
-Things to note about using the chain types file with extension `.ts` or `.js`:
+Неща, които трябва да отбележите относно използването на файла с типове вериги с разширение `.ts` или `.js`:
 
-- Your manifest version must be v0.2.0 or above.
-- Only the default export will be included in the [polkadot api](https://polkadot.js.org/docs/api/start/types.extend/) when fetching blocks.
+- Версията на манифеста ви трябва да е v0.2.0 или по-нова.
+- Само експортирането по подразбиране ще бъде включено в [polkadot api](https://polkadot.js.org/docs/api/start/types.extend/) при извличане на блокове.
 
-Here is an example of a `.ts` chain types file:
+Ето пример за файл с `.ts` типове вериги:
 
 <CodeGroup> <CodeGroupItem title="types.ts"> ```ts
 import { typesBundleDeprecated } from "moonbeam-types-bundle"
 export default { typesBundle: typesBundleDeprecated }; ``` </CodeGroupItem> </CodeGroup>
 
-## Custom Data Sources
+## Персонализирани източници на данни
 
-Custom Data Sources provide network specific functionality that makes dealing with data easier. They act as a middleware that can provide extra filtering and data transformation.
+Персонализираните източници на данни предоставят специфична за мрежата функционалност, която улеснява работата с данни. Те действат като междинен софтуер, който може да осигури допълнително филтриране и трансформация на данни.
 
-A good example of this is EVM support, having a custom data source processor for EVM means that you can filter at the EVM level (e.g. filter contract methods or logs) and data is transformed into structures farmiliar to the Ethereum ecosystem as well as parsing parameters with ABIs.
+Добър пример за това е поддръжката на EVM, когато имате персонализиран процесор за източник на данни за EVM означава, че можете да филтрирате на ниво EVM (напр. филтриране на договорни методи или логове) и данните се трансформират в структури, подобни на екосистемата на Ethereum, както и параметри за анализиране с ABIs.
 
-Custom Data Sources can be used with normal data sources.
+Персонализираните източници на данни могат да се използват с нормални източници на данни.
 
-Here is a list of supported custom datasources:
+Ето списък на поддържаните персонализирани източници на данни:
 
-| Kind                                                  | Supported Handlers                                                                                       | Filters                         | Description                                                                      |
-| ----------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | ------------------------------- | -------------------------------------------------------------------------------- |
-| [substrate/Moonbeam](./moonbeam/#data-source-example) | [substrate/MoonbeamEvent](./moonbeam/#moonbeamevent), [substrate/MoonbeamCall](./moonbeam/#moonbeamcall) | See filters under each handlers | Provides easy interaction with EVM transactions and events on Moonbeams networks |
+| Тип                                                   | Поддържани манипулатори                                                                                  | Филтри                               | Описание                                                                         |
+| ----------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | ------------------------------------ | -------------------------------------------------------------------------------- |
+| [substrate/Moonbeam](./moonbeam/#data-source-example) | [substrate/MoonbeamEvent](./moonbeam/#moonbeamevent), [substrate/MoonbeamCall](./moonbeam/#moonbeamcall) | Вижте филтрите под всеки манипулатор | Осигурява лесно взаимодействие с EVM транзакции и събития в мрежите на Moonbeams |
 
-## Network Filters
+## Мрежови филтри
 
-**Network filters only applies to manifest spec v0.0.1**.
+**Мрежовите филтри се отнасят само за манифест спецификация v0.0.1. **.
 
-Usually the user will create a SubQuery and expect to reuse it for both their testnet and mainnet environments (e.g Polkadot and Kusama). Between networks, various options are likely to be different (e.g. index start block). Therefore, we allow users to define different details for each data source which means that one SubQuery project can still be used across multiple networks.
+Обикновено потребителят ще създаде SubQuery и ще очаква да го използва повторно както за своята тестова, така и за основната среда (напр. Polkadot и Kusama). Между мрежите е вероятно разнообразните опции да са различни (напр. начален блок на индекса). Следователно ние позволяваме на потребителите да дефинират различни подробности за всеки източник на данни, което означава, че един SubQuery проект, все още може да се използва в множество мрежи.
 
-Users can add a `filter` on `dataSources` to decide which data source to run on each network.
+Потребителите могат да добавят `филтър` към `dataSources` за да решат кой източник на данни да се изпълнява във всяка мрежа.
 
-Below is an example that shows different data sources for both the Polkadot and Kusama networks.
+По-долу е даден пример, който показва различни източници на данни за мрежите Polkadot и Kusama.
 
-<CodeGroup> <CodeGroupItem title="v0.0.1"> ```yaml --- network: endpoint: 'wss://polkadot.api.onfinality.io/public-ws' #Create a template to avoid redundancy definitions: mapping: &mymapping handlers: - handler: handleBlock kind: substrate/BlockHandler dataSources: - name: polkadotRuntime kind: substrate/Runtime filter: #Optional specName: polkadot startBlock: 1000 mapping: *mymapping #use template here - name: kusamaRuntime kind: substrate/Runtime filter: specName: kusama startBlock: 12000 mapping: *mymapping # can reuse or change ``` </CodeGroupItem>
+<CodeGroup> <CodeGroupItem title="v0.0.1"> ```yaml --- network: endpoint: 'wss://polkadot.api.onfinality.io/public-ws' #Създайте шаблон, за да избегнете излишък определения: mapping: &mymapping handlers: - handler: handleBlock kind: substrate/BlockHandler dataSources: - name: polkadotRuntime kind: substrate/Runtime filter: #По избор specName: polkadot startBlock: 1000 mapping: *mymapping #use template here - name: kusamaRuntime kind: substrate/Runtime filter: specName: kusama startBlock: 12000 mapping: *mymapping # can reuse or change ``` </CodeGroupItem>
 
 </CodeGroup>
