@@ -113,7 +113,7 @@ ARGUMENTS
 
 ### Top Level Spec
 
-| Field           |               v0.0.1                |           v0.2.0            |                                                Description |
+| Field           |               v0.0.1                |           v0.2.0+           |                                                Description |
 | --------------- | ----------------------------------- | --------------------------- | ---------------------------------------------------------- |
 | **specVersion** |               String                |           String            | `0.0.1` or `0.2.0` - the spec version of the manifest file |
 | **name**        |                  𐄂                  |           String            |                                       Name of your project |
@@ -132,12 +132,13 @@ ARGUMENTS
 
 ### Network Spec
 
-| Field           | v0.0.1 |    v0.2.0     |                                                                                                Description                                                                                                 |
-| --------------- | ---- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **genesisHash** |   𐄂     |    String    |                                                                                      The genesis hash of the network                                                                                       |
-| **endpoint**    | String |    String     | Defines the wss or ws endpoint of the blockchain to be indexed - **This must be a full archive node**. You can retrieve endpoints for all parachains for free from [OnFinality](https://app.onfinality.io) |
-| **dictionary**  | String |    String     |               It is suggested to provide the HTTP endpoint of a full chain dictionary to speed up processing - read [how a SubQuery Dictionary works](../tutorials_examples/dictionary.md).                |
-| **chaintypes**  |   𐄂    | {file:String} |                                                                         Path to chain types file, accept `.json` or `.yaml` format                                                                         |
+| Field           | v0.0.1 |    v0.2.0     |    v0.3.0     |                                                                                                Description                                                                                                 |
+| --------------- | ------ | ------------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **genesisHash** |   𐄂    |    String     |    String     |                                                                The genesis hash of the network (from v0.3.0 this is an alias for chainId)                                                                  |
+| **chainId**     |   𐄂    |      x        |    String     |                                                                                  A network identifier for the blockchain                                                                                   |
+| **endpoint**    | String |    String     |    String     | Defines the wss or ws endpoint of the blockchain to be indexed - **This must be a full archive node**. You can retrieve endpoints for all parachains for free from [OnFinality](https://app.onfinality.io) |
+| **dictionary**  | String |    String     |    String     |               It is suggested to provide the HTTP endpoint of a full chain dictionary to speed up processing - read [how a SubQuery Dictionary works](../tutorials_examples/dictionary.md).                |
+| **chaintypes**  |   𐄂    | {file:String} | {file:String} |                                                                         Path to chain types file, accept `.json` or `.yaml` format                                                                         |
 
 ### Datasource Spec
 
@@ -175,11 +176,13 @@ The following table explains filters supported by different handlers.
 
 **Your SubQuery project will be much more efficient when you only use event and call handlers with appropriate mapping filters**
 
-| Handler                                    | Supported filter             |
-| ------------------------------------------ | ---------------------------- |
-| [BlockHandler](./mapping.md#block-handler) | `specVersion`                |
-| [EventHandler](./mapping.md#event-handler) | `module`,`method`            |
-| [CallHandler](./mapping.md#call-handler)   | `module`,`method` ,`success` |
+| Handler                                              | Supported filter             |
+| ---------------------------------------------------- | ---------------------------- |
+| [substrate/BlockHandler](./mapping.md#block-handler) | `specVersion`                |
+| [substrate/EventHandler](./mapping.md#event-handler) | `module`,`method`            |
+| [substrate/CallHandler](./mapping.md#call-handler)   | `module`,`method` ,`success` |
+| [terra/BlockHandler](./mapping.md#event-handler)     | `module`,`method`            |
+| [terra/EventHandler](./mapping.md#call-handler)      | `module`,`method` ,`success` |
 
 Default runtime mapping filters are an extremely useful feature to decide what block, event, or extrinsic will trigger a mapping handler.
 
