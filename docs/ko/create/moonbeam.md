@@ -6,7 +6,7 @@
 
 | 네트워크 이름 | 웹소켓 엔드포인트                                                         | 딕셔너리 엔드포인트                                                           |
 | ------- | ----------------------------------------------------------------- | -------------------------------------------------------------------- |
-| 문빔      | _출시 예정_                                                           | _출시 예정_                                                              |
+| 문빔      | `wss://moonbeam.api.onfinality.io/public-ws`                      | `https://api.subquery.network/sq/subquery/moonbeam-dictionary`       |
 | 문리버     | `wss://moonriver.api.onfinality.io/public-ws
 Contextrequest`      | `https://api.subquery.network/sq/subquery/moonriver-dictionary`      |
 | 문베이스 알파 | `wss://moonbeam-alpha.api.onfinality.io/public-ws
