@@ -78,15 +78,16 @@ templates:
 ```ts
 // This function is defined using `subql codegen` cli command
 import { createTradingPairDatasource } from '../types';
+import {MoonbeamEvent} from '@subql/contract-processors/dist/moonbeam';
 
-function handleNewTradingPair(event: MoonbeamEvent): Promise<void> {
+async function handleNewTradingPair(event: MoonbeamEvent): Promise<void> {
   const { exchange, token1, token2 } = event.args;
 
   // Create a new datasource providing the address of the trading pair exchange contract
   await createTradingPairDatasource({ address: exchange });
 }
 
-function handleLiquidityAdded(event: MoonbeamEvent): Promise<void> {
+async function handleLiquidityAdded(event: MoonbeamEvent): Promise<void> {
   /* mapping fuction implementation here */
 }
 ```
