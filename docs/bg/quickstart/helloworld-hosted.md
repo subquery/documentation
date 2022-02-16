@@ -120,7 +120,7 @@ And fill in the various fields with the appropriate details.
 - **Subtitle:** Provide a subtitle for your project.
 - **Description:** Explain what your SubQuery project does.
 - **GitHub Repository URL:** This must be a valid GitHub URL to a public repository that contains your SubQuery project. The schema.graphql file must be in the root of your directory.
-- **Hide project:** If selected, this will hide the project from the public SubQuery explorer. Keep this unselected if you want to share your SubQuery with the community!
+- **Скриване на проект:** Ако е маркирано, това ще скрие проекта от публичния SubQuery експлорър. Запазете това немаркирано, ако искате да споделите вашият SubQuery с общността!
 
 ![Create SubQuery parameters](/assets/img/create_subquery_project_parameters.png)
 
@@ -132,15 +132,15 @@ The dashboard contains lots of useful information such as the network it is usin
 
 ## 5. Deploy your project
 
-Now that you have created your project within SubQuery Projects, setting up the display behaviour, the next step is to deploy your project making it operational. Deploying a version triggers a new SubQuery indexing operation to start, and sets up the required query service to start accepting GraphQL requests. You can also deploy new versions to existing projects here.
+Now that you have created your project within SubQuery Projects, setting up the display behaviour, the next step is to deploy your project making it operational. Внедряването на версия задейства нова операция за индексиране на SubQuery и настройва необходимата услуга за заявки, за да започне да приема заявки на GraphQL. Можете също да внедрите нови версии в съществуващи проекти тук.
 
 You can choose to deploy to various environments such as a production slot or a staging slot. Here we'll deploy to a production slot. Clicking on the "Deploy" button brings up a screen with the following fields:
 
 ![Deploy to production slot](/assets/img/deploy_production_slot.png)
 
 - **Commit Hash of new Version:** From GitHub select the correct commit of the SubQuery project codebase that you want deployed
-- **Indexer Version:** This is the version of SubQuery's node service that you want to run this SubQuery on. See [@subql/node](https://www.npmjs.com/package/@subql/node)
-- **Query Version:** This is the version of SubQuery's query service that you want to run this SubQuery on. See [@subql/query](https://www.npmjs.com/package/@subql/query)
+- **Версия на индексатора:** Това е версията на SubQuery нодът, на който искате да стартирате този SubQuery. See [@subql/node](https://www.npmjs.com/package/@subql/node)
+- **Версия на заявка:** Това е версията на услугата за заявки на SubQuery, на която искате да стартирате този SubQuery. See [@subql/query](https://www.npmjs.com/package/@subql/query)
 
 Because we only have one commit, there is only a single option in the drop down. We'll also work with the latest version of the indexer and query version so we will accept the defaults and then click "Deploy Update".
 
