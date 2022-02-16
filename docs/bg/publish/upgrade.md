@@ -27,8 +27,8 @@ If you just want to upgrade to the latest indexer ([`@subql/node`](https://www.n
 
 Fill in the Commit Hash from GitHub (copy the full commit hash) of the version of your SubQuery project codebase that you want deployed. This will cause a longer downtime depending on the time it takes to index the current chain. You can always report back here for progress.
 
-## Next Steps - Connect to your Project
-Once your deployment has succesfully completed and our nodes have indexed your data from the chain, you'll be able to connect to your project via the displayed GraphQL Query endpoint.
+## Следващи стъпки - Свържете се с вашия проект
+След като внедряването ви приключи успешно и нашите нодове са индексирали вашите данни от веригата, ще можете да се свържете с вашия проект чрез показания ендпойнт на GraphQL Query.
 
 ![Проектът се внедрява и се синхронизира](/assets/img/projects-deploy-sync.png)
 
