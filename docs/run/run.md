@@ -25,18 +25,46 @@ A SubQuery node is an implementation that extracts substrate-based blockchain da
 
 ### Installation
 
-```shell
+<CodeGroup>
+<CodeGroupItem title='Substrate'>
+
+``` shell
 # NPM
 npm install -g @subql/node
 ```
+</CodeGroupItem>
+
+<CodeGroupItem title='Terra'>
+
+``` shell
+# NPM
+npm install -g @subql/node-terra
+````
+
+</CodeGroupItem>
+</CodeGroup>
 
 Please note that we **DO NOT** encourage the use of `yarn global` due to its poor dependency management which may lead to an errors down the line.
 
 Once installed, you can start a node with the following command:
 
+
+<CodeGroup>
+<CodeGroupItem title='Substrate'>
+
 ```shell
 subql-node <command>
 ```
+
+</CodeGroupItem>
+<CodeGroupItem title='Terra'>
+
+```shell
+subql-node-terra <command>
+```
+
+</CodeGroupItem>
+</CodeGroup>
 
 ### Key Commands
 
@@ -45,9 +73,22 @@ To find out more, you can always run `--help`.
 
 #### Point to local project path
 
-```
+<CodeGroup>
+<CodeGroupItem title='Substrate'>
+
+```shell
 subql-node -f your-project-path
 ```
+
+</CodeGroupItem>
+<CodeGroupItem title='Terra'>
+
+```shell
+subql-node-terra -f your-project-path
+```
+
+</CodeGroupItem>
+</CodeGroup>
 
 #### Use a Dictionary
 
@@ -57,9 +98,22 @@ A full chain dictionary pre-indexes the location of all events and extrinsics wi
 
 You can add the dictionary endpoint in your `project.yaml` file (see [Manifest File](../create/manifest.md)), or specify it at run time using the following command:
 
-```
+<CodeGroup>
+<CodeGroupItem title='Substrate'>
+
+```shell
 subql-node --network-dictionary=https://api.subquery.network/sq/subquery/dictionary-polkadot
 ```
+
+</CodeGroupItem>
+<CodeGroupItem title='Terra'>
+
+```shell
+subql-node-terra --network-dictionary=https://api.subquery.network/sq/subquery/dictionary-polkadot
+```
+
+</CodeGroupItem>
+</CodeGroup>
 
 [Read more about how a SubQuery Dictionary works](../tutorials_examples/dictionary.md).
 
@@ -71,16 +125,29 @@ export DB_PASS=postgres
 export DB_DATABASE=postgres
 export DB_HOST=localhost
 export DB_PORT=5432
-subql-node -f your-project-path 
+subql-node -f your-project-path
 ````
 
 Depending on the configuration of your Postgres database (e.g. a different database password), please ensure also that both the indexer (`subql/node`) and the query service (`subql/query`) can establish a connection to it.
 
 #### Specify a configuration file
 
-```
+<CodeGroup>
+<CodeGroupItem title='Substrate'>
+
+```shell
 subql-node -c your-project-config.yml
 ```
+
+</CodeGroupItem>
+<CodeGroupItem title='Terra'>
+
+```shell
+subql-node-terra -c your-project-config.yml
+```
+
+</CodeGroupItem>
+</CodeGroup>
 
 This will point the query node to a configuration file which can be in YAML or JSON format. Check out the example below.
 
@@ -93,7 +160,7 @@ localMode:true
 
 #### Change the block fetching batch size
 
-```
+```shell
 subql-node -f your-project-path --batch-size 200
 
 Result:
@@ -105,9 +172,22 @@ When the indexer first indexes the chain, fetching single blocks will significan
 
 #### Run in local mode
 
-```
+<CodeGroup>
+<CodeGroupItem title='Substrate'>
+
+```shell
 subql-node -f your-project-path --local
 ```
+
+</CodeGroupItem>
+<CodeGroupItem title='Terra'>
+
+```shell
+subql-node-terra -f your-project-path --local
+```
+
+</CodeGroupItem>
+</CodeGroup>
 
 For debugging purposes, users can run the node in local mode. Switching to local model will create Postgres tables in the default schema `public`.
 
