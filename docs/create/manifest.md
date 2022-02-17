@@ -274,8 +274,8 @@ The following table explains filters supported by different handlers.
 | Substrate/Polkadot | [substrate/BlockHandler](./mapping.md#block-handler) | `specVersion`                |
 | Substrate/Polkadot | [substrate/EventHandler](./mapping.md#event-handler) | `module`,`method`            |
 | Substrate/Polkadot | [substrate/CallHandler](./mapping.md#call-handler)   | `module`,`method` ,`success` |
-| Terra              | [terra/BlockHandler](./mapping.md#event-handler)     | No filters                   |
-| Terra              | [terra/EventHandler](./mapping.md#call-handler)      | `type`                       |
+| Terra              | [terra/BlockHandler](./mapping.md#block-handler)     | No filters                   |
+| Terra              | [terra/EventHandler](./mapping.md#event-handler)     | `type`                       |
 
 Default runtime mapping filters are an extremely useful feature to decide what block, event, or extrinsic will trigger a mapping handler.
 
