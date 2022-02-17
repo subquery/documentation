@@ -23,15 +23,21 @@ Dibawah `dataSources`:
 
 ### CLI Options
 
-Meskipun versi spesifikasi v0.2.0 masih dalam versi beta, Anda perlu mendefinisikannya secara eksplisit selama inisialisasi proyek dengan menjalankan `subql init --specVersion 0.2.0 PROJECT_NAME`
+Secara default, CLI akan menghasilkan proyek SubQuery untuk spesifikasi verison v0.2.0. Perilaku ini dapat diganti dengan menjalankan `subql init --specVersion 0.0.1 PROJECT_NAME`, meskipun ini tidak disarankan karena proyek tidak akan didukung oleh layanan yang dihosting SubQuery di masa mendatang
 
-`migrasi subql` dapat dijalankan di proyek yang ada untuk memigrasikan manifes proyek ke versi terbaru.
+`subql migrate` dapat dijalankan di proyek yang ada untuk memigrasikan manifes proyek ke versi terbaru.
 
-| Pilihan        | Deskripsi                                                          |
-| -------------- | ------------------------------------------------------------------ |
-| -f, --force    |                                                                    |
-| -l, --location | folder lokal untuk menjalankan migrasi (harus berisi project.yaml) |
-| --file=file    | untuk menentukan project.yaml yang akan dimigrasi                  |
+PENGGUNAAN $ subql init [PROJECTNAME]
+
+ARGUMENTS PROJECTNAME  Berikan nama proyek awal
+
+| Pilihan                 | Deskripsi                                                                                  |
+| ----------------------- | ------------------------------------------------------------------------------------------ |
+| -f, --force             |                                                                                            |
+| -l, --location=location | folder lokal untuk membuat proyek di                                                       |
+| --install-dependencies  | Instal dependensi juga                                                                     |
+| --npm                   | Paksa menggunakan NPM alih-alih benang, hanya berfungsi dengan flag `install-dependencies` |
+| --specVersion=0.0.1     | 0.2.0  [default: 0.2.0] | Versi spesifikasi yang akan digunakan oleh proyek                |
 
 ## Gambaran
 
@@ -65,11 +71,11 @@ Meskipun versi spesifikasi v0.2.0 masih dalam versi beta, Anda perlu mendefinisi
 
 ### Datasource Spec
 
-Mendefinisikan data yang akan disaring dan diekstraksi dan lokasi pengendali fungsi pemetaan untuk transformasi data yang akan diterapkan.
+Mendefinisikan data yang akan difilter dan diekstraksi dan lokasi pengendali fungsi pemetaan untuk transformasi data yang akan diterapkan.
 | Field          | v0.0.1                                                    | v0.2.0                                                                           | Deskripsi                                                                                                                                                                                          |
 | -------------- | --------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **name**       | String                                                    | 𐄂                                                                                | Nama sumber data                                                                                                                                                                                   |
-| **jenis**      | [substrate/Runtime](./manifest/#data-sources-and-mapping) | substrate/Runtime, [substrate/CustomDataSource](./manifest/#custom-data-sources) | Kami mendukung tipe data dari runtime substrate default seperti blok, event, dan extrinsic (panggilan). <br /> Dari v0.2.0, kami mendukung data dari runtime khusus, seperti smart contract. |
+| **jenis**      | [substrate/Runtime](./manifest/#data-sources-and-mapping) | substrate/Runtime, [substrate/CustomDataSource](./manifest/#custom-data-sources) | Kami mendukung tipe data dari runtime substrat default seperti blok, acara, dan ekstrinsik (panggilan). <br /> Dari v0.2.0, kami mendukung data dari runtime khusus, seperti kontrak pintar. |
 | **startBlock** | Integer                                                   | Integer                                                                          | Ini mengubah blok awal pengindeksan Anda, setel ini lebih tinggi untuk melewati blok awal dengan lebih sedikit data                                                                                |
 | **mapping**    | Mapping Spec                                              | Mapping Spec                                                                     |                                                                                                                                                                                                    |
 | **filter**     | [network-filters](./manifest/#network-filters)            | 𐄂                                                                                | Filter sumber data untuk dieksekusi dengan nama spesifikasi titik akhir jaringan                                                                                                                   |
@@ -83,7 +89,7 @@ Mendefinisikan data yang akan disaring dan diekstraksi dan lokasi pengendali fun
 
 ## Sumber Data dan Pemetaan
 
-Di bagian ini, kita akan berbicara tentang runtime substrate default dan pemetaannya. Berikut adalah contohnya:
+Di bagian ini, kita akan berbicara tentang runtime media default dan pemetaannya. Berikut ini contohnya:
 
 ```yaml
 dataSources:
@@ -95,9 +101,9 @@ dataSources:
 
 ### Handler pemetaan dan Filter
 
-Tabel berikut menjelaskan filter yang didukung oleh handler yang berbeda.
+Tabel berikut menjelaskan filter yang didukung oleh penangan yang berbeda.
 
-**Proyek SubQuery Anda akan jauh lebih efisien jika Anda hanya menggunakan event dan call handler dengan filter pemetaan yang sesuai**
+**Proyek SubQuery Anda akan jauh lebih efisien bila Anda hanya menggunakan event dan call handler dengan filter pemetaan yang sesuai**
 
 | Handler                                    | Filter yang didukung         |
 | ------------------------------------------ | ---------------------------- |
@@ -105,9 +111,9 @@ Tabel berikut menjelaskan filter yang didukung oleh handler yang berbeda.
 | [EventHandler](./mapping.md#event-handler) | `module`,`method`            |
 | [CallHandler](./mapping.md#call-handler)   | `module`,`method` ,`success` |
 
-Filter pemetaan runtime default adalah fitur yang sangat berguna untuk memutuskan block, event, atau extrinsic apa yang akan memicu handler pemetaan.
+Filter pemetaan runtime default adalah fitur yang sangat berguna untuk memutuskan blok, peristiwa, atau ekstrinsik apa yang akan memicu pengendali pemetaan.
 
-Hanya data masuk yang memenuhi kondisi filter yang akan diproses oleh fungsi pemetaan. Filter pemetaan bersifat opsional tetapi sangat disarankan karena secara signifikan mengurangi jumlah data yang diproses oleh proyek SubQuery Anda dan akan meningkatkan kinerja pengindeksan.
+Hanya data masuk yang memenuhi kondisi filter yang akan diproses oleh fungsi pemetaan. Hanya data masuk yang memenuhi kondisi filter yang akan diproses oleh fungsi pemetaan.
 
 ```yaml
 # Contoh filter dari callHandler
@@ -132,11 +138,11 @@ filter:
 
 ### Network Spec
 
-Saat menghubungkan ke parachain Polkadot yang berbeda atau bahkan rantai substrate khusus, Anda harus mengedit bagian [Network Spec](#network-spec) dari manifes ini.
+Saat menghubungkan ke parachain Polkadot yang berbeda atau bahkan rantai substrat khusus, Anda harus mengedit bagian [Spesifikasi Jaringan](#network-spec) dari manifes ini.
 
-`genesisHash` harus selalu berupa hash dari blok pertama jaringan kustom. Anda dapat mengambil ini dengan mudah dengan pergi ke [Polkadot Js](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fkusama.api.onfinality.io%2Fpublic-ws#/explorer/query/0) dan mencari hash di **blok 0** (lihat gambar di bawah).
+`genesisHash` harus selalu berupa hash dari blok pertama jaringan kustom. Anda dapat mengambilnya dengan mudah dengan membuka [Polkadot Js](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fkusama.api.onfinality.io%2Fpublic-ws#/explorer/query/0) dan mencari hash di **blok 0** (lihat gambar di bawah).
 
-![Kejadian Hash](/assets/img/genesis-hash.jpg)
+![Genesis Hash](/assets/img/genesis-hash.jpg)
 
 Selain itu, Anda perlu memperbarui `endpoint`. Ini mendefinisikan endpoint wss dari blockchain yang akan diindeks - **Ini harus berupa node arsip lengkap**. Anda dapat mengambil endpoint untuk semua parachains secara gratis dari [OnFinality](https://app.onfinality.io)
 
@@ -144,37 +150,57 @@ Selain itu, Anda perlu memperbarui `endpoint`. Ini mendefinisikan endpoint wss d
 
 Anda dapat mengindeks data dari rantai kustom dengan juga menyertakan jenis rantai dalam manifes.
 
-Kami mendukung jenis tambahan yang digunakan oleh modul waktu proses media, `typesAlias`, `typesBundle`, `typesChain`, dan `typesSpec` juga didukung
+Kami mendukung jenis tambahan yang digunakan oleh modul waktu proses media, `typesAlias`, `typesBundle`, `typesChain`, dan `typesSpec` juga didukung.
 
-Dalam contoh v0.2.0 di bawah ini, `network.chaintypes` menunjuk ke file yang memiliki semua tipe kustom yang disertakan, Ini adalah file chainspec standar yang menyatakan tipe spesifik yang didukung oleh blockchain ini di < 0>.json</code> atau `.yaml`.
+Dalam contoh v0.2.0 di bawah ini, `network.chaintypes` menunjuk ke file yang memiliki semua tipe kustom yang disertakan, Ini adalah file chainspec standar yang menyatakan tipe spesifik yang didukung oleh blockchain ini di < 0>.json</code>, `.yaml` atau `.js` format.
 
-<CodeGroup> <CodeGroupItem title="v0.2.0" active> ``` yml network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' endpoint: 'ws://host.kittychain.io/public-ws' chaintypes: file: ./types.json # Filepath relatif ke tempat tipe kustom disimpan ... ``` </CodeGroupItem>
+<CodeGroup> <CodeGroupItem title="v0.2.0" active> ``` yml network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' endpoint: 'ws://host.kittychain.io/public-ws' chaintypes: file: ./types.json # Filepath relatif ke tempat jenis kustom disimpan ... ``` </CodeGroupItem>
 <CodeGroupItem title="v0.0.1"> ``` yml ... network: endpoint: "ws://host.kittychain.io/public-ws" types: { "KittyIndex": "u32", "Kitty": "[u8; 16]" } # typesChain: { chain: { Type5: 'example' } } # typesSpec: { spec: { Type6: 'example' } } dataSources: - name: runtime kind: substrate/Runtime startBlock: 1 filter:  #Optional specName: kitty-chain mapping: handlers: - handler: handleKittyBred kind: substrate/CallHandler filter: module: kitties method: breed success: true ``` </CodeGroupItem> </CodeGroup>
+
+Untuk menggunakan TypeScript untuk file jenis rantai Anda, masukkan dalam folder `src` (misalnya `./src/types.ts`), jalankan `yarn build` dan lalu arahkan ke file js yang dihasilkan yang terletak di folder `dist`.
+
+```yml
+network:
+  chaintypes:
+    file: ./dist/types.js # Akan dihasilkan setelah pembuatan yarn run
+...
+```
+
+Hal-hal yang perlu diperhatikan tentang menggunakan file jenis rantai dengan ekstensi `.ts` atau `.js`:
+
+- Versi manifes Anda harus v0.2.0 atau lebih tinggi.
+- Hanya ekspor default yang akan disertakan dalam [polkadot api](https://polkadot.js.org/docs/api/start/types.extend/) saat mengambil blok.
+
+Berikut adalah contoh file jenis rantai `.ts`:
+
+<CodeGroup> <CodeGroupItem title="types.ts"> ```ts
+import { typesBundleDeprecated } from "moonbeam-types-bundle"
+export default { typesBundle: typesBundleDeprecated }; ``` </CodeGroupItem> </CodeGroup>
 
 ## Sumber Data Khusus
 
 Sumber Data Khusus menyediakan fungsionalitas khusus jaringan yang membuat penanganan data menjadi lebih mudah. Mereka bertindak sebagai middleware yang dapat memberikan pemfilteran ekstra dan transformasi data.
 
-Contoh yang baik dari hal ini adalah dukungan EVM, memiliki prosesor sumber data khusus untuk EVM berarti Anda dapat memfilter pada tingkat EVM (misalnya menyaring method contract atau log) dan data diubah menjadi struktur yang mirip dengan ekosistem Ethereum juga sebagai parameter penguraian dengan ABI.
+Contoh yang baik dari hal ini adalah dukungan EVM, memiliki prosesor sumber data khusus untuk EVM berarti Anda dapat memfilter pada tingkat EVM (misalnya menyaring metode kontrak atau log) dan data diubah menjadi struktur yang mirip dengan ekosistem Ethereum juga sebagai parameter penguraian dengan ABI.
 
 Sumber Data Khusus dapat digunakan dengan sumber data normal.
 
 Berikut adalah daftar sumber data khusus yang didukung:
 
-| Jenis                                                 | Handler yang didukung                                                                                    | Filter                               | Deskripsi                                                                             |
-| ----------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | ------------------------------------ | ------------------------------------------------------------------------------------- |
-| [substrate/Moonbeam](./moonbeam/#data-source-example) | [substrate/MoonbeamEvent](./moonbeam/#moonbeamevent), [substrate/MoonbeamCall](./moonbeam/#moonbeamcall) | Lihat filter di bawah setiap handler | Menyediakan interaksi yang mudah dengan transaksi dan acara EVM di jaringan Moonbeams |
+| Baik                                                 | Penangan yang Didukung                                                                                 | Filter                                | Deskripsi                                                                                |
+| ---------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | ------------------------------------- | ---------------------------------------------------------------------------------------- |
+| [substrat/Moonbeam](./moonbeam/#data-source-example) | [substrat/MoonbeamEvent](./moonbeam/#moonbeamevent), [substrat/MoonbeamCall](./moonbeam/#moonbeamcall) | Lihat filter di bawah setiap penangan | Memberikan interaksi yang mudah dengan transaksi dan peristiwa EVM di jaringan Moonbeams |
 
-## Network Filters
+## Filter Jaringan
 
-**Network Filter hanya berlaku untuk spesifikasi manifes v0.0.1**.
+**Filter jaringan hanya berlaku untuk spesifikasi manifes v0.0.1**.
 
-Biasanya pengguna akan membuat SubQuery dan berharap untuk menggunakannya kembali untuk lingkungan testnet dan mainnet mereka (misalnya Polkadot dan Kusama). Di antara jaringan, berbagai opsi cenderung berbeda (misalnya blok awal indeks). Oleh karena itu, kami mengizinkan pengguna untuk menentukan detail yang berbeda untuk setiap sumber data yang berarti bahwa satu proyek SubQuery masih dapat digunakan di beberapa jaringan.
+Biasanya pengguna akan membuat SubQuery dan berharap dapat menggunakannya kembali untuk lingkungan testnet dan mainnet mereka (misalnya Polkadot dan Kusama). Di antara jaringan, berbagai opsi cenderung berbeda (misalnya blok awal indeks). Oleh karena itu, kami mengizinkan pengguna untuk menentukan detail yang berbeda untuk setiap sumber data yang berarti bahwa satu proyek SubQuery masih dapat digunakan di beberapa jaringan.
 
 Pengguna dapat menambahkan `filter` pada `dataSources` untuk memutuskan sumber data mana yang akan dijalankan di setiap jaringan.
 
-Di bawah ini adalah contoh yang menunjukkan sumber data yang berbeda untuk jaringan Polkadot dan Kusama.
+Di bawah ini merupakan contoh yang menunjukkan sumber data berbeda untuk jaringan Polkadot dan Kusama.
 
-<CodeGroup> <CodeGroupItem title="v0.0.1"> ```yaml --- jaringan: titik akhir: 'wss://polkadot.api.onfinality.io/public-ws' #Buat template untuk menghindari redundansi definisi: pemetaan: &pemetaan saya penangan: - handler: handleBlock jenis: substrat/BlockHandler sumber data: - nama: polkadotRuntime jenis: substrat/Waktu Proses filter: #Opsional specName: polkadot mulaiBlok: 1000 pemetaan: *mymapping #gunakan template di sini - nama: kusamaRuntime jenis: substrat/Waktu Proses Saring: specName: kusama mulaiBlok: 12000 pemetaan: *mymapping # dapat digunakan kembali atau diubah ``` </CodeGroupItem>
+<CodeGroup> <CodeGroupItem title="v0.0.1"> ```yaml --- network: endpoint: 'wss://polkadot.api.onfinality.io/public-ws' #Buat template untuk menghindari redundansi definitions: mapping: &mymapping handlers: - handler: handleBlock kind: substrate/BlockHandler dataSources: - name: polkadotRuntime kind: substrate/Runtime filter: #Optional specName: polkadot startBlock: 1000 mapping: *mymapping #pakai template disini - name: kusamaRuntime kind: substrate/Runtime filter: specName: kusama startBlock: 12000 mapping: *mymapping # dapat digunakan kembali atau diubah ``` </CodeGroupItem>
 
 </CodeGroup>

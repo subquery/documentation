@@ -4,7 +4,7 @@
 
 ![โปรเจ็กต์ที่กำลัง deploy และ sync แล้ว](/assets/img/projects-deploy-sync.png)
 
-หรือคุณสามารถคลิกที่จุดสามจุดถัดจากชื่อโปรเจ็กต์ของคุณ แล้วดูใน SubQuery Explorer คุณสามารถใช้ playground ในเบราว์เซอร์เพื่อเริ่มต้นได้ There you can use the in browser playground to get started.
+หรือคุณสามารถคลิกที่จุดสามจุดถัดจากชื่อโปรเจ็กต์ของคุณ แล้วดูใน SubQuery Explorer คุณสามารถใช้ playground ในเบราว์เซอร์เพื่อเริ่มต้นได้
 
 ![โปรเจ็กต์ใน SubQuery Explorer](/assets/img/projects-explorer.png)
 

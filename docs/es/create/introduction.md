@@ -6,7 +6,7 @@ En la guía [de inicio rápido](/quickstart/quickstart.md) encontraremos un ejem
 
 Algunos de los siguientes ejemplos asumirán que ha iniciado con éxito el paquete de inicio en la sección [Inicio rápido](../quickstart/quickstart.md). Desde ese paquete de inicio, pasaremos por el proceso estándar para personalizar e implementar su proyecto SubQuery.
 
-1. Inicia tu proyecto usando `subql init --specVersion 0.2.0 PROJECT_NAME`. alternativamente puede usar la antigua versión de especificaciones `subql init PROJECT_NAME`
+1. Inicia tu proyecto usando `subql init PROJECT_NAME`.
 2. Actualizar el archivo de manifiesto ( `project.yaml`) para incluir información sobre tu blockchain, y las entidades que vas a mapear - ver [Archivo de manifiesto](./manifest.md)
 3. Crear entidades GraphQL en tu esquema (`schema.graphql`) que definen la forma de los datos que extraerás y persistirá para la consulta - vea [Esquema GraphQL](./graphql.md)
 4. Agrega todas las funciones de mapeo (por ejemplo, `mappingHandlers.ts`) que desea invocar para transformar los datos de cadena a las entidades GraphQL que ha definido - vea [Mapeo](./mapping.md)
@@ -51,7 +51,42 @@ Para ejecutar tu proyecto SubQuery en un nodo SubQuery alojado localmente, prime
 
 Ejecuta el comando de compilación desde el directorio raíz del proyecto.
 
-<CodeGroup> El metodo `console.log` **ya no es compatible**. En su lugar, se ha inyectado un módulo `logger` en los tipos, lo que significa que podemos soportar un registrador que puede aceptar varios niveles de registro.
+<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem>
+<CodeGroupItem title="NPM"> ```bash npm run-script build ``` </CodeGroupItem> </CodeGroup>
+
+### Alternative build options
+
+We support additional build options for subquery projects using `subql build`.
+
+Con esto puede definir puntos de entrada adicionales para construir usando el campo exports en package.json.
+
+```json
+"name": "project-name",
+"version": "1.0.0",
+...
+"exports": {
+  "entry_one": "./src/entry_one.ts",
+  "entry_renamed": "./src/entry_two.ts"
+},
+```
+
+Entonces ejecutando `subql build` generará una carpeta de dist con la siguiente estructura:
+
+```
+- project-name
+  L dist
+    L entry_one.js
+    L entry_renamed.js
+    L index.js 
+```
+
+Tenga en cuenta que construirá `index.ts` si se especifica o no en el campo de exportación.
+
+Para obtener más información sobre cómo usar esto incluyendo banderas, consulte [referencia de cli](https://doc.subquery.network/references/references/#build).
+
+## Registros
+
+The `console.log` method is **no longer supported**. En su lugar, se ha inyectado un módulo `logger` en los tipos, lo que significa que podemos soportar un registrador que puede aceptar varios niveles de registro.
 
 ```typescript
 logger.info('Mensaje de nivel de información');
@@ -63,7 +98,7 @@ Para usar `logger.info` o `logger.warn`, simplemente coloque la línea en su arc
 
 ![logging.info](/assets/img/logging_info.png)
 
-Para usar `logger.debug`, se requiere un paso adicional. Agrega `--log-level=debug` a tu línea de comando.
+Para usar `logger.debug`, se requiere una bandera adicional. Agrega `--log-level=debug` a tu línea de comando.
 
 Si está ejecutando un contenedor docker, agregue esta línea a su archivo `docker-compose.yaml`.
 

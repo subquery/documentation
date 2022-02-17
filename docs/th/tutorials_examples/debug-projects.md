@@ -28,10 +28,10 @@ Debugger attached.
 
 ## Chrome devtools
 
-เปิด Chrome DevTools และไปที่แท็บ Sources โปรดทราบว่าการคลิกที่ไอคอนสีเขียวจะเป็นการเปิดหน้าต่างใหม่ Note that clicking on the green icon will open up a new window.
+เปิด Chrome DevTools และไปที่แท็บ Sources โปรดทราบว่าการคลิกที่ไอคอนสีเขียวจะเป็นการเปิดหน้าต่างใหม่
 
 ![node inspect](/assets/img/node_inspect.png)
 
-ไปที่ Filesystem และเพิ่มโฟลเดอร์โปรเจ็กต์ของคุณไป workspace ไปที่ Filesystem และเพิ่มโฟลเดอร์โปรเจ็กต์ของคุณไป workspace จากนั้นเปิด dist > โฟลเดอร์ mappings และเลือกโค้ดคุณต้องการ debug จากนั้นตรวจสอบโค้ดเช่นเดียวกับเครื่องมือสำหรับ debug มาตรฐานทั่วไป Then step through the code as with any standard debugging tool.
+ไปที่ Filesystem และเพิ่มโฟลเดอร์โปรเจ็กต์ของคุณไป workspace จากนั้นเปิด dist > โฟลเดอร์ mappings และเลือกโค้ดคุณต้องการ debug จากนั้นตรวจสอบโค้ดเช่นเดียวกับเครื่องมือสำหรับ debug มาตรฐานทั่วไป
 
 ![การ debug projects](/assets/img/debugging_projects.png)

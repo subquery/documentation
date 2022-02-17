@@ -1,6 +1,6 @@
 # Büyükelçi Programı
 
-![Ambassador Banner Image](/assets/img/ambassador_banner.png)
+![Ambassador Afiş Resmi](/assets/img/ambassador_banner.png)
 
 En güçlü yönlerimizden birinin topluluğumuz olduğunu biliyoruz ve sizin yardımınızla büyümek ve dünyanın dört bir yanındaki topluluklar için yerel elçiler seçmek istiyoruz.
 

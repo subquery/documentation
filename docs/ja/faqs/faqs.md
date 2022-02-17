@@ -52,12 +52,12 @@ Kusama ネットワークのエンドポイントは `wss://kusama.api.onfinalit
 
 Polkadotネットワークのエンドポイントは `wss://polkadot.api.onfinality.io/public-ws` です。
 
-## How do I iteratively develop my project schema?
+## プロジェクトを繰り返し開発するにはどうすればよいですか?
 
-A known issue with developing a changing project schema is that when lauching your Subquery node for testing, the previously indexed blocks will be incompatible with your new schema. In order to iteratively develop schemas the indexed blocks stored in the database must be cleared, this can be achieved by launching your node with the `--force-clean` flag. 例
+プロジェクトのスキーマを変更して開発する場合の既知の問題として、Subqueryノードをテスト用に起動する際に、以前にインデックスされたブロックが新しいスキーマと互換性がないことが挙げられます。 スキーマを繰り返し開発するためには、データベースに格納されているインデックスブロックをクリアする必要があります。これは、`--force-clean`フラグを付けてノードを起動することで実現できます。 例
 
 ```shell
 subql-node -f . --force-clean --subquery-name=<project-name>
 ```
 
-Note that it is recommended to use `--force-clean` when changing the `startBlock` within the project manifest (`project.yaml`) in order to begin reindexing from the configured block. If `startBlock` is changed without a `--force-clean` of the project then the indexer will continue indexing with the previously configured `startBlock`.
+なお、プロジェクトマニフェスト (`project.yaml`) 内の `startBlock` を変更する場合は、設定したブロックから再インデックス化を開始するために `--force-clean` を使用することが推奨されています。 プロジェクトの`--force-clean`を行わずに`startBlock`を変更した場合、インデクサは以前設定した`startBlock`でインデックス作成を継続します。

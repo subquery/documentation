@@ -4,7 +4,7 @@ In the [Hello World quick start guide](helloworld-localhost.md), we ran through 
 
 ## subql init
 
-The first command we ran was `subql init --starter subqlHelloWorld`.
+The first command we ran was `subql init subqlHelloWorld`.
 
 This does the heavy lifting and creates a whole bunch of files for you. As noted in the [official documentation](quickstart.md#configure-and-build-the-starter-project), you will mainly be working on the following files:
 
@@ -57,7 +57,7 @@ subquery-node_1   | 2021-06-06T02:04:25.490Z <fetch> INFO fetch block [1, 100]
 
 that you know that the SubQuery node has started to synchronise.
 
-## Summary
+## Riassunto
 
 Now that you've had an insight into what is happening under the covers, the question is where to from here? If you are feeling confident, you can jump into learning about how to [create a project](../create/introduction.md) and learn more about the three key files. The manifest file, the GraphQL schema, and the mappings file.
 

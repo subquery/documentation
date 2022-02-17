@@ -1,19 +1,19 @@
-# How to delete a SubQuery project?
+# Wie lösche ich ein SubQuery-Projekt?
 
-## Introduction
+## Die Einführung
 
-It is important to keep your projects in SubQuery Project relevant and up to date. For any projects that uploaded to SubQuery Project for testing purposes, it is recommended to delete them afterwards to conserve resources and save cost.
+Es ist wichtig, dass Ihre Projekte in SubQuery Project relevant und aktuell sind. Für alle Projekte, die zu Testzwecken in SubQuery Project hochgeladen wurden, wird empfohlen, sie anschließend zu löschen, um Ressourcen zu sparen und Kosten zu sparen.
 
-Running an indexer node is another option outside of using Docker or having a project hosted for you at [SubQuery Projects](https://project.subquery.network/). It requires more time and effort but will enhance your understanding of how SubQuery works under the covers.
+Das Ausführen einer Indexer-Node ist eine weitere Option, außer Docker zu verwenden oder ein Projekt für Sie unter [SubQuery-Projekte](https://project.subquery.network/) zu hosten. Es erfordert mehr Zeit und Mühe, wird jedoch Ihr Verständnis dafür verbessern, wie SubQuery unter dem Deckmantel funktioniert.
 
-## Deleting a project from the staging slot
+## Löschen eines Projekts aus dem Staging-Slot
 
-To delete a project from the staging slot, click on the 3 dots in the staging slot section within the deployment details on your project detail dashboard page and select delete.
+Um ein Projekt aus dem Staging-Slot zu löschen, klicken Sie in den Bereitstellungsdetails auf Ihrer Projektdetail-Dashboard-Seite auf die 3 Punkte im Abschnitt Staging-Slot und wählen Sie Löschen.
 
-![Deleting a project from the staging slot](/assets/img/delete_staging.png)
+![Löschen eines Projekts aus dem Staging-Slot](/assets/img/delete_staging.png)
 
-## Deleting a project from the production slot
+## Löschen eines Projekts aus dem Produktionsslot
 
-To delete a project from the production slot, you'll have to delete the entire project instead. Navigate to the top right corner and click on the 3 dots which is the settings for the entire project. Then select "Delete Project".
+Um ein Projekt aus dem Produktionsslot zu löschen, müssen Sie stattdessen das gesamte Projekt löschen. Navigieren Sie zur oberen rechten Ecke und klicken Sie auf die 3 Punkte, die die Einstellungen für das gesamte Projekt sind. Wählen Sie dann "Projekt löschen".
 
-![Deleting a project from the production slot](/assets/img/delete_production.png)
+![Löschen eines Projekts aus dem Produktionsslot](/assets/img/delete_production.png)

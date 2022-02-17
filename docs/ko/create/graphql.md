@@ -9,13 +9,13 @@
 ### 엔티티
 각 엔티티는 `ID!` 형식의 필수 필드 `id`를 정의해야 합니다. 이는 동일한 유형의 모든 엔티티에서 기본 키로 사용되며 고유의 값을 갖습니다.
 
-Non-nullable fields in the entity are indicated by `!`. Please see the example below:
+Entity의 초기화될 수 없는 값들은 `!` 으로 표시됩니다. 아래 예제를 참조하세요:
 
 ```graphql
-type Example @entity {
-  id: ID! # id field is always required and must look like this
-  name: String! # This is a required field
-  address: String # This is an optional field
+예시를 입력하세요 @entity {
+  id: ID! # id 필드는 항상 필수이며 다음과 같아야 합니다.
+  name: String! # 필수 필드입니다.
+  주소: String # 이것은 옵션 필드입니다
 }
 ```
 
@@ -29,43 +29,40 @@ type Example @entity {
 - `Float`
 - `날짜`
 - `Boolean`
-- `<EntityName>` for nested relationship entities, you might use the defined entity's name as one of the fields. Please see in [Entity Relationships](#entity-relationships).
-- `JSON` can alternatively store structured data, please see [JSON type](#json-type)
-- `<EnumName>` types are a special kind of enumerated scalar that is restricted to a particular set of allowed values. Please see [Graphql Enum](https://graphql.org/learn/schema/#enumeration-types)
+- `<EntityName>` 중첩 관계 Entity의 경우 정의된 Entity 이름을 Field 중 하나로 사용할 수 있습니다. [Entity Relationships](#entity-relationships)를 참조하세요.
+- `JSON`은 구조화된 데이터를 저장할 수 있습니다, [JSON type](#json-type)을 참조하세요
+- `<EnumName>` 은 특정 허용된 값으로 제한된 특별한 스칼라 나열입니다. [Graphql Enum](https://graphql.org/learn/schema/#enumeration-types)를 참조하세요
 
-## Indexing by non-primary-key field
+## Non-primary-key field로 인덱싱하기
 
-To improve query performance, index an entity field simply by implementing the `@index` annotation on a non-primary-key field.
+Query 성능을 향상시키려면 기본 키가 아닌 field에 `@index` 주석을 구현하여 Entity Field를 인덱싱하세요.
 
-However, we don't allow users to add `@index` annotation on any [JSON](#json-type) object. By default, indexes are automatically added to foreign keys and for JSON fields in the database, but only to enhance query service performance.
+그러나 사용자가 [ JSON](#json-type) 개체에 `@index` 주석을 추가할 수는 없습니다. 기본적으로 인덱스는 데이터베이스의 JSON field 및 외래 키에만 자동으로 추가되지만 Query 서비스 성능만 향상시킵니다.
 
-Here is an example.
+예제를 살펴봅시다.
 
 ```graphql
-type User @entity {
+입력하세요 사용자 @entity {
   id: ID!
-  name: String! @index(unique: true) # unique can be set to true or false
-  title: Title! # Indexes are automatically added to foreign key field 
-}
-
-type Title @entity {
-  id: ID!  
-  name: String! @index(unique:true)
+  이름: String! @index(unique: true) # 고유 항목을 참 또는 거짓으로 설정할 수 있습니다.
+  title: Title! # 인덱스는 외부 키 field에 자동으로 추가됩니다. 
+}  
+  이름: String! @index(unique:true)
 }
 ```
-Assuming we knew this user's name, but we don't know the exact id value, rather than extract all users and then filtering by name we can add `@index` behind the name field. This makes querying much faster and we can additionally pass the `unique: true` to  ensure uniqueness.
+이 사용자의 이름은 알고 있지만 정확한 id 값은 모른다고 가정하면 모든 사용자를 추출한 다음 이름으로 필터링하는 대신 이름 필드 뒤에 `@index` 을 추가할 수 있습니다. 이렇게 하면 Query가 훨씬 빨라지고 `unique: true`를 추가로 전달하여 고유성을 보장할 수 있습니다.
 
 **필드가 고유하지 않은 경우 최대 결과 집합 크기는 100입니다.**
 
 When code generation is run, this will automatically create a `getByName` under the `User` model, and the foreign key field `title` will create a `getByTitleId` method, which both can directly be accessed in the mapping function.
 
 ```sql
-/* Prepare a record for title entity */
-INSERT INTO titles (id, name) VALUES ('id_1', 'Captain')
+/* 제목 Entity에 대한 레코드 준비 */
+제목 삽입 (id, name) 값 ('id_1', 'Captain')
 ```
 
 ```typescript
-// Handler in mapping function
+// 맵핑 기능의 Handler
 import {User} from "../types/models/User"
 import {Title} from "../types/models/Title"
 
@@ -76,17 +73,17 @@ const captainTitle = await Title.getByName('Captain');
 const pirateLords = await User.getByTitleId(captainTitle.id); // List of all Captains
 ```
 
-## Entity Relationships
+## Entity 관계
 
-An entity often has nested relationships with other entities. Setting the field value to another entity name will define a one-to-one relationship between these two entities by default.
+Entity는 종종 다른 Entity와 중첩된 관계를 가집니다. Field 값을 다른 Entity 이름으로 설정하면 기본적으로 두 Entity간의 일대일 관계가 정의됩니다.
 
-Different entity relationships (one-to-one, one-to-many, and many-to-many) can be configured using the examples below.
+아래 예제를 사용하여 서로 다른 Entity 관계(일대일, 일대다, 다대다) 를 구성할 수 있습니다.
 
-### One-to-One Relationships
+### 일대일 관계
 
-One-to-one relationships are the default when only a single entity is mapped to another.
+일대일 관계는 하나의 Entity만 다른 Entity에 맵핑된 경우의 기본값입니다.
 
-Example: A passport will only belong to one person and a person only has one passport (in this example):
+예시: 여권은 한 사람의 소유이고 한 사람은 한 사람의 여권만 가지고 있습니다(이 예시에서):
 
 ```graphql
 type Person @entity {
@@ -112,11 +109,11 @@ type Passport @entity {
 }
 ```
 
-### One-to-Many relationships
+### 일대다 관계
 
-You can use square brackets to indicate that a field type includes multiple entities.
+대괄호를 사용하여 field 유형에 여러 개의 Entity가 포함됨을 나타낼 수 있습니다.
 
-Example: A person can have multiple accounts.
+예시: 한 사람이 여러개의 계정을 가질 수 있습니다.
 
 ```graphql
 type Person @entity {
@@ -130,15 +127,15 @@ type Account @entity {
 }
 ```
 
-### Many-to-Many relationships
-A many-to-many relationship can be achieved by implementing a mapping entity to connect the other two entities.
+### 다대다 관계
+다대다 관계는 맵핑 Entity를 구현하여 다른 두 Entity를 연결함으로써 달성될 수 있습니다.
 
-Example: Each person is a part of multiple groups (PersonGroup) and groups have multiple different people (PersonGroup).
+예: 각 사용자는 여러 그룹(사용자 그룹) 의 일부이며 그룹에는 여러 다른 사용자(사용자 그룹) 가 있습니다.
 
 ```graphql
 type Person @entity {
   id: ID!
-  name: String!
+  이름: String!
   groups: [PersonGroup]
 }
 
@@ -155,11 +152,11 @@ type Group @entity {
 }
 ```
 
-Also, it is possible to create a connection of the same entity in multiple fields of the middle entity.
+또한 중간 Entity의 여러 Field에 동일한 Entity의 연결을 만들 수 있습니다.
 
-For example, an account can have multiple transfers, and each transfer has a source and destination account.
+예를 들어, 계정에는 여러 개의 전송이 있을 수 있으며 각 전송에는 소스 및 대상 계정이 있습니다.
 
-This will establish a bi-directional relationship between two Accounts (from and to) through Transfer table.
+이렇게 하면 양도 표를 통해 두 계정(출처 및 도착처) 간에 양방향 관계가 설정됩니다.
 
 ```graphql
 type Account @entity {
@@ -175,13 +172,13 @@ type Transfer @entity {
 }
 ```
 
-### Reverse Lookups
+### 역방향 조회
 
-To enable a reverse lookup on an entity to a relation, attach `@derivedFrom` to the field and point to its reverse lookup field of another entity.
+Entity에 대한 역방향 조회를 활성화하려면`@derivedFrom` 을 Field에 첨부하고 다른 Entity의 역방향 조회 Field를 선택합니다.
 
-This creates a virtual field on the entity that can be queried.
+이렇게 하면 Query할 수 있는 가상 Field가 Entity에 생성됩니다.
 
-The Transfer "from" an Account is accessible from the Account entity by setting the sentTransfer or receivedTransfer as having their value derived from the respective from or to fields.
+계정 "에서" 계정 Entity에서 발신 전송 또는 발신 받기를 각각 Field에서 파생된 값으로 설정하여 액세스할 수 있습니다.
 
 ```graphql
 type Account @entity {
@@ -205,13 +202,13 @@ JSON 유형의 데이터 저장을 지원하여 구조화된 데이터를 빠르
 
 다음 시나리오의 사용자는 JSON 유형의 사용을 권장합니다.
 - 구조화된 데이터를 단일 필드에 저장하는 것이 여러 개의 개별 엔티티를 생성하는 것보다 용이한 경우
-- Saving arbitrary key/value user preferences (where the value can be boolean, textual, or numeric, and you don't want to have separate columns for different data types)
+- 임의의 키/값 사용자 기본 설정 저장(여기서 값은 Boolean, 텍스트 또는 숫자일 수 있으며 다른 데이터 유형에 대해 별도의 열을 사용하지 않을 수 있습니다).
 - 스키마가 휘발성이고 자주 변경되는 경우
 
-### Define JSON directive
-Define the property as a JSON type by adding the `jsonField` annotation in the entity. This will automatically generate interfaces for all JSON objects in your project under `types/interfaces.ts`, and you can access them in your mapping function.
+### JSON 지시어 정의
+Entity에 `jsonField` 주석을 추가하여 속성을 JSON 유형으로 정의합니다. 이렇게 하면 프로젝트의 모든 JSON 개체에 대한 인터페이스가 `types/interfaces.ts`에 자동으로 생성되며 맵핑기능에서 액세스할 수 있습니다.
 
-Unlike the entity, the jsonField directive object does not require any `id` field. A JSON object is also able to nest with other JSON objects.
+엔티티와 달리 jsonField 지시문 개체에는 `id` Field가 필요하지 않습니다. JSON 개체는 다른 JSON 개체와 중첩할 수도 있습니다.
 
 ````graphql
 type AddressDetail @jsonField {
@@ -234,10 +231,10 @@ type User @entity {
 
 JSON 유형을 사용하면, 텍스트 검색을 수행할 때마다 전체 엔티티에 적용되기 때문에 필터링 시 쿼리 효율성을 일부 저하시키는 단점이 있습니다.
 
-그러나, 효율성 저하는 쿼리 서비스가 수용할 수 있는 수준입니다. Here is an example of how to use the `contains` operator in the GraphQL query on a JSON field to find the first 5 users who own a phone number that contains '0064'.
+그러나, 효율성 저하는 쿼리 서비스가 수용할 수 있는 수준입니다. 다음은 JSON 필드의 GraphQL Query에 `contains` 포함 연산자를 사용하여 '0064'가 포함된 전화번호를 소유한 처음 5명의 사용자를 찾는 방법의 예입니다.
 
 ```graphql
-#To find the the first 5 users own phone numbers contains '0064'.
+#처음 5명의 사용자의 핸드폰 번호에는 '0064'가 포함되어 있습니다.
 
 query{
   user(

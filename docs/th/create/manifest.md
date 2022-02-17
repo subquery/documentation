@@ -1,4 +1,4 @@
-# Manifest File
+# ไฟล์ Manifest
 
 ไฟล์ Manifest `project.yaml` สามารถเห็นได้จากจุดเริ่มต้นโครงการของคุณ โดยจะใช้กำหนดรายละเอียดเกือบทั้งหมด ว่า SubQuery จะกำหนดดัชนีและแปลงข้อมูลที่อยู่บน Chain ได้อย่างไร
 
@@ -22,15 +22,21 @@ Manifest สามารถอยู่ในรูป YAML หรือ JSON �
 
 ### CLI Options
 
-ในขณะ v0.2.0 spec version อยู่ในช่วง beta คุณจำเป็นจำต้องกำหนดในขณะที่คุณสร้างโปรเจ็กต์ ด้วยคำสั่ง `subql init --specVersion 0.2.0 PROJECT_NAME`
+By default the CLI will generate SubQuery projects for spec verison v0.2.0. This behaviour can be overridden by running `subql init --specVersion 0.0.1 PROJECT_NAME`, although this is not recommended as the project will not be supported by the SubQuery hosted service in the future
 
 `subql migrate` สามารถรันอยู่บนโปรเจ็กต์ที่เกิดขึ้นแล้ว เพื่ออัพเกรดไปสู่ project manifest เวอชันล่าสุดได้
 
-| Options        | คำอธิบาย                                                      |
-| -------------- | ------------------------------------------------------------- |
-| -f, --force    |                                                               |
-| -l, --location | local folder ที่จะใช้ migrate (จำเป็นต้องมีไฟล์ project.yaml) |
-| --file=file    | ใช้ระบุ project.yaml ที่ต้องการ migrate                       |
+USAGE $ subql init [PROJECTNAME]
+
+ARGUMENTS PROJECTNAME  Give the starter project name
+
+| Options                 | คำอธิบาย                                                                     |
+| ----------------------- | ---------------------------------------------------------------------------- |
+| -f, --force             |                                                                              |
+| -l, --location=location | local folder to create the project in                                        |
+| --install-dependencies  | Install dependencies as well                                                 |
+| --npm                   | Force using NPM instead of yarn, only works with `install-dependencies` flag |
+| --specVersion=0.0.1     | 0.2.0  [default: 0.2.0] | The spec version to be used by the project         |
 
 ## ภาพรวม
 
@@ -64,7 +70,7 @@ Manifest สามารถอยู่ในรูป YAML หรือ JSON �
 
 ### Datasource Spec
 
-กำหนดข้อมูลที่จะถูกกรองหรือดึงออกจากตำแหน่งของ mapping function handler เพื่อนำมาใช้กับข้อมูลที่ถูกแปลง
+Defines the data that will be filtered and extracted and the location of the mapping function handler for the data transformation to be applied.
 | Field          | v0.0.1                                                    | v0.2.0                                                                           | คำอธิบาย                                                                                                                                                                              |
 | -------------- | --------------------------------------------------------- | -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **name**       | String                                                    | 𐄂                                                                                | Name of the data source                                                                                                                                                               |
@@ -75,10 +81,10 @@ Manifest สามารถอยู่ในรูป YAML หรือ JSON �
 
 ### Mapping Spec
 
-| Field                  | v0.0.1                                                                   | v0.2.0                                                                                        | คำอธิบาย                                                                                                                                                                                                                                     |
-| ---------------------- | ------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **file**               | String                                                                   | 𐄂                                                                                             | Path to the mapping entry                                                                                                                                                                                                                    |
-| **handlers & filters** | [Default handlers and filters](./manifest/#mapping-handlers-and-filters) | Default handlers and filters, <br />[Custom handlers and filters](#custom-data-sources) | List all the [mapping functions](./mapping.md) and their corresponding handler types, with additional mapping filters. <br /><br /> For custom runtimes mapping handlers please view [Custom data sources](#custom-data-sources) |
+| Field                  | v0.0.1                                                                   | v0.2.0                                                                                        | คำอธิบาย                                                                                                                                                                                                                                       |
+| ---------------------- | ------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **file**               | String                                                                   | 𐄂                                                                                             | ตำแหน่งไฟล์ของ mapping entry                                                                                                                                                                                                                   |
+| **handlers & filters** | [Default handlers and filters](./manifest/#mapping-handlers-and-filters) | Default handlers and filters, <br />[Custom handlers and filters](#custom-data-sources) | ลิสท์รายการ [mapping functions](./mapping.md) ทั้งหมด และ handler type ที่เกี่ยวข้อง รวมไปถึง mapping filters <br /><br /> สำหรับการใช้ custom runtimes mapping handlers กรุณาดูต่อที่ [Custom data sources](#custom-data-sources) |
 
 ## Data Sources and Mapping
 
@@ -98,11 +104,11 @@ The following table explains filters supported by different handlers.
 
 **Your SubQuery project will be much more efficient when you only use event and call handlers with appropriate mapping filters**
 
-| Handler                                    | Supported filter             |
-| ------------------------------------------ | ---------------------------- |
-| [BlockHandler](./mapping.md#block-handler) | `specVersion`                |
-| [EventHandler](./mapping.md#event-handler) | `module`,`method`            |
-| [CallHandler](./mapping.md#call-handler)   | `module`,`method` ,`success` |
+| Handlers (ตัวดำเนินการ)                    | Supported filter (ตัวกรองที่รองรับ) |
+| ------------------------------------------ | ----------------------------------- |
+| [BlockHandler](./mapping.md#block-handler) | `specVersion`                       |
+| [EventHandler](./mapping.md#event-handler) | `module`,`method`                   |
+| [CallHandler](./mapping.md#call-handler)   | `module`,`method` ,`success`        |
 
 Default runtime mapping filters are an extremely useful feature to decide what block, event, or extrinsic will trigger a mapping handler.
 
@@ -116,9 +122,9 @@ filter:
   success: true
 ```
 
-- Module and method filters are supported on any substrate-based chain.
-- The `success` filter takes a boolean value and can be used to filter the extrinsic by its success status.
-- The `specVersion` filter specifies the spec version range for a substrate block. The following examples describe how to set version ranges.
+- Module และ method filters รองรับบน substrate-based chain ใดๆ
+- `success` filter จะรับค่า boolean และใช้ในการกรอง extrinsic ที่ผ่านสถานะ success
+- `specVersion` filter จะใช้กำหนด spec version ที่อยู่ในช่วงที่กำหนดสำหรับ substrate block ตัวอย่างดังต่อไปนี้จะอธิบายว่าจะกำหนด version ranges ได้อย่างไร
 
 ```yaml
 filter:
@@ -145,9 +151,30 @@ You can index data from custom chains by also including chain types in the manif
 
 We support the additional types used by substrate runtime modules, `typesAlias`, `typesBundle`, `typesChain`, and `typesSpec` are also supported.
 
-In the v0.2.0 example below, the `network.chaintypes` are pointing to a file that has all the custom types included, This is a standard chainspec file that declares the specific types supported by this blockchain in either `.json` or `.yaml` format.
+In the v0.2.0 example below, the `network.chaintypes` are pointing to a file that has all the custom types included, This is a standard chainspec file that declares the specific types supported by this blockchain in either `.json`, `.yaml` or `.js` format.
 
-<CodeGroup> <CodeGroupItem title="v0.2.0" active> ``` yml network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' endpoint: 'ws://host.kittychain.io/public-ws' chaintypes: file: ./types.json # The relative filepath to where custom types are stored ... ``` </CodeGroupItem> <CodeGroupItem title="v0.0.1"> ``` yml ... network: endpoint: "ws://host.kittychain.io/public-ws" types: { "KittyIndex": "u32", "Kitty": "[u8; 16]" } # typesChain: { chain: { Type5: 'example' } } # typesSpec: { spec: { Type6: 'example' } } dataSources: - name: runtime kind: substrate/Runtime startBlock: 1 filter:  #Optional specName: kitty-chain mapping: handlers: - handler: handleKittyBred kind: substrate/CallHandler filter: module: kitties method: breed success: true ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="v0.2.0" active> ``` yml network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' endpoint: 'ws://host.kittychain.io/public-ws' chaintypes: file: ./types.json # The relative filepath to where custom types are stored ... ``` </CodeGroupItem>
+<CodeGroupItem title="v0.0.1"> ``` yml ... network: endpoint: "ws://host.kittychain.io/public-ws" types: { "KittyIndex": "u32", "Kitty": "[u8; 16]" } # typesChain: { chain: { Type5: 'example' } } # typesSpec: { spec: { Type6: 'example' } } dataSources: - name: runtime kind: substrate/Runtime startBlock: 1 filter:  #Optional specName: kitty-chain mapping: handlers: - handler: handleKittyBred kind: substrate/CallHandler filter: module: kitties method: breed success: true ``` </CodeGroupItem> </CodeGroup>
+
+To use typescript for your chain types file include it in the `src` folder (e.g. `./src/types.ts`), run `yarn build` and then point to the generated js file located in the `dist` folder.
+
+```yml
+network:
+  chaintypes:
+    file: ./dist/types.js # Will be generated after yarn run build
+...
+```
+
+Things to note about using the chain types file with extension `.ts` or `.js`:
+
+- ไฟล์ manifest version ต้องเป็น v0.2.0 หรือสูงกว่า
+- มีเพียง default export เท่านั้นที่จะถูกรวมไปใน [polkadot api](https://polkadot.js.org/docs/api/start/types.extend/) เมื่อดึงข้อมูลจาก blocks
+
+Here is an example of a `.ts` chain types file:
+
+<CodeGroup> <CodeGroupItem title="types.ts"> ```ts
+import { typesBundleDeprecated } from "moonbeam-types-bundle"
+export default { typesBundle: typesBundleDeprecated }; ``` </CodeGroupItem> </CodeGroup>
 
 ## Custom Data Sources
 

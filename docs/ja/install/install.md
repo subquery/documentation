@@ -1,30 +1,44 @@
-# Installing SubQuery
+# SubQueryのインストール
 
-There are various components required when creating a SubQuery project. The [@subql/cli](https://github.com/subquery/subql/tree/docs-new-section/packages/cli) tool is used to create SubQuery projects. The [@subql/node](https://github.com/subquery/subql/tree/docs-new-section/packages/node) component is required to run an indexer. The [@subql/query](https://github.com/subquery/subql/tree/docs-new-section/packages/query) library is required to generate queries.
+SubQuery プロジェクトの作成には、さまざまなコンポーネントが必要です。 [@subql/cli](https://github.com/subquery/subql/tree/docs-new-section/packages/cli) ツールは、SubQuery プロジェクトの作成に使用されます。 インデクサを実行するには、 [@subql/node](https://github.com/subquery/subql/tree/docs-new-section/packages/node) コンポーネントが必要です。 クエリを生成するには、 [@subql/query](https://github.com/subquery/subql/tree/docs-new-section/packages/query) ライブラリが必要です。
 
-## Install @subql/cli
+## @subql/cli をインストールする
 
-The [@subql/cli](https://github.com/subquery/subql/tree/docs-new-section/packages/cli) library helps to create a project framework or scaffold meaning you don't have to start from scratch.
+[@subql/cli](https://github.com/subquery/subql/tree/docs-new-section/packages/cli) ツールは、プロジェクトのフレームワークや基礎を作るのに役立ち、ゼロから始める必要がないことを意味します。
 
-Install SubQuery CLI globally on your terminal by using Yarn or NPM:
+Yarn または NPM を使用して、端末に SubQuery CLI をインストールします。
 
-<CodeGroup> # Yarn yarn global add @subql/cli # NPM npm install -g @subql/cli
-## Install @subql/node
+<CodeGroup> <CodeGroupItem title="NPM"> ```bash npm install -g @subql/cli ``` </CodeGroupItem>
+<CodeGroupItem title="YARN" active> ```shell yarn global add @subql/cli ``` </CodeGroupItem> </CodeGroup>
 
-A SubQuery node is an implementation that extracts substrate-based blockchain data per the SubQuery project and saves it into a Postgres database.
+You can then run help to see available commands and usage provide by CLI:
 
-Install SubQuery node globally on your terminal by using Yarn or NPM:
+```shell
+subql help
+```
+## @subql/node をインストールする
 
-<CodeGroup> # Yarn yarn global add @subql/node # NPM npm install -g @subql/node
-> Note: If you are using Docker or hosting your project in SubQuery Projects, you do can skip this step. This is because the SubQuery node is already provided in the Docker container and the hosting infrastructure.
+SubQueryノードは、SubQueryプロジェクトごとにSubstrateベースのブロックチェーンデータを抽出し、Postgresデータベースに保存します。
 
-## Install @subql/query
+Yarn または NPM を使用して、端末に SubQuery CLI をインストールします。
 
-The SubQuery query library provides a service that allows you to query your project in a "playground" environment via your browser.
+<CodeGroup> <CodeGroupItem title="NPM"> ```bash npm install -g @subql/node ``` </CodeGroupItem>
+<CodeGroupItem title="YARN" active> ```shell yarn global add @subql/node ``` </CodeGroupItem> </CodeGroup>
 
-Install SubQuery query globally on your terminal by using Yarn or NPM:
+Once installed, you can can start a node with:
 
-<CodeGroup> <CodeGroupItem title="YARN" active> # Yarn yarn global add @subql/query # NPM npm install -g @subql/query </CodeGroupItem>
-<CodeGroupItem title="NPM"> subql-node &lt;command&gt; </CodeGroupItem> </CodeGroup>
+```shell
+subql-node <command>
+```
+> 注意: Dockerを使用している場合、またはSubQuery Projectsでプロジェクトをホスティングしている場合は、この手順をスキップできます。 これは、SubQueryノードがDockerコンテナとホスティングインフラストラクチャにすでに提供されているためです。
 
-> Note: If you are using Docker or hosting your project in SubQuery Projects, you do can skip this step also. This is because the SubQuery node is already provided in the Docker container and the hosting infrastructure. 
+## @subql/queryをインストールする
+
+SubQueryクエリライブラリは、ブラウザを介した「遊び場」環境でプロジェクトにクエリを発行するサービスを提供します。
+
+Yarn または NPM を使用して、端末に SubQuery CLI をインストールします。
+
+<CodeGroup> <CodeGroupItem title="NPM"> ```bash npm install -g @subql/query ``` </CodeGroupItem>
+<CodeGroupItem title="YARN" active> ```shell yarn global add @subql/query ``` </CodeGroupItem> </CodeGroup>
+
+> 注意: Dockerを使用している場合、またはSubQuery Projectsでプロジェクトをホスティングしている場合は、この手順をスキップできます。 これは、SubQueryノードがDockerコンテナとホスティングインフラストラクチャにすでに提供されているためです。 

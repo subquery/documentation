@@ -1,16 +1,16 @@
-# Connect to your new project
+# Свържете се с новия си проект
 
-Once your deployment has succesfully completed and our nodes have indexed your data from the chain, you'll be able to connect to your project via the displayed Query endpoint.
+След като внедряването ви завърши успешно и нашите нодове са индексирали вашите данни от веригата, ще можете да се свържете с вашия проект чрез показания Query ендпойнт.
 
-![Project being deployed and synced](/assets/img/projects-deploy-sync.png)
+![Проектът се внедрява и се синхронизира](/assets/img/projects-deploy-sync.png)
 
-Alternatively, you can click on the three dots next to the title of your project, and view it on SubQuery Explorer. There you can use the in browser playground to get started.
+Като алтернатива можете да щракнете върху трите точки до заглавието на вашия проект и да го видите в SubQuery Explorer. Там можете да използвате функциите в браузъра и да започнете.
 
-![Projects in SubQuery Explorer](/assets/img/projects-explorer.png)
+![Проекти в SubQuery Explorer](/assets/img/projects-explorer.png)
 
-# Learn more about GraphQL
+# Научете повече за GraphQL
 
-You can follow the [official GraphQL guide here](https://graphql.org/learn/) to learn more about GraphQL, how it works, and how to use it:
-- There are libraries to help you implement GraphQL in [many different languages](https://graphql.org/code/)
-- For an in-depth learning experience with practical tutorials, see [How to GraphQL](https://www.howtographql.com/).
-- Check out the free online course, [Exploring GraphQL: A Query Language for APIs](https://www.edx.org/course/exploring-graphql-a-query-language-for-apis).
+Можете да следвате [официалното ръководство за GraphQL тук](https://graphql.org/learn/), за да научите повече за GraphQL, как работи и как да го използвате:
+- Има библиотеки, които ще ви помогнат да внедрите GraphQL в [много различни езици](https://graphql.org/code/)
+- За задълбочено обучение с практически уроци вижте [Как да GraphQL](https://www.howtographql.com/).
+- Разгледайте безплатния онлайн курс, [Изследване на GraphQL: език за заявки за API](https://www.edx.org/course/exploring-graphql-a-query-language-for-apis).

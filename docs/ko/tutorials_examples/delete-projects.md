@@ -1,19 +1,19 @@
-# How to delete a SubQuery project?
+# 서브쿼리 프로젝트 삭제하기
 
 ## 소개
 
-It is important to keep your projects in SubQuery Project relevant and up to date. For any projects that uploaded to SubQuery Project for testing purposes, it is recommended to delete them afterwards to conserve resources and save cost.
+서브쿼리 프로젝트 내에서 프로젝트를 최신의 상태로 유지하는 것이 중요합니다. 서브쿼리 프로젝트에 업로드한 시험용 프로젝트는 자원 유지 및 비용 절감을 위해 시험 이후에는 삭제하는 것을 권장합니다.
 
-Running an indexer node is another option outside of using Docker or having a project hosted for you at [SubQuery Projects](https://project.subquery.network/). It requires more time and effort but will enhance your understanding of how SubQuery works under the covers.
+Docker를 사용하거나 [서브쿼리 프로젝트](https://project.subquery.network/) 상에서 프로젝트를 호스팅하는 것 외에 인덱서 노드를 실행하는 것은 또 다른 옵션입니다. 이는 보다 많은 시간과 노력을 필요로 하지만, 서브쿼리의 작동에 대해 이해하는데 큰 도움이 될 것입니다.
 
-## Deleting a project from the staging slot
+## 스테이징 슬롯의 프로젝트 삭제하기
 
-To delete a project from the staging slot, click on the 3 dots in the staging slot section within the deployment details on your project detail dashboard page and select delete.
+스테이징 슬롯의 프로젝트를 삭제하려면 프로젝트 대시보드 페이지의 세부 정보 내 스테이징 슬롯 섹션에 있는 점 3개를 클릭하고 삭제를 선택합니다.
 
-![Deleting a project from the staging slot](/assets/img/delete_staging.png)
+![스테이징 슬롯의 프로젝트 삭제하기](/assets/img/delete_staging.png)
 
-## Deleting a project from the production slot
+## 가동 슬롯의 프로젝트 삭제하기
 
-To delete a project from the production slot, you'll have to delete the entire project instead. Navigate to the top right corner and click on the 3 dots which is the settings for the entire project. Then select "Delete Project".
+가동 슬롯의 프로젝트를 삭제하려면 해당 프로젝트 전체를 삭제해야 합니다. 먼저 오른쪽 상단부에 위치한 점 3개를 클릭합니다. 이후 "프로젝트 삭제"를 선택합니다.
 
-![Deleting a project from the production slot](/assets/img/delete_production.png)
+![가동 슬롯의 프로젝트 삭제하기](/assets/img/delete_production.png)

@@ -46,15 +46,15 @@ echo -e "My yarn version is:" `yarn -v` "\nMy subql version is:" `subql -v`  "\n
 Bu döndürülmelidir: (npm kullanıcıları için ipliği npm ile değiştirin) vv
 
 ```shell
-My yarn version is: 1.22.10
-My subql version is: @subql/cli/0.9.3 darwin-x64 node-v16.3.0
-My docker version is: Docker version 20.10.5, build 55c4c88
+Benim yarn versiyonum: 1.22.10
+Benim subql versiyonum: @subql/cli/0.9.3 darwin-x64 node-v16.3.0
+Benim docker versiyonum: Docker version 20.10.5, build 55c4c88
 ```
 
 Yukarıdakileri alırsanız, gitmeye hazırsınız demektir. Değilse, yüklemek için şu bağlantıları izleyin:
 
 - [yarn](https://classic.yarnpkg.com/en/docs/install/) veya [npm](https://www.npmjs.com/get-npm)
-- [SubQuery CLI](quickstart.md#install-the-subquery-cli)
+- [SubQuery CLISubQuery CLI](quickstart.md#install-the-subquery-cli)
 - [Docker](https://docs.docker.com/get-docker/)
 
 ## 1. Projeyi başlat
@@ -62,14 +62,19 @@ Yukarıdakileri alırsanız, gitmeye hazırsınız demektir. Değilse, yüklemek
 SubQuery ile başlarken ilk adım `subql init` komutunu çalıştırmaktır. `subqlHelloWorld` adıyla bir başlangıç projesi başlatalım. Yalnızca yazarın zorunlu olduğunu unutmayın. Aşağıda diğer her şey boş bırakılmıştır.
 
 ```shell
-> subql init --starter subqlHelloWorld
-Git repository:
-RPC endpoint [wss://polkadot.api.onfinality.io/public-ws]:
-Authors: sa
-Description:
-Version: [1.0.0]:
-License: [Apache-2.0]:
-Init the starter package... subqlHelloWorld is ready
+> subql init subqlHelloWorld
+? Select a network Polkadot
+? Select a template project subql-starter     Starter project for subquery
+Cloning project... done
+RPC endpoint: [wss://polkadot.api.onfinality.io/public-ws]:
+Git repository [https://github.com/subquery/subql-starter]:
+Fetching network genesis hash... done
+Author [Ian He & Jay Ji]:
+Description [This project can be use as a starting po...]:
+Version [0.0.4]:
+License [MIT]:
+Preparing project... done
+subqlHelloWorld is ready
 
 ```
 

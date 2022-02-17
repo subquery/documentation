@@ -8,11 +8,11 @@
 
 ## Pengantar
 
-Running an indexer node is another option outside of using Docker or having a project hosted for you at [SubQuery Projects](https://project.subquery.network/). It requires more time and effort but will enhance your understanding of how SubQuery works under the covers.
+Menjalankan node pengindeks adalah opsi lain selain menggunakan Docker atau memiliki proyek yang dihosting untuk Anda di [Proyek SubQuery](https://project.subquery.network/). Ini membutuhkan lebih banyak waktu dan usaha tetapi akan meningkatkan pemahaman Anda tentang bagaimana SubQuery bekerja di bawah selimut.
 
 ## Postgres
 
-Running an indexer node on your infrastructure will require the setup of a Postgres database. You can install Postgres from [here](https://www.postgresql.org/download/) and ensure the version is 12 or greater.
+Menjalankan node pengindeks pada infrastruktur Anda akan memerlukan pengaturan database Postgres. Anda dapat menginstal Postgres dari [di sini](https://www.postgresql.org/download/) dan memastikan versinya 12 atau lebih tinggi.
 
 ## Install subql/node
 
@@ -43,7 +43,7 @@ export DB_HOST=localhost
 export DB_PORT=5432
 ```
 
-Of course, if you have different values for the above keys, please adjust accordingly. Note that the `env` command will display the current environment variables and that this process only sets these values temporarily. That is, they are only valid for the duration of the terminal session. To set them permanently, store them in your ~/bash_profile instead.
+Tentu saja, jika Anda memiliki nilai yang berbeda untuk tombol di atas, harap sesuaikan. Perhatikan bahwa perintah `env` akan menampilkan variabel lingkungan saat ini dan bahwa proses ini hanya menetapkan nilai-nilai ini untuk sementara. Artinya, mereka hanya berlaku selama sesi terminal. Untuk mengaturnya secara permanen, simpan di ~/bash_profile Anda.
 
 ## Mengindeks proyek
 
@@ -53,10 +53,10 @@ Untuk mulai mengindeks proyek, navigasikan ke folder proyek Anda dan jalankan pe
 subql-node -f .
 ```
 
-If you do not have a project handy, `git clone https://github.com/subquery/subql-helloworld`. You should see the indexer node kick into life and start indexing blocks.
+Jika Anda tidak memiliki proyek, `git clone https://github.com/subquery/subql-helloworld`. Anda akan melihat node pengindeks mulai aktif dan mulai mengindeks blok.
 
 ## Memeriksa Postgres
 
-If you navigate to Postgres, you should see two tables created. `public.subqueries` and `subquery_1.starter_entities`.
+Jika Anda menavigasi ke Postgres, Anda akan melihat dua tabel dibuat. `public.subqueries` dan `subquery_1.starter_entities`.
 
-`public.subqueries` only contains 1 row which the indexer checks upon start up to “understand the current state” so it knows where to continue from. The `starter_entities` table contains the indexes. To view the data, run `select (*) from subquery_1.starter_entities`.
+`public.subqueries` hanya berisi 1 baris yang diperiksa oleh pengindeks saat memulai untuk "memahami keadaan saat ini" sehingga ia tahu dari mana harus melanjutkan. Tabel `starter_entities` berisi indeks. Untuk melihat data, jalankan `pilih (*) dari subquery_1.starter_entities`.

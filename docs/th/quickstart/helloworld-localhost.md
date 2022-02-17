@@ -1,6 +1,6 @@
 # Hello World (localhost + Docker)
 
-Welcome to this SubQuery Hello World quick start. ยินดีต้อนรับ quick start ของ SubQuery Hello World การ quick start มีจุดมุ่งหมายเพื่อแสดงให้คุณเห็นว่าจะใช้ starter project ที่ได้รับต้นเพื่อรันใน Docker ได้อย่างไรในไม่กี่ขั้นตอนง่ายๆ
+ยินดีต้อนรับ quick start ของ SubQuery Hello World การ quick start มีจุดมุ่งหมายเพื่อแสดงให้คุณเห็นว่าจะใช้ starter project ที่ได้รับต้นเพื่อรันใน Docker ได้อย่างไรในไม่กี่ขั้นตอนง่ายๆ
 
 ## วัตถุประสงค์การเรียนรู้
 
@@ -51,7 +51,7 @@ My subql version is: @subql/cli/0.9.3 darwin-x64 node-v16.3.0
 My docker version is: Docker version 20.10.5, build 55c4c88
 ```
 
-If you get the above, then you are good to go. หากคุณได้รับดังข้างต้น แสดงว่าคุณพร้อมแล้ว หากไม่เป็นเช่นนั้น ให้ทำตามลิงก์เหล่านี้เพื่อติดตั้ง:
+หากคุณได้รับดังข้างต้น แสดงว่าคุณพร้อมแล้ว หากไม่เป็นเช่นนั้น ให้ทำตามลิงก์เหล่านี้เพื่อติดตั้ง:
 
 - [yarn](https://classic.yarnpkg.com/en/docs/install/) หรือ [npm](https://www.npmjs.com/get-npm)
 - [SubQuery CLI](quickstart.md#install-the-subquery-cli)
@@ -59,17 +59,22 @@ If you get the above, then you are good to go. หากคุณได้รั
 
 ## 1. เริ่มต้นโปรเจ็กต์
 
-ขั้นตอนแรกในการเริ่มต้นกับ SubQuery คือการเรียกใช้คำสั่ง `subql init` โดยเริ่มต้นโปรเจ็กต์ด้วยชื่อ `subqlHelloWorld` โปรดทราบว่า มีเพียง author เท่านั้นที่จำเป็น อย่างอื่นที่เหลือว่างไว้ ดังแสดงด้านล่าง Let's initialise a start project with the name `subqlHelloWorld`. Note that only author is mandatory. Everything else is left empty below.
+ขั้นตอนแรกในการเริ่มต้นกับ SubQuery คือการเรียกใช้คำสั่ง `subql init` โดยเริ่มต้นโปรเจ็กต์ด้วยชื่อ `subqlHelloWorld` โปรดทราบว่า มีเพียง author เท่านั้นที่จำเป็น อย่างอื่นที่เหลือว่างไว้ ดังแสดงด้านล่าง
 
 ```shell
-> subql init --starter subqlHelloWorld
-Git repository:
-RPC endpoint [wss://polkadot.api.onfinality.io/public-ws]:
-Authors: sa
-Description:
-Version: [1.0.0]:
-License: [Apache-2.0]:
-Init the starter package... subqlHelloWorld is ready
+> subql init subqlHelloWorld
+? Select a network Polkadot
+? Select a template project subql-starter     Starter project for subquery
+Cloning project... done
+RPC endpoint: [wss://polkadot.api.onfinality.io/public-ws]:
+Git repository [https://github.com/subquery/subql-starter]:
+Fetching network genesis hash... done
+Author [Ian He & Jay Ji]:
+Description [This project can be use as a starting po...]:
+Version [0.0.4]:
+License [MIT]:
+Preparing project... done
+subqlHelloWorld is ready
 
 ```
 
@@ -139,7 +144,7 @@ $ tsc -b
 
 ## 5. รัน Docker
 
-การใช้ Docker ช่วยให้คุณเรียกใช้ตัวอย่างนี้ได้อย่างรวดเร็ว เนื่องจากโครงสร้างพื้นฐานที่จำเป็นทั้งหมดมีการจัดเตรียมไว้ในอิมเมจ Docker แล้ว รัน `docker-compose pull && docker-compose up` Run `docker-compose pull && docker-compose up`.
+การใช้ Docker ช่วยให้คุณเรียกใช้ตัวอย่างนี้ได้อย่างรวดเร็ว เนื่องจากโครงสร้างพื้นฐานที่จำเป็นทั้งหมดมีการจัดเตรียมไว้ในอิมเมจ Docker แล้ว รัน `docker-compose pull && docker-compose up`
 
 สิ่งนี้จะนำพาทุกอย่างให้ทำงาน ซึ่งในที่สุดคุณจะได้รับบล็อก
 

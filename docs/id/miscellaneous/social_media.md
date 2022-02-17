@@ -17,12 +17,12 @@ Merupakan tujuan kami untuk selalu mendengarkan dan terlibat dengan komunitas se
 
 ## Komunitas SubQuery Tidak Resmi
 
-These communities are not moderated by the SubQuery team, but our ambassadors may be there to provide support. Please be careful of scams as SubQuery is **not** responsible for what happens within them.
+Komunitas ini tidak dimoderasi oleh tim SubQuery, tetapi ambassador kami mungkin ada di sana untuk memberikan dukungan. Harap berhati-hati terhadap penipuan karena SubQuery **tidak** bertanggung jawab atas apa yang terjadi di dalamnya.
 
-- [Telegram (Chinese)](https://t.me/subquerychina)
-- [Telegram (Russian)](https://t.me/SubQuery_russia)
-- [Telegram (Spanish)](https://t.me/SubQueryES)
-- [Telegram (Thai)](https://t.me/subquerynetworkthai)
-- [Telegram (Turkish)](https://t.me/subquery_TR)
-- [Telegram (Vietnamese)](https://t.me/subqueryvietnam)
-- [Telegram (Vietnamese Announcement)](https://t.me/subqueryannvn)
+- [Telegram (Cina)](https://t.me/subquerychina)
+- [Telegram (Rusia)](https://t.me/SubQuery_russia)
+- [Telegram (Spanyol)](https://t.me/SubQueryES)
+- [Telegram (Thailand)](https://t.me/subquerynetworkthai)
+- [Telegram (Turki)](https://t.me/subquery_TR)
+- [Telegram (Vietnam)](https://t.me/subqueryvietnam)
+- [Telegram (Pengumuman Vietnam)](https://t.me/subqueryannvn)

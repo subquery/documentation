@@ -1,5 +1,40 @@
 # Cờ dòng lệnh
 
+## subql (cli)
+
+### --help
+
+```shell
+> subql --help
+
+COMMANDS
+  build     Xây dựng mã dự án SubQuery
+  codegen   Tạo lược đồ cho nút đồ thị
+  help      hiển thị trợ giúp cho subql
+  init      Khởi tạo một khung dự án subquery
+  migrate   Di chuyển tệp kê khai dự án truy vấn con v0.0.1 sang v0.2.0
+  publish   Tải dự án SubQuery này lên IPFS
+  validate  Kiểm tra một thư mục hoặc github repo là một dự án subquery xác thực
+```
+
+### build
+
+Lệnh này sử dụng webpack để tạo một gói dự án subquery.
+
+| Các Tùy chọn       | Mô tả                                                                                                      |
+| ------------------ | ---------------------------------------------------------------------------------------------------------- |
+| -l, --location     | thư mục cục bộ của dự án subquery (nếu chưa có trong thư mục)                                              |
+| -o, --output       | chỉ định thư mục đầu ra của bản dựng, ví dụ: build-folder                                                  |
+| --mode=(production | prod                                                        | development | dev) | [ default: production ] |
+
+- Với `subql build`, bạn có thể chỉ định các điểm nhập bổ sung trong trường export mặc dù nó sẽ luôn tạo `index.ts` tự động
+
+- Bạn cần có @subql/cli v0.19.0 trở lên để sử dụng trường exports.
+
+- Mọi trường `exports` phải ánh xạ tới kiểu chuỗi (ví dụ: `"entry": "./src/file.ts"`), nếu không, nó sẽ bị bỏ qua khỏi bản dựng.
+
+[Ví dụ khác](https://doc.subquery.network/create/introduction/#build).
+
 ## subql-node
 
 ### --help
@@ -9,40 +44,44 @@ Cờ hiển thị các tùy chọn trợ giúp.
 ```shell
 > subql-node --help
 Options:
-      --help                Show help                                  [boolean]
-      --version             Show version number                        [boolean]
-  -f, --subquery            Local path of the subquery project          [string]
-      --subquery-name       Name of the subquery project                [string]
-  -c, --config              Specify configuration file                  [string]
-      --local               Use local mode                             [boolean]
-      --force-clean         Force clean the database, dropping project schemas
-                            and tables                                 [boolean]
-      --batch-size          Batch size of blocks to fetch in one round  [number]
-      --timeout             Timeout for indexer sandbox to execute the mapping
-                            functions                                   [number]
-      --debug               Show debug information to console output. will
-                            forcefully set log level to debug
+      --help                Hiển thị trợ giúp                          [boolean]
+      --version             Hiển thị số phiên bản                      [boolean]
+  -f, --subquery            Đường dẫn cục bộ của dự án subquery         [string]
+      --subquery-name       Tên của dự án subquery     [không dùng nữa] [string]
+  -c, --config              Chỉ định tệp cấu hình                       [string]
+      --local               Sử dụng chế độ cục bộ [không dùng nữa]     [boolean]
+      --force-clean         Buộc dọn dẹp cơ sở dữ liệu, loại bỏ các lược đồ dự 
+                            án và bảng                                 [boolean]
+      --db-schema           Tên giản đồ Db của dự án                    [string]
+      --unsafe              Cho phép sử dụng bất kỳ mô-đun tích hợp nào trong
+                            sandbox                     boolean][default: false]
+      --batch-size          Kích thước hàng loạt của các khối để tìm nạp trong 
+                            một vòng                                    [number]
+      --scale-batch-size    chia tỷ lệ kích thước lô dựa trên việc sử dụng bộ nhớ
                                                       [boolean] [default: false]
-      --profiler            Show profiler information to console output
+      --timeout             Hết thời gian chờ để sandbox của trình lập chỉ mục
+                            thực hiện ánh xạ chức năng                  [number]
+      --debug               Hiển thị thông tin gỡ lỗi cho đầu ra bảng điều khiển.
+                            sẽ mạnh mẽ đặt cấp độ nhật ký để gỡ lỗi
                                                       [boolean] [default: false]
-      --network-endpoint    Blockchain network endpoint to connect      [string]
-      --output-fmt          Print log as json or plain text
+      --profiler            Hiển thị thông tin hồ sơ cho đầu ra bảng điều khiển
+                                                      [boolean] [default: false]
+      --network-endpoint    Điểm cuối mạng chuỗi khối để kết nối        [string]
+      --output-fmt          In nhật ký dưới dạng json hoặc văn bản thuần túy
                                            [string] [choices: "json", "colored"]
-      --log-level           Specify log level to print. Ignored when --debug is
-                            used
+      --log-level           Chỉ định mức nhật ký để in. Bỏ qua khi --debug được
+                            sử dụng
           [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
                                                                        "silent"]
-      --migrate             Migrate db schema (for management tables only)
+      --migrate             Di chuyển giản đồ db (chỉ dành cho bảng quản lý)
                                                       [boolean] [default: false]
-      --timestamp-field     Enable/disable created_at and updated_at in schema
-                                                       [boolean] [default: true]
-  -d, --network-dictionary  Specify the dictionary api for this network [string]
-  -m, --mmr-path            Local path of the merkle mountain range (.mmr) file
-                                                                        [string]
-      --proof-of-index      Enable/disable proof of index
+      --timestamp-field     Bật/tắt create_at và updated_at trong lược đồ
                                                       [boolean] [default: false]
-  -p, --port                The port the service will bind to
-                                                        [number] [default: 3000]
+  -d, --network-dictionary  Chỉ định api từ điển cho mạng này           [string]
+  -m, --mmr-path            Đường dẫn cục bộ của tệp merkle (.mmr)      [string]
+      --proof-of-index      Bật/tắt bằng chứng chỉ mục
+                                                      [boolean] [default: false]
+  -p, --port                Cổng mà dịch vụ sẽ liên kết với             [number]
 ```
 
 ### --version
@@ -63,9 +102,9 @@ subql-node -f . // Hoặc
 subql-node --subquery .
 ```
 
-### --subquery-name
+### --subquery-name (không được dùng nữa)
 
-Cờ này cho phép bạn cung cấp tên cho dự án của mình, tên này hoạt động như thể nó tạo ra một phiên bản của dự án của bạn. Sau khi cung cấp một tên mới, một lược đồ cơ sở dữ liệu mới được tạo và đồng bộ hóa khối bắt đầu từ số không.
+Cờ này cho phép bạn cung cấp tên cho dự án của mình, tên này hoạt động như thể nó tạo ra một phiên bản của dự án của bạn. Sau khi cung cấp một tên mới, một lược đồ cơ sở dữ liệu mới được tạo và đồng bộ hóa khối bắt đầu từ số 0. Không được chấp nhận vì `--db-schema`
 
 ```shell
 subql-node -f . --subquery-name=test2
@@ -78,9 +117,9 @@ Tất cả các cấu hình khác nhau này có thể được đặt vào tệp
 Tệp subquery_config.yml mẫu:
 
 ```shell
-subquery: . // Mandatory. This is the local path of the project. The period here means the current local directory.
-subqueryName: hello // Optional name
-batchSize: 55 // Optional config
+subquery: . // Bắt buộc. Đây là đường dẫn cục bộ của dự án. Dấu chấm ở đây có nghĩa là thư mục cục bộ hiện tại.
+subqueryName: hello // Tên tùy chọn
+batchSize: 55 // Cấu hình tùy chọn
 ```
 
 Đặt tệp này trong cùng thư mục với dự án. Sau đó, trong thư mục dự án hiện tại, hãy chạy:
@@ -89,7 +128,7 @@ batchSize: 55 // Optional config
 > subql-node -c ./subquery_config.yml
 ```
 
-### --local
+### --local (không được dùng nữa)
 
 Cờ này chủ yếu được sử dụng cho mục đích gỡ lỗi trong đó nó tạo bảng starter_entity mặc định trong lược đồ "postgres" mặc định.
 
@@ -103,6 +142,26 @@ Lưu ý rằng một khi bạn sử dụng cờ này, việc loại bỏ nó s�
 
 Cờ này buộc các lược đồ và bảng của dự án phải được tạo lại, hữu ích để sử dụng khi phát triển lặp đi lặp lại các lược đồ graphql sao cho các lần chạy mới của dự án luôn hoạt động ở trạng thái sạch. Lưu ý rằng cờ này cũng sẽ xóa tất cả dữ liệu được lập chỉ mục.
 
+### --db-schema
+
+Cờ này cho phép bạn cung cấp tên cho lược đồ cơ sở dữ liệu dự án. Sau khi cung cấp một tên mới, một lược đồ cơ sở dữ liệu mới được tạo với tên được cấu hình và bắt đầu lập chỉ mục khối.
+
+```shell
+subql-node -f . --db-schema=test2
+```
+
+### --unsafe
+
+Các dự án SubQuery thường được chạy trong javascript sandbox để bảo mật nhằm giới hạn phạm vi truy cập mà dự án có đối với hệ thống của bạn. Sandbox giới hạn các lần nhập javascript có sẵn cho các mô-đun sau:
+
+```javascript
+["assert", "buffer", "crypto", "util", "path"];
+```
+
+Mặc dù điều này tăng cường bảo mật, chúng tôi hiểu rằng điều này hạn chế chức năng có sẵn của SubQuery của bạn. Lệnh `--unsafe` nhập tất cả các mô-đun javascript mặc định, điều này làm tăng đáng kể chức năng của sandbox với sự đánh đổi của việc giảm bảo mật.
+
+**Lưu ý rằng lệnh `--unsafe` sẽ ngăn dự án của bạn được chạy trong SubQuery Network, và bạn phải liên hệ với bộ phận hỗ trợ nếu bạn muốn lệnh này được chạy với dự án của mình trong dịch vụ được quản lý của SubQuery ([project.subquery.network](https://project.subquery.network))**
+
 ### --batch-size
 
 Cờ này cho phép bạn đặt kích thước lô trong dòng lệnh. Nếu kích thước lô cũng được đặt trong tệp cấu hình, nó sẽ được ưu tiên.
@@ -115,7 +174,13 @@ Cờ này cho phép bạn đặt kích thước lô trong dòng lệnh. Nếu k�
 2021-08-09T23:24:49.235Z <fetch> INFO fetch block [6661,6680], total 20 blocks
 ```
 
-<!-- ### --timeout -->
+### --scale-batch-size
+
+Chia tỷ lệ kích thước lô tìm nạp khối với mức sử dụng bộ nhớ
+
+### --timeout
+
+Đặt thời gian chờ tùy chỉnh cho sandbox javascript để thực hiện các chức năng lập ánh xạ trên một khối trước khi hàm ánh xạ khối xuất lỗi ngoại lệ thời gian chờ
 
 ### --debug
 
@@ -216,7 +281,11 @@ Thông thường, nó sẽ được đặt trong tệp manifest của bạn như
 subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot"
 ```
 
-[ Đọc thêm về cách thức hoạt động của Từ điển SubQuery](../tutorials_examples/dictionary.md).
+[Đọc thêm về cách hoạt động của Từ điển SubQuery](../tutorials_examples/dictionary.md).
+
+### -p, --port
+
+Cổng dịch vụ lập chỉ mục subquery liên kết. Mặc định nó được đặt là `3000`
 
 ## subql-query
 
@@ -225,17 +294,24 @@ subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot
 Cờ hiển thị các tùy chọn trợ giúp.
 
 ```shell
-Options:
-      --help        Show help                                          [boolean]
-      --version     Show version number                                [boolean]
-  -n, --name        Project name                             [string] [required]
-      --playground  Enable graphql playground                          [boolean]
-      --output-fmt  Print log as json or plain text
+Tùy chọn:
+      --help        Hiển thị trợ giúp                                  [boolean]
+      --version     Hiển thị số phiên bản                              [boolean]
+  -n, --name        Tên dự án                                [string] [required]
+      --playground  Bật sân chơi graphql                               [boolean]
+      --output-fmt  In nhật ký dưới dạng json hoặc văn bản thuần túy
                       [string] [choices: "json", "colored"] [default: "colored"]
-      --log-level   Specify log level to print.
+      --log-level   Chỉ định cấp độ nhật ký để in.
           [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
                                                      "silent"] [default: "info"]
-      --indexer     Url that allow query to access indexer metadata     [string]
+      --log-path    Đường dẫn để tạo tệp nhật ký, ví dụ: ./src/name.log [string]
+      --log-rotate  Xoay vòng các tệp nhật ký trong thư mục được chỉ định bởi 
+                    đường dẫn nhật ký                 [boolean] [default: false]
+      --indexer     Url cho phép truy vấn truy cập siêu dữ liệu của trình 
+                    lập chỉ mục                                         [string]
+      --unsafe      Vô hiệu hóa các giới hạn về độ sâu truy vấn và số lượng 
+                    bản ghi truy vấn được trả lại cho phép             [boolean]
+  -p, --port        Cổng mà dịch vụ sẽ liên kết với                     [number]
 ```
 
 ### --version
@@ -252,15 +328,15 @@ Cờ sẽ hiển thị phiên bản hiện tại.
 Cờ này được sử dụng để bắt đầu dịch vụ truy vấn. Nếu cờ - subquery-name không được cung cấp khi chạy trình lập chỉ mục, thì tên ở đây sẽ tham chiếu đến tên dự án mặc định. Nếu - subquery-name được đặt, thì tên ở đây phải khớp với những gì đã được đặt.
 
 ```shell
-> subql-node -f . // --subquery-name not set
+> subql-node -f . // --subquery-name chưa được đặt
 
-> subql-query -n subql-helloworld  --playground // the name defaults to the project directory name
+> subql-query -n subql-helloworld  --playground // tên mặc định cho tên thư mục dự án
 ```
 
 ```shell
 > subql-node -f . --subquery-name=hiworld // --subquery-name set
 
-> subql-query -n hiworld --playground  // the name points to the subql-helloworld project but with the name of hiworld
+> subql-query -n hiworld --playground  // tên chỉ đến dự án subql-helloworld nhưng với tên của hiworld
 ```
 
 ### --playground
@@ -275,4 +351,28 @@ Xem [--output-fmt](https://doc.subquery.network/references/references.html#outpu
 
 Xem [--log-level](https://doc.subquery.network/references/references.html#log-level)
 
-<!-- ### --indexer TBA -->
+### --log-path
+
+Cho phép ghi tệp nhật ký bằng cách cung cấp đường dẫn đến tệp để ghi nhật ký
+
+### --log-rotate
+
+Cho phép xoay vòng nhật ký tệp với các tùy chọn khoảng thời gian xoay vòng 1 ngày, tối đa là 7 tệp và với kích thước tệp tối đa là 1GB
+
+### --indexer
+
+Đặt url tùy chỉnh cho vị trí của các điểm cuối của trình lập chỉ mục, dịch vụ truy vấn sử dụng các điểm cuối này cho tình trạng của trình lập chỉ mục, siêu dữ liệu và trạng thái sẵn sàng
+
+### --unsafe
+
+Dịch vụ truy vấn có giới hạn 100 thực thể cho các truy vấn graphql không giới hạn. Cờ unsafe loại bỏ giới hạn này có thể gây ra các vấn đề về hiệu suất trên dịch vụ truy vấn. Thay vào đó, các truy vấn nên được [phân trang](https://graphql.org/learn/pagination/).
+
+Cờ này cũng có thể được sử dụng để bật một số hàm tổng hợp bao gồm sum, max, avg và [others](https://github.com/graphile/pg-aggregates#aggregates).
+
+Các tùy chọn này mặc định bị tắt do giới hạn đối tượng.
+
+**Lưu ý rằng lệnh `--unsafe` sẽ ngăn dự án của bạn được chạy trong SubQuery Network, và bạn phải liên hệ với bộ phận hỗ trợ nếu bạn muốn lệnh này được chạy với dự án của mình trong dịch vụ được quản lý của SubQuery [project.subquery.network](https://project.subquery.network).**
+
+### --port
+
+Cổng dịch vụ truy vấn subquery liên kết. Mặc định nó được đặt là `3000`

@@ -6,7 +6,7 @@
 
 Деякі з наступних прикладів припускають, що ви успішно ініціалізували стартовий пакет у розділі [ Quick start ](../quickstart/quickstart.md). З цього стартового пакету ми пройдемо стандартний процес для налаштування та реалізації вашого проекту SubQuery.
 
-1. Ініціалізуйте свій проект, використовуючи ` subql init --specVersion 0.2.0 PROJECT_NAME `. альтернативно ви можете використовувати стару версію специфікації ` subql init PROJECT_NAME `
+1. Ініціалізуйте своє проектне використання `subql init Project_name`.
 2. Оновіть файл Manifest (` project.yaml `), щоб включити інформацію про ваш блокчейн та об'єкти, які ви будете відображати - див. [ Manifest File ](./manifest.md)
 3. Створення графічних об'єктів у вашій схемі (`схемі. raphql`), що визначає форму даних, які ви будете вилучати і зберігати запити - дивіться [GraphQL Схема](./graphql.md)
 4. Додайте всі функції відображення (наприклад, ` mappingHandlers.ts `), які ви хочете викликати для перетворення даних ланцюга в визначені вами об'єкти GraphQL - див. [ Mapping ](./mapping.md)
@@ -33,7 +33,7 @@
 
 Наприклад:
 
-![SubQuery directory structure](/assets/img/subQuery_directory_stucture.png)
+![SubQuery структура каталогу](/assets/img/subQuery_directory_stucture.png)
 
 ## Генерація коду
 
@@ -54,23 +54,53 @@ yarn codegen
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```bash npm run-script build ``` </CodeGroupItem> </CodeGroup>
 
-## Logging
+### Альтернатива будують вибір
 
-The `console.log` method is **no longer supported**. Натомість в типи введено модуль ` logger `, а це означає, що ми можемо підтримувати реєстратор, який може приймати різні рівні реєстрації.
+Ми підтримуємо додатковим будують вибір для використання проектів підзапиту `subql build`.
 
-```typescript
-logger.info('Info level message');
-logger.debug('Debugger level message');
-logger.warn('Warning level message');
+З цим ви можете визначити додаткові точки входу, щоб побудувати користування полем експорту в package.json.
+
+```json
+"name": "project-name",
+"version": "1.0.0",
+...
+"exports": {
+  "entry_one": "./src/entry_one.ts",
+  "entry_renamed": "./src/entry_two.ts"
+},
 ```
 
-Щоб використовувати ` logger.info ` або ` logger.warn `, просто помістіть рядок у файл відображення.
+Потім бігши `subql build ` це робитиме dist теку з наступною структурою:
+
+```
+- project-name
+  L dist
+    L entry_one.js
+    L entry_renamed.js
+    L index.js 
+```
+
+Зауважте, що він буде створювати ` index.ts </ 0> чи не вказано в поле експорту. </p>
+
+<p spaces-before="0">Для отримання додаткової інформації про використання цього, включаючи прапори, див. Розділ <a href="https://doc.subquery.network/references/references/#build"> Довідник </ 0>.</p>
+
+<h2 spaces-before="0">Ведення журналу</h2>
+
+<p spaces-before="0">Метод <code>console.log` **більше не підтримується**. Замість цього ` logger ` модуль був введений в типи, який означає, що ми можемо підтримувати лісоруба, який може прийняти різні реєстраційні рівні.
+
+```typescript
+logger.info('Інформаційне повідомлення ');
+logger.debug('Рівень повідомлення про Debugger ');
+logger.warn('Попередження про рівень повідомлень ');
+```
+
+Для використання ` logger.info` чи `logger.warn`, просто розмістіть лінію у вашому файлі відображення.
 
 ![logging.info](/assets/img/logging_info.png)
 
 Для використання ` logger.debug ` необхідний додатковий крок. Додайте `--log-level=debug` до вашого командного рядка.
 
-Якщо ви працюєте з контейнером докера, додайте цей рядок у файл ` docker-compose.yaml `.
+Якщо ви управляєте контейнером докера, додайте цей рядок до вас `docker-compose.yaml` файл.
 
 ![logging.debug](/assets/img/logging_debug.png)
 

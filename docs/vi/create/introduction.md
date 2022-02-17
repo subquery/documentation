@@ -6,7 +6,7 @@ Trong hướng dẫn [ bắt đầu nhanh ](/quickstart/quickstart.md), chúng t
 
 Một vài ví dụ sau sẽ xem như bạn đã khởi tạo thành công gói khởi động trong phần [ Bắt đầu nhanh ](../quickstart/quickstart.md). Từ gói khởi động đó, chúng tôi sẽ hướng dẫn quy trình chuẩn để tùy chỉnh và triển khai dự án SubQuery của bạn.
 
-1. Khởi tạo dự án của bạn bằng `subql init PROJECT_NAME`. ngoài ra bạn có thể sử dụng phiên bản thông số kỹ thuật cũ `subql init PROJECT_NAME`
+1. Khởi tạo dự án của bạn bằng `subql init PROJECT_NAME`.
 2. Cập nhật tệp kê khai (`project.yaml`) để bao gồm thông tin về chuỗi khối của bạn và các thực thể mà bạn sẽ ánh xạ - xem [Manifest File](./manifest.md)
 3. Tạo các thực thể GraphQL trong lược đồ của bạn (`schema.graphql`) xác định hình dạng của dữ liệu mà bạn sẽ trích xuất và duy trì để truy vấn - xem [Lược đồ GraphQL](./graphql.md)
 4. Thêm tất cả các hàm ánh xạ (ví dụ: `mappingHandlers.ts`) mà bạn muốn gọi để chuyển đổi dữ liệu chuỗi thành các thực thể GraphQL mà bạn đã xác định - xem [Ánh xạ](./mapping.md)
@@ -54,7 +54,37 @@ Chạy lệnh xây dựng từ thư mục gốc của dự án.
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```bash npm run-script build ``` </CodeGroupItem> </CodeGroup>
 
-## Ghi nhật ký
+### Tùy chọn xây dựng thay thế
+
+Chúng tôi hỗ trợ các tùy chọn xây dựng bổ sung cho các dự án Subquery bằng cách sử dụng `subql build`.
+
+Với điều này, bạn có thể xác định các điểm vào bổ sung để xây dựng bằng cách sử dụng trường exports trong package.json.
+
+```json
+"name": "project-name",
+"version": "1.0.0",
+...
+"exports": {
+  "entry_one": "./src/entry_one.ts",
+  "entry_renamed": "./src/entry_two.ts"
+},
+```
+
+Sau đó, bằng cách chạy `subql build` nó sẽ tạo ra một thư mục dist với cấu trúc như sau:
+
+```
+- project-name
+  L dist
+    L entry_one.js
+    L entry_renamed.js
+    L index.js 
+```
+
+Lưu ý rằng nó sẽ xây dựng `index.ts` cho dù nó có được chỉ định trong trường exports hay không.
+
+Để biết thêm thông tin về cách sử dụng điều này bao gồm cả cờ, hãy xem [cli reference](https://doc.subquery.network/references/references/#build).
+
+## Nhật ký
 
 Phương thức `console.log` **không còn được hỗ trợ**. Thay vào đó, mô-đun `logger` đã được đưa vào các kiểu dữ liệu, có nghĩa là chúng tôi có thể hỗ trợ trình ghi nhật ký có thể chấp nhận các cấp độ ghi nhật ký khác nhau.
 
@@ -68,7 +98,7 @@ logger.warn('Warning level message');
 
 ![logging.info](/assets/img/logging_info.png)
 
-Để sử dụng `logger.debug`, cần thực hiện thêm một bước. Thêm `--log-level = debug` vào dòng lệnh của bạn.
+Để sử dụng `logger.debug`, cần thực hiện thêm một bước. Thêm `--log-level=debug` vào dòng lệnh của bạn.
 
 Nếu bạn đang chạy vùng chứa docker, hãy thêm dòng này vào tệp `docker-comp.yaml` của bạn.
 

@@ -36,17 +36,19 @@ subql help
 Bên trong thư mục mà bạn muốn tạo một dự án SubQuery, chỉ cần thay thế `PROJECT_NAME` bằng của riêng bạn và chạy lệnh:
 
 ```shell
-subql init --starter PROJECT_NAME
+subql init PROJECT_NAME
 ```
 
 Bạn sẽ được hỏi một số câu hỏi nhất định khi dự án SubQuery được khởi động:
 
-- Kho lưu trữ Git (Tùy chọn): Cung cấp URL Git cho kho lưu trữ dự án SubQuery này (khi được lưu trữ trong SubQuery Explorer)
-- Điểm cuối RPC (Bắt buộc): Cung cấp URL wss tới điểm cuối RPC đang chạy sẽ được sử dụng theo mặc định cho dự án này. Bạn có thể nhanh chóng truy cập các điểm cuối công khai cho các mạng Polkadot khác nhau hoặc thậm chí tạo nút chuyên dụng riêng của mình bằng cách sử dụng [ OnFinality ](https://app.onfinality.io) hoặc chỉ sử dụng điểm cuối Polkadot mặc định.
-- Tác giả (Bắt buộc): Nhập chủ sở hữu của dự án SubQuery này tại đây
-- Mô tả (Tùy chọn): Bạn có thể cung cấp một đoạn văn ngắn về dự án của mình, mô tả dự án chứa dữ liệu gì và người dùng có thể làm gì với dự án
-- Phiên bản (Bắt buộc): Nhập số phiên bản tùy chỉnh hoặc sử dụng giá trị mặc định (`1.0.0`)
-- Giấy phép (Bắt buộc): Cung cấp giấy phép phần mềm cho dự án này hoặc chấp nhận mặc định (`Apache-2.0`)
+- Network: Một mạng blockchain mà dự án SubQuery này sẽ được phát triển để lập chỉ mục
+- Template: Chọn một mẫu dự án SubQuery sẽ cung cấp một điểm khởi đầu để bắt đầu phát triển
+- Git repository (Tùy chọn): Cung cấp URL Git cho kho lưu trữ dự án SubQuery này (khi được lưu trữ trong SubQuery Explorer)
+- RPC endpoint (Bắt buộc): Cung cấp URL websocket (wss) tới điểm cuối RPC đang chạy sẽ được sử dụng theo mặc định cho dự án này. Bạn có thể nhanh chóng truy cập các điểm cuối công khai cho các mạng Polkadot khác nhau hoặc thậm chí tạo nút chuyên dụng riêng của mình bằng cách sử dụng [OnFinality](https://app.onfinality.io) hoặc chỉ sử dụng điểm cuối Polkadot mặc định. Nút RPC này phải là một nút lưu trữ (có trạng thái chuỗi đầy đủ).
+- Authors (Bắt buộc): Nhập chủ sở hữu của dự án SubQuery này tại đây
+- Description (Tùy chọn): Bạn có thể cung cấp một đoạn văn ngắn về dự án của mình, mô tả dự án chứa dữ liệu gì và người dùng có thể làm gì với dự án
+- Version (Bắt buộc): Nhập số phiên bản tùy chỉnh hoặc sử dụng giá trị mặc định (`1.0.0`)
+- License (Bắt buộc): Cung cấp giấy phép phần mềm cho dự án này hoặc chấp nhận mặc định (`Apache-2.0`)
 
 Sau khi quá trình khởi tạo hoàn tất, bạn sẽ thấy một thư mục có tên dự án của bạn đã được tạo bên trong thư mục. Nội dung của Directoy này phải giống với những gì được liệt kê trong [ Cấu trúc Thư mục ](../create/introduction.md#directory-structure).
 

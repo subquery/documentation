@@ -1,6 +1,6 @@
-# Terminology
+# 用語集
 
-- SubQuery Project (_where the magic happens_): A definition ([`@subql/cli`](https://www.npmjs.com/package/@subql/cli)) of how a SubQuery Node should traverse and aggregate a projects network and how the data should the transformed and stored to enable useful GraphQL queries
-- SubQuery Node (_where the work is done_): A package ([`@subql/node`](https://www.npmjs.com/package/@subql/node)) that will accept a SubQuery project definiton, and run a node that constantly indexes a connected network to a database
-- SubQuery Query Service (_where we get the data from_): A package ([`@subql/query`](https://www.npmjs.com/package/@subql/query)) that interacts with the GraphQL API of a deployed SubQuery node to query and view the indexed data
-- GraphQL (_how we query the data_): A query langage for APIs that is specifically suited for flexible graph based data - see [graphql.org](https://graphql.org/learn/)
+- SubQuery Project (*魔法が起きる場所*): SubQuery Node がどのようにプロジェクトネットワークを横断して集約するか、そして有用な GraphQL クエリを有効にするために変換され格納されるデータをどのように定義([`@subql/cli`](https://www.npmjs.com/package/@subql/cli))
+- SubQuery Node (*作業場所*): SubQuery プロジェクト定義を受け入れるパッケージ ([`@subql/node`](https://www.npmjs.com/package/@subql/node)) 接続されたネットワークをデータベースに常にインデックス付けするノードを実行します
+- SubQuery Service (*データ取得元*): デプロイした SubQuery ノードの GraphQL API と相互作用するパッケージ ([`@subql/query`](https://www.npmjs.com/package/@subql/query)) を使用して、インデックスされたデータをクエリおよび表示します。
+- GraphQL (_データへの問合せ_): 柔軟なグラフベースのデータに特化したAPI用クエリ言語 - [graphql.org](https://graphql.org/learn/) を参照。
