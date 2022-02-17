@@ -51,37 +51,7 @@ yarn 编码器
 
 从项目的根目录运行构建命令。
 
-<CodeGroup> `` 方法不再受支持。
-
-你可以通过这个定义额外的入口点来使用 package.json中的导出字段构建。
-
-```json
-"name": "project-name",
-"version": "1.0.0",
-...
-"exports":
-  "entry_one": "./src/entry_one.ts",
-  "entry_renamed": "./src/entry_two.ts"
-},
-```
-
-然后运行 `subql build` 将生成一个具有以下结构的dist 文件夹：
-
-```
-- 项目名称
-  L dist
-    L entry_one.js
-    L entry_renamed.js
-    L index.js 
-```
-
-请注意，它将生成 `index.ts` ，不管它是否在导出字段中被指定。
-
-关于使用此标签的更多信息，请参阅 [cli reference](https://doc.subquery.network/references/references/#build)。
-
-## 日志内容
-
-`console.log` 方法 **不再支持**. 相反， `Logger` 模块已被注入到类型中，这意味着我们可以支持一个可以接受不同日志级别的logger。
+`console.log` 方法**不再受支持**。 相反， `Logger` 模块已被注入到类型中，这意味着我们可以支持一个可以接受不同日志级别的logger。
 
 ```typescript
 logger.info('Info level message');

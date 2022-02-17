@@ -91,22 +91,30 @@ Under `dataSources`:
 
 ### CLI Options
 
-While the v0.2.0 spec version is in beta, you will need to explicitly define it during project initialisation by running `subql init --specVersion 0.2.0 PROJECT_NAME`
+By default the CLI will generate SubQuery projects for spec verison v0.2.0. This behaviour can be overridden by running `subql init --specVersion 0.0.1 PROJECT_NAME`, although this is not recommended as the project will not be supported by the SubQuery hosted service in the future
 
 `subql migrate` can be run in an existing project to migrate the project manifest to the latest version.
 
-|    Options     |                        Description                         |
-| ------------ | -------------------------------------------------------- |
-|  -f, --force   |                                                            |
-| -l, --location | local folder to run migrate in (must contain project.yaml) |
-|  --file=file   |           to specify the project.yaml to migrate           |
+USAGE
+  $ subql init [PROJECTNAME]
+
+ARGUMENTS
+  PROJECTNAME  Give the starter project name
+
+| Options                                     | Description                                                                  |
+| ------------------------------------------- | ---------------------------------------------------------------------------- |
+| -f, --force                                 |                                                                              |
+| -l, --location=location                     | local folder to create the project in                                        |
+| --install-dependencies                      | Install dependencies as well                                                 |
+| --npm                                       | Force using NPM instead of yarn, only works with `install-dependencies` flag |
+| --specVersion=0.0.1|0.2.0  [default: 0.2.0] | The spec version to be used by the project                                   |
 
 ## Overview
 
 ### Top Level Spec
 
 | Field           |               v0.0.1                |           v0.2.0            |                                                Description |
-| --------------- | --------------------------------- | ------------------------- | --------------------------------------------------------- |
+| --------------- | ----------------------------------- | --------------------------- | ---------------------------------------------------------- |
 | **specVersion** |               String                |           String            | `0.0.1` or `0.2.0` - the spec version of the manifest file |
 | **name**        |                  𐄂                  |           String            |                                       Name of your project |
 | **version**     |                  𐄂                  |           String            |                                    Version of your project |
@@ -214,7 +222,7 @@ You can index data from custom chains by also including chain types in the manif
 
 We support the additional types used by substrate runtime modules, `typesAlias`, `typesBundle`, `typesChain`, and `typesSpec` are also supported.
 
-In the v0.2.0 example below, the `network.chaintypes` are pointing to a file that has all the custom types included, This is a standard chainspec file that declares the specific types supported by this blockchain in either `.json` or `.yaml` format.
+In the v0.2.0 example below, the `network.chaintypes` are pointing to a file that has all the custom types included, This is a standard chainspec file that declares the specific types supported by this blockchain in either `.json`, `.yaml` or `.js` format.
 
 <CodeGroup>
   <CodeGroupItem title="v0.2.0" active>
@@ -255,6 +263,32 @@ dataSources:
             success: true
 ```
   </CodeGroupItem>
+</CodeGroup>
+
+To use typescript for your chain types file include it in the `src` folder (e.g. `./src/types.ts`), run `yarn build` and then point to the generated js file located in the `dist` folder.
+
+```yml
+network:
+  chaintypes:
+    file: ./dist/types.js # Will be generated after yarn run build
+...
+```
+
+Things to note about using the chain types file with extension `.ts` or `.js`:
+
+- Your manifest version must be v0.2.0 or above.
+- Only the default export will be included in the [polkadot api](https://polkadot.js.org/docs/api/start/types.extend/) when fetching blocks.
+
+Here is an example of a `.ts` chain types file:
+
+<CodeGroup>
+  <CodeGroupItem title="types.ts">
+
+```ts
+import { typesBundleDeprecated } from "moonbeam-types-bundle"
+export default { typesBundle: typesBundleDeprecated };
+```
+ </CodeGroupItem>
 </CodeGroup>
 
 ## Custom Data Sources
