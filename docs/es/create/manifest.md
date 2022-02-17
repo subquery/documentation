@@ -46,7 +46,7 @@ ARGUENTOS PROJECTNAME Dar el nombre del proyecto inicial
 | **descripción**      | String                                                     | String                                 | Descripción de tu proyecto                                     |
 | **repositorio**      | String                                                     | String                                 | Dirección del repositorio Git de su proyecto                   |
 | **esquema**          | String                                                     | [Especificación del esquema](#Esquema) | La ubicación del archivo de esquema GraphQL                    |
-| **red**              | [Especificaciones de red](#spec de red)                    | Especificaciones de red                | Detalle de la red a ser indexada                               |
+| **red**              | [Especificaciones de red](#especificación-de-red)          | Especificaciones de red                | Detalle de la red a ser indexada                               |
 | **fuentes de datos** | [Especificaciones de la fuente de datos](#datasource-spec) | Especificaciones de la fuente de datos |                                                                |
 
 ### Especificación del esquema
@@ -67,13 +67,13 @@ ARGUENTOS PROJECTNAME Dar el nombre del proyecto inicial
 ### Fuente de datos especifica
 
 Define los datos que serán filtrados y extraídos y la ubicación del manejador de funciones de mapeo para que la transformación de datos sea aplicada.
-| Campo          | v0.0.1                                                                | v0.2.0                                                                           | Descripción                                                                                                                                                                                                                           |
-| -------------- | --------------------------------------------------------------------- | -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **nombre**     | String                                                                | 𐄂                                                                                | Nombre del origen de los datos                                                                                                                                                                                                        |
-| **clase**      | [substrate/tiempo de ejecución](./manifest/#data-sources-and-mapping) | substrate/Runtime, [substrate/CustomDataSource](./manifest/#custom-data-sources) | Soportamos el tipo de datos desde el tiempo de ejecución por defecto de substrate como bloque, evento y extrinsic(call). <br /> Desde v0.2.0, soportamos datos de tiempo de ejecución personalizado, como contrato inteligente. |
-| **startBlock** | Integer                                                               | Integer                                                                          | Esto cambia el bloque de inicio de indexación, establezca esto más alto para omitir bloques iniciales con menos datos                                                                                                                 |
-| **mapeo**      | Especificación de mapeo                                               | Especificación de mapeo                                                          |                                                                                                                                                                                                                                       |
-| **filtro**     | [filtros de red](./manifest/#network-filters)                         | 𐄂                                                                                | Filtrar la fuente de datos a ejecutar por el nombre de la especificación del extremo de red                                                                                                                                           |
+| Campo          | v0.0.1                                                                  | v0.2.0                                                                           | Descripción                                                                                                                                                                                                                           |
+| -------------- | ----------------------------------------------------------------------- | -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **nombre**     | String                                                                  | 𐄂                                                                                | Nombre del origen de los datos                                                                                                                                                                                                        |
+| **clase**      | [substrate/tiempo de ejecución](./manifestar/#fuentes de datos y mapeo) | substrate/Runtime, [substrate/CustomDataSource](./manifest/#custom-data-sources) | Soportamos el tipo de datos desde el tiempo de ejecución por defecto de substrate como bloque, evento y extrinsic(call). <br /> Desde v0.2.0, soportamos datos de tiempo de ejecución personalizado, como contrato inteligente. |
+| **startBlock** | Integer                                                                 | Integer                                                                          | Esto cambia el bloque de inicio de indexación, establezca esto más alto para omitir bloques iniciales con menos datos                                                                                                                 |
+| **mapeo**      | Especificación de mapeo                                                 | Especificación de mapeo                                                          |                                                                                                                                                                                                                                       |
+| **filtro**     | [filtros de red](./manifestar/#filtros de red)                          | 𐄂                                                                                | Filtrar la fuente de datos a ejecutar por el nombre de la especificación del extremo de red                                                                                                                                           |
 
 ### Especificación de mapeo
 
@@ -106,9 +106,9 @@ La siguiente tabla explica los filtros soportados por diferentes manejadores.
 | [EventHandler](./mapping.md#event-handler)         | `module`,`method`            |
 | [CallHandler](./mapping.md#call-handler)           | `module`,`method` ,`success` |
 
-Default runtime mapping filters are an extremely useful feature to decide what block, event, or extrinsic will trigger a mapping handler.
+Los filtros de mapeo de tiempo de ejecución por defecto son una característica extremadamente útil para decidir qué bloque, evento, o extrínseco activará un manejador de mapeo.
 
-Only incoming data that satisfy the filter conditions will be processed by the mapping functions. Mapping filters are optional but are highly recommended as they significantly reduce the amount of data processed by your SubQuery project and will improve indexing performance.
+Sólo los datos entrantes que satisfagan las condiciones del filtro serán procesados por las funciones de mapeo. Los filtros de mapeo son opcionales pero son altamente recomendables, ya que reducen significativamente la cantidad de datos procesados por su proyecto SubQuery y mejorarán el rendimiento de indexación.
 
 ```yaml
 # Filtro de ejemplo de callHandler
@@ -137,7 +137,7 @@ Cuando se conecta a una parachain Polkadot diferente o incluso a una cadena de s
 
 El `genesisHash` debe ser siempre el hash del primer bloque de la red personalizada. Puedes retirarlo fácilmente yendo a [PolkadotJS](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fkusama.api.onfinality.io%2Fpublic-ws#/explorer/query/0) y buscando el hash en **bloque 0** (ver la imagen de abajo).
 
-![Genesis Hash](/assets/img/genesis-hash.jpg)
+![Hash de Génesis](/assets/img/genesis-hash.jpg)
 
 Además, necesitarás actualizar el `endpoint`. Esto define el punto final del blockchain a indexar - **Este debe ser un nodo completo de archivo**. Puedes recuperar endpoints para todas las parachains gratis de [OnFinality](https://app.onfinality.io)
 
@@ -145,57 +145,64 @@ Además, necesitarás actualizar el `endpoint`. Esto define el punto final del b
 
 Puede indexar datos de cadenas personalizadas incluyendo también tipos de cadena en el manifiesto.
 
-We support the additional types used by substrate runtime modules, `typesAlias`, `typesBundle`, `typesChain`, and `typesSpec` are also supported.
+Soportamos los tipos adicionales usados por módulos de tiempo de ejecución substrate, `typesAlias`, `typesBundle`, `typesChain`, y `typesSpec` también son compatibles.
 
-In the v0.2.0 example below, the `network.chaintypes` are pointing to a file that has all the custom types included, This is a standard chainspec file that declares the specific types supported by this blockchain in either `.json`, `.yaml` or `.js` format.
+En el ejemplo v0.2.0 de abajo, la red `. haintypes` están apuntando a un archivo que tiene todos los tipos personalizados incluidos, Este es un archivo estándar de chainspec que declara los tipos específicos soportados por este blockchain en cualquiera de los dos `. son`, `.yaml` o `.js formato`.
 
-<CodeGroup> <CodeGroupItem title="v0.2.0" active> ``` yml network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' endpoint: 'ws://host.kittychain.io/public-ws' chaintypes: file: ./types.json # The relative filepath to where custom types are stored ... ``` </CodeGroupItem>
+<CodeGroup> <CodeGroupItem title="v0.2.0" active> ``` yml network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' endpoint: 'ws://host.kittychain.io/public-ws' chaintypes: file: ./types.json # la ruta relativa al lugar donde se almacenan los tipos personalizados ... ``` </CodeGroupItem>
 <CodeGroupItem title="v0.0.1"> ``` yml ... network: endpoint: "ws://host.kittychain.io/public-ws" types: { "KittyIndex": "u32", "Kitty": "[u8; 16]" } # typesChain: { chain: { Type5: 'example' } } # typesSpec: { spec: { Type6: 'example' } } dataSources: - name: runtime kind: substrate/Runtime startBlock: 1 filter:  #Optional specName: kitty-chain mapping: handlers: - handler: handleKittyBred kind: substrate/CallHandler filter: module: kitties method: breed success: true ``` </CodeGroupItem> </CodeGroup>
 
 To use typescript for your chain types file include it in the `src` folder (e.g. `./src/types.ts`), run `yarn build` and then point to the generated js file located in the `dist` folder.
 
 ```yml
-network:
+red:
   chaintypes:
-    file: ./dist/types.js # Will be generated after yarn run build
+    file: ./dist/types.js # se generará después de ejecutar yarn build
 ...
 ```
 
-Things to note about using the chain types file with extension `.ts` or `.js`:
+Cosas a tener en cuenta sobre el uso del archivo de tipos de cadena con extensión `.ts` o `.js`:
 
 - Su versión de manifiesto debe ser v0.2.0 o superior.
 - Solo la exportación predeterminada se incluirá en la [ polkadot api ](https://polkadot.js.org/docs/api/start/types.extend/) al buscar bloques.
 
-Here is an example of a `.ts` chain types file:
+A continuación se muestra un ejemplo de un archivo de tipos de cadena `.ts `:
 
-<CodeGroup> <CodeGroupItem title="types.ts"> ```ts
-import { typesBundleDeprecated } from "moonbeam-types-bundle"
-export default { typesBundle: typesBundleDeprecated }; ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="types.ts"> ts importar {typesBundleDeprecated} desde "moonbeam-types-bundle" exportar predeterminado {typesBundle: typesBundleDeprecated}; '' </CodeGroupItem> </CodeGroup>
 
-## Custom Data Sources
+## Fuentes de datos personalizadas
 
-Custom Data Sources provide network specific functionality that makes dealing with data easier. They act as a middleware that can provide extra filtering and data transformation.
+Las fuentes de datos personalizadas brindan una funcionalidad específica de la red que facilita el manejo de los datos. Actúan como un middleware que puede proporcionar filtrado adicional y transformación de datos.
 
-A good example of this is EVM support, having a custom data source processor for EVM means that you can filter at the EVM level (e.g. filter contract methods or logs) and data is transformed into structures farmiliar to the Ethereum ecosystem as well as parsing parameters with ABIs.
+Un buen ejemplo de esto es el soporte de EVM, tener un procesador de fuente de datos personalizado para EVM significa que puede filtrar a nivel de EVM (por ejemplo, filtrar métodos de contrato o registros) y los datos se transforman en estructuras similares al ecosistema de Ethereum también como parámetros de análisis con ABI.
 
-Custom Data Sources can be used with normal data sources.
+Las fuentes de datos personalizadas se pueden utilizar con fuentes de datos normales.
 
-Here is a list of supported custom datasources:
+Aquí hay una lista de fuentes de datos personalizadas compatibles:
 
-| Kind                                                  | Supported Handlers                                                                                       | Filters                         | Description                                                                      |
-| ----------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | ------------------------------- | -------------------------------------------------------------------------------- |
-| [substrate/Moonbeam](./moonbeam/#data-source-example) | [substrate/MoonbeamEvent](./moonbeam/#moonbeamevent), [substrate/MoonbeamCall](./moonbeam/#moonbeamcall) | See filters under each handlers | Provides easy interaction with EVM transactions and events on Moonbeams networks |
-
-## Network Filters
-
-**Network filters only applies to manifest spec v0.0.1**.
-
-Usually the user will create a SubQuery and expect to reuse it for both their testnet and mainnet environments (e.g Polkadot and Kusama). Between networks, various options are likely to be different (e.g. index start block). Therefore, we allow users to define different details for each data source which means that one SubQuery project can still be used across multiple networks.
-
-Users can add a `filter` on `dataSources` to decide which data source to run on each network.
-
-Below is an example that shows different data sources for both the Polkadot and Kusama networks.
+<table spaces-before="0">
+  <tr>
+    <th>
+      Amable
+    </th>
+    
+    <th>
+      Controladores admitidos
+    </th>. Entre redes, es probable que varias opciones sean diferentes (por ejemplo, el bloque de inicio del índice). Por lo tanto, permitimos a los usuarios definir diferentes detalles para cada fuente de datos, lo que significa que un proyecto de SubQuery puede ser utilizado en múltiples redes.</p> 
+    
+    <p spaces-before="0">
+      Los usuarios pueden añadir un <code>filtro</code> en <code>fuentes de datos</code> para decidir qué fuente de datos ejecutar en cada red.
+    </p>
+    
+    <p spaces-before="0">
+      A continuación hay un ejemplo que muestra diferentes fuentes de datos para las redes Polkadot y Kusama.
+    </p>
+    
+    <p spaces-before="0">
 
 <CodeGroup> <CodeGroupItem title="v0.0.1"> ```yaml --- network: endpoint: 'wss://polkadot.api.onfinality.io/public-ws' #Create a template to avoid redundancy definitions: mapping: &mymapping handlers: - handler: handleBlock kind: substrate/BlockHandler dataSources: - name: polkadotRuntime kind: substrate/Runtime filter: #Optional specName: polkadot startBlock: 1000 mapping: *mymapping #use template here - name: kusamaRuntime kind: substrate/Runtime filter: specName: kusama startBlock: 12000 mapping: *mymapping # can reuse or change ``` </CodeGroupItem>
-
-</CodeGroup>
+    </p>
+    
+    <p spaces-before="0">
+      </CodeGroup>
+    </p>
