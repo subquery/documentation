@@ -18,21 +18,21 @@ Debajo de `fuentes de datos`:
 
 ### Opciones de CLI
 
-By default the CLI will generate SubQuery projects for spec verison v0.2.0. This behaviour can be overridden by running `subql init --specVersion 0.0.1 PROJECT_NAME`, although this is not recommended as the project will not be supported by the SubQuery hosted service in the future
+Por defecto, el CLI generará proyectos SubQuery para la versión especifica 0.2.0. Este comportamiento puede ser anulado ejecutando `subql init --specVersion 0.0. PROJECT_NAME`, aunque esto no es recomendable ya que el proyecto no será soportado por el servicio alojado en SubQuery en el futuro
 
 `subql migrate` se puede ejecutar en un proyecto existente para migrar el manifiesto del proyecto a la última versión.
 
-USAGE $ subql init [PROJECTNAME]
+USAR $ subql init [PROJECTNAME]
 
-ARGUMENTS PROJECTNAME  Give the starter project name
+ARGUENTOS PROJECTNAME Dar el nombre del proyecto inicial
 
-| Opciones                | Descripción                                                                  |
-| ----------------------- | ---------------------------------------------------------------------------- |
-| -f, --force             |                                                                              |
-| -l, --location=location | local folder to create the project in                                        |
-| --install-dependencies  | Install dependencies as well                                                 |
-| --npm                   | Force using NPM instead of yarn, only works with `install-dependencies` flag |
-| --specVersion=0.0.1     | 0.2.0  [default: 0.2.0] | The spec version to be used by the project         |
+| Opciones                 | Descripción                                                                                |
+| ------------------------ | ------------------------------------------------------------------------------------------ |
+| -f, --force              |                                                                                            |
+| -l, --location=ubicación | carpeta local para crear el proyecto en                                                    |
+| --install-dependencias   | Instalar también dependencias                                                              |
+| --npm                    | Forzar el uso de NPM en lugar de yarn, solo funciona con la bandera `install-dependencies` |
+| --specVersion=0.0.1      | 0.2.0 [por defecto: 0.2.0] | La versión especificada para ser utilizada por el proyecto    |
 
 ## Resumen
 
@@ -66,14 +66,14 @@ ARGUMENTS PROJECTNAME  Give the starter project name
 
 ### Fuente de datos especifica
 
-Defines the data that will be filtered and extracted and the location of the mapping function handler for the data transformation to be applied.
-| Campo          | v0.0.1                                                    | v0.2.0                                                                           | Descripción                                                                                                                                                                           |
-| -------------- | --------------------------------------------------------- | -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **nombre**     | String                                                    | 𐄂                                                                                | Name of the data source                                                                                                                                                               |
-| **clase**      | [substrate/Runtime](./manifest/#data-sources-and-mapping) | substrate/Runtime, [substrate/CustomDataSource](./manifest/#custom-data-sources) | We supports data type from default substrate runtime such as block, event and extrinsic(call). <br /> From v0.2.0, we support data from custom runtime, such as smart contract. |
-| **startBlock** | Integer                                                   | Integer                                                                          | This changes your indexing start block, set this higher to skip initial blocks with less data                                                                                         |
-| **mapping**    | Especificación de mapeo                                   | Especificación de mapeo                                                          |                                                                                                                                                                                       |
-| **filtro**     | [network-filters](./manifest/#network-filters)            | 𐄂                                                                                | Filter the data source to execute by the network endpoint spec name                                                                                                                   |
+Define los datos que serán filtrados y extraídos y la ubicación del manejador de funciones de mapeo para que la transformación de datos sea aplicada.
+| Campo          | v0.0.1                                                                | v0.2.0                                                                           | Descripción                                                                                                                                                                                                                           |
+| -------------- | --------------------------------------------------------------------- | -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **nombre**     | String                                                                | 𐄂                                                                                | Nombre del origen de los datos                                                                                                                                                                                                        |
+| **clase**      | [substrate/tiempo de ejecución](./manifest/#data-sources-and-mapping) | substrate/Runtime, [substrate/CustomDataSource](./manifest/#custom-data-sources) | Soportamos el tipo de datos desde el tiempo de ejecución por defecto de substrate como bloque, evento y extrinsic(call). <br /> Desde v0.2.0, soportamos datos de tiempo de ejecución personalizado, como contrato inteligente. |
+| **startBlock** | Integer                                                               | Integer                                                                          | Esto cambia el bloque de inicio de indexación, establezca esto más alto para omitir bloques iniciales con menos datos                                                                                                                 |
+| **mapeo**      | Especificación de mapeo                                               | Especificación de mapeo                                                          |                                                                                                                                                                                                                                       |
+| **filtro**     | [filtros de red](./manifest/#network-filters)                         | 𐄂                                                                                | Filtrar la fuente de datos a ejecutar por el nombre de la especificación del extremo de red                                                                                                                                           |
 
 ### Especificación de mapeo
 
@@ -84,7 +84,7 @@ Defines the data that will be filtered and extracted and the location of the map
 
 ## Fuentes de datos y mapeo
 
-In this section, we will talk about the default substrate runtime and its mapping. Here is an example:
+En esta sección, hablaremos del tiempo de ejecución por defecto de substrate y su mapeo. Aquí tenemos un ejemplo:
 
 ```yaml
 dataources:
@@ -96,9 +96,9 @@ dataources:
 
 ### Manejadores y Filtros de Mapeo
 
-The following table explains filters supported by different handlers.
+La siguiente tabla explica los filtros soportados por diferentes manejadores.
 
-**Your SubQuery project will be much more efficient when you only use event and call handlers with appropriate mapping filters**
+**Tu proyecto de SubQuery será mucho más eficiente cuando sólo utilices controladores de eventos y llamadas con filtros de mapeo apropiados**
 
 | Manejador                                          | Filtro compatible            |
 | -------------------------------------------------- | ---------------------------- |
@@ -133,17 +133,17 @@ filtro:
 
 ### Especificaciones de red
 
-When connecting to a different Polkadot parachain or even a custom substrate chain, you'll need to edit the [Network Spec](#network-spec) section of this manifest.
+Cuando se conecta a una parachain Polkadot diferente o incluso a una cadena de sustratos personalizada, necesitarás editar la sección [Especificación de red](#network-spec) de este manifiesto.
 
-The `genesisHash` must always be the hash of the first block of the custom network. You can retireve this easily by going to [PolkadotJS](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fkusama.api.onfinality.io%2Fpublic-ws#/explorer/query/0) and looking for the hash on **block 0** (see the image below).
+El `genesisHash` debe ser siempre el hash del primer bloque de la red personalizada. Puedes retirarlo fácilmente yendo a [PolkadotJS](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fkusama.api.onfinality.io%2Fpublic-ws#/explorer/query/0) y buscando el hash en **bloque 0** (ver la imagen de abajo).
 
 ![Genesis Hash](/assets/img/genesis-hash.jpg)
 
-Additionally you will need to update the `endpoint`. This defines the wss endpoint of the blockchain to be indexed - **This must be a full archive node**. Puedes recuperar endpoints para todas las parachains gratis de [OnFinality](https://app.onfinality.io)
+Además, necesitarás actualizar el `endpoint`. Esto define el punto final del blockchain a indexar - **Este debe ser un nodo completo de archivo**. Puedes recuperar endpoints para todas las parachains gratis de [OnFinality](https://app.onfinality.io)
 
 ### Tipos de cadena
 
-You can index data from custom chains by also including chain types in the manifest.
+Puede indexar datos de cadenas personalizadas incluyendo también tipos de cadena en el manifiesto.
 
 We support the additional types used by substrate runtime modules, `typesAlias`, `typesBundle`, `typesChain`, and `typesSpec` are also supported.
 
