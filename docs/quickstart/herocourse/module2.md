@@ -55,8 +55,6 @@
 * [Account Balances PDF workbook](/assets/pdf/Account_Balances.pdf)
 * [Account Balances Github](https://github.com/subquery/tutorials-account-balances)
 
-
-
 ## Pre-requisites
 
 * Completion of Module 1
@@ -72,9 +70,7 @@ In this exercise, we will take the starter project and focus on using an event h
 4. Deploy your code in Docker
 5. Query for address balances in the playground
 
-
 ### Detailed steps
-
 
 #### Step 1: Initialise your project
 
