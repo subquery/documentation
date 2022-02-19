@@ -97,7 +97,7 @@ const b1 = await api.rpc.chain.getBlock(blockhash);
 // It will use the current block has by default like so
 const b2 = await api.rpc.chain.getBlock();
 ```
-- [カスタムサブストレイトチェーン](#custom-substrate-chains) RPCコールについては、 [使用法](#usage) を参照してください。
+- [カスタムSubstrateチェーン](#custom-substrate-chains) RPCコールについては、 [使用法](#usage) を参照してください。
 
 ## モジュールとライブラリ
 
@@ -128,7 +128,7 @@ export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
 
 **hybrid** ライブラリ(例えば `@polkadot/*` )もサポートしており、ESM をデフォルトとして使用しています。 しかし、他のライブラリが**ESM**形式のモジュールに依存している場合、仮想マシンはコンパイル**されず**、エラーを返します。
 
-## カスタムサブストレイトチェーン
+## カスタムSubstrateチェーン
 
 SubQuery は、Polkadot や Kusama だけではなく、Substrate-based chain 上で使用できます。
 
@@ -147,7 +147,7 @@ Substrateベースのカスタムチェーンを使用することができ、[@
 ```shell
 curl -H "Content-Type: application/json" -d '{"id":"1", "jsonrpc":"2.0", "method": "state_getMetadata", "params":[]}' http://localhost:9933
 ```
-または、[`websocat`](https://github.com/vi/websocat)の助けを借りて、**websocket**エンドポイントから
+または、**websocket**エンドポイントから[`websocat`](https://github.com/vi/websocat)の助けを借ります。
 
 ```shell
 //Install the websocat
