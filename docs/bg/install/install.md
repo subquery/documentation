@@ -1,6 +1,6 @@
 # Инсталиране на SubQuery
 
-There are various components required when creating a SubQuery project. The [@subql/cli](https://github.com/subquery/subql/tree/docs-new-section/packages/cli) tool is used to create SubQuery projects. The [@subql/node](https://github.com/subquery/subql/tree/docs-new-section/packages/node) component is required to run an indexer. The [@subql/query](https://github.com/subquery/subql/tree/docs-new-section/packages/query) library is required to generate queries.
+Различни компоненти са необходими при създаване на проект в SubQuery. Инструментът @subql/cli се изолзва при създаване на проекти на SubQuery. Компонентът @subql/node е необходим за стартиране на индексатор. Библиотеката @subql/query се използва за генериране на заявки. The [@subql/cli](https://github.com/subquery/subql/tree/docs-new-section/packages/cli) tool is used to create SubQuery projects. The [@subql/node](https://github.com/subquery/subql/tree/docs-new-section/packages/node) component is required to run an indexer. The [@subql/query](https://github.com/subquery/subql/tree/docs-new-section/packages/query) library is required to generate queries.
 
 ## Install @subql/cli
 
