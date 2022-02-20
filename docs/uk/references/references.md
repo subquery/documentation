@@ -241,41 +241,41 @@ batchSize: 55 // Додаткова конфігурація
 
 ### --log-рівень
 
-Є 7 варіантів на вибір. “fatal”, “error”, “warn”, “info”, “debug”, “trace”, “silent”. The example below shows silent. Nothing will be printed in the terminal so the only way to tell if the node is working or not is to query the database for row count (select count(\*) from subquery_1.starter_entities) or query the block height.
+Є 7 варіантів на вибір. “фатальний”, "помилка", "попередження", "інформація", "налагодження", "простеження", "мовчати". Нижче наведено приклад без звуку. У терміналі нічого не буде надруковано, тож єдиний спосіб дізнатися, працює вузол чи ні, — це запитати кількість рядків до бази даних (вибрати count(\*) із subquery_1.starter_entities) або запитати висоту блоку.
 
 ```shell
-> subql-node -f . --log-level=silent
-(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
-(Use `node --trace-warnings ...` to show where the warning was created)
-(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
-(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
-(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
-(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
-(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
-(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
-(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
-(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
-(node:24686) [DEP0152] DeprecationWarning: Custom PerformanceEntry accessors are deprecated. Please use the detail property.
-(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
+> subql-node -f . --log-level=тихий
+(node:24686) [PINODEP007] Попередження: bindings.level не підтримується, замість цього використовуйте параметр options.level
+(Використовуйте `node --trace-warnings ...`, щоб показати, де було створено попередження)
+(node:24686) [PINODEP007] Попередження: bindings.level не підтримується, замість цього використовуйте параметр options.level
+(node:24686) [PINODEP007] Попередження: bindings.level не підтримується, замість цього використовуйте параметр options.level
+(node:24686) [PINODEP007] Попередження: bindings.level не підтримується, замість цього використовуйте параметр options.level
+(node:24686) [PINODEP007] Попередження: bindings.level не підтримується, замість цього використовуйте параметр options.level
+(node:24686) [PINODEP007] Попередження: bindings.level не підтримується, замість цього використовуйте параметр options.level
+(node:24686) [PINODEP007] Попередження: bindings.level не підтримується, замість цього використовуйте параметр options.level
+(node:24686) [PINODEP007] Попередження: bindings.level не підтримується, замість цього використовуйте параметр options.level
+(node:24686) [PINODEP007] Попередження: bindings.level не підтримується, замість цього використовуйте параметр options.level
+(вузол: 24686) [DEP0152] Попередження про депресію: спеціальні засоби доступу PerformanceEntry не підтримуються. Будь ласка, використовуйте детальнішу властивість.
+(node:24686) [PINODEP007] Попередження: bindings.level не підтримується, замість цього використовуйте параметр options.level
 ```
 
 <!-- ### --migrate TBA -->
 
 ### --timestamp-field
 
-By default this is true. when set to false with:
+За замовчуванням це правда. коли встановлено значення false з:
 
 ```shell
 > subql-node -f . –timestamp-field=false
 ```
 
-This removes the created_at and updated_at columns in the starter_entities table.
+Це видаляє стовпці created_at та updated_at у таблиці starter_entities.
 
-### -d, --network-dictionary
+### -d, --мережа-словник
 
-This allows you to specify a dictionary endpoint which is a free service that is provided and hosted at: [https://explorer.subquery.network/](https://explorer.subquery.network/) (search for dictionary) and presents an API endpoint of: https://api.subquery.network/sq/subquery/dictionary-polkadot
+Це дозволяє вказати кінцеву точку словника, яка є безкоштовною службою, яка надається та розміщена за адресою: [https://explorer.subquery.network/](https://explorer.subquery.network/) (шукати словник) і представляє кінцеву точку API: https ://api.subquery.network/sq/subquery/dictionary-polkadot
 
-Typically this would be set in your manifest file but below shows an example of using it as an argument in the command line.
+Зазвичай це встановлюється у вашому файлі маніфесту, але нижче показано приклад використання його як аргументу в командному рядку.
 
 ```shell
 підql-вузол -f. -d "https://api.subquery.network/sq/subquery/dictionary-polkadot"
@@ -283,9 +283,9 @@ Typically this would be set in your manifest file but below shows an example of 
 
 [ Детальніше про те, як працює SubQuery Dictionary ](../tutorials_examples/dictionary.md).
 
-### -p, --port
+### -p, --порт
 
-The port the subquery indexing service binds to. By default this is set to `3000`
+Порт, до якого прив’язується служба індексування subquery. За замовчуванням для нього встановлено значення `3000`
 
 ## subql-query
 
@@ -294,23 +294,23 @@ The port the subquery indexing service binds to. By default this is set to `3000
 Тут показані варіанти допомоги.
 
 ```shell
-Options:
-      --help        Show help                                          [boolean]
-      --version     Show version number                                [boolean]
-  -n, --name        Project name                             [string] [required]
-      --playground  Enable graphql playground                          [boolean]
-      --output-fmt  Print log as json or plain text
-                      [string] [choices: "json", "colored"] [default: "colored"]
-      --log-level   Specify log level to print.
-          [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
-                                                     "silent"] [default: "info"]
-      --log-path    Path to create log file e.g ./src/name.log          [string]
-      --log-rotate  Rotate log files in directory specified by log-path
-                                                      [boolean] [default: false]
-      --indexer     Url that allows query to access indexer metadata    [string]
-      --unsafe      Disable limits on query depth and allowable number returned
-                    query records                                      [boolean]
-  -p, --port        The port the service will bind to                   [number
+Параметри:
+       --help Показати довідку [boolean]
+       --version Показати номер версії [boolean]
+   -n, --name Назва проекту [рядок] [обов'язково]
+       --playground Увімкнути graphql playground [boolean]
+       --output-fmt Роздрукувати журнал як json або звичайний текст
+                       [рядок] [вибір: "json", "кольоровий"] [за замовчуванням: "кольоровий"]
+       --log-level Вкажіть рівень журналу для друку.
+          [рядок] [вибір: "фатальний", "помилка", "попередження", "інформація", "налагодження", "відстежування",
+                                                      "тихий"] [за замовчуванням: "інформація"]
+       --log-path Шлях для створення файлу журналу, наприклад ./src/name.log [рядок]
+       --log-rotate Обертати файли журналів у каталозі, визначеному шляхом журналу
+                                                       [логічний] [за замовчуванням: false]
+       --indexer Url, що дозволяє запиту отримати доступ до метаданих індексатора [рядок]
+       --unsafe Вимкнути обмеження на глибину запиту та повернене допустиме число
+                     записи запиту [логічне значення]
+   -p, --port Порт, до якого служба буде прив'язана [число
 ```
 
 ### --версія
@@ -322,56 +322,56 @@ Options:
 0.7.0
 ```
 
-### -n, --name
+### -n, --ім'я
 
-This flag is used to start the query service. If the --subquery-name flag is not provided when running an indexer, the name here will refer to the default project name. If --subquery-name is set, then the name here should match what was set.
+Цей прапор використовується для запуску служби запитів. Якщо прапорець --subquery-name не вказано під час запуску індексатора, ім'я тут посилатиметься на назву проекту за замовчуванням. Якщо встановлено параметр --subquery-name, тоді ім’я тут має відповідати тому, що було встановлено.
 
 ```shell
-> subql-node -f . // --subquery-name not set
+> subql-node -f . // --назва-subquery не встановлено
 
-> subql-query -n subql-helloworld  --playground // the name defaults to the project directory name
+> subql-query -n subql-helloworld --playground // ім'я за замовчуванням відповідає імені каталогу проекту
 ```
 
 ```shell
-> subql-node -f . --subquery-name=hiworld // --subquery-name set
+> subql-node -f . --subquery-name=hiworld // --набір імені-subquery
 
-> subql-query -n hiworld --playground  // the name points to the subql-helloworld project but with the name of hiworld
+> subql-query -n hiworld --playground // назва вказує на проект subql-helloworld, але з назвою hiworld
 ```
 
-### --playground
+### Ігрове поле
 
-This flag enables the graphql playground so should always be included by default to be of any use.
+Цей прапор включає ігровий майданчик graphql, тому його завжди слід включати за замовчуванням, щоб він був корисним.
 
 ### --output-fmt
 
-See [--output-fmt](https://doc.subquery.network/references/references.html#output-fmt)
+Дивіться [--output-fmt](https://doc.subquery.network/references/references.html#output-fmt)
 
 ### --log-рівень
 
-See [--log-level](https://doc.subquery.network/references/references.html#log-level)
+Дивіться [--log-level](https://doc.subquery.network/references/references.html#log-level)
 
-### --log-path
+### --log-шлях
 
-Enable file logging by providing a path to a file to log to
+Увімкніть журналювання файлів, вказавши шлях до файлу для входу
 
 ### --log-rotate
 
-Enable file log rotations with the options of a 1d rotation interval, a maximum of 7 files and with a max file size of 1GB
+Увімкнути ротацію журналу файлів із параметрами інтервалу обертання 1d, максимум 7 файлів і з максимальним розміром файлу 1 ГБ
 
-### --indexer
+### --індексатор
 
-Set a custom url for the location of the endpoints of the indexer, the query service uses these endpoints for indexer health, metadata and readiness status
+Установіть спеціальну URL-адресу для розташування кінцевих точок індексатора, служба запитів використовує ці кінцеві точки для працездатності, метаданих і стану готовності індексатора
 
 ### --unsafe
 
-The query service has a limit of 100 entities for unbounded graphql queries. The unsafe flag removes this limit which may cause performance issues on the query service. It is recommended instead that queries are [paginated](https://graphql.org/learn/pagination/).
+Служба запитів має обмеження в 100 сутностей для необмежених запитів graphql. Прапор небезпечного знімає це обмеження, що може спричинити проблеми з продуктивністю служби запитів. Натомість рекомендується [розбити на сторінки](https://graphql.org/learn/pagination/) запити.
 
-This flag can also be used to enable certain aggregation functions including sum, max, avg and [others](https://github.com/graphile/pg-aggregates#aggregates).
+Цей прапор також можна використовувати, щоб увімкнути певні функції агрегації, включаючи суму, максимум, середнє значення та [інші](https://github.com/graphile/pg-aggregates#aggregates).
 
-These are disabled by default due to the entity limit.
+Вони вимкнені за замовчуванням через обмеження об’єктів.
 
-**Note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in SubQuery's managed service [project.subquery.network](https://project.subquery.network).**
+**Зауважте, що команда `--unsafe` запобігає запуску вашого проекту в мережі SubQuery, і ви повинні звернутися в службу підтримки, якщо хочете, щоб ця команда запускалася з вашим проектом у проекті [керованої служби SubQuery .subquery.network](https://project.subquery.network).**
 
-### --port
+### --порт
 
-The port the subquery query service binds to. By default this is set to `3000`
+Порт, до якого прив’язується служба запитів підзапитів. За замовчуванням для нього встановлено значення `3000`
