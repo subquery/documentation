@@ -1,4 +1,4 @@
-# Yeni bir SubQuery Projesi Oluşturma
+# Yeni bir SubQuery Projesini Oluşturma
 
 [quick start](/quickstart/quickstart.md) kılavuzunda, SubQuery'nin ne olduğunu ve nasıl çalıştığını size tattırmak için çok hızlı bir şekilde bir örnek inceledik. Burada projenizi oluştururken iş akışına ve çalışacağınız anahtar dosyalara daha yakından bakacağız.
 
