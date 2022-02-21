@@ -31,13 +31,13 @@
 
 НЕОБХІДНО ДЛЯ НАДАТИ початкову назву проекту
 
-| Параметри               | Описання                                                                     |
-| ----------------------- | ---------------------------------------------------------------------------- |
-| -f, --force             |                                                                              |
-| -l, --location=location | local folder to create the project in                                        |
-| --install-dependencies  | Install dependencies as well                                                 |
-| --npm                   | Force using NPM instead of yarn, only works with `install-dependencies` flag |
-| --specVersion=0.0.1     | 0.2.0  [default: 0.2.0] | The spec version to be used by the project         |
+| Параметри               | Описання                                                                                |
+| ----------------------- | --------------------------------------------------------------------------------------- |
+| -f, --force             |                                                                                         |
+| -l, --location=location | локальна папка для створення проекту                                                    |
+| --install-dependencies  | Також встановіть залежності                                                             |
+| --npm                   | Примусове використання NPM замість yarn, працює лише з прапорцем `install-dependencies` |
+| --specVersion=0.1       | 0.2.0 [default 0.2.0] | Версія специфікації, яка буде використовуватися в проекті       |
 
 ## Огляд
 
@@ -71,14 +71,14 @@
 
 ### Специфікація ресурсу даних
 
-Defines the data that will be filtered and extracted and the location of the mapping function handler for the data transformation to be applied.
-| поле           | v0.0.1                                                    | v0.2.0                                                                           | Описання                                                                                                                                                                              |
-| -------------- | --------------------------------------------------------- | -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **ім’я**       | Рядок                                                     | 𐄂                                                                                | Name of the data source                                                                                                                                                               |
-| **вид**        | [substrate/Runtime](./manifest/#data-sources-and-mapping) | substrate/Runtime, [substrate/CustomDataSource](./manifest/#custom-data-sources) | We supports data type from default substrate runtime such as block, event and extrinsic(call). <br /> From v0.2.0, we support data from custom runtime, such as smart contract. |
-| **startBlock** | Integer                                                   | Integer                                                                          | This changes your indexing start block, set this higher to skip initial blocks with less data                                                                                         |
-| **mapping**    | Специфікація карт                                         | Специфікація карт                                                                |                                                                                                                                                                                       |
-| **Фільтр**     | [network-filters](./manifest/#network-filters)            | 𐄂                                                                                | Filter the data source to execute by the network endpoint spec name                                                                                                                   |
+Визначає дані, які будуть відфільтровані та витягнуті, а також розташування обробника функції відображення для застосування перетворення даних.
+| поле           | v0.0.1                                                    | v0.2.0                                                                           | Описання                                                                                                                                                                                                        |
+| -------------- | --------------------------------------------------------- | -------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **ім’я**       | Рядок                                                     | 𐄂                                                                                | Назва джерела даних                                                                                                                                                                                             |
+| **вид**        | [substrate/Runtime](./manifest/#data-sources-and-mapping) | substrate/Runtime, [substrate/CustomDataSource](./manifest/#custom-data-sources) | Ми підтримуємо типи даних із середовища виконання субстрату за замовчуванням, такі як блок, подія та зовнішній (виклик). <br /> From v0.2.0, we support data from custom runtime, such as smart contract. |
+| **startBlock** | Integer                                                   | Integer                                                                          | This changes your indexing start block, set this higher to skip initial blocks with less data                                                                                                                   |
+| **mapping**    | Специфікація карт                                         | Специфікація карт                                                                |                                                                                                                                                                                                                 |
+| **Фільтр**     | [network-filters](./manifest/#network-filters)            | 𐄂                                                                                | Filter the data source to execute by the network endpoint spec name                                                                                                                                             |
 
 ### Специфікація карт
 
