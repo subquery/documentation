@@ -1,6 +1,6 @@
 # How to delete a SubQuery project?
 
-## Introduction
+## Въеведение
 
 It is important to keep your projects in SubQuery Project relevant and up to date. For any projects that uploaded to SubQuery Project for testing purposes, it is recommended to delete them afterwards to conserve resources and save cost.
 
