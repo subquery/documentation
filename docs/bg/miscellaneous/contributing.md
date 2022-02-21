@@ -2,53 +2,53 @@
 
 Добре дошли и ви благодаря, че обмисляте да допринесете за този SubQuery проект! Заедно можем да проправим пътя към по-децентрализирано бъдеще.
 
-> This documentation is actively maintained by the SubQuery team. We welcome your contributions, you can do so by forking our GitHub project and making changes to all the documentation markdown files under the `docs` directory.
+> Тази документация се поддържа активно от екипа на SubQuery. Приветстваме вашия принос, можете да го направите, като форкнете нашия GitHub проект и направите промени във всички файлове с намалена документация в директорията с `документи`.
 
-What follows is a set of guidelines (not rules) for contributing to SubQuery. Following these guidelines will help us make the contribution process easy and effective for everyone involved. It also communicates that you agree to respect the time of the developers managing and developing this project. In return, we will reciprocate that respect by addressing your issue, considering changes, collaborating on improvements, and helping you finalise your pull requests.
+Това, което следва, е набор от насоки (не правила) за принос към SubQuery. Следването на тези указания ще ни помогне да направим процеса на принос лесен и ефективен за всички участващи. Той съобщава, че се съгласявате да уважавате времето на разработчиците, които управляват и разработват този проект. В замяна ние ще отвърнем на това уважение, като разгледаме проблема ви, ще разгледаме промените, ще си сътрудничим за подобрения и ще ви помогнем да финализирате заявките си за изтегляне.
 
-## Code of Conduct
+## Кодекс на поведение
 
-We take our open source community projects and responsibility seriously and hold ourselves and other contributors to high standards of communication. By participating and contributing to this project, you agree to uphold our [Code of Conduct](https://github.com/subquery/subql/blob/contributors-guide/CODE_OF_CONDUCT.md).
+Ние приемаме нашите обществени проекти с отворен код сериозно и държим себе си и другите участници, както и имаме високи стандарти за комуникация. Като участвате и допринасяте за този проект, вие се съгласявате да спазвате нашия [Кодекс за поведение](https://github.com/subquery/subql/blob/contributors-guide/CODE_OF_CONDUCT.md).
 
-## Начални стъпки
+## Нека да започнем
 
-Contributions to our repositories are made through Issues and Pull Requests (PRs). A few general guidelines that cover both:
+Приносът към нашите хранилища се прави чрез проблеми и заявки за изтегляне (Pull Requests - PR). Няколко общи насоки, които обхващат и двете:
 
-* Search for existing Issues and PRs before creating your own.
-* We work hard to makes sure issues are handled in promptly but, depending on the impact, it could take a while to investigate the root cause. A friendly @ mention in the comment thread to the submitter or a contributor can help draw attention if your issue is blocking.
+* Потърсете съществуващи проблеми и заявки за изтегляне, преди да създадете свои собствени.
+* Работим усилено, за да гарантираме, че проблемите се решават бързо, но в зависимост от въздействието може да отнеме известно време, за да се проучи основната причина. Приятелското @ споменаване в коментарите към подателя или сътрудника, може да ви помогне да привлечете внимание, в случай че проблемът ви блокира.
 
-## How to Contribute
+## Как да допринесете
 
-### Reporting Bugs
+### Докладване на грешки
 
-Bugs are tracked as GitHub issues. When logging an issue, explain the problem and include additional details to help maintainers reproduce the problem:
+Грешките се проследяват като проблеми с GitHub. Когато регистрирате проблем, обяснете проблема и включете допълнителни подробности, за да помогнете на поддържащите да възпроизведат проблема:
 
-* Use a clear and descriptive title for the issue to identify the problem.
-* Describe the exact steps to reproduce the problem.
-* Describe the behavior you observed after following the steps.
-* Explain which behavior you expected to see instead and why.
-* Include screenshots if possible.
+* Използвайте ясно и описателно заглавие на проблема, за да идентифицирате проблема.
+* Опишете точните стъпки за възпроизвеждане на проблема.
+* Опишете поведението, което наблюдавате, след като следвате стъпките.
+* Обяснете какво поведение сте очаквали да видите вместо това и защо.
+* Включете снимки на екрана, ако е възможно.
 
-### Submitting Pull Requests
+### Подаване на заявки за изтегляне
 
-In general, we follow the "fork-and-pull" Git workflow
+Като цяло следваме работния процес на Git "Fork-and-pull"
 
-* Fork the repository to your own Github account
-* Clone the project to your machine
-* Create a branch locally with a succinct but descriptive name
-* Commit changes to the branch
-* Following any formatting and testing guidelines specific to this repo
-* Push changes to your fork
-* Open a PR in our repository
+* Форкнете хранилището към вашия собствен акаунт в Github
+* Клонирайте проекта на вашата машина
+* Създайте локален клон с кратко, но описателно име
+* Извършете промени в клона
+* Следвайте всички указания за форматиране и тестване, специфични за това репо
+* Направете промените във вашият форк
+* Отворете заявка за изтегляне в нашето хранилище
 
-## Coding Conventions
+## Конвенции за програмиране
 
-### Git Commit Messages
+### Git Commit съобщения
 
-* Use the present tense ("Add feature" not "Added feature")
-* Use the imperative mood ("Move cursor to..." not "Moves cursor to...")
-* Limit the first line to 72 characters or less
+* Използвайте сегашно време („Добавяне на функция“, а не „Добавена функция“)
+* Използвайте повелителното наклонение („Премести курсора към...“, а не „Преместване на курсора към...“)
+* Ограничете първия ред до 72 знака или по-малко
 
 ### JavaScript Styleguide
 
-* All JavaScript code is linted with Prettier and ESLint
+* Целият JavaScript код е подреден с Prettier и ESLint
