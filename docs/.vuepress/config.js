@@ -171,36 +171,6 @@ function getSidebar(locale, language){
             `${locale}/quickstart/helloworld-hosted.md`,
           ]
         },
-        // `${locale}/quickstart/subquery101/subquery101.md`,
-        // {
-        //   title: 'Hero Course',
-        //   path: `${locale}/quickstart/herocourse/welcome`,
-        //   collapsable: true,
-        //   children: [
-        //     `${locale}/quickstart/herocourse/welcome.md`,
-        //     `${locale}/quickstart/herocourse/module1.md`,
-        //     `${locale}/quickstart/herocourse/module2.md`,
-        //     `${locale}/quickstart/herocourse/module3.md`,
-        //     `${locale}/quickstart/herocourse/module4.md`,
-        //     `${locale}/quickstart/herocourse/module5.md`,
-        //     `${locale}/quickstart/herocourse/module6.md`,
-        //   ]
-        // },
-        // {
-        //   title: 'Tutorials & Examples',
-        //   path: `${locale}/quickstart/tutorials_examples/introduction`,
-        //   collapsable: true,
-        //   children: [
-        //     `${locale}/quickstart/tutorials_examples/introduction.md`,
-        //     `${locale}/quickstart/tutorials_examples/block-height.md`,
-        //     `${locale}/quickstart/tutorials_examples/batch-size.md`,
-        //     `${locale}/quickstart/tutorials_examples/run-indexer.md`,
-        //     `${locale}/quickstart/tutorials_examples/dictionary.md`,
-        //     `${locale}/quickstart/tutorials_examples/debug-projects.md`,
-        //     `${locale}/quickstart/tutorials_examples/delete-projects.md`,
-        //     `${locale}/quickstart/tutorials_examples/terminology.md`,
-        //   ]
-        // },
       ]
     },
     {
