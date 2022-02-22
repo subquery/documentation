@@ -1,4 +1,4 @@
-# Manifest File
+# Bildirim Dosyası
 
 Manifest `project.yaml` dosyası projenizin giriş noktası olarak görülebilir ve SubQuery'nin zincir verilerini nasıl dizine alacağı ve dönüştüreceğine ilişkin ayrıntıların çoğunu tanımlar.
 
@@ -22,21 +22,21 @@ Under `dataSources`:
 
 ### CLI Secenekler
 
-By default the CLI will generate SubQuery projects for spec verison v0.2.0. This behaviour can be overridden by running `subql init --specVersion 0.0.1 PROJECT_NAME`, although this is not recommended as the project will not be supported by the SubQuery hosted service in the future
+Varsayılan olarak CLI, spec verison v0.2.0 için alt sorgu projeleri oluşturur. Bu davranış `subql init --specVersion 0.0.1 PROJECT_NAME` çalıştırılarak geçersiz kılınabilir, ancak proje gelecekte barındırılan alt sorgu hizmeti tarafından desteklenmeyeceğinden bu önerilmez
 
 `subql migrate` proje bildirimini en son sürüme geçirmek için varolan bir projede çalıştırılabilir.
 
 USAGE $ subql init [PROJECTNAME]
 
-ARGUMENTS PROJECTNAME  Give the starter project name
+DEĞİŞKENLER PROJECTNAME  Başlangıç projesi adını ver
 
-| Seçenekler              | Tanım                                                                        |
-| ----------------------- | ---------------------------------------------------------------------------- |
-| -f, --force             |                                                                              |
-| -l, --location=location | local folder to create the project in                                        |
-| --install-dependencies  | Install dependencies as well                                                 |
-| --npm                   | Force using NPM instead of yarn, only works with `install-dependencies` flag |
-| --specVersion=0.0.1     | 0.2.0  [default: 0.2.0] | The spec version to be used by the project         |
+| Seçenekler              | Tanım                                                               |
+| ----------------------- | ------------------------------------------------------------------- |
+| -f, --force             |                                                                     |
+| -l, --location=location | projeyi oluşturmak için yerel klasör                                |
+| --install-dependencies  | Bağımlılıkları da yükleyin                                          |
+| --npm                   | İplik yerine NPM kullanan kuvvet, sadece`install-dependencies` flag |
+| --specVersion=0.0.1     | 0.2.0  [default: 0.2.0] | Proje tarafından kullanılacak spec sürümü |
 
 ## Genel bakış
 
