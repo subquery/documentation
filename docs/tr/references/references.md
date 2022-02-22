@@ -160,7 +160,7 @@ SubQuery Projects are usually run in a javascript sandbox for security to limit 
 
 Although this enhances security we understand that this limits the available functionality of your SubQuery. The `--unsafe` command imports all default javascript modules which greatly increases sandbox functionality with the tradeoff of decreased security.
 
-**Note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in SubQuery's managed service ([project.subquery.network](https://project.subquery.network))**
+**Bu not `--unsafe` komut, projenizin alt Sorgu Ağında çalıştırılmasını engeller ve bu komutun projenizle alt sorgunun yönetilen hizmetinde çalıştırılmasını istiyorsanız desteğe başvurmanız gerekir ([project.subquery.network](https://project.subquery.network))**
 
 ### --batch-size
 
