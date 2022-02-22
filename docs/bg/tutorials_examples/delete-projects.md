@@ -1,19 +1,19 @@
-# How to delete a SubQuery project?
+# Как да изтрия проект за подзаявка?
 
 ## Въеведение
 
-It is important to keep your projects in SubQuery Project relevant and up to date. For any projects that uploaded to SubQuery Project for testing purposes, it is recommended to delete them afterwards to conserve resources and save cost.
+Важно е да поддържате вашите проекти актуални и актуални в проекта за SubQuery. За всички проекти, заредени в проект за SubQuery за целите на тестването, се препоръчва да ги премахнете след това, за да спестите ресурси и да спестите разходи.
 
-Running an indexer node is another option outside of using Docker or having a project hosted for you at [SubQuery Projects](https://project.subquery.network/). It requires more time and effort but will enhance your understanding of how SubQuery works under the covers.
+Стартирането на възел на индексатор е друга опция, освен използването на Docker или хостването на проект за вас[SubQuery Projects](https://project.subquery.network/). Това отнема повече време и усилия, но ще подобри разбирането ви за това как SubQuery работи под прикритие.
 
-## Deleting a project from the staging slot
+## Премахване на проект от междинния слот
 
-To delete a project from the staging slot, click on the 3 dots in the staging slot section within the deployment details on your project detail dashboard page and select delete.
+За да премахнете проект от междинен интервал, щракнете върху 3-те точки под междинен интервал под подробности за внедряване на страницата на контролния панел с подробности за проекта и изберете Изтриване.
 
-![Deleting a project from the staging slot](/assets/img/delete_staging.png)
+![Премахване на проект от междинния слот](/assets/img/delete_staging.png)
 
-## Deleting a project from the production slot
+## Премахване на проект от работното пространство
 
-To delete a project from the production slot, you'll have to delete the entire project instead. Navigate to the top right corner and click on the 3 dots which is the settings for the entire project. Then select "Delete Project".
+За да премахнете проект от работното пространство, ще трябва да изтриете целия проект. Отидете в горния десен ъгъл и кликнете върху 3-те точки, които са настройките за целия проект. Избера"Delete Project".
 
-![Deleting a project from the production slot](/assets/img/delete_production.png)
+![Премахване на проект от работното пространство](/assets/img/delete_production.png)
