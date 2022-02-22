@@ -1,6 +1,6 @@
-# How to start at a different block height?
+# Как да започнете от различна височина на блока?
 
-## Video guide
+## Видео ръководство
 
 <figure class="video_container">
   <iframe src="https://www.youtube.com/embed/ZiNSXDMHmBk" frameborder="0" allowfullscreen="true"></iframe>
@@ -8,11 +8,11 @@
 
 ## Въеведение
 
-By default, all starter projects start synchronising the blockchain from the genesis block. In otherwords, from block 1. For large blockchains, this can typically take days or even weeks to fully synchronise.
+По подразбиране всички стартиращи проекти започват да синхронизират блокчейна с блока genesis. С други думи, от блок 1. За големите блокчейн обикновено може да отнеме няколко дни или дори седмици, за да се синхронизира напълно.
 
-To start a SubQuery node synchronising from a non-zero height, all you have to do is to modify your project.yaml file and change the startBlock key.
+За да стартирате синхронизирането на възел на SubQuery от ненулева височина, всичко, което трябва да направите, е да модифицирате файла си project.yaml и променете ключа startBlock.
 
-Below is a project.yaml file where the start block has been set to 1,000,000
+По-долу е файлът project.yaml, в който първоначалният блок беше зададен на 1 000 000
 
 ```shell
 specVersion: 0.0.1
@@ -34,16 +34,16 @@ dataSources:
 
 ## Why not start from zero?
 
-The main reason is that it can reduce the time to synchronise the blockchain. This means that if you are only interested in transactions in the last 3 months, you can only synchronise the last 3 months worth meaning less waiting time and you can start your development faster.
+Основната причина е, че това може да намали времето за синхронизиране на blockchain. Това означава, че ако се интересувате само от транзакции от последните 3 месеца, можете да синхронизирате само Последните 3 месеца, което означава по-малко време за изчакване и ви позволява да започнете да се развивате по-бързо.
 
-## What are the drawbacks of not starting from zero?
+## Какви са недостатъците да не започнете от zero?
 
-The most obvious drawback will be that you won’t be able to query for data on the blockchain for blocks that you don’t have.
+Най-очевидният недостатък ще бъде, че няма да можете да заявявате данни в блокчейна за блокове, които нямате.
 
-## How to figure out the current blockchain height?
+## Как да определите текущата височина на блокчейна?
 
-If you are using the Polkadot network, you can visit [https://polkascan.io/](https://polkascan.io/), select the network, and then view the  "Finalised Block" figure.
+Ако използвате мрежата Polka dot, можете да посетите [https://polkascan.io/](https://polkascan.io/)изберете мрежа и след това прегледайте фигурата "Finalised Block".
 
-## Do I have to do a rebuild or a codegen?
+## Трябва ли да възстановя или създам код?
 
-No. Because you are modifying the project.yaml file, which is essentially a configuration file, you will not have to rebuild or regenerate the typescript code.
+Не. Тъй като променяте файла project.yaml, който по същество е конфигурационен файл, няма да се налага да възстановявате или пресъздавате кода на typescript.
