@@ -166,7 +166,7 @@ graphql-engine_1  | 2021-06-05T22:20:43.244Z <express> INFO request completed
 
 ## 6. Преглед на детската площадка
 
-Navigate to http://localhost:3000/ and paste the query below into the left side of the screen and then hit the play button.
+Отидете на http://localhost:3000/ и поставете заявката по-долу в лявата част на екрана и след това натиснете бутона за възпроизвеждане.
 
 ```
 {
@@ -181,12 +181,12 @@ Navigate to http://localhost:3000/ and paste the query below into the left side 
 
 ```
 
-SubQuery playground on localhost.
+Детска площадка за SubQuery в localhost.
 
-![playground localhost](/assets/img/subql_playground.png)
+![детска площадка localhost](/assets/img/subql_playground.png)
 
-The block count in the playground should match the block count (technically the block height) in the terminal as well.
+Броят на блоковете на детската площадка също трябва да съответства на броя на блоковете (технически височината на блока) в терминала.
 
-## Summary
+## Резюме
 
-In this quick start, we demonstrated the basic steps to get a starter project up and running within a Docker environment and then navigated to localhost:3000 and ran a query to return the block number of the mainnet Polkadot network.
+В това кратко ръководство демонстрирахме основните стъпки за стартиране и стартиране на първоначален проект в среда на Docker и след това преминахме към localhost:3000 и изпълнихме заявка за връщане на номера на блока на мрежата на mainnet Polkadot.
