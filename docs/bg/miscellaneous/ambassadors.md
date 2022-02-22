@@ -1,4 +1,4 @@
-# Ambassador Program
+# Програма за посланици
 
 ![Ambassador Banner Image](/assets/img/ambassador_banner.png)
 
