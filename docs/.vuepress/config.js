@@ -171,36 +171,36 @@ function getSidebar(locale, language){
             `${locale}/quickstart/helloworld-hosted.md`,
           ]
         },
-        `${locale}/quickstart/subquery101/subquery101.md`,
-        {
-          title: 'Hero Course',
-          path: `${locale}/quickstart/herocourse/welcome`,
-          collapsable: true,
-          children: [
-            `${locale}/quickstart/herocourse/welcome.md`,
-            `${locale}/quickstart/herocourse/module1.md`,
-            `${locale}/quickstart/herocourse/module2.md`,
-            `${locale}/quickstart/herocourse/module3.md`,
-            `${locale}/quickstart/herocourse/module4.md`,
-            `${locale}/quickstart/herocourse/module5.md`,
-            `${locale}/quickstart/herocourse/module6.md`,
-          ]
-        },
-        {
-          title: 'Tutorials & Examples',
-          path: `${locale}/quickstart/tutorials_examples/introduction`,
-          collapsable: true,
-          children: [
-            `${locale}/quickstart/tutorials_examples/introduction.md`,
-            `${locale}/quickstart/tutorials_examples/block-height.md`,
-            `${locale}/quickstart/tutorials_examples/batch-size.md`,
-            `${locale}/quickstart/tutorials_examples/run-indexer.md`,
-            `${locale}/quickstart/tutorials_examples/dictionary.md`,
-            `${locale}/quickstart/tutorials_examples/debug-projects.md`,
-            `${locale}/quickstart/tutorials_examples/delete-projects.md`,
-            `${locale}/quickstart/tutorials_examples/terminology.md`,
-          ]
-        },
+        // `${locale}/quickstart/subquery101/subquery101.md`,
+        // {
+        //   title: 'Hero Course',
+        //   path: `${locale}/quickstart/herocourse/welcome`,
+        //   collapsable: true,
+        //   children: [
+        //     `${locale}/quickstart/herocourse/welcome.md`,
+        //     `${locale}/quickstart/herocourse/module1.md`,
+        //     `${locale}/quickstart/herocourse/module2.md`,
+        //     `${locale}/quickstart/herocourse/module3.md`,
+        //     `${locale}/quickstart/herocourse/module4.md`,
+        //     `${locale}/quickstart/herocourse/module5.md`,
+        //     `${locale}/quickstart/herocourse/module6.md`,
+        //   ]
+        // },
+        // {
+        //   title: 'Tutorials & Examples',
+        //   path: `${locale}/quickstart/tutorials_examples/introduction`,
+        //   collapsable: true,
+        //   children: [
+        //     `${locale}/quickstart/tutorials_examples/introduction.md`,
+        //     `${locale}/quickstart/tutorials_examples/block-height.md`,
+        //     `${locale}/quickstart/tutorials_examples/batch-size.md`,
+        //     `${locale}/quickstart/tutorials_examples/run-indexer.md`,
+        //     `${locale}/quickstart/tutorials_examples/dictionary.md`,
+        //     `${locale}/quickstart/tutorials_examples/debug-projects.md`,
+        //     `${locale}/quickstart/tutorials_examples/delete-projects.md`,
+        //     `${locale}/quickstart/tutorials_examples/terminology.md`,
+        //   ]
+        // },
       ]
     },
     {
@@ -271,6 +271,43 @@ function getSidebar(locale, language){
       children: [
         `${locale}/faq/faqs.md`,
       ]
-    }
+    },
+    {
+      title: 'Academy',
+      path: `${locale}/academy/academy`,
+      collapsable: true,
+      children: [
+        `${locale}/academy/academy.md`,
+        {
+          title: 'Hero Course',
+          path: `${locale}/academy/herocourse/welcome`,
+          collapsable: true,
+          children: [
+            `${locale}/academy/herocourse/welcome.md`,
+            `${locale}/academy/herocourse/module1.md`,
+            `${locale}/academy/herocourse/module2.md`,
+            `${locale}/academy/herocourse/module3.md`,
+            `${locale}/academy/herocourse/module4.md`,
+            `${locale}/academy/herocourse/module5.md`,
+            `${locale}/academy/herocourse/module6.md`,
+          ]
+        },
+        {
+          title: 'Tutorials & Examples',
+          path: `${locale}/academy/tutorials_examples/introduction`,
+          collapsable: true,
+          children: [
+            `${locale}/academy/tutorials_examples/introduction.md`,
+            `${locale}/academy/tutorials_examples/block-height.md`,
+            `${locale}/academy/tutorials_examples/batch-size.md`,
+            `${locale}/academy/tutorials_examples/run-indexer.md`,
+            `${locale}/academy/tutorials_examples/dictionary.md`,
+            `${locale}/academy/tutorials_examples/debug-projects.md`,
+            `${locale}/academy/tutorials_examples/delete-projects.md`,
+            `${locale}/academy/tutorials_examples/terminology.md`,
+          ]
+        },
+      ]
+    },
   ]}
 }
