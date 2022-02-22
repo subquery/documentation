@@ -53,10 +53,10 @@ export DB_PORT=5432
 subql-node -f .
 ```
 
-If you do not have a project handy, `git clone https://github.com/subquery/subql-helloworld`. You should see the indexer node kick into life and start indexing blocks.
+Ако нямате проект под ръка, `git clone https://github.com/subquery/subql-helloworld`. Трябва да видите как възелът на индексатора оживява и започва да индексира блоковете.
 
-## Inspecting Postgres
+## Проверка На Postgres
 
-If you navigate to Postgres, you should see two tables created. `public.subqueries` and `subquery_1.starter_entities`.
+Ако отидете на Postgres, трябва да видите създадените две таблици. `public.subqueries` and `subquery_1.starter_entities`.
 
-`public.subqueries` only contains 1 row which the indexer checks upon start up to “understand the current state” so it knows where to continue from. The `starter_entities` table contains the indexes. To view the data, run `select (*) from subquery_1.starter_entities`.
+`public.subqueries` съдържа само 1 ред, който индексаторът проверява, когато се изпълнява на “understand the current state” така че той знае откъде да започне. То `starter_entities` таблицата съдържа индекси. За да видите данните, run `select (*) from subquery_1.starter_entities`.
