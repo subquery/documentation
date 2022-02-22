@@ -213,7 +213,7 @@ subql-node -f . --local --profiler
 subql-node -f . --network-endpoint="wss://polkadot.api.onfinality.io/public-ws"
 ```
 
-Note that this must also be set in the manifest file, otherwise you'll get:
+Имайте предвид, че това също трябва да бъде зададено във файла на манифеста, в противен случай ще получите:
 
 ```shell
 ERROR Create Subquery project from given path failed! Error: failed to parse project.yaml.
@@ -224,7 +224,7 @@ An instance of ProjectManifestImpl has failed the validation:
 
 ### --output-fmt
 
-There are two different terminal output formats. JSON or colored. Colored is the default and contains colored text.
+There are two different terminal output formats. JSON or colored. Цветната стойност е по подразбиране и съдържа цветен текст.
 
 ```shell
 > subql-node -f . --output-fmt=json
@@ -241,7 +241,7 @@ There are two different terminal output formats. JSON or colored. Colored is the
 
 ### --log-level
 
-There are 7 options to choose from. “fatal”, “error”, “warn”, “info”, “debug”, “trace”, “silent”. The example below shows silent. Nothing will be printed in the terminal so the only way to tell if the node is working or not is to query the database for row count (select count(\*) from subquery_1.starter_entities) or query the block height.
+Има 7 възможности за избор. “fatal”, “error”, “warn”, “info”, “debug”, “trace”, “silent”. Примерът по-долу показва безшумен режим. Нищо няма да бъде отпечатано в терминала, така че единственият начин да се определи дали даден възел работи или не е да се направи заявка в базата данни за броя на редовете (select count(\*) from subquery_1.starter_entities)или поискайте височината на блока.
 
 ```shell
 > subql-node -f . --log-level=silent
@@ -255,7 +255,7 @@ There are 7 options to choose from. “fatal”, “error”, “warn”, “inf
 (node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
 (node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
 (node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
-(node:24686) [DEP0152] DeprecationWarning: Custom PerformanceEntry accessors are deprecated. Please use the detail property.
+(node:24686) [DEP0152] DeprecationWarning: Custom PerformanceEntry accessors are deprecated. Моля, използвайте свойството detail.
 (node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
 ```
 
@@ -263,7 +263,7 @@ There are 7 options to choose from. “fatal”, “error”, “warn”, “inf
 
 ### --timestamp-field
 
-By default this is true. when set to false with:
+По подразбиране тази стойност е true. когато е зададено на false с:
 
 ```shell
 > subql-node -f . –timestamp-field=false
@@ -285,7 +285,7 @@ subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot
 
 ### -p, --port
 
-The port the subquery indexing service binds to. By default this is set to `3000`
+Портът, към който е свързана услугата за индексиране на подзаявки. По подразбиране тази стойност е`3000`
 
 ## subql-query
 
@@ -315,7 +315,7 @@ Options:
 
 ### --version
 
-This displays the current version.
+Това показва текущата версия.
 
 ```shell
 > subql-query --version
@@ -324,7 +324,7 @@ This displays the current version.
 
 ### -n, --name
 
-This flag is used to start the query service. If the --subquery-name flag is not provided when running an indexer, the name here will refer to the default project name. If --subquery-name is set, then the name here should match what was set.
+Този флаг се използва за стартиране на услуга за заявки. Ако --subquery-name флагът не се предоставя при стартиране на индексатора, името тук ще се отнася до името на проекта по подразбиране. Ако --subquery-name дадено, тогава името тук трябва да съответства на зададеното.
 
 ```shell
 > subql-node -f . // --subquery-name not set
@@ -335,12 +335,12 @@ This flag is used to start the query service. If the --subquery-name flag is not
 ```shell
 > subql-node -f . --subquery-name=hiworld // --subquery-name set
 
-> subql-query -n hiworld --playground  // the name points to the subql-helloworld project but with the name of hiworld
+> subql-query -n hiworld --playground  //името му показва  subql-helloworld но с името hiworld
 ```
 
 ### --playground
 
-This flag enables the graphql playground so should always be included by default to be of any use.
+Този флаг позволява graphql so playground винаги трябва да бъде включен по подразбиране, за да бъде полезен.
 
 ### --output-fmt
 
@@ -352,26 +352,26 @@ See [--log-level](https://doc.subquery.network/references/references.html#log-le
 
 ### --log-path
 
-Enable file logging by providing a path to a file to log to
+Активирайте регистрирането на файлове, като посочите пътя на файла за влизане
 
 ### --log-rotate
 
-Enable file log rotations with the options of a 1d rotation interval, a maximum of 7 files and with a max file size of 1GB
+Активирайте въртенето на файловия дневник с опции за интервал на въртене 1d, максимум 7 файла и с максимален размер на файла 1 Gb
 
 ### --indexer
 
-Set a custom url for the location of the endpoints of the indexer, the query service uses these endpoints for indexer health, metadata and readiness status
+Задайте персонализиран Url адрес за местоположението на крайните точки на индексите, услугата за заявки използва тези крайни точки, за да определи здравето на индексатора, метаданните и състоянието на готовност
 
 ### --unsafe
 
-The query service has a limit of 100 entities for unbounded graphql queries. The unsafe flag removes this limit which may cause performance issues on the query service. It is recommended instead that queries are [paginated](https://graphql.org/learn/pagination/).
+Услугата за заявки има ограничение от 100 обекта за неограничени заявки graphql. Флагът unsafe премахва това ограничение, което може да причини проблеми с производителността на услугата за заявки. Вместо това се препоръчва заявките да бъдат [е пагиниран](https://graphql.org/learn/pagination /).
 
 This flag can also be used to enable certain aggregation functions including sum, max, avg and [others](https://github.com/graphile/pg-aggregates#aggregates).
 
-These are disabled by default due to the entity limit.
+Те са деактивирани по подразбиране поради ограничение на обекта.
 
-**Note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in SubQuery's managed service [project.subquery.network](https://project.subquery.network).**
+**Моля, обърнете внимание, че отборът `--опасни` ще попречи на стартирането на проекта в мрежата на подзаявки, и вие трябва да се свържете с поддръжката, ако искате, за тази команда се изпълнява с вашия проект в управлявана услуга subquery [project.subquery.network](https://project.subquery.network).**
 
 ### --port
 
-The port the subquery query service binds to. By default this is set to `3000`
+Портът, към който е свързана услугата за заявки за подзаявка. По подразбиране тази стойност е`3000`
