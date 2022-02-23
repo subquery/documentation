@@ -1,4 +1,4 @@
-# Hola Mundo (host local + Docker)
+# Hello World (localhost & Docker)
 
 Bienvenido a este inicio rápido de SubQuery Hola Mundo. El inicio rápido apunta a mostrarle cómo se ejecuta el proyecto inicial predeterminado en Docker en unos pocos pasos.
 
