@@ -1,4 +1,4 @@
-# Hello World (localhost + Docker)
+# Hello World (localhost & Docker)
 
 Bienvenue à ce démarrage rapide de SubQuery Hello World. Ce démarrage rapide a pour but de vous montrer comment faire fonctionner le projet de démarrage par défaut dans Docker en quelques étapes simples.
 

@@ -1,4 +1,4 @@
-# Hello World (localhost + Docker)
+# Hello World (localhost & Docker)
 
 Selamat datang di permulaan cepat SubQuery Hello World ini. Mulai cepat bertujuan untuk menunjukkan kepada Anda bagaimana Anda menjalankan proyek starter default di Docker dalam beberapa langkah sederhana.
 
