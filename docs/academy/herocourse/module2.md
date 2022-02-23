@@ -50,16 +50,13 @@
 
 [Call Handler](/build/mapping.md#call-handler)
 
-## References
+### Exercises
 
-* [Account Balances PDF workbook](/assets/pdf/Account_Balances.pdf)
-* [Account Balances Github](https://github.com/subquery/tutorials-account-balances)
-
-## Pre-requisites
+### Pre-requisites
 
 * Completion of Module 1
 
-## Exercise: Account Balances
+### Account Balances
 In this exercise, we will take the starter project and focus on using an event handler to extract the balance of each account. 
 
 ### High level steps
@@ -337,4 +334,7 @@ What we have done here is queried for the balance of DOT tokens for all addresse
 As a bonus, try to aggregate the balances across addresses so you can find the total balance of an address. 
 
 
+##E References
 
+* [Account Balances PDF workbook](/assets/pdf/Account_Balances.pdf)
+* [Account Balances Github](https://github.com/subquery/tutorials-account-balances)
