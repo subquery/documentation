@@ -70,7 +70,7 @@ yarn codegen
 },
 ```
 
-Then by running `subql build` it will generate a dist folder with the following structure:
+След това, като стартира `subql build`, той ще генерира dist папка със следната структура:
 
 ```
 - project-name
