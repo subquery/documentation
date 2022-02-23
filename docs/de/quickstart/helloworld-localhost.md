@@ -1,4 +1,4 @@
-# Hallo die Welt (Localhost + Docker)
+# Hello World (localhost & Docker)
 
 Herzlich Willkommen bei dieser Schnellstartanleitung für SubQuery Hallo die Welt. Der Schnellstart soll Ihnen zeigen, wie Sie in wenigen einfachen Schritten das Standard-Starterprojekt in Docker zum Laufen bringen.
 
