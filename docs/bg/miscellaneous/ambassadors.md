@@ -1,14 +1,14 @@
-# Програма за посланици
+# Програма за Амбасадори
 
 ![Ambassador Banner Image](/assets/img/ambassador_banner.png)
 
-We understand that one of our biggest strengths is our community, and with your help, we want to grow and establish local ambassadors for communities around the world.
+Една от най-силните ни страни е нашата общност, затова с ваша помощ искаме да се разрастваме и да привлечем все повече амбасадори от различни общности по целия свят.
 
-[Apply Now!](https://forms.gle/GXBbJ6LDpNfM2v1X6)
+[Кандидатствайте сега!](https://forms.gle/GXBbJ6LDpNfM2v1X6)
 
-## What we Believe In
+## В какво вярваме
 
-Our team came together with the shared vision to build the foundations of a flexible and inclusive data service for the Polkadot ecosystem.
+Нашият екип се обединява около споделената визия за изграждане на основите на една гъвкава и приобщаваща услуга за данни за екосистемата Polkadot.
 
 **Built by developers, for developers:** SubQuery is a growing community that focuses on providing the best products and services for our developers, and builders in our ecosystem. SubQuery is only successful if the Polkadot ecosystem is successful, and so everything we do is with our customers in mind.
 
@@ -40,7 +40,7 @@ Once you have sent through an application, we will select candidates that align 
 
 Once you pass the trainee program, you can call yourself a SubQuery ambassador and will be accepted into our full program. From here on you can continue to work through the program and progress up the tiers, earning more rewards and benefits as you climb the ranks.
 
-[Apply Now!](https://forms.gle/GXBbJ6LDpNfM2v1X6)
+[Кандидатствайте сега!](https://forms.gle/GXBbJ6LDpNfM2v1X6)
 
 ## Ambassador Activities
 
@@ -54,4 +54,4 @@ SubQuery Ambassadors are able to contribute through four main areas, including e
 
 **Community Moderation:** Moderators will help grow the SubQuery community by ensuring that official community channels are active and engaging. SubQuery will support Moderators by promoting the channels that they monitor, as well as provide guidelines for our expectations.
 
-[Apply Now!](https://forms.gle/GXBbJ6LDpNfM2v1X6)
+[Кандидатствайте сега!](https://forms.gle/GXBbJ6LDpNfM2v1X6)
