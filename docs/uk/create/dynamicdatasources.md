@@ -1,22 +1,22 @@
-# Dynamic Data Sources
+# Джерела динамічних даних
 
-There are cases where you don't know all the parameters for a data source when a project is started. An example of this is a contract factory that will create new contract instances at a later date. It's impossible to know what the contract addresses will be for this ahead of time. This is where being able to create new data sources dynamically comes in.
+Існують випадки, коли ви не знаєте всіх параметрів для джерела даних під час запуску проекту. Приклад цього - контрагентний завод, який створить нові випадки контрактів у більш пізній даті. Неможливо знати, якими будуть контрактні адреси, протягом цього часу. Тут і виникають нові джерела даних, які динамічно надходять.
 
-## The `templates` field
+## Поле шаблонів
 
-In order to use dynamic data sources you need to have spec version of at least `0.2.1`. If you are on `0.2.0` all you need to do is change the specVersion. If you are on a lower version then you should update to `0.2.0` first with `subql migrate`.
+Для використання динамічних джерел даних вам необхідно мати версію специфікації принаймні `0.2.1`. Якщо ви використовуєте `0.2.0` все, що вам потрібно - це змінити версію. Якщо у вас встановлена нижча версія, слід спочатку оновити `0.2.0` на початку `subql migrate`.
 
-Spec version `0.2.1` introduces a new `templates` field. Templates are the same as data sources with a couple of differences.
+Версія Spec `0.2.1` представляє нове поле `шаблонів`. Шаблони є такими ж, як джерела даних з кількома відмінностями.
 
-* They need a `name` in order to identify the template
-* `startBlock` is no longer necessary. This will be set to the block the data source is created
-* In the case of a custom data source the `processor.options` field can also be partially filled out, the rest of the options will be provided when the data source is instanced.
+* Їм потрібне `ім'я` для того, щоб визначити шаблон
+* `стартовий блок` більше не є необхідним. Це буде встановлено в блоці, з якого створено джерело даних
+* У разі джерела даних користувачем `процесор. ptions` поле також може бути частково заповнене варіантами, інші параметри будуть надані коли джерело даних встановлено.
 
-## Example Project
+## Приклади проектів
 
-The best way to show how to use dynamic data source is with an example.
+Найкращий спосіб показати, як використовувати динамічні джерела даних є приклад.
 
-The below example is for a decentralised exchange that has a factory contract which deploys a new contract when a trading pair is added. When the project is run it's not possible to know the addresses of all trading pair contract that have been created or will be created. Data sources can be dynamically created by a mapping handler from a template in order to index the newly created trading pair contracts.
+Наведеним прикладом є децентралізований обмін, у якому є заводський контракт, який розгортає новий контракт коли додаються торгівельні пари. Коли проект запущено, неможливо знати адреси всіх пов'язаних з ним пар контрактів, які були створені або будуть створені. Джерела даних можуть бути динамічно створені обробником даних з шаблону, щоб індексувати нещодавно створені торгові контракти.
 
 
 ### `project.yaml`
@@ -93,9 +93,9 @@ async function handleLiquidityAdded(event: MoonbeamEvent): Promise<void> {
 ```
 
 
-## Seeing a projects Dynamic Data Sources
+## Перевірка динамічних даних проектів
 
-Dynamic data sources are stored in the projects metadata. If you need to see what details you can query them like below:
+Динамічні джерела даних зберігаються в метаданих проекту. Якщо вам потрібно дізнатися, які деталі, ви можете подати запит нижче:
 
 ```gql
 {
@@ -105,7 +105,7 @@ Dynamic data sources are stored in the projects metadata. If you need to see wha
 }
 ```
 
-Result
+Результат
 ```
 {
   "data": {
