@@ -1,8 +1,8 @@
-# Hello World (SubQuery hosted)
+# Здравей свят (Хоствано от SubQuery)
 
-The aim of this quick start is to show how you can get the default starter project running in SubQuery Projects (our managed service) in a few easy steps.
+Целта на този наръчник е да покаже как можете да стартирате проект по подразбиране в SubQuery Projects (нашата управлявана услуга) в няколко лесни стъпки.
 
-We will take the simple starter project (and everything we've learned thus far) but instead of running it locally within Docker, we'll take advantage of SubQuery's managed hosting infrastructure. In other words, we let SubQuery do all the heavy lifting, running and managing production infrastructure.
+Ще вземем простия стартов проект (и всичко, което научихме досега), но вместо да го изпълняваме локално в Docker, ще се възползваме от управляваната хостинг инфраструктура на SubQuery. In other words, we let SubQuery do all the heavy lifting, running and managing production infrastructure.
 
 ## Learning objectives
 
