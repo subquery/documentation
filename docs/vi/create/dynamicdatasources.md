@@ -1,22 +1,22 @@
-# Dynamic Data Sources
+# Nguồn dữ liệu động
 
-There are cases where you don't know all the parameters for a data source when a project is started. An example of this is a contract factory that will create new contract instances at a later date. It's impossible to know what the contract addresses will be for this ahead of time. This is where being able to create new data sources dynamically comes in.
+Có những trường hợp bạn không biết tất cả các tham số cho nguồn dữ liệu khi một dự án được bắt đầu. Một ví dụ về điều này là một nhà máy hợp đồng sẽ tạo ra các phiên bản hợp đồng mới vào một ngày sau đó. Không thể biết trước thời hạn địa chỉ hợp đồng sẽ như thế nào. Đây là nơi có thể tự động tạo các nguồn dữ liệu mới.
 
-## The `templates` field
+## Trường `templates`
 
-In order to use dynamic data sources you need to have spec version of at least `0.2.1`. If you are on `0.2.0` all you need to do is change the specVersion. If you are on a lower version then you should update to `0.2.0` first with `subql migrate`.
+Để sử dụng các nguồn dữ liệu động, bạn cần phải có phiên bản thông số kỹ thuật ít nhất là `0.2.1`. Nếu bạn đang sử dụng `0.2.0`, tất cả những gì bạn cần làm là thay đổi thông số phiên bản. Nếu bạn đang sử dụng phiên bản thấp hơn thì trước tiên bạn nên cập nhật lên `0.2.0` với `subql migrate`.
 
-Spec version `0.2.1` introduces a new `templates` field. Templates are the same as data sources with a couple of differences.
+Phiên bản thông số `0.2.1` giới thiệu trường `templates` mới. Các Template cũng giống như các nguồn dữ liệu với một vài điểm khác biệt.
 
-* They need a `name` in order to identify the template
-* `startBlock` is no longer necessary. This will be set to the block the data source is created
-* In the case of a custom data source the `processor.options` field can also be partially filled out, the rest of the options will be provided when the data source is instanced.
+* Họ cần một `name` để xác định template
+* `startBlock` không còn cần thiết nữa. Nó sẽ được đặt thành khối mà nguồn dữ liệu được tạo
+* Trong trường hợp nguồn dữ liệu tùy chỉnh, trường `processor.options` cũng có thể được điền một phần, phần còn lại của các tùy chọn sẽ được cung cấp khi nguồn dữ liệu được cài đặt.
 
-## Example Project
+## Dự án mẫu
 
-The best way to show how to use dynamic data source is with an example.
+Cách tốt nhất để chỉ ra cách sử dụng nguồn dữ liệu động là với một ví dụ.
 
-The below example is for a decentralised exchange that has a factory contract which deploys a new contract when a trading pair is added. When the project is run it's not possible to know the addresses of all trading pair contract that have been created or will be created. Data sources can be dynamically created by a mapping handler from a template in order to index the newly created trading pair contracts.
+Ví dụ dưới đây là cho một sàn giao dịch phi tập trung có hợp đồng nhà máy triển khai hợp đồng mới khi thêm một cặp giao dịch. Khi dự án được chạy, không thể biết địa chỉ của tất cả các hợp đồng cặp giao dịch đã được tạo hoặc sẽ được tạo. Nguồn dữ liệu có thể được tạo một cách tự động bởi một trình xử lý ánh xạ từ một mẫu để lập chỉ mục các hợp đồng cặp giao dịch mới được tạo.
 
 
 ### `project.yaml`
@@ -93,9 +93,9 @@ async function handleLiquidityAdded(event: MoonbeamEvent): Promise<void> {
 ```
 
 
-## Seeing a projects Dynamic Data Sources
+## Xem dự án Nguồn dữ liệu động
 
-Dynamic data sources are stored in the projects metadata. If you need to see what details you can query them like below:
+Nguồn dữ liệu động được lưu trữ trong siêu dữ liệu của dự án. Nếu bạn cần xem chi tiết nào, bạn có thể truy vấn chúng như bên dưới:
 
 ```gql
 {
@@ -105,7 +105,7 @@ Dynamic data sources are stored in the projects metadata. If you need to see wha
 }
 ```
 
-Result
+Kết quả
 ```
 {
   "data": {
