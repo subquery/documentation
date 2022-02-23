@@ -1,4 +1,4 @@
-# Hello World (localhost + Docker)
+# Hello World (localhost & Docker)
 
 SubQuery Hello World 빠른 시작에 오신 것을 환영합니다. 빠른 시작은 몇 가지 간단한 단계를 통해 Docker에서 기본 스타터 프로젝트를 실행하는 방법을 보여주는 것을 목표로 합니다.
 

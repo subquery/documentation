@@ -1,4 +1,4 @@
-# Hello World (localhost + Docker)
+# Hello World (localhost & Docker)
 
 Chào mừng bạn đến với phần khởi đầu nhanh SubQuery Hello World này. Khởi động nhanh nhằm mục đích chỉ cho bạn cách bạn có được dự án khởi động mặc định đang chạy trong Docker trong một vài bước đơn giản.
 
