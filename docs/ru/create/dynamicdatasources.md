@@ -1,10 +1,10 @@
-# Dynamic Data Sources
+# Динамические источники данных
 
-There are cases where you don't know all the parameters for a data source when a project is started. An example of this is a contract factory that will create new contract instances at a later date. It's impossible to know what the contract addresses will be for this ahead of time. This is where being able to create new data sources dynamically comes in.
+Бывают случаи, когда вы не знаете всех параметров источника данных при запуске проекта. Примером этого является фабрика контрактов, которая позже создаст новые экземпляры контрактов. В этом случае узнать заранее какие будут адреса контракта невозможно. Именно здесь появляется возможность динамически создавать новые источники данных.
 
-## The `templates` field
+## Поле `templates`
 
-In order to use dynamic data sources you need to have spec version of at least `0.2.1`. If you are on `0.2.0` all you need to do is change the specVersion. If you are on a lower version then you should update to `0.2.0` first with `subql migrate`.
+Чтобы использовать динамические источники данных, у вас должна быть версия спецификации не ниже `0.2.1`. Если вы используете `0.2.0`, все, что вам нужно сделать, это изменить specVersion. Если вы используете более раннюю версию, вам следует сначала обновить ее до `0.2.0` с помощью `subql migrate`.
 
 Spec version `0.2.1` introduces a new `templates` field. Templates are the same as data sources with a couple of differences.
 
