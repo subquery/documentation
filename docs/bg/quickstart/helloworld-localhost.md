@@ -1,4 +1,4 @@
-# Здравей свят (localhost + Docker)
+# Hello World (localhost & Docker)
 
 Добре дошли в тази SubQuery Hello World quick start. Ръководството за бърз старт има за цел да ви покаже как да стартирате първоначалния проект по подразбиране в Docker в няколко прости стъпки.
 
