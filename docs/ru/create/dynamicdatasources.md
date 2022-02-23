@@ -95,7 +95,7 @@ async function handleLiquidityAdded(event: MoonbeamEvent): Promise<void> {
 
 ## Просмотр проектов Динамические источники данных
 
-Динамические источники данных хранятся в метаданных проектов. If you need to see what details you can query them like below:
+Динамические источники данных хранятся в метаданных проектов. Если вам нужно увидеть детали, вы можете запросить их как показано ниже:
 
 ```gql
 {
@@ -105,7 +105,7 @@ async function handleLiquidityAdded(event: MoonbeamEvent): Promise<void> {
 }
 ```
 
-Result
+Результат
 ```
 {
   "data": {
