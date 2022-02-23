@@ -8,7 +8,7 @@
 
 ## Pengenalan
 
-By default, all starter projects start synchronising the blockchain from the genesis block. In otherwords, from block 1. For large blockchains, this can typically take days or even weeks to fully synchronise.
+Secara default, semua proyek awal mulai menyinkronkan blockchain dari blok genesis. Dengan kata lain, dari blok 1. Untuk blockchain besar, ini biasanya membutuhkan waktu berhari-hari atau bahkan berminggu-minggu untuk disinkronkan sepenuhnya.
 
 Untuk mulai sinkronisasi node SubQuery dari tinggi bukan-nol, yang perlu dilakukan hanyalah memodifikasi file project.yaml dan mengubah kunci startBlock.
 
@@ -34,7 +34,7 @@ dataSources:
 
 ## Kenapa tidak mulai dari nol?
 
-The main reason is that it can reduce the time to synchronise the blockchain. This means that if you are only interested in transactions in the last 3 months, you can only synchronise the last 3 months worth meaning less waiting time and you can start your development faster.
+Alasan utamanya adalah dapat mengurangi waktu sinkronisasi blockchain. Artinya jika Anda hanya tertarik pada transaksi dalam 3 bulan terakhir, Anda hanya dapat menyinkronkan nilai 3 bulan terakhir yang berarti lebih sedikit waktu tunggu dan Anda dapat memulai pengembangan lebih cepat.
 
 ## Apa kekurangan tidak memulai dari nol?
 
@@ -46,4 +46,4 @@ Jika menggunakan jaringan Polkadot, anda bisa mengunjungi [https://polkascan.io/
 
 ## Apa saya harus membangun ulang atau codegen?
 
-No. Because you are modifying the project.yaml file, which is essentially a configuration file, you will not have to rebuild or regenerate the typescript code.
+Tidak. Karena Anda memodifikasi file project.yaml, yang pada dasarnya adalah file konfigurasi, Anda tidak perlu membangun kembali atau membuat ulang kode TypeScript.

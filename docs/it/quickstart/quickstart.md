@@ -36,13 +36,15 @@ subql help
 Inside the directory in which you want to create a SubQuery project, simply replace `PROJECT_NAME` with your own and run the command:
 
 ```shell
-subql init --starter PROJECT_NAME
+subql init PROJECT_NAME
 ```
 
 You'll be asked certain questions as the SubQuery project is initalised:
 
+- Network: A blockchain network that this SubQuery project will be developed to index
+- Template: Select a SubQuery project template that will provide a starting point to begin development
 - Git repository (Optional): Provide a Git URL to a repo that this SubQuery project will be hosted in (when hosted in SubQuery Explorer)
-- RPC endpoint (Required): Provide a wss URL to a running RPC endpoint that will be used by default for this project. You can quickly access public endpoints for different Polkadot networks or even create your own private dedicated node using [OnFinality](https://app.onfinality.io) or just use the default Polkadot endpoint.
+- RPC endpoint (Required): Provide a websocket (wss) URL to a running RPC endpoint that will be used by default for this project. You can quickly access public endpoints for different Polkadot networks or even create your own private dedicated node using [OnFinality](https://app.onfinality.io) or just use the default Polkadot endpoint. This RPC node must be an archive node (have the full chain state).
 - Authors (Required): Enter the owner of this SubQuery project here
 - Description (Optional): You can provide a short paragraph about your project that describe what data it contains and what users can do with it
 - Version (Required): Enter a custom version number or use the default (`1.0.0`)
@@ -70,7 +72,7 @@ In order to [index](../run/run.md) your SubQuery project, you must first generat
 
 In order run your SubQuery Project on a locally hosted SubQuery Node, you need to build your work.
 
-Run the build command from the project's root directory.
+Eseguite il comando di compilazione dalla directory principale del progetto.
 
 <CodeGroup> All configuration that controls how a SubQuery node is run is defined in this `docker-compose.yml` file. For a new project that has been just initalised you won't need to change anything here, but you can read more about the file and the settings in our [Run a Project section](../run/run.md)
 
@@ -86,7 +88,7 @@ It may take some time to download the required packages ([`@subql/node`](https:/
 
 Open your browser and head to [http://localhost:3000](http://localhost:3000).
 
-You should see a GraphQL playground is showing in the explorer and the schemas that are ready to query. On the top right of the playground, you'll find a _Docs_ button that will open a documentation draw. This documentation is automatically generated and helps you find what entities and methods you can query.
+You should see a GraphQL playground is showing in the explorer and the schemas that are ready to query. On the top right of the playground, you'll find a _Docs_ button that will open a documentation draw. Questa documentazione è generata automaticamente e vi aiuta a trovare quali entità e metodi potete interrogare.
 
 For a new SubQuery starter project, you can try the following query to get a taste of how it works or [learn more about the GraphQL Query language](../query/graphql.md).
 

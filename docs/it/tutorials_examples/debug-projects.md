@@ -1,6 +1,6 @@
 # How to debug a SubQuery project?
 
-## Video guide
+## Video guida
 
 <figure class="video_container">
   <iframe src="https://www.youtube.com/embed/6NlaO-YN2q4" frameborder="0" allowfullscreen="true"></iframe>
@@ -15,20 +15,15 @@ In order to debug SubQuery projects such as stepping through code, setting break
 Run the following command in a terminal screen.
 
 ```shell
-export DB_USER=postgres
-export DB_PASS=postgres
-export DB_DATABASE=postgres
-export DB_HOST=localhost
-export DB_PORT=5432
-subql-node -f your-project-path
+node --inspect-brk <path to subql-node> -f <path to subQuery project>
 ```
 
 Example
 ```shell
 node --inspect-brk /usr/local/bin/subql-node -f ~/Code/subQuery/projects/subql-helloworld/
 Debugger listening on ws://127.0.0.1:9229/56156753-c07d-4bbe-af2d-2c7ff4bcc5ad
-For help, see: https://nodejs.org/en/docs/inspector
-Debugger attached.
+Per aiuto, vedere: https://nodejs.org/en/docs/inspector
+Debugger allegato.
 ```
 
 ## Chrome devtools

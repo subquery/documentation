@@ -1,8 +1,8 @@
-# Hello World (hosting SubQuery)
+# Hello World (menghosting SubQuery)
 
 Tujuan dari quick start ini adalah untuk menunjukkan bagaimana Anda dapat menjalankan proyek starter default pada SubQuery Projects (layanan terkelola kami) dengan beberapa langkah mudah.
 
-We will take the simple starter project (and everything we've learned thus far) but instead of running it locally within Docker, we'll take advantage of SubQuery's managed hosting infrastructure. In other words, we let SubQuery do all the heavy lifting, running and managing production infrastructure.
+Kami akan mengambil proyek awal yang sederhana (dan semua yang telah kami pelajari sejauh ini) tetapi alih-alih menjalankannya secara lokal di dalam Docker, kami akan memanfaatkan infrastruktur hosting terkelola SubQuery. Dengan kata lain, kami membiarkan SubQuery melakukan semua pekerjaan berat, menjalankan, dan mengelola infrastruktur produksi.
 
 ## Tujuan Pembelajaran
 
@@ -29,9 +29,9 @@ Anda akan memerlukan:
 
 - akun GitHub
 
-## 1. Create your project
+## 1. Buat proyek Anda
 
-Mari membuat proyek bernama subql_hallowworld dan menjalankan instalasi wajib, codegen, dan bangun dengan package manager favorit Anda.
+Mari buat proyek bernama subqlHelloWorld dengan menjalankan `subql init` dan memilih untuk membangun proyek dengan jaringan `Polkadot` dan menginisialisasi proyek dengan `subql-starter` templat. Kita harus menjalankan instalasi wajib, codegen dan build dengan manajer paket favorit Anda.
 
 ```shell
 > subql init --starter subqlHelloWorld
@@ -42,9 +42,9 @@ yarn build
 
 JANGAN jalankan perintah docker.
 
-## 2. Create a GitHub repo
+## 2. Buat repo GitHub
 
-In GitHub, create a new public repository. Provide a name and set your visibility to public. Here, everything is kept as the default for now.
+Di GitHub, buat repositori publik baru. Berikan nama dan atur visibilitas Anda ke publik. Di sini, semuanya disimpan sebagai default untuk saat ini.
 
 ![buat repo github](/assets/img/github_create_new_repo.png)
 
@@ -52,9 +52,9 @@ Catat URL GitHub Anda, ini harus bersifat publik agar SubQuery dapat mengaksesny
 
 ![buat repo github](/assets/img/github_repo_url.png)
 
-## 3. Push to GitHub
+## 3. Dorong ke GitHub
 
-Back in your project directory, initialise it as a git directory. Otherwise, you might get the error "fatal: not a git repository (or any of the parent directories): .git"
+Kembali ke direktori proyek Anda, inisialisasi sebagai direktori git. Jika tidak, Anda mungkin mendapatkan kesalahan "fatal: not a git repository (atau direktori induk mana pun): .git"
 
 ```shell
 git init
@@ -87,23 +87,23 @@ create mode 100644 tsconfig.json
 create mode 100644 yarn.lock
 > git push origin master
 Enumerating objects: 14, done.
-Counting objects: 100% (14/14), done.
-Delta compression using up to 12 threads
-Compressing objects: 100% (13/13), done.
-Writing objects: 100% (14/14), 59.35 KiB | 8.48 MiB/s, done.
-Total 14 (delta 0), reused 0 (delta 0)
-To https://github.com/seandotau/subqlHelloWorld.git
- * [new branch]      master -> master
+Menghitung benda: 100% (14/14), selesai.
+Kompresi delta menggunakan hingga 12 utas
+Mengompresi objek: 100% (13/13), selesai.
+Objek tulisan: 100% (14/14), 59,35 KiB | 8,48 MiB/s, selesai.
+Total 14 (delta 0), digunakan kembali 0 (delta 0)
+Ke https://github.com/seandotau/subqlHelloWorld.git
+  * [cabang baru] master -> menguasai
 
 ```
 
-The push command means "please push my code TO the origin repo FROM my master local repo". Refreshing GitHub should show all the code in GitHub.
+Perintah push berarti "tolong dorong kode saya KE repo asal DARI repo lokal master saya". Menyegarkan GitHub akan menampilkan semua kode di GitHub.
 
 ![Commit pertama](/assets/img/first_commit.png)
 
 Sekarang setelah Anda memasukkan kode ke GitHub, mari kita lihat bagaimana kita dapat meng-host-nya pada SubQuery Projects.
 
-## 4. Create your project
+## 4. Buat proyek Anda
 
 Navigasikan ke [https://project.subquery.network](https://project.subquery.network) dan masuk dengan akun GitHub Anda.
 
@@ -115,12 +115,12 @@ Kemudian buatlah proyek baru,
 
 Dan isi berbagai bidang dengan detail yang sesuai.
 
-- **GitHub account:** If you have more than one GitHub account, select what account this project will be created under. Projects created in an GitHub organisation account are shared between members in that organisation.
+- **Akun GitHub:** Jika Anda memiliki lebih dari satu akun GitHub, pilih akun mana yang akan dibuat proyek ini. Proyek yang dibuat di akun organisasi GitHub dibagikan di antara anggota di organisasi itu.
 - **Nama Proyek:** Berikan nama proyek Anda di sini.
 - **Subtitle:** Berikan subtitle untuk proyek Anda.
 - **Deskripsi:** Jelaskan apa yang dilakukan proyek SubQuery Anda.
-- **GitHub Repository URL:** This must be a valid GitHub URL to a public repository that contains your SubQuery project. The schema.graphql file must be in the root of your directory.
-- **Hide project:** If selected, this will hide the project from the public SubQuery explorer. Keep this unselected if you want to share your SubQuery with the community!
+- **URL Repositori GitHub:** Ini harus berupa URL GitHub yang valid untuk repositori publik yang berisi proyek SubQuery Anda. The schema.graphql file must be in the root of your directory.
+- **Sembunyikan proyek:** Jika dipilih, ini akan menyembunyikan proyek dari penjelajah SubQuery publik. Biarkan ini tidak dipilih jika Anda ingin membagikan SubQuery Anda dengan komunitas!
 
 ![Buat parameter SubQuery](/assets/img/create_subquery_project_parameters.png)
 
@@ -130,21 +130,21 @@ Saat Anda mengklik buat atau create, Anda akan dibawa ke dasbor Anda.
 
 Dasbor ini berisikan banyak informasi berguna seperti jaringan yang digunakan, URL repositori GitHub dari source code yang dijalankan, kapan dibuat dan terakhir diperbarui, dan khususnya detail penerapan.
 
-## 5. Deploy your project
+## 5. Terapkan proyek Anda
 
-Now that you have created your project within SubQuery Projects, setting up the display behaviour, the next step is to deploy your project making it operational. Deploying a version triggers a new SubQuery indexing operation to start, and sets up the required query service to start accepting GraphQL requests. You can also deploy new versions to existing projects here.
+Sekarang setelah Anda membuat proyek Anda dalam Proyek SubQuery, menyiapkan perilaku tampilan, langkah selanjutnya adalah menerapkan proyek Anda sehingga operasional. Menerapkan versi memicu operasi pengindeksan SubQuery baru untuk memulai, dan menyiapkan layanan kueri yang diperlukan untuk mulai menerima permintaan GraphQL. Anda juga dapat menerapkan versi baru ke proyek yang ada di sini.
 
-You can choose to deploy to various environments such as a production slot or a staging slot. Here we'll deploy to a production slot. Clicking on the "Deploy" button brings up a screen with the following fields:
+Anda dapat memilih untuk menerapkan ke berbagai lingkungan seperti slot produksi atau slot pementasan. Di sini kita akan menyebarkan ke slot produksi. Mengklik tombol "Menyebarkan" akan menampilkan layar dengan bidang-bidang berikut:
 
 ![Terapkan ke slot produksi](/assets/img/deploy_production_slot.png)
 
 - **Commit Hash Versi baru:** Dari GitHub pilih commit yang benar dari codebase proyek SubQuery yang ingin Anda terapkan
-- **Indexer Version:** This is the version of SubQuery's node service that you want to run this SubQuery on. See [@subql/node](https://www.npmjs.com/package/@subql/node)
-- **Query Version:** This is the version of SubQuery's query service that you want to run this SubQuery on. See [@subql/query](https://www.npmjs.com/package/@subql/query)
+- **Versi Pengindeks:** Ini adalah versi layanan simpul SubQuery yang Anda inginkan untuk menjalankan SubQuery ini. Lihat [@subql/node](https://www.npmjs.com/package/@subql/node)
+- **Versi Kueri:** Ini adalah versi layanan kueri SubQuery yang Anda inginkan untuk menjalankan SubQuery ini. Lihat [@subql/query](https://www.npmjs.com/package/@subql/query)
 
-Because we only have one commit, there is only a single option in the drop down. We'll also work with the latest version of the indexer and query version so we will accept the defaults and then click "Deploy Update".
+Karena kami hanya memiliki satu komit, hanya ada satu opsi di drop down. Kami juga akan bekerja dengan versi terbaru dari pengindeks dan versi kueri sehingga kami akan menerima default dan kemudian klik "Terapkan Pembaruan".
 
-You’ll then see your deployment in “Processing” status. Here, your code is getting deployed onto the SubQuery's managed infrastructure. Basically a server is getting spun up on demand and being provisioned for you. This will take a few minutes so time to grab a coffee!
+Anda kemudian akan melihat penerapan Anda dalam status "Memproses". Di sini, kode Anda diterapkan ke infrastruktur terkelola SubQuery. Pada dasarnya server diputar sesuai permintaan dan disediakan untuk Anda. Ini akan memakan waktu beberapa menit jadi waktu untuk mengambil kopi!
 
 ![Pemrosesan penerapan](/assets/img/deployment_processing.png)
 
@@ -152,7 +152,7 @@ Penyebaran sekarang sedang berjalan.
 
 ![Penerapan berjalan](/assets/img/deployment_running.png)
 
-## 6. Testing your project
+## 6. Menguji proyek Anda
 
 Untuk menguji proyek Anda, klik pada 3 elipsis dan pilihlah "lihat pada SubQuery Explorer".
 
@@ -162,18 +162,18 @@ Ini akan membawa Anda ke "Playground" yang sudah tidak asing lagi di mana Anda d
 
 ![Playground Subquery](/assets/img/subquery_playground.png)
 
-## 7. Bonus step
+## 7. Step Bonus
 
-For the astute amongst us, you will recall that in the learning objectives, the last point was to run a simple GET query. To do this, we will need to grab the "Query Endpoint" displayed in the deployment details.
+Untuk yang cerdik di antara kita, Anda akan ingat bahwa dalam tujuan pembelajaran, poin terakhir adalah menjalankan kueri GET sederhana. Untuk melakukan ini, kita perlu mengambil "Titik Akhir Kueri" yang ditampilkan di detail penerapan.
 
 ![Endpoint query](/assets/img/query_endpoint.png)
 
-You can then send a GET request to this endpoint either using your favourite client such as [Postman](https://www.postman.com/) or [Mockoon](https://mockoon.com/) or via cURL in your terminal. For simplicity, cURL will be shown below.
+Anda kemudian dapat mengirim permintaan GET ke titik akhir ini baik menggunakan klien favorit Anda seperti [Postman](https://www.postman.com/) atau [Mockoon](https://mockoon.com/) atau melalui cURL di terminal Anda. Untuk kesederhanaan, cURL akan ditampilkan di bawah ini.
 
 Perintah curl yang untuk dijalankan adalah:
 
 ```shell
-curl https://api.subquery.network/sq/seandotau/subqueryhelloworld -d "query=query { starterEntities (first: 5, orderBy: CREATED_AT_DESC) { totalCount nodes { id field1 field2 field3 } } }"
+curl https://api.subquery.network/sq/seandotau/subqueryhelloworld -d "query=query { starterEntities (pertama: 5, orderBy: CREATED_AT_DESC) { totalCount node { id field1 field2 field3 } } }"
 ```
 
 memberikan hasil dari:
@@ -187,4 +187,4 @@ Keterbacaan tidak menjadi perhatian di sini karena Anda mungkin akan memiliki be
 
 ## Ringkasan
 
-In this SubQuery hosted quick start we showed how quick and easy it was to take a Subql project and deploy it to [SubQuery Projects](https://project.subquery.network) where all the infrastructure is provided for your convenience. There is an inbuilt playground for running various queries as well as an API endpoint for your code to integrate with.
+Dalam memulai cepat yang dihosting SubQuery ini, kami menunjukkan betapa cepat dan mudahnya mengambil proyek Subql dan menyebarkannya ke [Proyek SubQuery](https://project.subquery.network) di mana semua infrastruktur disediakan untuk kenyamanan Anda. Ada taman bermain bawaan untuk menjalankan berbagai kueri serta titik akhir API untuk integrasi kode Anda.

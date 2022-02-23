@@ -1,40 +1,46 @@
 # マニフェストファイル
 
-マニフェストファイル `project.yaml` は、プロジェクトのエントリー・ポイントと見なすことができ、SubQuery がどのようにインデックスを作成し、チェーン・データを変換するかについて詳細を定義します。
+マニフェストファイル `project.yaml` は、プロジェクトのエントリーポイントと見なすことができ、SubQuery がどのようにインデックスを作成し、チェーンデータを変換するかについて詳細を定義します。
 
-マニフェストは YAML または JSON 形式で使用できます。 このドキュメントでは、すべての例で YAML を使用します。 以下は、基本的な `project.yaml` の標準的な例です。
+マニフェストは YAML または JSON 形式で使用できます。 このドキュメントでは、すべての例で YAML を使用します。 以下は、基本的な `project.yaml` の例です。
 
 <CodeGroup> <CodeGroupItem title="v0.2.0" active> ``` yml specVersion: 0.2.0 name: example-project # Provide the project name version: 1.0.0  # Project version description: '' # Description of your project repository: 'https://github.com/subquery/subql-starter' # Git repository address of your project schema: file: ./schema.graphql # The location of your GraphQL schema file network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' # Genesis hash of the network endpoint: 'wss://polkadot.api.onfinality.io/public-ws' # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing dictionary: 'https://api.subquery.network/sq/subquery/dictionary-polkadot' dataSources: - kind: substrate/Runtime startBlock: 1 # This changes your indexing start block, set this higher to skip initial blocks with less data mapping: file: "./dist/index.js" handlers: - handler: handleBlock kind: substrate/BlockHandler - handler: handleEvent kind: substrate/EventHandler filter: #Filter is optional module: balances method: Deposit - handler: handleCall kind: substrate/CallHandler ```` </CodeGroupItem> <CodeGroupItem title="v0.0.1"> ``` yml specVersion: "0.0.1" description: '' # Description of your project repository: 'https://github.com/subquery/subql-starter' # Git repository address of your project schema: ./schema.graphql # The location of your GraphQL schema file network: endpoint: 'wss://polkadot.api.onfinality.io/public-ws' # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing dictionary: 'https://api.subquery.network/sq/subquery/dictionary-polkadot' dataSources: - name: main kind: substrate/Runtime startBlock: 1 # This changes your indexing start block, set this higher to skip initial blocks with less data mapping: handlers: - handler: handleBlock kind: substrate/BlockHandler - handler: handleEvent kind: substrate/EventHandler filter: #Filter is optional but suggested to speed up event processing module: balances method: Deposit - handler: handleCall kind: substrate/CallHandler ```` </CodeGroupItem> </CodeGroup>
 
 ## v0.0.1からv0.2.0への移行 <Badge text="upgrade" type="warning"/>
 
-**specVersion v0.0.1のプロジェクトがあれば、`subql migrate`を使って素早くアップグレードすることができます。 [詳細はこちら](#cli-options) を参照**
+**specVersion v0.0.1のプロジェクトがあれば、`subql migrate`を使って素早くアップグレードすることができます。 詳細は [こちら](#cli-options) を参照**
 
-`network` 下:
+`network` :
 
 - 使用されているチェーンを識別するのに役立つ `genesisHash` フィールドが新たに**必須**となりました。
 - v0.2.0 以上では、カスタムチェーンを参照している場合、外部 [チェーンタイプ ファイル](#custom-chains) を参照できます。
 
-`dataSources` 下:
+`dataSources` :
 
 - マッピングハンドラの `index.js` エントリポイントを直接リンクすることができます。 デフォルトでは、この `index.js` は、ビルド プロセス中に `index.ts` から生成されます。
 - データソースは、通常のランタイムデータソースまたは [カスタムデータソース](#custom-data-sources)のいずれかになります。
 
 ### コマンドラインオプション
 
-v0.2.0のスペックバージョンはベータ版ですが、プロジェクトの初期化時に`subql init --specVersion 0.2.0 PROJECT_NAME`を実行して、明示的に定義する必要があります。
+デフォルトでは、CLIはverison v0.2.0のSubQueryプロジェクトを生成します。 この動作は `subql init --specVersion 0.0.1 PROJECT_NAME` を実行することで上書きできますが、これは将来的に SubQuery ホストサービスでサポートされないプロジェクトになるためお勧めしません。
 
 `subql migration` は既存のプロジェクトで実行して、プロジェクトマニフェストを最新バージョンに移行できます。
 
-| オプション          | 説明                                     |
-| -------------- | -------------------------------------- |
-| -f, --force    |                                        |
-| -l, --location | 移行するローカル フォルダ (project.yamlを含む必要があります) |
-| --file=file    | 移行するproject.yaml を指定します                |
+使い方 $ subql init [PROJECTNAME]
+
+引数 PROJECTNAME プロジェクト名を指定する
+
+| オプション                   | 説明                                                         |
+| ----------------------- | ---------------------------------------------------------- |
+| -f, --force             |                                                            |
+| -l, --location=location | プロジェクトを作成するローカルフォルダ                                        |
+| --install-dependencies  | 依存関係をインストールする                                              |
+| --npm                   | yarnの代わりにNPMを強制的に使用し、`install-dependencies`フラグでのみ機能するようにする |
+| --specVersion=0.0.1     | 0.2.0 [デフォルト: 0.2.0] | プロジェクトで使用するバージョン                    |
 
 ## 概要
 
-### トップレベルの仕様
+### 最上位の仕様
 
 | フィールド           | v0.0.1                              | v0.2.0                      | 説明                                    |
 | --------------- | ----------------------------------- | --------------------------- | ------------------------------------- |
@@ -47,38 +53,38 @@ v0.2.0のスペックバージョンはベータ版ですが、プロジェク�
 | **network**     | [Network Spec](#network-spec)       | Network Spec                | インデックスを作成するネットワークの詳細                  |
 | **dataSources** | [DataSource Spec](#datasource-spec) | DataSource Spec             |                                       |
 
-### Schema Spec
+### Schemaの仕様
 
 | フィールド    | v0.0.1 | v0.2.0 | 説明                 |
 | -------- | ------ | ------ | ------------------ |
 | **file** | 𐄂      | String | GraphQLスキーマファイルの場所 |
 
-### Network Spec
+### Networkの仕様
 
-| フィールド           | v0.0.1 | v0.2.0        | 説明                                                                                                                                             |
-| --------------- | ------ | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| **genesisHash** | 𐄂      | String        | ネットワークの生成ハッシュ                                                                                                                                  |
-| **endpoint**    | String | String        | インデックスするブロックチェーンのwssまたはwsエンドポイントを定義します - **これはフルアーカイブノード** でなければなりません。 [OnFinality](https://app.onfinality.io)では、すべてのパラチェーンのエンドポイントを無料で取得できます。 |
-| **dictionary**  | String | String        | 処理を高速化するために、フルチェーンディクショナリのHTTPエンドポイントを提供することが推奨されます。 [SubQuery Dictionaryの仕組み](../tutorials_examples/dictionary.md)を参照してください。                  |
-| **chaintypes**  | 𐄂      | {file:String} | チェーンタイプファイルへのパス。 `.json` または `.yaml` 形式を使用してください。                                                                                              |
+| フィールド           | v0.0.1 | v0.2.0        | 説明                                                                                                                                                |
+| --------------- | ------ | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **genesisHash** | 𐄂      | String        | ネットワークの生成ハッシュ                                                                                                                                     |
+| **endpoint**    | String | String        | インデックスを生成するブロックチェーンのwssまたはwsエンドポイントを定義します - **これはフルアーカイブノード** でなければなりません。 [OnFinality](https://app.onfinality.io)では、すべてのパラチェーンのエンドポイントを無料で取得できます。 |
+| **dictionary**  | String | String        | 処理を高速化するために、フルチェーンディクショナリのHTTPエンドポイントを提供することが推奨されます。 [SubQuery Dictionaryの仕組み](../tutorials_examples/dictionary.md)を参照してください。                     |
+| **chaintypes**  | 𐄂      | {file:String} | チェーンタイプファイルへのパス。 `.json` または `.yaml` 形式を使用してください。                                                                                                 |
 
-### データソース仕様
+### Datasourceの仕様
 
 フィルターされ抽出されるデータと、適用されるデータ変換のためのマッピング関数ハンドラーの場所を定義します。
 | フィールド          | v0.0.1                                                    | v0.2.0                                                                           | 説明                                                                                                                          |
 | -------------- | --------------------------------------------------------- | -------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
 | **name**       | String                                                    | 𐄂                                                                                | データソースの名前                                                                                                                   |
 | **kind**       | [substrate/Runtime](./manifest/#data-sources-and-mapping) | substrate/Runtime, [substrate/CustomDataSource](./manifest/#custom-data-sources) | デフォルトのsubstrateランタイムから、ブロック、イベント、外部関数(コール)などのデータタイプをサポートしています。 <br /> v0.2.0からは、スマートコントラクトなどのカスタムランタイムからのデータをサポートします。 |
-| **startBlock** | Integer                                                   | Integer                                                                          | インデックス開始ブロックを変更します。 データ量が少ない最初のブロックをスキップするように設定します。                                                                         |
+| **startBlock** | Integer                                                   | Integer                                                                          | インデックス開始ブロックを変更します。高く設定すれば初期ブロックをスキップするため、より少ないデータになります。                                                                    |
 | **mapping**    | Mapping Spec                                              | Mapping Spec                                                                     |                                                                                                                             |
-| **filter**     | [network-filters](./manifest/#network-filters)            | 𐄂                                                                                | ネットワークエンドポイントの仕様名で実行するデータソースをフィルタする                                                                                         |
+| **filter**     | [network-filters](./manifest/#network-filters)            | 𐄂                                                                                | ネットワークエンドポイントの仕様名で実行するデータソースをフィルタします。                                                                                       |
 
-### Mapping Spec
+### Mappingの仕様
 
-| フィールド            | v0.0.1                                                      | v0.2.0                                                             | 説明                                                                                                                                                                      |
-| ---------------- | ----------------------------------------------------------- | ------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **file**         | String                                                      | 𐄂                                                                  | マッピングエントリへのパス                                                                                                                                                           |
-| **ハンドラ & フィルター** | [デフォルトのハンドラとフィルタ](./manifest/#mapping-handlers-and-filters) | デフォルトのハンドラとフィルタ、 <br />[カスタムハンドラとフィルタ](#custom-data-sources) | 追加のマッピングフィルタを使用して、すべての [マッピング関数](./mapping.md) とそれに対応するハンドラータイプをリストします。 <br /><br /> カスタムランタイムマッピングハンドラについては、 [カスタムデータソース](#custom-data-sources) を参照してください。 |
+| フィールド                  | v0.0.1                                                      | v0.2.0                                                             | 説明                                                                                                                                                                      |
+| ---------------------- | ----------------------------------------------------------- | ------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **file**               | String                                                      | 𐄂                                                                  | マッピングエントリへのパス                                                                                                                                                           |
+| **handlers & filters** | [デフォルトのハンドラとフィルタ](./manifest/#mapping-handlers-and-filters) | デフォルトのハンドラとフィルタ、 <br />[カスタムハンドラとフィルタ](#custom-data-sources) | 追加のマッピングフィルタを使用して、すべての [マッピング関数](./mapping.md) とそれに対応するハンドラータイプをリストします。 <br /><br /> カスタムランタイムマッピングハンドラについては、 [カスタムデータソース](#custom-data-sources) を参照してください。 |
 
 ## データソースとマッピング
 
@@ -129,15 +135,15 @@ filter:
 
 ## カスタムチェーン
 
-### Network Spec
+### Networkの仕様
 
-別のPolkadot parachainやカスタムsubstrateチェーンに接続する場合は、このマニフェストの [ネットワークの仕様](#network-spec) セクションを編集する必要があります。
+別のPolkadot parachainやカスタムsubstrateチェーンに接続する場合は、このマニフェストの [Networkの仕様](#network-spec) セクションを編集する必要があります。
 
-`genesisHash` は常にカスタムネットワークの最初のブロックのハッシュでなければなりません。 [PolkadotJS](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fkusama.api.onfinality.io%2Fpublic-ws#/explorer/query/0) にアクセスして、**block 0** のハッシュを探せば、これを簡単に回収することができます（下の画像参照）。
+`genesisHash` は常にカスタムネットワークの最初のブロックのハッシュでなければなりません。 [PolkadotJS](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fkusama.api.onfinality.io%2Fpublic-ws#/explorer/query/0) にアクセスして、**block 0** のハッシュを探せば、これを簡単に探すことができます（下の画像参照）。
 
 ![Genesis Hash](/assets/img/genesis-hash.jpg)
 
-さらに、 `エンドポイント` を更新する必要があります。 インデックスするブロックチェーンのwssまたはwsエンドポイントを定義します - **これはフルアーカイブノード** でなければなりません。 [OnFinality](https://app.onfinality.io)では、すべてのパラチェーンのエンドポイントを無料で取得できます。
+さらに、 `エンドポイント` を更新する必要があります。 インデックスを作成するブロックチェーンのwssまたはwsエンドポイントを定義します - これは **フルアーカイブノード** でなければなりません。 [OnFinality](https://app.onfinality.io)では、すべてのパラチェーンのエンドポイントを無料で取得できます。
 
 ### チェーンタイプ
 
@@ -147,8 +153,28 @@ substrateランタイムモジュールで使用される追加の型をサポ�
 
 以下のv0.2.0の例では、`network.chaintypes`は、すべてのカスタムタイプが含まれているファイルを指しています。 これは、このブロックチェーンがサポートする特定のタイプを`.json`または`.yaml`形式で宣言する標準的なチェーンスペックファイルです。
 
-<CodeGroup> <CodeGroupItem title="v0.2.0" active> ``` yml network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' endpoint: 'ws://host.kittychain.io/public-ws' chaintypes: file: ./types.json # The relative filepath to where custom types are stored </CodeGroupItem> <CodeGroupItem title="v0.0.1"> ``` yml ... ``` </CodeGroupItem>
+<CodeGroup> <CodeGroupItem title="v0.2.0" active> ``` yml network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' endpoint: 'ws://host.kittychain.io/public-ws' chaintypes: file: ./types.json # The relative filepath to where custom types are stored ... ``` </CodeGroupItem>
 <CodeGroupItem title="v0.0.1"> ``` yml ... network: endpoint: "ws://host.kittychain.io/public-ws" types: { "KittyIndex": "u32", "Kitty": "[u8; 16]" } # typesChain: { chain: { Type5: 'example' } } # typesSpec: { spec: { Type6: 'example' } } dataSources: - name: runtime kind: substrate/Runtime startBlock: 1 filter:  #Optional specName: kitty-chain mapping: handlers: - handler: handleKittyBred kind: substrate/CallHandler filter: module: kitties method: breed success: true ``` </CodeGroupItem> </CodeGroup>
+
+To use typescript for your chain types file include it in the `src` folder (e.g. `./src/types.ts`), run `yarn build` and then point to the generated js file located in the `dist` folder.
+
+```yml
+network:
+  chaintypes:
+    file: ./dist/types.js # Will be generated after yarn run build
+...
+```
+
+拡張子が `.ts` または `.js` のチェーンタイプファイルを使用する場合の注意 :
+
+- マニフェストのバージョンは v0.2.0 以上である必要があります。
+- ブロック取得時に[polkadot api](https://polkadot.js.org/docs/api/start/types.extend/)に含まれるのは、デフォルトのエクスポートのみとなります。
+
+以下は、 `.ts` チェーンタイプファイルの例です:
+
+<CodeGroup> <CodeGroupItem title="types.ts"> ```ts
+import { typesBundleDeprecated } from "moonbeam-types-bundle"
+export default { typesBundle: typesBundleDeprecated }; ``` </CodeGroupItem> </CodeGroup>
 
 ## カスタムデータソース
 
@@ -160,17 +186,17 @@ substrateランタイムモジュールで使用される追加の型をサポ�
 
 サポートされているカスタムデータソースの一覧です。
 
-| 種類                                                    | サポートされているハンドラ                                                                                            | フィルタ                            | 説明                                                                               |
-| ----------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | ------------------------------- | -------------------------------------------------------------------------------- |
-| [substrate/Moonbeam](./moonbeam/#data-source-example) | [substrate/MoonbeamEvent](./moonbeam/#moonbeamevent), [substrate/MoonbeamCall](./moonbeam/#moonbeamcall) | See filters under each handlers | Provides easy interaction with EVM transactions and events on Moonbeams networks |
+| 種類                                                    | サポートされているハンドラ                                                                                            | フィルタ                            | 説明                                                     |
+| ----------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | ------------------------------- | ------------------------------------------------------ |
+| [substrate/Moonbeam](./moonbeam/#data-source-example) | [substrate/MoonbeamEvent](./moonbeam/#moonbeamevent), [substrate/MoonbeamCall](./moonbeam/#moonbeamcall) | See filters under each handlers | Moonbeamsネットワーク上のEVMトランザクションおよびイベントとの容易なインタラクションを提供します |
 
 ## ネットワークフィルタ
 
 **ネットワークフィルタは、マニフェスト仕様v0.0.1にのみ適用されます。 **.
 
-通常、ユーザーはSubQueryを作成し、それをテストネットとメインネットの両方の環境で再利用することを想定しています。 （例：PolkadotやKusamaなど） ネットワーク間では、さまざまなオプションが異なる可能性があります。 Between networks, various options are likely to be different (e.g. index start block). (インデックス開始ブロックなど) したがって、ユーザーがデータソースごとに異なる詳細を定義できるようにすることで、1つのSubQueryプロジェクトを複数のネットワークで使用することができます。
+通常、ユーザーはSubQueryを作成し、それをテストネットとメインネットの両方の環境で再利用することを想定しています。 （例：PolkadotやKusamaなど）  ネットワーク間では、さまざまなオプションが異なる可能性があります。(インデックス開始ブロックなど) そのため、データソースごとに異なる詳細を定義することができ、1つのSubQueryプロジェクトが複数のネットワークで使用できるようになっています。
 
-各ネットワークで実行するデータソースを決定するために、 `filter` を `dataSources` に追加できます。
+ユーザーは、`dataSources`に`filter`を追加して、各ネットワークで実行するデータソースを決定することができます。
 
 以下は Polkadot と Kusama ネットワークの異なるデータソースを示す例です。
 

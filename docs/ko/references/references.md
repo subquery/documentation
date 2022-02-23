@@ -1,4 +1,39 @@
-# Command Line Flags
+# 커맨드 라인 플래그
+
+## subql (cli)
+
+### --help
+
+```shell
+> subql --help
+
+COMMANDS
+  build     Build this SubQuery project code
+  codegen   Generate schemas for graph node
+  help      display help for subql
+  init      Initialize a scaffold subquery project
+  migrate   Migrate Subquery project manifest v0.0.1 to v0.2.0
+  publish   Upload this SubQuery project to IPFS
+  validate  Check a folder or github repo is a validate subquery project
+```
+
+### build
+
+This command is uses webpack to generate a bundle of a subquery project.
+
+| 옵션                 | 설명                                                                                                         |
+| ------------------ | ---------------------------------------------------------------------------------------------------------- |
+| -l, --location     | local folder of subquery project (if not in folder already)                                                |
+| -o, --output       | specify output folder of build e.g. build-folder                                                           |
+| --mode=(production | prod                                                        | development | dev) | [ default: production ] |
+
+- With `subql build` you can specify additional entry points in exports field although it will always build `index.ts` automatically
+
+- You need to have @subql/cli v0.19.0 or above to use exports field.
+
+- Any `exports` field must map to string type (e.g. `"entry": "./src/file.ts"`), else it will be ignored from build.
+
+[Futher example](https://doc.subquery.network/create/introduction/#build).
 
 ## subql-node
 
@@ -12,10 +47,17 @@ Options:
       --help                Show help                                  [boolean]
       --version             Show version number                        [boolean]
   -f, --subquery            Local path of the subquery project          [string]
-      --subquery-name       Name of the subquery project                [string]
+      --subquery-name       Name of the subquery project   [deprecated] [string]
   -c, --config              Specify configuration file                  [string]
-      --local               Use local mode                             [boolean]
+      --local               Use local mode                [deprecated] [boolean]
+      --force-clean         Force clean the database, dropping project schemas
+                            and tables                                 [boolean]
+      --db-schema           Db schema name of the project               [string]
+      --unsafe              Allows usage of any built-in module within the
+                            sandbox                    [boolean][default: false]
       --batch-size          Batch size of blocks to fetch in one round  [number]
+      --scale-batch-size    scale batch size based on memory usage
+                                                      [boolean] [default: false]
       --timeout             Timeout for indexer sandbox to execute the mapping
                             functions                                   [number]
       --debug               Show debug information to console output. will
@@ -33,10 +75,13 @@ Options:
       --migrate             Migrate db schema (for management tables only)
                                                       [boolean] [default: false]
       --timestamp-field     Enable/disable created_at and updated_at in schema
-                                                       [boolean] [default: true]
+                                                      [boolean] [default: false]
   -d, --network-dictionary  Specify the dictionary api for this network [string]
+  -m, --mmr-path            Local path of the merkle mountain range (.mmr) file
+                                                                        [string]
       --proof-of-index      Enable/disable proof of index
                                                       [boolean] [default: false]
+  -p, --port                The port the service will bind to           [number]
 ```
 
 ### --version
@@ -57,9 +102,9 @@ subql-node -f . // OR
 subql-node --subquery .
 ```
 
-### --subquery-name
+### --subquery-name (deprecated)
 
-This flag allows you to provide a name for your project which acts as if it creates an instance of your project. Upon providing a new name, a new database schema is created and block synchronisation starts from zero.
+This flag allows you to provide a name for your project which acts as if it creates an instance of your project. Upon providing a new name, a new database schema is created and block synchronisation starts from zero. Deprecated in favour of `--db-schema`
 
 ```shell
 subql-node -f . --subquery-name=test2
@@ -83,7 +128,7 @@ Place this file in the same directory as the project. Then in the current projec
 > subql-node -c ./subquery_config.yml
 ```
 
-### --local
+### --local (deprecated)
 
 This flag is primarily used for debugging purposes where it creates the default starter_entity table in the default "postgres" schema.
 
@@ -97,6 +142,26 @@ Note that once you use this flag, removing it won't mean that it will point to a
 
 This flag forces the project schemas and tables to be regenerated, helpful to use when iteratively developing graphql schemas such that new runs of the project are always working with a clean state. Note that this flag will also wipe all indexed data.
 
+### --db-schema
+
+This flag allows you to provide a name for the project database schema. Upon providing a new name, a new database schema is created with the configured name and block indexing starts.
+
+```shell
+subql-node -f . --db-schema=test2
+```
+
+### --unsafe
+
+SubQuery Projects are usually run in a javascript sandbox for security to limit the scope of access the project has to your system. The sandbox limits the available javascript imports to the following modules:
+
+```javascript
+["assert", "buffer", "crypto", "util", "path"];
+```
+
+Although this enhances security we understand that this limits the available functionality of your SubQuery. The `--unsafe` command imports all default javascript modules which greatly increases sandbox functionality with the tradeoff of decreased security.
+
+**Note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in SubQuery's managed service ([project.subquery.network](https://project.subquery.network))**
+
 ### --batch-size
 
 This flag allows you to set the batch size in the command line. If batch size is also set in the config file, this takes precedent.
@@ -109,7 +174,13 @@ This flag allows you to set the batch size in the command line. If batch size is
 2021-08-09T23:24:49.235Z <fetch> INFO fetch block [6661,6680], total 20 blocks
 ```
 
-<!-- ### --timeout -->
+### --scale-batch-size
+
+Scale the block fetch batch size with memory usage
+
+### --timeout
+
+Set custom timeout for the javascript sandbox to execute mapping functions over a block before the block mapping function throws a timeout exception
 
 ### --debug
 
@@ -210,7 +281,11 @@ Typically this would be set in your manifest file but below shows an example of 
 subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot"
 ```
 
-[Read more about how a SubQuery Dictionary works](../tutorials_examples/dictionary.md).
+SubQuery 사전 작동 방식에 대해 자세히 알아보기
+
+### -p, --port
+
+The port the subquery indexing service binds to. By default this is set to `3000`
 
 ## subql-query
 
@@ -219,17 +294,23 @@ subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot
 This shows the help options.
 
 ```shell
-ns:
+Options:
       --help        Show help                                          [boolean]
       --version     Show version number                                [boolean]
-  -n, --name        project name                             [string] [required]
-      --playground  enable graphql playground                          [boolean]
+  -n, --name        Project name                             [string] [required]
+      --playground  Enable graphql playground                          [boolean]
       --output-fmt  Print log as json or plain text
                       [string] [choices: "json", "colored"] [default: "colored"]
       --log-level   Specify log level to print.
           [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
                                                      "silent"] [default: "info"]
-      --indexer     Url that allow query to access indexer metadata     [string]
+      --log-path    Path to create log file e.g ./src/name.log          [string]
+      --log-rotate  Rotate log files in directory specified by log-path
+                                                      [boolean] [default: false]
+      --indexer     Url that allows query to access indexer metadata    [string]
+      --unsafe      Disable limits on query depth and allowable number returned
+                    query records                                      [boolean]
+  -p, --port        The port the service will bind to                   [number
 ```
 
 ### --version
@@ -269,4 +350,28 @@ See [--output-fmt](https://doc.subquery.network/references/references.html#outpu
 
 See [--log-level](https://doc.subquery.network/references/references.html#log-level)
 
-<!-- ### --indexer TBA -->
+### --log-path
+
+Enable file logging by providing a path to a file to log to
+
+### --log-rotate
+
+Enable file log rotations with the options of a 1d rotation interval, a maximum of 7 files and with a max file size of 1GB
+
+### --indexer
+
+Set a custom url for the location of the endpoints of the indexer, the query service uses these endpoints for indexer health, metadata and readiness status
+
+### --unsafe
+
+The query service has a limit of 100 entities for unbounded graphql queries. The unsafe flag removes this limit which may cause performance issues on the query service. It is recommended instead that queries are [paginated](https://graphql.org/learn/pagination/).
+
+This flag can also be used to enable certain aggregation functions including sum, max, avg and [others](https://github.com/graphile/pg-aggregates#aggregates).
+
+These are disabled by default due to the entity limit.
+
+**Note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in SubQuery's managed service [project.subquery.network](https://project.subquery.network).**
+
+### --port
+
+The port the subquery query service binds to. By default this is set to `3000`

@@ -4,7 +4,7 @@ Dans le [guide de démarrage rapide de Hello World](helloworld-localhost.md), no
 
 ## subql init
 
-La première commande que nous avons exécutée est `subql init --starter subqlHelloWorld`.
+The first command we ran was `subql init subqlHelloWorld`.
 
 Elle fait le gros du travail et crée tout un tas de fichiers pour vous. Comme indiqué dans la [documentation officielle](quickstart.md#configure-and-build-the-starter-project), vous allez principalement travailler sur les fichiers suivants :
 

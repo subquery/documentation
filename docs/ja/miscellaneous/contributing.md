@@ -1,54 +1,54 @@
-# Contributing To SubQuery
+# SubQueryへの貢献
 
-Welcome and a big thank you for considering contributing to this SubQuery project! Together we can pave the way to a more decentralised future.
+このSubQueryプロジェクトへの貢献をご検討いただき、誠にありがとうございます！ 私たちは共に、より分散化された未来への道を切り開くことができます。
 
-> This documentation is actively maintained by the SubQuery team. We welcome your contributions, you can do so by forking our GitHub project and making changes to all the documentation markdown files under the `docs` directory.
+> このドキュメントは、SubQuery チームによって頻繁にメンテナンスされています。 GitHubプロジェクトをフォークして、`docs`ディレクトリにあるすべてのドキュメントのマークダウンファイルを変更することで、あなたの貢献を歓迎します。
 
-What follows is a set of guidelines (not rules) for contributing to SubQuery. Following these guidelines will help us make the contribution process easy and effective for everyone involved. It also communicates that you agree to respect the time of the developers managing and developing this project. In return, we will reciprocate that respect by addressing your issue, considering changes, collaborating on improvements, and helping you finalise your pull requests.
+以下は、SubQueryに貢献するためのガイドライン（ルールではありません）です。 これらのガイドラインに従うことで、関係者全員にとって貢献プロセスを簡単かつ効果的にすることができます。 また、このプロジェクトを管理・開発している開発者の時間を尊重することを伝えるものです。 その見返りとして、私たちはあなたの問題に取り組み、変更を検討し、改善について協力し、あなたのプルリクエストを完成させる手助けをすることで、その敬意に報いることにしています。
 
-## Code of Conduct
+## 行動規範
 
-We take our open source community projects and responsibility seriously and hold ourselves and other contributors to high standards of communication. By participating and contributing to this project, you agree to uphold our [Code of Conduct](https://github.com/subquery/subql/blob/contributors-guide/CODE_OF_CONDUCT.md).
+私たちは、オープンソースコミュニティのプロジェクトと責任を真剣に受け止め、自分自身と他の貢献者に高いコミュニケーション基準を課しています。 このプロジェクトに参加し、貢献することにより、あなたは私たちの[行動規範](https://github.com/subquery/subql/blob/contributors-guide/CODE_OF_CONDUCT.md)に同意するものとします。
 
-## Getting started
+## はじめに
 
-Contributions to our repositories are made through Issues and Pull Requests (PRs). A few general guidelines that cover both:
+リポジトリへの貢献は、Issue と Pull Request (PR) によって行われます。 両方をカバーするいくつかの一般的なガイドライン:
 
-* Search for existing Issues and PRs before creating your own.
-* We work hard to makes sure issues are handled in promptly but, depending on the impact, it could take a while to investigate the root cause. A friendly @ mention in the comment thread to the submitter or a contributor can help draw attention if your issue is blocking.
+* 自分で作成する前に、既存のIssuesやPRを検索してください。
+* 迅速な対応に努めていますが、影響によっては原因究明に時間がかかる場合もあります。 あなたの問題がブロックされている場合、コメントスレッドで投稿者や投稿者に友好的に@で言及することで、注意を引くことができます。
 
-## How to Contribute
+## 貢献方法
 
-### Reporting Bugs
+### バグ報告
 
-Bugs are tracked as GitHub issues. When logging an issue, explain the problem and include additional details to help maintainers reproduce the problem:
+バグはGitHub issuesとして追跡されます。 問題を記録するときは内容を説明し、開発者が問題を再現するのに役立つような詳細情報を含めてください。
 
-* Use a clear and descriptive title for the issue to identify the problem.
-* Describe the exact steps to reproduce the problem.
-* Describe the behavior you observed after following the steps.
-* Explain which behavior you expected to see instead and why.
-* Include screenshots if possible.
+* 問題を特定するために、明確で説明的なタイトルを使用する。
+* 問題を再現するための正確なステップを記述します。
+* 手順に従って観察した動作を説明します。
+* どの動作を期待するか、またその理由を説明します。
+* 可能であればスクリーンショットを含めます。
 
-### Submitting Pull Requests
+### プルリクエストを送る
 
-In general, we follow the "fork-and-pull" Git workflow
+基本的には、"fork-and-pull" Git ワークフローに従います。
 
-* Fork the repository to your own Github account
-* Clone the project to your machine
-* Create a branch locally with a succinct but descriptive name
-* Commit changes to the branch
-* Following any formatting and testing guidelines specific to this repo
-* Push changes to your fork
-* Open a PR in our repository
+* リポジトリを自分の Github アカウントにフォークする
+* プロジェクトをあなたの環境に複製する
+* 簡潔で説明的な名前でローカルにブランチを作成します
+* ブランチに変更をコミットする
+* このリポジトリ固有のフォーマットとテストのガイドラインに従ってください
+* フォークに変更をプッシュする
+* 私たちのリポジトリでPRを開く
 
-## Coding Conventions
+## コーディング規約
 
-### Git Commit Messages
+### コミットメッセージ
 
-* Use the present tense ("Add feature" not "Added feature")
-* Use the imperative mood ("Move cursor to..." not "Moves cursor to...")
-* Limit the first line to 72 characters or less
+* 現在形を使う（「Added feature」ではなく「Add feature」）。
+* 命令形を使う ("Moves cursor to..." ではなく "Move cursor to...")
+* 最初の行を72文字以下に制限する
 
 ### JavaScript Styleguide
 
-* All JavaScript code is linted with Prettier and ESLint
+* すべてのJavaScriptコードはPrettierとESLintでリンクされています。

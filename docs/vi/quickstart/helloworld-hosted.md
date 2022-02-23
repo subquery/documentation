@@ -31,10 +31,10 @@ Bạn sẽ cần:
 
 ## 1. Tạo dự án của bạn
 
-Hãy tạo một dự án có tên là subql_hellowworld và chạy cài đặt bắt buộc, codegen và xây dựng với trình quản lý gói yêu thích của bạn.
+Hãy tạo một dự án có tên subqlHelloWorld bằng cách chạy `subql init` và lựa chọn xây dựng dự án với mạng `Polkadot` và khởi tạo dự án bằng `subql-starter` mẫu. Chúng tôi bắt buộc phải chạy install, codegen và build với trình quản lý gói yêu thích của bạn.
 
 ```shell
-> subql init --starter subqlHelloWorld
+> subql init subqlHelloWorld
 yarn install
 yarn codegen
 yarn build

@@ -1,35 +1,35 @@
 # Hello World (localhost & Docker)
 
-Welcome to this SubQuery Hello World quick start. The quick start aims to show you how you get the default starter project running in Docker in a few simple steps.
+SubQuery Hello World のクイックスタートへようこそ。 クイックスタートでは、いくつかの簡単な手順でデフォルトのスタータープロジェクトをDockerで実行する方法を説明します。
 
-## Learning objectives
+## 学習のねらい
 
-At the end of this quick start, you should:
+このクイックスタートが終了した時点で、あなたは次のことが出来るようになります。
 
-- understand the required pre-requisites
-- understand the basic common commands
-- be able to navigate to localhost:3000 and view the playground
-- run a simple query to get the block height of the Polkadot mainnet
+- 必要な前提条件を理解すること
+- 基本的な一般的なコマンドを理解すること
+- localhost:3000に移動して、プレイグラウンドを表示できるようになること
+- Polkadotメインネットのブロックの高さを取得するための簡単なクエリを実行すること
 
-## Intended audience
+## 対象者
 
-This guide is geared towards new developers who have some development experience and are interested in learning more about SubQuery.
+このガイドは、開発経験があり、SubQueryについてもっと学ぶことに興味がある新規開発者を対象としています。
 
-## Video guide
+## ビデオガイド
 
 <figure class="video_container">
   <iframe src="https://www.youtube.com/embed/j034cyUYb7k" frameborder="0" allowfullscreen="true"></iframe>
 </figure>
 
-## Pre-requisites
+## 前提条件
 
-You will need:
+必要なもの
 
-- yarn or npm package manager
+- yarn または npm パッケージマネージャ
 - SubQuery CLI (`@subql/cli`)
 - Docker
 
-You can run the following commands in a terminal to see if you already have any of these pre-requisites.
+ターミナルで以下のコマンドを実行することで、これらの前提条件がすでに備わっているかどうかを確認することができます。
 
 ```shell
 yarn -v (or npm -v)
@@ -37,13 +37,13 @@ subql -v
 docker -v
 ```
 
-For more advanced users, copy and paste the following:
+上級者の方は、以下をコピー＆ペーストしてください。
 
 ```shell
 echo -e "My yarn version is:" `yarn -v` "\nMy subql version is:" `subql -v`  "\nMy docker version is:" `docker -v`
 ```
 
-This should return: (for npm users, replace yarn with npm)
+これらが表示される必要があります: (npm ユーザの場合、yarn を npm に置き換えてください)
 
 ```shell
 My yarn version is: 1.22.10
@@ -51,39 +51,47 @@ My subql version is: @subql/cli/0.9.3 darwin-x64 node-v16.3.0
 My docker version is: Docker version 20.10.5, build 55c4c88
 ```
 
-If you get the above, then you are good to go. If not, follow these links to install them:
+あなたが上記を取得した場合、問題ありません。 そうでない場合は、以下のリンクに従ってインストールしてください:
 
 - [yarn](https://classic.yarnpkg.com/en/docs/install/) or [npm](https://www.npmjs.com/get-npm)
 - [SubQuery CLI](quickstart.md#install-the-subquery-cli)
 - [Docker](https://docs.docker.com/get-docker/)
 
-## 1. Step 1: Initialise project
+## 1. プロジェクトを初期化する
 
-The first step when starting off with SubQuery is to run the `subql init` command. Let's initialise a start project with the name `subqlHelloWorld`. Note that only author is mandatory. Everything else is left empty below.
+SubQuery で始める最初のステップは、 `subql init` コマンドを実行することです。 `subqlHelloWorld` という名前でプロジェクトを初期化しましょう。 作成者のみが必須であることに注意してください。 以下、すべて空欄のままです。
 
 ```shell
-> subql init --starter subqlHelloWorld
-Git repository:
-RPC endpoint [wss://polkadot.api.onfinality.io/public-ws]:
-Authors: sa
-Description:
-Version: [1.0.0]:
-License: [Apache-2.0]:
-Init the starter package... subqlHelloWorld is ready
+> subql init subqlHelloWorld
+? Select a network Polkadot
+? Select a template project subql-starter     Starter project for subquery
+Cloning project... done
+RPC endpoint: [wss://polkadot.api.onfinality.io/public-ws]:
+Git repository [https://github.com/subquery/subql-starter]:
+Fetching network genesis hash... done
+Author [Ian He & Jay Ji]:
+Description [This project can be use as a starting po...]:
+Version [0.0.4]:
+License [MIT]:
+Preparing project... done
+subqlHelloWorld is ready
 
 ```
 
-Don't forget to change into this new directory.
+この新しいディレクトリに移動することを忘れないでください。
 
 ```shell
 cd subqlHelloWorld
 ```
 
-## 2. Step 2: Install dependencies
+## 2. 依存関係をインストールする
 
-Now do a yarn or node install to install the various dependencies.
+ここで様々な依存関係をインストールするために、yarnまたはnodeのインストールを実行します。
 
-<CodeGroup> # Yarn yarn install # NPM npm install
+<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn install ``` </CodeGroupItem>
+<CodeGroupItem title="NPM"> ```bash npm install ``` </CodeGroupItem> </CodeGroup>
+
+例 `yarn install`
 
 ```shell
 > yarn install
@@ -97,11 +105,14 @@ success Saved lockfile.
 ✨  Done in 31.84s.
 ```
 
-## 3. Step 3: Generate code
+## 3. コードを生成する
 
-Now run `yarn codegen` to generate Typescript from the GraphQL schema.
+ここで`yarn codegen`を実行して、GraphQLスキーマからTypescriptを生成します。
 
-<CodeGroup> # Yarn yarn codegen # NPM npm run-script codegen
+<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem>
+<CodeGroupItem title="NPM"> ```bash npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
+
+An example of `yarn codegen`
 
 ```shell
 > yarn codegen
@@ -116,13 +127,16 @@ $ ./node_modules/.bin/subql codegen
 ✨  Done in 1.02s.
 ```
 
-**Warning** When changes are made to the schema file, please remember to re-run `yarn codegen` to regenerate your types directory.
+**警告** スキーマファイルに変更があった場合、`yarn codegen` を再実行し、typesディレクトリを再生成することを忘れないようにしてください。
 
-## 4. Step 4: Build code
+## 4. コードをビルドする
 
-The next step is to build the code with `yarn build`.
+次のステップは、 `yarn build` でコードをビルドすることです。
 
-<CodeGroup> # Yarn yarn build # NPM npm run-script build
+<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem>
+<CodeGroupItem title="NPM"> ```bash npm run-script build ``` </CodeGroupItem> </CodeGroup>
+
+例 `yarn build`
 
 ```shell
 > yarn build
@@ -131,11 +145,11 @@ $ tsc -b
 ✨  Done in 5.68s.
 ```
 
-## 5. Run Docker
+## 5. Docker を実行する
 
-Using Docker allows you to run this example very quickly because all the required infrastructure can be provided within the Docker image. Run `docker-compose pull && docker-compose up`.
+Dockerを使用すると、必要なインフラをすべてDockerイメージ内で提供できるため、この例を非常に迅速に実行することができます。 `docker-compose pull && docker-compose up` を実行する
 
-This will kick everything into life where eventually you will get blocks being fetched.
+これですべてがキックされ、最終的にブロックがフェッチされます。
 
 ```shell
 > #SNIPPET
@@ -153,9 +167,9 @@ graphql-engine_1  | 2021-06-05T22:20:43.244Z <express> INFO request completed
 
 ```
 
-## 6. Browse playground
+## 6. プレイグラウンドを表示する
 
-Navigate to http://localhost:3000/ and paste the query below into the left side of the screen and then hit the play button.
+http://localhost:3000/ にアクセスし、以下のクエリを画面左側に貼り付けて、再生ボタンを押してください。
 
 ```
 {
@@ -170,12 +184,12 @@ Navigate to http://localhost:3000/ and paste the query below into the left side 
 
 ```
 
-SubQuery playground on localhost.
+ローカルホストの SubQuery playground
 
-![playground localhost](/assets/img/subql_playground.png)
+![ローカルホストの playground](/assets/img/subql_playground.png)
 
-The block count in the playground should match the block count (technically the block height) in the terminal as well.
+プレイグラウンドのブロック数は、ターミナルのブロック数（厳密にはブロックの高さ）とも一致させる必要があります。
 
-## Summary
+## 概要
 
-In this quick start, we demonstrated the basic steps to get a starter project up and running within a Docker environment and then navigated to localhost:3000 and ran a query to return the block number of the mainnet Polkadot network.
+このクイックスタートでは、Docker環境内でプロジェクトを立ち上げて実行する基本的な手順を示した後、localhost:3000にナビゲートして、メインネットPolkadotネットワークのブロック番号を返すクエリーを実行しました。

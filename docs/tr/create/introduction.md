@@ -6,7 +6,7 @@
 
 Aşağıdaki örneklerden bazıları, başlangıç paketini [Quick start](../quickstart/quickstart.md) bölümünde başarıyla başlatmış olduğunuzu varsayar. Bu başlangıç paketinden, SubQuery projenizi özelleştirmek ve uygulamak için standart süreçten geçeceğiz.
 
-1. Initialise your project using `subql init --specVersion 0.2.0 PROJECT_NAME`. alternatively you can use the old spec version `subql init PROJECT_NAME`
+1. Initialise your project using `subql init PROJECT_NAME`.
 2. Manifest dosyasını (`project.yaml`) blok zinciriniz ve eşleyeceğiniz varlıklar hakkında bilgi içerecek şekilde güncelleştirin - bkz [Manifest File](./manifest.md)
 3. Şemanızda (`schema.graphql`) ayıklayacağınız ve sorgulamak için sürdüreceğiniz verilerin şeklini tanımlayan GraphQL varlıkları oluşturun - bkz [GraphQL Şeması](./graphql.md)
 4. Zincir verilerini tanımladığınız GraphQL varlıklarına dönüştürmek için çağırmak istediğiniz tüm eşleme işlevlerini (örneğin`mappingHandlers.ts`) ekleyin - bkz[Mapping](./mapping.md)
@@ -51,11 +51,42 @@ SubQuery Project yerel olarak barındırılan bir SubQuery Node çalıştırmak 
 
 Yapı komutunu projenin kök dizininden çalıştırın.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```bash npm run-script build ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem>
+<CodeGroupItem title="NPM"> ```bash npm run-script build ``` </CodeGroupItem> </CodeGroup>
 
-## ünlüğe kaydetme
+### Alternative build options
 
-The `console.log` yöntemi **artık desteklenmiyor**. Bunun yerine, türlere `logger` modülü eklenmiştir, bu da çeşitli günlük düzeylerini kabul edebilecek bir günlükçü destekleyebileceğimiz anlamına gelir.
+We support additional build options for subquery projects using `subql build`.
+
+With this you can define additional entry points to build using the exports field in package.json.
+
+```json
+"name": "project-name",
+"version": "1.0.0",
+...
+"exports": {
+  "entry_one": "./src/entry_one.ts",
+  "entry_renamed": "./src/entry_two.ts"
+},
+```
+
+Then by running `subql build` it will generate a dist folder with the following structure:
+
+```
+- project-name
+  L dist
+    L entry_one.js
+    L entry_renamed.js
+    L index.js 
+```
+
+Note that it will build `index.ts` whether or not it is specified in the exports field.
+
+For more information on using this including flags, see [cli reference](https://doc.subquery.network/references/references/#build).
+
+## Logging
+
+The `console.log` method is **no longer supported**. Instead, a `logger` module has been injected in the types, which means we can support a logger that can accept various logging levels.
 
 ```typescript
 logger.info('Info level message');
@@ -63,16 +94,16 @@ logger.debug('Debugger level message');
 logger.warn('Warning level message');
 ```
 
-`logger.info` veya `logger.warn` kullanmak için, satırı eşleme dosyanıza yerleştirmeniz yeterlidir.
+To use `logger.info` or `logger.warn`, just place the line into your mapping file.
 
 ![logging.info](/assets/img/logging_info.png)
 
-`logger.debug` kullanmak için ek bir adım gerekir. Komut satırınıza `--log-level=debug` ekleyin.
+To use `logger.debug`, an additional flag is required. Add `--log-level=debug` to your command line.
 
-Docker kapsayıcısı çalıştırıyorsanız, bu satırı `docker-compose.yaml` dosyanıza ekleyin.
+If you are running a docker container, add this line to your `docker-compose.yaml` file.
 
 ![logging.debug](/assets/img/logging_debug.png)
 
-Şimdi terminal ekranında yeni günlüğe kaydetmeyi görmeniz gerekir.
+You should now see the new logging in the terminal screen.
 
 ![logging.debug](/assets/img/subquery_logging.png)

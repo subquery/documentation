@@ -6,7 +6,7 @@ Bir genel sözlük projesinin amacı, bir blok zincirindeki tüm verileri indeks
 
 [SubQuery dictionary](https://github.com/subquery/subql-dictionary) projesini örnek alırsak, [schema](https://github.com/subquery/subql-dictionary/blob/main/schema.graphql) dosyası 3 adet varlık tanımlar; dış öğeler, olaylar ve specVersion. Bu 3 varlık sırasıyla 6, 4 ve 2 alan içerir. Bu proje çalıştırıldığında, bu alanlar veritabanı tablolarına yansıtılır.
 
-![extrinsics table](/assets/img/extrinsics_table.png) ![events table](/assets/img/events_table.png) ![specversion table](/assets/img/specversion_table.png)
+![dışsal tablo](/assets/img/extrinsics_table.png) ![etkinlik tablosu](/assets/img/events_table.png) ![specversion tablosu](/assets/img/specversion_table.png)
 
 Blok zincirinden gelen veriler daha sonra bu tablolarda saklanır ve performans için indekslenir. Proje daha sonra SubQuery projelerinde barındırılır ve API uç noktası manifest dosyasına eklenebilir.
 
@@ -30,7 +30,7 @@ Sözlük kullanıldığında, indeksleyici önce çağrı ve olay filtrelerini p
 
 Örneğin, aktarım olaylarını indekslediğinizi düşünün. Tüm bloklarda bu olay yoktur (aşağıdaki resimde blok 3 ve 4'te aktarım olayı yoktur).
 
-![dictionary block](/assets/img/dictionary_blocks.png)
+![sözlük bloğu](/assets/img/dictionary_blocks.png)
 
 Sözlük, projenizin bunu atlamasına olanak verir, böylece bir aktarım olayı için her bloğa bakmak yerine, yalnızca 1, 2 ve 5 bloklarına atlar. Bunun nedeni, her bloğun sözlüğünün tüm çağrılara ve olaylara önceden hesaplanmış bir referans olmasıdır.
 

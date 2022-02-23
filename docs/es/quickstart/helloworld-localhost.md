@@ -62,14 +62,19 @@ Si usted consigue lo anterior, entonces tiene luz verde para continuar. Si no, s
 El primer paso al comenzar con SubQuery es ejecutar el comando `subql init`. Inicialicemos un proyecto inicial con el nombre `subqlHelloWorld`. Tenga en cuenta que sólo el autor es obligatorio. Todo lo demás queda vacío.
 
 ```shell
-> subql init --starter subqlHelloWorld
-repositorio Git:
-endpoint RPC [wss://polkadot.api.onfinality. o/public-ws]:
-Autores: sa
-Descripción:
-Versión: [1.0.0]:
-Licencia: [Apache-2.0]:
-Init the starter package... subqlHelloWorld está listo
+> subql init subqlHelloWorld
+? Select a network Polkadot
+? Select a template project subql-starter     Starter project for subquery
+Cloning project... done
+RPC endpoint: [wss://polkadot.api.onfinality.io/public-ws]:
+Git repository [https://github.com/subquery/subql-starter]:
+Fetching network genesis hash... done
+Author [Ian He & Jay Ji]:
+Description [This project can be use as a starting po...]:
+Version [0.0.4]:
+License [MIT]:
+Preparing project... done
+subqlHelloWorld is ready
 
 ```
 

@@ -6,7 +6,7 @@ At the end of this guide, you'll have a working SubQuery project running on a Su
 
 If you haven't already, we suggest that you familiarise yourself with the [terminology](../#terminology) used in SubQuery.
 
-## Preparation
+## Подготовка
 
 ### Local Development Environment
 
@@ -36,13 +36,15 @@ subql help
 Inside the directory in which you want to create a SubQuery project, simply replace `PROJECT_NAME` with your own and run the command:
 
 ```shell
-subql init --starter PROJECT_NAME
+subql init PROJECT_NAME
 ```
 
 You'll be asked certain questions as the SubQuery project is initalised:
 
+- Network: A blockchain network that this SubQuery project will be developed to index
+- Template: Select a SubQuery project template that will provide a starting point to begin development
 - Git repository (Optional): Provide a Git URL to a repo that this SubQuery project will be hosted in (when hosted in SubQuery Explorer)
-- RPC endpoint (Required): Provide a wss URL to a running RPC endpoint that will be used by default for this project. You can quickly access public endpoints for different Polkadot networks or even create your own private dedicated node using [OnFinality](https://app.onfinality.io) or just use the default Polkadot endpoint.
+- RPC endpoint (Required): Provide a websocket (wss) URL to a running RPC endpoint that will be used by default for this project. You can quickly access public endpoints for different Polkadot networks or even create your own private dedicated node using [OnFinality](https://app.onfinality.io) or just use the default Polkadot endpoint. This RPC node must be an archive node (have the full chain state).
 - Authors (Required): Enter the owner of this SubQuery project here
 - Description (Optional): You can provide a short paragraph about your project that describe what data it contains and what users can do with it
 - Version (Required): Enter a custom version number or use the default (`1.0.0`)
@@ -77,7 +79,7 @@ You'll find the generated models in the `/src/types/models` directory
 
 In order run your SubQuery Project on a locally hosted SubQuery Node, you need to build your work.
 
-Run the build command from the project's root directory.
+Изпълнете командата за изграждане от основната директория на проекта.
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```bash npm run-script build ``` </CodeGroupItem> </CodeGroup>

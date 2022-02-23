@@ -3,20 +3,18 @@
   <section class="welcomeWords">
     <div class="main">
       <div>
-        <h2 class="welcomeTitle">Welcome to SubQuery’s <span>Docs</span></h2>
-        <p>Explore and transform your chain data to build intuitive dApps faster!</p>
+        <h2 class="welcomeTitle">Benvenuti nei documenti di SubQuery</h2>
+        <p>Esplora e trasforma i dati della catena per creare dApps intuitivi più velocemente!</p>
       </div>
     </div>
   </section>
   <section class="startSection main">
     <div>
-      <h2 class="title">Quick Start <span>Guide</span></h2>
-      <p>Understand SubQuery by getting hands on with a traditional Hello World example. Using a template project within a Docker environment, you can quickly get a node up and running and start querying a blockchain in just a few minutes with a few simple commands.
+      <h2 class="title">Guida Introduttiva</h2>
+      <p>Comprendere la SubQuery mettendo mano a un esempio tradizionale di Hello World. Utilizzando un progetto modello in un ambiente Docker, è possibile attivare rapidamente un nodo e iniziare a interrogare una blockchain in pochi minuti con alcuni semplici comandi. Utilizzando un progetto modello in un ambiente Docker, è possibile attivare rapidamente un nodo e iniziare a interrogare una blockchain in pochi minuti con alcuni semplici comandi.
       </p>
       <span class="button">
-        <router-link :to="{path: '/quickstart/helloworld-localhost/'}">
-          <span>Get started</span>
-        </router-link>
+        stare iniziando
       </span>
     </div>
   </section>
@@ -28,8 +26,8 @@
         <router-link :to="{path: '/tutorials_examples/introduction/'}">
           <div>
             <img src="/assets/img/tutorialsIcon.svg" />
-            <span>Tutorials and Examples</span>
-            <p>Learning by doing. Tutorials and examples on how to build various SubQuery projects.</p>
+            <span>Esercitazioni ed esempi</span>
+            <p>Imparare facendo. Esercitazioni ed esempi su come creare vari progetti SubQuery.</p>
           </div>
         </router-link>
       </li>
@@ -37,8 +35,8 @@
         <router-link :to="{path: '/create/introduction/'}">
           <div>
             <img src="/assets/img/docsIcon.svg" />
-            <span>Technical Reference Docs</span>
-            <p>Written by developers for developers. Find what you need to build awesome dApps quickly.</p>
+            <span>Documenti di riferimento tecnico</span>
+            <p>Scritto dagli sviluppatori per gli sviluppatori. Trova ciò di cui hai bisogno per costruire dapps impressionanti rapidamente.</p>
           </div>
         </router-link>
       </li>
@@ -47,8 +45,7 @@
           <div>
             <img src="/assets/img/networkIcon.svg" />
             <span>The SubQuery Network</span>
-            <p>SubQuery’s decentralised future. Read more about how indexers and consumers are rewarded.</p>
-          </div>
+            <p>SubQuery’s decentralised future. Per saperne di più su come gli indicizzatori e i consumatori vengono premiati.
         </a>
       </li>
     </ul>
@@ -59,77 +56,79 @@
     <h2 class="title">FAQ</h2>
     <ul class="faqList">
       <li>
-        <div class="title">What is SubQuery?</div>
+        <div class="title">Cos'è SubQuery?</div>
         <div class="content">
-          <p>SubQuery is an open source project that allows developers to index, transform, and query Substrate chain data to power their applications.</p>
+          <p>SubQuery è un progetto open source che consente agli sviluppatori di indicizzare, trasformare e interrogare i dati della catena di substrati per ottimizzare le applicazioni.</p>
           <span class="more">
-            <router-link :to="{path: '/faqs/faqs/#what-is-subquery'}">READ MORE</router-link>
+            < 0 > LEGGI DI PIÙ </0 >
           </span>
         </div>
       </li>
       <li>
-        <div class="title">What is the best way to get started with SubQuery?</div>
+        <div class="title">Qual è il modo migliore per iniziare con SubQuery?</div>
         <div class="content">
-          <p>The best way to get started with SubQuery is to try out our <a href="/quickstart/helloworld-localhost/">Hello World tutorial</a>. This is a simple 5 min walk through of downloading the starter template, building the project, and then using Docker to run a node on your localhost and running a simple query. </p>
+          <p>Il modo migliore per iniziare con SubQuery è provare il nostro < 0 > tutorial Hello World </0 >. Questo è un semplice 5 min passeggiata attraverso il download del modello di avvio, la costruzione del progetto, e poi utilizzando Docker per eseguire un nodo sul vostro localhost ed eseguire una semplice query. </p>
         </div>
       </li>
       <li>
-        <div class="title">How can I contribute or give feedback to SubQuery?</div>
+        <div class="title">Come posso contribuire o fornire feedback a SubQuery?</div>
         <div class="content">
-          <p>We love contributions and feedback from the community. To contribute code, fork the repository of interest and make your changes. Then submit a PR or Pull Request. Oh, don't forget to test as well! Also check out our contributions guidelines (coming soon). </p>
+          <p>Amiamo i contributi e il feedback della comunità. Per contribuire al codice, forgiare il repository di interesse e apportare le modifiche desiderate. Quindi inviate una PR o una richiesta di estrazione. Oh, non dimenticare di fare il test pure! Controlla anche le nostre linee guida sui contributi (in arrivo a breve). </p>
           <span class="more">
-            <router-link :to="{path: '/faqs/faqs/#what-is-the-best-way-to-get-started-with-subquery'}">READ MORE</router-link>
+            < 0 > LEGGI DI PIÙ </0 >
           </span>
         </div>
       </li>
       <li>
-        <div class="title">How much does it cost to host my project in SubQuery Projects?</div>
+        <div class="title">Quanto costa ospitare il progetto in Progetti SubQuery?
+</div>
         <div class="content">
-          <p>Hosting your project in SubQuery Projects is absolutely free - it's is our way of giving back to the community. To learn how to host your project with us, please check out the <a href="/quickstart/helloworld-hosted/">Hello World (SubQuery Hosted)</a> tutorial.</p>
+          <p>Ospitare il tuo progetto in SubQuery Projects è assolutamente gratuito - è il nostro modo di restituire alla comunità. Per imparare come ospitare il tuo progetto con noi, controlla il tutorial <a href="/quickstart/helloworld-hosted/">Hello World (SubQuery hosted)</a>.</p>
           <span class="more">
             <router-link :to="{path: '/publish/publish/'}">HOSTING YOUR PROJECT</router-link>
           </span>
         </div>
       </li>
     </ul><br>
-    For further frequently asked questions, please see our <router-link :to="{path: '/faqs/faqs/'}">FAQ's</router-link> page.    
+    Per ulteriori domande frequenti, consulta il nostro <router-link :to="{path: '/faqs/faqs/'}">FAQs</router-link> pagina.    
   </div>
 </section>
 <section class="main">
   <div>
     <div class="lastIntroduce lastIntroduce_1">
-        <h5>Integrating with your Custom Chain?</h5>
-        <p>Whether you're building a new parachain or an entirely new blockchain on Substrate - SubQuery can help you index and troubleshoot your chain's data. SubQuery is designed to easily integrate with a custom Substrate based chain.</p>
+        <h5>Integrazione con la tua catena personalizzata?</h5>
+        <p>Che tu stia costruendo una nuova paracadute o una blockchain completamente nuova su Substrate - SubQuery può aiutarti a indicizzare e risolvere i dati della tua catena. SubQuery è progettato per integrarsi facilmente con una catena personalizzata basata su substrato.</p>
         <span class="more">
-          <router-link :to="{path: '/create/mapping/#custom-substrate-chains'}">LEARN HOW TO INTEGRATE WITH YOUR CHAIN</router-link>
+          <router-link :to="{path: '/create/mapping/#custom-substrate-chains'}">INTEGRARE COME INTEGRARE CON LA TUA CATENA</router-link>
         </span>
     </div>
     <div class="lastIntroduce lastIntroduce_2">
-        <h5>Support and Contribute</h5>
-        <p>Have a question or interested to know more or how you can contribute? We’d love to hear from you. Please contact us via email or social media from the links below. Need technical expertise? Join our Discord community and receive support from our passionate community members. </p>
-        <a class="more" target="_blank" href="https://discord.com/invite/78zg8aBSMG">JOIN THE CONVERSATION ON DISCORD</a>
+        <h5>Supporta, contribuisci</h5>
+        <p>Avete una domanda o siete interessati a sapere di più o come potete contribuire? Gradiremmo sapere cosa ne pensi! Vi preghiamo di contattarci via e-mail o social media dai link qui sotto. Hai bisogno di competenze tecniche? Unitevi alla nostra comunità Discord e ricevete il supporto dei nostri appassionati membri della comunità. </p>
+        <a class="more" target="_blank" href="https://discord.com/invite/78zg8aBSMG">ISCRIVITI ALLA CONVERSAZIONE SULLA DISCORDA</a>
     </div>
     </div>
 </section>
 <section class="main connectSection">
   <div class="email">
-    <span>Contact us</span>
+    <span>Contattaci</span>
     <a href="mailto:hello@subquery.network">hello@subquery.network</a>
   </div>
   <div>
-    <div>Follow us on social</div>
+    <div>Seguimi sui social:</div>
     <div class="connectWay">
       <a href="https://discord.com/invite/78zg8aBSMG" target="_blank" class="connectDiscord">discord</a>
       <a href="https://twitter.com/subquerynetwork" target="_blank" class="connectTwitter">twitter</a>
       <a href="https://medium.com/@subquery" target="_blank" class="connectMedium">medium</a>
-      <a href="https://t.me/subquerynetwork" target="_blank" class="connectTelegram">telegram</a>
+      <a href="https://t.me/subquerynetwork" target="_blank" class="connectTelegram">telegramma</a>
       <a href="https://github.com/OnFinality-io/subql" target="_blank" class="connectGithub">github</a>
-      <a href="https://matrix.to/#/#subquery:matrix.org" target="_blank" class="connectMatrix">matrix</a>
+      <a href="https://matrix.to/#/#subquery:matrix.org" target="_blank" class="connectMatrix">matrice</a>
       <a href="https://www.linkedin.com/company/subquery" target="_blank" class="connectLinkedin">linkedin</a>
     </div>
   </div>
 </section>
-</div> </div>
+</div>
+</div>
 <div class="footer">
   <div class="main"><div>SubQuery © 2021</div></div>
 </div>

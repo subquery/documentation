@@ -1,4 +1,4 @@
-# 로컬에서 하위 쿼리 실행
+# 로컬에서 서브쿼리 실행하기
 
 이 가이드는 인덱서와 쿼리 서비스를 모두 포함하는 인프라에서 로컬 SubQuery 노드를 실행하는 방법을 설명합니다. 자체 SubQuery 인프라를 실행하는 것에 대해 걱정하고 싶지 않으세요? SubQuery는 커뮤니티에 [관리 호스팅 서비스](https://explorer.subquery.network)를 무료로 제공합니다. [게시 가이드](../publish/publish.md)를 따라 프로젝트를 [SubQuery 프로젝트](https://project.subquery.network)에 업로드하는 방법을 확인하세요.
 
@@ -143,7 +143,7 @@ subql-node -f your-project-path --local
 
 `http://localhost:3000/health`는 성공하면 HTTP 200을 반환합니다.
 
-A 500 error will be returned if the indexer is not healthy. This can often be seen when the node is booting up.
+인덱서가 비정상인 경우 오류 500 값이 반환됩니다. 노드가 부팅 중인 과정에서도 종종 볼 수 있습니다.
 
 ```shell
 {
@@ -152,7 +152,7 @@ A 500 error will be returned if the indexer is not healthy. This can often be se
 }
 ```
 
-잘못된 URL을 사용하면 404 찾을 수 없음 오류가 반환됩니다.
+잘못된 URL을 사용하면 찾을 수 없음 오류 404가 반환됩니다.
 
 ```shell
 {
@@ -176,7 +176,7 @@ node --inspect-brk /usr/local/bin/subql-node -f ~/Code/subQuery/projects/subql-h
 ws://127.0.0.1:9229/56156753-c07d-4bbe-af2d-2c7ff4bcc5ad에서 수신하는 디버거
 도움이 필요하면 https://nodejs.org/en/docs/inspector를 참조하세요.
 ```
-Then open up the Chrome dev tools, go to Source > Filesystem and add your project to the workspace and start debugging. 자세한 내용은 다음을 확인하세요. [SubQuery 프로젝트를 디버그하는 방법](https://doc.subquery.network/tutorials_examples/debug-projects/)
+이후, 크롬 개발자 도구를 통해 Source > Filesystem을 열고, 작업공간에 프로젝트를 추가하고 디버깅을 시작합니다. 자세한 내용은 다음을 확인하세요. [SubQuery 프로젝트를 디버그하는 방법](https://doc.subquery.network/tutorials_examples/debug-projects/)
 ## 쿼리 서비스 실행(subql/query)
 
 ### 설치

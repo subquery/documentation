@@ -15,7 +15,7 @@
       </p>
       <span class="button">
         <router-link :to="{path: '/quickstart/helloworld-localhost/'}">
-          <span>Get started</span>
+          <span>Baslat</span>
         </router-link>
       </span>
     </div>
@@ -63,7 +63,7 @@
         <div class="content">
           <p>SubQuery, geliştiricilerin uygulamalarını güç sağlamak için Substrat zinciri verilerini dizine almalarına, dönüştürmelerine ve sorgulamalarına olanak tanıyan açık kaynaklı bir projedir.</p>
           <span class="more">
-            <router-link :to="{path: '/faqs/faqs/#what-is-subquery'}">READ MORE</router-link>
+            <router-link :to="{path: '/faqs/faqs/#what-is-subquery'}">DAHA FAZLA OKU</router-link>
           </span>
         </div>
       </li>
@@ -78,7 +78,7 @@
         <div class="content">
           <p>Topluluktan gelen katkıları ve geri bildirimleri seviyoruz. Koda katkıda bulunmak için, ilgi alanı deponuzu çatallayın ve değişikliklerinizi yapın. Ardından bir PR veya Çekme İsteği gönderin. Test etmeyi de unutma! Ayrıca katkı yönergelerimize de göz atın (yakında). </p>
           <span class="more">
-            <router-link :to="{path: '/faqs/faqs/#what-is-the-best-way-to-get-started-with-subquery'}">READ MORE</router-link>
+            <router-link :to="{path: '/faqs/faqs/#what-is-the-best-way-to-get-started-with-subquery'}">DAHA FAZLA OKU</router-link>
           </span>
         </div>
       </li>
@@ -87,7 +87,7 @@
         <div class="content">
           <p>Projenizi SubQuery Projects'te barındırmak tamamen ücretsizdir - bu bizim topluma geri verme yöntemimizdir. Projenizi bizimle nasıl barındıracaklarınızı öğrenmek için lütfen <a href="/quickstart/helloworld-hosted/">Hello World (SubQuery Hosted)</a> öğreticisine göz atın.</p>
           <span class="more">
-            <router-link :to="{path: '/publish/publish/'}">HOSTING YOUR PROJECT</router-link>
+            <router-link :to="{path: '/publish/publish/'}">PROJENİZE EV SAHİPLİĞİ YAPMAK</router-link>
           </span>
         </div>
       </li>
@@ -113,8 +113,8 @@
 </section>
 <section class="main connectSection">
   <div class="email">
-    <span>Contact us</span>
-    <a href="mailto:hello@subquery.network">hello@subquery.network</a>
+    <span>Bize Ulaşın</span>
+    <a href="mailto:hello@subquery.network">merhaba@subquery.network</a>
   </div>
   <div>
     <div>Bizi socialbn'de takip edin</div>

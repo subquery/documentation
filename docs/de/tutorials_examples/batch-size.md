@@ -1,16 +1,16 @@
-# How to change the blockchain fetching batch size?
+# Wie ändere ich die Blockchain, die die Batchgröße abruft?
 
-## Video guide
+## Videoanleitung
 
 <figure class="video_container">
   <iframe src="https://www.youtube.com/embed/LO_Gea_IN_s" frameborder="0" allowfullscreen="true"></iframe>
 </figure>
 
-## Introduction
+## Die Einführung
 
-The default batch size is 100, but this can be changed by using the extra command `--batch-size=xx`.
+Die Standardbatchgröße ist 100, dies kann jedoch mit dem zusätzlichen Befehl `--batch-size=xx` geändert werden.
 
-You need to this to the command line as an extra flag or if you are using Docker, modify the docker-compose.yml with:
+Sie müssen dies als zusätzliches Flag in die Befehlszeile eingeben oder wenn Sie Docker verwenden, ändern Sie die docker-compose.yml mit:
 
 ```shell
 subquery-node:
@@ -33,8 +33,8 @@ subquery-node:
 
 ```
 
-This example sets the batch size to 50.
+In diesem Beispiel wird die Batchgröße auf 50 festgelegt.
 
-## Why change the batch size?
+## Warum die Batchgröße ändern?
 
-Using a smaller batch size can reduce memory usage and not leave users hanging for large queries. In otherwords, your application can be more responsive. 
+Die Verwendung einer kleineren Batchgröße kann die Speichernutzung reduzieren und Benutzer nicht für große Abfragen hängen lassen. Mit anderen Worten, Ihre Anwendung kann reaktionsschneller sein. 

@@ -6,7 +6,7 @@
 
 นี่คือตัวอย่างที่คุณสามารถเริ่มต้นสร้างโครงการเสร็จสิ้น และได้เริ่มต้นจากส่วนของ [Quick start](../quickstart/quickstart.md) จากชุดเริ่มต้น พวกเราจะนำคุณผ่านกระบวนการมาตรฐานเพื่อที่จะปรับแต่ง และพัฒนา SubQuery Project ของคุณ
 
-1. เริ่มต้น Project ของคุณโดยใช้คำสั่ง `subql init --specVersion 0.2.0 PROJECT_NAME` หรือคุณสามารถใช้เวอชันเก่า ด้วยคำสั่ง `subql init PROJECT_NAME`
+1. เริ่มต้น Project ของคุณโดยใช้คำสั่ง `subql init PROJECT_NAME`.
 2. อัพเดท Manifest file (`project.yaml`) เพื่อใส่ข้อมูลที่เกี่ยวกับ blockchain และ entities ที่คุณจะเชื่อมโยง โปรดดู [Manifest File](./manifest.md)
 3. สร้าง GraphQL entities ภายใน Schema ของคุณ (`schema.graphql<0>) เพื่อกำหนดรูปร่างของข้อมูลที่คุณจะดึงข้อมูลออกมา โปรดดู <a href="./graphql.md">GraphQL Schema</a></li>
 <li>เพิ่ม Mapping Function (ตัวอย่าง <code>mappingHandlers.ts`) คุณจะเรียกข้อมูลเพื่อแปลงข้อมูลที่อยู่บน chain ให้เป็น GraphQL entities ที่คุณได้กำหนด - โปรดดู [Mapping](./mapping.md)
@@ -54,9 +54,39 @@ yarn codegen
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```bash npm run-script build ``` </CodeGroupItem> </CodeGroup>
 
+### Alternative build options
+
+We support additional build options for subquery projects using `subql build`.
+
+With this you can define additional entry points to build using the exports field in package.json.
+
+```json
+"name": "project-name",
+"version": "1.0.0",
+...
+"exports": {
+  "entry_one": "./src/entry_one.ts",
+  "entry_renamed": "./src/entry_two.ts"
+},
+```
+
+Then by running `subql build` it will generate a dist folder with the following structure:
+
+```
+- project-name
+  L dist
+    L entry_one.js
+    L entry_renamed.js
+    L index.js 
+```
+
+Note that it will build `index.ts` whether or not it is specified in the exports field.
+
+For more information on using this including flags, see [cli reference](https://doc.subquery.network/references/references/#build).
+
 ## Logging
 
-The `console.log` method is **no longer supported**. ในขณะเดียวกัน โมดูล `logger` จะถูกเชื่อมกับชนิด นั่นหมายความว่าเราสามารถจะรองรับการเก็บ logs ได้ในหลายระดับ
+The `console.log` method is **no longer supported**. Instead, a `logger` module has been injected in the types, which means we can support a logger that can accept various logging levels.
 
 ```typescript
 logger.info('Info level message');
@@ -64,16 +94,16 @@ logger.debug('Debugger level message');
 logger.warn('Warning level message');
 ```
 
-การใช้ `logger.info` หรือ `logger.warn` จะวางไว้บรรทัดหนึ่งในไฟล์ mapping ของคุณ
+To use `logger.info` or `logger.warn`, just place the line into your mapping file.
 
 ![logging.info](/assets/img/logging_info.png)
 
-การใช้ `logger.debug` คุณจำเป็นจะต้อง เพิ่ม `--log-level=debug` ไปยัง command line
+To use `logger.debug`, an additional flag is required. Add `--log-level=debug` to your command line.
 
-ถ้าหากคุณรันอยู่ใน docker container ให้เพิ่มบรรทัดนี้ไปยังไฟล์ `docker-compose.yaml`
+If you are running a docker container, add this line to your `docker-compose.yaml` file.
 
 ![logging.debug](/assets/img/logging_debug.png)
 
-คุณควรจะเห็น logging อยู่บน terminal screen ของคุณ
+You should now see the new logging in the terminal screen.
 
 ![logging.debug](/assets/img/subquery_logging.png)
