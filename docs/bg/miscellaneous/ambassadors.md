@@ -8,23 +8,23 @@
 
 ## В какво вярваме
 
-Нашият екип се обединява около споделената визия за изграждане на основите на една гъвкава и приобщаваща услуга за данни за екосистемата Polkadot.
+Нашият екип се обединява около споделената визия за изграждане на основите на една гъвкава и приобщаваща услуга за данни в екосистемата Polkadot.
 
-**Built by developers, for developers:** SubQuery is a growing community that focuses on providing the best products and services for our developers, and builders in our ecosystem. SubQuery is only successful if the Polkadot ecosystem is successful, and so everything we do is with our customers in mind.
+**Създаден от разработчици, за разработчици:** SubQuery е постоянно растяща общност, фокусираща се върху предоставянето на най-добрите продукти и услуги за нашите разработчици в рамките на нашата екосистема. Проектът SubQuery ще постигне забележителен успех заедно със самата екосистемата Polkadot, всичко, затова което правим, е с мисъл за клиентите.
 
-**Integrity and Accountability:** We have team members in Auckland, Shanghai, and Sydney so remote work is important to us. We expect that our team is empowered and works autonomously together to achieve our goals. A key requirement for this is for our team to be accountable for their actions and maintain their integrity.
+**Почтеност и отчетност:** Нашият екип е съставен от различни членове, някои от тях се намират в Окланд, Шанхай и Сидни, затова дистанционната работа е важна за нас. Очакваме членовете от нашия екип да работят автономно и в същото време задружно и синхронизирано, за постигане на целите ни. Основното изискване, което имаме е членовете от екипа ни да носят отговарност за действията си и да се държат почтено помежду си и с работните задълженията.
 
-**Inclusive Guidance and Support:** Blockchain is hard, and everyone needs help sometimes. There is no such thing as a stupid question in our community and everyone in our team is expected to help support our users. We learn some of the most valuable insights about our service (and how we can improve it) directly from our community.
+**Ръководство по приобщаване и поддръжка:** Блокчейн технологиите са трудни, затова всеки понякога се нуждае от помощ. В нашата общност ние не се притесняваме от зададените въпроси, няма такова нещо като глупав въпрос, затова се очаква всеки член от нашия екип да помага и подкрепя нашите потребители. Често научаваме някои важни и ценни възможности относно предоставяните ни услуги (и как можем да ги подобрим) директно от нашата общност.
 
-## Our Ambassador Program
+## Нашата Амбасадорска програма
 
-Our SubQuery Ambassador program aims to find community leaders passionate about Polkadot and SubQuery. We’re looking for self-starters that can spread the word about SubQuery in their local areas and provide support to new developers that want to use SubQuery to build amazing apps and services on Polkadot.
+Нашата програма SubQuery Ambassador цели намиране на членове и лидери от общността, интересуващи се от Polkadot и SubQuery. Търсим самоинициативни участници, които могат да разпространят информацията за SubQuery в общностите от своите региони и държави и да предоставят подкрепа на нови разработчици, целящи използване на SubQuery за създаване на невероятни приложения и услуги в Polkadot.
 
-### Ambassador Benefits
+### Премиства, които носи Амбасадорската програма
 
-At SubQuery, we work hard to achieve what we do. Similarly, Ambassadors are expected to commit some time when joining our team but will be rewarded with benefits.
+В SubQuery работим усилено, за да постигнем целите си. По същия начин очакваме от нашите амбасадорите да отделят една част от свободното си време, след присъединяване към нашия екип, за което ще бъдат възнаградени.
 
-**Funding and Support:** You may be rewarded for good work with early opportunities into private sales and bounties. Additionally, we’ll be providing funding grants for you to run community meetups.
+**Финансиране и подкрепа:** Възможно е да бъдете възнаградени за добра работа и помощ в развитието на проекта с различни възможности като продажби, награди, конкурси. Additionally, we’ll be providing funding grants for you to run community meetups.
 
 **SubQuery Team Access:** You’ll have direct access to the core SubQuery team with opportunities for hands-on training, exclusive AMAs with our leaders and developers, and insight into our roadmap.
 
