@@ -277,6 +277,7 @@ function getSidebar(locale, language){
             `${locale}/academy/tutorials_examples/terminology.md`,
           ]
         },
+        `${locale}/academy/subquery101/subquery101.md`,
       ]
     },
   ]}
