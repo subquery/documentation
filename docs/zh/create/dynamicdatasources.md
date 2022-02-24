@@ -1,10 +1,10 @@
 # 动态数据源
 
-在某些情况下，当项目启动时，您不知道数据源的所有参数。 An example of this is a contract factory that will create new contract instances at a later date. It's impossible to know what the contract addresses will be for this ahead of time. This is where being able to create new data sources dynamically comes in.
+在某些情况下，当项目启动时，您不知道数据源的所有参数。 这方面的一个例子是合约工厂，它将在以后创建新的合同实例。 无法事先知道合约地址是什么。 这就是能够动态创建新数据源的原因。
 
-## The `templates` field
+## ` templates ` 字段
 
-In order to use dynamic data sources you need to have spec version of at least `0.2.1`. If you are on `0.2.0` all you need to do is change the specVersion. If you are on a lower version then you should update to `0.2.0` first with `subql migrate`.
+要使用动态数据源，您需要至少有 `0.2.1` 的规范版本。 If you are on `0.2.0` all you need to do is change the specVersion. If you are on a lower version then you should update to `0.2.0` first with `subql migrate`.
 
 Spec version `0.2.1` introduces a new `templates` field. Templates are the same as data sources with a couple of differences.
 
