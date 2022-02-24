@@ -1,22 +1,22 @@
-# Dynamic Data Sources
+# Dinamik Veri Kaynakları
 
-There are cases where you don't know all the parameters for a data source when a project is started. An example of this is a contract factory that will create new contract instances at a later date. It's impossible to know what the contract addresses will be for this ahead of time. This is where being able to create new data sources dynamically comes in.
+Bir proje başlatıldığında veri kaynağının tüm parametrelerini bilmediğiniz durumlar vardır. Bunun bir örneği, daha sonraki bir tarihte yeni sözleşme örnekleri oluşturacak bir sözleşme fabrikasıdır. Sözleşme adreslerinin ne olacağını önceden bilmek imkansızdır. Dinamik olarak yeni veri kaynakları oluşturabilmek burada devreye girer.
 
-## The `templates` field
+## `templates` alanı
 
-In order to use dynamic data sources you need to have spec version of at least `0.2.1`. If you are on `0.2.0` all you need to do is change the specVersion. If you are on a lower version then you should update to `0.2.0` first with `subql migrate`.
+Dinamik veri kaynaklarını kullanmak için en az `0.2.1` spec sürümüne sahip olmanız gerekir. `0.2.0` sürümündeyseniz, tek yapmanız gereken specVersion'ı değiştirmektir. Daha düşük bir sürümdeyseniz ilk önce `subql migrate` ile `0.2.0` sürümüne güncelleştirmeniz gerekir.
 
-Spec version `0.2.1` introduces a new `templates` field. Templates are the same as data sources with a couple of differences.
+`0.2.1` spec sürümü yeni bir `templates` alanı sunar. Birkaç farklılık dışında, şablonlar veri kaynaklarıyla aynıdır.
 
-* They need a `name` in order to identify the template
-* `startBlock` is no longer necessary. This will be set to the block the data source is created
-* In the case of a custom data source the `processor.options` field can also be partially filled out, the rest of the options will be provided when the data source is instanced.
+* Şablonu tanımlamak için bir `name` gereklidir
+* `startBlock` artık gerekli değildir. Bu, veri kaynağının oluşturulduğu bloğa ayarlanacak
+* Özel bir veri kaynağı durumunda, `processor.options` alanı da kısmen doldurulabilir, seçeneklerin geri kalanı veri kaynağı örneklendiğinde sağlanır.
 
-## Example Project
+## Örnek Proje
 
-The best way to show how to use dynamic data source is with an example.
+Dinamik veri kaynağının nasıl kullanılacağını göstermenin en iyi yolu bir örnektir.
 
-The below example is for a decentralised exchange that has a factory contract which deploys a new contract when a trading pair is added. When the project is run it's not possible to know the addresses of all trading pair contract that have been created or will be created. Data sources can be dynamically created by a mapping handler from a template in order to index the newly created trading pair contracts.
+Aşağıdaki örnek, bir ticaret çifti eklendiğinde yeni bir sözleşme uygulayan bir fabrika sözleşmesine sahip merkezi olmayan bir borsa içindir. Proje çalıştırıldığında, oluşturulan veya oluşturulacak tüm işlem çifti sözleşmesinin adreslerini bilmek mümkün değildir. Veri kaynakları, yeni oluşturulan ticaret çifti sözleşmelerini dizine eklemek için bir şablondan eşleme işleyicisi tarafından dinamik olarak oluşturulabilir.
 
 
 ### `project.yaml`
@@ -76,14 +76,14 @@ templates:
 ### `mappingHandlers.ts`
 
 ```ts
-// This function is defined using `subql codegen` cli command
+// Bu işlev, `subql codegen` cli komutu kullanılarak tanımlanır
 import { createTradingPairDatasource } from '../types';
 import {MoonbeamEvent} from '@subql/contract-processors/dist/moonbeam';
 
 async function handleNewTradingPair(event: MoonbeamEvent): Promise<void> {
   const { exchange, token1, token2 } = event.args;
 
-  // Create a new datasource providing the address of the trading pair exchange contract
+  // Ticaret çifti değişim sözleşmesinin adresini sağlayan yeni bir veri kaynağı oluşturun
   await createTradingPairDatasource({ address: exchange });
 }
 
@@ -93,9 +93,9 @@ async function handleLiquidityAdded(event: MoonbeamEvent): Promise<void> {
 ```
 
 
-## Seeing a projects Dynamic Data Sources
+## Dinamik Veri Kaynakları Projeleri Görme
 
-Dynamic data sources are stored in the projects metadata. If you need to see what details you can query them like below:
+Dinamik veri kaynakları metadata projelerinde depolanır. Hangi ayrıntıları görmeniz gerekiyorsa, bunları aşağıdaki gibi sorgulayabilirsiniz:
 
 ```gql
 {
@@ -105,7 +105,7 @@ Dynamic data sources are stored in the projects metadata. If you need to see wha
 }
 ```
 
-Result
+Sonuç
 ```
 {
   "data": {
