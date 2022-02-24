@@ -1,6 +1,6 @@
-# Dynamic Data Sources
+# 动态数据源
 
-There are cases where you don't know all the parameters for a data source when a project is started. An example of this is a contract factory that will create new contract instances at a later date. It's impossible to know what the contract addresses will be for this ahead of time. This is where being able to create new data sources dynamically comes in.
+在某些情况下，当项目启动时，您不知道数据源的所有参数。 An example of this is a contract factory that will create new contract instances at a later date. It's impossible to know what the contract addresses will be for this ahead of time. This is where being able to create new data sources dynamically comes in.
 
 ## The `templates` field
 
