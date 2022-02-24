@@ -4,19 +4,19 @@
 
 ## ` templates ` 字段
 
-要使用动态数据源，您需要至少有 `0.2.1` 的规范版本。 If you are on `0.2.0` all you need to do is change the specVersion. If you are on a lower version then you should update to `0.2.0` first with `subql migrate`.
+要使用动态数据源，您需要至少有 `0.2.1` 的规范版本。 如果您在 `0.2.0` 上，您需要做的只是更改规范版本。 如果您处于较低版本，那么您应该先使用`subql migrate`更新到 `0.2.0`
 
-Spec version `0.2.1` introduces a new `templates` field. Templates are the same as data sources with a couple of differences.
+规范版本 `0.2.1` 引入了一个新的 `templates` 字段。 模板与数据源相同，但有几个不同之处。
 
-* They need a `name` in order to identify the template
-* `startBlock` is no longer necessary. This will be set to the block the data source is created
-* In the case of a custom data source the `processor.options` field can also be partially filled out, the rest of the options will be provided when the data source is instanced.
+* 他们需要 `name` 来识别模板
+* `startBlock` 已不再是必要字段。 这将被设置为数据源创建的区块
+* 在自定义数据源的情况下，`processor.options`字段也可以部分填充，其余选项将在数据源实例化时提供。
 
-## Example Project
+## 示例项目
 
-The best way to show how to use dynamic data source is with an example.
+展示如何使用动态数据源的最佳方法就是展示一个例子。
 
-The below example is for a decentralised exchange that has a factory contract which deploys a new contract when a trading pair is added. When the project is run it's not possible to know the addresses of all trading pair contract that have been created or will be created. Data sources can be dynamically created by a mapping handler from a template in order to index the newly created trading pair contracts.
+下面的例子是一个去中心化交易平台，该平台拥有一个工厂合约，在添加新的交易对时部署一个新的合约。 当项目运行时，不可能知道已经创建或将要创建的所有交易对合约的地址。 数据源可以由映射处理程序从模板动态创建，以便为新创建的交易对建立索引。
 
 
 ### `project.yaml`
@@ -71,6 +71,9 @@ templates:
           filter:
             topics:
               - liquidityAdded(address provider, uint256 amount1, uint256 amount2)
+ 
+Text
+Xpath: /pre/code
 ```
 
 ### `mappingHandlers.ts`
@@ -93,9 +96,9 @@ async function handleLiquidityAdded(event: MoonbeamEvent): Promise<void> {
 ```
 
 
-## Seeing a projects Dynamic Data Sources
+## 查看一个项目动态数据源
 
-Dynamic data sources are stored in the projects metadata. If you need to see what details you can query them like below:
+动态数据源存储在项目元数据中。 如果您需要看到您可以像以下示例一样查询详细信息：
 
 ```gql
 {
@@ -105,7 +108,7 @@ Dynamic data sources are stored in the projects metadata. If you need to see wha
 }
 ```
 
-Result
+结果
 ```
 {
   "data": {
