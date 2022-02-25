@@ -142,7 +142,7 @@ chainWebpack: config => {
     });
 }
 
-function getSidebar(locale, language){ 
+function getSidebar(locale, language){
   return {
     selectLanguageName: language,
     sidebar: [
@@ -189,6 +189,7 @@ function getSidebar(locale, language){
       collapsable: true,
       children: [
         `${locale}/run/run.md`,
+        `${locale}/run/hosted.md`,
         `${locale}/run/sandbox.md`,
       ]
     },

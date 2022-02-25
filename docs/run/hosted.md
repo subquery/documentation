@@ -9,7 +9,7 @@ Why do we need to publish the project to IPFS? // TODO
 ### Requirement
 - Command lone `@subql/cli` version 0.21.0 or above.
 - A project with Manifest specVersion 0.2.0 and above.
-- Get your [SUBQL_ACCESS_TOKEN]() ready.
+- Get your [SUBQL_ACCESS_TOKEN](#prepare-your-subql-access-token) ready.
 - To make sure your deployment success, we recommend you build it with `subql build` command, and test it locally before publishing.
 
 
@@ -68,7 +68,7 @@ Uploading SupQuery project to IPFS
 SubQuery Project uploaded to IPFS: QmZ3q7YZSmhwBiot4PQCK3c7Z6HkteswN2Py58gkkZ8kNd  //CID
 ```
 
-With this `CID`, you can view your published project as what we call it [IPFS Deployment]()
+With this `CID`, you can view your published project as what we call it [IPFS Deployment](#ipfs-deployment)
 
 ## IPFS Deployment
 
