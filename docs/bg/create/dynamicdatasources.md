@@ -4,19 +4,19 @@
 
 ## Поле `templates`
 
-За да използвате опцията за динамични източници на данни, трябва да притежавате версия на спецификацията поне `0.2.1`. Ако използвате версията `0.2.0` всичко, което трябва да направите, е да смените specVersion. Ако използвате по-ниска версия, първо трябва да я актуализирате до `0.2.0` с помощта на `subql migrate`.
+За да използвате опцията за динамични източници на данни, трябва да притежавате версия на спецификацията `0.2.1`. Ако използвате версията `0.2.0` всичко, което трябва да направите, е да смените specVersion. Ако използвате по-ниска версия, първо трябва да я актуализирате до `0.2.0` с помощта на `subql migrate`.
 
-Spec version `0.2.1` introduces a new `templates` field. Templates are the same as data sources with a couple of differences.
+Версия на спецификацията `0.2.1` ще генерира ново поле `templates`. Шаблоните (Templates) са подобни като при източниците на данни с няколко разлики.
 
-* They need a `name` in order to identify the template
-* `startBlock` is no longer necessary. This will be set to the block the data source is created
-* In the case of a custom data source the `processor.options` field can also be partially filled out, the rest of the options will be provided when the data source is instanced.
+* Необходима е команда `name` за идентифициране на шаблона
+* `startBlock` повече не необходим. Той ще бъде зададен в блока, в който е създаден източникът на данни
+* В случай на персонализиран източник на данни, полето `processor.options` може да бъде частично попълнено, останалите опции ще бъдат предоставени при самото създаване на екземпляра на източника за данни.
 
-## Example Project
+## Пример на проект
 
-The best way to show how to use dynamic data source is with an example.
+Най-добрият начин за демонстриране на използването на динамичните източници на данни е с помощта на пример.
 
-The below example is for a decentralised exchange that has a factory contract which deploys a new contract when a trading pair is added. When the project is run it's not possible to know the addresses of all trading pair contract that have been created or will be created. Data sources can be dynamically created by a mapping handler from a template in order to index the newly created trading pair contracts.
+Примерът по-долу е за децентрализирана борса, която има фабричен контракт, който внедрява нов контракт, в случай на добавяне на двойка за търговия. При стартиране на един проект, не е възможно да се знаят адресите на всички контракти за търговски двойки, които вече са създадени или предстоят да бъдат създадени. Източниците на данни могат да бъдат динамично създадени програмно чрез съпоставяне с шаблон, за индексация на новосъздадените контракти за търговските двойки.
 
 
 ### `project.yaml`
@@ -93,9 +93,9 @@ async function handleLiquidityAdded(event: MoonbeamEvent): Promise<void> {
 ```
 
 
-## Seeing a projects Dynamic Data Sources
+## Преглед на проектите от Динамични източници на данни
 
-Dynamic data sources are stored in the projects metadata. If you need to see what details you can query them like below:
+Динамичните източници на данни се съхраняват като част от метаданните. Ако искате да разгледате някой детайли, може да ги изискате както е показано долу:
 
 ```gql
 {
