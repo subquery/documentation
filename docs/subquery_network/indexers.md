@@ -90,7 +90,7 @@ In order to generate desirable performances, Indexers need to consider various f
 
 
 * the balance between their own stake and that of Delegators. 
-* the type of contract being served. The Indexer will receive all the query fees if it is a closed contract. If it is open, then an Indexer’s revenue will depend on how many other Indexers there are. 
+* the type of contract being served. The Indexer will receive all the query fees if it is a closed contract. If it is open, then an Indexer’s reward will depend on how many other Indexers there are. 
 * fulfilling of the Service Level Agreement (SLA) specifications (to avoid slashing penalties)
 * the accuracy of the data being served to avoid slashing penalties
 

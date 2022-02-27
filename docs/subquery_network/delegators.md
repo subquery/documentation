@@ -4,7 +4,7 @@
 
 A Delegator is a non-technical network role in the SubQuery network and is a great way to start contributing to the SubQuery network. This role enables Delegators to “delegate” their SQT to one or more Indexers. Delegators benefit by having their SQT earn a “commission reward” for their efforts. On the other hand, Indexers benefit by acquiring more SQT to stake towards their projects of interest, thereby increasing their earning potential. 
 
-Without Delegators, Indexers will likely earn fewer rewards because they will have less SQT to allocate. Therefore, Indexers compete to attract Delegators by offering a competitive share of an Indexer’s revenue.
+Without Delegators, Indexers will likely earn fewer rewards because they will have less SQT to allocate. Therefore, Indexers compete to attract Delegators by offering a competitive share of an Indexer’s rewards.
 
 
 ## How to select Indexers?
@@ -19,7 +19,7 @@ One of the best things about being a Delegator is that you don’t need any powe
 
 ## How Delegators are rewarded?
 
-To attract Delegators to support their activities, Indexers offer potential Delegators a share of the rewards they earn. The primary goal of an Indexer is to earn fees for the Indexing service they provide. Delegators help Indexers to effectively achieve these goals. With a purpose to attract Delegators, an Indexer advertises the portion of revenue that the Indexer will share with the Delegator. That portion is called the Indexer’s Commission Rate. 
+To attract Delegators to support their activities, Indexers offer potential Delegators a share of the rewards they earn. The primary goal of an Indexer is to earn fees for the Indexing service they provide. Delegators help Indexers to effectively achieve these goals. With a purpose to attract Delegators, an Indexer advertises the portion of rewards that the Indexer will share with the Delegator. That portion is called the Indexer’s Commission Rate. 
 
 Indexer’s Commission Rate: This is a percentage share of the fees earned from serving requests to Consumers. Indexers are free to set this rate to any value they desire. A higher percentage indicates that Indexers keep more of the profits. A lower percentage indicates that the Indexers share more of their profits with their Delegators.
 
@@ -50,7 +50,7 @@ The protocol charges a delegation fee of 0.5% for every delegation of tokens to 
 
 ## Non-reward period
 
-Besides the period when Delegators can effectively earn money, a non-reward period also occurs. Delegators receive revenue for staking eras that they were a part of for the entire duration. For example, if a Delegator joins a staking era halfway through, they will not earn any revenue for that particular era. 
+Besides the period when Delegators can effectively earn money, a non-reward period also occurs. Delegators receive rewards for staking eras that they were a part of for the entire duration. For example, if a Delegator joins a staking era halfway through, they will not earn any rewards for that particular era. 
 
 Additionally, if a Delegator decides to undelegate his/her SQT, a 28 day thawing period starts. The tokens cannot be moved during this period, no fees can be accrued or a reward acquired.
 
