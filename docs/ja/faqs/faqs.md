@@ -60,4 +60,4 @@ Polkadotネットワークのエンドポイントは `wss://polkadot.api.onfina
 subql-node -f . --force-clean --subquery-name=<project-name>
 ```
 
-なお、プロジェクトマニフェスト (`project.yaml`) 内の `startBlock` を変更する場合は、設定したブロックから再インデックス化を開始するために `--force-clean` を使用することが推奨されています。 プロジェクトの`--force-clean`を行わずに`startBlock`を変更した場合、インデクサは以前設定した`startBlock`でインデックス作成を継続します。
+なお、マニフェストファイル (`project.yaml`) 内の `startBlock` を変更する場合は、設定したブロックから再インデックス化を開始するために `--force-clean` を使用することが推奨されています。 プロジェクトの`--force-clean`を行わずに`startBlock`を変更した場合、インデクサは以前設定した`startBlock`でインデックス作成を継続します。
