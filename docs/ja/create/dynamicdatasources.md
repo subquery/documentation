@@ -1,22 +1,22 @@
-# Dynamic Data Sources
+# 動的データソース
 
-There are cases where you don't know all the parameters for a data source when a project is started. An example of this is a contract factory that will create new contract instances at a later date. It's impossible to know what the contract addresses will be for this ahead of time. This is where being able to create new data sources dynamically comes in.
+プロジェクトが開始されたときに、データソースのすべてのパラメータがわからない場合があります。 この例は、後で新しいコントラクトインスタンスを作成するコントラクトファクトリです。 コントラクトアドレスが何であるかを事前に知ることは不可能です。 そこで、新しいデータソースを動的に作成することができます。
 
-## The `templates` field
+## `templates`フィールド
 
-In order to use dynamic data sources you need to have spec version of at least `0.2.1`. If you are on `0.2.0` all you need to do is change the specVersion. If you are on a lower version then you should update to `0.2.0` first with `subql migrate`.
+動的データソースを使用するには、少なくとも `0.2.1` のバージョンが必要です。 `0.2.0` を使用している場合は、バージョンを変更するだけです。 下位バージョンの場合は、 `subql migrate` で `0.2.0` に更新する必要があります。
 
-Spec version `0.2.1` introduces a new `templates` field. Templates are the same as data sources with a couple of differences.
+バージョン `0.2.1` で新しい `templates` フィールドが導入されます。 テンプレートはデータソースと同じですが、いくつかの違いがあります。
 
-* They need a `name` in order to identify the template
-* `startBlock` is no longer necessary. This will be set to the block the data source is created
-* In the case of a custom data source the `processor.options` field can also be partially filled out, the rest of the options will be provided when the data source is instanced.
+* テンプレートを識別するには、 `name` が必要です
+* `startBlock` はもう必要ありません。 データソースが作成されたブロックに設定されます
+* カスタムデータソースの場合、`processor.options` フィールドに部分的に入力することも可能です。残りのオプションは、データソースのインスタンス化の際に提供されます。
 
-## Example Project
+## サンプルプロジェクト
 
-The best way to show how to use dynamic data source is with an example.
+動的データソースの使い方を紹介するには、例を挙げるのが一番です。
 
-The below example is for a decentralised exchange that has a factory contract which deploys a new contract when a trading pair is added. When the project is run it's not possible to know the addresses of all trading pair contract that have been created or will be created. Data sources can be dynamically created by a mapping handler from a template in order to index the newly created trading pair contracts.
+以下の例は、取引ペアが追加されたときに新しいコントラクトを展開するファクトリーコントラクトを持つ分散取引所です。 プロジェクト実行時に、作成済みまたは作成予定のすべての取引ペアコントラクトのアドレスを把握することはできません。 データソースは、新しく作成された取引ペアコントラクトをインデックスするために、テンプレートからマッピングハンドラによって動的に作成することができます。
 
 
 ### `project.yaml`
@@ -93,9 +93,9 @@ async function handleLiquidityAdded(event: MoonbeamEvent): Promise<void> {
 ```
 
 
-## Seeing a projects Dynamic Data Sources
+## プロジェクトの動的データソースを確認する
 
-Dynamic data sources are stored in the projects metadata. If you need to see what details you can query them like below:
+動的データソースはプロジェクトのメタデータに保存されます。 以下のようにクエリできる詳細を確認する必要がある場合は、次のようにします。
 
 ```gql
 {
@@ -105,7 +105,7 @@ Dynamic data sources are stored in the projects metadata. If you need to see wha
 }
 ```
 
-Result
+結果
 ```
 {
   "data": {
