@@ -4,14 +4,14 @@ SubQuery プロジェクトの作成には、さまざまなコンポーネン�
 
 ## @subql/cli をインストールする
 
-[@subql/cli](https://github.com/subquery/subql/tree/docs-new-section/packages/cli) ツールは、プロジェクトのフレームワークや基礎を作るのに役立ち、ゼロから始める必要がないことを意味します。
+[@subql/cli](https://github.com/subquery/subql/tree/docs-new-section/packages/cli) は、プロジェクトのフレームワークや基礎を作るのに役立ち、ゼロから始める必要がないことを意味します。
 
 Yarn または NPM を使用して、端末に SubQuery CLI をインストールします。
 
 <CodeGroup> <CodeGroupItem title="NPM"> ```bash npm install -g @subql/cli ``` </CodeGroupItem>
 <CodeGroupItem title="YARN" active> ```shell yarn global add @subql/cli ``` </CodeGroupItem> </CodeGroup>
 
-You can then run help to see available commands and usage provide by CLI:
+helpを実行すると、CLIで利用可能なコマンドや使い方が表示されます。
 
 ```shell
 subql help
@@ -20,12 +20,12 @@ subql help
 
 SubQueryノードは、SubQueryプロジェクトごとにSubstrateベースのブロックチェーンデータを抽出し、Postgresデータベースに保存します。
 
-Yarn または NPM を使用して、端末に SubQuery CLI をインストールします。
+SubQueryノードをYarnやNPMを使って端末にインストールします。
 
 <CodeGroup> <CodeGroupItem title="NPM"> ```bash npm install -g @subql/node ``` </CodeGroupItem>
 <CodeGroupItem title="YARN" active> ```shell yarn global add @subql/node ``` </CodeGroupItem> </CodeGroup>
 
-Once installed, you can can start a node with:
+インストールすると、次のようにノードを起動することができます。
 
 ```shell
 subql-node <command>
@@ -34,9 +34,9 @@ subql-node <command>
 
 ## @subql/queryをインストールする
 
-SubQueryクエリライブラリは、ブラウザを介した「遊び場」環境でプロジェクトにクエリを発行するサービスを提供します。
+SubQueryクエリライブラリは、ブラウザを介した「プレイグラウンド」環境でプロジェクトにクエリを発行するサービスを提供します。
 
-Yarn または NPM を使用して、端末に SubQuery CLI をインストールします。
+Yarn または NPM を使用して、端末に SubQuery クエリ をインストールします。
 
 <CodeGroup> <CodeGroupItem title="NPM"> ```bash npm install -g @subql/query ``` </CodeGroupItem>
 <CodeGroupItem title="YARN" active> ```shell yarn global add @subql/query ``` </CodeGroupItem> </CodeGroup>
