@@ -27,16 +27,16 @@ This is a pool that is created from inflation that is allocated to the Treasure 
 
 ## Attracting Delegators
 
-Indexers can increase their earning potential by attracting Delegators. Delegators are SQT token holders who can delegate their tokens to Indexers for additional rewards. Indexers use these additional tokens to increase the amount they stake on projects of their choice. This allows Indexers to increase their earnings. 
+Indexers can increase their earning potential by attracting Delegators. Delegators are SQT token holders who can delegate their tokens to Indexers for additional rewards. Indexers use these additional tokens to increase the amount they allocate to projects of their choice. This allows Indexers to increase their earnings. 
 
 Indexers set an Indexer’s Commission Rate (ICR) which is the percentage Indexers earn. The remaining is then shared amongst the Delegators. Therefore, Indexers need to decide on the proportion of profits an Indexer wishes to retain versus the amount to share with their Delegators. A lower ICR will be more attractive for Delegators. 
 
-For example, Indexer A has set an ICR of 80% and has received SQT from 8 Delegators. This means that the 8 Delegators will be rewarded a share of the remaining 20% of what the Indexer has earned. The share will be split proportionally between all 8 Delegators. Note that Delegators must have delegated their tokens for the entire Era to be eligible for these rewards. For more information on Delegators rewards, see xxxx
+For example, Indexer A has set an ICR of 80% and has received SQT from 8 Delegators. This means that the 8 Delegators plus the Indexer itself, will be rewarded a share of the remaining 20% of what the Indexer has earned. The share will be split proportionally between them. Note that Delegators must have delegated their tokens for the entire Era to be eligible for these rewards. For more information on Delegators rewards, see xxxx
 
 
 ## Becoming an Indexer
 
-To become an Indexer on the SubQuery Network, the Indexer must possess the necessary hardware, run the required SubQuery services, and choose what SubQuery Projects he wants to provide a query service.
+To become an Indexer on the SubQuery Network, the Indexer must possess the necessary hardware, run the required SubQuery services, have a publicly accessible network via a static IP or a domain name, and register as an Indexer.
 
 
 ### Indexer skillset 
@@ -50,7 +50,7 @@ Finally, interested parties should be prepared to invest time in maintaining the
 
 ### Staking requirements
 
-Indexers are expected to stake and maintain at least 50,000 SQT tokens. This is to ensure that Indexers have some skin in the game and are committed to supporting the network.
+Indexers are expected to stake and maintain a minimum amount of tokens that is soon to be announced.  This is to ensure that Indexers have some skin in the game and are committed to supporting the network.
 
 Should an Indexer experience a slashable event and their staking balance fall below the minimum required, they will have to top up their balance in order to continue indexing. 
 
@@ -60,15 +60,27 @@ Should an Indexer experience a slashable event and their staking balance fall be
 Indexers can either invest in their own infrastructure hardware or rent from the likes of AWS, Google Cloud, Digital Ocean, Microsoft Azure etc. 
 
 
-### Maintenance/operational requirements (TBA)
+### Maintenance/operational requirements 
+
+Here are some of the maintenance and/or operational requirements Indexers should expect:
+* Always upgrade to the latest Subquery software version
+* Database maintenance
+    * Upsize disk
+    * Upgrade nodes to higher spec
+    * Increase reader nodes for increasing ingress traffics
 
 
-### Infrastructure (TBA)
 
+### Infrastructure 
+The minimum infrastructure requirement includes:
+* One computational node to run subquery indexer coordinator services as well as subql core software to index and provide query service for one or more subquery projects
+* One database node to run postgresql db.
+
+More precise details will follow.
 
 ## Security & Performance considerations
 
-When security concerns are in question, Operator Wallets and Firewalls must get proper attention.
+Security and performance considerations are as follows.
 
 
 ### Operator Wallets
@@ -120,3 +132,19 @@ Projects will vary in computation requirements. Simple projects will only index 
 Popular projects offering a high query fee that attract a large number of Indexers also implies that the rewards will be shared amongst more people. This means that a single Indexer’s share may be less than a less popular project with a slightly lower query fee but with far fewer Indexers. 
 
 
+### Pricing Strategy
+Indexers need to be aware of their operation cost and expected incomes to understand their break-even point. Some considerations are:
+* How should Indexers set their plan prices? 
+* At what price can Indexers accept a service agreement or not?
+
+### Advertisements
+
+Indexers need to advertise themselves to Delegators as well as Consumers. Indexers may do this from their own website, in the Subquery forums or any other places deemed necessary. Some examples of the information to provide are:
+The background and experience of the Indexer or Indexer’s team
+The hardware specification and current usage and why it provides superior performance
+The customer support policy or SLA
+Evidence of historical performances 
+
+### Customer support
+
+Indexers are highly encouraged to provide a communication method for its customers to report inavailability and also to provide feedback.
