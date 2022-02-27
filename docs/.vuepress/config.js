@@ -189,7 +189,6 @@ function getSidebar(locale, language){
       collapsable: true,
       children: [
         `${locale}/run/run.md`,
-        `${locale}/run/hosted.md`,
         `${locale}/run/sandbox.md`,
       ]
     },
@@ -199,6 +198,7 @@ function getSidebar(locale, language){
       collapsable: true,
       children: [
         `${locale}/publish/publish.md`,
+        `${locale}/publish/ipfs.md`,
         `${locale}/publish/upgrade.md`,
         `${locale}/publish/connect.md`,
       ]
