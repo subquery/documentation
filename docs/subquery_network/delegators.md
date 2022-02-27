@@ -53,7 +53,3 @@ Delegators delegate (deposit) SQT into an Indexer’s contract.
 Delegators can then decide how much to redelegate to each Indexer of their choice. 
 Delegator can undelegate (withdraw) tokens back to their wallet. This will trigger a lock period of 28 days. 
 After the unlocking period has been completed, tokens become available for withdrawal/claim. 
-
-
-
-
