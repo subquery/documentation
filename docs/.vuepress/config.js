@@ -179,7 +179,7 @@ function getSidebar(locale, language){
         `${locale}/create/manifest.md`,
         `${locale}/create/graphql.md`,
         `${locale}/create/mapping.md`,
-        `${locale}/create/moonbeam.md`,
+        `${locale}/create/substrate-evm.md`,
         `${locale}/create/dynamicdatasources.md`,
       ]
     },
