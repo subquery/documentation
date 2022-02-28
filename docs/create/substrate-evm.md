@@ -42,11 +42,11 @@ Theoretically the following networks should also be supported since they impleme
 
 ## Data Source Spec
 
-| Field             | Type                                                           | Required | Description                                |
-| ----------------- | -------------------------------------------------------------- | -------- | ------------------------------------------ |
-| processor.file    | `'./node_modules/@subql/contract-processors/dist/frontier.js'` | Yes      | File reference to the data processor code  |
-| processor.options | [ProcessorOptions](#processor-options)                         | No       | Options specific to the Frontier Processor |
-| assets            | `{ [key: String]: { file: String }}`                           | No       | An object of external asset files          |
+| Field             | Type                                                              | Required | Description                                |
+| ----------------- |-------------------------------------------------------------------| -------- | ------------------------------------------ |
+| processor.file    | `'./node_modules/@subql/contract-processors/dist/frontierEvm.js'` | Yes      | File reference to the data processor code  |
+| processor.options | [ProcessorOptions](#processor-options)                            | No       | Options specific to the Frontier Processor |
+| assets            | `{ [key: String]: { file: String }}`                              | No       | An object of external asset files          |
 
 ### Processor Options
 
@@ -55,13 +55,13 @@ Theoretically the following networks should also be supported since they impleme
 | abi     | String           | No       | The ABI that is used by the processor to parse arguments. MUST be a key of `assets`                        |
 | address | String or `null` | No       | A contract address where the event is from or call is made to. `null` will capture contract creation calls |
 
-## FrontierCall
+## FrontierEvmCall
 
 Works in the same way as [substrate/CallHandler](../create/mapping/#call-handler) except with a different handler argument and minor filtering changes.
 
 | Field  | Type                         | Required | Description                                 |
-| ------ | ---------------------------- | -------- | ------------------------------------------- |
-| kind   | 'substrate/FrontierCall'     | Yes      | Specifies that this is an Call type handler |
+| ------ |------------------------------| -------- | ------------------------------------------- |
+| kind   | 'substrate/FrontierEvmCall'  | Yes      | Specifies that this is an Call type handler |
 | filter | [Call Filter](#call-filters) | No       | Filter the data source to execute           |
 
 ### Call Filters
@@ -73,7 +73,7 @@ Works in the same way as [substrate/CallHandler](../create/mapping/#call-handler
 
 ### Handlers
 
-Unlike a normal handler you will not get a `SubstrateExtrinsic` as the parameter, instead you will get a `FrontierCall` which is based on Ethers [TransactionResponse](https://docs.ethers.io/v5/api/providers/types/#providers-TransactionResponse) type.
+Unlike a normal handler you will not get a `SubstrateExtrinsic` as the parameter, instead you will get a `FrontierEvmCall` which is based on Ethers [TransactionResponse](https://docs.ethers.io/v5/api/providers/types/#providers-TransactionResponse) type.
 
 Changes from the `TransactionResponse` type:
 
@@ -81,13 +81,13 @@ Changes from the `TransactionResponse` type:
 - A `success` property is added to know if the transaction was a success
 - `args` is added if the `abi` field is provided and the arguments can be successfully parsed
 
-## FrontierEvent
+## FrontierEvmEvent
 
 Works in the same way as [substrate/EventHandler](../create/mapping/#event-handler) except with a different handler argument and minor filtering changes.
 
 | Field  | Type                           | Required | Description                                  |
-| ------ | ------------------------------ | -------- | -------------------------------------------- |
-| kind   | 'substrate/FrontierEvent'      | Yes      | Specifies that this is an Event type handler |
+| ------ |--------------------------------| -------- | -------------------------------------------- |
+| kind   | 'substrate/FrontierEvmEvent'   | Yes      | Specifies that this is an Event type handler |
 | filter | [Event Filter](#event-filters) | No       | Filter the data source to execute            |
 
 ### Event Filters
@@ -104,7 +104,7 @@ There are a couple of improvements from basic log filters:
 
 ### Handlers
 
-Unlike a normal handler you will not get a `SubstrateEvent` as the parameter, instead you will get a `FrontierEvent` which is based on Ethers [Log](https://docs.ethers.io/v5/api/providers/types/#providers-Log) type.
+Unlike a normal handler you will not get a `SubstrateEvent` as the parameter, instead you will get a `FrontierEvmEvent` which is based on Ethers [Log](https://docs.ethers.io/v5/api/providers/types/#providers-Log) type.
 
 Changes from the `Log` type:
 
@@ -116,10 +116,10 @@ This is an extract from the `project.yaml` manifest file.
 
 ```yaml
 dataSources:
-  - kind: substrate/Frontier
+  - kind: substrate/FrontierEvm
     startBlock: 752073
     processor:
-      file: "./node_modules/@subql/contract-processors/dist/frontier.js"
+      file: "./node_modules/@subql/contract-processors/dist/frontierEvm.js"
       options:
         # Must be a key of assets
         abi: erc20
@@ -131,13 +131,13 @@ dataSources:
     mapping:
       file: "./dist/index.js"
       handlers:
-        - handler: handleFrontierEvent
-          kind: substrate/FrontierEvent
+        - handler: handleFrontierEvmEvent
+          kind: substrate/FrontierEvmEvent
           filter:
             topics:
               - Transfer(address indexed from,address indexed to,uint256 value)
-        - handler: handleFrontierCall
-          kind: substrate/FrontierCall
+        - handler: handleFrontierEvmCall
+          kind: substrate/FrontierEvmCall
           filter:
             ## The function can either be the function fragment or signature
             # function: '0x095ea7b3'
