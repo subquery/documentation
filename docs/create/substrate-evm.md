@@ -32,7 +32,7 @@ Theoretically the following networks should also be supported since they impleme
 - Thales
 - Unique
 
-**You can also refer to the [basic Moonriver EVM example project](https://github.com/subquery/tutorials-moonriver-evm-starter) with an event and call handler.** This project is also hosted live in the SubQuery Explorer [here](https://explorer.subquery.network/subquery/subquery/moonriver-evm-starter-project).
+**You can also refer to the [basic Frontier EVM example project](https://github.com/subquery/tutorials-frontier-evm-starter) with an event and call handler.** This project is also hosted live in the SubQuery Explorer [here](https://explorer.subquery.network/subquery/subquery/frontier-evm-starter-project).
 
 ## Getting started
 
