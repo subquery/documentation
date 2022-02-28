@@ -142,7 +142,7 @@ chainWebpack: config => {
     });
 }
 
-function getSidebar(locale, language){ 
+function getSidebar(locale, language){
   return {
     selectLanguageName: language,
     sidebar: [
@@ -198,6 +198,7 @@ function getSidebar(locale, language){
       collapsable: true,
       children: [
         `${locale}/publish/publish.md`,
+        `${locale}/publish/ipfs.md`,
         `${locale}/publish/upgrade.md`,
         `${locale}/publish/connect.md`,
       ]
