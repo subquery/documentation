@@ -1,13 +1,13 @@
-# Hosting a Project using IPFS
+# Lưu trữ Dự án bằng IPFS
 
-This guide works through how to publish a local SubQuery project to [IPFS](https://ipfs.io/) and deploy it on our hosting infrastructure.
+Hướng dẫn này hoạt động thông qua cách xuất bản dự án SubQuery cục bộ lên [IPFS](https://ipfs.io/) và triển khai nó trên cơ sở hạ tầng lưu trữ của chúng tôi.
 
-Hosting a project in IPFS makes it available for all all and reduces your reliance on centralised services like GitHub.
+Lưu trữ một dự án trong IPFS làm cho nó khả dụng cho tất cả mọi người và giảm sự phụ thuộc của bạn vào các dịch vụ tập trung như GitHub.
 
-## Requirements
+## Yêu cầu
 
-- `@subql/cli` version 0.21.0 or above.
-- Manifest `specVersion` 0.2.0 and above.
+- `@subql/cli` phiên bản 0.21.0 trở lên.
+- Tệp kê khai `specVersion` 0.2.0 trở lên.
 - Get your [SUBQL_ACCESS_TOKEN](#prepare-your-subql-access-token) ready.
 - To make sure your deployment success, we strongly recommend that you build your project with the `subql build` command, and test it locally before publishing.
 
