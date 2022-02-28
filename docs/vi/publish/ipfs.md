@@ -8,25 +8,25 @@ Lưu trữ một dự án trong IPFS làm cho nó khả dụng cho tất cả m�
 
 - `@subql/cli` phiên bản 0.21.0 trở lên.
 - Tệp kê khai `specVersion` 0.2.0 trở lên.
-- Get your [SUBQL_ACCESS_TOKEN](#prepare-your-subql-access-token) ready.
-- To make sure your deployment success, we strongly recommend that you build your project with the `subql build` command, and test it locally before publishing.
+- Chuẩn bị [SUBQL_ACCESS_TOKEN](#prepare-your-subql-access-token) của bạn đã sẵn sàng.
+- Để đảm bảo việc triển khai của bạn thành công, chúng tôi thực sự khuyên bạn nên xây dựng dự án của mình bằng lệnh ` subql build` và kiểm tra cục bộ nó trước khi xuất bản.
 
-## Prepare your SUBQL_ACCESS_TOKEN
+## Chuẩn bị SUBQL_ACCESS_TOKEN của bạn
 
-- Step 1: Go to [SubQuery Projects](https://project.subquery.network/) and log in.
-- Step 2: Click on your profile at the top right of the navigation menu, then click on **_Refresh Token_**
-- Step 3: Copy the generated token.
-- Step 4: To use this token:
-  - Option 1: Add SUBQL_ACCESS_TOKEN in your environment variables. `EXPORT SUBQL_ACCESS_TOKEN=<token>`
-  - Option 2: Coming soon, `subql/cli` will support storing your SUBQL_ACCESS_TOKEN locally.
+- Bước 1: Truy cập [Dự án SubQuery](https://project.subquery.network/) và đăng nhập.
+- Bước 2: Nhấp vào hồ sơ của bạn ở trên cùng bên phải của menu điều hướng, sau đó nhấp vào **_Refresh Token_**
+- Bước 3: Sao chép mã thông báo đã tạo.
+- Bước 4: Để sử dụng mã thông báo này:
+  - Tùy chọn 1: Thêm SUBQL_ACCESS_TOKEN trong các biến môi trường của bạn. `EXPORT SUBQL_ACCESS_TOKEN=<token>`
+  - Tùy chọn 2: Sắp có, `subql/cli` sẽ hỗ trợ lưu trữ cục bộ SUBQL_ACCESS_TOKEN của bạn.
 
-## How to publish a project
+## Làm thế nào để xuất bản một dự án
 
-We provide two methods to publish your project,
+Chúng tôi cung cấp hai phương pháp để xuất bản dự án của bạn,
 
-### Option 1:
+### Lựa chọn 1:
 
-As you have `@subql/cli` already installed, you can run the following command, which will read the project and required information from its default manifest `project.yaml`
+Khi bạn đã cài đặt `@subql/cli`, bạn có thể chạy lệnh sau, lệnh này sẽ đọc dự án và thông tin cần thiết từ tệp kê khai mặc định của nó ` project.yaml `
 
 ```
 // Publish it from your project's root directory
@@ -36,7 +36,7 @@ subql publish
 subql publish -f ~/my-project/
 ```
 
-### Option 2:
+### Lựa chọn 2:
 
 Alternatively, suppose your project has multiple Manifest files, for example you support multiple networks but share the same mapping and business logic, and have a project structure as follows:
 
@@ -103,7 +103,7 @@ schema:
 specVersion: 0.2.0
 ```
 
-## Run your SubQuery project on Hosted Service
+## Chạy dự án SubQuery của bạn trên Dịch vụ được lưu trữ
 
 ### Create project with IPFS deployment
 
