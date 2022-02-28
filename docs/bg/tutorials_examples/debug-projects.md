@@ -1,18 +1,18 @@
-# How to debug a SubQuery project?
+# Как отстранявате грешки в проект за подзаявка?
 
-## Video guide
+## Видео ръководство
 
 <figure class="video_container">
   <iframe src="https://www.youtube.com/embed/6NlaO-YN2q4" frameborder="0" allowfullscreen="true"></iframe>
 </figure>
 
-## Introduction
+## Въеведение
 
-In order to debug SubQuery projects such as stepping through code, setting breakpoints, and inspecting variables, you will have to use a Node.js inspector in conjunction with Chrome developer tools.
+За отстраняване на грешки в проекти за подзаявки, като поетапно изпълнение на код, задаване на точки на прекъсване и проверка на променливи, ще трябва да използвате Node.js инспектор във връзка с инструментите за разработчици на Chrome.
 
-## Node inspector
+## Инспектор на възли
 
-Run the following command in a terminal screen.
+Изпълнете следната команда на екрана на терминала.
 
 ```shell
 node --inspect-brk <path to subql-node> -f <path to subQuery project>
@@ -26,12 +26,12 @@ For help, see: https://nodejs.org/en/docs/inspector
 Debugger attached.
 ```
 
-## Chrome devtools
+## Инструменти за разработка на Chrome
 
-Open up Chrome DevTools and navigate to the Sources tab. Note that clicking on the green icon will open up a new window.
+Отворете Chrome DevTools и отидете в раздела Източници. Имайте предвид, че щракването върху зелената икона ще отвори нов прозорец.
 
-![node inspect](/assets/img/node_inspect.png)
+![проверка на възел](/assets/img/node_inspect.png)
 
-Navigate to Filesystem and add your project folder to the workspace. Then open the dist > mappings folder and select the code you wish to debug. Then step through the code as with any standard debugging tool.
+Navigate to Filesystem and add your project folder to the workspace. След това отворете папката dist > съпоставяния и изберете кода, който искате да отстраните. След това преминете през кода, както бихте направили с всеки стандартен инструмент за отстраняване на грешки.
 
 ![debugging projects](/assets/img/debugging_projects.png)

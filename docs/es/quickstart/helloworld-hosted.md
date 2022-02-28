@@ -31,7 +31,7 @@ Necesitarás:
 
 ## 1. Paso 1: Creta tu proyecto
 
-Let's create a project called subqlHelloWorld by running `subql init` and selecting to build the project with the `Polkadot` network and initialize the project with the `subql-starter` template. We must run the obligatory install, codegen and build with your favourite package manager.
+Vamos a crear un proyecto llamado subqlHelloWorld ejecutando `subql init` y seleccionando construir el proyecto con la red `Polkadot` e inicializar el proyecto con la plantilla `subql-starter`. Debemos ejecutar la instalación obligatoria, código y compilar con tu gestor de paquetes favorito.
 
 ```shell
 > subql init subqlHelloWorld

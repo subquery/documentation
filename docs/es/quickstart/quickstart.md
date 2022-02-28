@@ -36,19 +36,19 @@ subql help
 Dentro del directorio en el que desea crear un proyecto de SubQuery, simplemente reemplace `PROJECT_NAME` con el propio y ejecute el comando:
 
 ```shell
-subql init PROJECT_NAME
+subql init PROJECT_NOMBRE
 ```
 
 Se le harán ciertas preguntas ya que el proyecto de SubQuery está initalizado:
 
-- Network: A blockchain network that this SubQuery project will be developed to index
-- Template: Select a SubQuery project template that will provide a starting point to begin development
-- Git repository (Optional): Provide a Git URL to a repo that this SubQuery project will be hosted in (when hosted in SubQuery Explorer)
-- RPC endpoint (Required): Provide a websocket (wss) URL to a running RPC endpoint that will be used by default for this project. You can quickly access public endpoints for different Polkadot networks or even create your own private dedicated node using [OnFinality](https://app.onfinality.io) or just use the default Polkadot endpoint. This RPC node must be an archive node (have the full chain state).
-- Authors (Required): Enter the owner of this SubQuery project here
-- Description (Optional): You can provide a short paragraph about your project that describe what data it contains and what users can do with it
-- Version (Required): Enter a custom version number or use the default (`1.0.0`)
-- License (Required): Provide the software license for this project or accept the default (`Apache-2.0`)
+- Red: Una red blockchain que este proyecto de SubQuery será desarrollado para indexar
+- Plantilla: Seleccione una plantilla de proyecto de SubQuery que proporcionará un punto de partida para comenzar el desarrollo
+- Repositorio Git (opcional): Proporcione una URL Git a un repositorio en el que este proyecto de SubQuery será alojado (cuando esté alojado en SubQuery Explorer)
+- Endpoint RPC (requerido): Proporcione una URL de websocket (wss) a un endpoint RPC en ejecución que se utilizará por defecto para este proyecto. Puede acceder rápidamente a los endpoints públicos para diferentes redes Polkadot o incluso crear su propio nodo privado dedicado usando [OnFinality](https://app.onfinality.io) o simplemente utilizar el punto final predeterminado de Polkadot. Este nodo RPC debe ser un nodo de archivo (tienen el estado completo de cadena).
+- Autores (requerido): Introduzca el propietario de este proyecto de Subconsulta aquí
+- Descripción (Opcional): Puede proporcionar un párrafo corto sobre su proyecto que describa qué datos contiene y qué pueden hacer los usuarios con él
+- Versión (Requerida): Introduzca un número de versión personalizado o utilice el predeterminado (`1.0.0`)
+- Licencia (Requerida): Proporcione la licencia de software para este proyecto o acepte el predeterminado (`Apache-2.0`)
 
 Después de completar el proceso de inicialización, debería ver una carpeta con el nombre de su proyecto que se ha creado dentro del directorio. El contenido de este directorio debe ser idéntico a lo que se muestra en la [estructura de directorio](../create/introduction.md#directory-structure).
 

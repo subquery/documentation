@@ -1,39 +1,39 @@
-# How to run an indexer node?
+# Как да стартирам индексиращ възел?
 
-## Video guide
+## Видео ръководство
 
 <figure class="video_container">
   <iframe src="https://www.youtube.com/embed/QfNsR12ItnA" frameborder="0" allowfullscreen="true"></iframe>
 </figure>
 
-## Introduction
+## Въеведение
 
-Running an indexer node is another option outside of using Docker or having a project hosted for you at [SubQuery Projects](https://project.subquery.network/). It requires more time and effort but will enhance your understanding of how SubQuery works under the covers.
+Стартирането на възел на индексатор е друга опция, освен използването на Docker или хостването на проект за вас[SubQuery Projects](https://project.subquery.network/). Това отнема повече време и усилия, но ще подобри разбирането ви за това как SubQuery работи под прикритие.
 
 ## Postgres
 
-Running an indexer node on your infrastructure will require the setup of a Postgres database. You can install Postgres from [here](https://www.postgresql.org/download/) and ensure the version is 12 or greater.
+Стартирането на възел на индексатор във вашата инфраструктура ще изисква настройка на база данни Postgres. Можете да инсталирате Postgres с [here](https://www.postgresql.org/download/) и се уверете, че версията е 12 или по-висока.
 
-## Install subql/node
+## Инсталирам subql/node
 
-Then to run a SubQuery node, run the following command:
+След това, за да стартирате възел за SubQuery, изпълнете следната команда:
 
 ```shell
 npm install -g @subql/node
 ```
 
-The -g flag means to install it globally which means on OSX, the location will be /usr/local/lib/node_modules.
+The -g флагът означава да го зададете глобално, което означава, че в OSX местоположението ще бъде /usr/local/lib/node_modules.
 
-Once installed, you can check the version by running:
+След инсталирането можете да проверите версията, като стартирате:
 
 ```shell
 > subql-node --version
 0.19.1
 ```
 
-## Setting DB configs
+## Конфигуриране на конфигурацията на DB
 
-Next, you need to set the following environmental variables:
+След това трябва да зададете следните променливи на средата:
 
 ```shell
 export DB_USER=postgres
@@ -43,20 +43,20 @@ export DB_HOST=localhost
 export DB_PORT=5432
 ```
 
-Of course, if you have different values for the above keys, please adjust accordingly. Note that the `env` command will display the current environment variables and that this process only sets these values temporarily. That is, they are only valid for the duration of the terminal session. To set them permanently, store them in your ~/bash_profile instead.
+Разбира се, ако имате различни стойности за горните клавиши, моля, направете съответните корекции. Имайте предвид, че `env` командата ще покаже текущите променливи на околната среда и че този процес задава тези стойности само временно. Тоест, те са валидни само за цялата терминална сесия. За да ги зададете за постоянно, вместо това ги запазете във вашия ~/bash_profile.
 
-## Indexing a project
+## Индексиране на проекта
 
-To start indexing a project, navigate into your project folder and run the following command:
+За да започнете индексирането на проекта, отидете в папката на вашия проект и изпълнете следната команда:
 
 ```shell
 subql-node -f .
 ```
 
-If you do not have a project handy, `git clone https://github.com/subquery/subql-helloworld`. You should see the indexer node kick into life and start indexing blocks.
+Ако нямате проект под ръка, `git clone https://github.com/subquery/subql-helloworld`. Трябва да видите как възелът на индексатора оживява и започва да индексира блоковете.
 
-## Inspecting Postgres
+## Проверка На Postgres
 
-If you navigate to Postgres, you should see two tables created. `public.subqueries` and `subquery_1.starter_entities`.
+Ако отидете на Postgres, трябва да видите създадените две таблици. `public.subqueries` and `subquery_1.starter_entities`.
 
-`public.subqueries` only contains 1 row which the indexer checks upon start up to “understand the current state” so it knows where to continue from. The `starter_entities` table contains the indexes. To view the data, run `select (*) from subquery_1.starter_entities`.
+`public.subqueries` съдържа само 1 ред, който индексаторът проверява, когато се изпълнява на “understand the current state” така че той знае откъде да започне. То `starter_entities` таблицата съдържа индекси. За да видите данните, run `select (*) from subquery_1.starter_entities`.

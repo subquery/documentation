@@ -63,18 +63,18 @@ El primer paso al comenzar con SubQuery es ejecutar el comando `subql init`. Ini
 
 ```shell
 > subql init subqlHelloWorld
-? Select a network Polkadot
-? Select a template project subql-starter     Starter project for subquery
-Cloning project... done
-RPC endpoint: [wss://polkadot.api.onfinality.io/public-ws]:
-Git repository [https://github.com/subquery/subql-starter]:
-Fetching network genesis hash... done
-Author [Ian He & Jay Ji]:
-Description [This project can be use as a starting po...]:
-Version [0.0.4]:
-License [MIT]:
-Preparing project... done
-subqlHelloWorld is ready
+? ¿Seleccionar una red Polkadot
+? Seleccione un proyecto de plantilla subql-starter Starter proyecto para subconsulta
+Proyecto de Clonación... hecho
+RPC endpoint: [wss://polkadot. pi.onfinality.io/public-ws]:
+Repositorio Git [https://github.com/subquery/subql-starter]:
+Obteniendo la genesis de red hash.. done
+Autor [Ian He & Jay Ji]:
+Descripción [Este proyecto puede ser utilizado como un inicio de...:
+Versión [0.0.4]:
+Licencia [MIT]:
+proyecto de preparación... hecho
+subqlHelloWorld está listo
 
 ```
 

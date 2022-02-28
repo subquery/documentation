@@ -29,7 +29,7 @@ export async function handleBlock(block: SubstrateBlock): Promise<void> {
 
 特定のイベントが新しいブロックに含まれる場合、イベントハンドラを使用して情報を取得できます。 デフォルトの Substrate ランタイムとブロックの一部であるイベントには、複数のイベントが含まれます。
 
-処理中、イベントハンドラは substrate イベントを受け取り、イベントの型付けされた入出力を持つ引数として受け取ります。 任意のタイプのイベントはマッピングを起動し、データソースとのアクティビティをキャプチャすることができます。 イベントをフィルタリングするには、マニフェストで [マッピングフィルタ](./manifest.md#mapping-filters) を使用し、データのインデックス化とマッピングのパフォーマンスを向上させる必要があります。
+処理中、イベントハンドラは substrate イベントを受け取り、イベントの型付けされた入出力を持つ引数として受け取ります。 どのようなタイプのイベントでもマッピングのトリガーとなり、データソースでのアクティビティをキャプチャすることができます。 イベントをフィルタリングするには、マニフェストで [マッピングフィルタ](./manifest.md#mapping-filters) を使用し、データのインデックス化とマッピングのパフォーマンスを向上させる必要があります。
 
 ```ts
 import {SubstrateEvent} from "@subql/types";
@@ -57,10 +57,10 @@ export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
 }
 ```
 
-[SubstrateExtinsic](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L21) は [GenericExtrinsic](https://github.com/polkadot-js/api/blob/a9c9fb5769dec7ada8612d6068cf69de04aa15ed/packages/types/src/extrinsic/Extrinsic.ts#L170) を拡張します。 このブロックには、 `id` (この外部が属するブロック) が割り当てられており、このブロックの中でイベントを拡張する外部プロパティを提供します。 さらに、この外部関数の成功状況を記録します。
+[SubstrateExtinsic](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L21) は [GenericExtrinsic](https://github.com/polkadot-js/api/blob/a9c9fb5769dec7ada8612d6068cf69de04aa15ed/packages/types/src/extrinsic/Extrinsic.ts#L170) を拡張します。 このブロックには、 `id` (この外部が属するブロック) が割り当てられており、このブロックの中でイベントを拡張する外部プロパティを提供します。 さらに、この外部関数のステータスを記録します。
 
 ## クエリの状態
-私たちの目標は、マッピングハンドラ(上記の3つのインターフェイスイベントタイプだけではなく)のためのユーザーのためのすべてのデータソースをカバーすることです。 したがって、私たちは @polkadot/api インタフェースのいくつかを公開しています。
+私たちの目標は、マッピングハンドラ（上記の3つのインターフェースイベントタイプだけでなく）のために、ユーザーのすべてのデータソースをカバーすることです。 したがって、私たちは @polkadot/api インタフェースのいくつかを公開しています。
 
 これらは現在サポートされているインターフェースです:
 - [api.query.&lt;module&gt;.&lt;method&gt;()](https://polkadot.js.org/docs/api/start/api.query) は <strong>現在の</strong> ブロックを問い合わせます。
@@ -97,7 +97,7 @@ const b1 = await api.rpc.chain.getBlock(blockhash);
 // It will use the current block has by default like so
 const b2 = await api.rpc.chain.getBlock();
 ```
-- [カスタムサブストレイトチェーン](#custom-substrate-chains) RPCコールについては、 [使用法](#usage) を参照してください。
+- [カスタムSubstrateチェーン](#custom-substrate-chains) RPCコールについては、 [使用法](#usage) を参照してください。
 
 ## モジュールとライブラリ
 
@@ -128,7 +128,7 @@ export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
 
 **hybrid** ライブラリ(例えば `@polkadot/*` )もサポートしており、ESM をデフォルトとして使用しています。 しかし、他のライブラリが**ESM**形式のモジュールに依存している場合、仮想マシンはコンパイル**されず**、エラーを返します。
 
-## カスタムサブストレイトチェーン
+## カスタムSubstrateチェーン
 
 SubQuery は、Polkadot や Kusama だけではなく、Substrate-based chain 上で使用できます。
 
@@ -147,7 +147,7 @@ Substrateベースのカスタムチェーンを使用することができ、[@
 ```shell
 curl -H "Content-Type: application/json" -d '{"id":"1", "jsonrpc":"2.0", "method": "state_getMetadata", "params":[]}' http://localhost:9933
 ```
-または、[`websocat`](https://github.com/vi/websocat)の助けを借りて、**websocket**エンドポイントから
+または、**websocket**エンドポイントから[`websocat`](https://github.com/vi/websocat)の助けを借ります。
 
 ```shell
 //Install the websocat

@@ -1,13 +1,13 @@
 # Създаване на SubQuery проект
 
-В [ръководството за бързо стартиране](/quickstart/quickstart.md), ние много набързо разгледахме пример, за да ви дадем представа какво представлява SubQuery и как работи. Тук ще разгледаме по-отблизо работния процес при създаването на вашия проект и ключовите файлове, с които ще работите.
+В [ръководството за бързо стартиране](/quickstart/quickstart.md), набързо разгледахме пример, за да ви дадем представа какво представлява SubQuery и как работи. Тук ще разгледаме по-отблизо работния процес при създаването на вашия проект и ключовите файлове, с които ще работите.
 
 ## Основният работен процес
 
 Някои от следните примери предполагат, че сте инициализирали успешно стартовия пакет в секцията [Бърз старт](../quickstart/quickstart.md). В този стартов пакет ще преминем през стандартния процес за персонализиране и изпълнение на вашия SubQuery проект.
 
-1. Initialise your project using `subql init PROJECT_NAME`.
-2. Актуализирайте файла на манифеста (`project.yaml`) за да включите информация за вашия блокчейн и обектите, които ще преобразувате - вижте [Manifest File](./manifest.md)
+1. Инициализирайте проекта си с помощта на `subql init PROJECT_NAME`.
+2. Актуализирайте Манифест файла (`project.yaml`) за да включите информация относно вашият блокчейн и обектите, които ще включите - вижте [Manifest File](./manifest.md)
 3. Създайте GraphQL обекти във вашата схема (`schema.graphql`) които дефинират формата на данните, които ще извлечете и ще запазите за заявка - вижте [GraphQL Schema](./graphql.md)
 4. Добавете всички функции за мапинг (eg `mappingHandlers.ts`) които искате да включите, за да трансформирате верижните данни към обектите на GraphQL, които сте дефинирали - вижте [Mapping](./mapping.md)
 5. Генерирайте, изградете и публикувайте своя код в SubQuery Projects (или стартирайте във вашия собствен локален нод) - вижте [Изпълнение и запитване на вашия начален проект](./quickstart.md#running-and-querying-your-starter-project) в нашето ръководство за бърз старт.
@@ -54,11 +54,11 @@ yarn codegen
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```bash npm run-script build ``` </CodeGroupItem> </CodeGroup>
 
-### Alternative build options
+### Алтернативни опции за играждане
 
-We support additional build options for subquery projects using `subql build`.
+Поддържаме допълнителни опции за изграждане за проекти SubQuery използвайки `subql build`.
 
-With this you can define additional entry points to build using the exports field in package.json.
+С това можете да дефинирате допълнителни входни точки за изграждане, като използвате полето за експортиране в package.json.
 
 ```json
 "name": "project-name",
@@ -70,7 +70,7 @@ With this you can define additional entry points to build using the exports fiel
 },
 ```
 
-Then by running `subql build` it will generate a dist folder with the following structure:
+След това, като стартира `subql build`, той ще генерира dist папка със следната структура:
 
 ```
 - project-name
@@ -80,13 +80,13 @@ Then by running `subql build` it will generate a dist folder with the following 
     L index.js 
 ```
 
-Note that it will build `index.ts` whether or not it is specified in the exports field.
+Имайте предвид, че той ще състави `index.ts` независимо дали е посочен в полето за експортиране или не.
 
-For more information on using this including flags, see [cli reference](https://doc.subquery.network/references/references/#build).
+За повече информация относно използването на обозначителните флагове, вижте [cli reference](https://doc.subquery.network/references/references/#build).
 
-## Logging
+## Логване
 
-The `console.log` method is **no longer supported**. Instead, a `logger` module has been injected in the types, which means we can support a logger that can accept various logging levels.
+`console.log` метод **вече не се поддържа**. Вместо това `logger` модул е инжектиран в types, което означава, че можем да поддържаме регистратор, приемащ различни нива на логване.
 
 ```typescript
 logger.info('Info level message');
@@ -94,16 +94,16 @@ logger.debug('Debugger level message');
 logger.warn('Warning level message');
 ```
 
-To use `logger.info` or `logger.warn`, just place the line into your mapping file.
+За да използвате `logger.info` или `logger.warn`, просто поставете реда във вашия файл за преобразуване.
 
 ![logging.info](/assets/img/logging_info.png)
 
-To use `logger.debug`, an additional flag is required. Add `--log-level=debug` to your command line.
+За да използвате `logger.debug`, е необходима допълнителна стъпка. Добавете `--log-level=debug` към вашия команден ред.
 
-If you are running a docker container, add this line to your `docker-compose.yaml` file.
+Ако използвате докер контейнер, добавете този ред към вашия файл `docker-compose.yaml`.
 
 ![logging.debug](/assets/img/logging_debug.png)
 
-You should now see the new logging in the terminal screen.
+Сега трябва да видите новото регистриране на екрана на терминала.
 
 ![logging.debug](/assets/img/subquery_logging.png)

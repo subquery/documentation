@@ -4,7 +4,7 @@ En la guía de inicio rápido [Hola World](helloworld-localhost.md), corrimos al
 
 ## subql init
 
-The first command we ran was `subql init subqlHelloWorld`.
+El primer comando que ejecutamos fue `subql init subqlHelloWorld`.
 
 Esto hace el trabajo pesado y crea un montón de archivos para usted. Como se indica en la [documentación oficial](quickstart.md#configure-and-build-the-starter-project), trabajará principalmente en los siguientes archivos:
 
