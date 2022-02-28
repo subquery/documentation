@@ -1,32 +1,32 @@
-# Hosting a Project using IPFS
+# Хостинг проекта с использованием IPFS
 
-This guide works through how to publish a local SubQuery project to [IPFS](https://ipfs.io/) and deploy it on our hosting infrastructure.
+В этом руководстве рассказывается, как опубликовать локальный проект SubQuery в [IPFS](https://ipfs.io/) и развернуть его в нашей инфраструктуре хостинга.
 
-Hosting a project in IPFS makes it available for all all and reduces your reliance on centralised services like GitHub.
+Хостинг проекта в IPFS делает его доступным для всех и снижает вашу зависимость от централизованных сервисов, таких как GitHub.
 
-## Requirements
+## Требования
 
-- `@subql/cli` version 0.21.0 or above.
-- Manifest `specVersion` 0.2.0 and above.
-- Get your [SUBQL_ACCESS_TOKEN](#prepare-your-subql-access-token) ready.
-- To make sure your deployment success, we strongly recommend that you build your project with the `subql build` command, and test it locally before publishing.
+- `@subql/cli` версии 0.21.0 или выше.
+- Манифест `specVersion` 0.2.0 и выше.
+- Подготовьте свой [SUBQL_ACCESS_TOKEN](#prepare-your-subql-access-token).
+- Чтобы обеспечить успешное развертывание, мы настоятельно рекомендуем вам собрать проект с помощью команды `subql build` и протестировать его локально перед публикацией.
 
-## Prepare your SUBQL_ACCESS_TOKEN
+## Подготовьте свой SUBQL_ACCESS_TOKEN
 
-- Step 1: Go to [SubQuery Projects](https://project.subquery.network/) and log in.
-- Step 2: Click on your profile at the top right of the navigation menu, then click on **_Refresh Token_**
-- Step 3: Copy the generated token.
-- Step 4: To use this token:
-  - Option 1: Add SUBQL_ACCESS_TOKEN in your environment variables. `EXPORT SUBQL_ACCESS_TOKEN=<token>`
-  - Option 2: Coming soon, `subql/cli` will support storing your SUBQL_ACCESS_TOKEN locally.
+- Шаг 1. Перейдите в раздел [SubQuery Projects](https://project.subquery.network/) и войдите в систему.
+- Шаг 2. Нажмите на свой профиль в правом верхнем углу меню навигации, затем нажмите **_Refresh Token_**
+- Шаг 3: Скопируйте сгенерированный токен.
+- Шаг 4: Чтобы использовать этот токен:
+  - Вариант 1: Добавьте SUBQL_ACCESS_TOKEN в переменные среды. `EXPORT SUBQL_ACCESS_TOKEN=<token>`
+  - Вариант 2: (последует в скором времени) `subql/cli` будет поддерживать локальное хранение вашего SUBQL_ACCESS_TOKEN.
 
-## How to publish a project
+## Как опубликовать проект
 
-We provide two methods to publish your project,
+Мы предоставляем два способа публикации вашего проекта,
 
-### Option 1:
+### Вариант 1:
 
-As you have `@subql/cli` already installed, you can run the following command, which will read the project and required information from its default manifest `project.yaml`
+Поскольку у вас уже установлен `@subql/cli`, вы можете запустить следующую команду, которая прочитает проект и необходимую информацию из его дефолтного манифеста `project.yaml`
 
 ```
 // Publish it from your project's root directory
