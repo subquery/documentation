@@ -1,4 +1,4 @@
-# Hello World (localhost & Docker)
+# Hello World (本地主机 & Docker)
 
 欢迎来到 SubQuery Hello World 快速入门教程。 快速入门旨在通过几个简单的步骤向您展示如何在 Docker 中运行默认的启动项目。
 
