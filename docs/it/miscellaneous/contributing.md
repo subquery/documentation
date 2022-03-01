@@ -1,54 +1,54 @@
-# Contributing To SubQuery
+# Contribuire alla subquery
 
-Welcome and a big thank you for considering contributing to this SubQuery project! Together we can pave the way to a more decentralised future.
+Benvenuto e un grande grazie per aver considerato di contribuire a questo progetto SubQuery! Insieme possiamo aprire la strada verso un futuro più decentralizzato.
 
-> This documentation is actively maintained by the SubQuery team. We welcome your contributions, you can do so by forking our GitHub project and making changes to all the documentation markdown files under the `docs` directory.
+> Questa documentazione è attivamente mantenuta dal team di SubQuery. Diamo il benvenuto ai vostri contributi, potete farlo biforcando il nostro progetto GitHub e apportando modifiche a tutti i file markdown della documentazione sotto la directory `docs`.
 
-What follows is a set of guidelines (not rules) for contributing to SubQuery. Following these guidelines will help us make the contribution process easy and effective for everyone involved. It also communicates that you agree to respect the time of the developers managing and developing this project. In return, we will reciprocate that respect by addressing your issue, considering changes, collaborating on improvements, and helping you finalise your pull requests.
+Quello che segue è un insieme di linee guida (non regole) per contribuire a SubQuery. Seguire queste linee guida ci aiuterà a rendere il processo di contribuzione facile ed efficace per tutte le persone coinvolte. Comunica anche che accetti di rispettare il tempo degli sviluppatori che gestiscono e sviluppano questo progetto. In cambio, noi ricambieremo questo rispetto affrontando il tuo problema, considerando i cambiamenti, collaborando ai miglioramenti e aiutandoti a finalizzare le tue richieste di pull.
 
-## Code of Conduct
+## Codice di condotta
 
-We take our open source community projects and responsibility seriously and hold ourselves and other contributors to high standards of communication. By participating and contributing to this project, you agree to uphold our [Code of Conduct](https://github.com/subquery/subql/blob/contributors-guide/CODE_OF_CONDUCT.md).
+Prendiamo sul serio i progetti e la responsabilità della nostra comunità open source e teniamo noi stessi e gli altri collaboratori ad alti standard di comunicazione. Partecipando e contribuendo a questo progetto, accetti di sostenere il nostro [Codice di condotta](https://github.com/subquery/subql/blob/contributors-guide/CODE_OF_CONDUCT.md).
 
-## Getting started
+## Come iniziare
 
-Contributions to our repositories are made through Issues and Pull Requests (PRs). A few general guidelines that cover both:
+I contributi ai nostri repository sono fatti attraverso Issues e Pull Requests (PRs). Alcune linee guida generali che coprono entrambi:
 
-* Search for existing Issues and PRs before creating your own.
-* We work hard to makes sure issues are handled in promptly but, depending on the impact, it could take a while to investigate the root cause. A friendly @ mention in the comment thread to the submitter or a contributor can help draw attention if your issue is blocking.
+* Cerca le questioni e i PR esistenti prima di crearne uno tuo.
+* Lavoriamo duramente per assicurarci che i problemi siano gestiti tempestivamente ma, a seconda dell'impatto, potrebbe essere necessario un po' di tempo per indagare sulla causa principale. Un'amichevole menzione @ nel thread dei commenti al presentatore o a un collaboratore può aiutare ad attirare l'attenzione se il tuo problema è bloccante.
 
-## How to Contribute
+## Come contribuire
 
-### Reporting Bugs
+### Segnalazione di bug
 
-Bugs are tracked as GitHub issues. When logging an issue, explain the problem and include additional details to help maintainers reproduce the problem:
+I bug sono tracciati come problemi su GitHub. Quando si registra un problema, spiegare il problema e includere ulteriori dettagli per aiutare i manutentori a riprodurre il problema:
 
-* Use a clear and descriptive title for the issue to identify the problem.
-* Describe the exact steps to reproduce the problem.
-* Describe the behavior you observed after following the steps.
-* Explain which behavior you expected to see instead and why.
-* Include screenshots if possible.
+* Usate un titolo chiaro e descrittivo per la questione per identificare il problema.
+* Descrivete i passi esatti per riprodurre il problema.
+* Descrivi il comportamento che hai osservato dopo aver seguito i passi.
+* Spiega quale comportamento ti aspettavi di vedere invece e perché.
+* Includi degli screenshot se possibile.
 
-### Submitting Pull Requests
+### Invio di richieste di pull
 
-In general, we follow the "fork-and-pull" Git workflow
+In generale, seguiamo il flusso di lavoro Git "fork-and-pull
 
-* Fork the repository to your own Github account
-* Clone the project to your machine
-* Create a branch locally with a succinct but descriptive name
-* Commit changes to the branch
-* Following any formatting and testing guidelines specific to this repo
-* Push changes to your fork
-* Open a PR in our repository
+* Forking del repository sul proprio account Github
+* Clona il progetto sulla tua macchina
+* Creare localmente un ramo con un nome succinto ma descrittivo
+* Impegnare le modifiche al ramo
+* Seguire tutte le linee guida di formattazione e test specifiche per questo repo
+* Spingi le modifiche alla tua forcella
+* Aprire un PR nel nostro repository
 
-## Coding Conventions
+## Convenzioni di codifica
 
-### Git Commit Messages
+### Messaggi di commit di Git
 
-* Use the present tense ("Add feature" not "Added feature")
-* Use the imperative mood ("Move cursor to..." not "Moves cursor to...")
-* Limit the first line to 72 characters or less
+* Usare il tempo presente ("Add feature" non "Added feature")
+* Usare l'imperativo ("Move cursor to..." non "Moves cursor to...")
+* Limitare la prima riga a 72 caratteri o meno
 
 ### JavaScript Styleguide
 
-* All JavaScript code is linted with Prettier and ESLint
+* Tutto il codice JavaScript viene sottoposto a linting con Prettier e ESLint

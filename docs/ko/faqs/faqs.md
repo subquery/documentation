@@ -1,24 +1,24 @@
 # 자주 묻는 질문
 
-## 서브쿼리란?
+## SubQuery란?
 
-서브쿼리는 개발자가 서브스트레이트 체인 데이터를 인덱싱, 변환 및 쿼리하여 애플리케이션을 구동할 수 있도록 하는 오픈 소스 프로젝트입니다.
+SubQuery는 개발자가 서브스트레이트 체인 데이터를 인덱싱, 변환 및 쿼리하여 애플리케이션을 구동할 수 있도록 하는 오픈 소스 프로젝트입니다.
 
 서브쿼리는 또한 개발자가 인프라 관리에 대한 책임 없이 오직 개발에만 집중할 수 있는 프로덕션 수준의 프로젝트 호스팅을 무료로 제공합니다.
 
-## 서브쿼리를 시작하는 가장 좋은 방법은 무엇입니까?
+## SubQuery를 시작하는 가장 좋은 방법은 무엇입니까?
 
 서브쿼리를 시작하는 가장 좋은 방법은 [Hello World 튜토리얼](../quickstart/helloworld-localhost.md)을 따라해 보는 것입니다. 쿼리를 실행하는 과정을 5분 만에 쉽게 구동할 수 있습니다. 일단 스타트 템플릿을 다운로드하고 프로젝트를 빌드한 다음, Docker를 이용하여 로컬 호스트에서 노드를 실행합니다.
 
-## 서브쿼리에 기여하거나 피드백을 어떻게 제공하나요?
+## SubQuery에 기여하거나 피드백을 하려면 어떻게 해야하나요?
 
 우리는 언제나 커뮤니티의 기여와 피드백을 환영합니다. 코드를 피드백을 하려면 관심 있는 레포지토리를 포크하고 변경합니다. 그런 다음 PR 또는 풀 리퀘스트를 통해 제출해주세요. 맞다! 테스트도 잊지 마시구요! 또한, 기여 가이드 라인(TBA)도 확인해주세요.
 
 피드백은 hello@subquery.network 또는 [디스코드 채널](https://discord.com/invite/78zg8aBSMG)을 통해 주시기 바랍니다.
 
-## 서브쿼리 프로젝트에서 내 프로젝트를 호스팅하는 데 비용이 얼마나 듭니까?
+## SubQuery 프로젝트에서 내 프로젝트를 호스팅하는 데 비용이 얼마나 듭니까?
 
-서브쿼리 프로젝트에서 프로젝트를 호스팅하는 비용은 무료입니다! 이것이 저희가 커뮤니티에 보답하는 방법입니다! 프로젝트의 호스트 방법에 대해서는, [Hello World (SubQuery hosted)](../quickstart/helloworld-hosted.md)튜토리얼을 참조해 주세요.
+SubQuery 프로젝트에서 프로젝트를 호스팅하는 비용은 무료입니다! 이것이 저희가 커뮤니티에 보답하는 방법입니다! 프로젝트의 호스트 방법에 대해서는, [Hello World (SubQuery hosted)](../quickstart/helloworld-hosted.md)튜토리얼을 참조해 주세요.
 
 ## 배치 슬롯은 무엇인가요?
 
@@ -60,4 +60,4 @@ Polkadot 네트워크의 network.endpoint는 `wss://polkadot.api.onfinality.io/p
 subql-node -f . --force-clean --subquery-name=<project-name>
 ```
 
-Note that it is recommended to use `--force-clean` when changing the `startBlock` within the project manifest (`project.yaml`) in order to begin reindexing from the configured block. If `startBlock` is changed without a `--force-clean` of the project then the indexer will continue indexing with the previously configured `startBlock`.
+설정된 블록으로부터 재인덱싱을 시작하기 위해서 프로젝트 manifest(`project.yaml`) 내의 `startBlock` 를 변경할 때는 `--force-clean` 를 사용하세요. 만약 `startBlock`이 프로젝트의 `--force-clean` 없이 변경된다면 인덱서는 이전에 설정된 `startBlock`없이 인덱싱을 계속할 것입니다.

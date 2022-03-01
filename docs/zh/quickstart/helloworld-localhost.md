@@ -1,4 +1,4 @@
-# Hello World (本地主机 + Docker)
+# Hello World (本地主机 & Docker)
 
 欢迎来到 SubQuery Hello World 快速入门教程。 快速入门旨在通过几个简单的步骤向您展示如何在 Docker 中运行默认的启动项目。
 
@@ -62,14 +62,19 @@ My docker version is: Docker version 20.10.5, build 55c4c88
 开始使用 SubQuery 的第一步是运行 `subql init` 命令。 让我们初始化一个名为 `subqlHelloWorld` 的启动项目。 请注意，只有作者是强制性的。 其他所有内容都在下面都是空着的。
 
 ```shell
-> subql init --starter subqlHelloWorld
-Git repository:
-RPC endpoint [wss://polkadot.api.onfinality.io/public-ws]:
-Authors: sa
-Description:
-Version: [1.0.0]:
-License: [Apache-2.0]:
-Init the starter package... subqlHelloWorld is ready
+> subql init subqlHelloWorld
+? Select a network Polkadot
+? Select a template project subql-starter     Starter project for subquery
+Cloning project... done
+RPC endpoint: [wss://polkadot.api.onfinality.io/public-ws]:
+Git repository [https://github.com/subquery/subql-starter]:
+Fetching network genesis hash... done
+Author [Ian He & Jay Ji]:
+Description [This project can be use as a starting po...]:
+Version [0.0.4]:
+License [MIT]:
+Preparing project... done
+subqlHelloWorld is ready
 
 ```
 

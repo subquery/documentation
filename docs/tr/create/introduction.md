@@ -1,4 +1,4 @@
-# Yeni bir SubQuery Projesi Oluşturma
+# Yeni bir SubQuery Projesini Oluşturma
 
 [quick start](/quickstart/quickstart.md) kılavuzunda, SubQuery'nin ne olduğunu ve nasıl çalıştığını size tattırmak için çok hızlı bir şekilde bir örnek inceledik. Burada projenizi oluştururken iş akışına ve çalışacağınız anahtar dosyalara daha yakından bakacağız.
 
@@ -6,7 +6,7 @@
 
 Aşağıdaki örneklerden bazıları, başlangıç paketini [Quick start](../quickstart/quickstart.md) bölümünde başarıyla başlatmış olduğunuzu varsayar. Bu başlangıç paketinden, SubQuery projenizi özelleştirmek ve uygulamak için standart süreçten geçeceğiz.
 
-1. Initialise your project using `subql init --specVersion 0.2.0 PROJECT_NAME`. alternatively you can use the old spec version `subql init PROJECT_NAME`
+1. Projenizi kullanarak başlatın `subql init PROJECT_NAME`.
 2. Manifest dosyasını (`project.yaml`) blok zinciriniz ve eşleyeceğiniz varlıklar hakkında bilgi içerecek şekilde güncelleştirin - bkz [Manifest File](./manifest.md)
 3. Şemanızda (`schema.graphql`) ayıklayacağınız ve sorgulamak için sürdüreceğiniz verilerin şeklini tanımlayan GraphQL varlıkları oluşturun - bkz [GraphQL Şeması](./graphql.md)
 4. Zincir verilerini tanımladığınız GraphQL varlıklarına dönüştürmek için çağırmak istediğiniz tüm eşleme işlevlerini (örneğin`mappingHandlers.ts`) ekleyin - bkz[Mapping](./mapping.md)
@@ -51,11 +51,42 @@ SubQuery Project yerel olarak barındırılan bir SubQuery Node çalıştırmak 
 
 Yapı komutunu projenin kök dizininden çalıştırın.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```bash npm run-script build ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem>
+<CodeGroupItem title="NPM"> ```bash npm run-script build ``` </CodeGroupItem> </CodeGroup>
 
-## ünlüğe kaydetme
+### Alternative build options
 
-The `console.log` yöntemi **artık desteklenmiyor**. Bunun yerine, türlere `logger` modülü eklenmiştir, bu da çeşitli günlük düzeylerini kabul edebilecek bir günlükçü destekleyebileceğimiz anlamına gelir.
+We support additional build options for subquery projects using `subql build`.
+
+Bununla, dışa aktar alanını kullanarak oluşturulacak ek giriş noktaları tanımlayabilirsiniz package.json.
+
+```json
+"name": "project-name",
+"version": "1.0.0",
+...
+"exports": {
+  "entry_one": "./src/entry_one.ts",
+  "entry_renamed": "./src/entry_two.ts"
+},
+```
+
+Sonra koşarak `subql build`aşağıdaki yapıya sahip bir dist klasörü oluşturacaktır:
+
+```
+- project-name
+  L dist
+    L entry_one.js
+    L entry_renamed.js
+    L index.js 
+```
+
+İnşa edeceğini unutmayın `index.ts` dışa aktarma alanında belirtilip belirtilmediği.
+
+Bayraklar da dahil olmak üzere bunu kullanma hakkında daha fazla bilgi için bkz. [cli reference](https://doc.subquery.network/references/references/#build).
+
+## Logging
+
+Bu `console.log`yöntem **artık desteklenmiyor**. Yerine, a `logger` türlere modül enjekte edildi, bu da çeşitli günlük seviyelerini kabul edebilen bir kaydediciyi destekleyebileceğimiz anlamına geliyor.
 
 ```typescript
 logger.info('Info level message');
@@ -63,16 +94,16 @@ logger.debug('Debugger level message');
 logger.warn('Warning level message');
 ```
 
-`logger.info` veya `logger.warn` kullanmak için, satırı eşleme dosyanıza yerleştirmeniz yeterlidir.
+Kullanmak `logger.info` or `logger.warn`,satırı eşleme dosyanıza yerleştirin.
 
 ![logging.info](/assets/img/logging_info.png)
 
-`logger.debug` kullanmak için ek bir adım gerekir. Komut satırınıza `--log-level=debug` ekleyin.
+Kullanmak `logger.debug`, ek bir bayrak gereklidir. Ekleme `--log-level=debug`komut satırına.
 
-Docker kapsayıcısı çalıştırıyorsanız, bu satırı `docker-compose.yaml` dosyanıza ekleyin.
+Bir docker kapsayıcısı çalıştırıyorsanız, bu satırı`docker-compose.yaml` file.
 
 ![logging.debug](/assets/img/logging_debug.png)
 
-Şimdi terminal ekranında yeni günlüğe kaydetmeyi görmeniz gerekir.
+Şimdi terminal ekranında yeni günlüğü görmelisiniz.
 
 ![logging.debug](/assets/img/subquery_logging.png)

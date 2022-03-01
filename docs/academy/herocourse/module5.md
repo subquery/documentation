@@ -12,6 +12,9 @@
   <iframe src="https://www.youtube.com/embed/JeYa3JlxR1g" frameborder="0" allowfullscreen="true"></iframe>
 </figure>
 
+**Documentation reference**
+
+[What are deployment slots?](/faqs/faqs/#how-much-does-it-cost-to-host-my-project-in-subquery-projects)
 ## Lesson 3 - Exploring projects
 
 <figure class="video_container">

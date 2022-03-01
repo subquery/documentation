@@ -91,22 +91,30 @@ Under `dataSources`:
 
 ### CLI Options
 
-While the v0.2.0 spec version is in beta, you will need to explicitly define it during project initialisation by running `subql init --specVersion 0.2.0 PROJECT_NAME`
+By default the CLI will generate SubQuery projects for spec verison v0.2.0. This behaviour can be overridden by running `subql init --specVersion 0.0.1 PROJECT_NAME`, although this is not recommended as the project will not be supported by the SubQuery hosted service in the future
 
 `subql migrate` can be run in an existing project to migrate the project manifest to the latest version.
 
-|    Options     |                        Description                         |
-| ------------ | -------------------------------------------------------- |
-|  -f, --force   |                                                            |
-| -l, --location | local folder to run migrate in (must contain project.yaml) |
-|  --file=file   |           to specify the project.yaml to migrate           |
+USAGE
+  $ subql init [PROJECTNAME]
+
+ARGUMENTS
+  PROJECTNAME  Give the starter project name
+
+| Options                                     | Description                                                                  |
+| ------------------------------------------- | ---------------------------------------------------------------------------- |
+| -f, --force                                 |                                                                              |
+| -l, --location=location                     | local folder to create the project in                                        |
+| --install-dependencies                      | Install dependencies as well                                                 |
+| --npm                                       | Force using NPM instead of yarn, only works with `install-dependencies` flag |
+| --specVersion=0.0.1|0.2.0  [default: 0.2.0] | The spec version to be used by the project                                   |
 
 ## Overview
 
 ### Top Level Spec
 
 | Field           |               v0.0.1                |           v0.2.0            |                                                Description |
-| --------------- | --------------------------------- | ------------------------- | --------------------------------------------------------- |
+| --------------- | ----------------------------------- | --------------------------- | ---------------------------------------------------------- |
 | **specVersion** |               String                |           String            | `0.0.1` or `0.2.0` - the spec version of the manifest file |
 | **name**        |                  𐄂                  |           String            |                                       Name of your project |
 | **version**     |                  𐄂                  |           String            |                                    Version of your project |

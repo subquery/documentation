@@ -40,7 +40,7 @@ type Example @entity {
 
 为了提高查询性能，只需在非主键字段实现 ``@index` 注解，便可索引实体字段。 </p>
 
-<p spaces-before="0">然而，我们不允许用户在任何 <a href="#json-type">JSON</a> 对象上添加 <code>@index`` 注解。 默认情况下，索引会自动添加到数据库的外键和JSON字段中，但这只是为了提高查询服务的性能。
+然而，我们不允许用户在任何对象上添加注解。 默认情况下，索引会自动添加到数据库的外键和JSON字段中，但这只是为了提高查询服务的性能。
 
 参见下面的示例。
 
@@ -58,6 +58,8 @@ type Title @entity {
   id: ID!  
   name: String! @index(unique:true)
 }  
+  name: String! @index(unique:true)
+}
 ```
 假定我们知道这个用户的名字，但我们不知道确切的 id 值。 为了不提取所有用户然后通过名称来查找，我们可以在名称字段后面添加 `@index`。 这样查询速度更快，我们还可以传入 `unique：ture` 来确保唯一性。
 
@@ -92,30 +94,18 @@ const pirateLords = await User.getByTitleId(captainTitle.id); // List of all Cap
 
 例如：护照只能属于一人，一个人只能持有一本护照（参考下面的例子）：
 
-或者
-
 ```graphql
-type Person @entity {
-  id: ID!
+type Person @entity { 
+   id: ID!
+  passport: Passport!
+type Person @entity { 
+   id: ID!
 }
 
 type Passport @entity {
   id: ID!
   owner: Person!
 }
-
-```
-
-或者以另一个方式关联。
-
-```graphql
-type Person @entity {
-  id: ID!
-  passport: Passport!
-}
-
-type Passport @entity {
-  id: ID!
 }
 ```
 
@@ -126,14 +116,20 @@ type Passport @entity {
 通过建立一个映射实体，将另外两个实体连接起来，可以实现多对多的关系。
 
 ```graphql
-type Person @entity {
+type Person @entity { 
+   id: ID!
+  type Account @entity {
   id: ID!
-  accounts: [Account] 
 }
 
-type Account @entity {
+type Transfer @entity {
   id: ID!
+  amount: BigInt
+  from: Account!
+  to: Account!
+}
   publicAddress: String!
+  owner: Person!
 }
 ```
 
@@ -143,14 +139,24 @@ type Account @entity {
 此外，还可以在中间实体的多个字段中创建同一实体的连接。
 
 ```graphql
-type Person @entity {
+type Person @entity { 
+   id: ID!
+  name: String!
+  type Person @entity {
   id: ID!
   name: String!
-  groups: [PersonGroup]
 }
 
 type PersonGroup @entity {
   id: ID!
+  person: Person!
+  Group: Group!
+}
+
+type Group @entity {
+  id: ID!
+  name: String!
+}
   person: Person!
   Group: Group!
 }
@@ -166,11 +172,21 @@ type Group @entity {
 
 下面的例子通过 Transfer 表在两个 Accounts (from 和 to) 之间建立双向关系。
 
-要在一个实体上反向查找它的关系，请将 `@derivedFrom` 添加到字段并指向另一个实体的反向查找字段。
 
 ```graphql
+type Person @entity {
+  id: ID!
+  type Person @entity {
+  id: ID!
+  accounts: [Account] 
+}
+
 type Account @entity {
   id: ID!
+  publicAddress: String!
+}
+  publicAddress: String!
+}
   publicAddress: String!
 }
 
@@ -184,6 +200,8 @@ type Transfer @entity {
 
 ### 反向查询
 
+要在一个实体上反向查找它的关系，请将 `@derivedFrom` 添加到字段并指向另一个实体的反向查找字段。
+
 这将在实体上创建一个可以查询的虚拟字段。
 
 通过将Account实体的sentTransfer或receivedTransfer字段设置为从各自的from或to字段派生的值，我们从一个Account实体中访问Transfer中“from” 的Account。
@@ -191,7 +209,21 @@ type Transfer @entity {
 通过将Account实体的sentTransfer或receivedTransfer字段设置为从各自的from或to字段派生的值，我们从一个Account实体中访问Transfer中“from” 的Account。
 
 ```graphql
+type Person @entity {
+  id: ID!
+  type Person @entity {
+  id: ID!
+  accounts: [Account] 
+}
+
 type Account @entity {
+  id: ID!
+  publicAddress: String!
+}
+  publicAddress: String!
+}
+  publicAddress: String!
+  type Account @entity {
   id: ID!
   publicAddress: String!
   sentTransfers: [Transfer] @derivedFrom(field: "from")
@@ -200,6 +232,10 @@ type Account @entity {
 
 type Transfer @entity {
   id: ID!
+  amount: BigInt
+  from: Account!
+  to: Account!
+}
   amount: BigInt
   from: Account!
   to: Account!
@@ -228,11 +264,17 @@ type AddressDetail @jsonField {
 
 type ContactCard @jsonField {
   phone: String!
+  type AddressDetail @jsonField {
+  street: String!
+  district: String!
+}
   address: AddressDetail # Nested JSON
 }
 
 type User @entity {
   id: ID! 
+  contact: [ContactCard] # 储存一系列JSON 对象
+} 
   contact: [ContactCard] # Store a list of JSON objects
 }
 ````
@@ -244,7 +286,7 @@ type User @entity {
 然而，在我们的查询服务中，这种影响仍然可以接受。 这个例子展示了如何在GraphQL查询JSON字段中使用 `contains` 操作符来找到拥有包含 '0064 ' 的电话号码的前5个用户。
 
 ```graphql
-#找到电话号码中包含 '0064'的前5个用户。
+#为了找到电话号码中包含 '0064'的前5个用户。
 
 query{
   user(

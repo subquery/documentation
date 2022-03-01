@@ -1,4 +1,4 @@
-# Hola Mundo (host local + Docker)
+# Hola Mundo (host local & Docker)
 
 Bienvenido a este inicio rápido de SubQuery Hola Mundo. El inicio rápido apunta a mostrarle cómo se ejecuta el proyecto inicial predeterminado en Docker en unos pocos pasos.
 
@@ -62,14 +62,19 @@ Si usted consigue lo anterior, entonces tiene luz verde para continuar. Si no, s
 El primer paso al comenzar con SubQuery es ejecutar el comando `subql init`. Inicialicemos un proyecto inicial con el nombre `subqlHelloWorld`. Tenga en cuenta que sólo el autor es obligatorio. Todo lo demás queda vacío.
 
 ```shell
-> subql init --starter subqlHelloWorld
-repositorio Git:
-endpoint RPC [wss://polkadot.api.onfinality. o/public-ws]:
-Autores: sa
-Descripción:
-Versión: [1.0.0]:
-Licencia: [Apache-2.0]:
-Init the starter package... subqlHelloWorld está listo
+> subql init subqlHelloWorld
+? ¿Seleccionar una red Polkadot
+? Seleccione un proyecto de plantilla subql-starter Starter proyecto para subconsulta
+Proyecto de Clonación... hecho
+RPC endpoint: [wss://polkadot. pi.onfinality.io/public-ws]:
+Repositorio Git [https://github.com/subquery/subql-starter]:
+Obteniendo la genesis de red hash.. done
+Autor [Ian He & Jay Ji]:
+Descripción [Este proyecto puede ser utilizado como un inicio de...:
+Versión [0.0.4]:
+Licencia [MIT]:
+proyecto de preparación... hecho
+subqlHelloWorld está listo
 
 ```
 

@@ -109,6 +109,7 @@ module.exports = config({
         {
           id: 'G-MY90N76MNK',
         },
+		 'fulltext-search',
       ],
     ],
     algolia: {
@@ -146,7 +147,7 @@ chainWebpack: config => {
     });
 }
 
-function getSidebar(locale, language){ 
+function getSidebar(locale, language){
   return {
     selectLanguageName: language,
     sidebar: [
@@ -197,6 +198,7 @@ function getSidebar(locale, language){
         `${locale}/run_publish/run.md`,
         `${locale}/run_publish/query.md`,
         `${locale}/run_publish/graphql.md`,
+		`${locale}/query/aggregate.md`,
         `${locale}/run_publish/sandbox.md`,
       ]
     },

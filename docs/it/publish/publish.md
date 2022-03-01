@@ -1,16 +1,25 @@
-# Publish your SubQuery Project
+# Pubblica il tuo progetto SubQuery
 
-## Benefits of hosting your project with SubQuery
-- We'll run your SubQuery projects for you in a high performance, scalable, and managed public service
-- This service is being provided to the community for free!
-- You can make your projects public so that they'll be listed in the [SubQuery Explorer](https://explorer.subquery.network) and anyone around the world can view them
-- We're integrated with GitHub, so anyone in your GitHub organisations will be able to view shared organisation projects
+## Vantaggi di ospitare il tuo progetto con SubQuery
 
-## Create your First Project
+- Eseguiremo i tuoi progetti SubQuery per te in un servizio pubblico ad alte prestazioni, scalabile e gestito
+- Questo servizio viene fornito alla comunità gratuitamente!
+- Puoi rendere i tuoi progetti pubblici in modo che siano elencati nel [SubQuery Explorer](https://explorer.subquery.network) e chiunque nel mondo possa vederli
+- Siamo integrati con GitHub, quindi chiunque nelle tue organizzazioni GitHub sarà in grado di visualizzare i progetti condivisi dell'organizzazione
 
-#### Login to SubQuery Projects
+## Create your first project in SubQuery Projects
 
-Before starting, please make sure that your SubQuery project is online in a public GitHub repository. The `schema.graphql` file must be in the root of your directory.
+### Project Codebase Hosting
+
+There are two ways you can host your SubQuery project's codebase before publishing.
+
+**GitHub**: Your project's codebase must be in a public GitHub repository
+
+**IPFS**: Your project's codebase can be stored in IPFS, you can follow our IPFS hosting guide to see how to [first publish to IPFS](ipfs.md)
+
+### Login to SubQuery Projects
+
+Before starting, please make sure that your SubQuery project codebase is online in a public GitHub repository or on IPFS. The `schema.graphql` file must be in the root of your directory.
 
 To create your first project, head to [project.subquery.network](https://project.subquery.network). You'll need to authenticate with your GitHub account to login.
 
@@ -26,43 +35,51 @@ If you have a GitHub Organization accounts connected, you can use the switcher o
 
 ![Switch between GitHub accounts](/assets/img/projects-account-switcher.png)
 
-#### Create your First Project
+### Create your First Project
 
 Let's start by clicking on "Create Project". You'll be taken to the New Project form. Please enter the following (you can change this in the future):
-- **GitHub account:** If you have more than one GitHub account, select which account this project will be created under. Projects created in a GitHub organisation account are shared between members in that organisation.
-- **Name**
-- **Subtitle**
-- **Description**
-- **GitHub Repository URL:** This must be a valid GitHub URL to a public repository that has your SubQuery project. The `schema.graphql` file must be in the root of your directory ([learn more about the directory structure](../create/introduction.md#directory-structure)).
-- **Hide project:** If selected, this will hide the project from the public SubQuery explorer. Keep this unselected if you want to share your SubQuery with the community! ![Create your first Project](/assets/img/projects-create.png)
 
-Create your project and you'll see it on your SubQuery Project's list. *We're almost there! We just need to deploy a new version of it. </p>
+- **Account GitHub:** Se hai più di un account GitHub, seleziona con quale account sarà creato questo progetto. I progetti creati in un account dell'organizzazione GitHub sono condivisi tra i membri di quell'organizzazione.
+- **Project Name**
+- **Sottotitolo**
+- **Descrizione**
+- **GitHub Repository URL:** Questo deve essere un URL GitHub valido per un repository pubblico che ha il tuo progetto SubQuery. Il file `schema.graphql` deve essere nella root della tua directory ([imparare di più sulla struttura delle directory](../create/introduction.md#directory-structure)).
+- **Database:** Premium customers can access dedicated databases to host production SubQuery projects from. If this interests you, you can contact [sales@subquery.network](mailto:sales@subquery.network) to have this setting enabled.
+- **Deployment Source:** You can choose to have the project deployed from the GitHub repository or alternatively deployed from a IPFS CID, see our guide about [hosting with IPFS.](ipfs.md)
+- **Nascondi progetto:** Se selezionato, questo nasconderà il progetto dall'esploratore pubblico di SubQuery. Tieni questo non selezionato se vuoi condividere la tua SubQuery con la comunità! ![Create your first Project](/assets/img/projects-create.png)
+
+Create your project and you'll see it on your SubQuery Project's list. _We're almost there! We just need to deploy a new version of it._
 
 ![Created Project with no deployment](/assets/img/projects-no-deployment.png)
 
-#### Deploy your first Version
+### Deploy your first Version
 
-While creating a project will setup the display behaviour of the project, you must deploy a version of it before it becomes operational. Deploying a version triggers a new SubQuery indexing operation to start, and sets up the required query service to start accepting GraphQL requests. You can also deploy new versions to existing projects here.
+While creating a project will setup the display behaviour of the project, you must deploy a version of it before it becomes operational. Il deploy di una versione fa partire una nuova operazione di indicizzazione SubQuery e imposta il servizio di query richiesto per iniziare ad accettare richieste GraphQL. Qui puoi anche distribuire le nuove versioni ai progetti esistenti.
 
 With your new project, you'll see a Deploy New Version button. Click this, and fill in the required information about the deployment:
-- **Commit Hash of new Version:** From GitHub, copy the full commit hash of the version of your SubQuery project codebase that you want deployed
+
+- **Branch:** From GitHub, select the branch of the project that you want to deploy from
+- **Commit Hash:** From GitHub, select the specific commit of the version of your SubQuery project codebase that you want deployed
+- **IPFS:** If deploying from IPFS, paste you IPFS deployment CID (without the leading `ipfs://`)
+- **Override Network and Dictionary Endpoints:** You can override the endpoints in your project manifest here
 - **Indexer Version:** This is the version of SubQuery's node service that you want to run this SubQuery on. See [`@subql/node`](https://www.npmjs.com/package/@subql/node)
-- **Query Version:** This is the version of SubQuery's query service that you want to run this SubQuery on. See [`@subql/query`](https://www.npmjs.com/package/@subql/query)
+- **Query Version:** Questa è la versione del servizio di query di SubQuery su cui si vuole eseguire questa SubQuery. See [`@subql/query`](https://www.npmjs.com/package/@subql/query)
 
 ![Deploy your first Project](https://static.subquery.network/media/projects/projects-first-deployment.png)
 
 If deployed successfully, you'll see the indexer start working and report back progress on indexing the current chain. This process may take time until it reaches 100%.
 
-## Next Steps - Connect to your Project
-Once your deployment has succesfully completed and our nodes have indexed your data from the chain, you'll be able to connect to your project via the displayed GraphQL Query endpoint.
+## Passi successivi - Collegati al tuo progetto
 
-![Project being deployed and synced](/assets/img/projects-deploy-sync.png)
+Una volta che il tuo deployment è stato completato con successo e i nostri nodi hanno indicizzato i tuoi dati dalla catena, sarai in grado di connetterti al tuo progetto tramite l'endpoint GraphQL Query visualizzato.
 
-Alternatively, you can click on the three dots next to the title of your project, and view it on SubQuery Explorer. There you can use the in-browser playground to get started - [read more about how to user our Explorer here](../query/query.md).
+![Progetto distribuito e sincronizzato](/assets/img/projects-deploy-sync.png)
 
-![Projects in SubQuery Explorer](/assets/img/projects-explorer.png)
+In alternativa, puoi cliccare sui tre puntini accanto al titolo del tuo progetto e visualizzarlo su SubQuery Explorer. There you can use the in-browser playground to get started - [read more about how to use our Explorer here](../query/query.md).
 
-## Add GitHub Organization Account to SubQuery Projects
+![Progetti nell'esploratore di subquery](/assets/img/projects-explorer.png)
+
+## Aggiungere l'account dell'organizzazione GitHub ai progetti SubQuery
 
 It is common to publish your SubQuery project under the name of your GitHub Organization account rather than your personal GitHub account. At any point your can change your currently selected account on [SubQuery Projects](https://project.subquery.network) using the account switcher.
 

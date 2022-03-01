@@ -1082,6 +1082,7 @@ You should get something similar to the following:
 }
 ```
 
+[Reverse lookups](/create/graphql.md)
 Adding the @derivedFrom keyword to the myToAddress field allows a “virtual” field to appear in the Account object. This can be seen in the documentation tab. This allows a “reverse lookup” where the Transfer.to field can be accessed from Account.myToAddress. 
 
 ### References

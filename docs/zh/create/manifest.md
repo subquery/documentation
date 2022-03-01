@@ -4,7 +4,77 @@
 
 该清单文件可以是YAML或JSON格式。 在本文档中，我们将在所有示例中使用YAML格式。 下面是`project.yaml`文件的标准示例。
 
-<CodeGroup> <CodeGroupItem title="v0.2.0" active> ``` yml specVersion: 0.2.0 name: example-project # Provide the project name version: 1.0.0  # Project version description: '' # Description of your project repository: 'https://github.com/subquery/subql-starter' # Git repository address of your project schema: file: ./schema.graphql # The location of your GraphQL schema file network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' # Genesis hash of the network endpoint: 'wss://polkadot.api.onfinality.io/public-ws' # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing dictionary: 'https://api.subquery.network/sq/subquery/dictionary-polkadot' dataSources: - kind: substrate/Runtime startBlock: 1 # This changes your indexing start block, set this higher to skip initial blocks with less data mapping: file: "./dist/index.js" handlers: - handler: handleBlock kind: substrate/BlockHandler - handler: handleEvent kind: substrate/EventHandler filter: #Filter is optional module: balances method: Deposit - handler: handleCall kind: substrate/CallHandler ```` </CodeGroupItem> <CodeGroupItem title="v0.0.1"> ``` yml specVersion: "0.0.1" description: '' # Description of your project repository: 'https://github.com/subquery/subql-starter' # Git repository address of your project schema: ./schema.graphql # The location of your GraphQL schema file network: endpoint: 'wss://polkadot.api.onfinality.io/public-ws' # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing dictionary: 'https://api.subquery.network/sq/subquery/dictionary-polkadot' dataSources: - name: main kind: substrate/Runtime startBlock: 1 # This changes your indexing start block, set this higher to skip initial blocks with less data mapping: handlers: - handler: handleBlock kind: substrate/BlockHandler - handler: handleEvent kind: substrate/EventHandler filter: #Filter is optional but suggested to speed up event processing module: balances method: Deposit - handler: handleCall kind: substrate/CallHandler ```` </CodeGroupItem> </CodeGroup>
+<CodeGroup>
+  <CodeGroupItem title="v0.2.0" active>
+  
+``` yml
+specVersion: 0.2.0
+name: example-project # Provide the project name
+version: 1.0.0  # Project version
+description: '' # Description of your project
+repository: 'https://github.com/subquery/subql-starter' # Git repository address of your project
+
+schema:
+  file: ./schema.graphql # The location of your GraphQL schema file
+
+network:
+  genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' # Genesis hash of the network
+  endpoint: 'wss://polkadot.api.onfinality.io/public-ws'
+  # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
+  dictionary: 'https://api.subquery.network/sq/subquery/dictionary-polkadot'
+
+dataSources:
+  - kind: substrate/Runtime
+    startBlock: 1 # This changes your indexing start block, set this higher to skip initial blocks with less data
+    mapping:
+      file: "./dist/index.js"
+      handlers:
+        - handler: handleBlock
+          kind: substrate/BlockHandler
+        - handler: handleEvent
+          kind: substrate/EventHandler
+          filter: #Filter is optional
+            module: balances
+            method: Deposit
+        - handler: handleCall
+          kind: substrate/CallHandler
+````
+  </CodeGroupItem>
+
+  <CodeGroupItem title="v0.0.1">
+  
+``` yml
+specVersion: "0.0.1"
+description: '' # Description of your project
+repository: 'https://github.com/subquery/subql-starter' # Git repository address of your project
+
+schema: ./schema.graphql # The location of your GraphQL schema file
+
+network:
+  endpoint: 'wss://polkadot.api.onfinality.io/public-ws'
+  # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
+  dictionary: 'https://api.subquery.network/sq/subquery/dictionary-polkadot'
+
+dataSources:
+  - name: main
+    kind: substrate/Runtime
+    startBlock: 1 # This changes your indexing start block, set this higher to skip initial blocks with less data
+    mapping:
+      handlers:
+        - handler: handleBlock
+          kind: substrate/BlockHandler
+        - handler: handleEvent
+          kind: substrate/EventHandler
+          filter: #Filter is optional but suggested to speed up event processing
+            module: balances
+            method: Deposit
+        - handler: handleCall
+          kind: substrate/CallHandler
+````
+
+  </CodeGroupItem>
+</CodeGroup>
+
 
 ## 从v0.0.1迁移到v0.2.0
 
@@ -22,15 +92,21 @@
 
 ### CLI 选项
 
-v0.2。 spec 版本处于测试阶段，您需要在项目初始化过程中运行 `subql init --specversion 0来明确定义它。 .0 PROJECT_NAME`
+默认情况下，CLI将生成 spec verison v0.2.0的 SubQuery 项目。 这种行为可以通过运行 `subql init --specversion 0.0而被覆盖。 PROJECT_NAME`, 尽管不推荐这个项目，因为它将来不会被SubQuery 托管服务支持
 
 `subql migrate` 可以在一个现有的项目中运行，将项目清单迁移到最新版本。
 
-| 选项             | Description                    |
-| -------------- | ------------------------------ |
-| -f, --force    |                                |
-| -l, --location | 要运行迁移的本地文件夹 (必须包含 project.yml) |
-| --file=文件      | 指定要迁移的 project.yaml            |
+USAGE $subql init [PROJECTNAME]
+
+ARGUMENTS 给出起始项目名称
+
+| 选项                      | Description                                     |
+| ----------------------- | ----------------------------------------------- |
+| -f, --force             |                                                 |
+| -l, --location=location | 要创建项目的本地文件夹                                     |
+| --install-dependencies  | 同时安装依赖项                                         |
+| --npm                   | 强制使用 NPM 而不是yarn，只能使用 `install-dependencies` 标志 |
+| --specVersion=0.0.1     | 0.2.0 [默认：0.2.0] | 项目要使用的 spec 版本               |
 
 ## 概述
 
@@ -47,7 +123,7 @@ v0.2。 spec 版本处于测试阶段，您需要在项目初始化过程中运�
 | **network**     | [Network Spec](#network Spec)       | Network Spec                | 要索引的网络详情                          |
 | **dataSources** | [DataSource Spec](#dataSource Spec) | DataSource Spec             |                                   |
 
-### Schema Spec
+### Schema 说明
 
 | Field    | v0.0.1 | v0.2.0 | Description         |
 | -------- | ------ | ------ | ------------------- |
@@ -138,7 +214,7 @@ filter:
 
 `genesisHash` 必须始终是自定义网络第一个块的哈希。 您可以通过到 [PolkadotJS](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fkusama.api.onfinality.io%2Fpublic-ws#/explorer/query/0) 并在 **block 0** 中寻找散列(见下面的图像)来轻松地退出。
 
-![Genesis Hash](/assets/img/genesis-hash.jpg)
+![创世区块哈希](/assets/img/genesis-hash.jpg)
 
 此外，您将需要更新 `个端点`。 `network.endpoint`定义要索引的区块链的wss或ws端点-**必须是完整的存档节点**。 您可以免费从 [Onfinality](https://app.onfinality.io) 检索所有传送端点的终点
 
@@ -148,12 +224,72 @@ filter:
 
 我们支持Substrate 运行模式所使用的额外类型， `类型别名`， `类型Bundle`, `类型链`, 和 `类型Spec` 也被支持。
 
-在 v0.2.0 示例中， `网络。 hainintypes` 指向一个包含所有自定义类型的文件。 这是一个标准的链条文件，用 `声明此区块链支持的特定类型。 son` 或 `.yaml` 格式。
+在 v0.2.0 示例中， `network. hainintypes` 指向一个包含所有自定义类型的文件。 这是一个标准的链规格文件，用 `声明此区块链支持的特定类型。 son` 或 `.yaml` 格式。
 
-<CodeGroup> <CodeGroupItem title="v0.2.0" active> ``` yml network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' endpoint: 'ws://host.kittychain.io/public-ws' chaintypes: file: ./types.json # The relative filepath to where custom types are stored ... ``` </CodeGroupItem>
-<CodeGroupItem title="v0.0.1"> ``` yml ... <CodeGroupItem title="v0.2.0" active> ``` yml network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' endpoint: 'ws://host.kittychain.io/public-ws' chaintypes: file: ./types.json # The relative filepath to where custom types are stored ... ``` </CodeGroupItem> <CodeGroupItem title="v0.0.1"> ``` yml ... network: endpoint: "ws://host.kittychain.io/public-ws" types: { "KittyIndex": "u32", "Kitty": "[u8; 16]" } # typesChain: { chain: { Type5: 'example' } } # typesSpec: { spec: { Type6: 'example' } } dataSources: - name: runtime kind: substrate/Runtime startBlock: 1 filter:  #Optional specName: kitty-chain mapping: handlers: - handler: handleKittyBred kind: substrate/CallHandler filter: module: kitties method: breed success: true ``` </CodeGroupItem> </CodeGroup>< 3 >自定义数据源> < / 3
+<CodeGroup>
+  <CodeGroupItem title="v0.2.0" active>
+``` yml
+network:
+  genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3'
+  endpoint: 'ws://host.kittychain.io/public-ws'
+  chaintypes:
+    file: ./types.json # The relative filepath to where custom types are stored
+...
+```
+  </CodeGroupItem>
 
-自定义数据源提供了特定于网络的功能，使处理数据更容易。 它们充当中间件，可以提供额外的过滤和数据转换 一个很好的例子就是对EVM的支持，拥有一个自定义的EVM数据源处理器意味着你可以在EVM级别进行过滤(例如过滤合约方法或日志)，数据被转换成熟悉以太坊生态系统的结构，并使用ABIs解析参数
+  <CodeGroupItem title="v0.0.1">
+``` yml
+...
+network:
+  endpoint: "ws://host.kittychain.io/public-ws"
+  types: {
+    "KittyIndex": "u32",
+    "Kitty": "[u8; 16]"
+  }
+# typesChain: { chain: { Type5: 'example' } }
+# typesSpec: { spec: { Type6: 'example' } }
+dataSources:
+  - name: runtime
+    kind: substrate/Runtime
+    startBlock: 1
+    filter:  #Optional
+      specName: kitty-chain 
+    mapping:
+      handlers:
+        - handler: handleKittyBred
+          kind: substrate/CallHandler
+          filter:
+            module: kitties
+            method: breed
+            success: true
+```
+  </CodeGroupItem>
+</CodeGroup>
+
+自定义数据源提供了特定于网络的功能，使处理数据更容易。
+
+```yml
+network:
+  chainpypes:
+    file: ./dist/types.js # 将在 yarn 运行后生成
+...
+```
+
+关于使用后缀名 `.ts` 或 `.js` 的链式文件的规范：
+
+- 您的版本必须是 v0.2.0 或以上。
+- 获取方块时， [polkadot api](https://polkadot.js.org/docs/api/start/types.extend/) 只会包含默认导出。
+
+下面是一个 `.ts` 链类型文件的示例：
+
+<CodeGroup> <CodeGroupItem title="types.ts"> ```ts
+import { typesBundleDeprecated } from "moonbeam-types-bundle"
+export default { typesBundle: typesBundleDeprecated }; ``` </CodeGroupItem> </CodeGroup>
+
+## 自定义数据源
+
+自定义数据源提供网络特定功能，使得处理数据变得更容易。 它们充当中间件，可以提供额外的过滤和数据转换 一个很好的例子就是对EVM的支持，拥有一个自定义的EVM数据源处理器意味着你可以在EVM级别进行过滤(例如过滤合约方法或日志)，数据被转换成熟悉以太坊生态系统的结构，并使用ABIs解析参数
 
 自定义数据源可以与普通数据源一起使用 以下是受支持的自定义数据源列表
 
@@ -170,6 +306,36 @@ filter:
 
 下方示例是Polkadot和Kusama网络中不同的数据源。
 
-<CodeGroup> <CodeGroupItem title="v0.0.1"> ```yaml --- network: endpoint: 'wss://polkadot.api.onfinality.io/public-ws' #Create a template to avoid redundancy definitions: mapping: &mymapping handlers: - handler: handleBlock kind: substrate/BlockHandler dataSources: - name: polkadotRuntime kind: substrate/Runtime filter: #Optional specName: polkadot startBlock: 1000 mapping: *mymapping #use template here - name: kusamaRuntime kind: substrate/Runtime filter: specName: kusama startBlock: 12000 mapping: *mymapping # can reuse or change ``` </CodeGroupItem>
+<CodeGroup>
+  <CodeGroupItem title="v0.0.1">
+
+```yaml
+---
+network:
+  endpoint: 'wss://polkadot.api.onfinality.io/public-ws'
+
+#Create a template to avoid redundancy
+definitions:
+  mapping: &mymapping
+    handlers:
+      - handler: handleBlock
+        kind: substrate/BlockHandler
+
+dataSources:
+  - name: polkadotRuntime
+    kind: substrate/Runtime
+    filter: #Optional
+      specName: polkadot
+    startBlock: 1000
+    mapping: *mymapping #use template here
+  - name: kusamaRuntime
+    kind: substrate/Runtime
+    filter:
+      specName: kusama
+    startBlock: 12000
+    mapping: *mymapping # can reuse or change
+```
+
+  </CodeGroupItem>
 
 </CodeGroup>

@@ -38,7 +38,7 @@ subql-node <command>
 
 Встановіть запит SubQuery у всьому світі на своєму терміналі за допомогою пряжі або NPM:
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn global add @subql/query ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```bash npm install -g @subql/query ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="NPM"> ```bash npm install -g @subql/query ``` </CodeGroupItem>
+<CodeGroupItem title="YARN" active> ```shell yarn global add @subql/query ``` </CodeGroupItem> </CodeGroup>
 
 > Примітка. Якщо ви використовуєте Docker або розміщуєте свій проект у проектах SubQuery, ви також можете пропустити цей крок. Це тому, що вузол SubQuery вже передбачений у контейнері Docker та хостинговій інфраструктурі. 

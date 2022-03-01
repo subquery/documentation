@@ -1,79 +1,96 @@
 # Опубликовать ваш проект SubQuery
 
 ## Преимущества хостинга вашего проекта с SubQuery
+
 - Мы будем запускать ваши проекты SubQuery для вас в высокопроизводительной, масштабируемой и управляемой общедоступной службе
 - Эта услуга предоставляется сообществу бесплатно!
 - Вы можете сделать свои проекты общедоступными, чтобы они были перечислены в [ SubQuery Explorer ](https://explorer.subquery.network), и любой желающий мог их просматривать
 - Мы интегрированы с GitHub, поэтому любой в вашей организации GitHub сможет просматривать общие проекты организации
 
-## Создайте свой первый проект
+## Create your first project in SubQuery Projects
 
-#### Войти в проекты SubQuery
+### Project Codebase Hosting
 
-Перед началом убедитесь, что ваш проект SubQuery находится в общедоступном репозитории GitHub. Файл `schema.graphql` должен быть в корне вашей директории.
+There are two ways you can host your SubQuery project's codebase before publishing.
 
-Чтобы создать свой первый проект, перейдите на [project.subquery.network](https://project.subquery.network). Вам нужно авторизоваться с помощью вашей учетной записи GitHub, чтобы войти.
+**GitHub**: Your project's codebase must be in a public GitHub repository
 
-При первом входе вам будет предложено авторизовать SubQuery. Нам нужен только ваш адрес электронной почты, чтобы идентифицировать вашу учётную запись, и по другим причинам мы не используем никаких других данных из вашей учетной записи GitHub. На этом этапе вы также можете запросить или предоставить доступ к своей учетной записи GitHub Organization, чтобы вы могли публиковать проекты SubQuery в своей организации GitHub вместо своей личной учетной записи.
+**IPFS**: Your project's codebase can be stored in IPFS, you can follow our IPFS hosting guide to see how to [first publish to IPFS](ipfs.md)
 
-![Отменить одобрение из учетной записи GitHub](/assets/img/project_auth_request.png)
+### Login to SubQuery Projects
 
-SubQuery Projects - это место, где вы управляете всеми размещенными проектами, загруженными на платформу SubQuery. Вы можете создавать, удалять и даже обновлять все проекты из этого приложения.
+Before starting, please make sure that your SubQuery project codebase is online in a public GitHub repository or on IPFS. The `schema.graphql` file must be in the root of your directory.
 
-![Логин Проектов](/assets/img/projects-dashboard.png)
+To create your first project, head to [project.subquery.network](https://project.subquery.network). You'll need to authenticate with your GitHub account to login.
 
-Если у вас есть учетные записи организации GitHub, можно использовать переключатель в заголовке для изменения между вашим персональным аккаунтом и вашей учетной записью организации GitHub. Проекты, созданные в учетной записи организации GitHub, совместно используются участниками в этой организации. Чтобы подключить вашу учетную запись в организации GitHub, вы можете [следовать шагам здесь](#add-github-organization-account-to-subquery-projects).
+On first login, you will be asked to authorize SubQuery. We only need your email address to identify your account, and we don't use any other data from your GitHub account for any other reasons. In this step, you can also request or grant access to your GitHub Organization account so you can post SubQuery projects under your GitHub Organization instead of your personal account.
 
-![Переключение между учетными записями GitHub](/assets/img/projects-account-switcher.png)
+![Revoke approval from a GitHub account](/assets/img/project_auth_request.png)
 
-#### Создайте ваш первый проект
+SubQuery Projects is where you manage all your hosted projects uploaded to the SubQuery platform. You can create, delete, and even upgrade projects all from this application.
 
-Начните с нажатия на "Создать проект". Вас перенаправят на форму "Новый Проект". Пожалуйста, введите следующее (вы можете изменить это в будущем):
+![Projects Login](/assets/img/projects-dashboard.png)
+
+If you have a GitHub Organization accounts connected, you can use the switcher on the header to change between your personal account and your GitHub Organization account. Projects created in a GitHub Organization account are shared between members in that GitHub Organization. To connect your GitHub Organization account, you can [follow the steps here](#add-github-organization-account-to-subquery-projects).
+
+![Switch between GitHub accounts](/assets/img/projects-account-switcher.png)
+
+### Create your First Project
+
+Let's start by clicking on "Create Project". You'll be taken to the New Project form. Please enter the following (you can change this in the future):
+
 - ** Учетная запись GitHub: ** Если у вас есть более одной учётной записи GitHub, выберите, под какой учётной записью будет создан этот проект. Проекты, созданные в учетной записи организации GitHub, совместно используются участниками в этой организации.
-- **Имя**
+- **Project Name**
 - **Тема**
 - **Описание**
 - ** URL-адрес репозитория GitHub: ** Это должен быть действующий URL-адрес GitHub для общедоступного репозитория, в котором находится ваш проект SubQuery. Файл `schema.graphql` должен находиться в корне вашего каталога ([ узнайте больше о структуре каталогов ](../create/introduction.md#directory-structure)).
-- ** Скрыть проект **: если этот флажок установлен, проект будет скрыт от общедоступного проводника подзапросов. Не устанавливайте этот флажок, если хотите поделиться своим Subquery с сообществом! ![Создайте свой первый проект](/assets/img/projects-create.png)
+- **Database:** Premium customers can access dedicated databases to host production SubQuery projects from. If this interests you, you can contact [sales@subquery.network](mailto:sales@subquery.network) to have this setting enabled.
+- **Deployment Source:** You can choose to have the project deployed from the GitHub repository or alternatively deployed from a IPFS CID, see our guide about [hosting with IPFS.](ipfs.md)
+- **Скрыть проект:** Это скроет ваш проект для публичного изучения. Не устанавливайте этот флажок, если хотите поделиться своим проектом с сообществом! ![Create your first Project](/assets/img/projects-create.png)
 
-Создайте свой проект, и вы увидите его в списке вашего проекта SubQuery. * Мы почти у цели! Нам просто нужно развернуть новую версию. </p>
+Create your project and you'll see it on your SubQuery Project's list. _We're almost there! We just need to deploy a new version of it._
 
-![Создан проект без развертывания](/assets/img/projects-no-deployment.png)
+![Created Project with no deployment](/assets/img/projects-no-deployment.png)
 
-#### Разверните свою первую версию
+### Deploy your first Version
 
-При создании проекта настраивается поведение отображения проекта, вы должны развернуть его версию, прежде чем она станет работоспособной. Развертывание версии запускает новую операцию индексирования SubQuery и настраивает необходимую службу запросов для начала приема запросов GraphQL. Здесь вы также можете развернуть новые версии в существующих проектах.
+While creating a project will setup the display behaviour of the project, you must deploy a version of it before it becomes operational. Развертывание версии запускает новую операцию индексирования SubQuery и устанавливает необходимую службу запросов, чтобы начать принимать запросы GraphQL. Здесь же можно развернуть новые версии в существующих проектах.
 
-В вашем новом проекте вы увидите кнопку «Развернуть новую версию». Щелкните здесь и введите необходимую информацию о развертывании:
-- ** Хеш фиксации новой версии: ** Из GitHub скопируйте полный хеш фиксации версии базы кода вашего проекта SubQuery, которую вы хотите развернуть
-- ** Версия индексатора: ** Это версия службы узла SubQuery, на которой вы хотите запустить этот SubQuery. См. [`@ subql / node`](https://www.npmjs.com/package/@subql/node)
-- ** Версия запроса: ** Это версия службы запросов SubQuery, в которой вы хотите запустить этот SubQuery. См. [`@ subql / query`](https://www.npmjs.com/package/@subql/query)
+With your new project, you'll see a Deploy New Version button. Click this, and fill in the required information about the deployment:
 
-![Разверните свой первый проект](https://static.subquery.network/media/projects/projects-first-deployment.png)
+- **Branch:** From GitHub, select the branch of the project that you want to deploy from
+- **Commit Hash:** From GitHub, select the specific commit of the version of your SubQuery project codebase that you want deployed
+- **IPFS:** If deploying from IPFS, paste you IPFS deployment CID (without the leading `ipfs://`)
+- **Override Network and Dictionary Endpoints:** You can override the endpoints in your project manifest here
+- **Indexer Version:** Это версия службы узла SubQuery, на которой вы хотите запустить этот SubQuery. See [`@subql/node`](https://www.npmjs.com/package/@subql/node)
+- **Query Version:** Это версия службы запросов SubQuery, в которой вы хотите запустить этот SubQuery. See [`@subql/query`](https://www.npmjs.com/package/@subql/query)
 
-В случае успешного развертывания вы увидите, что индексатор начинает работать, и сообщит о ходе индексирования текущей цепочки. Этот процесс может занять некоторое время, пока он не достигнет 100%.
+![Deploy your first Project](https://static.subquery.network/media/projects/projects-first-deployment.png)
+
+If deployed successfully, you'll see the indexer start working and report back progress on indexing the current chain. This process may take time until it reaches 100%.
 
 ## Следующие шаги - подключитесь к вашему проекту
-После того, как ваше развертывание будет успешно завершено и наши узлы проиндексируют ваши данные из цепочки, вы сможете подключиться к своему проекту через отображаемую конечную точку запроса GraphQL.
 
-![Проект развертывается и синхронизируется](/assets/img/projects-deploy-sync.png)
+После успешного завершения установки и успешного индексирования нашими узлами ваших данных из цепочки, вы сможете подключиться к вашему проекту через отображённую конечную точку запроса GraphQL Query.
 
-Кроме того, вы можете щелкнуть три точки рядом с названием вашего проекта и просмотреть его в SubQuery Explorer. Там вы можете использовать игровую площадку в браузере, чтобы начать работу - [ подробнее о том, как пользоваться нашим проводником, читайте здесь ](../query/query.md).
+![Проект развернут и синхронизирован](/assets/img/projects-deploy-sync.png)
 
-![Проекты в SubQuery Explorer](/assets/img/projects-explorer.png)
+Альтернативно, вы можете кликнуть по трем точкам рядом с названием вашего проекта и просмотреть его в SubQuery Explorer. There you can use the in-browser playground to get started - [read more about how to use our Explorer here](../query/query.md).
+
+![Проекты в SubQuery Эксплорере](/assets/img/projects-explorer.png)
 
 ## Добавить учетную запись организации GitHub в проекты подзапроса
 
-Обычно ваш проект SubQuery публикуется под именем вашей учетной записи GitHub Organization, а не под вашей личной учетной записью GitHub. В любой момент вы можете изменить текущую выбранную учетную запись в [ проектах подзапроса ](https://project.subquery.network) с помощью переключателя учетных записей.
+It is common to publish your SubQuery project under the name of your GitHub Organization account rather than your personal GitHub account. At any point your can change your currently selected account on [SubQuery Projects](https://project.subquery.network) using the account switcher.
 
-![Переключение между учетными записями GitHub](/assets/img/projects-account-switcher.png)
+![Switch between GitHub accounts](/assets/img/projects-account-switcher.png)
 
-Если вы не видите свою учетную запись организации GitHub в списке на переключателе, возможно, вам потребуется предоставить доступ к SubQuery для вашей организации GitHub (или запросить его у администратора). Для этого вам сначала нужно отозвать разрешения вашей учетной записи GitHub для приложения SubQuery. Для этого войдите в настройки своей учетной записи на GitHub, перейдите в раздел «Приложения» и на вкладке «Авторизованные приложения OAuth» отозвите SubQuery - [ вы можете выполнить точные шаги здесь ](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/reviewing-your-authorized-applications-oauth). ** Не волнуйтесь, это не приведет к удалению вашего проекта SubQuery и вы не потеряете никаких данных.
+If you can't see your GitHub Organization account listed in the switcher, the you may need to grant access to SubQuery for your GitHub Organization (or request it from an administrator). To do this, you first need to revoke permissions from your GitHub account to the SubQuery Application. To do this, login to your account settings in GitHub, go to Applications, and under the Authorized OAuth Apps tab, revoke SubQuery - [you can follow the exact steps here](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/reviewing-your-authorized-applications-oauth). **Don't worry, this will not delete your SubQuery project and you will not lose any data.**
 
-![Отменить доступ к учетной записи GitHub](/assets/img/project_auth_revoke.png)
+![Revoke access to GitHub account](/assets/img/project_auth_revoke.png)
 
-После отмены доступа выйдите из [ проектов подзапроса ](https://project.subquery.network) и снова войдите в систему. Вы должны быть перенаправлены на страницу с названием * Авторизовать SubQuery *, где вы можете запросить или предоставить доступ SubQuery к своей учетной записи GitHub Organization. Если у вас нет прав администратора, вы должны попросить администратора включить это для вас.
+Once you have revoked access, log out of [SubQuery Projects](https://project.subquery.network) and log back in again. You should be redirected to a page titled _Authorize SubQuery_ where you can request or grant SubQuery access to your GitHub Organization account. If you don't have admin permissions, you must make a request for an adminstrator to enable this for you.
 
-![Отменить одобрение из учетной записи GitHub](/assets/img/project_auth_request.png)
+![Revoke approval from a GitHub account](/assets/img/project_auth_request.png)
 
-После того, как этот запрос будет одобрен вашим администратором (или если вы сможете предоставить его самостоятельно), вы увидите правильную учетную запись организации GitHub в переключателе учетных записей.
+Once this request has been approved by your administrator (or if are able to grant it youself), you will see the correct GitHub Organization account in the account switcher.

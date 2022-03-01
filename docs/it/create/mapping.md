@@ -1,16 +1,16 @@
 # Mapping
 
-Mapping functions define how chain data is transformed into the optimised GraphQL entities that we have previously defined in the `schema.graphql` file.
+Le funzioni di mappatura definiscono come i dati della catena vengono trasformati nelle entità GraphQL ottimizzate che abbiamo precedentemente definito nel file `schema.graphql`.
 
-- Mappings are defined in the `src/mappings` directory and are exported as a function
+- Le mappature sono definite nella directory `src/mappings` e vengono esportate come una funzione
 - These mappings are also exported in `src/index.ts`
-- The mappings files are reference in `project.yaml` under the mapping handlers.
+- I file di mappatura sono referenziati in `project.yaml` sotto i gestori di mappatura.
 
 There are three classes of mappings functions; [Block handlers](#block-handler), [Event Handlers](#event-handler), and [Call Handlers](#call-handler).
 
 ## Block Handler
 
-You can use block handlers to capture information each time a new block is attached to the Substrate chain, e.g. block number. To achieve this, a defined BlockHandler will be called once for every block.
+I file di mappatura sono referenziati in <0>project.yaml</0> sotto i gestori di mappatura. Per ottenere ciò, un BlockHandler definito verrà chiamato una volta per ogni blocco.
 
 ```ts
 import {SubstrateBlock} from "@subql/types";
@@ -27,9 +27,9 @@ A [SubstrateBlock](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe591
 
 ## Event Handler
 
-You can use event handlers to capture information when certain events are included on a new block. The events that are part of the default Substrate runtime and a block may contain multiple events.
+È possibile utilizzare gestori di eventi per acquisire informazioni quando determinati eventi vengono inclusi in un nuovo blocco. Gli eventi che fanno parte del runtime Substrate predefinito e un blocco possono contenere più eventi.
 
-During the processing, the event handler will receive a substrate event as an argument with the event's typed inputs and outputs. Any type of event will trigger the mapping, allowing activity with the data source to be captured. You should use [Mapping Filters](./manifest.md#mapping-filters) in your manifest to filter events to reduce the time it takes to index data and improve mapping performance.
+Durante l'elaborazione, il gestore di eventi riceverà un evento di substrato come argomento con gli input e gli output tipizzati dell'evento. Qualsiasi tipo di evento attiverà la mappatura, consentendo l'acquisizione dell'attività con l'origine dati. You should use [Mapping Filters](./manifest.md#mapping-filters) in your manifest to filter events to reduce the time it takes to index data and improve mapping performance.
 
 ```ts
 import {SubstrateEvent} from "@subql/types";
@@ -43,11 +43,11 @@ export async function handleEvent(event: SubstrateEvent): Promise<void> {
     await record.save();
 ```
 
-A [SubstrateEvent](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L30) is an extended interface type of the [EventRecord](https://github.com/polkadot-js/api/blob/f0ce53f5a5e1e5a77cc01bf7f9ddb7fcf8546d11/packages/types/src/interfaces/system/types.ts#L149). Besides the event data, it also includes an `id` (the block to which this event belongs) and the extrinsic inside of this block.
+A [SubstrateEvent](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L30) is an extended interface type of the [EventRecord](https://github.com/polkadot-js/api/blob/f0ce53f5a5e1e5a77cc01bf7f9ddb7fcf8546d11/packages/types/src/interfaces/system/types.ts#L149). Oltre ai dati dell'evento, include anche un `id` (il blocco a cui appartiene questo evento) e l'estrinseco all'interno di questo blocco.
 
 ## Call Handler
 
-Call handlers are used when you want to capture information on certain substrate extrinsics.
+I gestori di chiamata vengono utilizzati quando si desidera acquisire informazioni su determinati elementi estrinseci del substrato.
 
 ```ts
 export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
@@ -57,17 +57,17 @@ export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
 }
 ```
 
-The [SubstrateExtrinsic](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L21) extends [GenericExtrinsic](https://github.com/polkadot-js/api/blob/a9c9fb5769dec7ada8612d6068cf69de04aa15ed/packages/types/src/extrinsic/Extrinsic.ts#L170). It is assigned an `id` (the block to which this extrinsic belongs) and provides an extrinsic property that extends the events among this block. Additionally, it records the success status of this extrinsic.
+The [SubstrateExtrinsic](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L21) extends [GenericExtrinsic](https://github.com/polkadot-js/api/blob/a9c9fb5769dec7ada8612d6068cf69de04aa15ed/packages/types/src/extrinsic/Extrinsic.ts#L170). Viene assegnato un `id` (il blocco a cui appartiene questo estrinseco) e fornisce una proprietà estrinseca che estende gli eventi tra questo blocco. Additionally, it records the success status of this extrinsic.
 
 ## Query States
-Our goal is to cover all data sources for users for mapping handlers (more than just the three interface event types above). Therefore, we have exposed some of the @polkadot/api interfaces to increase capabilities.
+Il nostro obiettivo è coprire tutte le origini dati per gli utenti per i gestori di mappatura (più dei soli tre tipi di eventi dell'interfaccia sopra). Pertanto, abbiamo esposto alcune delle interfacce @polkadot/api per aumentare le capacità.
 
-These are the interfaces we currently support:
+Queste sono le interfacce che attualmente supportiamo:
 - [api.query.&lt;module&gt;.&lt;method&gt;()](https://polkadot.js.org/docs/api/start/api.query) will query the <strong>current</strong> block.
 - [api.query.&lt;module&gt;.&lt;method&gt;.multi()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-same-type) will make multiple queries of the <strong>same</strong> type at the current block.
 - [api.queryMulti()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-distinct-types) will make multiple queries of <strong>different</strong> types at the current block.
 
-These are the interfaces we do **NOT** support currently:
+Queste sono le interfacce che attualmente **NON** supportiamo:
 - ~~api.tx.*~~
 - ~~api.derive.*~~
 - ~~api.query.&lt;module&gt;.&lt;method&gt;.at~~
@@ -124,15 +124,15 @@ export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
 
 ### Third-party libraries
 
-Due to the limitations of the virtual machine in our sandbox, currently, we only support third-party libraries written by **CommonJS**.
+A causa delle limitazioni della macchina virtuale nella nostra sandbox, attualmente supportiamo solo librerie di terze parti scritte da **CommonJS**.
 
 We also support a **hybrid** library like `@polkadot/*` that uses ESM as default. However, if any other libraries depend on any modules in **ESM** format, the virtual machine will **NOT** compile and return an error.
 
 ## Custom Substrate Chains
 
-SubQuery can be used on any Substrate-based chain, not just Polkadot or Kusama.
+SubQuery può essere utilizzato su qualsiasi catena basata su Substrate, non solo Polkadot o Kusama.
 
-You can use a custom Substrate-based chain and we provide tools to import types, interfaces, and additional methods automatically using [@polkadot/typegen](https://polkadot.js.org/docs/api/examples/promise/typegen/).
+Puoi utilizzare una catena personalizzata basata su Substrate e forniamo strumenti per importare automaticamente tipi, interfacce e metodi aggiuntivi utilizzando [@polkadot/typegen](https://polkadot.js.org/docs/api/examples/promise/typegen/).
 
 In the following sections, we use our [kitty example](https://github.com/subquery/tutorials-kitty-chain) to explain the integration process.
 

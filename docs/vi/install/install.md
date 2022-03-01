@@ -8,10 +8,10 @@ Thư viện [@subql/cli](https://github.com/subquery/subql/tree/docs-new-section
 
 Cài đặt SubQuery CLI trên toàn cầu trên thiết bị đầu cuối (terminal) của bạn bằng cách sử dụng Yarn hoặc NPM:
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn global add @subql/cli ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```bash npm install -g @subql/cli ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="NPM"> ```bash npm install -g @subql/cli ``` </CodeGroupItem>
+<CodeGroupItem title="YARN" active> ```shell yarn global add @subql/cli ``` </CodeGroupItem> </CodeGroup>
 
-Sau đó, bạn có thể chạy trợ giúp để xem các lệnh có sẵn và cách sử dụng do CLI cung cấp:
+Sau đó, bạn có thể chạy help để xem các lệnh có sẵn và cách sử dụng do CLI cung cấp:
 
 ```shell
 subql help
@@ -22,10 +22,10 @@ Nút SubQuery là một hành động trích xuất dữ liệu blockchain dựa
 
 Cài đặt nút SubQuery trên toàn cầu trên thiết bị đầu cuối của bạn bằng cách sử dụng Yarn hoặc NPM:
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn global add @subql/node ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```bash npm install -g @subql/node ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="NPM"> ```bash npm install -g @subql/node ``` </CodeGroupItem>
+<CodeGroupItem title="YARN" active> ```shell yarn global add @subql/node ``` </CodeGroupItem> </CodeGroup>
 
-Sau khi cài đặt, bạn có thể tạo một nút bằng cách nhập:
+Sau khi cài đặt, bạn có thể bắt đầu một nút với:
 
 ```shell
 subql-node <command>
@@ -38,7 +38,7 @@ Thư viện truy vấn SubQuery cung cấp dịch vụ cho phép bạn truy vấ
 
 Cài đặt truy vấn SubQuery trên toàn cầu trên thiết bị đầu cuối của bạn bằng cách sử dụng Yarn hoặc NPM:
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn global add @subql/query ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```bash npm install -g @subql/query ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="NPM"> ```bash npm install -g @subql/query ``` </CodeGroupItem>
+<CodeGroupItem title="YARN" active> ```shell yarn global add @subql/query ``` </CodeGroupItem> </CodeGroup>
 
 > Lưu ý: Nếu bạn đang sử dụng Docker hoặc lưu trữ dự án của mình trên SubQuery Projects, bạn cũng có thể bỏ qua bước này. Bởi vì nút SubQuery đã được cung cấp trong vùng chứa Docker và cơ sở hạ tầng lưu trữ. 

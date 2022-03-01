@@ -1,5 +1,40 @@
 # Marcas de línea de comandos
 
+## subql (cli)
+
+### --help
+
+```shell
+> subql --help
+
+COMMANDS
+  build     COmpila el codigo del proyecto de SubQuery
+  codegen   Genera esquemas del nodo graph
+  help      Mostrar ayuda para subql
+  init      Inicializar un proyecto de subquery de andamio
+  migrate  Migra el manifiesto del proyecto de subquery v0.0.1 a v0.2.0
+  publish   Cargue este proyecto SubQuery a IPFS
+  validate  Verifique que una carpeta o un repositorio de github sea un proyecto de subconsulta validado
+```
+
+### compilar
+
+Este comando utiliza webpack para generar un paquete de un proyecto de subconsulta.
+
+| Opciones           | Descripción                                                                   |
+| ------------------ | ----------------------------------------------------------------------------- |
+| -l, --location     | carpeta local del proyecto de subconsultas (si aún no está en la carpeta)     |
+| -o, --output       | especificar carpeta de salida de compilación, p. ej., carpeta de construcción |
+| --mode=(producción | prod | desarrollo | dev) | [ predeterminado: producción ]                     |
+
+- Con `subql build` puedes especificar puntos de entrada adicionales en el campo de exportación, aunque siempre construirá `index.ts` automáticamente
+
+- Necesitas tener @subql/cli v0.19.0 o superior para usar el campo exportación.
+
+- Cualquier campo `exporta` debe mapear al tipo de cadena (por ejemplo, `"entry": "./src/file.ts"`), de lo contrario será ignorado desde compilación.
+
+[Ejemplo más cercano](https://doc.subquery.network/create/introduction/#build).
+
 ## subql-node
 
 ### --help
@@ -12,30 +47,41 @@ Options:
       --help                Show help                                  [boolean]
       --version             Show version number                        [boolean]
   -f, --subquery            Local path of the subquery project          [string]
-      --subquery-name       Name of the subquery project                [string]
+      --subquery-name       Name of the subquery project   [deprecated] [string]
   -c, --config              Specify configuration file                  [string]
-      --local               Use local mode                             [boolean]
+      --local               Use local mode                [deprecated] [boolean]
+      --force-clean         Force clean the database, dropping project schemas
+                            and tables                                 [boolean]
+      --db-schema           Db schema name of the project               [string]
+      --unsafe              Allows usage of any built-in module within the
+                            sandbox                    [boolean][default: false]
       --batch-size          Batch size of blocks to fetch in one round  [number]
+      --scale-batch-size    scale batch size based on memory usage
+                                                      [boolean] [default: false]
       --timeout             Timeout for indexer sandbox to execute the mapping
                             functions                                   [number]
-      --debug               Show debug information to console output. establecerá forzosamente el nivel de registro para depurar
+      --debug               Show debug information to console output. will
+                            forcefully set log level to debug
                                                       [boolean] [default: false]
-      --profiler Mostrar información del perfilador a la salida de consola
+      --profiler            Show profiler information to console output
                                                       [boolean] [default: false]
-      --network-endpoint Blockchain endpoint para conectar      [string]
-      --output-fmt Imprimir registro como json o texto plano
+      --network-endpoint    Blockchain network endpoint to connect      [string]
+      --output-fmt          Print log as json or plain text
                                            [string] [choices: "json", "colored"]
-      --log-level Especifique el nivel de registro a imprimir. Ignored when --debug is
+      --log-level           Specify log level to print. Ignored when --debug is
                             used
           [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
                                                                        "silent"]
       --migrate             Migrate db schema (for management tables only)
                                                       [boolean] [default: false]
       --timestamp-field     Enable/disable created_at and updated_at in schema
-                                                       [boolean] [default: true]
+                                                      [boolean] [default: false]
   -d, --network-dictionary  Specify the dictionary api for this network [string]
+  -m, --mmr-path            Local path of the merkle mountain range (.mmr) file
+                                                                        [string]
       --proof-of-index      Enable/disable proof of index
                                                       [boolean] [default: false]
+  -p, --port                The port the service will bind to           [number]
 ```
 
 ### --version
@@ -56,9 +102,9 @@ subql-node -f . // OR
 subql-node --subquery .
 ```
 
-### --subquery-name
+### --subquery-name (obsoleto)
 
-Este parámetro te permite proporcionar un nombre para tu proyecto que actúa como si creara una instancia de tu proyecto. Al proporcionar un nuevo nombre, se crea un nuevo esquema de base de datos y bloquea la sincronización a partir de cero.
+Este parámetro te permite proporcionar un nombre para tu proyecto que actúa como si creara una instancia de tu proyecto. Al proporcionar un nuevo nombre, se crea un nuevo esquema de base de datos y bloquea la sincronización a partir de cero. Desaprobado a favor de `--db-schema`
 
 ```shell
 subql-node -f . --subquery-name=test2
@@ -71,7 +117,7 @@ Todas estas configuraciones pueden ser colocadas en un archivo .yml o .json y lu
 Ejemplo del archivo subquery_config.yml:
 
 ```shell
-subquery: . // Obligatorio. Esta es la ruta local del proyecto. El período aquí significa el directorio local actual.
+subquery: . // Mandatory. Esta es la ruta local del proyecto. El período aquí significa el directorio local actual.
 subqueryName: hello // Nombre opcional
 batchSize: 55 // Configuración opcional
 ```
@@ -82,7 +128,7 @@ Coloque este archivo en el mismo directorio que el proyecto. Luego en el directo
 > subql-node -c ./subquery_config.yml
 ```
 
-### --local
+### --local (obsoleto)
 
 Este parámetro se utiliza principalmente para propósitos de depuración donde crea la tabla starter_entity por defecto en el esquema "postgres".
 
@@ -96,6 +142,26 @@ Tenga en cuenta que una vez que use este parametro, eliminarla no significará q
 
 Esta bandera obliga a regenerar los esquemas y tablas del proyecto, útil para usar en el desarrollo iterativo de esquemas graphql de tal manera que las nuevas ejecuciones del proyecto siempre están trabajando con un estado limpio. Tenga en cuenta que esta bandera también borrará todos los datos índices.
 
+### --db-esquema
+
+Esta bandera le permite proporcionar un nombre para el esquema de base de datos del proyecto. Al proporcionar un nuevo nombre, se crea un nuevo esquema de base de datos con el nombre configurado y el indexado de bloques.
+
+```shell
+subql-node -f . --db-schema=test2
+```
+
+### --inseguro
+
+Los proyectos de SubQuery se ejecutan normalmente en un entorno de pruebas javascript para la seguridad que limita el alcance del acceso que tiene el proyecto a su sistema. El entorno de pruebas limita las importaciones disponibles de javascript a los siguientes módulos:
+
+```javascript
+["assert", "buffer", "crypto", "util", "path"];
+```
+
+Aunque esto mejora la seguridad, entendemos que esto limita la funcionalidad disponible de su SubQuery. El comando `--unsafe` importa todos los módulos javascript por defecto, lo que aumenta enormemente la funcionalidad sandbox con el ajuste de seguridad decreciente.
+
+**Ten en cuenta que el comando `--unsafe` evitará que tu proyecto se ejecute en SubQuery Network, y debe ponerse en contacto con el soporte técnico si desea que este comando se ejecute con su proyecto en el servicio administrado de SubQuery ([proyecto. ubquery.network](https://project.subquery.network))**
+
 ### --batch-size
 
 Este parámetro le permite establecer el tamaño del lote en la línea de comandos. Si el tamaño por lotes también es establecido en el archivo de configuración, esto tiene precedentes.
@@ -108,7 +174,13 @@ Este parámetro le permite establecer el tamaño del lote en la línea de comand
 2021-08-09T23:24:49.235Z <fetch> Bloque del INFO [6661,6680], total 20 bloques
 ```
 
-<!-- ### --timeout -->
+### --escala-tamaño-lote-
+
+Escala el tamaño del lote de la búsqueda de bloques con el uso de memoria
+
+### --timeout
+
+Establecer tiempo de espera personalizado para el sandbox javascript para ejecutar funciones de mapeo sobre un bloque antes de que la función de mapeo de bloques arroje una excepción de tiempo de espera
 
 ### --debug
 
@@ -209,7 +281,11 @@ Normalmente esto se establecería en el archivo manifest pero a continuación mu
 subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot"
 ```
 
-Depending on the configuration of your Postgres database (e. g. a different database password), please ensure also that both the indexer (`subql/node`) and the query service (`subql/query`) can establish a connection to it.
+Dependiendo de la configuración de su base de datos de Postgres (por ejemplo, una contraseña de base de datos diferente), asegúrese también de que tanto el indexador (` subql / node `) como el servicio de consulta (` subql / query `) puede establecer una conexión con él.
+
+### -p, --puerto
+
+El puerto al que se une el servicio de indexación de subconsultas. Por defecto se establece en `3000`
 
 ## subql-query
 
@@ -226,9 +302,15 @@ Ns:
       --output-fmt  Print log as json or plain text
                       [string] [choices: "json", "colored"] [default: "colored"]
       --log-level   Specify log level to print.
-          [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
-                                                     "silent"] [default: "info"]
-      --indexer Url que permite a la consulta acceder a metadatos indexador     [string]
+          [string] [opciones: "fatal", "error", "warn", "info", "debug", "trace",
+                                                     "silent"] [por defecto: "info"]
+      --log-path Path para crear archivo de registro e. ./src/name. og          [string]
+      --log-rotate log files in directory specified by log-path
+                                                      [boolean] [default: false]
+      --indexer Url that allows query to access indexer metadata    [string]
+      --unsafe disable limits on query depth and allowable number returned
+                    query records                                      [boolean]
+  -p, --port El puerto al que el servicio se enlazará [número
 ```
 
 ### --version
@@ -268,4 +350,28 @@ Ver [--output-fmt](https://doc.subquery.network/references/references.html#outpu
 
 Ver [--log-level](https://doc.subquery.network/references/references.html#log-level)
 
-<!-- ### --indexer TBA -->
+### --log-path
+
+Habilitar registro de archivos proporcionando una ruta a un archivo en el que registrar
+
+### --log-rotar
+
+Habilita las rotaciones del registro de archivos con las opciones de un intervalo de rotación 1d, un máximo de 7 archivos y con un tamaño máximo de archivo de 1GB
+
+### --indexador
+
+Establecer una url personalizada para la ubicación de los extremos del índice, el servicio de consulta utiliza estos extremos para la salud del indexador, metadatos y estado de preparación
+
+### --inseguro
+
+El servicio de consultas tiene un límite de 100 entidades para consultas gráficql sin límites. La bandera insegura elimina este límite que puede causar problemas de rendimiento en el servicio de consultas. En su lugar, se recomienda que las consultas sean [paginadas](https://graphql.org/learn/pagination/).
+
+Esta bandera también se puede utilizar para habilitar ciertas funciones de agregación incluyendo suma, max, prog y [otros](https://github.com/graphile/pg-aggregates#aggregates).
+
+Estas están desactivadas por defecto debido al límite de entidad.
+
+**Ten en cuenta que el comando `--unsafe` evitará que tu proyecto se ejecute en SubQuery Network, y debes contactar con soporte si quieres que este comando se ejecute con tu proyecto en el proyecto de servicio administrado [de SubQuery. ubquery.network](https://project.subquery.network).**
+
+### --puerto
+
+El puerto al que se une el servicio de consulta de subconsultas. Por defecto se establece en `3000`

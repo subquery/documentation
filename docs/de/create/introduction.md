@@ -1,20 +1,20 @@
-# Tutorials & Examples
+# Die Erstellung eines SubQuery-Projekts
 
-In der [Kurzanleitung](/quickstart/quickstart.md) haben wir sehr schnell ein Beispiel durchgespielt, um Ihnen einen Eindruck davon zu geben, was SubQuery ist und wie es funktioniert. Hier sehen wir uns den Workflow beim Erstellen Ihres Projekts und die Schlüsseldateien, mit denen Sie arbeiten, genauer an.
+In der [Kurzanleitung](/quickstart/quickstart.md) haben wir sehr schnell ein Beispiel durchgespielt, um Ihnen einen Vorgeschmack darauf zu geben, was SubQuery ist und wie es funktioniert. Hier sehen wir uns den Workflow bei der Erstellung Ihres Projektes und die Schlüsseldateien, mit denen Sie arbeiten, genauer an.
 
-## SubQuery Examples
+## Der grundlegende Arbeitsablauf
 
-Einige der folgenden Beispiele gehen davon aus, dass Sie das Startpaket im Abschnitt [Schnellstart](../quickstart/quickstart.md) erfolgreich initialisiert haben. Ausgehend von diesem Startpaket durchlaufen wir den Standardprozess zum Anpassen und Implementieren Ihres SubQuery-Projekts.
+Bei einigen der folgenden Beispiele wird davon ausgegangen, dass Sie das Startpaket im Abschnitt [Schnellstart](../quickstart/quickstart.md) erfolgreich initialisiert haben. Von diesem Startpaket aus durchlaufen wir den Standardprozess zum Anpassen und der Implementierung Ihres SubQuery-Projektes.
 
-1. Initialise your project using `subql init --specVersion 0.2.0 PROJECT_NAME`. alternatively you can use the old spec version `subql init PROJECT_NAME`
-2. Aktualisieren Sie die Manifestdatei (`project.yaml`), um Informationen über Ihre Blockchain und die zuzuordnenden Entitäten aufzunehmen – siehe [Manifestdatei](./manifest.md)
-3. Erstellen Sie GraphQL-Entitäten in Ihrem Schema (`schema.graphql`), die die Form der Daten definieren, die Sie extrahieren und für die Abfrage beibehalten – siehe [GraphQL-Schema](./graphql.md)
-4. Fügen Sie alle Mapping-Funktionen (zB `mappingHandlers.ts`) hinzu, die Sie aufrufen möchten, um Kettendaten in die von Ihnen definierten GraphQL-Entitäten umzuwandeln - siehe [Mapping](./mapping.md)
-5. Generieren, erstellen und veröffentlichen Sie Ihren Code in SubQuery-Projekten (oder führen Sie ihn in Ihrem eigenen lokalen Knoten aus) - siehe [Starterprojekt ausführen und abfragen](./quickstart.md#running-and-querying-your-starter-project) in unserer Kurzanleitung.
+1. Initialisieren Sie Ihr Projekt mit `subql init PROJECT_NAME`.
+2. Aktualisieren Sie die Manifestdatei (`project.yaml`), um Informationen über Ihre Blockchain und die Entitäten aufzunehmen, die Sie zuordnen werden – siehe [Manifestdatei](./manifest.md)
+3. Erstellen Sie GraphQL-Entitäten in Ihrem Schema (`schema.graphql`), die die Form der Daten definieren, die Sie extrahieren und für Abfragen beibehalten – siehe [GraphQL-Schema](./graphql.md)
+4. Fügen Sie alle Mapping-Funktionen (zB `mappingHandlers.ts`) hinzu, die Sie aufrufen möchten, um Chain-daten in die von Ihnen definierten GraphQL-Entitäten umzuwandeln - siehe [Mapping](./mapping.md)
+5. Generieren, erstellen und veröffentlichen Sie Ihren Code in SubQuery-Projekten (oder führen Sie ihn in Ihrem eigenen lokalen Knoten aus) – siehe [Starterprojekt ausführen und abfragen](./quickstart.md#running-and-querying-your-starter-project) in unserer Kurzanleitung.
 
 ## Verzeichnisaufbau
 
-Die folgende Übersicht bietet einen Überblick über die Verzeichnisstruktur eines SubQuery-Projekts, wenn der Befehl `init` ausgeführt wird.
+Die folgende Karte bietet einen Überblick über die Verzeichnisstruktur eines SubQuery-Projekts, wenn der Befehl `init` ausgeführt wird.
 
 ```
 - project-name
@@ -31,7 +31,7 @@ Die folgende Übersicht bietet einen Überblick über die Verzeichnisstruktur ei
   L .gitignore
 ```
 
-Example
+Zum Beispiel:
 
 ![SubQuery-Verzeichnisstruktur](/assets/img/subQuery_directory_stucture.png)
 
@@ -43,34 +43,67 @@ Immer wenn Sie Ihre GraphQL-Entitäten ändern, müssen Sie Ihr Typenverzeichnis
 yarn codegen
 ```
 
-Dadurch wird ein neues Verzeichnis erstellt (oder das vorhandene aktualisiert) `src/types`, das generierte Entitätsklassen für jeden Typ enthält, den Sie zuvor in `schema.graphql` definiert haben. Diese Klassen bieten typsicheres Laden von Entitäten sowie Lese- und Schreibzugriff auf Entitätsfelder. Weitere Informationen zu diesem Prozess finden Sie im [GraphQL-Schema](./graphql.md).
+Dadurch wird ein neues Verzeichnis `src/types` erstellt (oder das vorhandene aktualisiert), das generierte Entitätsklassen für jeden Typ enthält, den Sie zuvor in `schema.graphql` definiert haben. Diese Klassen bieten typsicheres Laden von Entitäten sowie Lese- und Schreibzugriff auf Entitätsfelder – mehr über diesen Prozess erfahren Sie im [GraphQL-Schema](./graphql.md).
 
-## Bauen
+## Build
 
-Um Ihr SubQuery-Projekt auf einem lokal gehosteten SubQuery-Knoten auszuführen, müssen Sie zuerst Ihre Arbeit erstellen.
+Um Ihr SubQuery-Projekt auf einer lokal gehosteten SubQuery-Node auszuführen, müssen Sie zuerst Ihre Arbeit erstellen.
 
-Führen Sie den Build-Befehl aus dem Stammverzeichnis des Projekts aus.
+Führen Sie den Build-Befehl im Stammverzeichnis des Projekts aus.
 
-<CodeGroup> Die `console.log` Methode wird **nicht mehr unterstützt**. Stattdessen wurde ein `Logger`-Modul in die Typen eingefügt, was bedeutet, dass wir einen Logger unterstützen können, der verschiedene Logging-Level akzeptiert.
+<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem>
+<CodeGroupItem title="NPM"> ```bash npm run-script build ``` </CodeGroupItem> </CodeGroup>
 
-```typescript
-# Yarn
-yarn build
+### Alternative Build-Optionen
 
-# NPM
-npm run-script build
+Wir unterstützen zusätzliche Erstellungsoptionen für SubQuery-Projekte mit `subql build`.
+
+Damit können Sie zusätzliche Einstiegspunkte definieren, die mithilfe des Felds exports in package.json erstellt werden sollen.
+
+```json
+"name": "project-name",
+"version": "1.0.0",
+...
+"exports": {
+  "entry_one": "./src/entry_one.ts",
+  "entry_renamed": "./src/entry_two.ts"
+},
 ```
 
-Um `logger.info` oder `logger.warn`zu verwenden, legen Sie die Zeile einfach in Ihre Mapping-Datei ein.
+Durch Ausführen von `subql build` wird dann ein Dist-Ordner mit der folgenden Struktur generiert:
+
+```
+- project-name
+  L dist
+    L entry_one.js
+    L entry_renamed.js
+    L index.js 
+```
+
+Beachten Sie, dass `index.ts` erstellt wird, unabhängig davon, ob dies im Exportfeld angegeben ist oder nicht.
+
+Weitere Informationen zur Verwendung einschließlich Flags finden Sie unter [CLI-Referenz](https://doc.subquery.network/references/references/#build).
+
+## Logging
+
+Die Methode `console.log` wird **nicht mehr unterstützt**. Stattdessen wurde ein `Logger`-Modul in die Typen eingefügt, was bedeutet, dass wir einen Logger unterstützen können, der verschiedene Protokollierungsebenen akzeptieren kann.
+
+```typescript
+logger.info('Info level message');
+logger.debug('Debugger level message');
+logger.warn('Warning level message');
+```
+
+Um `logger.info` oder `logger.warn` zu verwenden, platzieren Sie einfach die Zeile in Ihrer Zuordnungsdatei.
 
 ![logging.info](/assets/img/logging_info.png)
 
-Um `logger.debug`zu verwenden, ist ein zusätzlicher Schritt erforderlich. Fügen Sie `--log-level=debug` zu Ihrer Befehlszeile hinzu.
+Um `logger.debug` zu verwenden, ist ein zusätzliches Flag erforderlich. Fügen Sie Ihrer Befehlszeile `--log-level=debug` hinzu.
 
 Wenn Sie einen Docker-Container ausführen, fügen Sie diese Zeile zu Ihrer Datei `docker-compose.yaml` hinzu.
 
 ![logging.debug](/assets/img/logging_debug.png)
 
-Sie sollten nun die neue Protokollierung auf dem Terminalbildschirm sehen.
+Sie sollten jetzt die neue Protokollierung auf dem Terminalbildschirm sehen.
 
 ![logging.debug](/assets/img/subquery_logging.png)

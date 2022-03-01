@@ -6,11 +6,11 @@ Desteklenen ağlar:
 
 | Ağ Adı         | Websocket Bitim Noktası                            | Sözlük Bitim Noktası                                                 |
 | -------------- | -------------------------------------------------- | -------------------------------------------------------------------- |
-| Moonbeam       | _Çok yakında_                                      | _Çok yakında_                                                        |
+| Moonbeam       | `wss://moonbeam.api.onfinality.io/public-ws`       | `https://api.subquery.network/sq/subquery/moonbeam-dictionary`       |
 | Moonriver      | `wss://moonriver.api.onfinality.io/public-ws`      | `https://api.subquery.network/sq/subquery/moonriver-dictionary`      |
 | Moonbase Alpha | `wss://moonbeam-alpha.api.onfinality.io/public-ws` | `https://api.subquery.network/sq/subquery/moonbase-alpha-dictionary` |
 
-**You can also refer to the [basic Moonriver EVM example project](https://github.com/subquery/tutorials-moonriver-evm-starter) with an event and call handler.** This project is also hosted live in the SubQuery Explorer [here](https://explorer.subquery.network/subquery/subquery/moonriver-evm-starter-project).
+** Ayrıca bir olay ve çağrı işleyicisi ile [basic Moonriver EVM örnek projesine](https://github.com/subquery/tutorials-moonriver-evm-starter) başvurabilirsiniz.** Bu proje ayrıca [burada](https://explorer.subquery.network/subquery/subquery/moonriver-evm-starter-project), SubQuery Explorer’da canlı olarak barındırılır.
 
 ## Başlarken
 
@@ -28,10 +28,10 @@ Desteklenen ağlar:
 
 ### İşlemci Seçenekleri
 
-| Alan  | Tip              | Gerekli | Açıklama                                                                                                          |
-| ----- | ---------------- | ------- | ----------------------------------------------------------------------------------------------------------------- |
-| abi   | Dizgi            | Hayır   | İşlemci tarafından argümanları ayrıştırmak için kullanılan ABI. `varlıkların` anahtarı OLMALIDIR                  |
-| adres | String or `null` | Hayır   | Etkinliğin geldiği veya aramanın yapıldığı bir sözleşme adresi. `null` sözleşme oluşturma çağrılarını yakalayacak |
+| Alan  | Tip                | Gerekli | Açıklama                                                                                                          |
+| ----- | ------------------ | ------- | ----------------------------------------------------------------------------------------------------------------- |
+| abi   | String             | Hayır   | İşlemci tarafından argümanları ayrıştırmak için kullanılan ABI. `varlıkların` anahtarı OLMALIDIR                  |
+| adres | String veya `null` | Hayır   | Etkinliğin geldiği veya aramanın yapıldığı bir sözleşme adresi. `null` sözleşme oluşturma çağrılarını yakalayacak |
 
 ## MoonbeamCall
 
@@ -44,10 +44,10 @@ Farklı bir işleyici argümanı ve küçük filtreleme değişiklikleri dışı
 
 ### Çağrı Filtresi
 
-| Alan      | Tip   | Örnekler                                                | Açıklama                                                                                                                                                           |
-| --------- | ----- | ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| fonksiyon | Dizgi | 0x095ea7b30x095ea7b3, approve(address to,uint256 value) | Sözleşmede çağrılan işlevi filtrelemek için [Fonksiyon İmzası](https://docs.ethers.io/v5/api/utils/abi/fragments/#FunctionFragment) dizeleri veya `sighash` işlevi |
-| gönderici | Dizgi | 0x6bd193ee6d2104f14f94e2ca6efefae561a4334b              | İşlemi gönderen bir Ethereum adresi                                                                                                                                |
+| Alan      | Tip    | Örnekler                                                | Açıklama                                                                                                                                                           |
+| --------- | ------ | ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| fonksiyon | String | 0x095ea7b30x095ea7b3, approve(address to,uint256 value) | Sözleşmede çağrılan işlevi filtrelemek için [Fonksiyon İmzası](https://docs.ethers.io/v5/api/utils/abi/fragments/#FunctionFragment) dizeleri veya `sighash` işlevi |
+| gönderici | String | 0x6bd193ee6d2104f14f94e2ca6efefae561a4334b              | İşlemi gönderen bir Ethereum adresi                                                                                                                                |
 
 ### İşleyiciler
 

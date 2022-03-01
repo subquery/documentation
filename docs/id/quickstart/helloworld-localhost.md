@@ -1,6 +1,6 @@
 # Hello World (localhost & Docker)
 
-Welcome to this SubQuery Hello World quick start. The quick start aims to show you how you get the default starter project running in Docker in a few simple steps.
+Selamat datang di permulaan cepat SubQuery Hello World ini. Mulai cepat bertujuan untuk menunjukkan kepada Anda bagaimana Anda menjalankan proyek starter default di Docker dalam beberapa langkah sederhana.
 
 ## Tujuan Pembelajaran
 
@@ -51,25 +51,30 @@ My subql version is: @subql/cli/0.9.3 darwin-x64 node-v16.3.0
 My docker version is: Docker version 20.10.5, build 55c4c88
 ```
 
-If you get the above, then you are good to go. If not, follow these links to install them:
+Jika Anda mendapatkan hal di atas, maka Anda siap untuk pergi. Jika tidak, ikuti tautan ini untuk menginstalnya:
 
 - [yarn](https://classic.yarnpkg.com/en/docs/install/) atau [npm](https://www.npmjs.com/get-npm)
 - [SubQuery CLI](quickstart.md#install-the-subquery-cli)
 - [Docker](https://docs.docker.com/get-docker/)
 
-## 1. Initialise project
+## 1. Inisialisasi proyek
 
-The first step when starting off with SubQuery is to run the `subql init` command. Let's initialise a start project with the name `subqlHelloWorld`. Note that only author is mandatory. Everything else is left empty below.
+Langkah pertama saat memulai dengan SubQuery adalah menjalankan perintah `subql init`. Mari kita inisialisasi proyek awal dengan nama `subqlHelloWorld`. Perhatikan bahwa hanya penulis yang wajib. Segala sesuatu yang lain dibiarkan kosong di bawah.
 
 ```shell
-> subql init --starter subqlHelloWorld
-Git repository:
-RPC endpoint [wss://polkadot.api.onfinality.io/public-ws]:
-Authors: sa
-Description:
-Version: [1.0.0]:
-License: [Apache-2.0]:
-Init the starter package... subqlHelloWorld is ready
+> subql init subqlHelloWorld
+? Select a network Polkadot
+? Select a template project subql-starter     Starter project for subquery
+Cloning project... done
+RPC endpoint: [wss://polkadot.api.onfinality.io/public-ws]:
+Git repository [https://github.com/subquery/subql-starter]:
+Fetching network genesis hash... done
+Author [Ian He & Jay Ji]:
+Description [This project can be use as a starting po...]:
+Version [0.0.4]:
+License [MIT]:
+Preparing project... done
+subqlHelloWorld is ready
 
 ```
 
@@ -79,28 +84,28 @@ Jangan lupa untuk pindah ke direktori baru ini.
 cd subqlHelloWorld
 ```
 
-## 2. Install dependencies
+## 2. Instal dependensi
 
 Sekarang lakukan instal yarn atau node untuk menginstal berbagai dependencies.
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn install ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```bash npm install ``` </CodeGroupItem> </CodeGroup>
 
-An example of `yarn install`
+Sebagai Contoh `yarn install`
 
 ```shell
 > yarn install
 yarn install v1.22.10
 info No lockfile found.
-[1/4] 🔍  Resolving packages...
-[2/4] 🚚  Fetching packages...
-[3/4] 🔗  Linking dependencies...
-[4/4] 🔨  Building fresh packages...
-success Saved lockfile.
-✨  Done in 31.84s.
+[1/4] 🔍 Menyelesaikan paket...
+[2/4] 🚚 Mengambil paket...
+[3/4] 🔗  Menautkan dependensi...
+[4/4] 🔨  Membangun paket baru...
+berhasil Menyimpan file kunci.
+✨  Selesai dalam 31.84s.
 ```
 
-## 3. Generate code
+## 3. Buat kode
 
 Sekarang jalankan `yarn codegen` untuk menghasilkan TypeScript dari skema GraphQL.
 
@@ -117,14 +122,14 @@ $ ./node_modules/.bin/subql codegen
 ---------Subql Codegen---------
 ===============================
 * Schema StarterEntity generated !
-* Models index generated !
-* Types index generated !
-✨  Done in 1.02s.
+* Indeks model yang dihasilkan!
+* Jenis indeks yang dihasilkan!
+✨  Selesai dalam 1.02s.
 ```
 
 **Peringatan** Ketika perubahan dibuat pada file skema, harap ingat untuk menjalankan kembali `yarn codegen` untuk membuat ulang direktori jenis Anda.
 
-## 4. Build code
+## 4. Membangun Code
 
 Langkah selanjutnya adalah membuat kode dengan `yarn build`.
 
@@ -137,12 +142,12 @@ An example of `yarn build`
 > yarn build
 yarn run v1.22.10
 $ tsc -b
-✨  Done in 5.68s.
+✨  Selesai dalam 5.68s.
 ```
 
-## 5. Run Docker
+## 5. Jalankan Docker
 
-Using Docker allows you to run this example very quickly because all the required infrastructure can be provided within the Docker image. Run `docker-compose pull && docker-compose up`.
+Menggunakan Docker memungkinkan Anda menjalankan contoh ini dengan sangat cepat karena semua infrastruktur yang diperlukan dapat disediakan di dalam image Docker. Jalankan `docker-compose pull && docker-compose up`.
 
 Ini akan menendang segalanya menjadi hidup di mana pada akhirnya Anda akan mendapatkan blok terambil.
 
@@ -162,7 +167,7 @@ graphql-engine_1  | 2021-06-05T22:20:43.244Z <express> INFO request completed
 
 ```
 
-## 6. Browse playground
+## 6. Jelajahi taman bermain
 
 Arahkan ke http://localhost:3000/ dan paste kueri di bawah ini ke sisi kiri layar lalu tekan tombol putar atau play.
 

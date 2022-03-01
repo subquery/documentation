@@ -36,13 +36,15 @@ subql help
 Dentro del directorio en el que desea crear un proyecto de SubQuery, simplemente reemplace `PROJECT_NAME` con el propio y ejecute el comando:
 
 ```shell
-subql init --starter PROJECT_NAME
+subql init PROJECT_NOMBRE
 ```
 
 Se le harán ciertas preguntas ya que el proyecto de SubQuery está initalizado:
 
+- Red: Una red blockchain que este proyecto de SubQuery será desarrollado para indexar
+- Plantilla: Seleccione una plantilla de proyecto de SubQuery que proporcionará un punto de partida para comenzar el desarrollo
 - Repositorio Git (opcional): Proporcione una URL Git a un repositorio en el que este proyecto de SubQuery será alojado (cuando esté alojado en SubQuery Explorer)
-- Endpoint RPC (requerido): Proporcione una URL wss a un endpoint RPC en ejecución que se utilizará por defecto para este proyecto. Puede acceder rápidamente a los endpoints públicos para diferentes redes Polkadot o incluso crear su propio nodo privado dedicado usando [OnFinality](https://app.onfinality.io) o simplemente utilizar el punto final predeterminado de Polkadot.
+- Endpoint RPC (requerido): Proporcione una URL de websocket (wss) a un endpoint RPC en ejecución que se utilizará por defecto para este proyecto. Puede acceder rápidamente a los endpoints públicos para diferentes redes Polkadot o incluso crear su propio nodo privado dedicado usando [OnFinality](https://app.onfinality.io) o simplemente utilizar el punto final predeterminado de Polkadot. Este nodo RPC debe ser un nodo de archivo (tienen el estado completo de cadena).
 - Autores (requerido): Introduzca el propietario de este proyecto de Subconsulta aquí
 - Descripción (Opcional): Puede proporcionar un párrafo corto sobre su proyecto que describa qué datos contiene y qué pueden hacer los usuarios con él
 - Versión (Requerida): Introduzca un número de versión personalizado o utilice el predeterminado (`1.0.0`)

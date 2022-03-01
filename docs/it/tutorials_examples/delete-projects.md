@@ -1,19 +1,19 @@
-# How to delete a SubQuery project?
+# Come eliminare un progetto SubQuery?
 
 ## Introduction
 
-It is important to keep your projects in SubQuery Project relevant and up to date. For any projects that uploaded to SubQuery Project for testing purposes, it is recommended to delete them afterwards to conserve resources and save cost.
+È importante mantenere i progetti in SubQuery Project aggiornati e pertinenti. Per i progetti caricati in SubQuery Project a fini di test, è consigliabile eliminarli successivamente per risparmiare risorse e costi.
 
-Running an indexer node is another option outside of using Docker or having a project hosted for you at [SubQuery Projects](https://project.subquery.network/). It requires more time and effort but will enhance your understanding of how SubQuery works under the covers.
+L'esecuzione di un nodo indicizzatore è un'altra opzione al di fuori dell'utilizzo di Docker o di un progetto ospitato in < 0 > Progetti SubQuery </0 >. Richiede più tempo e sforzo, ma migliorerà la comprensione di come SubQuery funziona sotto le copertine.
 
-## Deleting a project from the staging slot
+## Eliminazione di un progetto dallo slot di gestione temporanea
 
-To delete a project from the staging slot, click on the 3 dots in the staging slot section within the deployment details on your project detail dashboard page and select delete.
+Per eliminare un progetto dallo slot di gestione temporanea, fare clic sui 3 punti nella sezione dello slot di gestione temporanea all'interno dei dettagli di distribuzione nella pagina del dashboard dei dettagli del progetto e selezionare Elimina.
 
-![Deleting a project from the staging slot](/assets/img/delete_staging.png)
+![Eliminazione di un progetto dallo slot di gestione temporanea](/assets/img/delete_staging.png)
 
-## Deleting a project from the production slot
+## Eliminazione di un progetto dallo slot di produzione
 
-To delete a project from the production slot, you'll have to delete the entire project instead. Navigate to the top right corner and click on the 3 dots which is the settings for the entire project. Then select "Delete Project".
+Per eliminare un progetto dallo slot di produzione, è necessario eliminare l'intero progetto. Passare all'angolo in alto a destra e fare clic sui 3 punti che sono le impostazioni per l'intero progetto. Quindi selezionare «Elimina progetto».
 
-![Deleting a project from the production slot](/assets/img/delete_production.png)
+![Eliminazione di un progetto dallo slot di gestione temporanea](/assets/img/delete_production.png)

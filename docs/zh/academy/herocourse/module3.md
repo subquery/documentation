@@ -41,6 +41,6 @@
 [Reverse lookups](/create/graphql.md)
 
 ### Exercise
-**Workbook**: [Account Transfer with Reverse Lookups](/assets/pdf/Account_Transfer_with_Reverse_Lookups)
+**Workbook**: [Account Transfer with Reverse Lookups](/assets/pdf/Account_Transfer_with_Reverse_Lookups.pdf)
 
 **Github**: [Account Transfer with Reverse Lookups](https://github.com/subquery/tutorials-account-transfer-reverse-lookups)

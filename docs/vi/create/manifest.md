@@ -23,15 +23,21 @@ Trong `dataSources`:
 
 ### Tùy chọn CLI
 
-Trong khi phiên bản kỹ thuật v0.2.0 đang trong giai đoạn thử nghiệm, bạn sẽ cần xác định rõ ràng nó trong quá trình khởi tạo dự án bằng cách chạy `subql init --specVersion 0.2.0 PROJECT_NAME`
+Theo mặc định, CLI sẽ tạo các dự án SubQuery theo phiên bản đặc tả v0.2.0. Hành vi này có thể bị ghi đè bằng cách chạy `subql init --specVersion 0.0.1 PROJECT_NAME`, mặc dù điều này không được khuyến khích vì dự án sẽ không được hỗ trợ bởi dịch vụ được lưu trữ subQuery trong tương lai
 
 `subql migrate` có thể chạy trong một dự án hiện có để di chuyển tệp kê khai dự án sang phiên bản mới nhất.
 
-| Các Tùy chọn   | Mô tả                                                         |
-| -------------- | ------------------------------------------------------------- |
-| -f, --force    |                                                               |
-| -l, --location | thư mục cục bộ để chạy di chuyển vào (phải chứa project.yaml) |
-| --file=file    | để chỉ định project.yaml di chuyển                            |
+USAGE $ subql init [PROJECTNAME]
+
+ĐỐI SỐ PROJECTNAME Đặt tên dự án khởi động
+
+| Các Tùy chọn            | Mô tả                                                                      |
+| ----------------------- | -------------------------------------------------------------------------- |
+| -f, --force             |                                                                            |
+| -l, --location=location | thư mục cục bộ để chứa dự án tạo ra                                        |
+| -install-dependencies   | Cài đặt các phần phụ thuộc                                                 |
+| --npm                   | Buộc sử dụng NPM thay vì yarn, chỉ hoạt động với cờ `install-dependencies` |
+| --specVersion=0.0.1     | 0.2.0 [mặc định: 0.2.0] | Phiên bản đặc tả sẽ được sử dụng bởi dự án       |
 
 ## Tổng quan
 
@@ -65,13 +71,13 @@ Trong khi phiên bản kỹ thuật v0.2.0 đang trong giai đoạn thử nghi�
 
 ### Thông số kỹ thuật Data Source
 
-DataSources xác định dữ liệu sẽ được lọc và trích xuất và vị trí của trình xử lý hàm ánh xạ để áp dụng chuyển đổi dữ liệu.
+Xác định dữ liệu sẽ được lọc và trích xuất và vị trí của trình xử lý hàm ánh xạ để áp dụng chuyển đổi dữ liệu.
 | Trường         | v0.0.1                                                    | v0.2.0                                                                           | Mô tả                                                                                                                                                                                                                                          |
 | -------------- | --------------------------------------------------------- | -------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **name**       | String                                                    | String                                                                           | Tên của nguồn dữ liệu                                                                                                                                                                                                                          |
 | **kind**       | [substrate/Runtime](./manifest/#data-sources-and-mapping) | substrate/Runtime, [substrate/CustomDataSource](./manifest/#custom-data-sources) | Chúng tôi hỗ trợ các kiểu dữ liệu mặc định của thời gian chạy substrate, chẳng hạn như khối, sự kiện và phần bổ sung (cuộc gọi). <br /> Từ v0.2.0, chúng tôi hỗ trợ dữ liệu thời gian chạy tùy chỉnh, chẳng hạn như hợp đồng thông minh. |
 | **startBlock** | Integer                                                   | Integer                                                                          | Thao tác này sẽ thay đổi khối bắt đầu lập chỉ mục, hãy đặt khối này cao hơn để bỏ qua khối ban đầu với ít dữ liệu hơn                                                                                                                          |
-| **mapping**    | Mapping Spec                                              | Mapping Spec                                                                     |                                                                                                                                                                                                                                                |
+| **mapping**    | Thông số kỹ thuật ánh xạ                                  | Thông số kỹ thuật ánh xạ                                                         |                                                                                                                                                                                                                                                |
 | **filter**     | [network-filters](./manifest/#network-filters)            | String                                                                           | Lọc nguồn dữ liệu để thực thi theo tên thông số điểm cuối mạng                                                                                                                                                                                 |
 
 ### Thông số kỹ thuật ánh xạ
@@ -146,10 +152,30 @@ Bạn có thể lập chỉ mục dữ liệu từ các chuỗi tùy chỉnh b�
 
 Chúng tôi hỗ trợ các kiểu bổ sung được sử dụng bởi các mô-đun thời gian chạy nền, `typeAlias​`, `typeBundle`, `typeChain` và `typeSpec` cũng được hỗ trợ.
 
-Trong ví dụ v0.2.0 bên dưới, `network.chaintypes` đang trỏ đến một tệp có tất cả các loại tùy chỉnh được nhúng vào, Đây là tệp chainpec tiêu chuẩn khai báo các kiểu cụ thể được hỗ trợ bởi chuỗi khối này trong `.json` hoặc `.yaml` định dạng.
+Trong ví dụ v0.2.0 bên dưới, `network.chaintypes` đang trỏ đến một tệp có tất cả các loại tùy chỉnh được nhúng vào, Đây là tệp chainpec tiêu chuẩn khai báo các kiểu cụ thể được hỗ trợ bởi chuỗi khối này trong cả định dạng `.json`, `.yaml` hoặc `.js`.
 
 <CodeGroup> <CodeGroupItem title="v0.2.0" active> ``` yml network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' endpoint: 'ws://host.kittychain.io/public-ws' chaintypes: file: ./types.json # The relative filepath to where custom types are stored ... ``` </CodeGroupItem>
 <CodeGroupItem title="v0.0.1"> ``` yml ... network: endpoint: "ws://host.kittychain.io/public-ws" types: { "KittyIndex": "u32", "Kitty": "[u8; 16]" } # typesChain: { chain: { Type5: 'example' } } # typesSpec: { spec: { Type6: 'example' } } dataSources: - name: runtime kind: substrate/Runtime startBlock: 1 filter:  #Optional specName: kitty-chain mapping: handlers: - handler: handleKittyBred kind: substrate/CallHandler filter: module: kitties method: breed success: true ``` </CodeGroupItem> </CodeGroup>
+
+Để sử dụng typescript cho các loại chuỗi của bạn, hãy bao gồm tệp đó trong thư mục `src` (ví dụ: `./src/types.ts`), chạy `yarn build` và sau đó trỏ đến tệp js đã tạo nằm trong thư mục `dist`.
+
+```yml
+network:
+  chaintypes:
+    file: ./dist/types.js # Will be generated after yarn run build
+...
+```
+
+Những điều cần lưu ý khi sử dụng tệp loại chuỗi có phần mở rộng `.ts` hoặc `.js`:
+
+- Phiên bản tệp kê khai của bạn phải là v0.2.0 trở lên.
+- Chỉ có xuất mặc định sẽ được bao gồm trong api [polkadot](https://polkadot.js.org/docs/api/start/types.extend/) khi lấy khối.
+
+Đây là ví dụ về tệp loại chuỗi `.ts`:
+
+<CodeGroup> <CodeGroupItem title="types.ts"> ```ts
+import { typesBundleDeprecated } from "moonbeam-types-bundle"
+export default { typesBundle: typesBundleDeprecated }; ``` </CodeGroupItem> </CodeGroup>
 
 ## Nguồn dữ liệu tùy chỉnh
 

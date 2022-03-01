@@ -10,7 +10,7 @@
 
 İndeksleyici düğümü çalıştırmak, Docker kullanmanın veya [SubQuery Projects](https://project.subquery.network/)'de sizin için barındırılan bir projenin yanı sıra diğer bir alternatif seçenektir. Daha fazla zaman ve çaba gerektirir, ancak SubQuery'nin perde arkasında nasıl çalıştığını daha iyi anlamanıza yardımcı olacaktır.
 
-## Postgres
+## veritabanı
 
 Altyapınızda bir indeksleyici düğümü çalıştırmak için bir Postgres veritabanı gerekecektir. [here](https://www.postgresql.org/download/) tıklayarak Postgres'i yükleyebilir ve sürümün 12 veya üzeri olduğundan emin olun.
 
@@ -19,10 +19,10 @@ Altyapınızda bir indeksleyici düğümü çalıştırmak için bir Postgres ve
 Ardından, bir SubQuery düğümü çalıştırmak için aşağıdaki komutu çalıştırın:
 
 ```shell
-npm install -g @subql/node
+npm kurulumu -g @subql/düğüm
 ```
 
-The -g flag means to install it globally which means on OSX, the location will be /usr/local/lib/node_modules.
+-g bayrağı, onu global olarak kurmak anlamına gelir; bu, OSX'te, konumun /usr/local/lib/node_modules olacağı anlamına gelir.
 
 Yüklendikten sonra, aşağıdakileri çalıştırarak sürümü kontrol edebilirsiniz:
 
@@ -36,11 +36,11 @@ Yüklendikten sonra, aşağıdakileri çalıştırarak sürümü kontrol edebili
 Daha sonra, aşağıdaki çevresel değişkenleri ayarlamanız gerekir:
 
 ```shell
-export DB_USER=postgres
-export DB_PASS=postgres
-export DB_DATABASE=postgres
-export DB_HOST=localhost
-export DB_PORT=5432
+DB_USER=postgres'i dışa aktar
+DB_PASS=postgres'i dışa aktar
+dışa aktar DB_DATABASE=postgres
+dışa aktar DB_HOST=localhost
+DB_PORT'u dışa aktar=5432
 ```
 
 Tabi yukarıdaki anahtarlar için farklı değerleriniz varsa, lütfen ona göre ayarlayın. `env` komutunun geçerli ortam değişkenlerini görüntüleyeceğini ve bu işlemin bu değerleri yalnızca geçici olarak ayarladığını unutmayın. Yani, bunlar yalnızca uçbirim oturumu süresince geçerlidir. Bunları kalıcı olarak ayarlamak için, bunun yerine ~/bash_profile depolayın.

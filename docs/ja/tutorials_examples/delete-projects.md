@@ -1,19 +1,19 @@
-# How to delete a SubQuery project?
+# SubQueryプロジェクトを削除する方法は？
 
-## Introduction
+## はじめに
 
-It is important to keep your projects in SubQuery Project relevant and up to date. For any projects that uploaded to SubQuery Project for testing purposes, it is recommended to delete them afterwards to conserve resources and save cost.
+SubQuery Projectの関連性を保ち、最新の状態に保つことが重要です。 テスト用にSubQuery Projectにアップロードされたプロジェクトは、リソースの節約とコスト削減のために、後で削除することをお勧めします。
 
-Running an indexer node is another option outside of using Docker or having a project hosted for you at [SubQuery Projects](https://project.subquery.network/). It requires more time and effort but will enhance your understanding of how SubQuery works under the covers.
+Docker を使用するか、[SubQuery Projects](https://project.subquery.network/) でプロジェクトをホストしてもらう以外に、インデクサノードを実行することもできます。 より多くの時間と労力を必要としますが、SubQueryがどのように機能するのか、その理解を深めることができます。
 
-## Deleting a project from the staging slot
+## ステージングスロットからプロジェクトを削除する
 
-To delete a project from the staging slot, click on the 3 dots in the staging slot section within the deployment details on your project detail dashboard page and select delete.
+ステージングスロットからプロジェクトを削除するには、プロジェクトの詳細ダッシュボードページの配置の詳細内にあるステージングスロットセクションの3つの点をクリックし、削除を選択します。
 
-![Deleting a project from the staging slot](/assets/img/delete_staging.png)
+![ステージングスロットからプロジェクトを削除する](/assets/img/delete_staging.png)
 
-## Deleting a project from the production slot
+## ステージングスロットからプロジェクトを削除する
 
-To delete a project from the production slot, you'll have to delete the entire project instead. Navigate to the top right corner and click on the 3 dots which is the settings for the entire project. Then select "Delete Project".
+本番スロットからプロジェクトを削除するには、プロジェクト全体を削除する必要があります。 右上にある3つの点をクリックすると、プロジェクト全体の設定が表示されます。 「プロジェクトを削除」を選択します。
 
-![Deleting a project from the production slot](/assets/img/delete_production.png)
+![本番スロットからプロジェクトを削除する](/assets/img/delete_production.png)

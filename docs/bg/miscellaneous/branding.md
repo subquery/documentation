@@ -1,19 +1,19 @@
-# Branding Materials
+# Брандирани материали
 
-**All of SubQuery’s brand features are proprietary and we take our brand extremely seriously.**
+**Всички елементи от бранда/ марката SubQuery са фирмена собственост, като се отнасяме много отговорно към нашата визията бранда. **
 
-If you opt to use any trademarks, logos, designs, or other brand features, please carefully follow the guidelines here or reach out to us via social media for clarification.
+Ако решите да използвате различни търговски марки, лого, дизайни или други характеристики на марката, моля, следвайте внимателно указанията описани тук или се свържете с нас чрез социалните медии за допълнително разяснение.
 
-If in doubt, please ask!
+Ако се съмнявате, попитайте!
 
-## Exportable Figma File
+## Експортируем файл Figma
 
-Our Figma file has a full collection of all brand assets (logos,  fonts, colours, imagery etc) for export.
+Нашият файл Figma съдържа пълна колекция от всички активи на марката (лого, шрифтове, цветове, изображения и т.н.) с възможност за експорт.
 
-[Figma - SubQuery Brand Resources](https://www.figma.com/file/AaCXaOcElrlbxq8fz39sJU/SubQuery-Brand-Resources?node-id=3%3A2)
+[Figma - Ресурси за бранда SubQuery](https://www.figma.com/file/AaCXaOcElrlbxq8fz39sJU/SubQuery-Brand-Resources?node-id=3%3A2)
 
-## Brand Assets Package
+## Пакет от брандинг активи
 
-A smaller ZIP package of brand assets
+ZIP пакет от активи на марката
 
 [public_branding.zip](https://static.subquery.network/public_branding.zip)

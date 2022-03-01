@@ -4,7 +4,7 @@ In the [quick start](/quickstart/quickstart.md) guide, we very quickly ran throu
 
 Some of the following examples will assume you have successfully initialized the starter package in the [Quick start](../quickstart/quickstart.md) section. From that starter package, we'll walk through the standard process to customise and implement your SubQuery project.
 
-1. Initialise your project using `subql init --specVersion 0.2.0 PROJECT_NAME`. alternatively you can use the old spec version `subql init PROJECT_NAME`
+1. Initialise your project using `subql init PROJECT_NAME`.
 2. Update the Manifest file (`project.yaml`) to include information about your blockchain, and the entities that you will map - see [Manifest File](./manifest.md)
 3. Create GraphQL entities in your schema (`schema.graphql`) that define the shape of the data that you will extract and persist for querying - see [GraphQL Schema](./graphql.md)
 4. Add all the mapping functions (eg `mappingHandlers.ts`) you wish to invoke to transform chain data to the GraphQL entities that you have defined - see [Mapping](./mapping.md)
@@ -63,6 +63,36 @@ Run the build command from the project's root directory.
   </CodeGroupItem>
 </CodeGroup>
 
+### Alternative build options
+
+We support additional build options for subquery projects using `subql build`.
+
+With this you can define additional entry points to build using the exports field in package.json.
+
+```json
+"name": "project-name",
+"version": "1.0.0",
+...
+"exports": {
+  "entry_one": "./src/entry_one.ts",
+  "entry_renamed": "./src/entry_two.ts"
+},
+```
+
+Then by running `subql build` it will generate a dist folder with the following structure: 
+
+```
+- project-name
+  L dist
+    L entry_one.js
+    L entry_renamed.js
+    L index.js 
+```
+
+Note that it will build `index.ts` whether or not it is specified in the exports field. 
+
+For more information on using this including flags, see [cli reference](https://doc.subquery.network/references/references/#build).
+
 ## Logging
 
 The `console.log` method is **no longer supported**. Instead, a `logger` module has been injected in the types, which means we can support a logger that can accept various logging levels.
@@ -77,7 +107,7 @@ To use `logger.info` or `logger.warn`, just place the line into your mapping fil
 
 ![logging.info](/assets/img/logging_info.png)
 
-To use `logger.debug`, an additional step is required. Add `--log-level=debug` to your command line.
+To use `logger.debug`, an additional flag is required. Add `--log-level=debug` to your command line.
 
 If you are running a docker container, add this line to your `docker-compose.yaml` file.
 

@@ -3,8 +3,8 @@
 映射函数定义了如何将链数据转换为我们先前在`schema.GraphQL`文件中定义的优化GraphQL的具体解决办法。
 
 - 映射在`src/Mappings`目录中定义，并作为函数导出
-- 这些映射也可以在`src/index.ts中导出&lt;/li&gt;
-<li>映射文件在映射处理程序下的<code>project.yaml`中引用。
+- 这些映射也可以在`src/index.ts中导出;
+- 映射文件在映射处理程序下的<code>project.yaml`中引用。
 - 映射文件是映射处理器下的 `project.yaml` 的参考文件。
 
 共有三类映射函数的: [Block handlers](#block-handler)，[Event Handlers](#event-handler)和[Call Handlers](#call-handler)。

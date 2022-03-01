@@ -12,7 +12,7 @@ SubQueryを始める最良の方法は、 [Hello Worldチュートリアル](../
 
 ## SubQueryに貢献したりフィードバックを与えたりするにはどうすればいいですか?
 
-私たちはコミュニティからの貢献とフィードバックが大好きです。 コードに貢献するためには、関心のあるリポジトリをフォークして変更を加えます。 次にPRまたはPullリクエストを送信します。 ああ、テストすることを忘れないでください! 私たちの貢献ガイドラインもチェックしてください(近日公開)。
+私たちはコミュニティからの貢献とフィードバックを歓迎します。 コードに貢献するためには、関心のあるリポジトリをフォークして変更を加えます。 次にPRまたはPullリクエストを送信します。 ああ、テストすることを忘れないでください! 私たちの貢献ガイドラインもチェックしてください(近日公開)。
 
 フィードバックをいただくには、hello@subquery.network までお問い合わせいただくか、 [discordチャンネル](https://discord.com/invite/78zg8aBSMG)に参加してください。
 
@@ -28,9 +28,9 @@ SubQuery には現在 2 つのスロットがあります。 ステージング�
 
 ## ステージングスロットの利点は何ですか?
 
-ステージングスロットを使用する主な利点は、公開せずに SubQuery プロジェクトの新しいリリースを準備できることです。 本番アプリケーションに影響を与えることなく、ステージングスロットがすべてのデータに対してインデックス再作成するのを待つことができます。
+ステージングスロットを使用する主な利点は、公開せずに SubQuery プロジェクトの新しいリリースを準備できることです。 本番環境に影響を与えることなく、ステージングスロットがすべてのデータに対してインデックス再作成するのを待つことができます。
 
-[エクスプローラ](https://explorer.subquery.network/) では、ステージングスロットは一般には表示されず、あなただけに表示される固有のURLを持っています。 もちろん、個別の環境では、プロダクションに影響を与えずに新しいコードをテストすることができます。
+[エクスプローラ](https://explorer.subquery.network/) では、ステージングスロットは一般には表示されず、あなただけに表示される固有のURLを持っています。 もちろん個別の環境では、本番環境に影響を与えずに新しいコードをテストすることができます。
 
 ## 外部関数とは何ですか?
 
@@ -38,9 +38,9 @@ SubQuery には現在 2 つのスロットがあります。 ステージング�
 
 固有の外部関数とは、署名されておらず、ブロック作成者によってのみブロックに挿入される情報のことです。
 
-署名されたトランザクションの外部関数は、トランザクションを発行したアカウントの署名を含むトランザクションです。 それらは、取引がチェーンに含まれるための手数料を支払うことになります。
+署名されたトランザクションの外部関数は、トランザクションを発行したアカウントの署名を含むトランザクションです。 それらは、チェーンにトランザクションを含めるために手数料を支払う必要があります。
 
-署名されてないトランザクションの外部関数 とは、トランザクションを発行したアカウントの署名を含まないトランザクションです。 署名されていないトランザクションの外部関数は、署名されているがゆえに、誰も手数料を支払っていないので、注意して使用する必要があります。 このため、トランザクションキューはスパムを防ぐための経済的ロジックを欠いています。
+署名されてないトランザクションの外部関数 とは、トランザクションを発行したアカウントの署名を含まないトランザクションです。 署名する手数料を支払う人がいないため、署名されていないトランザクションの外部関数は慎重に使用する必要があります。 このため、トランザクションキューはスパムを防ぐための経済的ロジックを欠いています。
 
 詳細については、 [ここ](https://substrate.dev/docs/en/knowledgebase/learn-substrate/extrinsics) をクリックしてください。
 
@@ -52,12 +52,12 @@ Kusama ネットワークのエンドポイントは `wss://kusama.api.onfinalit
 
 Polkadotネットワークのエンドポイントは `wss://polkadot.api.onfinality.io/public-ws` です。
 
-## How do I iteratively develop my project schema?
+## プロジェクトを繰り返し開発するにはどうすればよいですか?
 
-A known issue with developing a changing project schema is that when lauching your Subquery node for testing, the previously indexed blocks will be incompatible with your new schema. In order to iteratively develop schemas the indexed blocks stored in the database must be cleared, this can be achieved by launching your node with the `--force-clean` flag. 例
+プロジェクトのスキーマを変更して開発する場合の既知の問題として、Subqueryノードをテスト用に起動する際に、以前にインデックスされたブロックが新しいスキーマと互換性がないことが挙げられます。 スキーマを繰り返し開発するためには、データベースに格納されているインデックスブロックをクリアする必要があります。これは、`--force-clean`フラグを付けてノードを起動することで実現できます。 例
 
 ```shell
 subql-node -f . --force-clean --subquery-name=<project-name>
 ```
 
-Note that it is recommended to use `--force-clean` when changing the `startBlock` within the project manifest (`project.yaml`) in order to begin reindexing from the configured block. If `startBlock` is changed without a `--force-clean` of the project then the indexer will continue indexing with the previously configured `startBlock`.
+なお、マニフェストファイル (`project.yaml`) 内の `startBlock` を変更する場合は、設定したブロックから再インデックス化を開始するために `--force-clean` を使用することが推奨されています。 プロジェクトの`--force-clean`を行わずに`startBlock`を変更した場合、インデクサは以前設定した`startBlock`でインデックス作成を継続します。

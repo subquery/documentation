@@ -1,23 +1,23 @@
-# Social Media Links
+# Линкове към социалните медии
 
-SubQuery is an active project that maintains and communicates with our followers through many social media channels.
+SubQuery е активен проект, който поддържа връзка и комуникира със своите последователи чрез различни канали в социалните медийни.
 
-It is our aim to always listen and engage with our loyal community so please join the conversation and send us your ideas or questions!
+Нашата цел - винаги да слушаме активните членове и да се ангажираме с лоялнана част от нашата общност, така че ви молим да се присъедините към беседите и ни изпращате вашите идеи или въпроси!
 
-## Official SubQuery Communities
+## Линкове към Официалните общности в SubQuery
 
 - [Linktree](https://linktr.ee/subquerynetwork)
-- [Discord](https://discord.com/invite/subquery) (Primary Community with dedicated technical support channels)
-- [Medium](https://subquery.medium.com) (Primary announcements channel)
+- [Discord](https://discord.com/invite/subquery) (Основна общност със създадени канали за техническа поддръжка)
+- [Medium](https://subquery.medium.com) (Основен канал за съобщения)
 - [Twitter](https://twitter.com/subquerynetwork)
-- [Telegram](https://t.me/subquerynetwork) (Announcements channel only)
+- [Telegram](https://t.me/subquerynetwork) (Канал само за анонси)
 - [GitHub](https://github.com/SubQuery/subql)
 - [Matrix/Riot](https://matrix.to/#/#subquery:matrix.org)
 - [LinkedIn](https://www.linkedin.com/company/subquery)
 
-## Unofficial SubQuery Communities
+## Линкове към Неофициалните общности в SubQuery
 
-These communities are not moderated by the SubQuery team, but our ambassadors may be there to provide support. Please be careful of scams as SubQuery is **not** responsible for what happens within them.
+Тези общности не се модерират от екипа на SubQuery, а от нашите Амбасадори, които ще ви предоставят подкрепа. Моля, внимавайте със всякакъв вид измама или скам, тъй като SubQuery **не** носи отговорност, за това, което се случва в тях.
 
 - [Telegram (Chinese)](https://t.me/subquerychina)
 - [Telegram (Russian)](https://t.me/SubQuery_russia)

@@ -10,7 +10,7 @@
 
 Adım adım kodun üzerinden geçme, kesme noktalarını ayarlama ve değişkenleri inceleme gibi SubQuery projelerinde hata ayıklamak için Chrome geliştirici araçlarıyla birlikte bir Node.js inspector kullanmanız gerekir.
 
-## Node inspector
+## Node müfettiş
 
 Uçbirim ekranında aşağıdaki komutu çalıştırın.
 

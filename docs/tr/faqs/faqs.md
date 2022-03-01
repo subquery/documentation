@@ -52,12 +52,12 @@ Kusama ağının network.endpoint'i `wss://kusama.api.onfinality.io/public-ws`'d
 
 Polkadot ağının network.endpoint'i `wss://polkadot.api.onfinality.io/public-ws`'dir.
 
-## How do I iteratively develop my project schema?
+## Proje şemamı yinelemeli olarak nasıl geliştirebilirim?
 
-A known issue with developing a changing project schema is that when lauching your Subquery node for testing, the previously indexed blocks will be incompatible with your new schema. In order to iteratively develop schemas the indexed blocks stored in the database must be cleared, this can be achieved by launching your node with the `--force-clean` flag. Mesela:
+Değişen bir proje şemasının geliştirilmesiyle ilgili bilinen bir sorun, Alt Sorgu düğümünüzü sınamaya başlatırken, önceden dizine alınmış blokların yeni şemanızla uyumsuz olacağıdır. Şemaları yinelemeli olarak geliştirmek için veritabanında depolanan dizinlenmiş blokların temizlenmesi gerekir; bu, düğümünüzü `--force-clean` bayrağıyla başlatarak başarılabilir. Mesela:
 
 ```shell
 subql-node -f . --force-clean --subquery-name=<project-name>
 ```
 
-Note that it is recommended to use `--force-clean` when changing the `startBlock` within the project manifest (`project.yaml`) in order to begin reindexing from the configured block. If `startBlock` is changed without a `--force-clean` of the project then the indexer will continue indexing with the previously configured `startBlock`.
+Proje bildiriminde `startBlock` değiştirilirken `--force-clean` kullanılması önerildiğini unutmayın (`projeсt.yaml`) yapılandırılan bloktan yeniden dizinlemeye başlamak için. Projenin `--force-clean` olmadan `startBlock` değiştirilirse, dizinleyici önceden yapılandırılmış `startBlock` ile dizinlemeye devam eder.
