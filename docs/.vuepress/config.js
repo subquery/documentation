@@ -184,7 +184,7 @@ function getSidebar(locale, language){
         `${locale}/build/manifest.md`,
         `${locale}/build/graphql.md`,
         `${locale}/build/mapping.md`,
-        `${locale}/build/moonbeam.md`
+        `${locale}/build/moonbeam.md`,
       ]
     },
     {
@@ -192,14 +192,14 @@ function getSidebar(locale, language){
       path: `${locale}/run_publish/publish`,
       collapsable: true,
       children: [
+        `${locale}/run_publish/run.md`,
+        `${locale}/run_publish/sandbox.md`,
         `${locale}/run_publish/publish.md`,
         `${locale}/run_publish/upgrade.md`,
         `${locale}/run_publish/connect.md`,
-        `${locale}/run_publish/run.md`,
         `${locale}/run_publish/query.md`,
         `${locale}/run_publish/graphql.md`,
-		`${locale}/query/aggregate.md`,
-        `${locale}/run_publish/sandbox.md`,
+		    `${locale}/run_publish/aggregate.md`,
       ]
     },
     {
@@ -214,7 +214,6 @@ function getSidebar(locale, language){
         `${locale}/subquery_network/delegators.md`,
         `${locale}/subquery_network/foundation.md`,
         `${locale}/subquery_network/terminology.md`,
-
       ]
     },
     {
