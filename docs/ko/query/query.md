@@ -1,6 +1,6 @@
 # SubQuery Explorer에서 여러분의 프로젝트를 Query하세요
 
-[SubQuery Explorer](https://explorer.subquery.network)는 커뮤니티 내의 Contributor에 의해 작성되어 SubQuery 팀에 의해서 관리되는 공개 SubQuery 프로젝트에 액세스를 제공하는 온라인 호스트 서비스입니다 ([explorer.subquery.network](https://explorer.subquery.network)). [Publish your SubQuery Project](../publish/publish.md) 매뉴얼에 따라 자체 SubQuery 프로젝트를 익스플로러에 공개할 수 있습니다.
+[SubQuery Explorer](https://explorer.subquery.network)는 커뮤니티 내의 Contributor에 의해 작성되어 SubQuery 팀에 의해서 관리되는 공개 SubQuery 프로젝트에 액세스를 제공하는 온라인 호스트 서비스입니다 ([explorer.subquery.network](https://explorer.subquery.network)). [Publish your SubQuery Project](../run_publish/publish.md) 매뉴얼에 따라 자체 SubQuery 프로젝트를 익스플로러에 공개할 수 있습니다.
 
 ![SubQuery Explorer](https://static.subquery.network/media/explorer/explorer-header.png)
 

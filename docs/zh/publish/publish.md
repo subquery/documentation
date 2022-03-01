@@ -39,14 +39,14 @@ If you have a GitHub Organization accounts connected, you can use the switcher o
 
 Let's start by clicking on "Create Project". You'll be taken to the New Project form. Please enter the following (you can change this in the future):
 
-- **GitHub 帐户：** 如果您有多个GitHub 帐户，请选择该项目将在哪个帐户下创建。 GitHub 组织账户中创建的项目由该组织的成员共享。
+- **GitHub 帐户：** 如果您有多个 GitHub 帐户，请选择该项目将在哪个帐户下创建。 GitHub 组织账户中创建的项目由该组织的成员共享。
 - **Project Name**
 - **副标题**
 - **描述**
 - **GitHub 存储库 URL：** 这必须是包含您的 SubQuery 项目的公共存储库的有效 GitHub URL。 `schema.graphql` 文件必须是您目录的根目录([了解更多关于目录结构](../create/introduction.md#directory-structure))。
 - **Database:** Premium customers can access dedicated databases to host production SubQuery projects from. If this interests you, you can contact [sales@subquery.network](mailto:sales@subquery.network) to have this setting enabled.
 - **Deployment Source:** You can choose to have the project deployed from the GitHub repository or alternatively deployed from a IPFS CID, see our guide about [hosting with IPFS.](ipfs.md)
-- **隐藏项目：** 如果选中，如果选中，这将在公共 SubQuery 浏览器中隐藏项目。 如果您想与社区共享您的SubQuery项目，请不要选择此项！ ![Create your first Project](/assets/img/projects-create.png)
+- **隐藏项目：** 如果选中，如果选中，这将在公共 SubQuery 浏览器中隐藏项目。 如果您想与社区共享您的 SubQuery 项目，请不要选择此项！ ![Create your first Project](/assets/img/projects-create.png)
 
 Create your project and you'll see it on your SubQuery Project's list. _We're almost there! We just need to deploy a new version of it._
 
@@ -62,7 +62,7 @@ With your new project, you'll see a Deploy New Version button. Click this, and f
 - **Commit Hash:** From GitHub, select the specific commit of the version of your SubQuery project codebase that you want deployed
 - **IPFS:** If deploying from IPFS, paste you IPFS deployment CID (without the leading `ipfs://`)
 - **Override Network and Dictionary Endpoints:** You can override the endpoints in your project manifest here
-- **索引器版本：** 这是您要在其上运行此SubQuery项目的SubQuery节点服务的版本。 See [`@subql/node`](https://www.npmjs.com/package/@subql/node)
+- **索引器版本：** 这是您要在其上运行此 SubQuery 项目的 SubQuery 节点服务的版本。 See [`@subql/node`](https://www.npmjs.com/package/@subql/node)
 - **查询版本：** 这是您要在其上运行此 SubQuery 项目的 SubQuery 查询服务的版本。 See [`@subql/query`](https://www.npmjs.com/package/@subql/query)
 
 ![Deploy your first Project](https://static.subquery.network/media/projects/projects-first-deployment.png)
@@ -75,7 +75,7 @@ If deployed successfully, you'll see the indexer start working and report back p
 
 ![正在部署和同步的项目](/assets/img/projects-deploy-sync.png)
 
-您也可以点击项目标题旁边的“...”图标，从而在 SubQuery 浏览器上查看项目， 您可以通过SubQuery浏览器开始使用。 There you can use the in-browser playground to get started - [read more about how to use our Explorer here](../query/query.md).
+您也可以点击项目标题旁边的“...”图标，从而在 SubQuery 浏览器上查看项目， 您可以通过 SubQuery 浏览器开始使用。 There you can use the in-browser playground to get started - [read more about how to use our Explorer here](../run_publish/query.md).
 
 ![SubQuery Explorer 中的项目](/assets/img/projects-explorer.png)
 

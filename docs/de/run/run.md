@@ -1,6 +1,6 @@
 # SubQuery lokal ausführen
 
-In dieser Anleitung erfahren Sie, wie Sie eine lokale SubQuery-Node in Ihrer Infrastruktur ausführen, der sowohl den Indexer als auch den Abfragedienst umfasst. Sie möchten sich nicht um den Betrieb Ihrer eigenen SubQuery-Infrastruktur kümmern? SubQuery stellt der Community einen [verwalteten gehosteten Dienst](https://explorer.subquery.network) kostenlos zur Verfügung. [Folgen Sie unserem Veröffentlichungsleitfaden](../publish/publish.md), um zu erfahren, wie Sie Ihr Projekt in [SubQuery-Projekte](https://project.subquery.network) hochladen können.
+In dieser Anleitung erfahren Sie, wie Sie eine lokale SubQuery-Node in Ihrer Infrastruktur ausführen, der sowohl den Indexer als auch den Abfragedienst umfasst. Sie möchten sich nicht um den Betrieb Ihrer eigenen SubQuery-Infrastruktur kümmern? SubQuery stellt der Community einen [verwalteten gehosteten Dienst](https://explorer.subquery.network) kostenlos zur Verfügung. [Folgen Sie unserem Veröffentlichungsleitfaden](../run_publish/publish.md), um zu erfahren, wie Sie Ihr Projekt in [SubQuery-Projekte](https://project.subquery.network) hochladen können.
 
 ## Die Verwendung von Docker
 
@@ -59,7 +59,7 @@ Sie können den Wörterbuchendpunkt zu Ihrer Datei `project.yaml` hinzufügen (s
 subql-node --network-dictionary=https://api.subquery.network/sq/subquery/dictionary-polkadot
 ```
 
-[Lesen Sie mehr darüber, wie ein SubQuery Dictionary funktioniert](../tutorials_examples/dictionary.md).
+[Lesen Sie mehr darüber, wie ein SubQuery Dictionary funktioniert](../academy/tutorials_examples/dictionary.md).
 
 #### Mit Datenbank verbinden
 
@@ -69,11 +69,10 @@ export DB_PASS=postgres
 export DB_DATABASE=postgres
 export DB_HOST=localhost
 export DB_PORT=5432
-subql-node -f your-project-path 
-````
+subql-node -f your-project-path
+```
 
 Bitte stellen Sie je nach Konfiguration Ihrer Postgres-Datenbank (z.B. ein anderes Datenbankpasswort) auch sicher, dass sowohl der Indexer (`subql/node`) als auch der Abfragedienst (`subql/query`) eine Verbindung dazu aufbauen können.
-
 
 #### Geben Sie eine Konfigurationsdatei an
 
@@ -111,7 +110,6 @@ subql-node -f your-project-path --local
 Zu Debugging-Zwecken können Benutzer die Node im lokalen Modus ausführen. Beim Wechsel zum lokalen Modell werden Postgres-Tabellen im Standardschema `öffentlich` erstellt.
 
 Wenn der lokale Modus nicht verwendet wird, wird ein neues Postgres-Schema mit der anfänglichen `subquery_` und entsprechenden Projekttabellen erstellt.
-
 
 #### Überprüfen Sie den Zustand Ihrer Node
 
@@ -173,13 +171,16 @@ node --inspect-brk <path to subql-node> -f <path to subQuery project>
 ```
 
 Zum Beispiel:
+
 ```shell
 node --inspect-brk /usr/local/bin/subql-node -f ~/Code/subQuery/projects/subql-helloworld/
 Debugger listening on ws://127.0.0.1:9229/56156753-c07d-4bbe-af2d-2c7ff4bcc5ad
 Hilfe finden Sie unter: https://nodejs.org/en/docs/inspector
 Debugger attached.
 ```
-Öffnen Sie dann die Chrome-Entwicklungstools, gehen Sie zu Quelle > Dateisystem, fügen Sie Ihr Projekt zum Arbeitsbereich hinzu und beginnen Sie mit dem Debuggen. Weitere Informationen finden Sie unter [So debuggen Sie ein SubQuery-Projekt](https://doc.subquery.network/tutorials_examples/debug-projects/)
+
+Öffnen Sie dann die Chrome-Entwicklungstools, gehen Sie zu Quelle > Dateisystem, fügen Sie Ihr Projekt zum Arbeitsbereich hinzu und beginnen Sie mit dem Debuggen. Weitere Informationen finden Sie unter [So debuggen Sie ein SubQuery-Projekt](https://doc.subquery.network/academy/tutorials_examples/debug-projects/)
+
 ## Die Ausführung eines Abfragedienstes (subql/query)
 
 ### Installation
@@ -192,6 +193,7 @@ npm install -g @subql/query
 Beachten Sie bitte, dass wir **NICHT** zur Verwendung von `yarn global` ermutigen, da dies aufgrund seines schlechten Abhängigkeitsmanagements zu Fehlern auf der ganzen Linie führen kann.
 
 ### Die Ausführung des Abfragedienstes
+
 ``` export DB_HOST=localhost subql-query --name <project_name> --playground ````
 
 Stellen Sie sicher, dass der Projektname mit dem Projektnamen übereinstimmt, wenn Sie [das Projekt initialisieren](../quickstart/quickstart.md#initialise-the-starter-subquery-project). Überprüfen Sie außerdem, ob die Umgebungsvariablen korrekt sind.

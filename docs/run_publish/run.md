@@ -1,7 +1,7 @@
 # Running SubQuery Locally
 
 This guide works through how to run a local SubQuery node on your infrastructure, which includes both the indexer and query service.
-Don't want to worry about running your own SubQuery infrastructure? SubQuery provides a [managed hosted service](https://explorer.subquery.network) to the community for free. [Follow our publishing guide](../publish/publish.md) to see how you can upload your project to [SubQuery Projects](https://project.subquery.network).
+Don't want to worry about running your own SubQuery infrastructure? SubQuery provides a [managed hosted service](https://explorer.subquery.network) to the community for free. [Follow our publishing guide](../run_publish/publish.md) to see how you can upload your project to [SubQuery Projects](https://project.subquery.network).
 
 ## Using Docker
 
@@ -61,7 +61,7 @@ You can add the dictionary endpoint in your `project.yaml` file (see [Manifest F
 subql-node --network-dictionary=https://api.subquery.network/sq/subquery/dictionary-polkadot
 ```
 
-[Read more about how a SubQuery Dictionary works](../tutorials_examples/dictionary.md).
+[Read more about how a SubQuery Dictionary works](../academy/tutorials_examples/dictionary.md).
 
 #### Connect to database
 
@@ -71,8 +71,8 @@ export DB_PASS=postgres
 export DB_DATABASE=postgres
 export DB_HOST=localhost
 export DB_PORT=5432
-subql-node -f your-project-path 
-````
+subql-node -f your-project-path
+```
 
 Depending on the configuration of your Postgres database (e.g. a different database password), please ensure also that both the indexer (`subql/node`) and the query service (`subql/query`) can establish a connection to it.
 
@@ -113,7 +113,6 @@ For debugging purposes, users can run the node in local mode. Switching to local
 
 If local mode is not used, a new Postgres schema with the initial `subquery_ ` and corresponding project tables will be created.
 
-
 #### Check your node health
 
 There are 2 endpoints that you can use to check and monitor the health of a running SubQuery node.
@@ -144,7 +143,7 @@ Append this to the base URL of your SubQuery node. Eg `http://localhost:3000/met
 }
 ```
 
-`http://localhost:3000/health` will return HTTP 200 if successful. 
+`http://localhost:3000/health` will return HTTP 200 if successful.
 
 A 500 error will be returned if the indexer is not healthy. This can often be seen when the node is booting up.
 
@@ -174,14 +173,17 @@ node --inspect-brk <path to subql-node> -f <path to subQuery project>
 ```
 
 For example:
+
 ```shell
 node --inspect-brk /usr/local/bin/subql-node -f ~/Code/subQuery/projects/subql-helloworld/
 Debugger listening on ws://127.0.0.1:9229/56156753-c07d-4bbe-af2d-2c7ff4bcc5ad
 For help, see: https://nodejs.org/en/docs/inspector
 Debugger attached.
 ```
-Then open up the Chrome dev tools, go to Source > Filesystem and add your project to the workspace and start debugging. For more information, check out 
-[How to debug a SubQuery project](https://doc.subquery.network/tutorials_examples/debug-projects/)
+
+Then open up the Chrome dev tools, go to Source > Filesystem and add your project to the workspace and start debugging. For more information, check out
+[How to debug a SubQuery project](https://doc.subquery.network/academy/tutorials_examples/debug-projects/)
+
 ## Running a Query Service (subql/query)
 
 ### Installation
@@ -198,7 +200,7 @@ Please note that we **DO NOT** encourage the use of `yarn global` due to its poo
 ```
 export DB_HOST=localhost
 subql-query --name <project_name> --playground
-````
+```
 
 Make sure the project name is the same as the project name when you [initialize the project](../quickstart/quickstart.md#initialise-the-starter-subquery-project). Also, check the environment variables are correct.
 

@@ -21,10 +21,10 @@ COMMANDS
 
 This command is uses webpack to generate a bundle of a subquery project.
 
-| Options            | Description                                                                                                |
-| ------------------ | ---------------------------------------------------------------------------------------------------------- |
-| -l, --location     | local folder of subquery project (if not in folder already)                                                |
-| -o, --output       | specify output folder of build e.g. build-folder                                                           |
+| Options            | Description                                                 |
+| ------------------ | ----------------------------------------------------------- | ----------- | ---- | ----------------------- |
+| -l, --location     | local folder of subquery project (if not in folder already) |
+| -o, --output       | specify output folder of build e.g. build-folder            |
 | --mode=(production | prod                                                        | development | dev) | [ default: production ] |
 
 - With `subql build` you can specify additional entry points in exports field although it will always build `index.ts` automatically
@@ -281,7 +281,7 @@ Typically this would be set in your manifest file but below shows an example of 
 subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot"
 ```
 
-[Leggi di più su come funziona un dizionario SubQuery](../tutorials_examples/dictionary.md).
+[Leggi di più su come funziona un dizionario SubQuery](../academy/tutorials_examples/dictionary.md).
 
 ### -p, --port
 

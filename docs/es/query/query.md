@@ -1,6 +1,6 @@
 # Consulta tu proyecto en SubQuery Explorer
 
-[SubQuery Explorer](https://explorer.subquery.network) es un servicio alojado en línea (en [explorer.subquery.network](https://explorer.subquery.network)) que proporciona acceso a los proyectos de SubQuery publicados realizados por los colaboradores de nuestra comunidad y gestionados por el equipo de SubQuery. Puedes publicar tus propios proyectos de SubQuery en nuestro explorador siguiendo nuestra guía de [Publicar tu SubQuery Project](../publish/publish.md).
+[SubQuery Explorer](https://explorer.subquery.network) es un servicio alojado en línea (en [explorer.subquery.network](https://explorer.subquery.network)) que proporciona acceso a los proyectos de SubQuery publicados realizados por los colaboradores de nuestra comunidad y gestionados por el equipo de SubQuery. Puedes publicar tus propios proyectos de SubQuery en nuestro explorador siguiendo nuestra guía de [Publicar tu SubQuery Project](../run_publish/publish.md).
 
 ![Explorador de SubQuery](https://static.subquery.network/media/explorer/explorer-header.png)
 

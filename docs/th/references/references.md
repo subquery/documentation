@@ -21,11 +21,11 @@
 
 คำสั่งนี้ใช้ webpack เพื่อสร้างกลุ่มของโปรเจ็กการสืบค้นย่อย
 
-| ตัวเลือก           | คำอธิบาย                                                                                                       |
-| ------------------ | -------------------------------------------------------------------------------------------------------------- |
-| -l, --location     | โฟลเดอร์ภายในของโปรเจ็กต์การสืบค้นย่อย (หากไม่ได้อยู่ในโฟลเดอร์อยู่แล้ว)                                       |
-| -o, --output       | ระบุโฟลเดอร์ปลายทางของการสร้าง เช่น build-folder                                                               |
-| --mode=(production | prod                                                        | development | dev) | [ ค่าเริ่มต้น: production ] |
+| ตัวเลือก           | คำอธิบาย                                                                 |
+| ------------------ | ------------------------------------------------------------------------ | ----------- | ---- | --------------------------- |
+| -l, --location     | โฟลเดอร์ภายในของโปรเจ็กต์การสืบค้นย่อย (หากไม่ได้อยู่ในโฟลเดอร์อยู่แล้ว) |
+| -o, --output       | ระบุโฟลเดอร์ปลายทางของการสร้าง เช่น build-folder                         |
+| --mode=(production | prod                                                                     | development | dev) | [ ค่าเริ่มต้น: production ] |
 
 - ด้วย `subql build` คุณสามารถระบุจุดเข้าใช้งานเพิ่มเติมได้ในช่อง exports ถึงแม้ว่าจะมีการสร้าง `index.ts` โดยอัตโนมัติเสมอ
 
@@ -53,7 +53,7 @@ Options:
       --force-clean         บังคับการคลีน database, เลิกโปรเจ็ก schemas
                             และตารางต่าง ๆ                                 [boolean]
       --db-schema           ชื่อ Db schema ของโปรเจ็ก               [string]
-      --unsafe              อนุญาตให้มีการใช้โหมดบิวท์อินต่าง ๆ ภายใน 
+      --unsafe              อนุญาตให้มีการใช้โหมดบิวท์อินต่าง ๆ ภายใน
                             sandbox                    [boolean][ค่าเริ่มต้น: false]
       --batch-size          Batch size ของบล็อกที่จะใช้ในหนึ่งรอบ [number]
       --scale-batch-size    ปรับขนาด batch size ตามการใช้หน่วยความจำ
@@ -69,7 +69,7 @@ Options:
       --output-fmt          พิมพ์ log เป็น json หรือข้อความธรรมดา
                                            [string] [ตัวเลือก: "json", "colored"]
       --log-level           ระบุเลเวล log ที่จะพิมพ์ เพิกเฉยต่อคำสั่ง เมื่อมีการใช้ --debug
-                           
+
           [string] [ตัวเลือก: "fatal", "error", "warn", "info", "debug", "trace",
                                                                        "silent"]
       --migrate             ย้าย db schema (สำหรับตารางการจัดการเท่านั้น)
@@ -281,7 +281,7 @@ An instance of ProjectManifestImpl has failed the validation:
 subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot"
 ```
 
-[อ่านเพิ่มเติมเกี่ยวกับวิธีการทำงานของ SubQuery Dictionary ได้ที่นี่](../tutorials_examples/dictionary.md)
+[อ่านเพิ่มเติมเกี่ยวกับวิธีการทำงานของ SubQuery Dictionary ได้ที่นี่](../academy/tutorials_examples/dictionary.md)
 
 ### -p, --port
 

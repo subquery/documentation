@@ -1,10 +1,10 @@
 # Chạy SubQuery trên môi trường local
 
-Hướng dẫn này hoạt động thông qua cách chạy một node SubQuery cục bộ trên cơ sở hạ tầng của bạn, bao gồm cả trình lập chỉ mục và dịch vụ truy vấn. Bạn không muốn lo lắng về việc chạy cơ sở hạ tầng SubQuery của riêng mình? SubQuery cung cấp miễn phí [ dịch vụ được lưu trữ được quản lý ](https://explorer.subquery.network) cho cộng đồng. [ Thực hiện theo hướng dẫn xuất bản của chúng tôi ](../publish/publish.md) để xem cách bạn có thể tải dự án của mình lên [ Dự án SubQuery ](https://project.subquery.network).
+Hướng dẫn này hoạt động thông qua cách chạy một node SubQuery cục bộ trên cơ sở hạ tầng của bạn, bao gồm cả trình lập chỉ mục và dịch vụ truy vấn. Bạn không muốn lo lắng về việc chạy cơ sở hạ tầng SubQuery của riêng mình? SubQuery cung cấp miễn phí [ dịch vụ được lưu trữ được quản lý ](https://explorer.subquery.network) cho cộng đồng. [ Thực hiện theo hướng dẫn xuất bản của chúng tôi ](../run_publish/publish.md) để xem cách bạn có thể tải dự án của mình lên [ Dự án SubQuery ](https://project.subquery.network).
 
 ## Sử dụng Docker
 
-Một giải pháp thay thế là chạy <strong> Docker Container </strong>, được xác định bởi tệp ` docker-compos.yml `. Đối với một dự án mới vừa được khởi tạo, bạn sẽ không cần phải thay đổi bất cứ điều gì ở đây.
+Một giải pháp thay thế là chạy <strong> Docker Container </strong>, được xác định bởi tệp `docker-compos.yml`. Đối với một dự án mới vừa được khởi tạo, bạn sẽ không cần phải thay đổi bất cứ điều gì ở đây.
 
 Trong thư mục dự án, hãy chạy lệnh sau:
 
@@ -69,8 +69,8 @@ export DB_PASS=postgres
 export DB_DATABASE=postgres
 export DB_HOST=localhost
 export DB_PORT=5432
-subql-node -f your-project-path 
-````
+subql-node -f your-project-path
+```
 
 Tùy thuộc vào cấu hình cơ sở dữ liệu Postgres của bạn (ví dụ: mật khẩu cơ sở dữ liệu khác), hãy đảm bảo rằng cả trình chỉ mục (`subql/node`) và dịch vụ truy vấn (` subql/query`) đều có thể thiết lập kết nối với nó.
 
@@ -111,7 +111,6 @@ Người dùng có thể để node chạy ở chế độ local nhằm phục v
 
 Nếu chế độ local không được sử dụng, một sơ đồ Postgres mới (với dữ liệu `subquery_` ban đầu) và các bảng dự án tương ứng sẽ được khởi tạo.
 
-
 #### Chế độ local
 
 Xin lưu ý rằng chúng tôi **KHÔNG** khuyến khích sử dụng `yarn global` vì khâu quản lý phụ thuộc của nó rất kém, có thể dẫn đến sai sót trong dây chuyền.
@@ -119,7 +118,7 @@ Xin lưu ý rằng chúng tôi **KHÔNG** khuyến khích sử dụng `yarn glob
 - Điểm cuối kiểm tra sức khỏe trả về một phản hồi 200 đơn giản
 - Điểm cuối siêu dữ liệu bao gồm các phân tích bổ sung về nút SubQuery đang chạy của bạn
 
-Nối phần này vào URL cơ sở của nút SubQuery của bạn. Ví dụ: ` http: // localhost: 3000 / meta ` sẽ trả về:
+Nối phần này vào URL cơ sở của nút SubQuery của bạn. Ví dụ: `http: // localhost: 3000 / meta` sẽ trả về:
 
 ```bash
 {
@@ -142,7 +141,7 @@ Nối phần này vào URL cơ sở của nút SubQuery của bạn. Ví dụ: `
 }
 ```
 
-` http: // localhost: 3000 / health ` sẽ trả về HTTP 200 nếu thành công.
+`http: // localhost: 3000 / health` sẽ trả về HTTP 200 nếu thành công.
 
 Lỗi 500 sẽ được trả về nếu trình lập chỉ mục không khỏe mạnh. Điều này thường có thể được nhìn thấy khi nút đang khởi động.
 
@@ -172,13 +171,16 @@ node --inspect-brk <path to subql-node> -f <path to subQuery project>
 ```
 
 Ví dụ:
+
 ```shell
 node --inspect-brk /usr/local/bin/subql-node -f ~/Code/subQuery/projects/subql-helloworld/
 Debugger listening on ws://127.0.0.1:9229/56156753-c07d-4bbe-af2d-2c7ff4bcc5ad
 For help, see: https://nodejs.org/en/docs/inspector
 Debugger attached.
 ```
-Sau đó, mở các công cụ dành cho nhà phát triển Chrome, đi tới Nguồn > Hệ thống tệp và thêm dự án của bạn vào không gian làm việc và bắt đầu gỡ lỗi. Để biết thêm thông tin, hãy kiểm tra [ Cách gỡ lỗi dự án SubQuery ](https://doc.subquery.network/tutorials_examples/debug-projects/)
+
+Sau đó, mở các công cụ dành cho nhà phát triển Chrome, đi tới Nguồn > Hệ thống tệp và thêm dự án của bạn vào không gian làm việc và bắt đầu gỡ lỗi. Để biết thêm thông tin, hãy kiểm tra [ Cách gỡ lỗi dự án SubQuery ](https://doc.subquery.network/academy/tutorials_examples/debug-projects/)
+
 ## Khởi chạy Dịch vụ Truy vấn (subql/query)
 
 ### Cài đặt
@@ -191,6 +193,7 @@ npm install -g @subql/query
 Xin lưu ý rằng chúng tôi **KHÔNG** khuyến khích sử dụng `yarn toàn cầu` do việc quản lý phụ thuộc kém có thể dẫn đến sai sót trong dây chuyền.
 
 ### Chạy dịch vụ truy vấn
+
 ``` export DB_HOST=localhost subql-query --name <project_name> --playground ````
 
 Đảm bảo rằng tên dự án này trùng với tên bạn đã đặt từ lúc [khởi tạo dự án](../quickstart/quickstart.md#initialise-the-starter-subquery-project). Ngoài ra, hãy kiểm tra xem các biến môi trường đã chuẩn hay chưa.

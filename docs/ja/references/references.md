@@ -19,13 +19,13 @@ COMMANDS
 
 ### build
 
-このコマンドはwebpack を使って、SubQueryプロジェクトのバンドルを生成するものです。
+このコマンドは webpack を使って、SubQuery プロジェクトのバンドルを生成するものです。
 
-| オプション              | 説明                                               |
-| ------------------ | ------------------------------------------------ |
-| -l, --location     | SubQueryプロジェクトのローカルフォルダ（フォルダにない場合）。              |
-| -o, --output       | ビルドの出力フォルダを指定します。例: build-folder                 |
-| --mode=(production | prod | development | dev) | [デフォルト: production ] |
+| オプション         | 説明                                                            |
+| ------------------ | --------------------------------------------------------------- | ----------- | ---- | ------------------------- |
+| -l, --location     | SubQuery プロジェクトのローカルフォルダ（フォルダにない場合）。 |
+| -o, --output       | ビルドの出力フォルダを指定します。例: build-folder              |
+| --mode=(production | prod                                                            | development | dev) | [デフォルト: production ] |
 
 - `subql build` では、エクスポートフィールドに追加のエントリポイントを指定できますが、常に自動的に`index.ts` がビルドされます
 
@@ -136,7 +136,7 @@ batchSize: 55 // Optional config
 subql-node -f . --local
 ```
 
-このフラグを使用すると、削除することは別のデータベースを指すことを意味しないことに注意してください。 別のデータベースに再指定するには、新しいデータベースを作成し、この新しいデータベースにenvの設定を変更する必要があります。 言い換えれば、"export DB_DATABASE=<new_db_here>"を指定するということです。
+このフラグを使用すると、削除することは別のデータベースを指すことを意味しないことに注意してください。 別のデータベースに再指定するには、新しいデータベースを作成し、この新しいデータベースに env の設定を変更する必要があります。 言い換えれば、"export DB_DATABASE=<new_db_here>"を指定するということです。
 
 ### --force-clean
 
@@ -152,13 +152,13 @@ subql-node -f . --db-schema=test2
 
 ### --unsafe
 
-SubQuery Projectsは通常、プロジェクトのアクセス範囲をシステムに制限するために、javascript サンドボックスで実行されます。 Sandbox は、利用可能な javascript のインポートを以下のモジュールに制限します。
+SubQuery Projects は通常、プロジェクトのアクセス範囲をシステムに制限するために、javascript サンドボックスで実行されます。 Sandbox は、利用可能な javascript のインポートを以下のモジュールに制限します。
 
 ```javascript
 ["assert", "buffer", "crypto", "util", "path"];
 ```
 
-これによりセキュリティが強化されますが、SubQueryの利用可能な機能が制限されていることを理解してください。 `--unsafe` コマンドはすべてのデフォルトの javascript モジュールをインポートします。これによりセキュリティのトレードオフが大きくなり、Sandbox 機能が大幅に向上します。
+これによりセキュリティが強化されますが、SubQuery の利用可能な機能が制限されていることを理解してください。 `--unsafe` コマンドはすべてのデフォルトの javascript モジュールをインポートします。これによりセキュリティのトレードオフが大きくなり、Sandbox 機能が大幅に向上します。
 
 **`--unsafe` コマンドを使用すると、SubQuery Network でプロジェクトを実行できなくなることに注意してください。このコマンドを SubQuery のマネージド サービス ([project.subquery.network](https://project.subquery.network)) でプロジェクトと共に実行したい場合は、サポートに連絡する必要があります。**
 
@@ -224,7 +224,7 @@ An instance of ProjectManifestImpl has failed the validation:
 
 ### --output-fmt
 
-ターミナル出力には2つの異なるフォーマットがあります。 JSONまたはカラー。 カラーはデフォルトで、色付きテキストが含まれています。
+ターミナル出力には 2 つの異なるフォーマットがあります。 JSON またはカラー。 カラーはデフォルトで、色付きテキストが含まれています。
 
 ```shell
 > subql-node -f . --output-fmt=json
@@ -241,7 +241,7 @@ An instance of ProjectManifestImpl has failed the validation:
 
 ### --log-level
 
-7つのオプションから選べます。 “fatal”、“error”、“warn”、“info”、“debug”、“trace”、“silent”。 以下の例は"silent"です。 ターミナルには何も表示されないので、ノードが動作しているかどうかを確認するには、データベースの行数を問い合わせるか (select count(\*) from subquery_1.starter_entities) 、ブロックの高さを問い合わせるしかありません。
+7 つのオプションから選べます。 “fatal”、“error”、“warn”、“info”、“debug”、“trace”、“silent”。 以下の例は"silent"です。 ターミナルには何も表示されないので、ノードが動作しているかどうかを確認するには、データベースの行数を問い合わせるか (select count(\*) from subquery_1.starter_entities) 、ブロックの高さを問い合わせるしかありません。
 
 ```shell
 > subql-node -f . --log-level=silent
@@ -269,11 +269,11 @@ An instance of ProjectManifestImpl has failed the validation:
 > subql-node -f . –timestamp-field=false
 ```
 
-これにより、starter_entitiesテーブルのcreated_atおよびupdated_atカラムが削除されます。
+これにより、starter_entities テーブルの created_at および updated_at カラムが削除されます。
 
 ### -d, --network-dictionary
 
-これは、[https://explorer.subquery.network/](https://explorer.subquery.network/)（辞書を検索）で提供され、ホストされている無料のサービスであるディクショナリのエンドポイントを指定することができ、https://api.subquery.network/sq/subquery/dictionary-polkadot のAPIエンドポイントを提示します。
+これは、[https://explorer.subquery.network/](https://explorer.subquery.network/)（辞書を検索）で提供され、ホストされている無料のサービスであるディクショナリのエンドポイントを指定することができ、https://api.subquery.network/sq/subquery/dictionary-polkadot の API エンドポイントを提示します。
 
 通常、これはマニフェストファイルに設定されますが、以下はコマンドラインの引数として使用する例です。
 
@@ -281,11 +281,11 @@ An instance of ProjectManifestImpl has failed the validation:
 subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot"
 ```
 
-[SubQuery Dictionaryの仕組みについて](../tutorials_examples/dictionary.md)
+[SubQuery Dictionary の仕組みについて](../academy/tutorials_examples/dictionary.md)
 
 ### -p, --port
 
-SubQueryのインデックスサービスがバインドするポート。 デフォルトでは `3000`に設定されています
+SubQuery のインデックスサービスがバインドするポート。 デフォルトでは `3000`に設定されています
 
 ## subql-query
 
@@ -356,15 +356,15 @@ Options:
 
 ### --log-rotate
 
-ログファイルのローテーションを有効にする。ローテーション間隔は1日、最大7ファイル、最大ファイルサイズは1GB。
+ログファイルのローテーションを有効にする。ローテーション間隔は 1 日、最大 7 ファイル、最大ファイルサイズは 1GB。
 
 ### --indexer
 
-インデクサーのエンドポイントの場所のためのカスタムURLを設定します。クエリーサービスはインデクサーの健全性、メタデータ、および準備状態のためにこれらのエンドポイントを使用します。
+インデクサーのエンドポイントの場所のためのカスタム URL を設定します。クエリーサービスはインデクサーの健全性、メタデータ、および準備状態のためにこれらのエンドポイントを使用します。
 
 ### --unsafe
 
-クエリサービスでは、無制限のgraphqlクエリに対して100個という制限を設けています。 unsafeフラグは、クエリサービスにパフォーマンスの問題を引き起こす可能性のあるこの制限を取り除きます。 代わりに、[paginated](https://graphql.org/learn/pagination/) にすることをお勧めします。
+クエリサービスでは、無制限の graphql クエリに対して 100 個という制限を設けています。 unsafe フラグは、クエリサービスにパフォーマンスの問題を引き起こす可能性のあるこの制限を取り除きます。 代わりに、[paginated](https://graphql.org/learn/pagination/) にすることをお勧めします。
 
 このフラグは、sum、max、avg、 [その他](https://github.com/graphile/pg-aggregates#aggregates) を含む特定の集約関数を有効にするためにも使用できます。
 
@@ -374,4 +374,4 @@ Options:
 
 ### --port
 
-SubQueryクエリサービスのポートがバインドされます。 デフォルトでは `3000`に設定されています
+SubQuery クエリサービスのポートがバインドされます。 デフォルトでは `3000`に設定されています

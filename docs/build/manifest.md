@@ -15,34 +15,35 @@ description: '' # Description of your project
 repository: 'https://github.com/subquery/subql-starter' # Git repository address of your project
 
 schema:
-  file: ./schema.graphql # The location of your GraphQL schema file
+file: ./schema.graphql # The location of your GraphQL schema file
 
 network:
-  genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' # Genesis hash of the network
-  endpoint: 'wss://polkadot.api.onfinality.io/public-ws'
-  # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
-  dictionary: 'https://api.subquery.network/sq/subquery/dictionary-polkadot'
+genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' # Genesis hash of the network
+endpoint: 'wss://polkadot.api.onfinality.io/public-ws'
+
+# Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
+
+dictionary: 'https://api.subquery.network/sq/subquery/dictionary-polkadot'
 
 dataSources:
-  - kind: substrate/Runtime
-    startBlock: 1 # This changes your indexing start block, set this higher to skip initial blocks with less data
-    mapping:
-      file: "./dist/index.js"
-      handlers:
-        - handler: handleBlock
-          kind: substrate/BlockHandler
-        - handler: handleEvent
-          kind: substrate/EventHandler
-          filter: #Filter is optional
-            module: balances
-            method: Deposit
-        - handler: handleCall
-          kind: substrate/CallHandler
+
+- kind: substrate/Runtime
+  startBlock: 1 # This changes your indexing start block, set this higher to skip initial blocks with less data
+  mapping:
+  file: "./dist/index.js"
+  handlers: - handler: handleBlock
+  kind: substrate/BlockHandler - handler: handleEvent
+  kind: substrate/EventHandler
+  filter: #Filter is optional
+  module: balances
+  method: Deposit - handler: handleCall
+  kind: substrate/CallHandler
+
 ````
   </CodeGroupItem>
 
   <CodeGroupItem title="v0.0.1">
-  
+
 ``` yml
 specVersion: "0.0.1"
 description: '' # Description of your project
@@ -96,48 +97,48 @@ By default the CLI will generate SubQuery projects for spec verison v0.2.0. This
 `subql migrate` can be run in an existing project to migrate the project manifest to the latest version.
 
 USAGE
-  $ subql init [PROJECTNAME]
+$ subql init [PROJECTNAME]
 
 ARGUMENTS
-  PROJECTNAME  Give the starter project name
+PROJECTNAME Give the starter project name
 
-| Options                                     | Description                                                                  |
-| ------------------------------------------- | ---------------------------------------------------------------------------- |
-| -f, --force                                 |                                                                              |
-| -l, --location=location                     | local folder to create the project in                                        |
-| --install-dependencies                      | Install dependencies as well                                                 |
-| --npm                                       | Force using NPM instead of yarn, only works with `install-dependencies` flag |
-| --specVersion=0.0.1|0.2.0  [default: 0.2.0] | The spec version to be used by the project                                   |
+| Options                 | Description                                                                  |
+| ----------------------- | ---------------------------------------------------------------------------- | ------------------------------------------ |
+| -f, --force             |                                                                              |
+| -l, --location=location | local folder to create the project in                                        |
+| --install-dependencies  | Install dependencies as well                                                 |
+| --npm                   | Force using NPM instead of yarn, only works with `install-dependencies` flag |
+| --specVersion=0.0.1     | 0.2.0 [default: 0.2.0]                                                       | The spec version to be used by the project |
 
 ## Overview
 
 ### Top Level Spec
 
-| Field           |               v0.0.1                |           v0.2.0            |                                                Description |
+| Field           | v0.0.1                              | v0.2.0                      | Description                                                |
 | --------------- | ----------------------------------- | --------------------------- | ---------------------------------------------------------- |
-| **specVersion** |               String                |           String            | `0.0.1` or `0.2.0` - the spec version of the manifest file |
-| **name**        |                  𐄂                  |           String            |                                       Name of your project |
-| **version**     |                  𐄂                  |           String            |                                    Version of your project |
-| **description** |               String                |           String            |                                Discription of your project |
-| **repository**  |               String                |           String            |                     Git repository address of your project |
-| **schema**      |               String                | [Schema Spec](#schema-spec) |                   The location of your GraphQL schema file |
-| **network**     |    [Network Spec](#network-spec)    |        Network Spec         |                        Detail of the network to be indexed |
-| **dataSources** | [DataSource Spec](#datasource-spec) |       DataSource Spec       |                                                            |
+| **specVersion** | String                              | String                      | `0.0.1` or `0.2.0` - the spec version of the manifest file |
+| **name**        | 𐄂                                   | String                      | Name of your project                                       |
+| **version**     | 𐄂                                   | String                      | Version of your project                                    |
+| **description** | String                              | String                      | Discription of your project                                |
+| **repository**  | String                              | String                      | Git repository address of your project                     |
+| **schema**      | String                              | [Schema Spec](#schema-spec) | The location of your GraphQL schema file                   |
+| **network**     | [Network Spec](#network-spec)       | Network Spec                | Detail of the network to be indexed                        |
+| **dataSources** | [DataSource Spec](#datasource-spec) | DataSource Spec             |                                                            |
 
 ### Schema Spec
 
-| Field    | v0.0.1 | v0.2.0 |                              Description |
-| -------- | ---- | ---- | --------------------------------------- |
-| **file** |   𐄂    | String | The location of your GraphQL schema file |
+| Field    | v0.0.1 | v0.2.0 | Description                              |
+| -------- | ------ | ------ | ---------------------------------------- |
+| **file** | 𐄂      | String | The location of your GraphQL schema file |
 
 ### Network Spec
 
-| Field           | v0.0.1 |    v0.2.0     |                                                                                                Description                                                                                                 |
-| --------------- | ---- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **genesisHash** |   𐄂     |    String    |                                                                                      The genesis hash of the network                                                                                       |
-| **endpoint**    | String |    String     | Defines the wss or ws endpoint of the blockchain to be indexed - **This must be a full archive node**. You can retrieve endpoints for all parachains for free from [OnFinality](https://app.onfinality.io) |
-| **dictionary**  | String |    String     |               It is suggested to provide the HTTP endpoint of a full chain dictionary to speed up processing - read [how a SubQuery Dictionary works](../tutorials_examples/dictionary.md).                |
-| **chaintypes**  |   𐄂    | {file:String} |                                                                         Path to chain types file, accept `.json` or `.yaml` format                                                                         |
+| Field           | v0.0.1 | v0.2.0        | Description                                                                                                                                                                                                |
+| --------------- | ------ | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **genesisHash** | 𐄂      | String        | The genesis hash of the network                                                                                                                                                                            |
+| **endpoint**    | String | String        | Defines the wss or ws endpoint of the blockchain to be indexed - **This must be a full archive node**. You can retrieve endpoints for all parachains for free from [OnFinality](https://app.onfinality.io) |
+| **dictionary**  | String | String        | It is suggested to provide the HTTP endpoint of a full chain dictionary to speed up processing - read [how a SubQuery Dictionary works](../academy/tutorials_examples/dictionary.md).                      |
+| **chaintypes**  | 𐄂      | {file:String} | Path to chain types file, accept `.json` or `.yaml` format                                                                                                                                                 |
 
 ### Datasource Spec
 
@@ -152,9 +153,9 @@ Defines the data that will be filtered and extracted and the location of the map
 
 ### Mapping Spec
 
-| Field                  |                                  v0.0.1                                  |                                         v0.2.0                                          |                                                                                                           Description                                                                                                            |
-| ---------------------- | ---------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **file**               |                                  String                                  |                                            𐄂                                            |                                                                                                    Path to the mapping entry                                                                                                     |
+| Field                  | v0.0.1                                                                   | v0.2.0                                                                                  | Description                                                                                                                                                                                                                      |
+| ---------------------- | ------------------------------------------------------------------------ | --------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **file**               | String                                                                   | 𐄂                                                                                       | Path to the mapping entry                                                                                                                                                                                                        |
 | **handlers & filters** | [Default handlers and filters](./manifest/#mapping-handlers-and-filters) | Default handlers and filters, <br />[Custom handlers and filters](#custom-data-sources) | List all the [mapping functions](./mapping.md) and their corresponding handler types, with additional mapping filters. <br /><br /> For custom runtimes mapping handlers please view [Custom data sources](#custom-data-sources) |
 
 ## Data Sources and Mapping
@@ -271,7 +272,6 @@ To use typescript for your chain types file include it in the `src` folder (e.g.
 network:
   chaintypes:
     file: ./dist/types.js # Will be generated after yarn run build
-...
 ```
 
 Things to note about using the chain types file with extension `.ts` or `.js`:
@@ -285,9 +285,10 @@ Here is an example of a `.ts` chain types file:
   <CodeGroupItem title="types.ts">
 
 ```ts
-import { typesBundleDeprecated } from "moonbeam-types-bundle"
+import { typesBundleDeprecated } from "moonbeam-types-bundle";
 export default { typesBundle: typesBundleDeprecated };
 ```
+
  </CodeGroupItem>
 </CodeGroup>
 
@@ -301,8 +302,8 @@ Custom Data Sources can be used with normal data sources.
 
 Here is a list of supported custom datasources:
 
-| Kind                                                  |                                            Supported Handlers                                            |             Filters             |                                   Description                                    |
-| ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | ----------------------------- | ------------------------------------------------------------------------------ |
+| Kind                                                  | Supported Handlers                                                                                       | Filters                         | Description                                                                      |
+| ----------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | ------------------------------- | -------------------------------------------------------------------------------- |
 | [substrate/Moonbeam](./moonbeam/#data-source-example) | [substrate/MoonbeamEvent](./moonbeam/#moonbeamevent), [substrate/MoonbeamCall](./moonbeam/#moonbeamcall) | See filters under each handlers | Provides easy interaction with EVM transactions and events on Moonbeams networks |
 
 ## Network Filters
@@ -321,7 +322,7 @@ Below is an example that shows different data sources for both the Polkadot and 
 ```yaml
 ---
 network:
-  endpoint: 'wss://polkadot.api.onfinality.io/public-ws'
+  endpoint: "wss://polkadot.api.onfinality.io/public-ws"
 
 #Create a template to avoid redundancy
 definitions:

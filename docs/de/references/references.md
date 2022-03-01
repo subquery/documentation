@@ -22,10 +22,10 @@ BEFEHLE
 Dieser Befehl verwendet webpack, um ein Bündel eines SubQuery-Projekts zu generieren.
 
 | Optionen           | Beschreibung                                                                   |
-| ------------------ | ------------------------------------------------------------------------------ |
+| ------------------ | ------------------------------------------------------------------------------ | ----------- | ---- | ------------------------ |
 | -l, --Standort     | lokaler Ordner des SubQuery-Projekts (falls nicht bereits im Ordner vorhanden) |
 | -o, --Ausgabe      | Geben Sie den Ausgabeordner des Builds an, z. build-Ordner                     |
-| --mode=(Produktion | prod | development | dev) | [ Standard: Produktion ]                           |
+| --mode=(Produktion | prod                                                                           | development | dev) | [ Standard: Produktion ] |
 
 - Mit `subql build` können Sie zusätzliche Einstiegspunkte im Exportfeld angeben, obwohl es immer `index.ts` automatisch bauen wird
 
@@ -281,7 +281,7 @@ Normalerweise wird dies in Ihrer Manifestdatei festgelegt, aber unten zeigt ein 
 subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot"
 ```
 
-[Lesen Sie mehr darüber, wie ein SubQuery Dictionary funktioniert](../tutorials_examples/dictionary.md).
+[Lesen Sie mehr darüber, wie ein SubQuery Dictionary funktioniert](../academy/tutorials_examples/dictionary.md).
 
 ### -p, --port
 

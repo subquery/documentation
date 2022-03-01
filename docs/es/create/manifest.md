@@ -27,12 +27,12 @@ USAR $ subql init [PROJECTNAME]
 ARGUENTOS PROJECTNAME Dar el nombre del proyecto inicial
 
 | Opciones                 | Descripción                                                                                |
-| ------------------------ | ------------------------------------------------------------------------------------------ |
+| ------------------------ | ------------------------------------------------------------------------------------------ | ---------------------------------------------------------- |
 | -f, --force              |                                                                                            |
 | -l, --location=ubicación | carpeta local para crear el proyecto en                                                    |
 | --install-dependencias   | Instalar también dependencias                                                              |
 | --npm                    | Forzar el uso de NPM en lugar de yarn, solo funciona con la bandera `install-dependencies` |
-| --specVersion=0.0.1      | 0.2.0 [por defecto: 0.2.0] | La versión especificada para ser utilizada por el proyecto    |
+| --specVersion=0.0.1      | 0.2.0 [por defecto: 0.2.0]                                                                 | La versión especificada para ser utilizada por el proyecto |
 
 ## Resumen
 
@@ -61,25 +61,25 @@ ARGUENTOS PROJECTNAME Dar el nombre del proyecto inicial
 | ------------------- | ------ | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **genesisHash**     | 𐄂      | String        | El hash de génesis de la red                                                                                                                                                                                |
 | **endpoint**        | String | String        | Define el punto final del blockchain para indexarse - **Este debe ser un nodo completo de archivo**. Puedes recuperar endpoints para todas las parachains gratis de [OnFinality](https://app.onfinality.io) |
-| **diccionario**     | String | String        | Se sugiere proporcionar el endpoint HTTP de un diccionario de cadena completo para acelerar el procesamiento - lea [cómo funciona un Diccionario de SubQuery](../tutorials_examples/dictionary.md).         |
+| **diccionario**     | String | String        | Se sugiere proporcionar el endpoint HTTP de un diccionario de cadena completo para acelerar el procesamiento - lea [cómo funciona un Diccionario de SubQuery](../academy/tutorials_examples/dictionary.md). |
 | **tipos de cadena** | 𐄂      | {file:String} | Ruta al archivo de tipos de cadena, acepte el formato `.json` o `.yaml`                                                                                                                                     |
 
 ### Fuente de datos especifica
 
 Define los datos que serán filtrados y extraídos y la ubicación del manejador de funciones de mapeo para que la transformación de datos sea aplicada.
-| Campo          | v0.0.1                                                                  | v0.2.0                                                                           | Descripción                                                                                                                                                                                                                           |
+| Campo | v0.0.1 | v0.2.0 | Descripción |
 | -------------- | ----------------------------------------------------------------------- | -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **nombre**     | String                                                                  | 𐄂                                                                                | Nombre del origen de los datos                                                                                                                                                                                                        |
-| **clase**      | [substrate/tiempo de ejecución](./manifestar/#fuentes de datos y mapeo) | substrate/Runtime, [substrate/CustomDataSource](./manifest/#custom-data-sources) | Soportamos el tipo de datos desde el tiempo de ejecución por defecto de substrate como bloque, evento y extrinsic(call). <br /> Desde v0.2.0, soportamos datos de tiempo de ejecución personalizado, como contrato inteligente. |
-| **startBlock** | Integer                                                                 | Integer                                                                          | Esto cambia el bloque de inicio de indexación, establezca esto más alto para omitir bloques iniciales con menos datos                                                                                                                 |
-| **mapeo**      | Especificación de mapeo                                                 | Especificación de mapeo                                                          |                                                                                                                                                                                                                                       |
-| **filtro**     | [filtros de red](./manifestar/#filtros de red)                          | 𐄂                                                                                | Filtrar la fuente de datos a ejecutar por el nombre de la especificación del extremo de red                                                                                                                                           |
+| **nombre** | String | 𐄂 | Nombre del origen de los datos |
+| **clase** | [substrate/tiempo de ejecución](./manifestar/#fuentes de datos y mapeo) | substrate/Runtime, [substrate/CustomDataSource](./manifest/#custom-data-sources) | Soportamos el tipo de datos desde el tiempo de ejecución por defecto de substrate como bloque, evento y extrinsic(call). <br /> Desde v0.2.0, soportamos datos de tiempo de ejecución personalizado, como contrato inteligente. |
+| **startBlock** | Integer | Integer | Esto cambia el bloque de inicio de indexación, establezca esto más alto para omitir bloques iniciales con menos datos |
+| **mapeo** | Especificación de mapeo | Especificación de mapeo | |
+| **filtro** | [filtros de red](./manifestar/#filtros de red) | 𐄂 | Filtrar la fuente de datos a ejecutar por el nombre de la especificación del extremo de red |
 
 ### Especificación de mapeo
 
-| Campo                       | v0.0.1                                                                            | v0.2.0                                                                                                          | Descripción                                                                                                                                                                                                                                                                                     |
-| --------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **archivo**                 | String                                                                            | 𐄂                                                                                                               | Ruta a la entrada de mapeo                                                                                                                                                                                                                                                                      |
+| Campo                       | v0.0.1                                                                            | v0.2.0                                                                                                    | Descripción                                                                                                                                                                                                                                                                         |
+| --------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **archivo**                 | String                                                                            | 𐄂                                                                                                         | Ruta a la entrada de mapeo                                                                                                                                                                                                                                                          |
 | **manipuladores y filtros** | [Controladores y filtros predeterminados](./manifestar/#mapeo-handlers-y-filtros) | Controladores y filtros por defecto, <br />[Controladores y filtros personalizados](#custom-data-sources) | Lista todas las [funciones de mapeo](./mapping.md) y sus correspondientes tipos de manejador, con filtros de mapeo adicionales. <br /><br /> Para manejadores de mapeo de tiempo de ejecución personalizados, por favor vea [fuentes de datos personalizadas](#custom-data-sources) |
 
 ## Fuentes de datos y mapeo
@@ -149,8 +149,8 @@ Soportamos los tipos adicionales usados por módulos de tiempo de ejecución sub
 
 En el ejemplo v0.2.0 de abajo, la red `. haintypes` están apuntando a un archivo que tiene todos los tipos personalizados incluidos, Este es un archivo estándar de chainspec que declara los tipos específicos soportados por este blockchain en cualquiera de los dos `. son`, `.yaml` o `.js formato`.
 
-<CodeGroup> <CodeGroupItem title="v0.2.0" active> ``` yml network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' endpoint: 'ws://host.kittychain.io/public-ws' chaintypes: file: ./types.json # la ruta relativa al lugar donde se almacenan los tipos personalizados ... ``` </CodeGroupItem>
-<CodeGroupItem title="v0.0.1"> ``` yml ... network: endpoint: "ws://host.kittychain.io/public-ws" types: { "KittyIndex": "u32", "Kitty": "[u8; 16]" } # typesChain: { chain: { Type5: 'example' } } # typesSpec: { spec: { Type6: 'example' } } dataSources: - name: runtime kind: substrate/Runtime startBlock: 1 filter:  #Optional specName: kitty-chain mapping: handlers: - handler: handleKittyBred kind: substrate/CallHandler filter: module: kitties method: breed success: true ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="v0.2.0" active> `yml network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' endpoint: 'ws://host.kittychain.io/public-ws' chaintypes: file: ./types.json # la ruta relativa al lugar donde se almacenan los tipos personalizados ...` </CodeGroupItem>
+<CodeGroupItem title="v0.0.1"> `yml ... network: endpoint: "ws://host.kittychain.io/public-ws" types: { "KittyIndex": "u32", "Kitty": "[u8; 16]" } # typesChain: { chain: { Type5: 'example' } } # typesSpec: { spec: { Type6: 'example' } } dataSources: - name: runtime kind: substrate/Runtime startBlock: 1 filter: #Optional specName: kitty-chain mapping: handlers: - handler: handleKittyBred kind: substrate/CallHandler filter: module: kitties method: breed success: true` </CodeGroupItem> </CodeGroup>
 
 To use typescript for your chain types file include it in the `src` folder (e.g. `./src/types.ts`), run `yarn build` and then point to the generated js file located in the `dist` folder.
 
@@ -158,7 +158,6 @@ To use typescript for your chain types file include it in the `src` folder (e.g.
 red:
   chaintypes:
     file: ./dist/types.js # se generará después de ejecutar yarn build
-...
 ```
 
 Cosas a tener en cuenta sobre el uso del archivo de tipos de cadena con extensión `.ts` o `.js`:
@@ -200,9 +199,9 @@ Aquí hay una lista de fuentes de datos personalizadas compatibles:
     
     <p spaces-before="0">
 
-<CodeGroup> <CodeGroupItem title="v0.0.1"> ```yaml --- network: endpoint: 'wss://polkadot.api.onfinality.io/public-ws' #Create a template to avoid redundancy definitions: mapping: &mymapping handlers: - handler: handleBlock kind: substrate/BlockHandler dataSources: - name: polkadotRuntime kind: substrate/Runtime filter: #Optional specName: polkadot startBlock: 1000 mapping: *mymapping #use template here - name: kusamaRuntime kind: substrate/Runtime filter: specName: kusama startBlock: 12000 mapping: *mymapping # can reuse or change ``` </CodeGroupItem>
-    </p>
-    
+<CodeGroup> <CodeGroupItem title="v0.0.1"> `yaml --- network: endpoint: 'wss://polkadot.api.onfinality.io/public-ws' #Create a template to avoid redundancy definitions: mapping: &mymapping handlers: - handler: handleBlock kind: substrate/BlockHandler dataSources: - name: polkadotRuntime kind: substrate/Runtime filter: #Optional specName: polkadot startBlock: 1000 mapping: *mymapping #use template here - name: kusamaRuntime kind: substrate/Runtime filter: specName: kusama startBlock: 12000 mapping: *mymapping # can reuse or change ` </CodeGroupItem>
+</p>
+
     <p spaces-before="0">
       </CodeGroup>
     </p>

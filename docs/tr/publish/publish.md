@@ -75,7 +75,7 @@ Dağıtımınız başarıyla tamamlandıktan ve node'larımız zincirdeki verile
 
 ![Proje dağıtılıyor ve senkronize ediliyor](/assets/img/projects-deploy-sync.png)
 
-Alternatif olarak, projenizin başlığının yanında bulunan üç noktaya tıklayabilir ve projenizi SubQuery Explorer'da görüntüleyebilirsiniz. There you can use the in-browser playground to get started - [read more about how to use our Explorer here](../query/query.md).
+Alternatif olarak, projenizin başlığının yanında bulunan üç noktaya tıklayabilir ve projenizi SubQuery Explorer'da görüntüleyebilirsiniz. There you can use the in-browser playground to get started - [read more about how to use our Explorer here](../run_publish/query.md).
 
 ![SubQuery Explorer'deki Projeler](/assets/img/projects-explorer.png)
 

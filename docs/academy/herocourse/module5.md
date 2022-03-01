@@ -15,6 +15,7 @@
 **Documentation reference**
 
 [What are deployment slots?](/faqs/faqs/#how-much-does-it-cost-to-host-my-project-in-subquery-projects)
+
 ## Lesson 3 - Exploring projects
 
 <figure class="video_container">
@@ -25,7 +26,7 @@
 
 Here we will learn what SubQuery Project is, how to deploy a project to SubQuery Project, and learn about SubQuery Explorer.
 
-NB: “SubQuery Project” (uppercase P) is SubQuery’s hosted solution. SubQuery project (lowercase p) refers to a general SubQuery project such as the “account transfer SubQuery project”.  
+NB: “SubQuery Project” (uppercase P) is SubQuery’s hosted solution. SubQuery project (lowercase p) refers to a general SubQuery project such as the “account transfer SubQuery project”.
 
 ### Pre-requisites
 
@@ -43,61 +44,58 @@ None
 
 ### Detailed steps
 
-
 #### Step 1: Hello World (SubQuery hosted)
 
-The detailed steps to deploy a project to SubQuery Projects are outlined on our documentation website at: [https://doc.subquery.network/quickstart/helloworld-hosted/](https://doc.subquery.network/quickstart/helloworld-hosted/). It takes a starter project, uploads it to GitHub, connects GitHub to SubQuery Projects and then deploys it. 
+The detailed steps to deploy a project to SubQuery Projects are outlined on our documentation website at: [https://doc.subquery.network/quickstart/helloworld-hosted/](https://doc.subquery.network/quickstart/helloworld-hosted/). It takes a starter project, uploads it to GitHub, connects GitHub to SubQuery Projects and then deploys it.
 
 Any project of your choice can be deployed to SubQuery Projects, but the most appropriate would be a project from the previous module.
 
-
 #### Step 2: Switching GitHub accounts
 
-It is common to publish your SubQuery project under the name of your GitHub Organization account rather than your personal GitHub account. Please refer to: 
+It is common to publish your SubQuery project under the name of your GitHub Organization account rather than your personal GitHub account. Please refer to:
 
-* [Add GitHub Organization Account to SubQuery Projects](https://doc.subquery.network/publish/publish/#add-github-organization-account-to-subquery-projects)
+- [Add GitHub Organization Account to SubQuery Projects](https://doc.subquery.network/run_publish/publish/#add-github-organization-account-to-subquery-projects)
 
 #### Step 3: Overriding endpoints
 
 When deploying your project, it is possible to override your default network or dictionary endpoints with another network. For more information please see:
 
-* [5. Deploy your project](https://doc.subquery.network/quickstart/helloworld-hosted/#_5-deploy-your-project)
+- [5. Deploy your project](https://doc.subquery.network/quickstart/helloworld-hosted/#_5-deploy-your-project)
 
 To understand more about how dictionaries work, refer to:
 
-* [How does a SubQuery dictionary work?](https://doc.subquery.network/tutorials_examples/dictionary/)
+- [How does a SubQuery dictionary work?](https://doc.subquery.network/academy/tutorials_examples/dictionary/)
 
 #### Step 4: Understanding slots
 
-Slots are a feature in SubQuery Projects that are the equivalent of a development environments. To learn more, visit: 
+Slots are a feature in SubQuery Projects that are the equivalent of a development environments. To learn more, visit:
 
-* [What are deployment slots?](https://doc.subquery.network/faqs/faqs/#what-are-deployment-slots)
-* [What is the advantage of a staging slot?](https://doc.subquery.network/faqs/faqs/#what-is-the-advantage-of-a-staging-slot)
-
+- [What are deployment slots?](https://doc.subquery.network/faqs/faqs/#what-are-deployment-slots)
+- [What is the advantage of a staging slot?](https://doc.subquery.network/faqs/faqs/#what-is-the-advantage-of-a-staging-slot)
 
 #### Step 5: Accessing Playground
 
 Once your project is deployed, access your project and run your desired query in playground. For more information, visit:
 
-* [Query your Project in SubQuery Explorer](https://doc.subquery.network/query/query/)
+- [Query your Project in SubQuery Explorer](https://doc.subquery.network/run_publish/query/)
 
-GraphQL is the language used to query for data. To learn more about GraphQL visit: 
+GraphQL is the language used to query for data. To learn more about GraphQL visit:
 
-* [Learn more about GraphQL](https://doc.subquery.network/query/graphql/)
+- [Learn more about GraphQL](https://doc.subquery.network/run_publish/graphql/)
 
 #### Step 6: Querying via the API
 
 Developers will typically query the SubQuery project via API. See an example of how this is done at:
 
-* [Querying via the API](https://doc.subquery.network/quickstart/helloworld-hosted/#_7-bonus-step)
+- [Querying via the API](https://doc.subquery.network/quickstart/helloworld-hosted/#_7-bonus-step)
 
 #### Step 7: Deleting SubQuery projects
 
 It is important to keep your SubQuery projects tidy and ensure that test projects are not running unnecessarily. This consumes extra resources on the network and creates extra cost as well. To delete a project see the guide below:
 
-* [Deleting SubQuery projects](https://doc.subquery.network/tutorials_examples/delete-projects/)
+- [Deleting SubQuery projects](https://doc.subquery.network/tutorials_examples/delete-projects/)
 
 ### References
 
-* [Deplying a project to SubQuery Explorer](/assets/pdf/Deploying_Subquery_Project)
-* [What are deployment slots?](/faqs/faqs/#how-much-does-it-cost-to-host-my-project-in-subquery-projects)
+- [Deplying a project to SubQuery Explorer](/assets/pdf/Deploying_Subquery_Project)
+- [What are deployment slots?](/faqs/faqs/#how-much-does-it-cost-to-host-my-project-in-subquery-projects)

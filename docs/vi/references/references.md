@@ -21,11 +21,11 @@ COMMANDS
 
 Lệnh này sử dụng webpack để tạo một gói dự án subquery.
 
-| Các Tùy chọn       | Mô tả                                                                                                      |
-| ------------------ | ---------------------------------------------------------------------------------------------------------- |
-| -l, --location     | thư mục cục bộ của dự án subquery (nếu chưa có trong thư mục)                                              |
-| -o, --output       | chỉ định thư mục đầu ra của bản dựng, ví dụ: build-folder                                                  |
-| --mode=(production | prod                                                        | development | dev) | [ default: production ] |
+| Các Tùy chọn       | Mô tả                                                         |
+| ------------------ | ------------------------------------------------------------- | ----------- | ---- | ----------------------- |
+| -l, --location     | thư mục cục bộ của dự án subquery (nếu chưa có trong thư mục) |
+| -o, --output       | chỉ định thư mục đầu ra của bản dựng, ví dụ: build-folder     |
+| --mode=(production | prod                                                          | development | dev) | [ default: production ] |
 
 - Với `subql build`, bạn có thể chỉ định các điểm nhập bổ sung trong trường export mặc dù nó sẽ luôn tạo `index.ts` tự động
 
@@ -50,12 +50,12 @@ Options:
       --subquery-name       Tên của dự án subquery     [không dùng nữa] [string]
   -c, --config              Chỉ định tệp cấu hình                       [string]
       --local               Sử dụng chế độ cục bộ [không dùng nữa]     [boolean]
-      --force-clean         Buộc dọn dẹp cơ sở dữ liệu, loại bỏ các lược đồ dự 
+      --force-clean         Buộc dọn dẹp cơ sở dữ liệu, loại bỏ các lược đồ dự
                             án và bảng                                 [boolean]
       --db-schema           Tên giản đồ Db của dự án                    [string]
       --unsafe              Cho phép sử dụng bất kỳ mô-đun tích hợp nào trong
                             sandbox                     boolean][default: false]
-      --batch-size          Kích thước hàng loạt của các khối để tìm nạp trong 
+      --batch-size          Kích thước hàng loạt của các khối để tìm nạp trong
                             một vòng                                    [number]
       --scale-batch-size    chia tỷ lệ kích thước lô dựa trên việc sử dụng bộ nhớ
                                                       [boolean] [default: false]
@@ -281,7 +281,7 @@ Thông thường, nó sẽ được đặt trong tệp manifest của bạn như
 subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot"
 ```
 
-[Đọc thêm về cách hoạt động của Từ điển SubQuery](../tutorials_examples/dictionary.md).
+[Đọc thêm về cách hoạt động của Từ điển SubQuery](../academy/tutorials_examples/dictionary.md).
 
 ### -p, --port
 
@@ -305,11 +305,11 @@ Tùy chọn:
           [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
                                                      "silent"] [default: "info"]
       --log-path    Đường dẫn để tạo tệp nhật ký, ví dụ: ./src/name.log [string]
-      --log-rotate  Xoay vòng các tệp nhật ký trong thư mục được chỉ định bởi 
+      --log-rotate  Xoay vòng các tệp nhật ký trong thư mục được chỉ định bởi
                     đường dẫn nhật ký                 [boolean] [default: false]
-      --indexer     Url cho phép truy vấn truy cập siêu dữ liệu của trình 
+      --indexer     Url cho phép truy vấn truy cập siêu dữ liệu của trình
                     lập chỉ mục                                         [string]
-      --unsafe      Vô hiệu hóa các giới hạn về độ sâu truy vấn và số lượng 
+      --unsafe      Vô hiệu hóa các giới hạn về độ sâu truy vấn và số lượng
                     bản ghi truy vấn được trả lại cho phép             [boolean]
   -p, --port        Cổng mà dịch vụ sẽ liên kết với                     [number]
 ```

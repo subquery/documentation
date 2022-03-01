@@ -1,5 +1,3 @@
-Sd
-
 # Substrate EVM Support
 
 We provide a custom data source processor for [Parity's Frontier EVM](https://github.com/paritytech/frontier). This offers a simple way to filter and index both EVM and Substrate activity on many Polkadot networks within a single SubQuery project.
@@ -45,7 +43,7 @@ Theoretically the following networks should also be supported since they impleme
 ## Data Source Spec
 
 | Field             | Type                                                              | Required | Description                                |
-| ----------------- |-------------------------------------------------------------------| -------- | ------------------------------------------ |
+| ----------------- | ----------------------------------------------------------------- | -------- | ------------------------------------------ |
 | processor.file    | `'./node_modules/@subql/contract-processors/dist/frontierEvm.js'` | Yes      | File reference to the data processor code  |
 | processor.options | [ProcessorOptions](#processor-options)                            | No       | Options specific to the Frontier Processor |
 | assets            | `{ [key: String]: { file: String }}`                              | No       | An object of external asset files          |
@@ -62,7 +60,7 @@ Theoretically the following networks should also be supported since they impleme
 Works in the same way as [substrate/CallHandler](../create/mapping/#call-handler) except with a different handler argument and minor filtering changes.
 
 | Field  | Type                         | Required | Description                                 |
-| ------ |------------------------------| -------- | ------------------------------------------- |
+| ------ | ---------------------------- | -------- | ------------------------------------------- |
 | kind   | 'substrate/FrontierEvmCall'  | Yes      | Specifies that this is an Call type handler |
 | filter | [Call Filter](#call-filters) | No       | Filter the data source to execute           |
 
@@ -88,7 +86,7 @@ Changes from the `TransactionResponse` type:
 Works in the same way as [substrate/EventHandler](../create/mapping/#event-handler) except with a different handler argument and minor filtering changes.
 
 | Field  | Type                           | Required | Description                                  |
-| ------ |--------------------------------| -------- | -------------------------------------------- |
+| ------ | ------------------------------ | -------- | -------------------------------------------- |
 | kind   | 'substrate/FrontierEvmEvent'   | Yes      | Specifies that this is an Event type handler |
 | filter | [Event Filter](#event-filters) | No       | Filter the data source to execute            |
 
@@ -154,4 +152,3 @@ dataSources:
 - There is currently no way to query EVM state within a handler
 - There is no way to get the transaction receipts with call handlers
 - `blockHash` properties are currently left undefined, the `blockNumber` property can be used instead
-

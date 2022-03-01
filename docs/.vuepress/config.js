@@ -176,15 +176,16 @@ function getSidebar(locale, language){
     },
     {
       title: 'Build',
-      path: `${locale}/build/introduction`,
+      path: `${locale}/create/introduction`,
       collapsable: true,
       children: [
-        `${locale}/build/introduction.md`,
-        `${locale}/build/install.md`,
-        `${locale}/build/manifest.md`,
-        `${locale}/build/graphql.md`,
-        `${locale}/build/mapping.md`,
-        `${locale}/build/moonbeam.md`,
+        `${locale}/create/introduction.md`,
+        `${locale}/create/install.md`,
+        `${locale}/create/manifest.md`,
+        `${locale}/create/graphql.md`,
+        `${locale}/create/mapping.md`,
+        `${locale}/create/substrate-evm.md`,
+        `${locale}/create/dynamicdatasources.md`,
       ]
     },
     {

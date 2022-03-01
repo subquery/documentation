@@ -75,7 +75,7 @@ If deployed successfully, you'll see the indexer start working and report back p
 
 ![Проект развернут и синхронизирован](/assets/img/projects-deploy-sync.png)
 
-Альтернативно, вы можете кликнуть по трем точкам рядом с названием вашего проекта и просмотреть его в SubQuery Explorer. There you can use the in-browser playground to get started - [read more about how to use our Explorer here](../query/query.md).
+Альтернативно, вы можете кликнуть по трем точкам рядом с названием вашего проекта и просмотреть его в SubQuery Explorer. There you can use the in-browser playground to get started - [read more about how to use our Explorer here](../run_publish/query.md).
 
 ![Проекты в SubQuery Эксплорере](/assets/img/projects-explorer.png)
 

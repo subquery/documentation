@@ -75,7 +75,7 @@ If deployed successfully, you'll see the indexer start working and report back p
 
 ![프로젝트 전개와 동기화](/assets/img/projects-deploy-sync.png)
 
-프로젝트 제목 옆에 있는 3개의 점을 클릭하여 SubQuery 탐색기로 표시할 수도 있습니다. There you can use the in-browser playground to get started - [read more about how to use our Explorer here](../query/query.md).
+프로젝트 제목 옆에 있는 3개의 점을 클릭하여 SubQuery 탐색기로 표시할 수도 있습니다. There you can use the in-browser playground to get started - [read more about how to use our Explorer here](../run_publish/query.md).
 
 ![SubQuery 탐색기 프로젝트](/assets/img/projects-explorer.png)
 

@@ -54,8 +54,8 @@ SubQuery 프로젝트가 초기화되면 다음과 같은 특정 질문을 받�
 
 마지막으로, 프로젝트 디렉터리에서 다음 명령을 실행하여 새 프로젝트의 종속성을 설치합니다.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```bash cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> `shell cd PROJECT_NAME yarn install ` </CodeGroupItem>
+<CodeGroupItem title="NPM"> `bash cd PROJECT_NAME npm install ` </CodeGroupItem> </CodeGroup>
 
 ## Configure and Build the Starter Project
 
@@ -69,7 +69,7 @@ In the starter package that you just initialised, we have provided a standard co
 
 ### GraphQL 모델 생성
 
-귀하의 SubQuery 프로젝트를 [인덱싱](../run/run.md)하려면 먼저 GraphQL 스키마 파일(`schema.graphql`)에 정의한 필수 GraphQL 모델을 생성해야 합니다. 프로젝트 디렉토리의 루트에서 이 명령을 실행하십시오.
+귀하의 SubQuery 프로젝트를 [인덱싱](../run_publish/run.md)하려면 먼저 GraphQL 스키마 파일(`schema.graphql`)에 정의한 필수 GraphQL 모델을 생성해야 합니다. 프로젝트 디렉토리의 루트에서 이 명령을 실행하십시오.
 
 <CodeGroup> cd PROJECT_NAME # Yarn yarn install # NPM npm install 주로 다음 파일에서 작업하게 됩니다.:
 
@@ -89,17 +89,17 @@ In the starter package that you just initialised, we have provided a standard co
 
 프로젝트의 루트 디렉터리에서 빌드 명령을 실행합니다.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```쉘 원사 빌드 ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```배시 npm 실행 스크립트 빌드 ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> `쉘 원사 빌드 ` </CodeGroupItem> <CodeGroupItem title="NPM"> `배시 npm 실행 스크립트 빌드 ` </CodeGroupItem> </CodeGroup>
 
 ## 스타터 프로젝트 실행 및 쿼리
 
 새 프로젝트를 [SubQuery 프로젝트](https://project.subquery.network)에 빠르게 게시하고 [탐색기](https://explorer.subquery.network)를 사용하여 쿼리할 수 있지만, SubQuery 노드를 로컬로 실행하는 가장 쉬운 방법은 다음과 같은 경우 Docker 컨테이너에서 실행하는 것입니다. Docker가 아직 없는 경우 [docker.com](https://docs.docker.com/get-docker/)에서 설치할 수 있습니다.
 
-[_이 단계를 건너뛰고 새 프로젝트를 SubQuery 프로젝트에 게시합니다._](../publish/publish.md)
+[_이 단계를 건너뛰고 새 프로젝트를 SubQuery 프로젝트에 게시합니다._](../run_publish/publish.md)
 
 ### SubQuery 프로젝트 실행
 
-SubQuery 노드가 실행되는 방식을 제어하는 모든 구성은 이 `docker-compose.yml` 파일에 정의되어 있습니다. 방금 초기화된 새 프로젝트의 경우 여기에서 아무 것도 변경할 필요가 없지만 [프로젝트 실행 섹션](../run/run.md)에서 파일 및 설정에 대한 자세한 내용을 읽을 수 있습니다.
+SubQuery 노드가 실행되는 방식을 제어하는 모든 구성은 이 `docker-compose.yml` 파일에 정의되어 있습니다. 방금 초기화된 새 프로젝트의 경우 여기에서 아무 것도 변경할 필요가 없지만 [프로젝트 실행 섹션](../run_publish/run.md)에서 파일 및 설정에 대한 자세한 내용을 읽을 수 있습니다.
 
 프로젝트 디렉토리에서 다음 명령을 실행합니다:
 
@@ -107,7 +107,7 @@ SubQuery 노드가 실행되는 방식을 제어하는 모든 구성은 이 `doc
 docker-compose pull && docker-compose up
 ```
 
-새로운 SubQuery 스타터 프로젝트의 경우, 다음 쿼리를 시도하여 작동 방식을 맛보거나 [GraphQL 쿼리 언어에 대해 자세히 알아볼 수 있습니다.](../query/graphql.md)
+새로운 SubQuery 스타터 프로젝트의 경우, 다음 쿼리를 시도하여 작동 방식을 맛보거나 [GraphQL 쿼리 언어에 대해 자세히 알아볼 수 있습니다.](../run_publish/graphql.md)
 
 ### 프로젝트 쿼리
 
@@ -115,7 +115,7 @@ docker-compose pull && docker-compose up
 
 GraphQL 플레이그라운드가 탐색기에 표시되고 쿼리할 준비가 된 스키마가 표시되어야 합니다. 플레이그라운드의 오른쪽 상단에는 문서 추첨을 여는 _문서_ 버튼이 있습니다. 이 문서는 자동으로 생성되며 쿼리할 수 있는 엔터티와 메서드를 찾는 데 도움이 됩니다.
 
-새로운 SubQuery 스타터 프로젝트의 경우, 다음 쿼리를 시도하여 작동 방식을 확인하거나 [GraphQL 쿼리 언어에 대해 자세히 알아볼 수 있습니다.](../query/graphql.md)
+새로운 SubQuery 스타터 프로젝트의 경우, 다음 쿼리를 시도하여 작동 방식을 확인하거나 [GraphQL 쿼리 언어에 대해 자세히 알아볼 수 있습니다.](../run_publish/graphql.md)
 
 ```graphql
 {
@@ -135,4 +135,4 @@ GraphQL 플레이그라운드가 탐색기에 표시되고 쿼리할 준비가 �
 
 이제 귀하는 샘플 데이터에 대한 GraphQL API 요청을 수락하는 로컬 실행 SubQuery 프로젝트가 있습니다. 다음 가이드에서는, 새 프로젝트를 [SubQuery 프로젝트](https://project.subquery.network)에 게시하고 [Explorer](https://explorer.subquery.network)를 사용하여 쿼리하는 방법을 보여줍니다.
 
-[새 프로젝트를 SubQuery 프로젝트에 게시하세요.](../publish/publish.md)
+[새 프로젝트를 SubQuery 프로젝트에 게시하세요.](../run_publish/publish.md)

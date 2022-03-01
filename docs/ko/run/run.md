@@ -1,6 +1,6 @@
 # 로컬에서 서브쿼리 실행하기
 
-이 가이드는 인덱서와 쿼리 서비스를 모두 포함하는 인프라에서 로컬 SubQuery 노드를 실행하는 방법을 설명합니다. 자체 SubQuery 인프라를 실행하는 것에 대해 걱정하고 싶지 않으세요? SubQuery는 커뮤니티에 [관리 호스팅 서비스](https://explorer.subquery.network)를 무료로 제공합니다. [게시 가이드](../publish/publish.md)를 따라 프로젝트를 [SubQuery 프로젝트](https://project.subquery.network)에 업로드하는 방법을 확인하세요.
+이 가이드는 인덱서와 쿼리 서비스를 모두 포함하는 인프라에서 로컬 SubQuery 노드를 실행하는 방법을 설명합니다. 자체 SubQuery 인프라를 실행하는 것에 대해 걱정하고 싶지 않으세요? SubQuery는 커뮤니티에 [관리 호스팅 서비스](https://explorer.subquery.network)를 무료로 제공합니다. [게시 가이드](../run_publish/publish.md)를 따라 프로젝트를 [SubQuery 프로젝트](https://project.subquery.network)에 업로드하는 방법을 확인하세요.
 
 ## 도커 사용
 
@@ -69,8 +69,9 @@ export DB_PASS=postgres
 export DB_DATABASE=postgres
 export DB_HOST=localhost
 export DB_PORT=5432
-subql-node -f your-project-path 
-````
+subql-node -f your-project-path
+```
+
 Postgres 데이터베이스의 구성(예: 다른 데이터베이스 비밀번호)에 따라 인덱서(`subql/node`)와 쿼리 서비스(`subql/query`)가 모두 연결할 수 있는지 확인하십시오.
 
 #### 구성 파일 지정
@@ -109,7 +110,6 @@ subql-node -f your-project-path --local
 디버깅을 위해 사용자는 로컬 모드에서 노드를 실행할 수 있습니다. 로컬 모델로 전환하면 기본 스키마 `public`에 Postgres 테이블이 생성됩니다.
 
 로컬 모드를 사용하지 않는 경우 초기 `subquery_` 및 해당 프로젝트 테이블이 있는 새 Postgres 스키마가 생성됩니다.
-
 
 #### 노드 상태 확인
 
@@ -171,12 +171,15 @@ node --inspect-brk <path to subql-node> -f <path to subQuery project>
 ```
 
 예를 들어:
+
 ```shell
 node --inspect-brk /usr/local/bin/subql-node -f ~/Code/subQuery/projects/subql-helloworld/
 ws://127.0.0.1:9229/56156753-c07d-4bbe-af2d-2c7ff4bcc5ad에서 수신하는 디버거
 도움이 필요하면 https://nodejs.org/en/docs/inspector를 참조하세요.
 ```
-이후, 크롬 개발자 도구를 통해 Source > Filesystem을 열고, 작업공간에 프로젝트를 추가하고 디버깅을 시작합니다. 자세한 내용은 다음을 확인하세요. [SubQuery 프로젝트를 디버그하는 방법](https://doc.subquery.network/tutorials_examples/debug-projects/)
+
+이후, 크롬 개발자 도구를 통해 Source > Filesystem을 열고, 작업공간에 프로젝트를 추가하고 디버깅을 시작합니다. 자세한 내용은 다음을 확인하세요. [SubQuery 프로젝트를 디버그하는 방법](https://doc.subquery.network/academy/tutorials_examples/debug-projects/)
+
 ## 쿼리 서비스 실행(subql/query)
 
 ### 설치
@@ -189,6 +192,7 @@ npm install -g @subql/query
 `yarn global`의 사용을 권장하지 **않습니다**. 잘못된 종속성 관리로 인해 오류가 발생할 수 있기 때문입니다.
 
 ### 쿼리 서비스 실행
+
 ``` export DB_HOST=localhost subql-query --name <project_name> --playground ````
 
 [프로젝트를 초기화](../quickstart/quickstart.md#initialise-the-starter-subquery-project)할 때 프로젝트 이름이 프로젝트 이름과 동일한지 확인하세요. 또한 환경 변수가 올바른지 확인하십시오.

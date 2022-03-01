@@ -21,11 +21,11 @@
 
 Ця команда використовує webpack для створення пакета проекту subquery.
 
-| Параметри          | Описання                                                     |
-| ------------------ | ------------------------------------------------------------ |
-| -l, --location     | локальна папка проекту subquery (якщо ще не в папці)         |
-| -o, --output       | Вкажіть вихідну папку збірки, напр. build-folder             |
-| --mode=(production | prod | development | dev) | [ за замовчуванням: production ] |
+| Параметри          | Описання                                             |
+| ------------------ | ---------------------------------------------------- | ----------- | ---- | -------------------------------- |
+| -l, --location     | локальна папка проекту subquery (якщо ще не в папці) |
+| -o, --output       | Вкажіть вихідну папку збірки, напр. build-folder     |
+| --mode=(production | prod                                                 | development | dev) | [ за замовчуванням: production ] |
 
 - За допомогою `subql build` ви можете вказати додаткові точки входу в полі експорту, хоча воно завжди збиратиметься `index.ts` автоматично
 
@@ -281,7 +281,7 @@ batchSize: 55 // Додаткова конфігурація
 підql-вузол -f. -d "https://api.subquery.network/sq/subquery/dictionary-polkadot"
 ```
 
-[ Детальніше про те, як працює SubQuery Dictionary ](../tutorials_examples/dictionary.md).
+[ Детальніше про те, як працює SubQuery Dictionary ](../academy/tutorials_examples/dictionary.md).
 
 ### -p, --порт
 

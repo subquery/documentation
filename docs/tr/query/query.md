@@ -1,6 +1,6 @@
 # Projenizi SubQuery Explorer'da Sorgulayın
 
-[SubQuery Explorer](https://explorer.subquery.network), topluluğumuzdaki katkıda bulunan kişiler tarafından geliştirilen ve SubQuery ekibi tarafından yönetilen yayınlanmış SubQuery projelerine erişim sağlayan çevrimiçi olarak ([explorer.subquery.network](https://explorer.subquery.network) adresinde) barındırılan bir hizmettir. [SubQuery Projeni Yayınla](../publish/publish.md) kılavuzumuzu izleyerek kendi SubQuery projelerinizi tarayıcımızda yayınlayabilirsiniz.
+[SubQuery Explorer](https://explorer.subquery.network), topluluğumuzdaki katkıda bulunan kişiler tarafından geliştirilen ve SubQuery ekibi tarafından yönetilen yayınlanmış SubQuery projelerine erişim sağlayan çevrimiçi olarak ([explorer.subquery.network](https://explorer.subquery.network) adresinde) barındırılan bir hizmettir. [SubQuery Projeni Yayınla](../run_publish/publish.md) kılavuzumuzu izleyerek kendi SubQuery projelerinizi tarayıcımızda yayınlayabilirsiniz.
 
 ![SubQuery Explorer](https://static.subquery.network/media/explorer/explorer-header.png)
 

@@ -1,8 +1,8 @@
 # SubQuery プロジェクトを公開する
 
-## SubQueryでプロジェクトをホスティングするメリット
+## SubQuery でプロジェクトをホスティングするメリット
 
-- SubQueryプロジェクトを高性能、スケーラブル、かつ管理されたパブリックサービスで実行します。
+- SubQuery プロジェクトを高性能、スケーラブル、かつ管理されたパブリックサービスで実行します。
 - このサービスは無料でコミュニティに提供されています！
 - [SubQuery Explorer](https://explorer.subquery.network) にリストされ、世界中の誰でもそれらを表示できるようにプロジェクトを公開することができます。
 - GitHub と統合されているので、GitHub 組織内の誰でも共有プロジェクトを閲覧することができます。
@@ -39,14 +39,14 @@ If you have a GitHub Organization accounts connected, you can use the switcher o
 
 Let's start by clicking on "Create Project". You'll be taken to the New Project form. Please enter the following (you can change this in the future):
 
-- **GitHubアカウント:** 複数のGitHubアカウントをお持ちの場合、このプロジェクトをどのアカウントで作成するかを選択してください。 GitHub Organizationのアカウントで作成されたプロジェクトは、そのGitHub Organizationに所属するメンバー間で共有されます。
+- **GitHub アカウント:** 複数の GitHub アカウントをお持ちの場合、このプロジェクトをどのアカウントで作成するかを選択してください。 GitHub Organization のアカウントで作成されたプロジェクトは、その GitHub Organization に所属するメンバー間で共有されます。
 - **Project Name**
 - **サブタイトル**
 - **説明**
-- **GitHub Repository URL:** これは、あなたのSubQueryプロジェクトがあるパブリックリポジトリへの有効なGitHub URLである必要があります。 `schema.graphql` ファイルは、ディレクトリのルートにある必要があります ([ディレクトリ構造の詳細](../create/introduction.md#directory-structure) を参照してください)。
+- **GitHub Repository URL:** これは、あなたの SubQuery プロジェクトがあるパブリックリポジトリへの有効な GitHub URL である必要があります。 `schema.graphql` ファイルは、ディレクトリのルートにある必要があります ([ディレクトリ構造の詳細](../create/introduction.md#directory-structure) を参照してください)。
 - **Database:** Premium customers can access dedicated databases to host production SubQuery projects from. If this interests you, you can contact [sales@subquery.network](mailto:sales@subquery.network) to have this setting enabled.
 - **Deployment Source:** You can choose to have the project deployed from the GitHub repository or alternatively deployed from a IPFS CID, see our guide about [hosting with IPFS.](ipfs.md)
-- **プロジェクトを非表示にする:** 選択すると、公開の SubQuery エクスプローラからプロジェクトを非表示にします。 SubQueryをコミュニティと共有したい場合は、この選択を解除しておいてください。 ![Create your first Project](/assets/img/projects-create.png)
+- **プロジェクトを非表示にする:** 選択すると、公開の SubQuery エクスプローラからプロジェクトを非表示にします。 SubQuery をコミュニティと共有したい場合は、この選択を解除しておいてください。 ![Create your first Project](/assets/img/projects-create.png)
 
 Create your project and you'll see it on your SubQuery Project's list. _We're almost there! We just need to deploy a new version of it._
 
@@ -54,7 +54,7 @@ Create your project and you'll see it on your SubQuery Project's list. _We're al
 
 ### Deploy your first Version
 
-While creating a project will setup the display behaviour of the project, you must deploy a version of it before it becomes operational. バージョンをデプロイすると、新しいSubQueryインデックス作成操作が開始され、必要なクエリーサービスがGraphQLリクエストの受け付けを開始するようセットアップされます。 新しいバージョンを既存のプロジェクトにデプロイすることもできます。
+While creating a project will setup the display behaviour of the project, you must deploy a version of it before it becomes operational. バージョンをデプロイすると、新しい SubQuery インデックス作成操作が開始され、必要なクエリーサービスが GraphQL リクエストの受け付けを開始するようセットアップされます。 新しいバージョンを既存のプロジェクトにデプロイすることもできます。
 
 With your new project, you'll see a Deploy New Version button. Click this, and fill in the required information about the deployment:
 
@@ -62,8 +62,8 @@ With your new project, you'll see a Deploy New Version button. Click this, and f
 - **Commit Hash:** From GitHub, select the specific commit of the version of your SubQuery project codebase that you want deployed
 - **IPFS:** If deploying from IPFS, paste you IPFS deployment CID (without the leading `ipfs://`)
 - **Override Network and Dictionary Endpoints:** You can override the endpoints in your project manifest here
-- **インデクサバージョン:** このSubQueryを実行するノードサービスのバージョンを指定します。 See [`@subql/node`](https://www.npmjs.com/package/@subql/node)
-- **クエリのバージョン:** SubQueryのクエリサービスのバージョンで、このSubQueryを実行します。 See [`@subql/query`](https://www.npmjs.com/package/@subql/query)
+- **インデクサバージョン:** この SubQuery を実行するノードサービスのバージョンを指定します。 See [`@subql/node`](https://www.npmjs.com/package/@subql/node)
+- **クエリのバージョン:** SubQuery のクエリサービスのバージョンで、この SubQuery を実行します。 See [`@subql/query`](https://www.npmjs.com/package/@subql/query)
 
 ![Deploy your first Project](https://static.subquery.network/media/projects/projects-first-deployment.png)
 
@@ -71,11 +71,11 @@ If deployed successfully, you'll see the indexer start working and report back p
 
 ## 次のステップ - プロジェクトに接続
 
-デプロイが正常に完了し、ノードがチェーンからデータのインデックスを作成したら、表示されたGraphQLクエリエンドポイントからプロジェクトに接続することができるようになります。
+デプロイが正常に完了し、ノードがチェーンからデータのインデックスを作成したら、表示された GraphQL クエリエンドポイントからプロジェクトに接続することができるようになります。
 
 ![プロジェクトを展開および同期する](/assets/img/projects-deploy-sync.png)
 
-または、プロジェクトのタイトルの横にある3つの点をクリックして、SubQuery Explorer で表示することもできます。 There you can use the in-browser playground to get started - [read more about how to use our Explorer here](../query/query.md).
+または、プロジェクトのタイトルの横にある 3 つの点をクリックして、SubQuery Explorer で表示することもできます。 There you can use the in-browser playground to get started - [read more about how to use our Explorer here](../run_publish/query.md).
 
 ![SubQuery Explorer のプロジェクト](/assets/img/projects-explorer.png)
 

@@ -54,8 +54,8 @@ Nachdem der Initialisierungsvorgang abgeschlossen ist, sollten Sie sehen, dass i
 
 Führen Sie zuletzt im Projektverzeichnis den folgenden Befehl aus, um die Abhängigkeiten des neuen Projekts zu installieren.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```bash cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> `shell cd PROJECT_NAME yarn install ` </CodeGroupItem>
+<CodeGroupItem title="NPM"> `bash cd PROJECT_NAME npm install ` </CodeGroupItem> </CodeGroup>
 
 ## Starterprojekt konfigurieren und erstellen
 
@@ -69,10 +69,10 @@ Weitere Informationen zum Schreiben einer eigenen SubQuery finden Sie in unserer
 
 ### GraphQL Model Generation
 
-Um Ihr SubQuery-Projekt [indizieren](../run/run.md) zu können, müssen Sie zuerst die erforderlichen GraphQL-Modelle generieren, die Sie in Ihrer GraphQL-Schemadatei (`schema.graphql`) definiert haben. Führen Sie diesen Befehl im Stammverzeichnis des Projektverzeichnisses aus.
+Um Ihr SubQuery-Projekt [indizieren](../run_publish/run.md) zu können, müssen Sie zuerst die erforderlichen GraphQL-Modelle generieren, die Sie in Ihrer GraphQL-Schemadatei (`schema.graphql`) definiert haben. Führen Sie diesen Befehl im Stammverzeichnis des Projektverzeichnisses aus.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```bash npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> `shell yarn codegen ` </CodeGroupItem>
+<CodeGroupItem title="NPM"> `bash npm run-script codegen ` </CodeGroupItem> </CodeGroup>
 
 Sie finden die generierten Modelle im `/src/types/models` Verzeichnis
 
@@ -82,7 +82,7 @@ Um Ihr SubQuery-Projekt auf einem lokal gehosteten SubQuery-Node auszuführen, m
 
 Führen Sie den Build-Befehl im Stammverzeichnis des Projekts aus.
 
-<CodeGroup> Die gesamte Konfiguration, die steuert, wie ein SubQuery Node ausgeführt wird, ist darin definiert `docker-compose.yml` file. Für ein neues Projekt, das gerade initialisiert wurde, müssen Sie hier nichts ändern, aber Sie können mehr über die Datei und die Einstellungen in unserem Abschnitt [Projekt ausführen](../run/run.md) lesen
+<CodeGroup> Die gesamte Konfiguration, die steuert, wie ein SubQuery Node ausgeführt wird, ist darin definiert `docker-compose.yml` file. Für ein neues Projekt, das gerade initialisiert wurde, müssen Sie hier nichts ändern, aber Sie können mehr über die Datei und die Einstellungen in unserem Abschnitt [Projekt ausführen](../run_publish/run.md) lesen
 
 Führen Sie im Projektverzeichnis folgenden Befehl aus:
 
@@ -98,7 +98,7 @@ Es kann einige Zeit dauern, die erforderlichen Pakete ([`@subql/node`](https://w
 
 Im Explorer sollte ein GraphQL-Playground angezeigt werden und die Schemas, die zur Abfrage bereit sind. Oben rechts auf dem Playground finden Sie eine Schaltfläche _Dokumente_, die eine Dokumentationsverlosung öffnet. Diese Dokumentation wird automatisch generiert und hilft Ihnen zu finden, welche Entitäten und Methoden Sie abfragen können.
 
-Für ein neues SubQuery-Starterprojekt können Sie die folgende Abfrage ausprobieren, um einen Eindruck davon zu bekommen, wie es funktioniert, oder [mehr über die GraphQL-Abfragesprache erfahren](../query/graphql.md).
+Für ein neues SubQuery-Starterprojekt können Sie die folgende Abfrage ausprobieren, um einen Eindruck davon zu bekommen, wie es funktioniert, oder [mehr über die GraphQL-Abfragesprache erfahren](../run_publish/graphql.md).
 
 ```graphql
 {
@@ -118,4 +118,4 @@ Für ein neues SubQuery-Starterprojekt können Sie die folgende Abfrage ausprobi
 
 Herzliche Glückwünsche! Sie haben jetzt ein lokal ausgeführtes SubQuery-Projekt, das GraphQL-API-Anforderungen für Beispieldaten akzeptiert. In der nächsten Anleitung zeigen wir Ihnen, wie Sie Ihr neues Projekt in [SubQuery-Projekte](https://project.subquery.network) veröffentlichen und mit unserem [Explorer](https://explorer.subquery.network) abfragen
 
-[Veröffentlichen Sie Ihr neues Projekt in SubQuery Projects](../publish/publish.md)
+[Veröffentlichen Sie Ihr neues Projekt in SubQuery Projects](../run_publish/publish.md)

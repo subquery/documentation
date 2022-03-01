@@ -75,7 +75,7 @@ If deployed successfully, you'll see the indexer start working and report back p
 
 ![Проектът се внедрява и се синхронизира](/assets/img/projects-deploy-sync.png)
 
-Като алтернатива можете да щракнете върху трите точки до заглавието на вашия проект и да го видите в SubQuery Explorer. There you can use the in-browser playground to get started - [read more about how to use our Explorer here](../query/query.md).
+Като алтернатива можете да щракнете върху трите точки до заглавието на вашия проект и да го видите в SubQuery Explorer. There you can use the in-browser playground to get started - [read more about how to use our Explorer here](../run_publish/query.md).
 
 ![Проекти в SubQuery Explorer](/assets/img/projects-explorer.png)
 

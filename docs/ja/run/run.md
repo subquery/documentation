@@ -1,10 +1,10 @@
-# ローカルでのSubQueryの実行
+# ローカルでの SubQuery の実行
 
-このガイドでは、インフラストラクチャ上でローカルのSubQueryノードを実行する方法を説明します。このノードには、インデクサとクエリサービスの両方が含まれます。 SubQueryのインフラストラクチャの運用を心配する必要はないでしょうか？ SubQueryは、[マネージドホスティングサービス](https://explorer.subquery.network)をコミュニティに無償で提供しています。 [公式ガイド](../publish/publish.md) に従って、 [SubQuery Projects](https://project.subquery.network) にプロジェクトをアップロードする方法をご覧ください。
+このガイドでは、インフラストラクチャ上でローカルの SubQuery ノードを実行する方法を説明します。このノードには、インデクサとクエリサービスの両方が含まれます。 SubQuery のインフラストラクチャの運用を心配する必要はないでしょうか？ SubQuery は、[マネージドホスティングサービス](https://explorer.subquery.network)をコミュニティに無償で提供しています。 [公式ガイド](../run_publish/publish.md) に従って、 [SubQuery Projects](https://project.subquery.network) にプロジェクトをアップロードする方法をご覧ください。
 
 ## Docker の使用
 
-代替案としては、`docker-compose.yml`ファイルで定義された<strong>Dockerコンテナ</strong>を実行する方法があります。 初期化されたばかりの新しいプロジェクトでは、ここで何も変更する必要はありません。
+代替案としては、`docker-compose.yml`ファイルで定義された<strong>Docker コンテナ</strong>を実行する方法があります。 初期化されたばかりの新しいプロジェクトでは、ここで何も変更する必要はありません。
 
 プロジェクトディレクトリで、以下のコマンドを実行します。
 
@@ -12,15 +12,15 @@
 docker-compose pull && docker-compose up
 ```
 
-初回は必要なパッケージ ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query),Postgres) をダウンロードするのに時間がかかるかもしれませんが、すぐにSubQueryノードが動作するのを確認できると思います。
+初回は必要なパッケージ ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query),Postgres) をダウンロードするのに時間がかかるかもしれませんが、すぐに SubQuery ノードが動作するのを確認できると思います。
 
 ## インデクサの実行 (subql/node)
 
 要件
 
-- [Postgres](https://www.postgresql.org/) データベース (バージョン12以上)。 [SubQueryノード](#start-a-local-subquery-node) はブロックチェーンのインデックスを作成していますが、抽出されたデータは外部データベース・インスタンスに保存されます。
+- [Postgres](https://www.postgresql.org/) データベース (バージョン 12 以上)。 [SubQuery ノード](#start-a-local-subquery-node) はブロックチェーンのインデックスを作成していますが、抽出されたデータは外部データベース・インスタンスに保存されます。
 
-SubQueryノードは、SubQueryプロジェクトごとにSubstrateベースのブロックチェーンデータを抽出し、Postgresデータベースに保存します。
+SubQuery ノードは、SubQuery プロジェクトごとに Substrate ベースのブロックチェーンデータを抽出し、Postgres データベースに保存します。
 
 ### インストール
 
@@ -49,7 +49,7 @@ subql-node -f your-project-path
 
 #### ディクショナリを使用する
 
-フルチェーンディクショナリを使用すると、テスト時や最初のインデックス作成時に、SubQueryプロジェクトの処理を劇的にスピードアップできます。 場合によっては、インデックスのパフォーマンスが最大10倍に向上することもあります。
+フルチェーンディクショナリを使用すると、テスト時や最初のインデックス作成時に、SubQuery プロジェクトの処理を劇的にスピードアップできます。 場合によっては、インデックスのパフォーマンスが最大 10 倍に向上することもあります。
 
 フルチェーンディクショナリは、特定のチェーン内のすべてのイベントと外部の場所を事前にインデックスを作成し、ノードサービスが各ブロックを検査するのではなく、インデックス作成時に関連する場所にスキップできるようにします。
 
@@ -59,7 +59,7 @@ subql-node -f your-project-path
 subql-node --network-dictionary=https://api.subquery.network/sq/subquery/dictionary-polkadot
 ```
 
-[SubQuery Dictionaryの仕組みについて](../tutorials_examples/dictionary.md)
+[SubQuery Dictionary の仕組みについて](../academy/tutorials_examples/dictionary.md)
 
 #### データベースに接続する
 
@@ -69,11 +69,10 @@ export DB_PASS=postgres
 export DB_DATABASE=postgres
 export DB_HOST=localhost
 export DB_PORT=5432
-subql-node -f your-project-path 
-````
+subql-node -f your-project-path
+```
 
 Postgres データベースの設定によっては (例: 異なるデータベースパスワード)、インデクサ (`subql/node`) とクエリサービス (`subql/query`) の両方がデータベースへの接続を確立できることも確認する必要があります。
-
 
 #### 設定ファイルを指定する
 
@@ -100,7 +99,7 @@ Result:
 [IndexerManager] fetch block [403, 602]
 ```
 
-インデクサが最初にチェーンのインデックスを作成するとき、単一ブロックをフェッチすると性能が大幅に低下します。 バッチサイズを大きくしてフェッチするブロック数を調整することで、全体の処理時間を短縮することができます。 現在のバッチサイズは100です。
+インデクサが最初にチェーンのインデックスを作成するとき、単一ブロックをフェッチすると性能が大幅に低下します。 バッチサイズを大きくしてフェッチするブロック数を調整することで、全体の処理時間を短縮することができます。 現在のバッチサイズは 100 です。
 
 #### ローカルモードで実行する
 
@@ -112,12 +111,11 @@ subql-node -f your-project-path --local
 
 ローカル モードが使用されていない場合、最初の `subquery_` を持つ新しい Postgres スキーマと対応するプロジェクトテーブルが作成されます。
 
-
 #### ノードの健全性を確認する
 
 実行中の SubQuery ノードの正常性をチェックし監視するために使用できる 2 つのエンドポイントがあります。
 
-- シンプルな200応答を返すヘルスチェックエンドポイント
+- シンプルな 200 応答を返すヘルスチェックエンドポイント
 - 実行中の SubQuery ノードの追加分析を含むメタデータエンドポイント
 
 これを SubQuery ノードのベース URL に追加します。 例 `http://localhost:3000/meta` は以下を返します:
@@ -143,7 +141,7 @@ subql-node -f your-project-path --local
 }
 ```
 
-`http://localhost:3000/health` は成功するとHTTP 200を返します。
+`http://localhost:3000/health` は成功すると HTTP 200 を返します。
 
 インデクサが正常でない場合は、500 エラーが返されます。 これは、ノードが起動しているときによく見られます。
 
@@ -173,13 +171,16 @@ node --inspect-brk <path to subql-node> -f <path to subQuery project>
 ```
 
 例
+
 ```shell
 node --inspect-brk /usr/local/bin/subql-node -f ~/Code/subQuery/projects/subql-helloworld/
 Debugger listening on ws://127.0.0.1:9229/56156753-c07d-4bbe-af2d-2c7ff4bcc5ad
 For help, see: https://nodejs.org/en/docs/inspector
 Debugger attached.
 ```
-Chrome 開発ツールを開き、ソース > ファイルシステムに移動し、プロジェクトをワークスペースに追加してデバッグを開始します。 詳細については、 [SubQuery プロジェクトのデバッグ方法](https://doc.subquery.network/tutorials_examples/debug-projects/) を参照してください。
+
+Chrome 開発ツールを開き、ソース > ファイルシステムに移動し、プロジェクトをワークスペースに追加してデバッグを開始します。 詳細については、 [SubQuery プロジェクトのデバッグ方法](https://doc.subquery.network/academy/tutorials_examples/debug-projects/) を参照してください。
+
 ## クエリサービスの実行 (subql/query)
 
 ### インストール
@@ -192,8 +193,9 @@ npm install -g @subql/query
 なお、`yarn global` の使用は、依存関係の管理が不十分であるため、**推奨しないこと** とし、将来的にエラーを引き起こす可能性があることに注意してください。
 
 ### クエリサービスの実行
+
 ``` export DB_HOST=localhost subql-query --name <project_name> --playground ````
 
 プロジェクト名は、[プロジェクトを初期化](../quickstart/quickstart.md#initialise-the-starter-subquery-project)したときのプロジェクト名と同じにしてください。 また、環境変数が正しいことを確認してください。
 
-subql-queryサービスを正常に実行した後、ブラウザを開き、 `http://localhost:3000` に進みます。 エクスプローラーに表示されるGraphQLプレイグラウンドと、クエリーの準備ができたスキーマが表示されるはずです。
+subql-query サービスを正常に実行した後、ブラウザを開き、 `http://localhost:3000` に進みます。 エクスプローラーに表示される GraphQL プレイグラウンドと、クエリーの準備ができたスキーマが表示されるはずです。

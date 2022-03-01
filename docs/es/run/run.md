@@ -1,6 +1,6 @@
 # Ejecutar SubQuery Localmente
 
-Esta guía trabaja sobre cómo ejecutar un nodo local de SubQuery en su infraestructura, que incluye tanto el indexador como el servicio de consultas. ¿No quieres preocuparte por ejecutar tu propia infraestructura de SubQuery? SubQuery proporciona un [servicio administrado](https://explorer.subquery.network) a la comunidad de forma gratuita. [Sigue nuestra guía de publicación](../publish/publish.md) para ver cómo puedes subir tu proyecto a [SubQuery Projects](https://project.subquery.network).
+Esta guía trabaja sobre cómo ejecutar un nodo local de SubQuery en su infraestructura, que incluye tanto el indexador como el servicio de consultas. ¿No quieres preocuparte por ejecutar tu propia infraestructura de SubQuery? SubQuery proporciona un [servicio administrado](https://explorer.subquery.network) a la comunidad de forma gratuita. [Sigue nuestra guía de publicación](../run_publish/publish.md) para ver cómo puedes subir tu proyecto a [SubQuery Projects](https://project.subquery.network).
 
 ## Usando Docker
 
@@ -59,7 +59,7 @@ Puede añadir el punto final del diccionario en su proyecto `project.yaml` (ver 
 subql-node --network-dictionary=https://api.subquery.network/sq/subquery/dictionary-polkadot
 ```
 
-Dependiendo de la configuración de su base de datos de Postgres (por ejemplo, una contraseña de base de datos diferente), asegúrese también de que tanto el indexador (` subql / node `) como el servicio de consulta (` subql / query `) puede establecer una conexión con él.
+Dependiendo de la configuración de su base de datos de Postgres (por ejemplo, una contraseña de base de datos diferente), asegúrese también de que tanto el indexador (`subql / node`) como el servicio de consulta (`subql / query`) puede establecer una conexión con él.
 
 #### Conectar a la base de datos
 
@@ -69,8 +69,8 @@ export DB_PASS=postgres
 export DB_DATABASE=postgres
 export DB_HOST=localhost
 export DB_PORT=5432
-subql-node -f your-project-path 
-````
+subql-node -f your-project-path
+```
 
 Dependiendo de la configuración de su base de datos Postgres (e.. una contraseña de base de datos diferente), por favor asegúrese de que tanto el indexador (`subql/node`) como el servicio de consultas (`subql/query`) pueden establecer una conexión con él.
 
@@ -109,7 +109,6 @@ subql-node -f your-project-path --local
 Para fines de depuración, los usuarios pueden ejecutar el nodo en modo local. Cambiar al modelo local creará tablas Postgres en el esquema predeterminado `public`.
 
 Si no se utiliza el modo local, se creará un nuevo esquema de Postgres con la `subconsulta_ inicial` y las tablas de proyecto correspondientes.
-
 
 #### Compruebe la salud de su nodo
 
@@ -176,13 +175,16 @@ subql-node -f your-project-path
 ```
 
 Por ejemplo:
+
 ```shell
 node --inspect-brk /usr/local/bin/subql-node -f ~/Code/subQuery/projects/subql-helloworld/
 Debugger listening on ws://127.0.0.1:9229/56156753-c07d-4bbe-af2d-2c7ff4bcc5ad
 For help, see: https://nodejs.org/en/docs/inspector
 Debugger attached.
 ```
-Luego abre las herramientas de desarrollo de Chrome, ve a Source > Filesystem y añade tu proyecto al área de trabajo y comienza a depurar. Para obtener más información, consulte [Cómo depurar un proyecto de SubQuery](https://doc.subquery.network/tutorials_examples/debug-projects/)
+
+Luego abre las herramientas de desarrollo de Chrome, ve a Source > Filesystem y añade tu proyecto al área de trabajo y comienza a depurar. Para obtener más información, consulte [Cómo depurar un proyecto de SubQuery](https://doc.subquery.network/academy/tutorials_examples/debug-projects/)
+
 ## Ejecutar un Servicio de Consulta (subql/query)
 
 ### Instalación
@@ -195,6 +197,7 @@ npm install -g @subql/cli
 Tenga en cuenta que **NO** animamos el uso de `yarn global` debido a su mala gestión de dependencias que puede llevar a errores en la línea.
 
 ### Ejecutar el servicio de consulta
+
 ``` export DB_HOST=localhost subql-query --name <project_name> --playground ````
 
 Asegúrese de que el nombre del proyecto es el mismo que el nombre del proyecto cuando [inicialice el proyecto](../quickstart/quickstart.md#initialise-the-starter-subquery-project). Además, compruebe que las variables de entorno son correctas.

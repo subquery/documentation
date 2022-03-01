@@ -1,6 +1,6 @@
 # Query Dự Án của bạn trong SubQuery Explorer
 
-[SubQuery Explorer](https://explorer.subquery.network) là một dịch vụ được lưu trữ trực tuyến (tại [ explorer.subquery.network ](https://explorer.subquery.network)) cung cấp quyền truy cập vào các dự án SubQuery đã xuất bản được thực hiện bởi những người đóng góp trong cộng đồng của chúng tôi và được quản lý bởi nhóm SubQuery. Bạn có thể xuất bản các dự án SubQuery của riêng mình cho người khám phá của chúng tôi bằng cách làm theo hướng dẫn của chúng tôi để [ Xuất bản Dự án SubQuery của bạn ](../publish/publish.md).
+[SubQuery Explorer](https://explorer.subquery.network) là một dịch vụ được lưu trữ trực tuyến (tại [ explorer.subquery.network ](https://explorer.subquery.network)) cung cấp quyền truy cập vào các dự án SubQuery đã xuất bản được thực hiện bởi những người đóng góp trong cộng đồng của chúng tôi và được quản lý bởi nhóm SubQuery. Bạn có thể xuất bản các dự án SubQuery của riêng mình cho người khám phá của chúng tôi bằng cách làm theo hướng dẫn của chúng tôi để [ Xuất bản Dự án SubQuery của bạn ](../run_publish/publish.md).
 
 ![SubQuery Explorer](https://static.subquery.network/media/explorer/explorer-header.png)
 

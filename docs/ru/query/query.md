@@ -1,6 +1,6 @@
 # Запросите свой проект в SubQuery Explorer
 
-[ SubQuery Explorer ](https://explorer.subquery.network) - это онлайн-сервис (по адресу [ explorer.subquery.network ](https://explorer.subquery.network)), который обеспечивает доступ к опубликованным проектам SubQuery, созданным участниками нашего сообщества и управляемым командой SubQuery. Вы можете опубликовать свои собственные проекты SubQuery в нашем проводнике, следуя нашему руководству по [ публикации вашего проекта SubQuery ](../publish/publish.md).
+[ SubQuery Explorer ](https://explorer.subquery.network) - это онлайн-сервис (по адресу [ explorer.subquery.network ](https://explorer.subquery.network)), который обеспечивает доступ к опубликованным проектам SubQuery, созданным участниками нашего сообщества и управляемым командой SubQuery. Вы можете опубликовать свои собственные проекты SubQuery в нашем проводнике, следуя нашему руководству по [ публикации вашего проекта SubQuery ](../run_publish/publish.md).
 
 ![SubQuery Explorer](https://static.subquery.network/media/explorer/explorer-header.png)
 

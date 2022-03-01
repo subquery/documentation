@@ -4,7 +4,7 @@ Manifest `project.yaml` dosyası projenizin giriş noktası olarak görülebilir
 
 Bildirim YAML veya JSON biçiminde olabilir. Bu belgede, tüm örneklerde YAML kullanacağız. Aşağıda temel `project.yaml` standart bir örneği verilmiştir.
 
-<CodeGroup> <CodeGroupItem title="v0.2.0" active> ``` yml specVersion: 0.2.0 name: example-project # Provide the project name version: 1.0.0  # Project version description: '' # Description of your project repository: 'https://github.com/subquery/subql-starter' # Git repository address of your project schema: file: ./schema.graphql # The location of your GraphQL schema file network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' # Genesis hash of the network endpoint: 'wss://polkadot.api.onfinality.io/public-ws' # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing dictionary: 'https://api.subquery.network/sq/subquery/dictionary-polkadot' dataSources: - kind: substrate/Runtime startBlock: 1 # This changes your indexing start block, set this higher to skip initial blocks with less data mapping: file: "./dist/index.js" handlers: - handler: handleBlock kind: substrate/BlockHandler - handler: handleEvent kind: substrate/EventHandler filter: #Filter is optional module: balances method: Deposit - handler: handleCall kind: substrate/CallHandler ```` </CodeGroupItem> <CodeGroupItem title="v0.0.1"> ``` yml specVersion: "0.0.1" description: '' # Description of your project repository: 'https://github.com/subquery/subql-starter' # Git repository address of your project schema: ./schema.graphql # The location of your GraphQL schema file network: endpoint: 'wss://polkadot.api.onfinality.io/public-ws' # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing dictionary: 'https://api.subquery.network/sq/subquery/dictionary-polkadot' dataSources: - name: main kind: substrate/Runtime startBlock: 1 # This changes your indexing start block, set this higher to skip initial blocks with less data mapping: handlers: - handler: handleBlock kind: substrate/BlockHandler - handler: handleEvent kind: substrate/EventHandler filter: #Filter is optional but suggested to speed up event processing module: balances method: Deposit - handler: handleCall kind: substrate/CallHandler ```` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="v0.2.0" active> ` yml specVersion: 0.2.0 name: example-project # Provide the project name version: 1.0.0 # Project version description: '' # Description of your project repository: 'https://github.com/subquery/subql-starter' # Git repository address of your project schema: file: ./schema.graphql # The location of your GraphQL schema file network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' # Genesis hash of the network endpoint: 'wss://polkadot.api.onfinality.io/public-ws' # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing dictionary: 'https://api.subquery.network/sq/subquery/dictionary-polkadot' dataSources: - kind: substrate/Runtime startBlock: 1 # This changes your indexing start block, set this higher to skip initial blocks with less data mapping: file: "./dist/index.js" handlers: - handler: handleBlock kind: substrate/BlockHandler - handler: handleEvent kind: substrate/EventHandler filter: #Filter is optional module: balances method: Deposit - handler: handleCall kind: substrate/CallHandler ```` </CodeGroupItem> <CodeGroupItem title="v0.0.1"> ` yml specVersion: "0.0.1" description: '' # Description of your project repository: 'https://github.com/subquery/subql-starter' # Git repository address of your project schema: ./schema.graphql # The location of your GraphQL schema file network: endpoint: 'wss://polkadot.api.onfinality.io/public-ws' # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing dictionary: 'https://api.subquery.network/sq/subquery/dictionary-polkadot' dataSources: - name: main kind: substrate/Runtime startBlock: 1 # This changes your indexing start block, set this higher to skip initial blocks with less data mapping: handlers: - handler: handleBlock kind: substrate/BlockHandler - handler: handleEvent kind: substrate/EventHandler filter: #Filter is optional but suggested to speed up event processing module: balances method: Deposit - handler: handleCall kind: substrate/CallHandler ```` </CodeGroupItem> </CodeGroup>
 
 ## Migrating from v0.0.1 to v0.2.0 <Badge text="upgrade" type="warning"/>
 
@@ -28,15 +28,15 @@ Varsayılan olarak CLI, spec verison v0.2.0 için alt sorgu projeleri oluşturur
 
 USAGE $ subql init [PROJECTNAME]
 
-DEĞİŞKENLER PROJECTNAME  Başlangıç projesi adını ver
+DEĞİŞKENLER PROJECTNAME Başlangıç projesi adını ver
 
 | Seçenekler              | Tanım                                                               |
-| ----------------------- | ------------------------------------------------------------------- |
+| ----------------------- | ------------------------------------------------------------------- | ----------------------------------------- |
 | -f, --force             |                                                                     |
 | -l, --location=location | projeyi oluşturmak için yerel klasör                                |
 | --install-dependencies  | Bağımlılıkları da yükleyin                                          |
 | --npm                   | İplik yerine NPM kullanan kuvvet, sadece`install-dependencies` flag |
-| --specVersion=0.0.1     | 0.2.0  [default: 0.2.0] | Proje tarafından kullanılacak spec sürümü |
+| --specVersion=0.0.1     | 0.2.0 [default: 0.2.0]                                              | Proje tarafından kullanılacak spec sürümü |
 
 ## Genel bakış
 
@@ -65,25 +65,25 @@ DEĞİŞKENLER PROJECTNAME  Başlangıç projesi adını ver
 | ------------------ | ------ | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **genesisHash**    | 𐄂      | String        | Ağın oluşum karma işlevi                                                                                                                                                                                                  |
 | **uç nokta**       | String | String        | Dizine eklenecek blok zincirinin wss veya ws uç noktasını tanımlar - **Bu tam bir arşiv düğümü olmalıdır**. Tüm parachain'ler için uç noktaları [OnFinality](https://app.onfinality.io)'dan ücretsiz olarak alabilirsiniz |
-| **sözlük**         | String | String        | İşlemeyi hızlandırmak için tam zincir sözlüğünün HTTP uç noktasının sağlanması önerilir - [SubQuery sözlüğünün nasıl çalıştığını okuyun](../tutorials_examples/dictionary.md).                                            |
+| **sözlük**         | String | String        | İşlemeyi hızlandırmak için tam zincir sözlüğünün HTTP uç noktasının sağlanması önerilir - [SubQuery sözlüğünün nasıl çalıştığını okuyun](../academy/tutorials_examples/dictionary.md).                                    |
 | **zincir tipleri** | 𐄂      | {file:String} | Zincir türleri dosyasının yolu, `.json` veya `.yaml` biçimini kabul edin                                                                                                                                                  |
 
 ### Datasource Spec
 
 Uygulanacak veri dönüşümü için eşleme fonksiyonu işleyicisinin konumunun yanı sıra filtrelenecek ve ayıklanacak verileri tanımlar.
-| Field          | v0.0.1                                                          | v0.2.0                                                                                 | Tanım                                                                                                                                                                                                           |
+| Field | v0.0.1 | v0.2.0 | Tanım |
 | -------------- | --------------------------------------------------------------- | -------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **isim**       | String                                                          | 𐄂                                                                                      | Veri kaynağının adı                                                                                                                                                                                             |
-| **tür**        | [substrat/Çalışma Zamanı](./manifest/#data-sources-and-mapping) | substrat/Çalışma Zamanı, [substrate/CustomDataSource](./manifest/#custom-data-sources) | Blok, olay ve harici (çağrı) gibi varsayılan substrat çalışma zamanından veri türünü destekliyoruz. <br /> v0.2.0'dan itibaren akıllı sözleşme gibi özel çalışma zamanından gelen verileri destekliyoruz. |
-| **startBlock** | Integer                                                         | Integer                                                                                | Bu, indeksleyici başlangıç bloğunuzu değiştirir, daha az veri içeren ilk blokları atlamak için bunu daha yükseğe ayarlayın                                                                                      |
-| **eşleme**     | Eşleme Tanımlama                                                | Eşleme Tanımlama                                                                       |                                                                                                                                                                                                                 |
-| **filtre**     | [ağ filtreleri](./manifest/#network-filters)                    | 𐄂                                                                                      | Ağ uç noktası tanımlama adına göre yürütülecek veri kaynağını filtrele                                                                                                                                          |
+| **isim** | String | 𐄂 | Veri kaynağının adı |
+| **tür** | [substrat/Çalışma Zamanı](./manifest/#data-sources-and-mapping) | substrat/Çalışma Zamanı, [substrate/CustomDataSource](./manifest/#custom-data-sources) | Blok, olay ve harici (çağrı) gibi varsayılan substrat çalışma zamanından veri türünü destekliyoruz. <br /> v0.2.0'dan itibaren akıllı sözleşme gibi özel çalışma zamanından gelen verileri destekliyoruz. |
+| **startBlock** | Integer | Integer | Bu, indeksleyici başlangıç bloğunuzu değiştirir, daha az veri içeren ilk blokları atlamak için bunu daha yükseğe ayarlayın |
+| **eşleme** | Eşleme Tanımlama | Eşleme Tanımlama | |
+| **filtre** | [ağ filtreleri](./manifest/#network-filters) | 𐄂 | Ağ uç noktası tanımlama adına göre yürütülecek veri kaynağını filtrele |
 
 ### Eşleme Tanımlama
 
-| Field                       | v0.0.1                                                                               | v0.2.0                                                                                                | Tanım                                                                                                                                                                                                                                                                 |
-| --------------------------- | ------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **dosya**                   | String                                                                               | 𐄂                                                                                                     | Eşleme girdisinin yolu                                                                                                                                                                                                                                                |
+| Field                       | v0.0.1                                                                               | v0.2.0                                                                                          | Tanım                                                                                                                                                                                                                                                     |
+| --------------------------- | ------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **dosya**                   | String                                                                               | 𐄂                                                                                               | Eşleme girdisinin yolu                                                                                                                                                                                                                                    |
 | **işleyiciler & filtreler** | [Varsayılan işleyiciler ve filtreler](./manifest/#eşleme-işleyicileri-ve-filtreleri) | Varsayılan işleyiciler ve filtreler,<br />[Özel işleyiciler ve filtreler](#custom-data-sources) | Ek eşleme filtreleriyle birlikte tüm [mapping işlevlerini](./mapping.md) ve karşılık gelen işleyici türlerini listeleyin. <br /><br /> Özel çalışma zamanları eşleme işleyicileri için lütfen [Özel veri kaynaklarını](#custom-data-sources) görüntüleyin |
 
 ## Veri Kaynakları ve Eşleme
@@ -94,7 +94,7 @@ Bu bölümde, varsayılan substrat çalışma zamanı ve haritalaması hakkında
 dataSources:
   - kind: substrate/Runtime # Bunun varsayılan çalışma zamanı başlangıcı olduğunu
  gösterir
-    startBlock: 1 # Bu, dizin oluşturma başlangıç bloğunuzu değiştirir, bunu daha az veri eşlemesi olan ilk blokları atlamak için daha yükseğe ayarlayın: 
+    startBlock: 1 # Bu, dizin oluşturma başlangıç bloğunuzu değiştirir, bunu daha az veri eşlemesi olan ilk blokları atlamak için daha yükseğe ayarlayın:
       file: dist/index.js # Bu eşleme için giriş yolu
 ```
 
@@ -153,16 +153,15 @@ Substrat çalışma zamanı modülleri tarafından kullanılan ek türleri deste
 
 Aşağıdaki v0.2.0 örneğinde, `network.chaintypes` tüm özel türleri içeren bir dosyaya işaret ediyor, bu, bu blok zinciri tarafından desteklenen belirli türleri `.json`, `.yaml` veya `.js` şeklinde belirten standart bir chainspec dosyasıdır.
 
-<CodeGroup> <CodeGroupItem title="v0.2.0" active> ``` yml network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' endpoint: 'ws://host.kittychain.io/public-ws' chaintypes: file: ./types.json # Özel türlerin depolandığı ilgili dosya yolu ... ``` </CodeGroupItem>
-<CodeGroupItem title="v0.0.1"> ``` yml ... network: endpoint: "ws://host.kittychain.io/public-ws" types: { "KittyIndex": "u32", "Kitty": "[u8; 16]" } # typesChain: { chain: { Type5: 'example' } } # typesSpec: { spec: { Type6: 'example' } } dataSources: - name: runtime kind: substrate/Runtime startBlock: 1 filter:  #Optional specName: kitty-chain mapping: handlers: - handler: handleKittyBred kind: substrate/CallHandler filter: module: kitties method: breed success: true ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="v0.2.0" active> `yml network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' endpoint: 'ws://host.kittychain.io/public-ws' chaintypes: file: ./types.json # Özel türlerin depolandığı ilgili dosya yolu ...` </CodeGroupItem>
+<CodeGroupItem title="v0.0.1"> `yml ... network: endpoint: "ws://host.kittychain.io/public-ws" types: { "KittyIndex": "u32", "Kitty": "[u8; 16]" } # typesChain: { chain: { Type5: 'example' } } # typesSpec: { spec: { Type6: 'example' } } dataSources: - name: runtime kind: substrate/Runtime startBlock: 1 filter: #Optional specName: kitty-chain mapping: handlers: - handler: handleKittyBred kind: substrate/CallHandler filter: module: kitties method: breed success: true` </CodeGroupItem> </CodeGroup>
 
-Zincir türleri dosyanızda typescript kullanmak için `src` klasörüne ekleyin (örn.  `./src/types.ts`), ` yarn build`’i çalıştırın ve `dist` klasöründe bulunan oluşturulmuş js dosyası seçeneğine gelin.
+Zincir türleri dosyanızda typescript kullanmak için `src` klasörüne ekleyin (örn. `./src/types.ts`), ` yarn build`’i çalıştırın ve `dist` klasöründe bulunan oluşturulmuş js dosyası seçeneğine gelin.
 
 ```yml
 network:
   chaintypes:
     file: ./dist/types.js # Yarn run yapısından sonra oluşturulacak
-...
 ```
 
 `.ts` veya `.js` uzantılı zincir türleri dosyasını kullanma hakkında dikkat edilmesi gerekenler:
@@ -172,9 +171,7 @@ network:
 
 Aşağıda `.ts` zincir türleri dosyasına bir örnek verilmiştir:
 
-<CodeGroup> <CodeGroupItem title="types.ts"> ```ts
-import { typesBundleDeprecated } from "moonbeam-types-bundle"
-export default { typesBundle: typesBundleDeprecated }; ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="types.ts"> `ts import { typesBundleDeprecated } from "moonbeam-types-bundle" export default { typesBundle: typesBundleDeprecated }; ` </CodeGroupItem> </CodeGroup>
 
 ## Özel Veri Kaynakları
 
@@ -194,7 +191,7 @@ Aşağıda desteklenen özel veri kaynaklarının bir listesi bulunmaktadır:
 
 **Ağ filtreleri yalnızca spec v0.0.1 için geçerlidir**.
 
-Genellikle kullanıcı bir SubQuery oluşturacak ve hem testnet hem de mainnet ortamları (örneğin  Polkadot ve Kusama) için yeniden kullanmayı bekleyecektir. Ağlar arasında, çeşitli seçeneklerin farklı olması muhtemeldir (örneğin, dizin başlangıç bloğu). Bu nedenle, kullanıcıların her veri kaynağı için farklı ayrıntılar tanımlamasına izin veririz, bu da bir SubQuery projesinin birden çok ağda kullanılabileceği anlamına gelir.
+Genellikle kullanıcı bir SubQuery oluşturacak ve hem testnet hem de mainnet ortamları (örneğin Polkadot ve Kusama) için yeniden kullanmayı bekleyecektir. Ağlar arasında, çeşitli seçeneklerin farklı olması muhtemeldir (örneğin, dizin başlangıç bloğu). Bu nedenle, kullanıcıların her veri kaynağı için farklı ayrıntılar tanımlamasına izin veririz, bu da bir SubQuery projesinin birden çok ağda kullanılabileceği anlamına gelir.
 
 Kullanıcılar, her ağda hangi veri kaynağının çalıştırılacağına karar vermek için `dataSources`’a `filtre` ekleyebilir.
 

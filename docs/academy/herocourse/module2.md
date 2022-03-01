@@ -8,7 +8,7 @@
 
 **Documentation reference**
 
-[The manifest file](/build/manifest.md)
+[The manifest file](/create/manifest.md)
 
 ## Lesson 2: The Schema File
 
@@ -54,10 +54,11 @@
 
 ### Pre-requisites
 
-* Completion of Module 1
+- Completion of Module 1
 
 ### Account Balances
-In this exercise, we will take the starter project and focus on using an event handler to extract the balance of each account. 
+
+In this exercise, we will take the starter project and focus on using an event handler to extract the balance of each account.
 
 ### High level steps
 
@@ -73,7 +74,6 @@ In this exercise, we will take the starter project and focus on using an event h
 
 The first step in creating a SubQuery project is to create a project with the following command:
 
-
 ```
 ~/Code/subQuery$ subql init
 Project name [subql-starter]: account-balance
@@ -81,18 +81,16 @@ Project name [subql-starter]: account-balance
 ? Select a template project subql-starter     Starter project
  for subquery
 Cloning project... done
-RPC endpoint: [wss://polkadot.api.onfinality.io/public-ws]: 
-Git repository [https://github.com/subquery/subql-starter]: 
+RPC endpoint: [wss://polkadot.api.onfinality.io/public-ws]:
+Git repository [https://github.com/subquery/subql-starter]:
 Fetching network genesis hash... done
-Author [Ian He & Jay Ji]: 
-Description [This project can be use as a starting po...]: 
-Version [0.0.4]: 
-License [MIT]: 
+Author [Ian He & Jay Ji]:
+Description [This project can be use as a starting po...]:
+Version [0.0.4]:
+License [MIT]:
 Preparing project... done
 account-balance is ready
 ```
-
-
 
 #### Step 2: Update the graphql schema
 
@@ -102,21 +100,17 @@ Extra: Whenever you update the manifest file, don’t forget to update the refer
 
 The schema file should look like this:
 
-
 ```
 type Account @entity {
   id: ID! #id is a required field
   account: String #This is a Polkadot address
-  balance: BigInt # This is the amount of DOT 
+  balance: BigInt # This is the amount of DOT
 }
 ```
-
-
 
 #### Step 3: Update the manifest file (aka project.yaml)
 
 The initialisation command also pre-creates a sample manifest file and defines 3 handlers. Because we are only focusing on Events, let’s remove handleBlock and handleCall from the mappings file. The manifest file should look like this:
-
 
 ```
 specVersion: 0.2.0
@@ -144,22 +138,17 @@ dataSources:
             method: Deposit
 ```
 
-
-
 #### Step 4: Update the mappings file
 
-The initialisation command pre-creates a sample mappings file with 3 functions, handleBlock, handleEvent and handleCall. Again, as we are only focusing on handleEvent, let’s delete the remaining functions. 
+The initialisation command pre-creates a sample mappings file with 3 functions, handleBlock, handleEvent and handleCall. Again, as we are only focusing on handleEvent, let’s delete the remaining functions.
 
-We also need to make a few other changes. Because the Account entity (formally called the StarterEntity), was instantiated in the handleBlock function and we no longer have this, we need to instantiate this within our handleEvent function. We also need to update the argument we pass to the constructor. 
-
+We also need to make a few other changes. Because the Account entity (formally called the StarterEntity), was instantiated in the handleBlock function and we no longer have this, we need to instantiate this within our handleEvent function. We also need to update the argument we pass to the constructor.
 
 ```
 let record = new Account(event.extrinsic.block.block.header.hash.toString());
 ```
 
-
 The mappingHandler.ts file should look like this:
-
 
 ```
 import {SubstrateEvent} from "@subql/types";
@@ -178,86 +167,63 @@ export async function handleEvent(event: SubstrateEvent): Promise<void> {
 }
 ```
 
-
-
 #### Step 5: Install the dependencies
 
 Install the node dependencies by running the following commands:
-
 
 ```
 yarn install
 ```
 
-
 OR
-
 
 ```
 npm install
 ```
 
-
-
 #### Step 6: Generate the associated typescript
 
 Next, we will generate the associated typescript with the following command:
-
 
 ```
 yarn codegen
 ```
 
-
 OR
-
 
 ```
 npm run-script codegen
 ```
 
-
-
 #### Step 7: Build the project
 
 The next step is to build the project with the following command:
-
 
 ```
 yarn build
 ```
 
-
 OR
-
 
 ```
 npm run-script build
 ```
 
-
 This bundles the app into static files for production.
-
 
 #### Step 8: Start the Docker container
 
 Run the docker command to pull the images and to start the container.
 
-
 ```
 docker-compose pull && docker-compose up
 ```
 
-
-
 #### Step 9: Run a query
 
-Once the docker container is up and running, which could take a few minutes, open up your browser and navigate to [www.localhost:3000](www.localhost:3000). 
+Once the docker container is up and running, which could take a few minutes, open up your browser and navigate to [www.localhost:3000](www.localhost:3000).
 
-
-
-This will open up a “playground” where you can create your query. Copy the example below. 
-
+This will open up a “playground” where you can create your query. Copy the example below.
 
 ```
 query {
@@ -270,9 +236,7 @@ query {
 }
 ```
 
-
 This should return something similar to the following:
-
 
 ```
 {
@@ -325,16 +289,13 @@ This should return something similar to the following:
 }
 ```
 
-
-What we have done here is queried for the balance of DOT tokens for all addresses (accounts) on the Polkadot mainnet blockchain. We have limited this to the first 10 and sorted it by the “richest” account holders first. 
-
+What we have done here is queried for the balance of DOT tokens for all addresses (accounts) on the Polkadot mainnet blockchain. We have limited this to the first 10 and sorted it by the “richest” account holders first.
 
 #### Bonus
 
-As a bonus, try to aggregate the balances across addresses so you can find the total balance of an address. 
-
+As a bonus, try to aggregate the balances across addresses so you can find the total balance of an address.
 
 ##E References
 
-* [Account Balances PDF workbook](/assets/pdf/Account_Balances.pdf)
-* [Account Balances Github](https://github.com/subquery/tutorials-account-balances)
+- [Account Balances PDF workbook](/assets/pdf/Account_Balances.pdf)
+- [Account Balances Github](https://github.com/subquery/tutorials-account-balances)

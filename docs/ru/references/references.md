@@ -21,11 +21,11 @@ COMMANDS
 
 Эта команда использует webpack для создания пакета проекта subquery.
 
-| Параметры          | Описание                                                                                                   |
-| ------------------ | ---------------------------------------------------------------------------------------------------------- |
-| -l, --location     | локальная папка проекта subquery (если вы еще не в папке)                                                  |
-| -o, --output       | указать выходную папку сборки, например build-folder                                                       |
-| --mode=(production | prod                                                        | development | dev) | [ default: production ] |
+| Параметры          | Описание                                                  |
+| ------------------ | --------------------------------------------------------- | ----------- | ---- | ----------------------- |
+| -l, --location     | локальная папка проекта subquery (если вы еще не в папке) |
+| -o, --output       | указать выходную папку сборки, например build-folder      |
+| --mode=(production | prod                                                      | development | dev) | [ default: production ] |
 
 - С помощью `subql build` вы можете указать дополнительные точки входа в поле экспорта, хотя он всегда будет создавать `index.ts` автоматически
 
@@ -281,7 +281,7 @@ An instance of ProjectManifestImpl has failed the validation:
 subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot"
 ```
 
-[Подробнее о том, как работает SubQuery Dictionary](../tutorials_examples/dictionary.md).
+[Подробнее о том, как работает SubQuery Dictionary](../academy/tutorials_examples/dictionary.md).
 
 ### -p, --port
 

@@ -54,8 +54,8 @@ Sau khi quá trình khởi tạo hoàn tất, bạn sẽ thấy một thư mục
 
 Cuối cùng, trong thư mục dự án, chạy lệnh sau để cài đặt các phụ thuộc của dự án mới.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```bash cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> `shell cd PROJECT_NAME yarn install ` </CodeGroupItem>
+<CodeGroupItem title="NPM"> `bash cd PROJECT_NAME npm install ` </CodeGroupItem> </CodeGroup>
 
 ## Định cấu hình và xây dựng dự án dành cho người mới bắt đầu
 
@@ -69,10 +69,10 @@ Trong gói khởi động mà bạn vừa khởi tạo, chúng tôi đã cung c�
 
 ### Tạo mô hình GraphQL
 
-Để [lập chỉ mục](../run/run.md) dự án SubQuery của bạn, trước tiên bạn phải tạo các mô hình GraphQL bắt buộc mà bạn đã xác định trong tệp Sơ đồ GraphQL (`schema.graphql`). Chạy lệnh này trong thư mục gốc của thư mục dự án.
+Để [lập chỉ mục](../run_publish/run.md) dự án SubQuery của bạn, trước tiên bạn phải tạo các mô hình GraphQL bắt buộc mà bạn đã xác định trong tệp Sơ đồ GraphQL (`schema.graphql`). Chạy lệnh này trong thư mục gốc của thư mục dự án.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```bash npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> `shell yarn codegen ` </CodeGroupItem>
+<CodeGroupItem title="NPM"> `bash npm run-script codegen ` </CodeGroupItem> </CodeGroup>
 
 Bạn sẽ tìm thấy các mô hình đã tạo trong thư mục `/src/types/models`
 
@@ -82,18 +82,18 @@ Bạn sẽ tìm thấy các mô hình đã tạo trong thư mục `/src/types/mo
 
 Chạy lệnh xây dựng từ thư mục gốc của dự án.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```bash npm run-script build ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> `shell yarn build ` </CodeGroupItem>
+<CodeGroupItem title="NPM"> `bash npm run-script build ` </CodeGroupItem> </CodeGroup>
 
 ## Chạy và truy vấn dự án khởi đầu của bạn
 
-Mặc dù bạn có thể nhanh chóng xuất bản dự án mới của mình lên[Dự án SubQuery](https://project.subquery.network) và truy vấn bằng cách sử dụng [Explorer](https://explorer.subquery.network),  của chúng tôi, cách dễ nhất để chạy các nút SubQuery cục bộ là trong vùng chứa Docker, nếu không  có Docker, bạn có thể cài đặt nó từ [docker.com](https://docs.docker.com/get-docker/).
+Mặc dù bạn có thể nhanh chóng xuất bản dự án mới của mình lên[Dự án SubQuery](https://project.subquery.network) và truy vấn bằng cách sử dụng [Explorer](https://explorer.subquery.network), của chúng tôi, cách dễ nhất để chạy các nút SubQuery cục bộ là trong vùng chứa Docker, nếu không có Docker, bạn có thể cài đặt nó từ [docker.com](https://docs.docker.com/get-docker/).
 
-[_Bỏ qua điều này và xuất bản dự án mới của bạn lên SubQuery Projects_](../publish/publish.md)
+[_Bỏ qua điều này và xuất bản dự án mới của bạn lên SubQuery Projects_](../run_publish/publish.md)
 
 ### Chạy Dự án SubQuery của bạn
 
-Tất cả cấu hình kiểm soát cách chạy nút SubQuery được xác định trong tệp `docker-compose.yml` file. Đối với một dự án mới vừa được khởi tạo, bạn sẽ không cần phải thay đổi bất kỳ điều gì nhưng có thể đọc thêm về tệp và cài đặt trong [phần Chạy dự án](../run/run.md) của chúng tôi
+Tất cả cấu hình kiểm soát cách chạy nút SubQuery được xác định trong tệp `docker-compose.yml` file. Đối với một dự án mới vừa được khởi tạo, bạn sẽ không cần phải thay đổi bất kỳ điều gì nhưng có thể đọc thêm về tệp và cài đặt trong [phần Chạy dự án](../run_publish/run.md) của chúng tôi
 
 Trong thư mục dự án chạy lệnh sau:
 
@@ -109,7 +109,7 @@ Mở trình duyệt của bạn và truy cập [ http://localhost:3000](http://l
 
 Bạn sẽ thấy một sân chơi GraphQL đang hiển thị trong trình thám hiểm và các lược đồ đã sẵn sàng để truy vấn. Ở trên cùng bên phải của sân chơi, bạn sẽ tìm thấy nút _Tài liệu_ sẽ mở bản vẽ tài liệu. Tài liệu này được tạo tự động và giúp bạn tìm thấy những thực thể và phương pháp nào bạn có thể truy vấn.
 
-Đối với dự án khởi động SubQuery mới, bạn có thể thử truy vấn sau để biết cách hoạt động của nó hoặc [tìm hiểu thêm về ngôn ngữ Truy vấn GraphQL](../query/graphql.md).
+Đối với dự án khởi động SubQuery mới, bạn có thể thử truy vấn sau để biết cách hoạt động của nó hoặc [tìm hiểu thêm về ngôn ngữ Truy vấn GraphQL](../run_publish/graphql.md).
 
 ```graphql
 {
@@ -129,4 +129,4 @@ Bạn sẽ thấy một sân chơi GraphQL đang hiển thị trong trình thám
 
 Xin chúc mừng, bạn hiện có một dự án SubQuery đang chạy cục bộ chấp nhận các yêu cầu API GraphQL cho dữ liệu mẫu. Trong hướng dẫn tiếp theo, chúng tôi sẽ chỉ cho bạn cách xuất bản dự án mới lên [Dự án SubQuery](https://project.subquery.network) và truy vấn nó bằng cách sử dụng [Explorer](https://explorer.subquery.network) của chúng tôi
 
-[Xuất bản dự án mới của bạn lên SubQuery Projects](../publish/publish.md)
+[Xuất bản dự án mới của bạn lên SubQuery Projects](../run_publish/publish.md)

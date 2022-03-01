@@ -4,8 +4,7 @@ File Manifest `project.yaml` bisa dilihat sebagai titik masuk proyek Anda dan me
 
 Manifest bisa dalam format YAML atau JSON. Dalam dokumen ini, kita akan menggunakan YAML di semua contoh. Di bawah ini merupakan contoh standar `project.yaml` standar.
 
-<CodeGroup> <CodeGroupItem title="v0.2.0" active> ``` yml specVersion: 0.2.0 name: example-project # Berikan nama proyek version: 1.0.0  # Versi proyek description: '' # Deskripsi dari proyek anda repository: 'https://github.com/subquery/subql-starter' # Alamat git repository dari proyek anda schema: file: ./schema.graphql # Lokasi file skema GraphQL Anda network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' # Genesis hash dari jaringan endpoint: 'wss://polkadot.api.onfinality.io/public-ws' # Secara opsional, berikan titik akhir HTTP dari dictionary chain lengkap untuk mempercepat pemrosesan dictionary: 'https://api.subquery.network/sq/subquery/dictionary-polkadot' dataSources: - kind: substrate/Runtime startBlock: 1 # Ini mengubah blok awal pengindeksan Anda, setel ini lebih tinggi untuk melewati blok awal dengan lebih sedikit data mapping: file: "./dist/index.js" handlers: - handler: handleBlock kind: substrate/BlockHandler - handler: handleEvent kind: substrate/EventHandler filter: #Filter adalah opsional module: balances method: Deposit - handler: handleCall kind: substrate/CallHandler ```` </CodeGroupItem>
-<CodeGroupItem title="v0.0.1"> ``` yml specVersion: "0.0.1" description: '' # Deskripsi dari proyek anda repository: 'https://github.com/subquery/subql-starter' # Alamat git repository dari proyek anda schema: ./schema.graphql # Lokasi file skema GraphQL Anda network: endpoint: 'wss://polkadot.api.onfinality.io/public-ws' # Secara opsional, berikan titik akhir HTTP dari dictionary chain lengkap untuk mempercepat pemrosesan dictionary: 'https://api.subquery.network/sq/subquery/dictionary-polkadot' dataSources: - name: main kind: substrate/Runtime startBlock: 1 # Ini mengubah blok awal pengindeksan Anda, setel ini lebih tinggi untuk melewati blok awal dengan lebih sedikit data mapping: handlers: - handler: handleBlock kind: substrate/BlockHandler - handler: handleEvent kind: substrate/EventHandler filter: #Filter bersifat opsional tetapi disarankan untuk mempercepat pemrosesan acara module: balances method: Deposit - handler: handleCall kind: substrate/CallHandler ```` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="v0.2.0" active> ` yml specVersion: 0.2.0 name: example-project # Berikan nama proyek version: 1.0.0 # Versi proyek description: '' # Deskripsi dari proyek anda repository: 'https://github.com/subquery/subql-starter' # Alamat git repository dari proyek anda schema: file: ./schema.graphql # Lokasi file skema GraphQL Anda network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' # Genesis hash dari jaringan endpoint: 'wss://polkadot.api.onfinality.io/public-ws' # Secara opsional, berikan titik akhir HTTP dari dictionary chain lengkap untuk mempercepat pemrosesan dictionary: 'https://api.subquery.network/sq/subquery/dictionary-polkadot' dataSources: - kind: substrate/Runtime startBlock: 1 # Ini mengubah blok awal pengindeksan Anda, setel ini lebih tinggi untuk melewati blok awal dengan lebih sedikit data mapping: file: "./dist/index.js" handlers: - handler: handleBlock kind: substrate/BlockHandler - handler: handleEvent kind: substrate/EventHandler filter: #Filter adalah opsional module: balances method: Deposit - handler: handleCall kind: substrate/CallHandler ```` </CodeGroupItem> <CodeGroupItem title="v0.0.1"> ` yml specVersion: "0.0.1" description: '' # Deskripsi dari proyek anda repository: 'https://github.com/subquery/subql-starter' # Alamat git repository dari proyek anda schema: ./schema.graphql # Lokasi file skema GraphQL Anda network: endpoint: 'wss://polkadot.api.onfinality.io/public-ws' # Secara opsional, berikan titik akhir HTTP dari dictionary chain lengkap untuk mempercepat pemrosesan dictionary: 'https://api.subquery.network/sq/subquery/dictionary-polkadot' dataSources: - name: main kind: substrate/Runtime startBlock: 1 # Ini mengubah blok awal pengindeksan Anda, setel ini lebih tinggi untuk melewati blok awal dengan lebih sedikit data mapping: handlers: - handler: handleBlock kind: substrate/BlockHandler - handler: handleEvent kind: substrate/EventHandler filter: #Filter bersifat opsional tetapi disarankan untuk mempercepat pemrosesan acara module: balances method: Deposit - handler: handleCall kind: substrate/CallHandler ```` </CodeGroupItem> </CodeGroup>
 
 ## Migrasi dari v0.0.1 to v0.2.0 <Badge text="upgrade" type="warning"/>
 
@@ -29,15 +28,15 @@ Secara default, CLI akan menghasilkan proyek SubQuery untuk spesifikasi verison 
 
 PENGGUNAAN $ subql init [PROJECTNAME]
 
-ARGUMENTS PROJECTNAME  Berikan nama proyek awal
+ARGUMENTS PROJECTNAME Berikan nama proyek awal
 
 | Pilihan                 | Deskripsi                                                                                  |
-| ----------------------- | ------------------------------------------------------------------------------------------ |
+| ----------------------- | ------------------------------------------------------------------------------------------ | ------------------------------------------------- |
 | -f, --force             |                                                                                            |
 | -l, --location=location | folder lokal untuk membuat proyek di                                                       |
 | --install-dependencies  | Instal dependensi juga                                                                     |
 | --npm                   | Paksa menggunakan NPM alih-alih benang, hanya berfungsi dengan flag `install-dependencies` |
-| --specVersion=0.0.1     | 0.2.0  [default: 0.2.0] | Versi spesifikasi yang akan digunakan oleh proyek                |
+| --specVersion=0.0.1     | 0.2.0 [default: 0.2.0]                                                                     | Versi spesifikasi yang akan digunakan oleh proyek |
 
 ## Gambaran
 
@@ -66,25 +65,25 @@ ARGUMENTS PROJECTNAME  Berikan nama proyek awal
 | --------------- | ------ | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **genesisHash** | 𐄂      | String        | Hash asal jaringan                                                                                                                                                                                                            |
 | **endpoint**    | String | String        | Menentukan endpoint wss atau ws dari blockchain yang akan diindeks - **Ini harus berupa node arsip lengkap**. Anda dapat mengambil endpoint untuk semua parachains secara gratis dari [OnFinality](https://app.onfinality.io) |
-| **dictionary**  | String | String        | Disarankan untuk menyediakan titik akhir HTTP dari kamus rantai lengkap untuk mempercepat pemrosesan - baca [cara kerja Kamus Subkueri](../tutorials_examples/dictionary.md).                                                 |
+| **dictionary**  | String | String        | Disarankan untuk menyediakan titik akhir HTTP dari kamus rantai lengkap untuk mempercepat pemrosesan - baca [cara kerja Kamus Subkueri](../academy/tutorials_examples/dictionary.md).                                         |
 | **chaintypes**  | 𐄂      | {file:String} | File jenis jalur ke rantai, terima format `.json` atau `.yaml`                                                                                                                                                                |
 
 ### Datasource Spec
 
 Mendefinisikan data yang akan difilter dan diekstraksi dan lokasi pengendali fungsi pemetaan untuk transformasi data yang akan diterapkan.
-| Field          | v0.0.1                                                    | v0.2.0                                                                           | Deskripsi                                                                                                                                                                                          |
+| Field | v0.0.1 | v0.2.0 | Deskripsi |
 | -------------- | --------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **name**       | String                                                    | 𐄂                                                                                | Nama sumber data                                                                                                                                                                                   |
-| **jenis**      | [substrate/Runtime](./manifest/#data-sources-and-mapping) | substrate/Runtime, [substrate/CustomDataSource](./manifest/#custom-data-sources) | Kami mendukung tipe data dari runtime substrat default seperti blok, acara, dan ekstrinsik (panggilan). <br /> Dari v0.2.0, kami mendukung data dari runtime khusus, seperti kontrak pintar. |
-| **startBlock** | Integer                                                   | Integer                                                                          | Ini mengubah blok awal pengindeksan Anda, setel ini lebih tinggi untuk melewati blok awal dengan lebih sedikit data                                                                                |
-| **mapping**    | Mapping Spec                                              | Mapping Spec                                                                     |                                                                                                                                                                                                    |
-| **filter**     | [network-filters](./manifest/#network-filters)            | 𐄂                                                                                | Filter sumber data untuk dieksekusi dengan nama spesifikasi titik akhir jaringan                                                                                                                   |
+| **name** | String | 𐄂 | Nama sumber data |
+| **jenis** | [substrate/Runtime](./manifest/#data-sources-and-mapping) | substrate/Runtime, [substrate/CustomDataSource](./manifest/#custom-data-sources) | Kami mendukung tipe data dari runtime substrat default seperti blok, acara, dan ekstrinsik (panggilan). <br /> Dari v0.2.0, kami mendukung data dari runtime khusus, seperti kontrak pintar. |
+| **startBlock** | Integer | Integer | Ini mengubah blok awal pengindeksan Anda, setel ini lebih tinggi untuk melewati blok awal dengan lebih sedikit data |
+| **mapping** | Mapping Spec | Mapping Spec | |
+| **filter** | [network-filters](./manifest/#network-filters) | 𐄂 | Filter sumber data untuk dieksekusi dengan nama spesifikasi titik akhir jaringan |
 
 ### Mapping Spec
 
-| Field                  | v0.0.1                                                                  | v0.2.0                                                                                      | Deskripsi                                                                                                                                                                                                                          |
-| ---------------------- | ----------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **file**               | String                                                                  | 𐄂                                                                                           | Jalur ke entri pemetaan                                                                                                                                                                                                            |
+| Field                  | v0.0.1                                                                  | v0.2.0                                                                                | Deskripsi                                                                                                                                                                                                              |
+| ---------------------- | ----------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **file**               | String                                                                  | 𐄂                                                                                     | Jalur ke entri pemetaan                                                                                                                                                                                                |
 | **handlers & filters** | [Penangan dan filter default](./manifest/#mapping-handlers-and-filters) | Penangan dan filter default, <br />[Penangan dan filter khusus](#custom-data-sources) | Buat daftar semua [fungsi pemetaan](./mapping.md) dan jenis handler yang sesuai, dengan filter pemetaan tambahan. <br /><br /> Untuk handler pemetaan runtime kustom, lihat [Sumber data kustom](#custom-data-sources) |
 
 ## Sumber Data dan Pemetaan
@@ -154,8 +153,8 @@ Kami mendukung jenis tambahan yang digunakan oleh modul waktu proses media, `typ
 
 Dalam contoh v0.2.0 di bawah ini, `network.chaintypes` menunjuk ke file yang memiliki semua tipe kustom yang disertakan, Ini adalah file chainspec standar yang menyatakan tipe spesifik yang didukung oleh blockchain ini di < 0>.json</code>, `.yaml` atau `.js` format.
 
-<CodeGroup> <CodeGroupItem title="v0.2.0" active> ``` yml network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' endpoint: 'ws://host.kittychain.io/public-ws' chaintypes: file: ./types.json # Filepath relatif ke tempat jenis kustom disimpan ... ``` </CodeGroupItem>
-<CodeGroupItem title="v0.0.1"> ``` yml ... network: endpoint: "ws://host.kittychain.io/public-ws" types: { "KittyIndex": "u32", "Kitty": "[u8; 16]" } # typesChain: { chain: { Type5: 'example' } } # typesSpec: { spec: { Type6: 'example' } } dataSources: - name: runtime kind: substrate/Runtime startBlock: 1 filter:  #Optional specName: kitty-chain mapping: handlers: - handler: handleKittyBred kind: substrate/CallHandler filter: module: kitties method: breed success: true ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="v0.2.0" active> `yml network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' endpoint: 'ws://host.kittychain.io/public-ws' chaintypes: file: ./types.json # Filepath relatif ke tempat jenis kustom disimpan ...` </CodeGroupItem>
+<CodeGroupItem title="v0.0.1"> `yml ... network: endpoint: "ws://host.kittychain.io/public-ws" types: { "KittyIndex": "u32", "Kitty": "[u8; 16]" } # typesChain: { chain: { Type5: 'example' } } # typesSpec: { spec: { Type6: 'example' } } dataSources: - name: runtime kind: substrate/Runtime startBlock: 1 filter: #Optional specName: kitty-chain mapping: handlers: - handler: handleKittyBred kind: substrate/CallHandler filter: module: kitties method: breed success: true` </CodeGroupItem> </CodeGroup>
 
 Untuk menggunakan TypeScript untuk file jenis rantai Anda, masukkan dalam folder `src` (misalnya `./src/types.ts`), jalankan `yarn build` dan lalu arahkan ke file js yang dihasilkan yang terletak di folder `dist`.
 
@@ -163,7 +162,6 @@ Untuk menggunakan TypeScript untuk file jenis rantai Anda, masukkan dalam folder
 network:
   chaintypes:
     file: ./dist/types.js # Akan dihasilkan setelah pembuatan yarn run
-...
 ```
 
 Hal-hal yang perlu diperhatikan tentang menggunakan file jenis rantai dengan ekstensi `.ts` atau `.js`:
@@ -173,9 +171,7 @@ Hal-hal yang perlu diperhatikan tentang menggunakan file jenis rantai dengan eks
 
 Berikut adalah contoh file jenis rantai `.ts`:
 
-<CodeGroup> <CodeGroupItem title="types.ts"> ```ts
-import { typesBundleDeprecated } from "moonbeam-types-bundle"
-export default { typesBundle: typesBundleDeprecated }; ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="types.ts"> `ts import { typesBundleDeprecated } from "moonbeam-types-bundle" export default { typesBundle: typesBundleDeprecated }; ` </CodeGroupItem> </CodeGroup>
 
 ## Sumber Data Khusus
 
@@ -201,6 +197,6 @@ Pengguna dapat menambahkan `filter` pada `dataSources` untuk memutuskan sumber d
 
 Di bawah ini merupakan contoh yang menunjukkan sumber data berbeda untuk jaringan Polkadot dan Kusama.
 
-<CodeGroup> <CodeGroupItem title="v0.0.1"> ```yaml --- network: endpoint: 'wss://polkadot.api.onfinality.io/public-ws' #Buat template untuk menghindari redundansi definitions: mapping: &mymapping handlers: - handler: handleBlock kind: substrate/BlockHandler dataSources: - name: polkadotRuntime kind: substrate/Runtime filter: #Optional specName: polkadot startBlock: 1000 mapping: *mymapping #pakai template disini - name: kusamaRuntime kind: substrate/Runtime filter: specName: kusama startBlock: 12000 mapping: *mymapping # dapat digunakan kembali atau diubah ``` </CodeGroupItem>
+<CodeGroup> <CodeGroupItem title="v0.0.1"> `yaml --- network: endpoint: 'wss://polkadot.api.onfinality.io/public-ws' #Buat template untuk menghindari redundansi definitions: mapping: &mymapping handlers: - handler: handleBlock kind: substrate/BlockHandler dataSources: - name: polkadotRuntime kind: substrate/Runtime filter: #Optional specName: polkadot startBlock: 1000 mapping: *mymapping #pakai template disini - name: kusamaRuntime kind: substrate/Runtime filter: specName: kusama startBlock: 12000 mapping: *mymapping # dapat digunakan kembali atau diubah ` </CodeGroupItem>
 
 </CodeGroup>

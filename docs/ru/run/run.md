@@ -1,6 +1,6 @@
 # Запуск SubQuery локально
 
-В этом руководстве рассказывается как локально запустить ноду SubQuery на вашем устройстве, который включает как индексатор, так и службу запросов. Не хотите беспокоиться о запуске SubQuery на собственном устройстве? SubQuery обеспечивает [выделенный сервер](https://explorer.subquery.network) для комьюнити бесплатно. [Следуйте нашему опубликованному гайду](../publish/publish.md) что бы увидеть как вы можете загрузить ваш проект в [SubQuery Projects](https://project.subquery.network).
+В этом руководстве рассказывается как локально запустить ноду SubQuery на вашем устройстве, который включает как индексатор, так и службу запросов. Не хотите беспокоиться о запуске SubQuery на собственном устройстве? SubQuery обеспечивает [выделенный сервер](https://explorer.subquery.network) для комьюнити бесплатно. [Следуйте нашему опубликованному гайду](../run_publish/publish.md) что бы увидеть как вы можете загрузить ваш проект в [SubQuery Projects](https://project.subquery.network).
 
 ## Использование Docker
 
@@ -59,7 +59,7 @@ subql-node -f ваш путь к проекту
 subql-node --network-dictionary=https://api.subquery.network/sq/subquery/dictionary-polkadot
 ```
 
-[ Подробнее о том, как работает словарь подзапросов ](../tutorials_examples/dictionary.md).
+[ Подробнее о том, как работает словарь подзапросов ](../academy/tutorials_examples/dictionary.md).
 
 #### Подключиться к базе данных
 
@@ -69,8 +69,10 @@ subql-node --network-dictionary=https://api.subquery.network/sq/subquery/diction
 #### Укажите файл конфигурации
 
 ```
+
 subql-node -f ваш путь к проекту
-```
+
+````
 
 Это укажет узлу запроса на файл конфигурации, который может быть в формате YAML или JSON. Посмотрите на пример ниже.
 
@@ -79,7 +81,7 @@ subquery: ../../../../subql-example/extrinsics
 subqueryName: extrinsics
 batchSize:100
 localMode:true
-```
+````
 
 #### Изменить размер пакета выборки блока
 
@@ -102,7 +104,6 @@ subql-node -f ваш путь к проекту
 В целях отладки пользователи могут запускать узел в локальном режиме. При переключении на локальную модель таблицы Postgres будут созданы в схеме по умолчанию `public`.
 
 Если локальный режим не используется, будет создана новая схема Postgres с начальным `subquery_` и соответствующими таблицами проекта.
-
 
 #### Проверьте состояние вашего узла
 
@@ -164,13 +165,16 @@ node --inspect-brk <path to subql-node> -f <path to subQuery project>
 ```
 
 Например:
+
 ```shell
 node --inspect-brk /usr/local/bin/subql-node -f ~/Code/subQuery/projects/subql-helloworld/
 Debugger listening on ws://127.0.0.1:9229/56156753-c07d-4bbe-af2d-2c7ff4bcc5ad
-Для помощи смотрите: https://nodejs.org/en/docs/inspector 
+Для помощи смотрите: https://nodejs.org/en/docs/inspector
 Прилагается отладчик.
 ```
-Затем откройте инструменты разработчика Chrome, перейдите в Source & # 062; Filesystem, добавьте свой проект в рабочую область и начните отладку. Для получения дополнительной информации ознакомьтесь с [ Как отлаживать проект SubQuery ](https://doc.subquery.network/tutorials_examples/debug-projects/)
+
+Затем откройте инструменты разработчика Chrome, перейдите в Source & # 062; Filesystem, добавьте свой проект в рабочую область и начните отладку. Для получения дополнительной информации ознакомьтесь с [ Как отлаживать проект SubQuery ](https://doc.subquery.network/academy/tutorials_examples/debug-projects/)
+
 ## Запуск службы запросов (subql / query)
 
 ### Установка
@@ -183,6 +187,7 @@ npm install -g @subql/query
 Обратите внимание, что мы ** НЕ ** поощряем использование `yarn global` из-за его плохого управления зависимостями, что может привести к ошибкам в дальнейшем.
 
 ### Запуск службы запросов
+
 ``` export DB_HOST=localhost subql-query --name <project_name> --playground ````
 
 Убедитесь, что имя проекта совпадает с именем проекта при [ инициализации проекта ](../quickstart/quickstart.md#initialise-the-starter-subquery-project). Также проверьте правильность переменных среды.

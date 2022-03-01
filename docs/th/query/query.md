@@ -1,6 +1,6 @@
 # สืบค้นโปรเจ็กต์ของคุณใน SubQuery Explorer
 
-[SubQuery Explorer](https://explorer.subquery.network) เป็นบริการออนไลน์ ([explorer.subquery.network](https://explorer.subquery.network)) ให้บริการการเข้าถึงโครงการ SubQuery ซึ่งเผยแพร่โดยผู้ร่วมให้ข้อมูลในชุมชนของเราและถูกจัดการโดยทีม SubQuery คุณสามารถเผยแพร่โครงการ SubQuery ของคุณเองให้กับ explorer ของเราโดยทำตามคำแนะนำของเราในการ [เผยแพร่โครงการ SubQuery ของคุณ](../publish/publish.md)
+[SubQuery Explorer](https://explorer.subquery.network) เป็นบริการออนไลน์ ([explorer.subquery.network](https://explorer.subquery.network)) ให้บริการการเข้าถึงโครงการ SubQuery ซึ่งเผยแพร่โดยผู้ร่วมให้ข้อมูลในชุมชนของเราและถูกจัดการโดยทีม SubQuery คุณสามารถเผยแพร่โครงการ SubQuery ของคุณเองให้กับ explorer ของเราโดยทำตามคำแนะนำของเราในการ [เผยแพร่โครงการ SubQuery ของคุณ](../run_publish/publish.md)
 
 ![การสืบค้นบน SubQuery (SubQuery Explorer)](https://static.subquery.network/media/explorer/explorer-header.png)
 

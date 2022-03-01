@@ -1,6 +1,6 @@
 # Eseguire la Subquery localmente
 
-Questa guida spiega come eseguire un nodo locale di SubQuery sulla tua infrastruttura, che include sia l'indicizzatore che il servizio di query. Non vuoi preoccuparti di gestire la tua infrastruttura SubQuery? SubQuery fornisce un [servizio gestito in hosting](https://explorer.subquery.network) alla comunità gratuitamente. [Segui la nostra guida alla pubblicazione](../publish/publish.md) per vedere come puoi caricare il tuo progetto su [SubQuery Projects](https://project.subquery.network).
+Questa guida spiega come eseguire un nodo locale di SubQuery sulla tua infrastruttura, che include sia l'indicizzatore che il servizio di query. Non vuoi preoccuparti di gestire la tua infrastruttura SubQuery? SubQuery fornisce un [servizio gestito in hosting](https://explorer.subquery.network) alla comunità gratuitamente. [Segui la nostra guida alla pubblicazione](../run_publish/publish.md) per vedere come puoi caricare il tuo progetto su [SubQuery Projects](https://project.subquery.network).
 
 ## Usando Docker
 
@@ -59,7 +59,7 @@ Puoi aggiungere l'endpoint del dizionario nel tuo `project.yaml` file (vedere [M
 subql-node --network-dictionary=https://api.subquery.network/sq/subquery/dictionary-polkadot
 ```
 
-[Leggi di più su come funziona un dizionario SubQuery](../tutorials_examples/dictionary.md).
+[Leggi di più su come funziona un dizionario SubQuery](../academy/tutorials_examples/dictionary.md).
 
 #### Connettersi al database
 
@@ -69,8 +69,8 @@ export DB_PASS=postgres
 export DB_DATABASE=postgres
 export DB_HOST=localhost
 export DB_PORT=5432
-subql-node -f your-project-path 
-````
+subql-node -f your-project-path
+```
 
 A seconda della configurazione del tuo database Postgres (ad esempio una password diversa per il database), assicurati anche che sia l'indicizzatore (`subql/node`) che il servizio di query (`subql/query`) possano stabilire una connessione ad esso.
 
@@ -110,7 +110,6 @@ subql-node -f your-project-path --local
 Per scopi di debug, gli utenti possono eseguire il nodo in modalità locale. Passare al modello locale creerà tabelle Postgres nello schema predefinito `public`.
 
 Se non si usa la modalità locale, verrà creato un nuovo schema Postgres con l'iniziale `subquery_` e le corrispondenti tabelle del progetto.
-
 
 #### Controlla la salute del tuo nodo
 
@@ -172,13 +171,16 @@ node --inspect-brk <path to subql-node> -f <path to subQuery project>
 ```
 
 Esempio:
+
 ```shell
 node --inspect-brk /usr/local/bin/subql-node -f ~/Code/subQuery/projects/subql-helloworld/
 Debugger listening on ws://127.0.0.1:9229/56156753-c07d-4bbe-af2d-2c7ff4bcc5ad
 Per aiuto, vedere: https://nodejs.org/en/docs/inspector
 Debugger allegato.
 ```
-Poi aprite gli strumenti di sviluppo di Chrome, andate su Source > Filesystem e aggiungi il tuo progetto all'area di lavoro e inizia il debug. Per ulteriori informazioni, controlla [How to debug a SubQuery project](https://doc.subquery.network/tutorials_examples/debug-projects/)
+
+Poi aprite gli strumenti di sviluppo di Chrome, andate su Source > Filesystem e aggiungi il tuo progetto all'area di lavoro e inizia il debug. Per ulteriori informazioni, controlla [How to debug a SubQuery project](https://doc.subquery.network/academy/tutorials_examples/debug-projects/)
+
 ## Eseguire un servizio di query (subql/query)
 
 ### Installazione
@@ -191,6 +193,7 @@ npm install -g @subql/query
 Si prega di notare che noi **NON** incoraggiamo l'uso di `yarn global` a causa della sua scarsa gestione delle dipendenze che può portare a un errore lungo la linea.
 
 ### Eseguire il servizio Query
+
 ``` export DB_HOST=localhost subql-query --name <project_name> --playground ````
 
 Assicurati che il nome del progetto sia lo stesso di quando [inizializzi il progetto](../quickstart/quickstart.md#initialise-the-starter-subquery-project). Inoltre, controllate che le variabili d'ambiente siano corrette.

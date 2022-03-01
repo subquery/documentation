@@ -1,6 +1,6 @@
 # SubQuery Yerel Olarak Çalıştırma
 
-Bu kılavuz, hem dizinleyiciyi hem de sorgu hizmetini içeren altyapınızda yerel bir SubQuery düğümünün nasıl çalıştırılacağı üzerinde çalışır. Kendi SubQuery altyapınızı çalıştırma konusunda endişelenmek istemiyor musunuz? SubQuery, topluluğa ücretsiz olarak [yönetilen barındırılan bir hizmet](https://explorer.subquery.network) sunar. Projenizi [SubQuery Projects](https://project.subquery.network)'a nasıl yükleyebileceğinizi görmek için [yayın kılavuzumuzu izleyin](../publish/publish.md).
+Bu kılavuz, hem dizinleyiciyi hem de sorgu hizmetini içeren altyapınızda yerel bir SubQuery düğümünün nasıl çalıştırılacağı üzerinde çalışır. Kendi SubQuery altyapınızı çalıştırma konusunda endişelenmek istemiyor musunuz? SubQuery, topluluğa ücretsiz olarak [yönetilen barındırılan bir hizmet](https://explorer.subquery.network) sunar. Projenizi [SubQuery Projects](https://project.subquery.network)'a nasıl yükleyebileceğinizi görmek için [yayın kılavuzumuzu izleyin](../run_publish/publish.md).
 
 ## Docker'ı kullanma
 
@@ -59,7 +59,7 @@ Sözlük uç noktasını `project.yaml` dosyanıza ekleyebilirsiniz (bkz. [Manif
 subql-node --network-dictionary=https://api.subquery.network/sq/subquery/dictionary-polkadot
 ```
 
-[ SubQuery Sözlüğü'nün nasıl çalıştığı hakkında daha fazla şey ](../tutorials_examples/dictionary.md).
+[ SubQuery Sözlüğü'nün nasıl çalıştığı hakkında daha fazla şey ](../academy/tutorials_examples/dictionary.md).
 
 #### Veritabanına bağlanma
 
@@ -69,8 +69,8 @@ export DB_PASS=postgres
 export DB_DATABASE=postgres
 export DB_HOST=localhost
 export DB_PORT=5432
-subql-node -f your-project-path 
-````
+subql-node -f your-project-path
+```
 
 Postgres veritabanınızın yapılandırmasına (örneğin, farklı bir veritabanı parolası) bağlı olarak, lütfen hem dizin oluşturucunun ('subql/node') hem de sorgu hizmetinin ('subql/query') ona bir bağlantı kurabildiğinden emin olun.
 
@@ -110,7 +110,6 @@ subql-node -f your-project-path --local
 Hata ayıklama amacıyla, kullanıcılar düğümü yerel modda çalıştırabilir. Yerel modele geçiş, varsayılan şemada postgres tabloları `public` oluşturur.
 
 Yerel mod kullanılmazsa, ilk `subquery_` ve karşılık gelen proje tablolarına sahip yeni bir Postgres şeması oluşturulur.
-
 
 #### Node sağlığı kontrol ediliyor
 
@@ -172,13 +171,16 @@ node --inspect-brk <path to subql-node> -f <path to subQuery project>
 ```
 
 Örneğin:
+
 ```shell
 node --inspect-brk /usr/local/bin/subql-node -f ~/Code/subQuery/projects/subql-helloworld/
 Debugger listening on ws://127.0.0.1:9229/56156753-c07d-4bbe-af2d-2c7ff4bcc5ad
 For help, see: https://nodejs.org/en/docs/inspector
 Debugger attached.
 ```
-Ardından Chrome geliştirme araçlarını açın, Kaynak > Dosya sistemi menüsüne gidin, projenizi çalışma alanına ekleyin ve hataları ayıklamaya başlayın. Daha fazla bilgi için, kontrol edin [Bir SubQuery projesinde hatalar nasıl ayıklanır](https://doc.subquery.network/tutorials_examples/debug-projects/)
+
+Ardından Chrome geliştirme araçlarını açın, Kaynak > Dosya sistemi menüsüne gidin, projenizi çalışma alanına ekleyin ve hataları ayıklamaya başlayın. Daha fazla bilgi için, kontrol edin [Bir SubQuery projesinde hatalar nasıl ayıklanır](https://doc.subquery.network/academy/tutorials_examples/debug-projects/)
+
 ## Sorgu Hizmeti Çalıştırma (altql/query)
 
 ### Kurma
@@ -191,6 +193,7 @@ npm install -g @subql/query
 Lütfen **DO NOT**, zayıf bağımlılık yönetimi nedeniyle `yarn global` kullanımını teşvik ettiğimizi ve bunun da bir hataya yol açabileceğini unutmayın.
 
 ### Sorgu Hizmeti Çalıştırma
+
 export DB_HOST=localhost subql-query --name <project_name> --playground ````
 
 Projeyi [initialize the project](../quickstart/quickstart.md#initialise-the-starter-subquery-project) proje adıyla aynı olduğundan emin olun. Ayrıca, ortam değişkenlerinin doğru olup olmadığını denetleyin.

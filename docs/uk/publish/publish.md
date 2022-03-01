@@ -43,7 +43,7 @@ Let's start by clicking on "Create Project". You'll be taken to the New Project 
 - **Project Name**
 - **Підзаголовок**
 - **Описання**
-- ** itHub Repository URL: ** Це має бути дійсною URL-адресою GitHub для публічного сховища, яке має ваш проект SubQuery. Файл ` schema.graphql ` повинен бути в корені вашого каталогу ([ дізнатися більше про структуру каталогу ](../create/introduction.md#directory-structure)).
+- ** itHub Repository URL: ** Це має бути дійсною URL-адресою GitHub для публічного сховища, яке має ваш проект SubQuery. Файл `schema.graphql` повинен бути в корені вашого каталогу ([ дізнатися більше про структуру каталогу ](../create/introduction.md#directory-structure)).
 - **Database:** Premium customers can access dedicated databases to host production SubQuery projects from. If this interests you, you can contact [sales@subquery.network](mailto:sales@subquery.network) to have this setting enabled.
 - **Deployment Source:** You can choose to have the project deployed from the GitHub repository or alternatively deployed from a IPFS CID, see our guide about [hosting with IPFS.](ipfs.md)
 - **Приховати проект:** Якщо вибрано, це приховає проект з громадського засобу обробки підкадрів. Зберігайте це необрано, якщо ви хочете поділитися підробкою із спільнотою! ![Create your first Project](/assets/img/projects-create.png)
@@ -75,7 +75,7 @@ If deployed successfully, you'll see the indexer start working and report back p
 
 ![Проект розгортається та синхронізується](/assets/img/projects-deploy-sync.png)
 
-Крім того, ви можете натиснути на три точки поруч із заголовком проекту та переглянути його на SubQuery Explorer. There you can use the in-browser playground to get started - [read more about how to use our Explorer here](../query/query.md).
+Крім того, ви можете натиснути на три точки поруч із заголовком проекту та переглянути його на SubQuery Explorer. There you can use the in-browser playground to get started - [read more about how to use our Explorer here](../run_publish/query.md).
 
 ![Проекти в SubQuery Explorer](/assets/img/projects-explorer.png)
 
