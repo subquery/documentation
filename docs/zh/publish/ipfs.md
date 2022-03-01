@@ -1,19 +1,19 @@
-# Hosting a Project using IPFS
+# 使用 IPFS 托管一个项目
 
-This guide works through how to publish a local SubQuery project to [IPFS](https://ipfs.io/) and deploy it on our hosting infrastructure.
+本指南通过如何发布本地的 SubQuery 项目到 [IPFS](https://ipfs.io/) 并将其部署到我们的托管基础设施。
 
-Hosting a project in IPFS makes it available for all all and reduces your reliance on centralised services like GitHub.
+在 IPFS 中托管一个项目，可以让所有人都能使用，并减少您对集中服务的依赖，例如GitHub。
 
-## Requirements
+## 安装要求
 
-- `@subql/cli` version 0.21.0 or above.
-- Manifest `specVersion` 0.2.0 and above.
-- Get your [SUBQL_ACCESS_TOKEN](#prepare-your-subql-access-token) ready.
-- To make sure your deployment success, we strongly recommend that you build your project with the `subql build` command, and test it locally before publishing.
+- `@subql/cli` 版本 0.21.0 或以上.
+- Manifest `spec版本` 0.2.0 及以上.
+- 准备好您的 [SUBQL_ACCESS_TOKEN](#prepare-your-subql-access-token)
+- 为了确保您的部署成功，我们强烈建议您使用 `subql build` 命令来构建您的项目。 并在发布前在本地测试它。
 
-## Prepare your SUBQL_ACCESS_TOKEN
+## 准备您的 SUBQL_ACCESS_TOKEN
 
-- Step 1: Go to [SubQuery Projects](https://project.subquery.network/) and log in.
+- 第 1 步：去 [SubQuery Projects](https://project.subquery.network/) 并登录。
 - Step 2: Click on your profile at the top right of the navigation menu, then click on **_Refresh Token_**
 - Step 3: Copy the generated token.
 - Step 4: To use this token:
