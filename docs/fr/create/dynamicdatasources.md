@@ -1,22 +1,22 @@
-# Dynamic Data Sources
+# Sources de données dynamiques
 
-There are cases where you don't know all the parameters for a data source when a project is started. An example of this is a contract factory that will create new contract instances at a later date. It's impossible to know what the contract addresses will be for this ahead of time. This is where being able to create new data sources dynamically comes in.
+Il existe des cas où vous ne connaissez pas tous les paramètres d'une source de données au début du projet. Par exemple, une usine de contrats qui créera de nouvelles instances de contrats à une date ultérieure. Il est impossible de savoir à l'avance quelles seront les adresses des contrats. C'est là qu'intervient la possibilité de créer de nouvelles sources de données de manière dynamique.
 
-## The `templates` field
+## Le champ des `modèles`
 
-In order to use dynamic data sources you need to have spec version of at least `0.2.1`. If you are on `0.2.0` all you need to do is change the specVersion. If you are on a lower version then you should update to `0.2.0` first with `subql migrate`.
+Afin d'utiliser les sources de données dynamiques, vous devez avoir une version de spec d'au moins `0.2.1`. Si vous êtes sur la version `0.2.0`, il vous suffit de modifier la specVersion. Si vous êtes sur une version inférieure, vous devez d'abord mettre à jour vers `0.2.0` avec `subql migrate`.
 
-Spec version `0.2.1` introduces a new `templates` field. Templates are the same as data sources with a couple of differences.
+La version `0.2.1` de Spec introduit un nouveau champ pour `les modèles`. Les modèles sont les mêmes que les sources de données, à quelques différences près.
 
-* They need a `name` in order to identify the template
-* `startBlock` is no longer necessary. This will be set to the block the data source is created
-* In the case of a custom data source the `processor.options` field can also be partially filled out, the rest of the options will be provided when the data source is instanced.
+* Ils ont besoin d'un `nom` afin d'identifier le modèle.
+* `startBlock` n'est plus nécessaire. Il sera défini dans le bloc où la source de données est créée.
+* Dans le cas d'une source de données personnalisée, le champ `processor.options` peut également être partiellement rempli, le reste des options sera fourni lorsque la source de données sera instanciée.
 
-## Example Project
+## Exemple de projet
 
-The best way to show how to use dynamic data source is with an example.
+La meilleure façon de montrer comment utiliser une source de données dynamique est de donner un exemple.
 
-The below example is for a decentralised exchange that has a factory contract which deploys a new contract when a trading pair is added. When the project is run it's not possible to know the addresses of all trading pair contract that have been created or will be created. Data sources can be dynamically created by a mapping handler from a template in order to index the newly created trading pair contracts.
+L'exemple ci-dessous concerne une bourse décentralisée qui possède un contrat d'usine qui déploie un nouveau contrat lorsqu'une paire de transactions est ajoutée. Lorsque le projet est exécuté, il n'est pas possible de connaître les adresses de tous les contrats de paire de négociation qui ont été créés ou qui seront créés. Les sources de données peuvent être créées dynamiquement par un gestionnaire de mapping à partir d'un modèle afin d'indexer les contrats de paires de négociation nouvellement créés.
 
 
 ### `project.yaml`
@@ -24,22 +24,22 @@ The below example is for a decentralised exchange that has a factory contract wh
 specVersion: 0.2.1
 name: example-project
 version: 1.0.0
-description: ''
-repository: ''
+description: ""
+repository: ""
 schema:
   file: ./schema.graphql
 network:
-  genesisHash: '0x91bc6e169807aaa54802737e1c504b2577d4fafedd5a02c10293b1cd60e39527'
+  genesisHash: "0x91bc6e169807aaa54802737e1c504b2577d4fafedd5a02c10293b1cd60e39527"
   chaintypes:
     file: "./types.yaml"
 dataSources:
   - kind: substrate/Moonbeam
     startBlock: 1358833
     processor:
-      file: './node_modules/@subql/contract-processors/dist/moonbeam.js'
+      file: "./node_modules/@subql/contract-processors/dist/moonbeam.js"
       options:
         abi: exchangeFactory
-        address: '0x0000000000000000000000000000000000000000'
+        address: "0x0000000000000000000000000000000000000000"
     assets:
       exchangeFactory:
         file: ./src/exchangeFactory.abi.json
@@ -56,7 +56,7 @@ templates:
   - name: TradingPair
     kind: substrate/Moonbeam
     processor:
-      file: './node_modules/@subql/contract-processors/dist/moonbeam.js'
+      file: "./node_modules/@subql/contract-processors/dist/moonbeam.js"
       options:
         abi: tradingPair
         # we do not know the address at this point, it will be provided when instantiated
@@ -77,8 +77,8 @@ templates:
 
 ```ts
 // This function is defined using `subql codegen` cli command
-import { createTradingPairDatasource } from '../types';
-import {MoonbeamEvent} from '@subql/contract-processors/dist/moonbeam';
+import { createTradingPairDatasource } from "../types";
+import { MoonbeamEvent } from "@subql/contract-processors/dist/moonbeam";
 
 async function handleNewTradingPair(event: MoonbeamEvent): Promise<void> {
   const { exchange, token1, token2 } = event.args;
@@ -93,9 +93,9 @@ async function handleLiquidityAdded(event: MoonbeamEvent): Promise<void> {
 ```
 
 
-## Seeing a projects Dynamic Data Sources
+## Voir les sources de données dynamiques d'un projet
 
-Dynamic data sources are stored in the projects metadata. If you need to see what details you can query them like below:
+Les sources de données dynamiques sont stockées dans les métadonnées du projet. Si vous avez besoin de voir les détails, vous pouvez les interroger comme ci-dessous :
 
 ```gql
 {
@@ -105,7 +105,7 @@ Dynamic data sources are stored in the projects metadata. If you need to see wha
 }
 ```
 
-Result
+Résultat
 ```
 {
   "data": {
