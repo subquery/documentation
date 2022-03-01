@@ -51,8 +51,8 @@ Untuk menjalankan Proyek SubQuery Anda di host Node SubQuery secara lokal, perta
 
 Jalankan perintah bentuk dari direktori proyek.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```bash npm run-script build ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> `shell yarn build ` </CodeGroupItem>
+<CodeGroupItem title="NPM"> `bash npm run-script build ` </CodeGroupItem> </CodeGroup>
 
 ### Opsi pembuatan alternatif
 
@@ -77,21 +77,21 @@ Kemudian dengan menjalankan `subql build` akan menghasilkan folder dist dengan s
   L dist
     L entry_one.js
     L entry_renamed.js
-    L index.js 
+    L index.js
 ```
 
 Perhatikan bahwa itu akan membangun `index.ts` apakah ditentukan atau tidak di bidang ekspor.
 
-Untuk informasi lebih lanjut tentang menggunakan ini termasuk tanda, lihat [referensi cli](https://doc.subquery.network/references/references/#build).
+Untuk informasi lebih lanjut tentang menggunakan ini termasuk tanda, lihat [referensi cli](https://doc.subquery.network/run_publish/references/#build).
 
 ## Pencatatan
 
 Metode `console.log` **tidak lagi didukung**. Sebagai gantinya, modul `logger` telah disuntikkan ke dalam tipe, yang berarti kami dapat mendukung logger yang dapat menerima berbagai level logging.
 
 ```typescript
-logger.info('Info level message');
-logger.debug('Debugger level message');
-logger.warn('Warning level message');
+logger.info("Info level message");
+logger.debug("Debugger level message");
+logger.warn("Warning level message");
 ```
 
 Untuk menggunakan `logger.info` atau `logger.warn`, cukup tempatkan baris tersebut ke dalam file pemetaan Anda.

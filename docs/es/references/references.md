@@ -22,10 +22,10 @@ COMMANDS
 Este comando utiliza webpack para generar un paquete de un proyecto de subconsulta.
 
 | Opciones           | Descripción                                                                   |
-| ------------------ | ----------------------------------------------------------------------------- |
+| ------------------ | ----------------------------------------------------------------------------- | ---------- | ---- | ------------------------------ |
 | -l, --location     | carpeta local del proyecto de subconsultas (si aún no está en la carpeta)     |
 | -o, --output       | especificar carpeta de salida de compilación, p. ej., carpeta de construcción |
-| --mode=(producción | prod | desarrollo | dev) | [ predeterminado: producción ]                     |
+| --mode=(producción | prod                                                                          | desarrollo | dev) | [ predeterminado: producción ] |
 
 - Con `subql build` puedes especificar puntos de entrada adicionales en el campo de exportación, aunque siempre construirá `index.ts` automáticamente
 
@@ -281,7 +281,7 @@ Normalmente esto se establecería en el archivo manifest pero a continuación mu
 subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot"
 ```
 
-Dependiendo de la configuración de su base de datos de Postgres (por ejemplo, una contraseña de base de datos diferente), asegúrese también de que tanto el indexador (` subql / node `) como el servicio de consulta (` subql / query `) puede establecer una conexión con él.
+Dependiendo de la configuración de su base de datos de Postgres (por ejemplo, una contraseña de base de datos diferente), asegúrese también de que tanto el indexador (`subql / node`) como el servicio de consulta (`subql / query`) puede establecer una conexión con él.
 
 ### -p, --puerto
 
@@ -344,11 +344,11 @@ Esta opción permite que el campo de juego graphql siempre debe ser incluido por
 
 ### --output-fmt
 
-Ver [--output-fmt](https://doc.subquery.network/references/references.html#output-fmt)
+Ver [--output-fmt](https://doc.subquery.network/run_publish/references.html#output-fmt)
 
 ### --log-level
 
-Ver [--log-level](https://doc.subquery.network/references/references.html#log-level)
+Ver [--log-level](https://doc.subquery.network/run_publish/references.html#log-level)
 
 ### --log-path
 

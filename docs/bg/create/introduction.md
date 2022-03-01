@@ -51,8 +51,8 @@ yarn codegen
 
 Изпълнете командата за изграждане от основната директория на проекта.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```bash npm run-script build ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> `shell yarn build ` </CodeGroupItem>
+<CodeGroupItem title="NPM"> `bash npm run-script build ` </CodeGroupItem> </CodeGroup>
 
 ### Алтернативни опции за играждане
 
@@ -77,21 +77,21 @@ yarn codegen
   L dist
     L entry_one.js
     L entry_renamed.js
-    L index.js 
+    L index.js
 ```
 
 Имайте предвид, че той ще състави `index.ts` независимо дали е посочен в полето за експортиране или не.
 
-За повече информация относно използването на обозначителните флагове, вижте [cli reference](https://doc.subquery.network/references/references/#build).
+За повече информация относно използването на обозначителните флагове, вижте [cli reference](https://doc.subquery.network/run_publish/references/#build).
 
 ## Логване
 
 `console.log` метод **вече не се поддържа**. Вместо това `logger` модул е инжектиран в types, което означава, че можем да поддържаме регистратор, приемащ различни нива на логване.
 
 ```typescript
-logger.info('Info level message');
-logger.debug('Debugger level message');
-logger.warn('Warning level message');
+logger.info("Info level message");
+logger.debug("Debugger level message");
+logger.warn("Warning level message");
 ```
 
 За да използвате `logger.info` или `logger.warn`, просто поставете реда във вашия файл за преобразуване.

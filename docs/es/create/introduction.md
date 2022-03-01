@@ -51,8 +51,8 @@ Para ejecutar tu proyecto SubQuery en un nodo SubQuery alojado localmente, prime
 
 Ejecuta el comando de compilación desde el directorio raíz del proyecto.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```bash npm run-script build ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> `shell yarn build ` </CodeGroupItem>
+<CodeGroupItem title="NPM"> `bash npm run-script build ` </CodeGroupItem> </CodeGroup>
 
 ### Alternative build options
 
@@ -77,21 +77,21 @@ Entonces ejecutando `subql build` generará una carpeta de dist con la siguiente
   L dist
     L entry_one.js
     L entry_renamed.js
-    L index.js 
+    L index.js
 ```
 
 Tenga en cuenta que construirá `index.ts` si se especifica o no en el campo de exportación.
 
-Para obtener más información sobre cómo usar esto incluyendo banderas, consulte [referencia de cli](https://doc.subquery.network/references/references/#build).
+Para obtener más información sobre cómo usar esto incluyendo banderas, consulte [referencia de cli](https://doc.subquery.network/run_publish/references/#build).
 
 ## Registros
 
 The `console.log` method is **no longer supported**. En su lugar, se ha inyectado un módulo `logger` en los tipos, lo que significa que podemos soportar un registrador que puede aceptar varios niveles de registro.
 
 ```typescript
-logger.info('Mensaje de nivel de información');
-logger.debug('Mensaje de nivel de depuración');
-logger.warn('Mensaje de nivel de advertencia');
+logger.info("Mensaje de nivel de información");
+logger.debug("Mensaje de nivel de depuración");
+logger.warn("Mensaje de nivel de advertencia");
 ```
 
 Para usar `logger.info` o `logger.warn`, simplemente coloque la línea en su archivo de mapeo.

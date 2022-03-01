@@ -51,8 +51,8 @@ SubQuery Project yerel olarak barındırılan bir SubQuery Node çalıştırmak 
 
 Yapı komutunu projenin kök dizininden çalıştırın.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```bash npm run-script build ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> `shell yarn build ` </CodeGroupItem>
+<CodeGroupItem title="NPM"> `bash npm run-script build ` </CodeGroupItem> </CodeGroup>
 
 ### Alternative build options
 
@@ -77,21 +77,21 @@ Sonra koşarak `subql build`aşağıdaki yapıya sahip bir dist klasörü oluşt
   L dist
     L entry_one.js
     L entry_renamed.js
-    L index.js 
+    L index.js
 ```
 
 İnşa edeceğini unutmayın `index.ts` dışa aktarma alanında belirtilip belirtilmediği.
 
-Bayraklar da dahil olmak üzere bunu kullanma hakkında daha fazla bilgi için bkz. [cli reference](https://doc.subquery.network/references/references/#build).
+Bayraklar da dahil olmak üzere bunu kullanma hakkında daha fazla bilgi için bkz. [cli reference](https://doc.subquery.network/run_publish/references/#build).
 
 ## Logging
 
 Bu `console.log`yöntem **artık desteklenmiyor**. Yerine, a `logger` türlere modül enjekte edildi, bu da çeşitli günlük seviyelerini kabul edebilen bir kaydediciyi destekleyebileceğimiz anlamına geliyor.
 
 ```typescript
-logger.info('Info level message');
-logger.debug('Debugger level message');
-logger.warn('Warning level message');
+logger.info("Info level message");
+logger.debug("Debugger level message");
+logger.warn("Warning level message");
 ```
 
 Kullanmak `logger.info` or `logger.warn`,satırı eşleme dosyanıza yerleştirin.

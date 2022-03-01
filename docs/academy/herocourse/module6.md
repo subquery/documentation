@@ -229,7 +229,7 @@ logger.info("Blockheight: " + event.block.block.header.number.toNumber());
 ```
 
 When running a subql node locally via a command line, a log level can also be added to help
-troubleshoot. See [Subql CLI logging reference](https://doc.subquery.network/references/references/#log-level)
+troubleshoot. See [Subql CLI logging reference](https://doc.subquery.network/run_publish/references/#log-level)
 
 ## Debugging
 
@@ -243,7 +243,7 @@ To debug a local subql node, the --debug flag can also be used from the command 
 > subql-node -f . --debug
 ```
 
-- [Subql CLI debug reference](https://doc.subquery.network/references/references/#debug)
+- [Subql CLI debug reference](https://doc.subquery.network/run_publish/references/#debug)
 
 ## Changing the batch block size
 

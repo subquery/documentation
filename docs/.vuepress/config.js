@@ -201,6 +201,7 @@ function getSidebar(locale, language){
         `${locale}/run_publish/query.md`,
         `${locale}/run_publish/graphql.md`,
 		    `${locale}/run_publish/aggregate.md`,
+        `${locale}/run_publish/references.md`,
       ]
     },
     {
@@ -229,19 +230,11 @@ function getSidebar(locale, language){
       ]
     },
     {
-      title: 'References',
-      path: `${locale}/references/references`,
-      collapsable: true,
-      children: [
-        `${locale}/references/references.md`,
-      ]
-    },
-    {
       title: 'FAQs',
-      path: `${locale}/faq/faqs`,
+      path: `${locale}/faqs/faqs`,
       collapsable: true,
       children: [
-        `${locale}/faq/faqs.md`,
+        `${locale}/faqs/faqs.md`,
       ]
     },
     {

@@ -21,10 +21,10 @@ COMMANDS
 
 This command is uses webpack to generate a bundle of a subquery project.
 
-| 옵션                 | 설명                                                                                                         |
-| ------------------ | ---------------------------------------------------------------------------------------------------------- |
-| -l, --location     | local folder of subquery project (if not in folder already)                                                |
-| -o, --output       | specify output folder of build e.g. build-folder                                                           |
+| 옵션               | 설명                                                        |
+| ------------------ | ----------------------------------------------------------- | ----------- | ---- | ----------------------- |
+| -l, --location     | local folder of subquery project (if not in folder already) |
+| -o, --output       | specify output folder of build e.g. build-folder            |
 | --mode=(production | prod                                                        | development | dev) | [ default: production ] |
 
 - With `subql build` you can specify additional entry points in exports field although it will always build `index.ts` automatically
@@ -344,11 +344,11 @@ This flag enables the graphql playground so should always be included by default
 
 ### --output-fmt
 
-See [--output-fmt](https://doc.subquery.network/references/references.html#output-fmt)
+See [--output-fmt](https://doc.subquery.network/run_publish/references.html#output-fmt)
 
 ### --log-level
 
-See [--log-level](https://doc.subquery.network/references/references.html#log-level)
+See [--log-level](https://doc.subquery.network/run_publish/references.html#log-level)
 
 ### --log-path
 

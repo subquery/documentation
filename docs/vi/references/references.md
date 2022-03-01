@@ -345,11 +345,11 @@ Cờ này cho phép sân chơi graphql hoạt động, vì vậy nó luôn đư�
 
 ### --output-fmt
 
-Xem [--output-fmt](https://doc.subquery.network/references/references.html#output-fmt)
+Xem [--output-fmt](https://doc.subquery.network/run_publish/references.html#output-fmt)
 
 ### --log-level
 
-Xem [--log-level](https://doc.subquery.network/references/references.html#log-level)
+Xem [--log-level](https://doc.subquery.network/run_publish/references.html#log-level)
 
 ### --log-path
 

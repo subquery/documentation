@@ -51,8 +51,8 @@ Per eseguire il tuo progetto SubQuery su un SubQuery Node ospitato localmente, d
 
 Eseguite il comando di compilazione dalla directory principale del progetto.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```bash npm run-script build ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> `shell yarn build ` </CodeGroupItem>
+<CodeGroupItem title="NPM"> `bash npm run-script build ` </CodeGroupItem> </CodeGroup>
 
 ### Alternative build options
 
@@ -77,21 +77,21 @@ Then by running `subql build` it will generate a dist folder with the following 
   L dist
     L entry_one.js
     L entry_renamed.js
-    L index.js 
+    L index.js
 ```
 
 Note that it will build `index.ts` whether or not it is specified in the exports field.
 
-For more information on using this including flags, see [cli reference](https://doc.subquery.network/references/references/#build).
+For more information on using this including flags, see [cli reference](https://doc.subquery.network/run_publish/references/#build).
 
 ## Logging
 
 The `console.log` method is **no longer supported**. Instead, a `logger` module has been injected in the types, which means we can support a logger that can accept various logging levels.
 
 ```typescript
-logger.info('Info level message');
-logger.debug('Debugger level message');
-logger.warn('Warning level message');
+logger.info("Info level message");
+logger.debug("Debugger level message");
+logger.warn("Warning level message");
 ```
 
 To use `logger.info` or `logger.warn`, just place the line into your mapping file.

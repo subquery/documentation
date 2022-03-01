@@ -51,8 +51,8 @@ Um Ihr SubQuery-Projekt auf einer lokal gehosteten SubQuery-Node auszuführen, m
 
 Führen Sie den Build-Befehl im Stammverzeichnis des Projekts aus.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```bash npm run-script build ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> `shell yarn build ` </CodeGroupItem>
+<CodeGroupItem title="NPM"> `bash npm run-script build ` </CodeGroupItem> </CodeGroup>
 
 ### Alternative Build-Optionen
 
@@ -77,21 +77,21 @@ Durch Ausführen von `subql build` wird dann ein Dist-Ordner mit der folgenden S
   L dist
     L entry_one.js
     L entry_renamed.js
-    L index.js 
+    L index.js
 ```
 
 Beachten Sie, dass `index.ts` erstellt wird, unabhängig davon, ob dies im Exportfeld angegeben ist oder nicht.
 
-Weitere Informationen zur Verwendung einschließlich Flags finden Sie unter [CLI-Referenz](https://doc.subquery.network/references/references/#build).
+Weitere Informationen zur Verwendung einschließlich Flags finden Sie unter [CLI-Referenz](https://doc.subquery.network/run_publish/references/#build).
 
 ## Logging
 
 Die Methode `console.log` wird **nicht mehr unterstützt**. Stattdessen wurde ein `Logger`-Modul in die Typen eingefügt, was bedeutet, dass wir einen Logger unterstützen können, der verschiedene Protokollierungsebenen akzeptieren kann.
 
 ```typescript
-logger.info('Info level message');
-logger.debug('Debugger level message');
-logger.warn('Warning level message');
+logger.info("Info level message");
+logger.debug("Debugger level message");
+logger.warn("Warning level message");
 ```
 
 Um `logger.info` oder `logger.warn` zu verwenden, platzieren Sie einfach die Zeile in Ihrer Zuordnungsdatei.

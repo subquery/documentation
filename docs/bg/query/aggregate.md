@@ -26,4 +26,4 @@
 
 Изпълнението на подзаявки за агрегирани функции се основава на [pg-aggregates](https://github.com/graphile/pg-aggregates), можете да намерите повече информация там
 
-**Моля, имайте предвид, че трябва да включите  `--unsafe` поставете отметка в квадратчето в услугата за заявки, за да използвате тези функции. [Read more](../references/references.md#unsafe-2). Note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in SubQuery's managed service ([project.subquery.network](https://project.subquery.network))**
+**Моля, имайте предвид, че трябва да включите `--unsafe` поставете отметка в квадратчето в услугата за заявки, за да използвате тези функции. [Read more](../run_publish/references.md#unsafe-2). Note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in SubQuery's managed service ([project.subquery.network](https://project.subquery.network))**

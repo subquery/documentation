@@ -344,11 +344,11 @@ Options:
 
 ### --output-fmt
 
-Смотри [--output-fmt](https://doc.subquery.network/references/references.html#output-fmt)
+Смотри [--output-fmt](https://doc.subquery.network/run_publish/references.html#output-fmt)
 
 ### --log-level
 
-Смотри [--log-level](https://doc.subquery.network/references/references.html#log-level)
+Смотри [--log-level](https://doc.subquery.network/run_publish/references.html#log-level)
 
 ### --log-path
 

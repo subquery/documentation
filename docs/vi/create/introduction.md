@@ -51,8 +51,8 @@ Thao tác này sẽ tạo một thư mục mới (hoặc cập nhật hiện có
 
 Chạy lệnh xây dựng từ thư mục gốc của dự án.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```bash npm run-script build ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> `shell yarn build ` </CodeGroupItem>
+<CodeGroupItem title="NPM"> `bash npm run-script build ` </CodeGroupItem> </CodeGroup>
 
 ### Tùy chọn xây dựng thay thế
 
@@ -77,21 +77,21 @@ Sau đó, bằng cách chạy `subql build` nó sẽ tạo ra một thư mục d
   L dist
     L entry_one.js
     L entry_renamed.js
-    L index.js 
+    L index.js
 ```
 
 Lưu ý rằng nó sẽ xây dựng `index.ts` cho dù nó có được chỉ định trong trường exports hay không.
 
-Để biết thêm thông tin về cách sử dụng điều này bao gồm cả cờ, hãy xem [cli reference](https://doc.subquery.network/references/references/#build).
+Để biết thêm thông tin về cách sử dụng điều này bao gồm cả cờ, hãy xem [cli reference](https://doc.subquery.network/run_publish/references/#build).
 
 ## Nhật ký
 
 Phương thức `console.log` **không còn được hỗ trợ**. Thay vào đó, mô-đun `logger` đã được đưa vào các kiểu dữ liệu, có nghĩa là chúng tôi có thể hỗ trợ trình ghi nhật ký có thể chấp nhận các cấp độ ghi nhật ký khác nhau.
 
 ```typescript
-logger.info('Info level message');
-logger.debug('Debugger level message');
-logger.warn('Warning level message');
+logger.info("Info level message");
+logger.debug("Debugger level message");
+logger.warn("Warning level message");
 ```
 
 Để sử dụng `logger.info` hoặc `logger.warn`, chỉ cần đặt dòng vào tệp ánh xạ của bạn.

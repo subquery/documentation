@@ -344,11 +344,11 @@ batchSize: 55 // Додаткова конфігурація
 
 ### --output-fmt
 
-Дивіться [--output-fmt](https://doc.subquery.network/references/references.html#output-fmt)
+Дивіться [--output-fmt](https://doc.subquery.network/run_publish/references.html#output-fmt)
 
 ### --log-рівень
 
-Дивіться [--log-level](https://doc.subquery.network/references/references.html#log-level)
+Дивіться [--log-level](https://doc.subquery.network/run_publish/references.html#log-level)
 
 ### --log-шлях
 

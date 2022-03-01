@@ -344,11 +344,11 @@ Options:
 
 ### --output-fmt
 
-[--output-fmt](https://doc.subquery.network/references/references.html#output-fmt)を参照
+[--output-fmt](https://doc.subquery.network/run_publish/references.html#output-fmt)を参照
 
 ### --log-level
 
-[--log-level](https://doc.subquery.network/references/references.html#log-level)を参照
+[--log-level](https://doc.subquery.network/run_publish/references.html#log-level)を参照
 
 ### --log-path
 

@@ -79,28 +79,28 @@ With this you can define additional entry points to build using the exports fiel
 },
 ```
 
-Then by running `subql build` it will generate a dist folder with the following structure: 
+Then by running `subql build` it will generate a dist folder with the following structure:
 
 ```
 - project-name
   L dist
     L entry_one.js
     L entry_renamed.js
-    L index.js 
+    L index.js
 ```
 
-Note that it will build `index.ts` whether or not it is specified in the exports field. 
+Note that it will build `index.ts` whether or not it is specified in the exports field.
 
-For more information on using this including flags, see [cli reference](https://doc.subquery.network/references/references/#build).
+For more information on using this including flags, see [cli reference](https://doc.subquery.network/run_publish/references/#build).
 
 ## Logging
 
 The `console.log` method is **no longer supported**. Instead, a `logger` module has been injected in the types, which means we can support a logger that can accept various logging levels.
 
 ```typescript
-logger.info('Info level message');
-logger.debug('Debugger level message');
-logger.warn('Warning level message');
+logger.info("Info level message");
+logger.debug("Debugger level message");
+logger.warn("Warning level message");
 ```
 
 To use `logger.info` or `logger.warn`, just place the line into your mapping file.

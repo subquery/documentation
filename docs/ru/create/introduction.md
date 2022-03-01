@@ -51,8 +51,8 @@ yarn codegen
 
 Запустите команду сборки из корневого каталога проекта.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```bash npm run-script build ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> `shell yarn build ` </CodeGroupItem>
+<CodeGroupItem title="NPM"> `bash npm run-script build ` </CodeGroupItem> </CodeGroup>
 
 ### Альтернативные варианты сборки
 
@@ -77,21 +77,21 @@ yarn codegen
   L dist
     L entry_one.js
     L entry_renamed.js
-    L index.js 
+    L index.js
 ```
 
 Обратите внимание, что `index.ts` создастся независимо от того, указан он в поле экспорта или нет.
 
-Для получения дополнительной информации об использовании этой команды, включая флаги, см. [ссылку на cli](https://doc.subquery.network/references/references/#build).
+Для получения дополнительной информации об использовании этой команды, включая флаги, см. [ссылку на cli](https://doc.subquery.network/run_publish/references/#build).
 
 ## Логгирование
 
 Метод `console.log` **больше не поддерживается**. Вместо этого в типы был внедрен модуль `logger`, что означает, что мы можем поддерживать логгер, который может принимать различные уровни ведения журнала.
 
 ```typescript
-logger.info('Сообщение информационного уровня');
-logger.debug('Сообщение уровня дебаггера');
-logger.warn('Сообщение уровня предупреждения');
+logger.info("Сообщение информационного уровня");
+logger.debug("Сообщение уровня дебаггера");
+logger.warn("Сообщение уровня предупреждения");
 ```
 
 Чтобы использовать `logger.info` или `logger.warn`, просто поместите строку в mapping файл.

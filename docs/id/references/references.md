@@ -21,11 +21,11 @@ COMMANDS
 
 Perintah ini menggunakan webpack untuk menghasilkan bundel proyek subquery.
 
-| Pilihan            | Deskripsi                                                                                                  |
-| ------------------ | ---------------------------------------------------------------------------------------------------------- |
-| -l, --location     | folder lokal proyek subquery (jika belum ada di folder)                                                    |
-| -o, --output       | tentukan folder keluaran build mis. membangun-folder                                                       |
-| --mode=(production | prod                                                        | development | dev) | [ default: production ] |
+| Pilihan            | Deskripsi                                               |
+| ------------------ | ------------------------------------------------------- | ----------- | ---- | ----------------------- |
+| -l, --location     | folder lokal proyek subquery (jika belum ada di folder) |
+| -o, --output       | tentukan folder keluaran build mis. membangun-folder    |
+| --mode=(production | prod                                                    | development | dev) | [ default: production ] |
 
 - Dengan `subql build` Anda dapat menentukan titik masuk tambahan di bidang ekspor meskipun itu akan selalu dibangun `index.ts` secara otomatis
 
@@ -340,11 +340,11 @@ Bendera ini mengaktifkan taman bermain graphql sehingga harus selalu disertakan 
 
 ### --output-fmt
 
-Lihat [--output-fmt](https://doc.subquery.network/references/references.html#output-fmt)
+Lihat [--output-fmt](https://doc.subquery.network/run_publish/references.html#output-fmt)
 
 ### --log-level
 
-Lihat [--log-level](https://doc.subquery.network/references/references.html#log-level)
+Lihat [--log-level](https://doc.subquery.network/run_publish/references.html#log-level)
 
 ### --log-path
 
