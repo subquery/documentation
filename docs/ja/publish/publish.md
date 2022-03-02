@@ -27,24 +27,24 @@
 
 ![Revoke approval from a GitHub account](/assets/img/project_auth_request.png)
 
-SubQuery Projects is where you manage all your hosted projects uploaded to the SubQuery platform. You can create, delete, and even upgrade projects all from this application.
+SubQuery Projectsは、SubQueryプラットフォームにアップロードされたすべてのホストプロジェクトを管理する場所です。 このアプリケーションからすべてのプロジェクトを作成、削除、およびアップグレードすることさえできます。
 
 ![Projects Login](/assets/img/projects-dashboard.png)
 
-If you have a GitHub Organization accounts connected, you can use the switcher on the header to change between your personal account and your GitHub Organization account. Projects created in a GitHub Organization account are shared between members in that GitHub Organization. To connect your GitHub Organization account, you can [follow the steps here](#add-github-organization-account-to-subquery-projects).
+GitHub Organizationのアカウントを接続している場合、ヘッダーの切替ボタンで個人アカウントとGitHub Organizationのアカウントを切り替えることができます。 GitHub Organizationのアカウントで作成されたプロジェクトは、そのGitHub Organizationに所属するメンバー間で共有されます。 GitHub Organization アカウントに接続するには、 [こちらの手順](#add-github-organization-account-to-subquery-projects) に従ってください。
 
 ![Switch between GitHub accounts](/assets/img/projects-account-switcher.png)
 
-### Create your First Project
+### 最初のプロジェクトを作成します
 
-Let's start by clicking on "Create Project". You'll be taken to the New Project form. Please enter the following (you can change this in the future):
+「プロジェクトを作成」をクリックして始めましょう。 新しいプロジェクトのフォームに移動します。 次の項目を入力してください。（後で変更可能です）:
 
 - **GitHubアカウント:** 複数のGitHubアカウントをお持ちの場合、このプロジェクトをどのアカウントで作成するかを選択してください。 GitHub Organizationのアカウントで作成されたプロジェクトは、そのGitHub Organizationに所属するメンバー間で共有されます。
-- **Project Name**
+- **プロジェクト名**
 - **サブタイトル**
 - **説明**
 - **GitHub Repository URL:** これは、あなたのSubQueryプロジェクトがあるパブリックリポジトリへの有効なGitHub URLである必要があります。 `schema.graphql` ファイルは、ディレクトリのルートにある必要があります ([ディレクトリ構造の詳細](../create/introduction.md#directory-structure) を参照してください)。
-- **Database:** Premium customers can access dedicated databases to host production SubQuery projects from. If this interests you, you can contact [sales@subquery.network](mailto:sales@subquery.network) to have this setting enabled.
+- **データベース:** プレミアムユーザーは、本番環境の SubQuery プロジェクトをホストする専用データベースにアクセスできます。 興味がある場合は、 [sales@subquery.network](mailto:sales@subquery.network) に連絡して、この設定を有効にすることができます。
 - **Deployment Source:** You can choose to have the project deployed from the GitHub repository or alternatively deployed from a IPFS CID, see our guide about [hosting with IPFS.](ipfs.md)
 - **プロジェクトを非表示にする:** 選択すると、公開の SubQuery エクスプローラからプロジェクトを非表示にします。 SubQueryをコミュニティと共有したい場合は、この選択を解除しておいてください。 ![Create your first Project](/assets/img/projects-create.png)
 
