@@ -1,29 +1,29 @@
-# Aggregate Functions
+# Fonctions d'agrégation
 
-## Group By
+## Grouper par
 
-SubQuery supports advanced aggregate functions to allow you to perform a calculation on a set of values during your query.
+SubQuery prend en charge des fonctions d'agrégation avancées qui vous permettent d'effectuer un calcul sur un ensemble de valeurs pendant votre requête.
 
-Aggregate functions are usually used with the GroupBy function in your query.
+Les fonctions d'agrégation sont généralement utilisées avec la fonction GroupBy dans votre requête.
 
-GroupBy allows you to quickly get distinct values in a set from SubQuery in a single query.
+La fonction GroupBy vous permet d'obtenir rapidement des valeurs distinctes dans un ensemble de SubQuery en une seule requête.
 
 ![Graphql Groupby](/assets/img/graphql_aggregation.png)
 
-## Advanced Aggregate Functions
+## Fonctions d'agrégation avancées
 
-SubQuery provides the following aggregate functions when in unsafe mode:
+SubQuery fournit les fonctions d'agrégation suivantes lorsqu'il est en mode non sécurisé :
 
-- `sum` (applies to number-like fields) - the result of adding all the values together
-- `distinctCount` (applies to all fields) - the count of the number of distinct values
-- `min` (applies to number-like fields) - the smallest value
-- `max` (applies to number-like fields) - the greatest value
-- `average` (applies to number-like fields) - the average (arithmetic mean) value
-- `stddevSample` (applies to number-like fields) - the sample standard deviation of the values
-- `stddevPopulation` (applies to number-like fields) - the population standard deviation of the values
-- `varianceSample` (applies to number-like fields) - the sample variance of the values
-- `variancePopulation` (applies to number-like fields) - the population variance of the values
+- `sum` (s'applique aux champs de type nombre) - le résultat de l'addition de toutes les valeurs.
+- `distinctCount` (s'applique à tous les champs) - le compte du nombre de valeurs distinctes.
+- `min` (s'applique aux champs de type nombre) - la plus petite valeur
+- `max` (s'applique aux champs de type nombre) - la plus grande valeur
+- `average` (s'applique aux champs de type nombre) - la valeur moyenne (moyenne arithmétique)
+- `stddevSample` (s'applique aux champs de type nombre) - l'écart type de l'échantillon des valeurs.
+- `stddevPopulation` (s'applique aux champs de type numérique) - l'écart type de la population des valeurs.
+- `varianceSample` (s'applique aux champs de type numérique) - la variance de l'échantillon des valeurs.
+- `variancePopulation` (s'applique aux champs de type nombre) - la variance de la population des valeurs.
 
-SubQuery's implementation of aggregate functions is based on [pg-aggregates](https://github.com/graphile/pg-aggregates), you can find more information there
+L'implémentation des fonctions d'agrégation de SubQuery est basée sur [pg-aggregates](https://github.com/graphile/pg-aggregates), vous pouvez trouver plus d'informations ici
 
-**Please note that you must enable the `--unsafe` flag on the query service in order to use these functions. [Read more](../references/references.md#unsafe-2). Note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in SubQuery's managed service ([project.subquery.network](https://project.subquery.network))**
+****Veuillez noter que vous devez activer l'indicateur `--unsafe` sur le service de requête afin d'utiliser ces fonctions. [En savoir plus](../references/references.md#unsafe-2). Notez que la commande `--unsafe` empêchera votre projet d'être exécuté dans le réseau SubQuery, et vous devez contacter le support si vous voulez que cette commande soit exécutée avec votre projet dans le service géré de SubQuery ([project.subquery.network](https://project.subquery.network)**)**
