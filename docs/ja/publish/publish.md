@@ -7,11 +7,11 @@
 - [SubQuery Explorer](https://explorer.subquery.network) にリストされ、世界中の誰でもそれらを表示できるようにプロジェクトを公開することができます。
 - GitHub と統合されているので、GitHub 組織内の誰でも共有プロジェクトを閲覧することができます。
 
-## Create your first project in SubQuery Projects
+## SubQuery Projectsで最初のプロジェクトを作成する
 
-### Project Codebase Hosting
+### プロジェクトコードベースのホスティング
 
-There are two ways you can host your SubQuery project's codebase before publishing.
+公開前にSubQueryプロジェクトのコードベースをホストするには、2つの方法があります。
 
 **GitHub**: Your project's codebase must be in a public GitHub repository
 
