@@ -66,19 +66,19 @@ Mengunggah proyek SupQuery ke IPFS
 Proyek SubQuery yang diunggah ke IPFS: QmZ3q7YZSmhwBiot4PQCK3c7Z6HkteswN2Py58gkkZ8kNd //CID
 ```
 
-Harap perhatikan `CID` ini. With this `CID`, you can view your published project as what we call it [IPFS Deployment](#ipfs-deployment)
+Harap perhatikan `CID` ini. Harap perhatikan `CID` ini
 
 ## IPFS Deployment
 
-IPFS deployment represents an independent and unique existence of a SubQuery project on a decentralized network. Therefore, any changes with the code in the project will affect its uniqueness. If you need to adjust your business logic, e.g. change the mapping function, you must republish the project, and the `CID` will change.
+Penyebaran IPFS mewakili keberadaan proyek SubQuery yang independen dan unik pada jaringan yang terdesentralisasi. Oleh karena itu, setiap perubahan dengan kode dalam proyek akan mempengaruhi keunikannya. Jika Anda perlu menyesuaikan logika bisnis Anda, mis. mengubah fungsi pemetaan, Anda harus memublikasikan ulang proyek, dan `CID` akan berubah.
 
-For now, to view the project you have published, use a `REST` api tool such as [Postman](https://web.postman.co/), and use `POST` method with the following example URL to retrieve it. `https://subquery.network/ipfs/api/v0/cat?arg=<YOUR_PROJECT_CID>`
+Untuk saat ini, untuk melihat proyek yang telah Anda publikasikan, gunakan alat api `REST` seperti [Tukang Pos](https://web.postman.co/), dan gunakan metode `POST` dengan URL contoh berikut untuk mengambilnya. `https://subquery.network/ipfs/api/v0/cat?arg=<YOUR_PROJECT_CID>`
 
-You should see the example project deployment as below:
+Anda akan melihat contoh penerapan proyek seperti di bawah ini:
 
-This deployment looks very similar to your manifest file. You can expect those descriptive fields, and the network and dictionary endpoint has been removed as they did not directly affect the outcome of project execution.
+Penerapan ini terlihat sangat mirip dengan file manifes Anda. Anda dapat mengharapkan bidang deskriptif tersebut, dan titik akhir jaringan dan kamus telah dihapus karena tidak secara langsung memengaruhi hasil eksekusi proyek.
 
-Those files been used in your local project has been packed and published to IPFS as well.
+File-file tersebut telah digunakan dalam proyek lokal Anda telah dikemas dan dipublikasikan ke IPFS juga.
 
 ```yaml
 dataSources:
@@ -103,14 +103,14 @@ schema:
 specVersion: 0.2.0
 ```
 
-## Run your SubQuery project on Hosted Service
+## Jalankan proyek SubQuery Anda di Layanan yang Dihosting
 
-### Create project with IPFS deployment
+### Buat proyek dengan penerapan IPFS
 
-You can follow the guide to [Publish your SubQuery project](publish.md) but where you set your deployment source you can select **IPFS**.
+Anda dapat mengikuti panduan untuk [Memublikasikan proyek SubQuery Anda](publish.md) tetapi di mana Anda mengatur sumber penerapan Anda, Anda dapat memilih **IPFS**.
 
-Then choose your production slot, copy and paste you IPFS deployment CID (without the leading `ipfs://`).
+Kemudian pilih slot produksi Anda, salin dan tempel CID penerapan IPFS Anda (tanpa awalan `ipfs://`).
 
-You should see you IPFS deployment in the preview section. And you can select the network, dictionary endpoints etc.
+Anda akan melihat penerapan IPFS di bagian pratinjau. Dan Anda dapat memilih jaringan, titik akhir kamus, dll.
 
-After successful deploy the IPFS deployment on our hosted service, it should be available to view on the SubQuery Explorer, you can access the query service just like you do locally.
+Setelah berhasil menyebarkan penerapan IPFS pada layanan yang dihosting kami, itu harus tersedia untuk dilihat di SubQuery Explorer, Anda dapat mengakses layanan kueri seperti yang Anda lakukan secara lokal.
