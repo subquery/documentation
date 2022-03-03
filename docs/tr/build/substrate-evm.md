@@ -1,4 +1,4 @@
-# Moonbeam EVM Desteği
+# Substrate EVM Desteği
 
 Moonbeam'in ve Moonriver'ın EVM'si için özel bir veri kaynağı işlemcisi sağlıyoruz. Bu, tek bir SubQuery projesi içinde Moonbeam ağlarındaki hem EVM hem de Substrat etkinliğini filtrelemek ve indekslemek için basit bir yol sunar.
 
