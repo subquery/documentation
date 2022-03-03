@@ -1,4 +1,4 @@
-# MoonbeamのEVMサポート
+# SubstrateのEVMサポート
 
 MoonbeamとMoonriverのEVM用にカスタムデータソースプロセッサを提供しています。 これは、Moonbeamのネットワーク上のEVMとSubstrateのアクティビティを1つのSubQueryプロジェクトでフィルタリングし、インデックスを作成するシンプルな方法です。
 
