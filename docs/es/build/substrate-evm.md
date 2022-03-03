@@ -1,4 +1,4 @@
-# Soporte para EVM de Moonbeam
+# Soporte para EVM de Substrate
 
 Proveemos un procesador de fuentes de datos personalizadas para EVM de Moonbeam y Moonriver. Esto ofrece una manera sencilla de filtrar e indexar tanto la actividad EVM como Substrate en las redes de Moonbeam dentro de un único proyecto SubQuery.
 
