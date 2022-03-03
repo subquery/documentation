@@ -1,4 +1,4 @@
-# SubQuery 支持 Moonbeam EVM
+# SubQuery 支持 Substrate EVM
 
 我们为Moonbeam和Moonriver的EVM提供了一个自定义数据源处理器。 这为单一的 SubQuery 项目中提供了一种简单的方法来筛选和索引Moonbeam的网络上的 EVM 和 底层活动。
 
