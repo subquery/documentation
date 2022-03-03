@@ -1,4 +1,4 @@
-# Moonbeam EVM-Unterstützung
+# Substrate EVM-Unterstützung
 
 Wir bieten einen benutzerdefinierten Datenquellenprozessor für die EVM von Moonbeam und Moonriver. Dies bietet eine einfache Möglichkeit, sowohl EVM- als auch Substrat-Aktivitäten in Moonbeam-Netzwerken innerhalb eines einzigen SubQuery-Projekts zu filtern und zu indizieren.
 
