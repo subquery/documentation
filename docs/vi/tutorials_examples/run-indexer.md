@@ -12,7 +12,7 @@ Chạy một nút chỉ mục là một tùy chọn khác ngoài việc sử d�
 
 ## Postgres
 
-Chạy một nút chỉ mục trên cơ sở hạ tầng của bạn sẽ yêu cầu thiết lập cơ sở dữ liệu Postgres. Bạn có thể cài đặt Postgres [ tại đây ](https://www.postgresql.org/download/) và đảm bảo phiên bản 12 trở lên.
+Chạy một nút chỉ mục trên cơ sở hạ tầng của bạn sẽ yêu cầu thiết lập cơ sở dữ liệu Postgres. Bạn có thể cài đặt Postgres tại [ đây ](https://www.postgresql.org/download/) và đảm bảo bạn cài đặt đúng phiên bản 12 trở lên.
 
 ## Cài đặt subql / node
 
@@ -22,7 +22,7 @@ Sau đó, để chạy một nút SubQuery, hãy chạy lệnh sau:
 npm install -g @subql/node
 ```
 
-Cờ -g có nghĩa là cài đặt nó trên toàn cầu, có nghĩa là trên OSX, vị trí sẽ là / usr / local / lib / node_modules.
+Biểu tượng lá cờ -g có nghĩa là cần cài đặt nó trên toàn cầu, cụ thể ở đây là trên OSX, vị trí sẽ là /usr/local/lib/node_modules.
 
 Sau khi cài đặt, bạn có thể kiểm tra phiên bản bằng cách chạy:
 
