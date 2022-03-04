@@ -1,8 +1,8 @@
-# Hướng dẫn & Ví dụ
+# Hướng dẫn & Các Ví dụ
 
-Dưới đây chúng tôi sẽ liệt kê các bài hướng dẫn và ví dụ đa dạng để giúp bạn thiết lập và chạy dự án một cách nhanh chóng, dễ dàng nhất có thể.
+Dưới đây chúng tôi sẽ liệt kê các bài hướng dẫn của chúng tôi và các ví dụ đa dạng để giúp bạn thiết lập và chạy dự án một cách dễ dàng và nhanh nhất.
 
-## Ví dụ SubQuery
+## Hướng dẫn
 
 
 
@@ -10,7 +10,7 @@ Dưới đây chúng tôi sẽ liệt kê các bài hướng dẫn và ví dụ 
 
 | Ví dụ                                                                                         | Mô tả                                                                                                                                | Chủ đề                                                                                                                                           |
 | --------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [extrinsic-finalized-block](https://github.com/subquery/tutorials-extrinsic-finalised-blocks) | Lập Index về các yếu tố bên ngoài để có thể truy vấn bằng hash của chúng                                                             | Ví dụ đơn giản nhất về function **block handler** (xử lý block)                                                                                  |
+| [extrinsic-finalized-block](https://github.com/subquery/tutorials-extrinsic-finalised-blocks) | Lập chỉ mục ngoại vi để chúng có thể được truy vấn bằng Hash của chúng                                                               | Ví dụ đơn giản nhất với một hàm __block handler__                                                                                                |
 | [block-timestamp](https://github.com/subquery/tutorials-block-timestamp)                      | Lập Index theo dấu thời gian cho từng block đã được hoàn thiện                                                                       | Một ví dụ đơn giản khác về function **call handler** (xử lý lệnh gọi)                                                                            |
 | [validator-threshold](https://github.com/subquery/tutorials-validator-threshold)              | Lập Index về mức staking tối thiểu để người xác nhận đủ điều kiện để được bầu chọn.                                                  | Một ví dụ phức tạp hơn về function **block handler** có tác dụng tạo **lệnh gọi bên ngoài** tới cho `@polkadot/api` để lấy thêm dữ liệu on-chain |
 | [sum-reward](https://github.com/subquery/tutorials-sum-reward)                                | Lập Index về số tiền ràng buộc để staking, phần thưởng staking và khoản phạt (slash) từ các sự kiện của block đã hoàn thiện          | Function **event handlers** phức tạp hơn với quan hệ **one-to-many**                                                                             |
