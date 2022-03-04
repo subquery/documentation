@@ -12,7 +12,7 @@ Chạy một nút chỉ mục là một tùy chọn khác ngoài việc sử d�
 
 ## Postgres
 
-Chạy một nút chỉ mục trên cơ sở hạ tầng của bạn sẽ yêu cầu thiết lập cơ sở dữ liệu Postgres. Bạn có thể cài đặt Postgres tại [ đây ](https://www.postgresql.org/download/) và đảm bảo bạn cài đặt đúng phiên bản 12 trở lên.
+Chạy một nút chỉ mục trên cơ sở hạ tầng của bạn sẽ yêu cầu thiết lập của một cơ sở dữ liệu Postgres. Bạn có thể cài đặt Postgres tại [ đây ](https://www.postgresql.org/download/) và đảm bảo bạn cài đặt đúng phiên bản 12 trở lên.
 
 ## Cài đặt subql / node
 
@@ -31,7 +31,7 @@ Sau khi cài đặt, bạn có thể kiểm tra phiên bản bằng cách chạy
 0.19.1
 ```
 
-## Đặt cấu hình DB
+## Cài đặt cấu hình Database
 
 Tiếp theo, bạn cần đặt các biến môi trường sau:
 
@@ -59,4 +59,4 @@ Nếu bạn không có dự án nào hữu ích, hãy chạy lệnh `git clone h
 
 Nếu bạn điều hướng đến Postgres, bạn sẽ thấy hai bảng được tạo. `public.subqueries` và `subquery_1.starter_entities`.
 
-`public.subqueries` chỉ chứa 1 dòng mà trình lập chỉ mục kiểm tra khi khởi động để "hiểu trạng thái hiện tại" để nó biết phải tiếp tục từ đâu. Bảng `starter_entities` chứa các chỉ mục. Để xem dữ liệu, hãy chạy `select (*) from subquery_1.starter_entities`.
+`public.subqueries` chỉ chứa duy nhất 1 dòng, cái mà trình lập chỉ mục sẽ kiểm tra khi khởi động để "hiểu trạng thái hiện tại" để nó biết phải tiếp tục từ đâu. Bảng `starter_entities` chứa các chỉ mục. Để xem dữ liệu, hãy chạy `select (*) from subquery_1.starter_entities`.
