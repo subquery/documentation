@@ -188,7 +188,7 @@ Sau đó, mở các công cụ dành cho nhà phát triển Chrome, đi tới Ng
 npm install -g @subql/query
 ```
 
-Xin lưu ý rằng chúng tôi **KHÔNG** khuyến khích sử dụng `yarn toàn cầu` do việc quản lý phụ thuộc kém có thể dẫn đến sai sót trong dây chuyền.
+Xin lưu ý rằng chúng tôi **KHÔNG** khuyến khích sử dụng `yarn global` do việc quản lý phụ thuộc kém có thể dẫn đến sai sót trong dây chuyền.
 
 ### Chạy dịch vụ truy vấn
 ``` export DB_HOST=localhost subql-query --name <project_name> --playground ````
