@@ -24,7 +24,7 @@ Lệnh này sử dụng webpack để tạo một gói dự án subquery.
 | Các Tùy chọn       | Miêu tả                                                                                                    |
 | ------------------ | ---------------------------------------------------------------------------------------------------------- |
 | -l, --location     | thư mục cục bộ của dự án subquery (nếu chưa có trong thư mục)                                              |
-| -o, --output       | chỉ định thư mục đầu ra của bản dựng, ví dụ: build-folder                                                  |
+| -o, --output       | chỉ định thư mục đầu ra, ví dụ: build-folder                                                               |
 | --mode=(production | prod                                                        | development | dev) | [ default: production ] |
 
 - Với `subql build`, bạn có thể chỉ định các điểm nhập bổ sung trong trường export mặc dù nó sẽ luôn tạo `index.ts` tự động
@@ -39,7 +39,7 @@ Lệnh này sử dụng webpack để tạo một gói dự án subquery.
 
 ### --help
 
-Cờ hiển thị các tùy chọn trợ giúp.
+Lệnh này chỉ ra các trợ giúp tuỳ chọn.
 
 ```shell
 > subql-node --help
@@ -86,7 +86,7 @@ Options:
 
 ### --version
 
-Cờ sẽ hiển thị phiên bản hiện tại.
+Lệnh này sẽ hiển thị phiên bản hiện tại.
 
 ```shell
 > subql-node --version
@@ -104,7 +104,7 @@ subql-node --subquery .
 
 ### --subquery-name (không được dùng nữa)
 
-Cờ này cho phép bạn cung cấp tên cho dự án của mình, tên này hoạt động như thể nó tạo ra một phiên bản của dự án của bạn. Sau khi cung cấp một tên mới, một lược đồ cơ sở dữ liệu mới được tạo và đồng bộ hóa khối bắt đầu từ số 0. Không được chấp nhận vì `--db-schema`
+Cờ này cho phép bạn cung cấp tên cho dự án của mình, tên này hoạt động như thể nó tạo ra một phiên bản của dự án của bạn. Sau khi cung cấp một tên mới, một sơ đồ cơ sở dữ liệu mới được tạo và đồng bộ hóa khối bắt đầu từ số 0. Không được chấp nhận vì `--db-schema`
 
 ```shell
 subql-node -f . --subquery-name=test2
@@ -114,7 +114,7 @@ subql-node -f . --subquery-name=test2
 
 Tất cả các cấu hình khác nhau này có thể được đặt vào tệp .yml hoặc .json và sau đó được tham chiếu với cờ cấu hình.
 
-Tệp subquery_config.yml mẫu:
+Tệp mẫu subquery_config.yml:
 
 ```shell
 subquery: . // Bắt buộc. Đây là đường dẫn cục bộ của dự án. Dấu chấm ở đây có nghĩa là thư mục cục bộ hiện tại.
@@ -130,7 +130,7 @@ batchSize: 55 // Cấu hình tùy chọn
 
 ### --local (không được dùng nữa)
 
-Cờ này chủ yếu được sử dụng cho mục đích gỡ lỗi trong đó nó tạo bảng starter_entity mặc định trong lược đồ "postgres" mặc định.
+Cờ này chủ yếu được sử dụng cho mục đích tìm lỗi trong đó nó tạo bảng starter_entity mặc định trong lược đồ "postgres" mặc định.
 
 ```shell
 subql-node -f . --local
@@ -140,7 +140,7 @@ Lưu ý rằng một khi bạn sử dụng cờ này, việc loại bỏ nó s�
 
 ### --force-clean
 
-Cờ này buộc các lược đồ và bảng của dự án phải được tạo lại, hữu ích để sử dụng khi phát triển lặp đi lặp lại các lược đồ graphql sao cho các lần chạy mới của dự án luôn hoạt động ở trạng thái sạch. Lưu ý rằng cờ này cũng sẽ xóa tất cả dữ liệu được lập chỉ mục.
+Cờ này buộc các sơ đồ và bảng của dự án phải được tạo lại, hữu ích để sử dụng khi phát triển lặp đi lặp lại các sơ đồ graphql sao cho các lần chạy mới của dự án luôn hoạt động ở trạng thái sạch. Lưu ý rằng cờ này cũng sẽ xóa tất cả dữ liệu được lập chỉ mục.
 
 ### --db-schema
 
@@ -316,7 +316,7 @@ Tùy chọn:
 
 ### --version
 
-Cờ sẽ hiển thị phiên bản hiện tại.
+Lệnh này sẽ hiển thị phiên bản hiện tại.
 
 ```shell
 > subql-node --version
