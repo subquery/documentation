@@ -6,12 +6,12 @@ Chúng tôi sẽ sử dụng dự án khởi động đơn giản (và mọi th�
 
 ## Mục tiêu học tập
 
-Khi kết thúc quá trình quick start này, bạn sẽ:
+Khi kết thúc phần "quick start" này, bạn sẽ:
 
 - hiểu các điều kiện tiên quyết cần thiết
-- có thể host một dự án trong [Dự án SubQuery](https://project.subquery.network/)
-- chạy một truy vấn đơn giản để lấy chiều cao khối của mạng chính Polkadot bằng cách sử dụng playground
-- chạy một truy vấn GET đơn giản để lấy chiều cao khối của mạng chính Polkadot bằng cách sử dụng cURL
+- có thể tổ chức một dự án trong [Dự án SubQuery](https://project.subquery.network/)
+- chạy một truy vấn đơn giản để lấy block height của mạng chính Polkadot bằng cách sử dụng playground
+- chạy một truy vấn GET đơn giản để lấy block height của mạng chính Polkadot bằng cách sử dụng cURL
 
 ## Đối tượng mục tiêu
 
@@ -44,7 +44,7 @@ KHÔNG chạy các lệnh docker.
 
 ## 2. Tạo repo GitHub
 
-Trong GitHub, hãy tạo một repository công khai mới. Cung cấp tên và đặt khả năng hiển thị của bạn ở chế độ công khai. Ở đây, mọi thứ được giữ theo mặc định.
+Trong GitHub, hãy tạo một repository công khai mới. Cung cấp tên và đặt khả năng hiển thị của bạn ở chế độ công khai. Ở đây, hiện tại mọi thứ được giữ theo chế độ mặc định.
 
 ![tạo repo github](/assets/img/github_create_new_repo.png)
 
@@ -52,23 +52,23 @@ Hãy lưu ý URL GitHub của bạn, URL này phải được công khai để S
 
 ![tạo repo github](/assets/img/github_repo_url.png)
 
-## 3. Push tới GitHub
+## 3. Đẩy lên GitHub
 
-Quay lại thư mục dự án của bạn, khởi tạo nó dưới dạng thư mục git. Nếu không, bạn có thể gặp lỗi "nghiêm trọng: không phải là kho lưu trữ git (hoặc bất kỳ thư mục mẹ nào): .git"
+Quay lại thư mục dự án của bạn, khởi tạo nó dưới dạng thư mục git. Nếu không, bạn có thể gặp lỗi "nghiêm trọng: không phải là kho lưu trữ git (hoặc bất kỳ thư mục chính nào): .git"
 
 ```shell
 git init
 ```
 
-Sau đó, thêm một repository từ xa bằng lệnh:
+Sau đó, thêm một kho lưu trữ từ xa bằng lệnh:
 
 ```shell
 git remote add origin https://github.com/seandotau/subqlHelloWorld.git
 ```
 
-Về cơ bản, điều này đặt kho lưu trữ từ xa của bạn thành “https://github.com/seandotau/subqlHelloWorld.git” và đặt cho nó tên “origin” là danh pháp tiêu chuẩn cho repository từ xa trong GitHub.
+Điều này về cơ bản cài đặt kho lưu trữ từ xa của bạn thành “https://github.com/seandotau/subqlHelloWorld.git” và đặt cho nó tên “origin” là cách đặt tên tiêu chuẩn cho kho lưu trữ từ xa trong GitHub.
 
-Tiếp theo, chúng tôi thêm code vào repo của chúng tôi bằng các lệnh sau:
+Tiếp theo, chúng ta thêm code vào repo bằng các lệnh sau:
 
 ```shell
 > git add .
@@ -101,11 +101,11 @@ Lệnh push có nghĩa là "vui lòng đẩy mã của tôi ĐẾN kho lưu tr�
 
 ![Đẩy lên lần đầu](/assets/img/first_commit.png)
 
-Bây giờ bạn đã có code của mình vào GitHub, hãy xem cách chúng tôi có thể lưu trữ code đó trong Dự án SubQuery.
+Bây giờ bạn đã có code của mình trong GitHub, hãy xem cách chúng tôi có thể tổ chức nó trong SubQuery Projects.
 
 ## 4. Tạo dự án của bạn
 
-Điều hướng đến [https://project.subquery.network](https://project.subquery.network) và đăng nhập bằng tài khoản GitHub của bạn.
+Di chuyển đến [https://project.subquery.network](https://project.subquery.network) và đăng nhập bằng tài khoản GitHub của bạn.
 
 ![Chào mừng bạn đến với Dự án SubQuery](/assets/img/welcome_to_subquery_projects.png)
 
@@ -113,11 +113,11 @@ Sau đó, tạo một dự án mới,
 
 ![Chào mừng bạn đến với Dự án SubQuery](/assets/img/subquery_create_project.png)
 
-Và điền vào các trường khác nhau với các chi tiết thích hợp.
+Và điền vào các trường khác nhau với các thông tin thích hợp.
 
-- **Tài khoản GitHub:** Nếu bạn có nhiều tài khoản GitHub, hãy chọn tài khoản mà dự án này sẽ được tạo. Các dự án được tạo trong tài khoản tổ chức GitHub được chia sẻ giữa các thành viên trong tổ chức đó.
+- **Tài khoản GitHub:** Nếu bạn có nhiều hơn một tài khoản GitHub, hãy lựa chọn tài khoản mà dự án này sẽ được tạo. Các dự án được tạo trong tài khoản tổ chức GitHub được chia sẻ giữa các thành viên trong tổ chức đó.
 - **Tên dự án:** Đặt tên cho dự án của bạn ở đây.
-- **Phụ đề:** Cung cấp phụ đề cho dự án của bạn.
+- **Phụ đề:** Cung cấp tiêu đề cho dự án của bạn.
 - **Mô tả:** Giải thích những gì dự án SubQuery của bạn thực hiện.
 - **GitHub Repository URL:** Đây phải là URL GitHub hợp lệ tới kho lưu trữ công cộng có chứa dự án SubQuery của bạn. Tệp schema.graphql phải nằm trong thư mục root của bạn.
 - **Ẩn dự án:** Nếu được chọn, điều này sẽ ẩn dự án khỏi trình khám phá SubQuery công khai. Hãy bỏ chọn mục này nếu bạn muốn chia sẻ SubQuery của mình với cộng đồng!
