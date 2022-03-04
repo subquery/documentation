@@ -132,9 +132,9 @@ Trang tổng quan chứa nhiều thông tin hữu ích như mạng mà nó đang
 
 ## 5. Triển khai dự án của bạn
 
-Bây giờ bạn đã tạo dự án của mình trong SubQuery Projects, thiết lập tính năng hiển thị, bước tiếp theo là triển khai dự án của bạn để làm cho nó hoạt động. Triển khai một phiên bản sẽ kích hoạt khởi động lập chỉ mục SubQuery mới để bắt đầu, và cài đặt dịch vụ query bắt buộc để chấp nhận các yêu cầu từ GraphQl. Bạn cũng có thể triển khai các phiên bản mới đối với các dự án hiện tại tại đây.
+Bây giờ bạn đã tạo dự án của mình trong SubQuery Projects, thiết lập tính năng hiển thị, bước tiếp theo là triển khai dự án của bạn để làm cho nó hoạt động. Triển khai một phiên bản sẽ kích hoạt khởi động lập chỉ mục SubQuery mới để bắt đầu, và cài đặt dịch vụ truy vấn để chấp nhận các yêu cầu từ GraphQl. Bạn cũng có thể triển khai các phiên bản mới đối với các dự án hiện tại tại đây.
 
-Bạn có thể chọn triển khai cho các môi trường khác nhau như vị trí triển khai hoặc vị trí dàn dựng. Ở đây, chúng tôi sẽ triển khai cho 1 vị trí sàn xuất. Nhấp vào nút "Triển khai" sẽ xuất hiện màn hình với các trường sau:
+Bạn có thể chọn triển khai cho các môi trường khác nhau như production slot hoặc staging slot. Ở đây, chúng tôi sẽ triển khai cho 1 vị trí sàn xuất. Nhấp vào nút "Triển khai" sẽ xuất hiện màn hình với các trường sau:
 
 ![Triển khai đến production slot](/assets/img/deploy_production_slot.png)
 
