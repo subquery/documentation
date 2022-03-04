@@ -1,15 +1,15 @@
 # Giải thích Hello World
 
-Tại bài [Hướng dẫn nhanh Hello World](helloworld-localhost.md), chúng tôi sử dụng những lệnh đơn giản và nhanh để triển khai một ví dụ. Điều này giúp bạn hiểu tất cả những yêu cầu và có thể sử dụng playground tại máy cá nhân để tạo một truy vấn đơn giản và lấy dữ liệu từ SubQuery. Từ đó, chúng ta có một góc nhìn gần hơn về ý nghĩa của các lệnh trên.
+Tại bài [Hướng dẫn nhanh Hello World](helloworld-localhost.md), chúng tôi sử dụng những lệnh đơn giản và nhanh để triển khai một ví dụ. Điều này cho phép bạn đảm bảo rằng bạn đã có sẵn tất cả các điều kiện tiên quyết và có thể sử dụng một sân chơi cục bộ để thực hiện một truy vấn đơn giản để lấy dữ liệu đầu tiên của bạn từ SubQuery. Từ đó, chúng ta có một cái nhìn gần hơn về ý nghĩa của các lệnh trên.
 
 ## subql init
 
 Lệnh đầu tiên chúng tôi chạy là `subql init subqlHelloWorld`.
 
-Lệnh này khá nặng và tạo ra một loạt các tập tin cho bạn. Như đã nhắc đến ở [tài liệu chính thức](quickstart.md#configure-and-build-the-starter-project), bạn sẽ làm việc nhiều nhất với những tập tin sau:
+Lệnh này khá nặng và tạo ra một loạt các tập tin cho bạn. Như đã nhắc đến ở [tài liệu chính thức](quickstart.md#configure-and-build-the-starter-project), bạn sẽ làm việc chủ yếu với những tập tin sau:
 
 - Tệp kê khai trong `project.yaml`
-- Lược đồ GraphQL trong `schema.graphql`
+- Sơ đồ GraphQL trong `schema.graphql`
 - Các chức năng ánh xạ trong thư mục `src/mappings/`
 
 ![các tệp chính của subql](/assets/img/main_subql_files.png)
@@ -22,13 +22,13 @@ Tiếp theo chúng ta chạy lệnh `yarn install`. hoặc là `npm install`.
 
 > Nhắc lại một chút. Node Package Manager hoặc npm được phát hành vào năm 2010 và trở thành trình quản lý package phổ biến cho các nhà phát triển JavaScript. Đó là package mặc định và được tự động cài đặt khi bạn cài đặt Node.js trên hệ thống của bạn. Yarn được Facebook phát hành vào năm 2016 với mục đích giải quyết một số thiếu sót về hiệu suất và bảo mật khi làm việc với npm (tại thời điểm đó).
 
-Những điều yarn làm là nhìn vào tập tin `package.json` và tải về toàn bộ những điều kiện. Nhìn vào tập tin `package.json`, trông không giống như có rất nhiều tập tin điều kiện, tuy nhiên khi bạn chạy lệnh, bạn sẽ thấy rằng 18,983 tập tin đã được thêm vào. Đó là bởi vì mỗi một điều kiện lại phụ thuộc vào rất nhiều điều kiện khác.
+Những điều yarn làm là nhìn vào tập tin `package.json` và tải về những phần phụ thuộc khác. Nhìn vào tập tin `package.json`, trông không giống như có rất nhiều phần phụ thuộc, tuy nhiên khi bạn chạy lệnh, bạn sẽ thấy rằng 18,983 tập tin đã được thêm vào. Đó là bởi vì mỗi một phần phụ thuộc lại lại có các phần phụ thuộc riêng của nó.
 
 ![các tệp chính của subql](/assets/img/dependencies.png)
 
 ## yarn codegen
 
-Tiếp theo chúng ta chạy lệnh `yarn codegen` hoặc `npm run-script codegen`. Lệnh đó sẽ đọc lược đồ GraphQL (ở trong tập tin `schema.graphql`) và tự tạo ra tập tin mẫu typescripts tương ứng (Do đó tập tin đầu ra sẽ có đuôi .ts). Bạn sẽ không bao giờ phải thay đổi những tập tin tự sinh ra, chỉ cần thay đổi tập tin nguồn `schema.graphql`.
+Tiếp theo chúng ta chạy lệnh `yarn codegen` hoặc `npm run-script codegen`. Lệnh đó sẽ đọc lược đồ GraphQL (ở trong tập tin `schema.graphql`) và tự tạo ra tập tin mẫu typescripts tương ứng (Do đó tập tin đầu ra sẽ có đuôi .ts). Bạn không bao giờ được thay đổi bất kì tập nào đã được tạo ra này, chỉ thay đổi tập tin nguồn `schema.graphql`.
 
 ![các tệp chính của subql](/assets/img/typescript.png)
 
@@ -40,7 +40,7 @@ Chạy lệnh `yarn build` hoặc `npm run-script build`. Lệnh này rất quen
 
 ## docker-compose
 
-Bước cuối cùng sẽ bao gồm các lệnh docker `docker-compose pull && docker-compose up` (có thể chạy độc lập cũng được). Lệnh `pull` kéo toàn bộ các ảnh yêu cầu từ Docker Hub và lệnh `up` sẽ dựng container.
+Bước cuối cùng là kết hợp các lệnh docker `docker-compose pull && docker-compose up` (có thể chạy độc lập cũng được). Lệnh `pull` kéo toàn bộ các ảnh yêu cầu từ Docker Hub và lệnh `up` sẽ khởi động container.
 
 ```shell
 > docker-compose pull
@@ -49,7 +49,7 @@ Pulling subquery-node   ... done
 Pulling graphql-engine  ... done
 ```
 
-Khi container khởi chạy, bạn sẽ thấy màn hình xổ ra rất nhiều dòng chữ thể hiện trạng thái của node và của GraphQL. Bạn sẽ thấy:
+Khi container khởi chạy, bạn sẽ thấy terminal xổ ra rất nhiều dòng chữ thể hiện trạng thái của node và của GraphQL. Bạn sẽ thấy:
 
 ```
 subquery-node_1   | 2021-06-06T02:04:25.490Z <fetch> INFO fetch block [1, 100]
@@ -59,6 +59,6 @@ mà bạn biết rằng nút SubQuery đã bắt đầu đồng bộ hóa.
 
 ## Tóm lược
 
-Bây giờ bạn đã có một cái nhìn sâu sắc về những gì đang xảy ra, câu hỏi đặt ra là bắt đầu từ đâu? Nếu bạn cảm thấy khó hiểu, bạn có thể quay lại bài làm thế nào để [tạo một dự án](../create/introduction.md) và đọc thêm về những tập tin chính. Tập tin dự án, lược đồ GraphQL, và những tập tin ánh xạ.
+Bây giờ bạn đã có một cái nhìn sâu sắc về những gì đang xảy ra, câu hỏi đặt ra là bắt đầu từ đâu? Nếu bạn cảm thấy khó hiểu, bạn có thể quay lại bài làm thế nào để [tạo một dự án](../create/introduction.md) và đọc thêm về những tập tin chính. Tập tin dự án, sơ đồ GraphQL, và những tập tin ánh xạ.
 
-Nếu không, hãy tiếp tục xem hướng dẫn, nơi chúng tôi xem xét cách có thể chạy ví dụ Hello World này trên cơ sở hạ tầng được lưu trữ của SubQuery, chúng tôi sẽ xem xét việc sửa đổi khối bắt đầu và sẽ đi sâu hơn về việc chạy các dự án SubQuery bằng cách chạy sẵn có và các dự án mã nguồn mở.
+Nếu không, hãy tiếp tục phần hướng dẫn của chúng tôi, nơi chúng tôi xem xét cách chúng tôi có thể chạy ví dụ Hello World này trên cơ sở hạ tầng được lưu trữ của SubQuery, chúng tôi sẽ xem xét việc sửa đổi khối khởi động và chúng tôi sẽ đi sâu hơn về việc chạy các dự án SubQuery bằng cách chạy các dự án mã nguồn mở sẵn có.
