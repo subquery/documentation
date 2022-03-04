@@ -2,7 +2,7 @@
 
 ## SubQuery là gì?
 
-SubQuery là một dự án mã nguồn mở cho phép các nhà phát triển chạy trình lập chỉ mục, chuyển đổi và truy vấn dữ liệu trên chuỗi Substrate để chạy các ứng dụng của họ.
+SubQuery là một dự án mã nguồn mở cho phép các nhà phát triển chạy trình lập chỉ mục, chuyển đổi, và truy vấn dữ liệu trên chuỗi Substrate để chạy các ứng dụng của họ.
 
 SubQuery cũng cung cấp dịch vụ lưu trữ miễn phí, công suất lớn cho các dự án của các nhà phát triển; trút bỏ trách nhiệm của các nhà sản xuất trong việc quản lý cơ sở hạ tầng nữa, để họ tập trung làm việc mình giỏi nhất: lập trình.
 
