@@ -1,4 +1,4 @@
-# Cờ dòng lệnh
+# Cờ hiệu dòng lệnh
 
 ## subql (cli)
 
@@ -21,7 +21,7 @@ COMMANDS
 
 Lệnh này sử dụng webpack để tạo một gói dự án subquery.
 
-| Các Tùy chọn       | Mô tả                                                                                                      |
+| Các Tùy chọn       | Miêu tả                                                                                                    |
 | ------------------ | ---------------------------------------------------------------------------------------------------------- |
 | -l, --location     | thư mục cục bộ của dự án subquery (nếu chưa có trong thư mục)                                              |
 | -o, --output       | chỉ định thư mục đầu ra của bản dựng, ví dụ: build-folder                                                  |
