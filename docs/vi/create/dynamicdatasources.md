@@ -1,6 +1,6 @@
 # Nguồn dữ liệu động
 
-Có những trường hợp bạn không biết tất cả các tham số cho nguồn dữ liệu khi một dự án được bắt đầu. Một ví dụ về điều này là một nhà máy hợp đồng sẽ tạo ra các phiên bản hợp đồng mới vào một ngày sau đó. Không thể biết trước thời hạn địa chỉ hợp đồng sẽ như thế nào. Đây là nơi có thể tự động tạo các nguồn dữ liệu mới.
+Trong nhiều trường hợp bạn không thẻ biết tất cả các tham số của một nguồn dữ liệu khi một dự án được bắt đầu. Một ví dụ về điều này là một nhà máy hợp đồng sẽ tạo ra các phiên bản hợp đồng mới vào một ngày sau đó. Không thể biết trước thời hạn địa chỉ hợp đồng sẽ như thế nào. Đây là nơi có thể tự động tạo các nguồn dữ liệu mới.
 
 ## Trường `templates`
 
