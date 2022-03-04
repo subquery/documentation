@@ -9,7 +9,7 @@ Chúng tôi sẽ sử dụng dự án khởi động đơn giản (và mọi th�
 Khi kết thúc phần "quick start" này, bạn sẽ:
 
 - hiểu các điều kiện tiên quyết cần thiết
-- có thể tổ chức một dự án trong [Dự án SubQuery](https://project.subquery.network/)
+- có thể tổ chức một dự án trong [SubQuery Projects](https://project.subquery.network/)
 - chạy một truy vấn đơn giản để lấy block height của mạng chính Polkadot bằng cách sử dụng playground
 - chạy một truy vấn GET đơn giản để lấy block height của mạng chính Polkadot bằng cách sử dụng cURL
 
@@ -132,7 +132,7 @@ Trang tổng quan chứa nhiều thông tin hữu ích như mạng mà nó đang
 
 ## 5. Triển khai dự án của bạn
 
-Bây giờ bạn đã tạo dự án của mình trong SubQuery Projects, thiết lập hành vi hiển thị, bước tiếp theo là triển khai dự án của bạn để làm cho nó hoạt động. Triển khai một phiên bản sẽ kích hoạt khởi động lập chỉ mục SubQuery mới để bắt đầu, và cài đặt dịch vụ query bắt buộc để chấp nhận các yêu cầu từ GraphQl. Bạn cũng có thể triển khai các phiên bản mới đối với các dự án hiện tại tại đây.
+Bây giờ bạn đã tạo dự án của mình trong SubQuery Projects, thiết lập tính năng hiển thị, bước tiếp theo là triển khai dự án của bạn để làm cho nó hoạt động. Triển khai một phiên bản sẽ kích hoạt khởi động lập chỉ mục SubQuery mới để bắt đầu, và cài đặt dịch vụ query bắt buộc để chấp nhận các yêu cầu từ GraphQl. Bạn cũng có thể triển khai các phiên bản mới đối với các dự án hiện tại tại đây.
 
 Bạn có thể chọn triển khai cho các môi trường khác nhau như vị trí triển khai hoặc vị trí dàn dựng. Ở đây, chúng tôi sẽ triển khai cho 1 vị trí sàn xuất. Nhấp vào nút "Triển khai" sẽ xuất hiện màn hình với các trường sau:
 
@@ -162,13 +162,13 @@ Thao tác này sẽ đưa bạn đến "Playground" quen thuộc, nơi bạn có
 
 ![Sân chơi Subquery](/assets/img/subquery_playground.png)
 
-## 7. Bước thêm
+## 7. Bước bổ sung
 
 Đối với những người sắc sảo trong số chúng ta, bạn sẽ nhớ lại rằng trong mục tiêu học tập, điểm cuối cùng là chạy một truy vấn GET đơn giản. Để làm điều này, chúng tôi sẽ cần lấy "Query Endpoint" được hiển thị trong chi tiết triển khai.
 
 ![Kết thúc truy vấn](/assets/img/query_endpoint.png)
 
-Sau đó, bạn có thể gửi một yêu cầu GET tới điểm cuối này bằng cách sử dụng ứng dụng khách yêu thích của bạn như [Postman](https://www.postman.com/) hoặc [Mockoon](https://mockoon.com/) hoặc qua cURL trong thiết bị đầu cuối của bạn. Để đơn giản, cURL sẽ được hiển thị bên dưới.
+Sau đó, bạn có thể gửi một yêu cầu GET tới điểm cuối này bằng cách sử dụng ứng dụng khách yêu thích của bạn như [Postman](https://www.postman.com/) hoặc [Mockoon](https://mockoon.com/) hoặc qua cURL thông qua terminal của bạn. Để đơn giản, cURL sẽ được hiển thị bên dưới.
 
 Lệnh curl để chạy là:
 
