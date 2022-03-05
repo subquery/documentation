@@ -1,4 +1,4 @@
-# Làm cách nào để thay đổi kích thước lô tìm nạp blockchain?
+# Làm cách nào để thay đổi kích thước lô tìm nạp chuỗi khối?
 
 ## Video hướng dẫn
 
