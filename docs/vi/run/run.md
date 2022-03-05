@@ -89,7 +89,7 @@ batchSize:100
 localMode:true
 ```
 
-#### Chỉ định tệp cấu hình
+#### Thay đổi kích thước lô tìm nạp khối
 
 ```
 subql-node -f your-project-path --batch-size 200
