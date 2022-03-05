@@ -99,24 +99,24 @@ Kết quả:
 [IndexerManager] fetch block [403, 602]
 ```
 
-Khi chain được lập chỉ mục lần đầu tiên, việc tìm nạp (fetching) các block đơn lẻ sẽ làm giảm đáng kể hiệu suất. Phương thức tăng batch size để điều chỉnh số lượng block được tìm nạp sẽ giúp làm giảm thời gian xử lý tổng thể. Batch size mặc định hiện đang là 100.
+Khi trình lập chỉ mục lập chỉ mục chuỗi lần đầu tiên, việc tìm nạp các khối đơn lẻ sẽ làm giảm đáng kể hiệu suất. Tăng kích thước lô để điều chỉnh số lượng khối được tìm nạp sẽ làm giảm thời gian xử lý tổng thể. Kích thước lô mặc định hiện tại là 100.
 
-#### Thay đổi kích thước lô tìm nạp block
+#### Chạy ở chế độ cục bộ
 
 ```
 subql-node -f your-project-path --local
 ```
 
-Người dùng có thể để node chạy ở chế độ local nhằm phục vụ việc gỡ bug. Viêc chuyển sang chế độ local sẽ tạo các bảng Postgres trong sơ đồ `công khai` mặc định.
+Đối với mục đích gỡ lỗi, người dùng có thể chạy nút ở chế độ cục bộ. Viêc chuyển sang chế độ local sẽ tạo các bảng Postgres trong sơ đồ `công khai` mặc định.
 
-Nếu chế độ local không được sử dụng, một sơ đồ Postgres mới (với dữ liệu `subquery_` ban đầu) và các bảng dự án tương ứng sẽ được khởi tạo.
+Nếu chế độ cục bộ không được sử dụng, một sơ đồ Postgres mới với `subquery_` và các bảng dự án tương ứng sẽ được khởi tạo.
 
 
-#### Chế độ local
+#### Kiểm tra tình trạng nút của bạn
 
-Xin lưu ý rằng chúng tôi **KHÔNG** khuyến khích sử dụng `yarn global` vì khâu quản lý phụ thuộc của nó rất kém, có thể dẫn đến sai sót trong dây chuyền.
+Có 2 điểm cuối mà bạn có thể sử dụng để kiểm tra và theo dõi tình trạng của một nút SubQuery đang chạy.
 
-- Điểm cuối kiểm tra sức khỏe trả về một phản hồi 200 đơn giản
+- Kiểm tra tình trạng điểm cuối sẽ trả về một phần hồi 200 đơn giản
 - Điểm cuối siêu dữ liệu bao gồm các phân tích bổ sung về nút SubQuery đang chạy của bạn
 
 Nối phần này vào URL cơ sở của nút SubQuery của bạn. Ví dụ: ` http: // localhost: 3000 / meta ` sẽ trả về:
@@ -142,7 +142,7 @@ Nối phần này vào URL cơ sở của nút SubQuery của bạn. Ví dụ: `
 }
 ```
 
-` http: // localhost: 3000 / health ` sẽ trả về HTTP 200 nếu thành công.
+`http://localhost:3000/health` sẽ trả về HTTP 200 nếu thành công.
 
 Lỗi 500 sẽ được trả về nếu trình lập chỉ mục không khỏe mạnh. Điều này thường có thể được nhìn thấy khi nút đang khởi động.
 
@@ -178,8 +178,8 @@ Debugger listening on ws://127.0.0.1:9229/56156753-c07d-4bbe-af2d-2c7ff4bcc5ad
 For help, see: https://nodejs.org/en/docs/inspector
 Debugger attached.
 ```
-Sau đó, mở các công cụ dành cho nhà phát triển Chrome, đi tới Nguồn > Hệ thống tệp và thêm dự án của bạn vào không gian làm việc và bắt đầu gỡ lỗi. Để biết thêm thông tin, hãy kiểm tra [ Cách gỡ lỗi dự án SubQuery ](https://doc.subquery.network/tutorials_examples/debug-projects/)
-## Khởi chạy Dịch vụ Truy vấn (subql/query)
+Sau đó, mở các công cụ dành cho nhà phát triển Chrome, đi tới Nguồn > Hệ thống tệp và thêm dự án của bạn vào không gian làm việc và bắt đầu gỡ lỗi. Để biết thêm thông tin, hãy kiểm tra [Cách gỡ lỗi dự án SubQuery](https://doc.subquery.network/tutorials_examples/debug-projects/)
+## Khởi chạy một Dịch vụ Truy vấn (subql/query)
 
 ### Cài đặt
 
@@ -195,4 +195,4 @@ Xin lưu ý rằng chúng tôi **KHÔNG** khuyến khích sử dụng `yarn glob
 
 Đảm bảo rằng tên dự án này trùng với tên bạn đã đặt từ lúc [khởi tạo dự án](../quickstart/quickstart.md#initialise-the-starter-subquery-project). Ngoài ra, hãy kiểm tra xem các biến môi trường đã chuẩn hay chưa.
 
-Sau khi chạy thành công dịch vụ truy vấn subql, hãy mở trình duyệt và truy cập địa chỉ `http://localhost:3000`. Bạn sẽ thấy một GraphQL Playground hiển thị trong trình duyệt với sơ đồ đã sẵn sàng để truy vấn.
+Sau khi chạy thành công dịch vụ truy vấn subql, hãy mở trình duyệt của bạn và truy cập địa chỉ `http://localhost:3000`. Bạn sẽ thấy một sân chơi GraphQL hiển thị trong Trình khám phá và lược đồ đã sẵn sàng để truy vấn.
