@@ -23,7 +23,7 @@ Cài đặt SubQuery CLI tổng thể trên terminal của bạn bằng cách s�
 npm install -g @subql/cli
 ```
 
-Xin lưu ý rằng chúng tôi **KHÔNG** khuyến khích sử dụng `yarn global` do việc quản lý phụ thuộc kém có thể dẫn đến sai sót trong dây chuyền.
+Xin lưu ý rằng chúng tôi **KHÔNG** khuyến khích sử dụng `yarn global` do việc quản lý phụ thuộc kém có thể dẫn đến lỗi xuống dòng.
 
 Sau đó, bạn có thể chạy trợ giúp để xem các lệnh có sẵn và cách sử dụng do CLI cung cấp
 
