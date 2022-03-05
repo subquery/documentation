@@ -9,7 +9,7 @@ Lưu trữ một dự án trong IPFS làm cho nó khả dụng cho tất cả m�
 - `@subql/cli` phiên bản 0.21.0 trở lên.
 - Tệp kê khai `specVersion` 0.2.0 trở lên.
 - Chuẩn bị [SUBQL_ACCESS_TOKEN](#prepare-your-subql-access-token) của bạn đã sẵn sàng.
-- Để đảm bảo việc triển khai của bạn thành công, chúng tôi thực sự khuyên bạn nên xây dựng dự án của mình bằng lệnh ` subql build` và kiểm tra cục bộ nó trước khi xuất bản.
+- Để đảm bảo việc triển khai của bạn thành công, chúng tôi thật sự khuyến nghị bạn nên xây dựng dự án của mình bằng lệnh `subql build`, và kiểm tra cục bộ nó trước khi xuất bản.
 
 ## Chuẩn bị SUBQL_ACCESS_TOKEN của bạn
 
