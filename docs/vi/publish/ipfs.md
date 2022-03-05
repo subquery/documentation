@@ -109,7 +109,7 @@ specVersion: 0.2.0
 
 Bạn có thể làm theo hướng dẫn để [Xuất bản dự án SubQuery của mình](publish.md) nhưng nơi bạn đặt nguồn triển khai, bạn có thể chọn **IPFS**.
 
-Sau đó, chọn vùng sản xuất của bạn, sao chép và dán CID triển khai IPFS của bạn (không có `ipfs://`).
+Sau đó, chọn vùng sản xuất của bạn, sao chép và dán CID IPFS triển khai của bạn (không có `ipfs://`).
 
 Bạn sẽ thấy mình triển khai IPFS trong phần xem trước. Và bạn có thể chọn mạng, điểm cuối từ điển, v.v.
 
