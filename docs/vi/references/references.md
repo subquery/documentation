@@ -24,7 +24,7 @@ Lệnh này sử dụng webpack để tạo một gói dự án subquery.
 | Các Tùy chọn       | Miêu tả                                                                                                    |
 | ------------------ | ---------------------------------------------------------------------------------------------------------- |
 | -l, --location     | thư mục cục bộ của dự án subquery (nếu chưa có trong thư mục)                                              |
-| -o, --output       | chỉ định thư mục đầu ra, ví dụ: build-folder                                                               |
+| -o, --output       | chỉ định thư mục đầu ra của bản dựng, ví dụ: build-folder                                                  |
 | --mode=(production | prod                                                        | development | dev) | [ default: production ] |
 
 - Với `subql build`, bạn có thể chỉ định các điểm nhập bổ sung trong trường export mặc dù nó sẽ luôn tạo `index.ts` tự động
@@ -130,7 +130,7 @@ batchSize: 55 // Cấu hình tùy chọn
 
 ### --local (không được dùng nữa)
 
-Cờ này chủ yếu được sử dụng cho mục đích tìm lỗi trong đó nó tạo bảng starter_entity mặc định trong lược đồ "postgres" mặc định.
+Cờ này chủ yếu được sử dụng cho mục đích gỡ lỗi trong đó nó tạo bảng starter_entity mặc định trong lược đồ "postgres" mặc định.
 
 ```shell
 subql-node -f . --local
@@ -140,7 +140,7 @@ Lưu ý rằng một khi bạn sử dụng cờ này, việc loại bỏ nó s�
 
 ### --force-clean
 
-Cờ này buộc các sơ đồ và bảng của dự án phải được tạo lại, hữu ích để sử dụng khi phát triển lặp đi lặp lại các sơ đồ graphql sao cho các lần chạy mới của dự án luôn hoạt động ở trạng thái sạch. Lưu ý rằng cờ này cũng sẽ xóa tất cả dữ liệu được lập chỉ mục.
+Cờ này buộc các lược đồ và bảng của dự án phải được tạo lại, hữu ích để sử dụng khi phát triển lặp đi lặp lại các lược đồ graphql sao cho các lần chạy mới của dự án luôn hoạt động ở trạng thái sạch. Lưu ý rằng cờ này cũng sẽ xóa tất cả dữ liệu được lập chỉ mục.
 
 ### --db-schema
 
@@ -162,7 +162,7 @@ Mặc dù điều này tăng cường bảo mật, chúng tôi hiểu rằng đi
 
 **Lưu ý rằng lệnh `--unsafe` sẽ ngăn dự án của bạn được chạy trong SubQuery Network, và bạn phải liên hệ với bộ phận hỗ trợ nếu bạn muốn lệnh này được chạy với dự án của mình trong dịch vụ được quản lý của SubQuery ([project.subquery.network](https://project.subquery.network))**
 
-### --batch-size
+### --- kích thước lô
 
 Cờ này cho phép bạn đặt kích thước lô trong dòng lệnh. Nếu kích thước lô cũng được đặt trong tệp cấu hình, nó sẽ được ưu tiên.
 
@@ -174,15 +174,15 @@ Cờ này cho phép bạn đặt kích thước lô trong dòng lệnh. Nếu k�
 2021-08-09T23:24:49.235Z <fetch> INFO fetch block [6661,6680], total 20 blocks
 ```
 
-### --scale-batch-size
+### --tỉ lệ-lô-kích thước
 
 Chia tỷ lệ kích thước lô tìm nạp khối với mức sử dụng bộ nhớ
 
-### --timeout
+### --thời gian chờ
 
 Đặt thời gian chờ tùy chỉnh cho sandbox javascript để thực hiện các chức năng lập ánh xạ trên một khối trước khi hàm ánh xạ khối xuất lỗi ngoại lệ thời gian chờ
 
-### --debug
+### --gỡ lỗi
 
 Xuất thông tin gỡ lỗi đến đầu ra bảng điều khiển và cài đặt cấp độ nhật ký để gỡ lỗi một cách mạnh mẽ.
 
