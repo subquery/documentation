@@ -24,9 +24,9 @@ Lưu trữ một dự án trong IPFS làm cho nó khả dụng cho tất cả m�
 
 Chúng tôi cung cấp hai phương pháp để xuất bản dự án của bạn,
 
-### Lựa chọn 1:
+### Tùy chọn 1:
 
-Khi bạn đã cài đặt `@subql/cli`, bạn có thể chạy lệnh sau, lệnh này sẽ đọc dự án và thông tin cần thiết từ tệp kê khai mặc định của nó ` project.yaml `
+Khi bạn đã cài đặt `@subql/cli`, bạn có thể chạy lệnh sau, lệnh này sẽ đọc dự án và thông tin cần thiết từ tệp kê khai mặc định của nó `project.yaml`
 
 ```
 // Xuất bản nó từ thư mục gốc dự án của bạn
@@ -36,7 +36,7 @@ subql publish
 subql publish -f ~/my-project/
 ```
 
-### Lựa chọn 2:
+### Tùy chọn 2:
 
 Ngoài ra, giả sử dự án của bạn có nhiều tệp kê khai, ví dụ: bạn hỗ trợ nhiều mạng nhưng chia sẻ cùng một bản đồ và logic nghiệp vụ, đồng thời có cấu trúc dự án như sau:
 
@@ -74,9 +74,9 @@ Triển khai IPFS thể hiện sự tồn tại độc lập và duy nhất củ
 
 Hiện tại, để xem dự án bạn đã xuất bản, hãy sử dụng công cụ api `REST` như [Postman](https://web.postman.co/) và sử dụng phương thức `POST` với URL mẫu sau để lấy nó. `https://subquery.network/ipfs/api/v0/cat?arg=<YOUR_PROJECT_CID>`
 
-Bạn sẽ thấy việc triển khai dự án ví dụ như bên dưới:
+Bạn sẽ thấy mẫu triển khai dự án như bên dưới:
 
-Việc triển khai này trông rất giống với tệp kê khai của bạn. Bạn có thể mong đợi các trường mô tả đó và điểm cuối mạng và từ điển đã bị xóa vì chúng không ảnh hưởng trực tiếp đến kết quả thực hiện dự án.
+Việc triển khai này tương đồng với tệp kê khai của bạn. Bạn có thể hy vọng các trường mô tả đó, và điểm cuối mạng và từ điển đã bị gỡ bỏ vì chúng không ảnh hưởng trực tiếp đến kết quả thực hiện dự án.
 
 Các tệp đó được sử dụng trong dự án cục bộ của bạn cũng đã được đóng gói và xuất bản lên IPFS.
 
@@ -105,7 +105,7 @@ specVersion: 0.2.0
 
 ## Chạy dự án SubQuery của bạn trên Dịch vụ được lưu trữ
 
-### Tạo dự án với triển khai IPFS
+### Tạo dự án với IPFS deployment
 
 Bạn có thể làm theo hướng dẫn để [Xuất bản dự án SubQuery của mình](publish.md) nhưng nơi bạn đặt nguồn triển khai, bạn có thể chọn **IPFS**.
 
