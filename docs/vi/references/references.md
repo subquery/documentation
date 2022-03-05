@@ -104,7 +104,7 @@ subql-node --subquery .
 
 ### --subquery-name (không được dùng nữa)
 
-Cờ này cho phép bạn cung cấp tên cho dự án của mình, tên này hoạt động như thể nó tạo ra một phiên bản của dự án của bạn. Sau khi cung cấp một tên mới, một sơ đồ cơ sở dữ liệu mới được tạo và đồng bộ hóa khối bắt đầu từ số 0. Không được chấp nhận vì `--db-schema`
+Cờ này cho phép bạn cung cấp tên cho dự án của mình, tên này hoạt động như thể nó tạo ra một phiên bản của dự án của bạn. Sau khi cung cấp một tên mới, một lược đồ cơ sở dữ liệu mới được tạo và đồng bộ hóa khối bắt đầu từ số 0. Không được chấp nhận vì `--db-schema`
 
 ```shell
 subql-node -f . --subquery-name=test2
@@ -174,17 +174,17 @@ Cờ này cho phép bạn đặt kích thước lô trong dòng lệnh. Nếu k�
 2021-08-09T23:24:49.235Z <fetch> INFO fetch block [6661,6680], total 20 blocks
 ```
 
-### --tỉ lệ-lô-kích thước
+### --scale-batch-size
 
 Chia tỷ lệ kích thước lô tìm nạp khối với mức sử dụng bộ nhớ
 
-### --thời gian chờ
+### --timeout
 
 Đặt thời gian chờ tùy chỉnh cho sandbox javascript để thực hiện các chức năng lập ánh xạ trên một khối trước khi hàm ánh xạ khối xuất lỗi ngoại lệ thời gian chờ
 
 ### --gỡ lỗi
 
-Xuất thông tin gỡ lỗi đến đầu ra bảng điều khiển và cài đặt cấp độ nhật ký để gỡ lỗi một cách mạnh mẽ.
+Thông tin lỗi sẽ được xuất ra bảng điều khiển và cài đặt cấp độ nhật ký để gỡ lỗi nhanh chóng.
 
 ```shell
 > subql-node -f . --debug
@@ -193,7 +193,7 @@ Xuất thông tin gỡ lỗi đến đầu ra bảng điều khiển và cài đ
 2021-08-10T11:45:39.472Z <db> DEBUG Executing (1b0d0c23-d7c7-4adb-a703-e4e5c414e035): COMMIT;
 ```
 
-### --profiler
+### --hồ sơ
 
 Hiển thị thông tin hồ sơ.
 
@@ -210,7 +210,7 @@ subql-node -f . --local --profiler
 Cờ này cho phép người dùng ghi đè cấu hình điểm cuối mạng từ tệp kê khai.
 
 ```shell
-subql-node -f . --network-endpoint="wss://polkadot.api.onfinality.io/public-ws"
+subql-node -f . --mạng-điểm cuối="wss://polkadot.api.onfinality.io/public-ws"
 ```
 
 Lưu ý rằng đoạn này cũng phải được đặt trong tệp kê khai, nếu không bạn sẽ nhận được:
@@ -241,7 +241,7 @@ Có hai định dạng đầu ra khác nhau. JSON hoặc colored. Colored là m�
 
 ### --log-level
 
-Có 7 tùy chọn để lựa chọn. “fatal”, “error”, “warn”, “info”, “debug”, “trace”, “silent”. Ví dụ dưới đây cho thấy sự im lặng. Không có gì sẽ được in trong thiết bị đầu cuối vì vậy cách duy nhất để biết nút có hoạt động hay không là truy vấn cơ sở dữ liệu về số hàng (select count(\*) from subquery_1.starter_entities) hoặc truy vấn chiều cao khối.
+Có 7 tùy chọn để lựa chọn. “nghiêm trọng”, “lỗi”, “cảnh báo”, “thông tin”, “gỡ lỗi”, “theo dõi”, “im lặng”. Ví dụ dưới đây cho thấy "im lặng". Không có gì sẽ được in trong thiết bị đầu cuối vì vậy cách duy nhất để biết nút có hoạt động hay không là truy vấn cơ sở dữ liệu về số hàng (select count(\*) from subquery_1.starter_entities) hoặc truy vấn chiều cao khối.
 
 ```shell
 > subql-node -f . --log-level=silent
@@ -273,7 +273,7 @@ Thao tác này sẽ xóa các cột created_at và updated_at trong bảng start
 
 ### -d, --network-dictionary
 
-Điều này cho phép bạn chỉ định điểm cuối từ điển là dịch vụ miễn phí được cung cấp và lưu trữ tại: [https://explorer.subquery.network/](https://explorer.subquery.network/) (tìm kiếm từ điển) và trình bày điểm cuối API là: https://api.subquery.network/sq/subquery/dictionary-polkadot
+Điều này cho phép bạn chỉ định một điểm cuối từ điển và nó là một dịch vụ miễn phí được cung cấp và lưu trữ tại: [https://explorer.subquery.network/](https://explorer.subquery.network/) (tìm kiếm từ điển) và giới thiệu điểm cuối API của: https://api.subquery.network/sq/subquery/dictionary-polkadot
 
 Thông thường, nó sẽ được đặt trong tệp manifest của bạn nhưng bên dưới cho thấy một ví dụ về việc sử dụng nó làm đối số trong dòng lệnh.
 
@@ -285,13 +285,13 @@ subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot
 
 ### -p, --port
 
-Cổng dịch vụ lập chỉ mục subquery liên kết. Mặc định nó được đặt là `3000`
+Cổng liên kết dịch vụ lập chỉ mục subquery. Mặc định nó được đặt là `3000`
 
 ## subql-query
 
 ### --help
 
-Cờ hiển thị các tùy chọn trợ giúp.
+Nó hiển thị các tùy chọn trợ giúp.
 
 ```shell
 Tùy chọn:
@@ -325,7 +325,7 @@ Lệnh này sẽ hiển thị phiên bản hiện tại.
 
 ### -n, --name
 
-Cờ này được sử dụng để bắt đầu dịch vụ truy vấn. Nếu cờ - subquery-name không được cung cấp khi chạy trình lập chỉ mục, thì tên ở đây sẽ tham chiếu đến tên dự án mặc định. Nếu - subquery-name được đặt, thì tên ở đây phải khớp với những gì đã được đặt.
+Cờ này được sử dụng để bắt đầu dịch vụ truy vấn. Nếu cờ --subquery-name không được cung cấp khi chạy trình lập chỉ mục, thì tên ở đây sẽ tham chiếu đến tên dự án mặc định. Nếu --subquery-name được đặt, thì tên ở đây phải khớp với những gì đã được đặt.
 
 ```shell
 > subql-node -f . // --subquery-name chưa được đặt
@@ -357,7 +357,7 @@ Cho phép ghi tệp nhật ký bằng cách cung cấp đường dẫn đến t�
 
 ### --log-rotate
 
-Cho phép xoay vòng nhật ký tệp với các tùy chọn khoảng thời gian xoay vòng 1 ngày, tối đa là 7 tệp và với kích thước tệp tối đa là 1GB
+Cho phép luân phiên nhật ký tệp với các tùy chọn khoảng thời gian xoay vòng 1 ngày, tối đa là 7 tệp và với kích thước tệp tối đa là 1GB
 
 ### --indexer
 
@@ -367,12 +367,12 @@ Cho phép xoay vòng nhật ký tệp với các tùy chọn khoảng thời gia
 
 Dịch vụ truy vấn có giới hạn 100 thực thể cho các truy vấn graphql không giới hạn. Cờ unsafe loại bỏ giới hạn này có thể gây ra các vấn đề về hiệu suất trên dịch vụ truy vấn. Thay vào đó, các truy vấn nên được [phân trang](https://graphql.org/learn/pagination/).
 
-Cờ này cũng có thể được sử dụng để bật một số hàm tổng hợp bao gồm sum, max, avg và [others](https://github.com/graphile/pg-aggregates#aggregates).
+Cờ này cũng có thể được sử dụng để kích hoạt một số hàm tổng hợp bao gồm sum, max, avg và [others](https://github.com/graphile/pg-aggregates#aggregates).
 
 Các tùy chọn này mặc định bị tắt do giới hạn đối tượng.
 
-**Lưu ý rằng lệnh `--unsafe` sẽ ngăn dự án của bạn được chạy trong SubQuery Network, và bạn phải liên hệ với bộ phận hỗ trợ nếu bạn muốn lệnh này được chạy với dự án của mình trong dịch vụ được quản lý của SubQuery [project.subquery.network](https://project.subquery.network).**
+**Lưu ý rằng lệnh `--unsafe` sẽ ngăn dự án của bạn được chạy trong mạng SubQuery, và bạn sẽ phải liên hệ với bộ phận hỗ trợ trong dịch vụ quản lý SubQuery nếu bạn muốn lệnh này có thể chạy trên dự án của bạn [project.subquery.network](https://project.subquery.network).**
 
 ### --port
 
-Cổng dịch vụ truy vấn subquery liên kết. Mặc định nó được đặt là `3000`
+Cổng liên kết dịch vụ truy vấn subquery. Mặc định nó được đặt là `3000`
