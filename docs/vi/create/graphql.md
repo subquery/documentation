@@ -2,14 +2,14 @@
 
 ## Xác định các thực thể
 
-` schema.graphql ` xác định các lược đồ GraphQL khác nhau. Do cách thức hoạt động của ngôn ngữ truy vấn GraphQL, lược đồ về cơ bản sẽ chỉ ra hình dạng dữ liệu của bạn từ SubQuery. Để tìm hiểu thêm về cách viết bằng ngôn ngữ lược đồ GraphQL, chúng tôi khuyên bạn nên xem [Schemas và kiểu dữ liệu](https://graphql.org/learn/schema/#type-language).
+` schema.graphql ` xác định các kiểu lược đồ ( hay còn gọi là schema) GraphQL khác nhau. Do cách thức hoạt động của ngôn ngữ truy vấn GraphQL, về căn bản thì lược đồ (schema) sẽ chỉ ra dạng dữ liệu của bạn từ SubQuery. Để tìm hiểu thêm về cách code bằng ngôn ngữ lược đồ GraphQL, chúng tôi khuyên bạn nên xem [Schemas and Types](https://graphql.org/learn/schema/#type-language).
 
-**Quan trọng: Khi bạn thực hiện bất kỳ thay đổi nào đối với tệp schema, hãy đảm bảo rằng bạn tạo thư types của mình bằng lệnh sau `yarn codegen`**
+**Chú ý: Khi thực hiện bất kỳ thay đổi nào đối với tệp schema, hãy đảm bảo rằng bạn tạo thư mục types của mình bằng lệnh `yarn codegen`**
 
 ### Thực thể
-Mỗi thực thể phải xác định các trường bắt buộc của nó `id` với kiểu `ID!`. Nó được sử dụng làm khóa chính và duy nhất trong số tất cả các thực thể cùng loại.
+Mỗi thực thể phải định nghĩa các trường nó sử dụng `id` với kiểu `ID!`. Nó được sử dụng làm khóa chính và là duy nhất trong số tất cả các thực thể cùng loại.
 
-Các trường không thể nullable trong thực thể được biểu thị bằng `!`. Vui lòng xem ví dụ dưới đây:
+Các trường không thể để trống trong thực thể được biểu thị bằng `!`. Xem ví dụ dưới đây để rõ hơn:
 
 ```graphql
 type Example @entity {
@@ -19,9 +19,9 @@ type Example @entity {
 }
 ```
 
-### Các kiểu dữ liệu và vô hướng được hỗ trợ
+### Các kiểu dữ liệu vô hướng và kí tự được hỗ trợ:
 
-Chúng tôi hiện đang hỗ trợ kiểu dữ liệu và vô hướng sau:
+Hiện tại, SubQuery hỗ trợ các kiểu dữ liệu sau:
 - `ID`
 - `Int`
 - `String`
@@ -29,7 +29,7 @@ Chúng tôi hiện đang hỗ trợ kiểu dữ liệu và vô hướng sau:
 - `Float`
 - `Date`
 - `Boolean`
-- `<EntityName>` đối với các thực thể quan hệ lồng nhau, bạn có thể sử dụng tên của thực thể đã xác định làm một trong các trường. Vui lòng xem trong [Mối quan hệ thực thể](#entity-relationships).
+- `<EntityName>` đối với các thực thể quan hệ lồng nhau, bạn có thể sử dụng tên của thực thể đã được định nghĩa làm một trong các trường. Vui lòng xem trong [Mối quan hệ thực thể](#entity-relationships).
 - `JSON` có thể lưu trữ dữ liệu có cấu trúc theo cách khác, vui lòng xem [kiểu dữ liệu JSON](#json-type)
 - Các kiểu `<EnumName>` là một loại vô hướng được liệt kê đặc biệt được giới hạn trong một tập hợp các giá trị được cho phép. Vui lòng xem [Graphql Enum](https://graphql.org/learn/schema/#enumeration-types)
 
