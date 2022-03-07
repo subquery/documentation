@@ -46,13 +46,13 @@ KHÔNG chạy các lệnh docker.
 
 Trong GitHub, hãy tạo một repository công khai mới. Cung cấp tên và đặt khả năng hiển thị của bạn ở chế độ công khai. Ở đây, hiện tại mọi thứ được giữ theo chế độ mặc định.
 
-![tạo repo github](/assets/img/github_create_new_repo.png)
+![tạo kho lưu trữ github](/assets/img/github_create_new_repo.png)
 
 Hãy lưu ý URL GitHub của bạn, URL này phải được công khai để SubQuery có thể truy cập.
 
-![tạo repo github](/assets/img/github_repo_url.png)
+![tạo kho lưu trữ github](/assets/img/github_repo_url.png)
 
-## 3. Đẩy lên GitHub
+## 3. Đẩy lên GitHub
 
 Quay lại thư mục dự án của bạn, khởi tạo nó dưới dạng thư mục git. Nếu không, bạn có thể gặp lỗi "nghiêm trọng: không phải là kho lưu trữ git (hoặc bất kỳ thư mục chính nào): .git"
 
@@ -66,9 +66,9 @@ Sau đó, thêm một kho lưu trữ từ xa bằng lệnh:
 git remote add origin https://github.com/seandotau/subqlHelloWorld.git
 ```
 
-Điều này về cơ bản cài đặt kho lưu trữ từ xa của bạn thành “https://github.com/seandotau/subqlHelloWorld.git” và đặt cho nó tên “origin” là cách đặt tên tiêu chuẩn cho kho lưu trữ từ xa trong GitHub.
+Về cơ bản, điều này đặt kho lưu trữ từ xa của bạn thành “https://github.com/seandotau/subqlHelloWorld.git” và đặt cho nó tên “origin” là danh pháp tiêu chuẩn cho kho lưu trữ từ xa trong GitHub.
 
-Tiếp theo, chúng ta thêm code vào repo bằng các lệnh sau:
+Tiếp theo, chúng ta thêm code vào kho lưu trữ của chúng ta bằng các lệnh sau:
 
 ```shell
 > git add .
@@ -99,7 +99,7 @@ To https://github.com/seandotau/subqlHelloWorld.git
 
 Lệnh push có nghĩa là "vui lòng đẩy mã của tôi ĐẾN kho lưu trữ gốc TỪ kho lưu trữ cục bộ chính của tôi". Làm mới GitHub sẽ hiển thị tất cả mã trong GitHub.
 
-![Đẩy lên lần đầu](/assets/img/first_commit.png)
+![Cam kết đầu tiên](/assets/img/first_commit.png)
 
 Bây giờ bạn đã có code của mình trong GitHub, hãy xem cách chúng tôi có thể tổ chức nó trong SubQuery Projects.
 
@@ -115,7 +115,7 @@ Sau đó, tạo một dự án mới,
 
 Và điền vào các trường khác nhau với các thông tin thích hợp.
 
-- **Tài khoản GitHub:** Nếu bạn có nhiều hơn một tài khoản GitHub, hãy lựa chọn tài khoản mà dự án này sẽ được tạo. Các dự án được tạo trong tài khoản tổ chức GitHub được chia sẻ giữa các thành viên trong tổ chức đó.
+- **Tài khoản GitHub:** Nếu bạn có nhiều hơn một tài khoản GitHub, hãy lựa chọn chính xác tài khoản mà dự án sẽ được tạo bởi nó. Các dự án được tạo trong tài khoản tổ chức GitHub được chia sẻ giữa các thành viên trong tổ chức đó.
 - **Tên dự án:** Đặt tên cho dự án của bạn ở đây.
 - **Phụ đề:** Cung cấp tiêu đề cho dự án của bạn.
 - **Mô tả:** Giải thích những gì dự án SubQuery của bạn thực hiện.
@@ -156,7 +156,7 @@ Việc triển khai hiện đang chạy.
 
 Để kiểm tra dự án của bạn, hãy nhấp vào 3 dấu chấm lửng và chọn "View on SubQuery Explorer".
 
-![Xem dự án truy vấn con](/assets/img/view_on_subquery.png)
+![Hiển thị Dự án SubQuery](/assets/img/view_on_subquery.png)
 
 Thao tác này sẽ đưa bạn đến "Playground" quen thuộc, nơi bạn có thể nhấp vào nút play và xem kết quả của truy vấn.
 
