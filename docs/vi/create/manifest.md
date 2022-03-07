@@ -18,12 +18,12 @@ Trong `network`:
 
 Trong `dataSources`:
 
-- Có thể liên kết trực tiếp `index.js` điểm vào cho các trình xử lý ánh xạ. Theo mặc định, `index.js` này sẽ được tạo từ `index.ts` trong quá trình xây dựng.
+- Có thể liên kết trực tiếp điểm vào `index.js` cho các trình xử lý ánh xạ. Theo mặc định, `index.js` này sẽ được tạo từ `index.ts` trong quá trình xây dựng.
 - Nguồn dữ liệu có thể là nguồn dữ liệu thời gian chạy thông thường hoặc [nguồn dữ liệu tùy chỉnh](#custom-data-sources).
 
 ### Tùy chọn CLI
 
-Theo mặc định, CLI sẽ tạo các dự án SubQuery theo phiên bản đặc tả v0.2.0. Hành vi này có thể bị ghi đè bằng cách chạy `subql init --specVersion 0.0.1 PROJECT_NAME`, mặc dù điều này không được khuyến khích vì dự án sẽ không được hỗ trợ bởi dịch vụ được lưu trữ subQuery trong tương lai
+Theo mặc định, CLI sẽ tạo các dự án SubQuery theo phiên bản v0.2.0. Thao tác này có thể bị ghi đè bằng cách chạy `subql init --specVersion 0.0.1 PROJECT_NAME`, mặc dù điều này không được khuyến khích vì dự án sẽ không được hỗ trợ bởi dịch vụ lưu trữ SubQuery trong tương lai
 
 `subql migrate` có thể chạy trong một dự án hiện có để di chuyển tệp kê khai dự án sang phiên bản mới nhất.
 
