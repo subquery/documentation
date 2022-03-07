@@ -3,15 +3,15 @@
   <section class="welcomeWords">
     <div class="main">
       <div>
-        <h2 class="welcomeTitle">Chào mừng bạn đến với <span>Tài liệu</span> tiếng Việt của SubQuery</h2>
-        <p>Khám phá và chuyển đổi dữ liệu chuỗi của bạn để xây dựng các dApp trực quan nhanh hơn!</p>
+        <h2 class="welcomeTitle">Trang <span>tài liệu</span> giúp bạn tìm được tất cả mọi thứ về SubQuery</h2>
+        <p>Khám phá và chuyển đổi dữ liệu chuỗi của bạn để xây dựng các dApp trực quan hơn, và nhanh hơn!</p>
       </div>
     </div>
   </section>
   <section class="startSection main">
     <div>
       <h2 class="title">Hướng Dẫn <span>Nhanh</span></h2>
-      <p>Hiểu SubQuery bằng cách làm theo ví dụ với Hello World truyền thống. Sử dụng dự án mẫu trong môi trường Docker, bạn có thể nhanh chóng thiết lập và chạy một nút và bắt đầu truy vấn chuỗi khối chỉ trong vài phút với một vài lệnh đơn giản.
+      <p>Hiểu cách SubQuery vận hành bằng cách bắt tay vào việc ngay, với câu lệnh Hello World quen thuộc. Sử dụng dự án mẫu trong môi trường Docker, bạn có thể nhanh chóng thiết lập và chạy một node. Từ đó, bắt đầu truy vấn blockchain chỉ trong vài phút với một vài lệnh đơn giản.
       </p>
       <span class="button">
         <router-link :to="{path: '/quickstart/helloworld-localhost/'}">
@@ -29,7 +29,7 @@
           <div>
             <img src="/assets/img/tutorialsIcon.svg" />
             <span>Hướng dẫn và Ví dụ</span>
-            <p>Học thông qua thực hành. Hướng dẫn và ví dụ về cách xây dựng các dự án SubQuery khác nhau.</p>
+            <p>Học thông qua thực hành. Hướng dẫn và ví dụ về cách xây dựng các dự án bằng SubQuery.</p>
           </div>
         </router-link>
       </li>
@@ -37,8 +37,8 @@
         <router-link :to="{path: '/create/introduction/'}">
           <div>
             <img src="/assets/img/docsIcon.svg" />
-            <span>Tài liệu tham khảo về vấn đề kỹ thuật</span>
-            <p>Được viết bởi nhà phát triển dành cho nhà phát triển. Tìm ra thứ bạn cần để nhanh chóng xây dựng một dApp tuyệt đỉnh.</p>
+            <span>Các tài liệu tham khảo về các vấn đề kỹ thuật</span>
+            <p>SubQuery được tạo ra bởi những nhà phát triển, dành cho những nhà phát triển. Tìm ra thứ bạn cần để nhanh chóng xây dựng một dApp tuyệt đỉnh.</p>
           </div>
         </router-link>
       </li>
@@ -47,7 +47,7 @@
           <div>
             <img src="/assets/img/networkIcon.svg" />
             <span>Mạng SubQuery</span>
-            <p>Tương lai phi tập trung của SubQuery. Tìm hiểu thêm về cách để người lập chỉ mục và người tiêu dùng kiếm được phần thưởng.</p>
+            <p>Tương lai phi tập trung của SubQuery. Tìm hiểu thêm về cơ chế thưởng dành cho người lập chỉ mục và người dùng.</p>
           </div>
         </a>
       </li>
@@ -70,13 +70,13 @@
       <li>
         <div class="title">Cách tốt nhất để bắt đầu với SubQuery là gì?</div>
         <div class="content">
-          <p>Cách tốt nhất để bạn bắt đầu dùng SubQuery là xem qua <a href="/quickstart/helloworld-localhost/">hướng dẫn Hello World</a> của chúng tôi. Đây là một hướng dẫn đơn giản trong 5 phút để tải xuống mẫu khởi động, xây dựng dự án và sau đó sử dụng Docker để chạy một nút trên máy chủ cục bộ của bạn và chạy một truy vấn đơn giản. </p>
+          <p>Cách tốt nhất để bạn bắt đầu dùng SubQuery là xem qua <a href="/quickstart/helloworld-localhost/">hướng dẫn Hello World</a> của chúng tôi. Đây là một hướng dẫn đơn giản trong 5 phút để tải xuống mẫu khởi động, xây dựng dự án và sau đó sử dụng Docker để chạy một node trên máy chủ của bạn và chạy một truy vấn đơn giản. </p>
         </div>
       </li>
       <li>
         <div class="title">Làm cách nào để tôi có thể đóng góp hoặc đưa ra phản hồi cho SubQuery?</div>
         <div class="content">
-          <p>Chúng tôi rất mong nhận được ý kiến đóng góp hoặc phản hồi từ cộng đồng. Để đóng góp mã, hãy tạo bản sao cho kho lưu trữ bạn quan tâm và đưa ra những thay đổi. Sau đó hãy sử dụng chức năng Pull Request hay gọi tắt là PR. À, đừng quên chạy thử đấy nhé! Ngoài ra, hãy xem các nguyên tắc đóng góp của chúng tôi (sẽ sớm được công khai). </p>
+          <p>Chúng tôi rất mong nhận được ý kiến đóng góp và phản hồi từ cộng đồng. Để đóng góp mã, hãy tạo bản sao cho kho lưu trữ bạn quan tâm và đưa ra những thay đổi. Sau đó hãy sử dụng chức năng Pull Request hay gọi tắt là PR. À, đừng quên chạy thử đấy nhé! Ngoài ra, hãy xem các nguyên tắc đóng góp của chúng tôi (sẽ sớm được công khai). </p>
           <span class="more">
             <router-link :to="{path: '/faqs/faqs/#what-is-the-best-way-to-get-started-with-subquery'}">ĐỌC THÊM</router-link>
           </span>
