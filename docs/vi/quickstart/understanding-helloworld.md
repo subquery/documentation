@@ -22,7 +22,7 @@ Tiếp theo chúng ta chạy lệnh `yarn install`. hoặc là `npm install`.
 
 > Nhắc lại một chút. Node Package Manager hoặc npm được phát hành vào năm 2010 và trở thành trình quản lý package phổ biến cho các nhà phát triển JavaScript. Đó là package mặc định và được tự động cài đặt khi bạn cài đặt Node.js trên hệ thống của bạn. Yarn được Facebook phát hành vào năm 2016 với mục đích giải quyết một số thiếu sót về hiệu suất và bảo mật khi làm việc với npm (tại thời điểm đó).
 
-Những điều yarn làm là nhìn vào tập tin `package.json` và tải về những phần phụ thuộc khác. Nhìn vào tập tin `package.json`, trông không giống như có rất nhiều phần phụ thuộc, tuy nhiên khi bạn chạy lệnh, bạn sẽ thấy rằng 18,983 tập tin đã được thêm vào. Đó là bởi vì mỗi một phần phụ thuộc lại lại có các phần phụ thuộc riêng của nó.
+Những điều yarn làm là xem tập tin `package.json` và tải xuống các phần phụ thuộc khác. Nhìn vào tập tin `package.json`, trông không giống như có rất nhiều phần phụ thuộc, tuy nhiên khi bạn chạy lệnh, bạn sẽ thấy rằng 18,983 tập tin đã được thêm vào. Điều này là do mỗi phụ thuộc cũng sẽ có các phụ thuộc riêng của nó.
 
 ![các tệp chính của subql](/assets/img/dependencies.png)
 
@@ -40,7 +40,7 @@ Chạy lệnh `yarn build` hoặc `npm run-script build`. Lệnh này rất quen
 
 ## docker-compose
 
-Bước cuối cùng là kết hợp các lệnh docker `docker-compose pull && docker-compose up` (có thể chạy độc lập cũng được). Lệnh `pull` kéo toàn bộ các ảnh yêu cầu từ Docker Hub và lệnh `up` sẽ khởi động container.
+Bước cuối cùng là kết hợp các lệnh docker `docker-compose pull && docker-compose up` (có thể chạy độc lập cũng được). Lệnh `pull` kéo toàn bộ các ảnh yêu cầu từ Docker Hub và lệnh `up` sẽ khởi động container.
 
 ```shell
 > docker-compose pull
