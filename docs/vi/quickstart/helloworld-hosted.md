@@ -1,17 +1,17 @@
 # Hello World (được lưu trữ trên SubQuery)
 
-Mục đích của bài quick start này là hướng dẫn cách bạn có thể chạy dự án khởi động mặc định trong SubQuery Projects (dịch vụ được quản lý của chúng tôi) trong một vài bước đơn giản.
+Mục đích của bài hướng dẫn nhanh này là chỉ ra cách bạn có thể chạy dự án khởi động mặc định trong dự án SubQuery (dịch vụ được quản lý của chúng tôi) bằng một vài bước đơn giản.
 
-Chúng tôi sẽ sử dụng dự án khởi động đơn giản (và mọi thứ chúng tôi đã học được cho đến nay) nhưng thay vì chạy nó cục bộ trong Docker, chúng tôi sẽ tận dụng cơ sở hạ tầng lưu trữ được quản lý của SubQuery. Nói cách khác, chúng tôi để SubQuery thực hiện tất cả các công việc nặng nhọc, vận hành và quản lý cơ sở hạ tầng sản xuất.
+Chúng ta sẽ sử dụng dự án khởi động đơn giản (bằng mọi thứ chúng ta đã học được cho đến nay) nhưng thay vì chạy nó cục bộ trong Docker, chúng ta sẽ tận dụng cơ sở hạ tầng lưu trữ được quản lý của SubQuery. Nói cách khác, chúng tôi để SubQuery thực hiện tất cả các công việc nặng nhọc, vận hành và quản lý cơ sở hạ tầng sản xuất.
 
 ## Mục tiêu học tập
 
-Khi kết thúc phần "quick start" này, bạn sẽ:
+Khi kết thúc phần khởi động nhanh này, bạn sẽ:
 
 - hiểu các điều kiện tiên quyết cần thiết
-- có thể tổ chức một dự án trong [SubQuery Projects](https://project.subquery.network/)
-- chạy một truy vấn đơn giản để lấy block height của mạng chính Polkadot bằng cách sử dụng playground
-- chạy một truy vấn GET đơn giản để lấy block height của mạng chính Polkadot bằng cách sử dụng cURL
+- có thể làm chủ một dự án trong [SubQuery Projects](https://project.subquery.network/)
+- chạy một truy vấn đơn giản để lấy chiều cao khối của mạng chính Polkadot bằng cách sử dụng playground
+- chạy một truy vấn GET đơn giản để lấy chiều cao khối của mạng chính Polkadot bằng cách sử dụng cURL
 
 ## Đối tượng mục tiêu
 
