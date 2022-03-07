@@ -19,7 +19,7 @@ type Example @entity {
 }
 ```
 
-### Các kiểu dữ liệu vô hướng và kí tự được SubQuery hỗ trợ:
+### Các kiểu dữ liệu vô hướng và các kiểu types được SubQuery hỗ trợ:
 
 Hiện tại, SubQuery hỗ trợ các kiểu dữ liệu sau:
 - `ID`
@@ -208,7 +208,7 @@ Chúng tôi khuyên người dùng sử dụng kiểu dữ liệu JSON trong cá
 - Lưu khóa tùy chọn/giá trị tùy ý của người dùng (trong đó giá trị có thể là boolean, văn bản hoặc số, và bạn không muốn có các cột riêng biệt cho các kiểu dữ liệu khác nhau)
 - Lược đồ dễ thay đổi và thay đổi thường xuyên
 
-### Định nghĩa hướng JSON
+### Định nghĩa theo JSON
 Định nghĩa thuộc tính dưới dạng JSON bằng cách thêm chú thích `jsonField` trong thực thể. Thao tác này sẽ tự động tạo giao diện cho tất cả các đối tượng JSON trong dự án của bạn dưới `type/interface.ts` và bạn có thể truy cập chúng trong hàm ánh xạ của mình.
 
 Không giống như thực thể, đối tượng chỉ thị jsonField không yêu cầu bất kỳ trường `id` nào. Một đối tượng JSON cũng có thể lồng ghép với các đối tượng JSON khác.
@@ -232,9 +232,9 @@ type User @entity {
 
 ### Truy vấn các trường JSON
 
-Hạn chế của việc sử dụng các kiểu JSON ảnh hưởng nhỏ đến hiệu quả truy vấn khi lọc, vì mỗi lần nó thực hiện tìm kiếm văn bản, nó sẽ nằm trên toàn bộ thực thể.
+Hạn chế của việc sử dụng các kiểu JSON là ảnh hưởng đến tính hiệu quả của truy vấn khi lọc, vì mỗi lần thực hiện tìm kiếm văn bản, nó sẽ tìm trên toàn bộ thực thể.
 
-Tuy nhiên, tác động vẫn có thể chấp nhận được trong dịch vụ truy vấn của chúng tôi. Dưới đây là ví dụ về cách sử dụng toán tử `contains` trong truy vấn GraphQL trên trường JSON để tìm 5 người dùng đầu tiên sở hữu số điện thoại có chứa '0064'.
+Tuy nhiên, sự hạn chế  đó là không đáng kể, và vẫn có thể chấp nhận được trong dịch vụ truy vấn của chúng tôi. Dưới đây là ví dụ về cách sử dụng toán tử `contains` trong truy vấn GraphQL trên trường JSON để tìm 5 người dùng đầu tiên sở hữu số điện thoại có chứa '0064'.
 
 ```graphql
 # Để tìm 5 số điện thoại của người dùng đầu tiên có chứa '0064'.
