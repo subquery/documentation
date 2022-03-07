@@ -127,6 +127,6 @@ Bạn sẽ thấy một sân chơi GraphQL đang hiển thị trong explorer và
 
 ## Bước tiếp theo
 
-Xin chúc mừng, bạn hiện có một dự án SubQuery đang chạy cục bộ chấp nhận các yêu cầu API GraphQL cho dữ liệu mẫu. Trong hướng dẫn tiếp theo, chúng tôi sẽ chỉ cho bạn cách xuất bản dự án mới lên [ SubQuery Projects](https://project.subquery.network) và truy vấn nó bằng cách sử dụng [Explorer](https://explorer.subquery.network) của chúng tôi
+Xin chúc mừng, bạn hiện có một dự án SubQuery đang chạy cục bộ chấp nhận các yêu cầu API GraphQL cho dữ liệu mẫu. Trong hướng dẫn tiếp theo, chúng tôi sẽ chỉ cho bạn cách xuất bản dự án mới lên [Dự án SubQuery](https://project.subquery.network) và truy vấn nó bằng cách sử dụng [Explorer](https://explorer.subquery.network) của chúng tôi
 
 [Xuất bản dự án mới của bạn lên SubQuery Projects](../publish/publish.md)
