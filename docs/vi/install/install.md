@@ -1,6 +1,6 @@
 # Cài đặt SubQuery
 
-Có nhiều thành phần được yêu cầu để tạo một dự án SubQuery. Thư viện [@subql/cli](https://github.com/subquery/subql/tree/docs-new-section/packages/cli) giúp tạo khung hoặc giàn cho dự án, nghĩa là bạn không phải bắt đầu từ đầu. Thành phần [@subql/node](https://github.com/subquery/subql/tree/docs-new-section/packages/node) là bắt buộc để chạy trình chỉ mục. Thư viện [@subql/query](https://github.com/subquery/subql/tree/docs-new-section/packages/query) là bắt buộc để tạo các truy vấn.
+Có nhiều thành phần cần thiết khi bạn muốn tạo một dự án sử dụng SubQuery: Thư viện [@subql/cli](https://github.com/subquery/subql/tree/docs-new-section/packages/cli) giúp tạo khung hoặc giàn cho dự án, nghĩa là bạn không phải bắt đầu từ đầu. Thành phần [@subql/node](https://github.com/subquery/subql/tree/docs-new-section/packages/node) là bắt buộc để chạy trình chỉ mục. Thư viện [@subql/query](https://github.com/subquery/subql/tree/docs-new-section/packages/query) là bắt buộc để tạo các truy vấn.
 
 ## Cài đặt @subql/cli
 
