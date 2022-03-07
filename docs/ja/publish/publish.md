@@ -5,7 +5,7 @@
 - SubQueryプロジェクトを高性能、スケーラブル、かつ管理されたパブリックサービスで実行します。
 - このサービスは無料でコミュニティに提供されています！
 - [SubQuery Explorer](https://explorer.subquery.network) にリストされ、世界中の誰でもそれらを表示できるようにプロジェクトを公開することができます。
-- GitHub と統合されているので、GitHub 組織内の誰でも共有プロジェクトを閲覧することができます。
+- GitHub と統合されているので、GitHub チーム内の誰でも共有プロジェクトを閲覧することができます。
 
 ## SubQuery Projectsで最初のプロジェクトを作成する
 
@@ -85,7 +85,7 @@ GitHub Organizationのアカウントを接続している場合、ヘッダー�
 
 ![GitHubアカウントを切り替える](/assets/img/projects-account-switcher.png)
 
-GitHub Organization のアカウントがアカウント切替に表示されていない場合は、GitHub Organization に対して SubQuery へのアクセスを許可する必要があります。（または管理者にリクエストする） これを行うには、まず GitHub アカウントから SubQuery アプリケーションへの権限を取り消す必要があります。 これを行うには、GitHub のアカウント設定にログインし、「Applications」に移動し「Authorized OAuth Apps」タブで SubQuery を取り消します - [正確な手順はこちら](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/reviewing-your-authorized-applications-oauth)を参照してください。 **ご心配なく、SubQueryプロジェクトは削除されず、データが失われることはありません。**
+GitHub Organization のアカウントがアカウント切替に表示されていない場合は、GitHub Organization に対して SubQuery へのアクセスを許可する必要があります。（または管理者にリクエストする） これを行うには、まず GitHub アカウントから SubQuery アプリケーションへの権限を取り消す必要があります。 そして、GitHub のアカウント設定にログインし、「Applications」に移動し「Authorized OAuth Apps」タブで SubQuery を取り消します - [正確な手順はこちら](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/reviewing-your-authorized-applications-oauth)を参照してください。 **ご心配なく、SubQueryプロジェクトは削除されず、データが失われることはありません。**
 
 ![GitHubアカウントへのアクセス権を取り消す](/assets/img/project_auth_revoke.png)
 
