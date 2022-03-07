@@ -3,7 +3,7 @@
   <section class="welcomeWords">
     <div class="main">
       <div>
-        <h2 class="welcomeTitle">Trang <span>tài liệu</span> giúp bạn tìm được tất cả mọi thứ về SubQuery</h2>
+        <h2 class="welcomeTitle">Chào mừng bạn đến với <span>Tài liệu</span> của SubQuery</h2>
         <p>Khám phá và chuyển đổi dữ liệu chuỗi của bạn để xây dựng các dApp trực quan hơn, và nhanh hơn!</p>
       </div>
     </div>
