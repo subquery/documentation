@@ -4,7 +4,7 @@
     <div class="main">
       <div>
         <h2 class="welcomeTitle">Chào mừng bạn đến với <span>Tài liệu</span> của SubQuery</h2>
-        <p>Khám phá và chuyển đổi dữ liệu chuỗi của bạn để xây dựng các dApp trực quan hơn, và nhanh hơn!</p>
+        <p>Khám phá và chuyển đổi dữ liệu chuỗi của bạn để xây dựng các dApp trực quan nhanh hơn!</p>
       </div>
     </div>
   </section>
@@ -92,7 +92,7 @@
         </div>
       </li>
     </ul><br>
-    Để biết các câu hỏi thường gặp, vui lòng xem trang <router-link :to="{path: '/faqs/faqs/'}">FAQ's</router-link> page.    
+    Để biết các câu hỏi thường gặp, vui lòng xem trang <router-link :to="{path: '/faqs/faqs/'}">FAQ's</router-link> .    
   </div>
 </section>
 <section class="main">
