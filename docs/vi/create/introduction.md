@@ -82,7 +82,7 @@ Sau đó, bằng cách chạy `subql build` một thư mục dist sẽ được 
 
 Lưu ý rằng `subql build` sẽ xây dựng <0>index.ts</0> cho dù nó có được chỉ định trong trường exports hay không.
 
-Để biết thêm thông tin về cách sử dụng điều này bao gồm cả cờ, hãy xem [cli reference](https://doc.subquery.network/references/references/#build).
+Để biết thêm thông tin về cách sử dụng công cụ này (bao gồm cả flags), xem [cli reference](https://doc.subquery.network/references/references/#build).
 
 ## Sử dụng nhật ký
 
