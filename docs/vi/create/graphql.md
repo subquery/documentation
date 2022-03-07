@@ -53,7 +53,7 @@ type Title @entity {
   name: String! @index(unique:true)
 }
 ```
-Giả sử chúng tôi biết tên của người dùng này, nhưng chúng tôi không biết giá trị id chính xác, thay vì trích xuất tất cả người dùng và sau đó lọc theo tên, chúng tôi có thể thêm `@index` vào phía sau trường tên. Điều này làm cho việc truy vấn nhanh hơn nhiều và chúng tôi cũng có thể chuyển `unique: true` để đảm bảo tính duy nhất.
+Giả sử chúng tôi biết tên của người dùng này, nhưng chúng tôi không biết giá trị id chính xác, thay vì trích xuất tất cả người dùng và sau đó lọc theo tên, chúng tôi có thể thêm `@index` vào phía sau trường tên. Điều này làm cho việc truy vấn nhanh hơn nhiều và chúng tôi cũng có thể chuyển `unique: true` để đảm bảo tính độc nhất.
 
 **Nếu một trường không phải là duy nhất, kích thước danh sách kết quả tối đa là 100**
 
@@ -65,7 +65,7 @@ INSERT INTO titles (id, name) VALUES ('id_1', 'Captain')
 ```
 
 ```typescript
-// Xử lý trong chức năng ánh xạ
+// Xử lý trong hàm ánh xạ
 import {User} from "../types/models/User"
 import {Title} from "../types/models/Title"
 
@@ -76,7 +76,7 @@ const captainTitle = await Title.getByName('Captain');
 const pirateLords = await User.getByTitleId(captainTitle.id); // Danh sách tất cả các Captain
 ```
 
-## Mối quan hệ thực thể
+## Các mối quan hệ thực thể
 
 Một thực thể thường có các mối quan hệ lồng nhau với các thực thể khác. Đặt giá trị trường thành một tên thực thể khác sẽ mặc định xác định mối quan hệ một-một giữa hai thực thể này.
 
@@ -86,7 +86,7 @@ Các mối quan hệ thực thể khác nhau (một-một, một-nhiều và nhi
 
 Mối quan hệ một-một là mặc định khi chỉ một thực thể duy nhất được ánh xạ tới một thực thể khác.
 
-Ví dụ: Passport sẽ chỉ thuộc về một Person và một Person chỉ có một Passport (trong ví dụ này):
+Ví dụ: Một hộ chiếu (passport) sẽ chỉ thuộc về một người (person) và một người (person) chỉ có thể có một hộ chiếu (passport) (trong ví dụ dưới đây):
 
 ```graphql
 type Person @entity {
@@ -112,11 +112,11 @@ type Passport @entity {
 }
 ```
 
-### Một quan hệ-đến-Nhiều quan hệ (One-to-Many relationships)
+### Mối quan hệ một-nhiều
 
-Bạn có thể sử dụng dấu ngoặc vuông để chỉ ra rằng một loại trường bao gồm nhiều thực thể.
+Bạn có thể sử dụng dấu ngoặc vuông để xác định một kiểu trường bao gồm nhiều thực thể.
 
-Ví dụ: Một Person có thể có nhiều accounts.
+Ví dụ: Một người (Person) có thể có nhiều tài khoản (accounts).
 
 ```graphql
 type Person @entity {
@@ -131,9 +131,9 @@ type Account @entity {
 ```
 
 ### Mối quan hệ nhiều-nhiều
-Mối quan hệ nhiều-nhiều có thể đạt được bằng cách triển khai một thực thể ánh xạ để kết nối hai thực thể khác.
+Có thể triển khai một mối quan hệ nhiều - nhiều bằng cách triển khai một thực thể ánh xạ để kết nối hai thực thể.
 
-Ví dụ: Mỗi Person là một phần của nhiều Group (PersonGroup) và Group có nhiều Person khác nhau (PersonGroup).
+Ví dụ: Mỗi người (person) là một thành viên của nhiều nhóm (PersonGroup) và nhiều nhóm (groups) có nhiều người khác nhau (PersonGroup).
 
 ```graphql
 type Person @entity {
@@ -179,9 +179,9 @@ type Transfer @entity {
 
 Để kích hoạt tra cứu ngược đối với một thực thể theo một mối quan hệ, hãy đính kèm `@derivedFrom` vào trường và trỏ đến trường tra cứu ngược của thực thể khác.
 
-Điều này tạo ra một trường ảo trên thực thể có thể được truy vấn.
+Điều này tạo ra một trường ảo (trên thực thể) có thể truy vấn.
 
-Chuyển "từ" một Tài khoản có thể truy cập được từ thực thể Tài khoản bằng cách đặt sentTransfer hoặc receivedTransfer có giá trị của chúng bắt nguồn từ các trường từ hoặc đến tương ứng.
+Có thể truy cập được Lệnh Chuyển (Transfer) "từ"("from") thực thể Tài khoản bằng cách đặt sentTransfer hoặc receivedTransfer mang giá trị của chúng bắt nguồn từ các trường "từ"("from") hoặc "đến"("to") tương ứng.
 
 ```graphql
 type Account @entity {
@@ -205,11 +205,11 @@ Chúng tôi đang hỗ trợ lưu dữ liệu dưới dạng JSON, đây là m�
 
 Chúng tôi khuyên người dùng sử dụng kiểu dữ liệu JSON trong các trường hợp sau:
 - Khi lưu trữ dữ liệu có cấu trúc trong một trường sẽ dễ quản lý hơn so với việc tạo nhiều thực thể riêng biệt.
-- Lưu tùy chọn khóa/giá trị tùy ý của người dùng (trong đó giá trị có thể là boolean, văn bản hoặc số và bạn không muốn có các cột riêng biệt cho các kiểu dữ liệu khác nhau)
+- Lưu khóa tùy chọn/giá trị tùy ý của người dùng (trong đó giá trị có thể là boolean, văn bản hoặc số, và bạn không muốn có các cột riêng biệt cho các kiểu dữ liệu khác nhau)
 - Lược đồ dễ thay đổi và thay đổi thường xuyên
 
-### Xác định chiều JSON
-Xác định thuộc tính dưới dạng kiểu JSON bằng cách thêm chú thích `jsonField` trong thực thể. Thao tác này sẽ tự động tạo giao diện cho tất cả các đối tượng JSON trong dự án của bạn dưới `type/interface.ts` và bạn có thể truy cập chúng trong chức năng ánh xạ của mình.
+### Định nghĩa hướng JSON
+Định nghĩa thuộc tính dưới dạng JSON bằng cách thêm chú thích `jsonField` trong thực thể. Thao tác này sẽ tự động tạo giao diện cho tất cả các đối tượng JSON trong dự án của bạn dưới `type/interface.ts` và bạn có thể truy cập chúng trong hàm ánh xạ của mình.
 
 Không giống như thực thể, đối tượng chỉ thị jsonField không yêu cầu bất kỳ trường `id` nào. Một đối tượng JSON cũng có thể lồng ghép với các đối tượng JSON khác.
 
