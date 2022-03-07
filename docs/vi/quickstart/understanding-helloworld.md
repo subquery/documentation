@@ -49,7 +49,7 @@ Pulling subquery-node   ... done
 Pulling graphql-engine  ... done
 ```
 
-Khi container khởi chạy, bạn sẽ thấy terminal xổ ra rất nhiều dòng chữ thể hiện trạng thái của node và của GraphQL. Bạn sẽ thấy:
+Khi vùng chứa được khởi động, bạn sẽ thấy thiết bị đầu cuối xuất ra rất nhiều văn bản hiển thị trạng thái của nút và công cụ GraphQL. Bạn sẽ thấy:
 
 ```
 subquery-node_1   | 2021-06-06T02:04:25.490Z <fetch> INFO fetch block [1, 100]
@@ -59,6 +59,6 @@ mà bạn biết rằng nút SubQuery đã bắt đầu đồng bộ hóa.
 
 ## Tóm lược
 
-Bây giờ bạn đã có một cái nhìn sâu sắc về những gì đang xảy ra, câu hỏi đặt ra là bắt đầu từ đâu? Nếu bạn cảm thấy khó hiểu, bạn có thể quay lại bài làm thế nào để [tạo một dự án](../create/introduction.md) và đọc thêm về những tập tin chính. Tập tin dự án, sơ đồ GraphQL, và những tập tin ánh xạ.
+Bây giờ bạn đã có một cái nhìn sâu sắc về những gì đang xảy ra, câu hỏi đặt ra là bắt đầu từ đâu? Nếu bạn cảm thấy khó hiểu, bạn có thể quay lại bài làm thế nào để [tạo một dự án](../create/introduction.md) và đọc thêm về những tập tin chính. Tập tin dự án, lược đồ GraphQL, và những tập tin ánh xạ.
 
 Nếu không, hãy tiếp tục phần hướng dẫn của chúng tôi, nơi chúng tôi xem xét cách chúng tôi có thể chạy ví dụ Hello World này trên cơ sở hạ tầng được lưu trữ của SubQuery, chúng tôi sẽ xem xét việc sửa đổi khối khởi động và chúng tôi sẽ đi sâu hơn về việc chạy các dự án SubQuery bằng cách chạy các dự án mã nguồn mở sẵn có.
