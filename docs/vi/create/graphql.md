@@ -4,10 +4,10 @@
 
 ` schema.graphql ` xác định các kiểu lược đồ ( hay còn gọi là schema) GraphQL khác nhau. Do cách thức hoạt động của ngôn ngữ truy vấn GraphQL, về căn bản thì lược đồ (schema) sẽ chỉ ra dạng dữ liệu của bạn từ SubQuery. Để tìm hiểu thêm về cách code bằng ngôn ngữ lược đồ GraphQL, chúng tôi khuyên bạn nên xem [Schemas and Types](https://graphql.org/learn/schema/#type-language).
 
-**Chú ý: Khi thực hiện bất kỳ thay đổi nào đối với tệp schema, hãy đảm bảo rằng bạn tạo thư mục types của mình bằng lệnh `yarn codegen`**
+**Chú ý: Khi thực hiện bất kỳ thay đổi nào đối với tệp schema, bạn phải tạo thư mục types của mình bằng lệnh `yarn codegen`**
 
-### Thực thể
-Mỗi thực thể phải định nghĩa các trường nó sử dụng `id` với kiểu `ID!`. Nó được sử dụng làm khóa chính và là duy nhất trong số tất cả các thực thể cùng loại.
+### Các thực thể
+Mỗi thực thể phải định nghĩa các trường bắt buộc `id` với kiểu `ID!`. Nó được sử dụng làm khóa chính và là độc nhất trong số tất cả các thực thể cùng loại.
 
 Các trường không thể để trống trong thực thể được biểu thị bằng `!`. Xem ví dụ dưới đây để rõ hơn:
 
@@ -19,7 +19,7 @@ type Example @entity {
 }
 ```
 
-### Các kiểu dữ liệu vô hướng và kí tự được hỗ trợ:
+### Các kiểu dữ liệu vô hướng và kí tự được SubQuery hỗ trợ:
 
 Hiện tại, SubQuery hỗ trợ các kiểu dữ liệu sau:
 - `ID`
@@ -29,23 +29,23 @@ Hiện tại, SubQuery hỗ trợ các kiểu dữ liệu sau:
 - `Float`
 - `Date`
 - `Boolean`
-- `<EntityName>` đối với các thực thể quan hệ lồng nhau, bạn có thể sử dụng tên của thực thể đã được định nghĩa làm một trong các trường. Vui lòng xem trong [Mối quan hệ thực thể](#entity-relationships).
+- `<EntityName>` đối với các thực thể quan hệ lồng nhau, bạn có thể sử dụng tên của thực thể đã được định nghĩa làm một trong các trường. Vui lòng xem trong [Liên hệ giữa các thực thể](#entity-relationships).
 - `JSON` có thể lưu trữ dữ liệu có cấu trúc theo cách khác, vui lòng xem [kiểu dữ liệu JSON](#json-type)
-- Các kiểu `<EnumName>` là một loại vô hướng được liệt kê đặc biệt được giới hạn trong một tập hợp các giá trị được cho phép. Vui lòng xem [Graphql Enum](https://graphql.org/learn/schema/#enumeration-types)
+- Các kiểu `<EnumName>` là một kiểu dữ liệu vô hướng được liệt kê đặc biệt, giới hạn trong một tập các giá trị được cho phép. Vui lòng xem [Graphql Enum](https://graphql.org/learn/schema/#enumeration-types)
 
 ## Lập chỉ mục theo trường không phải khóa chính
 
 Để cải thiện hiệu suất truy vấn, chỉ cần lập chỉ mục trường thực thể bằng cách thêm chú thích `@index` trên trường không phải khóa chính.
 
-Tuy nhiên, chúng tôi không cho phép người dùng thêm chú thích `@index` trên bất kỳ đối tượng [JSON](#json-type) nào. Theo mặc định, các chỉ mục được tự động thêm vào khóa ngoại và cho các trường JSON trong cơ sở dữ liệu, nhưng chỉ để nâng cao hiệu suất truy vấn.
+Tuy nhiên, chúng tôi không cho phép người dùng thêm chú thích `@index` trên bất kỳ đối tượng [JSON](#json-type) nào. Mặc định: các chỉ mục được tự động thêm vào khóa ngoại (foreign key) và cho các trường JSON trong cơ sở dữ liệu, nhưng chỉ để nâng cao hiệu suất truy vấn.
 
 Đây là một ví dụ.
 
 ```graphql
 type User @entity {
   id: ID!
-  name: String! @index(unique: true) # biến là duy nhất, có thể được đặt thành true hoặc false 
-  title: Title! # Chỉ mục được tự động thêm vào trường khóa ngoại 
+  name: String! @index(unique: true) # biến độc nhất, có thể được đặt thành true hoặc false 
+  title: Title! # Chỉ mục được tự động thêm vào trường khóa ngoại (foreign key)
 }
 
 type Title @entity {
@@ -112,7 +112,7 @@ type Passport @entity {
 }
 ```
 
-### Mối quan hệ một-nhiều
+### Một quan hệ-đến-Nhiều quan hệ (One-to-Many relationships)
 
 Bạn có thể sử dụng dấu ngoặc vuông để chỉ ra rằng một loại trường bao gồm nhiều thực thể.
 
