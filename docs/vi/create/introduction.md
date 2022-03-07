@@ -1,6 +1,6 @@
-# Hướng dẫn & Ví dụ
+# Cách tạo một project sử dụng SubQuery:
 
-Trong hướng dẫn [ bắt đầu nhanh ](/quickstart/quickstart.md), chúng tôi đã nhanh chóng đưa ra một ví dụ để bạn hiểu SubQuery là gì và nó hoạt động như thế nào. Ở đây chúng ta sẽ xem xét kỹ hơn quy trình làm việc khi tạo dự án của bạn và các tập tin chính mà bạn sẽ làm việc.
+Trong hướng dẫn [ bắt đầu nhanh ](/quickstart/quickstart.md), chúng tôi đã đưa ra một ví dụ ngắn gọn để bạn hiểu SubQuery là gì và nó hoạt động như thế nào. Ở đây chúng ta sẽ xem xét kỹ hơn quy trình làm việc để tạo ra một dự án và các tập tin chính mà bạn sẽ sử dụng.
 
 ## Ví dụ SubQuery
 
