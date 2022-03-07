@@ -1,6 +1,6 @@
 # Hướng dẫn bắt đầu nhanh
 
-Trong hướng dẫn Bắt đầu Nhanh này, chúng ta sẽ tạo một dự án khởi động đơn giản mà bạn có thể sử dụng làm khuôn mẫu để phát triển Dự án SubQuery cho chính mình.
+Trong hướng dẫn Bắt đầu Nhanh này, chúng ta sẽ tạo một dự án khởi động đơn giản mà bạn có thể sử dụng làm khuôn mẫu để phát triển Dự án SubQuery cho chính mình.
 
 Ở cuối hướng dẫn này, bạn sẽ có một dự án SubQuery đang hoạt động chạy trên nút SubQuery với điểm cuối GraphQL mà có thể truy vấn dữ liệu từ đó.
 
