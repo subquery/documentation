@@ -9,7 +9,7 @@ Khi kết thúc phần quick start này, bạn sẽ:
 - hiểu các yêu cầu bắt buộc
 - hiểu các lệnh phổ biến cơ bản
 - có thể điều hướng đến localhost:3000 và xem playground
-- chạy một truy vấn đơn giản để lấy block height của mạng chính Polkadot
+- chạy một truy vấn đơn giản để lấy chiều cao khối của mạng chính Polkadot
 
 ## Đối tượng mục tiêu
 
@@ -29,7 +29,7 @@ Bạn sẽ cần:
 - SubQuery CLI (`@subql/cli`)
 - Docker
 
-Bạn có thể chạy các lệnh sau trên terminal để xem liệu bạn đã có bất kỳ điều kiện tiên quyết nào trong số này chưa.
+Bạn có thể chạy các lệnh sau trong một thiết bị đầu cuối để xem liệu bạn đã có bất kỳ điều kiện tiên quyết nào trong số này chưa.
 
 ```shell
 yarn -v (or npm -v)
@@ -188,8 +188,8 @@ Sân chơi SubQuery trên localhost.
 
 ![sân chơi localhost](/assets/img/subql_playground.png)
 
-Số khối trong playground cũng phải khớp với số khối (về mặt kỹ thuật là block height) trong terminal.
+Số khối trong playground cũng phải khớp với số khối (về mặt kỹ thuật là chiều cao khối) trong thiết bị đầu cuối.
 
 ## Tóm lược
 
-Trong phần quick start này, chúng tôi đã trình bày các bước cơ bản để thiết lập và chạy một dự án mới bắt đầu trong môi trường Docker, sau đó điều hướng đến localhost: 3000 và chạy một truy vấn để trả về số khối của mạng chính Polkadot.
+Trong phần khởi động nhanh này, chúng tôi đã trình bày các bước cơ bản để thiết lập và chạy một dự án mới bắt đầu trong môi trường Docker, sau đó điều hướng đến localhost: 3000 và chạy một truy vấn để trả về số khối của mạng chính Polkadot.
