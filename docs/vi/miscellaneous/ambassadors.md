@@ -2,23 +2,23 @@
 
 ![Hình ảnh Banner Đại sứ](/assets/img/ambassador_banner.png)
 
-Chúng tôi hiểu rằng, một trong những thế mạnh lớn nhất của chúng tôi là cộng đồng, và với sự hỗ trợ của bạn, chúng tôi mong muốn xây dựng và phát triển mạng lưới các đại sứ địa phương tại các cộng đồng trên toàn thế giới.
+Chúng tôi hiểu rằng, một trong những thế mạnh lớn nhất của chúng tôi là cộng đồng, và với sự hỗ trợ của bạn, chúng tôi mong muốn xây dựng và phát triển mạng lưới các đại sứ khu vực cho các cộng đồng trên toàn thế giới.
 
 [Đăng ký Ngay!](https://forms.gle/GXBbJ6LDpNfM2v1X6)
 
-## Giá trị của chúng tôi
+## Điều chúng tôi tin tưởng
 
 Nhóm chúng tôi đã cùng nhau hợp tác với tầm nhìn chung là xây dựng nền tảng dịch vụ dữ liệu linh hoạt và toàn diện cho hệ sinh thái Polkadot.
 
 ** Được xây dựng bởi các nhà phát triển, dành cho các nhà phát triển: ** SubQuery là một cộng đồng đang phát triển tập trung vào việc cung cấp các sản phẩm và dịch vụ tốt nhất cho các nhà phát triển và những người xây dựng trong hệ sinh thái của chúng tôi. Thành công của SubQuery phụ thuộc vào sự thành công của hệ sinh thái Polkadot, vì vậy mọi thứ chúng tôi làm đều hướng đến khách hàng của mình.
 
-** Chính trực và Trách nhiệm: ** Chúng tôi có các thành viên trong nhóm ở Auckland, Thượng Hải và Sydney và vì vậy công việc từ xa rất quan trọng đối với chúng tôi. Chúng tôi mong rằng cả nhóm luôn có động lực cùng nhau làm việc một cách tự chủ, độc lập để đạt được mục tiêu. Yêu cầu chính cho việc này là nhóm của chúng tôi phải chịu trách nhiệm về các hành động của họ và duy trì tính chính trực của họ.
+** Chính trực và Trách nhiệm: ** Chúng tôi có các thành viên trong nhóm ở Auckland, Thượng Hải và Sydney và vì vậy làm việc từ xa là rất quan trọng đối với chúng tôi. Chúng tôi mong rằng cả nhóm luôn có động lực cùng nhau làm việc một cách tự chủ, độc lập để đạt được mục tiêu. Yêu cầu chính cho việc này là nhóm của chúng tôi phải chịu trách nhiệm về các hành động và duy trì tính nhất quán của họ.
 
-**Hướng dẫn và Hỗ trợ Toàn diện:** Blockchain là một lĩnh vực rất khó, và nhều khi mọi người cũng cần được hỗ trợ. Trong cộng đồng của chúng tôi, không có câu hỏi nào là ngu ngốc, tất cả mọi người trong nhóm đều có trách nhiệm hỗ trợ các người dùng. Chúng tôi tìm hiểu một số thông tin chi tiết có giá trị nhất về dịch vụ của chúng tôi (và cách chúng tôi có thể cải thiện nó) trực tiếp từ cộng đồng của chúng tôi.
+**Hướng dẫn và Hỗ trợ Toàn diện:** Blockchain là một lĩnh vực rất khó, và mọi người nhiều khi cần được hỗ trợ. Trong cộng đồng của chúng tôi, không có câu hỏi nào là ngu ngốc, tất cả mọi người trong nhóm đều có mong muốn hỗ trợ các người dùng. Chúng tôi tìm hiểu một số thông tin chi tiết có giá trị nhất về dịch vụ của chúng tôi (và cách chúng tôi có thể cải thiện nó) trực tiếp từ cộng đồng của chúng tôi.
 
 ## Chương trình Đại sứ của Chúng tôi
 
-Chương trình Đại sứ SubQuery của chúng tôi nhằm mục đích tìm kiếm các nhà lãnh đạo cộng đồng đam mê Polkadot và SubQuery. Mục tiêu của chúng tôi là tìm kiếm những người luôn tự chủ và có thể quảng bá rộng rãi về SubQuery ở các khu vực mà họ đang sinh sống và hỗ trợ cho các nhà phát triển mới xây dựng các ứng dụng và dịch vụ trên Polkadot.
+Mục đích chương trình Đại sứ SubQuery của chúng tôi là tìm kiếm các nhà lãnh đạo cộng đồng đam mê Polkadot và SubQuery. Mục tiêu của chúng tôi là tìm kiếm những người luôn tự chủ và có thể quảng bá rộng rãi về SubQuery ở các khu vực mà họ đang sinh sống và hỗ trợ cho các nhà phát triển mới xây dựng các ứng dụng và dịch vụ trên Polkadot.
 
 ### Quyền lợi của Đại sứ
 
@@ -46,7 +46,7 @@ Sau khi vượt qua chương trình thực tập sinh, bạn có thể tự gọ
 
 Các Đại sứ SubQuery có thể đóng góp thông qua bốn lĩnh vực chính, bao gồm quản lý sự kiện, sáng tạo nội dung, dịch thuật và kiểm duyệt cộng đồng. Bạn có thể tham gia vào bao nhiêu lĩnh vực tùy thích, không bị ràng buộc vào bất kỳ lĩnh vực nào.
 
-** Quản lý sự kiện: ** Xây dựng cộng đồng địa phương bằng cách tổ chức, tổ chức và quản lý các sự kiện khác nhau. Xây dựng cộng đồng địa phương sẽ là một phần quan trọng trong việc phát triển cộng đồng SubQuery. SubQuery sẽ hỗ trợ bạn bằng cách cung cấp tài chính cho các sự kiện, gửi swag / hàng hóa được tặng, cũng như tham dự Q&As hoặc các sự kiện trực tuyến với tư cách là diễn giả hoặc trong các phiên AMA.
+** Quản lý sự kiện: ** Xây dựng cộng đồng địa phương bằng cách chia sẻ, tổ chức và quản lý các sự kiện khác nhau. Xây dựng cộng đồng địa phương sẽ là một phần quan trọng trong việc phát triển cộng đồng SubQuery. SubQuery sẽ hỗ trợ bạn bằng cách cung cấp tài chính cho các sự kiện, gửi swag / hàng hóa được tặng, cũng như tham dự Q&As hoặc các sự kiện trực tuyến với tư cách là diễn giả hoặc trong các phiên AMA.
 
 **Sáng tạo Nội dung:** Chúng tôi có một danh sách dài các nội dung và tài liệu tham khảo cần được tạo. Hãy nhớ rằng, thành công của chúng tôi dựa vào khả năng khách hàng có thể tạo ra những điều tuyệt vời trên dịch vụ của chúng tôi, vì vậy chúng tôi cần sự giúp đỡ của bạn để thực hiện điều đó dễ dàng hơn. Các nội dung bao gồm video, infographics, hướng dẫn, animation hoặc bất kỳ tài liệu liên quan nào khác, để giúp thông báo, cung cấp kiến thức hoặc truyền cảm hứng cho các thành viên trong cộng đồng Hệ sinh thái SubQuery. SubQuery sẽ hỗ trợ các Nhà Sáng tạo Nội dung bằng cách cung cấp các tài sản thương hiệu và kiến thức chuyên môn. Chúng tôi cũng sẽ sử dụng các kênh tiếp thị của SubQuery để nâng cao nhận thức về nội dung của bạn (và chính bạn).
 
