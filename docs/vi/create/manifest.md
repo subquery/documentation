@@ -25,19 +25,19 @@ Trong `dataSources`:
 
 Theo mặc định, CLI sẽ tạo các dự án SubQuery theo phiên bản v0.2.0. Thao tác này có thể bị ghi đè bằng cách chạy `subql init --specVersion 0.0.1 PROJECT_NAME`, mặc dù điều này không được khuyến khích vì dự án sẽ không được hỗ trợ bởi dịch vụ lưu trữ SubQuery trong tương lai
 
-`subql migrate` có thể chạy trong một dự án hiện có để di chuyển tệp kê khai dự án sang phiên bản mới nhất.
+`subql migrate` có thể giúp chuyển tệp manifest (của một dự án đã có sẵn) lên phiên bản mới nhất.
 
 USAGE $ subql init [PROJECTNAME]
 
-ĐỐI SỐ PROJECTNAME Đặt tên dự án khởi động
+ARGUMENTS PROJECTNAME  Give the starter project name
 
-| Các Tùy chọn            | Mô tả                                                                      |
-| ----------------------- | -------------------------------------------------------------------------- |
-| -f, --force             |                                                                            |
-| -l, --location=location | thư mục cục bộ để chứa dự án tạo ra                                        |
-| -install-dependencies   | Cài đặt các phần phụ thuộc                                                 |
-| --npm                   | Buộc sử dụng NPM thay vì yarn, chỉ hoạt động với cờ `install-dependencies` |
-| --specVersion=0.0.1     | 0.2.0 [mặc định: 0.2.0] | Phiên bản đặc tả sẽ được sử dụng bởi dự án       |
+| Các Tùy chọn            | Mô tả                                                                        |
+| ----------------------- | ---------------------------------------------------------------------------- |
+| -f, --force             |                                                                              |
+| -l, --location=location | thư mục cục bộ để chứa dự án tạo ra                                          |
+| -install-dependencies   | Cài đặt các phần phụ thuộc                                                   |
+| --npm                   | Buộc sử dụng NPM thay vì yarn, chỉ hoạt động với `install-dependencies` flag |
+| --specVersion=0.0.1     | 0.2.0 [mặc định: 0.2.0] | Phiên bản đặc tả sẽ được sử dụng bởi dự án         |
 
 ## Tổng quan
 
@@ -50,35 +50,35 @@ USAGE $ subql init [PROJECTNAME]
 | **version**     | String                              | String                      | Phiên bản dự án của bạn                                           |
 | **description** | String                              | String                      | Mô tả dự án của bạn                                               |
 | **repository**  | String                              | String                      | Địa chỉ kho lưu trữ Git của dự án của bạn                         |
-| **schema**      | String                              | [Schema Spec](#schema-spec) | Vị trí của tệp lược đồ GraphQL của bạn                            |
+| **schema**      | String                              | [Schema Spec](#schema-spec) | Vị trí tệp GraphQL schema của bạn                                 |
 | **network**     | [Network Spec](#network-spec)       | Network Spec                | Chi tiết của mạng được lập chỉ mục                                |
 | **dataSources** | [DataSource Spec](#datasource-spec) | DataSource Spec             |                                                                   |
 
 ### Schema Spec
 
-| Trường   | v0.0.1 | v0.2.0 | Mô tả                                  |
-| -------- | ------ | ------ | -------------------------------------- |
-| **file** | String | String | Vị trí của tệp lược đồ GraphQL của bạn |
+| Trường   | v0.0.1 | v0.2.0 | Mô tả                             |
+| -------- | ------ | ------ | --------------------------------- |
+| **file** | String | String | Vị trí tệp GraphQL schema của bạn |
 
 ### Network Spec
 
-| Trường          | v0.0.1 | v0.2.0        | Mô tả                                                                                                                                                                                                                |
-| --------------- | ------ | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **genesisHash** | String | String        | Hàm băm gốc của mạng                                                                                                                                                                                                 |
-| **endpoint**    | String | String        | Xác định điểm cuối wss hoặc ws của chuỗi khối được lập chỉ mục - **Đây phải là một nút lưu trữ đầy đủ**. Bạn có thể truy xuất điểm cuối cho tất cả các parachain miễn phí từ [OnFinality](https://app.onfinality.io) |
-| **dictionary**  | String | String        | Đề nghị cung cấp điểm cuối HTTP của từ điển chuỗi đầy đủ để tăng tốc độ xử lý - đọc [Làm thế nào để từ điển SubQuery hoạt động](../tutorials_examples/dictionary.md).                                                |
-| **chaintypes**  | String | {file:String} | Đường dẫn đến tệp types, chấp nhận định dạng `.json` hoặc `.yaml`                                                                                                                                                    |
+| Trường          | v0.0.1 | v0.2.0        | Mô tả                                                                                                                                                                                                                   |
+| --------------- | ------ | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **genesisHash** | String | String        | Hàm băm gốc của mạng                                                                                                                                                                                                    |
+| **endpoint**    | String | String        | Xác định điểm cuối ws hoặc wss của chuỗi khối được lập chỉ mục - **Đây phải là một full archive node**. Bạn có thể truy xuất miễn phí các điểm cuối cho tất cả các parachain từ [OnFinality](https://app.onfinality.io) |
+| **dictionary**  | String | String        | Cung cấp điểm cuối HTTP của full chain dictionary để tăng tốc độ xử lý - đọc [cách để SubQuery dictionary hoạt động](../tutorials_examples/dictionary.md).                                                              |
+| **chaintypes**  | String | {file:String} | Đường dẫn đến tệp types, chấp nhận định dạng `.json` hoặc `.yaml`                                                                                                                                                       |
 
 ### Thông số kỹ thuật Data Source
 
-Xác định dữ liệu sẽ được lọc và trích xuất và vị trí của trình xử lý hàm ánh xạ để áp dụng chuyển đổi dữ liệu.
-| Trường         | v0.0.1                                                    | v0.2.0                                                                           | Mô tả                                                                                                                                                                                                                                          |
-| -------------- | --------------------------------------------------------- | -------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **name**       | String                                                    | String                                                                           | Tên của nguồn dữ liệu                                                                                                                                                                                                                          |
-| **kind**       | [substrate/Runtime](./manifest/#data-sources-and-mapping) | substrate/Runtime, [substrate/CustomDataSource](./manifest/#custom-data-sources) | Chúng tôi hỗ trợ các kiểu dữ liệu mặc định của thời gian chạy substrate, chẳng hạn như khối, sự kiện và phần bổ sung (cuộc gọi). <br /> Từ v0.2.0, chúng tôi hỗ trợ dữ liệu thời gian chạy tùy chỉnh, chẳng hạn như hợp đồng thông minh. |
-| **startBlock** | Integer                                                   | Integer                                                                          | Thao tác này sẽ thay đổi khối bắt đầu lập chỉ mục, hãy đặt khối này cao hơn để bỏ qua khối ban đầu với ít dữ liệu hơn                                                                                                                          |
-| **mapping**    | Thông số kỹ thuật ánh xạ                                  | Thông số kỹ thuật ánh xạ                                                         |                                                                                                                                                                                                                                                |
-| **filter**     | [network-filters](./manifest/#network-filters)            | String                                                                           | Lọc nguồn dữ liệu để thực thi theo tên thông số điểm cuối mạng                                                                                                                                                                                 |
+Định nghĩa phần dữ liệu sẽ được lọc và trích xuất và vị trí của trình xử lý hàm ánh xạ để áp dụng chuyển đổi dữ liệu.
+| Trường         | v0.0.1                                                    | v0.2.0                                                                           | Mô tả                                                                                                                                                                                                                              |
+| -------------- | --------------------------------------------------------- | -------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **name**       | String                                                    | String                                                                           | Tên của nguồn dữ liệu                                                                                                                                                                                                              |
+| **kind**       | [substrate/Runtime](./manifest/#data-sources-and-mapping) | substrate/Runtime, [substrate/CustomDataSource](./manifest/#custom-data-sources) | Chúng tôi hỗ trợ các kiểu dữ liệu mặc định của Substrate runtime, chẳng hạn như khối, sự kiện và phần bổ sung (gọi). <br /> Từ v0.2.0, chúng tôi hỗ trợ dữ liệu thời gian chạy tùy chỉnh, chẳng hạn như hợp đồng thông minh. |
+| **startBlock** | Integer                                                   | Integer                                                                          | Thao tác này sẽ thay đổi khối bắt đầu lập chỉ mục, hãy đặt khối này cao hơn để bỏ qua khối ban đầu với ít dữ liệu hơn                                                                                                              |
+| **mapping**    | Thông số kỹ thuật ánh xạ                                  | Thông số kỹ thuật ánh xạ                                                         |                                                                                                                                                                                                                                    |
+| **filter**     | [network-filters](./manifest/#network-filters)            | String                                                                           | Lọc nguồn dữ liệu để thực thi theo tên thông số điểm cuối mạng                                                                                                                                                                     |
 
 ### Thông số kỹ thuật ánh xạ
 
@@ -144,7 +144,7 @@ Khi kết nối với một parachain Polkadot khác hoặc thậm chí là mộ
 
 ![Genesis Hash](/assets/img/genesis-hash.jpg)
 
-Ngoài ra, bạn sẽ cần cập nhật `điểm cuối`. Xác định điểm cuối wss hoặc ws của chuỗi khối được lập chỉ mục - **Đây phải là một nút lưu trữ đầy đủ**. Bạn có thể truy xuất điểm cuối cho tất cả các parachain miễn phí từ [OnFinality](https://app.onfinality.io)
+Ngoài ra, bạn sẽ cần cập nhật `điểm cuối`. Xác định điểm cuối wss hoặc ws của chuỗi khối được lập chỉ mục - **Đây phải là một nút lưu trữ đầy đủ**. Bạn có thể truy xuất miễn phí các điểm cuối cho tất cả các parachain từ [OnFinality](https://app.onfinality.io)
 
 ### Các loại chuỗi
 
