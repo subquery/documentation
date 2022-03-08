@@ -60,7 +60,7 @@ GitHub URL に注意してください。SubQuery にアクセスするには、
 git init
 ```
 
-次に、次のコマンドでリモートリポジトリを追加します。
+次のコマンドでリモートリポジトリを追加します。
 
 ```shell
 git remote add origin https://github.com/seandotau/subqlHelloWorld.git
@@ -97,7 +97,7 @@ To https://github.com/seandotau/subqlHelloWorld.git
 
 ```
 
-pushコマンドは、「マスターローカルリポジトリから私のコードを元リポジトリにプッシュしてください」という意味です。 更新するとGitHubにすべてのコードが表示されます。
+pushコマンドは、「マスターローカルリポジトリからコードを元リポジトリにプッシュしてください」という意味です。 更新するとGitHubにすべてのコードが表示されます。
 
 ![最初のコミット](/assets/img/first_commit.png)
 
@@ -107,11 +107,11 @@ pushコマンドは、「マスターローカルリポジトリから私のコ�
 
 [https://project.subquery.network](https://project.subquery.network) に移動し、GitHub アカウントでログインします。
 
-![SubQuery Projectsにログイン](/assets/img/welcome_to_subquery_projects.png)
+![SubQuery Projectsにようこそ](/assets/img/welcome_to_subquery_projects.png)
 
 プロジェクトを新規作成
 
-![SubQuery Projectsにログイン](/assets/img/subquery_create_project.png)
+![SubQuery Projectsにようこそ](/assets/img/subquery_create_project.png)
 
 そして、さまざまなフィールドに適切な内容を記入してください。
 
@@ -120,7 +120,7 @@ pushコマンドは、「マスターローカルリポジトリから私のコ�
 - **サブタイトル：**プロジェクトのサブタイトルを記入します。
 - **説明:** SubQuery プロジェクトが何をしているかを説明します。
 - **GitHub リポジトリ URL:** これは、あなたのSubQueryプロジェクトがあるパブリックリポジトリへの有効なGitHub URLである必要があります。 schema.graphql ファイルはディレクトリのルートになければなりません。
-- **プロジェクトを非表示にする:** 選択すると、公開の SubQuery エクスプローラからプロジェクトを非表示にします。 SubQueryをコミュニティと共有したい場合は、この選択を解除しておいてください。
+- **プロジェクトを非表示にする:** 選択すると、公開の SubQuery Explorerからプロジェクトを非表示にします。 SubQueryをコミュニティと共有したい場合は、この選択を解除しておいてください。
 
 ![SubQueryパラメータを作成](/assets/img/create_subquery_project_parameters.png)
 
