@@ -1,12 +1,10 @@
-# SubQuery Explorer でプロジェクトにクエリを実行する
+# SubQuery Explorer でプロジェクトのクエリを実行する
 
-[SubQuery Explorer](https://explorer.subquery.network) は、コミュニティの貢献者によって作成され、SubQueryチームによって管理されている、公開済みのSubQueryプロジェクトへのアクセスを提供するオンラインホスティングサービス（
-
-explorer.subquery.network<0>）です。 [SubQuery Projectの公開](../publish/publish.md)ガイドに従って、SubQuery Projectをエクスプローラに公開することができます。</p> 
+[SubQuery Explorer](https://explorer.subquery.network) は、コミュニティの貢献者によって作成され、SubQueryチームによって管理されている、公開済みのSubQueryプロジェクトへのアクセスを提供するオンラインホスティングサービス（[explorer.subquery.network](https://explorer.subquery.network)）です。 [SubQuery Projectの公開ガイド](../publish/publish.md)に従って、SubQuery Projectをエクスプローラに公開することができます。
 
 ![SubQuery Explorer](https://static.subquery.network/media/explorer/explorer-header.png)
 
-SubQueryエクスプローラは簡単に開始できます。 私たちはこれらのSubQueryノードをオンラインでホスティングしており、誰もが無料でそれぞれクエリを実行することができます。 これらのマネージドノードは、SubQueryチームによってパフォーマンスレベルで監視および実行され、これにより本番アプリケーションの使用と依存が可能になります。
+SubQuery Explorerは簡単に開始できます。 私たちはこれらのSubQueryノードをオンラインでホスティングしており、誰もが無料でそれぞれクエリを実行することができます。 これらのマネージドノードは、SubQueryチームによってパフォーマンスレベルで監視および実行され、これにより本番アプリケーションの使用と依存が可能になります。
 
 ![SubQuery Project](https://static.subquery.network/media/explorer/explorer-project.png)
 
