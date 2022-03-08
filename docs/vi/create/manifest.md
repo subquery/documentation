@@ -19,7 +19,7 @@ Trong `network`:
 Trong `dataSources`:
 
 - Có thể liên kết trực tiếp điểm vào `index.js` cho các trình xử lý ánh xạ. Theo mặc định, `index.js` này sẽ được tạo từ `index.ts` trong quá trình xây dựng.
-- Nguồn dữ liệu có thể là nguồn dữ liệu thời gian chạy thông thường hoặc [nguồn dữ liệu tùy chỉnh](#custom-data-sources).
+- Nguồn dữ liệu có thể là nguồn dữ liệu runtime thông thường hoặc [nguồn dữ liệu tùy chỉnh](#custom-data-sources).
 
 ### Tùy chọn CLI
 
@@ -72,13 +72,13 @@ ARGUMENTS PROJECTNAME  Give the starter project name
 ### Thông số kỹ thuật Data Source
 
 Định nghĩa phần dữ liệu sẽ được lọc và trích xuất và vị trí của trình xử lý hàm ánh xạ để áp dụng chuyển đổi dữ liệu.
-| Trường         | v0.0.1                                                    | v0.2.0                                                                           | Mô tả                                                                                                                                                                                                                              |
-| -------------- | --------------------------------------------------------- | -------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **name**       | String                                                    | String                                                                           | Tên của nguồn dữ liệu                                                                                                                                                                                                              |
-| **kind**       | [substrate/Runtime](./manifest/#data-sources-and-mapping) | substrate/Runtime, [substrate/CustomDataSource](./manifest/#custom-data-sources) | Chúng tôi hỗ trợ các kiểu dữ liệu mặc định của Substrate runtime, chẳng hạn như khối, sự kiện và phần bổ sung (gọi). <br /> Từ v0.2.0, chúng tôi hỗ trợ dữ liệu thời gian chạy tùy chỉnh, chẳng hạn như hợp đồng thông minh. |
-| **startBlock** | Integer                                                   | Integer                                                                          | Thao tác này sẽ thay đổi khối bắt đầu lập chỉ mục, hãy đặt khối này cao hơn để bỏ qua khối ban đầu với ít dữ liệu hơn                                                                                                              |
-| **mapping**    | Thông số kỹ thuật ánh xạ                                  | Thông số kỹ thuật ánh xạ                                                         |                                                                                                                                                                                                                                    |
-| **filter**     | [network-filters](./manifest/#network-filters)            | String                                                                           | Lọc nguồn dữ liệu để thực thi theo tên thông số điểm cuối mạng                                                                                                                                                                     |
+| Trường         | v0.0.1                                                    | v0.2.0                                                                           | Mô tả                                                                                                                                                                                                                  |
+| -------------- | --------------------------------------------------------- | -------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **name**       | String                                                    | String                                                                           | Tên của nguồn dữ liệu                                                                                                                                                                                                  |
+| **kind**       | [substrate/Runtime](./manifest/#data-sources-and-mapping) | substrate/Runtime, [substrate/CustomDataSource](./manifest/#custom-data-sources) | Chúng tôi hỗ trợ các kiểu dữ liệu mặc định của Substrate runtime, chẳng hạn như khối, sự kiện và phần bổ sung (gọi). <br /> Từ v0.2.0, chúng tôi hỗ trợ dữ liệu runtime tùy chỉnh, chẳng hạn như smart contract. |
+| **startBlock** | Integer                                                   | Integer                                                                          | Thao tác này sẽ thay đổi khối bắt đầu lập chỉ mục, đặt khối này cao hơn để bỏ qua khối ban đầu với ít dữ liệu hơn                                                                                                      |
+| **mapping**    | Thông số kỹ thuật ánh xạ                                  | Thông số kỹ thuật ánh xạ                                                         |                                                                                                                                                                                                                        |
+| **filter**     | [network-filters](./manifest/#network-filters)            | String                                                                           | Lọc nguồn dữ liệu để thực thi theo tên thông số điểm cuối mạng                                                                                                                                                         |
 
 ### Thông số kỹ thuật ánh xạ
 
@@ -89,7 +89,7 @@ ARGUMENTS PROJECTNAME  Give the starter project name
 
 ## Nguồn dữ liệu và ánh xạ
 
-Trong phần này, chúng ta sẽ nói về thời gian chạy cơ bản mặc định và ánh xạ của nó. Đây là một ví dụ:
+Trong phần này, chúng ta sẽ nói về Substrate runtime thông thường và ánh xạ của nó. Đây là một ví dụ:
 
 ```yaml
 dataSources:
@@ -103,9 +103,9 @@ dataSources:
 
 Bảng sau giải thích các bộ lọc được hỗ trợ bởi các trình xử lý khác nhau.
 
-**Dự án SubQuery của bạn sẽ hiệu quả hơn nhiều khi bạn chỉ sử dụng trình xử lý sự kiện và cuộc gọi với các bộ lọc ánh xạ thích hợp**
+**Dự án SubQuery của bạn sẽ hiệu quả hơn nhiều khi bạn sử dụng trình xử lý sự kiện và cuộc gọi với các bộ lọc ánh xạ thích hợp**
 
-| Hàm sự kiện                                | Bộ lọc được hỗ trợ           |
+| Trình xử lý                                | Bộ lọc được hỗ trợ           |
 | ------------------------------------------ | ---------------------------- |
 | [BlockHandler](./mapping.md#block-handler) | `specVersion`                |
 | [EventHandler](./mapping.md#event-handler) | `module`,`method`            |
@@ -116,7 +116,7 @@ Bộ lọc ánh xạ là một tính năng cực kỳ hữu ích để quyết �
 Chỉ dữ liệu đến thỏa mãn các điều kiện lọc sẽ được xử lý bởi các hàm ánh xạ. Bộ lọc ánh xạ là tùy chọn nhưng được khuyến nghị vì chúng làm giảm đáng kể lượng dữ liệu được xử lý bởi dự án SubQuery của bạn và sẽ cải thiện hiệu suất lập chỉ mục.
 
 ```yaml
-# Example filter from callHandler
+# Ví dụ từ callHandler
 filter:
   module: balances
   method: Deposit
@@ -125,7 +125,7 @@ filter:
 
 - Bộ lọc mô-đun và phương pháp được hỗ trợ trên bất kỳ chuỗi chất nền nào.
 - Bộ lọc `success` nhận một giá trị boolean và có thể được sử dụng để lọc phần bên ngoài theo trạng thái thành công của nó.
-- Bộ lọc `specVersion` chỉ định phạm vi phiên bản cụ thể cho khối chất nền. Các ví dụ sau đây mô tả cách đặt phạm vi phiên bản.
+- Bộ lọc `specVersion` chỉ định phạm vi phiên bản cụ thể cho Substrate block. Các ví dụ sau đây mô tả cách đặt phạm vi phiên bản.
 
 ```yaml
 filter:
@@ -150,7 +150,7 @@ Ngoài ra, bạn sẽ cần cập nhật `điểm cuối`. Xác định điểm 
 
 Bạn có thể lập chỉ mục dữ liệu từ các chuỗi tùy chỉnh bằng cách bao gồm các loại chuỗi trong manifest.
 
-Chúng tôi hỗ trợ các kiểu bổ sung được sử dụng bởi các mô-đun thời gian chạy nền, `typeAlias​`, `typeBundle`, `typeChain` và `typeSpec` cũng được hỗ trợ.
+Chúng tôi hỗ trợ các kiểu bổ sung được sử dụng bởi các module Substrate runtime, `typeAlias​`, `typeBundle`, `typeChain` và `typeSpec` cũng được hỗ trợ.
 
 Trong ví dụ v0.2.0 bên dưới, `network.chaintypes` đang trỏ đến một tệp có tất cả các loại tùy chỉnh được nhúng vào, Đây là tệp chainpec tiêu chuẩn khai báo các kiểu cụ thể được hỗ trợ bởi chuỗi khối này trong cả định dạng `.json`, `.yaml` hoặc `.js`.
 
