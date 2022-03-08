@@ -138,9 +138,9 @@ filter:
 
 ### Thông số kỹ thuật mạng
 
-Khi kết nối với một parachain Polkadot khác hoặc thậm chí là một chuỗi chất nền tùy chỉnh, bạn sẽ cần chỉnh sửa phần [Thông số mạng](#network-spec) của tệp kê khai này.
+Khi kết nối với một parachain Polkadot khác hoặc một Substrate chain tùy chỉnh, bạn sẽ cần chỉnh sửa phần [Thông số mạng](#network-spec) của tệp manifest này.
 
-`genesisHash` phải luôn là băm của khối đầu tiên của mạng tùy chỉnh. Bạn có thể gỡ bỏ điều này một cách dễ dàng bằng cách truy cập [PolkadotJS](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fkusama.api.onfinality.io%2Fpublic-ws#/explorer/query/0) và tìm mã băm trên **khối 0** (xem hình ảnh bên dưới).
+Hàm `genesisHash` phải luôn là hàm băm cho block đầu tiên của mạng tùy chỉnh. Bạn có thể gỡ bỏ điều này một cách dễ dàng bằng cách truy cập [PolkadotJS](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fkusama.api.onfinality.io%2Fpublic-ws#/explorer/query/0) và tìm mã băm trên **khối 0** (xem hình ảnh bên dưới).
 
 ![Genesis Hash](/assets/img/genesis-hash.jpg)
 
