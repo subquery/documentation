@@ -7,27 +7,27 @@
 - Можете да направите проектите си публични, така че да бъдат откриваеми в [SubQuery Explorer](https://explorer.subquery.network) и всеки по света да може да ги види
 - Интегрирани сме с GitHub, така че всеки във вашите GitHub организации ще може да преглежда споделени организационни проекти
 
-## Create your first project in SubQuery Projects
+## Създайте първия си проект в SubQuery Projects
 
-### Project Codebase Hosting
+### Хостване на базата с кодове на проекта
 
-There are two ways you can host your SubQuery project's codebase before publishing.
+Има два начина, по които можете да хоствате кодовата база на вашия проект SubQuery преди публикуване.
 
-**GitHub**: Your project's codebase must be in a public GitHub repository
+**GitHub**: Кодовата база на вашия проект трябва да е в публично хранилище на GitHub
 
-**IPFS**: Your project's codebase can be stored in IPFS, you can follow our IPFS hosting guide to see how to [first publish to IPFS](ipfs.md)
+**IPFS**: Кодовата база на вашия проект може да се съхранява в IPFS, можете да следвате нашето ръководство за IPFS хостинг, за да видите как да [публикувате първо в IPFS](ipfs.md)
 
-### Login to SubQuery Projects
+### Влезте в SubQuery Projects
 
-Before starting, please make sure that your SubQuery project codebase is online in a public GitHub repository or on IPFS. The `schema.graphql` file must be in the root of your directory.
+Преди да започнете, моля, уверете се, че кодовата база на вашия SubQuery проект е онлайн в публично хранилище на GitHub. Файлът `schema.graphql` трябва да е в основната ви директория.
 
-To create your first project, head to [project.subquery.network](https://project.subquery.network). You'll need to authenticate with your GitHub account to login.
+За да създадете първия си проект, отидете на [project.subquery.network](https://project.subquery.network). Ще трябва да се удостоверите с вашия акаунт в GitHub, за да влезете.
 
-On first login, you will be asked to authorize SubQuery. We only need your email address to identify your account, and we don't use any other data from your GitHub account for any other reasons. In this step, you can also request or grant access to your GitHub Organization account so you can post SubQuery projects under your GitHub Organization instead of your personal account.
+При първото влизане ще бъдете помолени да оторизирате SubQuery. Нуждаем се само от вашия имейл адрес, за да идентифицираме вашия акаунт и не използваме никакви други данни от вашия акаунт в GitHub по други причини. В тази стъпка можете също да заявите или предоставите достъп до вашия акаунт в GitHub Organization, за да можете да публикувате проекти на SubQuery във вашата GitHub организация вместо в личния си акаунт.
 
 ![Revoke approval from a GitHub account](/assets/img/project_auth_request.png)
 
-SubQuery Projects is where you manage all your hosted projects uploaded to the SubQuery platform. You can create, delete, and even upgrade projects all from this application.
+SubQuery Projects е мястото, където управлявате всички ваши хоствани проекти, качени в платформата SubQuery. Можете да създавате, изтривате и дори да ъпгрейдвате проекти от това приложение.
 
 ![Projects Login](/assets/img/projects-dashboard.png)
 
