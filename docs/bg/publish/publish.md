@@ -31,30 +31,30 @@ SubQuery Projects е мястото, където управлявате вси�
 
 ![Projects Login](/assets/img/projects-dashboard.png)
 
-If you have a GitHub Organization accounts connected, you can use the switcher on the header to change between your personal account and your GitHub Organization account. Projects created in a GitHub Organization account are shared between members in that GitHub Organization. To connect your GitHub Organization account, you can [follow the steps here](#add-github-organization-account-to-subquery-projects).
+Ако имате свързани акаунти на организацията GitHub, можете да използвате превключвателя в хедъра, за да превключите между личния си акаунт и акаунта на организацията в GitHub. Проектите, създадени в акаунт на GitHub Organization, се споделят между членовете в тази GitHub организация. За да свържете своя акаунт в GitHub Organization, можете да [следвате стъпките тук](#add-github-organization-account-to-subquery-projects).
 
 ![Switch between GitHub accounts](/assets/img/projects-account-switcher.png)
 
-### Create your First Project
+### Създайте своя първи проект
 
-Let's start by clicking on "Create Project". You'll be taken to the New Project form. Please enter the following (you can change this in the future):
+Нека започнем с щракване върху „Create Project“. Ще бъдете отведени до формуляра за нов проект. Моля, въведете следното (можете да промените това в бъдеще):
 
 - **GitHub акаунт:** Ако имате повече от един акаунт в GitHub, изберете под кой акаунт ще бъде създаден този проект. Проектите, създадени в акаунт на GitHub организацията, се споделят между членовете в тази организация.
-- **Project Name**
+- **Име на проекта**
 - **Подзаглавие**
 - **Описание**
 - **URL адрес на GitHub хранилище:** Това трябва да е валиден URL адрес на GitHub към публичното хранилище, което има вашият SubQuery проект. Файлът `schema.graphql` трябва да е в основната ви директория ([научете повече за структурата на директориите](../create/introduction.md#directory-structure)).
-- **Database:** Premium customers can access dedicated databases to host production SubQuery projects from. If this interests you, you can contact [sales@subquery.network](mailto:sales@subquery.network) to have this setting enabled.
-- **Deployment Source:** You can choose to have the project deployed from the GitHub repository or alternatively deployed from a IPFS CID, see our guide about [hosting with IPFS.](ipfs.md)
+- **Database:** Премиум клиентите имат достъп до специализирани бази данни, от които да хостват производствени проекти на SubQuery. Ако това ви интересува, можете да се свържете с [sales@subquery.network](mailto:sales@subquery.network), за да активирате тази настройка.
+- **Deployment Source:** Можете да изберете проектът да бъде разгърнат от хранилището на GitHub или алтернативно да се разгърне от IPFS CID, вижте нашето ръководство за [хостинг с IPFS.](ipfs.md)
 - **Скриване на проект:** Ако е маркирано, това ще скрие проекта от публичния SubQuery експлорър. Запазете това немаркирано, ако искате да споделите вашият SubQuery с общността! ![Create your first Project](/assets/img/projects-create.png)
 
-Create your project and you'll see it on your SubQuery Project's list. _We're almost there! We just need to deploy a new version of it._
+Създайте своя проект и ще го видите в списъка с вашите SubQuery проекти. _ Почти сме там! Просто трябва да внедрим новата му версия. _
 
 ![Created Project with no deployment](/assets/img/projects-no-deployment.png)
 
-### Deploy your first Version
+### Внедрете първата си версия
 
-While creating a project will setup the display behaviour of the project, you must deploy a version of it before it becomes operational. Внедряването на версия задейства нова операция за индексиране на SubQuery и настройва необходимата услуга за заявки, за да започне да приема заявки на GraphQL. Можете също да внедрите нови версии в съществуващи проекти тук.
+Докато създаването на проект ще настрои поведението на дисплея на проекта, трябва да внедрите негова версия, преди да започне да функционира. Внедряването на версия задейства нова операция за индексиране на SubQuery и настройва необходимата услуга за заявки, за да започне да приема заявки на GraphQL. Можете също да внедрите нови версии в съществуващи проекти тук.
 
 With your new project, you'll see a Deploy New Version button. Click this, and fill in the required information about the deployment:
 
