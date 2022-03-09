@@ -127,6 +127,6 @@ docker-compose pull && docker-compose up
 
 ## 次のステップ
 
-おめでとうございます。サンプルデータのGraphQL API リクエストを受け付けるローカルで実行されている SubQuery プロジェクトが完成しました。 次のガイドで 新しいプロジェクトを [SubQuery Projects](https://project.subquery.network) に公開し、 [Explorer](https://explorer.subquery.network) を使用してクエリする方法を説明します。
+おめでとうございます。これでサンプルデータの GraphQL API リクエストを受け付ける SubQuery プロジェクトがローカルに実行されるようになりました。 次のガイドで 新しいプロジェクトを [SubQuery Projects](https://project.subquery.network) に公開し、 [Explorer](https://explorer.subquery.network) を使用してクエリする方法を説明します。
 
 [新しいプロジェクトを SubQuery Projects に公開する](../publish/publish.md)
