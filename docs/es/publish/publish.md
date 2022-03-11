@@ -7,23 +7,23 @@
 - Puedes hacer públicos tus proyectos para que estén listados en el [SubQuery Explorer](https://explorer.subquery.network) y cualquier persona de todo el mundo puede verlos
 - Estamos integrados con GitHub, por lo que cualquiera en sus organizaciones de GitHub podrá ver proyectos de organización compartidos
 
-## Create your first project in SubQuery Projects
+## Crea tu primer proyecto en SubQuery Projects
 
-### Project Codebase Hosting
+### Programación de código de proyecto
 
-There are two ways you can host your SubQuery project's codebase before publishing.
+Hay dos maneras de alojar el código base de su proyecto SubQuery antes de publicarlo.
 
-**GitHub**: Your project's codebase must be in a public GitHub repository
+**GitHub**: El código base de tu proyecto debe estar en un repositorio público de GitHub
 
-**IPFS**: Your project's codebase can be stored in IPFS, you can follow our IPFS hosting guide to see how to [first publish to IPFS](ipfs.md)
+**IPFS**: El código base de su proyecto puede almacenarse en IPFS, puedes seguir nuestra guía de alojamiento IPFS para ver cómo [publicar primero en IPFS](ipfs.md)
 
-### Login to SubQuery Projects
+### Iniciar sesión en los proyectos de SubQuery
 
-Before starting, please make sure that your SubQuery project codebase is online in a public GitHub repository or on IPFS. The `schema.graphql` file must be in the root of your directory.
+Antes de comenzar, asegúrese de que su proyecto SubQuery está en línea en un repositorio público de GitHub. El archivo `schema.graphql` debe estar en la raíz de su directorio.
 
-To create your first project, head to [project.subquery.network](https://project.subquery.network). You'll need to authenticate with your GitHub account to login.
+Para crear tu primer proyecto, dirígete a [project.subquery.network](https://project.subquery.network). Necesitarás autenticarte con tu cuenta de GitHub para iniciar sesión.
 
-On first login, you will be asked to authorize SubQuery. We only need your email address to identify your account, and we don't use any other data from your GitHub account for any other reasons. In this step, you can also request or grant access to your GitHub Organization account so you can post SubQuery projects under your GitHub Organization instead of your personal account.
+En el primer inicio de sesión, se le pedirá que autorice SubQuery. Sólo necesitamos tu dirección de correo electrónico para identificar tu cuenta, y no utilizamos ningún otro dato de tu cuenta de GitHub por otras razones. In this step, you can also request or grant access to your GitHub Organization account so you can post SubQuery projects under your GitHub Organization instead of your personal account.
 
 ![Revoke approval from a GitHub account](/assets/img/project_auth_request.png)
 
