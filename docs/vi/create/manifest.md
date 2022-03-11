@@ -123,7 +123,7 @@ filter:
   success: true
 ```
 
-- Bộ lọc mô-đun và phương pháp được hỗ trợ trên bất kỳ chuỗi chất nền nào.
+- Module và phương pháp lọc được hỗ trợ trên bất kỳ Substrate chain nào.
 - Bộ lọc `success` nhận một giá trị boolean và có thể được sử dụng để lọc phần bên ngoài theo trạng thái thành công của nó.
 - Bộ lọc `specVersion` chỉ định phạm vi phiên bản cụ thể cho Substrate block. Các ví dụ sau đây mô tả cách đặt phạm vi phiên bản.
 
