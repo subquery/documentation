@@ -29,7 +29,7 @@ type Example @entity {
 - `Float`
 - `Date`
 - `Boolean`
-- `<EntityName>` для вложенных сущностей отношений, вы можете использовать имя определенной сущности в качестве одного из полей. Смотрите в [Entity Relationships](#entity-relationships).
+- `<EntityName>` для вложенных отношений объектов вы можете использовать имя определенного объекта в качестве одного из полей. Смотрите в [Entity Relationships](#entity-relationships).
 - `JSON` может также хранить структурированные данные, смотрите [JSON type](#json-type)
 - `<EnumName>` типы это особый вид нумерованного скаляра, который ограничен определенным набором допустимых значений. Подробнее о [Graphql Enum](https://graphql.org/learn/schema/#enumeration-types)
 
