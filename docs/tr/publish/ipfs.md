@@ -1,13 +1,13 @@
-# Hosting a Project using IPFS
+# IPFS kullanarak Proje Barındırma
 
-This guide works through how to publish a local SubQuery project to [IPFS](https://ipfs.io/) and deploy it on our hosting infrastructure.
+Bu kılavuz, yerel bir Subquery projesinin [IPFS](https://ipfs.io/)'de nasıl yayınlanacağını ve barındırma altyapımıza nasıl dağıtılacağını açıklamaktadır.
 
-Hosting a project in IPFS makes it available for all all and reduces your reliance on centralised services like GitHub.
+IPFS'de bir projeye ev sahipliği yapmak, onu herkes için kullanılabilir hale getirir ve GitHub gibi merkezi hizmetlere olan bağımlılığınızı azaltır.
 
-## Requirements
+## Gereksinimler
 
-- `@subql/cli` version 0.21.0 or above.
-- Manifest `specVersion` 0.2.0 and above.
+- `@subql/cli` sürüm 0.21.0 veya üzeri.
+- Manifest `specVersion 0.2.0` ve üstü.
 - Get your [SUBQL_ACCESS_TOKEN](#prepare-your-subql-access-token) ready.
 - To make sure your deployment success, we strongly recommend that you build your project with the `subql build` command, and test it locally before publishing.
 
