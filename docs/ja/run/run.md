@@ -117,7 +117,7 @@ subql-node -f your-project-path --local
 
 実行中の SubQuery ノードの正常性をチェックし監視するために使用できる 2 つのエンドポイントがあります。
 
-- シンプルな200応答を返すヘルスチェックエンドポイント
+- シンプルな200レスポンスを返すヘルスチェックエンドポイント
 - 実行中の SubQuery ノードの追加分析を含むメタデータエンドポイント
 
 これを SubQuery ノードのベース URL に追加します。 例 `http://localhost:3000/meta` は以下を返します:
@@ -196,4 +196,4 @@ npm install -g @subql/query
 
 プロジェクト名は、[プロジェクトを初期化](../quickstart/quickstart.md#initialise-the-starter-subquery-project)したときのプロジェクト名と同じにしてください。 また、環境変数が正しいことを確認してください。
 
-subql-queryサービスを正常に実行した後、ブラウザを開き、 `http://localhost:3000` に進みます。 エクスプローラーに表示されるGraphQLプレイグラウンドと、クエリーの準備ができたスキーマが表示されるはずです。
+subql-queryサービスを正常に実行した後、ブラウザを開き、 `http://localhost:3000` に進みます。 Explorerに表示されるGraphQLプレイグラウンドと、クエリーの準備ができたスキーマが表示されるはずです。
