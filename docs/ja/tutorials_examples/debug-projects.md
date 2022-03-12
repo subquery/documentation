@@ -28,7 +28,7 @@ Debugger attached.
 
 ## Chromeの開発ツール
 
-Chrome 開発ツールを開き、Sourcesタブに移動します。 緑色のアイコンをクリックすると、新しいウィンドウが開くことをご了承ください。
+Chrome 開発ツールを開き、Sourcesタブに移動します。 緑色のアイコンをクリックすると、新しいウィンドウが開きます。
 
 ![ノード監察](/assets/img/node_inspect.png)
 
