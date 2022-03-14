@@ -4,13 +4,13 @@ Các hàm ánh xạ xác định cách dữ liệu chuỗi được chuyển đ�
 
 - Các ánh xạ được định nghĩa trong thư mục `src / mappings` và được xuất ra dưới dạng một hàm
 - Các ánh xạ này cũng được xuất ra dưới dạng `src / index.ts`
-- Các tệp ánh xạ là tham chiếu trong `project.yaml` dưới trình xử lý ánh xạ.
+- Các tệp ánh xạ được ghi lại trong `project.yaml` dưới hàm xử lý ánh xạ.
 
-Có ba lớp hàm ánh xạ; [Trình xử lý khối](#block-handler), [Trình xử lý sự kiện](#event-handler) và [ Trình xử lý cuộc gọi](#call-handler).
+Có ba lớp hàm ánh xạ; [Hàm xử lý khối](#block-handler), [Hàm xử lý sự kiện](#event-handler) và [ Hàm xử lý gọi](#call-handler).
 
-## Trình xử lý khối
+## Hàm xử lý khối
 
-Bạn có thể sử dụng trình xử lý khối để nắm bắt thông tin mỗi khi khối mới được gắn vào chuỗi Chất nền, ví dụ: chặn số. Để đạt được điều này, một BlockHandler đã xác định sẽ được gọi một lần cho mỗi khối.
+Bạn có thể sử dụng hàm xử lý khối để lấy thông tin mỗi khi khối mới được gắn vào Substrate chain, ví dụ: số thứ tự của khối. Để đạt được điều này, một BlockHandler đã xác định sẽ được gọi một lần cho mỗi khối.
 
 ```ts
 import {SubstrateBlock} from "@subql/types";
