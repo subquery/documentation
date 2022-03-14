@@ -1,9 +1,9 @@
 # Ánh xạ
 
-Các hàm ánh xạ xác định cách dữ liệu chuỗi được chuyển đổi thành các thực thể GraphQL được tối ưu hóa mà chúng tôi đã xác định trước đó trong tệp `schema.graphql`.
+Các hàm ánh xạ xác định cách dữ liệu chuỗi được chuyển đổi thành các thực thể GraphQL được tối ưu hóa mà chúng ta đã xác định trước đó trong tệp `schema.graphql`.
 
-- Các ánh xạ được định nghĩa trong thư mục `src / mappings` và được xuất dưới dạng một hàm
-- Các ánh xạ này cũng được xuất dưới dạng `src / index.ts`
+- Các ánh xạ được định nghĩa trong thư mục `src / mappings` và được xuất ra dưới dạng một hàm
+- Các ánh xạ này cũng được xuất ra dưới dạng `src / index.ts`
 - Các tệp ánh xạ là tham chiếu trong `project.yaml` dưới trình xử lý ánh xạ.
 
 Có ba lớp hàm ánh xạ; [Trình xử lý khối](#block-handler), [Trình xử lý sự kiện](#event-handler) và [ Trình xử lý cuộc gọi](#call-handler).
