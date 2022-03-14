@@ -17,19 +17,19 @@ COMMANDS
   validate  Check a folder or github repo is a validate subquery project
 ```
 
-### build
+### oluştur
 
-This command is uses webpack to generate a bundle of a subquery project.
+Bu komut, bir subquery projesi paketi oluşturmak için web paketini kullanır.
 
 | Seçenekler         | Tanım                                                                                                      |
 | ------------------ | ---------------------------------------------------------------------------------------------------------- |
-| -l, --location     | local folder of subquery project (if not in folder already)                                                |
-| -o, --output       | specify output folder of build e.g. build-folder                                                           |
+| -l, --location     | subquery projesinin yerel klasörü (zaten klasörde değilse)                                                 |
+| -o, --output       | derlemenin çıktı klasörünü belirtin, ör. yapı klasörü                                                      |
 | --mode=(production | prod                                                        | development | dev) | [ default: production ] |
 
-- With `subql build` you can specify additional entry points in exports field although it will always build `index.ts` automatically
+- `subql build` ile, her zaman oluşturacak olmasına rağmen, dışa aktarma alanında ek giriş noktaları belirtebilirsiniz. `index.ts ` otomatik olarak
 
-- You need to have @subql/cli v0.19.0 or above to use exports field.
+- Dışa aktarma alanını kullanmak için @subql/cli v0.19.0 veya üzeri bir sürüme sahip olmanız gerekir.
 
 - Any `exports` field must map to string type (e.g. `"entry": "./src/file.ts"`), else it will be ignored from build.
 
