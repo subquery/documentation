@@ -6,12 +6,12 @@
 
 ## วัตถุประสงค์การเรียนรู้
 
-เมื่อจบจาก quick start นี้ คุณจะ:
+เมื่อจบจากคู่มือใช้งานสำหรับผู้ใช้งานแรกเข้า คุณจะ:
 
-- ทำความเข้าใจข้อกำหนดเบื้องต้นที่จำเป็น
+- เข้าใจข้อกำหนดเบื้องต้นที่จำเป็น
 - สามารถโฮสต์โปรเจ็กต์ใน [SubQuery Projects](https://project.subquery.network/) ได้
-- รัน query อย่างง่ายเพื่อ get ค่า block height ของเครือข่าย Polkadot mainnet โดยใช้ Playground
-- รัน GET query เพื่อขอค่า block height ของเครือข่าย Polkadot mainnet โดยใช้ cURL
+- รัน query อย่างง่ายเพื่อรับค่า block height ของเครือข่าย Polkadot mainnet โดยใช้ Playground
+- รัน GET query อย่างง่ายเพื่อรับค่า block height ของเครือข่าย Polkadot mainnet โดยใช้ cURL
 
 ## กลุ่มเป้าหมาย
 
@@ -31,7 +31,7 @@
 
 ## 1. สร้างโปรเจ็กต์ของคุณ
 
-เริ่มสร้างโปรเจ็กต์ ที่ชื่อว่า subqlHelloWorld โดยการรัน `subql init` และการเลือกสร้างโปรเจ็กต์ บนเครือข่าย `Polkadot` และ เริ่มต้นโปรเจ็กต์ ด้วยเทมเพลต `subql-starter` การรันของเรา จำเป็นต้องติดตั้ง codegen และสร้างด้วยตัวจัดการแพ็คเกจที่คุณต้องการ
+เริ่มสร้างโปรเจ็กต์ที่ชื่อว่า subqlHelloWorld โดยการรัน `subql init` และสร้างโปรเจ็กต์บนเครือข่าย `Polkadot` และเริ่มต้นโปรเจ็กต์ด้วยเทมเพลต `subql-starter` ผู้ใช้งานจำเป็นต้องติดตั้ง codegen และสร้างด้วยตัวจัดการแพ็คเกจที่คุณต้องการ
 
 ```shell
 > subql init subqlHelloWorld
@@ -44,11 +44,11 @@ yarn build
 
 ## 2. สร้าง GitHub repo
 
-ที่ GitHub ให้สร้าง repository ใหม่ ระบุชื่อและตั้งค่าการเปิดเผยของบัญชีคุณเป็นสาธารณะ ทุกอย่างในนี้จะถูกเก็บไว้เป็นค่าเริ่มต้นสำหรับตอนนี้
+ที่ GitHub ให้สร้าง repository ใหม่ ระบุชื่อและตั้งค่าการเปิดเผยของบัญชีคุณเป็นสาธารณะ ทุกอย่างในนี้จะถูกเก็บไว้เป็นค่าเริ่มต้น
 
 ![สร้าง GitHub repo](/assets/img/github_create_new_repo.png)
 
-จด GitHub URL ของคุณ ซึ่งต้องเป็นสาธารณะเพื่อให้ SubQuery เข้าถึงได้
+จด GitHub URL ของคุณ ซึ่งต้องตั้งให้เป็นสาธารณะเพื่อให้ SubQuery เข้าถึงได้
 
 ![สร้าง GitHub repo](/assets/img/github_repo_url.png)
 
