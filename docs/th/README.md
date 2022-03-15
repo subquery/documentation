@@ -4,14 +4,14 @@
     <div class="main">
       <div>
         <h2 class="welcomeTitle">ยินดีต้อนรับสู่ <span>Docs</span> ของ SubQuery</h2>
-        <p>สำรวจและแปลงข้อมูลเชนของคุณเพื่อสร้าง dApps ที่ใช้งานง่ายเร็วขึ้น!</p>
+        <p>สำรวจและแปลงข้อมูลเชนของคุณเพื่อสร้าง dApps ให้ใช้งานง่ายและรวดเร็วขึ้น!</p>
       </div>
     </div>
   </section>
   <section class="startSection main">
     <div>
       <h2 class="title"><span>คู่มือ</span>สำหรับการเริ่มต้นอย่างรวดเร็ว</h2>
-      <p>ทำความเข้าใจ SubQuery โดยการลองใช้ตัวอย่าง Hello World การใช้โปรเจ็กต์เทมเพลตภายในสภาพแวดล้อมของ Docker ทำให้คุณสร้างโหนดและทำงานได้อย่างรวดเร็ว และเริ่มการสืบค้นบล็อกเชนในเวลาเพียงไม่กี่นาทีด้วยคำสั่งง่ายๆ
+      <p>ทำความเข้าใจ SubQuery โดยการลองใช้ตัวอย่าง Hello World การใช้โปรเจ็กต์แม่แบบภายในสภาพแวดล้อมของ Docker ทำให้คุณสร้างโหนดและทำงานได้อย่างรวดเร็ว และเริ่มการสืบค้นบล็อกเชนในเวลาเพียงไม่กี่นาทีด้วยคำสั่งง่ายๆ
       </p>
       <span class="button">
         <router-link :to="{path: '/quickstart/helloworld-localhost/'}">
@@ -61,7 +61,7 @@
       <li>
         <div class="title">SubQuery คืออะไร?</div>
         <div class="content">
-          <p>SubQuery เป็นโครงการโอเพ่นซอร์สที่ช่วยให้นักพัฒนาสามารถทำการ index เปลี่ยนแปลง และ query ข้อมูลของ Substrate chain เพื่อขับเคลื่อนแอปพลิเคชันของตนได้</p>
+          <p>SubQuery เป็นโครงการโอเพ่นซอร์สที่ช่วยให้นักพัฒนาสามารถทำการ index เปลี่ยนแปลง และ สืบค้นข้อมูลของ Substrate chain เพื่อขับเคลื่อนแอปพลิเคชันของตนได้</p>
           <span class="more">
             <router-link :to="{path: '/faqs/faqs/#what-is-subquery'}">อ่านเพิ่มเติม</router-link>
           </span>
@@ -70,7 +70,7 @@
       <li>
         <div class="title">วิธีที่ดีที่สุดในการเริ่มต้นใช้งาน SubQuery คืออะไร?</div>
         <div class="content">
-          <p>วิธีที่ดีที่สุดในการเริ่มต้นใช้งาน SubQuery คือทดลองทำตาม <a href="/quickstart/helloworld-localhost/">บทแนะนำ Hello World</a> ของเรา นี่คือขั้นตอนง่ายๆ ในการดาวน์โหลดเทมเพลตเริ่มต้น สร้างโครงการ จากนั้นใช้ Docker เพื่อเรียกใช้โหนดบน localhost ของคุณและรัน query อย่างง่าย </p>
+          <p>วิธีที่ดีที่สุดในการเริ่มต้นใช้งาน SubQuery คือทดลองทำตาม <a href="/quickstart/helloworld-localhost/">บทแนะนำ Hello World</a> ของเรา นี่คือขั้นตอนง่ายๆ ในการดาวน์โหลดแม่แบบเริ่มต้น สร้างโครงการ จากนั้นใช้ Docker เพื่อเรียกใช้โหนดบน localhost ของคุณและรัน query อย่างง่าย </p>
         </div>
       </li>
       <li>
