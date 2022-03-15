@@ -1,29 +1,29 @@
-# เผยแพร่โครงการ SubQuery ของคุณ
+# เผยแพร่โปรเจกต์ SubQuery ของคุณ
 
-## ประโยชน์ในการโฮสต์โปรเจ็กต์ของคุณกับ SubQuery
+## ประโยชน์ในการโฮสต์โปรเจกต์ของคุณกับ SubQuery
 
-- เราจะรันโปรเจ็กต์ SubQuery ให้กับคุณด้วยบริการที่มีประสิทธิภาพสูง สามารถปรับขนาดได้ และมีการจัดการแบบบริการสาธารณะ
-- บริการนี้มอบให้กับชุมชนฟรี!
+- เราจะรันโปรเจกต์ SubQuery ให้กับคุณด้วยบริการที่มีประสิทธิภาพสูง รองรับการขยาย และมีการจัดการแบบบริการสาธารณะ
+- บริการนี้เปิดให้บริการกับชุมชน ฟรี!
 - คุณสามารถกำหนดให้โปรเจ็กต์ของคุณเป็นแบบสาธารณะเพื่อให้ลิสต์อยู่ใน [SubQuery Explorer](https://explorer.subquery.network) และทุกคนทั่วโลกสามารถดูได้
 - เราผสานรวมกับ GitHub ดังนั้นทุกคนใน GitHub organisations ของคุณจะสามารถดูโปรเจ็กต์ขององค์กรที่ใช้ร่วมกันได้
 
-## Create your first project in SubQuery Projects
+## สร้างโปรเจกต์แรกของคุณใน SubQuery Projects
 
 ### Project Codebase Hosting
 
-There are two ways you can host your SubQuery project's codebase before publishing.
+มีสองวิธีที่คุณจะสามารถโฮสต์โปรเจกต์ SubQuery ของคุณก่อนทำการเผยแพร่
 
-**GitHub**: Your project's codebase must be in a public GitHub repository
+**GitHub**: โปรเจกต์ของคุณต้องอยู่ใน GitHub repository แบบสาธารณะ
 
-**IPFS**: Your project's codebase can be stored in IPFS, you can follow our IPFS hosting guide to see how to [first publish to IPFS](ipfs.md)
+**IPFS**: โปรเจกต์ของคุณสามารถจัดเก็บอยู่ในรูปแบบ IPFS, คุณสามารถดูคู่มือสำหรับการโอสต์ IPFS ได้ที่ [การเผยแพร่แบบ IPFS](ipfs.md)
 
-### Login to SubQuery Projects
+### เข้าสู่ระบบ SubQuery Projects
 
-Before starting, please make sure that your SubQuery project codebase is online in a public GitHub repository or on IPFS. The `schema.graphql` file must be in the root of your directory.
+ก่อนจะเริ่มต้น ตรวจสอบให้แน่ใจว่าโปรเจกต์ SubQuery ออนไลน์อยู่บน GitHub repository สาธารณะ หรืออยู่บน IPFS เรียบร้อยแล้ว ไฟล์ `schema.graphql` จะต้องอยู่ในไดเรกทอรีเริ่มต้นของคุณ
 
-To create your first project, head to [project.subquery.network](https://project.subquery.network). You'll need to authenticate with your GitHub account to login.
+การเริ่มต้นสร้างโปรเจกต์แรกของคุณ ให้ไปที่ [project.subquery.network](https://project.subquery.network). คุณจำเป็นต้องอนุญาตการเข้าถึงบัญชี GitHub ของคุณเพื่อเข้าสู่ระบบ
 
-On first login, you will be asked to authorize SubQuery. We only need your email address to identify your account, and we don't use any other data from your GitHub account for any other reasons. In this step, you can also request or grant access to your GitHub Organization account so you can post SubQuery projects under your GitHub Organization instead of your personal account.
+ในการเข้าสู่ระบบครั้งแรก คุณจะถูกขออนุญาตการเข้าถึงโดย SubQuery เราต้องการเพียงที่อยู่อีเมลเพื่อระบุบัญชีของคุณ และเราไม่ใช้ข้อมูลอื่น ๆ จากบัญชี GitHub ของคุณเพื่อเหตุผลอื่น ๆ In this step, you can also request or grant access to your GitHub Organization account so you can post SubQuery projects under your GitHub Organization instead of your personal account.
 
 ![Revoke approval from a GitHub account](/assets/img/project_auth_request.png)
 
