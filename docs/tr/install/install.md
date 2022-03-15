@@ -1,6 +1,6 @@
-# SubQuery'i Kurmak
+# SubQuery'i Kurma
 
-Bir SubQuery projesi oluştururken gerekli olan bazı bileşenler var. Alt sorgu projeleri oluşturmak için [@subql/clı](https://github.com/subquery/subql/tree/docs-new-section/packages/cli) aracı kullanılır. Bir dizin oluşturucuyu çalıştırmak için [@subql/node](https://github.com/subquery/subql/tree/docs-new-section/packages/node) bileşeni gereklidir. Sorguları oluşturmak için [@subql/query](https://github.com/subquery/subql/tree/docs-new-section/packages/query) kütüphanesi gereklidir.
+Bir SubQuery projesi oluştururken gerekli olan bazı bileşenler var. SubQuery projeleri oluşturmak için [@subql/clı](https://github.com/subquery/subql/tree/docs-new-section/packages/cli) aracı kullanılır. Bir dizin oluşturucuyu çalıştırmak için [@subql/node](https://github.com/subquery/subql/tree/docs-new-section/packages/node) bileşeni gereklidir. Sorguları oluşturmak için [@subql/query](https://github.com/subquery/subql/tree/docs-new-section/packages/query) kütüphanesi gereklidir.
 
 ## @subql/cli'yi kurun
 
