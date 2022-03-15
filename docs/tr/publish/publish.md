@@ -7,11 +7,11 @@
 - Projelerinizi herkese açık hale getirebilirsiniz, böylece [SubQuery Explorer](https://explorer.subquery.network) listelenir ve dünyanın herhangi bir yerinde herkes bunları görüntüleyebilir
 - GitHub ile entegre olduk, böylece GitHub kuruluşlarınızdaki herkes paylaşılan organizasyon projelerini görüntüleyebilir
 
-## Create your first project in SubQuery Projects
+## SubQuery Projelerinde ilk projenizi oluşturun
 
-### Project Codebase Hosting
+### Proje Kod Tabanı Barındırma
 
-There are two ways you can host your SubQuery project's codebase before publishing.
+Yayınlamadan önce SubQuery projenizin kod tabanını barındırmanın iki yolu vardır.
 
 **GitHub**: Your project's codebase must be in a public GitHub repository
 
