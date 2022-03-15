@@ -11,34 +11,34 @@
 - เตรียม [SUBQL_ACCESS_TOKEN](#prepare-your-subql-access-token) ของคุณให้พร้อม
 - เพื่อให้แน่ใจว่าการทำให้ใช้งานได้สำเร็จ เราขอแนะนำให้คุณสร้างโปรเจ็กต์ด้วยคำสั่ง `subql build` และทดสอบในเครื่องก่อนเผยแพร่
 
-## Prepare your SUBQL_ACCESS_TOKEN
+## เตรียม SUBQL_ACCESS_TOKEN . ของคุณ
 
 - ขั้นตอนที่ 1: ไปที่ [SubQuery Projects](https://project.subquery.network/) และเข้าสู่ระบบ
 - ขั้นตอนที่ 2: คลิกที่โปรไฟล์ของคุณที่ด้านบนขวาของเมนู จากนั้นคลิกที่ **_Refresh Token_**
 - ขั้นตอนที่ 3: คัดลอกโทเค็นที่สร้างขึ้น
 - ขั้นตอนที่ 4: ในการใช้โทเค็นนี้:
   - ตัวเลือกที่ 1: เพิ่ม SUBQL_ACCESS_TOKEN ในตัวแปรของคุณ `EXPORT SUBQL_ACCESS_TOKEN=<token>`
-  - Option 2: Coming soon, `subql/cli` will support storing your SUBQL_ACCESS_TOKEN locally.
+  - ตัวเลือกที่ 2: `subql/cli` จะสนับสนุนการจัดเก็บ SUBQL_ACCESS_TOKEN ของคุณ ในเร็วๆนี้
 
-## How to publish a project
+## วิธีเผยแพร่โปรเจ็กต์
 
-We provide two methods to publish your project,
+เรามีสองวิธีในการเผยแพร่โครงการของคุณ
 
-### Option 1:
+### ตัวเลือกที่ 1:
 
-As you have `@subql/cli` already installed, you can run the following command, which will read the project and required information from its default manifest `project.yaml`
+เนื่องจากคุณได้ติดตั้ง `@subql/cli` แล้ว คุณสามารถเรียกใช้คำสั่งต่อไปนี้ ซึ่งจะอ่านจากโปรเจ็กต์และข้อมูลที่จำเป็นจากรายการ manifest `project.yaml`
 
 ```
-// Publish it from your project's root directory
+// เผยแพร่จากตำแหน่งที่เก็บของโปรเจ็กต์
 subql publish
 
-// OR point to your project root
+// หรือชี้ไปที่ root โปรเจ็กต์ของคุณ
 subql publish -f ~/my-project/
 ```
 
-### Option 2:
+### ตัวเลือกที่ 2:
 
-Alternatively, suppose your project has multiple Manifest files, for example you support multiple networks but share the same mapping and business logic, and have a project structure as follows:
+อีกทางหนึ่ง สมมติว่าโปรเจ็กต์ของคุณมีไฟล์ Manifest หลายไฟล์ ตัวอย่างเช่น คุณสนับสนุนหลายเครือข่ายแต่ใช้การจับคู่และกระบวนการทางธุรกิจร่วมกัน และมีโครงสร้างโปรเจ็กต์ดังนี้:
 
 ```
 L projectRoot
@@ -49,16 +49,16 @@ L projectRoot
  ...
 ```
 
-You can always publish the project with your selected manifest file.
+คุณสามารถเผยแพร่โปรเจ็กต์ด้วยไฟล์ manifest ที่คุณเลือก
 
 ```
- # This will publish project support indexing Polkadot network
+ # สิ่งนี้จะเผยแพร่การสนับสนุนโครงการสร้างดัชนีเครือข่าย Polkadot
 subql publish -f ~/my-projectRoot/polkadot.yaml
 ```
 
-## After publish
+## หลังจากเผยแพร่
 
-After successfully publishing the project, the logs below indicate that the project was created on the IPFS cluster and have returned its `CID` (content identifier).
+หลังจากเผยแพร่โปรเจ็กต์เรียบร้อยแล้ว บันทึกด้านล่างระบุว่าโปรเจ็กต์ถูกสร้างขึ้นบน IPFS และส่งคืน `CID` (content identifier)
 
 ```
 Building and packing code... done
@@ -66,19 +66,19 @@ Uploading SupQuery project to IPFS
 SubQuery Project uploaded to IPFS: QmZ3q7YZSmhwBiot4PQCK3c7Z6HkteswN2Py58gkkZ8kNd  //CID
 ```
 
-Please note this `CID`. With this `CID`, you can view your published project as what we call it [IPFS Deployment](#ipfs-deployment)
+โปรดทราบว่า `CID` นี้ ด้วย `CID` นี้ คุณสามารถดูโครงการที่เผยแพร่ของคุณเป็นสิ่งที่เราเรียกว่า [IPFS Deployment](#ipfs-deployment)
 
-## IPFS Deployment
+## การปรับใช้ IPFS
 
-IPFS deployment represents an independent and unique existence of a SubQuery project on a decentralized network. Therefore, any changes with the code in the project will affect its uniqueness. If you need to adjust your business logic, e.g. change the mapping function, you must republish the project, and the `CID` will change.
+การปรับใช้ IPFS แสดงถึงการมีอยู่ของโปรเจ็กต์ SubQuery ที่เป็นอิสระและไม่ซ้ำใครบนเครือข่ายแบบกระจายอำนาจ ดังนั้นการเปลี่ยนแปลงใด ๆ กับรหัสในโครงการจะส่งผลต่อความเป็นเอกลักษณ์ หากคุณต้องการปรับกระบวนการทางธุรกิจของคุณ เช่น เปลี่ยนฟังก์ชันการจับคู่ คุณต้องเผยแพร่โครงการอีกครั้ง และ `CID` จะเปลี่ยนไป
 
-For now, to view the project you have published, use a `REST` api tool such as [Postman](https://web.postman.co/), and use `POST` method with the following example URL to retrieve it. `https://subquery.network/ipfs/api/v0/cat?arg=<YOUR_PROJECT_CID>`
+สำหรับตอนนี้ หากต้องการดูโครงการที่คุณเผยแพร่ ให้ใช้เครื่องมือ api `REST` เช่น [Postman](https://web.postman.co/) และใช้ `POST` ด้วย URL ตัวอย่างต่อไปนี้ `https://subquery.network/ipfs/api/v0/cat?arg=<YOUR_PROJECT_CID>`
 
-You should see the example project deployment as below:
+คุณควรเห็นตัวอย่างการปรับใช้โปรเจ็กต์ดังต่อไปนี้:
 
-This deployment looks very similar to your manifest file. You can expect those descriptive fields, and the network and dictionary endpoint has been removed as they did not directly affect the outcome of project execution.
+การปรับใช้นี้ดูคล้ายกับไฟล์ manifest ของคุณ คุณสามารถคาดหวังฟิลด์คำอธิบายเหล่านั้น และปลายทางของเครือข่ายถูกลบออก เนื่องจากไม่ได้ส่งผลกระทบโดยตรงต่อผลลัพธ์ของการดำเนินโครงการ
 
-Those files been used in your local project has been packed and published to IPFS as well.
+ไฟล์เหล่านั้นถูกใช้ในโปรเจ็กต์และคุณจะได้รับการเผยแพร่ไปยัง IPFS ด้วย
 
 ```yaml
 dataSources:
@@ -103,14 +103,14 @@ schema:
 specVersion: 0.2.0
 ```
 
-## Run your SubQuery project on Hosted Service
+## เรียกใช้โปรเจ็กต์ SubQuery ของคุณบน Hosted Service
 
-### Create project with IPFS deployment
+### สร้างโปรเจ็กต์ด้วย IPFS
 
-You can follow the guide to [Publish your SubQuery project](publish.md) but where you set your deployment source you can select **IPFS**.
+คุณสามารถทำตามคำแนะนำเพื่อ [Publish your SubQuery project](publish.md) และคุณตั้งค่าแหล่งที่มาของการทำให้ใช้งานได้ คุณสามารถเลือก **IPFS**
 
-Then choose your production slot, copy and paste you IPFS deployment CID (without the leading `ipfs://`).
+จากนั้นเลือกสล็อตที่ใช้งานจริงของคุณ คัดลอกและวาง CID การปรับใช้ IPFS ของคุณ (โดยไม่มี `ipfs://` นำหน้า)
 
-You should see you IPFS deployment in the preview section. And you can select the network, dictionary endpoints etc.
+คุณควรเห็นการปรับใช้ IPFS ของคุณในส่วนแสดงตัวอย่าง และคุณสามารถเลือกเครือข่าย, dictionary endpoints ฯลฯ
 
-After successful deploy the IPFS deployment on our hosted service, it should be available to view on the SubQuery Explorer, you can access the query service just like you do locally.
+หลังจากการปรับใช้ IPFS บน hosted service ของเราได้สำเร็จแล้ว ก็ควรจะสามารถดูได้บน SubQuery Explorer คุณสามารถเข้าถึงบริการสืบค้นได้เช่นเดียวกับที่คุณทำในเครื่อง
