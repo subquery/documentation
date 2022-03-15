@@ -1,23 +1,23 @@
-# Hosting a Project using IPFS
+# สนับสนุนโปรเจ็กต์โดยใช้ IPFS
 
-This guide works through how to publish a local SubQuery project to [IPFS](https://ipfs.io/) and deploy it on our hosting infrastructure.
+คู่มือนี้อธิบายวิธีการเผยแพร่โปรเจ็กต์ SubQuery ไปยัง [IPFS](https://ipfs.io/) และปรับใช้บนโครงสร้างพื้นฐานการสนับสนุนของเรา
 
-Hosting a project in IPFS makes it available for all all and reduces your reliance on centralised services like GitHub.
+การสนับสนุนโปรเจ็กต์ใน IPFS จะทำให้ทุกคนใช้งานได้และลดการพึ่งพาบริการแบบรวมศูนย์ เช่น GitHub
 
-## Requirements
+## สิ่งที่ต้องมี
 
-- `@subql/cli` version 0.21.0 or above.
-- Manifest `specVersion` 0.2.0 and above.
-- Get your [SUBQL_ACCESS_TOKEN](#prepare-your-subql-access-token) ready.
-- To make sure your deployment success, we strongly recommend that you build your project with the `subql build` command, and test it locally before publishing.
+- `@subql/cli` เวอร์ชั่น 0.21.0 หรือสูงกว่า
+- Manifest `specVersion` 0.2.0 และสูงกว่า
+- เตรียม [SUBQL_ACCESS_TOKEN](#prepare-your-subql-access-token) ของคุณให้พร้อม
+- เพื่อให้แน่ใจว่าการทำให้ใช้งานได้สำเร็จ เราขอแนะนำให้คุณสร้างโปรเจ็กต์ด้วยคำสั่ง `subql build` และทดสอบในเครื่องก่อนเผยแพร่
 
 ## Prepare your SUBQL_ACCESS_TOKEN
 
-- Step 1: Go to [SubQuery Projects](https://project.subquery.network/) and log in.
-- Step 2: Click on your profile at the top right of the navigation menu, then click on **_Refresh Token_**
-- Step 3: Copy the generated token.
-- Step 4: To use this token:
-  - Option 1: Add SUBQL_ACCESS_TOKEN in your environment variables. `EXPORT SUBQL_ACCESS_TOKEN=<token>`
+- ขั้นตอนที่ 1: ไปที่ [SubQuery Projects](https://project.subquery.network/) และเข้าสู่ระบบ
+- ขั้นตอนที่ 2: คลิกที่โปรไฟล์ของคุณที่ด้านบนขวาของเมนู จากนั้นคลิกที่ **_Refresh Token_**
+- ขั้นตอนที่ 3: คัดลอกโทเค็นที่สร้างขึ้น
+- ขั้นตอนที่ 4: ในการใช้โทเค็นนี้:
+  - ตัวเลือกที่ 1: เพิ่ม SUBQL_ACCESS_TOKEN ในตัวแปรของคุณ `EXPORT SUBQL_ACCESS_TOKEN=<token>`
   - Option 2: Coming soon, `subql/cli` will support storing your SUBQL_ACCESS_TOKEN locally.
 
 ## How to publish a project
