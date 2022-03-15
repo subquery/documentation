@@ -1,18 +1,18 @@
 # การสร้างโปรเจ็กต์ SubQuery ใหม่
 
-ในคู่มือ [quick start](/quickstart/quickstart.md) พวกเราจะพาคุณเริ่มต้นจากตัวอย่างได้อย่างรวดเร็ว เพื่อให้ทราบความหมายของ SubQuery และเข้าใจถึงว่าทำงานได้อย่างไร ในที่นี้ เราจะพามาดูขั้นตอนการทำงานเมื่อคุณเริ่มสร้าง Project ของคุณ และ Key files ที่คุณจะทำงานด้วย
+ในคู่มือ [quick start](/quickstart/quickstart.md) พวกเราจะพาคุณเริ่มต้นจากตัวอย่างได้อย่างรวดเร็ว เพื่อให้ทราบความหมายของ SubQuery และเข้าใจถึงว่าทำงานได้อย่างไร ในที่นี้ เราจะพามาดูขั้นตอนการทำงานเมื่อคุณเริ่มสร้างโปรเจ็กต์ของคุณ และ Key files ที่คุณจะทำงานด้วย
 
 ## ขั้นตอนการทำงานเบื้องต้น
 
-นี่คือตัวอย่างที่คุณสามารถเริ่มต้นสร้างโครงการเสร็จสิ้น และได้เริ่มต้นจากส่วนของ [Quick start](../quickstart/quickstart.md) จากชุดเริ่มต้น พวกเราจะนำคุณผ่านกระบวนการมาตรฐานเพื่อที่จะปรับแต่ง และพัฒนา SubQuery Project ของคุณ
+นี่คือตัวอย่างที่คุณสามารถเริ่มต้นสร้างโครงการเสร็จสิ้น และได้เริ่มต้นจากส่วนของ [Quick start](../quickstart/quickstart.md) จากชุดเริ่มต้น พวกเราจะนำคุณผ่านกระบวนการมาตรฐานเพื่อที่จะปรับแต่ง และการนำไปใช้กับโปรเจ็กต์ SubQuery ของคุณ
 
-1. เริ่มต้น Project ของคุณโดยใช้คำสั่ง `subql init PROJECT_NAME`.
+1. เริ่มต้นโปรเจ็กต์ของคุณโดยใช้คำสั่ง `subql init PROJECT_NAME`.
 2. อัพเดท Manifest file (`project.yaml`) เพื่อใส่ข้อมูลที่เกี่ยวกับ blockchain และ entities ที่คุณจะเชื่อมโยง โปรดดู [Manifest File](./manifest.md)
 3. สร้าง GraphQL entities ภายใน Schema ของคุณ (`schema.graphql`) เพื่อกำหนดโครงสร้างของข้อมูลที่คุณจะดึงข้อมูลออกมา โปรดดู [GraphQL Schema](./graphql.md)
 4. เพิ่ม Mapping Function (ตัวอย่าง `mappingHandlers.ts`) คุณจะสามารถแปลงข้อมูลที่อยู่บน chain ให้เป็น GraphQL entities ที่คุณกำหนดเองได้ - โปรดดู [Mapping](./mapping.md)
 5. การสร้างและเผยแพร่ Code ของคุณไปยัง SubQuery Projects (หรือรันอยู่บนเครื่องของคุณเอง) - โปรดดู [Running and Querying your Starter Project](./quickstart.md#running-and-querying-your-starter-project) ที่อยู่ใน Quick Start Guide
 
-## Directory Structure
+## โครงสร้างไดเรกทอรี
 
 จากการเชื่อมโยงที่กำหนด จะเห็นภาพรวมของโครงสร้างโฟลเดอร์ที่ใช้ใน SubQuery project เมื่อเริ่มคำสั่ง `init`
 
@@ -33,9 +33,9 @@
 
 ยกตัวอย่างเช่น:
 
-![SubQuery directory structure](/assets/img/subQuery_directory_stucture.png)
+![โครงสร้างไดเร็กทอรี SubQuery](/assets/img/subQuery_directory_stucture.png)
 
-## Code Generation
+## การสร้างรหัส
 
 เมื่อใดก็ตามที่คุณเปลี่ยนแปลง GraphQL entities คุณต้องสร้างชนิดของโฟลเดอร์ใหม่ ซึ่งประกอบด้วยคำสั่ง
 
@@ -45,20 +45,20 @@ yarn codegen
 
 นี่จะสร้างโฟลเดอร์ใหม่ (หรืออัพเดทโฟลเดอร์เดิมที่มีอยู่) `src/types` โดยกำหนด class entity ที่ถูกสร้างสำหรับแต่ละชนิดที่คุณได้กำหนดไว้ใน `schema.graphql` Class เหล่านี้จะทำให้คุณโหลด type-safe entity ที่จะใช้สิทธิในการอ่านและเขียนลงไปในช่องข้อมูลของ entity - อ่านต่อในกระบวนการนี้ได้ใน [the GraphQL Schema](./graphql.md)
 
-## Build
+## การสร้าง
 
-ในการรันโปรเจ็กต์ SubQuery ของคุณบนโหนด SubQuery ที่โฮสต์ในเครื่อง คุณต้องเริ่มต้นจากการ build งานของคุณก่อน
+ในการสร้างโปรเจ็กต์ SubQuery ของคุณบนโหนด SubQuery ที่โฮสต์ในเครื่อง คุณต้องเริ่มต้นจากการสร้างงานของคุณก่อน
 
-รันคำสั่ง build จากรูทไดเร็กทอรีของโปรเจ็กต์
+สร้างคำสั่งจากรูทไดเร็กทอรีของโปรเจ็กต์
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```bash npm run-script build ``` </CodeGroupItem> </CodeGroup>
 
-### Alternative build options
+### ตัวอย่างการสร้างตัวเลือก
 
-We support additional build options for subquery projects using `subql build`.
+เราสนับสนุนตัวเลือกการสร้างเพิ่มเติมสำหรับ subquery project โดยใช้ `subql build`. Text XPath: /p[10]/CodeGroup
 
-With this you can define additional entry points to build using the exports field in package.json.
+ด้วยวิธีนี้ คุณสามารถกำหนดการเข้าใช้งานเพิ่มเติมเพื่อสร้างโดยใช้ฟิลด์ package.json
 
 ```json
 "name": "project-name",
@@ -70,7 +70,7 @@ With this you can define additional entry points to build using the exports fiel
 },
 ```
 
-Then by running `subql build` it will generate a dist folder with the following structure:
+จากนั้นโดยการเรียกใช้ `subql build` ระบบจะสร้างแฟ้มข้อมูล ที่มีโครงสร้างดังต่อไปนี้:
 
 ```
 - project-name
@@ -80,13 +80,13 @@ Then by running `subql build` it will generate a dist folder with the following 
     L index.js 
 ```
 
-Note that it will build `index.ts` whether or not it is specified in the exports field.
+โปรดทราบว่าการจะสร้าง `index.ts` ไม่ว่าจะระบุไว้ในช่องการส่งออกก็ตาม
 
-For more information on using this including flags, see [cli reference](https://doc.subquery.network/references/references/#build).
+สำหรับข้อมูลเพิ่มเติมเกี่ยวกับการใช้สิ่งนี้รวมถึง flags โปรดดูที่ [การอ้างอิง cli](https://doc.subquery.network/references/references/#build)
 
-## Logging
+## การบันทึก
 
-The `console.log` method is **no longer supported**. Instead, a `logger` module has been injected in the types, which means we can support a logger that can accept various logging levels.
+`console.log` **จะไม่รองรับอีกต่อไป**. โมดูล `logger` จะถูกแทนที่ลงในประเภทเดิม ซึ่งหมายความว่าเราสามารถสนับสนุน logger ที่ยอมรับการบันทึกในระบดับต่างๆ ได้
 
 ```typescript
 logger.info('Info level message');
@@ -94,16 +94,16 @@ logger.debug('Debugger level message');
 logger.warn('Warning level message');
 ```
 
-To use `logger.info` or `logger.warn`, just place the line into your mapping file.
+ในการใช้ `logger.info` หรือ `logger.warn` เพียงวางคำสั่งลงในไฟล์ของคุณ
 
 ![logging.info](/assets/img/logging_info.png)
 
-To use `logger.debug`, an additional flag is required. Add `--log-level=debug` to your command line.
+หากต้องการใช้ `logger.debug` จำเป็นต้องเรียกใช้ flag เพิ่มเติม เพิ่ม `--log-level=debug` ในบรรทัดคำสั่งของคุณ
 
-If you are running a docker container, add this line to your `docker-compose.yaml` file.
+หากคุณกำลังใช้งาน docker, ให้เพิ่มบรรทัดนี้ในไฟล์ `docker-compose.yaml` ของคุณ
 
 ![logging.debug](/assets/img/logging_debug.png)
 
-You should now see the new logging in the terminal screen.
+คุณควรเห็นการบันทึกใหม่ในหน้าจอเทอร์มินัล
 
 ![logging.debug](/assets/img/subquery_logging.png)
