@@ -1,8 +1,8 @@
 # ไฟล์ Manifest
 
-ไฟล์ Manifest `project.yaml` สามารถเห็นได้จากจุดเริ่มต้นโครงการของคุณ โดยจะใช้กำหนดรายละเอียดเกือบทั้งหมด ว่า SubQuery จะกำหนดดัชนีและแปลงข้อมูลที่อยู่บน Chain ได้อย่างไร
+ไฟล์ Manifest `project.yaml` เป็นจุดเริ่มต้นโปรเจ็กต์ของคุณและกำหนดรายละเอียดส่วนใหญ่ว่า SubQuery จะสร้างดัชนีและแปลงข้อมูลบนระบบอย่างไร
 
-Manifest สามารถอยู่ในรูป YAML หรือ JSON ในคู่มือนี้ เราจะใช้ตัวอย่างเป็น YAML ด้านล่างจะเป็ฯตัวอย่างมาตรฐานของ `project.yaml`
+Manifest สามารถใช้เครื่องมือในรูปแบบ YAML หรือ JSON ในคู่มือนี้ เราจะใช้ตัวอย่างเป็น YAML ตัวอย่างด้านล่างรูปแบบมาตรฐานของ `project.yaml`
 
 <CodeGroup> <CodeGroupItem title="v0.2.0" active> ``` yml specVersion: 0.2.0 name: example-project # Provide the project name version: 1.0.0  # Project version description: '' # Description of your project repository: 'https://github.com/subquery/subql-starter' # Git repository address of your project schema: file: ./schema.graphql # The location of your GraphQL schema file network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' # Genesis hash of the network endpoint: 'wss://polkadot.api.onfinality.io/public-ws' # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing dictionary: 'https://api.subquery.network/sq/subquery/dictionary-polkadot' dataSources: - kind: substrate/Runtime startBlock: 1 # This changes your indexing start block, set this higher to skip initial blocks with less data mapping: file: "./dist/index.js" handlers: - handler: handleBlock kind: substrate/BlockHandler - handler: handleEvent kind: substrate/EventHandler filter: #Filter is optional module: balances method: Deposit - handler: handleCall kind: substrate/CallHandler ```` </CodeGroupItem> <CodeGroupItem title="v0.0.1"> ``` yml specVersion: "0.0.1" description: '' # Description of your project repository: 'https://github.com/subquery/subql-starter' # Git repository address of your project schema: ./schema.graphql # The location of your GraphQL schema file network: endpoint: 'wss://polkadot.api.onfinality.io/public-ws' # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing dictionary: 'https://api.subquery.network/sq/subquery/dictionary-polkadot' dataSources: - name: main kind: substrate/Runtime startBlock: 1 # This changes your indexing start block, set this higher to skip initial blocks with less data mapping: handlers: - handler: handleBlock kind: substrate/BlockHandler - handler: handleEvent kind: substrate/EventHandler filter: #Filter is optional but suggested to speed up event processing module: balances method: Deposit - handler: handleCall kind: substrate/CallHandler ```` </CodeGroupItem> </CodeGroup>
 
@@ -12,17 +12,17 @@ Manifest สามารถอยู่ในรูป YAML หรือ JSON �
 
 ภายใต้ `network`
 
-- นี่คือ field ที่ถูกสร้างขึ้นใหม่ **required** `genesisHash` ซึ่งจะช่วยให้คุณรู้ว่ากำลังใช้ chain ใดอยู่
-- สำหรับ v0.2.0 หรือสูงกว่า คุณสามารถอ้างอิงถึงไฟล์ภายนอก [chaintype file](#custom-chains) ถ้าหากคุณกำลังอ้างอิงถึง chain ที่คุณกำหนดเอง
+- นี่คือฟิลด์ที่ถูกสร้างขึ้นใหม่ **required** `genesisHash` ซึ่งจะช่วยให้คุณรู้ว่ากำลังใช้อยู่บนระบบเครือข่ายใดอยู่
+- สำหรับ v0.2.0 หรือสูงกว่า คุณสามารถอ้างอิงถึงไฟล์ภายนอก [chaintype file](#custom-chains) ถ้าหากคุณกำลังอ้างอิงถึงระบบเครือข่ายที่คุณกำหนดเอง
 
 ภายใต้ `dataSources`:
 
-- สามารถเชื่อมไปยังจุดเริ่มต้น `index.js` สำหรับ mapping handlers โดยพื้นฐาน `index.js` จะถูกสร้างขึ้นจาก `index.ts` ในกระบวนการ build
-- Data sources สามารถเป็นได้ทั้ง data source ทั่วไป หรือ [custom data source](#custom-data-sources)
+- สามารถเชื่อมโยงจุดเริ่มต้น `index.js` สำหรับการจับคู่ได้โดยตรง โดยพื้นฐาน `index.js` จะถูกสร้างขึ้นจาก `index.ts` ในกระบวนการสร้าง
+- แหล่งข้อมูลสามารถเป็นได้ทั้งแหล่งข้อมูลทั่วไป หรือ [custom data source](#custom-data-sources)
 
-### CLI Options
+### ตัวเลือก CLI
 
-By default the CLI will generate SubQuery projects for spec verison v0.2.0. This behaviour can be overridden by running `subql init --specVersion 0.0.1 PROJECT_NAME`, although this is not recommended as the project will not be supported by the SubQuery hosted service in the future
+โดยค่าเริ่มต้น CLI จะสร้างโปรเจ็กต์ SubQuery สำหรับเวอร์ชันข้อมูล v0.2.0 This behaviour can be overridden by running `subql init --specVersion 0.0.1 PROJECT_NAME`, although this is not recommended as the project will not be supported by the SubQuery hosted service in the future
 
 `subql migrate` สามารถรันอยู่บนโปรเจ็กต์ที่เกิดขึ้นแล้ว เพื่ออัพเกรดไปสู่ project manifest เวอชันล่าสุดได้
 
