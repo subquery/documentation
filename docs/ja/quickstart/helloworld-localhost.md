@@ -51,7 +51,7 @@ My subql version is: @subql/cli/0.9.3 darwin-x64 node-v16.3.0
 My docker version is: Docker version 20.10.5, build 55c4c88
 ```
 
-あなたが上記を取得した場合、問題ありません。 そうでない場合は、以下のリンクに従ってインストールしてください:
+上記が表示された場合、問題ありません。 そうでない場合は、以下のリンクに従ってインストールしてください:
 
 - [yarn](https://classic.yarnpkg.com/en/docs/install/) or [npm](https://www.npmjs.com/get-npm)
 - [SubQuery CLI](quickstart.md#install-the-subquery-cli)
@@ -59,7 +59,7 @@ My docker version is: Docker version 20.10.5, build 55c4c88
 
 ## 1. プロジェクトを初期化する
 
-SubQuery で始める最初のステップは、 `subql init` コマンドを実行することです。 `subqlHelloWorld` という名前でプロジェクトを初期化しましょう。 作成者のみが必須であることに注意してください。 以下、すべて空欄のままです。
+SubQuery で始める最初のステップは、 `subql init` コマンドを実行することです。 `subqlHelloWorld` という名前でプロジェクトを初期化しましょう。 作成者のみが必須であることに注意してください。 以下、すべて空欄のままで大丈夫です。
 
 ```shell
 > subql init subqlHelloWorld
@@ -84,7 +84,7 @@ subqlHelloWorld is ready
 cd subqlHelloWorld
 ```
 
-## 2. 依存関係をインストールする
+## 2. 依存するモジュールをインストールする
 
 ここで様々な依存関係をインストールするために、yarnまたはnodeのインストールを実行します。
 
@@ -112,7 +112,7 @@ success Saved lockfile.
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```bash npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
 
-An example of `yarn codegen`
+例 `yarn codegen`
 
 ```shell
 > yarn codegen

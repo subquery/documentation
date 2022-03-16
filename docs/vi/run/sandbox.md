@@ -1,4 +1,4 @@
-# Sandbox
+# Hộp cát
 
 Theo hình dung của chúng tôi về cách sử dụng, node SubQuery thường được chạy trên một máy chủ đáng tin cậy, còn mã nguồn của dự án SubQuery do người dùng gửi đến node thì lại không thể tin cậy tuyệt đối.
 
@@ -15,6 +15,6 @@ Một số mã độc có khả năng tấn công máy chủ hoặc thậm chí 
 
 - Để giới hạn quyền truy cập vào một số modul tích hợp sẵn, chỉ có modul `assert`, `buffer`, `crypto`,`util` và `path` mới được đưa vào danh sách trắng (whitelist).
 
-- Chúng tôi hỗ trợ [các modul của bên thứ 3](../create/mapping.md#third-party-libraries) được viết trong các thư viện **CommonJS** và **lai (hybrid)** như `@polkadot/*` (sử dụng ESM làm mặc định).
+- Chúng tôi hỗ trợ [các modul của bên thứ 3](../create/mapping.md#third-party-libraries) được viết bằng **CommonJS** và **kết hợp** các thư viện như `@polkadot/*` sử dụng ESM làm mặc định.
 
 - Bất kỳ modul nào sử dụng `HTTP` và `WebSocket` đều bị cấm.

@@ -31,10 +31,10 @@ Bu kılavuz, bazı geliştirme deneyimine sahip ve SubQuery hakkında daha fazla
 
 ## 1. Projenizi oluşturma
 
-Let's create a project called subqlHelloWorld by running `subql init` and selecting to build the project with the `Polkadot` network and initialize the project with the `subql-starter` template. We must run the obligatory install, codegen and build with your favourite package manager.
+`subql init`'i çalıştırıp projeyi `Polkadot` ağı ile inşa etmeyi seçerek ve projeyi `subql-starter` ile başlatarak subqlHelloWorld adlı bir proje oluşturalım. şablon. En sevdiğiniz paket yöneticinizle zorunlu yükleme, kod oluşturma ve derlemeyi çalıştırmalıyız.
 
 ```shell
-> subql init subqlHelloWorld
+> subql init --starter subqlHelloWorld
 yarn install
 yarn codegen
 yarn build

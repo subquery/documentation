@@ -1,22 +1,22 @@
-# Dynamic Data Sources
+# Sumber Data Dinamis
 
-There are cases where you don't know all the parameters for a data source when a project is started. An example of this is a contract factory that will create new contract instances at a later date. It's impossible to know what the contract addresses will be for this ahead of time. This is where being able to create new data sources dynamically comes in.
+Ada kasus di mana Anda tidak mengetahui semua parameter untuk sumber data saat proyek dimulai. Contohnya adalah factory kontrak yang akan membuat instance kontrak baru di kemudian hari. Tidak mungkin untuk mengetahui apa alamat kontrak untuk ini sebelumnya. Di sinilah kemampuan untuk membuat sumber data baru secara dinamis masuk.
 
-## The `templates` field
+## `Templates` dasar
 
-In order to use dynamic data sources you need to have spec version of at least `0.2.1`. If you are on `0.2.0` all you need to do is change the specVersion. If you are on a lower version then you should update to `0.2.0` first with `subql migrate`.
+Untuk menggunakan sumber data dinamis, Anda harus memiliki versi spesifikasi setidaknya `0.2.1`. Jika Anda menggunakan `0.2.0` yang perlu Anda lakukan hanyalah mengubah specVersion. Jika Anda menggunakan versi yang lebih rendah maka Anda harus memperbarui ke `0.2.0` terlebih dahulu dengan `subql migration`.
 
-Spec version `0.2.1` introduces a new `templates` field. Templates are the same as data sources with a couple of differences.
+Versi spesifikasi `0.2.1` memperkenalkan bidang `templat` baru. Template sama dengan sumber data dengan beberapa perbedaan.
 
-* They need a `name` in order to identify the template
-* `startBlock` is no longer necessary. This will be set to the block the data source is created
-* In the case of a custom data source the `processor.options` field can also be partially filled out, the rest of the options will be provided when the data source is instanced.
+* Mereka membutuhkan `name` untuk mengidentifikasi template
+* `startBlock` tidak lagi diperlukan. Ini akan disetel ke blok sumber data dibuat
+* Dalam hal sumber data khusus, bidang `processor.options` juga dapat diisi sebagian, opsi lainnya akan diberikan saat sumber data dibuat.
 
-## Example Project
+## Contoh Projek
 
-The best way to show how to use dynamic data source is with an example.
+Cara terbaik untuk menunjukkan cara menggunakan sumber data dinamis adalah dengan sebuah contoh.
 
-The below example is for a decentralised exchange that has a factory contract which deploys a new contract when a trading pair is added. When the project is run it's not possible to know the addresses of all trading pair contract that have been created or will be created. Data sources can be dynamically created by a mapping handler from a template in order to index the newly created trading pair contracts.
+Contoh di bawah ini adalah untuk pertukaran terdesentralisasi yang memiliki kontrak pabrik yang menerapkan kontrak baru ketika pasangan perdagangan ditambahkan. Ketika proyek dijalankan, tidak mungkin untuk mengetahui alamat semua kontrak pasangan perdagangan yang telah atau akan dibuat. Sumber data dapat dibuat secara dinamis oleh pengendali pemetaan dari template untuk mengindeks kontrak pasangan perdagangan yang baru dibuat.
 
 
 ### `project.yaml`
@@ -59,7 +59,7 @@ templates:
       file: './node_modules/@subql/contract-processors/dist/moonbeam.js'
       options:
         abi: tradingPair
-        # we do not know the address at this point, it will be provided when instantiated
+        # kami tidak tahu alamatnya saat ini, itu akan diberikan saat dipakai
     assets:
       tradingPair:
         file: ./src/tradingPair.abi.json
@@ -76,14 +76,14 @@ templates:
 ### `mappingHandlers.ts`
 
 ```ts
-// This function is defined using `subql codegen` cli command
+// Fungsi ini didefinisikan menggunakan perintah `subql codegen` cli
 import { createTradingPairDatasource } from '../types';
 import {MoonbeamEvent} from '@subql/contract-processors/dist/moonbeam';
 
 async function handleNewTradingPair(event: MoonbeamEvent): Promise<void> {
   const { exchange, token1, token2 } = event.args;
 
-  // Create a new datasource providing the address of the trading pair exchange contract
+  // Buat sumber data baru yang menyediakan alamat kontrak pertukaran pasangan perdagangan
   await createTradingPairDatasource({ address: exchange });
 }
 
@@ -93,9 +93,9 @@ async function handleLiquidityAdded(event: MoonbeamEvent): Promise<void> {
 ```
 
 
-## Seeing a projects Dynamic Data Sources
+## Melihat Projek Sumber Data Dinamis
 
-Dynamic data sources are stored in the projects metadata. If you need to see what details you can query them like below:
+Sumber data dinamis disimpan dalam metadata proyek. Jika Anda perlu melihat detail apa yang dapat Anda tanyakan seperti di bawah ini:
 
 ```gql
 {
@@ -105,7 +105,7 @@ Dynamic data sources are stored in the projects metadata. If you need to see wha
 }
 ```
 
-Result
+Hasil
 ```
 {
   "data": {

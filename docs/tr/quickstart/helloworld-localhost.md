@@ -1,4 +1,4 @@
-# Hello World (localhost & Docker)
+# Hello World (localhost + Docker)
 
 Bu SubQuery Hello World hızlı başlangıcına hoş geldiniz. Hızlı başlangıç, docker'da çalışan varsayılan başlangıç projesini birkaç basit adımda nasıl elde edersiniz göstermeyi amaçlamaktadır.
 
@@ -63,7 +63,7 @@ SubQuery ile başlarken ilk adım `subql init` komutunu çalıştırmaktır. `su
 
 ```shell
 > subql init subqlHelloWorld
-? Select a network Polkadot
+? Bir ağ seçin Polkadot
 ? Select a template project subql-starter     Starter project for subquery
 Cloning project... done
 RPC endpoint: [wss://polkadot.api.onfinality.io/public-ws]:

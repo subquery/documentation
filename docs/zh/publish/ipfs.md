@@ -1,64 +1,64 @@
-# Hosting a Project using IPFS
+# 使用 IPFS 托管一个项目
 
-This guide works through how to publish a local SubQuery project to [IPFS](https://ipfs.io/) and deploy it on our hosting infrastructure.
+本指南通过如何发布本地的 SubQuery 项目到 [IPFS](https://ipfs.io/) 并将其部署到我们的托管基础设施。
 
-Hosting a project in IPFS makes it available for all all and reduces your reliance on centralised services like GitHub.
+在 IPFS 中托管一个项目，可以让所有人都能使用，并减少您对集中服务的依赖，例如GitHub。
 
-## Requirements
+## 安装要求
 
-- `@subql/cli` version 0.21.0 or above.
-- Manifest `specVersion` 0.2.0 and above.
-- Get your [SUBQL_ACCESS_TOKEN](#prepare-your-subql-access-token) ready.
-- To make sure your deployment success, we strongly recommend that you build your project with the `subql build` command, and test it locally before publishing.
+- `@subql/cli` 版本 0.21.0 或以上.
+- Manifest `spec版本` 0.2.0 及以上.
+- 准备好您的 [SUBQL_ACCESS_TOKEN](#prepare-your-subql-access-token)
+- 为了确保您的部署成功，我们强烈建议您使用 `subql build` 命令来构建您的项目。 并在发布前在本地测试它。
 
-## Prepare your SUBQL_ACCESS_TOKEN
+## 准备您的 SUBQL_ACCESS_TOKEN
 
-- Step 1: Go to [SubQuery Projects](https://project.subquery.network/) and log in.
-- Step 2: Click on your profile at the top right of the navigation menu, then click on **_Refresh Token_**
-- Step 3: Copy the generated token.
-- Step 4: To use this token:
-  - Option 1: Add SUBQL_ACCESS_TOKEN in your environment variables. `EXPORT SUBQL_ACCESS_TOKEN=<token>`
-  - Option 2: Coming soon, `subql/cli` will support storing your SUBQL_ACCESS_TOKEN locally.
+- 步骤1：去 [SubQuery Projects](https://project.subquery.network/) 并登录。
+- 步骤2:点击导航菜单右上角的个人资料，然后点击 **_Refresh Token_**
+- 步骤3:复制生成的令牌。
+- 步骤4：使用此令牌：
+  - 备选案文1：在您的环境变量中添加SUBQL_ACCESS_TOKEN。 `ExPORT SUBQL_ACCESS_TOKEN=<token>`
+  - 选项2：在即将到来的新版本中， `subql/cli` 将支持本地存储您的 SUBQL_ACCESS_TOKEN
 
-## How to publish a project
+## 如何发布一个项目
 
-We provide two methods to publish your project,
+我们提供两种方法来发布您的项目。
 
-### Option 1:
+### 方法1:
 
-As you have `@subql/cli` already installed, you can run the following command, which will read the project and required information from its default manifest `project.yaml`
+如果您已经安装了`@subql/cli` ,那么您可以运行以下命令。 该项目将从默认清单的`project.yaml`读取项目以及项目所需信息。
 
 ```
-// Publish it from your project's root directory
+// 从你项目的根目录发布
 subql publish
 
-// OR point to your project root
+// 或指向你的项目根目录
 subql publish -f ~/my-project/
 ```
 
-### Option 2:
+### 方法2:
 
-Alternatively, suppose your project has multiple Manifest files, for example you support multiple networks but share the same mapping and business logic, and have a project structure as follows:
+另外，假定您的项目有多个清单文件， 例如，您支持多个网络，但共享相同的映射和业务逻辑，且具有以下项目结构：
 
 ```
 L projectRoot
  L src/
  L package.json
- L polkadot.yaml (Manifest for Polkadot network)
- L kusama.yaml   (Manifest for Kusama network)
- ...
+ L polkadot.yaml (Polkadot 网络的清单)
+ L kusama.yaml (Kusama 网络的清单)
+...
 ```
 
-You can always publish the project with your selected manifest file.
+您可以随时发布您选定的清单文件的项目。
 
 ```
- # This will publish project support indexing Polkadot network
+ # 这将发布支持索引Polkadot 网络
 subql publish -f ~/my-projectRoot/polkadot.yaml
 ```
 
-## After publish
+## 发布后
 
-After successfully publishing the project, the logs below indicate that the project was created on the IPFS cluster and have returned its `CID` (content identifier).
+在发布项目成功后， 下面的日志表示该项目是在 IPFS 集群中创建的，并返回了它的 `CID` (内容标识符)。
 
 ```
 Building and packing code... done
@@ -66,19 +66,19 @@ Uploading SupQuery project to IPFS
 SubQuery Project uploaded to IPFS: QmZ3q7YZSmhwBiot4PQCK3c7Z6HkteswN2Py58gkkZ8kNd  //CID
 ```
 
-Please note this `CID`. With this `CID`, you can view your published project as what we call it [IPFS Deployment](#ipfs-deployment)
+请注意此 `CID`。 通过这个 `CID`, 您可以将您已发布的项目视为我们称之为 [IPFS 部署](#ipfs-deployment)的项目。
 
-## IPFS Deployment
+## IPFS部署
 
-IPFS deployment represents an independent and unique existence of a SubQuery project on a decentralized network. Therefore, any changes with the code in the project will affect its uniqueness. If you need to adjust your business logic, e.g. change the mapping function, you must republish the project, and the `CID` will change.
+IPFS的部署代表着分散网络上一个SubQuery项目的独立独特的存在。 因此，对项目代码的任何修改都会影响到项目的独特性。 如果您需要调整您的业务逻辑，例如更改映射功能，您必须重新发布项目， `CID`将会改变。
 
-For now, to view the project you have published, use a `REST` api tool such as [Postman](https://web.postman.co/), and use `POST` method with the following example URL to retrieve it. `https://subquery.network/ipfs/api/v0/cat?arg=<YOUR_PROJECT_CID>`
+现在，要查看您发布的项目，请使用 `REST` api工具，例如 [Postman](https://web.postman.co/)并使用`POST` 方法与下面的示例URL获取它。 `https://subquery.network/ipfs/api/v0/cat?arg=<YOUR_PROJECT_CID>`
 
-You should see the example project deployment as below:
+您应该看到项目部署的示例如下：
 
-This deployment looks very similar to your manifest file. You can expect those descriptive fields, and the network and dictionary endpoint has been removed as they did not directly affect the outcome of project execution.
+此部署看起来与您的清单文件非常相似。 您可以预知这些描述性的字段。 且因为网络和字典端点并不直接影响项目执行的结果而导致他们被删除出字段。
 
-Those files been used in your local project has been packed and published to IPFS as well.
+这些文件在您的本地项目中已经被打包并发布到IPFS中。
 
 ```yaml
 dataSources:
@@ -103,14 +103,14 @@ schema:
 specVersion: 0.2.0
 ```
 
-## Run your SubQuery project on Hosted Service
+## 在托管服务上运行您的SubQuery项目
 
-### Create project with IPFS deployment
+### 使用IPFS部署创建项目
 
-You can follow the guide to [Publish your SubQuery project](publish.md) but where you set your deployment source you can select **IPFS**.
+您可以遵循[发布您的SubQuery项目](publish.md)指南，但是您也可以选择 **IPFS**作为您的部署源。
 
-Then choose your production slot, copy and paste you IPFS deployment CID (without the leading `ipfs://`).
+然后选择你的产品插槽，复制并粘贴你的IPFS部署CID(去掉前面的`ipfs://`)。
 
-You should see you IPFS deployment in the preview section. And you can select the network, dictionary endpoints etc.
+您可以在预览部分看到您的IPFS部署。 您可以选择网络、字典终点等。
 
-After successful deploy the IPFS deployment on our hosted service, it should be available to view on the SubQuery Explorer, you can access the query service just like you do locally.
+在我们的托管服务成功部署IPFS后， 它应该可以在SubQuery Explorer上查看，您可以像在本地一样访问查询服务。
