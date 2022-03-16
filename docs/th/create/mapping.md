@@ -59,7 +59,7 @@ export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
 
 [SubstrateExtrinsic](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L21) จะไปขยาย [GenericExtrinsic](https://github.com/polkadot-js/api/blob/a9c9fb5769dec7ada8612d6068cf69de04aa15ed/packages/types/src/extrinsic/Extrinsic.ts#L170) มันจะถูกกำหนด `id` (บล็อกที่ Extrinsic นี้อยู่) และให้คุณสมบัติ Extrinsic นั้น ๆ ซึ่งจะช่วยขยาย Event ต่าง ๆ ระหว่างบล็อกนี้ นอกจากนี้ มันยังทำการบันทึกสถานะความสำเร็จของ Extrinsic นี้ด้วย
 
-## สถานะการคิวรี่
+## Query States
 เป้าหมายของเราคือ การทำให้ข้อมูลทั้งหมดสำหรับผู้ใช้งานมีความครอบคลุมในการใช้ Mapping Handler ต่าง ๆ (มากกว่าแค่อินเทอร์เฟซทั้งสามประเภทของ Event ที่กล่าวไปข้างต้น) ดังนั้นเราจึงได้เปิดเผยอินเทอร์เฟซ @polkadot/api บางส่วนเพื่อเพิ่มความสามารถในการทำงานให้มากขึ้น
 
 ซึ่งอินเทอร์เฟซที่เรารองรับในขณะนี้ ได้แก่
@@ -158,9 +158,9 @@ brew install websocat
 echo state_getMetadata | websocat 'ws://127.0.0.1:9944' --jsonrpc
 ```
 
-จากนั้น ก็อปปี้และวางผลที่ได้ที่ไฟล์ JSON ใน [ตัวอย่างเรื่องลูกแมว](https://github.com/subquery/tutorials-kitty-chain) เราได้สร้าง `api-interface/kitty.json`
+จากนั้น ก็อปปี้และวางผลที่ได้ที่ไฟล์ JSON ในตัวอย่าง [kitty example](https://github.com/subquery/tutorials-kitty-chain) ของเรา เราได้สร้าง `api-interface/kitty.json`
 
-#### คำจำกัดความต่าง ๆ ของประเภท
+#### คำจำกัดความของประเภทต่างๆ
 เราคิดว่า ผู้ใช้รู้จัก ประเภทเฉพาะและการสนับสนุน RPC จากเครือข่ายอยู่แล้ว ซึ่งมันถูกกำหนดไว้ใน [Manifest](./manifest.md)
 
 ตาม [การตั้งค่าของประเภทต่าง ๆ](https://polkadot.js.org/docs/api/examples/promise/typegen#metadata-setup) เราสร้าง:
@@ -170,7 +170,7 @@ echo state_getMetadata | websocat 'ws://127.0.0.1:9944' --jsonrpc
 export { default as kitties } from './kitties/definitions';
 ```
 
-- `src/api-interfaces/kitty/definitions.ts` - คำจำกัดความต่าง ๆ เรื่องประเภทสำหรับโมดูลลูกแมว
+- `src/api-interfaces/kitty/definitions.ts` - คำจำกัดความต่าง ๆ เรื่องประเภทสำหรับโมดูลลูกแมว(Kitties Module)
 ```ts
 export default {
     // custom types
@@ -205,10 +205,10 @@ export default {
 
 #### Packages
 
-- ในไฟล์ `package.json` ตรวจสอบให้แน่ใจว่าได้เพิ่ม `@polkadot/typegen` เป็น dependency การพัฒนาและ `@polkadot/api` เป็น dependency ทั่วไป (ควรจะเป็นเวอร์ชั่นเดียวกัน) นอกจากนี้เรายังต้องการ `ts-node` ใน dependency การพัฒนา เพื่อช่วยเราในการเรียกใช้สคริปต์ด้วย
-- โดยเราเพิ่มสคริปต์เพื่อใช้ทั้งสองประเภท ได้แก่ `generate:defs` และ metadata `generate:meta` (เรียงตามลำดับนี้ ทำให้ metadata สามารถใช้ประเภทดังกล่าวได้)
+- ในไฟล์ `package.json` ให้ตรวจสอบให้แน่ใจว่าได้เพิ่ม `@polkadot/typegen` สำหรับการพึ่งพาการพัฒนา (Development Dependency) และ `@polkadot/api` เป็น การพึ่งพาทั่วไป(Regular Dependency) (ควรจะเป็นเวอร์ชั่นเดียวกัน) นอกจากนี้เรายังต้องการ `ts-node` สำหรับการพึ่งพาการพัฒนา (Development Dependency) เพื่อช่วยเราในการเรียกใช้สคริปต์
+- โดยเราเพิ่มสคริปต์เพื่อใช้ทั้งสองประเภท ได้แก่ `generate:defs` และ Metadata `generate:meta` (เรียงตามลำดับนี้ ทำให้ Metadata สามารถใช้ประเภทดังกล่าวได้)
 
-ส่วนนี่เป็นเวอร์ชันที่เรียบง่ายของ `package.json` กรุณาตรวจสอบให้แน่ใจว่า ส่วน **สคริปต์** นั้น ชื่อแพ็คเกจถูกต้องและมีไดเร็กทอรีนั้น ๆ อยู่
+ส่วนนี่เป็นเวอร์ชันที่เรียบง่ายของ `package.json` กรุณาตรวจสอบให้แน่ใจว่า ส่วน **สคริปต์** มีชื่อแพ็คเกจถูกต้องและมีไดเร็กทอรีนั้น ๆ อยู่
 
 ```json
 {
@@ -247,7 +247,7 @@ yarn generate:defs
 yarn generate:meta
 ```
 
-คำสั่งนี้จะสร้าง metadata และ api-augment ใหม่สำหรับ API ต่าง ๆ เนื่องจากเราไม่ต้องการใช้ API แบบบิวท์อิน เราจึงต้องเพิ่มการแทนที่ที่ชัดเจนใน `tsconfig.json` ของเรา หลังจากอัปเดตแล้ว path ในการกำหนดค่าจะมีลักษณะดังนี้ (โดยไม่มีความคิดเห็นใด ๆ):
+คำสั่งนี้จะสร้าง Metadata และ API-Augment ใหม่สำหรับ API ต่าง ๆ เนื่องจากเราไม่ต้องการใช้ API แบบบิวท์อิน เราจึงต้องเพิ่มการแทนที่ที่ชัดเจนใน `tsconfig.json` ของเรา หลังจากอัปเดตแล้ว Path ในการกำหนดค่าจะมีลักษณะดังนี้ (โดยไม่มีความคิดเห็นใด ๆ):
 
 ```json
 {
@@ -264,7 +264,7 @@ yarn generate:meta
 
 ### การใช้งาน
 
-ในฟังก์ชัน map เราสามารถแสดงให้เห็นว่า metadata และประเภทต่าง ๆ จะเติมแต่ง API อย่างไร RPC endpoint จะสนับสนุนโมดูลและวิธีการต่าง ๆ ที่เราประกาศไว้ข้างต้น และหากต้องการใช้ rpc call แบบกำหนดเอง โปรดดูส่วน [การเรียก rpc ของเครือข่ายแบบกำหนดเอง](#custom-chain-rpc-calls)
+ในฟังก์ชัน Mapping เราสามารถแสดงให้เห็นว่า Metadata และประเภทต่าง ๆ จะเติมแต่ง API อย่างไร RPC Endpoint จะสนับสนุนโมดูลและวิธีการต่าง ๆ ที่เราประกาศไว้ข้างต้น และหากต้องการเรียกใช้ RPC แบบกำหนดเอง โปรดดูส่วน [การเรียกเรียกใช้ RPC ของเครือข่ายแบบกำหนดเอง](#custom-chain-rpc-calls)
 ```typescript
 export async function kittyApiHandler(): Promise<void> {
     //return the KittyIndex type
@@ -277,11 +277,11 @@ export async function kittyApiHandler(): Promise<void> {
 }
 ```
 
-**หากคุณต้องการเผยแพร่โครงการนี้ให้กับ explorer ของเรา โปรดรวมไฟล์ที่สร้างขึ้นใน `src/api-interfaces`**
+**หากคุณต้องการเผยแพร่โปรเจคนี้ให้กับ Explorer ของเรา โปรดรวมไฟล์ที่สร้างขึ้นใน `src/api-interfaces`**
 
-### การกำหนดค่า rpc call ต่าง ๆ ของเครือข่าย
+### การกำหนดค่า RPC Call ต่าง ๆ ของเครือข่าย
 
-เพื่อรองรับการกำหนดค่า RPC call ต่าง ๆ ของเครือข่าย เราต้องใส่คำจำกัดความ RPC ของ `typesBundle` เอง เพื่อให้สามารถกำหนดค่าตามข้อกำหนดได้ โดยคุณสามารถกำหนด `typesBundle` ใน `project.yml` ได้ และโปรดทราบว่า ในประเภทต่าง ๆ ของ call จะมีเพียง `isHistoric` เท่านั้นที่เรารองรับ
+เพื่อรองรับการกำหนดค่า RPC Call ต่าง ๆ ของเครือข่าย เราต้องใส่คำจำกัดความ RPC ของ `typesBundle` เอง เพื่อให้สามารถกำหนดค่าตามข้อกำหนดได้ โดยคุณสามารถกำหนด `typesBundle` ใน `project.yml` ได้ และโปรดทราบว่า ในประเภทต่าง ๆ ของ Call จะมีเพียง `isHistoric` เท่านั้นที่เรารองรับ
 ```yaml
 ...
   types: {
