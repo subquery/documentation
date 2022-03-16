@@ -71,9 +71,6 @@ templates:
           filter:
             topics:
               - liquidityAdded(address provider, uint256 amount1, uint256 amount2)
- 
-Text
-XPath: /pre/code
 ```
 
 ### `mappingHandlers.ts`
