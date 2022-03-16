@@ -97,11 +97,11 @@ To https://github.com/seandotau/subqlHelloWorld.git
 
 ```
 
-คำสั่ง push หมายถึง "โปรด push โค้ดของฉันไปที่ origin repo จาก master local repo ของฉัน" การรีเฟรช GitHub ควรแสดงโค้ดทั้งหมดใน GitHub
+คำสั่ง push หมายถึง "โปรด push โค้ดของฉันไปที่ origin repo จาก master local repo ของฉัน" การรีเฟรช GitHub จะแสดงโค้ดทั้งหมดใน GitHub
 
 ![การ commit ครั้งแรก](/assets/img/first_commit.png)
 
-ในตอนน้ีคุณได้นำโค้ดของคุณเข้าไปอยู่ใน GitHub แล้ว มาดูวิธีที่เราจะสามารถโฮสต์โค้ดนั้นใน SubQuery Projects
+ในตอนนี้คุณได้นำโค้ดของคุณเข้าไปอยู่ใน GitHub แล้ว มาดูวิธีที่เราจะสามารถโฮสต์โค้ดนั้นใน SubQuery Projects
 
 ## 4. สร้างโปรเจกต์ของคุณ
 
@@ -109,18 +109,18 @@ To https://github.com/seandotau/subqlHelloWorld.git
 
 ![ยินดีต้อนรับสู่ SubQuery Projects](/assets/img/welcome_to_subquery_projects.png)
 
-แล้วสร้างโปรเจกต์ใหม่
+จากนั้นสร้างโปรเจกต์ใหม่
 
 ![ยินดีต้อนรับสู่ SubQuery Projects](/assets/img/subquery_create_project.png)
 
 และกรอกข้อมูลในช่องต่างๆให้ครบถ้วน ด้วยรายละเอียดที่เหมาะสม
 
-- **GitHub account:** หากคุณมีบัญชี GitHub มากกว่าหนึ่งบัญชี ให้เลือกบัญชีที่จะใช้สร้างนี้ ที่สร้างขึ้นในบัญชี GitHub organisation จะถูกแชร์ระหว่างสมาชิกใน organisation นั้นๆ
+- **GitHub account:** หากคุณมีบัญชี GitHub มากกว่าหนึ่งบัญชี ให้เลือกบัญชีที่จะใช้สร้างนี้ โปรเจกต์ที่สร้างขึ้นในบัญชี GitHub organisation จะถูกแชร์ระหว่างสมาชิกใน organisation นั้นๆ
 - **Project Name:** ใส่ ชื่อโปรเจกต์ของคุณที่นี่
 - **Subtitle:** กรอกชื่อรองสำหรับชื่อโปรเจกต์ของคุณ
 - **Description:** อธิบายว่าโปรเจกต์ SubQuery ของคุณทำอะไร
-- **GitHub Repository URL:** ต้องเป็น GitHub URL ที่ใช้งานได้ซึ่งชี้ไปยัง repositoryสาธารณะที่มี โปรเจกต์ SubQuery ของคุณ ไฟล์ schema.graphql ต้องอยู่ในรูทไดเร็กทอรีของคุณ
-- **Hide project:** หากเลือก จะเป็นการซ่อนจาก SubQuery explorer สาธารณะ อย่าเลือกตัวเลือกนี้หากคุณต้องการแชร์ SubQuery ของคุณกับชุมชน! อย่าเลือกตัวเลือกนี้ หากคุณต้องการแบ่งปัน SubQuery ของคุณแก่ชุมชน
+- **GitHub Repository URL:** ต้องเป็น GitHub URL ที่ใช้งานได้ซึ่งชี้ไปยัง repository สาธารณะที่มีโปรเจกต์ SubQuery ของคุณ ไฟล์ schema.graphql ต้องอยู่ในรูทไดเร็กทอรีของคุณ
+- **Hide project:** หากเลือก จะเป็นการซ่อนจาก SubQuery explorer สาธารณะ อย่าเลือกตัวเลือกนี้หากคุณต้องการแชร์ SubQuery ของคุณกับคอมมูนิตี้! อย่าเลือกตัวเลือกนี้ หากคุณต้องการแบ่งปัน SubQuery ของคุณแก่คอมมูนิตี้!
 
 ![สร้าง SubQuery parameters](/assets/img/create_subquery_project_parameters.png)
 
@@ -130,9 +130,9 @@ To https://github.com/seandotau/subqlHelloWorld.git
 
 แดชบอร์ดประกอบด้วยข้อมูลที่เป็นประโยชน์มากมาย เช่น เครือข่ายที่ใช้, GitHub repository URL ของซอร์สโค้ดที่กำลังทำงาน, ข้อมูลเวลาที่ถูกสร้างขึ้นและอัปเดตล่าสุด และโดยเฉพาะอย่างยิ่งรายละเอียดการ deploy
 
-## 5. Deploy ของโปรเจกต์คุณ
+## 5. Deploy โปรเจกต์ของคุณ
 
-ในตอนนี้ คุณได้สร้างโปรเจกต์ของคุณภายใน SubQuery Projects และตั้งค่าลักษณะการแสดงผล ขั้นตอนต่อไปคือการ deploy ของคุณเพื่อให้สามารถทำงานได้ การ deploy เวอร์ชัน จะทริกเกอร์การทำ SubQuery indexing ใหม่ในการเริ่มต้น และทำการตั้งค่า query service ที่จำเป็นเพื่อเริ่มยอมรับ GraphQL requests คุณยังสามารถ deploy โปรเจกต์เวอร์ชันใหม่กับที่มีอยู่ได้ที่นี่
+ในตอนนี้ คุณได้สร้างโปรเจกต์ของคุณภายใน SubQuery Projects และตั้งค่าลักษณะการแสดงผลแล้ว ขั้นตอนต่อไปคือการ deploy ของโปรเจกต์คุณเพื่อให้สามารถทำงานได้ การ deploy เวอร์ชันจะทริกเกอร์การทำ SubQuery indexing ใหม่ให้เริ่มต้น และทำการตั้งค่า query service ที่จำเป็นเพื่อเริ่มยอมรับ GraphQL requests คุณยังสามารถ deploy โปรเจกต์เวอร์ชันใหม่บนนี้ได้
 
 คุณสามารถเลือก deploy กับสภาพแวดล้อมต่างๆ เช่น production slot หรือ staging slot เราจะ deploy กับ production slot การคลิกที่ปุ่ม "Deploy" จะแสดงหน้าจอที่มีหัวข้อต่อไปนี้:
 
@@ -142,7 +142,7 @@ To https://github.com/seandotau/subqlHelloWorld.git
 - **Indexer Version:** คือเวอร์ชันของ node service ของ SubQuery ที่คุณต้องการรัน SubQuery อ่าน [](https://www.npmjs.com/package/@subql/node)@subql/node
 - **Query Version:** คือเวอร์ชันของ query service ของ SubQuery ที่คุณต้องการรัน SubQuery อ่าน [](https://www.npmjs.com/package/@subql/query)@subql/node
 
-เนื่องจากเรามีเพียงหนึ่ง commit จึงมีเพียงตัวเลือกเดียวในรายการ drop down นอกจากนี้ เราจะใช้ indexer และ query version ตัวล่าสุด ดังนั้นเราจะยอมรับค่าเริ่ม้ต้น จากนั้นให้คลิก "Deploy Update"
+เนื่องจากเรามีเพียงหนึ่ง commit จึงมีเพียงตัวเลือกเดียวในรายการ drop down นอกจากนี้ เราจะใช้ indexer และ query version ล่าสุด ดังนั้นเราจะยอมรับค่าเริ่มต้น จากนั้นให้คลิก "Deploy Update"
 
 จากนั้นคุณจะเห็นสถานะการ deploy ของคุณเป็น "Processing" โค้ดของคุณกำลังถูก deploy ไปยังโครงสร้างพื้นฐานที่ได้รับการจัดการโดย SubQuery โดยพื้นฐานแล้วเซิร์ฟเวอร์จะขยายตัวตามความต้องการและที่ได้จัดเตรียมไว้ให้คุณ จะใช้เวลาสักครู่ นี่เป็นเวลาที่จะไปดื่มกาแฟสักแก้ว!
 
@@ -164,7 +164,7 @@ To https://github.com/seandotau/subqlHelloWorld.git
 
 ## 7. ขั้นตอนโบนัส
 
-สำหรับผู้ที่สังเกตุรายละเอียด คุณจะจำได้ว่าในขั้นตอนสุดท้ายของวัตถุประสงค์การเรียนรู้ คือการรันคำสั่ง GET อย่างง่าย ในการดำเนินการนี้ เราจะต้องสนใจ "Query Endpoint" ที่แสดงในรายละเอียดการ deploy ในการดำเนินการนี้ เราจะต้องสนใจ "Query Endpoint" ที่แสดงในรายละเอียดการ deploy
+สำหรับผู้ที่สังเกตรายละเอียด คุณจะจำได้ว่าในขั้นตอนสุดท้ายของวัตถุประสงค์การเรียนรู้ คือการรันคำสั่ง GET อย่างง่าย ในการดำเนินการนี้ เราจะต้องสนใจ "Query Endpoint" ที่แสดงในรายละเอียดการ deploy ในการดำเนินการนี้ เราจะต้องสนใจ "Query Endpoint" ที่แสดงในรายละเอียดการ deploy
 
 ![Query endpoint](/assets/img/query_endpoint.png)
 
