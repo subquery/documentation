@@ -9,8 +9,8 @@ The first command we ran was `subql init subqlHelloWorld`.
 Това прави тежкото повдигане и създава цял куп файлове за вас. Както е отбелязано в[official documentation](quickstart.md#configure-and-build-the-starter-project),по принцип ще работите със следните файлове:
 
 - Манифест в `project.yaml`
-- The GraphQL Schema in `schema.graphql`
-- Показване на Функции в `src/mappings/`директория
+- GraphQL Schema в `schema.graphql`
+- Показване на Функции в директорията `src/mappings/`
 
 ![key subql files](/assets/img/main_subql_files.png)
 
