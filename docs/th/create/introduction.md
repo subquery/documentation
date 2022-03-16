@@ -1,20 +1,20 @@
-# การสร้างโปรเจ็กต์ SubQuery ใหม่
+# การสร้างโปรเจกต์ SubQuery ใหม่
 
-ในคู่มือ [quick start](/quickstart/quickstart.md) พวกเราจะพาคุณเริ่มต้นจากตัวอย่างได้อย่างรวดเร็ว เพื่อให้ทราบความหมายของ SubQuery และเข้าใจถึงว่าทำงานได้อย่างไร ในที่นี้ เราจะพามาดูขั้นตอนการทำงานเมื่อคุณเริ่มสร้างโปรเจ็กต์ของคุณ และ Key files ที่คุณจะทำงานด้วย
+ในคู่มือ [quick start](/quickstart/quickstart.md) พวกเราจะพาคุณเริ่มต้นจากตัวอย่างได้อย่างรวดเร็ว เพื่อให้ทราบความหมายของ SubQuery และเข้าใจถึงว่าทำงานได้อย่างไร ในที่นี้ เราจะพามาดูขั้นตอนการทำงานเมื่อคุณเริ่มสร้างโปรเจกต์ของคุณ และ Key files ที่คุณจะทำงานด้วย
 
 ## ขั้นตอนการทำงานเบื้องต้น
 
-ตัวอย่างบางส่วนต่อไปนี้จะถือว่าคุณเริ่มต้นแพ็คเกจได้สำเร็จในส่วนของ [Quick start](../quickstart/quickstart.md) จากชุดเริ่มต้น พวกเราจะนำคุณผ่านกระบวนการมาตรฐานเพื่อที่จะปรับแต่ง และการนำไปใช้กับโปรเจ็กต์ SubQuery ของคุณ
+ตัวอย่างบางส่วนต่อไปนี้จะถือว่าคุณเริ่มต้นแพ็คเกจได้สำเร็จในส่วนของ [Quick start](../quickstart/quickstart.md) จากชุดเริ่มต้น พวกเราจะนำคุณผ่านกระบวนการมาตรฐานเพื่อที่จะปรับแต่ง และการนำไปใช้กับโปรเจกต์ SubQuery ของคุณ
 
-1. เริ่มต้นโปรเจ็กต์ของคุณโดยใช้คำสั่ง `subql init PROJECT_NAME`.
+1. เริ่มต้นโปรเจกต์ของคุณโดยใช้คำสั่ง `subql init PROJECT_NAME`.
 2. อัพเดท Manifest file (`project.yaml`) เพื่อใส่ข้อมูลที่เกี่ยวกับ blockchain และ entities ที่คุณจะเชื่อมโยง โปรดดู [Manifest File](./manifest.md)
 3. สร้าง GraphQL entities ภายใน Schema ของคุณ (`schema.graphql`) เพื่อกำหนดโครงสร้างของข้อมูลที่คุณจะดึงข้อมูลออกมา โปรดดู [GraphQL Schema](./graphql.md)
 4. เพิ่ม Mapping Function (ตัวอย่าง `mappingHandlers.ts`) คุณจะสามารถแปลงข้อมูลที่อยู่บน chain ให้เป็น GraphQL entities ที่คุณกำหนดเองได้ - โปรดดู [Mapping](./mapping.md)
 5. การสร้างและเผยแพร่ Code ของคุณไปยัง SubQuery Projects (หรือรันอยู่บนเครื่องของคุณเอง) - โปรดดู [Running and Querying your Starter Project](./quickstart.md#running-and-querying-your-starter-project) ที่อยู่ใน Quick Start Guide
 
-## โครงสร้างไดเรกทอรี
+## Directory Structure
 
-จากการเชื่อมโยงที่กำหนด จะเห็นภาพรวมของโครงสร้างโฟลเดอร์ที่ใช้ใน SubQuery project เมื่อเริ่มคำสั่ง `init`
+จากการเชื่อมโยงที่กำหนด จะเห็นภาพรวมของโครงสร้างโฟลเดอร์ที่ใช้ในโปรเจกต์ SubQuery เมื่อเริ่มคำสั่ง `init`
 
 ```
 - project-name
@@ -35,21 +35,21 @@
 
 ![โครงสร้างไดเร็กทอรี SubQuery](/assets/img/subQuery_directory_stucture.png)
 
-## การสร้างรหัส
+## Code Generation
 
-เมื่อใดก็ตามที่คุณเปลี่ยนแปลง GraphQL entities คุณต้องสร้างชนิดของโฟลเดอร์ใหม่ ซึ่งประกอบด้วยคำสั่ง
+เมื่อใดก็ตามที่คุณเปลี่ยนแปลง GraphQL entities คุณต้องสร้างประเภทของไดเรกทอรีใหม่ ซึ่งประกอบด้วยคำสั่ง
 
 ```
 yarn codegen
 ```
 
-นี่จะสร้างโฟลเดอร์ใหม่ (หรืออัพเดทโฟลเดอร์เดิมที่มีอยู่) `src/types` โดยกำหนด class entity ที่ถูกสร้างสำหรับแต่ละชนิดที่คุณได้กำหนดไว้ใน `schema.graphql` Class เหล่านี้จะทำให้คุณโหลด type-safe entity ที่จะใช้สิทธิในการอ่านและเขียนลงไปในช่องข้อมูลของ entity - อ่านต่อในกระบวนการนี้ได้ใน [the GraphQL Schema](./graphql.md)
+นี่จะสร้างไดเรกทอรีใหม่ (หรืออัพเดทของเดิมที่มีอยู่) `src/types` โดยกำหนด class entity ที่ถูกสร้างสำหรับแต่ละประเภทที่คุณได้กำหนดไว้ใน `schema.graphql` Class เหล่านี้จะทำให้คุณโหลด type-safe entity ที่จะใช้สิทธิ์ในการอ่านและเขียนลงไปในช่องข้อมูลของ entity - อ่านต่อในกระบวนการนี้ได้ใน [the GraphQL Schema](./graphql.md)
 
-## การสร้าง
+## Build
 
 ในการสร้างโปรเจ็กต์ SubQuery ของคุณบนโหนด SubQuery ที่โฮสต์ในเครื่อง คุณต้องเริ่มต้นจากการสร้างงานของคุณก่อน
 
-สร้างคำสั่งจากรูทไดเร็กทอรีของโปรเจ็กต์
+สร้างคำสั่งจากรูทไดเร็กทอรีของโปรเจกต์
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```bash npm run-script build ``` </CodeGroupItem> </CodeGroup>
@@ -84,9 +84,9 @@ yarn codegen
 
 สำหรับข้อมูลเพิ่มเติมเกี่ยวกับการใช้สิ่งนี้รวมถึง flags โปรดดูที่ [การอ้างอิง cli](https://doc.subquery.network/references/references/#build)
 
-## การบันทึก
+## Logging
 
-`console.log` **จะไม่รองรับอีกต่อไป**. โมดูล `logger` จะถูกแทนที่ลงในประเภทเดิม ซึ่งหมายความว่าเราสามารถสนับสนุน logger ที่ยอมรับการบันทึกในระบดับต่างๆ ได้
+`console.log` **จะไม่รองรับอีกต่อไป**. โมดูล `logger` จะถูกแทนที่ลงในประเภทเดิม ซึ่งหมายความว่าเราสามารถสนับสนุน logger ที่ยอมรับการบันทึกในระดับต่างๆ ได้
 
 ```typescript
 logger.info('Info level message');
@@ -104,6 +104,6 @@ logger.warn('Warning level message');
 
 ![logging.debug](/assets/img/logging_debug.png)
 
-คุณควรเห็นการบันทึกใหม่ในหน้าจอเทอร์มินัล
+คุณควรเห็นการบันทึกข้อมูลใหม่ในหน้าจอ
 
 ![logging.debug](/assets/img/subquery_logging.png)
