@@ -84,23 +84,30 @@ subql init PROJECT_NAME
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```bash npm run-script build ``` </CodeGroupItem> </CodeGroup>
 
-## Running and Querying your Starter Project
+## Стартиране и запитване на вашия начален проект
 
-Although you can quickly publish your new project to [SubQuery Projects](https://project.subquery.network) and query it using our [Explorer](https://explorer.subquery.network), the easiest way to run SubQuery nodes locally is in a Docker container, if you don't already have Docker you can install it from [docker.com](https://docs.docker.com/get-docker/).
+Въпреки че можете бързо да публикувате новия си проект на [SubQuery Projects](https://project.subquery.network) и да правите запитвания, използвайки [Explorer](https://explorer.subquery.network), най-лесният начин да стартирате нода SubQuery локално в Docker контейнер, ако все още нямате Docker, можете да го инсталирате от [docker.com](https://docs.docker.com/get-docker/).
 
-[_Skip this and publish your new project to SubQuery Projects_](../publish/publish.md)
+_Пропуснете това и публикувайте новия си проект в  SubQuery Projects_</9></p> 
 
-### Run your SubQuery Project
 
-All configuration that controls how a SubQuery node is run is defined in this `docker-compose.yml` file. За нов проект, който току-що беше инициализиран, няма да е необходимо да променяте нищо тук, но можете да прочетете повече за файла и настройките в нашата [Секция за стартиране на Проекта](../run/run.md)
+
+### Старирайте вашият проект SubQuery
+
+Цялата конфигурация, контролираща изпълнението на SubQuery нодата, е дефинирана в това `docker-compose.yml` file. За нов проект, който току-що беше инициализиран, няма да е необходимо да променяте нищо тук, но можете да прочетете повече за файла и настройките в нашата [Секция за стартиране на Проекта](../run/run.md)
 
 В директорията на проекта изпълнете следната команда:
+
+
 
 ```shell
 docker-compose pull && docker-compose up
 ```
 
-It may take some time to download the required packages ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), and Postgres) for the first time but soon you'll see a running SubQuery node.
+
+Изтеглянето на необходимите пакети може да отнеме известно време ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), and Postgres) за първи път, обаче скоро ще видите стартирана нода SubQuery.
+
+
 
 ### Заявете вашият проект
 
@@ -109,6 +116,8 @@ It may take some time to download the required packages ([`@subql/node`](https:/
 Трябва да може да видите площадката GraphQL, показана в explorer, и готовите за заявка схеми. В горния десен ъгъл на платформата ще намерите _Docs_бутон, който ще отвори скицата на документацията. Тази документация се генерира автоматично и Ви помага да намерите кои обекти и методи можете да заявите.
 
 За нов стартов SubQuery проект можете да опитате следната заявка, за да получите представа как работи или [научете повече относно езика GraphQL Query](../query/graphql.md).
+
+
 
 ```graphql
 {
@@ -123,6 +132,9 @@ It may take some time to download the required packages ([`@subql/node`](https:/
   }
 }
 ```
+
+
+
 
 ## Следващите стъпки
 
