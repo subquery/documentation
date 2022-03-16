@@ -1,12 +1,12 @@
 # การติดตั้ง SubQuery
 
-มันจะมีส่วนประกอบต่างๆ ที่จำเป็นในการสร้างโปรเจ็กต์ SubQuery, ชุดเครื่องมือ [@subql/cli](https://github.com/subquery/subql/tree/docs-new-section/packages/cli) ใช้ในการสร้างโปรเจ็กต์ SubQuery ส่วนประกอบ [@subql/node](https://github.com/subquery/subql/tree/docs-new-section/packages/node) จำเป็นสำหรับการรัน Indexer ชุดคำสั่ง [@subql/query](https://github.com/subquery/subql/tree/docs-new-section/packages/query) จำเป็นสำหรับการสร้าง queries
+มันจะมีส่วนประกอบต่างๆ ที่จำเป็นในการสร้างโปรเจ็กต์ SubQuery,  [@subql/cli](https://github.com/subquery/subql/tree/docs-new-section/packages/cli) ในการสร้างโปรเจ็กต์ SubQuery ส่วนประกอบ [@subql/node](https://github.com/subquery/subql/tree/docs-new-section/packages/node) ซึ่งจำเป็นสำหรับการรัน Indexer และชุดคำสั่ง [@subql/query](https://github.com/subquery/subql/tree/docs-new-section/packages/query) ซึ่งจำเป็นสำหรับการสร้าง Queries
 
 ## ติดตั้ง @subql/cli
 
-เครื่องมือ [@subql/cli](https://github.com/subquery/subql/tree/docs-new-section/packages/cli) ช่วยสร้างเฟรมเวิร์คโครงร่างให้กับโครงการ ซึ่งหมายความว่าคุณไม่จำเป็นต้องเริ่มต้นใหม่ทั้งหมด
+เครื่องมือ [@subql/cli](https://github.com/subquery/subql/tree/docs-new-section/packages/cli) ช่วยสร้างโครงร่างให้กับโครงการ ซึ่งหมายความว่าคุณไม่จำเป็นต้องเริ่มต้นใหม่ทั้งหมด
 
-ติดตั้ง SubQuery CLI แบบ global บนเทอร์มินัลของคุณโดยใช้ Yarn หรือ NPM:
+ติดตั้ง SubQuery CLI แบบ Global บนเทอร์มินัลของคุณโดยใช้ Yarn หรือ NPM:
 
 <CodeGroup> <CodeGroupItem title="NPM"> ```bash npm install -g @subql/cli ``` </CodeGroupItem>
 <CodeGroupItem title="YARN" active> ```shell yarn global add @subql/cli ``` </CodeGroupItem> </CodeGroup>
@@ -18,20 +18,19 @@ subql help
 ```
 ## ติดตั้ง @subql/node
 
-โหนด SubQuery เป็นการ implement ที่ดึงข้อมูลบล็อกเชนที่ใช้ substrate จากโปรเจ็กต์ SubQuery และบันทึกลงในฐานข้อมูล Postgres
+โหนด SubQuery เป็นการ Implement ที่ดึงข้อมูลบล็อกเชนที่ใช้ Substrate จากโปรเจ็กต์ SubQuery และบันทึกลงในฐานข้อมูล Postgres
 
-ติดตั้งโหนด SubQuery แบบ global บนเทอร์มินัลของคุณโดยใช้ Yarn หรือ NPM:
+ติดตั้งโหนด SubQuery แบบ Global บนเทอร์มินัลของคุณโดยใช้ Yarn หรือ NPM:
 
 <CodeGroup> <CodeGroupItem title="NPM"> ```bash npm install -g @subql/node ``` </CodeGroupItem>
 <CodeGroupItem title="YARN" active> ```shell yarn global add @subql/node ``` </CodeGroupItem> </CodeGroup>
 
-หลังจากติดตั้งแล้วเสร็จ คุณสามารถเริ่ม Node ด้วย:
+Once installed, you can can start a node with:
 
 ```shell
 subql-node <command>
 ```
- Text XPath: /p[4]/CodeGroup/p[3]/CodeGroup/text
-> หมายเหตุ: หากคุณใช้ Docker หรือคุณโฮสต์โปรเจ็กต์ของคุณใน SubQuery Projects คุณสามารถข้ามขั้นตอนนี้ได้ เนื่องจากมี SubQuery node ให้ใน Docker container และโครงสร้างพื้นฐานของโฮสต์อยู่แล้ว
+> หมายเหตุ: หากคุณใช้ Docker หรือคุณโฮสต์โปรเจ็กต์ของคุณใน SubQuery Projects คุณสามารถข้ามขั้นตอนนี้ได้ เนื่องจากมี SubQuery Node ให้ใน Docker Container และโครงสร้างพื้นฐานของโฮสต์อยู่แล้ว
 
 ## ติดตั้ง @subql/query
 
@@ -42,4 +41,4 @@ Text XPath: /p[4]/CodeGroup/p[3]/CodeGroup/text
 <CodeGroup> <CodeGroupItem title="NPM"> ```bash npm install -g @subql/query ``` </CodeGroupItem>
 <CodeGroupItem title="YARN" active> ```shell yarn global add @subql/query ``` </CodeGroupItem> </CodeGroup>
 
-> หมายเหตุ: หากคุณใช้ Docker หรือโฮสต์โปรเจ็กต์ของคุณใน SubQuery Projects คุณสามารถข้ามขั้นตอนนี้ได้เช่นกัน เนื่องจากมี SubQuery node ให้ใน Docker container และโครงสร้างพื้นฐานของโฮสต์อยู่แล้ว 
+> หมายเหตุ: หากคุณใช้ Docker หรือโฮสต์โปรเจ็กต์ของคุณใน SubQuery Projects คุณสามารถข้ามขั้นตอนนี้ได้เช่นกัน เนื่องจากมี SubQuery Node ให้ใน Docker Container และโครงสร้างพื้นฐานของโฮสต์อยู่แล้ว 
