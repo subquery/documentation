@@ -60,12 +60,12 @@ export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
 [SubstrateExtrinsic](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L21) จะไปขยาย [GenericExtrinsic](https://github.com/polkadot-js/api/blob/a9c9fb5769dec7ada8612d6068cf69de04aa15ed/packages/types/src/extrinsic/Extrinsic.ts#L170) มันจะถูกกำหนด `id` (บล็อกที่ Extrinsic นี้อยู่) และให้คุณสมบัติ Extrinsic นั้น ๆ ซึ่งจะช่วยขยาย Event ต่าง ๆ ระหว่างบล็อกนี้ นอกจากนี้ มันยังทำการบันทึกสถานะความสำเร็จของ Extrinsic นี้ด้วย
 
 ## สถานะการคิวรี่
-เป้าหมายของเราคือ สามารถครอบคลุมแหล่งข้อมูลทั้งหมดสำหรับผู้ใช้ในการใช้ mapping handler ต่าง ๆ (มากกว่าแค่สามประเภท event ของอินเทอร์เฟซที่กล่าวไปข้างต้น) ดังนั้นเราจึงได้เปิดเผยอินเทอร์เฟซ @polkadot/api บางส่วนเพื่อเพิ่มความสามารถในการทำงานให้มากขึ้น
+เป้าหมายของเราคือ การทำให้ข้อมูลทั้งหมดสำหรับผู้ใช้งานมีความครอบคลุมในการใช้ Mapping Handler ต่าง ๆ (มากกว่าแค่อินเทอร์เฟซทั้งสามประเภทของ Event ที่กล่าวไปข้างต้น) ดังนั้นเราจึงได้เปิดเผยอินเทอร์เฟซ @polkadot/api บางส่วนเพื่อเพิ่มความสามารถในการทำงานให้มากขึ้น
 
-ซึ่งอินเทอร์เฟซที่เราสนับสนุนในขณะนี้ ได้แก่
-- [api.query.&lt;module&gt;.&lt;method&gt;()](https://polkadot.js.org/docs/api/start/api.query) จะช่วยคิวรี่ในบล็อก <strong>ปัจจุบัน</strong>
-- [api.query.&lt;module&gt;.&lt;method&gt;.multi()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-same-type) ช่วยให้สามารถทำได้หลายคิวรี่ในอินเทอร์เฟซประเภท <strong>เดียวกัน</strong> ที่บล็อกปัจจุบัน
-- [api.queryMulti()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-distinct-types) ช่วยให้สามารถทำได้หลายคิวรี่ในอินเทอร์เฟซประเภท
+ซึ่งอินเทอร์เฟซที่เรารองรับในขณะนี้ ได้แก่
+- [api.query.&lt;module&gt;.&lt;method&gt;()](https://polkadot.js.org/docs/api/start/api.query) สำหรับการคิวรี่บล็อก <strong>ปัจจุบัน</strong>
+- [api.query.&lt;module&gt;.&lt;method&gt;.multi()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-same-type) สำหรับการคิวรี่พร้อมกันหลายครั้งในอินเทอร์เฟซประเภท <strong>เดียวกัน</strong> ที่บล็อกปัจจุบัน
+- [api.queryMulti()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-distinct-types) สำหรับการคิวรี่พร้อมกันหลายครั้งในอินเทอร์เฟซประเภท
  <strong>ต่างกัน</strong> ที่บล็อกปัจจุบัน
 
 และนี่คืออินเทอร์เฟซที่ขณะนี้เรา **ไม่ได้** สนับสนุน ซึ่งได้แก่
@@ -84,9 +84,9 @@ export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
 
 ## RPC calls
 
-เรายังสนับสนุนวิธี API RPC บางอย่างที่เป็นการ call ระยะไกลที่อนุญาตให้ฟังก์ชันแมปสามารถสื่อสารกับโหนด คิวรี่ และการบันทึกข้อมูลได้ ความคิดหลักของ SubQuery คือการกำหนดได้ ดังนั้น เพื่อให้ผลลัพธ์สอดคล้องกัน เราจึงอนุญาตเฉพาะการเรียก RPC ในอดีตเท่านั้น
+เรายังสนับสนุนวิธี API RPC บางอย่างที่เป็นการ Remote Call ซึ่งอนุญาตให้ฟังก์ชัน Mapping สามารถสื่อสารกับโหนด คิวรี่ และการบันทึกข้อมูลได้ ความคิดหลักของ SubQuery คือการกำหนดได้ ดังนั้น เพื่อให้ผลลัพธ์สอดคล้องกัน เราจึงอนุญาตเฉพาะการเรียก RPC ในอดีตเท่านั้น
 
-เอกสารใน [JSON-RPC](https://polkadot.js.org/docs/substrate/rpc/#rpc) มีวิธีการบางอย่างที่ใช้ `BlockHash` เป็นพารามิเตอร์อินพุต (เช่น `at?: BlockHash`) ซึ่งขณะนี้ได้รับอนุญาตให้ใช้แล้ว นอกจากนี้เรายังได้ปรับวิธีการเหล่านี้เพื่อให้การทำดัชนี block hash ณ ขณะนั้น ตั้งเป็นค่าเริ่มต้น
+เอกสารใน [JSON-RPC](https://polkadot.js.org/docs/substrate/rpc/#rpc) มีวิธีการบางอย่างที่ใช้ `BlockHash` เป็นพารามิเตอร์อินพุต (เช่น `at?: BlockHash`) ซึ่งขณะนี้ได้รับอนุญาตให้ใช้แล้ว นอกจากนี้เรายังได้ปรับวิธีการเหล่านี้เพื่อให้การแฮช Indexing Block ปัจจุบัน กลายเป็นค่าเริ่มต้น
 
 ```typescript
 // สมมติว่าเรากำลังทำดัชนีบล็อกอันหนึ่งด้วยหมายเลข hash นี้
@@ -102,15 +102,15 @@ const b2 = await api.rpc.chain.getBlock();
 
 ## โมดูลและไลบรารีต่าง ๆ
 
-เพื่อปรับปรุงความสามารถในการประมวลผลข้อมูลของ SubQuery เราได้อนุญาตให้โมดูลต่าง ๆ ที่บิวท์อินของ NodeJS บางส่วน สามารถเรียกใช้ฟังก์ชัน map ใน [ sandbox ](#the-sandbox) และอนุญาตให้ผู้ใช้เรียกใช้ไลบรารีของบุคคลที่สามได้
+เพื่อปรับปรุงความสามารถในการประมวลผลข้อมูลของ SubQuery เราได้อนุญาตให้ Built-In Module ของ NodeJS บางส่วน สามารถเรียกใช้ฟังก์ชัน Mapping ใน [ sandbox ](#the-sandbox) ได้ และอนุญาตให้ผู้ใช้งานเรียกใช้ไลบรารีของบุคคลที่สามได้
 
-โปรดทราบว่านี่เป็นเพียง **คุณลักษณะทดลอง** และคุณอาจพบข้อบกพร่องหรือปัญหาที่อาจส่งผลเสียต่อฟังก์ชัน map ของคุณ โปรดรายงานปัญหาที่คุณพบโดยการสร้างหัวข้อใน [GitHub](https://github.com/subquery/subql)
+โปรดทราบว่านี่เป็นเพียง **คุณลักษณะทดลอง** และคุณอาจพบข้อบกพร่องหรือปัญหาที่อาจส่งผลเสียต่อฟังก์ชัน Mapping ของคุณได้ โปรดรายงานปัญหาที่คุณพบโดยการสร้างหัวข้อใน [GitHub](https://github.com/subquery/subql)
 
-### โมดูลต่าง ๆ ที่บิวท์อิน
+### Built-In Modules
 
-ในขณะนี้ โมดูล NodeJS ที่ได้รับอนุญาต ได้แก่ `assert`, `buffer`, `crypto`, `util`, และ `path`.
+ในขณะนี้ โมดูลของ NodeJS ที่ได้รับอนุญาต ได้แก่ `assert`, `buffer`, `crypto`, `util`, และ `path`.
 
-เราขอแนะนำให้คุณนำเข้ามาเฉพาะ method ที่คุณต้องการ แทนที่จะนำเข้ามาทั้งโมดูล เนื่องจาก method บางอย่างในโมดูลเหล่านี้ อาจเกี่ยวข้องกับสิ่งที่ยังไม่ได้รับการสนับสนุน จึงอาจจะทำให้นำเข้าไม่สำเร็จ
+เราขอแนะนำให้คุณ Import เฉพาะ Method(s) ที่คุณต้องการ แทนที่จะนำเข้ามาทั้งโมดูล เนื่องจาก Method บางอย่างในโมดูลเหล่านี้ อาจเกี่ยวข้องกับสิ่งที่ยังไม่ได้รับการสนับสนุน จึงอาจจะทำให้การ Import ไม่สำเร็จ
 
 ```ts
 import {hashMessage} from "ethers/lib/utils"; //Good way
@@ -123,9 +123,9 @@ export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
 }
 ```
 
-### ไลบรารีของบุคคลที่สาม
+### Third-Party Libraries
 
-เนื่องจากข้อจำกัดของ virtual machine ในแซนด์บ็อกซ์ของเรา ขณะนี้เราจึงรองรับเฉพาะไลบรารีของบุคคลที่สามที่เขียนด้วย **CommonJS** เท่านั้น
+เนื่องจากข้อจำกัดของ Virtual Machine ในแซนด์บ็อกซ์ของเรา ขณะนี้เราจึงรองรับเฉพาะ Third-Party Libraries ที่เขียนด้วย **CommonJS** เท่านั้น
 
 และเรายังสนับสนุนไลบรารี **ไฮบริด** ด้วย เช่น `@polkadot/*` ที่ใช้ ESM เป็นค่าเริ่มต้น อย่างไรก็ตาม หากไลบรารีอื่นขึ้นอยู่กับโมดูลในรูปแบบ **ESM** จะทำให้ virtual machine **ไม่** รวบรวมข้อมูลและส่งผลให้เกิดความผิดพลาด
 
