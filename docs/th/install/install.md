@@ -34,9 +34,9 @@ subql-node <command>
 
 ## ติดตั้ง @subql/query
 
-Text XPath: /p[4]/CodeGroup/p[3]/CodeGroup/text
+Query Library ของ SubQuery ให้บริการที่จะช่วยให้คุณสามารถ query โปรเจ็กต์ของคุณในแม้ว่าคุณจะอยู่ใน "สนามหลังบ้าน" ผ่านเบราว์เซอร์ของคุณ
 
-ไลบรารี SubQuery query ให้บริการที่จะช่วยให้คุณสามารถ query โปรเจ็กต์ของคุณใน "playground"  environment ผ่านเบราว์เซอร์ของคุณ
+ติดตั้ง SubQuery query แบบ Global บนเทอร์มินอลของคุณโดยใช้ Yarn หรือ NPM:
 
 <CodeGroup> <CodeGroupItem title="NPM"> ```bash npm install -g @subql/query ``` </CodeGroupItem>
 <CodeGroupItem title="YARN" active> ```shell yarn global add @subql/query ``` </CodeGroupItem> </CodeGroup>
