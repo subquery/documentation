@@ -1,6 +1,6 @@
 # Hello World (โฮสต์บน SubQuery)
 
-จุดมุ่งหมายของ quick start นี้คือการแสดงวิธีการเริ่มใช้งานโปรเจ็กต์เริ่มต้นสำหรับทำงานใน SubQuery Projects (บริการของเรา) ไม่กี่ขั้นตอนง่ายๆ
+จุดมุ่งหมายของ quick start นี้คือการแสดงวิธีการเริ่มใช้งานเริ่มต้นสำหรับทำงานใน SubQuery Projects (บริการของเรา) ไม่กี่ขั้นตอนง่ายๆ
 
 เราจะใช้ starter project ที่เรียบง่ายนี้ (รวมถึงทุกอย่างที่เราได้เรียนรู้มาจนถึงตอนนี้) แต่แทนที่จะเรียกใช้ Docker เราจะใช้ประโยชน์จากโครงสร้างพื้นฐานของโฮสติ้งที่มีการจัดการโดย SubQuery กล่าวอีกนัยหนึ่ง เราให้ SubQuery จัดการโครงสร้างพื้นฐานของงาน production การรัน และจัดการงานหนักๆทั้งหมด
 
@@ -9,7 +9,7 @@
 เมื่อจบจากคู่มือใช้งานสำหรับผู้ใช้งานแรกเข้า คุณจะ:
 
 - เข้าใจข้อกำหนดเบื้องต้นที่จำเป็น
-- สามารถโฮสต์โปรเจ็กต์ใน [SubQuery Projects](https://project.subquery.network/) ได้
+- สามารถโฮสต์โปรเจกต์ใน [SubQuery Projects](https://project.subquery.network/) ได้
 - รัน query อย่างง่ายเพื่อรับค่า block height ของเครือข่าย Polkadot mainnet โดยใช้ Playground
 - รัน GET query อย่างง่ายเพื่อรับค่า block height ของเครือข่าย Polkadot mainnet โดยใช้ cURL
 
@@ -29,9 +29,9 @@
 
 - บัญชี GitHub
 
-## 1. สร้างโปรเจ็กต์ของคุณ
+## 1. สร้างโปรเจกต์ของคุณ
 
-เริ่มสร้างโปรเจ็กต์ที่ชื่อว่า subqlHelloWorld โดยการรัน `subql init` และสร้างโปรเจ็กต์บนเครือข่าย `Polkadot` และเริ่มต้นโปรเจ็กต์ด้วยเทมเพลต `subql-starter` ผู้ใช้งานจำเป็นต้องติดตั้ง codegen และสร้างด้วยตัวจัดการแพ็คเกจที่คุณต้องการ
+เริ่มสร้างโปรเจกต์ที่ชื่อว่า subqlHelloWorld โดยการรัน `subql init` และสร้างบนเครือข่าย `Polkadot` และเริ่มต้นด้วยเทมเพลต `subql-starter` ผู้ใช้งานจำเป็นต้องติดตั้ง codegen และสร้างด้วยตัวจัดการแพ็คเกจที่คุณต้องการ
 
 ```shell
 > subql init subqlHelloWorld
@@ -103,24 +103,24 @@ To https://github.com/seandotau/subqlHelloWorld.git
 
 ในตอนน้ีคุณได้นำโค้ดของคุณเข้าไปอยู่ใน GitHub แล้ว มาดูวิธีที่เราจะสามารถโฮสต์โค้ดนั้นใน SubQuery Projects
 
-## 4. สร้างโปรเจ็กต์ของคุณ
+## 4. สร้างโปรเจกต์ของคุณ
 
 ไปที่ [https://project.subquery.network](https://project.subquery.network) และเข้าสู่ระบบด้วยบัญชี GitHub ของคุณ
 
 ![ยินดีต้อนรับสู่ SubQuery Projects](/assets/img/welcome_to_subquery_projects.png)
 
-แล้วสร้างโปรเจ็กต์ใหม่
+แล้วสร้างโปรเจกต์ใหม่
 
 ![ยินดีต้อนรับสู่ SubQuery Projects](/assets/img/subquery_create_project.png)
 
 และกรอกข้อมูลในช่องต่างๆให้ครบถ้วน ด้วยรายละเอียดที่เหมาะสม
 
-- **GitHub account:** หากคุณมีบัญชี GitHub มากกว่าหนึ่งบัญชี ให้เลือกบัญชีที่จะใช้สร้างโปรเจ็กต์นี้ โปรเจ็กต์ที่สร้างขึ้นในบัญชี GitHub organisation จะถูกแชร์ระหว่างสมาชิกใน organisation นั้นๆ
-- **Project Name:** ใส่ ชื่อโปรเจ็กต์ของคุณที่นี่
-- **Subtitle:** กรอกชื่อรองสำหรับชื่อโปรเจ็กต์ของคุณ
-- **Description:** อธิบายว่าโครงการ SubQuery ของคุณทำอะไร
-- **GitHub Repository URL:** ต้องเป็น GitHub URL ที่ใช้งานได้ซึ่งชี้ไปยัง repositoryสาธารณะที่มีโปรเจ็กต์ SubQuery ของคุณ ไฟล์ schema.graphql ต้องอยู่ในรูทไดเร็กทอรีของคุณ
-- **Hide project:** หากเลือก จะเป็นการซ่อนโปรเจ็กต์จาก SubQuery explorer สาธารณะ อย่าเลือกตัวเลือกนี้หากคุณต้องการแชร์ SubQuery ของคุณกับชุมชน! อย่าเลือกตัวเลือกนี้ หากคุณต้องการแบ่งปันโปรเจ็กต์ SubQuery ของคุณแก่ชุมชน
+- **GitHub account:** หากคุณมีบัญชี GitHub มากกว่าหนึ่งบัญชี ให้เลือกบัญชีที่จะใช้สร้างนี้ ที่สร้างขึ้นในบัญชี GitHub organisation จะถูกแชร์ระหว่างสมาชิกใน organisation นั้นๆ
+- **Project Name:** ใส่ ชื่อโปรเจกต์ของคุณที่นี่
+- **Subtitle:** กรอกชื่อรองสำหรับชื่อโปรเจกต์ของคุณ
+- **Description:** อธิบายว่าโปรเจกต์ SubQuery ของคุณทำอะไร
+- **GitHub Repository URL:** ต้องเป็น GitHub URL ที่ใช้งานได้ซึ่งชี้ไปยัง repositoryสาธารณะที่มี โปรเจกต์ SubQuery ของคุณ ไฟล์ schema.graphql ต้องอยู่ในรูทไดเร็กทอรีของคุณ
+- **Hide project:** หากเลือก จะเป็นการซ่อนจาก SubQuery explorer สาธารณะ อย่าเลือกตัวเลือกนี้หากคุณต้องการแชร์ SubQuery ของคุณกับชุมชน! อย่าเลือกตัวเลือกนี้ หากคุณต้องการแบ่งปัน SubQuery ของคุณแก่ชุมชน
 
 ![สร้าง SubQuery parameters](/assets/img/create_subquery_project_parameters.png)
 
@@ -130,15 +130,15 @@ To https://github.com/seandotau/subqlHelloWorld.git
 
 แดชบอร์ดประกอบด้วยข้อมูลที่เป็นประโยชน์มากมาย เช่น เครือข่ายที่ใช้, GitHub repository URL ของซอร์สโค้ดที่กำลังทำงาน, ข้อมูลเวลาที่ถูกสร้างขึ้นและอัปเดตล่าสุด และโดยเฉพาะอย่างยิ่งรายละเอียดการ deploy
 
-## 5. Deploy โปรเจ็กต์ของคุณ
+## 5. Deploy ของโปรเจกต์คุณ
 
-ในตอนนี้ คุณได้สร้างโปรเจ็กต์ของคุณภายใน SubQuery Projects และตั้งค่าลักษณะการแสดงผล ขั้นตอนต่อไปคือการ deploy โปรเจ็กต์ของคุณเพื่อให้สามารถทำงานได้ การ deploy เวอร์ชัน จะทริกเกอร์การทำ SubQuery indexing ใหม่ในการเริ่มต้น และทำการตั้งค่า query service ที่จำเป็นเพื่อเริ่มยอมรับ GraphQL requests คุณยังสามารถ deploy เวอร์ชันใหม่กับโปรเจ็กต์ที่มีอยู่ได้ที่นี่
+ในตอนนี้ คุณได้สร้างโปรเจกต์ของคุณภายใน SubQuery Projects และตั้งค่าลักษณะการแสดงผล ขั้นตอนต่อไปคือการ deploy ของคุณเพื่อให้สามารถทำงานได้ การ deploy เวอร์ชัน จะทริกเกอร์การทำ SubQuery indexing ใหม่ในการเริ่มต้น และทำการตั้งค่า query service ที่จำเป็นเพื่อเริ่มยอมรับ GraphQL requests คุณยังสามารถ deploy โปรเจกต์เวอร์ชันใหม่กับที่มีอยู่ได้ที่นี่
 
 คุณสามารถเลือก deploy กับสภาพแวดล้อมต่างๆ เช่น production slot หรือ staging slot เราจะ deploy กับ production slot การคลิกที่ปุ่ม "Deploy" จะแสดงหน้าจอที่มีหัวข้อต่อไปนี้:
 
 ![Deploy ไปยัง production slot](/assets/img/deploy_production_slot.png)
 
-- **Commit Hash of new Version:** ให้คัดลอก commit hash แบบเต็มจากโค้ดโปรเจ็กต์ SubQuery ที่คุณต้องการ deploy จาก GitHub
+- **Commit Hash of new Version:** ให้คัดลอก commit hash แบบเต็มจากโค้ดโปรเจกต์ SubQuery ที่คุณต้องการ deploy จาก GitHub
 - **Indexer Version:** คือเวอร์ชันของ node service ของ SubQuery ที่คุณต้องการรัน SubQuery อ่าน [](https://www.npmjs.com/package/@subql/node)@subql/node
 - **Query Version:** คือเวอร์ชันของ query service ของ SubQuery ที่คุณต้องการรัน SubQuery อ่าน [](https://www.npmjs.com/package/@subql/query)@subql/node
 
@@ -152,11 +152,11 @@ To https://github.com/seandotau/subqlHelloWorld.git
 
 ![การดำเนินการ deploy](/assets/img/deployment_running.png)
 
-## 6. ทดสอบโปรเจ็กต์ของคุณ
+## 6. ทดสอบโปรเจกต์ของคุณ
 
-หากต้องการทดสอบโปรเจ็กต์ของคุณ ให้คลิกที่จุดไข่ปลา 3 จุด และเลือก "View on SubQuery Explorer"
+หากต้องการทดสอบโปรเจกต์ของคุณ ให้คลิกที่จุดไข่ปลา 3 จุด และเลือก "View on SubQuery Explorer"
 
-![ดูโปรเจ็กต์ Subquery project](/assets/img/view_on_subquery.png)
+![ดู Subquery project](/assets/img/view_on_subquery.png)
 
 ซึ่งจะนำคุณไปยัง "Playground" ที่คุ้นเคย ซึ่งคุณสามารถคลิกปุ่ม play และดูผลลัพธ์ของการ query ได้
 
@@ -187,4 +187,4 @@ curl https://api.subquery.network/sq/seandotau/subqueryhelloworld -d "query=quer
 
 ## สรุป
 
-ใน SubQuery ที่โฮสต์ quick start นี้ เราแสดงให้เห็นว่าการนำโปรเจ็กต์ Subql มา deploy กับ [SubQuery Projects](https://project.subquery.network) นั้นง่ายและรวดเร็วเพียงใด ซึ่งมีโครงสร้างพื้นฐานทั้งหมดเพื่อความสะดวกของคุณ มี Playground ในตัวสำหรับการรัน query ต่างๆ รวมถึง API endpoint สำหรับการอินทิเกรตโค้ดของคุณ
+ใน SubQuery ที่โฮสต์ quick start นี้ เราแสดงให้เห็นว่าการนำ Subql มา deploy กับ [SubQuery Projects](https://project.subquery.network) นั้นง่ายและรวดเร็วเพียงใด ซึ่งมีโครงสร้างพื้นฐานทั้งหมดเพื่อความสะดวกของคุณ มี Playground ในตัวสำหรับการรัน query ต่างๆ รวมถึง API endpoint สำหรับการอินทิเกรตโค้ดของคุณ
