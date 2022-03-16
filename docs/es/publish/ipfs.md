@@ -13,7 +13,7 @@ Hospedar un proyecto en IPFS lo pone a disposición de todos y reduce su confian
 
 ## Prepara tu SUBQL_ACCESS_TOKEN
 
-- Paso 1: Vaya a [Proyectos de Subconsulta](https://project.subquery.network/) e inicie sesión.
+- Paso 1: Vaya a [Proyectos de SubQuery](https://project.subquery.network/) e inicie sesión.
 - Paso 2: Haga clic en su perfil en la parte superior derecha del menú de navegación, luego haga clic en **_Actualizar token_**
 - Paso 3: Copie el token generado.
 - Paso 4: Para usar este token:
@@ -26,7 +26,7 @@ Proporcionamos dos métodos para publicar su proyecto,
 
 ### Opción 1:
 
-Como ya tienes `@subql/cli` instalado, puedes ejecutar el siguiente comando, que leerá el proyecto e información requerida de su proyecto manifest predeterminado `. ml`
+Como ya tienes `@subql/cli` instalado, puedes ejecutar el siguiente comando, que leerá el proyecto e información requerida del manifesto de su proyecto predeterminado `project.yaml `
 
 ```
 // Publicarlo desde el directorio raíz de tu proyecto
