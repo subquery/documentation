@@ -14,7 +14,7 @@ COMMANDS
   init      Inicializar un proyecto de subquery de andamio
   migrate  Migra el manifiesto del proyecto de subquery v0.0.1 a v0.2.0
   publish   Cargue este proyecto SubQuery a IPFS
-  validate  Verifique que una carpeta o un repositorio de github sea un proyecto de subconsulta validado
+  validate  Verifique que una carpeta o un repositorio de github sea un proyecto de subquery validado
 ```
 
 ### compilar
@@ -160,7 +160,7 @@ Los proyectos de SubQuery se ejecutan normalmente en un entorno de pruebas javas
 
 Aunque esto mejora la seguridad, entendemos que esto limita la funcionalidad disponible de su SubQuery. El comando `--unsafe` importa todos los módulos javascript por defecto, lo que aumenta enormemente la funcionalidad sandbox con el ajuste de seguridad decreciente.
 
-**Ten en cuenta que el comando `--unsafe` evitará que tu proyecto se ejecute en SubQuery Network, y debe ponerse en contacto con el soporte técnico si desea que este comando se ejecute con su proyecto en el servicio administrado de SubQuery ([proyecto. ubquery.network](https://project.subquery.network))**
+**Ten en cuenta que el comando `--unsafe` evitará que tu proyecto se ejecute en SubQuery Network, y debe ponerse en contacto con el soporte técnico si desea que este comando se ejecute con su proyecto en el servicio administrado de SubQuery ([proyecto.subquery.network](https://project.subquery.network))**
 
 ### --batch-size
 
@@ -219,7 +219,7 @@ Tenga en cuenta que esto también debe establecerse en el archivo manifiesto, de
 ERROR ¡Error al crear proyecto de subquery de una ruta dada! Error: falló al analizar project.yaml.
 Una instancia de ProjectManifestImpl ha fallado la validación:
  - la red de propiedades ha fallado las siguientes restricciones: isObject
- - red de propiedades. etwork ha fallado las siguientes restricciones: validación anidada
+ - red de propiedades network.network ha fallado las siguientes restricciones: validación anidada
 ```
 
 ### --output-fmt
@@ -374,4 +374,4 @@ Estas están desactivadas por defecto debido al límite de entidad.
 
 ### --puerto
 
-El puerto al que se une el servicio de consulta de subconsultas. Por defecto se establece en `3000`
+El puerto al que se une el servicio de consulta de subquery. Por defecto se establece en `3000`
