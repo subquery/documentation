@@ -1,16 +1,16 @@
 # การทำ Mapping
 
-ฟังก์ชัน Map นั้นช่วยกำหนดวิธีการแปลงข้อมูลเครือข่ายเป็นเอนทิตี GraphQL ที่เหมาะสม ซึ่งเราได้กำหนดไว้แล้วในไฟล์ `schema.graphql`
+ฟังก์ชันการทำ Mapping นั้นช่วยกำหนดวิธีการแปลงข้อมูลเครือข่ายเป็นเอนทิตี GraphQL ที่เหมาะสม ซึ่งเราได้กำหนดไว้แล้วในไฟล์ `schema.graphql`
 
-- การ Map นั้นได้ถูกกำหนดไว้ในไดเรกทอรี่ `src/mappings` และถูก export ออกมาเป็นฟังก์ชั่น
-- การ map เหล่านี้จะถูก export ใน `src/index.ts` ด้วย
-- ไฟล์การ map มีการอ้างอิงใน `project.yaml` ภายใต้ตัวจัดการการแมป (mapping handlers)
+- การทำ Mapping นั้นได้ถูกกำหนดไว้ใน Directory `src/mappings` และถูก Export ออกมาเป็นฟังก์ชั่น
+- การทำ Mapping เหล่านี้ยังจะถูก Export ใน `src/index.ts` ด้วย
+- ไฟล์ Mapping จะเป็นตัวอ้างอิงใน `project.yaml` ภายใต้ตัวจัดการการแมป (Mapping Handlers)
 
-ฟังก์ชั่น map นั้นมีอยู่ 3 คลาส ได้แก่ [Block handlers](#block-handler), [Event Handlers](#event-handler) และ [Call Handlers](#call-handler)
+ฟังก์ชั่น Mapping จะมีอยู่ 3 คลาส ได้แก่ [Block handler](#block-handler), [Event Handler](#event-handler) และ [Call Handler](#call-handler)
 
 ## Block Handler
 
-คุณสามารถใช้ block handler ต่าง ๆ เพื่อเก็บข้อมูลทุกครั้งที่มีการแนบบล็อกใหม่เข้ากับเครือข่าย Substrate เช่น หมายเลขบล็อก ซึ่งทำได้โดย BlockHandler ที่ถูกกำหนดไว้แล้ว จะถูกเรียกขึ้นมา 1 ครั้งในทุก ๆ บล็อก
+คุณสามารถใช้ Block Handler ต่าง ๆ เพื่อเก็บข้อมูลทุกครั้งที่มีการแนบบล็อกใหม่เข้ากับเครือข่าย Substrate เช่น หมายเลขบล็อก การจะทำแบบนี้ได้, BlockHandler จะถูกเรียกออกมา 1 ครั้งในทุก ๆ บล็อก
 
 ```ts
 import {SubstrateBlock} from "@subql/types";
@@ -23,13 +23,13 @@ export async function handleBlock(block: SubstrateBlock): Promise<void> {
 }
 ```
 
-[SubstrateBlock](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L16) เป็นอินเทอร์เฟซแบบเพิ่มเติมของ [signedBlock](https://polkadot.js.org/docs/api/cookbook/blocks/) แต่ยังรวมถึง `specVersion` และ `timestamp` ด้วย
+[SubstrateBlock](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L16) เป็นอินเทอร์เฟซเพิ่มเติมของ [signedBlock](https://polkadot.js.org/docs/api/cookbook/blocks/) แต่ยังรวมถึง `specVersion` และ `timestamp` ด้วย
 
 ## Event Handler
 
-คุณสามารถใช้ event handler ต่าง ๆ ในการเก็บข้อมูล เมื่อมี event นั้น ๆ ในบล็อกใหม่ event ต่าง ๆ ที่เป็นส่วนหนึ่งของค่าเริ่มต้นของรันไทม์ Substrate และบล็อก อาจมีหลาย event ก็ได้
+คุณสามารถใช้ Event Handler ต่าง ๆ ในการเก็บข้อมูล เมื่อมี event นั้น ๆ ในบล็อกใหม่ Event ต่าง ๆ ที่เป็นส่วนหนึ่งของค่าเริ่มต้นของรันไทม์ Substrate และบล็อก อาจมีหลาย Event ก็ได้
 
-ในระหว่างการประมวลผล event handler จะได้รับ substrate event เป็น argument ที่มีอินพุตและเอาต์พุตที่พิมพ์แล้วของ event นั้น ๆ ซึ่งไม่ว่าจะเป็น event ประเภทใด ก็จะทริกเกอร์ให้มีการทำ map ทำให้สามารถบันทึกกิจกรรมที่มีแหล่งข้อมูลได้ คุณควรใช้ [ตัวกรองการ map ](./manifest.md#mapping-filters)ในไฟล์รายการ เในการคัดกรอง event เพื่อลดเวลาที่ใช้ในการจัดทำดัชนีข้อมูลและปรับปรุงประสิทธิภาพการทำ map ให้เพิ่มมากขึ้น
+ในระหว่างการประมวลผล, Event Handler จะได้รับ Substrate Event เป็น Argument ที่มีอินพุตและเอาต์พุตของ Event นั้น ๆ ซึ่งไม่ว่าจะเป็น Event ประเภทใด ก็จะทริกเกอร์ให้มีการทำ Mapping เสมอ ทำให้สามารถบันทึกกิจกรรมที่มีแหล่งข้อมูลได้ คุณควรใช้ [Mapping Filter](./manifest.md#mapping-filters) ในไฟล์รายการ ในการคัดกรอง Event ด้วย เพื่อลดเวลาที่ใช้ในการจัดทำ Data Index และเพิ่มประสิทธิภาพในการทำ Mapping
 
 ```ts
 import {SubstrateEvent} from "@subql/types";
@@ -43,11 +43,11 @@ export async function handleEvent(event: SubstrateEvent): Promise<void> {
     await record.save();
 ```
 
-[SubstrateEvent](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L30) เป็นอินเทอร์เฟซแบบเพิ่มเติมของ [EventRecord](https://github.com/polkadot-js/api/blob/f0ce53f5a5e1e5a77cc01bf7f9ddb7fcf8546d11/packages/types/src/interfaces/system/types.ts#L149) นอกจากข้อมูล event แล้ว ยังมี `id` (บล็อกที่เป็นของ event นี้) และ extrinsic ที่อยู่ภายในบล็อกนี้ด้วย
+[SubstrateEvent](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L30) เป็นอินเทอร์เฟซแบบเพิ่มเติมของ [EventRecord](https://github.com/polkadot-js/api/blob/f0ce53f5a5e1e5a77cc01bf7f9ddb7fcf8546d11/packages/types/src/interfaces/system/types.ts#L149) นอกจากข้อมูล Event แล้ว ยังมี `id` (บล็อกที่เป็นของ Event นี้) และ Extrinsic ที่อยู่ภายในบล็อกนี้ด้วย
 
 ## Call Handler
 
-Call handler ต่าง ๆ จะใช้เมื่อคุณต้องการบันทึกข้อมูลเกี่ยวกับ substrate extrinsic นั้นๆ
+Call Handler ต่าง ๆ จะถูกใช้เมื่อคุณต้องการบันทึกข้อมูลเกี่ยวกับ Substrate Extrinsic นั้นๆ
 
 ```ts
 export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
@@ -57,7 +57,7 @@ export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
 }
 ```
 
-[SubstrateExtrinsic](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L21) เป็นส่วนที่ไปขยาย [GenericExtrinsic](https://github.com/polkadot-js/api/blob/a9c9fb5769dec7ada8612d6068cf69de04aa15ed/packages/types/src/extrinsic/Extrinsic.ts#L170) มันถูกกำหนด `id` (บล็อกที่ extrinsic นี้อยู่) และให้คุณสมบัติ extrinsic นั้น ๆ ที่ช่วยขยาย event ต่าง ๆ ระหว่างบล็อกนี้ นอกจากนี้ มันยังทำการบันทึกสถานะความสำเร็จของ extrinsic นี้ด้วย
+[SubstrateExtrinsic](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L21) จะไปขยาย [GenericExtrinsic](https://github.com/polkadot-js/api/blob/a9c9fb5769dec7ada8612d6068cf69de04aa15ed/packages/types/src/extrinsic/Extrinsic.ts#L170) มันจะถูกกำหนด `id` (บล็อกที่ Extrinsic นี้อยู่) และให้คุณสมบัติ Extrinsic นั้น ๆ ซึ่งจะช่วยขยาย Event ต่าง ๆ ระหว่างบล็อกนี้ นอกจากนี้ มันยังทำการบันทึกสถานะความสำเร็จของ Extrinsic นี้ด้วย
 
 ## สถานะการคิวรี่
 เป้าหมายของเราคือ สามารถครอบคลุมแหล่งข้อมูลทั้งหมดสำหรับผู้ใช้ในการใช้ mapping handler ต่าง ๆ (มากกว่าแค่สามประเภท event ของอินเทอร์เฟซที่กล่าวไปข้างต้น) ดังนั้นเราจึงได้เปิดเผยอินเทอร์เฟซ @polkadot/api บางส่วนเพื่อเพิ่มความสามารถในการทำงานให้มากขึ้น
