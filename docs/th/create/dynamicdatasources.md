@@ -95,7 +95,7 @@ async function handleLiquidityAdded(event: MoonbeamEvent): Promise<void> {
 
 ## การดู Dynamic Data Sources ของโปรเจกต์
 
-Dynamic data source จะถูกเก็บไว้ใน medata ของโปรเจกต์ หากคุณต้องการดูรายละเอียดที่คุณสามารถสอบถามได้ด้านล่าง:
+Dynamic data source จะถูกเก็บไว้ใน medata ของโปรเจกต์ หากต้องการดูรายละเอียดคุณสามารถ query ได้ตามด้านล่าง:
 
 ```gql
 {
