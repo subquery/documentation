@@ -46,7 +46,7 @@ Let's start by clicking on "Create Project". You'll be taken to the New Project 
 - **GitHub Repository URL:** ต้องเป็น GitHub URL ที่ใช้งานได้ซึ่งชี้ไปยัง repository สาธารณะที่มีโปรเจกต์ SubQuery ของคุณ และไฟล์ `schema.graphql` ต้องอยู่ในไดเรกทอรีเริ่มต้นของคุณ ([เรียนรู้เพิ่มเติมเกี่ยวกับโครงสร้างไดเรกทอรี](../create/introduction.md#directory-structure)) ไฟล์ schema.graphql ต้องอยู่ในไดเร็กทอรีเริ่มต้นของคุณ (เรียนรู้เพิ่มเติมเกี่ยวกับโครงสร้างไดเร็กทอรี)
 - **ฐานข้อมูล:** ลูกค้าพรีเมียมจะสามารถเข้าถึงฐานข้อมูลเฉพาะ ที่จะใช้โอสต์สำหรับโปรเจกต์ระดับ Production หากคุณสนใจ คุณสามารถติดต่อ  [sales@subquery.network](mailto:sales@subquery.network) เพื่อเปิดการตั้งค่านี้
 - **Deployment Source:** You can choose to have the project deployed from the GitHub repository or alternatively deployed from a IPFS CID, see our guide about [hosting with IPFS.](ipfs.md)
-- **Hide project:** หากเลือก จะเป็นการซ่อนโปรเจ็กต์จาก SubQuery explorer สาธารณะ อย่าเลือกตัวเลือกนี้หากคุณต้องการแชร์ SubQuery ของคุณกับชุมชน! อย่าเลือกตัวเลือกนี้ หากคุณต้องการแบ่งปันโปรเจ็กต์ SubQuery ของคุณแก่ชุมชน ![Create your first Project](/assets/img/projects-create.png)
+- **Hide project:** หากเลือก จะเป็นการซ่อนจาก SubQuery explorer สาธารณะ อย่าเลือกตัวเลือกนี้หากคุณต้องการแชร์ SubQuery ของคุณกับคอมมูนิตี้! อย่าเลือกตัวเลือกนี้ หากคุณต้องการแบ่งปัน SubQuery ของคุณแก่คอมมูนิตี้! ![Create your first Project](/assets/img/projects-create.png)
 
 Create your project and you'll see it on your SubQuery Project's list. _We're almost there! We just need to deploy a new version of it._
 
@@ -54,7 +54,7 @@ Create your project and you'll see it on your SubQuery Project's list. _We're al
 
 ### Deploy your first Version
 
-While creating a project will setup the display behaviour of the project, you must deploy a version of it before it becomes operational. การ deploy เวอร์ชัน จะทริกเกอร์การทำ SubQuery indexing ใหม่ในการเริ่มต้น และทำการตั้งค่า query service ที่จำเป็นเพื่อเริ่มยอมรับ GraphQL requests คุณยังสามารถ deploy เวอร์ชันใหม่กับโปรเจ็กต์ที่มีอยู่ได้ที่นี่
+While creating a project will setup the display behaviour of the project, you must deploy a version of it before it becomes operational. การ deploy เวอร์ชันจะทริกเกอร์การทำ SubQuery indexing ใหม่ให้เริ่มต้น และทำการตั้งค่า query service ที่จำเป็นเพื่อเริ่มยอมรับ GraphQL requests คุณยังสามารถ deploy โปรเจกต์เวอร์ชันใหม่บนนี้ได้
 
 With your new project, you'll see a Deploy New Version button. Click this, and fill in the required information about the deployment:
 
