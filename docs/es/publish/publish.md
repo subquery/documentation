@@ -9,7 +9,7 @@
 
 ## Crea tu primer proyecto en SubQuery Projects
 
-### Programación de código de proyecto
+### Alojamiento del código de proyecto
 
 Hay dos maneras de alojar el código base de su proyecto SubQuery antes de publicarlo.
 
@@ -44,7 +44,7 @@ Empecemos haciendo clic en "Crear proyecto". Serás llevado al formulario de Pro
 - **Subtítulo**
 - **Descripción**
 - **URL del repositorio de GitHub:** Esta debe ser una URL válida de GitHub para un repositorio público que contiene su proyecto de SubQuery. El archivo `schema.graphql` debe estar en la raíz de su directorio ([aprender más sobre la estructura de directorio](../create/introduction.md#directory-structure)).
-- **Base de datos:** Los clientes Premium pueden acceder a bases de datos dedicadas para albergar proyectos de subconsulta de producción. Si esto le interesa, puede ponerse en contacto con [sales@subquery.network](mailto:sales@subquery.network) para activar esta configuración.
+- **Base de datos:** Los clientes Premium pueden acceder a bases de datos dedicadas para albergar proyectos de subquery de producción. Si esto le interesa, puede ponerse en contacto con [sales@subquery.network](mailto:sales@subquery.network) para activar esta configuración.
 - **Fuente de despliegue** Puede elegir tener el proyecto desplegado desde el repositorio de GitHub o desplegado alternativamente desde un CID IPFS, vea nuestra guía sobre [alojamiento con IPFS.](ipfs.md)
 - **Ocultar proyecto:** Si se selecciona, esto ocultará el proyecto del explorador público de SubQuery. ¡Mantén esta opción sin seleccionar si quieres compartir tu SubQuery con la comunidad! ![Cree su primer proyecto](/assets/img/projects-create.png)
 
