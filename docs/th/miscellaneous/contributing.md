@@ -43,10 +43,10 @@ Bug ต่างๆ จะถูกติดตามด้วย GitHub Issues 
 
 ## ข้อตกลงในการเขียนโค้ด
 
-### ข้อความในการทำ Git Commit
+### ข้อความในการยืนยัน Git
 
-* ใช้ present tense ("Add feature" ไม่ใช่ "Added feature")
-* ใช้ประโยคแบบ imperative ("Move cursor to..." Moves cursor to...")
+* ใช้ Present Tense ("Add feature" ไม่ใช่ "Added feature")
+* ใช้ประโยคแบบ Imperative ("Move cursor to..." Moves cursor to...")
 * จำกัดบรรทัดแรกไม่เกิน 72 ตัวอักษร
 
 ### แนวทางรูปแบบสำหรับ JavaScript
