@@ -10,7 +10,7 @@ Spec versión `0.2.1` introduce un nuevo campo `plantillas`. Las plantillas son 
 
 * Necesitan un `nombre` para identificar la plantilla
 * `startBlock` ya no es necesario. Esto se establecerá en el bloque que la fuente de datos es creada
-* En el caso de una fuente de datos personalizada el procesador `. el campo ptions` también se puede rellenar parcialmente, el resto de las opciones se proporcionarán cuando se instaure la fuente de datos.
+* En el caso de una fuente de datos personalizada el campo de `. opciones de procesador` también se puede rellenar parcialmente, el resto de las opciones se proporcionarán cuando se instaure la fuente de datos.
 
 ## Ejemplo de proyecto
 
@@ -76,19 +76,19 @@ templates:
 ### `mappingHandlers.ts`
 
 ```ts
-// This function is defined using `subql codegen` cli command
-import { createTradingPairDatasource } from '../types';
-import {MoonbeamEvent} from '@subql/contract-processors/dist/moonbeam';
+// Esta función es definida usando el comando `subql codegen` cli
+importar { createTradingPairDatasource } desde '.. types';
+importar {MoonbeamEvent} desde '@subql/contract-processors/dist/moonbeam';
 
 async function handleNewTradingPair(event: MoonbeamEvent): Promise<void> {
-  const { exchange, token1, token2 } = event.args;
+  const { exchange, token1, token2 } = evento. rgs;
 
-  // Create a new datasource providing the address of the trading pair exchange contract
-  await createTradingPairDatasource({ address: exchange });
+  // Crear una nueva fuente de datos proporcionando la dirección del contrato de intercambio de pareja de trading
+  espera createTradingPairDatasource({ address: exchange });
 }
 
-async function handleLiquidityAdded(event: MoonbeamEvent): Promise<void> {
-  /* mapping fuction implementation here */
+async function handleLiquidityAdded(event: MoonbeamEvent): Promesa<void> {
+  /* mapeando implementación de fuction aquí */
 }
 ```
 
