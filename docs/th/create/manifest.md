@@ -153,21 +153,21 @@ filter:
 
 ใน v0.2.0 ตัวอย่างดังต่อไปนี้ `network.chaintypes` จะถูกชี้ไปที่ไฟล์ที่มี custom types ทั้งหมด นี่จะเป็นมาตรฐานของไฟล์ chainspec ที่ใช้ในการแสดงผลในรูปแบบ blockchain โดยรองรับทั้งรูปแบบ `.json`, `.yaml` หรือ `.js`.
 
-<CodeGroup> <CodeGroupItem title="v0.2.0" active> ``` yml network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' endpoint: 'ws://host.kittychain.io/public-ws' chaintypes: file: ./types.json # ตำแหน่งขแงไฟล์สัมพันธ์กับที่เก็บประเภทที่กำหนดเอง ... ``` </CodeGroupItem>
+<CodeGroup> <CodeGroupItem title="v0.2.0" active> ``` yml network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' endpoint: 'ws://host.kittychain.io/public-ws' chaintypes: file: ./types.json # ตำแหน่งของไฟล์ต้องสัมพันธ์กับประเภทของการจัดเก็บ ... ``` </CodeGroupItem>
 <CodeGroupItem title="v0.0.1"> ``` yml ... network: endpoint: "ws://host.kittychain.io/public-ws" types: { "KittyIndex": "u32", "Kitty": "[u8; 16]" } # typesChain: { chain: { Type5: 'example' } } # typesSpec: { spec: { Type6: 'example' } } dataSources: - name: runtime kind: substrate/Runtime startBlock: 1 filter:  #Optional specName: kitty-chain mapping: handlers: - handler: handleKittyBred kind: substrate/CallHandler filter: module: kitties method: breed success: true ``` </CodeGroupItem> </CodeGroup>
 
-To use typescript for your chain types file include it in the `src` folder (e.g. `./src/types.ts`), run `yarn build` and then point to the generated js file located in the `dist` folder.
+หากต้องการใช้ typescript สำหรับเครือข่ายของคุณให้รวมไว้ใน `src` แฟ้มข้อมูล (e.g. `./src/types.ts`), run `yarn build` จากนั้นชี้ไปที่ไฟล์ js ที่ถูกสร้างขึ้นซึ่งอยู่ในไฟล์ `dist` ของแฟ้มข้อมูล
 
 ```yml
 network:
   chaintypes:
-    file: ./dist/types.js # Will be generated after yarn run build
+    file: ./dist/types.js # จะถูกสร้างขึ้นหลังจาก yarn run build
 ...
 ```
 
 สิ่งที่คุณจะต้องทราบเกี่ยวกับการใช้งาน chain types file ด้วยนามสกุล `.ts` หรือ `.js`:
 
-- ไฟล์ manifest version ต้องเป็น v0.2.0 หรือสูงกว่า
+- ไฟล์ manifest version ต้องเป็นเวอร์ชั่น v0.2.0 หรือสูงกว่า
 - มีเพียง default export เท่านั้นที่จะถูกรวมไปใน [polkadot api](https://polkadot.js.org/docs/api/start/types.extend/) เมื่อดึงข้อมูลจาก blocks
 
 นี่คือตัวอย่างของ `.ts` ไฟล์ chain types:
@@ -180,7 +180,7 @@ export default { typesBundle: typesBundleDeprecated }; ``` </CodeGroupItem> </Co
 
 Custom Data Sources จะระบุฟังก์ชันของ network ที่กำหนด ที่จะทำให้จัดการกับข้อมูลได้ง่ายยิ่งขึ้น โดยจะทำงานเหมือนตัวกลาง ที่จะช่วยกรองเพิ่มขึ้น และการแปลงข้อมูล
 
-ตัวอย่างที่ดีของอันนี้ คือการรองรับ EVM สามารถมีการประมวลผล data source สำหรับ EVM หมายความว่าคุณสามารถทำการกรองได้ตั้งแต่ระดับ EVM (e.g. กรอง contract methods หรือ logs) และข้อมูลเหล่านั้นจะถูกแปลงเป็นโครงสร้างที่ใกล้เคียงกับ Ethereum ecosystem เฉกเช่นเดียวกับการดึง parameters ด้วย ABIs.
+ตัวอย่างที่ดีของอันนี้ คือการรองรับ EVM สามารถมีการประมวลผล data source สำหรับ EVM หมายความว่าคุณสามารถทำการกรองข้อมูลได้ตั้งแต่ระดับ EVM (e.g. กรอง contract methods หรือ logs) และข้อมูลเหล่านั้นจะถูกแปลงเป็นโครงสร้างที่ใกล้เคียงกับ Ethereum ecosystem เฉกเช่นเดียวกับการดึง parameters ด้วย ABIs.
 
 Custom Data Sources สามารถใช้ร่วมกับ normal data sources.
 
@@ -194,12 +194,12 @@ Custom Data Sources สามารถใช้ร่วมกับ normal data
 
 **Network filters จะใช้เฉพาะใน manifest spec v0.0.1**.
 
-โดยทั่วไป user จะสร้าง SubQuery และคาดว่าจะนำมาใช้ทั้ง testnet และ mainnet environments (e.g. Polkdaot และ Kusama) ระหว่างเครือข่าย ตัวเลือกต่างๆ มักจะแตกต่างกัน (เช่น บล็อกเริ่มต้นดัชนี) ดังนั้นเราจึงอนุญาตให้ผู้ใช้กำหนดรายละเอียดที่แตกต่างกันสำหรับแหล่งข้อมูลแต่ละแหล่ง ซึ่งหมายความว่าโครงการ SubQuery หนึ่งโครงการยังคงใช้งานได้ในหลายเครือข่าย
+โดยทั่วไป user จะสร้าง SubQuery และคาดว่าจะนำมาใช้ทั้ง testnet และ mainnet environments (e.g. Polkdaot และ Kusama) ระหว่างเครือข่าย ตัวเลือกต่างๆ มักจะแตกต่างกัน (เช่น บล็อกเริ่มต้นดัชนี) นอกจากนี้ เราอนุญาติให้ผู้ใช้งานสามารถกำหนดรายละเอียดในแต่ละ data source ได้ นั่นหมายความว่าในหนึ่งโปรเจ็คต์ Subquery จะสามารถนำไปใช้ได้หลายเครือข่าย
 
-Users can add a `filter` on `dataSources` เพื่อตัดสินใจว่าจะใช้แหล่งข้อมูลใดในแต่ละเครือข่าย
+ผู้ใช้งานสามารถเพิ่ม `filter` บน `dataSources` เพื่อเลือกว่า data source ใดจะใช้ในแต่ละเครือข่าย
 
 ด้านล่างนี้คือตัวอย่างที่แสดงแหล่งข้อมูลต่างๆ สำหรับทั้งเครือข่าย Polkadot และ Kusama
 
-<CodeGroup> <CodeGroupItem title="v0.0.1"> ```yaml --- network: endpoint: 'wss://polkadot.api.onfinality.io/public-ws' #Create a template to avoid redundancy definitions: mapping: &mymapping handlers: - handler: handleBlock kind: substrate/BlockHandler dataSources: - name: polkadotRuntime kind: substrate/Runtime filter: #Optional specName: polkadot startBlock: 1000 mapping: *mymapping #use template here - name: kusamaRuntime kind: substrate/Runtime filter: specName: kusama startBlock: 12000 mapping: *mymapping # can reuse or change ``` </CodeGroupItem>
+<CodeGroup> <CodeGroupItem title="v0.0.1"> ```yaml --- network: endpoint: 'wss://polkadot.api.onfinality.io/public-ws' #Create a template to avoid redundancy definitions: mapping: &mymapping handlers: - handler: handleBlock kind: substrate/BlockHandler dataSources: - name: polkadotRuntime kind: substrate/Runtime filter: #Optional specName: polkadot startBlock: 1000 mapping: *mymapping # เรียกใช้ template - name: kusamaRuntime kind: substrate/Runtime filter: specName: kusama startBlock: 12000 mapping: *mymapping # สามารถใช้ซ้ำหรือเปลี่ยนแปลงได้ ``` </CodeGroupItem>
 
 </CodeGroup>
