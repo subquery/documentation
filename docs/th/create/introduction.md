@@ -1,15 +1,15 @@
 # การสร้างโปรเจกต์ของ SubQuery
 
-ในคู่มือ [quick start](/quickstart/quickstart.md) พวกเราจะพาคุณเริ่มต้นจากตัวอย่างได้อย่างรวดเร็ว เพื่อให้ทราบความหมายของ SubQuery และเข้าใจถึงว่าทำงานได้อย่างไร ในที่นี้ เราจะพามาดูขั้นตอนการทำงานเมื่อคุณเริ่มสร้างโปรเจกต์ของคุณ และ Key files ที่คุณจะทำงานด้วย
+ในคู่มือ [quick start](/quickstart/quickstart.md) เราจะมีตัวอย่างอธิบายแบบเร็วๆ เพื่อให้รู้ถึงความหมายของ SubQuery และเข้าใจวิธีการทำงานของมัน ในส่วนนี้ เราจะพามาดูขั้นตอนการสร้างโปรเจกต์ของคุณและไฟล์สำคัญที่คุณจะต้องใช้ในขั้นตอนนี้
 
 ## ขั้นตอนการทำงานเบื้องต้น
 
-ตัวอย่างบางส่วนต่อไปนี้จะถือว่าคุณเริ่มต้นแพ็คเกจได้สำเร็จในส่วนของ [Quick start](../quickstart/quickstart.md) จากชุดเริ่มต้น พวกเราจะนำคุณผ่านกระบวนการมาตรฐานเพื่อที่จะปรับแต่ง และการนำไปใช้กับโปรเจกต์ SubQuery ของคุณ
+ในตัวอย่างบางส่วน จะสมมติว่าคุณได้เริ่มต้นแพ็คเกจในส่วนของ [Quick start](../quickstart/quickstart.md) สำเร็จแล้ว จากแพ็คเกจเริ่มต้น เราจะพาคุณดูขั้นตอนมาตรฐานเพื่อใช้ในการปรับแต่ง และใช้งานโปรเจกต์ SubQuery ของคุณ
 
-1. เริ่มต้นโปรเจกต์ของคุณโดยใช้คำสั่ง `subql init PROJECT_NAME`.
-2. อัพเดท Manifest file (`project.yaml`) เพื่อใส่ข้อมูลที่เกี่ยวกับ blockchain และ entities ที่คุณจะเชื่อมโยง โปรดดู [Manifest File](./manifest.md)
-3. สร้าง GraphQL entities ภายใน Schema ของคุณ (`schema.graphql`) เพื่อกำหนดโครงสร้างของข้อมูลที่คุณจะดึงข้อมูลออกมา โปรดดู [GraphQL Schema](./graphql.md)
-4. เพิ่ม Mapping Function (ตัวอย่าง `mappingHandlers.ts`) คุณจะสามารถแปลงข้อมูลที่อยู่บน chain ให้เป็น GraphQL entities ที่คุณกำหนดเองได้ - โปรดดู [Mapping](./mapping.md)
+1. เริ่มโปรเจกต์ของคุณโดยใช้คำสั่ง `subql init PROJECT_NAME`.
+2. อัพเดท Manifest File (`project.yaml`) เพื่อใส่ข้อมูลที่เกี่ยวกับ Blockchain และ Entity ที่คุณจะทำการ Map โปรดดูที่ [Manifest File](./manifest.md)
+3. สร้าง Entity ของ GraphQL ภายใน Schema ของคุณ (`schema.graphql`) เพื่อกำหนดโครงสร้างของข้อมูลที่คุณจะดึงข้อมูลออกมา โปรดดูที่ [GraphQL Schema](./graphql.md)
+4. เพิ่ม Mapping Function ทั้งหมด (ตัวอย่าง `mappingHandlers.ts`) ที่คุณจะเรียกใช้เพื่อแปลงข้อมูลที่อยู่บน Chain ให้เป็นของ Entity ของ GraphQL ที่คุณได้กำหนดไว้ โปรดดูที่ [Mapping](./mapping.md)
 5. การสร้างและเผยแพร่ Code ของคุณไปยัง SubQuery Projects (หรือรันอยู่บนเครื่องของคุณเอง) - โปรดดู [Running and Querying your Starter Project](./quickstart.md#running-and-querying-your-starter-project) ที่อยู่ใน Quick Start Guide
 
 ## Directory Structure
@@ -43,7 +43,7 @@
 yarn codegen
 ```
 
-นี่จะสร้างไดเรกทอรีใหม่ (หรืออัพเดทของเดิมที่มีอยู่) `src/types` โดยกำหนด class entity ที่ถูกสร้างสำหรับแต่ละประเภทที่คุณได้กำหนดไว้ใน `schema.graphql` Class เหล่านี้จะทำให้คุณโหลด type-safe entity ที่จะใช้สิทธิ์ในการอ่านและเขียนลงไปในช่องข้อมูลของ entity - อ่านต่อในกระบวนการนี้ได้ใน [the GraphQL Schema](./graphql.md)
+นี่จะสร้างไดเรกทอรีใหม่ (หรืออัพเดทของเดิมที่มีอยู่) `src/types` โดยกำหนด class entity ที่ถูกสร้างสำหรับแต่ละประเภทที่คุณได้กำหนดไว้ใน `schema.graphql` คลาสเหล่านี้จะทำให้คุณโหลด type-safe entity ที่จะใช้สิทธิ์ในการอ่านและเขียนลงไปในช่องข้อมูลของ entity - อ่านต่อในกระบวนการนี้ได้ใน [the GraphQL Schema](./graphql.md)
 
 ## Build
 
