@@ -8,13 +8,13 @@
 > subql --help
 
 คำสั่ง
-  build     สร้างโค้ดโครงการ SubQuery นี้
+  build     สร้างโค้ดโปรเจกต์	SubQuery นี้
   codegen   สร้าง schemas สำหรับโหนดกราฟ
   help      แสดงความช่วยเหลือสำหรับ subql
-  init      เริ่มต้นโปรเจ็กการสืบค้นย่อยของ scaffold
+  init      เริ่มต้น scaffold โปรเจกต SubQuery
   migrate   โยกย้าย manifest ของโปรเจ็กต์ SubQuery v0.0.1 ถึง v0.2.0
-  publish   อัปโหลดโปรเจ็ก SubQuery นี้ไปที่ IPFS
-  validate  ตรวจสอบโฟลเดอร์หรือ github repo ว่าเป็นโปรเจ็กการสืบค้นย่อยที่ถูกต้อง
+  publish   อัปโหลดโปรเจกค์ SubQuery นี้ไปที่ IPFS
+  validate  ตรวจสอบโฟลเดอร์หรือ github repo ว่าเป็น โปรเจกต์	 SubQuery ที่ถูกต้อง
 ```
 
 ### การสร้าง
