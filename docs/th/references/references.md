@@ -61,14 +61,14 @@ Options:
       --timeout            กำหนดระยะเวลาสำหรับ indexer sandbox ในการใช้คำสั่ง mapping
                                                               [number]
       --debug               แสดงข้อมูลการ debug ไปยัง console output โดยจะ
-                            บังคับให้มีการตั้งค่าเลเวล log เพื่อการ debug
+                            บังคับให้มีการตั้งค่า log level เพื่อการ debug
                                                       [boolean] [ค่าเริ่มต้น: false]
-      --profiler            แสดงข้อมูลตัวสร้างโปรไฟล์ไปยังเอาต์พุตคอนโซล
+      --profiler            แสดงข้อมูลตัวสร้างโปรไฟล์ไปยัง console output
                                                       [boolean] [ค่าเริ่มต้น: false]
       --network-endpoint    Endpoint ของเครือข่ายบล็อกเชนเพื่อการเชื่อมต่อ      [string]
       --output-fmt          พิมพ์ log เป็น json หรือข้อความธรรมดา
                                            [string] [ตัวเลือก: "json", "colored"]
-      --log-level           ระบุเลเวล log ที่จะพิมพ์ เพิกเฉยต่อคำสั่ง เมื่อมีการใช้ --debug
+      --log-level           ระบุ log level ที่จะพิมพ์ เพิกเฉยต่อคำสั่ง เมื่อมีการใช้ --debug
                            
           [string] [ตัวเลือก: "fatal", "error", "warn", "info", "debug", "trace",
                                                                        "silent"]
