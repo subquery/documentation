@@ -89,13 +89,13 @@ export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
 เอกสารใน [JSON-RPC](https://polkadot.js.org/docs/substrate/rpc/#rpc) มีวิธีการบางอย่างที่ใช้ `BlockHash` เป็นพารามิเตอร์อินพุต (เช่น `at?: BlockHash`) ซึ่งขณะนี้ได้รับอนุญาตให้ใช้แล้ว นอกจากนี้เรายังได้ปรับวิธีการเหล่านี้เพื่อให้การแฮช Indexing Block ปัจจุบัน กลายเป็นค่าเริ่มต้น
 
 ```typescript
-// สมมติว่าเรากำลังทำดัชนีบล็อกอันหนึ่งด้วยหมายเลข hash นี้
+// Let's say we are currently indexing a block with this hash number
 const blockhash = `0x844047c4cf1719ba6d54891e92c071a41e3dfe789d064871148e9d41ef086f6a`;
 
-// วิธีการดั้งเดิมจะมีอินพุตแบบไม่บังคับเป็น block hash 
+// Original method has an optional input is block hash
 const b1 = await api.rpc.chain.getBlock(blockhash);
 
-// มันจะใช้ค่าเริ่มต้นเป็น block hash ปัจจุบัน ดังนี้
+// It will use the current block has by default like so
 const b2 = await api.rpc.chain.getBlock();
 ```
 - สำหรับ RPC call ต่าง ๆ ที่เป็น [เครือข่าย Substrate แบบกำหนดเอง](#custom-substrate-chains) ดูที่ [การใช้งาน](#usage)
