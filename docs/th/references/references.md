@@ -46,11 +46,11 @@
 Options:
       --help                แสดงการช่วยเหลือ                                  [boolean]
       --version             แสดงหมายเลขเวอร์ชั่น                        [boolean]
-  -f, --subquery            เส้นทางภายในของโปรเจ็กการสืบค้นย่อย          [string]
-      --subquery-name       ชื่อของโปรเจ็กการสืบค้นย่อย   [deprecated] [string]
+  -f, --subquery            เส้นทางภายในของโปรเจกต์ subquery          [string]
+      --subquery-name       ชื่อของโปรเจกต์ subquery  [deprecated] [string]
   -c, --config              ระบุไฟล์การตั้งค่า                  [string]
       --local               ใช้โหมด local                [deprecated] [boolean]
-      --force-clean         บังคับการคลีน database, เลิกโปรเจ็ก schemas
+      --force-clean         บังคับการ clean database, เลิกโปรเจกต์ schemas
                             และตารางต่าง ๆ                                 [boolean]
       --db-schema           ชื่อ Db schema ของโปรเจ็ก               [string]
       --unsafe              อนุญาตให้มีการใช้โหมดบิวท์อินต่าง ๆ ภายใน 
@@ -60,7 +60,7 @@ Options:
                                                       [boolean] [ค่าเริ่มต้น: false]
       --timeout            กำหนดระยะเวลาสำหรับ indexer sandbox ในการใช้คำสั่ง mapping
                                                               [number]
-      --debug               แสดงข้อมูลการ debug ไปยังเอาต์พุตคอนโซล โดยจะ
+      --debug               แสดงข้อมูลการ debug ไปยัง console output โดยจะ
                             บังคับให้มีการตั้งค่าเลเวล log เพื่อการ debug
                                                       [boolean] [ค่าเริ่มต้น: false]
       --profiler            แสดงข้อมูลตัวสร้างโปรไฟล์ไปยังเอาต์พุตคอนโซล
