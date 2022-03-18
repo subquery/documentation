@@ -158,9 +158,9 @@ subql-node -f . --db-schema=test2
 ["assert", "buffer", "crypto", "util", "path"];
 ```
 
-แม้ว่าสิ่งนี้จะช่วยเพิ่มความปลอดภัย แต่เราก็เข้าใจดีว่า คำสั่งนี้จะจำกัดการทำงานที่มีอยู่ของ SubQuery ของคุณ คำสั่ง `--unsafe` จะนำเข้าโมดูล javascript เริ่มต้นทั้งหมด ซึ่งเพิ่มฟังก์ชันการทำงานของ sandbox อย่างมาก แลกกับความปลอดภัยที่ลดลง
+แม้ว่าสิ่งนี้จะช่วยเพิ่มความปลอดภัย แต่เราก็เข้าใจดีว่า คำสั่งนี้จะจำกัดฟังก์ชั่นการทำงานที่มีอยู่ของ SubQuery ของคุณ คำสั่ง `--unsafe` จะนำเข้าโมดูล javascript เริ่มต้นทั้งหมด ซึ่งเพิ่มฟังก์ชันการทำงานของ sandbox อย่างมาก แลกกับความปลอดภัยที่ลดลง
 
-**โปรดทราบว่าคำสั่ง `--unsafe` จะป้องกันไม่ให้โปรเจ็กต์ของคุณทำงานในเครือข่าย SubQuery และคุณต้องติดต่อฝ่ายสนับสนุน หากต้องการให้คำสั่งนี้รันกับโปรเจ็กต์ของคุณในบริการส่วนของ SubQuery ([project.subquery.network](https://project.subquery.network))**
+**โปรดทราบว่าคำสั่ง `--unsafe` จะป้องกันไม่ให้โปรเจกต์ของคุณรันในเครือข่าย SubQuery และคุณต้องติดต่อฝ่ายสนับสนุน หากต้องการให้คำสั่งนี้รันกับโปรเจกต์ของคุณในบริการส่วนของ SubQuery ([project.subquery.network](https://project.subquery.network))**
 
 ### --batch-size
 
@@ -297,15 +297,15 @@ subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot
 ตัวเลือก:
       --help        แสดงความช่วยเหลือ                                         [boolean]
       --version     แสดงหมายเลขเวอร์ชัน                                [boolean]
-  -n, --name        ชื่อโปรเจ็ก                            [string] [required]
-      --playground  เปิด graphql playground                          [boolean]
+  -n, --name        ชื่อโปรเจกต์                            [string] [required]
+      --playground  เปิดใช้งาน graphql playground                          [boolean]
       --output-fmt  พิมพ์ log ในรูปแบบ json หรือ plain text
                       [string] [ตัวเลือก: "json", "colored"] [ค่าเริ่มต้น: "colored"]
       --log-level   ระบุ log level เพื่อพิมพ์
-          [string] [ตัวเลือก: "fatal", "error", "warn", "info", "debug", "trace",
+          [string] [Choices: "fatal", "error", "warn", "info", "debug", "trace",
                                                      "silent"] [ค่าเริ่มต้น: "info"]
-      --log-path    Path เพื่อสร้างไฟล์ log ได้แก่ /src/name.log          [string]
-      --log-rotate  เปลี่ยนไฟล์ log ในไดเร็กทอรี่ที่ระบุด้วย log-path
+      --log-path    Path เพื่อสร้าง log file ได้แก่ /src/name.log          [string]
+      --log-rotate  เปลี่ยน log files ในไดเร็กทอรี่ที่ระบุด้วย log-path
                                                       [boolean] [ค่าเริ่มต้น: false]
       --indexer     Url ที่อนุญาตให้การเรียงข้อมูล สามารถเข้าถึง metadata ของ indexer  [string]
       --unsafe      Disable limits on query depth and allowable number returned
@@ -324,7 +324,7 @@ subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot
 
 ### -n, --name
 
-Flag นี้ใช้เพื่อเริ่มบริการเรียงข้อมูล หากไม่มีการตั้งค่าสถานะ --subquery-name เมื่อทำการรัน indexer ชื่อที่ปรากฎจะหมายถึงชื่อโปรเจ็กเริ่มต้น หากมีการตั้งค่า --subquery-name ชื่อที่นี่ควรตรงกับที่ตั้งไว้
+Flag นี้ใช้เพื่อเริ่มบริการ query service หากไม่มีการตั้งค่า --subquery-name เมื่อทำการรัน indexer ชื่อที่ปรากฎนี้จะหมายถึงชื่อโปรเจกต์เริ่มต้น หากมีการตั้งค่า --subquery-name ชื่อที่ปรากฏนี้ควรตรงกับที่ตั้งไว้
 
 ```shell
 > subql-node -f . // --subquery-name not set
@@ -335,7 +335,7 @@ Flag นี้ใช้เพื่อเริ่มบริการเรี
 ```shell
 > subql-node -f . --subquery-name=hiworld // --subquery-name set
 
-> subql-query -n hiworld --playground  // เป็นชื่อที่แสดงถึงโปรเจ็ก subql-helloworld แต่ใช้ชื่อว่า hiworld
+> subql-query -n hiworld --playground  // เป็นชื่อที่แสดงถึงโปรเจกต์ subql-helloworld แต่ใช้ชื่อว่า hiworld
 ```
 
 ### --playground
@@ -344,11 +344,11 @@ Flag นี้เป็นการเปิดใช้งาน graphql playgr
 
 ### --output-fmt
 
-อ่าน [--output-fmt](https://doc.subquery.network/references/references.html#output-fmt)
+See [--output-fmt](https://doc.subquery.network/references/references.html#output-fmt)
 
 ### --log-level
 
-อ่าน [--log-level](https://doc.subquery.network/references/references.html#log-level)
+See [--log-level](https://doc.subquery.network/references/references.html#log-level)
 
 ### --log-path
 
