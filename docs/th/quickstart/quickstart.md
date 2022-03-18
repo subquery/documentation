@@ -41,14 +41,14 @@ subql init PROJECT_NAME
 
 เมื่อเราทำการสร้างโปรเจ็กต์ SubQuery จะมีรายละเอียดให้กรอกคือ:
 
-- เครือข่าย: เครือข่ายบล๊อคเชนที่โปรเจกต์ SubQuery นี้จะถูกพัฒนาเพื่อเป็น index
-- Template: Select a SubQuery project template that will provide a starting point to begin development
-- Git repository (Optional): Provide a Git URL to a repo that this SubQuery project will be hosted in (when hosted in SubQuery Explorer)
-- RPC endpoint (Required): Provide a websocket (wss) URL to a running RPC endpoint that will be used by default for this project. You can quickly access public endpoints for different Polkadot networks or even create your own private dedicated node using [OnFinality](https://app.onfinality.io) or just use the default Polkadot endpoint. This RPC node must be an archive node (have the full chain state).
-- Authors (Required): Enter the owner of this SubQuery project here
-- Description (Optional): You can provide a short paragraph about your project that describe what data it contains and what users can do with it
-- Version (Required): Enter a custom version number or use the default (`1.0.0`)
-- License (Required): Provide the software license for this project or accept the default (`Apache-2.0`)
+- Network: เครือข่ายบล๊อคเชนที่โปรเจกต์ SubQuery นี้จะถูกพัฒนาเพื่อเป็น index
+- Template: เลือกเทมเพลตโปรเจกต์ SubQuery ที่จะให้จุดเริ่มต้นเพื่อเริ่มการพัฒนา
+- Git repository (ไม่บังคับ): ระบุ Git URL ไปยัง repo ที่จะโฮสต์โปรเจกต์ SubQuery นี้ (เมื่อโฮสต์ใน SubQuery Explorer)
+- RPC endpoint (จำเป็น): ระบุ websocket (wss) URL ไปยัง RPC endpoint ที่จะใช้เป็นค่าเริ่มต้นของโปรเจกต์นี้ คุณสามารถเข้าถึง endpoint สาธารณะได้อย่างรวดเร็วสำหรับเครือข่าย Polkadot หรือแม้แต่สร้างโหนดส่วนตัวเฉพาะของคุณเองโดยใช้ [OnFinality](https://app.onfinality.io) หรือเพียงแค่ใช้ Polkadot endpoint ที่เป็นค่าเริ่มต้น RPC โหนดนี้ต้องเป็นโหนดถาวร (มี full chain state)
+- Authors (จำเป็น): กรอกชื่อเจ้าของโปรเจกต์ SubQuery นี้ที่นี่
+- Description (ไม่บังคับ): คุณสามารถระบุข้อความสั้นๆ เกี่ยวกับโปรเจกต์ของคุณซึ่งอธิบายว่ามีข้อมูลใดบ้างและผู้ใช้สามารถทำอะไรกับมันได้บ้าง
+- Version (จำเป็น): ระบุหมายเลขเวอร์ชันที่กำหนดเองหรือใช้ค่าเริ่มต้น (`1.0.0`)
+- License (จำเป็น): ระบุใบอนุญาตซอฟต์แวร์สำหรับโปรเจกต์นี้หรือใช้ค่าเริ่มต้น (`Apache-2.0`)
 
 หลังจากกระบวนการในการเริ่มต้นเสร็จสมบูรณ์ คุณควรเห็นโฟลเดอร์ที่มีชื่อโปรเจ็กต์ของคุณถูกสร้างขึ้นภายในไดเร็กทอรี เนื้อหาของไดเร็กทอรีนี้ควรเหมือนกับที่ระบุไว้ใน [Directory Structure](../create/introduction.md#directory-structure)
 
