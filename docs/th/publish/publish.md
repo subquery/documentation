@@ -13,7 +13,7 @@
 
 มีสองวิธีที่คุณจะสามารถโฮสต์โปรเจกต์ SubQuery ของคุณก่อนทำการเผยแพร่
 
-**GitHub**: โปรเจกต์ของคุณต้องอยู่ใน GitHub repository แบบสาธารณะ
+**GitHub**: codebase โปรเจกต์ของคุณต้องอยู่ใน GitHub repository แบบสาธารณะ
 
 **IPFS**: โปรเจกต์ของคุณสามารถจัดเก็บอยู่ในรูปแบบ IPFS, คุณสามารถดูคู่มือสำหรับการโฮสต์ IPFS ได้ที่ [การเผยแพร่แบบ IPFS](ipfs.md)
 
@@ -31,7 +31,7 @@
 
 ![Projects Login](/assets/img/projects-dashboard.png)
 
-ถ้าคุณมีบัญชี GitHub Organization ที่เชื่อมต่อแล้ว คุณสามารถใช้ switcher ที่อยู่ด้านบนเพื่อเปลี่ยนระหว่างบัญชีส่วนตัวและบัญชี GitHub Organization ของคุณ โปรเจ็กต์ที่สร้างในบัญชี GitHub Organization สามารถแบ่งปันกันระหว่างสมาชิกภายในองค์กรได้ ในการเชื่อมต่อบัญชี GitHub Organization [คุณสามารถทำตามขั้นนี้](#add-github-organization-account-to-subquery-projects)
+ถ้าคุณมีบัญชี GitHub Organization ที่เชื่อมต่อแล้ว คุณสามารถใช้ switcher ที่อยู่ด้านบนเพื่อเปลี่ยนระหว่างบัญชีส่วนตัวและบัญชี GitHub Organization ของคุณ โปรเจกต์ที่สร้างในบัญชี GitHub Organization สามารถแบ่งปันกันระหว่างสมาชิกภายในองค์กรได้ ในการเชื่อมต่อบัญชี GitHub Organization [คุณสามารถทำตามขั้นนี้](#add-github-organization-account-to-subquery-projects)
 
 ![สลับระหว่างบัญชี GitHub](/assets/img/projects-account-switcher.png)
 
@@ -45,7 +45,7 @@
 - **คำอธิบาย**
 - **GitHub Repository URL:** ต้องเป็น GitHub URL ที่ใช้งานได้ซึ่งชี้ไปยัง repository สาธารณะที่มีโปรเจกต์ SubQuery ของคุณ ไฟล์ `schema.graphql` ต้องอยู่ในไดเร็กทอรีเริ่มต้นของคุณ ([เรียนรู้เพิ่มเติมเกี่ยวกับโครงสร้างไดเร็กทอรี](../create/introduction.md#directory-structure))
 - **ฐานข้อมูล:** ลูกค้าระดับพรีเมียมสามารถเข้าถึงฐานข้อมูลเฉพาะเพื่อโฮสต์โปรเจกต์ SubQuery หากคุณสนใจ คุณสามารถติดต่อ [sales@subquery.network](mailto:sales@subquery.network) เพื่อเปิดการตั้งค่านี้
-- **Deployment Source:** คุณสามารถเลือกที่จะปรับใช้โปรเจกต์จาก GitHub repository หรือปรับใช้จาก IPFS CID ดูคำแนะนำของเราเกี่ยวกับ [การโฮสต์กับ IPFS.](ipfs.md)
+- **Deployment Source:** คุณสามารถเลือกที่จะ deploy โปรเจกต์จาก GitHub repository หรือปรับใช้จาก IPFS CID ดูคำแนะนำของเราเกี่ยวกับ [การโฮสต์กับ IPFS.](ipfs.md)
 - **ซ่อนโปรเจกต์:** หากเลือก จะเป็นการซ่อนจาก SubQuery explorer สาธารณะ อย่าเลือกตัวเลือกนี้ หากคุณต้องการแบ่งปัน SubQuery ของคุณแก่คอมมูนิตี้! ![สร้างโปรเจกต์แรกของคุณ](/assets/img/projects-create.png)
 
 สร้างโปรเจกต์ของคุณ แล้วคุณจะเห็นบนรายการของโปรเจกต์ SubQuery _เราเกือบจะถึงแล้ว! เราแค่ต้องทำการปรับใช้เป็นเวอร์ชันใหม่_
@@ -54,14 +54,14 @@
 
 ### Deploy เวอร์ชันแรกของคุณ
 
-ขณะสร้างโปรเจกต์จะมีการตั้งค่าลักษณะการแสดงผลของโปรเจ็กต์ คุณต้องปรับใช้เวอร์ชันของโปรเจกต์ก่อนที่จะดำเนินการได้ การปรับใช้เวอร์ชันจะทริกเกอร์การทำ SubQuery indexing ใหม่ให้เริ่มต้น และทำการตั้งค่า query service ที่จำเป็นเพื่อเริ่มยอมรับคำขอของ GraphQL คุณยังสามารถ deploy โปรเจกต์เวอร์ชันใหม่บนนี้ได้
+ขณะสร้างโปรเจกต์จะมีการตั้งค่าลักษณะการแสดงผลของโปรเจ็กต์ คุณต้อง deploy เวอร์ชันของโปรเจกต์ก่อนที่จะดำเนินการได้ การ deploy เวอร์ชันจะทริกเกอร์การทำ SubQuery indexing ใหม่ให้เริ่มต้น และทำการตั้งค่า query service ที่จำเป็นเพื่อเริ่มยอมรับคำขอของ GraphQL คุณยังสามารถ deploy โปรเจกต์เวอร์ชันใหม่บนนี้ได้
 
-ที่โปรเจกต์ใหม่ของคุณ คุณจะเห็นปุ่ม Deploy New Version ให้กดคลิกที่นั้น และกรอกข้อมูลที่จำเป็นเกี่ยวกับการ deploy:
+ที่โปรเจกต์ใหม่ของคุณ คุณจะเห็นปุ่ม Deploy New Version ให้กดคลิก และกรอกข้อมูลที่จำเป็นเกี่ยวกับการ deploy:
 
-- **หมวดย่อย:** จาก GitHub เลือกหมวดย่อยของโปรเจกต์ที่คุณต้องการที่จะ deploy
+- **Branch:** จาก GitHub เลือกหมวดย่อยของโปรเจกต์ที่คุณต้องการที่จะ deploy
 - **Commit Hash:** จาก GitHub เลือกคอมมิตเฉพาะเวอร์ชันของ codebase โปรเจกต์ SubQuery ของคุณที่คุณต้องการ deploy
 - **IPFS:** ถ้าการ deploy จาก IPFS วาง IPFS deployment CID ของคุณ (โดยไม่ต้องใช้ `ipfs://`)
-- **Override Network and Dictionary Endpoints:** You can override the endpoints in your project manifest here
+- **Override Network and Dictionary Endpoints:** กำหนดค่า endpoints ที่โปรเจคของคุณต้องการจะใช้
 - **Indexer Version:** คือเวอร์ชันของ node service ของ SubQuery ที่คุณต้องการรัน SubQuery ดูได้ที่ [`@subql/node`](https://www.npmjs.com/package/@subql/node)
 - **Query Version:** คือเวอร์ชันของ query service ของ SubQuery ที่คุณต้องการรัน SubQuery ดูได้ที่ [`@subql/query`](https://www.npmjs.com/package/@subql/query)
 
