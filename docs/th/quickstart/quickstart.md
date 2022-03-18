@@ -41,7 +41,7 @@ subql init PROJECT_NAME
 
 เมื่อเราทำการสร้างโปรเจ็กต์ SubQuery จะมีรายละเอียดให้กรอกคือ:
 
-- Network: A blockchain network that this SubQuery project will be developed to index
+- เครือข่าย: เครือข่ายบล๊อคเชนที่โปรเจกต์ SubQuery นี้จะถูกพัฒนาเพื่อเป็น index
 - Template: Select a SubQuery project template that will provide a starting point to begin development
 - Git repository (Optional): Provide a Git URL to a repo that this SubQuery project will be hosted in (when hosted in SubQuery Explorer)
 - RPC endpoint (Required): Provide a websocket (wss) URL to a running RPC endpoint that will be used by default for this project. You can quickly access public endpoints for different Polkadot networks or even create your own private dedicated node using [OnFinality](https://app.onfinality.io) or just use the default Polkadot endpoint. This RPC node must be an archive node (have the full chain state).
