@@ -4,8 +4,8 @@
 
 - เราจะรันโปรเจกต์ SubQuery ให้กับคุณด้วยบริการที่มีประสิทธิภาพสูง สามารถปรับขนาดได้ และมีการจัดการแบบบริการสาธารณะ
 - บริการนี้มอบให้กับคอมมูนิตี้ฟรี!
-- คุณสามารถกำหนดให้โปรเจ็กต์ของคุณเป็นแบบสาธารณะเพื่อให้ลิสต์อยู่ใน [SubQuery Explorer](https://explorer.subquery.network) และทุกคนทั่วโลกสามารถดูได้
-- เราผสานรวมกับ GitHub ดังนั้นทุกคนใน GitHub organisations ของคุณจะสามารถดูโปรเจ็กต์ขององค์กรที่ใช้ร่วมกันได้
+- คุณสามารถกำหนดให้โปรเจกต์ของคุณเป็นแบบสาธารณะเพื่อให้ลิสต์อยู่ใน [SubQuery Explorer](https://explorer.subquery.network) และทุกคนทั่วโลกสามารถดูได้
+- เราผสานรวมกับ GitHub ดังนั้นทุกคนใน GitHub organisations ของคุณจะสามารถดูโปรเจกต์ขององค์กรที่ใช้ร่วมกันได้
 
 ## สร้างโปรเจกต์แรกของคุณใน SubQuery Projects
 
@@ -15,7 +15,7 @@
 
 **GitHub**: โปรเจกต์ของคุณต้องอยู่ใน GitHub repository แบบสาธารณะ
 
-**IPFS**: โปรเจกต์ของคุณสามารถจัดเก็บอยู่ในรูปแบบ IPFS, คุณสามารถดูคู่มือสำหรับการโอสต์ IPFS ได้ที่ [การเผยแพร่แบบ IPFS](ipfs.md)
+**IPFS**: โปรเจกต์ของคุณสามารถจัดเก็บอยู่ในรูปแบบ IPFS, คุณสามารถดูคู่มือสำหรับการโฮสต์ IPFS ได้ที่ [การเผยแพร่แบบ IPFS](ipfs.md)
 
 ### เข้าสู่ระบบ SubQuery Projects
 
@@ -27,23 +27,23 @@
 
 ![Revoke approval from a GitHub account](/assets/img/project_auth_request.png)
 
-SubQuery Projects is where you manage all your hosted projects uploaded to the SubQuery platform. You can create, delete, and even upgrade projects all from this application.
+โปรเจกต์ SubQuery คือที่ที่คุณสามารถจัดการทุกโฮสต์โปรเจกต์ที่คุณอัพโหลดไปที่แพลตฟอร์ม SubQuery คุณสามารถสร้าง ลบ และอัปเกรด ทุกโปรเจกต์จากแอปพลิเคชันนี้
 
 ![Projects Login](/assets/img/projects-dashboard.png)
 
-If you have a GitHub Organization accounts connected, you can use the switcher on the header to change between your personal account and your GitHub Organization account. Projects created in a GitHub Organization account are shared between members in that GitHub Organization. To connect your GitHub Organization account, you can [follow the steps here](#add-github-organization-account-to-subquery-projects).
+ถ้าคุณมีบัญชี GitHub Organization ที่เชื่อมต่อแล้ว คุณสามารถใช้ "การสลับ" ที่อยู่ด้านบนเพื่อเปลี่ยนระหว่างบัญชีส่วนตัวและบัญชี GitHub Organization ของคุณ โปรเจ็กต์ที่สร้างในบัญชี GitHub Organization สามารถแบ่งปันกันระหว่างสมาชิกภายในองค์กรได้ ในการเชื่อมต่อบัญชี GitHub Organization [คุณสามารถทำตามขั้นนี้](#add-github-organization-account-to-subquery-projects)
 
 ![Switch between GitHub accounts](/assets/img/projects-account-switcher.png)
 
-### Create your First Project
+### สร้างโปรเจกต์แรกของคุณ
 
-Let's start by clicking on "Create Project". You'll be taken to the New Project form. Please enter the following (you can change this in the future):
+เริ่มต้นด้วยการคลิกที่ "Create Project" คุณจะถูกนำไปที่แบบฟอร์มการสร้างโปรเจกต์ใหม่ กรุณากรอกข้อมูลตามนี้ (สามารถเปลี่ยนแปลงได้ในอนาคต):
 
-- **บัญชี GitHub:** หากคุณมีบัญชี GitHub มากกว่าหนึ่งบัญชี ให้เลือกบัญชีที่จะใช้สร้างโปรเจ็กต์นี้ โปรเจ็กต์ที่สร้างขึ้นในบัญชี GitHub organisation จะถูกแชร์ระหว่างสมาชิกใน organisation นั้นๆ โปรเจ็กต์ที่สร้างในบัญชี Github แบบองค์กร สามารถแบ่งปันกันระหว่างสมาชิกภายในองค์กรได้
+- **บัญชี GitHub:** หากคุณมีบัญชี GitHub มากกว่าหนึ่งบัญชี ให้เลือกบัญชีที่จะใช้สร้างโปรเจ็กต์นี้ โปรเจกต์ที่สร้างในบัญชี GitHub organisation สามารถแบ่งปันกันระหว่างสมาชิกภายในองค์กรได้
 - **ชื่อโปรเจกต์**
 - **ชื่อรอง (Subtitle)**
 - **คำอธิบาย**
-- **GitHub Repository URL:** ต้องเป็น GitHub URL ที่ใช้งานได้ซึ่งชี้ไปยัง repository สาธารณะที่มีโปรเจกต์ SubQuery ของคุณ และไฟล์ `schema.graphql` ต้องอยู่ในไดเรกทอรีเริ่มต้นของคุณ ([เรียนรู้เพิ่มเติมเกี่ยวกับโครงสร้างไดเรกทอรี](../create/introduction.md#directory-structure)) ไฟล์ schema.graphql ต้องอยู่ในไดเร็กทอรีเริ่มต้นของคุณ (เรียนรู้เพิ่มเติมเกี่ยวกับโครงสร้างไดเร็กทอรี)
+- **GitHub Repository URL:** ต้องเป็น GitHub URL ที่ใช้งานได้ซึ่งชี้ไปยัง repository สาธารณะที่มีโปรเจกต์ SubQuery ของคุณ ไฟล์ `schema.graphql` ต้องอยู่ในไดเร็กทอรีเริ่มต้นของคุณ ([เรียนรู้เพิ่มเติมเกี่ยวกับโครงสร้างไดเร็กทอรี](../create/introduction.md#directory-structure))
 - **ฐานข้อมูล:** ลูกค้าพรีเมียมจะสามารถเข้าถึงฐานข้อมูลเฉพาะ ที่จะใช้โอสต์สำหรับโปรเจกต์ระดับ Production หากคุณสนใจ คุณสามารถติดต่อ  [sales@subquery.network](mailto:sales@subquery.network) เพื่อเปิดการตั้งค่านี้
 - **Deployment Source:** You can choose to have the project deployed from the GitHub repository or alternatively deployed from a IPFS CID, see our guide about [hosting with IPFS.](ipfs.md)
 - **Hide project:** หากเลือก จะเป็นการซ่อนจาก SubQuery explorer สาธารณะ อย่าเลือกตัวเลือกนี้หากคุณต้องการแชร์ SubQuery ของคุณกับคอมมูนิตี้! อย่าเลือกตัวเลือกนี้ หากคุณต้องการแบ่งปัน SubQuery ของคุณแก่คอมมูนิตี้! ![Create your first Project](/assets/img/projects-create.png)
