@@ -10,9 +10,9 @@
 2. อัพเดท Manifest File (`project.yaml`) เพื่อใส่ข้อมูลที่เกี่ยวกับ Blockchain และ Entity ที่คุณจะทำการ Map โปรดดูที่ [Manifest File](./manifest.md)
 3. สร้าง Entity ของ GraphQL ภายใน Schema ของคุณ (`schema.graphql`) เพื่อกำหนดโครงสร้างของข้อมูลที่คุณจะดึงข้อมูลออกมา โปรดดูที่ [GraphQL Schema](./graphql.md)
 4. เพิ่ม Mapping Function ทั้งหมด (ตัวอย่าง `mappingHandlers.ts`) ที่คุณจะเรียกใช้เพื่อแปลงข้อมูลที่อยู่บน Chain ให้เป็นของ Entity ของ GraphQL ที่คุณได้กำหนดไว้ โปรดดูที่ [Mapping](./mapping.md)
-5. การสร้างและเผยแพร่ Code ของคุณไปยัง SubQuery Projects (หรือรันอยู่บนเครื่องของคุณเอง) - โปรดดู [Running and Querying your Starter Project](./quickstart.md#running-and-querying-your-starter-project) ที่อยู่ใน Quick Start Guide
+5. การสร้างและเผยแพร่โค้ดของคุณไปยังโปรเจกต์ SubQuery (หรือรันอยู่บนโหนดของคุณเอง) โปรดดูที่ [Running and Querying your Starter Project](./quickstart.md#running-and-querying-your-starter-project) ที่อยู่ใน Quick Start Guide
 
-## Directory Structure
+## โครงสร้างของไดเร็กทอรี (Directory Structure)
 
 จากการเชื่อมโยงที่กำหนด จะเห็นภาพรวมของโครงสร้างโฟลเดอร์ที่ใช้ในโปรเจกต์ SubQuery เมื่อเริ่มคำสั่ง `init`
 
