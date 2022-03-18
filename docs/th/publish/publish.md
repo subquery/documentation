@@ -48,34 +48,34 @@
 - **Deployment Source:** คุณสามารถเลือกที่จะปรับใช้โปรเจกต์จาก GitHub repository หรือปรับใช้จาก IPFS CID ดูคำแนะนำของเราเกี่ยวกับ [การโฮสต์กับ IPFS.](ipfs.md)
 - **ซ่อนโปรเจกต์:** หากเลือก จะเป็นการซ่อนจาก SubQuery explorer สาธารณะ อย่าเลือกตัวเลือกนี้ หากคุณต้องการแบ่งปัน SubQuery ของคุณแก่คอมมูนิตี้! ![Create your first Project](/assets/img/projects-create.png)
 
-สร้างโปรเจกต์ของคุณ แล้วคุณจะเห็นบนรายการของโปรเจกต์ SubQuery _We're almost there! We just need to deploy a new version of it._
+สร้างโปรเจกต์ของคุณ แล้วคุณจะเห็นบนรายการของโปรเจกต์ SubQuery _เราเกือบจะถึงแล้ว! เราแค่ต้องทำการปรับใช้เป็นเวอร์ชันใหม่_
 
 ![Created Project with no deployment](/assets/img/projects-no-deployment.png)
 
-### Deploy your first Version
+### Deploy เวอร์ชันแรกของคุณ
 
-While creating a project will setup the display behaviour of the project, you must deploy a version of it before it becomes operational. การ deploy เวอร์ชันจะทริกเกอร์การทำ SubQuery indexing ใหม่ให้เริ่มต้น และทำการตั้งค่า query service ที่จำเป็นเพื่อเริ่มยอมรับ GraphQL requests คุณยังสามารถ deploy โปรเจกต์เวอร์ชันใหม่บนนี้ได้
+ขณะสร้างโปรเจกต์จะมีการตั้งค่าลักษณะการแสดงผลของโปรเจ็กต์ คุณต้องปรับใช้เวอร์ชันของโปรเจกต์ก่อนที่จะดำเนินการได้ การปรับใช้เวอร์ชันจะทริกเกอร์การทำ SubQuery indexing ใหม่ให้เริ่มต้น และทำการตั้งค่า query service ที่จำเป็นเพื่อเริ่มยอมรับคำขอของ GraphQL คุณยังสามารถ deploy โปรเจกต์เวอร์ชันใหม่บนนี้ได้
 
-With your new project, you'll see a Deploy New Version button. Click this, and fill in the required information about the deployment:
+ที่โปรเจกต์ใหม่ของคุณ คุณจะเห็นปุ่ม Deploy New Version ให้กดคลิกที่นั้น และกรอกข้อมูลที่จำเป็นเกี่ยวกับการ deploy:
 
-- **Branch:** From GitHub, select the branch of the project that you want to deploy from
-- **Commit Hash:** From GitHub, select the specific commit of the version of your SubQuery project codebase that you want deployed
-- **IPFS:** If deploying from IPFS, paste you IPFS deployment CID (without the leading `ipfs://`)
+- **หมวดย่อย:** จาก GitHub เลือกหมวดย่อยของโปรเจกต์ที่คุณต้องการที่จะ deploy
+- **Commit Hash:** จาก GitHub เลือกคอมมิตเฉพาะเวอร์ชันของ codebase โปรเจกต์ SubQuery ของคุณที่คุณต้องการ deploy
+- **IPFS:** ถ้าการ deploy จาก IPFS วาง IPFS deployment CID ของคุณ (โดยไม่ต้องใช้ `ipfs://`)
 - **Override Network and Dictionary Endpoints:** You can override the endpoints in your project manifest here
-- **Indexer Version:** คือเวอร์ชันของ node service ของ SubQuery ที่คุณต้องการรัน SubQuery See [`@subql/node`](https://www.npmjs.com/package/@subql/node)
-- **Query Version:** คือเวอร์ชันของ query service ของ SubQuery ที่คุณต้องการรัน SubQuery See [`@subql/query`](https://www.npmjs.com/package/@subql/query)
+- **Indexer Version:** คือเวอร์ชันของ node service ของ SubQuery ที่คุณต้องการรัน SubQuery ดูได้ที่ [`@subql/node`](https://www.npmjs.com/package/@subql/node)
+- **Query Version:** คือเวอร์ชันของ query service ของ SubQuery ที่คุณต้องการรัน SubQuery ดูได้ที่ [`@subql/query`](https://www.npmjs.com/package/@subql/query)
 
 ![Deploy your first Project](https://static.subquery.network/media/projects/projects-first-deployment.png)
 
-If deployed successfully, you'll see the indexer start working and report back progress on indexing the current chain. This process may take time until it reaches 100%.
+หาก deploy ได้สำเร็จ คุณจะเห็น indexer เริ่มทำงานและรายงานความคืบหน้าในการทำ indexing ของ chain ในปัจจุบัน ขั้นตอนนี้อาจใช้เวลาระยะเวลาจนกว่าจะถึง 100%
 
-## ขั้นตอนต่อไป - เชื่อมต่อกับโปรเจ็กต์ของคุณ
+## ขั้นตอนต่อไป - เชื่อมต่อกับโปรเจกต์ของคุณ
 
-เมื่อการ deploy ของคุณเสร็จสมบูรณ์ และ node ของเราได้ทำการ index ข้อมูลของคุณจาก chain แล้ว คุณจะสามารถเชื่อมต่อกับโปรเจ็กต์ผ่าน GraphQL Query endpoint ที่ปรากฎขึ้นมา
+เมื่อการ deploy ของคุณเสร็จสมบูรณ์ และโหนดของเราได้ทำการ index ข้อมูลของคุณจาก chain แล้ว คุณจะสามารถเชื่อมต่อกับโปรเจกต์ผ่าน GraphQL Query endpoint ที่ปรากฎขึ้นมา
 
 ![โปรเจ็กต์ที่กำลัง deploy และ sync แล้ว](/assets/img/projects-deploy-sync.png)
 
-หรือคุณสามารถคลิกที่จุดสามจุดถัดจากชื่อโปรเจ็กต์ของคุณ แล้วดูใน SubQuery Explorer There you can use the in-browser playground to get started - [read more about how to use our Explorer here](../query/query.md).
+หรือคุณสามารถคลิกที่จุดสามจุดถัดจากชื่อโปรเจกต์ของคุณ แล้วดูใน SubQuery Explorer There you can use the in-browser playground to get started - [read more about how to use our Explorer here](../query/query.md).
 
 ![โปรเจ็กต์ใน SubQuery Explorer](/assets/img/projects-explorer.png)
 
