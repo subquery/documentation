@@ -44,11 +44,11 @@
 - **ชื่อรอง (Subtitle)**
 - **คำอธิบาย**
 - **GitHub Repository URL:** ต้องเป็น GitHub URL ที่ใช้งานได้ซึ่งชี้ไปยัง repository สาธารณะที่มีโปรเจกต์ SubQuery ของคุณ ไฟล์ `schema.graphql` ต้องอยู่ในไดเร็กทอรีเริ่มต้นของคุณ ([เรียนรู้เพิ่มเติมเกี่ยวกับโครงสร้างไดเร็กทอรี](../create/introduction.md#directory-structure))
-- **ฐานข้อมูล:** ลูกค้าพรีเมียมจะสามารถเข้าถึงฐานข้อมูลเฉพาะ ที่จะใช้โอสต์สำหรับโปรเจกต์ระดับ Production หากคุณสนใจ คุณสามารถติดต่อ  [sales@subquery.network](mailto:sales@subquery.network) เพื่อเปิดการตั้งค่านี้
-- **Deployment Source:** You can choose to have the project deployed from the GitHub repository or alternatively deployed from a IPFS CID, see our guide about [hosting with IPFS.](ipfs.md)
-- **Hide project:** หากเลือก จะเป็นการซ่อนจาก SubQuery explorer สาธารณะ อย่าเลือกตัวเลือกนี้หากคุณต้องการแชร์ SubQuery ของคุณกับคอมมูนิตี้! อย่าเลือกตัวเลือกนี้ หากคุณต้องการแบ่งปัน SubQuery ของคุณแก่คอมมูนิตี้! ![Create your first Project](/assets/img/projects-create.png)
+- **ฐานข้อมูล:** ลูกค้าระดับพรีเมียมสามารถเข้าถึงฐานข้อมูลเฉพาะเพื่อโฮสต์โปรเจกต์ SubQuery หากคุณสนใจ คุณสามารถติดต่อ [sales@subquery.network](mailto:sales@subquery.network) เพื่อเปิดการตั้งค่านี้
+- **Deployment Source:** คุณสามารถเลือกที่จะปรับใช้โปรเจกต์จาก GitHub repository หรือปรับใช้จาก IPFS CID ดูคำแนะนำของเราเกี่ยวกับ [การโฮสต์กับ IPFS.](ipfs.md)
+- **ซ่อนโปรเจกต์:** หากเลือก จะเป็นการซ่อนจาก SubQuery explorer สาธารณะ อย่าเลือกตัวเลือกนี้ หากคุณต้องการแบ่งปัน SubQuery ของคุณแก่คอมมูนิตี้! ![Create your first Project](/assets/img/projects-create.png)
 
-Create your project and you'll see it on your SubQuery Project's list. _We're almost there! We just need to deploy a new version of it._
+สร้างโปรเจกต์ของคุณ แล้วคุณจะเห็นบนรายการของโปรเจกต์ SubQuery _We're almost there! We just need to deploy a new version of it._
 
 ![Created Project with no deployment](/assets/img/projects-no-deployment.png)
 
