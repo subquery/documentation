@@ -17,21 +17,21 @@
   validate  проверете папка или github репо дали проект е валидиран
 ```
 
-### build
+### изграждане
 
 Тази команда използва webpack за създаване на пакет за проекта subquery.
 
 | Опции              | Описание                                                                                                   |
 | ------------------ | ---------------------------------------------------------------------------------------------------------- |
-| -l, --location     | local folder of subquery project (if not in folder already)                                                |
-| -o, --output       | specify output folder of build e.g. build-folder                                                           |
+| -l, --location     | локална папка на проекта subquery (ако все още не сте в папка)                                             |
+| -o, --output       | посочете изходната папка на build например build-folder                                                    |
 | --mode=(production | prod                                                        | development | dev) | [ default: production ] |
 
-- With `subql build` you can specify additional entry points in exports field although it will always build `index.ts` automatically
+- С помощта на `subql build` можете да посочите допълнителни входни точки в полето за експортиране, въпреки че то постоянно ще се изгражда `index.ts` автоматично
 
-- You need to have @subql/cli v0.19.0 or above to use exports field.
+- Трябва да притежавате версия @subql/cli v0.19.0 или по-висока за да използвате полето за експортране.
 
-- Any `exports` field must map to string type (e.g. `"entry": "./src/file.ts"`), else it will be ignored from build.
+- Всяко поле `exports` трябва да съответства на типа (напр. `"entry": "./src/file.ts"`), или ще бъде игнорирано при изграждането.
 
 [Futher example](https://doc.subquery.network/create/introduction/#build).
 
@@ -86,7 +86,7 @@ Options:
 
 ### --version
 
-This displays the current version.
+Това показва текущата версия.
 
 ```shell
 > subql-node --version
@@ -95,7 +95,7 @@ This displays the current version.
 
 ### -f, --subquery
 
-Use this flag to start the SubQuery project.
+Използвайте този флаг, за да стартирате проекта SubQuery.
 
 ```shell
 subql-node -f . // OR
@@ -114,12 +114,12 @@ subql-node -f . --subquery-name=test2
 
 Всички тези различни конфигурации могат да бъдат позиционирани във файла .yml или .json, към който ще препращат след това чрез конфигурационен флаг.
 
-Sample subquery_config.yml file:
+Пример на subquery_config.yml файл:
 
 ```shell
 subquery: . // Mandatory. Това е локалният път на проекта. Точката тук означава текущата локална директория.
-subqueryName: hello // Optional name
-batchSize: 55 // Optional config
+subqueryName: hello // Име по избор
+batchSize: 55 // Незадължителна конфигурация
 ```
 
 Поставете този файл в същата директория, в която се намира и проекта. След това в текущата директория на проекта стартирайте:
@@ -136,7 +136,7 @@ batchSize: 55 // Optional config
 subql-node -f . --local
 ```
 
-Имайте предвид, че след като използвате този флаг, премахването му няма да означава, че той ще насочва към друга база данни. За да насочите към друга база данни, ще трябва да създадете НОВА база данни и да промените настройките на env към тази нова база данни. In other words, "export DB_DATABASE=<new_db_here>"
+Имайте предвид, че след като използвате този флаг, премахването му няма да означава, че той ще насочва към друга база данни. За да насочите към друга база данни, ще трябва да създадете НОВА база данни и да промените настройките на env към тази нова база данни. С други думу, "export DB_DATABASE=<new_db_here>"
 
 ### --force-clean
 
@@ -217,14 +217,14 @@ subql-node -f . --network-endpoint="wss://polkadot.api.onfinality.io/public-ws"
 
 ```shell
 ERROR Create Subquery project from given path failed! Error: failed to parse project.yaml.
-An instance of ProjectManifestImpl has failed the validation:
+Пример на ProjectManifestImpl не е преминал валидирането:
  - property network has failed the following constraints: isObject
  - property network.network has failed the following constraints: nestedValidation
 ```
 
 ### --output-fmt
 
-There are two different terminal output formats. JSON or colored. Colored е значение по подразбиране и съдържа цветен текст.
+Има два различни изходни формата на терминала. JSON or colored. Colored е значение по подразбиране и съдържа цветен текст.
 
 ```shell
 > subql-node -f . --output-fmt=json
@@ -256,7 +256,7 @@ There are two different terminal output formats. JSON or colored. Colored е з�
 (node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
 (node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
 (node:24686) [DEP0152] DeprecationWarning: Custom PerformanceEntry accessors are deprecated. Моля, използвайте свойството detail.
-(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
+(node:24686) [PINODEP007] Предупреждение: bindings.level е отхвърлен, вместо това използвайте опцията options.level
 ```
 
 <!-- ### --migrate TBA -->
@@ -269,13 +269,13 @@ There are two different terminal output formats. JSON or colored. Colored е з�
 > subql-node -f . –timestamp-field=false
 ```
 
-This removes the created_at and updated_at columns in the starter_entities table.
+Това премахва колоните created_at и updated_at в таблицата starter_entities.
 
 ### -d, --network-dictionary
 
-This allows you to specify a dictionary endpoint which is a free service that is provided and hosted at: [https://explorer.subquery.network/](https://explorer.subquery.network/) (search for dictionary) and presents an API endpoint of: https://api.subquery.network/sq/subquery/dictionary-polkadot
+Това ви позволява да посочите крайна точка на речника, безплатна услуга, която се предоставя и разполага на:[https://explorer.subquery.network/](https://explorer.subquery.network/) (search for dictionary) и представлява крайната точка на API: https://api.subquery.network/sq/subquery/dictionary-polkadot
 
-Typically this would be set in your manifest file but below shows an example of using it as an argument in the command line.
+Обикновено това ще бъде зададено във вашия манифест файл, по-долу е показан пример за използването му като аргумент в командния ред.
 
 ```shell
 subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot"
@@ -327,9 +327,9 @@ Options:
 Този флаг се използва за стартиране на услуга за заявки. Ако --subquery-name флагът не се предоставя при стартирането на индексатора, името тук ще се отнася до името на проекта по подразбиране. Ако --subquery-name е указано, тогава името тук трябва да съответства на зададеното.
 
 ```shell
-> subql-node -f . // --subquery-name not set
+> subql-node -f . // --subquery-не е установено
 
-> subql-query -n subql-helloworld  --playground // the name defaults to the project directory name
+> subql-query -n subql-helloworld  --playground // името по подразбиране е името на директорията на проекта
 ```
 
 ```shell
@@ -348,7 +348,7 @@ See [--output-fmt](https://doc.subquery.network/references/references.html#outpu
 
 ### --log-level
 
-See [--log-level](https://doc.subquery.network/references/references.html#log-level)
+Вижте [--log-level](https://doc.subquery.network/references/references.html#log-level)
 
 ### --log-path
 
@@ -366,7 +366,7 @@ See [--log-level](https://doc.subquery.network/references/references.html#log-le
 
 Услугата за заявки има ограничение от 100 обекта за неограничени заявки graphql. Флагът unsafe премахва това ограничение, което може да причини проблеми с производителността на услугата за заявки. Вместо това се препоръчва заявките да бъдат [разделени на страници](https://graphql.org/learn/pagination/).
 
-This flag can also be used to enable certain aggregation functions including sum, max, avg and [others](https://github.com/graphile/pg-aggregates#aggregates).
+Този флаг може да се използва и за активиране на определени функции за агрегиране, включително sum, max, avg and [others](https://github.com/graphile/pg-aggregates#aggregates).
 
 Те са деактивирани по подразбиране поради ограничение на обекта.
 
