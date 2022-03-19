@@ -1,27 +1,27 @@
 # Schema ของ GraphQL
 
-## การนิยาม Entities
+## การนิยาม Entity
 
-ไฟล์ `schema.graphql` นั้นนิยาม schema หลายหลายของ GraphQL เนื่องจากวิธีที่ภาษา GraphQL ใช้ในการดึงข้อมูลทำงานนั้น ไฟล์ schema เป็นสิ่งสำคัญที่กำหนดรูปร่างข้อข้อมูลจาก SubQuery เพื่อที่จะเรียนรู้เพิ่มเติมเกี่ยวกับการเขียนภาษาของ GraphQL schema เราแนะนำให้เช็ค [Schema และ Types](https://graphql.org/learn/schema/#type-language)
+ไฟล์ `schema.graphql` นั้นนิยาม Schema ของ GraphQL ที่หลากหลาย เนื่องจากวิธีที่ภาษา GraphQL ใช้ในการดึงข้อมูลทำงานนั้น ไฟล์ Schema เป็นสิ่งสำคัญที่กำหนดรูปร่างข้อข้อมูลจาก SubQuery เพื่อที่จะเรียนรู้เพิ่มเติมเกี่ยวกับการเขียนภาษาของ GraphQL Schema เราแนะนำให้ดูที่ [Schema และ Types](https://graphql.org/learn/schema/#type-language)
 
 **สำคัญ: เมื่อคุณทำการเปลี่ยนแปลงใดๆ กับไฟล์ schema โปรดตรวจสอบให้แน่ใจว่าคุณได้สร้างโฟลเดอร์ types ของคุณใหม่ด้วยคำสั่ง `yarn codegen`**
 
-### Entities
+### Entitiy
 แต่ละ entity ต้องนิยาม fields ที่จำเป็น `id` ด้วย type ของ `ID!` สิ่งนี้จะถูกใช้เป็น primary key และไม่ซ้ำกันกับ entities ทั้งหมดที่มี type เดียวกัน
 
 Field ที่ไม่สามารถปล่อยว่างได้จะมีเครื่องหมาย `!` กำกับไว้ สามารถดูตัวอย่างโค้ดได้ด้านล่าง:
 
 ```graphql
 type Example @entity {
-  id: ID! # id field จะต้องการตลอด และต้องเป็นลักษณะดังนี้
-  name: String! # เป็น field ที่จำเป็น
-  address: String # เป็น field ที่ไม่จำเป็น
+  id: ID! # Id ฟิล์ดจะต้องการตลอด และต้องเป็นลักษณะดังนี้
+  name: String! # เป็นฟิล์ดที่จำเป็น
+  address: String # เป็นฟิล์ดที่ไม่จำเป็น
 }
 ```
 
-### การรองรับ Scalars และ Types
+### Scalar และ Type ที่รองรับ
 
-ขณะนี้เราได้รองรับ scalars types ดังนี้:
+ขณะนี้เรารองรับ Scalars Type ดังนี้:
 - `ID`
 - `Int`
 - `String`
@@ -33,7 +33,7 @@ type Example @entity {
 - `JSON` เป็นอีกหนึ่งทางเลือกสำหรับการจัดเก็บข้อมูลที่เป็นระเบียบ (structured data) สามารถอ่านเพิ่มใน [JSON type](#json-type)
 - `<EnumName>` types เป็นชนิดพิเศษของ enumerated scalar ที่จำกัดแก่เซ็ตค่าจำเพาะที่อนุญาตไว้ โปรอ่านเพิ่มเติมที่ [Graphql Enum](https://graphql.org/learn/schema/#enumeration-types)
 
-## การ Index ด้วย non-primary-key field
+## การ Index ด้วย Non-primary-key Field
 
 เพื่อที่จะพัฒนาความสามารถในการดึงข้อมูล การ index และ entity field อย่างง่ายสามารถทำได้ด้วยการกำกับ `@index` บน non-primary-key field
 
@@ -55,7 +55,7 @@ type Title @entity {
 ```
 สมมุติว่าเรารู้ชื่อของผู้ใช้งานแต่เราไม่รู้ค่า id ที่ถูกต้อง แทนที่จะดึงข้อมูลผู้ใช้งานทั้งหมดและกรองตามชื่อ เราสามารถเพิ่ม `@index` หลัง field ชื่อได้ วิธีนี้ทำให้การดึงข้อมูลนั้นเร็วกว่ามาก และเราสามารถเพิ่ม `unique: true` เพื่อการันตีว่าข้อมูลนั้นไม่เหมือนกัน
 
-**หากแต่ละ field นั้นไม่มีซ้ำกัน จำนวนผลลัพท์สูงสุดจะถูกตั้งไว้ที่ 100**
+**หากแต่ละฟิล์ดนั้นไม่ซ้ำกัน จำนวนผลลัพท์สูงสุดจะถูกตั้งไว้ที่ 100**
 
 เมื่อการสร้างโค้ดนั้นเริ่มต้นรันแล้ว `getByName` จะถูกสร้างขึ้นโดยอัตโนมัติภายใต้ `User` model และ field ของ foreign key `title` จะสร้าง method `getByTitleId` ซึ่งจะทั้งคู่จะสามารถเข้าถึงได้โดยตรงผ่าน mapping function
 
@@ -65,7 +65,7 @@ INSERT INTO titles (id, name) VALUES ('id_1', 'Captain')
 ```
 
 ```typescript
-// Handler ใน mapping function
+// Handler ในฟังก์ชัน Mapping
 import {User} from "../types/models/User"
 import {Title} from "../types/models/Title"
 
@@ -78,11 +78,11 @@ const pirateLords = await User.getByTitleId(captainTitle.id); // รายกา
 
 ## ความสัมพันธ์ของ Entity
 
-Entity น้ันโดนทั่วไปจะเป็นความสัมพันธ์ซ้อน​ (nested relationships) กับ entities อื่นๆ การต้ังค่า field ให้แก่ entity name อื่นจะนิยามความสัมพันธ์แบบ หนึ่ง-ต่อ-หนึ่ง (one-to-one) ระหว่างสอง entities เป็นค่าเริ่มต้น
+Entity นั้นโดยทั่วไปจะเป็นความสัมพันธ์ซ้อน​ (Nested Relationship) กับ Entity อื่นๆ การต้ังค่า field ให้แก่ entity name อื่นจะนิยามความสัมพันธ์แบบ หนึ่ง-ต่อ-หนึ่ง (one-to-one) ระหว่างสอง entities เป็นค่าเริ่มต้น
 
 ความสัมพันธ์ของ entity ที่ต่างกัน (one-to-one, one-to-many, และ many-to-many) สามารถตั้งค่าได้ตากตัวอย่างด้านล่าง
 
-### ความสัมพันธ์แบบ One-to-One
+### ความสัมพันธ์แบบหนึ่งต่อหนึ่ง (One-to-One)
 
 ความสัมพันธ์แบบ One-to-one จะเป็นค่าเริ่มต้นเมื่อมี entity เพียงตัวเดียวเชื่อมโยงกับตัวอื่น
 
@@ -175,7 +175,7 @@ type Transfer @entity {
 }
 ```
 
-### การเรียกดูย้อนกลับ (Reverse Lookups)
+### การเรียกดูย้อนกลับ (Reverse Lookup)
 
 เพื่อที่จะอนุญาตการเรียกดูย้อนกลับบน entity สู่ความสัมพันธ์ ให้แนบ `@derivedFrom` จาก field ที่ชี้ไป field ที่ต้องการจะเรียกดูย้อนกับของ entity อีกตัว
 
@@ -226,11 +226,11 @@ type ContactCard @jsonField {
 
 type User @entity {
   id: ID! 
-  contact: [ContactCard] # เก็บรายการของ JSON objects
+  contact: [ContactCard] # เก็บรายการของ JSON Object
 }
 ````
 
-### การดึงข้อมูลจาก JSON fields
+### การดึงข้อมูลจาก JSON Field
 
 ข้อเสียของการใช้ type ชนิด JSON คือผลกระทบของการดึงข้อมูลที่มีประสิทธิภาพเมื่อมีการกรองมาแล้ว และแต่ละครั้งที่มีการค้นหาตัวอักษร มันจะอยู่บน entity ทั้งหมด
 
