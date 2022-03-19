@@ -104,7 +104,7 @@ subql-node --subquery .
 
 ### --subquery-name (เลิกใช้แล้ว)
 
-Flag นี้อนุญาตให้คุณระบุชื่อสำหรับโปรเจกต์ของคุณ ซึ่งทำหน้าที่เสมือนว่าได้ทำการสร้าง instance ของโปรเจกต์ของคุณ เมื่อมีการระบุชื่อใหม่ schema ของฐานข้อมูลใหม่จะถูกสร้างขึ้น และการซิงโครไนซ์บล็อกจะเริ่มต้นจากศูนย์ เลิกใช้ได้ด้วยคำสั่ง `--db-schema`
+Flag นี้อนุญาตให้คุณระบุชื่อสำหรับโปรเจกต์ของคุณ ซึ่งทำหน้าที่เสมือนว่าได้ทำการสร้าง instance ของโปรเจกต์ของคุณ เมื่อมีการระบุชื่อใหม่ database schemaใหม่จะถูกสร้างขึ้น และการซิงโครไนซ์บล็อกจะเริ่มต้นจากศูนย์ เลิกใช้ได้ด้วยคำสั่ง `--db-schema`
 
 ```shell
 subql-node -f . --subquery-name=test2
@@ -224,7 +224,7 @@ An instance of ProjectManifestImpl has failed the validation:
 
 ### --output-fmt
 
-มีรูปแบบเอาต์พุตของเทอร์มินัลสองแบบที่แตกต่างกัน JSON หรือ colored โดย colored จะเป็นค่าเริ่มต้นและมีข้อความแบบสี
+มีรูปแบบ terminal outputs สองแบบที่แตกต่างกัน JSON หรือ colored โดย colored จะเป็นค่าเริ่มต้นและมีข้อความแบบสี
 
 ```shell
 > subql-node -f . --output-fmt=json
@@ -241,7 +241,7 @@ An instance of ProjectManifestImpl has failed the validation:
 
 ### --log-level
 
-จะมีตัวเลือก 7 อย่างให้เลือก ได้แก่ “fatal”, “error”, “warn”, “info”, “debug”, “trace”, “silent”. ซึ่งตัวอย่างด้านล่างจะแสดงผลของตัวเลือก silent โดยจะไม่มีการพิมพ์สิ่งใดในเทอร์มินัล ดังนั้นวิธีเดียวที่จะบอกได้ว่าโหนดทำงานหรือไม่คือการสืบค้นฐานข้อมูลสำหรับนับจำนวนแถว (select count(\*) from subquery_1.starter_entities) หรือการสืบค้น block height
+จะมีตัวเลือก 7 อย่างให้เลือก ได้แก่ “fatal”, “error”, “warn”, “info”, “debug”, “trace”, “silent”. ซึ่งตัวอย่างด้านล่างจะไม่มีการแสดงผล โดยจะไม่มีการพิมพ์สิ่งใดในเทอร์มินัล ดังนั้นวิธีเดียวที่จะบอกได้ว่าโหนดทำงานหรือไม่คือการสืบค้นฐานข้อมูลสำหรับนับจำนวนแถว (select count(\*) from subquery_1.starter_entities) หรือการสืบค้น block height
 
 ```shell
 > subql-node -f . --log-level=silent
@@ -356,21 +356,21 @@ See [--log-level](https://doc.subquery.network/references/references.html#log-le
 
 ### --log-rotate
 
-เปิดใช้งาน file log rotations ด้วยตัวเลือกช่วงการหมุน 1d สูงสุด 7 ไฟล์และขนาดไฟล์สูงสุด 1GB
+เปิดใช้งาน file log rotations ด้วยตัวเลือก 1d rotation interval สูงสุด 7 ไฟล์และขนาดไฟล์สูงสุด 1GB
 
 ### --indexer
 
-ตั้งค่า Url ที่กำหนดเองสำหรับตำแหน่งของ endpoints ของ indexer โดยบริการจัดเรียงข้อมูลนี้จะใช้ endpoints เหล่านี้สำหรับการแสดงค่าสถานะ indexer metadata และความพร้อม
+ตั้งค่า Url ที่กำหนดเองสำหรับตำแหน่งของ endpoints ของ indexer โดยบริการจัดเรียงข้อมูลนี้จะใช้ endpoints เหล่านี้สำหรับการแสดงค่า indexer health, metadata และ readiness status
 
 ### --unsafe
 
 บริการจัดเรียงข้อมูลมีขีดจำกัด 100 รายการสำหรับการสืบค้นที่ไม่ผูกกับ graphql Flag unsafe จะลบขีดจำกัดนี้ซึ่งอาจทำให้เกิดปัญหาด้านประสิทธิภาพในบริการสืบค้น จึงขอแนะนำว่า ให้ใช้ [ paginated ](https://graphql.org/learn/pagination/) แทน
 
-Flag นี้ยังสามารถใช้เพื่อเปิดใช้งานฟังก์ชันการรวมบางอย่าง รวมถึง sum, max, avg และ [อื่น ๆ](https://github.com/graphile/pg-aggregates#aggregates)
+Flag นี้ยังสามารถใช้เพื่อเปิดใช้งาน certain aggregation functions รวมถึง sum, max, avg และ [อื่น ๆ](https://github.com/graphile/pg-aggregates#aggregates)
 
 สิ่งเหล่านี้ถูกปิดใช้งานโดยค่าเริ่มต้นเนื่องจากขีดจำกัดของเอนทิตี
 
-**โปรดทราบว่า คำสั่ง `--unsafe` จะป้องกันไม่ให้โปรเจ็กของคุณทำงานในเครือข่าย SubQuery และคุณต้องติดต่อฝ่ายสนับสนุน หากต้องการให้คำสั่งนี้รันกับโปรเจ็กของคุณในบริการส่วนของ SubQuery [project.subquery.network](https://project.subquery.network)**
+**โปรดทราบว่า คำสั่ง `--unsafe` จะป้องกันไม่ให้โปรเจกต์ของคุณ runในเครือข่าย SubQuery และคุณต้องติดต่อฝ่ายสนับสนุน หากต้องการให้คำสั่งนี้รันกับโปรเจกต์ของคุณในบริการส่วนของ SubQuery [project.subquery.network](https://project.subquery.network)**
 
 ### --port
 
