@@ -109,7 +109,7 @@ subql-node -f your-project-path --local
 
 เพื่อจุดประสงค์ในการ debug ผู้ใช้สามารถเรียกใช้โหนดในโหมด local ได้ การเปลี่ยนไปใช้โหมด local จะสร้างตาราง Postgres ใน ` public ` ซึ่งเป็น default schema
 
-หากไม่ได้ใช้โหมด local, Postgres schema ใหม่ที่มี `subquery_` เริ่มต้นและตารางโปรเจ็กต์ที่เกี่ยวข้องจะถูกสร้างขึ้น
+หากไม่ได้ใช้โหมด local, Postgres schema ใหม่ที่มี `subquery_` เริ่มต้นและตารางโปรเจกต์ที่เกี่ยวข้องจะถูกสร้างขึ้น
 
 
 #### ตรวจสอบสถานะความสมบูรณ์ของโหนดของคุณ
@@ -163,7 +163,7 @@ subql-node -f your-project-path --local
 }
 ```
 
-#### การ debug โปรเจ็กต์ของคุณ
+#### การ debug โปรเจกต์ของคุณ
 
 ใช้ [node inspector](https://nodejs.org/en/docs/guides/debugging-getting-started/) เพื่อเรียกใช้คำสั่งต่อไปนี้
 
@@ -178,7 +178,7 @@ Debugger listening on ws://127.0.0.1:9229/56156753-c07d-4bbe-af2d-2c7ff4bcc5ad
 For help, see: https://nodejs.org/en/docs/inspector
 Debugger attached.
 ```
-จากนั้นเปิดเครื่องมือ Chrome dev ไปที่ Source > Filesystem และเพิ่มโปรเจ็กต์ของคุณลงในเวิร์กสเปซ แล้วเริ่มการ debug ดูรายละเอียดเพิ่มเติมได้ที่ [วิธี debug โปรเจ็กต์ SubQuery](https://doc.subquery.network/tutorials_examples/debug-projects/)
+จากนั้นเปิดเครื่องมือ Chrome dev ไปที่ Source > Filesystem และเพิ่มโปรเจกต์ของคุณลงในเวิร์กสเปซ แล้วเริ่มการ debug ดูรายละเอียดเพิ่มเติมได้ที่ [วิธี debug โปรเจกต์ SubQuery](https://doc.subquery.network/tutorials_examples/debug-projects/)
 ## การรัน Query Service (subql/query)
 
 ### การติดตั้ง
@@ -193,6 +193,6 @@ npm install -g @subql/query
 ### การรัน Query service
 ``` export DB_HOST=localhost subql-query --name <project_name> --playground ````
 
-ตรวจสอบให้แน่ใจว่าชื่อโปรเจ็กต์นี้ตรงกับชื่อโปรเจ็กต์เมื่อคุณ [เริ่มต้นโปรเจ็กต์](../quickstart/quickstart.md#initialise-the-starter-subquery-project) ตรวจสอบ environment variables ด้วยว่าถูกต้องหรือไม่
+ตรวจสอบให้แน่ใจว่าชื่อโปรเจกต์นี้ตรงกับชื่อโปรเจกต์เมื่อคุณ [เริ่มต้นโปรเจกต์](../quickstart/quickstart.md#initialise-the-starter-subquery-project) ตรวจสอบ environment variables ด้วยว่าถูกต้องหรือไม่
 
 หลังจากรัน service subql-query สำเร็จแล้ว ให้เปิดเบราว์เซอร์ของคุณ แล้วไปที่ `http://localhost:3000` คุณควรเห็น GraphQL playground แสดงใน explorer และ schemas ที่พร้อมสำหรับการ query
