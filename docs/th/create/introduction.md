@@ -82,11 +82,11 @@ yarn codegen
 
 โปรดทราบ ระบบจะสร้าง `index.ts` ไม่ว่าจะมีการระบุไว้ในฟิล์ดหรือไม่
 
-สำหรับข้อมูลเพิ่มเติมเกี่ยวกับการใช้สิ่งนี้รวมถึงข้อมูลสำคัญต่างๆ โปรดดูที่ [การอ้างอิง cli](https://doc.subquery.network/references/references/#build)
+สำหรับข้อมูลเพิ่มเติมเกี่ยวกับการใช้สิ่งนี้รวมถึง Flag ต่างๆ โปรดดูที่ [การอ้างอิง cli](https://doc.subquery.network/references/references/#build)
 
 ## Logging
 
-`console.log` **จะไม่รองรับอีกต่อไป**. ในขณะเดียวกัน โมดูล `logger` จะถูกแทนที่ลงในรูปแบบเดิม ซึ่งหมายความว่าเราสามารถสนับสนุน logger ที่เป็นตัวแปรในรูปแบบต่างๆกันได้
+`console.log` **จะไม่รองรับอีกต่อไป**. แต่โมดูล `logger` จะถูกแทนที่ลงไปแทน ซึ่งหมายความว่าเราสามารถรองรับ logger ที่เป็นตัวแปรในรูปแบบต่างๆ กันได้
 
 ```typescript
 logger.info('Info level message');
@@ -98,12 +98,12 @@ logger.warn('Warning level message');
 
 ![logging.info](/assets/img/logging_info.png)
 
-หากต้องการใช้ `logger.debug` จำเป็นต้องเรียกใช้ flag เพิ่มเติม เพิ่ม `--log-level=debug` ในบรรทัดคำสั่งของคุณ
+หากต้องการใช้ `logger.debug` จำเป็นต้องเรียกใช้ Flag เพิ่มเติม เพิ่ม `--log-level=debug` ในบรรทัดคำสั่งของคุณ
 
-หากคุณกำลังใช้งาน docker container, ให้เพิ่มบรรทัดนี้ในไฟล์ `docker-compose.yaml` ของคุณ
+หากคุณกำลังใช้งาน Docker Container ให้เพิ่มบรรทัดนี้ในไฟล์ `docker-compose.yaml` ของคุณ
 
 ![logging.debug](/assets/img/logging_debug.png)
 
-คุณควรเห็นการบันทึกข้อมูลอันใหม่ในหน้าจอ Terminal
+คุณควรเห็นการบันทึกข้อมูลอันใหม่บน Terminal
 
 ![logging.debug](/assets/img/subquery_logging.png)
