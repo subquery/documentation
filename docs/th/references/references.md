@@ -180,11 +180,11 @@ Flag นี้อนุญาตให้คุณตั้งค่าขนา
 
 ### --timeout
 
-ตั้งค่า timeout แบบกำหนดเองสำหรับ javascript sandbox เพื่อเรียกใช้ฟังก์ชันการแมปบนบล็อก ก่อนที่ฟังก์ชันการแมปบล็อกจะส่งข้อยกเว้นของการ timeout ออก
+ตั้งค่า timeout แบบกำหนดเองสำหรับ javascript sandbox เพื่อเรียกใช้ mapping functions บนบล็อก ก่อนที่ mapping functions จะส่งออก timeout exception
 
 ### --debug
 
-ข้อมูลนี้จะส่งออกข้อมูลการ debug ไปยังเอาต์พุตคอนโซลและบังคับตั้งค่าระดับ log เป็น debug
+ข้อมูลนี้จะส่งออกข้อมูลการ debug ไปยัง console output และบังคับตั้งค่า log level เพื่อ debug
 
 ```shell
 > subql-node -f . --debug
@@ -195,7 +195,7 @@ Flag นี้อนุญาตให้คุณตั้งค่าขนา
 
 ### --profiler
 
-ข้อมูลนี้แสดงข้อมูลตัวสร้างโปรไฟล์
+ข้อมูลนี้แสดง profiler information
 
 ```shell
 subql-node -f . --local --profiler
@@ -207,7 +207,7 @@ subql-node -f . --local --profiler
 
 ### --network-endpoint
 
-Flag นี้อนุญาตให้ผู้ใช้แทนที่การกำหนดค่า endpoint ของเครือข่ายจากไฟล์ manifest
+Flag นี้อนุญาตให้ผู้ใช้ทำการ override endpoint ของเครือข่ายจากไฟล์ manifest
 
 ```shell
 subql-node -f . --network-endpoint="wss://polkadot.api.onfinality.io/public-ws"
