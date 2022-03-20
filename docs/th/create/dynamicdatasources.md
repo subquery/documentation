@@ -1,4 +1,4 @@
-# Dynamic Data Sources
+# Dynamic Data Source
 
 มีหลายกรณีที่คุณไม่ทราบพารามิเตอร์ทั้งหมดสําหรับ Data source เมื่อเริ่มต้นโปรเจกต์ ยกตัวอย่างกรณีนี้ คือ Contact Factory ที่จะมีการสร้าง Contract Instance ใหม่ในภายหลัง  เป็นไปไม่ได้เลยที่จะรู้ว่าจะเป็น Contract Address ใด นี่จึงเป็นจุดที่ Dynamic Data Source เข้ามาแก้ปัญหา
 
