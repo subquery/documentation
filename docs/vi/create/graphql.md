@@ -121,12 +121,12 @@ Ví dụ: Một người (Person) có thể có nhiều tài khoản (accounts).
 ```graphql
 type Person @entity {
   id: ID!
-  accounts: [Account] @derivedFrom(field: "publicAddress") #This is virtual field 
+  accounts: [Account]! @derivedFrom(field: "person") #This is virtual field 
 }
 
 type Account @entity {
   id: ID!
-  publicAddress: String! #This will create a field point to the fk `publicAddress_id`
+  person: Person!
 }
 ```
 
