@@ -128,8 +128,7 @@ type Person @entity {
 
 type Account @entity {
   id: ID!
-  publicAddress: String! 
-  person: Person! #This will create a field point to the fk `person_id`
+  person: Person!
 }
 ```
 
