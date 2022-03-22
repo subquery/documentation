@@ -139,8 +139,6 @@ Ví dụ: Mỗi người (person) là một thành viên của nhiều nhóm (Pe
 type Person @entity {
   id: ID!
   name: String!
-}
-
 type PersonGroup @entity {
   id: ID!
   person: Person!
