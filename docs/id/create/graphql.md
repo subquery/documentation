@@ -121,12 +121,12 @@ Contoh: Seseorang bisa memiliki beberapa akun.
 ```graphql
 type Person @entity {
   id: ID!
-  accounts: [Account] 
+  accounts: [Account] @derivedFrom(field: "publicAddress") #This is virtual field 
 }
 
 type Account @entity {
   id: ID!
-  publicAddress: String!
+  publicAddress: String! #This will create a field point to the fk `publicAddress_id`
 }
 ```
 
@@ -139,7 +139,6 @@ Contoh: Setiap orang merupakan bagian dari beberapa kelompok (PersonGroup) dan k
 type Person @entity {
   id: ID!
   name: String!
-  groups: [PersonGroup]
 }
 
 type PersonGroup @entity {
@@ -151,7 +150,6 @@ type PersonGroup @entity {
 type Group @entity {
   id: ID!
   name: String!
-  persons: [PersonGroup]
 }
 ```
 
