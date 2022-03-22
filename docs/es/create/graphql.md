@@ -130,13 +130,12 @@ Ejemplo: Una persona puede tener múltiples cuentas.
 ```graphql
 type Person @entity {
   id:
-  cuentas: [Account] @derivedFrom(field: "publicAddress") #Este es el campo virtual 
+  accounts: [Account]! @derivedFrom(field: "person") #This is virtual field 
 }
 
 type Account @entity {
   id: ID!
-  ID!
-  owner: #Esto creará un punto de campo al fk `publicAddress_id`
+  person: Person!
 }
 ```
 
