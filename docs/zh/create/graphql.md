@@ -122,12 +122,12 @@ type Passport @entity {
 ```graphql
 type Person @entity {
   id: ID!
-  accounts: [Account] @derivedFrom(field: "publicAddress") # 创建虚拟字段
+  accounts: [Account]! @derivedFrom(field: "person") # 创建虚拟字段
 }
 
 type Account @entity {
   id: ID!
-  publicAddress: String! #创建publicAddress_id 字段
+  person: Person!
 }
 ```
 
