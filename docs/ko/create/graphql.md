@@ -118,12 +118,12 @@ type Passport @entity {
 ```graphql
 type Person @entity {
   id: ID!
-  accounts: [Account] 
+  accounts: [Account] @derivedFrom(field: "publicAddress") #This is virtual field 
 }
 
 type Account @entity {
   id: ID!
-  publicAddress: String!
+  publicAddress: String! #This will create a field point to the fk `publicAddress_id`
 }
 ```
 
@@ -136,7 +136,6 @@ type Account @entity {
 type Person @entity {
   id: ID!
   이름: String!
-  groups: [PersonGroup]
 }
 
 type PersonGroup @entity {
@@ -148,7 +147,6 @@ type PersonGroup @entity {
 type Group @entity {
   id: ID!
   name: String!
-  persons: [PersonGroup]
 }
 ```
 
