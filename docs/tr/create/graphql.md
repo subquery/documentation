@@ -144,12 +144,12 @@ Alan türünün birden çok varlık içerdiğini belirtmek için köşeli ayraç
 ```graphql
 kişi @entity { yazın
   id: Kimlik!
-  accounts: [Account] @derivedFrom(field: "publicAddress") #This is virtual field 
+  accounts: [Account]! @derivedFrom(field: "person") #This is virtual field 
 }
 
 type Account @entity {
   id: ID!
-  publicAddress: Dize! #This will create a field point to the fk `publicAddress_id`
+  kişi: Kişi!
 }
 ```
 
