@@ -121,7 +121,7 @@ Ví dụ: Một người (Person) có thể có nhiều tài khoản (accounts).
 ```graphql
 type Person @entity {
   id: ID!
-  accounts: [Account]! @derivedFrom(field: "person") #This is virtual field 
+  accounts: [Account]! @derivedFrom(field: "person") #Đây là trường ảo
 }
 
 type Account @entity {
