@@ -72,7 +72,7 @@ Veuillez noter ce `CID`. Avec ce `CID`, vous pouvez voir votre projet publié co
 
 Le déploiement IPFS représente une existence indépendante et unique d'un projet SubQuery sur un réseau décentralisé. Par conséquent, toute modification du code du projet affectera son caractère unique. Si vous devez ajuster votre logique commerciale, par exemple modifier la fonction de mappage, vous devez republier le projet, et le `CID` changera.
 
-Pour l'instant, pour visualiser le projet que vous avez publié, utilisez un outil d'api `REST` tel que [Postman](https://web.postman.co/), et utilisez la méthode `POST` avec l'exemple d'URL suivant pour le récupérer. `https://subquery.network/ipfs/api/v0/cat?arg=<YOUR_PROJECT_CID>`
+Pour l'instant, pour visualiser le projet que vous avez publié, utilisez un outil d'api `REST` tel que [Postman](https://web.postman.co/), et utilisez la méthode `POST` avec l'exemple d'URL suivant pour le récupérer. `https://ipfs.subquery.network/ipfs/api/v0/cat?arg=<YOUR_PROJECT_CID>`
 
 Vous devriez voir l'exemple de déploiement de projet ci-dessous :
 
