@@ -73,7 +73,7 @@ SubQuery Project uploaded to IPFS: QmZ3q7YZSmhwBiot4PQCK3c7Z6HkteswN2Py58gkkZ8kN
 
 การปรับใช้ IPFS ทำให้โปรเจกต์ SubQuery มีความเป็นอิสระและไม่ซ้ำใครบนเครือข่ายแบบกระจายอำนาจ ดังนั้นการเปลี่ยนแปลงใด ๆ กับโค้ดในโปรเจกต์จะส่งผลต่อความเป็นเอกลักษณ์ หากคุณต้องการ Business Logic เช่น เปลี่ยน Mapping Function คุณต้องทำการเผยแพร่อีกครั้ง และ `CID` จะเปลี่ยนไป
 
-สำหรับตอนนี้ หากต้องการดูโปรเจกต์ที่คุณเผยแพร่ ให้ใช้เครื่องมือ API `REST` เช่น [Postman](https://web.postman.co/) และใช้ `POST` ด้วย URL ตัวอย่างต่อไปนี้ `https://subquery.network/ipfs/api/v0/cat?arg=<YOUR_PROJECT_CID>`
+สำหรับตอนนี้ หากต้องการดูโปรเจกต์ที่คุณเผยแพร่ ให้ใช้เครื่องมือ API `REST` เช่น [Postman](https://web.postman.co/) และใช้ `POST` ด้วย URL ตัวอย่างต่อไปนี้ `https://ipfs.subquery.network/ipfs/api/v0/cat?arg=<YOUR_PROJECT_CID>`
 
 คุณควรดูตัวอย่างการปรับใช้โปรเจกต์ดังต่อไปนี้:
 
