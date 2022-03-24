@@ -72,7 +72,7 @@ Harap perhatikan `CID` ini. Harap perhatikan `CID` ini
 
 Penyebaran IPFS mewakili keberadaan proyek SubQuery yang independen dan unik pada jaringan yang terdesentralisasi. Oleh karena itu, setiap perubahan dengan kode dalam proyek akan mempengaruhi keunikannya. Jika Anda perlu menyesuaikan logika bisnis Anda, mis. mengubah fungsi pemetaan, Anda harus memublikasikan ulang proyek, dan `CID` akan berubah.
 
-Untuk saat ini, untuk melihat proyek yang telah Anda publikasikan, gunakan alat api `REST` seperti [Tukang Pos](https://web.postman.co/), dan gunakan metode `POST` dengan URL contoh berikut untuk mengambilnya. `https://subquery.network/ipfs/api/v0/cat?arg=<YOUR_PROJECT_CID>`
+Untuk saat ini, untuk melihat proyek yang telah Anda publikasikan, gunakan alat api `REST` seperti [Tukang Pos](https://web.postman.co/), dan gunakan metode `POST` dengan URL contoh berikut untuk mengambilnya. `https://ipfs.subquery.network/ipfs/api/v0/cat?arg=<YOUR_PROJECT_CID>`
 
 Anda akan melihat contoh penerapan proyek seperti di bawah ini:
 
