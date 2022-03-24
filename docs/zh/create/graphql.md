@@ -151,8 +151,6 @@ type Account @entity {
 type Person @entity { 
    id: ID!
   name: String!
-}
-
 type PersonGroup @entity {
   id: ID!
   person: Person!
