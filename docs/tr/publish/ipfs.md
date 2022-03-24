@@ -72,7 +72,7 @@ Lütfen bu `CID` not edin. Bu `CID` ile, yayınlanan projenizi [IPFS Dağıtım�
 
 IPFS dağıtımı, merkezi olmayan bir ağ üzerinde bir SubQuery projesinin bağımsız ve benzersiz bir varlığını temsil eder. Bu nedenle, projedeki kodda yapılacak herhangi bir değişiklik, projenin benzersizliğini etkileyecektir. İş mantığınızı ayarlamanız gerekirse, ör. eşleme işlevini değiştirin, projeyi yeniden yayınlamalısınız ve `CID` değişecektir.
 
-Şimdilik yayınladığınız projeyi görüntülemek için [Postacı](https://web.postman.co/) gibi bir `REST` api aracı kullanın ve aşağıdaki örnek URL ile geri almak için `POST` yöntemini kullanın. `https://subquery.network/ipfs/api/v0/cat?arg=<YOUR_PROJECT_CID>`
+Şimdilik yayınladığınız projeyi görüntülemek için [Postacı](https://web.postman.co/) gibi bir `REST` api aracı kullanın ve aşağıdaki örnek URL ile geri almak için `POST` yöntemini kullanın. `https://ipfs.subquery.network/ipfs/api/v0/cat?arg=<YOUR_PROJECT_CID>`
 
 Örnek proje dağıtımını aşağıdaki gibi görmelisiniz:
 
