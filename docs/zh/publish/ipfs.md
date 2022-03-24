@@ -72,7 +72,7 @@ SubQuery Project uploaded to IPFS: QmZ3q7YZSmhwBiot4PQCK3c7Z6HkteswN2Py58gkkZ8kN
 
 IPFS的部署代表着分散网络上一个SubQuery项目的独立独特的存在。 因此，对项目代码的任何修改都会影响到项目的独特性。 如果您需要调整您的业务逻辑，例如更改映射功能，您必须重新发布项目， `CID`将会改变。
 
-现在，要查看您发布的项目，请使用 `REST` api工具，例如 [Postman](https://web.postman.co/)并使用`POST` 方法与下面的示例URL获取它。 `https://subquery.network/ipfs/api/v0/cat?arg=<YOUR_PROJECT_CID>`
+现在，要查看您发布的项目，请使用 `REST` api工具，例如 [Postman](https://web.postman.co/)并使用`POST` 方法与下面的示例URL获取它。 `https://ipfs.subquery.network/ipfs/api/v0/cat?arg=<YOUR_PROJECT_CID>`
 
 您应该看到项目部署的示例如下：
 
