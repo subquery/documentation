@@ -48,7 +48,7 @@ specVersion: 0.3.0
 name: example-project # Provide the project name
 version: 1.0.0  # Project version
 description: '' # Description of your project
-repository: 'https://github.com/subquery/subql-starter' # Git repository address of your project
+repository: 'https://github.com/subquery/terra-subql-starter' # Git repository address of your project
 
 schema:
   file: ./schema.graphql # The location of your GraphQL schema file
@@ -67,6 +67,12 @@ dataSources:
       handlers:
         - handler: handleBlock
           kind: terra/BlockHandler
+        - handler: handleTransaction
+          kind: terra/TransactionHandler
+        - handler: handleMessage
+          kind: terra/MessageHandler
+          filter:
+            type: '/cosmos.bank.v1beta1.MsgSend'
         - handler: handleEvent
           kind: terra/EventHandler
           filter: #Filter is optional
@@ -269,13 +275,36 @@ The following table explains filters supported by different handlers.
 
 **Your SubQuery project will be much more efficient when you only use event and call handlers with appropriate mapping filters**
 
-| Network            | Handler                                              | Supported filter             |
+| Network | Handler | Supported filter |
 | ------------------ | ---------------------------------------------------- | ---------------------------- |
 | Substrate/Polkadot | [substrate/BlockHandler](./mapping.md#block-handler) | `specVersion`                |
 | Substrate/Polkadot | [substrate/EventHandler](./mapping.md#event-handler) | `module`,`method`            |
 | Substrate/Polkadot | [substrate/CallHandler](./mapping.md#call-handler)   | `module`,`method` ,`success` |
 | Terra              | [terra/BlockHandler](./mapping.md#block-handler)     | No filters                   |
-| Terra              | [terra/EventHandler](./mapping.md#event-handler)     | `type`                       |
+| Terra              | [terra/TransactionHandler](./mapping.md#terra-transaction-handler-terra-only)     | No filters                   |
+| Terra              | [terra/MessageHandler](./mapping.md#terra-message-handler-terra-only)     |  `type`, `values`* |
+| Terra              | [terra/EventHandler](./mapping.md#event-handler)     | `type`, `messageFilter`* |
+
+\* For Terra message and event handlers, you can filter by all the keys that exist in the message type provided by the filter. If the call is `/terra.wasm.v1beta1.MsgExecuteContract` then you can also specify the name of the called function. An example of this is below:
+
+```yaml
+# Example filter from EventHandler
+filter:
+  type: transfer
+  messageFilter:
+  type: "/terra.wasm.v1beta1.MsgExecuteContract"
+  # contractCall field can be specified here too
+  values: # A set of key/value pairs that are present in the message data
+    contract: "terra1j66jatn3k50hjtg2xemnjm8s7y8dws9xqa5y8w"
+      
+# Example filter from MessageHandler          
+filter:
+  type: "/terra.wasm.v1beta1.MsgExecuteContract"
+  # Filter to only messages with the provide_liquidity function call
+  contractCall: "provide_liquidity" # The name of the contract function that was called
+  values: # A set of key/value pairs that are present in the message data
+    contract: "terra1j66jatn3k50hjtg2xemnjm8s7y8dws9xqa5y8w"
+```
 
 Default runtime mapping filters are an extremely useful feature to decide what block, event, or extrinsic will trigger a mapping handler.
 
