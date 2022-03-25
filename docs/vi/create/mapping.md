@@ -29,7 +29,7 @@ export async function handleBlock(block: SubstrateBlock): Promise<void> {
 
 Bạn có thể sử dụng trình xử lý sự kiện để nắm bắt thông tin khi các sự kiện nhất định được đưa vào một khối mới. Các sự kiện là một phần của thời gian chạy Substrate mặc định và một khối có thể chứa nhiều sự kiện.
 
-Trong quá trình xử lý, trình xử lý sự kiện sẽ nhận một sự kiện cơ chất như một đối số với các đầu vào và đầu ra đã nhập của sự kiện. Bất kỳ loại sự kiện nào cũng sẽ kích hoạt ánh xạ, cho phép ghi lại hoạt động với nguồn dữ liệu. Bạn nên sử dụng [Bộ lọc ánh xạ](./manifest.md#mapping-filters) trong tệp kê khai của mình để lọc các sự kiện nhằm giảm thời gian lập chỉ mục dữ liệu và cải thiện hiệu suất ánh xạ.
+Trong quá trình xử lý, trình xử lý sự kiện sẽ nhận một sự kiện cơ bản như một đối số với các đầu vào và đầu ra đã nhập của sự kiện. Bất kỳ loại sự kiện nào cũng sẽ kích hoạt ánh xạ, cho phép ghi lại hoạt động với nguồn dữ liệu. Bạn nên sử dụng [Bộ lọc ánh xạ](./manifest.md#mapping-filters) trong tệp kê khai của mình để lọc các sự kiện nhằm giảm thời gian lập chỉ mục dữ liệu và cải thiện hiệu suất ánh xạ.
 
 ```ts
 import {SubstrateEvent} from "@subql/types";
@@ -45,9 +45,9 @@ export async function handleEvent(event: SubstrateEvent): Promise<void> {
 
 [SubstrateEvent](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L30) là kiểu giao diện mở rộng của [EventRecord](https://github.com/polkadot-js/api/blob/f0ce53f5a5e1e5a77cc01bf7f9ddb7fcf8546d11/packages/types/src/interfaces/system/types.ts#L149). Bên cạnh dữ liệu sự kiện, nó cũng bao gồm một `id` (khối chứa sự kiện này) và phần bên ngoài bên trong của khối này.
 
-## Trình xử lý cuộc gọi
+## Call Handler
 
-Trình xử lý cuộc gọi được sử dụng khi bạn muốn nắm bắt thông tin về một số ngoại vi chất nền nhất định.
+Call Handler được sử dụng khi bạn muốn nắm bắt thông tin về một số ngoại vi chất nền nhất định.
 
 ```ts
 export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
@@ -59,15 +59,15 @@ export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
 
 [SubstrateExtrinsic](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L21) mở rộng [GenericExtriuality](https://github.com/polkadot-js/api/blob/a9c9fb5769dec7ada8612d6068cf69de04aa15ed/packages/types/src/extrinsic/Extrinsic.ts#L170). Nó được gán một `id` (khối mà khối bên ngoài này thuộc về) và cung cấp một thuộc tính bên ngoài để mở rộng các sự kiện giữa khối này. Ngoài ra, nó ghi lại trạng thái thành công của ngoại cảnh này.
 
-## Các trạng thái truy vấn
-Mục tiêu của chúng tôi là cung cấp tất cả các nguồn dữ liệu cho người dùng để xử lý ánh xạ (không chỉ là ba loại sự kiện giao diện ở trên). Do đó, chúng tôi đã đưa ra một số giao diện @ polkadot / api để tăng khả năng.
+## Query States
+Mục tiêu của chúng tôi là cung cấp tất cả các nguồn dữ liệu cho người dùng để xử lý ánh xạ (không chỉ là ba loại sự kiện giao diện ở trên). Do đó, chúng tôi đã đưa ra một số giao diện @polkadot/api để tăng khả năng.
 
 Đây là những giao diện chúng tôi hiện đang hỗ trợ:
-- [api.query. &lt;module&gt;. &lt;method&gt;()](https://polkadot.js.org/docs/api/start/api.query) sẽ truy vấn khối <strong> hiện tại</strong>.
+- [api.query. &lt;module&gt;. &lt;method&gt;()](https://polkadot.js.org/docs/api/start/api.query) sẽ truy vấn khối <strong>hiện tại</strong>.
 - [api.query. &lt;module&gt;. &lt;method&gt;.multi ()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-same-type) sẽ thực hiện nhiều truy vấn loại <strong>giống nhau</strong> tại khối hiện tại.
-- [api.queryMulti()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-distinct-types) sẽ thực hiện nhiều truy vấn thuộc loại <strong>different</strong> tại khối hiện tại.
+- [api.queryMulti()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-distinct-types) sẽ thực hiện nhiều truy vấn <strong>khác nhau</strong> tại khối hiện tại.
 
-Đây là những giao diện mà chúng tôi **KHÔNG** hỗ trợ hiện tại:
+Đây là những giao diện mà hiện tại chúng tôi **KHÔNG** hỗ trợ:
 - ~~api.tx.*~~
 - ~~api.derive.*~~
 - ~~api.query.&lt;module&gt;.&lt;method&gt;.at~~
@@ -79,25 +79,25 @@ Mục tiêu của chúng tôi là cung cấp tất cả các nguồn dữ liệu
 - ~~api.query.&lt;module&gt;.&lt;method&gt;.range~~
 - ~~api.query.&lt;module&gt;.&lt;method&gt;.sizeAt~~
 
-Xem ví dụ về việc sử dụng API này trong trường hợp sử dụng mẫu [ ngưỡng trình xác thực ](https://github.com/subquery/tutorials-validator-threshold) của chúng tôi.
+Xem ví dụ về việc sử dụng API này trong trường hợp sử dụng mẫu [ngưỡng trình xác thực](https://github.com/subquery/tutorials-validator-threshold) của chúng tôi.
 
-## Cuộc gọi RPC
+## RPC calls
 
-Chúng tôi cũng hỗ trợ một số phương thức API RPC là các lệnh gọi từ xa cho phép hàm ánh xạ tương tác với node, truy vấn và trình thực tế. Tiền đề cốt lõi của SubQuery là nó có tính xác định và do đó, để giữ kết quả nhất quán, chúng tôi chỉ cho phép các lệnh gọi RPC lịch sử.
+Chúng tôi cũng hỗ trợ một số phương thức API RPC là các lệnh gọi từ xa cho phép hàm ánh xạ tương tác với nút thực tại, truy vấn và trình thực tế. Tiền đề cốt lõi của SubQuery là nó có tính xác định và do đó, để giữ kết quả nhất quán, chúng tôi chỉ cho phép các lệnh gọi RPC lịch sử.
 
 Các tài liệu trong [JSON-RPC](https://polkadot.js.org/docs/substrate/rpc/#rpc) cung cấp một số phương thức sử dụng `BlockHash` làm tham số đầu vào (ví dụ: `at?:BlockHash`), hiện được cho phép. Chúng tôi cũng đã sửa đổi các phương pháp này để lấy băm khối lập chỉ mục hiện tại theo mặc định.
 
 ```typescript
-// Let's say we are currently indexing a block with this hash number
+// Giả sử chúng tôi hiện đang lập chỉ mục một khối với số băm này
 const blockhash = `0x844047c4cf1719ba6d54891e92c071a41e3dfe789d064871148e9d41ef086f6a`;
 
-// Original method has an optional input is block hash
+// Phương thức gốc có đầu vào tùy chọn là băm khối
 const b1 = await api.rpc.chain.getBlock(blockhash);
 
-// It will use the current block has by default like so
+// Nó sẽ sử dụng khối hiện tại có mặc định
 const b2 = await api.rpc.chain.getBlock();
 ```
-- Đối với [Chuỗi chất nền tùy chỉnh](#custom-substrate-chains) lệnh gọi RPC, hãy xem [usage](#usage).
+- Đối với [Chuỗi Substrate tùy chỉnh](#custom-substrate-chains) lệnh gọi RPC, hãy xem [usage](#usage).
 
 ## Mô-đun và Thư viện
 
@@ -109,7 +109,7 @@ Xin lưu ý rằng đây là một **tính năng thử nghiệm** và bạn có 
 
 Hiện tại, chúng tôi cho phép các mô-đun NodeJS sau: `assert`, `buffer`, `crypto`, `util` và `path`.
 
-Thay vì nhập toàn bộ mô-đun, chúng tôi khuyên bạn chỉ nên nhập (các) phương pháp bắt buộc mà bạn cần. Một số phương thức trong các mô-đun này có thể có các phụ thuộc không được hỗ trợ và sẽ không thành công khi nhập.
+Thay vì nhập toàn bộ mô-đun, chúng tôi khuyên bạn chỉ nên nhập (các) phương thức bắt buộc mà bạn cần. Một số phương thức trong các mô-đun này có thể có các phụ thuộc không được hỗ trợ và sẽ không thành công khi nhập.
 
 ```ts
 import {hashMessage} from "ethers/lib/utils"; //Good way
@@ -132,13 +132,13 @@ Chúng tôi cũng hỗ trợ thư viện **hybrid** như `@polkadot/*` sử dụ
 
 SubQuery có thể được sử dụng trên bất kỳ chuỗi nào dựa trên Substrate, không chỉ Polkadot hoặc Kusama.
 
-Bạn có thể sử dụng chuỗi dựa trên Chất nền tùy chỉnh và chúng tôi cung cấp các công cụ để tự động nhập các loại, giao diện và các phương pháp bổ sung bằng cách sử dụng [@polkadot/typegen](https://polkadot.js.org/docs/api/examples/promise/typegen/).
+Bạn có thể sử dụng chuỗi dựa trên Substrate tùy chỉnh và chúng tôi cung cấp các công cụ để tự động nhập các loại, giao diện và các phương pháp bổ sung bằng cách sử dụng [@polkadot/typegen](https://polkadot.js.org/docs/api/examples/promise/typegen/).
 
 Trong các phần sau, chúng tôi sử dụng ví dụ [kitty example](https://github.com/subquery/tutorials-kitty-chain) để giải thích quá trình tích hợp.
 
 ### Sự chuẩn bị
 
-Tạo một thư mục mới `api-interface` trong thư mục `src` của dự án để lưu trữ tất cả các tệp được yêu cầu và được tạo. Chúng tôi cũng tạo một thư mục `api-interface/kitties` khi chúng tôi muốn thêm trang trí trong API từ mô-đun `kitties`.
+Tạo một danh mục mới `api-interface` trong thư mục `src` của dự án để lưu trữ tất cả các tệp được yêu cầu và được tạo. Chúng tôi cũng tạo một danh mục `api-interface/kitties` khi chúng tôi muốn thêm trang trí trong API từ mô-đun `kitties`.
 
 #### Siêu dữ liệu
 
