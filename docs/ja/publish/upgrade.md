@@ -1,35 +1,35 @@
-# Deploy a New Version of your SubQuery Project
+# SubQueryプロジェクトの新しいバージョンをデプロイする
 
-## Guidelines
+## ガイドライン
 
-Although you have the freedom to always upgrade and deploy new versions of your SubQuery project, please be considerate during this process if your SubQuery project is public for the world. Some key points to note:
-- If your upgrade is a breaking change, either create a new project (e.g. `My SubQuery Project V2`) or give your community plenty of warning of the change through social media channels.
-- Deploying a new SubQuery project version causes some downtime as the new version indexes the complete chain from the genesis block.
+SubQueryプロジェクトは、常に新しいバージョンをアップグレードしてデプロイする自由がありますが、SubQueryプロジェクトが世界に公開されている場合は、このプロセスに配慮してください。 注意すべきいくつかの重要なポイント:
+- アップグレードが破損した変更である場合、新しいプロジェクトを作成するか（例：`My SubQuery Project V2`）、ソーシャルメディアチャンネルを通じてコミュニティに変更の警告を十分に行ってください。
+- 新しいSubQueryプロジェクトのバージョンをデプロイすると、新しいバージョンが生成ブロックから完全なチェーンのインデックスを作成するため、ダウンタイムが発生します。
 
-## Deploy Changes
+## 変更をデプロイする
 
-Login to SubQuery Projects, and find the project that you want to deploy a new version of. You can choose to either deploy to the production or staging slot. These two slots are isolated environments and each has their own databases and synchronise independently.
+SubQuery Project にログインし、新しいバージョンをデプロイするプロジェクトを選択します。 本番またはステージングスロットにデプロイするかを選択できます。 この2つのスロットは分離された環境で、それぞれ独自のデータベースを持ち、独立して同期をとっています。
 
-We recommend deploying to your staging slot only for final staging testing or when you need to resync your project data. You can then promote it to production with zero downtime. You will find testing is faster when [running a project locally](../run/run.md) as you can more [easily debug issues](../tutorials_examples/debug-projects.md).
+ステージングスロットへのデプロイは、最終的なステージングテストやプロジェクトデータの再同期が必要な場合のみ行うことをお勧めします。 その後、ダウンタイムなしで本番環境に昇格させることができます。 [課題をより簡単にデバッグ](../tutorials_examples/debug-projects.md)できるので、 [ローカルでプロジェクトを実行](../run/run.md)するとテストが速くなります。
 
-The staging slot is perfect for:
-* Final validation of changes to your SubQuery Project in a separate environment. The staging slot has a different URL to production that you can use in your dApps.
-* Warming up and indexing data for an updated SubQuery project to eliminate downtime in your dApp
-* Preparing a new release for your SubQuery Project without exposing it publicly. The staging slot is not shown to the public in the Explorer and has a unique URL that is visible only to you.
+ステージングスロットは以下の場合に最適です：
+* SubQuery Projectの変更を別環境で最終検証します。 ステージングスロットは、dAppsで使用できる本番環境とは異なるURLを持っています。
+* 更新されたSubQueryプロジェクトのデータのウォームアップとインデックス作成により、dAppのダウンタイムをなくすことができます
+* 公開せずに、SubQuery プロジェクトの新しいリリースを準備します。 ステージングスロットはエクスプローラでは公開されず、あなただけに表示される固有のURLを持っています。
 
-![Staging slot](/assets/img/staging_slot.png)
+![ステージングスロット](/assets/img/staging_slot.png)
 
-#### Upgrade to the Latest Indexer and Query Service
+#### 最新のインデクサとクエリサービスにアップグレードする
 
-If you just want to upgrade to the latest indexer ([`@subql/node`](https://www.npmjs.com/package/@subql/node)) or query service ([`@subql/query`](https://www.npmjs.com/package/@subql/query)) to take advantage of our regular performance and stability improvements, just select a newer versions of our packages and save. This will cause only a few minutes of downtime.
+もし、最新のインデクサ ([`@subql/node`](https://www.npmjs.com/package/@subql/node)) やクエリーサービス ([`@subql/query`](https://www.npmjs.com/package/@subql/query)) にアップグレードして定期的にパフォーマンスと安定性を改善したいだけなら、新しいバージョンのパッケージを選択して保存するだけでよいのです。 これはわずか数分間のダウンタイムを引き起こします。
 
-#### Deploy New Version of your SubQuery Project
+#### SubQueryプロジェクトの新しいバージョンをデプロイする
 
-Fill in the Commit Hash from GitHub (copy the full commit hash) of the version of your SubQuery project codebase that you want deployed. This will cause a longer downtime depending on the time it takes to index the current chain. You can always report back here for progress.
+デプロイしたいSubQueryプロジェクトのコードベースのバージョンのGitHubからコミットハッシュ（完全なコミットハッシュをコピー）を記入する。 これは現在のチェーンをインデックスするのにかかる時間に応じて、より長いダウンタイムを引き起こします。 いつでもここで進捗状況を確認することができます.
 
-## Next Steps - Connect to your Project
-Once your deployment has succesfully completed and our nodes have indexed your data from the chain, you'll be able to connect to your project via the displayed GraphQL Query endpoint.
+## 次のステップ - プロジェクトに接続
+デプロイが正常に完了し、ノードがチェーンからデータのインデックスを作成したら、表示されたGraphQLクエリエンドポイントからプロジェクトに接続することができるようになります。
 
-![Project being deployed and synced](/assets/img/projects-deploy-sync.png)
+![プロジェクトを展開および同期する](/assets/img/projects-deploy-sync.png)
 
-Alternatively, you can click on the three dots next to the title of your project, and view it on SubQuery Explorer. There you can use the in browser playground to get started - [read more about how to user our Explorer here](../query/query.md).
+または、プロジェクトのタイトルの横にある3つの点をクリックして、SubQuery Explorer で表示することもできます。 ブラウザ内のプレイグラウンドを使用して始めることができます - [Explorerの使い方についてはこちら](../query/query.md) をご覧ください。

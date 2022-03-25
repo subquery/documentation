@@ -1,14 +1,23 @@
 # Publica tu proyecto de SubQuery
 
 ## Beneficios de alojar tu proyecto con SubQuery
+
 - Ejecutaremos tus proyectos de SubQuery en un servicio público de alto rendimiento, escalable y administrado
 - ¡Este servicio está siendo proporcionado a la comunidad gratis!
 - Puedes hacer públicos tus proyectos para que estén listados en el [SubQuery Explorer](https://explorer.subquery.network) y cualquier persona de todo el mundo puede verlos
 - Estamos integrados con GitHub, por lo que cualquiera en sus organizaciones de GitHub podrá ver proyectos de organización compartidos
 
-## Cree su primer proyecto
+## Crea tu primer proyecto en SubQuery Projects
 
-#### Iniciar sesión en los proyectos de SubQuery
+### Programación de código de proyecto
+
+Hay dos maneras de alojar el código base de su proyecto SubQuery antes de publicarlo.
+
+**GitHub**: El código base de tu proyecto debe estar en un repositorio público de GitHub
+
+**IPFS**: El código base de su proyecto puede almacenarse en IPFS, puedes seguir nuestra guía de alojamiento IPFS para ver cómo [publicar primero en IPFS](ipfs.md)
+
+### Iniciar sesión en los proyectos de SubQuery
 
 Antes de comenzar, asegúrese de que su proyecto SubQuery está en línea en un repositorio público de GitHub. El archivo `schema.graphql` debe estar en la raíz de su directorio.
 
@@ -26,26 +35,33 @@ Si tiene una cuenta de la organización de GitHub conectada, puedes usar el inte
 
 ![Cambiar entre cuentas de GitHub](/assets/img/projects-account-switcher.png)
 
-#### Cree su primer proyecto
+### Cree su primer proyecto
 
 Empecemos haciendo clic en "Crear proyecto". Serás llevado al formulario de Proyecto Nuevo. Por favor, introduzca lo siguiente (puede cambiar esto en el futuro):
+
 - **Cuenta de GitHub:** Si tienes más de una cuenta de GitHub, selecciona la cuenta bajo la que se creará este proyecto. Los proyectos creados en una cuenta de la organización de GitHub son compartidos entre los miembros de esa organización de GitHub.
-- **Nombre**
+- **Nombre del proyecto**
 - **Subtítulo**
 - **Descripción**
 - **URL del repositorio de GitHub:** Esta debe ser una URL válida de GitHub para un repositorio público que contiene su proyecto de SubQuery. El archivo `schema.graphql` debe estar en la raíz de su directorio ([aprender más sobre la estructura de directorio](../create/introduction.md#directory-structure)).
+- **Base de datos:** Los clientes Premium pueden acceder a bases de datos dedicadas para albergar proyectos de subconsulta de producción. Si esto le interesa, puede ponerse en contacto con [sales@subquery.network](mailto:sales@subquery.network) para activar esta configuración.
+- **Fuente de despliegue** Puede elegir tener el proyecto desplegado desde el repositorio de GitHub o desplegado alternativamente desde un CID IPFS, vea nuestra guía sobre [alojamiento con IPFS.](ipfs.md)
 - **Ocultar proyecto:** Si se selecciona, esto ocultará el proyecto del explorador público de SubQuery. ¡Mantén esta opción sin seleccionar si quieres compartir tu SubQuery con la comunidad! ![Cree su primer proyecto](/assets/img/projects-create.png)
 
-Crea tu proyecto y lo verás en la lista de proyectos de SubQuery. *¡Ya casi hemos llegado! Ahora solo necesitamos desplegar una version </p>
+Crea tu proyecto y lo verás en la lista de proyectos de SubQuery. _¡Ya casi hemos llegado! Ahora solo necesitamos desplegar una version._
 
 ![Proyecto creado sin despliegue](/assets/img/projects-no-deployment.png)
 
-#### Despliega tu primera versión
+### Despliega tu primera versión
 
 Al crear un proyecto configurará el comportamiento de visualización del proyecto, debe desplegar una versión antes de que se ponga en marcha. Desplegar una versión activa una nueva operación de indexación de SubQuery para iniciar, y configurar el servicio de consultas requerido para comenzar a aceptar solicitudes GraphQL. También puede desplegar nuevas versiones a proyectos existentes aquí.
 
 Con su nuevo proyecto, verá un botón Desplegar Nueva versión. Haga clic en esto y rellene la información requerida sobre el despliegue:
+
+- **Rama:** Desde GitHub, selecciona la rama del proyecto desde el que quieres desplegar
 - **Commit Hash de la nueva versión:** Desde GitHub seleccione el commit correcto del código base del proyecto SubQuery que desea desplegar
+- **IPFS:** Si se desplegan desde IPFS, pega el CID de despliegue IPFS (sin el CID principal `ipfs://`)
+- **Anular los puntos finales de red y de diccionario:** Aquí puedes sobreescribir los puntos finales en el manifiesto de tu proyecto
 - **Versión del indexador:** Esta es la versión del servicio de nodos de SubQuery en la que desea ejecutar esta SubQuery. Ver [`@subql/node`](https://www.npmjs.com/package/@subql/node)
 - **Versión de consulta:** Esta es la versión del servicio de consulta de SubQuery en la que desea ejecutar esta SubQuery. Ver [`@subql/query`](https://www.npmjs.com/package/@subql/query)
 
@@ -54,6 +70,7 @@ Con su nuevo proyecto, verá un botón Desplegar Nueva versión. Haga clic en es
 Si se implementa con éxito, verás que el indexador empieza a funcionar e informa de los avances en la indexación de la cadena actual. Este proceso puede llevar tiempo hasta que llegue al 100%.
 
 ## Siguiente paso - Conecta a tu proyecto
+
 Una vez que el despliegue se ha completado correctamente y nuestros nodos han indexado sus datos de la cadena, podrás conectarte a tu proyecto a través del punto final de la Consulta mostrada en GraphQL.
 
 ![Proyecto en despliegue y sincronización](/assets/img/projects-deploy-sync.png)
@@ -72,7 +89,7 @@ Si no puede ver su cuenta de la organización de GitHub listada en el switcher, 
 
 ![Revocar acceso a la cuenta de GitHub](/assets/img/project_auth_revoke.png)
 
-Una vez que haya revocado el acceso, cierre la sesión de [SubQuery Proyects](https://project.subquery.network) e inicie sesión de nuevo. Debe ser redirigido a una página titulada *Autorizar subconsulta* donde puede solicitar o conceder acceso a SubQuery a su cuenta de la Organización de GitHub. Si no tienes permisos de administración, debes solicitar a un administrador que lo active.
+Una vez que haya revocado el acceso, cierre la sesión de [SubQuery Proyects](https://project.subquery.network) e inicie sesión de nuevo. You should be redirected to a page titled _Authorize SubQuery_ where you can request or grant SubQuery access to your GitHub Organization account. Si no tienes permisos de administración, debes solicitar a un administrador que lo active.
 
 ![Revocar la aprobación de una cuenta de GitHub](/assets/img/project_auth_request.png)
 

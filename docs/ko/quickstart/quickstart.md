@@ -36,17 +36,19 @@ subql help
 SubQuery 프로젝트를 생성하려는 디렉터리 내에서 `PROJECT_NAME`을 자신의 것으로 바꾸고 다음 명령을 실행하기만 하면 됩니다.
 
 ```shell
-subql init --starter PROJECT_NAME
+subql init PROJECT_NAME
 ```
 
 SubQuery 프로젝트가 초기화되면 다음과 같은 특정 질문을 받게 됩니다.
 
-- Git 저장소 (선택 사항): 이 SubQuery 프로젝트가 호스팅될 리포지토리에 대한 Git URL을 제공합니다(SubQuery Explorer에서 호스팅되는 경우).
-- RPC 끝점 (필요시): 이 프로젝트에 기본적으로 사용될 실행 중인 RPC 끝점에 대한 wss URL을 제공합니다. 다양한 Polkadot 네트워크의 공용 엔드포인트에 빠르게 액세스하거나 [OnFinality](https://app.onfinality.io)를 사용하여 자체 전용 전용 노드를 생성하거나 기본 Polkadot 엔드포인트를 사용할 수도 있습니다.
-- 작성자(필요시): 이 SubQuery 프로젝트의 소유자를 여기에 입력하십시오.
-- 설명(선택 사항): 프로젝트에 포함된 데이터와 사용자가 수행할 수 있는 작업을 설명하는 짧은 단락을 제공할 수 있습니다.
-- 버전(필요시): 사용자 정의 버전 번호를 입력하거나 기본값(1.0.0)을 사용합니다.
-- 라이선스(필요시): 이 프로젝트에 대한 소프트웨어 라이선스를 제공하거나 기본값(`Apache-2.0`)을 수락합니다.
+- Network: A blockchain network that this SubQuery project will be developed to index
+- Template: Select a SubQuery project template that will provide a starting point to begin development
+- Git repository (Optional): Provide a Git URL to a repo that this SubQuery project will be hosted in (when hosted in SubQuery Explorer)
+- RPC endpoint (Required): Provide a websocket (wss) URL to a running RPC endpoint that will be used by default for this project. You can quickly access public endpoints for different Polkadot networks or even create your own private dedicated node using [OnFinality](https://app.onfinality.io) or just use the default Polkadot endpoint. This RPC node must be an archive node (have the full chain state).
+- Authors (Required): Enter the owner of this SubQuery project here
+- Description (Optional): You can provide a short paragraph about your project that describe what data it contains and what users can do with it
+- Version (Required): Enter a custom version number or use the default (`1.0.0`)
+- License (Required): Provide the software license for this project or accept the default (`Apache-2.0`)
 
 초기화 프로세스가 완료되면, 프로젝트 이름이 있는 폴더가 디렉터리 내에 생성된 것을 볼 수 있습니다. 이 디렉토리의 내용은 [디렉토리 구조](../create/introduction.md#directory-structure)에 나열된 것과 동일해야 합니다.
 
@@ -57,11 +59,11 @@ SubQuery 프로젝트가 초기화되면 다음과 같은 특정 질문을 받�
 
 ## Configure and Build the Starter Project
 
-In the starter package that you just initialised, we have provided a standard configuration for your new project. You will mainly be working on the following files:
+In the starter package that you just initialised, we have provided a standard configuration for your new project. 여러분은 주로 다음의 파일에서 작업을 수행하게 될 것입니다.
 
 - The Manifest in `project.yaml`
-- The GraphQL Schema in `schema.graphql`
-- The Mapping functions in `src/mappings/` directory
+- `schema.graphql` 내의 The GraphQL 스키마
+- `src/mappings/` 디렉토리 내의 맵핑 기능
 
 고유한 SubQuery를 작성하는 방법에 대한 자세한 내용은 프로젝트 만들기에서 설명서를 확인하세요.
 
@@ -99,7 +101,7 @@ In the starter package that you just initialised, we have provided a standard co
 
 SubQuery 노드가 실행되는 방식을 제어하는 모든 구성은 이 `docker-compose.yml` 파일에 정의되어 있습니다. 방금 초기화된 새 프로젝트의 경우 여기에서 아무 것도 변경할 필요가 없지만 [프로젝트 실행 섹션](../run/run.md)에서 파일 및 설정에 대한 자세한 내용을 읽을 수 있습니다.
 
-Under the project directory run following command:
+프로젝트 디렉토리에서 다음 명령을 실행합니다:
 
 ```shell
 docker-compose pull && docker-compose up
@@ -113,7 +115,7 @@ docker-compose pull && docker-compose up
 
 GraphQL 플레이그라운드가 탐색기에 표시되고 쿼리할 준비가 된 스키마가 표시되어야 합니다. 플레이그라운드의 오른쪽 상단에는 문서 추첨을 여는 _문서_ 버튼이 있습니다. 이 문서는 자동으로 생성되며 쿼리할 수 있는 엔터티와 메서드를 찾는 데 도움이 됩니다.
 
-For a new SubQuery starter project, you can try the following query to get a taste of how it works or [learn more about the GraphQL Query language](../query/graphql.md).
+새로운 SubQuery 스타터 프로젝트의 경우, 다음 쿼리를 시도하여 작동 방식을 확인하거나 [GraphQL 쿼리 언어에 대해 자세히 알아볼 수 있습니다.](../query/graphql.md)
 
 ```graphql
 {
@@ -129,7 +131,7 @@ For a new SubQuery starter project, you can try the following query to get a tas
 }
 ```
 
-## Next Steps
+## 다음 단계
 
 이제 귀하는 샘플 데이터에 대한 GraphQL API 요청을 수락하는 로컬 실행 SubQuery 프로젝트가 있습니다. 다음 가이드에서는, 새 프로젝트를 [SubQuery 프로젝트](https://project.subquery.network)에 게시하고 [Explorer](https://explorer.subquery.network)를 사용하여 쿼리하는 방법을 보여줍니다.
 

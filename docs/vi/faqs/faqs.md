@@ -2,17 +2,17 @@
 
 ## SubQuery là gì?
 
-SubQuery là một dự án mã nguồn mở cho phép các nhà phát triển chạy trình lập chỉ mục, chuyển đổi và truy vấn dữ liệu trên chuỗi Substrate để chạy các ứng dụng của họ.
+SubQuery là một dự án mã nguồn mở cho phép các nhà phát triển chạy trình lập chỉ mục, chuyển đổi, và truy vấn dữ liệu trên chuỗi Substrate để chạy các ứng dụng của họ.
 
 SubQuery cũng cung cấp dịch vụ lưu trữ miễn phí, công suất lớn cho các dự án của các nhà phát triển; trút bỏ trách nhiệm của các nhà sản xuất trong việc quản lý cơ sở hạ tầng nữa, để họ tập trung làm việc mình giỏi nhất: lập trình.
 
 ## Cách tốt nhất để bắt đầu sử dụng SubQuery là gì?
 
-Cách tốt nhất để bắt đầu sử dụng SubQuery là thực hiện [Hướng dẫn Hello World](../quickstart/helloworld-localhost.md) của chúng tôi. Đây là một hướng dẫn đơn giản trong 5 phút để tải xuống mẫu khởi động, xây dựng dự án và sau đó sử dụng Docker để chạy một nút trên máy chủ cục bộ của bạn và chạy một truy vấn đơn giản.
+Cách tốt nhất để bắt đầu sử dụng SubQuery là thực hiện [Hướng dẫn Hello World](../quickstart/helloworld-localhost.md) của chúng tôi. Đây là một hướng dẫn đơn giản trong 5 phút: tải xuống mẫu khởi động, xây dựng dự án và sau đó sử dụng Docker để chạy một node trên máy chủ của bạn và chạy một truy vấn đơn giản.
 
 ## Làm cách nào để tôi có thể đóng góp hoặc gửi phản hồi cho SubQuery?
 
-Chúng tôi rất mong nhận được ý kiến đóng góp hoặc phản hồi từ cộng đồng. Để đóng góp mã, hãy tạo bản sao cho kho lưu trữ bạn quan tâm và đưa ra những thay đổi. Sau đó hãy sử dụng chức năng Pull Request hay gọi tắt là PR. À, đừng quên chạy thử đấy nhé! Bạn nên tham khảo hướng dẫn đóng góp của chúng tôi (TBA).
+Chúng tôi rất mong nhận được ý kiến đóng góp và phản hồi từ cộng đồng. Để đóng góp vào việc phát triển, hãy tạo bản sao cho những phần bạn quan tâm và đưa ra những thay đổi. Sau đó hãy sử dụng chức năng Pull Request hay gọi tắt là PR. À, đừng quên chạy thử đấy nhé! Bạn nên tham khảo hướng dẫn đóng góp của chúng tôi (TBA).
 
 Để gửi phản hồi, hãy liên hệ với chúng tôi qua email hello@subquery.network hoặc truy cập [kênh discord](https://discord.com/invite/78zg8aBSMG) của chúng tôi
 
@@ -54,7 +54,7 @@ Network.endpoint cho mạng Polkadot là `wss: //polkadot.api.onfinality.io/publ
 
 ## Làm cách nào để phát triển lặp đi lặp lại lược đồ dự án của tôi?
 
-Một vấn đề đã biết với việc phát triển lược đồ dự án đang thay đổi là khi chạy nút Subquery của bạn để thử nghiệm, các khối được lập chỉ mục trước đó sẽ không tương thích với lược đồ mới của bạn. Để phát triển lặp đi lặp lại các lược đồ, các khối được lập chỉ mục được lưu trữ trong cơ sở dữ liệu phải được xóa, điều này có thể đạt được bằng cách khởi chạy nút của bạn với cờ ` --force-clean `. Ví dụ:
+Một vấn đề đã biết với việc phát triển lược đồ dự án đang thay đổi là khi chạy nút Subquery của bạn để thử nghiệm, các khối được lập chỉ mục trước đó sẽ không tương thích với lược đồ mới của bạn. Để phát triển lặp đi lặp lại các lược đồ, các khối được lập chỉ mục được lưu trữ trong cơ sở dữ liệu phải được xóa, điều này có thể đạt được bằng cách khởi chạy nút của bạn với cờ `--force-clean`. Ví dụ:
 
 ```shell
 subql-node -f . --force-clean --subquery-name=<project-name>

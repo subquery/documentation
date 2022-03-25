@@ -1,16 +1,16 @@
-# How to change the blockchain fetching batch size?
+# Как да промените размера на блокчейн партидата за извличане?
 
-## Video guide
+## Видео ръководство
 
 <figure class="video_container">
   <iframe src="https://www.youtube.com/embed/LO_Gea_IN_s" frameborder="0" allowfullscreen="true"></iframe>
 </figure>
 
-## Introduction
+## Въеведение
 
-The default batch size is 100, but this can be changed by using the extra command `--batch-size=xx`.
+Размерът на партидата по подразбиране е 100, но това може да се промени с помощта на допълнителната команда `--batch-size=xx`.
 
-You need to this to the command line as an extra flag or if you are using Docker, modify the docker-compose.yml with:
+Трябва да направите това в командния ред като допълнителен флаг или ако използвате Docker, модифицирайте docker-compose.yml с:
 
 ```shell
 subquery-node:
@@ -33,8 +33,8 @@ subquery-node:
 
 ```
 
-This example sets the batch size to 50.
+Този пример задава размера на партидата - 50.
 
-## Why change the batch size?
+## Защо да променяте размера на партидата?
 
-Using a smaller batch size can reduce memory usage and not leave users hanging for large queries. In otherwords, your application can be more responsive. 
+Използването на по-малък размер на партида може да намали използването на паметта и да не оставя потребителите в изчакване при изпълнение на големи заявки. С други думи, вашето приложение може да реагира по-бързо. 

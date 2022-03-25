@@ -8,11 +8,11 @@
 
 ## Giới thiệu
 
-Chạy một nút chỉ mục là một tùy chọn khác ngoài việc sử dụng Docker hoặc có một dự án được lưu trữ tại [ Dự án SubQuery ](https://project.subquery.network/). Nó đòi hỏi nhiều thời gian và nỗ lực hơn nhưng sẽ nâng cao hiểu biết của bạn về cách SubQuery hoạt động.
+Chạy một nút chỉ mục là một tùy chọn khác ngoài việc sử dụng Docker hoặc có một dự án được lưu trữ tại [SubQuery Projects](https://project.subquery.network/). Nó đòi hỏi nhiều thời gian và nỗ lực hơn nhưng sẽ nâng cao hiểu biết của bạn về cách SubQuery hoạt động.
 
 ## Postgres
 
-Chạy một nút chỉ mục trên cơ sở hạ tầng của bạn sẽ yêu cầu thiết lập cơ sở dữ liệu Postgres. Bạn có thể cài đặt Postgres [ tại đây ](https://www.postgresql.org/download/) và đảm bảo phiên bản 12 trở lên.
+Chạy một nút chỉ mục trên cơ sở hạ tầng của bạn sẽ yêu cầu thiết lập của một cơ sở dữ liệu Postgres. Bạn có thể cài đặt Postgres tại [ đây ](https://www.postgresql.org/download/) và đảm bảo bạn cài đặt đúng phiên bản 12 trở lên.
 
 ## Cài đặt subql / node
 
@@ -22,7 +22,7 @@ Sau đó, để chạy một nút SubQuery, hãy chạy lệnh sau:
 npm install -g @subql/node
 ```
 
-Cờ -g có nghĩa là cài đặt nó trên toàn cầu, có nghĩa là trên OSX, vị trí sẽ là / usr / local / lib / node_modules.
+Biểu tượng lá cờ -g có nghĩa là cần cài đặt nó trên toàn cầu, cụ thể ở đây là trên OSX, vị trí sẽ là /usr/local/lib/node_modules.
 
 Sau khi cài đặt, bạn có thể kiểm tra phiên bản bằng cách chạy:
 
@@ -31,7 +31,7 @@ Sau khi cài đặt, bạn có thể kiểm tra phiên bản bằng cách chạy
 0.19.1
 ```
 
-## Đặt cấu hình DB
+## Cài đặt cấu hình Database
 
 Tiếp theo, bạn cần đặt các biến môi trường sau:
 
@@ -59,4 +59,4 @@ Nếu bạn không có dự án nào hữu ích, hãy chạy lệnh `git clone h
 
 Nếu bạn điều hướng đến Postgres, bạn sẽ thấy hai bảng được tạo. `public.subqueries` và `subquery_1.starter_entities`.
 
-`public.subqueries` chỉ chứa 1 dòng mà trình lập chỉ mục kiểm tra khi khởi động để "hiểu trạng thái hiện tại" để nó biết phải tiếp tục từ đâu. Bảng `starter_entities` chứa các chỉ mục. Để xem dữ liệu, hãy chạy `select (*) from subquery_1.starter_entities`.
+`public.subqueries` chỉ chứa duy nhất 1 dòng, cái mà trình lập chỉ mục sẽ kiểm tra khi khởi động để "hiểu trạng thái hiện tại" để nó biết phải tiếp tục từ đâu. Bảng `starter_entities` chứa các chỉ mục. Để xem dữ liệu, hãy chạy `select (*) from subquery_1.starter_entities`.

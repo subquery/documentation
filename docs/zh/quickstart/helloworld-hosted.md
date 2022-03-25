@@ -31,10 +31,10 @@
 
 ## 1. 4. 创建项目
 
-让我们创建一个叫做subql_hellowworld 的项目，并使用您最喜欢的软件包管理器运行必需的安装、代码生成和构建。
+让我们通过运行`subql init`命令来在`Polkadot`网络构建项目来创建一个名为subqlHelloWorld 的项目，并使用`subql-starter`模板初始化该项目。 我们必须使用您最喜欢的软件包管理器来运行强制安装、生成代码和编译。
 
 ```shell
-> subql init --starter subqlHelloWorld
+> subql init subqlHelloWorld
 yarn install
 yarn codegen
 yarn build

@@ -1,37 +1,37 @@
-# How to debug a SubQuery project?
+# Как да отстраняваме грешки в проект SubQuery?
 
-## Video guide
+## Видео ръководство
 
 <figure class="video_container">
   <iframe src="https://www.youtube.com/embed/6NlaO-YN2q4" frameborder="0" allowfullscreen="true"></iframe>
 </figure>
 
-## Introduction
+## Въведение
 
-In order to debug SubQuery projects such as stepping through code, setting breakpoints, and inspecting variables, you will have to use a Node.js inspector in conjunction with Chrome developer tools.
+За отстраняване на бъгове или грешки в проекта SubQuery, такива например като поетапно изпълнение на код, задаване на брейкпоинт и проверка на променливи, ще трябва да използвате Node.js inspector в комбинация с инструменти за разработчици на Chrome.
 
-## Node inspector
+## Инспектор на ноди
 
-Run the following command in a terminal screen.
+Изпълнете следната команда на екрана на терминала.
 
 ```shell
 node --inspect-brk <path to subql-node> -f <path to subQuery project>
 ```
 
-For example:
+Например:
 ```shell
 node --inspect-brk /usr/local/bin/subql-node -f ~/Code/subQuery/projects/subql-helloworld/
 Debugger listening on ws://127.0.0.1:9229/56156753-c07d-4bbe-af2d-2c7ff4bcc5ad
-For help, see: https://nodejs.org/en/docs/inspector
-Debugger attached.
+За помощ разгледайте: https://nodejs.org/en/docs/inspector
+Прилага се упътване за отстраняване на грешки.
 ```
 
-## Chrome devtools
+## Инструменти за разработчици в Chrome
 
-Open up Chrome DevTools and navigate to the Sources tab. Note that clicking on the green icon will open up a new window.
+Отворете Chrome DevTools и отидете в раздела Източници. Обърнете внимание, при щракване върху зелената икона ще се отвори нов прозорец.
 
-![node inspect](/assets/img/node_inspect.png)
+![проверка на нода](/assets/img/node_inspect.png)
 
-Navigate to Filesystem and add your project folder to the workspace. Then open the dist > mappings folder and select the code you wish to debug. Then step through the code as with any standard debugging tool.
+Отидете към Системата от файлове и добавете папката на вашия проект към работното пространство. След това отворете папката dist > mappings и изберете кода, който искате да отстраните. Разгледайте или отстранете кода, както бихте направили с всеки стандартен инструмент за отстраняване на грешки.
 
-![debugging projects](/assets/img/debugging_projects.png)
+![отстраняване на бъгове в проектите](/assets/img/debugging_projects.png)

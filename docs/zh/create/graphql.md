@@ -13,11 +13,8 @@
 
 ```graphql
 type Example @entity {
-  id: ID! type Example @entity {
   id: ID! # id 字段总是必需的，必须像这样定义
   name: String! # 这是必填字段
-  address: String # 这是一个可选字段
-} # 这是必填字段
   address: String # 这是一个可选字段
 }
 ```
@@ -40,7 +37,7 @@ type Example @entity {
 
 为了提高查询性能，只需在非主键字段实现 ``@index` 注解，便可索引实体字段。 </p>
 
-然而，我们不允许用户在任何对象上添加注解。 默认情况下，索引会自动添加到数据库的外键和JSON字段中，但这只是为了提高查询服务的性能。
+<p spaces-before="0">然而，我们不允许用户在任何 <a href="#json-type">JSON</a> 对象上添加 <code>@index`` 注解。 默认情况下，索引会自动添加到数据库的外键和JSON字段中，但这只是为了提高查询服务的性能。
 
 参见下面的示例。
 
@@ -48,10 +45,7 @@ type Example @entity {
 type User @entity {
   id: ID!
   name: String! @index(unique：true) # unique可以设置为 true 或 false
-  title: Title! type User @entity {
-  id: ID!
-  name: String! @index(unique：true) # unique可以设置为 true 或 false
-  title: Title! #索引被自动添加到外键字段
+  title: Title! type User @entity 
 }
 
 type Title @entity {
@@ -92,6 +86,21 @@ const pirateLords = await User.getByTitleId(captainTitle.id); // List of all Cap
 
 例如：护照只能属于一人，一个人只能持有一本护照（参考下面的例子）：
 
+或者
+
+```graphql
+type Person @entity {
+  id: ID!
+}
+
+type Passport @entity {
+  id: ID!
+  owner: Person!
+}
+
+```
+
+或者以另一个方式关联。
 
 ```graphql
 type Person @entity {
@@ -108,17 +117,17 @@ type Passport @entity {
 
 例如：一个人可以拥有多个帐户。
 
-通过建立一个映射实体，将另外两个实体连接起来，可以实现多对多的关系。
+通过建立一个映射实体，将另外两个实体连接起来，可以实现一对多的关系。
 
 ```graphql
 type Person @entity {
   id: ID!
+  accounts: [Account]! @derivedFrom(field: "person") # 创建虚拟字段
 }
 
 type Account @entity {
   id: ID!
-  publicAddress: String!
-  owner: Person!
+  person: Person!
 }
 ```
 
@@ -149,6 +158,7 @@ type Group @entity {
 
 下面的例子通过 Transfer 表在两个 Accounts (from 和 to) 之间建立双向关系。
 
+要在一个实体上反向查找它的关系，请将 `@derivedFrom` 添加到字段并指向另一个实体的反向查找字段。
 
 ```graphql
 type Account @entity {
@@ -165,8 +175,6 @@ type Transfer @entity {
 ```
 
 ### 反向查询
-
-要在一个实体上反向查找它的关系，请将 `@derivedFrom` 添加到字段并指向另一个实体的反向查找字段。
 
 这将在实体上创建一个可以查询的虚拟字段。
 

@@ -1,18 +1,18 @@
-# How does a SubQuery dictionary work?
+# SubQueryディクショナリの仕組みは？
 
-The whole idea of a generic dictionary project is to index all the data from a blockchain and record the events, extrinsics, and its types (module and method) in a database in order of block height. Another project can then query this `network.dictionary` endpoint instead of the default `network.endpoint` defined in the manifest file.
+一般的なディクショナリプロジェクトの全体のアイデアは、ブロックチェーンからすべてのデータをインデックス化し、イベント、外部関数、そのタイプ（モジュールとメソッド）をブロック順にデータベースに記録することです。 別のプロジェクトは、マニフェスト ファイルで定義されたデフォルトの `network.endpoint` の代わりに、この `network.dictionary`  のエンドポイントを照会できます。
 
-The `network.dictionary` endpoint is an optional parameter that if present, the SDK will automatically detect and use. `network.endpoint` is mandatory and will not compile if not present.
+`network.dictionary` エンドポイントはオプションのパラメータで、存在すればSDKは自動的に検出し使用します。 `network.endpoint` は必須であり、存在しない場合はコンパイルされません。
 
-Taking the [SubQuery dictionary](https://github.com/subquery/subql-dictionary) project as an example, the [schema](https://github.com/subquery/subql-dictionary/blob/main/schema.graphql) file defines 3 entities; extrinsic, events, specVersion. These 3 entities contain 6, 4, and 2 fields respectively. When this project is run, these fields are reflected in the database tables.
+[SubQuery dictionary](https://github.com/subquery/subql-dictionary) プロジェクトを例にとると、[schema](https://github.com/subquery/subql-dictionary/blob/main/schema.graphql) ファイルでは、extrinsic、events、specVersion の 3 つのエンティティを定義しています。 これら3つのエンティティは、それぞれ6、4、2フィールドを含んでいます。 このプロジェクトを実行すると、これらのフィールドがデータベースのテーブルに反映されます。
 
-![extrinsics table](/assets/img/extrinsics_table.png) ![events table](/assets/img/events_table.png) ![specversion table](/assets/img/specversion_table.png)
+![外部テーブル](/assets/img/extrinsics_table.png) ![イベント テーブル](/assets/img/events_table.png) ![スペックバージョンテーブル](/assets/img/specversion_table.png)
 
-Data from the blockchain is then stored in these tables and indexed for performance. The project is then hosted in SubQuery Projects and the API endpoint is available to be added to the manifest file.
+ブロックチェーンからのデータは、これらのテーブルに格納され、パフォーマンスのためにインデックスが付けられます。 その後、プロジェクトは SubQuery Projects でホストされ、API エンドポイントをマニフェスト ファイルに追加することが可能になります。
 
-## How to incorporate a dictionary into your project?
+## あなたのプロジェクトにディクショナリを組み込むには？
 
-Add `dictionary: https://api.subquery.network/sq/subquery/dictionary-polkadot` to the network section of the manifest. Eg:
+マニフェストファイルのネットワーク セクションに `dictionary: https://api.subquery.network/sq/subquery/dictionary-polkadot` を追加します。 例:
 
 ```shell
 network:
@@ -20,24 +20,24 @@ network:
   dictionary: https://api.subquery.network/sq/subquery/dictionary-polkadot
 ```
 
-## What happens when a dictionary IS NOT used?
+## ディクショナリを使わないと、どうなるのか？
 
-When a dictionary is NOT used, an indexer will fetch every block data via the polkadot api according to the `batch-size` flag which is 100 by default, and place this in a buffer for processing. Later, the indexer takes all these blocks from the buffer and while processing the block data, checks whether the event and extrinsic in these blocks match the user-defined filter.
+ディクショナリを使用しない場合、インデクサは、`batch-size`フラグ（デフォルトでは100）に従って、polkadot API経由ですべてのブロックデータを取得し、処理のためにバッファに格納します。 その後、インデクサはこれらのブロックをすべてバッファから取り出し、ブロックデータを処理しながら、これらのブロックのイベントと外部関数がユーザー定義のフィルタに一致するかどうかをチェックします。
 
-## What happens when a dictionary IS used?
+## ディクショナリを使うとどうなるのか？
 
-When a dictionary IS used, the indexer will first take the call and event filters as parameters and merge this into a GraphQL query. It then uses the dictionary's API to obtain a list of relevant block heights only that contains the specific events and extrinsics. Often this is substantially less than 100 if the default is used.
+ディクショナリが使用される場合、インデクサはまず呼び出しとイベントフィルタをパラメータとして受け取り、これをGraphQLクエリーにマージします。 次に、ディクショナリのAPIを使用して、特定のイベントと外部関数を含む関連するブロック順のリストのみを取得します。 デフォルトで使用する場合は、100より大幅に少なくなることが多い。
 
-For example, imagine a situation where you're indexing transfer events. Not all blocks have this event (in the image below there are no transfer events in blocks 3 and 4).
+例えば、転送イベントのインデックスを作成する状況を想像してください。 すべてのブロックにこのイベントがあるわけではありません（下の画像では、ブロック3と4には転送イベントがありません）。
 
-![dictionary block](/assets/img/dictionary_blocks.png)
+![ディクショナリブロック](/assets/img/dictionary_blocks.png)
 
-The dictionary allows your project to skip this so rather than looking in each block for a transfer event, it skips to just blocks 1, 2, and 5. This is because the dictionary is a pre-computed reference to all calls and events in each block.
+ディクショナリでは、プロジェクトが転送イベントを各ブロックで探すのではなく、ブロック1、2、5だけにスキップすることができます。 これは、ディクショナリが各ブロックのすべての呼び出しとイベントの事前計算された参照であるためである。
 
-This means that using a dictionary can reduce the amount of data that the indexer obtains from the chain and reduce the number of “unwanted” blocks stored in the local buffer. But compared to the traditional method, it adds an additional step to get data from the dictionary’s API.
+つまり、ディクショナリを使うことで、インデクサがチェーンから取得するデータ量を減らし、ローカルバッファに格納される「不要な」ブロックの数を減らすことができるのです。 しかし、従来の方法と比較すると、ディクショナリのAPIからデータを取得するステップが追加されます。
 
-## When is a dictionary NOT useful?
+## ディクショナリが役に立たないのはどんなときか？
 
-When [block handlers](https://doc.subquery.network/create/mapping.html#block-handler) are used to grab data from a chain, every block needs to be processed. Therefore, using a dictionary in this case does not provide any advantage and the indexer will automatically switch to the default non-dictionary approach.
+[ブロック ハンドラ](https://doc.subquery.network/create/mapping.html#block-handler)を使用してチェーンからデータを取得する場合、すべてのブロックが処理される必要があります。 したがって、この場合にディクショナリを使用しても利点はなく、インデクサは自動的にデフォルトの非ディクショナリアプローチに切り替わります。
 
-Also, when dealing with events or extrinsic that occur or exist in every block such as `timestamp.set`, using a dictionary will not offer any additional advantage.
+また、`timestamp.set`のようにブロックごとに発生・存在するイベントや外部関数を扱う場合、ディクショナリを使用してもそれ以上の利点はないでしょう。

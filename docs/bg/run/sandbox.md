@@ -1,19 +1,19 @@
-# The Sandbox
+# То Sandbox
 
-In our envisioned usage scenario, the SubQuery node is usually run by a trusted host, and the code of the SubQuery project submitted by the user to the node is not entirely trustworthy.
+В нашия предвиден случай на използване възелът за SubQuery обикновено се изпълнява от доверен хост и кодът на проекта за SubQuery, изпратен от Потребителя до възела, не е напълно надежден.
 
-Some malicious code is likely to attack the host or even compromise it, and cause damage to the data of other projects in the same host. Therefore, we use the [VM2](https://www.npmjs.com/package/vm2) sandbox secured mechanism to reduce risks. This:
+Някои злонамерени кодове вероятно ще атакуват хоста или дори ще го компрометират и ще навредят на данните на други проекти на същия хост. Затова използваме [VM2](https://www.npmjs.com/package/vm2) sandbox защитен механизъм за намаляване на риска. Този:
 
-- Runs untrusted code securely in an isolated context and malicious code will not access the network and file system of the host unless through the exposed interface we injected into the sandbox.
+- Безопасно изпълнява ненадежден код в изолиран контекст и злонамереният код няма да получи достъп до мрежата и файловата система на хоста, освен ако е чрез публичен интерфейс, който сме инжектирали в sandbox.
 
-- Securely calls methods and exchanges data and callbacks between sandboxes.
+- Безопасно извиква методи и комуникира и обратно извиква между изолирани блокове.
 
-- Is immune to many known methods of attack.
+- Той е имунизиран срещу много известни методи за атака.
 
 
-## Restriction
+## Ограничение
 
-- To limit access to certain built-in modules, only `assert`, `buffer`, `crypto`,`util` and `path` are whitelisted.
+- За да ограничите достъпа до определени вградени модули, само`assert`, `buffer`, `crypto`,`util` and `path`включени в белия списък.
 
 - We support [3rd party modules](../create/mapping.md#third-party-libraries) written in **CommonJS** and **hybrid** libraries like `@polkadot/*` that use ESM as default.
 

@@ -1,18 +1,18 @@
-# How does a SubQuery dictionary work?
+# Как работи речникът на SubQuery?
 
-The whole idea of a generic dictionary project is to index all the data from a blockchain and record the events, extrinsics, and its types (module and method) in a database in order of block height. Another project can then query this `network.dictionary` endpoint instead of the default `network.endpoint` defined in the manifest file.
+Идеята на проекта за универсален речник е да индексира всички данни от блокчейна и да записва събития, външни данни и техните типове (модул и метод) в базата данни по реда на височината на блока. След това друг проект може да изиска тази крайна точка `network.dictionary` вместо значението по подразбиране`network.endpoint` дефинирано в манифест файла.
 
-The `network.dictionary` endpoint is an optional parameter that if present, the SDK will automatically detect and use. `network.endpoint` is mandatory and will not compile if not present.
+Крайна точка `network.dictionary` е незадължителен параметър, който, обаче ако присъства, SDK автоматично ще открие и използва. `network.endpoint` е задължителен, компилацията няма да се случи при негово отсътствие.
 
-Taking the [SubQuery dictionary](https://github.com/subquery/subql-dictionary) project as an example, the [schema](https://github.com/subquery/subql-dictionary/blob/main/schema.graphql) file defines 3 entities; extrinsic, events, specVersion. These 3 entities contain 6, 4, and 2 fields respectively. When this project is run, these fields are reflected in the database tables.
+Взимайки като пример проект [SubQuery dictionary](https://github.com/subquery/subql-dictionary) файл [schema](https://github.com/subquery/subql-dictionary/blob/main/schema.graphql) определя 3 обекта; външни, събития, specVersion. Тези 3 обекта съдържат съответно 6, 4 и 2 полета. При стартирате на проект, тези полета се отразяват в таблиците на базата данни.
 
-![extrinsics table](/assets/img/extrinsics_table.png) ![events table](/assets/img/events_table.png) ![specversion table](/assets/img/specversion_table.png)
+![външна стабилност](/assets/img/extrinsics_table.png) ![таблица на събитията](/assets/img/events_table.png) ![specversion таблица](/assets/img/specversion_table.png)
 
-Data from the blockchain is then stored in these tables and indexed for performance. The project is then hosted in SubQuery Projects and the API endpoint is available to be added to the manifest file.
+След това данните от Blockchain се съхраняват в тези таблици и се индексират, за да се подобри производителността. След това проектът се разполага в проекти SubQuery и крайната точка на API е достъпна за добавяне към файла на манифеста.
 
-## How to incorporate a dictionary into your project?
+## Как да включите речник във вашия проект?
 
-Add `dictionary: https://api.subquery.network/sq/subquery/dictionary-polkadot` to the network section of the manifest. Eg:
+Добавете `dictionary: https://api.subquery.network/sq/subquery/dictionary-polkadot` към мрежовия раздел на манифеста. Eg:
 
 ```shell
 network:
@@ -20,24 +20,24 @@ network:
   dictionary: https://api.subquery.network/sq/subquery/dictionary-polkadot
 ```
 
-## What happens when a dictionary IS NOT used?
+## Какво се случва, когато речникът НЕ се използва?
 
-When a dictionary is NOT used, an indexer will fetch every block data via the polkadot api according to the `batch-size` flag which is 100 by default, and place this in a buffer for processing. Later, the indexer takes all these blocks from the buffer and while processing the block data, checks whether the event and extrinsic in these blocks match the user-defined filter.
+Когато речникът НЕ се използва, индексаторът извлича данните на всеки блок чрез api на polkadot съгласно флага `batch-size`, който по подразбиране е 100, и ги поставя в буфер за обработка. По-късно индексаторът извлича всички тези блокове от буфера и при обработката на блоковите данни проверява дали събитието и външните данни в тези блокове съответстват на зададения от потребителя филтър.
 
-## What happens when a dictionary IS used?
+## Какво се случва, когато се използва речник IS?
 
-When a dictionary IS used, the indexer will first take the call and event filters as parameters and merge this into a GraphQL query. It then uses the dictionary's API to obtain a list of relevant block heights only that contains the specific events and extrinsics. Often this is substantially less than 100 if the default is used.
+Когато се използва речник IS, индексаторът първо приема филтри за обаждания и събития като параметри и ги комбинира в заявка GraphQL. След това използва API на речника, за да получи списък със съответните височини на блока, който съдържа конкретни събития и външни данни. Често тази стойност е значително по-малка от 100, при използване на стойността по подразбиране.
 
-For example, imagine a situation where you're indexing transfer events. Not all blocks have this event (in the image below there are no transfer events in blocks 3 and 4).
+Например, представете си ситуация, при която индексирате събития за трансфер. Не всички блокове поддържат това събитие (на изображението по-долу няма събития за предаване в блокове 3 и 4).
 
 ![dictionary block](/assets/img/dictionary_blocks.png)
 
-The dictionary allows your project to skip this so rather than looking in each block for a transfer event, it skips to just blocks 1, 2, and 5. This is because the dictionary is a pre-computed reference to all calls and events in each block.
+Речникът позволява на вашия проект да пропусне това, така че вместо да търси събитие за пренасяне във всеки блок, той преминава само към блокове 1, 2 и 5. Това е така, защото речникът е предварително изчислена препратка към всички обаждания и събития във всеки блок.
 
-This means that using a dictionary can reduce the amount of data that the indexer obtains from the chain and reduce the number of “unwanted” blocks stored in the local buffer. But compared to the traditional method, it adds an additional step to get data from the dictionary’s API.
+Това означава, че използването на речник може да намали количеството данни, които индексаторът получава от веригата, и да намали броя на “нежелателни" блокове, съхранявани в локалния буфер. Но в сравнение с традиционния метод, той добавя допълнителна стъпка за извличане на данни от API на речника.
 
-## When is a dictionary NOT useful?
+## Кога речникът е безполезен?
 
-When [block handlers](https://doc.subquery.network/create/mapping.html#block-handler) are used to grab data from a chain, every block needs to be processed. Therefore, using a dictionary in this case does not provide any advantage and the indexer will automatically switch to the default non-dictionary approach.
+Докато [обработчиците на блокове](https://doc.subquery.network/create/mapping.html#block-handler) се използват за извличане на данни от верига, всеки блок трябва да бъде обработен. Следователно използването на речник в този случай не предлага никакви предимства и индексаторът автоматично ще премине към следният подход: без речник по подразбиране.
 
-Also, when dealing with events or extrinsic that occur or exist in every block such as `timestamp.set`, using a dictionary will not offer any additional advantage.
+Също така, когато се занимавате със събития или външни данни, които се случват или съществуват във всеки блок такъв както `timestamp.set`, използването на речник няма да даде допълнителни предимства.

@@ -3,19 +3,19 @@
   <section class="welcomeWords">
     <div class="main">
       <div>
-        <h2 class="welcomeTitle">Welcome to SubQuery’s <span>Docs</span></h2>
-        <p>Explore and transform your chain data to build intuitive dApps faster!</p>
+        <h2 class="welcomeTitle">Добре дошли в <span>Документите </span> на SubQuery</h2>
+        <p>Изследвайте и трансформирайте вашите блокчейн данни, за да изградите по-бързо интуитивни dApps!</p>
       </div>
     </div>
   </section>
   <section class="startSection main">
     <div>
-      <h2 class="title">Quick Start <span>Guide</span></h2>
-      <p>Understand SubQuery by getting hands on with a traditional Hello World example. Using a template project within a Docker environment, you can quickly get a node up and running and start querying a blockchain in just a few minutes with a few simple commands.
+      <h2 class="title"><span>Ръководство </span>за бързо стартиране</h2>
+      <p>Разберете относно SubQuery, като се заемете с традиционният пример с Hello World. Използвайки шаблонен проект в Docker среда, можете бързо да стартирате нода и да започнете да заявявате данни от блокчейна, само за няколко минути с няколко прости команди.
       </p>
       <span class="button">
         <router-link :to="{path: '/quickstart/helloworld-localhost/'}">
-          <span>Get started</span>
+          <span>Първи стъпки</span>
         </router-link>
       </span>
     </div>
@@ -28,8 +28,8 @@
         <router-link :to="{path: '/tutorials_examples/introduction/'}">
           <div>
             <img src="/assets/img/tutorialsIcon.svg" />
-            <span>Tutorials and Examples</span>
-            <p>Learning by doing. Tutorials and examples on how to build various SubQuery projects.</p>
+            <span>Уроци и примери</span>
+            <p>Учене чрез практически занимания. Уроци и примери за това как да изграждате различни проекти в SubQuery.</p>
           </div>
         </router-link>
       </li>
@@ -37,8 +37,8 @@
         <router-link :to="{path: '/create/introduction/'}">
           <div>
             <img src="/assets/img/docsIcon.svg" />
-            <span>Technical Reference Docs</span>
-            <p>Written by developers for developers. Find what you need to build awesome dApps quickly.</p>
+            <span>Техническа документация</span>
+            <p>Написана от разработчици за разработчици. Намерете това, от което се нуждаете, за бързо създаване на страхотни dApp/ приложения.</p>
           </div>
         </router-link>
       </li>
@@ -46,8 +46,8 @@
         <a href="https://static.subquery.network/whitepaper.pdf" target="_blank">
           <div>
             <img src="/assets/img/networkIcon.svg" />
-            <span>The SubQuery Network</span>
-            <p>SubQuery’s decentralised future. Read more about how indexers and consumers are rewarded.</p>
+            <span>Мрежата на SubQuery</span>
+            <p>Децентрализираното бъдеще на SubQuery. Прочетете повече относно начините за възнаграждаване на индексатори и потребители.</p>
           </div>
         </a>
       </li>
@@ -59,65 +59,65 @@
     <h2 class="title">FAQ</h2>
     <ul class="faqList">
       <li>
-        <div class="title">What is SubQuery?</div>
+        <div class="title">Какво е SubQuery?</div>
         <div class="content">
-          <p>SubQuery is an open source project that allows developers to index, transform, and query Substrate chain data to power their applications.</p>
+          <p>SubQuery е проект с отворен код, позволяващ на разработчиците да индексират, трансформират и заявяват блокчейн данни от Substrate, за стартиране на своите приложения.</p>
           <span class="more">
-            <router-link :to="{path: '/faqs/faqs/#what-is-subquery'}">READ MORE</router-link>
+            <router-link :to="{path: '/faqs/faqs/#what-is-subquery'}">ПРОЧЕТЕТЕ ОЩЕ</router-link>
           </span>
         </div>
       </li>
       <li>
-        <div class="title">What is the best way to get started with SubQuery?</div>
+        <div class="title">Кой е най-добрият начин да стартирате работа със SubQuery?</div>
         <div class="content">
-          <p>The best way to get started with SubQuery is to try out our <a href="/quickstart/helloworld-localhost/">Hello World tutorial</a>. This is a simple 5 min walk through of downloading the starter template, building the project, and then using Docker to run a node on your localhost and running a simple query. </p>
+          <p>Най-добрият начин да започнете със SubQuery е да изпробвате нашия <a href="/quickstart/helloworld-localhost/">Hello World урок</a>. Това е лесно 5-минутно ръководство за изтегляне на стартовия шаблон, изграждане на проекта и след това използване на Docker за стартиране на нода на вашия локален хост и изпълнение на проста заявка. </p>
         </div>
       </li>
       <li>
-        <div class="title">How can I contribute or give feedback to SubQuery?</div>
+        <div class="title">По какъв начин мога да допринеса или да дам обратна връзка към SubQuery?</div>
         <div class="content">
-          <p>We love contributions and feedback from the community. To contribute code, fork the repository of interest and make your changes. Then submit a PR or Pull Request. Oh, don't forget to test as well! Also check out our contributions guidelines (coming soon). </p>
+          <p>Ние харесваме приноса и обратната връзка от общността. За да съдействате с код - форкнете хранилището, което ви интересува, и направете своите промени. След това изпратете PR или Pull Request. О, и не забравяйте да тествате също! Вижте и нашите препоръки за принос към проекта (очаквайте скоро). </p>
           <span class="more">
-            <router-link :to="{path: '/faqs/faqs/#what-is-the-best-way-to-get-started-with-subquery'}">READ MORE</router-link>
+            <router-link :to="{path: '/faqs/faqs/#what-is-the-best-way-to-get-started-with-subquery'}">ПРОЧЕТЕТЕ ОЩЕ</router-link>
           </span>
         </div>
       </li>
       <li>
-        <div class="title">How much does it cost to host my project in SubQuery Projects?</div>
+        <div class="title">Колко струва хостването на моя проект в SubQuery Projects?</div>
         <div class="content">
-          <p>Hosting your project in SubQuery Projects is absolutely free - it's is our way of giving back to the community. To learn how to host your project with us, please check out the <a href="/quickstart/helloworld-hosted/">Hello World (SubQuery Hosted)</a> tutorial.</p>
+          <p>Хостването на вашия проект в SubQuery Projects е абсолютно безплатно - това е нашият начин да се отблагодарим на общността. За да научите как да разположите вашия проект при нас, моля, разгледайте урока <a href="/quickstart/helloworld-hosted/">Hello World (Хостван от SubQuery)</a>.</p>
           <span class="more">
-            <router-link :to="{path: '/publish/publish/'}">HOSTING YOUR PROJECT</router-link>
+            <router-link :to="{path: '/publish/publish/'}">ХОСТВАНЕ НА ВАШИЯ ПРОЕКТ </router-link>
           </span>
         </div>
       </li>
     </ul><br>
-    For further frequently asked questions, please see our <router-link :to="{path: '/faqs/faqs/'}">FAQ's</router-link> page.    
+    За допълнителни често задавани въпроси, моля, вижте нашата секция <router-link :to="{path: '/faqs/faqs/'}">FAQ</router-link> страница    
   </div>
 </section>
 <section class="main">
   <div>
     <div class="lastIntroduce lastIntroduce_1">
-        <h5>Integrating with your Custom Chain?</h5>
-        <p>Whether you're building a new parachain or an entirely new blockchain on Substrate - SubQuery can help you index and troubleshoot your chain's data. SubQuery is designed to easily integrate with a custom Substrate based chain.</p>
+        <h5>Интегриране с вашия персонален блокчейн?</h5>
+        <p>Независимо дали изграждате нов парачейн или изцяло нов блокчейн на Substrate, SubQuery може да ви помогне да индексирате и отстранявате неизправности в данните му. SubQuery е проектиран да се интегрира лесно с персонализирани вериги, базирани на Substrate.</p>
         <span class="more">
-          <router-link :to="{path: '/create/mapping/#custom-substrate-chains'}">LEARN HOW TO INTEGRATE WITH YOUR CHAIN</router-link>
+          <router-link :to="{path: '/create/mapping/#custom-substrate-chains'}">НАУЧЕТЕ КАК ДА ИНТЕГРИРАТЕ ВАШАТА ВЕРИГА</router-link>
         </span>
     </div>
     <div class="lastIntroduce lastIntroduce_2">
-        <h5>Support and Contribute</h5>
-        <p>Have a question or interested to know more or how you can contribute? We’d love to hear from you. Please contact us via email or social media from the links below. Need technical expertise? Join our Discord community and receive support from our passionate community members. </p>
-        <a class="more" target="_blank" href="https://discord.com/invite/78zg8aBSMG">JOIN THE CONVERSATION ON DISCORD</a>
+        <h5>Подкрепете и допринасяйте</h5>
+        <p>Имате въпрос или се интересувате да научите повече, или пък как можете да допринесете към проекта? Ще се радваме да чуем от вас. Моля, свържете се с нас чрез имейл или чрез социални медии от линковете по-долу. Нуждаете се от техническа поддръжка? Присъединете се към нашата Discord общност и получете подкрепа от нашите отдадени членове на общността. </p>
+        <a class="more" target="_blank" href="https://discord.com/invite/78zg8aBSMG">ПРИСЪЕДИНЕТЕ СЕ В ОБЩНОСТТА В DISCORD</a>
     </div>
     </div>
 </section>
 <section class="main connectSection">
   <div class="email">
-    <span>Contact us</span>
+    <span>Свържете се с нас</span>
     <a href="mailto:hello@subquery.network">hello@subquery.network</a>
   </div>
   <div>
-    <div>Follow us on social</div>
+    <div>Следвайте ни в социалните мрежи</div>
     <div class="connectWay">
       <a href="https://discord.com/invite/78zg8aBSMG" target="_blank" class="connectDiscord">discord</a>
       <a href="https://twitter.com/subquerynetwork" target="_blank" class="connectTwitter">twitter</a>

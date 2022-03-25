@@ -1,16 +1,16 @@
-# How to change the blockchain fetching batch size?
+# ブロックチェーンの取得したバッチサイズを変更するには？
 
-## Video guide
+## ビデオのガイド
 
 <figure class="video_container">
   <iframe src="https://www.youtube.com/embed/LO_Gea_IN_s" frameborder="0" allowfullscreen="true"></iframe>
 </figure>
 
-## Introduction
+## はじめに
 
-The default batch size is 100, but this can be changed by using the extra command `--batch-size=xx`.
+既定のバッチサイズは100ですが、追加コマンド `--batch-size=xx` で変更可能です。
 
-You need to this to the command line as an extra flag or if you are using Docker, modify the docker-compose.yml with:
+このフラグをコマンドラインに追加するか、Docker を使用している場合は、docker-compose.yml を以下に変更します。
 
 ```shell
 subquery-node:
@@ -33,8 +33,8 @@ subquery-node:
 
 ```
 
-This example sets the batch size to 50.
+この例では、バッチサイズを 50 に設定しています。
 
-## Why change the batch size?
+## なぜバッチサイズを変更するのですか？
 
-Using a smaller batch size can reduce memory usage and not leave users hanging for large queries. In otherwords, your application can be more responsive. 
+よりバッチサイズを小さくすることで、メモリ使用量を削減し、大規模なクエリでもユーザーを待たせることがありません。 つまり、アプリケーションの応答性を高めることが出来ます。 

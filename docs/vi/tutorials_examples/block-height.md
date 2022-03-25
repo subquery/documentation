@@ -1,4 +1,4 @@
-# Làm thế nào để bắt đầu ở một block height khác?
+# Làm thế nào để bắt đầu ở một chiều cao khối khác?
 
 ## Video hướng dẫn
 
@@ -10,7 +10,7 @@
 
 Theo mặc định, tất cả các dự án khởi động bắt đầu đồng bộ hóa chuỗi khối từ khối khởi đầu. Nói cách khác, từ khối 1. Đối với các blockchains lớn, điều này thường có thể mất vài ngày hoặc thậm chí vài tuần để đồng bộ hóa hoàn toàn.
 
-Để bắt đầu đồng bộ hóa nút SubQuery từ height khác 0, tất cả những gì bạn phải làm là sửa đổi tệp project.yaml của mình và thay đổi khóa startBlock.
+Để bắt đầu đồng bộ hóa nút SubQuery từ chiều cao khác 0, tất cả những gì bạn phải làm là sửa đổi tệp project.yaml của mình và thay đổi khóa startBlock.
 
 Dưới đây là tệp project.yaml trong đó khối bắt đầu đã được đặt thành 1.000.000
 
@@ -32,7 +32,7 @@ dataSources:
           kind: substrate/BlockHandler
 ```
 
-## Tại sao không bắt đầu từ con số không?
+## Tại sao không bắt đầu từ con số 0?
 
 Lý do chính là nó có thể giảm thời gian đồng bộ hóa blockchain. Điều này có nghĩa là nếu bạn chỉ quan tâm đến các giao dịch trong 3 tháng gần nhất, bạn chỉ có thể đồng bộ hóa giá trị 3 tháng gần nhất nghĩa là thời gian chờ đợi ít hơn và bạn có thể bắt đầu phát triển của mình nhanh hơn.
 
@@ -40,7 +40,7 @@ Lý do chính là nó có thể giảm thời gian đồng bộ hóa blockchain.
 
 Hạn chế rõ ràng nhất sẽ là bạn sẽ không thể truy vấn dữ liệu trên blockchain cho các khối mà bạn không có.
 
-## Làm thế nào để tìm ra chiều cao blockchain hiện tại?
+## Làm thế nào để tìm ra chiều cao chuỗi khối hiện tại?
 
 Nếu bạn đang sử dụng mạng Polkadot, bạn có thể truy cập [ https://polkascan.io/ ](https://polkascan.io/), chọn mạng và sau đó xem hình "Khối được hoàn thiện".
 

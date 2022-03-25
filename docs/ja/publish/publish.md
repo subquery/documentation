@@ -1,79 +1,96 @@
-# Publish your SubQuery Project
+# SubQuery プロジェクトを公開する
 
-## Benefits of hosting your project with SubQuery
-- We'll run your SubQuery projects for you in a high performance, scalable, and managed public service
-- This service is being provided to the community for free!
-- You can make your projects public so that they'll be listed in the [SubQuery Explorer](https://explorer.subquery.network) and anyone around the world can view them
-- We're integrated with GitHub, so anyone in your GitHub organisations will be able to view shared organisation projects
+## SubQueryでプロジェクトをホスティングするメリット
 
-## Create your First Project
+- SubQueryプロジェクトを高性能、スケーラブル、かつ管理されたパブリックサービスで実行します。
+- このサービスは無料でコミュニティに提供されています！
+- [SubQuery Explorer](https://explorer.subquery.network) にリストされ、世界中の誰でもそれらを表示できるようにプロジェクトを公開することができます。
+- GitHub と統合されているので、GitHub チーム内の誰でも共有プロジェクトを閲覧することができます。
 
-#### Login to SubQuery Projects
+## SubQuery Projectsで最初のプロジェクトを作成する
 
-Before starting, please make sure that your SubQuery project is online in a public GitHub repository. The `schema.graphql` file must be in the root of your directory.
+### プロジェクトコードベースのホスティング
 
-To create your first project, head to [project.subquery.network](https://project.subquery.network). You'll need to authenticate with your GitHub account to login.
+公開前にSubQueryプロジェクトのコードベースをホストするには、2つの方法があります。
 
-On first login, you will be asked to authorize SubQuery. We only need your email address to identify your account, and we don't use any other data from your GitHub account for any other reasons. In this step, you can also request or grant access to your GitHub Organization account so you can post SubQuery projects under your GitHub Organization instead of your personal account.
+**GitHub**: プロジェクトのコードベースはパブリックGitHubリポジトリになければなりません
 
-![Revoke approval from a GitHub account](/assets/img/project_auth_request.png)
+**IPFS**: プロジェクトのコードベースは IPFS に保存できます。IPFS ホスティングガイドについては、[IPFSに公開する方法](ipfs.md)を参照してください。
 
-SubQuery Projects is where you manage all your hosted projects uploaded to the SubQuery platform. You can create, delete, and even upgrade projects all from this application.
+### SubQuery Projectsにログイン
 
-![Projects Login](/assets/img/projects-dashboard.png)
+始める前に、SubQueryプロジェクトがGitHubの公開リポジトリでオンラインになっていることを確認してください。 `schema.graphql` ファイルはディレクトリのルートになければなりません。
 
-If you have a GitHub Organization accounts connected, you can use the switcher on the header to change between your personal account and your GitHub Organization account. Projects created in a GitHub Organization account are shared between members in that GitHub Organization. To connect your GitHub Organization account, you can [follow the steps here](#add-github-organization-account-to-subquery-projects).
+最初のプロジェクトを作成するには、 [project.subquery.network](https://project.subquery.network) を参照してください。 ログインするにはGitHubアカウントで認証する必要があります。
 
-![Switch between GitHub accounts](/assets/img/projects-account-switcher.png)
+最初にログインすると、SubQueryを認証するよう求められます。 あなたのメールアドレスを必要とするのは、アカウントを特定するためだけであり、GitHubアカウントの他のデータを他の理由で使用することはありません。 このステップでは、GitHub Organizationアカウントへのアクセスを要求または許可することで、個人アカウントではなくGitHub OrganizationでSubQueryプロジェクトを発行できるようにすることもできます。
 
-#### Create your First Project
+![GitHub アカウントからの承認を取り消します](/assets/img/project_auth_request.png)
 
-Let's start by clicking on "Create Project". You'll be taken to the New Project form. Please enter the following (you can change this in the future):
-- **GitHub account:** If you have more than one GitHub account, select which account this project will be created under. Projects created in a GitHub organisation account are shared between members in that organisation.
-- **Name**
-- **Subtitle**
+SubQuery Projectsは、SubQueryプラットフォームにアップロードされたすべてのホストプロジェクトを管理する場所です。 このアプリケーションからすべてのプロジェクトを作成、削除、およびアップグレードすることさえできます。
+
+![プロジェクトにログイン](/assets/img/projects-dashboard.png)
+
+GitHub Organizationのアカウントを接続している場合、ヘッダーの切替ボタンで個人アカウントとGitHub Organizationのアカウントを切り替えることができます。 GitHub Organizationのアカウントで作成されたプロジェクトは、そのGitHub Organizationに所属するメンバー間で共有されます。 GitHub Organization アカウントに接続するには、 [こちらの手順](#add-github-organization-account-to-subquery-projects) に従ってください。
+
+![GitHubアカウントを切り替える](/assets/img/projects-account-switcher.png)
+
+### 最初のプロジェクトを作成します
+
+「プロジェクトを作成」をクリックして始めましょう。 新しいプロジェクトのフォームに移動します。 次の項目を入力してください。（後で変更可能です）:
+
+- **GitHubアカウント:** 複数のGitHubアカウントをお持ちの場合、このプロジェクトをどのアカウントで作成するかを選択してください。 GitHub Organizationのアカウントで作成されたプロジェクトは、そのGitHub Organizationに所属するメンバー間で共有されます。
+- **プロジェクト名**
+- **サブタイトル**
 - **説明**
-- **GitHub Repository URL:** This must be a valid GitHub URL to a public repository that has your SubQuery project. The `schema.graphql` file must be in the root of your directory ([learn more about the directory structure](../create/introduction.md#directory-structure)).
-- **Hide project:** If selected, this will hide the project from the public SubQuery explorer. Keep this unselected if you want to share your SubQuery with the community! ![Create your first Project](/assets/img/projects-create.png)
+- **GitHub リポジトリ URL:** これは、あなたのSubQueryプロジェクトがあるパブリックリポジトリへの有効なGitHub URLである必要があります。 `schema.graphql` ファイルは、ディレクトリのルートにある必要があります ([ディレクトリ構造の詳細](../create/introduction.md#directory-structure) を参照してください)。
+- **データベース:** プレミアムユーザーは、本番環境の SubQuery プロジェクトをホストする専用データベースにアクセスできます。 興味がある場合は、 [sales@subquery.network](mailto:sales@subquery.network) に連絡して、この設定を有効にすることができます。
+- **デプロイメントソース:** GitHub リポジトリからプロジェクトをデプロイするか、IPFS CID からデプロイするかを選択することができます。[IPFSによるホスティング](ipfs.md)を参照してください。
+- **プロジェクトを非表示:** 選択すると、公開の SubQuery エクスプローラからプロジェクトを非表示にします。 SubQueryをコミュニティと共有したい場合は、この選択を解除しておいてください。 ![最初のプロジェクトを作成します](/assets/img/projects-create.png)
 
-Create your project and you'll see it on your SubQuery Project's list. *We're almost there! We just need to deploy a new version of it. </p>
+プロジェクトを作成すると、SubQuery Projectsのリストに表示されます。 _もうすぐです！ 新しいバージョンをデプロイするだけです。_
 
-![Created Project with no deployment](/assets/img/projects-no-deployment.png)
+![デプロイがないプロジェクトを作成](/assets/img/projects-no-deployment.png)
 
-#### Deploy your first Version
+### 最初のプロジェクトをデプロイする
 
-While creating a project will setup the display behaviour of the project, you must deploy a version of it before it becomes operational. Deploying a version triggers a new SubQuery indexing operation to start, and sets up the required query service to start accepting GraphQL requests. You can also deploy new versions to existing projects here.
+プロジェクトを作成するとプロジェクトの動作が設定されますが、運用を開始する前にそのバージョンをデプロイする必要があります。 バージョンをデプロイすると、新しいSubQueryインデックス作成操作が開始され、必要なクエリーサービスがGraphQLリクエストの受け付けを開始するようセットアップされます。 新しいバージョンを既存のプロジェクトにデプロイすることもできます。
 
-With your new project, you'll see a Deploy New Version button. Click this, and fill in the required information about the deployment:
-- **Commit Hash of new Version:** From GitHub, copy the full commit hash of the version of your SubQuery project codebase that you want deployed
-- **Indexer Version:** This is the version of SubQuery's node service that you want to run this SubQuery on. See [`@subql/node`](https://www.npmjs.com/package/@subql/node)
-- **Query Version:** This is the version of SubQuery's query service that you want to run this SubQuery on. See [`@subql/query`](https://www.npmjs.com/package/@subql/query)
+新しいプロジェクトには、「新しいバージョンのデプロイ」ボタンが表示されます。 これをクリックして、デプロイに関する必要な情報を入力してください:
 
-![Deploy your first Project](https://static.subquery.network/media/projects/projects-first-deployment.png)
+- **ブランチ:** GitHub から、デプロイするプロジェクトのブランチを選択します。
+- **コミットハッシュ:** GitHub から、デプロイしたいバージョンの SubQuery プロジェクトのコードベースの特定のコミットを選択します
+- **IPFS:** IPFSからデプロイする場合は、IPFSデプロイメントCIDを貼り付けます (先頭の `ipfs://` を除く)
+- **ネットワークと辞書のエンドポイントを上書き:** ここでプロジェクトマニフェストのエンドポイントを上書きできます
+- **インデクサバージョン:** このSubQueryを実行するノードサービスのバージョンを指定します。 [`@subql/node`](https://www.npmjs.com/package/@subql/node) を参照してください。
+- **クエリのバージョン:** このSubQueryを実行するクエリサービスのバージョンを指定します。 [`@subql/query`](https://www.npmjs.com/package/@subql/query) を参照してください。
 
-If deployed successfully, you'll see the indexer start working and report back progress on indexing the current chain. This process may take time until it reaches 100%.
+![最初のプロジェクトをデプロイする](https://static.subquery.network/media/projects/projects-first-deployment.png)
 
-## Next Steps - Connect to your Project
-Once your deployment has succesfully completed and our nodes have indexed your data from the chain, you'll be able to connect to your project via the displayed GraphQL Query endpoint.
+正常にデプロイされるとインデクサが動作を開始し、現在のチェーンのインデックス作成の進捗がわかります。 このプロセスは100%に達するまで時間がかかることがあります。
 
-![Project being deployed and synced](/assets/img/projects-deploy-sync.png)
+## 次のステップ - プロジェクトに接続
 
-Alternatively, you can click on the three dots next to the title of your project, and view it on SubQuery Explorer. There you can use the in-browser playground to get started - [read more about how to user our Explorer here](../query/query.md).
+デプロイが正常に完了し、ノードがチェーンからデータのインデックスを作成したら、表示されたGraphQLクエリエンドポイントからプロジェクトに接続することができるようになります。
 
-![Projects in SubQuery Explorer](/assets/img/projects-explorer.png)
+![プロジェクトを展開および同期する](/assets/img/projects-deploy-sync.png)
 
-## Add GitHub Organization Account to SubQuery Projects
+または、プロジェクトのタイトルの横にある3つの点をクリックして、SubQuery Explorer で表示することもできます。 ブラウザ内のプレイグラウンドを使用して始めることができます - [エクスプローラの使い方についてはこちら](../query/query.md) をご覧ください。
 
-It is common to publish your SubQuery project under the name of your GitHub Organization account rather than your personal GitHub account. At any point your can change your currently selected account on [SubQuery Projects](https://project.subquery.network) using the account switcher.
+![SubQuery Explorer のプロジェクト](/assets/img/projects-explorer.png)
 
-![Switch between GitHub accounts](/assets/img/projects-account-switcher.png)
+## GitHub Organization アカウントを SubQuery Projects に追加
 
-If you can't see your GitHub Organization account listed in the switcher, the you may need to grant access to SubQuery for your GitHub Organization (or request it from an administrator). To do this, you first need to revoke permissions from your GitHub account to the SubQuery Application. To do this, login to your account settings in GitHub, go to Applications, and under the Authorized OAuth Apps tab, revoke SubQuery - [you can follow the exact steps here](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/reviewing-your-authorized-applications-oauth). **Don't worry, this will not delete your SubQuery project and you will not lose any data.**
+個人の GitHub アカウントではなく、GitHub Organization アカウントの名前で SubQuery プロジェクトを公開するのが一般的です。 [SubQuery Projects](https://project.subquery.network) で現在選択されているアカウントは、アカウントの切替を使っていつでも変更することができます。
 
-![Revoke access to GitHub account](/assets/img/project_auth_revoke.png)
+![GitHubアカウントを切り替える](/assets/img/projects-account-switcher.png)
 
-Once you have revoked access, log out of [SubQuery Projects](https://project.subquery.network) and log back in again. You should be redirected to a page titled _Authorize SubQuery_ where you can request or grant SubQuery access to your GitHub Organization account. If you don't have admin permissions, you must make a request for an adminstrator to enable this for you.
+GitHub Organization のアカウントがアカウント切替に表示されていない場合は、GitHub Organization に対して SubQuery へのアクセスを許可する必要があります。（または管理者にリクエストする） これを行うには、まず GitHub アカウントから SubQuery アプリケーションへの権限を取り消す必要があります。 そして、GitHub のアカウント設定にログインし、「Applications」に移動し「Authorized OAuth Apps」タブで SubQuery を取り消します - [正確な手順はこちら](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/reviewing-your-authorized-applications-oauth)を参照してください。 **ご心配なく、SubQueryプロジェクトは削除されず、データが失われることはありません。**
 
-![Revoke approval from a GitHub account](/assets/img/project_auth_request.png)
+![GitHubアカウントへのアクセス権を取り消す](/assets/img/project_auth_revoke.png)
 
-Once this request has been approved by your administrator (or if are able to grant it youself), you will see the correct GitHub Organization account in the account switcher.
+アクセス権を取り消したら、 [SubQuery Projects](https://project.subquery.network) からログアウトし、再度ログインしてください。 _Authorize SubQuery_ というタイトルのページにリダイレクトされ、GitHub Organization アカウントへの SubQuery アクセスを要求または許可することができるようになっているはずです。 管理者権限がない場合は、管理者権限を有効にするように要求する必要があります。
+
+![GitHub アカウントからの承認を取り消す](/assets/img/project_auth_request.png)
+
+このリクエストが管理者によって承認されると (あるいは自分で承認すると)、アカウント切替に正しい GitHub Organization アカウントが表示されるようになります。

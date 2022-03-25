@@ -1,20 +1,20 @@
-# The Sandbox
+# サンドボックス
 
-In our envisioned usage scenario, the SubQuery node is usually run by a trusted host, and the code of the SubQuery project submitted by the user to the node is not entirely trustworthy.
+想定された使用シナリオでは、SubQuery ノードは通常、信頼されたホストによって実行されます。 そして、ユーザーがノードに送信した SubQuery プロジェクトのコードは完全に信頼できるものではありません。
 
-Some malicious code is likely to attack the host or even compromise it, and cause damage to the data of other projects in the same host. Therefore, we use the [VM2](https://www.npmjs.com/package/vm2) sandbox secured mechanism to reduce risks. This:
+悪意のあるコードの中には、ホストを攻撃したり、ホストを危険にさらして、同じホストにある他のプロジェクトのデータに損害を与える可能性のあるものもあります。 したがって、 [VM2](https://www.npmjs.com/package/vm2) サンドボックスで保護されたメカニズムを使用してリスクを削減します。 下記に示します:
 
-- Runs untrusted code securely in an isolated context and malicious code will not access the network and file system of the host unless through the exposed interface we injected into the sandbox.
+- 信頼されていないコードを隔離されたコンテキストで安全に実行し、サンドボックスに注入したインタフェースを介さない限り、悪意のあるコードはホストのネットワークとファイルシステムにアクセスしません。
 
-- Securely calls methods and exchanges data and callbacks between sandboxes.
+- メソッドを安全に呼び出し、サンドボックス間で交換するデータやコールバックを行います。
 
-- Is immune to many known methods of attack.
+- 既知の多くの攻撃方法に対して免疫があります。
 
 
-## Restriction
+## 制限事項
 
-- To limit access to certain built-in modules, only `assert`, `buffer`, `crypto`,`util` and `path` are whitelisted.
+- 特定の組み込みモジュールへのアクセスを制限するため、`assert`, `buffer`, `crypto`, `util`, `path`  のみをホワイトリストに登録しています。
 
-- We support [3rd party modules](../create/mapping.md#third-party-libraries) written in **CommonJS** and **hybrid** libraries like `@polkadot/*` that use ESM as default.
+- **CommonJS** で書かれた[サードパーティモジュール](../create/mapping.md#third-party-libraries) や、`@polkadot/*`のようにESMをデフォルトで使用する**hybrid** ライブラリに対応しています。
 
-- Any modules using `HTTP` and `WebSocket` are forbidden.
+- `HTTP` と `WebSocket` を使用するモジュールは禁止されています。

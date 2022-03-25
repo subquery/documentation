@@ -6,7 +6,7 @@ Supported networks:
 
 | Network Name   | Websocket Endpoint                                 | Dictionary Endpoint                                                  |
 | -------------- | -------------------------------------------------- | -------------------------------------------------------------------- |
-| Moonbeam       | _Coming soon_                                      | _Coming soon_                                                        |
+| Moonbeam       | `wss://moonbeam.api.onfinality.io/public-ws`       | `https://api.subquery.network/sq/subquery/moonbeam-dictionary`       |
 | Moonriver      | `wss://moonriver.api.onfinality.io/public-ws`      | `https://api.subquery.network/sq/subquery/moonriver-dictionary`      |
 | Moonbase Alpha | `wss://moonbeam-alpha.api.onfinality.io/public-ws` | `https://api.subquery.network/sq/subquery/moonbase-alpha-dictionary` |
 
@@ -28,10 +28,10 @@ Supported networks:
 
 ### Processor Options
 
-| Field   | Type             | Required | Description                                                                                                |
-| ------- | ---------------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| abi     | String           | No       | The ABI that is used by the processor to parse arguments. MUST be a key of `assets`                        |
-| address | String or `null` | No       | A contract address where the event is from or call is made to. `null` will capture contract creation calls |
+| Field   | Type             | Required | Description                                                                                                                          |
+| ------- | ---------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| abi     | String           | No       | The ABI that is used by the processor to parse arguments. MUST be a key of `assets`                                                  |
+| address | String or `null` | No       | Un indirizzo contrattuale da cui proviene l'evento o a cui viene effettuata la chiamata. `null` will capture contract creation calls |
 
 ## MoonbeamCall
 

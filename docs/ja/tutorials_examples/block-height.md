@@ -1,18 +1,18 @@
-# How to start at a different block height?
+# 別のブロックの高さで開始するには？
 
-## Video guide
+## ビデオのガイド
 
 <figure class="video_container">
   <iframe src="https://www.youtube.com/embed/ZiNSXDMHmBk" frameborder="0" allowfullscreen="true"></iframe>
 </figure>
 
-## Introduction
+## はじめに
 
-By default, all starter projects start synchronising the blockchain from the genesis block. In otherwords, from block 1. For large blockchains, this can typically take days or even weeks to fully synchronise.
+デフォルトでは、すべてのスタータープロジェクトはジェネシスブロックからブロックチェーンの同期を開始します。 つまり、ブロック1から。 大きなブロックチェーンの場合、完全に同期するのに通常数日または数週間がかかる可能性があります。
 
-To start a SubQuery node synchronising from a non-zero height, all you have to do is to modify your project.yaml file and change the startBlock key.
+SubQueryノードの同期をゼロ以外の高さから開始するには、project.yamlファイルを変更し、startBlockキーを変更するだけでよい。
 
-Below is a project.yaml file where the start block has been set to 1,000,000
+以下は project.yaml ファイルで、開始ブロックが 1,000,000 に設定されています。
 
 ```shell
 specVersion: 0.0.1
@@ -32,18 +32,18 @@ dataSources:
           kind: substrate/BlockHandler
 ```
 
-## Why not start from zero?
+## ゼロから始まらない理由は？
 
-The main reason is that it can reduce the time to synchronise the blockchain. This means that if you are only interested in transactions in the last 3 months, you can only synchronise the last 3 months worth meaning less waiting time and you can start your development faster.
+主な理由は、ブロックチェーンを同期させる時間を短縮できることです。 つまり、最後の3ヶ月間の取引にしか興味がない場合、その最後の3ヶ月分しか同期しないので待ち時間が少なく、より早く開発を開始できます。
 
-## What are the drawbacks of not starting from zero?
+## ゼロからスタートしないことの欠点は何？
 
-The most obvious drawback will be that you won’t be able to query for data on the blockchain for blocks that you don’t have.
+最も明らかな欠点は、ブロックチェーン上の持っていないブロックのデータをクエリできないことです。
 
-## How to figure out the current blockchain height?
+## 現在のブロックチェーンの高さを把握する方法とは？
 
-If you are using the Polkadot network, you can visit [https://polkascan.io/](https://polkascan.io/), select the network, and then view the  "Finalised Block" figure.
+Polkadotネットワークをご利用の場合は、[https://polkascan.io/](https://polkascan.io/) にアクセスしてネットワークを選択し、「Finalised Block」の数値を見ます。
 
-## Do I have to do a rebuild or a codegen?
+## リビルドやコード生成をする必要があるかどうか？
 
-No. Because you are modifying the project.yaml file, which is essentially a configuration file, you will not have to rebuild or regenerate the typescript code.
+いいえ。 本質的に設定ファイルであるproject.yamlファイルを変更するため、typescriptコードをリビルドまたはコード生成する必要はありません。

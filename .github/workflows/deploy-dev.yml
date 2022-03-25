@@ -6,6 +6,7 @@ on:
       - staging
     paths:
       - 'docs/**'
+  workflow_dispatch:
     
 jobs:
   build:

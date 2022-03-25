@@ -1,6 +1,6 @@
 # Từ điển SubQuery hoạt động như thế nào?
 
-Toàn bộ ý tưởng của một dự án từ điển chung là lập chỉ mục tất cả dữ liệu từ một chuỗi khối và ghi lại các sự kiện, ngoại diên và các loại của nó (mô-đun và phương pháp) trong cơ sở dữ liệu theo thứ tự chiều cao của khối. Sau đó, một dự án khác có thể truy vấn điểm cuối ` network.dictionary ` này thay vì ` network.endpoint ` mặc định được xác định trong tệp kê khai.
+Toàn bộ ý tưởng của một dự án từ điển chung là lập chỉ mục tất cả dữ liệu từ một chuỗi khối và ghi lại các sự kiện, ngoại diên và các loại của nó (mô-đun và phương pháp) trong cơ sở dữ liệu theo thứ tự chiều cao của khối. Một dự án khác có thể truy vấn điểm cuối ` network.dictionary ` này thay vì ` network.endpoint ` mặc định được xác định trong tệp kê khai.
 
 Điểm cuối ` network.dictionary ` là một tham số tùy chọn mà nếu có, SDK sẽ tự động phát hiện và sử dụng. ` network.endpoint ` là bắt buộc và sẽ không biên dịch nếu không có.
 
@@ -8,9 +8,9 @@ Lấy dự án [ từ điển SubQuery ](https://github.com/subquery/subql-dicti
 
 ![extrinsics table](/assets/img/extrinsics_table.png) ![events table](/assets/img/events_table.png) ![specversion table](/assets/img/specversion_table.png)
 
-Dữ liệu từ blockchain sau đó được lưu trữ trong các bảng này và được lập chỉ mục cho hiệu suất. Sau đó, dự án được lưu trữ trong Dự án SubQuery và điểm cuối API có sẵn để được thêm vào tệp kê khai.
+Dữ liệu từ blockchain sau đó được lưu trữ trong các bảng này và được lập chỉ mục cho hiệu suất. Sau đó, dự án sẽ được lưu trữ trong Dự án SubQuery và điểm cuối API có sẵn để được thêm vào tệp kê khai.
 
-## Làm thế nào để kết hợp một từ điển vào dự án của bạn?
+## Làm thế nào để đưa một từ điển vào dự án của bạn?
 
 Thêm `dictionary: https://api.subquery.network/sq/subquery/dictionary-polkadot` vào phần mạng của tệp kê khai. Ví dụ:
 

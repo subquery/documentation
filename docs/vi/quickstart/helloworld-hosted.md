@@ -1,15 +1,15 @@
 # Hello World (được lưu trữ trên SubQuery)
 
-Mục đích của bài quick start này là hướng dẫn cách bạn có thể chạy dự án khởi động mặc định trong SubQuery Projects (dịch vụ được quản lý của chúng tôi) trong một vài bước đơn giản.
+Mục đích của bài hướng dẫn nhanh này là chỉ ra cách bạn có thể chạy dự án khởi động mặc định trong dự án SubQuery (dịch vụ được quản lý của chúng tôi) bằng một vài bước đơn giản.
 
-Chúng tôi sẽ sử dụng dự án khởi động đơn giản (và mọi thứ chúng tôi đã học được cho đến nay) nhưng thay vì chạy nó cục bộ trong Docker, chúng tôi sẽ tận dụng cơ sở hạ tầng lưu trữ được quản lý của SubQuery. Nói cách khác, chúng tôi để SubQuery thực hiện tất cả các công việc nặng nhọc, vận hành và quản lý cơ sở hạ tầng sản xuất.
+Chúng ta sẽ sử dụng dự án khởi động đơn giản (bằng mọi thứ chúng ta đã học được cho đến nay) nhưng thay vì chạy nó cục bộ trong Docker, chúng ta sẽ tận dụng cơ sở hạ tầng lưu trữ được quản lý của SubQuery. Nói cách khác, chúng tôi để SubQuery thực hiện tất cả các công việc nặng nhọc, vận hành và quản lý cơ sở hạ tầng sản xuất.
 
 ## Mục tiêu học tập
 
-Khi kết thúc quá trình quick start này, bạn sẽ:
+Khi kết thúc phần khởi động nhanh này, bạn sẽ:
 
 - hiểu các điều kiện tiên quyết cần thiết
-- có thể host một dự án trong [Dự án SubQuery](https://project.subquery.network/)
+- có thể làm chủ một dự án trong [SubQuery Projects](https://project.subquery.network/)
 - chạy một truy vấn đơn giản để lấy chiều cao khối của mạng chính Polkadot bằng cách sử dụng playground
 - chạy một truy vấn GET đơn giản để lấy chiều cao khối của mạng chính Polkadot bằng cách sử dụng cURL
 
@@ -31,10 +31,10 @@ Bạn sẽ cần:
 
 ## 1. Tạo dự án của bạn
 
-Hãy tạo một dự án có tên là subql_hellowworld và chạy cài đặt bắt buộc, codegen và xây dựng với trình quản lý gói yêu thích của bạn.
+Hãy tạo một dự án có tên subqlHelloWorld bằng cách chạy `subql init` và lựa chọn xây dựng dự án với mạng `Polkadot` và khởi tạo dự án bằng `subql-starter` mẫu. Chúng tôi bắt buộc phải chạy install, codegen và build với trình quản lý gói yêu thích của bạn.
 
 ```shell
-> subql init --starter subqlHelloWorld
+> subql init subqlHelloWorld
 yarn install
 yarn codegen
 yarn build
@@ -44,31 +44,31 @@ KHÔNG chạy các lệnh docker.
 
 ## 2. Tạo repo GitHub
 
-Trong GitHub, hãy tạo một repository công khai mới. Cung cấp tên và đặt khả năng hiển thị của bạn ở chế độ công khai. Ở đây, mọi thứ được giữ theo mặc định.
+Trong GitHub, hãy tạo một repository công khai mới. Cung cấp tên và đặt khả năng hiển thị của bạn ở chế độ công khai. Ở đây, hiện tại mọi thứ được giữ theo chế độ mặc định.
 
-![tạo repo github](/assets/img/github_create_new_repo.png)
+![tạo kho lưu trữ github](/assets/img/github_create_new_repo.png)
 
 Hãy lưu ý URL GitHub của bạn, URL này phải được công khai để SubQuery có thể truy cập.
 
-![tạo repo github](/assets/img/github_repo_url.png)
+![tạo kho lưu trữ github](/assets/img/github_repo_url.png)
 
-## 3. Push tới GitHub
+## 3. Đẩy lên GitHub
 
-Quay lại thư mục dự án của bạn, khởi tạo nó dưới dạng thư mục git. Nếu không, bạn có thể gặp lỗi "nghiêm trọng: không phải là kho lưu trữ git (hoặc bất kỳ thư mục mẹ nào): .git"
+Quay lại thư mục dự án của bạn, khởi tạo nó dưới dạng thư mục git. Nếu không, bạn có thể gặp lỗi "nghiêm trọng: không phải là kho lưu trữ git (hoặc bất kỳ thư mục chính nào): .git"
 
 ```shell
 git init
 ```
 
-Sau đó, thêm một repository từ xa bằng lệnh:
+Sau đó, thêm một kho lưu trữ từ xa bằng lệnh:
 
 ```shell
 git remote add origin https://github.com/seandotau/subqlHelloWorld.git
 ```
 
-Về cơ bản, điều này đặt kho lưu trữ từ xa của bạn thành “https://github.com/seandotau/subqlHelloWorld.git” và đặt cho nó tên “origin” là danh pháp tiêu chuẩn cho repository từ xa trong GitHub.
+Về cơ bản, điều này đặt kho lưu trữ từ xa của bạn thành “https://github.com/seandotau/subqlHelloWorld.git” và đặt cho nó tên “origin” là danh pháp tiêu chuẩn cho kho lưu trữ từ xa trong GitHub.
 
-Tiếp theo, chúng tôi thêm code vào repo của chúng tôi bằng các lệnh sau:
+Tiếp theo, chúng ta thêm code vào kho lưu trữ của chúng ta bằng các lệnh sau:
 
 ```shell
 > git add .
@@ -99,13 +99,13 @@ To https://github.com/seandotau/subqlHelloWorld.git
 
 Lệnh push có nghĩa là "vui lòng đẩy mã của tôi ĐẾN kho lưu trữ gốc TỪ kho lưu trữ cục bộ chính của tôi". Làm mới GitHub sẽ hiển thị tất cả mã trong GitHub.
 
-![Đẩy lên lần đầu](/assets/img/first_commit.png)
+![Cam kết đầu tiên](/assets/img/first_commit.png)
 
-Bây giờ bạn đã có code của mình vào GitHub, hãy xem cách chúng tôi có thể lưu trữ code đó trong Dự án SubQuery.
+Bây giờ bạn đã có code của mình trong GitHub, hãy xem cách chúng tôi có thể tổ chức nó trong SubQuery Projects.
 
 ## 4. Tạo dự án của bạn
 
-Điều hướng đến [https://project.subquery.network](https://project.subquery.network) và đăng nhập bằng tài khoản GitHub của bạn.
+Di chuyển đến [https://project.subquery.network](https://project.subquery.network) và đăng nhập bằng tài khoản GitHub của bạn.
 
 ![Chào mừng bạn đến với Dự án SubQuery](/assets/img/welcome_to_subquery_projects.png)
 
@@ -113,11 +113,11 @@ Sau đó, tạo một dự án mới,
 
 ![Chào mừng bạn đến với Dự án SubQuery](/assets/img/subquery_create_project.png)
 
-Và điền vào các trường khác nhau với các chi tiết thích hợp.
+Và điền vào các trường khác nhau với các thông tin thích hợp.
 
-- **Tài khoản GitHub:** Nếu bạn có nhiều tài khoản GitHub, hãy chọn tài khoản mà dự án này sẽ được tạo. Các dự án được tạo trong tài khoản tổ chức GitHub được chia sẻ giữa các thành viên trong tổ chức đó.
+- **Tài khoản GitHub:** Nếu bạn có nhiều hơn một tài khoản GitHub, hãy lựa chọn chính xác tài khoản mà dự án sẽ được tạo bởi nó. Các dự án được tạo trong tài khoản tổ chức GitHub được chia sẻ giữa các thành viên trong tổ chức đó.
 - **Tên dự án:** Đặt tên cho dự án của bạn ở đây.
-- **Phụ đề:** Cung cấp phụ đề cho dự án của bạn.
+- **Phụ đề:** Cung cấp tiêu đề cho dự án của bạn.
 - **Mô tả:** Giải thích những gì dự án SubQuery của bạn thực hiện.
 - **GitHub Repository URL:** Đây phải là URL GitHub hợp lệ tới kho lưu trữ công cộng có chứa dự án SubQuery của bạn. Tệp schema.graphql phải nằm trong thư mục root của bạn.
 - **Ẩn dự án:** Nếu được chọn, điều này sẽ ẩn dự án khỏi trình khám phá SubQuery công khai. Hãy bỏ chọn mục này nếu bạn muốn chia sẻ SubQuery của mình với cộng đồng!
@@ -132,9 +132,9 @@ Trang tổng quan chứa nhiều thông tin hữu ích như mạng mà nó đang
 
 ## 5. Triển khai dự án của bạn
 
-Bây giờ bạn đã tạo dự án của mình trong SubQuery Projects, thiết lập hành vi hiển thị, bước tiếp theo là triển khai dự án của bạn để làm cho nó hoạt động. Triển khai một phiên bản sẽ kích hoạt khởi động lập chỉ mục SubQuery mới để bắt đầu, và cài đặt dịch vụ query bắt buộc để chấp nhận các yêu cầu từ GraphQl. Bạn cũng có thể triển khai các phiên bản mới đối với các dự án hiện tại tại đây.
+Bây giờ bạn đã tạo dự án của mình trong SubQuery Projects, thiết lập tính năng hiển thị, bước tiếp theo là triển khai dự án của bạn để làm cho nó hoạt động. Triển khai một phiên bản sẽ kích hoạt khởi động lập chỉ mục SubQuery mới để bắt đầu, và cài đặt dịch vụ truy vấn để chấp nhận các yêu cầu từ GraphQl. Bạn cũng có thể triển khai các phiên bản mới đối với các dự án hiện tại tại đây.
 
-Bạn có thể chọn triển khai cho các môi trường khác nhau như vị trí triển khai hoặc vị trí dàn dựng. Ở đây, chúng tôi sẽ triển khai cho 1 vị trí sàn xuất. Nhấp vào nút "Triển khai" sẽ xuất hiện màn hình với các trường sau:
+Bạn có thể chọn triển khai cho các môi trường khác nhau như production slot hoặc staging slot. Ở đây, chúng tôi sẽ triển khai cho 1 vị trí sàn xuất. Nhấp vào nút "Triển khai" sẽ xuất hiện màn hình với các trường sau:
 
 ![Triển khai đến production slot](/assets/img/deploy_production_slot.png)
 
@@ -156,19 +156,19 @@ Việc triển khai hiện đang chạy.
 
 Để kiểm tra dự án của bạn, hãy nhấp vào 3 dấu chấm lửng và chọn "View on SubQuery Explorer".
 
-![Xem dự án truy vấn con](/assets/img/view_on_subquery.png)
+![Hiển thị Dự án SubQuery](/assets/img/view_on_subquery.png)
 
 Thao tác này sẽ đưa bạn đến "Playground" quen thuộc, nơi bạn có thể nhấp vào nút play và xem kết quả của truy vấn.
 
 ![Sân chơi Subquery](/assets/img/subquery_playground.png)
 
-## 7. Bước thêm
+## 7. Bước bổ sung
 
 Đối với những người sắc sảo trong số chúng ta, bạn sẽ nhớ lại rằng trong mục tiêu học tập, điểm cuối cùng là chạy một truy vấn GET đơn giản. Để làm điều này, chúng tôi sẽ cần lấy "Query Endpoint" được hiển thị trong chi tiết triển khai.
 
 ![Kết thúc truy vấn](/assets/img/query_endpoint.png)
 
-Sau đó, bạn có thể gửi một yêu cầu GET tới điểm cuối này bằng cách sử dụng ứng dụng khách yêu thích của bạn như [Postman](https://www.postman.com/) hoặc [Mockoon](https://mockoon.com/) hoặc qua cURL trong thiết bị đầu cuối của bạn. Để đơn giản, cURL sẽ được hiển thị bên dưới.
+Sau đó, bạn có thể gửi một yêu cầu GET tới điểm cuối này bằng cách sử dụng ứng dụng khách yêu thích của bạn như [Postman](https://www.postman.com/) hoặc [Mockoon](https://mockoon.com/) hoặc qua cURL thông qua terminal của bạn. Để đơn giản, cURL sẽ được hiển thị bên dưới.
 
 Lệnh curl để chạy là:
 

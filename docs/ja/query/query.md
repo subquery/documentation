@@ -1,17 +1,17 @@
-# Query your Project in SubQuery Explorer
+# SubQuery Explorer でプロジェクトのクエリを実行する
 
-[SubQuery Explorer](https://explorer.subquery.network) is an online hosted service (at [explorer.subquery.network](https://explorer.subquery.network)) that provides access to published SubQuery projects made by contributors in our community and managed by the SubQuery team. You can publish your own SubQuery projects to our explorer by following our guide to [Publish your SubQuery Project](../publish/publish.md).
+[SubQuery Explorer](https://explorer.subquery.network) は、コミュニティの貢献者によって作成され、SubQueryチームによって管理されている、公開済みのSubQueryプロジェクトへのアクセスを提供するオンラインホスティングサービス（[explorer.subquery.network](https://explorer.subquery.network)）です。 [SubQuery Projectの公開ガイド](../publish/publish.md)に従って、SubQuery Projectをエクスプローラに公開することができます。
 
 ![SubQuery Explorer](https://static.subquery.network/media/explorer/explorer-header.png)
 
-The SubQuery explorer makes getting started easy. We’re hosting these SubQuery projects online and allow anyone to query each for free. These managed nodes will be monitored and run by the SubQuery team at a performance level that will allow production apps to use and rely on them.
+SubQuery Explorerは簡単に開始できます。 私たちはこれらのSubQueryノードをオンラインでホスティングしており、誰もが無料でそれぞれクエリを実行することができます。 これらのマネージドノードは、SubQueryチームによってパフォーマンスレベルで監視および実行され、これにより本番アプリケーションの使用と依存が可能になります。
 
 ![SubQuery Project](https://static.subquery.network/media/explorer/explorer-project.png)
 
-You’ll also note that the SubQuery Explorer provides a playground for discovering available data with example queries - you can test queries directly in your browser without implementing code. Additionally, we’ve made some small improvements to our documentation to better support developers on their journey to better query and analyse the world’s Polkadot data.
+SubQuery Explorer は、サンプルクエリを使用して利用可能なデータを検出するためのプレイグラウンドを提供していることにも注意してください。コードを実装することなくブラウザで直接クエリをテストすることができます。 さらに、開発者が世界中のPolkadotデータを照会し、分析するための旅をよりよくサポートするために、ドキュメントにいくつかの小さな改良を加えました。
 
-On the top right of the playground, you'll find a *Docs* button that will open a documentation draw. This documentation is automatically generated and helps you find what entities and methods you can query. In the example below we're using the [Sum Rewards SubQuery](https://explorer.subquery.network/subquery/OnFinality-io/sum-reward) to get the top 5 most rewarded accounts (in terms of staking revenue) on Polkadot that have never been slashed.
+プレイグラウンドの右上には、ドキュメントの描画を開く _Docs_ ボタンがあります。 このドキュメントは自動的に生成され、クエリできるエンティティやメソッドを見つけるのに役立ちます。 以下の例では、[Sum Rewards SubQuery](https://explorer.subquery.network/subquery/OnFinality-io/sum-reward)を使用して、Polkadotで最も報酬の多いアカウント（賭け金収入の観点から）上位5つで、一度も値下げされたことがないものを取得しています。
 
 ![SubQuery Documentation](https://static.subquery.network/media/explorer/explorer-documentation.png)
 
-[Learn more about the GraphQL Query language.](./graphql.md)
+[GraphQL クエリ言語の詳細を参照してください。](./graphql.md)
