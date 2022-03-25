@@ -121,7 +121,7 @@ Contoh: Seseorang bisa memiliki beberapa akun.
 ```graphql
 type Person @entity {
   id: ID!
-  accounts: [Account]! @derivedFrom(field: "person") #This is virtual field 
+  accounts: [Account]! @derivedFrom(field: "person") #Ini bidang virtual
 }
 
 type Account @entity {
