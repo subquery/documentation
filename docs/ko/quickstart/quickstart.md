@@ -41,11 +41,11 @@ subql init PROJECT_NAME
 
 SubQuery 프로젝트가 초기화되면 다음과 같은 특정 질문을 받게 됩니다.
 
-- Network: A blockchain network that this SubQuery project will be developed to index
-- Template: Select a SubQuery project template that will provide a starting point to begin development
-- Git repository (Optional): Provide a Git URL to a repo that this SubQuery project will be hosted in (when hosted in SubQuery Explorer)
-- RPC endpoint (Required): Provide a websocket (wss) URL to a running RPC endpoint that will be used by default for this project. You can quickly access public endpoints for different Polkadot networks or even create your own private dedicated node using [OnFinality](https://app.onfinality.io) or just use the default Polkadot endpoint. This RPC node must be an archive node (have the full chain state).
-- Authors (Required): Enter the owner of this SubQuery project here
+- 네트워크: 이 SubQuery 프로젝트가 인덱싱하기 위해 개발할 블록체인 네트워크
+- 템플릿: 개발을 시작하기 위한 시작점을 제공할 SubQuery 프로젝트 템플릿을 선택합니다.
+- Git 리포지토리(선택 사항): 이 SubQuery 프로젝트가 호스팅될 리포지토리에 대한 Git URL을 제공합니다(SubQuery Explorer에서 호스팅되는 경우).
+- RPC 끝점(필수): 이 프로젝트에 기본적으로 사용될 실행 중인 RPC 끝점에 대한 웹 소켓(wss) URL을 제공합니다. 다양한 Polkadot 네트워크의 공용 엔드포인트에 빠르게 액세스하거나 [OnFinality](https://app.onfinality.io)를 사용하여 자체 전용 전용 노드를 생성하거나 기본 Polkadot 엔드포인트를 사용할 수도 있습니다. 이 RPC 노드는 아카이브 노드여야 합니다(전체 체인 상태).
+- 작성자(필수): 여기에 이 ​​SubQuery 프로젝트의 소유자를 입력하세요.
 - Description (Optional): You can provide a short paragraph about your project that describe what data it contains and what users can do with it
 - Version (Required): Enter a custom version number or use the default (`1.0.0`)
 - License (Required): Provide the software license for this project or accept the default (`Apache-2.0`)
