@@ -25,15 +25,15 @@
 
 처음 로그인하면 SubQuery를 인증하라는 메시지가 표시됩니다. 계정을 식별하는 데만 이메일 주소가 필요하며 다른 이유로 GitHub 계정의 다른 데이터는 사용하지 않습니다. 이 단계에서 개인 계정 대신 GitHub 조직에 SubQuery 프로젝트를 게시할 수 있도록 GitHub 조직 계정에 대한 액세스 권한을 요청하거나 부여할 수도 있습니다.
 
-![Revoke approval from a GitHub account](/assets/img/project_auth_request.png)
+![GitHub 계정에서 승인 취소](/assets/img/project_auth_request.png)
 
 SubQuery 프로젝트는 SubQuery 플랫폼에 업로드된 모든 호스팅 프로젝트를 관리하는 곳입니다. 이 응용 프로그램에서 모든 프로젝트를 생성, 삭제 및 업그레이드할 수 있습니다.
 
-![Projects Login](/assets/img/projects-dashboard.png)
+![프로젝트 로그인](/assets/img/projects-dashboard.png)
 
 GitHub 조직 계정이 연결된 경우 헤더의 스위처를 사용하여 개인 계정과 GitHub 조직 계정 간에 변경할 수 있습니다. GitHub 조직 계정에서 생성된 프로젝트는 해당 GitHub 조직의 구성원 간에 공유됩니다. GitHub 조직 계정을 연결하려면 [여기의 단계를 따르세요](#add-github-organization-account-to-subquery-projects).
 
-![Switch between GitHub accounts](/assets/img/projects-account-switcher.png)
+![GitHub 계정 간 전환](/assets/img/projects-account-switcher.png)
 
 ### 첫 번째 프로젝트 만들기
 
@@ -46,11 +46,11 @@ GitHub 조직 계정이 연결된 경우 헤더의 스위처를 사용하여 개
 - **GitHub 저장 URL:** 이것은 SubQuery 프로젝트가 있는 공개 저장소에 대한 유효한 GitHub URL이어야 합니다. `schema.graphql` 파일은 디렉토리의 루트에 있어야 합니다([디렉토리 구조에 대해 자세히 알아보기](../create/introduction.md#directory-structure)).
 - **데이터베이스:** 프리미엄 고객은 프로덕션 SubQuery 프로젝트를 호스팅하기 위한 전용 데이터베이스에 액세스할 수 있습니다. 관심이 있는 경우 [sales@subquery.network](mailto:sales@subquery.network)에 연락하여 이 설정을 활성화할 수 있습니다.
 - **배포 소스:** GitHub 리포지토리에서 프로젝트를 배포하거나 IPFS CID에서 배포하도록 선택할 수 있습니다. [IPFS를 사용한 호스팅](ipfs.md)에 대한 가이드를 참조하세요.
-- **Hide project:**선택하면, 공개 SubQuery 탐색기에서 프로젝트를 숨깁니다. 커뮤니티와 SubQuery를 공유하려면 이 항목을 선택하지 않은 상태로 유지하십시오! ![Create your first Project](/assets/img/projects-create.png)
+- **Hide project:**선택하면, 공개 SubQuery 탐색기에서 프로젝트를 숨깁니다. 커뮤니티와 SubQuery를 공유하려면 이 항목을 선택하지 않은 상태로 유지하십시오! ![첫 번째 프로젝트 만들기](/assets/img/projects-create.png)
 
 프로젝트를 생성하면 SubQuery 프로젝트 목록에 표시됩니다. _거의 다 왔어! 새 버전을 배포하기만 하면 됩니다._
 
-![Created Project with no deployment](/assets/img/projects-no-deployment.png)
+![배포 없이 프로젝트 생성](/assets/img/projects-no-deployment.png)
 
 ### 첫 번째 버전 배포
 
@@ -65,7 +65,7 @@ GitHub 조직 계정이 연결된 경우 헤더의 스위처를 사용하여 개
 - **Indexer Version:**이 SubQuery를 실행하려는 SubQuery의 노드 서비스 버전입니다. [`@subql/node`](https://www.npmjs.com/package/@subql/node)를 보세요.
 - **Query Version:** 이 SubQuery를 실행하려는 SubQuery의 쿼리 서비스 버전입니다. [`@subql/query`](https://www.npmjs.com/package/@subql/query)를 보세요.
 
-![Deploy your first Project](https://static.subquery.network/media/projects/projects-first-deployment.png)
+![첫 번째 프로젝트 배포](https://static.subquery.network/media/projects/projects-first-deployment.png)
 
 성공적으로 배포되면 인덱서가 작동하기 시작하고 현재 체인 인덱싱 진행 상황을 보고하게 됩니다. 이 프로세스는 100%에 도달할 때까지 시간이 걸릴 수 있습니다.
 
@@ -83,14 +83,14 @@ GitHub 조직 계정이 연결된 경우 헤더의 스위처를 사용하여 개
 
 개인 GitHub 계정이 아닌 GitHub 조직 계정 이름으로 SubQuery 프로젝트를 게시하는 것이 일반적입니다. 언제든지 계정 전환기를 사용하여 [SubQuery 프로젝트](https://project.subquery.network)에서 현재 선택한 계정을 변경할 수 있습니다.
 
-![Switch between GitHub accounts](/assets/img/projects-account-switcher.png)
+![GitHub 계정 간 전환](/assets/img/projects-account-switcher.png)
 
 스위처에 GitHub 조직 계정이 표시되지 않으면 GitHub 조직에 대한 SubQuery에 대한 액세스 권한을 부여해야 할 수 있습니다(또는 관리자에게 요청). 이렇게 하려면 먼저 GitHub 계정에서 SubQuery 애플리케이션에 대한 권한을 취소해야 합니다. 이렇게 하려면 GitHub의 계정 설정에 로그인하고 애플리케이션으로 이동한 다음 Authorized OAuth Apps 탭에서 SubQuery를 취소합니다. [여기에서 정확한 단계를 따를 수 있습니다](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/reviewing-your-authorized-applications-oauth). **걱정하지 마세요. 이렇게 하면 SubQuery 프로젝트가 삭제되지 않으며 데이터가 손실되지 않습니다.**
 
-![Revoke access to GitHub account](/assets/img/project_auth_revoke.png)
+![GitHub 계정에 대한 액세스 권한 취소](/assets/img/project_auth_revoke.png)
 
 액세스 권한을 취소했으면 [SubQuery 프로젝트](https://project.subquery.network)에서 로그아웃했다가 다시 로그인하십시오. GitHub 조직 계정에 대한 액세스 권한을 요청하거나 부여할 수 있는 _Authorize SubQuery_ 페이지로 리디렉션되어야 합니다. 관리자 권한이 없는 경우 관리자에게 이를 활성화하도록 요청해야 합니다.
 
-![Revoke approval from a GitHub account](/assets/img/project_auth_request.png)
+![GitHub 계정에서 승인 취소](/assets/img/project_auth_request.png)
 
-Once this request has been approved by your administrator (or if are able to grant it youself), you will see the correct GitHub Organization account in the account switcher.
+이 요청이 관리자에 의해 승인되면(또는 직접 승인할 수 있는 경우) 계정 전환기에 올바른 GitHub 조직 계정이 표시됩니다.
