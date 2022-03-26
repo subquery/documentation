@@ -6,7 +6,7 @@
 
 [SubQuery 사전](https://github.com/subquery/subql-dictionary) 프로젝트를 예로 들면, [스키마](https://github.com/subquery/subql-dictionary/blob/main/schema.graphql) 파일은 3개의 엔티티; 외부, 이벤트, specVersion를 정의합니다. 이 3개의 엔터티에는 각각 6, 4, 2개의 필드가 있습니다. 이 프로젝트를 실행하면, 이러한 필드들이 데이터베이스 테이블에 반영됩니다.
 
-![extrinsics table](/assets/img/extrinsics_table.png) ![events table](/assets/img/events_table.png) ![specversion table](/assets/img/specversion_table.png)
+![외부 테이블](/assets/img/extrinsics_table.png) ![이벤트 테이블](/assets/img/events_table.png) ![스펙버젼 테이블](/assets/img/specversion_table.png)
 
 그런 다음 블록체인의 데이터는 이 테이블들에 저장되고 성능을 위해 인덱싱됩니다. 그러면 프로젝트가 SubQuery 프로젝트에서 호스팅되고, API 끝점을 매니페스트 파일에 추가할 수 있습니다.
 
@@ -30,7 +30,7 @@ network:
 
 예를 들어, 전송 이벤트를 인덱싱하는 상황을 상상해 보십시오. 모든 블록에 이 이벤트가 있는 것은 아닙니다(아래 이미지에서 블록 3과 4에는 전송 이벤트가 없습니다).
 
-![dictionary block](/assets/img/dictionary_blocks.png)
+![사전 블록](/assets/img/dictionary_blocks.png)
 
 사전을 사용하면 각 블록에서 전송 이벤트를 찾는 대신 프로젝트가 이를 건너뛸 수 있으므로, 블록 1, 2, 5만 건너뜁니다. 사전이 각 블록의 모든 호출 및 이벤트에 대한 미리 계산된 참조이기 때문입니다.
 
