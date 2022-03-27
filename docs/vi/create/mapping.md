@@ -142,7 +142,7 @@ Tạo một danh mục mới `api-interface` trong thư mục `src` của dự �
 
 #### Siêu dữ liệu
 
-Chúng tôi cần siêu dữ liệu để tạo các điểm cuối API thực tế. Trong ví dụ về kitty, chúng tôi sử dụng một điểm cuối từ một mạng thử nghiệm cục bộ và nó cung cấp các loại bổ sung. Làm theo các bước trong [thiết lập siêu dữ liệu PolkadotJS](https://polkadot.js.org/docs/api/examples/promise/typegen#metadata-setup) để truy xuất siêu dữ liệu của nút từ điểm cuối ** HTTP ** của nó.
+Chúng tôi cần metadata để tạo các điểm cuối API thực tế. Trong ví dụ về kitty, chúng tôi sử dụng một điểm cuối từ một mạng thử nghiệm cục bộ và nó cung cấp các loại bổ sung. Làm theo các bước trong [PolkadotJS metadata setup](https://polkadot.js.org/docs/api/examples/promise/typegen#metadata-setup) để truy xuất metadata của node từ điểm cuối ** HTTP ** của chính node đó.
 
 ```shell
 curl -H "Content-Type: application/json" -d '{"id":"1", "jsonrpc":"2.0", "method": "state_getMetadata", "params":[]}' http://localhost:9933
@@ -205,7 +205,7 @@ export default {
 #### Các gói
 
 - Trong tệp `package.json`, hãy đảm bảo thêm `@polkadot/typegen` làm phụ thuộc phát triển và `@polkadot/api` làm phụ thuộc thông thường ( lý tưởng là cùng một phiên bản). Chúng tôi cũng cần `ts-node` như một phụ thuộc phát triển để giúp chúng tôi chạy các tập lệnh.
-- Chúng tôi thêm các tập lệnh để chạy cả hai loại; `generate:defs` và siêu dữ liệu `generate:meta` (theo thứ tự đó, vì vậy siêu dữ liệu có thể sử dụng các loại).
+- Chúng tôi thêm các tập lệnh để chạy cả hai loại; `generate:defs` và metadata `generate:meta` (theo thứ tự đó, vì vậy siêu dữ liệu có thể sử dụng các loại).
 
 Đây là phiên bản đơn giản của `package.json`. Đảm bảo trong phần **scripts**, tên gói là chính xác và các thư mục hợp lệ.
 
@@ -242,7 +242,7 @@ yarn generate:defs
 Trong mỗi thư mục mô-đun (ví dụ: `/kitties`), bây giờ sẽ có `styles.ts` được tạo để xác định tất cả các giao diện từ định nghĩa của mô-đun này, cũng là một chỉ mục tệp `index.ts` xuất tất cả chúng.
 
 ```shell
-# Tạo siêu dữ liệu 
+# Tạo metadata
 yarn generate:meta
 ```
 
@@ -261,7 +261,7 @@ Lệnh này sẽ tạo metadata và một api-augment mới cho các API. Vì ch
 }
 ```
 
-### Sử dụng
+### Cách sử dụng
 
 Bây giờ trong chức năng ánh xạ, chúng tôi có thể hiển thị cách siêu dữ liệu và các loại thực sự trang trí API. Điểm cuối RPC sẽ hỗ trợ các mô-đun và phương thức mà chúng tôi đã khai báo ở trên. Và để sử dụng lệnh gọi rpc tùy chỉnh, vui lòng xem phần[Custom chain rpc calls](#custom-chain-rpc-calls)
 ```typescript
@@ -278,9 +278,9 @@ export async function kittyApiHandler(): Promise<void> {
 
 **Nếu bạn muốn xuất bản dự án này cho người khám phá của chúng tôi, vui lòng đưa các tệp đã tạo vào `src/api-interface`.**
 
-### Lệnh gọi rpc chuỗi tùy chỉnh
+### Lệnh gọi rpc đối với chuỗi tùy chỉnh
 
-Để hỗ trợ các lệnh gọi RPC chuỗi tùy chỉnh, chúng tôi phải đưa các định nghĩa RPC cho `typesBundle` theo cách thủ công, cho phép cấu hình theo từng thông số kỹ thuật. Bạn có thể xác định `stylesBundle` trong `project.yml`. Và hãy nhớ chỉ hỗ trợ loại cuộc gọi `isHistoric`.
+Để hỗ trợ các lệnh gọi RPC chuỗi tùy chỉnh, chúng tôi phải đưa các định nghĩa RPC cho `typesBundle` theo cách thủ công, cho phép cấu hình theo từng thông số kỹ thuật. Bạn có thể định nghĩa `stylesBundle` trong `project.yml`. *Note: chỉ các lệnh gọi dạng `isHistoric` được hỗ trợ.
 ```yaml
 ...
   types: {
