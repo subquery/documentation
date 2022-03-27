@@ -142,7 +142,7 @@ Tạo một danh mục mới `api-interface` trong thư mục `src` của dự �
 
 #### Siêu dữ liệu
 
-Chúng tôi cần metadata để tạo các điểm cuối API thực tế. Trong ví dụ về kitty, chúng tôi sử dụng một điểm cuối từ một mạng thử nghiệm cục bộ và nó cung cấp các loại bổ sung. Làm theo các bước trong [PolkadotJS metadata setup](https://polkadot.js.org/docs/api/examples/promise/typegen#metadata-setup) để truy xuất metadata của node từ điểm cuối ** HTTP ** của chính node đó.
+Chúng tôi cần metadata để tạo các điểm cuối API thực tế. Trong ví dụ về kitty, chúng tôi sử dụng một điểm cuối từ một mạng thử nghiệm cục bộ và nó cung cấp các kiểu types bổ sung. Làm theo các bước trong [PolkadotJS metadata setup](https://polkadot.js.org/docs/api/examples/promise/typegen#metadata-setup) để truy xuất metadata của node từ điểm cuối ** HTTP ** của chính node đó.
 
 ```shell
 curl -H "Content-Type: application/json" -d '{"id":"1", "jsonrpc":"2.0", "method": "state_getMetadata", "params":[]}' http://localhost:9933
@@ -159,8 +159,8 @@ echo state_getMetadata | websocat 'ws://127.0.0.1:9944' --jsonrpc
 
 Tiếp theo, sao chép và dán đầu ra vào tệp JSON. Trong [ví dụ về kitty](https://github.com/subquery/tutorials-kitty-chain), chúng tôi đã tạo `api-interface/kitty.json`.
 
-#### Loại định nghĩa
-Chúng tôi giả định rằng người dùng biết các loại cụ thể và hỗ trợ RPC từ chuỗi và nó được định nghĩa trong [Manifest](./manifest.md).
+#### Định nghĩa type
+Chúng tôi giả định rằng người dùng biết các types cụ thể và hỗ trợ RPC từ chuỗi và nó được định nghĩa trong [Manifest](./manifest.md).
 
 Sau khi thiết lập [types setup](https://polkadot.js.org/docs/api/examples/promise/typegen#metadata-setup), chúng tôi tạo:
 - `src/api-interface/define.ts` - điều này xuất tất cả các định folder definitions
@@ -227,15 +227,15 @@ export default {
 }
 ```
 
-### Loại generation
+### Tạo dữ liệu type
 
-Bây giờ việc chuẩn bị đã hoàn tất, chúng tôi đã sẵn sàng tạo các kiểu dữ liệu và siêu dữ liệu. Chạy các lệnh dưới đây:
+Bây giờ việc chuẩn bị đã hoàn tất, chúng tôi đã sẵn sàng tạo các types và metadata. Chạy các lệnh dưới đây:
 
 ```shell
-# Yarn để cài đặt các phụ thuộc mới
+# Yarn để cài đặt các phần phụ thuộc mới
 yarn
 
-# Tạo các loại 
+# Tạo dữ liệu types
 yarn generate:defs
 ```
 
@@ -263,7 +263,7 @@ Lệnh này sẽ tạo metadata và một api-augment mới cho các API. Vì ch
 
 ### Cách sử dụng
 
-Bây giờ trong chức năng ánh xạ, chúng tôi có thể hiển thị cách siêu dữ liệu và các loại thực sự trang trí API. Điểm cuối RPC sẽ hỗ trợ các mô-đun và phương thức mà chúng tôi đã khai báo ở trên. Và để sử dụng lệnh gọi rpc tùy chỉnh, vui lòng xem phần[Custom chain rpc calls](#custom-chain-rpc-calls)
+Bây giờ trong hàm ánh xạ, chúng tôi có thể hiển thị rõ ràng cách metadata và types thực sự minh họa cho API. Điểm cuối RPC sẽ hỗ trợ các mô-đun và phương thức mà chúng tôi đã khai báo ở trên. Và để sử dụng lệnh gọi rpc tùy chỉnh, vui lòng xem phần[Custom chain rpc calls](#custom-chain-rpc-calls)
 ```typescript
 export async function kittyApiHandler(): Promise<void> {
     //return the KittyIndex type
