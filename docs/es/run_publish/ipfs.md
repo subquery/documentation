@@ -1,32 +1,32 @@
-# Hosting a Project using IPFS
+# IPFSを使用してプロジェクトをホスティングする
 
-This guide works through how to publish a local SubQuery project to [IPFS](https://ipfs.io/) and deploy it on our hosting infrastructure.
+このガイドでは、ローカルの SubQuery プロジェクトを [IPFS](https://ipfs.io/) に公開し、ホスティングインフラストラクチャにデプロイする方法について説明します。
 
-Hosting a project in IPFS makes it available for all all and reduces your reliance on centralised services like GitHub.
+IPFSにプロジェクトをホストすることで、すべての人が利用できるようになり、GitHubのような中央集権的なサービスへの依存を減らすことができます。
 
-## Requirements
+## 要件
 
-- `@subql/cli` version 0.21.0 or above.
-- Manifest `specVersion` 0.2.0 and above.
-- Get your [SUBQL_ACCESS_TOKEN](#prepare-your-subql-access-token) ready.
-- To make sure your deployment success, we strongly recommend that you build your project with the `subql build` command, and test it locally before publishing.
+- `@subql/cli` バージョン 0.21.0 以上。
+- マニフェスト `specVersion` 0.2.0 以上。
+- [SUBQL_ACCESS_TOKEN](#prepare-your-subql-access-token) を準備すること。
+- デプロイを確実に成功させるために、`subql build` コマンドでプロジェクトをビルドし、公開する前にローカルでテストすることを強くお勧めします。
 
-## Prepare your SUBQL_ACCESS_TOKEN
+## SUBQL_ACCESS_TOKENを準備する
 
-- Step 1: Go to [SubQuery Projects](https://project.subquery.network/) and log in.
-- Step 2: Click on your profile at the top right of the navigation menu, then click on **_Refresh Token_**
-- Step 3: Copy the generated token.
-- Step 4: To use this token:
-  - Option 1: Add SUBQL_ACCESS_TOKEN in your environment variables. `EXPORT SUBQL_ACCESS_TOKEN=<token>`
-  - Option 2: Coming soon, `subql/cli` will support storing your SUBQL_ACCESS_TOKEN locally.
+- ステップ 1: [SubQuery Projects](https://project.subquery.network/) に移動してログインします。
+- ステップ 2: ナビゲーションメニューの右上にあるプロフィールをクリックし、 **_Refresh Token_** をクリックします
+- ステップ 3: 生成されたトークンをコピーします。
+- ステップ 4: このトークンを使用するには:
+  - オプション1:環境変数に SUBQL_ACCESS_TOKENを追加します。 `EXPORT SUBQL_ACCESS_TOKEN=<token>`
+  - オプション 2: 近日中に `subql/cli` が SUBQL_ACCESS_TOKEN をローカルに保存することをサポートする予定です。
 
-## How to publish a project
+## プロジェクトを公開する方法
 
-We provide two methods to publish your project,
+プロジェクトを公開するには2つの方法があります。
 
-### Option 1:
+### オプション1:
 
-As you have `@subql/cli` already installed, you can run the following command, which will read the project and required information from its default manifest `project.yaml`
+すでに `@subql/cli` がインストールされているので、以下のコマンドを実行すると、プロジェクトとそのデフォルトマニフェスト `project.yaml` から必要な情報を読み込むことができます。
 
 ```
 // Publish it from your project's root directory
@@ -36,9 +36,9 @@ subql publish
 subql publish -f ~/my-project/
 ```
 
-### Option 2:
+### オプション2:
 
-Alternatively, suppose your project has multiple Manifest files, for example you support multiple networks but share the same mapping and business logic, and have a project structure as follows:
+または、プロジェクトに複数のマニフェストファイルがあるとします。 たとえば、複数のネットワークをサポートしていますが、同じマッピングとビジネスロジックを共有し、以下のようにプロジェクト構造を持っています:
 
 ```
 L projectRoot
@@ -49,16 +49,16 @@ L projectRoot
  ...
 ```
 
-You can always publish the project with your selected manifest file.
+選択したマニフェストファイルを使用してプロジェクトをいつでも公開できます
 
 ```
  # This will publish project support indexing Polkadot network
 subql publish -f ~/my-projectRoot/polkadot.yaml
 ```
 
-## After publish
+## 公開した後
 
-After successfully publishing the project, the logs below indicate that the project was created on the IPFS cluster and have returned its `CID` (content identifier).
+プロジェクトを正常に公開した後 以下のログは、プロジェクトが IPFS クラスターで作成され、 `CID` (コンテンツ識別子) を返したことを示しています。
 
 ```
 Building and packing code... done
@@ -66,19 +66,19 @@ Uploading SupQuery project to IPFS
 SubQuery Project uploaded to IPFS: QmZ3q7YZSmhwBiot4PQCK3c7Z6HkteswN2Py58gkkZ8kNd  //CID
 ```
 
-Please note this `CID`. With this `CID`, you can view your published project as what we call it [IPFS Deployment](#ipfs-deployment)
+この `CID` に注意してください。 この `CID`を使用すると、公開されたプロジェクトを [IPFS Deployment](#ipfs-deployment) と呼びます。
 
-## IPFS Deployment
+## IPFSデプロイ
 
-IPFS deployment represents an independent and unique existence of a SubQuery project on a decentralized network. Therefore, any changes with the code in the project will affect its uniqueness. If you need to adjust your business logic, e.g. change the mapping function, you must republish the project, and the `CID` will change.
+IPFSデプロイメントは、分散ネットワーク上のSubQueryプロジェクトの独立したユニークな存在を表します。 そのため、プロジェクト内のコードに変更があると、そのユニーク性に影響が出ます。 ビジネスロジックを調整する必要がある場合、例えばマッピング機能を変更する場合は、プロジェクトを再発行する必要があり、 `CID` が変更されます。
 
-For now, to view the project you have published, use a `REST` api tool such as [Postman](https://web.postman.co/), and use `POST` method with the following example URL to retrieve it. `https://subquery.network/ipfs/api/v0/cat?arg=<YOUR_PROJECT_CID>`
+とりあえず公開したプロジェクトを見るには、[Postman](https://web.postman.co/)などの `REST` apiツールを使い、以下のサンプルURLで `POST` メソッドを使用して取得します。 `https://subquery.network/ipfs/api/v0/cat?arg=<YOUR_PROJECT_CID>`
 
-You should see the example project deployment as below:
+以下のように、プロジェクトのデプロイ例が表示されます。
 
-This deployment looks very similar to your manifest file. You can expect those descriptive fields, and the network and dictionary endpoint has been removed as they did not directly affect the outcome of project execution.
+このデプロイメントはマニフェストファイルによく似ています。 それらの記述フィールドを期待することができ、ネットワークとディクショナリのエンドポイントは、プロジェクトの実行結果に直接影響しないため、削除されました。
 
-Those files been used in your local project has been packed and published to IPFS as well.
+ローカルプロジェクトで使用されたファイルは、IPFSにもパックされて公開されています。
 
 ```yaml
 dataSources:
@@ -103,14 +103,14 @@ schema:
 specVersion: 0.2.0
 ```
 
-## Run your SubQuery project on Hosted Service
+## ホストされたサービスでSubQueryプロジェクトを実行する
 
-### Create project with IPFS deployment
+### IPFSデプロイメントでプロジェクトを作成する
 
-You can follow the guide to [Publish your SubQuery project](publish.md) but where you set your deployment source you can select **IPFS**.
+ガイドに従って、 [SubQuery プロジェクトの公開](publish.md) を参照してください。ただし、デプロイソースを設定する場合は、 **IPFS** を選択できます。
 
-Then choose your production slot, copy and paste you IPFS deployment CID (without the leading `ipfs://`).
+次に、本番用環境を選択し、IPFS デプロイメントの CID（先頭の `ipfs://` を除く）をコピーして貼り付けます。
 
-You should see you IPFS deployment in the preview section. And you can select the network, dictionary endpoints etc.
+プレビューセクションにIPFSデプロイメントが表示されます。 ネットワーク、ディクショナリのエンドポイントなどを選択できます。
 
-After successful deploy the IPFS deployment on our hosted service, it should be available to view on the SubQuery Explorer, you can access the query service just like you do locally.
+ホストされたサービスにIPFSデプロイメントを正常にデプロイした後。 SubQueryエクスプローラで表示することができ、ローカルで行うようにクエリーサービスにアクセスできます。

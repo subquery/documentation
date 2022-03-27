@@ -1,29 +1,29 @@
-# เผยแพร่โครงการ SubQuery ของคุณ
+# เผยแพร่โปรเจกต์ SubQuery ของคุณ
 
-## ประโยชน์ในการโฮสต์โปรเจ็กต์ของคุณกับ SubQuery
+## ประโยชน์ในการโฮสต์โปรเจกต์ของคุณกับ SubQuery
 
-- เราจะรันโปรเจ็กต์ SubQuery ให้กับคุณด้วยบริการที่มีประสิทธิภาพสูง สามารถปรับขนาดได้ และมีการจัดการแบบบริการสาธารณะ
-- บริการนี้มอบให้กับชุมชนฟรี!
+- เราจะรันโปรเจกต์ SubQuery ให้กับคุณด้วยบริการที่มีประสิทธิภาพสูง รองรับการขยาย และมีการจัดการแบบบริการสาธารณะ
+- บริการนี้เปิดให้บริการกับชุมชน ฟรี!
 - คุณสามารถกำหนดให้โปรเจ็กต์ของคุณเป็นแบบสาธารณะเพื่อให้ลิสต์อยู่ใน [SubQuery Explorer](https://explorer.subquery.network) และทุกคนทั่วโลกสามารถดูได้
 - เราผสานรวมกับ GitHub ดังนั้นทุกคนใน GitHub organisations ของคุณจะสามารถดูโปรเจ็กต์ขององค์กรที่ใช้ร่วมกันได้
 
-## Create your first project in SubQuery Projects
+## สร้างโปรเจกต์แรกของคุณใน SubQuery Projects
 
 ### Project Codebase Hosting
 
-There are two ways you can host your SubQuery project's codebase before publishing.
+มีสองวิธีที่คุณจะสามารถโฮสต์โปรเจกต์ SubQuery ของคุณก่อนทำการเผยแพร่
 
-**GitHub**: Your project's codebase must be in a public GitHub repository
+**GitHub**: โปรเจกต์ของคุณต้องอยู่ใน GitHub repository แบบสาธารณะ
 
-**IPFS**: Your project's codebase can be stored in IPFS, you can follow our IPFS hosting guide to see how to [first publish to IPFS](ipfs.md)
+**IPFS**: โปรเจกต์ของคุณสามารถจัดเก็บอยู่ในรูปแบบ IPFS, คุณสามารถดูคู่มือสำหรับการโอสต์ IPFS ได้ที่ [การเผยแพร่แบบ IPFS](ipfs.md)
 
-### Login to SubQuery Projects
+### เข้าสู่ระบบ SubQuery Projects
 
-Before starting, please make sure that your SubQuery project codebase is online in a public GitHub repository or on IPFS. The `schema.graphql` file must be in the root of your directory.
+ก่อนจะเริ่มต้น ตรวจสอบให้แน่ใจว่าโปรเจกต์ SubQuery ออนไลน์อยู่บน GitHub repository สาธารณะ หรืออยู่บน IPFS เรียบร้อยแล้ว ไฟล์ `schema.graphql` จะต้องอยู่ในไดเรกทอรีเริ่มต้นของคุณ
 
-To create your first project, head to [project.subquery.network](https://project.subquery.network). You'll need to authenticate with your GitHub account to login.
+การเริ่มต้นสร้างโปรเจกต์แรกของคุณ ให้ไปที่ [project.subquery.network](https://project.subquery.network). คุณจำเป็นต้องอนุญาตการเข้าถึงบัญชี GitHub ของคุณเพื่อเข้าสู่ระบบ
 
-On first login, you will be asked to authorize SubQuery. We only need your email address to identify your account, and we don't use any other data from your GitHub account for any other reasons. In this step, you can also request or grant access to your GitHub Organization account so you can post SubQuery projects under your GitHub Organization instead of your personal account.
+ในการเข้าสู่ระบบครั้งแรก คุณจะถูกขออนุญาตการเข้าถึงโดย SubQuery เราต้องการเพียงที่อยู่อีเมลเพื่อระบุบัญชีของคุณ และเราไม่ใช้ข้อมูลอื่น ๆ จากบัญชี GitHub ของคุณเพื่อเหตุผลอื่น ๆ ในขั้นตอนนี้ คุณยังสามารถขอ หรือให้สิทธิ์ในการเข้าถึงบัญชี GitHub Organization ของคุณ เพื่อโพสต์ โปรเจกต์ SubQuery ภายใต้ GitHub Organization แทนที่จะเป็นบัญชีส่วนตัวของคุณ
 
 ![Revoke approval from a GitHub account](/assets/img/project_auth_request.png)
 
@@ -40,11 +40,11 @@ If you have a GitHub Organization accounts connected, you can use the switcher o
 Let's start by clicking on "Create Project". You'll be taken to the New Project form. Please enter the following (you can change this in the future):
 
 - **บัญชี GitHub:** หากคุณมีบัญชี GitHub มากกว่าหนึ่งบัญชี ให้เลือกบัญชีที่จะใช้สร้างโปรเจ็กต์นี้ โปรเจ็กต์ที่สร้างขึ้นในบัญชี GitHub organisation จะถูกแชร์ระหว่างสมาชิกใน organisation นั้นๆ โปรเจ็กต์ที่สร้างในบัญชี Github แบบองค์กร สามารถแบ่งปันกันระหว่างสมาชิกภายในองค์กรได้
-- **Project Name**
+- **ชื่อโปรเจกต์**
 - **ชื่อรอง (Subtitle)**
 - **คำอธิบาย**
-- **GitHub Repository URL:** ต้องเป็น GitHub URL ที่ใช้งานได้ซึ่งชี้ไปยัง repositoryสาธารณะที่มีโปรเจ็กต์ SubQuery ของคุณ ไฟล์ `schema.graphql` ต้องอยู่ในรูทของไดเร็กทอรีของคุณ ([เรียนรู้เพิ่มเติมเกี่ยวกับโครงสร้างไดเร็กทอรี](../create/introduction.md#directory-structure)) ไฟล์ schema.graphql ต้องอยู่ในไดเร็กทอรีเริ่มต้นของคุณ (เรียนรู้เพิ่มเติมเกี่ยวกับโครงสร้างไดเร็กทอรี)
-- **Database:** Premium customers can access dedicated databases to host production SubQuery projects from. If this interests you, you can contact [sales@subquery.network](mailto:sales@subquery.network) to have this setting enabled.
+- **GitHub Repository URL:** ต้องเป็น GitHub URL ที่ใช้งานได้ซึ่งชี้ไปยัง repository สาธารณะที่มีโปรเจกต์ SubQuery ของคุณ และไฟล์ `schema.graphql` ต้องอยู่ในไดเรกทอรีเริ่มต้นของคุณ ([เรียนรู้เพิ่มเติมเกี่ยวกับโครงสร้างไดเรกทอรี](../create/introduction.md#directory-structure)) ไฟล์ schema.graphql ต้องอยู่ในไดเร็กทอรีเริ่มต้นของคุณ (เรียนรู้เพิ่มเติมเกี่ยวกับโครงสร้างไดเร็กทอรี)
+- **ฐานข้อมูล:** ลูกค้าพรีเมียมจะสามารถเข้าถึงฐานข้อมูลเฉพาะ ที่จะใช้โอสต์สำหรับโปรเจกต์ระดับ Production หากคุณสนใจ คุณสามารถติดต่อ  [sales@subquery.network](mailto:sales@subquery.network) เพื่อเปิดการตั้งค่านี้
 - **Deployment Source:** You can choose to have the project deployed from the GitHub repository or alternatively deployed from a IPFS CID, see our guide about [hosting with IPFS.](ipfs.md)
 - **Hide project:** หากเลือก จะเป็นการซ่อนโปรเจ็กต์จาก SubQuery explorer สาธารณะ อย่าเลือกตัวเลือกนี้หากคุณต้องการแชร์ SubQuery ของคุณกับชุมชน! อย่าเลือกตัวเลือกนี้ หากคุณต้องการแบ่งปันโปรเจ็กต์ SubQuery ของคุณแก่ชุมชน ![Create your first Project](/assets/img/projects-create.png)
 

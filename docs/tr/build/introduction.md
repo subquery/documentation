@@ -45,7 +45,7 @@ yarn codegen
 
 Bu, daha önce `schema.graphql` tanımladığınız her tür için oluşturulan varlık sınıflarını içeren yeni bir dizin (veya varolan) `src/types` oluşturur. Bu sınıflar varlık alanlarına tür açısından güvenli varlık yükleme, okuma ve yazma erişimi sağlar - [ GraphQL Şeması](./graphql.md) bu işlem hakkında daha fazla bilgi edinin.
 
-## Yapmak
+## Oluştur
 
 SubQuery Project yerel olarak barındırılan bir SubQuery Node çalıştırmak için önce çalışmanızı oluşturmanız gerekir.
 

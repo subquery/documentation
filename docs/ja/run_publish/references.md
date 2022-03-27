@@ -33,7 +33,7 @@ COMMANDS
 
 - `exports` フィールドは、文字列型(例えば `"entry": "./src/file.ts"`)にマップしなければならず、そうでなければビルドからは無視されます。
 
-[その他の例](https://doc.subquery.network/create/introduction/#build)。
+[その他の例](https://doc.subquery.network/create/introduction/#build)
 
 ## subql-node
 
@@ -104,7 +104,7 @@ subql-node --subquery .
 
 ### --subquery-name (非推奨)
 
-このフラグにより、プロジェクトのインスタンスを作成するように動作するプロジェクトの名前を指定することができます。 新しい名前を指定すると、新しいデータベーススキーマが作成され、ブロック同期がゼロから開始されます。 `--db-schema` には非推奨です
+このフラグを使用すると、プロジェクトのインスタンスを作成するかのように動作するプロジェクトの名前を指定できます。 新しい名前を指定すると、新しいデータベーススキーマが作成され、ブロック同期がゼロから開始されます。 `--db-schema` は非推奨です
 
 ```shell
 subql-node -f . --subquery-name=test2
@@ -136,7 +136,7 @@ batchSize: 55 // Optional config
 subql-node -f . --local
 ```
 
-このフラグを使用すると、削除することは別のデータベースを指すことを意味しないことに注意してください。 別のデータベースに再指定するには、新しいデータベースを作成し、この新しいデータベースに env の設定を変更する必要があります。 言い換えれば、"export DB_DATABASE=<new_db_here>"を指定するということです。
+このフラグを一度使用すると、削除しても他のデータベースを指すようにはならないことに注意してください。 別のデータベースに再指定するには、新しいデータベースを作成し、この新しいデータベースにenvの設定を変更する必要があります。 言い換えれば、"export DB_DATABASE=<new_db_here>"を指定するということです。
 
 ### --force-clean
 
@@ -273,7 +273,7 @@ An instance of ProjectManifestImpl has failed the validation:
 
 ### -d, --network-dictionary
 
-これは、[https://explorer.subquery.network/](https://explorer.subquery.network/)（辞書を検索）で提供され、ホストされている無料のサービスであるディクショナリのエンドポイントを指定することができ、https://api.subquery.network/sq/subquery/dictionary-polkadot の API エンドポイントを提示します。
+これは、[https://explorer.subquery.network/](https://explorer.subquery.network/)（ディクショナリを検索）で提供され、ホストされている無料のサービスであるディクショナリのエンドポイントを指定することができ、https://api.subquery.network/sq/subquery/dictionary-polkadot のAPIエンドポイントを提示します。
 
 通常、これはマニフェストファイルに設定されますが、以下はコマンドラインの引数として使用する例です。
 
@@ -356,7 +356,7 @@ Options:
 
 ### --log-rotate
 
-ログファイルのローテーションを有効にする。ローテーション間隔は 1 日、最大 7 ファイル、最大ファイルサイズは 1GB。
+ログファイルのローテーションを有効にします。ローテーション間隔は1日、最大7ファイル、最大ファイルサイズは1GB。
 
 ### --indexer
 

@@ -1,6 +1,6 @@
-# SubQuery'i Kurmak
+# SubQuery'i Kurma
 
-Bir SubQuery projesi oluştururken gerekli olan bazı bileşenler var. Alt sorgu projeleri oluşturmak için [@subql/clı](https://github.com/subquery/subql/tree/docs-new-section/packages/cli) aracı kullanılır. Bir dizin oluşturucuyu çalıştırmak için [@subql/node](https://github.com/subquery/subql/tree/docs-new-section/packages/node) bileşeni gereklidir. Sorguları oluşturmak için [@subql/query](https://github.com/subquery/subql/tree/docs-new-section/packages/query) kütüphanesi gereklidir.
+Bir SubQuery projesi oluştururken gerekli olan bazı bileşenler var. SubQuery projeleri oluşturmak için [@subql/clı](https://github.com/subquery/subql/tree/docs-new-section/packages/cli) aracı kullanılır. Bir dizin oluşturucuyu çalıştırmak için [@subql/node](https://github.com/subquery/subql/tree/docs-new-section/packages/node) bileşeni gereklidir. Sorguları oluşturmak için [@subql/query](https://github.com/subquery/subql/tree/docs-new-section/packages/query) kütüphanesi gereklidir.
 
 ## @subql/cli'yi kurun
 
@@ -11,7 +11,7 @@ Yarn veya NPM kullanarak SubQuery CLI'yi global biçimde terminalinize kurun:
 <CodeGroup> <CodeGroupItem title="NPM"> ```bash npm install -g @subql/cli ``` </CodeGroupItem>
 <CodeGroupItem title="YARN" active> ```shell yarn global add @subql/cli ``` </CodeGroupItem> </CodeGroup>
 
-You can then run help to see available commands and usage provide by CLI:
+Ardından, CLI tarafından sağlanan kullanılabilir komutları ve kullanımı görmek için yardımı çalıştırabilirsiniz:
 
 ```shell
 subql help
@@ -25,7 +25,7 @@ Yarn veya NPM kullanarak SubQuery node'unu global biçimde terminalinize kurun:
 <CodeGroup> <CodeGroupItem title="NPM"> ```bash npm install -g @subql/node ``` </CodeGroupItem>
 <CodeGroupItem title="YARN" active> ```shell yarn global add @subql/node ``` </CodeGroupItem> </CodeGroup>
 
-Once installed, you can can start a node with:
+Kurulduktan sonra, ile bir düğüm başlatabilirsiniz:
 
 ```shell
 subql-node <command>

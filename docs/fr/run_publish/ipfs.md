@@ -1,32 +1,32 @@
-# Hosting a Project using IPFS
+# Héberger un projet en utilisant IPFS
 
-This guide works through how to publish a local SubQuery project to [IPFS](https://ipfs.io/) and deploy it on our hosting infrastructure.
+Ce guide explique comment publier un projet local SubQuery sur [IPFS](https://ipfs.io/) et le déployer sur notre infrastructure d'hébergement.
 
-Hosting a project in IPFS makes it available for all all and reduces your reliance on centralised services like GitHub.
+Héberger un projet dans IPFS le rend disponible pour tous et réduit votre dépendance à des services centralisés comme GitHub.
 
-## Requirements
+## Exigences
 
-- `@subql/cli` version 0.21.0 or above.
-- Manifest `specVersion` 0.2.0 and above.
-- Get your [SUBQL_ACCESS_TOKEN](#prepare-your-subql-access-token) ready.
-- To make sure your deployment success, we strongly recommend that you build your project with the `subql build` command, and test it locally before publishing.
+- `@subql/cli` version 0.21.0 ou supérieure.
+- Manifest `specVersion` 0.2.0 ou supérieure.
+- Préparez votre [SUBQL_ACCESS_TOKEN](#prepare-your-subql-access-token).
+- Pour assurer le succès de votre déploiement, nous vous recommandons fortement de construire votre projet avec la commande `subql build`, et de le tester localement avant de le publier.
 
-## Prepare your SUBQL_ACCESS_TOKEN
+## Préparez votre SUBQL_ACCESS_TOKEN
 
-- Step 1: Go to [SubQuery Projects](https://project.subquery.network/) and log in.
-- Step 2: Click on your profile at the top right of the navigation menu, then click on **_Refresh Token_**
-- Step 3: Copy the generated token.
-- Step 4: To use this token:
-  - Option 1: Add SUBQL_ACCESS_TOKEN in your environment variables. `EXPORT SUBQL_ACCESS_TOKEN=<token>`
-  - Option 2: Coming soon, `subql/cli` will support storing your SUBQL_ACCESS_TOKEN locally.
+- Étape 1 : Allez sur [SubQuery Projects](https://project.subquery.network/) et connectez-vous.
+- Étape 2 : Cliquez sur votre profil en haut à droite du menu de navigation, puis cliquez sur **_Refresh Token_**
+- Étape 3 : Copiez le jeton généré.
+- Étape 4 : Pour utiliser ce jeton :
+  - Option 1 : Ajoutez SUBQL_ACCESS_TOKEN dans vos variables d'environnement. `EXPORT SUBQL_ACCESS_TOKEN=<token>`
+  - Option 2 : Bientôt, `subql/cli` supportera le stockage local de votre SUBQL_ACCESS_TOKEN.
 
-## How to publish a project
+## Comment publier un projet
 
-We provide two methods to publish your project,
+Nous proposons deux méthodes pour publier votre projet,
 
-### Option 1:
+### Option 1 :
 
-As you have `@subql/cli` already installed, you can run the following command, which will read the project and required information from its default manifest `project.yaml`
+Comme vous avez déjà installé `@subql/cli`, vous pouvez exécuter la commande suivante, qui lira le projet et les informations requises à partir de son manifeste par défaut `project.yaml`.
 
 ```
 // Publish it from your project's root directory
@@ -36,9 +36,9 @@ subql publish
 subql publish -f ~/my-project/
 ```
 
-### Option 2:
+### Option 2 :
 
-Alternatively, suppose your project has multiple Manifest files, for example you support multiple networks but share the same mapping and business logic, and have a project structure as follows:
+Alternativement, supposons que votre projet a plusieurs fichiers Manifest, par exemple vous supportez plusieurs réseaux mais partagez le même mapping et la même logique métier, et avez une structure de projet comme suit :
 
 ```
 L projectRoot
@@ -49,16 +49,16 @@ L projectRoot
  ...
 ```
 
-You can always publish the project with your selected manifest file.
+Vous pouvez toujours publier le projet avec le fichier manifeste que vous avez sélectionné.
 
 ```
  # This will publish project support indexing Polkadot network
 subql publish -f ~/my-projectRoot/polkadot.yaml
 ```
 
-## After publish
+## Après la publication
 
-After successfully publishing the project, the logs below indicate that the project was created on the IPFS cluster and have returned its `CID` (content identifier).
+Après avoir publié le projet avec succès, les journaux ci-dessous indiquent que le projet a été créé sur le cluster IPFS et ont renvoyé son `CID` (identifiant de contenu).
 
 ```
 Building and packing code... done
@@ -66,19 +66,19 @@ Uploading SupQuery project to IPFS
 SubQuery Project uploaded to IPFS: QmZ3q7YZSmhwBiot4PQCK3c7Z6HkteswN2Py58gkkZ8kNd  //CID
 ```
 
-Please note this `CID`. With this `CID`, you can view your published project as what we call it [IPFS Deployment](#ipfs-deployment)
+Veuillez noter ce `CID`. Avec ce `CID`, vous pouvez voir votre projet publié comme ce que nous appelons un [déploiement IPFS](#ipfs-deployment).
 
-## IPFS Deployment
+## Déploiement IPFS
 
-IPFS deployment represents an independent and unique existence of a SubQuery project on a decentralized network. Therefore, any changes with the code in the project will affect its uniqueness. If you need to adjust your business logic, e.g. change the mapping function, you must republish the project, and the `CID` will change.
+Le déploiement IPFS représente une existence indépendante et unique d'un projet SubQuery sur un réseau décentralisé. Par conséquent, toute modification du code du projet affectera son caractère unique. Si vous devez ajuster votre logique commerciale, par exemple modifier la fonction de mappage, vous devez republier le projet, et le `CID` changera.
 
-For now, to view the project you have published, use a `REST` api tool such as [Postman](https://web.postman.co/), and use `POST` method with the following example URL to retrieve it. `https://subquery.network/ipfs/api/v0/cat?arg=<YOUR_PROJECT_CID>`
+Pour l'instant, pour visualiser le projet que vous avez publié, utilisez un outil d'api `REST` tel que [Postman](https://web.postman.co/), et utilisez la méthode `POST` avec l'exemple d'URL suivant pour le récupérer. `https://subquery.network/ipfs/api/v0/cat?arg=<YOUR_PROJECT_CID>`
 
-You should see the example project deployment as below:
+Vous devriez voir l'exemple de déploiement de projet ci-dessous :
 
-This deployment looks very similar to your manifest file. You can expect those descriptive fields, and the network and dictionary endpoint has been removed as they did not directly affect the outcome of project execution.
+Ce déploiement ressemble beaucoup à votre fichier manifeste. Vous pouvez vous attendre à ces champs descriptifs, et le réseau et le point de terminaison du dictionnaire ont été supprimés car ils n'ont pas directement affecté le résultat de l'exécution du projet.
 
-Those files been used in your local project has been packed and published to IPFS as well.
+Les fichiers utilisés dans votre projet local ont été emballés et publiés sur IPFS également.
 
 ```yaml
 dataSources:
@@ -103,14 +103,14 @@ schema:
 specVersion: 0.2.0
 ```
 
-## Run your SubQuery project on Hosted Service
+## Exécuter votre projet SubQuery sur un service hébergé
 
-### Create project with IPFS deployment
+### Créer un projet avec déploiement IPFS
 
-You can follow the guide to [Publish your SubQuery project](publish.md) but where you set your deployment source you can select **IPFS**.
+Vous pouvez suivre le guide pour [publier votre projet SubQuery](publish.md), mais lorsque vous définissez votre source de déploiement, vous pouvez sélectionner **IPFS**.
 
-Then choose your production slot, copy and paste you IPFS deployment CID (without the leading `ipfs://`).
+Choisissez ensuite votre emplacement de production, copiez et collez le CID de votre déploiement IPFS (sans le préfixe `ipfs://`).
 
-You should see you IPFS deployment in the preview section. And you can select the network, dictionary endpoints etc.
+Vous devriez voir votre déploiement IPFS dans la section d'aperçu. Et vous pouvez sélectionner le réseau, les endpoints du dictionnaire, etc.
 
-After successful deploy the IPFS deployment on our hosted service, it should be available to view on the SubQuery Explorer, you can access the query service just like you do locally.
+Après avoir réussi à déployer le déploiement IPFS sur notre service hébergé, il devrait être disponible à la vue sur l'explorateur de SubQuery, vous pouvez accéder au service de requête comme vous le faites localement.

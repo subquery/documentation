@@ -41,14 +41,14 @@ subql init PROJECT_NAME
 
 Certaines questions vous seront posées au fur et à mesure de l'initalisation du projet SubQuery :
 
-- Network: A blockchain network that this SubQuery project will be developed to index
-- Template: Select a SubQuery project template that will provide a starting point to begin development
-- Git repository (Optional): Provide a Git URL to a repo that this SubQuery project will be hosted in (when hosted in SubQuery Explorer)
-- RPC endpoint (Required): Provide a websocket (wss) URL to a running RPC endpoint that will be used by default for this project. You can quickly access public endpoints for different Polkadot networks or even create your own private dedicated node using [OnFinality](https://app.onfinality.io) or just use the default Polkadot endpoint. This RPC node must be an archive node (have the full chain state).
-- Authors (Required): Enter the owner of this SubQuery project here
-- Description (Optional): You can provide a short paragraph about your project that describe what data it contains and what users can do with it
-- Version (Required): Enter a custom version number or use the default (`1.0.0`)
-- License (Required): Provide the software license for this project or accept the default (`Apache-2.0`)
+- Réseau: Un réseau blockchain que ce projet de SubQuery sera développé pour indexer
+- Modèle : Sélectionnez un modèle de projet de SubQuery qui fournira un point de départ pour commencer le développement
+- Dépôt Git (facultatif) : Fournir une URL Git vers un dépôt dans lequel ce projet SubQuery sera hébergé (lorsqu'il est hébergé dans SubQuery Explorer)
+- Point de terminaison RPC (obligatoire) : Fournissez une URL (wss) vers un point de terminaison RPC en cours d'exécution qui sera utilisé par défaut pour ce projet. Vous pouvez accéder rapidement aux points de terminaison publics pour différents réseaux Polkadot ou même créer votre propre nœud privé dédié en utilisant [OnFinality](https://app.onfinality.io) ou simplement utiliser le point de terminaison Polkadot par défaut. Ce noeud RPC doit être un noeud d'archive (avoir l'état de chaîne complète).
+- Auteurs (obligatoire) : Entrez le propriétaire de ce projet SubQuery ici
+- Description (facultatif) : Vous pouvez fournir un court paragraphe sur votre projet qui décrit les données qu'il contient et ce que les utilisateurs peuvent faire avec
+- Version (obligatoire) : Entrez un numéro de version personnalisé ou utilisez la version par défaut (`1.0.0`)
+- Licence (obligatoire) : Indiquez la licence du logiciel pour ce projet ou acceptez la valeur par défaut (`Apache-2.0`)
 
 Une fois le processus d'initialisation terminé, vous devriez voir qu'un dossier portant le nom de votre projet a été créé dans le répertoire. Le contenu de ce dossier doit être identique à celui indiqué dans la [structure du répertoire](../create/introduction.md#directory-structure).
 

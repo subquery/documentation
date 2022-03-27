@@ -76,14 +76,14 @@ templates:
 ### `mappingHandlers.ts`
 
 ```ts
-// This function is defined using `subql codegen` cli command
+// Тази функция се определя с помощта на командата cli  `subql codegen` 
 import { createTradingPairDatasource } from '../types';
 import {MoonbeamEvent} from '@subql/contract-processors/dist/moonbeam';
 
 async function handleNewTradingPair(event: MoonbeamEvent): Promise<void> {
   const { exchange, token1, token2 } = event.args;
 
-  // Create a new datasource providing the address of the trading pair exchange contract
+  // Създайте нов източник на данни, като предоставите адреса на контракта за обмен на търговската двойка
   await createTradingPairDatasource({ address: exchange });
 }
 
@@ -105,7 +105,7 @@ async function handleLiquidityAdded(event: MoonbeamEvent): Promise<void> {
 }
 ```
 
-Result
+Резултат
 ```
 {
   "data": {

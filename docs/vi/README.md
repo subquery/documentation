@@ -3,7 +3,7 @@
   <section class="welcomeWords">
     <div class="main">
       <div>
-        <h2 class="welcomeTitle">Chào mừng bạn đến với <span>Tài liệu</span> tiếng Việt của SubQuery</h2>
+        <h2 class="welcomeTitle">Chào mừng bạn đến với <span>Tài liệu</span> của SubQuery</h2>
         <p>Khám phá và chuyển đổi dữ liệu chuỗi của bạn để xây dựng các dApp trực quan nhanh hơn!</p>
       </div>
     </div>
@@ -11,7 +11,7 @@
   <section class="startSection main">
     <div>
       <h2 class="title">Hướng Dẫn <span>Nhanh</span></h2>
-      <p>Hiểu SubQuery bằng cách làm theo ví dụ với Hello World truyền thống. Sử dụng dự án mẫu trong môi trường Docker, bạn có thể nhanh chóng thiết lập và chạy một nút và bắt đầu truy vấn chuỗi khối chỉ trong vài phút với một vài lệnh đơn giản.
+      <p>Hiểu cách SubQuery vận hành bằng cách bắt tay vào việc ngay, với câu lệnh Hello World quen thuộc. Sử dụng dự án mẫu trong Docker, bạn có thể nhanh chóng thiết lập và chạy một node. Từ đó, bắt đầu truy vấn blockchain chỉ trong vài phút với một vài lệnh đơn giản.
       </p>
       <span class="button">
         <router-link :to="{path: '/quickstart/helloworld-localhost/'}">
@@ -29,7 +29,7 @@
           <div>
             <img src="/assets/img/tutorialsIcon.svg" />
             <span>Hướng dẫn và Ví dụ</span>
-            <p>Học thông qua thực hành. Hướng dẫn và ví dụ về cách xây dựng các dự án SubQuery khác nhau.</p>
+            <p>Học thông qua thực hành. Hướng dẫn và ví dụ về cách xây dựng các dự án bằng SubQuery.</p>
           </div>
         </router-link>
       </li>
@@ -37,8 +37,8 @@
         <router-link :to="{path: '/create/introduction/'}">
           <div>
             <img src="/assets/img/docsIcon.svg" />
-            <span>Tài liệu tham khảo về vấn đề kỹ thuật</span>
-            <p>Được viết bởi nhà phát triển dành cho nhà phát triển. Tìm ra thứ bạn cần để nhanh chóng xây dựng một dApp tuyệt đỉnh.</p>
+            <span>Các tài liệu tham khảo về các vấn đề kỹ thuật</span>
+            <p>SubQuery được tạo ra bởi những nhà phát triển, dành cho những nhà phát triển. Tìm ra thứ bạn cần để nhanh chóng xây dựng một dApp tuyệt đỉnh.</p>
           </div>
         </router-link>
       </li>
@@ -47,7 +47,7 @@
           <div>
             <img src="/assets/img/networkIcon.svg" />
             <span>Mạng SubQuery</span>
-            <p>Tương lai phi tập trung của SubQuery. Tìm hiểu thêm về cách để người lập chỉ mục và người tiêu dùng kiếm được phần thưởng.</p>
+            <p>Tương lai phi tập trung của SubQuery. Tìm hiểu thêm về cơ chế thưởng dành cho người lập chỉ mục và người dùng.</p>
           </div>
         </a>
       </li>
@@ -70,20 +70,20 @@
       <li>
         <div class="title">Cách tốt nhất để bắt đầu với SubQuery là gì?</div>
         <div class="content">
-          <p>Cách tốt nhất để bạn bắt đầu dùng SubQuery là xem qua <a href="/quickstart/helloworld-localhost/">hướng dẫn Hello World</a> của chúng tôi. Đây là một hướng dẫn đơn giản trong 5 phút để tải xuống mẫu khởi động, xây dựng dự án và sau đó sử dụng Docker để chạy một nút trên máy chủ cục bộ của bạn và chạy một truy vấn đơn giản. </p>
+          <p>Cách tốt nhất để bắt đầu với SubQuery là xem qua <a href="/quickstart/helloworld-localhost/">hướng dẫn Hello World</a> của chúng tôi. Đây là một hướng dẫn đơn giản trong 5 phút: tải xuống mẫu khởi động, xây dựng dự án và sau đó sử dụng Docker để chạy một node trên máy chủ của bạn và chạy một truy vấn đơn giản. </p>
         </div>
       </li>
       <li>
         <div class="title">Làm cách nào để tôi có thể đóng góp hoặc đưa ra phản hồi cho SubQuery?</div>
         <div class="content">
-          <p>Chúng tôi rất mong nhận được ý kiến đóng góp hoặc phản hồi từ cộng đồng. Để đóng góp mã, hãy tạo bản sao cho kho lưu trữ bạn quan tâm và đưa ra những thay đổi. Sau đó hãy sử dụng chức năng Pull Request hay gọi tắt là PR. À, đừng quên chạy thử đấy nhé! Ngoài ra, hãy xem các nguyên tắc đóng góp của chúng tôi (sẽ sớm được công khai). </p>
+          <p>Chúng tôi rất mong nhận được ý kiến đóng góp và phản hồi từ cộng đồng. Để đóng góp vào việc phát triển, hãy tạo bản sao cho những phần bạn quan tâm và đưa ra những thay đổi. Sau đó hãy sử dụng chức năng Pull Request hay gọi tắt là PR. À, đừng quên chạy thử đấy nhé! Ngoài ra, hãy xem các nguyên tắc đóng góp của chúng tôi (sẽ sớm được công khai). </p>
           <span class="more">
             <router-link :to="{path: '/faqs/faqs/#what-is-the-best-way-to-get-started-with-subquery'}">ĐỌC THÊM</router-link>
           </span>
         </div>
       </li>
       <li>
-        <div class="title">Chi phí để lưu trữ dự án của tôi trong Dự án SubQuery là bao nhiêu?</div>
+        <div class="title">Chi phí để lưu trữ dự án của tôi trong SubQuery là bao nhiêu?</div>
         <div class="content">
           <p>Việc lưu trữ dự án trên SubQuery là hoàn toàn miễn phí - đây là cách chúng tôi cống hiến cho cộng đồng. Để tìm hiểu cách lưu trữ dự án của bạn trên SubQuery, vui lòng xem hướng dẫn <a href="/quickstart/helloworld-hosted/">Hello World (SubQuery Hosted)</a> của chúng tôi.</p>
           <span class="more">
@@ -92,21 +92,21 @@
         </div>
       </li>
     </ul><br>
-    Để biết các câu hỏi thường gặp, vui lòng xem trang <router-link :to="{path: '/faqs/faqs/'}">FAQ's</router-link> page.    
+    Để biết các câu hỏi thường gặp, vui lòng xem trang <router-link :to="{path: '/faqs/faqs/'}">FAQ's</router-link> .    
   </div>
 </section>
 <section class="main">
   <div>
     <div class="lastIntroduce lastIntroduce_1">
         <h5>Tích hợp với Chuỗi tùy chỉnh của bạn?</h5>
-        <p>Cho dù bạn đang xây dựng một parachain hay một blockchain hoàn toàn mới trên Substrate - SubQuery đều có thể giúp bạn lập chỉ mục và khắc phục sự cố dữ liệu trên chuỗi. SubQuery được thiết kế để dễ dàng tích hợp với blockchain tùy chỉnh dựa trên Substrate.</p>
+        <p>Cho dù bạn đang xây dựng một parachain hay một blockchain hoàn toàn mới trên Substrate - SubQuery đều có thể giúp bạn lập chỉ mục và khắc phục sự cố dữ liệu trên chuỗi. SubQuery được thiết kế để dễ dàng tích hợp với blockchain tùy chỉnh có nền tảng Substrate.</p>
         <span class="more">
           <router-link :to="{path: '/create/mapping/#custom-substrate-chains'}">TÌM HIỂU CÁCH TÍCH HỢP VỚI BLOCKCHAIN CỦA BẠN</router-link>
         </span>
     </div>
     <div class="lastIntroduce lastIntroduce_2">
         <h5>Hỗ trợ và đóng góp</h5>
-        <p>Bạn có câu hỏi, cần thêm thông tin hoặc muốn đóng góp? Chúng tôi rất mong nhận được tin của bạn. Vui lòng liên hệ với chúng tôi qua email hoặc các tài khoản mạng xã hội được cung cấp ở bên dưới. Bạn cần tư vấn chuyên môn? Hãy tham gia kênh Discord để nhận được sự hỗ trợ từ các thành viên đầy nhiệt tình trong cộng đồng của chúng tôi. </p>
+        <p>Bạn có câu hỏi, cần thêm thông tin hoặc muốn đóng góp? Chúng tôi rất mong nhận được phản hồi của bạn. Vui lòng liên hệ với chúng tôi qua email hoặc các tài khoản mạng xã hội được cung cấp ở bên dưới. Bạn cần tư vấn chuyên môn? Hãy tham gia kênh Discord để nhận được hỗ trợ từ các thành viên nhiệt huyết trong cộng đồng của chúng tôi! </p>
         <a class="more" target="_blank" href="https://discord.com/invite/78zg8aBSMG">THAM GIA TRAO ĐỔI TRÊN DISCORD</a>
     </div>
     </div>

@@ -51,14 +51,13 @@ Afin d'exécuter votre projet SubQuery sur un noeud SubQuery hébergé localemen
 
 Exécutez la commande build depuis le répertoire racine du projet.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> `shell yarn build ` </CodeGroupItem>
-<CodeGroupItem title="NPM"> `bash npm run-script build ` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> `shell yarn build ` </CodeGroupItem> <CodeGroupItem title="NPM"> `bash npm run-script build ` </CodeGroupItem> </CodeGroup>
 
-### Alternative build options
+### Autres options de compilation
 
-We support additional build options for subquery projects using `subql build`.
+Nous supportons des options de construction supplémentaires pour les projets SubQuery en utilisant `subql build`.
 
-With this you can define additional entry points to build using the exports field in package.json.
+Avec cela, vous pouvez définir des points d'entrée supplémentaires pour la construction en utilisant le champ exports dans package.json.
 
 ```json
 "name": "project-name",
@@ -70,7 +69,7 @@ With this you can define additional entry points to build using the exports fiel
 },
 ```
 
-Then by running `subql build` it will generate a dist folder with the following structure:
+Ensuite, en exécutant `subql build`, il générera un dossier dist avec la structure suivante :
 
 ```
 - project-name
@@ -80,13 +79,13 @@ Then by running `subql build` it will generate a dist folder with the following 
     L index.js
 ```
 
-Note that it will build `index.ts` whether or not it is specified in the exports field.
+Notez que le `fichier index.ts` sera construit, qu'il soit spécifié ou non dans le champ exports.
 
-For more information on using this including flags, see [cli reference](https://doc.subquery.network/run_publish/references/#build).
+Pour plus d'informations sur l'utilisation de ces drapeaux d'inclusion, voir la [référence cli](https://doc.subquery.network/references/references/#build).
 
-## Logging
+## Journalisation
 
-The `console.log` method is **no longer supported**. Instead, a `logger` module has been injected in the types, which means we can support a logger that can accept various logging levels.
+La méthode `console.log` **n'**est **plus prise en charge**. À la place, un module `logger` a été injecté dans les types, ce qui signifie que nous pouvons prendre en charge un logger qui peut accepter différents niveaux de journalisation.
 
 ```typescript
 logger.info("Info level message");
@@ -94,16 +93,16 @@ logger.debug("Debugger level message");
 logger.warn("Warning level message");
 ```
 
-To use `logger.info` or `logger.warn`, just place the line into your mapping file.
+Pour utiliser `logger.info` ou `logger.warn`, il suffit de placer la ligne dans votre fichier de mappage.
 
 ![logging.info](/assets/img/logging_info.png)
 
-To use `logger.debug`, an additional flag is required. Add `--log-level=debug` to your command line.
+Pour utiliser `logger.debug`, un drapeau supplémentaire est nécessaire. Ajoutez `--log-level=debug` à votre ligne de commande.
 
-If you are running a docker container, add this line to your `docker-compose.yaml` file.
+Si vous exécutez un conteneur docker, ajoutez cette ligne à votre fichier `docker-compose.yaml`.
 
 ![logging.debug](/assets/img/logging_debug.png)
 
-You should now see the new logging in the terminal screen.
+Vous devriez maintenant voir la nouvelle journalisation dans l'écran du terminal.
 
 ![logging.debug](/assets/img/subquery_logging.png)

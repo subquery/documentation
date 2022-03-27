@@ -10,7 +10,7 @@
 
 Để gỡ lỗi các dự án SubQuery, chẳng hạn như bước qua mã, đặt điểm ngắt và kiểm tra các biến, bạn sẽ phải sử dụng trình kiểm tra Node.js kết hợp với các công cụ dành cho nhà phát triển Chrome.
 
-## Node inspector
+## Nút kiểm tra
 
 Chạy lệnh sau trong màn hình đầu cuối.
 
@@ -30,8 +30,8 @@ node --inspect-brk /usr/local/bin/subql-node -f ~/Code/subQuery/projects/subql-h
 
 Mở Chrome DevTools và điều hướng đến tab Sources. Lưu ý rằng nhấp vào biểu tượng màu xanh lá cây sẽ mở ra một cửa sổ mới.
 
-![node inspect](/assets/img/node_inspect.png)
+![nút kiểm tra](/assets/img/node_inspect.png)
 
-Điều hướng đến Filesystem và thêm thư mục dự án của bạn vào không gian làm việc. Sau đó, mở dist > thư mục ánh xạ và chọn mã bạn muốn gỡ lỗi. Sau đó, bước qua mã như với bất kỳ công cụ gỡ lỗi tiêu chuẩn nào.
+Điều hướng đến Filesystem và thêm thư mục dự án của bạn vào không gian làm việc. Sau đó, mở dist > thư mục mappings và chọn mã bạn muốn gỡ lỗi. Sau đó, bước qua mã như với bất kỳ công cụ gỡ lỗi tiêu chuẩn nào.
 
-![debugging projects](/assets/img/debugging_projects.png)
+![gỡ lỗi dự án](/assets/img/debugging_projects.png)

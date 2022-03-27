@@ -1,6 +1,6 @@
 # การติดตั้ง SubQuery
 
-มีส่วนประกอบต่างๆ ที่จำเป็นในการสร้างโปรเจ็กต์ SubQuery ชุดเครื่องมือ [@subql/cli](https://github.com/subquery/subql/tree/docs-new-section/packages/cli) ใช้ในการสร้างโปรเจ็กต์ SubQuery ส่วนประกอบ [@subql/node](https://github.com/subquery/subql/tree/docs-new-section/packages/node) จำเป็นสำหรับการรัน Indexer ชุดคำสั่ง [@subql/query](https://github.com/subquery/subql/tree/docs-new-section/packages/query) จำเป็นสำหรับการสร้าง queries
+มันจะมีส่วนประกอบต่างๆ ที่จำเป็นในการสร้างโปรเจ็กต์ SubQuery, ชุดเครื่องมือ [@subql/cli](https://github.com/subquery/subql/tree/docs-new-section/packages/cli) ใช้ในการสร้างโปรเจ็กต์ SubQuery ส่วนประกอบ [@subql/node](https://github.com/subquery/subql/tree/docs-new-section/packages/node) จำเป็นสำหรับการรัน Indexer ชุดคำสั่ง [@subql/query](https://github.com/subquery/subql/tree/docs-new-section/packages/query) จำเป็นสำหรับการสร้าง queries
 
 ## ติดตั้ง @subql/cli
 
@@ -11,7 +11,7 @@
 <CodeGroup> <CodeGroupItem title="NPM"> ```bash npm install -g @subql/cli ``` </CodeGroupItem>
 <CodeGroupItem title="YARN" active> ```shell yarn global add @subql/cli ``` </CodeGroupItem> </CodeGroup>
 
-You can then run help to see available commands and usage provide by CLI:
+คุณสามารถรันคำสั่ง help เพื่อดู command ที่ใช้ได้รวมถึงการใช้งานด้วย CLI:
 
 ```shell
 subql help
@@ -25,11 +25,12 @@ subql help
 <CodeGroup> <CodeGroupItem title="NPM"> ```bash npm install -g @subql/node ``` </CodeGroupItem>
 <CodeGroupItem title="YARN" active> ```shell yarn global add @subql/node ``` </CodeGroupItem> </CodeGroup>
 
-Once installed, you can can start a node with:
+หลังจากติดตั้งแล้วเสร็จ คุณสามารถเริ่ม Node ด้วย:
 
 ```shell
 subql-node <command>
 ```
+ Text XPath: /p[4]/CodeGroup/p[3]/CodeGroup/text
 > หมายเหตุ: หากคุณใช้ Docker หรือคุณโฮสต์โปรเจ็กต์ของคุณใน SubQuery Projects คุณสามารถข้ามขั้นตอนนี้ได้ เนื่องจากมี SubQuery node ให้ใน Docker container และโครงสร้างพื้นฐานของโฮสต์อยู่แล้ว
 
 ## ติดตั้ง @subql/query

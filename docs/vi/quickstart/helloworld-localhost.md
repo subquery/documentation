@@ -1,6 +1,6 @@
 # Hello World (localhost & Docker)
 
-Chào mừng bạn đến với phần khởi đầu nhanh SubQuery Hello World này. Khởi động nhanh nhằm mục đích chỉ cho bạn cách bạn có được dự án khởi động mặc định đang chạy trong Docker trong một vài bước đơn giản.
+Chào mừng bạn đến với phần khởi đầu nhanh SubQuery Hello World. Khởi động nhanh nhằm mục đích chỉ cho bạn cách bạn có được dự án khởi động mặc định đang chạy trong Docker trong một vài bước đơn giản.
 
 ## Mục tiêu học tập
 
@@ -8,7 +8,7 @@ Khi kết thúc phần quick start này, bạn sẽ:
 
 - hiểu các yêu cầu bắt buộc
 - hiểu các lệnh phổ biến cơ bản
-- có thể xem localhost: 3000 và xem playground
+- có thể điều hướng đến localhost:3000 và xem playground
 - chạy một truy vấn đơn giản để lấy chiều cao khối của mạng chính Polkadot
 
 ## Đối tượng mục tiêu
@@ -25,7 +25,7 @@ Hướng dẫn này hướng tới các nhà phát triển mới đã có một 
 
 Bạn sẽ cần:
 
-- yarn or npm package manager
+- quản lý gói yarn hoặc npm
 - SubQuery CLI (`@subql/cli`)
 - Docker
 
@@ -51,9 +51,9 @@ My subql version is: @subql/cli/0.9.3 darwin-x64 node-v16.3.0
 My docker version is: Docker version 20.10.5, build 55c4c88
 ```
 
-Nếu bạn đạt được những điều trên, thì bạn đã tốt để làm. Nếu không, hãy nhấp vào các liên kết sau để cài đặt chúng:
+Nếu bạn đạt được những điều trên, thì bạn đã tốt để tiếp tục. Nếu không, hãy nhấp vào các liên kết sau để cài đặt chúng:
 
-- [yarn](https://classic.yarnpkg.com/en/docs/install/) or [npm](https://www.npmjs.com/get-npm)
+- [yarn](https://classic.yarnpkg.com/en/docs/install/) hoặc [npm](https://www.npmjs.com/get-npm)
 - [SubQuery CLI](quickstart.md#install-the-subquery-cli)
 - [Docker](https://docs.docker.com/get-docker/)
 
@@ -63,7 +63,7 @@ Bước đầu tiên khi bắt đầu với SubQuery là chạy lệnh `subql in
 
 ```shell
 > subql init subqlHelloWorld
-? Select a network Polkadot
+? Lựa chọn một mạng Polkadot
 ? Select a template project subql-starter     Starter project for subquery
 Cloning project... done
 RPC endpoint: [wss://polkadot.api.onfinality.io/public-ws]:
@@ -86,7 +86,7 @@ cd subqlHelloWorld
 
 ## 2. Cài đặt phần phụ thuộc
 
-Bây giờ yarn hoặc node install để cài các phụ thuộc khác nhau.
+Bây giờ cài đặt yarn hoặc node để cài các phụ thuộc khác nhau.
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn install ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```bash npm install ``` </CodeGroupItem> </CodeGroup>
@@ -107,7 +107,7 @@ success Saved lockfile.
 
 ## 3. Tạo mã
 
-Bây giờ, hãy chạy `yarn codegen` để generate Typescript từ giản đồ GraphQL.
+Bây giờ, hãy chạy `yarn codegen` để tạo Typescript từ sơ đồ GraphQL.
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```bash npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
@@ -127,7 +127,7 @@ $ ./node_modules/.bin/subql codegen
 ✨  Done in 1.02s.
 ```
 
-**Cảnh báo** Khi các thay đổi được thực hiện đối với tệp giản đồ, hãy nhớ chạy lại `yarn codegen` để tạo lại thư mục loại của bạn.
+**Cảnh báo** Khi các thay đổi được thực hiện đối với tệp giản đồ, hãy nhớ chạy lại `yarn codegen` để tạo lại thư mục của bạn.
 
 ## 4. Xây dựng mã
 
@@ -192,4 +192,4 @@ Số khối trong playground cũng phải khớp với số khối (về mặt k
 
 ## Tóm lược
 
-Trong phần quick start này, chúng tôi đã trình bày các bước cơ bản để thiết lập và chạy một dự án mới bắt đầu trong môi trường Docker, sau đó điều hướng đến localhost: 3000 và chạy một truy vấn để trả về số khối của mạng Polkadot mainnet.
+Trong phần khởi động nhanh này, chúng tôi đã trình bày các bước cơ bản để thiết lập và chạy một dự án mới bắt đầu trong môi trường Docker, sau đó điều hướng đến localhost: 3000 và chạy một truy vấn để trả về số khối của mạng chính Polkadot.

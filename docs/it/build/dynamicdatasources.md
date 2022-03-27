@@ -1,22 +1,22 @@
 # Dynamic Data Sources
 
-There are cases where you don't know all the parameters for a data source when a project is started. An example of this is a contract factory that will create new contract instances at a later date. It's impossible to know what the contract addresses will be for this ahead of time. This is where being able to create new data sources dynamically comes in.
+มีหลายกรณีที่คุณไม่ทราบพารามิเตอร์ทั้งหมดสําหรับ data source เมื่อเริ่มต้นโปรเจกต์ ตัวอย่างนี้คือการเชื่อมต่อดั้งเดิมที่จะสร้างการเชื่อมต่อใหม่ในภายหลัง เป็นไปไม่ได้เลยที่จะรู้ว่าการเชื่อมต่อใดจะระบุไว้ล่วงหน้าสำหรับเรื่องนี้ นี่คือจุดที่สามารถสร้างแหล่งข้อมูลใหม่แบบไดนามิกได้
 
-## The `templates` field
+## ฟิลด์`เทมเพลต`
 
-In order to use dynamic data sources you need to have spec version of at least `0.2.1`. If you are on `0.2.0` all you need to do is change the specVersion. If you are on a lower version then you should update to `0.2.0` first with `subql migrate`.
+ในการใช้ dynamic data sources คุณต้องมีเวอร์ชันขั้นต่ำ คือ `0.2.1` หากคุณใช้ `0.2.0` สิ่งที่คุณต้องทำคือเปลี่ยนเวอร์ชัน หากคุณใช้เวอร์ชันที่ต่ำกว่า คุณควรอัปเดตเป็น `0.2.1` ก่อนด้วยคำสั่ง `subql migrate`
 
-Spec version `0.2.1` introduces a new `templates` field. Templates are the same as data sources with a couple of differences.
+เวอร์ชัน `0.2.1` แนะนำฟิลด์`เทมเพลต`ใหม่  เทมเพลตจะเหมือนกับแหล่งข้อมูลที่มีความแตกต่าง
 
-* They need a `name` in order to identify the template
-* `startBlock` is no longer necessary. This will be set to the block the data source is created
-* In the case of a custom data source the `processor.options` field can also be partially filled out, the rest of the options will be provided when the data source is instanced.
+* ระบบต้องการ `name` เพื่อระบุเทมเพลต
+* `startBlock` ไม่จำเป็นอีกต่อไป สิ่งนี้จะถูกตั้งค่าเป็นบล็อกที่สร้างแหล่งข้อมูล
+* ในกรณีของแหล่งข้อมูลที่กำหนดเอง ฟิลด์ `processor.options` สามารถกรอกข้อมูลได้เพียงบางส่วน ตัวเลือกที่เหลือจะได้รับเมื่อมีการสร้างอินสแตนซ์แหล่งข้อมูล
 
-## Example Project
+## โปรเจกต์ตัวอย่าง
 
-The best way to show how to use dynamic data source is with an example.
+วิธีที่ดีที่สุดที่จะแสดงการใช้งาน dynamic data sources
 
-The below example is for a decentralised exchange that has a factory contract which deploys a new contract when a trading pair is added. When the project is run it's not possible to know the addresses of all trading pair contract that have been created or will be created. Data sources can be dynamically created by a mapping handler from a template in order to index the newly created trading pair contracts.
+ตัวอย่างด้านล่างเป็นการแลกเปลี่ยนแบบกระจายอำนาจที่มีการเชื่อมต่อดั้งเดิมซึ่งปรับใช้การเชื่อมต่อใหม่เมื่อมีการเพิ่มการจับคู่การซื้อขาย เมื่อทำการสร้างโปรเจ็กต์แล้ว จะไม่สามารถทราบที่อยู่ของสัญญาคู่ซื้อขายทั้งหมดที่สร้างขึ้นหรือจะถูกสร้างขึ้น แหล่งข้อมูลสามารถสร้างไดนามิกโดยตัวจัดการการจับคู่จากเทมเพลตเพื่อจัดทำดัชนีสัญญาคู่การซื้อขายที่สร้างขึ้นใหม่
 
 
 ### `project.yaml`
@@ -71,6 +71,9 @@ templates:
           filter:
             topics:
               - liquidityAdded(address provider, uint256 amount1, uint256 amount2)
+ 
+Text
+XPath: /pre/code
 ```
 
 ### `mappingHandlers.ts`
@@ -93,9 +96,9 @@ async function handleLiquidityAdded(event: MoonbeamEvent): Promise<void> {
 ```
 
 
-## Seeing a projects Dynamic Data Sources
+## การดู Dynamic Data Sources ของโปรเจกต์
 
-Dynamic data sources are stored in the projects metadata. If you need to see what details you can query them like below:
+Dynamic data source จะถูกเก็บไว้ใน medata ของโปรเจกต์ หากคุณต้องการดูรายละเอียดที่คุณสามารถสอบถามได้ด้านล่าง:
 
 ```gql
 {
@@ -105,7 +108,7 @@ Dynamic data sources are stored in the projects metadata. If you need to see wha
 }
 ```
 
-Result
+ผลลัพธ์
 ```
 {
   "data": {

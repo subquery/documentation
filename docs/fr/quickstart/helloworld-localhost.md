@@ -1,4 +1,4 @@
-# Hello World (localhost & Docker)
+# Hello World (réseau local & Docker)
 
 Bienvenue à ce démarrage rapide de SubQuery Hello World. Ce démarrage rapide a pour but de vous montrer comment faire fonctionner le projet de démarrage par défaut dans Docker en quelques étapes simples.
 
@@ -63,18 +63,18 @@ La première étape pour démarrer avec SubQuery est d'exécuter la commande `su
 
 ```shell
 > subql init subqlHelloWorld
-? Select a network Polkadot
-? Select a template project subql-starter     Starter project for subquery
-Cloning project... done
-RPC endpoint: [wss://polkadot.api.onfinality.io/public-ws]:
-Git repository [https://github.com/subquery/subql-starter]:
-Fetching network genesis hash... done
-Author [Ian He & Jay Ji]:
-Description [This project can be use as a starting po...]:
+? Sélectionnez un réseau Polkadot
+? Sélectionnez un modèle de projet subql-starter    Projet de démarrage pour subquery
+Clonage du projet... fait
+RPC terminaison : [wss://polkadot. pi.onfinality.io/public-ws] :
+Référentiel Git [https://github.com/subquery/subql-starter] :
+Récupération du hachage genesis du réseau. . fait
+Auteur [Ian He & Jay Ji] :
+Description [Ce projet peut être utilisé comme un point de départ...]:
 Version [0.0.4]:
-License [MIT]:
-Preparing project... done
-subqlHelloWorld is ready
+Licence [MIT]:
+Préparation du projet... fait
+subqlHelloWorld est prêt
 
 ```
 
