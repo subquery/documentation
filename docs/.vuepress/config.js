@@ -206,16 +206,18 @@ function getSidebar(locale, language){
     },
     {
       title: 'The SubQuery Network',
-      path: `${locale}/subquery_network/intro`,
+      path: `${locale}/subquery_network/introduction`,
       collapsable: true,
       children: [
-        `${locale}/subquery_network/intro.md`,
+        `${locale}/subquery_network/introduction.md`,
         `${locale}/subquery_network/token.md`,
         `${locale}/subquery_network/consumers.md`,
         `${locale}/subquery_network/indexers.md`,
         `${locale}/subquery_network/delegators.md`,
+        `${locale}/subquery_network/payment-methods.md`,
         `${locale}/subquery_network/foundation.md`,
         `${locale}/subquery_network/terminology.md`,
+        `${locale}/subquery_network/design-philosophy.md`
       ]
     },
     {
