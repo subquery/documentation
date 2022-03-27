@@ -45,19 +45,19 @@ dataSources:
   
 ``` yml
 specVersion: 0.3.0
-name: example-project # Provide the project name
+name: terra-example-project # Provide the project name
 version: 1.0.0  # Project version
-description: '' # Description of your project
-repository: 'https://github.com/subquery/terra-subql-starter' # Git repository address of your project
+description: "" # Description of your project
+repository: "https://github.com/subquery/terra-subql-starter" # Git repository address of your project
 
 schema:
   file: ./schema.graphql # The location of your GraphQL schema file
 
 network:
-  chainId: 'columbus-5' # Terra network code
-  endpoint: 'wss://terra-columbus-5.api.onfinality.io/public-ws'
+  chainId: "columbus-5" # Terra network code
+  endpoint: "wss://terra-columbus-5.api.onfinality.io/public-ws"
   # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
-  dictionary: 'https://api.subquery.network/sq/subquery/dictionary-terra-columbus-5'
+  dictionary: "https://api.subquery.network/sq/subquery/dictionary-terra-columbus-5"
 
 dataSources:
   - kind: terra/Runtime

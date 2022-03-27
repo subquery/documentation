@@ -31,10 +31,9 @@ export async function handleBlock(block: SubstrateBlock): Promise<void> {
 import { TerraBlock } from "@subql/types";
 
 export async function handleBlock(block: TerraBlock): Promise<void> {
-    // Create a new StarterEntity with the block hash as its ID
-    const record = new StarterEntity(block.block.block_id.hash);
-    record.height = BigInt(block.block.block.header.height);
-    await record.save();
+  const record = new Block(block.block.block_id.hash);
+  record.height = BigInt(block.block.block.header.height);
+  await record.save();
 }
 ````
 </CodeGroupItem>
@@ -69,14 +68,29 @@ export async function handleEvent(event: SubstrateEvent): Promise<void> {
 <CodeGroupItem title="Terra">
 ```ts
 import { TerraEvent } from "@subql/types";
+import { MsgExecuteContract } from "@terra-money/terra.js";
 
-export async function handleEvent(event: TerraEvent): Promise<void> {
-    const record= new StarterEntity(`${event.block.block.block_id.hash}-${event.tx.tx.txhash}-${event.idx}`);
-    record.blockHeight = BigInt(event.block.block.block.header.height);
-    record.txHash = event.tx.tx.txhash;
-    record.type = event.event.type;
-    record.msgType = event.msg.msg.toData()["@type"];
-    await record.save();
+export async function handleEvent(
+  event: TerraEvent<MsgExecuteContract>
+): Promise<void> {
+  const record = new TransferEvent(
+    `${event.tx.tx.txhash}-${event.msg.idx}-${event.idx}`
+  );
+  for (const attr of event.event.attributes) {
+    switch (attr.key) {
+      case "sender":
+        record.sender = attr.value;
+        break;
+      case "recipient":
+        record.recipient = attr.value;
+        break;
+      case "amount":
+        record.amount = attr.value;
+        break;
+      default:
+    }
+  }
+  await record.save();
 }
 ````
 </CodeGroupItem>
@@ -107,11 +121,11 @@ You can use transaction handlers to capture information about each of the transa
 ```ts
 import {TerraTransaction} from "@subql/types-terra";
 
-export async function handleBlock(tx: TerraTransaction): Promise<void> {
-    const record = new StarterEntity(tx.tx.txhash);
-    record.field1 = BigInt(tx.block.block.block.header.height);
-    record.field2 = tx.tx.timestamp;
-    await record.save();
+export async function handleTransaction(tx: TerraTransaction): Promise<void> {
+  const record = new Transaction(tx.tx.txhash);
+  record.blockHeight = BigInt(tx.block.block.block.header.height);
+  record.timestamp = tx.tx.timestamp;
+  await record.save();
 }
 ```
 
@@ -123,13 +137,18 @@ You can use message handlers to capture information from each message in a trans
 
 ```ts
 import {TerraMessage} from "@subql/types-terra";
+import { MsgExecuteContract } from "@terra-money/terra.js";
 
-export async function handleMessage(message: TerraMessage) {
-    const record= new starterEntity(`${message.block.block.block_id.hash}-${message.tx.tx.txhash}-${message.idx}`);
-    record.blockHeight = BigInt(message.block.block.block.header.height);
-    record.txHash = message.tx.tx.txhash;
-    record.type = message.msg.toData()["@type"];
-    await record.save();
+export async function handleMessage(
+  msg: TerraMessage<MsgExecuteContract>
+): Promise<void> {
+  const record = new Message(`${msg.tx.tx.txhash}-${msg.idx}`);
+  record.blockHeight = BigInt(msg.block.block.block.header.height);
+  record.txHash = msg.tx.tx.txhash;
+  record.contract = msg.msg.toData().contract;
+  record.sender = msg.msg.toData().sender;
+  record.executeMsg = JSON.stringify(msg.msg.toData().execute_msg);
+  await record.save();
 }
 ```
 
