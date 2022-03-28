@@ -3,7 +3,7 @@
   <section class="welcomeWords">
     <div class="main">
       <div>
-        <h2 class="welcomeTitle">Добре дошли в <span>Документите </span> на SubQuery</h2>
+        <h2 class="welcomeTitle">Welcome to SubQuery <span>University</span></h2>
         <p>Изследвайте и трансформирайте вашите блокчейн данни, за да изградите по-бързо интуитивни dApps!</p>
       </div>
     </div>
@@ -25,7 +25,7 @@
   <div>
     <ul class="list">
       <li>
-        <router-link :to="{path: '/tutorials_examples/introduction/'}">
+        <router-link :to="{path: '/academy/tutorials_examples/introduction/'}">
           <div>
             <img src="/assets/img/tutorialsIcon.svg" />
             <span>Уроци и примери</span>
@@ -87,7 +87,7 @@
         <div class="content">
           <p>Хостването на вашия проект в SubQuery Projects е абсолютно безплатно - това е нашият начин да се отблагодарим на общността. За да научите как да разположите вашия проект при нас, моля, разгледайте урока <a href="/quickstart/helloworld-hosted/">Hello World (Хостван от SubQuery)</a>.</p>
           <span class="more">
-            <router-link :to="{path: '/publish/publish/'}">ХОСТВАНЕ НА ВАШИЯ ПРОЕКТ </router-link>
+            <router-link :to="{path: '/run_publish/publish/'}">HOSTING YOUR PROJECT</router-link>
           </span>
         </div>
       </li>
