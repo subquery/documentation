@@ -25,7 +25,7 @@
   <div>
     <ul class="list">
       <li>
-        <router-link :to="{path: '/tutorials_examples/introduction/'}">
+        <router-link :to="{path: '/academy/tutorials_examples/introduction/'}">
           <div>
             <img src="/assets/img/tutorialsIcon.svg" />
             <span>Підручники та приклади</span>
@@ -87,7 +87,7 @@
         <div class="content">
           <p>Розміщення вашого проекту в проектах SubQuery абсолютно безкоштовне - це наш спосіб повернути спільноту. Щоб дізнатися, як приймати ваш проект у нас, перегляньте підручник <a href="/quickstart/helloworld-hosted/"> Hello World (SubQuery Hosted) </a>.</p>
           <span class="more">
-            <router-link :to="{path: '/publish/publish/'}"> ПОДАЧАЙТЕ СВОЙ ПРОЕКТ </router-link>
+            <router-link :to="{path: '/run_publish/publish/'}"> ПОДАЧАЙТЕ СВОЙ ПРОЕКТ </router-link>
           </span>
         </div>
       </li>

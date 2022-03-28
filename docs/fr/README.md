@@ -25,7 +25,7 @@
   <div>
     <ul class="list">
       <li>
-        <router-link :to="{path: '/tutorials_examples/introduction/'}">
+        <router-link :to="{path: '/academy/tutorials_examples/introduction/'}">
           <div>
             <img src="/assets/img/tutorialsIcon.svg" />
             <span>Tutoriels et Exemples</span>
@@ -87,7 +87,7 @@
         <div class="content">
           <p>Héberger votre projet dans SubQuery Projects est absolument gratuit - c'est notre façon de le rendre à la communauté. Pour apprendre comment héberger votre projet avec nous, veuillez consulter le tutoriel <a href="/quickstart/helloworld-hosted/">Hello World (SubQuery Hosted)</a>.</p>
           <span class="more">
-            <router-link :to="{path: '/publish/publish/'}">HEBERGER VOTRE PROJET</router-link>
+            <router-link :to="{path: '/run_publish/publish/'}">HEBERGER VOTRE PROJET</router-link>
           </span>
         </div>
       </li>

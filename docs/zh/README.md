@@ -25,7 +25,7 @@
   <div>
     <ul class="list">
       <li>
-        <router-link :to="{path: '/tutorials_examples/introduction/'}">
+        <router-link :to="{path: '/academy/tutorials_examples/introduction/'}">
           <div>
             <img src="/assets/img/tutorialsIcon.svg" />
             <span>教程 & 案例</span>
@@ -87,7 +87,7 @@
         <div class="content">
           <p>在 SubQuery 项目中托管您的项目是绝对免费的，这是我们回归社区的方式。 要学习如何与我们一起主办您的项目，请查看 <a href="/quickstart/helloworld-hosted/">Hello World (SubQuery Hosted)</a> 教程。</p>
           <span class="more">
-            <router-link :to="{path: '/publish/publish/'}">了解您的进程</router-link>
+            <router-link :to="{path: '/run_publish/publish/'}">了解您的进程</router-link>
           </span>
         </div>
       </li>
