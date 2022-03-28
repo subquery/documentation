@@ -3,7 +3,7 @@
   <section class="welcomeWords">
     <div class="main">
       <div>
-        <h2 class="welcomeTitle">SubQueryの <span>ドキュメント</span>へようこそ</h2>
+        <h2 class="welcomeTitle">Welcome to SubQuery <span>University</span></h2>
         <p>直感的なdAppsをより速く構築するために、チェーンデータを検索して変換しましょう！</p>
       </div>
     </div>
@@ -25,7 +25,7 @@
   <div>
     <ul class="list">
       <li>
-        <router-link :to="{path: '/tutorials_examples/introduction/'}">
+        <router-link :to="{path: '/academy/tutorials_examples/introduction/'}">
           <div>
             <img src="/assets/img/tutorialsIcon.svg" />
             <span>チュートリアルと使用例</span>
@@ -87,7 +87,7 @@
         <div class="content">
           <p>SubQuery Projectsであなたのプロジェクトを公開することは完全に無料です - それはコミュニティに還元する私たちの方法です。 プロジェクトを公開する方法については、 <a href="/quickstart/helloworld-hosted/">Hello World (SubQuery Hosted)</a> チュートリアルをご覧ください。</p>
           <span class="more">
-            <router-link :to="{path: '/publish/publish/'}">プロジェクトを公開する</router-link>
+            <router-link :to="{path: '/run_publish/publish/'}">HOSTING YOUR PROJECT</router-link>
           </span>
         </div>
       </li>
