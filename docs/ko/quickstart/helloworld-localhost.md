@@ -88,8 +88,8 @@ cd subqlHelloWorld
 
 이제 다양한 종속성을 설치하기 위해 원사 또는 노드 설치를 수행합니다.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn install ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```bash npm install ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> `shell yarn install ` </CodeGroupItem>
+<CodeGroupItem title="NPM"> `bash npm install ` </CodeGroupItem> </CodeGroup>
 
 An example of `yarn install`
 
@@ -111,7 +111,10 @@ lockfile 저장 성공
 
 이제 `yarn codegen`을 실행하여 GraphQL 스키마에서 Typescript를 생성합니다.
 
-<CodeGroup> # Yarn yarn codegen # NPM npm run-script codegen
+```shell
+# Yarn yarn codegen
+# NPM npm run-script codegen
+```
 
 ```shell
 &gt; yarn codegen
@@ -140,9 +143,12 @@ $ ./node_modules/.bin/subql codegen
 
 다음 단계는 `yarn build`로 코드를 빌드하는 것입니다.
 
-<CodeGroup> # Yarn yarn build # NPM npm run-script build
-
 ```shell
+# Yarn yarn build
+# NPM npm run-script build
+```
+
+````shell
 > yarn build
 yarn run v1.22.10
 $ tsc -b
@@ -154,7 +160,7 @@ $ tsc -b
 yarn run v1.22.10
 $ tsc -b
 ✨  Done in 5.68s.
-```
+````
 
 ## 5. Docker 실행
 

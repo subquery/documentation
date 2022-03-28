@@ -25,7 +25,7 @@
   <div>
     <ul class="list">
       <li>
-        <router-link :to="{path: '/tutorials_examples/introduction/'}">
+        <router-link :to="{path: '/academy/tutorials_examples/introduction/'}">
           <div>
             <img src="/assets/img/tutorialsIcon.svg" />
             <span>บทแนะนำและตัวอย่าง</span>
@@ -87,7 +87,7 @@
         <div class="content">
           <p>การโฮสต์โปรเจ็กต์ของคุณใน SubQuery Projects นั้นฟรี - นั่นเป็นวิธีการตอบแทนชุมชนของเรา หากต้องการเรียนรู้วิธีโฮสต์โปรเจ็กต์ของคุณกับเรา โปรดดูบทแนะนำ <a href="/quickstart/helloworld-hosted/">Hello World (SubQuery hosted)</a></p>
           <span class="more">
-            <router-link :to="{path: '/publish/publish/'}">การโฮสต์โปรเจ็กต์ของคุณ</router-link>
+            <router-link :to="{path: '/run_publish/publish/'}">การโฮสต์โปรเจ็กต์ของคุณ</router-link>
           </span>
         </div>
       </li>

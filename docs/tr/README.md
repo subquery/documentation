@@ -25,7 +25,7 @@
   <div>
     <ul class="list">
       <li>
-        <router-link :to="{path: '/tutorials_examples/introduction/'}">
+        <router-link :to="{path: '/academy/tutorials_examples/introduction/'}">
           <div>
             <img src="/assets/img/tutorialsIcon.svg" />
             <span>Öğreticiler ve Örnekler</span>
@@ -87,7 +87,7 @@
         <div class="content">
           <p>Projenizi SubQuery Projects'te barındırmak tamamen ücretsizdir - bu bizim topluma geri verme yöntemimizdir. Projenizi bizimle nasıl barındıracaklarınızı öğrenmek için lütfen <a href="/quickstart/helloworld-hosted/">Hello World (SubQuery Hosted)</a> öğreticisine göz atın.</p>
           <span class="more">
-            <router-link :to="{path: '/publish/publish/'}">PROJENİZE EV SAHİPLİĞİ YAPMAK</router-link>
+            <router-link :to="{path: '/run_publish/publish/'}">PROJENİZE EV SAHİPLİĞİ YAPMAK</router-link>
           </span>
         </div>
       </li>

@@ -54,8 +54,8 @@ Une fois le processus d'initialisation terminé, vous devriez voir qu'un dossier
 
 Enfin, sous le répertoire du projet, exécutez la commande suivante pour installer les dépendances du nouveau projet.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```bash cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> `shell cd PROJECT_NAME yarn install ` </CodeGroupItem>
+<CodeGroupItem title="NPM"> `bash cd PROJECT_NAME npm install ` </CodeGroupItem> </CodeGroup>
 
 ## Configurer et construire le projet de démarrage
 
@@ -69,10 +69,10 @@ Pour plus d'informations sur la façon d'écrire votre propre SubQuery, consulte
 
 ### Génération de modèles GraphQL
 
-Afin d'[indexer](../run/run.md) votre projet SubQuery, vous devez d'abord générer les modèles GraphQL requis que vous avez définis dans votre fichier GraphQL Schema (`schema.graphql`). Exécutez cette commande à la racine du répertoire du projet.
+Afin d'[indexer](../run_publish/run.md) votre projet SubQuery, vous devez d'abord générer les modèles GraphQL requis que vous avez définis dans votre fichier GraphQL Schema (`schema.graphql`). Exécutez cette commande à la racine du répertoire du projet.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```bash npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> `shell yarn codegen ` </CodeGroupItem>
+<CodeGroupItem title="NPM"> `bash npm run-script codegen ` </CodeGroupItem> </CodeGroup>
 
 Vous trouverez les modèles générés dans le répertoire `/src/types/models`
 
@@ -82,18 +82,18 @@ Afin d'exécuter votre projet SubQuery sur un nœud SubQuery hébergé localemen
 
 Exécutez la commande build depuis le répertoire racine du projet.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```bash npm run-script build ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> `shell yarn build ` </CodeGroupItem>
+<CodeGroupItem title="NPM"> `bash npm run-script build ` </CodeGroupItem> </CodeGroup>
 
 ## Exécution et interrogation de votre projet de démarrage
 
 Bien que vous puissiez rapidement publier votre nouveau projet sur [SubQuery Projects](https://project.subquery.network) et l'interroger à l'aide de notre [explorateur](https://explorer.subquery.network), la façon la plus simple d'exécuter les nœuds SubQuery localement est dans un conteneur Docker. Si vous n'avez pas encore Docker, vous pouvez l'installer depuis [docker.com](https://docs.docker.com/get-docker/).
 
-[_Sautez cette étape et publiez votre nouveau projet dans SubQuery Projects._](../publish/publish.md)
+[_Sautez cette étape et publiez votre nouveau projet dans SubQuery Projects._](../run_publish/publish.md)
 
 ### Exécutez votre projet SubQuery
 
-Toute la configuration qui contrôle la façon dont un nœud SubQuery est exécuté est définie dans le fichier `docker-compose.yml`. Pour un nouveau projet qui vient d'être initialisé, vous n'aurez pas besoin de modifier quoi que ce soit ici, mais vous pouvez en savoir plus sur le fichier et les paramètres dans notre [section Exécuter un projet](../run/run.md).
+Toute la configuration qui contrôle la façon dont un nœud SubQuery est exécuté est définie dans le fichier `docker-compose.yml`. Pour un nouveau projet qui vient d'être initialisé, vous n'aurez pas besoin de modifier quoi que ce soit ici, mais vous pouvez en savoir plus sur le fichier et les paramètres dans notre [section Exécuter un projet](../run_publish/run.md).
 
 Dans le répertoire du projet, exécutez la commande suivante :
 
@@ -109,7 +109,7 @@ Ouvrez votre navigateur et rendez-vous sur [http://localhost:3000](http://localh
 
 Vous devriez voir un terrain de jeu GraphQL s'afficher dans l'explorateur et les schémas qui sont prêts à être interrogés. En haut à droite du terrain de jeu, vous trouverez un bouton _Docs_ qui ouvrira un tiroir de documentation. Cette documentation est générée automatiquement et vous aide à trouver les entités et les méthodes que vous pouvez interroger.
 
-Pour un nouveau projet de démarrage SubQuery, vous pouvez essayer la requête suivante pour avoir un aperçu de son fonctionnement ou en [apprendre davantage sur le langage GraphQL Query](../query/graphql.md).
+Pour un nouveau projet de démarrage SubQuery, vous pouvez essayer la requête suivante pour avoir un aperçu de son fonctionnement ou en [apprendre davantage sur le langage GraphQL Query](../run_publish/graphql.md).
 
 ```graphql
 {
@@ -129,4 +129,4 @@ Pour un nouveau projet de démarrage SubQuery, vous pouvez essayer la requête s
 
 Félicitations, vous disposez maintenant d'un projet SubQuery fonctionnant localement et acceptant les requêtes de l'API GraphQL pour des échantillons de données. Dans le prochain guide, nous vous montrerons comment publier votre nouveau projet dans [SubQuery Projects](https://project.subquery.network) et l'interroger à l'aide de notre [explorateur](https://explorer.subquery.network).
 
-[Publier votre nouveau projet dans SubQuery Projects](../publish/publish.md)
+[Publier votre nouveau projet dans SubQuery Projects](../run_publish/publish.md)

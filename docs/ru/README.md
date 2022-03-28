@@ -25,7 +25,7 @@
   <div>
     <ul class="list">
       <li>
-        <router-link :to="{path: '/tutorials_examples/introduction/'}">
+        <router-link :to="{path: '/academy/tutorials_examples/introduction/'}">
           <div>
             <img src="/assets/img/tutorialsIcon.svg" />
             <span>Учебные материалы и примеры</span>
@@ -87,7 +87,7 @@
         <div class="content">
           <p>Размещение вашего проекта в SubQuery абсолютно бесплатно - это наш способ отблагодарить сообщество. Чтобы узнать, как разместить свой проект у нас, ознакомьтесь с руководством <a href="/quickstart/helloworld-hosted/"> Привет, Мир (SubQuery Hosted)</a>.</p>
           <span class="more">
-            <router-link :to="{path: '/publish/publish/'}"> РАЗМЕЩЕНИЕ ВАШЕГО ПРОЕКТА</router-link>
+            <router-link :to="{path: '/run_publish/publish/'}"> РАЗМЕЩЕНИЕ ВАШЕГО ПРОЕКТА</router-link>
           </span>
         </div>
       </li>

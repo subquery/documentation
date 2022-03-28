@@ -54,8 +54,8 @@ Setelah proses inisialisasi selesai, Anda akan melihat folder dengan nama proyek
 
 Terakhir, di bawah direktori proyek, jalankan perintah berikut untuk memasang dependensi proyek baru.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```bash cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> `shell cd PROJECT_NAME yarn install ` </CodeGroupItem>
+<CodeGroupItem title="NPM"> `bash cd PROJECT_NAME npm install ` </CodeGroupItem> </CodeGroup>
 
 ## Konfigurasikan dan Bangun Proyek Pemula
 
@@ -69,10 +69,10 @@ Untuk informasi lebih lanjut tentang cara menulis SubQuery Anda sendiri, lihat d
 
 ### Pembuatan Model GraphQL
 
-Untuk [mengindeks](../run/run.md) proyek SubQuery Anda, Anda harus terlebih dahulu membuat model GraphQL yang diperlukan yang telah Anda tetapkan di file GraphQL Schema (`schema.graphql`). Jalankan perintah ini di root direktori proyek.
+Untuk [mengindeks](../run_publish/run.md) proyek SubQuery Anda, Anda harus terlebih dahulu membuat model GraphQL yang diperlukan yang telah Anda tetapkan di file GraphQL Schema (`schema.graphql`). Jalankan perintah ini di root direktori proyek.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```bash npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> `shell yarn codegen ` </CodeGroupItem>
+<CodeGroupItem title="NPM"> `bash npm run-script codegen ` </CodeGroupItem> </CodeGroup>
 
 Anda akan menemukan model yang dihasilkan di direktori `/src/types/models`
 
@@ -82,18 +82,18 @@ Untuk menjalankan Proyek SubQuery Anda pada Node SubQuery yang dihosting secara 
 
 Jalankan perintah bentuk dari direktori proyek.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```bash npm run-script build ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> `shell yarn build ` </CodeGroupItem>
+<CodeGroupItem title="NPM"> `bash npm run-script build ` </CodeGroupItem> </CodeGroup>
 
 ## Menjalankan dan Membuat Kueri Proyek Pemula Anda
 
 Meskipun Anda dapat dengan cepat memublikasikan proyek baru Anda ke [Proyek SubQuery](https://project.subquery.network) dan menanyakannya menggunakan [Explorer](https://explorer.subquery.network) kami, cara termudah untuk menjalankan node SubQuery secara lokal adalah dalam wadah Docker, jika Anda belum memiliki Docker, Anda dapat menginstalnya dari [docker.com](https://docs.docker.com/get-docker/).
 
-[_Lewati ini dan publikasikan proyek baru Anda ke Proyek SubQuery_](../publish/publish.md)
+[_Lewati ini dan publikasikan proyek baru Anda ke Proyek SubQuery_](../run_publish/publish.md)
 
 ### Jalankan Proyek SubQuery Anda
 
-Semua konfigurasi yang mengontrol bagaimana node SubQuery dijalankan didefinisikan dalam file `docker-compose.yml` ini. Untuk proyek baru yang baru saja diinisialisasi, Anda tidak perlu mengubah apa pun di sini, tetapi Anda dapat membaca lebih lanjut tentang file dan pengaturannya di [bagian Jalankan Proyek](../run/run.md)
+Semua konfigurasi yang mengontrol bagaimana node SubQuery dijalankan didefinisikan dalam file `docker-compose.yml` ini. Untuk proyek baru yang baru saja diinisialisasi, Anda tidak perlu mengubah apa pun di sini, tetapi Anda dapat membaca lebih lanjut tentang file dan pengaturannya di [bagian Jalankan Proyek](../run_publish/run.md)
 
 Di bawah direktori proyek jalankan perintah berikut:
 
@@ -109,7 +109,7 @@ Buka browser Anda dan buka [http://localhost:3000](http://localhost:3000).
 
 Anda akan melihat taman bermain GraphQL ditampilkan di explorer dan skema yang siap untuk kueri. Di kanan atas taman bermain, Anda akan menemukan tombol _Dokumen_ yang akan membuka undian dokumentasi. Dokumentasi ini dibuat secara otomatis dan membantu Anda menemukan entitas dan metode apa yang dapat Anda kueri.
 
-Untuk proyek pemula SubQuery baru, Anda dapat mencoba kueri berikut untuk mengetahui cara kerjanya atau [pelajari lebih lanjut tentang bahasa Kueri GraphQL](../query/graphql.md).
+Untuk proyek pemula SubQuery baru, Anda dapat mencoba kueri berikut untuk mengetahui cara kerjanya atau [pelajari lebih lanjut tentang bahasa Kueri GraphQL](../run_publish/graphql.md).
 
 ```graphql
 {
@@ -129,4 +129,4 @@ Untuk proyek pemula SubQuery baru, Anda dapat mencoba kueri berikut untuk menget
 
 Selamat, Anda sekarang memiliki proyek SubQuery yang berjalan secara lokal yang menerima permintaan GraphQL API untuk data sampel. Dalam panduan berikutnya, kami akan menunjukkan cara memublikasikan proyek baru Anda ke [Proyek SubQuery](https://project.subquery.network) dan menanyakannya menggunakan [Explorer](https://explorer.subquery.network) kami
 
-[Publikasikan proyek baru Anda ke Proyek SubQuery](../publish/publish.md)
+[Publikasikan proyek baru Anda ke Proyek SubQuery](../run_publish/publish.md)

@@ -59,20 +59,21 @@ If you get the above, then you are good to go. If not, follow these links to ins
 
 ## 1. Initialise project
 
-The first step when starting off with SubQuery is to run the `subql init` command. Let's initialise a start project with the name `subqlHelloWorld`. Note that only author is mandatory. Everything else is left empty below.
+The first step when starting off with SubQuery is to run the `subql init` command. Let's initialise a start project with the name `subqlHelloWorld`. Select the Polkadot network and accept the default parameters for everything else.
 
 ```shell
-> subql init subqlHelloWorld
+> subql init --starter subqlHelloWorld
+Project name [subql-starter]: subqlHelloWorld
 ? Select a network Polkadot
 ? Select a template project subql-starter     Starter project for subquery
 Cloning project... done
-RPC endpoint: [wss://polkadot.api.onfinality.io/public-ws]:
-Git repository [https://github.com/subquery/subql-starter]:
+RPC endpoint: [wss://polkadot.api.onfinality.io/public-ws]: 
+Git repository [https://github.com/subquery/subql-starter]: 
 Fetching network genesis hash... done
-Author [Ian He & Jay Ji]:
-Description [This project can be use as a starting po...]:
-Version [0.0.4]:
-License [MIT]:
+Author [Ian He & Jay Ji]: 
+Description [This project can be use as a starting po...]: 
+Version [0.0.4]: 
+License [MIT]: 
 Preparing project... done
 subqlHelloWorld is ready
 

@@ -32,7 +32,7 @@ npm install -g @subql/cli
 
 ## Ініціалізувати проект Starter SubQuery
 
-Всередині каталогу, в якому ви хочете створити проєкт SubQuery, просто замініть ` PROJECT_NAME ` на свій власний і запустіть команду:
+Всередині каталогу, в якому ви хочете створити проєкт SubQuery, просто замініть `PROJECT_NAME` на свій власний і запустіть команду:
 
 ```shell
 Subql init НАЗВА ПРОЕКТУ
@@ -53,8 +53,8 @@ Subql init НАЗВА ПРОЕКТУ
 
 Останнє, у каталозі проектів запустіть наступну команду для встановлення залежностей нового проекту.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```bash cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> `shell cd PROJECT_NAME yarn install ` </CodeGroupItem>
+<CodeGroupItem title="NPM"> `bash cd PROJECT_NAME npm install ` </CodeGroupItem> </CodeGroup>
 
 ## Налаштуйте та побудуйте стартовий проект
 
@@ -62,16 +62,16 @@ Subql init НАЗВА ПРОЕКТУ
 
 - Маніфест в `проекті .yaml`
 - Схема GraphQL в `схемі a.graphql`
-- Картографування функціонує в каталозі ` src / mappings / `
+- Картографування функціонує в каталозі `src / mappings /`
 
 Для отримання додаткової інформації про те, як написати власний SubQuery, ознайомтеся з нашою документацією під [ Створити проект ](../create/introduction.md)
 
 ### Генерація моделі GraphQL
 
-Для того, щоб [ індексувати ](../run/run.md) ваш проект SubQuery, спочатку потрібно створити необхідні моделі GraphQL, які ви визначили у своєму файлі GraphQL Schema (` schema.graphql `). Запустіть цю команду в корені каталогу проектів.
+Для того, щоб [ індексувати ](../run_publish/run.md) ваш проект SubQuery, спочатку потрібно створити необхідні моделі GraphQL, які ви визначили у своєму файлі GraphQL Schema (`schema.graphql`). Запустіть цю команду в корені каталогу проектів.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```bash npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> `shell yarn codegen ` </CodeGroupItem>
+<CodeGroupItem title="NPM"> `bash npm run-script codegen ` </CodeGroupItem> </CodeGroup>
 
 Ви знайдете створені моделі в каталозі `/src/types/models` directory
 
@@ -81,18 +81,18 @@ Subql init НАЗВА ПРОЕКТУ
 
 Запустіть команду збірки з кореневого каталогу проєкту.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```bash npm run-script build ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> `shell yarn build ` </CodeGroupItem>
+<CodeGroupItem title="NPM"> `bash npm run-script build ` </CodeGroupItem> </CodeGroup>
 
 ## Запуск та запит на ваш стартовий проект
 
-Хоча ви можете швидко опублікувати свій новий проект на  [SubQuery Projects](https://project.subquery.network)  і запитати його за допомогою нашого [Explorer](https://explorer.subquery.network), найпростіший спосіб локального запуску вузлів SubQuery знаходиться в контейнері Docker, якщо у вас ще немає Docker, ви можете встановити його з [docker.com](https://docs.docker.com/get-docker/).
+Хоча ви можете швидко опублікувати свій новий проект на [SubQuery Projects](https://project.subquery.network) і запитати його за допомогою нашого [Explorer](https://explorer.subquery.network), найпростіший спосіб локального запуску вузлів SubQuery знаходиться в контейнері Docker, якщо у вас ще немає Docker, ви можете встановити його з [docker.com](https://docs.docker.com/get-docker/).
 
-[_Skip this and publish your new project to SubQuery Projects_](../publish/publish.md)
+[_Skip this and publish your new project to SubQuery Projects_](../run_publish/publish.md)
 
 ### Run your SubQuery Project
 
-All configuration that controls how a SubQuery node is run is defined in this `docker-compose.yml` file. Для нового проекту, який щойно був інтиталізований, вам тут нічого не потрібно буде змінювати, але ви можете прочитати більше про файл та налаштування в нашому розділі [ Запустити проект ](../run/run.md)
+All configuration that controls how a SubQuery node is run is defined in this `docker-compose.yml` file. Для нового проекту, який щойно був інтиталізований, вам тут нічого не потрібно буде змінювати, але ви можете прочитати більше про файл та налаштування в нашому розділі [ Запустити проект ](../run_publish/run.md)
 
 У каталозі проекту запустіть наступну команду:
 
@@ -100,7 +100,7 @@ All configuration that controls how a SubQuery node is run is defined in this `d
 docker-compose pull && docker-compose up
 ```
 
-Можливо, знадобиться певний час, щоб завантажити необхідні пакети ([` @ subql / node `](https://www.npmjs.com/package/@subql/node), [` @ subql / query `](https://www.npmjs.com/package/@subql/query) та Postgres) вперше, але незабаром ви побачите запущений вузол SubQuery.
+Можливо, знадобиться певний час, щоб завантажити необхідні пакети ([`@ subql / node`](https://www.npmjs.com/package/@subql/node), [`@ subql / query`](https://www.npmjs.com/package/@subql/query) та Postgres) вперше, але незабаром ви побачите запущений вузол SubQuery.
 
 ### Запитайте свій проєкт
 
@@ -108,7 +108,7 @@ docker-compose pull && docker-compose up
 
 Ви повинні побачити ігровий майданчик GraphQL, який відображається у досліднику, та схеми, готові до запиту. У верхньому правому куті ігрового майданчика ви знайдете кнопку _ Docs _, яка відкриє розіграш документації. Ця документація генерується автоматично і допомагає вам знайти, які сутності та методи ви можете запитувати.
 
-Для нового стартового проекту SubQuery ви можете спробувати наступний запит, щоб скуштувати, як він працює, або [ дізнатися більше про мову запитів GraphQL ](../query/graphql.md).
+Для нового стартового проекту SubQuery ви можете спробувати наступний запит, щоб скуштувати, як він працює, або [ дізнатися більше про мову запитів GraphQL ](../run_publish/graphql.md).
 
 ```graphql
 {
@@ -128,4 +128,4 @@ docker-compose pull && docker-compose up
 
 Вітаємо, тепер у вас є локальний проект SubQuery, який приймає запити GraphQL API для вибіркових даних. У наступному посібнику ми покажемо вам, як опублікувати ваш новий проект на [ Проекти SubQuery ](https://project.subquery.network) та запитайте його за допомогою нашого [ Explorer ](https://explorer.subquery.network)
 
-[Опублікуйте свій новий проект на SubQuery Projects](../publish/publish.md)
+[Опублікуйте свій новий проект на SubQuery Projects](../run_publish/publish.md)
