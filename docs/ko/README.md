@@ -3,7 +3,7 @@
   <section class="welcomeWords">
     <div class="main">
       <div>
-        <h2 class="welcomeTitle">SubQuery의 <span>문서</span>에 오신 것을 환영합니다.</h2>
+        <h2 class="welcomeTitle">Welcome to SubQuery <span>University</span></h2>
         <p>체인 데이터를 탐색하고 변환하여 직관적인 디앱을 더 빠르게 구축해보십시오!</p>
       </div>
     </div>
@@ -25,7 +25,7 @@
   <div>
     <ul class="list">
       <li>
-        <router-link :to="{path: '/tutorials_examples/introduction/'}">
+        <router-link :to="{path: '/academy/tutorials_examples/introduction/'}">
           <div>
             <img src="/assets/img/tutorialsIcon.svg" />
             <span>튜토리얼 및 예제</span>
@@ -87,7 +87,7 @@
         <div class="content">
           <p>SubQuery 프로젝트에서 프로젝트를 호스팅하는 비용은 무료입니다! 이것이 저희가 커뮤니티에 보답하는 방법입니다! 프로젝트를 호스팅하는 방법이 궁금하시면 <a href="/quickstart/helloworld-hosted/">Hello World(SubQuery Hosted)</a> 튜토리얼을 참조해주세요.</p>
           <span class="more">
-            <router-link :to="{path: '/publish/publish/'}">프로젝트 호스팅하기</router-link>
+            <router-link :to="{path: '/run_publish/publish/'}">HOSTING YOUR PROJECT</router-link>
           </span>
         </div>
       </li>
