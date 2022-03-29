@@ -76,6 +76,8 @@ export async function handleEvent(
   const record = new TransferEvent(
     `${event.tx.tx.txhash}-${event.msg.idx}-${event.idx}`
   );
+  record.blockHeight = BigInt(event.block.block.block.header.height);
+  record.txHash = event.tx.tx.txhash;
   for (const attr of event.event.attributes) {
     switch (attr.key) {
       case "sender":
