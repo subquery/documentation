@@ -3,7 +3,7 @@
   <section class="welcomeWords">
     <div class="main">
       <div>
-        <h2 class="welcomeTitle">Welcome to SubQuery <span>University</span></h2>
+        <h2 class="welcomeTitle">Bienvenido a SubQuery <span>University</span></h2>
         <p>¡Explora y transforma los datos de tu cadena para crear dApps intuitivos más rápido!</p>
       </div>
     </div>
@@ -87,7 +87,7 @@
         <div class="content">
           <p>Hospedar tu proyecto en SubQuery Projects es absolutamente gratuito - es nuestra manera de devolver a la comunidad. Para aprender cómo alojar tu proyecto con nosotros, por favor echa un vistazo al tutorial de <a href="/quickstart/helloworld-hosted/">Hola World (Hospedado en SubQuery)</a>.</p>
           <span class="more">
-            <router-link :to="{path: '/run_publish/publish/'}">HOSTING YOUR PROJECT</router-link>
+            <router-link :to="{path: '/run_publish/publish/'}">ALOJAMIENTO DE TU PROYECTO </router-link>
           </span>
         </div>
       </li>
