@@ -84,6 +84,7 @@ module.exports = config({
     */
   },
   themeConfig: {
+    cleanUrl: false,
     logo: '/assets/img/logo.png',
     logoLink: 'https://subquery.network',
     lastUpdated: true,
