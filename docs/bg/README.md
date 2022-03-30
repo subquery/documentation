@@ -3,7 +3,7 @@
   <section class="welcomeWords">
     <div class="main">
       <div>
-        <h2 class="welcomeTitle">Welcome to SubQuery <span>University</span></h2>
+        <h2 class="welcomeTitle">Заповядайте в SubQuery <span>University</span></h2>
         <p>Изследвайте и трансформирайте вашите блокчейн данни, за да изградите по-бързо интуитивни dApps!</p>
       </div>
     </div>
