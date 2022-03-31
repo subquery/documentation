@@ -64,4 +64,4 @@ subscription {
 
 Note that the `mutation` filter can be one of `INSERT`, `UPDATE` or `DELETE`
 
-**โปรดทราบว่าคุณต้องเปิดใช้งาน `--unsafe` ในบริการสืบค้นข้อมูลเพื่อใช้ฟังก์ชันเหล่านี้ [Read more](./references.md#unsafe-2). และโปรดทราบว่าคำสั่ง `--unsafe` จะป้องกันไม่ให้โปรเจ็กของคุณทำงานในเครือข่าย SubQuery และคุณต้องติดต่อฝ่ายสนับสนุนหากต้องการให้คำสั่งนี้รันกับโปรเจ็กของคุณในบริการที่มีการจัดการของ SubQuery ([project.subquery.network](https://project.subquery.network))**
+**โปรดทราบว่าคุณต้องเปิดใช้งาน `--unsafe` ในบริการสืบค้นข้อมูลเพื่อใช้ฟังก์ชันเหล่านี้ [Read more](./references.md#unsafe-2). และโปรดทราบว่าคำสั่ง `--unsafe` จะป้องกันไม่ให้โปรเจกต์ของคุณทำงานในเครือข่าย SubQuery และคุณต้องติดต่อฝ่ายสนับสนุนหากต้องการให้คำสั่งนี้รันกับโปรเจ็กของคุณในบริการที่มีการจัดการของ SubQuery ([project.subquery.network](https://project.subquery.network))**
