@@ -1,58 +1,67 @@
 # Subscriptions
 
-### What is a subscription
+## What is a GraphQL Subscription
+
 SubQuery now also supports Graphql Subscriptions. Like queries, subscriptions enable you to fetch data. Unlike queries, subscriptions are long-lasting operations that can change their result over time.
-[subscription](https://www.apollographql.com/docs/react/data/subscriptions/)
 
+Subscriptions are very useful when you want your client application to change data or show some new data as soon as that change occurs or the new data is available. Subscriptions allow you to *subscribe* to your SubQuery project for changes.
 
-### How to subscribe to an entity
+[Read more about subscriptions here](https://www.apollographql.com/docs/react/data/subscriptions/)
 
-#### Example
+## How to Subscribe to an Entity
 
-For example, when need to subscribe an entity `Transfer` to get update when new balance transfer happened.
-Create a subscription as following, and it will start listen any changes been made to this entity table.
+The basic example of a GraphQL subscription is to be notified when any new entities are created. In the following example, we subscribe to the `Transfer` entity and receive an update when there are any changes to this table.
+
+You can create the subscription by querying the GraphQL endpoint as follows. Your connection will then subscribe to any changes made to the `Transfer` entity table.
+
 ```graphql
-subscription{
-  transfer{
-    id,
+subscription {
+  transfer {
+    id
     mutation_type
     _entity
   }
 }
-
 ```
-- id: an entity with `id` has made some mutation actions
-- mutation_type: types of actions been made to this entity, the entity can be either `INSERT`, `UPDATE` and `DELETE`
-- _entity: the entity itself in JSON format.
 
-### Apply filter
+The body of the entity in your query indicates what data you want to recieve via your subscription when the `Transfer` table is updated: 
+- `id`: Returns the ID of the entity that has changed
+- `mutation_type`: The action that has been made to this entity. Mutation types can be either `INSERT`, `UPDATE` or `DELETE`
+- `_entity`: the value of the entity itself in JSON format.
 
-We also support filter on subscriptions, which means a client should only receive updated subscription data if that data meets certain criteria.
+## Filtering
+
+We also support filter on subscriptions, which means a client should only receive updated subscription data if that data or mutation meets certain criteria.
 
 There are two types of filters we are supporting:
 
-- `id` : Filter the entity with its id, only records with the same id will return an update.
-- `mutation_type`: only the same mutation type been made will return an update.
+- `id` : Filter to only return changes that affect a specific entity (designated by the ID).
+- `mutation_type`: Only the same mutation type been made will return an update.
 
-#### Example
-
-Assume we have an entity `Balances`, and it records someone's account balances.
+Assume we have an entity `Balances`, and it records the balance of each account.
 
 ```graphql
-
-type Balances{
-    id:ID! # someone's account , eg. 15rb4HVycC1KLHsdaSdV1x2TJAmUkD7PhubmhL3PnGv7RiGY 
-    amount: Int! # the balance of this account
-}
-```
-Then if this account has already been created (`INSERT`), and it will never be removed (`DELETE`), but we want to get an update (`UPDATE`) of its balances changes.
-```graphql
-subscription{
-    balances (id: "15rb4HVycC1KLHsdaSdV1x2TJAmUkD7PhubmhL3PnGv7RiGY", mutation: UPDATE){
-        id,
-        mutation_type
-        _entity
-    }
+type Balances {
+  id: ID! # someone's account , eg. 15rb4HVycC1KLHsdaSdV1x2TJAmUkD7PhubmhL3PnGv7RiGY
+  amount: Int! # the balance of this account
 }
 ```
 
+If we want to subscribe to any balance updates that affect a specific account, we can specify the subscription filter as follows:
+
+```graphql
+subscription {
+  balances(
+    id: "15rb4HVycC1KLHsdaSdV1x2TJAmUkD7PhubmhL3PnGv7RiGY"
+    mutation: UPDATE
+  ) {
+    id
+    mutation_type
+    _entity
+  }
+}
+```
+
+Note that the `mutation` filter can be one of `INSERT`, `UPDATE` or `DELETE`
+
+**Please note that you must enable the `--unsafe` flag on the query service in order to use these functions. [Read more](./references.md#unsafe-2). Note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in SubQuery's managed service ([project.subquery.network](https://project.subquery.network))**

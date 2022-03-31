@@ -367,7 +367,9 @@ Set a custom url for the location of the endpoints of the indexer, the query ser
 
 The query service has a limit of 100 entities for unbounded graphql queries. The unsafe flag removes this limit which may cause performance issues on the query service. It is recommended instead that queries are [paginated](https://graphql.org/learn/pagination/).
 
-This flag can also be used to enable certain aggregation functions including sum, max, avg and [others](https://github.com/graphile/pg-aggregates#aggregates).
+This flag enables certain aggregation functions including sum, max, avg and others. Read more about this feature [here](./aggregate.md)
+
+This flag enables [GraphQL Subscriptions](./subscription.md)
 
 These are disabled by default due to the entity limit.
 
