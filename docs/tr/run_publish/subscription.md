@@ -1,4 +1,4 @@
-# Subscriptions
+# Abonelikler
 
 ## What is a GraphQL Subscription
 
