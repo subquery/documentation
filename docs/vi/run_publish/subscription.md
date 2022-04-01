@@ -1,18 +1,18 @@
-# Các đăng ký
+# Các theo dõi
 
-## Đăng ký GraphQL là gì
+## Theo dõi GraphQL là gì
 
-SubQuery hiện đang hỗ trợ Các Đăng ký Graphql. Giống như truy vấn, các đăng ký cho phép bạn lấy dữ liệu. Không giống như truy vấn, đăng ký hoạt động lâu dài, có thể thay đổi kết quả của chúng theo thời gian.
+SubQuery hiện đang hỗ trợ Các theo dõi Graphql. Giống như truy vấn, các theo dõi cho phép bạn lấy dữ liệu. Không giống như truy vấn, theo dõi hoạt động lâu dài, có thể thay đổi kết quả của chúng theo thời gian.
 
-Đăng ký rất hữu ích khi bạn muốn ứng dụng khách của mình thay đổi dữ liệu hoặc hiển thị một số dữ liệu mới ngay khi dữ liệu thay đổi hoặc dữ liệu mới có sẵn. Subscriptions allow you to *subscribe* to your SubQuery project for changes.
+Các theo dõi rất hữu ích khi bạn muốn ứng dụng khách của mình thay đổi dữ liệu hoặc hiển thị một số dữ liệu mới ngay khi dữ liệu thay đổi hoặc dữ liệu mới có sẵn. Các theo dõi cho phép bạn *theo dõi* dự án SubQuery của bạn để biết sự thay đổi.
 
-[Đọc thêm về các đăng ký tại đây](https://www.apollographql.com/docs/react/data/subscriptions/)
+[Đọc thêm về các theo dõi tại đây](https://www.apollographql.com/docs/react/data/subscriptions/)
 
-## Làm thế nào để đăng ký một thực thể
+## Làm thế nào để theo dõi một thực thể
 
-The basic example of a GraphQL subscription is to be notified when any new entities are created. In the following example, we subscribe to the `Transfer` entity and receive an update when there are any changes to this table.
+Ví dụ cơ bản của theo dõi GraphQL là để nhận được thông báo khi bất kỳ thực thể mới nào được tạo. Trong ví dụ sau, chúng tôi theo dõi thực thể `Transfer` và nhận được bản cập nhật khi có bất kỳ thay đổi nào đối với bảng này.
 
-You can create the subscription by querying the GraphQL endpoint as follows. Your connection will then subscribe to any changes made to the `Transfer` entity table.
+Bạn có thể tạo theo dõi bằng cách truy vấn điểm cuối GraphQL như sau. Kết nối của bạn sau đó sẽ theo dõi bất kỳ thay đổi nào được thực hiện đối với bảng thực thể `Transfer`.
 
 ```graphql
 subscription {
@@ -24,30 +24,30 @@ subscription {
 }
 ```
 
-The body of the entity in your query indicates what data you want to recieve via your subscription when the `Transfer` table is updated:
+Nội dung của thực thể trong truy vấn của bạn cho biết dữ liệu bạn muốn nhận được thông qua theo dõi của mình khi bảng `Transfer` được cập nhật:
 - `id`: Trả về ID của thực thể đã thay đổi
 - `mutation_type`: Hành động đã được thực hiện đối với thực thể này. Các kiểu đột biến có thể là `INSERT`, `UPDATE` hoặc `DELETE`
 - `_entity`: giá trị của thực thể đó ở định dạng JSON.
 
-## Filtering
+## Bộ lọc
 
-We also support filter on subscriptions, which means a client should only receive updated subscription data if that data or mutation meets certain criteria.
+Chúng tôi cũng hỗ trợ bộ lọc về theo dõi, có nghĩa là khách hàng sẽ chỉ nhận được dữ liệu theo dõi cập nhật nếu dữ liệu hoặc đột biến đó đáp ứng các tiêu chí nhất định.
 
-There are two types of filters we are supporting:
+Có hai loại bộ lọc mà chúng tôi đang hỗ trợ:
 
-- `id` : Filter to only return changes that affect a specific entity (designated by the ID).
-- `mutation_type`: Only the same mutation type been made will return an update.
+- `id`: Bộ lọc để chỉ trả về những thay đổi ảnh hưởng đến một thực thể cụ thể (được chỉ định bởi ID).
+- `mutation_type`: Chỉ cùng một loại đột biến được thực hiện sẽ trả về một bản cập nhật.
 
-Assume we have an entity `Balances`, and it records the balance of each account.
+Giả sử chúng ta có một thực thể `Balances` và nó ghi lại số dư của mỗi tài khoản.
 
 ```graphql
 type Balances {
-  id: ID! # someone's account , eg. 15rb4HVycC1KLHsdaSdV1x2TJAmUkD7PhubmhL3PnGv7RiGY
-  amount: Int! # the balance of this account
+  id: ID! # tài khoản của ai đó , ví dụ: 15rb4HVycC1KLHsdaSdV1x2TJAmUkD7PhubmhL3PnGv7RiGY
+  amount: Int! # số dư của tài khoản này
 }
 ```
 
-If we want to subscribe to any balance updates that affect a specific account, we can specify the subscription filter as follows:
+Nếu chúng tôi muốn theo dõi bất kỳ cập nhật số dư nào ảnh hưởng đến một tài khoản cụ thể, chúng tôi có thể chỉ định bộ lọc theo dõi như sau:
 
 ```graphql
 subscription {
@@ -62,6 +62,6 @@ subscription {
 }
 ```
 
-Note that the `mutation` filter can be one of `INSERT`, `UPDATE` or `DELETE`
+Lưu ý rằng bộ lọc `mutation` có thể là một trong những hàm ` INSERT `, ` UPDATE ` hoặc ` DELETE `
 
 **Xin lưu ý rằng bạn phải bật cờ `--unsafe` trên cả node và dịch vụ truy vấn để sử dụng các hàm này. [Đọc thêm](./references.md#unsafe-2). Lưu ý rằng lệnh `--unsafe` sẽ ngăn dự án của bạn được chạy trong SubQuery Network, và bạn phải liên hệ với bộ phận hỗ trợ nếu bạn muốn lệnh này được chạy với dự án của mình trong dịch vụ được quản lý của SubQuery ([project.subquery.network](https://project.subquery.network))**
