@@ -281,7 +281,7 @@ Thông thường, nó sẽ được đặt trong tệp manifest của bạn như
 subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot"
 ```
 
-[Read more about how a SubQuery Dictionary works](../academy/tutorials_examples/dictionary.md).
+[Đọc thêm về cách hoạt động của Từ điển SubQuery](../academy/tutorials_examples/dictionary.md).
 
 ### -p, --port
 
