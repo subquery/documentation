@@ -24,3 +24,4 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ap-northeast-1
       - run: aws s3 sync ./docs/.vuepress/dist s3://doc.subquery.network/
+      - run: aws cloudfront create-invalidation --distribution-id E36FB3OLTA80GH --paths "/*"
