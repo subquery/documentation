@@ -64,4 +64,4 @@ subscription {
 
 Note that the `mutation` filter can be one of `INSERT`, `UPDATE` or `DELETE`
 
-**Harap perhatikan bahwa Anda harus mengaktifkan tanda `--unsafe` pada layanan kueri untuk menggunakan fungsi ini. [Read more](./references.md#unsafe-2). Perhatikan bahwa perintah `--unsafe` akan mencegah proyek Anda dijalankan di Jaringan SubQuery, dan Anda harus menghubungi dukungan jika Anda ingin perintah ini dijalankan dengan proyek Anda di layanan terkelola SubQuery ([ project.subquery.network](https://project.subquery.network))**
+**Please note that you must enable the `--unsafe` flag on both the node and query service in order to use these functions. [Read more](./references.md#unsafe-2). Perhatikan bahwa perintah `--unsafe` akan mencegah proyek Anda dijalankan di Jaringan SubQuery, dan Anda harus menghubungi dukungan jika Anda ingin perintah ini dijalankan dengan proyek Anda di layanan terkelola SubQuery ([ project.subquery.network](https://project.subquery.network))**
