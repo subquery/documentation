@@ -4,7 +4,7 @@
 
 SubQuery hiện đang hỗ trợ Các Đăng ký Graphql. Giống như truy vấn, các đăng ký cho phép bạn lấy dữ liệu. Không giống như truy vấn, đăng ký hoạt động lâu dài, có thể thay đổi kết quả của chúng theo thời gian.
 
-Subscriptions are very useful when you want your client application to change data or show some new data as soon as that change occurs or the new data is available. Subscriptions allow you to *subscribe* to your SubQuery project for changes.
+Đăng ký rất hữu ích khi bạn muốn ứng dụng khách của mình thay đổi dữ liệu hoặc hiển thị một số dữ liệu mới ngay khi dữ liệu thay đổi hoặc dữ liệu mới có sẵn. Subscriptions allow you to *subscribe* to your SubQuery project for changes.
 
 [Đọc thêm về các đăng ký tại đây](https://www.apollographql.com/docs/react/data/subscriptions/)
 
@@ -64,4 +64,4 @@ subscription {
 
 Note that the `mutation` filter can be one of `INSERT`, `UPDATE` or `DELETE`
 
-**Please note that you must enable the `--unsafe` flag on both the node and query service in order to use these functions. [Đọc thêm](./references.md#unsafe-2). Lưu ý rằng lệnh `--unsafe` sẽ ngăn dự án của bạn được chạy trong SubQuery Network, và bạn phải liên hệ với bộ phận hỗ trợ nếu bạn muốn lệnh này được chạy với dự án của mình trong dịch vụ được quản lý của SubQuery ([project.subquery.network](https://project.subquery.network))**
+**Xin lưu ý rằng bạn phải bật cờ `--unsafe` trên cả node và dịch vụ truy vấn để sử dụng các hàm này. [Đọc thêm](./references.md#unsafe-2). Lưu ý rằng lệnh `--unsafe` sẽ ngăn dự án của bạn được chạy trong SubQuery Network, và bạn phải liên hệ với bộ phận hỗ trợ nếu bạn muốn lệnh này được chạy với dự án của mình trong dịch vụ được quản lý của SubQuery ([project.subquery.network](https://project.subquery.network))**
