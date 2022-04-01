@@ -345,11 +345,11 @@ Cờ này cho phép sân chơi graphql hoạt động, vì vậy nó luôn đư�
 
 ### --output-fmt
 
-See [--output-fmt](https://doc.subquery.network/run_publish/references.html#output-fmt)
+Xem [--output-fmt](https://doc.subquery.network/run_publish/references.html#output-fmt)
 
 ### --log-level
 
-See [--log-level](https://doc.subquery.network/run_publish/references.html#log-level)
+Xem [--log-level](https://doc.subquery.network/run_publish/references.html#log-level)
 
 ### --log-path
 
@@ -367,9 +367,9 @@ Cho phép luân phiên nhật ký tệp với các tùy chọn khoảng thời g
 
 Dịch vụ truy vấn có giới hạn 100 thực thể cho các truy vấn graphql không giới hạn. Cờ unsafe loại bỏ giới hạn này có thể gây ra các vấn đề về hiệu suất trên dịch vụ truy vấn. Thay vào đó, các truy vấn nên được [phân trang](https://graphql.org/learn/pagination/).
 
-This flag enables certain aggregation functions including sum, max, avg and others. Read more about this feature [here](./aggregate.md)
+Cờ này kích hoạt một số hàm tổng hợp nhất định bao gồm tổng, lớn nhất, trung bình cộng và các hàm khác. Đọc thêm về tính năng này [tại đây](./aggregate.md)
 
-This flag enables [GraphQL Subscriptions](./subscription.md)
+Cờ này kích hoạt [Các đăng ký GraphQL](./subscription.md)
 
 Các tùy chọn này mặc định bị tắt do giới hạn đối tượng.
 
