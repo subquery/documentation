@@ -1,14 +1,14 @@
-# Subscriptions
+# Các đăng ký
 
-## What is a GraphQL Subscription
+## Đăng ký GraphQL là gì
 
-SubQuery now also supports Graphql Subscriptions. Like queries, subscriptions enable you to fetch data. Unlike queries, subscriptions are long-lasting operations that can change their result over time.
+SubQuery hiện đang hỗ trợ Các Đăng ký Graphql. Giống như truy vấn, các đăng ký cho phép bạn lấy dữ liệu. Không giống như truy vấn, đăng ký hoạt động lâu dài, có thể thay đổi kết quả của chúng theo thời gian.
 
 Subscriptions are very useful when you want your client application to change data or show some new data as soon as that change occurs or the new data is available. Subscriptions allow you to *subscribe* to your SubQuery project for changes.
 
-[Read more about subscriptions here](https://www.apollographql.com/docs/react/data/subscriptions/)
+[Đọc thêm về các đăng ký tại đây](https://www.apollographql.com/docs/react/data/subscriptions/)
 
-## How to Subscribe to an Entity
+## Làm thế nào để đăng ký một thực thể
 
 The basic example of a GraphQL subscription is to be notified when any new entities are created. In the following example, we subscribe to the `Transfer` entity and receive an update when there are any changes to this table.
 
@@ -25,9 +25,9 @@ subscription {
 ```
 
 The body of the entity in your query indicates what data you want to recieve via your subscription when the `Transfer` table is updated:
-- `id`: Returns the ID of the entity that has changed
-- `mutation_type`: The action that has been made to this entity. Mutation types can be either `INSERT`, `UPDATE` or `DELETE`
-- `_entity`: the value of the entity itself in JSON format.
+- `id`: Trả về ID của thực thể đã thay đổi
+- `mutation_type`: Hành động đã được thực hiện đối với thực thể này. Các kiểu đột biến có thể là `INSERT`, `UPDATE` hoặc `DELETE`
+- `_entity`: giá trị của thực thể đó ở định dạng JSON.
 
 ## Filtering
 
