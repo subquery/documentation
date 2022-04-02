@@ -26,4 +26,4 @@ Alt sorgu, güvenli olmayan moddayken aşağıdaki toplama işlevlerini sağlar:
 
 Alt sorgular toplama işlevlerinin uygulanması aşağıdakilere dayanır [pg-aggregates](https://github.com/graphile/pg-aggregates), daha fazla bilgiyi burada bulabilirsiniz
 
-**Lütfen aşağıdakileri etkinleştirmeniz gerektiğini unutmayın:`--unsafe`bu işlevleri kullanmak için sorgu hizmetini işaretleyin. [Read more](./references.md#unsafe-2). Bu not `--unsafe` komut, projenizin alt Sorgu Ağında çalıştırılmasını engeller ve bu komutun projenizle alt sorgunun yönetilen hizmetinde çalıştırılmasını istiyorsanız desteğe başvurmanız gerekir ([project.subquery.network](https://project.subquery.network))**
+**Lütfen aşağıdakileri etkinleştirmeniz gerektiğini unutmayın:`--unsafe`bu işlevleri kullanmak için sorgu hizmetini işaretleyin. [Daha fazlasını okuyun](./references.md#unsafe-2). Bu not `--unsafe` komut, projenizin alt Sorgu Ağında çalıştırılmasını engeller ve bu komutun projenizle alt sorgunun yönetilen hizmetinde çalıştırılmasını istiyorsanız desteğe başvurmanız gerekir ([project.subquery.network](https://project.subquery.network))**
