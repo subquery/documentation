@@ -281,7 +281,7 @@ Genellikle bu manifest dosyanızda ayarlanır, ancak aşağıda komut satırınd
 subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot"
 ```
 
-[Read more about how a SubQuery Dictionary works](../academy/tutorials_examples/dictionary.md).
+[SubQuery Sözlüğünün nasıl çalıştığı hakkında daha fazla bilgi edinin](../academy/tutorials_examples/dictionary.md).
 
 ### -p, --port
 
@@ -344,11 +344,11 @@ Bu bayrak graphql playground’u etkinleştirir, bu nedenle her zaman herhangi b
 
 ### --output-fmt
 
-See [--output-fmt](https://doc.subquery.network/run_publish/references.html#output-fmt)
+Şuraya göz atın: [--output-fmt](https://doc.subquery.network/run_publish/references.html#output-fmt)
 
 ### --log-level
 
-See [--log-level](https://doc.subquery.network/run_publish/references.html#log-level)
+Şuraya göz atın: [--log-level](https://doc.subquery.network/run_publish/references.html#log-level)
 
 ### --log-path
 
@@ -366,9 +366,9 @@ Dizin oluşturucunun uç noktalarının konumu için özel bir url ayarlayın, s
 
 Sorgu hizmetinin, sınırsız graphql sorguları için 100 varlık sınırı vardır. Güvenli olmayan bayrak, sorgu hizmetinde performans sorunlarına neden olabilecek bu sınırı kaldırır. Bunun yerine sorguların [sayfalandırılması](https://graphql.org/learn/pagination/) önerilir.
 
-This flag enables certain aggregation functions including sum, max, avg and others. Read more about this feature [here](./aggregate.md)
+Bu bayrak, toplam, maksimum, ortalama ve diğerleri dahil olmak üzere belirli toplama işlevlerini etkinleştirir. Bu özellikle ilgili daha fazla bilgiyi [buradan okuyun](./aggregate.md)
 
-This flag enables [GraphQL Subscriptions](./subscription.md)
+Bu işaret, [GraphQL Aboneliklerini etkinleştirir](./subscription.md)
 
 Bunlar, varlık sınırı nedeniyle varsayılan olarak devre dışıdır.
 
