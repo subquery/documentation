@@ -1,1 +1,1 @@
-# Welcome to Academy
+# Akademi'ye Hoş Geldiniz
