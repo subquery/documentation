@@ -283,7 +283,7 @@ En général, cette option est définie dans votre fichier manifeste, mais l'exe
 subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot"
 ```
 
-[Read more about how a SubQuery Dictionary works](../academy/tutorials_examples/dictionary.md).
+[Lire la suite sur le fonctionnement d'un dictionnaire de sous-requêtes](../academy/tutorials_examples/dictionary.md).
 
 ### -p, --port
 
@@ -368,9 +368,9 @@ Définit une url personnalisée pour l'emplacement des points de terminaison de 
 
 Le service d'interrogation est limité à 100 entités pour les requêtes graphql non limitées. L'indicateur unsafe supprime cette limite, ce qui peut entraîner des problèmes de performances pour le service de requêtes. Il est plutôt recommandé que les requêtes soient [paginées](https://graphql.org/learn/pagination/).
 
-This flag enables certain aggregation functions including sum, max, avg and others. Read more about this feature [here](./aggregate.md)
+Cette option permet d'activer certaines fonctions d'agrégation comme la somme, le maximum, la moyenne et autres. Pour en savoir plus sur cette fonctionnalité, [cliquez ici](./aggregate.md)
 
-This flag enables [GraphQL Subscriptions](./subscription.md)
+Cette option active les [Souscriptions GraphQL](./subscription.md)
 
 Ces fonctions sont désactivées par défaut en raison de la limite d'entités.
 
