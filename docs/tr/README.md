@@ -3,7 +3,7 @@
   <section class="welcomeWords">
     <div class="main">
       <div>
-        <h2 class="welcomeTitle">Welcome to SubQuery <span>University</span></h2>
+        <h2 class="welcomeTitle">SubQuery'nin <span>Universitesine</span>'ına hoş geldiniz</h2>
         <p>Sezgisel dApp'leri daha hızlı oluşturmak için zincir verilerinizi keşfedin ve dönüştürün!</p>
       </div>
     </div>
@@ -87,7 +87,7 @@
         <div class="content">
           <p>Projenizi SubQuery Projects'te barındırmak tamamen ücretsizdir - bu bizim topluma geri verme yöntemimizdir. Projenizi bizimle nasıl barındıracaklarınızı öğrenmek için lütfen <a href="/quickstart/helloworld-hosted/">Hello World (SubQuery Hosted)</a> öğreticisine göz atın.</p>
           <span class="more">
-            <router-link :to="{path: '/run_publish/publish/'}">HOSTING YOUR PROJECT</router-link>
+            <router-link :to="{path: '/run_publish/publish/'}">PROJENİZE EV SAHİPLİĞİ YAPMA</router-link>
           </span>
         </div>
       </li>
