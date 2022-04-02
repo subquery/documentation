@@ -226,7 +226,7 @@ An instance of ProjectManifestImpl has failed the validation:
 
 ### --output-fmt
 
-Il existe deux formats de sortie de terminal différents. JSON ou coloré. Colored est le format par défaut et contient du texte coloré.
+Il existe deux formats de sortie de terminal différents. JSON ou colored. Colored est le format par défaut et contient du texte coloré.
 
 ```shell
 > subql-node -f . --output-fmt=json
@@ -243,7 +243,7 @@ Il existe deux formats de sortie de terminal différents. JSON ou coloré. Color
 
 ### --log-level
 
-Il y a 7 options à choisir. "fatal", "error", "warn", "info", "debug", "trace", "silent". L'exemple ci-dessous montre "silent". Rien ne sera imprimé dans le terminal donc la seule façon de savoir si le noeud fonctionne ou non est d'interroger la base de données pour le nombre de lignes (select count(\*) from subquery_1.starter_entities) ou d'interroger la hauteur du bloc.
+Vous avez le choix entre sept options. "fatal", "error", "warn", "info", "debug", "trace", "silent". L'exemple ci-dessous montre "silent". Rien ne sera imprimé dans le terminal donc la seule façon de savoir si le noeud fonctionne ou non est d'interroger la base de données pour le nombre de lignes (select count(\*) from subquery_1.starter_entities) ou d'interroger la hauteur du bloc.
 
 ```shell
 > subql-node -f . --log-level=silent
@@ -257,13 +257,13 @@ Il y a 7 options à choisir. "fatal", "error", "warn", "info", "debug", "trace",
 (node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
 (node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
 (node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
-(node:24686) [DEP0152] DeprecationWarning: Custom PerformanceEntry accessors are deprecated. Please use the detail property.
+(node:24686) [DEP0152] DeprecationWarning: Custom PerformanceEntry accessors are deprecated. Veuillez utiliser la propriété de détail.
 (node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
 ```
 
 <!-- ### --migrate TBA -->
 
-### --champ d'horodatage
+### --timestamp-field
 
 Par défaut, ce champ est vrai. Lorsqu'il est défini à false avec :
 
