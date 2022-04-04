@@ -1,8 +1,8 @@
-# Subscriptions
+# 订阅
 
-## What is a GraphQL Subscription
+## 什么是 GraphQL 订阅
 
-SubQuery now also supports Graphql Subscriptions. Like queries, subscriptions enable you to fetch data. Unlike queries, subscriptions are long-lasting operations that can change their result over time.
+SubQuery 现在已支持 Graphql 订阅。 像查询一样，订阅可以让您获取数据。 Unlike queries, subscriptions are long-lasting operations that can change their result over time.
 
 Subscriptions are very useful when you want your client application to change data or show some new data as soon as that change occurs or the new data is available. Subscriptions allow you to *subscribe* to your SubQuery project for changes.
 
