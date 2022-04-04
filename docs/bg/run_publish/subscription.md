@@ -1,18 +1,18 @@
-# Subscriptions
+# Абонаменти
 
-## What is a GraphQL Subscription
+## Какво е абонамент за GraphQL
 
-SubQuery now also supports Graphql Subscriptions. Like queries, subscriptions enable you to fetch data. Unlike queries, subscriptions are long-lasting operations that can change their result over time.
+SubQuery вече поддържа и Graphql абонаменти. Подобно на заявките, абонаментите ви позволяват да извличате данни. За разлика от заявките, абонаментите са дълготрайни операции, които могат да променят резултата си с течение на времето.
 
-Subscriptions are very useful when you want your client application to change data or show some new data as soon as that change occurs or the new data is available. Subscriptions allow you to *subscribe* to your SubQuery project for changes.
+Абонаментите са много полезни, когато искате вашето клиентско приложение да промени данни или да покаже някои нови данни веднага щом тази промяна настъпи или новите данни са налични. Абонаментите ви позволяват да се *абонирате* за вашия SubQuery проект за промени.
 
-[Read more about subscriptions here](https://www.apollographql.com/docs/react/data/subscriptions/)
+[Прочетете повече за абонаментите тук](https://www.apollographql.com/docs/react/data/subscriptions/)
 
-## How to Subscribe to an Entity
+## Как да се абонирам за обект
 
-The basic example of a GraphQL subscription is to be notified when any new entities are created. In the following example, we subscribe to the `Transfer` entity and receive an update when there are any changes to this table.
+Основният пример за абонамент за GraphQL е да бъдете уведомени, когато се създават нови обекти. В следващия пример се абонираме за обекта `Transfer` и получаваме актуализация, когато има промени в тази таблица.
 
-You can create the subscription by querying the GraphQL endpoint as follows. Your connection will then subscribe to any changes made to the `Transfer` entity table.
+Можете да създадете абонамента, като направите запитване към GraphQL ендпойнта, както следва. След това вашата връзка ще се абонира за всички промени, направени в таблицата с обекти `Transfer`.
 
 ```graphql
 subscription {
@@ -24,30 +24,30 @@ subscription {
 }
 ```
 
-The body of the entity in your query indicates what data you want to recieve via your subscription when the `Transfer` table is updated:
-- `id`: Returns the ID of the entity that has changed
-- `mutation_type`: The action that has been made to this entity. Mutation types can be either `INSERT`, `UPDATE` or `DELETE`
-- `_entity`: the value of the entity itself in JSON format.
+Тялото на обекта във вашата заявка показва какви данни искате да получавате чрез абонамента си, когато таблицата `Transfer` се актуализира:
+- `id`: Връща идентификатора на обекта, който е променен
+- `mutation_type`: Действието, което е извършено към този обект. Типовете мутации могат да бъдат или `INSERT`, `UPDATE` or `DELETE`
+- `_entity`: стойността на самия обект във формат JSON.
 
-## Filtering
+## Филтриране
 
-We also support filter on subscriptions, which means a client should only receive updated subscription data if that data or mutation meets certain criteria.
+Ние също така поддържаме филтър за абонаменти, което означава, че клиентът трябва да получава актуализирани данни за абонамента само ако тези данни или мутация отговарят на определени критерии.
 
-There are two types of filters we are supporting:
+Има два вида филтри, които поддържаме:
 
-- `id` : Filter to only return changes that affect a specific entity (designated by the ID).
-- `mutation_type`: Only the same mutation type been made will return an update.
+- `id` : Филтрирайте, за да върнете само промени, които засягат конкретен обект (означен от идентификатора).
+- `mutation_type`: Само същият тип мутация, който е направен, ще върне актуализация.
 
-Assume we have an entity `Balances`, and it records the balance of each account.
+Да приемем, че имаме обект `Balances` и той записва салдото на всяка сметка.
 
 ```graphql
 type Balances {
-  id: ID! # someone's account , eg. 15rb4HVycC1KLHsdaSdV1x2TJAmUkD7PhubmhL3PnGv7RiGY
-  amount: Int! # the balance of this account
+  id: ID! # нечий акаунт, напр. 15rb4HVycC1KLHsdaSdV1x2TJAmUkD7PhubmhL3PnGv7RiGY
+  amount: Int! # салдото по тази сметка
 }
 ```
 
-If we want to subscribe to any balance updates that affect a specific account, we can specify the subscription filter as follows:
+Ако искаме да се абонираме за актуализации на баланса, които засягат конкретна сметка, можем да посочим филтъра за абонамент, както следва:
 
 ```graphql
 subscription {
@@ -62,6 +62,6 @@ subscription {
 }
 ```
 
-Note that the `mutation` filter can be one of `INSERT`, `UPDATE` or `DELETE`
+Имайте предвид, че филтърът `mutation` може да бъде един от `INSERT`, `UPDATE` или `DELETE`
 
 **Please note that you must enable the `--unsafe` flag on both the node and query service in order to use these functions. [Read more](./references.md#unsafe-2). Обърнете внимание, че командата `--unsafe` ще попречи на вашия проект да се изпълнява в SubQuery мрежата и трябва да се свържете с поддръжката, ако искате тази команда да се изпълнява с вашия проект в управляваната услуга на SubQuery ([project.subquery.network](https://project.subquery.network))**
