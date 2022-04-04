@@ -26,4 +26,4 @@ Groupby 允许您在一个查询中快速获取一个从SubQuery 集中的不同
 
 SubQuery对总函数的实现基于 [pg-aggregates](https://github.com/graphile/pg-aggregates)，您可以在那里找到更多的信息
 
-**请注意，您必须在查询服务上启用 `--safe` 标志才能使用这些函数。 [Read more](./references.md#unsafe-2). 注意 `--safe` 命令将防止您的项目在 SubQuery 网络中运行。 如果您想要在 SubQuery 的管理服务中运行此命令，您必须联系支持者([项目)。 ubquery.network](https://project.subquery.network)**
+**请注意，您必须在查询服务上启用 `--safe` 标志才能使用这些函数。 [阅读更多](./references.md#unsafe-2)。 注意 `--safe` 命令将防止您的项目在 SubQuery 网络中运行。 如果您想要在 SubQuery 的管理服务中运行此命令，您必须联系支持者([项目)。 ubquery.network](https://project.subquery.network)**
