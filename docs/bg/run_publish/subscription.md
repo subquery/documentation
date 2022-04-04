@@ -64,4 +64,4 @@ subscription {
 
 Имайте предвид, че филтърът `mutation` може да бъде един от `INSERT`, `UPDATE` или `DELETE`
 
-**Please note that you must enable the `--unsafe` flag on both the node and query service in order to use these functions. [Read more](./references.md#unsafe-2). Обърнете внимание, че командата `--unsafe` ще попречи на вашия проект да се изпълнява в SubQuery мрежата и трябва да се свържете с поддръжката, ако искате тази команда да се изпълнява с вашия проект в управляваната услуга на SubQuery ([project.subquery.network](https://project.subquery.network))**
+**Моля, имайте предвид, че трябва да активирате флага `--unsafe` на услугата за заявки, за да използвате тези функции. [Прочетете още](./references.md#unsafe-2). Обърнете внимание, че командата `--unsafe` ще попречи на вашия проект да се изпълнява в SubQuery мрежата и трябва да се свържете с поддръжката, ако искате тази команда да се изпълнява с вашия проект в управляваната услуга на SubQuery ([project.subquery.network](https://project.subquery.network))**
