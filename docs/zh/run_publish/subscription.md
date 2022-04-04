@@ -2,17 +2,17 @@
 
 ## 什么是 GraphQL 订阅
 
-SubQuery 现在已支持 Graphql 订阅。 像查询一样，订阅可以让您获取数据。 Unlike queries, subscriptions are long-lasting operations that can change their result over time.
+SubQuery 现在已支持 Graphql 订阅。 像查询一样，订阅可以让您获取数据。 与查询不同的是，订阅是长期操作，可以随着时间的推移改变其结果。
 
-Subscriptions are very useful when you want your client application to change data or show some new data as soon as that change occurs or the new data is available. Subscriptions allow you to *subscribe* to your SubQuery project for changes.
+当您想要您的客户端应用程序更改数据或在发生更改或有新数据时显示一些新数据时，订阅非常有用。 订阅允许您 *订阅* SubQuery项目进行修改。
 
-[Read more about subscriptions here](https://www.apollographql.com/docs/react/data/subscriptions/)
+[在此阅读更多关于订阅的信息](https://www.apollographql.com/docs/react/data/subscriptions/)
 
-## How to Subscribe to an Entity
+## 如何订阅
 
-The basic example of a GraphQL subscription is to be notified when any new entities are created. In the following example, we subscribe to the `Transfer` entity and receive an update when there are any changes to this table.
+GraphQL订阅的基本例子是在创建任何新项目时发出通知。 在下面的示例中，我们订阅 `Transfer` 选项，并在此表有任何更改时收到更新。
 
-You can create the subscription by querying the GraphQL endpoint as follows. Your connection will then subscribe to any changes made to the `Transfer` entity table.
+您可以通过查询以下的 GraphQL 端点来创建订阅。 然后您的连接将订阅对 `Transfer` 项目表所作的任何更改。
 
 ```graphql
 subscription {
@@ -24,21 +24,21 @@ subscription {
 }
 ```
 
-The body of the entity in your query indicates what data you want to recieve via your subscription when the `Transfer` table is updated:
-- `id`: Returns the ID of the entity that has changed
-- `mutation_type`: The action that has been made to this entity. Mutation types can be either `INSERT`, `UPDATE` or `DELETE`
-- `_entity`: the value of the entity itself in JSON format.
+在您的查询中项目的主体显示了更新 `传输` 表时您想要通过订阅接收的数据：
+- `id`: 返回已更改的项目的 ID
+- `mutation_type`: 已经对这个选项进行了操作。 类型可以是 `INSERT`, `UPDATE` 或 `DELETE`
+- `_entity`: 项目本身的值为 JSON 格式。
 
-## Filtering
+## 筛选
 
-We also support filter on subscriptions, which means a client should only receive updated subscription data if that data or mutation meets certain criteria.
+我们还支持对订阅进行过滤，这意味着客户端只有在数据或突变符合某些标准时才能收到更新的订阅数据。
 
-There are two types of filters we are supporting:
+我们支持的过滤器有两种类型：
 
-- `id` : Filter to only return changes that affect a specific entity (designated by the ID).
-- `mutation_type`: Only the same mutation type been made will return an update.
+- `id` : 过滤器仅返回影响到特定选项的更改(由ID指定)。
+- `类型`: 只有相同的改动类型将返回一个更新。
 
-Assume we have an entity `Balances`, and it records the balance of each account.
+假定我们有一个选项 `Balances`, 并且它记录每个账户的余额。
 
 ```graphql
 type Balances {
@@ -47,7 +47,7 @@ type Balances {
 }
 ```
 
-If we want to subscribe to any balance updates that affect a specific account, we can specify the subscription filter as follows:
+如果我们想订阅任何影响到特定帐户的余额更新，我们可以指定订阅筛选器如下：
 
 ```graphql
 subscription {
@@ -62,6 +62,6 @@ subscription {
 }
 ```
 
-Note that the `mutation` filter can be one of `INSERT`, `UPDATE` or `DELETE`
+请注意， `mutation` 过滤器可以是 `INSERT`, `UPDATE` 或 `DELETE`
 
-**Please note that you must enable the `--unsafe` flag on both the node and query service in order to use these functions. [Read more](./references.md#unsafe-2). 注意 `--safe` 命令将防止您的项目在 SubQuery 网络中运行。 如果您想要在 SubQuery 的管理服务中运行此命令，您必须联系支持者([项目)。 ubquery.network](https://project.subquery.network)**
+**请注意，您必须在节点和查询服务上启用 `--unsafe` 标志才能使用这些函数。 [阅读更多](./references.md#unsafe-2)。 注意 `--safe` 命令将防止您的项目在 SubQuery 网络中运行。 如果您想要在 SubQuery 的管理服务中运行此命令，您必须联系支持者([项目)。 ubquery.network](https://project.subquery.network)**
