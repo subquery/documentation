@@ -64,4 +64,8 @@ subscription {
 
 Lưu ý rằng bộ lọc `mutation` có thể là một trong những hàm ` INSERT `, ` UPDATE ` hoặc ` DELETE `
 
+## Using this Feature
+
 **Xin lưu ý rằng bạn phải bật cờ `--unsafe` trên cả node và dịch vụ truy vấn để sử dụng các hàm này. [Đọc thêm](./references.md#unsafe-2). Lưu ý rằng lệnh `--unsafe` sẽ ngăn dự án của bạn được chạy trong SubQuery Network, và bạn phải liên hệ với bộ phận hỗ trợ nếu bạn muốn lệnh này được chạy với dự án của mình trong dịch vụ được quản lý của SubQuery ([project.subquery.network](https://project.subquery.network))**
+
+The subcription feature works on SubQuery's managed service when you directly call the listed GraphQL endpoint. It will not work within the in-browser GraphQL playground.
