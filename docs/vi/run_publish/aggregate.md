@@ -1,6 +1,6 @@
 # Hàm Tổng hợp
 
-## Nhóm Bởi
+## Nhóm theo
 
 SubQuery hỗ trợ các hàm tổng hợp nâng cao để cho phép bạn thực hiện tính toán trên một tập hợp các giá trị trong truy vấn của mình.
 
