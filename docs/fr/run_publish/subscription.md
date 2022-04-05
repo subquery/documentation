@@ -64,4 +64,8 @@ subscription {
 
 Notez que le filtre `mutation` peut être l'un de `INSERT`, `UPDATE` ou `DELETE`
 
+## Using this Feature
+
 **Veuillez noter que vous devez activer l'option `--unsafe` à la fois sur le nœud et le service de requête afin d'utiliser ces fonctions. [Lire la suite](./references.md#unsafe-2). Notez que la commande `--unsafe` empêchera votre projet d'être exécuté dans le réseau SubQuery, et vous devez contacter le support si vous voulez que cette commande soit exécutée avec votre projet dans le service géré de SubQuery ([project.subquery.network](https://project.subquery.network)**)</strong>
+
+The subcription feature works on SubQuery's managed service when you directly call the listed GraphQL endpoint. It will not work within the in-browser GraphQL playground.
