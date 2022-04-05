@@ -162,7 +162,7 @@ Mặc dù điều này tăng cường bảo mật, chúng tôi hiểu rằng đi
 
 **Lưu ý rằng lệnh `--unsafe` sẽ ngăn dự án của bạn được chạy trong SubQuery Network, và bạn phải liên hệ với bộ phận hỗ trợ nếu bạn muốn lệnh này được chạy với dự án của mình trong dịch vụ được quản lý của SubQuery ([project.subquery.network](https://project.subquery.network))**
 
-### --- kích thước lô
+### --batch-size
 
 Cờ này cho phép bạn đặt kích thước lô trong dòng lệnh. Nếu kích thước lô cũng được đặt trong tệp cấu hình, nó sẽ được ưu tiên.
 
@@ -182,7 +182,7 @@ Chia tỷ lệ kích thước lô tìm nạp khối với mức sử dụng bộ
 
 Đặt thời gian chờ tùy chỉnh cho sandbox javascript để thực hiện các chức năng lập ánh xạ trên một khối trước khi hàm ánh xạ khối xuất lỗi ngoại lệ thời gian chờ
 
-### --gỡ lỗi
+### --debug
 
 Thông tin lỗi sẽ được xuất ra bảng điều khiển và cài đặt cấp độ nhật ký để gỡ lỗi nhanh chóng.
 
@@ -193,7 +193,7 @@ Thông tin lỗi sẽ được xuất ra bảng điều khiển và cài đặt 
 2021-08-10T11:45:39.472Z <db> DEBUG Executing (1b0d0c23-d7c7-4adb-a703-e4e5c414e035): COMMIT;
 ```
 
-### --hồ sơ
+### --profiler
 
 Hiển thị thông tin hồ sơ.
 
@@ -210,7 +210,7 @@ subql-node -f . --local --profiler
 Cờ này cho phép người dùng ghi đè cấu hình điểm cuối mạng từ tệp kê khai.
 
 ```shell
-subql-node -f . --mạng-điểm cuối="wss://polkadot.api.onfinality.io/public-ws"
+subql-node -f . --network-endpoint="wss://polkadot.api.onfinality.io/public-ws"
 ```
 
 Lưu ý rằng đoạn này cũng phải được đặt trong tệp kê khai, nếu không bạn sẽ nhận được:
@@ -241,7 +241,7 @@ Có hai định dạng đầu ra khác nhau. JSON hoặc colored. Colored là m�
 
 ### --log-level
 
-Có 7 tùy chọn để lựa chọn. “nghiêm trọng”, “lỗi”, “cảnh báo”, “thông tin”, “gỡ lỗi”, “theo dõi”, “im lặng”. Ví dụ dưới đây cho thấy "im lặng". Không có gì sẽ được in trong thiết bị đầu cuối vì vậy cách duy nhất để biết nút có hoạt động hay không là truy vấn cơ sở dữ liệu về số hàng (select count(\*) from subquery_1.starter_entities) hoặc truy vấn chiều cao khối.
+Có 7 tùy chọn để lựa chọn. “fatal”, “error”, “warn”, “info”, “debug”, “trace”, “silent”. Ví dụ bên dưới hiển thị tùy chọn "silent". Không có gì sẽ được in trong thiết bị đầu cuối vì vậy cách duy nhất để biết nút có hoạt động hay không là truy vấn cơ sở dữ liệu về số hàng (select count(\*) from subquery_1.starter_entities) hoặc truy vấn chiều cao khối.
 
 ```shell
 > subql-node -f . --log-level=silent
@@ -273,7 +273,7 @@ Thao tác này sẽ xóa các cột created_at và updated_at trong bảng start
 
 ### -d, --network-dictionary
 
-Điều này cho phép bạn chỉ định một điểm cuối từ điển và nó là một dịch vụ miễn phí được cung cấp và lưu trữ tại: [https://explorer.subquery.network/](https://explorer.subquery.network/) (tìm kiếm từ điển) và giới thiệu điểm cuối API của: https://api.subquery.network/sq/subquery/dictionary-polkadot
+Cờ này cho phép bạn chỉ định một điểm cuối từ điển và nó là một dịch vụ miễn phí được cung cấp và lưu trữ tại: [https://explorer.subquery.network/](https://explorer.subquery.network/) (tìm kiếm từ điển) và giới thiệu điểm cuối API của: https://api.subquery.network/sq/subquery/dictionary-polkadot
 
 Thông thường, nó sẽ được đặt trong tệp manifest của bạn nhưng bên dưới cho thấy một ví dụ về việc sử dụng nó làm đối số trong dòng lệnh.
 
@@ -325,7 +325,7 @@ Lệnh này sẽ hiển thị phiên bản hiện tại.
 
 ### -n, --name
 
-Cờ này được sử dụng để bắt đầu dịch vụ truy vấn. Nếu cờ --subquery-name không được cung cấp khi chạy trình lập chỉ mục, thì tên ở đây sẽ tham chiếu đến tên dự án mặc định. Nếu --subquery-name được đặt, thì tên ở đây phải khớp với những gì đã được đặt.
+Cờ này được sử dụng để bắt đầu dịch vụ truy vấn. Nếu cờ --subquery-name không được cung cấp khi chạy trình lập chỉ mục, thì tên ở đây sẽ tham chiếu đến tên dự án mặc định. Nếu --subquery-name được đặt, thì tên ở đây phải khớp với tên đã được đặt.
 
 ```shell
 > subql-node -f . // --subquery-name chưa được đặt
@@ -357,7 +357,7 @@ Cho phép ghi tệp nhật ký bằng cách cung cấp đường dẫn đến t�
 
 ### --log-rotate
 
-Cho phép luân phiên nhật ký tệp với các tùy chọn khoảng thời gian xoay vòng 1 ngày, tối đa là 7 tệp và với kích thước tệp tối đa là 1GB
+Cho phép luân phiên tệp nhật ký với tùy chọn khoảng thời gian luân phiên là 1 ngày, tối đa là 7 tệp và với kích thước tệp tối đa là 1GB
 
 ### --indexer
 
@@ -369,7 +369,7 @@ Dịch vụ truy vấn có giới hạn 100 thực thể cho các truy vấn gra
 
 Cờ này kích hoạt một số hàm tổng hợp nhất định bao gồm tổng, lớn nhất, trung bình cộng và các hàm khác. Đọc thêm về tính năng này [tại đây](./aggregate.md)
 
-Cờ này kích hoạt [Các đăng ký GraphQL](./subscription.md)
+Cờ này kích hoạt [Các theo dõi GraphQL](./subscription.md)
 
 Các tùy chọn này mặc định bị tắt do giới hạn đối tượng.
 
