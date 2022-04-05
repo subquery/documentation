@@ -40,7 +40,7 @@ Thông tin ngoại lai cố hữu là những phần thông tin không được 
 
 Giao dịch ngoại lai có chữ ký là các giao dịch có chứa chữ ký của tài khoản thực hiện giao dịch. Họ phải trả một khoản phí để giao dịch được đưa vào chuỗi.
 
-Các giao dịch ngoại lai không có chữ ký là các giao dịch không có chữ ký của tài khoản đã thực hiện giao dịch. Ao dịch ngoại lai chưa được ký kết nên sử dụng cẩn thận vì không ai trả phí, vì nó đã được ký. Vì thế, danh sách chờ giao dịch không có logic kinh tế để tránh bị spam.
+Các giao dịch ngoại lai không có chữ ký là các giao dịch không có chữ ký của tài khoản đã thực hiện giao dịch. Các giao dịch ngoại lai chưa được ký nên sử dụng cẩn thận vì không ai trả phí, vì nó đã được ký. Do đó, hàng đợi giao dịch thiếu logic kinh tế sẽ ngăn chặn thư rác.
 
 Để biết thêm thông tin chi tiết, hãy nhấp vào [đây](https://substrate.dev/docs/en/knowledgebase/learn-substrate/extrinsics).
 
