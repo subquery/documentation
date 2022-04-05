@@ -66,8 +66,7 @@ Options:
                                                       [boolean] [default: false]
       --profiler            Show profiler information to console output
                                                       [boolean] [default: false]
-      --subscription        Enable subscription 
-                                                      [boolean] [default: false]                                                     
+      --subscription        Enable subscription       [boolean] [default: false]                                                     
       --network-endpoint    Blockchain network endpoint to connect      [string]
       --output-fmt          Print log as json or plain text
                                            [string] [choices: "json", "colored"]
@@ -305,20 +304,19 @@ Options:
       --version       Show version number                                [boolean]
   -n, --name          Project name                             [string] [required]
       --playground    Enable graphql playground                          [boolean]
-      --subscription  Enable subscription 
-                                                      [boolean] [default: false]   
+      --subscription  Enable subscription               [boolean] [default: false]   
       --output-fmt    Print log as json or plain text
-                      [string] [choices: "json", "colored"] [default: "colored"]
+                        [string] [choices: "json", "colored"] [default: "colored"]
       --log-level     Specify log level to print.
-          [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
-                                                     "silent"] [default: "info"]
+            [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
+                                                       "silent"] [default: "info"]
       --log-path      Path to create log file e.g ./src/name.log          [string]
       --log-rotate    Rotate log files in directory specified by log-path
                                                       [boolean] [default: false]
       --indexer       Url that allows query to access indexer metadata    [string]
       --unsafe        Disable limits on query depth and allowable number returned
                       query records                                      [boolean]
-  -p, --port          The port the service will bind to                   [number
+  -p, --port          The port the service will bind to                   [number]
 ```
 
 ### --version
