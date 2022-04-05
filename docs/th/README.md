@@ -3,7 +3,7 @@
   <section class="welcomeWords">
     <div class="main">
       <div>
-        <h2 class="welcomeTitle">Welcome to SubQuery <span>University</span></h2>
+        <h2 class="welcomeTitle">ยินดีต้อนรับสู่ SubQuery <span>University</span></h2>
         <p>สำรวจและแปลงข้อมูลเชนของคุณเพื่อสร้าง dApps ให้ใช้งานง่ายและรวดเร็วขึ้น!</p>
       </div>
     </div>
@@ -87,7 +87,7 @@
         <div class="content">
           <p>การโฮสต์โปรเจ็กต์ของคุณใน SubQuery Projects นั้นฟรี - นั่นเป็นวิธีการตอบแทนชุมชนของเรา หากต้องการเรียนรู้วิธีโฮสต์โปรเจ็กต์ของคุณกับเรา โปรดดูบทแนะนำ <a href="/quickstart/helloworld-hosted/">Hello World (SubQuery hosted)</a></p>
           <span class="more">
-            <router-link :to="{path: '/run_publish/publish/'}">HOSTING YOUR PROJECT</router-link>
+            <router-link :to="{path: '/run_publish/publish/'}">การโฮสต์โปรเจกต์ของคุณ</router-link>
           </span>
         </div>
       </li>
