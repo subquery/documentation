@@ -64,4 +64,8 @@ subscription {
 
 请注意， `mutation` 过滤器可以是 `INSERT`, `UPDATE` 或 `DELETE`
 
+## Using this Feature
+
 **请注意，您必须在节点和查询服务上启用 `--unsafe` 标志才能使用这些函数。 [阅读更多](./references.md#unsafe-2)。 注意 `--safe` 命令将防止您的项目在 SubQuery 网络中运行。 如果您想要在 SubQuery 的管理服务中运行此命令，您必须联系支持者([项目)。 ubquery.network](https://project.subquery.network)**
+
+The subcription feature works on SubQuery's managed service when you directly call the listed GraphQL endpoint. It will not work within the in-browser GraphQL playground.
