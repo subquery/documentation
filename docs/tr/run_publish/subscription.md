@@ -64,4 +64,8 @@ abonelik {
 
 `mutasyon` filtresinin `INSERT`, `UPDATE` veya `DELETE` seçeneklerinden biri olabileceğini unutmayın
 
+## Using this Feature
+
 **Bu işlevleri kullanmak için hem düğümde hem de sorgu hizmetinde `--güvenli olmayan` işaretini etkinleştirmeniz gerektiğini lütfen unutmayın. [Daha fazlasını okuyun](./references.md#unsafe-2). Bu not `--unsafe` komut, projenizin alt Sorgu Ağında çalıştırılmasını engeller ve bu komutun projenizle alt sorgunun yönetilen hizmetinde çalıştırılmasını istiyorsanız desteğe başvurmanız gerekir ([project.subquery.network](https://project.subquery.network))**
+
+The subcription feature works on SubQuery's managed service when you directly call the listed GraphQL endpoint. It will not work within the in-browser GraphQL playground.
