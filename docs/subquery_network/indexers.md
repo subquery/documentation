@@ -78,6 +78,21 @@ The minimum infrastructure requirement includes:
 
 More detailed information will come soon.
 
+## Indexer Setup - TestNet
+
+### Backgrounds
+To operate a professional infrastructure is a sophisticated work, like what we did in our subquery hosted service.
+But if it is just to run one or two projects, it is still manageable work for individuals. We provide a single node setup for small indexers,
+that only requires a ec2 instance from aws.
+
+### Launch AWS EC2 Instance
+[see here](./testnet/aws-setup)
+
+### Install Subquery Indexer Services
+[click to check details](./testnet/install-subquery-services) Skip if SubQuery Indexer AMI is used
+
+
+
 ## Security & Performance considerations
 
 Security and performance considerations are as follows.
