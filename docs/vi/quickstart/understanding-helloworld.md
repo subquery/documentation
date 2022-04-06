@@ -22,7 +22,7 @@ Tiếp theo chúng ta chạy lệnh `yarn install`. hoặc là `npm install`.
 
 > Nhắc lại một chút. Node Package Manager hoặc npm được phát hành vào năm 2010 và trở thành trình quản lý package phổ biến cho các nhà phát triển JavaScript. Đó là package mặc định và được tự động cài đặt khi bạn cài đặt Node.js trên hệ thống của bạn. Yarn được Facebook phát hành vào năm 2016 với mục đích giải quyết một số thiếu sót về hiệu suất và bảo mật khi làm việc với npm (tại thời điểm đó).
 
-Những điều yarn làm là xem tập tin `package.json` và tải xuống các phần phụ thuộc khác. Nhìn vào tập tin `package.json`, trông không giống như có rất nhiều phần phụ thuộc, tuy nhiên khi bạn chạy lệnh, bạn sẽ thấy rằng 18,983 tập tin đã được thêm vào. Điều này là do mỗi phụ thuộc cũng sẽ có các phụ thuộc riêng của nó.
+Những điều yarn làm là xem tập tin `package.json` và tải xuống các phần phụ thuộc khác. Nhìn vào tập tin `package.json`, nó trông không giống như có nhiều phần phụ thuộc, tuy nhiên khi bạn chạy lệnh, bạn sẽ thấy rằng 18,983 tập tin đã được thêm vào. Điều này là do mỗi phụ thuộc cũng sẽ có các phụ thuộc riêng của nó.
 
 ![các tệp chính của subql](/assets/img/dependencies.png)
 
@@ -49,7 +49,7 @@ Pulling subquery-node   ... done
 Pulling graphql-engine  ... done
 ```
 
-Khi vùng chứa được khởi động, bạn sẽ thấy thiết bị đầu cuối xuất ra rất nhiều văn bản hiển thị trạng thái của nút và công cụ GraphQL. Bạn sẽ thấy:
+Khi container được khởi động, bạn sẽ thấy thiết bị đầu cuối xuất ra rất nhiều văn bản hiển thị trạng thái của node và công cụ GraphQL. Bạn sẽ thấy:
 
 ```
 subquery-node_1   | 2021-06-06T02:04:25.490Z <fetch> INFO fetch block [1, 100]
