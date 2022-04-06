@@ -8,7 +8,7 @@ Sau đây là một tập hợp các nguyên tắc (không phải quy tắc) đ�
 
 ## Quy tắc ứng xử
 
-Chúng tôi thực hiện các dự án cộng đồng nguồn mở một cách nghiêm túc và trách nhiệm và giữ cho mình và những người đóng góp khác cho các tiêu chuẩn cao về truyền thông. Bằng cách tham gia và đóng góp vào dự án này, bạn đồng ý tuân thủ [Quy tắc ứng xử](https://github.com/subquery/subql/blob/contributors-guide/CODE_OF_CONDUCT.md) của chúng tôi.
+Chúng tôi coi trọng trách nhiệm và các dự án cộng đồng mã nguồn mở của mình, đồng thời giữ bản thân và những người đóng góp khác tuân theo các tiêu chuẩn cao về giao tiếp. Bằng cách tham gia và đóng góp vào dự án này, bạn đồng ý tuân thủ [Quy tắc ứng xử](https://github.com/subquery/subql/blob/contributors-guide/CODE_OF_CONDUCT.md) của chúng tôi.
 
 ## Bắt đầu
 
@@ -36,7 +36,7 @@ Nói chung, chúng tôi tuân theo quy trình làm việc Git "fork-and-pull"
 * Chuyển tập mã nguồn vào tài khoản Github của riêng bạn
 * Sao chép dự án vào máy của bạn
 * Tạo một nhánh cục bộ với tên ngắn gọn nhưng mô tả đầy đủ
-* Cam kết các thay đổi đối với nhánh
+* Commit các thay đổi đối với nhánh
 * Tuân theo mọi nguyên tắc định dạng và kiểm tra cụ thể cho tập mã nguồn này
 * Đẩy các thay đổi đối với nhánh của bạn
 * Mở một PR trong tập mã nguồn của chúng tôi
