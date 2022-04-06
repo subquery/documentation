@@ -2,7 +2,7 @@
 
 Chào mừng và chân thành cảm ơn bạn đã cân nhắc đóng góp cho dự án SubQuery! Cùng nhau, chúng ta có thể mở đường cho một tương lai phi tập trung hơn.
 
-> Tài liệu này được duy trì tích cực bởi nhóm SubQuery. Chúng tôi hoan nghênh những đóng góp của bạn, bạn có thể làm như vậy bằng cách phân nhánh dự án GitHub của chúng tôi và thực hiện các thay đổi đối với tất cả các tệp đánh dấu tài liệu trong thư mục `docs`.
+> Tài liệu này được duy trì tích cực bởi nhóm SubQuery. Chúng tôi hoan nghênh những đóng góp của bạn, bạn có thể làm như vậy bằng cách nhân bản dự án GitHub của chúng tôi và thực hiện các thay đổi đối với tất cả các tệp đánh dấu tài liệu trong thư mục `docs`.
 
 Sau đây là một tập hợp các nguyên tắc (không phải quy tắc) để đóng góp vào SubQuery. Việc tuân theo các nguyên tắc này sẽ giúp chúng tôi thực hiện quá trình đóng góp dễ dàng và hiệu quả cho tất cả mọi người tham gia. Nó cũng thông báo rằng bạn đồng ý tôn trọng thời gian của các nhà phát triển quản lý và phát triển dự án này. Đổi lại, chúng tôi sẽ đáp lại sự tôn trọng đó bằng cách giải quyết vấn đề của bạn, xem xét các thay đổi, cộng tác để cải tiến và giúp bạn hoàn thiện các pull requests của bạn.
 
