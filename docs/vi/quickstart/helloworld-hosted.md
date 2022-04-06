@@ -66,7 +66,7 @@ Sau đó, thêm một kho lưu trữ từ xa bằng lệnh:
 git remote add origin https://github.com/seandotau/subqlHelloWorld.git
 ```
 
-Về cơ bản, điều này đặt kho lưu trữ từ xa của bạn thành “https://github.com/seandotau/subqlHelloWorld.git” và đặt cho nó tên “origin” là danh pháp tiêu chuẩn cho kho lưu trữ từ xa trong GitHub.
+Về cơ bản, lệnh đặt kho lưu trữ từ xa của bạn thành “https://github.com/seandotau/subqlHelloWorld.git” và đặt cho nó tên “origin” là danh pháp tiêu chuẩn cho kho lưu trữ từ xa trong GitHub.
 
 Tiếp theo, chúng ta thêm code vào kho lưu trữ của chúng ta bằng các lệnh sau:
 
@@ -134,7 +134,7 @@ Trang tổng quan chứa nhiều thông tin hữu ích như mạng mà nó đang
 
 Bây giờ bạn đã tạo dự án của mình trong SubQuery Projects, thiết lập tính năng hiển thị, bước tiếp theo là triển khai dự án của bạn để làm cho nó hoạt động. Triển khai một phiên bản sẽ kích hoạt khởi động lập chỉ mục SubQuery mới để bắt đầu, và cài đặt dịch vụ truy vấn để chấp nhận các yêu cầu từ GraphQl. Bạn cũng có thể triển khai các phiên bản mới đối với các dự án hiện tại tại đây.
 
-Bạn có thể chọn triển khai cho các môi trường khác nhau như production slot hoặc staging slot. Ở đây, chúng tôi sẽ triển khai cho 1 vị trí sàn xuất. Nhấp vào nút "Triển khai" sẽ xuất hiện màn hình với các trường sau:
+Bạn có thể chọn triển khai cho các môi trường khác nhau như vị trí triển khai hoặc vị trí dàn dựng. Ở đây, chúng tôi sẽ triển khai cho 1 vị trí sàn xuất. Nhấp vào nút "Triển khai" sẽ xuất hiện màn hình với các trường sau:
 
 ![Triển khai đến production slot](/assets/img/deploy_production_slot.png)
 
