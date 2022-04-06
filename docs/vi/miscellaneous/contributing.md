@@ -8,7 +8,7 @@ Sau đây là một tập hợp các nguyên tắc (không phải quy tắc) đ�
 
 ## Quy tắc ứng xử
 
-Chúng tôi coi trọng các dự án và trách nhiệm cộng đồng nguồn mở của mình, đồng thời giữ bản thân và những người đóng góp khác tuân theo các tiêu chuẩn cao về giao tiếp. Bằng cách tham gia và đóng góp vào dự án này, bạn đồng ý tuân thủ [Quy tắc ứng xử](https://github.com/subquery/subql/blob/contributors-guide/CODE_OF_CONDUCT.md) của chúng tôi.
+Chúng tôi thực hiện các dự án cộng đồng nguồn mở một cách nghiêm túc và trách nhiệm và giữ cho mình và những người đóng góp khác cho các tiêu chuẩn cao về truyền thông. Bằng cách tham gia và đóng góp vào dự án này, bạn đồng ý tuân thủ [Quy tắc ứng xử](https://github.com/subquery/subql/blob/contributors-guide/CODE_OF_CONDUCT.md) của chúng tôi.
 
 ## Bắt đầu
 
