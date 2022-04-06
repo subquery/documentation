@@ -26,17 +26,17 @@ subscription {
 
 Nội dung của thực thể trong truy vấn của bạn cho biết dữ liệu bạn muốn nhận được thông qua theo dõi của mình khi bảng `Transfer` được cập nhật:
 - `id`: Trả về ID của thực thể đã thay đổi
-- `mutation_type`: Hành động đã được thực hiện đối với thực thể này. Các kiểu đột biến có thể là `INSERT`, `UPDATE` hoặc `DELETE`
+- `mutation_type`: Hành động đã được thực hiện đối với thực thể này. Các kiểu thay đổi có thể là `INSERT`, `UPDATE` hoặc `DELETE`
 - `_entity`: giá trị của thực thể đó ở định dạng JSON.
 
 ## Bộ lọc
 
-Chúng tôi cũng hỗ trợ bộ lọc về theo dõi, có nghĩa là khách hàng sẽ chỉ nhận được dữ liệu theo dõi cập nhật nếu dữ liệu hoặc đột biến đó đáp ứng các tiêu chí nhất định.
+Chúng tôi cũng hỗ trợ bộ lọc về theo dõi, có nghĩa là khách hàng sẽ chỉ nhận được dữ liệu theo dõi cập nhật nếu dữ liệu hoặc thay đổi đó đáp ứng các tiêu chí nhất định.
 
 Có hai loại bộ lọc mà chúng tôi đang hỗ trợ:
 
 - `id`: Bộ lọc để chỉ trả về những thay đổi ảnh hưởng đến một thực thể cụ thể (được chỉ định bởi ID).
-- `mutation_type`: Chỉ cùng một loại đột biến được thực hiện sẽ trả về một bản cập nhật.
+- `mutation_type`: Chỉ cùng một loại thay đổi được thực hiện sẽ trả về một bản cập nhật.
 
 Giả sử chúng ta có một thực thể `Balances` và nó ghi lại số dư của mỗi tài khoản.
 
