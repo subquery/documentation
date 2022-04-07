@@ -64,6 +64,7 @@ Options:
                                                       [boolean] [default: false]
       --profiler            Show profiler information to console output
                                                       [boolean] [default: false]
+      --subscription        Enable subscription       [boolean] [default: false]                                                     
       --network-endpoint    Blockchain network endpoint to connect      [string]
       --output-fmt          Print log as json or plain text
                                            [string] [choices: "json", "colored"]
@@ -148,6 +149,9 @@ subql-node -f . --local
 ```shell
 subql-node -f . --db-schema=test2
 ```
+
+### --subscription
+This will create a notification trigger on entity, this also is the prerequisite to enable subscription feature in query service.
 
 ### --unsafe
 
@@ -307,22 +311,23 @@ Subquery索引服务绑定到的端口。 默认设置为 `3000`
 
 ```shell
 Options:
-      --help        Show help                                          [boolean]
-      --version     Show version number                                [boolean]
-  -n, --name        Project name                             [string] [required]
-      --playground  Enable graphql playground                          [boolean]
-      --output-fmt  Print log as json or plain text
-                      [string] [choices: "json", "colored"] [default: "colored"]
-      --log-level   Specify log level to print.
-          [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
-                                                     "silent"] [default: "info"]
-      --log-path    Path to create log file e.g ./src/name.log          [string]
-      --log-rotate  Rotate log files in directory specified by log-path
+      --help          Show help                                          [boolean]
+      --version       Show version number                                [boolean]
+  -n, --name          Project name                             [string] [required]
+      --playground    Enable graphql playground                          [boolean]
+      --subscription  Enable subscription               [boolean] [default: false]   
+      --output-fmt    Print log as json or plain text
+                        [string] [choices: "json", "colored"] [default: "colored"]
+      --log-level     Specify log level to print.
+            [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
+                                                       "silent"] [default: "info"]
+      --log-path      Path to create log file e.g ./src/name.log          [string]
+      --log-rotate    Rotate log files in directory specified by log-path
                                                       [boolean] [default: false]
-      --indexer     Url that allows query to access indexer metadata    [string]
-      --unsafe      Disable limits on query depth and allowable number returned
-                    query records                                      [boolean]
-  -p, --port        The port the service will bind to                   [number
+      --indexer       Url that allows query to access indexer metadata    [string]
+      --unsafe        Disable limits on query depth and allowable number returned
+                      query records                                      [boolean]
+  -p, --port          The port the service will bind to                   [number]
 ```
 
 
@@ -402,13 +407,17 @@ See [--log-level](https://doc.subquery.network/run_publish/references.html#log-l
 
 
 
+### --subscription
+
+This flag enables [GraphQL Subscriptions](./subscription.md), to enable this feature requires `subql-node` also enable `--subscription`
+
+
+
 ### --unsafe
 
 查询服务对于无界的graphql查询有100个实体的限制。 不安全的标志取消了这个限制，这可能给查询服务造成性能问题。 相反，建议查询为 [分页](https://graphql.org/learn/pagination/)。
 
 This flag enables certain aggregation functions including sum, max, avg and others. Read more about this feature [here](./aggregate.md)
-
-This flag enables [GraphQL Subscriptions](./subscription.md)
 
 由于实体限制，它们默认被禁用。
 
