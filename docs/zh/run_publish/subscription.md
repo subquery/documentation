@@ -24,7 +24,7 @@ subscription {
 }
 ```
 
-在您的查询中项目的主体显示了更新 `传输` 表时您想要通过订阅接收的数据：
+The body of the entity in your query indicates what data you want to receive via your subscription when the `Transfer` table is updated:
 - `id`: 返回已更改的项目的 ID
 - `mutation_type`: 已经对这个选项进行了操作。 类型可以是 `INSERT`, `UPDATE` 或 `DELETE`
 - `_entity`: 项目本身的值为 JSON 格式。
@@ -64,8 +64,6 @@ subscription {
 
 请注意， `mutation` 过滤器可以是 `INSERT`, `UPDATE` 或 `DELETE`
 
-## Using this Feature
-
-**请注意，您必须在节点和查询服务上启用 `--unsafe` 标志才能使用这些函数。 [阅读更多](./references.md#unsafe-2)。 注意 `--safe` 命令将防止您的项目在 SubQuery 网络中运行。 如果您想要在 SubQuery 的管理服务中运行此命令，您必须联系支持者([项目)。 ubquery.network](https://project.subquery.network)**
+**Please note that you must enable the `--subscription` flag on both the node and query service in order to use these functions.**
 
 The subcription feature works on SubQuery's managed service when you directly call the listed GraphQL endpoint. It will not work within the in-browser GraphQL playground.
