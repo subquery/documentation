@@ -7,8 +7,6 @@ In this module, students will have the opportunity to become familiar with SubQu
 
 ## Reference
 
-* [Hello World (localhost with Docker)](/quickstart/helloworld-localhost.md)
-* [Hello World explained](/quickstart/understanding-helloworld.md)
 * [Hello World PDF workbook](/assets/pdf/Hello_World_Lab.pdf)
 * [Subql Starter Github](https://github.com/subquery/subql-starter)
 
