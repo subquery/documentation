@@ -65,6 +65,7 @@ Options:
                                                       [boolean] [default: false]
       --profiler            Show profiler information to console output
                                                       [boolean] [default: false]
+      --subscription        Enable subscription       [boolean] [default: false]                                                     
       --network-endpoint    Blockchain network endpoint to connect      [string]
       --output-fmt          Print log as json or plain text
                                            [string] [choices: "json", "colored"]
@@ -149,6 +150,9 @@ Esta bandera le permite proporcionar un nombre para el esquema de base de datos 
 ```shell
 subql-node -f . --db-schema=test2
 ```
+
+### --subscription
+This will create a notification trigger on entity, this also is the prerequisite to enable subscription feature in query service.
 
 ### --inseguro
 
@@ -294,23 +298,24 @@ El puerto al que se une el servicio de indexación de subconsultas. Por defecto 
 Esto muestra las opciones de ayuda.
 
 ```shell
-Ns:
-      --help        Show help                                          [boolean]
-      --version     Show version number                                [boolean]
-  -n, --name        project name                             [string] [required]
-      --playground  enable graphql playground                          [boolean]
-      --output-fmt  Print log as json or plain text
-                      [string] [choices: "json", "colored"] [default: "colored"]
-      --log-level   Specify log level to print.
-          [string] [opciones: "fatal", "error", "warn", "info", "debug", "trace",
-                                                     "silent"] [por defecto: "info"]
-      --log-path Path para crear archivo de registro e. ./src/name. og          [string]
-      --log-rotate log files in directory specified by log-path
+Options:
+      --help          Show help                                          [boolean]
+      --version       Show version number                                [boolean]
+  -n, --name          Project name                             [string] [required]
+      --playground    Enable graphql playground                          [boolean]
+      --subscription  Enable subscription               [boolean] [default: false]   
+      --output-fmt    Print log as json or plain text
+                        [string] [choices: "json", "colored"] [default: "colored"]
+      --log-level     Specify log level to print.
+            [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
+                                                       "silent"] [default: "info"]
+      --log-path      Path to create log file e.g ./src/name.log          [string]
+      --log-rotate    Rotate log files in directory specified by log-path
                                                       [boolean] [default: false]
-      --indexer Url that allows query to access indexer metadata    [string]
-      --unsafe disable limits on query depth and allowable number returned
-                    query records                                      [boolean]
-  -p, --port El puerto al que el servicio se enlazará [número
+      --indexer       Url that allows query to access indexer metadata    [string]
+      --unsafe        Disable limits on query depth and allowable number returned
+                      query records                                      [boolean]
+  -p, --port          The port the service will bind to                   [number]
 ```
 
 ### --version
@@ -362,13 +367,15 @@ Habilita las rotaciones del registro de archivos con las opciones de un interval
 
 Establecer una url personalizada para la ubicación de los extremos del índice, el servicio de consulta utiliza estos extremos para la salud del indexador, metadatos y estado de preparación
 
+### --subscription
+
+This flag enables [GraphQL Subscriptions](./subscription.md), to enable this feature requires `subql-node` also enable `--subscription`
+
 ### --inseguro
 
 El servicio de consultas tiene un límite de 100 entidades para consultas gráficql sin límites. La bandera insegura elimina este límite que puede causar problemas de rendimiento en el servicio de consultas. En su lugar, se recomienda que las consultas sean [paginadas](https://graphql.org/learn/pagination/).
 
 This flag enables certain aggregation functions including sum, max, avg and others. Read more about this feature [here](./aggregate.md)
-
-This flag enables [GraphQL Subscriptions](./subscription.md)
 
 Estas están desactivadas por defecto debido al límite de entidad.
 
