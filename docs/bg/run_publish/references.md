@@ -65,6 +65,7 @@ Options:
                                                       [boolean] [default: false]
       --profiler            Show profiler information to console output
                                                       [boolean] [default: false]
+      --subscription        Enable subscription       [boolean] [default: false]                                                     
       --network-endpoint    Blockchain network endpoint to connect      [string]
       --output-fmt          Print log as json or plain text
                                            [string] [choices: "json", "colored"]
@@ -149,6 +150,9 @@ subql-node -f . --local
 ```shell
 subql-node -f . --db-schema=test2
 ```
+
+### --subscription
+This will create a notification trigger on entity, this also is the prerequisite to enable subscription feature in query service.
 
 ### --unsafe
 
@@ -295,22 +299,23 @@ subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot
 
 ```shell
 Options:
-      --help        Show help                                          [boolean]
-      --version     Show version number                                [boolean]
-  -n, --name        Project name                             [string] [required]
-      --playground  Enable graphql playground                          [boolean]
-      --output-fmt  Print log as json or plain text
-                      [string] [choices: "json", "colored"] [default: "colored"]
-      --log-level   Specify log level to print.
-          [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
-                                                     "silent"] [default: "info"]
-      --log-path    Path to create log file e.g ./src/name.log          [string]
-      --log-rotate  Rotate log files in directory specified by log-path
+      --help          Show help                                          [boolean]
+      --version       Show version number                                [boolean]
+  -n, --name          Project name                             [string] [required]
+      --playground    Enable graphql playground                          [boolean]
+      --subscription  Enable subscription               [boolean] [default: false]   
+      --output-fmt    Print log as json or plain text
+                        [string] [choices: "json", "colored"] [default: "colored"]
+      --log-level     Specify log level to print.
+            [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
+                                                       "silent"] [default: "info"]
+      --log-path      Path to create log file e.g ./src/name.log          [string]
+      --log-rotate    Rotate log files in directory specified by log-path
                                                       [boolean] [default: false]
-      --indexer     Url that allows query to access indexer metadata    [string]
-      --unsafe      Disable limits on query depth and allowable number returned
-                    query records                                      [boolean]
-  -p, --port        The port the service will bind to                   [number
+      --indexer       Url that allows query to access indexer metadata    [string]
+      --unsafe        Disable limits on query depth and allowable number returned
+                      query records                                      [boolean]
+  -p, --port          The port the service will bind to                   [number]
 ```
 
 ### --version
@@ -362,13 +367,15 @@ See [--log-level](https://doc.subquery.network/run_publish/references.html#log-l
 
 Задайте персонализиран Url адрес за местоположението на крайните точки на индексите, услугата за заявки използва тези крайни точки, за да определи работоспособността на индексатора, метаданните и състоянието на готовност
 
+### --subscription
+
+This flag enables [GraphQL Subscriptions](./subscription.md), to enable this feature requires `subql-node` also enable `--subscription`
+
 ### --unsafe
 
 Услугата за заявки има ограничение от 100 обекта за неограничени заявки graphql. Флагът unsafe премахва това ограничение, което може да причини проблеми с производителността на услугата за заявки. Вместо това се препоръчва заявките да бъдат [разделени на страници](https://graphql.org/learn/pagination/).
 
 This flag enables certain aggregation functions including sum, max, avg and others. Read more about this feature [here](./aggregate.md)
-
-This flag enables [GraphQL Subscriptions](./subscription.md)
 
 Те са деактивирани по подразбиране поради ограничение на обекта.
 
