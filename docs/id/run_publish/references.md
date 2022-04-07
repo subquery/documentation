@@ -56,15 +56,16 @@ Options:
       --batch-size          Ukuran batch balok untuk diambil dalam satu putaran  [number]
       --scale-batch-size    skala ukuran batch berdasarkan penggunaan memori  [boolean] [default: false]
       --timeout             Batas waktu untuk kotak pasir pengindeks untuk menjalankan pemetaan fungsi                                   [number]
-      --debug               Tampilkan informasi debug ke keluaran konsol. akan
-                            secara paksa mengatur level log ke debug
+      --debug               Tampilkan informasi debug ke keluaran konsol. will
+                            forcefully set log level to debug
                                                       [boolean] [default: false]
-      --profiler            Tampilkan informasi profiler ke keluaran konsol
+      --profiler            Show profiler information to console output
                                                       [boolean] [default: false]
-      --network-endpoint    Titik akhir jaringan Blockchain untuk terhubung      [string]
-      --output-fmt          Cetak log sebagai json atau teks biasa
+      --subscription        Enable subscription       [boolean] [default: false]                                                     
+      --network-endpoint    Blockchain network endpoint to connect      [string]
+      --output-fmt          Print log as json or plain text
                                            [string] [choices: "json", "colored"]
-      --log-level           Tentukan level log yang akan dicetak. Diabaikan ketika --debug adalah
+      --log-level           Specify log level to print. Diabaikan ketika --debug adalah
                              digunakan
           [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
                                                                        "silent"]
@@ -145,6 +146,9 @@ Bendera ini memungkinkan Anda untuk memberikan nama untuk skema database proyek.
 ```shell
 subql-node -f . --db-schema=test2
 ```
+
+### --subscription
+This will create a notification trigger on entity, this also is the prerequisite to enable subscription feature in query service.
 
 ### --unsafe
 
@@ -290,23 +294,24 @@ Port yang diikat oleh layanan pengindeksan subquery. Secara default ini diatur k
 Ini menunjukkan opsi bantuan.
 
 ```shell
-Pilihan:
-       --help Tampilkan bantuan [boolean]
-       --version Tampilkan nomor versi [boolean]
-   -n, --name Nama proyek [string] [wajib]
-       --playground Aktifkan taman bermain graphql [boolean]
-       --output-fmt Cetak log sebagai json atau teks biasa
-                       [string] [pilihan: "json", "berwarna"] [default: "berwarna"]
-       --log-level Tentukan level log yang akan dicetak.
-          [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
-                                                     "silent"] [default: "info"]
-      --log-path    Path to create log file e.g ./src/name.log          [string]
-      --log-rotate  Putar file log di direktori yang ditentukan oleh log-path
+Options:
+      --help          Show help                                          [boolean]
+      --version       Show version number                                [boolean]
+  -n, --name          Project name                             [string] [required]
+      --playground    Enable graphql playground                          [boolean]
+      --subscription  Enable subscription               [boolean] [default: false]   
+      --output-fmt    Print log as json or plain text
+                        [string] [choices: "json", "colored"] [default: "colored"]
+      --log-level     Specify log level to print.
+            [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
+                                                       "silent"] [default: "info"]
+      --log-path      Path to create log file e.g ./src/name.log          [string]
+      --log-rotate    Rotate log files in directory specified by log-path
                                                       [boolean] [default: false]
-      --indexer     Url yang memungkinkan kueri mengakses metadata pengindeks    [string]
-      --unsafe      Nonaktifkan batasan pada kedalaman kueri dan jumlah yang diizinkan yang dikembalikan
-                    catatan kueri                                      [boolean]
-  -p, --port        Port yang akan diikat oleh layanan                   [number
+      --indexer       Url that allows query to access indexer metadata    [string]
+      --unsafe        Disable limits on query depth and allowable number returned
+                      query records                                      [boolean]
+  -p, --port          The port the service will bind to                   [number]
 ```
 
 ### --version
@@ -358,13 +363,15 @@ Aktifkan rotasi log file dengan opsi interval rotasi 1d, maksimal 7 file dan den
 
 Tetapkan url khusus untuk lokasi titik akhir pengindeks, layanan kueri menggunakan titik akhir ini untuk kesehatan pengindeks, metadata, dan status kesiapan
 
+### --subscription
+
+This flag enables [GraphQL Subscriptions](./subscription.md), to enable this feature requires `subql-node` also enable `--subscription`
+
 ### --unsafe
 
 Layanan kueri memiliki batas 100 entitas untuk kueri graphql tak terbatas. Bendera tidak aman menghapus batas ini yang dapat menyebabkan masalah kinerja pada layanan kueri. Sebagai gantinya, disarankan agar kueri [diberi halaman](https://graphql.org/learn/pagination/).
 
 This flag enables certain aggregation functions including sum, max, avg and others. Read more about this feature [here](./aggregate.md)
-
-This flag enables [GraphQL Subscriptions](./subscription.md)
 
 Ini dinonaktifkan secara default karena batas entitas.
 
