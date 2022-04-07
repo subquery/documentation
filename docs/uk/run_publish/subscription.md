@@ -24,7 +24,7 @@ subscription {
 }
 ```
 
-The body of the entity in your query indicates what data you want to recieve via your subscription when the `Transfer` table is updated:
+The body of the entity in your query indicates what data you want to receive via your subscription when the `Transfer` table is updated:
 - `id`: Returns the ID of the entity that has changed
 - `mutation_type`: The action that has been made to this entity. Mutation types can be either `INSERT`, `UPDATE` or `DELETE`
 - `_entity`: the value of the entity itself in JSON format.
@@ -64,8 +64,6 @@ subscription {
 
 Note that the `mutation` filter can be one of `INSERT`, `UPDATE` or `DELETE`
 
-## Using this Feature
-
-**Please note that you must enable the `--unsafe` flag on both the node and query service in order to use these functions. [Read more](./references.md#unsafe-2). Зверніть увагу, що команда `--unsafe` не дозволить вашому проєкту запустити в підпроцесній мережі, і ви повинні звернутися в службу підтримки, якщо хочете, щоб ця команда працювала з вашим проєкт в сервісі керування SubQuery ([проекті. ubquery.network](https://project.subquery.network))**
+**Please note that you must enable the `--subscription` flag on both the node and query service in order to use these functions.**
 
 The subcription feature works on SubQuery's managed service when you directly call the listed GraphQL endpoint. It will not work within the in-browser GraphQL playground.
