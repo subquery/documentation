@@ -62,14 +62,15 @@ Options:
       --timeout             Délai d'exécution des fonctions de mapping 
                             par la sandbox de l'indexeur                                   [number]
       --debug               Affiche les informations de débogage sur la console. will
-                            force le niveau du journal à déboguer
+                            forcefully set log level to debug
                                                       [boolean] [default: false]
-      --profiler            Afficher les informations du profileur sur la sortie console
+      --profiler            Show profiler information to console output
                                                       [boolean] [default: false]
-      --network-endpoint    Point de terminaison du réseau blockchain à connecter      [string]
-      --output-fmt          Imprimer le journal en json ou en texte brut
+      --subscription        Enable subscription       [boolean] [default: false]                                                     
+      --network-endpoint    Blockchain network endpoint to connect      [string]
+      --output-fmt          Print log as json or plain text
                                            [string] [choices: "json", "colored"]
-      --log-level           Spécifier le niveau du journal à imprimer. Ignoré quand --debug est
+      --log-level           Specify log level to print. Ignoré quand --debug est
                             utilisé
           [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
                                                                        "silent"]
@@ -151,6 +152,9 @@ Cette option vous permet de fournir un nom pour le schéma de base de données d
 ```shell
 subql-node -f . --db-schema=test2
 ```
+
+### --subscription
+This will create a notification trigger on entity, this also is the prerequisite to enable subscription feature in query service.
 
 ### --unsafe
 
@@ -283,7 +287,7 @@ En général, cette option est définie dans votre fichier manifeste, mais l'exe
 subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot"
 ```
 
-[Lire la suite sur le fonctionnement d'un dictionnaire de sous-requêtes](../academy/tutorials_examples/dictionary.md).
+[Read more about how a SubQuery Dictionary works](../academy/tutorials_examples/dictionary.md).
 
 ### -p, --port
 
@@ -297,22 +301,23 @@ Ceci montre les options d'aide.
 
 ```shell
 Options:
-      --help        Afficher l'aide                                          [boolean]
-      --version     Afficher la version                                [boolean]
-  -n, --name        Nom du projet                             [string] [required]
-      --playground  Activer le terrain de jeu graphql                          [boolean]
-      --output-fmt  Imprimer le journal en json ou en texte brut
-                      [string] [choices: "json", "colored"] [default: "colored"]
-      --log-level   Spécifiez le niveau du journal à imprimer.
-          [string] [choix: "fatal", "error", "warn", "info", "debug", "trace",
-                                                     "silent"] [default: "info"]
-      --log-path Chemin pour créer le fichier de log. ./src/name. og          [string]
-      --log-rotate Faire tourner les fichiers journaux dans le répertoire spécifié par log-path
+      --help          Show help                                          [boolean]
+      --version       Show version number                                [boolean]
+  -n, --name          Project name                             [string] [required]
+      --playground    Enable graphql playground                          [boolean]
+      --subscription  Enable subscription               [boolean] [default: false]   
+      --output-fmt    Print log as json or plain text
+                        [string] [choices: "json", "colored"] [default: "colored"]
+      --log-level     Specify log level to print.
+            [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
+                                                       "silent"] [default: "info"]
+      --log-path      Path to create log file e.g ./src/name.log          [string]
+      --log-rotate    Rotate log files in directory specified by log-path
                                                       [boolean] [default: false]
-      --indexer Url qui permet à la requête d'accéder aux métadonnées d'indexer    [string]
-      --unsafe Désactiver les limites sur la profondeur de la requête et le nombre autorisé retourné
-                    enregistrements de requête                                      [boolean]
-  -p, --port Le port que le service va lier à [number
+      --indexer       Url that allows query to access indexer metadata    [string]
+      --unsafe        Disable limits on query depth and allowable number returned
+                      query records                                      [boolean]
+  -p, --port          The port the service will bind to                   [number]
 ```
 
 ### --version
@@ -364,13 +369,15 @@ Active les rotations de journaux de fichiers avec les options d'un intervalle de
 
 Définit une url personnalisée pour l'emplacement des points de terminaison de l'indexeur, le service de requête utilise ces points de terminaison pour l'état de santé de l'indexeur, les métadonnées et l'état de préparation.
 
+### --subscription
+
+This flag enables [GraphQL Subscriptions](./subscription.md), to enable this feature requires `subql-node` also enable `--subscription`
+
 ### --unsafe
 
 Le service d'interrogation est limité à 100 entités pour les requêtes graphql non limitées. L'indicateur unsafe supprime cette limite, ce qui peut entraîner des problèmes de performances pour le service de requêtes. Il est plutôt recommandé que les requêtes soient [paginées](https://graphql.org/learn/pagination/).
 
-Cette option permet d'activer certaines fonctions d'agrégation comme la somme, le maximum, la moyenne et autres. Pour en savoir plus sur cette fonctionnalité, [cliquez ici](./aggregate.md)
-
-Cette option active les [Souscriptions GraphQL](./subscription.md)
+This flag enables certain aggregation functions including sum, max, avg and others. Read more about this feature [here](./aggregate.md)
 
 Ces fonctions sont désactivées par défaut en raison de la limite d'entités.
 
