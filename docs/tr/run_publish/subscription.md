@@ -24,7 +24,7 @@ subscription {
 }
 ```
 
-Sorgunuzdaki varlığın gövdesi, `Transfer` tablosu güncellendiğinde aboneliğiniz aracılığıyla hangi verileri almak istediğinizi belirtir:
+The body of the entity in your query indicates what data you want to receive via your subscription when the `Transfer` table is updated:
 - `id`: Değişen varlığın kimliğini döndürür
 - `mutation_type`: Bu varlığa yapılan eylem. Mutasyon türleri `INSERT`, `UPDATE` veya `DELETE` olabilir
 - `_entity`: varlığın kendisinin JSON biçimindeki değeri.
@@ -64,8 +64,6 @@ abonelik {
 
 `mutasyon` filtresinin `INSERT`, `UPDATE` veya `DELETE` seçeneklerinden biri olabileceğini unutmayın
 
-## Using this Feature
-
-**Bu işlevleri kullanmak için hem düğümde hem de sorgu hizmetinde `--güvenli olmayan` işaretini etkinleştirmeniz gerektiğini lütfen unutmayın. [Daha fazlasını okuyun](./references.md#unsafe-2). Bu not `--unsafe` komut, projenizin alt Sorgu Ağında çalıştırılmasını engeller ve bu komutun projenizle alt sorgunun yönetilen hizmetinde çalıştırılmasını istiyorsanız desteğe başvurmanız gerekir ([project.subquery.network](https://project.subquery.network))**
+**Please note that you must enable the `--subscription` flag on both the node and query service in order to use these functions.**
 
 The subcription feature works on SubQuery's managed service when you directly call the listed GraphQL endpoint. It will not work within the in-browser GraphQL playground.
