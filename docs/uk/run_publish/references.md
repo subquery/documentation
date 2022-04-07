@@ -60,15 +60,16 @@
                                                       [логічний] [за замовчуванням: false]
       --timeout Тайм-аут для пісочниці індексатора для виконання зіставлення
                             функції [число]
-      --debug Показати інформацію про налагодження для виводу консолі. буде
-                             примусово встановити рівень журналу для налагодження
-                                                       [логічний] [за замовчуванням: false]
-       --profiler Показати інформацію про профільувальник у виводі консолі
-                                                       [логічний] [за замовчуванням: false]
-       --network-endpoint кінцева точка мережі Blockchain для підключення [рядок]
-       --output-fmt Роздрукувати журнал як json або звичайний текст
-                                            [рядок] [вибір: "json", "кольоровий"]
-       --log-level Вкажіть рівень журналу для друку. Ігнорується, коли --debug є
+      --debug Показати інформацію про налагодження для виводу консолі. will
+                            forcefully set log level to debug
+                                                      [boolean] [default: false]
+      --profiler            Show profiler information to console output
+                                                      [boolean] [default: false]
+      --subscription        Enable subscription       [boolean] [default: false]                                                     
+      --network-endpoint    Blockchain network endpoint to connect      [string]
+      --output-fmt          Print log as json or plain text
+                                           [string] [choices: "json", "colored"]
+      --log-level           Specify log level to print. Ігнорується, коли --debug є
                              використаний
            [рядок] [вибір: "фатальний", "помилка", "попередження", "інформація", "налагодження", "відстежування",
                                                                         "тихий"]
@@ -149,6 +150,9 @@ batchSize: 55 // Додаткова конфігурація
 ```shell
 підql-вузол -f. --db-schema=тест2
 ```
+
+### --subscription
+This will create a notification trigger on entity, this also is the prerequisite to enable subscription feature in query service.
 
 ### --unsafe
 
@@ -294,23 +298,24 @@ batchSize: 55 // Додаткова конфігурація
 Тут показані варіанти допомоги.
 
 ```shell
-Параметри:
-       --help Показати довідку [boolean]
-       --version Показати номер версії [boolean]
-   -n, --name Назва проекту [рядок] [обов'язково]
-       --playground Увімкнути graphql playground [boolean]
-       --output-fmt Роздрукувати журнал як json або звичайний текст
-                       [рядок] [вибір: "json", "кольоровий"] [за замовчуванням: "кольоровий"]
-       --log-level Вкажіть рівень журналу для друку.
-          [рядок] [вибір: "фатальний", "помилка", "попередження", "інформація", "налагодження", "відстежування",
-                                                      "тихий"] [за замовчуванням: "інформація"]
-       --log-path Шлях для створення файлу журналу, наприклад ./src/name.log [рядок]
-       --log-rotate Обертати файли журналів у каталозі, визначеному шляхом журналу
-                                                       [логічний] [за замовчуванням: false]
-       --indexer Url, що дозволяє запиту отримати доступ до метаданих індексатора [рядок]
-       --unsafe Вимкнути обмеження на глибину запиту та повернене допустиме число
-                     записи запиту [логічне значення]
-   -p, --port Порт, до якого служба буде прив'язана [число
+Options:
+      --help          Show help                                          [boolean]
+      --version       Show version number                                [boolean]
+  -n, --name          Project name                             [string] [required]
+      --playground    Enable graphql playground                          [boolean]
+      --subscription  Enable subscription               [boolean] [default: false]   
+      --output-fmt    Print log as json or plain text
+                        [string] [choices: "json", "colored"] [default: "colored"]
+      --log-level     Specify log level to print.
+            [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
+                                                       "silent"] [default: "info"]
+      --log-path      Path to create log file e.g ./src/name.log          [string]
+      --log-rotate    Rotate log files in directory specified by log-path
+                                                      [boolean] [default: false]
+      --indexer       Url that allows query to access indexer metadata    [string]
+      --unsafe        Disable limits on query depth and allowable number returned
+                      query records                                      [boolean]
+  -p, --port          The port the service will bind to                   [number]
 ```
 
 ### --версія
@@ -362,13 +367,15 @@ See [--log-level](https://doc.subquery.network/run_publish/references.html#log-l
 
 Установіть спеціальну URL-адресу для розташування кінцевих точок індексатора, служба запитів використовує ці кінцеві точки для працездатності, метаданих і стану готовності індексатора
 
+### --subscription
+
+This flag enables [GraphQL Subscriptions](./subscription.md), to enable this feature requires `subql-node` also enable `--subscription`
+
 ### --unsafe
 
 Служба запитів має обмеження в 100 сутностей для необмежених запитів graphql. Прапор небезпечного знімає це обмеження, що може спричинити проблеми з продуктивністю служби запитів. Натомість рекомендується [розбити на сторінки](https://graphql.org/learn/pagination/) запити.
 
 This flag enables certain aggregation functions including sum, max, avg and others. Read more about this feature [here](./aggregate.md)
-
-This flag enables [GraphQL Subscriptions](./subscription.md)
 
 Вони вимкнені за замовчуванням через обмеження об’єктів.
 
