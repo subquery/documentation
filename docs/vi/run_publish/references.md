@@ -62,14 +62,16 @@ Options:
       --timeout             Hết thời gian chờ để sandbox của trình lập chỉ mục
                             thực hiện ánh xạ chức năng                  [number]
       --debug               Hiển thị thông tin gỡ lỗi cho đầu ra bảng điều khiển.
-                            sẽ mạnh mẽ đặt cấp độ nhật ký để gỡ lỗi
+                            will
+                            forcefully set log level to debug
                                                       [boolean] [default: false]
-      --profiler            Hiển thị thông tin hồ sơ cho đầu ra bảng điều khiển
+      --profiler            Show profiler information to console output
                                                       [boolean] [default: false]
-      --network-endpoint    Điểm cuối mạng chuỗi khối để kết nối        [string]
-      --output-fmt          In nhật ký dưới dạng json hoặc văn bản thuần túy
+      --subscription        Bật theo dõi              [boolean] [default: false]                                                     
+      --network-endpoint    Blockchain network endpoint to connect      [string]
+      --output-fmt          Print log as json or plain text
                                            [string] [choices: "json", "colored"]
-      --log-level           Chỉ định mức nhật ký để in. Bỏ qua khi --debug được
+      --log-level           Specify log level to print. Bỏ qua khi --debug được
                             sử dụng
           [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
                                                                        "silent"]
@@ -149,6 +151,9 @@ Cờ này cho phép bạn cung cấp tên cho lược đồ cơ sở dữ liệu
 ```shell
 subql-node -f . --db-schema=test2
 ```
+
+### --subscription
+Cờ này sẽ tạo ra một trình kích hoạt thông báo trên thực thể, đây cũng là điều kiện tiên quyết để bật tính năng theo dõi trong dịch vụ truy vấn.
 
 ### --unsafe
 
@@ -299,10 +304,11 @@ Tùy chọn:
       --version     Hiển thị số phiên bản                              [boolean]
   -n, --name        Tên dự án                                [string] [required]
       --playground  Bật sân chơi graphql                               [boolean]
+      --subscription  Bật theo dõi                    [boolean] [default: false]   
       --output-fmt  In nhật ký dưới dạng json hoặc văn bản thuần túy
                       [string] [choices: "json", "colored"] [default: "colored"]
       --log-level   Chỉ định cấp độ nhật ký để in.
-          [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
+            [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
                                                      "silent"] [default: "info"]
       --log-path    Đường dẫn để tạo tệp nhật ký, ví dụ: ./src/name.log [string]
       --log-rotate  Xoay vòng các tệp nhật ký trong thư mục được chỉ định bởi 
@@ -363,13 +369,15 @@ Cho phép luân phiên tệp nhật ký với tùy chọn khoảng thời gian l
 
 Đặt url tùy chỉnh cho vị trí của các điểm cuối của trình lập chỉ mục, dịch vụ truy vấn sử dụng các điểm cuối này cho tình trạng của trình lập chỉ mục, siêu dữ liệu và trạng thái sẵn sàng
 
+### --subscription
+
+Cờ này kích hoạt [Các theo dõi GraphQL](./subscription.md), để kích hoạt tính năng này yêu cầu `subql-node` cũng phải bật `--subscription`
+
 ### --unsafe
 
 Dịch vụ truy vấn có giới hạn 100 thực thể cho các truy vấn graphql không giới hạn. Cờ unsafe loại bỏ giới hạn này có thể gây ra các vấn đề về hiệu suất trên dịch vụ truy vấn. Thay vào đó, các truy vấn nên được [phân trang](https://graphql.org/learn/pagination/).
 
 Cờ này kích hoạt một số hàm tổng hợp nhất định bao gồm tổng, lớn nhất, trung bình cộng và các hàm khác. Đọc thêm về tính năng này [tại đây](./aggregate.md)
-
-Cờ này kích hoạt [Các theo dõi GraphQL](./subscription.md)
 
 Các tùy chọn này mặc định bị tắt do giới hạn đối tượng.
 
