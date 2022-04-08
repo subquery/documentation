@@ -151,8 +151,8 @@ Bu bayrak, proje veritabanı şeması için bir ad vermenizi sağlar. Yeni bir i
 subql-node -f . --db-schema=test2
 ```
 
-### --subscription
-This will create a notification trigger on entity, this also is the prerequisite to enable subscription feature in query service.
+### --abonelik
+Bu, varlık üzerinde bir bildirim tetikleyicisi oluşturacaktır, bu aynı zamanda sorgu hizmetinde abonelik özelliğini etkinleştirmek için ön koşuldur.
 
 ### güvensiz
 
@@ -285,7 +285,7 @@ Genellikle bu manifest dosyanızda ayarlanır, ancak aşağıda komut satırınd
 subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot"
 ```
 
-[Read more about how a SubQuery Dictionary works](../academy/tutorials_examples/dictionary.md).
+[SubQuery Sözlüğünün nasıl çalıştığı hakkında daha fazla bilgi edinin](../academy/tutorials_examples/dictionary.md).
 
 ### -p, --port
 
@@ -349,11 +349,11 @@ Bu bayrak graphql playground’u etkinleştirir, bu nedenle her zaman herhangi b
 
 ### --output-fmt
 
-See [--output-fmt](https://doc.subquery.network/run_publish/references.html#output-fmt)
+Şuraya göz atın: [--output-fmt](https://doc.subquery.network/run_publish/references.html#output-fmt)
 
 ### --log-level
 
-See [--log-level](https://doc.subquery.network/run_publish/references.html#log-level)
+Şuraya göz atın: [--log-level](https://doc.subquery.network/run_publish/references.html#log-level)
 
 ### --log-path
 
@@ -367,15 +367,15 @@ Oturum açmak için bir dosyanın yolunu sağlayarak dosya günlüğünü etkinl
 
 Dizin oluşturucunun uç noktalarının konumu için özel bir url ayarlayın, sorgu hizmeti bu uç noktaları dizin oluşturucu sağlığı, meta veriler ve hazır olma durumu için kullanır
 
-### --subscription
+### --abonelik
 
-This flag enables [GraphQL Subscriptions](./subscription.md), to enable this feature requires `subql-node` also enable `--subscription`
+Bu işaret, [GraphQL Aboneliklerini](./subscription.md) etkinleştirir, bu özelliği etkinleştirmek için `subql-node` gerektirir ayrıca `--aboneliği etkinleştirir`
 
 ### güvensiz
 
 Sorgu hizmetinin, sınırsız graphql sorguları için 100 varlık sınırı vardır. Güvenli olmayan bayrak, sorgu hizmetinde performans sorunlarına neden olabilecek bu sınırı kaldırır. Bunun yerine sorguların [sayfalandırılması](https://graphql.org/learn/pagination/) önerilir.
 
-This flag enables certain aggregation functions including sum, max, avg and others. Read more about this feature [here](./aggregate.md)
+Bu bayrak, toplam, maksimum, ortalama ve diğerleri dahil olmak üzere belirli toplama işlevlerini etkinleştirir. Bu özellikle ilgili daha fazla bilgiyi [buradan okuyun](./aggregate.md)
 
 Bunlar, varlık sınırı nedeniyle varsayılan olarak devre dışıdır.
 
