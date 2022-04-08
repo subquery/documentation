@@ -32,7 +32,7 @@ Lợi ích chính của việc sử dụng vị trí dàn dựng là nó cho ph�
 
 Vị trí dàn dựng không được hiển thị công khai trong [ Explorer ](https://explorer.subquery.network/) và có một URL duy nhất chỉ hiển thị cho bạn. Và tất nhiên, môi trường riêng biệt này cho phép bạn kiểm tra mã mới của mình mà không ảnh hưởng đến quá trình sản xuất.
 
-## Thông tin ngoại lai (extrinsics) là gì?
+## What are Polkadot's Extrinsics?
 
 Nếu bạn đã quen thuộc với các khái niệm blockchain, bạn có thể nghĩ thông tin ngoại lai gần giống với các giao dịch. Tuy nhiên, về mặt chính thức, thông tin ngoại lai là một đoạn thông tin đến từ bên ngoài chuỗi và được bao gồm trong một block. Có ba loại thông tin ngoại lai. Bao gồm: thông tin cố hữu, giao dịch đã ký và giao dịch chưa ký.
 
@@ -40,7 +40,7 @@ Thông tin ngoại lai cố hữu là những phần thông tin không được 
 
 Giao dịch ngoại lai có chữ ký là các giao dịch có chứa chữ ký của tài khoản thực hiện giao dịch. Họ phải trả một khoản phí để giao dịch được đưa vào chuỗi.
 
-Các giao dịch ngoại lai không có chữ ký là các giao dịch không có chữ ký của tài khoản đã thực hiện giao dịch. Các giao dịch ngoại lai chưa được ký nên sử dụng cẩn thận vì không ai trả phí, vì nó đã được ký. Do đó, hàng đợi giao dịch thiếu logic kinh tế sẽ ngăn chặn thư rác.
+Các giao dịch ngoại lai không có chữ ký là các giao dịch không có chữ ký của tài khoản đã thực hiện giao dịch. Unsigned transactions extrinsics should be used with care because there is nobody paying a fee, becaused they are not signed. Do đó, hàng đợi giao dịch thiếu logic kinh tế sẽ ngăn chặn thư rác.
 
 Để biết thêm thông tin chi tiết, hãy nhấp vào [đây](https://substrate.dev/docs/en/knowledgebase/learn-substrate/extrinsics).
 
