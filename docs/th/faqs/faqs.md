@@ -32,7 +32,7 @@ Deployment slots เป็นฟีเจอร์ใน [SubQuery Projects ](ht
 
 Staging slot จะไม่แสดงต่อสาธารณะใน [Explorer](https://explorer.subquery.network/) และมี URL เฉพาะที่มองเห็นได้เฉพาะคุณเท่านั้น และแน่นอน สภาพแวดล้อมที่แยกจากกันทำให้คุณสามารถทดสอบโค้ดใหม่ได้โดยไม่กระทบต่อการใช้งานจริง
 
-## Extrinsics คืออะไร?
+## What are Polkadot's Extrinsics?
 
 หากคุณคุ้นเคยกับบล็อคเชนอยู่แล้ว คุณสามารถเปรียบ extrinsics ได้กับธุรกรรม หรืออธิบายให้เป็นทางการมากขึ้น extrinsic เป็นส่วนของข้อมูลที่มาจากนอก chain และถูกรวมอยู่ในบล็อก โดย extrinsics มีสามประเภท ได้แก่ inherents, signed transactions และ unsigned transactions
 
@@ -40,7 +40,7 @@ Inherent extrinsics คือชิ้นส่วนของข้อมูล
 
 Signed transaction extrinsics คือธุรกรรมที่มีลายเซ็นของบัญชีที่ออกธุรกรรม โดยพวกเขาพร้อมที่จะจ่ายค่าธรรมเนียมเพื่อให้ธุรกรรมรวมอยู่ใน chain
 
-Unsigned transactions extrinsics คือธุรกรรมที่ไม่มีลายเซ็นของบัญชีที่ออกธุรกรรม ซึ่ง Unsigned transactions extrinsics นั้นควรใช้ด้วยความระมัดระวัง เนื่องจากไม่มีใครจ่ายค่าธรรมเนียมให้ เพราะมีการลงนาม ด้วยเหตุนี้ คิวของธุรกรรมจึงขาดตรรกะทางเศรษฐศาสตร์ในการป้องกันการสแปม
+Unsigned transactions extrinsics คือธุรกรรมที่ไม่มีลายเซ็นของบัญชีที่ออกธุรกรรม Unsigned transactions extrinsics should be used with care because there is nobody paying a fee, becaused they are not signed. ด้วยเหตุนี้ คิวของธุรกรรมจึงขาดตรรกะทางเศรษฐศาสตร์ในการป้องกันการสแปม
 
 สำหรับข้อมูลเพิ่มเติม คลิก [ที่นี่](https://substrate.dev/docs/en/knowledgebase/learn-substrate/extrinsics)
 
