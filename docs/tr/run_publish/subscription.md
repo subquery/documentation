@@ -24,7 +24,7 @@ subscription {
 }
 ```
 
-The body of the entity in your query indicates what data you want to receive via your subscription when the `Transfer` table is updated:
+Sorgunuzdaki varlığın gövdesi, `Transfer` tablosu güncellendiğinde aboneliğiniz aracılığıyla hangi verileri almak istediğinizi belirtir:
 - `id`: Değişen varlığın kimliğini döndürür
 - `mutation_type`: Bu varlığa yapılan eylem. Mutasyon türleri `INSERT`, `UPDATE` veya `DELETE` olabilir
 - `_entity`: varlığın kendisinin JSON biçimindeki değeri.
@@ -64,6 +64,6 @@ abonelik {
 
 `mutasyon` filtresinin `INSERT`, `UPDATE` veya `DELETE` seçeneklerinden biri olabileceğini unutmayın
 
-**Please note that you must enable the `--subscription` flag on both the node and query service in order to use these functions.**
+**Bu işlevleri kullanmak için hem düğüm hem de sorgu hizmetinde `--subscription` işaretini etkinleştirmeniz gerektiğini lütfen unutmayın.**
 
-The subcription feature works on SubQuery's managed service when you directly call the listed GraphQL endpoint. It will not work within the in-browser GraphQL playground.
+Abonelik özelliği, doğrudan listelenen GraphQL uç noktasını aradığınızda SubQuery'nin yönetilen hizmetinde çalışır. Tarayıcı içi GraphQL oyun alanında çalışmayacaktır.
