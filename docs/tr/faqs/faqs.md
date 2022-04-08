@@ -32,7 +32,7 @@ Hazırlama yuvası kullanmanın ana yararı, SubQuery projenizin yeni bir sürü
 
 Hazırlama yuvası, Explorer'da herkese gösterilmez ve yalnızca sizin görebileceğiniz benzersiz bir URL'ye sahiptir. Ve elbette, ayrı ortam, üretimi etkilemeden yeni kodunuzu test etmenize olanak tanır.
 
-## Dışsallar nelerdir?
+## What are Polkadot's Extrinsics?
 
 Blockchain kavramlarına zaten aşina iseniz, dışsalları işlemlerle karşılaştırılabilir olarak düşünebilirsiniz. Daha resmi olarak, dışsal, zincirin dışından gelen ve bir bloğa dahil edilen bir bilgi parçasıdır. Üç dışsal kategori vardır. Bunlar doğal, imzalı işlemler ve imzasız işlemlerdir.
 
@@ -40,7 +40,7 @@ Blockchain kavramlarına zaten aşina iseniz, dışsalları işlemlerle karşıl
 
 İmzalı işlem dışsal öğeleri, işlemi yapan hesabın imzasını içeren işlemlerdir. İşlemin zincire dahil edilmesi için bir ücret ödemeye hazırlar.
 
-İmzalı işlem dışsal öğeleri, işlemi yapan hesabın imzasını içeren işlemlerdir. İmzasız işlemler, imzalı olduğu için ücret ödemeyen kimse olmadığı için dikkatli kullanılmalıdır. Bu nedenle, işlem kuyruğu spam'i önlemek için ekonomik mantıktan yoksundur.
+İmzalı işlem dışsal öğeleri, işlemi yapan hesabın imzasını içeren işlemlerdir. Unsigned transactions extrinsics should be used with care because there is nobody paying a fee, becaused they are not signed. Bu nedenle, işlem kuyruğu spam'i önlemek için ekonomik mantıktan yoksundur.
 
 Daha fazla bilgi için [buraya](https://substrate.dev/docs/en/knowledgebase/learn-substrate/extrinsics) tıklayın.
 
