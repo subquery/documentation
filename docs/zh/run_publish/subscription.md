@@ -24,7 +24,7 @@ subscription {
 }
 ```
 
-The body of the entity in your query indicates what data you want to receive via your subscription when the `Transfer` table is updated:
+当`Transfer`表被更新时，查询中的实体体表明你想通过订阅接收什么数据:
 - `id`: 返回已更改的项目的 ID
 - `mutation_type`: 已经对这个选项进行了操作。 类型可以是 `INSERT`, `UPDATE` 或 `DELETE`
 - `_entity`: 项目本身的值为 JSON 格式。
@@ -64,6 +64,6 @@ subscription {
 
 请注意， `mutation` 过滤器可以是 `INSERT`, `UPDATE` 或 `DELETE`
 
-**Please note that you must enable the `--subscription` flag on both the node and query service in order to use these functions.**
+**131/5000 请注意，为了使用这些函数，必须在节点和查询服务上启用`--subscription`标志。**
 
-The subcription feature works on SubQuery's managed service when you directly call the listed GraphQL endpoint. It will not work within the in-browser GraphQL playground.
+当您直接调用列出的GraphQL端点时，订阅特性可以在SubQuery的托管服务上工作。 它不能在浏览器内的GraphQL背景中工作。
