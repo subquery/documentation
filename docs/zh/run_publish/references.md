@@ -151,7 +151,7 @@ subql-node -f . --db-schema=test2
 ```
 
 ### --subscription
-This will create a notification trigger on entity, this also is the prerequisite to enable subscription feature in query service.
+这将在实体上创建一个通知触发器，这也是在查询服务中启用订阅功能的先决条件。
 
 ### --unsafe
 
@@ -289,7 +289,7 @@ subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot
 ```
 
 
-[Read more about how a SubQuery Dictionary works](../academy/tutorials_examples/dictionary.md).
+[阅读更多关于 SubQuery 字典的工作原理](../academy/tutorials_examples/dictionary.md)
 
 
 
@@ -319,15 +319,8 @@ Options:
       --output-fmt    Print log as json or plain text
                         [string] [choices: "json", "colored"] [default: "colored"]
       --log-level     Specify log level to print.
-            [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
-                                                       "silent"] [default: "info"]
-      --log-path      Path to create log file e.g ./src/name.log          [string]
-      --log-rotate    Rotate log files in directory specified by log-path
-                                                      [boolean] [default: false]
-      --indexer       Url that allows query to access indexer metadata    [string]
-      --unsafe        Disable limits on query depth and allowable number returned
-                      query records                                      [boolean]
-  -p, --port          The port the service will bind to                   [number]
+             
+Xpath: /pre[21]/code
 ```
 
 
@@ -379,13 +372,13 @@ Options:
 
 ### --output-fmt
 
-See [--output-fmt](https://doc.subquery.network/run_publish/references.html#output-fmt)
+查看 [--output-fmt](https://doc.subquery.network/run_publish/references.html#output-fmt)
 
 
 
 ### --log-level
 
-See [--log-level](https://doc.subquery.network/run_publish/references.html#log-level)
+查看 [--loglevel](https://doc.subquery.network/run_publish/references.html#log-level)
 
 
 
@@ -409,7 +402,7 @@ See [--log-level](https://doc.subquery.network/run_publish/references.html#log-l
 
 ### --subscription
 
-This flag enables [GraphQL Subscriptions](./subscription.md), to enable this feature requires `subql-node` also enable `--subscription`
+此标志启用 [GraphQL 订阅](./subscription.md), 以启用此功能需要 `subql-node` 也启用 `--subscription`
 
 
 
@@ -417,7 +410,7 @@ This flag enables [GraphQL Subscriptions](./subscription.md), to enable this fea
 
 查询服务对于无界的graphql查询有100个实体的限制。 不安全的标志取消了这个限制，这可能给查询服务造成性能问题。 相反，建议查询为 [分页](https://graphql.org/learn/pagination/)。
 
-This flag enables certain aggregation functions including sum, max, avg and others. Read more about this feature [here](./aggregate.md)
+这个标志允许某些集合功能，包括金额、最大值、平均和其他功能。 在这里阅读更多关于此功能 [](./aggregate.md)
 
 由于实体限制，它们默认被禁用。
 
