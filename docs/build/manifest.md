@@ -33,15 +33,15 @@ dataSources:
   - kind: substrate/Runtime
     startBlock: 1
     mapping:
-      file: ./dist/index.js
+      file: "./dist/index.js"
       handlers:
         - handler: handleBlock
           kind: substrate/BlockHandler
         - handler: handleEvent
           kind: substrate/EventHandler
-          filter: null
-          module: balances
-          method: Deposit
+          filter:
+            module: balances
+            method: Deposit
         - handler: handleCall
           kind: substrate/CallHandler
 
@@ -80,8 +80,8 @@ dataSources:
         - handler: handleEvent
           kind: substrate/EventHandler
           filter: #Filter is optional
-          module: balances
-          method: Deposit
+            module: balances
+            method: Deposit
         - handler: handleCall
           kind: substrate/CallHandler
 
