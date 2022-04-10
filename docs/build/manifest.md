@@ -5,12 +5,8 @@ The Manifest `project.yaml` file can be seen as an entry point of your project a
 The Manifest can be in either YAML or JSON format. In this document, we will use YAML in all the examples. Below is a standard example of a basic `project.yaml`.
 
 <CodeGroup>
-
-
-<CodeGroupItem title="v1.0.0" active>
-
+  <CodeGroupItem title="v1.0.0" active>
 ``` yml
-
 specVersion: 1.0.0
 name: subquery-starter
 version: 0.0.4
@@ -44,15 +40,9 @@ dataSources:
             method: Deposit
         - handler: handleCall
           kind: substrate/CallHandler
-
-````
-
-</CodeGroupItem>
-
-
-
+```
+  </CodeGroupItem>
   <CodeGroupItem title="v0.2.0" active>
-  
 ``` yml
 specVersion: "0.2.0"
 name: example-project # Provide the project name
@@ -84,13 +74,9 @@ dataSources:
             method: Deposit
         - handler: handleCall
           kind: substrate/CallHandler
-
-
-````
+```
   </CodeGroupItem>
-
   <CodeGroupItem title="v0.0.1">
-
 ``` yml
 specVersion: "0.0.1"
 description: '' # Description of your project
@@ -119,32 +105,37 @@ dataSources:
         - handler: handleCall
           kind: substrate/CallHandler
 ````
-
   </CodeGroupItem>
 </CodeGroup>
 
 ## Migrating to v1.0.0 <Badge text="upgrade" type="warning"/>
 
-**If you have a project with specVersion below v1.0.0 you can use `subql migrate` to quickly upgrade. [See here](#cli-options) for more information**
+**If you have a project with specVersion below v1.0.0 you can use `subql migrate` to quickly upgrade. [See the CLI documentation](#cli-options) for more information**
 
-Under `runner`:
-- With support of multi-network, provide runner information will be required.
-- `runner.node` specify the node to run current project.
-- `runner.query` specify the query service associate with the project database.
-- `version` specify the version of these service, they should follow the [SEMVER](https://semver.org/) rules.
+### Change Log for v1.0.0
 
-Under `network`:
+**Under `runner`:**
+
+- Now that SubQuery supports multiple layer 1 networks, you must provide runner information for various services.
+- `runner.node` specify the node image that is used to run the current project [`@subql/node` or `@subql/node-avalanche`].
+- `runner.query` specify the query service image associate with the project database - use `@subql/query`.
+- `version` specifies the version of these service, they should follow the [SEMVER](https://semver.org/) rules and match a published version on our [package repository](https://www.npmjs.com/package/@subql/node).
+
+**Under `templates`:**
+
+Template are introduced from manifest v0.2.1, it allows creating new datasources from templates within a handler, see an example [here](https://github.com/subquery/query-registry-subquery-project/blob/35371925feba357d7064b0221166b857ee2ecb39/project.yaml#L35)
+
+### Change log for v0.2.0
+
+**Under `network`:**
 
 - There is a new **required** `genesisHash` field which helps to identify the chain being used.
 - For v0.2.0 and above, you are able to reference an external [chaintype file](#custom-chains) if you are referencing a custom chain.
 
-Under `dataSources`:
+**Under `dataSources`:**
 
 - Can directly link an `index.js` entry point for mapping handlers. By default this `index.js` will be generated from `index.ts` during the build process.
 - Data sources can now be either a regular runtime data source or [custom data source](#custom-data-sources).
-
-Under `templates`;
-Template are introduced from manifest v0.2.1, it allows creating new datasources from templates within a handler, see an example [here](https://github.com/subquery/query-registry-subquery-project/blob/35371925feba357d7064b0221166b857ee2ecb39/project.yaml#L35)
 
 ### CLI Options
 
@@ -170,7 +161,7 @@ Template are introduced from manifest v0.2.1, it allows creating new datasources
 
 ### Schema Spec
 
-| Field    |  v0.2.0 to v1.0.0  | Description                              |
+| Field    |  All manifest versions  | Description                              |
 | -------- | ------ | ---------------------------------------- |
 | **file** | String | The location of your GraphQL schema file |
 
@@ -184,8 +175,6 @@ Template are introduced from manifest v0.2.1, it allows creating new datasources
 | **dictionary**  | String   | String        | It is suggested to provide the HTTP endpoint of a full chain dictionary to speed up processing - read [how a SubQuery Dictionary works](../academy/tutorials_examples/dictionary.md).                      |
 | **chaintypes**  | x        | {file:String} | Path to chain types file, accept `.json` or `.yaml` format                                                                                                                                                 |
 
-
-
 ### Runner Spec
 
 | Field     | v1.0.0                                  | Description                                |
@@ -197,21 +186,21 @@ Template are introduced from manifest v0.2.1, it allows creating new datasources
 
 | Field       | v1.0.0 | Description                                                                                                                                                                                              |
 |-------------|--------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **name**    | String | We currently support `@subql/node` and `@subql/node-terra`                                                                                                                                               |
+| **name**    | String | We currently support `@subql/node` and soon `@subql/node-avalanche` |
 | **version** | String | Version of the indexer Node service, it must follow the [SEMVER](https://semver.org/) rules, you can also find available versions in subquery SDK [releases](https://github.com/subquery/subql/releases) |
 
 
 ### Runner Query Spec
 
-| Field       | v1.0.0 | Description                                                                                                                                                                          |
+| Field | All manifest versions | Description |
 |-------------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **name**    | String | We currently support `@subql/query`                                                                                                                                                  |
+| **name**    | String | We currently support `@subql/query` |
 | **version** | String | Version of the Query service, available versions can be found [here](https://github.com/subquery/subql/blob/main/packages/query/CHANGELOG.md), it also must follow the SEMVER rules. |
 
 ### Datasource Spec
 
 Defines the data that will be filtered and extracted and the location of the mapping function handler for the data transformation to be applied.
-| Field | v0.2.0 to  v1.0.0 | Description
+| Field | All manifest versions | Description
 | --------------- |-------------|-------------|
 | **kind** | [substrate/Runtime](./manifest/#data-sources-and-mapping) [substrate/CustomDataSource](./manifest/#custom-data-sources) |  We supports data type from default substrate runtime such as block, event and extrinsic(call). <br /> From v0.2.0, we support data from custom runtime, such as smart contract.|
 | **startBlock** | Integer | This changes your indexing start block, set this higher to skip initial blocks with less data|  
@@ -219,7 +208,7 @@ Defines the data that will be filtered and extracted and the location of the map
 
 ### Mapping Spec
 
-| Field                  | v0.2.0 to v1.0.0                                                                         | Description                                                                                                                                                                                                                      |
+| Field                  | All manifest versions | Description |
 | ---------------------- |------------------------------------------------------------------------------------------| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **handlers & filters** | Default handlers and filters, <br />[Custom handlers and filters](#custom-data-sources)  | List all the [mapping functions](./mapping.md) and their corresponding handler types, with additional mapping filters. <br /><br /> For custom runtimes mapping handlers please view [Custom data sources](#custom-data-sources) |
 
