@@ -123,7 +123,11 @@ dataSources:
 
 **Under `templates`:**
 
-Template are introduced from manifest v0.2.1, it allows creating new datasources from templates within a handler, see an example [here](https://github.com/subquery/query-registry-subquery-project/blob/35371925feba357d7064b0221166b857ee2ecb39/project.yaml#L35)
+Template are introduced from manifest v0.2.1, it allows creating datasources dynamically from these templates.
+This is useful when you don't know certain specific details when creating your project.
+A good example of this is when you know a contract will be deployed at a later stage but you don't know what the address will be.
+
+For a more detailed explanation head [here](./dynamicdatasources).
 
 ### Change log for v0.2.0
 
