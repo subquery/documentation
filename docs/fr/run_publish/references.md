@@ -301,23 +301,23 @@ Ceci montre les options d'aide.
 
 ```shell
 Options:
-      --help          Show help                                          [boolean]
-      --version       Show version number                                [boolean]
-  -n, --name          Project name                             [string] [required]
-      --playground    Enable graphql playground                          [boolean]
-      --subscription  Enable subscription               [boolean] [default: false]   
-      --output-fmt    Print log as json or plain text
+      --help          Afficher l'aide                                         [boolean]
+      --version       Afficher le numéro de version                                [boolean]
+  -n, --name          Nom du projet                             [string] [required]
+      --playground    Activer le playground graphql                          [boolean]
+      --subscription  Activer l'abonnement               [boolean] [default: false]   
+      --output-fmt    Imprimer le journal en json ou en texte brut
                         [string] [choices: "json", "colored"] [default: "colored"]
-      --log-level     Specify log level to print.
+      --log-level     Spécifier le niveau du journal à imprimer.
             [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
                                                        "silent"] [default: "info"]
-      --log-path      Path to create log file e.g ./src/name.log          [string]
-      --log-rotate    Rotate log files in directory specified by log-path
+      --log-path      Chemin pour créer le fichier journal, par exemple ./src/nom.log          [string]
+      --log-rotate    Faire tourner les fichiers journaux dans le répertoire spécifié par log-path
                                                       [boolean] [default: false]
-      --indexer       Url that allows query to access indexer metadata    [string]
-      --unsafe        Disable limits on query depth and allowable number returned
+      --indexer       Url qui permet à la requête d'accéder aux métadonnées de l'indexeur    [string]
+      --unsafe        Désactiver les limites sur la profondeur de la requête et le nombre autorisé de résultats.
                       query records                                      [boolean]
-  -p, --port          The port the service will bind to                   [number]
+  -p, --port          Le port auquel le service sera lié                   [number]
 ```
 
 ### --version
@@ -351,11 +351,11 @@ Cette option active le terrain de jeu de graphql et doit donc toujours être inc
 
 ### --output-fmt
 
-See [--output-fmt](https://doc.subquery.network/run_publish/references.html#output-fmt)
+Voir [--output-fmt](https://doc.subquery.network/run_publish/references.html#output-fmt)
 
 ### --log-level
 
-See [--log-level](https://doc.subquery.network/run_publish/references.html#log-level)
+Voir [--log-level](https://doc.subquery.network/run_publish/references.html#log-level)
 
 ### --log-path
 
@@ -371,13 +371,13 @@ Définit une url personnalisée pour l'emplacement des points de terminaison de 
 
 ### --subscription
 
-This flag enables [GraphQL Subscriptions](./subscription.md), to enable this feature requires `subql-node` also enable `--subscription`
+Cette option active [Souscriptions GraphQL](./subscription.md), pour activer cette fonctionnalité il faut `subql-node` activer également `--subscription`
 
 ### --unsafe
 
 Le service d'interrogation est limité à 100 entités pour les requêtes graphql non limitées. L'indicateur unsafe supprime cette limite, ce qui peut entraîner des problèmes de performances pour le service de requêtes. Il est plutôt recommandé que les requêtes soient [paginées](https://graphql.org/learn/pagination/).
 
-This flag enables certain aggregation functions including sum, max, avg and others. Read more about this feature [here](./aggregate.md)
+Cette option permet d'activer certaines fonctions d'agrégation comme la somme, le maximum, la moyenne et autres. Pour en savoir plus sur cette fonctionnalité [cliquez ici](./aggregate.md)
 
 Ces fonctions sont désactivées par défaut en raison de la limite d'entités.
 
