@@ -24,7 +24,7 @@ subscription {
 }
 ```
 
-The body of the entity in your query indicates what data you want to receive via your subscription when the `Transfer` table is updated:
+Тялото на обекта във вашата заявка показва какви данни искате да получавате чрез абонамента си, когато таблицата `Transfer` се актуализира:
 - `id`: Връща идентификатора на обекта, който е променен
 - `mutation_type`: Действието, което е извършено към този обект. Типовете мутации могат да бъдат или `INSERT`, `UPDATE` or `DELETE`
 - `_entity`: стойността на самия обект във формат JSON.
@@ -64,6 +64,6 @@ subscription {
 
 Имайте предвид, че филтърът `mutation` може да бъде един от `INSERT`, `UPDATE` или `DELETE`
 
-**Please note that you must enable the `--subscription` flag on both the node and query service in order to use these functions.**
+**Моля, имайте предвид, че трябва да активирате флага `--unsafe` на услугата за заявки, за да използвате тези функции.**
 
-The subcription feature works on SubQuery's managed service when you directly call the listed GraphQL endpoint. It will not work within the in-browser GraphQL playground.
+Функцията за абонамент работи на услуга, управлявана от SubQuery, когато директно извикате изброеният ендпойн GraphQL. Няма да работи в рамките на игралната площадка на GraphQL в браузъра.
