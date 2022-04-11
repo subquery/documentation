@@ -32,7 +32,7 @@ Le principal avantage de l'utilisation d'un créneau de mise à disposition est 
 
 Le slot de préparation n'est pas visible par le public dans l'[explorateur](https://explorer.subquery.network/) et possède une URL unique que vous seul pouvez voir. Et bien sûr, l'environnement séparé vous permet de tester votre nouveau code sans affecter la production.
 
-## What are Polkadot's Extrinsics?
+## Que sont les extrinsèques de Polkadot ?
 
 Si vous êtes déjà familiarisé avec les concepts de blockchain, vous pouvez considérer les extrinsèques comme comparables aux transactions. Plus formellement cependant, un extrinsèque est un élément d'information qui provient de l'extérieur de la chaîne et qui est inclus dans un bloc. Il existe trois catégories d'extrinsèques. Ce sont les inhérents, les transactions signées et les transactions non signées.
 
@@ -40,7 +40,7 @@ Les extrinsèques inhérents sont des éléments d'information qui ne sont pas s
 
 Les extrinsèques de transaction signés sont des transactions qui contiennent une signature du compte qui a émis la transaction. Ils doivent payer des frais pour que la transaction soit incluse dans la chaîne.
 
-Les transactions extrinsèques non signées sont des transactions qui ne contiennent pas la signature du compte qui a émis la transaction. Unsigned transactions extrinsics should be used with care because there is nobody paying a fee, becaused they are not signed. De ce fait, la file d'attente des transactions manque de logique économique pour éviter le spam.
+Les transactions extrinsèques non signées sont des transactions qui ne contiennent pas la signature du compte qui a émis la transaction. Les transactions extrinsèques non signées doivent être utilisées avec précaution car personne ne paie de frais, du fait qu'elles ne sont pas signées. De ce fait, la file d'attente des transactions manque de logique économique pour éviter le spam.
 
 Pour plus d'informations, cliquez [ici](https://substrate.dev/docs/en/knowledgebase/learn-substrate/extrinsics).
 
