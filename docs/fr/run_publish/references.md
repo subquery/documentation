@@ -62,15 +62,15 @@ Options:
       --timeout             Délai d'exécution des fonctions de mapping 
                             par la sandbox de l'indexeur                                   [number]
       --debug               Affiche les informations de débogage sur la console. will
-                            forcefully set log level to debug
+                            mettre de force le niveau du journal à déboguer
                                                       [boolean] [default: false]
-      --profiler            Show profiler information to console output
+      --profiler            Afficher les informations du profileur sur la console
                                                       [boolean] [default: false]
-      --subscription        Enable subscription       [boolean] [default: false]                                                     
-      --network-endpoint    Blockchain network endpoint to connect      [string]
-      --output-fmt          Print log as json or plain text
+      --subscription        Activer l'abonnement       [boolean] [default: false]                                                     
+      --network-endpoint    endpoint du réseau de Blockchain pour se connecter      [string]
+      --output-fmt          Imprimer le journal en json ou en texte brut
                                            [string] [choices: "json", "colored"]
-      --log-level           Specify log level to print. Ignoré quand --debug est
+      --log-level           Spécifier le niveau du journal à imprimer. Ignoré quand --debug est
                             utilisé
           [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
                                                                        "silent"]
@@ -154,7 +154,7 @@ subql-node -f . --db-schema=test2
 ```
 
 ### --subscription
-This will create a notification trigger on entity, this also is the prerequisite to enable subscription feature in query service.
+Cela créera un déclencheur de notification sur l'entité, c'est également la condition préalable pour activer la fonction d'abonnement dans le service de requête.
 
 ### --unsafe
 
@@ -287,7 +287,7 @@ En général, cette option est définie dans votre fichier manifeste, mais l'exe
 subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot"
 ```
 
-[Read more about how a SubQuery Dictionary works](../academy/tutorials_examples/dictionary.md).
+[Lire la suite sur le fonctionnement d'un dictionnaire SubQuery](../academy/tutorials_examples/dictionary.md).
 
 ### -p, --port
 
