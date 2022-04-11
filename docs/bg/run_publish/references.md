@@ -152,7 +152,7 @@ subql-node -f . --db-schema=test2
 ```
 
 ### --subscription
-This will create a notification trigger on entity, this also is the prerequisite to enable subscription feature in query service.
+Това ще създаде тригер за уведомяване за обект, това също е предпоставка за активиране на функцията за абонамент в услугата за заявки.
 
 ### --unsafe
 
@@ -285,7 +285,7 @@ ERROR Create Subquery project from given path failed! Error: failed to parse pro
 subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot"
 ```
 
-[Read more about how a SubQuery Dictionary works](../academy/tutorials_examples/dictionary.md).
+[Прочетете повече за това как работи SubQuery Dictionary](../academy/tutorials_examples/dictionary.md).
 
 ### -p, --port
 
@@ -349,11 +349,11 @@ Options:
 
 ### --output-fmt
 
-See [--output-fmt](https://doc.subquery.network/run_publish/references.html#output-fmt)
+Вижте [--output-fmt](https://doc.subquery.network/run_publish/references.html#output-fmt)
 
 ### --log-level
 
-See [--log-level](https://doc.subquery.network/run_publish/references.html#log-level)
+Вижте [--log-level](https://doc.subquery.network/run_publish/references.html#log-level)
 
 ### --log-path
 
@@ -369,13 +369,13 @@ See [--log-level](https://doc.subquery.network/run_publish/references.html#log-l
 
 ### --subscription
 
-This flag enables [GraphQL Subscriptions](./subscription.md), to enable this feature requires `subql-node` also enable `--subscription`
+Този флаг активира [GraphQL Subscriptions](./subscription.md), за да активирате тази функция, изисква `subql-node` също така активирайте `--subscription`
 
 ### --unsafe
 
 Услугата за заявки има ограничение от 100 обекта за неограничени заявки graphql. Флагът unsafe премахва това ограничение, което може да причини проблеми с производителността на услугата за заявки. Вместо това се препоръчва заявките да бъдат [разделени на страници](https://graphql.org/learn/pagination/).
 
-This flag enables certain aggregation functions including sum, max, avg and others. Read more about this feature [here](./aggregate.md)
+Този флаг позволява определени функции за агрегиране, включително sum, max, avg и други. Прочетете повече за тази функция [тук](./aggregate.md)
 
 Те са деактивирани по подразбиране поради ограничение на обекта.
 
