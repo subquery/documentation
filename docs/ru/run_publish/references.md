@@ -151,8 +151,8 @@ subql-node -f . --local
 subql-node -f . --db-schema=test2
 ```
 
-### --subscription
-This will create a notification trigger on entity, this also is the prerequisite to enable subscription feature in query service.
+### --подписка
+Это создаст триггер уведомления на сущность, что также является необходимым условием для включения функции подписки в службе запросов.
 
 ### --unsafe
 
@@ -285,7 +285,7 @@ An instance of ProjectManifestImpl has failed the validation:
 subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot"
 ```
 
-[Read more about how a SubQuery Dictionary works](../academy/tutorials_examples/dictionary.md).
+[ Подробнее о том, как работает словарь SubQuery ](../academy/tutorials_examples/dictionary.md).
 
 ### -p, --port
 
@@ -349,11 +349,11 @@ Options:
 
 ### --output-fmt
 
-See [--output-fmt](https://doc.subquery.network/run_publish/references.html#output-fmt)
+Смотрите [--output-fmt](https://doc.subquery.network/run_publish/references.html#output-fmt)
 
 ### --log-level
 
-See [--log-level](https://doc.subquery.network/run_publish/references.html#log-level)
+Смотрите [--loglevel](https://doc.subquery.network/run_publish/references.html#log-level)
 
 ### --log-path
 
@@ -367,15 +367,15 @@ See [--log-level](https://doc.subquery.network/run_publish/references.html#log-l
 
 Установите настраиваемый url-адрес для расположения конечных точек индексатора, служба запросов использует эти конечные точки для проверки работоспособности индексатора, метаданных и состояния готовности
 
-### --subscription
+### --подписка
 
-This flag enables [GraphQL Subscriptions](./subscription.md), to enable this feature requires `subql-node` also enable `--subscription`
+Этот флаг включает [GraphQL Subscriptions](./subscription.md), для включения этой функции требуется `subql-node` также включить `--subscription`.
 
 ### --unsafe
 
 Служба запросов имеет лимит в 100 объектов для неограниченных запросов graphql. Unsafe флаг снимает это ограничение, что может вызвать проблемы с производительностью службы запросов. Вместо этого рекомендуется, чтобы запросы были [разбиты на страницы](https://graphql.org/learn/pagination/).
 
-This flag enables certain aggregation functions including sum, max, avg and others. Read more about this feature [here](./aggregate.md)
+Этот флаг позволяет использовать некоторые функции агрегирования, включая sum, max, avg и другие. Подробнее об этой возможности [здесь](./aggregate.md)
 
 Они отключены по умолчанию из-за ограничения сущностей.
 
