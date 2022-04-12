@@ -1,18 +1,18 @@
-# Subscriptions
+# Подписки
 
-## What is a GraphQL Subscription
+## Что такое подписка на GraphQL
 
-SubQuery now also supports Graphql Subscriptions. Like queries, subscriptions enable you to fetch data. Unlike queries, subscriptions are long-lasting operations that can change their result over time.
+SubQuery теперь также поддерживает подписки Graphql. Как и запросы, подписки позволяют получать данные. В отличие от запросов, подписки - это длительные операции, которые могут менять свой результат с течением времени.
 
-Subscriptions are very useful when you want your client application to change data or show some new data as soon as that change occurs or the new data is available. Subscriptions allow you to *subscribe* to your SubQuery project for changes.
+Подписки очень полезны, когда вы хотите, чтобы ваше клиентское приложение изменило данные или показало новые данные, как только это изменение произойдет или новые данные станут доступны. Подписки позволяют вам *подписываться* на изменения в вашем проекте SubQuery.
 
-[Read more about subscriptions here](https://www.apollographql.com/docs/react/data/subscriptions/)
+[Узнать больше о подписках здесь](https://www.apollographql.com/docs/react/data/subscriptions/)
 
-## How to Subscribe to an Entity
+## Как подписаться на сущность
 
-The basic example of a GraphQL subscription is to be notified when any new entities are created. In the following example, we subscribe to the `Transfer` entity and receive an update when there are any changes to this table.
+Основным примером подписки на GraphQL является получение уведомления о создании новых сущностей. В следующем примере мы подписываемся на сущность `Transfer` и получаем обновление, когда в этой таблице происходят какие-либо изменения.
 
-You can create the subscription by querying the GraphQL endpoint as follows. Your connection will then subscribe to any changes made to the `Transfer` entity table.
+Вы можете создать подписку, запросив конечную точку GraphQL следующим образом. Затем ваше соединение будет подписываться на все изменения, вносимые в таблицу сущностей `Transfer`.
 
 ```graphql
 subscription {
@@ -24,21 +24,21 @@ subscription {
 }
 ```
 
-The body of the entity in your query indicates what data you want to receive via your subscription when the `Transfer` table is updated:
-- `id`: Returns the ID of the entity that has changed
-- `mutation_type`: The action that has been made to this entity. Mutation types can be either `INSERT`, `UPDATE` or `DELETE`
-- `_entity`: the value of the entity itself in JSON format.
+Тело сущности в вашем запросе указывает, какие данные вы хотите получать по подписке при обновлении таблицы `Transfer`:
+- `id`: Возвращает идентификатор сущности, которая изменилась
+- `mutation_type`: Действие, которое было произведено с этой сущностью. Типы мутации могут быть либо `INSERT`, `UPDATE` или `DELETE`
+- `_сущность`: значение самой сущности в формате JSON.
 
-## Filtering
+## Фильтрация
 
-We also support filter on subscriptions, which means a client should only receive updated subscription data if that data or mutation meets certain criteria.
+Мы также поддерживаем фильтр подписок, это означает, что клиент должен получать обновленные данные подписки, только если эти данные или мутация соответствуют определенным критериям.
 
-There are two types of filters we are supporting:
+Существует два типа фильтров, которые мы поддерживаем:
 
-- `id` : Filter to only return changes that affect a specific entity (designated by the ID).
-- `mutation_type`: Only the same mutation type been made will return an update.
+- `id` : Фильтр для возврата только тех изменений, которые затрагивают конкретную сущность (обозначенную идентификатором).
+- `mutation_type`: Только тот тип мутации, который был произведен, вернет обновление.
 
-Assume we have an entity `Balances`, and it records the balance of each account.
+Предположим, что у нас есть сущность `Balances`, и она записывает баланс каждого счета.
 
 ```graphql
 type Balances {
@@ -47,7 +47,7 @@ type Balances {
 }
 ```
 
-If we want to subscribe to any balance updates that affect a specific account, we can specify the subscription filter as follows:
+Если мы хотим подписаться на все обновления баланса, которые затрагивают определенный счет, мы можем указать фильтр подписки следующим образом:
 
 ```graphql
 subscription {
@@ -62,8 +62,8 @@ subscription {
 }
 ```
 
-Note that the `mutation` filter can be one of `INSERT`, `UPDATE` or `DELETE`
+Обратите внимание, что фильтр ` mutation ` может быть одним из `INSERT`, `UPDATE` или `DELETE`.
 
-**Please note that you must enable the `--subscription` flag on both the node and query service in order to use these functions.**
+**Обратите внимание, что для использования этих функций необходимо включить флаг `--subscription` как на узле, так и в службе запросов.**
 
-The subcription feature works on SubQuery's managed service when you directly call the listed GraphQL endpoint. It will not work within the in-browser GraphQL playground.
+Функция подписки работает на управляемом сервисе SubQuery, когда вы напрямую вызываете указанную конечную точку GraphQL. Он не будет работать в пределах браузерной площадки GraphQL.
