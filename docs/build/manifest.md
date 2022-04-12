@@ -5,7 +5,9 @@ The Manifest `project.yaml` file can be seen as an entry point of your project a
 The Manifest can be in either YAML or JSON format. In this document, we will use YAML in all the examples. Below is a standard example of a basic `project.yaml`.
 
 <CodeGroup>
+
   <CodeGroupItem title="v1.0.0" active>
+
 ``` yml
 specVersion: 1.0.0
 name: subquery-starter
@@ -42,7 +44,8 @@ dataSources:
           kind: substrate/CallHandler
 ```
   </CodeGroupItem>
-  <CodeGroupItem title="v0.2.0" active>
+
+  <CodeGroupItem title="v0.2.0">
 ``` yml
 specVersion: "0.2.0"
 name: example-project # Provide the project name
