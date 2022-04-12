@@ -18,6 +18,8 @@ The best way to show how to use dynamic data source is with an example.
 
 The below example is for a decentralised exchange that has a factory contract which deploys a new contract when a trading pair is added. When the project is run it's not possible to know the addresses of all trading pair contract that have been created or will be created. Data sources can be dynamically created by a mapping handler from a template in order to index the newly created trading pair contracts.
 
+A more complete example can be found [here](https://github.com/subquery/query-registry-subquery-project/blob/35371925feba357d7064b0221166b857ee2ecb39/project.yaml#L35)
+
 
 ### `project.yaml`
 ```yaml

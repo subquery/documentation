@@ -13,7 +13,7 @@ version: 0.0.4
 runner:
   node:
     name: '@subql/node'
-    version: 'latest'
+    version: latest
   query:
     name: '@subql/query'
     version: 0.24.0
@@ -93,7 +93,11 @@ dataSources:
 
 **Under `templates`:**
 
-Template are introduced from manifest v0.2.1, it allows creating new datasources from templates within a handler, see an example [here](https://github.com/subquery/query-registry-subquery-project/blob/35371925feba357d7064b0221166b857ee2ecb39/project.yaml#L35)
+Template are introduced from manifest v0.2.1, it allows creating datasources dynamically from these templates.
+This is useful when you don't know certain specific details when creating your project.
+A good example of this is when you know a contract will be deployed at a later stage but you don't know what the address will be.
+
+For a more detailed explanation head [here](./dynamicdatasources).
 
 ### Change log for v0.2.0
 
@@ -157,7 +161,7 @@ Template are introduced from manifest v0.2.1, it allows creating new datasources
 | Field       | v1.0.0 | Description                                                                                                                                                                                              |
 |-------------|--------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **name**    | String | We currently support `@subql/node` and soon `@subql/node-avalanche` |
-| **version** | String | Version of the indexer Node service, it must follow the [SEMVER](https://semver.org/) rules  or `'latest'`, you can also find available versions in subquery SDK [releases](https://github.com/subquery/subql/releases) |
+| **version** | String | Version of the indexer Node service, it must follow the [SEMVER](https://semver.org/) rules  or `latest`, you can also find available versions in subquery SDK [releases](https://github.com/subquery/subql/releases) |
 
 
 ### Runner Query Spec
@@ -165,7 +169,7 @@ Template are introduced from manifest v0.2.1, it allows creating new datasources
 | Field | All manifest versions | Description |
 |-------------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **name**    | String | We currently support `@subql/query` |
-| **version** | String | Version of the Query service, available versions can be found [here](https://github.com/subquery/subql/blob/main/packages/query/CHANGELOG.md), it also must follow the SEMVER rules  or `'latest'`. |
+| **version** | String | Version of the Query service, available versions can be found [here](https://github.com/subquery/subql/blob/main/packages/query/CHANGELOG.md), it also must follow the SEMVER rules  or `latest`. |
 
 ### Datasource Spec
 
