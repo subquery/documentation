@@ -13,7 +13,7 @@ version: 0.0.4
 runner:
   node:
     name: '@subql/node'
-    version: ^0.33.0
+    version: 'latest'
   query:
     name: '@subql/query'
     version: 0.24.0
@@ -76,36 +76,6 @@ dataSources:
           kind: substrate/CallHandler
 ```
   </CodeGroupItem>
-  <CodeGroupItem title="v0.0.1">
-``` yml
-specVersion: "0.0.1"
-description: '' # Description of your project
-repository: 'https://github.com/subquery/subql-starter' # Git repository address of your project
-
-schema: ./schema.graphql # The location of your GraphQL schema file
-
-network:
-  endpoint: 'wss://polkadot.api.onfinality.io/public-ws'
-  # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
-  dictionary: 'https://api.subquery.network/sq/subquery/dictionary-polkadot'
-
-dataSources:
-  - name: main
-    kind: substrate/Runtime
-    startBlock: 1 # This changes your indexing start block, set this higher to skip initial blocks with less data
-    mapping:
-      handlers:
-        - handler: handleBlock
-          kind: substrate/BlockHandler
-        - handler: handleEvent
-          kind: substrate/EventHandler
-          filter: #Filter is optional but suggested to speed up event processing
-            module: balances
-            method: Deposit
-        - handler: handleCall
-          kind: substrate/CallHandler
-````
-  </CodeGroupItem>
 </CodeGroup>
 
 ## Migrating to v1.0.0 <Badge text="upgrade" type="warning"/>
@@ -119,7 +89,7 @@ dataSources:
 - Now that SubQuery supports multiple layer 1 networks, you must provide runner information for various services.
 - `runner.node` specify the node image that is used to run the current project [`@subql/node` or `@subql/node-avalanche`].
 - `runner.query` specify the query service image associate with the project database - use `@subql/query`.
-- `version` specifies the version of these service, they should follow the [SEMVER](https://semver.org/) rules and match a published version on our [package repository](https://www.npmjs.com/package/@subql/node).
+- `version` specifies the version of these service, they should follow the [SEMVER](https://semver.org/) rules or `'latest'` and match a published version on our [package repository](https://www.npmjs.com/package/@subql/node).
 
 **Under `templates`:**
 
@@ -187,7 +157,7 @@ Template are introduced from manifest v0.2.1, it allows creating new datasources
 | Field       | v1.0.0 | Description                                                                                                                                                                                              |
 |-------------|--------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **name**    | String | We currently support `@subql/node` and soon `@subql/node-avalanche` |
-| **version** | String | Version of the indexer Node service, it must follow the [SEMVER](https://semver.org/) rules, you can also find available versions in subquery SDK [releases](https://github.com/subquery/subql/releases) |
+| **version** | String | Version of the indexer Node service, it must follow the [SEMVER](https://semver.org/) rules  or `'latest'`, you can also find available versions in subquery SDK [releases](https://github.com/subquery/subql/releases) |
 
 
 ### Runner Query Spec
@@ -195,7 +165,7 @@ Template are introduced from manifest v0.2.1, it allows creating new datasources
 | Field | All manifest versions | Description |
 |-------------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **name**    | String | We currently support `@subql/query` |
-| **version** | String | Version of the Query service, available versions can be found [here](https://github.com/subquery/subql/blob/main/packages/query/CHANGELOG.md), it also must follow the SEMVER rules. |
+| **version** | String | Version of the Query service, available versions can be found [here](https://github.com/subquery/subql/blob/main/packages/query/CHANGELOG.md), it also must follow the SEMVER rules  or `'latest'`. |
 
 ### Datasource Spec
 
