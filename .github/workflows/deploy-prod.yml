@@ -24,4 +24,15 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ap-northeast-1
       - run: aws s3 sync ./docs/.vuepress/dist s3://doc.subquery.network/
-      - run: aws cloudfront create-invalidation --distribution-id E36FB3OLTA80GH --paths "/*"
+      - name: TEST Invalidate CloudFront
+        uses: chetan/invalidate-cloudfront-action@v2
+        env:
+          DISTRIBUTION: ${{ secrets.DISTRIBUTION }}
+          PATHS: "/*"
+          AWS_REGION: "us-east-1"
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      - name: TEST Create invalidation on AWS Cloudfront
+        run: |
+          aws cloudfront create-invalidation --distribution-id E36FB3OLTA80GH --paths "/*"
+
