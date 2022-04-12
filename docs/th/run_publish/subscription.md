@@ -10,9 +10,9 @@ Subscriptions มีประโยชน์มากเมื่อคุณต
 
 ## วิธีการ Subscribe ให้กับ Entity
 
-ตัวอย่างพื้นฐานของการใช้งาน GraphQL subscription จะได้รับแจ้งเตือนเมื่อมีการสร้าง entities ใหม่ In the following example, we subscribe to the `Transfer` entity and receive an update when there are any changes to this table.
+ตัวอย่างพื้นฐานของการใช้งาน GraphQL subscription จะได้รับแจ้งเตือนเมื่อมีการสร้าง entities ใหม่ ตัวอย่างต่อไปนี้ เราได้ทำการ subscribe `Transfer` ให้กับ entity และได้รับการอัพเดท เมื่อมีการเปลี่ยนแปลงข้อมูลในตาราง
 
-You can create the subscription by querying the GraphQL endpoint as follows. Your connection will then subscribe to any changes made to the `Transfer` entity table.
+คุณสามารถสร้างการ subscription โดยการ querying the GraphQL endpoint as follows Your connection will then subscribe to any changes made to the `Transfer` entity table.
 
 ```graphql
 subscription {
