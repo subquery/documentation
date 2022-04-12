@@ -1,16 +1,16 @@
 # Subscriptions
 
-## What is a GraphQL Subscription
+## GraphQL Subscription คืออะไร
 
-SubQuery now also supports Graphql Subscriptions. Like queries, subscriptions enable you to fetch data. Unlike queries, subscriptions are long-lasting operations that can change their result over time.
+SubQuery ยังรองรับ Graphql Subscriptions subscriptions สามารถให้คุณดึงข้อมูลออกมาได้, เช่นเดียวกับการ queries subscriptions ใช้การดำเนินการที่ยาวนานซึ่งผลลัพธ์สามารถเปลี่ยนแปลงได้ตลอดเวลา, ไม่เหมือนกับการ queries
 
-Subscriptions are very useful when you want your client application to change data or show some new data as soon as that change occurs or the new data is available. Subscriptions allow you to *subscribe* to your SubQuery project for changes.
+Subscriptions มีประโยชน์มากเมื่อคุณต้องการให้ client application ของคุณเปลี่ยนแปลงข้อมูลหรือแสดงข้อมูลใหม่บางอย่างทันทีที่มีการเปลี่ยนแปลงนั้นเกิดขึ้นหรือมีข้อมูลใหม่ Subscriptions อนุญาติให้คุณ *subscribe* to your SubQuery project for changes.
 
-[Read more about subscriptions here](https://www.apollographql.com/docs/react/data/subscriptions/)
+[อ่านเพิ่มเติมเกี่ยวกับ subscriptions ได้ที่นี่](https://www.apollographql.com/docs/react/data/subscriptions/)
 
-## How to Subscribe to an Entity
+## วิธีการ Subscribe ให้กับ Entity
 
-The basic example of a GraphQL subscription is to be notified when any new entities are created. In the following example, we subscribe to the `Transfer` entity and receive an update when there are any changes to this table.
+ตัวอย่างพื้นฐานของการใช้งาน GraphQL subscription จะได้รับแจ้งเตือนเมื่อมีการสร้าง entities ใหม่ In the following example, we subscribe to the `Transfer` entity and receive an update when there are any changes to this table.
 
 You can create the subscription by querying the GraphQL endpoint as follows. Your connection will then subscribe to any changes made to the `Transfer` entity table.
 
