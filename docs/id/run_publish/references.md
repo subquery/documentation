@@ -147,8 +147,8 @@ Bendera ini memungkinkan Anda untuk memberikan nama untuk skema database proyek.
 subql-node -f . --db-schema=test2
 ```
 
-### --subscription
-This will create a notification trigger on entity, this also is the prerequisite to enable subscription feature in query service.
+### --berlangganan
+Ini akan membuat pemicu notifikasi pada entitas, ini juga merupakan prasyarat untuk mengaktifkan fitur berlangganan di layanan kueri.
 
 ### --unsafe
 
@@ -281,7 +281,7 @@ Biasanya ini akan diatur dalam file manifes Anda, tetapi di bawah ini menunjukka
 subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot"
 ```
 
-[Read more about how a SubQuery Dictionary works](../academy/tutorials_examples/dictionary.md).
+[Baca selengkapnya tentang cara kerja Kamus SubQuery](../academy/tutorials_examples/dictionary.md).
 
 ### -p, --port
 
@@ -295,9 +295,9 @@ Ini menunjukkan opsi bantuan.
 
 ```shell
 Options:
-      --help          Show help                                          [boolean]
-      --version       Show version number                                [boolean]
-  -n, --name          Project name                             [string] [required]
+      --help          Menunjukan help                                          [boolean]
+      --version       Menunjukan version number                                [boolean]
+  -n, --name          Nama Project                              [string] [required]
       --playground    Enable graphql playground                          [boolean]
       --subscription  Enable subscription               [boolean] [default: false]   
       --output-fmt    Print log as json or plain text
@@ -308,10 +308,10 @@ Options:
       --log-path      Path to create log file e.g ./src/name.log          [string]
       --log-rotate    Rotate log files in directory specified by log-path
                                                       [boolean] [default: false]
-      --indexer       Url that allows query to access indexer metadata    [string]
-      --unsafe        Disable limits on query depth and allowable number returned
-                      query records                                      [boolean]
-  -p, --port          The port the service will bind to                   [number]
+      --indexer       Url yang memungkinkan kueri mengakses metadata pengindeks    [string]
+      --unsafe        Nonaktifkan batasan pada kedalaman kueri dan jumlah yang diizinkan yang dikembalikan
+                       catatan kueri                                      [boolean]
+  -p, --port          Port yang akan diikat oleh layanan                 [number]
 ```
 
 ### --version
@@ -345,11 +345,11 @@ Bendera ini mengaktifkan taman bermain graphql sehingga harus selalu disertakan 
 
 ### --output-fmt
 
-See [--output-fmt](https://doc.subquery.network/run_publish/references.html#output-fmt)
+Lihat [--output-fmt](https://doc.subquery.network/run_publish/references.html#output-fmt)
 
 ### --log-level
 
-See [--log-level](https://doc.subquery.network/run_publish/references.html#log-level)
+Lihat [--log-level](https://doc.subquery.network/run_publish/references.html#log-level)
 
 ### --log-path
 
@@ -363,15 +363,15 @@ Aktifkan rotasi log file dengan opsi interval rotasi 1d, maksimal 7 file dan den
 
 Tetapkan url khusus untuk lokasi titik akhir pengindeks, layanan kueri menggunakan titik akhir ini untuk kesehatan pengindeks, metadata, dan status kesiapan
 
-### --subscription
+### --berlangganan
 
-This flag enables [GraphQL Subscriptions](./subscription.md), to enable this feature requires `subql-node` also enable `--subscription`
+Tanda ini mengaktifkan [GraphQL Langganan](./subscription.md), untuk mengaktifkan fitur ini memerlukan `subql-node` juga mengaktifkan `--langganan`
 
 ### --unsafe
 
 Layanan kueri memiliki batas 100 entitas untuk kueri graphql tak terbatas. Bendera tidak aman menghapus batas ini yang dapat menyebabkan masalah kinerja pada layanan kueri. Sebagai gantinya, disarankan agar kueri [diberi halaman](https://graphql.org/learn/pagination/).
 
-This flag enables certain aggregation functions including sum, max, avg and others. Read more about this feature [here](./aggregate.md)
+Bendera ini memungkinkan fungsi agregasi tertentu termasuk jumlah, maks, rata-rata, dan lainnya. Baca selengkapnya tentang fitur ini [di sini](./aggregate.md)
 
 Ini dinonaktifkan secara default karena batas entitas.
 
