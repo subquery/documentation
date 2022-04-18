@@ -26,4 +26,4 @@ SubQuery menyediakan fungsi agregat berikut saat dalam mode tidak aman:
 
 Implementasi fungsi agregat SubQuery didasarkan pada [pg-agregates](https://github.com/graphile/pg-aggregates), Anda dapat menemukan informasi lebih lanjut di sana
 
-**Harap perhatikan bahwa Anda harus mengaktifkan tanda `--unsafe` pada layanan kueri untuk menggunakan fungsi ini. [Read more](./references.md#unsafe-2). Perhatikan bahwa perintah `--unsafe` akan mencegah proyek Anda dijalankan di Jaringan SubQuery, dan Anda harus menghubungi dukungan jika Anda ingin perintah ini dijalankan dengan proyek Anda di layanan terkelola SubQuery ([ project.subquery.network](https://project.subquery.network))**
+**Harap perhatikan bahwa Anda harus mengaktifkan tanda `--unsafe` pada layanan kueri untuk menggunakan fungsi ini. [Baca untuk selengkapnya](./references.md#unsafe-2). Perhatikan bahwa perintah `--unsafe` akan mencegah proyek Anda dijalankan di Jaringan SubQuery, dan Anda harus menghubungi dukungan jika Anda ingin perintah ini dijalankan dengan proyek Anda di layanan terkelola SubQuery ([ project.subquery.network](https://project.subquery.network))**
