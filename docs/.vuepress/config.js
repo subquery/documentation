@@ -216,6 +216,7 @@ function getSidebar(locale, language) {
           `${locale}/run_publish/connect.md`,
           `${locale}/run_publish/query.md`,
           `${locale}/run_publish/graphql.md`,
+          `${locale}/run_publish/ipfs.md`,
           `${locale}/run_publish/aggregate.md`,
           `${locale}/run_publish/subscription.md`,
           `${locale}/run_publish/references.md`,
