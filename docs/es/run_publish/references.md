@@ -151,8 +151,8 @@ Esta bandera le permite proporcionar un nombre para el esquema de base de datos 
 subql-node -f . --db-schema=test2
 ```
 
-### --subscription
-This will create a notification trigger on entity, this also is the prerequisite to enable subscription feature in query service.
+### --suscripción
+Esto creará un disparador de notificación en la entidad, este también es el prerrequisito para habilitar la función de suscripción en el servicio de consultas.
 
 ### --inseguro
 
@@ -285,7 +285,7 @@ Normalmente esto se establecería en el archivo manifest pero a continuación mu
 subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot"
 ```
 
-[Read more about how a SubQuery Dictionary works](../academy/tutorials_examples/dictionary.md).
+[Lea más sobre cómo funciona un Diccionario de SubQuery](../academy/tutorials_examples/dictionary.md).
 
 ### -p, --puerto
 
@@ -298,24 +298,24 @@ El puerto al que se une el servicio de indexación de subconsultas. Por defecto 
 Esto muestra las opciones de ayuda.
 
 ```shell
-Options:
-      --help          Show help                                          [boolean]
-      --version       Show version number                                [boolean]
-  -n, --name          Project name                             [string] [required]
-      --playground    Enable graphql playground                          [boolean]
-      --subscription  Enable subscription               [boolean] [default: false]   
-      --output-fmt    Print log as json or plain text
+Opciones:
+      --help Mostrar ayuda                                          [boolean]
+      --version Mostrar número de versión                                [boolean]
+  -n, --name Project name                             [string] [required]
+      --playground Enable graphql playground                          [boolean]
+      --subscription Enable subscription               [boolean] [default: false]   
+      --output-fmt Print log as json or plain text
                         [string] [choices: "json", "colored"] [default: "colored"]
-      --log-level     Specify log level to print.
-            [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
-                                                       "silent"] [default: "info"]
-      --log-path      Path to create log file e.g ./src/name.log          [string]
-      --log-rotate    Rotate log files in directory specified by log-path
+      --log-level Especifique el nivel de registro para imprimir.
+            [string] [opciones: "fatal", "error", "warn", "info", "debug", "trace",
+                                                       "silent"] [por defecto: "info"]
+      --log-path Path para crear archivo de registro e. ./src/name. og          [string]
+      --log-rotate log files in directory specified by log-path
                                                       [boolean] [default: false]
-      --indexer       Url that allows query to access indexer metadata    [string]
-      --unsafe        Disable limits on query depth and allowable number returned
+      --indexer Url that allows query to access indexer metadata    [string]
+      --unsafe disable limits on query depth and allowable number returned
                       query records                                      [boolean]
-  -p, --port          The port the service will bind to                   [number]
+  -p, --port El puerto que el servicio enlazará a                   [number]
 ```
 
 ### --version
@@ -349,11 +349,11 @@ Esta opción permite que el campo de juego graphql siempre debe ser incluido por
 
 ### --output-fmt
 
-See [--output-fmt](https://doc.subquery.network/run_publish/references.html#output-fmt)
+Ver [--output-fmt](https://doc.subquery.network/run_publish/references.html#output-fmt)
 
 ### --log-level
 
-See [--log-level](https://doc.subquery.network/run_publish/references.html#log-level)
+Ver [--log-level](https://doc.subquery.network/run_publish/references.html#log-level)
 
 ### --log-path
 
@@ -367,15 +367,15 @@ Habilita las rotaciones del registro de archivos con las opciones de un interval
 
 Establecer una url personalizada para la ubicación de los extremos del índice, el servicio de consulta utiliza estos extremos para la salud del indexador, metadatos y estado de preparación
 
-### --subscription
+### --suscripción
 
-This flag enables [GraphQL Subscriptions](./subscription.md), to enable this feature requires `subql-node` also enable `--subscription`
+Esta bandera habilita [Suscripciones GraphQL](./subscription.md), para activar esta función requiere `subql-node` también habilitar `--subscription`
 
 ### --inseguro
 
 El servicio de consultas tiene un límite de 100 entidades para consultas gráficql sin límites. La bandera insegura elimina este límite que puede causar problemas de rendimiento en el servicio de consultas. En su lugar, se recomienda que las consultas sean [paginadas](https://graphql.org/learn/pagination/).
 
-This flag enables certain aggregation functions including sum, max, avg and others. Read more about this feature [here](./aggregate.md)
+Este parámetro permite ciertas funciones de agregación incluyendo suma, max, prog y otros. Lea más sobre esta función [aquí](./aggregate.md)
 
 Estas están desactivadas por defecto debido al límite de entidad.
 
