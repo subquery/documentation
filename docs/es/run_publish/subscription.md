@@ -1,21 +1,21 @@
-# Subscriptions
+# Suscripciónes
 
-## What is a GraphQL Subscription
+## Qué es una suscripción GraphQL
 
-SubQuery now also supports Graphql Subscriptions. Like queries, subscriptions enable you to fetch data. Unlike queries, subscriptions are long-lasting operations that can change their result over time.
+SubQuery ahora también soporta Suscripciones Graphql. Al igual que las consultas, las suscripciones le permiten obtener datos. A diferencia de las consultas, las suscripciones son operaciones de larga duración que pueden cambiar sus resultados con el tiempo.
 
-Subscriptions are very useful when you want your client application to change data or show some new data as soon as that change occurs or the new data is available. Subscriptions allow you to *subscribe* to your SubQuery project for changes.
+Las suscripciones son muy útiles cuando desea que su aplicación cliente cambie datos o muestre algunos nuevos datos tan pronto como se produzca ese cambio o los nuevos datos estén disponibles. Las suscripciones te permiten *suscribirte* a tu proyecto de SubQuery para realizar cambios.
 
-[Read more about subscriptions here](https://www.apollographql.com/docs/react/data/subscriptions/)
+[Lea más sobre las suscripciones aquí](https://www.apollographql.com/docs/react/data/subscriptions/)
 
-## How to Subscribe to an Entity
+## Cómo suscribirse a una entidad
 
-The basic example of a GraphQL subscription is to be notified when any new entities are created. In the following example, we subscribe to the `Transfer` entity and receive an update when there are any changes to this table.
+El ejemplo básico de una suscripción GraphQL es ser notificado cuando se crean nuevas entidades. En el siguiente ejemplo, nos suscribimos a la entidad `Transferir` y recibimos una actualización cuando hay algún cambio en esta tabla.
 
-You can create the subscription by querying the GraphQL endpoint as follows. Your connection will then subscribe to any changes made to the `Transfer` entity table.
+Puede crear la suscripción consultando el endpoint GraphQL de la siguiente manera. Su conexión se suscribirá a cualquier cambio realizado en la tabla de entidades `Transferencia`.
 
 ```graphql
-subscription {
+subscripción {
   transfer {
     id
     mutation_type
@@ -24,36 +24,36 @@ subscription {
 }
 ```
 
-The body of the entity in your query indicates what data you want to receive via your subscription when the `Transfer` table is updated:
-- `id`: Returns the ID of the entity that has changed
-- `mutation_type`: The action that has been made to this entity. Mutation types can be either `INSERT`, `UPDATE` or `DELETE`
-- `_entity`: the value of the entity itself in JSON format.
+El cuerpo de la entidad en tu consulta indica qué datos quieres recibir a través de tu suscripción cuando se actualiza la tabla `Transferir`:
+- `id`: Devuelve el ID de la entidad que ha cambiado
+- `mutation_type`: La acción que se ha hecho a esta entidad. Los tipos de mutación pueden ser `INSERT`, `ACTUALIZAR` o `DELETE`
+- `_entity`: el valor de la entidad misma en formato JSON.
 
-## Filtering
+## Filtrado
 
-We also support filter on subscriptions, which means a client should only receive updated subscription data if that data or mutation meets certain criteria.
+También apoyamos el filtro en las suscripciones, lo que significa que un cliente sólo debe recibir datos actualizados de suscripción si esos datos o mutación cumplen ciertos criterios.
 
-There are two types of filters we are supporting:
+Hay dos tipos de filtros que apoyamos:
 
-- `id` : Filter to only return changes that affect a specific entity (designated by the ID).
-- `mutation_type`: Only the same mutation type been made will return an update.
+- `id` : Filtrar para devolver sólo los cambios que afectan a una entidad específica (designada por el ID).
+- `mutation_type`: Sólo el mismo tipo de mutación será retornado una actualización.
 
-Assume we have an entity `Balances`, and it records the balance of each account.
+Supongamos que tenemos una entidad `Saldos`y registra el saldo de cada cuenta.
 
 ```graphql
 type Balances {
-  id: ID! # someone's account , eg. 15rb4HVycC1KLHsdaSdV1x2TJAmUkD7PhubmhL3PnGv7RiGY
-  amount: Int! # the balance of this account
+  id: ID! # cuenta de alguien, por ejemplo, 15rb4HVycC1KLHsd:/dV1x2TJAm.UD7PhubmhL3PnGv7RiGY
+  monto: Int! # el saldo de esta cuenta
 }
 ```
 
-If we want to subscribe to any balance updates that affect a specific account, we can specify the subscription filter as follows:
+Si queremos suscribirnos a cualquier actualización de balance que afecte a una cuenta específica, podemos especificar el filtro de suscripción de la siguiente manera:
 
 ```graphql
-subscription {
+suscripción {
   balances(
-    id: "15rb4HVycC1KLHsdaSdV1x2TJAmUkD7PhubmhL3PnGv7RiGY"
-    mutation: UPDATE
+    id: "15rb4HVycC1KLHsdsrdV1x2TJAm)[video] D7PhubmhL3PnGv7RiGY"
+    mutación: UPDATE
   ) {
     id
     mutation_type
@@ -62,8 +62,8 @@ subscription {
 }
 ```
 
-Note that the `mutation` filter can be one of `INSERT`, `UPDATE` or `DELETE`
+Ten en cuenta que el filtro `de mutación` puede ser uno de `INSERT`, `ACTUALAR` o `DELETE`
 
-**Please note that you must enable the `--subscription` flag on both the node and query service in order to use these functions.**
+**Tenga en cuenta que debe habilitar la bandera `--subscription` tanto en el servicio de nodo como en el de consulta para poder utilizar estas funciones.**
 
-The subcription feature works on SubQuery's managed service when you directly call the listed GraphQL endpoint. It will not work within the in-browser GraphQL playground.
+La característica de subcripción funciona en el servicio administrado por SubQuery cuando llama directamente al punto final de GraphQL listado. No funcionará dentro del campo de juego GraphQL del navegador.
