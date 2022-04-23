@@ -229,13 +229,13 @@ logger.info("Blockheight: " + event.block.block.header.number.toNumber());
 ```
 
 When running a subql node locally via a command line, a log level can also be added to help
-troubleshoot. See [Subql CLI logging reference](https://doc.subquery.network/run_publish/references/#log-level)
+troubleshoot. See [Subql CLI logging reference](/run_publish/references/#log-level)
 
 ## Debugging
 
 In order to debug SubQuery projects such as stepping through code, setting breakpoints,
 and inspecting variables, you will have to use a Node.js inspector in conjunction with
-Chrome developer tools. See [How to debug a SubQuery project?](https://doc.subquery.network/academy/tutorials_examples/debug-projects/)
+Chrome developer tools. See [How to debug a SubQuery project?](/academy/tutorials_examples/debug-projects/)
 
 To debug a local subql node, the --debug flag can also be used from the command line. Eg
 
@@ -243,14 +243,14 @@ To debug a local subql node, the --debug flag can also be used from the command 
 > subql-node -f . --debug
 ```
 
-- [Subql CLI debug reference](https://doc.subquery.network/run_publish/references/#debug)
+- [Subql CLI debug reference](/run_publish/references/#debug)
 
 ## Changing the batch block size
 
 Using a smaller batch size can reduce memory usage and not leave users hanging for large
-queries. In other words, your application can be more responsive. See [How to change the batch block size](https://doc.subquery.network/academy/tutorials_examples/batch-size/)
+queries. In other words, your application can be more responsive. See [How to change the batch block size](/academy/tutorials_examples/batch-size/)
 
 ## Changing the starting block
 
 Note that some events only start to occur at higher block height so one way to test a
-mapping function faster is to adjust the starting block height. See [How to start at a different block height?](https://doc.subquery.network/academy/tutorials_examples/block-height/)
+mapping function faster is to adjust the starting block height. See [How to start at a different block height?](/academy/tutorials_examples/block-height/)

@@ -172,6 +172,7 @@ function getSidebar(locale, language) {
         path: `${locale === "" ? "/" : locale}`,
         collapsable: true,
       },
+      /*
       {
         title: "Quick Start",
         path: `${locale}/quickstart/quickstart`,
@@ -182,13 +183,15 @@ function getSidebar(locale, language) {
             path: `${locale}/quickstart/quickstart`,
             collapsable: true,
             children: [
-              `${locale}/quickstart/quickstart.md`,
-              `${locale}/quickstart/helloworld-localhost.md`,
-              `${locale}/quickstart/understanding-helloworld.md`,
-              `${locale}/quickstart/helloworld-hosted.md`,
+              `${locale}/quickstart/quickstart.md`
             ],
           },
         ],
+      },
+      */
+      {
+        title: "Quick Start",
+        path: `${locale}/quickstart/quickstart.md`,
       },
       {
         title: "Build",
