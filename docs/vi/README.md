@@ -14,8 +14,8 @@
       <p>Hiểu cách SubQuery vận hành bằng cách bắt tay vào việc ngay, với câu lệnh Hello World quen thuộc. Sử dụng dự án mẫu trong Docker, bạn có thể nhanh chóng thiết lập và chạy một node. Từ đó, bắt đầu truy vấn blockchain chỉ trong vài phút với một vài lệnh đơn giản.
       </p>
       <span class="button">
-        <router-link :to="{path: '/quickstart/helloworld-localhost/'}">
-          <span>Bắt đầu</span>
+        <router-link :to="{path: '/quickstart/quickstart.html'}">
+          <span>Get started</span>
         </router-link>
       </span>
     </div>
@@ -25,16 +25,16 @@
   <div>
     <ul class="list">
       <li>
-        <router-link :to="{path: '/academy/tutorials_examples/introduction/'}">
+        <router-link :to="{path: '/academy/tutorials_examples/introduction.html'}">
           <div>
             <img src="/assets/img/tutorialsIcon.svg" />
             <span>Hướng dẫn và Ví dụ</span>
-            <p>Học thông qua thực hành. Hướng dẫn và ví dụ về cách xây dựng các dự án bằng SubQuery.</p>
+            <p>Learning by doing in our Academy. Hướng dẫn và ví dụ về cách xây dựng các dự án bằng SubQuery.</p>
           </div>
         </router-link>
       </li>
       <li>
-        <router-link :to="{path: '/create/introduction/'}">
+        <router-link :to="{path: '/create/introduction.html'}">
           <div>
             <img src="/assets/img/docsIcon.svg" />
             <span>Các tài liệu tham khảo về các vấn đề kỹ thuật</span>
@@ -63,14 +63,14 @@
         <div class="content">
           <p>SubQuery là một dự án mã nguồn mở cho phép các nhà phát triển lập chỉ mục, chuyển đổi và truy vấn dữ liệu chuỗi Substrate để cung cấp cho các ứng dụng của họ.</p>
           <span class="more">
-            <router-link :to="{path: '/faqs/faqs/#what-is-subquery'}">ĐỌC THÊM</router-link>
+            <router-link :to="{path: '/faqs/faqs.html#what-is-subquery'}">READ MORE</router-link>
           </span>
         </div>
       </li>
       <li>
         <div class="title">Cách tốt nhất để bắt đầu với SubQuery là gì?</div>
         <div class="content">
-          <p>Cách tốt nhất để bắt đầu với SubQuery là xem qua <a href="/quickstart/helloworld-localhost/">hướng dẫn Hello World</a> của chúng tôi. Đây là một hướng dẫn đơn giản trong 5 phút: tải xuống mẫu khởi động, xây dựng dự án và sau đó sử dụng Docker để chạy một node trên máy chủ của bạn và chạy một truy vấn đơn giản. </p>
+          <p>The best way to get started with SubQuery is to try out our <a href="/quickstart/quickstart.html">Quick Start tutorial</a>. Đây là một hướng dẫn đơn giản trong 5 phút: tải xuống mẫu khởi động, xây dựng dự án và sau đó sử dụng Docker để chạy một node trên máy chủ của bạn và chạy một truy vấn đơn giản. </p>
         </div>
       </li>
       <li>
@@ -78,21 +78,21 @@
         <div class="content">
           <p>Chúng tôi rất mong nhận được ý kiến đóng góp và phản hồi từ cộng đồng. Để đóng góp vào việc phát triển, hãy tạo bản sao cho những phần bạn quan tâm và đưa ra những thay đổi. Sau đó hãy sử dụng chức năng Pull Request hay gọi tắt là PR. À, đừng quên chạy thử đấy nhé! Ngoài ra, hãy xem các nguyên tắc đóng góp của chúng tôi (sẽ sớm được công khai). </p>
           <span class="more">
-            <router-link :to="{path: '/faqs/faqs/#what-is-the-best-way-to-get-started-with-subquery'}">ĐỌC THÊM</router-link>
+            <router-link :to="{path: '/faqs/faqs.html#what-is-the-best-way-to-get-started-with-subquery'}">READ MORE</router-link>
           </span>
         </div>
       </li>
       <li>
         <div class="title">Chi phí để lưu trữ dự án của tôi trong SubQuery là bao nhiêu?</div>
         <div class="content">
-          <p>Việc lưu trữ dự án trên SubQuery là hoàn toàn miễn phí - đây là cách chúng tôi cống hiến cho cộng đồng. Để tìm hiểu cách lưu trữ dự án của bạn trên SubQuery, vui lòng xem hướng dẫn <a href="/quickstart/helloworld-hosted/">Hello World (SubQuery Hosted)</a> của chúng tôi.</p>
+          <p>Việc lưu trữ dự án trên SubQuery là hoàn toàn miễn phí - đây là cách chúng tôi cống hiến cho cộng đồng. To learn how to host your project with us, please check out the <a href="/quickstart/quickstart.html">Hello World (SubQuery Hosted)</a> tutorial.</p>
           <span class="more">
-            <router-link :to="{path: '/run_publish/publish/'}">LƯU TRỮ DỰ ÁN CỦA BẠN</router-link>
+            <router-link :to="{path: '/run_publish/publish.html'}">HOSTING YOUR PROJECT</router-link>
           </span>
         </div>
       </li>
     </ul><br>
-    Để biết các câu hỏi thường gặp, vui lòng xem trang <router-link :to="{path: '/faqs/faqs/'}">FAQ's</router-link> .    
+    Để biết các câu hỏi thường gặp, vui lòng xem trang <router-link :to="{path: '/faqs/faqs.html'}">FAQ's</router-link> .    
   </div>
 </section>
 <section class="main">
@@ -101,13 +101,13 @@
         <h5>Tích hợp với Chuỗi tùy chỉnh của bạn?</h5>
         <p>Cho dù bạn đang xây dựng một parachain hay một blockchain hoàn toàn mới trên Substrate - SubQuery đều có thể giúp bạn lập chỉ mục và khắc phục sự cố dữ liệu trên chuỗi. SubQuery được thiết kế để dễ dàng tích hợp với blockchain tùy chỉnh có nền tảng Substrate.</p>
         <span class="more">
-          <router-link :to="{path: '/create/mapping/#custom-substrate-chains'}">TÌM HIỂU CÁCH TÍCH HỢP VỚI BLOCKCHAIN CỦA BẠN</router-link>
+          <router-link :to="{path: '/create/mapping.html#custom-substrate-chains'}">LEARN HOW TO INTEGRATE WITH YOUR CHAIN</router-link>
         </span>
     </div>
     <div class="lastIntroduce lastIntroduce_2">
         <h5>Hỗ trợ và đóng góp</h5>
         <p>Bạn có câu hỏi, cần thêm thông tin hoặc muốn đóng góp? Chúng tôi rất mong nhận được phản hồi của bạn. Vui lòng liên hệ với chúng tôi qua email hoặc các tài khoản mạng xã hội được cung cấp ở bên dưới. Bạn cần tư vấn chuyên môn? Hãy tham gia kênh Discord để nhận được hỗ trợ từ các thành viên nhiệt huyết trong cộng đồng của chúng tôi! </p>
-        <a class="more" target="_blank" href="https://discord.com/invite/78zg8aBSMG">THAM GIA TRAO ĐỔI TRÊN DISCORD</a>
+        <a class="more" target="_blank" href="https://discord.com/invite/subquery">THAM GIA TRAO ĐỔI TRÊN DISCORD</a>
     </div>
     </div>
 </section>
@@ -131,6 +131,6 @@
 </section>
 </div> </div>
 <div class="footer">
-  <div class="main"><div>SubQuery © 2021</div></div>
+  <div class="main"><div>SubQuery © 2022</div></div>
 </div>
 <script charset="utf-8" src="/assets/js/welcome.js"></script>
