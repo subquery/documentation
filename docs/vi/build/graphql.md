@@ -121,12 +121,12 @@ Ví dụ: Một người (Person) có thể có nhiều tài khoản (accounts).
 ```graphql
 type Person @entity {
   id: ID!
-  accounts: [Account] 
+  accounts: [Account]! @derivedFrom(field: "person") #Đây là trường ảo
 }
 
 type Account @entity {
   id: ID!
-  publicAddress: String!
+  person: Person!
 }
 ```
 
@@ -139,9 +139,6 @@ Ví dụ: Mỗi người (person) là một thành viên của nhiều nhóm (Pe
 type Person @entity {
   id: ID!
   name: String!
-  groups: [PersonGroup]
-}
-
 type PersonGroup @entity {
   id: ID!
   person: Person!
@@ -151,7 +148,6 @@ type PersonGroup @entity {
 type Group @entity {
   id: ID!
   name: String!
-  persons: [PersonGroup]
 }
 ```
 

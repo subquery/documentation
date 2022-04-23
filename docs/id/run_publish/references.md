@@ -21,11 +21,11 @@ COMMANDS
 
 Perintah ini menggunakan webpack untuk menghasilkan bundel proyek subquery.
 
-| Pilihan            | Deskripsi                                               |
-| ------------------ | ------------------------------------------------------- | ----------- | ---- | ----------------------- |
-| -l, --location     | folder lokal proyek subquery (jika belum ada di folder) |
-| -o, --output       | tentukan folder keluaran build mis. membangun-folder    |
-| --mode=(production | prod                                                    | development | dev) | [ default: production ] |
+| Pilihan            | Deskripsi                                                                                                  |
+| ------------------ | ---------------------------------------------------------------------------------------------------------- |
+| -l, --location     | folder lokal proyek subquery (jika belum ada di folder)                                                    |
+| -o, --output       | tentukan folder keluaran build mis. membangun-folder                                                       |
+| --mode=(production | prod, development, dev default: production ] |
 
 - Dengan `subql build` Anda dapat menentukan titik masuk tambahan di bidang ekspor meskipun itu akan selalu dibangun `index.ts` secara otomatis
 
@@ -56,15 +56,16 @@ Options:
       --batch-size          Ukuran batch balok untuk diambil dalam satu putaran  [number]
       --scale-batch-size    skala ukuran batch berdasarkan penggunaan memori  [boolean] [default: false]
       --timeout             Batas waktu untuk kotak pasir pengindeks untuk menjalankan pemetaan fungsi                                   [number]
-      --debug               Tampilkan informasi debug ke keluaran konsol. akan
-                            secara paksa mengatur level log ke debug
+      --debug               Tampilkan informasi debug ke keluaran konsol. will
+                            forcefully set log level to debug
                                                       [boolean] [default: false]
-      --profiler            Tampilkan informasi profiler ke keluaran konsol
+      --profiler            Show profiler information to console output
                                                       [boolean] [default: false]
-      --network-endpoint    Titik akhir jaringan Blockchain untuk terhubung      [string]
-      --output-fmt          Cetak log sebagai json atau teks biasa
+      --subscription        Enable subscription       [boolean] [default: false]                                                     
+      --network-endpoint    Blockchain network endpoint to connect      [string]
+      --output-fmt          Print log as json or plain text
                                            [string] [choices: "json", "colored"]
-      --log-level           Tentukan level log yang akan dicetak. Diabaikan ketika --debug adalah
+      --log-level           Specify log level to print. Diabaikan ketika --debug adalah
                              digunakan
           [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
                                                                        "silent"]
@@ -145,6 +146,9 @@ Bendera ini memungkinkan Anda untuk memberikan nama untuk skema database proyek.
 ```shell
 subql-node -f . --db-schema=test2
 ```
+
+### --berlangganan
+Ini akan membuat pemicu notifikasi pada entitas, ini juga merupakan prasyarat untuk mengaktifkan fitur berlangganan di layanan kueri.
 
 ### --unsafe
 
@@ -277,7 +281,7 @@ Biasanya ini akan diatur dalam file manifes Anda, tetapi di bawah ini menunjukka
 subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot"
 ```
 
-Bergantung pada konfigurasi database Postgres Anda (misalnya kata sandi database yang berbeda), harap pastikan juga bahwa pengindeks (`subql/node`) dan layanan kueri (`subql/query`) dapat membuat koneksi ke sana.
+[Baca selengkapnya tentang cara kerja Kamus SubQuery](../academy/tutorials_examples/dictionary.md).
 
 ### -p, --port
 
@@ -290,23 +294,24 @@ Port yang diikat oleh layanan pengindeksan subquery. Secara default ini diatur k
 Ini menunjukkan opsi bantuan.
 
 ```shell
-Pilihan:
-       --help Tampilkan bantuan [boolean]
-       --version Tampilkan nomor versi [boolean]
-   -n, --name Nama proyek [string] [wajib]
-       --playground Aktifkan taman bermain graphql [boolean]
-       --output-fmt Cetak log sebagai json atau teks biasa
-                       [string] [pilihan: "json", "berwarna"] [default: "berwarna"]
-       --log-level Tentukan level log yang akan dicetak.
-          [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
-                                                     "silent"] [default: "info"]
-      --log-path    Path to create log file e.g ./src/name.log          [string]
-      --log-rotate  Putar file log di direktori yang ditentukan oleh log-path
+Options:
+      --help          Menunjukan help                                          [boolean]
+      --version       Menunjukan version number                                [boolean]
+  -n, --name          Nama Project                              [string] [required]
+      --playground    Enable graphql playground                          [boolean]
+      --subscription  Enable subscription               [boolean] [default: false]   
+      --output-fmt    Print log as json or plain text
+                        [string] [choices: "json", "colored"] [default: "colored"]
+      --log-level     Specify log level to print.
+            [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
+                                                       "silent"] [default: "info"]
+      --log-path      Path to create log file e.g ./src/name.log          [string]
+      --log-rotate    Rotate log files in directory specified by log-path
                                                       [boolean] [default: false]
-      --indexer     Url yang memungkinkan kueri mengakses metadata pengindeks    [string]
-      --unsafe      Nonaktifkan batasan pada kedalaman kueri dan jumlah yang diizinkan yang dikembalikan
-                    catatan kueri                                      [boolean]
-  -p, --port        Port yang akan diikat oleh layanan                   [number
+      --indexer       Url yang memungkinkan kueri mengakses metadata pengindeks    [string]
+      --unsafe        Nonaktifkan batasan pada kedalaman kueri dan jumlah yang diizinkan yang dikembalikan
+                       catatan kueri                                      [boolean]
+  -p, --port          Port yang akan diikat oleh layanan                 [number]
 ```
 
 ### --version
@@ -358,11 +363,15 @@ Aktifkan rotasi log file dengan opsi interval rotasi 1d, maksimal 7 file dan den
 
 Tetapkan url khusus untuk lokasi titik akhir pengindeks, layanan kueri menggunakan titik akhir ini untuk kesehatan pengindeks, metadata, dan status kesiapan
 
+### --berlangganan
+
+Tanda ini mengaktifkan [GraphQL Langganan](./subscription.md), untuk mengaktifkan fitur ini memerlukan `subql-node` juga mengaktifkan `--langganan`
+
 ### --unsafe
 
 Layanan kueri memiliki batas 100 entitas untuk kueri graphql tak terbatas. Bendera tidak aman menghapus batas ini yang dapat menyebabkan masalah kinerja pada layanan kueri. Sebagai gantinya, disarankan agar kueri [diberi halaman](https://graphql.org/learn/pagination/).
 
-Tanda ini juga dapat digunakan untuk mengaktifkan fungsi agregasi tertentu termasuk jumlah, maks, rata-rata, dan [lainnya](https://github.com/graphile/pg-aggregates#aggregates).
+Bendera ini memungkinkan fungsi agregasi tertentu termasuk jumlah, maks, rata-rata, dan lainnya. Baca selengkapnya tentang fitur ini [di sini](./aggregate.md)
 
 Ini dinonaktifkan secara default karena batas entitas.
 

@@ -1,64 +1,64 @@
-# Hosting a Project using IPFS
+# Хостинг проекта с использованием IPFS
 
-This guide works through how to publish a local SubQuery project to [IPFS](https://ipfs.io/) and deploy it on our hosting infrastructure.
+В этом руководстве рассказывается, как опубликовать локальный проект SubQuery в [IPFS](https://ipfs.io/) и развернуть его в нашей инфраструктуре хостинга.
 
-Hosting a project in IPFS makes it available for all all and reduces your reliance on centralised services like GitHub.
+Хостинг проекта в IPFS делает его доступным для всех и снижает вашу зависимость от централизованных сервисов, таких как GitHub.
 
-## Requirements
+## Требования
 
-- `@subql/cli` version 0.21.0 or above.
-- Manifest `specVersion` 0.2.0 and above.
-- Get your [SUBQL_ACCESS_TOKEN](#prepare-your-subql-access-token) ready.
-- To make sure your deployment success, we strongly recommend that you build your project with the `subql build` command, and test it locally before publishing.
+- `@subql/cli` версии 0.21.0 или выше.
+- Манифест `specVersion` 0.2.0 и выше.
+- Подготовьте свой [SUBQL_ACCESS_TOKEN](#prepare-your-subql-access-token).
+- Чтобы обеспечить успешное развертывание, мы настоятельно рекомендуем вам собрать проект с помощью команды `subql build` и протестировать его локально перед публикацией.
 
-## Prepare your SUBQL_ACCESS_TOKEN
+## Подготовьте свой SUBQL_ACCESS_TOKEN
 
-- Step 1: Go to [SubQuery Projects](https://project.subquery.network/) and log in.
-- Step 2: Click on your profile at the top right of the navigation menu, then click on **_Refresh Token_**
-- Step 3: Copy the generated token.
-- Step 4: To use this token:
-  - Option 1: Add SUBQL_ACCESS_TOKEN in your environment variables. `EXPORT SUBQL_ACCESS_TOKEN=<token>`
-  - Option 2: Coming soon, `subql/cli` will support storing your SUBQL_ACCESS_TOKEN locally.
+- Шаг 1. Перейдите в раздел [SubQuery Projects](https://project.subquery.network/) и войдите в систему.
+- Шаг 2. Нажмите на свой профиль в правом верхнем углу меню навигации, затем нажмите **_Refresh Token_**
+- Шаг 3: Скопируйте сгенерированный токен.
+- Шаг 4: Чтобы использовать этот токен:
+  - Вариант 1: Добавьте SUBQL_ACCESS_TOKEN в переменные среды. `EXPORT SUBQL_ACCESS_TOKEN=<token>`
+  - Вариант 2: (последует в скором времени) `subql/cli` будет поддерживать локальное хранение вашего SUBQL_ACCESS_TOKEN.
 
-## How to publish a project
+## Как опубликовать проект
 
-We provide two methods to publish your project,
+Мы предоставляем два способа публикации вашего проекта,
 
-### Option 1:
+### Вариант 1:
 
-As you have `@subql/cli` already installed, you can run the following command, which will read the project and required information from its default manifest `project.yaml`
+Поскольку у вас уже установлен `@subql/cli`, вы можете запустить следующую команду, которая прочитает проект и необходимую информацию из его дефолтного манифеста `project.yaml`
 
 ```
-// Publish it from your project's root directory
+// Публикуем из корневого каталога вашего проекта
 subql publish
 
-// OR point to your project root
+// ИЛИ указываем корневую директорию вашего проекта
 subql publish -f ~/my-project/
 ```
 
-### Option 2:
+### Вариант 2:
 
-Alternatively, suppose your project has multiple Manifest files, for example you support multiple networks but share the same mapping and business logic, and have a project structure as follows:
+В качестве альтернативы предположим, что в вашем проекте есть несколько manifest файлов, например, вы поддерживаете несколько сетей, но используете одно и то же сопоставление и бизнес-логику, а структура проекта выглядит следующим образом:
 
 ```
 L projectRoot
  L src/
  L package.json
- L polkadot.yaml (Manifest for Polkadot network)
- L kusama.yaml   (Manifest for Kusama network)
+ L polkadot.yaml (Manifest для Polkadot network)
+ L kusama.yaml   (Manifest для Kusama network)
  ...
 ```
 
-You can always publish the project with your selected manifest file.
+Вы всегда можете опубликовать проект с выбранным файлом манифеста.
 
 ```
- # This will publish project support indexing Polkadot network
+ #Это опубликует проект с поддержкой индексации сети Polkadot
 subql publish -f ~/my-projectRoot/polkadot.yaml
 ```
 
-## After publish
+## После публикации
 
-After successfully publishing the project, the logs below indicate that the project was created on the IPFS cluster and have returned its `CID` (content identifier).
+После успешной публикации проекта приведенные ниже логи показывают, что проект был создан в кластере IPFS и вернул свой `CID` (идентификатор контента).
 
 ```
 Building and packing code... done
@@ -66,19 +66,19 @@ Uploading SupQuery project to IPFS
 SubQuery Project uploaded to IPFS: QmZ3q7YZSmhwBiot4PQCK3c7Z6HkteswN2Py58gkkZ8kNd  //CID
 ```
 
-Please note this `CID`. With this `CID`, you can view your published project as what we call it [IPFS Deployment](#ipfs-deployment)
+Обратите внимание на этот `CID`. С помощью этого `CID` вы можете просматривать свой опубликованный проект как то, что мы называем [IPFS Deployment](#ipfs-deployment)
 
 ## IPFS Deployment
 
-IPFS deployment represents an independent and unique existence of a SubQuery project on a decentralized network. Therefore, any changes with the code in the project will affect its uniqueness. If you need to adjust your business logic, e.g. change the mapping function, you must republish the project, and the `CID` will change.
+Развертывание в IPFS представляет собой независимое и уникальное существование проекта SubQuery в децентрализованной сети. Поэтому любые изменения с кодом в проекте повлияют на его уникальность. Если вам нужно перестроить свою бизнес-логику, например, изменить функцию сопоставления, вы должны повторно опубликовать проект, и `CID` изменится.
 
-For now, to view the project you have published, use a `REST` api tool such as [Postman](https://web.postman.co/), and use `POST` method with the following example URL to retrieve it. `https://subquery.network/ipfs/api/v0/cat?arg=<YOUR_PROJECT_CID>`
+На данный момент, чтобы просмотреть опубликованный проект, используйте инструмент `REST` api, например [Postman](https://web.postman.co/), и используйте метод `POST` со следующим примером URL: `https://ipfs.subquery.network/ipfs/api/v0/cat?arg=<YOUR_PROJECT_CID>`
 
-You should see the example project deployment as below:
+Вы должны увидеть пример развертывания проекта, как показано ниже:
 
-This deployment looks very similar to your manifest file. You can expect those descriptive fields, and the network and dictionary endpoint has been removed as they did not directly affect the outcome of project execution.
+Это развертывание очень похоже на ваш файл манифеста. Вы можете ожидать эти описательные поля, а конечная точка сети и словаря была удалена, поскольку они не влияли напрямую на результат выполнения проекта.
 
-Those files been used in your local project has been packed and published to IPFS as well.
+Те файлы, которые использовались в вашем локальном проекте, также были упакованы и опубликованы в IPFS.
 
 ```yaml
 dataSources:
@@ -103,14 +103,14 @@ schema:
 specVersion: 0.2.0
 ```
 
-## Run your SubQuery project on Hosted Service
+## Запустите свой проект SubQuery в размещенной службе
 
-### Create project with IPFS deployment
+### Создать проект с развертыванием в IPFS
 
-You can follow the guide to [Publish your SubQuery project](publish.md) but where you set your deployment source you can select **IPFS**.
+Вы можете следовать инструкциям по [публикации проекта SubQuery](publish.md), но там, где вы устанавливаете источник развертывания, вы можете выбрать **IPFS**.
 
-Then choose your production slot, copy and paste you IPFS deployment CID (without the leading `ipfs://`).
+Затем выберите производственный слот, скопируйте и вставьте CID развертывания IPFS (без начального `ipfs://`).
 
-You should see you IPFS deployment in the preview section. And you can select the network, dictionary endpoints etc.
+Вы должны увидеть развертывание IPFS в разделе предварительного просмотра. И вы можете выбрать сеть, конечные точки словаря и т. д.
 
-After successful deploy the IPFS deployment on our hosted service, it should be available to view on the SubQuery Explorer, you can access the query service just like you do locally.
+После успешного развертывания IPFS deployment в нашей размещенной службе оно должно быть доступно для просмотра в SubQuery Explorer, вы можете получить доступ к службе запросов так же, как и локально.

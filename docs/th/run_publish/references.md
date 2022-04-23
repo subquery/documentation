@@ -8,24 +8,23 @@
 > subql --help
 
 คำสั่ง
-  build     สร้างโค้ดโครงการ SubQuery นี้
+  build     สร้างโค้ดโปรเจกต์	SubQuery นี้
   codegen   สร้าง schemas สำหรับโหนดกราฟ
   help      แสดงความช่วยเหลือสำหรับ subql
-  init      เริ่มต้นโปรเจ็กการสืบค้นย่อยของ scaffold
-  migrate   โยกย้าย manifest ของโปรเจ็กต์ SubQuery v0.0.1 ถึง v0.2.0
-  publish   อัปโหลดโปรเจ็ก SubQuery นี้ไปที่ IPFS
-  validate  ตรวจสอบโฟลเดอร์หรือ github repo ว่าเป็นโปรเจ็กการสืบค้นย่อยที่ถูกต้อง
+  init      เริ่มต้น scaffold โปรเจกต์ SubQuery
+  migrate   โยกย้าย manifest ของโปรเจกต์ SubQuery v0.0.1 ถึง v0.2.0
+  publish   อัปโหลดโปรเจกต์ SubQuery นี้ไปที่ IPFS
+  validate  ตรวจสอบโฟลเดอร์หรือ github repo ว่าเป็น โปรเจกต์	 SubQuery ที่ถูกต้อง
 ```
 
 ### การสร้าง
 
-คำสั่งนี้ใช้ webpack เพื่อสร้างกลุ่มของโปรเจ็กการสืบค้นย่อย
+คำสั่งนี้ใช้ webpack เพื่อสร้าง bundle ของโปรเจกต์ SubQuery
 
-| ตัวเลือก           | คำอธิบาย                                                                 |
-| ------------------ | ------------------------------------------------------------------------ | ----------- | ---- | --------------------------- |
-| -l, --location     | โฟลเดอร์ภายในของโปรเจ็กต์การสืบค้นย่อย (หากไม่ได้อยู่ในโฟลเดอร์อยู่แล้ว) |
-| -o, --output       | ระบุโฟลเดอร์ปลายทางของการสร้าง เช่น build-folder                         |
-| --mode=(production | prod                                                                     | development | dev) | [ ค่าเริ่มต้น: production ] |
+| ตัวเลือก           | คำอธิบาย                                                                                                       |
+| ------------------ | -------------------------------------------------------------------------------------------------------------- |
+| -l, --location     | โฟลเดอร์ภายในของโปรเจกต์ subquery (หากไม่ได้อยู่ในโฟลเดอร์อยู่แล้ว)                                            |
+| -o, --output       | ระบุโฟลเดอร์ปลายทางของการสร้าง เช่น build-folder                                                               |
 
 - ด้วย `subql build` คุณสามารถระบุจุดเข้าใช้งานเพิ่มเติมได้ในช่อง exports ถึงแม้ว่าจะมีการสร้าง `index.ts` โดยอัตโนมัติเสมอ
 
@@ -46,30 +45,29 @@
 Options:
       --help                แสดงการช่วยเหลือ                                  [boolean]
       --version             แสดงหมายเลขเวอร์ชั่น                        [boolean]
-  -f, --subquery            เส้นทางภายในของโปรเจ็กการสืบค้นย่อย          [string]
-      --subquery-name       ชื่อของโปรเจ็กการสืบค้นย่อย   [deprecated] [string]
+  -f, --subquery            เส้นทางภายในของโปรเจกต์ subquery          [string]
+      --subquery-name       ชื่อของโปรเจกต์ subquery  [deprecated] [string]
   -c, --config              ระบุไฟล์การตั้งค่า                  [string]
       --local               ใช้โหมด local                [deprecated] [boolean]
-      --force-clean         บังคับการคลีน database, เลิกโปรเจ็ก schemas
+      --force-clean         บังคับการ clean database, เลิกโปรเจกต์ schemas
                             และตารางต่าง ๆ                                 [boolean]
       --db-schema           ชื่อ Db schema ของโปรเจ็ก               [string]
-      --unsafe              อนุญาตให้มีการใช้โหมดบิวท์อินต่าง ๆ ภายใน
+      --unsafe              อนุญาตให้มีการใช้โหมดบิวท์อินต่าง ๆ ภายใน 
                             sandbox                    [boolean][ค่าเริ่มต้น: false]
       --batch-size          Batch size ของบล็อกที่จะใช้ในหนึ่งรอบ [number]
       --scale-batch-size    ปรับขนาด batch size ตามการใช้หน่วยความจำ
                                                       [boolean] [ค่าเริ่มต้น: false]
       --timeout            กำหนดระยะเวลาสำหรับ indexer sandbox ในการใช้คำสั่ง mapping
                                                               [number]
-      --debug               แสดงข้อมูลการ debug ไปยังเอาต์พุตคอนโซล โดยจะ
-                            บังคับให้มีการตั้งค่าเลเวล log เพื่อการ debug
+      --debug               แสดงข้อมูลการ debug ไปยัง console output โดยจะ
+                            บังคับให้มีการตั้งค่า log level เพื่อการ debug
                                                       [boolean] [ค่าเริ่มต้น: false]
-      --profiler            แสดงข้อมูลตัวสร้างโปรไฟล์ไปยังเอาต์พุตคอนโซล
+      --profiler            แสดงข้อมูลตัวสร้างโปรไฟล์ไปยัง console output
                                                       [boolean] [ค่าเริ่มต้น: false]
       --network-endpoint    Endpoint ของเครือข่ายบล็อกเชนเพื่อการเชื่อมต่อ      [string]
       --output-fmt          พิมพ์ log เป็น json หรือข้อความธรรมดา
                                            [string] [ตัวเลือก: "json", "colored"]
-      --log-level           ระบุเลเวล log ที่จะพิมพ์ เพิกเฉยต่อคำสั่ง เมื่อมีการใช้ --debug
-
+      --log-level           ระบุ log level ที่จะพิมพ์ เพิกเฉยต่อคำสั่ง เมื่อมีการใช้ --debug
           [string] [ตัวเลือก: "fatal", "error", "warn", "info", "debug", "trace",
                                                                        "silent"]
       --migrate             ย้าย db schema (สำหรับตารางการจัดการเท่านั้น)
@@ -95,7 +93,7 @@ Options:
 
 ### -f, --subquery
 
-ใช้ flag นี้เพื่อเริ่มการทำงานโปรเจ็ก SubQuery
+ใช้ flag นี้เพื่อเริ่มการทำงานโปรเจกต์ SubQuery
 
 ```shell
 subql-node -f . // หรือ
@@ -104,7 +102,7 @@ subql-node --subquery .
 
 ### --subquery-name (เลิกใช้แล้ว)
 
-Flag นี้อนุญาตให้คุณระบุชื่อสำหรับโปรเจ็กของคุณ ซึ่งทำหน้าที่เสมือนว่าได้ทำการสร้าง instance ของโปรเจ็กของคุณ เมื่อมีการระบุชื่อใหม่ schema ของฐานข้อมูลใหม่จะถูกสร้างขึ้น และการซิงโครไนซ์บล็อกจะเริ่มต้นจากศูนย์ เลิกใช้ได้ด้วยคำสั่ง `--db-schema`
+Flag นี้อนุญาตให้คุณระบุชื่อสำหรับโปรเจกต์ของคุณ ซึ่งทำหน้าที่เสมือนว่าได้ทำการสร้าง instance ของโปรเจกต์ของคุณ เมื่อมีการระบุชื่อใหม่ database schemaใหม่จะถูกสร้างขึ้น และการซิงโครไนซ์บล็อกจะเริ่มต้นจากศูนย์ เลิกใช้ได้ด้วยคำสั่ง `--db-schema`
 
 ```shell
 subql-node -f . --subquery-name=test2
@@ -117,12 +115,12 @@ subql-node -f . --subquery-name=test2
 ตัวอย่างไฟล์ subquery_config.yml
 
 ```shell
-subquery: . // จำเป็นต้องมี นี่คือ local path ของโปรเจ็ก ซึ่งหมายถึงไดเร็กทอรีภายในเครื่องปัจจุบัน
-ขื่อของโปรเจ็กการสืบค้นย่อย: hello // ชื่อเสริม (ไม่บังคับ)
-ขนาด batch: 55 // การกำหนดค่าเสริม (ไม่บังคับ)
+subquery: . // Mandatory นี่คือ local path ของโปรเจกต์ ซึ่งหมายถึงไดเร็กทอรีภายในเครื่องปัจจุบัน
+subqueryName: hello // ชื่อเสริม (Optional)
+batchSize: 55 // การกำหนดค่าเสริม (Optional)
 ```
 
-วางไฟล์นี้ในไดเร็กทอรีเดียวกันกับโปรเจ็ก จากนั้น ในไดเร็กทอรีโปรเจ็กปัจจุบัน ให้รัน:
+วางไฟล์นี้ในไดเร็กทอรีเดียวกันกับโปรเจกต์ จากนั้น ในไดเร็กทอรีโปรเจกต์ปัจจุบัน ให้รัน:
 
 ```shell
 > subql-node -c ./subquery_config.yml
@@ -138,29 +136,32 @@ subql-node -f . --local
 
 โปรดทราบว่าเมื่อคุณใช้ flag นี้ การลบ flag นี้ไม่ได้หมายความว่า flag นี้จะชี้ไปที่ฐานข้อมูลอื่น หากต้องการชี้ไปยังฐานข้อมูลอื่น คุณจะต้องสร้างฐานข้อมูลใหม่และเปลี่ยนการตั้งค่า env เป็นฐานข้อมูลใหม่ คือใช้ "export DB_DATABASE=<new_db_here>"
 
-### --การบังคับคลีน
+### --force-clean
 
-ใช้ flag นี้เพื่อบังคับให้ project schemas และ tables ถูกสร้างขึ้นใหม่ ซึ่งจะช่วยให้พัฒนา graphql schemas เหมือนเริ่มต้นโปรเจ็กใหม่และทำงานอยู่ใน clean state โปรดทราบว่า flag นี้จะลบข้อมูลที่ทำดัชนีไว้แล้วทั้งหมด
+ใช้ flag นี้เพื่อบังคับให้ project schemas และ tables ให้ถูกสร้างขึ้นใหม่ ซึ่งจะช่วยให้พัฒนา graphql schemas เหมือนเริ่มต้นโปรเจกต์ใหม่และทำงานอยู่ใน clean state โปรดทราบว่า flag นี้จะลบข้อมูลที่ทำดัชนีไว้แล้วทั้งหมด
 
 ### --db-schema
 
-Flag นี้อนุญาตให้คุณระบุชื่อสำหรับ schema ของฐานข้อมูลโปรเจ็ก เมื่อระบุชื่อใหม่ Schema ของฐานข้อมูลใหม่จะถูกสร้างขึ้นด้วยชื่อที่กำหนดค่าไว้และจะเริ่มต้นสร้างดัชนีบล็อก
+Flag นี้อนุญาตให้คุณระบุชื่อสำหรับ project database schema เมื่อระบุชื่อใหม่ database schemaใหม่จะถูกสร้างขึ้นด้วยชื่อที่กำหนดค่าไว้และจะเริ่มต้นสร้างดัชนีบล็อก
 
 ```shell
 subql-node -f . --db-schema=test2
 ```
 
-### --โหมดไม่ปลอดภัย
+### --subscription
+This will create a notification trigger on entity, this also is the prerequisite to enable subscription feature in query service.
 
-โปรเจ็กต์ SubQuery มักจะทำงานใน javascript sandbox เพื่อความปลอดภัย โดยจะจำกัดขอบเขตของการเข้าถึงโปรเจ็กต์ในระบบของคุณ ซึ่ง sandbox จะจำกัดการนำเข้า javascript ที่พร้อมใช้งานไปยังโมดูลต่อไปนี้:
+### --unsafe
+
+โปรเจกต์ SubQuery มักจะทำงานใน javascript sandbox เพื่อความปลอดภัย โดยจะจำกัดขอบเขตของการเข้าถึงโปรเจกต์ในระบบของคุณ ซึ่ง sandbox จะจำกัดการนำเข้า javascript ที่พร้อมใช้งานไปยังโมดูลต่อไปนี้:
 
 ```javascript
 ["assert", "buffer", "crypto", "util", "path"];
 ```
 
-แม้ว่าสิ่งนี้จะช่วยเพิ่มความปลอดภัย แต่เราก็เข้าใจดีว่า คำสั่งนี้จะจำกัดการทำงานที่มีอยู่ของ SubQuery ของคุณ คำสั่ง `--unsafe` จะนำเข้าโมดูล javascript เริ่มต้นทั้งหมด ซึ่งเพิ่มฟังก์ชันการทำงานของ sandbox อย่างมาก แลกกับความปลอดภัยที่ลดลง
+แม้ว่าสิ่งนี้จะช่วยเพิ่มความปลอดภัย แต่เราก็เข้าใจดีว่า คำสั่งนี้จะจำกัดฟังก์ชั่นการทำงานที่มีอยู่ของ SubQuery ของคุณ คำสั่ง `--unsafe` จะนำเข้าโมดูล javascript เริ่มต้นทั้งหมด ซึ่งเพิ่มฟังก์ชันการทำงานของ sandbox อย่างมาก แลกกับความปลอดภัยที่ลดลง
 
-**โปรดทราบว่าคำสั่ง `--unsafe` จะป้องกันไม่ให้โปรเจ็กต์ของคุณทำงานในเครือข่าย SubQuery และคุณต้องติดต่อฝ่ายสนับสนุน หากต้องการให้คำสั่งนี้รันกับโปรเจ็กต์ของคุณในบริการส่วนของ SubQuery ([project.subquery.network](https://project.subquery.network))**
+**และโปรดทราบว่าคำสั่ง `--unsafe` จะป้องกันไม่ให้โปรเจกต์ของคุณทำงานในเครือข่าย SubQuery และคุณต้องติดต่อฝ่ายสนับสนุนหากต้องการให้คำสั่งนี้รันกับโปรเจ็กของคุณในบริการที่มีการจัดการของ SubQuery ([project.subquery.network](https://project.subquery.network))**
 
 ### --batch-size
 
@@ -180,11 +181,11 @@ Flag นี้อนุญาตให้คุณตั้งค่าขนา
 
 ### --timeout
 
-ตั้งค่า timeout แบบกำหนดเองสำหรับ javascript sandbox เพื่อเรียกใช้ฟังก์ชันการแมปบนบล็อก ก่อนที่ฟังก์ชันการแมปบล็อกจะส่งข้อยกเว้นของการ timeout ออก
+ตั้งค่า timeout แบบกำหนดเองสำหรับ javascript sandbox เพื่อเรียกใช้ mapping functions บนบล็อก ก่อนที่ mapping functions จะส่งออก timeout exception
 
 ### --debug
 
-ข้อมูลนี้จะส่งออกข้อมูลการ debug ไปยังเอาต์พุตคอนโซลและบังคับตั้งค่าระดับ log เป็น debug
+ข้อมูลนี้จะส่งออกข้อมูลการ debug ไปยัง console output และบังคับตั้งค่า log level เพื่อ debug
 
 ```shell
 > subql-node -f . --debug
@@ -195,7 +196,7 @@ Flag นี้อนุญาตให้คุณตั้งค่าขนา
 
 ### --profiler
 
-ข้อมูลนี้แสดงข้อมูลตัวสร้างโปรไฟล์
+ข้อมูลนี้แสดง profiler information
 
 ```shell
 subql-node -f . --local --profiler
@@ -207,7 +208,7 @@ subql-node -f . --local --profiler
 
 ### --network-endpoint
 
-Flag นี้อนุญาตให้ผู้ใช้แทนที่การกำหนดค่า endpoint ของเครือข่ายจากไฟล์ manifest
+Flag นี้อนุญาตให้ผู้ใช้ทำการ override endpoint ของเครือข่ายจากไฟล์ manifest
 
 ```shell
 subql-node -f . --network-endpoint="wss://polkadot.api.onfinality.io/public-ws"
@@ -224,7 +225,7 @@ An instance of ProjectManifestImpl has failed the validation:
 
 ### --output-fmt
 
-มีรูปแบบเอาต์พุตของเทอร์มินัลสองแบบที่แตกต่างกัน JSON หรือ colored โดย colored จะเป็นค่าเริ่มต้นและมีข้อความแบบสี
+มีรูปแบบ terminal outputs สองแบบที่แตกต่างกัน JSON หรือ colored โดย colored จะเป็นค่าเริ่มต้นและมีข้อความแบบสี
 
 ```shell
 > subql-node -f . --output-fmt=json
@@ -241,7 +242,7 @@ An instance of ProjectManifestImpl has failed the validation:
 
 ### --log-level
 
-จะมีตัวเลือก 7 อย่างให้เลือก ได้แก่ “fatal”, “error”, “warn”, “info”, “debug”, “trace”, “silent”. ซึ่งตัวอย่างด้านล่างจะแสดงผลของตัวเลือก silent โดยจะไม่มีการพิมพ์สิ่งใดในเทอร์มินัล ดังนั้นวิธีเดียวที่จะบอกได้ว่าโหนดทำงานหรือไม่คือการสืบค้นฐานข้อมูลสำหรับนับจำนวนแถว (select count(\*) from subquery_1.starter_entities) หรือการสืบค้น block height
+จะมีตัวเลือก 7 อย่างให้เลือก ได้แก่ “fatal”, “error”, “warn”, “info”, “debug”, “trace”, “silent”. ซึ่งตัวอย่างด้านล่างจะไม่มีการแสดงผล โดยจะไม่มีการพิมพ์สิ่งใดในเทอร์มินัล ดังนั้นวิธีเดียวที่จะบอกได้ว่าโหนดทำงานหรือไม่คือการสืบค้นฐานข้อมูลสำหรับนับจำนวนแถว (select count(\*) from subquery_1.starter_entities) หรือการสืบค้น block height
 
 ```shell
 > subql-node -f . --log-level=silent
@@ -291,31 +292,32 @@ subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot
 
 ### --help
 
-คำสั่งนี้จะแสดงตัวเลือกความช่วยเหลือ (help)
+คำสั่งนี้จะแสดงตัวเลือกของความช่วยเหลือ
 
 ```shell
-ตัวเลือก:
-      --help        แสดงความช่วยเหลือ                                         [boolean]
-      --version     แสดงหมายเลขเวอร์ชัน                                [boolean]
-  -n, --name        ชื่อโปรเจ็ก                            [string] [required]
-      --playground  เปิด graphql playground                          [boolean]
-      --output-fmt  พิมพ์ log ในรูปแบบ json หรือ plain text
-                      [string] [ตัวเลือก: "json", "colored"] [ค่าเริ่มต้น: "colored"]
-      --log-level   ระบุ log level เพื่อพิมพ์
-          [string] [ตัวเลือก: "fatal", "error", "warn", "info", "debug", "trace",
-                                                     "silent"] [ค่าเริ่มต้น: "info"]
-      --log-path    Path เพื่อสร้างไฟล์ log ได้แก่ /src/name.log          [string]
-      --log-rotate  เปลี่ยนไฟล์ log ในไดเร็กทอรี่ที่ระบุด้วย log-path
-                                                      [boolean] [ค่าเริ่มต้น: false]
-      --indexer     Url ที่อนุญาตให้การเรียงข้อมูล สามารถเข้าถึง metadata ของ indexer  [string]
-      --unsafe      Disable limits on query depth and allowable number returned
-                    query records                                      [boolean]
-  -p, --port        พอร์ทที่บริการนี้เชื่อมต่อ                   [number
+Options:
+      --help          Show help                                          [boolean]
+      --version       Show version number                                [boolean]
+  -n, --name          Project name                             [string] [required]
+      --playground    Enable graphql playground                          [boolean]
+      --subscription  Enable subscription               [boolean] [default: false]   
+      --output-fmt    Print log as json or plain text
+                        [string] [choices: "json", "colored"] [default: "colored"]
+      --log-level     Specify log level to print.
+            [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
+                                                       "silent"] [default: "info"]
+      --log-path      Path to create log file e.g ./src/name.log          [string]
+      --log-rotate    Rotate log files in directory specified by log-path
+                                                      [boolean] [default: false]
+      --indexer       Url that allows query to access indexer metadata    [string]
+      --unsafe        Disable limits on query depth and allowable number returned
+                      query records                                      [boolean]
+  -p, --port          The port the service will bind to                   [number]
 ```
 
-### --version
+### --เวอร์ชัน
 
-คำสั่งนี้จะแสดงเวอร์ชันปัจจุบัน
+คำสั่งนี้แสดงเวอร์ชันปัจจุบัน
 
 ```shell
 > subql-query --version
@@ -324,7 +326,7 @@ subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot
 
 ### -n, --name
 
-Flag นี้ใช้เพื่อเริ่มบริการเรียงข้อมูล หากไม่มีการตั้งค่าสถานะ --subquery-name เมื่อทำการรัน indexer ชื่อที่ปรากฎจะหมายถึงชื่อโปรเจ็กเริ่มต้น หากมีการตั้งค่า --subquery-name ชื่อที่นี่ควรตรงกับที่ตั้งไว้
+Flag นี้ใช้เพื่อเริ่มบริการ query service หากไม่มีการตั้งค่า --subquery-name เมื่อทำการรัน indexer ชื่อที่ปรากฎนี้จะหมายถึงชื่อโปรเจกต์เริ่มต้น หากมีการตั้งค่า --subquery-name ชื่อที่ปรากฏนี้ควรตรงกับที่ตั้งไว้
 
 ```shell
 > subql-node -f . // --subquery-name not set
@@ -335,7 +337,7 @@ Flag นี้ใช้เพื่อเริ่มบริการเรี
 ```shell
 > subql-node -f . --subquery-name=hiworld // --subquery-name set
 
-> subql-query -n hiworld --playground  // เป็นชื่อที่แสดงถึงโปรเจ็ก subql-helloworld แต่ใช้ชื่อว่า hiworld
+> subql-query -n hiworld --playground  // เป็นชื่อที่แสดงถึงโปรเจกต์ subql-helloworld แต่ใช้ชื่อว่า hiworld
 ```
 
 ### --playground
@@ -344,11 +346,11 @@ Flag นี้เป็นการเปิดใช้งาน graphql playgr
 
 ### --output-fmt
 
-อ่าน [--output-fmt](https://doc.subquery.network/run_publish/references.html#output-fmt)
+อ่าน [--output-fmt](#output-fmt)
 
 ### --log-level
 
-อ่าน [--log-level](https://doc.subquery.network/run_publish/references.html#log-level)
+อ่าน [--log-level](#log-level)
 
 ### --log-path
 
@@ -356,22 +358,26 @@ Flag นี้เป็นการเปิดใช้งาน graphql playgr
 
 ### --log-rotate
 
-เปิดใช้งาน file log rotations ด้วยตัวเลือกช่วงการหมุน 1d สูงสุด 7 ไฟล์และขนาดไฟล์สูงสุด 1GB
+เปิดใช้งาน file log rotations ด้วยตัวเลือก 1d rotation interval สูงสุด 7 ไฟล์และขนาดไฟล์สูงสุด 1GB
 
 ### --indexer
 
-ตั้งค่า Url ที่กำหนดเองสำหรับตำแหน่งของ endpoints ของ indexer โดยบริการจัดเรียงข้อมูลนี้จะใช้ endpoints เหล่านี้สำหรับการแสดงค่าสถานะ indexer metadata และความพร้อม
+ตั้งค่า Url ที่กำหนดเองสำหรับตำแหน่งของ endpoints ของ indexer โดยบริการจัดเรียงข้อมูลนี้จะใช้ endpoints เหล่านี้สำหรับการแสดงค่า indexer health, metadata และ readiness status
+
+### --subscription
+
+This flag enables [GraphQL Subscriptions](./subscription.md), to enable this feature requires `subql-node` also enable `--subscription`
 
 ### --unsafe
 
 บริการจัดเรียงข้อมูลมีขีดจำกัด 100 รายการสำหรับการสืบค้นที่ไม่ผูกกับ graphql Flag unsafe จะลบขีดจำกัดนี้ซึ่งอาจทำให้เกิดปัญหาด้านประสิทธิภาพในบริการสืบค้น จึงขอแนะนำว่า ให้ใช้ [ paginated ](https://graphql.org/learn/pagination/) แทน
 
-Flag นี้ยังสามารถใช้เพื่อเปิดใช้งานฟังก์ชันการรวมบางอย่าง รวมถึง sum, max, avg และ [อื่น ๆ](https://github.com/graphile/pg-aggregates#aggregates)
+This flag enables certain aggregation functions including sum, max, avg and others. Read more about this feature [here](./aggregate.md)
 
 สิ่งเหล่านี้ถูกปิดใช้งานโดยค่าเริ่มต้นเนื่องจากขีดจำกัดของเอนทิตี
 
-**โปรดทราบว่า คำสั่ง `--unsafe` จะป้องกันไม่ให้โปรเจ็กของคุณทำงานในเครือข่าย SubQuery และคุณต้องติดต่อฝ่ายสนับสนุน หากต้องการให้คำสั่งนี้รันกับโปรเจ็กของคุณในบริการส่วนของ SubQuery [project.subquery.network](https://project.subquery.network)**
+**โปรดทราบว่า คำสั่ง `--unsafe` จะป้องกันไม่ให้โปรเจกต์ของคุณ runในเครือข่าย SubQuery และคุณต้องติดต่อฝ่ายสนับสนุน หากต้องการให้คำสั่งนี้รันกับโปรเจกต์ของคุณในบริการส่วนของ SubQuery [project.subquery.network](https://project.subquery.network)**
 
 ### --port
 
-พอร์ตที่บริการการทำดัชนีแบบสอบถามย่อยผูกไว้ ซึ่งค่าเริ่มต้นคือ `3000`
+พอร์ตที่บริการการทำดัชนีแบบสอบถามย่อยผูกไว้ ค่าเริ่มต้นคือ `3000`

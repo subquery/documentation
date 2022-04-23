@@ -2,13 +2,13 @@
 
 Chào mừng và chân thành cảm ơn bạn đã cân nhắc đóng góp cho dự án SubQuery! Cùng nhau, chúng ta có thể mở đường cho một tương lai phi tập trung hơn.
 
-> Tài liệu này được duy trì tích cực bởi nhóm SubQuery. Chúng tôi hoan nghênh những đóng góp của bạn, bạn có thể làm như vậy bằng cách phân nhánh dự án GitHub của chúng tôi và thực hiện các thay đổi đối với tất cả các tệp đánh dấu tài liệu trong thư mục `docs`.
+> Tài liệu này được duy trì tích cực bởi nhóm SubQuery. Chúng tôi hoan nghênh những đóng góp của bạn, bạn có thể làm như vậy bằng cách nhân bản dự án GitHub của chúng tôi và thực hiện các thay đổi đối với tất cả các tệp đánh dấu tài liệu trong thư mục `docs`.
 
 Sau đây là một tập hợp các nguyên tắc (không phải quy tắc) để đóng góp vào SubQuery. Việc tuân theo các nguyên tắc này sẽ giúp chúng tôi thực hiện quá trình đóng góp dễ dàng và hiệu quả cho tất cả mọi người tham gia. Nó cũng thông báo rằng bạn đồng ý tôn trọng thời gian của các nhà phát triển quản lý và phát triển dự án này. Đổi lại, chúng tôi sẽ đáp lại sự tôn trọng đó bằng cách giải quyết vấn đề của bạn, xem xét các thay đổi, cộng tác để cải tiến và giúp bạn hoàn thiện các pull requests của bạn.
 
 ## Quy tắc ứng xử
 
-Chúng tôi coi trọng các dự án và trách nhiệm cộng đồng nguồn mở của mình, đồng thời giữ bản thân và những người đóng góp khác tuân theo các tiêu chuẩn cao về giao tiếp. Bằng cách tham gia và đóng góp vào dự án này, bạn đồng ý tuân thủ [Quy tắc ứng xử](https://github.com/subquery/subql/blob/contributors-guide/CODE_OF_CONDUCT.md) của chúng tôi.
+Chúng tôi coi trọng trách nhiệm và các dự án cộng đồng mã nguồn mở của mình, đồng thời giữ bản thân và những người đóng góp khác tuân theo các tiêu chuẩn cao về giao tiếp. Bằng cách tham gia và đóng góp vào dự án này, bạn đồng ý tuân thủ [Quy tắc ứng xử](https://github.com/subquery/subql/blob/contributors-guide/CODE_OF_CONDUCT.md) của chúng tôi.
 
 ## Bắt đầu
 
@@ -36,7 +36,7 @@ Nói chung, chúng tôi tuân theo quy trình làm việc Git "fork-and-pull"
 * Chuyển tập mã nguồn vào tài khoản Github của riêng bạn
 * Sao chép dự án vào máy của bạn
 * Tạo một nhánh cục bộ với tên ngắn gọn nhưng mô tả đầy đủ
-* Cam kết các thay đổi đối với nhánh
+* Commit các thay đổi đối với nhánh
 * Tuân theo mọi nguyên tắc định dạng và kiểm tra cụ thể cho tập mã nguồn này
 * Đẩy các thay đổi đối với nhánh của bạn
 * Mở một PR trong tập mã nguồn của chúng tôi

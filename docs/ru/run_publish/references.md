@@ -21,11 +21,11 @@ COMMANDS
 
 Эта команда использует webpack для создания пакета проекта subquery.
 
-| Параметры          | Описание                                                  |
-| ------------------ | --------------------------------------------------------- | ----------- | ---- | ----------------------- |
-| -l, --location     | локальная папка проекта subquery (если вы еще не в папке) |
-| -o, --output       | указать выходную папку сборки, например build-folder      |
-| --mode=(production | prod                                                      | development | dev) | [ default: production ] |
+| Параметры          | Описание                                                                                                   |
+| ------------------ | ---------------------------------------------------------------------------------------------------------- |
+| -l, --location     | локальная папка проекта subquery (если вы еще не в папке)                                                  |
+| -o, --output       | указать выходную папку сборки, например build-folder                                                       |
+| --mode=(production | prod                                                        | development | dev) | [ default: production ] |
 
 - С помощью `subql build` вы можете указать дополнительные точки входа в поле экспорта, хотя он всегда будет создавать `index.ts` автоматически
 
@@ -65,6 +65,7 @@ Options:
                                                       [boolean] [default: false]
       --profiler            Show profiler information to console output
                                                       [boolean] [default: false]
+      --subscription        Enable subscription       [boolean] [default: false]                                                     
       --network-endpoint    Blockchain network endpoint to connect      [string]
       --output-fmt          Print log as json or plain text
                                            [string] [choices: "json", "colored"]
@@ -150,6 +151,9 @@ subql-node -f . --local
 subql-node -f . --db-schema=test2
 ```
 
+### --подписка
+Это создаст триггер уведомления на сущность, что также является необходимым условием для включения функции подписки в службе запросов.
+
 ### --unsafe
 
 Проекты SubQuery обычно запускаются в изолированной программной среде javascript в целях безопасности, чтобы ограничить сферу доступа, который проект имеет к вашей системе. Песочница ограничивает доступный импорт javascript следующими модулями:
@@ -160,7 +164,7 @@ subql-node -f . --db-schema=test2
 
 Хотя это повышает безопасность, мы понимаем, что это ограничивает доступную функциональность вашего SubQuery. Команда `--unsafe` импортирует все модули javascript по умолчанию, что значительно увеличивает функциональность песочницы за счет снижения безопасности.
 
-**Обратите внимание, что команда `--unsafe` предотвратит запуск вашего проекта в сети SubQuery, и вы должны обратиться в службу поддержки, если хотите, чтобы эта команда выполнялась с вашим проектом в управляемой службе SubQuery ([project.subquery.network](https://project.subquery.network))**
+**Обратите внимание, что команда `--unsafe` не позволит запустить ваш проект в сети SubQuery, и вы должны обратиться в службу поддержки, если хотите, чтобы эта команда была запущена с вашим проектом в управляемой службе SubQuery ([project.subquery.network](https://project.subquery.network)).**
 
 ### --batch-size
 
@@ -281,7 +285,7 @@ An instance of ProjectManifestImpl has failed the validation:
 subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot"
 ```
 
-[Подробнее о том, как работает SubQuery Dictionary](../academy/tutorials_examples/dictionary.md).
+[ Подробнее о том, как работает словарь SubQuery ](../academy/tutorials_examples/dictionary.md).
 
 ### -p, --port
 
@@ -295,22 +299,23 @@ subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot
 
 ```shell
 Options:
-      --help        Show help                                          [boolean]
-      --version     Show version number                                [boolean]
-  -n, --name        Project name                             [string] [required]
-      --playground  Enable graphql playground                          [boolean]
-      --output-fmt  Print log as json or plain text
-                      [string] [choices: "json", "colored"] [default: "colored"]
-      --log-level   Specify log level to print.
-          [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
-                                                     "silent"] [default: "info"]
-      --log-path    Path to create log file e.g ./src/name.log          [string]
-      --log-rotate  Rotate log files in directory specified by log-path
+      --help          Show help                                          [boolean]
+      --version       Show version number                                [boolean]
+  -n, --name          Project name                             [string] [required]
+      --playground    Enable graphql playground                          [boolean]
+      --subscription  Enable subscription               [boolean] [default: false]   
+      --output-fmt    Print log as json or plain text
+                        [string] [choices: "json", "colored"] [default: "colored"]
+      --log-level     Specify log level to print.
+            [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
+                                                       "silent"] [default: "info"]
+      --log-path      Path to create log file e.g ./src/name.log          [string]
+      --log-rotate    Rotate log files in directory specified by log-path
                                                       [boolean] [default: false]
-      --indexer     Url that allows query to access indexer metadata    [string]
-      --unsafe      Disable limits on query depth and allowable number returned
-                    query records                                      [boolean]
-  -p, --port        The port the service will bind to                   [number
+      --indexer       Url that allows query to access indexer metadata    [string]
+      --unsafe        Disable limits on query depth and allowable number returned
+                      query records                                      [boolean]
+  -p, --port          The port the service will bind to                   [number]
 ```
 
 ### --version
@@ -344,11 +349,11 @@ Options:
 
 ### --output-fmt
 
-Смотри [--output-fmt](https://doc.subquery.network/run_publish/references.html#output-fmt)
+Смотрите [--output-fmt](https://doc.subquery.network/run_publish/references.html#output-fmt)
 
 ### --log-level
 
-Смотри [--log-level](https://doc.subquery.network/run_publish/references.html#log-level)
+Смотрите [--loglevel](https://doc.subquery.network/run_publish/references.html#log-level)
 
 ### --log-path
 
@@ -362,11 +367,15 @@ Options:
 
 Установите настраиваемый url-адрес для расположения конечных точек индексатора, служба запросов использует эти конечные точки для проверки работоспособности индексатора, метаданных и состояния готовности
 
+### --подписка
+
+Этот флаг включает [GraphQL Subscriptions](./subscription.md), для включения этой функции требуется `subql-node` также включить `--subscription`.
+
 ### --unsafe
 
 Служба запросов имеет лимит в 100 объектов для неограниченных запросов graphql. Unsafe флаг снимает это ограничение, что может вызвать проблемы с производительностью службы запросов. Вместо этого рекомендуется, чтобы запросы были [разбиты на страницы](https://graphql.org/learn/pagination/).
 
-Этот флаг также можно использовать для включения определенных функций агрегирования, включая сумму, максимум, среднее и [другие](https://github.com/graphile/pg-aggregates#aggregates).
+Этот флаг позволяет использовать некоторые функции агрегирования, включая sum, max, avg и другие. Подробнее об этой возможности [здесь](./aggregate.md)
 
 Они отключены по умолчанию из-за ограничения сущностей.
 

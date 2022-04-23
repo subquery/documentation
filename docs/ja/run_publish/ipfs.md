@@ -1,44 +1,44 @@
-# Hosting Proyek menggunakan IPFS
+# IPFSを使用してプロジェクトをホスティングする
 
-Panduan ini berfungsi melalui cara memublikasikan proyek SubQuery lokal ke [IPFS](https://ipfs.io/) dan menerapkannya di infrastruktur hosting kami.
+このガイドでは、ローカルの SubQuery プロジェクトを [IPFS](https://ipfs.io/) に公開し、ホスティングインフラストラクチャにデプロイする方法について説明します。
 
-Hosting proyek di IPFS membuatnya tersedia untuk semua orang dan mengurangi ketergantungan Anda pada layanan terpusat seperti GitHub.
+IPFSにプロジェクトをホストすることで、すべての人が利用できるようになり、GitHubのような中央集権的なサービスへの依存を減らすことができます。
 
-## Persyaratan
+## 要件
 
-- `@subql/cli` versi 0.21.0 atau lebih tinggi.
-- Manifes `specVersion` 0.2.0 dan yang lebih baru.
-- Siapkan [SUBQL_ACCESS_TOKEN](#prepare-your-subql-access-token) Anda.
-- Untuk memastikan penerapan Anda berhasil, kami sangat menyarankan agar Anda membangun proyek Anda dengan perintah `subql build`, dan mengujinya secara lokal sebelum memublikasikannya.
+- `@subql/cli` バージョン 0.21.0 以上。
+- マニフェスト `specVersion` 0.2.0 以上。
+- [SUBQL_ACCESS_TOKEN](#prepare-your-subql-access-token) を準備すること。
+- デプロイを確実に成功させるために、`subql build` コマンドでプロジェクトをビルドし、公開する前にローカルでテストすることを強くお勧めします。
 
-## Siapkan SUBQL_ACCESS_TOKEN Anda
+## SUBQL_ACCESS_TOKENを準備する
 
-- Langkah 1: Buka [Proyek SubQuery](https://project.subquery.network/) dan masuk.
-- Langkah 2: Klik profil Anda di kanan atas menu navigasi, lalu klik **_Refresh Token_**
-- Langkah 3: Salin token yang dihasilkan.
-- Langkah 4: Untuk menggunakan token ini:
-  - Opsi 1: Tambahkan SUBQL_ACCESS_TOKEN di variabel lingkungan Anda. `EXPORT SUBQL_ACCESS_TOKEN=<token>`
-  - Opsi 2: Segera hadir, `subql/cli` akan mendukung penyimpanan SUBQL_ACCESS_TOKEN Anda secara lokal.
+- ステップ 1: [SubQuery Projects](https://project.subquery.network/) に移動してログインします。
+- ステップ 2: ナビゲーションメニューの右上にあるプロフィールをクリックし、 **_Refresh Token_** をクリックします
+- ステップ 3: 生成されたトークンをコピーします。
+- ステップ 4: このトークンを使用するには:
+  - オプション1:環境変数に SUBQL_ACCESS_TOKENを追加します。 `EXPORT SUBQL_ACCESS_TOKEN=<token>`
+  - オプション 2: 近日中に `subql/cli` が SUBQL_ACCESS_TOKEN をローカルに保存することをサポートする予定です。
 
-## Cara mempublikasikan proyek
+## プロジェクトを公開する方法
 
-Kami menyediakan dua metode untuk mempublikasikan proyek Anda,
+プロジェクトを公開するには2つの方法があります。
 
-### Pilihan 1:
+### オプション1:
 
-Karena Anda telah menginstal `@subql/cli`, Anda dapat menjalankan perintah berikut, yang akan membaca proyek dan informasi yang diperlukan dari manifes default `project.yaml`
+すでに `@subql/cli` がインストールされているので、以下のコマンドを実行すると、プロジェクトとそのデフォルトマニフェスト `project.yaml` から必要な情報を読み込むことができます。
 
 ```
-// Publikasikan dari direktori root proyek Anda
+// Publish it from your project's root directory
 subql publish
 
-// ATAU arahkan ke root proyek Anda
+// OR point to your project root
 subql publish -f ~/my-project/
 ```
 
-### Pilihan 2:
+### オプション2:
 
-Atau, misalkan proyek Anda memiliki beberapa file Manifes, misalnya Anda mendukung beberapa jaringan tetapi berbagi pemetaan dan logika bisnis yang sama, dan memiliki struktur proyek sebagai berikut:
+または、プロジェクトに複数のマニフェストファイルがあるとします。 たとえば、複数のネットワークをサポートしていますが、同じマッピングとビジネスロジックを共有し、以下のようにプロジェクト構造を持っています:
 
 ```
 L projectRoot
@@ -49,36 +49,36 @@ L projectRoot
  ...
 ```
 
-Anda selalu dapat memublikasikan proyek dengan file manifes yang Anda pilih.
+選択したマニフェストファイルを使用してプロジェクトをいつでも公開できます
 
 ```
- # Ini akan menerbitkan dukungan proyek pengindeksan jaringan Polkadot
+ # This will publish project support indexing Polkadot network
 subql publish -f ~/my-projectRoot/polkadot.yaml
 ```
 
-## Setelah diterbitkan
+## 公開した後
 
-Setelah berhasil memublikasikan proyek, log di bawah menunjukkan bahwa proyek dibuat di klaster IPFS dan telah mengembalikan `CID` (pengidentifikasi konten).
+プロジェクトを正常に公開した後 以下のログは、プロジェクトが IPFS クラスターで作成され、 `CID` (コンテンツ識別子) を返したことを示しています。
 
 ```
-Kode bangunan dan pengepakan... selesai
-Mengunggah proyek SupQuery ke IPFS
-Proyek SubQuery yang diunggah ke IPFS: QmZ3q7YZSmhwBiot4PQCK3c7Z6HkteswN2Py58gkkZ8kNd //CID
+Building and packing code... done
+Uploading SupQuery project to IPFS
+SubQuery Project uploaded to IPFS: QmZ3q7YZSmhwBiot4PQCK3c7Z6HkteswN2Py58gkkZ8kNd  //CID
 ```
 
-Harap perhatikan `CID` ini. Harap perhatikan `CID` ini
+この `CID` に注意してください。 この `CID`を使用すると、公開されたプロジェクトを [IPFS Deployment](#ipfs-deployment) と呼びます。
 
 ## IPFS Deployment
 
-Penyebaran IPFS mewakili keberadaan proyek SubQuery yang independen dan unik pada jaringan yang terdesentralisasi. Oleh karena itu, setiap perubahan dengan kode dalam proyek akan mempengaruhi keunikannya. Jika Anda perlu menyesuaikan logika bisnis Anda, mis. mengubah fungsi pemetaan, Anda harus memublikasikan ulang proyek, dan `CID` akan berubah.
+IPFS Deploymentは、分散ネットワーク上のSubQueryプロジェクトの独立したユニークな存在を表します。 そのため、プロジェクト内のコードに変更があると、そのユニーク性に影響が出ます。 ビジネスロジックを調整する必要がある場合、例えばマッピング機能を変更する場合は、プロジェクトを再発行する必要があり、 `CID` が変更されます。
 
-Untuk saat ini, untuk melihat proyek yang telah Anda publikasikan, gunakan alat api `REST` seperti [Tukang Pos](https://web.postman.co/), dan gunakan metode `POST` dengan URL contoh berikut untuk mengambilnya. `https://subquery.network/ipfs/api/v0/cat?arg=<YOUR_PROJECT_CID>`
+とりあえず公開したプロジェクトを見るには、[Postman](https://web.postman.co/)などの `REST` apiツールを使い、以下のサンプルURLで `POST` メソッドを使用して取得します。 `https://ipfs.subquery.network/ipfs/api/v0/cat?arg=<YOUR_PROJECT_CID>`
 
-Anda akan melihat contoh penerapan proyek seperti di bawah ini:
+以下のように、プロジェクトのデプロイ例が表示されます。
 
-Penerapan ini terlihat sangat mirip dengan file manifes Anda. Anda dapat mengharapkan bidang deskriptif tersebut, dan titik akhir jaringan dan kamus telah dihapus karena tidak secara langsung memengaruhi hasil eksekusi proyek.
+このデプロイメントはマニフェストファイルによく似ています。 それらの記述フィールドを期待することができ、ネットワークとディクショナリーのエンドポイントは、プロジェクトの実行結果に直接影響しないため、削除されました。
 
-File-file tersebut telah digunakan dalam proyek lokal Anda telah dikemas dan dipublikasikan ke IPFS juga.
+ローカルプロジェクトで使用されたファイルは、IPFSにもパックされて公開されています。
 
 ```yaml
 dataSources:
@@ -103,14 +103,14 @@ schema:
 specVersion: 0.2.0
 ```
 
-## Jalankan proyek SubQuery Anda di Layanan yang Dihosting
+## ホストされたサービスでSubQueryプロジェクトを実行する
 
-### Buat proyek dengan penerapan IPFS
+### IPFS Deploymentでプロジェクトを作成する
 
-Anda dapat mengikuti panduan untuk [Memublikasikan proyek SubQuery Anda](publish.md) tetapi di mana Anda mengatur sumber penerapan Anda, Anda dapat memilih **IPFS**.
+ガイドに従って、 [SubQuery プロジェクトの公開](publish.md) を参照してください。ただし、デプロイソースを設定する場合は、 **IPFS** を選択できます。
 
-Kemudian pilih slot produksi Anda, salin dan tempel CID penerapan IPFS Anda (tanpa awalan `ipfs://`).
+次に、本番用環境を選択し、IPFS Deploymentの CID（先頭の `ipfs://` を除く）をコピーして貼り付けます。
 
-Anda akan melihat penerapan IPFS di bagian pratinjau. Dan Anda dapat memilih jaringan, titik akhir kamus, dll.
+プレビューセクションにIPFS Deploymentが表示されます。 ネットワーク、ディクショナリのエンドポイントなどを選択できます。
 
-Setelah berhasil menyebarkan penerapan IPFS pada layanan yang dihosting kami, itu harus tersedia untuk dilihat di SubQuery Explorer, Anda dapat mengakses layanan kueri seperti yang Anda lakukan secara lokal.
+ホストされたサービスにIPFSデプロイメントを正常にデプロイした後。 SubQueryエクスプローラで表示することができ、ローカルで行うようにクエリーサービスにアクセスできます。

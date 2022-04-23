@@ -4,7 +4,7 @@ Ce guide explique comment publier un projet local SubQuery sur [IPFS](https://ip
 
 Héberger un projet dans IPFS le rend disponible pour tous et réduit votre dépendance à des services centralisés comme GitHub.
 
-## Exigences
+## Conditions requises
 
 - `@subql/cli` version 0.21.0 ou supérieure.
 - Manifest `specVersion` 0.2.0 ou supérieure.
@@ -14,7 +14,7 @@ Héberger un projet dans IPFS le rend disponible pour tous et réduit votre dép
 ## Préparez votre SUBQL_ACCESS_TOKEN
 
 - Étape 1 : Allez sur [SubQuery Projects](https://project.subquery.network/) et connectez-vous.
-- Étape 2 : Cliquez sur votre profil en haut à droite du menu de navigation, puis cliquez sur **_Refresh Token_**
+- Étape 2 : Cliquez sur votre profil en haut à droite du menu de navigation, puis cliquez sur **_Refresh Token_**.
 - Étape 3 : Copiez le jeton généré.
 - Étape 4 : Pour utiliser ce jeton :
   - Option 1 : Ajoutez SUBQL_ACCESS_TOKEN dans vos variables d'environnement. `EXPORT SUBQL_ACCESS_TOKEN=<token>`
@@ -29,10 +29,9 @@ Nous proposons deux méthodes pour publier votre projet,
 Comme vous avez déjà installé `@subql/cli`, vous pouvez exécuter la commande suivante, qui lira le projet et les informations requises à partir de son manifeste par défaut `project.yaml`.
 
 ```
-// Publish it from your project's root directory
-subql publish
+// Publiez-le depuis le répertoire racine de votre projet subql publish
 
-// OR point to your project root
+// OU pointer vers votre projet root
 subql publish -f ~/my-project/
 ```
 
@@ -72,7 +71,7 @@ Veuillez noter ce `CID`. Avec ce `CID`, vous pouvez voir votre projet publié co
 
 Le déploiement IPFS représente une existence indépendante et unique d'un projet SubQuery sur un réseau décentralisé. Par conséquent, toute modification du code du projet affectera son caractère unique. Si vous devez ajuster votre logique commerciale, par exemple modifier la fonction de mappage, vous devez republier le projet, et le `CID` changera.
 
-Pour l'instant, pour visualiser le projet que vous avez publié, utilisez un outil d'api `REST` tel que [Postman](https://web.postman.co/), et utilisez la méthode `POST` avec l'exemple d'URL suivant pour le récupérer. `https://subquery.network/ipfs/api/v0/cat?arg=<YOUR_PROJECT_CID>`
+Pour l'instant, pour visualiser le projet que vous avez publié, utilisez un outil d'api `REST` tel que [Postman](https://web.postman.co/), et utilisez la méthode `POST` avec l'exemple d'URL suivant pour le récupérer. `https://ipfs.subquery.network/ipfs/api/v0/cat?arg=<YOUR_PROJECT_CID>`
 
 Vous devriez voir l'exemple de déploiement de projet ci-dessous :
 

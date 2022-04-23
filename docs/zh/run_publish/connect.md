@@ -8,9 +8,4 @@
 
 ![SubQuery Explorer 中的项目](/assets/img/projects-explorer.png)
 
-# 关于GraphQL的更多信息
-
-您可以关注 [官方GraphQL指南](https://graphql.org/learn/) 来了解 GraphQL的更多消息、工作原理及应用方法：
-- 这里提供了一些库，可以帮助您以 [多种不同语言来使用 GraphQL](https://graphql.org/code/)
-- 更多的深入学习体验教程，请参阅 [如何GraphQL](https://www.howtographql.com/)。
-- 看看免费在线课程， [Exploring GraphQL: A Query Language for API](https://www.edx.org/course/exploring-graphql-a-query-language-for-apis)。
+[了解更多关于 GraphQL 查询语言的信息。](./graphql.md)

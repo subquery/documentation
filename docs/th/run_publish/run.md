@@ -4,9 +4,9 @@
 
 ## การใช้กับ Docker
 
-ทางเลือกหนึ่ง คือการรัน <strong>Docker Container</strong> ซึ่งกำหนดจากไฟล์ `docker-compose.yml` สำหรับโปรเจ็กต์ใหม่ที่เพิ่งเริ่มต้น คุณไม่จำเป็นต้องเปลี่ยนแปลงอะไรในส่วนนี้
+ทางเลือกหนึ่ง คือการรัน <strong>Docker Container</strong> ซึ่งกำหนดจากไฟล์ `docker-compose.yml` สำหรับโปรเจกต์ใหม่ที่เพิ่งเริ่มต้น คุณไม่จำเป็นต้องเปลี่ยนแปลงอะไรในส่วนนี้
 
-ให้รันคำสั่งต่อไปนี้ ภายใต้ไดเร็กทอรีของโปรเจ็กต์:
+ให้รันคำสั่งต่อไปนี้ ภายใต้ไดเร็กทอรีของโปรเจกต์:
 
 ```shell
 docker-compose pull && docker-compose up
@@ -41,7 +41,7 @@ subql-node <command>
 
 คำสั่งต่อไปนี้จะช่วยคุณในการตั้งค่าโหนด SubQuery ให้เสร็จสมบูรณ์และเริ่มการ index หากต้องการข้อมูลเพิ่มเติม คุณสามารถรันคำสั่ง `--help` ได้ตลอดเวลา
 
-#### ชี้ไปที่ local path ของโปรเจ็กต์
+#### ชี้ไปที่ local path ของโปรเจกต์
 
 ```
 subql-node -f your-project-path
@@ -49,7 +49,7 @@ subql-node -f your-project-path
 
 #### การใช้ Dictionary
 
-การใช้ full chain dictionary สามารถเร่งการประมวลผลโปรเจ็กต์ SubQuery ได้อย่างมาก ทั้งในระหว่างการทดสอบหรือระหว่างการ index ครั้งแรกของคุณ ในบางกรณี เราพบว่าประสิทธิภาพการ index เพิ่มขึ้นถึง 10 เท่า
+การใช้ full chain dictionary สามารถเร่งการประมวลผลโปรเจกต์ SubQuery ได้อย่างมาก ทั้งในระหว่างการทดสอบหรือระหว่างการ index ครั้งแรกของคุณ ในบางกรณี เราพบว่าประสิทธิภาพการ index เพิ่มขึ้นถึง 10 เท่า
 
 chain dictionary แบบเต็มรูปแบบจะทำการ index ข้อมูลตำแหน่งเหตุการณ์และปัจจัยภายนอกทั้งหมดที่เกิดขึ้นภายในแต่ละเฉพาะ chain ไว้ล่วงหน้า ช่วยให้โหนดของคุณสามารถข้ามไปยังตำแหน่งที่เกี่ยวข้องเมื่อมีการ index แทนที่จะตรวจสอบทีละบล็อก
 
@@ -109,7 +109,7 @@ subql-node -f your-project-path --local
 
 เพื่อจุดประสงค์ในการ debug ผู้ใช้สามารถเรียกใช้โหนดในโหมด local ได้ การเปลี่ยนไปใช้โหมด local จะสร้างตาราง Postgres ใน `public` ซึ่งเป็น default schema
 
-หากไม่ได้ใช้โหมด local, Postgres schema ใหม่ที่มี `subquery_` เริ่มต้นและตารางโปรเจ็กต์ที่เกี่ยวข้องจะถูกสร้างขึ้น
+หากไม่ได้ใช้โหมด local, Postgres schema ใหม่ที่มี `subquery_` เริ่มต้นและตารางโปรเจกต์ที่เกี่ยวข้องจะถูกสร้างขึ้น
 
 #### ตรวจสอบสถานะความสมบูรณ์ของโหนดของคุณ
 
@@ -162,7 +162,7 @@ subql-node -f your-project-path --local
 }
 ```
 
-#### การ debug โปรเจ็กต์ของคุณ
+#### การ debug โปรเจกต์ของคุณ
 
 ใช้ [node inspector](https://nodejs.org/en/docs/guides/debugging-getting-started/) เพื่อเรียกใช้คำสั่งต่อไปนี้
 
@@ -178,9 +178,7 @@ Debugger listening on ws://127.0.0.1:9229/56156753-c07d-4bbe-af2d-2c7ff4bcc5ad
 For help, see: https://nodejs.org/en/docs/inspector
 Debugger attached.
 ```
-
-จากนั้นเปิดเครื่องมือ Chrome dev ไปที่ Source > Filesystem และเพิ่มโปรเจ็กต์ของคุณลงในเวิร์กสเปซ แล้วเริ่มการ debug ดูรายละเอียดเพิ่มเติมได้ที่ [วิธี debug โปรเจ็กต์ SubQuery](https://doc.subquery.network/academy/tutorials_examples/debug-projects/)
-
+จากนั้นเปิดเครื่องมือ Chrome dev ไปที่ Source > Filesystem และเพิ่มโปรเจกต์ของคุณลงในเวิร์กสเปซ แล้วเริ่มการ debug ดูรายละเอียดเพิ่มเติมได้ที่ [วิธี debug โปรเจกต์ SubQuery](../academy/tutorials_examples/debug-projects.md)
 ## การรัน Query Service (subql/query)
 
 ### การติดตั้ง
@@ -196,6 +194,6 @@ npm install -g @subql/query
 
 ``` export DB_HOST=localhost subql-query --name <project_name> --playground ````
 
-ตรวจสอบให้แน่ใจว่าชื่อโปรเจ็กต์นี้ตรงกับชื่อโปรเจ็กต์เมื่อคุณ [เริ่มต้นโปรเจ็กต์](../quickstart/quickstart.md#initialise-the-starter-subquery-project) ตรวจสอบ environment variables ด้วยว่าถูกต้องหรือไม่
+ตรวจสอบให้แน่ใจว่าชื่อโปรเจกต์นี้ตรงกับชื่อโปรเจกต์เมื่อคุณ [เริ่มต้นโปรเจกต์](../quickstart/quickstart.md#initialise-the-starter-subquery-project) ตรวจสอบ environment variables ด้วยว่าถูกต้องหรือไม่
 
 หลังจากรัน service subql-query สำเร็จแล้ว ให้เปิดเบราว์เซอร์ของคุณ แล้วไปที่ `http://localhost:3000` คุณควรเห็น GraphQL playground แสดงใน explorer และ schemas ที่พร้อมสำหรับการ query

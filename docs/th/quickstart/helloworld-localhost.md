@@ -1,6 +1,6 @@
 # Hello World (localhost & Docker)
 
-ยินดีต้อนรับ quick start ของ SubQuery Hello World การ quick start มีจุดมุ่งหมายเพื่อแสดงให้คุณเห็นว่าจะใช้ starter project ที่ได้รับต้นเพื่อรันใน Docker ได้อย่างไรในไม่กี่ขั้นตอนง่ายๆ
+ยินดีต้อนรับ quick start ของ SubQuery Hello World การ quick start มีจุดมุ่งหมายเพื่อแสดงให้เห็นวิธีการใช้ starter project เพื่อรันใน Docker ได้อย่างไรในไม่กี่ขั้นตอนง่ายๆ
 
 ## วัตถุประสงค์การเรียนรู้
 
@@ -9,7 +9,7 @@
 - ทำความเข้าใจข้อกำหนดเบื้องต้นที่จำเป็น
 - เข้าใจคำสั่งทั่วไปพื้นฐาน
 - สามารถไปยัง localhost:3000 และดู playground ได้
-- รัน query อย่างง่ายเพื่อ get ค่า block height ของเครือข่าย Polkadot mainnet โดยใช้ Playground
+- รัน query อย่างง่ายเพื่อ get ค่า block height ของเครือข่าย Polkadot mainnet
 
 ## กลุ่มเป้าหมาย
 
@@ -51,15 +51,15 @@ My subql version is: @subql/cli/0.9.3 darwin-x64 node-v16.3.0
 My docker version is: Docker version 20.10.5, build 55c4c88
 ```
 
-หากคุณได้รับดังข้างต้น แสดงว่าคุณพร้อมแล้ว หากไม่เป็นเช่นนั้น ให้ทำตามลิงก์เหล่านี้เพื่อติดตั้ง:
+หากคุณได้รับดังข้างต้น แสดงว่าคุณพร้อมแล้วสำหรับขั้นต่ำต่อไป หากไม่เป็นเช่นนั้น ให้ทำตามลิงก์เหล่านี้เพื่อติดตั้ง:
 
 - [yarn](https://classic.yarnpkg.com/en/docs/install/) หรือ [npm](https://www.npmjs.com/get-npm)
 - [SubQuery CLI](quickstart.md#install-the-subquery-cli)
 - [Docker](https://docs.docker.com/get-docker/)
 
-## 1. เริ่มต้นโปรเจ็กต์
+## 1. เริ่มต้นโปรเจกต์
 
-ขั้นตอนแรกในการเริ่มต้นกับ SubQuery คือการเรียกใช้คำสั่ง `subql init` โดยเริ่มต้นโปรเจ็กต์ด้วยชื่อ `subqlHelloWorld` โปรดทราบว่า มีเพียง author เท่านั้นที่จำเป็น อย่างอื่นที่เหลือว่างไว้ ดังแสดงด้านล่าง
+ขั้นตอนแรกในการเริ่มต้นกับ SubQuery คือการเรียกใช้คำสั่ง `subql init` โดยเริ่มต้นโปรเจกต์ด้วยชื่อ `subqlHelloWorld` โปรดทราบว่า มีเพียง author เท่านั้นที่จำเป็น อย่างอื่นที่เหลือให้เว้นว่างไว้
 
 ```shell
 > subql init subqlHelloWorld
@@ -144,7 +144,7 @@ $ tsc -b
 
 ## 5. รัน Docker
 
-การใช้ Docker ช่วยให้คุณเรียกใช้ตัวอย่างนี้ได้อย่างรวดเร็ว เนื่องจากโครงสร้างพื้นฐานที่จำเป็นทั้งหมดมีการจัดเตรียมไว้ในอิมเมจ Docker แล้ว รัน `docker-compose pull && docker-compose up`
+การใช้ Docker ช่วยให้คุณเรียกใช้ตัวอย่างนี้ได้อย่างรวดเร็ว เนื่องจากโครงสร้างพื้นฐานที่จำเป็นทั้งหมดมีการจัดเตรียมไว้ใน Docker image แล้ว รัน `docker-compose pull && docker-compose up`
 
 สิ่งนี้จะนำพาทุกอย่างให้ทำงาน ซึ่งในที่สุดคุณจะได้รับบล็อก
 
@@ -166,7 +166,7 @@ graphql-engine_1  | 2021-06-05T22:20:43.244Z <express> INFO request completed
 
 ## 6. การเรียกใช้ playground
 
-ไปที่ http://localhost:3000/ และวาง query ที่ด้านซ้ายของหน้าจอ จากนั้นกดปุ่ม play
+ไปที่ http://localhost:3000/ และคัดลอก query ด้านล่างไปใส่ที่ด้านซ้ายของหน้าจอ จากนั้นกดปุ่ม play
 
 ```
 {

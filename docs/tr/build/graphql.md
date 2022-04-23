@@ -144,12 +144,12 @@ Alan türünün birden çok varlık içerdiğini belirtmek için köşeli ayraç
 ```graphql
 kişi @entity { yazın
   id: Kimlik!
-  hesaplar: [Hesap] 
+  hesaplar: [Hesap]! @deriveFrom(field: "person") #Bu sanal alandır
 }
 
-Hesap @entity { yazın
-  id: Kimlik!
-  publicAddress: Dize!
+Hesap @varlığı yazın {
+      id: ID!
+  kişi: Kişi!
 }
 ```
 
@@ -168,11 +168,10 @@ Diğer iki varlığı bağlamak için bir eşleme varlığı uygulanarak çok-ç
 kişi @entity { yazın
   id: Kimlik!
   name: String!
-  gruplar: [PersonGroup]
 }
 
-Type PersonGroup @entity {
-  id: Kimlik!
+PersonGroup @entity { yazın
+id: ID!
   kişi: Kişi!
   Grup: Grup!
 }
@@ -180,7 +179,6 @@ Type PersonGroup @entity {
 Grup @entity { yazın
   id: Kimlik!
   name: String!
-  persons: [PersonGroup]
 }
 ```
 

@@ -14,7 +14,7 @@ COMMANDS
   init      Inicializar un proyecto de subquery de andamio
   migrate  Migra el manifiesto del proyecto de subquery v0.0.1 a v0.2.0
   publish   Cargue este proyecto SubQuery a IPFS
-  validate  Verifique que una carpeta o un repositorio de github sea un proyecto de subconsulta validado
+  validate  Verifique que una carpeta o un repositorio de github sea un proyecto de subquery validado
 ```
 
 ### compilar
@@ -22,10 +22,10 @@ COMMANDS
 Este comando utiliza webpack para generar un paquete de un proyecto de subconsulta.
 
 | Opciones           | Descripción                                                                   |
-| ------------------ | ----------------------------------------------------------------------------- | ---------- | ---- | ------------------------------ |
+| ------------------ | ----------------------------------------------------------------------------- |
 | -l, --location     | carpeta local del proyecto de subconsultas (si aún no está en la carpeta)     |
 | -o, --output       | especificar carpeta de salida de compilación, p. ej., carpeta de construcción |
-| --mode=(producción | prod                                                                          | desarrollo | dev) | [ predeterminado: producción ] |
+| --mode=(producción | prod | desarrollo | dev) | [ predeterminado: producción ]                     |
 
 - Con `subql build` puedes especificar puntos de entrada adicionales en el campo de exportación, aunque siempre construirá `index.ts` automáticamente
 
@@ -65,6 +65,7 @@ Options:
                                                       [boolean] [default: false]
       --profiler            Show profiler information to console output
                                                       [boolean] [default: false]
+      --subscription        Enable subscription       [boolean] [default: false]                                                     
       --network-endpoint    Blockchain network endpoint to connect      [string]
       --output-fmt          Print log as json or plain text
                                            [string] [choices: "json", "colored"]
@@ -150,6 +151,9 @@ Esta bandera le permite proporcionar un nombre para el esquema de base de datos 
 subql-node -f . --db-schema=test2
 ```
 
+### --suscripción
+Esto creará un disparador de notificación en la entidad, este también es el prerrequisito para habilitar la función de suscripción en el servicio de consultas.
+
 ### --inseguro
 
 Los proyectos de SubQuery se ejecutan normalmente en un entorno de pruebas javascript para la seguridad que limita el alcance del acceso que tiene el proyecto a su sistema. El entorno de pruebas limita las importaciones disponibles de javascript a los siguientes módulos:
@@ -160,7 +164,7 @@ Los proyectos de SubQuery se ejecutan normalmente en un entorno de pruebas javas
 
 Aunque esto mejora la seguridad, entendemos que esto limita la funcionalidad disponible de su SubQuery. El comando `--unsafe` importa todos los módulos javascript por defecto, lo que aumenta enormemente la funcionalidad sandbox con el ajuste de seguridad decreciente.
 
-**Ten en cuenta que el comando `--unsafe` evitará que tu proyecto se ejecute en SubQuery Network, y debe ponerse en contacto con el soporte técnico si desea que este comando se ejecute con su proyecto en el servicio administrado de SubQuery ([proyecto. ubquery.network](https://project.subquery.network))**
+**Ten en cuenta que el comando `--unsafe` evitará que tu proyecto se ejecute en SubQuery Network, y debe ponerse en contacto con el soporte técnico si desea que este comando se ejecute con su proyecto en el servicio administrado de SubQuery ([proyecto.subquery.network](https://project.subquery.network))**
 
 ### --batch-size
 
@@ -219,7 +223,7 @@ Tenga en cuenta que esto también debe establecerse en el archivo manifiesto, de
 ERROR ¡Error al crear proyecto de subquery de una ruta dada! Error: falló al analizar project.yaml.
 Una instancia de ProjectManifestImpl ha fallado la validación:
  - la red de propiedades ha fallado las siguientes restricciones: isObject
- - red de propiedades. etwork ha fallado las siguientes restricciones: validación anidada
+ - red de propiedades network.network ha fallado las siguientes restricciones: validación anidada
 ```
 
 ### --output-fmt
@@ -281,7 +285,7 @@ Normalmente esto se establecería en el archivo manifest pero a continuación mu
 subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot"
 ```
 
-Dependiendo de la configuración de su base de datos de Postgres (por ejemplo, una contraseña de base de datos diferente), asegúrese también de que tanto el indexador (`subql / node`) como el servicio de consulta (`subql / query`) puede establecer una conexión con él.
+[Lea más sobre cómo funciona un Diccionario de SubQuery](../academy/tutorials_examples/dictionary.md).
 
 ### -p, --puerto
 
@@ -294,23 +298,24 @@ El puerto al que se une el servicio de indexación de subconsultas. Por defecto 
 Esto muestra las opciones de ayuda.
 
 ```shell
-Ns:
-      --help        Show help                                          [boolean]
-      --version     Show version number                                [boolean]
-  -n, --name        project name                             [string] [required]
-      --playground  enable graphql playground                          [boolean]
-      --output-fmt  Print log as json or plain text
-                      [string] [choices: "json", "colored"] [default: "colored"]
-      --log-level   Specify log level to print.
-          [string] [opciones: "fatal", "error", "warn", "info", "debug", "trace",
-                                                     "silent"] [por defecto: "info"]
+Opciones:
+      --help Mostrar ayuda                                          [boolean]
+      --version Mostrar número de versión                                [boolean]
+  -n, --name Project name                             [string] [required]
+      --playground Enable graphql playground                          [boolean]
+      --subscription Enable subscription               [boolean] [default: false]   
+      --output-fmt Print log as json or plain text
+                        [string] [choices: "json", "colored"] [default: "colored"]
+      --log-level Especifique el nivel de registro para imprimir.
+            [string] [opciones: "fatal", "error", "warn", "info", "debug", "trace",
+                                                       "silent"] [por defecto: "info"]
       --log-path Path para crear archivo de registro e. ./src/name. og          [string]
       --log-rotate log files in directory specified by log-path
                                                       [boolean] [default: false]
       --indexer Url that allows query to access indexer metadata    [string]
       --unsafe disable limits on query depth and allowable number returned
-                    query records                                      [boolean]
-  -p, --port El puerto al que el servicio se enlazará [número
+                      query records                                      [boolean]
+  -p, --port El puerto que el servicio enlazará a                   [number]
 ```
 
 ### --version
@@ -362,11 +367,15 @@ Habilita las rotaciones del registro de archivos con las opciones de un interval
 
 Establecer una url personalizada para la ubicación de los extremos del índice, el servicio de consulta utiliza estos extremos para la salud del indexador, metadatos y estado de preparación
 
+### --suscripción
+
+Esta bandera habilita [Suscripciones GraphQL](./subscription.md), para activar esta función requiere `subql-node` también habilitar `--subscription`
+
 ### --inseguro
 
 El servicio de consultas tiene un límite de 100 entidades para consultas gráficql sin límites. La bandera insegura elimina este límite que puede causar problemas de rendimiento en el servicio de consultas. En su lugar, se recomienda que las consultas sean [paginadas](https://graphql.org/learn/pagination/).
 
-Esta bandera también se puede utilizar para habilitar ciertas funciones de agregación incluyendo suma, max, prog y [otros](https://github.com/graphile/pg-aggregates#aggregates).
+Este parámetro permite ciertas funciones de agregación incluyendo suma, max, prog y otros. Lea más sobre esta función [aquí](./aggregate.md)
 
 Estas están desactivadas por defecto debido al límite de entidad.
 
@@ -374,4 +383,4 @@ Estas están desactivadas por defecto debido al límite de entidad.
 
 ### --puerto
 
-El puerto al que se une el servicio de consulta de subconsultas. Por defecto se establece en `3000`
+El puerto al que se une el servicio de consulta de subquery. Por defecto se establece en `3000`

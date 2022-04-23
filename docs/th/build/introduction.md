@@ -1,20 +1,20 @@
-# การสร้างโปรเจ็กต์ SubQuery ใหม่
+# การสร้างโปรเจกต์ของ SubQuery
 
-ในคู่มือ [quick start](/quickstart/quickstart.md) พวกเราจะพาคุณเริ่มต้นจากตัวอย่างได้อย่างรวดเร็ว เพื่อให้ทราบความหมายของ SubQuery และเข้าใจถึงว่าทำงานได้อย่างไร ในที่นี้ เราจะพามาดูขั้นตอนการทำงานเมื่อคุณเริ่มสร้างโปรเจ็กต์ของคุณ และ Key files ที่คุณจะทำงานด้วย
+ในคู่มือ [quick start](/quickstart/quickstart.md) เราจะมีตัวอย่างอธิบายแบบเร็วๆ เพื่อให้รู้ถึงความหมายของ SubQuery และเข้าใจวิธีการทำงานของมัน ในส่วนนี้ เราจะพามาดูขั้นตอนการสร้างโปรเจกต์ของคุณและไฟล์สำคัญที่คุณจะต้องใช้ในขั้นตอนนี้
 
 ## ขั้นตอนการทำงานเบื้องต้น
 
-ตัวอย่างบางส่วนต่อไปนี้จะถือว่าคุณเริ่มต้นแพ็คเกจได้สำเร็จในส่วนของ [Quick start](../quickstart/quickstart.md) จากชุดเริ่มต้น พวกเราจะนำคุณผ่านกระบวนการมาตรฐานเพื่อที่จะปรับแต่ง และการนำไปใช้กับโปรเจ็กต์ SubQuery ของคุณ
+ในตัวอย่างบางส่วน จะสมมติว่าคุณได้เริ่มต้นแพ็คเกจในส่วนของ [Quick start](../quickstart/quickstart.md) สำเร็จแล้ว จากแพ็คเกจเริ่มต้น เราจะพาคุณดูขั้นตอนมาตรฐานเพื่อใช้ในการปรับแต่ง และใช้งานโปรเจกต์ SubQuery ของคุณ
 
-1. เริ่มต้นโปรเจ็กต์ของคุณโดยใช้คำสั่ง `subql init PROJECT_NAME`.
-2. อัพเดท Manifest file (`project.yaml`) เพื่อใส่ข้อมูลที่เกี่ยวกับ blockchain และ entities ที่คุณจะเชื่อมโยง โปรดดู [Manifest File](./manifest.md)
-3. สร้าง GraphQL entities ภายใน Schema ของคุณ (`schema.graphql`) เพื่อกำหนดโครงสร้างของข้อมูลที่คุณจะดึงข้อมูลออกมา โปรดดู [GraphQL Schema](./graphql.md)
-4. เพิ่ม Mapping Function (ตัวอย่าง `mappingHandlers.ts`) คุณจะสามารถแปลงข้อมูลที่อยู่บน chain ให้เป็น GraphQL entities ที่คุณกำหนดเองได้ - โปรดดู [Mapping](./mapping.md)
-5. การสร้างและเผยแพร่ Code ของคุณไปยัง SubQuery Projects (หรือรันอยู่บนเครื่องของคุณเอง) - โปรดดู [Running and Querying your Starter Project](./quickstart.md#running-and-querying-your-starter-project) ที่อยู่ใน Quick Start Guide
+1. เริ่มโปรเจกต์ของคุณโดยใช้คำสั่ง `subql init PROJECT_NAME`.
+2. อัพเดท Manifest File (`project.yaml`) เพื่อใส่ข้อมูลที่เกี่ยวกับ Blockchain และ Entity ที่คุณจะทำการ Map โปรดดูที่ [Manifest File](./manifest.md)
+3. สร้าง Entity ของ GraphQL ภายใน Schema ของคุณ (`schema.graphql`) เพื่อกำหนดโครงสร้างของข้อมูลที่คุณจะดึงข้อมูลออกมา โปรดดูที่ [GraphQL Schema](./graphql.md)
+4. เพิ่ม Mapping Function ทั้งหมด (ตัวอย่าง `mappingHandlers.ts`) ที่คุณจะเรียกใช้เพื่อแปลงข้อมูลที่อยู่บน Chain ให้เป็นของ Entity ของ GraphQL ที่คุณได้กำหนดไว้ โปรดดูที่ [Mapping](./mapping.md)
+5. การสร้างและเผยแพร่โค้ดของคุณไปยังโปรเจกต์ SubQuery (หรือรันอยู่บนโหนดของคุณเอง) โปรดดูที่ [Running and Querying your Starter Project](./quickstart.md#running-and-querying-your-starter-project) ที่อยู่ใน Quick Start Guide
 
-## โครงสร้างไดเรกทอรี
+## โครงสร้างของไดเร็กทอรี (Directory Structure)
 
-จากการเชื่อมโยงที่กำหนด จะเห็นภาพรวมของโครงสร้างโฟลเดอร์ที่ใช้ใน SubQuery project เมื่อเริ่มคำสั่ง `init`
+Map ด้านล่างนี้จะแสดงถึงเห็นภาพรวมของโครงสร้างไดเร็กทอรีของโปรเจกต์ SubQuery เมื่อใช้คำสั่ง `init`
 
 ```
 - project-name
@@ -35,21 +35,21 @@
 
 ![โครงสร้างไดเร็กทอรี SubQuery](/assets/img/subQuery_directory_stucture.png)
 
-## การสร้างรหัส
+## Code Generation
 
-เมื่อใดก็ตามที่คุณเปลี่ยนแปลง GraphQL entities คุณต้องสร้างชนิดของโฟลเดอร์ใหม่ ซึ่งประกอบด้วยคำสั่ง
+เมื่อใดก็ตามที่คุณเปลี่ยนแปลง Entity ของ GraphQL คุณต้องสร้างประเภทของไดเรกทอรีใหม่ ซึ่งประกอบด้วยคำสั่ง
 
 ```
 yarn codegen
 ```
 
-นี่จะสร้างโฟลเดอร์ใหม่ (หรืออัพเดทโฟลเดอร์เดิมที่มีอยู่) `src/types` โดยกำหนด class entity ที่ถูกสร้างสำหรับแต่ละชนิดที่คุณได้กำหนดไว้ใน `schema.graphql` Class เหล่านี้จะทำให้คุณโหลด type-safe entity ที่จะใช้สิทธิในการอ่านและเขียนลงไปในช่องข้อมูลของ entity - อ่านต่อในกระบวนการนี้ได้ใน [the GraphQL Schema](./graphql.md)
+นี่จะสร้างไดเรกทอรีใหม่ (หรืออัพเดทของเดิมที่มีอยู่) `src/types` โดยกำหนดคลาสของ Entity ที่ถูกสร้างขึ้นสำหรับแต่ละประเภทที่คุณได้กำหนดไว้ใน `schema.graphql` คลาสเหล่านี้จะให้ Type-safe Entity ที่จะให้สิทธิ์ในการ โหลด อ่านและเขียนลงไปในช่องข้อมูลของ Entity - อ่านต่อเกี่ยวกับกระบวนการนี้ได้ใน [the GraphQL Schema](./graphql.md)
 
-## การสร้าง
+## Build
 
-ในการสร้างโปรเจ็กต์ SubQuery ของคุณบนโหนด SubQuery ที่โฮสต์ในเครื่อง คุณต้องเริ่มต้นจากการสร้างงานของคุณก่อน
+ในการสร้างโปรเจ็กต์ SubQuery ของคุณบนโหนด SubQuery ที่โฮสต์บนเครื่อง คุณต้องเริ่มต้นจากการสร้างงานของคุณก่อน
 
-สร้างคำสั่งจากรูทไดเร็กทอรีของโปรเจ็กต์
+รันคำสั่งในการสร้างจากไดเร็กทอรีเริ่มต้นของโปรเจกต์
 
 <CodeGroup> <CodeGroupItem title="YARN" active> `shell yarn build ` </CodeGroupItem>
 <CodeGroupItem title="NPM"> `bash npm run-script build ` </CodeGroupItem> </CodeGroup>
@@ -58,7 +58,7 @@ yarn codegen
 
 เราสนับสนุนตัวเลือกการสร้างเพิ่มเติมสำหรับ subquery project โดยใช้ `subql build`. Text XPath: /p[10]/CodeGroup
 
-ด้วยวิธีนี้ คุณสามารถกำหนดการเข้าใช้งานเพิ่มเติมเพื่อสร้างโดยใช้ฟิลด์ package.json
+ด้วยวิธีนี้ คุณสามารถกำหนดการเข้าใช้งานเพิ่มเติมเพื่อสร้างโดยใช้ฟิลด์จาก package.json
 
 ```json
 "name": "project-name",
@@ -80,13 +80,13 @@ yarn codegen
     L index.js
 ```
 
-โปรดทราบว่าการจะสร้าง `index.ts` ไม่ว่าจะระบุไว้ในช่องการส่งออกก็ตาม
+โปรดทราบ ระบบจะสร้าง `index.ts` ไม่ว่าจะมีการระบุไว้ในฟิลด์หรือไม่
 
-สำหรับข้อมูลเพิ่มเติมเกี่ยวกับการใช้สิ่งนี้รวมถึง flags โปรดดูที่ [การอ้างอิง cli](https://doc.subquery.network/references/references/#build)
+สำหรับข้อมูลเพิ่มเติมเกี่ยวกับการใช้สิ่งนี้รวมถึง Flag ต่างๆ โปรดดูที่ [การอ้างอิง cli](https://doc.subquery.network/references/references/#build)
 
-## การบันทึก
+## Logging
 
-`console.log` **จะไม่รองรับอีกต่อไป**. โมดูล `logger` จะถูกแทนที่ลงในประเภทเดิม ซึ่งหมายความว่าเราสามารถสนับสนุน logger ที่ยอมรับการบันทึกในระบดับต่างๆ ได้
+`console.log` **จะไม่รองรับอีกต่อไป**. แต่โมดูล `logger` จะถูกแทนที่ลงไปแทน ซึ่งหมายความว่าเราสามารถรองรับ logger ที่เป็นตัวแปรในรูปแบบต่างๆ กันได้
 
 ```typescript
 logger.info("Info level message");
@@ -94,16 +94,16 @@ logger.debug("Debugger level message");
 logger.warn("Warning level message");
 ```
 
-ในการใช้ `logger.info` หรือ `logger.warn` เพียงวางคำสั่งลงในไฟล์ของคุณ
+การใช้ `logger.info` หรือ `logger.warn` ให้วางคำสั่งลงใน mapping file
 
 ![logging.info](/assets/img/logging_info.png)
 
-หากต้องการใช้ `logger.debug` จำเป็นต้องเรียกใช้ flag เพิ่มเติม เพิ่ม `--log-level=debug` ในบรรทัดคำสั่งของคุณ
+หากต้องการใช้ `logger.debug` จำเป็นต้องเรียกใช้ Flag เพิ่มเติม เพิ่ม `--log-level=debug` ในบรรทัดคำสั่งของคุณ
 
-หากคุณกำลังใช้งาน docker, ให้เพิ่มบรรทัดนี้ในไฟล์ `docker-compose.yaml` ของคุณ
+หากคุณกำลังใช้งาน Docker Container ให้เพิ่มบรรทัดนี้ในไฟล์ `docker-compose.yaml` ของคุณ
 
 ![logging.debug](/assets/img/logging_debug.png)
 
-คุณควรเห็นการบันทึกใหม่ในหน้าจอเทอร์มินัล
+คุณควรเห็นการบันทึกข้อมูลอันใหม่บน Terminal
 
 ![logging.debug](/assets/img/subquery_logging.png)

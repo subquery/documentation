@@ -8,7 +8,7 @@ Khi kết thúc phần quick start này, bạn sẽ:
 
 - hiểu các yêu cầu bắt buộc
 - hiểu các lệnh phổ biến cơ bản
-- có thể điều hướng đến localhost:3000 và xem playground
+- có thể điều hướng đến localhost:3000 và xem sân chơi
 - chạy một truy vấn đơn giản để lấy chiều cao khối của mạng chính Polkadot
 
 ## Đối tượng mục tiêu

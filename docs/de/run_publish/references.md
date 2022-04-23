@@ -22,10 +22,10 @@ BEFEHLE
 Dieser Befehl verwendet webpack, um ein Bündel eines SubQuery-Projekts zu generieren.
 
 | Optionen           | Beschreibung                                                                   |
-| ------------------ | ------------------------------------------------------------------------------ | ----------- | ---- | ------------------------ |
+| ------------------ | ------------------------------------------------------------------------------ |
 | -l, --Standort     | lokaler Ordner des SubQuery-Projekts (falls nicht bereits im Ordner vorhanden) |
 | -o, --Ausgabe      | Geben Sie den Ausgabeordner des Builds an, z. build-Ordner                     |
-| --mode=(Produktion | prod                                                                           | development | dev) | [ Standard: Produktion ] |
+| --mode=(Produktion | prod | development | dev) | [ Standard: Produktion ]                           |
 
 - Mit `subql build` können Sie zusätzliche Einstiegspunkte im Exportfeld angeben, obwohl es immer `index.ts` automatisch bauen wird
 
@@ -149,6 +149,9 @@ Dieses Flag erlaubt es Ihnen, einen Namen für das Projektdatenbank-Schema anzug
 ```shell
 subql-node -f . --db-schema=test2
 ```
+
+### --subscription
+This will create a notification trigger on entity, this also is the prerequisite to enable subscription feature in query service.
 
 ### --unsicher
 
@@ -361,6 +364,10 @@ Aktiviere Datei-Log-Rotationen mit den Optionen eines 1d-Rotationsintervalls, ma
 ### --Indexer
 
 Legen Sie eine benutzerdefinierte URL für den Speicherort der Endpunkte des Indexers fest. Der Abfragedienst verwendet diese Endpunkte für Indexerintegrität, Metadaten und Bereitschaftsstatus
+
+### --subscription
+
+This flag enables [GraphQL Subscriptions](./subscription.md), to enable this feature requires `subql-node` also enable `--subscription`
 
 ### --unsicher
 
