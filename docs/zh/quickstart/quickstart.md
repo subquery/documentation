@@ -4,7 +4,7 @@ In this Quick start guide, we're going to start with a simple starter project an
 
 在本指南的最后，您将拥有一个在 SubQuery 节点上运行的可工作 的 SubQuery 项目，该节点具有一个可以从中查询数据的 GraphQL 端点。
 
-如果您还没有准备好，我们建议您熟悉SubQuery中所使用的 [术语](../#terminology)。
+如果您还没有准备好，我们建议您熟悉 SubQuery 中所使用的 [术语](../#terminology)。
 
 **The goal of this quick start guide is to adapt the standard starter project to begin indexing all transfers from Polkadot, it should only take 10-15 minutes**
 

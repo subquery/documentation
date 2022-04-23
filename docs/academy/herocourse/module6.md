@@ -33,13 +33,12 @@ the **staking** module and the **Rewarded** method.
        method: Rewarded
 ```
 
-
 For even more performance gains, using a dictionary is also highly recommended.
 
 ## Using a dictionary
 
 The dictionary concept was introduced in previous modules (e.g. Module 5 “Overriding
-endpoints) but mentioned here again due to its importance. See [Understanding how a dictionary works](https://doc.subquery.network/tutorials_examples/dictionary/)
+endpoints) but mentioned here again due to its importance. See [Understanding how a dictionary works](https://doc.subquery.network/academy/tutorials_examples/dictionary/)
 
 ## Event & Extrinsic Names
 
@@ -58,6 +57,7 @@ The Polkadot documentation can be found at: [https://polkadot.js.org/docs/](http
 
 - Events: [https://polkadot.js.org/docs/substrate/events/](https://polkadot.js.org/docs/substrate/events/)
 - Extrinsics: [https://polkadot.js.org/docs/substrate/extrinsics/](https://polkadot.js.org/docs/substrate/extrinsics/)
+
 ### Polkadot Explorer
 
 The Polkadot blockchain explorer is also a great place to become familiar with what
@@ -84,7 +84,6 @@ exact arguments and their types. This is especially important when there are iss
 debugging is required. And finally, this is very useful when integrating with custom chains
 where sometimes documentation is not available.
 
-
 #### Connecting to the API
 
 To connect to the API, run the following:
@@ -92,27 +91,32 @@ To connect to the API, run the following:
 ```shell
 npm install --save @polkadot/api
 ```
+
 ```shell
 node --experimental-repl-await
 const { ApiPromise, WsProvider } = require(`@polkadot/api`)
 const provider = new
 WsProvider(`wss://polkadot.api.onfinality.io/public-ws`);
 ```
+
 If custom chainTypes are required:
 
 ```shell
 const types={}
 ```
+
 If types are needed:
 
 ```shell
 api = await ApiPromise.create({ provider, types});
 ```
+
 Without types:
 
 ```shell
 api = await ApiPromise.create({ provider });
 ```
+
 #### Fetching a block
 
 To get block hash at height `h`, we can get run const blockHash = await
@@ -121,29 +125,33 @@ api.rpc.chain.getBlockHash(h)
 ```shell
 const blockHash = await api.rpc.chain.getBlockHash(1234567)
 ```
+
 Then:
 
 ```shell
 const block = await api.rpc.chain.getBlock(blockHash)
 ```
+
 #### Getting extrinsics within a block
 
 To get all extrinsics:
 
-
 ```shell
 const extrinsics = block.block.extrinsics;
 ```
+
 For a particular extrinsic: (Change the 1 to a desired extrinsic number)
 
 ```shell
 const myExtrinsic = extrinsic[1];
 ```
+
 To check the args (input for transaction) types, enter:
 
 ```shell
 myExtrinsic.meta.args
 ```
+
 You should see a Vec / array. The size of the array means how many arg this extrinsics
 takes, and each arg metadata info should include 'name', 'type', 'typeName'. The `type` is
 what we are looking for. eg: 'MultiAddress' is the type interface from Polkadot/api.
@@ -157,11 +165,13 @@ with:
 ```shell
 const apiAt = await api.at(blockHash)
 ```
+
 Then:
 
 ```shell
 const events = await apiAt.query.system.events();
 ```
+
 Next, specify the specific event of interest. Eg for event number 4:
 
 ```shell
@@ -173,6 +183,7 @@ Finally, enter:
 ```shell
 myEvent.event.meta.toJSON()
 ```
+
 And you should see something like this:
 
 ```shell
@@ -187,11 +198,12 @@ And you should see something like this:
     docs: [
         'Some amount was withdrawn from the account (e.g. for transaction fees). \\[who, value\\]'
         ],
-    args: [ 
-        'AccountId32', 'u128' 
+    args: [
+        'AccountId32', 'u128'
         ]
 }
 ```
+
 ## Type Safe Properties
 
 "Type safe" usually refers to languages that ensure that an operation is working on the right
@@ -206,23 +218,24 @@ record.amount = (numberYes as Int).toNumber();
 record.bigAmount = (data as Balance).toBigInt();
 record.bool = (data as bool).valueOf();
 ```
+
 ## Logging
 
 To log data to the CLI from within the mappings functions, when a subql node is running, the
 `logger.info` command can be used:
 
-
 ```shell
 logger.info("Blockheight: " + event.block.block.header.number.toNumber());
 ```
+
 When running a subql node locally via a command line, a log level can also be added to help
-troubleshoot. See [Subql CLI logging reference](https://doc.subquery.network/references/references/#log-level)
+troubleshoot. See [Subql CLI logging reference](/run_publish/references/#log-level)
 
 ## Debugging
 
 In order to debug SubQuery projects such as stepping through code, setting breakpoints,
 and inspecting variables, you will have to use a Node.js inspector in conjunction with
-Chrome developer tools. See [How to debug a SubQuery project?](https://doc.subquery.network/tutorials_examples/debug-projects/)
+Chrome developer tools. See [How to debug a SubQuery project?](/academy/tutorials_examples/debug-projects/)
 
 To debug a local subql node, the --debug flag can also be used from the command line. Eg
 
@@ -230,14 +243,14 @@ To debug a local subql node, the --debug flag can also be used from the command 
 > subql-node -f . --debug
 ```
 
-- [Subql CLI debug reference](https://doc.subquery.network/references/references/#debug)
+- [Subql CLI debug reference](/run_publish/references/#debug)
 
 ## Changing the batch block size
 
 Using a smaller batch size can reduce memory usage and not leave users hanging for large
-queries. In other words, your application can be more responsive. See [How to change the batch block size](https://doc.subquery.network/tutorials_examples/batch-size/)
+queries. In other words, your application can be more responsive. See [How to change the batch block size](/academy/tutorials_examples/batch-size/)
 
 ## Changing the starting block
 
 Note that some events only start to occur at higher block height so one way to test a
-mapping function faster is to adjust the starting block height. See [How to start at a different block height?](https://doc.subquery.network/tutorials_examples/block-height/)
+mapping function faster is to adjust the starting block height. See [How to start at a different block height?](/academy/tutorials_examples/block-height/)

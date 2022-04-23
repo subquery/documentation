@@ -1,32 +1,32 @@
-# Hosting a Project using IPFS
+# การโฮสติ้งโปรเจกต์โดยใช้ IPFS
 
-This guide works through how to publish a local SubQuery project to [IPFS](https://ipfs.io/) and deploy it on our hosting infrastructure.
+คู่มือนี้อธิบายวิธีการเผยแพร่โปรเจกต์ SubQuery ไปยัง [IPFS](https://ipfs.io/) และปรับใช้บนโครงสร้างพื้นฐานสำหรับการโฮสติ้งของเรา
 
-Hosting a project in IPFS makes it available for all all and reduces your reliance on centralised services like GitHub.
+การโฮสติ้งโปรเจกต์ใน IPFS จะทำให้ทุกคนใช้งานได้และลดการพึ่งพาบริการแบบรวมศูนย์ เช่น GitHub
 
-## Requirements
+## สิ่งที่ต้องมี
 
-- `@subql/cli` version 0.21.0 or above.
-- Manifest `specVersion` 0.2.0 and above.
-- Get your [SUBQL_ACCESS_TOKEN](#prepare-your-subql-access-token) ready.
-- To make sure your deployment success, we strongly recommend that you build your project with the `subql build` command, and test it locally before publishing.
+- `@subql/cli` เวอร์ชั่น 0.21.0 หรือสูงกว่า
+- Manifest `specVersion` 0.2.0 หรือสูงกว่า
+- เตรียม [SUBQL_ACCESS_TOKEN](#prepare-your-subql-access-token) ของคุณให้พร้อม
+- เพื่อให้แน่ใจว่าการทำให้ใช้งานได้สำเร็จ เราขอแนะนำให้คุณสร้างโปรเจกต์ด้วยคำสั่ง `subql build` และทดสอบในเครื่องก่อนเผยแพร่
 
-## Prepare your SUBQL_ACCESS_TOKEN
+## เตรียม SUBQL_ACCESS_TOKEN. ของคุณ
 
-- Step 1: Go to [SubQuery Projects](https://project.subquery.network/) and log in.
-- Step 2: Click on your profile at the top right of the navigation menu, then click on **_Refresh Token_**
-- Step 3: Copy the generated token.
-- Step 4: To use this token:
-  - Option 1: Add SUBQL_ACCESS_TOKEN in your environment variables. `EXPORT SUBQL_ACCESS_TOKEN=<token>`
-  - Option 2: Coming soon, `subql/cli` will support storing your SUBQL_ACCESS_TOKEN locally.
+- ขั้นตอนที่ 1: ไปที่ [SubQuery Projects](https://project.subquery.network/) และเข้าสู่ระบบ
+- ขั้นตอนที่ 2: คลิกที่โปรไฟล์ของคุณที่ด้านบนขวาของเมนู จากนั้นคลิกที่ **_Refresh Token_**
+- ขั้นตอนที่ 3: คัดลอกโทเค็นที่สร้างขึ้น
+- ขั้นตอนที่ 4: ในการใช้โทเค็นนี้:
+  - ตัวเลือกที่ 1: เพิ่ม SUBQL_ACCESS_TOKEN ในตัวแปรของคุณ `EXPORT SUBQL_ACCESS_TOKEN=<token>`
+  - ตัวเลือกที่ 2: `subql/cli` จะสนับสนุนการจัดเก็บ SUBQL_ACCESS_TOKEN ของคุณ ในเร็วๆนี้
 
-## How to publish a project
+## วิธีเผยแพร่โปรเจกต์
 
-We provide two methods to publish your project,
+เรามีสองวิธีในการเผยแพร่โปรเจกต์ของคุณ
 
-### Option 1:
+### ตัวเลือกที่ 1:
 
-As you have `@subql/cli` already installed, you can run the following command, which will read the project and required information from its default manifest `project.yaml`
+เนื่องจากคุณได้ติดตั้ง `@subql/cli` แล้ว คุณสามารถเรียกใช้คำสั่งต่อไปนี้ ซึ่งจะอ่านจากโปรเจกต์และร้องขอข้อมูลจาก Manifest `project.yaml`
 
 ```
 // Publish it from your project's root directory
@@ -36,9 +36,9 @@ subql publish
 subql publish -f ~/my-project/
 ```
 
-### Option 2:
+### ตัวเลือกที่ 2:
 
-Alternatively, suppose your project has multiple Manifest files, for example you support multiple networks but share the same mapping and business logic, and have a project structure as follows:
+สมมติว่าโปรเจกต์ของคุณมีไฟล์ Manifest หลายไฟล์ ตัวอย่างเช่น คุณสนับสนุนเครือข่ายหลายเครือข่าย แต่ใช้การ Mapping, Business Logic รว่มกัน และมีโครงสร้างของโปรเจกต์ดังต่อไปนี้:
 
 ```
 L projectRoot
@@ -49,36 +49,37 @@ L projectRoot
  ...
 ```
 
-You can always publish the project with your selected manifest file.
+คุณสามารถเผยแพร่โปรเจกต์ด้วยไฟล์ Manifest ที่คุณเลือก
 
 ```
  # This will publish project support indexing Polkadot network
 subql publish -f ~/my-projectRoot/polkadot.yaml
 ```
 
-## After publish
+## หลังจากเผยแพร่
 
-After successfully publishing the project, the logs below indicate that the project was created on the IPFS cluster and have returned its `CID` (content identifier).
+หลังจากเผยแพร่โปรเจ็กต์เรียบร้อยแล้ว บันทึกด้านล่างระบุว่าโปรเจกต์ถูกสร้างขึ้นบน IPFS และส่งคืน `CID` (Content Identifier)
 
 ```
 Building and packing code... done
 Uploading SupQuery project to IPFS
 SubQuery Project uploaded to IPFS: QmZ3q7YZSmhwBiot4PQCK3c7Z6HkteswN2Py58gkkZ8kNd  //CID
+
 ```
 
-Please note this `CID`. With this `CID`, you can view your published project as what we call it [IPFS Deployment](#ipfs-deployment)
+โปรดทราบว่า `CID` นี้ ด้วย `CID` นี้ คุณสามารถดูโปรเจกต์ที่เผยแพร่ของคุณในที่นี้ เราเรียกว่า [IPFS Deployment](#ipfs-deployment)
 
-## IPFS Deployment
+## การปรับใช้ IPFS
 
-IPFS deployment represents an independent and unique existence of a SubQuery project on a decentralized network. Therefore, any changes with the code in the project will affect its uniqueness. If you need to adjust your business logic, e.g. change the mapping function, you must republish the project, and the `CID` will change.
+การปรับใช้ IPFS ทำให้โปรเจกต์ SubQuery มีความเป็นอิสระและไม่ซ้ำใครบนเครือข่ายแบบกระจายอำนาจ ดังนั้นการเปลี่ยนแปลงใด ๆ กับโค้ดในโปรเจกต์จะส่งผลต่อความเป็นเอกลักษณ์ หากคุณต้องการ Business Logic เช่น เปลี่ยน Mapping Function คุณต้องทำการเผยแพร่อีกครั้ง และ `CID` จะเปลี่ยนไป
 
-For now, to view the project you have published, use a `REST` api tool such as [Postman](https://web.postman.co/), and use `POST` method with the following example URL to retrieve it. `https://ipfs.subquery.network/ipfs/api/v0/cat?arg=<YOUR_PROJECT_CID>`
+สำหรับตอนนี้ หากต้องการดูโปรเจกต์ที่คุณเผยแพร่ ให้ใช้เครื่องมือ API `REST` เช่น [Postman](https://web.postman.co/) และใช้ `POST` ด้วย URL ตัวอย่างต่อไปนี้ `https://ipfs.subquery.network/ipfs/api/v0/cat?arg=<YOUR_PROJECT_CID>`
 
-You should see the example project deployment as below:
+คุณควรดูตัวอย่างการปรับใช้โปรเจกต์ดังต่อไปนี้:
 
-This deployment looks very similar to your manifest file. You can expect those descriptive fields, and the network and dictionary endpoint has been removed as they did not directly affect the outcome of project execution.
+การปรับใช้นี้ดูคล้ายกับไฟล์ Manifest ของคุณ คุณสามารถเลือกใช้ฟิลด์คำอธิบาย, เครือข่าย และ Dictionary Endpoint จะถูกลบออกและ ผลลัพธ์จะไม่ส่งผลกระทบโดยตรงต่อการดำเนินการของโปรเจกต์
 
-Those files been used in your local project has been packed and published to IPFS as well.
+ไฟล์เหล่านั้นถูกใช้ในโปรเจกต์ของคุณ และจะได้รับการเผยแพร่ไปยัง IPFS ด้วย
 
 ```yaml
 dataSources:
@@ -103,14 +104,14 @@ schema:
 specVersion: 0.2.0
 ```
 
-## Run your SubQuery project on Hosted Service
+## รันโปรเจกต์ SubQuery ของคุณบน Hosted Service
 
-### Create project with IPFS deployment
+### สร้างโปรเจกต์ด้วยการปรับใช้ IPFS
 
-You can follow the guide to [Publish your SubQuery project](publish.md) but where you set your deployment source you can select **IPFS**.
+คุณสามารถทำตามคำแนะนำเพื่อ [Publish your SubQuery project](publish.md) และเลือกการตั้งค่าจากแหล่งที่มา **IPFS**
 
-Then choose your production slot, copy and paste you IPFS deployment CID (without the leading `ipfs://`).
+จากนั้นเลือกสล็อตที่ใช้งานจริงของคุณ คัดลอกและวาง CID การปรับใช้ IPFS ของคุณ (โดยไม่มี `ipfs://` นำหน้า)
 
-You should see you IPFS deployment in the preview section. And you can select the network, dictionary endpoints etc.
+คุณควรเห็นการปรับใช้ IPFS ของคุณในส่วนของการแสดงตัวอย่าง และคุณสามารถเลือกเครือข่าย, Dictionary Endpoint ฯลฯ
 
-After successful deploy the IPFS deployment on our hosted service, it should be available to view on the SubQuery Explorer, you can access the query service just like you do locally.
+หลังจากการปรับใช้ IPFS บน Hosted Service ของเราได้สำเร็จแล้ว จะสามารถดูได้บน SubQuery Explorer และคุณสามารถเข้าถึงบริการสืบค้นได้เช่นเดียวกับที่คุณทำในเครื่องของคุณ

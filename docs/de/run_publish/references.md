@@ -61,15 +61,14 @@ Optionen:
       --timeout Timeout für die Indexer-Sandbox zum Ausführen des Mappings
                             Funktionen [Zahl]
       --debug Debug-Informationen in der Konsolenausgabe anzeigen. will
-                            forcefully set log level to debug
+                            Setzt die Protokollebene zwangsweise auf Debug
                                                       [boolean] [default: false]
-      --profiler            Show profiler information to console output
+      --profiler            Zeigt Profiler-Informationen in der Konsolenausgabe an
                                                       [boolean] [default: false]
-      --subscription        Enable subscription       [boolean] [default: false]                                                     
-      --network-endpoint    Blockchain network endpoint to connect      [string]
-      --output-fmt          Print log as json or plain text
+      --network-endpoint    Blockchain-Netzwerkendpunkt zum Verbinden     [string]
+      --output-fmt          Drückt das Protokoll als json oder einfachen Text
                                            [string] [choices: "json", "colored"]
-      --log-level           Specify log level to print. Ignoriert, wenn --debug ist
+      --log-level           Gibt die zu druckende Protokollebene an. Ignoriert, wenn --debug ist
                              gebraucht
           [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
                                                                        "silent"]
@@ -285,7 +284,7 @@ Normalerweise wird dies in Ihrer Manifestdatei festgelegt, aber unten zeigt ein 
 subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot"
 ```
 
-[Read more about how a SubQuery Dictionary works](../academy/tutorials_examples/dictionary.md).
+[Lesen Sie mehr darüber, wie ein SubQuery Dictionary funktioniert](../academy/tutorials_examples/dictionary.md).
 
 ### -p, --port
 
@@ -298,24 +297,23 @@ Der Port, an den der Indexdienst für Subquery bindet. Standardmäßig ist dies 
 Dies zeigt die Hilfeoptionen an.
 
 ```shell
-Options:
-      --help          Show help                                          [boolean]
-      --version       Show version number                                [boolean]
-  -n, --name          Project name                             [string] [required]
-      --playground    Enable graphql playground                          [boolean]
-      --subscription  Enable subscription               [boolean] [default: false]   
-      --output-fmt    Print log as json or plain text
-                        [string] [choices: "json", "colored"] [default: "colored"]
-      --log-level     Specify log level to print.
-            [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
-                                                       "silent"] [default: "info"]
-      --log-path      Path to create log file e.g ./src/name.log          [string]
-      --log-rotate    Rotate log files in directory specified by log-path
-                                                      [boolean] [default: false]
-      --indexer       Url that allows query to access indexer metadata    [string]
-      --unsafe        Disable limits on query depth and allowable number returned
-                      query records                                      [boolean]
-  -p, --port          The port the service will bind to                   [number]
+Optionen:
+  --help Hilfe anzeigen [boolean]
+       --version Versionsnummer anzeigen [boolean]
+   -n, --name Projektname [string] [erforderlich]
+       --playground Graphql Playground aktivieren [boolean]
+       --output-fmt Protokoll als json oder einfachen Text drucken
+                       [string] [Optionen: "json", "farbig"] [Standard: "farbig"]
+       --log-level Gibt die zu druckende Protokollebene an.
+          [string] [Auswahlmöglichkeiten: "fatal", "error", "warn", "info", "debug", "trace",
+                                                      "leise"] [Standard: "info"]
+       --log-path Pfad zum Erstellen der Protokolldatei, z. B. ./src/name.log [string]
+       --log-rotate Protokolldateien in dem durch Protokollpfad angegebenen Verzeichnis rotieren
+                                                         [boolean] [Standard: falsch]
+       --indexer URL, die der Abfrage den Zugriff auf Indexer-Metadaten ermöglicht [string]
+       --unsafe Deaktiviert die Beschränkungen für die Abfragetiefe und die zulässige zurückgegebene Anzahl
+                     Datensätze abfragen [boolean]
+   -p, --port Der Port, an den der Dienst bindet [Nummer
 ```
 
 ### --Version
@@ -349,11 +347,11 @@ Dieses Flag aktiviert den Graphql-Playground und sollte daher immer standardmä�
 
 ### --output-fmt
 
-See [--output-fmt](https://doc.subquery.network/run_publish/references.html#output-fmt)
+Siehe [--output-fmt](https://doc.subquery.network/run_publish/references.html#output-fmt)
 
 ### --log-level
 
-See [--log-level](https://doc.subquery.network/run_publish/references.html#log-level)
+Siehe [--log-level](https://doc.subquery.network/run_publish/references.html#log-level)
 
 ### --log-path
 
@@ -375,7 +373,7 @@ This flag enables [GraphQL Subscriptions](./subscription.md), to enable this fea
 
 Der Abfragedienst hat ein Limit von 100 Entitäten für unbegrenzte Graphql-Abfragen. Das unsichere Flag entfernt dieses Limit, was Performance-Probleme im Abfrage-Dienst verursachen kann. Es wird stattdessen empfohlen, dass Abfragen [paginiert werden](https://graphql.org/learn/pagination/).
 
-This flag enables certain aggregation functions including sum, max, avg and others. Read more about this feature [here](./aggregate.md)
+Dieses Flag kann auch verwendet werden, um bestimmte Aggregationsfunktionen wie Summe, Max, Avg und [andere](https://github.com/graphile/pg-aggregates#aggregates) zu aktivieren.
 
 Diese sind standardmäßig aufgrund der Entitätsgrenze deaktiviert.
 

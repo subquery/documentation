@@ -25,7 +25,7 @@
 | ------------------ | ---------------------------------------------------------------------------------------------------------- |
 | -l, --location     | локална папка на проекта subquery (ако все още не сте в папка)                                             |
 | -o, --output       | посочете изходната папка на build например build-folder                                                    |
-| --mode=(production | prod                                                        | development | dev) | [ default: production ] |
+| --mode=(production)| prod, development, dev) | [ default: production ] |
 
 - С помощта на `subql build` можете да посочите допълнителни входни точки в полето за експортиране, въпреки че то постоянно ще се изгражда `index.ts` автоматично
 
@@ -37,7 +37,7 @@
 
 ## subql-node
 
-### --help
+### -- помощ
 
 Тук са показани опциите за помощ.
 
@@ -164,7 +164,7 @@ subql-node -f . --db-schema=test2
 
 Въпреки че това повишава сигурността, ние разбираме също така, че се ограничава наличната функционалност на вашата SubQuery. Командата `--unsafe` импортира всички javascript модули по подразбиране, което значително увеличава sandbox функционалността за сметка намаляването нивото на сигурност.
 
-**Обърнете внимание, че командата `--unsafe` ще попречи на вашия проект да се изпълнява в SubQuery мрежата и трябва да се свържете с поддръжката, ако искате тази команда да се изпълнява с вашия проект в управляваната услуга на SubQuery ([project.subquery.network](https://project.subquery.network))**
+**Обърнете внимание на това, че командата `--unsafe` ще попречи стартирането на вашият проект в мрежа SubQuery следователно трябва трябва да се обърнете към с поддръжката, ако искате тази команда да се изпълнява с вашия проект в управлявана услуга SubQuery ([project.subquery.network](https://project.subquery.network))**
 
 ### --batch-size
 
@@ -285,7 +285,7 @@ ERROR Create Subquery project from given path failed! Error: failed to parse pro
 subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot"
 ```
 
-[Прочетете повече за това как работи SubQuery Dictionary](../academy/tutorials_examples/dictionary.md).
+[Прочетете повече за това как работи SubQuery речникът.](../academy/tutorials_examples/dictionary.md).
 
 ### -p, --port
 
@@ -349,11 +349,11 @@ Options:
 
 ### --output-fmt
 
-Вижте [--output-fmt](https://doc.subquery.network/run_publish/references.html#output-fmt)
+See [--output-fmt](#output-fmt)
 
 ### --log-level
 
-Вижте [--log-level](https://doc.subquery.network/run_publish/references.html#log-level)
+Вижте [--log-level](#log-level)
 
 ### --log-path
 

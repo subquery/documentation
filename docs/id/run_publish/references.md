@@ -25,7 +25,7 @@ Perintah ini menggunakan webpack untuk menghasilkan bundel proyek subquery.
 | ------------------ | ---------------------------------------------------------------------------------------------------------- |
 | -l, --location     | folder lokal proyek subquery (jika belum ada di folder)                                                    |
 | -o, --output       | tentukan folder keluaran build mis. membangun-folder                                                       |
-| --mode=(production | prod                                                        | development | dev) | [ default: production ] |
+| --mode=(production | prod, development, dev default: production ] |
 
 - Dengan `subql build` Anda dapat menentukan titik masuk tambahan di bidang ekspor meskipun itu akan selalu dibangun `index.ts` secara otomatis
 

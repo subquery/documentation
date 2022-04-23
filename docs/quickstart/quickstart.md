@@ -1,18 +1,19 @@
-# Quick Start Guide
+# Welcome
 
-In this Quick Start guide, we're going to create a simple starter project that you can be used as a framework for developing your own SubQuery Project.
+In this Quick start guide, we're going to start with a simple starter project and then finish by indexing some actual real data. This is an excellent basis to start with when developing your own SubQuery Project.
 
 At the end of this guide, you'll have a working SubQuery project running on a SubQuery node with a GraphQL endpoint that you can query data from.
 
 If you haven't already, we suggest that you familiarise yourself with the [terminology](../#terminology) used in SubQuery.
 
+**The goal of this quick start guide is to adapt the standard starter project to begin indexing all transfers from Polkadot, it should only take 10-15 minutes**
+
 ## Preparation
 
 ### Local Development Environment
 
-- [Typescript](https://www.typescriptlang.org/) is required to compile project and define types.
-- Both SubQuery CLI and generated Project have dependencies and require a modern version [Node](https://nodejs.org/en/).
-- SubQuery Nodes require Docker
+- [Node](https://nodejs.org/en/): A modern (e.g. the LTS version) installation of Node.
+- [Docker](https://docker.com/): This tutorial will use require Docker
 
 ### Install the SubQuery CLI
 
@@ -23,7 +24,7 @@ Install SubQuery CLI globally on your terminal by using NPM:
 npm install -g @subql/cli
 ```
 
-Please note that we **DO NOT** encourage the use of `yarn global` due to its poor dependency management which may lead to an errors down the line.
+Please note that we **DO NOT** encourage the use of `yarn global` for installing `@subql/cli` due to its poor dependency management which may lead to an errors down the line.
 
 You can then run help to see available commands and usage provide by CLI
 
@@ -31,21 +32,22 @@ You can then run help to see available commands and usage provide by CLI
 subql help
 ```
 
-## Initialise the Starter SubQuery Project
+## Initialise the SubQuery Starter Project
 
-Inside the directory in which you want to create a SubQuery project, simply replace `PROJECT_NAME` with your own and run the command:
+Inside the directory in which you want to create a SubQuery project, simply run the following command to get started.
 
 ```shell
-subql init PROJECT_NAME
+subql init
 ```
 
 You'll be asked certain questions as the SubQuery project is initalised:
 
-- Network: A blockchain network that this SubQuery project will be developed to index
-- Template: Select a SubQuery project template that will provide a starting point to begin development
+- Name: A name for your SubQuery project
+- Network: A blockchain network that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use *"Polkadot"*
+- Template: Select a SubQuery project template that will provide a starting point to begin development, we suggest selecting the *"Starter project"*
 - Git repository (Optional): Provide a Git URL to a repo that this SubQuery project will be hosted in (when hosted in SubQuery Explorer)
-- RPC endpoint (Required): Provide a websocket (wss) URL to a running RPC endpoint that will be used by default for this project. You can quickly access public endpoints for different Polkadot networks or even create your own private dedicated node using [OnFinality](https://app.onfinality.io) or just use the default Polkadot endpoint. This RPC node must be an archive node (have the full chain state).
-- Authors (Required): Enter the owner of this SubQuery project here
+- RPC endpoint (Required): Provide a HTTPS URL to a running RPC endpoint that will be used by default for this project. You can quickly access public endpoints for different Polkadot networks or even create your own private dedicated node using [OnFinality](https://app.onfinality.io) or just use the default Polkadot endpoint. This RPC node must be an archive node (have the full chain state). For this guide we will use the default value *"https://polkadot.api.onfinality.io"*
+- Authors (Required): Enter the owner of this SubQuery project here (e.g. your name!)
 - Description (Optional): You can provide a short paragraph about your project that describe what data it contains and what users can do with it
 - Version (Required): Enter a custom version number or use the default (`1.0.0`)
 - License (Required): Provide the software license for this project or accept the default (`Apache-2.0`)
@@ -63,26 +65,40 @@ Last, under the project directory, run following command to install the new proj
   </CodeGroupItem>
 
   <CodeGroupItem title="NPM">
-  ```bash
+  ```shell
   cd PROJECT_NAME
   npm install
   ```
   </CodeGroupItem>
 </CodeGroup>
 
-## Configure and Build the Starter Project
+## Making Changes to your Project
 
 In the starter package that you just initialised, we have provided a standard configuration for your new project. You will mainly be working on the following files:
 
-- The Manifest in `project.yaml`
-- The GraphQL Schema in `schema.graphql`
-- The Mapping functions in `src/mappings/` directory
+1. The GraphQL Schema in `schema.graphql`
+2. The Project Manifest in `project.yaml`
+3. The Mapping functions in `src/mappings/` directory
 
-For more information on how to write your own SubQuery, check out our documentation under [Create a Project](../create/introduction.md)
+The goal of this quick start guide is to adapt the standard starter project to begin indexing all transfers from Polkadot.
 
-### GraphQL Model Generation
+### Updating your GraphQL Schema File
 
-In order to [index](../run/run.md) your SubQuery project, you must first generate the required GraphQL models that you have defined in your GraphQL Schema file (`schema.graphql`). Run this command in the root of the project directory.
+The `schema.graphql` file defines the various GraphQL schemas. Due to the way that the GraphQL query language works, the schema file essentially dictates the shape of your data from SubQuery. Its a great place to start becuase it allows you to define your end goal up front.
+
+We're going to update the `schema.graphql` file to read as follows
+
+```graphql
+type Transfer @entity {
+  id: ID! # id field is always required and must look like this
+  amount: BigInt # Amount that is transferred
+  blockNumber: BigInt # The block height of the transfer
+  from: Account! # The account that transfers are made from
+  to: Account! # The account that transfers are made to
+}
+```
+
+**Important: When you make any changes to the schema file, please ensure that you regenerate your types directory. Do this now.**
 
 <CodeGroup>
   <CodeGroupItem title="YARN" active>
@@ -92,19 +108,80 @@ In order to [index](../run/run.md) your SubQuery project, you must first generat
   </CodeGroupItem>
 
   <CodeGroupItem title="NPM">
-  ```bash
+  ```shell
   npm run-script codegen
   ```
   </CodeGroupItem>
 </CodeGroup>
 
-You'll find the generated models in the `/src/types/models` directory
+You'll find the generated models in the `/src/types/models` directory. For more information about the `schema.graphql` file, check out our documentation under [Build/GraphQL Schema](../build/graphql.md)
 
-## Build the Project
+### Updating the Project Manifest File
 
-In order run your SubQuery Project on a locally hosted SubQuery Node, you need to build your work.
+The Projet Manifest (`project.yaml`) file can be seen as an entry point of your project and it defines most of the details on how SubQuery will index and transform the chain data.
 
-Run the build command from the project's root directory.
+We won't do many changes to the manifest file as it already has been setup correctly, but we need to change our handlers. Remember we are planning to index all Polkadot transfers, as a result, we need to update the `datasources` section to read the following.
+
+```yaml
+dataSources:
+  - kind: substrate/Runtime
+    startBlock: 1
+    mapping:
+      file: ./dist/index.js
+      handlers:
+        - handler: handleEvent
+          kind: substrate/EventHandler
+          filter:
+            module: balances
+            method: Transfer
+```
+
+This means we'll run a `handleEvent` mapping function each and every time there is a `balances.Transfer` event.
+
+For more information about the Project Manifest (`project.yaml`) file, check out our documentation under [Build/Manifest File](../build/manifest.md)
+
+### Add a Mapping Function
+
+Mapping functions define how chain data is transformed into the optimised GraphQL entities that we have previously defined in the `schema.graphql` file.
+
+Navigate to the default mapping function in the `src/mappings` directory. You'll see three exported functions, `handleBlock`, `handleEvent`, and `handleCall`. You can delete both the `handleBlock` and `handleCall` functions, we are only dealing with the `handleEvent` function.
+
+The `handleEvent` function recieved event data whenever event matches the filters that we specify previously in our `project.yaml`. We are going to update it to process all `balances.Transfer` events and save them to the GraphQL entities that we created earlier.
+
+You can update the `handleEvent` function to the following (note the additional imports):
+
+```ts
+import { SubstrateEvent } from "@subql/types";
+import { Transfer } from "../types";
+import { Balance } from "@polkadot/types/interfaces";
+
+export async function handleTransfer(event: SubstrateEvent): Promise<void> {
+    // Get data from the event
+    // The balances.transfer event has the following payload \[from, to, value\]
+    // logger.info(JSON.stringify(event));
+    const from = event.event.data[0];
+    const to = event.event.data[1];
+    const amount = event.event.data[2];
+    
+    // Create the new transfer entity
+    const transfer = new Transfer(
+        `${event.block.block.header.number.toNumber()}-${event.idx}`,
+    );
+    transfer.blockNumber = event.block.block.header.number.toBigInt();
+    transfer.from = from.toString();
+    transfer.to = to.toString();
+    transfer.amount = (amount as Balance).toBigInt();
+    await transfer.save();
+}
+```
+
+What this is doing is receiving a SubstrateEvent which includes transfer data on the payload. We extract this data and then instantiate a new `Transfer` entity that we defined earlier in the `schema.graphql` file. We add additional information and then use the `.save()` function to save the new entity (SubQuery will automatically save this to the database).
+
+For more information about mapping functions, check out our documentation under [Build/Mappings](../build/mapping.md)
+
+### Build the Project
+
+In order run your new SubQuery Project we first need to build our work. Run the build command from the project's root directory.
 
 <CodeGroup>
   <CodeGroupItem title="YARN" active>
@@ -112,31 +189,39 @@ Run the build command from the project's root directory.
   yarn build
   ```
   </CodeGroupItem>
-
   <CodeGroupItem title="NPM">
-  ```bash
+  ```shell
   npm run-script build
   ```
   </CodeGroupItem>
 </CodeGroup>
 
-## Running and Querying your Starter Project
+**Important: Whenever you make changes to your mapping functions, you'll need to rebuild your project**
 
-Although you can quickly publish your new project to [SubQuery Projects](https://project.subquery.network) and query it using our [Explorer](https://explorer.subquery.network), the easiest way to run SubQuery nodes locally is in a Docker container, if you don't already have Docker you can install it from [docker.com](https://docs.docker.com/get-docker/).
+## Running and Querying your Project
 
-[_Skip this and publish your new project to SubQuery Projects_](../publish/publish.md)
+### Run your Project with Docker
 
-### Run your SubQuery Project
+Whenever you create a new SubQuery Project, you should always run it locally on your computer to test it first. The easiest way to do this is by using Docker. 
 
-All configuration that controls how a SubQuery node is run is defined in this `docker-compose.yml` file. For a new project that has been just initalised you won't need to change anything here, but you can read more about the file and the settings in our [Run a Project section](../run/run.md)
+All configuration that controls how a SubQuery node is run is defined in this `docker-compose.yml` file. For a new project that has been just initalised you won't need to change anything here, but you can read more about the file and the settings in our [Run a Project section](../run_publish/run.md)
 
 Under the project directory run following command:
 
-```shell
-docker-compose pull && docker-compose up
-```
+<CodeGroup>
+  <CodeGroupItem title="YARN" active>
+  ```shell
+  yarn start:docker
+  ```
+  </CodeGroupItem>
+  <CodeGroupItem title="NPM">
+  ```shell
+  npm run-script start:docker
+  ```
+  </CodeGroupItem>
+</CodeGroup>
 
-It may take some time to download the required packages ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), and Postgres) for the first time but soon you'll see a running SubQuery node.
+It may take some time to download the required packages ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), and Postgres) for the first time but soon you'll see a running SubQuery node. Be patient here.
 
 ### Query your Project
 
@@ -144,24 +229,39 @@ Open your browser and head to [http://localhost:3000](http://localhost:3000).
 
 You should see a GraphQL playground is showing in the explorer and the schemas that are ready to query. On the top right of the playground, you'll find a _Docs_ button that will open a documentation draw. This documentation is automatically generated and helps you find what entities and methods you can query.
 
-For a new SubQuery starter project, you can try the following query to get a taste of how it works or [learn more about the GraphQL Query language](../query/graphql.md).
+For a new SubQuery starter project, you can try the following query to get a taste of how it works or [learn more about the GraphQL Query language](../run_publish/graphql.md).
 
 ```graphql
 {
   query {
-    starterEntities(first: 10) {
+    transfers(
+      first: 10,
+      orderBy: AMOUNT_DESC
+    ) {
       nodes {
-        field1
-        field2
-        field3
+        id
+        amount
+        blockNumber
+        from
+        to
       }
     }
   }
 }
 ```
 
+### Publish your SubQuery Project
+
+SubQuery provides a free managed service when you can deploy your new project to. You can deploy it to [SubQuery Projects](https://project.subquery.network) and query it using our [Explorer](https://explorer.subquery.network).
+
+[Read the guide to publish your new project to SubQuery Projects](../run_publish/publish.md)
+
 ## Next Steps
 
-Congratulations, you now have a locally running SubQuery project that accepts GraphQL API requests for sample data. In the next guide, we'll show you how to publish your new project to [SubQuery Projects](https://project.subquery.network) and query it using our [Explorer](https://explorer.subquery.network)
+Congratulations, you now have a locally running SubQuery project that accepts GraphQL API requests for transfers data.
 
-[Publish your new project to SubQuery Projects](../publish/publish.md)
+Now that you've had an insight into how to build a basic SubQuery project, the question is where to from here? If you are feeling confident, you can jump into learning more about the three key files. The manifest file, the GraphQL schema, and the mappings file under the [Build section of these docs](../build/introduction.md).
+
+Otherwise, continue to our [Academy section](../academy/academy.md) where have more in depth workshops, tutorials, and example projects. There we'll look at more advanced modifications, and we'll take a deeper dive at running SubQuery projects by running readily available and open source projects.
+
+Finally, if you're looking for more ways to run and publish your project, our [Run & Publish section](../run_publish/run.md) provides detailed informatation about all the ways to run your SubQuery project and other advanced GraphQL aggregation and subscription features.
