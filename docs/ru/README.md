@@ -87,7 +87,7 @@
         <div class="content">
           <p>Размещение вашего проекта в SubQuery абсолютно бесплатно - это наш способ отблагодарить сообщество. Чтобы узнать, как разместить свой проект у нас, ознакомьтесь с руководством <a href="/quickstart/helloworld-hosted/"> Hello World (SubQuery Hosted)</a>.</p>
           <span class="more">
-            <router-link :to="{path: '/run_publish/publish/'}">HOSTING YOUR PROJECT</router-link>
+            <router-link :to="{path: '/run_publish/publish/'}"> РАЗМЕЩЕНИЕ ВАШЕГО ПРОЕКТА</router-link>
           </span>
         </div>
       </li>

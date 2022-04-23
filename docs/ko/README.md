@@ -87,7 +87,7 @@
         <div class="content">
           <p>SubQuery 프로젝트에서 프로젝트를 호스팅하는 비용은 무료입니다! 이것이 저희가 커뮤니티에 보답하는 방법입니다! 프로젝트를 호스팅하는 방법이 궁금하시면 <a href="/quickstart/helloworld-hosted/">Hello World(SubQuery Hosted)</a> 튜토리얼을 참조해주세요.</p>
           <span class="more">
-            <router-link :to="{path: '/run_publish/publish/'}">HOSTING YOUR PROJECT</router-link>
+            <router-link :to="{path: '/run_publish/publish/'}">프로젝트 호스팅하기</router-link>
           </span>
         </div>
       </li>

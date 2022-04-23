@@ -54,7 +54,7 @@ subql init PROJECT_NAME
 
 สุดท้ายนี้ ภายใต้ไดเรกทอรีของโปรเจกต์ ให้รันคำสั่งต่อไปนี้เพื่อติดตั้ง dependencies ของโปรเจกต์ใหม่นี้
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```bash cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> `shell cd PROJECT_NAME yarn install ` </CodeGroupItem> <CodeGroupItem title="NPM"> `bash cd PROJECT_NAME npm install ` </CodeGroupItem> </CodeGroup>
 
 ## การกำหนดค่าและการสร้าง Starter Project
 
@@ -70,9 +70,9 @@ subql init PROJECT_NAME
 
 ### การสร้างโมเดล GraphQL
 
-ในการทำ [index](../run/run.md) สำหรับโปรเจกต์ SubQuery ของคุณ ก่อนอื่นคุณต้องสร้างโมเดล GraphQL ที่จำเป็น ซึ่งคุณได้กำหนดไว้ในไฟล์ GraphQL Schema (`schema.graphql`) รันคำสั่งนี้ในรูทไดเรกทอรีของโปรเจกต์ รันคำสั่งนี้ในไดเรกทอรีเริ่มต้นของโปรเจกต์
+ในการทำ [index](../run_publish/run.md) สำหรับโปรเจ็กต์ SubQuery ของคุณ ก่อนอื่นคุณต้องสร้างโมเดล GraphQL ที่จำเป็น ซึ่งคุณได้กำหนดไว้ในไฟล์ GraphQL Schema (`schema.graphql`) รันคำสั่งนี้ในรูทไดเร็กทอรีของโปรเจ็กต์ รันคำสั่งนี้ในรูทไดเร็กทอรีของโปรเจ็กต์
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```bash npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> `shell yarn codegen ` </CodeGroupItem> <CodeGroupItem title="NPM"> `bash npm run-script codegen ` </CodeGroupItem> </CodeGroup>
 
 คุณจะพบโมเดลที่สร้างขึ้นในไดเร็กทอรี `/src/types/models`
 
@@ -82,17 +82,17 @@ subql init PROJECT_NAME
 
 รันคำสั่ง build จากรูทไดเร็กทอรีของโปรเจกต์
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```bash npm run-script build ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> `shell yarn build ` </CodeGroupItem> <CodeGroupItem title="NPM"> `bash npm run-script build ` </CodeGroupItem> </CodeGroup>
 
 ## การรันและการสืบค้น Starter Project ของคุณ
 
 แม้ว่าคุณจะเผยแพร่โปรเจ็กต์ใหม่ของคุณไปยัง [SubQuery Projects](https://project.subquery.network) ได้อย่างรวดเร็วและสามารถสืบค้นโดยใช้ [Explorer](https://explorer.subquery.network) ของเรา แต่วิธีที่ง่ายที่สุดในการรันโหนด SubQuery ภายในเครื่องคือการรันภายในคอนเทนเนอร์ Docker ถ้าคุณยังไม่มี Docker คุณสามารถติดตั้งได้จาก [docker.com](https://docs.docker.com/get-docker/).
 
-[_ข้ามสิ่งนี้และเผยแพร่โครงการใหม่ของคุณไปยัง SubQuery Projects_](../publish/publish.md)
+[_ข้ามสิ่งนี้และเผยแพร่โครงการใหม่ของคุณไปยัง SubQuery Projects_](../run_publish/publish.md)
 
 ### รัน SubQuery Project ของคุณ
 
-การกำหนดค่าทั้งหมดที่ควบคุมวิธีการเรียกใช้โหนด SubQuery จะถูกกำหนดในไฟล์ `docker-compose.yml` นี้ สำหรับโปรเจกต์ใหม่ที่เพิ่งเริ่มต้น คุณไม่จำเป็นต้องเปลี่ยนแปลงอะไรในนี้ แต่คุณสามารถอ่านเพิ่มเติมเกี่ยวกับไฟล์และการตั้งค่าได้ใน [ส่วนการรันโปรเจกต์](../run/run.md) สำหรับโปรเจกต์ใหม่ที่เพิ่งเริ่มต้น คุณไม่จำเป็นต้องเปลี่ยนแปลงอะไรในนี้ แต่คุณสามารถอ่านเพิ่มเติมเกี่ยวกับไฟล์และการตั้งค่าได้ใน [ส่วนการรันโปรเจกต์](../run/run.md)
+การกำหนดค่าทั้งหมดที่ควบคุมวิธีการเรียกใช้โหนด SubQuery จะถูกกำหนดในไฟล์ `docker-compose.yml` นี้ สำหรับโปรเจ็กต์ใหม่ที่เพิ่งเริ่มต้น คุณไม่จำเป็นต้องเปลี่ยนแปลงอะไรในนี้ แต่คุณสามารถอ่านเพิ่มเติมเกี่ยวกับไฟล์และการตั้งค่าได้ใน [ส่วนการรันโปรเจ็กต์](../run_publish/run.md) สำหรับโปรเจ็กต์ใหม่ที่เพิ่งเริ่มต้น คุณไม่จำเป็นต้องเปลี่ยนแปลงอะไรในนี้ แต่คุณสามารถอ่านเพิ่มเติมเกี่ยวกับไฟล์และการตั้งค่าได้ใน [ส่วนการรันโปรเจ็กต์](../run_publish/run.md)
 
 ให้รันคำสั่งต่อไปนี้ ภายใต้ไดเรกทอรีของโปรเจ็กต์:
 
@@ -108,7 +108,7 @@ docker-compose pull && docker-compose up
 
 คุณควรเห็น GraphQL playground แสดงใน explorer และ schemas ที่พร้อมสำหรับการสืบค้น ที่ตำแหน่งด้านบนขวาของ Playground คุณจะพบปุ่ม _Docs_ ที่จะเปิดการร่างเอกสาร เอกสารนี้ถูกสร้างขึ้นโดยอัตโนมัติและช่วยให้คุณค้นหา entities และ methods ที่คุณสามารถค้นหาได้
 
-สำหรับ SubQuery starter project ใหม่ คุณสามารถลองใช้ query ต่อไปนี้เพื่อดูว่ามันทำงานอย่างไร หรือ [เรียนรู้เพิ่มเติมเกี่ยวกับภาษาของ GraphQL Query](../query/graphql.md)
+สำหรับ SubQuery starter project ใหม่ คุณสามารถลองใช้ query ต่อไปนี้เพื่อดูว่ามันทำงานอย่างไร หรือ [เรียนรู้เพิ่มเติมเกี่ยวกับภาษาของ GraphQL Query](../run_publish/graphql.md)
 
 ```graphql
 {
@@ -128,4 +128,4 @@ docker-compose pull && docker-compose up
 
 ยินดีด้วย ตอนนี้คุณมีโปรเจกต์ SubQuery ที่ทำงานอยู่ในเครื่องที่ยอมรับคำร้องขอ GraphQL API สำหรับข้อมูลตัวอย่างแล้ว ในคู่มือถัดไป เราจะแสดงวิธีเผยแพร่โปรเจกต์ใหม่ของคุณไปยัง [SubQuery Projects](https://project.subquery.network) และการสืบค้นโดยใช้ [ Explorer ](https://explorer.subquery.network) ของเรา
 
-[เผยแพร่โปรเจกต์ใหม่ของคุณไปยัง SubQuery Projects](../publish/publish.md)
+[เผยแพร่โปรเจ็กต์ใหม่ของคุณไปยัง SubQuery Projects](../run_publish/publish.md)

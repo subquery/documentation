@@ -10,9 +10,9 @@
 
 ### Локална Среда За Развитие
 
-- [Typescrip](https://www.typescriptlang.org/)Изисква се за компилиране на проект и дефиниране на типове.
-- Както CLI на SubQuery, така и генерираният проект имат зависимости и изискват съвременна версия на [Node](https://nodejs.org/en/).
-- Нодата SubQuery изисква наличието на Docker
+- [Машинопис](https://www.typescriptlang.org/)Изисква се за компилиране на проект и дефиниране на типове.
+- Както CLI на SubQuery, така и генерираният проект имат зависимости и изискват модерна версия[Node](https://nodejs.org/en/).
+- Възлите на подзаявката изискват Docker
 
 ### Инсталирайте SubQuery CLI
 
@@ -54,8 +54,8 @@ subql init PROJECT_NAME
 
 И накрая, в директорията на проекта изпълнете следната команда, за да инсталирате зависимостите на новия проект.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```bash cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> `shell cd PROJECT_NAME yarn install ` </CodeGroupItem>
+<CodeGroupItem title="NPM"> `bash cd PROJECT_NAME npm install ` </CodeGroupItem> </CodeGroup>
 
 ## Конфигурирайте и изградете началния проект
 
@@ -71,7 +71,7 @@ subql init PROJECT_NAME
 
 За да [индексирате](../run/run.md) вашия проект в SubQuery първо трябва да генерирате необходимите модели GraphQL, които сте дефинирали във вашия GraphQL Schema файл GraphQL(`schema.graphql`). Изпълнете тази команда в основната директория на проекта.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```bash npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> `shell yarn codegen ` </CodeGroupItem> <CodeGroupItem title="NPM"> `bash npm run-script codegen ` </CodeGroupItem> </CodeGroup>
 
 Ще намерите генерираните модели в `/src/types/models` direktoriite
 
@@ -81,14 +81,14 @@ subql init PROJECT_NAME
 
 Изпълнете командата за изграждане от основната директория на проекта.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```bash npm run-script build ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> `shell yarn build ` </CodeGroupItem>
+<CodeGroupItem title="NPM"> `bash npm run-script build ` </CodeGroupItem> </CodeGroup>
 
 ## Стартиране и запитване на вашия начален проект
 
 Въпреки че можете бързо да публикувате новия си проект на [SubQuery Projects](https://project.subquery.network) и да правите запитвания, използвайки [Explorer](https://explorer.subquery.network), най-лесният начин да стартирате нода SubQuery локално в Docker контейнер, ако все още нямате Docker, можете да го инсталирате от [docker.com](https://docs.docker.com/get-docker/).
 
-_Пропуснете това и публикувайте новия си проект в  SubQuery Projects_</9></p> 
+[Skip this and publish your new project to SubQuery Projects](../run_publish/publish.md)
 
 
 
@@ -117,8 +117,6 @@ docker-compose pull && docker-compose up
 
 За нов стартов SubQuery проект можете да опитате следната заявка, за да получите представа как работи или [научете повече относно езика GraphQL Query](../query/graphql.md).
 
-
-
 ```graphql
 {
   query {
@@ -133,11 +131,8 @@ docker-compose pull && docker-compose up
 }
 ```
 
-
-
-
 ## Следващите стъпки
 
 Поздравления, сега имате локално работещ SubQuery проект, който приема API GraphQL заявки за извличане на данни. В следващия урок ще ви покажем как да публикувате новия си проект в[SubQuery Projects](https://project.subquery.network) и да правите запитвания, използвайки [Explorer](https://explorer.subquery.network)
 
-[Публикувайте новия си проект SubQuery в проекти](../publish/publish.md)
+[Публикувайте новия си проект SubQuery в проекти](../run_publish/publish.md)

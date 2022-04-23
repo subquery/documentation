@@ -25,7 +25,7 @@ COMMANDS
 | ------------------ | ---------------------------------------------------------------------------------------------------------- |
 | -l, --location     | SubQuery 프로젝트의 로컬 폴더(이미 폴더에 없는 경우)                                                                         |
 | -o, --output       | 빌드의 출력 폴더를 지정하십시오. e.g. 빌드 폴더                                                                              |
-| --mode=(production | prod                                                        | development | dev) | [ default: production ] |
+                                                   | development | dev) | [ default: production ] |
 
 - `subql build`를 사용하면 항상 빌드되지만 내보내기 필드에 추가 진입점을 지정할 수 있습니다. 자동으로 `index.ts`
 
@@ -349,11 +349,11 @@ Options:
 
 ### --output-fmt
 
-See [--output-fmt](https://doc.subquery.network/run_publish/references.html#output-fmt)
+[--output-fmt](#output-fmt)을 보세요.
 
 ### --log-level
 
-See [--log-level](https://doc.subquery.network/run_publish/references.html#log-level)
+[--log-level](#log-level)를 보세요.
 
 ### --log-path
 

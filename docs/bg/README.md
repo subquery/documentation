@@ -87,7 +87,7 @@
         <div class="content">
           <p>Хостването на вашия проект в SubQuery Projects е абсолютно безплатно - това е нашият начин да се отблагодарим на общността. За да научите как да разположите вашия проект при нас, моля, разгледайте урока <a href="/quickstart/helloworld-hosted/">Hello World (Хостван от SubQuery)</a>.</p>
           <span class="more">
-            <router-link :to="{path: '/run_publish/publish/'}">HOSTING YOUR PROJECT</router-link>
+            <router-link :to="{path: '/run_publish/publish/'}">ХОСТВАНЕ НА ВАШИЯ ПРОЕКТ </router-link>
           </span>
         </div>
       </li>

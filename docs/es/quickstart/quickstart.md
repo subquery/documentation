@@ -64,7 +64,7 @@ Para más información sobre cómo escribir su propia SubQuery, consulte nuestra
 
 ### Generación de Modelo GraphQL
 
-Para [indexar](../run/run.md) tu proyecto de SubQuery, primero debe generar los modelos GraphQL necesarios que ha definido en su archivo de Esquema GraphQL (`schema.graphql`). Ejecuta los siguientes comandos desde el directorio raíz de tu proyecto.
+Para [indexar](../run_publish/run.md) tu proyecto de SubQuery, primero debe generar los modelos GraphQL necesarios que ha definido en su archivo de Esquema GraphQL (`schema.graphql`). Ejecuta los siguientes comandos desde el directorio raíz de tu proyecto.
 
 <CodeGroup> # Yarn yarn codegen # Npm npm run-script codegen
 
@@ -74,7 +74,7 @@ Para ejecutar tu proyecto SubQuery en un nodo SubQuery alojado localmente, prime
 
 Ejecuta el comando de compilación desde el directorio raíz del proyecto.
 
-<CodeGroup> Toda la configuración que controla cómo se ejecuta un nodo SubQuery se define en este archivo ` docker-compose.yml `. Para un nuevo proyecto que ha sido inicializado no necesitarás cambiar nada aquí, pero puedes leer más sobre el archivo y la configuración en nuestra sección [Ejecutar un proyecto](../run/run.md)
+<CodeGroup> Toda la configuración que controla cómo se ejecuta un nodo SubQuery se define en este archivo `docker-compose.yml`. Para un nuevo proyecto que ha sido inicializado no necesitarás cambiar nada aquí, pero puedes leer más sobre el archivo y la configuración en nuestra sección [Ejecutar un proyecto](../run_publish/run.md)
 
 Bajo el directorio del proyecto ejecute el siguiente comando:
 
@@ -90,7 +90,7 @@ Abre tu navegador y ve a [http://localhost:3000](http://localhost:3000).
 
 Deberías ver un parque de juegos GraphQL que se muestre en el Explorador y el esquema que está listo para consultar. En la parte superior derecha del patio de juegos, encontrarás un botón _Docs_ que abrirá un cuadro de documentación. Esta documentación se genera automáticamente y le ayuda a encontrar qué entidades y métodos puede consultar.
 
-Para un nuevo proyecto inicial de SubQuery, puedes probar la siguiente consulta para conocer cómo funciona o [aprender más sobre el lenguaje de consulta GraphQL](../query/graphql.md).
+Para un nuevo proyecto inicial de SubQuery, puedes probar la siguiente consulta para conocer cómo funciona o [aprender más sobre el lenguaje de consulta GraphQL](../run_publish/graphql.md).
 
 ```graphql
 {
@@ -110,4 +110,4 @@ Para un nuevo proyecto inicial de SubQuery, puedes probar la siguiente consulta 
 
 Enhorabuena, ahora tiene un proyecto SubQuery que acepta peticiones API GraphQL para datos de muestra. En la siguiente guía, te mostraremos cómo publicar tu nuevo proyecto en [SubQuery Proyects](https://project.subquery.network) y consultarlo usando nuestro [Explorer](https://explorer.subquery.network)
 
-[Publica tu nuevo proyecto en SubQuery Projects](../publish/publish.md)
+[Publica tu nuevo proyecto en SubQuery Projects](../run_publish/publish.md)

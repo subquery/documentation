@@ -87,7 +87,7 @@
         <div class="content">
           <p>SubQuery Projectsであなたのプロジェクトを公開することは完全に無料です - それはコミュニティに還元する私たちの方法です。 プロジェクトを公開する方法については、 <a href="/quickstart/helloworld-hosted/">Hello World (SubQuery Hosted)</a> チュートリアルをご覧ください。</p>
           <span class="more">
-            <router-link :to="{path: '/run_publish/publish/'}">HOSTING YOUR PROJECT</router-link>
+            <router-link :to="{path: '/run_publish/publish/'}">プロジェクトを公開する</router-link>
           </span>
         </div>
       </li>
