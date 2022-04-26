@@ -63,7 +63,7 @@
         <div class="content">
           <p>SubQuery là một dự án mã nguồn mở cho phép các nhà phát triển lập chỉ mục, chuyển đổi và truy vấn dữ liệu chuỗi Substrate để cung cấp cho các ứng dụng của họ.</p>
           <span class="more">
-            <router-link :to="{path: '/faqs/faqs.html#what-is-subquery'}">READ MORE</router-link>
+            <router-link :to="{path: '/faqs/faqs.html#what-is-subquery'}">ĐỌC THÊM</router-link>
           </span>
         </div>
       </li>
@@ -87,7 +87,7 @@
         <div class="content">
           <p>Việc lưu trữ dự án trên SubQuery là hoàn toàn miễn phí - đây là cách chúng tôi cống hiến cho cộng đồng. To learn how to host your project with us, please check out the <a href="/quickstart/quickstart.html">Hello World (SubQuery Hosted)</a> tutorial.</p>
           <span class="more">
-            <router-link :to="{path: '/run_publish/publish.html'}">HOSTING YOUR PROJECT</router-link>
+            <router-link :to="{path: '/run_publish/publish.html'}">LƯU TRỮ DỰ ÁN CỦA BẠN</router-link>
           </span>
         </div>
       </li>
