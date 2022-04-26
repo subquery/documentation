@@ -1,48 +1,48 @@
-# Welcome
+# Bienvenue
 
-In this Quick start guide, we're going to start with a simple starter project and then finish by indexing some actual real data. This is an excellent basis to start with when developing your own SubQuery Project.
+Dans ce guide de démarrage rapide, nous allons commencer par un projet de démarrage simple, puis terminer par l'indexation de données réelles. Il s'agit d'une excellente base de départ pour développer votre propre projet SubQuery.
 
 À la fin de ce guide, vous aurez un projet SubQuery fonctionnel fonctionnant sur un nœud SubQuery avec un point de terminaison GraphQL à partir duquel vous pourrez interroger des données.
 
 Si vous ne l'avez pas encore fait, nous vous suggérons de vous familiariser avec la [terminologie](../#terminology) utilisée dans SubQuery.
 
-**The goal of this quick start guide is to adapt the standard starter project to begin indexing all transfers from Polkadot, it should only take 10-15 minutes**
+**Le but de ce guide de démarrage rapide est d'adapter le projet de démarrage standard pour commencer à indexer tous les transferts de Polkadot, cela ne devrait prendre que 10-15 minutes**
 
 ## Préparation
 
 ### Environnement de développement local
 
-- [Node](https://nodejs.org/en/): A modern (e.g. the LTS version) installation of Node.
-- [Docker](https://docker.com/): This tutorial will use require Docker
+- [Node](https://nodejs.org/en/) : Une installation moderne (par exemple, la version LTS) de Node.
+- [Docker](https://docker.com/) : Ce tutoriel utilisera le système Docker
 
 ### Installer SubQuery CLI
 
-Install SubQuery CLI globally on your terminal by using NPM:
+Installez SubQuery CLI globalement sur votre terminal en utilisant NPM :
 
 ```shell
 # NPM
 npm install -g @subql/cli
 ```
 
-Please note that we **DO NOT** encourage the use of `yarn global` for installing `@subql/cli` due to its poor dependency management which may lead to an errors down the line.
+Veuillez noter que nous **N'** encourager l'utilisation de `yarn global` pour l'installation de `@subql/cli` en raison de sa mauvaise gestion des dépendances qui peut conduire à une erreur en cours de route.
 
-You can then run help to see available commands and usage provide by CLI
+Vous pouvez ensuite exécuter la commande help pour voir les commandes disponibles et l'utilisation fournie par le CLI
 
 ```shell
 subql help
 ```
 
-## Initialise the SubQuery Starter Project
+## Initialiser le projet de démarrage SubQuery
 
-Inside the directory in which you want to create a SubQuery project, simply run the following command to get started.
+Dans le répertoire dans lequel vous voulez créer un projet SubQuery, exécutez simplement la commande suivante pour commencer.
 
 ```shell
 subql init
 ```
 
-You'll be asked certain questions as the SubQuery project is initalised:
+Certaines questions vous seront posées au fur et à mesure de l'initalisation du projet SubQuery :
 
-- Name: A name for your SubQuery project
+- Name: Un nom pour votre projet SubQuery
 - Network: A blockchain network that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use *"Polkadot"*
 - Template: Select a SubQuery project template that will provide a starting point to begin development, we suggest selecting the *"Starter project"*
 - Git repository (Optional): Provide a Git URL to a repo that this SubQuery project will be hosted in (when hosted in SubQuery Explorer)
