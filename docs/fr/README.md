@@ -101,7 +101,7 @@
         <h5>Intégrer à votre chaîne personnalisée ?</h5>
         <p>Que vous construisiez une nouvelle parachain ou une toute nouvelle blockchain sur Substrate - SubQuery peut vous aider à indexer et à résoudre les données de votre chaîne. SubQuery est conçu pour s'intégrer facilement à une chaîne personnalisée basée sur Substrate.</p>
         <span class="more">
-          <router-link :to="{path: '/create/mapping.html#custom-substrate-chains'}">APPRENEZ COMMENT INTÉGRER À VOTRE CHAÎNE</router-link>
+          <router-link :to="{path: '/create/mapping.html#custom-substrate-chains'}">APPRENEZ COMMENT INTÉGRER AVEC VOTRE CHAÎNE</router-link>
         </span>
     </div>
     <div class="lastIntroduce lastIntroduce_2">
