@@ -15,7 +15,7 @@
       </p>
       <span class="button">
         <router-link :to="{path: '/quickstart/quickstart.html'}">
-          <span>Get started</span>
+          <span>Bắt đầu</span>
         </router-link>
       </span>
     </div>
@@ -78,7 +78,7 @@
         <div class="content">
           <p>Chúng tôi rất mong nhận được ý kiến đóng góp và phản hồi từ cộng đồng. Để đóng góp vào việc phát triển, hãy tạo bản sao cho những phần bạn quan tâm và đưa ra những thay đổi. Sau đó hãy sử dụng chức năng Pull Request hay gọi tắt là PR. À, đừng quên chạy thử đấy nhé! Ngoài ra, hãy xem các nguyên tắc đóng góp của chúng tôi (sẽ sớm được công khai). </p>
           <span class="more">
-            <router-link :to="{path: '/faqs/faqs.html#what-is-the-best-way-to-get-started-with-subquery'}">READ MORE</router-link>
+            <router-link :to="{path: '/faqs/faqs.html#what-is-the-best-way-to-get-started-with-subquery'}">ĐỌC THÊM</router-link>
           </span>
         </div>
       </li>
@@ -101,7 +101,7 @@
         <h5>Tích hợp với Chuỗi tùy chỉnh của bạn?</h5>
         <p>Cho dù bạn đang xây dựng một parachain hay một blockchain hoàn toàn mới trên Substrate - SubQuery đều có thể giúp bạn lập chỉ mục và khắc phục sự cố dữ liệu trên chuỗi. SubQuery được thiết kế để dễ dàng tích hợp với blockchain tùy chỉnh có nền tảng Substrate.</p>
         <span class="more">
-          <router-link :to="{path: '/create/mapping.html#custom-substrate-chains'}">LEARN HOW TO INTEGRATE WITH YOUR CHAIN</router-link>
+          <router-link :to="{path: '/create/mapping.html#custom-substrate-chains'}">TÌM HIỂU CÁCH TÍCH HỢP VỚI BLOCKCHAIN CỦA BẠN</router-link>
         </span>
     </div>
     <div class="lastIntroduce lastIntroduce_2">
