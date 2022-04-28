@@ -1,4 +1,4 @@
-# Welcome
+# Selamat Datang
 
 In this Quick start guide, we're going to start with a simple starter project and then finish by indexing some actual real data. This is an excellent basis to start with when developing your own SubQuery Project.
 
