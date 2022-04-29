@@ -1,46 +1,46 @@
 # Chào mừng
 
-In this Quick start guide, we're going to start with a simple starter project and then finish by indexing some actual real data. This is an excellent basis to start with when developing your own SubQuery Project.
+Trong hướng dẫn bắt đầu nhanh này, chúng ta sẽ bắt đầu với một dự án khởi đầu đơn giản và sau đó kết thúc bằng cách lập chỉ mục một số dữ liệu thực tế. Đây là cơ sở tuyệt vời để bắt đầu khi phát triển Dự án SubQuery của riêng bạn.
 
 Ở cuối hướng dẫn này, bạn sẽ có một dự án SubQuery đang hoạt động chạy trên nút SubQuery với điểm cuối GraphQL mà có thể truy vấn dữ liệu từ đó.
 
 Nếu chưa có, chúng tôi khuyên bạn nên tự làm quen với [thuật ngữ](../#terminology) được sử dụng trong SubQuery.
 
-**The goal of this quick start guide is to adapt the standard starter project to begin indexing all transfers from Polkadot, it should only take 10-15 minutes**
+**Mục tiêu của hướng dẫn bắt đầu nhanh này là điều chỉnh dự án khởi đầu tiêu chuẩn để bắt đầu lập chỉ mục tất cả các giao dịch từ Polkadot, chỉ mất 10-15 phút**
 
 ## Chuẩn bị
 
 ### Môi trường phát triển địa phương
 
-- [Node](https://nodejs.org/en/): A modern (e.g. the LTS version) installation of Node.
-- [Docker](https://docker.com/): This tutorial will use require Docker
+- [Node](https://nodejs.org/en/): Cài đặt một phiên bản mới nhất của Node (ví dụ: phiên bản LTS).
+- [Docker](https://docker.com/): Hướng dẫn này sẽ yêu cầu sử dụng Docker
 
 ### Cài đặt CLI SubQuery
 
-Install SubQuery CLI globally on your terminal by using NPM:
+Cài đặt SubQuery CLI tổng thể trên terminal của bạn bằng cách sử dụng NPM:
 
 ```shell
 # NPM
 npm install -g @subql/cli
 ```
 
-Please note that we **DO NOT** encourage the use of `yarn global` for installing `@subql/cli` due to its poor dependency management which may lead to an errors down the line.
+Xin lưu ý rằng chúng tôi **KHÔNG** khuyến khích sử dụng `yarn global<` để cài đặt `@subql/cli` do quản lý phụ thuộc kém có thể dẫn đến lỗi xuống dòng.
 
-You can then run help to see available commands and usage provide by CLI
+Sau đó, bạn có thể chạy help để xem các lệnh có sẵn và cách sử dụng do CLI cung cấp
 
 ```shell
 subql help
 ```
 
-## Initialise the SubQuery Starter Project
+## Khởi tạo Dự án khởi đầu SubQuery
 
-Inside the directory in which you want to create a SubQuery project, simply run the following command to get started.
+Bên trong thư mục mà bạn muốn tạo một dự án SubQuery, chỉ cần chạy lệnh sau để bắt đầu.
 
 ```shell
 subql init
 ```
 
-You'll be asked certain questions as the SubQuery project is initalised:
+Bạn sẽ được hỏi một số câu hỏi nhất định khi dự án SubQuery được khởi động:
 
 - Name: A name for your SubQuery project
 - Network: A blockchain network that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use *"Polkadot"*
@@ -54,32 +54,32 @@ You'll be asked certain questions as the SubQuery project is initalised:
 
 After the initialisation process is complete, you should see a folder with your project name has been created inside the directory. The contents of this directoy should be identical to what's listed in the [Directory Structure](../create/introduction.md#directory-structure).
 
-Last, under the project directory, run following command to install the new project's dependencies.
+Cuối cùng, trong thư mục dự án, chạy lệnh sau để cài đặt các phụ thuộc của dự án mới.
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```shell cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
 
-## Making Changes to your Project
+## Thực hiện các thay đổi đối với dự án của bạn
 
-In the starter package that you just initialised, we have provided a standard configuration for your new project. You will mainly be working on the following files:
+Trong gói khởi đầu mà bạn vừa khởi tạo, chúng tôi đã cung cấp cấu hình tiêu chuẩn cho dự án mới của bạn. Bạn sẽ làm việc chủ yếu trên các tệp sau:
 
-1. The GraphQL Schema in `schema.graphql`
-2. The Project Manifest in `project.yaml`
+1. Lược đồ GraphQL ở `schema.graphql`
+2. Tệp Kê khai dự án ở ` project.yaml `
 3. Các chức năng ánh xạ trong thư mục `src/mappings/`
 
-The goal of this quick start guide is to adapt the standard starter project to begin indexing all transfers from Polkadot.
+Mục tiêu của hướng dẫn bắt đầu nhanh này là điều chỉnh dự án khởi đầu tiêu chuẩn để bắt đầu lập chỉ mục tất cả các giao dịch từ Polkadot.
 
-### Updating your GraphQL Schema File
+### Cập nhật tệp lược đồ GraphQL của bạn
 
-The `schema.graphql` file defines the various GraphQL schemas. Due to the way that the GraphQL query language works, the schema file essentially dictates the shape of your data from SubQuery. Its a great place to start becuase it allows you to define your end goal up front.
+Tệp `schema.graphql` xác định các lược đồ GraphQL khác nhau. Do cách hoạt động của ngôn ngữ truy vấn GraphQL, về cơ bản tệp lược đồ chỉ ra hình dạng dữ liệu của bạn từ SubQuery. Đây là một nơi tuyệt vời để bắt đầu vì nó cho phép bạn xác định trước mục tiêu cuối cùng của mình.
 
-We're going to update the `schema.graphql` file to read as follows
+Chúng ta sẽ cập nhật tệp `schema.graphql` để trông như sau
 
 ```graphql
 type Transfer @entity {
-  id: ID! # id field is always required and must look like this
-  amount: BigInt # Amount that is transferred
-  blockNumber: BigInt # The block height of the transfer
+  id: ID! # Trường id là bắt buộc và phải trông như thế này
+  amount: BigInt # Số tiền được chuyển
+  blockNumber: BigInt # Chiều cao khổi của giao dịch
   from: Account! # The account that transfers are made from
   to: Account! # The account that transfers are made to
 }
@@ -92,7 +92,7 @@ type Transfer @entity {
 
 You'll find the generated models in the `/src/types/models` directory. For more information about the `schema.graphql` file, check out our documentation under [Build/GraphQL Schema](../build/graphql.md)
 
-### Updating the Project Manifest File
+### Cập nhật tệp kê khai dự án
 
 The Projet Manifest (`project.yaml`) file can be seen as an entry point of your project and it defines most of the details on how SubQuery will index and transform the chain data.
 
@@ -116,7 +116,7 @@ This means we'll run a `handleEvent` mapping function each and every time there 
 
 For more information about the Project Manifest (`project.yaml`) file, check out our documentation under [Build/Manifest File](../build/manifest.md)
 
-### Add a Mapping Function
+### Thêm một hàm Ánh xạ
 
 Mapping functions define how chain data is transformed into the optimised GraphQL entities that we have previously defined in the `schema.graphql` file.
 
