@@ -29,7 +29,7 @@
           <div>
             <img src="/assets/img/tutorialsIcon.svg" />
             <span>Hướng dẫn và Ví dụ</span>
-            <p>Learning by doing in our Academy. Hướng dẫn và ví dụ về cách xây dựng các dự án bằng SubQuery.</p>
+            <p>Học bằng cách thực hiện trong Học viện của chúng tôi. Hướng dẫn và ví dụ về cách xây dựng các dự án bằng SubQuery.</p>
           </div>
         </router-link>
       </li>
@@ -70,7 +70,7 @@
       <li>
         <div class="title">Cách tốt nhất để bắt đầu với SubQuery là gì?</div>
         <div class="content">
-          <p>The best way to get started with SubQuery is to try out our <a href="/quickstart/quickstart.html">Quick Start tutorial</a>. Đây là một hướng dẫn đơn giản trong 5 phút: tải xuống mẫu khởi động, xây dựng dự án và sau đó sử dụng Docker để chạy một node trên máy chủ của bạn và chạy một truy vấn đơn giản. </p>
+          <p>Cách tốt nhất để bắt đầu với SubQuery là thực hiện <a href="/quickstart/quickstart.html">Hướng dẫn bắt đầu nhanh</a> của chúng tôi. Đây là một hướng dẫn đơn giản trong 5 phút: tải xuống mẫu khởi động, xây dựng dự án và sau đó sử dụng Docker để chạy một node trên máy chủ của bạn và chạy một truy vấn đơn giản. </p>
         </div>
       </li>
       <li>
@@ -85,7 +85,7 @@
       <li>
         <div class="title">Chi phí để lưu trữ dự án của tôi trong SubQuery là bao nhiêu?</div>
         <div class="content">
-          <p>Việc lưu trữ dự án trên SubQuery là hoàn toàn miễn phí - đây là cách chúng tôi cống hiến cho cộng đồng. To learn how to host your project with us, please check out the <a href="/quickstart/quickstart.html">Hello World (SubQuery Hosted)</a> tutorial.</p>
+          <p>Việc lưu trữ dự án trên SubQuery là hoàn toàn miễn phí - đây là cách chúng tôi cống hiến cho cộng đồng. Để tìm hiểu cách lưu trữ dự án của bạn với chúng tôi, vui lòng xem hướng dẫn <a href="/quickstart/quickstart.html">Hello World (SubQuery Hosted)</a>.</p>
           <span class="more">
             <router-link :to="{path: '/run_publish/publish.html'}">LƯU TRỮ DỰ ÁN CỦA BẠN</router-link>
           </span>
