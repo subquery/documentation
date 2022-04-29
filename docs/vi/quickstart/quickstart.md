@@ -1,4 +1,4 @@
-# Welcome
+# Chào mừng
 
 In this Quick start guide, we're going to start with a simple starter project and then finish by indexing some actual real data. This is an excellent basis to start with when developing your own SubQuery Project.
 
@@ -204,15 +204,15 @@ For a new SubQuery starter project, you can try the following query to get a tas
 }
 ```
 
-### Publish your SubQuery Project
+### Xuất bản Dự Án SubQuery của bạn
 
 SubQuery provides a free managed service when you can deploy your new project to. You can deploy it to [SubQuery Projects](https://project.subquery.network) and query it using our [Explorer](https://explorer.subquery.network).
 
 [Read the guide to publish your new project to SubQuery Projects](../run_publish/publish.md)
 
-## Next Steps
+## Bước tiếp theo
 
-Congratulations, you now have a locally running SubQuery project that accepts GraphQL API requests for transfers data.
+Xin chúc mừng, bạn hiện có một dự án SubQuery đang chạy cục bộ chấp nhận các yêu cầu API GraphQL để chuyển dữ liệu.
 
 Now that you've had an insight into how to build a basic SubQuery project, the question is where to from here? If you are feeling confident, you can jump into learning more about the three key files. The manifest file, the GraphQL schema, and the mappings file under the [Build section of these docs](../build/introduction.md).
 
