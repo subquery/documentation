@@ -10,27 +10,28 @@ The Manifest can be in either YAML or JSON format. In this document, we will use
 ``` yml
 specVersion: 1.0.0
 name: subquery-starter
-version: 0.0.4
+version: 0.0.1
 runner:
   node:
     name: '@subql/node'
     version: latest
   query:
     name: '@subql/query'
-    version: 0.24.0
-description: ''
+    version: latest
+description: 'This project can be use as a starting point for developing your Polkadot based SubQuery project'
 repository: https://github.com/subquery/subql-starter
 schema:
   file: ./schema.graphql
 network:
   chainId: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3'
   endpoint: wss://polkadot.api.onfinality.io/public-ws
+  # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
   dictionary: https://api.subquery.network/sq/subquery/dictionary-polkadot
 dataSources:
   - kind: substrate/Runtime
     startBlock: 1
     mapping:
-      file: "./dist/index.js"
+      file: ./dist/index.js
       handlers:
         - handler: handleBlock
           kind: substrate/BlockHandler
@@ -52,17 +53,18 @@ version: 0.0.1
 runner:
   node:
     name: '@subql/node-terra'
-    version: '*'
+    version: latest
   query:
     name: '@subql/query'
-    version: '*'
-description: This project can be use as a starting point for developing your Terra based SubQuery project
+    version: latest
+description: 'This project can be use as a starting point for developing your Terra based SubQuery project'
 repository: https://github.com/subquery/terra-subql-starter
 schema:
   file: ./schema.graphql
 network:
   chainId: columbus-5
   endpoint: https://terra-columbus-5.beta.api.onfinality.io
+  # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
   dictionary: https://api.subquery.network/sq/subquery/terra-columbus-5-dictionary
   # Strongly suggested to provide a mantlemint endpoint to speed up processing
   mantlemint: "https://mantlemint.terra-columbus-5.beta.api.onfinality.io:1320"
@@ -330,7 +332,7 @@ filter:
 
 ## Custom Substrate Chains
 
-### Network Spec
+### Substrate Network Spec
 
 When connecting to a different Polkadot parachain or even a custom Substrate chain, you'll need to edit the [Network Spec](#network-spec) section of this manifest.
 
@@ -340,7 +342,7 @@ The `genesisHash` must always be the hash of the first block of the custom netwo
 
 Additionally you will need to update the `endpoint`. This defines the wss endpoint of the blockchain to be indexed - **This must be a full archive node**. You can retrieve endpoints for all parachains for free from [OnFinality](https://app.onfinality.io)
 
-### Chain Types
+### Substrate Chain Types
 
 You can index data from custom Substrate chains by also including chain types in the manifest. We support the additional types used by Substrate runtime modules, `typesAlias`, `typesBundle`, `typesChain`, and `typesSpec` are also supported.
 
@@ -476,51 +478,7 @@ Here is a list of supported custom datasources:
 
 | Kind                                                  | Supported Handlers                                                                                       | Filters                         | Description                                                                      |
 | ----------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | ------------------------------- | -------------------------------------------------------------------------------- |
-| [substrate/Moonbeam](./moonbeam/#data-source-example) | [substrate/MoonbeamEvent](./moonbeam/#moonbeamevent), [substrate/MoonbeamCall](./moonbeam/#moonbeamcall) | See filters under each handlers | Provides easy interaction with EVM transactions and events on Moonbeams networks |
-
-## Network Filters
-
-**Network filters only applies to manifest spec v0.0.1**.
-
-Usually the user will create a SubQuery and expect to reuse it for both their testnet and mainnet environments (e.g Polkadot and Kusama). Between networks, various options are likely to be different (e.g. index start block). Therefore, we allow users to define different details for each data source which means that one SubQuery project can still be used across multiple networks.
-
-Users can add a `filter` on `dataSources` to decide which data source to run on each network.
-
-Below is an example that shows different data sources for both the Polkadot and Kusama networks.
-
-<CodeGroup>
-  <CodeGroupItem title="v0.0.1">
-
-```yaml
----
-network:
-  endpoint: "wss://polkadot.api.onfinality.io/public-ws"
-
-#Create a template to avoid redundancy
-definitions:
-  mapping: &mymapping
-    handlers:
-      - handler: handleBlock
-        kind: substrate/BlockHandler
-
-dataSources:
-  - name: polkadotRuntime
-    kind: substrate/Runtime
-    filter: #Optional
-      specName: polkadot
-    startBlock: 1000
-    mapping: *mymapping #use template here
-  - name: kusamaRuntime
-    kind: substrate/Runtime
-    filter:
-      specName: kusama
-    startBlock: 12000
-    mapping: *mymapping # can reuse or change
-```
-
-  </CodeGroupItem>
-
-</CodeGroup>
+| [substrate/FrontierEvm](./substrate-evm/#data-source-example) | [substrate/FrontierEvmEvent](./substrate-evm/#FrontierEvmEvent), [substrate/FrontierEvmCall](./substrate-evm/#frontierevmcall) | See filters under each handlers | Provides easy interaction with EVM transactions and events on the Frontier EVM (widely used across Polkadot including in Moonbeam and Astar networks) |
 
 ## Validating
 
