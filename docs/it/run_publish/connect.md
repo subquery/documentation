@@ -8,9 +8,4 @@ In alternativa, puoi cliccare sui tre puntini accanto al titolo del tuo progetto
 
 ![Progetti nell'esploratore di subquery](/assets/img/projects-explorer.png)
 
-# Per saperne di più su GraphQL
-
-Puoi seguire la [guida ufficiale di GraphQL qui](https://graphql.org/learn/) per saperne di più su GraphQL, come funziona e come usarlo:
-- Ci sono librerie che ti aiutano a implementare GraphQL in [molti linguaggi diversi](https://graphql.org/code/)
-- Per un'esperienza di apprendimento approfondita con tutorial pratici, vedere [Come usare GraphQL](https://www.howtographql.com/).
-- Dai un'occhiata al corso online gratuito, [Exploring GraphQL: Un linguaggio di interrogazione per API](https://www.edx.org/course/exploring-graphql-a-query-language-for-apis).
+[Per saperne di più sul linguaggio GraphQL Query.](./graphql.md)

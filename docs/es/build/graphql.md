@@ -130,14 +130,12 @@ Ejemplo: Una persona puede tener múltiples cuentas.
 ```graphql
 type Person @entity {
   id:
-  ID!
-  passport: Passport!
+  cuentas: [Account]! @derivedFrom(field: "person") #Este es un campo virtual 
 }
 
-type Passport @entity {
-  id:
-  ID!
-  owner:
+type Account @entity {
+  id: ID!
+  person: Person!
 }
 ```
 
@@ -152,12 +150,10 @@ type Person @entity {
   ID!
   name: String!
   groups:
-  [PersonGroup]
 }
 
 type PersonGroup @entity {
   id: ID!
-  person: Person!
   person: Person!
   Group: Group!
 Group: Group!
@@ -168,9 +164,6 @@ type Group @entity {
   ID!
   name: String!
   groups:
-  ID!
-  name: String!
-  persons: [PersonGroup]
 }
 ```
 

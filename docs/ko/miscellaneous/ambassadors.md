@@ -48,10 +48,10 @@
 
 **Event Management:** 다양한 이벤트를 개최하고, 편성 및 관리함으로써 로컬 커뮤니티를 구축합니다. 지역 커뮤니티를 구축하는 것은 서브쿼리 커뮤니티를 성장시키는데 중요한 부분이 됩니다. 서브쿼리는 이벤트에 대한 예산 제공, 증정되는 스웨그 상품의 배송을 지원하며, 온라인 이벤트의 연사, AMA 세션 등의 참석도 지원할 것입니다.
 
-**Content Creation:** 작성에 필요한 컨텐츠와 서포트 자료의 리스트가 다수 있습니다. 저희의 성공은 고객이 저희의 서비스에 놀라운 것을 구축할 수 있느냐에 달려있음을 기억해주세요. 이를 쉽게 하기 위해서는 여러분의 도움이 필요합니다. Content includes videos, infographics, tutorials, animations, or any other related material, to inform, educate, or inspire community members within the SubQuery Ecosystem. SubQuery will support Content Creators by providing branding assets and expertise. We’ll also use SubQuery’s marketing channels to increase awareness of your content (and yourself).
+**Content Creation:** 작성에 필요한 컨텐츠와 서포트 자료의 리스트가 다수 있습니다. 저희의 성공은 고객이 저희의 서비스에 놀라운 것을 구축할 수 있느냐에 달려있음을 기억해주세요. 이를 쉽게 하기 위해서는 여러분의 도움이 필요합니다. 콘텐츠에는 비디오, 인포그래픽, 튜토리얼, 애니메이션 또는 기타 관련 자료가 포함되어 SubQuery 생태계 내에서 커뮤니티 구성원에게 정보를 제공하거나 교육하거나 영감을 줍니다. SubQuery는 브랜딩 자산과 전문 지식을 제공하여 콘텐츠 작성자를 지원합니다. 또한 SubQuery의 마케팅 채널을 사용하여 귀하의 콘텐츠(및 귀하 자신)에 대한 인지도를 높일 것입니다.
 
-**Translation:** Our customers don’t just speak English! We need your help making SubQuery more accessible by translating our content into your own language, as well as helping sharing the word to our international community.
+**번역:** 우리 고객은 영어만 구사하지 않습니다! 우리의 콘텐츠를 귀하의 언어로 번역하고 국제 커뮤니티에 단어를 공유하는 데 도움을 주어 SubQuery에 더 쉽게 액세스할 수 있도록 도와야 합니다.
 
-**Community Moderation:** Moderators will help grow the SubQuery community by ensuring that official community channels are active and engaging. SubQuery will support Moderators by promoting the channels that they monitor, as well as provide guidelines for our expectations.
+**커뮤니티 관리자:** 관리자는 공식 커뮤니티 채널이 활성화되고 참여하도록 하여 SubQuery 커뮤니티를 성장시키는 데 도움을 줄 것입니다. SubQuery는 관리자가 모니터링하는 채널을 승격하여 중재자를 지원하고 기대치에 대한 지침을 제공합니다.
 
 [지금 신청하세요!](https://forms.gle/GXBbJ6LDpNfM2v1X6)

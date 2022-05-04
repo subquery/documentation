@@ -1,32 +1,32 @@
-# IPFSを使用してプロジェクトをホスティングする
+# Alojando un proyecto usando IPFS
 
-このガイドでは、ローカルの SubQuery プロジェクトを [IPFS](https://ipfs.io/) に公開し、ホスティングインフラストラクチャにデプロイする方法について説明します。
+Esta guía trabaja a través de cómo publicar un proyecto local de SubQuery en [IPFS](https://ipfs.io/) e implementarlo en nuestra infraestructura de alojamiento.
 
-IPFSにプロジェクトをホストすることで、すべての人が利用できるようになり、GitHubのような中央集権的なサービスへの依存を減らすことができます。
+Hospedar un proyecto en IPFS lo pone a disposición de todos y reduce su confianza en servicios centralizados como GitHub.
 
-## 要件
+## Requisitos
 
-- `@subql/cli` バージョン 0.21.0 以上。
-- マニフェスト `specVersion` 0.2.0 以上。
-- [SUBQL_ACCESS_TOKEN](#prepare-your-subql-access-token) を準備すること。
-- デプロイを確実に成功させるために、`subql build` コマンドでプロジェクトをビルドし、公開する前にローカルでテストすることを強くお勧めします。
+- `@subql/cli` versión 0.21.0 o superior.
+- Manifiesto `specVersion` 0.2.0 o superior.
+- Prepara tu [SUBQL_ACCESS_TOKEN](#prepare-your-subql-access-token).
+- Para asegurarse de que su despliegue sea exitoso, le recomendamos que construya su proyecto con el comando `subql build`, y pruébalo localmente antes de publicar.
 
-## SUBQL_ACCESS_TOKENを準備する
+## Prepara tu SUBQL_ACCESS_TOKEN
 
-- ステップ 1: [SubQuery Projects](https://project.subquery.network/) に移動してログインします。
-- ステップ 2: ナビゲーションメニューの右上にあるプロフィールをクリックし、 **_Refresh Token_** をクリックします
-- ステップ 3: 生成されたトークンをコピーします。
-- ステップ 4: このトークンを使用するには:
-  - オプション1:環境変数に SUBQL_ACCESS_TOKENを追加します。 `EXPORT SUBQL_ACCESS_TOKEN=<token>`
-  - オプション 2: 近日中に `subql/cli` が SUBQL_ACCESS_TOKEN をローカルに保存することをサポートする予定です。
+- Paso 1: Vaya a [Proyectos de Subconsulta](https://project.subquery.network/) e inicie sesión.
+- Paso 2: Haga clic en su perfil en la parte superior derecha del menú de navegación, luego haga clic en **_Actualizar token_**
+- Paso 3: Copie el token generado.
+- Paso 4: Para usar este token:
+  - Opción 1: Añada SUBQL_ACCESS_TOKEN en sus variables de entorno. `EXPORT SUBQL_ACCESS_TOKEN=<token>`
+  - Opción 2: Muy pronto, `subql/cli` soportará almacenar su SUBQL_ACCESS_TOKEN localmente.
 
-## プロジェクトを公開する方法
+## Cómo publicar un proyecto
 
-プロジェクトを公開するには2つの方法があります。
+Proporcionamos dos métodos para publicar su proyecto,
 
-### オプション1:
+### Opción 1:
 
-すでに `@subql/cli` がインストールされているので、以下のコマンドを実行すると、プロジェクトとそのデフォルトマニフェスト `project.yaml` から必要な情報を読み込むことができます。
+Como ya tienes `@subql/cli` instalado, puedes ejecutar el siguiente comando, que leerá el proyecto e información requerida de su proyecto manifest predeterminado `. ml`
 
 ```
 // Publish it from your project's root directory
@@ -36,9 +36,9 @@ subql publish
 subql publish -f ~/my-project/
 ```
 
-### オプション2:
+### Opción 2:
 
-または、プロジェクトに複数のマニフェストファイルがあるとします。 たとえば、複数のネットワークをサポートしていますが、同じマッピングとビジネスロジックを共有し、以下のようにプロジェクト構造を持っています:
+Alternativamente, supongamos que tu proyecto tiene múltiples archivos de manifiesto, por ejemplo soporta múltiples redes pero comparte el mismo mapeo y lógica de negocio, y tiene una estructura de proyecto como sigue:
 
 ```
 L projectRoot
@@ -49,16 +49,16 @@ L projectRoot
  ...
 ```
 
-選択したマニフェストファイルを使用してプロジェクトをいつでも公開できます
+Siempre puede publicar el proyecto con el archivo manifest seleccionado.
 
 ```
  # This will publish project support indexing Polkadot network
 subql publish -f ~/my-projectRoot/polkadot.yaml
 ```
 
-## 公開した後
+## Después de publicar
 
-プロジェクトを正常に公開した後 以下のログは、プロジェクトが IPFS クラスターで作成され、 `CID` (コンテンツ識別子) を返したことを示しています。
+Después de publicar correctamente el proyecto, los siguientes registros indican que el proyecto fue creado en el clúster IPFS y han devuelto su `CID` (identificador de contenido).
 
 ```
 Building and packing code... done
@@ -66,19 +66,19 @@ Uploading SupQuery project to IPFS
 SubQuery Project uploaded to IPFS: QmZ3q7YZSmhwBiot4PQCK3c7Z6HkteswN2Py58gkkZ8kNd  //CID
 ```
 
-この `CID` に注意してください。 この `CID`を使用すると、公開されたプロジェクトを [IPFS Deployment](#ipfs-deployment) と呼びます。
+Tenga en cuenta este `CID`. Con este `CID`, puedes ver tu proyecto publicado como lo que llamamos [despliegue IPFS](#ipfs-deployment)
 
-## IPFSデプロイ
+## Despliegue IPFS
 
-IPFSデプロイメントは、分散ネットワーク上のSubQueryプロジェクトの独立したユニークな存在を表します。 そのため、プロジェクト内のコードに変更があると、そのユニーク性に影響が出ます。 ビジネスロジックを調整する必要がある場合、例えばマッピング機能を変更する場合は、プロジェクトを再発行する必要があり、 `CID` が変更されます。
+El despliegue IPFS representa una existencia independiente y única de un proyecto SubQuery en una red descentralizada. Por lo tanto, cualquier cambio con el código del proyecto afectará a su singularidad. Si necesitas ajustar la lógica de tu negocio, por ejemplo, cambiar la función de mapeo, debes volver a publicar el proyecto y el `CID` cambiará.
 
-とりあえず公開したプロジェクトを見るには、[Postman](https://web.postman.co/)などの `REST` apiツールを使い、以下のサンプルURLで `POST` メソッドを使用して取得します。 `https://subquery.network/ipfs/api/v0/cat?arg=<YOUR_PROJECT_CID>`
+Por ahora, para ver el proyecto que has publicado, usa una herramienta api `REST` como [Postman](https://web.postman.co/), y utilice el método `POST` con la siguiente URL de ejemplo para recuperarla. `https://ipfs.subquery.network/ipfs/api/v0/cat?arg=<YOUR_PROJECT_CID>`
 
-以下のように、プロジェクトのデプロイ例が表示されます。
+Deberías ver el ejemplo de despliegue del proyecto como a continuación:
 
-このデプロイメントはマニフェストファイルによく似ています。 それらの記述フィールドを期待することができ、ネットワークとディクショナリのエンドポイントは、プロジェクトの実行結果に直接影響しないため、削除されました。
+Este despliegue se parece mucho a su archivo manifiesto. Puedes esperar esos campos descriptivos, y se ha eliminado el punto final de red y diccionario, ya que no afectaron directamente al resultado de la ejecución del proyecto.
 
-ローカルプロジェクトで使用されたファイルは、IPFSにもパックされて公開されています。
+Esos archivos han sido utilizados en su proyecto local y han sido empaquetados y publicados también en IPFS.
 
 ```yaml
 dataSources:
@@ -98,19 +98,16 @@ dataSources:
     startBlock: 8973820
 network:
   genesisHash: "0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3"
-schema:
-  file: ipfs://QmTP5BjtxETVqvU4MkRxmgf8NbceB17WtydS6oQeHBCyjz
-specVersion: 0.2.0
 ```
 
-## ホストされたサービスでSubQueryプロジェクトを実行する
+## Ejecutar su proyecto de SubQuery en Servicio Hosted
 
-### IPFSデプロイメントでプロジェクトを作成する
+### Crear proyecto con implementación IPFS
 
-ガイドに従って、 [SubQuery プロジェクトの公開](publish.md) を参照してください。ただし、デプロイソースを設定する場合は、 **IPFS** を選択できます。
+Puedes seguir la guía para [Publicar tu proyecto de SubQuery](publish.md) pero donde configuraste tu fuente de despliegue puedes seleccionar **IPFS**.
 
-次に、本番用環境を選択し、IPFS デプロイメントの CID（先頭の `ipfs://` を除く）をコピーして貼り付けます。
+A continuación, elija su ranura de producción, copie y pegue el CID de despliegue de IPFS (sin el principal `ipfs://`).
 
-プレビューセクションにIPFSデプロイメントが表示されます。 ネットワーク、ディクショナリのエンドポイントなどを選択できます。
+Debería ver el despliegue IPFS en la sección de vista previa. Y puede seleccionar la red, los puntos finales del diccionario, etc.
 
-ホストされたサービスにIPFSデプロイメントを正常にデプロイした後。 SubQueryエクスプローラで表示することができ、ローカルで行うようにクエリーサービスにアクセスできます。
+Después de implementar con éxito el despliegue IPFS en nuestro servicio alojado, debería estar disponible para ver en SubQuery Explorer, puede acceder al servicio de consultas como lo hace localmente.

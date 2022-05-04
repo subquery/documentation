@@ -8,9 +8,4 @@
 
 ![Проекты в SubQuery Эксплорере](/assets/img/projects-explorer.png)
 
-# Подробнее о GraphQL
-
-Вы можете следовать [ официальному руководству по GraphQL здесь ](https://graphql.org/learn/), чтобы узнать больше о GraphQL, как он работает и методы использования:
-- Библиотеки, которые помогут вам реализовать GraphQL на [разных языках](https://graphql.org/code/)
-- Информацию об углубленном обучении с практическими уроками см. [How to GraphQL](https://www.howtographql.com/).
-- Ознакомьтесь с бесплатным онлайн-курсом, [Исследование GraphQL: язык запроса для API](https://www.edx.org/course/exploring-graphql-a-query-language-for-apis).
+[Узнайте больше о языке запросов GraphQL.](./graphql.md)

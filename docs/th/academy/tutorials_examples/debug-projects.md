@@ -1,4 +1,4 @@
-# จะ debug โปรเจ็กต์ SubQuery ได้อย่างไร?
+# จะ debug โปรเจกต์ SubQuery ได้อย่างไร?
 
 ## คู่มือวิดีโอ
 
@@ -8,11 +8,11 @@
 
 ## บทนำ
 
-ในการ debug โปรเจ็กต์ SubQuery เช่น การข้ามไปยังบรรทัดโค้ดที่ต้องการ การตั้งค่า breakpoints และการตรวจสอบตัวแปร คุณจะต้องใช้ inspector ของ Node.js ร่วมกับ Chrome developer tools
+ในการ debug โปรเจกต์ SubQuery เช่น การข้ามไปยังบรรทัดโค้ดที่ต้องการ การตั้งค่า breakpoints และการตรวจสอบตัวแปร คุณจะต้องใช้ inspector ของ Node.js ร่วมกับ Chrome developer tools
 
 ## Node inspector
 
-เรียกใช้คำสั่งต่อไปนี้ในหน้าจอเทอร์มินัล
+รันคำสั่งต่อไปนี้ในหน้าจอเทอร์มินัล
 
 ```shell
 node --inspect-brk <path to subql-node> -f <path to subQuery project>
@@ -32,6 +32,6 @@ Debugger attached.
 
 ![node inspect](/assets/img/node_inspect.png)
 
-ไปที่ Filesystem และเพิ่มโฟลเดอร์โปรเจ็กต์ของคุณไป workspace จากนั้นเปิด dist > โฟลเดอร์ mappings และเลือกโค้ดคุณต้องการ debug จากนั้นตรวจสอบโค้ดเช่นเดียวกับเครื่องมือสำหรับ debug มาตรฐานทั่วไป
+ไปที่ Filesystem และเพิ่มโฟลเดอร์โปรเจกต์ของคุณไป workspace จากนั้นเปิด dist > โฟลเดอร์ mappings และเลือกโค้ดคุณต้องการ debug จากนั้นตรวจสอบโค้ดเช่นเดียวกับเครื่องมือสำหรับ debug มาตรฐานทั่วไป
 
 ![การ debug projects](/assets/img/debugging_projects.png)

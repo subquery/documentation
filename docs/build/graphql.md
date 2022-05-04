@@ -5,7 +5,21 @@
 The `schema.graphql` file defines the various GraphQL schemas. Due to the way that the GraphQL query language works, the schema file essentially dictates the shape of your data from SubQuery.
 To learn more about how to write in GraphQL schema language, we recommend checking out [Schemas and Types](https://graphql.org/learn/schema/#type-language).
 
-**Important: When you make any changes to the schema file, please ensure that you regenerate your types directory with the following command `yarn codegen`**
+**Important: When you make any changes to the schema file, please ensure that you regenerate your types directory**
+
+<CodeGroup>
+  <CodeGroupItem title="YARN" active>
+  ```shell
+  yarn codegen
+  ```
+  </CodeGroupItem>
+
+  <CodeGroupItem title="NPM">
+  ```shell
+  npm run-script codegen
+  ```
+  </CodeGroupItem>
+</CodeGroup>
 
 ### Entities
 Each entity must define its required fields `id` with the type of `ID!`. It is used as the primary key and unique among all entities of the same type.

@@ -1,44 +1,44 @@
-# Проведення проекту з використанням IPFS
+# IPFS kullanarak Proje Barındırma
 
-У цьому посібнику описано, як опублікувати локальний проект SubQuery в [IPFS](https://ipfs.io/) і розгорнути його в нашій інфраструктурі хостингу.
+Bu kılavuz, yerel bir Subquery projesinin [IPFS](https://ipfs.io/)'de nasıl yayınlanacağını ve barındırma altyapımıza nasıl dağıtılacağını açıklamaktadır.
 
-Розміщення проекту в IPFS робить його доступним для всіх і зменшує вашу залежність від централізованих служб, таких як GitHub.
+IPFS'de bir projeye ev sahipliği yapmak, onu herkes için kullanılabilir hale getirir ve GitHub gibi merkezi hizmetlere olan bağımlılığınızı azaltır.
 
-## Вимоги
+## Gereksinimler
 
-- `@subql/cli` версія 0.21.0 або вище.
-- Маніфест `specVersion` 0.2.0 або вище.
-- Підготуйте свій [SUBQL_ACCESS_TOKEN](#prepare-your-subql-access-token).
-- Щоб переконатися в успіху вашого розгортання, ми наполегливо рекомендуємо вам створити проект за допомогою команди `subql build` і протестувати його локально перед публікацією.
+- `@subql/cli` sürüm 0.21.0 veya üzeri.
+- Manifest `specVersion 0.2.0` ve üstü.
+- [SUBQL_ACCESS_TOKEN](#prepare-your-subql-access-token)'ınızı hazırlayın.
+- Dağıtımınızın başarılı olduğundan emin olmak için projenizi `subql build` komutuyla oluşturmanızı ve yayınlamadan önce yerel olarak test etmenizi şiddetle öneririz.
 
-## Підготуйте свій SUBQL_ACCESS_TOKEN
+## SUBQL_ACCESS_TOKEN'inizi hazırlayın
 
-- Крок 1. Перейдіть до [SubQuery Projects](https://project.subquery.network/) та увійдіть.
-- Крок 2. Натисніть свій профіль у верхньому правому куті навігаційного меню, а потім натисніть **_Refresh Token_**
-- Крок 3: скопіюйте згенерований токен.
-- Крок 4. Щоб використовувати цей токен:
-  - Варіант 1. Додайте SUBQL_ACCESS_TOKEN у змінні середовища. `EXPORT SUBQL_ACCESS_TOKEN=<token>`
-  - Варіант 2. Незабаром `subql/cli` підтримуватиме локальне зберігання вашого SUBQL_ACCESS_TOKEN.
+- Adım 1: [SubQuery Projeleri'ne](https://project.subquery.network/) gidin ve oturum açın.
+- 2. Adım: Gezinme menüsünün sağ üst köşesindeki profilinize tıklayın, ardından **_Tokenu Yenile_** seçeneğine tıklayın
+- Adım 3: Oluşturulan tokenu kopyalayın.
+- Adım 4: Bu tokenu kullanmak için:
+  - Seçenek 1: Ortam değişkenlerinize SUBQL_ACCESS_TOKEN ekleyin. `SUBQL_ACCESS_TOKEN İHRAC ET=<token>`
+  - 2. Seçenek: Yakında, `subql/cli`, SUBQL_ACCESS_TOKEN'inizin yerel olarak depolanmasını destekleyecektir.
 
-## Як опублікувати проект
+## Bir proje nasıl yayınlanır
 
-Ми пропонуємо два способи опублікувати ваш проект,
+Projenizi yayınlamak için iki yöntem sunuyoruz,
 
-### Варіант 1
+### Seçenek 1:
 
-Оскільки у вас уже встановлено `@subql/cli`, ви можете запустити таку команду, яка прочитає проект і необхідну інформацію з його маніфесту за замовчуванням `project.yaml`
+`@subql/cli` zaten kurulu olduğundan, projeyi ve gerekli bilgileri varsayılan bildiriminden `project.yaml` okuyacak olan aşağıdaki komutu çalıştırabilirsiniz
 
 ```
-// Опублікувати його з кореневого каталогу вашого проекту
-subql опублікувати
+// Projenizin kök dizininden yayınlayın
+subql yayınla
 
-// АБО вказуйте на корінь вашого проекту
-subql опублікувати -f ~/мій-проект/
+// VEYA proje kökünüzü işaret edin
+subql yayınla -f ~/projem/
 ```
 
-### Варіант 2
+### Seçenek 2:
 
-Крім того, припустімо, що у вашому проекті є кілька файлів маніфесту, наприклад, ви підтримуєте кілька мереж, але використовуєте однакове відображення та бізнес-логіку та маєте таку структуру проекту:
+Alternatif olarak, projenizin birden çok Manifest dosyası olduğunu, örneğin birden çok ağı desteklediğinizi ancak aynı eşlemeyi ve iş mantığını paylaştığınızı ve aşağıdaki gibi bir proje yapısına sahip olduğunuzu varsayalım:
 
 ```
 L projectRoot
@@ -49,36 +49,36 @@ L projectRoot
  ...
 ```
 
-Ви завжди можете опублікувати проект із вибраним файлом маніфесту.
+Projeyi her zaman seçtiğiniz manifest dosyasıyla yayınlayabilirsiniz.
 
 ```
- # Це опублікує підтримку проекту індексування мережі Polkadot
-subql опублікувати -f ~/my-projectRoot/polkadot.yaml
+ # This will publish project support indexing Polkadot network
+subql publish -f ~/my-projectRoot/polkadot.yaml
 ```
 
-## Після публікації
+## Yayınladıktan sonra
 
-Після успішної публікації проекту наведені нижче журнали вказують, що проект було створено в кластері IPFS і повернуто його `CID` (ідентифікатор вмісту).
+Projeyi başarıyla yayınladıktan sonra, aşağıdaki günlükler projenin IPFS kümesinde oluşturulduğunu ve `CID`'ini (içerik tanımlayıcısını) döndürdüğünü gösterir.
 
 ```
-Побудова та код упаковки... виконано
-Завантаження проекту SupQuery в IPFS
-Проект підзапиту, завантажений до IPFS: QmZ3q7YZSmhwBiot4PQCK3c7Z6HkteswN2Py58gkkZ8kNd //CID
+Building and packing code... done
+Uploading SupQuery project to IPFS
+SubQuery Project uploaded to IPFS: QmZ3q7YZSmhwBiot4PQCK3c7Z6HkteswN2Py58gkkZ8kNd  //CID
 ```
 
-Будь ласка, зверніть увагу на `CID`. За допомогою цього `CID` ви можете розглядати свій опублікований проект як те, що ми називаємо [розгортанням IPFS](#ipfs-deployment)
+Lütfen bu `CID` not edin. Bu `CID` ile, yayınlanan projenizi [IPFS Dağıtımı olarak adlandırdığımız şekilde görüntüleyebilirsiniz](#ipfs-deployment)
 
-## Розгортання в IPFS
+## IPFS Dağıtımı
 
-Розгортання IPFS являє собою незалежне та унікальне існування проекту SubQuery в децентралізованій мережі. Тому будь-які зміни коду в проекті вплинуть на його унікальність. Якщо вам потрібно налаштувати свою бізнес-логіку, напр. змінити функцію відображення, ви повинні повторно опублікувати проект, і `CID` зміниться.
+IPFS dağıtımı, merkezi olmayan bir ağ üzerinde bir SubQuery projesinin bağımsız ve benzersiz bir varlığını temsil eder. Bu nedenle, projedeki kodda yapılacak herhangi bir değişiklik, projenin benzersizliğini etkileyecektir. İş mantığınızı ayarlamanız gerekirse, ör. eşleme işlevini değiştirin, projeyi yeniden yayınlamalısınız ve `CID` değişecektir.
 
-Наразі, щоб переглянути опублікований вами проект, скористайтеся інструментом API `REST`, таким як [Postman](https://web.postman.co/), і скористайтеся методом `POST` з наступним прикладом URL-адреси щоб отримати його. `https://subquery.network/ipfs/api/v0/cat?arg=<YOUR_PROJECT_CID>`
+Şimdilik yayınladığınız projeyi görüntülemek için [Postacı](https://web.postman.co/) gibi bir `REST` api aracı kullanın ve aşağıdaki örnek URL ile geri almak için `POST` yöntemini kullanın. `https://ipfs.subquery.network/ipfs/api/v0/cat?arg=<YOUR_PROJECT_CID>`
 
-Ви повинні побачити приклад розгортання проекту, як показано нижче:
+Örnek proje dağıtımını aşağıdaki gibi görmelisiniz:
 
-Це розгортання дуже схоже на ваш файл маніфесту. Ви можете очікувати цих описових полів, а кінцеву точку мережі та словника було видалено, оскільки вони не впливали безпосередньо на результат виконання проекту.
+Bu dağıtım, bildirim dosyanıza çok benziyor. Bu açıklayıcı alanları bekleyebilirsiniz ve ağ ve sözlük uç noktası, proje yürütmenin sonucunu doğrudan etkilemediği için kaldırılmıştır.
 
-Ці файли, які використовувалися у вашому локальному проекті, також були запаковані та опубліковані в IPFS.
+Yerel projenizde kullanılan bu dosyalar paketlendi ve IPFS'de de yayınlandı.
 
 ```yaml
 dataSources:
@@ -103,14 +103,14 @@ schema:
 specVersion: 0.2.0
 ```
 
-## Запустіть проект SubQuery на розміщеній службі
+## SubQuery projenizi Barındırılan Hizmette çalıştırın
 
-### Створіть проект із розгортанням IPFS
+### Dağıtım olmadan Oluşturulan Proje
 
-Ви можете дотримуватись посібника з [Опублікувати проект підзапиту](publish.md), але там, де ви встановите джерело розгортання, ви можете вибрати **IPFS**.
+[SubQuery projenizi yayınlama](publish.md) kılavuzunu takip edebilirsiniz, ancak dağıtım kaynağınızı belirlediğiniz yerde **IPFS**'i seçebilirsiniz.
 
-Потім виберіть свій робочий слот, скопіюйте та вставте свій CID розгортання IPFS (без початкового `ipfs://`).
+Ardından üretim yuvanızı seçin, IPFS dağıtım CID'nizi kopyalayıp yapıştırın (baştaki `ipfs:// ` olmadan).
 
-Ви повинні побачити розгортання IPFS у розділі попереднього перегляду. І ви можете вибрати мережу, кінцеві точки словника тощо.
+Önizleme bölümünde IPFS dağıtımını görmelisiniz. Ve ağı, sözlük uç noktalarını vb. seçebilirsiniz.
 
-Після успішного розгортання IPFS на нашому хостинговому сервiсi він повинен бути доступний для перегляду в SubQuery Explorer, ви можете отримати доступ до служби запитів так само, як і локально.
+Barındırılan hizmetimizde IPFS dağıtımını başarıyla dağıttıktan sonra, SubQuery Gezgini'nde görüntülenebilir olmalıdır, sorgu hizmetine tıpkı yerel olarak yaptığınız gibi erişebilirsiniz.

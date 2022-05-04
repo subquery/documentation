@@ -19,13 +19,13 @@ COMMANDS
 
 ### build
 
-このコマンドは webpack を使って、SubQuery プロジェクトのバンドルを生成するものです。
+このコマンドはwebpack を使って、SubQueryプロジェクトのバンドルを生成するものです。
 
-| オプション         | 説明                                                            |
-| ------------------ | --------------------------------------------------------------- | ----------- | ---- | ------------------------- |
-| -l, --location     | SubQuery プロジェクトのローカルフォルダ（フォルダにない場合）。 |
-| -o, --output       | ビルドの出力フォルダを指定します。例: build-folder              |
-| --mode=(production | prod                                                            | development | dev) | [デフォルト: production ] |
+| オプション              | 説明                                               |
+| ------------------ | ------------------------------------------------ |
+| -l, --location     | SubQueryプロジェクトのローカルフォルダ（フォルダにない場合）。              |
+| -o, --output       | ビルドの出力フォルダを指定します。例: build-folder                 |
+| --mode=(production | prod | development | dev) | [デフォルト: production ] |
 
 - `subql build` では、エクスポートフィールドに追加のエントリポイントを指定できますが、常に自動的に`index.ts` がビルドされます
 
@@ -65,6 +65,7 @@ Options:
                                                       [boolean] [default: false]
       --profiler            Show profiler information to console output
                                                       [boolean] [default: false]
+      --subscription        Enable subscription       [boolean] [default: false]                                                     
       --network-endpoint    Blockchain network endpoint to connect      [string]
       --output-fmt          Print log as json or plain text
                                            [string] [choices: "json", "colored"]
@@ -150,15 +151,18 @@ subql-node -f . --local
 subql-node -f . --db-schema=test2
 ```
 
+### --subscription
+This will create a notification trigger on entity, this also is the prerequisite to enable subscription feature in query service.
+
 ### --unsafe
 
-SubQuery Projects は通常、プロジェクトのアクセス範囲をシステムに制限するために、javascript サンドボックスで実行されます。 Sandbox は、利用可能な javascript のインポートを以下のモジュールに制限します。
+SubQuery Projectsは通常、プロジェクトのアクセス範囲をシステムに制限するために、javascript サンドボックスで実行されます。 Sandbox は、利用可能な javascript のインポートを以下のモジュールに制限します。
 
 ```javascript
 ["assert", "buffer", "crypto", "util", "path"];
 ```
 
-これによりセキュリティが強化されますが、SubQuery の利用可能な機能が制限されていることを理解してください。 `--unsafe` コマンドはすべてのデフォルトの javascript モジュールをインポートします。これによりセキュリティのトレードオフが大きくなり、Sandbox 機能が大幅に向上します。
+これによりセキュリティが強化されますが、SubQueryの利用可能な機能が制限されていることを理解してください。 `--unsafe` コマンドはすべてのデフォルトの javascript モジュールをインポートします。これによりセキュリティのトレードオフが大きくなり、Sandbox 機能が大幅に向上します。
 
 **`--unsafe` コマンドを使用すると、SubQuery Network でプロジェクトを実行できなくなることに注意してください。このコマンドを SubQuery のマネージド サービス ([project.subquery.network](https://project.subquery.network)) でプロジェクトと共に実行したい場合は、サポートに連絡する必要があります。**
 
@@ -224,7 +228,7 @@ An instance of ProjectManifestImpl has failed the validation:
 
 ### --output-fmt
 
-ターミナル出力には 2 つの異なるフォーマットがあります。 JSON またはカラー。 カラーはデフォルトで、色付きテキストが含まれています。
+ターミナル出力には2つの異なるフォーマットがあります。 JSONまたはカラー。 カラーはデフォルトで、色付きテキストが含まれています。
 
 ```shell
 > subql-node -f . --output-fmt=json
@@ -241,7 +245,7 @@ An instance of ProjectManifestImpl has failed the validation:
 
 ### --log-level
 
-7 つのオプションから選べます。 “fatal”、“error”、“warn”、“info”、“debug”、“trace”、“silent”。 以下の例は"silent"です。 ターミナルには何も表示されないので、ノードが動作しているかどうかを確認するには、データベースの行数を問い合わせるか (select count(\*) from subquery_1.starter_entities) 、ブロックの高さを問い合わせるしかありません。
+7つのオプションから選べます。 “fatal”、“error”、“warn”、“info”、“debug”、“trace”、“silent”。 以下の例は"silent"です。 ターミナルには何も表示されないので、ノードが動作しているかどうかを確認するには、データベースの行数を問い合わせるか (select count(\*) from subquery_1.starter_entities) 、ブロックの高さを問い合わせるしかありません。
 
 ```shell
 > subql-node -f . --log-level=silent
@@ -269,7 +273,7 @@ An instance of ProjectManifestImpl has failed the validation:
 > subql-node -f . –timestamp-field=false
 ```
 
-これにより、starter_entities テーブルの created_at および updated_at カラムが削除されます。
+これにより、starter_entitiesテーブルのcreated_atおよびupdated_atカラムが削除されます。
 
 ### -d, --network-dictionary
 
@@ -281,11 +285,11 @@ An instance of ProjectManifestImpl has failed the validation:
 subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot"
 ```
 
-[SubQuery Dictionary の仕組みについて](../academy/tutorials_examples/dictionary.md)
+[Read more about how a SubQuery Dictionary works](../academy/tutorials_examples/dictionary.md).
 
 ### -p, --port
 
-SubQuery のインデックスサービスがバインドするポート。 デフォルトでは `3000`に設定されています
+SubQueryのインデックスサービスがバインドするポート。 デフォルトでは `3000`に設定されています
 
 ## subql-query
 
@@ -295,22 +299,23 @@ SubQuery のインデックスサービスがバインドするポート。 デ�
 
 ```shell
 Options:
-      --help        Show help                                          [boolean]
-      --version     Show version number                                [boolean]
-  -n, --name        Project name                             [string] [required]
-      --playground  Enable graphql playground                          [boolean]
-      --output-fmt  Print log as json or plain text
-                      [string] [choices: "json", "colored"] [default: "colored"]
-      --log-level   Specify log level to print.
-          [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
-                                                     "silent"] [default: "info"]
-      --log-path    Path to create log file e.g ./src/name.log          [string]
-      --log-rotate  Rotate log files in directory specified by log-path
+      --help          Show help                                          [boolean]
+      --version       Show version number                                [boolean]
+  -n, --name          Project name                             [string] [required]
+      --playground    Enable graphql playground                          [boolean]
+      --subscription  Enable subscription               [boolean] [default: false]   
+      --output-fmt    Print log as json or plain text
+                        [string] [choices: "json", "colored"] [default: "colored"]
+      --log-level     Specify log level to print.
+            [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
+                                                       "silent"] [default: "info"]
+      --log-path      Path to create log file e.g ./src/name.log          [string]
+      --log-rotate    Rotate log files in directory specified by log-path
                                                       [boolean] [default: false]
-      --indexer     Url that allows query to access indexer metadata    [string]
-      --unsafe      Disable limits on query depth and allowable number returned
-                    query records                                      [boolean]
-  -p, --port        The port the service will bind to                   [number
+      --indexer       Url that allows query to access indexer metadata    [string]
+      --unsafe        Disable limits on query depth and allowable number returned
+                      query records                                      [boolean]
+  -p, --port          The port the service will bind to                   [number]
 ```
 
 ### --version
@@ -344,11 +349,11 @@ Options:
 
 ### --output-fmt
 
-[--output-fmt](https://doc.subquery.network/run_publish/references.html#output-fmt)を参照
+See [--output-fmt](https://doc.subquery.network/run_publish/references.html#output-fmt)
 
 ### --log-level
 
-[--log-level](https://doc.subquery.network/run_publish/references.html#log-level)を参照
+See [--log-level](https://doc.subquery.network/run_publish/references.html#log-level)
 
 ### --log-path
 
@@ -360,13 +365,17 @@ Options:
 
 ### --indexer
 
-インデクサーのエンドポイントの場所のためのカスタム URL を設定します。クエリーサービスはインデクサーの健全性、メタデータ、および準備状態のためにこれらのエンドポイントを使用します。
+インデクサーのエンドポイントの場所のためのカスタムURLを設定します。クエリーサービスはインデクサーの健全性、メタデータ、および準備状態のためにこれらのエンドポイントを使用します。
+
+### --subscription
+
+This flag enables [GraphQL Subscriptions](./subscription.md), to enable this feature requires `subql-node` also enable `--subscription`
 
 ### --unsafe
 
-クエリサービスでは、無制限の graphql クエリに対して 100 個という制限を設けています。 unsafe フラグは、クエリサービスにパフォーマンスの問題を引き起こす可能性のあるこの制限を取り除きます。 代わりに、[paginated](https://graphql.org/learn/pagination/) にすることをお勧めします。
+クエリサービスでは、無制限のgraphqlクエリに対して100個という制限を設けています。 unsafeフラグは、クエリサービスにパフォーマンスの問題を引き起こす可能性のあるこの制限を取り除きます。 代わりに、[paginated](https://graphql.org/learn/pagination/) にすることをお勧めします。
 
-このフラグは、sum、max、avg、 [その他](https://github.com/graphile/pg-aggregates#aggregates) を含む特定の集約関数を有効にするためにも使用できます。
+This flag enables certain aggregation functions including sum, max, avg and others. Read more about this feature [here](./aggregate.md)
 
 エンティティ制限のため、これらはデフォルトで無効にされています。
 
@@ -374,4 +383,4 @@ Options:
 
 ### --port
 
-SubQuery クエリサービスのポートがバインドされます。 デフォルトでは `3000`に設定されています
+SubQueryクエリサービスのポートがバインドされます。 デフォルトでは `3000`に設定されています

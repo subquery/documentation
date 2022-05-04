@@ -8,9 +8,4 @@ Atau, Anda dapat mengklik tiga titik di samping judul proyek Anda, dan melihatny
 
 ![Proyek di SubQuery Explorer](/assets/img/projects-explorer.png)
 
-# Pelajari lebih lanjut tentang GraphQL
-
-Anda dapat mengikuti [panduan resmi GraphQL di sini](https://graphql.org/learn/) untuk mempelajari lebih lanjut tentang GraphQL, cara kerjanya, dan cara menggunakannya:
-- Ada perpustakaan untuk membantu Anda mengimplementasikan GraphQL dalam [banyak bahasa berbeda](https://graphql.org/code/)
-- Untuk pengalaman belajar yang mendalam dengan tutorial praktis, lihat [Cara GraphQL](https://www.howtographql.com/).
-- Lihat kursus online gratis, [Menjelajahi GraphQL: Bahasa Kueri untuk API](https://www.edx.org/course/exploring-graphql-a-query-language-for-apis).
+[Pelajari lebih lanjut tentang bahasa GraphQL Query.](./graphql.md)

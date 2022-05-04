@@ -82,10 +82,10 @@ ARGUMENTS PROJECTNAME  Give the starter project name
 
 ### Thông số kỹ thuật ánh xạ
 
-| Trường                 | v0.0.1                                                                   | v0.2.0                                                                                        | Mô tả                                                                                                                                                                                                                                            |
-| ---------------------- | ------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **file**               | String                                                                   | String                                                                                        | Đường dẫn đến mục nhập ánh xạ                                                                                                                                                                                                                    |
-| **handlers & filters** | [Default handlers and filters](./manifest/#mapping-handlers-and-filters) | Default handlers and filters, <br />[Custom handlers and filters](#custom-data-sources) | Liệt kê tất cả [hàm ánh xạ](./mapping.md) và các hàm xử lý tương ứng của chúng, với các bộ lọc ánh xạ bổ sung. <br /><br /> Đối với hàm xử lý ánh xạ runtime tùy chỉnh, vui lòng xem [Nguồn dữ liệu tùy chỉnh](#custom-data-sources) |
+| Trường                 | v0.0.1                                       | v0.2.0                                                                                        | Mô tả                                                                                                                                                                                                                                            |
+| ---------------------- | -------------------------------------------- | --------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **file**               | String                                       | String                                                                                        | Đường dẫn đến mục nhập ánh xạ                                                                                                                                                                                                                    |
+| **handlers & filters** | [Default handlers and filters](#schema-spec) | Default handlers and filters, <br />[Custom handlers and filters](#custom-data-sources) | Liệt kê tất cả [hàm ánh xạ](./mapping.md) và các hàm xử lý tương ứng của chúng, với các bộ lọc ánh xạ bổ sung. <br /><br /> Đối với hàm xử lý ánh xạ runtime tùy chỉnh, vui lòng xem [Nguồn dữ liệu tùy chỉnh](#custom-data-sources) |
 
 ## Nguồn dữ liệu và ánh xạ
 
@@ -167,8 +167,8 @@ network:
 
 Những điều cần lưu ý khi sử dụng tệp loại chuỗi có phần mở rộng `.ts` hoặc `.js`:
 
-- Phiên bản tệp kê khai của bạn phải là v0.2.0 trở lên.
-- Chỉ có xuất mặc định sẽ được bao gồm trong api [polkadot](https://polkadot.js.org/docs/api/start/types.extend/) khi lấy khối.
+- Phiên bản manifest của bạn phải từ v0.2.0 trở lên.
+- Chỉ xuất mặc định sẽ được đưa vào [polkadot api](https://polkadot.js.org/docs/api/start/types.extend/) khi tìm nạp các khối.
 
 Đây là ví dụ về tệp loại chuỗi `.ts`:
 
@@ -192,7 +192,7 @@ Dưới đây là danh sách các nguồn dữ liệu tùy chỉnh được hỗ
 
 **Bộ lọc mạng chỉ áp dụng cho thông số tệp manifest v0.0.1**.
 
-Thông thường người dùng sẽ tạo SubQuery và mong muốn sử dụng lại nó cho cả môi trường testnet và mainnet của họ (ví dụ: Polkadot và Kusama). Giữa các mạng, các tùy chọn khác nhau có thể khác nhau (ví dụ: khối bắt đầu lập chỉ mục). Do đó, chúng tôi cho phép người dùng xác định các chi tiết khác nhau cho từng nguồn dữ liệu, có nghĩa là một dự án SubQuery vẫn có thể được sử dụng trên nhiều mạng.
+Thông thường người dùng sẽ tạo SubQuery và mong muốn sử dụng lại nó cho cả môi trường testnet và mainnet của họ (ví dụ: Polkadot và Kusama). Giữa các mạng, nhiều tùy chọn có thể có sự khác biệt (ví dụ: khối bắt đầu lập chỉ mục). Do đó, chúng tôi cho phép người dùng xác định các chi tiết khác nhau cho từng nguồn dữ liệu, có nghĩa là một dự án SubQuery vẫn có thể được sử dụng trên nhiều mạng.
 
 Người dùng có thể thêm `filter` trên `dataSources` để quyết định nguồn dữ liệu nào sẽ chạy trên mỗi mạng.
 

@@ -21,7 +21,7 @@ COMMANDS
 
 Lệnh này sử dụng webpack để tạo một gói dự án subquery.
 
-| Các Tùy chọn       | Miêu tả                                                                                                    |
+| Các Tùy chọn       | Mô tả                                                                                                      |
 | ------------------ | ---------------------------------------------------------------------------------------------------------- |
 | -l, --location     | thư mục cục bộ của dự án subquery (nếu chưa có trong thư mục)                                              |
 | -o, --output       | chỉ định thư mục đầu ra của bản dựng, ví dụ: build-folder                                                  |
@@ -50,26 +50,28 @@ Options:
       --subquery-name       Tên của dự án subquery     [không dùng nữa] [string]
   -c, --config              Chỉ định tệp cấu hình                       [string]
       --local               Sử dụng chế độ cục bộ [không dùng nữa]     [boolean]
-      --force-clean         Buộc dọn dẹp cơ sở dữ liệu, loại bỏ các lược đồ dự
+      --force-clean         Buộc dọn dẹp cơ sở dữ liệu, loại bỏ các lược đồ dự 
                             án và bảng                                 [boolean]
       --db-schema           Tên giản đồ Db của dự án                    [string]
       --unsafe              Cho phép sử dụng bất kỳ mô-đun tích hợp nào trong
                             sandbox                     boolean][default: false]
-      --batch-size          Kích thước hàng loạt của các khối để tìm nạp trong
+      --batch-size          Kích thước hàng loạt của các khối để tìm nạp trong 
                             một vòng                                    [number]
       --scale-batch-size    chia tỷ lệ kích thước lô dựa trên việc sử dụng bộ nhớ
                                                       [boolean] [default: false]
       --timeout             Hết thời gian chờ để sandbox của trình lập chỉ mục
                             thực hiện ánh xạ chức năng                  [number]
       --debug               Hiển thị thông tin gỡ lỗi cho đầu ra bảng điều khiển.
-                            sẽ mạnh mẽ đặt cấp độ nhật ký để gỡ lỗi
+                            will
+                            forcefully set log level to debug
                                                       [boolean] [default: false]
-      --profiler            Hiển thị thông tin hồ sơ cho đầu ra bảng điều khiển
+      --profiler            Show profiler information to console output
                                                       [boolean] [default: false]
-      --network-endpoint    Điểm cuối mạng chuỗi khối để kết nối        [string]
-      --output-fmt          In nhật ký dưới dạng json hoặc văn bản thuần túy
+      --subscription        Bật theo dõi              [boolean] [default: false]                                                     
+      --network-endpoint    Blockchain network endpoint to connect      [string]
+      --output-fmt          Print log as json or plain text
                                            [string] [choices: "json", "colored"]
-      --log-level           Chỉ định mức nhật ký để in. Bỏ qua khi --debug được
+      --log-level           Specify log level to print. Bỏ qua khi --debug được
                             sử dụng
           [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
                                                                        "silent"]
@@ -150,6 +152,9 @@ Cờ này cho phép bạn cung cấp tên cho lược đồ cơ sở dữ liệu
 subql-node -f . --db-schema=test2
 ```
 
+### --subscription
+Cờ này sẽ tạo ra một trình kích hoạt thông báo trên thực thể, đây cũng là điều kiện tiên quyết để bật tính năng theo dõi trong dịch vụ truy vấn.
+
 ### --unsafe
 
 Các dự án SubQuery thường được chạy trong javascript sandbox để bảo mật nhằm giới hạn phạm vi truy cập mà dự án có đối với hệ thống của bạn. Sandbox giới hạn các lần nhập javascript có sẵn cho các mô-đun sau:
@@ -162,7 +167,7 @@ Mặc dù điều này tăng cường bảo mật, chúng tôi hiểu rằng đi
 
 **Lưu ý rằng lệnh `--unsafe` sẽ ngăn dự án của bạn được chạy trong SubQuery Network, và bạn phải liên hệ với bộ phận hỗ trợ nếu bạn muốn lệnh này được chạy với dự án của mình trong dịch vụ được quản lý của SubQuery ([project.subquery.network](https://project.subquery.network))**
 
-### --- kích thước lô
+### --batch-size
 
 Cờ này cho phép bạn đặt kích thước lô trong dòng lệnh. Nếu kích thước lô cũng được đặt trong tệp cấu hình, nó sẽ được ưu tiên.
 
@@ -182,7 +187,7 @@ Chia tỷ lệ kích thước lô tìm nạp khối với mức sử dụng bộ
 
 Đặt thời gian chờ tùy chỉnh cho sandbox javascript để thực hiện các chức năng lập ánh xạ trên một khối trước khi hàm ánh xạ khối xuất lỗi ngoại lệ thời gian chờ
 
-### --gỡ lỗi
+### --debug
 
 Thông tin lỗi sẽ được xuất ra bảng điều khiển và cài đặt cấp độ nhật ký để gỡ lỗi nhanh chóng.
 
@@ -193,7 +198,7 @@ Thông tin lỗi sẽ được xuất ra bảng điều khiển và cài đặt 
 2021-08-10T11:45:39.472Z <db> DEBUG Executing (1b0d0c23-d7c7-4adb-a703-e4e5c414e035): COMMIT;
 ```
 
-### --hồ sơ
+### --profiler
 
 Hiển thị thông tin hồ sơ.
 
@@ -210,7 +215,7 @@ subql-node -f . --local --profiler
 Cờ này cho phép người dùng ghi đè cấu hình điểm cuối mạng từ tệp kê khai.
 
 ```shell
-subql-node -f . --mạng-điểm cuối="wss://polkadot.api.onfinality.io/public-ws"
+subql-node -f . --network-endpoint="wss://polkadot.api.onfinality.io/public-ws"
 ```
 
 Lưu ý rằng đoạn này cũng phải được đặt trong tệp kê khai, nếu không bạn sẽ nhận được:
@@ -241,7 +246,7 @@ Có hai định dạng đầu ra khác nhau. JSON hoặc colored. Colored là m�
 
 ### --log-level
 
-Có 7 tùy chọn để lựa chọn. “nghiêm trọng”, “lỗi”, “cảnh báo”, “thông tin”, “gỡ lỗi”, “theo dõi”, “im lặng”. Ví dụ dưới đây cho thấy "im lặng". Không có gì sẽ được in trong thiết bị đầu cuối vì vậy cách duy nhất để biết nút có hoạt động hay không là truy vấn cơ sở dữ liệu về số hàng (select count(\*) from subquery_1.starter_entities) hoặc truy vấn chiều cao khối.
+Có 7 tùy chọn để lựa chọn. “fatal”, “error”, “warn”, “info”, “debug”, “trace”, “silent”. Ví dụ bên dưới hiển thị tùy chọn "silent". Không có gì sẽ được in trong thiết bị đầu cuối vì vậy cách duy nhất để biết nút có hoạt động hay không là truy vấn cơ sở dữ liệu về số hàng (select count(\*) from subquery_1.starter_entities) hoặc truy vấn chiều cao khối.
 
 ```shell
 > subql-node -f . --log-level=silent
@@ -273,7 +278,7 @@ Thao tác này sẽ xóa các cột created_at và updated_at trong bảng start
 
 ### -d, --network-dictionary
 
-Điều này cho phép bạn chỉ định một điểm cuối từ điển và nó là một dịch vụ miễn phí được cung cấp và lưu trữ tại: [https://explorer.subquery.network/](https://explorer.subquery.network/) (tìm kiếm từ điển) và giới thiệu điểm cuối API của: https://api.subquery.network/sq/subquery/dictionary-polkadot
+Cờ này cho phép bạn chỉ định một điểm cuối từ điển và nó là một dịch vụ miễn phí được cung cấp và lưu trữ tại: [https://explorer.subquery.network/](https://explorer.subquery.network/) (tìm kiếm từ điển) và giới thiệu điểm cuối API của: https://api.subquery.network/sq/subquery/dictionary-polkadot
 
 Thông thường, nó sẽ được đặt trong tệp manifest của bạn nhưng bên dưới cho thấy một ví dụ về việc sử dụng nó làm đối số trong dòng lệnh.
 
@@ -291,7 +296,7 @@ Cổng liên kết dịch vụ lập chỉ mục subquery. Mặc định nó đ�
 
 ### --help
 
-Nó hiển thị các tùy chọn trợ giúp.
+Lệnh này chỉ ra các trợ giúp tuỳ chọn.
 
 ```shell
 Tùy chọn:
@@ -299,17 +304,18 @@ Tùy chọn:
       --version     Hiển thị số phiên bản                              [boolean]
   -n, --name        Tên dự án                                [string] [required]
       --playground  Bật sân chơi graphql                               [boolean]
+      --subscription  Bật theo dõi                    [boolean] [default: false]   
       --output-fmt  In nhật ký dưới dạng json hoặc văn bản thuần túy
                       [string] [choices: "json", "colored"] [default: "colored"]
       --log-level   Chỉ định cấp độ nhật ký để in.
-          [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
+            [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
                                                      "silent"] [default: "info"]
       --log-path    Đường dẫn để tạo tệp nhật ký, ví dụ: ./src/name.log [string]
-      --log-rotate  Xoay vòng các tệp nhật ký trong thư mục được chỉ định bởi
+      --log-rotate  Xoay vòng các tệp nhật ký trong thư mục được chỉ định bởi 
                     đường dẫn nhật ký                 [boolean] [default: false]
-      --indexer     Url cho phép truy vấn truy cập siêu dữ liệu của trình
+      --indexer     Url cho phép truy vấn truy cập siêu dữ liệu của trình 
                     lập chỉ mục                                         [string]
-      --unsafe      Vô hiệu hóa các giới hạn về độ sâu truy vấn và số lượng
+      --unsafe      Vô hiệu hóa các giới hạn về độ sâu truy vấn và số lượng 
                     bản ghi truy vấn được trả lại cho phép             [boolean]
   -p, --port        Cổng mà dịch vụ sẽ liên kết với                     [number]
 ```
@@ -325,7 +331,7 @@ Lệnh này sẽ hiển thị phiên bản hiện tại.
 
 ### -n, --name
 
-Cờ này được sử dụng để bắt đầu dịch vụ truy vấn. Nếu cờ --subquery-name không được cung cấp khi chạy trình lập chỉ mục, thì tên ở đây sẽ tham chiếu đến tên dự án mặc định. Nếu --subquery-name được đặt, thì tên ở đây phải khớp với những gì đã được đặt.
+Cờ này được sử dụng để bắt đầu dịch vụ truy vấn. Nếu cờ --subquery-name không được cung cấp khi chạy trình lập chỉ mục, thì tên ở đây sẽ tham chiếu đến tên dự án mặc định. Nếu --subquery-name được đặt, thì tên ở đây phải khớp với tên đã được đặt.
 
 ```shell
 > subql-node -f . // --subquery-name chưa được đặt
@@ -357,17 +363,21 @@ Cho phép ghi tệp nhật ký bằng cách cung cấp đường dẫn đến t�
 
 ### --log-rotate
 
-Cho phép luân phiên nhật ký tệp với các tùy chọn khoảng thời gian xoay vòng 1 ngày, tối đa là 7 tệp và với kích thước tệp tối đa là 1GB
+Cho phép luân phiên tệp nhật ký với tùy chọn khoảng thời gian luân phiên là 1 ngày, tối đa là 7 tệp và với kích thước tệp tối đa là 1GB
 
 ### --indexer
 
 Đặt url tùy chỉnh cho vị trí của các điểm cuối của trình lập chỉ mục, dịch vụ truy vấn sử dụng các điểm cuối này cho tình trạng của trình lập chỉ mục, siêu dữ liệu và trạng thái sẵn sàng
 
+### --subscription
+
+Cờ này kích hoạt [Các theo dõi GraphQL](./subscription.md), để kích hoạt tính năng này yêu cầu `subql-node` cũng phải bật `--subscription`
+
 ### --unsafe
 
 Dịch vụ truy vấn có giới hạn 100 thực thể cho các truy vấn graphql không giới hạn. Cờ unsafe loại bỏ giới hạn này có thể gây ra các vấn đề về hiệu suất trên dịch vụ truy vấn. Thay vào đó, các truy vấn nên được [phân trang](https://graphql.org/learn/pagination/).
 
-Cờ này cũng có thể được sử dụng để kích hoạt một số hàm tổng hợp bao gồm sum, max, avg và [others](https://github.com/graphile/pg-aggregates#aggregates).
+Cờ này kích hoạt một số hàm tổng hợp nhất định bao gồm tổng, lớn nhất, trung bình cộng và các hàm khác. Đọc thêm về tính năng này [tại đây](./aggregate.md)
 
 Các tùy chọn này mặc định bị tắt do giới hạn đối tượng.
 

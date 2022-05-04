@@ -1,44 +1,44 @@
-# IPFS kullanarak Proje Barındırma
+# Hosting Proyek menggunakan IPFS
 
-Bu kılavuz, yerel bir Subquery projesinin [IPFS](https://ipfs.io/)'de nasıl yayınlanacağını ve barındırma altyapımıza nasıl dağıtılacağını açıklamaktadır.
+Panduan ini berfungsi melalui cara memublikasikan proyek SubQuery lokal ke [IPFS](https://ipfs.io/) dan menerapkannya di infrastruktur hosting kami.
 
-IPFS'de bir projeye ev sahipliği yapmak, onu herkes için kullanılabilir hale getirir ve GitHub gibi merkezi hizmetlere olan bağımlılığınızı azaltır.
+Hosting proyek di IPFS membuatnya tersedia untuk semua orang dan mengurangi ketergantungan Anda pada layanan terpusat seperti GitHub.
 
-## Gereksinimler
+## Persyaratan
 
-- `@subql/cli` sürüm 0.21.0 veya üzeri.
-- Manifest `specVersion 0.2.0` ve üstü.
-- [SUBQL_ACCESS_TOKEN](#prepare-your-subql-access-token)'ınızı hazırlayın.
-- Dağıtımınızın başarılı olduğundan emin olmak için projenizi `subql build` komutuyla oluşturmanızı ve yayınlamadan önce yerel olarak test etmenizi şiddetle öneririz.
+- `@subql/cli` version 0.21.0 atau lebih tinggi.
+- Manifes `specVersion` 0.2.0 dan yang lebih baru.
+- Siapkan [SUBQL_ACCESS_TOKEN](#prepare-your-subql-access-token) Anda.
+- Untuk memastikan penerapan Anda berhasil, kami sangat menyarankan agar Anda membangun proyek Anda dengan perintah `subql build`, dan mengujinya secara lokal sebelum memublikasikannya.
 
-## SUBQL_ACCESS_TOKEN'inizi hazırlayın
+## Persiapkan SUBQL_ACCESS_TOKEN
 
-- Adım 1: [SubQuery Projeleri'ne](https://project.subquery.network/) gidin ve oturum açın.
-- 2. Adım: Gezinme menüsünün sağ üst köşesindeki profilinize tıklayın, ardından **_Tokenu Yenile_** seçeneğine tıklayın
-- Adım 3: Oluşturulan tokenu kopyalayın.
-- Adım 4: Bu tokenu kullanmak için:
-  - Seçenek 1: Ortam değişkenlerinize SUBQL_ACCESS_TOKEN ekleyin. `SUBQL_ACCESS_TOKEN İHRAC ET=<token>`
-  - 2. Seçenek: Yakında, `subql/cli`, SUBQL_ACCESS_TOKEN'inizin yerel olarak depolanmasını destekleyecektir.
+- Langkah 1: Buka [Proyek SubQuery](https://project.subquery.network/) dan masuk.
+- Langkah 2: Klik profil Anda di kanan atas menu navigasi, lalu klik **_Refresh Token_**
+- Langkah 3: Salin token yang dihasilkan.
+- Langkah 4: Untuk menggunakan token ini:
+  - Opsi 1: Tambahkan SUBQL_ACCESS_TOKEN di variabel lingkungan Anda. `EXPORT SUBQL_ACCESS_TOKEN=<token>`
+  - Opsi 2: Segera hadir, `subql/cli` akan mendukung penyimpanan SUBQL_ACCESS_TOKEN Anda secara lokal.
 
-## Bir proje nasıl yayınlanır
+## Cara mempublikasikan proyek
 
-Projenizi yayınlamak için iki yöntem sunuyoruz,
+Kami menyediakan dua metode untuk mempublikasikan proyek Anda,
 
-### Seçenek 1:
+### Pilihan 1:
 
-`@subql/cli` zaten kurulu olduğundan, projeyi ve gerekli bilgileri varsayılan bildiriminden `project.yaml` okuyacak olan aşağıdaki komutu çalıştırabilirsiniz
+Karena Anda telah menginstal `@subql/cli`, Anda dapat menjalankan perintah berikut, yang akan membaca proyek dan informasi yang diperlukan dari manifes default `project.yaml`
 
 ```
-// Projenizin kök dizininden yayınlayın
-subql yayınla
+// Publikasikan dari direktori root proyek Anda
+subql publish
 
-// VEYA proje kökünüzü işaret edin
-subql yayınla -f ~/projem/
+// ATAU arahkan ke root proyek Anda
+subql publish -f ~/my-project/
 ```
 
-### Seçenek 2:
+### Pilihan 2:
 
-Alternatif olarak, projenizin birden çok Manifest dosyası olduğunu, örneğin birden çok ağı desteklediğinizi ancak aynı eşlemeyi ve iş mantığını paylaştığınızı ve aşağıdaki gibi bir proje yapısına sahip olduğunuzu varsayalım:
+Atau, misalkan proyek Anda memiliki beberapa file Manifes, misalnya Anda mendukung beberapa jaringan tetapi berbagi pemetaan dan logika bisnis yang sama, dan memiliki struktur proyek sebagai berikut:
 
 ```
 L projectRoot
@@ -49,36 +49,36 @@ L projectRoot
  ...
 ```
 
-Projeyi her zaman seçtiğiniz manifest dosyasıyla yayınlayabilirsiniz.
+Anda selalu dapat memublikasikan proyek dengan file manifes yang Anda pilih.
 
 ```
- # This will publish project support indexing Polkadot network
+ # Ini akan menerbitkan dukungan proyek pengindeksan jaringan Polkadot
 subql publish -f ~/my-projectRoot/polkadot.yaml
 ```
 
-## Yayınladıktan sonra
+## Setelah diterbitkan
 
-Projeyi başarıyla yayınladıktan sonra, aşağıdaki günlükler projenin IPFS kümesinde oluşturulduğunu ve `CID`'ini (içerik tanımlayıcısını) döndürdüğünü gösterir.
+Setelah berhasil memublikasikan proyek, log di bawah menunjukkan bahwa proyek dibuat di klaster IPFS dan telah mengembalikan `CID` (pengidentifikasi konten).
 
 ```
-Building and packing code... done
-Uploading SupQuery project to IPFS
-SubQuery Project uploaded to IPFS: QmZ3q7YZSmhwBiot4PQCK3c7Z6HkteswN2Py58gkkZ8kNd  //CID
+Kode bangunan dan pengepakan... selesai
+Mengunggah proyek SupQuery ke IPFS
+Proyek SubQuery yang diunggah ke IPFS: QmZ3q7YZSmhwBiot4PQCK3c7Z6HkteswN2Py58gkkZ8kNd //CID
 ```
 
-Lütfen bu `CID` not edin. Bu `CID` ile, yayınlanan projenizi [IPFS Dağıtımı olarak adlandırdığımız şekilde görüntüleyebilirsiniz](#ipfs-deployment)
+Harap perhatikan `CID` ini. Dengan `CID` ini, Anda dapat melihat proyek yang dipublikasikan sebagai apa yang kami sebut [Penerapan IPFS](#ipfs-deployment)
 
-## IPFS Dağıtımı
+## IPFS Deployment
 
-IPFS dağıtımı, merkezi olmayan bir ağ üzerinde bir SubQuery projesinin bağımsız ve benzersiz bir varlığını temsil eder. Bu nedenle, projedeki kodda yapılacak herhangi bir değişiklik, projenin benzersizliğini etkileyecektir. İş mantığınızı ayarlamanız gerekirse, ör. eşleme işlevini değiştirin, projeyi yeniden yayınlamalısınız ve `CID` değişecektir.
+Penyebaran IPFS mewakili keberadaan proyek SubQuery yang independen dan unik pada jaringan yang terdesentralisasi. Oleh karena itu, setiap perubahan dengan kode dalam proyek akan mempengaruhi keunikannya. Jika Anda perlu menyesuaikan logika bisnis Anda, mis. mengubah fungsi pemetaan, Anda harus memublikasikan ulang proyek, dan `CID` akan berubah.
 
-Şimdilik yayınladığınız projeyi görüntülemek için [Postacı](https://web.postman.co/) gibi bir `REST` api aracı kullanın ve aşağıdaki örnek URL ile geri almak için `POST` yöntemini kullanın. `https://subquery.network/ipfs/api/v0/cat?arg=<YOUR_PROJECT_CID>`
+Untuk saat ini, untuk melihat proyek yang telah Anda publikasikan, gunakan alat api `REST` seperti [Tukang Pos](https://web.postman.co/), dan gunakan metode `POST` dengan URL contoh berikut untuk mengambilnya. `https://ipfs.subquery.network/ipfs/api/v0/cat?arg=<YOUR_PROJECT_CID>`
 
-Örnek proje dağıtımını aşağıdaki gibi görmelisiniz:
+Anda akan melihat contoh penerapan proyek seperti di bawah ini:
 
-Bu dağıtım, bildirim dosyanıza çok benziyor. Bu açıklayıcı alanları bekleyebilirsiniz ve ağ ve sözlük uç noktası, proje yürütmenin sonucunu doğrudan etkilemediği için kaldırılmıştır.
+Penerapan ini terlihat sangat mirip dengan file manifes Anda. Anda dapat mengharapkan bidang deskriptif tersebut, dan titik akhir jaringan dan kamus telah dihapus karena tidak secara langsung memengaruhi hasil eksekusi proyek.
 
-Yerel projenizde kullanılan bu dosyalar paketlendi ve IPFS'de de yayınlandı.
+File-file tersebut telah digunakan dalam proyek lokal Anda telah dikemas dan dipublikasikan ke IPFS juga.
 
 ```yaml
 dataSources:
@@ -103,14 +103,14 @@ schema:
 specVersion: 0.2.0
 ```
 
-## SubQuery projenizi Barındırılan Hizmette çalıştırın
+## Jalankan proyek SubQuery Anda di Layanan yang Dihosting
 
-### Dağıtım olmadan Oluşturulan Proje
+### Buat proyek dengan penerapan IPFS
 
-[SubQuery projenizi yayınlama](publish.md) kılavuzunu takip edebilirsiniz, ancak dağıtım kaynağınızı belirlediğiniz yerde **IPFS**'i seçebilirsiniz.
+Anda dapat mengikuti panduan untuk [Memublikasikan proyek SubQuery Anda](publish.md) tetapi di mana Anda mengatur sumber penerapan Anda, Anda dapat memilih **IPFS**.
 
-Ardından üretim yuvanızı seçin, IPFS dağıtım CID'nizi kopyalayıp yapıştırın (baştaki `ipfs:// ` olmadan).
+Kemudian pilih slot produksi Anda, salin dan tempel CID penerapan IPFS Anda (tanpa awalan `ipfs://`).
 
-Önizleme bölümünde IPFS dağıtımını görmelisiniz. Ve ağı, sözlük uç noktalarını vb. seçebilirsiniz.
+Anda akan melihat penerapan IPFS di bagian pratinjau. Dan Anda dapat memilih jaringan, titik akhir kamus, dll.
 
-Barındırılan hizmetimizde IPFS dağıtımını başarıyla dağıttıktan sonra, SubQuery Gezgini'nde görüntülenebilir olmalıdır, sorgu hizmetine tıpkı yerel olarak yaptığınız gibi erişebilirsiniz.
+Setelah berhasil menyebarkan penerapan IPFS pada layanan yang dihosting kami, itu harus tersedia untuk dilihat di SubQuery Explorer, Anda dapat mengakses layanan kueri seperti yang Anda lakukan secara lokal.

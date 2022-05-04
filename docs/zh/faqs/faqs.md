@@ -32,7 +32,7 @@ SubQuery 目前有两个可用的插槽。 一个中转插槽和一个生产插�
 
 中转插槽不会在 [Explorer](https://explorer.subquery.network/) 中向公众展示，而且有一个唯一的URL，只有您可以看到。 当然，这个单独的环境允许您在不影响生产的情况下测试您的新代码。
 
-## 什么是外部状态？
+## Polkadot的附加组件是什么？
 
 如果你已经熟悉区块链基本概念，你可以将外部状态理解为区块链中的交易。 但更加正式的理解是，外部状态是一种来自链外并被包含在一个区块中的信息。 外部状态的类别包含3种， 分别为：inherents、signed transactions、unsigned transactions。
 
@@ -40,7 +40,7 @@ Inherent外部状态是指未经签名且仅由区块作者插入区块的信息
 
 Signed transaction外部状态是指包含签发交易账户签名的交易。 该类型将支付一笔费用，以使得将该交易上链。
 
-Unsigned transactions外部状态是指不包含交易账户签名的交易。 Unsigned transactions外部状态应当谨慎使用，该类型的外部状态没有人支付费用，因为它是signed的。 因此，该类型下交易队列缺乏防止欺骗的经济逻辑。
+Unsigned transactions外部状态是指不包含交易账户签名的交易。 使用未签名交易的外部事务时应该小心，因为没有人支付费用，因为它们没有签名。 因此，该类型下交易队列缺乏防止欺骗的经济逻辑。
 
 想了解更多信息，请点击 [这里](https://substrate.dev/docs/en/knowledgebase/learn-substrate/extrinsics)。
 

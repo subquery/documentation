@@ -5,10 +5,97 @@ The Manifest `project.yaml` file can be seen as an entry point of your project a
 The Manifest can be in either YAML or JSON format. In this document, we will use YAML in all the examples. Below is a standard example of a basic `project.yaml`.
 
 <CodeGroup>
-<CodeGroupItem title="v0.3.0 Substrate/Polkadot" active>
+
+  <CodeGroupItem title="v1.0.0 Polkadot/Substrate" active>
+``` yml
+specVersion: 1.0.0
+name: subquery-starter
+version: 0.0.4
+runner:
+  node:
+    name: '@subql/node'
+    version: latest
+  query:
+    name: '@subql/query'
+    version: 0.24.0
+description: ''
+repository: https://github.com/subquery/subql-starter
+schema:
+  file: ./schema.graphql
+network:
+  chainId: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3'
+  endpoint: wss://polkadot.api.onfinality.io/public-ws
+  dictionary: https://api.subquery.network/sq/subquery/dictionary-polkadot
+dataSources:
+  - kind: substrate/Runtime
+    startBlock: 1
+    mapping:
+      file: "./dist/index.js"
+      handlers:
+        - handler: handleBlock
+          kind: substrate/BlockHandler
+        - handler: handleEvent
+          kind: substrate/EventHandler
+          filter:
+            module: balances
+            method: Deposit
+        - handler: handleCall
+          kind: substrate/CallHandler
+```
+  </CodeGroupItem>
+    <CodeGroupItem title="v1.0.0 Terra">
   
 ``` yml
-specVersion: 0.3.0
+specVersion: 1.0.0
+name: terra-subql-starter
+version: 0.0.1
+runner:
+  node:
+    name: '@subql/node-terra'
+    version: '*'
+  query:
+    name: '@subql/query'
+    version: '*'
+description: This project can be use as a starting point for developing your Terra based SubQuery project
+repository: https://github.com/subquery/terra-subql-starter
+schema:
+  file: ./schema.graphql
+network:
+  chainId: columbus-5
+  endpoint: https://terra-columbus-5.beta.api.onfinality.io
+  dictionary: https://api.subquery.network/sq/subquery/terra-columbus-5-dictionary
+  # Strongly suggested to provide a mantlemint endpoint to speed up processing
+  mantlemint: "https://mantlemint.terra-columbus-5.beta.api.onfinality.io:1320"
+dataSources:
+  - kind: terra/Runtime
+    startBlock: 4724001
+    mapping:
+      file: ./dist/index.js
+      handlers:
+        - handler: handleBlock
+          kind: terra/BlockHandler
+        - handler: handleTransaction
+          kind: terra/TransactionHandler
+        - handler: handleEvent
+          kind: terra/EventHandler
+          filter:
+            type: transfer
+            messageFilter:
+              type: /terra.wasm.v1beta1.MsgExecuteContract
+              values:
+                contract: terra1j66jatn3k50hjtg2xemnjm8s7y8dws9xqa5y8w
+        - handler: handleMessage
+          kind: terra/MessageHandler
+          filter:
+            type: /terra.wasm.v1beta1.MsgExecuteContract
+            values:
+              contract: terra1j66jatn3k50hjtg2xemnjm8s7y8dws9xqa5y8w
+````
+  </CodeGroupItem>
+
+  <CodeGroupItem title="v0.2.0">
+``` yml
+specVersion: "0.2.0"
 name: example-project # Provide the project name
 version: 1.0.0  # Project version
 description: '' # Description of your project
@@ -38,131 +125,39 @@ dataSources:
             method: Deposit
         - handler: handleCall
           kind: substrate/CallHandler
-````
-  </CodeGroupItem>
-
-  <CodeGroupItem title="v0.3.0 Terra">
-  
-``` yml
-specVersion: 0.3.0
-name: terra-example-project # Provide the project name
-version: 1.0.0  # Project version
-description: "" # Description of your project
-repository: "https://github.com/subquery/terra-subql-starter" # Git repository address of your project
-
-schema:
-  file: ./schema.graphql # The location of your GraphQL schema file
-
-network:
-  chainId: "columbus-5" # Terra network code
-  endpoint: "wss://terra-columbus-5.api.onfinality.io/public-ws"
-  # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
-  dictionary: "https://api.subquery.network/sq/subquery/dictionary-terra-columbus-5"
-
-dataSources:
-  - kind: terra/Runtime
-    startBlock: 1 # This changes your indexing start block, set this higher to skip initial blocks with less data
-    mapping:
-      file: "./dist/index.js"
-      handlers:
-        - handler: handleBlock
-          kind: terra/BlockHandler
-        - handler: handleTransaction
-          kind: terra/TransactionHandler
-        - handler: handleMessage
-          kind: terra/MessageHandler
-          filter:
-            type: '/cosmos.bank.v1beta1.MsgSend'
-        - handler: handleEvent
-          kind: terra/EventHandler
-          filter: #Filter is optional
-            type: transfer
-````
-  </CodeGroupItem>
-
-  <CodeGroupItem title="v0.2.0">
-  
-``` yml
-specVersion: 0.2.0
-name: example-project # Provide the project name
-version: 1.0.0  # Project version
-description: '' # Description of your project
-repository: 'https://github.com/subquery/subql-starter' # Git repository address of your project
-
-schema:
-file: ./schema.graphql # The location of your GraphQL schema file
-
-network:
-genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' # Genesis hash of the network
-endpoint: 'wss://polkadot.api.onfinality.io/public-ws'
-
-# Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
-
-dictionary: 'https://api.subquery.network/sq/subquery/dictionary-polkadot'
-
-dataSources:
-
-- kind: substrate/Runtime
-  startBlock: 1 # This changes your indexing start block, set this higher to skip initial blocks with less data
-  mapping:
-  file: "./dist/index.js"
-  handlers: - handler: handleBlock
-  kind: substrate/BlockHandler - handler: handleEvent
-  kind: substrate/EventHandler
-  filter: #Filter is optional
-  module: balances
-  method: Deposit - handler: handleCall
-  kind: substrate/CallHandler
-
-````
-  </CodeGroupItem>
-
-  <CodeGroupItem title="v0.0.1">
-
-``` yml
-specVersion: "0.0.1"
-description: '' # Description of your project
-repository: 'https://github.com/subquery/subql-starter' # Git repository address of your project
-
-schema: ./schema.graphql # The location of your GraphQL schema file
-
-network:
-  endpoint: 'wss://polkadot.api.onfinality.io/public-ws'
-  # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
-  dictionary: 'https://api.subquery.network/sq/subquery/dictionary-polkadot'
-
-dataSources:
-  - name: main
-    kind: substrate/Runtime
-    startBlock: 1 # This changes your indexing start block, set this higher to skip initial blocks with less data
-    mapping:
-      handlers:
-        - handler: handleBlock
-          kind: substrate/BlockHandler
-        - handler: handleEvent
-          kind: substrate/EventHandler
-          filter: #Filter is optional but suggested to speed up event processing
-            module: balances
-            method: Deposit
-        - handler: handleCall
-          kind: substrate/CallHandler
-````
-
+```
   </CodeGroupItem>
 </CodeGroup>
 
-## Upgrading your Manifest File
+## Migrating to v1.0.0 <Badge text="upgrade" type="warning"/>
 
-### Migrating from v0.0.1 to v0.2.0 <Badge text="upgrade" type="warning"/>
+**If you have a project with specVersion below v1.0.0 you can use `subql migrate` to quickly upgrade. [See the CLI documentation](#cli-options) for more information**
 
-**If you have a project with specVersion v0.0.1, you can use `subql migrate` to quickly upgrade. [See here](#cli-options) for more information**
+### Change Log for v1.0.0
 
-Under `network`:
+**Under `runner`:**
+
+- Now that SubQuery supports multiple layer 1 networks, you must provide runner information for various services.
+- `runner.node` specify the node image that is used to run the current project [`@subql/node` or `@subql/node-avalanche`].
+- `runner.query` specify the query service image associate with the project database - use `@subql/query`.
+- `version` specifies the version of these service, they should follow the [SEMVER](https://semver.org/) rules or `'latest'` and match a published version on our [package repository](https://www.npmjs.com/package/@subql/node).
+
+**Under `templates`:**
+
+Template are introduced from manifest v0.2.1, it allows creating datasources dynamically from these templates.
+This is useful when you don't know certain specific details when creating your project.
+A good example of this is when you know a contract will be deployed at a later stage but you don't know what the address will be.
+
+For a more detailed explanation head [here](./dynamicdatasources).
+
+### Change log for v0.2.0
+
+**Under `network`:**
 
 - There is a new **required** `genesisHash` field which helps to identify the chain being used.
 - For v0.2.0 and above, you are able to reference an external [chaintype file](#custom-chains) if you are referencing a custom chain.
 
-Under `dataSources`:
+**Under `dataSources`:**
 
 - Can directly link an `index.js` entry point for mapping handlers. By default this `index.js` will be generated from `index.ts` during the build process.
 - Data sources can now be either a regular runtime data source or [custom data source](#custom-data-sources).
@@ -173,73 +168,78 @@ If you have a project with specVersion v0.2.0, The only change is a new **requir
 
 ### CLI Options
 
-By default the CLI will generate SubQuery projects for spec verison v0.2.0. This behaviour can be overridden by running `subql init --specVersion 0.0.1 PROJECT_NAME`, although this is not recommended as the project will not be supported by the SubQuery hosted service in the future
-
 `subql migrate` can be run in an existing project to migrate the project manifest to the latest version.
-
-USAGE
-$ subql init [PROJECTNAME]
-
-ARGUMENTS
-PROJECTNAME Give the starter project name
-
-| Options                                          | Description                                                                  |
-| ------------------------------------------------ | ---------------------------------------------------------------------------- |
-| -f, --force                                      |                                                                              |
-| -l, --location=location                          | local folder to create the project in                                        |
-| --install-dependencies                           | Install dependencies as well                                                 |
-| --npm                                            | Force using NPM instead of yarn, only works with `install-dependencies` flag |
-| --specVersion=0.0.1|0.2.0|0.3.0 [default: 0.3.0] | The spec version to be used by the project                                   |
 
 ## Overview
 
 ### Top Level Spec
 
-| Field           |               v0.0.1                |           v0.2.0+           |                                                Description |
-| --------------- | ----------------------------------- | --------------------------- | ---------------------------------------------------------- |
-| **specVersion** | String                              | String                      | `0.0.1` or `0.2.0` - the spec version of the manifest file |
-| **name**        | 𐄂                                   | String                      | Name of your project                                       |
-| **version**     | 𐄂                                   | String                      | Version of your project                                    |
-| **description** | String                              | String                      | Discription of your project                                |
-| **repository**  | String                              | String                      | Git repository address of your project                     |
-| **schema**      | String                              | [Schema Spec](#schema-spec) | The location of your GraphQL schema file                   |
-| **network**     | [Network Spec](#network-spec)       | Network Spec                | Detail of the network to be indexed                        |
-| **dataSources** | [DataSource Spec](#datasource-spec) | DataSource Spec             |                                                            |
+| Field           | v1.0.0                              | v0.2.0                      | Description                                         |
+|-----------------|-------------------------------------|-----------------------------|-----------------------------------------------------|
+| **specVersion** | String                              | String                      | The spec version of the manifest file               |
+| **name**        | String                              | String                      | Name of your project                                |
+| **version**     | String                              | String                      | Version of your project                             |
+| **description** | String                              | String                      | Discription of your project                         |
+| **repository**  | String                              | String                      | Git repository address of your project              |
+| **schema**      | [Schema Spec](#schema-spec)         | [Schema Spec](#schema-spec) | The location of your GraphQL schema file            |
+| **network**     | [Network Spec](#network-spec)       | Network Spec                | Detail of the network to be indexed                 |
+| **dataSources** | [DataSource Spec](#datasource-spec) | DataSource Spec             | The datasource to your project                      |
+| **templates**   | [Templates Spec](#templates-spec)   | x                           | Allows creating new datasources from this templates |
+| **runner**      | [Runner Spec](#runner-spec)         | x                           | Runner specs info                                   |
+
 
 ### Schema Spec
 
-| Field    | v0.0.1 | v0.2.0+ |                              Description |
-| -------- | ------ | ------- | ---------------------------------------- |
-| **file** |   𐄂    | String  | The location of your GraphQL schema file |
+| Field    |  All manifest versions  | Description                              |
+| -------- | ------ | ---------------------------------------- |
+| **file** | String | The location of your GraphQL schema file |
 
 ### Network Spec
 
-| Field           | v0.0.1 |    v0.2.0+     |    v0.3.0     |                                                                                                Description                                                                                                 |
-| --------------- | ------ | ------------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **genesisHash** |   𐄂    |    String     |    String     | Substrate/Polkadot specific. The genesis hash of the network (from v0.3.0 this is an alias for chainId) |
-| **chainId**     |   𐄂    |      x        |    String     | Terra specific. A network identifier for the blockchain |
-| **endpoint**    | String |    String     |    String     | Defines the wss or ws endpoint of the blockchain to be indexed - **This must be a full archive node**. You can retrieve endpoints different networks for free from [OnFinality](https://app.onfinality.io) |
-| **dictionary**  | String |    String     |    String     | It is suggested to provide the HTTP endpoint of a full chain dictionary to speed up processing - read [how a SubQuery Dictionary works](../academy/tutorials_examples/dictionary.md). |
-| **chaintypes**  |   𐄂    | {file:String} | {file:String} | Substrate/Polkadot specific. Path to chain types file, accept `.json` or `.yaml` format |
+| Field           | v1.0.0   | v0.2.0 | Description                     |
+|-----------------|----------|--------|---------------------------------|
+| **genesisHash** | Optional | String | Substrate/Polkadot specific. The genesis hash of the network (from v1.0.0 this is an alias for chainId) |
+| **chainId**     | String   | x      | Terra specific. A network identifier for the blockchain (from v1.0.0 this is an alias for genesisHash) |
+| **endpoint**    | String   | String        | Defines the wss or ws endpoint of the blockchain to be indexed - **This must be a full archive node**. You can retrieve endpoints for all parachains for free from [OnFinality](https://app.onfinality.io) |
+| **dictionary**  | String   | String        | It is suggested to provide the HTTP endpoint of a full chain dictionary to speed up processing - read [how a SubQuery Dictionary works](../academy/tutorials_examples/dictionary.md).                      |
+| **chaintypes**  | x        | {file:String} | Path to chain types file, accept `.json` or `.yaml` format                                                                                                                                                 |
+
+### Runner Spec
+
+| Field     | v1.0.0                                  | Description                                |
+|-----------|-----------------------------------------|--------------------------------------------|
+| **node**  | [Runner node spec](#runner-node-spec)   | Describe the node service use for indexing |
+| **query** | [Runner query spec](#runner-query-spec) | Describe the query service                 |
+
+### Runner Node Spec
+
+| Field       | v1.0.0 | Description                                                                                                                                                                                              |
+|-------------|--------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **name**    | String | We currently support `@subql/node` and soon `@subql/node-avalanche` |
+| **version** | String | Version of the indexer Node service, it must follow the [SEMVER](https://semver.org/) rules  or `latest`, you can also find available versions in subquery SDK [releases](https://github.com/subquery/subql/releases) |
+
+
+### Runner Query Spec
+
+| Field | All manifest versions | Description |
+|-------------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **name**    | String | We currently support `@subql/query` |
+| **version** | String | Version of the Query service, available versions can be found [here](https://github.com/subquery/subql/blob/main/packages/query/CHANGELOG.md), it also must follow the SEMVER rules  or `latest`. |
 
 ### Datasource Spec
 
 Defines the data that will be filtered and extracted and the location of the mapping function handler for the data transformation to be applied.
-
-| Field | v0.0.1 | v0.2.0 | v0.3.0 | Description
-| --------------- |--------------|-------------|-------------|-------------|
-| **name** | String | 𐄂 | Name of the data source |
+| Field | All manifest versions | Description
+| --------------- |-------------|-------------|
 | **kind** | [substrate/Runtime](./manifest/#data-sources-and-mapping) | substrate/Runtime, [substrate/CustomDataSource](./manifest/#custom-data-sources) | [substrate/Runtime](./manifest/#data-sources-and-mapping), [substrate/CustomDataSource](./manifest/#custom-data-sources), [terra/Runtime](./manifest/#data-sources-and-mapping) | We supports data type from default Substrate and terra runtime such as block, event and extrinsic(call). <br /> From v0.2.0, we support data from custom runtime, such as smart contract.|
-| **startBlock** | Integer | Integer | Integer | This changes your indexing start block, set this higher to skip initial blocks with less data|  
-| **mapping** | Mapping Spec| Mapping Spec | Mapping Spec | |
-| **filter** | [network-filters](./manifest/#network-filters)| 𐄂 | 𐄂 | Filter the data source to execute by the network endpoint spec name |
+| **startBlock** | Integer | This changes your indexing start block, set this higher to skip initial blocks with less data|  
+| **mapping** |  Mapping Spec | |
 
 ### Mapping Spec
 
-| Field | v0.0.1 | v0.2.0+ | Description |
-| ----- | --------- | ---------------- | ------------ |
-| **file** | String | 𐄂 | Path to the mapping entry |
-| **handlers & filters** | [Default handlers and filters](./manifest/#mapping-handlers-and-filters) | Default handlers and filters, <br />[Custom handlers and filters](#custom-data-sources) | List all the [mapping functions](./mapping.md) and their corresponding handler types, with additional mapping filters. <br /><br /> For custom runtimes mapping handlers please view [Custom data sources](#custom-data-sources) |
+| Field                  | All manifest versions | Description |
+| ---------------------- |------------------------------------------------------------------------------------------| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **handlers & filters** | Default handlers and filters, <br />[Custom handlers and filters](#custom-data-sources)  | List all the [mapping functions](./mapping.md) and their corresponding handler types, with additional mapping filters. <br /><br /> For custom runtimes mapping handlers please view [Custom data sources](#custom-data-sources) |
 
 ## Data Sources and Mapping
 

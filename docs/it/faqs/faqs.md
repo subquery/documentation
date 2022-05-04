@@ -32,7 +32,7 @@ Il vantaggio principale dell'uso di uno slot di staging è che ti permette di pr
 
 Lo slot di staging non è mostrato al pubblico nell'[Explorer](https://explorer.subquery.network/) e ha un URL unico che è visibile solo a te. E naturalmente, l'ambiente separato vi permette di testare il vostro nuovo codice senza influenzare la produzione.
 
-## Cosa sono le estrinsecazioni?
+## What are Polkadot's Extrinsics?
 
 Se avete già familiarità con i concetti di blockchain, potete pensare alle estrinsecazioni come paragonabili alle transazioni. Più formalmente, però, un estrinseco è un pezzo di informazione che proviene dall'esterno della catena ed è incluso in un blocco. Ci sono tre categorie di estrinsecazioni. Sono eredità, transazioni firmate e transazioni non firmate.
 
@@ -40,7 +40,7 @@ Le estrinsecazioni intrinseche sono pezzi di informazione che non sono firmati e
 
 Le estrinsecazioni delle transazioni firmate sono transazioni che contengono una firma del conto che ha emesso la transazione. Si trova a pagare una tassa per avere la transazione inclusa nella catena.
 
-Le transazioni non firmate sono transazioni che non contengono la firma del conto che ha emesso la transazione. L'estrinsecazione delle transazioni non firmate dovrebbe essere usata con cura perché non c'è nessuno che paga una tassa, perché è firmata. A causa di questo, la coda delle transazioni manca di una logica economica per prevenire lo spam.
+Le transazioni non firmate sono transazioni che non contengono la firma del conto che ha emesso la transazione. Unsigned transactions extrinsics should be used with care because there is nobody paying a fee, becaused they are not signed. A causa di questo, la coda delle transazioni manca di una logica economica per prevenire lo spam.
 
 Per maggiori informazioni, clicca [here](https://substrate.dev/docs/en/knowledgebase/learn-substrate/extrinsics).
 

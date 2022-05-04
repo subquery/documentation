@@ -6,7 +6,7 @@
 
 다음 예제 중 일부는 [Quick start](../quickstart/quickstart.md) 섹션에서 스타터 패키지를 성공적으로 초기화했다고 가정합니다. 이 시작 패키지에서 SubQuery 프로젝트를 사용자 정의 및 구현하기 위한 표준 프로세스를 살펴보겠습니다.
 
-1. Initialise your project using `subql init PROJECT_NAME`.
+1. `subql init PROJECT_NAME`을 사용하여 프로젝트를 초기화합니다.
 2. Manifest 파일 (`project.yaml`)을 업데이트하여 블록 체인과 매핑할 엔티티에 대한 정보를 포함하세요. [Manifest File](./manifest.md) 참조
 3. Schema(`schema.graphql`)에서 추출하고 Query하기 위해 유지할 데이터의 모양을 정의하는 GraphQL 엔터티 만들기 - [GraphQL Schema](./graphql.md) 참조하세요
 4. 체인 데이터를 정의한 GraphQL 엔터티에 변환하기 위해 호출할 모든 매핑 기능(예. `mappingHandlers.ts`) 추가 - [Mapping](./mapping.md) 참조
@@ -54,11 +54,11 @@ yarn codegen
 <CodeGroup> <CodeGroupItem title="YARN" active> `shell yarn build ` </CodeGroupItem>
 <CodeGroupItem title="NPM"> `bash npm run-script build ` </CodeGroupItem> </CodeGroup>
 
-### Alternative build options
+### 대체 빌드 옵션
 
-We support additional build options for subquery projects using `subql build`.
+`subql 빌드`를 사용하여 하위 쿼리 프로젝트에 대한 추가 빌드 옵션을 지원합니다.
 
-With this you can define additional entry points to build using the exports field in package.json.
+이를 통해 package.json의 내보내기 필드를 사용하여 빌드할 추가 진입점을 정의할 수 있습니다.
 
 ```json
 "name": "project-name",
@@ -70,7 +70,7 @@ With this you can define additional entry points to build using the exports fiel
 },
 ```
 
-Then by running `subql build` it will generate a dist folder with the following structure:
+그런 다음 `subql build`를 실행하면 다음 구조의 dist 폴더가 생성됩니다.
 
 ```
 - project-name
@@ -80,13 +80,13 @@ Then by running `subql build` it will generate a dist folder with the following 
     L index.js
 ```
 
-Note that it will build `index.ts` whether or not it is specified in the exports field.
+내보내기 필드에 지정되었는지 여부에 관계없이 `index.ts`를 빌드합니다.
 
-For more information on using this including flags, see [cli reference](https://doc.subquery.network/run_publish/references/#build).
+플래그를 포함하여 이를 사용하는 방법에 대한 자세한 내용은 [cli 참조](../run_publish/references.md#build)를 참조하세요.
 
-## Logging
+## 로그 기록
 
-The `console.log` method is **no longer supported**. Instead, a `logger` module has been injected in the types, which means we can support a logger that can accept various logging levels.
+`console.log` 메서드는 **더 이상 지원되지 않습니다**. 대신, `logger` 모듈이 유형에 삽입되었습니다. 이는 다양한 로깅 수준을 수용할 수 있는 로거를 지원할 수 있음을 의미합니다.
 
 ```typescript
 logger.info("Info level message");
@@ -94,16 +94,16 @@ logger.debug("Debugger level message");
 logger.warn("Warning level message");
 ```
 
-To use `logger.info` or `logger.warn`, just place the line into your mapping file.
+`logger.info` 또는 `logger.warn`을 사용하려면 해당 행을 매핑 파일에 넣으십시오.
 
 ![logging.info](/assets/img/logging_info.png)
 
-To use `logger.debug`, an additional flag is required. Add `--log-level=debug` to your command line.
+`logger.debug`를 사용하려면 추가 플래그가 필요합니다. 명령줄에 `--log-level=debug`를 추가합니다.
 
-If you are running a docker container, add this line to your `docker-compose.yaml` file.
+도커 컨테이너를 실행 중인 경우 이 줄을 `docker-compose.yaml` 파일에 추가합니다.
 
 ![logging.debug](/assets/img/logging_debug.png)
 
-You should now see the new logging in the terminal screen.
+이제 터미널 화면에 새 로깅이 표시되어야 합니다.
 
 ![logging.debug](/assets/img/subquery_logging.png)

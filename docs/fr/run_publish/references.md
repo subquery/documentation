@@ -62,11 +62,12 @@ Options:
       --timeout             Délai d'exécution des fonctions de mapping 
                             par la sandbox de l'indexeur                                   [number]
       --debug               Affiche les informations de débogage sur la console. will
-                            force le niveau du journal à déboguer
+                            mettre de force le niveau du journal à déboguer
                                                       [boolean] [default: false]
-      --profiler            Afficher les informations du profileur sur la sortie console
+      --profiler            Afficher les informations du profileur sur la console
                                                       [boolean] [default: false]
-      --network-endpoint    Point de terminaison du réseau blockchain à connecter      [string]
+      --subscription        Activer l'abonnement       [boolean] [default: false]                                                     
+      --network-endpoint    endpoint du réseau de Blockchain pour se connecter      [string]
       --output-fmt          Imprimer le journal en json ou en texte brut
                                            [string] [choices: "json", "colored"]
       --log-level           Spécifier le niveau du journal à imprimer. Ignoré quand --debug est
@@ -152,6 +153,9 @@ Cette option vous permet de fournir un nom pour le schéma de base de données d
 subql-node -f . --db-schema=test2
 ```
 
+### --subscription
+Cela créera un déclencheur de notification sur l'entité, c'est également la condition préalable pour activer la fonction d'abonnement dans le service de requête.
+
 ### --unsafe
 
 Les projets SubQuery sont généralement exécutés dans un sandbox javascript pour la sécurité afin de limiter l'étendue de l'accès du projet à votre système. La sandbox limite les importations javascript disponibles aux modules suivants :
@@ -162,7 +166,7 @@ Les projets SubQuery sont généralement exécutés dans un sandbox javascript p
 
 Bien que cela renforce la sécurité, nous comprenons que cela limite la fonctionnalité disponible de votre SubQuery. La commande `--unsafe` importe tous les modules javascript par défaut, ce qui augmente considérablement les fonctionnalités de la sandbox, avec pour contrepartie une sécurité réduite.
 
-****Notez que la commande `--unsafe` empêchera votre projet d'être exécuté dans le réseau SubQuery, et vous devez contacter le support si vous voulez que cette commande soit exécutée avec votre projet dans le service géré de SubQuery [project.subquery.network](https://project.subquery.network)**.**
+**Notez que la commande `--unsafe` empêchera votre projet d'être exécuté dans le réseau SubQuery, et vous devez contacter le support si vous voulez que cette commande soit exécutée avec votre projet dans le service géré de SubQuery ([project.subquery.network](https://project.subquery.network)**)</strong>
 
 ### --batch-size
 
@@ -226,7 +230,7 @@ An instance of ProjectManifestImpl has failed the validation:
 
 ### --output-fmt
 
-Il existe deux formats de sortie de terminal différents. JSON ou coloré. Colored est le format par défaut et contient du texte coloré.
+Il existe deux formats de sortie de terminal différents. JSON ou colored. Colored est le format par défaut et contient du texte coloré.
 
 ```shell
 > subql-node -f . --output-fmt=json
@@ -243,7 +247,7 @@ Il existe deux formats de sortie de terminal différents. JSON ou coloré. Color
 
 ### --log-level
 
-Il y a 7 options à choisir. "fatal", "error", "warn", "info", "debug", "trace", "silent". L'exemple ci-dessous montre "silent". Rien ne sera imprimé dans le terminal donc la seule façon de savoir si le noeud fonctionne ou non est d'interroger la base de données pour le nombre de lignes (select count(\*) from subquery_1.starter_entities) ou d'interroger la hauteur du bloc.
+Vous avez le choix entre sept options. "fatal", "error", "warn", "info", "debug", "trace", "silent". L'exemple ci-dessous montre "silent". Rien ne sera imprimé dans le terminal donc la seule façon de savoir si le noeud fonctionne ou non est d'interroger la base de données pour le nombre de lignes (select count(\*) from subquery_1.starter_entities) ou d'interroger la hauteur du bloc.
 
 ```shell
 > subql-node -f . --log-level=silent
@@ -257,13 +261,13 @@ Il y a 7 options à choisir. "fatal", "error", "warn", "info", "debug", "trace",
 (node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
 (node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
 (node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
-(node:24686) [DEP0152] DeprecationWarning: Custom PerformanceEntry accessors are deprecated. Please use the detail property.
+(node:24686) [DEP0152] DeprecationWarning: Custom PerformanceEntry accessors are deprecated. Veuillez utiliser la propriété de détail.
 (node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
 ```
 
 <!-- ### --migrate TBA -->
 
-### --champ d'horodatage
+### --timestamp-field
 
 Par défaut, ce champ est vrai. Lorsqu'il est défini à false avec :
 
@@ -283,7 +287,7 @@ En général, cette option est définie dans votre fichier manifeste, mais l'exe
 subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot"
 ```
 
-[En savoir plus sur le fonctionnement d'un dictionnaire de SubQuery](../academy/tutorials_examples/dictionary.md).
+[Lire la suite sur le fonctionnement d'un dictionnaire SubQuery](../academy/tutorials_examples/dictionary.md).
 
 ### -p, --port
 
@@ -297,22 +301,23 @@ Ceci montre les options d'aide.
 
 ```shell
 Options:
-      --help        Afficher l'aide                                          [boolean]
-      --version     Afficher la version                                [boolean]
-  -n, --name        Nom du projet                             [string] [required]
-      --playground  Activer le terrain de jeu graphql                          [boolean]
-      --output-fmt  Imprimer le journal en json ou en texte brut
-                      [string] [choices: "json", "colored"] [default: "colored"]
-      --log-level   Spécifiez le niveau du journal à imprimer.
-          [string] [choix: "fatal", "error", "warn", "info", "debug", "trace",
-                                                     "silent"] [default: "info"]
-      --log-path Chemin pour créer le fichier de log. ./src/name. og          [string]
-      --log-rotate Faire tourner les fichiers journaux dans le répertoire spécifié par log-path
+      --help          Afficher l'aide                                         [boolean]
+      --version       Afficher le numéro de version                                [boolean]
+  -n, --name          Nom du projet                             [string] [required]
+      --playground    Activer le playground graphql                          [boolean]
+      --subscription  Activer l'abonnement               [boolean] [default: false]   
+      --output-fmt    Imprimer le journal en json ou en texte brut
+                        [string] [choices: "json", "colored"] [default: "colored"]
+      --log-level     Spécifier le niveau du journal à imprimer.
+            [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
+                                                       "silent"] [default: "info"]
+      --log-path      Chemin pour créer le fichier journal, par exemple ./src/nom.log          [string]
+      --log-rotate    Faire tourner les fichiers journaux dans le répertoire spécifié par log-path
                                                       [boolean] [default: false]
-      --indexer Url qui permet à la requête d'accéder aux métadonnées d'indexer    [string]
-      --unsafe Désactiver les limites sur la profondeur de la requête et le nombre autorisé retourné
-                    enregistrements de requête                                      [boolean]
-  -p, --port Le port que le service va lier à [number
+      --indexer       Url qui permet à la requête d'accéder aux métadonnées de l'indexeur    [string]
+      --unsafe        Désactiver les limites sur la profondeur de la requête et le nombre autorisé de résultats.
+                      query records                                      [boolean]
+  -p, --port          Le port auquel le service sera lié                   [number]
 ```
 
 ### --version
@@ -346,11 +351,11 @@ Cette option active le terrain de jeu de graphql et doit donc toujours être inc
 
 ### --output-fmt
 
-Voir [--output-fmt](https://doc.subquery.network/references/references.html#output-fmt)
+Voir [--output-fmt](https://doc.subquery.network/run_publish/references.html#output-fmt)
 
 ### --log-level
 
-Voir [--log-level](https://doc.subquery.network/references/references.html#log-level)
+Voir [--log-level](https://doc.subquery.network/run_publish/references.html#log-level)
 
 ### --log-path
 
@@ -364,11 +369,15 @@ Active les rotations de journaux de fichiers avec les options d'un intervalle de
 
 Définit une url personnalisée pour l'emplacement des points de terminaison de l'indexeur, le service de requête utilise ces points de terminaison pour l'état de santé de l'indexeur, les métadonnées et l'état de préparation.
 
+### --subscription
+
+Cette option active [Souscriptions GraphQL](./subscription.md), pour activer cette fonctionnalité il faut `subql-node` activer également `--subscription`
+
 ### --unsafe
 
 Le service d'interrogation est limité à 100 entités pour les requêtes graphql non limitées. L'indicateur unsafe supprime cette limite, ce qui peut entraîner des problèmes de performances pour le service de requêtes. Il est plutôt recommandé que les requêtes soient [paginées](https://graphql.org/learn/pagination/).
 
-Ce drapeau peut également être utilisé pour activer certaines fonctions d'agrégation, notamment sum, max, avg et [autres](https://github.com/graphile/pg-aggregates#aggregates).
+Cette option permet d'activer certaines fonctions d'agrégation comme la somme, le maximum, la moyenne et autres. Pour en savoir plus sur cette fonctionnalité [cliquez ici](./aggregate.md)
 
 Ces fonctions sont désactivées par défaut en raison de la limite d'entités.
 

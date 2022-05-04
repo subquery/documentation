@@ -117,9 +117,12 @@ type Example @entity {
 ```graphql
 type Example @entity {
   id: ID!
-  accounts: [Account] 
+  accounts: [Account]! @derivedFrom(field: "person") #This is virtual field 
 }
-  публічна адреса: Стрічка!
+
+type Account @entity {
+  id: ID!
+  person: Person!
 }
 ```
 
@@ -132,7 +135,6 @@ type Example @entity {
 type Example @entity {
   id: ID!
   name: String!
-  groups: [PersonGroup]
 }
 
 type PersonGroup @entity {
@@ -144,7 +146,6 @@ type PersonGroup @entity {
 type Group @entity {
   id: ID!
   name: String!
-  persons: [PersonGroup]
 }
 ```
 

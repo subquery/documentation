@@ -32,7 +32,7 @@ Keuntungan utama menggunakan slot staging adalah memungkinkan Anda menyiapkan ri
 
 Slot staging tidak ditampilkan kepada publik di [Explorer](https://explorer.subquery.network/) dan memiliki URL unik yang hanya dapat dilihat oleh Anda. Dan tentu saja, lingkungan terpisah memungkinkan Anda menguji kode baru tanpa mempengaruhi produksi.
 
-## Apa itu ekstrinsik?
+## Apa itu Ekstrinsik Polkadot?
 
 Jika Anda sudah akrab dengan konsep blockchain, Anda dapat menganggap ekstrinsik sebanding dengan transaksi. Lebih formal, ekstrinsik adalah sepotong informasi yang berasal dari luar rantai dan termasuk dalam blok. Ada tiga kategori ekstrinsik. Yaitu inherents, signed transactions, dan unsigned transactions.
 
@@ -40,7 +40,7 @@ Ekstrinsik inherent adalah potongan informasi yang tidak ditandatangani dan hany
 
 Ekstrinsik signed transaction adalah transaksi yang berisi tanda tangan dari rekening yang mengeluarkan transaksi. Mereka ada untuk membayar biaya agar transaksi termasuk dalam rantai.
 
-Ekstrinsik unsigned transactions adalah transaksi yang tidak berisi tanda tangan dari rekening yang mengeluarkan transaksi. Ekstrinsik unsigned transactions harus digunakan dengan hati-hati karena tidak ada yang membayar biaya, karena itu ditandatangani. Karena ini, antrian transaksi kekurangan logika ekonomi untuk mencegah spam.
+Ekstrinsik unsigned transactions adalah transaksi yang tidak berisi tanda tangan dari rekening yang mengeluarkan transaksi. Ekstrinsik transaksi yang tidak ditandatangani harus digunakan dengan hati-hati karena tidak ada yang membayar biaya, karena tidak ditandatangani. Karena ini, antrian transaksi kekurangan logika ekonomi untuk mencegah spam.
 
 Untuk informasi lebih lanjut, klik [di sini](https://substrate.dev/docs/en/knowledgebase/learn-substrate/extrinsics).
 
