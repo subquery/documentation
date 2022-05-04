@@ -7,6 +7,7 @@ The Manifest can be in either YAML or JSON format. In this document, we will use
 <CodeGroup>
 
   <CodeGroupItem title="v1.0.0 Polkadot/Substrate" active>
+
 ``` yml
 specVersion: 1.0.0
 name: subquery-starter
@@ -98,10 +99,11 @@ dataSources:
             topics:
               ## Follows standard log filters https://docs.ethers.io/v5/concepts/events/
               - Transfer(address indexed from, address indexed to, uint256 amount)
-````
+```
   </CodeGroupItem>
 
   <CodeGroupItem title="v0.2.0">
+
 ``` yml
 specVersion: "0.2.0"
 name: example-project # Provide the project name
@@ -134,6 +136,7 @@ dataSources:
         - handler: handleCall
           kind: substrate/CallHandler
 ```
+
   </CodeGroupItem>
 </CodeGroup>
 
@@ -334,6 +337,7 @@ In the v0.2.0 example below, the `network.chaintypes` are pointing to a file tha
 
 <CodeGroup>
   <CodeGroupItem title="v0.2.0" active>
+
 ``` yml
 network:
   genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3'
@@ -345,6 +349,7 @@ network:
   </CodeGroupItem>
 
   <CodeGroupItem title="v0.0.1">
+  
 ``` yml
 ...
 network:
