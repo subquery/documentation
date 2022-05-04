@@ -44,54 +44,60 @@ dataSources:
           kind: substrate/CallHandler
 ```
   </CodeGroupItem>
-    <CodeGroupItem title="v1.0.0 Terra">
+    <CodeGroupItem title="v1.0.0 Avalanche">
   
 ``` yml
 specVersion: 1.0.0
-name: terra-subql-starter
+name: avalanche-subql-starter
 version: 0.0.1
 runner:
   node:
-    name: '@subql/node-terra'
+    name: '@subql/node-avalanche'
     version: latest
   query:
     name: '@subql/query'
     version: latest
-description: 'This project can be use as a starting point for developing your Terra based SubQuery project'
-repository: https://github.com/subquery/terra-subql-starter
+description: 'This project can be use as a starting point for developing your Avalanche based SubQuery project'
+repository: https://github.com/subquery/avalanche-subql-starter
 schema:
   file: ./schema.graphql
 network:
-  chainId: columbus-5
-  endpoint: https://terra-columbus-5.beta.api.onfinality.io
+  endpoint: https://avalanche.api.onfinality.io/
+  chainId: mainnet
+  type: avalanche
+  chainName: C
   # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
-  dictionary: https://api.subquery.network/sq/subquery/terra-columbus-5-dictionary
-  # Strongly suggested to provide a mantlemint endpoint to speed up processing
-  mantlemint: "https://mantlemint.terra-columbus-5.beta.api.onfinality.io:1320"
+  dictionary: https://api.subquery.network/sq/subquery/avalanche-dictionary
 dataSources:
-  - kind: terra/Runtime
+  - kind: avalanche/Runtime
     startBlock: 4724001
+    options:
+      # Must be a key of assets
+      abi: erc20
+      ## Pangolin token https://snowtrace.io/token/0x60781c2586d68229fde47564546784ab3faca982
+      address: "0x60781C2586D68229fde47564546784ab3fACA982"
+    assets:
+      erc20:
+        file: "IPangolinERC20.json"
     mapping:
       file: ./dist/index.js
       handlers:
         - handler: handleBlock
-          kind: terra/BlockHandler
+          kind: avalanche/BlockHandler
         - handler: handleTransaction
-          kind: terra/TransactionHandler
+          kind: avalanche/TransactionHandler
+          filter:
+            ## The function can either be the function fragment or signature
+            # function: '0x095ea7b3'
+            # function: '0x7ff36ab500000000000000000000000000000000000000000000000000000000'
+            function: approve(address spender, uint256 rawAmount)
+            ## from: "0x60781C2586D68229fde47564546784ab3fACA982"
         - handler: handleEvent
-          kind: terra/EventHandler
+          kind: avalanche/EventHandler
           filter:
-            type: transfer
-            messageFilter:
-              type: /terra.wasm.v1beta1.MsgExecuteContract
-              values:
-                contract: terra1j66jatn3k50hjtg2xemnjm8s7y8dws9xqa5y8w
-        - handler: handleMessage
-          kind: terra/MessageHandler
-          filter:
-            type: /terra.wasm.v1beta1.MsgExecuteContract
-            values:
-              contract: terra1j66jatn3k50hjtg2xemnjm8s7y8dws9xqa5y8w
+            topics:
+              ## Follows standard log filters https://docs.ethers.io/v5/concepts/events/
+              - Transfer(address indexed from, address indexed to, uint256 amount)
 ````
   </CodeGroupItem>
 
@@ -200,8 +206,8 @@ If you have a project with specVersion v0.2.0, The only change is a new **requir
 
 | Field           | v1.0.0   | v0.2.0 | Description                     |
 |-----------------|----------|--------|---------------------------------|
-| **genesisHash** | Optional | String | Substrate/Polkadot specific. The genesis hash of the network (from v1.0.0 this is an alias for chainId) |
-| **chainId**     | String   | x      | Terra specific. A network identifier for the blockchain (from v1.0.0 this is an alias for genesisHash) |
+| **chainId**     | String   | x      | A network identifier for the blockchain (genesisHash in Substrate) |
+| **genesisHash** | Optional | String | The genesis hash of the network (from v1.0.0 this is an alias for chainId and not necessary) |
 | **endpoint**    | String   | String        | Defines the wss or ws endpoint of the blockchain to be indexed - **This must be a full archive node**. You can retrieve endpoints for all parachains for free from [OnFinality](https://app.onfinality.io) |
 | **dictionary**  | String   | String        | It is suggested to provide the HTTP endpoint of a full chain dictionary to speed up processing - read [how a SubQuery Dictionary works](../academy/tutorials_examples/dictionary.md).                      |
 | **chaintypes**  | x        | {file:String} | Path to chain types file, accept `.json` or `.yaml` format                                                                                                                                                 |
@@ -233,7 +239,7 @@ If you have a project with specVersion v0.2.0, The only change is a new **requir
 Defines the data that will be filtered and extracted and the location of the mapping function handler for the data transformation to be applied.
 | Field | All manifest versions | Description
 | --------------- |-------------|-------------|
-| **kind** | [substrate/Runtime](./manifest/#data-sources-and-mapping) | substrate/Runtime, [substrate/CustomDataSource](./manifest/#custom-data-sources) | [substrate/Runtime](./manifest/#data-sources-and-mapping), [substrate/CustomDataSource](./manifest/#custom-data-sources), [terra/Runtime](./manifest/#data-sources-and-mapping) | We supports data type from default Substrate and terra runtime such as block, event and extrinsic(call). <br /> From v0.2.0, we support data from custom runtime, such as smart contract.|
+| **kind** | [substrate/Runtime](./manifest/#data-sources-and-mapping) | substrate/Runtime, [substrate/CustomDataSource](./manifest/#custom-data-sources) | [substrate/Runtime](./manifest/#data-sources-and-mapping), [substrate/CustomDataSource](./manifest/#custom-data-sources), [avalanche/Runtime](./manifest/#data-sources-and-mapping) | We supports data type from default Substrate and Avalanche runtime such as block, event and extrinsic(call). <br /> From v0.2.0, we support data from custom runtime, such as smart contract.|
 | **startBlock** | Integer | This changes your indexing start block, set this higher to skip initial blocks with less data|  
 | **mapping** |  Mapping Spec | |
 
@@ -259,11 +265,11 @@ dataSources:
 ```
 
 </CodeGroupItem>
-<CodeGroupItem title="Terra" active>
+<CodeGroupItem title="Avalanche" active>
   
 ```yaml
 dataSources:
-  - kind: terra/Runtime # Indicates that this is default runtime
+  - kind: avalanche/Runtime # Indicates that this is default runtime
     startBlock: 1 # This changes your indexing start block, set this higher to skip initial blocks with less data
     mapping:
       file: dist/index.js # Entry path for this mapping
@@ -283,31 +289,9 @@ The following table explains filters supported by different handlers.
 | Substrate/Polkadot | [substrate/BlockHandler](./mapping.md#block-handler) | `specVersion`                |
 | Substrate/Polkadot | [substrate/EventHandler](./mapping.md#event-handler) | `module`,`method`            |
 | Substrate/Polkadot | [substrate/CallHandler](./mapping.md#call-handler)   | `module`,`method` ,`success` |
-| Terra              | [terra/BlockHandler](./mapping.md#block-handler)     | No filters                   |
-| Terra              | [terra/TransactionHandler](./mapping.md#terra-transaction-handler-terra-only)     | No filters                   |
-| Terra              | [terra/MessageHandler](./mapping.md#terra-message-handler-terra-only)     |  `type`, `values`* |
-| Terra              | [terra/EventHandler](./mapping.md#event-handler)     | `type`, `messageFilter`* |
-
-\* For Terra message and event handlers, you can filter by all the keys that exist in the message type provided by the filter. If the call is `/terra.wasm.v1beta1.MsgExecuteContract` then you can also specify the name of the called function. An example of this is below:
-
-```yaml
-# Example filter from EventHandler
-filter:
-  type: transfer
-  messageFilter:
-  type: "/terra.wasm.v1beta1.MsgExecuteContract"
-  # contractCall field can be specified here too
-  values: # A set of key/value pairs that are present in the message data
-    contract: "terra1j66jatn3k50hjtg2xemnjm8s7y8dws9xqa5y8w"
-      
-# Example filter from MessageHandler          
-filter:
-  type: "/terra.wasm.v1beta1.MsgExecuteContract"
-  # Filter to only messages with the provide_liquidity function call
-  contractCall: "provide_liquidity" # The name of the contract function that was called
-  values: # A set of key/value pairs that are present in the message data
-    contract: "terra1j66jatn3k50hjtg2xemnjm8s7y8dws9xqa5y8w"
-```
+| Avalanche          | [avalanche/BlockHandler](./mapping.md#block-handler)     | No filters                   |
+| Avalanche          | [avalanche/TransactionHandler](./mapping.md#transaction-handler)     | `function` filters (either be the function fragment or signature)   |
+| Avalanche          | [avalanche/EventHandler](./mapping.md#event-handler)     | `topics` filters |
 
 Default runtime mapping filters are an extremely useful feature to decide what block, event, or extrinsic will trigger a mapping handler.
 

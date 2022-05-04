@@ -34,11 +34,11 @@ npm install -g @subql/node
 ```
 </CodeGroupItem>
 
-<CodeGroupItem title='Terra'>
+<CodeGroupItem title='Avalanche'>
 
 ``` shell
 # NPM
-npm install -g @subql/node-terra
+npm install -g @subql/node-avalanche
 ````
 
 </CodeGroupItem>
@@ -57,10 +57,10 @@ subql-node <command>
 ```
 
 </CodeGroupItem>
-<CodeGroupItem title='Terra'>
+<CodeGroupItem title='Avalanche'>
 
 ```shell
-subql-node-terra <command>
+subql-node-avalanche <command>
 ```
 
 </CodeGroupItem>
@@ -81,10 +81,10 @@ subql-node -f your-project-path
 ```
 
 </CodeGroupItem>
-<CodeGroupItem title='Terra'>
+<CodeGroupItem title='Avalanche'>
 
 ```shell
-subql-node-terra -f your-project-path
+subql-node-avalanche -f your-project-path
 ```
 
 </CodeGroupItem>
@@ -106,10 +106,10 @@ subql-node --network-dictionary=https://api.subquery.network/sq/subquery/diction
 ```
 
 </CodeGroupItem>
-<CodeGroupItem title='Terra'>
+<CodeGroupItem title='Avalanche'>
 
 ```shell
-subql-node-terra --network-dictionary=https://api.subquery.network/sq/subquery/dictionary-polkadot
+subql-node-avalanche --network-dictionary=https://api.subquery.network/sq/subquery/dictionary-polkadot
 ```
 
 </CodeGroupItem>
@@ -140,10 +140,10 @@ subql-node -c your-project-config.yml
 ```
 
 </CodeGroupItem>
-<CodeGroupItem title='Terra'>
+<CodeGroupItem title='Avalanche'>
 
 ```shell
-subql-node-terra -c your-project-config.yml
+subql-node-avalanche -c your-project-config.yml
 ```
 
 </CodeGroupItem>
@@ -180,10 +180,10 @@ subql-node -f your-project-path --local
 ```
 
 </CodeGroupItem>
-<CodeGroupItem title='Terra'>
+<CodeGroupItem title='Avalanche'>
 
 ```shell
-subql-node-terra -f your-project-path --local
+subql-node-avalanche -f your-project-path --local
 ```
 
 </CodeGroupItem>

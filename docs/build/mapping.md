@@ -26,13 +26,13 @@ export async function handleBlock(block: SubstrateBlock): Promise<void> {
 ````
 </CodeGroupItem>
 
-<CodeGroupItem title="Terra">
+<CodeGroupItem title="Avalanche">
 ````ts
-import { TerraBlock } from "@subql/types";
+import { AvalancheBlock } from "@subql/types";
 
-export async function handleBlock(block: TerraBlock): Promise<void> {
-  const record = new Block(block.block.block_id.hash);
-  record.height = BigInt(block.block.block.header.height);
+export async function handleBlock(block: AvalancheBlock): Promise<void> {
+  const record = new Block(block.hash);
+  record.height = BigInt(block.number);
   await record.save();
 }
 ````
@@ -41,7 +41,7 @@ export async function handleBlock(block: TerraBlock): Promise<void> {
 
 A SubstrateBlock is an extended interface type of [signedBlock](https://polkadot.js.org/docs/api/cookbook/blocks/), but also includes the `specVersion` and `timestamp`.
 
-A TerraBlock is an extended interface type of [Terra.js](https://docs.terra.money/docs/develop/sdks/terra-js/README.html) BlockInfo, but also encapsulates the BlockInfo and TxInfo of all transactions in the block.
+An Avalanche is an extended interface type of ..., but also encapsulates all transactions and events in the block.
 
 ## Event Handler
 
@@ -65,33 +65,17 @@ export async function handleEvent(event: SubstrateEvent): Promise<void> {
 ````
 </CodeGroupItem>
 
-<CodeGroupItem title="Terra">
+<CodeGroupItem title="Avalanche">
 ```ts
-import { TerraEvent } from "@subql/types";
-import { MsgExecuteContract } from "@terra-money/terra.js";
+import { AvalancheEvent } from "@subql/types";
 
-export async function handleEvent(
-  event: TerraEvent<MsgExecuteContract>
-): Promise<void> {
-  const record = new TransferEvent(
-    `${event.tx.tx.txhash}-${event.msg.idx}-${event.idx}`
+export async function handleEvent(event: AvalancheEvent): Promise<void> {
+  const record = new Event(
+    `${event.blockHash}-${event.logIndex}`
   );
-  record.blockHeight = BigInt(event.block.block.block.header.height);
-  record.txHash = event.tx.tx.txhash;
-  for (const attr of event.event.attributes) {
-    switch (attr.key) {
-      case "sender":
-        record.sender = attr.value;
-        break;
-      case "recipient":
-        record.recipient = attr.value;
-        break;
-      case "amount":
-        record.amount = attr.value;
-        break;
-      default:
-    }
-  }
+  record.blockHeight = BigInt(event.blockNumber);
+  record.topics = event.topics;
+  record.data = event.data;
   await record.save();
 }
 ````
@@ -100,9 +84,9 @@ export async function handleEvent(
 
 A SubstrateEvent is an extended interface type of the [EventRecord](https://github.com/polkadot-js/api/blob/f0ce53f5a5e1e5a77cc01bf7f9ddb7fcf8546d11/packages/types/src/interfaces/system/types.ts#L149). Besides the event data, it also includes an `id` (the block to which this event belongs) and the extrinsic inside of this block.
 
-A TerraEvent encapsulates Event data and TxLog corresponding to the event. It also contains TerraMessage data of the message connected to the event. Also, it includes the TerraBlock and TerraTransaction data of the block and transaction from which the event was emitted.
+An AvalancheEvent encapsulates Event data and Transaction/Block information corresponding to the event.
 
-## Call Handler (Substrate/Polkadot Only)
+## Call Handler
 
 Call handlers (Substrate/Polkadot Only) are used when you want to capture information on certain substrate extrinsics. You should use [Mapping Filters](./manifest.md#mapping-filters) in your manifest to filter calls to reduce the time it takes to index data and improve mapping performance.
 
@@ -116,45 +100,26 @@ export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
 
 The [SubstrateExtrinsic](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L21) extends [GenericExtrinsic](https://github.com/polkadot-js/api/blob/a9c9fb5769dec7ada8612d6068cf69de04aa15ed/packages/types/src/extrinsic/Extrinsic.ts#L170). It is assigned an `id` (the block to which this extrinsic belongs) and provides an extrinsic property that extends the events among this block. Additionally, it records the success status of this extrinsic.
 
-## Terra Transaction Handler (Terra Only)
+## Transaction Handler
 
-You can use transaction handlers to capture information about each of the transactions in a block. To achieve this, a defined TransactionHandler will be called once for every transaction. You should use [Mapping Filters](./manifest.md#mapping-filters) in your manifest to filter transactions to reduce the time it takes to index data and improve mapping performance.
+You can use transaction handlers (Avalanche only) to capture information about each of the transactions in a block. To achieve this, a defined TransactionHandler will be called once for every transaction. You should use [Mapping Filters](./manifest.md#mapping-filters) in your manifest to filter transactions to reduce the time it takes to index data and improve mapping performance.
 
 ```ts
-import {TerraTransaction} from "@subql/types-terra";
+import { AvalancheTransaction } from "@subql/types";
 
-export async function handleTransaction(tx: TerraTransaction): Promise<void> {
-  const record = new Transaction(tx.tx.txhash);
-  record.blockHeight = BigInt(tx.block.block.block.header.height);
-  record.timestamp = tx.tx.timestamp;
+export async function handleTransaction(tx: AvalancheTransaction): Promise<void> {
+  const record = new Transaction(
+    `${transaction.blockHash}-${transaction.hash}`
+  );
+  record.blockHeight = BigInt(tx.blockNumber);
+  record.from = tx.from;
+  record.to = tx.to;
+  record.value = tx.value;
   await record.save();
 }
 ```
 
-The TerraTransaction encapsulates TxInfo and the corresponding TerraBlock in which the transaction occured.
-
-## Terra Message Handler (Terra Only)
-
-You can use message handlers to capture information from each message in a transaction. To achieve this, a defined MessageHandler will be called once for every message. You should use [Mapping Filters](./manifest.md#mapping-filters) in your manifest to filter messages to reduce the time it takes to index data and improve mapping performance.
-
-```ts
-import {TerraMessage} from "@subql/types-terra";
-import { MsgExecuteContract } from "@terra-money/terra.js";
-
-export async function handleMessage(
-  msg: TerraMessage<MsgExecuteContract>
-): Promise<void> {
-  const record = new Message(`${msg.tx.tx.txhash}-${msg.idx}`);
-  record.blockHeight = BigInt(msg.block.block.block.header.height);
-  record.txHash = msg.tx.tx.txhash;
-  record.contract = msg.msg.toData().contract;
-  record.sender = msg.msg.toData().sender;
-  record.executeMsg = JSON.stringify(msg.msg.toData().execute_msg);
-  await record.save();
-}
-```
-
-TerraMessage encapsulates the `msg` object containing the message data, the TerraTrasaction in which the message occured in and also the TerraBlock in which the transaction occured in.
+The AvalancheTransaction encapsulates TxInfo and the corresponding block information in which the transaction occured.
 
 ## Modules and Libraries
 
