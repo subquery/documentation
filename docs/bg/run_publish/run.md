@@ -1,6 +1,6 @@
 # Стартиране на SubQuery локално
 
-Това ръководство показва как да стартирате локален SubQuery нод във вашата инфраструктура, който включва индексатора и услугата за заявки. Не желаете да се занимавате със стартирането на собствена SubQuery инфраструктура? SubQuery предоставя [управлявана хоствана услуга](https://explorer.subquery.network) безплатно за общността. [Следвайте нашето ръководство](../run_publish/publish.md) за да разберете как да качите вашия проект в [SubQuery Projects](https://project.subquery.network).
+Това ръководство показва как да стартирате локален SubQuery нод във вашата инфраструктура, който включва индексатора и услугата за заявки. Не желаете да се занимавате със стартирането на собствена SubQuery инфраструктура? SubQuery предоставя [управлявана хоствана услуга](https://explorer.subquery.network) безплатно за общността. [Follow our publishing guide](../run_publish/publish.md) to see how you can upload your project to [SubQuery Projects](https://project.subquery.network).
 
 ## Използване на Docker
 
@@ -24,46 +24,100 @@ SubQuery нодът е реализация, която извлича бази�
 
 ### Инсталация
 
-```shell
+<CodeGroup>
+<CodeGroupItem title='Substrate'>
+
+``` shell
 # NPM
 npm install -g @subql/node
 ```
+</CodeGroupItem>
 
-Моля, имайте предвид, че ние **НЕ** насърчаваме използването на `yarn global` поради лошото управление на зависимостта, което може да доведе до грешки в бъдеще.
+<CodeGroupItem title='Avalanche'>
+
+``` shell
+# NPM
+npm install -g @subql/node-avalanche
+````
+
+</CodeGroupItem>
+</CodeGroup>
+
+Please note that we **DO NOT** encourage the use of `yarn global` due to its poor dependency management which may lead to an errors down the line.
 
 Веднъж инсталиран, можете да стартирате нода със следната команда:
+
+
+<CodeGroup>
+<CodeGroupItem title='Substrate'>
 
 ```shell
 subql-node <command>
 ```
 
-### Ключови команди
+</CodeGroupItem>
+<CodeGroupItem title='Avalanche'>
 
-Следващите команди ще ви помогнат да завършите конфигурацията на SubQuery нода и да започнете индексирането. За да научите повече, винаги можете да стартирате `--help`.
+```shell
+subql-node-avalanche <command>
+```
+
+</CodeGroupItem>
+</CodeGroup>
+
+### Key Commands
+
+The following commands will assist you to complete the configuration of a SubQuery node and begin indexing. За да научите повече, винаги можете да стартирате `--help`.
 
 #### Посочете пътя към локалния проект
 
-```
+<CodeGroup>
+<CodeGroupItem title='Substrate'>
+
+```shell
 subql-node -f your-project-path
 ```
 
-#### Използвайте речник
+</CodeGroupItem>
+<CodeGroupItem title='Avalanche'>
 
-Използването на речник за цяла верига може драстично да ускори обработката на SubQuery проект по време на тестване или по време на първия ви индекс. В някои случаи сме виждали увеличение на ефективността на индексирането до 10 пъти.
-
-Цял верижен речник предварително индексира местоположението на всички събития и ненужни данни в рамките на конкретната верига и позволява на вашата нод услуга да прескача до съществените местоположения при индексиране, вместо да инспектира всеки блок.
-
-Можете да добавите крайната точка на речника във вашия `project.yaml` файл (вижте [Manifest File](../create/manifest.md)), или го посочете по време на изпълнението, като използвате следната команда:
-
+```shell
+subql-node-avalanche -f your-project-path
 ```
+
+</CodeGroupItem>
+</CodeGroup>
+
+#### Use a Dictionary
+
+Using a full chain dictionary can dramatically speed up the processing of a SubQuery project during testing or during your first index. In some cases, we've seen indexing performance increases of up to 10x.
+
+A full chain dictionary pre-indexes the location of all events and extrinsics within the specific chain and allows your node service to skip to relevant locations when indexing rather than inspecting each block.
+
+You can add the dictionary endpoint in your `project.yaml` file (see [Manifest File](../create/manifest.md)), or specify it at run time using the following command:
+
+<CodeGroup>
+<CodeGroupItem title='Substrate'>
+
+```shell
 subql-node --network-dictionary=https://api.subquery.network/sq/subquery/dictionary-polkadot
 ```
 
-[Прочетете повече за това как работи SubQuery речникът.](../academy/tutorials_examples/dictionary.md).
+</CodeGroupItem>
+<CodeGroupItem title='Avalanche'>
 
-#### Свържете се с базата данни
-
+```shell
+subql-node-avalanche --network-dictionary=https://api.subquery.network/sq/subquery/dictionary-polkadot
 ```
+
+</CodeGroupItem>
+</CodeGroup>
+
+[Read more about how a SubQuery Dictionary works](../academy/tutorials_examples/dictionary.md).
+
+#### Connect to database
+
+```shell
 export DB_USER=postgres
 export DB_PASS=postgres
 export DB_DATABASE=postgres
@@ -72,15 +126,28 @@ export DB_PORT=5432
 subql-node -f your-project-path
 ```
 
-В зависимост от конфигурацията на вашата Postgres база данни (например различна парола за базата данни), моля, уверете се, че индексаторът (`subql/node`) и услугата за заявки (`subql/query`) могат да установят връзка с нея.
+Depending on the configuration of your Postgres database (e.g. a different database password), please ensure also that both the indexer (`subql/node`) and the query service (`subql/query`) can establish a connection to it.
 
-#### Посочете конфигурационен файл
+#### Specify a configuration file
 
-```
+<CodeGroup>
+<CodeGroupItem title='Substrate'>
+
+```shell
 subql-node -c your-project-config.yml
 ```
 
-Това ще насочи нода на заявката към конфигурационен файл, който може да бъде във формат - YAML или JSON. Вижте примера по-долу.
+</CodeGroupItem>
+<CodeGroupItem title='Avalanche'>
+
+```shell
+subql-node-avalanche -c your-project-config.yml
+```
+
+</CodeGroupItem>
+</CodeGroup>
+
+This will point the query node to a configuration file which can be in YAML or JSON format. Check out the example below.
 
 ```yaml
 subquery: ../../../../subql-example/extrinsics
@@ -91,7 +158,7 @@ localMode:true
 
 #### Промяна размера на партидата за извличане на блок
 
-```
+```shell
 subql-node -f your-project-path --batch-size 200
 
 Резултат:
@@ -103,11 +170,24 @@ subql-node -f your-project-path --batch-size 200
 
 #### Работете в локален мод (режим)
 
-```
+<CodeGroup>
+<CodeGroupItem title='Substrate'>
+
+```shell
 subql-node -f your-project-path --local
 ```
 
-За целите на отстраняване на грешки, потребителите могат да стартират нода в локален режим. Преминаването към локален модел ще създаде Postgres таблици схемата по подразбиране - `public`.
+</CodeGroupItem>
+<CodeGroupItem title='Avalanche'>
+
+```shell
+subql-node-avalanche -f your-project-path --local
+```
+
+</CodeGroupItem>
+</CodeGroup>
+
+For debugging purposes, users can run the node in local mode. Преминаването към локален модел ще създаде Postgres таблици схемата по подразбиране - `public`.
 
 Ако не се използва локален режим, ще бъде създадена нова Postgres схема с първоначалната `subquery_` и съответните таблици на проектите.
 
@@ -179,7 +259,7 @@ For help, see: https://nodejs.org/en/docs/inspector
 Debugger attached.
 ```
 
-След това отворете инструментите за разработка на Chrome, отидете на Source > Filesystem и добавете проекта си към работното пространство и започнете да отстранявате грешки. За повече информация вижте: [Как да отстраните грешки в SubQuery проект](https://doc.subquery.network/academy/tutorials_examples/debug-projects/)
+След това отворете инструментите за разработка на Chrome, отидете на Source > Filesystem и добавете проекта си към работното пространство и започнете да отстранявате грешки. For more information, check out [How to debug a SubQuery project](https://doc.subquery.network/academy/tutorials_examples/debug-projects/)
 
 ## Изпълнение на услуга за заявки (subql/query)
 
@@ -194,7 +274,10 @@ npm install -g @subql/query
 
 ### Изпълнение на Query услуга
 
-``` export DB_HOST=localhost subql-query --name <project_name> --playground ````
+```
+export DB_HOST=localhost
+subql-query --name <project_name> --playground
+```
 
 Уверете се, че името на проекта е същото като името на проекта, когато [инициализирате проекта](../quickstart/quickstart.md#initialise-the-starter-subquery-project). Също така проверете дали променливите на средата са правилни.
 
