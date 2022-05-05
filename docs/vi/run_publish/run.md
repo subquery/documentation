@@ -259,7 +259,7 @@ For help, see: https://nodejs.org/en/docs/inspector
 Debugger attached.
 ```
 
-Sau đó, mở các công cụ dành cho nhà phát triển Chrome, đi tới Nguồn > Hệ thống tệp và thêm dự án của bạn vào không gian làm việc và bắt đầu gỡ lỗi. For more information, check out [How to debug a SubQuery project](https://doc.subquery.network/academy/tutorials_examples/debug-projects/)
+Sau đó, mở các công cụ dành cho nhà phát triển Chrome, đi tới Nguồn > Hệ thống tệp và thêm dự án của bạn vào không gian làm việc và bắt đầu gỡ lỗi. Để biết thêm thông tin, hãy kiểm tra [Cách gỡ lỗi dự án SubQuery](https://doc.subquery.network/academy/tutorials_examples/debug-projects/)
 
 ## Khởi chạy một Dịch vụ Truy vấn (subql/query)
 
