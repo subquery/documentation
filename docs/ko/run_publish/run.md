@@ -1,6 +1,6 @@
 # 로컬에서 서브쿼리 실행하기
 
-이 가이드는 인덱서와 쿼리 서비스를 모두 포함하는 인프라에서 로컬 SubQuery 노드를 실행하는 방법을 설명합니다. 자체 SubQuery 인프라를 실행하는 것에 대해 걱정하고 싶지 않으세요? SubQuery는 커뮤니티에 [관리 호스팅 서비스](https://explorer.subquery.network)를 무료로 제공합니다. [게시 가이드](../run_publish/publish.md)를 따라 프로젝트를 [SubQuery 프로젝트](https://project.subquery.network)에 업로드하는 방법을 확인하세요.
+이 가이드는 인덱서와 쿼리 서비스를 모두 포함하는 인프라에서 로컬 SubQuery 노드를 실행하는 방법을 설명합니다. 자체 SubQuery 인프라를 실행하는 것에 대해 걱정하고 싶지 않으세요? SubQuery는 커뮤니티에 [관리 호스팅 서비스](https://explorer.subquery.network)를 무료로 제공합니다. [Follow our publishing guide](../run_publish/publish.md) to see how you can upload your project to [SubQuery Projects](https://project.subquery.network).
 
 ## 도커 사용
 
@@ -24,46 +24,100 @@ SubQuery 노드는 SubQuery 프로젝트별로 기판 기반 블록체인 데이
 
 ### 설치
 
-```shell
+<CodeGroup>
+<CodeGroupItem title='Substrate'>
+
+``` shell
 # NPM
 npm install -g @subql/node
 ```
+</CodeGroupItem>
 
-`yarn global`의 사용을 권장하지 **않습니다**. 잘못된 종속성 관리로 인해 오류가 발생할 수 있기 때문입니다.
+<CodeGroupItem title='Avalanche'>
+
+``` shell
+# NPM
+npm install -g @subql/node-avalanche
+````
+
+</CodeGroupItem>
+</CodeGroup>
+
+Please note that we **DO NOT** encourage the use of `yarn global` due to its poor dependency management which may lead to an errors down the line.
 
 설치가 완료되면 다음 명령으로 노드를 시작할 수 있습니다.
+
+
+<CodeGroup>
+<CodeGroupItem title='Substrate'>
 
 ```shell
 subql-node <command>
 ```
 
-### 주요 명령
+</CodeGroupItem>
+<CodeGroupItem title='Avalanche'>
 
-다음 명령은 SubQuery 노드 구성을 완료하고 인덱싱을 시작하는 데 도움이 됩니다. 자세히 알아보려면 언제든지 `--help`를 실행할 수 있습니다.
+```shell
+subql-node-avalanche <command>
+```
+
+</CodeGroupItem>
+</CodeGroup>
+
+### Key Commands
+
+The following commands will assist you to complete the configuration of a SubQuery node and begin indexing. 자세히 알아보려면 언제든지 `--help`를 실행할 수 있습니다.
 
 #### 로컬 프로젝트 경로를 가리킴
 
-```
+<CodeGroup>
+<CodeGroupItem title='Substrate'>
+
+```shell
 subql-node -f your-project-path
 ```
 
-#### Using a Dictionary
+</CodeGroupItem>
+<CodeGroupItem title='Avalanche'>
 
-전체 체인 사전을 사용하면 테스트 중 또는 첫 번째 색인 중에 SubQuery 프로젝트 처리 속도를 크게 높일 수 있습니다. 어떤 경우에는 인덱싱 성능이 최대 10배까지 향상되는 것을 보았습니다.
-
-전체 체인 사전은 특정 체인 내의 모든 이벤트 및 외부 요소의 위치를 미리 인덱싱하고 인덱싱할 때 노드 서비스가 각 블록을 검사하는 대신 관련 위치로 건너뛸 수 있도록 합니다.
-
-`project.yaml` 파일([매니페스트 파일](../create/manifest.md) 참조)에 사전 끝점을 추가하거나 다음 명령을 사용하여 런타임에 지정할 수 있습니다.
-
+```shell
+subql-node-avalanche -f your-project-path
 ```
+
+</CodeGroupItem>
+</CodeGroup>
+
+#### Use a Dictionary
+
+Using a full chain dictionary can dramatically speed up the processing of a SubQuery project during testing or during your first index. In some cases, we've seen indexing performance increases of up to 10x.
+
+A full chain dictionary pre-indexes the location of all events and extrinsics within the specific chain and allows your node service to skip to relevant locations when indexing rather than inspecting each block.
+
+You can add the dictionary endpoint in your `project.yaml` file (see [Manifest File](../create/manifest.md)), or specify it at run time using the following command:
+
+<CodeGroup>
+<CodeGroupItem title='Substrate'>
+
+```shell
 subql-node --network-dictionary=https://api.subquery.network/sq/subquery/dictionary-polkadot
 ```
 
-SubQuery 사전 작동 방식에 대해 자세히 알아보기
+</CodeGroupItem>
+<CodeGroupItem title='Avalanche'>
 
-#### 데이터베이스에 연결
-
+```shell
+subql-node-avalanche --network-dictionary=https://api.subquery.network/sq/subquery/dictionary-polkadot
 ```
+
+</CodeGroupItem>
+</CodeGroup>
+
+[Read more about how a SubQuery Dictionary works](../academy/tutorials_examples/dictionary.md).
+
+#### Connect to database
+
+```shell
 export DB_USER=postgres
 export DB_PASS=postgres
 export DB_DATABASE=postgres
@@ -72,15 +126,28 @@ export DB_PORT=5432
 subql-node -f your-project-path
 ```
 
-Postgres 데이터베이스의 구성(예: 다른 데이터베이스 비밀번호)에 따라 인덱서(`subql/node`)와 쿼리 서비스(`subql/query`)가 모두 연결할 수 있는지 확인하십시오.
+Depending on the configuration of your Postgres database (e.g. a different database password), please ensure also that both the indexer (`subql/node`) and the query service (`subql/query`) can establish a connection to it.
 
-#### 구성 파일 지정
+#### Specify a configuration file
 
-```
+<CodeGroup>
+<CodeGroupItem title='Substrate'>
+
+```shell
 subql-node -c your-project-config.yml
 ```
 
-그러면 쿼리 노드가 YAML 또는 JSON 형식일 수 있는 구성 파일을 가리킵니다. 아래의 예를 확인하세요.
+</CodeGroupItem>
+<CodeGroupItem title='Avalanche'>
+
+```shell
+subql-node-avalanche -c your-project-config.yml
+```
+
+</CodeGroupItem>
+</CodeGroup>
+
+This will point the query node to a configuration file which can be in YAML or JSON format. Check out the example below.
 
 ```yaml
 subquery: ../../../../subql-example/extrinsics
@@ -91,7 +158,7 @@ localMode:true
 
 #### 블록 가져오기 배치 크기 변경
 
-```
+```shell
 subql-node -f your-project-path --batch-size 200
 
 Result:
@@ -103,11 +170,24 @@ Result:
 
 #### Local mode
 
-```
+<CodeGroup>
+<CodeGroupItem title='Substrate'>
+
+```shell
 subql-node -f your-project-path --local
 ```
 
-디버깅을 위해 사용자는 로컬 모드에서 노드를 실행할 수 있습니다. 로컬 모델로 전환하면 기본 스키마 `public`에 Postgres 테이블이 생성됩니다.
+</CodeGroupItem>
+<CodeGroupItem title='Avalanche'>
+
+```shell
+subql-node-avalanche -f your-project-path --local
+```
+
+</CodeGroupItem>
+</CodeGroup>
+
+For debugging purposes, users can run the node in local mode. 로컬 모델로 전환하면 기본 스키마 `public`에 Postgres 테이블이 생성됩니다.
 
 로컬 모드를 사용하지 않는 경우 초기 `subquery_` 및 해당 프로젝트 테이블이 있는 새 Postgres 스키마가 생성됩니다.
 
@@ -170,7 +250,7 @@ subql-node -f your-project-path --local
 node --inspect-brk <path to subql-node> -f <path to subQuery project>
 ```
 
-예를 들어:
+예제:
 
 ```shell
 node --inspect-brk /usr/local/bin/subql-node -f ~/Code/subQuery/projects/subql-helloworld/
@@ -178,7 +258,7 @@ ws://127.0.0.1:9229/56156753-c07d-4bbe-af2d-2c7ff4bcc5ad에서 수신하는 디�
 도움이 필요하면 https://nodejs.org/en/docs/inspector를 참조하세요.
 ```
 
-이후, 크롬 개발자 도구를 통해 Source > Filesystem을 열고, 작업공간에 프로젝트를 추가하고 디버깅을 시작합니다. 자세한 내용은 다음을 확인하세요. [SubQuery 프로젝트를 디버그하는 방법](https://doc.subquery.network/academy/tutorials_examples/debug-projects/)
+이후, 크롬 개발자 도구를 통해 Source > Filesystem을 열고, 작업공간에 프로젝트를 추가하고 디버깅을 시작합니다. For more information, check out [How to debug a SubQuery project](https://doc.subquery.network/academy/tutorials_examples/debug-projects/)
 
 ## 쿼리 서비스 실행(subql/query)
 
@@ -193,7 +273,10 @@ npm install -g @subql/query
 
 ### 쿼리 서비스 실행
 
-``` export DB_HOST=localhost subql-query --name <project_name> --playground ````
+```
+export DB_HOST=localhost
+subql-query --name <project_name> --playground
+```
 
 [프로젝트를 초기화](../quickstart/quickstart.md#initialise-the-starter-subquery-project)할 때 프로젝트 이름이 프로젝트 이름과 동일한지 확인하세요. 또한 환경 변수가 올바른지 확인하십시오.
 
