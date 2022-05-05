@@ -1,10 +1,10 @@
 # 本地运行 SubQuery
 
-本指南通过如何在您的基础设施上运行本地的 SubQuery 节点，其中包括索引器和查询服务。 不用担心在运行自己的 SubQuery 基础架构中所出现的问题。 SubQuery 向社区免费提供 [管理的托管服务](https://explorer.subquery.network)。 [按照我们所发布的指南](../run_publish/publish.md) 查看您如何将项目部署到 [SubQuery 项目](https://project.subquery.network)。
+本指南通过如何在您的基础设施上运行本地的 SubQuery 节点，其中包括索引器和查询服务。 不用担心在运行自己的SubQuery基础架构中所出现的问题。 SubQuery 向社区免费提供 [管理的托管服务](https://explorer.subquery.network)。 [Follow our publishing guide](../run_publish/publish.md) to see how you can upload your project to [SubQuery Projects](https://project.subquery.network).
 
 ## 使用 Docker
 
-其中一种解决方案是运行<strong>Docker 容器</strong>，它是由`Docker-component.yml`文件所定义的。 对于刚刚初始化的新项目，您将不需要在此更改任何内容。
+其中一种解决方案是运行<strong>Docker容器</strong>，它是由`Docker-component.yml`文件所定义的。 对于刚刚初始化的新项目，您将不需要在此更改任何内容。
 
 在项目目录下运行以下命令：
 
@@ -14,56 +14,110 @@ docker-compose pull && docker-compose up
 
 第一次下载所需软件包可能需要一些时间([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/quiry`](https://www.npmjs.com/package/@subql/query), and Postgress) ，但很快你就会看到一个运行中的 SubQuery 节点。
 
-## 运行 Indexer (subql/node)
+## 运行Indexer (subql/node)
 
 需求：
 
-- [Postgres](https://www.postgresql.org/) database (version 12 or higher). [Postgres](https://www.postgresql.org/) 数据库 (版本 12 或更高). 当[SubQuery node](#start-a-local-subquery-node) 对区块链进行索引时，提取的数据将会存储在外部数据库实例中。
+- [Postgres](https://www.postgresql.org/) database (version 12 or higher). [Postgres](https://www.postgresql.org/) 数据库 (版本12或更高). 当[SubQuery node](#start-a-local-subquery-node)  对区块链进行索引时，提取的数据将会存储在外部数据库实例中。
 
 SubQuery 节点需要一个加载的过程，它能够从 SubQuery 项目中提取基于子区块链的数据，并将其保存到 Postgres 数据库。
 
 ### 安装
 
-```shell
+<CodeGroup>
+<CodeGroupItem title='Substrate'>
+
+``` shell
 # NPM
 npm install -g @subql/node
 ```
+</CodeGroupItem>
 
-请注意我们不推荐使用 `yarn global` ，因为它的依赖管理性能不佳，可能导致在运行中出现错误。
+<CodeGroupItem title='Avalanche'>
+
+``` shell
+# NPM
+npm install -g @subql/node-avalanche
+````
+
+</CodeGroupItem>
+</CodeGroup>
+
+Please note that we **DO NOT** encourage the use of `yarn global` due to its poor dependency management which may lead to an errors down the line.
 
 安装完毕后，您可以使用以下命令来启动节点：
+
+
+<CodeGroup>
+<CodeGroupItem title='Substrate'>
 
 ```shell
 subql-node <command>
 ```
 
-### 输入命令
+</CodeGroupItem>
+<CodeGroupItem title='Avalanche'>
 
-以下命令将帮助您完成子查询节点的配置并开始索引。 要了解更多信息，您可以运行 `--help`。
+```shell
+subql-node-avalanche <command>
+```
+
+</CodeGroupItem>
+</CodeGroup>
+
+### Key Commands
+
+The following commands will assist you to complete the configuration of a SubQuery node and begin indexing. 要了解更多信息，您可以运行 `--help`。
 
 #### 指向本地项目路径
 
-```
+<CodeGroup>
+<CodeGroupItem title='Substrate'>
+
+```shell
 subql-node -f your-project-path
 ```
 
-#### 使用字典
+</CodeGroupItem>
+<CodeGroupItem title='Avalanche'>
 
-在测试期间或第一次索引期间，使用全链字典可以显著加快 SubQuery 项目的处理速度。 在特定情况下，我们可以看到索引性能提高了 10 倍。
-
-一个完整的链词典预先索引特定链中所有事件和外部函数的位置，并允许节点服务在索引时跳到相关位置，而不是检查每个块。
-
-您可以在`project.yaml`文件中添加字典端点（请参见[Manifest File](../create/manifest.md)），或在运行时使用以下命令指定它：
-
+```shell
+subql-node-avalanche -f your-project-path
 ```
+
+</CodeGroupItem>
+</CodeGroup>
+
+#### Use a Dictionary
+
+Using a full chain dictionary can dramatically speed up the processing of a SubQuery project during testing or during your first index. In some cases, we've seen indexing performance increases of up to 10x.
+
+A full chain dictionary pre-indexes the location of all events and extrinsics within the specific chain and allows your node service to skip to relevant locations when indexing rather than inspecting each block.
+
+You can add the dictionary endpoint in your `project.yaml` file (see [Manifest File](../create/manifest.md)), or specify it at run time using the following command:
+
+<CodeGroup>
+<CodeGroupItem title='Substrate'>
+
+```shell
 subql-node --network-dictionary=https://api.subquery.network/sq/subquery/dictionary-polkadot
 ```
 
-阅读更多关于 SubQuery 词典的工作原理
+</CodeGroupItem>
+<CodeGroupItem title='Avalanche'>
 
-#### 连接数据库
-
+```shell
+subql-node-avalanche --network-dictionary=https://api.subquery.network/sq/subquery/dictionary-polkadot
 ```
+
+</CodeGroupItem>
+</CodeGroup>
+
+[Read more about how a SubQuery Dictionary works](../academy/tutorials_examples/dictionary.md).
+
+#### Connect to database
+
+```shell
 export DB_USER=postgres
 export DB_PASS=postgres
 export DB_DATABASE=postgres
@@ -72,15 +126,28 @@ export DB_PORT=5432
 subql-node -f your-project-path
 ```
 
-根据您的 Postgres 数据库的配置(例如不同的数据库密码) ，请确保索引器(‘ subql/node’)和查询服务(‘ subql/query’)都能与其建立连接。
+Depending on the configuration of your Postgres database (e.g. a different database password), please ensure also that both the indexer (`subql/node`) and the query service (`subql/query`) can establish a connection to it.
 
-#### 指定一个配置文件
+#### Specify a configuration file
 
-```
+<CodeGroup>
+<CodeGroupItem title='Substrate'>
+
+```shell
 subql-node -c your-project-config.yml
 ```
 
-这将把查询节点指向一个可以是 YAML 或 JSON 格式的配置文件。 看看下面的例子。
+</CodeGroupItem>
+<CodeGroupItem title='Avalanche'>
+
+```shell
+subql-node-avalanche -c your-project-config.yml
+```
+
+</CodeGroupItem>
+</CodeGroup>
+
+This will point the query node to a configuration file which can be in YAML or JSON format. Check out the example below.
 
 ```yaml
 subquery: ../../../../subql-example/extrinsics
@@ -91,7 +158,7 @@ localMode:true
 
 #### 更改获取批大小的块
 
-```
+```shell
 subql-node -f your-project-path --batch-size 200
 
 Result:
@@ -99,26 +166,39 @@ Result:
 [IndexerManager] fetch block [403, 602]
 ```
 
-索引器首次对链进行索引时，获取单个块将显著降低性能。 增加批量处理的规模以调整获取的区块数量，这将会减少整个处理时间。 默认的批处理大小为 100。
+索引器首次对链进行索引时，获取单个块将显著降低性能。 增加批量处理的规模以调整获取的区块数量，这将会减少整个处理时间。 默认的批处理大小为100。
 
 #### 在本地模式下运行
 
-```
+<CodeGroup>
+<CodeGroupItem title='Substrate'>
+
+```shell
 subql-node -f your-project-path --local
 ```
 
-当需要进行调试时，用户可以在本地模式下运行节点。 切换到本地模式后将在默认架构 `public` 中创建 Postgres 表。
+</CodeGroupItem>
+<CodeGroupItem title='Avalanche'>
 
-如果未使用本地模式，则使用初始的 Postgres 模式，并将创建初始的 `subquery_` 和与其相对应的项目表。
+```shell
+subql-node-avalanche -f your-project-path --local
+```
+
+</CodeGroupItem>
+</CodeGroup>
+
+For debugging purposes, users can run the node in local mode. 切换到本地模式后将在默认架构 `public` 中创建 Postgres 表。
+
+如果未使用本地模式，则使用初始的Postgres 模式，并将创建初始的 `subquery_` 和与其相对应的项目表。
 
 #### 检查节点运行状况。
 
 有两个端口可用来检查和监视所运行的 SubQuery 节点的健康状况。
 
-- 健康检查端点，返回一个简单的 200 响应
+- 健康检查端点，返回一个简单的200响应
 - 元数据端点，包括正在运行的 SubQuery 节点的附加分析
 
-将其附加到您的 SubQuery 节点的基本 URL。 例如：`http://localhost:3000/meta` 将会返回
+将其附加到您的 SubQuery 节点的基本URL。 例如：`http://localhost:3000/meta` 将会返回
 
 ```bash
 {
@@ -143,7 +223,7 @@ subql-node -f your-project-path --local
 
 `http://localhost:3000/health` 如果成功将返回 HTTP 200。
 
-如果索引器出现错误，将返回 500 错误。 这通常可以在节点启动时看到。
+如果索引器出现错误，将返回500错误。 这通常可以在节点启动时看到。
 
 ```shell
 {
@@ -152,7 +232,7 @@ subql-node -f your-project-path --local
 }
 ```
 
-如果使用了错误的 URL，将返回 404 not found 错误。
+如果使用了错误的URL，将返回404 not found错误。
 
 ```shell
 {
@@ -170,7 +250,7 @@ subql-node -f your-project-path --local
 node --inspect-brk <path to subql-node> -f <path to subQuery project>
 ```
 
-例如：
+示例
 
 ```shell
 node --expect-brk /usr/local/bin/subql-node -f ~/Code/subQuery/projects/subql-Helloworld/
@@ -179,9 +259,9 @@ Debugger 监听ws:127.0.0.1:9229/56156753-c07d-4bbe-af2d-2c7ff4bcc5ad
 Debugger 已附后。
 ```
 
-然后打开 Chrome 开发工具，进入 Source>Filesystem，将项目添加到工作区并开始调试。 查看更多信息[如何调试 SubQuery 项目](https://doc.subquery.network/academy/tutorials_examples/debug-projects/)
+然后打开Chrome开发工具，进入Source>Filesystem，将项目添加到工作区并开始调试。 For more information, check out [How to debug a SubQuery project](https://doc.subquery.network/academy/tutorials_examples/debug-projects/)
 
-## 运行 Query 服务(subql/query)
+## 运行Query服务(subql/query)
 
 ### 安装
 
@@ -192,10 +272,13 @@ npm install -g @subql/query
 
 请注意我们不推荐使用 `yarn global` ，因为它的依赖管理性能不佳，可能导致在运行中出现错误。
 
-### 运行 Query 服务
+### 运行Query服务
 
-`` 导出 DB_HOST=localhost subql-quy --name <project_name> --playground````
+```
+export DB_HOST=localhost
+subql-query --name <project_name> --playground
+```
 
 当您 [初始化项目](../quickstart/quickstart.md#initialise-the-starter-subquery-project) 时，请确保项目名称的相同。 此外，请检查环境变量是否配置正确。
 
-成功运行 subql 查询服务后，打开浏览器并转到`http://localhost:3000`. 您应该看到在 Explorer 中显示的 GraphQL 播放地和准备查询的模式。 您应该看到在 Explorer 中显示的 GraphQL 播放地和准备查询的模式。
+成功运行subql查询服务后，打开浏览器并转到`http://localhost:3000`. 您应该看到在 Explorer 中显示的 GraphQL 播放地和准备查询的模式。 您应该看到在 Explorer 中显示的 GraphQL 播放地和准备查询的模式。
