@@ -5,6 +5,7 @@
       <div>
         <h2 class="welcomeTitle">ยินดีต้อนรับสู่ SubQuery <span>University</span></h2>
         <p>สำรวจและแปลงข้อมูลเชนของคุณเพื่อสร้าง dApps ให้ใช้งานง่ายและรวดเร็วขึ้น!</p>
+        <p><strong>SubQuery now supports both Polkadot and Avalanche</strong></p>
       </div>
     </div>
   </section>
@@ -87,7 +88,7 @@
         <div class="content">
           <p>การโฮสต์โปรเจ็กต์ของคุณใน SubQuery Projects นั้นฟรี - นั่นเป็นวิธีการตอบแทนชุมชนของเรา To learn how to host your project with us, please check out the <a href="/quickstart/quickstart.html">Hello World (SubQuery Hosted)</a> tutorial.</p>
           <span class="more">
-            <router-link :to="{path: '/run_publish/publish.html'}">การโฮสต์โปรเจ็กต์ของคุณ</router-link>
+            <router-link :to="{path: '/run_publish/publish.html'}">HOSTING YOUR PROJECT</router-link>
           </span>
         </div>
       </li>
