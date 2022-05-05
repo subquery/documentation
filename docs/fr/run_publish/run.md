@@ -1,6 +1,6 @@
 # Exécution de SubQuery en local
 
-Ce guide explique comment exécuter un nœud SubQuery local sur votre infrastructure, qui comprend à la fois l'indexeur et le service de requête. Vous ne voulez pas vous soucier de faire fonctionner votre propre infrastructure SubQuery ? SubQuery fournit gratuitement à la communauté un [service hébergé géré](https://explorer.subquery.network). [Suivez notre guide de publication](../run_publish/publish.md) pour savoir comment télécharger votre projet sur [SubQuery Projects](https://project.subquery.network).
+Ce guide explique comment exécuter un nœud SubQuery local sur votre infrastructure, qui comprend à la fois l'indexeur et le service de requête. Vous ne voulez pas vous soucier de faire fonctionner votre propre infrastructure SubQuery ? SubQuery fournit gratuitement à la communauté un [service hébergé géré](https://explorer.subquery.network). [Follow our publishing guide](../run_publish/publish.md) to see how you can upload your project to [SubQuery Projects](https://project.subquery.network).
 
 ## Utilisation de Docker
 
@@ -24,46 +24,100 @@ Un nœud SubQuery est une implémentation qui extrait les données de la blockch
 
 ### Installation
 
-```shell
+<CodeGroup>
+<CodeGroupItem title='Substrate'>
+
+``` shell
 # NPM
 npm install -g @subql/node
 ```
+</CodeGroupItem>
 
-Veuillez noter que nous n'encourageons **PAS** l'utilisation de `yarn global` en raison de sa mauvaise gestion des dépendances qui peut entraîner des erreurs en cours de route.
+<CodeGroupItem title='Avalanche'>
+
+``` shell
+# NPM
+npm install -g @subql/node-avalanche
+````
+
+</CodeGroupItem>
+</CodeGroup>
+
+Please note that we **DO NOT** encourage the use of `yarn global` due to its poor dependency management which may lead to an errors down the line.
 
 Une fois installé, vous pouvez démarrer un nœud avec la commande suivante :
+
+
+<CodeGroup>
+<CodeGroupItem title='Substrate'>
 
 ```shell
 subql-node <command>
 ```
 
-### Commandes clés
+</CodeGroupItem>
+<CodeGroupItem title='Avalanche'>
 
-Les commandes suivantes vous aideront à compléter la configuration d'un nœud SubQuery et à commencer l'indexation. Pour en savoir plus, vous pouvez toujours exécuter `--help`.
+```shell
+subql-node-avalanche <command>
+```
+
+</CodeGroupItem>
+</CodeGroup>
+
+### Key Commands
+
+The following commands will assist you to complete the configuration of a SubQuery node and begin indexing. Pour en savoir plus, vous pouvez toujours exécuter `--help`.
 
 #### Pointer vers le chemin local du projet
 
-```
+<CodeGroup>
+<CodeGroupItem title='Substrate'>
+
+```shell
 subql-node -f your-project-path
 ```
 
-#### Utilisez un dictionnaire
+</CodeGroupItem>
+<CodeGroupItem title='Avalanche'>
 
-L'utilisation d'un dictionnaire de chaîne complet peut accélérer considérablement le traitement d'un projet SubQuery pendant les tests ou lors de votre premier index. Dans certains cas, nous avons constaté une augmentation des performances d'indexation allant jusqu'à 10x.
-
-Un dictionnaire de chaîne complète pré-indexe l'emplacement de tous les événements et extrinsèques dans la chaîne spécifique et permet à votre service de nœud de sauter aux emplacements pertinents lors de l'indexation plutôt que d'inspecter chaque bloc.
-
-Vous pouvez ajouter le point de terminaison du dictionnaire dans votre fichier `project.yaml` (voir [Fichier manifeste](../create/manifest.md)), ou le spécifier au moment de l'exécution à l'aide de la commande suivante :
-
+```shell
+subql-node-avalanche -f your-project-path
 ```
+
+</CodeGroupItem>
+</CodeGroup>
+
+#### Use a Dictionary
+
+Using a full chain dictionary can dramatically speed up the processing of a SubQuery project during testing or during your first index. In some cases, we've seen indexing performance increases of up to 10x.
+
+A full chain dictionary pre-indexes the location of all events and extrinsics within the specific chain and allows your node service to skip to relevant locations when indexing rather than inspecting each block.
+
+You can add the dictionary endpoint in your `project.yaml` file (see [Manifest File](../create/manifest.md)), or specify it at run time using the following command:
+
+<CodeGroup>
+<CodeGroupItem title='Substrate'>
+
+```shell
 subql-node --network-dictionary=https://api.subquery.network/sq/subquery/dictionary-polkadot
 ```
 
-[En savoir plus sur le fonctionnement d'un dictionnaire de SubQuery](../academy/tutorials_examples/dictionary.md).
+</CodeGroupItem>
+<CodeGroupItem title='Avalanche'>
 
-#### Connexion à la base de données
-
+```shell
+subql-node-avalanche --network-dictionary=https://api.subquery.network/sq/subquery/dictionary-polkadot
 ```
+
+</CodeGroupItem>
+</CodeGroup>
+
+[Read more about how a SubQuery Dictionary works](../academy/tutorials_examples/dictionary.md).
+
+#### Connect to database
+
+```shell
 export DB_USER=postgres
 export DB_PASS=postgres
 export DB_DATABASE=postgres
@@ -72,15 +126,28 @@ export DB_PORT=5432
 subql-node -f your-project-path
 ```
 
-En fonction de la configuration de votre base de données Postgres (par exemple, un mot de passe différent), assurez-vous également que l'indexeur (`subql/node`) et le service de requête (`subql/query`) peuvent établir une connexion avec celle-ci.
+Depending on the configuration of your Postgres database (e.g. a different database password), please ensure also that both the indexer (`subql/node`) and the query service (`subql/query`) can establish a connection to it.
 
-#### Spécifier un fichier de configuration
+#### Specify a configuration file
 
-```
+<CodeGroup>
+<CodeGroupItem title='Substrate'>
+
+```shell
 subql-node -c your-project-config.yml
 ```
 
-Le nœud de requête sera dirigé vers un fichier de configuration qui peut être au format YAML ou JSON. Regardez l'exemple ci-dessous.
+</CodeGroupItem>
+<CodeGroupItem title='Avalanche'>
+
+```shell
+subql-node-avalanche -c your-project-config.yml
+```
+
+</CodeGroupItem>
+</CodeGroup>
+
+This will point the query node to a configuration file which can be in YAML or JSON format. Check out the example below.
 
 ```yaml
 subquery: ../../../../subql-example/extrinsics
@@ -91,7 +158,7 @@ localMode:true
 
 #### Modifier la taille du lot de récupération des blocs
 
-```
+```shell
 subql-node -f your-project-path --batch-size 200
 
 Result:
@@ -103,11 +170,24 @@ Lorsque l'indexeur indexe la chaîne pour la première fois, l'extraction de blo
 
 #### Exécution en mode local
 
-```
+<CodeGroup>
+<CodeGroupItem title='Substrate'>
+
+```shell
 subql-node -f your-project-path --local
 ```
 
-À des fins de débogage, les utilisateurs peuvent exécuter le nœud en mode local. Passer au modèle local créera des tables Postgres dans le schéma par défaut `public`.
+</CodeGroupItem>
+<CodeGroupItem title='Avalanche'>
+
+```shell
+subql-node-avalanche -f your-project-path --local
+```
+
+</CodeGroupItem>
+</CodeGroup>
+
+For debugging purposes, users can run the node in local mode. Passer au modèle local créera des tables Postgres dans le schéma par défaut `public`.
 
 Si le mode local n'est pas utilisé, un nouveau schéma Postgres avec l'initiale `subquery_` et les tables de projet correspondantes seront créés.
 
@@ -179,7 +259,7 @@ For help, see: https://nodejs.org/en/docs/inspector
 Debugger attached.
 ```
 
-Ensuite, ouvrez les outils de développement de Chrome, allez dans Source > Filesystem et ajoutez votre projet à l'espace de travail et commencez à déboguer. Pour plus d'informations, consultez [Comment déboguer un projet SubQuery](https://doc.subquery.network/academy/tutorials_examples/debug-projects/)
+Ensuite, ouvrez les outils de développement de Chrome, allez dans Source > Filesystem et ajoutez votre projet à l'espace de travail et commencez à déboguer. For more information, check out [How to debug a SubQuery project](https://doc.subquery.network/academy/tutorials_examples/debug-projects/)
 
 ## Exécution d'un service de requêtes (subql/query)
 
@@ -194,7 +274,10 @@ Veuillez noter que nous n'encourageons **PAS** l'utilisation de `yarn global` en
 
 ### Exécution du service de requête
 
-``` export DB_HOST=localhost subql-query --name <project_name> --playground ````
+```
+export DB_HOST=localhost
+subql-query --name <project_name> --playground
+```
 
 Assurez-vous que le nom du projet est le même que celui du projet lorsque vous [initialisez le projet](../quickstart/quickstart.md#initialise-the-starter-subquery-project). Vérifiez également que les variables d'environnement sont correctes.
 
