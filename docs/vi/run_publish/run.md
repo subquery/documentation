@@ -1,6 +1,6 @@
 # Chạy SubQuery trên môi trường local
 
-Hướng dẫn này hoạt động thông qua cách chạy một node SubQuery cục bộ trên cơ sở hạ tầng của bạn, bao gồm cả trình lập chỉ mục và dịch vụ truy vấn. Bạn không muốn lo lắng về việc chạy cơ sở hạ tầng SubQuery của riêng mình? SubQuery cung cấp miễn phí [ dịch vụ được lưu trữ được quản lý ](https://explorer.subquery.network) cho cộng đồng. [Làm theo hướng dẫn xuất bản của chúng tôi](../publish/publish.md)để xem cách bạn có thể tải dự án của mình lên[Dự án SubQuery](https://project.subquery.network).
+Hướng dẫn này hoạt động thông qua cách chạy một node SubQuery cục bộ trên cơ sở hạ tầng của bạn, bao gồm cả trình lập chỉ mục và dịch vụ truy vấn. Bạn không muốn lo lắng về việc chạy cơ sở hạ tầng SubQuery của riêng mình? SubQuery cung cấp miễn phí [ dịch vụ được lưu trữ được quản lý ](https://explorer.subquery.network) cho cộng đồng. [Follow our publishing guide](../run_publish/publish.md) to see how you can upload your project to [SubQuery Projects](https://project.subquery.network).
 
 ## Sử dụng Docker
 
@@ -12,7 +12,7 @@ Trong thư mục dự án, hãy chạy lệnh sau:
 docker-compose pull && docker-compose up
 ```
 
-Trong lần đầu tiên có thể bạn sẽ mất chút thời gian để tải xuống các package cần thiết ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), và Postgres), nhưng sau đó bạn sẽ thấy nút SubQuery được khởi chạy.
+Trong lần đầu tiên có thể bạn sẽ mất chút thời gian để tải xuống các package cần thiết ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), và Postgres), nhưng sau đó bạn sẽ thấy node SubQuery được khởi chạy.
 
 ## Khởi chạy bộ lập chỉ mục (Indexer) (subql/node)
 
@@ -20,50 +20,104 @@ Yêu cầu:
 
 - [Postgres](https://www.postgresql.org/) cơ sở dữ liệu (phiên bản 12 hoặc cao hơn). Trong khi [SubQuery node](#start-a-local-subquery-node) đang lập chỉ mục chuỗi khối, dữ liệu trích xuất được lưu trữ trong một phiên bản cơ sở dữ liệu bên ngoài.
 
-Một nút SubQuery sẽ triển khai trích xuất dữ liệu chuỗi khối dựa trên chất nền (substrate) cho mỗi dự án SubQuery và lưu nó vào cơ sở dữ liệu Postgres.
+Một node SubQuery sẽ triển khai trích xuất dữ liệu chuỗi khối dựa trên chất nền (substrate) cho mỗi dự án SubQuery và lưu nó vào cơ sở dữ liệu Postgres.
 
 ### Cài đặt
 
-```shell
+<CodeGroup>
+<CodeGroupItem title='Substrate'>
+
+``` shell
 # NPM
 npm install -g @subql/node
 ```
+</CodeGroupItem>
 
-Xin lưu ý rằng chúng tôi **KHÔNG** khuyến khích sử dụng `yarn global` do việc quản lý phụ thuộc kém có thể dẫn đến lỗi xuống dòng.
+<CodeGroupItem title='Avalanche'>
+
+``` shell
+# NPM
+npm install -g @subql/node-avalanche
+````
+
+</CodeGroupItem>
+</CodeGroup>
+
+Please note that we **DO NOT** encourage the use of `yarn global` due to its poor dependency management which may lead to an errors down the line.
 
 Sau khi cài đặt, bạn có thể khởi chạy một node bằng lệnh sau:
+
+
+<CodeGroup>
+<CodeGroupItem title='Substrate'>
 
 ```shell
 subql-node <command>
 ```
 
-### Các lệnh chính
+</CodeGroupItem>
+<CodeGroupItem title='Avalanche'>
 
-Các lệnh sau sẽ hỗ trợ bạn hoàn thành cấu hình của một nút SubQuery và bắt đầu lập chỉ mục. Để tìm hiểu thêm, bạn luôn có thể chạy `--help`.
-
-#### Chỉ đến đường dẫn của dự án
-
+```shell
+subql-node-avalanche <command>
 ```
+
+</CodeGroupItem>
+</CodeGroup>
+
+### Key Commands
+
+The following commands will assist you to complete the configuration of a SubQuery node and begin indexing. Để tìm hiểu thêm, bạn luôn có thể chạy `--help`.
+
+#### Trỏ đến đường dẫn dự án trên môi trường local
+
+<CodeGroup>
+<CodeGroupItem title='Substrate'>
+
+```shell
 subql-node -f your-project-path
 ```
 
-#### Sử dụng Từ điển
+</CodeGroupItem>
+<CodeGroupItem title='Avalanche'>
 
-Sử dụng từ điển chuỗi đầy đủ có thể tăng tốc đáng kể quá trình xử lý dự án SubQuery trong quá trình thử nghiệm hoặc trong lần lập chỉ mục đầu tiên của bạn. Trong một số trường hợp, chúng tôi đã thấy hiệu suất lập chỉ mục tăng lên đến 10 lần.
-
-Bộ từ điển này sẽ lập sẵn đầy đủ chỉ mục về vị trí của tất cả các sự kiện và yếu tố ngoại vi (extrinsics) trong chuối khối liên quan và cho phép nút dịch vụ của bạn chuyển đến các vị trí thích hợp khi lập chỉ mục thay vì phải kiểm tra từng khối.
-
-Bạn có thể trực tiếp thêm điểm cuối (endpoint) của từ điển vào tệp `project.yaml` (xem [Tệp kê khai (Manifest)](../create/manifest.md)) hoặc chỉ định điểm cuối tại thời điểm chạy bằng lệnh sau:
-
+```shell
+subql-node-avalanche -f your-project-path
 ```
+
+</CodeGroupItem>
+</CodeGroup>
+
+#### Use a Dictionary
+
+Using a full chain dictionary can dramatically speed up the processing of a SubQuery project during testing or during your first index. In some cases, we've seen indexing performance increases of up to 10x.
+
+A full chain dictionary pre-indexes the location of all events and extrinsics within the specific chain and allows your node service to skip to relevant locations when indexing rather than inspecting each block.
+
+You can add the dictionary endpoint in your `project.yaml` file (see [Manifest File](../create/manifest.md)), or specify it at run time using the following command:
+
+<CodeGroup>
+<CodeGroupItem title='Substrate'>
+
+```shell
 subql-node --network-dictionary=https://api.subquery.network/sq/subquery/dictionary-polkadot
 ```
 
-[ Đọc thêm về cách hoạt động của Từ điển SubQuery ](../tutorials_examples/dictionary.md).
+</CodeGroupItem>
+<CodeGroupItem title='Avalanche'>
 
-#### Kết nối với cơ sở dữ liệu
-
+```shell
+subql-node-avalanche --network-dictionary=https://api.subquery.network/sq/subquery/dictionary-polkadot
 ```
+
+</CodeGroupItem>
+</CodeGroup>
+
+[Read more about how a SubQuery Dictionary works](../academy/tutorials_examples/dictionary.md).
+
+#### Connect to database
+
+```shell
 export DB_USER=postgres
 export DB_PASS=postgres
 export DB_DATABASE=postgres
@@ -72,15 +126,28 @@ export DB_PORT=5432
 subql-node -f your-project-path
 ```
 
-Tùy thuộc vào cấu hình cơ sở dữ liệu Postgres của bạn (ví dụ: mật khẩu cơ sở dữ liệu khác), hãy đảm bảo rằng cả trình chỉ mục (`subql/node`) và dịch vụ truy vấn (` subql/query`) đều có thể thiết lập kết nối với nó.
+Depending on the configuration of your Postgres database (e.g. a different database password), please ensure also that both the indexer (`subql/node`) and the query service (`subql/query`) can establish a connection to it.
 
-#### Chỉ định tệp cấu hình
+#### Specify a configuration file
 
-```
+<CodeGroup>
+<CodeGroupItem title='Substrate'>
+
+```shell
 subql-node -c your-project-config.yml
 ```
 
-Thao tác này sẽ trỏ nút truy vấn đến tệp cấu hình có thể ở định dạng YAML hoặc JSON. Kiểm tra ví dụ dưới đây.
+</CodeGroupItem>
+<CodeGroupItem title='Avalanche'>
+
+```shell
+subql-node-avalanche -c your-project-config.yml
+```
+
+</CodeGroupItem>
+</CodeGroup>
+
+This will point the query node to a configuration file which can be in YAML or JSON format. Check out the example below.
 
 ```yaml
 subquery: ../../../../subql-example/extrinsics
@@ -91,7 +158,7 @@ localMode:true
 
 #### Thay đổi kích thước lô tìm nạp khối
 
-```
+```shell
 subql-node -f your-project-path --batch-size 200
 
 Kết quả:
@@ -103,23 +170,35 @@ Khi trình lập chỉ mục lập chỉ mục chuỗi lần đầu tiên, việ
 
 #### Chạy ở chế độ cục bộ
 
-```
+<CodeGroup>
+<CodeGroupItem title='Substrate'>
+
+```shell
 subql-node -f your-project-path --local
 ```
 
-Đối với mục đích gỡ lỗi, người dùng có thể chạy nút ở chế độ cục bộ. Viêc chuyển sang chế độ local sẽ tạo các bảng Postgres trong sơ đồ `công khai` mặc định.
+</CodeGroupItem>
+<CodeGroupItem title='Avalanche'>
 
-Nếu chế độ cục bộ không được sử dụng, một sơ đồ Postgres mới với `subquery_` và các bảng dự án tương ứng sẽ được khởi tạo.
+```shell
+subql-node-avalanche -f your-project-path --local
+```
 
+</CodeGroupItem>
+</CodeGroup>
 
-#### Kiểm tra tình trạng nút của bạn
+For debugging purposes, users can run the node in local mode. Viêc chuyển sang chế độ local sẽ tạo các bảng Postgres trong sơ đồ `công khai` mặc định.
 
-Có 2 điểm cuối mà bạn có thể sử dụng để kiểm tra và theo dõi tình trạng của một nút SubQuery đang chạy.
+Nếu chế độ local không được sử dụng, một sơ đồ Postgres mới với `subquery_` và các bảng dự án tương ứng sẽ được khởi tạo.
+
+#### Kiểm tra tình trạng node của bạn
+
+Có 2 điểm cuối mà bạn có thể sử dụng để kiểm tra và theo dõi tình trạng của một node SubQuery đang chạy.
 
 - Kiểm tra tình trạng điểm cuối sẽ trả về một phần hồi 200 đơn giản
 - Điểm cuối siêu dữ liệu bao gồm các phân tích bổ sung về nút SubQuery đang chạy của bạn
 
-Nối phần này vào URL cơ sở của nút SubQuery của bạn. Ví dụ: `http: // localhost: 3000 / meta` sẽ trả về:
+Nối phần này vào URL cơ sở của nút SubQuery của bạn. Ví dụ: ` http: // localhost: 3000 / meta ` sẽ trả về:
 
 ```bash
 {
@@ -179,7 +258,9 @@ Debugger listening on ws://127.0.0.1:9229/56156753-c07d-4bbe-af2d-2c7ff4bcc5ad
 For help, see: https://nodejs.org/en/docs/inspector
 Debugger attached.
 ```
-Sau đó, mở các công cụ dành cho nhà phát triển Chrome, đi tới Nguồn > Hệ thống tệp và thêm dự án của bạn vào không gian làm việc và bắt đầu gỡ lỗi. Để biết thêm thông tin, hãy kiểm tra [Cách gỡ lỗi dự án SubQuery](https://doc.subquery.network/tutorials_examples/debug-projects/)
+
+Sau đó, mở các công cụ dành cho nhà phát triển Chrome, đi tới Nguồn > Hệ thống tệp và thêm dự án của bạn vào không gian làm việc và bắt đầu gỡ lỗi. For more information, check out [How to debug a SubQuery project](https://doc.subquery.network/academy/tutorials_examples/debug-projects/)
+
 ## Khởi chạy một Dịch vụ Truy vấn (subql/query)
 
 ### Cài đặt
@@ -189,11 +270,14 @@ Sau đó, mở các công cụ dành cho nhà phát triển Chrome, đi tới Ng
 npm install -g @subql/query
 ```
 
-Xin lưu ý rằng chúng tôi **KHÔNG** khuyến khích sử dụng `yarn global` do việc quản lý phụ thuộc kém có thể dẫn đến lỗi xuống dòng.
+Xin lưu ý rằng chúng tôi **KHÔNG** khuyến khích sử dụng `yarn global` do việc quản lý phụ thuộc không tốt có thể dẫn đến lỗi xuống dòng.
 
 ### Chạy dịch vụ truy vấn
 
-``` export DB_HOST=localhost subql-query --name <project_name> --playground ````
+```
+export DB_HOST=localhost
+subql-query --name <project_name> --playground
+```
 
 Đảm bảo rằng tên dự án này trùng với tên bạn đã đặt từ lúc [khởi tạo dự án](../quickstart/quickstart.md#initialise-the-starter-subquery-project). Ngoài ra, hãy kiểm tra xem các biến môi trường đã chuẩn hay chưa.
 
