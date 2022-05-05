@@ -1,6 +1,6 @@
 # Запуск SubQuery локально
 
-В этом руководстве рассказывается как локально запустить ноду SubQuery на вашем устройстве, который включает как индексатор, так и службу запросов. Не хотите беспокоиться о запуске SubQuery на собственном устройстве? SubQuery обеспечивает [выделенный сервер](https://explorer.subquery.network) для комьюнити бесплатно. [Follow our publishing guide](../run_publish/publish.md) to see how you can upload your project to [SubQuery Projects](https://project.subquery.network).
+В этом руководстве рассказывается как локально запустить ноду SubQuery на вашем устройстве, который включает как индексатор, так и службу запросов. Не хотите беспокоиться о запуске SubQuery на собственном устройстве? SubQuery обеспечивает [выделенный сервер](https://explorer.subquery.network) для комьюнити бесплатно. [Следуйте нашему руководству по публикации](../run_publish/publish.md), чтобы узнать, как загрузить свой проект в [SubQuery Projects](https://project.subquery.network).
 
 ## Использование Docker
 
@@ -43,7 +43,7 @@ npm install -g @subql/node-avalanche
 </CodeGroupItem>
 </CodeGroup>
 
-Please note that we **DO NOT** encourage the use of `yarn global` due to its poor dependency management which may lead to an errors down the line.
+Обратите внимание, что мы **НЕ** рекомендуем использовать `yarn global` из-за плохого управления зависимостями, что может привести к ошибкам в дальнейшем.
 
 После установки вы можете запустить ноду с помощью следующей команды:
 
@@ -65,9 +65,9 @@ subql-node-avalanche <command>
 </CodeGroupItem>
 </CodeGroup>
 
-### Key Commands
+### Ключевые команды
 
-The following commands will assist you to complete the configuration of a SubQuery node and begin indexing. Чтобы узнать больше, вы всегда можете запустить `--help`.
+Следующие команды помогут вам завершить настройку узла подзапроса и начать индексацию. Чтобы узнать больше, вы всегда можете запустить `--help`.
 
 #### Укажите путь к локальному проекту
 
@@ -88,13 +88,13 @@ subql-node-avalanche -f your-project-path
 </CodeGroupItem>
 </CodeGroup>
 
-#### Use a Dictionary
+#### Использование Словаря
 
-Using a full chain dictionary can dramatically speed up the processing of a SubQuery project during testing or during your first index. In some cases, we've seen indexing performance increases of up to 10x.
+Использование словаря полной цепочки может значительно ускорить обработку проекта SubQuery во время тестирования или во время вашей первой индексации. В некоторых случаях мы наблюдали увеличение производительности индексирования до 10 раз.
 
-A full chain dictionary pre-indexes the location of all events and extrinsics within the specific chain and allows your node service to skip to relevant locations when indexing rather than inspecting each block.
+Словарь полной цепочки предварительно индексирует местоположение всех событий и внешних элементов в определенной цепочке и позволяет службе узла пропускать соответствующие местоположения при индексировании, а не проверять каждый блок.
 
-You can add the dictionary endpoint in your `project.yaml` file (see [Manifest File](../create/manifest.md)), or specify it at run time using the following command:
+Вы можете добавить конечную точку словаря в файл `project.yaml` (см. [Файл манифеста](../create/manifest.md)) или указать ее во время выполнения с помощью следующей команды:
 
 <CodeGroup>
 <CodeGroupItem title='Substrate'>
@@ -113,9 +113,9 @@ subql-node-avalanche --network-dictionary=https://api.subquery.network/sq/subque
 </CodeGroupItem>
 </CodeGroup>
 
-[Read more about how a SubQuery Dictionary works](../academy/tutorials_examples/dictionary.md).
+[Подробнее о том, как работает словарь SubQuery](../academy/tutorials_examples/dictionary.md).
 
-#### Connect to database
+#### Подключаемся к базе данных
 
 ```shell
 export DB_USER=postgres
@@ -126,9 +126,9 @@ export DB_PORT=5432
 subql-node -f your-project-path
 ```
 
-Depending on the configuration of your Postgres database (e.g. a different database password), please ensure also that both the indexer (`subql/node`) and the query service (`subql/query`) can establish a connection to it.
+В зависимости от конфигурации вашей базы данных Postgres (например, другой пароль базы данных), убедитесь, что и индексатор (`subql/node`), и служба запросов (`subql/query`) может установить с ним соединение.
 
-#### Specify a configuration file
+#### Укажите файл конфигурации
 
 <CodeGroup>
 <CodeGroupItem title='Substrate'>
@@ -147,7 +147,7 @@ subql-node-avalanche -c your-project-config.yml
 </CodeGroupItem>
 </CodeGroup>
 
-This will point the query node to a configuration file which can be in YAML or JSON format. Check out the example below.
+Это укажет узлу запроса файл конфигурации, который может быть в формате YAML или JSON. Посмотрите пример ниже.
 
 ```yaml
 subquery: ../../../../subql-example/extrinsics
@@ -187,7 +187,7 @@ subql-node-avalanche -f your-project-path --local
 </CodeGroupItem>
 </CodeGroup>
 
-For debugging purposes, users can run the node in local mode. При переключении на локальную модель таблицы Postgres будут созданы в схеме по умолчанию `public`.
+В целях отладки пользователи могут запускать узел в локальном режиме. При переключении на локальную модель таблицы Postgres будут созданы в схеме по умолчанию `public`.
 
 Если локальный режим не используется, будет создана новая схема Postgres с начальным `subquery_` и соответствующими таблицами проекта.
 
@@ -259,7 +259,7 @@ Debugger listening on ws://127.0.0.1:9229/56156753-c07d-4bbe-af2d-2c7ff4bcc5ad
 Прилагается отладчик.
 ```
 
-Затем откройте инструменты разработчика Chrome, перейдите в Source & # 062; Filesystem, добавьте свой проект в рабочую область и начните отладку. For more information, check out [How to debug a SubQuery project](https://doc.subquery.network/academy/tutorials_examples/debug-projects/)
+Затем откройте инструменты разработчика Chrome, перейдите в Source & # 062; Filesystem, добавьте свой проект в рабочую область и начните отладку. Для получения дополнительной информации, посмотрите [Как отладить проект SubQuery](https://doc.subquery.network/academy/tutorials_examples/debug-projects/)
 
 ## Запуск службы запросов (subql / query)
 
