@@ -43,7 +43,7 @@ npm install -g @subql/node-avalanche
 </CodeGroupItem>
 </CodeGroup>
 
-Please note that we **DO NOT** encourage the use of `yarn global` due to its poor dependency management which may lead to an errors down the line.
+Xin lưu ý rằng chúng tôi **KHÔNG** khuyến khích sử dụng `yarn global` do quản lý phụ thuộc kém có thể dẫn đến lỗi xuống dòng.
 
 Sau khi cài đặt, bạn có thể khởi chạy một node bằng lệnh sau:
 
@@ -65,9 +65,9 @@ subql-node-avalanche <command>
 </CodeGroupItem>
 </CodeGroup>
 
-### Key Commands
+### Các lệnh chính
 
-The following commands will assist you to complete the configuration of a SubQuery node and begin indexing. Để tìm hiểu thêm, bạn luôn có thể chạy `--help`.
+Các lệnh sau đây sẽ giúp bạn hoàn thành cấu hình của nút SubQuery và bắt đầu lập chỉ mục. Để tìm hiểu thêm, bạn luôn có thể chạy `--help`.
 
 #### Trỏ đến đường dẫn dự án trên môi trường local
 
@@ -88,13 +88,13 @@ subql-node-avalanche -f your-project-path
 </CodeGroupItem>
 </CodeGroup>
 
-#### Use a Dictionary
+#### Sử dụng từ điển
 
-Using a full chain dictionary can dramatically speed up the processing of a SubQuery project during testing or during your first index. In some cases, we've seen indexing performance increases of up to 10x.
+Sử dụng đầy đủ từ điển chuỗi có thể tăng tốc đáng kể quá trình xử lý dự án SubQuery trong quá trình thử nghiệm hoặc trong lần lập chỉ mục đầu tiên của bạn. Trong một số trường hợp, chúng tôi đã thấy hiệu suất lập chỉ mục tăng lên tới 10x.
 
-A full chain dictionary pre-indexes the location of all events and extrinsics within the specific chain and allows your node service to skip to relevant locations when indexing rather than inspecting each block.
+Sử dụng từ điển chuỗi đầy đủ sẽ lập chỉ mục trước vị trí của tất cả các sự kiện và ngoại lại trong chuỗi cụ thể và cho phép nút của bạn bỏ qua các vị trí có liên quan khi lập chỉ mục thay vì kiểm tra từng khối.
 
-You can add the dictionary endpoint in your `project.yaml` file (see [Manifest File](../create/manifest.md)), or specify it at run time using the following command:
+Bạn có thể thêm điểm cuối từ điển vào tệp `project.yaml` (xem [Manifest File](../create/manifest.md)), hoặc chỉ định nó tại thời điểm chạy bằng cách sử dụng lệnh sau:
 
 <CodeGroup>
 <CodeGroupItem title='Substrate'>
@@ -113,9 +113,9 @@ subql-node-avalanche --network-dictionary=https://api.subquery.network/sq/subque
 </CodeGroupItem>
 </CodeGroup>
 
-[Read more about how a SubQuery Dictionary works](../academy/tutorials_examples/dictionary.md).
+[Đọc thêm về cách thức hoạt động của Từ điển SubQuery](../academy/tutorials_examples/dictionary.md).
 
-#### Connect to database
+#### Kết nối cơ sở dữ liệu
 
 ```shell
 export DB_USER=postgres
@@ -126,9 +126,9 @@ export DB_PORT=5432
 subql-node -f your-project-path
 ```
 
-Depending on the configuration of your Postgres database (e.g. a different database password), please ensure also that both the indexer (`subql/node`) and the query service (`subql/query`) can establish a connection to it.
+Tùy thuộc vào cấu hình cơ sở dữ liệu Postgres của bạn (ví dụ: mật khẩu cơ sở dữ liệu khác nhau), vui lòng đảm bảo rằng cả người lập chỉ mục (`subql/node`) và dịch vụ truy vấn (`subql/query`) có thể thiếp lập kết nối tới nó.
 
-#### Specify a configuration file
+#### Chỉ định một tệp cấu hình
 
 <CodeGroup>
 <CodeGroupItem title='Substrate'>
@@ -147,7 +147,7 @@ subql-node-avalanche -c your-project-config.yml
 </CodeGroupItem>
 </CodeGroup>
 
-This will point the query node to a configuration file which can be in YAML or JSON format. Check out the example below.
+Thao tác này sẽ trỏ nút truy vấn tới tệp cấu hình có thể ở định dạng YAML hoặc JSON. Hãy xem ví dụ dưới đây.
 
 ```yaml
 subquery: ../../../../subql-example/extrinsics
@@ -187,7 +187,7 @@ subql-node-avalanche -f your-project-path --local
 </CodeGroupItem>
 </CodeGroup>
 
-For debugging purposes, users can run the node in local mode. Viêc chuyển sang chế độ local sẽ tạo các bảng Postgres trong sơ đồ `công khai` mặc định.
+Đối với mục đích gỡ lỗi, người dùng có thể chạy nút ở chế độ cục bộ. Viêc chuyển sang chế độ local sẽ tạo các bảng Postgres trong sơ đồ `công khai` mặc định.
 
 Nếu chế độ local không được sử dụng, một sơ đồ Postgres mới với `subquery_` và các bảng dự án tương ứng sẽ được khởi tạo.
 
