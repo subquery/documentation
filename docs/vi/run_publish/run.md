@@ -1,6 +1,6 @@
 # Chạy SubQuery trên môi trường local
 
-Hướng dẫn này hoạt động thông qua cách chạy một node SubQuery cục bộ trên cơ sở hạ tầng của bạn, bao gồm cả trình lập chỉ mục và dịch vụ truy vấn. Bạn không muốn lo lắng về việc chạy cơ sở hạ tầng SubQuery của riêng mình? SubQuery cung cấp miễn phí [ dịch vụ được lưu trữ được quản lý ](https://explorer.subquery.network) cho cộng đồng. [Follow our publishing guide](../run_publish/publish.md) to see how you can upload your project to [SubQuery Projects](https://project.subquery.network).
+Hướng dẫn này hoạt động thông qua cách chạy một node SubQuery cục bộ trên cơ sở hạ tầng của bạn, bao gồm cả trình lập chỉ mục và dịch vụ truy vấn. Bạn không muốn lo lắng về việc chạy cơ sở hạ tầng SubQuery của riêng mình? SubQuery cung cấp miễn phí [ dịch vụ được lưu trữ được quản lý ](https://explorer.subquery.network) cho cộng đồng. [Làm theo hướng dẫn xuất bản của chúng tôi](../run_publish/publish.md)để xem cách bạn có thể tải dự án của mình lên [Dự án SubQuery](https://project.subquery.network).
 
 ## Sử dụng Docker
 
