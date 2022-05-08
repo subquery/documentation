@@ -1,67 +1,67 @@
 # Добре дошли
 
-In this Quick start guide, we're going to start with a simple starter project and then finish by indexing some actual real data. This is an excellent basis to start with when developing your own SubQuery Project.
+В това ръководство за Бърз старт ще започнем с обикновен проект в начална стадия и ще завършим с индексиране някои актуални реални данни. Това е перфекта основа, с която да започнете при разработка свой собствен проект SubQuery.
 
-В края на това ръководство ще имате работещ проект за SubQuery, работещ с нодата SubQuery с крайна точка GraphQL, от която можете да изисквате данни.
+В края на това ръководство ще получите работещ SubQuery проект, стартиран върху нодата SubQuery и с крайна точка GraphQL, от която можете да изисквате необходими данни.
 
-Ако все още не сте го направили, ви предлагаме да разгледате [терминологията](../#terminology)използваща се в SubQuery.
+Ако все още не сте го направили, ви предлагаме да разгледате [терминологията](../#terminology)използвана в SubQuery.
 
-**The goal of this quick start guide is to adapt the standard starter project to begin indexing all transfers from Polkadot, it should only take 10-15 minutes**
+**Целта на това кратко ръководство е адаптиране на стандартния базов проект, за започване индексирането на всички преводи от Polkadot, което трябва да отнеме само 10-15 минути**
 
 ## Подготовка
 
-### Локална Среда За Развитие
+### Локална Среда за Разработка
 
-- [Node](https://nodejs.org/en/): A modern (e.g. the LTS version) installation of Node.
-- [Docker](https://docker.com/): This tutorial will use require Docker
+- [Node](https://nodejs.org/en/): Модерна (например LTS версия) инсталация на Node.
+- [Docker](https://docker.com/): В това ръководство ще бъде използван Docker
 
 ### Инсталирайте SubQuery CLI
 
-Install SubQuery CLI globally on your terminal by using NPM:
+Инсталирайте SubQuery CLI глобално на вашият терминал с помощта на NPM:
 
 ```shell
 # NPM
 npm install -g @subql/cli
 ```
 
-Please note that we **DO NOT** encourage the use of `yarn global` for installing `@subql/cli` due to its poor dependency management which may lead to an errors down the line.
+Обърнете внимание, ние **НЕ** препоръчваме използването на `yarn global` за инсталиране на `@subql/cli` поради лошото управление на зависимостите, което може да доведе до грешки в бъдеще.
 
-You can then run help to see available commands and usage provide by CLI
+След това можете да стартирате помощ, за да видите наличните команди и начините на използване, предоставени от CLI
 
 ```shell
-subql help
+subql помощ
 ```
 
-## Initialise the SubQuery Starter Project
+## Инициализиране на Стартов Проект в SubQuery
 
-Inside the directory in which you want to create a SubQuery project, simply run the following command to get started.
+Вътре в директорията, в която искате да създадете проект SubQuery, изпълнете следната команда, за да започнете.
 
 ```shell
 subql init
 ```
 
-You'll be asked certain questions as the SubQuery project is initalised:
+Ще ви бъдат зададени някои въпроси, по време на инициализирането на проекта SubQuery:
 
-- Name: A name for your SubQuery project
-- Network: A blockchain network that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use *"Polkadot"*
-- Template: Select a SubQuery project template that will provide a starting point to begin development, we suggest selecting the *"Starter project"*
-- Git repository (Optional): Provide a Git URL to a repo that this SubQuery project will be hosted in (when hosted in SubQuery Explorer)
-- RPC endpoint (Required): Provide a HTTPS URL to a running RPC endpoint that will be used by default for this project. You can quickly access public endpoints for different Polkadot networks or even create your own private dedicated node using [OnFinality](https://app.onfinality.io) or just use the default Polkadot endpoint. This RPC node must be an archive node (have the full chain state). For this guide we will use the default value *"https://polkadot.api.onfinality.io"*
-- Authors (Required): Enter the owner of this SubQuery project here (e.g. your name!)
-- Description (Optional): You can provide a short paragraph about your project that describe what data it contains and what users can do with it
-- Version (Required): Enter a custom version number or use the default (`1.0.0`)
-- License (Required): Provide the software license for this project or accept the default (`Apache-2.0`)
+- Name: Име на вашият SubQuery проект
+- Network: блокчейн мрежа, за индексиране на която ще бъде разработен този проект SubQuery, използвайте клавишите със стрелки на клавиатурата си, за да изберете от опциите, за това ръководство ще използваме *"Polkadot"*
+- Template: Изберете шаблон за проекта SubQuery, който ще служи като начална точка за започване на разработка, предлагаме да изберете *"Starter project"*
+- Git repository (опционално): посочете Git URL хранилище, в което ще се съхранява този проект SubQuery (при разполагане в SubQuery Explorer)
+- RPC endpoint (Необходимо): Укажете HTTPS URL за работеща крайна точка RPC която ще бъде използвана по подразбиране за този проект. Можете бързо да получите достъп до публични крайни точки за различни мрежи на Polkadot или дори да създадете своя собствена частна специална нода с помощта на[OnFinality](https://app.onfinality.io) или просто използвайте крайната точка по подразбиране на Polkadot. Този вид нода RPC трябва да представлява архивна нода (да има състояние на пълна веригата). В това ръководство ще използваме по подразбиране *"https://polkadot.api.onfinality.io"*
+- Authors (задължително): въведете собственика на този проект за SubQuery тук (например вашето име!)
+- Description (опционално): можете да предоставите кратко описание за вашия проект, който описва какви данни съдържа и какво могат да правят потребителите с него
+- Version (Задължително): въведете свой персонализиран номер на версията или използвайте стойността по подразбиране (`1.0.0`)
+- License (задължително): предоставете софтуерен лиценз за този проект или потвърдете такъв по подразбиране (`Apache-2.0`)
 
-After the initialisation process is complete, you should see a folder with your project name has been created inside the directory. The contents of this directoy should be identical to what's listed in the [Directory Structure](../create/introduction.md#directory-structure).
+След като процесът на инициализация приключи, трябва да видите, че в директорията е създадена папка с името на вашия проект. Съдържанието на тази директория трябва да бъде идентично с посоченото в [Структурата на директорията](../create/introduction.md#directory-structure).
 
-Last, under the project directory, run following command to install the new project's dependencies.
+И накрая, в директорията на проекта изпълнете следната команда, за да инсталирате зависимостите на новия проект.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```shell cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd ИМЕ_ПРОЕКТ yarn install ``` </CodeGroupItem>
+<CodeGroupItem title="NPM"> ```shell cd ИМЕ_ПРОЕКТ npm install ``` </CodeGroupItem> </CodeGroup>
 
-## Making Changes to your Project
+## Внасяне на промени във вашия проект
 
-In the starter package that you just initialised, we have provided a standard configuration for your new project. You will mainly be working on the following files:
+В стартовия пакет, който току-що инициализирахте, ние сме предоставили стандартна конфигурация за вашия нов проект. You will mainly be working on the following files:
 
 1. The GraphQL Schema in `schema.graphql`
 2. The Project Manifest in `project.yaml`
