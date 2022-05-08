@@ -90,13 +90,13 @@ type Transfer @entity {
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```shell npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
 
-You'll find the generated models in the `/src/types/models` directory. For more information about the `schema.graphql` file, check out our documentation under [Build/GraphQL Schema](../build/graphql.md)
+Ще намерите генерираните модели в директорията `/src/types/models`. За повече информация относно файла `schema.graphql`, проверете нашата документация в раздела [Build/GraphQL Schema](../build/graphql.md)
 
-### Updating the Project Manifest File
+### Обновяване на файла Project Manifest
 
-The Projet Manifest (`project.yaml`) file can be seen as an entry point of your project and it defines most of the details on how SubQuery will index and transform the chain data.
+Файлът Projet Manifest (`project.yaml`) може да се разглежда като начална точка за вашия проект, той определя повечето подробности за това как SubQuery ще индексира и трансформира данните от веригата.
 
-We won't do many changes to the manifest file as it already has been setup correctly, but we need to change our handlers. Remember we are planning to index all Polkadot transfers, as a result, we need to update the `datasources` section to read the following.
+Няма да правим много промени във файла на манифеста, тъй като той вече е настроен правилно, но трябва да променим нашите handlers. Не забравяйте, че ние планираме да индексираме всички трансфери в Polkadot, затова трябва да обновим секцията `datasources` за да прочетем следващото.
 
 ```yaml
 dataSources:
@@ -112,9 +112,9 @@ dataSources:
             method: Transfer
 ```
 
-This means we'll run a `handleEvent` mapping function each and every time there is a `balances.Transfer` event.
+Това означава, че ще стартираме функцията за планиране `handleEvent` всеки път, когато се случва следното събитие `balances.Transfer`.
 
-For more information about the Project Manifest (`project.yaml`) file, check out our documentation under [Build/Manifest File](../build/manifest.md)
+За повече информация относна файла Project Manifest (`project.yaml`), проверете документацията ни в раздела [Build/Manifest File](../build/manifest.md)
 
 ### Add a Mapping Function
 
