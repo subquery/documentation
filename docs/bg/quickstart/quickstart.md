@@ -61,31 +61,31 @@ subql init
 
 ## Внасяне на промени във вашия проект
 
-В стартовия пакет, който току-що инициализирахте, ние сме предоставили стандартна конфигурация за вашия нов проект. You will mainly be working on the following files:
+В стартовия пакет, който току-що инициализирахте, ние сме предоставили стандартна конфигурация за вашия нов проект. Основно ще работите върху следните файлове:
 
-1. The GraphQL Schema in `schema.graphql`
-2. The Project Manifest in `project.yaml`
+1. Схема GraphQL `schema.graphql`
+2. Манифест на проекта в `project.yaml`
 3. Показване на Функции в директорията `src/mappings/`
 
-The goal of this quick start guide is to adapt the standard starter project to begin indexing all transfers from Polkadot.
+Целта на това кратко ръководство е адаптиране на стандартния базов проект, за започване индексирането на всички преводи от Polkadot.
 
-### Updating your GraphQL Schema File
+### Актуализиране на вашия файл със схема на GraphQL
 
-The `schema.graphql` file defines the various GraphQL schemas. Due to the way that the GraphQL query language works, the schema file essentially dictates the shape of your data from SubQuery. Its a great place to start becuase it allows you to define your end goal up front.
+Файлът `schema.graphql` дефинира различните схеми на GraphQL. В зависимост от начина, по който работи езикът за заявки GraphQL, файлът със схемата по същество диктува формата на вашите данни от SubQuery. Това е страхотно място за начало, защото ви позволява предварително да дефинирате крайната си цел.
 
-We're going to update the `schema.graphql` file to read as follows
+Щв актуализираме файла `schema.graphql` за да го прочетете, както следва
 
 ```graphql
 type Transfer @entity {
-  id: ID! # id field is always required and must look like this
-  amount: BigInt # Amount that is transferred
-  blockNumber: BigInt # The block height of the transfer
-  from: Account! # The account that transfers are made from
-  to: Account! # The account that transfers are made to
+  id: ID! # id поле винаги трябва да изглежда така
+  amount: BigInt # Сума за трансфер
+  blockNumber: BigInt # Височината на блока на трансфера
+  from: Account! # Акаунт, от който се извършват преводите
+  to: Account! # Акаунт, към който се извършват преводите
 }
 ```
 
-**Important: When you make any changes to the schema file, please ensure that you regenerate your types directory. Do this now.**
+**Важно: Когато правите промени във файла schema, моля, уверете се, че отново сте създали директорията си с типове със следната команда yarn codegen. Направете го сега.**
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```shell npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
