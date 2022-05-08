@@ -1,4 +1,4 @@
-# Welcome
+# Добре дошли
 
 In this Quick start guide, we're going to start with a simple starter project and then finish by indexing some actual real data. This is an excellent basis to start with when developing your own SubQuery Project.
 
@@ -12,9 +12,8 @@ In this Quick start guide, we're going to start with a simple starter project an
 
 ### Локална Среда За Развитие
 
-- [Машинопис](https://www.typescriptlang.org/)Изисква се за компилиране на проект и дефиниране на типове.
-- Както CLI на SubQuery, така и генерираният проект имат зависимости и изискват модерна версия[Node](https://nodejs.org/en/).
-- Възлите на подзаявката изискват Docker
+- [Node](https://nodejs.org/en/): A modern (e.g. the LTS version) installation of Node.
+- [Docker](https://docker.com/): This tutorial will use require Docker
 
 ### Инсталирайте SubQuery CLI
 
@@ -57,8 +56,8 @@ After the initialisation process is complete, you should see a folder with your 
 
 Last, under the project directory, run following command to install the new project's dependencies.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> `shell cd PROJECT_NAME yarn install ` </CodeGroupItem>
-<CodeGroupItem title="NPM"> `bash cd PROJECT_NAME npm install ` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
+<CodeGroupItem title="NPM"> ```shell cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
 
 ## Making Changes to your Project
 
