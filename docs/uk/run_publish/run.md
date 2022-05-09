@@ -321,6 +321,6 @@ npm install -g @subql/query
 subql-query --name <project_name> --playground
 `</pre>
 
-Переконайтесь, що назва проекту збігається з назвою проекту, коли ви [ ініціалізуєте проект ](../quickstart/quickstart.md#initialise-the-starter-subquery-project). Також перевірте, чи є змінні середовища правильними.
+Make sure the project name is the same as the project name when you [initialize the project](../quickstart/quickstart-polkadot.md#initialise-the-starter-subquery-project). Також перевірте, чи є змінні середовища правильними.
 
 Після успішного запуску послуги subql-query відкрийте веб-переглядач і перейдіть до ` http: //localhost: 3000 `. Ви повинні побачити ігровий майданчик GraphQL, який відображається в Провіднику, і схему, яка готова до запиту.
