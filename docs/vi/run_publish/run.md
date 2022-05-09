@@ -322,6 +322,6 @@ export DB_HOST=localhost
 subql-query --name <project_name> --playground
 ```
 
-Đảm bảo rằng tên dự án này trùng với tên bạn đã đặt từ lúc [khởi tạo dự án](../quickstart/quickstart.md#initialise-the-starter-subquery-project). Ngoài ra, hãy kiểm tra xem các biến môi trường đã chuẩn hay chưa.
+Make sure the project name is the same as the project name when you [initialize the project](../quickstart/quickstart-polkadot.md#initialise-the-starter-subquery-project). Ngoài ra, hãy kiểm tra xem các biến môi trường đã chuẩn hay chưa.
 
 Sau khi chạy thành công dịch vụ truy vấn subql, hãy mở trình duyệt của bạn và truy cập địa chỉ `http://localhost:3000`. Bạn sẽ thấy một sân chơi GraphQL hiển thị trong Trình khám phá và lược đồ đã sẵn sàng để truy vấn.
