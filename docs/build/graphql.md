@@ -9,15 +9,19 @@ To learn more about how to write in GraphQL schema language, we recommend checki
 
 <CodeGroup>
   <CodeGroupItem title="YARN" active>
+
   ```shell
   yarn codegen
   ```
+
   </CodeGroupItem>
 
   <CodeGroupItem title="NPM">
+
   ```shell
   npm run-script codegen
   ```
+
   </CodeGroupItem>
 </CodeGroup>
 

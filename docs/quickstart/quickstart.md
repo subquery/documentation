@@ -58,17 +58,21 @@ Last, under the project directory, run following command to install the new proj
 
 <CodeGroup>
   <CodeGroupItem title="YARN" active>
+
   ```shell
   cd PROJECT_NAME
   yarn install
   ```
+
   </CodeGroupItem>
 
   <CodeGroupItem title="NPM">
+
   ```shell
   cd PROJECT_NAME
   npm install
   ```
+
   </CodeGroupItem>
 </CodeGroup>
 
@@ -102,15 +106,19 @@ type Transfer @entity {
 
 <CodeGroup>
   <CodeGroupItem title="YARN" active>
+
   ```shell
   yarn codegen
   ```
+
   </CodeGroupItem>
 
   <CodeGroupItem title="NPM">
+
   ```shell
   npm run-script codegen
   ```
+
   </CodeGroupItem>
 </CodeGroup>
 
@@ -185,14 +193,18 @@ In order run your new SubQuery Project we first need to build our work. Run the 
 
 <CodeGroup>
   <CodeGroupItem title="YARN" active>
+
   ```shell
   yarn build
   ```
+
   </CodeGroupItem>
   <CodeGroupItem title="NPM">
+
   ```shell
   npm run-script build
   ```
+
   </CodeGroupItem>
 </CodeGroup>
 
@@ -210,14 +222,18 @@ Under the project directory run following command:
 
 <CodeGroup>
   <CodeGroupItem title="YARN" active>
+
   ```shell
   yarn start:docker
   ```
+
   </CodeGroupItem>
   <CodeGroupItem title="NPM">
+
   ```shell
   npm run-script start:docker
   ```
+
   </CodeGroupItem>
 </CodeGroup>
 
