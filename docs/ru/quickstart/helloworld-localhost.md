@@ -54,7 +54,7 @@ echo -e "My yarn version is:" `yarn -v` "\nMy subql version is:" `subql -v`  "\n
 Если вы получите вышеуказанное, то все в порядке. В противном случае перейдите по этим ссылкам, чтобы установить их:
 
 - [yarn](https://classic.yarnpkg.com/en/docs/install/) or [npm](https://www.npmjs.com/get-npm)
-- [SubQuery CLI](quickstart.md#install-the-subquery-cli)
+- [SubQuery CLI](quickstart-polkadot.md#install-the-subquery-cli)
 - [Docker](https://docs.docker.com/get-docker/)
 
 ## 1. Step 1: Initialise project

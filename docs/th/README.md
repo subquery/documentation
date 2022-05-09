@@ -14,7 +14,7 @@
       <p>ทำความเข้าใจ SubQuery โดยการลองใช้ตัวอย่าง Hello World การใช้โปรเจ็กต์เทมเพลตภายในสภาพแวดล้อมของ Docker ทำให้คุณสร้างโหนดและทำงานได้อย่างรวดเร็ว และเริ่มการสืบค้นบล็อกเชนในเวลาเพียงไม่กี่นาทีด้วยคำสั่งง่ายๆ
       </p>
       <span class="button">
-        <router-link :to="{path: '/quickstart/quickstart.html'}">
+        <router-link :to="{path: '/quickstart/quickstart-polkadot.html'}">
           <span>Get started</span>
         </router-link>
       </span>
@@ -70,7 +70,7 @@
       <li>
         <div class="title">วิธีที่ดีที่สุดในการเริ่มต้นใช้งาน SubQuery คืออะไร?</div>
         <div class="content">
-          <p>The best way to get started with SubQuery is to try out our <a href="/quickstart/quickstart.html">Quick Start tutorial</a>. นี่คือขั้นตอนง่ายๆ ในการดาวน์โหลดเทมเพลตเริ่มต้น สร้างโครงการ จากนั้นใช้ Docker เพื่อเรียกใช้โหนดบน localhost ของคุณและรัน query อย่างง่าย </p>
+          <p>The best way to get started with SubQuery is to try out our <a href="/quickstart/quickstart-polkadot.html">Quick Start tutorial</a>. นี่คือขั้นตอนง่ายๆ ในการดาวน์โหลดเทมเพลตเริ่มต้น สร้างโครงการ จากนั้นใช้ Docker เพื่อเรียกใช้โหนดบน localhost ของคุณและรัน query อย่างง่าย </p>
         </div>
       </li>
       <li>
@@ -85,7 +85,7 @@
       <li>
         <div class="title">การโฮสต์โปรเจ็กต์ของฉันใน SubQuery Projects มีค่าใช้จ่ายเท่าไหร่?</div>
         <div class="content">
-          <p>การโฮสต์โปรเจ็กต์ของคุณใน SubQuery Projects นั้นฟรี - นั่นเป็นวิธีการตอบแทนชุมชนของเรา To learn how to host your project with us, please check out the <a href="/quickstart/quickstart.html">Hello World (SubQuery Hosted)</a> tutorial.</p>
+          <p>การโฮสต์โปรเจ็กต์ของคุณใน SubQuery Projects นั้นฟรี - นั่นเป็นวิธีการตอบแทนชุมชนของเรา To learn how to host your project with us, please check out the <a href="/quickstart/quickstart-polkadot.html">Hello World (SubQuery Hosted)</a> tutorial.</p>
           <span class="more">
             <router-link :to="{path: '/run_publish/publish.html'}">การโฮสต์โปรเจ็กต์ของคุณ</router-link>
           </span>

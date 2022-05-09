@@ -14,7 +14,7 @@
       <p>Comprenez SubQuery en mettant la main sur un exemple traditionnel de Hello World. Utiliser un projet modèle dans un environnement Docker, vous pouvez rapidement faire démarrer un nœud et commencer à interroger une blockchain en quelques minutes à l'aide de quelques commandes simples.
       </p>
       <span class="button">
-        <router-link :to="{path: '/quickstart/quickstart.html'}">
+        <router-link :to="{path: '/quickstart/quickstart-polkadot.html'}">
           <span>Get started</span>
         </router-link>
       </span>
@@ -70,7 +70,7 @@
       <li>
         <div class="title">Quelle est la meilleure façon de commencer avec SubQuery ?</div>
         <div class="content">
-          <p>The best way to get started with SubQuery is to try out our <a href="/quickstart/quickstart.html">Quick Start tutorial</a>. Il s'agit d'une prise en main de 5 minutes pour télécharger le modèle de démarrage, construire le projet, puis en utilisant Docker pour exécuter un noeud sur votre serveur local et en exécutant une requête simple. </p>
+          <p>The best way to get started with SubQuery is to try out our <a href="/quickstart/quickstart-polkadot.html">Quick Start tutorial</a>. Il s'agit d'une prise en main de 5 minutes pour télécharger le modèle de démarrage, construire le projet, puis en utilisant Docker pour exécuter un noeud sur votre serveur local et en exécutant une requête simple. </p>
         </div>
       </li>
       <li>
@@ -85,7 +85,7 @@
       <li>
         <div class="title">Combien coûte l'hébergement de mon projet dans SubQuery Projects?</div>
         <div class="content">
-          <p>Héberger votre projet dans SubQuery Projects est absolument gratuit - c'est notre façon de le rendre à la communauté. To learn how to host your project with us, please check out the <a href="/quickstart/quickstart.html">Hello World (SubQuery Hosted)</a> tutorial.</p>
+          <p>Héberger votre projet dans SubQuery Projects est absolument gratuit - c'est notre façon de le rendre à la communauté. To learn how to host your project with us, please check out the <a href="/quickstart/quickstart-polkadot.html">Hello World (SubQuery Hosted)</a> tutorial.</p>
           <span class="more">
             <router-link :to="{path: '/run_publish/publish.html'}">HOSTING YOUR PROJECT</router-link>
           </span>

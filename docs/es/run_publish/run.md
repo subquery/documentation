@@ -200,6 +200,6 @@ Tenga en cuenta que **NO** animamos el uso de `yarn global` debido a su mala ges
 
 ``` export DB_HOST=localhost subql-query --name <project_name> --playground ````
 
-Asegúrese de que el nombre del proyecto es el mismo que el nombre del proyecto cuando [inicialice el proyecto](../quickstart/quickstart.md#initialise-the-starter-subquery-project). Además, compruebe que las variables de entorno son correctas.
+Asegúrese de que el nombre del proyecto es el mismo que el nombre del proyecto cuando [inicialice el proyecto](../quickstart/quickstart-polkadot.md#initialise-the-starter-subquery-project). Además, compruebe que las variables de entorno son correctas.
 
 Después de ejecutar el servicio subql-query con éxito, abre tu navegador y ve a `http://localhost:3000`. Deberías ver un parque de juegos GraphQL que se muestre en el Explorador y el esquema que está listo para consultar.

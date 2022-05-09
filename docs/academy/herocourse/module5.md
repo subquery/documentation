@@ -87,7 +87,7 @@ GraphQL is the language used to query for data. To learn more about GraphQL visi
 
 Developers will typically query the SubQuery project via API. See an example of how this is done at:
 
-- [Querying via the API](/quickstart/quickstart.md#query-your-project)
+- [Querying via the API](/quickstart/quickstart-polkadot.md#query-your-project)
 
 #### Step 7: Deleting SubQuery projects
 

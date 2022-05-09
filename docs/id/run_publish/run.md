@@ -196,6 +196,6 @@ Harap dicatat bahwa kami **JANGAN** mendorong penggunaan `global benang` karena 
 
 ``` export DB_HOST=localhost subql-query --name <project_name> --playground ````
 
-Pastikan nama proyek sama dengan nama proyek saat Anda [menginisialisasi proyek](../quickstart/quickstart.md#initialise-the-starter-subquery-project). Juga, periksa variabel lingkungan sudah benar.
+Pastikan nama proyek sama dengan nama proyek saat Anda [menginisialisasi proyek](../quickstart/quickstart-polkadot.md#initialise-the-starter-subquery-project). Juga, periksa variabel lingkungan sudah benar.
 
 Setelah menjalankan layanan subql-query dengan sukses, buka browser Anda dan buka `http://localhost:3000`. Anda akan melihat taman bermain GraphQL ditampilkan di Explorer dan skema yang siap untuk kueri.

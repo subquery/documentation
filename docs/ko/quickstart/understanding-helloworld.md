@@ -6,7 +6,7 @@
 
 우리가 실행한 첫 번째 명령은 `subql init subqlHelloWorld`였습니다.
 
-이것은 무거운 작업을 수행하고 많은 파일을 생성합니다. [공식 문서](quickstart.md#configure-and-build-the-starter-project)에 명시된 바와 같이 주로 다음 파일에 대해 작업하게 됩니다.
+이것은 무거운 작업을 수행하고 많은 파일을 생성합니다. [공식 문서](quickstart-polkadot.md#configure-and-build-the-starter-project)에 명시된 바와 같이 주로 다음 파일에 대해 작업하게 됩니다.
 
 - 매니페스트 인 `project.yaml`
 - GraphQL 스키마 `schema.graphql`

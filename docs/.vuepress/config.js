@@ -172,26 +172,14 @@ function getSidebar(locale, language) {
         path: `${locale === "" ? "/" : locale}`,
         collapsable: true,
       },
-      /*
       {
         title: "Quick Start",
-        path: `${locale}/quickstart/quickstart`,
+        path: `${locale}/quickstart/quickstart-polkadot`,
         collapsable: true,
         children: [
-          {
-            title: "Quick Start Guide",
-            path: `${locale}/quickstart/quickstart`,
-            collapsable: true,
-            children: [
-              `${locale}/quickstart/quickstart.md`
-            ],
-          },
-        ],
-      },
-      */
-      {
-        title: "Quick Start",
-        path: `${locale}/quickstart/quickstart.md`,
+          `${locale}/quickstart/quickstart-polkadot.md`,
+          `${locale}/quickstart/quickstart-terra.md`,
+        ]
       },
       {
         title: "Build",

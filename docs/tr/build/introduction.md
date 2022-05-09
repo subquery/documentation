@@ -1,16 +1,16 @@
 # Yeni bir SubQuery Projesini Oluşturma
 
-[quick start](/quickstart/quickstart.md) kılavuzunda, SubQuery'nin ne olduğunu ve nasıl çalıştığını size tattırmak için çok hızlı bir şekilde bir örnek inceledik. Burada projenizi oluştururken iş akışına ve çalışacağınız anahtar dosyalara daha yakından bakacağız.
+[quick start](/quickstart/quickstart-polkadot.md) kılavuzunda, SubQuery'nin ne olduğunu ve nasıl çalıştığını size tattırmak için çok hızlı bir şekilde bir örnek inceledik. Burada projenizi oluştururken iş akışına ve çalışacağınız anahtar dosyalara daha yakından bakacağız.
 
 ## Temel İş Akışı
 
-Aşağıdaki örneklerden bazıları, başlangıç paketini [Quick start](../quickstart/quickstart.md) bölümünde başarıyla başlatmış olduğunuzu varsayar. Bu başlangıç paketinden, SubQuery projenizi özelleştirmek ve uygulamak için standart süreçten geçeceğiz.
+Aşağıdaki örneklerden bazıları, başlangıç paketini [Quick start](../quickstart/quickstart-polkadot.md) bölümünde başarıyla başlatmış olduğunuzu varsayar. Bu başlangıç paketinden, SubQuery projenizi özelleştirmek ve uygulamak için standart süreçten geçeceğiz.
 
 1. Projenizi kullanarak başlatın `subql init PROJECT_NAME`.
 2. Manifest dosyasını (`project.yaml`) blok zinciriniz ve eşleyeceğiniz varlıklar hakkında bilgi içerecek şekilde güncelleştirin - bkz [Manifest File](./manifest.md)
 3. Şemanızda (`schema.graphql`) ayıklayacağınız ve sorgulamak için sürdüreceğiniz verilerin şeklini tanımlayan GraphQL varlıkları oluşturun - bkz [GraphQL Şeması](./graphql.md)
 4. Zincir verilerini tanımladığınız GraphQL varlıklarına dönüştürmek için çağırmak istediğiniz tüm eşleme işlevlerini (örneğin`mappingHandlers.ts`) ekleyin - bkz[Mapping](./mapping.md)
-5. Kodunuzu SubQuery Projects oluşturun, oluşturun ve yayımlayın (veya kendi yerel düğümünüzde çalıştırın) - hızlı başlangıç kılavuzumuzda [ Starter Projenizi Çalıştırma ve Sorgulama](./quickstart.md#running-and-querying-your-starter-project) bakın.
+5. Kodunuzu SubQuery Projects oluşturun, oluşturun ve yayımlayın (veya kendi yerel düğümünüzde çalıştırın) - hızlı başlangıç kılavuzumuzda [ Starter Projenizi Çalıştırma ve Sorgulama](./quickstart-polkadot.md#running-and-querying-your-starter-project) bakın.
 
 ## Dizin Yapısı
 

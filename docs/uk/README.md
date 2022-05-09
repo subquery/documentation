@@ -14,7 +14,7 @@
       <p>Зрозумійте SubQuery, взявши участь у традиційному прикладі Hello World. Використовуючи проект шаблону в середовищі Docker, ви можете швидко запустити і запустити вузол і почати запитувати блокчейн всього за кілька хвилин за допомогою декількох простих команд.
       </p>
       <span class="button">
-        <router-link :to="{path: '/quickstart/quickstart.html'}">
+        <router-link :to="{path: '/quickstart/quickstart-polkadot.html'}">
           <span>Get started</span>
         </router-link>
       </span>
@@ -70,7 +70,7 @@
       <li>
         <div class="title">Який найкращий спосіб розпочати роботу з SubQuery?</div>
         <div class="content">
-          <p>The best way to get started with SubQuery is to try out our <a href="/quickstart/quickstart.html">Quick Start tutorial</a>. Це простий 5 хвилин ходьби від завантаження шаблону для початківців, побудови проекту, а потім використання Docker для запуску вузла на локальному хості та запуску простого запиту. </p>
+          <p>The best way to get started with SubQuery is to try out our <a href="/quickstart/quickstart-polkadot.html">Quick Start tutorial</a>. Це простий 5 хвилин ходьби від завантаження шаблону для початківців, побудови проекту, а потім використання Docker для запуску вузла на локальному хості та запуску простого запиту. </p>
         </div>
       </li>
       <li>
@@ -85,7 +85,7 @@
       <li>
         <div class="title">Скільки коштує розміщення мого проекту в проектах SubQuery?</div>
         <div class="content">
-          <p>Розміщення вашого проекту в проектах SubQuery абсолютно безкоштовне - це наш спосіб повернути спільноту. To learn how to host your project with us, please check out the <a href="/quickstart/quickstart.html">Hello World (SubQuery Hosted)</a> tutorial.</p>
+          <p>Розміщення вашого проекту в проектах SubQuery абсолютно безкоштовне - це наш спосіб повернути спільноту. To learn how to host your project with us, please check out the <a href="/quickstart/quickstart-polkadot.html">Hello World (SubQuery Hosted)</a> tutorial.</p>
           <span class="more">
             <router-link :to="{path: '/run_publish/publish.html'}"> ПОДАЧАЙТЕ СВОЙ ПРОЕКТ </router-link>
           </span>

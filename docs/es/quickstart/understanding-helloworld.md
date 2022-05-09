@@ -6,7 +6,7 @@ En la guía de inicio rápido [Hola World](helloworld-localhost.md), corrimos al
 
 El primer comando que ejecutamos fue `subql init subqlHelloWorld`.
 
-Esto hace el trabajo pesado y crea un montón de archivos para usted. Como se indica en la [documentación oficial](quickstart.md#configure-and-build-the-starter-project), trabajará principalmente en los siguientes archivos:
+Esto hace el trabajo pesado y crea un montón de archivos para usted. Como se indica en la [documentación oficial](quickstart-polkadot.md#configure-and-build-the-starter-project), trabajará principalmente en los siguientes archivos:
 
 - El manifiesto en `project.yaml`
 - El esquema GraphQL en `schema.graphql`

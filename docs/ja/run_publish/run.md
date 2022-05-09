@@ -196,6 +196,6 @@ npm install -g @subql/query
 
 ``` export DB_HOST=localhost subql-query --name <project_name> --playground ````
 
-プロジェクト名は、[プロジェクトを初期化](../quickstart/quickstart.md#initialise-the-starter-subquery-project)したときのプロジェクト名と同じにしてください。 また、環境変数が正しいことを確認してください。
+プロジェクト名は、[プロジェクトを初期化](../quickstart/quickstart-polkadot.md#initialise-the-starter-subquery-project)したときのプロジェクト名と同じにしてください。 また、環境変数が正しいことを確認してください。
 
 subql-queryサービスを正常に実行した後、ブラウザを開き、 `http://localhost:3000` に進みます。 Explorerに表示されるGraphQLプレイグラウンドと、クエリーの準備ができたスキーマが表示されるはずです。

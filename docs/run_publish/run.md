@@ -325,6 +325,6 @@ export DB_HOST=localhost
 subql-query --name <project_name> --playground
 ```
 
-Make sure the project name is the same as the project name when you [initialize the project](../quickstart/quickstart.md#initialise-the-starter-subquery-project). Also, check the environment variables are correct.
+Make sure the project name is the same as the project name when you [initialize the project](../quickstart/quickstart-polkadot.md#initialise-the-starter-subquery-project). Also, check the environment variables are correct.
 
 After running the subql-query service successfully, open your browser and head to `http://localhost:3000`. You should see a GraphQL playground showing in the Explorer and the schema that is ready to query.

@@ -6,7 +6,7 @@ Dalam [panduan memulai cepat Hello World](helloworld-localhost.md), kami menjala
 
 Perintah pertama yang kami jalankan adalah `subql init subqlHelloWorld`.
 
-Ini melakukan pekerjaan berat dan membuat banyak file untuk Anda. Sebagaimana dicatat dalam [dokumentasi resmi](quickstart.md#configure-and-build-the-starter-project), Anda terutama akan mengerjakan file-file berikut:
+Ini melakukan pekerjaan berat dan membuat banyak file untuk Anda. Sebagaimana dicatat dalam [dokumentasi resmi](quickstart-polkadot.md#configure-and-build-the-starter-project), Anda terutama akan mengerjakan file-file berikut:
 
 - Manifes di `project.yaml`
 - Skema GraphQL di `schema.graphql`

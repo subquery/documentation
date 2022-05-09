@@ -1,16 +1,16 @@
 # Creare un progetto SubQuery
 
-Nella guida [avvio rapido](/quickstart/quickstart.md), abbiamo eseguito molto velocemente un esempio per darvi un assaggio di cosa sia la SubQuery e come funzioni. Qui daremo un'occhiata più da vicino al flusso di lavoro durante la creazione del tuo progetto e ai file chiave con cui lavorerai.
+Nella guida [avvio rapido](/quickstart/quickstart-polkadot.md), abbiamo eseguito molto velocemente un esempio per darvi un assaggio di cosa sia la SubQuery e come funzioni. Qui daremo un'occhiata più da vicino al flusso di lavoro durante la creazione del tuo progetto e ai file chiave con cui lavorerai.
 
 ## Esempi di Subquery
 
-Alcuni degli esempi seguenti presuppongono che tu abbia inizializzato con successo lo starter package nella sezione [Inizio rapido](../quickstart/quickstart.md). Da questo pacchetto di partenza, cammineremo attraverso il processo standard per personalizzare e implementare il tuo progetto SubQuery.
+Alcuni degli esempi seguenti presuppongono che tu abbia inizializzato con successo lo starter package nella sezione [Inizio rapido](../quickstart/quickstart-polkadot.md). Da questo pacchetto di partenza, cammineremo attraverso il processo standard per personalizzare e implementare il tuo progetto SubQuery.
 
 1. Initialise your project using `subql init PROJECT_NAME`.
 2. Aggiorna il file Manifest (`project.yaml`) per includere informazioni sulla tua blockchain e le entità che mapperai - vedi [Manifest File](./manifest.md)
 3. Crea entità GraphQL nel tuo schema (`schema.graphql`) che definiscono la forma dei dati che estrarrai e persisterai per l'interrogazione - vedi [GraphQL Schema](./graphql.md)
 4. Aggiungi tutte le funzioni di mappatura (ad esempio `mappingHandlers.ts`) che desideri invocare per trasformare i dati della catena nelle entità GraphQL che hai definito - vedi [Mapping](./mapping.md)
-5. Genera, costruisci e pubblica il tuo codice nei progetti SubQuery (o eseguilo nel tuo nodo locale) - vedi [Eseguire e interrogare il tuo progetto iniziale](./quickstart.md#running-and-querying-your-starter-project) nella nostra guida rapida.
+5. Genera, costruisci e pubblica il tuo codice nei progetti SubQuery (o eseguilo nel tuo nodo locale) - vedi [Eseguire e interrogare il tuo progetto iniziale](./quickstart-polkadot.md#running-and-querying-your-starter-project) nella nostra guida rapida.
 
 ## Struttura dell'elenco
 

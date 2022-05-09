@@ -14,7 +14,7 @@
       <p>SubQueryを理解するために、従来のHello Worldの例を使います。 Docker 環境内でのテンプレート プロジェクトの使用して、いくつかの簡単なコマンドですぐにノードを起動して実行し、わずか数分でブロックチェーンのクエリを開始できます。
       </p>
       <span class="button">
-        <router-link :to="{path: '/quickstart/quickstart.html'}">
+        <router-link :to="{path: '/quickstart/quickstart-polkadot.html'}">
           <span>Get started</span>
         </router-link>
       </span>
@@ -70,7 +70,7 @@
       <li>
         <div class="title">SubQueryを始めるための最良の方法は何ですか？</div>
         <div class="content">
-          <p>The best way to get started with SubQuery is to try out our <a href="/quickstart/quickstart.html">Quick Start tutorial</a>. スターターテンプレートをダウンロードし、プロジェクトをビルドし、Dockerを使用してローカルホスト上でノードを実行し、簡単なクエリを実行する5分間のウォークスルーです。 </p>
+          <p>The best way to get started with SubQuery is to try out our <a href="/quickstart/quickstart-polkadot.html">Quick Start tutorial</a>. スターターテンプレートをダウンロードし、プロジェクトをビルドし、Dockerを使用してローカルホスト上でノードを実行し、簡単なクエリを実行する5分間のウォークスルーです。 </p>
         </div>
       </li>
       <li>
@@ -85,7 +85,7 @@
       <li>
         <div class="title">自分のプロジェクトをSubQuery Projectsで公開するにはどのくらいの費用がかかりますか？</div>
         <div class="content">
-          <p>SubQuery Projectsであなたのプロジェクトを公開することは完全に無料です - それはコミュニティに還元する私たちの方法です。 To learn how to host your project with us, please check out the <a href="/quickstart/quickstart.html">Hello World (SubQuery Hosted)</a> tutorial.</p>
+          <p>SubQuery Projectsであなたのプロジェクトを公開することは完全に無料です - それはコミュニティに還元する私たちの方法です。 To learn how to host your project with us, please check out the <a href="/quickstart/quickstart-polkadot.html">Hello World (SubQuery Hosted)</a> tutorial.</p>
           <span class="more">
             <router-link :to="{path: '/run_publish/publish.html'}">プロジェクトを公開する</router-link>
           </span>

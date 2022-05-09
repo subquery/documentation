@@ -196,6 +196,6 @@ npm install -g @subql/query
 
 ``` export DB_HOST=localhost subql-query --name <project_name> --playground ````
 
-Уверете се, че името на проекта е същото като името на проекта, когато [инициализирате проекта](../quickstart/quickstart.md#initialise-the-starter-subquery-project). Също така проверете дали променливите на средата са правилни.
+Уверете се, че името на проекта е същото като името на проекта, когато [инициализирате проекта](../quickstart/quickstart-polkadot.md#initialise-the-starter-subquery-project). Също така проверете дали променливите на средата са правилни.
 
 След като стартирате успешно услугата subql-query, отворете браузъра си и се насочете към `http://localhost:3000`. Трябва да видите работното меню на GraphQL, показващo се в Explorer и схемата, която е готова за заявка.
