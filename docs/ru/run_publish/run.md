@@ -20,19 +20,27 @@ docker-compose pull && docker-compose up
 
 - [Postgres](https://www.postgresql.org/) база данных ( версия 12 или выше). Пока [SubQuery node](#start-a-local-subquery-node) индексируется в блокчейн, извлеченные данные хранятся во внешнем экземпляре базы данных.
 
-Нода SubQuery - это реализация, которая извлекает данные блокчейна на основе субстрата для проекта SubQuery и сохраняет их в базе данных Postgres.
+A SubQuery node is an implementation that extracts Substrate/Polkadot-based blockchain data per the SubQuery project and saves it into a Postgres database.
 
 ### Установка
 
 <CodeGroup>
-<CodeGroupItem title='Substrate'>
+<CodeGroupItem title='Substrate/Polkadot'>
 
 ``` shell
 # NPM
 npm install -g @subql/node
 ```
-</CodeGroupItem>
 
+</CodeGroupItem>
+<CodeGroupItem title='Terra'>
+
+``` shell
+# NPM
+npm install -g @subql/node-terra
+```
+
+</CodeGroupItem>
 <CodeGroupItem title='Avalanche'>
 
 ``` shell
@@ -43,39 +51,53 @@ npm install -g @subql/node-avalanche
 </CodeGroupItem>
 </CodeGroup>
 
-Обратите внимание, что мы **НЕ** рекомендуем использовать `yarn global` из-за плохого управления зависимостями, что может привести к ошибкам в дальнейшем.
+Please note that we **DO NOT** encourage the use of `yarn global` due to its poor dependency management which may lead to an errors down the line.
 
 После установки вы можете запустить ноду с помощью следующей команды:
 
 
 <CodeGroup>
-<CodeGroupItem title='Substrate'>
+<CodeGroupItem title='Substrate/Polkadot'>
 
 ```shell
 subql-node <command>
 ```
 
 </CodeGroupItem>
+<CodeGroupItem title='Terra'>
+
+```shell
+subql-node-terra <command>
+```
+
+</CodeGroupItem>
 <CodeGroupItem title='Avalanche'>
 
 ```shell
-subql-node-avalanche <command>
+subql-node-avalanche <command> 
 ```
 
 </CodeGroupItem>
 </CodeGroup>
 
-### Ключевые команды
+### Key Commands
 
-Следующие команды помогут вам завершить настройку узла подзапроса и начать индексацию. Чтобы узнать больше, вы всегда можете запустить `--help`.
+The following commands will assist you to complete the configuration of a SubQuery node and begin indexing. Чтобы узнать больше, вы всегда можете запустить `--help`.
 
 #### Укажите путь к локальному проекту
 
 <CodeGroup>
-<CodeGroupItem title='Substrate'>
+<CodeGroupItem title='Substrate/Polkadot'>
 
 ```shell
 subql-node -f your-project-path
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Terra'>
+
+```shell
+subql-node-terra -f your-project-path
 ```
 
 </CodeGroupItem>
@@ -88,34 +110,41 @@ subql-node-avalanche -f your-project-path
 </CodeGroupItem>
 </CodeGroup>
 
-#### Использование Словаря
+#### Use a Dictionary
 
-Использование словаря полной цепочки может значительно ускорить обработку проекта SubQuery во время тестирования или во время вашей первой индексации. В некоторых случаях мы наблюдали увеличение производительности индексирования до 10 раз.
+Using a full chain dictionary can dramatically speed up the processing of a SubQuery project during testing or during your first index. В некоторых случаях мы наблюдали увеличение производительности индексирования до 10 раз.
 
 Словарь полной цепочки предварительно индексирует местоположение всех событий и внешних элементов в определенной цепочке и позволяет службе узла пропускать соответствующие местоположения при индексировании, а не проверять каждый блок.
 
 Вы можете добавить конечную точку словаря в файл `project.yaml` (см. [Файл манифеста](../create/manifest.md)) или указать ее во время выполнения с помощью следующей команды:
 
 <CodeGroup>
-<CodeGroupItem title='Substrate'>
+<CodeGroupItem title='Substrate/Polkadot/Polkadot'>
 
 ```shell
 subql-node --network-dictionary=https://api.subquery.network/sq/subquery/dictionary-polkadot
 ```
 
 </CodeGroupItem>
+<CodeGroupItem title='Terra'>
+
+```shell
+subql-node-terra --network-dictionary=https://api.subquery.network/sq/subquery/terra-columbus-5-dictionary
+```
+
+</CodeGroupItem>
 <CodeGroupItem title='Avalanche'>
 
 ```shell
-subql-node-avalanche --network-dictionary=https://api.subquery.network/sq/subquery/dictionary-polkadot
+subql-node-avalanche --network-dictionary=https://api.subquery.network/sq/subquery/avalanche-dictionary
 ```
 
 </CodeGroupItem>
 </CodeGroup>
 
-[Подробнее о том, как работает словарь SubQuery](../academy/tutorials_examples/dictionary.md).
+[Read more about how a SubQuery Dictionary works](../academy/tutorials_examples/dictionary.md).
 
-#### Подключаемся к базе данных
+#### Connect to database
 
 ```shell
 export DB_USER=postgres
@@ -131,10 +160,17 @@ subql-node -f your-project-path
 #### Укажите файл конфигурации
 
 <CodeGroup>
-<CodeGroupItem title='Substrate'>
+<CodeGroupItem title='Substrate/Polkadot'>
 
 ```shell
 subql-node -c your-project-config.yml
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Terra'>
+
+```shell
+subql-node-terra -c your-project-config.yml
 ```
 
 </CodeGroupItem>
@@ -147,7 +183,7 @@ subql-node-avalanche -c your-project-config.yml
 </CodeGroupItem>
 </CodeGroup>
 
-Это укажет узлу запроса файл конфигурации, который может быть в формате YAML или JSON. Посмотрите пример ниже.
+This will point the query node to a configuration file which can be in YAML or JSON format. Посмотрите пример ниже.
 
 ```yaml
 subquery: ../../../../subql-example/extrinsics
@@ -171,10 +207,17 @@ Result:
 #### Запуск в локальном режиме
 
 <CodeGroup>
-<CodeGroupItem title='Substrate'>
+<CodeGroupItem title='Substrate/Polkadot'>
 
 ```shell
 subql-node -f your-project-path --local
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Terra'>
+
+```shell
+subql-node-terra -f your-project-path --local
 ```
 
 </CodeGroupItem>
@@ -187,7 +230,7 @@ subql-node-avalanche -f your-project-path --local
 </CodeGroupItem>
 </CodeGroup>
 
-В целях отладки пользователи могут запускать узел в локальном режиме. При переключении на локальную модель таблицы Postgres будут созданы в схеме по умолчанию `public`.
+For debugging purposes, users can run the node in local mode. При переключении на локальную модель таблицы Postgres будут созданы в схеме по умолчанию `public`.
 
 Если локальный режим не используется, будет создана новая схема Postgres с начальным `subquery_` и соответствующими таблицами проекта.
 
