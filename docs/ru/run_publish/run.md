@@ -322,6 +322,6 @@ export DB_HOST=localhost
 subql-query --name <project_name> --playground
 ```
 
-Убедитесь, что имя проекта совпадает с именем проекта при [ инициализации проекта ](../quickstart/quickstart.md#initialise-the-starter-subquery-project). Также проверьте правильность переменных среды.
+Make sure the project name is the same as the project name when you [initialize the project](../quickstart/quickstart-polkadot.md#initialise-the-starter-subquery-project). Также проверьте правильность переменных среды.
 
 После успешного запуска службы subql-query откройте браузер и перейдите по адресу `http: // localhost: 3000`. Вы должны увидеть игровую площадку GraphQL, отображаемую в проводнике, и схему, готовую к запросу.
