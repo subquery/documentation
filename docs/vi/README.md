@@ -5,7 +5,7 @@
       <div>
         <h2 class="welcomeTitle">Chào mừng bạn đến với <span>Đại học</span> SubQuery</h2>
         <p>Khám phá và chuyển đổi dữ liệu chuỗi của bạn để xây dựng các dApp trực quan nhanh hơn!</p>
-        <p><strong>SubQuery hiện hỗ trợ cả Polkadot và Avalanche</strong></p>
+        <p><strong>SubQuery now supports both Polkadot, Avalanche, and Terra</strong></p>
       </div>
     </div>
   </section>
