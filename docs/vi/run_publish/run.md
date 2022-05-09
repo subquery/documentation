@@ -20,19 +20,27 @@ Yêu cầu:
 
 - [Postgres](https://www.postgresql.org/) cơ sở dữ liệu (phiên bản 12 hoặc cao hơn). Trong khi [SubQuery node](#start-a-local-subquery-node) đang lập chỉ mục chuỗi khối, dữ liệu trích xuất được lưu trữ trong một phiên bản cơ sở dữ liệu bên ngoài.
 
-Một node SubQuery sẽ triển khai trích xuất dữ liệu chuỗi khối dựa trên chất nền (substrate) cho mỗi dự án SubQuery và lưu nó vào cơ sở dữ liệu Postgres.
+A SubQuery node is an implementation that extracts Substrate/Polkadot-based blockchain data per the SubQuery project and saves it into a Postgres database.
 
 ### Cài đặt
 
 <CodeGroup>
-<CodeGroupItem title='Substrate'>
+<CodeGroupItem title='Substrate/Polkadot'>
 
 ``` shell
 # NPM
 npm install -g @subql/node
 ```
-</CodeGroupItem>
 
+</CodeGroupItem>
+<CodeGroupItem title='Terra'>
+
+``` shell
+# NPM
+npm install -g @subql/node-terra
+```
+
+</CodeGroupItem>
 <CodeGroupItem title='Avalanche'>
 
 ``` shell
@@ -43,39 +51,53 @@ npm install -g @subql/node-avalanche
 </CodeGroupItem>
 </CodeGroup>
 
-Xin lưu ý rằng chúng tôi **KHÔNG** khuyến khích sử dụng `yarn global` do quản lý phụ thuộc kém có thể dẫn đến lỗi xuống dòng.
+Please note that we **DO NOT** encourage the use of `yarn global` due to its poor dependency management which may lead to an errors down the line.
 
 Sau khi cài đặt, bạn có thể khởi chạy một node bằng lệnh sau:
 
 
 <CodeGroup>
-<CodeGroupItem title='Substrate'>
+<CodeGroupItem title='Substrate/Polkadot'>
 
 ```shell
 subql-node <command>
 ```
 
 </CodeGroupItem>
+<CodeGroupItem title='Terra'>
+
+```shell
+subql-node-terra <command>
+```
+
+</CodeGroupItem>
 <CodeGroupItem title='Avalanche'>
 
 ```shell
-subql-node-avalanche <command>
+subql-node-avalanche <command> 
 ```
 
 </CodeGroupItem>
 </CodeGroup>
 
-### Các lệnh chính
+### Key Commands
 
-Các lệnh sau đây sẽ giúp bạn hoàn thành cấu hình của nút SubQuery và bắt đầu lập chỉ mục. Để tìm hiểu thêm, bạn luôn có thể chạy `--help`.
+The following commands will assist you to complete the configuration of a SubQuery node and begin indexing. Để tìm hiểu thêm, bạn luôn có thể chạy `--help`.
 
 #### Trỏ đến đường dẫn dự án trên môi trường local
 
 <CodeGroup>
-<CodeGroupItem title='Substrate'>
+<CodeGroupItem title='Substrate/Polkadot'>
 
 ```shell
 subql-node -f your-project-path
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Terra'>
+
+```shell
+subql-node-terra -f your-project-path
 ```
 
 </CodeGroupItem>
@@ -88,34 +110,41 @@ subql-node-avalanche -f your-project-path
 </CodeGroupItem>
 </CodeGroup>
 
-#### Sử dụng từ điển
+#### Use a Dictionary
 
-Sử dụng đầy đủ từ điển chuỗi có thể tăng tốc đáng kể quá trình xử lý dự án SubQuery trong quá trình thử nghiệm hoặc trong lần lập chỉ mục đầu tiên của bạn. Trong một số trường hợp, chúng tôi đã thấy hiệu suất lập chỉ mục tăng lên tới 10x.
+Using a full chain dictionary can dramatically speed up the processing of a SubQuery project during testing or during your first index. Trong một số trường hợp, chúng tôi đã thấy hiệu suất lập chỉ mục tăng lên tới 10x.
 
 Sử dụng từ điển chuỗi đầy đủ sẽ lập chỉ mục trước vị trí của tất cả các sự kiện và ngoại lại trong chuỗi cụ thể và cho phép nút của bạn bỏ qua các vị trí có liên quan khi lập chỉ mục thay vì kiểm tra từng khối.
 
 Bạn có thể thêm điểm cuối từ điển vào tệp `project.yaml` (xem [Manifest File](../create/manifest.md)), hoặc chỉ định nó tại thời điểm chạy bằng cách sử dụng lệnh sau:
 
 <CodeGroup>
-<CodeGroupItem title='Substrate'>
+<CodeGroupItem title='Substrate/Polkadot/Polkadot'>
 
 ```shell
 subql-node --network-dictionary=https://api.subquery.network/sq/subquery/dictionary-polkadot
 ```
 
 </CodeGroupItem>
+<CodeGroupItem title='Terra'>
+
+```shell
+subql-node-terra --network-dictionary=https://api.subquery.network/sq/subquery/terra-columbus-5-dictionary
+```
+
+</CodeGroupItem>
 <CodeGroupItem title='Avalanche'>
 
 ```shell
-subql-node-avalanche --network-dictionary=https://api.subquery.network/sq/subquery/dictionary-polkadot
+subql-node-avalanche --network-dictionary=https://api.subquery.network/sq/subquery/avalanche-dictionary
 ```
 
 </CodeGroupItem>
 </CodeGroup>
 
-[Đọc thêm về cách thức hoạt động của Từ điển SubQuery](../academy/tutorials_examples/dictionary.md).
+[Read more about how a SubQuery Dictionary works](../academy/tutorials_examples/dictionary.md).
 
-#### Kết nối cơ sở dữ liệu
+#### Connect to database
 
 ```shell
 export DB_USER=postgres
@@ -131,10 +160,17 @@ Tùy thuộc vào cấu hình cơ sở dữ liệu Postgres của bạn (ví d�
 #### Chỉ định một tệp cấu hình
 
 <CodeGroup>
-<CodeGroupItem title='Substrate'>
+<CodeGroupItem title='Substrate/Polkadot'>
 
 ```shell
 subql-node -c your-project-config.yml
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Terra'>
+
+```shell
+subql-node-terra -c your-project-config.yml
 ```
 
 </CodeGroupItem>
@@ -147,7 +183,7 @@ subql-node-avalanche -c your-project-config.yml
 </CodeGroupItem>
 </CodeGroup>
 
-Thao tác này sẽ trỏ nút truy vấn tới tệp cấu hình có thể ở định dạng YAML hoặc JSON. Hãy xem ví dụ dưới đây.
+This will point the query node to a configuration file which can be in YAML or JSON format. Hãy xem ví dụ dưới đây.
 
 ```yaml
 subquery: ../../../../subql-example/extrinsics
@@ -171,10 +207,17 @@ Khi trình lập chỉ mục lập chỉ mục chuỗi lần đầu tiên, việ
 #### Chạy ở chế độ cục bộ
 
 <CodeGroup>
-<CodeGroupItem title='Substrate'>
+<CodeGroupItem title='Substrate/Polkadot'>
 
 ```shell
 subql-node -f your-project-path --local
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Terra'>
+
+```shell
+subql-node-terra -f your-project-path --local
 ```
 
 </CodeGroupItem>
@@ -187,7 +230,7 @@ subql-node-avalanche -f your-project-path --local
 </CodeGroupItem>
 </CodeGroup>
 
-Đối với mục đích gỡ lỗi, người dùng có thể chạy nút ở chế độ cục bộ. Viêc chuyển sang chế độ local sẽ tạo các bảng Postgres trong sơ đồ `công khai` mặc định.
+For debugging purposes, users can run the node in local mode. Viêc chuyển sang chế độ local sẽ tạo các bảng Postgres trong sơ đồ `công khai` mặc định.
 
 Nếu chế độ local không được sử dụng, một sơ đồ Postgres mới với `subquery_` và các bảng dự án tương ứng sẽ được khởi tạo.
 
