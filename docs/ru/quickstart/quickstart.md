@@ -56,12 +56,12 @@ subql init
 
 Наконец, в каталоге проекта выполните следующую команду, чтобы установить зависимости нового проекта.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd ИМЯ_ПРОЕКТА yarn install ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```shell cd ИМЯ_ПРОЕКТА npm install ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
+<CodeGroupItem title="NPM"> ```shell cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
 
-## Внесение изменений в проект
+## Making Changes to your Project
 
-В стартовом пакете, который вы только что инициализировали, мы предоставили стандартную конфигурацию для вашего нового проекта. В основном вы будете работать со следующими файлами:
+In the starter package that you just initialised, we have provided a standard configuration for your new project. В основном вы будете работать со следующими файлами:
 
 1. Схема GraphQL в `schema.graphql`
 2. Манифест проекта в `project.yaml`
@@ -90,7 +90,7 @@ type Transfer @entity {
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```shell npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
 
-Вы найдете сгенерированные модели в каталоге `/src/types/models`. Для получения дополнительной информации о файле `schema.graphql` ознакомьтесь с нашей документацией в разделе [Build/GraphQL Schema](../build/graphql.md)
+You'll find the generated models in the `/src/types/models` directory. Для получения дополнительной информации о файле `schema.graphql` ознакомьтесь с нашей документацией в разделе [Build/GraphQL Schema](../build/graphql.md)
 
 ### Обновление файла Манифеста Проекта
 
@@ -161,13 +161,13 @@ export async function handleTransfer(event: SubstrateEvent): Promise<void> {
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script build ``` </CodeGroupItem> </CodeGroup>
 
-**Важно: Всякий раз, когда вы вносите изменения в свои функции сопоставления, вам нужно будет пересобрать свой проект.**
+**Important: Whenever you make changes to your mapping functions, you'll need to rebuild your project**
 
-## Запуск и запрос вашего проекта
+## Running and Querying your Project
 
-### Запустите свой проект с помощью Docker.
+### Run your Project with Docker
 
-Всякий раз, когда вы создаете новый проект SubQuery, вы всегда должны запускать его локально на своем компьютере, чтобы сначала протестировать его. Проще всего это сделать с помощью Docker.
+Whenever you create a new SubQuery Project, you should always run it locally on your computer to test it first. Проще всего это сделать с помощью Docker.
 
 Вся конфигурация, управляющая запуском узла SubQuery, определяется в этом файле `docker-compose.yml`. Для нового проекта, который был только что инициализирован, вам не нужно ничего здесь менять, но вы можете прочитать больше о файле и настройках в нашем разделе [Запуск проекта](../run_publish/run.md)
 
@@ -175,7 +175,7 @@ export async function handleTransfer(event: SubstrateEvent): Promise<void> {
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn start:docker ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script start:docker ``` </CodeGroupItem> </CodeGroup>
 
-Скачивание необходимых пакетов в первый раз может занять некоторое время ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query) и Postgres), но вскоре вы увидите работающий узел SubQuery. Проявите терпение.
+It may take some time to download the required packages ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), and Postgres) for the first time but soon you'll see a running SubQuery node. Проявите терпение.
 
 ### Отправьте запрос своему проекту
 
