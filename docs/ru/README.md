@@ -5,7 +5,7 @@
       <div>
         <h2 class="welcomeTitle">Добро пожаловать в SubQuery’s <span>Docs</span></h2>
         <p>Изучите и преобразуйте свои ончейн данные, чтобы быстрее создавать интуитивно понятные приложения!</p>
-        <p><strong>SubQuery теперь поддерживает как Polkadot, так и Avalanche</strong></p>
+        <p><strong>SubQuery now supports both Polkadot, Avalanche, and Terra</strong></p>
       </div>
     </div>
   </section>
