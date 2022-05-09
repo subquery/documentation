@@ -15,7 +15,7 @@
       <p>借助传统的Hello World 范例来理解SubQuery。 在 Docker 环境中使用模板项目 您可以快速获得一个节点上线并运行运行，并且在短短几分钟内用几个简单的命令开始查询区块链。
       </p>
       <span class="button">
-        <router-link :to="{path: '/quickstart/quickstart.html'}">
+        <router-link :to="{path: '/quickstart/quickstart-polkadot.html'}">
           <span>Get started</span>
         </router-link>
       </span>
@@ -71,7 +71,7 @@
       <li>
         <div class="title">从SubQuery开始的最佳方式是什么？</div>
         <div class="content">
-          <p>开始使用 SubQuery 的最好方法是尝试我们的 <a href="/quickstart/quickstart.html">Quick Start tutorial</a>。 这是一个简单的5分钟步行来下载启动模板，构建项目。 然后使用 Docker 在您的本地主机上运行一个节点，运行一个简单的查询。 </p>
+          <p>The best way to get started with SubQuery is to try out our <a href="/quickstart/quickstart-polkadot.html">Quick Start tutorial</a>. 这是一个简单的5分钟步行来下载启动模板，构建项目。 然后使用 Docker 在您的本地主机上运行一个节点，运行一个简单的查询。 </p>
         </div>
       </li>
       <li>
@@ -86,7 +86,7 @@
       <li>
         <div class="title">在SubQuery项目中托管我的项目需要多少费用？</div>
         <div class="content">
-          <p>在 SubQuery 项目中托管您的项目是绝对免费的，这是我们回归社区的方式。 要学习如何与我们一起主办您的项目，请查看 <a href="/quickstart/quickstart.html">Hello World (SubQuery Hosted)</a> 教程。</p>
+          <p>在 SubQuery 项目中托管您的项目是绝对免费的，这是我们回归社区的方式。 To learn how to host your project with us, please check out the <a href="/quickstart/quickstart-polkadot.html">Hello World (SubQuery Hosted)</a> tutorial.</p>
           <span class="more">
             <router-link :to="{path: '/run_publish/publish.html'}">了解您的进程</router-link>
           </span>
