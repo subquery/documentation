@@ -40,6 +40,7 @@ dataSources:
   kind: substrate/CallHandler
 
 ````
+
   </CodeGroupItem>
 
   <CodeGroupItem title="v0.0.1">
@@ -228,6 +229,7 @@ filter:
 
 <CodeGroup>
   <CodeGroupItem title="v0.2.0" active>
+
 ``` yml
 network:
   genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3'
@@ -236,9 +238,11 @@ network:
     file: ./types.json # The relative filepath to where custom types are stored
 ...
 ```
+
   </CodeGroupItem>
 
   <CodeGroupItem title="v0.0.1">
+
 ``` yml
 ...
 network:
@@ -264,6 +268,7 @@ dataSources:
             method: breed
             success: true
 ```
+
   </CodeGroupItem>
 </CodeGroup>
 

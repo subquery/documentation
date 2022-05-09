@@ -14,34 +14,54 @@ You can use block handlers to capture information each time a new block is attac
 
 <CodeGroup>
 <CodeGroupItem title="Substrate/Polkadot" active>
-````ts
+
+```ts
 import { SubstrateBlock } from "@subql/types";
 
 export async function handleBlock(block: SubstrateBlock): Promise<void> {
-    // Create a new StarterEntity with the block hash as it's ID
-    const record = new starterEntity(block.block.header.hash.toString());
-    record.field1 = block.block.header.number.toNumber();
-    await record.save();
+  // Create a new BlockEntity with the block hash as it's ID
+  const record = new BlockEntity(block.block.header.hash.toString());
+  record.field1 = block.block.header.number.toNumber();
+  await record.save();
 }
-````
-</CodeGroupItem>
+```
 
+</CodeGroupItem>
+<CodeGroupItem title="Avalanche">
+
+```ts
+import { AvalancheBlock } from "@subql/types";
+
+export async function handleBlock(block: AvalancheBlock): Promise<void> {
+  // Create a new BlockEntity with the block hash as it's ID
+  const record = new BlockEntity(block.hash);
+  record.height = BigInt(block.number);
+  await record.save();
+}
+```
+
+</CodeGroupItem>
 <CodeGroupItem title="Terra">
-````ts
+
+```ts
 import { TerraBlock } from "@subql/types";
 
 export async function handleBlock(block: TerraBlock): Promise<void> {
-  const record = new Block(block.block.block_id.hash);
+  // Create a new BlockEntity with the block hash as it's ID
+  const record = new BlockEntity(block.block.block_id.hash);
   record.height = BigInt(block.block.block.header.height);
   await record.save();
 }
-````
+```
+
 </CodeGroupItem>
 </CodeGroup>
 
 A SubstrateBlock is an extended interface type of [signedBlock](https://polkadot.js.org/docs/api/cookbook/blocks/), but also includes the `specVersion` and `timestamp`.
 
 A TerraBlock is an extended interface type of [Terra.js](https://docs.terra.money/docs/develop/sdks/terra-js/README.html) BlockInfo, but also encapsulates the BlockInfo and TxInfo of all transactions in the block.
+
+An AvalancheBlock encapsulates all transactions and events in the block.
 
 ## Event Handler
 
@@ -51,21 +71,22 @@ During the processing, the event handler will receive an event as an argument wi
 
 <CodeGroup>
 <CodeGroupItem title="Substrate/Polkadot" active>
+
 ```ts
 import { SubstrateEvent } from "@subql/types";
 
 export async function handleEvent(event: SubstrateEvent): Promise<void> {
     const {event: {data: [account, balance]}} = event;
-    // Retrieve the record by its ID
-    const record = new StarterEntity(event.extrinsic.block.block.header.hash.toString());
+    const record = new EventEntity(event.extrinsic.block.block.header.hash.toString());
     record.field2 = account.toString();
     record.field3 = (balance as Balance).toBigInt();
     await record.save();
 }
-````
-</CodeGroupItem>
+```
 
+</CodeGroupItem>
 <CodeGroupItem title="Terra">
+
 ```ts
 import { TerraEvent } from "@subql/types";
 import { MsgExecuteContract } from "@terra-money/terra.js";
@@ -73,32 +94,38 @@ import { MsgExecuteContract } from "@terra-money/terra.js";
 export async function handleEvent(
   event: TerraEvent<MsgExecuteContract>
 ): Promise<void> {
-  const record = new TransferEvent(
+  const record = new EventEntity(
     `${event.tx.tx.txhash}-${event.msg.idx}-${event.idx}`
   );
   record.blockHeight = BigInt(event.block.block.block.header.height);
   record.txHash = event.tx.tx.txhash;
-  for (const attr of event.event.attributes) {
-    switch (attr.key) {
-      case "sender":
-        record.sender = attr.value;
-        break;
-      case "recipient":
-        record.recipient = attr.value;
-        break;
-      case "amount":
-        record.amount = attr.value;
-        break;
-      default:
-    }
-  }
   await record.save();
 }
-````
+```
+
+</CodeGroupItem>
+<CodeGroupItem title="Avalanche">
+
+```ts
+import { AvalancheEvent } from "@subql/types";
+
+export async function handleEvent(event: AvalancheEvent): Promise<void> {
+  const record = new EventEntity(
+    `${event.blockHash}-${event.logIndex}`
+  );
+  record.blockHeight = BigInt(event.blockNumber);
+  record.topics = event.topics;
+  record.data = event.data;
+  await record.save();
+}
+```
+
 </CodeGroupItem>
 </CodeGroup>
 
 A SubstrateEvent is an extended interface type of the [EventRecord](https://github.com/polkadot-js/api/blob/f0ce53f5a5e1e5a77cc01bf7f9ddb7fcf8546d11/packages/types/src/interfaces/system/types.ts#L149). Besides the event data, it also includes an `id` (the block to which this event belongs) and the extrinsic inside of this block.
+
+An AvalancheEvent encapsulates Event data and Transaction/Block information corresponding to the event.
 
 A TerraEvent encapsulates Event data and TxLog corresponding to the event. It also contains TerraMessage data of the message connected to the event. Also, it includes the TerraBlock and TerraTransaction data of the block and transaction from which the event was emitted.
 
@@ -108,7 +135,7 @@ Call handlers (Substrate/Polkadot Only) are used when you want to capture inform
 
 ```ts
 export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
-    const record = new starterEntity(extrinsic.block.block.header.hash.toString());
+    const record = new CallEntity(extrinsic.block.block.header.hash.toString());
     record.field4 = extrinsic.block.timestamp;
     await record.save();
 }
@@ -116,22 +143,48 @@ export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
 
 The [SubstrateExtrinsic](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L21) extends [GenericExtrinsic](https://github.com/polkadot-js/api/blob/a9c9fb5769dec7ada8612d6068cf69de04aa15ed/packages/types/src/extrinsic/Extrinsic.ts#L170). It is assigned an `id` (the block to which this extrinsic belongs) and provides an extrinsic property that extends the events among this block. Additionally, it records the success status of this extrinsic.
 
-## Terra Transaction Handler (Terra Only)
+## Transaction Handler
 
-You can use transaction handlers to capture information about each of the transactions in a block. To achieve this, a defined TransactionHandler will be called once for every transaction. You should use [Mapping Filters](./manifest.md#mapping-filters) in your manifest to filter transactions to reduce the time it takes to index data and improve mapping performance.
+You can use transaction handlers (Avalanche and Terra only) to capture information about each of the transactions in a block. To achieve this, a defined TransactionHandler will be called once for every transaction. You should use [Mapping Filters](./manifest.md#mapping-filters) in your manifest to filter transactions to reduce the time it takes to index data and improve mapping performance.
+
+<CodeGroup>
+<CodeGroupItem title="Avalanche" active>
 
 ```ts
-import {TerraTransaction} from "@subql/types-terra";
+import { AvalancheTransaction } from "@subql/types";
+
+export async function handleTransaction(tx: AvalancheTransaction): Promise<void> {
+  const record = new TransactionEntity(
+    `${transaction.blockHash}-${transaction.hash}`
+  );
+  record.blockHeight = BigInt(tx.blockNumber);
+  record.from = tx.from;
+  record.to = tx.to;
+  record.value = tx.value;
+  await record.save();
+}
+```
+
+</CodeGroupItem>
+<CodeGroupItem title="Terra">
+
+```ts
+import { TerraTransaction } from "@subql/types-terra";
 
 export async function handleTransaction(tx: TerraTransaction): Promise<void> {
-  const record = new Transaction(tx.tx.txhash);
+  const record = new TransactionEntity(tx.tx.txhash);
   record.blockHeight = BigInt(tx.block.block.block.header.height);
   record.timestamp = tx.tx.timestamp;
   await record.save();
 }
 ```
 
+</CodeGroupItem>
+</CodeGroup>
+
 The TerraTransaction encapsulates TxInfo and the corresponding TerraBlock in which the transaction occured.
+
+The AvalancheTransaction encapsulates TxInfo and the corresponding block information in which the transaction occured.
 
 ## Terra Message Handler (Terra Only)
 
@@ -144,7 +197,7 @@ import { MsgExecuteContract } from "@terra-money/terra.js";
 export async function handleMessage(
   msg: TerraMessage<MsgExecuteContract>
 ): Promise<void> {
-  const record = new Message(`${msg.tx.tx.txhash}-${msg.idx}`);
+  const record = new MessageEntity(`${msg.tx.tx.txhash}-${msg.idx}`);
   record.blockHeight = BigInt(msg.block.block.block.header.height);
   record.txHash = msg.tx.tx.txhash;
   record.contract = msg.msg.toData().contract;
@@ -173,7 +226,7 @@ import {hashMessage} from "ethers/lib/utils"; //Good way
 import {utils} from "ethers" //Bad way
 
 export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
-    const record = new starterEntity(extrinsic.block.block.header.hash.toString());
+    const record = new CallEntity(extrinsic.block.block.header.hash.toString());
     record.field1 = hashMessage('Hello');
     await record.save();
 }

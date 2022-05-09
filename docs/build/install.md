@@ -10,15 +10,19 @@ Install SubQuery CLI globally on your terminal by using Yarn or NPM:
 
 <CodeGroup>
   <CodeGroupItem title="NPM">
+
   ```bash
   npm install -g @subql/cli
   ```
+
   </CodeGroupItem>
 
   <CodeGroupItem title="YARN" active>
+
   ```shell
   yarn global add @subql/cli
   ```
+
   </CodeGroupItem>
 </CodeGroup>
 
@@ -35,15 +39,19 @@ Install SubQuery node globally on your terminal by using Yarn or NPM:
 
 <CodeGroup>
   <CodeGroupItem title="NPM">
+
   ```bash
   npm install -g @subql/node
   ```
+
   </CodeGroupItem>
 
   <CodeGroupItem title="YARN" active>
+
   ```shell
   yarn global add @subql/node
   ```
+
   </CodeGroupItem>
 </CodeGroup>
 
@@ -62,15 +70,19 @@ Install SubQuery query globally on your terminal by using Yarn or NPM:
 
 <CodeGroup>
   <CodeGroupItem title="NPM">
+
   ```bash
   npm install -g @subql/query
   ```
+
   </CodeGroupItem>
 
   <CodeGroupItem title="YARN" active>
+
   ```shell
   yarn global add @subql/query
   ```
+
   </CodeGroupItem>
 </CodeGroup>
 

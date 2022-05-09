@@ -21,24 +21,32 @@ Requirements:
 
 - [Postgres](https://www.postgresql.org/) database (version 12 or higher). While the [SubQuery node](#start-a-local-subquery-node) is indexing the blockchain, the extracted data is stored in an external database instance.
 
-A SubQuery node is an implementation that extracts substrate-based blockchain data per the SubQuery project and saves it into a Postgres database.
+A SubQuery node is an implementation that extracts Substrate/Polkadot-based blockchain data per the SubQuery project and saves it into a Postgres database.
 
 ### Installation
 
 <CodeGroup>
-<CodeGroupItem title='Substrate'>
+<CodeGroupItem title='Substrate/Polkadot'>
 
 ``` shell
 # NPM
 npm install -g @subql/node
 ```
-</CodeGroupItem>
 
+</CodeGroupItem>
 <CodeGroupItem title='Terra'>
 
 ``` shell
 # NPM
 npm install -g @subql/node-terra
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Avalanche'>
+
+``` shell
+# NPM
+npm install -g @subql/node-avalanche
 ````
 
 </CodeGroupItem>
@@ -50,7 +58,7 @@ Once installed, you can start a node with the following command:
 
 
 <CodeGroup>
-<CodeGroupItem title='Substrate'>
+<CodeGroupItem title='Substrate/Polkadot'>
 
 ```shell
 subql-node <command>
@@ -64,6 +72,13 @@ subql-node-terra <command>
 ```
 
 </CodeGroupItem>
+<CodeGroupItem title='Avalanche'>
+
+```shell
+subql-node-avalanche <command> 
+```
+
+</CodeGroupItem>
 </CodeGroup>
 
 ### Key Commands
@@ -74,7 +89,7 @@ To find out more, you can always run `--help`.
 #### Point to local project path
 
 <CodeGroup>
-<CodeGroupItem title='Substrate'>
+<CodeGroupItem title='Substrate/Polkadot'>
 
 ```shell
 subql-node -f your-project-path
@@ -85,6 +100,13 @@ subql-node -f your-project-path
 
 ```shell
 subql-node-terra -f your-project-path
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Avalanche'>
+
+```shell
+subql-node-avalanche -f your-project-path
 ```
 
 </CodeGroupItem>
@@ -99,7 +121,7 @@ A full chain dictionary pre-indexes the location of all events and extrinsics wi
 You can add the dictionary endpoint in your `project.yaml` file (see [Manifest File](../create/manifest.md)), or specify it at run time using the following command:
 
 <CodeGroup>
-<CodeGroupItem title='Substrate'>
+<CodeGroupItem title='Substrate/Polkadot/Polkadot'>
 
 ```shell
 subql-node --network-dictionary=https://api.subquery.network/sq/subquery/dictionary-polkadot
@@ -109,7 +131,14 @@ subql-node --network-dictionary=https://api.subquery.network/sq/subquery/diction
 <CodeGroupItem title='Terra'>
 
 ```shell
-subql-node-terra --network-dictionary=https://api.subquery.network/sq/subquery/dictionary-polkadot
+subql-node-terra --network-dictionary=https://api.subquery.network/sq/subquery/terra-columbus-5-dictionary
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Avalanche'>
+
+```shell
+subql-node-avalanche --network-dictionary=https://api.subquery.network/sq/subquery/avalanche-dictionary
 ```
 
 </CodeGroupItem>
@@ -133,7 +162,7 @@ Depending on the configuration of your Postgres database (e.g. a different datab
 #### Specify a configuration file
 
 <CodeGroup>
-<CodeGroupItem title='Substrate'>
+<CodeGroupItem title='Substrate/Polkadot'>
 
 ```shell
 subql-node -c your-project-config.yml
@@ -144,6 +173,13 @@ subql-node -c your-project-config.yml
 
 ```shell
 subql-node-terra -c your-project-config.yml
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Avalanche'>
+
+```shell
+subql-node-avalanche -c your-project-config.yml
 ```
 
 </CodeGroupItem>
@@ -173,7 +209,7 @@ When the indexer first indexes the chain, fetching single blocks will significan
 #### Run in local mode
 
 <CodeGroup>
-<CodeGroupItem title='Substrate'>
+<CodeGroupItem title='Substrate/Polkadot'>
 
 ```shell
 subql-node -f your-project-path --local
@@ -184,6 +220,13 @@ subql-node -f your-project-path --local
 
 ```shell
 subql-node-terra -f your-project-path --local
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Avalanche'>
+
+```shell
+subql-node-avalanche -f your-project-path --local
 ```
 
 </CodeGroupItem>
