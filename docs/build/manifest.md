@@ -45,7 +45,7 @@ dataSources:
           kind: substrate/CallHandler
 ```
   </CodeGroupItem>
-    <CodeGroupItem title="v1.0.0 Avalanche">
+  <CodeGroupItem title="v1.0.0 Avalanche">
   
 ``` yml
 specVersion: 1.0.0
@@ -293,8 +293,8 @@ The following table explains filters supported by different handlers.
 | Substrate/Polkadot | [substrate/EventHandler](./mapping.md#event-handler) | `module`,`method`            |
 | Substrate/Polkadot | [substrate/CallHandler](./mapping.md#call-handler)   | `module`,`method` ,`success` |
 | Avalanche          | [avalanche/BlockHandler](./mapping.md#block-handler)     | No filters                   |
-| Avalanche          | [avalanche/TransactionHandler](./mapping.md#transaction-handler)     | `function` filters (either be the function fragment or signature)   |
-| Avalanche          | [avalanche/EventHandler](./mapping.md#event-handler)     | `topics` filters |
+| Avalanche          | [avalanche/TransactionHandler](./mapping.md#transaction-handler)     | `function` filters (either be the function fragment or signature), `from` (address), `to` (address)   |
+| Avalanche          | [avalanche/EventHandler](./mapping.md#event-handler)     | `topics` filters, and `address` |
 
 Default runtime mapping filters are an extremely useful feature to decide what block, event, or extrinsic will trigger a mapping handler.
 
