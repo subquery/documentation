@@ -56,12 +56,12 @@ subql init
 
 И накрая, в директорията на проекта изпълнете следната команда, за да инсталирате зависимостите на новия проект.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd ИМЕ_ПРОЕКТ yarn install ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```shell cd ИМЕ_ПРОЕКТ npm install ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
+<CodeGroupItem title="NPM"> ```shell cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
 
-## Внасяне на промени във вашия проект
+## Making Changes to your Project
 
-В стартовия пакет, който току-що инициализирахте, ние сме предоставили стандартна конфигурация за вашия нов проект. Основно ще работите върху следните файлове:
+In the starter package that you just initialised, we have provided a standard configuration for your new project. Основно ще работите върху следните файлове:
 
 1. Схема GraphQL `schema.graphql`
 2. Манифест на проекта в `project.yaml`
@@ -90,7 +90,7 @@ type Transfer @entity {
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```shell npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
 
-Ще намерите генерираните модели в директорията `/src/types/models`. За повече информация относно файла `schema.graphql`, проверете нашата документация в раздела [Build/GraphQL Schema](../build/graphql.md)
+You'll find the generated models in the `/src/types/models` directory. За повече информация относно файла `schema.graphql`, проверете нашата документация в раздела [Build/GraphQL Schema](../build/graphql.md)
 
 ### Обновяване на файла Project Manifest
 
@@ -164,13 +164,13 @@ XPath: /p[12]/CodeGroup/pre[3]/code
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script build ``` </CodeGroupItem> </CodeGroup>
 
-** Важно: Всеки път, когато правите промени във вашите mapping функции, ще трябва да изградите отново своя проект**
+**Important: Whenever you make changes to your mapping functions, you'll need to rebuild your project**
 
-## Стартиране и запитване на вашия проект
+## Running and Querying your Project
 
-### Стартирайте вашият проект с Docker
+### Run your Project with Docker
 
-Всеки път, когато създавате нов SubQuery проект, винаги трябва да го стартирате локално на вашия компютър, за да го тествате. Xpath: /p[12]/CodeGroup/p[17]/CodeGroup. Най-лесният начин да се направи това е чрез Docker.
+Whenever you create a new SubQuery Project, you should always run it locally on your computer to test it first. Най-лесният начин да се направи това е чрез Docker.
 
 Всички конфигурации, които контролират изпълнението на нодата SubQuery, са дефинирани в този файл `docker-compose.yml`. За нов проект, който току-що беше инициализиран, няма да е необходимо да променяте нищо, но можете да прочетете повече за файла и настройките в нашата [Секция за стартиране на Проекта](../run_publish/run.md)
 
@@ -178,7 +178,7 @@ XPath: /p[12]/CodeGroup/pre[3]/code
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn start:docker ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script start:docker ``` </CodeGroupItem> </CodeGroup>
 
-Изтеглянето на необходимите пакети за първи път може да отнеме известно време ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), и Postgres) fно скоро ще видите работеща нода на SubQuery. Бъдете търпеливи.
+It may take some time to download the required packages ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), and Postgres) for the first time but soon you'll see a running SubQuery node. Бъдете търпеливи.
 
 ### Направете заявка за вашият проект
 
