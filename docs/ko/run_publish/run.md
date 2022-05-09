@@ -20,19 +20,27 @@ docker-compose pull && docker-compose up
 
 - [Postgres](https://www.postgresql.org/) 데이터베이스(버전 12 이상). [SubQuery 노드](#start-a-local-subquery-node)가 블록체인을 인덱싱하는 동안 추출된 데이터는 외부 데이터베이스 인스턴스에 저장됩니다.
 
-SubQuery 노드는 SubQuery 프로젝트별로 기판 기반 블록체인 데이터를 추출하고 이를 Postgres 데이터베이스에 저장하는 구현입니다.
+A SubQuery node is an implementation that extracts Substrate/Polkadot-based blockchain data per the SubQuery project and saves it into a Postgres database.
 
 ### 설치
 
 <CodeGroup>
-<CodeGroupItem title='Substrate'>
+<CodeGroupItem title='Substrate/Polkadot'>
 
 ``` shell
 # NPM
 npm install -g @subql/node
 ```
-</CodeGroupItem>
 
+</CodeGroupItem>
+<CodeGroupItem title='Terra'>
+
+``` shell
+# NPM
+npm install -g @subql/node-terra
+```
+
+</CodeGroupItem>
 <CodeGroupItem title='Avalanche'>
 
 ``` shell
@@ -49,17 +57,24 @@ Please note that we **DO NOT** encourage the use of `yarn global` due to its poo
 
 
 <CodeGroup>
-<CodeGroupItem title='Substrate'>
+<CodeGroupItem title='Substrate/Polkadot'>
 
 ```shell
 subql-node <command>
 ```
 
 </CodeGroupItem>
+<CodeGroupItem title='Terra'>
+
+```shell
+subql-node-terra <command>
+```
+
+</CodeGroupItem>
 <CodeGroupItem title='Avalanche'>
 
 ```shell
-subql-node-avalanche <command>
+subql-node-avalanche <command> 
 ```
 
 </CodeGroupItem>
@@ -72,10 +87,17 @@ The following commands will assist you to complete the configuration of a SubQue
 #### 로컬 프로젝트 경로를 가리킴
 
 <CodeGroup>
-<CodeGroupItem title='Substrate'>
+<CodeGroupItem title='Substrate/Polkadot'>
 
 ```shell
 subql-node -f your-project-path
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Terra'>
+
+```shell
+subql-node-terra -f your-project-path
 ```
 
 </CodeGroupItem>
@@ -97,17 +119,24 @@ A full chain dictionary pre-indexes the location of all events and extrinsics wi
 You can add the dictionary endpoint in your `project.yaml` file (see [Manifest File](../create/manifest.md)), or specify it at run time using the following command:
 
 <CodeGroup>
-<CodeGroupItem title='Substrate'>
+<CodeGroupItem title='Substrate/Polkadot/Polkadot'>
 
 ```shell
 subql-node --network-dictionary=https://api.subquery.network/sq/subquery/dictionary-polkadot
 ```
 
 </CodeGroupItem>
+<CodeGroupItem title='Terra'>
+
+```shell
+subql-node-terra --network-dictionary=https://api.subquery.network/sq/subquery/terra-columbus-5-dictionary
+```
+
+</CodeGroupItem>
 <CodeGroupItem title='Avalanche'>
 
 ```shell
-subql-node-avalanche --network-dictionary=https://api.subquery.network/sq/subquery/dictionary-polkadot
+subql-node-avalanche --network-dictionary=https://api.subquery.network/sq/subquery/avalanche-dictionary
 ```
 
 </CodeGroupItem>
@@ -131,10 +160,17 @@ Depending on the configuration of your Postgres database (e.g. a different datab
 #### Specify a configuration file
 
 <CodeGroup>
-<CodeGroupItem title='Substrate'>
+<CodeGroupItem title='Substrate/Polkadot'>
 
 ```shell
 subql-node -c your-project-config.yml
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Terra'>
+
+```shell
+subql-node-terra -c your-project-config.yml
 ```
 
 </CodeGroupItem>
@@ -171,10 +207,17 @@ Result:
 #### Local mode
 
 <CodeGroup>
-<CodeGroupItem title='Substrate'>
+<CodeGroupItem title='Substrate/Polkadot'>
 
 ```shell
 subql-node -f your-project-path --local
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Terra'>
+
+```shell
+subql-node-terra -f your-project-path --local
 ```
 
 </CodeGroupItem>
