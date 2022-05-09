@@ -59,9 +59,9 @@ Son olarak, proje dizini altında, yeni projenin bağımlılıklarını yükleme
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```shell cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
 
-## Projenizde Değişiklik Yapmak
+## Making Changes to your Project
 
-Az önce başlattığınız başlangıç ​​paketinde, yeni projeniz için standart bir konfigürasyon sağladık. Esas olarak aşağıdaki dosyalar üzerinde çalışacaksınız:
+In the starter package that you just initialised, we have provided a standard configuration for your new project. Esas olarak aşağıdaki dosyalar üzerinde çalışacaksınız:
 
 1. The GraphQL Schema in `schema.graphql`
 2. `project.yaml` içindeki Proje Manifestosu
