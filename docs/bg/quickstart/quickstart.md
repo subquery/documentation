@@ -116,7 +116,7 @@ dataSources:
 
 За повече информация относна файла Project Manifest (`project.yaml`), проверете документацията ни в раздела [Build/Manifest File](../build/manifest.md)
 
-### Add a Mapping Function
+### Добавяне на Mappring функция
 
 Mapping functions define how chain data is transformed into the optimised GraphQL entities that we have previously defined in the `schema.graphql` file.
 
