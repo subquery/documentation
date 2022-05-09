@@ -5,7 +5,7 @@
       <div>
         <h2 class="welcomeTitle">Ласкаво просимо до SubQuery <span>Університеті</span></h2>
         <p>Досліджуйте та перетворюйте свої ланцюгові дані, щоб швидше створювати інтуїтивні dApp!</p>
-        <p><strong>SubQuery now supports both Polkadot and Avalanche</strong></p>
+        <p><strong>SubQuery now supports both Polkadot, Avalanche, and Terra</strong></p>
       </div>
     </div>
   </section>
