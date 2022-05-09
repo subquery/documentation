@@ -4,7 +4,7 @@ In this Quick start guide, we're going to start with a simple starter project an
 
 このガイドの最後には、SubQuery ノード上で動作する SubQuery プロジェクトを作成し、GraphQL エンドポイントからデータを照会できるようになります。
 
-まだの方は、SubQuery で使われている[用語](../#terminology)に慣れることをお勧めします。
+まだの方は、SubQueryで使われている[用語](../#terminology)に慣れることをお勧めします。
 
 **The goal of this quick start guide is to adapt the standard starter project to begin indexing all transfers from Polkadot, it should only take 10-15 minutes**
 
