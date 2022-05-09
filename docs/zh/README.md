@@ -5,7 +5,7 @@
       <div>
         <h2 class="welcomeTitle">欢迎使用 SubQuery 的 <span>文档</span></h2>
         <p>探索并改造您的链数据以更快地构建直观的 dApp！</p>
-        <p><strong>SubQuery now supports both Polkadot and Avalanche</strong></p>
+        <p><strong>SubQuery now supports both Polkadot, Avalanche, and Terra</strong></p>
       </div>
     </div>
   </section>
