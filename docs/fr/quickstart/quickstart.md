@@ -59,9 +59,9 @@ Enfin, dans le répertoire du projet, exécutez la commande suivante pour instal
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```shell cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
 
-## Apporter des modifications à votre projet
+## Making Changes to your Project
 
-Dans le paquet de démarrage que vous venez d'initialiser, nous avons fourni une configuration standard pour votre nouveau projet. Vous travaillerez principalement sur les fichiers suivants :
+In the starter package that you just initialised, we have provided a standard configuration for your new project. Vous travaillerez principalement sur les fichiers suivants :
 
 1. Le schéma GraphQL dans `schema.graphql`
 2. Le manifeste du projet dans `projet.yaml`
@@ -90,7 +90,7 @@ type Transfer @entity {
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```shell npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
 
-Vous trouverez les modèles générés dans le répertoire `/src/types/models`. Pour plus d'informations sur le fichier `schema.graphql`, consultez notre documentation sous [Build/GraphQL Schema](../build/graphql.md)
+You'll find the generated models in the `/src/types/models` directory. Pour plus d'informations sur le fichier `schema.graphql`, consultez notre documentation sous [Build/GraphQL Schema](../build/graphql.md)
 
 ### Mise à jour du fichier de manifeste du projet
 
@@ -161,13 +161,13 @@ Afin d'exécuter votre nouveau projet SubQuery, nous devons d'abord construire n
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script build ``` </CodeGroupItem> </CodeGroup>
 
-**Important : chaque fois que vous apportez des modifications à vos fonctions de mapping, vous devrez reconstruire votre projet**.
+**Important: Whenever you make changes to your mapping functions, you'll need to rebuild your project**
 
-## Exécution et interrogation de votre projet
+## Running and Querying your Project
 
-### Exécuter votre projet avec Docker
+### Run your Project with Docker
 
-Lorsque vous créez un nouveau projet de sous-quête, vous devez toujours l'exécuter localement sur votre ordinateur pour le tester d'abord. Le moyen le plus simple d'y parvenir est d'utiliser Docker.
+Whenever you create a new SubQuery Project, you should always run it locally on your computer to test it first. Le moyen le plus simple d'y parvenir est d'utiliser Docker.
 
 Toute la configuration qui contrôle la façon dont un nœud SubQuery est exécuté est définie dans ce fichier `docker-compose.yml`. Pour un nouveau projet qui vient d'être initalisé, vous n'aurez pas besoin de modifier quoi que ce soit ici, mais vous pouvez en savoir plus sur le fichier et les paramètres dans notre section [Exécuter un projet](../run_publish/run.md)
 
@@ -175,7 +175,7 @@ Dans le répertoire du projet, exécutez la commande suivante :
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn start:docker ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script start:docker ``` </CodeGroupItem> </CodeGroup>
 
-Il peut falloir un certain temps pour télécharger les paquets requis ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), et Postgres) pour la première fois mais bientôt vous verrez un nœud SubQuery en fonctionnement. Soyez patient ici.
+It may take some time to download the required packages ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), and Postgres) for the first time but soon you'll see a running SubQuery node. Soyez patient ici.
 
 ### Recherchez votre projet
 
