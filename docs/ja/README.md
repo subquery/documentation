@@ -5,7 +5,7 @@
       <div>
         <h2 class="welcomeTitle">Welcome to SubQuery <span>University</span></h2>
         <p>直感的なdAppsをより速く構築するために、チェーンデータを検索して変換しましょう！</p>
-        <p><strong>SubQuery now supports both Polkadot and Avalanche</strong></p>
+        <p><strong>SubQuery now supports both Polkadot, Avalanche, and Terra</strong></p>
       </div>
     </div>
   </section>
