@@ -5,7 +5,7 @@
       <div>
         <h2 class="welcomeTitle">Заповядайте в SubQuery <span>University</span></h2>
         <p>Изследвайте и трансформирайте вашите блокчейн данни, за да изградите по-бързо интуитивни dApps!</p>
-        <p><strong>SubQuery вече подкрепя и Polkadot и Avalanche</strong></p>
+        <p><strong>SubQuery now supports both Polkadot, Avalanche, and Terra</strong></p>
       </div>
     </div>
   </section>
