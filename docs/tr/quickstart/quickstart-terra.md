@@ -1,14 +1,14 @@
-# Terra Quick Start
+# Terra Hızlı Başlangıç
 
-In this Quick start guide, we're going to start with a simple Terra starter project and then finish by indexing some actual real data. Bu, kendi SubQuery Projenizi geliştirirken başlamak için mükemmel bir temeldir.
+Bu Hızlı başlangıç ​​kılavuzunda, basit bir Terra başlangıç ​​projesiyle başlayacağız ve ardından bazı gerçek gerçek verileri indeksleyerek bitireceğiz. Bu, kendi SubQuery Projenizi geliştirirken başlamak için mükemmel bir temeldir.
 
-**If your are looking for guides for Substrate/Polkadot, you can read the [Substrate/Polkadot specific quick start guide](./quickstart-polkadot).**
+**Substrate/Polkadot için kılavuz arıyorsanız, [Substrate/Polkadot'a özel hızlı başlangıç ​​kılavuzunu okuyabilirsiniz](./quickstart-polkadot).**
 
 Bu kılavuzun sonunda, verileri sorguyabileceğiniz bir GraphQL uç noktasına sahip bir SubQuery düğümünde çalışan çalışan bir SubQuery projeniz olacaktır.
 
 Henüz yapmadıysanız, SubQuery'de kullanılan [terminology](../#terminology) hakkında bilgi sahibi > öneririz.
 
-**The goal of this quick start guide is to adapt the standard starter project to begin indexing all transfers from Terra, it should only take 10-15 minutes**
+**Bu hızlı başlangıç ​​kılavuzunun amacı, standart başlangıç ​​projesini Terratan tüm transferleri indekslemeye başlayacak şekilde uyarlamaktır, sadece 10-15 dakika sürmelidir**
 
 ## Hazırlık
 
@@ -45,10 +45,10 @@ subql init
 SubQuery projesi initalised olarak size bazı sorular sorulana olacaktır:
 
 - Ad: SubQuery projeniz için bir ad
-- Network: A blockchain network that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use *"Terra"*
+- Ağ: Bu SubQuery projesinin dizine eklemek için geliştirileceği bir blok zinciri ağı, seçenekler arasından seçim yapmak için klavyenizdeki ok tuşlarını kullanın, bu kılavuz için *"Terra"* kullanacağız
 - Şablon: Geliştirmeye başlamak için bir başlangıç ​​noktası sağlayacak bir SubQuery proje şablonu seçin, *"Başlangıç ​​projesi"* öğesini seçmenizi öneririz
 - Git deposu (İsteğe Bağlı): Bu SubQuery projesinin barındırılacağı bir depoya Git URL'si sağlayın (SubQuery Gezgini'nde barındırıldığında)
-- RPC uç noktası (Gerekli): Bu proje için varsayılan olarak kullanılacak çalışan bir RPC uç noktasına wss URL'si sağlayın. Bu RPC düğümü bir arşiv düğümü olmalıdır (tam zincir durumuna sahip). For this guide we will use the default value *"https://terra-columbus-5.beta.api.onfinality.io"*
+- RPC uç noktası (Gerekli): Bu proje için varsayılan olarak kullanılacak çalışan bir RPC uç noktasına wss URL'si sağlayın. Bu RPC düğümü bir arşiv düğümü olmalıdır (tam zincir durumuna sahip). Bu kılavuz için *"https://terra-columbus-5.beta.api.onfinality.io"* varsayılan değerini kullanacağız
 - Yazarlar (Zorunlu): Bu SubQuery projesinin sahibini buraya girin (örn. adınız!)
 - Açıklama (İsteğe Bağlı): Projeniz hakkında hangi verileri içerdiğini ve kullanıcıların bu verilerle neler yapabileceğini açıklayan kısa bir paragraf sağlayabilirsiniz
 - Sürüm (Gerekli): Özel bir sürüm numarası girin veya varsayılanı kullanın (`1.0.0`)
