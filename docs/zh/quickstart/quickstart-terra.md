@@ -1,14 +1,14 @@
-# Terra Quick Start
+# Terra快速开始
 
-In this Quick start guide, we're going to start with a simple Terra starter project and then finish by indexing some actual real data. 这是开发您自己的 SubQuery 项目的良好基础。
+在这个快速入门指南中，我们将从一个简单的启动项目开始，然后通过索引一些实际数据来完成。 这是开发您自己的 SubQuery 项目的良好基础。
 
-**If your are looking for guides for Substrate/Polkadot, you can read the [Substrate/Polkadot specific quick start guide](./quickstart-polkadot).**
+**如果您正在寻找Terra指南，您可以阅读 [Terra特定的快速启动指南](./quickstart-polkadot)。**
 
 在本指南的最后，您将拥有一个在 SubQuery 节点上运行的可工作 的 SubQuery 项目，该节点具有一个可以从中查询数据的 GraphQL 端点。
 
 如果您还没有准备好进一步学习，我们建议您熟悉SubQuery中所使用的 [terminology](../#terminology)。
 
-**The goal of this quick start guide is to adapt the standard starter project to begin indexing all transfers from Terra, it should only take 10-15 minutes**
+**这个快速入门指南的目的是调整标准的启动项目，开始对Polkadot的所有转移进行索引，它应该只需要10-15分钟**
 
 ## 准备
 
@@ -45,10 +45,10 @@ subql init
 在初始化 SubQuery project 时，您会被问到一些问题：
 
 - 名称：您的 SubQuery 项目的名称
-- Network: A blockchain network that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use *"Terra"*
+- 网络。这个SubQuery项目将开发的区块链网络索引，使用键盘上的方向键从选项中选择，对于本指南，我们将使用*"Polkadot"*。
 - 模板。选择一个子查询项目模板，为开始开发提供一个起点，我们建议选择*"启动项目"*。
 - Git仓库（可选）。提供一个Git URL，这个SubQuery项目将被托管在一个Repo中（当托管在SubQuery Explorer中）。
-- RPC端点（需要）。提供一个运行中的RPC端点的HTTPS URL，该端点将被默认用于该项目。 此 RPC 节点必须是归档节点 (具有完整链状态)。 For this guide we will use the default value *"https://terra-columbus-5.beta.api.onfinality.io"*
+- RPC端点（需要）。提供一个运行中的RPC端点的HTTPS URL，该端点将被默认用于该项目。 此 RPC 节点必须是归档节点 (具有完整链状态)。 在本指南中，我们将使用默认值*"https://polkadot.api.onfinality.io"*。
 - 作者（必填）。在此输入该子查询项目的所有者（例如，你的名字！）。
 - 描述（可选）。你可以提供一个关于你的项目的简短段落，描述它包含什么数据以及用户可以用它做什么。
 - 版本 (必填)：输入一个自定义版本号或使用默认版本(`1.0.0`)
@@ -61,15 +61,15 @@ subql init
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```shell cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
 
-## Making Changes to your Project
+## 正在对您的项目进行更改
 
-In the starter package that you just initialised, we have provided a standard configuration for your new project. 您将主要处理下列文件：
+在您刚刚初始化的启动包， 我们为您的新项目提供了标准配置。 您将主要处理下列文件：
 
 1. 在 `schema.graphql`中的 GraphQL Schema
 2. `project.yaml` 中的项目清单
 3. `src/mappings/` 目录中的映射函数
 
-The goal of this quick start guide is to adapt the standard starter project to begin indexing all transfers from the bLuna smart contract.
+本快速入门指南的目的是调整标准的启动项目，以开始对Polkadot的所有转移进行索引。
 
 ### 更新你的GraphQL Schema文件
 
@@ -79,48 +79,51 @@ The goal of this quick start guide is to adapt the standard starter project to b
 
 ```graphql
 type Transfer @entity {
-  id: ID! # id field is always required and must look like this
-  txHash: String!
-  blockHeight: BigInt # The block height of the transfer
-  sender: String! # The account that transfers are made from
-  recipient: String! # The account that transfers are made to
-  amount: String! # Amount that is transferred
+  id: ID! type Example @entity {
+  id: ID! # id 字段总是必需的，必须像这样定义
+  name: String! # 这是必填字段
+  address: String # 这是一个可选字段
+}
+  块高度: BigInt # 传输
+  发送者的块高度: 字符串! # 从
+  到字符串的转账账户！ # 从
+  到字符串的转账账户！ # 转移的金额
 }
 ```
 
 **重要提示：当您对模式文件做任何更改时， 请确保使用命令yarn codegen来重新生成你的类型目录。 现在就做。**
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```shell npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> cd PROJECT_NAME # Yarn yarn install # NPM npm install 您将主要处理以下文件：
 
-You'll find the generated models in the `/src/types/models` directory. 欲了解更多关于 `schema.graphql` 文件的信息，请参阅 [Build/GraphQL Schema](../build/graphql.md)
+- 在 `project.yaml`. 欲了解更多关于 
+`schema.graphql` 文件的信息，请参阅 [Build/GraphQL Schema](../build/graphql.md)</p>
 
 ### 更新Project Manifest 文件
 
 Projet Manifest（`project.yaml`）文件可以被看作是你项目的入口，它定义了SubQuery如何索引和转换链数据的大部分细节。
 
-我们不会对清单文件做许多更改，因为它已经正确设置了，但我们需要更改处理程序。 Remember we are planning to index all Terra transfer events, as a result, we need to update the `datasources` section to read the following.
+我们不会对清单文件做许多更改，因为它已经正确设置了，但我们需要更改处理程序。 请记住，我们正计划对所有Polkadot传输进行索引，因此，我们需要更新`datasources`部分，使之成为以下内容。
 
 ```yaml
-dataSources:
-  - kind: terra/Runtime
-    startBlock: 4724001 # Colombus-5 Starts at this height
-    mapping:
-      file: ./dist/index.js
-      handlers:
-        - handler: handleEvent
-          kind: terra/EventHandler
-          # this will trigger on all events that match the following smart contract filter condition
-          filter:
-            type: transfer
-            messageFilter:
-              type: /terra.wasm.v1beta1.MsgExecuteContract
-              values:
-                # We are subscribing to the bLuna smart contract (e.g. only transfer events from this contract)
-                contract: terra1j66jatn3k50hjtg2xemnjm8s7y8dws9xqa5y8w
+数据源:
+  - 类型: terra/Runtime
+    startBlock: 4724001 # Colombus-5 在此高度开始
+    映射:
+      文件: 距离/index。 s
+      处理器：
+        - 处理器：处理事件
+          类型：terra/EventHandler
+          # 这将触发所有符合以下智能合同过滤条件的事件
+          过滤器：
+            类型：传输
+            messageFilter：
+              类型：/terra。 如需通过，请填写。 sgExecuteContract
+              值：
+                # 我们正在订阅bLuna 智能合同 (e). 。只能从该合同转移事件。)
+                合同：terra1j66jatn3k50hjtg2xemnjm8s7y8dws9xqa5y8w
 ```
 
-This means we'll run a `handleEvent` mapping function each and every time there is a `transfer` event from the bLuna smart contract.
+这意味着我们将运行一个 `处理事件` 映射功能，每次从 bLuna 智能合约进行 `传输` 事件。
 
 关于Project Manifest（`project.yaml`）文件的更多信息，请查看我们在[Build/Manifest File](../build/manifest.md)下的文档。
 
@@ -130,7 +133,7 @@ Mapping functions定义了如何将链式数据转化为我们之前在`schema.g
 
 导航到`src/mappings`目录下的默认映射函数。 你会看到三个导出的函数, `handleBlock`, `handleEvent`, 和 `handleCall`。 你可以同时删除`handleBlock`和`handleCall`函数，我们只处理`handleEvent`函数。
 
-`handleEvent`函数接收事件数据，只要事件符合我们之前在`project.yaml`中指定的过滤器。 We are going to update it to process all `transfer` events and save them to the GraphQL entities that we created earlier.
+`handleEvent`函数接收事件数据，只要事件符合我们之前在`project.yaml`中指定的过滤器。 我们将更新它以处理所有`balances.Transfer`事件，并将它们保存到我们先前创建的GraphQL实体中。
 
 你可以将`handleEvent`函数更新为以下内容（注意额外的导入）。
 
@@ -179,13 +182,13 @@ export async function handleEvent(
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script build ``` </CodeGroupItem> </CodeGroup>
 
-**Important: Whenever you make changes to your mapping functions, you'll need to rebuild your project**
+**重要的是：每当你对你的映射函数进行修改时，你就需要重建你的项目**。
 
-## Running and Querying your Project
+## 运行和查询你的项目</6
 
-### Run your Project with Docker
+### 用Docker运行你的项目</7
 
-Whenever you create a new SubQuery Project, you should always run it locally on your computer to test it first. 最简单的方法是使用 Docker。
+当你创建一个新的SubQuery项目时，你应该总是在你的计算机上运行它，首先测试它。 最简单的方法是使用 Docker。
 
 控制SubQuery节点运行方式的所有配置都在这个`docker-compose.yml`文件中定义。 对于一个刚刚启动的新项目，你不需要改变这里的任何东西，但你可以在我们的[运行项目部分](../run_publish/run.md)阅读更多关于文件和设置的信息。
 
@@ -193,7 +196,7 @@ Whenever you create a new SubQuery Project, you should always run it locally on 
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn start:docker ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script start:docker ``` </CodeGroupItem> </CodeGroup>
 
-It may take some time to download the required packages ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), and Postgres) for the first time but soon you'll see a running SubQuery node. 请耐心等待。
+下载所需软件包可能需要一些时间([`@subql/节点`](https://www.npmjs.com/package/@subql/node), [`@subql/quiry`](https://www.npmjs.com/package/@subql/query), and Postgress) 首次，但很快你会看到一个运行中的 SubQuery 节点。 请耐心等待。
 
 ### 查询您的项目
 
@@ -208,15 +211,14 @@ It may take some time to download the required packages ([`@subql/node`](https:/
   query {
     transfers(
       first: 10,
-      orderBy: ID_DESC
+      orderBy: AMOUNT_DESC
     ) {
       nodes {
         id
-        txHash
         amount
-        blockHeight
-        sender
-        recipient
+        blockNumber
+        from
+        to
       }
     }
   }
@@ -231,7 +233,7 @@ It may take some time to download the required packages ([`@subql/node`](https:/
 
 ## 后续步骤
 
-Congratulations, you now have a locally running SubQuery project that accepts GraphQL API requests for transfers data from bLuna.
+恭喜，您现在有一个本地运行的 SubQuery 项目，该项目接受 GraphQL API 对示例数据的请求。
 
 现在你已经深入了解了如何建立一个基本的SubQuery项目，问题是要从哪里开始？ 如果你感到有信心，你可以跳到更多关于三个关键文件的学习。 这些文档的 [构建部分下的清单文件，GraphQL schema 和映射文件](../build/introduction.md)。
 
