@@ -1,6 +1,6 @@
 # SubQuery Yerel Olarak Çalıştırma
 
-Bu kılavuz, hem dizinleyiciyi hem de sorgu hizmetini içeren altyapınızda yerel bir SubQuery düğümünün nasıl çalıştırılacağı üzerinde çalışır. Kendi SubQuery altyapınızı çalıştırma konusunda endişelenmek istemiyor musunuz? SubQuery, topluluğa ücretsiz olarak [yönetilen barındırılan bir hizmet](https://explorer.subquery.network) sunar. [Follow our publishing guide](../run_publish/publish.md) to see how you can upload your project to [SubQuery Projects](https://project.subquery.network).
+Bu kılavuz, hem dizinleyiciyi hem de sorgu hizmetini içeren altyapınızda yerel bir SubQuery düğümünün nasıl çalıştırılacağı üzerinde çalışır. Kendi SubQuery altyapınızı çalıştırma konusunda endişelenmek istemiyor musunuz? SubQuery, topluluğa ücretsiz olarak [yönetilen barındırılan bir hizmet](https://explorer.subquery.network) sunar. Projenizi [SubQuery Projects](https://project.subquery.network)'a nasıl yükleyebileceğinizi görmek için [yayın kılavuzumuzu izleyin](../run_publish/publish.md).
 
 ## Docker'ı kullanma
 
@@ -20,7 +20,7 @@ Gereksinim -leri:
 
 - [Postgres](https://www.postgresql.org/) database (sürüm 12 veya üstü). [SubQuery node](#start-a-local-subquery-node) blok zincirini dizine alırken, çıkarılan veriler harici bir veritabanı örneğinde depolanır.
 
-A SubQuery node is an implementation that extracts Substrate/Polkadot-based blockchain data per the SubQuery project and saves it into a Postgres database.
+Bir SubQuery düğümü, SubQuery projesi başına Substrate/Polkadot tabanlı blok zinciri verilerini çıkaran ve bir Postgres veritabanına kaydeden bir uygulamadır.
 
 ### Kurma
 
@@ -56,21 +56,7 @@ Please note that we **DO NOT** encourage the use of `yarn global` due to its poo
 Yüklendikten sonra, aşağıdaki komutla bir düğüm başlatabilirsiniz:
 
 
-<CodeGroup>
-<CodeGroupItem title='Substrate/Polkadot'>
-
-```shell
-subql-node <command>
-```
-
-</CodeGroupItem>
-<CodeGroupItem title='Terra'>
-
-```shell
-subql-node-terra <command>
-```
-
-</CodeGroupItem>
+<CodeGroup> </CodeGroupItem>
 <CodeGroupItem title='Avalanche'>
 
 ```shell
@@ -86,21 +72,7 @@ The following commands will assist you to complete the configuration of a SubQue
 
 #### Yerel proje yolunun göster
 
-<CodeGroup>
-<CodeGroupItem title='Substrate/Polkadot'>
-
-```shell
-subql-node -f your-project-path
-```
-
-</CodeGroupItem>
-<CodeGroupItem title='Terra'>
-
-```shell
-subql-node-terra -f your-project-path
-```
-
-</CodeGroupItem>
+<CodeGroup> </CodeGroupItem>
 <CodeGroupItem title='Avalanche'>
 
 ```shell
@@ -112,11 +84,11 @@ subql-node-avalanche -f your-project-path
 
 #### Use a Dictionary
 
-Using a full chain dictionary can dramatically speed up the processing of a SubQuery project during testing or during your first index. In some cases, we've seen indexing performance increases of up to 10x.
+Using a full chain dictionary can dramatically speed up the processing of a SubQuery project during testing or during your first index. Bazı durumlarda, dizine ekleme performansında 10 kata kadar artışlar gördük.
 
-A full chain dictionary pre-indexes the location of all events and extrinsics within the specific chain and allows your node service to skip to relevant locations when indexing rather than inspecting each block.
+Tam zincir sözlüğü, belirli zincir içindeki tüm olayların ve dışsal öğelerin konumunu önceden endeksler ve düğüm hizmetinizin, dizin oluştururken her bloğu incelemek yerine ilgili konumlara atlamasına olanak tanır.
 
-You can add the dictionary endpoint in your `project.yaml` file (see [Manifest File](../create/manifest.md)), or specify it at run time using the following command:
+Sözlük bitiş noktasını `project.yaml` dosyanıza ekleyebilir (bkz. [Manifest File](../create/manifest.md)) veya aşağıdaki komutu kullanarak çalışma zamanında belirtebilirsiniz:
 
 <CodeGroup>
 <CodeGroupItem title='Substrate/Polkadot/Polkadot'>
@@ -155,9 +127,9 @@ export DB_PORT=5432
 subql-node -f your-project-path
 ```
 
-Depending on the configuration of your Postgres database (e.g. a different database password), please ensure also that both the indexer (`subql/node`) and the query service (`subql/query`) can establish a connection to it.
+Postgres veritabanınızın yapılandırmasına bağlı olarak (ör. farklı bir veritabanı parolası), lütfen hem dizinleyicinin (`subql/node`) hem de sorgu hizmetinin (`subql/query`) ile bağlantı kurabilir.
 
-#### Specify a configuration file
+#### Yapılandırma dosyası belirtme
 
 <CodeGroup>
 <CodeGroupItem title='Substrate/Polkadot'>
@@ -183,13 +155,13 @@ subql-node-avalanche -c your-project-config.yml
 </CodeGroupItem>
 </CodeGroup>
 
-This will point the query node to a configuration file which can be in YAML or JSON format. Check out the example below.
+This will point the query node to a configuration file which can be in YAML or JSON format. Aşağıdaki örneğe göz atın.
 
 ```yaml
 subquery: ../../../../subql-example/extrinsics
 subqueryName: extrinsics
-batchSize:100
-localMode:true
+partiBoyutu:100
+localMode:doğru
 ```
 
 #### Blok getirme toplu iş boyutunu değiştirme
@@ -302,7 +274,7 @@ For help, see: https://nodejs.org/en/docs/inspector
 Debugger attached.
 ```
 
-Ardından Chrome geliştirme araçlarını açın, Kaynak > Dosya sistemi menüsüne gidin, projenizi çalışma alanına ekleyin ve hataları ayıklamaya başlayın. For more information, check out [How to debug a SubQuery project](https://doc.subquery.network/academy/tutorials_examples/debug-projects/)
+Ardından Chrome geliştirme araçlarını açın, Kaynak > Dosya sistemi menüsüne gidin, projenizi çalışma alanına ekleyin ve hataları ayıklamaya başlayın. Daha fazla bilgi için, kontrol edin [Bir SubQuery projesinde nasıl hata ayıklanır](https://doc.subquery.network/academy/tutorials_examples/debug-projects/)
 
 ## Sorgu Hizmeti Çalıştırma (altql/query)
 
@@ -322,6 +294,6 @@ export DB_HOST=localhost
 subql-query --name <project_name> --playground
 ```
 
-Make sure the project name is the same as the project name when you [initialize the project](../quickstart/quickstart-polkadot.md#initialise-the-starter-subquery-project). Ayrıca, ortam değişkenlerinin doğru olup olmadığını denetleyin.
+Projeyi [initialize the project](../quickstart/quickstart-polkadot.md#initialise-the-starter-subquery-project) proje adıyla aynı olduğundan emin olun. Ayrıca, ortam değişkenlerinin doğru olup olmadığını denetleyin.
 
 SubQuery hizmetini başarıyla çalıştırdikten sonra tarayıcınızı açın ve `http://localhost:3000` gidin. Explorer'da ve sorguya hazır şemada gösterilen bir GraphQL oyun alanı görmeniz gerekir.
