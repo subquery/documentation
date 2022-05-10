@@ -1,8 +1,8 @@
-# Polkadot Quick Start
+# Polkadot 快速启动
 
-In this Quick start guide, we're going to start with a simple Substrate/Polkadot starter project and then finish by indexing some actual real data. This is an excellent basis to start with when developing your own Substrate/Polkadot SubQuery Project.
+在这个快速入门指南中，我们将从一个简单的启动项目开始，然后通过索引一些实际数据来完成。 这是开发您自己的 SubQuery 项目的良好基础。
 
-**If your are looking for guides for Terra, you can read the [Terra specific quick start guide](./quickstart-terra).**
+**如果您正在寻找Terra指南，您可以阅读 [Terra特定的快速启动指南](./quickstart-terra)。**
 
 在本指南的最后，您将拥有一个在 SubQuery 节点上运行的可工作 的 SubQuery 项目，该节点具有一个可以从中查询数据的 GraphQL 端点。
 
@@ -61,9 +61,9 @@ subql init
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```shell cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
 
-## Making Changes to your Project
+## 正在对您的项目进行更改
 
-In the starter package that you just initialised, we have provided a standard configuration for your new project. 您将主要处理下列文件：
+在您刚刚初始化的启动包， 我们为您的新项目提供了标准配置。 您将主要处理下列文件：
 
 1. 在 `schema.graphql`中的 GraphQL Schema
 2. `project.yaml` 中的项目清单
@@ -79,11 +79,11 @@ In the starter package that you just initialised, we have provided a standard co
 
 ```graphql
 type Transfer @entity {
-  id: ID! # id field is always required and must look like this
-  amount: BigInt # Amount that is transferred
-  blockNumber: BigInt # The block height of the transfer
-  from: String! # The account that transfers are made from
-  to: String! # The account that transfers are made to
+  id: ID! # id 字段始终是必需的，必须像此
+  金额: BigIntt # 已传输的
+  blockNumber: BigInt # 传输的块高度
+  来自: 字符串! # 从
+  到字符串的转账账户！ # The account that transfers are made to
 }
 ```
 
@@ -92,7 +92,7 @@ type Transfer @entity {
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```shell npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
 
-You'll find the generated models in the `/src/types/models` directory. 欲了解更多关于 `schema.graphql` 文件的信息，请参阅 [Build/GraphQL Schema](../build/graphql.md)
+你会在 `/src/types/model` 目录中找到生成的模型。 欲了解更多关于 `schema.graphql` 文件的信息，请参阅 [Build/GraphQL Schema](../build/graphql.md)
 
 ### 更新Project Manifest 文件
 
@@ -163,13 +163,13 @@ export async function handleTransfer(event: SubstrateEvent): Promise<void> {
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script build ``` </CodeGroupItem> </CodeGroup>
 
-**Important: Whenever you make changes to your mapping functions, you'll need to rebuild your project**
+**重要的是：每当你对你的映射函数进行修改时，你就需要重建你的项目**。
 
-## Running and Querying your Project
+## 运行和查询你的项目</6
 
-### Run your Project with Docker
+### 用Docker运行你的项目</7
 
-Whenever you create a new SubQuery Project, you should always run it locally on your computer to test it first. 最简单的方法是使用 Docker。
+当你创建一个新的SubQuery项目时，你应该总是在你的计算机上运行它，首先测试它。 最简单的方法是使用 Docker。
 
 控制SubQuery节点运行方式的所有配置都在这个`docker-compose.yml`文件中定义。 对于一个刚刚启动的新项目，你不需要改变这里的任何东西，但你可以在我们的[运行项目部分](../run_publish/run.md)阅读更多关于文件和设置的信息。
 
@@ -177,7 +177,7 @@ Whenever you create a new SubQuery Project, you should always run it locally on 
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn start:docker ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script start:docker ``` </CodeGroupItem> </CodeGroup>
 
-It may take some time to download the required packages ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), and Postgres) for the first time but soon you'll see a running SubQuery node. 请耐心等待。
+下载所需软件包可能需要一些时间([`@subql/节点`](https://www.npmjs.com/package/@subql/node), [`@subql/quiry`](https://www.npmjs.com/package/@subql/query), and Postgress) 首次，但很快你会看到一个运行中的 SubQuery 节点。 请耐心等待。
 
 ### 查询您的项目
 
