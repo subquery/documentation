@@ -5,7 +5,7 @@
       <div>
         <h2 class="welcomeTitle">Chào mừng bạn đến với <span>Đại học</span> SubQuery</h2>
         <p>Khám phá và chuyển đổi dữ liệu chuỗi của bạn để xây dựng các dApp trực quan nhanh hơn!</p>
-        <p><strong>SubQuery now supports both Polkadot, Avalanche, and Terra</strong></p>
+        <p><strong>SubQuery hiện hỗ trợ cả Polkadot, Avalanche và Terra</strong></p>
       </div>
     </div>
   </section>
@@ -16,7 +16,7 @@
       </p>
       <span class="button">
         <router-link :to="{path: '/quickstart/quickstart-polkadot.html'}">
-          <span>Get started</span>
+          <span>Bắt đầu</span>
         </router-link>
       </span>
     </div>
@@ -71,7 +71,7 @@
       <li>
         <div class="title">Cách tốt nhất để bắt đầu với SubQuery là gì?</div>
         <div class="content">
-          <p>The best way to get started with SubQuery is to try out our <a href="/quickstart/quickstart-polkadot.html">Quick Start tutorial</a>. Đây là một hướng dẫn đơn giản trong 5 phút: tải xuống mẫu khởi động, xây dựng dự án và sau đó sử dụng Docker để chạy một node trên máy chủ của bạn và chạy một truy vấn đơn giản. </p>
+          <p>Cách tốt nhất để bắt đầu với SubQuery là thực hiện <a href="/quickstart/quickstart-polkadot.html">Hướng dẫn bắt đầu nhanh</a> của chúng tôi. Đây là một hướng dẫn đơn giản trong 5 phút: tải xuống mẫu khởi động, xây dựng dự án và sau đó sử dụng Docker để chạy một node trên máy chủ của bạn và chạy một truy vấn đơn giản. </p>
         </div>
       </li>
       <li>
