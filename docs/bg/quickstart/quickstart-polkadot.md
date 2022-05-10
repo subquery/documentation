@@ -58,12 +58,7 @@ subql init
 
 И накрая, в директорията на проекта изпълнете следната команда, за да инсталирате зависимостите на новия проект.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```shell cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
-
-## Making Changes to your Project
-
-In the starter package that you just initialised, we have provided a standard configuration for your new project. Основно ще работите върху следните файлове:
+<CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` Основно ще работите върху следните файлове:
 
 1. Схема GraphQL `schema.graphql`
 2. Манифест на проекта в `project.yaml`
@@ -166,13 +161,13 @@ XPath: /p[12]/CodeGroup/pre[3]/code
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script build ``` </CodeGroupItem> </CodeGroup>
 
-**Important: Whenever you make changes to your mapping functions, you'll need to rebuild your project**
+** Важно: Всеки път, когато правите промени във вашите mapping функции, ще трябва да изградите отново своя проект**
 
-## Running and Querying your Project
+## Стартиране и запитване във вашия проект
 
-### Run your Project with Docker
+### Стартиране на вашия проект с Docker
 
-Whenever you create a new SubQuery Project, you should always run it locally on your computer to test it first. Най-лесният начин да се направи това е чрез Docker.
+Всеки път, когато създавате нов проект на SubQuery, винаги трябва да го стартирате локално на вашия компютър, за да го тествате първо. Най-лесният начин да се направи това е чрез Docker.
 
 Всички конфигурации, които контролират изпълнението на нодата SubQuery, са дефинирани в този файл `docker-compose.yml`. За нов проект, който току-що беше инициализиран, няма да е необходимо да променяте нищо, но можете да прочетете повече за файла и настройките в нашата [Секция за стартиране на Проекта](../run_publish/run.md)
 
@@ -180,7 +175,7 @@ Whenever you create a new SubQuery Project, you should always run it locally on 
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn start:docker ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script start:docker ``` </CodeGroupItem> </CodeGroup>
 
-It may take some time to download the required packages ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), and Postgres) for the first time but soon you'll see a running SubQuery node. Бъдете търпеливи.
+Изтеглянето на необходимите пакети може да отнеме известно време ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), and Postgres) за първи път, но скоро ще видите работеща нода SubQuery. Бъдете търпеливи.
 
 ### Направете заявка за вашият проект
 
