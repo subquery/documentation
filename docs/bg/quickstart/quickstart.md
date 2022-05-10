@@ -56,7 +56,12 @@ subql init
 
 И накрая, в директорията на проекта изпълнете следната команда, за да инсталирате зависимостите на новия проект.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` Основно ще работите върху следните файлове:
+<CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
+<CodeGroupItem title="NPM"> ```shell cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
+
+## Промени във вашият проект
+
+В стартовия пакет, който току-що инициализирахте, ние сме предоставили стандартна конфигурация за вашия нов проект. Основно ще работите върху следните файлове:
 
 1. Схема GraphQL `schema.graphql`
 2. Манифест на проекта в `project.yaml`
