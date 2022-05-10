@@ -1,8 +1,8 @@
-# Polkadot Quick Start
+# Polkadot Hızlı Başlangıç
 
-In this Quick start guide, we're going to start with a simple Substrate/Polkadot starter project and then finish by indexing some actual real data. This is an excellent basis to start with when developing your own Substrate/Polkadot SubQuery Project.
+Bu Hızlı başlangıç ​​kılavuzunda, basit bir Substrate/Polkadot başlangıç ​​projesiyle başlayacağız ve ardından bazı gerçek gerçek verileri indeksleyerek bitireceğiz. Bu, kendi Substrate/Polkadot SubQuery Projenizi geliştirirken başlamak için mükemmel bir temeldir.
 
-**If your are looking for guides for Terra, you can read the [Terra specific quick start guide](./quickstart-terra).**
+**Terra için kılavuz arıyorsanız, [Terra'ya özel hızlı başlangıç ​​kılavuzunu okuyabilirsiniz](./quickstart-terra).**
 
 Bu kılavuzun sonunda, verileri sorguyabileceğiniz bir GraphQL uç noktasına sahip bir SubQuery düğümünde çalışan çalışan bir SubQuery projeniz olacaktır.
 
@@ -82,8 +82,8 @@ type Transfer @entity {
   id: ID! # id field is always required and must look like this
   amount: BigInt # Amount that is transferred
   blockNumber: BigInt # The block height of the transfer
-  from: String! # The account that transfers are made from
-  to: String! # The account that transfers are made to
+  from: String! # Transferin yapıldığı hesap
+  için: Dize! # The account that transfers are made to
 }
 ```
 
