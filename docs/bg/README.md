@@ -5,7 +5,7 @@
       <div>
         <h2 class="welcomeTitle">Заповядайте в SubQuery <span>University</span></h2>
         <p>Изследвайте и трансформирайте вашите блокчейн данни, за да изградите по-бързо интуитивни dApps!</p>
-        <p><strong>SubQuery now supports both Polkadot, Avalanche, and Terra</strong></p>
+        <p><strong>SubQuery вече подкрепя Polkadot, Avalanche, и Terra</strong></p>
       </div>
     </div>
   </section>
@@ -16,7 +16,7 @@
       </p>
       <span class="button">
         <router-link :to="{path: '/quickstart/quickstart-polkadot.html'}">
-          <span>Get started</span>
+          <span>Започнете</span>
         </router-link>
       </span>
     </div>
@@ -71,7 +71,7 @@
       <li>
         <div class="title">Кой е най-добрият начин да стартирате работа със SubQuery?</div>
         <div class="content">
-          <p>The best way to get started with SubQuery is to try out our <a href="/quickstart/quickstart-polkadot.html">Quick Start tutorial</a>. Това е лесно 5-минутно ръководство за изтегляне на стартовия шаблон, изграждане на проекта и след това използване на Docker за стартиране на нода на вашия локален хост и изпълнение на проста заявка. </p>
+          <p>Най-добрият начин да започнете със SubQuery е да пробвате нашият <a href="/quickstart/quickstart-polkadot.html">Quick Start ръководство</a>. Това е лесно 5-минутно ръководство за изтегляне на стартовия шаблон, изграждане на проекта и след това използване на Docker за стартиране на нода на вашия локален хост и изпълнение на проста заявка. </p>
         </div>
       </li>
       <li>
@@ -86,7 +86,7 @@
       <li>
         <div class="title">Колко струва хостването на моя проект в SubQuery Projects?</div>
         <div class="content">
-          <p>Хостването на вашия проект в SubQuery Projects е абсолютно безплатно - това е нашият начин да се отблагодарим на общността. To learn how to host your project with us, please check out the <a href="/quickstart/quickstart-polkadot.html">Hello World (SubQuery Hosted)</a> tutorial.</p>
+          <p>Хостването на вашия проект в SubQuery Projects е абсолютно безплатно - това е нашият начин да се отблагодарим на общността. За да научите как да хоствате вашия проект при нас, моля, вижте<a href="/quickstart/quickstart-polkadot.html">Hello World (SubQuery Hosted)</a> ръководство.</p>
           <span class="more">
             <router-link :to="{path: '/run_publish/publish.html'}">ХОСТВАНЕ НА ВАШИЯ ПРОЕКТ </router-link>
           </span>
