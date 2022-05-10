@@ -5,7 +5,7 @@
       <div>
         <h2 class="welcomeTitle">SubQuery'nin <span>Universitesine</span>'ına hoş geldiniz</h2>
         <p>Sezgisel dApp'leri daha hızlı oluşturmak için zincir verilerinizi keşfedin ve dönüştürün!</p>
-        <p><strong>SubQuery now supports both Polkadot, Avalanche, and Terra</strong></p>
+        <p><strong>SubQuery artık hem Polkadot, hem Avalanche hem de Terra'yı destekliyor</strong></p>
       </div>
     </div>
   </section>
@@ -71,7 +71,7 @@
       <li>
         <div class="title">SubQuery'ye başlamanın en iyi yolu nedir?</div>
         <div class="content">
-          <p>The best way to get started with SubQuery is to try out our <a href="/quickstart/quickstart-polkadot.html">Quick Start tutorial</a>. Bu, başlangıç şablonunu indirme, projeyi oluşturma ve ardından localhost'unuzda bir düğüm çalıştırmak ve basit bir sorgu çalıştırmak için Docker'ı kullanma konusunda basit bir 5 dakikalık yürüme mesafesindedir. </p>
+          <p>SubQuery'yi kullanmaya başlamanın en iyi yolu <a href="/quickstart/quickstart-polkadot.html">Hızlı Başlangıç ​​eğitimimizi</a> denemektir. Bu, başlangıç şablonunu indirme, projeyi oluşturma ve ardından localhost'unuzda bir düğüm çalıştırmak ve basit bir sorgu çalıştırmak için Docker'ı kullanma konusunda basit bir 5 dakikalık yürüme mesafesindedir. </p>
         </div>
       </li>
       <li>
@@ -86,7 +86,7 @@
       <li>
         <div class="title">Projemi SubQuery Projelerinde barındırmanın maliyeti nedir?</div>
         <div class="content">
-          <p>Projenizi SubQuery Projects'te barındırmak tamamen ücretsizdir - bu bizim topluma geri verme yöntemimizdir. To learn how to host your project with us, please check out the <a href="/quickstart/quickstart-polkadot.html">Hello World (SubQuery Hosted)</a> tutorial.</p>
+          <p>Projenizi SubQuery Projects'te barındırmak tamamen ücretsizdir - bu bizim topluma geri verme yöntemimizdir. Projenizi bizimle nasıl barındıracaklarınızı öğrenmek için lütfen <a href="/quickstart/quickstart-polkadot.html">Hello World (SubQuery Hosted)</a> öğreticisine göz atın.</p>
           <span class="more">
             <router-link :to="{path: '/run_publish/publish.html'}">PROJENİZE EV SAHİPLİĞİ YAPMA</router-link>
           </span>
