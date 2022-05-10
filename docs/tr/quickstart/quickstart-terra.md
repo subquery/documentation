@@ -69,7 +69,7 @@ In the starter package that you just initialised, we have provided a standard co
 2. `project.yaml` içindeki Proje Manifestosu
 3. `src/mappings/` dizinindeki Eşleme işlevleri
 
-The goal of this quick start guide is to adapt the standard starter project to begin indexing all transfers from the bLuna smart contract.
+Bu hızlı başlangıç ​​kılavuzunun amacı, standart başlangıç ​​projesini tüm transferleri indekslemeye başlayacak şekilde uyarlamaktır, sadece - dakika sürmelidir.
 
 ### GraphQL Şema Dosyanızı Güncelleme
 
@@ -79,12 +79,12 @@ The goal of this quick start guide is to adapt the standard starter project to b
 
 ```graphql
 type Transfer @entity {
-  id: ID! # id field is always required and must look like this
-  txHash: String!
-  blockHeight: BigInt # The block height of the transfer
-  sender: String! # The account that transfers are made from
-  recipient: String! # The account that transfers are made to
-  amount: String! # Amount that is transferred
+  id: ID! # kimlik alanı her zaman gereklidir ve böyle görünmelidir
+  name: String!
+  blockHeight: BigInt # Transferin blok yüksekliği
+  gönderen: dize! # Transferin yapıldığı hesap
+  alıcı: Dize! # Transferin yapıldığı hesap
+  miktar: Dize! # Aktarılan tutar
 }
 ```
 
@@ -99,7 +99,7 @@ You'll find the generated models in the `/src/types/models` directory. `schema.g
 
 Proje Bildirimi (`project.yaml`) dosyası projenizin bir giriş noktası olarak görülebilir ve SubQuery'nin zincir verilerini nasıl indeksleyip dönüştüreceğiyle ilgili ayrıntıların çoğunu tanımlar.
 
-Bildirim dosyasında zaten doğru bir şekilde kurulduğundan çok fazla değişiklik yapmayacağız, ancak işleyicilerimizi değiştirmemiz gerekiyor. Remember we are planning to index all Terra transfer events, as a result, we need to update the `datasources` section to read the following.
+Bildirim dosyasında zaten doğru bir şekilde kurulduğundan çok fazla değişiklik yapmayacağız, ancak işleyicilerimizi değiştirmemiz gerekiyor. Tüm Terra transfer olaylarını dizine eklemeyi planladığımızı unutmayın, sonuç olarak aşağıdakileri okumak için `veri kaynakları` bölümünü güncellememiz gerekiyor.
 
 ```yaml
 dataSources:
