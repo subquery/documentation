@@ -1,8 +1,8 @@
-# Polkadot Quick Start
+# Polkadot Быстрый старт
 
-In this Quick start guide, we're going to start with a simple Substrate/Polkadot starter project and then finish by indexing some actual real data. This is an excellent basis to start with when developing your own Substrate/Polkadot SubQuery Project.
+В этом кратком руководстве мы начнем с простого начального проекта Substrate/Polkadot, а затем закончим индексированием некоторых фактических реальных данных. Это отличная основа для начала разработки собственного Substrate/Polkadot SubQuery проекта.
 
-**If your are looking for guides for Terra, you can read the [Terra specific quick start guide](./quickstart-terra).**
+**Если вы ищете руководства для Terra, вы можете прочитать [краткое руководство пользователя для Terra](./quickstart-terra).**
 
 В конце этого руководства у вас будет рабочий проект SubQuery, запущенный на узле SubQuery с конечной точкой GraphQL, из которой вы можете запрашивать данные.
 
@@ -61,9 +61,9 @@ subql init
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```shell cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
 
-## Making Changes to your Project
+## Внесение изменений в ваш проект
 
-In the starter package that you just initialised, we have provided a standard configuration for your new project. В основном вы будете работать со следующими файлами:
+В стартовом пакете, который вы только что инициализировали, мы предоставили стандартную конфигурацию для вашего нового проекта. В основном вы будете работать со следующими файлами:
 
 1. Схема GraphQL в `schema.graphql`
 2. Манифест проекта в `project.yaml`
@@ -79,10 +79,10 @@ In the starter package that you just initialised, we have provided a standard co
 
 ```graphql
 type Transfer @entity {
-  id: ID! # id field is always required and must look like this
-  amount: BigInt # Amount that is transferred
-  blockNumber: BigInt # The block height of the transfer
-  from: String! # The account that transfers are made from
+  id: ID! # Поле id всегда обязательно и должно выглядеть так
+  amount: BigInt # Сумма, которая передается
+  blockNumber: BigInt # Высота блока передачи
+  from: String! # Счет, с которого осуществляются переводы
   to: String! # Аккаунт, на который осуществляются переводы
 }
 ```
@@ -92,7 +92,7 @@ type Transfer @entity {
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```shell npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
 
-You'll find the generated models in the `/src/types/models` directory. Для получения дополнительной информации о файле `schema.graphql` ознакомьтесь с нашей документацией в разделе [Build/GraphQL Schema](../build/graphql.md)
+Вы найдете сгенерированные модели в каталоге `/src/types/models`. Для получения дополнительной информации о файле `schema.graphql` ознакомьтесь с нашей документацией в разделе [Build/GraphQL Schema](../build/graphql.md)
 
 ### Обновление файла Манифеста Проекта
 
@@ -163,13 +163,13 @@ export async function handleTransfer(event: SubstrateEvent): Promise<void> {
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script build ``` </CodeGroupItem> </CodeGroup>
 
-**Important: Whenever you make changes to your mapping functions, you'll need to rebuild your project**
+**Важно: Всякий раз, когда вы вносите изменения в свои функции сопоставления, вам нужно будет переcобрать свой проект.**
 
-## Running and Querying your Project
+## Запуск и запрос вашего проекта
 
-### Run your Project with Docker
+### Запустите свой проект с помощью Docker
 
-Whenever you create a new SubQuery Project, you should always run it locally on your computer to test it first. Проще всего это сделать с помощью Docker.
+Всякий раз, когда вы создаете новый проект SubQuery, вы всегда должны запускать его локально на своем компьютере, чтобы сначала протестировать его. Проще всего это сделать с помощью Docker.
 
 Вся конфигурация, управляющая запуском узла SubQuery, определяется в этом файле `docker-compose.yml`. Для нового проекта, который был только что инициализирован, вам не нужно ничего здесь менять, но вы можете прочитать больше о файле и настройках в нашем разделе [Запуск проекта](../run_publish/run.md)
 
@@ -177,7 +177,7 @@ Whenever you create a new SubQuery Project, you should always run it locally on 
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn start:docker ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script start:docker ``` </CodeGroupItem> </CodeGroup>
 
-It may take some time to download the required packages ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), and Postgres) for the first time but soon you'll see a running SubQuery node. Проявите терпение.
+Загрузка необходимых пакетов ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query) и Postgres) в первый раз может занять некоторое время, но вскоре вы увидите работающий узел SubQuery. Проявите терпение.
 
 ### Отправьте запрос своему проекту
 
