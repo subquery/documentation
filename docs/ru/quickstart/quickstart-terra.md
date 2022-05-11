@@ -1,14 +1,14 @@
-# Terra Quick Start
+# Terra Быстрый Старт
 
-In this Quick start guide, we're going to start with a simple Terra starter project and then finish by indexing some actual real data. Это отличная основа для начала разработки собственного проекта SubQuery.
+В этом кратком руководстве мы начнем с простого начального проекта Terra, а затем закончим индексированием актуальных реальных данных. Это отличная основа для начала разработки собственного проекта SubQuery.
 
-**If your are looking for guides for Substrate/Polkadot, you can read the [Substrate/Polkadot specific quick start guide](./quickstart-polkadot).**
+**Если вам нужны руководства для Substrate/Polkadot, вы можете прочитать [краткое руководство по использованию Substrate/Polkadot](./quickstart-polkadot).**
 
 В конце этого руководства у вас будет рабочий проект SubQuery, запущенный на узле SubQuery с конечной точкой GraphQL, из которой вы можете запрашивать данные.
 
 Если вы еще этого не сделали, мы предлагаем вам ознакомиться с [ терминологией ](../#terminology), используемой в SubQuery.
 
-**The goal of this quick start guide is to adapt the standard starter project to begin indexing all transfers from Terra, it should only take 10-15 minutes**
+**Целью этого краткого руководства является адаптация стандартного начального проекта для начала индексации всех переводов из Terra, это займет всего 10-15 минут**
 
 ## Подготовка
 
@@ -45,10 +45,10 @@ subql init
 По мере инициализации проекта SubQuery вам будут заданы определенные вопросы:
 
 - Name: имя для вашего проекта SubQuery
-- Network: A blockchain network that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use *"Terra"*
+- Network: сеть блокчейнов, для индексации которой будет разработан этот проект SubQuery. Используйте клавиши со стрелками на клавиатуре, чтобы выбрать один из вариантов. В этом руководстве мы будем использовать *"Terra"*
 - Template: Выберите шаблон проекта SubQuery, который послужит отправной точкой для начала разработки. Мы предлагаем выбрать *"Стартовый проект"*
 - Git repository (Опционально): Укажите URL-адрес Git для репозитория, в котором будет размещен этот проект SubQuery (при размещении в SubQuery Explorer)
-- RPC endpoint (Обязательно): Укажите URL-адрес HTTPS для работающей конечной точки RPC, которая будет использоваться по умолчанию для этого проекта. Этот узел RPC должен быть архивным узлом (иметь состояние полной цепочки). For this guide we will use the default value *"https://terra-columbus-5.beta.api.onfinality.io"*
+- RPC endpoint (Обязательно): Укажите URL-адрес HTTPS для работающей конечной точки RPC, которая будет использоваться по умолчанию для этого проекта. Этот узел RPC должен быть архивным узлом (иметь состояние полной цепочки). В этом руководстве мы будем использовать значение по умолчанию *"https://terra-columbus-5.beta.api.onfinality.io"*
 - Authors (Обязательно): Введите здесь владельца этого проекта SubQuery (например, ваше имя!)
 - Description (Опционально): Вы можете предоставить короткий абзац о своем проекте, описывающий, какие данные он содержит и что пользователи могут с ним делать
 - Version (Обязательно): Введите собственный номер версии или используйте версию по умолчанию (`1.0.0`)
@@ -61,15 +61,15 @@ subql init
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```shell cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
 
-## Making Changes to your Project
+## Внесение изменений в ваш проект
 
-In the starter package that you just initialised, we have provided a standard configuration for your new project. В основном вы будете работать со следующими файлами:
+В стартовом пакете, который вы только что инициализировали, мы предоставили стандартную конфигурацию для вашего нового проекта. В основном вы будете работать со следующими файлами:
 
 1. Схема GraphQL в `schema.graphql`
 2. Манифест проекта в `project.yaml`
 3. Функции сопоставления в каталоге src / mappings /
 
-The goal of this quick start guide is to adapt the standard starter project to begin indexing all transfers from the bLuna smart contract.
+Целью этого краткого руководства является адаптация стандартного начального проекта для индексации всех переводов из смарт-контракта bLuna.
 
 ### Обновление файла схемы GraphQL
 
@@ -79,13 +79,12 @@ The goal of this quick start guide is to adapt the standard starter project to b
 
 ```graphql
 type Transfer @entity {
-  id: ID! # id field is always required and must look like this
+  id: ID! # Поле id всегда обязательно и должно выглядеть так
   txHash: String!
-  blockHeight: BigInt # The block height of the transfer
-  sender: String! # The account that transfers are made from
-  recipient: String! # The account that transfers are made to
-  amount: String! # Amount that is transferred
-}
+  blockHeight: BigInt # Высота блока передачи
+  sender: String! # Счет, с которого осуществляются переводы
+  recipient: String! # Счет, на который осуществляются переводы
+  amount: String! Сумма, которая передается
 ```
 
 **Важно: когда вы вносите какие-либо изменения в файл schema, убедитесь, что вы заново создали каталог типов. Сделайте это сейчас.**
@@ -93,34 +92,34 @@ type Transfer @entity {
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```shell npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
 
-You'll find the generated models in the `/src/types/models` directory. Для получения дополнительной информации о файле `schema.graphql` ознакомьтесь с нашей документацией в разделе [Build/GraphQL Schema](../build/graphql.md)
+Вы найдете сгенерированные модели в каталоге `/src/types/models`. Для получения дополнительной информации о файле `schema.graphql` ознакомьтесь с нашей документацией в разделе [Build/GraphQL Schema](../build/graphql.md)
 
 ### Обновление файла Манифеста Проекта
 
 Файл манифеста проекта (`project.yaml`) можно рассматривать как точку входа в ваш проект, и он определяет большинство деталей того, как SubQuery будет индексировать и преобразовывать данные цепочки.
 
-Мы не будем вносить много изменений в файл манифеста, поскольку он уже настроен правильно, но нам нужно изменить наши обработчики. Remember we are planning to index all Terra transfer events, as a result, we need to update the `datasources` section to read the following.
+Мы не будем вносить много изменений в файл манифеста, поскольку он уже настроен правильно, но нам нужно изменить наши обработчики. Помните, что мы планируем индексировать все события передачи Terra, поэтому нам нужно обновить раздел `источники данных`, чтобы прочитать следующее.
 
 ```yaml
 dataSources:
   - kind: terra/Runtime
-    startBlock: 4724001 # Colombus-5 Starts at this height
+    startBlock: 4724001 # Колумб-5 Стартует на этой высоте
     mapping:
       file: ./dist/index.js
       handlers:
         - handler: handleEvent
           kind: terra/EventHandler
-          # this will trigger on all events that match the following smart contract filter condition
+          # это будет срабатывать для всех событий, которые соответствуют следующему условию фильтра смарт-контракта
           filter:
             type: transfer
             messageFilter:
               type: /terra.wasm.v1beta1.MsgExecuteContract
               values:
-                # We are subscribing to the bLuna smart contract (e.g. only transfer events from this contract)
+                # Мы подписываемся на смарт-контракт bLuna (например, только перенос событий из этого контракта)
                 contract: terra1j66jatn3k50hjtg2xemnjm8s7y8dws9xqa5y8w
 ```
 
-This means we'll run a `handleEvent` mapping function each and every time there is a `transfer` event from the bLuna smart contract.
+Это означает, что мы будем запускать функцию сопоставления `handleEvent` каждый раз, когда происходит событие `transfer` от смарт-контракта bLuna.
 
 Дополнительные сведения о файле манифеста проекта (`project.yaml`) см. в нашей документации в разделе [Build/Manifest File](../build/manifest.md)
 
@@ -130,7 +129,7 @@ This means we'll run a `handleEvent` mapping function each and every time there 
 
 Перейдите к функции сопоставления по умолчанию в каталоге `src/mappings`. Вы увидите три экспортированные функции: `handleBlock`, `handleEvent` и `handleCall`. Вы можете удалить обе функции `handleBlock` и `handleCall`, мы имеем дело только с функцией `handleEvent`.
 
-Функция `handleEvent` получала данные о событиях всякий раз, когда событие соответствовало фильтрам, которые мы указали ранее в нашем `project.yaml`. We are going to update it to process all `transfer` events and save them to the GraphQL entities that we created earlier.
+Функция `handleEvent` получала данные о событиях всякий раз, когда событие соответствовало фильтрам, которые мы указали ранее в нашем `project.yaml`. Мы собираемся обновить его, чтобы он обрабатывал все события `transfer` и сохранял их в объектах GraphQL, которые мы создали ранее.
 
 Вы можете обновить функцию `handleEvent` следующим образом (обратите внимание на дополнительный импорт):
 
@@ -142,10 +141,10 @@ import { MsgExecuteContract } from "@terra-money/terra.js";
 export async function handleEvent(
   event: TerraEvent<MsgExecuteContract>
 ): Promise<void> {
-    // Print debugging data from the event
+    // Печать отладочных данных из события
     // logger.info(JSON.stringify(event));
 
-    // Create the new transfer entity with a unique ID
+    // Создайте новый объект передачи с уникальным идентификатором
     const transfer = new Transfer(
       `${event.tx.tx.txhash}-${event.msg.idx}-${event.idx}`
     );
@@ -179,13 +178,13 @@ export async function handleEvent(
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script build ``` </CodeGroupItem> </CodeGroup>
 
-**Important: Whenever you make changes to your mapping functions, you'll need to rebuild your project**
+**Важно: всякий раз, когда вы вносите изменения в свои функции сопоставления, вам нужно будет пересобрать свой проект**.
 
-## Running and Querying your Project
+## Запуск и запрос вашего проекта
 
-### Run your Project with Docker
+### Запустите свой проект с помощью Docker
 
-Whenever you create a new SubQuery Project, you should always run it locally on your computer to test it first. Проще всего это сделать с помощью Docker.
+Всякий раз, когда вы создаете новый проект подзапроса, вы всегда должны запускать его локально на своем компьютере, чтобы сначала протестировать его. Проще всего это сделать с помощью Docker.
 
 Вся конфигурация, управляющая запуском узла SubQuery, определяется в этом файле `docker-compose.yml`. Для нового проекта, который был только что инициализирован, вам не нужно ничего здесь менять, но вы можете прочитать больше о файле и настройках в нашем разделе [Запуск проекта](../run_publish/run.md)
 
@@ -193,7 +192,7 @@ Whenever you create a new SubQuery Project, you should always run it locally on 
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn start:docker ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script start:docker ``` </CodeGroupItem> </CodeGroup>
 
-It may take some time to download the required packages ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), and Postgres) for the first time but soon you'll see a running SubQuery node. Проявите терпение.
+Загрузка необходимых пакетов ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query) и Postgres) в первый раз может занять некоторое время, но вскоре вы увидите работающий узел SubQuery. Проявите терпение.
 
 ### Отправьте запрос своему проекту
 
@@ -231,7 +230,7 @@ SubQuery предоставляет бесплатный управляемый 
 
 ## Следующие шаги
 
-Congratulations, you now have a locally running SubQuery project that accepts GraphQL API requests for transfers data from bLuna.
+Поздравляем, теперь у вас есть локально работающий проект SubQuery, который принимает запросы API GraphQL для передачи данных от bLuna.
 
 Теперь, когда вы поняли, как создать базовый проект SubQuery, возникает вопрос: что дальше? Если вы чувствуете себя уверенно, вы можете перейти к более подробному изучению трех ключевых файлов. Файл манифеста, схема GraphQL и файл сопоставлений в разделе ["Сборка" этой документации](../build/introduction.md).
 
