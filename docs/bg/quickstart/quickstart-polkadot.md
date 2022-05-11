@@ -1,8 +1,8 @@
-# Polkadot Quick Start
+# Polkadot Бързо Стартиране
 
-In this Quick start guide, we're going to start with a simple Substrate/Polkadot starter project and then finish by indexing some actual real data. This is an excellent basis to start with when developing your own Substrate/Polkadot SubQuery Project.
+В това ръководство за бърз старт ще започнем с прост стартов проект Substrate/Polkadot и след това ще завършим с индексиране на някои действителни реални данни. Това е отлична основа, с която да започнете, когато разработвате свой собствен проект Substrate/Polkadot SubQuery.
 
-**If your are looking for guides for Terra, you can read the [Terra specific quick start guide](./quickstart-terra).**
+**Ако търсите ръководства за Terra, можете да прочетете [Ръководството за бързо начало за Terra](./quickstart-terra).**
 
 В края на това ръководство ще получите работещ SubQuery проект, стартиран върху нодата SubQuery и с крайна точка GraphQL, от която можете да изисквате необходими данни.
 
@@ -79,10 +79,10 @@ subql init
 
 ```graphql
 type Transfer @entity {
-  id: ID! # id field is always required and must look like this
-  amount: BigInt # Amount that is transferred
-  blockNumber: BigInt # The block height of the transfer
-  from: String! # The account that transfers are made from
+  id: ID! # id полето винаги е задължително и трябва да изглежда така
+  amount: BigInt # Сума, която се превежда
+  blockNumber: BigInt # Височината на блока на трансфера
+  from: String! # Акаунт, от който се извършват преводите
   to: String! # Акаунт, към който се извършват преводите
 }
 ```
@@ -92,7 +92,7 @@ type Transfer @entity {
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```shell npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
 
-You'll find the generated models in the `/src/types/models` directory. За повече информация относно файла `schema.graphql`, проверете нашата документация в раздела [Build/GraphQL Schema](../build/graphql.md)
+Ще намерите генерираните модели в директорията `/src/types/models`. За повече информация относно файла `schema.graphql`, проверете нашата документация в раздела [Build/GraphQL Schema](../build/graphql.md)
 
 ### Обновяване на файла Project Manifest
 
