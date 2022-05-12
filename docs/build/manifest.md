@@ -258,13 +258,23 @@ If you have a project with specVersion v0.2.0, The only change is a new **requir
 
 ### Network Spec
 
+If you start your project by using the `subql init` command, you'll generally receive a starter project with the correct network settings. If you are changing the target chain of an existing project, you'll need to edit the [Network Spec](#network-spec) section of this manifest.
+
+The `chainId` or `genesisHash` is the network identifier of the blockchain. Examples in Terra include `bombay-12`, or `columbus-12`, Avalanche might be `mainnet`, and in Substrate it is always the genesis hash of the network (hash of the first block). You can retrieve this easily by going to [PolkadotJS](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fkusama.api.onfinality.io%2Fpublic-ws#/explorer/query/0) and looking for the hash on **block 0** (see the image below).
+
+![Genesis Hash](/assets/img/genesis-hash.jpg)
+
+Additionally you will need to update the `endpoint`. This defines the wss endpoint of the blockchain to be indexed - **This must be a full archive node**. You can retrieve endpoints for all parachains for free from [OnFinality](https://app.onfinality.io)
+
 | Field           | v1.0.0   | v0.2.0 | Description                     |
 |-----------------|----------|--------|---------------------------------|
-| **chainId**     | String   | x      | A network identifier for the blockchain (genesisHash in Substrate) |
-| **genesisHash** | Optional | String | The genesis hash of the network (from v1.0.0 this is an alias for chainId and not necessary) |
-| **endpoint**    | String   | String        | Defines the wss or ws endpoint of the blockchain to be indexed - **This must be a full archive node**. You can retrieve endpoints for all parachains for free from [OnFinality](https://app.onfinality.io) |
-| **dictionary**  | String   | String        | It is suggested to provide the HTTP endpoint of a full chain dictionary to speed up processing - read [how a SubQuery Dictionary works](../academy/tutorials_examples/dictionary.md).                      |
-| **chaintypes**  | x        | {file:String} | Path to chain types file, accept `.json` or `.yaml` format                                                                                                                                                 |
+| **chainId**     | String | x | A network identifier for the blockchain (`genesisHash` in Substrate) |
+| **genesisHash** | String | String | The genesis hash of the network (from v1.0.0 this is an alias for `chainId` and not necessary) |
+| **endpoint**    | String | String | Defines the wss or ws endpoint of the blockchain to be indexed - **This must be a full archive node**. You can retrieve endpoints for all parachains for free from [OnFinality](https://app.onfinality.io) |
+| **port**    | Number | Number | Optional port number on the `endpoint` to connect to |
+| **dictionary**  | String | String | It is suggested to provide the HTTP endpoint of a full chain dictionary to speed up processing - read [how a SubQuery Dictionary works](../academy/tutorials_examples/dictionary.md). |
+| **chaintypes**  | {file:String} | {file:String} | Path to chain types file, accept `.json` or `.yaml` format |
+
 
 ### Runner Spec
 
@@ -406,24 +416,9 @@ filter:
 
 ## Custom Substrate Chains
 
-### Substrate Network Spec
-
-When connecting to a different Polkadot parachain or even a custom Substrate chain, you'll need to edit the [Network Spec](#network-spec) section of this manifest.
-
-The `genesisHash` must always be the hash of the first block of the custom network. You can retrieve this easily by going to [PolkadotJS](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fkusama.api.onfinality.io%2Fpublic-ws#/explorer/query/0) and looking for the hash on **block 0** (see the image below).
-
-![Genesis Hash](/assets/img/genesis-hash.jpg)
-
-Additionally you will need to update the `endpoint`. This defines the wss endpoint of the blockchain to be indexed - **This must be a full archive node**. You can retrieve endpoints for all parachains for free from [OnFinality](https://app.onfinality.io)
-
-### Substrate Chain Types
-
 You can index data from custom Substrate chains by also including chain types in the manifest. We support the additional types used by Substrate runtime modules, `typesAlias`, `typesBundle`, `typesChain`, and `typesSpec` are also supported.
 
-In the v0.2.0 example below, the `network.chaintypes` are pointing to a file that has all the custom types included, This is a standard chainspec file that declares the specific types supported by this blockchain in either `.json`, `.yaml` or `.js` format.
-
-<CodeGroup>
-  <CodeGroupItem title="v0.2.0" active>
+In the example below, the `network.chaintypes` are pointing to a file that has all the custom types included, This is a standard chainspec file that declares the specific types supported by this blockchain in either `.json`, `.yaml` or `.js` format.
 
 ``` yml
 network:
@@ -431,41 +426,7 @@ network:
   endpoint: 'ws://host.kittychain.io/public-ws'
   chaintypes:
     file: ./types.json # The relative filepath to where custom types are stored
-...
 ```
-
-  </CodeGroupItem>
-
-  <CodeGroupItem title="v0.0.1">
-  
-``` yml
-...
-network:
-  endpoint: "ws://host.kittychain.io/public-ws"
-  types: {
-    "KittyIndex": "u32",
-    "Kitty": "[u8; 16]"
-  }
-# typesChain: { chain: { Type5: 'example' } }
-# typesSpec: { spec: { Type6: 'example' } }
-dataSources:
-  - name: runtime
-    kind: substrate/Runtime
-    startBlock: 1
-    filter:  #Optional
-      specName: kitty-chain 
-    mapping:
-      handlers:
-        - handler: handleKittyBred
-          kind: substrate/CallHandler
-          filter:
-            module: kitties
-            method: breed
-            success: true
-```
-
-  </CodeGroupItem>
-</CodeGroup>
 
 To use typescript for your chain types file include it in the `src` folder (e.g. `./src/types.ts`), run `yarn build` and then point to the generated js file located in the `dist` folder.
 
@@ -482,16 +443,10 @@ Things to note about using the chain types file with extension `.ts` or `.js`:
 
 Here is an example of a `.ts` chain types file:
 
-<CodeGroup>
-  <CodeGroupItem title="types.ts">
-
 ```ts
 import { typesBundleDeprecated } from "moonbeam-types-bundle";
 export default { typesBundle: typesBundleDeprecated };
 ```
-
- </CodeGroupItem>
-</CodeGroup>
 
 ### Working Example
 
@@ -499,7 +454,7 @@ You can see the suggested method for connecting and retrieving custom chain type
 
 For example, Acala publish an [offical chain type definition to NPM](https://www.npmjs.com/package/@acala-network/type-definitions). This is imported in your project's `package.json` like so:
 
-``` json
+```json
 {
   ...
   "devDependencies": {
