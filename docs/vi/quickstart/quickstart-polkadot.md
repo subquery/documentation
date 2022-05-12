@@ -1,8 +1,8 @@
-# Polkadot Quick Start
+# Bắt đầu nhanh với Polkadot
 
-In this Quick start guide, we're going to start with a simple Substrate/Polkadot starter project and then finish by indexing some actual real data. This is an excellent basis to start with when developing your own Substrate/Polkadot SubQuery Project.
+Trong hướng dẫn bắt đầu nhanh này, chúng ta sẽ bắt đầu với một dự án Substrate/Polkadot khởi đầu đơn giản và sau đó kết thúc bằng cách lập chỉ mục một số dữ liệu thực tế. Đây là cơ sở tuyệt vời để bắt đầu khi phát triển Dự án Substrate/Polkadot với SubQuery của riêng bạn.
 
-**If your are looking for guides for Terra, you can read the [Terra specific quick start guide](./quickstart-terra).**
+**Nếu bạn đang tìm kiếm hướng dẫn cho Terra, bạn có thể đọc [ Hướng dẫn bắt đầu nhanh cụ thể dành cho Terra](./quickstart-terra).**
 
 Ở cuối hướng dẫn này, bạn sẽ có một dự án SubQuery đang hoạt động chạy trên nút SubQuery với điểm cuối GraphQL mà có thể truy vấn dữ liệu từ đó.
 
@@ -79,10 +79,10 @@ Chúng ta sẽ cập nhật tệp `schema.graphql` để trông như sau
 
 ```graphql
 type Transfer @entity {
-  id: ID! # id field is always required and must look like this
-  amount: BigInt # Amount that is transferred
-  blockNumber: BigInt # The block height of the transfer
-  from: String! # The account that transfers are made from
+  id: ID! # Trường id là bắt buộc và phải trông như thế này
+  amount: BigInt # Số tiền được chuyển
+  blockNumber: BigInt # Chiều cao khổi của giao dịch
+  from: String! # Tài khoản chuyển tiền được thực hiện từ
   to: String! # Tài khoản chuyển tiền được thực hiện cho
 }
 ```
@@ -92,7 +92,7 @@ type Transfer @entity {
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```shell npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
 
-You'll find the generated models in the `/src/types/models` directory. Để biết thêm thông tin về tệp `schema.graphql`, hãy xem tài liệu của chúng tôi trong [Lược đồ Build/GraphQL ](../build/graphql.md)
+Bạn sẽ tìm thấy các model đã tạo trong thư mục `/src/types/models`. Để biết thêm thông tin về tệp `schema.graphql`, hãy xem tài liệu của chúng tôi trong [Lược đồ Build/GraphQL ](../build/graphql.md)
 
 ### Cập nhật tệp kê khai dự án
 
