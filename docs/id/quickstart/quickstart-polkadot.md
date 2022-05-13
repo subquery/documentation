@@ -45,10 +45,11 @@ subql init
 Anda akan ditanyai pertanyaan tertentu saat proyek SubQuery diinisialisasi:
 
 - Name: Nama projek SubQuery anda
-- Network: Jaringan blockchain tempat proyek SubQuery ini akan dikembangkan untuk diindeks, gunakan tombol panah pada keyboard Anda untuk memilih dari opsi, untuk panduan ini kami akan menggunakan *"Polkadot"*
+- Network Family: The layer-1 blockchain network family that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use *"Polkadot"*
+- Network: The specific network that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use *"Polkadot"*
 - Template: Pilih template proyek SubQuery yang akan memberikan titik awal untuk memulai pengembangan, sebaiknya pilih *"Proyek Pemula"*
 - Git repository (Opsional): Berikan URL Git ke repo tempat proyek SubQuery ini akan dihosting (saat dihosting di SubQuery Explorer)
-- RPC endpoint (Diperlukan): Berikan URL HTTPS ke titik akhir RPC yang sedang berjalan yang akan digunakan secara default untuk proyek ini. Anda dapat dengan cepat mengakses titik akhir publik untuk jaringan Polkadot yang berbeda atau bahkan membuat simpul khusus pribadi Anda sendiri menggunakan [OnFinality](https://app.onfinality.io) atau cukup gunakan titik akhir Polkadot default. Node RPC ini harus berupa node arsip (memiliki status rantai penuh). Untuk panduan ini kami akan menggunakan nilai default *"https://polkadot.api.onfinality.io"*
+- RPC endpoint (Diperlukan): Berikan URL HTTPS ke titik akhir RPC yang sedang berjalan yang akan digunakan secara default untuk proyek ini. You can quickly access public endpoints for different Polkadot networks or even create your own private dedicated node using [OnFinality](https://app.onfinality.io) or just use the default Polkadot endpoint. Node RPC ini harus berupa node arsip (memiliki status rantai penuh). For this guide we will use the default value *"https://polkadot.api.onfinality.io"*
 - Authors (Diperlukan): Masukkan pemilik proyek SubQuery ini di sini (misal. nama Anda!)
 - Description (Opsional): Anda dapat memberikan paragraf singkat tentang proyek Anda yang menjelaskan data apa yang ada di dalamnya dan apa yang dapat dilakukan pengguna dengannya
 - Version (Diperlukan): Masukkan nomor versi khusus atau gunakan default (`1.0.0`)
