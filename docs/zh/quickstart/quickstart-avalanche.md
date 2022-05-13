@@ -101,7 +101,7 @@ type PangolinApproval @entity {
 
 Projet Manifest（`project.yaml`）文件可以被看作是你项目的入口，它定义了SubQuery如何索引和转换链数据的大部分细节。
 
-我们不会对清单文件做许多更改，因为它已经正确设置了，但我们需要更改处理程序。 请记住，我们正计划对所有Polkadot传输进行索引，因此，我们需要更新`datasources`部分，使之成为以下内容。
+我们不会对清单文件做许多更改，因为它已经正确设置了，但我们需要更改处理程序。 Remember we are planning to index all Pangolin approval events, as a result, we need to update the `datasources` section to read the following.
 
 ```yaml
 dataSources:
