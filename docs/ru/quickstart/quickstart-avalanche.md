@@ -1,6 +1,6 @@
-# Avalanche Quick Start
+# Avalanche быстрый старт
 
-In this Quick start guide, we're going to start with a simple Avalanche starter project and then finish by indexing some actual real data. Это отличная основа для начала разработки собственного проекта SubQuery.
+В этом кратком руководстве мы начнем с простого начального проекта Avalanche, а затем закончим индексированием актуальных реальных данных. Это отличная основа для начала разработки собственного проекта SubQuery.
 
 **Если вам нужны руководства для Substrate/Polkadot, вы можете прочитать [краткое руководство по использованию Substrate/Polkadot](./quickstart-polkadot).**
 
@@ -8,7 +8,7 @@ In this Quick start guide, we're going to start with a simple Avalanche starter 
 
 Если вы еще этого не сделали, мы предлагаем вам ознакомиться с [ терминологией ](../#terminology), используемой в SubQuery.
 
-**The goal of this quick start guide is to index all Pangolin token *Approve* events, it should only take 10-15 minutes**
+**Цель этого краткого руководства — проиндексировать все события *Approve* токена Pangolin, это займет всего 10-15 минут**
 
 ## Подготовка
 
@@ -45,11 +45,11 @@ subql init
 По мере инициализации проекта SubQuery вам будут заданы определенные вопросы:
 
 - Name: имя для вашего проекта SubQuery
-- Network Family: The layer-1 blockchain network family that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use *"Avalanche"*
-- Network: The specific network that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use *"Avalanche"*
+- Network Family: семейство сетей блокчейнов уровня 1, для индексирования которого будет разработан этот проект SubQuery, используйте клавиши со стрелками на клавиатуре, чтобы выбрать один из вариантов, в этом руководстве мы будем использовать *"Avalanche"*
+- Network: конкретная сеть, для индексации которой будет разработан этот проект SubQuery. Используйте клавиши со стрелками на клавиатуре, чтобы выбрать один из вариантов. В этом руководстве мы будем использовать *"Avalanche"*
 - Template: Выберите шаблон проекта SubQuery, который послужит отправной точкой для начала разработки. Мы предлагаем выбрать *"Стартовый проект"*
 - Git repository (Опционально): Укажите URL-адрес Git для репозитория, в котором будет размещен этот проект SubQuery (при размещении в SubQuery Explorer)
-- RPC endpoint (Обязательно): Укажите URL-адрес HTTPS для работающей конечной точки RPC, которая будет использоваться по умолчанию для этого проекта. Этот узел RPC должен быть архивным узлом (иметь состояние полной цепочки). For this guide we will use the default value *"avalanche.api.onfinality.io"*
+- RPC endpoint (Обязательно): Укажите URL-адрес HTTPS для работающей конечной точки RPC, которая будет использоваться по умолчанию для этого проекта. Этот узел RPC должен быть архивным узлом (иметь состояние полной цепочки). В этом руководстве мы будем использовать значение по умолчанию *"avalanche.api.onfinality.io"*
 - Authors (Обязательно): Введите здесь владельца этого проекта SubQuery (например, ваше имя!)
 - Description (Опционально): Вы можете предоставить короткий абзац о своем проекте, описывающий, какие данные он содержит и что пользователи могут с ним делать
 - Version (Обязательно): Введите собственный номер версии или используйте версию по умолчанию (`1.0.0`)
@@ -70,13 +70,13 @@ subql init
 2. Манифест проекта в `project.yaml`
 3. Функции сопоставления в каталоге src / mappings /
 
-The goal of this quick start guide is to adapt the standard starter project to index all Pangolin `Approve` events.
+Целью этого краткого руководства является адаптация стандартного начального проекта для индексации всех событий Pangolin `Approve`.
 
 ### Обновление файла схемы GraphQL
 
 Файл `schema.graphql` определяет различные схемы GraphQL. Из-за того, как работает язык запросов GraphQL, файл схемы по существу диктует форму ваших данных из SubQuery. Это отличное место для начала, потому что оно позволяет заранее определить конечную цель.
 
-We're going to update the `schema.graphql` file to remove all existing entities and read as follows
+Мы собираемся обновить файл `schema.graphql`, чтобы удалить все существующие объекты и увидеть следующее
 
 ```graphql
 type PangolinApproval @entity {
@@ -101,16 +101,16 @@ type PangolinApproval @entity {
 
 Файл манифеста проекта (`project.yaml`) можно рассматривать как точку входа в ваш проект, и он определяет большинство деталей того, как SubQuery будет индексировать и преобразовывать данные цепочки.
 
-Мы не будем вносить много изменений в файл манифеста, поскольку он уже настроен правильно, но нам нужно изменить наши обработчики. Помните, что мы планируем индексировать все события передачи Terra, поэтому нам нужно обновить раздел `источники данных`, чтобы прочитать следующее.
+Мы не будем вносить много изменений в файл манифеста, поскольку он уже настроен правильно, но нам нужно изменить наши обработчики. Помните, что мы планируем индексировать все события утверждения Pangolin, поэтому нам нужно обновить раздел `datasources`, чтобы прочитать следующее.
 
 ```yaml
 dataSources:
   - kind: avalanche/Runtime
-    startBlock: 57360 # Block when the Pangolin contract was created
+    startBlock: 57360 # Блок в котором был создан контракт Pangolin
     options:
-      # Must be a key of assets
+      # Должен быть ключом активов
       abi: erc20
-      ## Pangolin token https://snowtrace.io/token/0x60781c2586d68229fde47564546784ab3faca982
+      ## Pangolin токен https://snowtrace.io/token/0x60781c2586d68229fde47564546784ab3faca982
       address: "0x60781C2586D68229fde47564546784ab3fACA982"
     assets:
       erc20:
@@ -121,12 +121,12 @@ dataSources:
         - handler: handleEvent
           kind: avalanche/EventHandler
           filter:
-            ## Follows standard log filters https://docs.ethers.io/v5/concepts/events/
+            ##Соответствует стандартным фильтрам журналов https://docs.ethers.io/v5/concepts/events/
             function: Approve(address spender, uint256 rawAmount)
-            # address: "0x60781C2586D68229fde47564546784ab3fACA982"
+            # адрес: "0x60781C2586D68229fde47564546784ab3fACA982"
 ```
 
-This means we'll run a `handleApproveTransaction` mapping function each and every time there is a `approve` transaction from the [Pangolin contract](https://snowtrace.io/txs?a=0x60781C2586D68229fde47564546784ab3fACA982&p=1).
+Это означает, что мы будем запускать функцию сопоставления `handleApproveTransaction` каждый раз, когда есть `approve` транзакции из [контракта Pangolin](https://snowtrace.io/txs?a=0x60781C2586D68229fde47564546784ab3fACA982&p=1).
 
 Дополнительные сведения о файле манифеста проекта (`project.yaml`) см. в нашей документации в разделе [Build/Manifest File](../build/manifest.md)
 
@@ -160,7 +160,7 @@ export async function handleEvent(event: AvalancheEvent): Promise<void> {
 }
 ```
 
-What this is doing is receiving an Avalanche Event which includes the transation data on the payload. We extract this data and then instantiate a new `PangolinApproval` entity that we defined earlier in the `schema.graphql` file. Мы добавляем дополнительную информацию, а затем используем функцию `.save()` для сохранения нового объекта (SubQuery автоматически сохранит его в базе данных).
+Здесь мы получаем событие Avalanche, которое включает данные транзакции в payload. Мы извлекаем эти данные, а затем создаем экземпляр нового объекта `PangolinApproval`, который мы определили ранее в файле `schema.graphql`. Мы добавляем дополнительную информацию, а затем используем функцию `.save()` для сохранения нового объекта (SubQuery автоматически сохранит его в базе данных).
 
 Для получения дополнительной информации о функциях сопоставления ознакомьтесь с нашей документацией в разделе [Build/Mappings](../build/mapping.md)
 
@@ -214,7 +214,7 @@ query {
 
 SubQuery предоставляет бесплатный управляемый сервис, на котором вы можете развернуть свой новый проект. Вы можете развернуть его в [SubQuery Projects](https://project.subquery.network) и запросить его с помощью нашего [Проводника](https://explorer.subquery.network).
 
-[Read the guide to publish your new project to SubQuery Projects](../run_publish/publish.md), **Note that you must deploy via IPFS**.
+[Прочитайте руководство по публикации вашего нового проекта в SubQuery Projects](../run_publish/publish.md). **Обратите внимание, что развертывание необходимо выполнять через IPFS**.
 
 ## Следующие шаги
 
