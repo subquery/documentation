@@ -1,6 +1,6 @@
-# Avalanche Quick Start
+# Avalanche Hızlı Başlangıç
 
-In this Quick start guide, we're going to start with a simple Avalanche starter project and then finish by indexing some actual real data. Bu, kendi SubQuery Projenizi geliştirirken başlamak için mükemmel bir temeldir.
+Bu Hızlı başlangıç ​​kılavuzunda, basit bir Avalanche başlangıç ​​projesiyle başlayacağız ve ardından bazı gerçek gerçek verileri indeksleyerek bitireceğiz. Bu, kendi SubQuery Projenizi geliştirirken başlamak için mükemmel bir temeldir.
 
 **Substrate/Polkadot için kılavuz arıyorsanız, [Substrate/Polkadot'a özel hızlı başlangıç ​​kılavuzunu okuyabilirsiniz](./quickstart-polkadot).**
 
@@ -8,7 +8,7 @@ Bu kılavuzun sonunda, verileri sorguyabileceğiniz bir GraphQL uç noktasına s
 
 Henüz yapmadıysanız, SubQuery'de kullanılan [terminology](../#terminology) hakkında bilgi sahibi > öneririz.
 
-**The goal of this quick start guide is to index all Pangolin token *Approve* events, it should only take 10-15 minutes**
+**Bu hızlı başlangıç ​​kılavuzunun amacı, tüm Pangolin belirteci *Onayla* olaylarını dizine eklemektir, yalnızca 10-15 dakika sürmelidir**
 
 ## Hazırlık
 
@@ -45,11 +45,11 @@ subql init
 SubQuery projesi initalised olarak size bazı sorular sorulana olacaktır:
 
 - Ad: SubQuery projeniz için bir ad
-- Network Family: The layer-1 blockchain network family that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use *"Avalanche"*
-- Network: The specific network that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use *"Avalanche"*
+- Ağ Ailesi: Bu SubQuery projesinin dizine eklemek için geliştirileceği katman-1 blok zinciri ağ ailesi, seçenekler arasından seçim yapmak için klavyenizdeki ok tuşlarını kullanın, bu kılavuz için *"Avalanche"* kullanacağız
+- Ağ: Bu SubQuery projesinin dizine eklemek için geliştirileceği belirli ağ, seçenekler arasından seçim yapmak için klavyenizdeki ok tuşlarını kullanın, bu kılavuz için *"Avalanche"* kullanacağız
 - Şablon: Geliştirmeye başlamak için bir başlangıç ​​noktası sağlayacak bir SubQuery proje şablonu seçin, *"Başlangıç ​​projesi"* öğesini seçmenizi öneririz
 - Git deposu (İsteğe Bağlı): Bu SubQuery projesinin barındırılacağı bir depoya Git URL'si sağlayın (SubQuery Gezgini'nde barındırıldığında)
-- RPC uç noktası (Gerekli): Bu proje için varsayılan olarak kullanılacak çalışan bir RPC uç noktasına wss URL'si sağlayın. Bu RPC düğümü bir arşiv düğümü olmalıdır (tam zincir durumuna sahip). For this guide we will use the default value *"avalanche.api.onfinality.io"*
+- RPC uç noktası (Gerekli): Bu proje için varsayılan olarak kullanılacak çalışan bir RPC uç noktasına wss URL'si sağlayın. Bu RPC düğümü bir arşiv düğümü olmalıdır (tam zincir durumuna sahip). Bu kılavuz için *"avalanche.api.onfinality.io"* varsayılan değerini kullanacağız
 - Yazarlar (Zorunlu): Bu SubQuery projesinin sahibini buraya girin (örn. adınız!)
 - Açıklama (İsteğe Bağlı): Projeniz hakkında hangi verileri içerdiğini ve kullanıcıların bu verilerle neler yapabileceğini açıklayan kısa bir paragraf sağlayabilirsiniz
 - Sürüm (Gerekli): Özel bir sürüm numarası girin veya varsayılanı kullanın (`1.0.0`)
@@ -70,13 +70,13 @@ In the starter package that you just initialised, we have provided a standard co
 2. `project.yaml` içindeki Proje Manifestosu
 3. `src/mappings/` dizinindeki Eşleme işlevleri
 
-The goal of this quick start guide is to adapt the standard starter project to index all Pangolin `Approve` events.
+Bu hızlı başlangıç ​​kılavuzunun amacı, standart başlangıç ​​projesini tüm Pangolin `Onay` olaylarını dizine alacak şekilde uyarlamaktır.
 
 ### GraphQL Şema Dosyanızı Güncelleme
 
 `schema.graphql` dosyası çeşitli GraphQL şemalarını tanımlar. GraphQL sorgu dilinin çalışma biçimi nedeniyle, şema dosyası temel olarak verilerinizin şeklini SubQuery'den belirler. Başlamak için harika bir yer çünkü nihai hedefinizi önceden tanımlamanıza izin veriyor.
 
-We're going to update the `schema.graphql` file to remove all existing entities and read as follows
+Mevcut tüm varlıkları kaldırmak için `schema.graphql` dosyasını güncelleyeceğiz ve aşağıdaki gibi okuyacağız
 
 ```graphql
 type PangolinApproval @entity {
@@ -101,7 +101,7 @@ You'll find the generated models in the `/src/types/models` directory. `schema.g
 
 Proje Bildirimi (`project.yaml`) dosyası projenizin bir giriş noktası olarak görülebilir ve SubQuery'nin zincir verilerini nasıl indeksleyip dönüştüreceğiyle ilgili ayrıntıların çoğunu tanımlar.
 
-Bildirim dosyasında zaten doğru bir şekilde kurulduğundan çok fazla değişiklik yapmayacağız, ancak işleyicilerimizi değiştirmemiz gerekiyor. Tüm Terra transfer olaylarını dizine eklemeyi planladığımızı unutmayın, sonuç olarak aşağıdakileri okumak için `veri kaynakları` bölümünü güncellememiz gerekiyor.
+Bildirim dosyasında zaten doğru bir şekilde kurulduğundan çok fazla değişiklik yapmayacağız, ancak işleyicilerimizi değiştirmemiz gerekiyor. Tüm Pangolin onay olaylarını dizine eklemeyi planladığımızı unutmayın, sonuç olarak aşağıdakileri okumak için `veri kaynakları` bölümünü güncellememiz gerekiyor.
 
 ```yaml
 dataSources:
