@@ -101,7 +101,7 @@ Bạn sẽ tìm thấy các model đã tạo trong `thư mục /src/types/models
 
 Tệp Project Manifest (`project.yaml`) có thể được xem là điểm vào dự án của bạn và nó xác định hầu hết các thông tin chi tiết về cách SubQuery sẽ lập chỉ mục và chuyển đổi dữ liệu chuỗi.
 
-Chúng tôi sẽ không thực hiện nhiều thay đổi đối với tệp kê khai vì tệp đã được thiết lập đúng cách, nhưng chúng tôi cần thay đổi trình xử lý của mình. Hãy nhớ rằng chúng tôi đang lên kế hoạch lập chỉ mục tất cả các giao dịch Terra, do đó, chúng tôi cần cập nhật phần `datasources` để trông như sau.
+Chúng tôi sẽ không thực hiện nhiều thay đổi đối với tệp kê khai vì tệp đã được thiết lập đúng cách, nhưng chúng tôi cần thay đổi trình xử lý của mình. Remember we are planning to index all Pangolin approval events, as a result, we need to update the `datasources` section to read the following.
 
 ```yaml
 dataSources:
