@@ -1,14 +1,14 @@
-# Terra Quick Start
+# Hướng dẫn bắt đầu nhanh Terra
 
-In this Quick start guide, we're going to start with a simple Terra starter project and then finish by indexing some actual real data. Đây là cơ sở tuyệt vời để bắt đầu khi phát triển Dự án SubQuery của riêng bạn.
+Trong hướng dẫn bắt đầu nhanh này, chúng ta sẽ bắt đầu với một dự án Terra khởi đầu đơn giản và sau đó kết thúc bằng cách lập chỉ mục một số dữ liệu thực tế. Đây là cơ sở tuyệt vời để bắt đầu khi phát triển Dự án SubQuery của riêng bạn.
 
-**If your are looking for guides for Substrate/Polkadot, you can read the [Substrate/Polkadot specific quick start guide](./quickstart-polkadot).**
+**Nếu bạn đang tìm kiếm hướng dẫn cho Substrate/Polkadot, bạn có thể đọc [ Hướng dẫn bắt đầu nhanh cụ thể dành cho Substrate/Polkadot](./quickstart-polkadot).**
 
 Ở cuối hướng dẫn này, bạn sẽ có một dự án SubQuery đang hoạt động chạy trên nút SubQuery với điểm cuối GraphQL mà có thể truy vấn dữ liệu từ đó.
 
 Nếu chưa có, chúng tôi khuyên bạn nên tự làm quen với [thuật ngữ](../#terminology) được sử dụng trong SubQuery.
 
-**The goal of this quick start guide is to adapt the standard starter project to begin indexing all transfers from Terra, it should only take 10-15 minutes**
+**Mục tiêu của hướng dẫn bắt đầu nhanh này là điều chỉnh dự án khởi đầu tiêu chuẩn để bắt đầu lập chỉ mục tất cả các giao dịch từ Terra, chỉ mất 10-15 phút**
 
 ## Chuẩn bị
 
@@ -45,10 +45,10 @@ subql init
 Bạn sẽ được hỏi một số câu hỏi nhất định khi dự án SubQuery được khởi động:
 
 - Name: Tên dự án SubQuery của bạn
-- Network: A blockchain network that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use *"Terra"*
+- Network: Một chuỗi khối mà dự án SubQuery này sẽ được phát triển để lập chỉ mục, sử dụng các phím mũi tên trên bàn phím của bạn để chọn từ các tùy chọn, đối với hướng dẫn này, chúng tôi sẽ sử dụng *"Terra"*
 - Template: Chọn mẫu dự án SubQuery sẽ cung cấp điểm khởi đầu để bắt đầu phát triển, chúng tôi gợi ý bạn chọn *"Starter project"*
 - Git repository (Tùy chọn): Cung cấp URL Git cho kho lưu trữ dự án SubQuery này (khi được lưu trữ trong SubQuery Explorer)
-- RPC endpoint (Bắt buộc): Cung cấp URL HTTPS cho điểm cuối RPC đang chạy, sẽ được sử dụng mặc định cho dự án này. Nút RPC này phải là một nút lưu trữ (có trạng thái chuỗi đầy đủ). For this guide we will use the default value *"https://terra-columbus-5.beta.api.onfinality.io"*
+- RPC endpoint (Bắt buộc): Cung cấp URL HTTPS cho điểm cuối RPC đang chạy, sẽ được sử dụng mặc định cho dự án này. Nút RPC này phải là một nút lưu trữ (có trạng thái chuỗi đầy đủ). Đối với hướng dẫn này, chúng tôi sẽ sử dụng giá trị mặc định *"https://terra-columbus-5.beta.api.onfinality.io"*
 - Authors (Bắt buộc): Nhập chủ sở hữu của dự án SubQuery này tại đây (ví dụ: tên bạn!)
 - Description (Tùy chọn): Bạn có thể cung cấp một đoạn giới thiệu ngắn về dự án của mình, mô tả dự án chứa dữ liệu gì và người dùng có thể làm gì với dự án
 - Version (Bắt buộc): Nhập số phiên bản tùy chỉnh hoặc sử dụng giá trị mặc định (`1.0.0`)
@@ -69,7 +69,7 @@ Trong gói khởi đầu mà bạn vừa khởi tạo, chúng tôi đã cung c�
 2. Tệp Kê khai dự án ở ` project.yaml `
 3. Các chức năng ánh xạ trong thư mục `src/mappings/`
 
-The goal of this quick start guide is to adapt the standard starter project to begin indexing all transfers from the bLuna smart contract.
+Mục tiêu của hướng dẫn bắt đầu nhanh này là điều chỉnh dự án khởi đầu tiêu chuẩn để bắt đầu lập chỉ mục tất cả các giao dịch từ hợp đồng thông minh bLuna.
 
 ### Cập nhật tệp lược đồ GraphQL của bạn
 
@@ -79,12 +79,12 @@ Chúng ta sẽ cập nhật tệp `schema.graphql` để trông như sau
 
 ```graphql
 type Transfer @entity {
-  id: ID! # id field is always required and must look like this
+  id: ID! # trường id luôn là bắt buộc và phải trông như thế này
   txHash: String!
-  blockHeight: BigInt # The block height of the transfer
-  sender: String! # The account that transfers are made from
-  recipient: String! # The account that transfers are made to
-  amount: String! # Amount that is transferred
+  blockHeight: BigInt # Chiều cao khối của giao dịch
+  sender: String! # Tài khoản chuyển tiền được thực hiện từ
+  recipient: String! # Tài khoản chuyển tiền được thực hiện từ
+  amount: String! # Số tiền được chuyển
 }
 ```
 
@@ -99,7 +99,7 @@ Bạn sẽ tìm thấy các model đã tạo trong `thư mục /src/types/models
 
 Tệp Project Manifest (`project.yaml`) có thể được xem là điểm vào dự án của bạn và nó xác định hầu hết các thông tin chi tiết về cách SubQuery sẽ lập chỉ mục và chuyển đổi dữ liệu chuỗi.
 
-Chúng tôi sẽ không thực hiện nhiều thay đổi đối với tệp kê khai vì tệp đã được thiết lập đúng cách, nhưng chúng tôi cần thay đổi trình xử lý của mình. Remember we are planning to index all Terra transfer events, as a result, we need to update the `datasources` section to read the following.
+Chúng tôi sẽ không thực hiện nhiều thay đổi đối với tệp kê khai vì tệp đã được thiết lập đúng cách, nhưng chúng tôi cần thay đổi trình xử lý của mình. Hãy nhớ rằng chúng tôi đang lên kế hoạch lập chỉ mục tất cả các giao dịch Terra, do đó, chúng tôi cần cập nhật phần `datasources` để trông như sau.
 
 ```yaml
 dataSources:
@@ -120,7 +120,7 @@ dataSources:
                 contract: terra1j66jatn3k50hjtg2xemnjm8s7y8dws9xqa5y8w
 ```
 
-This means we'll run a `handleEvent` mapping function each and every time there is a `transfer` event from the bLuna smart contract.
+Điều này có nghĩa là chúng ta sẽ chạy một hàm ánh xạ `handleEvent` mỗi khi có sự kiện `transfer` từ hợp đồng thông minh bLuna.
 
 Để biết thêm thông tin về tệp Project Manifest (`project.yaml`), hãy xem tài liệu của chúng tôi trong [Build/Manifest File](../build/manifest.md)
 
@@ -130,7 +130,7 @@ Các hàm ánh xạ xác định cách dữ liệu chuỗi được chuyển đ�
 
 Điều hướng đến hàm ánh xạ mặc định trong thư mục `src/mappings `. Bạn sẽ thấy ba hàm được xuất, `handleBlock`, `handleEvent` và `handleCall`. Bạn có thể xóa cả hai hàm `handleBlock` và `handleCall`, chúng tôi chỉ sử dụng hàm `handleEvent`.
 
-Hàm `handleEvent` nhận dữ liệu sự kiện bất cứ khi nào sự kiện khớp với các bộ lọc mà chúng tôi chỉ định trước đó trong `project.yaml` của chúng tôi. We are going to update it to process all `transfer` events and save them to the GraphQL entities that we created earlier.
+Hàm `handleEvent` nhận dữ liệu sự kiện bất cứ khi nào sự kiện khớp với các bộ lọc mà chúng tôi chỉ định trước đó trong `project.yaml` của chúng tôi. Chúng tôi sẽ cập nhật nó để xử lý tất cả các sự kiện `transfer` và lưu chúng vào các thực thể GraphQL mà chúng tôi đã tạo trước đó.
 
 Bạn có thể cập nhật hàm `handleEvent` như sau (lưu ý các import bổ sung):
 
@@ -231,7 +231,7 @@ SubQuery cung cấp dịch vụ quản lý miễn phí nơi bạn có thể tri�
 
 ## Bước tiếp theo
 
-Congratulations, you now have a locally running SubQuery project that accepts GraphQL API requests for transfers data from bLuna.
+Xin chúc mừng, bạn hiện có một dự án SubQuery đang chạy cục bộ chấp nhận các yêu cầu API GraphQL để chuyển dữ liệu từ Luna.
 
 Bây giờ bạn đã có cái nhìn sâu sắc về cách xây dựng một dự án SubQuery cơ bản, câu hỏi đặt ra là bắt đầu từ đâu? Nếu bạn cảm thấy tự tin, bạn có thể bắt đầu tìm hiểu thêm về ba tệp chính. Tệp kê khai, lược đồ GraphQL và tệp ánh xạ trong phần [Phần Xây dựng của các tài liệu này](../build/introduction.md).
 
