@@ -101,7 +101,7 @@ You'll find the generated models in the `/src/types/models` directory. Untuk inf
 
 File Projek Manifest (`project.yaml`) dapat dilihat sebagai titik masuk proyek Anda dan ini mendefinisikan sebagian besar detail tentang bagaimana SubQuery akan mengindeks dan mengubah data rantai.
 
-Kami tidak akan melakukan banyak perubahan pada file manifes karena sudah diatur dengan benar, tetapi kami perlu mengubah penangan kami. Remember we are planning to index all Terra transfer events, as a result, we need to update the `datasources` section to read the following.
+Kami tidak akan melakukan banyak perubahan pada file manifes karena sudah diatur dengan benar, tetapi kami perlu mengubah penangan kami. Remember we are planning to index all Pangolin approval events, as a result, we need to update the `datasources` section to read the following.
 
 ```yaml
 dataSources:
