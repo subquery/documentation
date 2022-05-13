@@ -45,10 +45,11 @@ subql init
 在初始化 SubQuery project 时，您会被问到一些问题：
 
 - 名称：您的 SubQuery 项目的名称
-- 网络。这个SubQuery项目将开发的区块链网络索引，使用键盘上的方向键从选项中选择，对于本指南，我们将使用*"Polkadot"*。
+- Network Family: The layer-1 blockchain network family that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use *"Polkadot"*
+- Network: The specific network that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use *"Polkadot"*
 - 模板。选择一个子查询项目模板，为开始开发提供一个起点，我们建议选择*"启动项目"*。
 - Git仓库（可选）。提供一个Git URL，这个SubQuery项目将被托管在一个Repo中（当托管在SubQuery Explorer中）。
-- RPC端点（需要）。提供一个运行中的RPC端点的HTTPS URL，该端点将被默认用于该项目。 您可以快速访问不同的 Polkadot 网络的公共端点，甚至可以使用 [OnFinality](https://app.onfinality.io) 或仅使用默认的 Polkadot 端点创建您自己的专用节点。 此 RPC 节点必须是归档节点 (具有完整链状态)。 在本指南中，我们将使用默认值*"https://polkadot.api.onfinality.io"*。
+- RPC端点（需要）。提供一个运行中的RPC端点的HTTPS URL，该端点将被默认用于该项目。 You can quickly access public endpoints for different Polkadot networks or even create your own private dedicated node using [OnFinality](https://app.onfinality.io) or just use the default Polkadot endpoint. 此 RPC 节点必须是归档节点 (具有完整链状态)。 For this guide we will use the default value *"https://polkadot.api.onfinality.io"*
 - 作者（必填）。在此输入该子查询项目的所有者（例如，你的名字！）。
 - 描述（可选）。你可以提供一个关于你的项目的简短段落，描述它包含什么数据以及用户可以用它做什么。
 - 版本 (必填)：输入一个自定义版本号或使用默认版本(`1.0.0`)
