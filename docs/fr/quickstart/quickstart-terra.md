@@ -45,7 +45,8 @@ subql init
 Certaines questions vous seront posées au fur et à mesure de l'initalisation du projet SubQuery :
 
 - Name: Un nom pour votre projet SubQuery
-- Network: A blockchain network that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use *"Terra"*
+- Network Family: The layer-1 blockchain network family that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use *"Terra"*
+- Network: The specific network that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use *"Terra"*
 - Template: Sélectionnez un modèle de projet SubQuery qui fournira un point de départ pour commencer le développement, nous suggérons de sélectionner le *"Projet de démarrage"*
 - Git repository (Facultatif): Fournir l'URL Git d'un repo dans lequel le projet SubQuery sera hébergé (lorsqu'il est hébergé dans SubQuery Explorer)
 - RPC endpoint (Obligatoire): Fournissez une URL HTTPS vers un point de terminaison RPC en cours d'exécution qui sera utilisé par défaut pour ce projet. Ce nœud RPC doit être un nœud d'archive (avoir l'état complet de la chaîne). For this guide we will use the default value *"https://terra-columbus-5.beta.api.onfinality.io"*
