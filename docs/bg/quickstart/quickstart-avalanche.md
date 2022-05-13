@@ -101,7 +101,7 @@ type PangolinApproval @entity {
 
 Файлът Projet Manifest (`project.yaml`) може да се разглежда като начална точка за вашия проект, той определя повечето подробности за това как SubQuery ще индексира и трансформира данните от веригата.
 
-Няма да правим много промени във файла на манифеста, тъй като той вече е настроен правилно, но трябва да променим нашите handlers. Не забравяйте, че планираме да индексираме всички събития за трансфер на Terra, в резултат на което трябва да актуализираме секцията `datasources`, за да прочетем следното.
+Няма да правим много промени във файла на манифеста, тъй като той вече е настроен правилно, но трябва да променим нашите handlers. Remember we are planning to index all Pangolin approval events, as a result, we need to update the `datasources` section to read the following.
 
 ```yaml
 dataSources:
