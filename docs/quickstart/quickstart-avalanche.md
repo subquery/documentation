@@ -184,9 +184,10 @@ export async function handleEvent(event: AvalancheEvent): Promise<void> {
   pangolinApprovalRecord.transactionHash = event.transactionHash;
   pangolinApprovalRecord.blockHash = event.blockHash;
   pangolinApprovalRecord.blockNumber = event.blockNumber;
+  # topics store data as an array
   pangolinApprovalRecord.addressFrom = event.topics[0];
-  pangolinApprovalRecord.addressTo = event.topics[0];
-  pangolinApprovalRecord.amount = event.topics[0];
+  pangolinApprovalRecord.addressTo = event.topics[1];
+  pangolinApprovalRecord.amount = event.topics[2];
 
   await pangolinApprovalRecord.save();
 }
