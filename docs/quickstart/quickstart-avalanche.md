@@ -133,7 +133,7 @@ You'll find the generated models in the `/src/types/models` directory. For more 
 
 The Projet Manifest (`project.yaml`) file can be seen as an entry point of your project and it defines most of the details on how SubQuery will index and transform the chain data.
 
-We won't do many changes to the manifest file as it already has been setup correctly, but we need to change our handlers. Remember we are planning to index all Terra transfer events, as a result, we need to update the `datasources` section to read the following.
+We won't do many changes to the manifest file as it already has been setup correctly, but we need to change our handlers. Remember we are planning to index all Pangolin approval events, as a result, we need to update the `datasources` section to read the following.
 
 ```yaml
 dataSources:
