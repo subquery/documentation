@@ -60,16 +60,16 @@ Options:
                                                       [boolean] [default: false]
       --timeout             Timeout for indexer sandbox to execute the mapping
                             functions                                   [number]
-      --debug               Show debug information to console output. will
-                            forcefully set log level to debug
+      --debug               Show debug information to console output. 
+                            establecerá forzosamente el nivel de registro para depurar
                                                       [boolean] [default: false]
-      --profiler            Show profiler information to console output
+      --profiler Mostrar información del perfilador a salida de consola
                                                       [boolean] [default: false]
-      --subscription        Enable subscription       [boolean] [default: false]                                                     
-      --network-endpoint    Blockchain network endpoint to connect      [string]
-      --output-fmt          Print log as json or plain text
+      --subscription Enable subscription       [boolean] [default: false]                                                     
+      --network-endpoint Blockchain network endpoint para conectar      [string]
+      --output-fmt Print log como json o texto plano
                                            [string] [choices: "json", "colored"]
-      --log-level           Specify log level to print. Ignored when --debug is
+      --log-level Especifique el nivel de registro a imprimir. Ignored when --debug is
                             used
           [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
                                                                        "silent"]
