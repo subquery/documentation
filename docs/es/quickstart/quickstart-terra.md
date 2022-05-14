@@ -1,82 +1,77 @@
-# Terra Quick Start
+# Inicio rápido Terra
 
-In this Quick start guide, we're going to start with a simple Terra starter project and then finish by indexing some actual real data. Esta es una base excelente para comenzar a desarrollar su propio Proyecto SubQuery.
+En esta guía de inicio rápido, vamos a empezar con un simple proyecto inicial de Terra y luego terminar indexando algunos datos reales reales. Esta es una base excelente para comenzar a desarrollar su propio Proyecto SubQuery.
 
-**If your are looking for guides for Substrate/Polkadot, you can read the [Substrate/Polkadot specific quick start guide](./quickstart-polkadot).**
+**Si está buscando guías para Substrate/Polkadot, puede leer la guía de inicio rápido específica de [Substrate/Polkadot](./quickstart-polkadot).**
 
 Al final de esta guía, tendrá un proyecto de SubQuery funcionando en un nodo de SubQuery con un endpoint GraphQL desde el que puede consultar datos.
 
 Si aún no lo has hecho, te sugerimos familiarizarte con la [terminología](../#terminology) utilizada en SubQuery.
 
-**The goal of this quick start guide is to adapt the standard starter project to begin indexing all transfers from Terra, it should only take 10-15 minutes**
+**El objetivo de esta guía de inicio rápido es adaptar el proyecto inicial estándar para comenzar a indexar todas las transferencias desde Terra, solo debería tomar 10-15 minutos**
 
 ## Preparación
 
 ### Entorno de desarrollo local
 
-- [Node](https://nodejs.org/en/): A modern (e.g. the LTS version) installation of Node.
-- [Docker](https://docker.com/): This tutorial will use require Docker
+- [Node](https://nodejs.org/en/): Una instalación moderna (por ejemplo, la versión LTS) de Node.
+- [Docker](https://docker.com/): Este tutorial usará Docker
 
 ### Instalar SubQuery CLI
 
-Install SubQuery CLI globally on your terminal by using NPM:
+Instalar SubQuery CLI globalmente en tu terminal usando Yarn o NPM:
 
 ```shell
 # NPM
 npm install -g @subql/cli
 ```
 
-Please note that we **DO NOT** encourage the use of `yarn global` for installing `@subql/cli` due to its poor dependency management which may lead to an errors down the line.
+Tenga en cuenta que **NO** animamos el uso de `yarn global` para instalar `@subql/cli` debido a su mala gestión de dependencias que puede llevar a errores en la línea.
 
-You can then run help to see available commands and usage provide by CLI
+A continuación, puede ejecutar ayuda para ver los comandos disponibles y el uso proporcionado por CLI
 
 ```shell
 subql help
 ```
 
-## Initialise the SubQuery Starter Project
+## Inicializar el proyecto de inicio de subconsultas
 
-Inside the directory in which you want to create a SubQuery project, simply run the following command to get started.
+Dentro del directorio en el que desea crear un proyecto SubQuery, simplemente ejecute el siguiente comando para empezar.
 
 ```shell
 subql init
 ```
 
-You'll be asked certain questions as the SubQuery project is initalised:
+Se le harán ciertas preguntas ya que el proyecto de SubQuery está initalizado:
 
-- Name: A name for your SubQuery project
+- Nombre: Un nombre para tu proyecto de SubQuery
 - Network Family: The layer-1 blockchain network family that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use *"Terra"*
 - Network: The specific network that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use *"Terra"*
-- Template: Select a SubQuery project template that will provide a starting point to begin development, we suggest selecting the *"Starter project"*
-- Git repository (Optional): Provide a Git URL to a repo that this SubQuery project will be hosted in (when hosted in SubQuery Explorer)
-- RPC endpoint (Required): Provide a HTTPS URL to a running RPC endpoint that will be used by default for this project. This RPC node must be an archive node (have the full chain state). For this guide we will use the default value *"https://terra-columbus-5.beta.api.onfinality.io"*
-- Authors (Required): Enter the owner of this SubQuery project here (e.g. your name!)
-- Description (Optional): You can provide a short paragraph about your project that describe what data it contains and what users can do with it
-- Version (Required): Enter a custom version number or use the default (`1.0.0`)
-- License (Required): Provide the software license for this project or accept the default (`Apache-2.0`)
+- Plantilla: Seleccione una plantilla de proyecto de subconsulta que proporcionará un punto de partida para comenzar el desarrollo, le sugerimos seleccionar el *"Inicio del proyecto"*
+- Repositorio Git (opcional): Proporcione una URL Git a un repositorio en el que este proyecto de SubQuery será alojado (cuando esté alojado en SubQuery Explorer)
+- endpoint RPC (requerido): Proporcione una URL HTTPS a un endpoint RPC en ejecución que se utilizará por defecto para este proyecto. Este nodo RPC debe ser un nodo de archivo (tienen el estado completo de cadena). For this guide we will use the default value *"https://terra-columbus-5.beta.api.onfinality.io"*
+- Autores (Requeridos): Introduzca el propietario de este proyecto de Subconsulta aquí (por ejemplo, su nombre)
+- Descripción (Opcional): Puede proporcionar un párrafo corto sobre su proyecto que describa qué datos contiene y qué pueden hacer los usuarios con él
+- Versión (Requerida): Introduzca un número de versión personalizado o utilice el predeterminado (`1.0.0`)
+- Licencia (Requerida): Proporcione la licencia de software para este proyecto o acepte el predeterminado (`Apache-2.0`)
 
-After the initialisation process is complete, you should see a folder with your project name has been created inside the directory. The contents of this directoy should be identical to what's listed in the [Directory Structure](../create/introduction.md#directory-structure).
+Después de completar el proceso de inicialización, debería ver una carpeta con el nombre de su proyecto que se ha creado dentro del directorio. El contenido de este directorio debe ser idéntico a lo que se muestra en la [estructura de directorio](../create/introduction.md#directory-structure).
 
-Last, under the project directory, run following command to install the new project's dependencies.
+Por último, bajo el directorio del proyecto, ejecute el siguiente comando para instalar las dependencias del nuevo proyecto.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```shell cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> shell cd PROJECT_NAME npm install ``` Hacer cambios en su proyecto En el paquete de inicio que acaba de inicializar, proporcionamos una configuración estándar para su nuevo proyecto. Usted trabajará principalmente en los siguientes archivos:
 
-## Making Changes to your Project
-
-In the starter package that you just initialised, we have provided a standard configuration for your new project. You will mainly be working on the following files:
-
-1. The GraphQL Schema in `schema.graphql`
-2. The Project Manifest in `project.yaml`
+1. El esquema GraphQL en `schema.graphql`
+2. El manifiesto del proyecto en `project.yaml`
 3. Las funciones de mapeo en el directorio `src/mappings/`
 
 The goal of this quick start guide is to adapt the standard starter project to begin indexing all transfers from the bLuna smart contract.
 
-### Updating your GraphQL Schema File
+### Actualizando tu archivo de esquema GraphQL
 
-The `schema.graphql` file defines the various GraphQL schemas. Due to the way that the GraphQL query language works, the schema file essentially dictates the shape of your data from SubQuery. Its a great place to start becuase it allows you to define your end goal up front.
+El archivo `schema.graphql` define los diversos esquemas GraphQL. Debido a la forma en que funciona el lenguaje de consulta de GraphQL, el archivo de esquema esencialmente dicta la forma de sus datos de SubQuery. Es un buen lugar para comenzar porque te permite definir tu objetivo final por adelantado.
 
-We're going to update the `schema.graphql` file to read as follows
+Vamos a actualizar el archivo `schema.graphql` para leer de la siguiente manera
 
 ```graphql
 type Transfer @entity {
@@ -89,18 +84,18 @@ type Transfer @entity {
 }
 ```
 
-**Important: When you make any changes to the schema file, please ensure that you regenerate your types directory. Do this now.**
+**Importante: Cuando realice cambios en el archivo de esquema, asegúrese de que regenera el directorio de sus tipos. Hágalo ahora.**
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```shell npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
 
-You'll find the generated models in the `/src/types/models` directory. For more information about the `schema.graphql` file, check out our documentation under [Build/GraphQL Schema](../build/graphql.md)
+You'll find the generated models in the `/src/types/models` directory. Para más información sobre el archivo `schema.graphql` , revisa nuestra documentación en [Esquema de Build/GraphQL](../build/graphql.md)
 
-### Updating the Project Manifest File
+### Actualizando el archivo de manifiesto del proyecto
 
-The Projet Manifest (`project.yaml`) file can be seen as an entry point of your project and it defines most of the details on how SubQuery will index and transform the chain data.
+El Manifiesto del Proyecto (`proyecto. el archivo aml`) puede ser visto como un punto de entrada de tu proyecto y define la mayoría de los detalles sobre cómo SubQuery indexará y transformará los datos en cadena.
 
-We won't do many changes to the manifest file as it already has been setup correctly, but we need to change our handlers. Remember we are planning to index all Terra transfer events, as a result, we need to update the `datasources` section to read the following.
+No haremos muchos cambios en el archivo manifest ya que ya ha sido configurado correctamente, pero necesitamos cambiar nuestros manejadores. Remember we are planning to index all Terra transfer events, as a result, we need to update the `datasources` section to read the following.
 
 ```yaml
 dataSources:
@@ -123,17 +118,17 @@ dataSources:
 
 This means we'll run a `handleEvent` mapping function each and every time there is a `transfer` event from the bLuna smart contract.
 
-For more information about the Project Manifest (`project.yaml`) file, check out our documentation under [Build/Manifest File](../build/manifest.md)
+Para más información sobre el manifiesto del proyecto (`project.yaml`), revisa nuestra documentación en [Archivo de construcción/Manifiesto](../build/manifest.md)
 
-### Add a Mapping Function
+### Añadir una función de mapeo
 
-Mapping functions define how chain data is transformed into the optimised GraphQL entities that we have previously defined in the `schema.graphql` file.
+Las funciones de mapeo definen cómo se transforman los datos de la cadena en las entidades optimizadas GraphQL que hemos definido previamente en el archivo `schema.graphql`.
 
-Navigate to the default mapping function in the `src/mappings` directory. You'll see three exported functions, `handleBlock`, `handleEvent`, and `handleCall`. You can delete both the `handleBlock` and `handleCall` functions, we are only dealing with the `handleEvent` function.
+Vaya a la función de mapeo predeterminada en el directorio `src/mappings`. Verás tres funciones exportadas, `handleBlock`, `handleEvent`y `handleCall`. Puedes eliminar las funciones `handleBlock` y `handleCall` , solo estamos tratando con la función `handleEvent`.
 
-The `handleEvent` function recieved event data whenever event matches the filters that we specify previously in our `project.yaml`. We are going to update it to process all `transfer` events and save them to the GraphQL entities that we created earlier.
+La función `handleEvent` recibió datos de eventos cuando el evento coincide con los filtros que especificamos previamente en nuestro `project.yaml`. We are going to update it to process all `transfer` events and save them to the GraphQL entities that we created earlier.
 
-You can update the `handleEvent` function to the following (note the additional imports):
+Puede actualizar la función `handleEvent` a lo siguiente (tenga en cuenta las importaciones adicionales):
 
 ```ts
 import { TerraEvent } from "@subql/types-terra";
@@ -170,39 +165,33 @@ export async function handleEvent(
 }
 ```
 
-What this is doing is receiving a SubstrateEvent which includes transfer data on the payload. We extract this data and then instantiate a new `Transfer` entity that we defined earlier in the `schema.graphql` file. We add additional information and then use the `.save()` function to save the new entity (SubQuery will automatically save this to the database).
+Lo que esto está haciendo es recibir un SubstrateEvent que incluye datos de transferencia en la carga útil. Extraemos estos datos y luego instanciamos una nueva entidad de `transferencia` que definimos anteriormente en el archivo `schema.graphql`. Añadimos información adicional y luego usamos la función `.save()` para guardar la nueva entidad (SubQuery automáticamente guardará esto en la base de datos).
 
-For more information about mapping functions, check out our documentation under [Build/Mappings](../build/mapping.md)
+Para más información sobre las funciones de mapeo, revisa nuestra documentación en [Construcción/Mapeo](../build/mapping.md)
 
-### Build the Project
+### Construye Tu Proyecto
 
-In order run your new SubQuery Project we first need to build our work. Run the build command from the project's root directory.
+Para ejecutar tu nuevo SubQuery Project primero necesitamos construir nuestro trabajo. Ejecuta el comando de compilación desde el directorio raíz del proyecto.
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script build ``` </CodeGroupItem> </CodeGroup>
 
-**Important: Whenever you make changes to your mapping functions, you'll need to rebuild your project**
+**Important: Whenever you make changes to your mapping functions, you'll need to rebuild your project** La forma más fácil de hacer esto es usando Docker. </p>
 
-## Running and Querying your Project
+Toda la configuración que controla cómo se ejecuta un nodo de SubQuery está definida en este archivo `docker-compose.yml`. Para un nuevo proyecto que ha sido inicializado no necesitarás cambiar nada aquí, pero puedes leer más sobre el archivo y la configuración en nuestra sección [Ejecutar un proyecto](../run_publish/run.md)
 
-### Run your Project with Docker
-
-Whenever you create a new SubQuery Project, you should always run it locally on your computer to test it first. The easiest way to do this is by using Docker.
-
-All configuration that controls how a SubQuery node is run is defined in this `docker-compose.yml` file. For a new project that has been just initalised you won't need to change anything here, but you can read more about the file and the settings in our [Run a Project section](../run_publish/run.md)
-
-Under the project directory run following command:
+Bajo el directorio del proyecto ejecute el siguiente comando:
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn start:docker ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script start:docker ``` </CodeGroupItem> </CodeGroup>
 
-It may take some time to download the required packages ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), and Postgres) for the first time but soon you'll see a running SubQuery node. Be patient here.
+It may take some time to download the required packages ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), and Postgres) for the first time but soon you'll see a running SubQuery node. Sea paciente aquí.
 
-### Query your Project
+### Consulta tu proyecto
 
-Open your browser and head to [http://localhost:3000](http://localhost:3000).
+Abre tu navegador y ve a [http://localhost:3000](http://localhost:3000).
 
-You should see a GraphQL playground is showing in the explorer and the schemas that are ready to query. En la parte superior derecha del patio de juegos, encontrarás un botón _Docs_ que abrirá un cuadro de documentación. Esta documentación se genera automáticamente y le ayuda a encontrar qué entidades y métodos puede consultar.
+Deberías ver un parque de juegos GraphQL que se muestre en el Explorador y el esquema que está listo para consultar. En la parte superior derecha del patio de juegos, encontrarás un botón _Docs_ que abrirá un cuadro de documentación. Esta documentación se genera automáticamente y le ayuda a encontrar qué entidades y métodos puede consultar.
 
-For a new SubQuery starter project, you can try the following query to get a taste of how it works or [learn more about the GraphQL Query language](../run_publish/graphql.md).
+Para un nuevo proyecto inicial de SubQuery, puedes probar la siguiente consulta para conocer cómo funciona o [aprender más sobre el lenguaje de consulta GraphQL](../run_publish/graphql.md).
 
 ```graphql
 {
@@ -224,18 +213,18 @@ For a new SubQuery starter project, you can try the following query to get a tas
 }
 ```
 
-### Publish your SubQuery Project
+### Publica tu SubQuery Project
 
-SubQuery provides a free managed service when you can deploy your new project to. You can deploy it to [SubQuery Projects](https://project.subquery.network) and query it using our [Explorer](https://explorer.subquery.network).
+SubQuery proporciona un servicio administrado gratuito cuando puedes desplegar tu nuevo proyecto. Puedes implementarlo en [SubQuery Proyects](https://project.subquery.network) y consultarlo usando nuestro [Explorador](https://explorer.subquery.network).
 
-[Read the guide to publish your new project to SubQuery Projects](../run_publish/publish.md)
+[Lee la guía para publicar tu nuevo proyecto a SubQuery Proyects](../run_publish/publish.md)
 
-## Next Steps
+## Próximos pasos
 
 Congratulations, you now have a locally running SubQuery project that accepts GraphQL API requests for transfers data from bLuna.
 
-Now that you've had an insight into how to build a basic SubQuery project, the question is where to from here? If you are feeling confident, you can jump into learning more about the three key files. The manifest file, the GraphQL schema, and the mappings file under the [Build section of these docs](../build/introduction.md).
+Ahora que has tenido una visión de cómo construir un proyecto básico de SubQuery, la pregunta es ¿a dónde llegar? Si te sientes seguro, puedes ir a aprender más sobre los tres archivos clave. El archivo manifiesto, el esquema GraphQL y el archivo de mapeos bajo la sección [Build de estos documentos](../build/introduction.md).
 
-Otherwise, continue to our [Academy section](../academy/academy.md) where have more in depth workshops, tutorials, and example projects. There we'll look at more advanced modifications, and we'll take a deeper dive at running SubQuery projects by running readily available and open source projects.
+De lo contrario, continúe a nuestra sección [de la Academia](../academy/academy.md) donde tienen más en profundidad, tutoriales y proyectos de ejemplo. Allí veremos modificaciones más avanzadas, y vamos a profundizar en la ejecución de proyectos de SubQuery ejecutando proyectos fácilmente disponibles y de código abierto.
 
-Finally, if you're looking for more ways to run and publish your project, our [Run & Publish section](../run_publish/run.md) provides detailed informatation about all the ways to run your SubQuery project and other advanced GraphQL aggregation and subscription features.
+Por último, si estás buscando más formas de ejecutar y publicar tu proyecto, nuestra sección [Ejecutar & Publicar](../run_publish/run.md) proporciona un formato detallado sobre todas las formas de ejecutar su proyecto SubQuery y otras funciones avanzadas de agregación GraphQL y suscripción.
