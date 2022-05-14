@@ -1,14 +1,14 @@
-# Avalanche Quick Start
+# Inicio rápido de Avalanche
 
-In this Quick start guide, we're going to start with a simple Avalanche starter project and then finish by indexing some actual real data. This is an excellent basis to start with when developing your own SubQuery Project.
+En esta guía de inicio rápido, vamos a empezar con un simple proyecto inicial Avalanche y luego terminar indexando algunos datos reales reales. Esta es una base excelente para comenzar a desarrollar su propio Proyecto SubQuery.
 
-**If your are looking for guides for Substrate/Polkadot, you can read the [Substrate/Polkadot specific quick start guide](./quickstart-polkadot).**
+**Si está buscando guías para Substrate/Polkadot, puede leer la guía de inicio rápido específica de [Substrate/Polkadot](./quickstart-polkadot).**
 
 Al final de esta guía, tendrá un proyecto de SubQuery funcionando en un nodo de SubQuery con un endpoint GraphQL desde el que puede consultar datos.
 
 Si aún no lo has hecho, te sugerimos familiarizarte con la [terminología](../#terminology) utilizada en SubQuery.
 
-**The goal of this quick start guide is to index all Pangolin token *Approve* events, it should only take 10-15 minutes**
+**El objetivo de esta guía de inicio rápido es indexar todo el token de Pangolin *Aprobar* eventos, solo debería tomar 10-15 minutos**
 
 ## Preparación
 
