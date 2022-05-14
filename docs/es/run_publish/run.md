@@ -1,6 +1,6 @@
 # Ejecutar SubQuery Localmente
 
-Esta guía trabaja sobre cómo ejecutar un nodo local de SubQuery en su infraestructura, que incluye tanto el indexador como el servicio de consultas. ¿No quieres preocuparte por ejecutar tu propia infraestructura de SubQuery? SubQuery proporciona un [servicio administrado](https://explorer.subquery.network) a la comunidad de forma gratuita. [Follow our publishing guide](../run_publish/publish.md) to see how you can upload your project to [SubQuery Projects](https://project.subquery.network).
+Esta guía trabaja sobre cómo ejecutar un nodo local de SubQuery en su infraestructura, que incluye tanto el indexador como el servicio de consultas. ¿No quieres preocuparte por ejecutar tu propia infraestructura de SubQuery? SubQuery proporciona un [servicio administrado](https://explorer.subquery.network) a la comunidad de forma gratuita. [Sigue nuestra guía de publicación](../run_publish/publish.md) para ver cómo puedes subir tu proyecto a [SubQuery Projects](https://project.subquery.network).
 
 ## Usando Docker
 
@@ -20,38 +20,12 @@ Requisitos:
 
 - [Postgres](https://www.postgresql.org/) base de datos (versión 12 o superior). Mientras que el nodo de [SubQuery](#start-a-local-subquery-node) indexa la blockchain, los datos extraídos se almacenan en una instancia de base de datos externa.
 
-A SubQuery node is an implementation that extracts Substrate/Polkadot-based blockchain data per the SubQuery project and saves it into a Postgres database.
+Un nodo de SubQuery es una implementación que extrae datos de blockchain basados en Substrate/Polkadot por el proyecto SubQuery y lo guarda en una base de datos de Postgres.
 
 ### Instalación
 
-<CodeGroup>
-<CodeGroupItem title='Substrate/Polkadot'>
-
-``` shell
-# NPM
-npm install -g @subql/node
-```
-
-</CodeGroupItem>
-<CodeGroupItem title='Terra'>
-
-``` shell
-# NPM
-npm install -g @subql/node-terra
-```
-
-</CodeGroupItem>
-<CodeGroupItem title='Avalanche'>
-
-``` shell
-# NPM
-npm install -g @subql/node-avalanche
-````
-
-</CodeGroupItem>
-</CodeGroup>
-
-Please note that we **DO NOT** encourage the use of `yarn global` due to its poor dependency management which may lead to an errors down the line.
+<CodeGroup> ``` shell # NPM npm install -g @subql/node ``` </CodeGroupItem>
+<CodeGroupItem title='Terra'> ``` shell # NPM npm install -g @subql/node-terra
 
 Una vez instalado, puede iniciar un nodo con el siguiente comando:
 
@@ -112,11 +86,11 @@ subql-node-avalanche -f your-project-path
 
 #### Use a Dictionary
 
-Using a full chain dictionary can dramatically speed up the processing of a SubQuery project during testing or during your first index. In some cases, we've seen indexing performance increases of up to 10x.
+Using a full chain dictionary can dramatically speed up the processing of a SubQuery project during testing or during your first index. En algunos casos, hemos visto incrementos de rendimiento de hasta 10x.
 
-A full chain dictionary pre-indexes the location of all events and extrinsics within the specific chain and allows your node service to skip to relevant locations when indexing rather than inspecting each block.
+Un diccionario de cadena completa pre-indexa la ubicación de todos los eventos y extrinsics dentro de la cadena específica y permite que el servicio de nodo salte a lugares relevantes al indexar en lugar de inspeccionar cada bloque.
 
-You can add the dictionary endpoint in your `project.yaml` file (see [Manifest File](../create/manifest.md)), or specify it at run time using the following command:
+Puede añadir el punto final del diccionario en su proyecto `. archivo aml` (ver [Archivo de manifiesto](../create/manifest.md)), o especificarlo en tiempo de ejecución usando el siguiente comando:
 
 <CodeGroup>
 <CodeGroupItem title='Substrate/Polkadot/Polkadot'>
@@ -126,38 +100,11 @@ subql-node --network-dictionary=https://api.subquery.network/sq/subquery/diction
 ```
 
 </CodeGroupItem>
-<CodeGroupItem title='Terra'>
+<CodeGroupItem title='Terra'> ```shell subql-node-terra --network-dictionary=https://api.subquery.network/sq/subquery/terra-columbus-5-dictionary
 
-```shell
-subql-node-terra --network-dictionary=https://api.subquery.network/sq/subquery/terra-columbus-5-dictionary
-```
+Dependiendo de la configuración de la base de datos de Postgres (p.ej. una contraseña de base de datos), por favor asegúrate de que tanto el indexador (`subql/node`) como el servicio de consulta (`subql/query`) puedan establecer una conexión con él.
 
-</CodeGroupItem>
-<CodeGroupItem title='Avalanche'>
-
-```shell
-subql-node-avalanche --network-dictionary=https://api.subquery.network/sq/subquery/avalanche-dictionary
-```
-
-</CodeGroupItem>
-</CodeGroup>
-
-[Read more about how a SubQuery Dictionary works](../academy/tutorials_examples/dictionary.md).
-
-#### Connect to database
-
-```shell
-export DB_USER=postgres
-export DB_PASS=postgres
-export DB_DATABASE=postgres
-export DB_HOST=localhost
-export DB_PORT=5432
-subql-node -f your-project-path
-```
-
-Depending on the configuration of your Postgres database (e.g. a different database password), please ensure also that both the indexer (`subql/node`) and the query service (`subql/query`) can establish a connection to it.
-
-#### Specify a configuration file
+#### Especifique un archivo de configuración
 
 <CodeGroup>
 <CodeGroupItem title='Substrate/Polkadot'>
@@ -170,23 +117,23 @@ subql-node -c your-project-config.yml
 <CodeGroupItem title='Terra'>
 
 ```shell
-subql-node-terra -c your-project-config.yml
+subql-node-terra -c your-project-config. ml
 ```
 
 </CodeGroupItem>
 <CodeGroupItem title='Avalanche'>
 
 ```shell
-subql-node-avalanche -c your-project-config.yml
+subql-node-avalanche -c your-project-config. ml
 ```
 
 </CodeGroupItem>
 </CodeGroup>
 
-This will point the query node to a configuration file which can be in YAML or JSON format. Check out the example below.
+Esto apunta el nodo de consulta a un archivo de configuración que puede estar en formato YAML o JSON. Mira el ejemplo a continuación.
 
 ```yaml
-subquery: ../../../../subql-example/extrinsics
+subconsulta: ../../../../subql-example/extrinsics
 subqueryName: extrinsics
 batchSize:100
 localMode:true
@@ -306,7 +253,7 @@ For help, see: https://nodejs.org/en/docs/inspector
 Debugger attached.
 ```
 
-Luego abre las herramientas de desarrollo de Chrome, ve a Source > Filesystem y añade tu proyecto al área de trabajo y comienza a depurar. For more information, check out [How to debug a SubQuery project](https://doc.subquery.network/academy/tutorials_examples/debug-projects/)
+Luego abre las herramientas de desarrollo de Chrome, ve a Source > Filesystem y añade tu proyecto al área de trabajo y comienza a depurar. Para obtener más información, consulte [Cómo depurar un proyecto de SubQuery](https://doc.subquery.network/academy/tutorials_examples/debug-projects/)
 
 ## Ejecutar un Servicio de Consulta (subql/query)
 
@@ -326,6 +273,6 @@ export DB_HOST=localhost
 subql-query --name <project_name> --playground
 ```
 
-Make sure the project name is the same as the project name when you [initialize the project](../quickstart/quickstart-polkadot.md#initialise-the-starter-subquery-project). Además, compruebe que las variables de entorno son correctas.
+Asegúrese de que el nombre del proyecto es el mismo que el nombre del proyecto cuando [inicialice el proyecto](../quickstart/quickstart-polkadot.md#initialise-the-starter-subquery-project). Además, compruebe que las variables de entorno son correctas.
 
 Después de ejecutar el servicio subql-query con éxito, abre tu navegador y ve a `http://localhost:3000`. Deberías ver un parque de juegos GraphQL que se muestre en el Explorador y el esquema que está listo para consultar.
