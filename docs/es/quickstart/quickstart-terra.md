@@ -45,11 +45,11 @@ subql init
 Se le harán ciertas preguntas ya que el proyecto de SubQuery está initalizado:
 
 - Nombre: Un nombre para tu proyecto de SubQuery
-- Network Family: The layer-1 blockchain network family that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use *"Terra"*
-- Network: The specific network that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use *"Terra"*
+- Familia de Red: La familia de red de blockchain capa 1 que este proyecto de SubQuery será desarrollado para indexar, usa las teclas de flecha de tu teclado para seleccionar entre las opciones, para esta guía usaremos *"Terra"*
+- Red: La red específica que este proyecto de Subconsulta será desarrollado para indexar, usa las teclas de flecha de tu teclado para seleccionar entre las opciones, para esta guía usaremos *"Terra"*
 - Plantilla: Seleccione una plantilla de proyecto de subconsulta que proporcionará un punto de partida para comenzar el desarrollo, le sugerimos seleccionar el *"Inicio del proyecto"*
 - Repositorio Git (opcional): Proporcione una URL Git a un repositorio en el que este proyecto de SubQuery será alojado (cuando esté alojado en SubQuery Explorer)
-- endpoint RPC (requerido): Proporcione una URL HTTPS a un endpoint RPC en ejecución que se utilizará por defecto para este proyecto. Este nodo RPC debe ser un nodo de archivo (tienen el estado completo de cadena). For this guide we will use the default value *"https://terra-columbus-5.beta.api.onfinality.io"*
+- endpoint RPC (requerido): Proporcione una URL HTTPS a un endpoint RPC en ejecución que se utilizará por defecto para este proyecto. Este nodo RPC debe ser un nodo de archivo (tienen el estado completo de cadena). Para esta guía usaremos el valor predeterminado *"https://terra-columbus-5.beta.api.onfinality.io"*
 - Autores (Requeridos): Introduzca el propietario de este proyecto de Subconsulta aquí (por ejemplo, su nombre)
 - Descripción (Opcional): Puede proporcionar un párrafo corto sobre su proyecto que describa qué datos contiene y qué pueden hacer los usuarios con él
 - Versión (Requerida): Introduzca un número de versión personalizado o utilice el predeterminado (`1.0.0`)
@@ -65,7 +65,7 @@ Por último, bajo el directorio del proyecto, ejecute el siguiente comando para 
 2. El manifiesto del proyecto en `project.yaml`
 3. Las funciones de mapeo en el directorio `src/mappings/`
 
-The goal of this quick start guide is to adapt the standard starter project to begin indexing all transfers from the bLuna smart contract.
+El objetivo de esta guía de inicio rápido es adaptar el proyecto de inicio estándar para comenzar a indexar todas las transferencias del contrato inteligente de bLuna.
 
 ### Actualizando tu archivo de esquema GraphQL
 
@@ -75,12 +75,12 @@ Vamos a actualizar el archivo `schema.graphql` para leer de la siguiente manera
 
 ```graphql
 type Transfer @entity {
-  id: ID! # id field is always required and must look like this
+  id: ID! El campo id de # siempre es obligatorio y debe verse como este
   txHash: String!
-  blockHeight: BigInt # The block height of the transfer
-  sender: String! # The account that transfers are made from
-  recipient: String! # The account that transfers are made to
-  amount: String! # Amount that is transferred
+  blockHeight: BigInt # La altura del bloque del remitente
+  de transferencia: ¡Cadena! # La cuenta que las transferencias se realizan desde el destinatario de
+  : ¡Cadena! # La cuenta que las transferencias se hacen a la cantidad
+  : ¡Cadena! # Cantidad transferida
 }
 ```
 
@@ -89,34 +89,34 @@ type Transfer @entity {
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```shell npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
 
-You'll find the generated models in the `/src/types/models` directory. Para más información sobre el archivo `schema.graphql` , revisa nuestra documentación en [Esquema de Build/GraphQL](../build/graphql.md)
+You'll find the generated models in the `/src/types/models`  Para más información sobre el archivo `schema.graphql` , revisa nuestra documentación en [Esquema de Build/GraphQL](../build/graphql.md)
 
 ### Actualizando el archivo de manifiesto del proyecto
 
 El Manifiesto del Proyecto (`proyecto. el archivo aml`) puede ser visto como un punto de entrada de tu proyecto y define la mayoría de los detalles sobre cómo SubQuery indexará y transformará los datos en cadena.
 
-No haremos muchos cambios en el archivo manifest ya que ya ha sido configurado correctamente, pero necesitamos cambiar nuestros manejadores. Remember we are planning to index all Terra transfer events, as a result, we need to update the `datasources` section to read the following.
+No haremos muchos cambios en el archivo manifest ya que ya ha sido configurado correctamente, pero necesitamos cambiar nuestros manejadores. Recuerda que estamos planeando indexar todos los eventos de transferencia Terra como resultado, necesitamos actualizar la sección de `fuentes de datos` para leer lo siguiente.
 
 ```yaml
-dataSources:
+fuentes de datos:
   - kind: terra/Runtime
-    startBlock: 4724001 # Colombus-5 Starts at this height
-    mapping:
-      file: ./dist/index.js
+    startBlock: 4724001 # Colombus-5 Empieza a esta altura
+    mapeo:
+      archivo: . dist/índice. s
       handlers:
         - handler: handleEvent
           kind: terra/EventHandler
-          # this will trigger on all events that match the following smart contract filter condition
-          filter:
+          # esto se activará en todos los eventos que coincidan con el siguiente filtro condición de contrato inteligente
+          filtro:
             type: transfer
             messageFilter:
-              type: /terra.wasm.v1beta1.MsgExecuteContract
-              values:
-                # We are subscribing to the bLuna smart contract (e.g. only transfer events from this contract)
-                contract: terra1j66jatn3k50hjtg2xemnjm8s7y8dws9xqa5y8w
+              type: /terra. asm.v1beta1. sgExecuteContract
+              valores:
+                # Estamos suscritos al contrato inteligente de bLuna (e. . Solo transferir eventos de este contrato)
+                contratos: terra1j66jatn3k50hjtg2xemnjm8s7y8dws9xqa5y8w
 ```
 
-This means we'll run a `handleEvent` mapping function each and every time there is a `transfer` event from the bLuna smart contract.
+Esto significa que ejecutaremos una función de mapeo de `handleEvent` cada vez que haya un evento de `transferencia` desde el contrato inteligente de bLuna.
 
 Para más información sobre el manifiesto del proyecto (`project.yaml`), revisa nuestra documentación en [Archivo de construcción/Manifiesto](../build/manifest.md)
 
@@ -126,7 +126,7 @@ Las funciones de mapeo definen cómo se transforman los datos de la cadena en la
 
 Vaya a la función de mapeo predeterminada en el directorio `src/mappings`. Verás tres funciones exportadas, `handleBlock`, `handleEvent`y `handleCall`. Puedes eliminar las funciones `handleBlock` y `handleCall` , solo estamos tratando con la función `handleEvent`.
 
-La función `handleEvent` recibió datos de eventos cuando el evento coincide con los filtros que especificamos previamente en nuestro `project.yaml`. We are going to update it to process all `transfer` events and save them to the GraphQL entities that we created earlier.
+La función `handleEvent` recibió datos de eventos cuando el evento coincide con los filtros que especificamos previamente en nuestro `project.yaml`. Lo vamos a actualizar para procesar todos los eventos `transferir` y guardarlos en las entidades GraphQL que creamos anteriormente.
 
 Puede actualizar la función `handleEvent` a lo siguiente (tenga en cuenta las importaciones adicionales):
 
@@ -149,20 +149,6 @@ export async function handleEvent(
     transfer.txHash = event.tx.tx.txhash;
     for (const attr of event.event.attributes) {
       switch (attr.key) {
-        case "sender":
-          transfer.sender = attr.value;
-          break;
-        case "recipient":
-          transfer.recipient = attr.value;
-          break;
-        case "amount":
-          transfer.amount = attr.value;
-          break;
-        default:
-      }
-    }
-    await transfer.save();
-}
 ```
 
 Lo que esto está haciendo es recibir un SubstrateEvent que incluye datos de transferencia en la carga útil. Extraemos estos datos y luego instanciamos una nueva entidad de `transferencia` que definimos anteriormente en el archivo `schema.graphql`. Añadimos información adicional y luego usamos la función `.save()` para guardar la nueva entidad (SubQuery automáticamente guardará esto en la base de datos).
@@ -195,18 +181,18 @@ Para un nuevo proyecto inicial de SubQuery, puedes probar la siguiente consulta 
 
 ```graphql
 {
-  query {
+  consulta {
     transfers(
       first: 10,
       orderBy: ID_DESC
     ) {
-      nodes {
+      nodos {
         id
         txHash
-        amount
+        monto
         blockHeight
-        sender
-        recipient
+        mandador
+        destinatario
       }
     }
   }
@@ -221,7 +207,7 @@ SubQuery proporciona un servicio administrado gratuito cuando puedes desplegar t
 
 ## Próximos pasos
 
-Congratulations, you now have a locally running SubQuery project that accepts GraphQL API requests for transfers data from bLuna.
+Enhorabuena, ahora tiene un proyecto SubQuery en ejecución local que acepta peticiones API GraphQL para transferencias de datos desde bLuna.
 
 Ahora que has tenido una visión de cómo construir un proyecto básico de SubQuery, la pregunta es ¿a dónde llegar? Si te sientes seguro, puedes ir a aprender más sobre los tres archivos clave. El archivo manifiesto, el esquema GraphQL y el archivo de mapeos bajo la sección [Build de estos documentos](../build/introduction.md).
 
