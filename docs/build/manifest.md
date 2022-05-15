@@ -26,7 +26,7 @@ network:
   chainId: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3'
   endpoint: wss://polkadot.api.onfinality.io/public-ws
   # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
-  dictionary: https://api.subquery.network/sq/subquery/dictionary-polkadot
+  dictionary: https://api.subquery.network/sq/subquery/polkadot-dictionary
 dataSources:
   - kind: substrate/Runtime
     startBlock: 1
