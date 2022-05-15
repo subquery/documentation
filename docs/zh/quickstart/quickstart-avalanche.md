@@ -1,6 +1,6 @@
-# Avalanche Quick Start
+# Avalanche 快速启动
 
-In this Quick start guide, we're going to start with a simple Avalanche starter project and then finish by indexing some actual real data. 这是开发您自己的 SubQuery 项目的良好基础。
+在这个快速入门指南中，我们将从一个简单的启动项目开始，然后通过索引一些实际数据来完成。 这是开发您自己的 SubQuery 项目的良好基础。
 
 **如果您正在寻找Terra指南，您可以阅读 [Terra特定的快速启动指南](./quickstart-polkadot)。**
 
@@ -8,7 +8,7 @@ In this Quick start guide, we're going to start with a simple Avalanche starter 
 
 如果您还没有准备好进一步学习，我们建议您熟悉SubQuery中所使用的 [terminology](../#terminology)。
 
-**The goal of this quick start guide is to index all Pangolin token *Approve* events, it should only take 10-15 minutes**
+**这个快速启动指南的目标是索引所有 Pangolin token *审批* 事件，它只能需要 10-15 分钟**
 
 ## 准备
 
@@ -45,11 +45,11 @@ subql init
 在初始化 SubQuery project 时，您会被问到一些问题：
 
 - 名称：您的 SubQuery 项目的名称
-- Network Family: The layer-1 blockchain network family that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use *"Avalanche"*
-- Network: The specific network that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use *"Avalanche"*
+- 网络。这个SubQuery项目将开发的区块链网络索引，使用键盘上的方向键从选项中选择，对于本指南，我们将使用*"Polkadot"*。
+- 网络。这个SubQuery项目将开发的区块链网络索引，使用键盘上的方向键从选项中选择，对于本指南，我们将使用*"Polkadot"*。
 - 模板。选择一个子查询项目模板，为开始开发提供一个起点，我们建议选择*"启动项目"*。
 - Git仓库（可选）。提供一个Git URL，这个SubQuery项目将被托管在一个Repo中（当托管在SubQuery Explorer中）。
-- RPC端点（需要）。提供一个运行中的RPC端点的HTTPS URL，该端点将被默认用于该项目。 此 RPC 节点必须是归档节点 (具有完整链状态)。 For this guide we will use the default value *"avalanche.api.onfinality.io"*
+- RPC端点（需要）。提供一个运行中的RPC端点的HTTPS URL，该端点将被默认用于该项目。 此 RPC 节点必须是归档节点 (具有完整链状态)。 在本指南中，我们将使用默认值*"avalanche.api.onfinality.io"*。
 - 作者（必填）。在此输入该子查询项目的所有者（例如，你的名字！）。
 - 描述（可选）。你可以提供一个关于你的项目的简短段落，描述它包含什么数据以及用户可以用它做什么。
 - 版本 (必填)：输入一个自定义版本号或使用默认版本(`1.0.0`)
@@ -70,13 +70,13 @@ subql init
 2. `project.yaml` 中的项目清单
 3. `src/mappings/` 目录中的映射函数
 
-The goal of this quick start guide is to adapt the standard starter project to index all Pangolin `Approve` events.
+这个快速启动指南的目标是调整标准启动器项目，以索引所有 Pangolin `批准` 事件。
 
 ### 更新你的GraphQL Schema文件
 
 `schema.graphql` 文件定义了各种GraphQL 模式。 遵循GraphQL查询语言的工作方式，模式文件基本上决定了您从 SubQuery 获取数据的格式。 这是一个很好的开始，因为它允许你在前面定义你的最终目标。
 
-We're going to update the `schema.graphql` file to remove all existing entities and read as follows
+我们将更新 `schema.graphql` 文件来移除所有现有的实体并阅读如下：
 
 ```graphql
 type PangolinApproval @entity {
@@ -101,7 +101,7 @@ type PangolinApproval @entity {
 
 Projet Manifest（`project.yaml`）文件可以被看作是你项目的入口，它定义了SubQuery如何索引和转换链数据的大部分细节。
 
-我们不会对清单文件做许多更改，因为它已经正确设置了，但我们需要更改处理程序。 Remember we are planning to index all Pangolin approval events, as a result, we need to update the `datasources` section to read the following.
+我们不会对清单文件做许多更改，因为它已经正确设置了，但我们需要更改处理程序。 请记住，我们正计划对所有Polkadot传输进行索引，因此，我们需要更新`datasources`部分，使之成为以下内容。
 
 ```yaml
 dataSources:
@@ -126,7 +126,7 @@ dataSources:
             # address: "0x60781C2586D68229fde47564546784ab3fACA982"
 ```
 
-This means we'll run a `handleApproveTransaction` mapping function each and every time there is a `approve` transaction from the [Pangolin contract](https://snowtrace.io/txs?a=0x60781C2586D68229fde47564546784ab3fACA982&p=1).
+这意味着我们将运行一个 `手审批交易` 映射函数。每次都会有一个 `批准` 来自 [Pangolin 合同的交易](https://snowtrace.io/txs?a=0x60781C2586D68229fde47564546784ab3fACA982&p=1)
 
 关于Project Manifest（`project.yaml`）文件的更多信息，请查看我们在[Build/Manifest File](../build/manifest.md)下的文档。
 
@@ -161,7 +161,7 @@ export async function handleEvent(event: AvalancheEvent): Promise<void> {
 }
 ```
 
-What this is doing is receiving an Avalanche Event which includes the transation data on the payload. We extract this data and then instantiate a new `PangolinApproval` entity that we defined earlier in the `schema.graphql` file. 我们添加额外的信息，然后使用`.save()`函数来保存新的实体（SubQuery将自动将其保存到数据库）。
+这正在做的是接收一个SubstrateEvent，其中包括有效载荷的传输数据。 我们提取此数据，然后实例化一个我们先前在 `schemagraphql` 文件中定义的新的 `PangolinApplying` 实体。 我们添加额外的信息，然后使用`.save()`函数来保存新的实体（SubQuery将自动将其保存到数据库）。
 
 关于映射函数的更多信息，请查看我们在[Build/Mappings](../build/mapping.md)下的文档。
 
@@ -215,7 +215,7 @@ query {
 
 当您可以部署新项目时，SubQuery提供免费管理服务。 您可以将其部署到 [SubQuery 项目](https://project.subquery.network) 并使用我们的 [Explorer](https://explorer.subquery.network) 进行查询。
 
-[Read the guide to publish your new project to SubQuery Projects](../run_publish/publish.md), **Note that you must deploy via IPFS**.
+[阅读指南以发布您的新项目到 SubQuery 项目](../run_publish/publish.md), **注意您必须通过 IPFS** 进行部署。
 
 ## 后续步骤
 
