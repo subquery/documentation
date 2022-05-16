@@ -1,20 +1,20 @@
 # Bắt đầu nhanh với Polkadot
 
-Trong hướng dẫn bắt đầu nhanh này, chúng ta sẽ bắt đầu với một dự án Substrate/Polkadot khởi đầu đơn giản và sau đó kết thúc bằng cách lập chỉ mục một số dữ liệu thực tế. Đây là cơ sở tuyệt vời để bắt đầu khi phát triển Dự án Substrate/Polkadot với SubQuery của riêng bạn.
+Trong hướng dẫn nhanh này, chúng ta sẽ khởi đầu với một dự án Substrate/Polkadot đơn giản và sau đó kết thúc bằng cách lập chỉ mục một số dữ liệu thực tế. Đây là cơ sở tuyệt vời để bắt đầu khi phát triển Dự án Substrate/Polkadot với SubQuery của riêng bạn.
 
-**Nếu bạn đang tìm kiếm hướng dẫn cho Terra, bạn có thể đọc [ Hướng dẫn bắt đầu nhanh cụ thể dành cho Terra](./quickstart-terra).**
+**Nếu bạn đang tìm kiếm hướng dẫn cho Terra, bạn có thể đọc [ Hướng dẫn nhanh dành cho Terra](./quickstart-terra).**
 
-Ở cuối hướng dẫn này, bạn sẽ có một dự án SubQuery đang hoạt động chạy trên nút SubQuery với điểm cuối GraphQL mà có thể truy vấn dữ liệu từ đó.
+Sau khi hoàn thành xong hướng dẫn này, bạn sẽ có một dự án SubQuery đang hoạt động chạy trên nút SubQuery với điểm cuối GraphQL mà có thể truy vấn dữ liệu từ đó.
 
-Nếu chưa có, chúng tôi khuyên bạn nên tự làm quen với [thuật ngữ](../#terminology) được sử dụng trong SubQuery.
+Nếu bạn chưa sẵn sàng, chúng tôi khuyên bạn nên tự làm quen với [thuật ngữ](../#terminology) được sử dụng trong SubQuery.
 
-**Mục tiêu của hướng dẫn bắt đầu nhanh này là điều chỉnh dự án khởi đầu tiêu chuẩn để bắt đầu lập chỉ mục tất cả các giao dịch từ Polkadot, chỉ mất 10-15 phút**
+**Mục tiêu của hướng dẫn nhanh này là điều chỉnh dự án khởi đầu tiêu chuẩn để bắt đầu lập chỉ mục tất cả các giao dịch từ Polkadot, chỉ mất 10-15 phút**
 
 ## Chuẩn bị
 
 ### Môi trường phát triển địa phương
 
-- [Node](https://nodejs.org/en/): Cài đặt một phiên bản mới nhất của Node (ví dụ: phiên bản LTS).
+- [Node](https://nodejs.org/en/): Bạn cần cài đặt một phiên bản mới nhất của Node (ví dụ: phiên bản LTS).
 - [Docker](https://docker.com/): Hướng dẫn này sẽ yêu cầu sử dụng Docker
 
 ### Cài đặt CLI SubQuery
@@ -26,9 +26,9 @@ Cài đặt SubQuery CLI tổng thể trên terminal của bạn bằng cách s�
 npm install -g @subql/cli
 ```
 
-Xin lưu ý rằng chúng tôi **KHÔNG** khuyến khích sử dụng `yarn global<` để cài đặt `@subql/cli` do quản lý phụ thuộc kém có thể dẫn đến lỗi xuống dòng.
+Xin lưu ý rằng chúng tôi **KHÔNG** khuyến khích sử dụng `yarn global` để cài đặt `@subql/cli` do khả năng quản lý dependency kém có thể dẫn đến lỗi.
 
-Sau đó, bạn có thể chạy help để xem các lệnh có sẵn và cách sử dụng do CLI cung cấp
+Sau khi cài đặt xong, bạn có thể chạy lệnh help để xem các lệnh có sẵn của CLI và cách sử dụng chúng
 
 ```shell
 subql help
@@ -36,20 +36,20 @@ subql help
 
 ## Khởi tạo Dự án khởi đầu SubQuery
 
-Bên trong thư mục mà bạn muốn tạo một dự án SubQuery, chỉ cần chạy lệnh sau để bắt đầu.
+Bên trong thư mục mà bạn muốn tạo một dự án SubQuery, hãy chạy lệnh sau để bắt đầu.
 
 ```shell
 subql init
 ```
 
-Bạn sẽ được hỏi một số câu hỏi nhất định khi dự án SubQuery được khởi động:
+Bạn sẽ được hỏi một số câu hỏi khi dự án SubQuery được khởi tạo:
 
 - Name: Tên dự án SubQuery của bạn
-- Network Family: The layer-1 blockchain network family that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use *"Polkadot"*
-- Network: The specific network that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use *"Polkadot"*
-- Template: Chọn mẫu dự án SubQuery sẽ cung cấp điểm khởi đầu để bắt đầu phát triển, chúng tôi gợi ý bạn chọn *"Starter project"*
-- Git repository (Tùy chọn): Cung cấp URL Git cho kho lưu trữ dự án SubQuery này (khi được lưu trữ trong SubQuery Explorer)
-- RPC endpoint (Bắt buộc): Cung cấp URL HTTPS cho điểm cuối RPC đang chạy, sẽ được sử dụng mặc định cho dự án này. You can quickly access public endpoints for different Polkadot networks or even create your own private dedicated node using [OnFinality](https://app.onfinality.io) or just use the default Polkadot endpoint. Nút RPC này phải là một nút lưu trữ (có trạng thái chuỗi đầy đủ). For this guide we will use the default value *"https://polkadot.api.onfinality.io"*
+- Network Family: Mạng blockchain layer-1 mà dự án Subquery sẽ được phát triển để lập chỉ mục, dùng dấu mũi tên để di chuyển giữa các lựa chọn, trong bài hướng dẫn này, chúng ta sẽ sử dụng *"Polkadot"*
+- Network: Mạng cụ thể mà dự án SubQuery này sẽ được phát triển để lập chỉ mục, dùng phím mũi tên để di chuyển giữa các lựa chọn, trong bài hướng dẫn này chúng ta sẽ dùng *"Polkadot"*
+- Template: Chọn mẫu dự án SubQuery để bắt đầu phát triển, chúng tôi gợi ý bạn chọn *"Starter project"*
+- Git repository (Không bắt buộc): Cung cấp URL Git trỏ tới repo mà dự án SubQuery lưu trữ (khi được lưu trữ trong SubQuery Explorer)
+- RPC endpoint (Bắt buộc): Cung cấp URL HTTPS cho điểm cuối RPC đang chạy, sẽ được sử dụng mặc định cho dự án này. You can quickly access public endpoints for different Polkadot networks or even create your own private dedicated node using [OnFinality](https://app.onfinality.io) or just use the default Polkadot endpoint. Nút RPC này phải là một nút lưu trữ (có trạng thái chuỗi đầy đủ). Trong bài hướng dẫn này, chúng ta sẽ dùng giá trị mặc định là *"https://polkadot.api.onfinality.io"*
 - Authors (Bắt buộc): Nhập chủ sở hữu của dự án SubQuery này tại đây (ví dụ: tên bạn!)
 - Description (Tùy chọn): Bạn có thể cung cấp một đoạn giới thiệu ngắn về dự án của mình, mô tả dự án chứa dữ liệu gì và người dùng có thể làm gì với dự án
 - Version (Bắt buộc): Nhập số phiên bản tùy chỉnh hoặc sử dụng giá trị mặc định (`1.0.0`)
