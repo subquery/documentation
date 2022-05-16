@@ -19,16 +19,16 @@ In this Quick start guide, we're going to start with a simple Avalanche starter 
 
 ### Встановити SubQuery CLI
 
-Install SubQuery CLI globally on your terminal by using NPM:
+Встановіть SubQuery CLI глобально на свій термінал за допомогою NPM:
 
 ```shell
 # NPM
 npm install -g @subql/cli
 ```
 
-Please note that we **DO NOT** encourage the use of `yarn global` for installing `@subql/cli` due to its poor dependency management which may lead to an errors down the line.
+Зауважте, що ми **НЕ** заохочуємо використання `yarn global` для встановлення `@subql/cli` через погане керування залежностями, що може призвести до помилки в подальшому.
 
-You can then run help to see available commands and usage provide by CLI
+Потім ви можете запустити довідку, щоб побачити доступні команди та використання, надані CLI
 
 ```shell
 subql help
@@ -36,13 +36,13 @@ subql help
 
 ## Initialise the SubQuery Starter Project
 
-Inside the directory in which you want to create a SubQuery project, simply run the following command to get started.
+У каталозі, в якому ви хочете створити проект SubQuery, просто виконайте таку команду, щоб почати.
 
 ```shell
 subql init
 ```
 
-You'll be asked certain questions as the SubQuery project is initalised:
+Під час ініціалізації проекту SubQuery вам зададуть певні запитання:
 
 - Name: A name for your SubQuery project
 - Network Family: The layer-1 blockchain network family that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use *"Avalanche"*
@@ -55,9 +55,9 @@ You'll be asked certain questions as the SubQuery project is initalised:
 - Version (Required): Enter a custom version number or use the default (`1.0.0`)
 - License (Required): Provide the software license for this project or accept the default (`Apache-2.0`)
 
-After the initialisation process is complete, you should see a folder with your project name has been created inside the directory. The contents of this directoy should be identical to what's listed in the [Directory Structure](../create/introduction.md#directory-structure).
+Після завершення процесу ініціалізації ви побачите, що в каталозі створена папка з назвою вашого проекту. Вміст цього каталогу має бути ідентичним тому, що вказано в [Структурі каталогу](../create/introduction.md#directory-structure).
 
-Last, under the project directory, run following command to install the new project's dependencies.
+Нарешті, у каталозі проекту виконайте наступну команду, щоб встановити залежності нового проекту.
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```shell cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
@@ -92,10 +92,10 @@ type PangolinApproval @entity {
 
 **Important: When you make any changes to the schema file, please ensure that you regenerate your types directory. Do this now.**
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```shell npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> ``` оболонка кодоген yarn ``` </CodeGroupItem>
+<CodeGroupItem title="NPM"> ``` оболонка npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
 
-You'll find the generated models in the `/src/types/models` directory. For more information about the `schema.graphql` file, check out our documentation under [Build/GraphQL Schema](../build/graphql.md)
+Згенеровані моделі можна знайти в каталозі `/src/types/models`. For more information about the `schema.graphql` file, check out our documentation under [Build/GraphQL Schema](../build/graphql.md)
 
 ### Updating the Project Manifest File
 
@@ -136,7 +136,7 @@ Mapping functions define how chain data is transformed into the optimised GraphQ
 
 Navigate to the default mapping function in the `src/mappings` directory. You'll see three exported functions, `handleBlock`, `handleEvent`, and `handleCall`. You can delete both the `handleBlock` and `handleCall` functions, we are only dealing with the `handleEvent` function.
 
-The `handleEvent` function recieved event data whenever event matches the filters that we specify previously in our `project.yaml`. We are going to update it to process all `transfer` events and save them to the GraphQL entities that we created earlier.
+The `handleEvent` function recieved event data whenever event matches the filters that we specify previously in our `project.yaml`. Ми збираємося оновити його, щоб обробити всі події `transfer` та зберегти їх у сутності GraphQL, які ми створили раніше.
 
 You can update the `handleEvent` function to the following (note the additional imports):
 
@@ -219,7 +219,7 @@ SubQuery provides a free managed service when you can deploy your new project to
 
 ## Next Steps
 
-Congratulations, you now have a locally running SubQuery project that accepts GraphQL API requests for transfers data from bLuna.
+Вітаємо, тепер у вас є локально запущений проект SubQuery, який приймає запити GraphQL API для передачі даних з bLuna.
 
 Now that you've had an insight into how to build a basic SubQuery project, the question is where to from here? If you are feeling confident, you can jump into learning more about the three key files. The manifest file, the GraphQL schema, and the mappings file under the [Build section of these docs](../build/introduction.md).
 
