@@ -74,18 +74,18 @@ subql init
 
 ### Оновлення файлу схеми GraphQL
 
-Файл `schema.graphql` визначає різні схеми GraphQL. Завдяки тому, як працює мова запитів GraphQL, файл схеми по суті визначає форму ваших даних із SubQuery. Its a great place to start becuase it allows you to define your end goal up front.
+Файл `schema.graphql` визначає різні схеми GraphQL. Завдяки тому, як працює мова запитів GraphQL, файл схеми по суті визначає форму ваших даних із SubQuery. Це чудове місце для початку, тому що воно дає змогу заздалегідь визначити кінцеву мету.
 
-We're going to update the `schema.graphql` file to read as follows
+Ми збираємося оновити файл `schema.graphql`, щоб він виглядав так
 
 ```graphql
 type Transfer @entity {
-  id: ID! # id field is always required and must look like this
-  txHash: String!
-  blockHeight: BigInt # The block height of the transfer
-  sender: String! # The account that transfers are made from
-  recipient: String! # The account that transfers are made to
-  amount: String! # Amount that is transferred
+  id: ID! Поле # id завжди є обов’язковим і має виглядати так
+  txHash: рядок!
+  blockHeight: BigInt # Висота блоку передачі
+  відправник: рядок! # Рахунок, з якого здійснюються перекази
+  одержувач: Нитка! # Рахунок, на який здійснюються перекази
+  кількість: рядок! # Сума, яка передається
 }
 ```
 
