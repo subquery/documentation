@@ -1,6 +1,6 @@
-# Avalanche Quick Start
+# Швидкий старт Avalanche
 
-In this Quick start guide, we're going to start with a simple Avalanche starter project and then finish by indexing some actual real data. This is an excellent basis to start with when developing your own SubQuery Project.
+У цьому короткому посібнику ми почнемо з простого стартового проекту Avalanche, а потім закінчимо індексуванням деяких реальних даних. Це чудова основа для початку розробки власного проекту SubQuery.
 
 **Якщо ви шукаєте посібники для Substrate/Polkadot, ви можете прочитати [Посібник із короткого запуску спеціального Substrate/Polkadot](./quickstart-polkadot).**
 
@@ -8,14 +8,14 @@ In this Quick start guide, we're going to start with a simple Avalanche starter 
 
 Якщо ви ще цього не зробили, ми пропонуємо вам ознайомитись із [ terminology ](../#terminology), що використовується в SubQuery.
 
-**The goal of this quick start guide is to index all Pangolin token *Approve* events, it should only take 10-15 minutes**
+**Метою цього короткого посібника є індексація всіх подій * Approve * маркера Pangolin, це займе лише 10-15 хвилин**
 
 ## Підготовка
 
 ### Місцеве середовище розвитку
 
-- [Node](https://nodejs.org/en/): A modern (e.g. the LTS version) installation of Node.
-- [Docker](https://docker.com/): This tutorial will use require Docker
+- [Node](https://nodejs.org/en/): сучасна (наприклад, версія LTS) інсталяція Node.
+- [Docker](https://docker.com/): у цьому посібнику буде використовуватися необхідний Docker
 
 ### Встановити SubQuery CLI
 
@@ -34,7 +34,7 @@ npm install -g @subql/cli
 subql help
 ```
 
-## Initialise the SubQuery Starter Project
+## Ініціалізуйте проект SubQuery Starter
 
 У каталозі, в якому ви хочете створити проект SubQuery, просто виконайте таку команду, щоб почати.
 
@@ -44,39 +44,39 @@ subql init
 
 Під час ініціалізації проекту SubQuery вам зададуть певні запитання:
 
-- Name: A name for your SubQuery project
-- Network Family: The layer-1 blockchain network family that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use *"Avalanche"*
-- Network: The specific network that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use *"Avalanche"*
-- Template: Select a SubQuery project template that will provide a starting point to begin development, we suggest selecting the *"Starter project"*
-- Git repository (Optional): Provide a Git URL to a repo that this SubQuery project will be hosted in (when hosted in SubQuery Explorer)
-- RPC endpoint (Required): Provide a HTTPS URL to a running RPC endpoint that will be used by default for this project. This RPC node must be an archive node (have the full chain state). For this guide we will use the default value *"avalanche.api.onfinality.io"*
-- Authors (Required): Enter the owner of this SubQuery project here (e.g. your name!)
-- Description (Optional): You can provide a short paragraph about your project that describe what data it contains and what users can do with it
-- Version (Required): Enter a custom version number or use the default (`1.0.0`)
-- License (Required): Provide the software license for this project or accept the default (`Apache-2.0`)
+- Ім'я: ім'я вашого проекту SubQuery
+- Сімейство мереж. Сімейство мереж блокчейн рівня 1, для індексації якого буде розроблено цей проект SubQuery, використовуйте клавіші зі стрілками на клавіатурі, щоб вибрати один із параметрів, для цього посібника ми будемо використовувати *"Avalanche"*
+- Мережа: конкретна мережа, для індексації якої буде розроблено цей проект SubQuery, використовуйте клавіші зі стрілками на клавіатурі, щоб вибрати один із варіантів, для цього посібника ми будемо використовувати *"Avalanche"*
+- Шаблон: виберіть шаблон проекту SubQuery, який буде відправною точкою для початку розробки, ми пропонуємо вибрати *"Початковий проект"*
+- Репозиторій Git (необов’язково): надайте URL-адресу Git до репозиторію, в якому буде розміщено цей проект SubQuery (якщо він розміщено в SubQuery Explorer)
+- Кінцева точка RPC (обов’язково): надайте URL-адресу HTTPS для запущеної кінцевої точки RPC, яка буде використовуватися за замовчуванням для цього проекту. Цей вузол RPC повинен бути вузлом архіву (мати стан повного ланцюга). Для цього посібника ми будемо використовувати значення за замовчуванням *"avalanche.api.onfinality.io"*
+- Автори (обов’язково): Введіть тут власника цього проекту SubQuery (наприклад, ваше ім’я!)
+- Опис (необов’язково): ви можете надати короткий абзац про ваш проект, який описує, які дані він містить і що користувачі можуть з ними робити
+- Версія (обов’язково): введіть користувацький номер версії або використовуйте стандартний (`1.0.0`)
+- Ліцензія (обов’язково): надайте ліцензію на програмне забезпечення для цього проекту або прийміть стандартну (`Apache-2.0`)
 
 Після завершення процесу ініціалізації ви побачите, що в каталозі створена папка з назвою вашого проекту. Вміст цього каталогу має бути ідентичним тому, що вказано в [Структурі каталогу](../create/introduction.md#directory-structure).
 
 Нарешті, у каталозі проекту виконайте наступну команду, щоб встановити залежності нового проекту.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```shell cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> ``` оболонка компакт-диск PROJECT_NAME установка yarn ``` </CodeGroupItem>
+<CodeGroupItem title="NPM"> ``` оболонка компакт-диск PROJECT_NAME npm встановити ``` </CodeGroupItem> </CodeGroup>
 
-## Making Changes to your Project
+## Внесення змін до проекту
 
-In the starter package that you just initialised, we have provided a standard configuration for your new project. You will mainly be working on the following files:
+У стартовому пакеті, який ви щойно ініціалізували, ми надали стандартну конфігурацію для вашого нового проекту. Ви в основному працюватимете з такими файлами:
 
-1. The GraphQL Schema in `schema.graphql`
-2. The Project Manifest in `project.yaml`
+1. Схема GraphQL в `schema.graphql`
+2. Маніфест проекту в `project.yaml`
 3. Картографування функціонує в каталозі ` src / mappings / `
 
-The goal of this quick start guide is to adapt the standard starter project to index all Pangolin `Approve` events.
+Метою цього короткого посібника є адаптація стандартного стартового проекту для індексації всіх подій Pangolin ` Approve `.
 
-### Updating your GraphQL Schema File
+### Оновлення файлу схеми GraphQL
 
-The `schema.graphql` file defines the various GraphQL schemas. Due to the way that the GraphQL query language works, the schema file essentially dictates the shape of your data from SubQuery. Its a great place to start becuase it allows you to define your end goal up front.
+Файл `schema.graphql` визначає різні схеми GraphQL. Завдяки тому, як працює мова запитів GraphQL, файл схеми по суті визначає форму ваших даних із SubQuery. Це чудове місце для початку, тому що воно дає змогу заздалегідь визначити кінцеву мету.
 
-We're going to update the `schema.graphql` file to remove all existing entities and read as follows
+Ми збираємося оновити файл `schema.graphql`, щоб видалити всі існуючі сутності та прочитати наступне
 
 ```graphql
 type PangolinApproval @entity {
@@ -90,18 +90,18 @@ type PangolinApproval @entity {
 }
 ```
 
-**Important: When you make any changes to the schema file, please ensure that you regenerate your types directory. Do this now.**
+**Важливо: коли ви вносите будь-які зміни до файлу схеми, переконайтеся, що ви повторно створили каталог типів. Зробіть це зараз.**
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ``` оболонка кодоген yarn ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ``` оболонка npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
 
-Згенеровані моделі можна знайти в каталозі `/src/types/models`. For more information about the `schema.graphql` file, check out our documentation under [Build/GraphQL Schema](../build/graphql.md)
+Згенеровані моделі можна знайти в каталозі `/src/types/models`. Щоб отримати додаткові відомості про файл `schema.graphql`, перегляньте нашу документацію в розділі [Build/GraphQL Schema](../build/graphql.md)
 
-### Updating the Project Manifest File
+### Оновлення файлу маніфесту проекту
 
-The Projet Manifest (`project.yaml`) file can be seen as an entry point of your project and it defines most of the details on how SubQuery will index and transform the chain data.
+Файл маніфесту проекту (`project.yaml`) можна розглядати як точку входу до вашого проекту, і він визначає більшість деталей про те, як SubQuery буде індексувати та перетворювати дані ланцюга.
 
-We won't do many changes to the manifest file as it already has been setup correctly, but we need to change our handlers. Remember we are planning to index all Pangolin approval events, as a result, we need to update the `datasources` section to read the following.
+Ми не будемо робити багато змін у файлі маніфесту, оскільки він уже налаштований правильно, але нам потрібно змінити наші обробники. Пам’ятайте, що ми плануємо індексувати всі події затвердження Pangolin, тому нам потрібно оновити розділ ` datasources `, щоб прочитати наступне.
 
 ```yaml
 dataSources:
@@ -128,17 +128,17 @@ dataSources:
 
 This means we'll run a `handleApproveTransaction` mapping function each and every time there is a `approve` transaction from the [Pangolin contract](https://snowtrace.io/txs?a=0x60781C2586D68229fde47564546784ab3fACA982&p=1).
 
-For more information about the Project Manifest (`project.yaml`) file, check out our documentation under [Build/Manifest File](../build/manifest.md)
+Щоб отримати додаткові відомості про файл маніфесту проекту (`project.yaml`), перегляньте нашу документацію в розділі [Файл збірки/маніфесту](../build/manifest.md)
 
-### Add a Mapping Function
+### Додайте функцію відображення
 
-Mapping functions define how chain data is transformed into the optimised GraphQL entities that we have previously defined in the `schema.graphql` file.
+Функції відображення визначають, як дані ланцюга перетворюються в оптимізовані сутності GraphQL, які ми раніше визначили у файлі `schema.graphql`.
 
-Navigate to the default mapping function in the `src/mappings` directory. You'll see three exported functions, `handleBlock`, `handleEvent`, and `handleCall`. You can delete both the `handleBlock` and `handleCall` functions, we are only dealing with the `handleEvent` function.
+Перейдіть до функції відображення за замовчуванням у каталозі `src/mappings`. Ви побачите три експортовані функції: `handleBlock`, `handleEvent` і `handleCall`. Ви можете видалити як функції `handleBlock`, так і `handleCall`, ми маємо справу лише з функцією `handleEvent`.
 
-The `handleEvent` function recieved event data whenever event matches the filters that we specify previously in our `project.yaml`. Ми збираємося оновити його, щоб обробити всі події `transfer` та зберегти їх у сутності GraphQL, які ми створили раніше.
+Функція `handleEvent` отримує дані про події щоразу, коли подія відповідає фільтрам, які ми вказали раніше в нашому `project.yaml`. Ми збираємося оновити його, щоб обробити всі події `transfer` та зберегти їх у сутності GraphQL, які ми створили раніше.
 
-You can update the `handleEvent` function to the following (note the additional imports):
+Ви можете оновити функцію `handleEvent` до наступного (зверніть увагу на додатковий імпорт):
 
 ```ts
 import { PangolinApproval } from "../types";
@@ -161,39 +161,45 @@ export async function handleEvent(event: AvalancheEvent): Promise<void> {
 }
 ```
 
-What this is doing is receiving an Avalanche Event which includes the transation data on the payload. We extract this data and then instantiate a new `PangolinApproval` entity that we defined earlier in the `schema.graphql` file. We add additional information and then use the `.save()` function to save the new entity (SubQuery will automatically save this to the database).
+What this is doing is receiving an Avalanche Event which includes the transation data on the payload. We extract this data and then instantiate a new `PangolinApproval` entity that we defined earlier in the `schema.graphql` file. Ми додаємо додаткову інформацію, а потім використовуємо функцію `.save()` для збереження нової сутності (SubQuery автоматично збереже це в базі даних).
 
-For more information about mapping functions, check out our documentation under [Build/Mappings](../build/mapping.md)
+Щоб отримати додаткові відомості про функції відображення, перегляньте нашу документацію в розділі [Build/Mappings](../build/mapping.md)
 
-### Build the Project
+### Створіть проект
 
-In order run your new SubQuery Project we first need to build our work. Run the build command from the project's root directory.
+Щоб запустити ваш новий проект SubQuery, нам спочатку потрібно створити нашу роботу. Запустіть команду збірки з кореневого каталогу проекту.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script build ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> ``` оболонка побудова yarn ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ``` оболонка npm run-script build ``` </CodeGroupItem> </CodeGroup>
 
-**Important: Whenever you make changes to your mapping functions, you'll need to rebuild your project**
+**Важливо: щоразу, коли ви вносите зміни у свої функції відображення, вам потрібно буде перебудувати свій проект**
 
-## Running and Querying your Project
+## Запуск і запити вашого проекту
 
-### Run your Project with Docker
+### Запустіть свій проект за допомогою Docker
 
-Whenever you create a new SubQuery Project, you should always run it locally on your computer to test it first. The easiest way to do this is by using Docker.
+Кожного разу, коли ви створюєте новий проект SubQuery, ви завжди повинні запускати його локально на своєму комп’ютері, щоб спочатку перевірити його. Найпростіший спосіб зробити це за допомогою Docker.
 
-All configuration that controls how a SubQuery node is run is defined in this `docker-compose.yml` file. For a new project that has been just initalised you won't need to change anything here, but you can read more about the file and the settings in our [Run a Project section](../run_publish/run.md)
+Уся конфігурація, яка керує запуском вузла SubQuery, визначена в цьому файлі `docker-compose.yml`. Для нового проекту, який щойно ініційовано, вам не потрібно нічого змінювати тут, але ви можете прочитати більше про файл і налаштування в нашому розділі [Запуск проекту](../run_publish/run.md)
 
-Under the project directory run following command:
+У каталозі проекту виконайте таку команду:
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn start:docker ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script start:docker ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> ``` оболонка початок yarn:docker ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ``` оболонка npm run-script start:docker ``` </CodeGroupItem> </CodeGroup>
 
-It may take some time to download the required packages ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), and Postgres) for the first time but soon you'll see a running SubQuery node. Be patient here.
+Завантаження необхідних пакетів може зайняти деякий час ([`@subql/node`](https://www.npmjs.com/package/@subql/node),
 
-### Query your Project
+`@subql/query`</7 > і Postgres) вперше, але незабаром ви побачите запущений вузол SubQuery. Будьте терплячі тут.</p> 
 
-Open your browser and head to [http://localhost:3000](http://localhost:3000).
 
-You should see a GraphQL playground is showing in the explorer and the schemas that are ready to query. У верхньому правому куті ігрового майданчика ви знайдете кнопку _ Docs _, яка відкриє розіграш документації. Ця документація генерується автоматично і допомагає вам знайти, які сутності та методи ви можете запитувати.
 
-For a new SubQuery starter project, you can try the following query to get a taste of how it works or [learn more about the GraphQL Query language](../run_publish/graphql.md).
+### Запитуйте свій проект
+
+Відкрийте свій браузер і перейдіть до [http://localhost:3000](http://localhost:3000).
+
+Ви повинні побачити, що ігровий майданчик GraphQL відображається в провіднику та схеми, які готові до запиту. У верхньому правому куті ігрового майданчика ви знайдете кнопку _ Docs _, яка відкриє розіграш документації. Ця документація генерується автоматично і допомагає вам знайти, які сутності та методи ви можете запитувати.
+
+Для нового початкового проекту SubQuery ви можете спробувати такий запит, щоб зрозуміти, як він працює, або [дізнатися більше про мову GraphQL Query](../run_publish/graphql.md).
+
+
 
 ```graphql
 query {
@@ -211,18 +217,23 @@ query {
 }
 ```
 
-### Publish your SubQuery Project
 
-SubQuery provides a free managed service when you can deploy your new project to. You can deploy it to [SubQuery Projects](https://project.subquery.network) and query it using our [Explorer](https://explorer.subquery.network).
+
+
+### Опублікуйте проект SubQuery
+
+SubQuery надає безкоштовну керовану службу, коли ви можете розгорнути свій новий проект. Ви можете розгорнути його в [SubQuery Projects](https://project.subquery.network) і зробити запит за допомогою нашого [ Explorer ](https://explorer.subquery.network).
 
 [Read the guide to publish your new project to SubQuery Projects](../run_publish/publish.md), **Note that you must deploy via IPFS**.
 
-## Next Steps
+
+
+## Настуні кроки
 
 Вітаємо, тепер у вас є локально запущений проект SubQuery, який приймає запити GraphQL API для передачі даних з bLuna.
 
-Now that you've had an insight into how to build a basic SubQuery project, the question is where to from here? If you are feeling confident, you can jump into learning more about the three key files. The manifest file, the GraphQL schema, and the mappings file under the [Build section of these docs](../build/introduction.md).
+Тепер, коли ви зрозуміли, як створити базовий проект SubQuery, виникає питання, куди звідси? Якщо ви почуваєтеся впевнено, ви можете перейти до вивчення трьох ключових файлів. Файл маніфесту, схема GraphQL і файл зіставлення в розділі [Створення цих документів](../build/introduction.md).
 
-Otherwise, continue to our [Academy section](../academy/academy.md) where have more in depth workshops, tutorials, and example projects. There we'll look at more advanced modifications, and we'll take a deeper dive at running SubQuery projects by running readily available and open source projects.
+В іншому випадку перейдіть до нашого [розділу Академія](../academy/academy.md), де є докладніші семінари, навчальні посібники та приклади проектів. Там ми розглянемо більш просунуті модифікації та глибше зануримось у запуск проектів SubQuery, запустивши легкодоступні проекти з відкритим кодом.
 
-Finally, if you're looking for more ways to run and publish your project, our [Run & Publish section](../run_publish/run.md) provides detailed informatation about all the ways to run your SubQuery project and other advanced GraphQL aggregation and subscription features.
+Нарешті, якщо ви шукаєте більше способів запустити та опублікувати свій проект, наш [розділ «Виконати та опублікувати»](../run_publish/run.md) надає детальну інформацію про всі способи запуску проекту SubQuery та інші розширені функції агрегації та підписки GraphQL.
