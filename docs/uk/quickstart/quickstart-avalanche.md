@@ -104,29 +104,29 @@ type PangolinApproval @entity {
 Ми не будемо робити багато змін у файлі маніфесту, оскільки він уже налаштований правильно, але нам потрібно змінити наші обробники. Пам’ятайте, що ми плануємо індексувати всі події затвердження Pangolin, тому нам потрібно оновити розділ ` datasources `, щоб прочитати наступне.
 
 ```yaml
-dataSources:
-  - kind: avalanche/Runtime
-    startBlock: 57360 # Block when the Pangolin contract was created
-    options:
-      # Must be a key of assets
+Джерела даних:
+  - вид: Avalanche/Runtime
+    startBlock: 57360 # Блокувати, коли був створений контракт Pangolin
+    варіанти:
+      # Має бути ключ активів
       abi: erc20
-      ## Pangolin token https://snowtrace.io/token/0x60781c2586d68229fde47564546784ab3faca982
-      address: "0x60781C2586D68229fde47564546784ab3fACA982"
-    assets:
+      ## маркер Pangolin https://snowtrace.io/token/0x60781c2586d68229fde47564546784ab3faca982
+      адреса: "0x60781C2586D68229fde47564546784ab3fACA982"
+    активи:
       erc20:
-        file: "./node_modules/@pangolindex/exchange-contracts/artifacts/contracts/pangolin-core/interfaces/IPangolinERC20.sol/IPangolinERC20.json"
-    mapping:
-      file: "./dist/index.js"
-      handlers:
-        - handler: handleEvent
-          kind: avalanche/EventHandler
-          filter:
-            ## Follows standard log filters https://docs.ethers.io/v5/concepts/events/
-            function: Approve(address spender, uint256 rawAmount)
-            # address: "0x60781C2586D68229fde47564546784ab3fACA982"
+        файл: (прихований)
+    відображення:
+      файл: "./dist/index.js"
+      обробники:
+        - обробник: handleEvent
+          вид: Avalanche/обробник подій
+          фільтр:
+            ## Дотримується стандартних фільтрів журналу https://docs.ethers.io/v5/concepts/events/
+            функція: Затвердити (адреса витрачача, uint256 rawAmount)
+            # адреса: "0x60781C2586D68229fde47564546784ab3fACA982"
 ```
 
-This means we'll run a `handleApproveTransaction` mapping function each and every time there is a `approve` transaction from the [Pangolin contract](https://snowtrace.io/txs?a=0x60781C2586D68229fde47564546784ab3fACA982&p=1).
+Це означає, що ми запускатимемо функцію відображення `handleApproveTransaction` кожного разу, коли буде транзакція `approve` з [контракту Pangolin](https://snowtrace.io/txs?a=0x60781C2586D68229fde47564546784ab3fACA982&p=1).
 
 Щоб отримати додаткові відомості про файл маніфесту проекту (`project.yaml`), перегляньте нашу документацію в розділі [Файл збірки/маніфесту](../build/manifest.md)
 
@@ -161,7 +161,7 @@ export async function handleEvent(event: AvalancheEvent): Promise<void> {
 }
 ```
 
-What this is doing is receiving an Avalanche Event which includes the transation data on the payload. We extract this data and then instantiate a new `PangolinApproval` entity that we defined earlier in the `schema.graphql` file. Ми додаємо додаткову інформацію, а потім використовуємо функцію `.save()` для збереження нової сутності (SubQuery автоматично збереже це в базі даних).
+Це отримує подію Avalanche, яка включає дані трансляції корисного навантаження. Ми витягуємо ці дані, а потім створюємо новий об’єкт `PangolinApproval`, який ми визначили раніше у файлі `schema.graphql`. Ми додаємо додаткову інформацію, а потім використовуємо функцію `.save()` для збереження нової сутності (SubQuery автоматично збереже це в базі даних).
 
 Щоб отримати додаткові відомості про функції відображення, перегляньте нашу документацію в розділі [Build/Mappings](../build/mapping.md)
 
@@ -224,7 +224,7 @@ query {
 
 SubQuery надає безкоштовну керовану службу, коли ви можете розгорнути свій новий проект. Ви можете розгорнути його в [SubQuery Projects](https://project.subquery.network) і зробити запит за допомогою нашого [ Explorer ](https://explorer.subquery.network).
 
-[Read the guide to publish your new project to SubQuery Projects](../run_publish/publish.md), **Note that you must deploy via IPFS**.
+[Прочитайте посібник, щоб опублікувати свій новий проект у SubQuery Projects](../run_publish/publish.md), **Зверніть увагу, що ви повинні розгорнути через IPFS**.
 
 
 
