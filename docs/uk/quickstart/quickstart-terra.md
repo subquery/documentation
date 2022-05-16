@@ -1,6 +1,6 @@
-# Terra Quick Start
+# Швидкий старт Terra
 
-In this Quick start guide, we're going to start with a simple Terra starter project and then finish by indexing some actual real data. This is an excellent basis to start with when developing your own SubQuery Project.
+У цьому короткому посібнику ми почнемо з простого стартового проекту Terra, а потім закінчимо індексацією деяких фактичних реальних даних. Це чудова основа для початку розробки власного проекту SubQuery.
 
 **If your are looking for guides for Substrate/Polkadot, you can read the [Substrate/Polkadot specific quick start guide](./quickstart-polkadot).**
 
