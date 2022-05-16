@@ -152,13 +152,15 @@ export async function handleEvent(event: AvalancheEvent): Promise<void> {
   pangolinApprovalRecord.transactionHash = event.transactionHash;
   pangolinApprovalRecord.blockHash = event.blockHash;
   pangolinApprovalRecord.blockNumber = event.blockNumber;
-  # topics store data as an array
+  # темы хранят данные в виде массива
   pangolinApprovalRecord.addressFrom = event.topics[0];
   pangolinApprovalRecord.addressTo = event.topics[1];
   pangolinApprovalRecord.amount = event.topics[2];
 
   await pangolinApprovalRecord.save();
 }
+
+Переведено с помощью www.DeepL.com/Translator (бесплатная версия)
 ```
 
 Здесь мы получаем событие Avalanche, которое включает данные транзакции в payload. Мы извлекаем эти данные, а затем создаем экземпляр нового объекта `PangolinApproval`, который мы определили ранее в файле `schema.graphql`. Мы добавляем дополнительную информацию, а затем используем функцию `.save()` для сохранения нового объекта (SubQuery автоматически сохранит его в базе данных).
