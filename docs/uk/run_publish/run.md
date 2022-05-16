@@ -1,6 +1,6 @@
 # Запуск SubQuery Місцево
 
-Цей посібник працює над тим, як запустити локальний вузол SubQuery на вашій інфраструктурі, який включає як індексатор, так і службу запитів. Не хочете турбуватися про роботу власної інфраструктури SubQuery? SubQuery надає спільноті [ керований ходовий сервіс ](https://explorer.subquery.network) безкоштовно. [Follow our publishing guide](../run_publish/publish.md) to see how you can upload your project to [SubQuery Projects](https://project.subquery.network).
+Цей посібник працює над тим, як запустити локальний вузол SubQuery на вашій інфраструктурі, який включає як індексатор, так і службу запитів. Не хочете турбуватися про роботу власної інфраструктури SubQuery? SubQuery надає спільноті [ керований ходовий сервіс ](https://explorer.subquery.network) безкоштовно. [Дотримуйтесь нашого посібника з публікації](../run_publish/publish.md), щоб дізнатися, як завантажити свій проект у [SubQuery Projects](https://project.subquery.network).
 
 ## Використання Docker
 
@@ -20,14 +20,14 @@ docker-compose pull && docker-compose up
 
 - [Postgres](https://www.postgresql.org/) база даних (версія 12 або вище). Хоча вузол [ SubQuery ](#start-a-local-subquery-node) індексує блокчейн, витягнуті дані зберігаються у зовнішньому екземплярі бази даних.
 
-A SubQuery node is an implementation that extracts Substrate/Polkadot-based blockchain data per the SubQuery project and saves it into a Postgres database.
+Вузол SubQuery — це реалізація, яка витягує дані блокчейну на основі Substrate/Polkadot для проекту SubQuery та зберігає їх у базі даних Postgres.
 
 ### Установка
 
 <CodeGroup>
 <CodeGroupItem title='Substrate/Polkadot'>
 
-``` shell
+``` оболонка
 # NPM
 npm install -g @subql/node
 ```
@@ -35,7 +35,7 @@ npm install -g @subql/node
 </CodeGroupItem>
 <CodeGroupItem title='Terra'>
 
-``` shell
+``` оболонка
 # NPM
 npm install -g @subql/node-terra
 ```
@@ -43,7 +43,7 @@ npm install -g @subql/node-terra
 </CodeGroupItem>
 <CodeGroupItem title='Avalanche'>
 
-``` shell
+``` оболонка
 # NPM
 npm install -g @subql/node-avalanche
 ````
@@ -51,7 +51,7 @@ npm install -g @subql/node-avalanche
 </CodeGroupItem>
 </CodeGroup>
 
-Please note that we **DO NOT** encourage the use of `yarn global` due to its poor dependency management which may lead to an errors down the line.
+Зверніть увагу, що ми **НЕ** заохочуємо використання `yarn global` через погане керування залежностями, що може призвести до помилок у майбутньому.
 
 Після встановлення ви можете запустити вузол за допомогою наступної команди:
 
@@ -59,30 +59,30 @@ Please note that we **DO NOT** encourage the use of `yarn global` due to its poo
 <CodeGroup>
 <CodeGroupItem title='Substrate/Polkadot'>
 
-```shell
-subql-node <command>
+``` оболонка
+subql-вузол <command>
 ```
 
 </CodeGroupItem>
 <CodeGroupItem title='Terra'>
 
-```shell
+``` оболонка
 subql-node-terra <command>
 ```
 
 </CodeGroupItem>
 <CodeGroupItem title='Avalanche'>
 
-```shell
-subql-node-avalanche <command> 
+``` оболонка
+subql-node-avalanche <command>
 ```
 
 </CodeGroupItem>
 </CodeGroup>
 
-### Key Commands
+### Ключові команди
 
-The following commands will assist you to complete the configuration of a SubQuery node and begin indexing. Щоб дізнатися більше, завжди можна запустити ` - help `.
+Наведені нижче команди допоможуть вам завершити конфігурацію вузла підзапиту та почати індексацію. Щоб дізнатися більше, завжди можна запустити ` - help `.
 
 #### Вкажіть на місцевий шлях проекту
 
