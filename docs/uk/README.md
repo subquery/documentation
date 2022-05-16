@@ -5,7 +5,7 @@
       <div>
         <h2 class="welcomeTitle">Ласкаво просимо до SubQuery <span>Університеті</span></h2>
         <p>Досліджуйте та перетворюйте свої ланцюгові дані, щоб швидше створювати інтуїтивні dApp!</p>
-        <p><strong>SubQuery now supports both Polkadot, Avalanche, and Terra</strong></p>
+        <p><strong>SubQuery тепер підтримує Polkadot, Avalanche і Terra</strong></p>
       </div>
     </div>
   </section>
@@ -16,7 +16,7 @@
       </p>
       <span class="button">
         <router-link :to="{path: '/quickstart/quickstart-polkadot.html'}">
-          <span>Get started</span>
+          <span>Почати</span>
         </router-link>
       </span>
     </div>
@@ -30,7 +30,7 @@
           <div>
             <img src="/assets/img/tutorialsIcon.svg" />
             <span>Підручники та приклади</span>
-            <p>Learning by doing in our Academy. Підручники та приклади, як будувати різні проекти підзапиту.</p>
+            <p>Навчання на практиці в нашій академії. Підручники та приклади, як будувати різні проекти підзапиту.</p>
           </div>
         </router-link>
       </li>
@@ -64,14 +64,14 @@
         <div class="content">
           <p>SubQuery - це проект з відкритим кодом, який дозволяє розробникам індексувати, трансформувати та запитувати дані ланцюгів Substrate для живлення своїх програм.</p>
           <span class="more">
-            <router-link :to="{path: '/faqs/faqs.html#what-is-subquery'}">READ MORE</router-link>
+            <router-link :to="{path: '/faqs/faqs.html#what-is-subquery'}">ПРОЧИТАТИ БІЛЬШЕ</router-link>
           </span>
         </div>
       </li>
       <li>
         <div class="title">Який найкращий спосіб розпочати роботу з SubQuery?</div>
         <div class="content">
-          <p>The best way to get started with SubQuery is to try out our <a href="/quickstart/quickstart-polkadot.html">Quick Start tutorial</a>. Це простий 5 хвилин ходьби від завантаження шаблону для початківців, побудови проекту, а потім використання Docker для запуску вузла на локальному хості та запуску простого запиту. </p>
+          <p>Найкращий спосіб розпочати роботу з SubQuery – це спробувати наш <a href="/quickstart/quickstart-polkadot.html">підручник швидкого початку</a>. Це простий 5 хвилин ходьби від завантаження шаблону для початківців, побудови проекту, а потім використання Docker для запуску вузла на локальному хості та запуску простого запиту. </p>
         </div>
       </li>
       <li>
@@ -79,16 +79,16 @@
         <div class="content">
           <p>Ми любимо внески та відгуки громади. Щоб внести код, розщепіть сховище, що цікавить, і внесіть свої зміни. Сформуйте PR або Pull Request. О, також не забудьте його протестувати! Також ознайомтеся з нашими рекомендаціями щодо внесків (незабаром). </p>
           <span class="more">
-            <router-link :to="{path: '/faqs/faqs.html#what-is-the-best-way-to-get-started-with-subquery'}">READ MORE</router-link>
+            <router-link :to="{path: '/faqs/faqs.html#what-is-the-best-way-to-get-started-with-subquery'}">ПРОЧИТАТИ БІЛЬШЕ</router-link>
           </span>
         </div>
       </li>
       <li>
         <div class="title">Скільки коштує розміщення мого проекту в проектах SubQuery?</div>
         <div class="content">
-          <p>Розміщення вашого проекту в проектах SubQuery абсолютно безкоштовне - це наш спосіб повернути спільноту. To learn how to host your project with us, please check out the <a href="/quickstart/quickstart-polkadot.html">Hello World (SubQuery Hosted)</a> tutorial.</p>
+          <p>Розміщення вашого проекту в проектах SubQuery абсолютно безкоштовне - це наш спосіб повернути спільноту. Щоб дізнатися, як розмістити свій проект у нас, перегляньте підручник <a href="/quickstart/quickstart-polkadot.html">Hello World (Hosted SubQuery)</a>.</p>
           <span class="more">
-            <router-link :to="{path: '/run_publish/publish.html'}">HOSTING YOUR PROJECT</router-link>
+            <router-link :to="{path: '/run_publish/publish.html'}">Розміщення ВАШОГО ПРОЕКТУ</router-link>
           </span>
         </div>
       </li>
@@ -102,7 +102,7 @@
         <h5>Інтеграція зі своїм користувальницьким ланцюгом?</h5>
         <p>Незалежно від того, чи будуєте ви новий парашайн або абсолютно новий блокчейн на Substrate - SubQuery, ви можете допомогти вам індексувати та усунути неполадки даних вашої мережі. SubQuery призначений для легкої інтеграції зі спеціальною ланцюжком на основі Substrate.</p>
         <span class="more">
-          <router-link :to="{path: '/create/mapping.html#custom-substrate-chains'}">LEARN HOW TO INTEGRATE WITH YOUR CHAIN</router-link>
+          <router-link :to="{path: '/create/mapping.html#custom-substrate-chains'}">ВИВЧИТИ ЯК ІНТЕГРАВО З ВАШОЮ МЕРЕЖОЮ</router-link>
         </span>
     </div>
     <div class="lastIntroduce lastIntroduce_2">
