@@ -89,107 +89,107 @@ subql-node-avalanche <command>
 <CodeGroup>
 <CodeGroupItem title='Substrate/Polkadot'>
 
-```shell
-subql-node -f your-project-path
+``` оболонка
+subql-node -f шлях до вашого проекту
 ```
 
 </CodeGroupItem>
 <CodeGroupItem title='Terra'>
 
-```shell
-subql-node-terra -f your-project-path
+``` оболонка
+subql-node-terra -f шлях до вашого проекту
 ```
 
 </CodeGroupItem>
 <CodeGroupItem title='Avalanche'>
 
-```shell
-subql-node-avalanche -f your-project-path
+``` оболонка
+subql-node-avalanche -f шлях до вашого проекту
 ```
 
 </CodeGroupItem>
 </CodeGroup>
 
-#### Use a Dictionary
+#### Використовуйте словник
 
-Using a full chain dictionary can dramatically speed up the processing of a SubQuery project during testing or during your first index. In some cases, we've seen indexing performance increases of up to 10x.
+Використання повноланцюгового словника може значно прискорити обробку проекту SubQuery під час тестування або під час першого індексу. У деяких випадках ми бачимо підвищення ефективності індексування до 10 разів.
 
-A full chain dictionary pre-indexes the location of all events and extrinsics within the specific chain and allows your node service to skip to relevant locations when indexing rather than inspecting each block.
+Словник з повним ланцюгом попередньо індексує розташування всіх подій і зовнішніх компонентів у певному ланцюжку і дозволяє службі вузлів переходити до відповідних місць під час індексації, а не перевіряти кожен блок.
 
-You can add the dictionary endpoint in your `project.yaml` file (see [Manifest File](../create/manifest.md)), or specify it at run time using the following command:
+Ви можете додати кінцеву точку словника у свій файл `project.yaml` (див. [Файл маніфесту](../create/manifest.md)) або вказати її під час виконання за допомогою такої команди:
 
 <CodeGroup>
 <CodeGroupItem title='Substrate/Polkadot/Polkadot'>
 
-```shell
+``` оболонка
 subql-node --network-dictionary=https://api.subquery.network/sq/subquery/dictionary-polkadot
 ```
 
 </CodeGroupItem>
 <CodeGroupItem title='Terra'>
 
-```shell
+``` оболонка
 subql-node-terra --network-dictionary=https://api.subquery.network/sq/subquery/terra-columbus-5-dictionary
 ```
 
 </CodeGroupItem>
 <CodeGroupItem title='Avalanche'>
 
-```shell
+``` оболонка
 subql-node-avalanche --network-dictionary=https://api.subquery.network/sq/subquery/avalanche-dictionary
 ```
 
 </CodeGroupItem>
 </CodeGroup>
 
-[Read more about how a SubQuery Dictionary works](../academy/tutorials_examples/dictionary.md).
+[Докладніше про те, як працює словник SubQuery ](../academy/tutorials_examples/dictionary.md).
 
-#### Connect to database
+#### Підключитися до бази даних
 
 ```shell
-export DB_USER=postgres
-export DB_PASS=postgres
-export DB_DATABASE=postgres
-export DB_HOST=localhost
-export DB_PORT=5432
-subql-node -f your-project-path
+експортувати DB_USER=postgres
+експорт DB_PASS=postgres
+експорт DB_DATABASE=postgres
+експорт DB_HOST=локальний хост
+експортувати DB_PORT=5432
+subql-node -f шлях до вашого проекту
 ```
 
-Depending on the configuration of your Postgres database (e.g. a different database password), please ensure also that both the indexer (`subql/node`) and the query service (`subql/query`) can establish a connection to it.
+Залежно від конфігурації вашої бази даних Postgres (наприклад, інший пароль бази даних), переконайтеся, що і індексатор (`subql/вузол`) і служба запитів (`subql/query`) ) можна встановити з’єднання з ним.
 
-#### Specify a configuration file
+#### Вкажіть файл конфігурації
 
 <CodeGroup>
 <CodeGroupItem title='Substrate/Polkadot'>
 
-```shell
+``` оболонка
 subql-node -c your-project-config.yml
 ```
 
 </CodeGroupItem>
 <CodeGroupItem title='Terra'>
 
-```shell
+``` оболонка
 subql-node-terra -c your-project-config.yml
 ```
 
 </CodeGroupItem>
 <CodeGroupItem title='Avalanche'>
 
-```shell
+``` оболонка
 subql-node-avalanche -c your-project-config.yml
 ```
 
 </CodeGroupItem>
 </CodeGroup>
 
-This will point the query node to a configuration file which can be in YAML or JSON format. Check out the example below.
+Це вказує вузлу запиту на файл конфігурації, який може бути у форматі YAML або JSON. Перегляньте приклад нижче.
 
 ```yaml
-subquery: ../../../../subql-example/extrinsics
-subqueryName: extrinsics
-batchSize:100
-localMode:true
+підзапит: ../../../../subql-example/extrinsics
+Ім'я підзапиту: зовнішні елементи
+Розмір партії: 100
+localMode: true
 ```
 
 #### Змініть розмір партії, що отримує блок
@@ -209,28 +209,28 @@ Result:
 <CodeGroup>
 <CodeGroupItem title='Substrate/Polkadot'>
 
-```shell
-subql-node -f your-project-path --local
+``` оболонка
+subql-node -f шлях до вашого проекту --local
 ```
 
 </CodeGroupItem>
 <CodeGroupItem title='Terra'>
 
-```shell
-subql-node-terra -f your-project-path --local
+``` оболонка
+subql-node-terra -f шлях до вашого проекту --local
 ```
 
 </CodeGroupItem>
 <CodeGroupItem title='Avalanche'>
 
-```shell
-subql-node-avalanche -f your-project-path --local
+``` оболонка
+subql-node-avalanche -f шлях до вашого проекту --local
 ```
 
 </CodeGroupItem>
 </CodeGroup>
 
-For debugging purposes, users can run the node in local mode. Перехід на локальну модель створить таблиці Postgres у схемі за замовчуванням ` public `.
+Для налагодження користувачі можуть запускати вузол у локальному режимі. Перехід на локальну модель створить таблиці Postgres у схемі за замовчуванням ` public `.
 
 Якщо локальний режим не використовується, буде створена нова схема Postgres з початковою ` subquery_ ` та відповідними таблицями проектів.
 
@@ -302,7 +302,7 @@ For help, see: https://nodejs.org/en/docs/inspector
 Debugger attached.
 ```
 
-Потім відкрийте інструменти для розробки Chrome, перейдіть до Source & # 062; Файлова система та додайте свій проект до робочої області та починайте налагоджувати. For more information, check out [How to debug a SubQuery project](https://doc.subquery.network/academy/tutorials_examples/debug-projects/)
+Потім відкрийте інструменти для розробки Chrome, перейдіть до Source & # 062; Файлова система та додайте свій проект до робочої області та починайте налагоджувати. Щоб отримати додаткову інформацію, перегляньте [Як налагодити проект SubQuery](https://doc.subquery.network/academy/tutorials_examples/debug-projects/)
 
 ## Запуск служби запитів (підql / запит)
 
@@ -321,6 +321,6 @@ npm install -g @subql/query
 subql-query --name <project_name> --playground
 `</pre>
 
-Make sure the project name is the same as the project name when you [initialize the project](../quickstart/quickstart-polkadot.md#initialise-the-starter-subquery-project). Також перевірте, чи є змінні середовища правильними.
+Переконайтеся, що назва проекту збігається з назвою проекту, коли ви [ініціалізуєте проект](../quickstart/quickstart-polkadot.md#initialise-the-starter-subquery-project). Також перевірте, чи є змінні середовища правильними.
 
 Після успішного запуску послуги subql-query відкрийте веб-переглядач і перейдіть до ` http: //localhost: 3000 `. Ви повинні побачити ігровий майданчик GraphQL, який відображається в Провіднику, і схему, яка готова до запиту.
