@@ -8,7 +8,7 @@ Bu kılavuzun sonunda, verileri sorguyabileceğiniz bir GraphQL uç noktasına s
 
 Henüz yapmadıysanız, SubQuery'de kullanılan [terminology](../#terminology) hakkında bilgi sahibi > öneririz.
 
-**The goal of this quick start guide is to index all Pangolin token _Approve_ logs, it should only take 10-15 minutes**
+**Bu hızlı başlangıç ​​kılavuzunun amacı, tüm Pangolin belirteci _Onayla_ olaylarını dizine eklemektir, yalnızca 10-15 dakika sürmelidir**
 
 ## Hazırlık
 
@@ -45,11 +45,11 @@ subql init
 SubQuery projesi initalised olarak size bazı sorular sorulana olacaktır:
 
 - Ad: SubQuery projeniz için bir ad
-- Network Family: The layer-1 blockchain network family that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use _"Avalanche"_
-- Network: The specific network that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use _"Avalanche"_
-- Template: Select a SubQuery project template that will provide a starting point to begin development, we suggest selecting the _"Starter project"_
+- Ağ Ailesi: Bu SubQuery projesinin dizine eklemek için geliştirileceği katman-1 blok zinciri ağ ailesi, seçenekler arasından seçim yapmak için klavyenizdeki ok tuşlarını kullanın, bu kılavuz için _"Avalanche"_ kullanacağız
+- Ağ: Bu SubQuery projesinin dizine eklemek için geliştirileceği belirli ağ, seçenekler arasından seçim yapmak için klavyenizdeki ok tuşlarını kullanın, bu kılavuz için _"Avalanche"_ kullanacağız
+- Şablon: Geliştirmeye başlamak için bir başlangıç ​​noktası sağlayacak bir SubQuery proje şablonu seçin, _"Başlangıç ​​projesi"_ öğesini seçmenizi öneririz
 - Git deposu (İsteğe Bağlı): Bu SubQuery projesinin barındırılacağı bir depoya Git URL'si sağlayın (SubQuery Gezgini'nde barındırıldığında)
-- RPC uç noktası (Gerekli): Bu proje için varsayılan olarak kullanılacak çalışan bir RPC uç noktasına wss URL'si sağlayın. Bu RPC düğümü bir arşiv düğümü olmalıdır (tam zincir durumuna sahip). For this guide we will use the default value _"avalanche.api.onfinality.io"_
+- RPC uç noktası (Gerekli): Bu proje için varsayılan olarak kullanılacak çalışan bir RPC uç noktasına wss URL'si sağlayın. Bu RPC düğümü bir arşiv düğümü olmalıdır (tam zincir durumuna sahip). Bu kılavuz için _"avalanche.api.onfinality.io"_ varsayılan değerini kullanacağız
 - Yazarlar (Zorunlu): Bu SubQuery projesinin sahibini buraya girin (örn. adınız!)
 - Açıklama (İsteğe Bağlı): Projeniz hakkında hangi verileri içerdiğini ve kullanıcıların bu verilerle neler yapabileceğini açıklayan kısa bir paragraf sağlayabilirsiniz
 - Sürüm (Gerekli): Özel bir sürüm numarası girin veya varsayılanı kullanın (`1.0.0`)
@@ -70,7 +70,7 @@ In the starter package that you just initialised, we have provided a standard co
 2. `project.yaml` içindeki Proje Manifestosu
 3. `src/mappings/` dizinindeki Eşleme işlevleri
 
-The goal of this quick start guide is to adapt the standard starter project to index all Pangolin `Approve` transaction logs.
+Bu hızlı başlangıç ​​kılavuzunun amacı, standart başlangıç ​​projesini tüm Pangolin `Onay` olaylarını dizine alacak şekilde uyarlamaktır.
 
 ### GraphQL Şema Dosyanızı Güncelleme
 
@@ -101,7 +101,7 @@ You'll find the generated models in the `/src/types/models` directory. `schema.g
 
 Proje Bildirimi (`project.yaml`) dosyası projenizin bir giriş noktası olarak görülebilir ve SubQuery'nin zincir verilerini nasıl indeksleyip dönüştüreceğiyle ilgili ayrıntıların çoğunu tanımlar.
 
-Bildirim dosyasında zaten doğru bir şekilde kurulduğundan çok fazla değişiklik yapmayacağız, ancak işleyicilerimizi değiştirmemiz gerekiyor. Remember we are planning to index all Pangolin approval logs, as a result, we need to update the `datasources` section to read the following.
+Bildirim dosyasında zaten doğru bir şekilde kurulduğundan çok fazla değişiklik yapmayacağız, ancak işleyicilerimizi değiştirmemiz gerekiyor. Tüm Pangolin onay olaylarını dizine eklemeyi planladığımızı unutmayın, sonuç olarak aşağıdakileri okumak için `veri kaynakları` bölümünü güncellememiz gerekiyor.
 
 ```yaml
 dataSources:
@@ -126,7 +126,7 @@ dataSources:
             # address: "0x60781C2586D68229fde47564546784ab3fACA982"
 ```
 
-This means we'll run a `handleLog` mapping function each and every time there is a `approve` log on any transaction from the [Pangolin contract](https://snowtrace.io/txs?a=0x60781C2586D68229fde47564546784ab3fACA982&p=1).
+Bu, [Pangolin sözleşmesinden](https://snowtrace.io/txs?a=0x60781C2586D68229fde47564546784ab3fACA982&p=1) yapılan herhangi bir işlemde her `onay` günlüğü olduğunda bir `handleLog` eşleme işlevi çalıştıracağımız anlamına gelir.
 
 Proje Bildirimi (`project.yaml`) dosyası hakkında daha fazla bilgi için, [Yapı/Manifest Dosyası](../build/manifest.md) altındaki belgelerimize bakın
 
@@ -134,11 +134,11 @@ Proje Bildirimi (`project.yaml`) dosyası hakkında daha fazla bilgi için, [Yap
 
 Eşleme işlevleri, zincir verilerinin daha önce `schema.graphql` dosyasında tanımladığımız optimize edilmiş GraphQL varlıklarına nasıl dönüştürüleceğini tanımlar.
 
-`src/mappings` dizinindeki varsayılan eşleme işlevine gidin. You'll see three exported functions, `handleBlock`, `handleLog`, and `handleTransaction`. You can delete both the `handleBlock` and `handleTransaction` functions, we are only dealing with the `handleLog` function.
+`src/mappings` dizinindeki varsayılan eşleme işlevine gidin. Dışa aktarılan üç işlev göreceksiniz, `handleBlock`, `handleLog` ve `handleTransaction`. Hem `handleBlock` hem de `handleTransaction` fonksiyonlarını silebilirsiniz, biz sadece `handleLog` fonksiyonu ile ilgileniyoruz.
 
-The `handleLog` function recieved event data whenever event matches the filters that we specify previously in our `project.yaml`. We are going to update it to process all `approval` transaction logs and save them to the GraphQL entities that we created earlier.
+`handleLog` işlevi, olay daha önce `project.yaml` içinde belirttiğimiz filtrelerle eşleştiğinde olay verilerini alır. Tüm `onay` olaylarını işleyecek ve bunları daha önce oluşturduğumuz GraphQL varlıklarına kaydedecek şekilde güncelleyeceğiz.
 
-You can update the `handleLog` function to the following (note the additional imports):
+`handleLog` işlevini aşağıdaki şekilde güncelleyebilirsiniz (ek içe aktarmalara dikkat edin):
 
 ```ts
 import { PangolinApproval } from "../types";
