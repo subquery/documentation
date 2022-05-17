@@ -8,7 +8,7 @@ Di akhir panduan ini, Anda akan memiliki proyek SubQuery yang berjalan pada node
 
 Jika Anda belum melakukannya, sebaiknya Anda membiasakan diri dengan [terminologi](../#terminology) yang digunakan di SubQuery.
 
-**The goal of this quick start guide is to index all Pangolin token *Approve* events, it should only take 10-15 minutes**
+**The goal of this quick start guide is to index all Pangolin token _Approve_ logs, it should only take 10-15 minutes**
 
 ## Persiapan
 
@@ -45,11 +45,11 @@ subql init
 Anda akan ditanyai pertanyaan tertentu saat proyek SubQuery diinisialisasi:
 
 - Name: Nama projek SubQuery anda
-- Network Family: The layer-1 blockchain network family that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use *"Avalanche"*
-- Network: The specific network that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use *"Avalanche"*
-- Template: Pilih template proyek SubQuery yang akan memberikan titik awal untuk memulai pengembangan, sebaiknya pilih *"Proyek Pemula"*
+- Network Family: The layer-1 blockchain network family that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use _"Avalanche"_
+- Network: The specific network that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use _"Avalanche"_
+- Template: Select a SubQuery project template that will provide a starting point to begin development, we suggest selecting the _"Starter project"_
 - Git repository (Opsional): Berikan URL Git ke repo tempat proyek SubQuery ini akan dihosting (saat dihosting di SubQuery Explorer)
-- RPC endpoint (Diperlukan): Berikan URL HTTPS ke titik akhir RPC yang sedang berjalan yang akan digunakan secara default untuk proyek ini. Node RPC ini harus berupa node arsip (memiliki status rantai penuh). For this guide we will use the default value *"avalanche.api.onfinality.io"*
+- RPC endpoint (Diperlukan): Berikan URL HTTPS ke titik akhir RPC yang sedang berjalan yang akan digunakan secara default untuk proyek ini. Node RPC ini harus berupa node arsip (memiliki status rantai penuh). For this guide we will use the default value _"avalanche.api.onfinality.io"_
 - Authors (Diperlukan): Masukkan pemilik proyek SubQuery ini di sini (misal. nama Anda!)
 - Description (Opsional): Anda dapat memberikan paragraf singkat tentang proyek Anda yang menjelaskan data apa yang ada di dalamnya dan apa yang dapat dilakukan pengguna dengannya
 - Version (Diperlukan): Masukkan nomor versi khusus atau gunakan default (`1.0.0`)
@@ -70,7 +70,7 @@ In the starter package that you just initialised, we have provided a standard co
 2. Manifes Proyek di `project.yaml`
 3. Fungsi Pemetaan di direktori `src/mappings/`
 
-The goal of this quick start guide is to adapt the standard starter project to index all Pangolin `Approve` events.
+The goal of this quick start guide is to adapt the standard starter project to index all Pangolin `Approve` transaction logs.
 
 ### Memperbarui File Skema GraphQL Anda
 
@@ -82,8 +82,8 @@ We're going to update the `schema.graphql` file to remove all existing entities 
 type PangolinApproval @entity {
   id: ID!
   transactionHash: String!
-  blockNumber: String! 
-  blockHash: String! 
+  blockNumber: String!
+  blockHash: String!
   addressFrom: String
   addressTo: String
   amount: String
@@ -101,7 +101,7 @@ You'll find the generated models in the `/src/types/models` directory. Untuk inf
 
 File Projek Manifest (`project.yaml`) dapat dilihat sebagai titik masuk proyek Anda dan ini mendefinisikan sebagian besar detail tentang bagaimana SubQuery akan mengindeks dan mengubah data rantai.
 
-Kami tidak akan melakukan banyak perubahan pada file manifes karena sudah diatur dengan benar, tetapi kami perlu mengubah penangan kami. Remember we are planning to index all Pangolin approval events, as a result, we need to update the `datasources` section to read the following.
+Kami tidak akan melakukan banyak perubahan pada file manifes karena sudah diatur dengan benar, tetapi kami perlu mengubah penangan kami. Remember we are planning to index all Pangolin approval logs, as a result, we need to update the `datasources` section to read the following.
 
 ```yaml
 dataSources:
@@ -118,15 +118,15 @@ dataSources:
     mapping:
       file: "./dist/index.js"
       handlers:
-        - handler: handleEvent
-          kind: avalanche/EventHandler
+        - handler: handleLog
+          kind: avalanche/LogHandler
           filter:
             ## Follows standard log filters https://docs.ethers.io/v5/concepts/events/
             function: Approve(address spender, uint256 rawAmount)
             # address: "0x60781C2586D68229fde47564546784ab3fACA982"
 ```
 
-This means we'll run a `handleApproveTransaction` mapping function each and every time there is a `approve` transaction from the [Pangolin contract](https://snowtrace.io/txs?a=0x60781C2586D68229fde47564546784ab3fACA982&p=1).
+This means we'll run a `handleLog` mapping function each and every time there is a `approve` log on any transaction from the [Pangolin contract](https://snowtrace.io/txs?a=0x60781C2586D68229fde47564546784ab3fACA982&p=1).
 
 Untuk informasi selengkapnya tentang file Project Manifest (`project.yaml`), lihat dokumentasi kami di [Build/Manifest File](../build/manifest.md)
 
@@ -134,17 +134,17 @@ Untuk informasi selengkapnya tentang file Project Manifest (`project.yaml`), lih
 
 Fungsi pemetaan menentukan bagaimana data rantai diubah menjadi entitas GraphQL yang dioptimalkan yang sebelumnya telah kita definisikan dalam file `schema.graphql`.
 
-Navigasikan ke fungsi pemetaan default di direktori `src/mappings`. Anda akan melihat tiga fungsi yang diekspor, `handleBlock`, `handleEvent`, dan `handleCall`. Anda dapat menghapus fungsi `handleBlock` dan `handleCall`, kita hanya berurusan dengan fungsi `handleEvent`.
+Navigasikan ke fungsi pemetaan default di direktori `src/mappings`. You'll see three exported functions, `handleBlock`, `handleLog`, and `handleTransaction`. You can delete both the `handleBlock` and `handleTransaction` functions, we are only dealing with the `handleLog` function.
 
-Fungsi `handleEvent` menerima data peristiwa setiap kali peristiwa cocok dengan filter yang kami tentukan sebelumnya di `project.yaml` kami. We are going to update it to process all `transfer` events and save them to the GraphQL entities that we created earlier.
+The `handleLog` function recieved event data whenever event matches the filters that we specify previously in our `project.yaml`. We are going to update it to process all `approval` transaction logs and save them to the GraphQL entities that we created earlier.
 
-Anda dapat memperbarui fungsi `handleEvent` sebagai berikut (perhatikan impor tambahan):
+You can update the `handleLog` function to the following (note the additional imports):
 
 ```ts
 import { PangolinApproval } from "../types";
-import { AvalancheEvent } from "@subql/types-avalanche";
+import { AvalancheLog } from "@subql/types-avalanche";
 
-export async function handleEvent(event: AvalancheEvent): Promise<void> {
+export async function handleLog(event: AvalancheLog): Promise<void> {
   const pangolinApprovalRecord = new PangolinApproval(
     `${event.blockHash}-${event.logIndex}`
   );
@@ -161,7 +161,7 @@ export async function handleEvent(event: AvalancheEvent): Promise<void> {
 }
 ```
 
-What this is doing is receiving an Avalanche Event which includes the transation data on the payload. We extract this data and then instantiate a new `PangolinApproval` entity that we defined earlier in the `schema.graphql` file. Kami menambahkan informasi tambahan dan kemudian menggunakan fungsi `.save()` untuk menyimpan entitas baru (SubQuery akan secara otomatis menyimpan ini ke database).
+What this is doing is receiving an Avalanche Log which includes the transation log data on the payload. We extract this data and then instantiate a new `PangolinApproval` entity that we defined earlier in the `schema.graphql` file. Kami menambahkan informasi tambahan dan kemudian menggunakan fungsi `.save()` untuk menyimpan entitas baru (SubQuery akan secara otomatis menyimpan ini ke database).
 
 Untuk informasi lebih lanjut tentang fungsi pemetaan, lihat dokumentasi kami di bawah [Build/Mappings](../build/mapping.md)
 
@@ -177,9 +177,9 @@ Untuk menjalankan Proyek SubQuery baru Anda, pertama-tama kita perlu membangun p
 
 ### Run your Project with Docker
 
-Whenever you create a new SubQuery Project, you should always run it locally on your computer to test it first. Cara termudah untuk melakukannya adalah dengan menggunakan Docker.
+Whenever you create a new SubQuery Project, you should always run it locally on your computer to test it first. The easiest way to do this is by using Docker.
 
-Semua konfigurasi yang mengontrol bagaimana node SubQuery dijalankan didefinisikan dalam file `docker-compose.yml` ini. Untuk proyek baru yang baru saja diinisialisasi, Anda tidak perlu mengubah apa pun di sini, tetapi Anda dapat membaca lebih lanjut tentang file dan pengaturannya di [Jalankan bagian Proyek](../run_publish/run.md)
+All configuration that controls how a SubQuery node is run is defined in this `docker-compose.yml` file. Untuk proyek baru yang baru saja diinisialisasi, Anda tidak perlu mengubah apa pun di sini, tetapi Anda dapat membaca lebih lanjut tentang file dan pengaturannya di [Jalankan bagian Proyek](../run_publish/run.md)
 
 Di bawah direktori proyek jalankan perintah berikut:
 
@@ -197,7 +197,7 @@ Untuk proyek pemula SubQuery baru, Anda dapat mencoba kueri berikut untuk menget
 
 ```graphql
 query {
-    pangolinApprovals(first: 5) {
+  pangolinApprovals(first: 5) {
     nodes {
       id
       blockNumber
