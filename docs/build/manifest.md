@@ -71,7 +71,7 @@ network:
   dictionary: https://api.subquery.network/sq/subquery/avalanche-dictionary
 dataSources:
   - kind: avalanche/Runtime
-    startBlock: 4724001
+    startBlock: 1
     options:
       # Must be a key of assets
       abi: erc20
@@ -93,8 +93,8 @@ dataSources:
             # function: '0x7ff36ab500000000000000000000000000000000000000000000000000000000'
             function: approve(address spender, uint256 rawAmount)
             ## from: "0x60781C2586D68229fde47564546784ab3fACA982"
-        - handler: handleEvent
-          kind: avalanche/EventHandler
+        - handler: handleLog
+          kind: avalanche/LogHandler
           filter:
             topics:
               ## Follows standard log filters https://docs.ethers.io/v5/concepts/events/
@@ -370,7 +370,7 @@ The following table explains filters supported by different handlers.
 | Terra              | [terra/EventHandler](./mapping.md#event-handler)     | `type`, `messageFilter`* |
 | Avalanche          | [avalanche/BlockHandler](./mapping.md#block-handler)     | No filters                   |
 | Avalanche          | [avalanche/TransactionHandler](./mapping.md#transaction-handler)     | `function` filters (either be the function fragment or signature), `from` (address), `to` (address)   |
-| Avalanche          | [avalanche/EventHandler](./mapping.md#event-handler)     | `topics` filters, and `address` |
+| Avalanche          | [avalanche/LogHandler](./mapping.md#log-handler)     | `topics` filters, and `address` |
 
 For Terra message and event handlers, you can filter by all the keys that exist in the message type provided by the filter. If the call is `/terra.wasm.v1beta1.MsgExecuteContract` then you can also specify the name of the called function. An example of this is below:
 

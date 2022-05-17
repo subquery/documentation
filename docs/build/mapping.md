@@ -104,23 +104,6 @@ export async function handleEvent(
 ```
 
 </CodeGroupItem>
-<CodeGroupItem title="Avalanche">
-
-```ts
-import { AvalancheEvent } from "@subql/types";
-
-export async function handleEvent(event: AvalancheEvent): Promise<void> {
-  const record = new EventEntity(
-    `${event.blockHash}-${event.logIndex}`
-  );
-  record.blockHeight = BigInt(event.blockNumber);
-  record.topics = event.topics;
-  record.data = event.data;
-  await record.save();
-}
-```
-
-</CodeGroupItem>
 </CodeGroup>
 
 A SubstrateEvent is an extended interface type of the [EventRecord](https://github.com/polkadot-js/api/blob/f0ce53f5a5e1e5a77cc01bf7f9ddb7fcf8546d11/packages/types/src/interfaces/system/types.ts#L149). Besides the event data, it also includes an `id` (the block to which this event belongs) and the extrinsic inside of this block.
@@ -131,7 +114,7 @@ A TerraEvent encapsulates Event data and TxLog corresponding to the event. It al
 
 ## Call Handler (Substrate/Polkadot Only)
 
-Call handlers (Substrate/Polkadot Only) are used when you want to capture information on certain substrate extrinsics. You should use [Mapping Filters](./manifest.md#mapping-filters) in your manifest to filter calls to reduce the time it takes to index data and improve mapping performance.
+Call handlers (Substrate/Polkadot only) are used when you want to capture information on certain substrate extrinsics. You should use [Mapping Filters](./manifest.md#mapping-filters) in your manifest to filter calls to reduce the time it takes to index data and improve mapping performance.
 
 ```ts
 export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
@@ -142,6 +125,24 @@ export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
 ```
 
 The [SubstrateExtrinsic](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L21) extends [GenericExtrinsic](https://github.com/polkadot-js/api/blob/a9c9fb5769dec7ada8612d6068cf69de04aa15ed/packages/types/src/extrinsic/Extrinsic.ts#L170). It is assigned an `id` (the block to which this extrinsic belongs) and provides an extrinsic property that extends the events among this block. Additionally, it records the success status of this extrinsic.
+
+## Log Handler
+
+You can use log handlers (Avalanche only) to capture information when certain logs are included on transactions. During the processing, the log handler will receive a log as an argument with the log's typed inputs and outputs. Any type of event will trigger the mapping, allowing activity with the data source to be captured. You should use [Mapping Filters](./manifest.md#mapping-filters) in your manifest to filter events to reduce the time it takes to index data and improve mapping performance.
+
+```ts
+import { AvalancheLog } from "@subql/types";
+
+export async function handleLog(event: AvalancheLog): Promise<void> {
+  const record = new EventEntity(
+    `${event.blockHash}-${event.logIndex}`
+  );
+  record.blockHeight = BigInt(event.blockNumber);
+  record.topics = event.topics; // Array of strings
+  record.data = event.data;
+  await record.save();
+}
+```
 
 ## Transaction Handler
 
