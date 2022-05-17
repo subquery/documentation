@@ -1,14 +1,14 @@
-# Terra Quick Start
+# Démarrage rapide de Terra
 
-In this Quick start guide, we're going to start with a simple Terra starter project and then finish by indexing some actual real data. Il s'agit d'une excellente base de départ pour développer votre propre projet SubQuery.
+Dans ce guide de démarrage rapide, nous allons commencer par un projet de démarrage simple, puis terminer par l'indexation de données réelles. Il s'agit d'une excellente base de départ pour développer votre propre projet SubQuery.
 
-**If your are looking for guides for Substrate/Polkadot, you can read the [Substrate/Polkadot specific quick start guide](./quickstart-polkadot).**
+**Si vous recherchez des guides pour Substrate/Polkadot, vous pouvez lire le [guide de démarrage rapide spécifique Substrate/Polkadot](./quickstart-polkadot).**
 
 À la fin de ce guide, vous aurez un projet SubQuery fonctionnel fonctionnant sur un nœud SubQuery avec un point de terminaison GraphQL à partir duquel vous pourrez interroger des données.
 
 Si vous ne l'avez pas encore fait, nous vous suggérons de vous familiariser avec la [terminologie](../#terminology) utilisée dans SubQuery.
 
-**The goal of this quick start guide is to adapt the standard starter project to begin indexing all transfers from Terra, it should only take 10-15 minutes**
+**Le but de ce guide de démarrage rapide est d'adapter le projet de démarrage standard pour commencer à indexer tous les transferts de Polkadot, cela ne devrait prendre que 10-15 minutes**
 
 ## Préparation
 
@@ -49,7 +49,7 @@ Certaines questions vous seront posées au fur et à mesure de l'initalisation d
 - Network: The specific network that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use *"Terra"*
 - Template: Sélectionnez un modèle de projet SubQuery qui fournira un point de départ pour commencer le développement, nous suggérons de sélectionner le *"Projet de démarrage"*
 - Git repository (Facultatif): Fournir l'URL Git d'un repo dans lequel le projet SubQuery sera hébergé (lorsqu'il est hébergé dans SubQuery Explorer)
-- RPC endpoint (Obligatoire): Fournissez une URL HTTPS vers un point de terminaison RPC en cours d'exécution qui sera utilisé par défaut pour ce projet. Ce nœud RPC doit être un nœud d'archive (avoir l'état complet de la chaîne). For this guide we will use the default value *"https://terra-columbus-5.beta.api.onfinality.io"*
+- RPC endpoint (Obligatoire): Fournissez une URL HTTPS vers un point de terminaison RPC en cours d'exécution qui sera utilisé par défaut pour ce projet. Ce nœud RPC doit être un nœud d'archive (avoir l'état complet de la chaîne). Pour ce guide, nous utiliserons la valeur par défaut *"https://polkadot.api.onfinality.io"*
 - Authors (Obligatoire): Entrez ici le propriétaire de ce projet de SubQuery (par exemple, votre nom !)
 - Description (Facultatif) : Vous pouvez fournir un court paragraphe sur votre projet qui décrit les données qu'il contient et ce que les utilisateurs peuvent faire avec
 - Version (Obligatoire) : Saisissez un numéro de version personnalisé ou utilisez la valeur par défaut (`1.0.0`)
@@ -62,15 +62,15 @@ Enfin, dans le répertoire du projet, exécutez la commande suivante pour instal
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```shell cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
 
-## Making Changes to your Project
+## Apporter des modifications à votre projet
 
-In the starter package that you just initialised, we have provided a standard configuration for your new project. Vous travaillerez principalement sur les fichiers suivants :
+Dans le paquet de démarrage que vous venez d'initialiser, nous avons fourni une configuration standard pour votre nouveau projet. Vous travaillerez principalement sur les fichiers suivants :
 
 1. Le schéma GraphQL dans `schema.graphql`
 2. Le manifeste du projet dans `projet.yaml`
 3. Les fonctions de mappage dans le répertoire `src/mappings/`
 
-The goal of this quick start guide is to adapt the standard starter project to begin indexing all transfers from the bLuna smart contract.
+Le but de ce guide de démarrage rapide est d'adapter le projet de démarrage standard pour commencer à indexer tous les transferts de Polkadot.
 
 ### Mise à jour de votre fichier de schéma GraphQL
 
@@ -85,8 +85,7 @@ type Transfer @entity {
   blockHeight: BigInt # The block height of the transfer
   sender: String! # The account that transfers are made from
   recipient: String! # The account that transfers are made to
-  amount: String! # Amount that is transferred
-}
+  amount: String! Montant à transférer
 ```
 
 **Important : Lorsque vous apportez des modifications au fichier de schéma, veillez à régénérer votre répertoire de types. Faites-le maintenant.**
@@ -100,7 +99,7 @@ You'll find the generated models in the `/src/types/models` directory. Pour plus
 
 Le fichier Projet Manifest (`project.yaml`) peut être vu comme un point d'entrée de votre projet et il définit la plupart des détails sur la façon dont SubQuery va indexer et transformer les données de la chaîne.
 
-Nous n'apporterons pas beaucoup de modifications au fichier manifeste, car il a déjà été configuré correctement, mais nous devons modifier nos gestionnaires. Remember we are planning to index all Terra transfer events, as a result, we need to update the `datasources` section to read the following.
+Nous n'apporterons pas beaucoup de modifications au fichier manifeste, car il a déjà été configuré correctement, mais nous devons modifier nos gestionnaires. Rappelez-vous que nous prévoyons d'indexer tous les transferts de Polkadot, en conséquence, nous devons mettre à jour la section `datasources` pour lire ce qui suit.
 
 ```yaml
 dataSources:
