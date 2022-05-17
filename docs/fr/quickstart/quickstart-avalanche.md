@@ -8,7 +8,7 @@ In this Quick start guide, we're going to start with a simple Avalanche starter 
 
 Si vous ne l'avez pas encore fait, nous vous suggérons de vous familiariser avec la [terminologie](../#terminology) utilisée dans SubQuery.
 
-**The goal of this quick start guide is to index all Pangolin token *Approve* events, it should only take 10-15 minutes**
+**The goal of this quick start guide is to index all Pangolin token _Approve_ logs, it should only take 10-15 minutes**
 
 ## Préparation
 
@@ -45,11 +45,11 @@ subql init
 Certaines questions vous seront posées au fur et à mesure de l'initalisation du projet SubQuery :
 
 - Name: Un nom pour votre projet SubQuery
-- Network Family: The layer-1 blockchain network family that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use *"Avalanche"*
-- Network: The specific network that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use *"Avalanche"*
-- Template: Sélectionnez un modèle de projet SubQuery qui fournira un point de départ pour commencer le développement, nous suggérons de sélectionner le *"Projet de démarrage"*
+- Network Family: The layer-1 blockchain network family that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use _"Avalanche"_
+- Network: The specific network that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use _"Avalanche"_
+- Template: Select a SubQuery project template that will provide a starting point to begin development, we suggest selecting the _"Starter project"_
 - Git repository (Facultatif): Fournir l'URL Git d'un repo dans lequel le projet SubQuery sera hébergé (lorsqu'il est hébergé dans SubQuery Explorer)
-- RPC endpoint (Obligatoire): Fournissez une URL HTTPS vers un point de terminaison RPC en cours d'exécution qui sera utilisé par défaut pour ce projet. Ce nœud RPC doit être un nœud d'archive (avoir l'état complet de la chaîne). For this guide we will use the default value *"avalanche.api.onfinality.io"*
+- RPC endpoint (Obligatoire): Fournissez une URL HTTPS vers un point de terminaison RPC en cours d'exécution qui sera utilisé par défaut pour ce projet. Ce nœud RPC doit être un nœud d'archive (avoir l'état complet de la chaîne). For this guide we will use the default value _"avalanche.api.onfinality.io"_
 - Authors (Obligatoire): Entrez ici le propriétaire de ce projet de SubQuery (par exemple, votre nom !)
 - Description (Facultatif) : Vous pouvez fournir un court paragraphe sur votre projet qui décrit les données qu'il contient et ce que les utilisateurs peuvent faire avec
 - Version (Obligatoire) : Saisissez un numéro de version personnalisé ou utilisez la valeur par défaut (`1.0.0`)
@@ -70,7 +70,7 @@ In the starter package that you just initialised, we have provided a standard co
 2. Le manifeste du projet dans `projet.yaml`
 3. Les fonctions de mappage dans le répertoire `src/mappings/`
 
-The goal of this quick start guide is to adapt the standard starter project to index all Pangolin `Approve` events.
+The goal of this quick start guide is to adapt the standard starter project to index all Pangolin `Approve` transaction logs.
 
 ### Mise à jour de votre fichier de schéma GraphQL
 
@@ -82,8 +82,8 @@ We're going to update the `schema.graphql` file to remove all existing entities 
 type PangolinApproval @entity {
   id: ID!
   transactionHash: String!
-  blockNumber: String! 
-  blockHash: String! 
+  blockNumber: String!
+  blockHash: String!
   addressFrom: String
   addressTo: String
   amount: String
@@ -101,7 +101,7 @@ You'll find the generated models in the `/src/types/models` directory. Pour plus
 
 Le fichier Projet Manifest (`project.yaml`) peut être vu comme un point d'entrée de votre projet et il définit la plupart des détails sur la façon dont SubQuery va indexer et transformer les données de la chaîne.
 
-Nous n'apporterons pas beaucoup de modifications au fichier manifeste, car il a déjà été configuré correctement, mais nous devons modifier nos gestionnaires. Remember we are planning to index all Pangolin approval events, as a result, we need to update the `datasources` section to read the following.
+Nous n'apporterons pas beaucoup de modifications au fichier manifeste, car il a déjà été configuré correctement, mais nous devons modifier nos gestionnaires. Remember we are planning to index all Pangolin approval logs, as a result, we need to update the `datasources` section to read the following.
 
 ```yaml
 dataSources:
@@ -118,15 +118,15 @@ dataSources:
     mapping:
       file: "./dist/index.js"
       handlers:
-        - handler: handleEvent
-          kind: avalanche/EventHandler
+        - handler: handleLog
+          kind: avalanche/LogHandler
           filter:
             ## Follows standard log filters https://docs.ethers.io/v5/concepts/events/
             function: Approve(address spender, uint256 rawAmount)
             # address: "0x60781C2586D68229fde47564546784ab3fACA982"
 ```
 
-This means we'll run a `handleApproveTransaction` mapping function each and every time there is a `approve` transaction from the [Pangolin contract](https://snowtrace.io/txs?a=0x60781C2586D68229fde47564546784ab3fACA982&p=1).
+This means we'll run a `handleLog` mapping function each and every time there is a `approve` log on any transaction from the [Pangolin contract](https://snowtrace.io/txs?a=0x60781C2586D68229fde47564546784ab3fACA982&p=1).
 
 Pour plus d'informations sur le fichier Project Manifest (`project.yaml`), consultez notre documentation sous [Build/Manifest File](../build/manifest.md)
 
@@ -134,17 +134,17 @@ Pour plus d'informations sur le fichier Project Manifest (`project.yaml`), consu
 
 Les fonctions de mappage définissent comment les données de la chaîne sont transformées en entités GraphQL optimisées que nous avons préalablement définies dans le fichier `schema.graphql`.
 
-Naviguez vers la fonction de mappage par défaut dans le répertoire `src/mappings`. Vous verrez trois fonctions exportées, `handleBlock`, `handleEvent`, et `handleCall`. Vous pouvez supprimer les deux fonctions `handleBlock` et `handleCall`, nous ne nous occupons que de la fonction `handleEvent`.
+Naviguez vers la fonction de mappage par défaut dans le répertoire `src/mappings`. You'll see three exported functions, `handleBlock`, `handleLog`, and `handleTransaction`. You can delete both the `handleBlock` and `handleTransaction` functions, we are only dealing with the `handleLog` function.
 
-La fonction `handleEvent` a reçu les données de l'événement chaque fois que celui-ci correspond aux filtres que nous avons spécifiés précédemment dans notre `projet.yaml`. We are going to update it to process all `transfer` events and save them to the GraphQL entities that we created earlier.
+The `handleLog` function recieved event data whenever event matches the filters that we specify previously in our `project.yaml`. We are going to update it to process all `approval` transaction logs and save them to the GraphQL entities that we created earlier.
 
-Vous pouvez mettre à jour la fonction `handleEvent` comme suit (notez les importations supplémentaires) :
+You can update the `handleLog` function to the following (note the additional imports):
 
 ```ts
 import { PangolinApproval } from "../types";
-import { AvalancheEvent } from "@subql/types-avalanche";
+import { AvalancheLog } from "@subql/types-avalanche";
 
-export async function handleEvent(event: AvalancheEvent): Promise<void> {
+export async function handleLog(event: AvalancheLog): Promise<void> {
   const pangolinApprovalRecord = new PangolinApproval(
     `${event.blockHash}-${event.logIndex}`
   );
@@ -161,7 +161,7 @@ export async function handleEvent(event: AvalancheEvent): Promise<void> {
 }
 ```
 
-What this is doing is receiving an Avalanche Event which includes the transation data on the payload. We extract this data and then instantiate a new `PangolinApproval` entity that we defined earlier in the `schema.graphql` file. Nous ajoutons des informations supplémentaires et utilisons ensuite la fonction `.save()` pour enregistrer la nouvelle entité (SubQuery l'enregistrera automatiquement dans la base de données).
+What this is doing is receiving an Avalanche Log which includes the transation log data on the payload. We extract this data and then instantiate a new `PangolinApproval` entity that we defined earlier in the `schema.graphql` file. Nous ajoutons des informations supplémentaires et utilisons ensuite la fonction `.save()` pour enregistrer la nouvelle entité (SubQuery l'enregistrera automatiquement dans la base de données).
 
 Pour plus d'informations sur les fonctions de mappage, consultez notre documentation sous [Build/Mappings](../build/mapping.md)
 
@@ -177,9 +177,9 @@ Afin d'exécuter votre nouveau projet SubQuery, nous devons d'abord construire n
 
 ### Run your Project with Docker
 
-Whenever you create a new SubQuery Project, you should always run it locally on your computer to test it first. Le moyen le plus simple d'y parvenir est d'utiliser Docker.
+Whenever you create a new SubQuery Project, you should always run it locally on your computer to test it first. The easiest way to do this is by using Docker.
 
-Toute la configuration qui contrôle la façon dont un nœud SubQuery est exécuté est définie dans ce fichier `docker-compose.yml`. Pour un nouveau projet qui vient d'être initalisé, vous n'aurez pas besoin de modifier quoi que ce soit ici, mais vous pouvez en savoir plus sur le fichier et les paramètres dans notre section [Exécuter un projet](../run_publish/run.md)
+All configuration that controls how a SubQuery node is run is defined in this `docker-compose.yml` file. Pour un nouveau projet qui vient d'être initalisé, vous n'aurez pas besoin de modifier quoi que ce soit ici, mais vous pouvez en savoir plus sur le fichier et les paramètres dans notre section [Exécuter un projet](../run_publish/run.md)
 
 Dans le répertoire du projet, exécutez la commande suivante :
 
@@ -197,7 +197,7 @@ Pour un nouveau projet de démarrage SubQuery, vous pouvez essayer la requête s
 
 ```graphql
 query {
-    pangolinApprovals(first: 5) {
+  pangolinApprovals(first: 5) {
     nodes {
       id
       blockNumber
