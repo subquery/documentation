@@ -8,7 +8,7 @@ In this Quick start guide, we're going to start with a simple Avalanche starter 
 
 Ако все още не сте го направили, ви предлагаме да разгледате [терминологията](../#terminology)използвана в SubQuery.
 
-**The goal of this quick start guide is to index all Pangolin token *Approve* events, it should only take 10-15 minutes**
+**The goal of this quick start guide is to index all Pangolin token _Approve_ logs, it should only take 10-15 minutes**
 
 ## Подготовка
 
@@ -45,11 +45,11 @@ subql init
 Ще ви бъдат зададени някои въпроси, по време на инициализирането на проекта SubQuery:
 
 - Name: Име на вашият SubQuery проект
-- Network Family: The layer-1 blockchain network family that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use *"Avalanche"*
-- Network: The specific network that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use *"Avalanche"*
-- Template: Изберете шаблон за проекта SubQuery, който ще служи като начална точка за започване на разработка, предлагаме да изберете *"Starter project"*
+- Network Family: The layer-1 blockchain network family that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use _"Avalanche"_
+- Network: The specific network that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use _"Avalanche"_
+- Template: Select a SubQuery project template that will provide a starting point to begin development, we suggest selecting the _"Starter project"_
 - Git repository (опционално): посочете Git URL хранилище, в което ще се съхранява този проект SubQuery (при разполагане в SubQuery Explorer)
-- RPC endpoint (Необходимо): Укажете HTTPS URL за работеща крайна точка RPC която ще бъде използвана по подразбиране за този проект. Този вид нода RPC трябва да представлява архивна нода (да има състояние на пълна веригата). For this guide we will use the default value *"avalanche.api.onfinality.io"*
+- RPC endpoint (Необходимо): Укажете HTTPS URL за работеща крайна точка RPC която ще бъде използвана по подразбиране за този проект. Този вид нода RPC трябва да представлява архивна нода (да има състояние на пълна веригата). For this guide we will use the default value _"avalanche.api.onfinality.io"_
 - Authors (задължително): въведете собственика на този проект за SubQuery тук (например вашето име!)
 - Description (опционално): можете да предоставите кратко описание за вашия проект, който описва какви данни съдържа и какво могат да правят потребителите с него
 - Version (Задължително): въведете свой персонализиран номер на версията или използвайте стойността по подразбиране (`1.0.0`)
@@ -62,15 +62,15 @@ subql init
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```shell cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
 
-## Промени във вашият проект
+## Making Changes to your Project
 
-В стартовия пакет, който току-що инициализирахте, ние сме предоставили стандартна конфигурация за вашия нов проект. Основно ще работите върху следните файлове:
+In the starter package that you just initialised, we have provided a standard configuration for your new project. Основно ще работите върху следните файлове:
 
 1. Схема GraphQL `schema.graphql`
 2. Манифест на проекта в `project.yaml`
 3. Показване на Функции в директорията `src/mappings/`
 
-The goal of this quick start guide is to adapt the standard starter project to index all Pangolin `Approve` events.
+The goal of this quick start guide is to adapt the standard starter project to index all Pangolin `Approve` transaction logs.
 
 ### Актуализиране на вашия файл със схема на GraphQL
 
@@ -82,8 +82,8 @@ We're going to update the `schema.graphql` file to remove all existing entities 
 type PangolinApproval @entity {
   id: ID!
   transactionHash: String!
-  blockNumber: String! 
-  blockHash: String! 
+  blockNumber: String!
+  blockHash: String!
   addressFrom: String
   addressTo: String
   amount: String
@@ -95,13 +95,13 @@ type PangolinApproval @entity {
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```shell npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
 
-Ще намерите генирираните модели в директорията `/src/types/models`. За повече информация относно файла `schema.graphql`, проверете нашата документация в раздела [Build/GraphQL Schema](../build/graphql.md)
+You'll find the generated models in the `/src/types/models` directory. За повече информация относно файла `schema.graphql`, проверете нашата документация в раздела [Build/GraphQL Schema](../build/graphql.md)
 
 ### Обновяване на файла Project Manifest
 
 Файлът Projet Manifest (`project.yaml`) може да се разглежда като начална точка за вашия проект, той определя повечето подробности за това как SubQuery ще индексира и трансформира данните от веригата.
 
-Няма да правим много промени във файла на манифеста, тъй като той вече е настроен правилно, но трябва да променим нашите handlers. Remember we are planning to index all Pangolin approval events, as a result, we need to update the `datasources` section to read the following.
+Няма да правим много промени във файла на манифеста, тъй като той вече е настроен правилно, но трябва да променим нашите handlers. Remember we are planning to index all Pangolin approval logs, as a result, we need to update the `datasources` section to read the following.
 
 ```yaml
 dataSources:
@@ -118,15 +118,15 @@ dataSources:
     mapping:
       file: "./dist/index.js"
       handlers:
-        - handler: handleEvent
-          kind: avalanche/EventHandler
+        - handler: handleLog
+          kind: avalanche/LogHandler
           filter:
             ## Follows standard log filters https://docs.ethers.io/v5/concepts/events/
             function: Approve(address spender, uint256 rawAmount)
             # address: "0x60781C2586D68229fde47564546784ab3fACA982"
 ```
 
-This means we'll run a `handleApproveTransaction` mapping function each and every time there is a `approve` transaction from the [Pangolin contract](https://snowtrace.io/txs?a=0x60781C2586D68229fde47564546784ab3fACA982&p=1).
+This means we'll run a `handleLog` mapping function each and every time there is a `approve` log on any transaction from the [Pangolin contract](https://snowtrace.io/txs?a=0x60781C2586D68229fde47564546784ab3fACA982&p=1).
 
 За повече информация относна файла Project Manifest (`project.yaml`), проверете документацията ни в раздела [Build/Manifest File](../build/manifest.md)
 
@@ -134,17 +134,17 @@ This means we'll run a `handleApproveTransaction` mapping function each and ever
 
 Mapping функциите определят как данните от веригата се трансформират в оптимизирани обекти GraphQL, които по-рано сме дефинирали във файла `schema.graphql`.
 
-Преминете към функцията за картографиране по подразбиране в директорията `src/mappings`. Ще забележите три експортирани функции, `handleBlock`, `handleEvent`, and `handleCall`. Може да изтриете двете функции `handleBlock` и `handleCall`, ще продължим работа само с функцията `handleEvent`.
+Преминете към функцията за картографиране по подразбиране в директорията `src/mappings`. You'll see three exported functions, `handleBlock`, `handleLog`, and `handleTransaction`. You can delete both the `handleBlock` and `handleTransaction` functions, we are only dealing with the `handleLog` function.
 
-Функцията `handleEvent` получава данни всеки път, когато събитието е съответствало на филтрите, които сме указали в `project.yaml`. Ще го актуализираме, за да обработим всички събития `transfer` и да ги запазим в GraphQL обектите, които създадохме по-рано.
+The `handleLog` function recieved event data whenever event matches the filters that we specify previously in our `project.yaml`. We are going to update it to process all `approval` transaction logs and save them to the GraphQL entities that we created earlier.
 
-Може да актуализирате функцията `handleEvent` по следният начин (обърнете внимание на допълнителния импорт):
+You can update the `handleLog` function to the following (note the additional imports):
 
 ```ts
 import { PangolinApproval } from "../types";
-import { AvalancheEvent } from "@subql/types-avalanche";
+import { AvalancheLog } from "@subql/types-avalanche";
 
-export async function handleEvent(event: AvalancheEvent): Promise<void> {
+export async function handleLog(event: AvalancheLog): Promise<void> {
   const pangolinApprovalRecord = new PangolinApproval(
     `${event.blockHash}-${event.logIndex}`
   );
@@ -161,7 +161,7 @@ export async function handleEvent(event: AvalancheEvent): Promise<void> {
 }
 ```
 
-What this is doing is receiving an Avalanche Event which includes the transation data on the payload. We extract this data and then instantiate a new `PangolinApproval` entity that we defined earlier in the `schema.graphql` file. Добавяме допълнителна информация и след това използваме функцията `.save()` за запазване на новият обект (SubQuery автоматично ще го съхрани в базата данни).
+What this is doing is receiving an Avalanche Log which includes the transation log data on the payload. We extract this data and then instantiate a new `PangolinApproval` entity that we defined earlier in the `schema.graphql` file. Добавяме допълнителна информация и след това използваме функцията `.save()` за запазване на новият обект (SubQuery автоматично ще го съхрани в базата данни).
 
 За повече информация относно mapping функциите вижте нашата документация под[Build/Mappings](../build/mapping.md)
 
@@ -171,21 +171,21 @@ What this is doing is receiving an Avalanche Event which includes the transation
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script build ``` </CodeGroupItem> </CodeGroup>
 
-** Важно: Всеки път, когато правите промени във вашите mapping функции, ще трябва да изградите отново своя проект**
+**Important: Whenever you make changes to your mapping functions, you'll need to rebuild your project**
 
-## Стартиране и запитване във вашия проект
+## Running and Querying your Project
 
-### Стартиране на вашия проект с Docker
+### Run your Project with Docker
 
-Всеки път, когато създавате нов проект на SubQuery, винаги трябва да го стартирате локално на вашия компютър, за да го тествате първо. Най-лесният начин да се направи това е чрез Docker.
+Whenever you create a new SubQuery Project, you should always run it locally on your computer to test it first. The easiest way to do this is by using Docker.
 
-Всички конфигурации, които контролират изпълнението на нодата SubQuery, са дефинирани в този файл `docker-compose.yml`. За нов проект, който току-що беше инициализиран, няма да е необходимо да променяте нищо, но можете да прочетете повече за файла и настройките в нашата [Секция за стартиране на Проекта](../run_publish/run.md)
+All configuration that controls how a SubQuery node is run is defined in this `docker-compose.yml` file. За нов проект, който току-що беше инициализиран, няма да е необходимо да променяте нищо, но можете да прочетете повече за файла и настройките в нашата [Секция за стартиране на Проекта](../run_publish/run.md)
 
 В директорията на проекта изпълнете следната команда:
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn start:docker ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script start:docker ``` </CodeGroupItem> </CodeGroup>
 
-Изтеглянето на необходимите пакети може да отнеме известно време ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), and Postgres) за първи път, но скоро ще видите работеща нода SubQuery. Бъдете търпеливи.
+It may take some time to download the required packages ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), and Postgres) for the first time but soon you'll see a running SubQuery node. Бъдете търпеливи.
 
 ### Направете заявка за вашият проект
 
@@ -197,7 +197,7 @@ What this is doing is receiving an Avalanche Event which includes the transation
 
 ```graphql
 query {
-    pangolinApprovals(first: 5) {
+  pangolinApprovals(first: 5) {
     nodes {
       id
       blockNumber
