@@ -8,7 +8,7 @@
 
 Если вы еще этого не сделали, мы предлагаем вам ознакомиться с [ терминологией ](../#terminology), используемой в SubQuery.
 
-**Цель этого краткого руководства — проиндексировать все события *Approve* токена Pangolin, это займет всего 10-15 минут**
+**The goal of this quick start guide is to index all Pangolin token _Approve_ logs, it should only take 10-15 minutes**
 
 ## Подготовка
 
@@ -45,11 +45,11 @@ subql init
 По мере инициализации проекта SubQuery вам будут заданы определенные вопросы:
 
 - Name: имя для вашего проекта SubQuery
-- Network Family: семейство сетей блокчейнов уровня 1, для индексирования которого будет разработан этот проект SubQuery, используйте клавиши со стрелками на клавиатуре, чтобы выбрать один из вариантов, в этом руководстве мы будем использовать *"Avalanche"*
-- Network: конкретная сеть, для индексации которой будет разработан этот проект SubQuery. Используйте клавиши со стрелками на клавиатуре, чтобы выбрать один из вариантов. В этом руководстве мы будем использовать *"Avalanche"*
-- Template: Выберите шаблон проекта SubQuery, который послужит отправной точкой для начала разработки. Мы предлагаем выбрать *"Стартовый проект"*
+- Network Family: The layer-1 blockchain network family that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use _"Avalanche"_
+- Network: The specific network that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use _"Avalanche"_
+- Template: Select a SubQuery project template that will provide a starting point to begin development, we suggest selecting the _"Starter project"_
 - Git repository (Опционально): Укажите URL-адрес Git для репозитория, в котором будет размещен этот проект SubQuery (при размещении в SubQuery Explorer)
-- RPC endpoint (Обязательно): Укажите URL-адрес HTTPS для работающей конечной точки RPC, которая будет использоваться по умолчанию для этого проекта. Этот узел RPC должен быть архивным узлом (иметь состояние полной цепочки). В этом руководстве мы будем использовать значение по умолчанию *"avalanche.api.onfinality.io"*
+- RPC endpoint (Обязательно): Укажите URL-адрес HTTPS для работающей конечной точки RPC, которая будет использоваться по умолчанию для этого проекта. Этот узел RPC должен быть архивным узлом (иметь состояние полной цепочки). For this guide we will use the default value _"avalanche.api.onfinality.io"_
 - Authors (Обязательно): Введите здесь владельца этого проекта SubQuery (например, ваше имя!)
 - Description (Опционально): Вы можете предоставить короткий абзац о своем проекте, описывающий, какие данные он содержит и что пользователи могут с ним делать
 - Version (Обязательно): Введите собственный номер версии или используйте версию по умолчанию (`1.0.0`)
@@ -62,15 +62,15 @@ subql init
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```shell cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
 
-## Внесение изменений в ваш проект
+## Making Changes to your Project
 
-В стартовом пакете, который вы только что инициализировали, мы предоставили стандартную конфигурацию для вашего нового проекта. В основном вы будете работать со следующими файлами:
+In the starter package that you just initialised, we have provided a standard configuration for your new project. В основном вы будете работать со следующими файлами:
 
 1. Схема GraphQL в `schema.graphql`
 2. Манифест проекта в `project.yaml`
 3. Функции сопоставления в каталоге src / mappings /
 
-Целью этого краткого руководства является адаптация стандартного начального проекта для индексации всех событий Pangolin `Approve`.
+The goal of this quick start guide is to adapt the standard starter project to index all Pangolin `Approve` transaction logs.
 
 ### Обновление файла схемы GraphQL
 
@@ -82,8 +82,8 @@ subql init
 type PangolinApproval @entity {
   id: ID!
   transactionHash: String!
-  blockNumber: String! 
-  blockHash: String! 
+  blockNumber: String!
+  blockHash: String!
   addressFrom: String
   addressTo: String
   amount: String
@@ -95,22 +95,22 @@ type PangolinApproval @entity {
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```shell npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
 
-Вы найдете сгенерированные модели в каталоге `/src/types/models`. Для получения дополнительной информации о файле `schema.graphql` ознакомьтесь с нашей документацией в разделе [Build/GraphQL Schema](../build/graphql.md)
+You'll find the generated models in the `/src/types/models` directory. Для получения дополнительной информации о файле `schema.graphql` ознакомьтесь с нашей документацией в разделе [Build/GraphQL Schema](../build/graphql.md)
 
 ### Обновление файла Манифеста Проекта
 
 Файл манифеста проекта (`project.yaml`) можно рассматривать как точку входа в ваш проект, и он определяет большинство деталей того, как SubQuery будет индексировать и преобразовывать данные цепочки.
 
-Мы не будем вносить много изменений в файл манифеста, поскольку он уже настроен правильно, но нам нужно изменить наши обработчики. Помните, что мы планируем индексировать все события утверждения Pangolin, поэтому нам нужно обновить раздел `datasources`, чтобы прочитать следующее.
+Мы не будем вносить много изменений в файл манифеста, поскольку он уже настроен правильно, но нам нужно изменить наши обработчики. Remember we are planning to index all Pangolin approval logs, as a result, we need to update the `datasources` section to read the following.
 
 ```yaml
 dataSources:
   - kind: avalanche/Runtime
-    startBlock: 57360 # Блок в котором был создан контракт Pangolin
+    startBlock: 57360 # Block when the Pangolin contract was created
     options:
-      # Должен быть ключом активов
+      # Must be a key of assets
       abi: erc20
-      ## Pangolin токен https://snowtrace.io/token/0x60781c2586d68229fde47564546784ab3faca982
+      ## Pangolin token https://snowtrace.io/token/0x60781c2586d68229fde47564546784ab3faca982
       address: "0x60781C2586D68229fde47564546784ab3fACA982"
     assets:
       erc20:
@@ -118,15 +118,15 @@ dataSources:
     mapping:
       file: "./dist/index.js"
       handlers:
-        - handler: handleEvent
-          kind: avalanche/EventHandler
+        - handler: handleLog
+          kind: avalanche/LogHandler
           filter:
-            ##Соответствует стандартным фильтрам журналов https://docs.ethers.io/v5/concepts/events/
+            ## Follows standard log filters https://docs.ethers.io/v5/concepts/events/
             function: Approve(address spender, uint256 rawAmount)
-            # адрес: "0x60781C2586D68229fde47564546784ab3fACA982"
+            # address: "0x60781C2586D68229fde47564546784ab3fACA982"
 ```
 
-Это означает, что мы будем запускать функцию сопоставления `handleApproveTransaction` каждый раз, когда есть `approve` транзакции из [контракта Pangolin](https://snowtrace.io/txs?a=0x60781C2586D68229fde47564546784ab3fACA982&p=1).
+This means we'll run a `handleLog` mapping function each and every time there is a `approve` log on any transaction from the [Pangolin contract](https://snowtrace.io/txs?a=0x60781C2586D68229fde47564546784ab3fACA982&p=1).
 
 Дополнительные сведения о файле манифеста проекта (`project.yaml`) см. в нашей документации в разделе [Build/Manifest File](../build/manifest.md)
 
@@ -134,17 +134,17 @@ dataSources:
 
 Функции сопоставления определяют, как данные цепочки преобразуются в оптимизированные сущности GraphQL, которые мы ранее определили в файле `schema.graphql`.
 
-Перейдите к функции сопоставления по умолчанию в каталоге `src/mappings`. Вы увидите три экспортированные функции: `handleBlock`, `handleEvent` и `handleCall`. Вы можете удалить обе функции `handleBlock` и `handleCall`, мы имеем дело только с функцией `handleEvent`.
+Перейдите к функции сопоставления по умолчанию в каталоге `src/mappings`. You'll see three exported functions, `handleBlock`, `handleLog`, and `handleTransaction`. You can delete both the `handleBlock` and `handleTransaction` functions, we are only dealing with the `handleLog` function.
 
-Функция `handleEvent` получала данные о событиях всякий раз, когда событие соответствовало фильтрам, которые мы указали ранее в нашем `project.yaml`. Мы собираемся обновить его, чтобы он обрабатывал все события `transfer` и сохранял их в объектах GraphQL, которые мы создали ранее.
+The `handleLog` function recieved event data whenever event matches the filters that we specify previously in our `project.yaml`. We are going to update it to process all `approval` transaction logs and save them to the GraphQL entities that we created earlier.
 
-Вы можете обновить функцию `handleEvent` следующим образом (обратите внимание на дополнительный импорт):
+You can update the `handleLog` function to the following (note the additional imports):
 
 ```ts
 import { PangolinApproval } from "../types";
-import { AvalancheEvent } from "@subql/types-avalanche";
+import { AvalancheLog } from "@subql/types-avalanche";
 
-export async function handleEvent(event: AvalancheEvent): Promise<void> {
+export async function handleLog(event: AvalancheLog): Promise<void> {
   const pangolinApprovalRecord = new PangolinApproval(
     `${event.blockHash}-${event.logIndex}`
   );
@@ -152,18 +152,16 @@ export async function handleEvent(event: AvalancheEvent): Promise<void> {
   pangolinApprovalRecord.transactionHash = event.transactionHash;
   pangolinApprovalRecord.blockHash = event.blockHash;
   pangolinApprovalRecord.blockNumber = event.blockNumber;
-  # темы хранят данные в виде массива
+  # topics store data as an array
   pangolinApprovalRecord.addressFrom = event.topics[0];
   pangolinApprovalRecord.addressTo = event.topics[1];
   pangolinApprovalRecord.amount = event.topics[2];
 
   await pangolinApprovalRecord.save();
 }
-
-Переведено с помощью www.DeepL.com/Translator (бесплатная версия)
 ```
 
-Здесь мы получаем событие Avalanche, которое включает данные транзакции в payload. Мы извлекаем эти данные, а затем создаем экземпляр нового объекта `PangolinApproval`, который мы определили ранее в файле `schema.graphql`. Мы добавляем дополнительную информацию, а затем используем функцию `.save()` для сохранения нового объекта (SubQuery автоматически сохранит его в базе данных).
+What this is doing is receiving an Avalanche Log which includes the transation log data on the payload. Мы извлекаем эти данные, а затем создаем экземпляр нового объекта `PangolinApproval`, который мы определили ранее в файле `schema.graphql`. Мы добавляем дополнительную информацию, а затем используем функцию `.save()` для сохранения нового объекта (SubQuery автоматически сохранит его в базе данных).
 
 Для получения дополнительной информации о функциях сопоставления ознакомьтесь с нашей документацией в разделе [Build/Mappings](../build/mapping.md)
 
@@ -173,21 +171,21 @@ export async function handleEvent(event: AvalancheEvent): Promise<void> {
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script build ``` </CodeGroupItem> </CodeGroup>
 
-**Важно: Всякий раз, когда вы вносите изменения в свои функции сопоставления, вам нужно будет переcобрать свой проект.**
+**Important: Whenever you make changes to your mapping functions, you'll need to rebuild your project**
 
-## Запуск и запрос вашего проекта
+## Running and Querying your Project
 
-### Запустите свой проект с помощью Docker
+### Run your Project with Docker
 
-Всякий раз, когда вы создаете новый проект SubQuery, вы всегда должны запускать его локально на своем компьютере, чтобы сначала протестировать его. Проще всего это сделать с помощью Docker.
+Whenever you create a new SubQuery Project, you should always run it locally on your computer to test it first. The easiest way to do this is by using Docker.
 
-Вся конфигурация, управляющая запуском узла SubQuery, определяется в этом файле `docker-compose.yml`. Для нового проекта, который был только что инициализирован, вам не нужно ничего здесь менять, но вы можете прочитать больше о файле и настройках в нашем разделе [Запуск проекта](../run_publish/run.md)
+All configuration that controls how a SubQuery node is run is defined in this `docker-compose.yml` file. Для нового проекта, который был только что инициализирован, вам не нужно ничего здесь менять, но вы можете прочитать больше о файле и настройках в нашем разделе [Запуск проекта](../run_publish/run.md)
 
 В каталоге проекта выполните следующую команду:
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn start:docker ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script start:docker ``` </CodeGroupItem> </CodeGroup>
 
-Загрузка необходимых пакетов ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query) и Postgres) в первый раз может занять некоторое время, но вскоре вы увидите работающий узел SubQuery. Проявите терпение.
+It may take some time to download the required packages ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), and Postgres) for the first time but soon you'll see a running SubQuery node. Проявите терпение.
 
 ### Отправьте запрос своему проекту
 
@@ -199,7 +197,7 @@ export async function handleEvent(event: AvalancheEvent): Promise<void> {
 
 ```graphql
 query {
-    pangolinApprovals(first: 5) {
+  pangolinApprovals(first: 5) {
     nodes {
       id
       blockNumber
