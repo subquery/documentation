@@ -8,7 +8,7 @@
 
 Если вы еще этого не сделали, мы предлагаем вам ознакомиться с [ терминологией ](../#terminology), используемой в SubQuery.
 
-**The goal of this quick start guide is to index all Pangolin token _Approve_ logs, it should only take 10-15 minutes**
+**Цель этого краткого руководства - проиндексировать все журналы токена Pangolin _Approve_, это займет всего 10-15 минут.**
 
 ## Подготовка
 
@@ -45,11 +45,11 @@ subql init
 По мере инициализации проекта SubQuery вам будут заданы определенные вопросы:
 
 - Name: имя для вашего проекта SubQuery
-- Network Family: The layer-1 blockchain network family that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use _"Avalanche"_
-- Network: The specific network that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use _"Avalanche"_
-- Template: Select a SubQuery project template that will provide a starting point to begin development, we suggest selecting the _"Starter project"_
+- Семейство сетей: Семейство блокчейн-сетей первого уровня, для индексации которого будет разработан этот проект SubQuery. Используйте клавиши со стрелками на клавиатуре, чтобы выбрать один из вариантов, в данном руководстве мы будем использовать _ "Avalanche"_.
+- Сеть: Конкретная сеть, для индексации которой будет разработан этот проект SubQuery, используйте клавиши со стрелками на клавиатуре, чтобы выбрать один из вариантов, для данного руководства мы будем использовать _ "Avalanche"_.
+- Шаблон: Выберите шаблон проекта SubQuery, который станет отправной точкой для начала разработки, мы предлагаем выбрать _ "Starter project"_.
 - Git repository (Опционально): Укажите URL-адрес Git для репозитория, в котором будет размещен этот проект SubQuery (при размещении в SubQuery Explorer)
-- RPC endpoint (Обязательно): Укажите URL-адрес HTTPS для работающей конечной точки RPC, которая будет использоваться по умолчанию для этого проекта. Этот узел RPC должен быть архивным узлом (иметь состояние полной цепочки). For this guide we will use the default value _"avalanche.api.onfinality.io"_
+- RPC endpoint (Обязательно): Укажите URL-адрес HTTPS для работающей конечной точки RPC, которая будет использоваться по умолчанию для этого проекта. Этот узел RPC должен быть архивным узлом (иметь состояние полной цепочки). В данном руководстве мы будем использовать значение по умолчанию _ "avalanche.api.onfinality.io"_.
 - Authors (Обязательно): Введите здесь владельца этого проекта SubQuery (например, ваше имя!)
 - Description (Опционально): Вы можете предоставить короткий абзац о своем проекте, описывающий, какие данные он содержит и что пользователи могут с ним делать
 - Version (Обязательно): Введите собственный номер версии или используйте версию по умолчанию (`1.0.0`)
