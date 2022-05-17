@@ -1,8 +1,8 @@
 # Avalanche Quick Start
 
-In this Quick start guide, we're going to start with a simple Avalanche starter project and then finish by indexing some actual real data. Il s'agit d'une excellente base de départ pour développer votre propre projet SubQuery.
+Dans ce guide de démarrage rapide, nous allons commencer par un projet de démarrage simple, puis terminer par l'indexation de données réelles. Il s'agit d'une excellente base de départ pour développer votre propre projet SubQuery.
 
-**If your are looking for guides for Substrate/Polkadot, you can read the [Substrate/Polkadot specific quick start guide](./quickstart-polkadot).**
+**Si vous recherchez des guides pour Substrate/Polkadot, vous pouvez lire le [guide de démarrage rapide spécifique Substrate/Polkadot](./quickstart-polkadot).**
 
 À la fin de ce guide, vous aurez un projet SubQuery fonctionnel fonctionnant sur un nœud SubQuery avec un point de terminaison GraphQL à partir duquel vous pourrez interroger des données.
 
@@ -62,21 +62,21 @@ Enfin, dans le répertoire du projet, exécutez la commande suivante pour instal
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```shell cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
 
-## Making Changes to your Project
+## Apporter des modifications à votre projet
 
-In the starter package that you just initialised, we have provided a standard configuration for your new project. Vous travaillerez principalement sur les fichiers suivants :
+Dans le paquet de démarrage que vous venez d'initialiser, nous avons fourni une configuration standard pour votre nouveau projet. Vous travaillerez principalement sur les fichiers suivants :
 
 1. Le schéma GraphQL dans `schema.graphql`
 2. Le manifeste du projet dans `projet.yaml`
 3. Les fonctions de mappage dans le répertoire `src/mappings/`
 
-The goal of this quick start guide is to adapt the standard starter project to index all Pangolin `Approve` transaction logs.
+L'objectif de ce guide de démarrage rapide est d'adapter le projet de démarrage standard pour indexer tous les journaux de transactions de Pangolin `Approuver`.
 
 ### Mise à jour de votre fichier de schéma GraphQL
 
 Le fichier `schema.graphql` définit les différents schémas GraphQL. En raison de la façon dont le langage d'interrogation GraphQL fonctionne, le fichier de schéma dicte essentiellement la forme de vos données à partir de SubQuery. C'est un excellent point de départ, car il vous permet de définir votre objectif final dès le départ.
 
-We're going to update the `schema.graphql` file to remove all existing entities and read as follows
+Nous allons mettre à jour le fichier `schema.graphql` comme suit
 
 ```graphql
 type PangolinApproval @entity {
@@ -95,13 +95,13 @@ type PangolinApproval @entity {
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```shell npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
 
-You'll find the generated models in the `/src/types/models` directory. Pour plus d'informations sur le fichier `schema.graphql`, consultez notre documentation sous [Build/GraphQL Schema](../build/graphql.md)
+Vous trouverez les modèles générés dans le répertoire `/src/types/models`. Pour plus d'informations sur le fichier `schema.graphql`, consultez notre documentation sous [Build/GraphQL Schema](../build/graphql.md)
 
 ### Mise à jour du fichier de manifeste du projet
 
 Le fichier Projet Manifest (`project.yaml`) peut être vu comme un point d'entrée de votre projet et il définit la plupart des détails sur la façon dont SubQuery va indexer et transformer les données de la chaîne.
 
-Nous n'apporterons pas beaucoup de modifications au fichier manifeste, car il a déjà été configuré correctement, mais nous devons modifier nos gestionnaires. Remember we are planning to index all Pangolin approval logs, as a result, we need to update the `datasources` section to read the following.
+Nous n'apporterons pas beaucoup de modifications au fichier manifeste, car il a déjà été configuré correctement, mais nous devons modifier nos gestionnaires. Rappelez-vous que nous prévoyons d'indexer tous les transferts de Polkadot, en conséquence, nous devons mettre à jour la section `datasources` pour lire ce qui suit.
 
 ```yaml
 dataSources:
@@ -126,7 +126,7 @@ dataSources:
             # address: "0x60781C2586D68229fde47564546784ab3fACA982"
 ```
 
-This means we'll run a `handleLog` mapping function each and every time there is a `approve` log on any transaction from the [Pangolin contract](https://snowtrace.io/txs?a=0x60781C2586D68229fde47564546784ab3fACA982&p=1).
+Cela signifie que nous allons exécuter une fonction de mappage `handleLog` chaque fois qu'il y a un `log d'approbation` sur toute transaction du contrat [Pangolin](https://snowtrace.io/txs?a=0x60781C2586D68229fde47564546784ab3fACA982&p=1).
 
 Pour plus d'informations sur le fichier Project Manifest (`project.yaml`), consultez notre documentation sous [Build/Manifest File](../build/manifest.md)
 
@@ -134,11 +134,11 @@ Pour plus d'informations sur le fichier Project Manifest (`project.yaml`), consu
 
 Les fonctions de mappage définissent comment les données de la chaîne sont transformées en entités GraphQL optimisées que nous avons préalablement définies dans le fichier `schema.graphql`.
 
-Naviguez vers la fonction de mappage par défaut dans le répertoire `src/mappings`. You'll see three exported functions, `handleBlock`, `handleLog`, and `handleTransaction`. You can delete both the `handleBlock` and `handleTransaction` functions, we are only dealing with the `handleLog` function.
+Naviguez vers la fonction de mappage par défaut dans le répertoire `src/mappings`. Vous verrez trois fonctions exportées, `handleBlock`, `handleEvent`, et `handleCall`. Vous pouvez supprimer les deux fonctions `handleBlock` et `handleCall`, nous ne nous occupons que de la fonction `handleEvent`.
 
-The `handleLog` function recieved event data whenever event matches the filters that we specify previously in our `project.yaml`. We are going to update it to process all `approval` transaction logs and save them to the GraphQL entities that we created earlier.
+La fonction `handleEvent` a reçu les données de l'événement chaque fois que celui-ci correspond aux filtres que nous avons spécifiés précédemment dans notre `projet.yaml`. We are going to update it to process all `approval` transaction logs and save them to the GraphQL entities that we created earlier.
 
-You can update the `handleLog` function to the following (note the additional imports):
+Vous pouvez mettre à jour la fonction `handleEvent` comme suit (notez les importations supplémentaires) :
 
 ```ts
 import { PangolinApproval } from "../types";
@@ -161,7 +161,7 @@ export async function handleLog(event: AvalancheLog): Promise<void> {
 }
 ```
 
-What this is doing is receiving an Avalanche Log which includes the transation log data on the payload. We extract this data and then instantiate a new `PangolinApproval` entity that we defined earlier in the `schema.graphql` file. Nous ajoutons des informations supplémentaires et utilisons ensuite la fonction `.save()` pour enregistrer la nouvelle entité (SubQuery l'enregistrera automatiquement dans la base de données).
+Il s'agit de recevoir un SubstrateEvent qui comprend des données de transfert sur la charge utile. Nous extrayons ces données puis instançons une nouvelle entité `Transfer` que nous avons définie plus tôt dans le fichier `schema.graphql`. Nous ajoutons des informations supplémentaires et utilisons ensuite la fonction `.save()` pour enregistrer la nouvelle entité (SubQuery l'enregistrera automatiquement dans la base de données).
 
 Pour plus d'informations sur les fonctions de mappage, consultez notre documentation sous [Build/Mappings](../build/mapping.md)
 
@@ -171,21 +171,21 @@ Afin d'exécuter votre nouveau projet SubQuery, nous devons d'abord construire n
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script build ``` </CodeGroupItem> </CodeGroup>
 
-**Important: Whenever you make changes to your mapping functions, you'll need to rebuild your project**
+**Important : chaque fois que vous apportez des modifications à vos fonctions de mapping, vous devrez reconstruire votre projet**.
 
-## Running and Querying your Project
+## Exécution et interrogation de votre projet
 
-### Run your Project with Docker
+### Exécuter votre projet avec Docker
 
-Whenever you create a new SubQuery Project, you should always run it locally on your computer to test it first. The easiest way to do this is by using Docker.
+Lorsque vous créez un nouveau projet de sous-quête, vous devez toujours l'exécuter localement sur votre ordinateur pour le tester d'abord.
 
-All configuration that controls how a SubQuery node is run is defined in this `docker-compose.yml` file. Pour un nouveau projet qui vient d'être initalisé, vous n'aurez pas besoin de modifier quoi que ce soit ici, mais vous pouvez en savoir plus sur le fichier et les paramètres dans notre section [Exécuter un projet](../run_publish/run.md)
+Toute la configuration qui contrôle la façon dont un nœud SubQuery est exécuté est définie dans ce fichier `docker-compose.yml`. Pour un nouveau projet qui vient d'être initalisé, vous n'aurez pas besoin de modifier quoi que ce soit ici, mais vous pouvez en savoir plus sur le fichier et les paramètres dans notre section [Exécuter un projet](../run_publish/run.md)
 
 Dans le répertoire du projet, exécutez la commande suivante :
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn start:docker ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script start:docker ``` </CodeGroupItem> </CodeGroup>
 
-It may take some time to download the required packages ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), and Postgres) for the first time but soon you'll see a running SubQuery node. Soyez patient ici.
+Il peut falloir un certain temps pour télécharger les paquets requis ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), et Postgres) pour la première fois mais bientôt vous verrez un nœud SubQuery en fonctionnement. Soyez patient ici.
 
 ### Recherchez votre projet
 
@@ -215,11 +215,11 @@ query {
 
 SubQuery fournit un service géré gratuit où vous pouvez déployer votre nouveau projet. Vous pouvez le déployer dans [SubQuery Projects](https://project.subquery.network) et l'interroger en utilisant notre [Explorer](https://explorer.subquery.network).
 
-[Read the guide to publish your new project to SubQuery Projects](../run_publish/publish.md), **Note that you must deploy via IPFS**.
+[Lisez le guide pour publier votre nouveau projet sur les projets SubQuery](../run_publish/publish.md), **Notez que vous devez le déployer via IPFS**.
 
 ## Les prochaines étapes
 
-Congratulations, you now have a locally running SubQuery project that accepts GraphQL API requests for transfers data from bLuna.
+Félicitations, vous disposez maintenant d'un projet SubQuery exécuté localement qui accepte les requêtes de l'API GraphQL pour les transferts de données.
 
 Maintenant que vous avez eu un aperçu de la façon de construire un projet de base de SubQuery, la question est de savoir où aller à partir de là ? Si vous vous sentez en confiance, vous pouvez commencer à en apprendre davantage sur les trois fichiers clés. Le fichier manifeste, le schéma GraphQL et le fichier des mappings sous la section [Build de ces docs](../build/introduction.md).
 
