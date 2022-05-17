@@ -59,18 +59,18 @@ subql init
 
 Наконец, в каталоге проекта выполните следующую команду, чтобы установить зависимости нового проекта.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```shell cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> ``shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
+<CodeGroupItem title="NPM"> ``shell cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
 
-## Making Changes to your Project
+## Внесение изменений в ваш проект
 
-In the starter package that you just initialised, we have provided a standard configuration for your new project. В основном вы будете работать со следующими файлами:
+В стартовом пакете, который вы только что инициализировали, мы предоставили стандартную конфигурацию для вашего нового проекта. В основном вы будете работать со следующими файлами:
 
 1. Схема GraphQL в `schema.graphql`
 2. Манифест проекта в `project.yaml`
 3. Функции сопоставления в каталоге src / mappings /
 
-The goal of this quick start guide is to adapt the standard starter project to index all Pangolin `Approve` transaction logs.
+Цель этого краткого руководства - адаптировать стандартный стартовый проект для индексирования всех журналов транзакций Pangolin `Approve`.
 
 ### Обновление файла схемы GraphQL
 
@@ -92,25 +92,25 @@ type PangolinApproval @entity {
 
 **Важно: когда вы вносите какие-либо изменения в файл schema, убедитесь, что вы заново создали каталог типов. Сделайте это сейчас.**
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```shell npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> ``shell yarn codegen ``` </CodeGroupItem>
+<CodeGroupItem title="NPM"> ``shell npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
 
-You'll find the generated models in the `/src/types/models` directory. Для получения дополнительной информации о файле `schema.graphql` ознакомьтесь с нашей документацией в разделе [Build/GraphQL Schema](../build/graphql.md)
+Вы найдете сгенерированные модели в каталоге `/src/types/models`. Для получения дополнительной информации о файле `schema.graphql` ознакомьтесь с нашей документацией в разделе [Build/GraphQL Schema](../build/graphql.md)
 
 ### Обновление файла Манифеста Проекта
 
 Файл манифеста проекта (`project.yaml`) можно рассматривать как точку входа в ваш проект, и он определяет большинство деталей того, как SubQuery будет индексировать и преобразовывать данные цепочки.
 
-Мы не будем вносить много изменений в файл манифеста, поскольку он уже настроен правильно, но нам нужно изменить наши обработчики. Remember we are planning to index all Pangolin approval logs, as a result, we need to update the `datasources` section to read the following.
+Мы не будем вносить много изменений в файл манифеста, поскольку он уже настроен правильно, но нам нужно изменить наши обработчики. Помните, что мы планируем индексировать все журналы утверждения Pangolin, поэтому нам нужно обновить раздел `datasources` следующим образом.
 
 ```yaml
 dataSources:
   - kind: avalanche/Runtime
-    startBlock: 57360 # Block when the Pangolin contract was created
+    startBlock: 57360 # Блок, когда был создан контракт Pangolin
     options:
-      # Must be a key of assets
+      # Должен быть ключ активов
       abi: erc20
-      ## Pangolin token https://snowtrace.io/token/0x60781c2586d68229fde47564546784ab3faca982
+      ## токен Pangolin https://snowtrace.io/token/0x60781c2586d68229fde47564546784ab3faca982
       address: "0x60781C2586D68229fde47564546784ab3fACA982"
     assets:
       erc20:
@@ -121,12 +121,12 @@ dataSources:
         - handler: handleLog
           kind: avalanche/LogHandler
           filter:
-            ## Follows standard log filters https://docs.ethers.io/v5/concepts/events/
+            ## Следуют стандартным фильтрам журнала https://docs.ethers.io/v5/concepts/events/
             function: Approve(address spender, uint256 rawAmount)
             # address: "0x60781C2586D68229fde47564546784ab3fACA982"
 ```
 
-This means we'll run a `handleLog` mapping function each and every time there is a `approve` log on any transaction from the [Pangolin contract](https://snowtrace.io/txs?a=0x60781C2586D68229fde47564546784ab3fACA982&p=1).
+Это означает, что мы будем запускать функцию отображения `handleLog` каждый раз, когда будет `approve` log для любой транзакции из [Pangolin contract](https://snowtrace.io/txs?a=0x60781C2586D68229fde47564546784ab3fACA982&p=1).
 
 Дополнительные сведения о файле манифеста проекта (`project.yaml`) см. в нашей документации в разделе [Build/Manifest File](../build/manifest.md)
 
@@ -134,11 +134,11 @@ This means we'll run a `handleLog` mapping function each and every time there is
 
 Функции сопоставления определяют, как данные цепочки преобразуются в оптимизированные сущности GraphQL, которые мы ранее определили в файле `schema.graphql`.
 
-Перейдите к функции сопоставления по умолчанию в каталоге `src/mappings`. You'll see three exported functions, `handleBlock`, `handleLog`, and `handleTransaction`. You can delete both the `handleBlock` and `handleTransaction` functions, we are only dealing with the `handleLog` function.
+Перейдите к функции сопоставления по умолчанию в каталоге `src/mappings`. Вы увидите три экспортируемые функции, `handleBlock`, `handleLog` и `handleTransaction`. Вы можете удалить обе функции `handleBlock` и `handleTransaction`, мы имеем дело только с функцией `handleLog`.
 
-The `handleLog` function recieved event data whenever event matches the filters that we specify previously in our `project.yaml`. We are going to update it to process all `approval` transaction logs and save them to the GraphQL entities that we created earlier.
+Функция `handleLog` получала данные о событии всякий раз, когда событие соответствовало фильтрам, которые мы указали ранее в нашем `project.yaml`. Мы собираемся обновить его, чтобы обработать все журналы транзакций `одобрения` и сохранить их в сущностях GraphQL, которые мы создали ранее.
 
-You can update the `handleLog` function to the following (note the additional imports):
+Вы можете обновить функцию `handleLog` до следующей (обратите внимание на дополнительные импорты):
 
 ```ts
 import { PangolinApproval } from "../types";
@@ -161,7 +161,7 @@ export async function handleLog(event: AvalancheLog): Promise<void> {
 }
 ```
 
-What this is doing is receiving an Avalanche Log which includes the transation log data on the payload. Мы извлекаем эти данные, а затем создаем экземпляр нового объекта `PangolinApproval`, который мы определили ранее в файле `schema.graphql`. Мы добавляем дополнительную информацию, а затем используем функцию `.save()` для сохранения нового объекта (SubQuery автоматически сохранит его в базе данных).
+Это позволяет получить журнал Avalanche, который включает данные журнала транса на полезной нагрузке. Мы извлекаем эти данные, а затем создаем экземпляр нового объекта `PangolinApproval`, который мы определили ранее в файле `schema.graphql`. Мы добавляем дополнительную информацию, а затем используем функцию `.save()` для сохранения нового объекта (SubQuery автоматически сохранит его в базе данных).
 
 Для получения дополнительной информации о функциях сопоставления ознакомьтесь с нашей документацией в разделе [Build/Mappings](../build/mapping.md)
 
@@ -169,23 +169,23 @@ What this is doing is receiving an Avalanche Log which includes the transation l
 
 Чтобы запустить ваш новый проект SubQuery, нам сначала нужно собрать нашу работу. Запустите команду сборки из корневого каталога проекта.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script build ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> ``shell yarn build ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ``shell npm run-script build ``` </CodeGroupItem> </CodeGroup>
 
-**Important: Whenever you make changes to your mapping functions, you'll need to rebuild your project**
+**Важно: Каждый раз, когда вы вносите изменения в функции отображения, вам нужно будет пересобрать проект**.
 
-## Running and Querying your Project
+## Запуск проекта и составление запросов
 
-### Run your Project with Docker
+### Запуск проекта с помощью Docker
 
-Whenever you create a new SubQuery Project, you should always run it locally on your computer to test it first. The easiest way to do this is by using Docker.
+Когда вы создаете новый проект SubQuery, вы всегда должны запускать его локально на своем компьютере, чтобы сначала протестировать его. Самый простой способ сделать это - использовать Docker.
 
-All configuration that controls how a SubQuery node is run is defined in this `docker-compose.yml` file. Для нового проекта, который был только что инициализирован, вам не нужно ничего здесь менять, но вы можете прочитать больше о файле и настройках в нашем разделе [Запуск проекта](../run_publish/run.md)
+Вся конфигурация, управляющая запуском узла SubQuery, определяется в этом файле `docker-compose.yml`. Для нового проекта, который был только что инициализирован, вам не нужно ничего здесь менять, но вы можете прочитать больше о файле и настройках в нашем разделе [Запуск проекта](../run_publish/run.md)
 
 В каталоге проекта выполните следующую команду:
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn start:docker ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script start:docker ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> ``shell yarn start:docker ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ``shell npm run-script start:docker ``` </CodeGroupItem> </CodeGroup>
 
-It may take some time to download the required packages ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), and Postgres) for the first time but soon you'll see a running SubQuery node. Проявите терпение.
+Для первой загрузки необходимых пакетов ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query) и Postgres) может потребоваться некоторое время, но вскоре вы увидите работающий узел SubQuery. Проявите терпение.
 
 ### Отправьте запрос своему проекту
 
