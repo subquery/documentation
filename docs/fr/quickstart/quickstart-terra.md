@@ -45,8 +45,8 @@ subql init
 Certaines questions vous seront posées au fur et à mesure de l'initalisation du projet SubQuery :
 
 - Name: Un nom pour votre projet SubQuery
-- Network Family: The layer-1 blockchain network family that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use *"Terra"*
-- Network: The specific network that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use *"Terra"*
+- Famille de réseau : La famille de réseau blockchain de couche 1 que ce projet SubQuery sera développé pour indexer, utilisez les touches fléchées de votre clavier pour sélectionner parmi les options, pour ce guide nous utiliserons *"Terra"*
+- Réseau : Le réseau spécifique que ce projet SubQuery sera développé pour indexer, utilisez les touches fléchées de votre clavier pour sélectionner parmi les options, pour ce guide nous utiliserons *"Terra"*
 - Template: Sélectionnez un modèle de projet SubQuery qui fournira un point de départ pour commencer le développement, nous suggérons de sélectionner le *"Projet de démarrage"*
 - Git repository (Facultatif): Fournir l'URL Git d'un repo dans lequel le projet SubQuery sera hébergé (lorsqu'il est hébergé dans SubQuery Explorer)
 - RPC endpoint (Obligatoire): Fournissez une URL HTTPS vers un point de terminaison RPC en cours d'exécution qui sera utilisé par défaut pour ce projet. Ce nœud RPC doit être un nœud d'archive (avoir l'état complet de la chaîne). Pour ce guide, nous utiliserons la valeur par défaut *"https://polkadot.api.onfinality.io"*
@@ -80,11 +80,11 @@ Nous allons mettre à jour le fichier `schema.graphql` comme suit
 
 ```graphql
 type Transfer @entity {
-  id: ID! # id field is always required and must look like this
+  id: ID! # Le champ id est toujours obligatoire et doit ressembler à ceci
   txHash: String!
-  blockHeight: BigInt # The block height of the transfer
-  sender: String! # The account that transfers are made from
-  recipient: String! # The account that transfers are made to
+  blockHeight: BigInt # La hauteur de bloc du transfert
+  sender: String! # Le compte à partir duquel les transferts sont effectués
+  recipient: String! # Le compte sur lequel les transferts sont effectués
   amount: String! Montant à transférer
 ```
 
@@ -93,7 +93,7 @@ type Transfer @entity {
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```shell npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
 
-You'll find the generated models in the `/src/types/models` directory. Pour plus d'informations sur le fichier `schema.graphql`, consultez notre documentation sous [Build/GraphQL Schema](../build/graphql.md)
+Vous trouverez les modèles générés dans le répertoire `/src/types/models`. Pour plus d'informations sur le fichier `schema.graphql`, consultez notre documentation sous [Build/GraphQL Schema](../build/graphql.md)
 
 ### Mise à jour du fichier de manifeste du projet
 
@@ -110,17 +110,17 @@ dataSources:
       handlers:
         - handler: handleEvent
           kind: terra/EventHandler
-          # this will trigger on all events that match the following smart contract filter condition
+          # cela se déclenchera sur tous les événements qui correspondent à la condition de filtre de contrat intelligent suivante
           filter:
             type: transfer
             messageFilter:
               type: /terra.wasm.v1beta1.MsgExecuteContract
               values:
-                # We are subscribing to the bLuna smart contract (e.g. only transfer events from this contract)
+                # Nous sommes abonnés au contrat intelligent bLuna (c'est-à-dire que nous ne transférons que les événements de ce contrat)
                 contract: terra1j66jatn3k50hjtg2xemnjm8s7y8dws9xqa5y8w
 ```
 
-This means we'll run a `handleEvent` mapping function each and every time there is a `transfer` event from the bLuna smart contract.
+Cela signifie que nous allons exécuter une fonction de mappage `handleEvent` chaque fois qu'il y a un événement `transfer` provenant du smart contract bLuna.
 
 Pour plus d'informations sur le fichier Project Manifest (`project.yaml`), consultez notre documentation sous [Build/Manifest File](../build/manifest.md)
 
@@ -130,7 +130,7 @@ Les fonctions de mappage définissent comment les données de la chaîne sont tr
 
 Naviguez vers la fonction de mappage par défaut dans le répertoire `src/mappings`. Vous verrez trois fonctions exportées, `handleBlock`, `handleEvent`, et `handleCall`. Vous pouvez supprimer les deux fonctions `handleBlock` et `handleCall`, nous ne nous occupons que de la fonction `handleEvent`.
 
-La fonction `handleEvent` a reçu les données de l'événement chaque fois que celui-ci correspond aux filtres que nous avons spécifiés précédemment dans notre `projet.yaml`. We are going to update it to process all `transfer` events and save them to the GraphQL entities that we created earlier.
+La fonction `handleEvent` a reçu les données de l'événement chaque fois que celui-ci correspond aux filtres que nous avons spécifiés précédemment dans notre `projet.yaml`. Nous allons le mettre à jour pour traiter tous les événements `transfer` et les enregistrer dans les entités GraphQL que nous avons créées précédemment.
 
 Vous pouvez mettre à jour la fonction `handleEvent` comme suit (notez les importations supplémentaires) :
 
@@ -142,10 +142,10 @@ import { MsgExecuteContract } from "@terra-money/terra.js";
 export async function handleEvent(
   event: TerraEvent<MsgExecuteContract>
 ): Promise<void> {
-    // Print debugging data from the event
+    // Imprimer les données de débogage de l'événement
     // logger.info(JSON.stringify(event));
 
-    // Create the new transfer entity with a unique ID
+    // Créer la nouvelle entité de transfert avec un ID unique
     const transfer = new Transfer(
       `${event.tx.tx.txhash}-${event.msg.idx}-${event.idx}`
     );
@@ -179,13 +179,13 @@ Afin d'exécuter votre nouveau projet SubQuery, nous devons d'abord construire n
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script build ``` </CodeGroupItem> </CodeGroup>
 
-**Important: Whenever you make changes to your mapping functions, you'll need to rebuild your project**
+**Important : chaque fois que vous apportez des modifications à vos fonctions de cartographie, vous devez reconstruire votre projet**
 
-## Running and Querying your Project
+## Exécution et interrogation de votre projet
 
-### Run your Project with Docker
+### Exécuter votre projet avec Docker
 
-Whenever you create a new SubQuery Project, you should always run it locally on your computer to test it first. Le moyen le plus simple d'y parvenir est d'utiliser Docker.
+Chaque fois que vous créez un nouveau projet de sous-quête, vous devez toujours l'exécuter localement sur votre ordinateur pour le tester. Le moyen le plus simple d'y parvenir est d'utiliser Docker.
 
 Toute la configuration qui contrôle la façon dont un nœud SubQuery est exécuté est définie dans ce fichier `docker-compose.yml`. Pour un nouveau projet qui vient d'être initalisé, vous n'aurez pas besoin de modifier quoi que ce soit ici, mais vous pouvez en savoir plus sur le fichier et les paramètres dans notre section [Exécuter un projet](../run_publish/run.md)
 
@@ -193,7 +193,7 @@ Dans le répertoire du projet, exécutez la commande suivante :
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn start:docker ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script start:docker ``` </CodeGroupItem> </CodeGroup>
 
-It may take some time to download the required packages ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), and Postgres) for the first time but soon you'll see a running SubQuery node. Soyez patient ici.
+Le téléchargement des paquets nécessaires peut prendre un certain temps. ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), et Postgres) pour la première fois, mais bientôt vous verrez un nœud SubQuery en cours d'exécution. Soyez patient ici.
 
 ### Recherchez votre projet
 
@@ -231,7 +231,7 @@ SubQuery fournit un service géré gratuit où vous pouvez déployer votre nouve
 
 ## Les prochaines étapes
 
-Congratulations, you now have a locally running SubQuery project that accepts GraphQL API requests for transfers data from bLuna.
+Félicitations, vous avez maintenant un projet SubQuery fonctionnant localement qui accepte les requêtes de l'API GraphQL pour les transferts de données de bLuna.
 
 Maintenant que vous avez eu un aperçu de la façon de construire un projet de base de SubQuery, la question est de savoir où aller à partir de là ? Si vous vous sentez en confiance, vous pouvez commencer à en apprendre davantage sur les trois fichiers clés. Le fichier manifeste, le schéma GraphQL et le fichier des mappings sous la section [Build de ces docs](../build/introduction.md).
 
