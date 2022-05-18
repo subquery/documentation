@@ -1,6 +1,6 @@
-# Avalanche Quick Start
+# Bắt đầu nhanh với Avalanche
 
-In this Quick start guide, we're going to start with a simple Avalanche starter project and then finish by indexing some actual real data. Đây là cơ sở tuyệt vời để bắt đầu khi phát triển Dự án SubQuery của riêng bạn.
+Trong hướng dẫn bắt đầu nhanh này, chúng ta sẽ bắt đầu với một dự án Avalanche khởi đầu đơn giản và sau đó kết thúc bằng cách lập chỉ mục một số dữ liệu thực tế. Đây là cơ sở tuyệt vời để bắt đầu khi phát triển Dự án SubQuery của riêng bạn.
 
 **Nếu bạn đang tìm kiếm hướng dẫn cho Substrate/Polkadot, bạn có thể đọc [ Hướng dẫn bắt đầu nhanh cụ thể dành cho Substrate/Polkadot](./quickstart-polkadot).**
 
@@ -45,11 +45,11 @@ subql init
 Bạn sẽ được hỏi một số câu hỏi khi dự án SubQuery được khởi tạo:
 
 - Name: Tên dự án SubQuery của bạn
-- Network Family: The layer-1 blockchain network family that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use _"Avalanche"_
-- Network: The specific network that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use _"Avalanche"_
-- Template: Select a SubQuery project template that will provide a starting point to begin development, we suggest selecting the _"Starter project"_
+- Network Family: Mạng blockchain layer-1 mà dự án Subquery sẽ được phát triển để lập chỉ mục, dùng dấu mũi tên để di chuyển giữa các lựa chọn, trong bài hướng dẫn này, chúng ta sẽ sử dụng _"Avalanche"_
+- Network: Mạng cụ thể mà dự án SubQuery này sẽ được phát triển để lập chỉ mục, dùng phím mũi tên để di chuyển giữa các lựa chọn, trong bài hướng dẫn này chúng ta sẽ dùng _"Avalanche"_
+- Template: Chọn mẫu dự án SubQuery sẽ cung cấp điểm khởi đầu để bắt đầu phát triển, chúng tôi gợi ý bạn chọn _"Starter project"_
 - Git repository (Tùy chọn): Cung cấp URL Git cho kho lưu trữ dự án SubQuery này (khi được lưu trữ trong SubQuery Explorer)
-- RPC endpoint (Bắt buộc): Cung cấp URL HTTPS cho điểm cuối RPC đang chạy, sẽ được sử dụng mặc định cho dự án này. Nút RPC này phải là một nút lưu trữ (có trạng thái chuỗi đầy đủ). For this guide we will use the default value _"avalanche.api.onfinality.io"_
+- RPC endpoint (Bắt buộc): Cung cấp URL HTTPS cho điểm cuối RPC đang chạy, sẽ được sử dụng mặc định cho dự án này. Nút RPC này phải là một nút lưu trữ (có trạng thái chuỗi đầy đủ). Đối với hướng dẫn này, chúng tôi sẽ sử dụng giá trị mặc định _"avalanche.api.onfinality.io"_
 - Authors (Bắt buộc): Nhập chủ sở hữu của dự án SubQuery này tại đây (ví dụ: tên bạn!)
 - Description (Tùy chọn): Bạn có thể cung cấp một đoạn giới thiệu ngắn về dự án của mình, mô tả dự án chứa dữ liệu gì và người dùng có thể làm gì với dự án
 - Version (Bắt buộc): Nhập số phiên bản tùy chỉnh hoặc sử dụng giá trị mặc định (`1.0.0`)
@@ -62,21 +62,21 @@ Cuối cùng, trong thư mục dự án, chạy lệnh sau để cài đặt cá
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```shell cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
 
-## Making Changes to your Project
+## Thực hiện các thay đổi trên dự án của bạn
 
-In the starter package that you just initialised, we have provided a standard configuration for your new project. Bạn sẽ làm việc chủ yếu trên các tệp sau:
+Trong gói khởi đầu mà bạn vừa khởi tạo, chúng tôi đã cung cấp cấu hình tiêu chuẩn cho dự án của bạn. Bạn sẽ làm việc chủ yếu trên các tệp sau:
 
 1. Lược đồ GraphQL ở `schema.graphql`
 2. Tệp Kê khai dự án ở ` project.yaml `
 3. Các chức năng ánh xạ trong thư mục `src/mappings/`
 
-The goal of this quick start guide is to adapt the standard starter project to index all Pangolin `Approve` transaction logs.
+Mục tiêu của hướng dẫn nhanh này là điều chỉnh dự án khởi động tiêu chuẩn để lập chỉ mục tất cả `Phê duyệt` nhật ký giao dịch của Pangolin.
 
 ### Cập nhật tệp lược đồ GraphQL của bạn
 
 Tệp `schema.graphql` xác định các lược đồ GraphQL khác nhau. Do cách hoạt động của ngôn ngữ truy vấn GraphQL, về cơ bản tệp lược đồ chỉ ra hình dạng dữ liệu của bạn từ SubQuery. Đây là một nơi tuyệt vời để bắt đầu vì nó cho phép bạn xác định trước mục tiêu cuối cùng của mình.
 
-We're going to update the `schema.graphql` file to remove all existing entities and read as follows
+Chúng ta sẽ cập nhật tệp `schema.graphql` để loại bỏ tất cả các thực thể hiện có và nó sẽ trông như sau
 
 ```graphql
 type PangolinApproval @entity {
@@ -95,13 +95,13 @@ type PangolinApproval @entity {
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```shell npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
 
-You'll find the generated models in the `/src/types/models` directory. Để biết thêm thông tin về tệp `schema.graphql`, hãy xem tài liệu của chúng tôi trong [Lược đồ Build/GraphQL ](../build/graphql.md)
+Bạn sẽ tìm thấy các model đã tạo trong thư mục `/src/types/models`. Để biết thêm thông tin về tệp `schema.graphql`, hãy xem tài liệu của chúng tôi trong [Lược đồ Build/GraphQL ](../build/graphql.md)
 
 ### Cập nhật tệp kê khai dự án
 
 Tệp Project Manifest (`project.yaml`) có thể được xem là điểm vào dự án của bạn và nó xác định hầu hết các thông tin chi tiết về cách SubQuery sẽ lập chỉ mục và chuyển đổi dữ liệu chuỗi.
 
-Chúng tôi sẽ không thực hiện nhiều thay đổi đối với tệp kê khai vì tệp đã được thiết lập đúng cách, nhưng chúng tôi cần thay đổi trình xử lý của mình. Remember we are planning to index all Pangolin approval logs, as a result, we need to update the `datasources` section to read the following.
+Chúng tôi sẽ không thực hiện nhiều thay đổi đối với tệp kê khai vì tệp đã được thiết lập đúng cách, nhưng chúng tôi cần thay đổi trình xử lý của mình. Hãy nhớ rằng chúng tôi đang lên kế hoạch lập chỉ mục tất cả các nhật ký phê duyệt trên Pangolin, do đó, chúng tôi cần cập nhật phần `datasources` để trông như sau.
 
 ```yaml
 dataSources:
@@ -134,11 +134,11 @@ This means we'll run a `handleLog` mapping function each and every time there is
 
 Các hàm ánh xạ xác định cách dữ liệu chuỗi được chuyển đổi thành các thực thể GraphQL được tối ưu hóa mà chúng ta đã xác định trước đó trong tệp `schema.graphql`.
 
-Điều hướng đến hàm ánh xạ mặc định trong thư mục `src/mappings `. You'll see three exported functions, `handleBlock`, `handleLog`, and `handleTransaction`. You can delete both the `handleBlock` and `handleTransaction` functions, we are only dealing with the `handleLog` function.
+Điều hướng đến hàm ánh xạ mặc định trong thư mục `src/mappings `. Bạn sẽ thấy ba hàm được xuất, `handleBlock`, `handleLog`, và `handleTransaction`. Bạn có thể xóa cả hai hàm `handleBlock` và `handleTransaction`, chúng tôi chỉ sử dụng hàm `handleLog`.
 
-The `handleLog` function recieved event data whenever event matches the filters that we specify previously in our `project.yaml`. We are going to update it to process all `approval` transaction logs and save them to the GraphQL entities that we created earlier.
+Hàm `handleLog` nhận dữ liệu sự kiện bất cứ khi nào sự kiện khớp với các bộ lọc mà chúng tôi chỉ định trước đó trong `project.yaml` của chúng tôi. Chúng tôi sẽ cập nhật nó để xử lý tất cả các sự kiện `phê duyệt` nhật ký giao dịch và lưu chúng vào các thực thể GraphQL mà chúng tôi đã tạo trước đó.
 
-You can update the `handleLog` function to the following (note the additional imports):
+Bạn có thể cập nhật hàm `handleLog` như sau (lưu ý các import bổ sung):
 
 ```ts
 import { PangolinApproval } from "../types";
@@ -185,7 +185,7 @@ Trong thư mục dự án chạy lệnh sau:
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn start:docker ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script start:docker ``` </CodeGroupItem> </CodeGroup>
 
-It may take some time to download the required packages ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), and Postgres) for the first time but soon you'll see a running SubQuery node. Hãy kiên nhẫn ở bước này.
+Có thể mất một chút thời gian để tải xuống các gói cần thiết ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), và Postgres) cho lần đầu tiên, nhưng bạn sẽ sớm thấy một node SubQuery đang chạy. Hãy kiên nhẫn ở bước này.
 
 ### Truy vấn dự án của bạn
 
@@ -215,7 +215,7 @@ query {
 
 SubQuery cung cấp dịch vụ quản lý miễn phí nơi bạn có thể triển khai dự án mới của mình. Bạn có thể triển khai nó trên [SubQuery Projects](https://project.subquery.network) và truy vấn nó bằng cách sử dụng [Explorer](https://explorer.subquery.network) của chúng tôi.
 
-[Read the guide to publish your new project to SubQuery Projects](../run_publish/publish.md), **Note that you must deploy via IPFS**.
+[Đọc hướng dẫn để xuất bản dự án mới của bạn lên SubQuery Projects](../run_publish/publish.md), **Lưu ý rằng bạn phải triển khai qua IPFS**.
 
 ## Bước tiếp theo
 
