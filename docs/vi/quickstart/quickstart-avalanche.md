@@ -8,7 +8,7 @@ Sau khi hoàn thành xong hướng dẫn này, bạn sẽ có một dự án Sub
 
 Nếu bạn chưa sẵn sàng, chúng tôi khuyên bạn nên tự làm quen với [thuật ngữ](../#terminology) được sử dụng trong SubQuery.
 
-**The goal of this quick start guide is to index all Pangolin token _Approve_ logs, it should only take 10-15 minutes**
+**Mục tiêu của hướng dẫn nhanh này là lập chỉ mục tất cả nhật ký _Phê duyệt_ mã thông báo Pangolin, chỉ mất 10-15 phút**
 
 ## Chuẩn bị
 
@@ -126,7 +126,7 @@ dataSources:
             # address: "0x60781C2586D68229fde47564546784ab3fACA982"
 ```
 
-This means we'll run a `handleLog` mapping function each and every time there is a `approve` log on any transaction from the [Pangolin contract](https://snowtrace.io/txs?a=0x60781C2586D68229fde47564546784ab3fACA982&p=1).
+Điều này có nghĩa là chúng tôi sẽ chạy một hàm ánh xạ `handleLog` mỗi khi có nhật ký `phê duyệt` trên bất kỳ giao dịch nào từ [hợp đồng Pangolin](https://snowtrace.io/txs?a=0x60781C2586D68229fde47564546784ab3fACA982&p=1).
 
 Để biết thêm thông tin về tệp Project Manifest (`project.yaml`), hãy xem tài liệu của chúng tôi trong [Build/Manifest File](../build/manifest.md)
 
@@ -171,15 +171,15 @@ Hàm này đang nhận nhật ký của Avalanche bao gồm dữ liệu truyền
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script build ``` </CodeGroupItem> </CodeGroup>
 
-**Important: Whenever you make changes to your mapping functions, you'll need to rebuild your project**
+**Quan trọng: Bất cứ khi nào bạn thực hiện các thay đổi đối với các hàm ánh xạ của mình, bạn sẽ cần phải xây dựng lại dự án của mình**
 
-## Running and Querying your Project
+## Chạy và truy vấn dự án của bạn
 
-### Run your Project with Docker
+### Chạy Dự án của bạn với Docker
 
-Whenever you create a new SubQuery Project, you should always run it locally on your computer to test it first. The easiest way to do this is by using Docker.
+Bất cứ khi nào bạn tạo một Dự án SubQuery mới, bạn nên chạy nó cục bộ trên máy tính của mình để kiểm tra nó trước. Cách dễ nhất để thực hiện nó là sử dụng Docker.
 
-All configuration that controls how a SubQuery node is run is defined in this `docker-compose.yml` file. Đối với một dự án mới vừa được khởi tạo, bạn sẽ không cần phải thay đổi bất kỳ điều gì nhưng có thể đọc thêm về tệp và cài đặt trong [phần Chạy dự án](../run_publish/run.md) của chúng tôi
+Tất cấu hình điều khiển cách chạy nút SubQuery được xác định trong tệp này `docker-compose.yml`. Đối với một dự án mới vừa được khởi tạo, bạn sẽ không cần phải thay đổi bất kỳ điều gì nhưng có thể đọc thêm về tệp và cài đặt trong [phần Chạy dự án](../run_publish/run.md) của chúng tôi
 
 Trong thư mục dự án chạy lệnh sau:
 
