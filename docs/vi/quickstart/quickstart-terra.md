@@ -1,4 +1,4 @@
-# Hướng dẫn bắt đầu nhanh Terra
+# Bắt đầu nhanh với Terra
 
 Trong hướng dẫn bắt đầu nhanh này, chúng ta sẽ bắt đầu với một dự án Terra khởi đầu đơn giản và sau đó kết thúc bằng cách lập chỉ mục một số dữ liệu thực tế. Đây là cơ sở tuyệt vời để bắt đầu khi phát triển Dự án SubQuery của riêng bạn.
 
