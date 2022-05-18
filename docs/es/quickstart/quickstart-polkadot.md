@@ -34,7 +34,7 @@ A continuación, puede ejecutar ayuda para ver los comandos disponibles y el uso
 subql help
 ```
 
-## Inicializar el proyecto de inicio de subconsultas
+## Inicializar el proyecto starter de SubQuery
 
 Dentro del directorio en el que desea crear un proyecto SubQuery, simplemente ejecute el siguiente comando para empezar.
 
@@ -47,7 +47,7 @@ Se le harán ciertas preguntas ya que el proyecto de SubQuery está initalizado:
 - Nombre: Un nombre para tu proyecto de SubQuery
 - Familia de Red: La familia de red de blockchain capa 1 que este proyecto de SubQuery será desarrollado para indexar, usa las teclas de flecha de tu teclado para seleccionar entre las opciones, para esta guía usaremos *"Polkadot"*
 - Red: La red específica que este proyecto de Subconsulta será desarrollado para indexar, usa las teclas de flecha de tu teclado para seleccionar entre las opciones, para esta guía usaremos *"Polkadot"*
-- Plantilla: Seleccione una plantilla de proyecto de subconsulta que proporcionará un punto de partida para comenzar el desarrollo, le sugerimos seleccionar el *"Inicio del proyecto"*
+- Plantilla: Seleccione una plantilla de proyecto de SubQuery que proporcionará un punto de partida para comenzar el desarrollo, le sugerimos seleccionar el *"Inicio del proyecto"*
 - Repositorio Git (opcional): Proporcione una URL Git a un repositorio en el que este proyecto de SubQuery será alojado (cuando esté alojado en SubQuery Explorer)
 - endpoint RPC (requerido): Proporcione una URL HTTPS a un endpoint RPC en ejecución que se utilizará por defecto para este proyecto. Puede acceder rápidamente a los endpoints públicos para diferentes redes Polkadot o incluso crear su propio nodo privado dedicado usando [OnFinality](https://app.onfinality.io) o simplemente utilizar el punto final predeterminado de Polkadot. Este nodo RPC debe ser un nodo de archivo (tienen el estado completo de cadena). Para esta guía usaremos el valor predeterminado *"https://polkadot.api.onfinality.io"*
 - Autores (Requeridos): Introduzca el propietario de este proyecto de Subconsulta aquí (por ejemplo, su nombre)
