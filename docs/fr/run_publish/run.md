@@ -20,7 +20,7 @@ Conditions requises :
 
 - [Postgres](https://www.postgresql.org/) database (version 12 ou supérieure). Pendant que le [Noeud SubQuery](#start-a-local-subquery-node) indexe la blockchain, les données extraites sont stockées dans une instance de base de données externe.
 
-A SubQuery node is an implementation that extracts Substrate/Polkadot-based blockchain data per the SubQuery project and saves it into a Postgres database.
+Un nœud SubQuery est une implémentation qui extrait les données de la blockchain basée sur Substrate/Polkadot par le projet SubQuery et les enregistre dans une base de données Postgres.
 
 ### Installation
 
@@ -51,7 +51,7 @@ npm install -g @subql/node-avalanche
 </CodeGroupItem>
 </CodeGroup>
 
-Please note that we **DO NOT** encourage the use of `yarn global` due to its poor dependency management which may lead to an errors down the line.
+Veuillez noter que nous **N'encourageons PAS** l'utilisation de `yarn global` en raison de sa mauvaise gestion des dépendances qui peut conduire à une erreur en aval.
 
 Une fois installé, vous pouvez démarrer un nœud avec la commande suivante :
 
@@ -80,9 +80,9 @@ subql-node-avalanche <command>
 </CodeGroupItem>
 </CodeGroup>
 
-### Key Commands
+### Commandes clés
 
-The following commands will assist you to complete the configuration of a SubQuery node and begin indexing. Pour en savoir plus, vous pouvez toujours exécuter `--help`.
+Les commandes suivantes vous aideront à terminer la configuration d'un nœud SubQuery et à commencer l'indexation. Pour en savoir plus, vous pouvez toujours exécuter `--help`.
 
 #### Pointer vers le chemin local du projet
 
@@ -110,9 +110,9 @@ subql-node-avalanche -f your-project-path
 </CodeGroupItem>
 </CodeGroup>
 
-#### Use a Dictionary
+#### Utilisez un dictionnaire
 
-Using a full chain dictionary can dramatically speed up the processing of a SubQuery project during testing or during your first index. Dans certains cas, nous avons constaté des augmentations de performance d'indexation allant jusqu'à 10x.
+L'utilisation d'un dictionnaire de chaîne complet peut accélérer considérablement le traitement d'un projet SubQuery pendant les tests ou lors de votre premier index. Dans certains cas, nous avons constaté des augmentations de performance d'indexation allant jusqu'à 10x.
 
 Un dictionnaire de chaîne complète pré-indexe l'emplacement de tous les événements et extrinsèques dans la chaîne spécifique et permet à votre service de nœud de sauter aux emplacements pertinents lors de l'indexation plutôt que d'inspecter chaque bloc.
 
@@ -142,9 +142,9 @@ subql-node-avalanche --network-dictionary=https://api.subquery.network/sq/subque
 </CodeGroupItem>
 </CodeGroup>
 
-[Read more about how a SubQuery Dictionary works](../academy/tutorials_examples/dictionary.md).
+[En savoir plus sur le fonctionnement d'un dictionnaire SubQuery ](../academy/tutorials_examples/dictionary.md).
 
-#### Connect to database
+#### Connexion à la base de données
 
 ```shell
 export DB_USER=postgres
@@ -183,7 +183,7 @@ subql-node-avalanche -c your-project-config.yml
 </CodeGroupItem>
 </CodeGroup>
 
-This will point the query node to a configuration file which can be in YAML or JSON format. Regardez l'exemple ci-dessous.
+Ceci fera pointer le nœud de requête vers un fichier de configuration qui peut être au format YAML ou JSON. Regardez l'exemple ci-dessous.
 
 ```yaml
 subquery: ../../../../subql-example/extrinsics
@@ -230,7 +230,7 @@ subql-node-avalanche -f your-project-path --local
 </CodeGroupItem>
 </CodeGroup>
 
-For debugging purposes, users can run the node in local mode. Passer au modèle local créera des tables Postgres dans le schéma par défaut `public`.
+À des fins de débogage, les utilisateurs peuvent exécuter le nœud en mode local. Passer au modèle local créera des tables Postgres dans le schéma par défaut `public`.
 
 Si le mode local n'est pas utilisé, un nouveau schéma Postgres avec l'initiale `subquery_` et les tables de projet correspondantes seront créés.
 
@@ -322,6 +322,6 @@ export DB_HOST=localhost
 subql-query --name <project_name> --playground
 ```
 
-Make sure the project name is the same as the project name when you [initialize the project](../quickstart/quickstart-polkadot.md#initialise-the-starter-subquery-project). Vérifiez également que les variables d'environnement sont correctes.
+Assurez-vous que le nom du projet est le même que celui du projet lorsque vous [initialisez le projet](../quickstart/quickstart-polkadot.md#initialise-the-starter-subquery-project). Vérifiez également que les variables d'environnement sont correctes.
 
 Après avoir exécuté avec succès le service subql-query, ouvrez votre navigateur et rendez-vous sur `http://localhost:3000`. Vous devriez voir le playground GraphQL s'afficher dans l'explorateur et le schéma qui est prêt à être interrogé.
