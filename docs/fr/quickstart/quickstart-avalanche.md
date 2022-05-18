@@ -1,4 +1,4 @@
-# Avalanche Quick Start
+# Démarrage rapide Avalanche
 
 Dans ce guide de démarrage rapide, nous allons commencer par un projet de démarrage simple, puis terminer par l'indexation de données réelles. Il s'agit d'une excellente base de départ pour développer votre propre projet SubQuery.
 
@@ -8,7 +8,7 @@ Dans ce guide de démarrage rapide, nous allons commencer par un projet de déma
 
 Si vous ne l'avez pas encore fait, nous vous suggérons de vous familiariser avec la [terminologie](../#terminology) utilisée dans SubQuery.
 
-**The goal of this quick start guide is to index all Pangolin token _Approve_ logs, it should only take 10-15 minutes**
+**Le but de ce guide de démarrage rapide est d'indexer tous les logs du jeton Pangolin _Approve_, cela ne devrait prendre que 10-15 minutes**
 
 ## Préparation
 
@@ -45,11 +45,11 @@ subql init
 Certaines questions vous seront posées au fur et à mesure de l'initalisation du projet SubQuery :
 
 - Name: Un nom pour votre projet SubQuery
-- Network Family: The layer-1 blockchain network family that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use _"Avalanche"_
-- Network: The specific network that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use _"Avalanche"_
-- Template: Select a SubQuery project template that will provide a starting point to begin development, we suggest selecting the _"Starter project"_
+- Famille de réseau : La famille de réseau blockchain de couche 1 que ce projet SubQuery sera développé pour indexer, utilisez les touches fléchées de votre clavier pour sélectionner parmi les options, pour ce guide nous utiliserons _"Avalanche"_
+- Réseau : Le réseau spécifique que ce projet SubQuery sera développé pour indexer, utilisez les touches fléchées de votre clavier pour sélectionner parmi les options, pour ce guide nous utiliserons _"Avalanche"_
+- Modèle : Sélectionnez un modèle de projet SubQuery qui fournira un point de départ pour commencer le développement, nous suggérons de sélectionner le _"Projet de démarrage"_
 - Git repository (Facultatif): Fournir l'URL Git d'un repo dans lequel le projet SubQuery sera hébergé (lorsqu'il est hébergé dans SubQuery Explorer)
-- RPC endpoint (Obligatoire): Fournissez une URL HTTPS vers un point de terminaison RPC en cours d'exécution qui sera utilisé par défaut pour ce projet. Ce nœud RPC doit être un nœud d'archive (avoir l'état complet de la chaîne). For this guide we will use the default value _"avalanche.api.onfinality.io"_
+- RPC endpoint (Obligatoire): Fournissez une URL HTTPS vers un point de terminaison RPC en cours d'exécution qui sera utilisé par défaut pour ce projet. Ce nœud RPC doit être un nœud d'archive (avoir l'état complet de la chaîne). Pour ce guide, nous utiliserons la valeur par défaut _"avalanche.api.onfinality.io"_
 - Authors (Obligatoire): Entrez ici le propriétaire de ce projet de SubQuery (par exemple, votre nom !)
 - Description (Facultatif) : Vous pouvez fournir un court paragraphe sur votre projet qui décrit les données qu'il contient et ce que les utilisateurs peuvent faire avec
 - Version (Obligatoire) : Saisissez un numéro de version personnalisé ou utilisez la valeur par défaut (`1.0.0`)
@@ -106,9 +106,9 @@ Nous n'apporterons pas beaucoup de modifications au fichier manifeste, car il a 
 ```yaml
 dataSources:
   - kind: avalanche/Runtime
-    startBlock: 57360 # Block when the Pangolin contract was created
+    startBlock: 57360 # Blocage de la création du contrat Pangolin
     options:
-      # Must be a key of assets
+      # Doit être une clé d'actifs
       abi: erc20
       ## Pangolin token https://snowtrace.io/token/0x60781c2586d68229fde47564546784ab3faca982
       address: "0x60781C2586D68229fde47564546784ab3fACA982"
@@ -121,9 +121,9 @@ dataSources:
         - handler: handleLog
           kind: avalanche/LogHandler
           filter:
-            ## Follows standard log filters https://docs.ethers.io/v5/concepts/events/
+            ## Suit les filtres de journal standard https://docs.ethers.io/v5/concepts/events/
             function: Approve(address spender, uint256 rawAmount)
-            # address: "0x60781C2586D68229fde47564546784ab3fACA982"
+            # adresse: "0x60781C2586D68229fde47564546784ab3fACA982"
 ```
 
 Cela signifie que nous allons exécuter une fonction de mappage `handleLog` chaque fois qu'il y a un `log d'approbation` sur toute transaction du contrat [Pangolin](https://snowtrace.io/txs?a=0x60781C2586D68229fde47564546784ab3fACA982&p=1).
@@ -136,7 +136,7 @@ Les fonctions de mappage définissent comment les données de la chaîne sont tr
 
 Naviguez vers la fonction de mappage par défaut dans le répertoire `src/mappings`. Vous verrez trois fonctions exportées, `handleBlock`, `handleEvent`, et `handleCall`. Vous pouvez supprimer les deux fonctions `handleBlock` et `handleCall`, nous ne nous occupons que de la fonction `handleEvent`.
 
-La fonction `handleEvent` a reçu les données de l'événement chaque fois que celui-ci correspond aux filtres que nous avons spécifiés précédemment dans notre `projet.yaml`. We are going to update it to process all `approval` transaction logs and save them to the GraphQL entities that we created earlier.
+La fonction `handleEvent` a reçu les données de l'événement chaque fois que celui-ci correspond aux filtres que nous avons spécifiés précédemment dans notre `projet.yaml`. Nous allons le mettre à jour pour traiter tous les journaux de transactions `approbation` et les enregistrer dans les entités GraphQL que nous avons créées précédemment.
 
 Vous pouvez mettre à jour la fonction `handleEvent` comme suit (notez les importations supplémentaires) :
 
@@ -152,7 +152,7 @@ export async function handleLog(event: AvalancheLog): Promise<void> {
   pangolinApprovalRecord.transactionHash = event.transactionHash;
   pangolinApprovalRecord.blockHash = event.blockHash;
   pangolinApprovalRecord.blockNumber = event.blockNumber;
-  # topics store data as an array
+  # les sujets stockent les données sous forme de tableau
   pangolinApprovalRecord.addressFrom = event.topics[0];
   pangolinApprovalRecord.addressTo = event.topics[1];
   pangolinApprovalRecord.amount = event.topics[2];
