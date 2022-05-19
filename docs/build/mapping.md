@@ -210,6 +210,30 @@ export async function handleMessage(
 
 TerraMessage encapsulates the `msg` object containing the message data, the TerraTrasaction in which the message occured in and also the TerraBlock in which the transaction occured in.
 
+## The Sandbox
+
+SubQuery is deterministic by design, that means that each SubQuery project is guranteed to index the same data set. This is a critical factor that is required to decentralise SubQuery in the SubQuery Network. This limitation means that the indexer is by default run in a strict virtual machine, with access to a strict number of third party libraries.
+
+**You can bypass this limitation, allowing you to index and retrieve information from third party data sources like HTTP endpoints, non historical RPC calls, and more.** In order to do to, you must run your project in `unsafe-mode`, you can read more about this in the [references](../run_publish/references.md#unsafe). An easy way to do this while developing (and running in Docker) is to add the following line to your `docker-compose.yml`:
+
+```yml
+subquery-node:
+  image: onfinality/subql-node:latest
+  ...
+  command:
+    - -f=/app
+    - --db-schema=app
+    - --unsafe
+  ...
+```
+
+By default, the [VM2](https://www.npmjs.com/package/vm2) sandbox only allows the folling:
+- only some certain built-in modules, e.g. `assert`, `buffer`, `crypto`,`util` and `path`
+- third-party libraries written by *CommonJS*. 
+- hybrid libraries like `@polkadot/*` that uses ESM as default. However, if any other libraries depend on any modules in *ESM* format, the virtual machine will *NOT* compile and return an error.
+- Historical/safe queries, see [RPC Calls](#rpc-calls).
+- Note `HTTP` and `WebSocket` connections are forbidden 
+
 ## Modules and Libraries
 
 To improve SubQuery's data processing capabilities, we have allowed some of the NodeJS's built-in modules for running mapping functions in the [sandbox](#the-sandbox), and have allowed users to call third-party libraries.
@@ -233,13 +257,6 @@ export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
 }
 ```
 
-### Third-party libraries
-
-Due to the limitations of the virtual machine in our sandbox, currently, we only support third-party libraries written by **CommonJS**. 
-
-We also support a **hybrid** library like `@polkadot/*` that uses ESM as default. However, if any other libraries depend on any modules in **ESM** format, the virtual machine will **NOT** compile and return an error. 
-
-## Additional Substrate/Polkadot Features
 ### Query States
 Our goal is to cover all data sources for users for mapping handlers (more than just the three interface event types above). Therefore, we have exposed some of the @polkadot/api interfaces to increase capabilities. 
 
@@ -265,7 +282,6 @@ See an example of using this API in our [validator-threshold](https://github.com
 ### RPC calls
 
 We also support some API RPC methods that are remote calls that allow the mapping function to interact with the actual node, query, and submission. 
-A core premise of SubQuery is that it's deterministic, and therefore, to keep the results consistent we only allow historical RPC calls.
 
 Documents in [JSON-RPC](https://polkadot.js.org/docs/substrate/rpc/#rpc) provide some methods that take `BlockHash` as an input parameter (e.g. `at?: BlockHash`), which are now permitted.
 We have also modified these methods to take the current indexing block hash by default. 
@@ -282,7 +298,7 @@ const b2 = await api.rpc.chain.getBlock();
 ```
 - For [Custom Substrate Chains](#custom-substrate-chains) RPC calls, see [usage](#usage).
  
-### Custom Substrate Chains
+## Custom Substrate Chains
 
 SubQuery can be used on any Substrate-based chain, not just Polkadot or Kusama. 
 

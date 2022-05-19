@@ -99,7 +99,7 @@ For more information on using this including flags, see [cli reference](https://
 
 ## Logging
 
-The `console.log` method is **no longer supported**. Instead, a `logger` module has been injected in the types, which means we can support a logger that can accept various logging levels.
+The `console.log` method is **not supported**. Instead, a `logger` module has been injected in the types, which means we support a logger that can accept various logging levels.
 
 ```typescript
 logger.info("Info level message");
