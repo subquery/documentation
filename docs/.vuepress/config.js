@@ -178,6 +178,7 @@ function getSidebar(locale, language) {
         collapsable: true,
         children: [
           `${locale}/quickstart/quickstart-polkadot.md`,
+          `${locale}/quickstart/quickstart-avalanche.md`,
           `${locale}/quickstart/quickstart-terra.md`,
         ]
       },
