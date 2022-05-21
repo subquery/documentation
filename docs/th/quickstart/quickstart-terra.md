@@ -36,7 +36,7 @@ subql help
 
 ## เริ่มต้น SubQuery Starter Project
 
-Inside the directory in which you want to create a SubQuery project, simply run the following command to get started.
+ภายใน directory ที่คุณต้องการที่จะสร้าง Subquery Project สามารถรันคำสั่งต่อไปนี้เพื่อเป็นการเริ่มต้น
 
 ```shell
 subql init
@@ -67,20 +67,20 @@ Last, under the project directory, run following command to install the new proj
 In the starter package that you just initialised, we have provided a standard configuration for your new project. You will mainly be working on the following files:
 
 1. The GraphQL Schema in `schema.graphql`
-2. The Project Manifest in `project.yaml`
+2. The Project Manifest ใน `project.yaml`
 3. Mapping functions ในไดเรกทอรี `src/mappings/`
 
 The goal of this quick start guide is to adapt the standard starter project to begin indexing all transfers from the bLuna smart contract.
 
-### Updating your GraphQL Schema File
+### อับเดทไฟล์ GraphQL Schema ของคุณ
 
-The `schema.graphql` file defines the various GraphQL schemas. Due to the way that the GraphQL query language works, the schema file essentially dictates the shape of your data from SubQuery. Its a great place to start becuase it allows you to define your end goal up front.
+The `schema.graphql` file defines the various GraphQL schemas. Due to the way that the GraphQL query language works, the schema file essentially dictates the shape of your data from SubQuery. มันเป็นจุดที่ดีทีสุดที่จะเริ่มต้นเพราะมันอณุญาตให้คุณกำหนด end goal up front ของคุณได้
 
 We're going to update the `schema.graphql` file to read as follows
 
 ```graphql
 type Transfer @entity {
-  id: ID! # id field is always required and must look like this
+  id: ID! # id field ต้องไม่เป็นค่าว่างเสมอ และจะต้องมีลักษณะตามด้านล่างนี้
   txHash: String!
   blockHeight: BigInt # The block height of the transfer
   sender: String! # The account that transfers are made from
@@ -89,14 +89,14 @@ type Transfer @entity {
 }
 ```
 
-**Important: When you make any changes to the schema file, please ensure that you regenerate your types directory. Do this now.**
+**สำคัญ: เมื่อคุณได้ทำการเปลี่ยนแปลงใดๆกับไฟล์ schema โปรดตรวจสอบให้มั่นใจว่าคุณสามารถนำชนิดของ directory กลับมาใหม่ได้ ทำแบบนี้เลย**
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```shell npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
 
-You'll find the generated models in the `/src/types/models` directory. For more information about the `schema.graphql` file, check out our documentation under [Build/GraphQL Schema](../build/graphql.md)
+คุณจะเจอรูปแบบที่สร้างขึ้นภายใน `/src/types/models` directory. สำหรับข้อมูลเพิ่มเติมภายใน `schema.graphql` ไฟล์, โปรดตรวจสอบได้ที่ เอกสารของเราภายใต้ [Build/GraphQL Schema](../build/graphql.md)
 
-### Updating the Project Manifest File
+### การอับเดท Project Manifest File
 
 The Projet Manifest (`project.yaml`) file can be seen as an entry point of your project and it defines most of the details on how SubQuery will index and transform the chain data.
 
@@ -125,7 +125,7 @@ This means we'll run a `handleEvent` mapping function each and every time there 
 
 For more information about the Project Manifest (`project.yaml`) file, check out our documentation under [Build/Manifest File](../build/manifest.md)
 
-### Add a Mapping Function
+### เพิ่ม Mapping Function
 
 Mapping functions define how chain data is transformed into the optimised GraphQL entities that we have previously defined in the `schema.graphql` file.
 
