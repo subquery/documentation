@@ -55,7 +55,7 @@ You'll be asked certain questions as the SubQuery project is initalised:
 - Version (Required): Enter a custom version number or use the default (`1.0.0`)
 - License (Required): Provide the software license for this project or accept the default (`Apache-2.0`)
 
-After the initialisation process is complete, you should see a folder with your project name has been created inside the directory. The contents of this directoy should be identical to what's listed in the [Directory Structure](../create/introduction.md#directory-structure).
+หลังจากกระบวนการเริ่มต้นเสร็จสมบูรณ์ คุณควรเห็นโฟลเดอร์ที่มีชื่อโปรเจคของคุณถูกสร้างขึ้นภายในไดเร็กทอรี The contents of this directoy should be identical to what's listed in the [Directory Structure](../create/introduction.md#directory-structure).
 
 Last, under the project directory, run following command to install the new project's dependencies.
 
@@ -74,7 +74,7 @@ The goal of this quick start guide is to adapt the standard starter project to i
 
 ### อับเดทไฟล์ GraphQL Schema ของคุณ
 
-The `schema.graphql` file defines the various GraphQL schemas. Due to the way that the GraphQL query language works, the schema file essentially dictates the shape of your data from SubQuery. มันจุดที่ดีทีสุดที่จะเริ่มต้นเพราะมันอณุญาตให้คุณกำหนด end goal up front ของคุณ
+The `schema.graphql` file defines the various GraphQL schemas. Due to the way that the GraphQL query language works, the schema file essentially dictates the shape of your data from SubQuery. มันเป็นจุดที่ดีทีสุดที่จะเริ่มต้นเพราะมันอณุญาตให้คุณกำหนด end goal up front ของคุณได้
 
 We're going to update the `schema.graphql` file to remove all existing entities and read as follows
 
@@ -97,7 +97,7 @@ type PangolinApproval @entity {
 
 You'll find the generated models in the `/src/types/models` directory. For more information about the `schema.graphql` file, check out our documentation under [Build/GraphQL Schema](../build/graphql.md)
 
-### Updating the Project Manifest File
+### การอับเดท Project Manifest File
 
 The Projet Manifest (`project.yaml`) file can be seen as an entry point of your project and it defines most of the details on how SubQuery will index and transform the chain data.
 
