@@ -82,7 +82,7 @@ subql-node-avalanche <command>
 
 ### Câu lệnh chính
 
-Các lệnh sau đây sẽ giúp bạn hoàn thành cấu hình node SubQuery và bắt đầu lập chỉ mục. Để tìm hiểu thêm, bạn luôn có thể chạy `--help`.
+Các lệnh sau đây sẽ giúp bạn hoàn thành cấu hình node SubQuery và bắt đầu lập chỉ mục. Để tìm hiểu thêm, bạn có thể chạy `--help`.
 
 #### Trỏ đến đường dẫn dự án trên môi trường local
 
