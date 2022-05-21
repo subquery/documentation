@@ -34,7 +34,7 @@ You can then run help to see available commands and usage provide by CLI
 subql help
 ```
 
-## Initialise the SubQuery Starter Project
+## เริ่มต้น SubQuery Starter Project
 
 Inside the directory in which you want to create a SubQuery project, simply run the following command to get started.
 
@@ -48,8 +48,8 @@ You'll be asked certain questions as the SubQuery project is initalised:
 - Network Family: The layer-1 blockchain network family that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use *"Polkadot"*
 - Network: The specific network that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use *"Polkadot"*
 - Template: Select a SubQuery project template that will provide a starting point to begin development, we suggest selecting the *"Starter project"*
-- Git repository (Optional): Provide a Git URL to a repo that this SubQuery project will be hosted in (when hosted in SubQuery Explorer)
-- RPC endpoint (Required): Provide a HTTPS URL to a running RPC endpoint that will be used by default for this project. You can quickly access public endpoints for different Polkadot networks or even create your own private dedicated node using [OnFinality](https://app.onfinality.io) or just use the default Polkadot endpoint. This RPC node must be an archive node (have the full chain state). For this guide we will use the default value *"https://polkadot.api.onfinality.io"*
+- Git repository (ทางเลือก): ระบุ Git URL ไปยัง repoที่ SubQuery project ที่จะถูกทำากรโฮสต์ (เมื่อโฮสต์ใน Subquery Explorer)
+- RPC endpoint (จำเป็น): ระบุ HTTPS URL ไปยัง RPC endpoint ที่ทำงานอยู่ที่จะใช้งานเป็นค่าเริ่มต้นของโปรเจค You can quickly access public endpoints for different Polkadot networks or even create your own private dedicated node using [OnFinality](https://app.onfinality.io) or just use the default Polkadot endpoint. This RPC node must be an archive node (have the full chain state). For this guide we will use the default value *"https://polkadot.api.onfinality.io"*
 - Authors (Required): Enter the owner of this SubQuery project here (e.g. your name!)
 - Description (Optional): You can provide a short paragraph about your project that describe what data it contains and what users can do with it
 - Version (Required): Enter a custom version number or use the default (`1.0.0`)
