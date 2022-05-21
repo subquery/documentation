@@ -19,7 +19,7 @@ In this Quick start guide, we're going to start with a simple Avalanche starter 
 
 ### การติดตั้ง SubQuery CLI
 
-Install SubQuery CLI globally on your terminal by using NPM:
+ติดตั้ง SubQuery CLI Globally บนเทอมินัลของคุณโดยใช้ NPM
 
 ```shell
 # NPM
@@ -28,7 +28,7 @@ npm install -g @subql/cli
 
 Please note that we **DO NOT** encourage the use of `yarn global` for installing `@subql/cli` due to its poor dependency management which may lead to an errors down the line.
 
-You can then run help to see available commands and usage provide by CLI
+คุณสามารถรันคำสั่ง Help เพื่อดูคำสั่งที่สมารถใช้งานได้ ที่ CLI นั้นจัดไว้ให้
 
 ```shell
 subql help
@@ -36,7 +36,7 @@ subql help
 
 ## Initialise the SubQuery Starter Project
 
-Inside the directory in which you want to create a SubQuery project, simply run the following command to get started.
+ภายใน directory ที่คุณต้องการที่จะสร้าง Subquery Project สามารถรันคำสั่งต่อไปนี้เพื่อเป็นการเริ่มต้น
 
 ```shell
 subql init
@@ -44,7 +44,7 @@ subql init
 
 You'll be asked certain questions as the SubQuery project is initalised:
 
-- Name: A name for your SubQuery project
+- Name: ชื่อ Subquery Project ของคุณ
 - Network Family: The layer-1 blockchain network family that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use _"Avalanche"_
 - Network: The specific network that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use _"Avalanche"_
 - Template: Select a SubQuery project template that will provide a starting point to begin development, we suggest selecting the _"Starter project"_
@@ -165,7 +165,7 @@ What this is doing is receiving an Avalanche Log which includes the transation l
 
 For more information about mapping functions, check out our documentation under [Build/Mappings](../build/mapping.md)
 
-### Build the Project
+### การสร้างโปรเจค
 
 In order run your new SubQuery Project we first need to build our work. Run the build command from the project's root directory.
 
