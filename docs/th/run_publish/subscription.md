@@ -33,7 +33,7 @@ The body of the entity in your query indicates what data you want to receive via
 
 We also support filter on subscriptions, which means a client should only receive updated subscription data if that data or mutation meets certain criteria.
 
-There are two types of filters we are supporting:
+มีตัวกรอง 2 ชนิดที่เราสนับสนุน
 
 - `id` : Filter to only return changes that affect a specific entity (designated by the ID).
 - `mutation_type`: Only the same mutation type been made will return an update.
@@ -62,8 +62,8 @@ subscription {
 }
 ```
 
-Note that the `mutation` filter can be one of `INSERT`, `UPDATE` or `DELETE`
+โปรดทราบว่า `mutation` ฟิลเตอร์ สามารถเป็น หนึ่งใน `INSERT`, `UPDATE` or `DELETE`
 
-**Please note that you must enable the `--subscription` flag on both the node and query service in order to use these functions.**
+**คุณต้องเปิดใช้งาน `--subscription` บน Node และ query service ถึงสมารถใช้งาน function นีได้**
 
 The subcription feature works on SubQuery's managed service when you directly call the listed GraphQL endpoint. It will not work within the in-browser GraphQL playground.
