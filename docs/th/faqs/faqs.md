@@ -32,7 +32,7 @@ Deployment slots เป็นฟีเจอร์ใน [SubQuery Projects ](ht
 
 Staging slot จะไม่แสดงต่อสาธารณะใน [Explorer](https://explorer.subquery.network/) และมี URL เฉพาะที่มองเห็นได้เฉพาะคุณเท่านั้น และแน่นอน สภาพแวดล้อมที่แยกจากกันทำให้คุณสามารถทดสอบโค้ดใหม่ได้โดยไม่กระทบต่อการใช้งานจริง
 
-## What are Polkadot's Extrinsics?
+## Polkadot's Extrinsics คืออะไร
 
 หากคุณคุ้นเคยกับบล็อคเชนอยู่แล้ว คุณสามารถเปรียบ extrinsics ได้กับธุรกรรม หรืออธิบายให้เป็นทางการมากขึ้น extrinsic เป็นส่วนของข้อมูลที่มาจากนอก chain และถูกรวมอยู่ในบล็อก โดย extrinsics มีสามประเภท ได้แก่ inherents, signed transactions และ unsigned transactions
 
