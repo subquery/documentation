@@ -1,4 +1,4 @@
-# Terra Quick Start
+# บทความเริ่มต้นของ Terra
 
 ในคู่มือเริ่มต้นฉบับย่อนี้ เราจะเริ่มต้นด้วยโครงการ Terra starter แบบง่าย ๆ จากนั้นจึงเสร็จสิ้นด้วยการจัดทำดัชนีข้อมูลจริงบางส่วน นี้จะเป็นการสร้างพื้นฐานให้กับคุณเมื่อตอนที่คุณทำโปรเจกต์ SubQuery ของคุณเอง
 
@@ -62,9 +62,9 @@ subql init
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```shell cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
 
-## Making Changes to your Project
+## การเปลี่ยนแปลงโครงการของคุณ
 
-In the starter package that you just initialised, we have provided a standard configuration for your new project. คุณจะต้องทำงานกับไฟล์ต่อไปนี้เป็นหลัก:
+ในแพ็คเกจเริ่มต้นที่คุณเพิ่งเริ่มต้น เราได้จัดเตรียมการกำหนดค่ามาตรฐานสำหรับโครงการใหม่ของคุณ คุณจะต้องทำงานกับไฟล์ต่อไปนี้เป็นหลัก:
 
 1. The GraphQL Schema ใน `schema.graphql`
 2. The Project Manifest ใน `project.yaml`
@@ -76,7 +76,7 @@ The goal of this quick start guide is to adapt the standard starter project to b
 
 The `schema.graphql` file defines the various GraphQL schemas. Due to the way that the GraphQL query language works, the schema file essentially dictates the shape of your data from SubQuery. มันเป็นจุดที่ดีทีสุดที่จะเริ่มต้นเพราะมันอณุญาตให้คุณกำหนด end goal up front ของคุณได้
 
-We're going to update the `schema.graphql` file to read as follows
+เราจะอัปเดตไฟล์ `schema.graphql` ให้อ่านดังนี้
 
 ```graphql
 type Transfer @entity {
@@ -236,6 +236,6 @@ SubQuery ให้บริการที่มีการจัดการ�
 
 ตอนนี้คุณได้รับข้อมูลเชิงลึกเกียวกับสร้าง Subquery project ขั้นพื้นฐาน คำถามคือ เราจะไปที่ไหนต่อ ถ้าคุณคิดว่าคุณมั่นใจ คุณสามารถข้ามไปเรียนรู้เกี่ยวกับ three key files ได้เลย The manifest ไฟล์, the GraphQL schema, และ mappings ไฟล์ภายใต้ [Build section of these docs](../build/introduction.md).
 
-Otherwise, continue to our [Academy section](../academy/academy.md) where have more in depth workshops, tutorials, and example projects. There we'll look at more advanced modifications, and we'll take a deeper dive at running SubQuery projects by running readily available and open source projects.
+หรือไปที่[ส่วน Academy](../academy/academy.md) ซึ่งมีเวิร์กช็อปเชิงลึก บทแนะนำ และตัวอย่างโครงการเพิ่มเติม เราจะดูการปรับเปลี่ยนขั้นสูงเพิ่มเติมที่นั่น และเราจะเจาะลึกลงไปที่การเรียกใช้โครงการ SubQuery โดยการเรียกใช้โครงการที่พร้อมใช้งานและโอเพ่นซอร์ส
 
 Finally, if you're looking for more ways to run and publish your project, our [Run & Publish section](../run_publish/run.md) provides detailed informatation about all the ways to run your SubQuery project and other advanced GraphQL aggregation and subscription features.
