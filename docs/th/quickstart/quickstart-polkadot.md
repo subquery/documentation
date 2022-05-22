@@ -12,8 +12,8 @@ In this quick start guide, we're going to start with a simple Substrate/Polkadot
 
 ### สภาพแวดล้อมสำหรับการพัฒนาภายในตัวเครื่อง
 
-- [Node](https://nodejs.org/en/): A modern (e.g. the LTS version) installation of Node.
-- [Docker](https://docker.com/): This tutorial will use require Docker
+- [Node](https://nodejs.org/en/): ติดตั้ง node ที่ทันสมัย (เช่น LTS version)
+- [Docker](https://docker.com/): บทนี้จะช่วยสอนสิ่งที่ Docker ต้องใช้
 
 ### การติดตั้ง SubQuery CLI
 
@@ -46,7 +46,7 @@ You'll be asked certain questions as the SubQuery project is initalised:
 - Network family: The layer-1 blockchain network family that this SubQuery project will be developed to index. Use the arrow keys to select from the available options. For this guide, we will use *"Substrate"*
 - Network: The specific network that this SubQuery project will be developed to index. Use the arrow keys to select from the available options. For this guide, we will use *"Polkadot"*
 - Template project: Select a SubQuery template project that will provide a starting point to begin development. We suggest selecting the *"subql-starter"* project.
-- RPC endpoint: Provide an HTTPS URL to a running RPC endpoint that will be used by default for this project. You can quickly access public endpoints for different Polkadot networks, create your own private dedicated node using [OnFinality](https://app.onfinality.io) or just use the default Polkadot endpoint. This RPC node must be an archive node (have the full chain state). For this guide, we will use the default value *"https://polkadot.api.onfinality.io"*
+- RPC endpoint: Provide an HTTPS URL to a running RPC endpoint that will be used by default for this project. You can quickly access public endpoints for different Polkadot networks, create your own private dedicated node using [OnFinality](https://app.onfinality.io) or just use the default Polkadot endpoint. RPC node นี้ต้องเป็น archive node (มีสถานะ full chain state) For this guide, we will use the default value *"https://polkadot.api.onfinality.io"*
 - Git repository: Provide a Git URL to a repo that this SubQuery project will be hosted in (when hosted in SubQuery Explorer) or accept the provided default.
 - Authors: Enter the owner of this SubQuery project here (e.g. your name!) or accept the provided default.
 - Description: Provide a short paragraph about your project that describes what data it contains and what users can do with it or accept the provided default.
