@@ -1,6 +1,6 @@
 # การรัน SubQuery ภายในเครื่อง
 
-คู่มือนี้จะศึกษาวิธีการรันโหนด SubQuery บนโครงสร้างพื้นฐานของคุณ ซึ่งรวมถึง indexer และ query service คุณไม่อยากที่จะต้องคอยกังวลเกี่ยวกับการรันโครงสร้างพื้นฐาน SubQuery ของคุณเองใช่หรือไม่? SubQuery ให้บริการ [โฮสต์ที่มีการจัดการ](https://explorer.subquery.network) แก่ชุมชนฟรี [Follow our publishing guide](../run_publish/publish.md) to see how you can upload your project to [SubQuery Projects](https://project.subquery.network).
+คู่มือนี้จะศึกษาวิธีการรันโหนด SubQuery บนโครงสร้างพื้นฐานของคุณ ซึ่งรวมถึง indexer และ query service คุณไม่อยากที่จะต้องคอยกังวลเกี่ยวกับการรันโครงสร้างพื้นฐาน SubQuery ของคุณเองใช่หรือไม่? SubQuery ให้บริการ [โฮสต์ที่มีการจัดการ](https://explorer.subquery.network) แก่ชุมชนฟรี ตามไกด์การเผยแพร่ เพื่อแสดงให้เห็นถึงวิธีการอัพโหลด SubQuery Projects
 
 ## การใช้กับ Docker
 
