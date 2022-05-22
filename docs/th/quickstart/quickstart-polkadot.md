@@ -1,12 +1,12 @@
 # Polkadot Quick Start
 
-In this quick start guide, we're going to start with a simple Substrate/Polkadot starter project and then finish by indexing some actual real data. This is an excellent basis to start with when developing your own Substrate/Polkadot SubQuery Project.
+ในบทความเริ่มต้นนี้, เราจะเริ่มต้นด้วยการเริ่มต้นโปรเจคSubstrate/Polkadotอย่างง่าย และต่อไปจนถึงจบด้วย การจัดทำดัชนีของข้อมูลจริง นี้คือบทความเริ่มต้นที่ดีสำหรับนักพัฒนาโปรแกรม ที่กำลังทำการพัฒนาโปรเจคSubstrate/PolkadotบนSubQuery
 
 หลังจบคู่มือนี้ คุณจะมีโปรเจ็กต์ SubQuery ที่ทำงานบนโหนด SubQuery และมี GraphQL endpoint ที่คุณสามารถสืบค้นข้อมูลได้
 
 หากคุณยังไม่คุ้นเคย เราขอแนะนำให้คุณทำความคุ้นเคยกับ [คำศัพท์](../#terminology) ที่ใช้ใน SubQuery
 
-**The goal of this quick start guide is to adapt the standard starter project to begin indexing all transfers from Polkadot, it should only take 10-15 minutes**
+**เป้าหมายของบทเริ่มต้นอย่างง่ายของนี้คือ สามารถนำข้อมูลของโปรเจคบน Polkadotทำการย้ายดัชนีไปยังโปรเจค Subquery, ใช้เวลาในการทำแค่ 10-15 นาทีเท่านั้น**
 
 ## การเตรียมความพร้อม
 
@@ -40,20 +40,20 @@ subql help
 subql init
 ```
 
-You'll be asked certain questions as the SubQuery project is initalised:
+คุณจะถูกถามคำถามบางอย่างเมื่อโครงการ SubQuery เริ่มต้น:
 
-- Project name: A project name for your SubQuery project
-- Network family: The layer-1 blockchain network family that this SubQuery project will be developed to index. Use the arrow keys to select from the available options. For this guide, we will use *"Substrate"*
-- Network: The specific network that this SubQuery project will be developed to index. Use the arrow keys to select from the available options. For this guide, we will use *"Polkadot"*
+- ชื่อโปรเจค: ตั้งชื่อว่าโปรเจค A สำหรับ โปรเจค SubQuery ของคุณ
+- Network family: The layer-1 blockchain network family that this SubQuery project will be developed to index. ใช้ลูกศร เพื่อเลือก ตัวเลือกที่มีให้ For this guide, we will use *"Substrate"*
+- Network: The specific network that this SubQuery project will be developed to index. ใช้ลูกศร เพื่อเลือก ตัวเลือกที่มีให้ For this guide, we will use *"Polkadot"*
 - Template project: Select a SubQuery template project that will provide a starting point to begin development. We suggest selecting the *"subql-starter"* project.
 - RPC endpoint: Provide an HTTPS URL to a running RPC endpoint that will be used by default for this project. You can quickly access public endpoints for different Polkadot networks, create your own private dedicated node using [OnFinality](https://app.onfinality.io) or just use the default Polkadot endpoint. RPC node นี้ต้องเป็น archive node (มีสถานะ full chain state) For this guide, we will use the default value *"https://polkadot.api.onfinality.io"*
 - Git repository: Provide a Git URL to a repo that this SubQuery project will be hosted in (when hosted in SubQuery Explorer) or accept the provided default.
-- Authors: Enter the owner of this SubQuery project here (e.g. your name!) or accept the provided default.
-- Description: Provide a short paragraph about your project that describes what data it contains and what users can do with it or accept the provided default.
-- Version: Enter a custom version number or use the default (`1.0.0`)
-- License: Provide the software license for this project or accept the default (`MIT`)
+- ผู้เขียน: ใส่ชื่อของเจ้าของโปรเจคที่นี้(เช่น ชื่อของคุณ) หรือ ใช้ค่าเดิม
+- คำอธิบาย: เป็นคำอธิบายสั้นๆของโปรเจคเกี่ยวกับข้อมูลด้านใน และ ผู้ใช้งงานทั้งไปสามารถใช้อะไรได้บ้าง หรือ ตั้งไว้ค่าเดิม
+- เวอร์ชัน: ป้อนหมายเลขเวอร์ชันที่กำหนดเองหรือใช้ค่าเริ่มต้น
+- ใบอนุญาต: ระบุสิทธิ์การใช้งานซอฟต์แวร์สำหรับโครงการนี้หรือยอมรับค่าเริ่มต้น(เช่น MIT)
 
-After the initialisation process is complete, you should see that a folder with your project name has been created inside the directory. The contents of this directory should be identical to what's listed in the [Directory Structure](../create/introduction.md#directory-structure).
+หลังจากกระบวนการเริ่มต้นเสร็จสมบูรณ์ คุณจะเห็นว่ามีการสร้างโฟลเดอร์ที่มีชื่อโครงการของคุณภายในไดเร็กทอรี เนื้อหาของไดเร็กทอรีนี้ควรเหมือนกับที่แสดงใน โครงสร้างไดเร็กทอรี
 
 Last, under the project directory, run the following command to install the new project's dependencies.
 
@@ -125,7 +125,7 @@ Navigate to the default mapping function in the `src/mappings` directory. You'll
 
 The `handleEvent` function receives event data whenever an event matches the filters that we specified previously in our `project.yaml`. We will update it to process all `balances.Transfer` events and save them to the GraphQL entities that we created earlier.
 
-You can update the `handleEvent` function to the following (note the additional imports):
+คุณสามารถอัปเดตฟังก์ชัน `handleEvent` เป็นดังต่อไปนี้ (โปรดสังเกตการนำเข้าเพิ่มเติม):
 
 ```ts
 import { SubstrateEvent } from "@subql/types";
@@ -154,11 +154,11 @@ export async function handleEvent(event: SubstrateEvent): Promise<void> {
 
 What this is doing is receiving a SubstrateEvent which includes transfer data in the payload. We extract this data and then instantiate a new `Transfer` entity that we defined earlier in the `schema.graphql` file. We add additional information and then use the `.save()` function to save the new entity (SubQuery will automatically save this to the database).
 
-For more information about mapping functions, check out our documentation under [Build/Mappings](../build/mapping.md)
+สำหรับข้อมูลเพิ่มเติมเกี่ยวกับฟังก์ชันการทำแผนที่ โปรดดูเอกสารประกอบของเราใน [Build/Mappings](../build/mapping.md)
 
 ### การสร้างโปรเจค
 
-In order to run your new SubQuery Project we first need to build our work. Run the build command from the project's root directory.
+In order to run your new SubQuery Project we first need to build our work. ทำการ Run คำสั่งเริ่มต้นจาก project's root directory
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script build ``` </CodeGroupItem> </CodeGroup>
 
