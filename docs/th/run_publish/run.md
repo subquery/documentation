@@ -80,9 +80,9 @@ subql-node-avalanche <command>
 </CodeGroupItem>
 </CodeGroup>
 
-### Key Commands
+### คำสั่งที่สำคัญ
 
-The following commands will assist you to complete the configuration of a SubQuery node and begin indexing. หากต้องการข้อมูลเพิ่มเติม คุณสามารถรันคำสั่ง `--help` ได้ตลอดเวลา
+คำสั่งต่อไปนี้จะช่วยคุณในการกำหนดค่าโหนด SubQuery ให้เสร็จสมบูรณ์และเริ่มสร้างดัชนี หากต้องการข้อมูลเพิ่มเติม คุณสามารถรันคำสั่ง `--help` ได้ตลอดเวลา
 
 #### ชี้ไปที่ local path ของโปรเจกต์
 
@@ -142,9 +142,9 @@ subql-node-avalanche --network-dictionary=https://api.subquery.network/sq/subque
 </CodeGroupItem>
 </CodeGroup>
 
-[Read more about how a SubQuery Dictionary works](../academy/tutorials_examples/dictionary.md).
+[อ่านเพิ่มเติมเกี่ยวกับวิธีการทำงานของพจนานุกรม SubQuery](../academy/tutorials_examples/dictionary.md).
 
-#### Connect to database
+#### เชื่อมต่อกับฐานข้อมูล
 
 ```shell
 export DB_USER=postgres
@@ -154,6 +154,7 @@ export DB_HOST=localhost
 export DB_PORT=5432
 subql-node -f your-project-path
 ```
+ Text XPath: /p[11]/CodeGroup/text
 
 Depending on the configuration of your Postgres database (e.g. a different database password), please ensure also that both the indexer (`subql/node`) and the query service (`subql/query`) can establish a connection to it.
 
@@ -183,7 +184,7 @@ subql-node-avalanche -c your-project-config.yml
 </CodeGroupItem>
 </CodeGroup>
 
-This will point the query node to a configuration file which can be in YAML or JSON format. Check out the example below.
+This will point the query node to a configuration file which can be in YAML or JSON format. ดูตัวอย่างด้านล่าง
 
 ```yaml
 subquery: ../../../../subql-example/extrinsics
@@ -302,7 +303,7 @@ For help, see: https://nodejs.org/en/docs/inspector
 Debugger attached.
 ```
 
-จากนั้นเปิดเครื่องมือ Chrome dev ไปที่ Source > Filesystem และเพิ่มโปรเจกต์ของคุณลงในเวิร์กสเปซ แล้วเริ่มการ debug For more information, check out [How to debug a SubQuery project](https://doc.subquery.network/academy/tutorials_examples/debug-projects/)
+จากนั้นเปิดเครื่องมือ Chrome dev ไปที่ Source > Filesystem และเพิ่มโปรเจกต์ของคุณลงในเวิร์กสเปซ แล้วเริ่มการ debug ดูรายละเอียดเพิ่มเติมได้ที่ [วิธีดีบักโปรเจ็กต์ SubQuery](https://doc.subquery.network/academy/tutorials_examples/debug-projects/)
 
 ## การรัน Query Service (subql/query)
 
@@ -322,6 +323,6 @@ export DB_HOST=localhost
 subql-query --name <project_name> --playground
 ```
 
-Make sure the project name is the same as the project name when you [initialize the project](../quickstart/quickstart-polkadot.md#initialise-the-starter-subquery-project). ตรวจสอบ environment variables ด้วยว่าถูกต้องหรือไม่
+ตรวจสอบให้แน่ใจว่าชื่อโปรเจ็กต์เหมือนกับชื่อโปรเจ็กต์เมื่อคุณ [เริ่มต้นโปรเจ็กต์](../quickstart/quickstart-polkadot.md#initialise-the-starter-subquery-project) ตรวจสอบ environment variables ด้วยว่าถูกต้องหรือไม่
 
 หลังจากรัน service subql-query สำเร็จแล้ว ให้เปิดเบราว์เซอร์ของคุณ แล้วไปที่ `http://localhost:3000` คุณควรเห็น GraphQL playground แสดงใน explorer และ schemas ที่พร้อมสำหรับการ query
