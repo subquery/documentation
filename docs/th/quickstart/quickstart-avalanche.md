@@ -101,7 +101,7 @@ type PangolinApproval @entity {
 
 โปนเจกต์ไฟล์ Manifest (`project.yaml`) สามารถมองว่าเป็นจุดเริ่มต้นโปรเจกต์ของคุณและกำหนดรายละเอียดส่วนใหญ่ว่า SubQuery จะสร้าง index และแปลง chain data อย่างไร
 
-เราจะไม่ทำการเปลี่ยนแปลงในไฟล์ Manifest มากเนื่องจากไฟล์ได้รับการตั้งค่าอย่างถูกต้องแล้ว แต่เราจำเป็นต้องเปลี่ยนตัวจัดการของเรา Remember we are planning to index all Pangolin approval logs, as a result, we need to update the `datasources` section to read the following.
+เราจะไม่ทำการเปลี่ยนแปลงในไฟล์ Manifest มากเนื่องจากไฟล์ได้รับการตั้งค่าอย่างถูกต้องแล้ว แต่เราจำเป็นต้องเปลี่ยนตัวจัดการของเรา โปรดทราบว่าเรากำลังวางแผนที่จะจัดทำดัชนีบันทึกการอนุมัติตัวนิ่มทั้งหมด ด้วยเหตุนี้ เราจึงต้องอัปเดตส่วน `datasources` เพื่ออ่านข้อมูลต่อไปนี้
 
 ```yaml
 dataSources:
