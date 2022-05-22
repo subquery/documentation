@@ -26,7 +26,7 @@ npm install -g @subql/cli
 
 Please note that we **DO NOT** encourage the use of `yarn global` for installing `@subql/cli` due to its poor dependency management which may lead to errors down the line.
 
-You can then run help to see available commands and usage provided by the CLI:
+จากนั้นคุณสามารถเรียกใช้ความช่วยเหลือเพื่อดูคำสั่งและการใช้งานที่ CLI ให้มา:
 
 ```shell
 subql help
@@ -43,9 +43,9 @@ subql init
 คุณจะถูกถามคำถามบางอย่างเมื่อโครงการ SubQuery เริ่มต้น:
 
 - ชื่อโปรเจค: ตั้งชื่อว่าโปรเจค A สำหรับ โปรเจค SubQuery ของคุณ
-- Network family: The layer-1 blockchain network family that this SubQuery project will be developed to index. ใช้ลูกศร เพื่อเลือก ตัวเลือกที่มีให้ For this guide, we will use *"Substrate"*
-- Network: The specific network that this SubQuery project will be developed to index. ใช้ลูกศร เพื่อเลือก ตัวเลือกที่มีให้ For this guide, we will use *"Polkadot"*
-- Template project: Select a SubQuery template project that will provide a starting point to begin development. We suggest selecting the *"subql-starter"* project.
+- Network family: The layer-1 blockchain network family that this SubQuery project will be developed to index. ใช้ลูกศร เพื่อเลือก ตัวเลือกที่มีให้ สำหรับคำแนะนำนี้ เราจะใช้ *"Substrate"*
+- เครือข่าย: เครือข่ายเฉพาะที่โครงการ SubQuery นี้จะถูกพัฒนาเพื่อสร้างดัชนี ใช้ลูกศร เพื่อเลือก ตัวเลือกที่มีให้ สำหรับคำแนะนำนี้ เราจะใช้ *"Polkadot*
+- โครงการแม่แบบ: เลือกโครงการแม่แบบ SubQuery ที่จะให้จุดเริ่มต้นเพื่อเริ่มการพัฒนา เราแนะนำให้เลือกโปรเจค *"subql-starter"*
 - RPC endpoint: Provide an HTTPS URL to a running RPC endpoint that will be used by default for this project. You can quickly access public endpoints for different Polkadot networks, create your own private dedicated node using [OnFinality](https://app.onfinality.io) or just use the default Polkadot endpoint. RPC node นี้ต้องเป็น archive node (มีสถานะ full chain state) For this guide, we will use the default value *"https://polkadot.api.onfinality.io"*
 - Git repository: Provide a Git URL to a repo that this SubQuery project will be hosted in (when hosted in SubQuery Explorer) or accept the provided default.
 - ผู้เขียน: ใส่ชื่อของเจ้าของโปรเจคที่นี้(เช่น ชื่อของคุณ) หรือ ใช้ค่าเดิม
@@ -55,14 +55,14 @@ subql init
 
 หลังจากกระบวนการเริ่มต้นเสร็จสมบูรณ์ คุณจะเห็นว่ามีการสร้างโฟลเดอร์ที่มีชื่อโครงการของคุณภายในไดเร็กทอรี เนื้อหาของไดเร็กทอรีนี้ควรเหมือนกับที่แสดงใน โครงสร้างไดเร็กทอรี
 
-Last, under the project directory, run the following command to install the new project's dependencies.
+สุดท้าย ภายใต้ไดเร็กทอรีโครงการ ให้รันคำสั่งต่อไปนี้เพื่อติดตั้งการพึ่งพาของโปรเจ็กต์ใหม่
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```shell cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
 
-## Making Changes to your Project
+## การเปลี่ยนแปลงโครงการของคุณ
 
-In the starter package that was just initialised, a standard configuration has been provided. These are:
+ในแพ็คเกจเริ่มต้นที่เพิ่งเริ่มต้น มีการกำหนดค่ามาตรฐานไว้ XPath: /p[12]/CodeGroup/text These are:
 
 1. The GraphQL Schema in `schema.graphql`
 2. The Project Manifest ใน `project.yaml`
@@ -91,7 +91,7 @@ type Transfer @entity {
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```shell npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
 
-You'll find the generated models in the `/src/types/models` directory. สำหรับข้อมูลเพิ่มเติมภายใน `schema.graphql` ไฟล์, โปรดตรวจสอบได้ที่ เอกสารของเราภายใต้ [Build/GraphQL Schema](../build/graphql.md)
+คุณจะพบโมเดลที่สร้างขึ้นใน `/src/types/models` directory. สำหรับข้อมูลเพิ่มเติมภายใน `schema.graphql` ไฟล์, โปรดตรวจสอบได้ที่ เอกสารของเราภายใต้ [Build/GraphQL Schema](../build/graphql.md)
 
 ### การอับเดท Project Manifest File
 
@@ -217,6 +217,6 @@ Congratulations, you now have a locally running SubQuery project that accepts Gr
 
 ตอนนี้คุณได้รับข้อมูลเชิงลึกเกียวกับสร้าง Subquery project ขั้นพื้นฐาน คำถามคือ เราจะไปที่ไหนต่อ ถ้าคุณคิดว่าคุณมั่นใจ คุณสามารถข้ามไปเรียนรู้เกี่ยวกับ three key files ได้เลย The manifest file, the GraphQL schema, and the mappings file are under the [Build section of these docs](../build/introduction.md).
 
-Otherwise, continue to our [Academy section](../academy/academy.md) where we have more in-depth workshops, tutorials, and example projects. There we'll look at more advanced modifications, and we'll take a deeper dive at running SubQuery projects by running readily available and open source projects.
+Otherwise, continue to our [Academy section](../academy/academy.md) where we have more in-depth workshops, tutorials, and example projects. เราจะดูการปรับเปลี่ยนขั้นสูงเพิ่มเติมที่นั่น และเราจะเจาะลึกลงไปที่การเรียกใช้โครงการ SubQuery โดยการเรียกใช้โครงการที่พร้อมใช้งานและโอเพ่นซอร์ส
 
 Finally, if you're looking for more ways to run and publish your project, our [Run & Publish section](../run_publish/run.md) provides detailed information about all the ways to run your SubQuery project and other advanced GraphQL aggregation and subscription features.
