@@ -1,12 +1,12 @@
 # Polkadot Быстрый старт
 
-In this quick start guide, we're going to start with a simple Substrate/Polkadot starter project and then finish by indexing some actual real data. Это отличная основа для начала разработки собственного Substrate/Polkadot SubQuery проекта.
+В этом кратком руководстве мы начнем с простого начального проекта Substrate/Polkadot, а затем закончим индексированием некоторых фактических реальных данных. Это отличная основа для начала разработки собственного Substrate/Polkadot SubQuery проекта.
 
 В конце этого руководства у вас будет рабочий проект SubQuery, запущенный на узле SubQuery с конечной точкой GraphQL, из которой вы можете запрашивать данные.
 
 Если вы еще этого не сделали, мы предлагаем вам ознакомиться с [ терминологией ](../#terminology), используемой в SubQuery.
 
-**The goal of this quick start guide is to adapt the standard starter project to begin indexing all transfers from Polkadot, it should only take 10-15 minutes**
+**Целью этого краткого руководства является адаптация стандартного начального проекта для начала индексации всех трансферов из Polkadot, это займет всего 10-15 минут**
 
 ## Подготовка
 
@@ -24,9 +24,9 @@ In this quick start guide, we're going to start with a simple Substrate/Polkadot
 npm install -g @subql/cli
 ```
 
-Please note that we **DO NOT** encourage the use of `yarn global` for installing `@subql/cli` due to its poor dependency management which may lead to errors down the line.
+Обратите внимание, что мы **НЕ** рекомендуем использовать `yarn global` для установки `@subql/cli` из-за плохого управления зависимостями, что может привести к ошибкам в дальнейшем.
 
-You can then run help to see available commands and usage provided by the CLI:
+Затем вы можете запустить help, чтобы увидеть доступные команды и их использование, предоставляемые CLI:
 
 ```shell
 помощь subql
@@ -42,9 +42,9 @@ subql init
 
 По мере инициализации проекта SubQuery вам будут заданы определенные вопросы:
 
-- Project name: A project name for your SubQuery project
-- Network family: The layer-1 blockchain network family that this SubQuery project will be developed to index. Use the arrow keys to select from the available options. For this guide, we will use *"Substrate"*
-- Network: The specific network that this SubQuery project will be developed to index. Use the arrow keys to select from the available options. For this guide, we will use *"Polkadot"*
+- Project name: Имя для вашего проекта SubQuery
+- Network family: Семейство сетей блокчейнов уровня 1, для индексирования которого будет разработан этот проект SubQuery. Используйте клавиши со стрелками для выбора из доступных вариантов. В этом руководстве мы будем использовать *"Substrate"*
+- Network: Конкретная сеть, для индексации которой будет разработан этот проект SubQuery. Используйте клавиши со стрелками для выбора из доступных вариантов. В этом руководстве мы будем использовать *"Polkadot"*
 - Template project: Select a SubQuery template project that will provide a starting point to begin development. We suggest selecting the *"subql-starter"* project.
 - RPC endpoint: Provide an HTTPS URL to a running RPC endpoint that will be used by default for this project. You can quickly access public endpoints for different Polkadot networks, create your own private dedicated node using [OnFinality](https://app.onfinality.io) or just use the default Polkadot endpoint. Этот узел RPC должен быть архивным узлом (иметь состояние полной цепочки). For this guide, we will use the default value *"https://polkadot.api.onfinality.io"*
 - Git repository: Provide a Git URL to a repo that this SubQuery project will be hosted in (when hosted in SubQuery Explorer) or accept the provided default.
