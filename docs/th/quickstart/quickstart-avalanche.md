@@ -74,9 +74,9 @@ subql init
 
 ### อับเดทไฟล์ GraphQL Schema ของคุณ
 
-ไฟล์ `schema.graphql` นั้นกำหนด GraphQL schemas ที่หลากหลาย Due to the way that the GraphQL query language works, the schema file essentially dictates the shape of your data from SubQuery. มันเป็นจุดที่ดีทีสุดที่จะเริ่มต้นเพราะมันอณุญาตให้คุณกำหนด end goal up front ของคุณได้
+ไฟล์ `schema.graphql` นั้นกำหนด GraphQL schemas ที่หลากหลาย เนื่องจากวิธีที่ภาษา GraphQL ใช้ในการดึงข้อมูลทำงานนั้น ไฟล์ Schema เป็นสิ่งสำคัญที่กำหนดรูปร่างข้อข้อมูลจาก SubQuery มันเป็นจุดที่ดีทีสุดที่จะเริ่มต้นเพราะมันอณุญาตให้คุณกำหนด end goal up front ของคุณได้
 
-We're going to update the `schema.graphql` file to remove all existing entities and read as follows
+พวกเรากำลังจะอัพเดทไฟล์ `schema.graphql` เพื่อจะลบ entities ที่มีอยู่และอ่านดังต่อไปนี้
 
 ```graphql
 type PangolinApproval @entity {
@@ -95,13 +95,13 @@ type PangolinApproval @entity {
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```shell npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
 
-You'll find the generated models in the `/src/types/models` directory. สำหรับข้อมูลเพิ่มเติมภายใน `schema.graphql` ไฟล์, โปรดตรวจสอบได้ที่ เอกสารของเราภายใต้ [Build/GraphQL Schema](../build/graphql.md)
+คุณจะพบโมเดลที่สร้างขึ้นใน `/src/types/models` directory. สำหรับข้อมูลเพิ่มเติมภายใน `schema.graphql` ไฟล์, โปรดตรวจสอบได้ที่ เอกสารของเราภายใต้ [Build/GraphQL Schema](../build/graphql.md)
 
 ### การอับเดท Project Manifest File
 
-The Projet Manifest (`project.yaml`) file can be seen as an entry point of your project and it defines most of the details on how SubQuery will index and transform the chain data.
+โปนเจกต์ไฟล์ Manifest (`project.yaml`) สามารถมองว่าเป็นจุดเริ่มต้นโปรเจกต์ของคุณและกำหนดรายละเอียดส่วนใหญ่ว่า SubQuery จะสร้าง index และแปลง chain data อย่างไร
 
-We won't do many changes to the manifest file as it already has been setup correctly, but we need to change our handlers. Remember we are planning to index all Pangolin approval logs, as a result, we need to update the `datasources` section to read the following.
+เราจะไม่ทำการเปลี่ยนแปลงในไฟล์ Manifest มากเนื่องจากไฟล์ได้รับการตั้งค่าอย่างถูกต้องแล้ว แต่เราจำเป็นต้องเปลี่ยนตัวจัดการของเรา Remember we are planning to index all Pangolin approval logs, as a result, we need to update the `datasources` section to read the following.
 
 ```yaml
 dataSources:
@@ -126,19 +126,19 @@ dataSources:
             # address: "0x60781C2586D68229fde47564546784ab3fACA982"
 ```
 
-This means we'll run a `handleLog` mapping function each and every time there is a `approve` log on any transaction from the [Pangolin contract](https://snowtrace.io/txs?a=0x60781C2586D68229fde47564546784ab3fACA982&p=1).
+นี้หมายความว่าพวกเราจะรัน `handleLog` แมปปิ้งฟังก์ชั่นที่ทุกครั้งที่มี`approve` log on ทุก transaction จาก [Pangolin contract](https://snowtrace.io/txs?a=0x60781C2586D68229fde47564546784ab3fACA982&p=1).
 
 สำหรับข้อมูลเพิ่มเติมเกี่ยวกับ Project Manifest (`project.yaml`) ไฟล์,โปรดตรวจสอบได้ที่เอกสารของเราภายใต้พ [Build/Manifest File](../build/manifest.md)
 
 ### เพิ่ม Mapping Function
 
-Mapping functions define how chain data is transformed into the optimised GraphQL entities that we have previously defined in the `schema.graphql` file.
+Mapping functions กำหนดวิธีการแปลง chain data เป็น GraphQL entities ซึ่งถูกปรับให้เหมาะสมที่เราได้กำหนดไว้ก่อนหน้านี้ในไฟล์ `schema.graphql`
 
-Navigate to the default mapping function in the `src/mappings` directory. You'll see three exported functions, `handleBlock`, `handleLog`, and `handleTransaction`. You can delete both the `handleBlock` and `handleTransaction` functions, we are only dealing with the `handleLog` function.
+นำทางไปยัง mapping function เริ่มต้นใน `src/mappings` directory คุณจะเห็นสามฟังก์ชันที่ส่งออก, `handleBlock`, `handleLog`, และ `handleTransaction`. คุณสามารถลบทั้ง `handleBlock` และ `handleTransaction` functions, เราจัดการกับ `handleLog` function เท่านั้น
 
-The `handleLog` function recieved event data whenever event matches the filters that we specify previously in our `project.yaml`. We are going to update it to process all `approval` transaction logs and save them to the GraphQL entities that we created earlier.
+`handleLog` function ได้รับ event data เมื่อใดก็ตามที่เหตุการณ์ตรงกับตัวกรองที่เราระบุไว้ก่อนหน้านี้ในของเรา`project.yaml`. เราจะอัปเดตกระบวนการทั้งหมดเพื่อ `approval` transaction logs และบันทึกลงใน GraphQL entities ที่เราสร้างไว้ก่อนหน้านี้
 
-You can update the `handleLog` function to the following (note the additional imports):
+คุณสามารถอัปเดต `handleLog` function ดังต่อไปนี้ (บันทึกการ imports เพิ่ม):
 
 ```ts
 import { PangolinApproval } from "../types";
@@ -161,7 +161,7 @@ export async function handleLog(event: AvalancheLog): Promise<void> {
 }
 ```
 
-What this is doing is receiving an Avalanche Log which includes the transation log data on the payload. We extract this data and then instantiate a new `PangolinApproval` entity that we defined earlier in the `schema.graphql` file. We add additional information and then use the `.save()` function to save the new entity (SubQuery will automatically save this to the database).
+สิ่งที่กำลังทำคือการได้รับ Avalanche Log ซึ่งรวมถึง transation log ข้อมูลบน payload ด้วย เราดึงข้อมูลนี้แล้วสร้าง instantiate ใหม่ `PangolinApproval` entity ที่เรากำหนดไว้ก่อนหน้านี้ ในไฟล์`schema.graphql` เราเพิ่มข้อมูลเพิ่มเติมแล้วใช้ function `.save()` เพื่อที่จะบันทึก entity ใหม่ (SubQuery จะบันทึกอัตโนมัติใน database).
 
 For more information about mapping functions, check out our documentation under [Build/Mappings](../build/mapping.md)
 
