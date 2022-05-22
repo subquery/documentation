@@ -1,6 +1,6 @@
 # Avalanche Quick Start
 
-ในไกด์นี้ พวกเราจะพาไปเริ่มต้นอย่างง่ายๆกับ Avalanche โปรเจค และ ทำดัชนีกับข้อมูลจริง นี้จะเป็นการสร้างพื้นฐานให้กับคุณเมื่อตอนที่คุณทำโปรเจค SubQuery ของคุณเอง
+ในไกด์นี้ พวกเราจะพาไปเริ่มต้นอย่างง่ายๆกับ Avalanche โปรเจค และ ทำดัชนีกับข้อมูลจริง นี้จะเป็นการสร้างพื้นฐานให้กับคุณเมื่อตอนที่คุณทำโปรเจกต์ SubQuery ของคุณเอง
 
 **ถ้าคุณกำลังหาไกด์สำหรับ Substrate/Polkadot คุณสามารถอ่านได้ที่ [Substrate/Polkadot specific quick start guide](./quickstart-polkadot)**
 
@@ -14,8 +14,8 @@
 
 ### สภาพแวดล้อมสำหรับการพัฒนาภายในตัวเครื่อง
 
-- [Node](https://nodejs.org/en/): A modern (e.g. the LTS version) installation of Node.
-- [Docker](https://docker.com/): This tutorial will use require Docker
+- [Node](https://nodejs.org/en/): ติดตั้ง node ที่ทันสมัย (เช่น LTS version)
+- [Docker](https://docker.com/): บทนี้จะช่วยสอนสิ่งที่ Docker ต้องใช้
 
 ### การติดตั้ง SubQuery CLI
 
@@ -26,9 +26,9 @@
 npm install -g @subql/cli
 ```
 
-Please note that we **DO NOT** encourage the use of `yarn global` for installing `@subql/cli` due to its poor dependency management which may lead to an errors down the line.
+โปรดทราบว่าเรา **ไม่** สนับสนุนให้ใช้ `yarn global` สำหรับการติดตั้ง `@subql/cli`เนื่องจากการจัดการ dependency ที่ไม่ได้อาจนำไปสู่ข้อผิดพลาดได้
 
-คุณสามารถรันคำสั่ง Help เพื่อดูคำสั่งที่สมารถใช้งานได้ ที่ CLI นั้นจัดไว้ให้
+จากน้นคุณสามารถรันคำสั่ง Help เพื่อดูคำสั่งที่สามารถใช้งานได้ จาก CLI จัดเตรียมไว้
 
 ```shell
 subql help
@@ -42,39 +42,39 @@ subql help
 subql init
 ```
 
-You'll be asked certain questions as the SubQuery project is initalised:
+เมื่อคุณทำการสร้างโปรเจกต์
 
 - Name: ชื่อ Subquery Project ของคุณ
-- Network Family: The layer-1 blockchain network family that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use _"Avalanche"_
-- Network: The specific network that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use _"Avalanche"_
-- Template: Select a SubQuery project template that will provide a starting point to begin development, we suggest selecting the _"Starter project"_
-- Git repository (ทางเลือก): ระบุ Git URL ไปยัง repoที่ SubQuery project ที่จะถูกทำากรโฮสต์ (เมื่อโฮสต์ใน Subquery Explorer)
-- RPC endpoint (จำเป็น): ระบุ HTTPS URL ไปยัง RPC endpoint ที่ทำงานอยู่ที่จะใช้งานเป็นค่าเริ่มต้นของโปรเจค This RPC node must be an archive node (have the full chain state). For this guide we will use the default value _"avalanche.api.onfinality.io"_
-- Authors (Required): Enter the owner of this SubQuery project here (e.g. your name!)
-- Description (Optional): You can provide a short paragraph about your project that describe what data it contains and what users can do with it
-- Version (Required): Enter a custom version number or use the default (`1.0.0`)
-- License (Required): Provide the software license for this project or accept the default (`Apache-2.0`)
+- Network Family: ตระกูลเครือข่ายบล๊อคเชน layer-1 ที่โปรเจกต์ SubQuery จะ develop เป็น index ใช้ปุ่มลูกศรบนแป้นพิมพ์เพื่อเลือกจากตัวเลือกต่างๆ สำหรับคำแนะนำนี้ เราจะใช้_"Avalanche"_
+- Network: เจาะจงเครือข่ายที่โครงการ SubQuery นี้จะdevelop เพื่อสร้าง index ใช้ปุ่มลูกศรบนแป้นพิมพ์เพื่อเลือกจากตัวเลือกต่างๆ สำหรับคู่มือนี้เราจะใช้_"Avalanche"_
+- Template: เลือกเทมเพลตโปรเจกต์ SubQuery ที่จะให้จุดเริ่มต้นเพื่อเริ่มการdevelop เราขอแนะนำให้เลือก _"Starter project"_
+- Git repository (ทางเลือก): ระบุ Git URL ไปยัง repoที่โปรเจกต์ SubQuery ที่จะถูกทำการโฮสต์ (เมื่อโฮสต์ใน Subquery Explorer)
+- RPC endpoint (จำเป็น): ระบุ HTTPS URL ไปยัง RPC endpoint ที่ทำงานอยู่ที่จะใช้งานเป็นค่าเริ่มต้นของโปรเจค RPC node นี้ต้องเป็น archive node (มีสถานะ full chain state) สำหรับคู่มือนี้เราจะใช้ค่าเริ่มต้น _"avalanche.api.onfinality.io"_
+- Authors (Required): กรอกชื่อเจ้าของโปรเจกต์ที่นี่ (เช่น ชื่อของคุณ)
+- Description (ไม่บังคับ): คุณสามารถใส่ข้อความสั้น ๆ เกี่ยวกับโปนเจกต์ของคุณโดยอธิบายว่ามีข้อมูลใดบ้างและผู้ใช้สามารถทำอะไรกับมันได้
+- Version (จำเป็น): ระบุหมายเลขเวอร์ชันที่กำหนดเองหรือใช้ค่าเริ่มต้น(`1.0.0`)
+- License (จำเป็น): ระบุใบอนุญาตซอฟต์แวร์สำหรับโปรเจกต์นี้หรือใช้ค่าเริ่มต้น (`Apache-2.0`)
 
-หลังจากกระบวนการเริ่มต้นเสร็จสมบูรณ์ คุณควรเห็นโฟลเดอร์ที่มีชื่อโปรเจคของคุณถูกสร้างขึ้นภายในไดเร็กทอรี The contents of this directoy should be identical to what's listed in the [Directory Structure](../create/introduction.md#directory-structure).
+หลังจากกระบวนการเริ่มต้นเสร็จสมบูรณ์ คุณควรเห็นโฟลเดอร์ที่มีชื่อโปรเจคของคุณถูกสร้างขึ้นภายในไดเร็กทอรี เนื้อหาของไดเรกทอรีนี้ควรเหมือนกับที่ระบุไว้ใน [Directory Structure](../create/introduction.md#directory-structure)
 
-Last, under the project directory, run following command to install the new project's dependencies.
+สุดท้าย ภายใต้ไดเรกทอรีของโปรเจกต์ ให้รันคำสั่งต่อไปนี้เพื่อติดตั้ง dependencies ของโปรเจกต์ใหม่นี้
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```shell cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
 
-## Making Changes to your Project
+## สร้างความเปลี่ยนแปลงให้กับโปรเจกต์ของคุณ
 
-In the starter package that you just initialised, we have provided a standard configuration for your new project. คุณจะต้องทำงานบนไฟล์เหล่านี้เป็นหลัก:
+ในแพ็คเกจเริ่มต้นที่คุณเพิ่งติดตั้ง เราได้จัดเตรียมการกำหนดค่ามาตรฐานสำหรับโปรเจกต์ใหม่ของคุณ</5> คุณจะต้องทำงานบนไฟล์เหล่านี้เป็นหลัก:
 
 1. The Manifest in `schema.graphql`
 2. Project Manifest ใน `project.yaml`
 3. Mapping functions ในไดเรกทอรี `src/mappings/`
 
-The goal of this quick start guide is to adapt the standard starter project to index all Pangolin `Approve` transaction logs.
+เป้าหมายของคู่มือเริ่มต้นฉบับย่อนี้คือการปรับโปรเจกต์มาตรฐานเริ่มต้นเพื่อสร้าง index Pangolin ทั้งหมด `อนุมัติ` transaction logs
 
 ### อับเดทไฟล์ GraphQL Schema ของคุณ
 
-The `schema.graphql` file defines the various GraphQL schemas. Due to the way that the GraphQL query language works, the schema file essentially dictates the shape of your data from SubQuery. มันเป็นจุดที่ดีทีสุดที่จะเริ่มต้นเพราะมันอณุญาตให้คุณกำหนด end goal up front ของคุณได้
+ไฟล์ `schema.graphql` นั้นกำหนด GraphQL schemas ที่หลากหลาย Due to the way that the GraphQL query language works, the schema file essentially dictates the shape of your data from SubQuery. มันเป็นจุดที่ดีทีสุดที่จะเริ่มต้นเพราะมันอณุญาตให้คุณกำหนด end goal up front ของคุณได้
 
 We're going to update the `schema.graphql` file to remove all existing entities and read as follows
 
