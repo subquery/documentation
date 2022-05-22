@@ -1,6 +1,6 @@
 # Avalanche Quick Start
 
-ในไกด์นี้ พวกเราจะพาไปเริ่มต้นอย่างง่ายๆกับ Avalanche โปรเจค และ ทำดัชนีกับข้อมูลจริง This is an excellent basis to start with when developing your own SubQuery Project.
+ในไกด์นี้ พวกเราจะพาไปเริ่มต้นอย่างง่ายๆกับ Avalanche โปรเจค และ ทำดัชนีกับข้อมูลจริง นี้จะเป็นการสร้างพื้นฐานให้กับคุณเมื่อตอนที่คุณทำโปรเจค SubQuery ของคุณเอง
 
 **ถ้าคุณกำลังหาไกด์สำหรับ Substrate/Polkadot คุณสามารถอ่านได้ที่ [Substrate/Polkadot specific quick start guide](./quickstart-polkadot)**
 
