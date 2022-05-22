@@ -163,11 +163,11 @@ export async function handleLog(event: AvalancheLog): Promise<void> {
 
 สิ่งที่กำลังทำคือการได้รับ Avalanche Log ซึ่งรวมถึง transation log ข้อมูลบน payload ด้วย เราดึงข้อมูลนี้แล้วสร้าง instantiate ใหม่ `PangolinApproval` entity ที่เรากำหนดไว้ก่อนหน้านี้ ในไฟล์`schema.graphql` เราเพิ่มข้อมูลเพิ่มเติมแล้วใช้ function `.save()` เพื่อที่จะบันทึก entity ใหม่ (SubQuery จะบันทึกอัตโนมัติใน database).
 
-For more information about mapping functions, check out our documentation under [Build/Mappings](../build/mapping.md)
+สำหรับข้อมูลเพิ่มเติมเกี่ยวกับmapping functions โปรดดูเอกสารประกอบของเราข้างใต้[Build/Mappings](../build/mapping.md)
 
 ### การสร้างโปรเจค
 
-In order run your new SubQuery Project we first need to build our work. Run the build command from the project's root directory.
+ในการรันโปรเจกต์ SubQuery ใหม่ของคุณ เราต้องสร้างงานของเราก่อน รันคำสั่ง build จาก root directory ของโปรเจกต์
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script build ``` </CodeGroupItem> </CodeGroup>
 
@@ -179,15 +179,15 @@ In order run your new SubQuery Project we first need to build our work. Run the 
 
 เมื่อไรก็ตามที่คุณสร้าง Subquery Project ใหม่ คุณควรจะรันโปเจค local บนคอมพิวเตอร์ของคุณเสมอเพื่อทดสอบมันก่อน. วิธีที่ง่ายที่สุดคือให้ใช้ Docker.
 
-ทุกๆการตั้งค่าใน SubQuery node จะรันอยู่ภายใน`docker-compose.yml` ไฟล์. For a new project that has been just initalised you won't need to change anything here, but you can read more about the file and the settings in our [Run a Project section](../run_publish/run.md)
+ทุกๆการตั้งค่าใน SubQuery node จะรันอยู่ภายใน`docker-compose.yml` ไฟล์. สำหรับโปรเจกต์ใหม่ที่เพิ่งเริ่มต้น คุณไม่จำเป็นต้องเปลี่ยนแปลงอะไรในนี้ แต่คุณสามารถอ่านเพิ่มเติมเกี่ยวกับไฟล์และการตั้งค่าได้ใน [Run a Project section](../run_publish/run.md)
 
 ภายใต้ poject directory ให้รันคำสั่งต่อไปนี้
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn start:docker ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script start:docker ``` </CodeGroupItem> </CodeGroup>
 
-It may take some time to download the required packages ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), and Postgres) for the first time but soon you'll see a running SubQuery node. อดทนไว้
+อาจใช้เวลาสักครู่ในการดาวน์โหลดแพ็คเกจที่จำเป็นสำหรับครั้งแรก ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), and Postgres)  แต่ในไม่ช้า คุณจะเห็น SubQuery node ที่ทำงานอยู่ อดทนไว้
 
-### Query your Project
+### Query โปรเจกต์ของคุณ
 
 เปิดเบราว์เซอร์ของคุณและไปที่ [http://localhost:3000](http://localhost:3000)
 
@@ -211,11 +211,11 @@ query {
 }
 ```
 
-### Publish your SubQuery Project
+### เผยแพร่โปรเจกต์ SubQuery ของคุณ
 
-SubQuery provides a free managed service when you can deploy your new project to. คุณสามารถปรับใช้มัน [SubQuery Projects](https://project.subquery.network) และ query โดยใช้ [Explorer](https://explorer.subquery.network).
+SubQuery มีบริการสำหรับการจัดการฟรีเมื่อคุณ deploy โปรเจ็กต์ใหม่ คุณสามารถปรับใช้มัน [SubQuery Projects](https://project.subquery.network) และ query โดยใช้ [Explorer](https://explorer.subquery.network).
 
-[Read the guide to publish your new project to SubQuery Projects](../run_publish/publish.md), **Note that you must deploy via IPFS**.
+[อ่านคำแนะนำเพื่อเผยแพร่โปรเจกต์ของคุณไปยัง SubQuery Projects](../run_publish/publish.md), **โปรดจำไว้คุณต้อง deploy โดย IPFS**.
 
 ## ขั้นต่อไป
 
@@ -223,6 +223,6 @@ SubQuery provides a free managed service when you can deploy your new project to
 
 ตอนนี้คุณได้รับข้อมูลเชิงลึกเกียวกับสร้าง Subquery project ขั้นพื้นฐาน คำถามคือ เราจะไปที่ไหนต่อ ถ้าคุณคิดว่าคุณมั่นใจ คุณสามารถข้ามไปเรียนรู้เกี่ยวกับ three key files ได้เลย The manifest ไฟล์, the GraphQL schema, และ mappings ไฟล์ภายใต้ [Build section of these docs](../build/introduction.md).
 
-Otherwise, continue to our [Academy section](../academy/academy.md) where have more in depth workshops, tutorials, and example projects. There we'll look at more advanced modifications, and we'll take a deeper dive at running SubQuery projects by running readily available and open source projects.
+หรือไปที่[Academy section](../academy/academy.md) ซึ่งมีเวิร์กช็อปเชิงลึก บทแนะนำ และตัวอย่างโปรเจกต์เพิ่มเติม เราจะดูการปรับเปลี่ยนขั้นสูงเพิ่มเติมที่นั่น และเราจะเจาะลึกลงไปในการรันโปรเจกต์ SubQuery โดยการรันโปรเจ็กต์ที่พร้อมใช้งานและโปรเจกต์ open source
 
-Finally, if you're looking for more ways to run and publish your project, our [Run & Publish section](../run_publish/run.md) provides detailed informatation about all the ways to run your SubQuery project and other advanced GraphQL aggregation and subscription features.
+สุดท้ายนี้ หากคุณกำลังมองหาวิธีเพิ่มเติมในการรันและเผยแพร่โปรเจกต์ของคุณ [Run & Publish section](../run_publish/run.md) ของเราสามารถให้ข้อมูลโดยละเอียดเกี่ยวกับวิธีการทั้งหมดในการรันโปรเจกต์ SubQuery ของคุณและการรวบรวม GraphQL ขั้นสูง และ การ subscription features อื่นๆ
