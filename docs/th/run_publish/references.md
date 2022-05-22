@@ -25,6 +25,7 @@
 | ------------------ | -------------------------------------------------------------------------------------------------------------- |
 | -l, --location     | โฟลเดอร์ภายในของโปรเจกต์ subquery (หากไม่ได้อยู่ในโฟลเดอร์อยู่แล้ว)                                            |
 | -o, --output       | ระบุโฟลเดอร์ปลายทางของการสร้าง เช่น build-folder                                                               |
+| --mode=(production | prod                                                        | development | dev) | [ ค่าเริ่มต้น: production ] |
 
 - ด้วย `subql build` คุณสามารถระบุจุดเข้าใช้งานเพิ่มเติมได้ในช่อง exports ถึงแม้ว่าจะมีการสร้าง `index.ts` โดยอัตโนมัติเสมอ
 
@@ -59,15 +60,17 @@ Options:
                                                       [boolean] [ค่าเริ่มต้น: false]
       --timeout            กำหนดระยะเวลาสำหรับ indexer sandbox ในการใช้คำสั่ง mapping
                                                               [number]
-      --debug               แสดงข้อมูลการ debug ไปยัง console output โดยจะ
-                            บังคับให้มีการตั้งค่า log level เพื่อการ debug
-                                                      [boolean] [ค่าเริ่มต้น: false]
-      --profiler            แสดงข้อมูลตัวสร้างโปรไฟล์ไปยัง console output
-                                                      [boolean] [ค่าเริ่มต้น: false]
-      --network-endpoint    Endpoint ของเครือข่ายบล็อกเชนเพื่อการเชื่อมต่อ      [string]
-      --output-fmt          พิมพ์ log เป็น json หรือข้อความธรรมดา
-                                           [string] [ตัวเลือก: "json", "colored"]
-      --log-level           ระบุ log level ที่จะพิมพ์ เพิกเฉยต่อคำสั่ง เมื่อมีการใช้ --debug
+      --debug               แสดงข้อมูลการ debug ไปยัง console output will
+                            forcefully set log level to debug
+                                                      [boolean] [default: false]
+      --profiler            Show profiler information to console output
+                                                      [boolean] [default: false]
+      --subscription        Enable subscription       [boolean] [default: false]                                                     
+      --network-endpoint    Blockchain network endpoint to connect      [string]
+      --output-fmt          Print log as json or plain text
+                                           [string] [choices: "json", "colored"]
+      --log-level           Specify log level to print. เพิกเฉยต่อคำสั่ง เมื่อมีการใช้ --debug
+                           
           [string] [ตัวเลือก: "fatal", "error", "warn", "info", "debug", "trace",
                                                                        "silent"]
       --migrate             ย้าย db schema (สำหรับตารางการจัดการเท่านั้น)
@@ -282,7 +285,7 @@ An instance of ProjectManifestImpl has failed the validation:
 subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot"
 ```
 
-[อ่านเพิ่มเติมเกี่ยวกับวิธีการทำงานของ SubQuery Dictionary ได้ที่นี่](../academy/tutorials_examples/dictionary.md)
+[Read more about how a SubQuery Dictionary works](../academy/tutorials_examples/dictionary.md).
 
 ### -p, --port
 
@@ -346,11 +349,11 @@ Flag นี้เป็นการเปิดใช้งาน graphql playgr
 
 ### --output-fmt
 
-อ่าน [--output-fmt](#output-fmt)
+See [--output-fmt](https://doc.subquery.network/run_publish/references.html#output-fmt)
 
 ### --log-level
 
-อ่าน [--log-level](#log-level)
+See [--log-level](https://doc.subquery.network/run_publish/references.html#log-level)
 
 ### --log-path
 
@@ -372,7 +375,7 @@ This flag enables [GraphQL Subscriptions](./subscription.md), to enable this fea
 
 บริการจัดเรียงข้อมูลมีขีดจำกัด 100 รายการสำหรับการสืบค้นที่ไม่ผูกกับ graphql Flag unsafe จะลบขีดจำกัดนี้ซึ่งอาจทำให้เกิดปัญหาด้านประสิทธิภาพในบริการสืบค้น จึงขอแนะนำว่า ให้ใช้ [ paginated ](https://graphql.org/learn/pagination/) แทน
 
-This flag enables certain aggregation functions including sum, max, avg and others. Read more about this feature [here](./aggregate.md)
+This flag enables certain aggregation functions including sum, max, avg and others. อ่านข้อมูลเกี่ยวกับฟีเจอร์นี้เพิ่มเติมได้ [ที่นี้ ](./aggregate.md)
 
 สิ่งเหล่านี้ถูกปิดใช้งานโดยค่าเริ่มต้นเนื่องจากขีดจำกัดของเอนทิตี
 
