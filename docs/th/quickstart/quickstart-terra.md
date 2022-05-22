@@ -1,14 +1,14 @@
 # Terra Quick Start
 
-In this Quick start guide, we're going to start with a simple Terra starter project and then finish by indexing some actual real data. นี้จะเป็นการสร้างพื้นฐานให้กับคุณเมื่อตอนที่คุณทำโปรเจกต์ SubQuery ของคุณเอง
+ในคู่มือเริ่มต้นฉบับย่อนี้ เราจะเริ่มต้นด้วยโครงการ Terra starter แบบง่าย ๆ จากนั้นจึงเสร็จสิ้นด้วยการจัดทำดัชนีข้อมูลจริงบางส่วน นี้จะเป็นการสร้างพื้นฐานให้กับคุณเมื่อตอนที่คุณทำโปรเจกต์ SubQuery ของคุณเอง
 
-**If your are looking for guides for Substrate/Polkadot, you can read the [Substrate/Polkadot specific quick start guide](./quickstart-polkadot).**
+**ถ้าคุณกำลังมองหาบทความการใช้ Substrate/Polkadot, คุณสามารถอ่านเพิ่มเติมได้ที่ คู่มือเริ่มต้นโดยเฉพาะ Substrate/Polkadot**
 
 หลังจบคู่มือนี้ คุณจะมีโปรเจ็กต์ SubQuery ที่ทำงานบนโหนด SubQuery และมี GraphQL endpoint ที่คุณสามารถสืบค้นข้อมูลได้
 
 หากคุณยังไม่คุ้นเคย เราขอแนะนำให้คุณทำความคุ้นเคยกับ [คำศัพท์](../#terminology) ที่ใช้ใน SubQuery
 
-**The goal of this quick start guide is to adapt the standard starter project to begin indexing all transfers from Terra, it should only take 10-15 minutes**
+**เป้าหมายของคู่มือเริ่มต้นฉบับย่อนี้คือการปรับโครงการเริ่มต้นมาตรฐานเพื่อเริ่มสร้างดัชนีการถ่ายโอนทั้งหมดจาก Terra โดยใช้เวลาเพียง 10-15 นาที**
 
 ## การเตรียมความพร้อม
 
@@ -42,31 +42,31 @@ subql help
 subql init
 ```
 
-You'll be asked certain questions as the SubQuery project is initalised:
+คุณจะถูกถามคำถามบางอย่างเมื่อโครงการ SubQuery เริ่มต้น:
 
 - Name: ชื่อ Subquery Project ของคุณ
-- Network Family: The layer-1 blockchain network family that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use *"Terra"*
-- Network: The specific network that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use *"Terra"*
-- Template: Select a SubQuery project template that will provide a starting point to begin development, we suggest selecting the *"Starter project"*
+- ตระกูลเครือข่าย: ตระกูลเครือข่ายบล็อกเชนเลเยอร์ 1 ที่โครงการ SubQuery นี้จะถูกพัฒนาเพื่อสร้างดัชนี ใช้ปุ่มลูกศรบนแป้นพิมพ์เพื่อเลือกจากตัวเลือก สำหรับคำแนะนำนี้ เราจะใช้ "Terra"
+- เครือข่าย: เครือข่ายเฉพาะที่โครงการ SubQuery นี้จะถูกพัฒนาเพื่อสร้างดัชนี ใช้ปุ่มลูกศรบนแป้นพิมพ์เพื่อเลือกจากตัวเลือก สำหรับคำแนะนำนี้ เราจะใช้ "Terra"
+- แม่แบบ: เลือกเทมเพลตโครงการ SubQuery ที่จะให้จุดเริ่มต้นเพื่อเริ่มการพัฒนา เราขอแนะนำให้เลือก"Starter project"
 - Git repository (ทางเลือก): ระบุ Git URL ไปยัง repoที่โปรเจกต์ SubQuery ที่จะถูกทำการโฮสต์ (เมื่อโฮสต์ใน Subquery Explorer)
-- RPC endpoint (จำเป็น): ระบุ HTTPS URL ไปยัง RPC endpoint ที่ทำงานอยู่ที่จะใช้งานเป็นค่าเริ่มต้นของโปรเจค RPC node นี้ต้องเป็น archive node (มีสถานะ full chain state) For this guide we will use the default value *"https://terra-columbus-5.beta.api.onfinality.io"*
+- RPC endpoint (จำเป็น): ระบุ HTTPS URL ไปยัง RPC endpoint ที่ทำงานอยู่ที่จะใช้งานเป็นค่าเริ่มต้นของโปรเจค RPC node นี้ต้องเป็น archive node (มีสถานะ full chain state) สำหรับคู่มือนี้เราจะใช้ค่าเริ่มต้นคือ "https://terra-columbus-5.beta.api.onfinality.io"
 - Authors (Required): กรอกชื่อเจ้าของโปรเจกต์ที่นี่ (เช่น ชื่อของคุณ)
 - Description (ไม่บังคับ): คุณสามารถใส่ข้อความสั้น ๆ เกี่ยวกับโปนเจกต์ของคุณโดยอธิบายว่ามีข้อมูลใดบ้างและผู้ใช้สามารถทำอะไรกับมันได้
 - Version (จำเป็น): ระบุหมายเลขเวอร์ชันที่กำหนดเองหรือใช้ค่าเริ่มต้น(`1.0.0`)
 - License (จำเป็น): ระบุใบอนุญาตซอฟต์แวร์สำหรับโปรเจกต์นี้หรือใช้ค่าเริ่มต้น (`Apache-2.0`)
 
-After the initialisation process is complete, you should see a folder with your project name has been created inside the directory. The contents of this directoy should be identical to what's listed in the [Directory Structure](../create/introduction.md#directory-structure).
+หลังจากกระบวนการเริ่มต้นเสร็จสมบูรณ์ คุณควรเห็นโฟลเดอร์ที่มีชื่อโครงการของคุณถูกสร้างขึ้นภายในไดเร็กทอรี เนื้อหาของไดเร็กทอรีนี้ควรเหมือนกับที่ระบุไว้ใน โครงสร้างไดเร็กทอรี
 
-Last, under the project directory, run following command to install the new project's dependencies.
+สุดท้าย ภายใต้ไดเร็กทอรีโครงการ ให้รันคำสั่งต่อไปนี้เพื่อติดตั้งการพึ่งพาของโปรเจ็กต์ใหม่
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```shell cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
 
 ## Making Changes to your Project
 
-In the starter package that you just initialised, we have provided a standard configuration for your new project. You will mainly be working on the following files:
+In the starter package that you just initialised, we have provided a standard configuration for your new project. คุณจะต้องทำงานกับไฟล์ต่อไปนี้เป็นหลัก:
 
-1. The GraphQL Schema in `schema.graphql`
+1. The GraphQL Schema ใน `schema.graphql`
 2. The Project Manifest ใน `project.yaml`
 3. Mapping functions ในไดเรกทอรี `src/mappings/`
 
@@ -98,9 +98,9 @@ type Transfer @entity {
 
 ### การอับเดท Project Manifest File
 
-The Projet Manifest (`project.yaml`) file can be seen as an entry point of your project and it defines most of the details on how SubQuery will index and transform the chain data.
+The Projet Manifest (`project.yaml`)ไฟล์สามารถมองว่าเป็นจุดเริ่มต้นโครงการของคุณและกำหนดรายละเอียดส่วนใหญ่ว่า SubQuery จะสร้างดัชนีและแปลงข้อมูลลูกโซ่อย่างไร
 
-We won't do many changes to the manifest file as it already has been setup correctly, but we need to change our handlers. Remember we are planning to index all Terra transfer events, as a result, we need to update the `datasources` section to read the following.
+เราจะไม่ทำการเปลี่ยนแปลงมากมายในไฟล์ Manifest เนื่องจากไฟล์ได้รับการตั้งค่าอย่างถูกต้องแล้ว แต่เราจำเป็นต้องเปลี่ยนตัวจัดการของเรา จำไว้ว่าเรากำลังวางแผนที่จะจัดทำดัชนีเหตุการณ์การถ่ายโอน Terra ทั้งหมด ด้วยเหตุนี้ เราจึงต้องอัปเดตส่วน `datasources` เพื่ออ่านข้อมูลต่อไปนี้
 
 ```yaml
 dataSources:
@@ -133,7 +133,7 @@ Navigate to the default mapping function in the `src/mappings` directory. You'll
 
 The `handleEvent` function recieved event data whenever event matches the filters that we specify previously in our `project.yaml`. We are going to update it to process all `transfer` events and save them to the GraphQL entities that we created earlier.
 
-You can update the `handleEvent` function to the following (note the additional imports):
+คุณสามารถอัปเดตฟังก์ชัน `handleEvent` เป็นดังต่อไปนี้ (โปรดสังเกตการนำเข้าเพิ่มเติม):
 
 ```ts
 import { TerraEvent } from "@subql/types-terra";
@@ -172,11 +172,11 @@ export async function handleEvent(
 
 What this is doing is receiving a SubstrateEvent which includes transfer data on the payload. We extract this data and then instantiate a new `Transfer` entity that we defined earlier in the `schema.graphql` file. We add additional information and then use the `.save()` function to save the new entity (SubQuery will automatically save this to the database).
 
-For more information about mapping functions, check out our documentation under [Build/Mappings](../build/mapping.md)
+สำหรับข้อมูลเพิ่มเติมเกี่ยวกับฟังก์ชันการทำแผนที่ โปรดดูเอกสารประกอบของเราใน [Build/Mappings](../build/mapping.md)
 
 ### การสร้างโปรเจค
 
-In order run your new SubQuery Project we first need to build our work. Run the build command from the project's root directory.
+ถ้าต้องการสร้างโปรเจคใหม่ในSubQuery Project เราต้องเริ่มต้นสร้างงานใหม่ โดย ทำการ Run คำสั่งเริ่มต้นจาก project's root directory
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script build ``` </CodeGroupItem> </CodeGroup>
 
@@ -188,7 +188,7 @@ In order run your new SubQuery Project we first need to build our work. Run the 
 
 เมื่อไรก็ตามที่คุณสร้าง Subquery Project ใหม่ คุณควรจะรันโปเจค local บนคอมพิวเตอร์ของคุณเสมอเพื่อทดสอบมันก่อน. วิธีที่ง่ายที่สุดคือให้ใช้ Docker
 
-ทุกๆการตั้งค่าใน SubQuery node จะรันอยู่ภายใน `docker-compose.yml` ไฟล์. For a new project that has been just initalised you won't need to change anything here, but you can read more about the file and the settings in our [Run a Project section](../run_publish/run.md)
+ทุกๆการตั้งค่าใน SubQuery node จะรันอยู่ภายใน `docker-compose.yml` ไฟล์. สำหรับโปรเจคใหม่ที่เพิ่งติดตั้งเสร็จ คุณไม่ต้องมีการเปลี่ยนแปลงอะไร, แต่คถณสามารถอ่านเพิ่มเติมได้ที่ เมนู ไฟล์ และ ตั้งค่า ใน Run a Project section
 
 ภายใต้ poject directory ให้รันคำสั่งต่อไปนี้
 
@@ -226,9 +226,9 @@ It may take some time to download the required packages ([`@subql/node`](https:/
 
 ### Publish your SubQuery Project
 
-SubQuery provides a free managed service when you can deploy your new project to. คุณสามารถปรับใช้มัน [SubQuery Projects](https://project.subquery.network) และ query โดยใช้ [Explorer](https://explorer.subquery.network).
+SubQuery ให้บริการที่มีการจัดการฟรีเมื่อคุณปรับใช้โปรเจ็กต์ใหม่ได้ คุณสามารถปรับใช้มัน [SubQuery Projects](https://project.subquery.network) และ query โดยใช้ [Explorer](https://explorer.subquery.network).
 
-[Read the guide to publish your new project to SubQuery Projects](../run_publish/publish.md)
+[อ่านคำแนะนำเพื่อเผยแพร่โครงการใหม่ของคุณไปยัง SubQuery Projects](../run_publish/publish.md)
 
 ## ขั้นต่อไป
 
