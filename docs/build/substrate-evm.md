@@ -151,9 +151,12 @@ dataSources:
             from: "0x6bd193ee6d2104f14f94e2ca6efefae561a4334b"
 ```
 
+## Querying contracts
+
+`@subql/frontier-evm-provider` is the only package that currently allows this. It provides [FrontierEthProvider](https://github.com/subquery/datasource-processors/blob/697d63f5a9c978f3e231e0bb4975f05213077d23/packages/frontier-evm/src/frontierEthProvider.ts#L75) which implements an [Ethers Provider](https://docs.ethers.io/v5/api/providers/provider/), this implementation is restricted to only support methods for the current height. You can pass it to a contract instance in order to query contract state at the hight currently being indexed.
+
 ## Known Limitations
 
-- There is currently no way to query EVM state within a handler
 - There is no way to get the transaction receipts with call handlers
 - `blockHash` properties are currently left undefined, the `blockNumber` property can be used instead
 
