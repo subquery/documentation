@@ -1,6 +1,6 @@
 # Substrate EVM Support
 
-We provide a custom data source processor for [Parity's Frontier EVM](https://github.com/paritytech/frontier). This offers a simple way to filter and index both EVM and Substrate activity on many Polkadot networks within a single SubQuery project.
+We provide a custom data source processor for [Parity's Frontier EVM](https://github.com/paritytech/frontier) and [Acala's EVM+](https://wiki.acala.network/learn/acala-evm/why-acala-evm). This offers a simple way to filter and index both EVM and Substrate activity on many Polkadot networks within a single SubQuery project.
 
 **Tested and Supported networks**
 
@@ -11,6 +11,8 @@ We provide a custom data source processor for [Parity's Frontier EVM](https://gi
 | Moonbase Alpha | `wss://moonbeam-alpha.api.onfinality.io/public-ws` | `https://api.subquery.network/sq/subquery/moonbase-alpha-dictionary`    |
 | Astar          | `wss://astar.api.onfinality.io/public-ws`          | `https://explorer.subquery.network/subquery/subquery/astar-dictionary`  |
 | Shiden         | `wss://shiden.api.onfinality.io/public-ws`         | `https://explorer.subquery.network/subquery/subquery/shiden-dictionary` |
+| Acala          | `wss://acala-polkadot.api.onfinality.io/public-ws` | Acala Dictionary doesn't currently support EVM                          |
+| Karura         | `wss://karura.api.onfinality.io/public-ws` | Karura Dictionary doesn't currently support EVM                         |
 
 Theoretically the following networks should also be supported since they implement Parity's Frontier EVM. Please let us know if you verify this and we can add them to the known support:
 
@@ -32,21 +34,23 @@ Theoretically the following networks should also be supported since they impleme
 - Thales
 - Unique
 
-**You can also refer to the [basic Moonriver EVM example project](https://github.com/subquery/tutorials-frontier-evm-starter/tree/moonriver) with an event and call handler.** This project is also hosted live in the SubQuery Explorer [here](https://explorer.subquery.network/subquery/subquery/moonriver-evm-starter-project).
+**You can also refer to the basic [Moonriver EVM](https://github.com/subquery/tutorials-frontier-evm-starter/tree/moonriver) or [Acala EVM+](https://github.com/subquery/acala-evm-starter) example projects with an event and call handler.** This project is also hosted live in the SubQuery Explorer [here](https://explorer.subquery.network/subquery/subquery/moonriver-evm-starter-project).
 
 ## Getting started
 
-1. Add the custom data source as a dependency `yarn add @subql/contract-processors`
+1. Add the custom datasource as a dependency:
+  * Create a new project from an EVM template though `subql init` OR
+  * For existing projects, `yarn add @subql/frontier-evm-processor` or `yarn add @subql/acala-evm-processor`
 2. Add a custom data source as described below
 3. Add handlers for the custom data source to your code
 
 ## Data Source Spec
 
-| Field             | Type                                                              | Required | Description                                |
-| ----------------- | ----------------------------------------------------------------- | -------- | ------------------------------------------ |
-| processor.file    | `'./node_modules/@subql/contract-processors/dist/frontierEvm.js'` | Yes      | File reference to the data processor code  |
-| processor.options | [ProcessorOptions](#processor-options)                            | No       | Options specific to the Frontier Processor |
-| assets            | `{ [key: String]: { file: String }}`                              | No       | An object of external asset files          |
+| Field             | Type                                                          | Required | Description                                |
+| ----------------- | ------------------------------------------------------------- | -------- | ------------------------------------------ |
+| processor.file    | `'/node_modules/@subql/frontier-evm-processor/dist/index.js'` | Yes      | File reference to the data processor code  |
+| processor.options | [ProcessorOptions](#processor-options)                        | No       | Options specific to the Frontier Processor |
+| assets            | `{ [key: String]: { file: String }}`                          | No       | An object of external asset files          |
 
 ### Processor Options
 
@@ -55,14 +59,14 @@ Theoretically the following networks should also be supported since they impleme
 | abi     | String           | No       | The ABI that is used by the processor to parse arguments. MUST be a key of `assets`                        |
 | address | String or `null` | No       | A contract address where the event is from or call is made to. `null` will capture contract creation calls |
 
-## FrontierEvmCall
+## Call Handlers
 
 Works in the same way as [substrate/CallHandler](../create/mapping/#call-handler) except with a different handler argument and minor filtering changes.
 
-| Field  | Type                         | Required | Description                                 |
-| ------ | ---------------------------- | -------- | ------------------------------------------- |
-| kind   | 'substrate/FrontierEvmCall'  | Yes      | Specifies that this is an Call type handler |
-| filter | [Call Filter](#call-filters) | No       | Filter the data source to execute           |
+| Field  | Type                                                    | Required | Description                                 |
+| ------ | ------------------------------------------------------- | -------- | ------------------------------------------- |
+| kind   | `substrate/FrontierEvmCall` or `substrate/AcalaEvmCall` | Yes      | Specifies that this is an Call type handler |
+| filter | [Call Filter](#call-filters)                            | No       | Filter the data source to execute           |
 
 ### Call Filters
 
@@ -71,24 +75,24 @@ Works in the same way as [substrate/CallHandler](../create/mapping/#call-handler
 | function | String | 0x095ea7b3, approve(address to,uint256 value) | Either [Function Signature](https://docs.ethers.io/v5/api/utils/abi/fragments/#FunctionFragment) strings or the function `sighash` to filter the function called on the contract |
 | from     | String | 0x6bd193ee6d2104f14f94e2ca6efefae561a4334b    | An Ethereum address that sent the transaction                                                                                                                                    |
 
-### Handlers
+### Handler Functions
 
-Unlike a normal handler you will not get a `SubstrateExtrinsic` as the parameter, instead you will get a `FrontierEvmCall` which is based on Ethers [TransactionResponse](https://docs.ethers.io/v5/api/providers/types/#providers-TransactionResponse) type.
+Unlike a normal handler you will not get a `SubstrateExtrinsic` as the parameter, instead you will get a `FrontierEvmCall` or `AcalaEvmCall` which is based on Ethers [TransactionResponse](https://docs.ethers.io/v5/api/providers/types/#providers-TransactionResponse) type.
 
 Changes from the `TransactionResponse` type:
 
 - It doesn't have `wait` and `confirmations` properties
 - A `success` property is added to know if the transaction was a success
-- `args` is added if the `abi` field is provided and the arguments can be successfully parsed
+- `args` is added if the `abi` field is provided and the arguments can be successfully parsed. You can add a generic parameter like so to type `args`: `FrontierEvmCall<{ from: string, to: string, value: BigNumber }>`
 
-## FrontierEvmEvent
+## Event Handlers
 
 Works in the same way as [substrate/EventHandler](../create/mapping/#event-handler) except with a different handler argument and minor filtering changes.
 
-| Field  | Type                           | Required | Description                                  |
-| ------ | ------------------------------ | -------- | -------------------------------------------- |
-| kind   | 'substrate/FrontierEvmEvent'   | Yes      | Specifies that this is an Event type handler |
-| filter | [Event Filter](#event-filters) | No       | Filter the data source to execute            |
+| Field  | Type                                                      | Required | Description                                  |
+| ------ | --------------------------------------------------------- | -------- | -------------------------------------------- |
+| kind   | `substrate/FrontierEvmEvent` or `substrate/AcalaEvmEvent` | Yes      | Specifies that this is an Event type handler |
+| filter | [Event Filter](#event-filters)                            | No       | Filter the data source to execute            |
 
 ### Event Filters
 
@@ -102,13 +106,13 @@ There are a couple of improvements from basic log filters:
 - Topics don't need to be 0 padded
 - [Event Fragment](https://docs.ethers.io/v5/api/utils/abi/fragments/#EventFragment) strings can be provided and automatically converted to their id
 
-### Handlers
+### Handler Functions
 
-Unlike a normal handler you will not get a `SubstrateEvent` as the parameter, instead you will get a `FrontierEvmEvent` which is based on Ethers [Log](https://docs.ethers.io/v5/api/providers/types/#providers-Log) type.
+Unlike a normal handler you will not get a `SubstrateEvent` as the parameter, instead you will get a `FrontierEvmEvent` or `AcalaEvmEvent` which is based on Ethers [Log](https://docs.ethers.io/v5/api/providers/types/#providers-Log) type.
 
 Changes from the `Log` type:
 
-- `args` is added if the `abi` field is provided and the arguments can be successfully parsed
+- `args` is added if the `abi` field is provided and the arguments can be successfully parsed. You can add a generic parameter like so to type `args`: `FrontierEvmEvent<{ from: string, to: string, value: BigNumber }>`.
 
 ## Data Source Example
 
@@ -152,3 +156,9 @@ dataSources:
 - There is currently no way to query EVM state within a handler
 - There is no way to get the transaction receipts with call handlers
 - `blockHash` properties are currently left undefined, the `blockNumber` property can be used instead
+
+## Extra info
+
+- There is also a `@subql/moonbeam-evm-processor` which is an alias for `@subql/frontier-evm-processor`
+- The source code for these processors can be found in our datasource-processors [repo](https://github.com/subquery/datasource-processors)
+
