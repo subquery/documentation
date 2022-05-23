@@ -1,4 +1,4 @@
-# Polkadot Quick Start
+# คู่มือเริ่มต้นสำหรับ Polkadot
 
 ในบทความเริ่มต้นนี้, เราจะเริ่มต้นด้วยการเริ่มต้นโปรเจคSubstrate/Polkadotอย่างง่าย และต่อไปจนถึงจบด้วย การจัดทำดัชนีของข้อมูลจริง นี้คือบทความเริ่มต้นที่ดีสำหรับนักพัฒนาโปรแกรม ที่กำลังทำการพัฒนาโปรเจคSubstrate/PolkadotบนSubQuery
 
@@ -43,11 +43,11 @@ subql init
 คุณจะถูกถามคำถามบางอย่างเมื่อโครงการ SubQuery เริ่มต้น:
 
 - ชื่อโปรเจค: ตั้งชื่อว่าโปรเจค A สำหรับ โปรเจค SubQuery ของคุณ
-- Network family: The layer-1 blockchain network family that this SubQuery project will be developed to index. ใช้ลูกศร เพื่อเลือก ตัวเลือกที่มีให้ สำหรับคำแนะนำนี้ เราจะใช้ *"Substrate"*
+- Network family: ตระกูลเครือ blockchain layer-1ที่โปรเจกต์ SubQuery จะ develop เป็น index ใช้ลูกศร เพื่อเลือก ตัวเลือกที่มีให้ สำหรับคำแนะนำนี้ เราจะใช้ *"Substrate"*
 - เครือข่าย: เครือข่ายเฉพาะที่โครงการ SubQuery นี้จะถูกพัฒนาเพื่อสร้างดัชนี ใช้ลูกศร เพื่อเลือก ตัวเลือกที่มีให้ สำหรับคำแนะนำนี้ เราจะใช้ *"Polkadot*
 - โครงการแม่แบบ: เลือกโครงการแม่แบบ SubQuery ที่จะให้จุดเริ่มต้นเพื่อเริ่มการพัฒนา เราแนะนำให้เลือกโปรเจค *"subql-starter"*
-- RPC endpoint: Provide an HTTPS URL to a running RPC endpoint that will be used by default for this project. You can quickly access public endpoints for different Polkadot networks, create your own private dedicated node using [OnFinality](https://app.onfinality.io) or just use the default Polkadot endpoint. RPC node นี้ต้องเป็น archive node (มีสถานะ full chain state) For this guide, we will use the default value *"https://polkadot.api.onfinality.io"*
-- Git repository: Provide a Git URL to a repo that this SubQuery project will be hosted in (when hosted in SubQuery Explorer) or accept the provided default.
+- RPC endpoint: ระบุ HTTPS URL ไปยัง RPC endpoint ที่ทำงานอยู่ที่จะใช้งานเป็นค่าเริ่มต้นของโปรเจกต์ คุณสามารถเข้าถึง endpoints สาธารณะได้อย่างรวดเร็วสำหรับเครือข่าย Polkadot ต่างๆหรือแม้แต่สามารถ สร้าง node เฉพาะส่วนตัวของคุณเองโดยใช้ [OnFinality](https://app.onfinality.io) หรือเพียงแค่ใช้ Polkadot endpoints ที่เป็นค่าเริ่มต้น RPC node นี้ต้องเป็น archive node (มีสถานะ full chain state) สำหรับคู่มือนี้เราจะใช้ค่าเริ่มต้นคือ *"https://polkadot.api.onfinality.io"*
+- Git repository: ระบุ Git URL ไปยัง repo ที่จะโฮสต์โปรเจ็กต์ SubQuery นี้ (เมื่อโฮสต์ใน SubQuery Explorer) หรือยอมรับค่าเริ่มต้นที่ให้ไว้
 - ผู้เขียน: ใส่ชื่อของเจ้าของโปรเจคที่นี้(เช่น ชื่อของคุณ) หรือ ใช้ค่าเดิม
 - คำอธิบาย: เป็นคำอธิบายสั้นๆของโปรเจคเกี่ยวกับข้อมูลด้านใน และ ผู้ใช้งงานทั้งไปสามารถใช้อะไรได้บ้าง หรือ ตั้งไว้ค่าเดิม
 - เวอร์ชัน: ป้อนหมายเลขเวอร์ชันที่กำหนดเองหรือใช้ค่าเริ่มต้น
@@ -62,19 +62,19 @@ subql init
 
 ## การเปลี่ยนแปลงโครงการของคุณ
 
-ในแพ็คเกจเริ่มต้นที่เพิ่งเริ่มต้น มีการกำหนดค่ามาตรฐานไว้ XPath: /p[12]/CodeGroup/text These are:
+ในแพ็คเกจเริ่มต้นที่เพิ่งเริ่มต้น มีการกำหนดค่ามาตรฐานไว้ XPath: /p[12]/CodeGroup/text เหล่านี้:
 
 1. The GraphQL Schema in `schema.graphql`
 2. The Project Manifest ใน `project.yaml`
 3. Mapping functions ในไดเรกทอรี `src/mappings/`
 
-The goal of this quick start guide is to adapt the standard starter project to begin indexing all transfers from Polkadot.
+เป้าหมายของบทเริ่มต้นอย่างง่ายของนี้คือ สามารถนำข้อมูลของโปรเจกต์บน Polkadot ทำการย้าย indexing ไปยังโปรเจกต์ Subquery
 
 ### อับเดทไฟล์ GraphQL Schema ของคุณ
 
-The `schema.graphql` file defines the various GraphQL schemas. Due to the way that the GraphQL query language works, the schema file essentially dictates the shape of your data from SubQuery. It's a great place to start because it allows you to define your end goal upfront.
+ไฟล์ `schema.graphql` นั้นกำหนด GraphQL schemas ที่หลากหลาย เนื่องจากวิธีที่ภาษา GraphQL ใช้ในการดึงข้อมูลทำงานนั้น ไฟล์ Schema เป็นสิ่งสำคัญที่กำหนดรูปร่างข้อข้อมูลจาก SubQuery มันเป็นจุดที่ดีทีสุดที่จะเริ่มต้นเพราะมันอนุญาตให้คุณกำหนด end goal up front ของคุณได้
 
-Update the `schema.graphql` file to read as follows:
+อัปเดตไฟล์ `schema.graphql` ให้ทำดังนี้
 
 ```graphql
 type Transfer @entity {
@@ -95,9 +95,9 @@ type Transfer @entity {
 
 ### การอับเดท Project Manifest File
 
-The Project Manifest (`project.yaml`) file can be seen as an entry point of your project and it defines most of the details on how SubQuery will index and transform the chain data.
+ไฟล์ Manifest (`project.yaml`) เป็นจุดเริ่มต้นโปรเจกต์ของคุณ และมันจะกำหนดรายละเอียดส่วนใหญ่ว่า SubQuery จะสร้าง index และแปลง chain data อย่างไร
 
-The manifest file has already been set up correctly, but we need to change our handlers. As we are planning to index all Polkadot transfers, we need to update the `datasources` section as follows:
+ไฟล์ Manifest ได้รับการตั้งค่าอย่างถูกต้องแล้ว แต่เราจำเป็นต้องเปลี่ยน handlers ของเรา ในขณะที่เรากำลังวางแผนที่จะจัดทำการย้าย index Polkadot ทั้งหมด เราจำเป็นต้องอัปเดตส่วน `datasources` ดังนี้:
 
 ```yaml
 dataSources:
@@ -113,17 +113,17 @@ dataSources:
             method: Transfer
 ```
 
-This means we'll run a `handleEvent` mapping function each and every time there is a `balances.Transfer` event.
+ซึ่งหมายความว่าเราจะเรียกใช้ mapping function `handleEvent` ทุกครั้งที่มีเหตุการณ์ `balances.Transfer`
 
 สำหรับข้อมูลเพิ่มเติมเกี่ยวกับ Project Manifest (`project.yaml`) ไฟล์,โปรดตรวจสอบได้ที่เอกสารของเราภายใต้พ [Build/Manifest File](../build/manifest.md)
 
 ### เพิ่ม Mapping Function
 
-Mapping functions define how chain data is transformed into the optimised GraphQL entities that we have previously defined in the `schema.graphql` file.
+Mapping functions นั้นช่วยกำหนดวิธีการเปลี่ยนแปลง chain data เป็น GraphQL entities ที่ถูกปรับให้เหมาะสมซึ่งเราได้กำหนดไว้ก่อนหน้านี้ในไฟล์ `schema.graphql`
 
-Navigate to the default mapping function in the `src/mappings` directory. You'll see three exported functions, `handleBlock`, `handleEvent`, and `handleCall`. Delete both the `handleBlock` and `handleCall` functions as we will only deal with the `handleEvent` function.
+นำทางไปยัง mapping function เริ่มต้นใน directory`src/mappings` คุณจะเห็นสามฟังก์ชันที่ส่งออกมาก, `handleBlock`, `handleEvent`, and `handleCall`. คุณสามารถลบทั้งฟังก์ชัน `handleBlock` และ `handleCall` แล้วเราจะจัดการกับฟังก์ชัน `handleEvent` เท่านั้น
 
-The `handleEvent` function receives event data whenever an event matches the filters that we specified previously in our `project.yaml`. We will update it to process all `balances.Transfer` events and save them to the GraphQL entities that we created earlier.
+ฟังก์ชัน `handleLog` จะได้รับ event data เมื่อใดก็ตามที่เหตุการณ์ตรงกับ filters ที่เราระบุไว้ก่อนหน้านี้ใน`project.yaml`. เเราจะอัปเดตเพื่อประมวลผลเหตุการณ์ทั้งหมด `balances.Transfer` และบันทึกลงใน GraphQL entities ที่เราสร้างไว้ก่อนหน้านี้
 
 คุณสามารถอัปเดตฟังก์ชัน `handleEvent` เป็นดังต่อไปนี้ (โปรดสังเกตการนำเข้าเพิ่มเติม):
 
@@ -152,13 +152,13 @@ export async function handleEvent(event: SubstrateEvent): Promise<void> {
 }
 ```
 
-What this is doing is receiving a SubstrateEvent which includes transfer data in the payload. We extract this data and then instantiate a new `Transfer` entity that we defined earlier in the `schema.graphql` file. We add additional information and then use the `.save()` function to save the new entity (SubQuery will automatically save this to the database).
+สิ่งที่กำลังทำคือได้รับ SubstrateEvent ซึ่งรวมถึงการถ่ายโอนข้อมูลใน payload ด้วย เราดึงข้อมูลนี้แล้วสร้าง instantiate entity ใหม่ที่`Transfer` ซึ่งเรากำหนดไว้ก่อนหน้านี้ในไฟล์ `schema.graphql` เราเพิ่มข้อมูลเพิ่มเติมแล้วใช้ฟังก์ชัน `.save()` เพื่อที่จะบันทึก entity ใหม่ (SubQuery จะบันทึกอัตโนมัติใน database).
 
 สำหรับข้อมูลเพิ่มเติมเกี่ยวกับฟังก์ชันการทำแผนที่ โปรดดูเอกสารประกอบของเราใน [Build/Mappings](../build/mapping.md)
 
 ### การสร้างโปรเจค
 
-In order to run your new SubQuery Project we first need to build our work. ทำการ Run คำสั่งเริ่มต้นจาก project's root directory
+ในการรันโปรเจกต์ SubQuery ใหม่ของคุณ เราต้องทำของเราก่อน ทำการ Run คำสั่งเริ่มต้นจาก project's root directory
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script build ``` </CodeGroupItem> </CodeGroup>
 
@@ -170,7 +170,7 @@ In order to run your new SubQuery Project we first need to build our work. ท�
 
 Whenever you create a new SubQuery Project, you should always run it locally on your computer to test it first. วิธีที่ง่ายที่สุดคือให้ใช้ Docker
 
-All configuration that controls how a SubQuery node is run is defined in the `docker-compose.yml` file. For a new project that has been just initialised you won't need to change anything, but you can read more about the file and the settings in our [Run a Project](../run_publish/run.md) section.
+ทุกๆการตั้งค่าใน SubQuery node จะรันอยู่ภายในไฟล์ `docker-compose.yml`. For a new project that has been just initialised you won't need to change anything, but you can read more about the file and the settings in our [Run a Project](../run_publish/run.md) section.
 
 Under the project directory, run the following command:
 
