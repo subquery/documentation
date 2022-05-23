@@ -12,7 +12,7 @@ Subscriptions มีประโยชน์มากเมื่อคุณต
 
 ตัวอย่างพื้นฐานของการใช้งาน GraphQL subscription จะได้รับแจ้งเตือนเมื่อมีการสร้าง entities ใหม่ ตัวอย่างต่อไปนี้ เราได้ทำการ subscribe `Transfer` ให้กับ entity และได้รับการอัพเดท เมื่อมีการเปลี่ยนแปลงข้อมูลในตาราง
 
-คุณสามารถสร้างการ subscription โดยการ querying the GraphQL endpoint as follows Your connection will then subscribe to any changes made to the `Transfer` entity table.
+คุณสามารถสร้างการ subscription โดยการ querying the GraphQL endpoint as follows การเชื่อต่อของคุณจะรับการเปลี่ยนแปลงผ่าน `transfer` entity table
 
 ```graphql
 subscription {
@@ -29,7 +29,7 @@ The body of the entity in your query indicates what data you want to receive via
 - `mutation_type`: The action that has been made to this entity. Mutation types can be either `INSERT`, `UPDATE` or `DELETE`
 - `_entity`: the value of the entity itself in JSON format.
 
-## Filtering
+## การคัดกรอง
 
 We also support filter on subscriptions, which means a client should only receive updated subscription data if that data or mutation meets certain criteria.
 
