@@ -158,7 +158,7 @@ subql-node -f your-project-path
 
 Depending on the configuration of your Postgres database (e.g. a different database password), please ensure also that both the indexer (`subql/node`) and the query service (`subql/query`) can establish a connection to it.
 
-#### Specify a configuration file
+#### ระบุไฟล์การกำหนดค่า
 
 <CodeGroup>
 <CodeGroupItem title='Substrate/Polkadot'>
