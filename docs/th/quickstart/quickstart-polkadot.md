@@ -24,7 +24,7 @@
 npm install -g @subql/cli
 ```
 
-Please note that we **DO NOT** encourage the use of `yarn global` for installing `@subql/cli` due to its poor dependency management which may lead to errors down the line.
+โปรดทราบว่าเรา **ไม่** สนับสนุนให้ใช้ `yarn global` สำหรับการติดตั้ง `@subql/cli`เนื่องจากการจัดการ dependency ที่ไม่ได้อาจนำไปสู่ข้อผิดพลาดได้
 
 จากนั้นคุณสามารถเรียกใช้ความช่วยเหลือเพื่อดูคำสั่งและการใช้งานที่ CLI ให้มา:
 
