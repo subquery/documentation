@@ -128,7 +128,7 @@ dataSources:
 
 นี้หมายความว่าพวกเราจะรัน `handleLog` แมปปิ้งฟังก์ชั่นที่ทุกครั้งที่มี`approve` log on ทุก transaction จาก [Pangolin contract](https://snowtrace.io/txs?a=0x60781C2586D68229fde47564546784ab3fACA982&p=1).
 
-สำหรับข้อมูลเพิ่มเติมเกี่ยวกับ Project Manifest (`project.yaml`) ไฟล์,โปรดตรวจสอบได้ที่เอกสารของเราภายใต้พ [Build/Manifest File](../build/manifest.md)
+สำหรับข้อมูลเพิ่มเติมเกี่ยวกับ Project Manifest (`project.yaml`) ไฟล์,โปรดตรวจสอบได้ที่เอกสารของเราภายใต้ [Build/Manifest File](../build/manifest.md)
 
 ### เพิ่ม Mapping Function
 
