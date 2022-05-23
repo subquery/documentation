@@ -115,7 +115,7 @@ dataSources:
 
 ซึ่งหมายความว่าเราจะเรียกใช้ mapping function `handleEvent` ทุกครั้งที่มีเหตุการณ์ `balances.Transfer`
 
-สำหรับข้อมูลเพิ่มเติมเกี่ยวกับ Project Manifest (`project.yaml`) ไฟล์,โปรดตรวจสอบได้ที่เอกสารของเราภายใต้พ [Build/Manifest File](../build/manifest.md)
+สำหรับข้อมูลเพิ่มเติมเกี่ยวกับ Project Manifest (`project.yaml`) ไฟล์,โปรดตรวจสอบได้ที่เอกสารของเราภายใต้ [Build/Manifest File](../build/manifest.md)
 
 ### เพิ่ม Mapping Function
 
@@ -170,21 +170,21 @@ export async function handleEvent(event: SubstrateEvent): Promise<void> {
 
 Whenever you create a new SubQuery Project, you should always run it locally on your computer to test it first. วิธีที่ง่ายที่สุดคือให้ใช้ Docker
 
-ทุกๆการตั้งค่าใน SubQuery node จะรันอยู่ภายในไฟล์ `docker-compose.yml`. For a new project that has been just initialised you won't need to change anything, but you can read more about the file and the settings in our [Run a Project](../run_publish/run.md) section.
+ทุกๆการตั้งค่าใน SubQuery node จะรันอยู่ภายในไฟล์ `docker-compose.yml`. สำหรับโปรเจd9Nใหม่ที่เพิ่งเริ่มต้น คุณไม่ต้องเปลี่ยนแปลงอะไร แต่คถณสามารถอ่านเพิ่มเติมเกี่นสกับไฟล์และการตั้งค่าได้ที่ [Run a Project](../run_publish/run.md)
 
-Under the project directory, run the following command:
+ให้รันคำสั่งต่อไปนี้ ภายใต้ไดเรกทอรีของโปรเจ็กต์:
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn start:docker ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script start:docker ``` </CodeGroupItem> </CodeGroup>
 
-It may take some time to download the required packages ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), and Postgres) for the first time but soon you should see a running SubQuery node in the terminal screen.
+อาจจะใช้เวลาสักครู่ในการดาวน์โหลดแพ็คเกจที่จำเป็นสำหรับครั้งแรก ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), and Postgres) แต่ในไม่ช้า คุณจะเห็น SubQuery node ที่ทำงานอยู่ในหน้าจอ
 
-### Query your Project
+### Query โปรเจกต์ของคุณ
 
 เปิดเบราว์เซอร์ของคุณและไปที่ [http://localhost:3000](http://localhost:3000)
 
-You should see a GraphQL playground in the browser and the schemas that are ready to query. ที่ตำแหน่งด้านบนขวาของ playground คุณจะพบปุ่ม _Docs_ ที่จะเปิดการร่างเอกสาร เอกสารนี้สร้างขึ้นโดยอัตโนมัติและช่วยให้คุณค้นหา entities และ methods ที่คุณสามารถค้นหาได้
+คุณควรที่จะเห็น GraphQl playground แสดงในเบราว์เซอร์และ schemas ที่พร้อมสำหรับการ query ได้ ที่ตำแหน่งด้านบนขวาของ playground คุณจะพบปุ่ม _Docs_ ที่จะเปิดการร่างเอกสาร เอกสารนี้สร้างขึ้นโดยอัตโนมัติและช่วยให้คุณค้นหา entities และ methods ที่คุณสามารถค้นหาได้
 
-For a new SubQuery starter project, try the following query to understand how it works or learn more about the [GraphQL Query language](../run_publish/graphql.md).
+สำหรับโปรเจกต์เริ่มต้น SubQuery ใหม่ ให้ลองใช้ query ต่อไปนี้เพื่อทำความเข้าใจวิธีการทำงาน หรือเรียนรู้เพิ่มเติมเกี่ยวกับ [GraphQL Query language](../run_publish/graphql.md).
 
 ```graphql
 {
@@ -205,18 +205,18 @@ For a new SubQuery starter project, try the following query to understand how it
 }
 ```
 
-### Publish your SubQuery Project
+### เผยแพร่โปรเจกต์ SubQuery ของคุณ
 
-SubQuery provides a free managed service where you can deploy your new project to. คุณสามารถปรับใช้มัน [SubQuery Projects](https://project.subquery.network) และ query โดยใช้ [Explorer](https://explorer.subquery.network).
+SubQuery ให้บริการ การจัดการฟรีในทุกๆที่ ที่คุณ deploy โปรเจ็กต์ใหม่ คุณสามารถปรับใช้มัน [SubQuery Projects](https://project.subquery.network) และ query โดยใช้ [Explorer](https://explorer.subquery.network).
 
-Read the guide to [publish your new project to SubQuery Projects](../run_publish/publish.md)
+อ่านคู่มือ [publish your new project to SubQuery Projects](../run_publish/publish.md)
 
 ## ขั้นต่อไป
 
-Congratulations, you now have a locally running SubQuery project that accepts GraphQL API requests for transfers data.
+ยินดีด้วย ตอนนี้คุณได้มี Subquery Project ที่กำลังทำงานอยู่บน local ที่ยอมรับการร้องขอจาก GraphQL API สำหรับการย้ายข้อมูล
 
-ตอนนี้คุณได้รับข้อมูลเชิงลึกเกียวกับสร้าง Subquery project ขั้นพื้นฐาน คำถามคือ เราจะไปที่ไหนต่อ ถ้าคุณคิดว่าคุณมั่นใจ คุณสามารถข้ามไปเรียนรู้เกี่ยวกับ three key files ได้เลย The manifest file, the GraphQL schema, and the mappings file are under the [Build section of these docs](../build/introduction.md).
+ตอนนี้คุณได้รับข้อมูลเชิงลึกเกียวกับสร้าง Subquery project ขั้นพื้นฐาน คำถามคือ เราจะไปที่ไหนต่อ ถ้าคุณคิดว่าคุณมั่นใจ คุณสามารถข้ามไปเรียนรู้เกี่ยวกับ three key files ได้เลย The manifest ไฟล์, the GraphQL schema, และ mappings ไฟล์อยู่ภายใต้ [Build section of these docs](../build/introduction.md).
 
-Otherwise, continue to our [Academy section](../academy/academy.md) where we have more in-depth workshops, tutorials, and example projects. เราจะดูการปรับเปลี่ยนขั้นสูงเพิ่มเติมที่นั่น และเราจะเจาะลึกลงไปที่การเรียกใช้โครงการ SubQuery โดยการเรียกใช้โครงการที่พร้อมใช้งานและโอเพ่นซอร์ส
+หรือไปที่[Academy section](../academy/academy.md) ที่เรามีเวิร์กช็อปเชิงลึก บทแนะนำ และตัวอย่างโครงการเพิ่มเติม เราจะดูการปรับเปลี่ยนขั้นสูงเพิ่มเติมที่นั่น และเราจะเจาะลึกลงไปที่การเรียกใช้โครงการ SubQuery โดยการเรียกใช้โครงการที่พร้อมใช้งานและโอเพ่นซอร์ส
 
-Finally, if you're looking for more ways to run and publish your project, our [Run & Publish section](../run_publish/run.md) provides detailed information about all the ways to run your SubQuery project and other advanced GraphQL aggregation and subscription features.
+สุดท้ายนี้ หากคุณกำลังมองหาวิธีเพิ่มเติมในการรันและเผยแพร่โปรเจกต์ของคุณ [Run & Publish section](../run_publish/run.md) ของเราสามารถให้ข้อมูลโดยละเอียดเกี่ยวกับวิธีการทั้งหมดในการรันโปรเจกต์ SubQuery ของคุณและการรวบรวม GraphQL ขั้นสูง และ การ subscription features อื่นๆ
