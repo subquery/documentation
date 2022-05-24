@@ -24,7 +24,7 @@ subscription {
 }
 ```
 
-The body of the entity in your query indicates what data you want to receive via your subscription when the `Transfer` table is updated:
+Body ของ entity ในขั้นตอนการ query จะแสดงให้เห็นถึงข้อมูลต่าง ๆ ที่คุณต้องการรับผ่านทาง subscription ของคุณ เมื่อตาราง `Transfer` ถูกอัพเดท:
 - `id`: Returns the ID of the entity that has changed
 - `mutation_type`: The action that has been made to this entity. Mutation types can be either `INSERT`, `UPDATE` or `DELETE`
 - `_entity`: the value of the entity itself in JSON format.
@@ -38,7 +38,7 @@ We also support filter on subscriptions, which means a client should only receiv
 - `id` : Filter to only return changes that affect a specific entity (designated by the ID).
 - `mutation_type`: Only the same mutation type been made will return an update.
 
-Assume we have an entity `Balances`, and it records the balance of each account.
+สมมติว่าเรามีหนึ่ง entity `Balances` และมันบันทึกยอดคงเหลือของแต่ละบัญชี
 
 ```graphql
 type Balances {
@@ -47,7 +47,7 @@ type Balances {
 }
 ```
 
-If we want to subscribe to any balance updates that affect a specific account, we can specify the subscription filter as follows:
+ถ้าเราต้องการที่จะติดตามการอัพเดทยอดคงเหลืออันใด ๆ ก็ตามที่มีผลต่อบัญชีโดยเฉพาะ เราจะสามารถระบุ ตัวกรองการ subscription ดังต่อไปนี้
 
 ```graphql
 subscription {
@@ -66,4 +66,4 @@ subscription {
 
 **คุณต้องเปิดใช้งาน `--subscription` บน Node และ query service ถึงสมารถใช้งาน function นีได้**
 
-The subcription feature works on SubQuery's managed service when you directly call the listed GraphQL endpoint. It will not work within the in-browser GraphQL playground.
+คุณสมบัติการ subcription ทำงานบนบริการการจัดการของ SubQuery เมือคุณเรียกใช้ GraphQL endpoint ที่ลงทะเบียนไว้โดยตรง มันจะไม่ทำงานภายใต้ GraphQL playground บนบราวเซอร์
