@@ -285,7 +285,7 @@ An instance of ProjectManifestImpl has failed the validation:
 subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot"
 ```
 
-[Read more about how a SubQuery Dictionary works](../academy/tutorials_examples/dictionary.md).
+[อ่านเพิ่มเติมเกี่ยวกับวิธีการทำงานของ SubQuery Dictionary](../academy/tutorials_examples/dictionary.md)
 
 ### -p, --port
 
@@ -349,7 +349,7 @@ Flag นี้เป็นการเปิดใช้งาน graphql playgr
 
 ### --output-fmt
 
-See [--output-fmt](https://doc.subquery.network/run_publish/references.html#output-fmt)
+ดู [--output-fmt](https://doc.subquery.network/run_publish/references.html#output-fmt)
 
 ### --log-level
 
@@ -375,7 +375,7 @@ This flag enables [GraphQL Subscriptions](./subscription.md), to enable this fea
 
 บริการจัดเรียงข้อมูลมีขีดจำกัด 100 รายการสำหรับการสืบค้นที่ไม่ผูกกับ graphql Flag unsafe จะลบขีดจำกัดนี้ซึ่งอาจทำให้เกิดปัญหาด้านประสิทธิภาพในบริการสืบค้น จึงขอแนะนำว่า ให้ใช้ [ paginated ](https://graphql.org/learn/pagination/) แทน
 
-This flag enables certain aggregation functions including sum, max, avg and others. อ่านข้อมูลเกี่ยวกับฟีเจอร์นี้เพิ่มเติมได้ [ที่นี้ ](./aggregate.md)
+This flag enables certain aggregation functions including sum, max, avg and others. อ่านข้อมูลเกี่ยวกับฟีเจอร์นี้เพิ่มเติมได้ [ ที่นี้ ](./aggregate.md)
 
 สิ่งเหล่านี้ถูกปิดใช้งานโดยค่าเริ่มต้นเนื่องจากขีดจำกัดของเอนทิตี
 
