@@ -60,29 +60,29 @@ Enfin, dans le répertoire du projet, exécutez la commande suivante pour instal
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```shell cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
 
-## Making Changes to your Project
+## Modifications de votre projet
 
-In the starter package that was just initialised, a standard configuration has been provided. These are:
+Dans le paquet de démarrage qui vient d'être initialisé, une configuration standard a été fournie. Ce sont :
 
-1. The GraphQL Schema in `schema.graphql`
+1. Le schéma GraphQL dans `schema.graphql`
 2. Le manifeste du projet dans `projet.yaml`
 3. Les fonctions de mappage dans le répertoire `src/mappings/`
 
-The goal of this quick start guide is to adapt the standard starter project to begin indexing all transfers from Polkadot.
+Le but de ce guide de démarrage rapide est d'adapter le projet de démarrage standard pour commencer à indexer tous les transferts de Polkadot.
 
 ### Mise à jour de votre fichier de schéma GraphQL
 
-Le fichier `schema.graphql` définit les différents schémas GraphQL. En raison de la façon dont le langage d'interrogation GraphQL fonctionne, le fichier de schéma dicte essentiellement la forme de vos données à partir de SubQuery. It's a great place to start because it allows you to define your end goal upfront.
+Le fichier `schema.graphql` définit les différents schémas GraphQL. En raison de la façon dont le langage d'interrogation GraphQL fonctionne, le fichier de schéma dicte essentiellement la forme de vos données à partir de SubQuery. C'est un bon point de départ car il vous permet de définir votre objectif final dès le départ.
 
-Update the `schema.graphql` file to read as follows:
+Mettez à jour le fichier `schema.graphql` comme suit :
 
 ```graphql
 type Transfer @entity {
-  id: ID! # id field is always required and must look like this
-  amount: BigInt # Amount that is transferred
-  blockNumber: BigInt # The block height of the transfer
-  from: String! # The account that transfers are made from
-  to: String! # The account that transfers are made to
+  id: ID! # Le champ id est toujours obligatoire et doit ressembler à ceci
+  amount: BigInt # Montant qui est transféré
+  blockNumber: BigInt # La hauteur de bloc du transfert
+  from: String! # Le compte à partir duquel les transferts sont effectués
+  to: String! # Le compte sur lequel les transferts sont effectués
 }
 ```
 
@@ -91,13 +91,13 @@ type Transfer @entity {
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```shell npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
 
-You'll find the generated models in the `/src/types/models` directory. Pour plus d'informations sur le fichier `schema.graphql`, consultez notre documentation sous [Build/GraphQL Schema](../build/graphql.md)
+Vous trouverez les modèles générés dans le répertoire `/src/types/models`. Pour plus d'informations sur le fichier `schema.graphql`, consultez notre documentation sous [Build/GraphQL Schema](../build/graphql.md)
 
 ### Mise à jour du fichier de manifeste du projet
 
-The Project Manifest (`project.yaml`) file can be seen as an entry point of your project and it defines most of the details on how SubQuery will index and transform the chain data.
+Le fichier Project Manifest (`project.yaml`) peut être considéré comme un point d'entrée de votre projet et il définit la plupart des détails sur la façon dont SubQuery indexera et transformera les données de la chaîne.
 
-The manifest file has already been set up correctly, but we need to change our handlers. As we are planning to index all Polkadot transfers, we need to update the `datasources` section as follows:
+Le fichier manifeste a déjà été configuré correctement, mais nous devons modifier nos gestionnaires. Comme nous prévoyons d'indexer tous les transferts de Polkadot, nous devons mettre à jour la section `datasources` comme suit :
 
 ```yaml
 dataSources:
@@ -113,7 +113,7 @@ dataSources:
             method: Transfer
 ```
 
-This means we'll run a `handleEvent` mapping function each and every time there is a `balances.Transfer` event.
+Cela signifie que nous allons exécuter une fonction de mappage `handleEvent` chaque fois qu'il y a un événement `balances.Transfer`.
 
 Pour plus d'informations sur le fichier Project Manifest (`project.yaml`), consultez notre documentation sous [Build/Manifest File](../build/manifest.md)
 
@@ -121,9 +121,9 @@ Pour plus d'informations sur le fichier Project Manifest (`project.yaml`), consu
 
 Les fonctions de mappage définissent comment les données de la chaîne sont transformées en entités GraphQL optimisées que nous avons préalablement définies dans le fichier `schema.graphql`.
 
-Naviguez vers la fonction de mappage par défaut dans le répertoire `src/mappings`. Vous verrez trois fonctions exportées, `handleBlock`, `handleEvent`, et `handleCall`. Delete both the `handleBlock` and `handleCall` functions as we will only deal with the `handleEvent` function.
+Naviguez vers la fonction de mappage par défaut dans le répertoire `src/mappings`. Vous verrez trois fonctions exportées, `handleBlock`, `handleEvent`, et `handleCall`. Supprimez les deux fonctions `handleBlock` et `handleCall` car nous ne traiterons que la fonction `handleEvent`.
 
-The `handleEvent` function receives event data whenever an event matches the filters that we specified previously in our `project.yaml`. We will update it to process all `balances.Transfer` events and save them to the GraphQL entities that we created earlier.
+La fonction `handleEvent` reçoit les données de l'événement chaque fois qu'un événement correspond aux filtres que nous avons spécifiés précédemment dans notre `projet.yaml`. Nous allons le mettre à jour pour traiter tous les événements `balances.Transfer` et les enregistrer dans les entités GraphQL que nous avons créées précédemment.
 
 Vous pouvez mettre à jour la fonction `handleEvent` comme suit (notez les importations supplémentaires) :
 
@@ -133,14 +133,14 @@ import { Transfer } from "../types";
 import { Balance } from "@polkadot/types/interfaces";
 
 export async function handleEvent(event: SubstrateEvent): Promise<void> {
-    // Get data from the event
-    // The balances.transfer event has the following payload \[from, to, value\]
+    // Obtenir les données de l'événement
+    // L'événement balance.transfer a la charge utile suivante .[from, to, value\]
     // logger.info(JSON.stringify(event));
     const from = event.event.data[0];
     const to = event.event.data[1];
     const amount = event.event.data[2];
 
-    // Create the new transfer entity
+    // Créer la nouvelle entité de transfert
     const transfer = new Transfer(
         `${event.block.block.header.number.toNumber()}-${event.idx}`,
     );
@@ -152,39 +152,39 @@ export async function handleEvent(event: SubstrateEvent): Promise<void> {
 }
 ```
 
-What this is doing is receiving a SubstrateEvent which includes transfer data in the payload. Nous extrayons ces données puis instançons une nouvelle entité `Transfer` que nous avons définie plus tôt dans le fichier `schema.graphql`. Nous ajoutons des informations supplémentaires et utilisons ensuite la fonction `.save()` pour enregistrer la nouvelle entité (SubQuery l'enregistrera automatiquement dans la base de données).
+Il s'agit de recevoir un SubstrateEvent qui contient des données de transfert dans la charge utile. Nous extrayons ces données puis instançons une nouvelle entité `Transfer` que nous avons définie plus tôt dans le fichier `schema.graphql`. Nous ajoutons des informations supplémentaires et utilisons ensuite la fonction `.save()` pour enregistrer la nouvelle entité (SubQuery l'enregistrera automatiquement dans la base de données).
 
 Pour plus d'informations sur les fonctions de mappage, consultez notre documentation sous [Build/Mappings](../build/mapping.md)
 
 ### Construire le projet
 
-In order to run your new SubQuery Project we first need to build our work. Exécutez la commande de construction à partir du répertoire racine du projet.
+Afin d'exécuter votre nouveau projet SubQuery, nous devons d'abord construire notre travail. Exécutez la commande de construction à partir du répertoire racine du projet.
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script build ``` </CodeGroupItem> </CodeGroup>
 
-**Important: Whenever you make changes to your mapping functions, you will need to rebuild your project**
+**Important : chaque fois que vous apportez des modifications à vos fonctions de mapping, vous devrez reconstruire votre projet**.
 
-## Running and Querying your Project
+## Exécution et interrogation de votre projet
 
-### Run your Project with Docker
+### Exécuter votre projet avec Docker
 
-Whenever you create a new SubQuery Project, you should always run it locally on your computer to test it first. Le moyen le plus simple d'y parvenir est d'utiliser Docker.
+Chaque fois que vous créez un nouveau projet SubQuery, vous devez toujours l'exécuter localement sur votre ordinateur pour le tester. Le moyen le plus simple d'y parvenir est d'utiliser Docker.
 
-All configuration that controls how a SubQuery node is run is defined in the `docker-compose.yml` file. For a new project that has been just initialised you won't need to change anything, but you can read more about the file and the settings in our [Run a Project](../run_publish/run.md) section.
+Toute la configuration qui contrôle la façon dont un nœud SubQuery est exécuté est définie dans le fichier `docker-compose.yml`. Pour un nouveau projet qui vient d'être initialisé, vous n'aurez pas besoin de changer quoi que ce soit, mais vous pouvez en savoir plus sur le fichier et les paramètres dans notre section [Run a Project](../run_publish/run.md).
 
-Under the project directory, run the following command:
+Sous le répertoire du projet, exécutez la commande suivante :
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn start:docker ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script start:docker ``` </CodeGroupItem> </CodeGroup>
 
-It may take some time to download the required packages ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), and Postgres) for the first time but soon you should see a running SubQuery node in the terminal screen.
+Il peut falloir un certain temps pour télécharger les paquets requis ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), et Postgres) pour la première fois, mais bientôt vous devriez voir un nœud SubQuery en fonctionnement dans l'écran du terminal.
 
 ### Recherchez votre projet
 
 Ouvrez votre navigateur et allez sur [http://localhost:3000](http://localhost:3000).
 
-You should see a GraphQL playground in the browser and the schemas that are ready to query. En haut à droite du terrain de jeu, vous trouverez un bouton _Docs_ qui ouvrira un tiroir de documentation. Cette documentation est générée automatiquement et vous aide à trouver les entités et les méthodes que vous pouvez interroger.
+Vous devriez voir un playground GraphQL dans le navigateur et les schémas qui sont prêts à être interrogés. En haut à droite du terrain de jeu, vous trouverez un bouton _Docs_ qui ouvrira un tiroir de documentation. Cette documentation est générée automatiquement et vous aide à trouver les entités et les méthodes que vous pouvez interroger.
 
-For a new SubQuery starter project, try the following query to understand how it works or learn more about the [GraphQL Query language](../run_publish/graphql.md).
+Pour un nouveau projet de démarrage de SubQuery, essayez la requête suivante pour comprendre son fonctionnement ou en savoir plus sur le [Langage de requête GraphQL](../run_publish/graphql.md).
 
 ```graphql
 {
@@ -207,16 +207,16 @@ For a new SubQuery starter project, try the following query to understand how it
 
 ### Publiez votre projet SubQuery
 
-SubQuery provides a free managed service where you can deploy your new project to. Vous pouvez le déployer dans [SubQuery Projects](https://project.subquery.network) et l'interroger en utilisant notre [Explorer](https://explorer.subquery.network).
+SubQuery fournit un service géré gratuit sur lequel vous pouvez déployer votre nouveau projet. Vous pouvez le déployer dans [SubQuery Projects](https://project.subquery.network) et l'interroger en utilisant notre [Explorer](https://explorer.subquery.network).
 
-Read the guide to [publish your new project to SubQuery Projects](../run_publish/publish.md)
+Lisez le guide pour [publier votre nouveau projet dans SubQuery Projects](../run_publish/publish.md)
 
 ## Les prochaines étapes
 
-Congratulations, you now have a locally running SubQuery project that accepts GraphQL API requests for transfers data.
+Félicitations, vous disposez maintenant d'un projet SubQuery exécuté localement qui accepte les requêtes de l'API GraphQL pour les transferts de données.
 
-Maintenant que vous avez eu un aperçu de la façon de construire un projet de base de SubQuery, la question est de savoir où aller à partir de là ? Si vous vous sentez en confiance, vous pouvez commencer à en apprendre davantage sur les trois fichiers clés. The manifest file, the GraphQL schema, and the mappings file are under the [Build section of these docs](../build/introduction.md).
+Maintenant que vous avez eu un aperçu de la façon de construire un projet de base de SubQuery, la question est de savoir où aller à partir de là ? Si vous vous sentez en confiance, vous pouvez commencer à en apprendre davantage sur les trois fichiers clés. Le fichier manifeste, le schéma GraphQL et le fichier des mappings se trouvent sous la section [Build de ces docs](../build/introduction.md).
 
-Otherwise, continue to our [Academy section](../academy/academy.md) where we have more in-depth workshops, tutorials, and example projects. Nous nous pencherons sur des modifications plus avancées et nous approfondirons l'exécution de projets SubQuery en utilisant des projets open source facilement disponibles.
+Sinon, continuez vers notre [Section académie](../academy/academy.md) où nous avons des ateliers plus approfondis, des tutoriels et des projets d'exemple. Nous nous pencherons sur des modifications plus avancées et nous approfondirons l'exécution de projets SubQuery en utilisant des projets open source facilement disponibles.
 
-Finally, if you're looking for more ways to run and publish your project, our [Run & Publish section](../run_publish/run.md) provides detailed information about all the ways to run your SubQuery project and other advanced GraphQL aggregation and subscription features.
+Enfin, si vous cherchez d'autres moyens d'exécuter et de publier votre projet, notre [Section Exécuter & Publier](../run_publish/run.md) fournit des informations détaillées sur toutes les façons d'exécuter votre projet SubQuery et sur d'autres fonctionnalités avancées d'agrégation et d'abonnement GraphQL.
