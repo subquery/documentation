@@ -1,6 +1,6 @@
 # Швидкий старт Polkadot
 
-In this quick start guide, we're going to start with a simple Substrate/Polkadot starter project and then finish by indexing some actual real data. Це чудова основа для початку розробки власного проекту Substrate/Polkadot SubQuery.
+У цьому короткому посібнику ми почнемо з простого початкового проекту Substrate/Polkadot, а потім завершимо індексацією деяких реальних даних. Це чудова основа для початку розробки власного проекту Substrate/Polkadot SubQuery.
 
 В кінці цього посібника у вас буде робочий проєкт SubQuery, який працює на вузлі SubQuery з кінцевою точкою GraphQL, з якої можна запитувати дані.
 
