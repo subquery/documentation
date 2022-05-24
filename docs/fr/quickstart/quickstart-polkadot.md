@@ -1,12 +1,12 @@
 # Démarrage rapide Polkadot
 
-In this quick start guide, we're going to start with a simple Substrate/Polkadot starter project and then finish by indexing some actual real data. Il s'agit d'une excellente base de départ pour développer votre propre projet Substrate/Polkadot SubQuery.
+Dans ce guide de démarrage rapide, nous allons commencer par un simple projet de démarrage Substrate/Polkadot, puis terminer par l'indexation de données réelles. Il s'agit d'une excellente base de départ pour développer votre propre projet Substrate/Polkadot SubQuery.
 
 À la fin de ce guide, vous aurez un projet SubQuery fonctionnel fonctionnant sur un nœud SubQuery avec un point de terminaison GraphQL à partir duquel vous pourrez interroger des données.
 
 Si vous ne l'avez pas encore fait, nous vous suggérons de vous familiariser avec la [terminologie](../#terminology) utilisée dans SubQuery.
 
-**The goal of this quick start guide is to adapt the standard starter project to begin indexing all transfers from Polkadot, it should only take 10-15 minutes**
+**Le but de ce guide de démarrage rapide est d'adapter le projet de démarrage standard pour commencer à indexer tous les transferts de Polkadot, cela ne devrait prendre que 10-15 minutes**
 
 ## Préparation
 
@@ -24,9 +24,9 @@ Installez SubQuery CLI globalement sur votre terminal en utilisant NPM :
 npm install -g @subql/cli
 ```
 
-Please note that we **DO NOT** encourage the use of `yarn global` for installing `@subql/cli` due to its poor dependency management which may lead to errors down the line.
+Veuillez noter que nous **N’encourageons PAS** l'utilisation de `yarn global` pour l'installation de `@subql/cli` en raison de sa mauvaise gestion des dépendances qui peut conduire à des erreurs en cours de route.
 
-You can then run help to see available commands and usage provided by the CLI:
+Vous pouvez ensuite exécuter la commande help pour voir les commandes disponibles et l'utilisation fournie par le CLI :
 
 ```shell
 subql help
@@ -42,20 +42,20 @@ subql init
 
 Certaines questions vous seront posées au fur et à mesure de l'initalisation du projet SubQuery :
 
-- Project name: A project name for your SubQuery project
-- Network family: The layer-1 blockchain network family that this SubQuery project will be developed to index. Use the arrow keys to select from the available options. For this guide, we will use *"Substrate"*
-- Network: The specific network that this SubQuery project will be developed to index. Use the arrow keys to select from the available options. For this guide, we will use *"Polkadot"*
-- Template project: Select a SubQuery template project that will provide a starting point to begin development. We suggest selecting the *"subql-starter"* project.
-- RPC endpoint: Provide an HTTPS URL to a running RPC endpoint that will be used by default for this project. You can quickly access public endpoints for different Polkadot networks, create your own private dedicated node using [OnFinality](https://app.onfinality.io) or just use the default Polkadot endpoint. Ce nœud RPC doit être un nœud d'archive (avoir l'état complet de la chaîne). For this guide, we will use the default value *"https://polkadot.api.onfinality.io"*
-- Git repository: Provide a Git URL to a repo that this SubQuery project will be hosted in (when hosted in SubQuery Explorer) or accept the provided default.
-- Authors: Enter the owner of this SubQuery project here (e.g. your name!) or accept the provided default.
-- Description: Provide a short paragraph about your project that describes what data it contains and what users can do with it or accept the provided default.
-- Version: Enter a custom version number or use the default (`1.0.0`)
-- License: Provide the software license for this project or accept the default (`MIT`)
+- Project name: un nom de projet pour votre projet SubQuery
+- Network family: La famille de réseaux blockchain de niveau 1 que ce projet SubQuery sera développé pour indexer. Utilisez les touches fléchées pour choisir parmi les options disponibles. Pour ce guide, nous utiliserons *"Substrat"*
+- Network: Le réseau spécifique que ce projet SubQuery sera développé pour indexer. Utilisez les touches fléchées pour choisir parmi les options disponibles. Pour ce guide, nous utiliserons *"Polkadot"*
+- Template project: Sélectionnez un projet de modèle de SubQuery qui fournira un point de départ pour commencer le développement. Nous vous suggérons de sélectionner le projet *"subql-starter"*.
+- RPC endpoint: Fournissez une URL HTTPS vers un point de terminaison RPC en cours d'exécution qui sera utilisé par défaut pour ce projet. Vous pouvez accéder rapidement aux points d'extrémité publics de différents réseaux Polkadot, créer votre propre nœud privé dédié en utilisant [OnFinality](https://app.onfinality.io) ou simplement utiliser le point d'extrémité Polkadot par défaut. Ce nœud RPC doit être un nœud d'archive (avoir l'état complet de la chaîne). Pour ce guide, nous utiliserons la valeur par défaut *"https://polkadot.api.onfinality.io"*
+- Git repository: Fournissez une URL Git d'un repo dans lequel ce projet SubQuery sera hébergé (lorsqu'il est hébergé dans SubQuery Explorer) ou acceptez la valeur par défaut fournie.
+- Authors: Auteurs : Saisissez ici le propriétaire de ce projet SubQuery (par exemple, votre nom !) ou acceptez la valeur par défaut fournie.
+- Description: Fournissez un court paragraphe sur votre projet décrivant les données qu'il contient et ce que les utilisateurs peuvent en faire ou acceptez la proposition par défaut.
+- Version: Saisissez un numéro de version personnalisé ou utilisez la valeur par défaut (`1.0.0`)
+- License: Fournir la licence du logiciel pour ce projet ou accepter la valeur par défaut (`MIT`)
 
-After the initialisation process is complete, you should see that a folder with your project name has been created inside the directory. The contents of this directory should be identical to what's listed in the [Directory Structure](../create/introduction.md#directory-structure).
+Une fois le processus d'initialisation terminé, vous devriez voir qu'un dossier portant le nom de votre projet a été créé dans le répertoire. Le contenu de ce répertoire doit être identique à ce qui est listé dans la [Structure des répertoires](../create/introduction.md#directory-structure).
 
-Last, under the project directory, run the following command to install the new project's dependencies.
+Enfin, dans le répertoire du projet, exécutez la commande suivante pour installer les dépendances du nouveau projet.
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```shell cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
