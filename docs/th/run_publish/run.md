@@ -156,7 +156,7 @@ subql-node -f your-project-path
 ```
  Text XPath: /p[11]/CodeGroup/text
 
-Depending on the configuration of your Postgres database (e.g. a different database password), please ensure also that both the indexer (`subql/node`) and the query service (`subql/query`) can establish a connection to it.
+ขึ้นอยู่กับการกำหนดค่าฐานข้อมูล Postgres ของคุณ (เช่นความแตกต่างของฐานข้อมูลรหัสผ่าน) โดยโปรดตรวจสอบให้แน่ใจว่า indexer (`subql/node`) และการบริการ Query (`subql/query`) สามารถเชื่อมต่อกันได้
 
 #### ระบุไฟล์การกำหนดค่า
 
