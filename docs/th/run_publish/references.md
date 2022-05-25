@@ -375,7 +375,7 @@ This flag enables [GraphQL Subscriptions](./subscription.md), to enable this fea
 
 บริการจัดเรียงข้อมูลมีขีดจำกัด 100 รายการสำหรับการสืบค้นที่ไม่ผูกกับ graphql Flag unsafe จะลบขีดจำกัดนี้ซึ่งอาจทำให้เกิดปัญหาด้านประสิทธิภาพในบริการสืบค้น จึงขอแนะนำว่า ให้ใช้ [ paginated ](https://graphql.org/learn/pagination/) แทน
 
-This flag enables certain aggregation functions including sum, max, avg and others. อ่านข้อมูลเกี่ยวกับฟีเจอร์นี้เพิ่มเติมได้ [ ที่นี้ ](./aggregate.md)
+Flag นี้เปิดให้สามารถใช้ฟังค์ชันการรวบรวมไม่ว่าจะเป็น ผลรวม, ค่าสูงสุด, ค่าเฉลี่ย ฯลฯ อ่านข้อมูลเกี่ยวกับฟีเจอร์นี้เพิ่มเติมได้ [ ที่นี้ ](./aggregate.md)
 
 สิ่งเหล่านี้ถูกปิดใช้งานโดยค่าเริ่มต้นเนื่องจากขีดจำกัดของเอนทิตี
 
