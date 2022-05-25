@@ -20,7 +20,7 @@ docker-compose pull && docker-compose up
 
 - ฐานข้อมูล [Postgres](https://www.postgresql.org/) (เวอร์ชัน 12 ขึ้นไป) ในขณะที่ [โหนด SubQuery](#start-a-local-subquery-node) กำลังทำการ index บล็อกเชน ข้อมูลที่ออกมาจะถูกเก็บไว้ในอินสแตนซ์ของฐานข้อมูลภายนอก
 
-A SubQuery node is an implementation that extracts Substrate/Polkadot-based blockchain data per the SubQuery project and saves it into a Postgres database.
+โหนดของ SubQuery เป็นการใช้งานที่แยกข้อมูลบล็อกเชนแบบ Substrate/Polkadot ตามโปรเจ็กต์ของ SubQuery และบันทึกลงในฐานข้อมูล Postgres
 
 ### การติดตั้ง
 
@@ -51,9 +51,11 @@ npm install -g @subql/node-avalanche
 </CodeGroupItem>
 </CodeGroup>
 
-Please note that we **DO NOT** encourage the use of `yarn global` due to its poor dependency management which may lead to an errors down the line.
+โปรดทราบว่าเรา ** โปรดอย่า </ 6> ส่งเสริมการใช้งาน ` yarn global </ 7> เนื่องจากการจัดการการพึ่งพาที่ไม่ค่อยดีอาจนำไปสู่ข้อผิดพลาด</p>
 
-เมื่อติดตั้งแล้ว คุณสามารถเริ่มโหนดด้วยคำสั่งต่อไปนี้:
+<p spaces-before="0">เมื่อติดตั้งแล้ว คุณสามารถเริ่มโหนดด้วยคำสั่งต่อไปนี้:</p>
+
+<p spaces-before="0">
 
 
 <CodeGroup>
@@ -78,11 +80,12 @@ subql-node-avalanche <command>
 ```
 
 </CodeGroupItem>
-</CodeGroup>
+</CodeGroup></p>
 
-### คำสั่งที่สำคัญ
+<h3 spaces-before="0">คำสั่งที่สำคัญ</h3>
 
-คำสั่งต่อไปนี้จะช่วยคุณในการกำหนดค่าโหนด SubQuery ให้เสร็จสมบูรณ์และเริ่มสร้างดัชนี หากต้องการข้อมูลเพิ่มเติม คุณสามารถรันคำสั่ง `--help` ได้ตลอดเวลา
+<p spaces-before="0">คำสั่งต่อไปนี้จะช่วยคุณในการกำหนดค่าโหนด SubQuery ให้เสร็จสมบูรณ์และเริ่มสร้างดัชนี
+หากต้องการข้อมูลเพิ่มเติม คุณสามารถรันคำสั่ง <code>--help` ได้ตลอดเวลา</p>
 
 #### ชี้ไปที่ local path ของโปรเจกต์
 
@@ -175,16 +178,7 @@ subql-node-terra -c your-project-config.yml
 ```
 
 </CodeGroupItem>
-<CodeGroupItem title='Avalanche'>
-
-```shell
-subql-node-avalanche -c your-project-config.yml
-```
-
-</CodeGroupItem>
-</CodeGroup>
-
-This will point the query node to a configuration file which can be in YAML or JSON format. ดูตัวอย่างด้านล่าง
+<CodeGroupItem title='Avalanche'> ```shell subql-node-avalanche -c your-project-config.yml ดูตัวอย่างด้านล่าง
 
 ```yaml
 subquery: ../../../../subql-example/extrinsics
