@@ -26,7 +26,7 @@ npm install -g @subql/cli
 
 Xin lưu ý rằng chúng tôi **KHÔNG** khuyến khích sử dụng `yarn global<` để cài đặt `@subql/cli` do quản lý phụ thuộc kém có thể dẫn đến lỗi xuống dòng.
 
-Sau đó, bạn có thể chạy trợ giúp để xem các lệnh có sẵn và cách sử dụng do CLI cung cấp:
+Sau khi cài đặt xong, bạn có thể chạy lệnh help để xem các lệnh có sẵn của CLI và cách sử dụng chúng:
 
 ```shell
 subql help
@@ -45,36 +45,36 @@ Bạn sẽ được hỏi một số câu hỏi khi dự án SubQuery được k
 - Tên dự án: Tên dự án SubQuery của bạn
 - Network family: Một mạng blockchain layer-1 mà dự án SubQuery này sẽ được phát triển để lập chỉ mục. Sử dụng các phím mũi tên để chọn từ các tùy chọn có sẵn. Đối với hướng dẫn này, chúng tôi sẽ sử dụng * "Substrate" *
 - Network: Network cụ thể mà dự án SubQuery này sẽ được phát triển để lập chỉ mục. Sử dụng các phím mũi tên để chọn từ các tùy chọn có sẵn. Đối với hướng dẫn này, chúng tôi sẽ sử dụng * "Polkadot" *
-- Template project (Dự án mẫu): Chọn một dự án mẫu SubQuery sẽ cung cấp một điểm khởi đầu để bắt đầu phát triển. We suggest selecting the *"subql-starter"* project.
-- RPC endpoint: Provide an HTTPS URL to a running RPC endpoint that will be used by default for this project. You can quickly access public endpoints for different Polkadot networks, create your own private dedicated node using [OnFinality](https://app.onfinality.io) or just use the default Polkadot endpoint. Nút RPC này phải là một nút lưu trữ (có trạng thái chuỗi đầy đủ). For this guide, we will use the default value *"https://polkadot.api.onfinality.io"*
-- Git repository: Provide a Git URL to a repo that this SubQuery project will be hosted in (when hosted in SubQuery Explorer) or accept the provided default.
-- Authors: Enter the owner of this SubQuery project here (e.g. your name!) or accept the provided default.
-- Description: Provide a short paragraph about your project that describes what data it contains and what users can do with it or accept the provided default.
-- Version: Enter a custom version number or use the default (`1.0.0`)
-- License: Provide the software license for this project or accept the default (`MIT`)
+- Template project (Dự án mẫu): Chọn một dự án mẫu SubQuery sẽ cung cấp một điểm khởi đầu để bắt đầu phát triển. Chúng tôi khuyên bạn nên chọn dự án * "subql-starter" *.
+- RPC endpoint: Cung cấp HTTPS URL cho RPC endpoint đang chạy, sẽ được sử dụng mặc định cho dự án này. Bạn có thể nhanh chóng truy cập các endpoints công khai cho các mạng Polkadot khác nhau, tạo node chuyên dụng riêng của mình bằng cách sử dụng [ OnFinality ](https://app.onfinality.io) hoặc chỉ sử dụng Polkadot endpoint mặc định. Nút RPC này phải là một nút lưu trữ (có trạng thái chuỗi đầy đủ). Đối với hướng dẫn này, chúng tôi sẽ sử dụng giá trị mặc định * "https://polkadot.api.onfinality.io" *
+- Git repository: Cung cấp Git URL cho repo mà dự án SubQuery này sẽ được lưu trữ (khi được lưu trữ trong SubQuery Explorer) hoặc chấp nhận giá trị mặc định được cung cấp.
+- Authors (Tác giả): Nhập chủ sở hữu của dự án SubQuery này tại đây (ví dụ: tên của bạn!) Hoặc chấp nhận giá trị mặc định đã cung cấp.
+- Description (Mô tả): Cung cấp một đoạn giới thiệu ngắn về dự án của bạn, mô tả dự án chứa dữ liệu gì và người dùng có thể làm gì với dự án đó hoặc chấp nhận giá trị mặc định đã cung cấp.
+- Version (Phiên bản): Nhập số phiên bản tùy chỉnh hoặc sử dụng mặc định (` 1.0.0 `)
+- License (Giấy phép): Cung cấp giấy phép phần mềm cho dự án này hoặc chấp nhận giấy phép mặc định (` MIT `)
 
-After the initialisation process is complete, you should see that a folder with your project name has been created inside the directory. The contents of this directory should be identical to what's listed in the [Directory Structure](../create/introduction.md#directory-structure).
+Sau khi quá trình khởi tạo hoàn tất, bạn sẽ thấy một thư mục có tên dự án của bạn đã được tạo bên trong thư mục. Nội dung của thư mục này phải giống với nội dung được liệt kê trong [Directory Structure](../create/introduction.md#directory-structure).
 
-Last, under the project directory, run the following command to install the new project's dependencies.
+Cuối cùng, trong thư mục dự án, chạy lệnh sau để cài đặt các phụ thuộc của dự án mới.
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```shell cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
 
-## Making Changes to your Project
+## Thực hiện các thay đổi đối với dự án của bạn
 
-In the starter package that was just initialised, a standard configuration has been provided. These are:
+Trong gói khởi động vừa được khởi tạo, một cấu hình tiêu chuẩn đã được cung cấp. Đó là:
 
-1. The GraphQL Schema in `schema.graphql`
+1. Lược đồ GraphQL trong ` schema.graphql `
 2. Tệp Kê khai dự án ở ` project.yaml `
 3. Các chức năng ánh xạ trong thư mục `src/mappings/`
 
-The goal of this quick start guide is to adapt the standard starter project to begin indexing all transfers from Polkadot.
+Mục tiêu của hướng dẫn bắt đầu nhanh này là điều chỉnh dự án khởi đầu tiêu chuẩn để bắt đầu lập chỉ mục tất cả các giao dịch từ Polkadot.
 
 ### Cập nhật tệp lược đồ GraphQL của bạn
 
-Tệp `schema.graphql` xác định các lược đồ GraphQL khác nhau. Do cách hoạt động của ngôn ngữ truy vấn GraphQL, về cơ bản tệp lược đồ chỉ ra hình dạng dữ liệu của bạn từ SubQuery. It's a great place to start because it allows you to define your end goal upfront.
+Tệp `schema.graphql` xác định các lược đồ GraphQL khác nhau. Do cách hoạt động của ngôn ngữ truy vấn GraphQL, về cơ bản tệp lược đồ chỉ ra hình dạng dữ liệu của bạn từ SubQuery. Đây là một nơi tuyệt vời để bắt đầu vì nó cho phép bạn xác định trước mục tiêu cuối cùng của mình.
 
-Update the `schema.graphql` file to read as follows:
+Chúng ta sẽ cập nhật tệp `schema.graphql` giống như sau:
 
 ```graphql
 type Transfer @entity {
@@ -91,13 +91,13 @@ type Transfer @entity {
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```shell npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
 
-You'll find the generated models in the `/src/types/models` directory. Để biết thêm thông tin về tệp `schema.graphql`, hãy xem tài liệu của chúng tôi trong [Lược đồ Build/GraphQL ](../build/graphql.md)
+Bạn sẽ tìm thấy các mô hình đã tạo trong thư mục `/src/types/models` Để biết thêm thông tin về tệp `schema.graphql`, hãy xem tài liệu của chúng tôi trong [Lược đồ Build/GraphQL ](../build/graphql.md)
 
 ### Cập nhật tệp kê khai dự án
 
-The Project Manifest (`project.yaml`) file can be seen as an entry point of your project and it defines most of the details on how SubQuery will index and transform the chain data.
+file Project Manifest (`project.yaml`) có thể được xem là entry point của dự án và nó xác định hầu hết các thông tin chi tiết về cách SubQuery sẽ lập chỉ mục và chuyển đổi dữ liệu chuỗi.
 
-The manifest file has already been set up correctly, but we need to change our handlers. As we are planning to index all Polkadot transfers, we need to update the `datasources` section as follows:
+File kê khai đã được thiết lập chính xác, nhưng chúng tôi cần thay đổi trình xử lý của mình. Chúng tôi đang lên kế hoạch lập chỉ mục tất cả các giao dịch Polkadot, do đó, chúng tôi cần cập nhật phần `datasources` để trông như sau:
 
 ```yaml
 dataSources:
@@ -113,7 +113,7 @@ dataSources:
             method: Transfer
 ```
 
-This means we'll run a `handleEvent` mapping function each and every time there is a `balances.Transfer` event.
+Điều này có nghĩa là chúng ta sẽ chạy một hàm ánh xạ `handleEvent` mỗi khi có sự kiện `balance.Transfer`.
 
 Để biết thêm thông tin về tệp Project Manifest (`project.yaml`), hãy xem tài liệu của chúng tôi trong [Build/Manifest File](../build/manifest.md)
 
