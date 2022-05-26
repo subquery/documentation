@@ -6,25 +6,25 @@ Sau khi hoàn thành xong hướng dẫn này, bạn sẽ có một dự án Sub
 
 Nếu bạn chưa sẵn sàng, chúng tôi khuyên bạn nên tự làm quen với [thuật ngữ](../#terminology) được sử dụng trong SubQuery.
 
-**Mục tiêu của hướng dẫn bắt đầu nhanh này là điều chỉnh dự án khởi động tiêu chuẩn để bắt đầu lập chỉ mục tất cả các lần chuyển từ Polkadot, chỉ mất 10-15 phút**
+**Mục tiêu của hướng dẫn bắt đầu nhanh này là điều chỉnh dự án khởi đầu tiêu chuẩn để bắt đầu lập chỉ mục tất cả các giao dịch từ Polkadot, nó chỉ mất 10-15 phút**
 
 ## Chuẩn bị
 
-### Môi trường phát triển địa phương
+### Môi trường phát triển Local
 
-- [Node](https://nodejs.org/en/): Bạn cần cài đặt một phiên bản mới nhất của Node (ví dụ: phiên bản LTS).
+- [Node](https://nodejs.org/en/): Cài đặt một phiên bản mới nhất của Node (ví dụ: phiên bản LTS).
 - [Docker](https://docker.com/): Hướng dẫn này sẽ yêu cầu sử dụng Docker
 
 ### Cài đặt CLI SubQuery
 
-Cài đặt SubQuery CLI tổng thể trên terminal của bạn bằng cách sử dụng NPM:
+Cài đặt SubQuery CLI cục bộ trên thiết bị đầu cuối của bạn bằng cách sử dụng NPM:
 
 ```shell
 # NPM
 npm install -g @subql/cli
 ```
 
-Xin lưu ý rằng chúng tôi **KHÔNG** khuyến khích sử dụng `yarn global<` để cài đặt `@subql/cli` do quản lý phụ thuộc kém có thể dẫn đến lỗi xuống dòng.
+Xin lưu ý rằng chúng tôi **KHÔNG** khuyến khích sử dụng `yarn global` để cài đặt `@subql/cli` do quản lý phụ thuộc kém có thể dẫn đến lỗi xuống dòng.
 
 Sau khi cài đặt xong, bạn có thể chạy lệnh help để xem các lệnh có sẵn của CLI và cách sử dụng chúng:
 
@@ -42,18 +42,18 @@ subql init
 
 Bạn sẽ được hỏi một số câu hỏi khi dự án SubQuery được khởi tạo:
 
-- Tên dự án: Tên dự án SubQuery của bạn
-- Network family: Một mạng blockchain layer-1 mà dự án SubQuery này sẽ được phát triển để lập chỉ mục. Sử dụng các phím mũi tên để chọn từ các tùy chọn có sẵn. Đối với hướng dẫn này, chúng tôi sẽ sử dụng * "Substrate" *
-- Network: Network cụ thể mà dự án SubQuery này sẽ được phát triển để lập chỉ mục. Sử dụng các phím mũi tên để chọn từ các tùy chọn có sẵn. Đối với hướng dẫn này, chúng tôi sẽ sử dụng * "Polkadot" *
-- Template project (Dự án mẫu): Chọn một dự án mẫu SubQuery sẽ cung cấp một điểm khởi đầu để bắt đầu phát triển. Chúng tôi khuyên bạn nên chọn dự án * "subql-starter" *.
-- RPC endpoint: Cung cấp HTTPS URL cho RPC endpoint đang chạy, sẽ được sử dụng mặc định cho dự án này. Bạn có thể nhanh chóng truy cập các endpoints công khai cho các mạng Polkadot khác nhau, tạo node chuyên dụng riêng của mình bằng cách sử dụng [ OnFinality ](https://app.onfinality.io) hoặc chỉ sử dụng Polkadot endpoint mặc định. Nút RPC này phải là một nút lưu trữ (có trạng thái chuỗi đầy đủ). Đối với hướng dẫn này, chúng tôi sẽ sử dụng giá trị mặc định * "https://polkadot.api.onfinality.io" *
+- Project name: Tên dự án SubQuery của bạn
+- Network family: Một mạng blockchain layer-1 mà dự án SubQuery này sẽ được phát triển để lập chỉ mục. Sử dụng các phím mũi tên để chọn từ các tùy chọn có sẵn. Đối với hướng dẫn này, chúng tôi sẽ sử dụng *"Substrate"*
+- Network: Network cụ thể mà dự án SubQuery này sẽ được phát triển để lập chỉ mục. Sử dụng các phím mũi tên để chọn từ các tùy chọn có sẵn. Đối với hướng dẫn này, chúng tôi sẽ sử dụng *"Polkadot"*
+- Template project: Chọn một dự án mẫu SubQuery sẽ cung cấp một điểm khởi đầu để bắt đầu phát triển. Chúng tôi khuyên bạn nên chọn dự án *"subql-starter"*.
+- RPC endpoint: Cung cấp HTTPS URL cho RPC endpoint đang chạy, sẽ được sử dụng mặc định cho dự án này. Bạn có thể nhanh chóng truy cập các điểm cuối công khai cho các mạng Polkadot khác nhau, tạo node chuyên dụng riêng của mình bằng cách sử dụng [OnFinality](https://app.onfinality.io) hoặc chỉ sử dụng điểm cuối Polkadot mặc định. Nút RPC này phải là một nút lưu trữ (có trạng thái chuỗi đầy đủ). Đối với hướng dẫn này, chúng tôi sẽ sử dụng giá trị mặc định *"https://polkadot.api.onfinality.io"*
 - Git repository: Cung cấp Git URL cho repo mà dự án SubQuery này sẽ được lưu trữ (khi được lưu trữ trong SubQuery Explorer) hoặc chấp nhận giá trị mặc định được cung cấp.
-- Authors (Tác giả): Nhập chủ sở hữu của dự án SubQuery này tại đây (ví dụ: tên của bạn!) Hoặc chấp nhận giá trị mặc định đã cung cấp.
-- Description (Mô tả): Cung cấp một đoạn giới thiệu ngắn về dự án của bạn, mô tả dự án chứa dữ liệu gì và người dùng có thể làm gì với dự án đó hoặc chấp nhận giá trị mặc định đã cung cấp.
-- Version (Phiên bản): Nhập số phiên bản tùy chỉnh hoặc sử dụng mặc định (` 1.0.0 `)
-- License (Giấy phép): Cung cấp giấy phép phần mềm cho dự án này hoặc chấp nhận giấy phép mặc định (` MIT `)
+- Authors: Nhập chủ sở hữu của dự án SubQuery này tại đây (ví dụ: tên của bạn!) Hoặc chấp nhận giá trị mặc định đã cung cấp.
+- Description: Cung cấp một đoạn giới thiệu ngắn về dự án của bạn, mô tả dự án chứa dữ liệu gì và người dùng có thể làm gì với dự án đó hoặc chấp nhận giá trị mặc định đã cung cấp.
+- Version: Nhập số phiên bản tùy chỉnh hoặc sử dụng mặc định (`1.0.0`)
+- License: Cung cấp giấy phép phần mềm cho dự án này hoặc chấp nhận giấy phép mặc định (`MIT`)
 
-Sau khi quá trình khởi tạo hoàn tất, bạn sẽ thấy một thư mục có tên dự án của bạn đã được tạo bên trong thư mục. Nội dung của thư mục này phải giống với nội dung được liệt kê trong [Directory Structure](../create/introduction.md#directory-structure).
+Sau khi quá trình khởi tạo hoàn tất, bạn sẽ thấy một thư mục có tên dự án của bạn đã được tạo bên trong thư mục. Nội dung của thư mục này phải giống với nội dung được liệt kê trong [Cấu trúc thư mục](../create/introduction.md#directory-structure).
 
 Cuối cùng, trong thư mục dự án, chạy lệnh sau để cài đặt các phụ thuộc của dự án mới.
 
@@ -65,10 +65,10 @@ Cuối cùng, trong thư mục dự án, chạy lệnh sau để cài đặt cá
 Trong gói khởi động vừa được khởi tạo, một cấu hình tiêu chuẩn đã được cung cấp. Đó là:
 
 1. Lược đồ GraphQL trong ` schema.graphql `
-2. Tệp Kê khai dự án ở ` project.yaml `
-3. Các chức năng ánh xạ trong thư mục `src/mappings/`
+2. Tệp Kê khai dự án trong `project.yaml`
+3. Các hàm ánh xạ trong thư mục `src/mappings/`
 
-Mục tiêu của hướng dẫn bắt đầu nhanh này là điều chỉnh dự án khởi đầu tiêu chuẩn để bắt đầu lập chỉ mục tất cả các giao dịch từ Polkadot.
+Mục tiêu của hướng dẫn nhanh này là điều chỉnh dự án khởi đầu tiêu chuẩn để bắt đầu lập chỉ mục tất cả các giao dịch từ Polkadot.
 
 ### Cập nhật tệp lược đồ GraphQL của bạn
 
@@ -78,11 +78,11 @@ Chúng ta sẽ cập nhật tệp `schema.graphql` giống như sau:
 
 ```graphql
 type Transfer @entity {
-  id: ID! # id field is always required and must look like this
-  amount: BigInt # Amount that is transferred
-  blockNumber: BigInt # The block height of the transfer
-  from: String! # The account that transfers are made from
-  to: String! # The account that transfers are made to
+  id: ID! # Trường id là bắt buộc và phải trông như thế này
+  amount: BigInt # Số tiền được chuyển
+  blockNumber: BigInt # Chiều cao khổi của giao dịch
+  from: String! # Tài khoản chuyển tiền được thực hiện từ
+  to: String! # Tài khoản chuyển tiền được thực hiện cho
 }
 ```
 
@@ -95,9 +95,9 @@ Bạn sẽ tìm thấy các mô hình đã tạo trong thư mục `/src/types/mo
 
 ### Cập nhật tệp kê khai dự án
 
-file Project Manifest (`project.yaml`) có thể được xem là entry point của dự án và nó xác định hầu hết các thông tin chi tiết về cách SubQuery sẽ lập chỉ mục và chuyển đổi dữ liệu chuỗi.
+Tệp Project Manifest (`project.yaml`) có thể được xem là điểm vào dự án của bạn và nó xác định hầu hết các thông tin chi tiết về cách SubQuery sẽ lập chỉ mục và chuyển đổi dữ liệu chuỗi.
 
-File kê khai đã được thiết lập chính xác, nhưng chúng tôi cần thay đổi trình xử lý của mình. Chúng tôi đang lên kế hoạch lập chỉ mục tất cả các giao dịch Polkadot, do đó, chúng tôi cần cập nhật phần `datasources` để trông như sau:
+Tệp kê khai đã được thiết lập chính xác, nhưng chúng ta cần thay đổi trình xử lý của mình. Chúng ta đang lên kế hoạch lập chỉ mục tất cả các giao dịch Polkadot, do đó chúng ta cần cập nhật phần `datasources` để trông như sau:
 
 ```yaml
 dataSources:
