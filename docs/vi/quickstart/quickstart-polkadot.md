@@ -123,7 +123,7 @@ Các hàm ánh xạ xác định cách dữ liệu chuỗi được chuyển đ�
 
 Điều hướng đến hàm ánh xạ mặc định trong thư mục `src/mappings `. Bạn sẽ thấy ba hàm được xuất, `handleBlock`, `handleEvent` và `handleCall`. Xóa cả hai hàm `handleBlock` và `handleCall`, chúng tôi chỉ sử dụng hàm `handleEvent`.
 
-The `handleEvent` function receives event data whenever an event matches the filters that we specified previously in our `project.yaml`. We will update it to process all `balances.Transfer` events and save them to the GraphQL entities that we created earlier.
+Hàm `handleEvent` nhận dữ liệu sự kiện bất cứ khi nào một sự kiện khớp với các bộ lọc mà chúng ta đã chỉ định trước đó trong `project.yaml`. Chúng ta sẽ cập nhật nó để xử lý tất cả các sự kiện `balance.Transfer` và lưu chúng vào các thực thể GraphQL mà chúng ta đã tạo trước đó.
 
 Bạn có thể cập nhật hàm `handleEvent` như sau (lưu ý các import bổ sung):
 
@@ -152,39 +152,39 @@ export async function handleEvent(event: SubstrateEvent): Promise<void> {
 }
 ```
 
-What this is doing is receiving a SubstrateEvent which includes transfer data in the payload. Chúng tôi trích xuất dữ liệu này và sau đó khởi tạo thực thể `Transfer` mới mà chúng tôi đã xác định trước đó trong tệp `schema.graphql`. Chúng tôi thêm thông tin bổ sung và sau đó sử dụng hàm `.save()` để lưu thực thể mới (SubQuery sẽ tự động lưu nó vào cơ sở dữ liệu).
+Hàm này đang nhận SubstrateEvent bao gồm dữ liệu truyền tải trên trọng tải. Chúng tôi trích xuất dữ liệu này và sau đó khởi tạo thực thể `Transfer` mới mà chúng tôi đã xác định trước đó trong tệp `schema.graphql`. Chúng tôi thêm thông tin bổ sung và sau đó sử dụng hàm `.save()` để lưu thực thể mới (SubQuery sẽ tự động lưu nó vào cơ sở dữ liệu).
 
 Để biết thêm thông tin về các hàm ánh xạ, hãy xem tài liệu của chúng tôi trong [Build/Mappings](../build/mapping.md)
 
 ### Xây dựng dự án
 
-In order to run your new SubQuery Project we first need to build our work. Chạy lệnh xây dựng từ thư mục gốc của dự án.
+Để chạy Dự án SubQuery mới, trước tiên chúng ta cần xây dựng công việc của mình. Chạy lệnh xây dựng từ thư mục gốc của dự án.
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script build ``` </CodeGroupItem> </CodeGroup>
 
-**Important: Whenever you make changes to your mapping functions, you will need to rebuild your project**
+**Quan trọng: Bất cứ khi nào bạn thực hiện các thay đổi đối với các hàm ánh xạ của mình, bạn sẽ cần phải xây dựng lại dự án của mình**
 
-## Running and Querying your Project
+## Chạy và truy vấn dự án của bạn
 
-### Run your Project with Docker
+### Chạy Dự án của bạn với Docker
 
-Whenever you create a new SubQuery Project, you should always run it locally on your computer to test it first. Cách dễ nhất để làm điều này là sử dụng Docker.
+Bất cứ khi nào bạn tạo một Dự án SubQuery mới, bạn nên chạy nó cục bộ trên máy tính của mình để kiểm tra nó trước. Cách dễ nhất để làm điều này là sử dụng Docker.
 
-All configuration that controls how a SubQuery node is run is defined in the `docker-compose.yml` file. For a new project that has been just initialised you won't need to change anything, but you can read more about the file and the settings in our [Run a Project](../run_publish/run.md) section.
+Tất cả cấu hình kiểm soát cách chạy node SubQuery được định nghĩa trong tệp `docker-compose.yml`. Đối với một dự án mới vừa được khởi tạo, bạn sẽ không cần phải thay đổi bất kỳ điều gì, nhưng bạn có thể đọc thêm về tệp và cài đặt trong phần [Chạy một dự án](../run_publish/run.md).
 
-Under the project directory, run the following command:
+Trong thư mục dự án, hãy chạy lệnh sau:
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn start:docker ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script start:docker ``` </CodeGroupItem> </CodeGroup>
 
-It may take some time to download the required packages ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), and Postgres) for the first time but soon you should see a running SubQuery node in the terminal screen.
+Có thể mất một chút thời gian để tải xuống các gói cần thiết ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), và Postgres) cho lần đầu tiên, nhưng bạn sẽ sớm thấy một nút SubQuery đang chạy trong màn hình đầu cuối.
 
 ### Truy vấn dự án của bạn
 
 Mở trình duyệt của bạn và truy cập [ http://localhost:3000](http://localhost:3000).
 
-You should see a GraphQL playground in the browser and the schemas that are ready to query. Ở trên cùng bên phải của sân chơi, bạn sẽ tìm thấy nút _Tài liệu_ sẽ mở bản vẽ tài liệu. Tài liệu này được tạo tự động và giúp bạn tìm thấy những thực thể và phương pháp nào bạn có thể truy vấn.
+Bạn sẽ thấy một playground GraphQL trong trình duyệt và các lược đồ đã sẵn sàng để truy vấn. Ở trên cùng bên phải của sân chơi, bạn sẽ tìm thấy nút _Tài liệu_ sẽ mở bản vẽ tài liệu. Tài liệu này được tạo tự động và giúp bạn tìm thấy những thực thể và phương pháp nào bạn có thể truy vấn.
 
-For a new SubQuery starter project, try the following query to understand how it works or learn more about the [GraphQL Query language](../run_publish/graphql.md).
+Đối với một dự án khởi đầu SubQuery mới, hãy thử truy vấn sau để hiểu cách hoạt động của nó hoặc tìm hiểu thêm về [Ngôn ngữ truy vấn GraphQL](../run_publish/graphql.md).
 
 ```graphql
 {
@@ -209,7 +209,7 @@ For a new SubQuery starter project, try the following query to understand how it
 
 SubQuery cung cấp dịch vụ quản lý miễn phí nơi bạn có thể triển khai dự án mới của mình. Bạn có thể triển khai nó trên [SubQuery Projects](https://project.subquery.network) và truy vấn nó bằng cách sử dụng [Explorer](https://explorer.subquery.network) của chúng tôi.
 
-Read the guide to [publish your new project to SubQuery Projects](../run_publish/publish.md)
+Đọc hướng dẫn để [xuất bản dự án mới của bạn lên SubQuery Projects](../run_publish/publish.md)
 
 ## Bước tiếp theo
 
