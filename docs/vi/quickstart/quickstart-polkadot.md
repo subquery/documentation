@@ -1,6 +1,6 @@
 # Bắt đầu nhanh với Polkadot
 
-Trong hướng dẫn nhanh này, chúng ta sẽ khởi đầu với một dự án Substrate/Polkadot đơn giản và sau đó kết thúc bằng cách lập chỉ mục một số dữ liệu thực tế. Đây là cơ sở tuyệt vời để bắt đầu khi phát triển Dự án Substrate/Polkadot với SubQuery của riêng bạn.
+Trong hướng dẫn nhanh này, chúng ta sẽ bắt đầu với một dự án Substrate/Polkadot đơn giản và sau đó kết thúc bằng cách lập chỉ mục một số dữ liệu thực tế. Đây là cơ sở tuyệt vời để bắt đầu khi phát triển Dự án Substrate/Polkadot với SubQuery của riêng bạn.
 
 Sau khi hoàn thành xong hướng dẫn này, bạn sẽ có một dự án SubQuery đang hoạt động chạy trên nút SubQuery với điểm cuối GraphQL mà có thể truy vấn dữ liệu từ đó.
 
