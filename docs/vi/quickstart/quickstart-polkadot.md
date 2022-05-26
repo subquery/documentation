@@ -1,12 +1,12 @@
 # Bắt đầu nhanh với Polkadot
 
-In this quick start guide, we're going to start with a simple Substrate/Polkadot starter project and then finish by indexing some actual real data. Đây là cơ sở tuyệt vời để bắt đầu khi phát triển Dự án Substrate/Polkadot với SubQuery của riêng bạn.
+Trong hướng dẫn nhanh này, chúng ta sẽ khởi đầu với một dự án Substrate/Polkadot đơn giản và sau đó kết thúc bằng cách lập chỉ mục một số dữ liệu thực tế. Đây là cơ sở tuyệt vời để bắt đầu khi phát triển Dự án Substrate/Polkadot với SubQuery của riêng bạn.
 
 Sau khi hoàn thành xong hướng dẫn này, bạn sẽ có một dự án SubQuery đang hoạt động chạy trên nút SubQuery với điểm cuối GraphQL mà có thể truy vấn dữ liệu từ đó.
 
 Nếu bạn chưa sẵn sàng, chúng tôi khuyên bạn nên tự làm quen với [thuật ngữ](../#terminology) được sử dụng trong SubQuery.
 
-**The goal of this quick start guide is to adapt the standard starter project to begin indexing all transfers from Polkadot, it should only take 10-15 minutes**
+**Mục tiêu của hướng dẫn bắt đầu nhanh này là điều chỉnh dự án khởi động tiêu chuẩn để bắt đầu lập chỉ mục tất cả các lần chuyển từ Polkadot, chỉ mất 10-15 phút**
 
 ## Chuẩn bị
 
@@ -24,9 +24,9 @@ Cài đặt SubQuery CLI tổng thể trên terminal của bạn bằng cách s�
 npm install -g @subql/cli
 ```
 
-Please note that we **DO NOT** encourage the use of `yarn global` for installing `@subql/cli` due to its poor dependency management which may lead to errors down the line.
+Xin lưu ý rằng chúng tôi **KHÔNG** khuyến khích sử dụng `yarn global<` để cài đặt `@subql/cli` do quản lý phụ thuộc kém có thể dẫn đến lỗi xuống dòng.
 
-You can then run help to see available commands and usage provided by the CLI:
+Sau đó, bạn có thể chạy trợ giúp để xem các lệnh có sẵn và cách sử dụng do CLI cung cấp:
 
 ```shell
 subql help
@@ -42,10 +42,10 @@ subql init
 
 Bạn sẽ được hỏi một số câu hỏi khi dự án SubQuery được khởi tạo:
 
-- Project name: A project name for your SubQuery project
-- Network family: The layer-1 blockchain network family that this SubQuery project will be developed to index. Use the arrow keys to select from the available options. For this guide, we will use *"Substrate"*
-- Network: The specific network that this SubQuery project will be developed to index. Use the arrow keys to select from the available options. For this guide, we will use *"Polkadot"*
-- Template project: Select a SubQuery template project that will provide a starting point to begin development. We suggest selecting the *"subql-starter"* project.
+- Tên dự án: Tên dự án SubQuery của bạn
+- Network family: Một mạng blockchain layer-1 mà dự án SubQuery này sẽ được phát triển để lập chỉ mục. Sử dụng các phím mũi tên để chọn từ các tùy chọn có sẵn. Đối với hướng dẫn này, chúng tôi sẽ sử dụng * "Substrate" *
+- Network: Network cụ thể mà dự án SubQuery này sẽ được phát triển để lập chỉ mục. Sử dụng các phím mũi tên để chọn từ các tùy chọn có sẵn. Đối với hướng dẫn này, chúng tôi sẽ sử dụng * "Polkadot" *
+- Template project (Dự án mẫu): Chọn một dự án mẫu SubQuery sẽ cung cấp một điểm khởi đầu để bắt đầu phát triển. We suggest selecting the *"subql-starter"* project.
 - RPC endpoint: Provide an HTTPS URL to a running RPC endpoint that will be used by default for this project. You can quickly access public endpoints for different Polkadot networks, create your own private dedicated node using [OnFinality](https://app.onfinality.io) or just use the default Polkadot endpoint. Nút RPC này phải là một nút lưu trữ (có trạng thái chuỗi đầy đủ). For this guide, we will use the default value *"https://polkadot.api.onfinality.io"*
 - Git repository: Provide a Git URL to a repo that this SubQuery project will be hosted in (when hosted in SubQuery Explorer) or accept the provided default.
 - Authors: Enter the owner of this SubQuery project here (e.g. your name!) or accept the provided default.
