@@ -25,17 +25,17 @@ subscription {
 ```
 
 Body ของ entity ในขั้นตอนการ query จะแสดงให้เห็นถึงข้อมูลต่าง ๆ ที่คุณต้องการรับผ่านทาง subscription ของคุณ เมื่อตาราง `Transfer` ถูกอัพเดท:
-- `id`: Returns the ID of the entity that has changed
-- `mutation_type`: การปฏิบัติที่ทำกับเอนทิตีนี้ Mutation types can be either `INSERT`, `UPDATE` or `DELETE`
-- `_entity`: the value of the entity itself in JSON format.
+- `id`: การส่งกลับ ID ของเอนทิตีที่เปลี่ยนแปลงไป
+- `mutation_type`: การปฏิบัติที่ทำกับเอนทิตีนี้ ประเภทการเปลี่ยนรูปแบบอาจเป็น `INSERT`, `UPDATE` หรือ `DELETE`
+- `_entity`: คุณค่าของตัวเอนทิตีเองในรูปแบบ JSON
 
 ## การคัดกรอง
 
-We also support filter on subscriptions, which means a client should only receive updated subscription data if that data or mutation meets certain criteria.
+เรายังรองรับการคัดกรองการสมัครรับข้อมูล ซึ่งหมายความว่าลูกค้าควรได้รับข้อมูลการสมัครสมาชิกเวอร์ชันที่อัปเดตแล้วเท่านั้นหากข้อมูลหรือการเปลี่ยนรูปแบบนั้นตรงตามเกณฑ์ที่กำหนด
 
 มีตัวกรอง 2 ชนิดที่เราสนับสนุน
 
-- `id` : Filter to only return changes that affect a specific entity (designated by the ID).
+- `id` : การคัดกรองเพื่อแสดงเฉพาะการเปลี่ยนแปลงที่ส่งผลต่อเอนทิตีเฉพาะ (ถูกกำหนดโดย ID)
 - `mutation_type`: เฉพาะประเภทการเปลี่ยนรูปแบบที่เหมือนกันเท่านั้นที่จะส่งคืนการอัปเดต
 
 สมมติว่าเรามีหนึ่ง entity `Balances` และมันบันทึกยอดคงเหลือของแต่ละบัญชี
