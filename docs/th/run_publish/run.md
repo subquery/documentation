@@ -115,11 +115,11 @@ subql-node-avalanche -f your-project-path
 
 #### Use a Dictionary
 
-Using a full chain dictionary can dramatically speed up the processing of a SubQuery project during testing or during your first index. In some cases, we've seen indexing performance increases of up to 10x.
+Using a full chain dictionary can dramatically speed up the processing of a SubQuery project during testing or during your first index. ในบางกรณี เราพบว่าประสิทธิภาพการจัดทำดัชนีเพิ่มขึ้นถึง 10 เท่า
 
-A full chain dictionary pre-indexes the location of all events and extrinsics within the specific chain and allows your node service to skip to relevant locations when indexing rather than inspecting each block.
+พจนานุกรมเชนเต็มรูปแบบจัดทำดัชนีล่วงหน้าตำแหน่งของเหตุการณ์และปัจจัยภายนอกทั้งหมดภายในเชนโดยเฉพาะ และช่วยให้บริการโหนดของคุณสามารถข้ามไปยังตำแหน่งที่เกี่ยวข้องเมื่อสร้างดัชนีแทนที่จะตรวจสอบแต่ละบล็อก
 
-You can add the dictionary endpoint in your `project.yaml` file (see [Manifest File](../create/manifest.md)), or specify it at run time using the following command:
+คุณสามารถเพิ่มจุดสิ้นสุดพจนานุกรมในไฟล์` project.yaml ของคุณ` (ดู[ ไฟล์ Manifest ](../create/manifest.md)) หรือระบุตอนรันไทม์โดยใช้คำสั่งต่อไปนี้:
 
 <CodeGroup>
 <CodeGroupItem title='Substrate/Polkadot/Polkadot'>
