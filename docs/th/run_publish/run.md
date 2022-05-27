@@ -113,9 +113,9 @@ subql-node-avalanche -f your-project-path
 </CodeGroupItem>
 </CodeGroup>
 
-#### Use a Dictionary
+#### ใช้พจนานุกรม
 
-Using a full chain dictionary can dramatically speed up the processing of a SubQuery project during testing or during your first index. ในบางกรณี เราพบว่าประสิทธิภาพการจัดทำดัชนีเพิ่มขึ้นถึง 10 เท่า
+การใช้พจนานุกรมเชนแบบเต็มสามารถเร่งการประมวลผลโปรเจ็กต์ SubQuery ได้อย่างมากระหว่างการทดสอบหรือระหว่างดัชนีแรกของคุณ Xpath: /p[10]/CodeGroup File: run. md ในบางกรณี เราพบว่าประสิทธิภาพการจัดทำดัชนีเพิ่มขึ้นถึง 10 เท่า
 
 พจนานุกรมเชนเต็มรูปแบบจัดทำดัชนีล่วงหน้าตำแหน่งของเหตุการณ์และปัจจัยภายนอกทั้งหมดภายในเชนโดยเฉพาะ และช่วยให้บริการโหนดของคุณสามารถข้ามไปยังตำแหน่งที่เกี่ยวข้องเมื่อสร้างดัชนีแทนที่จะตรวจสอบแต่ละบล็อก
 
