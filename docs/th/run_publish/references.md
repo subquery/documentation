@@ -60,16 +60,16 @@ Options:
                                                       [boolean] [ค่าเริ่มต้น: false]
       --timeout            กำหนดระยะเวลาสำหรับ indexer sandbox ในการใช้คำสั่ง mapping
                                                               [number]
-      --debug               แสดงข้อมูลการ debug ไปยัง console output will
-                            forcefully set log level to debug
+      --debug               แสดงข้อมูลการ debug ไปยัง console output จะ 
+                            ตั้งค่าระดับบันทึกเป็น debug อย่างจริงจัง
                                                       [boolean] [default: false]
-      --profiler            Show profiler information to console output
+      --profiler            แสดงข้อมูลตัวสร้างโปรไฟล์ไปยังเอาต์พุตคอนโซล
                                                       [boolean] [default: false]
-      --subscription        Enable subscription       [boolean] [default: false]                                                     
-      --network-endpoint    Blockchain network endpoint to connect      [string]
-      --output-fmt          Print log as json or plain text
+      --subscription        เปิดใช้งานการสมัครสมาชิก       [boolean] [default: false]                                                     
+      --network-endpoint    ปลายทางเครือข่าย Blockchain เพื่อเชื่อมต่อ      [string]
+      --output-fmt          พิมพ์logเป็น json หรือข้อความธรรมดา
                                            [string] [choices: "json", "colored"]
-      --log-level           Specify log level to print. เพิกเฉยต่อคำสั่ง เมื่อมีการใช้ --debug
+      --log-level           ระบุlog level ที่จะพิมพ์ เพิกเฉยต่อคำสั่ง เมื่อมีการใช้ --debug
                            
           [string] [ตัวเลือก: "fatal", "error", "warn", "info", "debug", "trace",
                                                                        "silent"]
@@ -298,24 +298,24 @@ subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot
 คำสั่งนี้จะแสดงตัวเลือกของความช่วยเหลือ
 
 ```shell
-Options:
-      --help          Show help                                          [boolean]
-      --version       Show version number                                [boolean]
-  -n, --name          Project name                             [string] [required]
-      --playground    Enable graphql playground                          [boolean]
-      --subscription  Enable subscription               [boolean] [default: false]   
-      --output-fmt    Print log as json or plain text
+ทางเลือก:
+      --help          แสดง ความช่วยเหลือ                                          [boolean]
+      --version       แสดงหมายเลขเวอร์ชัน                                [boolean]
+  -n, --name          ชื่อโปรเจค                             [string] [required]
+      --playground    เปิดใช้งาน graphql playground                          [boolean]
+      --subscription  เปิดใช้งานการสมัครสมาชิก               [boolean] [default: false]   
+      --output-fmt    พิมพ์ log เป็น json หรือข้อความธรรมดา
                         [string] [choices: "json", "colored"] [default: "colored"]
-      --log-level     Specify log level to print.
+      --log-level     ระบุlog level ที่จะพิมพ์
             [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
                                                        "silent"] [default: "info"]
-      --log-path      Path to create log file e.g ./src/name.log          [string]
-      --log-rotate    Rotate log files in directory specified by log-path
+      --log-path      เส้นทางในการสร้างไฟล์บันทึก เช่น ./src/name.log          [string]
+      --log-rotate    หมุนล็อกไฟล์ในไดเร็กทอรีที่ระบุโดย log-path
                                                       [boolean] [default: false]
-      --indexer       Url that allows query to access indexer metadata    [string]
-      --unsafe        Disable limits on query depth and allowable number returned
-                      query records                                      [boolean]
-  -p, --port          The port the service will bind to                   [number]
+      --indexer       Url ที่อนุญาตให้สืบค้นเข้าถึงข้อมูลเมตาของตัวสร้างดัชนี    [string]
+      --unsafe        ปิดใช้งานขีดจำกัดความลึกของแบบสอบถามและจำนวนที่อนุญาตที่ส่งคืน
+                      บันทึกแบบสอบถาม                                      [boolean]
+  -p, --port          พอร์ตที่บริการจะผูกกับ                   [number]
 ```
 
 ### --เวอร์ชัน
@@ -369,7 +369,7 @@ See [--log-level](https://doc.subquery.network/run_publish/references.html#log-l
 
 ### --subscription
 
-This flag enables [GraphQL Subscriptions](./subscription.md), to enable this feature requires `subql-node` also enable `--subscription`
+แฟล็กนี้เปิดใช้งาน [การสมัครรับข้อมูล GraphQL ](./subscription.md), เพื่อเปิดใช้งานคุณสมบัตินี้ต้องการ `subql-node` ยังเปิดใช้งาน `--การสมัครรับข้อมูล`
 
 ### --unsafe
 
