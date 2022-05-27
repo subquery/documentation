@@ -26,7 +26,7 @@ subscription {
 
 Body ของ entity ในขั้นตอนการ query จะแสดงให้เห็นถึงข้อมูลต่าง ๆ ที่คุณต้องการรับผ่านทาง subscription ของคุณ เมื่อตาราง `Transfer` ถูกอัพเดท:
 - `id`: Returns the ID of the entity that has changed
-- `mutation_type`: The action that has been made to this entity. Mutation types can be either `INSERT`, `UPDATE` or `DELETE`
+- `mutation_type`: การปฏิบัติที่ทำกับเอนทิตีนี้ Mutation types can be either `INSERT`, `UPDATE` or `DELETE`
 - `_entity`: the value of the entity itself in JSON format.
 
 ## การคัดกรอง
@@ -36,7 +36,7 @@ We also support filter on subscriptions, which means a client should only receiv
 มีตัวกรอง 2 ชนิดที่เราสนับสนุน
 
 - `id` : Filter to only return changes that affect a specific entity (designated by the ID).
-- `mutation_type`: Only the same mutation type been made will return an update.
+- `mutation_type`: เฉพาะประเภทการเปลี่ยนรูปแบบที่เหมือนกันเท่านั้นที่จะส่งคืนการอัปเดต
 
 สมมติว่าเรามีหนึ่ง entity `Balances` และมันบันทึกยอดคงเหลือของแต่ละบัญชี
 
