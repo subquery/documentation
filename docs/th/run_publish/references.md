@@ -152,7 +152,7 @@ subql-node -f . --db-schema=test2
 ```
 
 ### --การสมัครสมาชิก
-This will create a notification trigger on entity, this also is the prerequisite to enable subscription feature in query service.
+การดำเนินการนี้จะสร้างตัวกระตุ้นการแจ้งเตือนในเอนทิตีซึ่งเป็นข้อกำหนดเบื้องต้นในการเปิดใช้งานคุณลักษณะการสมัครใช้งานในบริการ query
 
 ### --unsafe
 
