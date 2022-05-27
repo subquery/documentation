@@ -151,7 +151,7 @@ Flag นี้อนุญาตให้คุณระบุชื่อสำ
 subql-node -f . --db-schema=test2
 ```
 
-### --subscription
+### --การสมัครสมาชิก
 This will create a notification trigger on entity, this also is the prerequisite to enable subscription feature in query service.
 
 ### --unsafe
