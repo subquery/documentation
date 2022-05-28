@@ -1,12 +1,12 @@
 # คู่มือเริ่มต้นสำหรับ Polkadot
 
-ในบทความเริ่มต้นนี้, เราจะเริ่มด้วยการพูดถึงโปรเจค Substrate/Polkadot อย่างง่าย และต่อไปจนถึงจบด้วย การจัดทำดัชนีของข้อมูลจริง นี้คือบทความเริ่มต้นที่ดีสำหรับนักพัฒนาโปรแกรม ที่กำลังทำการพัฒนาโปรเจค Substrate/Polkadot บน SubQuery
+ในบทความเริ่มต้นนี้, เราจะเริ่มด้วยการพูดถึงโปรเจกต์ Substrate/Polkadot อย่างง่าย และต่อไปจนถึงจบด้วย การจัดทำดัชนีของข้อมูลจริง นี้คือบทความเริ่มต้นที่ดีสำหรับนักพัฒนาโปรแกรม ที่กำลังทำการพัฒนาโปรเจกต์ Substrate/Polkadot บน SubQuery
 
 หลังจบคู่มือนี้ คุณจะมีโปรเจ็กต์ SubQuery ที่ทำงานบนโหนด SubQuery และมี GraphQL endpoint ที่คุณสามารถสืบค้นข้อมูลได้
 
 หากคุณยังไม่คุ้นเคย เราขอแนะนำให้คุณทำความคุ้นเคยกับ [คำศัพท์](../#terminology) ที่ใช้ใน SubQuery
 
-**เป้าหมายของบทเริ่มต้นอย่างง่ายของนี้คือ สามารถนำข้อมูลของโปรเจคบน Polkadot ทำการย้ายดัชนีไปยังโปรเจค Subquery, โดยจะใช้เวลาในเพียงแค่ 10-15 นาทีเท่านั้น**
+**เป้าหมายของบทเริ่มต้นอย่างง่ายของนี้คือ สามารถนำข้อมูลของโปรเจกต์บน Polkadot ทำการย้ายดัชนีไปยังโปรเจกต์ Subquery, โดยจะใช้เวลาในเพียงแค่ 10-15 นาทีเท่านั้น**
 
 ## การเตรียมความพร้อม
 
@@ -40,17 +40,17 @@ subql help
 subql init
 ```
 
-คุณจะถูกถามคำถามบางอย่างเมื่อโปรเจค SubQuery เริ่มต้น:
+คุณจะถูกถามคำถามบางอย่างเมื่อโปรเจกต์ SubQuery เริ่มต้น:
 
-- ชื่อโปรเจค: ตั้งชื่อว่าโปรเจค A สำหรับ โปรเจค SubQuery ของคุณ
-- Network family: ตระกูลเครือ blockchain layer-1ที่โปรเจกต์ SubQuery จะ develop เป็น index ใช้ลูกศร เพื่อเลือก ตัวเลือกที่มีให้ สำหรับคำแนะนำนี้ เราจะใช้ *"Substrate"*
+- ชื่อโปรเจกต์: ตั้งชื่อว่าโปรเจกต์ A สำหรับ โปรเจกต์ SubQuery ของคุณ
+- Network family: ตระกูลเครือ Blockchain layer-1ที่โปรเจกต์ SubQuery จะ Develop เป็น Index ใช้ลูกศร เพื่อเลือก ตัวเลือกที่มีให้ สำหรับคำแนะนำนี้ เราจะใช้ *"Substrate"*
 - เครือข่าย: เครือข่ายเฉพาะที่โครงการ SubQuery นี้จะถูกพัฒนาเพื่อสร้างดัชนี ใช้ลูกศร เพื่อเลือก ตัวเลือกที่มีให้ สำหรับคำแนะนำนี้ เราจะใช้ *"Polkadot*
-- โครงการแม่แบบ: เลือกโครงการแม่แบบ SubQuery ที่จะให้จุดเริ่มต้นเพื่อเริ่มการพัฒนา เราแนะนำให้เลือกโปรเจค *"subql-starter"*
-- RPC endpoint: ระบุ HTTPS URL ไปยัง RPC endpoint ที่ทำงานอยู่ที่จะใช้งานเป็นค่าเริ่มต้นของโปรเจกต์ คุณสามารถเข้าถึง endpoints สาธารณะได้อย่างรวดเร็วสำหรับเครือข่าย Polkadot ต่างๆหรือแม้แต่สามารถ สร้าง node เฉพาะส่วนตัวของคุณเองโดยใช้ [OnFinality](https://app.onfinality.io) หรือเพียงแค่ใช้ Polkadot endpoints ที่เป็นค่าเริ่มต้น RPC node นี้ต้องเป็น archive node (มีสถานะ full chain state) สำหรับคู่มือนี้เราจะใช้ค่าเริ่มต้นคือ *"https://polkadot.api.onfinality.io"*
+- โครงการแม่แบบ: เลือกโครงการแม่แบบ SubQuery ที่จะใช้เป็นจุดเริ่มต้นเพื่อเริ่มการพัฒนา เราแนะนำให้เลือกโปรเจกต์ *"subql-starter"*
+- RPC endpoint: ระบุ HTTPS URL ไปยัง RPC endpoint ที่ทำงานอยู่ที่จะใช้งานเป็นค่าเริ่มต้นของโปรเจก คุณสามารถเข้าถึง Endpoints สาธารณะได้อย่างรวดเร็วสำหรับเครือข่าย Polkadot ต่างๆหรือแม้แต่สามารถ สร้าง Node เฉพาะส่วนตัวของคุณเองโดยใช้ [OnFinality](https://app.onfinality.io) หรือเพียงแค่ใช้ Polkadot endpoints ที่เป็นค่าเริ่มต้น RPC node นี้ต้องเป็น archive node (มีสถานะ full chain state) สำหรับคู่มือนี้เราจะใช้ค่าเริ่มต้นคือ *"https://polkadot.api.onfinality.io"*
 - Git repository: ระบุ Git URL ไปยัง repo ที่จะโฮสต์โปรเจ็กต์ SubQuery นี้ (เมื่อโฮสต์ใน SubQuery Explorer) หรือยอมรับค่าเริ่มต้นที่ให้ไว้
-- ผู้เขียน: ใส่ชื่อของเจ้าของโปรเจคที่นี้(เช่น ชื่อของคุณ) หรือ ใช้ค่าเดิม
-- คำอธิบาย: เป็นคำอธิบายสั้นๆของโปรเจคเกี่ยวกับข้อมูลด้านใน และ ผู้ใช้งงานทั้งไปสามารถใช้อะไรได้บ้าง หรือ ตั้งไว้ค่าเดิม
-- เวอร์ชัน: ป้อนหมายเลขเวอร์ชันที่กำหนดเองหรือใช้ค่าเริ่มต้น
+- ผู้เขียน: ใส่ชื่อของเจ้าของโปรเจกต์ที่นี้ (เช่น ชื่อของคุณ) หรือใช้ค่าเดิม
+- คำอธิบาย: เป็นคำอธิบายสั้นๆของโปรเจกต์เกี่ยวกับข้อมูลด้านใน และ ผู้ใช้งานทั่วไปสามารถใช้อะไรได้บ้าง หรือ ตั้งไว้ค่าเดิม
+- เวอร์ชั่น: ป้อนหมายเลขเวอร์ชั่นที่กำหนดเองหรือใช้ค่าเริ่มต้น
 - ใบอนุญาต: ระบุสิทธิ์การใช้งานซอฟต์แวร์สำหรับโครงการนี้หรือยอมรับค่าเริ่มต้น(เช่น MIT)
 
 หลังจากกระบวนการเริ่มต้นเสร็จสมบูรณ์ คุณจะเห็นว่ามีการสร้างโฟลเดอร์ที่มีชื่อโครงการของคุณภายในไดเร็กทอรี เนื้อหาของไดเร็กทอรีนี้ควรเหมือนกับที่แสดงใน โครงสร้างไดเร็กทอรี
@@ -70,9 +70,9 @@ subql init
 
 เป้าหมายของบทเริ่มต้นอย่างง่ายของนี้คือ สามารถนำข้อมูลของโปรเจกต์บน Polkadot ทำการย้าย indexing ไปยังโปรเจกต์ Subquery
 
-### อับเดทไฟล์ GraphQL Schema ของคุณ
+### อัปเดตไฟล์ GraphQL Schema ของคุณ
 
-ไฟล์ `schema.graphql` นั้นกำหนด GraphQL schemas ที่หลากหลาย เนื่องจากวิธีที่ภาษา GraphQL ใช้ในการดึงข้อมูลทำงานนั้น ไฟล์ Schema เป็นสิ่งสำคัญที่กำหนดรูปร่างข้อข้อมูลจาก SubQuery มันเป็นจุดที่ดีทีสุดที่จะเริ่มต้นเพราะมันอนุญาตให้คุณกำหนด end goal up front ของคุณได้
+ไฟล์ `schema.graphql` นั้นกำหนด GraphQL schemas ที่หลากหลาย เนื่องจากวิธีที่ภาษา GraphQL ใช้ในการดึงข้อมูลทำงานนั้น ไฟล์ Schema เป็นสิ่งสำคัญที่กำหนดรูปร่างข้อมูลจาก SubQuery มันเป็นจุดที่ดีทีสุดที่จะเริ่มต้นเพราะมันอนุญาตให้คุณกำหนด end goal up front ของคุณได้
 
 อัปเดตไฟล์ `schema.graphql` ให้ทำดังนี้
 
@@ -86,18 +86,18 @@ type Transfer @entity {
 }
 ```
 
-**สำคัญ: เมื่อคุณได้ทำการเปลี่ยนแปลงใดๆกับไฟล์ schema โปรดตรวจสอบให้มั่นใจว่าคุณสามารถนำชนิดของ directory กลับมาใหม่ได้**
+**สำคัญ: เมื่อคุณได้ทำการเปลี่ยนแปลงใดๆกับไฟล์ Schema โปรดตรวจสอบให้มั่นใจว่าคุณสามารถนำชนิดของ Directory กลับมาใหม่ได้**
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```shell npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
 
 คุณจะพบโมเดลที่สร้างขึ้นใน `/src/types/models` directory. สำหรับข้อมูลเพิ่มเติมภายใน `schema.graphql` ไฟล์, โปรดตรวจสอบได้ที่ เอกสารของเราภายใต้ [Build/GraphQL Schema](../build/graphql.md)
 
-### การอับเดท Project Manifest File
+### การอัปเดต Project Manifest File
 
 ไฟล์ Manifest (`project.yaml`) เป็นจุดเริ่มต้นโปรเจกต์ของคุณ และมันจะกำหนดรายละเอียดส่วนใหญ่ว่า SubQuery จะสร้าง index และแปลง chain data อย่างไร
 
-ไฟล์ Manifest ได้รับการตั้งค่าอย่างถูกต้องแล้ว แต่เราจำเป็นต้องเปลี่ยน handlers ของเรา ในขณะที่เรากำลังวางแผนที่จะจัดทำการย้าย index Polkadot ทั้งหมด เราจำเป็นต้องอัปเดตส่วน `datasources` ดังนี้:
+ไฟล์ Manifest ได้รับการตั้งค่าอย่างถูกต้องแล้ว แต่เราจำเป็นต้องเปลี่ยน Handlers ของเรา ในขณะที่เรากำลังวางแผนที่จะจัดทำการย้าย index Polkadot ทั้งหมด เราจำเป็นต้องอัปเดตส่วน `datasources` ดังนี้:
 
 ```yaml
 dataSources:
@@ -113,17 +113,17 @@ dataSources:
             method: Transfer
 ```
 
-ซึ่งหมายความว่าเราจะเรียกใช้ mapping function `handleEvent` ทุกครั้งที่มีเหตุการณ์ `balances.Transfer`
+ซึ่งหมายความว่าเราจะเรียกใช้ Mapping function `handleEvent` ทุกครั้งที่มีเหตุการณ์ `balances.Transfer`
 
-สำหรับข้อมูลเพิ่มเติมเกี่ยวกับ Project Manifest (`project.yaml`) ไฟล์,โปรดตรวจสอบได้ที่เอกสารของเราภายใต้ [Build/Manifest File](../build/manifest.md)
+สำหรับข้อมูลเพิ่มเติมเกี่ยวกับ Project Manifest (`project.yaml`) ไฟล์ โปรดตรวจสอบได้ที่เอกสารของเราภายใต้ [Build/Manifest File](../build/manifest.md)
 
 ### เพิ่ม Mapping Function
 
-Mapping functions นั้นช่วยกำหนดวิธีการเปลี่ยนแปลง chain data เป็น GraphQL entities ที่ถูกปรับให้เหมาะสมซึ่งเราได้กำหนดไว้ก่อนหน้านี้ในไฟล์ `schema.graphql`
+Mapping functions นั้นช่วยกำหนดวิธีการเปลี่ยนแปลง Chain data เป็น GraphQL entities ที่ถูกปรับให้เหมาะสมซึ่งเราได้กำหนดไว้ก่อนหน้านี้ในไฟล์ `schema.graphql`
 
-นำทางไปยัง mapping function เริ่มต้นใน directory`src/mappings` คุณจะเห็นสามฟังก์ชันที่ส่งออกมาก, `handleBlock`, `handleEvent`, and `handleCall`. คุณสามารถลบทั้งฟังก์ชัน `handleBlock` และ `handleCall` แล้วเราจะจัดการกับฟังก์ชัน `handleEvent` เท่านั้น
+นำทางไปยัง Mapping function เริ่มต้นใน Directory`src/mappings` คุณจะเห็นฟังก์ชันทั้งสามที่ส่งออกมา, `handleBlock`, `handleEvent`, and `handleCall`. คุณสามารถลบทั้งฟังก์ชัน `handleBlock` และ `handleCall` แล้วเราจะจัดการกับฟังก์ชัน `handleEvent` เท่านั้น
 
-ฟังก์ชัน `handleLog` จะได้รับ event data เมื่อใดก็ตามที่เหตุการณ์ตรงกับ filters ที่เราระบุไว้ก่อนหน้านี้ใน`project.yaml`. เเราจะอัปเดตเพื่อประมวลผลเหตุการณ์ทั้งหมด `balances.Transfer` และบันทึกลงใน GraphQL entities ที่เราสร้างไว้ก่อนหน้านี้
+ฟังก์ชัน `handleLog` จะได้รับ Event data เมื่อใดก็ตามที่เหตุการณ์ตรงกับ Filters ที่เราระบุไว้ก่อนหน้านี้ใน`project.yaml`. เราจะอัปเดตเพื่อประมวลผลเหตุการณ์ทั้งหมด `balances.Transfer` และบันทึกลงใน GraphQL entities ที่สร้างไว้ก่อนหน้านี้
 
 คุณสามารถอัปเดตฟังก์ชัน `handleEvent` เป็นดังต่อไปนี้ (โปรดสังเกตการนำเข้าเพิ่มเติม):
 
@@ -152,13 +152,13 @@ export async function handleEvent(event: SubstrateEvent): Promise<void> {
 }
 ```
 
-สิ่งที่กำลังทำคือได้รับ SubstrateEvent ซึ่งรวมถึงการถ่ายโอนข้อมูลใน payload ด้วย เราดึงข้อมูลนี้แล้วสร้าง instantiate entity ใหม่ที่`Transfer` ซึ่งเรากำหนดไว้ก่อนหน้านี้ในไฟล์ `schema.graphql` เราเพิ่มข้อมูลเพิ่มเติมแล้วใช้ฟังก์ชัน `.save()` เพื่อที่จะบันทึก entity ใหม่ (SubQuery จะบันทึกอัตโนมัติใน database).
+สิ่งที่กำลังทำคือได้รับ SubstrateEvent ซึ่งรวมถึงการถ่ายโอนข้อมูลใน Payload ด้วย เราดึงข้อมูลนี้แล้วสร้าง Instantiate entity ใหม่ที่`Transfer` ซึ่งเรากำหนดไว้ก่อนหน้านี้ในไฟล์ `schema.graphql` เราเพิ่มข้อมูลเพิ่มเติมแล้วใช้ฟังก์ชัน `.save()` เพื่อที่จะบันทึก Entity ใหม่ (SubQuery จะบันทึกอัตโนมัติใน Database).
 
 สำหรับข้อมูลเพิ่มเติมเกี่ยวกับฟังก์ชันการทำแผนที่ โปรดดูเอกสารประกอบของเราใน [Build/Mappings](../build/mapping.md)
 
 ### การสร้างโปรเจค
 
-ในการรันโปรเจกต์ SubQuery ใหม่ของคุณ เราต้องทำของเราก่อน ทำการ Run คำสั่งเริ่มต้นจาก project's root directory
+ในการรันโปรเจกต์ SubQuery ใหม่ของคุณ จะมีสิ่งที่ต้องเตรียมการก่อน ทำการ Run คำสั่งเริ่มต้นจาก Project's root directory
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script build ``` </CodeGroupItem> </CodeGroup>
 
@@ -170,9 +170,9 @@ export async function handleEvent(event: SubstrateEvent): Promise<void> {
 
 Whenever you create a new SubQuery Project, you should always run it locally on your computer to test it first. วิธีที่ง่ายที่สุดคือให้ใช้ Docker
 
-ทุกๆการตั้งค่าใน SubQuery node จะรันอยู่ภายในไฟล์ `docker-compose.yml`. สำหรับโปรเจd9Nใหม่ที่เพิ่งเริ่มต้น คุณไม่ต้องเปลี่ยนแปลงอะไร แต่คถณสามารถอ่านเพิ่มเติมเกี่นสกับไฟล์และการตั้งค่าได้ที่ [Run a Project](../run_publish/run.md)
+ทุกๆการตั้งค่าใน SubQuery node จะรันอยู่ภายในไฟล์ `docker-compose.yml`. สำหรับโปรเจกต์ใหม่ที่เพิ่งเริ่มต้น คุณไม่ต้องเปลี่ยนแปลงอะไร แต่คุณสามารถอ่านเพิ่มเติมเพิ่มเกี่ยวกับไฟล์และการตั้งค่าได้ที่ [Run a Project](../run_publish/run.md)
 
-ให้รันคำสั่งต่อไปนี้ ภายใต้ไดเรกทอรีของโปรเจ็กต์:
+ให้รันคำสั่งต่อไปนี้ ภายใต้ไดเรกทอรีของโปรเจกต์:
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn start:docker ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script start:docker ``` </CodeGroupItem> </CodeGroup>
 
@@ -182,9 +182,9 @@ Whenever you create a new SubQuery Project, you should always run it locally on 
 
 เปิดเบราว์เซอร์ของคุณและไปที่ [http://localhost:3000](http://localhost:3000)
 
-คุณควรที่จะเห็น GraphQl playground แสดงในเบราว์เซอร์และ schemas ที่พร้อมสำหรับการ query ได้ ที่ตำแหน่งด้านบนขวาของ playground คุณจะพบปุ่ม _Docs_ ที่จะเปิดการร่างเอกสาร เอกสารนี้สร้างขึ้นโดยอัตโนมัติและช่วยให้คุณค้นหา entities และ methods ที่คุณสามารถค้นหาได้
+คุณควรที่จะเห็น GraphQl playground แสดงในเบราว์เซอร์และ Schemas ที่พร้อมสำหรับการ Query ได้ ที่ตำแหน่งด้านบนขวาของ playground คุณจะพบปุ่ม _Docs_ ที่จะเปิดการร่างเอกสาร เอกสารนี้สร้างขึ้นโดยอัตโนมัติและช่วยให้คุณค้นหา entities และ methods ที่คุณสามารถค้นหาได้
 
-สำหรับโปรเจกต์เริ่มต้น SubQuery ใหม่ ให้ลองใช้ query ต่อไปนี้เพื่อทำความเข้าใจวิธีการทำงาน หรือเรียนรู้เพิ่มเติมเกี่ยวกับ [GraphQL Query language](../run_publish/graphql.md).
+สำหรับโปรเจกต์เริ่มต้น SubQuery ใหม่ ให้ลองใช้ Query ต่อไปนี้เพื่อทำความเข้าใจวิธีการทำงาน หรือเรียนรู้เพิ่มเติมเกี่ยวกับ [GraphQL Query language](../run_publish/graphql.md).
 
 ```graphql
 {
@@ -207,15 +207,15 @@ Whenever you create a new SubQuery Project, you should always run it locally on 
 
 ### เผยแพร่โปรเจกต์ SubQuery ของคุณ
 
-SubQuery ให้บริการ การจัดการฟรีในทุกๆที่ ที่คุณ deploy โปรเจ็กต์ใหม่ คุณสามารถปรับใช้มัน [SubQuery Projects](https://project.subquery.network) และ query โดยใช้ [Explorer](https://explorer.subquery.network).
+SubQuery ให้บริการ การจัดการฟรีในทุกๆที่ ที่คุณ deploy โปรเจกต์ใหม่ คุณสามารถปรับใช้บน [SubQuery Projects](https://project.subquery.network) และ Query โดยใช้ [Explorer](https://explorer.subquery.network).
 
 อ่านคู่มือ [publish your new project to SubQuery Projects](../run_publish/publish.md)
 
 ## ขั้นต่อไป
 
-ยินดีด้วย ตอนนี้คุณได้มี Subquery Project ที่กำลังทำงานอยู่บน local ที่ยอมรับการร้องขอจาก GraphQL API สำหรับการย้ายข้อมูล
+ยินดีด้วย ตอนนี้คุณได้มี Subquery Project ที่กำลังทำงานอยู่บน Local ที่ยอมรับการร้องขอจาก GraphQL API สำหรับการย้ายข้อมูล
 
-ตอนนี้คุณได้รับข้อมูลเชิงลึกเกียวกับสร้าง Subquery project ขั้นพื้นฐาน คำถามคือ เราจะไปที่ไหนต่อ ถ้าคุณคิดว่าคุณมั่นใจ คุณสามารถข้ามไปเรียนรู้เกี่ยวกับ three key files ได้เลย The manifest ไฟล์, the GraphQL schema, และ mappings ไฟล์อยู่ภายใต้ [Build section of these docs](../build/introduction.md).
+ตอนนี้คุณได้รับข้อมูลเชิงลึกเกี่ยวกับสร้าง Subquery project ขั้นพื้นฐาน คำถามคือ เราจะไปที่ไหนต่อ ถ้าคุณคิดว่าคุณมั่นใจ คุณสามารถข้ามไปเรียนรู้เกี่ยวกับ 3 ไฟล์หลักได้เลย The manifest ไฟล์, the GraphQL schema, และ mappings ไฟล์อยู่ภายใต้ [Build section of these docs](../build/introduction.md).
 
 หรือไปที่[Academy section](../academy/academy.md) ที่เรามีเวิร์กช็อปเชิงลึก บทแนะนำ และตัวอย่างโครงการเพิ่มเติม เราจะดูการปรับเปลี่ยนขั้นสูงเพิ่มเติมที่นั่น และเราจะเจาะลึกลงไปที่การเรียกใช้โครงการ SubQuery โดยการเรียกใช้โครงการที่พร้อมใช้งานและโอเพ่นซอร์ส
 
