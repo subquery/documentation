@@ -21,7 +21,7 @@ COMMANDS
 
 This command is uses webpack to generate a bundle of a subquery project.
 
-| Options            | Description                                                                                                |
+| Options            | Descrizione                                                                                                |
 | ------------------ | ---------------------------------------------------------------------------------------------------------- |
 | -l, --location     | local folder of subquery project (if not in folder already)                                                |
 | -o, --output       | specify output folder of build e.g. build-folder                                                           |
