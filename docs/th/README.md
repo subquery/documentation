@@ -5,7 +5,7 @@
       <div>
         <h2 class="welcomeTitle">ยินดีต้อนรับสู่ SubQuery <span>University</span></h2>
         <p>สำรวจและแปลงข้อมูลเชนของคุณเพื่อสร้าง dApps ให้ใช้งานง่ายและรวดเร็วขึ้น!</p>
-        <p><strong>SubQuery ตอนนี้ได้สนับสนุนที่เชน Polkadot, Avalanche, และTerra</strong></p>
+        <p><strong>ในตอนนี้ SubQuery ได้มีการสนับสนุนทั้ง Polkadot, Avalanche และ Terra</strong></p>
       </div>
     </div>
   </section>
@@ -30,7 +30,7 @@
           <div>
             <img src="/assets/img/tutorialsIcon.svg" />
             <span>บทแนะนำและตัวอย่าง</span>
-            <p>เรียนรู้จากการลงมือทำใน กลุ่มของเรา บทช่วยสอนและตัวอย่างเกี่ยวกับวิธีสร้างโปรเจ็กต์ SubQuery</p>
+            <p>เรียนรู้ด้วยการลงมือทำใน Academy ของเรา บทช่วยสอนและตัวอย่างเกี่ยวกับวิธีสร้างโปรเจ็กต์ SubQuery</p>
           </div>
         </router-link>
       </li>
