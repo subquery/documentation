@@ -6,7 +6,7 @@
 
 Якщо ви ще цього не зробили, ми пропонуємо вам ознайомитись із [ terminology ](../#terminology), що використовується в SubQuery.
 
-**The goal of this quick start guide is to adapt the standard starter project to begin indexing all transfers from Polkadot, it should only take 10-15 minutes**
+**Метою цього короткого посібника є адаптація стандартного стартового проєкту, щоб почати індексацію всіх переказів з Polkadot, це займе всього 10-15 хвилин**
 
 ## Підготовка
 
@@ -24,7 +24,7 @@
 npm install -g @subql/cli
 ```
 
-Please note that we **DO NOT** encourage the use of `yarn global` for installing `@subql/cli` due to its poor dependency management which may lead to errors down the line.
+Зверніть увагу, що ми **НЕ**заохочуємо використання `yarn global` для встановлення`@subql/cli` через погане керування залежностями, що може призвести до помилок у майбутньому.
 
 You can then run help to see available commands and usage provided by the CLI:
 
@@ -42,7 +42,7 @@ subql init
 
 Під час ініціалізації проекту SubQuery вам зададуть певні запитання:
 
-- Project name: A project name for your SubQuery project
+- Назва проєкту: Найменування ля вашого проєкту SubQuery
 - Network family: The layer-1 blockchain network family that this SubQuery project will be developed to index. Use the arrow keys to select from the available options. For this guide, we will use *"Substrate"*
 - Network: The specific network that this SubQuery project will be developed to index. Use the arrow keys to select from the available options. For this guide, we will use *"Polkadot"*
 - Template project: Select a SubQuery template project that will provide a starting point to begin development. We suggest selecting the *"subql-starter"* project.
@@ -53,9 +53,9 @@ subql init
 - Version: Enter a custom version number or use the default (`1.0.0`)
 - License: Provide the software license for this project or accept the default (`MIT`)
 
-After the initialisation process is complete, you should see that a folder with your project name has been created inside the directory. The contents of this directory should be identical to what's listed in the [Directory Structure](../create/introduction.md#directory-structure).
+Після завершення процесу ініціалізації ви повинні побачити, що всередині каталогу створено папку з назвою вашого проєкту. The contents of this directory should be identical to what's listed in the [Directory Structure](../create/introduction.md#directory-structure).
 
-Last, under the project directory, run the following command to install the new project's dependencies.
+Нарешті, у каталозі проєкту виконайте таку команду, щоб встановити залежності нового проєкту.
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```shell cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
@@ -95,9 +95,9 @@ You'll find the generated models in the `/src/types/models` directory. Щоб о
 
 ### Оновлення файлу маніфесту проекту
 
-The Project Manifest (`project.yaml`) file can be seen as an entry point of your project and it defines most of the details on how SubQuery will index and transform the chain data.
+Файл маніфесту проєкту (`project.yaml`) можна розглядати як точку входу вашого проєкту, і він визначає більшість деталей про те, як SubQuery буде індексувати та перетворювати дані ланцюга.
 
-The manifest file has already been set up correctly, but we need to change our handlers. As we are planning to index all Polkadot transfers, we need to update the `datasources` section as follows:
+Файл маніфесту вже налаштовано правильно, але нам потрібно змінити наші обробники. Оскільки ми плануємо індексувати всі передачі Polkadot, нам потрібно оновити розділ `джерела даних` таким чином:
 
 ```yaml
 dataSources:
@@ -113,7 +113,7 @@ dataSources:
             method: Transfer
 ```
 
-This means we'll run a `handleEvent` mapping function each and every time there is a `balances.Transfer` event.
+Це означає, що ми запускатимемо функцію відображення `handleEvent` кожного разу, коли відбувається подія `balances.Transfer`.
 
 Щоб отримати додаткові відомості про файл маніфесту проекту (`project.yaml`), перегляньте нашу документацію в розділі [Файл збірки/маніфесту](../build/manifest.md)
 
