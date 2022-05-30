@@ -176,7 +176,7 @@ export async function handleEvent(
 
 ### การสร้างโปรเจค
 
-ถ้าต้องการสร้างโปรเจคใหม่ในSubQuery Project เราต้องเริ่มต้นสร้างงานใหม่ โดย ทำการ Run คำสั่งเริ่มต้นจาก project's root directory
+ในการรันโปรเจกต์ SubQuery ใหม่ของคุณ เราต้องสร้างงานของเราก่อน ทำการ Run คำสั่งเริ่มต้นจาก project's root directory
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script build ``` </CodeGroupItem> </CodeGroup>
 
@@ -188,7 +188,7 @@ export async function handleEvent(
 
 เมื่อไรก็ตามที่คุณสร้าง Subquery Project ใหม่ คุณควรจะรันโปเจค local บนคอมพิวเตอร์ของคุณเสมอเพื่อทดสอบมันก่อน. วิธีที่ง่ายที่สุดคือให้ใช้ Docker
 
-ทุกๆการตั้งค่าใน SubQuery node จะรันอยู่ภายใน `docker-compose.yml` ไฟล์. สำหรับโปรเจคใหม่ที่เพิ่งติดตั้งเสร็จ คุณไม่ต้องมีการเปลี่ยนแปลงอะไร, แต่คถณสามารถอ่านเพิ่มเติมได้ที่ เมนู ไฟล์ และ ตั้งค่า ใน Run a Project section
+การกำหนดค่าทั้งหมดที่ควบคุมวิธีการรันโหนด SubQuery ถูกกำหนดในสิ่งนี้ ` docker-compose.yml` file. สำหรับโปรเจกต์ใหม่ที่เพิ่งเริ่มต้น คุณไม่จำเป็นต้องเปลี่ยนแปลงอะไรที่นี่ แต่คุณสามารถอ่านเพิ่มเติมเกี่ยวกับไฟล์และการตั้งค่าใน [ รันในส่วนของโปรเจกต์ ](../run_publish/run.md)
 
 ภายใต้ poject directory ให้รันคำสั่งต่อไปนี้
 
