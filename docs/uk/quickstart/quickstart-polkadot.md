@@ -43,10 +43,10 @@ subql init
 Під час ініціалізації проекту SubQuery вам зададуть певні запитання:
 
 - Назва проєкту: Найменування для вашого проєкту SubQuery
-- Network family: The layer-1 blockchain network family that this SubQuery project will be developed to index. Use the arrow keys to select from the available options. For this guide, we will use *"Substrate"*
-- Network: The specific network that this SubQuery project will be developed to index. Use the arrow keys to select from the available options. For this guide, we will use *"Polkadot"*
-- Template project: Select a SubQuery template project that will provide a starting point to begin development. We suggest selecting the *"subql-starter"* project.
-- RPC endpoint: Provide an HTTPS URL to a running RPC endpoint that will be used by default for this project. You can quickly access public endpoints for different Polkadot networks, create your own private dedicated node using [OnFinality](https://app.onfinality.io) or just use the default Polkadot endpoint. Цей вузол RPC повинен бути вузлом архіву (мати стан повного ланцюга). For this guide, we will use the default value *"https://polkadot.api.onfinality.io"*
+- Сімейство мереж: Сімейство блокчейну рівня 1, для індексації якого буде розроблено цей проєкт SubQuery. Використовуйте клавіші зі стрілками, щоб вибрати з доступних параметрів. Для цього посібника ми будемо використовувати *"Substrate"*
+- Network: конкретна мережа, для індексації якої буде розроблено цей проєкт SubQuery. Використовуйте клавіші зі стрілками, щоб вибрати з доступних параметрів. Для цього посібника ми будемо використовувати *"Polkadot"*
+- Шаблонний проєкт: виберіть проєкт шаблону SubQuery, який стане відправною точкою для початку розробки. Ми пропонуємо вибрати проєкт *"subql-starter"*.
+- Кінцева точка RPC: надайте URL-адресу HTTPS для запущеної кінцевої точки RPC, яка буде використовуватися за замовчуванням для цього проєкту. Ви можете швидко отримати доступ до загальнодоступних кінцевих точок для різних мереж Polkadot, створити власний приватний виділений вузол за допомогою [OnFinality](https://app.onfinality.io) або просто використовувати кінцеву точку Polkadot за замовчуванням. Цей вузол RPC повинен бути вузлом архіву (мати стан повного ланцюга). Для цього посібника ми будемо використовувати значення за замовчуванням *"https://polkadot.api.onfinality.io"*
 - Git repository: Provide a Git URL to a repo that this SubQuery project will be hosted in (when hosted in SubQuery Explorer) or accept the provided default.
 - Authors: Enter the owner of this SubQuery project here (e.g. your name!) or accept the provided default.
 - Description: Provide a short paragraph about your project that describes what data it contains and what users can do with it or accept the provided default.
@@ -68,7 +68,7 @@ In the starter package that was just initialised, a standard configuration has b
 2. Маніфест проекту в `project.yaml`
 3. Картографування функціонує в каталозі ` src / mappings / `
 
-The goal of this quick start guide is to adapt the standard starter project to begin indexing all transfers from Polkadot.
+Метою цього короткого посібника є адаптація стандартного стартового проєкту, щоб почати індексацію всіх переказів із Polkadot.
 
 ### Оновлення файлу схеми GraphQL
 
@@ -160,17 +160,17 @@ export async function handleEvent(event: SubstrateEvent): Promise<void> {
 
 Щоб запустити ваш новий проєкт SubQuery, нам спочатку потрібно побудувати нашу роботу. Запустіть команду збірки з кореневого каталогу проекту.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script build ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> ``` оболонка побудова ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ``` оболонка npm run-script build ``` </CodeGroupItem> </CodeGroup>
 
-**Important: Whenever you make changes to your mapping functions, you will need to rebuild your project**
+**Важливо: щоразу, коли ви вносите зміни у свої функції відображення, вам потрібно буде перебудувати свій проєкт**
 
-## Running and Querying your Project
+## Запуск і запити вашого проекту
 
-### Run your Project with Docker
+### Запустіть свій проєкт за допомогою Docker
 
-Whenever you create a new SubQuery Project, you should always run it locally on your computer to test it first. Найпростіший спосіб зробити це за допомогою Docker.
+Кожного разу, коли ви створюєте новий проєкт SubQuery, ви завжди повинні запускати його локально на своєму комп’ютері, щоб спочатку перевірити його. Найпростіший спосіб зробити це за допомогою Docker.
 
-All configuration that controls how a SubQuery node is run is defined in the `docker-compose.yml` file. Для нового проєкту, який щойно ініціалізовано, вам не потрібно нічого змінювати, але ви можете прочитати більше про файл і налаштування в нашому розділі [Запуск проєкту](../run_publish/run.md).
+Уся конфігурація, яка керує запуском вузла SubQuery, визначається у файлі `docker-compose.yml`. Для нового проєкту, який щойно ініціалізовано, вам не потрібно нічого змінювати, але ви можете прочитати більше про файл і налаштування в нашому розділі [Запуск проєкту](../run_publish/run.md).
 
 У каталозі проєкту, виконайте таку команду:
 
@@ -219,4 +219,4 @@ Read the guide to [publish your new project to SubQuery Projects](../run_publish
 
 В іншому випадку перейдіть до нашого [розділу Академія](../academy/academy.md), де ми маємо більш глибокі семінари, навчальні посібники та приклади проєктів. Там ми розглянемо більш просунуті модифікації та глибше зануримось у запуск проектів SubQuery, запустивши легкодоступні проекти з відкритим кодом.
 
-Finally, if you're looking for more ways to run and publish your project, our [Run & Publish section](../run_publish/run.md) provides detailed information about all the ways to run your SubQuery project and other advanced GraphQL aggregation and subscription features.
+Нарешті, якщо ви шукаєте більше способів запустити та опублікувати свій проєкт, наш [Run & Розділ Публікація](../run_publish/run.md) містить детальну інформацію про всі способи запуску вашого проєкту SubQuery та інші розширені функції агрегації та підписки GraphQL.
