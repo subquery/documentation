@@ -1,12 +1,12 @@
 # Inicio rápido de Polkadot
 
-In this quick start guide, we're going to start with a simple Substrate/Polkadot starter project and then finish by indexing some actual real data. Esta es una base excelente para comenzar a desarrollar su propio proyecto Substrate/Polkadot SubQuery.
+En esta guía de inicio rápido, vamos a empezar con un simple proyecto inicial de Substrate/Polkadot y luego terminaremos indexando algunos datos reales. Esta es una base excelente para comenzar a desarrollar su propio proyecto Substrate/Polkadot SubQuery.
 
 Al final de esta guía, tendrá un proyecto de SubQuery funcionando en un nodo de SubQuery con un endpoint GraphQL desde el que puede consultar datos.
 
 Si aún no lo has hecho, te sugerimos familiarizarte con la [terminología](../#terminology) utilizada en SubQuery.
 
-**The goal of this quick start guide is to adapt the standard starter project to begin indexing all transfers from Polkadot, it should only take 10-15 minutes**
+**El objetivo de esta guía de inicio rápido es adaptar el proyecto de inicio estándar para empezar a indexar todas las transferencias desde Polkadot, sólo debería llevar 10-15 minutos**
 
 ## Preparación
 
