@@ -11,8 +11,8 @@ We provide a custom data source processor for [Parity's Frontier EVM](https://gi
 | Moonbase Alpha | `wss://moonbeam-alpha.api.onfinality.io/public-ws` | `https://api.subquery.network/sq/subquery/moonbase-alpha-dictionary`    |
 | Astar          | `wss://astar.api.onfinality.io/public-ws`          | `https://explorer.subquery.network/subquery/subquery/astar-dictionary`  |
 | Shiden         | `wss://shiden.api.onfinality.io/public-ws`         | `https://explorer.subquery.network/subquery/subquery/shiden-dictionary` |
-| Acala          | `wss://acala-polkadot.api.onfinality.io/public-ws` | Acala Dictionary doesn't currently support EVM                          |
-| Karura         | `wss://karura.api.onfinality.io/public-ws` | Karura Dictionary doesn't currently support EVM                         |
+| Acala          | `wss://acala-polkadot.api.onfinality.io/public-ws` | `https://explorer.subquery.network/subquery/subquery/acala-dictionary`  |
+| Karura         | `wss://karura.api.onfinality.io/public-ws`         |  `https://explorer.subquery.network/subquery/subquery/karura-dictionary` |
 
 Theoretically the following networks should also be supported since they implement Parity's Frontier EVM. Please let us know if you verify this and we can add them to the known support:
 
