@@ -181,18 +181,18 @@ Para un nuevo proyecto inicial de SubQuery, puedes probar la siguiente consulta 
 
 ```graphql
 {
-  consulta {
+  query {
     transfers(
       first: 10,
       orderBy: ID_DESC
     ) {
-      nodos {
+      nodes {
         id
         txHash
         monto
         blockHeight
-        mandador
-        destinatario
+        sender
+        addresse
       }
     }
   }
