@@ -74,7 +74,7 @@ subql init
 
 ### อับเดทไฟล์ GraphQL Schema ของคุณ
 
-ไฟล์ `schema.graphql` นั้นกำหนด GraphQL schemas ที่หลากหลาย เนื่องจากวิธีที่ภาษา GraphQL ใช้ในการดึงข้อมูลทำงานนั้น ไฟล์ Schema เป็นสิ่งสำคัญที่กำหนดรูปร่างข้อข้อมูลจาก SubQuery มันเป็นจุดที่ดีทีสุดที่จะเริ่มต้นเพราะมันอณุญาตให้คุณกำหนด end goal up front ของคุณได้
+ไฟล์ `schema.graphql` นั้นกำหนด GraphQL schemas ที่หลากหลาย เนื่องจากวิธีการทำงานของภาษา GraphQL query ใช้ในการดึงข้อมูลทำงานนั้น ไฟล์ Schema จึงเป็นสิ่งสำคัญในการกำหนดรูปร่างของข้อมูลของคุณจาก SubQuery เป็นจุดเริ่มต้นที่ดีเพราะช่วยให้คุณสามารถกำหนดเป้าหมายปลายทางได้ล่วงหน้า
 
 พวกเรากำลังจะอัพเดทไฟล์ `schema.graphql` เพื่อจะลบ entities ที่มีอยู่และอ่านดังต่อไปนี้
 
@@ -90,18 +90,18 @@ type PangolinApproval @entity {
 }
 ```
 
-**สำคัญ: เมื่อคุณได้ทำการเปลี่ยนแปลงใดๆกับไฟล์ schema โปรดตรวจสอบให้มั่นใจว่าคุณสามารถนำชนิดของ directory กลับมาใหม่ได้ ทำแบบนี้เลย**
+**สำคัญ: เมื่อคุณทำการเปลี่ยนแปลงใดๆ กับไฟล์ schemaโปรดตรวจสอบให้แน่ใจว่าคุณได้สร้าง directory types ของคุณขึ้นมาใหม่ ทำแบบนี้เลย**
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```shell npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
 
 คุณจะพบโมเดลที่สร้างขึ้นใน `/src/types/models` directory. สำหรับข้อมูลเพิ่มเติมภายใน `schema.graphql` ไฟล์, โปรดตรวจสอบได้ที่ เอกสารของเราภายใต้ [Build/GraphQL Schema](../build/graphql.md)
 
-### การอับเดท Project Manifest File
+### การอับเดทโปรเจกต์ไฟล์ Manifest
 
 โปนเจกต์ไฟล์ Manifest (`project.yaml`) สามารถมองว่าเป็นจุดเริ่มต้นโปรเจกต์ของคุณและกำหนดรายละเอียดส่วนใหญ่ว่า SubQuery จะสร้าง index และแปลง chain data อย่างไร
 
-เราจะไม่ทำการเปลี่ยนแปลงในไฟล์ Manifest มากเนื่องจากไฟล์ได้รับการตั้งค่าอย่างถูกต้องแล้ว แต่เราจำเป็นต้องเปลี่ยนตัวจัดการของเรา โปรดทราบว่าเรากำลังวางแผนที่จะจัดทำดัชนีบันทึกการอนุมัติตัวนิ่มทั้งหมด ด้วยเหตุนี้ เราจึงต้องอัปเดตส่วน `datasources` เพื่ออ่านข้อมูลต่อไปนี้
+เราจะไม่ทำการเปลี่ยนแปลงในไฟล์ Manifest มากนักเนื่องจากไฟล์ได้รับการตั้งค่าอย่างถูกต้องแล้ว แต่เราจำเป็นต้องเปลี่ยนตัวจัดการของเรา โปรดทราบว่าเรากำลังวางแผนที่จะจัดทำดัชนีบันทึกการอนุมัติตัวนิ่มทั้งหมด ด้วยเหตุนี้ เราจึงต้องอัปเดตส่วน `datasources` เพื่ออ่านข้อมูลต่อไปนี้
 
 ```yaml
 dataSources:
@@ -130,15 +130,15 @@ dataSources:
 
 สำหรับข้อมูลเพิ่มเติมเกี่ยวกับ Project Manifest (`project.yaml`) ไฟล์,โปรดตรวจสอบได้ที่เอกสารของเราภายใต้ [Build/Manifest File](../build/manifest.md)
 
-### เพิ่ม Mapping Function
+### เพิ่ม Mapping Function เข้าไป
 
-Mapping functions กำหนดวิธีการแปลง chain data เป็น GraphQL entities ซึ่งถูกปรับให้เหมาะสมที่เราได้กำหนดไว้ก่อนหน้านี้ในไฟล์ `schema.graphql`
+ฟังก์ชันการ Mapping กำหนดวิธีที่ข้อมูลของเชนถูกแปลงเป็น GraphQL entities ที่ปรับให้เหมาะสมที่เราได้กำหนดไว้ก่อนหน้านี้ในไฟล์ `schema.graphql`
 
 นำทางไปยัง mapping function เริ่มต้นใน `src/mappings` directory คุณจะเห็นสามฟังก์ชันที่ส่งออก, `handleBlock`, `handleLog`, และ `handleTransaction`. คุณสามารถลบทั้ง `handleBlock` และ `handleTransaction` functions, เราจัดการกับ `handleLog` function เท่านั้น
 
-`handleLog` function ได้รับ event data เมื่อใดก็ตามที่เหตุการณ์ตรงกับตัวกรองที่เราระบุไว้ก่อนหน้านี้ในของเรา`project.yaml`. เราจะอัปเดตกระบวนการทั้งหมดเพื่อ `approval` transaction logs และบันทึกลงใน GraphQL entities ที่เราสร้างไว้ก่อนหน้านี้
+`handleLog` function ได้รับ event data เมื่อใดก็ตามที่เหตุการณ์ตรงกับตัวกรองที่เราระบุไว้ก่อนหน้านี้ในของเรา`project.yaml`. เราจะอัปเดตเพื่อประมวลผลทุกๆการ `approval` ธุรกรรมและบันทึกลงใน GraphQL entities ที่เราสร้างไว้ก่อนหน้านี้
 
-คุณสามารถอัปเดต `handleLog` function ดังต่อไปนี้ (บันทึกการ imports เพิ่ม):
+คุณสามารถอัปเดตฟังก์ชั่น `handleLog` ดังต่อไปนี้ (บันทึกการ imports เพิ่ม):
 
 ```ts
 import { PangolinApproval } from "../types";
@@ -161,13 +161,13 @@ export async function handleLog(event: AvalancheLog): Promise<void> {
 }
 ```
 
-สิ่งที่กำลังทำคือการได้รับ Avalanche Log ซึ่งรวมถึง transation log ข้อมูลบน payload ด้วย เราดึงข้อมูลนี้แล้วสร้าง instantiate ใหม่ `PangolinApproval` entity ที่เรากำหนดไว้ก่อนหน้านี้ ในไฟล์`schema.graphql` เราเพิ่มข้อมูลเพิ่มเติมแล้วใช้ function `.save()` เพื่อที่จะบันทึก entity ใหม่ (SubQuery จะบันทึกอัตโนมัติใน database).
+การดำเนินการนี้คือการได้รับ Avalanche Log ซึ่งรวมถึงข้อมูล transation log บน payload ด้วย เราดึงข้อมูลนี้แล้วสร้าง instantiate ใหม่ `PangolinApproval` entity ที่เรากำหนดไว้ก่อนหน้านี้ ในไฟล์`schema.graphql` เราเพิ่มข้อมูลเพิ่มเติมแล้วใช้ function `.save()` เพื่อที่จะบันทึก entity ใหม่ (SubQuery จะบันทึกอัตโนมัติใน database).
 
 สำหรับข้อมูลเพิ่มเติมเกี่ยวกับmapping functions โปรดดูเอกสารประกอบของเราข้างใต้[Build/Mappings](../build/mapping.md)
 
-### การสร้างโปรเจค
+### การสร้างโปรเจกต์
 
-ในการรันโปรเจกต์ SubQuery ใหม่ของคุณ เราต้องสร้างงานของเราก่อน รันคำสั่ง build จาก root directory ของโปรเจกต์
+ในการใช้งานโปรเจกต์ SubQuery ใหม่ของคุณ เราต้องสร้างงานของเราก่อน ใช้คำสั่ง build จาก root directory ของโปรเจกต์
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script build ``` </CodeGroupItem> </CodeGroup>
 
