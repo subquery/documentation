@@ -179,7 +179,7 @@ export async function handleLog(event: AvalancheLog): Promise<void> {
 
 เมื่อไรก็ตามที่คุณสร้าง Subquery Project ใหม่ คุณควรจะรันโปเจค local บนคอมพิวเตอร์ของคุณเสมอเพื่อทดสอบมันก่อน. วิธีที่ง่ายที่สุดคือให้ใช้ Docker.
 
-ทุกๆการตั้งค่าใน SubQuery node จะรันอยู่ภายใน`docker-compose.yml` ไฟล์. สำหรับโปรเจกต์ใหม่ที่เพิ่งเริ่มต้น คุณไม่จำเป็นต้องเปลี่ยนแปลงอะไรในนี้ แต่คุณสามารถอ่านเพิ่มเติมเกี่ยวกับไฟล์และการตั้งค่าได้ใน [Run a Project section](../run_publish/run.md)
+ทุกๆการตั้งค่าใน SubQuery node จะรันอยู่ภายใน`docker-compose.yml` ไฟล์. สำหรับโปรเจกต์ใหม่ที่เพิ่งเริ่มต้น คุณไม่จำเป็นต้องเปลี่ยนแปลงอะไรที่นี่ แต่คุณสามารถอ่านเพิ่มเติมเกี่ยวกับไฟล์และการตั้งค่าใน [Run a Project section](../run_publish/run.md) ของเรา
 
 ภายใต้ poject directory ให้รันคำสั่งต่อไปนี้
 
@@ -187,13 +187,13 @@ export async function handleLog(event: AvalancheLog): Promise<void> {
 
 อาจใช้เวลาสักครู่ในการดาวน์โหลดแพ็คเกจที่จำเป็นสำหรับครั้งแรก ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), and Postgres)  แต่ในไม่ช้า คุณจะเห็น SubQuery node ที่ทำงานอยู่ อดทนไว้
 
-### Query โปรเจกต์ของคุณ
+### ทำการ Query โปรเจกต์ของคุณ
 
 เปิดเบราว์เซอร์ของคุณและไปที่ [http://localhost:3000](http://localhost:3000)
 
-คุณควรที่จะเห็น GraphQl playground แสดงใน Explorer และ schemas ที่พร้อมจะสามารถ query ได้ ที่ตำแหน่งด้านบนขวาของ playground คุณจะพบปุ่ม _Docs_ ที่จะเปิดการร่างเอกสาร เอกสารนี้สร้างขึ้นโดยอัตโนมัติและช่วยให้คุณค้นหา entities และ methods ที่คุณสามารถค้นหาได้
+คุณควรเห็นGraphQl playground แสดงใน explorer และ schemas ที่พร้อมสำหรับการ query ที่ตำแหน่งด้านบนขวาของ playground คุณจะพบปุ่ม _Docs_ ที่จะเปิดการร่างเอกสาร เอกสารนี้สร้างขึ้นโดยอัตโนมัติและช่วยให้คุณค้นหา entities และ methods ที่คุณสามารถค้นหาได้
 
-สำหรับ Subquery โปรเจคเริ่มต้นใหม่ คุณสามารถลองใช้ query ต่อไปนี้เพื่อดูว่ามันจะทำงานอย่างไร หรือ r [เรียนรู้เพิ่มเติมเกี่ยวกับ GraphQL Query language](../run_publish/graphql.md).
+สำหรับโปรเจ็กต์เริ่มต้น SubQuery ใหม่ คุณสามารถลองใช้ query เพื่อรับทราบวิธีการทำงานหรือ [ เรียนรู้เพิ่มเติมเกี่ยวกับ GraphQL Query language](../run_publish/graphql.md).
 
 ```graphql
 query {
@@ -213,16 +213,16 @@ query {
 
 ### เผยแพร่โปรเจกต์ SubQuery ของคุณ
 
-SubQuery มีบริการสำหรับการจัดการฟรีเมื่อคุณ deploy โปรเจ็กต์ใหม่ คุณสามารถปรับใช้มัน [SubQuery Projects](https://project.subquery.network) และ query โดยใช้ [Explorer](https://explorer.subquery.network).
+SubQuery ให้บริการที่มีการจัดการฟรีเมื่อคุณปรับใช้โปรเจ็กต์ใหม่ได้ คุณสามารถปรับใช้มัน [SubQuery Projects](https://project.subquery.network) และ query โดยใช้ [Explorer](https://explorer.subquery.network).
 
 [อ่านคำแนะนำเพื่อเผยแพร่โปรเจกต์ของคุณไปยัง SubQuery Projects](../run_publish/publish.md), **โปรดจำไว้คุณต้อง deploy โดย IPFS**.
 
-## ขั้นต่อไป
+## ขั้นตอนต่อไป
 
-ยินดีด้วย ตอนนี้คุณได้มี Subquery Project ที่กำลังทำงานอยู่บน local ที่ยอมรับการร้องขอจาก GraphQL API สำหรับการส่งข้อมูล จาก bLuna
+ขอแสดงความยินดีด้วย ตอนนี้คุณโปรเจกต์ SubQuery ที่ทำงานอยู่ในเครื่องที่ยอมรับคำขอ GraphQL API สำหรับการถ่ายโอนข้อมูลจาก bLuna แล้ว
 
-ตอนนี้คุณได้รับข้อมูลเชิงลึกเกียวกับสร้าง Subquery project ขั้นพื้นฐาน คำถามคือ เราจะไปที่ไหนต่อ ถ้าคุณคิดว่าคุณมั่นใจ คุณสามารถข้ามไปเรียนรู้เกี่ยวกับ three key files ได้เลย The manifest ไฟล์, the GraphQL schema, และ mappings ไฟล์ภายใต้ [Build section of these docs](../build/introduction.md).
+ในตอนนี้คุณมีความเข้าใจเชิงลึกถึงวิธีการสร้างโปรเจกต์ SubQuery พื้นฐานแล้ว คำถามคือจากเราจะไปที่ไหนกันต่อ? หากคุณรู้สึกมั่นใจแล้วคุณสามารถข้ามเพื่อเรียนรู้เพิ่มเติมเกี่ยวกับไฟล์หลักสามไฟล์ได้เลย ไฟล์ Manifest, GraphQL schema และ mappings file ภายใต้การ [ สร้างส่วนของเอกสารเหล่านี้](../build/introduction.md).
 
-หรือไปที่[Academy section](../academy/academy.md) ซึ่งมีเวิร์กช็อปเชิงลึก บทแนะนำ และตัวอย่างโปรเจกต์เพิ่มเติม เราจะดูการปรับเปลี่ยนขั้นสูงเพิ่มเติมที่นั่น และเราจะเจาะลึกลงไปในการรันโปรเจกต์ SubQuery โดยการรันโปรเจ็กต์ที่พร้อมใช้งานและโปรเจกต์ open source
+หรือไปต่อที่ [Academy section](../academy/academy.md) ซึ่งจะมี workshops เชิงลึก แบบฝึกหัดและตัวอย้างโปรเจกต์ให้เพิ่เติม เราจะดูการปรับเปลี่ยนขั้นสูงเพิ่มเติมที่นั่น และเราจะเจาะลึกลงไปที่การเรียกใช้โครงการ SubQuery โดยการเรียกใช้โปรเจกต์ที่พร้อมใช้งานและเป็นโปรเจกต์แบบ open source
 
 สุดท้ายนี้ หากคุณกำลังมองหาวิธีเพิ่มเติมในการรันและเผยแพร่โปรเจกต์ของคุณ [Run & Publish section](../run_publish/run.md) ของเราสามารถให้ข้อมูลโดยละเอียดเกี่ยวกับวิธีการทั้งหมดในการรันโปรเจกต์ SubQuery ของคุณและการรวบรวม GraphQL ขั้นสูง และ การ subscription features อื่นๆ
