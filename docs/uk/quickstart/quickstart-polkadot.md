@@ -47,22 +47,22 @@ subql init
 - Network: конкретна мережа, для індексації якої буде розроблено цей проєкт SubQuery. Використовуйте клавіші зі стрілками, щоб вибрати з доступних параметрів. Для цього посібника ми будемо використовувати *"Polkadot"*
 - Шаблонний проєкт: виберіть проєкт шаблону SubQuery, який стане відправною точкою для початку розробки. Ми пропонуємо вибрати проєкт *"subql-starter"*.
 - Кінцева точка RPC: надайте URL-адресу HTTPS для запущеної кінцевої точки RPC, яка буде використовуватися за замовчуванням для цього проєкту. Ви можете швидко отримати доступ до загальнодоступних кінцевих точок для різних мереж Polkadot, створити власний приватний виділений вузол за допомогою [OnFinality](https://app.onfinality.io) або просто використовувати кінцеву точку Polkadot за замовчуванням. Цей вузол RPC повинен бути вузлом архіву (мати стан повного ланцюга). Для цього посібника ми будемо використовувати значення за замовчуванням *"https://polkadot.api.onfinality.io"*
-- Git repository: Provide a Git URL to a repo that this SubQuery project will be hosted in (when hosted in SubQuery Explorer) or accept the provided default.
-- Authors: Enter the owner of this SubQuery project here (e.g. your name!) or accept the provided default.
-- Description: Provide a short paragraph about your project that describes what data it contains and what users can do with it or accept the provided default.
-- Version: Enter a custom version number or use the default (`1.0.0`)
-- License: Provide the software license for this project or accept the default (`MIT`)
+- Репозиторій Git: надайте URL-адресу Git до репозиторію, в якому буде розміщено цей проєкт SubQuery (якщо він розміщений у SubQuery Explorer) або прийміть надане за замовчуванням.
+- Автори: Введіть тут власника цього проєкту SubQuery (наприклад, ваше ім’я!) або прийміть надане за замовчуванням.
+- Опис: надайте короткий абзац про ваш проєкт, який описує дані, які він містить, і що користувачі можуть робити з ними або прийняти надане за замовчуванням.
+- Версія: введіть спеціальний номер версії або використовуйте стандартний (`1.0.0`)
+- Ліцензія: надайте ліцензію на програмне забезпечення для цього проекту або прийміть значення за замовчуванням (`MIT`)
 
 Після завершення процесу ініціалізації ви повинні побачити, що всередині каталогу створено папку з назвою вашого проєкту. The contents of this directory should be identical to what's listed in the [Directory Structure](../create/introduction.md#directory-structure).
 
 Нарешті, у каталозі проєкту виконайте таку команду, щоб встановити залежності нового проєкту.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```shell cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> ``` оболонка компакт-диск PROJECT_NAME установка yarn ``` </CodeGroupItem>
+<CodeGroupItem title="NPM"> ``` оболонка компакт-диск PROJECT_NAME npm встановити ``` </CodeGroupItem> </CodeGroup>
 
-## Making Changes to your Project
+## Внесення змін до проекту
 
-In the starter package that was just initialised, a standard configuration has been provided. These are:
+У стартовому пакеті, який ви щойно ініціалізували, ми надали стандартну конфігурацію для вашого нового проекту. These are:
 
 1. The GraphQL Schema in `schema.graphql`
 2. Маніфест проекту в `project.yaml`
@@ -123,7 +123,7 @@ dataSources:
 
 Перейдіть до функції відображення за замовчуванням у каталозі `src/mappings`. Ви побачите три експортовані функції: `handleBlock`, `handleEvent` і `handleCall`. Delete both the `handleBlock` and `handleCall` functions as we will only deal with the `handleEvent` function.
 
-The `handleEvent` function receives event data whenever an event matches the filters that we specified previously in our `project.yaml`. We will update it to process all `balances.Transfer` events and save them to the GraphQL entities that we created earlier.
+Функція `handleEvent` отримує дані про події щоразу, коли подія відповідає фільтрам, які ми вказали раніше в нашому `project.yaml`. Ми оновимо його, щоб обробити всі події `balance.Transfer` та зберегти їх у сутності GraphQL, які ми створили раніше.
 
 Ви можете оновити функцію `handleEvent` до наступного (зверніть увагу на додатковий імпорт):
 
