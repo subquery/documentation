@@ -60,16 +60,16 @@ Options:
                                                       [boolean] [ค่าเริ่มต้น: false]
       --timeout            กำหนดระยะเวลาสำหรับ indexer sandbox ในการใช้คำสั่ง mapping
                                                               [number]
-      --debug               แสดงข้อมูลการ debug ไปยัง console output จะ 
-                            ตั้งค่าระดับบันทึกเป็น debug อย่างจริงจัง
+      --debug               แสดงข้อมูลการ debug ไปยัง console output will
+                            forcefully set log level to debug
                                                       [boolean] [default: false]
-      --profiler            แสดงข้อมูลตัวสร้างโปรไฟล์ไปยังเอาต์พุตคอนโซล
+      --profiler            Show profiler information to console output
                                                       [boolean] [default: false]
-      --subscription        เปิดใช้งานการสมัครสมาชิก       [boolean] [default: false]                                                     
-      --network-endpoint    ปลายทางเครือข่าย Blockchain เพื่อเชื่อมต่อ      [string]
-      --output-fmt          พิมพ์logเป็น json หรือข้อความธรรมดา
+      --subscription        Enable subscription       [boolean] [default: false]                                                     
+      --network-endpoint    Blockchain network endpoint to connect      [string]
+      --output-fmt          Print log as json or plain text
                                            [string] [choices: "json", "colored"]
-      --log-level           ระบุlog level ที่จะพิมพ์ เพิกเฉยต่อคำสั่ง เมื่อมีการใช้ --debug
+      --log-level           Specify log level to print. เพิกเฉยต่อคำสั่ง เมื่อมีการใช้ --debug
                            
           [string] [ตัวเลือก: "fatal", "error", "warn", "info", "debug", "trace",
                                                                        "silent"]
@@ -375,7 +375,7 @@ See [--log-level](https://doc.subquery.network/run_publish/references.html#log-l
 
 บริการจัดเรียงข้อมูลมีขีดจำกัด 100 รายการสำหรับการสืบค้นที่ไม่ผูกกับ graphql Flag unsafe จะลบขีดจำกัดนี้ซึ่งอาจทำให้เกิดปัญหาด้านประสิทธิภาพในบริการสืบค้น จึงขอแนะนำว่า ให้ใช้ [ paginated ](https://graphql.org/learn/pagination/) แทน
 
-Flag นี้เปิดให้สามารถใช้ฟังค์ชันการรวบรวมไม่ว่าจะเป็น ผลรวม, ค่าสูงสุด, ค่าเฉลี่ย ฯลฯ อ่านข้อมูลเกี่ยวกับฟีเจอร์นี้เพิ่มเติมได้ [ ที่นี้ ](./aggregate.md)
+Flag นี้เปิดให้สามารถใช้ฟังค์ชันการรวบรวมไม่ว่าจะเป็น ผลรวม, ค่าสูงสุด, ค่าเฉลี่ย ฯลฯ อ่านข้อมูลเกี่ยวกับฟีเจอร์เพิ่มเติมได้ที่ [here](./aggregate.md)
 
 สิ่งเหล่านี้ถูกปิดใช้งานโดยค่าเริ่มต้นเนื่องจากขีดจำกัดของเอนทิตี
 
