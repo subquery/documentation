@@ -2,7 +2,7 @@
 
 ## GraphQL Subscription คืออะไร
 
-SubQuery ยังรองรับ Graphql Subscriptions subscriptions สามารถให้คุณดึงข้อมูลออกมาได้, เช่นเดียวกับการ queries subscriptions ใช้การดำเนินการที่ยาวนานซึ่งผลลัพธ์สามารถเปลี่ยนแปลงได้ตลอดเวลา, ไม่เหมือนกับการ queries
+SubQuery ยังรองรับ Graphql Subscriptions อีกด้วย subscriptions สามารถให้คุณดึงข้อมูลออกมาได้, เช่นเดียวกับการ queries subscriptions ใช้การดำเนินการที่ยาวนานซึ่งผลลัพธ์สามารถเปลี่ยนแปลงได้ตลอดเวลา, ไม่เหมือนกับการ queries
 
 Subscriptions มีประโยชน์มากเมื่อคุณต้องการให้ client application ของคุณเปลี่ยนแปลงข้อมูลหรือแสดงข้อมูลใหม่บางอย่างทันทีที่มีการเปลี่ยนแปลงนั้นเกิดขึ้นหรือมีข้อมูลใหม่ Subscriptions อนุญาติให้คุณ *subscribe* to your SubQuery project for changes.
 
