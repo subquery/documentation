@@ -71,7 +71,7 @@
       <li>
         <div class="title">วิธีที่ดีที่สุดในการเริ่มต้นใช้งาน SubQuery คืออะไร?</div>
         <div class="content">
-          <p>วิธีที่ดีที่สุดกับการเริ่มต้นกับโปรเจค SubQuery คือให้คุณลองไปดูที่ <a href="/quickstart/quickstart-polkadot.html">Quick Start tutorial</a> นี่คือขั้นตอนง่ายๆ ในการดาวน์โหลดเทมเพลตเริ่มต้น สร้างโครงการ จากนั้นใช้ Docker เพื่อเรียกใช้โหนดบน localhost ของคุณและรัน query อย่างง่าย </p>
+          <p>วิธีที่ดีที่สุดในการเริ่มต้นใช้งาน SubQuery คือลองใช้ <a href="/quickstart/quickstart-polkadot.html">Quick Start tutorial</a> ของเรา นี่คือขั้นตอนง่ายๆ ในการดาวน์โหลดเทมเพลตเริ่มต้น สร้างโครงการ จากนั้นใช้ Docker เพื่อเรียกใช้โหนดบน localhost ของคุณและรัน query อย่างง่าย </p>
         </div>
       </li>
       <li>
@@ -86,9 +86,9 @@
       <li>
         <div class="title">การโฮสต์โปรเจ็กต์ของฉันใน SubQuery Projects มีค่าใช้จ่ายเท่าไหร่?</div>
         <div class="content">
-          <p>การโฮสต์โปรเจ็กต์ของคุณใน SubQuery Projects นั้นฟรี - นั่นเป็นวิธีการตอบแทนชุมชนของเรา เรียนรู้เกี่ยวกับการ โฮสต์โปรเจคของคุณกับพวกเรา สามารถเรียนรู้ได้ที่ <a href="/quickstart/quickstart-polkadot.html">Hello World (SubQuery Hosted)</a> tutorial.</p>
+          <p>การโฮสต์โปรเจ็กต์ของคุณใน SubQuery Projects นั้นฟรี - นั่นเป็นวิธีการตอบแทนชุมชนของเรา หากต้องการเรียนรู้วิธีโฮสต์โปรเจกต์ของคุณกับเรา โปรดดูบทแนะนำที่ <a href="/quickstart/quickstart-polkadot.html">Hello World (SubQuery Hosted)</a> tutorial.</p>
           <span class="more">
-            <router-link :to="{path: '/run_publish/publish.html'}">การโฮสต์โปรเจกต์ของคุณ</router-link>
+            <router-link :to="{path: '/run_publish/publish.html'}">โฮสต์โปรเจกต์ของคุณ</router-link>
           </span>
         </div>
       </li>
@@ -102,7 +102,7 @@
         <h5>การผสานรวมกับ Custom Chain ของคุณ?</h5>
         <p>ไม่ว่าคุณกำลังสร้าง Parachain ใหม่หรือ blockchain ใหม่ทั้งหมดบน Substrate - SubQuery สามารถช่วยคุณ index และแก้ไขปัญหาข้อมูลของ chain ของคุณ SubQuery ได้รับการออกแบบให้สามารถรวมกับ Substrate แบบกำหนดเองได้อย่างง่ายดาย</p>
         <span class="more">
-          <router-link :to="{path: '/create/mapping.html#custom-substrate-chains'}">เรียนรู้วิธีการรวมโปรเจคกับเชนของคุณ</router-link>
+          <router-link :to="{path: '/create/mapping.html#custom-substrate-chains'}">เรียนรู้วิธีการรวบรวมโปรเจกต์กับเชนของคุณ</router-link>
         </span>
     </div>
     <div class="lastIntroduce lastIntroduce_2">
