@@ -178,7 +178,7 @@ subql-node-terra -c your-project-config.yml
 ```
 
 </CodeGroupItem>
-<CodeGroupItem title='Avalanche'> ```shell subql-node-avalanche -c your-project-config.yml ดูตัวอย่างด้านล่าง
+<CodeGroupItem title='Avalanche'> ```shell subql-node-avalanche -c your-project-config.yml ดูตัวอย่างด้านล่างต่อไปนี้.
 
 ```yaml
 subquery: ../../../../subql-example/extrinsics
@@ -297,7 +297,7 @@ For help, see: https://nodejs.org/en/docs/inspector
 Debugger attached.
 ```
 
-จากนั้นเปิดเครื่องมือ Chrome dev ไปที่ Source > Filesystem และเพิ่มโปรเจกต์ของคุณลงในเวิร์กสเปซ แล้วเริ่มการ debug ดูรายละเอียดเพิ่มเติมได้ที่ [วิธีดีบักโปรเจ็กต์ SubQuery](https://doc.subquery.network/academy/tutorials_examples/debug-projects/)
+จากนั้นเปิดเครื่องมือ Chrome dev ไปที่ Source > Filesystem และเพิ่มโปรเจกต์ของคุณลงในเวิร์กสเปซ แล้วเริ่มการ debug สามารถดูรายละเอียดเพิ่มเติมได้ที่ [วิธีการ debug โปรเจกต์ SubQuery](https://doc.subquery.network/academy/tutorials_examples/debug-projects/)
 
 ## การรัน Query Service (subql/query)
 
@@ -317,6 +317,6 @@ export DB_HOST=localhost
 subql-query --name <project_name> --playground
 ```
 
-ตรวจสอบให้แน่ใจว่าชื่อโปรเจ็กต์เหมือนกับชื่อโปรเจ็กต์เมื่อคุณ [เริ่มต้นโปรเจ็กต์](../quickstart/quickstart-polkadot.md#initialise-the-starter-subquery-project) ตรวจสอบ environment variables ด้วยว่าถูกต้องหรือไม่
+ตรวจสอบให้แน่ใจว่าชื่อโปรเจกต์เหมือนกับชื่อโปรเจกต์เมื่อคุณ [เริ่มต้นโปรเจกต์](../quickstart/quickstart-polkadot.md#initialise-the-starter-subquery-project) ตรวจสอบ environment variables ด้วยว่าถูกต้องหรือไม่
 
 หลังจากรัน service subql-query สำเร็จแล้ว ให้เปิดเบราว์เซอร์ของคุณ แล้วไปที่ `http://localhost:3000` คุณควรเห็น GraphQL playground แสดงใน explorer และ schemas ที่พร้อมสำหรับการ query
