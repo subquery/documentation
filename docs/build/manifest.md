@@ -511,7 +511,7 @@ Here is a list of supported custom datasources:
 
 | Kind                                                  | Supported Handlers                                                                                       | Filters                         | Description                                                                      |
 | ----------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | ------------------------------- | -------------------------------------------------------------------------------- |
-| [substrate/FrontierEvm](./substrate-evm/#data-source-example) | [substrate/FrontierEvmEvent](./substrate-evm/#FrontierEvmEvent), [substrate/FrontierEvmCall](./substrate-evm/#frontierevmcall) | See filters under each handlers | Provides easy interaction with EVM transactions and events on the Frontier EVM (widely used across Polkadot including in Moonbeam and Astar networks) |
+| [substrate/FrontierEvm](./substrate-evm) | [substrate/FrontierEvmEvent](./substrate-evm/#event-handlers), [substrate/FrontierEvmCall](./substrate-evm/#call-handlers) | See filters under each handlers | Provides easy interaction with EVM transactions and events on the Frontier EVM (widely used across Polkadot including in Moonbeam and Astar networks) |
 
 ## Validating
 
