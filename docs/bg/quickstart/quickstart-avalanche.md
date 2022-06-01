@@ -1,6 +1,6 @@
-# Avalanche Quick Start
+# Avalanche Бързо стартиране
 
-In this Quick start guide, we're going to start with a simple Avalanche starter project and then finish by indexing some actual real data. Това е перфекта основа, с която да започнете при разработка свой собствен проект SubQuery.
+В това ръководство за бърз старт ще започнем с прост стартов проект на Avalanche и след това ще завършим с индексиране на някои действителни реални данни. Това е перфекта основа, с която да започнете при разработка свой собствен проект SubQuery.
 
 **Ако търсите ръководства за Substrate/Polkadot, можете да прочетете [Специфичното за субстрат/Polkadot ръководство за бързо начало](./quickstart-polkadot).**
 
@@ -8,7 +8,7 @@ In this Quick start guide, we're going to start with a simple Avalanche starter 
 
 Ако все още не сте го направили, ви предлагаме да разгледате [терминологията](../#terminology)използвана в SubQuery.
 
-**The goal of this quick start guide is to index all Pangolin token _Approve_ logs, it should only take 10-15 minutes**
+**Целта на това кратко ръководство е да индексира всички регистрационни файлове _Approve_ на токена на Pangolin, това трябва да отнеме само 10-15 минути**
 
 ## Подготовка
 
@@ -45,9 +45,9 @@ subql init
 Ще ви бъдат зададени някои въпроси, по време на инициализирането на проекта SubQuery:
 
 - Name: Име на вашият SubQuery проект
-- Network Family: The layer-1 blockchain network family that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use _"Avalanche"_
-- Network: The specific network that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use _"Avalanche"_
-- Template: Select a SubQuery project template that will provide a starting point to begin development, we suggest selecting the _"Starter project"_
+- Мрежово семейство: Блокчейн мрежовото семейство от слой 1, за което този проект SubQuery ще бъде разработен за индексиране, използвайте клавишите със стрелки на клавиатурата си, за да изберете от опциите, за това ръководство ще използваме _"Avalanche"_
+- Мрежа: Конкретната мрежа, която този проект SubQuery ще бъде разработен за индексиране, използвайте клавишите със стрелки на клавиатурата си, за да изберете от опциите, за това ръководство ще използваме _"Avalanche"_
+- Шаблон: Изберете шаблон за проект на SubQuery, който ще осигури отправна точка за започване на разработка, предлагаме да изберете _„Starter project“_
 - Git repository (опционално): посочете Git URL хранилище, в което ще се съхранява този проект SubQuery (при разполагане в SubQuery Explorer)
 - RPC endpoint (Необходимо): Укажете HTTPS URL за работеща крайна точка RPC която ще бъде използвана по подразбиране за този проект. Този вид нода RPC трябва да представлява архивна нода (да има състояние на пълна веригата). For this guide we will use the default value _"avalanche.api.onfinality.io"_
 - Authors (задължително): въведете собственика на този проект за SubQuery тук (например вашето име!)
