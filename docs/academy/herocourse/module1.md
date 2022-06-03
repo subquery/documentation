@@ -20,17 +20,22 @@ You will require the following:
 
 ### NPM Package manager
 
-Run the following command in your terminal:
+Run the following command in your terminal to install the latest version of node. Node v12 or higher is required. 
 
 ```
 brew update
 brew install node
+node -v
+v18.2.0
 ```
 
 ### SubQuery CLI
 
 ```
 npm install -g @subql/cli
+subql -v
+@subql/cli/1.0.1 darwin-x64 node-v18.2.0
+
 ```
 
 ### Docker
@@ -57,20 +62,20 @@ The first step in creating a SubQuery project is to create a project with the fo
 
 
 ```
-~/Code/subQuery$ subql init
+$ subql init
 Project name [subql-starter]: HelloWorld
+? Select a network family Substrate
 ? Select a network Polkadot
 ? Select a template project subql-starter     Starter project for subquery
-Cloning project... done
 RPC endpoint: [wss://polkadot.api.onfinality.io/public-ws]: 
 Git repository [https://github.com/subquery/subql-starter]: 
 Fetching network genesis hash... done
-Author [Ian He & Jay Ji]: 
+Author [Ian He & Jay Ji]: Sean
 Description [This project can be use as a starting po...]: 
-Version [0.0.4]: 
+Version [1.0.0]: 
 License [MIT]: 
 Preparing project... done
-subqlHelloWorld is ready
+HelloWorld is ready
 ```
 
 Note that any text in the square brackets are the default values that will be used if nothing is provided.
@@ -96,8 +101,6 @@ export async function handleBlock(block: SubstrateBlock): Promise<void> {
 }
 ```
 
-
-
 #### Step 3: Update the manifest file (aka project.yaml)
 
 The initialisation command also pre-creates a sample manifest file and defines 3 handlers. Because we have removed handleEvent and handleCall from the mappings file, we have to remove them from the manifest file as well. 
@@ -106,18 +109,25 @@ The manifest file should look like this:
 
 
 ```
-specVersion: 0.2.0
-name: subqlHelloWorld
-version: 0.0.4
+specVersion: 1.0.0
+name: HelloWorld
+version: 1.0.0
+runner:
+  node:
+    name: '@subql/node'
+    version: '>=1.0.0'
+  query:
+    name: '@subql/query'
+    version: '*'
 description: >-
-  This project can be use as a starting point for developing your SubQuery
-  project
+  This project can be use as a starting point for developing your SubQuery project
 repository: 'https://github.com/subquery/subql-starter'
 schema:
   file: ./schema.graphql
 network:
+  chainId: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3'
   endpoint: 'wss://polkadot.api.onfinality.io/public-ws'
-  genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3'
+  dictionary: 'https://api.subquery.network/sq/subquery/polkadot-dictionary'
 dataSources:
   - kind: substrate/Runtime
     startBlock: 1
@@ -146,12 +156,9 @@ type StarterEntity @entity {
 }
 ```
 
-
-
 #### Step 5: Install the dependencies
 
 Install the node dependencies by running the following commands:
-
 
 ```
 yarn install
@@ -179,18 +186,11 @@ yarn codegen
 
 OR
 
-
 ```
 npm run-script codegen
 ```
 
-
 You should see a new folder appear with 2 new files.
-
-
-
-#### 
-
 
 #### Step 7: Build the project
 
@@ -230,10 +230,6 @@ Note: You need to have Docker installed as noted in the prerequisite for this to
 
 Once the docker container is up and running, which could take a few minutes, open up your browser and navigate to [www.localhost:3000](www.localhost:3000). 
 
-
-
-
-
 This will open up a “playground” where you can create your query. Copy the example below. 
 
 
@@ -248,6 +244,5 @@ This will open up a “playground” where you can create your query. Copy the e
   }
 }
 ```
-
 
 Note: If you renamed field1 something else, modify this query appropriately. 
