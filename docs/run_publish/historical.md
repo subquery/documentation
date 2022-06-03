@@ -1,84 +1,69 @@
-# Index and Query historical data
+# Automated Historical State Tracking
 
 ## Background
 
+SubQuery allows you to index any data that you want from Substrate, Avalance, and other networks. Currently, SubQuery operates as a mutable data store, where you can append, update, delete, or otherwise change existing saved entities in the dataset that is indexed by SubQuery. As SubQuery indexes each block, the state of each entity may be updated or deleted based on your project's logic.
 
-We know that the Subquery index always targets the latest finalized block on the network,  and a new block is continuously generated. Therefore, the data in the items in the subquery also repeatedly changes.
-
-We can consider each block represents a state of time. The data will base on the user schema structure and can only explain the results at the current indexing block height. For example, we are currently indexing to block 100. Therefore, the data in the database can only represent the results at the timestamp of block 100.
-
-Then we are faced with a problem. Assuming the data has changed when indexing to block 200, how can we query the data when the block is 100. It is barely impossible and will create a lot of redundant data. 
-
-## The solution
-
-Now SubQuery provide a solution to enable user record and query historical data with block height.
-
-How we did it? When store operation（insert，update, delete) happened, instead of change original record, we append an additional record with specific `_block_range`.
-
-This will allow user to query data will specify block height find it corresponding record in the table.
-
-***Example schema***:
-
-<img src="/assets/img/historical_data.png" alt="drawing" width="600"/>
-
-## How to use it
-
-It only requires enable this feature at beginning of indexing project, you ***DO NOT*** need any modification to your current project.
-
-### Support Version
-
-| Field            | version | 
-|------------------|---------|
-| **@subql/node**  | v1.1.1  | 
-| **@subql/query** | v1.1.0  | 
-
-
-### Local testing environment
-
-You can set this flag to `false`:
-
-```
-subql-node -f <project-path> --disable-historical=false
-```
-
-When indexing successful started, you should see a message ***"Historical state is enabled"***
-
-
-### Query historical data
-
-Please see one of our example: [RMRK NFT](https://explorer.subquery.network/subquery/subquery/rmrk-nft-historical)
-
-To query the first 5 NFT collections at block height 5000000
+A basic SubQuery project that indexes account balances might have an entity that looks like the following.
 
 ```graphql
-
-query {
-    collectionEntities (first: 5, blockHeight: "5000000") {
-        nodes {
-            version
-            name
-            currentOwner
-        }
-    }
+type Account @entity {
+  id: ID! # Alice's account address
+  balance: BigInt
+  transfers: [Transfer]
 }
-
 ```
 
-Then query the first 5 NFT collections at block height 5238224
+![Historic Indexing](/assets/img/historic_indexing.png)
 
+In the above example, Alice's DOT balance constantly changes, and as we index the data the `balance` property on the `Account` entity will change. A basic SubQuery project that indexes account balances will lose this historic data and will only store the state of the current indexing block height. For example, if we currently index to block 100, the data in the database can only represent the state of Alice's account at block 100.
+
+Then we are faced with a problem. Assuming the data has changed when indexing to block 200, how can we query the state of the data at block 100?
+
+## Automated Historical State Tracking
+
+SubQuery now automates the historical state tracking of entities for all new projects. You can automatically query the state of your SubQuery project at any block height. This means that you can build applications that allow users to go back in time, or show how the state of your data changes over time.
+
+In short, when you create, update, or delete any SubQuery entity, we store the the previous state with the block range that it was valid for. You can then query data from a specific block height using the same GraphQL endpoints and API.
+
+## Enabling This
+
+This feature is enabled by default for all new projects started with at least `@subql/node@1.1.1` and `@subql/query1.1.0`. If you want to add it to your existing project, update `@subql/node` and `@subql/query` and then reindex your project with a clean database.
+
+If you want to disable this feature for any reason, you can set the `--disable-historical=true` parameter on `subql-node`.
+
+On startup, the current status of this feature is printed to the console (`Historical state is enabled`).
+
+## Querying Historical State
+
+There is a special (optional) property on the GraphQL entity filter called `blockHeight`. If you omit this property, SubQuery will query the entity state at the current block height.
+
+Please see one of our example projects: [RMRK NFT](https://explorer.subquery.network/subquery/subquery/rmrk-nft-historical)
+
+To query the owners of RMRK NFTs at block height 5,000,000.
 
 ```graphql
-
 query {
-    collectionEntities (first: 5, blockHeight: "5238224") {
-        nodes {
-            version
-            name
-            currentOwner
-        }
+  nFTEntities(first: 5, blockHeight: "5000000") {
+    nodes {
+      name
+      currentOwner
     }
+  }
 }
-
 ```
 
-You can see the different between these two query results. 
+Then query the owners of those RMRK NFTs collections at the latest block height.
+
+```graphql
+query {
+  nFTEntities(first: 5) {
+    nodes {
+      name
+      currentOwner
+    }
+  }
+}
+```
+
+You can see the different between these two query results.
