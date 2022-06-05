@@ -291,6 +291,10 @@ subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot
 
 พอร์ตที่บริการการทำดัชนีแบบสอบถามย่อยผูกไว้ ค่าเริ่มต้นคือ `3000`
 
+### --disable-historical
+
+Disables automated historical state tracking, [see Historic State Tracking](./historical.md). By default this is set to `false`.
+
 ## subql-query
 
 ### --help
@@ -349,7 +353,7 @@ Flag นี้เป็นการเปิดใช้งาน graphql playgr
 
 ### --output-fmt
 
-ดู [--output-fmt](https://doc.subquery.network/run_publish/references.html#output-fmt)
+See [--output-fmt](https://doc.subquery.network/run_publish/references.html#output-fmt)
 
 ### --log-level
 
@@ -367,15 +371,15 @@ See [--log-level](https://doc.subquery.network/run_publish/references.html#log-l
 
 ตั้งค่า Url ที่กำหนดเองสำหรับตำแหน่งของ endpoints ของ indexer โดยบริการจัดเรียงข้อมูลนี้จะใช้ endpoints เหล่านี้สำหรับการแสดงค่า indexer health, metadata และ readiness status
 
-### --subscription
+### --การสมัครสมาชิก
 
-แฟล็กนี้เปิดใช้งาน [การสมัครรับข้อมูล GraphQL ](./subscription.md), เพื่อเปิดใช้งานคุณสมบัตินี้ต้องการ `subql-node` ยังเปิดใช้งาน `--การสมัครรับข้อมูล`
+This flag enables [GraphQL Subscriptions](./subscription.md), to enable this feature requires `subql-node` also enable `--subscription`
 
 ### --unsafe
 
 บริการจัดเรียงข้อมูลมีขีดจำกัด 100 รายการสำหรับการสืบค้นที่ไม่ผูกกับ graphql Flag unsafe จะลบขีดจำกัดนี้ซึ่งอาจทำให้เกิดปัญหาด้านประสิทธิภาพในบริการสืบค้น จึงขอแนะนำว่า ให้ใช้ [ paginated ](https://graphql.org/learn/pagination/) แทน
 
-Flag นี้เปิดให้สามารถใช้ฟังค์ชันการรวบรวมไม่ว่าจะเป็น ผลรวม, ค่าสูงสุด, ค่าเฉลี่ย ฯลฯ อ่านข้อมูลเกี่ยวกับฟีเจอร์เพิ่มเติมได้ที่ [here](./aggregate.md)
+This flag enables certain aggregation functions including sum, max, avg and others. Read more about this feature [here](./aggregate.md)
 
 สิ่งเหล่านี้ถูกปิดใช้งานโดยค่าเริ่มต้นเนื่องจากขีดจำกัดของเอนทิตี
 
