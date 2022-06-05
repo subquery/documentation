@@ -299,6 +299,12 @@ Subquery索引服务绑定到的端口。 默认设置为 `3000`
 
 
 
+### --disable-historical
+
+Disables automated historical state tracking, [see Historic State Tracking](./historical.md). By default this is set to `false`.
+
+
+
 ## subql-query
 
 
@@ -372,13 +378,13 @@ Xpath: /pre[21]/code
 
 ### --output-fmt
 
-查看 [--output-fmt](https://doc.subquery.network/run_publish/references.html#output-fmt)
+See [--output-fmt](https://doc.subquery.network/run_publish/references.html#output-fmt)
 
 
 
 ### --log-level
 
-查看 [--loglevel](https://doc.subquery.network/run_publish/references.html#log-level)
+See [--log-level](https://doc.subquery.network/run_publish/references.html#log-level)
 
 
 
@@ -402,7 +408,7 @@ Xpath: /pre[21]/code
 
 ### --subscription
 
-此标志启用 [GraphQL 订阅](./subscription.md), 以启用此功能需要 `subql-node` 也启用 `--subscription`
+This flag enables [GraphQL Subscriptions](./subscription.md), to enable this feature requires `subql-node` also enable `--subscription`
 
 
 
@@ -410,7 +416,7 @@ Xpath: /pre[21]/code
 
 查询服务对于无界的graphql查询有100个实体的限制。 不安全的标志取消了这个限制，这可能给查询服务造成性能问题。 相反，建议查询为 [分页](https://graphql.org/learn/pagination/)。
 
-这个标志允许某些集合功能，包括金额、最大值、平均和其他功能。 在这里阅读更多关于此功能 [](./aggregate.md)
+This flag enables certain aggregation functions including sum, max, avg and others. Read more about this feature [here](./aggregate.md)
 
 由于实体限制，它们默认被禁用。
 
