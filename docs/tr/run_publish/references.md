@@ -291,9 +291,9 @@ subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot
 
 Alt sorgu dizin oluşturma hizmetinin bağlandığı bağlantı noktası. Varsayılan olarak bu, `3000` olarak ayarlanmıştır
 
-### --disable-historical
+### --disable-tarihsel
 
-Disables automated historical state tracking, [see Historic State Tracking](./historical.md). By default this is set to `false`.
+Otomatik geçmiş durum izlemeyi devre dışı bırakır, [Tarihi Durum İzlemeye](./historical.md) bakın. Varsayılan olarak bu, `false` olarak ayarlanmıştır.
 
 ## subql-query
 
@@ -353,11 +353,11 @@ Bu bayrak graphql playground’u etkinleştirir, bu nedenle her zaman herhangi b
 
 ### --output-fmt
 
-See [--output-fmt](https://doc.subquery.network/run_publish/references.html#output-fmt)
+Şuraya göz atın: [--output-fmt](https://doc.subquery.network/run_publish/references.html#output-fmt)
 
 ### --log-level
 
-See [--log-level](https://doc.subquery.network/run_publish/references.html#log-level)
+Şuraya göz atın: [--log-level](https://doc.subquery.network/run_publish/references.html#log-level)
 
 ### --log-path
 
@@ -373,13 +373,13 @@ Dizin oluşturucunun uç noktalarının konumu için özel bir url ayarlayın, s
 
 ### --abonelik
 
-This flag enables [GraphQL Subscriptions](./subscription.md), to enable this feature requires `subql-node` also enable `--subscription`
+Bu işaret, [GraphQL Aboneliklerini](./subscription.md) etkinleştirir, bu özelliği etkinleştirmek için `subql-node` gerektirir ayrıca `--aboneliği etkinleştirir`
 
 ### güvensiz
 
 Sorgu hizmetinin, sınırsız graphql sorguları için 100 varlık sınırı vardır. Güvenli olmayan bayrak, sorgu hizmetinde performans sorunlarına neden olabilecek bu sınırı kaldırır. Bunun yerine sorguların [sayfalandırılması](https://graphql.org/learn/pagination/) önerilir.
 
-This flag enables certain aggregation functions including sum, max, avg and others. Read more about this feature [here](./aggregate.md)
+Bu bayrak, toplam, maksimum, ortalama ve diğerleri dahil olmak üzere belirli toplama işlevlerini etkinleştirir. Bu özellikle ilgili daha fazla bilgiyi [buradan okuyun](./aggregate.md)
 
 Bunlar, varlık sınırı nedeniyle varsayılan olarak devre dışıdır.
 
