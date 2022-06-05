@@ -211,6 +211,7 @@ function getSidebar(locale, language) {
           `${locale}/run_publish/ipfs.md`,
           `${locale}/run_publish/aggregate.md`,
           `${locale}/run_publish/subscription.md`,
+          `${locale}/run_publish/historical.md`,
           `${locale}/run_publish/references.md`,
         ],
       },
