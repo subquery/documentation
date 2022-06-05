@@ -287,6 +287,10 @@ subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot
 
 Port yang diikat oleh layanan pengindeksan subquery. Secara default ini diatur ke `3000`
 
+### --disable-historical
+
+Disables automated historical state tracking, [see Historic State Tracking](./historical.md). By default this is set to `false`.
+
 ## subql-query
 
 ### --help
@@ -345,11 +349,11 @@ Bendera ini mengaktifkan taman bermain graphql sehingga harus selalu disertakan 
 
 ### --output-fmt
 
-Lihat [--output-fmt](https://doc.subquery.network/run_publish/references.html#output-fmt)
+See [--output-fmt](https://doc.subquery.network/run_publish/references.html#output-fmt)
 
 ### --log-level
 
-Lihat [--log-level](https://doc.subquery.network/run_publish/references.html#log-level)
+See [--log-level](https://doc.subquery.network/run_publish/references.html#log-level)
 
 ### --log-path
 
@@ -365,13 +369,13 @@ Tetapkan url khusus untuk lokasi titik akhir pengindeks, layanan kueri menggunak
 
 ### --berlangganan
 
-Tanda ini mengaktifkan [GraphQL Langganan](./subscription.md), untuk mengaktifkan fitur ini memerlukan `subql-node` juga mengaktifkan `--langganan`
+This flag enables [GraphQL Subscriptions](./subscription.md), to enable this feature requires `subql-node` also enable `--subscription`
 
 ### --unsafe
 
 Layanan kueri memiliki batas 100 entitas untuk kueri graphql tak terbatas. Bendera tidak aman menghapus batas ini yang dapat menyebabkan masalah kinerja pada layanan kueri. Sebagai gantinya, disarankan agar kueri [diberi halaman](https://graphql.org/learn/pagination/).
 
-Bendera ini memungkinkan fungsi agregasi tertentu termasuk jumlah, maks, rata-rata, dan lainnya. Baca selengkapnya tentang fitur ini [di sini](./aggregate.md)
+This flag enables certain aggregation functions including sum, max, avg and others. Read more about this feature [here](./aggregate.md)
 
 Ini dinonaktifkan secara default karena batas entitas.
 
