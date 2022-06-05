@@ -30,17 +30,17 @@ Kısacası, herhangi bir SubQuery varlığı oluşturduğunuzda, güncellediğin
 
 Bu özellik, en az `@subql/node@1.1.1 ve <code>@subql/query1.1.0` ile başlayan tüm yeni projeler için varsayılan olarak etkinleştirilmiştir. Mevcut projenize eklemek istiyorsanız, `@subql/node` ve `@subql/query'i` güncelleyin ve ardından projenizi temiz bir veritabanıyla yeniden indeksleyin.
 
-If you want to disable this feature for any reason, you can set the `--disable-historical=true` parameter on `subql-node`.
+Bu özelliği herhangi bir nedenle devre dışı bırakmak isterseniz, `subql-node'da` `--disable-historical=true` parametresini ayarlayabilirsiniz.
 
-On startup, the current status of this feature is printed to the console (`Historical state is enabled`).
+Başlangıçta, bu özelliğin mevcut durumu konsola yazdırılır (`Geçmiş durum etkindir).`.
 
-## Querying Historical State
+## Tarihsel Durumu Sorgulama
 
-There is a special (optional) property on the GraphQL entity filter called `blockHeight`. If you omit this property, SubQuery will query the entity state at the current block height.
+GraphQL varlık filtresinde `blockHeight` adlı özel (isteğe bağlı) bir özellik vardır. Bu özelliği atlarsanız, SubQuery, mevcut blok yüksekliğinde varlık durumunu sorgulayacaktır.
 
-Please see one of our example projects: [RMRK NFT](https://explorer.subquery.network/subquery/subquery/rmrk-nft-historical)
+Lütfen örnek projelerimizden birine bakın: [RMRK NFT](https://explorer.subquery.network/subquery/subquery/rmrk-nft-historical)
 
-To query the owners of RMRK NFTs at block height 5,000,000, add the blockHeight parameter as shown below:
+5.000.000 blok yüksekliğindeki RMRK NFT'lerin sahiplerini sorgulamak için, aşağıda gösterildiği gibi blockHeight parametresini ekleyin:
 
 ```graphql
 query {
@@ -53,7 +53,7 @@ query {
 }
 ```
 
-To query the owners of those RMRK NFTs collections at the latest block height, omit the blockHeight parameter as shown below.
+Bu RMRK NFT koleksiyonlarının sahiplerini en son blok yüksekliğinde sorgulamak için aşağıda gösterildiği gibi blockHeight parametresini atlayın.
 
 ```graphql
 query {
