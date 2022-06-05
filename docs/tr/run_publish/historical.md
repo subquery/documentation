@@ -1,10 +1,10 @@
-# Automated Historical State Tracking
+# Otomatik Geçmiş Durum Takibi
 
-## Background
+## Arka Plan
 
-SubQuery allows you to index any data that you want from Substrate, Avalance, and other networks. Currently, SubQuery operates as a mutable data store, where you can append, update, delete, or otherwise change existing saved entities in the dataset that is indexed by SubQuery. As SubQuery indexes each block, the state of each entity may be updated or deleted based on your project's logic.
+SubQuery, Substrate, Avalance ve diğer ağlardan istediğiniz verileri dizine eklemenize olanak tanır. Şu anda SubQuery, SubQuery tarafından dizine eklenen veri kümesindeki kayıtlı varlıkları ekleyebileceğiniz, güncelleyebileceğiniz, silebileceğiniz veya başka bir şekilde değiştirebileceğiniz, değiştirilebilir bir veri deposu olarak çalışır. SubQuery her bloğu indekslediğinden, projenizin mantığına göre her varlığın durumu güncellenebilir veya silinebilir.
 
-A basic SubQuery project that indexes account balances might have an entity that looks like the following.
+Hesap bakiyelerini indeksleyen temel bir SubQuery projesi, aşağıdakine benzer bir varlığa sahip olabilir.
 
 ```graphql
 type Account @entity {
@@ -14,21 +14,21 @@ type Account @entity {
 }
 ```
 
-![Historic Indexing](/assets/img/historic_indexing.png)
+![Tarihi İndeksleme](/assets/img/historic_indexing.png)
 
-In the above example, Alice's DOT balance constantly changes, and as we index the data, the `balance` property on the `Account` entity will change. A basic SubQuery project that indexes account balances will lose this historical data and will only store the state of the current indexing block height. For example, if we currently index to block 100, the data in the database can only represent the state of Alice's account at block 100.
+Yukarıdaki örnekte, Alice'in DOT bakiyesi sürekli değişmektedir ve biz verileri indeksledikçe, `Hesap` varlığındaki `bilanço` özelliği değişecektir. Hesap bakiyelerini indeksleyen temel bir SubQuery projesi bu geçmiş verileri kaybeder ve yalnızca mevcut indeksleme blok yüksekliğinin durumunu saklar. Örneğin, şu anda blok 100'e endeksliyorsak, veritabanındaki veriler yalnızca Alice'in blok 100'deki hesabının durumunu temsil edebilir.
 
-Then we are faced with a problem. Assuming the data has changed when indexing to block 200, how can we query the state of the data at block 100?
+O zaman bir sorunla karşı karşıyayız. Blok 200'e indekslerken verilerin değiştiğini varsayarsak, blok 100'deki verilerin durumunu nasıl sorgulayabiliriz?
 
-## Automated Historical State Tracking
+## Otomatik Geçmiş Durum Takibi
 
-SubQuery now automates the historical state tracking of entities for all new projects. You can automatically query the state of your SubQuery project at any block height. This means that you can build applications that allow users to go back in time, or show how the state of your data changes over time.
+SubQuery artık tüm yeni projeler için varlıkların geçmiş durum takibini otomatik hale getiriyor. SubQuery projenizin durumunu herhangi bir blok yüksekliğinde otomatik olarak sorgulayabilirsiniz. Bu, kullanıcıların zamanda geriye gitmesine veya verilerinizin durumunun zaman içinde nasıl değiştiğini göstermesine olanak tanıyan uygulamalar oluşturabileceğiniz anlamına gelir.
 
-In short, when you create, update, or delete any SubQuery entity, we store the previous state with the block range that it was valid for. You can then query data from a specific block height using the same GraphQL endpoints and API.
+Kısacası, herhangi bir SubQuery varlığı oluşturduğunuzda, güncellediğinizde veya sildiğinizde, önceki durumu geçerli olduğu blok aralığıyla birlikte saklarız. Ardından, aynı GraphQL uç noktalarını ve API'yi kullanarak belirli bir blok yüksekliğinden verileri sorgulayabilirsiniz.
 
-## Enabling This
+## Bunu Etkinleştirme
 
-This feature is enabled by default for all new projects started with at least `@subql/node@1.1.1` and `@subql/query1.1.0`. If you want to add it to your existing project, update `@subql/node` and `@subql/query` and then reindex your project with a clean database.
+Bu özellik, en az `@subql/node@1.1.1 ve <code>@subql/query1.1.0` ile başlayan tüm yeni projeler için varsayılan olarak etkinleştirilmiştir. Mevcut projenize eklemek istiyorsanız, `@subql/node` ve `@subql/query'i` güncelleyin ve ardından projenizi temiz bir veritabanıyla yeniden indeksleyin.
 
 If you want to disable this feature for any reason, you can set the `--disable-historical=true` parameter on `subql-node`.
 
