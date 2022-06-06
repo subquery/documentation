@@ -152,7 +152,7 @@ subql-node -f . --db-schema=test2
 ```
 
 ### --subscription
-This will create a notification trigger on entity, this also is the prerequisite to enable subscription feature in query service.
+Dadurch wird ein Benachrichtigungsauslöser für die Entität erstellt. Dies ist auch die Voraussetzung, um die Abonnementfunktion im Abfragedienst zu aktivieren.
 
 ### --unsicher
 
@@ -285,7 +285,7 @@ Normalerweise wird dies in Ihrer Manifestdatei festgelegt, aber unten zeigt ein 
 subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot"
 ```
 
-[Read more about how a SubQuery Dictionary works](../academy/tutorials_examples/dictionary.md).
+[Lesen Sie mehr darüber, wie ein SubQuery-Wörterbuch funktioniert](../academy/tutorials_examples/dictionary.md).
 
 ### -p, --port
 
@@ -293,7 +293,7 @@ Der Port, an den der Indexdienst für Subquery bindet. Standardmäßig ist dies 
 
 ### --disable-historical
 
-Disables automated historical state tracking, [see Historic State Tracking](./historical.md). By default this is set to `false`.
+Deaktivieren Sie die automatische Nachverfolgung des historischen Status, [siehe Nachverfolgung des historischen Status](./historical.md). Standardmäßig ist dies auf `false` gesetzt.
 
 ## subql-query
 
@@ -353,11 +353,11 @@ Dieses Flag aktiviert den Graphql-Playground und sollte daher immer standardmä�
 
 ### --output-fmt
 
-See [--output-fmt](https://doc.subquery.network/run_publish/references.html#output-fmt)
+Siehe [--output-fmt](https://doc.subquery.network/run_publish/references.html#output-fmt)
 
 ### --log-level
 
-See [--log-level](https://doc.subquery.network/run_publish/references.html#log-level)
+Siehe [--log-level](https://doc.subquery.network/run_publish/references.html#log-level)
 
 ### --log-path
 
@@ -373,13 +373,13 @@ Legen Sie eine benutzerdefinierte URL für den Speicherort der Endpunkte des Ind
 
 ### --subscription
 
-This flag enables [GraphQL Subscriptions](./subscription.md), to enable this feature requires `subql-node` also enable `--subscription`
+Dieses Flag aktiviert [GraphQL-Abonnements](./subscription.md), um diese Funktion zu aktivieren, muss `subql-node` auch `--subscription` aktivieren
 
 ### --unsicher
 
 Der Abfragedienst hat ein Limit von 100 Entitäten für unbegrenzte Graphql-Abfragen. Das unsichere Flag entfernt dieses Limit, was Performance-Probleme im Abfrage-Dienst verursachen kann. Es wird stattdessen empfohlen, dass Abfragen [paginiert werden](https://graphql.org/learn/pagination/).
 
-This flag enables certain aggregation functions including sum, max, avg and others. Read more about this feature [here](./aggregate.md)
+Dieses Flag aktiviert bestimmte Aggregationsfunktionen, einschließlich sum, max, avg und andere. Weitere Informationen zu dieser Funktion finden Sie [hier](./aggregate.md)
 
 Diese sind standardmäßig aufgrund der Entitätsgrenze deaktiviert.
 
