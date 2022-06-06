@@ -1,40 +1,40 @@
-# Polkadot Quick Start
+# Polkadot Schnellstart
 
-In this quick start guide, we're going to start with a simple Substrate/Polkadot starter project and then finish by indexing some actual real data. This is an excellent basis to start with when developing your own Substrate/Polkadot SubQuery Project.
+In dieser Kurzanleitung beginnen wir mit einem einfachen Substrate/Polkadot-Starterprojekt und schließen dann mit der Indizierung einiger echter Daten ab. Dies ist eine hervorragende Grundlage, um mit der Entwicklung Ihres eigenen SubQuery-Projekts für Substrate/Polkadots zu beginnen.
 
 Am Ende dieses Handbuchs haben Sie ein funktionierendes SubQuery-Projekt, das auf einer SubQuery-Node mit einem GraphQL-Endpunkt ausgeführt wird, von dem Sie Daten abfragen können.
 
 Falls noch nicht geschehen, empfehlen wir Ihnen, sich mit der [Terminologie](../#terminology) vertraut zu machen, die in SubQuery verwendet wird.
 
-**The goal of this quick start guide is to adapt the standard starter project to begin indexing all transfers from Polkadot, it should only take 10-15 minutes**
+**Das Ziel dieser Kurzanleitung ist es, das Standard-Starterprojekt so anzupassen, dass es mit der Indexierung aller Transfers von Polkadot beginnen kann, es sollte nur 10-15 Minuten dauern**
 
 ## Vorbereitung
 
 ### Lokale Entwicklungsumgebung
 
-- [Node](https://nodejs.org/en/): A modern (e.g. the LTS version) installation of Node.
-- [Docker](https://docker.com/): This tutorial will use require Docker
+- [Node](https://nodejs.org/en/): Eine moderne (z. B. die LTS-Version) Installation von Node.
+- [Docker](https://docker.com/): Für dieses Tutorial wird Docker benötigt
 
 ### Installieren Sie die SubQuery-CLI
 
-Install SubQuery CLI globally on your terminal by using NPM:
+Installieren Sie SubQuery CLI global auf Ihrem Terminal, indem Sie NPM verwenden:
 
 ```shell
 # NPM
 npm install -g @subql/cli
 ```
 
-Please note that we **DO NOT** encourage the use of `yarn global` for installing `@subql/cli` due to its poor dependency management which may lead to errors down the line.
+Bitte beachten Sie, dass wir die Verwendung von `yarn global` für die Installation von `@subql/cli` **NICHT** empfehlen, da es ein schlechtes Abhängigkeitsmanagement gibt, das zu Fehlern führen kann auf der ganzen Linie.
 
-You can then run help to see available commands and usage provided by the CLI:
+Sie können dann help ausführen, um die verfügbaren Befehle und die Verwendung anzuzeigen, die von der CLI bereitgestellt werden:
 
 ```shell
 subql help
 ```
 
-## Initialise the SubQuery Starter Project
+## Initialisieren Sie das SubQuery-Starterprojekt
 
-Inside the directory in which you want to create a SubQuery project, simply run the following command to get started.
+Führen Sie in dem Verzeichnis, in dem Sie ein SubQuery-Projekt erstellen möchten, einfach den folgenden Befehl aus, um zu beginnen.
 
 ```shell
 subql init
@@ -46,7 +46,7 @@ You'll be asked certain questions as the SubQuery project is initalised:
 - Network family: The layer-1 blockchain network family that this SubQuery project will be developed to index. Use the arrow keys to select from the available options. For this guide, we will use *"Substrate"*
 - Network: The specific network that this SubQuery project will be developed to index. Use the arrow keys to select from the available options. For this guide, we will use *"Polkadot"*
 - Template project: Select a SubQuery template project that will provide a starting point to begin development. We suggest selecting the *"subql-starter"* project.
-- RPC endpoint: Provide an HTTPS URL to a running RPC endpoint that will be used by default for this project. You can quickly access public endpoints for different Polkadot networks, create your own private dedicated node using [OnFinality](https://app.onfinality.io) or just use the default Polkadot endpoint. This RPC node must be an archive node (have the full chain state). For this guide, we will use the default value *"https://polkadot.api.onfinality.io"*
+- RPC endpoint: Provide an HTTPS URL to a running RPC endpoint that will be used by default for this project. You can quickly access public endpoints for different Polkadot networks, create your own private dedicated node using [OnFinality](https://app.onfinality.io) or just use the default Polkadot endpoint. Dieser RPC-Node muss ein Archivnode sein (den Zustand der vollständigen Chain haben). For this guide, we will use the default value *"https://polkadot.api.onfinality.io"*
 - Git repository: Provide a Git URL to a repo that this SubQuery project will be hosted in (when hosted in SubQuery Explorer) or accept the provided default.
 - Authors: Enter the owner of this SubQuery project here (e.g. your name!) or accept the provided default.
 - Description: Provide a short paragraph about your project that describes what data it contains and what users can do with it or accept the provided default.
@@ -60,9 +60,9 @@ Last, under the project directory, run the following command to install the new 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```shell cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
 
-## Making Changes to your Project
+## Änderungen an Ihrem Projekt vornehmen
 
-In the starter package that was just initialised, a standard configuration has been provided. These are:
+In dem gerade initialisierten Starterpaket ist eine Standardkonfiguration vorgesehen. These are:
 
 1. The GraphQL Schema in `schema.graphql`
 2. The Project Manifest in `project.yaml`
@@ -91,7 +91,7 @@ type Transfer @entity {
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```shell npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
 
-You'll find the generated models in the `/src/types/models` directory. For more information about the `schema.graphql` file, check out our documentation under [Build/GraphQL Schema](../build/graphql.md)
+Sie finden die generierten Modelle im Verzeichnis `/src/types/models`. For more information about the `schema.graphql` file, check out our documentation under [Build/GraphQL Schema](../build/graphql.md)
 
 ### Updating the Project Manifest File
 
