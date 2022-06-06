@@ -153,39 +153,45 @@ export async function handleEvent(event: SubstrateEvent): Promise<void> {
 }
 ```
 
-Was dies tut, ist das Empfangen eines SubstrateEvent, das Übertragungsdaten in der Nutzlast enthält. We extract this data and then instantiate a new `Transfer` entity that we defined earlier in the `schema.graphql` file. We add additional information and then use the `.save()` function to save the new entity (SubQuery will automatically save this to the database).
+Was dies tut, ist das Empfangen eines SubstrateEvent, das Übertragungsdaten in der Nutzlast enthält. Wir extrahieren diese Daten und instanziieren dann eine neue Entität `Transfer`, die wir zuvor in der Datei `schema.graphql` definiert haben. Wir fügen zusätzliche Informationen hinzu und verwenden dann die Funktion `.save()`, um die neue Entität zu speichern (SubQuery speichert diese automatisch in der Datenbank).
 
-For more information about mapping functions, check out our documentation under [Build/Mappings](../build/mapping.md)
+Weitere Informationen zu Mapping-Funktionen finden Sie in unserer Dokumentation unter [Build/Mappings](../build/mapping.md)
 
-### Build the Project
+### Erstellen Sie das Projekt
 
-In order to run your new SubQuery Project we first need to build our work. Run the build command from the project's root directory.
+Um Ihr neues SubQuery-Projekt auszuführen, müssen wir zuerst unsere Arbeit erstellen. Führen Sie den Build-Befehl im Stammverzeichnis des Projekts aus.
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script build ``` </CodeGroupItem> </CodeGroup>
 
-**Important: Whenever you make changes to your mapping functions, you will need to rebuild your project**
+**Wichtig: Wenn Sie Änderungen an Ihren Zuordnungsfunktionen vornehmen, müssen Sie Ihr Projekt neu erstellen**
 
-## Running and Querying your Project
+## Ihr Projekt ausführen und abfragen
 
-### Run your Project with Docker
+### Führen Sie Ihr Projekt mit Docker aus
 
-Whenever you create a new SubQuery Project, you should always run it locally on your computer to test it first. The easiest way to do this is by using Docker.
+Wann immer Sie ein neues SubQuery-Projekt erstellen, sollten Sie es immer lokal auf Ihrem Computer ausführen, um es zuerst zu testen. Der einfachste Weg, dies zu tun, ist die Verwendung von Docker.
 
-All configuration that controls how a SubQuery node is run is defined in the `docker-compose.yml` file. For a new project that has been just initialised you won't need to change anything, but you can read more about the file and the settings in our [Run a Project](../run_publish/run.md) section.
+Die gesamte Konfiguration, die steuert, wie ein SubQuery-Node ausgeführt wird, ist in der Datei `docker-compose.yml` definiert. Für ein neues Projekt, das gerade initialisiert wurde, müssen Sie nichts ändern, aber Sie können mehr über die Datei und die Einstellungen in unserem Abschnitt [Ein Projekt ausführen](../run_publish/run.md) lesen.
 
-Under the project directory, run the following command:
+Führen Sie im Projektverzeichnis den folgenden Befehl aus:
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn start:docker ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script start:docker ``` </CodeGroupItem> </CodeGroup>
 
-It may take some time to download the required packages ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), and Postgres) for the first time but soon you should see a running SubQuery node in the terminal screen.
+Es kann einige Zeit dauern, die erforderlichen Pakete herunterzuladen ([`@subql/node`](https://www.npmjs.com/package/@subql/node),
 
-### Query your Project
+`@subql/query`</7 > und Postgres) zum ersten Mal, aber bald sollten Sie einen laufenden SubQuery-Node auf dem Terminalbildschirm sehen. </p> 
 
-Open your browser and head to [http://localhost:3000](http://localhost:3000).
 
-You should see a GraphQL playground in the browser and the schemas that are ready to query. Oben rechts auf dem Playground finden Sie eine Schaltfläche _Dokumente_, die eine Dokumentationsverlosung öffnet. Diese Dokumentation wird automatisch generiert und hilft Ihnen zu finden, welche Entitäten und Methoden Sie abfragen können.
 
-For a new SubQuery starter project, try the following query to understand how it works or learn more about the [GraphQL Query language](../run_publish/graphql.md).
+### Fragen Sie Ihr Projekt ab
+
+Öffnen Sie Ihren Browser und gehen Sie zu [http://localhost:3000](http://localhost:3000).
+
+Sie sollten einen GraphQL-Playground im Browser und die Schemas sehen, die zur Abfrage bereit sind. Oben rechts auf dem Playground finden Sie eine Schaltfläche _Dokumente_, die eine Dokumentationsverlosung öffnet. Diese Dokumentation wird automatisch generiert und hilft Ihnen zu finden, welche Entitäten und Methoden Sie abfragen können.
+
+Probieren Sie für ein neues SubQuery-Starterprojekt die folgende Abfrage aus, um zu verstehen, wie sie funktioniert, oder erfahren Sie mehr über die [GraphQL-Abfragesprache](../run_publish/graphql.md).
+
+
 
 ```graphql
 {
@@ -204,20 +210,27 @@ For a new SubQuery starter project, try the following query to understand how it
     }
   }
 }
+
+
 ```
 
-### Publish your SubQuery Project
 
-SubQuery provides a free managed service where you can deploy your new project to. You can deploy it to [SubQuery Projects](https://project.subquery.network) and query it using our [Explorer](https://explorer.subquery.network).
 
-Read the guide to [publish your new project to SubQuery Projects](../run_publish/publish.md)
 
-## Next Steps
+### Veröffentlichen Sie Ihr SubQuery-Projekt
 
-Congratulations, you now have a locally running SubQuery project that accepts GraphQL API requests for transfers data.
+SubQuery bietet einen kostenlosen verwalteten Dienst, in dem Sie Ihr neues Projekt bereitstellen können. Sie können es in [SubQuery-Projekten](https://project.subquery.network) bereitstellen und mit unserem [Explorer](https://explorer.subquery.network) abfragen.
 
-Now that you've had an insight into how to build a basic SubQuery project, the question is where to from here? If you are feeling confident, you can jump into learning more about the three key files. The manifest file, the GraphQL schema, and the mappings file are under the [Build section of these docs](../build/introduction.md).
+Lesen Sie den Leitfaden zum [Veröffentlichen Ihres neuen Projekts in SubQuery Projects](../run_publish/publish.md)
 
-Otherwise, continue to our [Academy section](../academy/academy.md) where we have more in-depth workshops, tutorials, and example projects. There we'll look at more advanced modifications, and we'll take a deeper dive at running SubQuery projects by running readily available and open source projects.
 
-Finally, if you're looking for more ways to run and publish your project, our [Run & Publish section](../run_publish/run.md) provides detailed information about all the ways to run your SubQuery project and other advanced GraphQL aggregation and subscription features.
+
+## Weitere Schritte
+
+Herzlichen Glückwunsch, Sie haben jetzt ein lokal ausgeführtes SubQuery-Projekt, das GraphQL-API-Anforderungen für die Datenübertragung akzeptiert.
+
+Nachdem Sie nun einen Einblick in die Erstellung eines grundlegenden SubQuery-Projekts erhalten haben, stellt sich die Frage, wie es weitergehen soll. Wenn Sie sich sicher fühlen, können Sie mehr über die drei Schlüsseldateien erfahren. Die Manifestdatei, das GraphQL-Schema und die Zuordnungsdatei befinden sich im [Abschnitt „Build“ dieser Dokumentation](../build/introduction.md).
+
+Fahren Sie andernfalls mit unserem [Academy-Bereich](../academy/academy.md) fort, wo wir ausführlichere Workshops, Tutorials und Beispielprojekte anbieten. Dort sehen wir uns fortgeschrittenere Modifikationen an und tauchen tiefer in die Ausführung von SubQuery-Projekten ein, indem wir leicht verfügbare und Open-Source-Projekte ausführen.
+
+Wenn Sie schließlich nach weiteren Möglichkeiten zum Ausführen und Veröffentlichen Ihres Projekts suchen, ist unser [Run & Der Abschnitt „Veröffentlichen“](../run_publish/run.md) enthält detaillierte Informationen zu allen Möglichkeiten zum Ausführen Ihres SubQuery-Projekts und zu anderen erweiterten GraphQL-Aggregations- und Abonnementfunktionen.
