@@ -1,1 +1,1 @@
-# Welcome to Academy
+# Herzlich Willkommen in der Akademie
