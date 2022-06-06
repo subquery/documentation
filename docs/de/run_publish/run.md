@@ -1,6 +1,6 @@
 # SubQuery lokal ausführen
 
-In dieser Anleitung erfahren Sie, wie Sie eine lokale SubQuery-Node in Ihrer Infrastruktur ausführen, der sowohl den Indexer als auch den Abfragedienst umfasst. Sie möchten sich nicht um den Betrieb Ihrer eigenen SubQuery-Infrastruktur kümmern? SubQuery stellt der Community einen [verwalteten gehosteten Dienst](https://explorer.subquery.network) kostenlos zur Verfügung. [Follow our publishing guide](../run_publish/publish.md) to see how you can upload your project to [SubQuery Projects](https://project.subquery.network).
+In dieser Anleitung erfahren Sie, wie Sie eine lokale SubQuery-Node in Ihrer Infrastruktur ausführen, der sowohl den Indexer als auch den Abfragedienst umfasst. Sie möchten sich nicht um den Betrieb Ihrer eigenen SubQuery-Infrastruktur kümmern? SubQuery stellt der Community einen [verwalteten gehosteten Dienst](https://explorer.subquery.network) kostenlos zur Verfügung. [Folgen Sie unserem Veröffentlichungsleitfaden](../run_publish/publish.md), um zu erfahren, wie Sie Ihr Projekt in [SubQuery-Projekte](https://project.subquery.network) hochladen können.
 
 ## Die Verwendung von Docker
 
@@ -20,7 +20,7 @@ Anforderungen:
 
 - [Postgres](https://www.postgresql.org/)-Datenbank (Version 12 oder höher). Während die [SubQuery-Node](#start-a-local-subquery-node) die Blockchain indiziert, werden die extrahierten Daten in einer externen Datenbankinstanz gespeichert.
 
-A SubQuery node is an implementation that extracts Substrate/Polkadot-based blockchain data per the SubQuery project and saves it into a Postgres database.
+Ein SubQuery-Node ist eine Implementierung, die Substrat/Polkadot-basierte Blockchain-Daten pro SubQuery-Projekt extrahiert und in einer Postgres-Datenbank speichert.
 
 ### Installation
 
@@ -51,7 +51,7 @@ npm install -g @subql/node-avalanche
 </CodeGroupItem>
 </CodeGroup>
 
-Please note that we **DO NOT** encourage the use of `yarn global` due to its poor dependency management which may lead to an errors down the line.
+Bitte beachten Sie, dass wir **NICHT** die Verwendung von `yarn global` empfehlen, da es ein schlechtes Abhängigkeitsmanagement gibt, das später zu Fehlern führen kann.
 
 Nach der Installation können Sie eine Node mit dem folgenden Befehl starten:
 
@@ -80,9 +80,9 @@ subql-node-avalanche <command>
 </CodeGroupItem>
 </CodeGroup>
 
-### Key Commands
+### Tastenbefehle
 
-The following commands will assist you to complete the configuration of a SubQuery node and begin indexing. Um mehr zu erfahren, können Sie jederzeit `--help` ausführen.
+Die folgenden Befehle helfen Ihnen, die Konfiguration eines SubQuery-Nodes abzuschließen und mit der Indizierung zu beginnen. Um mehr zu erfahren, können Sie jederzeit `--help` ausführen.
 
 #### Zeigen Sie auf den lokalen Projektpfad
 
@@ -110,13 +110,13 @@ subql-node-avalanche -f your-project-path
 </CodeGroupItem>
 </CodeGroup>
 
-#### Use a Dictionary
+#### Verwenden Sie ein Wörterbuch
 
-Using a full chain dictionary can dramatically speed up the processing of a SubQuery project during testing or during your first index. In some cases, we've seen indexing performance increases of up to 10x.
+Die Verwendung eines vollständigen Kettenwörterbuchs kann die Verarbeitung eines SubQuery-Projekts während des Testens oder während Ihres ersten Indexes erheblich beschleunigen. In einigen Fällen haben wir eine bis zu 10-fache Steigerung der Indexierungsleistung festgestellt.
 
-A full chain dictionary pre-indexes the location of all events and extrinsics within the specific chain and allows your node service to skip to relevant locations when indexing rather than inspecting each block.
+Ein vollständiges Chainwörterbuch indiziert die Position aller Ereignisse und Extrinsics innerhalb der spezifischen Chain vorab und ermöglicht Ihrem Node-Service, bei der Indizierung zu relevanten Positionen zu springen, anstatt jeden Block zu untersuchen.
 
-You can add the dictionary endpoint in your `project.yaml` file (see [Manifest File](../create/manifest.md)), or specify it at run time using the following command:
+Sie können den Dictionary-Endpunkt in Ihrer `project.yaml`-Datei hinzufügen (siehe [Manifest-Datei](../create/manifest.md)) oder zur Laufzeit mit dem folgenden Befehl angeben:
 
 <CodeGroup>
 <CodeGroupItem title='Substrate/Polkadot/Polkadot'>
@@ -142,9 +142,9 @@ subql-node-avalanche --network-dictionary=https://api.subquery.network/sq/subque
 </CodeGroupItem>
 </CodeGroup>
 
-[Read more about how a SubQuery Dictionary works](../academy/tutorials_examples/dictionary.md).
+[Lesen Sie mehr darüber, wie ein Unterabfrage-Wörterbuch funktioniert](../academy/tutorials_examples/dictionary.md).
 
-#### Connect to database
+#### Mit Datenbank verbinden
 
 ```shell
 export DB_USER=postgres
@@ -155,9 +155,9 @@ export DB_PORT=5432
 subql-node -f your-project-path
 ```
 
-Depending on the configuration of your Postgres database (e.g. a different database password), please ensure also that both the indexer (`subql/node`) and the query service (`subql/query`) can establish a connection to it.
+Stellen Sie je nach Konfiguration Ihrer Postgres-Datenbank (z. B. ein anderes Datenbankpasswort) bitte auch sicher, dass sowohl der Indexer (`subql/node`) als auch der Abfragedienst (`subql/query` ) kann eine Verbindung zu ihm herstellen.
 
-#### Specify a configuration file
+#### Geben Sie eine Konfigurationsdatei an
 
 <CodeGroup>
 <CodeGroupItem title='Substrate/Polkadot'>
@@ -183,7 +183,7 @@ subql-node-avalanche -c your-project-config.yml
 </CodeGroupItem>
 </CodeGroup>
 
-This will point the query node to a configuration file which can be in YAML or JSON format. Check out the example below.
+Dadurch wird der Abfrageknoten auf eine Konfigurationsdatei verweisen, die im YAML- oder JSON-Format vorliegen kann. Sehen Sie sich das Beispiel unten an.
 
 ```yaml
 subquery: ../../../../subql-example/extrinsics
@@ -230,7 +230,7 @@ subql-node-avalanche -f your-project-path --local
 </CodeGroupItem>
 </CodeGroup>
 
-For debugging purposes, users can run the node in local mode. Beim Wechsel zum lokalen Modell werden Postgres-Tabellen im Standardschema `öffentlich` erstellt.
+Zu Debugging-Zwecken können Benutzer den Node im lokalen Modus ausführen. Beim Wechsel zum lokalen Modell werden Postgres-Tabellen im Standardschema `öffentlich` erstellt.
 
 Wenn der lokale Modus nicht verwendet wird, wird ein neues Postgres-Schema mit der anfänglichen `subquery_` und entsprechenden Projekttabellen erstellt.
 
@@ -302,7 +302,7 @@ Hilfe finden Sie unter: https://nodejs.org/en/docs/inspector
 Debugger attached.
 ```
 
-Öffnen Sie dann die Chrome-Entwicklungstools, gehen Sie zu Quelle > Dateisystem, fügen Sie Ihr Projekt zum Arbeitsbereich hinzu und beginnen Sie mit dem Debuggen. For more information, check out [How to debug a SubQuery project](https://doc.subquery.network/academy/tutorials_examples/debug-projects/)
+Öffnen Sie dann die Chrome-Entwicklungstools, gehen Sie zu Quelle > Dateisystem, fügen Sie Ihr Projekt zum Arbeitsbereich hinzu und beginnen Sie mit dem Debuggen. Weitere Informationen finden Sie unter [So debuggen Sie ein SubQuery-Projekt](https://doc.subquery.network/academy/tutorials_examples/debug-projects/)
 
 ## Die Ausführung eines Abfragedienstes (subql/query)
 
@@ -322,6 +322,6 @@ export DB_HOST=localhost
 subql-query --name <project_name> --playground
 ```
 
-Make sure the project name is the same as the project name when you [initialize the project](../quickstart/quickstart-polkadot.md#initialise-the-starter-subquery-project). Überprüfen Sie außerdem, ob die Umgebungsvariablen korrekt sind.
+Stellen Sie sicher, dass der Projektname mit dem Projektnamen übereinstimmt, wenn Sie [das Projekt initialisieren](../quickstart/quickstart-polkadot.md#initialise-the-starter-subquery-project). Überprüfen Sie außerdem, ob die Umgebungsvariablen korrekt sind.
 
 Nachdem Sie den subql-query-Dienst erfolgreich ausgeführt haben, öffnen Sie Ihren Browser und gehen Sie zu `http://localhost:3000`. Sie sollten einen GraphQL-Playground im Explorer und das Schema sehen, das zur Abfrage bereit ist.
