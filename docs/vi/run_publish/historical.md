@@ -1,46 +1,46 @@
-# Automated Historical State Tracking
+# Theo dõi trạng thái lịch sử tự động
 
-## Background
+## Dưới nền
 
-SubQuery allows you to index any data that you want from Substrate, Avalance, and other networks. Currently, SubQuery operates as a mutable data store, where you can append, update, delete, or otherwise change existing saved entities in the dataset that is indexed by SubQuery. As SubQuery indexes each block, the state of each entity may be updated or deleted based on your project's logic.
+SubQuery cho phép bạn lập chỉ mục bất kỳ dữ liệu nào bạn muốn từ Substrate, Avalance và các mạng khác. Hiện tại, SubQuery hoạt động như một kho dữ liệu có thể thay đổi, nơi bạn có thể thêm, cập nhật, xóa hoặc thay đổi các thực thể đã lưu hiện có trong tập dữ liệu được SubQuery lập chỉ mục. Khi SubQuery lập chỉ mục từng khối, trạng thái của từng thực thể có thể được cập nhật hoặc xóa dựa trên logic của dự án của bạn.
 
-A basic SubQuery project that indexes account balances might have an entity that looks like the following.
+Một dự án SubQuery cơ bản lập chỉ mục số dư tài khoản có thể có một thực thể trông giống như sau.
 
 ```graphql
 type Account @entity {
-  id: ID! # Alice's account address
+  id: ID! # Địa chỉ tài khoản của Alice 
   balance: BigInt
   transfers: [Transfer]
 }
 ```
 
-![Historic Indexing](/assets/img/historic_indexing.png)
+![Lập chỉ mục lịch sử](/assets/img/historic_indexing.png)
 
-In the above example, Alice's DOT balance constantly changes, and as we index the data, the `balance` property on the `Account` entity will change. A basic SubQuery project that indexes account balances will lose this historical data and will only store the state of the current indexing block height. For example, if we currently index to block 100, the data in the database can only represent the state of Alice's account at block 100.
+Trong ví dụ trên, số dư DOT của Alice liên tục thay đổi và khi chúng tôi lập chỉ mục dữ liệu, `balance` trên thực thể `Account` sẽ thay đổi. Một dự án SubQuery cơ bản lập chỉ mục số dư tài khoản sẽ mất dữ liệu lịch sử này và sẽ chỉ lưu trữ trạng thái của chiều cao khối lập chỉ mục hiện tại. Ví dụ: nếu chúng ta hiện đang lập chỉ mục ở khối 100, dữ liệu trong cơ sở dữ liệu chỉ có thể đại diện cho trạng thái tài khoản của Alice ở khối 100.
 
-Then we are faced with a problem. Assuming the data has changed when indexing to block 200, how can we query the state of the data at block 100?
+Sau đó, chúng ta phải đối mặt với một vấn đề. tại block 100. Giả sử dữ liệu đã thay đổi khi lập chỉ mục đến khối 200, làm thế nào chúng ta có thể truy vấn trạng thái của dữ liệu tại khối 100?
 
-## Automated Historical State Tracking
+## Theo dõi trạng thái lịch sử tự động
 
-SubQuery now automates the historical state tracking of entities for all new projects. You can automatically query the state of your SubQuery project at any block height. This means that you can build applications that allow users to go back in time, or show how the state of your data changes over time.
+SubQuery hiện tự động hóa việc theo dõi trạng thái lịch sử của các thực thể cho tất cả các dự án mới. Bạn có thể tự động truy vấn trạng thái của dự án SubQuery ở bất kỳ chiều cao khối nào. Điều này có nghĩa là bạn có thể xây dựng các ứng dụng cho phép người dùng quay ngược thời gian hoặc hiển thị trạng thái dữ liệu của bạn thay đổi theo thời gian.
 
-In short, when you create, update, or delete any SubQuery entity, we store the previous state with the block range that it was valid for. You can then query data from a specific block height using the same GraphQL endpoints and API.
+Nói tóm lại, khi bạn tạo, cập nhật hoặc xóa bất kỳ thực thể SubQuery nào, chúng tôi sẽ lưu trữ trạng thái trước đó với phạm vi khối mà nó hợp lệ. Sau đó, bạn có thể truy vấn dữ liệu từ một chiều cao khối cụ thể bằng cách sử dụng cùng các điểm cuối GraphQL và API.
 
-## Enabling This
+## Bật tính năng này
 
-This feature is enabled by default for all new projects started with at least `@subql/node@1.1.1` and `@subql/query1.1.0`. If you want to add it to your existing project, update `@subql/node` and `@subql/query` and then reindex your project with a clean database.
+Tính năng này mặc định được kích hoạt cho tất cả các dự án mới bắt đầu với `@subql/node@1.1.1` và `@subql/query1.1.0`. Nếu bạn muốn thêm nó vào dự án hiện tại của mình, hãy cập nhật `@subql/node` và `@subql/query` sau đó lập chỉ mục lại dự án của bạn với một cơ sở dữ liệu trống.
 
-If you want to disable this feature for any reason, you can set the `--disable-historical=true` parameter on `subql-node`.
+Nếu bạn muốn vô hiệu hóa tính năng này vì bất kỳ lý do gì, bạn có thể đặt tham số `--disable-historical=true` trên `subql-node`.
 
-On startup, the current status of this feature is printed to the console (`Historical state is enabled`).
+Khi khởi động, trạng thái hiện tại của tính năng này được in lên bảng điều khiển (`Historical state is enabled`).
 
-## Querying Historical State
+## Truy vấn Trạng thái Lịch sử
 
-There is a special (optional) property on the GraphQL entity filter called `blockHeight`. If you omit this property, SubQuery will query the entity state at the current block height.
+Có một thuộc tính đặc biệt (tùy chọn) trên bộ lọc thực thể GraphQL được gọi là `blockHeight`. Nếu bạn bỏ qua thuộc tính này, SubQuery sẽ truy vấn trạng thái thực thể ở chiều cao khối hiện tại.
 
-Please see one of our example projects: [RMRK NFT](https://explorer.subquery.network/subquery/subquery/rmrk-nft-historical)
+Vui lòng xem một trong những dự án ví dụ của chúng tôi: [RMRK NFT](https://explorer.subquery.network/subquery/subquery/rmrk-nft-historical)
 
-To query the owners of RMRK NFTs at block height 5,000,000, add the blockHeight parameter as shown below:
+Để truy vấn chủ sở hữu của NFT RMRK ở chiều cao khối 5.000.000, hãy thêm tham số blockHeight như hình dưới đây:
 
 ```graphql
 query {
@@ -53,7 +53,7 @@ query {
 }
 ```
 
-To query the owners of those RMRK NFTs collections at the latest block height, omit the blockHeight parameter as shown below.
+Để truy vấn chủ sở hữu của các bộ sưu tập NFT RMRK ở chiều cao khối mới nhất, hãy bỏ qua tham số blockHeight như hình dưới đây.
 
 ```graphql
 query {
