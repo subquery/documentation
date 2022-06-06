@@ -40,64 +40,64 @@ Führen Sie in dem Verzeichnis, in dem Sie ein SubQuery-Projekt erstellen möcht
 subql init
 ```
 
-You'll be asked certain questions as the SubQuery project is initalised:
+Während das SubQuery-Projekt initialisiert wird, werden Ihnen bestimmte Fragen gestellt:
 
-- Project name: A project name for your SubQuery project
-- Network family: The layer-1 blockchain network family that this SubQuery project will be developed to index. Use the arrow keys to select from the available options. For this guide, we will use *"Substrate"*
-- Network: The specific network that this SubQuery project will be developed to index. Use the arrow keys to select from the available options. For this guide, we will use *"Polkadot"*
-- Template project: Select a SubQuery template project that will provide a starting point to begin development. We suggest selecting the *"subql-starter"* project.
-- RPC endpoint: Provide an HTTPS URL to a running RPC endpoint that will be used by default for this project. You can quickly access public endpoints for different Polkadot networks, create your own private dedicated node using [OnFinality](https://app.onfinality.io) or just use the default Polkadot endpoint. Dieser RPC-Node muss ein Archivnode sein (den Zustand der vollständigen Chain haben). For this guide, we will use the default value *"https://polkadot.api.onfinality.io"*
-- Git repository: Provide a Git URL to a repo that this SubQuery project will be hosted in (when hosted in SubQuery Explorer) or accept the provided default.
-- Authors: Enter the owner of this SubQuery project here (e.g. your name!) or accept the provided default.
-- Description: Provide a short paragraph about your project that describes what data it contains and what users can do with it or accept the provided default.
-- Version: Enter a custom version number or use the default (`1.0.0`)
-- License: Provide the software license for this project or accept the default (`MIT`)
+- Projektname: Ein Projektname für Ihr SubQuery-Projekt
+- Netzwerkfamilie: Die Layer-1-Blockchain-Netzwerkfamilie, für deren Indizierung dieses SubQuery-Projekt entwickelt wird. Verwenden Sie die Pfeiltasten, um aus den verfügbaren Optionen auszuwählen. Für diese Anleitung verwenden wir *"Substrat"*
+- Netzwerk: Das spezifische Netzwerk, für das dieses SubQuery-Projekt entwickelt wird, um es zu indizieren. Verwenden Sie die Pfeiltasten, um aus den verfügbaren Optionen auszuwählen. Für diese Anleitung verwenden wir *"Polkadot"*
+- Vorlagenprojekt: Wählen Sie ein SubQuery-Vorlagenprojekt aus, das als Ausgangspunkt für den Beginn der Entwicklung dient. Wir empfehlen, das Projekt *"subql-starter"* auszuwählen.
+- RPC-Endpunkt: Geben Sie eine HTTPS-URL zu einem ausgeführten RPC-Endpunkt an, der standardmäßig für dieses Projekt verwendet wird. Sie können schnell auf öffentliche Endpunkte für verschiedene Polkadot-Netzwerke zugreifen, Ihren eigenen privaten dedizierten Nodes mit [OnFinality](https://app.onfinality.io) erstellen oder einfach den standardmäßigen Polkadot-Endpunkt verwenden. Dieser RPC-Node muss ein Archivnode sein (den Zustand der vollständigen Chain haben). Für diese Anleitung verwenden wir den Standardwert *"https://polkadot.api.onfinality.io"*
+- Git-Repository: Geben Sie eine Git-URL zu einem Repository an, in dem dieses SubQuery-Projekt gehostet wird (wenn es in SubQuery Explorer gehostet wird), oder akzeptieren Sie die bereitgestellte Standardeinstellung.
+- Autoren: Geben Sie hier den Eigentümer dieses SubQuery-Projekts ein (z. B. Ihren Namen!) oder übernehmen Sie die vorgegebene Vorgabe.
+- Beschreibung: Geben Sie einen kurzen Absatz zu Ihrem Projekt an, der beschreibt, welche Daten es enthält und was Benutzer damit tun können, oder akzeptieren Sie die bereitgestellte Standardeinstellung.
+- Version: Geben Sie eine benutzerdefinierte Versionsnummer ein oder verwenden Sie die Standardversion (`1.0.0`).
+- Lizenz: Stellen Sie die Softwarelizenz für dieses Projekt bereit oder akzeptieren Sie die Standardeinstellung (`MIT`).
 
-After the initialisation process is complete, you should see that a folder with your project name has been created inside the directory. The contents of this directory should be identical to what's listed in the [Directory Structure](../create/introduction.md#directory-structure).
+Nachdem der Initialisierungsprozess abgeschlossen ist, sollten Sie sehen, dass ein Ordner mit Ihrem Projektnamen im Verzeichnis erstellt wurde. Der Inhalt dieses Verzeichnisses sollte mit dem identisch sein, was in der [Verzeichnisstruktur](../create/introduction.md#directory-structure) aufgeführt ist.
 
-Last, under the project directory, run the following command to install the new project's dependencies.
+Führen Sie zuletzt im Projektverzeichnis den folgenden Befehl aus, um die Abhängigkeiten des neuen Projekts zu installieren.
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```shell cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
 
 ## Änderungen an Ihrem Projekt vornehmen
 
-In dem gerade initialisierten Starterpaket ist eine Standardkonfiguration vorgesehen. These are:
+In dem gerade initialisierten Starterpaket ist eine Standardkonfiguration vorgesehen. Dies sind:
 
-1. The GraphQL Schema in `schema.graphql`
-2. The Project Manifest in `project.yaml`
+1. Das GraphQL-Schema in `schema.graphql`
+2. Das Projektmanifest in `project.yaml`
 3. Die Mapping-Funktionen im Verzeichnis `src/mappings/`directory
 
-The goal of this quick start guide is to adapt the standard starter project to begin indexing all transfers from Polkadot.
+Das Ziel dieser Schnellstartanleitung besteht darin, das Standard-Starterprojekt so anzupassen, dass mit der Indexierung aller Übertragungen von Polkadot begonnen werden kann.
 
-### Updating your GraphQL Schema File
+### Aktualisierung Ihrer GraphQL-Schemadatei
 
-The `schema.graphql` file defines the various GraphQL schemas. Due to the way that the GraphQL query language works, the schema file essentially dictates the shape of your data from SubQuery. It's a great place to start because it allows you to define your end goal upfront.
+Die Datei `schema.graphql` definiert die verschiedenen GraphQL-Schemas. Aufgrund der Funktionsweise der GraphQL-Abfragesprache bestimmt die Schemadatei im Wesentlichen die Form Ihrer Daten aus SubQuery. Es ist ein großartiger Ausgangspunkt, da Sie Ihr Endziel im Voraus definieren können.
 
-Update the `schema.graphql` file to read as follows:
+Aktualisieren Sie die Datei `schema.graphql` wie folgt:
 
 ```graphql
 type Transfer @entity {
-  id: ID! # id field is always required and must look like this
+  id: ID! # id-Feld ist immer erforderlich und muss so aussehen
   amount: BigInt # Amount that is transferred
-  blockNumber: BigInt # The block height of the transfer
-  from: String! # The account that transfers are made from
-  to: String! # The account that transfers are made to
+  blockNumber: BigInt # Die Blockhöhe der Übertragung
+  from: String! # Das Konto, von dem Überweisungen getätigt werden
+  to: String! # Das Konto, von dem Überweisungen getätigt werden
 }
 ```
 
-**Important: When you make any changes to the schema file, please ensure that you regenerate your types directory.**
+**Wichtig: Wenn Sie Änderungen an der Schemadatei vornehmen, stellen Sie bitte sicher, dass Sie Ihr Typenverzeichnis neu generieren.**
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```shell npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
 
-Sie finden die generierten Modelle im Verzeichnis `/src/types/models`. For more information about the `schema.graphql` file, check out our documentation under [Build/GraphQL Schema](../build/graphql.md)
+Sie finden die generierten Modelle im Verzeichnis `/src/types/models`. Weitere Informationen zur Datei `schema.graphql` finden Sie in unserer Dokumentation unter [Build/GraphQL Schema](../build/graphql.md)
 
-### Updating the Project Manifest File
+### Aktualisierung der Projektmanifestdatei
 
-The Project Manifest (`project.yaml`) file can be seen as an entry point of your project and it defines most of the details on how SubQuery will index and transform the chain data.
+Die Projektmanifestdatei (`project.yaml`) kann als Einstiegspunkt Ihres Projekts angesehen werden und definiert die meisten Details darüber, wie SubQuery die Chaindaten indiziert und umwandelt.
 
-The manifest file has already been set up correctly, but we need to change our handlers. As we are planning to index all Polkadot transfers, we need to update the `datasources` section as follows:
+Die Manifestdatei wurde bereits korrekt eingerichtet, aber wir müssen unsere Handler ändern. Da wir planen, alle Polkadot-Übertragungen zu indizieren, müssen wir den Abschnitt `datasources` wie folgt aktualisieren:
 
 ```yaml
 dataSources:
@@ -111,21 +111,22 @@ dataSources:
           filter:
             module: balances
             method: Transfer
+
 ```
 
-This means we'll run a `handleEvent` mapping function each and every time there is a `balances.Transfer` event.
+Das bedeutet, dass wir jedes Mal, wenn ein `balances.Transfer`-Ereignis auftritt, eine `handleEvent`-Mapping-Funktion ausführen.
 
-For more information about the Project Manifest (`project.yaml`) file, check out our documentation under [Build/Manifest File](../build/manifest.md)
+Weitere Informationen zur Projektmanifestdatei (`project.yaml`) finden Sie in unserer Dokumentation unter [Build-/Manifestdatei](../build/manifest.md)
 
-### Add a Mapping Function
+### Mapping Funktion hinzufügen
 
-Mapping functions define how chain data is transformed into the optimised GraphQL entities that we have previously defined in the `schema.graphql` file.
+Zuordnungsfunktionen definieren, wie Chaindaten in die optimierten GraphQL-Entitäten umgewandelt werden, die wir zuvor in der Datei `schema.graphql` definiert haben.
 
-Navigate to the default mapping function in the `src/mappings` directory. You'll see three exported functions, `handleBlock`, `handleEvent`, and `handleCall`. Delete both the `handleBlock` and `handleCall` functions as we will only deal with the `handleEvent` function.
+Navigieren Sie zur Standardzuordnungsfunktion im Verzeichnis `src/mappings`. Sie sehen drei exportierte Funktionen, `handleBlock`, `handleEvent` und `handleCall`. Löschen Sie sowohl die Funktionen `handleBlock` als auch `handleCall`, da wir uns nur mit der Funktion `handleEvent` befassen werden.
 
-The `handleEvent` function receives event data whenever an event matches the filters that we specified previously in our `project.yaml`. We will update it to process all `balances.Transfer` events and save them to the GraphQL entities that we created earlier.
+Die Funktion `handleEvent` empfängt Ereignisdaten, wenn ein Ereignis mit den Filtern übereinstimmt, die wir zuvor in unserer `project.yaml` angegeben haben. Wir werden es aktualisieren, um alle `balances.Transfer`-Ereignisse zu verarbeiten und sie in den zuvor erstellten GraphQL-Entitäten zu speichern.
 
-You can update the `handleEvent` function to the following (note the additional imports):
+Sie können die Funktion `handleEvent` wie folgt aktualisieren (beachten Sie die zusätzlichen Importe):
 
 ```ts
 import { SubstrateEvent } from "@subql/types";
@@ -152,7 +153,7 @@ export async function handleEvent(event: SubstrateEvent): Promise<void> {
 }
 ```
 
-What this is doing is receiving a SubstrateEvent which includes transfer data in the payload. We extract this data and then instantiate a new `Transfer` entity that we defined earlier in the `schema.graphql` file. We add additional information and then use the `.save()` function to save the new entity (SubQuery will automatically save this to the database).
+Was dies tut, ist das Empfangen eines SubstrateEvent, das Übertragungsdaten in der Nutzlast enthält. We extract this data and then instantiate a new `Transfer` entity that we defined earlier in the `schema.graphql` file. We add additional information and then use the `.save()` function to save the new entity (SubQuery will automatically save this to the database).
 
 For more information about mapping functions, check out our documentation under [Build/Mappings](../build/mapping.md)
 
