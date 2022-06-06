@@ -1,10 +1,10 @@
-# Automated Historical State Tracking
+# Automatisierte historische Zustandsverfolgung
 
-## Background
+## Hintergrund
 
-SubQuery allows you to index any data that you want from Substrate, Avalance, and other networks. Currently, SubQuery operates as a mutable data store, where you can append, update, delete, or otherwise change existing saved entities in the dataset that is indexed by SubQuery. As SubQuery indexes each block, the state of each entity may be updated or deleted based on your project's logic.
+Mit SubQuery können Sie beliebige Daten von Substrate, Avalance und anderen Netzwerken indizieren. Derzeit fungiert SubQuery als veränderlicher Datenspeicher, in dem Sie vorhandene gespeicherte Entitäten in dem von SubQuery indizierten Datensatz anhängen, aktualisieren, löschen oder anderweitig ändern können. Da SubQuery jeden Block indiziert, kann der Status jeder Entität basierend auf der Logik Ihres Projekts aktualisiert oder gelöscht werden.
 
-A basic SubQuery project that indexes account balances might have an entity that looks like the following.
+Ein einfaches SubQuery-Projekt, das Kontostände indiziert, könnte eine Entität haben, die wie folgt aussieht.
 
 ```graphql
 type Account @entity {
@@ -14,33 +14,33 @@ type Account @entity {
 }
 ```
 
-![Historic Indexing](/assets/img/historic_indexing.png)
+![Historische Indizierung](/assets/img/historic_indexing.png)
 
-In the above example, Alice's DOT balance constantly changes, and as we index the data, the `balance` property on the `Account` entity will change. A basic SubQuery project that indexes account balances will lose this historical data and will only store the state of the current indexing block height. For example, if we currently index to block 100, the data in the database can only represent the state of Alice's account at block 100.
+Im obigen Beispiel ändert sich Alices DOT-Guthaben ständig, und während wir die Daten indexieren, ändert sich die Eigenschaft `balance` der Entität `Account`. Ein einfaches SubQuery-Projekt, das Kontostände indiziert, verliert diese historischen Daten und speichert nur den Status der aktuellen Indizierungsblockhöhe. Wenn wir beispielsweise derzeit auf Block 100 indexieren, können die Daten in der Datenbank nur den Status von Alices Konto in Block 100 darstellen.
 
-Then we are faced with a problem. Assuming the data has changed when indexing to block 200, how can we query the state of the data at block 100?
+Dann stehen wir vor einem Problem. Angenommen, die Daten haben sich beim Indizieren zu Block 200 geändert, wie können wir dann den Zustand der Daten bei Block 100 abfragen?
 
-## Automated Historical State Tracking
+## Automatisierte historische Zustandsverfolgung
 
-SubQuery now automates the historical state tracking of entities for all new projects. You can automatically query the state of your SubQuery project at any block height. This means that you can build applications that allow users to go back in time, or show how the state of your data changes over time.
+SubQuery automatisiert jetzt die historische Zustandsverfolgung von Entitäten für alle neuen Projekte. Sie können den Status Ihres SubQuery-Projekts automatisch auf jeder Blockhöhe abfragen. Das bedeutet, dass Sie Anwendungen erstellen können, mit denen Benutzer in der Zeit zurückgehen oder zeigen können, wie sich der Status Ihrer Daten im Laufe der Zeit ändert.
 
-In short, when you create, update, or delete any SubQuery entity, we store the previous state with the block range that it was valid for. You can then query data from a specific block height using the same GraphQL endpoints and API.
+Kurz gesagt, wenn Sie eine SubQuery-Entität erstellen, aktualisieren oder löschen, speichern wir den vorherigen Zustand mit dem Blockbereich, für den er gültig war. Sie können dann Daten von einer bestimmten Blockhöhe mit denselben GraphQL-Endpunkten und derselben API abfragen.
 
-## Enabling This
+## Dies aktivieren
 
-This feature is enabled by default for all new projects started with at least `@subql/node@1.1.1` and `@subql/query1.1.0`. If you want to add it to your existing project, update `@subql/node` and `@subql/query` and then reindex your project with a clean database.
+Diese Funktion ist standardmäßig für alle neuen Projekte aktiviert, die mit mindestens `@subql/node@1.1.1` und `@subql/query1.1.0` gestartet werden. Wenn Sie es zu Ihrem bestehenden Projekt hinzufügen möchten, aktualisieren Sie `@subql/node` und `@subql/query` und indizieren Sie dann Ihr Projekt mit einer sauberen Datenbank neu.
 
-If you want to disable this feature for any reason, you can set the `--disable-historical=true` parameter on `subql-node`.
+Wenn Sie diese Funktion aus irgendeinem Grund deaktivieren möchten, können Sie den Parameter `--disable-historical=true` für `subql-node` festlegen.
 
-On startup, the current status of this feature is printed to the console (`Historical state is enabled`).
+Beim Start wird der aktuelle Status dieser Funktion auf der Konsole ausgegeben (`Historischer Status ist aktiviert`).
 
-## Querying Historical State
+## Historischen Zustand abfragen
 
-There is a special (optional) property on the GraphQL entity filter called `blockHeight`. If you omit this property, SubQuery will query the entity state at the current block height.
+Es gibt eine spezielle (optionale) Eigenschaft für den GraphQL-Entitätsfilter namens `blockHeight`. Wenn Sie diese Eigenschaft weglassen, fragt SubQuery den Entity-Status auf der aktuellen Blockhöhe ab.
 
-Please see one of our example projects: [RMRK NFT](https://explorer.subquery.network/subquery/subquery/rmrk-nft-historical)
+Bitte sehen Sie sich eines unserer Beispielprojekte an: [RMRK NFT](https://explorer.subquery.network/subquery/subquery/rmrk-nft-historical)
 
-To query the owners of RMRK NFTs at block height 5,000,000, add the blockHeight parameter as shown below:
+Um die Eigentümer von RMRK-NFTs bei Blockhöhe 5.000.000 abzufragen, fügen Sie den blockHeight-Parameter wie unten gezeigt hinzu:
 
 ```graphql
 query {
@@ -53,7 +53,7 @@ query {
 }
 ```
 
-To query the owners of those RMRK NFTs collections at the latest block height, omit the blockHeight parameter as shown below.
+Um die Eigentümer dieser RMRK-NFTs-Sammlungen bei der neuesten Blockhöhe abzufragen, lassen Sie den Parameter blockHeight wie unten gezeigt weg.
 
 ```graphql
 query {
