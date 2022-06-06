@@ -1,6 +1,6 @@
 # Terra Quick Start
 
-In this Quick start guide, we're going to start with a simple Terra starter project and then finish by indexing some actual real data. This is an excellent basis to start with when developing your own SubQuery Project.
+In this Quick start guide, we're going to start with a simple Terra starter project and then finish by indexing some actual real data. Dies ist eine hervorragende Basis, um mit der Entwicklung Ihres eigenen SubQuery-Projekts zu beginnen.
 
 **If your are looking for guides for Substrate/Polkadot, you can read the [Substrate/Polkadot specific quick start guide](./quickstart-polkadot).**
 
@@ -14,8 +14,8 @@ Falls noch nicht geschehen, empfehlen wir Ihnen, sich mit der [Terminologie](../
 
 ### Lokale Entwicklungsumgebung
 
-- [Node](https://nodejs.org/en/): A modern (e.g. the LTS version) installation of Node.
-- [Docker](https://docker.com/): This tutorial will use require Docker
+- [Node](https://nodejs.org/en/): Eine moderne (z. B. die LTS-Version) Installation von Node.
+- [Docker](https://docker.com/): Für dieses Tutorial wird Docker benötigt
 
 ### Installieren Sie die SubQuery-CLI
 
@@ -34,7 +34,7 @@ You can then run help to see available commands and usage provide by CLI
 subql help
 ```
 
-## Initialise the SubQuery Starter Project
+## Initialisieren Sie das SubQuery-Starterprojekt
 
 Inside the directory in which you want to create a SubQuery project, simply run the following command to get started.
 
@@ -44,16 +44,16 @@ subql init
 
 You'll be asked certain questions as the SubQuery project is initalised:
 
-- Name: A name for your SubQuery project
+- Name: Ein Name für Ihr SubQuery-Projekt
 - Network Family: The layer-1 blockchain network family that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use *"Terra"*
 - Network: The specific network that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use *"Terra"*
 - Template: Select a SubQuery project template that will provide a starting point to begin development, we suggest selecting the *"Starter project"*
-- Git repository (Optional): Provide a Git URL to a repo that this SubQuery project will be hosted in (when hosted in SubQuery Explorer)
-- RPC endpoint (Required): Provide a HTTPS URL to a running RPC endpoint that will be used by default for this project. This RPC node must be an archive node (have the full chain state). For this guide we will use the default value *"https://terra-columbus-5.beta.api.onfinality.io"*
-- Authors (Required): Enter the owner of this SubQuery project here (e.g. your name!)
-- Description (Optional): You can provide a short paragraph about your project that describe what data it contains and what users can do with it
-- Version (Required): Enter a custom version number or use the default (`1.0.0`)
-- License (Required): Provide the software license for this project or accept the default (`Apache-2.0`)
+- Git-Repository (optional): Geben Sie eine Git-URL zu einem Repository an, in dem dieses SubQuery-Projekt gehostet wird (wenn es in SubQuery Explorer gehostet wird).
+- RPC-Endpunkt (erforderlich): Geben Sie eine HTTPS-URL zu einem ausgeführten RPC-Endpunkt an, der standardmäßig für dieses Projekt verwendet wird. Dieser RPC-Node muss ein Archivnode sein (den Zustand der vollständigen Chain haben). For this guide we will use the default value *"https://terra-columbus-5.beta.api.onfinality.io"*
+- Autoren (erforderlich): Geben Sie hier den Eigentümer dieses SubQuery-Projekts ein (z. B. Ihren Namen!)
+- Beschreibung (Optional): Sie können einen kurzen Absatz über Ihr Projekt bereitstellen, der beschreibt, welche Daten es enthält und was Benutzer damit tun können
+- Version (erforderlich): Geben Sie eine benutzerdefinierte Versionsnummer ein oder verwenden Sie die Standardversion (`1.0.0`).
+- Lizenz (erforderlich): Stellen Sie die Softwarelizenz für dieses Projekt bereit oder akzeptieren Sie die Standardeinstellung (`Apache-2.0`).
 
 After the initialisation process is complete, you should see a folder with your project name has been created inside the directory. The contents of this directoy should be identical to what's listed in the [Directory Structure](../create/introduction.md#directory-structure).
 
