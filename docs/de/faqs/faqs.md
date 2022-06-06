@@ -32,7 +32,7 @@ Der Hauptvorteil der Verwendung eines Staging-Slots besteht darin, dass Sie eine
 
 Der Staging-Slot wird im [Explorer](https://explorer.subquery.network/) nicht öffentlich angezeigt und hat eine eindeutige URL, die nur für Sie sichtbar ist. Und natürlich können Sie in der separaten Umgebung Ihren neuen Code testen, ohne die Produktion zu beeinträchtigen.
 
-## What are Polkadot's Extrinsics?
+## Was sind Polkadots Extrinsics?
 
 Wenn Sie bereits mit Blockchain-Konzepten vertraut sind, können Sie sich Extrinsik als vergleichbar mit Transaktionen vorstellen. Formaler ist eine extrinsische Information jedoch eine Information, die von außerhalb der Chain kommt und in einem Block enthalten ist. Es gibt drei Kategorien von Extrinsics. Ihr seid inhärente, signierte Transaktionen und nicht signierte Transaktionen.
 
@@ -40,7 +40,7 @@ Inhärente Extrinsics sind Informationen, die nicht signiert und nur vom Blockau
 
 Extrinsische Signaturtransaktionen sind Transaktionen, die eine Signatur des Kontos enthalten, das die Transaktion ausgestellt hat. Sie müssen eine Gebühr zahlen, um die Transaktion in die Chain aufzunehmen.
 
-Extrinsische Transaktionen ohne Unterschrift sind Transaktionen, die keine Unterschrift des Kontos enthalten, das die Transaktion ausgestellt hat. Unsigned transactions extrinsics should be used with care because there is nobody paying a fee, becaused they are not signed. Aus diesem Grund fehlt der Transaktionswarteschlange eine wirtschaftliche Logik, um Spam zu verhindern.
+Extrinsische Transaktionen ohne Unterschrift sind Transaktionen, die keine Unterschrift des Kontos enthalten, das die Transaktion ausgestellt hat. Unsignierte Transaktionen sollten mit Vorsicht verwendet werden, da niemand eine Gebühr zahlt, da sie nicht signiert sind. Aus diesem Grund fehlt der Transaktionswarteschlange eine wirtschaftliche Logik, um Spam zu verhindern.
 
 Für weitere Info klicken Sie [hier](https://substrate.dev/docs/en/knowledgebase/learn-substrate/extrinsics).
 
