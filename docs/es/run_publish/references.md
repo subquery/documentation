@@ -353,11 +353,11 @@ Esta opción permite que el campo de juego graphql siempre debe ser incluido por
 
 ### --output-fmt
 
-See [--output-fmt](https://doc.subquery.network/run_publish/references.html#output-fmt)
+Ver [--output-fmt](https://doc.subquery.network/run_publish/references.html#output-fmt)
 
 ### --log-level
 
-See [--log-level](https://doc.subquery.network/run_publish/references.html#log-level)
+Ver [--log-level](https://doc.subquery.network/run_publish/references.html#log-level)
 
 ### --log-path
 
@@ -373,13 +373,13 @@ Establecer una url personalizada para la ubicación de los extremos del índice,
 
 ### --suscripción
 
-This flag enables [GraphQL Subscriptions](./subscription.md), to enable this feature requires `subql-node` also enable `--subscription`
+Esta bandera habilita [Suscripciones GraphQL](./subscription.md), para activar esta función requiere `subql-node` también habilitar `--subscription`
 
 ### --inseguro
 
 El servicio de consultas tiene un límite de 100 entidades para consultas gráficql sin límites. La bandera insegura elimina este límite que puede causar problemas de rendimiento en el servicio de consultas. En su lugar, se recomienda que las consultas sean [paginadas](https://graphql.org/learn/pagination/).
 
-This flag enables certain aggregation functions including sum, max, avg and others. Read more about this feature [here](./aggregate.md)
+Este parámetro permite ciertas funciones de agregación incluyendo suma, max, prog y otros. Lea más sobre esta función [aquí](./aggregate.md)
 
 Estas están desactivadas por defecto debido al límite de entidad.
 
