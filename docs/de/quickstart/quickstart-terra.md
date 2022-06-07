@@ -233,20 +233,20 @@ Für ein neues SubQuery-Starterprojekt können Sie die folgende Abfrage ausprobi
 
 
 
-### Publish your SubQuery Project
+### Veröffentlichen Sie Ihr SubQuery-Projekt
 
-SubQuery provides a free managed service when you can deploy your new project to. You can deploy it to [SubQuery Projects](https://project.subquery.network) and query it using our [Explorer](https://explorer.subquery.network).
+SubQuery bietet einen kostenlosen verwalteten Dienst, wenn Sie Ihr neues Projekt bereitstellen können. Sie können es in [SubQuery-Projekten](https://project.subquery.network) bereitstellen und mit unserem [Explorer](https://explorer.subquery.network) abfragen.
 
-[Read the guide to publish your new project to SubQuery Projects](../publish/publish.md)
+[Lesen Sie die Anleitung zum Veröffentlichen Ihres neuen Projekts in SubQuery Projects](../publish/publish.md)
 
 
 
-## Next Steps
+## Weitere Schritte
 
-Congratulations, you now have a locally running SubQuery project that accepts GraphQL API requests for transfers data from bLuna.
+Herzlichen Glückwunsch, Sie haben jetzt ein lokal ausgeführtes SubQuery-Projekt, das GraphQL-API-Anforderungen für die Übertragung von Daten von bLuna akzeptiert.
 
-Now that you've had an insight into how to build a basic SubQuery project, the question is where to from here? If you are feeling confident, you can jump into learning more about the three key files. The manifest file, the GraphQL schema, and the mappings file under the [Build section of these docs](../build/introduction.md).
+Nachdem Sie nun einen Einblick in die Erstellung eines grundlegenden SubQuery-Projekts erhalten haben, stellt sich die Frage, wie es weitergehen soll. Wenn Sie sich sicher fühlen, können Sie mehr über die drei Schlüsseldateien erfahren. Die Manifestdatei, das GraphQL-Schema und die Zuordnungsdatei im [Build-Abschnitt dieser Dokumentation](../build/introduction.md).
 
-Otherwise, continue to our [Academy section](../academy/academy.md) where have more in depth workshops, tutorials, and example projects. There we'll look at more advanced modifications, and we'll take a deeper dive at running SubQuery projects by running readily available and open source projects.
+Fahren Sie andernfalls mit unserem [Academy-Bereich](../academy/academy.md) fort, wo Sie ausführlichere Workshops, Tutorials und Beispielprojekte finden. Dort sehen wir uns fortgeschrittenere Modifikationen an und tauchen tiefer in die Ausführung von SubQuery-Projekten ein, indem wir leicht verfügbare und Open-Source-Projekte ausführen.
 
-Finally, if you're looking for more ways to run and publish your project, our [Run & Publish section](../run_publish/run.md) provides detailed informatation about all the ways to run your SubQuery project and other advanced GraphQL aggregation and subscription features.
+Wenn Sie schließlich nach weiteren Möglichkeiten zum Ausführen und Veröffentlichen Ihres Projekts suchen, ist unser [Run & Der Abschnitt „Veröffentlichen“](../run_publish/run.md) enthält detaillierte Informationen zu allen Möglichkeiten zum Ausführen Ihres SubQuery-Projekts und zu anderen erweiterten GraphQL-Aggregations- und Abonnementfunktionen.
