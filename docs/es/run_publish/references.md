@@ -291,9 +291,9 @@ subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot
 
 El puerto al que se une el servicio de indexación de subconsultas. Por defecto se establece en `3000`
 
-### --disable-historical
+### --inhabilitado-histórico
 
-Disables automated historical state tracking, [see Historic State Tracking](./historical.md). By default this is set to `false`.
+Deshabilita el seguimiento de estado histórico automatizado, [ver seguimiento de estado histórico](./historical.md). Por defecto, esto se establece en `false`.
 
 ## subql-query
 
