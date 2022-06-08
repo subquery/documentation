@@ -102,6 +102,56 @@ dataSources:
 ````
 
   </CodeGroupItem>
+  <CodeGroupItem title="v1.0.0 Cosmos">
+
+``` yml
+specVersion: 1.0.0
+name: cosmos-juno-subql-starter
+version: 0.0.1
+runner:
+  node:
+    name: '@subql/node-cosmos'
+    version: latest
+  query:
+    name: '@subql/query'
+    version: latest
+description: 'This project can be use as a starting point for developing your Cosmos (CosmWasm) based SubQuery project using an example from Juno'
+repository: https://github.com/subquery/cosmos-subql-starter
+schema:
+  file: ./schema.graphql
+network:
+  chainId: juno-1
+  endpoint: https://rpc.juno-1.api.onfinality.io
+  # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
+  dictionary: https://api.subquery.network/sq/subquery/cosmos-juno-1-dictionary
+dataSources:
+  - kind: cosmos/Runtime
+    startBlock: 1
+    chainTypes:
+      cosmos.slashing.v1beta1:
+        file: "./proto/cosmos/slashing/v1beta1/tx.proto"
+        messages:
+         - "MsgUnjail"
+    mapping:
+      file: ./dist/index.js
+      handlers:
+        - handler: handleBlock
+          kind: cosmos/BlockHandler
+        - handler: handleTransaction
+          kind: cosmos/TransactionHandler
+        - handler: handleEvent
+          kind: cosmos/EventHandler
+          filter:
+            type: execute
+            messageFilter:
+              type: "/cosmwasm.wasm.v1.MsgExecuteContract"
+        - handler: handleMessage
+          kind: cosmos/MessageHandler
+          filter:
+            type: "/cosmwasm.wasm.v1.MsgExecuteContract"
+```
+
+  </CodeGroupItem>
   <CodeGroupItem title="v1.0.0 Terra">
 
 ``` yml
@@ -260,7 +310,7 @@ If you have a project with specVersion v0.2.0, The only change is a new **requir
 
 If you start your project by using the `subql init` command, you'll generally receive a starter project with the correct network settings. If you are changing the target chain of an existing project, you'll need to edit the [Network Spec](#network-spec) section of this manifest.
 
-The `chainId` or `genesisHash` is the network identifier of the blockchain. Examples in Terra include `bombay-12`, or `columbus-12`, Avalanche might be `mainnet`, and in Substrate it is always the genesis hash of the network (hash of the first block). You can retrieve this easily by going to [PolkadotJS](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fkusama.api.onfinality.io%2Fpublic-ws#/explorer/query/0) and looking for the hash on **block 0** (see the image below).
+The `chainId` or `genesisHash` is the network identifier of the blockchain. Examples in Terra include `bombay-12`, or `columbus-12`, Avalanche might be `mainnet`, Cosmos might be `juno-1`, and in Substrate it is always the genesis hash of the network (hash of the first block). You can retrieve this easily by going to [PolkadotJS](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fkusama.api.onfinality.io%2Fpublic-ws#/explorer/query/0) and looking for the hash on **block 0** (see the image below).
 
 ![Genesis Hash](/assets/img/genesis-hash.jpg)
 
@@ -303,7 +353,7 @@ Additionally you will need to update the `endpoint`. This defines the wss endpoi
 Defines the data that will be filtered and extracted and the location of the mapping function handler for the data transformation to be applied.
 | Field | All manifest versions | Description
 | --------------- |-------------|-------------|
-| **kind** | [substrate/Runtime](./manifest/#data-sources-and-mapping) | substrate/Runtime, [substrate/CustomDataSource](./manifest/#custom-data-sources) | [substrate/Runtime](./manifest/#data-sources-and-mapping), [substrate/CustomDataSource](./manifest/#custom-data-sources), [avalanche/Runtime](./manifest/#data-sources-and-mapping), and  [terra/Runtime](./manifest/#data-sources-and-mapping) | We supports data type from default Substrate and Avalanche runtime such as block, event and extrinsic(call). <br /> From v0.2.0, we support data from custom runtime, such as smart contract.|
+| **kind** | [substrate/Runtime](./manifest/#data-sources-and-mapping) | substrate/Runtime, [substrate/CustomDataSource](./manifest/#custom-data-sources) | [substrate/Runtime](./manifest/#data-sources-and-mapping), [substrate/CustomDataSource](./manifest/#custom-data-sources), [avalanche/Runtime](./manifest/#data-sources-and-mapping), [cosmos/Runtime](./manifest/#data-sources-and-mapping), and  [terra/Runtime](./manifest/#data-sources-and-mapping) | We supports data type from default Substrate and Avalanche runtime such as block, event and extrinsic(call). <br /> From v0.2.0, we support data from custom runtime, such as smart contract.|
 | **startBlock** | Integer | This changes your indexing start block, set this higher to skip initial blocks with less data|  
 | **mapping** |  Mapping Spec | |
 
@@ -320,7 +370,7 @@ In this section, we will talk about the default Substrate runtime and its mappin
 <CodeGroup>
 <CodeGroupItem title="Substrate/Polkadot" active>
 
-```yaml
+```yml
 dataSources:
   - kind: substrate/Runtime # Indicates that this is default runtime
     startBlock: 1 # This changes your indexing start block, set this higher to skip initial blocks with less data
@@ -331,7 +381,7 @@ dataSources:
 </CodeGroupItem>
 <CodeGroupItem title="Avalanche">
 
-```yaml
+```yml
 dataSources:
   - kind: avalanche/Runtime # Indicates that this is default runtime
     startBlock: 1 # This changes your indexing start block, set this higher to skip initial blocks with less data
@@ -340,9 +390,20 @@ dataSources:
 ```
 
 </CodeGroupItem>
+<CodeGroupItem title="Cosmos">
+
+```yml
+dataSources:
+  - kind: cosmos/Runtime # Indicates that this is default runtime
+    startBlock: 1 # This changes your indexing start block, set this higher to skip initial blocks with less data
+    mapping:
+      file: dist/index.js # Entry path for this mapping
+```
+
+</CodeGroupItem>
 <CodeGroupItem title="Terra">
 
-```yaml
+```yml
 dataSources:
   - kind: terra/Runtime # Indicates that this is default runtime
     startBlock: 1 # This changes your indexing start block, set this higher to skip initial blocks with less data
@@ -364,6 +425,10 @@ The following table explains filters supported by different handlers.
 | Substrate/Polkadot | [substrate/BlockHandler](./mapping.md#block-handler) | `specVersion`                |
 | Substrate/Polkadot | [substrate/EventHandler](./mapping.md#event-handler) | `module`,`method`            |
 | Substrate/Polkadot | [substrate/CallHandler](./mapping.md#call-handler)   | `module`,`method` ,`success` |
+| Cosmos              | [cosmos/BlockHandler](./mapping.md#block-handler)     | No filters                   |
+| Cosmos              | [cosmos/TransactionHandler](./mapping.md#terra-transaction-handler-terra-only)     | No filters                   |
+| Cosmos              | [cosmos/MessageHandler](./mapping.md#terra-message-handler-terra-only)     |  `type`, `values`* |
+| Cosmos              | [cosmos/EventHandler](./mapping.md#event-handler)     | `type`, `messageFilter`* |
 | Terra              | [terra/BlockHandler](./mapping.md#block-handler)     | No filters                   |
 | Terra              | [terra/TransactionHandler](./mapping.md#terra-transaction-handler-terra-only)     | No filters                   |
 | Terra              | [terra/MessageHandler](./mapping.md#terra-message-handler-terra-only)     |  `type`, `values`* |
@@ -372,17 +437,54 @@ The following table explains filters supported by different handlers.
 | Avalanche          | [avalanche/TransactionHandler](./mapping.md#transaction-handler)     | `function` filters (either be the function fragment or signature), `from` (address), `to` (address)   |
 | Avalanche          | [avalanche/LogHandler](./mapping.md#log-handler)     | `topics` filters, and `address` |
 
-For Terra message and event handlers, you can filter by all the keys that exist in the message type provided by the filter. If the call is `/terra.wasm.v1beta1.MsgExecuteContract` then you can also specify the name of the called function. An example of this is below:
+Default runtime mapping filters are an extremely useful feature to decide what block, event, or extrinsic will trigger a mapping handler.
 
-```yaml
+Only incoming data that satisfy the filter conditions will be processed by the mapping functions. Mapping filters are optional but are highly recommended as they significantly reduce the amount of data processed by your SubQuery project and will improve indexing performance.
+
+```yml
+# Example filter from Substrate callHandler
+filter:
+  module: balances
+  method: Deposit
+  success: true
+```
+
+For Cosmos and Terra message and event handlers, you can filter by all the keys that exist in the message type provided by the filter. If the call is `/terra.wasm.v1beta1.MsgExecuteContract` or `/cosmwasm.wasm.v1.MsgExecuteContract` then you can also specify the name of the called function. An example of this is below:
+
+<CodeGroup>
+<CodeGroupItem title="Cosmos" active>
+
+```yml
+# Example filter from EventHandler
+filter:
+  type: execute
+  messageFilter:
+    type: "/cosmwasm.wasm.v1.MsgExecuteContract"
+    # contractCall field can be specified here too
+    values: # A set of key/value pairs that are present in the message data
+      contract: "juno1v99ehkuetkpf0yxdry8ce92yeqaeaa7lyxr2aagkesrw67wcsn8qxpxay0"
+
+# Example filter from MessageHandler
+filter:
+  type: "/cosmwasm.wasm.v1.MsgExecuteContract"
+  # Filter to only messages with the provide_liquidity function call
+  contractCall: "provide_liquidity" # The name of the contract function that was called
+  values: # A set of key/value pairs that are present in the message data
+    contract: "juno1v99ehkuetkpf0yxdry8ce92yeqaeaa7lyxr2aagkesrw67wcsn8qxpxay0"
+```
+
+</CodeGroupItem>
+<CodeGroupItem title="Terra">
+
+```yml
 # Example filter from EventHandler
 filter:
   type: transfer
   messageFilter:
-  type: "/terra.wasm.v1beta1.MsgExecuteContract"
-  # contractCall field can be specified here too
-  values: # A set of key/value pairs that are present in the message data
-    contract: "terra1j66jatn3k50hjtg2xemnjm8s7y8dws9xqa5y8w"
+    type: "/terra.wasm.v1beta1.MsgExecuteContract"
+    # contractCall field can be specified here too
+    values: # A set of key/value pairs that are present in the message data
+      contract: "terra1j66jatn3k50hjtg2xemnjm8s7y8dws9xqa5y8w"
       
 # Example filter from MessageHandler          
 filter:
@@ -393,21 +495,12 @@ filter:
     contract: "terra1j66jatn3k50hjtg2xemnjm8s7y8dws9xqa5y8w"
 ```
 
-Default runtime mapping filters are an extremely useful feature to decide what block, event, or extrinsic will trigger a mapping handler.
-
-Only incoming data that satisfy the filter conditions will be processed by the mapping functions. Mapping filters are optional but are highly recommended as they significantly reduce the amount of data processed by your SubQuery project and will improve indexing performance.
-
-```yaml
-# Example filter from Substrate callHandler
-filter:
-  module: balances
-  method: Deposit
-  success: true
-```
+</CodeGroupItem>
+</CodeGroup>
 
 The `specVersion` filter specifies the spec version range for a Substrate block. The following examples describe how to set version ranges.
 
-```yaml
+```yml
 filter:
   specVersion: [23, 24]   # Index block with specVersion in between 23 and 24 (inclusive).
   specVersion: [100]      # Index block with specVersion greater than or equal 100.

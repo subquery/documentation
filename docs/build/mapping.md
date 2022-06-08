@@ -6,7 +6,7 @@ Mapping functions define how chain data is transformed into the optimised GraphQ
 - These mappings are also exported in `src/index.ts`
 - The mappings files are reference in `project.yaml` under the mapping handlers.
 
-There are three classes of mappings functions; [Block handlers](#block-handler), [Event Handlers](#event-handler), and [Call Handlers](#call-handler).
+There are different classes of mappings functions depending on the network you are indexing; [Block handlers](#block-handler), [Event Handlers](#event-handler), [Call Handlers](#call-handler), [Log Handlers](#log-handler), [Transaction Handlers](#transaction-handler), and [Message Handlers](#message-handler).
 
 ## Block Handler
 
@@ -30,7 +30,7 @@ export async function handleBlock(block: SubstrateBlock): Promise<void> {
 <CodeGroupItem title="Avalanche">
 
 ```ts
-import { AvalancheBlock } from "@subql/types";
+import { AvalancheBlock } from "@subql/types-avalanche";
 
 export async function handleBlock(block: AvalancheBlock): Promise<void> {
   // Create a new BlockEntity with the block hash as it's ID
@@ -41,10 +41,24 @@ export async function handleBlock(block: AvalancheBlock): Promise<void> {
 ```
 
 </CodeGroupItem>
+<CodeGroupItem title="Cosmos">
+
+```ts
+import { CosmosBlock } from "@subql/types-cosmos";
+
+export async function handleBlock(block: CosmosBlock): Promise<void> {
+  // Create a new BlockEntity with the block hash as it's ID
+  const record = new BlockEntity(block.block.block_id.hash);
+  record.height = BigInt(block.block.block.header.height);
+  await record.save();
+}
+```
+
+</CodeGroupItem>
 <CodeGroupItem title="Terra">
 
 ```ts
-import { TerraBlock } from "@subql/types";
+import { TerraBlock } from "@subql/types-terra";
 
 export async function handleBlock(block: TerraBlock): Promise<void> {
   // Create a new BlockEntity with the block hash as it's ID
@@ -58,6 +72,8 @@ export async function handleBlock(block: TerraBlock): Promise<void> {
 </CodeGroup>
 
 A SubstrateBlock is an extended interface type of [signedBlock](https://polkadot.js.org/docs/api/cookbook/blocks/), but also includes the `specVersion` and `timestamp`.
+
+A Cosmos block is a TODO
 
 A TerraBlock is an extended interface type of [Terra.js](https://docs.terra.money/docs/develop/sdks/terra-js/README.html) BlockInfo, but also encapsulates the BlockInfo and TxInfo of all transactions in the block.
 
@@ -85,10 +101,26 @@ export async function handleEvent(event: SubstrateEvent): Promise<void> {
 ```
 
 </CodeGroupItem>
+<CodeGroupItem title="Cosmos">
+
+```ts
+import { CosmosEvent } from "@subql/types-cosmos";
+
+export async function handleEvent(event: CosmosEvent): Promise<void> {
+  const record = new EventEntity(
+    `${event.tx.tx.txhash}-${event.msg.idx}-${event.idx}`
+  );
+  record.blockHeight = BigInt(event.block.block.block.header.height);
+  record.txHash = event.tx.tx.txhash;
+  await record.save();
+}
+```
+
+</CodeGroupItem>
 <CodeGroupItem title="Terra">
 
 ```ts
-import { TerraEvent } from "@subql/types";
+import { TerraEvent } from "@subql/types-terra";
 import { MsgExecuteContract } from "@terra-money/terra.js";
 
 export async function handleEvent(
@@ -110,9 +142,9 @@ A SubstrateEvent is an extended interface type of the [EventRecord](https://gith
 
 An AvalancheEvent encapsulates Event data and Transaction/Block information corresponding to the event.
 
-A TerraEvent encapsulates Event data and TxLog corresponding to the event. It also contains TerraMessage data of the message connected to the event. Also, it includes the TerraBlock and TerraTransaction data of the block and transaction from which the event was emitted.
+A CosmosEvent/TerraEvent encapsulates Event data and TxLog corresponding to the event. It also contains CosmosMessage/TerraMessage data of the message connected to the event. Also, it includes the CosmosBlock/TerraBlock and CosmosTransaction/TerraTransaction data of the block and transaction from which the event was emitted.
 
-## Call Handler (Substrate/Polkadot Only)
+## Call Handler
 
 Call handlers (Substrate/Polkadot only) are used when you want to capture information on certain substrate extrinsics. You should use [Mapping Filters](./manifest.md#mapping-filters) in your manifest to filter calls to reduce the time it takes to index data and improve mapping performance.
 
@@ -131,7 +163,7 @@ The [SubstrateExtrinsic](https://github.com/OnFinality-io/subql/blob/a5ab06526dc
 You can use log handlers (Avalanche only) to capture information when certain logs are included on transactions. During the processing, the log handler will receive a log as an argument with the log's typed inputs and outputs. Any type of event will trigger the mapping, allowing activity with the data source to be captured. You should use [Mapping Filters](./manifest.md#mapping-filters) in your manifest to filter events to reduce the time it takes to index data and improve mapping performance.
 
 ```ts
-import { AvalancheLog } from "@subql/types";
+import { AvalancheLog } from "@subql/types-avalanche";
 
 export async function handleLog(event: AvalancheLog): Promise<void> {
   const record = new EventEntity(
@@ -167,6 +199,20 @@ export async function handleTransaction(tx: AvalancheTransaction): Promise<void>
 ```
 
 </CodeGroupItem>
+<CodeGroupItem title="Cosmos">
+
+```ts
+import { CosmosTransaction } from "@subql/types-cosmos";
+
+export async function handleTransaction(tx: CosmosTransaction): Promise<void> {
+  const record = new TransactionEntity(tx.tx.txhash);
+  record.blockHeight = BigInt(tx.block.block.block.header.height);
+  record.timestamp = tx.block.block.header.time;
+  await record.save();
+}
+```
+
+</CodeGroupItem>
 <CodeGroupItem title="Terra">
 
 ```ts
@@ -183,24 +229,43 @@ export async function handleTransaction(tx: TerraTransaction): Promise<void> {
 </CodeGroupItem>
 </CodeGroup>
 
-The TerraTransaction encapsulates TxInfo and the corresponding TerraBlock in which the transaction occured.
+The CosmosTransaction/TerraTransaction encapsulates TxInfo and the corresponding CosmosBlock/TerraBlock in which the transaction occured.
 
 The AvalancheTransaction encapsulates TxInfo and the corresponding block information in which the transaction occured.
 
-## Terra Message Handler (Terra Only)
+## Message Handler
 
 You can use message handlers to capture information from each message in a transaction. To achieve this, a defined MessageHandler will be called once for every message. You should use [Mapping Filters](./manifest.md#mapping-filters) in your manifest to filter messages to reduce the time it takes to index data and improve mapping performance.
 
+<CodeGroup>
+<CodeGroupItem title="Cosmos">
+
 ```ts
-import {TerraMessage} from "@subql/types-terra";
+import { CosmosMessage } from "@subql/types-cosmos";
+
+export async function handleMessage(msg: CosmosMessage): Promise<void> {
+  const record = new MessageEntity(`${msg.tx.tx.hash}-${msg.idx}`);
+  record.blockHeight = BigInt(msg.block.block.header.height);
+  record.txHash = msg.tx.txhash;
+  record.contract = msg.msg.contract;
+  record.sender = msg.msg.sender;
+  await record.save();
+}
+```
+
+</CodeGroupItem>
+<CodeGroupItem title="Terra">
+
+```ts
+import { TerraMessage } from "@subql/types-terra";
 import { MsgExecuteContract } from "@terra-money/terra.js";
 
 export async function handleMessage(
   msg: TerraMessage<MsgExecuteContract>
 ): Promise<void> {
   const record = new MessageEntity(`${msg.tx.tx.txhash}-${msg.idx}`);
-  record.blockHeight = BigInt(msg.block.block.block.header.height);
-  record.txHash = msg.tx.tx.txhash;
+  record.blockHeight = BigInt(msg.block.block.header.height);
+  record.txHash = msg.tx.txhash;
   record.contract = msg.msg.toData().contract;
   record.sender = msg.msg.toData().sender;
   record.executeMsg = JSON.stringify(msg.msg.toData().execute_msg);
@@ -208,7 +273,10 @@ export async function handleMessage(
 }
 ```
 
-TerraMessage encapsulates the `msg` object containing the message data, the TerraTrasaction in which the message occured in and also the TerraBlock in which the transaction occured in.
+</CodeGroupItem>
+</CodeGroup>
+
+CosmosMessage/TerraMessage encapsulates the `msg` object containing the message data, the CosmosTransaction/TerraTransaction in which the message occured in and also the CosmosBlock/TerraBlock in which the transaction occured in.
 
 ## The Sandbox
 
