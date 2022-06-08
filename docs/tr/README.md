@@ -5,7 +5,7 @@
       <div>
         <h2 class="welcomeTitle">SubQuery'nin <span>Universitesine</span>'ına hoş geldiniz</h2>
         <p>Sezgisel dApp'leri daha hızlı oluşturmak için zincir verilerinizi keşfedin ve dönüştürün!</p>
-        <p><strong>SubQuery artık hem Polkadot, hem Avalanche hem de Terra'yı destekliyor</strong></p>
+        <p><strong>SubQuery now supports Polkadot, Avalanche, and Cosmos</strong></p>
       </div>
     </div>
   </section>
