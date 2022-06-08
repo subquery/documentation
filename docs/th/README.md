@@ -5,7 +5,7 @@
       <div>
         <h2 class="welcomeTitle">ยินดีต้อนรับสู่ SubQuery <span>University</span></h2>
         <p>สำรวจและแปลงข้อมูลเชนของคุณเพื่อสร้าง dApps ให้ใช้งานง่ายและรวดเร็วขึ้น!</p>
-        <p><strong>ในตอนนี้ SubQuery ได้มีการสนับสนุนทั้ง Polkadot, Avalanche และ Terra</strong></p>
+        <p><strong>SubQuery now supports Polkadot, Avalanche, and Cosmos</strong></p>
       </div>
     </div>
   </section>
