@@ -5,7 +5,7 @@
       <div>
         <h2 class="welcomeTitle">SubQuery'nin <span>Universitesine</span>'ına hoş geldiniz</h2>
         <p>Sezgisel dApp'leri daha hızlı oluşturmak için zincir verilerinizi keşfedin ve dönüştürün!</p>
-        <p><strong>SubQuery now supports Polkadot, Avalanche, and Cosmos (starting with Juno)</strong></p>
+        <p><strong>SubQuery artık Polkadot, Avalanche ve Cosmos'u destekliyor (Juno'dan başlayarak)</strong></p>
       </div>
     </div>
   </section>
@@ -102,7 +102,7 @@
         <h5>Özel Zinciriniz ile entegre misiniz?</h5>
         <p>İster Substrate'de yeni bir parachain ister tamamen yeni bir blok zinciri oluşturuyor olun - SubQuery zincirinizin verilerini dizine almanıza ve sorun gidermenize yardımcı olabilir. SubQuery, özel bir Substrat tabanlı zincirle kolayca entegre olacak şekilde tasarlanmıştır.</p>
         <span class="more">
-          <router-link :to="{path: '/create/manifest.html#custom-substrate-chains'}">LEARN HOW TO INTEGRATE WITH YOUR CHAIN</router-link>
+          <router-link :to="{path: '/create/manifest.html#custom-substrate-chains'}">ZİNCİRİNİZLE NASIL ENTEGRE OLACAĞINIZI ÖĞRENİN</router-link>
         </span>
     </div>
     <div class="lastIntroduce lastIntroduce_2">
