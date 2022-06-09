@@ -5,7 +5,7 @@
       <div>
         <h2 class="welcomeTitle">Welcome to SubQuery <span>University</span></h2>
         <p>체인 데이터를 탐색하고 변환하여 직관적인 디앱을 더 빠르게 구축해보십시오!</p>
-        <p><strong>SubQuery now supports Polkadot, Avalanche, and Cosmos</strong></p>
+        <p><strong>SubQuery now supports Polkadot, Avalanche, and Cosmos (starting with Juno)</strong></p>
       </div>
     </div>
   </section>
@@ -102,7 +102,7 @@
         <h5>커스텀 체인과 통합하시겠습니까?</h5>
         <p>새로운 파라체인을 구축하든, Substrate에 완전히 새로운 블록체인을 구축하든 SubQuery는 체인 데이터를 색인화하고 문제를 해결하는 데 큰 도움이 됩니다. 또한 SubQuery는 Substrate 기반의 커스텀 체인과 쉽게 통합되도록 설계되었습니다.</p>
         <span class="more">
-          <router-link :to="{path: '/create/mapping.html#custom-substrate-chains'}">LEARN HOW TO INTEGRATE WITH YOUR CHAIN</router-link>
+          <router-link :to="{path: '/create/manifest.html#custom-substrate-chains'}">LEARN HOW TO INTEGRATE WITH YOUR CHAIN</router-link>
         </span>
     </div>
     <div class="lastIntroduce lastIntroduce_2">
