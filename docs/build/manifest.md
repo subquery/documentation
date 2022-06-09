@@ -507,9 +507,13 @@ filter:
   specVersion: [null, 23] # Index block with specVersion less than or equal 23.
 ```
 
-## Custom Substrate Chains
+## Custom Substrate and Cosmos Chains
 
-You can index data from custom Substrate chains by also including chain types in the manifest. We support the additional types used by Substrate runtime modules, `typesAlias`, `typesBundle`, `typesChain`, and `typesSpec` are also supported.
+You can index data from custom Substrate and Cosmos chains by also including chain types in the manifest. 
+
+### Custom Substrate Chains
+
+We support the additional types used by Substrate runtime modules, `typesAlias`, `typesBundle`, `typesChain`, and `typesSpec` are also supported.
 
 In the example below, the `network.chaintypes` are pointing to a file that has all the custom types included, This is a standard chainspec file that declares the specific types supported by this blockchain in either `.json`, `.yaml` or `.js` format.
 
@@ -541,7 +545,7 @@ import { typesBundleDeprecated } from "moonbeam-types-bundle";
 export default { typesBundle: typesBundleDeprecated };
 ```
 
-### Working Example
+#### Working Example
 
 You can see the suggested method for connecting and retrieving custom chain types in [SubQuery's Official Dictionary repository](https://github.com/subquery/subql-dictionary). Here you will find a dictionary project for each network with all the chain types correct inserted.
 
@@ -590,6 +594,20 @@ network:
   endpoint: wss://acala-polkadot.api.onfinality.io/public-ws
   chaintypes:
     file: ./dist/chaintypes.js
+```
+
+### Custom Cosmos Chains
+
+Similar to with Substrate where chain types are loaded into `network.chaintypes`, we can load protobuf messages specific to cosmos chains. If most are just using Wasm this should be already included.
+
+You can reference a chaintypes file for Cosmos like so:
+
+```yml
+    chainTypes: # This is a beta feature that allows support for any Cosmos chain by importing the correct protobuf messages
+      cosmos.slashing.v1beta1:
+        file: "./proto/cosmos/slashing/v1beta1/tx.proto"
+        messages:
+         - "MsgUnjail"
 ```
 
 ## Custom Data Sources
