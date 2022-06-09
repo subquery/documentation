@@ -1,6 +1,6 @@
-# Cosmos (CosmWasm) Quick Start
+# Bắt đầu nhanh với Cosmos (CosmWasm)
 
-In this Quick start guide, we're going to start with a simple Cosmos starter project in the Juno Network and then finish by indexing some actual real data. Đây là cơ sở tuyệt vời để bắt đầu khi phát triển Dự án SubQuery của riêng bạn.
+Trong hướng dẫn bắt đầu nhanh này, chúng ta sẽ bắt đầu với một dự án khởi động Cosmos đơn giản trong Mạng Juno và sau đó kết thúc bằng cách lập chỉ mục một số dữ liệu thực tế. Đây là cơ sở tuyệt vời để bắt đầu khi phát triển Dự án SubQuery của riêng bạn.
 
 **Nếu bạn đang tìm kiếm hướng dẫn cho Substrate/Polkadot, bạn có thể đọc [ Hướng dẫn bắt đầu nhanh cụ thể dành cho Substrate/Polkadot](./quickstart-polkadot).**
 
@@ -8,7 +8,7 @@ Sau khi hoàn thành xong hướng dẫn này, bạn sẽ có một dự án Sub
 
 Nếu bạn chưa sẵn sàng, chúng tôi khuyên bạn nên tự làm quen với [thuật ngữ](../#terminology) được sử dụng trong SubQuery.
 
-**The goal of this quick start guide is to adapt the standard starter project to begin indexing all transfers from Cosmos, it should only take 10-15 minutes**
+**Mục tiêu của hướng dẫn bắt đầu nhanh này là điều chỉnh dự án khởi đầu tiêu chuẩn để bắt đầu lập chỉ mục tất cả các giao dịch từ Cosmos, nó chỉ mất 10-15 phút**
 
 ## Chuẩn bị
 
@@ -45,11 +45,11 @@ subql init
 Bạn sẽ được hỏi một số câu hỏi khi dự án SubQuery được khởi tạo:
 
 - Name: Tên dự án SubQuery của bạn
-- Network Family: The layer-1 blockchain network family that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use *"Cosmos"*
-- Network: The specific network that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use *"Juno"*
+- Network Family: Mạng blockchain layer-1 mà dự án Subquery sẽ được phát triển để lập chỉ mục, dùng dấu mũi tên để di chuyển giữa các lựa chọn, trong bài hướng dẫn này, chúng ta sẽ sử dụng *"Cosmos"*
+- Network: Mạng cụ thể mà dự án SubQuery này sẽ được phát triển để lập chỉ mục, dùng phím mũi tên để di chuyển giữa các lựa chọn, trong bài hướng dẫn này chúng ta sẽ dùng *"Juno"*
 - Template: Chọn mẫu dự án SubQuery để bắt đầu phát triển, chúng tôi gợi ý bạn chọn *"Starter project"*
 - Git repository (Tùy chọn): Cung cấp URL Git cho kho lưu trữ dự án SubQuery này (khi được lưu trữ trong SubQuery Explorer)
-- RPC endpoint (Bắt buộc): Cung cấp URL HTTPS cho điểm cuối RPC đang chạy, sẽ được sử dụng mặc định cho dự án này. Nút RPC này phải là một nút lưu trữ (có trạng thái chuỗi đầy đủ). For this guide we will use the default value *"https://rpc.juno-1.api.onfinality.io"*
+- RPC endpoint (Bắt buộc): Cung cấp URL HTTPS cho điểm cuối RPC đang chạy, sẽ được sử dụng mặc định cho dự án này. Nút RPC này phải là một nút lưu trữ (có trạng thái chuỗi đầy đủ). Đối với hướng dẫn này, chúng tôi sẽ sử dụng giá trị mặc định *"https://rpc.juno-1.api.onfinality.io"*
 - Authors (Bắt buộc): Nhập chủ sở hữu của dự án SubQuery này tại đây (ví dụ: tên bạn!)
 - Description (Tùy chọn): Bạn có thể cung cấp một đoạn giới thiệu ngắn về dự án của mình, mô tả dự án chứa dữ liệu gì và người dùng có thể làm gì với dự án
 - Version (Bắt buộc): Nhập số phiên bản tùy chỉnh hoặc sử dụng giá trị mặc định (`1.0.0`)
