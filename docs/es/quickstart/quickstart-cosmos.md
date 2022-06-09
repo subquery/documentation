@@ -1,6 +1,6 @@
-# Cosmos (CosmWasm) Quick Start
+# Cosmos (CosmWasm) Inicio rápido
 
-In this Quick start guide, we're going to start with a simple Cosmos starter project in the Juno Network and then finish by indexing some actual real data. Esta es una base excelente para comenzar a desarrollar su propio Proyecto SubQuery.
+En esta guía de inicio rápido, vamos a empezar con un simple proyecto de iniciación de Cosmos en la Red Juno y luego terminar indexando algunos datos reales reales. Esta es una base excelente para comenzar a desarrollar su propio Proyecto SubQuery.
 
 **Si está buscando guías para Substrate/Polkadot, puede leer la guía de inicio rápido específica de [Substrate/Polkadot](./quickstart-polkadot).**
 
@@ -8,7 +8,7 @@ Al final de esta guía, tendrá un proyecto de SubQuery funcionando en un nodo d
 
 Si aún no lo has hecho, te sugerimos familiarizarte con la [terminología](../#terminology) utilizada en SubQuery.
 
-**The goal of this quick start guide is to adapt the standard starter project to begin indexing all transfers from Cosmos, it should only take 10-15 minutes**
+**El objetivo de esta guía de inicio rápido es adaptar el proyecto inicial estándar para comenzar a indexar todas las transferencias desde Cosmos, solo debería tomar 10-15 minutos**
 
 ## Preparación
 
@@ -45,11 +45,11 @@ subql init
 Se le harán ciertas preguntas ya que el proyecto de SubQuery está initalizado:
 
 - Nombre: Un nombre para tu proyecto de SubQuery
-- Network Family: The layer-1 blockchain network family that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use *"Cosmos"*
-- Network: The specific network that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use *"Juno"*
+- Family Network : La familia de red de blockchain capa 1 que este proyecto de SubQuery será desarrollado para indexar, usa las teclas de flecha de tu teclado para seleccionar entre las opciones, para esta guía usaremos *"Cosmos"*
+- Red: La red específica que este proyecto de Subconsulta será desarrollado para indexar, usa las teclas de flecha de tu teclado para seleccionar entre las opciones, para esta guía usaremos *"Juno"*
 - Plantilla: Seleccione una plantilla de proyecto de SubQuery que proporcionará un punto de partida para comenzar el desarrollo, le sugerimos seleccionar el *"Inicio del proyecto"*
 - Repositorio Git (opcional): Proporcione una URL Git a un repositorio en el que este proyecto de SubQuery será alojado (cuando esté alojado en SubQuery Explorer)
-- endpoint RPC (requerido): Proporcione una URL HTTPS a un endpoint RPC en ejecución que se utilizará por defecto para este proyecto. Este nodo RPC debe ser un nodo de archivo (tienen el estado completo de cadena). For this guide we will use the default value *"https://rpc.juno-1.api.onfinality.io"*
+- endpoint RPC (requerido): Proporcione una URL HTTPS a un endpoint RPC en ejecución que se utilizará por defecto para este proyecto. Este nodo RPC debe ser un nodo de archivo (tienen el estado completo de cadena). Para esta guía usaremos el valor predeterminado *"https://rpc.juno-1.api.onfinality.io"*
 - Autores (Requeridos): Introduzca el propietario de este proyecto de Subconsulta aquí (por ejemplo, su nombre)
 - Descripción (Opcional): Puede proporcionar un párrafo corto sobre su proyecto que describa qué datos contiene y qué pueden hacer los usuarios con él
 - Versión (Requerida): Introduzca un número de versión personalizado o utilice el predeterminado (`1.0.0`)
