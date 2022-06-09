@@ -102,7 +102,7 @@
         <h5>¿Integrar con tu cadena personalizada?</h5>
         <p>Ya sea que esté construyendo una nueva cadena de bloques o una cadena de bloques completamente nueva en Substrate - SubQuery puede ayudarle a indexar y solucionar problemas los datos de su cadena. SubQuery está diseñado para integrar fácilmente con una cadena basada en Substrate personalizada.</p>
         <span class="more">
-          <router-link :to="{path: '/create/manifest.html#custom-substrate-chains'}">LEARN HOW TO INTEGRATE WITH YOUR CHAIN</router-link>
+          <router-link :to="{path: '/create/manifest.html#custom-substrate-chains'}">APRENDE COMO INTEGRAR CON TU CADENA</router-link>
         </span>
     </div>
     <div class="lastIntroduce lastIntroduce_2">
