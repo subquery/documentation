@@ -5,7 +5,7 @@
       <div>
         <h2 class="welcomeTitle">Bienvenue à SubQuery <span>Université</span></h2>
         <p>Explorez et transformez vos données en chaîne pour construire des dApps plus rapidement !</p>
-        <p><strong>SubQuery now supports Polkadot, Avalanche, and Cosmos</strong></p>
+        <p><strong>SubQuery now supports Polkadot, Avalanche, and Cosmos (starting with Juno)</strong></p>
       </div>
     </div>
   </section>
@@ -102,7 +102,7 @@
         <h5>Intégrer à votre chaîne personnalisée ?</h5>
         <p>Que vous construisiez une nouvelle parachain ou une toute nouvelle blockchain sur Substrate - SubQuery peut vous aider à indexer et à résoudre les données de votre chaîne. SubQuery est conçu pour s'intégrer facilement à une chaîne personnalisée basée sur Substrate.</p>
         <span class="more">
-          <router-link :to="{path: '/create/mapping.html#custom-substrate-chains'}">APPRENEZ COMMENT INTÉGRER AVEC VOTRE CHAÎNE</router-link>
+          <router-link :to="{path: '/create/manifest.html#custom-substrate-chains'}">LEARN HOW TO INTEGRATE WITH YOUR CHAIN</router-link>
         </span>
     </div>
     <div class="lastIntroduce lastIntroduce_2">
