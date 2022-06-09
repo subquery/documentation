@@ -12,7 +12,7 @@ We provide a custom data source processor for [Parity's Frontier EVM](https://gi
 | Astar          | `wss://astar.api.onfinality.io/public-ws`          | `https://explorer.subquery.network/subquery/subquery/astar-dictionary`  |
 | Shiden         | `wss://shiden.api.onfinality.io/public-ws`         | `https://explorer.subquery.network/subquery/subquery/shiden-dictionary` |
 | Acala          | `wss://acala-polkadot.api.onfinality.io/public-ws` | `https://explorer.subquery.network/subquery/subquery/acala-dictionary`  |
-| Karura         | `wss://karura.api.onfinality.io/public-ws`         |  `https://explorer.subquery.network/subquery/subquery/karura-dictionary` |
+| Karura         | `wss://karura.api.onfinality.io/public-ws`         | `https://explorer.subquery.network/subquery/subquery/karura-dictionary` |
 
 Theoretically the following networks should also be supported since they implement Parity's Frontier EVM. Please let us know if you verify this and we can add them to the known support:
 
@@ -39,8 +39,10 @@ Theoretically the following networks should also be supported since they impleme
 ## Getting started
 
 1. Add the custom datasource as a dependency:
-  * Create a new project from an EVM template though `subql init` OR
-  * For existing projects, `yarn add @subql/frontier-evm-processor` or `yarn add @subql/acala-evm-processor`
+
+- Create a new project from an EVM template though `subql init` OR
+- For existing projects, `yarn add @subql/frontier-evm-processor` or `yarn add @subql/acala-evm-processor`
+
 2. Add a custom data source as described below
 3. Add handlers for the custom data source to your code
 
@@ -114,9 +116,110 @@ Changes from the `Log` type:
 
 - `args` is added if the `abi` field is provided and the arguments can be successfully parsed. You can add a generic parameter like so to type `args`: `FrontierEvmEvent<{ from: string, to: string, value: BigNumber }>`.
 
+<CodeGroup>
+<CodeGroupItem title="Frontier EVM" active>
+
+```ts
+import { Approval, Transaction } from "../types";
+import {
+  FrontierEvmEvent,
+  FrontierEvmCall,
+} from "@subql/frontier-evm-processor";
+import { BigNumber } from "ethers";
+
+// Setup types from ABI
+type TransferEventArgs = [string, string, BigNumber] & {
+  from: string;
+  to: string;
+  value: BigNumber;
+};
+type ApproveCallArgs = [string, BigNumber] & {
+  _spender: string;
+  _value: BigNumber;
+};
+
+export async function handleFrontierEvmEvent(
+  event: FrontierEvmEvent<TransferEventArgs>
+): Promise<void> {
+  const transaction = new Transaction(event.transactionHash);
+
+  transaction.value = event.args.value.toBigInt();
+  transaction.from = event.args.from;
+  transaction.to = event.args.to;
+  transaction.contractAddress = event.address;
+
+  await transaction.save();
+}
+
+export async function handleFrontierEvmCall(
+  event: FrontierEvmCall<ApproveCallArgs>
+): Promise<void> {
+  const approval = new Approval(event.hash);
+
+  approval.owner = event.from;
+  approval.value = event.args._value.toBigInt();
+  approval.spender = event.args._spender;
+  approval.contractAddress = event.to;
+
+  await approval.save();
+}
+```
+
+</CodeGroupItem>
+<CodeGroupItem title="Acala EVM+">
+
+```ts
+import { Approval, Transaction } from "../types";
+import { AcalaEvmEvent, AcalaEvmCall } from "@subql/acala-evm-processor";
+import { BigNumber } from "ethers";
+
+// Setup types from ABI
+type TransferEventArgs = [string, string, BigNumber] & {
+  from: string;
+  to: string;
+  value: BigNumber;
+};
+type ApproveCallArgs = [string, BigNumber] & {
+  _spender: string;
+  _value: BigNumber;
+};
+
+export async function handleAcalaEvmEvent(
+  event: AcalaEvmEvent<TransferEventArgs>
+): Promise<void> {
+  const transaction = new Transaction(event.transactionHash);
+
+  transaction.value = event.args.value.toBigInt();
+  transaction.from = event.args.from;
+  transaction.to = event.args.to;
+  transaction.contractAddress = event.address;
+
+  await transaction.save();
+}
+
+export async function handleAcalaEvmCall(
+  event: AcalaEvmCall<ApproveCallArgs>
+): Promise<void> {
+  const approval = new Approval(event.hash);
+
+  approval.owner = event.from;
+  approval.value = event.args._value.toBigInt();
+  approval.spender = event.args._spender;
+  approval.contractAddress = event.to;
+
+  await approval.save();
+}
+```
+
+</CodeGroupItem>
+</CodeGroup>
+
 ## Data Source Example
 
 This is an extract from the `project.yaml` manifest file.
+
+<CodeGroup>
+<CodeGroupItem title="Frontier EVM" active>
 
 ```yaml
 dataSources:
@@ -151,6 +254,45 @@ dataSources:
             from: "0x6bd193ee6d2104f14f94e2ca6efefae561a4334b"
 ```
 
+</CodeGroupItem>
+<CodeGroupItem title="Acala EVM+">
+
+```yaml
+dataSources:
+  - kind: substrate/AcalaEvm
+    startBlock: 752073
+    processor:
+      file: "./node_modules/@subql/contract-processors/dist/acalaEvm.js"
+      options:
+        # Must be a key of assets
+        abi: erc20
+        # Contract address (or recipient if transfer) to filter, if `null` should be for contract creation
+        address: "0x6bd193ee6d2104f14f94e2ca6efefae561a4334b"
+    assets:
+      erc20:
+        file: "./erc20.abi.json"
+    mapping:
+      file: "./dist/index.js"
+      handlers:
+        - handler: handleAcalaEvmEvent
+          kind: substrate/AcalaEvmEvent
+          filter:
+            topics:
+              - Transfer(address indexed from,address indexed to,uint256 value)
+        - handler: handleAcalaEvmCall
+          kind: substrate/AcalaEvmCall
+          filter:
+            ## The function can either be the function fragment or signature
+            # function: '0x095ea7b3'
+            # function: '0x7ff36ab500000000000000000000000000000000000000000000000000000000'
+            # function: approve(address,uint256)
+            function: approve(address to,uint256 value)
+            from: "0x6bd193ee6d2104f14f94e2ca6efefae561a4334b"
+```
+
+</CodeGroupItem>
+</CodeGroup>
+
 ## Querying contracts
 
 `@subql/frontier-evm-provider` is the only package that currently allows this. It provides [FrontierEthProvider](https://github.com/subquery/datasource-processors/blob/697d63f5a9c978f3e231e0bb4975f05213077d23/packages/frontier-evm/src/frontierEthProvider.ts#L75) which implements an [Ethers Provider](https://docs.ethers.io/v5/api/providers/provider/), this implementation is restricted to only support methods for the current height. You can pass it to a contract instance in order to query contract state at the hight currently being indexed.
@@ -164,4 +306,3 @@ dataSources:
 
 - There is also a `@subql/moonbeam-evm-processor` which is an alias for `@subql/frontier-evm-processor`
 - The source code for these processors can be found in our datasource-processors [repo](https://github.com/subquery/datasource-processors)
-
