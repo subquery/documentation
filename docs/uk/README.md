@@ -5,7 +5,7 @@
       <div>
         <h2 class="welcomeTitle">Ласкаво просимо до SubQuery <span>Університеті</span></h2>
         <p>Досліджуйте та перетворюйте свої ланцюгові дані, щоб швидше створювати інтуїтивні dApp!</p>
-        <p><strong>SubQuery now supports Polkadot, Avalanche, and Cosmos</strong></p>
+        <p><strong>SubQuery now supports Polkadot, Avalanche, and Cosmos (starting with Juno)</strong></p>
       </div>
     </div>
   </section>
@@ -102,7 +102,7 @@
         <h5>Інтеграція зі своїм користувальницьким ланцюгом?</h5>
         <p>Незалежно від того, чи будуєте ви новий парашайн або абсолютно новий блокчейн на Substrate - SubQuery, ви можете допомогти вам індексувати та усунути неполадки даних вашої мережі. SubQuery призначений для легкої інтеграції зі спеціальною ланцюжком на основі Substrate.</p>
         <span class="more">
-          <router-link :to="{path: '/create/mapping.html#custom-substrate-chains'}">ВИВЧИТИ ЯК ІНТЕГРАВО З ВАШОЮ МЕРЕЖОЮ</router-link>
+          <router-link :to="{path: '/create/manifest.html#custom-substrate-chains'}">LEARN HOW TO INTEGRATE WITH YOUR CHAIN</router-link>
         </span>
     </div>
     <div class="lastIntroduce lastIntroduce_2">
