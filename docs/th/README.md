@@ -5,7 +5,7 @@
       <div>
         <h2 class="welcomeTitle">ยินดีต้อนรับสู่ SubQuery <span>University</span></h2>
         <p>สำรวจและแปลงข้อมูลเชนของคุณเพื่อสร้าง dApps ให้ใช้งานง่ายและรวดเร็วขึ้น!</p>
-        <p><strong>SubQuery now supports Polkadot, Avalanche, and Cosmos</strong></p>
+        <p><strong>SubQuery now supports Polkadot, Avalanche, and Cosmos (starting with Juno)</strong></p>
       </div>
     </div>
   </section>
@@ -102,7 +102,7 @@
         <h5>การผสานรวมกับ Custom Chain ของคุณ?</h5>
         <p>ไม่ว่าคุณกำลังสร้าง Parachain ใหม่หรือ blockchain ใหม่ทั้งหมดบน Substrate - SubQuery สามารถช่วยคุณ index และแก้ไขปัญหาข้อมูลของ chain ของคุณ SubQuery ได้รับการออกแบบให้สามารถรวมกับ Substrate แบบกำหนดเองได้อย่างง่ายดาย</p>
         <span class="more">
-          <router-link :to="{path: '/create/mapping.html#custom-substrate-chains'}">เรียนรู้วิธีการรวบรวมโปรเจกต์กับเชนของคุณ</router-link>
+          <router-link :to="{path: '/create/manifest.html#custom-substrate-chains'}">LEARN HOW TO INTEGRATE WITH YOUR CHAIN</router-link>
         </span>
     </div>
     <div class="lastIntroduce lastIntroduce_2">
