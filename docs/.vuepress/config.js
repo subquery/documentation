@@ -4,62 +4,62 @@ module.exports = config({
   locales: {
     "/": {
       lang: "en-UK",
-      title: "SubQuery University",
+      title: "SubQuery Academy",
       description:
         "Explore and transform your chain data to build intuitive dApps faster!",
     },
     "/de/": {
       lang: "de",
-      title: "SubQuery University",
+      title: "SubQuery Academy",
       description:
         "Explore and transform your chain data to build intuitive dApps faster!.",
     },
     // "/id/": {
     //   lang: "id",
-    //   title: "SubQuery University",
+    //   title: "SubQuery Academy",
     //   description:
     //     "Explore and transform your chain data to build intuitive dApps faster!.",
     // },
     "/ru/": {
       lang: "ru",
-      title: "SubQuery University",
+      title: "SubQuery Academy",
       description:
         "Explore and transform your chain data to build intuitive dApps faster!.",
     },
     // "/th/": {
     //   lang: "th",
-    //   title: "SubQuery University",
+    //   title: "SubQuery Academy",
     //   description:
     //     "Explore and transform your chain data to build intuitive dApps faster!.",
     // },
     // "/tr/": {
     //   lang: "tr",
-    //   title: "SubQuery University",
+    //   title: "SubQuery Academy",
     //   description:
     //     "Explore and transform your chain data to build intuitive dApps faster!.",
     // },
     "/uk/": {
       lang: "uk",
-      title: "SubQuery University",
+      title: "SubQuery Academy",
       description:
         "Explore and transform your chain data to build intuitive dApps faster!.",
     },
     "/vi/": {
       lang: "vi",
-      title: "SubQuery University",
+      title: "SubQuery Academy",
       description:
         "Explore and transform your chain data to build intuitive dApps faster!.",
     },
     "/zh/": {
       lang: "zh-CN",
-      title: "SubQuery University",
+      title: "SubQuery Academy",
       description:
         "Explore and transform your chain data to build intuitive dApps faster!.",
     },
     /*
     "/es/": {
       lang: "es",
-      title: "SubQuery University",
+      title: "SubQuery Academy",
       description:
         "Explore and transform your chain data to build intuitive dApps faster!.",
     },
@@ -67,19 +67,19 @@ module.exports = config({
     /*
     "/it/": {
       lang: "it",
-      title: "SubQuery University",
+      title: "SubQuery Academy",
       description:
         "Explore and transform your chain data to build intuitive dApps faster!.",
     },
     "/ja/": {
       lang: "ja",
-      title: "SubQuery University",
+      title: "SubQuery Academy",
       description:
         "Explore and transform your chain data to build intuitive dApps faster!.",
     },
     "/ko/": {
       lang: "ko",
-      title: "SubQuery University",
+      title: "SubQuery Academy",
       description:
         "Explore and transform your chain data to build intuitive dApps faster!.",
     },
@@ -168,7 +168,7 @@ function getSidebar(locale, language) {
     selectLanguageName: language,
     sidebar: [
       {
-        title: "Welcome to SubQuery",
+        title: "Welcome",
         path: `${locale === "" ? "/" : locale}`,
         collapsable: true,
       },
@@ -242,28 +242,11 @@ function getSidebar(locale, language) {
         ],
       },
       {
-        title: "Miscellaneous",
-        path: `${locale}/miscellaneous/contributing`,
+        title: "Courses",
+        path: `${locale}/academy/herocourse/welcome`,
         collapsable: true,
         children: [
-          `${locale}/miscellaneous/contributing.md`,
-          `${locale}/miscellaneous/social_media.md`,
-          `${locale}/miscellaneous/branding.md`,
-          `${locale}/miscellaneous/ambassadors.md`,
-        ],
-      },
-      {
-        title: "FAQs",
-        path: `${locale}/faqs/faqs`,
-        collapsable: true,
-        children: [`${locale}/faqs/faqs.md`],
-      },
-      {
-        title: "Academy",
-        path: `${locale}/academy/academy`,
-        collapsable: true,
-        children: [
-          `${locale}/academy/academy.md`,
+          //`${locale}/academy/herocourse/welcome.md`,
           {
             title: "Hero Course",
             path: `${locale}/academy/herocourse/welcome`,
@@ -296,6 +279,23 @@ function getSidebar(locale, language) {
           `${locale}/academy/subquery101/subquery101.md`,
         ],
       },
+      {
+        title: "Miscellaneous",
+        path: `${locale}/miscellaneous/contributing`,
+        collapsable: true,
+        children: [
+          `${locale}/miscellaneous/contributing.md`,
+          `${locale}/miscellaneous/social_media.md`,
+          `${locale}/miscellaneous/branding.md`,
+          `${locale}/miscellaneous/ambassadors.md`,
+        ],
+      },
+      {
+        title: "FAQs",
+        path: `${locale}/faqs/faqs`,
+        collapsable: true,
+        children: [`${locale}/faqs/faqs.md`],
+      }
     ],
   };
 }

@@ -3,7 +3,7 @@
   <section class="welcomeWords">
     <div class="main">
       <div>
-        <h2 class="welcomeTitle">Welcome to SubQuery <span>University</span></h2>
+        <h2 class="welcomeTitle">Welcome to SubQuery <span>Academy</span></h2>
         <p>Explore and transform your chain data to build intuitive dApps faster!</p>
         <p><strong>SubQuery now supports both Polkadot, Avalanche, and Terra</strong></p>
       </div>
