@@ -179,6 +179,7 @@ function getSidebar(locale, language) {
         children: [
           `${locale}/quickstart/quickstart-polkadot.md`,
           `${locale}/quickstart/quickstart-avalanche.md`,
+          `${locale}/quickstart/quickstart-cosmos.md`,
           `${locale}/quickstart/quickstart-terra.md`,
         ]
       },
