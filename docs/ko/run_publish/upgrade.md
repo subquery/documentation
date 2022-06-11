@@ -11,7 +11,7 @@
 
 서브쿼리 프로젝트에 로그인하고 신규 버전을 배포하고자 하는 프로젝트를 선택합니다. 가동 슬롯 또는 스테이징 슬롯에 배포하도록 선택할 수 있습니다. 이 두 슬롯은 서로 격리된 환경에서 각각 자체 데이터베이스를 가지며, 독립적으로 동기화됩니다.
 
-스테이징 슬롯 상 배포는 최종 스테이징 테스트 또는 프로젝트 데이터를 다시 동기화해야 하는 경우에만 권장합니다. 그런 이후에는 다운타임 없이 가동으로 승격이 가능합니다. [프로젝트 로컬 실행](../run_publish/run.md) 시, [보다 쉽게 디버깅](../academy/tutorials_examples/debug-projects.md)이 가능하므로 보다 빠른 테스팅이 가능합니다.
+스테이징 슬롯 상 배포는 최종 스테이징 테스트 또는 프로젝트 데이터를 다시 동기화해야 하는 경우에만 권장합니다. 그런 이후에는 다운타임 없이 가동으로 승격이 가능합니다. You will find testing is faster when [running a project locally](../run_publish/run.md) as you can more [easily debug issues](../academy/tutorials_examples/debug-projects.md).
 
 스테이징 슬롯은 다음에 적합합니다.
 
@@ -35,4 +35,4 @@
 
 ![배포 및 동기화된 프로젝트](/assets/img/projects-deploy-sync.png)
 
-프로젝트 제목 옆에 있는 3개의 점을 클릭하여 SubQuery 탐색기로 표시할 수도 있습니다. 여기에서 브라우저 플레이그라운드를 사용하여 시작할 수 있습니다. [여기에서 Explorer를 사용하는 방법에 대해 자세히 알아보세요](../run_publish/query.md).
+프로젝트 제목 옆에 있는 3개의 점을 클릭하여 SubQuery 탐색기로 표시할 수도 있습니다. There you can use the in browser playground to get started - [read more about how to user our Explorer here](../run_publish/query.md).
