@@ -126,12 +126,12 @@ network:
   dictionary: https://api.subquery.network/sq/subquery/cosmos-juno-1-dictionary
 dataSources:
   - kind: cosmos/Runtime
-    startBlock: 1
-    chainTypes:
-      cosmos.slashing.v1beta1:
-        file: "./proto/cosmos/slashing/v1beta1/tx.proto"
-        messages:
-         - "MsgUnjail"
+    startBlock: 3062001 # first block on juno-1
+    #chainTypes: # This is a beta feature that allows support for any Cosmos chain by importing the correct protobuf messages
+    #  cosmos.slashing.v1beta1:
+    #    file: "./proto/cosmos/slashing/v1beta1/tx.proto"
+    #    messages:
+    #     - "MsgUnjail"
     mapping:
       file: ./dist/index.js
       handlers:
@@ -145,10 +145,17 @@ dataSources:
             type: execute
             messageFilter:
               type: "/cosmwasm.wasm.v1.MsgExecuteContract"
+              # contractCall field can be specified here too
+              #values: # A set of key/value pairs that are present in the message data
+                #contract: "juno1v99ehkuetkpf0yxdry8ce92yeqaeaa7lyxr2aagkesrw67wcsn8qxpxay0"
         - handler: handleMessage
           kind: cosmos/MessageHandler
           filter:
             type: "/cosmwasm.wasm.v1.MsgExecuteContract"
+            # Filter to only messages with the provide_liquidity function call
+            #contractCall: "provide_liquidity" # The name of the contract function that was called
+            #values: # A set of key/value pairs that are present in the message data
+              #contract: "juno1v99ehkuetkpf0yxdry8ce92yeqaeaa7lyxr2aagkesrw67wcsn8qxpxay0"
 ```
 
   </CodeGroupItem>
