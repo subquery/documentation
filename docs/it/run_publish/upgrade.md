@@ -11,7 +11,7 @@ Anche se hai la libertà di aggiornare e distribuire sempre nuove versioni del t
 
 Accedi a SubQuery Projects e trova il progetto di cui vuoi distribuire una nuova versione. Puoi scegliere di distribuire nello slot di produzione o in quello di staging. Questi due slot sono ambienti isolati e ognuno ha i propri database e si sincronizzano indipendentemente.
 
-Raccomandiamo di effettuare il deploy sul tuo slot di staging solo per i test finali di staging o quando hai bisogno di risincronizzare i dati del tuo progetto. Potete poi promuoverlo alla produzione con zero downtime. Troverete che i test sono più veloci quando [eseguite un progetto localmente](../run_publish/run.md) poiché potete più [facilmente eseguire il debug dei problemi](../academy/tutorials_examples/debug-projects.md).
+Raccomandiamo di effettuare il deploy sul tuo slot di staging solo per i test finali di staging o quando hai bisogno di risincronizzare i dati del tuo progetto. Potete poi promuoverlo alla produzione con zero downtime. You will find testing is faster when [running a project locally](../run_publish/run.md) as you can more [easily debug issues](../academy/tutorials_examples/debug-projects.md).
 
 Lo slot per la messa in scena è perfetto per:
 
@@ -35,4 +35,4 @@ Una volta che il tuo deployment è stato completato con successo e i nostri nodi
 
 ![Progetto distribuito e sincronizzato](/assets/img/projects-deploy-sync.png)
 
-In alternativa, puoi cliccare sui tre puntini accanto al titolo del tuo progetto e visualizzarlo su SubQuery Explorer. Lì puoi usare il parco giochi nel browser per iniziare - [leggi di più su come usare il nostro Explorer qui](../run_publish/query.md).
+In alternativa, puoi cliccare sui tre puntini accanto al titolo del tuo progetto e visualizzarlo su SubQuery Explorer. There you can use the in browser playground to get started - [read more about how to user our Explorer here](../run_publish/query.md).
