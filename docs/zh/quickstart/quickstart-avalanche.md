@@ -44,7 +44,7 @@ subql init
 
 在初始化 SubQuery project 时，您会被问到一些问题：
 
-- 名称：您的 SubQuery 项目的名称
+- Project Name: A name for your SubQuery project
 - 网络。这个SubQuery项目将开发的区块链网络索引，使用键盘上的方向键从选项中选择，对于本指南，我们将使用_"Polkadot"_。
 - 网络。这个SubQuery项目将开发的区块链网络索引，使用键盘上的方向键从选项中选择，对于本指南，我们将使用_"Polkadot"_。
 - 模板。选择一个子查询项目模板，为开始开发提供一个起点，我们建议选择_"启动项目"_。
