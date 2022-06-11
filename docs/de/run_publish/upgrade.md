@@ -11,7 +11,7 @@ Obwohl Sie jederzeit die Freiheit haben, neue Versionen Ihres SubQuery-Projekts 
 
 Melden Sie sich bei SubQuery Project an und wählen Sie das Projekt aus, von dem Sie eine neue Version bereitstellen möchten. Sie können wählen, ob Sie entweder im Produktions- oder Staging-Slot bereitstellen möchten. Diese beiden Slots sind isolierte Umgebungen und haben jeweils ihre eigenen Datenbanken und werden unabhängig synchronisiert.
 
-Wir empfehlen die Bereitstellung in Ihrem Staging-Slot nur für abschließende Staging-Tests oder wenn Sie Ihre Projektdaten erneut synchronisieren müssen. Sie können es dann ohne Ausfallzeiten in die Produktion überführen. Man kann feststellen, dass das Testen schneller ist, wenn man [ein Projekt lokal ausführt](../run_publish/run.md), da man [Probleme leichter beheben](../academy/tutorials_examples/debug-projects.md) könnte.
+Wir empfehlen die Bereitstellung in Ihrem Staging-Slot nur für abschließende Staging-Tests oder wenn Sie Ihre Projektdaten erneut synchronisieren müssen. Sie können es dann ohne Ausfallzeiten in die Produktion überführen. You will find testing is faster when [running a project locally](../run_publish/run.md) as you can more [easily debug issues](../academy/tutorials_examples/debug-projects.md).
 
 Der Staging-Slot ist perfekt für:
 
@@ -35,4 +35,4 @@ Sobald Ihre Bereitstellung erfolgreich abgeschlossen wurde und unsere Nodes Ihre
 
 ![Projekt wird bereitgestellt und synchronisiert](/assets/img/projects-deploy-sync.png)
 
-Alternativ können Sie auf die drei Punkte neben dem Titel Ihres Projekts klicken und es im SubQuery Explorer anzeigen. Dort können Sie den In-Browser-Playground verwenden, um loszulegen - [lesen Sie hier mehr darüber, wie Sie unseren Explorer verwenden](../run_publish/query.md).
+Alternativ können Sie auf die drei Punkte neben dem Titel Ihres Projekts klicken und es im SubQuery Explorer anzeigen. There you can use the in browser playground to get started - [read more about how to user our Explorer here](../run_publish/query.md).
