@@ -1,4 +1,4 @@
-# Cosmos (CosmWasm) Quick Start
+# Cosmos Quick Start
 
 In this Quick start guide, we're going to start with a simple Cosmos starter project in the Juno Network and then finish by indexing some actual real data. Це чудова основа для початку розробки власного проекту SubQuery.
 
@@ -8,7 +8,9 @@ In this Quick start guide, we're going to start with a simple Cosmos starter pro
 
 Якщо ви ще цього не зробили, ми пропонуємо вам ознайомитись із [ terminology ](../#terminology), що використовується в SubQuery.
 
-**The goal of this quick start guide is to adapt the standard starter project to begin indexing all transfers from Cosmos, it should only take 10-15 minutes**
+**The goal of this quick start guide is to adapt the standard starter project to begin indexing all votes on the [Terra Developer Fund](https://daodao.zone/multisig/juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2) (which also contributed to SubQuery) from Cosmos, it should only take 10-15 minutes**
+
+You can see the final code of this project here at https://github.com/jamesbayly/juno-terra-developer-fund-votes
 
 ## Підготовка
 
@@ -36,24 +38,7 @@ subql help
 
 ## Ініціалізуйте проект SubQuery Starter
 
-У каталозі, в якому ви хочете створити проект SubQuery, просто виконайте таку команду, щоб почати.
-
-```shell
-subql init
-```
-
-Під час ініціалізації проекту SubQuery вам зададуть певні запитання:
-
-- Ім'я: ім'я вашого проекту SubQuery
-- Network Family: The layer-1 blockchain network family that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use *"Cosmos"*
-- Network: The specific network that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use *"Juno"*
-- Шаблон: виберіть шаблон проекту SubQuery, який буде відправною точкою для початку розробки, ми пропонуємо вибрати *"Початковий проект"*
-- Репозиторій Git (необов’язково): надайте URL-адресу Git до репозиторію, в якому буде розміщено цей проект SubQuery (якщо він розміщено в SubQuery Explorer)
-- Кінцева точка RPC (обов’язково): надайте URL-адресу HTTPS для запущеної кінцевої точки RPC, яка буде використовуватися за замовчуванням для цього проекту. Цей вузол RPC повинен бути вузлом архіву (мати стан повного ланцюга). For this guide we will use the default value *"https://rpc.juno-1.api.onfinality.io"*
-- Автори (обов’язково): Введіть тут власника цього проекту SubQuery (наприклад, ваше ім’я!)
-- Опис (необов’язково): ви можете надати короткий абзац про ваш проект, який описує, які дані він містить і що користувачі можуть з ними робити
-- Версія (обов’язково): введіть користувацький номер версії або використовуйте стандартний (`1.0.0`)
-- Ліцензія (обов’язково): надайте ліцензію на програмне забезпечення для цього проекту або прийміть стандартну (`Apache-2.0`)
+Cosmos is not yet supported in SubQuery's CLI (`subql`), to start with Juno clone or fork the [starter project](https://github.com/subquery/juno-subql-starter).
 
 Після завершення процесу ініціалізації ви побачите, що в каталозі створена папка з назвою вашого проекту. Вміст цього каталогу має бути ідентичним тому, що вказано в [Структурі каталогу](../create/introduction.md#directory-structure).
 
@@ -76,16 +61,15 @@ subql init
 
 Файл `schema.graphql` визначає різні схеми GraphQL. Завдяки тому, як працює мова запитів GraphQL, файл схеми по суті визначає форму ваших даних із SubQuery. Це чудове місце для початку, тому що воно дає змогу заздалегідь визначити кінцеву мету.
 
-Ми збираємося оновити файл `schema.graphql`, щоб він виглядав так
+We're going to update the `schema.graphql` file to read as follows so we can index all votes on the [Terra Developer Fund](https://daodao.zone/multisig/juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2).
 
 ```graphql
-type Transfer @entity {
-  id: ID! Поле # id завжди є обов’язковим і має виглядати так
-  txHash: рядок!
-  blockHeight: BigInt # Висота блоку передачі
-  відправник: рядок! # Рахунок, з якого здійснюються перекази
-  одержувач: Нитка! # Рахунок, на який здійснюються перекази
-  кількість: рядок! # Сума, яка передається
+type Vote @entity {
+  id: ID! # id field is always required and must look like this
+  blockHeight: BigInt!
+  voter: String! # The address that voted
+  proposalID: BigInt! # The proposal ID
+  vote: Boolean! # If they voted to support or reject the proposal
 }
 ```
 
@@ -100,28 +84,26 @@ type Transfer @entity {
 
 Файл маніфесту проекту (`project.yaml`) можна розглядати як точку входу до вашого проекту, і він визначає більшість деталей про те, як SubQuery буде індексувати та перетворювати дані ланцюга.
 
-Ми не будемо робити багато змін у файлі маніфесту, оскільки він уже налаштований правильно, але нам потрібно змінити наші обробники. Пам’ятайте, що ми плануємо індексувати всі події передачі Terra, тому нам потрібно оновити розділ ` datasources `, щоб прочитати наступне.
+Ми не будемо робити багато змін у файлі маніфесту, оскільки він уже налаштований правильно, але нам потрібно змінити наші обробники. Remember we are planning to index all votes on the [Terra Developer Fund](https://daodao.zone/multisig/juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2). This means that we we will look at messages that use the `vote` contract call, we need to update the `datasources` section to read the following.
 
-```yaml
+```yml
 dataSources:
   - kind: cosmos/Runtime
-    startBlock: 1 # Where you want to start indexing from
+    startBlock: 3082705 # The block when this contract was created
     mapping:
-      file: ./dist/index.js
+      file: "./dist/index.js"
       handlers:
-        - handler: handleEvent
-          kind: terra/EventHandler
-          # this will trigger on all events that match the following smart contract filter condition
+        - handler: handleTerraDeveloperFund
+          kind: cosmos/MessageHandler
           filter:
-            type: transfer
-            messageFilter:
-              type: /terra.wasm.v1beta1.MsgExecuteContract
-              values:
-                # We are subscribing to the bLuna smart contract (e.g. only transfer events from this contract)
-                contract: terra1j66jatn3k50hjtg2xemnjm8s7y8dws9xqa5y8w
+            type: "/cosmwasm.wasm.v1.MsgExecuteContract"
+            # Filter to only messages with the vote function call
+            contractCall: "vote" # The name of the contract function that was called
+            values: # This is the specific smart contract that we are subscribing to
+              contract: "juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2"
 ```
 
-Це означає, що ми запускатимемо функцію відображення `handleEvent` кожного разу, коли буде подія `transfer` зі смарт-контракту bLuna.
+This means we'll run a `handleTerraDeveloperFund` mapping function each and every time there is a `vote` message from the [Terra Developer Fund](https://daodao.zone/multisig/juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2) smart contract.
 
 Щоб отримати додаткові відомості про файл маніфесту проекту (`project.yaml`), перегляньте нашу документацію в розділі [Файл збірки/маніфесту](../build/manifest.md)
 
@@ -129,47 +111,33 @@ dataSources:
 
 Функції відображення визначають, як дані ланцюга перетворюються в оптимізовані сутності GraphQL, які ми раніше визначили у файлі `schema.graphql`.
 
-Перейдіть до функції відображення за замовчуванням у каталозі `src/mappings`. Ви побачите три експортовані функції: `handleBlock`, `handleEvent` і `handleCall`. Ви можете видалити як функції `handleBlock`, так і `handleCall`, ми маємо справу лише з функцією `handleEvent`.
+Перейдіть до функції відображення за замовчуванням у каталозі `src/mappings`. You'll see four exported functions, `handleBlock`, `handleEvent`, `handleMessage`, and `handleTransaction`. Since we are dealing only with messages, you can delete everything other than the `handleMessage` function.
 
-Функція `handleEvent` отримує дані про події щоразу, коли подія відповідає фільтрам, які ми вказали раніше в нашому `project.yaml`. Ми збираємося оновити його, щоб обробити всі події `transfer` та зберегти їх у сутності GraphQL, які ми створили раніше.
+The `handleMessage` function recieved event data whenever event matches the filters that we specify previously in our `project.yaml`. We are going to update it to process all `vote` messages and save them to the GraphQL entity that we created earlier.
 
-Ви можете оновити функцію `handleEvent` до наступного (зверніть увагу на додатковий імпорт):
+You can update the `handleMessage` function to the following (note the additional imports and renaming the function):
 
 ```ts
-import { TerraEvent } з "@subql/types-terra";
-import { Transfer } з "../types";
-import { MsgExecuteContract } з (приховано)
-export асинхронну функцію handleEvent(
-  event: TerraEvent<MsgExecuteContract>
-): Promise <void> {
-    // Друк налагоджувальних даних із події
-    // logger.info(JSON.stringify(event));
+import { Vote } from "../types";
+import { CosmosMessage } from "@subql/types-cosmos";
 
-    // Створити нову сутність передачі з унікальним ідентифікатором
-    const transfer = new Transfer(
-      `${event.tx.tx.txhash}-${event.msg.idx}-${event.idx}`
-    );
-    transfer.blockHeight = BigInt(event.block.block.block.header.height);
-    transfer.txHash = event.tx.tx.txhash;
-    for (const attr of event.event.attributes) {
-      switch (attr.key) {
-        case "sender":
-          transfer.sender = attr.value;
-          break;
-        case "recipient":
-          transfer.recipient = attr.value;
-          break;
-        case "amount":
-          transfer.amount = attr.value;
-          break;
-        default:
-      }
-    }
-    очікування transfer.save();
+export async function handleTerraDeveloperFund(
+  message: CosmosMessage
+): Promise<void> {
+  // logger.info(JSON.stringify(message));
+  // Example vote https://www.mintscan.io/juno/txs/EAA2CC113B3EC79AE5C280C04BE851B82414B108273F0D6464A379D7917600A4
+
+  const voteRecord = new Vote(`${message.tx.hash}-${message.idx}`);
+  voteRecord.blockHeight = BigInt(message.block.block.header.height);
+  voteRecord.voter = message.msg.sender;
+  voteRecord.proposalID = message.msg.msg.vote.proposal_id;
+  voteRecord.vote = message.msg.msg.vote.vote === "yes";
+
+  await voteRecord.save();
 }
 ```
 
-Це отримує SubstrateEvent, який включає дані передачі корисного навантаження. Ми витягуємо ці дані, а потім створюємо новий об’єкт `Transfer`, який ми визначили раніше у файлі `schema.graphql`. Ми додаємо додаткову інформацію, а потім використовуємо функцію `.save()` для збереження нової сутності (SubQuery автоматично збереже це в базі даних).
+What this is doing is receiving a CosmosMessage which includes message data on the payload. We extract this data and then instantiate a new `Vote` entity that we defined earlier in the `schema.graphql` file. Ми додаємо додаткову інформацію, а потім використовуємо функцію `.save()` для збереження нової сутності (SubQuery автоматично збереже це в базі даних).
 
 Щоб отримати додаткові відомості про функції відображення, перегляньте нашу документацію в розділі [Build/Mappings](../build/mapping.md)
 
@@ -210,25 +178,24 @@ export асинхронну функцію handleEvent(
 
 
 ```graphql
-{
-  запит {
-    перекази (
-      перший: 10,
-      замовлення за: ID_DESC
-    ) {
-      вузли {
-        id
-        txHash
-        сума
-        blockHeight
-        відправник
-        одержувач
-      }
+query {
+    votes(
+    first: 5
+    orderBy: BLOCK_HEIGHT_DESC
+    filter: {proposalID: {equalTo: "4"}}
+  ) {
+    nodes {
+      id
+      blockHeight
+      voter
+      vote
     }
   }
 }
 ```
 
+
+You can see the final code of this project here at https://github.com/jamesbayly/juno-terra-developer-fund-votes
 
 
 
