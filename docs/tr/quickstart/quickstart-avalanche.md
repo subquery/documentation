@@ -44,7 +44,7 @@ subql init
 
 SubQuery projesi initalised olarak size bazı sorular sorulana olacaktır:
 
-- Ad: SubQuery projeniz için bir ad
+- Project Name: A name for your SubQuery project
 - Ağ Ailesi: Bu SubQuery projesinin dizine eklemek için geliştirileceği katman-1 blok zinciri ağ ailesi, seçenekler arasından seçim yapmak için klavyenizdeki ok tuşlarını kullanın, bu kılavuz için _"Avalanche"_ kullanacağız
 - Ağ: Bu SubQuery projesinin dizine eklemek için geliştirileceği belirli ağ, seçenekler arasından seçim yapmak için klavyenizdeki ok tuşlarını kullanın, bu kılavuz için _"Avalanche"_ kullanacağız
 - Şablon: Geliştirmeye başlamak için bir başlangıç ​​noktası sağlayacak bir SubQuery proje şablonu seçin, _"Başlangıç ​​projesi"_ öğesini seçmenizi öneririz
