@@ -3,7 +3,7 @@
   <section class="welcomeWords">
     <div class="main">
       <div>
-        <h2 class="welcomeTitle">Chào mừng bạn đến với <span>Đại học</span> SubQuery</h2>
+        <h2 class="welcomeTitle">Welcome to SubQuery <span>Academy</span></h2>
         <p>Khám phá và chuyển đổi dữ liệu chuỗi của bạn để xây dựng các dApp trực quan nhanh hơn!</p>
         <p><strong>SubQuery hiện hỗ trợ Polkadot, Avalanche và Cosmos (bắt đầu với Juno)</strong></p>
       </div>
