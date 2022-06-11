@@ -44,7 +44,7 @@ subql init
 
 เมื่อเราทำการสร้างโปรเจ็กต์ SubQuery จะมีรายละเอียดให้กรอกคือ:
 
-- Name: ชื่อ Subquery Project ของคุณ
+- Project Name: A name for your SubQuery project
 - Network Family: ตระกูลเครือข่ายบล๊อคเชน layer-1 ที่โปรเจกต์ SubQuery จะถูกพัฒนาเพื่อ index ใช้ปุ่มลูกศรบนแป้นพิมพ์เพื่อเลือกจากตัวเลือกต่างๆ สำหรับคำแนะนำนี้ เราจะใช้_"Avalanche"_
 - Network: เฉพาะเครือข่ายที่โครงการ SubQuery นี้จะdevelop เพื่อสร้าง index ใช้ปุ่มลูกศรบนแป้นพิมพ์เพื่อเลือกจากตัวเลือกต่างๆ สำหรับคู่มือนี้เราจะใช้_"Avalanche"_
 - Template: เลือกเทมเพลตโปรเจกต์ SubQuery ที่จะให้เป็นจุดเริ่มต้นเพื่อเริ่มการ Develop เราขอแนะนำให้เลือก _"Starter project"_
