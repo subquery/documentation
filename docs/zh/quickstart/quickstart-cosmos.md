@@ -1,4 +1,4 @@
-# Cosmos (CosmWasm) Quick Start
+# Cosmos Quick Start
 
 In this Quick start guide, we're going to start with a simple Cosmos starter project in the Juno Network and then finish by indexing some actual real data. 这是开发您自己的 SubQuery 项目的良好基础。
 
@@ -8,7 +8,9 @@ In this Quick start guide, we're going to start with a simple Cosmos starter pro
 
 如果您还没有准备好进一步学习，我们建议您熟悉SubQuery中所使用的 [terminology](../#terminology)。
 
-**The goal of this quick start guide is to adapt the standard starter project to begin indexing all transfers from Cosmos, it should only take 10-15 minutes**
+**The goal of this quick start guide is to adapt the standard starter project to begin indexing all votes on the [Terra Developer Fund](https://daodao.zone/multisig/juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2) (which also contributed to SubQuery) from Cosmos, it should only take 10-15 minutes**
+
+You can see the final code of this project here at https://github.com/jamesbayly/juno-terra-developer-fund-votes
 
 ## 准备
 
@@ -36,24 +38,7 @@ subql help
 
 ## 初始化 Starter SubQuery 项目
 
-在你想创建SubQuery项目的目录中，只需运行以下命令就可以开始了。
-
-```shell
-subql init
-```
-
-在初始化 SubQuery project 时，您会被问到一些问题：
-
-- 名称：您的 SubQuery 项目的名称
-- Network Family: The layer-1 blockchain network family that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use *"Cosmos"*
-- Network: The specific network that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use *"Juno"*
-- 模板。选择一个子查询项目模板，为开始开发提供一个起点，我们建议选择*"启动项目"*。
-- Git仓库（可选）。提供一个Git URL，这个SubQuery项目将被托管在一个Repo中（当托管在SubQuery Explorer中）。
-- RPC端点（需要）。提供一个运行中的RPC端点的HTTPS URL，该端点将被默认用于该项目。 此 RPC 节点必须是归档节点 (具有完整链状态)。 For this guide we will use the default value *"https://rpc.juno-1.api.onfinality.io"*
-- 作者（必填）。在此输入该子查询项目的所有者（例如，你的名字！）。
-- 描述（可选）。你可以提供一个关于你的项目的简短段落，描述它包含什么数据以及用户可以用它做什么。
-- 版本 (必填)：输入一个自定义版本号或使用默认版本(`1.0.0`)
-- 许可证(必填)：提供此项目的软件许可或接受默认设置(`Apache-2.0`)
+Cosmos is not yet supported in SubQuery's CLI (`subql`), to start with Juno clone or fork the [starter project](https://github.com/subquery/juno-subql-starter).
 
 在初始化过程完成后，您应该看到目录内创建了一个项目名称的文件夹。 此目录的内容应该与 [Directory Structure](../create/introduction.md#directory-structure) 中列出的内容完全相同。
 
@@ -76,19 +61,15 @@ subql init
 
 `schema.graphql` 文件定义了各种GraphQL 模式。 遵循GraphQL查询语言的工作方式，模式文件基本上决定了您从 SubQuery 获取数据的格式。 这是一个很好的开始，因为它允许你在前面定义你的最终目标。
 
-我们将更新 `schema.graphql` 文件如下所示：
+We're going to update the `schema.graphql` file to read as follows so we can index all votes on the [Terra Developer Fund](https://daodao.zone/multisig/juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2).
 
 ```graphql
-type Transfer @entity {
-  id: ID! type Example @entity {
-  id: ID! # id 字段总是必需的，必须像这样定义
-  name: String! # 这是必填字段
-  address: String # 这是一个可选字段
-}
-  块高度: BigInt # 传输
-  发送者的块高度: 字符串! # 从
-  到字符串的转账账户！ # 从
-  到字符串的转账账户！ # 转移的金额
+type Vote @entity {
+  id: ID! # id field is always required and must look like this
+  blockHeight: BigInt!
+  voter: String! # The address that voted
+  proposalID: BigInt! # The proposal ID
+  vote: Boolean! # If they voted to support or reject the proposal
 }
 ```
 
@@ -103,28 +84,26 @@ type Transfer @entity {
 
 Projet Manifest（`project.yaml`）文件可以被看作是你项目的入口，它定义了SubQuery如何索引和转换链数据的大部分细节。
 
-我们不会对清单文件做许多更改，因为它已经正确设置了，但我们需要更改处理程序。 请记住，我们正计划对所有Polkadot传输进行索引，因此，我们需要更新`datasources`部分，使之成为以下内容。
+我们不会对清单文件做许多更改，因为它已经正确设置了，但我们需要更改处理程序。 Remember we are planning to index all votes on the [Terra Developer Fund](https://daodao.zone/multisig/juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2). This means that we we will look at messages that use the `vote` contract call, we need to update the `datasources` section to read the following.
 
-```yaml
+```yml
 dataSources:
   - kind: cosmos/Runtime
-    startBlock: 1 # Where you want to start indexing from
+    startBlock: 3082705 # The block when this contract was created
     mapping:
-      file: ./dist/index.js
+      file: "./dist/index.js"
       handlers:
-        - handler: handleEvent
-          kind: terra/EventHandler
-          # this will trigger on all events that match the following smart contract filter condition
+        - handler: handleTerraDeveloperFund
+          kind: cosmos/MessageHandler
           filter:
-            type: transfer
-            messageFilter:
-              type: /terra.wasm.v1beta1.MsgExecuteContract
-              values:
-                # We are subscribing to the bLuna smart contract (e.g. only transfer events from this contract)
-                contract: terra1j66jatn3k50hjtg2xemnjm8s7y8dws9xqa5y8w
+            type: "/cosmwasm.wasm.v1.MsgExecuteContract"
+            # Filter to only messages with the vote function call
+            contractCall: "vote" # The name of the contract function that was called
+            values: # This is the specific smart contract that we are subscribing to
+              contract: "juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2"
 ```
 
-这意味着我们将运行一个 `处理事件` 映射功能，每次从 bLuna 智能合约进行 `传输` 事件。
+This means we'll run a `handleTerraDeveloperFund` mapping function each and every time there is a `vote` message from the [Terra Developer Fund](https://daodao.zone/multisig/juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2) smart contract.
 
 关于Project Manifest（`project.yaml`）文件的更多信息，请查看我们在[Build/Manifest File](../build/manifest.md)下的文档。
 
@@ -132,48 +111,33 @@ dataSources:
 
 Mapping functions定义了如何将链式数据转化为我们之前在`schema.graphql`文件中定义的优化的GraphQL实体。
 
-导航到`src/mappings`目录下的默认映射函数。 你会看到三个导出的函数, `handleBlock`, `handleEvent`, 和 `handleCall`。 你可以同时删除`handleBlock`和`handleCall`函数，我们只处理`handleEvent`函数。
+导航到`src/mappings`目录下的默认映射函数。 You'll see four exported functions, `handleBlock`, `handleEvent`, `handleMessage`, and `handleTransaction`. Since we are dealing only with messages, you can delete everything other than the `handleMessage` function.
 
-`handleEvent`函数接收事件数据，只要事件符合我们之前在`project.yaml`中指定的过滤器。 我们将更新它以处理所有`balances.Transfer`事件，并将它们保存到我们先前创建的GraphQL实体中。
+The `handleMessage` function recieved event data whenever event matches the filters that we specify previously in our `project.yaml`. We are going to update it to process all `vote` messages and save them to the GraphQL entity that we created earlier.
 
-你可以将`handleEvent`函数更新为以下内容（注意额外的导入）。
+You can update the `handleMessage` function to the following (note the additional imports and renaming the function):
 
 ```ts
-import { TerraEvent } from "@subql/types-terra";
-import { Transfer } from "../types";
-import { MsgExecuteContract } from "@terra-money/terra.js";
+import { Vote } from "../types";
+import { CosmosMessage } from "@subql/types-cosmos";
 
-export async function handleEvent(
-  event: TerraEvent<MsgExecuteContract>
+export async function handleTerraDeveloperFund(
+  message: CosmosMessage
 ): Promise<void> {
-    // Print debugging data from the event
-    // logger.info(JSON.stringify(event));
+  // logger.info(JSON.stringify(message));
+  // Example vote https://www.mintscan.io/juno/txs/EAA2CC113B3EC79AE5C280C04BE851B82414B108273F0D6464A379D7917600A4
 
-    // Create the new transfer entity with a unique ID
-    const transfer = new Transfer(
-      `${event.tx.tx.txhash}-${event.msg.idx}-${event.idx}`
-    );
-    transfer.blockHeight = BigInt(event.block.block.block.header.height);
-    transfer.txHash = event.tx.tx.txhash;
-    for (const attr of event.event.attributes) {
-      switch (attr.key) {
-        case "sender":
-          transfer.sender = attr.value;
-          break;
-        case "recipient":
-          transfer.recipient = attr.value;
-          break;
-        case "amount":
-          transfer.amount = attr.value;
-          break;
-        default:
-      }
-    }
-    await transfer.save();
+  const voteRecord = new Vote(`${message.tx.hash}-${message.idx}`);
+  voteRecord.blockHeight = BigInt(message.block.block.header.height);
+  voteRecord.voter = message.msg.sender;
+  voteRecord.proposalID = message.msg.msg.vote.proposal_id;
+  voteRecord.vote = message.msg.msg.vote.vote === "yes";
+
+  await voteRecord.save();
 }
 ```
 
-这正在做的是接收一个SubstrateEvent，其中包括有效载荷的传输数据。 我们提取这些数据，然后实例化一个新的`Transfer`实体，我们之前在`schema.graphql`文件中定义了这个实体。 我们添加额外的信息，然后使用`.save()`函数来保存新的实体（SubQuery将自动将其保存到数据库）。
+What this is doing is receiving a CosmosMessage which includes message data on the payload. We extract this data and then instantiate a new `Vote` entity that we defined earlier in the `schema.graphql` file. 我们添加额外的信息，然后使用`.save()`函数来保存新的实体（SubQuery将自动将其保存到数据库）。
 
 关于映射函数的更多信息，请查看我们在[Build/Mappings](../build/mapping.md)下的文档。
 
@@ -208,23 +172,23 @@ export async function handleEvent(
 对于一个新的 SubQuery 入门项目，您可以尝试以下查询以了解其工作原理，或者 [了解更多关于 GraphQL 查询语言](../run_publish/graphql.md)的信息。
 
 ```graphql
-{
-  query {
-    transfers(
-      first: 10,
-      orderBy: AMOUNT_DESC
-    ) {
-      nodes {
-        id
-        amount
-        blockNumber
-        from
-        to
-      }
+query {
+    votes(
+    first: 5
+    orderBy: BLOCK_HEIGHT_DESC
+    filter: {proposalID: {equalTo: "4"}}
+  ) {
+    nodes {
+      id
+      blockHeight
+      voter
+      vote
     }
   }
 }
 ```
+
+You can see the final code of this project here at https://github.com/jamesbayly/juno-terra-developer-fund-votes
 
 ### 发布您的 SubQuery 项目
 
