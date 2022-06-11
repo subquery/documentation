@@ -1,4 +1,4 @@
-# Cosmos (CosmWasm) Inicio rápido
+# Cosmos Quick Start
 
 En esta guía de inicio rápido, vamos a empezar con un simple proyecto de iniciación de Cosmos en la Red Juno y luego terminar indexando algunos datos reales reales. Esta es una base excelente para comenzar a desarrollar su propio Proyecto SubQuery.
 
@@ -8,7 +8,9 @@ Al final de esta guía, tendrá un proyecto de SubQuery funcionando en un nodo d
 
 Si aún no lo has hecho, te sugerimos familiarizarte con la [terminología](../#terminology) utilizada en SubQuery.
 
-**El objetivo de esta guía de inicio rápido es adaptar el proyecto inicial estándar para comenzar a indexar todas las transferencias desde Cosmos, solo debería tomar 10-15 minutos**
+**The goal of this quick start guide is to adapt the standard starter project to begin indexing all votes on the [Terra Developer Fund](https://daodao.zone/multisig/juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2) (which also contributed to SubQuery) from Cosmos, it should only take 10-15 minutes**
+
+You can see the final code of this project here at https://github.com/jamesbayly/juno-terra-developer-fund-votes
 
 ## Preparación
 
@@ -36,24 +38,7 @@ subql help
 
 ## Inicializar el proyecto starter de SubQuery
 
-Dentro del directorio en el que desea crear un proyecto SubQuery, simplemente ejecute el siguiente comando para empezar.
-
-```shell
-subql init
-```
-
-Se le harán ciertas preguntas ya que el proyecto de SubQuery está initalizado:
-
-- Nombre: Un nombre para tu proyecto de SubQuery
-- Family Network : La familia de red de blockchain capa 1 que este proyecto de SubQuery será desarrollado para indexar, usa las teclas de flecha de tu teclado para seleccionar entre las opciones, para esta guía usaremos *"Cosmos"*
-- Red: La red específica que este proyecto de Subconsulta será desarrollado para indexar, usa las teclas de flecha de tu teclado para seleccionar entre las opciones, para esta guía usaremos *"Juno"*
-- Plantilla: Seleccione una plantilla de proyecto de SubQuery que proporcionará un punto de partida para comenzar el desarrollo, le sugerimos seleccionar el *"Inicio del proyecto"*
-- Repositorio Git (opcional): Proporcione una URL Git a un repositorio en el que este proyecto de SubQuery será alojado (cuando esté alojado en SubQuery Explorer)
-- endpoint RPC (requerido): Proporcione una URL HTTPS a un endpoint RPC en ejecución que se utilizará por defecto para este proyecto. Este nodo RPC debe ser un nodo de archivo (tienen el estado completo de cadena). Para esta guía usaremos el valor predeterminado *"https://rpc.juno-1.api.onfinality.io"*
-- Autores (Requeridos): Introduzca el propietario de este proyecto de Subconsulta aquí (por ejemplo, su nombre)
-- Descripción (Opcional): Puede proporcionar un párrafo corto sobre su proyecto que describa qué datos contiene y qué pueden hacer los usuarios con él
-- Versión (Requerida): Introduzca un número de versión personalizado o utilice el predeterminado (`1.0.0`)
-- Licencia (Requerida): Proporcione la licencia de software para este proyecto o acepte el predeterminado (`Apache-2.0`)
+Cosmos is not yet supported in SubQuery's CLI (`subql`), to start with Juno clone or fork the [starter project](https://github.com/subquery/juno-subql-starter).
 
 Después de completar el proceso de inicialización, debería ver una carpeta con el nombre de su proyecto que se ha creado dentro del directorio. El contenido de este directorio debe ser idéntico a lo que se muestra en la [estructura de directorio](../create/introduction.md#directory-structure).
 
@@ -71,16 +56,15 @@ El objetivo de esta guía de inicio rápido es adaptar el proyecto de inicio est
 
 El archivo `schema.graphql` define los diversos esquemas GraphQL. Debido a la forma en que funciona el lenguaje de consulta de GraphQL, el archivo de esquema esencialmente dicta la forma de sus datos de SubQuery. Es un buen lugar para comenzar porque te permite definir tu objetivo final por adelantado.
 
-Vamos a actualizar el archivo `schema.graphql` para leer de la siguiente manera
+We're going to update the `schema.graphql` file to read as follows so we can index all votes on the [Terra Developer Fund](https://daodao.zone/multisig/juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2).
 
 ```graphql
-type Transfer @entity {
-  id: ID! El campo id de # siempre es obligatorio y debe verse como este
-  txHash: String!
-  blockHeight: BigInt # La altura del bloque del remitente
-  de transferencia: ¡Cadena! # La cuenta que las transferencias se realizan desde el destinatario de
-  : ¡Cadena! # La cuenta que las transferencias se hacen a la cantidad
-  : ¡Cadena! # Cantidad transferida
+type Vote @entity {
+  id: ID! # id field is always required and must look like this
+  blockHeight: BigInt!
+  voter: String! # The address that voted
+  proposalID: BigInt! # The proposal ID
+  vote: Boolean! # If they voted to support or reject the proposal
 }
 ```
 
@@ -95,28 +79,26 @@ You'll find the generated models in the `/src/types/models`  Para más informaci
 
 El Manifiesto del Proyecto (`proyecto. el archivo aml`) puede ser visto como un punto de entrada de tu proyecto y define la mayoría de los detalles sobre cómo SubQuery indexará y transformará los datos en cadena.
 
-No haremos muchos cambios en el archivo manifest ya que ya ha sido configurado correctamente, pero necesitamos cambiar nuestros manejadores. Recuerda que estamos planeando indexar todos los eventos de transferencia Terra como resultado, necesitamos actualizar la sección de `fuentes de datos` para leer lo siguiente.
+No haremos muchos cambios en el archivo manifest ya que ya ha sido configurado correctamente, pero necesitamos cambiar nuestros manejadores. Remember we are planning to index all votes on the [Terra Developer Fund](https://daodao.zone/multisig/juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2). This means that we we will look at messages that use the `vote` contract call, we need to update the `datasources` section to read the following.
 
-```yaml
+```yml
 dataSources:
   - kind: cosmos/Runtime
-    startBlock: 1 # Where you want to start indexing from
+    startBlock: 3082705 # The block when this contract was created
     mapping:
-      file: ./dist/index.js
+      file: "./dist/index.js"
       handlers:
-        - handler: handleEvent
-          kind: terra/EventHandler
-          # this will trigger on all events that match the following smart contract filter condition
+        - handler: handleTerraDeveloperFund
+          kind: cosmos/MessageHandler
           filter:
-            type: transfer
-            messageFilter:
-              type: /terra.wasm.v1beta1.MsgExecuteContract
-              values:
-                # We are subscribing to the bLuna smart contract (e.g. only transfer events from this contract)
-                contract: terra1j66jatn3k50hjtg2xemnjm8s7y8dws9xqa5y8w
+            type: "/cosmwasm.wasm.v1.MsgExecuteContract"
+            # Filter to only messages with the vote function call
+            contractCall: "vote" # The name of the contract function that was called
+            values: # This is the specific smart contract that we are subscribing to
+              contract: "juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2"
 ```
 
-Esto significa que ejecutaremos una función de mapeo de `handleEvent` cada vez que haya un evento de `transferencia` desde el contrato inteligente de bLuna.
+This means we'll run a `handleTerraDeveloperFund` mapping function each and every time there is a `vote` message from the [Terra Developer Fund](https://daodao.zone/multisig/juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2) smart contract.
 
 Para más información sobre el manifiesto del proyecto (`project.yaml`), revisa nuestra documentación en [Archivo de construcción/Manifiesto](../build/manifest.md)
 
@@ -124,34 +106,33 @@ Para más información sobre el manifiesto del proyecto (`project.yaml`), revisa
 
 Las funciones de mapeo definen cómo se transforman los datos de la cadena en las entidades optimizadas GraphQL que hemos definido previamente en el archivo `schema.graphql`.
 
-Vaya a la función de mapeo predeterminada en el directorio `src/mappings`. Verás tres funciones exportadas, `handleBlock`, `handleEvent`y `handleCall`. Puedes eliminar las funciones `handleBlock` y `handleCall` , solo estamos tratando con la función `handleEvent`.
+Vaya a la función de mapeo predeterminada en el directorio `src/mappings`. You'll see four exported functions, `handleBlock`, `handleEvent`, `handleMessage`, and `handleTransaction`. Since we are dealing only with messages, you can delete everything other than the `handleMessage` function.
 
-La función `handleEvent` recibió datos de eventos cuando el evento coincide con los filtros que especificamos previamente en nuestro `project.yaml`. Lo vamos a actualizar para procesar todos los eventos `transferir` y guardarlos en las entidades GraphQL que creamos anteriormente.
+The `handleMessage` function recieved event data whenever event matches the filters that we specify previously in our `project.yaml`. We are going to update it to process all `vote` messages and save them to the GraphQL entity that we created earlier.
 
-Puede actualizar la función `handleEvent` a lo siguiente (tenga en cuenta las importaciones adicionales):
+You can update the `handleMessage` function to the following (note the additional imports and renaming the function):
 
 ```ts
-import { TerraEvent } from "@subql/types-terra";
-import { Transfer } from "../types";
-import { MsgExecuteContract } from "@terra-money/terra.js";
+import { Vote } from "../types";
+import { CosmosMessage } from "@subql/types-cosmos";
 
-export async function handleEvent(
-  event: TerraEvent<MsgExecuteContract>
+export async function handleTerraDeveloperFund(
+  message: CosmosMessage
 ): Promise<void> {
-    // Print debugging data from the event
-    // logger.info(JSON.stringify(event));
+  // logger.info(JSON.stringify(message));
+  // Example vote https://www.mintscan.io/juno/txs/EAA2CC113B3EC79AE5C280C04BE851B82414B108273F0D6464A379D7917600A4
 
-    // Create the new transfer entity with a unique ID
-    const transfer = new Transfer(
-      `${event.tx.tx.txhash}-${event.msg.idx}-${event.idx}`
-    );
-    transfer.blockHeight = BigInt(event.block.block.block.header.height);
-    transfer.txHash = event.tx.tx.txhash;
-    for (const attr of event.event.attributes) {
-      switch (attr.key) {
+  const voteRecord = new Vote(`${message.tx.hash}-${message.idx}`);
+  voteRecord.blockHeight = BigInt(message.block.block.header.height);
+  voteRecord.voter = message.msg.sender;
+  voteRecord.proposalID = message.msg.msg.vote.proposal_id;
+  voteRecord.vote = message.msg.msg.vote.vote === "yes";
+
+  await voteRecord.save();
+}
 ```
 
-Lo que esto está haciendo es recibir un SubstrateEvent que incluye datos de transferencia en la carga útil. Extraemos estos datos y luego instanciamos una nueva entidad de `transferencia` que definimos anteriormente en el archivo `schema.graphql`. Añadimos información adicional y luego usamos la función `.save()` para guardar la nueva entidad (SubQuery automáticamente guardará esto en la base de datos).
+What this is doing is receiving a CosmosMessage which includes message data on the payload. We extract this data and then instantiate a new `Vote` entity that we defined earlier in the `schema.graphql` file. Añadimos información adicional y luego usamos la función `.save()` para guardar la nueva entidad (SubQuery automáticamente guardará esto en la base de datos).
 
 Para más información sobre las funciones de mapeo, revisa nuestra documentación en [Construcción/Mapeo](../build/mapping.md)
 
@@ -180,24 +161,23 @@ Deberías ver un parque de juegos GraphQL que se muestre en el Explorador y el e
 Para un nuevo proyecto inicial de SubQuery, puedes probar la siguiente consulta para conocer cómo funciona o [aprender más sobre el lenguaje de consulta GraphQL](../run_publish/graphql.md).
 
 ```graphql
-{
-  query {
-    transfers(
-      first: 10,
-      orderBy: ID_DESC
-    ) {
-      nodes {
-        id
-        txHash
-        monto
-        blockHeight
-        sender
-        addresse
-      }
+query {
+    votes(
+    first: 5
+    orderBy: BLOCK_HEIGHT_DESC
+    filter: {proposalID: {equalTo: "4"}}
+  ) {
+    nodes {
+      id
+      blockHeight
+      voter
+      vote
     }
   }
 }
 ```
+
+You can see the final code of this project here at https://github.com/jamesbayly/juno-terra-developer-fund-votes
 
 ### Publica tu SubQuery Project
 
