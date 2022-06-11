@@ -10,6 +10,8 @@ If you haven't already, we suggest that you familiarise yourself with the [termi
 
 **The goal of this quick start guide is to adapt the standard starter project to begin indexing all votes on the [Terra Developer Fund](https://daodao.zone/multisig/juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2) (which also contributed to SubQuery) from Cosmos, it should only take 10-15 minutes**
 
+You can see the final code of this project here at https://github.com/jamesbayly/juno-terra-developer-fund-votes
+
 ## Preparation
 
 ### Local Development Environment
@@ -247,6 +249,8 @@ query {
   }
 }
 ```
+
+You can see the final code of this project here at https://github.com/jamesbayly/juno-terra-developer-fund-votes
 
 ### Publish your SubQuery Project
 
