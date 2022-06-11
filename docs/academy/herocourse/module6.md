@@ -13,7 +13,7 @@ None
 
 To make a SubQuery project process and index data as fast and as efficient as
 possible, it is necessary to understand how things work under the covers. SubQuery has
-three handlers to process blockchain data. They are [block handlers](https://doc.subquery.network/create/mapping/#block-handler), [event handlers](https://doc.subquery.network/create/mapping/#event-handler), and [call handlers](https://doc.subquery.network/create/mapping/#call-handler).
+three handlers to process blockchain data. They are [block handlers](../../build/mapping.html#block-handler), [event handlers](../../build/mapping.html#event-handler), and [call handlers](../../build/mapping.html#call-handler).
 
 Block handlers are very inefficient. They inspect every single block to grab data to
 index. This means that with over seven million blocks, if each block could be indexed in
@@ -38,7 +38,7 @@ For even more performance gains, using a dictionary is also highly recommended.
 ## Using a dictionary
 
 The dictionary concept was introduced in previous modules (e.g. Module 5 “Overriding
-endpoints) but mentioned here again due to its importance. See [Understanding how a dictionary works](https://doc.subquery.network/academy/tutorials_examples/dictionary/)
+endpoints) but mentioned here again due to its importance. See [Understanding how a dictionary works](../tutorials_examples/dictionary.md)
 
 ## Event & Extrinsic Names
 
@@ -229,7 +229,7 @@ logger.info("Blockheight: " + event.block.block.header.number.toNumber());
 ```
 
 When running a subql node locally via a command line, a log level can also be added to help
-troubleshoot. See [Subql CLI logging reference](/run_publish/references/#log-level)
+troubleshoot. See [Subql CLI logging reference](../../run_publish/references.md#log-level)
 
 ## Debugging
 
