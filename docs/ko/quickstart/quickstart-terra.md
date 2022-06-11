@@ -44,7 +44,7 @@ subql 초기화
 
 You'll be asked certain questions as the SubQuery project is initalised:
 
-- Name: A name for your SubQuery project
+- Project Name: A name for your SubQuery project
 - Network Family: The layer-1 blockchain network family that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use *"Terra"*
 - Network: The specific network that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use *"Terra"*
 - Template: Select a SubQuery project template that will provide a starting point to begin development, we suggest selecting the *"Starter project"*
