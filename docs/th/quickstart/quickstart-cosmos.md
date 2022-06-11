@@ -1,4 +1,4 @@
-# Cosmos (CosmWasm) Quick Start
+# Cosmos Quick Start
 
 In this Quick start guide, we're going to start with a simple Cosmos starter project in the Juno Network and then finish by indexing some actual real data. นี้จะเป็นการสร้างพื้นฐานให้กับคุณเมื่อตอนที่คุณทำโปรเจกต์ SubQuery ของคุณเอง
 
@@ -8,7 +8,9 @@ In this Quick start guide, we're going to start with a simple Cosmos starter pro
 
 หากคุณยังไม่คุ้นเคย เราขอแนะนำให้คุณทำความคุ้นเคยกับ [คำศัพท์](../#terminology) ที่ใช้ใน SubQuery
 
-**The goal of this quick start guide is to adapt the standard starter project to begin indexing all transfers from Cosmos, it should only take 10-15 minutes**
+**The goal of this quick start guide is to adapt the standard starter project to begin indexing all votes on the [Terra Developer Fund](https://daodao.zone/multisig/juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2) (which also contributed to SubQuery) from Cosmos, it should only take 10-15 minutes**
+
+You can see the final code of this project here at https://github.com/jamesbayly/juno-terra-developer-fund-votes
 
 ## การเตรียมความพร้อม
 
@@ -36,24 +38,7 @@ subql help
 
 ## เริ่มต้น SubQuery Starter Project
 
-ภายใน directory ที่คุณต้องการที่จะสร้าง Subquery Project สามารถรันคำสั่งต่อไปนี้เพื่อเป็นการเริ่มต้น
-
-```shell
-subql init
-```
-
-คุณจะถูกถามคำถามบางอย่างเมื่อโครงการ SubQuery เริ่มต้น:
-
-- Name: ชื่อ Subquery Project ของคุณ
-- Network Family: The layer-1 blockchain network family that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use *"Cosmos"*
-- Network: The specific network that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use *"Juno"*
-- แม่แบบ: เลือกเทมเพลตโครงการ SubQuery ที่จะให้จุดเริ่มต้นเพื่อเริ่มการพัฒนา เราขอแนะนำให้เลือก"Starter project"
-- Git repository (ทางเลือก): ระบุ Git URL ไปยัง repo ที่โปรเจกต์ SubQuery ที่จะถูกทำการโฮสต์ (เมื่อโฮสต์ใน Subquery Explorer)
-- RPC endpoint (จำเป็น): ระบุ HTTPS URL ไปยัง RPC endpoint ที่ทำงานอยู่ที่จะใช้งานเป็นค่าเริ่มต้นของโปรเจค RPC node นี้ต้องเป็น archive node (มีสถานะ full chain state) For this guide we will use the default value *"https://rpc.juno-1.api.onfinality.io"*
-- Authors (Required): กรอกชื่อเจ้าของโปรเจกต์ที่นี่ (เช่น ชื่อของคุณ)
-- Description (ไม่บังคับ): คุณสามารถใส่ข้อความสั้น ๆ เกี่ยวกับโปรเจกต์ของคุณโดยอธิบายว่ามีข้อมูลใดบ้างและผู้ใช้สามารถทำอะไรกับมันได้
-- Version (จำเป็น): ระบุหมายเลขเวอร์ชันที่กำหนดเองหรือใช้ค่าเริ่มต้น(`1.0.0`)
-- License (จำเป็น): ระบุใบอนุญาตซอฟต์แวร์สำหรับโปรเจกต์นี้หรือใช้ค่าเริ่มต้น (`Apache-2.0`)
+Cosmos is not yet supported in SubQuery's CLI (`subql`), to start with Juno clone or fork the [starter project](https://github.com/subquery/juno-subql-starter).
 
 หลังจากกระบวนการเริ่มต้นเสร็จสมบูรณ์ คุณควรเห็นโฟลเดอร์ที่มีชื่อโปรเจกต์ของคุณถูกสร้างขึ้นภายในไดเร็กทอรี เนื้อหาของไดเร็กทอรีนี้ควรเหมือนกับที่ระบุไว้ใน โครงสร้างไดเร็กทอรี
 
@@ -76,16 +61,15 @@ subql init
 
 ไฟล์ `schema.graphql` นั้นกำหนด GraphQL schemas ที่หลากหลาย เนื่องจากวิธีที่ภาษา GraphQL ใช้ในการดึงข้อมูลทำงานนั้น ไฟล์ Schema เป็นสิ่งสำคัญที่กำหนดรูปร่างข้อข้อมูลจาก SubQuery มันเป็นจุดที่ดีทีสุดที่จะเริ่มต้นเพราะมันอณุญาตให้คุณกำหนด end goal up front ของคุณได้
 
-เราจะอัปเดตไฟล์ `schema.graphql` ให้อ่านดังนี้
+We're going to update the `schema.graphql` file to read as follows so we can index all votes on the [Terra Developer Fund](https://daodao.zone/multisig/juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2).
 
 ```graphql
-type Transfer @entity {
-  id: ID! # id field ต้องไม่เป็นค่าว่างเสมอ และจะต้องมีลักษณะตามด้านล่างนี้
-  txHash: String!
-  blockHeight: BigInt # Block height ของการโอน
-  sender: String! # บัญชีที่เป็นผู้โอน
-  recipient: String! # บัญชีที่จะรับโอน
-  amount: String! # จำนวนที่ถูกโอน
+type Vote @entity {
+  id: ID! # id field is always required and must look like this
+  blockHeight: BigInt!
+  voter: String! # The address that voted
+  proposalID: BigInt! # The proposal ID
+  vote: Boolean! # If they voted to support or reject the proposal
 }
 ```
 
@@ -100,28 +84,26 @@ type Transfer @entity {
 
 The Projet Manifest (`project.yaml`)ไฟล์สามารถมองว่าเป็นจุดเริ่มต้นโครงการของคุณและกำหนดรายละเอียดส่วนใหญ่ว่า SubQuery จะสร้างดัชนีและแปลงข้อมูลลูกโซ่อย่างไร
 
-เราจะไม่ทำการเปลี่ยนแปลงใดๆในไฟล์ Manifest เนื่องจากไฟล์ได้รับการตั้งค่าอย่างถูกต้องแล้ว แต่เราจำเป็นต้องเปลี่ยนตัว handlers ของเรา จำไว้ว่าเรากำลังวางแผนที่จะจัดทำดัชนีเหตุการณ์การถ่ายโอน Terra ทั้งหมด ด้วยเหตุนี้ เราจึงต้องอัปเดตส่วน `datasources` เพื่ออ่านข้อมูลต่อไปนี้
+เราจะไม่ทำการเปลี่ยนแปลงใดๆในไฟล์ Manifest เนื่องจากไฟล์ได้รับการตั้งค่าอย่างถูกต้องแล้ว แต่เราจำเป็นต้องเปลี่ยนตัว handlers ของเรา Remember we are planning to index all votes on the [Terra Developer Fund](https://daodao.zone/multisig/juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2). This means that we we will look at messages that use the `vote` contract call, we need to update the `datasources` section to read the following.
 
-```yaml
+```yml
 dataSources:
   - kind: cosmos/Runtime
-    startBlock: 1 # Where you want to start indexing from
+    startBlock: 3082705 # The block when this contract was created
     mapping:
-      file: ./dist/index.js
+      file: "./dist/index.js"
       handlers:
-        - handler: handleEvent
-          kind: terra/EventHandler
-          # this will trigger on all events that match the following smart contract filter condition
+        - handler: handleTerraDeveloperFund
+          kind: cosmos/MessageHandler
           filter:
-            type: transfer
-            messageFilter:
-              type: /terra.wasm.v1beta1.MsgExecuteContract
-              values:
-                # We are subscribing to the bLuna smart contract (e.g. only transfer events from this contract)
-                contract: terra1j66jatn3k50hjtg2xemnjm8s7y8dws9xqa5y8w
+            type: "/cosmwasm.wasm.v1.MsgExecuteContract"
+            # Filter to only messages with the vote function call
+            contractCall: "vote" # The name of the contract function that was called
+            values: # This is the specific smart contract that we are subscribing to
+              contract: "juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2"
 ```
 
-ซึ่งหมายความว่าเราจะเรียกใช้ mapping function `handleEvent` ทุกครั้งที่มีเหตุการณ์ `transfer` event จาก Smart contract ขอบ bLuna
+This means we'll run a `handleTerraDeveloperFund` mapping function each and every time there is a `vote` message from the [Terra Developer Fund](https://daodao.zone/multisig/juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2) smart contract.
 
 สำหรับข้อมูลเพิ่มเติมเกี่ยวกับ Project Manifest (`project.yaml`) ไฟล์,โปรดตรวจสอบได้ที่เอกสารของเราภายใต้พ [Build/Manifest File](../build/manifest.md)
 
@@ -129,48 +111,33 @@ dataSources:
 
 Mapping functions กำหนดวิธีการแปลง chain data เป็น GraphQL entities ซึ่งถูกปรับให้เหมาะสมที่เราได้กำหนดไว้ก่อนหน้านี้ในไฟล์ `schema.graphql`
 
-นำทางไปยัง mapping function เริ่มต้นใน `src/mappings` directory คุณจะเห็นสามฟังก์ชันที่ส่งออกมาก, `handleBlock`, `handleEvent`, and `handleCall`. คุณสามารถลบทั้ง `handleBlock` และ `handleCall` functions, เราจัดการกับ `handleEvent` function เท่านั้น
+นำทางไปยัง mapping function เริ่มต้นใน `src/mappings` directory You'll see four exported functions, `handleBlock`, `handleEvent`, `handleMessage`, and `handleTransaction`. Since we are dealing only with messages, you can delete everything other than the `handleMessage` function.
 
-`handleEvent` function ได้รับ event data เมื่อใดก็ตามที่เหตุการณ์ตรงกับตัวกรองที่เราระบุไว้ก่อนหน้านี้ในของเรา`project.yaml`. เราจะอัปเดตเพื่อประมวลผลกระบวนการทั้งหมดของ`transfer` events และบันทึกลงใน GraphQL entities ที่เราสร้างไว้ก่อนหน้านี้
+The `handleMessage` function recieved event data whenever event matches the filters that we specify previously in our `project.yaml`. We are going to update it to process all `vote` messages and save them to the GraphQL entity that we created earlier.
 
-คุณสามารถอัปเดตฟังก์ชัน `handleEvent` เป็นดังต่อไปนี้ (โปรดสังเกตการนำเข้าเพิ่มเติม):
+You can update the `handleMessage` function to the following (note the additional imports and renaming the function):
 
 ```ts
-import { TerraEvent } from "@subql/types-terra";
-import { Transfer } from "../types";
-import { MsgExecuteContract } from "@terra-money/terra.js";
+import { Vote } from "../types";
+import { CosmosMessage } from "@subql/types-cosmos";
 
-export async function handleEvent(
-  event: TerraEvent<MsgExecuteContract>
+export async function handleTerraDeveloperFund(
+  message: CosmosMessage
 ): Promise<void> {
-    // Print debugging data from the event
-    // logger.info(JSON.stringify(event));
+  // logger.info(JSON.stringify(message));
+  // Example vote https://www.mintscan.io/juno/txs/EAA2CC113B3EC79AE5C280C04BE851B82414B108273F0D6464A379D7917600A4
 
-    // Create the new transfer entity with a unique ID
-    const transfer = new Transfer(
-      `${event.tx.tx.txhash}-${event.msg.idx}-${event.idx}`
-    );
-    transfer.blockHeight = BigInt(event.block.block.block.header.height);
-    transfer.txHash = event.tx.tx.txhash;
-    for (const attr of event.event.attributes) {
-      switch (attr.key) {
-        case "sender":
-          transfer.sender = attr.value;
-          break;
-        case "recipient":
-          transfer.recipient = attr.value;
-          break;
-        case "amount":
-          transfer.amount = attr.value;
-          break;
-        default:
-      }
-    }
-    await transfer.save();
+  const voteRecord = new Vote(`${message.tx.hash}-${message.idx}`);
+  voteRecord.blockHeight = BigInt(message.block.block.header.height);
+  voteRecord.voter = message.msg.sender;
+  voteRecord.proposalID = message.msg.msg.vote.proposal_id;
+  voteRecord.vote = message.msg.msg.vote.vote === "yes";
+
+  await voteRecord.save();
 }
 ```
 
-สิ่งที่กำลังทำคือการได้รับ SubstrateEvent ซึ่งรวมถึงการถ่ายโอนข้อมูลในส่วนของข้อมูล payload ด้วย เราดึงข้อมูลนี้แล้วสร้าง instantiate entity ใหม่ที่`Transfer` ซึ่งเรากำหนดไว้ก่อนหน้านี้ในไฟล์ `schema.graphql` เราเพิ่มข้อมูลเพิ่มเติมแล้วใช้ function `.save()` เพื่อที่จะบันทึก entity ใหม่ (SubQuery จะบันทึกอัตโนมัติใน database).
+What this is doing is receiving a CosmosMessage which includes message data on the payload. We extract this data and then instantiate a new `Vote` entity that we defined earlier in the `schema.graphql` file. เราเพิ่มข้อมูลเพิ่มเติมแล้วใช้ function `.save()` เพื่อที่จะบันทึก entity ใหม่ (SubQuery จะบันทึกอัตโนมัติใน database).
 
 สำหรับข้อมูลเพิ่มเติมเกี่ยวกับฟังก์ชันการทำแผนที่ โปรดดูเอกสารประกอบของเราใน [Build/Mappings](../build/mapping.md)
 
@@ -205,24 +172,23 @@ export async function handleEvent(
 สำหรับ Subquery โปรเจคเริ่มต้นใหม่ คุณสามารถลองใช้ query ต่อไปนี้เพื่อดูว่ามันจะทำงานอย่างไร หรือ r [เรียนรู้เพิ่มเติมเกี่ยวกับ GraphQL Query language](../run_publish/graphql.md).
 
 ```graphql
-{
-  query {
-    transfers(
-      first: 10,
-      orderBy: ID_DESC
-    ) {
-      nodes {
-        id
-        txHash
-        amount
-        blockHeight
-        sender
-        recipient
-      }
+query {
+    votes(
+    first: 5
+    orderBy: BLOCK_HEIGHT_DESC
+    filter: {proposalID: {equalTo: "4"}}
+  ) {
+    nodes {
+      id
+      blockHeight
+      voter
+      vote
     }
   }
 }
 ```
+
+You can see the final code of this project here at https://github.com/jamesbayly/juno-terra-developer-fund-votes
 
 ### เผยแพร่โปรเจกต์ SubQuery ของคุณ
 
