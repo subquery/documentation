@@ -25,90 +25,6 @@ Completion of Module 2
 5. Query for address balances in the playground
 
 ### Detailed steps
-#### Step 1: Initialize your project
-
-The first step in creating a SubQuery project is to create a project with the following command:
-
-
-```
-~/Code/subQuery$ subql init
-Project name [subql-starter]: balances-transfers
-? Select a network Polkadot
-? Select a template project subql-starter     Starter project for subquery
-Cloning project... done
-### Detailed steps
-#### Step 1: Initialize your project
-
-The first step in creating a SubQuery project is to create a project with the following command:
-
-
-```
-~/Code/subQuery$ subql init
-Project name [subql-starter]: balances-transfers
-? Select a network Polkadot
-? Select a template project subql-starter     Starter project for subquery
-Cloning project... done
-### Detailed steps
-#### Step 1: Initialize your project
-
-The first step in creating a SubQuery project is to create a project with the following command:
-
-
-```
-~/Code/subQuery$ subql init
-Project name [subql-starter]: balances-transfers
-? Select a network Polkadot
-? Select a template project subql-starter     Starter project for subquery
-Cloning project... done
-### Detailed steps
-#### Step 1: Initialize your project
-
-The first step in creating a SubQuery project is to create a project with the following command:
-
-
-```
-~/Code/subQuery$ subql init
-Project name [subql-starter]: balances-transfers
-? Select a network Polkadot
-? Select a template project subql-starter     Starter project for subquery
-Cloning project... done
-### Detailed steps
-#### Step 1: Initialize your project
-
-The first step in creating a SubQuery project is to create a project with the following command:
-### Detailed steps
-#### Step 1: Initialize your project
-
-The first step in creating a SubQuery project is to create a project with the following command:
-
-
-```
-~/Code/subQuery$ subql init
-Project name [subql-starter]: balances-transfers
-? Select a network Polkadot
-? Select a template project subql-starter     Starter project for subquery
-Cloning project... done
-### Detailed steps
-#### Step 1: Initialize your project
-
-The first step in creating a SubQuery project is to create a project with the following command:
-### Detailed steps
-#### Step 1: Initialize your project
-
-The first step in creating a SubQuery project is to create a project with the following command:
-
-
-```
-~/Code/subQuery$ subql init
-Project name [subql-starter]: balances-transfers
-? Select a network Polkadot
-? Select a template project subql-starter     Starter project for subquery
-Cloning project... done
-### Detailed steps
-#### Step 1: Initialize your project
-
-The first step in creating a SubQuery project is to create a project with the following command:
-### Detailed steps
 
 
 #### Step 1: Initialize your project
@@ -498,6 +414,8 @@ The query above returns the following results:
 Looking at the database schema also helps us understand what is happening. The accounts table is a standalone table containing just receiving addresses (accounts.id). The transfer table contains “to_id” which is links or points back to accounts. 
 
 In other words, one account links to many transfers or more verbosely stated, each unique Polkadot address that is stored in accounts.id links to one or more than one Polkadot address that has an associated amount and block number. 
+
+
 
 ### References
 
