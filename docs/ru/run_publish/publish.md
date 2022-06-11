@@ -73,9 +73,9 @@ SubQuery Projects - это место, где вы управляете всем
 
 После успешного завершения установки и успешного индексирования нашими узлами ваших данных из цепочки, вы сможете подключиться к вашему проекту через отображённую конечную точку запроса GraphQL Query.
 
-![Проект развернут и синхронизирован](/assets/img/projects-deploy-sync.png)
+![Проект будет развернут и синхронизирован](/assets/img/projects-deploy-sync.png)
 
-Альтернативно, вы можете кликнуть по трем точкам рядом с названием вашего проекта и просмотреть его в SubQuery Explorer. Там вы можете использовать внутрибраузерную игровую площадку для начала работы - [читайте больше о том, как использовать наш Explorer здесь](../query/query.md).
+Кроме того, вы можете щелкнуть три точки рядом с названием вашего проекта и просмотреть его в SubQuery Explorer. There you can use the in-browser playground to get started - [read more about how to use our Explorer here](../run_publish/query.md).
 
 ![Проекты в SubQuery Эксплорере](/assets/img/projects-explorer.png)
 
