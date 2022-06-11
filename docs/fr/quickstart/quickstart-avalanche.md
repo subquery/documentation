@@ -44,7 +44,7 @@ subql init
 
 Certaines questions vous seront posées au fur et à mesure de l'initalisation du projet SubQuery :
 
-- Name: Un nom pour votre projet SubQuery
+- Project Name: A name for your SubQuery project
 - Famille de réseau : La famille de réseau blockchain de couche 1 que ce projet SubQuery sera développé pour indexer, utilisez les touches fléchées de votre clavier pour sélectionner parmi les options, pour ce guide nous utiliserons _"Avalanche"_
 - Réseau : Le réseau spécifique que ce projet SubQuery sera développé pour indexer, utilisez les touches fléchées de votre clavier pour sélectionner parmi les options, pour ce guide nous utiliserons _"Avalanche"_
 - Modèle : Sélectionnez un modèle de projet SubQuery qui fournira un point de départ pour commencer le développement, nous suggérons de sélectionner le _"Projet de démarrage"_
