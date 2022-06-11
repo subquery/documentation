@@ -1,8 +1,8 @@
-# Consumers
+# Người tiêu dùng
 
-## What is a Consumer?
+## Người tiêu dùng là gì?
 
-A Consumer is a participant in the SubQuery network and is either an individual or organisation that pays for processed and organised blockchain data from the SubQuery Network. Consumers effectively make requests to the SubQuery Network for specific data and pay an agreed amount of SQT in return.
+Người tiêu dùng là người tham gia vào mạng SubQuery và là một cá nhân hoặc tổ chức trả tiền cho dữ liệu blockchain được xử lý và tổ chức từ Mạng SubQuery. Người tiêu dùng thực hiện các yêu cầu đối với Mạng SubQuery một cách hiệu quả về dữ liệu cụ thể và đổi lại sẽ trả một số tiền SQT đã thỏa thuận.
 
 Consumers are typically dApp (decentralised application) developers, data analytic companies, blockchain networks, middleware developers, or even web aggregating companies that need access to blockchain data to provide services to their end-users.
 
