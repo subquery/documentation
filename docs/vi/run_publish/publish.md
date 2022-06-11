@@ -13,7 +13,7 @@
 
 Có hai cách để bạn có thể lưu trữ codebase của dự án SubQuery của mình trước khi xuất bản.
 
-**GitHub**: Codebase dự án của bạn phải nằm trong kho lưu trữ GitHub dưới dạng công khai
+** GitHub **: Codebase của dự án của bạn phải nằm trong kho lưu trữ GitHub công khai
 
 **IPFS**: Codebase dự án của bạn có thể được lưu trữ trong IPFS, bạn có thể làm theo hướng dẫn lưu trữ IPFS của chúng tôi để xem cách [xuất bản lần đầu lên IPFS](ipfs.md)
 
@@ -39,7 +39,7 @@ Nếu bạn có kết nối các tài khoản GitHub Organization, bạn có th�
 
 Chúng ta hãy bắt đầu bằng cách nhấp vào "Create Project". Bạn sẽ được đưa đến biểu mẫu Dự Án Mới. Vui lòng nhập vào những thứ sau đây (bạn có thể thay đổi trong tương lai):
 
-- **Tài khoản GitHub:** Nếu bạn có nhiều hơn một tài khoản GitHub, hãy chọn ra tài khoản mà dự án sẽ được tạo ra dưới nó. Các dự án được tạo ra trong tài khoản GitHub Organization đều được chia sẻ giữa các thành viên trong cùng tổ chức.
+- **Tài khoản GitHub:** Nếu bạn có nhiều hơn một tài khoản GitHub, hãy chọn ra tài khoản mà dự án sẽ được tạo ra bởi nó. Các dự án được tạo ra trong tài khoản GitHub Organization đều được chia sẻ giữa các thành viên trong cùng tổ chức.
 - **Tên dự án**
 - **Phụ đề**
 - **Mô tả**
@@ -50,7 +50,7 @@ Chúng ta hãy bắt đầu bằng cách nhấp vào "Create Project". Bạn s�
 
 Hãy tạo dự án của bạn và bạn sẽ thấy nó trong danh sách Các Dự Án SubQuery của bạn. _Chúng ta sắp xong rồi! Chúng ta chỉ cần triển khai một phiên bản mới của nó._
 
-![Dự Án Đã Tạo mà chưa triển khai](/assets/img/projects-no-deployment.png)
+![Tạo Dự án mà không cần triển khai](/assets/img/projects-no-deployment.png)
 
 ### Triển khai phiên bản đầu tiên của bạn
 
@@ -58,11 +58,11 @@ Trong khi đang khởi tạo, dự án sẽ thiết lập hành vi hiển thị 
 
 Cùng với dự án mới của mình, bạn sẽ thấy một nút bấm Deploy New Version. Nhấp vào nút này, và điền vào các thông tin bắt buộc để thực hiện triển khai:
 
-- **Branch:** Từ GitHub, chọn branch của dự án mà bạn muốn triển khai
-- **Commit Hash:** Từ GitHub, chọn commit cụ thể của phiên bản cơ sở mã dự án SubQuery của bạn mà bạn muốn triển khai
+- **Branch:** Từ GitHub, chọn nhánh của dự án mà bạn muốn triển khai
+- **Commit Hash:** Từ GitHub, hãy chọn commit cụ thể của phiên bản codebase dự án SubQuery mà bạn muốn triển khai
 - **IPFS:** Nếu triển khai từ IPFS, hãy dán CID triển khai IPFS của bạn (không có `ipfs: //` đứng đầu)
 - **Override Network and Dictionary Endpoints:** Bạn có thể ghi đè các điểm cuối trong tệp kê khai dự án của mình tại đây
-- **Indexer Version:** Đây là phiên bản của dịch vụ nút SubQuery mà bạn muốn chạy SubQuery trên đó. Xem [`@subql/node`](https://www.npmjs.com/package/@subql/node)
+- **Indexer Version:** Đây là phiên bản của dịch vụ node SubQuery mà bạn muốn chạy SubQuery trên đó. Xem [`@subql/node`](https://www.npmjs.com/package/@subql/node)
 - **Query Version:** Đây là phiên bản của dịch vụ truy vấn SubQuery mà bạn muốn chạy SubQuery này. Xem [`@subql/query`](https://www.npmjs.com/package/@subql/query)
 
 ![Triển khai Dự Án đầu tiên của bạn](https://static.subquery.network/media/projects/projects-first-deployment.png)
@@ -71,17 +71,17 @@ Nếu triển khai thành công, bạn sẽ thấy indexer bắt đầu làm vi�
 
 ## Các Bước Tiếp Theo - Kết nối đến Dự Án của bạn
 
-Sau khi việc triển khai đã thành công và các nút của chúng ta đã lập chỉ mục dữ liệu của bạn trên chuỗi, bạn sẽ có thể kết nối với dự án của mình thông qua hiển thị của điểm cuối truy vấn GraphQL.
+Sau khi việc triển khai đã thành công và các node của chúng ta đã lập chỉ mục dữ liệu của bạn trên chuỗi, bạn sẽ có thể kết nối với dự án của mình thông qua hiển thị của điểm cuối truy vấn GraphQL.
 
 ![Các dự án đang được triển khai và đồng bộ](/assets/img/projects-deploy-sync.png)
 
-Ngoài ra, bạn có thể nhấp vào ba dấu chấm bên cạnh tiêu đề dự án của mình và xem nó trên SubQuery Explorer. Ở đó, bạn có thể sử dụng nền tảng trong trình duyệt để bắt đầu - [đọc thêm về cách sử dụng Explorer của chúng tôi tại đây](../query/query.md).
+Ngoài ra, bạn có thể nhấp vào ba dấu chấm bên cạnh tiêu đề dự án của mình và xem nó trên SubQuery Explorer. There you can use the in-browser playground to get started - [read more about how to use our Explorer here](../run_publish/query.md).
 
-![Các dự án trong trình khám phá truy vấn con](/assets/img/projects-explorer.png)
+![Các dự án trong trình khám phá SubQuery](/assets/img/projects-explorer.png)
 
 ## Thêm Tài Khoản GitHub Organization vào các Dự Án SubQuery
 
-Thông thường, bạn có thể xuất bản dự án SubQuery của mình dưới tên tài khoản GitHub Organization hơn là tài khoản personal GitHub của bạn. Bạn có thể thay đổi tài khoản hiện đang chọn trên [SubQuery Projects](https://project.subquery.network) bất cứ lúc nào bằng cách sử dụng tính năng chuyển đổi tài khoản.
+Thông thường, bạn sẽ xuất bản dự án SubQuery của bạn dưới tên tài khoản GitHub Organization thay vì tài khoản GitHub cá nhân của bạn. Bạn có thể thay đổi tài khoản hiện đang chọn trên [SubQuery Projects](https://project.subquery.network) bất cứ lúc nào bằng cách sử dụng tính năng chuyển đổi tài khoản.
 
 ![Chuyển đổi giữa các tài khoản GitHub](/assets/img/projects-account-switcher.png)
 
@@ -89,7 +89,7 @@ Nếu bạn không thể nhìn thấy tài khoản GitHub Organization của mì
 
 ![Thu hồi truy cập đối với tài khoản GitHub](/assets/img/project_auth_revoke.png)
 
-Sau khi bạn đã thu hồi quyền truy cập, hãy đăng xuất ra khỏi [Dự án SubQuery](https://project.subquery.network) và đăng nhập vào lại. Bạn sẽ được đưa đến một trang có tiêu đề _Authorize SubQuery_ đây là trang bạn có thể yêu cầu cấp quyền truy cập SubQuerry đến tài khoản GitHub Organization của bạn. Nếu bạn không có các quyền quản trị, bạn cần phải yêu cầu một quản trị quyên cấp các quyền này cho bạn.
+Sau khi bạn đã thu hồi quyền truy cập, hãy đăng xuất ra khỏi [Dự án SubQuery](https://project.subquery.network) và đăng nhập vào lại. Bạn sẽ được điều hướng đến một trang có tiêu đề _Authorize SubQuery_ đây là trang bạn có thể yêu cầu cấp quyền truy cập SubQuerry đến tài khoản GitHub Organization của bạn. Nếu bạn không có các quyền quản trị, bạn cần phải yêu cầu một quản trị quyên cấp các quyền này cho bạn.
 
 ![Thu hồi chấp thuận từ một tài khoản GitHub](/assets/img/project_auth_request.png)
 
