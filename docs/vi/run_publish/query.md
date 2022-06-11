@@ -1,10 +1,10 @@
 # Truy vấn dự án của bạn trong SubQuery Explorer
 
-[SubQuery Explorer](https://explorer.subquery.network) là một dịch vụ được lưu trữ trực tuyến (tại [explorer.subquery.network](https://explorer.subquery.network)) cung cấp quyền truy cập vào các dự án SubQuery đã xuất bản được thực hiện bởi những người đóng góp trong cộng đồng của chúng tôi và được quản lý bởi nhóm SubQuery. Bạn có thể xuất bản các dự án SubQuery của riêng mình cho người khám phá của chúng tôi bằng cách làm theo hướng dẫn của chúng tôi để [Xuất bản Dự án SubQuery của bạn](../publish/publish.md).
+[SubQuery Explorer](https://explorer.subquery.network) là một dịch vụ được lưu trữ trực tuyến (tại [explorer.subquery.network](https://explorer.subquery.network)) cung cấp quyền truy cập vào các dự án SubQuery đã xuất bản được thực hiện bởi những người đóng góp trong cộng đồng của chúng tôi và được quản lý bởi nhóm SubQuery. You can publish your own SubQuery projects to our explorer by following our guide to [Publish your SubQuery Project](../run_publish/publish.md).
 
 ![SubQuery Explorer](https://static.subquery.network/media/explorer/explorer-header.png)
 
-Trình khám phá SubQuery giúp bắt đầu dễ dàng. Chúng tôi đang lưu trữ các dự án SubQuery này trực tuyến và cho phép mọi người truy vấn miễn phí từng dự án. Các nút được quản lý này sẽ được nhóm SubQuery giám sát và điều hành ở mức hiệu suất cho phép các ứng dụng sản xuất sử dụng và dựa vào chúng.
+Trình khám phá SubQuery giúp bạn bắt đầu dễ dàng. Chúng tôi đang lưu trữ các dự án SubQuery này trực tuyến và cho phép mọi người truy vấn miễn phí từng dự án. Các node được quản lý này sẽ được đội ngũ SubQuery giám sát và điều hành ở mức hiệu suất cho phép các ứng dụng sử dụng và tin tưởng vào chúng.
 
 ![Dự Án SubQuery](https://static.subquery.network/media/explorer/explorer-project.png)
 
