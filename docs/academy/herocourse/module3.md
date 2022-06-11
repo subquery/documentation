@@ -22,7 +22,7 @@ Completion of Module 2
 2. Update your mappings, manifest file and graphql schema file by removing all the default code except for the handleEvent function.
 3. Generate, build and deploy your code
 4. Deploy your code in Docker
-5. Query for address balances in the playground
+5. Query for address transfers in the playground
 
 ### Detailed steps
 
@@ -187,10 +187,6 @@ export async function handleEvent(event: SubstrateEvent): Promise<void> {
     }
 }
 ```
-
-
-
-#### 
 
 
 #### Step 5: Install the dependencies
