@@ -3,7 +3,7 @@
   <section class="welcomeWords">
     <div class="main">
       <div>
-        <h2 class="welcomeTitle">Ласкаво просимо до SubQuery <span>Університеті</span></h2>
+        <h2 class="welcomeTitle">Welcome to SubQuery <span>Academy</span></h2>
         <p>Досліджуйте та перетворюйте свої ланцюгові дані, щоб швидше створювати інтуїтивні dApp!</p>
         <p><strong>SubQuery now supports Polkadot, Avalanche, and Cosmos (starting with Juno)</strong></p>
       </div>
