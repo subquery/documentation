@@ -10,7 +10,7 @@ Nếu bạn chưa sẵn sàng, chúng tôi khuyên bạn nên tự làm quen v�
 
 **The goal of this quick start guide is to adapt the standard starter project to begin indexing all votes on the [Terra Developer Fund](https://daodao.zone/multisig/juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2) (which also contributed to SubQuery) from Cosmos, it should only take 10-15 minutes**
 
-You can see the final code of this project here at https://github.com/jamesbayly/juno-terra-developer-fund-votes
+You can see the final code of this project here at [https://github.com/jamesbayly/juno-terra-developer-fund-votes](https://github.com/jamesbayly/juno-terra-developer-fund-votes)
 
 ## Chuẩn bị
 
@@ -89,7 +89,7 @@ Chúng tôi sẽ không thực hiện nhiều thay đổi đối với tệp kê
 ```yml
 dataSources:
   - kind: cosmos/Runtime
-    startBlock: 3082705 # The block when this contract was created
+    startBlock: 3246370 # The block when the first proposal in this fund was created
     mapping:
       file: "./dist/index.js"
       handlers:
@@ -176,7 +176,7 @@ query {
     votes(
     first: 5
     orderBy: BLOCK_HEIGHT_DESC
-    filter: {proposalID: {equalTo: "4"}}
+    # filter: {proposalID: {equalTo: "4"}}
   ) {
     nodes {
       id
@@ -188,7 +188,7 @@ query {
 }
 ```
 
-You can see the final code of this project here at https://github.com/jamesbayly/juno-terra-developer-fund-votes
+You can see the final code of this project here at [https://github.com/jamesbayly/juno-terra-developer-fund-votes](https://github.com/jamesbayly/juno-terra-developer-fund-votes)
 
 ### Xuất bản Dự Án SubQuery của bạn
 
