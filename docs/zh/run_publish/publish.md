@@ -75,7 +75,7 @@ SubQuery 项目是您管理上传到SubQuery平台的所有托管项目的地方
 
 ![正在部署和同步的项目](/assets/img/projects-deploy-sync.png)
 
-您也可以点击项目标题旁边的“...”图标，从而在 SubQuery 浏览器上查看项目， 您可以通过SubQuery浏览器开始使用。 您可以在这里使用浏览器内的播放场开始 - [阅读更多关于如何在这里使用我们的资源管理器](../query/query.md) 的信息。
+您也可以点击项目标题旁边的“...”图标，从而在 SubQuery 浏览器上查看项目， 您可以通过SubQuery浏览器开始使用。 There you can use the in-browser playground to get started - [read more about how to use our Explorer here](../run_publish/query.md).
 
 ![SubQuery Explorer 中的项目](/assets/img/projects-explorer.png)
 
