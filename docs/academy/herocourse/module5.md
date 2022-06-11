@@ -70,18 +70,18 @@ To understand more about how dictionaries work, refer to:
 
 Slots are a feature in SubQuery Projects that are the equivalent of a development environments. To learn more, visit:
 
-- [What are deployment slots?](https://doc.subquery.network/faqs/faqs/#what-are-deployment-slots)
-- [What is the advantage of a staging slot?](https://doc.subquery.network/faqs/faqs/#what-is-the-advantage-of-a-staging-slot)
+- [What are deployment slots?](../../faqs/faqs/#what-are-deployment-slots)
+- [What is the advantage of a staging slot?](/faqs/faqs/#what-is-the-advantage-of-a-staging-slot)
 
 #### Step 5: Accessing Playground
 
 Once your project is deployed, access your project and run your desired query in playground. For more information, visit:
 
-- [Query your Project in SubQuery Explorer](https://doc.subquery.network/run_publish/query.md)
+- [Query your Project in SubQuery Explorer](/run_publish/query.md)
 
 GraphQL is the language used to query for data. To learn more about GraphQL visit:
 
-- [Learn more about GraphQL](https://doc.subquery.network/run_publish/graphql.md)
+- [Learn more about GraphQL](/run_publish/graphql.md)
 
 #### Step 6: Querying via the API
 
