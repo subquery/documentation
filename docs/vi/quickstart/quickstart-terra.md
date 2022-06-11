@@ -44,7 +44,7 @@ subql init
 
 Bạn sẽ được hỏi một số câu hỏi khi dự án SubQuery được khởi tạo:
 
-- Name: Tên dự án SubQuery của bạn
+- Project Name: A name for your SubQuery project
 - Network Family: Mạng blockchain layer-1 mà dự án Subquery sẽ được phát triển để lập chỉ mục, dùng dấu mũi tên để di chuyển giữa các lựa chọn, trong bài hướng dẫn này, chúng ta sẽ sử dụng *"Terra"*
 - Network: Mạng cụ thể mà dự án SubQuery này sẽ được phát triển để lập chỉ mục, dùng phím mũi tên để di chuyển giữa các lựa chọn, trong bài hướng dẫn này chúng ta sẽ dùng *"Terra"*
 - Template: Chọn mẫu dự án SubQuery để bắt đầu phát triển, chúng tôi gợi ý bạn chọn *"Starter project"*
