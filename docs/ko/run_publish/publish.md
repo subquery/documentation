@@ -73,9 +73,9 @@ GitHub 조직 계정이 연결된 경우 헤더의 스위처를 사용하여 개
 
 배포가 성공적으로 완료되고 노드가 체인에서 데이터를 인덱스화하면 표출된 GraphQL 쿼리 엔드포인트를 통해 프로젝트에 접속할 수 있습니다.
 
-![프로젝트 전개와 동기화](/assets/img/projects-deploy-sync.png)
+![배포 및 동기화된 프로젝트](/assets/img/projects-deploy-sync.png)
 
-프로젝트 제목 옆에 있는 3개의 점을 클릭하여 SubQuery 탐색기로 표시할 수도 있습니다. 여기에서 브라우저 내 플레이그라운드를 사용하여 시작할 수 있습니다. [여기에서 Explorer 사용 방법에 대해 자세히 알아보세요](../query/query.md).
+프로젝트 제목 옆에 있는 3개의 점을 클릭하여 SubQuery 탐색기로 표시할 수도 있습니다. There you can use the in-browser playground to get started - [read more about how to use our Explorer here](../run_publish/query.md).
 
 ![SubQuery 탐색기 프로젝트](/assets/img/projects-explorer.png)
 
