@@ -20,70 +20,120 @@ Requisitos:
 
 - [Postgres](https://www.postgresql.org/) base de datos (versión 12 o superior). Mientras que el nodo de [SubQuery](#start-a-local-subquery-node) indexa la blockchain, los datos extraídos se almacenan en una instancia de base de datos externa.
 
-Un nodo de SubQuery es una implementación que extrae datos de blockchain basados en substrate por el proyecto SubQuery y lo guarda en una base de datos de Postgres.
+Un nodo de SubQuery es una implementación que extrae datos de blockchain basados en Substrate/Polkadot por el proyecto SubQuery y lo guarda en una base de datos de Postgres.
 
 ### Instalación
 
-```shell
-# NPM
-npm install -g @subql/node
-```
-
-Tenga en cuenta que **NO** animamos el uso de `yarn global` debido a su mala gestión de dependencias que puede llevar a errores en la línea.
+<CodeGroup> ``` shell # NPM npm install -g @subql/node ``` </CodeGroupItem>
+<CodeGroupItem title='Terra'> ``` shell # NPM npm install -g @subql/node-terra
 
 Una vez instalado, puede iniciar un nodo con el siguiente comando:
+
+
+<CodeGroup>
+<CodeGroupItem title='Substrate/Polkadot'>
 
 ```shell
 subql-node <command>
 ```
 
-### Comandos Clave
+</CodeGroupItem>
+<CodeGroupItem title='Terra'>
 
-Los siguientes comandos le ayudarán a completar la configuración de un nodo de SubQuery y a comenzar a indexar. Para saber más, siempre puede ejecutar `--help`.
+```shell
+subql-node-terra <command>
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Avalanche'>
+
+```shell
+subql-node-avalanche <command> 
+```
+
+</CodeGroupItem>
+</CodeGroup>
+
+### Key Commands
+
+The following commands will assist you to complete the configuration of a SubQuery node and begin indexing. Para saber más, siempre puede ejecutar `--help`.
 
 #### Apuntar a la ruta de proyecto local
 
-```
+<CodeGroup>
+<CodeGroupItem title='Substrate/Polkadot'>
+
+```shell
 subql-node -f your-project-path
 ```
 
-#### Usar un diccionario
+</CodeGroupItem>
+<CodeGroupItem title='Terra'>
 
-El uso de un diccionario de cadena completo puede acelerar dramáticamente el procesamiento de un proyecto de SubQuery durante la prueba o durante su primer índice. En algunos casos, hemos visto incrementos de rendimiento de hasta 10x.
-
-Un diccionario de cadena completa pre-indexa la ubicación de todos los eventos y extríndices dentro de la cadena específica y permite que el servicio de nodo se salte a ubicaciones relevantes al indexar en lugar de inspeccionar cada bloque.
-
-Puede añadir el punto final del diccionario en su proyecto `project.yaml` (ver [archivo de manifiesto](../create/manifest.md)), o especifíquelo en tiempo de ejecución usando el siguiente comando:
-
+```shell
+subql-node-terra -f your-project-path
 ```
+
+</CodeGroupItem>
+<CodeGroupItem title='Avalanche'>
+
+```shell
+subql-node-avalanche -f your-project-path
+```
+
+</CodeGroupItem>
+</CodeGroup>
+
+#### Use a Dictionary
+
+Using a full chain dictionary can dramatically speed up the processing of a SubQuery project during testing or during your first index. En algunos casos, hemos visto incrementos de rendimiento de hasta 10x.
+
+Un diccionario de cadena completa pre-indexa la ubicación de todos los eventos y extrinsics dentro de la cadena específica y permite que el servicio de nodo salte a lugares relevantes al indexar en lugar de inspeccionar cada bloque.
+
+Puede añadir el punto final del diccionario en su proyecto `. archivo aml` (ver [Archivo de manifiesto](../create/manifest.md)), o especificarlo en tiempo de ejecución usando el siguiente comando:
+
+<CodeGroup>
+<CodeGroupItem title='Substrate/Polkadot/Polkadot'>
+
+```shell
 subql-node --network-dictionary=https://api.subquery.network/sq/subquery/dictionary-polkadot
 ```
 
-Dependiendo de la configuración de su base de datos de Postgres (por ejemplo, una contraseña de base de datos diferente), asegúrese también de que tanto el indexador (`subql / node`) como el servicio de consulta (`subql / query`) puede establecer una conexión con él.
+</CodeGroupItem>
+<CodeGroupItem title='Terra'> ```shell subql-node-terra --network-dictionary=https://api.subquery.network/sq/subquery/terra-columbus-5-dictionary
 
-#### Conectar a la base de datos
-
-```
-export DB_USER=postgres
-export DB_PASS=postgres
-export DB_DATABASE=postgres
-export DB_HOST=localhost
-export DB_PORT=5432
-subql-node -f your-project-path
-```
-
-Dependiendo de la configuración de su base de datos Postgres (e.. una contraseña de base de datos diferente), por favor asegúrese de que tanto el indexador (`subql/node`) como el servicio de consultas (`subql/query`) pueden establecer una conexión con él.
+Dependiendo de la configuración de la base de datos de Postgres (p.ej. una contraseña de base de datos), por favor asegúrate de que tanto el indexador (`subql/node`) como el servicio de consulta (`subql/query`) puedan establecer una conexión con él.
 
 #### Especifique un archivo de configuración
 
-```
+<CodeGroup>
+<CodeGroupItem title='Substrate/Polkadot'>
+
+```shell
 subql-node -c your-project-config.yml
 ```
 
-Esto apuntará el nodo de consulta a un archivo de configuración que puede estar en formato YAML o JSON. Por favor vea el ejemplo a continuación.
+</CodeGroupItem>
+<CodeGroupItem title='Terra'>
+
+```shell
+subql-node-terra -c your-project-config. ml
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Avalanche'>
+
+```shell
+subql-node-avalanche -c your-project-config. ml
+```
+
+</CodeGroupItem>
+</CodeGroup>
+
+Esto apunta el nodo de consulta a un archivo de configuración que puede estar en formato YAML o JSON. Mira el ejemplo a continuación.
 
 ```yaml
-subquery: ../../../../subql-example/extrinsics
+subconsulta: ../../../../subql-example/extrinsics
 subqueryName: extrinsics
 batchSize:100
 localMode:true
@@ -91,7 +141,7 @@ localMode:true
 
 #### Cambiar el tamaño del lote de la búsqueda de bloques
 
-```
+```shell
 subquery: ../../../../subql-example/extrinsics
 subqueryName: extrinsics
 batchSize:100
@@ -102,11 +152,31 @@ Cuando el indexador primero indexa la cadena, la obtención de bloques individua
 
 #### Ejecutar en modo local
 
-```
+<CodeGroup>
+<CodeGroupItem title='Substrate/Polkadot'>
+
+```shell
 subql-node -f your-project-path --local
 ```
 
-Para fines de depuración, los usuarios pueden ejecutar el nodo en modo local. Cambiar al modelo local creará tablas Postgres en el esquema predeterminado `public`.
+</CodeGroupItem>
+<CodeGroupItem title='Terra'>
+
+```shell
+subql-node-terra -f your-project-path --local
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Avalanche'>
+
+```shell
+subql-node-avalanche -f your-project-path --local
+```
+
+</CodeGroupItem>
+</CodeGroup>
+
+For debugging purposes, users can run the node in local mode. Cambiar al modelo local creará tablas Postgres en el esquema predeterminado `public`.
 
 Si no se utiliza el modo local, se creará un nuevo esquema de Postgres con la `subconsulta_ inicial` y las tablas de proyecto correspondientes.
 
@@ -174,7 +244,7 @@ export Db_PORT=5432
 subql-node -f your-project-path
 ```
 
-Por ejemplo:
+Ejemplo
 
 ```shell
 node --inspect-brk /usr/local/bin/subql-node -f ~/Code/subQuery/projects/subql-helloworld/
@@ -198,7 +268,10 @@ Tenga en cuenta que **NO** animamos el uso de `yarn global` debido a su mala ges
 
 ### Ejecutar el servicio de consulta
 
-``` export DB_HOST=localhost subql-query --name <project_name> --playground ````
+```
+export DB_HOST=localhost
+subql-query --name <project_name> --playground
+```
 
 Asegúrese de que el nombre del proyecto es el mismo que el nombre del proyecto cuando [inicialice el proyecto](../quickstart/quickstart-polkadot.md#initialise-the-starter-subquery-project). Además, compruebe que las variables de entorno son correctas.
 

@@ -3,8 +3,9 @@
   <section class="welcomeWords">
     <div class="main">
       <div>
-        <h2 class="welcomeTitle">Welcome to SubQuery <span>University</span></h2>
+        <h2 class="welcomeTitle">Welcome to SubQuery <span>Academy</span></h2>
         <p>直感的なdAppsをより速く構築するために、チェーンデータを検索して変換しましょう！</p>
+        <p><strong>SubQuery now supports Polkadot, Avalanche, and Cosmos (starting with Juno)</strong></p>
       </div>
     </div>
   </section>
@@ -87,7 +88,7 @@
         <div class="content">
           <p>SubQuery Projectsであなたのプロジェクトを公開することは完全に無料です - それはコミュニティに還元する私たちの方法です。 To learn how to host your project with us, please check out the <a href="/quickstart/quickstart-polkadot.html">Hello World (SubQuery Hosted)</a> tutorial.</p>
           <span class="more">
-            <router-link :to="{path: '/run_publish/publish.html'}">プロジェクトを公開する</router-link>
+            <router-link :to="{path: '/run_publish/publish.html'}">HOSTING YOUR PROJECT</router-link>
           </span>
         </div>
       </li>
@@ -101,7 +102,7 @@
         <h5>カスタムチェーンと統合しますか？</h5>
         <p>新しいparachainを構築する場合でも、全く新しいブロックチェーンをSubstrate上で構築する場合でも、SubQueryはインデックスを作成し、チェーンのデータをトラブルシューティングするのに役立ちます。 SubQuery は Substrate ベースのカスタムチェーンと簡単に統合できるように設計されています。</p>
         <span class="more">
-          <router-link :to="{path: '/create/mapping.html#custom-substrate-chains'}">LEARN HOW TO INTEGRATE WITH YOUR CHAIN</router-link>
+          <router-link :to="{path: '/create/manifest.html#custom-substrate-chains'}">LEARN HOW TO INTEGRATE WITH YOUR CHAIN</router-link>
         </span>
     </div>
     <div class="lastIntroduce lastIntroduce_2">

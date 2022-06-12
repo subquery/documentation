@@ -1,6 +1,6 @@
 # Buat kueri Proyek Anda di SubQuery Explorer
 
-[SubQuery Explorer](https://explorer.subquery.network) adalah layanan online yang dihosting (di [explorer.subquery.network](https://explorer.subquery.network)) yang menyediakan akses ke proyek SubQuery yang dipublikasikan yang dibuat oleh kontributor di komunitas kami dan dikelola oleh tim SubQuery. Anda dapat memublikasikan proyek SubQuery Anda sendiri ke penjelajah kami dengan mengikuti panduan kami untuk [Menerbitkan Proyek SubQuery Anda](../run_publish/publish.md).
+[SubQuery Explorer](https://explorer.subquery.network) adalah layanan online yang dihosting (di [explorer.subquery.network](https://explorer.subquery.network)) yang menyediakan akses ke proyek SubQuery yang dipublikasikan yang dibuat oleh kontributor di komunitas kami dan dikelola oleh tim SubQuery. You can publish your own SubQuery projects to our explorer by following our guide to [Publish your SubQuery Project](../run_publish/publish.md).
 
 ![Penjelajah SubQuery](https://static.subquery.network/media/explorer/explorer-header.png)
 

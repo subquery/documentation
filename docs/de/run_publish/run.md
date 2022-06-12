@@ -20,50 +20,133 @@ Anforderungen:
 
 - [Postgres](https://www.postgresql.org/)-Datenbank (Version 12 oder höher). Während die [SubQuery-Node](#start-a-local-subquery-node) die Blockchain indiziert, werden die extrahierten Daten in einer externen Datenbankinstanz gespeichert.
 
-Eine SubQuery-Node ist eine Implementierung, die substratbasierte Blockchain-Daten pro SubQuery-Projekt extrahiert und in einer Postgres-Datenbank speichert.
+Ein SubQuery-Node ist eine Implementierung, die Substrat/Polkadot-basierte Blockchain-Daten pro SubQuery-Projekt extrahiert und in einer Postgres-Datenbank speichert.
 
 ### Installation
 
-```shell
+<CodeGroup>
+<CodeGroupItem title='Substrate/Polkadot'>
+
+``` shell
 # NPM
 npm install -g @subql/node
 ```
 
-Beachten Sie bitte, dass wir **NICHT** zur Verwendung von `yarn global` ermutigen, da dies aufgrund seines schlechten Abhängigkeitsmanagements zu Fehlern auf der ganzen Linie führen kann.
+</CodeGroupItem>
+<CodeGroupItem title='Terra'>
+
+``` shell
+# NPM
+npm install -g @subql/node-terra
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Avalanche'>
+
+``` shell
+# NPM
+npm install -g @subql/node-avalanche
+````
+
+</CodeGroupItem>
+</CodeGroup>
+
+Bitte beachten Sie, dass wir **NICHT** die Verwendung von `yarn global` empfehlen, da es ein schlechtes Abhängigkeitsmanagement gibt, das später zu Fehlern führen kann.
 
 Nach der Installation können Sie eine Node mit dem folgenden Befehl starten:
+
+
+<CodeGroup>
+<CodeGroupItem title='Substrate/Polkadot'>
 
 ```shell
 subql-node <command>
 ```
 
+</CodeGroupItem>
+<CodeGroupItem title='Terra'>
+
+```shell
+subql-node-terra <command>
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Avalanche'>
+
+```shell
+subql-node-avalanche <command> 
+```
+
+</CodeGroupItem>
+</CodeGroup>
+
 ### Tastenbefehle
 
-Die folgenden Befehle helfen Ihnen, die Konfiguration einer SubQuery-Node abzuschließen und mit der Indizierung zu beginnen. Um mehr zu erfahren, können Sie jederzeit `--help` ausführen.
+Die folgenden Befehle helfen Ihnen, die Konfiguration eines SubQuery-Nodes abzuschließen und mit der Indizierung zu beginnen. Um mehr zu erfahren, können Sie jederzeit `--help` ausführen.
 
 #### Zeigen Sie auf den lokalen Projektpfad
 
-```
+<CodeGroup>
+<CodeGroupItem title='Substrate/Polkadot'>
+
+```shell
 subql-node -f your-project-path
 ```
 
-#### Die Verwendung von Wörterbuch
+</CodeGroupItem>
+<CodeGroupItem title='Terra'>
 
-Die Verwendung eines vollständigen Chainwörterbuchs kann die Verarbeitung eines SubQuery-Projekts während des Tests oder während Ihres ersten Indexes erheblich beschleunigen. In einigen Fällen konnten wir eine bis zu 10-fache Leistungssteigerung bei der Indizierung feststellen.
-
-Ein vollständiges Chainwörterbuch indiziert die Position aller Ereignisse und Extrinsiken innerhalb der spezifischen Chain vor und ermöglicht Ihrem Nodedienst, bei der Indizierung zu relevanten Positionen zu springen, anstatt jeden Block zu überprüfen.
-
-Sie können den Wörterbuchendpunkt zu Ihrer Datei `project.yaml` hinzufügen (siehe [Manifestdatei](../create/manifest.md)) oder ihn zur Laufzeit mit dem folgenden Befehl angeben:
-
+```shell
+subql-node-terra -f your-project-path
 ```
+
+</CodeGroupItem>
+<CodeGroupItem title='Avalanche'>
+
+```shell
+subql-node-avalanche -f your-project-path
+```
+
+</CodeGroupItem>
+</CodeGroup>
+
+#### Verwenden Sie ein Wörterbuch
+
+Die Verwendung eines vollständigen Kettenwörterbuchs kann die Verarbeitung eines SubQuery-Projekts während des Testens oder während Ihres ersten Indexes erheblich beschleunigen. In einigen Fällen haben wir eine bis zu 10-fache Steigerung der Indexierungsleistung festgestellt.
+
+Ein vollständiges Chainwörterbuch indiziert die Position aller Ereignisse und Extrinsics innerhalb der spezifischen Chain vorab und ermöglicht Ihrem Node-Service, bei der Indizierung zu relevanten Positionen zu springen, anstatt jeden Block zu untersuchen.
+
+Sie können den Dictionary-Endpunkt in Ihrer `project.yaml`-Datei hinzufügen (siehe [Manifest-Datei](../create/manifest.md)) oder zur Laufzeit mit dem folgenden Befehl angeben:
+
+<CodeGroup>
+<CodeGroupItem title='Substrate/Polkadot/Polkadot'>
+
+```shell
 subql-node --network-dictionary=https://api.subquery.network/sq/subquery/dictionary-polkadot
 ```
 
-[Lesen Sie mehr darüber, wie ein SubQuery Dictionary funktioniert](../academy/tutorials_examples/dictionary.md).
+</CodeGroupItem>
+<CodeGroupItem title='Terra'>
+
+```shell
+subql-node-terra --network-dictionary=https://api.subquery.network/sq/subquery/terra-columbus-5-dictionary
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Avalanche'>
+
+```shell
+subql-node-avalanche --network-dictionary=https://api.subquery.network/sq/subquery/avalanche-dictionary
+```
+
+</CodeGroupItem>
+</CodeGroup>
+
+[Lesen Sie mehr darüber, wie ein Unterabfrage-Wörterbuch funktioniert](../academy/tutorials_examples/dictionary.md).
 
 #### Mit Datenbank verbinden
 
-```
+```shell
 export DB_USER=postgres
 export DB_PASS=postgres
 export DB_DATABASE=postgres
@@ -72,15 +155,35 @@ export DB_PORT=5432
 subql-node -f your-project-path
 ```
 
-Bitte stellen Sie je nach Konfiguration Ihrer Postgres-Datenbank (z.B. ein anderes Datenbankpasswort) auch sicher, dass sowohl der Indexer (`subql/node`) als auch der Abfragedienst (`subql/query`) eine Verbindung dazu aufbauen können.
+Stellen Sie je nach Konfiguration Ihrer Postgres-Datenbank (z. B. ein anderes Datenbankpasswort) bitte auch sicher, dass sowohl der Indexer (`subql/node`) als auch der Abfragedienst (`subql/query` ) kann eine Verbindung zu ihm herstellen.
 
 #### Geben Sie eine Konfigurationsdatei an
 
-```
+<CodeGroup>
+<CodeGroupItem title='Substrate/Polkadot'>
+
+```shell
 subql-node -c your-project-config.yml
 ```
 
-Dadurch wird die Abfragenode auf eine Konfigurationsdatei verwiesen, die im YAML- oder JSON-Format vorliegen kann. Sehen Sie sich das Beispiel unten an.
+</CodeGroupItem>
+<CodeGroupItem title='Terra'>
+
+```shell
+subql-node-terra -c your-project-config.yml
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Avalanche'>
+
+```shell
+subql-node-avalanche -c your-project-config.yml
+```
+
+</CodeGroupItem>
+</CodeGroup>
+
+Dadurch wird der Abfrageknoten auf eine Konfigurationsdatei verweisen, die im YAML- oder JSON-Format vorliegen kann. Sehen Sie sich das Beispiel unten an.
 
 ```yaml
 subquery: ../../../../subql-example/extrinsics
@@ -91,7 +194,7 @@ localMode:true
 
 #### Ändern Sie die Batchgröße für den Blockabruf
 
-```
+```shell
 subql-node -f your-project-path --batch-size 200
 
 Result:
@@ -103,11 +206,31 @@ Wenn der Indexer die Chain zum ersten Mal indiziert, verringert das Abrufen einz
 
 #### Im lokalen Modus ausführen
 
-```
+<CodeGroup>
+<CodeGroupItem title='Substrate/Polkadot'>
+
+```shell
 subql-node -f your-project-path --local
 ```
 
-Zu Debugging-Zwecken können Benutzer die Node im lokalen Modus ausführen. Beim Wechsel zum lokalen Modell werden Postgres-Tabellen im Standardschema `öffentlich` erstellt.
+</CodeGroupItem>
+<CodeGroupItem title='Terra'>
+
+```shell
+subql-node-terra -f your-project-path --local
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Avalanche'>
+
+```shell
+subql-node-avalanche -f your-project-path --local
+```
+
+</CodeGroupItem>
+</CodeGroup>
+
+Zu Debugging-Zwecken können Benutzer den Node im lokalen Modus ausführen. Beim Wechsel zum lokalen Modell werden Postgres-Tabellen im Standardschema `öffentlich` erstellt.
 
 Wenn der lokale Modus nicht verwendet wird, wird ein neues Postgres-Schema mit der anfänglichen `subquery_` und entsprechenden Projekttabellen erstellt.
 
@@ -194,7 +317,10 @@ Beachten Sie bitte, dass wir **NICHT** zur Verwendung von `yarn global` ermutige
 
 ### Die Ausführung des Abfragedienstes
 
-``` export DB_HOST=localhost subql-query --name <project_name> --playground ````
+```
+export DB_HOST=localhost
+subql-query --name <project_name> --playground
+```
 
 Stellen Sie sicher, dass der Projektname mit dem Projektnamen übereinstimmt, wenn Sie [das Projekt initialisieren](../quickstart/quickstart-polkadot.md#initialise-the-starter-subquery-project). Überprüfen Sie außerdem, ob die Umgebungsvariablen korrekt sind.
 

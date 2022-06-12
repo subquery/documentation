@@ -1,6 +1,6 @@
 # การรัน SubQuery ภายในเครื่อง
 
-คู่มือนี้จะศึกษาวิธีการรันโหนด SubQuery บนโครงสร้างพื้นฐานของคุณ ซึ่งรวมถึง indexer และ query service คุณไม่อยากที่จะต้องคอยกังวลเกี่ยวกับการรันโครงสร้างพื้นฐาน SubQuery ของคุณเองใช่หรือไม่? SubQuery ให้บริการ [โฮสต์ที่มีการจัดการ](https://explorer.subquery.network) แก่ชุมชนฟรี [ทำตามคู่มือการเผยแพร่ของเรา](../run_publish/publish.md) เพื่อดูว่าคุณสามารถอัปโหลดโครงการของคุณไปยัง [SubQuery Projects](https://project.subquery.network)ได้อย่างไร
+คู่มือนี้จะศึกษาวิธีการรันโหนด SubQuery บนโครงสร้างพื้นฐานของคุณ ซึ่งรวมถึง indexer และ query service คุณไม่อยากที่จะต้องคอยกังวลเกี่ยวกับการรันโครงสร้างพื้นฐาน SubQuery ของคุณเองใช่หรือไม่? SubQuery ให้บริการ [โฮสต์ที่มีการจัดการ](https://explorer.subquery.network) แก่ชุมชนฟรี ตามไกด์การเผยแพร่ เพื่อแสดงให้เห็นถึงวิธีการอัพโหลด SubQuery Projects
 
 ## การใช้กับ Docker
 
@@ -20,50 +20,136 @@ docker-compose pull && docker-compose up
 
 - ฐานข้อมูล [Postgres](https://www.postgresql.org/) (เวอร์ชัน 12 ขึ้นไป) ในขณะที่ [โหนด SubQuery](#start-a-local-subquery-node) กำลังทำการ index บล็อกเชน ข้อมูลที่ออกมาจะถูกเก็บไว้ในอินสแตนซ์ของฐานข้อมูลภายนอก
 
-โหนด SubQuery เป็นการ implement ที่ดึงข้อมูลบล็อกเชนที่ใช้ substrate จากโปรเจ็กต์ SubQuery และบันทึกลงในฐานข้อมูล Postgres
+โหนดของ SubQuery เป็นการใช้งานที่แยกข้อมูลบล็อกเชนแบบ Substrate/Polkadot ตามโปรเจ็กต์ของ SubQuery และบันทึกลงในฐานข้อมูล Postgres
 
 ### การติดตั้ง
 
-```shell
+<CodeGroup>
+<CodeGroupItem title='Substrate/Polkadot'>
+
+``` shell
 # NPM
 npm install -g @subql/node
 ```
 
-โปรดทราบว่าเรา **ไม่** สนับสนุนให้ใช้ `yarn global` เนื่องจากการจัดการ dependency ที่ไม่ดี ซึ่งอาจนำไปสู่ข้อผิดพลาดได้
+</CodeGroupItem>
+<CodeGroupItem title='Terra'>
 
-เมื่อติดตั้งแล้ว คุณสามารถเริ่มโหนดด้วยคำสั่งต่อไปนี้:
+``` shell
+# NPM
+npm install -g @subql/node-terra
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Avalanche'>
+
+``` shell
+# NPM
+npm install -g @subql/node-avalanche
+````
+
+</CodeGroupItem>
+</CodeGroup>
+
+โปรดทราบว่าเรา ** โปรดอย่า </ 6> ส่งเสริมการใช้งาน ` yarn global </ 7> เนื่องจากการจัดการการพึ่งพาที่ไม่ค่อยดีอาจนำไปสู่ข้อผิดพลาด</p>
+
+<p spaces-before="0">เมื่อติดตั้งแล้ว คุณสามารถเริ่มโหนดด้วยคำสั่งต่อไปนี้:</p>
+
+<p spaces-before="0">
+
+
+<CodeGroup>
+<CodeGroupItem title='Substrate/Polkadot'>
 
 ```shell
 subql-node <command>
 ```
 
-### คำสั่งที่สำคัญ
+</CodeGroupItem>
+<CodeGroupItem title='Terra'>
 
-คำสั่งต่อไปนี้จะช่วยคุณในการตั้งค่าโหนด SubQuery ให้เสร็จสมบูรณ์และเริ่มการ index หากต้องการข้อมูลเพิ่มเติม คุณสามารถรันคำสั่ง `--help` ได้ตลอดเวลา
+```shell
+subql-node-terra <command>
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Avalanche'>
+
+```shell
+subql-node-avalanche <command> 
+```
+
+</CodeGroupItem>
+</CodeGroup></p>
+
+<h3 spaces-before="0">คำสั่งที่สำคัญ</h3>
+
+<p spaces-before="0">คำสั่งต่อไปนี้จะช่วยคุณในการกำหนดค่าโหนด SubQuery ให้เสร็จสมบูรณ์และเริ่มสร้างดัชนี
+หากต้องการข้อมูลเพิ่มเติม คุณสามารถรันคำสั่ง <code>--help` ได้ตลอดเวลา</p>
 
 #### ชี้ไปที่ local path ของโปรเจกต์
 
-```
+<CodeGroup>
+<CodeGroupItem title='Substrate/Polkadot'>
+
+```shell
 subql-node -f your-project-path
 ```
 
-#### การใช้ Dictionary
+</CodeGroupItem>
+<CodeGroupItem title='Terra'>
 
-การใช้ full chain dictionary สามารถเร่งการประมวลผลโปรเจกต์ SubQuery ได้อย่างมาก ทั้งในระหว่างการทดสอบหรือระหว่างการ index ครั้งแรกของคุณ ในบางกรณี เราพบว่าประสิทธิภาพการ index เพิ่มขึ้นถึง 10 เท่า
-
-chain dictionary แบบเต็มรูปแบบจะทำการ index ข้อมูลตำแหน่งเหตุการณ์และปัจจัยภายนอกทั้งหมดที่เกิดขึ้นภายในแต่ละเฉพาะ chain ไว้ล่วงหน้า ช่วยให้โหนดของคุณสามารถข้ามไปยังตำแหน่งที่เกี่ยวข้องเมื่อมีการ index แทนที่จะตรวจสอบทีละบล็อก
-
-คุณสามารถเพิ่ม dictionary endpoint ในไฟล์ `project.yaml` ของคุณ (ดู [ไฟล์ Manifest](../create/manifest.md)) หรือสามารถระบุในขณะรันไทม์โดยใช้คำสั่งต่อไปนี้:
-
+```shell
+subql-node-terra -f your-project-path
 ```
+
+</CodeGroupItem>
+<CodeGroupItem title='Avalanche'>
+
+```shell
+subql-node-avalanche -f your-project-path
+```
+
+</CodeGroupItem>
+</CodeGroup>
+
+#### ใช้พจนานุกรม
+
+การใช้พจนานุกรมเชนแบบเต็มสามารถเร่งการประมวลผลโปรเจ็กต์ SubQuery ได้อย่างมากระหว่างการทดสอบหรือระหว่างดัชนีแรกของคุณ Xpath: /p[10]/CodeGroup File: run. md ในบางกรณี เราพบว่าประสิทธิภาพการจัดทำดัชนีเพิ่มขึ้นถึง 10 เท่า
+
+พจนานุกรมเชนเต็มรูปแบบจัดทำดัชนีล่วงหน้าตำแหน่งของเหตุการณ์และปัจจัยภายนอกทั้งหมดภายในเชนโดยเฉพาะ และช่วยให้บริการโหนดของคุณสามารถข้ามไปยังตำแหน่งที่เกี่ยวข้องเมื่อสร้างดัชนีแทนที่จะตรวจสอบแต่ละบล็อก
+
+คุณสามารถเพิ่มจุดสิ้นสุดพจนานุกรมในไฟล์` project.yaml ของคุณ` (ดู[ ไฟล์ Manifest ](../create/manifest.md)) หรือระบุตอนรันไทม์โดยใช้คำสั่งต่อไปนี้:
+
+<CodeGroup>
+<CodeGroupItem title='Substrate/Polkadot/Polkadot'>
+
+```shell
 subql-node --network-dictionary=https://api.subquery.network/sq/subquery/dictionary-polkadot
 ```
 
-[อ่านเพิ่มเติมเกี่ยวกับวิธีการทำงานของ SubQuery Dictionary](../academy/tutorials_examples/dictionary.md)
+</CodeGroupItem>
+<CodeGroupItem title='Terra'>
 
-#### การเชื่อมต่อกับฐานข้อมูล
-
+```shell
+subql-node-terra --network-dictionary=https://api.subquery.network/sq/subquery/terra-columbus-5-dictionary
 ```
+
+</CodeGroupItem>
+<CodeGroupItem title='Avalanche'>
+
+```shell
+subql-node-avalanche --network-dictionary=https://api.subquery.network/sq/subquery/avalanche-dictionary
+```
+
+</CodeGroupItem>
+</CodeGroup>
+
+[อ่านเพิ่มเติมเกี่ยวกับวิธีการทำงานของพจนานุกรม SubQuery](../academy/tutorials_examples/dictionary.md).
+
+#### เชื่อมต่อกับฐานข้อมูล
+
+```shell
 export DB_USER=postgres
 export DB_PASS=postgres
 export DB_DATABASE=postgres
@@ -71,16 +157,28 @@ export DB_HOST=localhost
 export DB_PORT=5432
 subql-node -f your-project-path
 ```
+ Text XPath: /p[11]/CodeGroup/text
 
-Depending on the configuration of your Postgres database (e.g. a different database password), please ensure also that both the indexer (`subql/node`) and the query service (`subql/query`) can establish a connection to it.
+ขึ้นอยู่กับการกำหนดค่าฐานข้อมูล Postgres ของคุณ (เช่นความแตกต่างของฐานข้อมูลรหัสผ่าน) โดยโปรดตรวจสอบให้แน่ใจว่า indexer (`subql/node`) และการบริการ Query (`subql/query`) สามารถเชื่อมต่อกันได้
 
-#### Specify a configuration file
+#### ระบุไฟล์การกำหนดค่า
 
-```
+<CodeGroup>
+<CodeGroupItem title='Substrate/Polkadot'>
+
+```shell
 subql-node -c your-project-config.yml
 ```
 
-สิ่งนี้จะชี้โหนดการสืบค้นไปยังไฟล์การกำหนดค่าซึ่งจะอยู่ในรูปแบบไฟล์ YAML หรือ JSON สามารถดูตัวอย่างโค้ดได้ด้านล่าง.
+</CodeGroupItem>
+<CodeGroupItem title='Terra'>
+
+```shell
+subql-node-terra -c your-project-config.yml
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Avalanche'> ```shell subql-node-avalanche -c your-project-config.yml ดูตัวอย่างด้านล่างต่อไปนี้.
 
 ```yaml
 subquery: ../../../../subql-example/extrinsics
@@ -91,7 +189,7 @@ localMode:true
 
 #### จะเปลี่ยน batch size การ fetch บล็อคเชนได้อย่างไร
 
-```
+```shell
 subql-node -f your-project-path --batch-size 200
 
 Result:
@@ -103,11 +201,31 @@ Result:
 
 #### การรันในโหมด local
 
-```
+<CodeGroup>
+<CodeGroupItem title='Substrate/Polkadot'>
+
+```shell
 subql-node -f your-project-path --local
 ```
 
-เพื่อจุดประสงค์ในการ debug ผู้ใช้สามารถเรียกใช้โหนดในโหมด local ได้ การเปลี่ยนไปใช้โหมด local จะสร้างตาราง Postgres ใน `public` ซึ่งเป็น default schema
+</CodeGroupItem>
+<CodeGroupItem title='Terra'>
+
+```shell
+subql-node-terra -f your-project-path --local
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Avalanche'>
+
+```shell
+subql-node-avalanche -f your-project-path --local
+```
+
+</CodeGroupItem>
+</CodeGroup>
+
+For debugging purposes, users can run the node in local mode. การเปลี่ยนไปใช้โหมด local จะสร้างตาราง Postgres ใน ` public ` ซึ่งเป็น default schema
 
 หากไม่ได้ใช้โหมด local, Postgres schema ใหม่ที่มี `subquery_` เริ่มต้นและตารางโปรเจกต์ที่เกี่ยวข้องจะถูกสร้างขึ้น
 
@@ -178,7 +296,9 @@ Debugger listening on ws://127.0.0.1:9229/56156753-c07d-4bbe-af2d-2c7ff4bcc5ad
 For help, see: https://nodejs.org/en/docs/inspector
 Debugger attached.
 ```
-จากนั้นเปิดเครื่องมือ Chrome dev ไปที่ Source > Filesystem และเพิ่มโปรเจกต์ของคุณลงในเวิร์กสเปซ แล้วเริ่มการ debug ดูรายละเอียดเพิ่มเติมได้ที่ [วิธี debug โปรเจกต์ SubQuery](../academy/tutorials_examples/debug-projects.md)
+
+จากนั้นเปิดเครื่องมือ Chrome dev ไปที่ Source > Filesystem และเพิ่มโปรเจกต์ของคุณลงในเวิร์กสเปซ แล้วเริ่มการ debug สามารถดูรายละเอียดเพิ่มเติมได้ที่ [วิธีการ debug โปรเจกต์ SubQuery](https://doc.subquery.network/academy/tutorials_examples/debug-projects/)
+
 ## การรัน Query Service (subql/query)
 
 ### การติดตั้ง
@@ -192,7 +312,10 @@ npm install -g @subql/query
 
 ### การรัน Query service
 
-``` export DB_HOST=localhost subql-query --name <project_name> --playground ````
+```
+export DB_HOST=localhost
+subql-query --name <project_name> --playground
+```
 
 ตรวจสอบให้แน่ใจว่าชื่อโปรเจกต์นี้ตรงกับชื่อโปรเจกต์เมื่อคุณ [เริ่มต้นโปรเจกต์](../quickstart/quickstart-polkadot.md#initialise-the-starter-subquery-project) ตรวจสอบ environment variables ด้วยว่าถูกต้องหรือไม่
 

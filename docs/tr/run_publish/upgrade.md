@@ -11,7 +11,7 @@ SubQuery projenizin yeni sürümlerini yükseltme ve dağıtma özgürlüğüne 
 
 SubQuery Projelerine giriş yapın ve yeni bir sürümünü dağıtmak istediğiniz projeyi bulun. Production veya staging slotuna dağıtmayı seçebilirsiniz. Bu iki slot yalıtılmış ortamlardır ve her birinin kendi veritabanları olup bağımsız olarak senkronize edilirler.
 
-Yalnızca son staging testleri için veya proje verilerinizi yeniden senkronize etmeniz gerektiğinde staging slotuna dağıtım yapmanızı öneririz. Daha sonra sıfır kesinti süresi ile production ortamına yükseltebilirsiniz. Sorunları daha kolay [ayıklayabileceğiniz için](../academy/tutorials_examples/debug-projects.md), [bir projeyi yerel ortamda ayağa kaldırırken](../run_publish/run.md) test işlemlerinin daha hızlı olduğunu göreceksiniz.
+Yalnızca son staging testleri için veya proje verilerinizi yeniden senkronize etmeniz gerektiğinde staging slotuna dağıtım yapmanızı öneririz. Daha sonra sıfır kesinti süresi ile production ortamına yükseltebilirsiniz. You will find testing is faster when [running a project locally](../run_publish/run.md) as you can more [easily debug issues](../academy/tutorials_examples/debug-projects.md).
 
 Staging slotu aşağıdakiler için idealdir:
 
@@ -35,4 +35,4 @@ Dağıtımınız başarıyla tamamlandıktan ve node'larımız zincirdeki verile
 
 ![Projenize yeni sürümü dağıtın](/assets/img/projects-deploy-sync.png)
 
-Alternatif olarak, projenizin başlığının yanında bulunan üç noktaya tıklayabilir ve onu SubQuery Explorer'da görüntüleyebilirsiniz. Başlamak için orada tarayıcıdaki oyun alanını kullanabilirsiniz - [Tarayıcımızı nasıl kullanabileceğiniz hakkında buradan daha fazla bilgi edinebilirsiniz](../run_publish/query.md).
+Alternatif olarak, projenizin başlığının yanında bulunan üç noktaya tıklayabilir ve onu SubQuery Explorer'da görüntüleyebilirsiniz. There you can use the in browser playground to get started - [read more about how to user our Explorer here](../run_publish/query.md).

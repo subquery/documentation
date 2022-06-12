@@ -293,6 +293,10 @@ subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot
 
 Le port sur lequel le service d'indexation de SubQuery se lie. Par défaut, il est défini sur `3000`
 
+### --disable-historical
+
+Désactive le suivi automatique des états historiques, [voir Suivi des états historiques](./historical.md). Par défaut, cette valeur est fixée à `false`.
+
 ## subql-query
 
 ### --help
@@ -377,7 +381,7 @@ Cette option active [Souscriptions GraphQL](./subscription.md), pour activer cet
 
 Le service d'interrogation est limité à 100 entités pour les requêtes graphql non limitées. L'indicateur unsafe supprime cette limite, ce qui peut entraîner des problèmes de performances pour le service de requêtes. Il est plutôt recommandé que les requêtes soient [paginées](https://graphql.org/learn/pagination/).
 
-Cette option permet d'activer certaines fonctions d'agrégation comme la somme, le maximum, la moyenne et autres. Pour en savoir plus sur cette fonctionnalité [cliquez ici](./aggregate.md)
+Cette option permet d'activer certaines fonctions d'agrégation comme la somme, le maximum, la moyenne et autres. Pour en savoir plus sur cette fonctionnalité, [cliquez ici](./aggregate.md)
 
 Ces fonctions sont désactivées par défaut en raison de la limite d'entités.
 

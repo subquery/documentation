@@ -2,17 +2,17 @@
 
 ## GraphQL Subscription คืออะไร
 
-SubQuery ยังรองรับ Graphql Subscriptions subscriptions สามารถให้คุณดึงข้อมูลออกมาได้, เช่นเดียวกับการ queries subscriptions ใช้การดำเนินการที่ยาวนานซึ่งผลลัพธ์สามารถเปลี่ยนแปลงได้ตลอดเวลา, ไม่เหมือนกับการ queries
+SubQuery ยังรองรับ Graphql Subscriptions อีกด้วย subscriptions สามารถให้คุณดึงข้อมูลออกมาได้, เช่นเดียวกับการ queries subscriptions ใช้การดำเนินการที่ยาวนานซึ่งผลลัพธ์สามารถเปลี่ยนแปลงได้ตลอดเวลา, ไม่เหมือนกับการ queries
 
-Subscriptions มีประโยชน์มากเมื่อคุณต้องการให้ client application ของคุณเปลี่ยนแปลงข้อมูลหรือแสดงข้อมูลใหม่บางอย่างทันทีที่มีการเปลี่ยนแปลงนั้นเกิดขึ้นหรือมีข้อมูลใหม่ Subscriptions อนุญาติให้คุณ *subscribe* to your SubQuery project for changes.
+การสมัครสมาชิกมีประโยชน์มากเมื่อคุณต้องการให้ client application ของคุณเปลี่ยนแปลงข้อมูลหรือแสดงข้อมูลใหม่บางอย่างทันทีที่การเปลี่ยนแปลงนั้นเกิดขึ้นหรือมีข้อมูลใหม่ Subscriptions อนุญาติให้คุณ *subscribe* to your SubQuery project for changes.
 
-[อ่านเพิ่มเติมเกี่ยวกับ subscriptions ได้ที่นี่](https://www.apollographql.com/docs/react/data/subscriptions/)
+[อ่านเพิ่มเติมเกี่ยวกับการสมัครสมาชิกได้ที่นี่](https://www.apollographql.com/docs/react/data/subscriptions/)
 
-## วิธีการ Subscribe ให้กับ Entity
+## วิธีการสมัครสมาชิกให้กับ Entity
 
 ตัวอย่างพื้นฐานของการใช้งาน GraphQL subscription จะได้รับแจ้งเตือนเมื่อมีการสร้าง entities ใหม่ ตัวอย่างต่อไปนี้ เราได้ทำการ subscribe `Transfer` ให้กับ entity และได้รับการอัพเดท เมื่อมีการเปลี่ยนแปลงข้อมูลในตาราง
 
-คุณสามารถสร้างการ subscription โดยการ querying the GraphQL endpoint as follows Your connection will then subscribe to any changes made to the `Transfer` entity table.
+คุณสามารถสร้างการสมัครสมาชิกโดยการ querying the GraphQL ปลายทางดังนี้ การเชื่อต่อของคุณจะรับการเปลี่ยนแปลงผ่าน `transfer` entity table
 
 ```graphql
 subscription {
@@ -24,21 +24,21 @@ subscription {
 }
 ```
 
-The body of the entity in your query indicates what data you want to receive via your subscription when the `Transfer` table is updated:
-- `id`: Returns the ID of the entity that has changed
-- `mutation_type`: The action that has been made to this entity. Mutation types can be either `INSERT`, `UPDATE` or `DELETE`
-- `_entity`: the value of the entity itself in JSON format.
+Body ของ entity ในขั้นตอนการ query จะแสดงให้เห็นถึงข้อมูลต่าง ๆ ที่คุณต้องการรับผ่านทาง subscription ของคุณ เมื่อตาราง `Transfer` ถูกอัพเดท:
+- `id`: การส่งกลับ ID ของเอนทิตีที่เปลี่ยนแปลงไป
+- `mutation_type`: การปฏิบัติที่ทำกับเอนทิตีนี้ ประเภทการเปลี่ยนรูปแบบอาจเป็น `INSERT`, `UPDATE` หรือ `DELETE`
+- `_entity`: คุณค่าของตัวเอนทิตีเองในรูปแบบ JSON
 
-## Filtering
+## การคัดกรอง
 
-We also support filter on subscriptions, which means a client should only receive updated subscription data if that data or mutation meets certain criteria.
+เรายังรองรับการคัดกรองการสมัครรับข้อมูล ซึ่งหมายความว่าลูกค้าควรได้รับข้อมูลการสมัครสมาชิกเวอร์ชันที่อัปเดตแล้วเท่านั้นหากข้อมูลหรือการเปลี่ยนรูปแบบนั้นตรงตามเกณฑ์ที่กำหนด
 
-There are two types of filters we are supporting:
+มีตัวคัดกรองอยู่ 2 ประเภทที่พวกเรารองรับ
 
-- `id` : Filter to only return changes that affect a specific entity (designated by the ID).
-- `mutation_type`: Only the same mutation type been made will return an update.
+- `id` : การคัดกรองเพื่อแสดงเฉพาะการเปลี่ยนแปลงที่ส่งผลต่อเอนทิตีเฉพาะ (ถูกกำหนดโดย ID)
+- `mutation_type`: เฉพาะประเภทการเปลี่ยนรูปแบบที่เหมือนกันเท่านั้นที่จะส่งคืนการอัปเดต
 
-Assume we have an entity `Balances`, and it records the balance of each account.
+สมมุติในกรณีที่เรามี entity `Balances` และมันบันทึกยอดคงเหลือของแต่ละบัญชี
 
 ```graphql
 type Balances {
@@ -47,7 +47,7 @@ type Balances {
 }
 ```
 
-If we want to subscribe to any balance updates that affect a specific account, we can specify the subscription filter as follows:
+หากเราต้องการสมัครรับข้อมูลอัปเดตเกี่ยวกับยอดคงเหลือที่ส่งผลต่อบัญชีใดบัญชีหนึ่ง เราสามารถระบุตัวกรองการสมัครได้ดังนี้:
 
 ```graphql
 subscription {
@@ -62,8 +62,8 @@ subscription {
 }
 ```
 
-Note that the `mutation` filter can be one of `INSERT`, `UPDATE` or `DELETE`
+โปรดทราบว่า `mutation` ฟิลเตอร์ สามารถเป็น หนึ่งใน `INSERT`, `UPDATE` or `DELETE`
 
-**Please note that you must enable the `--subscription` flag on both the node and query service in order to use these functions.**
+**คุณต้องเปิดใช้งาน `--subscription` บน Node และ query service ถึงสมารถใช้งาน function นีได้**
 
-The subcription feature works on SubQuery's managed service when you directly call the listed GraphQL endpoint. It will not work within the in-browser GraphQL playground.
+ฟีเจอร์การสมัครสมาชิกทำงานบนบริการที่มีการจัดการ SubQuery เมื่อคุณเรียกตำแหน่งข้อมูล GraphQL ที่อยู่ในรายการโดยตรง มันจะไม่ทำงานภายในเบราว์เซอร์ GraphQL playground.

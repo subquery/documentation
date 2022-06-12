@@ -3,8 +3,9 @@
   <section class="welcomeWords">
     <div class="main">
       <div>
-        <h2 class="welcomeTitle">Chào mừng bạn đến với <span>Đại học</span> SubQuery</h2>
+        <h2 class="welcomeTitle">Welcome to SubQuery <span>Academy</span></h2>
         <p>Khám phá và chuyển đổi dữ liệu chuỗi của bạn để xây dựng các dApp trực quan nhanh hơn!</p>
+        <p><strong>SubQuery hiện hỗ trợ Polkadot, Avalanche và Cosmos (bắt đầu với Juno)</strong></p>
       </div>
     </div>
   </section>
@@ -15,7 +16,7 @@
       </p>
       <span class="button">
         <router-link :to="{path: '/quickstart/quickstart-polkadot.html'}">
-          <span>Get started</span>
+          <span>Bắt đầu</span>
         </router-link>
       </span>
     </div>
@@ -29,7 +30,7 @@
           <div>
             <img src="/assets/img/tutorialsIcon.svg" />
             <span>Hướng dẫn và Ví dụ</span>
-            <p>Learning by doing in our Academy. Hướng dẫn và ví dụ về cách xây dựng các dự án bằng SubQuery.</p>
+            <p>Học bằng cách thực hiện trong Học viện của chúng tôi. Hướng dẫn và ví dụ về cách xây dựng các dự án bằng SubQuery.</p>
           </div>
         </router-link>
       </li>
@@ -63,14 +64,14 @@
         <div class="content">
           <p>SubQuery là một dự án mã nguồn mở cho phép các nhà phát triển lập chỉ mục, chuyển đổi và truy vấn dữ liệu chuỗi Substrate để cung cấp cho các ứng dụng của họ.</p>
           <span class="more">
-            <router-link :to="{path: '/faqs/faqs.html#what-is-subquery'}">READ MORE</router-link>
+            <router-link :to="{path: '/faqs/faqs.html#what-is-subquery'}">ĐỌC THÊM</router-link>
           </span>
         </div>
       </li>
       <li>
         <div class="title">Cách tốt nhất để bắt đầu với SubQuery là gì?</div>
         <div class="content">
-          <p>The best way to get started with SubQuery is to try out our <a href="/quickstart/quickstart-polkadot.html">Quick Start tutorial</a>. Đây là một hướng dẫn đơn giản trong 5 phút: tải xuống mẫu khởi động, xây dựng dự án và sau đó sử dụng Docker để chạy một node trên máy chủ của bạn và chạy một truy vấn đơn giản. </p>
+          <p>Cách tốt nhất để bắt đầu với SubQuery là thực hiện <a href="/quickstart/quickstart-polkadot.html">Hướng dẫn bắt đầu nhanh</a> của chúng tôi. Đây là một hướng dẫn đơn giản trong 5 phút: tải xuống mẫu khởi động, xây dựng dự án và sau đó sử dụng Docker để chạy một node trên máy chủ của bạn và chạy một truy vấn đơn giản. </p>
         </div>
       </li>
       <li>
@@ -78,16 +79,16 @@
         <div class="content">
           <p>Chúng tôi rất mong nhận được ý kiến đóng góp và phản hồi từ cộng đồng. Để đóng góp vào việc phát triển, hãy tạo bản sao cho những phần bạn quan tâm và đưa ra những thay đổi. Sau đó hãy sử dụng chức năng Pull Request hay gọi tắt là PR. À, đừng quên chạy thử đấy nhé! Ngoài ra, hãy xem các nguyên tắc đóng góp của chúng tôi (sẽ sớm được công khai). </p>
           <span class="more">
-            <router-link :to="{path: '/faqs/faqs.html#what-is-the-best-way-to-get-started-with-subquery'}">READ MORE</router-link>
+            <router-link :to="{path: '/faqs/faqs.html#what-is-the-best-way-to-get-started-with-subquery'}">ĐỌC THÊM</router-link>
           </span>
         </div>
       </li>
       <li>
         <div class="title">Chi phí để lưu trữ dự án của tôi trong SubQuery là bao nhiêu?</div>
         <div class="content">
-          <p>Việc lưu trữ dự án trên SubQuery là hoàn toàn miễn phí - đây là cách chúng tôi cống hiến cho cộng đồng. To learn how to host your project with us, please check out the <a href="/quickstart/quickstart-polkadot.html">Hello World (SubQuery Hosted)</a> tutorial.</p>
+          <p>Việc lưu trữ dự án trên SubQuery là hoàn toàn miễn phí - đây là cách chúng tôi cống hiến cho cộng đồng. Để tìm hiểu cách lưu trữ dự án của bạn trên SubQuery, vui lòng xem hướng dẫn <a href="/quickstart/quickstart-polkadot.html">Hello World (SubQuery Hosted)</a> của chúng tôi.</p>
           <span class="more">
-            <router-link :to="{path: '/run_publish/publish.html'}">HOSTING YOUR PROJECT</router-link>
+            <router-link :to="{path: '/run_publish/publish.html'}">LƯU TRỮ DỰ ÁN CỦA BẠN</router-link>
           </span>
         </div>
       </li>
@@ -101,7 +102,7 @@
         <h5>Tích hợp với Chuỗi tùy chỉnh của bạn?</h5>
         <p>Cho dù bạn đang xây dựng một parachain hay một blockchain hoàn toàn mới trên Substrate - SubQuery đều có thể giúp bạn lập chỉ mục và khắc phục sự cố dữ liệu trên chuỗi. SubQuery được thiết kế để dễ dàng tích hợp với blockchain tùy chỉnh có nền tảng Substrate.</p>
         <span class="more">
-          <router-link :to="{path: '/create/mapping.html#custom-substrate-chains'}">LEARN HOW TO INTEGRATE WITH YOUR CHAIN</router-link>
+          <router-link :to="{path: '/create/manifest.html#custom-substrate-chains'}">TÌM HIỂU CÁCH TÍCH HỢP VỚI BLOCKCHAIN CỦA BẠN</router-link>
         </span>
     </div>
     <div class="lastIntroduce lastIntroduce_2">

@@ -32,7 +32,7 @@ El principal beneficio de usar una ranura de montaje es que te permite preparar 
 
 El espacio para escenarios no se muestra al público en el [explorador](https://explorer.subquery.network/) y tiene una URL única que solo es visible para usted. Y, por supuesto, el entorno separado le permite probar su nuevo código sin afectar a la producción.
 
-## What are Polkadot's Extrinsics?
+## ¿Qué son los extrínicos de Polkadot?
 
 Si ya estás familiarizado con los conceptos de blockchain, puedes pensar en los extrinsecos como comparables a las transacciones. Sin embargo, más formalmente un extrínseco es una pieza de información que viene de fuera de la cadena y está incluida en un bloque. Hay tres categorías de extrínsecos. Son inherentes, transacciones firmadas y transacciones no firmadas.
 
@@ -40,7 +40,7 @@ Los extrínsecos inherentes son piezas de información que no están firmadas y 
 
 Los extrinsics de transacción firmada son transacciones que contienen una firma de la cuenta que emitió la transacción. Pagarán una comisión para que la transacción esté incluida en la cadena.
 
-Las transacciones extrínsecas no firmadas son transacciones que no contienen una firma de la cuenta que emitió la transacción. Unsigned transactions extrinsics should be used with care because there is nobody paying a fee, becaused they are not signed. Debido a esto, la cola de transacciones carece de lógica económica para prevenir el spam.
+Las transacciones extrínsecas no firmadas son transacciones que no contienen una firma de la cuenta que emitió la transacción. Las transacciones extrínsecas no firmadas deben ser utilizadas con cuidado porque no hay nadie que pague una cuota, porque no están firmadas. Debido a esto, la cola de transacciones carece de lógica económica para prevenir el spam.
 
 Para más información, haz clic [aquí](https://substrate.dev/docs/en/knowledgebase/learn-substrate/extrinsics).
 

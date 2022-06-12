@@ -1,69 +1,37 @@
-# Consumers
+# Người tiêu dùng
 
-## What is a Consumer?
+## Người tiêu dùng là gì?
 
-A Consumer is a customer in the SubQuery network and is either an individual or organisation that pays for curated blockchain data. Consumers effectively make requests to the SubQuery network for specific data and pay an agreed amount of SQT.
+Người tiêu dùng là người tham gia vào mạng SubQuery và là một cá nhân hoặc tổ chức trả tiền cho dữ liệu blockchain được xử lý và tổ chức từ Mạng SubQuery. Người tiêu dùng thực hiện các yêu cầu đối với Mạng SubQuery một cách hiệu quả về dữ liệu cụ thể và đổi lại sẽ trả một số tiền SQT đã thỏa thuận.
 
-Consumers are typically app developers, dApp (decentralised application) developers, data analytic companies, middleware developers, or even web aggregating companies that need access to blockchain data to provide services to their end-users. 
+Người tiêu dùng thường là các nhà phát triển dApp (ứng dụng phi tập trung), các công ty phân tích dữ liệu, mạng blockchain, nhà phát triển phần mềm trung gian hoặc thậm chí các công ty tổng hợp web cần truy cập vào dữ liệu blockchain để cung cấp dịch vụ cho người dùng cuối của họ.
 
+## Yêu cầu của Người tiêu dùng
 
-## Consumer Requirements
+Không có yêu cầu nào để trở thành người tiêu dùng SubQuery. Tuy nhiên, Người tiêu dùng sẽ cần phải hiểu làm thế nào để có được SQT, làm thế nào để quảng cáo yêu cầu dữ liệu của họ và làm thế nào để xử lý dữ liệu JSON được trả lại.
 
-There are no requirements as such to become a SubQuery Consumer. However, Consumers will need to understand how to obtain SQT, how to advertise their data requirements and how to consume the JSON data returned. 
+Người tiêu dùng cũng có thể cần phải hiểu làm thế nào để tạo các dự án SubQuery được Lập chỉ mục hoặc ký hợp đồng này hoạt động để có được dữ liệu ở định dạng họ cần.
 
-Consumers may also need to understand how to create SubQuery projects to be Indexed or contract this work out. 
+## Giá dịch vụ
 
+Chi phí truy vấn dữ liệu trên blockchain sẽ dựa trên cung và cầu và sẽ tương đương với các dịch vụ tương tự khác hiện có. Ưu điểm của một mạng lưới và hệ sinh thái mở và minh bạch là cạnh tranh được khuyến khích để cung cấp dịch vụ tốt nhất cho Người tiêu dùng.
 
-## Service Cost
+## Các lựa chọn thanh toán cho Người tiêu dùng?
 
-The cost of querying data on the blockchain will be based on supply and demand and will be comparable to other similar services currently available. The advantage of an open and transparent network and ecosystem is that competition is encouraged to provide the best service to the Consumer. 
+Để linh hoạt, Người tiêu dùng có 3 tùy chọn thanh toán để trả cho dữ liệu blockchain. Đó là:
 
+- Dùng đến đâu thanh toán đến đó (PAYG)
+- Thỏa thuận dịch vụ kín
+- Thỏa thuận dịch vụ mở
 
-## Payment options for Consumers?
+Bạn có thể đọc thêm về các phương thức thanh toán khác nhau, cách chúng hoạt động và ưu/nhược điểm trên bài viết [Phương thức thanh toán](./payment-methods.md).
 
-For flexibility, Consumers have 3 payment options to pay for blockchain data. They are: 
+## Câu hỏi thường gặp
 
+### Vơi tư cách là Người tiêu dùng, tôi có thể chọn 1 hay nhiều Người lập chỉ mục không?
 
+Trừ khi thỏa thuận dịch vụ kín đang được sử dụng, sẽ có một hoặc nhiều Người lập chỉ mục lập chỉ mục một dự án SubQuery. Người tiêu dùng có quyền lựa chọn khi quyết định Người lập chỉ mục để đọc dữ liệu từ đó. Thông thường, Người tiêu dùng sẽ chọn Người lập chỉ mục có độ trễ thấp nhất và đáng tin cậy nhất. Người tiêu dùng có thể kết hợp chuyển đổi dự phòng tự động và đọc dữ liệu từ một Người lập chỉ mục khác nếu lần đầu tiên bị lỗi hoặc không phản hồi.
 
-* Pay As You Go (PAYG)
-* Closed Service Agreement
-* Open Service Agreement
+### Điều gì xảy ra nếu một Người lập chỉ mục ngoại tuyến?
 
-
-### PAYG
-
-This is the baseline payment method and a fallback for others. Each Indexer will advertise their PAYG prices when registering their ability to serve requests for specific SubQuery Projects. 
-
-Consumers making requests will have to lock the tokens necessary to make that request, and at the end of an Era, these tokens will be distributed to the Indexers based on the Cobb-Douglas production function.
-
-
-### Closed Service Agreement
-
-Closed Market Service Agreements represent an agreement between only 1 indexer and 1 consumer. It’s a direct relationship where all payment flows between the two parties for the work that is done. Closed Service Agreements allow Indexers to have confidence in the ROI when choosing to index a new SubQuery project, and allow consumers to quickly attract a new indexer to a new project.
-
-
-### Open Service Agreement
-
-Open Market Service Agreements are similar to Closed Market Service Agreements, but allow multiple Indexers to join and compete to provide data to the Consumer. An Open Market Service Agreement may start as a contract between 1 Consumer and 1 Indexer, but more parties may join the contract resulting in _n_ consumer and _n_ indexers. Each Open Market Service Agreement results in a new reward pool being created for that contract, and SQT is distributed amongst participating indexers by the Cobb-Douglas production function.
-
-
-## SubQuery’s point of difference
-
-SubQuery is different from other indexing providers in several ways. 
-
-Simplicity: We focus on simplicity so we have less network participants making things easier to understand. 
-
-Flexibility: We have a flexible payment system for Consumers who can choose an option to suit their needs. 
-
-
-## FAQ
-
-
-### As a Consumer, do I select 1 Indexer or multiple Indexers?
-
-Unless a Closed Service Agreement is being used, there will be one or more Indexers indexing a SubQuery project. Consumers have the choice when deciding which Indexer to read data from. Typically Consumers would select the most reliable and lowest latency Indexer. Consumers could also incorporate automatic failover and read data from another Indexer if the first one times out or is not responsive. 
-
-
-### What happens if an Indexer goes off line? 
-
-Unless a Closed Service Agreement is being used, and if there is more than one Indexer indexing your SubQuery project, it would simply be a matter of switching to another Indexer. The ideal scenario would be include strategies like alert monitoring to be notified of potential issues and intelligent routing and caching 
+Trừ khi Thỏa thuận Dịch vụ Kín đang được sử dụng và nếu có nhiều hơn một Người lập chỉ mục lập chỉ mục dự án SubQuery của bạn, nó sẽ chỉ đơn giản là vấn đề chuyển sang Một Người lập chỉ mục khác. Kịch bản lý tưởng sẽ bao gồm các chiến lược như giám sát cảnh báo để được thông báo về các vấn đề tiềm ẩn và định tuyến và bộ nhớ đệm thông minh

@@ -25,7 +25,7 @@ COMMANDS
 | ------------------ | ---------------------------------------------------------------------------------------------------------- |
 | -l, --location     | SubQuery 프로젝트의 로컬 폴더(이미 폴더에 없는 경우)                                                                         |
 | -o, --output       | 빌드의 출력 폴더를 지정하십시오. e.g. 빌드 폴더                                                                              |
-                                                   | development | dev) | [ default: production ] |
+| --mode=(production | prod                                                        | development | dev) | [ default: production ] |
 
 - `subql build`를 사용하면 항상 빌드되지만 내보내기 필드에 추가 진입점을 지정할 수 있습니다. 자동으로 `index.ts`
 
@@ -291,6 +291,10 @@ subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot
 
 하위 쿼리 인덱싱 서비스가 바인딩되는 포트입니다. 기본적으로 `3000`으로 설정되어 있습니다.
 
+### --disable-historical
+
+Disables automated historical state tracking, [see Historic State Tracking](./historical.md). By default this is set to `false`.
+
 ## subql-query
 
 ### --help
@@ -349,11 +353,11 @@ Options:
 
 ### --output-fmt
 
-[--output-fmt](#output-fmt)을 보세요.
+See [--output-fmt](https://doc.subquery.network/run_publish/references.html#output-fmt)
 
 ### --log-level
 
-[--log-level](#log-level)를 보세요.
+See [--log-level](https://doc.subquery.network/run_publish/references.html#log-level)
 
 ### --log-path
 

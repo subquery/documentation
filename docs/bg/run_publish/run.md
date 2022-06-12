@@ -1,6 +1,6 @@
 # Стартиране на SubQuery локално
 
-Това ръководство показва как да стартирате локален SubQuery нод във вашата инфраструктура, който включва индексатора и услугата за заявки. Не желаете да се занимавате със стартирането на собствена SubQuery инфраструктура? SubQuery предоставя [управлявана хоствана услуга](https://explorer.subquery.network) безплатно за общността. [Следвайте нашето ръководство](../run_publish/publish.md) за да разберете как да качите вашия проект в [SubQuery Projects](https://project.subquery.network).
+Това ръководство показва как да стартирате локален SubQuery нод във вашата инфраструктура, който включва индексатора и услугата за заявки. Не желаете да се занимавате със стартирането на собствена SubQuery инфраструктура? SubQuery предоставя [управлявана хоствана услуга](https://explorer.subquery.network) безплатно за общността. [Следвайте нашето ръководство за публикуване](../run_publish/publish.md), за да видите как можете да качите проекта си в [SubQuery Projects](https://project.subquery.network).
 
 ## Използване на Docker
 
@@ -20,50 +20,133 @@ docker-compose pull && docker-compose up
 
 - База данни [Postgres](https://www.postgresql.org/) (версия 12 или по-нова). Докато [SubQuery нодът ](#start-a-local-subquery-node) индексира блокчейна, извлечените данни се съхраняват във външна база данни.
 
-SubQuery нодът е реализация, която извлича базирани на Substrate блокчейн данни за проекта SubQuery и ги записва в базата данни на Postgres.
+Нодът SubQuery е реализация, която извлича базирани на Substrate/Polkadot блокчейн данни за проекта SubQuery и ги записва в база данни на Postgres.
 
 ### Инсталация
 
-```shell
+<CodeGroup>
+<CodeGroupItem title='Substrate/Polkadot'>
+
+``` shell
 # NPM
 npm install -g @subql/node
 ```
 
-Моля, имайте предвид, че ние **НЕ** насърчаваме използването на `yarn global` поради лошото управление на зависимостта, което може да доведе до грешки в бъдеще.
+</CodeGroupItem>
+<CodeGroupItem title='Terra'>
+
+``` shell
+# NPM
+npm install -g @subql/node-terra
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Avalanche'>
+
+``` shell
+# NPM
+npm install -g @subql/node-avalanche
+````
+
+</CodeGroupItem>
+</CodeGroup>
+
+Моля, имайте предвид, че ние **НЕ** насърчаваме използването на `yarn global` поради лошото му управление на зависимостите, което може да доведе до грешки в бъдеще.
 
 Веднъж инсталиран, можете да стартирате нода със следната команда:
+
+
+<CodeGroup>
+<CodeGroupItem title='Substrate/Polkadot'>
 
 ```shell
 subql-node <command>
 ```
 
+</CodeGroupItem>
+<CodeGroupItem title='Terra'>
+
+```shell
+subql-node-terra <command>
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Avalanche'>
+
+```shell
+subql-node-avalanche <command> 
+```
+
+</CodeGroupItem>
+</CodeGroup>
+
 ### Ключови команди
 
-Следващите команди ще ви помогнат да завършите конфигурацията на SubQuery нода и да започнете индексирането. За да научите повече, винаги можете да стартирате `--help`.
+Следните команди ще ви помогнат да завършите конфигурацията на нода на SubQuery и да започнете индексирането. За да научите повече, винаги можете да стартирате `--help`.
 
 #### Посочете пътя към локалния проект
 
-```
+<CodeGroup>
+<CodeGroupItem title='Substrate/Polkadot'>
+
+```shell
 subql-node -f your-project-path
 ```
 
-#### Използвайте речник
+</CodeGroupItem>
+<CodeGroupItem title='Terra'>
 
-Използването на речник за цяла верига може драстично да ускори обработката на SubQuery проект по време на тестване или по време на първия ви индекс. В някои случаи сме виждали увеличение на ефективността на индексирането до 10 пъти.
-
-Цял верижен речник предварително индексира местоположението на всички събития и ненужни данни в рамките на конкретната верига и позволява на вашата нод услуга да прескача до съществените местоположения при индексиране, вместо да инспектира всеки блок.
-
-Можете да добавите крайната точка на речника във вашия `project.yaml` файл (вижте [Manifest File](../create/manifest.md)), или го посочете по време на изпълнението, като използвате следната команда:
-
+```shell
+subql-node-terra -f your-project-path
 ```
+
+</CodeGroupItem>
+<CodeGroupItem title='Avalanche'>
+
+```shell
+subql-node-avalanche -f your-project-path
+```
+
+</CodeGroupItem>
+</CodeGroup>
+
+#### Използване на речник
+
+Използването на речник с пълна верига може драстично да ускори обработката на проект SubQuery по време на тестване или по време на първия ви индекс. В някои случаи сме виждали увеличение на ефективността на индексирането до 10 пъти.
+
+Пълноверижен речник предварително индексира местоположението на всички събития и външни елементи в конкретната верига и позволява на услугата на нода да прескача до съответните местоположения при индексиране, вместо да инспектира всеки блок.
+
+Можете да добавите крайната точка на речника във вашия файл `project.yaml` (вижте [Manifest File](../create/manifest.md)) или да я посочите по време на изпълнение, като използвате следната команда:
+
+<CodeGroup>
+<CodeGroupItem title='Substrate/Polkadot/Polkadot'>
+
+```shell
 subql-node --network-dictionary=https://api.subquery.network/sq/subquery/dictionary-polkadot
 ```
 
-[Прочетете повече за това как работи SubQuery речникът.](../academy/tutorials_examples/dictionary.md).
+</CodeGroupItem>
+<CodeGroupItem title='Terra'>
+
+```shell
+subql-node-terra --network-dictionary=https://api.subquery.network/sq/subquery/terra-columbus-5-dictionary
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Avalanche'>
+
+```shell
+subql-node-avalanche --network-dictionary=https://api.subquery.network/sq/subquery/avalanche-dictionary
+```
+
+</CodeGroupItem>
+</CodeGroup>
+
+[Прочетете повече за това как работи речник на SubQuery](../academy/tutorials_examples/dictionary.md).
 
 #### Свържете се с базата данни
 
-```
+```shell
 export DB_USER=postgres
 export DB_PASS=postgres
 export DB_DATABASE=postgres
@@ -72,15 +155,35 @@ export DB_PORT=5432
 subql-node -f your-project-path
 ```
 
-В зависимост от конфигурацията на вашата Postgres база данни (например различна парола за базата данни), моля, уверете се, че индексаторът (`subql/node`) и услугата за заявки (`subql/query`) могат да установят връзка с нея.
+В зависимост от конфигурацията на вашата база данни Postgres (например различна парола за база данни), моля, уверете се също, че както индексаторът (`subql/node`), така и услугата за заявки (`subql/query`) може да установи връзка с него.
 
 #### Посочете конфигурационен файл
 
-```
+<CodeGroup>
+<CodeGroupItem title='Substrate/Polkadot'>
+
+```shell
 subql-node -c your-project-config.yml
 ```
 
-Това ще насочи нода на заявката към конфигурационен файл, който може да бъде във формат - YAML или JSON. Вижте примера по-долу.
+</CodeGroupItem>
+<CodeGroupItem title='Terra'>
+
+```shell
+subql-node-terra -c your-project-config.yml
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Avalanche'>
+
+```shell
+subql-node-avalanche -c your-project-config.yml
+```
+
+</CodeGroupItem>
+</CodeGroup>
+
+Това ще насочи възела на заявката към конфигурационен файл, който може да бъде във формат YAML или JSON. Вижте примера по-долу.
 
 ```yaml
 subquery: ../../../../subql-example/extrinsics
@@ -91,7 +194,7 @@ localMode:true
 
 #### Промяна размера на партидата за извличане на блок
 
-```
+```shell
 subql-node -f your-project-path --batch-size 200
 
 Резултат:
@@ -103,9 +206,29 @@ subql-node -f your-project-path --batch-size 200
 
 #### Работете в локален мод (режим)
 
-```
+<CodeGroup>
+<CodeGroupItem title='Substrate/Polkadot'>
+
+```shell
 subql-node -f your-project-path --local
 ```
+
+</CodeGroupItem>
+<CodeGroupItem title='Terra'>
+
+```shell
+subql-node-terra -f your-project-path --local
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Avalanche'>
+
+```shell
+subql-node-avalanche -f your-project-path --local
+```
+
+</CodeGroupItem>
+</CodeGroup>
 
 За целите на отстраняване на грешки, потребителите могат да стартират нода в локален режим. Преминаването към локален модел ще създаде Postgres таблици схемата по подразбиране - `public`.
 
@@ -179,7 +302,7 @@ For help, see: https://nodejs.org/en/docs/inspector
 Debugger attached.
 ```
 
-След това отворете инструментите за разработка на Chrome, отидете на Source > Filesystem и добавете проекта си към работното пространство и започнете да отстранявате грешки. За повече информация вижте: [Как да отстраните грешки в SubQuery проект](https://doc.subquery.network/academy/tutorials_examples/debug-projects/)
+След това отворете инструментите за разработка на Chrome, отидете на Source > Filesystem и добавете проекта си към работното пространство и започнете да отстранявате грешки. За повече информация вижте [Как да отстраним грешки в проект на SubQuery](https://doc.subquery.network/academy/tutorials_examples/debug-projects/)
 
 ## Изпълнение на услуга за заявки (subql/query)
 
@@ -194,7 +317,10 @@ npm install -g @subql/query
 
 ### Изпълнение на Query услуга
 
-``` export DB_HOST=localhost subql-query --name <project_name> --playground ````
+```
+export DB_HOST=localhost
+subql-query --name <project_name> --playground
+```
 
 Уверете се, че името на проекта е същото като името на проекта, когато [инициализирате проекта](../quickstart/quickstart-polkadot.md#initialise-the-starter-subquery-project). Също така проверете дали променливите на средата са правилни.
 

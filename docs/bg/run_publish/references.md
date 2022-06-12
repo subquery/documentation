@@ -25,7 +25,7 @@
 | ------------------ | ---------------------------------------------------------------------------------------------------------- |
 | -l, --location     | локална папка на проекта subquery (ако все още не сте в папка)                                             |
 | -o, --output       | посочете изходната папка на build например build-folder                                                    |
-| --mode=(production)| prod, development, dev) | [ default: production ] |
+| --mode=(production | prod                                                        | development | dev) | [ default: production ] |
 
 - С помощта на `subql build` можете да посочите допълнителни входни точки в полето за експортиране, въпреки че то постоянно ще се изгражда `index.ts` автоматично
 
@@ -37,7 +37,7 @@
 
 ## subql-node
 
-### -- помощ
+### --help
 
 Тук са показани опциите за помощ.
 
@@ -164,7 +164,7 @@ subql-node -f . --db-schema=test2
 
 Въпреки че това повишава сигурността, ние разбираме също така, че се ограничава наличната функционалност на вашата SubQuery. Командата `--unsafe` импортира всички javascript модули по подразбиране, което значително увеличава sandbox функционалността за сметка намаляването нивото на сигурност.
 
-**Обърнете внимание на това, че командата `--unsafe` ще попречи стартирането на вашият проект в мрежа SubQuery следователно трябва трябва да се обърнете към с поддръжката, ако искате тази команда да се изпълнява с вашия проект в управлявана услуга SubQuery ([project.subquery.network](https://project.subquery.network))**
+**Обърнете внимание, че командата `--unsafe` ще попречи на вашия проект да се изпълнява в SubQuery мрежата и трябва да се свържете с поддръжката, ако искате тази команда да се изпълнява с вашия проект в управляваната услуга на SubQuery ([project.subquery.network](https://project.subquery.network))**
 
 ### --batch-size
 
@@ -285,11 +285,15 @@ ERROR Create Subquery project from given path failed! Error: failed to parse pro
 subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot"
 ```
 
-[Прочетете повече за това как работи SubQuery речникът.](../academy/tutorials_examples/dictionary.md).
+[Прочетете повече за това как работи SubQuery Dictionary](../academy/tutorials_examples/dictionary.md).
 
 ### -p, --port
 
 Портът, към който е свързана услугата за индексиране subquery. По подразбиране тази стойност е`3000`
+
+### --disable-historical
+
+Disables automated historical state tracking, [see Historic State Tracking](./historical.md). By default this is set to `false`.
 
 ## subql-query
 
@@ -349,11 +353,11 @@ Options:
 
 ### --output-fmt
 
-See [--output-fmt](#output-fmt)
+See [--output-fmt](https://doc.subquery.network/run_publish/references.html#output-fmt)
 
 ### --log-level
 
-Вижте [--log-level](#log-level)
+See [--log-level](https://doc.subquery.network/run_publish/references.html#log-level)
 
 ### --log-path
 
@@ -369,13 +373,13 @@ See [--output-fmt](#output-fmt)
 
 ### --subscription
 
-Този флаг активира [GraphQL Subscriptions](./subscription.md), за да активирате тази функция, изисква `subql-node` също така активирайте `--subscription`
+This flag enables [GraphQL Subscriptions](./subscription.md), to enable this feature requires `subql-node` also enable `--subscription`
 
 ### --unsafe
 
 Услугата за заявки има ограничение от 100 обекта за неограничени заявки graphql. Флагът unsafe премахва това ограничение, което може да причини проблеми с производителността на услугата за заявки. Вместо това се препоръчва заявките да бъдат [разделени на страници](https://graphql.org/learn/pagination/).
 
-Този флаг позволява определени функции за агрегиране, включително sum, max, avg и други. Прочетете повече за тази функция [тук](./aggregate.md)
+This flag enables certain aggregation functions including sum, max, avg and others. Read more about this feature [here](./aggregate.md)
 
 Те са деактивирани по подразбиране поради ограничение на обекта.
 

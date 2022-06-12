@@ -11,13 +11,13 @@
 
 登录到 SubQuery 项目并选择你想要部署一个新版本的项目。 您可以选择要么部署到生产插槽或中转插槽。 这两个插槽是各自独立的环境，各自都有自己的数据库并独立地同步进行。
 
-我们建议只部署到您的中转插槽进行最后的中期测试，或者您需要重新同步您的项目数据。 然后您可以在不停机的情况下平滑的发布到生产。 你会发现当[在本地运行项目](../run_publish/run.md)时测试会更快，因为你可以更容易地调试</a>的问题。
+我们建议只部署到您的中转插槽进行最后的中期测试，或者您需要重新同步您的项目数据。 然后您可以在不停机的情况下平滑的发布到生产。 You will find testing is faster when [running a project locally](../run_publish/run.md) as you can more [easily debug issues](../academy/tutorials_examples/debug-projects.md).
 
 中转插槽的优势有如下几点:
 
-- 在独立的环境中最后验证您的 SubQuery 项目的更改。 中转插槽有一个不同的用于生产的 URL，可以在 dApps 中使用它。
-- 为更新的 SubQuery 项目预热和索引数据，以消除 dApp 中的停机时间。
-- 为您的 SubQuery Project 准备一个新版本，而不公开它。 中转插槽不会在 Explorer 中显示给公众，它有一个唯一的 URL，仅对您可见。
+- 在独立的环境中最后验证您的 SubQuery 项目的更改。 中转插槽有一个不同的用于生产的URL，可以在dApps中使用它。
+- 为更新的SubQuery项目预热和索引数据，以消除dApp中的停机时间。
+- 为您的SubQuery Project准备一个新版本，而不公开它。 中转插槽不会在Explorer中显示给公众，它有一个唯一的URL，仅对您可见。
 
 ![暂存槽位](/assets/img/staging_slot.png)
 
@@ -35,4 +35,4 @@
 
 ![正在部署和同步的项目](/assets/img/projects-deploy-sync.png)
 
-您也可以点击项目标题旁边的三个小点图标，从而在 SubQuery 浏览器上查看项目， 在这里您可以使用我们的区块链浏览器开始—— [阅读更多关于如何在这里使用](../run_publish/query.md) 的信息。 在这里您可以使用我们的区块链浏览器开始—— [阅读更多关于如何在这里使用](../run_publish/query.md) 的信息。
+您也可以点击项目标题旁边的三个小点图标，从而在 SubQuery 浏览器上查看项目， 在这里您可以使用我们的区块链浏览器开始—— [阅读更多关于如何在这里使用](../query/query.md) 的信息。 There you can use the in browser playground to get started - [read more about how to user our Explorer here](../run_publish/query.md).

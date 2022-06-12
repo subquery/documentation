@@ -1,6 +1,6 @@
 # Запуск SubQuery локально
 
-В этом руководстве рассказывается как локально запустить ноду SubQuery на вашем устройстве, который включает как индексатор, так и службу запросов. Не хотите беспокоиться о запуске SubQuery на собственном устройстве? SubQuery обеспечивает [выделенный сервер](https://explorer.subquery.network) для комьюнити бесплатно. [Следуйте нашему опубликованному гайду](../run_publish/publish.md) что бы увидеть как вы можете загрузить ваш проект в [SubQuery Projects](https://project.subquery.network).
+В этом руководстве рассказывается как локально запустить ноду SubQuery на вашем устройстве, который включает как индексатор, так и службу запросов. Не хотите беспокоиться о запуске SubQuery на собственном устройстве? SubQuery обеспечивает [выделенный сервер](https://explorer.subquery.network) для комьюнити бесплатно. [Следуйте нашему руководству по публикации](../run_publish/publish.md), чтобы узнать, как загрузить свой проект в [SubQuery Projects](https://project.subquery.network).
 
 ## Использование Docker
 
@@ -20,72 +20,181 @@ docker-compose pull && docker-compose up
 
 - [Postgres](https://www.postgresql.org/) база данных ( версия 12 или выше). Пока [SubQuery node](#start-a-local-subquery-node) индексируется в блокчейн, извлеченные данные хранятся во внешнем экземпляре базы данных.
 
-Нода SubQuery - это реализация, которая извлекает данные блокчейна на основе субстрата для проекта SubQuery и сохраняет их в базе данных Postgres.
+Узел SubQuery — это имплементация, которая извлекает данные блокчейна на основе Substrate/Polkadot для проекта SubQuery и сохраняет их в базе данных Postgres.
 
 ### Установка
 
-```shell
+<CodeGroup>
+<CodeGroupItem title='Substrate/Polkadot'>
+
+``` shell
 # NPM
 npm install -g @subql/node
 ```
 
-Обратите внимание, что мы ** НЕ ** поддерживаем использование `yarn global` из-за его плохого управления зависимостями, что может привести к ошибкам в дальнейшем.
+</CodeGroupItem>
+<CodeGroupItem title='Terra'>
+
+``` shell
+# NPM
+npm install -g @subql/node-terra
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Avalanche'>
+
+``` shell
+# NPM
+npm install -g @subql/node-avalanche
+````
+
+</CodeGroupItem>
+</CodeGroup>
+
+Обратите внимание, что мы **НЕ** рекомендуем использовать `yarn global` из-за плохого управления зависимостями, что может привести к ошибкам в дальнейшем.
 
 После установки вы можете запустить ноду с помощью следующей команды:
+
+
+<CodeGroup>
+<CodeGroupItem title='Substrate/Polkadot'>
 
 ```shell
 subql-node <command>
 ```
 
+</CodeGroupItem>
+<CodeGroupItem title='Terra'>
+
+```shell
+subql-node-terra <command>
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Avalanche'>
+
+```shell
+subql-node-avalanche <command> 
+```
+
+</CodeGroupItem>
+</CodeGroup>
+
 ### Ключевые команды
 
-Следующие команды помогут вам завершить настройку ноды SubQuery и начать индексацию. Чтобы узнать больше, вы всегда можете запустить `--help`.
+Следующие команды помогут вам завершить настройку узла SubQuery и начать индексирование. Чтобы узнать больше, вы всегда можете запустить `--help`.
 
 #### Укажите путь к локальному проекту
 
+<CodeGroup>
+<CodeGroupItem title='Substrate/Polkadot'>
+
+```shell
+subql-node -f your-project-path
 ```
-subql-node -f ваш путь к проекту
+
+</CodeGroupItem>
+<CodeGroupItem title='Terra'>
+
+```shell
+subql-node-terra -f your-project-path
 ```
 
-#### Используй словарь
+</CodeGroupItem>
+<CodeGroupItem title='Avalanche'>
 
-Использование словаря полной цепочки может значительно ускорить обработку проекта SubQuery во время тестирования или во время вашего первого индекса. В некоторых случаях мы наблюдали увеличение производительности индексации до 10 раз.
-
-Полный словарь цепочки предварительно индексирует расположение всех событий и внешних элементов в определенной цепочке и позволяет службе вашей ноды переходить к соответствующим местоположениям при индексировании, а не при проверке каждого блока.
-
-Вы можете добавить конечную точку словаря в свой `project.yaml` файл (see [Manifest File](../create/manifest.md)), или указать ее во время выполнения, используя следующую команду:
-
+```shell
+subql-node-avalanche -f your-project-path
 ```
+
+</CodeGroupItem>
+</CodeGroup>
+
+#### Использование Словаря
+
+Использование словаря полной цепочки может значительно ускорить обработку проекта SubQuery во время тестирования или во время вашего первого индексирования. В некоторых случаях мы наблюдали увеличение производительности индексирования до 10 раз.
+
+Словарь полной цепочки предварительно индексирует местоположение всех событий и внешних элементов в определенной цепочке и позволяет службе узла пропускать соответствующие местоположения при индексировании, а не проверять каждый блок.
+
+Вы можете добавить конечную точку словаря в файл `project.yaml` (см. [Файл манифеста](../create/manifest.md)) или указать ее во время выполнения с помощью следующей команды:
+
+<CodeGroup>
+<CodeGroupItem title='Substrate/Polkadot/Polkadot'>
+
+```shell
 subql-node --network-dictionary=https://api.subquery.network/sq/subquery/dictionary-polkadot
 ```
 
-[ Подробнее о том, как работает словарь подзапросов ](../academy/tutorials_examples/dictionary.md).
+</CodeGroupItem>
+<CodeGroupItem title='Terra'>
 
-#### Подключиться к базе данных
-
+```shell
+subql-node-terra --network-dictionary=https://api.subquery.network/sq/subquery/terra-columbus-5-dictionary
 ```
-в зависимости от конфигурации вашей базы данных Postgres (например, другой пароль базы данных) убедитесь, что и индексатор (`subql / node`), и служба запросов (` subql / query`) могут установить к ней соединение.
+
+</CodeGroupItem>
+<CodeGroupItem title='Avalanche'>
+
+```shell
+subql-node-avalanche --network-dictionary=https://api.subquery.network/sq/subquery/avalanche-dictionary
+```
+
+</CodeGroupItem>
+</CodeGroup>
+
+[Подробнее о том, как работает Словарь SubQuery](../academy/tutorials_examples/dictionary.md).
+
+#### Подключаемся к базе данных
+
+```shell
+export DB_USER=postgres
+export DB_PASS=postgres
+export DB_DATABASE=postgres
+export DB_HOST=localhost
+export DB_PORT=5432
+subql-node -f your-project-path
+```
+
+В зависимости от конфигурации вашей базы данных Postgres (например, другой пароль базы данных), убедитесь, что и индексатор (`subql/node`), и служба запросов (`subql/query`) может установить с ним соединение.
 
 #### Укажите файл конфигурации
 
+<CodeGroup>
+<CodeGroupItem title='Substrate/Polkadot'>
+
+```shell
+subql-node -c your-project-config.yml
 ```
 
-subql-node -f ваш путь к проекту
+</CodeGroupItem>
+<CodeGroupItem title='Terra'>
 
-````
+```shell
+subql-node-terra -c your-project-config.yml
+```
 
-Это укажет узлу запроса на файл конфигурации, который может быть в формате YAML или JSON. Посмотрите на пример ниже.
+</CodeGroupItem>
+<CodeGroupItem title='Avalanche'>
+
+```shell
+subql-node-avalanche -c your-project-config.yml
+```
+
+</CodeGroupItem>
+</CodeGroup>
+
+Это укажет узлу запроса файл конфигурации, который может быть в формате YAML или JSON. Посмотрите пример ниже.
 
 ```yaml
 subquery: ../../../../subql-example/extrinsics
 subqueryName: extrinsics
 batchSize:100
 localMode:true
-````
+```
 
 #### Изменить размер пакета выборки блока
 
-```
+```shell
 subql-node -f your-project-path --batch-size 200
 
 Result:
@@ -97,9 +206,29 @@ Result:
 
 #### Запуск в локальном режиме
 
+<CodeGroup>
+<CodeGroupItem title='Substrate/Polkadot'>
+
+```shell
+subql-node -f your-project-path --local
 ```
-subql-node -f ваш путь к проекту
+
+</CodeGroupItem>
+<CodeGroupItem title='Terra'>
+
+```shell
+subql-node-terra -f your-project-path --local
 ```
+
+</CodeGroupItem>
+<CodeGroupItem title='Avalanche'>
+
+```shell
+subql-node-avalanche -f your-project-path --local
+```
+
+</CodeGroupItem>
+</CodeGroup>
 
 В целях отладки пользователи могут запускать узел в локальном режиме. При переключении на локальную модель таблицы Postgres будут созданы в схеме по умолчанию `public`.
 
@@ -169,11 +298,11 @@ node --inspect-brk <path to subql-node> -f <path to subQuery project>
 ```shell
 node --inspect-brk /usr/local/bin/subql-node -f ~/Code/subQuery/projects/subql-helloworld/
 Debugger listening on ws://127.0.0.1:9229/56156753-c07d-4bbe-af2d-2c7ff4bcc5ad
-Для помощи смотрите: https://nodejs.org/en/docs/inspector
+Для помощи смотрите: https://nodejs.org/en/docs/inspector 
 Прилагается отладчик.
 ```
 
-Затем откройте инструменты разработчика Chrome, перейдите в Source & # 062; Filesystem, добавьте свой проект в рабочую область и начните отладку. Для получения дополнительной информации ознакомьтесь с [ Как отлаживать проект SubQuery ](https://doc.subquery.network/academy/tutorials_examples/debug-projects/)
+Затем откройте инструменты разработчика Chrome, перейдите в Source & # 062; Filesystem, добавьте свой проект в рабочую область и начните отладку. Для получения дополнительной информации, посмотрите [Как отладить проект SubQuery](https://doc.subquery.network/academy/tutorials_examples/debug-projects/)
 
 ## Запуск службы запросов (subql / query)
 
@@ -184,11 +313,14 @@ Debugger listening on ws://127.0.0.1:9229/56156753-c07d-4bbe-af2d-2c7ff4bcc5ad
 npm install -g @subql/query
 ```
 
-Обратите внимание, что мы ** НЕ ** поощряем использование `yarn global` из-за его плохого управления зависимостями, что может привести к ошибкам в дальнейшем.
+Обратите внимание, что мы ** НЕ ** поддерживаем использование `yarn global` из-за его плохого управления зависимостями, что может привести к ошибкам в дальнейшем.
 
 ### Запуск службы запросов
 
-``` export DB_HOST=localhost subql-query --name <project_name> --playground ````
+```
+export DB_HOST=localhost
+subql-query --name <project_name> --playground
+```
 
 Убедитесь, что имя проекта совпадает с именем проекта при [ инициализации проекта ](../quickstart/quickstart-polkadot.md#initialise-the-starter-subquery-project). Также проверьте правильность переменных среды.
 

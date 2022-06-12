@@ -291,6 +291,10 @@ subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot
 
 SubQueryのインデックスサービスがバインドするポート。 デフォルトでは `3000`に設定されています
 
+### --disable-historical
+
+Disables automated historical state tracking, [see Historic State Tracking](./historical.md). By default this is set to `false`.
+
 ## subql-query
 
 ### --help

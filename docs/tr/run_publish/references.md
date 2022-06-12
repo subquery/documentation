@@ -291,6 +291,10 @@ subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot
 
 Alt sorgu dizin oluşturma hizmetinin bağlandığı bağlantı noktası. Varsayılan olarak bu, `3000` olarak ayarlanmıştır
 
+### --disable-tarihsel
+
+Otomatik geçmiş durum izlemeyi devre dışı bırakır, [Tarihi Durum İzlemeye](./historical.md) bakın. Varsayılan olarak bu, `false` olarak ayarlanmıştır.
+
 ## subql-query
 
 ### --help

@@ -291,6 +291,10 @@ batchSize: 55 // Додаткова конфігурація
 
 Порт, до якого прив’язується служба індексування subquery. За замовчуванням для нього встановлено значення `3000`
 
+### --disable-historical
+
+Disables automated historical state tracking, [see Historic State Tracking](./historical.md). By default this is set to `false`.
+
 ## subql-query
 
 ### --допомогти
@@ -349,11 +353,11 @@ batchSize: 55 // Додаткова конфігурація
 
 ### --output-fmt
 
-Дивіться [--output-fmt](https://doc.subquery.network/run_publish/references.html#output-fmt)
+See [--output-fmt](https://doc.subquery.network/run_publish/references.html#output-fmt)
 
 ### --log-рівень
 
-Дивіться [--log-level](https://doc.subquery.network/run_publish/references.html#log-level)
+See [--log-level](https://doc.subquery.network/run_publish/references.html#log-level)
 
 ### --log-шлях
 
@@ -369,13 +373,13 @@ batchSize: 55 // Додаткова конфігурація
 
 ### --підписка
 
-Цей прапор включає [Підписки GraphQL](./subscription.md), щоб увімкнути цю функцію, потрібно `subql-node` також увімкнути `--subscription`
+This flag enables [GraphQL Subscriptions](./subscription.md), to enable this feature requires `subql-node` also enable `--subscription`
 
 ### --unsafe
 
 Служба запитів має обмеження в 100 сутностей для необмежених запитів graphql. Прапор небезпечного знімає це обмеження, що може спричинити проблеми з продуктивністю служби запитів. Натомість рекомендується [розбити на сторінки](https://graphql.org/learn/pagination/) запити.
 
-Этот флаг позволяет использовать некоторые функции агрегирования, включая sum, max, avg и другие. Дізнайтеся більше про цю функцію [тут](./aggregate.md)
+This flag enables certain aggregation functions including sum, max, avg and others. Read more about this feature [here](./aggregate.md)
 
 Вони вимкнені за замовчуванням через обмеження об’єктів.
 

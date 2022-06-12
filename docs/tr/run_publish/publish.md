@@ -73,9 +73,9 @@ Başarıyla dağıtılırsa, dizinleyicinin çalışmaya başladığını görü
 
 Dağıtımınız başarıyla tamamlandıktan ve node'larımız zincirdeki verilerinizi dizine ekledikten sonra, görüntülenen GraphQL Query uç noktası aracılığıyla projenize bağlanabileceksiniz.
 
-![Proje dağıtılıyor ve senkronize ediliyor](/assets/img/projects-deploy-sync.png)
+![Projenize yeni sürümü dağıtın](/assets/img/projects-deploy-sync.png)
 
-Alternatif olarak, projenizin başlığının yanında bulunan üç noktaya tıklayabilir ve projenizi SubQuery Explorer'da görüntüleyebilirsiniz. Burada başlamak için tarayıcı içi oyun alanını kullanabilirsiniz - [ Explorer'ımızı nasıl kullanacağınız hakkında daha fazla](../query/query.md).
+Alternatif olarak, projenizin başlığının yanında bulunan üç noktaya tıklayabilir ve onu SubQuery Explorer'da görüntüleyebilirsiniz. There you can use the in-browser playground to get started - [read more about how to use our Explorer here](../run_publish/query.md).
 
 ![SubQuery Explorer'deki Projeler](/assets/img/projects-explorer.png)
 

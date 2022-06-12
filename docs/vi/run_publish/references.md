@@ -292,6 +292,10 @@ subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot
 
 Cổng liên kết dịch vụ lập chỉ mục subquery. Mặc định nó được đặt là `3000`
 
+### --disable-historical
+
+Vô hiệu hóa theo dõi trạng thái lịch sử tự động, [xem Theo dõi trạng thái lịch sử](./historical.md). Mặc định nó được đặt là `false`.
+
 ## subql-query
 
 ### --help
@@ -371,7 +375,7 @@ Cho phép luân phiên tệp nhật ký với tùy chọn khoảng thời gian l
 
 ### --subscription
 
-Cờ này kích hoạt [Các theo dõi GraphQL](./subscription.md), để kích hoạt tính năng này yêu cầu `subql-node` cũng phải bật `--subscription`
+Cờ này kích hoạt [Theo dõi GraphQL](./subscription.md), để kích hoạt tính năng này yêu cầu `subql-node` cũng phải bật `--subscription`
 
 ### --unsafe
 

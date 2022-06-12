@@ -86,6 +86,7 @@ module.exports = config({
     */
   },
   themeConfig: {
+    hostname: "https://doc.subquery.network",
     cleanUrl: false,
     pwa: false,
     logo: "/assets/img/logo.png",

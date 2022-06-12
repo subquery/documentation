@@ -1,8 +1,8 @@
 # SubQuery プロジェクトを公開する
 
-## SubQuery でプロジェクトをホスティングするメリット
+## SubQueryでプロジェクトをホスティングするメリット
 
-- SubQuery プロジェクトを高性能、スケーラブル、かつ管理されたパブリックサービスで実行します。
+- SubQueryプロジェクトを高性能、スケーラブル、かつ管理されたパブリックサービスで実行します。
 - このサービスは無料でコミュニティに提供されています！
 - [SubQuery Explorer](https://explorer.subquery.network) にリストされ、世界中の誰でもそれらを表示できるようにプロジェクトを公開することができます。
 - GitHub と統合されているので、GitHub チーム内の誰でも共有プロジェクトを閲覧することができます。
@@ -71,11 +71,11 @@ GitHub Organizationのアカウントを接続している場合、ヘッダー�
 
 ## 次のステップ - プロジェクトに接続
 
-デプロイが正常に完了し、ノードがチェーンからデータのインデックスを作成したら、表示された GraphQL クエリエンドポイントからプロジェクトに接続することができるようになります。
+デプロイが正常に完了し、ノードがチェーンからデータのインデックスを作成したら、表示されたGraphQLクエリエンドポイントからプロジェクトに接続することができるようになります。
 
 ![プロジェクトを展開および同期する](/assets/img/projects-deploy-sync.png)
 
-または、プロジェクトのタイトルの横にある3つの点をクリックして、SubQuery Explorer で表示することもできます。 ブラウザ内のプレイグラウンドを使用して始めることができます - [エクスプローラの使い方についてはこちら](../query/query.md) をご覧ください。
+または、プロジェクトのタイトルの横にある3つの点をクリックして、SubQuery Explorer で表示することもできます。 There you can use the in-browser playground to get started - [read more about how to use our Explorer here](../run_publish/query.md).
 
 ![SubQuery Explorer のプロジェクト](/assets/img/projects-explorer.png)
 

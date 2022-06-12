@@ -11,7 +11,7 @@ Bien que vous ayez la liberté de toujours mettre à jour et de déployer de nou
 
 Connectez-vous à SubQuery Project et sélectionnez le projet dont vous souhaitez déployer une nouvelle version. Vous pouvez choisir de déployer sur l'emplacement de production ou de mise en scène. Ces deux créneaux sont des environnements isolés et chacun possède ses propres bases de données et se synchronise indépendamment.
 
-Nous vous recommandons de déployer sur votre emplacement de transit uniquement pour les tests finaux de transit ou lorsque vous devez resynchroniser les données de votre projet. Vous pouvez ensuite le mettre en production sans aucun temps d'arrêt. Vous constaterez que les tests sont plus rapides lorsque [qu'un projet est exécuté localement](../run_publish/run.md) comme ça vous pouvez plus [facilement déboguer les problèmes](../academy/tutorials_examples/debug-projects.md).
+Nous vous recommandons de déployer sur votre emplacement de transit uniquement pour les tests finaux de transit ou lorsque vous devez resynchroniser les données de votre projet. Vous pouvez ensuite le mettre en production sans aucun temps d'arrêt. You will find testing is faster when [running a project locally](../run_publish/run.md) as you can more [easily debug issues](../academy/tutorials_examples/debug-projects.md).
 
 Le staging slot, emplacement de mise à disposition, est parfait pour :
 
@@ -35,4 +35,4 @@ Une fois que votre déploiement a été effectué avec succès et que nos nœuds
 
 ![Projet en cours de déploiement et de synchronisation](/assets/img/projects-deploy-sync.png)
 
-Vous pouvez également cliquer sur les trois points situés à côté du titre de votre projet, et le visualiser dans l'explorateur de SubQuery. Là, vous pouvez utiliser le playground dans le navigateur pour commencer - [lire plus sur la façon d'utiliser notre Explorer ici](../run_publish/query.md).
+Vous pouvez également cliquer sur les trois points situés à côté du titre de votre projet, et le visualiser dans l'explorateur de SubQuery. There you can use the in browser playground to get started - [read more about how to user our Explorer here](../run_publish/query.md).

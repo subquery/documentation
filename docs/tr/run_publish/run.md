@@ -20,50 +20,105 @@ Gereksinim -leri:
 
 - [Postgres](https://www.postgresql.org/) database (sürüm 12 veya üstü). [SubQuery node](#start-a-local-subquery-node) blok zincirini dizine alırken, çıkarılan veriler harici bir veritabanı örneğinde depolanır.
 
-SubQuery düğümü, SubQuery projesi başına substrat tabanlı blok zinciri verilerini ayıklayan ve postgres veritabanına kaydeden bir uygulamadır.
+Bir SubQuery düğümü, SubQuery projesi başına Substrate/Polkadot tabanlı blok zinciri verilerini çıkaran ve bir Postgres veritabanına kaydeden bir uygulamadır.
 
 ### Kurma
 
-```shell
+<CodeGroup>
+<CodeGroupItem title='Substrate/Polkadot'>
+
+``` shell
 # NPM
 npm install -g @subql/node
 ```
 
-Lütfen **YAPAMAZ**, zayıf bağımlılık yönetimi nedeniyle `yarn global` kullanımını teşvik ettiğimizi ve bunun da bir hataya yol açabileceğini unutmayın.
+</CodeGroupItem>
+<CodeGroupItem title='Terra'>
+
+``` shell
+# NPM
+npm install -g @subql/node-terra
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Avalanche'>
+
+``` shell
+# NPM
+npm install -g @subql/node-avalanche
+````
+
+</CodeGroupItem>
+</CodeGroup>
+
+Please note that we **DO NOT** encourage the use of `yarn global` due to its poor dependency management which may lead to an errors down the line.
 
 Yüklendikten sonra, aşağıdaki komutla bir düğüm başlatabilirsiniz:
 
+
+<CodeGroup> </CodeGroupItem>
+<CodeGroupItem title='Avalanche'>
+
 ```shell
-subql-node <command>
+subql-node-avalanche <command> 
 ```
 
-### Anahtar Komutlar
+</CodeGroupItem>
+</CodeGroup>
 
-Aşağıdaki komutlar, bir SubQuery node yapılandırmasını tamamlamanıza ve dizine eksemeye başlamanıza yardımcı olur. Daha fazla şey öğrenmek için her zaman `--help` çalıştırabilirsiniz.
+### Key Commands
+
+The following commands will assist you to complete the configuration of a SubQuery node and begin indexing. Daha fazla şey öğrenmek için her zaman `--help` çalıştırabilirsiniz.
 
 #### Yerel proje yolunun göster
 
+<CodeGroup> </CodeGroupItem>
+<CodeGroupItem title='Avalanche'>
+
+```shell
+subql-node-avalanche -f your-project-path
 ```
-subql-node -f your-project-path
-```
 
-#### Sözlük Kullanma
+</CodeGroupItem>
+</CodeGroup>
 
-Tam zincir sözlüğü kullanmak, test sırasında veya ilk dizininiz sırasında bir SubQuery projesinin işlenmesini önemli ölçüde hızlandırabilir. Bazı durumlarda, 10 kata kadar endeksleme performansı artışları gördük.
+#### Use a Dictionary
 
-Tam zincir sözlüğü, belirli bir zincir içindeki tüm olayların ve dışsal öğelerin konumunu önceden dizine dizine işaretler ve düğüm hizmetinizin her bloğu incelemek yerine dizine alırken ilgili konumlara atlamasını sağlar.
+Using a full chain dictionary can dramatically speed up the processing of a SubQuery project during testing or during your first index. Bazı durumlarda, dizine ekleme performansında 10 kata kadar artışlar gördük.
 
-Sözlük uç noktasını `project.yaml` dosyanıza ekleyebilirsiniz (bkz. [Manifest File](../create/manifest.md)) veya aşağıdaki komutu kullanarak çalışma zamanında belirtebilirsiniz:
+Tam zincir sözlüğü, belirli zincir içindeki tüm olayların ve dışsal öğelerin konumunu önceden endeksler ve düğüm hizmetinizin, dizin oluştururken her bloğu incelemek yerine ilgili konumlara atlamasına olanak tanır.
 
-```
+Sözlük bitiş noktasını `project.yaml` dosyanıza ekleyebilir (bkz. [Manifest File](../create/manifest.md)) veya aşağıdaki komutu kullanarak çalışma zamanında belirtebilirsiniz:
+
+<CodeGroup>
+<CodeGroupItem title='Substrate/Polkadot/Polkadot'>
+
+```shell
 subql-node --network-dictionary=https://api.subquery.network/sq/subquery/dictionary-polkadot
 ```
 
-[ SubQuery Sözlüğü'nün nasıl çalıştığı hakkında daha fazla şey ](../academy/tutorials_examples/dictionary.md).
+</CodeGroupItem>
+<CodeGroupItem title='Terra'>
 
-#### Veritabanına bağlanma
-
+```shell
+subql-node-terra --network-dictionary=https://api.subquery.network/sq/subquery/terra-columbus-5-dictionary
 ```
+
+</CodeGroupItem>
+<CodeGroupItem title='Avalanche'>
+
+```shell
+subql-node-avalanche --network-dictionary=https://api.subquery.network/sq/subquery/avalanche-dictionary
+```
+
+</CodeGroupItem>
+</CodeGroup>
+
+[Read more about how a SubQuery Dictionary works](../academy/tutorials_examples/dictionary.md).
+
+#### Connect to database
+
+```shell
 export DB_USER=postgres
 export DB_PASS=postgres
 export DB_DATABASE=postgres
@@ -72,26 +127,46 @@ export DB_PORT=5432
 subql-node -f your-project-path
 ```
 
-Postgres veritabanınızın yapılandırmasına (örneğin, farklı bir veritabanı parolası) bağlı olarak, lütfen hem dizin oluşturucunun ('subql/node') hem de sorgu hizmetinin ('subql/query') ona bir bağlantı kurabildiğinden emin olun.
+Postgres veritabanınızın yapılandırmasına bağlı olarak (ör. farklı bir veritabanı parolası), lütfen hem dizinleyicinin (`subql/node`) hem de sorgu hizmetinin (`subql/query`) ile bağlantı kurabilir.
 
 #### Yapılandırma dosyası belirtme
 
-```
-subql-node -c projeniz-config.yml
+<CodeGroup>
+<CodeGroupItem title='Substrate/Polkadot'>
+
+```shell
+subql-node -c your-project-config.yml
 ```
 
-Bu, query node YAML veya JSON biçiminde olabilecek bir yapılandırma dosyasına yönlendirecektir. Lütfen aşağıdaki örneğe bakın.
+</CodeGroupItem>
+<CodeGroupItem title='Terra'>
+
+```shell
+subql-node-terra -c your-project-config.yml
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Avalanche'>
+
+```shell
+subql-node-avalanche -c your-project-config.yml
+```
+
+</CodeGroupItem>
+</CodeGroup>
+
+This will point the query node to a configuration file which can be in YAML or JSON format. Aşağıdaki örneğe göz atın.
 
 ```yaml
 subquery: ../../../../subql-example/extrinsics
 subqueryName: extrinsics
-batchSize:100
-localMode:true
+partiBoyutu:100
+localMode:doğru
 ```
 
 #### Blok getirme toplu iş boyutunu değiştirme
 
-```
+```shell
 subql-node -f your-project-path --batch-size 200
 
 Result:
@@ -103,11 +178,31 @@ Dizinleyici zinciri ilk dizine aldığında, tek blokları getirmek performansı
 
 #### Yerel mod
 
-```
+<CodeGroup>
+<CodeGroupItem title='Substrate/Polkadot'>
+
+```shell
 subql-node -f your-project-path --local
 ```
 
-Hata ayıklama amacıyla, kullanıcılar düğümü yerel modda çalıştırabilir. Yerel modele geçiş, varsayılan şemada postgres tabloları `public` oluşturur.
+</CodeGroupItem>
+<CodeGroupItem title='Terra'>
+
+```shell
+subql-node-terra -f your-project-path --local
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Avalanche'>
+
+```shell
+subql-node-avalanche -f your-project-path --local
+```
+
+</CodeGroupItem>
+</CodeGroup>
+
+For debugging purposes, users can run the node in local mode. Yerel modele geçiş, varsayılan şemada postgres tabloları `public` oluşturur.
 
 Yerel mod kullanılmazsa, ilk `subquery_` ve karşılık gelen proje tablolarına sahip yeni bir Postgres şeması oluşturulur.
 
@@ -170,7 +265,7 @@ Aşağıdaki komutu çalıştırmak için [node inspector](https://nodejs.org/en
 node --inspect-brk <path to subql-node> -f <path to subQuery project>
 ```
 
-Örneğin:
+Mesela:
 
 ```shell
 node --inspect-brk /usr/local/bin/subql-node -f ~/Code/subQuery/projects/subql-helloworld/
@@ -179,7 +274,7 @@ For help, see: https://nodejs.org/en/docs/inspector
 Debugger attached.
 ```
 
-Ardından Chrome geliştirme araçlarını açın, Kaynak > Dosya sistemi menüsüne gidin, projenizi çalışma alanına ekleyin ve hataları ayıklamaya başlayın. Daha fazla bilgi için, kontrol edin [Bir SubQuery projesinde hatalar nasıl ayıklanır](https://doc.subquery.network/academy/tutorials_examples/debug-projects/)
+Ardından Chrome geliştirme araçlarını açın, Kaynak > Dosya sistemi menüsüne gidin, projenizi çalışma alanına ekleyin ve hataları ayıklamaya başlayın. Daha fazla bilgi için, kontrol edin [Bir SubQuery projesinde nasıl hata ayıklanır](https://doc.subquery.network/academy/tutorials_examples/debug-projects/)
 
 ## Sorgu Hizmeti Çalıştırma (altql/query)
 
@@ -190,11 +285,14 @@ Ardından Chrome geliştirme araçlarını açın, Kaynak > Dosya sistemi menüs
 npm install -g @subql/query
 ```
 
-Lütfen **DO NOT**, zayıf bağımlılık yönetimi nedeniyle `yarn global` kullanımını teşvik ettiğimizi ve bunun da bir hataya yol açabileceğini unutmayın.
+Lütfen **YAPAMAZ**, zayıf bağımlılık yönetimi nedeniyle `yarn global` kullanımını teşvik ettiğimizi ve bunun da bir hataya yol açabileceğini unutmayın.
 
 ### Sorgu Hizmeti Çalıştırma
 
-export DB_HOST=localhost subql-query --name <project_name> --playground ````
+```
+export DB_HOST=localhost
+subql-query --name <project_name> --playground
+```
 
 Projeyi [initialize the project](../quickstart/quickstart-polkadot.md#initialise-the-starter-subquery-project) proje adıyla aynı olduğundan emin olun. Ayrıca, ortam değişkenlerinin doğru olup olmadığını denetleyin.
 

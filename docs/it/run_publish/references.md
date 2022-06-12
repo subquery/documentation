@@ -21,7 +21,7 @@ COMMANDS
 
 This command is uses webpack to generate a bundle of a subquery project.
 
-| Options            | Description                                                                                                |
+| Options            | Descrizione                                                                                                |
 | ------------------ | ---------------------------------------------------------------------------------------------------------- |
 | -l, --location     | local folder of subquery project (if not in folder already)                                                |
 | -o, --output       | specify output folder of build e.g. build-folder                                                           |
@@ -290,6 +290,10 @@ subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot
 ### -p, --port
 
 The port the subquery indexing service binds to. By default this is set to `3000`
+
+### --disable-historical
+
+Disables automated historical state tracking, [see Historic State Tracking](./historical.md). By default this is set to `false`.
 
 ## subql-query
 
