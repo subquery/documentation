@@ -6,7 +6,7 @@
 
 我们运行的第一个命令是 `subql init --starter subqlHelloWorld`。
 
-这个指令完成了繁重的工作，并为您创建了一大堆文件。 正如 [official documentation](quickstart.md#configure-and-build-the-starter-project)中所指出的那样，您将主要处理以下文件：
+这个指令完成了繁重的工作，并为您创建了一大堆文件。 正如 [official documentation](quickstart-polkadot.md#configure-and-build-the-starter-project)中所指出的那样，您将主要处理以下文件：
 
 - `project.yaml`中的清单
 - `schema.graphql`中的 GraphQL 架构

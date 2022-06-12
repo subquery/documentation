@@ -6,7 +6,7 @@
 
 Çalıştırdığımız ilk komut `subql init --starter subqlHelloWorld` idi.
 
-Bu ağır kaldırma yapar ve sizin için bir sürü dosya oluşturur. [official documentation](quickstart.md#configure-and-build-the-starter-project) belirtildiği gibi, esas olarak aşağıdaki dosyalar üzerinde çalışacaksınız:
+Bu ağır kaldırma yapar ve sizin için bir sürü dosya oluşturur. [official documentation](quickstart-polkadot.md#configure-and-build-the-starter-project) belirtildiği gibi, esas olarak aşağıdaki dosyalar üzerinde çalışacaksınız:
 
 - The Manifest in `project.yaml`
 - `schema.graphql`'daki GraphQL Şeması

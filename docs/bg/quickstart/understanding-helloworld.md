@@ -6,7 +6,7 @@
 
 Тази команда я стартираме с `subql init subqlHelloWorld`.
 
-Тя прави вместо вас тежката работа и създава цял куп файлове за вас. Както е отбелязано в[официалната документация](quickstart.md#configure-and-build-the-starter-project), основно ще работите със следните файлове:
+Тя прави вместо вас тежката работа и създава цял куп файлове за вас. Както е отбелязано в[официалната документация](quickstart-polkadot.md#configure-and-build-the-starter-project), основно ще работите със следните файлове:
 
 - Манифест в `project.yaml`
 - GraphQL Schema в `schema.graphql`

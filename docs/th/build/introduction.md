@@ -1,16 +1,16 @@
 # การสร้างโปรเจกต์ของ SubQuery
 
-ในคู่มือ [quick start](/quickstart/quickstart.md) เราจะมีตัวอย่างอธิบายแบบเร็วๆ เพื่อให้รู้ถึงความหมายของ SubQuery และเข้าใจวิธีการทำงานของมัน ในส่วนนี้ เราจะพามาดูขั้นตอนการสร้างโปรเจกต์ของคุณและไฟล์สำคัญที่คุณจะต้องใช้ในขั้นตอนนี้
+ในคู่มือ [quick start](/quickstart/quickstart-polkadot.md) เราจะมีตัวอย่างอธิบายแบบเร็วๆ เพื่อให้รู้ถึงความหมายของ SubQuery และเข้าใจวิธีการทำงานของมัน ในส่วนนี้ เราจะพามาดูขั้นตอนการสร้างโปรเจกต์ของคุณและไฟล์สำคัญที่คุณจะต้องใช้ในขั้นตอนนี้
 
 ## ขั้นตอนการทำงานเบื้องต้น
 
-ในตัวอย่างบางส่วน จะสมมติว่าคุณได้เริ่มต้นแพ็คเกจในส่วนของ [Quick start](../quickstart/quickstart.md) สำเร็จแล้ว จากแพ็คเกจเริ่มต้น เราจะพาคุณดูขั้นตอนมาตรฐานเพื่อใช้ในการปรับแต่ง และใช้งานโปรเจกต์ SubQuery ของคุณ
+ในตัวอย่างบางส่วน จะสมมติว่าคุณได้เริ่มต้นแพ็คเกจในส่วนของ [Quick start](../quickstart/quickstart-polkadot.md) สำเร็จแล้ว จากแพ็คเกจเริ่มต้น เราจะพาคุณดูขั้นตอนมาตรฐานเพื่อใช้ในการปรับแต่ง และใช้งานโปรเจกต์ SubQuery ของคุณ
 
 1. เริ่มโปรเจกต์ของคุณโดยใช้คำสั่ง `subql init PROJECT_NAME`.
 2. อัพเดท Manifest File (`project.yaml`) เพื่อใส่ข้อมูลที่เกี่ยวกับ Blockchain และ Entity ที่คุณจะทำการ Map โปรดดูที่ [Manifest File](./manifest.md)
 3. สร้าง Entity ของ GraphQL ภายใน Schema ของคุณ (`schema.graphql`) เพื่อกำหนดโครงสร้างของข้อมูลที่คุณจะดึงข้อมูลออกมา โปรดดูที่ [GraphQL Schema](./graphql.md)
 4. เพิ่ม Mapping Function ทั้งหมด (ตัวอย่าง `mappingHandlers.ts`) ที่คุณจะเรียกใช้เพื่อแปลงข้อมูลที่อยู่บน Chain ให้เป็นของ Entity ของ GraphQL ที่คุณได้กำหนดไว้ โปรดดูที่ [Mapping](./mapping.md)
-5. การสร้างและเผยแพร่โค้ดของคุณไปยังโปรเจกต์ SubQuery (หรือรันอยู่บนโหนดของคุณเอง) โปรดดูที่ [Running and Querying your Starter Project](./quickstart.md#running-and-querying-your-starter-project) ที่อยู่ใน Quick Start Guide
+5. การสร้างและเผยแพร่โค้ดของคุณไปยังโปรเจกต์ SubQuery (หรือรันอยู่บนโหนดของคุณเอง) โปรดดูที่ [Running and Querying your Starter Project](./quickstart-polkadot.md#running-and-querying-your-starter-project) ที่อยู่ใน Quick Start Guide
 
 ## โครงสร้างของไดเร็กทอรี (Directory Structure)
 

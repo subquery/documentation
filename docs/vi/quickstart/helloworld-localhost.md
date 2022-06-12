@@ -54,7 +54,7 @@ My docker version is: Docker version 20.10.5, build 55c4c88
 Nếu bạn đạt được những điều trên, thì bạn đã tốt để tiếp tục. Nếu không, hãy nhấp vào các liên kết sau để cài đặt chúng:
 
 - [yarn](https://classic.yarnpkg.com/en/docs/install/) hoặc [npm](https://www.npmjs.com/get-npm)
-- [SubQuery CLI](quickstart.md#install-the-subquery-cli)
+- [SubQuery CLI](quickstart-polkadot.md#install-the-subquery-cli)
 - [Docker](https://docs.docker.com/get-docker/)
 
 ## 1. Khởi tạo dự án

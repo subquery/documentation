@@ -6,52 +6,151 @@ Mapping functions define how chain data is transformed into the optimised GraphQ
 - These mappings are also exported in `src/index.ts`
 - The mappings files are reference in `project.yaml` under the mapping handlers.
 
-There are three classes of mappings functions; [Block handlers](#block-handler), [Event Handlers](#event-handler), and [Call Handlers](#call-handler).
+There are different classes of mappings functions depending on the network you are indexing; [Block handlers](#block-handler), [Event Handlers](#event-handler), [Call Handlers](#call-handler), [Log Handlers](#log-handler), [Transaction Handlers](#transaction-handler), and [Message Handlers](#message-handler).
 
 ## Block Handler
 
-You can use block handlers to capture information each time a new block is attached to the Substrate chain, e.g. block number. To achieve this, a defined BlockHandler will be called once for every block.
+You can use block handlers to capture information each time a new block is attached to the chain, e.g. block number. To achieve this, a defined BlockHandler will be called once for every block.
+
+<CodeGroup>
+<CodeGroupItem title="Substrate/Polkadot" active>
 
 ```ts
-import {SubstrateBlock} from "@subql/types";
+import { SubstrateBlock } from "@subql/types";
 
 export async function handleBlock(block: SubstrateBlock): Promise<void> {
-    // Create a new StarterEntity with the block hash as it's ID
-    const record = new starterEntity(block.block.header.hash.toString());
-    record.field1 = block.block.header.number.toNumber();
+  // Create a new BlockEntity with the block hash as it's ID
+  const record = new BlockEntity(block.block.header.hash.toString());
+  record.field1 = block.block.header.number.toNumber();
+  await record.save();
+}
+```
+
+</CodeGroupItem>
+<CodeGroupItem title="Avalanche">
+
+```ts
+import { AvalancheBlock } from "@subql/types-avalanche";
+
+export async function handleBlock(block: AvalancheBlock): Promise<void> {
+  // Create a new BlockEntity with the block hash as it's ID
+  const record = new BlockEntity(block.hash);
+  record.height = BigInt(block.number);
+  await record.save();
+}
+```
+
+</CodeGroupItem>
+<CodeGroupItem title="Cosmos">
+
+```ts
+import { CosmosBlock } from "@subql/types-cosmos";
+
+export async function handleBlock(block: CosmosBlock): Promise<void> {
+  // Create a new BlockEntity with the block hash as it's ID
+  const record = new BlockEntity(block.block.block_id.hash);
+  record.height = BigInt(block.block.block.header.height);
+  await record.save();
+}
+```
+
+</CodeGroupItem>
+<CodeGroupItem title="Terra">
+
+```ts
+import { TerraBlock } from "@subql/types-terra";
+
+export async function handleBlock(block: TerraBlock): Promise<void> {
+  // Create a new BlockEntity with the block hash as it's ID
+  const record = new BlockEntity(block.block.block_id.hash);
+  record.height = BigInt(block.block.block.header.height);
+  await record.save();
+}
+```
+
+</CodeGroupItem>
+</CodeGroup>
+
+A SubstrateBlock is an extended interface type of [signedBlock](https://polkadot.js.org/docs/api/cookbook/blocks/), but also includes the `specVersion` and `timestamp`.
+
+A Cosmos block is a TODO
+
+A TerraBlock is an extended interface type of [Terra.js](https://docs.terra.money/docs/develop/sdks/terra-js/README.html) BlockInfo, but also encapsulates the BlockInfo and TxInfo of all transactions in the block.
+
+An AvalancheBlock encapsulates all transactions and events in the block.
+
+## Event Handler
+
+You can use event handlers to capture information when certain events are included on a new block. The events that are part of the default runtime and a block may contain multiple events.
+
+During the processing, the event handler will receive an event as an argument with the event's typed inputs and outputs. Any type of event will trigger the mapping, allowing activity with the data source to be captured. You should use [Mapping Filters](./manifest.md#mapping-filters) in your manifest to filter events to reduce the time it takes to index data and improve mapping performance.
+
+<CodeGroup>
+<CodeGroupItem title="Substrate/Polkadot" active>
+
+```ts
+import { SubstrateEvent } from "@subql/types";
+
+export async function handleEvent(event: SubstrateEvent): Promise<void> {
+    const {event: {data: [account, balance]}} = event;
+    const record = new EventEntity(event.extrinsic.block.block.header.hash.toString());
+    record.field2 = account.toString();
+    record.field3 = (balance as Balance).toBigInt();
     await record.save();
 }
 ```
 
-A [SubstrateBlock](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L16) is an extended interface type of [signedBlock](https://polkadot.js.org/docs/api/cookbook/blocks/), but also includes the `specVersion` and `timestamp`.
-
-## Event Handler
-
-You can use event handlers to capture information when certain events are included on a new block. The events that are part of the default Substrate runtime and a block may contain multiple events.
-
-During the processing, the event handler will receive a substrate event as an argument with the event's typed inputs and outputs. Any type of event will trigger the mapping, allowing activity with the data source to be captured. You should use [Mapping Filters](./manifest.md#mapping-filters) in your manifest to filter events to reduce the time it takes to index data and improve mapping performance.
+</CodeGroupItem>
+<CodeGroupItem title="Cosmos">
 
 ```ts
-import {SubstrateEvent} from "@subql/types";
+import { CosmosEvent } from "@subql/types-cosmos";
 
-export async function handleEvent(event: SubstrateEvent): Promise<void> {
-    const {event: {data: [account, balance]}} = event;
-    // Retrieve the record by its ID
-    const record = new starterEntity(event.extrinsic.block.block.header.hash.toString());
-    record.field2 = account.toString();
-    record.field3 = (balance as Balance).toBigInt();
-    await record.save();
+export async function handleEvent(event: CosmosEvent): Promise<void> {
+  const record = new EventEntity(
+    `${event.tx.tx.txhash}-${event.msg.idx}-${event.idx}`
+  );
+  record.blockHeight = BigInt(event.block.block.block.header.height);
+  record.txHash = event.tx.tx.txhash;
+  await record.save();
+}
 ```
 
-A [SubstrateEvent](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L30) is an extended interface type of the [EventRecord](https://github.com/polkadot-js/api/blob/f0ce53f5a5e1e5a77cc01bf7f9ddb7fcf8546d11/packages/types/src/interfaces/system/types.ts#L149). Besides the event data, it also includes an `id` (the block to which this event belongs) and the extrinsic inside of this block.
+</CodeGroupItem>
+<CodeGroupItem title="Terra">
+
+```ts
+import { TerraEvent } from "@subql/types-terra";
+import { MsgExecuteContract } from "@terra-money/terra.js";
+
+export async function handleEvent(
+  event: TerraEvent<MsgExecuteContract>
+): Promise<void> {
+  const record = new EventEntity(
+    `${event.tx.tx.txhash}-${event.msg.idx}-${event.idx}`
+  );
+  record.blockHeight = BigInt(event.block.block.block.header.height);
+  record.txHash = event.tx.tx.txhash;
+  await record.save();
+}
+```
+
+</CodeGroupItem>
+</CodeGroup>
+
+A SubstrateEvent is an extended interface type of the [EventRecord](https://github.com/polkadot-js/api/blob/f0ce53f5a5e1e5a77cc01bf7f9ddb7fcf8546d11/packages/types/src/interfaces/system/types.ts#L149). Besides the event data, it also includes an `id` (the block to which this event belongs) and the extrinsic inside of this block.
+
+An AvalancheEvent encapsulates Event data and Transaction/Block information corresponding to the event.
+
+A CosmosEvent/TerraEvent encapsulates Event data and TxLog corresponding to the event. It also contains CosmosMessage/TerraMessage data of the message connected to the event. Also, it includes the CosmosBlock/TerraBlock and CosmosTransaction/TerraTransaction data of the block and transaction from which the event was emitted.
 
 ## Call Handler
 
-Call handlers are used when you want to capture information on certain substrate extrinsics.
+Call handlers (Substrate/Polkadot only) are used when you want to capture information on certain substrate extrinsics. You should use [Mapping Filters](./manifest.md#mapping-filters) in your manifest to filter calls to reduce the time it takes to index data and improve mapping performance.
 
 ```ts
 export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
-    const record = new starterEntity(extrinsic.block.block.header.hash.toString());
+    const record = new CallEntity(extrinsic.block.block.header.hash.toString());
     record.field4 = extrinsic.block.timestamp;
     await record.save();
 }
@@ -59,7 +158,174 @@ export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
 
 The [SubstrateExtrinsic](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L21) extends [GenericExtrinsic](https://github.com/polkadot-js/api/blob/a9c9fb5769dec7ada8612d6068cf69de04aa15ed/packages/types/src/extrinsic/Extrinsic.ts#L170). It is assigned an `id` (the block to which this extrinsic belongs) and provides an extrinsic property that extends the events among this block. Additionally, it records the success status of this extrinsic.
 
-## Query States
+## Log Handler
+
+You can use log handlers (Avalanche only) to capture information when certain logs are included on transactions. During the processing, the log handler will receive a log as an argument with the log's typed inputs and outputs. Any type of event will trigger the mapping, allowing activity with the data source to be captured. You should use [Mapping Filters](./manifest.md#mapping-filters) in your manifest to filter events to reduce the time it takes to index data and improve mapping performance.
+
+```ts
+import { AvalancheLog } from "@subql/types-avalanche";
+
+export async function handleLog(event: AvalancheLog): Promise<void> {
+  const record = new EventEntity(
+    `${event.blockHash}-${event.logIndex}`
+  );
+  record.blockHeight = BigInt(event.blockNumber);
+  record.topics = event.topics; // Array of strings
+  record.data = event.data;
+  await record.save();
+}
+```
+
+## Transaction Handler
+
+You can use transaction handlers (Avalanche and Terra only) to capture information about each of the transactions in a block. To achieve this, a defined TransactionHandler will be called once for every transaction. You should use [Mapping Filters](./manifest.md#mapping-filters) in your manifest to filter transactions to reduce the time it takes to index data and improve mapping performance.
+
+<CodeGroup>
+<CodeGroupItem title="Avalanche" active>
+
+```ts
+import { AvalancheTransaction } from "@subql/types";
+
+export async function handleTransaction(tx: AvalancheTransaction): Promise<void> {
+  const record = new TransactionEntity(
+    `${transaction.blockHash}-${transaction.hash}`
+  );
+  record.blockHeight = BigInt(tx.blockNumber);
+  record.from = tx.from;
+  record.to = tx.to;
+  record.value = tx.value;
+  await record.save();
+}
+```
+
+</CodeGroupItem>
+<CodeGroupItem title="Cosmos">
+
+```ts
+import { CosmosTransaction } from "@subql/types-cosmos";
+
+export async function handleTransaction(tx: CosmosTransaction): Promise<void> {
+  const record = new TransactionEntity(tx.tx.txhash);
+  record.blockHeight = BigInt(tx.block.block.block.header.height);
+  record.timestamp = tx.block.block.header.time;
+  await record.save();
+}
+```
+
+</CodeGroupItem>
+<CodeGroupItem title="Terra">
+
+```ts
+import { TerraTransaction } from "@subql/types-terra";
+
+export async function handleTransaction(tx: TerraTransaction): Promise<void> {
+  const record = new TransactionEntity(tx.tx.txhash);
+  record.blockHeight = BigInt(tx.block.block.block.header.height);
+  record.timestamp = tx.tx.timestamp;
+  await record.save();
+}
+```
+
+</CodeGroupItem>
+</CodeGroup>
+
+The CosmosTransaction/TerraTransaction encapsulates TxInfo and the corresponding CosmosBlock/TerraBlock in which the transaction occured.
+
+The AvalancheTransaction encapsulates TxInfo and the corresponding block information in which the transaction occured.
+
+## Message Handler
+
+You can use message handlers to capture information from each message in a transaction. To achieve this, a defined MessageHandler will be called once for every message. You should use [Mapping Filters](./manifest.md#mapping-filters) in your manifest to filter messages to reduce the time it takes to index data and improve mapping performance.
+
+<CodeGroup>
+<CodeGroupItem title="Cosmos">
+
+```ts
+import { CosmosMessage } from "@subql/types-cosmos";
+
+export async function handleMessage(msg: CosmosMessage): Promise<void> {
+  const record = new MessageEntity(`${msg.tx.tx.hash}-${msg.idx}`);
+  record.blockHeight = BigInt(msg.block.block.header.height);
+  record.txHash = msg.tx.txhash;
+  record.contract = msg.msg.contract;
+  record.sender = msg.msg.sender;
+  await record.save();
+}
+```
+
+</CodeGroupItem>
+<CodeGroupItem title="Terra">
+
+```ts
+import { TerraMessage } from "@subql/types-terra";
+import { MsgExecuteContract } from "@terra-money/terra.js";
+
+export async function handleMessage(
+  msg: TerraMessage<MsgExecuteContract>
+): Promise<void> {
+  const record = new MessageEntity(`${msg.tx.tx.txhash}-${msg.idx}`);
+  record.blockHeight = BigInt(msg.block.block.header.height);
+  record.txHash = msg.tx.txhash;
+  record.contract = msg.msg.toData().contract;
+  record.sender = msg.msg.toData().sender;
+  record.executeMsg = JSON.stringify(msg.msg.toData().execute_msg);
+  await record.save();
+}
+```
+
+</CodeGroupItem>
+</CodeGroup>
+
+CosmosMessage/TerraMessage encapsulates the `msg` object containing the message data, the CosmosTransaction/TerraTransaction in which the message occured in and also the CosmosBlock/TerraBlock in which the transaction occured in.
+
+## The Sandbox
+
+SubQuery is deterministic by design, that means that each SubQuery project is guranteed to index the same data set. This is a critical factor that is required to decentralise SubQuery in the SubQuery Network. This limitation means that the indexer is by default run in a strict virtual machine, with access to a strict number of third party libraries.
+
+**You can bypass this limitation, allowing you to index and retrieve information from third party data sources like HTTP endpoints, non historical RPC calls, and more.** In order to do to, you must run your project in `unsafe-mode`, you can read more about this in the [references](../run_publish/references.md#unsafe). An easy way to do this while developing (and running in Docker) is to add the following line to your `docker-compose.yml`:
+
+```yml
+subquery-node:
+  image: onfinality/subql-node:latest
+  ...
+  command:
+    - -f=/app
+    - --db-schema=app
+    - --unsafe
+  ...
+```
+
+By default, the [VM2](https://www.npmjs.com/package/vm2) sandbox only allows the folling:
+- only some certain built-in modules, e.g. `assert`, `buffer`, `crypto`,`util` and `path`
+- third-party libraries written by *CommonJS*. 
+- hybrid libraries like `@polkadot/*` that uses ESM as default. However, if any other libraries depend on any modules in *ESM* format, the virtual machine will *NOT* compile and return an error.
+- Historical/safe queries, see [RPC Calls](#rpc-calls).
+- Note `HTTP` and `WebSocket` connections are forbidden 
+
+## Modules and Libraries
+
+To improve SubQuery's data processing capabilities, we have allowed some of the NodeJS's built-in modules for running mapping functions in the [sandbox](#the-sandbox), and have allowed users to call third-party libraries.
+
+Please note this is an **experimental feature** and you may encounter bugs or issues that may negatively impact your mapping functions. Please report any bugs you find by creating an issue in [GitHub](https://github.com/subquery/subql).
+
+### Built-in modules 
+
+Currently, we allow the following NodeJS modules: `assert`, `buffer`, `crypto`, `util`, and `path`. 
+
+Rather than importing the whole module, we recommend only importing the required method(s) that you need. Some methods in these modules may have dependencies that are unsupported and will fail on import. 
+
+```ts
+import {hashMessage} from "ethers/lib/utils"; //Good way
+import {utils} from "ethers" //Bad way
+
+export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
+    const record = new CallEntity(extrinsic.block.block.header.hash.toString());
+    record.field1 = hashMessage('Hello');
+    await record.save();
+}
+```
+
+### Query States
 Our goal is to cover all data sources for users for mapping handlers (more than just the three interface event types above). Therefore, we have exposed some of the @polkadot/api interfaces to increase capabilities. 
 
 These are the interfaces we currently support:
@@ -81,10 +347,9 @@ These are the interfaces we do **NOT** support currently:
 
 See an example of using this API in our [validator-threshold](https://github.com/subquery/tutorials-validator-threshold) example use case.
 
-## RPC calls
+### RPC calls
 
 We also support some API RPC methods that are remote calls that allow the mapping function to interact with the actual node, query, and submission. 
-A core premise of SubQuery is that it's deterministic, and therefore, to keep the results consistent we only allow historical RPC calls.
 
 Documents in [JSON-RPC](https://polkadot.js.org/docs/substrate/rpc/#rpc) provide some methods that take `BlockHash` as an input parameter (e.g. `at?: BlockHash`), which are now permitted.
 We have also modified these methods to take the current indexing block hash by default. 
@@ -100,35 +365,6 @@ const b1 = await api.rpc.chain.getBlock(blockhash);
 const b2 = await api.rpc.chain.getBlock();
 ```
 - For [Custom Substrate Chains](#custom-substrate-chains) RPC calls, see [usage](#usage).
-
-## Modules and Libraries
-
-To improve SubQuery's data processing capabilities, we have allowed some of the NodeJS's built-in modules for running mapping functions in the [sandbox](#the-sandbox), and have allowed users to call third-party libraries.
-
-Please note this is an **experimental feature** and you may encounter bugs or issues that may negatively impact your mapping functions. Please report any bugs you find by creating an issue in [GitHub](https://github.com/subquery/subql).
-
-### Built-in modules 
-
-Currently, we allow the following NodeJS modules: `assert`, `buffer`, `crypto`, `util`, and `path`. 
-
-Rather than importing the whole module, we recommend only importing the required method(s) that you need. Some methods in these modules may have dependencies that are unsupported and will fail on import. 
-
-```ts
-import {hashMessage} from "ethers/lib/utils"; //Good way
-import {utils} from "ethers" //Bad way
-
-export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
-    const record = new starterEntity(extrinsic.block.block.header.hash.toString());
-    record.field1 = hashMessage('Hello');
-    await record.save();
-}
-```
-
-### Third-party libraries
-
-Due to the limitations of the virtual machine in our sandbox, currently, we only support third-party libraries written by **CommonJS**. 
-
-We also support a **hybrid** library like `@polkadot/*` that uses ESM as default. However, if any other libraries depend on any modules in **ESM** format, the virtual machine will **NOT** compile and return an error. 
  
 ## Custom Substrate Chains
 
@@ -138,11 +374,11 @@ You can use a custom Substrate-based chain and we provide tools to import types,
 
 In the following sections, we use our [kitty example](https://github.com/subquery/tutorials-kitty-chain) to explain the integration process.
 
-### Preparation
+#### Preparation
 
 Create a new directory `api-interfaces` under the project `src` folder to store all required and generated files. We also create an `api-interfaces/kitties` directory as we want to add decoration in the API from the `kitties` module.
 
-#### Metadata
+**Metadata**
 
 We need metadata to generate the actual API endpoints. In the kitty example, we use an endpoint from a local testnet, and it provides additional types.
 Follow the steps in [PolkadotJS metadata setup](https://polkadot.js.org/docs/api/examples/promise/typegen#metadata-setup) to retrieve a node's metadata from its **HTTP** endpoint.
@@ -162,7 +398,8 @@ echo state_getMetadata | websocat 'ws://127.0.0.1:9944' --jsonrpc
 
 Next, copy and paste the output to a JSON file. In our [kitty example](https://github.com/subquery/tutorials-kitty-chain), we have created `api-interface/kitty.json`.
 
-#### Type definitions
+**Type definitions**
+
 We assume that the user knows the specific types and RPC support from the chain, and it is defined in the [Manifest](./manifest.md). 
 
 Following [types setup](https://polkadot.js.org/docs/api/examples/promise/typegen#metadata-setup), we create :
@@ -205,7 +442,7 @@ export default {
 }
 ```
 
-#### Packages
+**Packages**
 
 - In the `package.json` file, make sure to add `@polkadot/typegen` as a development dependency and `@polkadot/api` as a regular dependency (ideally the same version). We also need `ts-node` as a development dependency to help us run the scripts.
 - We add scripts to run both types; `generate:defs` and metadata `generate:meta` generators (in that order, so metadata can use the types).
@@ -230,7 +467,7 @@ Here is a simplified version of `package.json`. Make sure in the **scripts** sec
 }
 ```
 
-### Type generation
+#### Type generation
 
 Now that preparation is completed, we are ready to generate types and metadata. Run the commands below:
 
@@ -265,7 +502,7 @@ After the updates, the paths in the config will look like this (without the comm
 }
 ```
 
-### Usage
+#### Usage
 
 Now in the mapping function, we can show how the metadata and types actually decorate the API. The RPC endpoint will support the modules and methods we declared above.
 And to use custom rpc call, please see section [Custom chain rpc calls](#custom-chain-rpc-calls)
@@ -283,7 +520,7 @@ export async function kittyApiHandler(): Promise<void> {
 
 **If you wish to publish this project to our explorer, please include the generated files in `src/api-interfaces`.**
 
-### Custom chain rpc calls
+#### Custom chain RPC calls
 
 To support customised chain RPC calls, we must manually inject RPC definitions for `typesBundle`, allowing per-spec configuration. 
 You can define the `typesBundle` in the `project.yml`. And please remember only `isHistoric` type of calls are supported.

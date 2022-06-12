@@ -6,7 +6,7 @@ In der [Hello World-Kurzanleitung](helloworld-localhost.md) sind wir einige einf
 
 Der erste Befehl, den wir ausgeführt haben, war `subql init subqlHelloWorld`.
 
-Dies erledigt die schwere Arbeit und erstellt eine ganze Reihe von Dateien für Sie. Wie in der [offiziellen Dokumentation](quickstart.md#configure-and-build-the-starter-project) vermerkt, werden Sie hauptsächlich an den folgenden Dateien arbeiten:
+Dies erledigt die schwere Arbeit und erstellt eine ganze Reihe von Dateien für Sie. Wie in der [offiziellen Dokumentation](quickstart-polkadot.md#configure-and-build-the-starter-project) vermerkt, werden Sie hauptsächlich an den folgenden Dateien arbeiten:
 
 - Das Manifest in `project.yaml`
 - Das GraphQL-Schema in `schema.graphql`

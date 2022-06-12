@@ -1,12 +1,14 @@
-# Welcome
+# Avalanche Quick Start
 
-In this Quick start guide, we're going to start with a simple starter project and then finish by indexing some actual real data. This is an excellent basis to start with when developing your own SubQuery Project.
+In this Quick start guide, we're going to start with a simple Avalanche starter project and then finish by indexing some actual real data. This is an excellent basis to start with when developing your own SubQuery Project.
+
+**If your are looking for guides for Substrate/Polkadot, you can read the [Substrate/Polkadot specific quick start guide](./quickstart-polkadot).**
 
 At the end of this guide, you'll have a working SubQuery project running on a SubQuery node with a GraphQL endpoint that you can query data from.
 
 If you haven't already, we suggest that you familiarise yourself with the [terminology](../#terminology) used in SubQuery.
 
-**The goal of this quick start guide is to adapt the standard starter project to begin indexing all transfers from Polkadot, it should only take 10-15 minutes**
+**The goal of this quick start guide is to index all Pangolin token _Approve_ logs, it should only take 10-15 minutes**
 
 ## Preparation
 
@@ -42,11 +44,12 @@ subql init
 
 You'll be asked certain questions as the SubQuery project is initalised:
 
-- Name: A name for your SubQuery project
-- Network: A blockchain network that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use *"Polkadot"*
-- Template: Select a SubQuery project template that will provide a starting point to begin development, we suggest selecting the *"Starter project"*
+- Project Name: A name for your SubQuery project
+- Network Family: The layer-1 blockchain network family that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use _"Avalanche"_
+- Network: The specific network that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use _"Avalanche"_
+- Template: Select a SubQuery project template that will provide a starting point to begin development, we suggest selecting the _"Starter project"_
 - Git repository (Optional): Provide a Git URL to a repo that this SubQuery project will be hosted in (when hosted in SubQuery Explorer)
-- RPC endpoint (Required): Provide a HTTPS URL to a running RPC endpoint that will be used by default for this project. You can quickly access public endpoints for different Polkadot networks or even create your own private dedicated node using [OnFinality](https://app.onfinality.io) or just use the default Polkadot endpoint. This RPC node must be an archive node (have the full chain state). For this guide we will use the default value *"https://polkadot.api.onfinality.io"*
+- RPC endpoint (Required): Provide a HTTPS URL to a running RPC endpoint that will be used by default for this project. This RPC node must be an archive node (have the full chain state). For this guide we will use the default value _"avalanche.api.onfinality.io"_
 - Authors (Required): Enter the owner of this SubQuery project here (e.g. your name!)
 - Description (Optional): You can provide a short paragraph about your project that describe what data it contains and what users can do with it
 - Version (Required): Enter a custom version number or use the default (`1.0.0`)
@@ -58,17 +61,21 @@ Last, under the project directory, run following command to install the new proj
 
 <CodeGroup>
   <CodeGroupItem title="YARN" active>
-  ```shell
-  cd PROJECT_NAME
-  yarn install
-  ```
+
+```shell
+cd PROJECT_NAME
+yarn install
+```
+
   </CodeGroupItem>
 
   <CodeGroupItem title="NPM">
-  ```shell
-  cd PROJECT_NAME
-  npm install
-  ```
+
+```shell
+cd PROJECT_NAME
+npm install
+```
+
   </CodeGroupItem>
 </CodeGroup>
 
@@ -80,21 +87,23 @@ In the starter package that you just initialised, we have provided a standard co
 2. The Project Manifest in `project.yaml`
 3. The Mapping functions in `src/mappings/` directory
 
-The goal of this quick start guide is to adapt the standard starter project to begin indexing all transfers from Polkadot.
+The goal of this quick start guide is to adapt the standard starter project to index all Pangolin `Approve` transaction logs.
 
 ### Updating your GraphQL Schema File
 
 The `schema.graphql` file defines the various GraphQL schemas. Due to the way that the GraphQL query language works, the schema file essentially dictates the shape of your data from SubQuery. Its a great place to start becuase it allows you to define your end goal up front.
 
-We're going to update the `schema.graphql` file to read as follows
+We're going to update the `schema.graphql` file to remove all existing entities and read as follows
 
 ```graphql
-type Transfer @entity {
-  id: ID! # id field is always required and must look like this
-  amount: BigInt # Amount that is transferred
-  blockNumber: BigInt # The block height of the transfer
-  from: Account! # The account that transfers are made from
-  to: Account! # The account that transfers are made to
+type PangolinApproval @entity {
+  id: ID!
+  transactionHash: String!
+  blockNumber: String!
+  blockHash: String!
+  addressFrom: String
+  addressTo: String
+  amount: String
 }
 ```
 
@@ -102,15 +111,19 @@ type Transfer @entity {
 
 <CodeGroup>
   <CodeGroupItem title="YARN" active>
-  ```shell
-  yarn codegen
-  ```
+
+```shell
+yarn codegen
+```
+
   </CodeGroupItem>
 
   <CodeGroupItem title="NPM">
-  ```shell
-  npm run-script codegen
-  ```
+
+```shell
+npm run-script codegen
+```
+
   </CodeGroupItem>
 </CodeGroup>
 
@@ -120,23 +133,32 @@ You'll find the generated models in the `/src/types/models` directory. For more 
 
 The Projet Manifest (`project.yaml`) file can be seen as an entry point of your project and it defines most of the details on how SubQuery will index and transform the chain data.
 
-We won't do many changes to the manifest file as it already has been setup correctly, but we need to change our handlers. Remember we are planning to index all Polkadot transfers, as a result, we need to update the `datasources` section to read the following.
+We won't do many changes to the manifest file as it already has been setup correctly, but we need to change our handlers. Remember we are planning to index all Pangolin approval logs, as a result, we need to update the `datasources` section to read the following.
 
 ```yaml
 dataSources:
-  - kind: substrate/Runtime
-    startBlock: 1
+  - kind: avalanche/Runtime
+    startBlock: 57360 # Block when the Pangolin contract was created
+    options:
+      # Must be a key of assets
+      abi: erc20
+      ## Pangolin token https://snowtrace.io/token/0x60781c2586d68229fde47564546784ab3faca982
+      address: "0x60781C2586D68229fde47564546784ab3fACA982"
+    assets:
+      erc20:
+        file: "./node_modules/@pangolindex/exchange-contracts/artifacts/contracts/pangolin-core/interfaces/IPangolinERC20.sol/IPangolinERC20.json"
     mapping:
-      file: ./dist/index.js
+      file: "./dist/index.js"
       handlers:
-        - handler: handleEvent
-          kind: substrate/EventHandler
+        - handler: handleLog
+          kind: avalanche/LogHandler
           filter:
-            module: balances
-            method: Transfer
+            ## Follows standard log filters https://docs.ethers.io/v5/concepts/events/
+            function: Approve(address spender, uint256 rawAmount)
+            # address: "0x60781C2586D68229fde47564546784ab3fACA982"
 ```
 
-This means we'll run a `handleEvent` mapping function each and every time there is a `balances.Transfer` event.
+This means we'll run a `handleLog` mapping function each and every time there is a `approve` log on any transaction from the [Pangolin contract](https://snowtrace.io/txs?a=0x60781C2586D68229fde47564546784ab3fACA982&p=1).
 
 For more information about the Project Manifest (`project.yaml`) file, check out our documentation under [Build/Manifest File](../build/manifest.md)
 
@@ -144,38 +166,34 @@ For more information about the Project Manifest (`project.yaml`) file, check out
 
 Mapping functions define how chain data is transformed into the optimised GraphQL entities that we have previously defined in the `schema.graphql` file.
 
-Navigate to the default mapping function in the `src/mappings` directory. You'll see three exported functions, `handleBlock`, `handleEvent`, and `handleCall`. You can delete both the `handleBlock` and `handleCall` functions, we are only dealing with the `handleEvent` function.
+Navigate to the default mapping function in the `src/mappings` directory. You'll see three exported functions, `handleBlock`, `handleLog`, and `handleTransaction`. You can delete both the `handleBlock` and `handleTransaction` functions, we are only dealing with the `handleLog` function.
 
-The `handleEvent` function recieved event data whenever event matches the filters that we specify previously in our `project.yaml`. We are going to update it to process all `balances.Transfer` events and save them to the GraphQL entities that we created earlier.
+The `handleLog` function recieved event data whenever event matches the filters that we specify previously in our `project.yaml`. We are going to update it to process all `approval` transaction logs and save them to the GraphQL entities that we created earlier.
 
-You can update the `handleEvent` function to the following (note the additional imports):
+You can update the `handleLog` function to the following (note the additional imports):
 
 ```ts
-import { SubstrateEvent } from "@subql/types";
-import { Transfer } from "../types";
-import { Balance } from "@polkadot/types/interfaces";
+import { PangolinApproval } from "../types";
+import { AvalancheLog } from "@subql/types-avalanche";
 
-export async function handleTransfer(event: SubstrateEvent): Promise<void> {
-    // Get data from the event
-    // The balances.transfer event has the following payload \[from, to, value\]
-    // logger.info(JSON.stringify(event));
-    const from = event.event.data[0];
-    const to = event.event.data[1];
-    const amount = event.event.data[2];
-    
-    // Create the new transfer entity
-    const transfer = new Transfer(
-        `${event.block.block.header.number.toNumber()}-${event.idx}`,
-    );
-    transfer.blockNumber = event.block.block.header.number.toBigInt();
-    transfer.from = from.toString();
-    transfer.to = to.toString();
-    transfer.amount = (amount as Balance).toBigInt();
-    await transfer.save();
+export async function handleLog(event: AvalancheLog): Promise<void> {
+  const pangolinApprovalRecord = new PangolinApproval(
+    `${event.blockHash}-${event.logIndex}`
+  );
+
+  pangolinApprovalRecord.transactionHash = event.transactionHash;
+  pangolinApprovalRecord.blockHash = event.blockHash;
+  pangolinApprovalRecord.blockNumber = event.blockNumber;
+  # topics store data as an array
+  pangolinApprovalRecord.addressFrom = event.topics[0];
+  pangolinApprovalRecord.addressTo = event.topics[1];
+  pangolinApprovalRecord.amount = event.topics[2];
+
+  await pangolinApprovalRecord.save();
 }
 ```
 
-What this is doing is receiving a SubstrateEvent which includes transfer data on the payload. We extract this data and then instantiate a new `Transfer` entity that we defined earlier in the `schema.graphql` file. We add additional information and then use the `.save()` function to save the new entity (SubQuery will automatically save this to the database).
+What this is doing is receiving an Avalanche Log which includes the transation log data on the payload. We extract this data and then instantiate a new `PangolinApproval` entity that we defined earlier in the `schema.graphql` file. We add additional information and then use the `.save()` function to save the new entity (SubQuery will automatically save this to the database).
 
 For more information about mapping functions, check out our documentation under [Build/Mappings](../build/mapping.md)
 
@@ -185,14 +203,18 @@ In order run your new SubQuery Project we first need to build our work. Run the 
 
 <CodeGroup>
   <CodeGroupItem title="YARN" active>
-  ```shell
-  yarn build
-  ```
+
+```shell
+yarn build
+```
+
   </CodeGroupItem>
   <CodeGroupItem title="NPM">
-  ```shell
-  npm run-script build
-  ```
+
+```shell
+npm run-script build
+```
+
   </CodeGroupItem>
 </CodeGroup>
 
@@ -202,7 +224,7 @@ In order run your new SubQuery Project we first need to build our work. Run the 
 
 ### Run your Project with Docker
 
-Whenever you create a new SubQuery Project, you should always run it locally on your computer to test it first. The easiest way to do this is by using Docker. 
+Whenever you create a new SubQuery Project, you should always run it locally on your computer to test it first. The easiest way to do this is by using Docker.
 
 All configuration that controls how a SubQuery node is run is defined in this `docker-compose.yml` file. For a new project that has been just initalised you won't need to change anything here, but you can read more about the file and the settings in our [Run a Project section](../run_publish/run.md)
 
@@ -210,14 +232,18 @@ Under the project directory run following command:
 
 <CodeGroup>
   <CodeGroupItem title="YARN" active>
-  ```shell
-  yarn start:docker
-  ```
+
+```shell
+yarn start:docker
+```
+
   </CodeGroupItem>
   <CodeGroupItem title="NPM">
-  ```shell
-  npm run-script start:docker
-  ```
+
+```shell
+npm run-script start:docker
+```
+
   </CodeGroupItem>
 </CodeGroup>
 
@@ -232,19 +258,16 @@ You should see a GraphQL playground is showing in the explorer and the schemas t
 For a new SubQuery starter project, you can try the following query to get a taste of how it works or [learn more about the GraphQL Query language](../run_publish/graphql.md).
 
 ```graphql
-{
-  query {
-    transfers(
-      first: 10,
-      orderBy: AMOUNT_DESC
-    ) {
-      nodes {
-        id
-        amount
-        blockNumber
-        from
-        to
-      }
+query {
+  pangolinApprovals(first: 5) {
+    nodes {
+      id
+      blockNumber
+      blockHash
+      transactionHash
+      addressFrom
+      addressTo
+      amount
     }
   }
 }
@@ -254,11 +277,11 @@ For a new SubQuery starter project, you can try the following query to get a tas
 
 SubQuery provides a free managed service when you can deploy your new project to. You can deploy it to [SubQuery Projects](https://project.subquery.network) and query it using our [Explorer](https://explorer.subquery.network).
 
-[Read the guide to publish your new project to SubQuery Projects](../run_publish/publish.md)
+[Read the guide to publish your new project to SubQuery Projects](../run_publish/publish.md), **Note that you must deploy via IPFS**.
 
 ## Next Steps
 
-Congratulations, you now have a locally running SubQuery project that accepts GraphQL API requests for transfers data.
+Congratulations, you now have a locally running SubQuery project that accepts GraphQL API requests for transfers data from bLuna.
 
 Now that you've had an insight into how to build a basic SubQuery project, the question is where to from here? If you are feeling confident, you can jump into learning more about the three key files. The manifest file, the GraphQL schema, and the mappings file under the [Build section of these docs](../build/introduction.md).
 

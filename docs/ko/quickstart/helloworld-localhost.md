@@ -54,7 +54,7 @@ My docker version is: Docker version 20.10.5, build 55c4c88
 위의 내용이 나오면 올바른 길로 가고 있는 것입니다. 그렇지 않은 경우 다음 링크를 따라 설치하십시오.
 
 - [yarn](https://classic.yarnpkg.com/en/docs/install/) or [npm](https://www.npmjs.com/get-npm)
-- [SubQuery CLI](quickstart.md#install-the-subquery-cli)
+- [SubQuery CLI](quickstart-polkadot.md#install-the-subquery-cli)
 - [Docker](https://docs.docker.com/get-docker/)
 
 ## 1. Step 1: Initialise project

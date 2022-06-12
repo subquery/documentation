@@ -6,7 +6,7 @@
 
 最初に実行したコマンドは `subql init subqlHelloWorld` です。
 
-これは重い作業を行い、あなたのために必要なファイルを集めます。 [official documentation](quickstart.md#configure-and-build-the-starter-project) にあるように、主に以下のファイルを操作することになります。
+これは重い作業を行い、あなたのために必要なファイルを集めます。 [official documentation](quickstart-polkadot.md#configure-and-build-the-starter-project) にあるように、主に以下のファイルを操作することになります。
 
 - Manifest（`project.yaml`）
 - GraphQL Schema（`schema.graphql`）

@@ -54,7 +54,7 @@ My docker version is: Docker version 20.10.5, build 55c4c88
 หากคุณได้รับดังข้างต้น แสดงว่าคุณพร้อมแล้วสำหรับขั้นต่ำต่อไป หากไม่เป็นเช่นนั้น ให้ทำตามลิงก์เหล่านี้เพื่อติดตั้ง:
 
 - [yarn](https://classic.yarnpkg.com/en/docs/install/) หรือ [npm](https://www.npmjs.com/get-npm)
-- [SubQuery CLI](quickstart.md#install-the-subquery-cli)
+- [SubQuery CLI](quickstart-polkadot.md#install-the-subquery-cli)
 - [Docker](https://docs.docker.com/get-docker/)
 
 ## 1. เริ่มต้นโปรเจกต์

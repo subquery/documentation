@@ -6,7 +6,7 @@ Tại bài [Hướng dẫn nhanh Hello World](helloworld-localhost.md), chúng t
 
 Lệnh đầu tiên chúng tôi chạy là `subql init subqlHelloWorld`.
 
-Lệnh này khá nặng và tạo ra một loạt các tập tin cho bạn. Như đã nhắc đến ở [tài liệu chính thức](quickstart.md#configure-and-build-the-starter-project), bạn sẽ làm việc chủ yếu với những tập tin sau:
+Lệnh này khá nặng và tạo ra một loạt các tập tin cho bạn. Như đã nhắc đến ở [tài liệu chính thức](quickstart-polkadot.md#configure-and-build-the-starter-project), bạn sẽ làm việc chủ yếu với những tập tin sau:
 
 - Tệp kê khai trong `project.yaml`
 - Sơ đồ GraphQL trong `schema.graphql`
