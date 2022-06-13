@@ -175,9 +175,10 @@ function getSidebar(locale, language) {
       },
       {
         title: "Quick Start",
-        path: `${locale}/quickstart/quickstart-polkadot`,
+        path: `${locale}/quickstart/quickstart`,
         collapsable: true,
         children: [
+          `${locale}/quickstart/quickstart.md`,
           `${locale}/quickstart/quickstart-polkadot.md`,
           `${locale}/quickstart/quickstart-avalanche.md`,
           `${locale}/quickstart/quickstart-cosmos.md`,
@@ -269,6 +270,14 @@ function getSidebar(locale, language) {
             ],
           },
           `${locale}/academy/subquery101/subquery101.md`,
+        ],
+      },
+      {
+        title: "Public Testnet",
+        path: `${locale}/testnet/testnet`,
+        collapsable: true,
+        children: [
+          `${locale}/miscellaneous/contributing.md`,
         ],
       },
       {
