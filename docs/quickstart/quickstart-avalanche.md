@@ -1,99 +1,42 @@
 # Avalanche Quick Start
 
-In this Quick start guide, we're going to start with a simple Avalanche starter project and then finish by indexing some actual real data. This is an excellent basis to start with when developing your own SubQuery Project.
+# Develop Your First SubQuery Avalanche Project 
 
-**If your are looking for guides for Substrate/Polkadot, you can read the [Substrate/Polkadot specific quick start guide](./quickstart-polkadot).**
+The goal of this quick start guide is to index all Pangolin token _Approve_ logs. 
 
-At the end of this guide, you'll have a working SubQuery project running on a SubQuery node with a GraphQL endpoint that you can query data from.
+You must have completed the installation of the required software support and initialised your first Avalanche Project. But, that’s not over there. 
 
-If you haven't already, we suggest that you familiarise yourself with the [terminology](../#terminology) used in SubQuery.
+Now, the next step is making changes to your files and running the project. 
 
-**The goal of this quick start guide is to index all Pangolin token _Approve_ logs, it should only take 10-15 minutes**
-
-## Preparation
-
-### Local Development Environment
-
-- [Node](https://nodejs.org/en/): A modern (e.g. the LTS version) installation of Node.
-- [Docker](https://docker.com/): This tutorial will use require Docker
-
-### Install the SubQuery CLI
-
-Install SubQuery CLI globally on your terminal by using NPM:
+**Important:** Before we begin, let’s ensure that you have initialised your project using the provided steps in the [Beginners' Quick Guide](../quickstart/quickstart.md). You might have an output similar to as follows:
 
 ```shell
-# NPM
-npm install -g @subql/cli
+$ subql init 
+Project name [subql-starter]: avalanche-starter 
+? Select a network family Avalanche
+? Select a network Avalanche
+? Select a template project avalanche-subql-starter     Starter project for Avalanche
+RPC endpoint: [http://avalanche.api.onfinality.io:9650]: 
+Git repository [https://github.com/subquery/avalanche-subql-starter]: 
+Author [SubQuery Team]: 
+Description [This project can be use as a starting po...]: 
+Version [0.0.1]: 
+License [MIT]: 
+Preparing project... done 
+avalanche-starter is ready
 ```
 
-Please note that we **DO NOT** encourage the use of `yarn global` for installing `@subql/cli` due to its poor dependency management which may lead to an errors down the line.
+Now, let's move ahead and start making changes to your project.
 
-You can then run help to see available commands and usage provide by CLI
+# 1. Make Changes to Your Project
 
-```shell
-subql help
-```
+Previously, in the [Beginner's Quick Guide](../quickstart/quickstart.md), you got clear information on the three standard configurations of the project. Let's begin updating them one by one.  
 
-## Initialise the SubQuery Starter Project
+## 1.1 Update Your GraphQL Schema File
 
-Inside the directory in which you want to create a SubQuery project, simply run the following command to get started.
+The `schema.graphql` file defines the shape of your data from SubQuery due to the GraphQL query language’s mechanism. Hence, updating the GraphQL Schema file is the perfect beginning. It lets you set your end goal beforehand.
 
-```shell
-subql init
-```
-
-You'll be asked certain questions as the SubQuery project is initalised:
-
-- Project Name: A name for your SubQuery project
-- Network Family: The layer-1 blockchain network family that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use _"Avalanche"_
-- Network: The specific network that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use _"Avalanche"_
-- Template: Select a SubQuery project template that will provide a starting point to begin development, we suggest selecting the _"Starter project"_
-- Git repository (Optional): Provide a Git URL to a repo that this SubQuery project will be hosted in (when hosted in SubQuery Explorer)
-- RPC endpoint (Required): Provide a HTTPS URL to a running RPC endpoint that will be used by default for this project. This RPC node must be an archive node (have the full chain state). For this guide we will use the default value _"avalanche.api.onfinality.io"_
-- Authors (Required): Enter the owner of this SubQuery project here (e.g. your name!)
-- Description (Optional): You can provide a short paragraph about your project that describe what data it contains and what users can do with it
-- Version (Required): Enter a custom version number or use the default (`1.0.0`)
-- License (Required): Provide the software license for this project or accept the default (`Apache-2.0`)
-
-After the initialisation process is complete, you should see a folder with your project name has been created inside the directory. The contents of this directoy should be identical to what's listed in the [Directory Structure](../create/introduction.md#directory-structure).
-
-Last, under the project directory, run following command to install the new project's dependencies.
-
-<CodeGroup>
-  <CodeGroupItem title="YARN" active>
-
-```shell
-cd PROJECT_NAME
-yarn install
-```
-
-  </CodeGroupItem>
-
-  <CodeGroupItem title="NPM">
-
-```shell
-cd PROJECT_NAME
-npm install
-```
-
-  </CodeGroupItem>
-</CodeGroup>
-
-## Making Changes to your Project
-
-In the starter package that you just initialised, we have provided a standard configuration for your new project. You will mainly be working on the following files:
-
-1. The GraphQL Schema in `schema.graphql`
-2. The Project Manifest in `project.yaml`
-3. The Mapping functions in `src/mappings/` directory
-
-The goal of this quick start guide is to adapt the standard starter project to index all Pangolin `Approve` transaction logs.
-
-### Updating your GraphQL Schema File
-
-The `schema.graphql` file defines the various GraphQL schemas. Due to the way that the GraphQL query language works, the schema file essentially dictates the shape of your data from SubQuery. Its a great place to start becuase it allows you to define your end goal up front.
-
-We're going to update the `schema.graphql` file to remove all existing entities and read as follows
+Update the `schema.graphql` file as follows and remove all existing entities:
 
 ```graphql
 type PangolinApproval @entity {
@@ -106,8 +49,7 @@ type PangolinApproval @entity {
   amount: String
 }
 ```
-
-**Important: When you make any changes to the schema file, please ensure that you regenerate your types directory. Do this now.**
+**Important: When you make any changes to the schema file, do not forget to regenerate your types directory.”**
 
 <CodeGroup>
   <CodeGroupItem title="YARN" active>
@@ -127,13 +69,18 @@ npm run-script codegen
   </CodeGroupItem>
 </CodeGroup>
 
-You'll find the generated models in the `/src/types/models` directory. For more information about the `schema.graphql` file, check out our documentation under [Build/GraphQL Schema](../build/graphql.md)
+You will find the generated models in the `/src/types/models` directory.
 
-### Updating the Project Manifest File
+Check out [Build/GraphQL](../build/graphql.md) Schema documentation to get in-depth information on `schema.graphql` file.
 
-The Projet Manifest (`project.yaml`) file can be seen as an entry point of your project and it defines most of the details on how SubQuery will index and transform the chain data.
+Now, you have made key changes to the GraphQL Schema file. Let’s move ahead with the next configuration. 
 
-We won't do many changes to the manifest file as it already has been setup correctly, but we need to change our handlers. Remember we are planning to index all Pangolin approval logs, as a result, we need to update the `datasources` section to read the following.
+## 1.2 Update Your Project Manifest File
+
+The Project Manifest (`project.yaml`) file works as an entry point to your Avalanche project. It defines most of the details on how SubQuery will index and transform the chain data.
+
+Note that the manifest file has already been set up correctly and doesn’t require significant changes, but you need to change the handlers. **Since you are going to index all Pangolin approval logs, you need to update the `datasources` section as follows:**
+
 
 ```yaml
 dataSources:
@@ -158,19 +105,25 @@ dataSources:
             # address: "0x60781C2586D68229fde47564546784ab3fACA982"
 ```
 
-This means we'll run a `handleLog` mapping function each and every time there is a `approve` log on any transaction from the [Pangolin contract](https://snowtrace.io/txs?a=0x60781C2586D68229fde47564546784ab3fACA982&p=1).
+The above code explains that you will be running a `handleLog` mapping function whenever there is a `approve` log on any transaction from the [Pangolin contract](https://snowtrace.io/txs?a=0x60781C2586D68229fde47564546784ab3fACA982&p=1).
 
-For more information about the Project Manifest (`project.yaml`) file, check out our documentation under [Build/Manifest File](../build/manifest.md)
+Check out our [Build/Manifest File](../build/manifest.md) documentation to get more information about the Project Manifest (`project.yaml`) file. 
 
-### Add a Mapping Function
+Now, let’s walk you through the next step, which is changing the Mapping Function’s configuration. 
 
-Mapping functions define how chain data is transformed into the optimised GraphQL entities that we have previously defined in the `schema.graphql` file.
+## 1.3 Add a Mapping Function
 
-Navigate to the default mapping function in the `src/mappings` directory. You'll see three exported functions, `handleBlock`, `handleLog`, and `handleTransaction`. You can delete both the `handleBlock` and `handleTransaction` functions, we are only dealing with the `handleLog` function.
 
-The `handleLog` function recieved event data whenever event matches the filters that we specify previously in our `project.yaml`. We are going to update it to process all `approval` transaction logs and save them to the GraphQL entities that we created earlier.
+Mapping functions define how chain data is transformed into the optimised GraphQL entities that we previously defined in the `schema.graphql` file.
 
-You can update the `handleLog` function to the following (note the additional imports):
+Follow these steps to add a mapping function: 
+
+- Navigate to the default mapping function in the `src/mappings` directory. You will be able to see three exported functions:  *`handleBlock`*, *`handleLog`*, and *`handleTransaction`*. Delete both the `handleBlock` and `handleTransactionl` functions as you will only deal with the `handleLog` function.
+
+- The `handleLog` function receives event data whenever an event matches the filters, which you specified previously in the `project.yaml`. Let’s make changes to it, process all `approval` transaction logs, and save them to the GraphQL entities created earlier.
+
+Update the `handleLog` function as given below(**note the additional imports**):
+
 
 ```ts
 import { PangolinApproval } from "../types";
@@ -192,14 +145,18 @@ export async function handleLog(event: AvalancheLog): Promise<void> {
   await pangolinApprovalRecord.save();
 }
 ```
+Let’s understand how the above code works. 
 
-What this is doing is receiving an Avalanche Log which includes the transation log data on the payload. We extract this data and then instantiate a new `PangolinApproval` entity that we defined earlier in the `schema.graphql` file. We add additional information and then use the `.save()` function to save the new entity (SubQuery will automatically save this to the database).
+The function here receives an Avalanche Log which includes transaction log data in the payload. We extract this data and then instantiate a new `PangolinApproval` entity defined earlier in the `schema.graphql` file. After that, we add additional information and then use the `.save()` function to save the new entity (*Note that SubQuery will automatically save this to the database*).
 
-For more information about mapping functions, check out our documentation under [Build/Mappings](../build/mapping.md)
+Check out our [Build/Mappings](../build/mapping.md) documentation to get detailed information on mapping functions.
 
-### Build the Project
+You are about to finish and create your first project. But, there is still an additional step required to run your SubQuery Project. Let’s explore it further. 
 
-In order run your new SubQuery Project we first need to build our work. Run the build command from the project's root directory.
+## 1.4 Build Your Project
+
+First, you need to build your work to run your new SubQuery project. Run the build command from the project's root directory as given here:
+
 
 <CodeGroup>
   <CodeGroupItem title="YARN" active>
@@ -218,17 +175,23 @@ npm run-script build
   </CodeGroupItem>
 </CodeGroup>
 
-**Important: Whenever you make changes to your mapping functions, you'll need to rebuild your project**
+**Important: Whenever you make changes to your mapping functions, you must rebuild your project.**
 
-## Running and Querying your Project
+Now, you are ready to run your first SubQuery project. Let’s check out the process of running your project in detail. 
 
-### Run your Project with Docker
 
-Whenever you create a new SubQuery Project, you should always run it locally on your computer to test it first. The easiest way to do this is by using Docker.
+# 2. Run and Query Your Project
 
-All configuration that controls how a SubQuery node is run is defined in this `docker-compose.yml` file. For a new project that has been just initalised you won't need to change anything here, but you can read more about the file and the settings in our [Run a Project section](../run_publish/run.md)
+## 2.1 Run Your Project with Docker
 
-Under the project directory run following command:
+Whenever you create a new SubQuery Project, you must not forget to run it locally on your computer and test it. Using Docker is the easiest way to do this. 
+
+`docker-compose.yml` file defines all the configurations that control how a SubQuery node runs. For a new project, which you have just initialised, you won't need to change anything.
+
+However, you must visit the [Run a Project](../run_publish/run.md) section and get a detailed explanation of the file and the settings. 
+
+Run the following command under the project directory:
+
 
 <CodeGroup>
   <CodeGroupItem title="YARN" active>
@@ -247,15 +210,27 @@ npm run-script start:docker
   </CodeGroupItem>
 </CodeGroup>
 
-It may take some time to download the required packages ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), and Postgres) for the first time but soon you'll see a running SubQuery node. Be patient here.
+**Note:** You have to keep patience here. It may take some time to download the required packages ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), and Postgres) for the first time, but soon you will see a running SubQuery node. 
 
-### Query your Project
+
+Let’s move forward to the next step of querying your project. 
+
+## 2.2 Query your Project
 
 Open your browser and head to [http://localhost:3000](http://localhost:3000).
 
-You should see a GraphQL playground is showing in the explorer and the schemas that are ready to query. On the top right of the playground, you'll find a _Docs_ button that will open a documentation draw. This documentation is automatically generated and helps you find what entities and methods you can query.
-
 For a new SubQuery starter project, you can try the following query to get a taste of how it works or [learn more about the GraphQL Query language](../run_publish/graphql.md).
+
+–
+Follow these three simple steps to query your SubQuery project:
+
+1. Open your browser and head to [http://localhost:3000](http://localhost:3000).
+
+2. You must see a GraphQL playground in the browser and the schemas which are ready to query. 
+
+3. Navigate to the top right corner of the playground and find a *Docs* button over ther, which should open a documentation draw. This documentation is automatically generated and it helps you find what entities and methods you can query.
+
+Try the following query to figure out how it works for your new SubQuery starter project. Don’t forget to check out the [GraphQL Query language](../run_publish/graphql.md) and dig out more important information. 
 
 ```graphql
 query {
@@ -273,18 +248,29 @@ query {
 }
 ```
 
-### Publish your SubQuery Project
+It’s almost done and you are just one step away from creating your first SubQuery Avalanche project. So, let’s find out what you need to do to publish your project. 
 
-SubQuery provides a free managed service when you can deploy your new project to. You can deploy it to [SubQuery Projects](https://project.subquery.network) and query it using our [Explorer](https://explorer.subquery.network).
 
-[Read the guide to publish your new project to SubQuery Projects](../run_publish/publish.md), **Note that you must deploy via IPFS**.
+## 2.3 Publish Your SubQuery Project
 
-## Next Steps
+SubQuery provides a free managed service where you can deploy your new project. You can deploy it to [SubQuery Projects](https://project.subquery.network) and query it using our [Explorer](https://explorer.subquery.network).
 
-Congratulations, you now have a locally running SubQuery project that accepts GraphQL API requests for transfers data from bLuna.
+Read the guide to [publish your new project to SubQuery Projects](../run_publish/publish.md). 
 
-Now that you've had an insight into how to build a basic SubQuery project, the question is where to from here? If you are feeling confident, you can jump into learning more about the three key files. The manifest file, the GraphQL schema, and the mappings file under the [Build section of these docs](../build/introduction.md).
+**Important: You must deploy it via IPFS**.
 
-Otherwise, continue to our [Academy section](../academy/academy.md) where have more in depth workshops, tutorials, and example projects. There we'll look at more advanced modifications, and we'll take a deeper dive at running SubQuery projects by running readily available and open source projects.
+If you get stuck in the process, read this complete guide on how to [publish your new project to SubQuery Projects](../run_publish/publish.md). 
 
-Finally, if you're looking for more ways to run and publish your project, our [Run & Publish section](../run_publish/run.md) provides detailed informatation about all the ways to run your SubQuery project and other advanced GraphQL aggregation and subscription features.
+**Congratulations! You have now a locally running SubQuery project that accepts GraphQL API requests for transferring data from _bLuna_.**
+
+# What’s Next?
+
+You have done a great job so far. Now that you have a clear understanding of how to build a basic SubQuery project, what should be your next step? Let us guide you through your following journey. 
+
+Since you have finished publishing your first project and if you feel confident, then jump to [Build section of these docs](../build/introduction.md) and learn more about the three key files: **the manifest file, the GraphQL schema, and the mappings file.**
+
+If you are looking for practising with more real examples and diving deeper, then head to the  [Academy section](../academy/academy.md). You will get access to readily available and open-source projects. 
+
+Get ready to find in-depth workshops, tutorials, and example projects, work on advanced modifications, and become a master at running SubQuery projects. 
+
+In the end, if you want to explore more ways to run and publish your project, refer to [Run & Publish section](../run_publish/run.md). Get complete information about all the ways to run your SubQuery project, along with advanced GraphQL aggregation and subscription features.
