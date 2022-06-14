@@ -68,6 +68,25 @@ subql init
 ```
 You'll be asked certain questions as you proceed ahead:
 
+- **Project name**: A project name for your SubQuery project
+- **Network family**: The layer-1 blockchain network family that this SubQuery project will index. Use the arrow keys to select from the available options. Use the respective name of the network you have chosen, for eg. Polkadot, Avalanche, or any other supported network. 
+- **Network**: The specific network that this SubQuery project will index. Use the arrow keys to select from the available options. Use the respective name of the network you have chosen, for eg. Polkadot, Avalanche, or any other supported network. 
+- **Template project**: Select a SubQuery template project that will provide a starting point in the development. We suggest selecting the *"subql-starter"* project.
+- **RPC endpoint**: Provide an HTTPS URL to a running RPC endpoint, which will be used by default for this project. You can quickly access public endpoints for different networks, create your own private dedicated node using [OnFinality](https://app.onfinality.io), or just use the default endpoint. This RPC node must be an archive node (have the full chain state). <br />
+
+ We will use the default value for this guide. Based on the network you have chosen, the default value may be: <br />
+ For Polkadot - *"https://polkadot.api.onfinality.io"* <br />
+ For Avalanche - *"https://avalanche.api.onfinality.io"* <br />
+ For Terra - *“https://terra-columbus-5.beta.api.onfinality.io”* and likewise for other networks. <br/>
+
+- **Git repository**: Provide a Git URL to a repo that this SubQuery project will be hosted in (when hosted in SubQuery Explorer) or accept the provided default.
+- **Authors**: Enter the owner of this SubQuery project here (e.g. your name!) or accept the provided default.
+- **Description**: Provide a short paragraph about your project that describes what data it contains and what users can do with it, or accept the provided default.
+- **Version**: Enter a custom version number or use the default (`1.0.0`)
+- **License**: Provide the software license for this project or accept the default (`MIT`)
+
+Let’s look at an example: 
+
 ```shell
 $ subql init
 Project name [subql-starter]: HelloWorld
@@ -85,18 +104,6 @@ Preparing project... done
 HelloWorld is ready
 ```
 
-Let’s understand the terminologies given in the above code:
-
-- **Project name**: A project name for your SubQuery project
-- **Network family**: The layer-1 blockchain network family that this SubQuery project will index. Use the arrow keys to select from the available options. For this guide, we will use *"Substrate"*
-- **Network**: The specific network that this SubQuery project will index. Use the arrow keys to select from the available options. For this guide, we will use *"Polkadot"*
-- **Template project**: Select a SubQuery template project that will provide a starting point in the development. We suggest selecting the *"subql-starter"* project.
-- **RPC endpoint**: Provide an HTTPS URL to a running RPC endpoint, which will be used by default for this project. You can quickly access public endpoints for different Polkadot networks, create your own private dedicated node using [OnFinality](https://app.onfinality.io), or just use the default Polkadot endpoint. This RPC node must be an archive node (have the full chain state). For this guide, we will use the default value *"https://polkadot.api.onfinality.io"*
-- **Git repository**: Provide a Git URL to a repo that this SubQuery project will be hosted in (when hosted in SubQuery Explorer) or accept the provided default.
-- **Authors**: Enter the owner of this SubQuery project here (e.g. your name!) or accept the provided default.
-- **Description**: Provide a short paragraph about your project that describes what data it contains and what users can do with it, or accept the provided default.
-- **Version**: Enter a custom version number or use the default (`1.0.0`)
-- **License**: Provide the software license for this project or accept the default (`MIT`)
 
 After you complete the initialisation process, you will see a folder with your project name created inside the directory. Please note that the contents of this directory should be identical to what's listed in the [Directory Structure](../create/introduction.md#directory-structure).
 
@@ -137,9 +144,9 @@ Although the initialising process doesn’t depend on which Blockchain network y
 
 SubQuery supports various Blockchain networks and provides you with a dedicated guide for each of them. 
 
-Pick up your preferred network and proceed ahead to update the configurations, and move an inch closer to finishing your first ever project. 
+Pick up your preferred network and proceed ahead to update the configurations, and move an inch closer to finishing your first ever project:
 
+### **[Polkadot Quick Start](../quickstart/quickstart-polkadot.html)**
 ### **[Avalanche Quick Start](../quickstart/quickstart-avalanche.html)**
 ### **[Cosmos Quick Start](../quickstart/quickstart-cosmos.html)**
-### **[Polkadot Quick Start](../quickstart/quickstart-polkadot.html)**
 ### **[Terra Quick Start](../quickstart/quickstart-terra.html)**
