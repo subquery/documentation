@@ -1,39 +1,39 @@
-# Introduction
+# Pengantar
 
-**The SubQuery Network is the future of web3 infrastructure**
+**Jaringan SubQuery adalah masa depan infrastruktur web3**
 
-We’re building the most open, performant, reliable, and scalable data service for dApp developers.
+Kami sedang membangun layanan data yang paling terbuka, berkinerja, andal, dan skalabel untuk developer dApp.
 
-The SubQuery Network indexes and services data to the global community in an incentivised and verifiable way.
+Jaringan SubQuery mengindeks dan melayani data ke komunitas global dengan cara yang berinsentif dan dapat diverifikasi.
 
-After publishing your project to the SubQuery Network, anyone can index and host it - providing data to users around the world faster and reliably.
+Setelah memublikasikan proyek Anda ke Jaringan SubQuery, siapa pun dapat mengindeks dan menghostingnya - menyediakan data kepada pengguna di seluruh dunia dengan lebih cepat dan andal.
 
-The SubQuery Network is facilitating an open web3 data revolution by allowing you to completely decentralise your infrastructure stack.
+Jaringan SubQuery memfasilitasi revolusi data web3 terbuka dengan memungkinkan Anda mendesentralisasikan tumpukan infrastruktur Anda sepenuhnya.
 
-## Participants
+## Peserta
 
-There’s a role for everyone in the network, from highly technical developers to those that are not. The SubQuery network includes four main network participants
+Ada peran untuk semua orang di jaringan, mulai dari pengembang yang sangat teknis hingga yang tidak. Jaringan SubQuery mencakup empat peserta jaringan utama
 
 ### Konsumen
 
-Consumers will ask the SubQuery Network for specific data for their dApps or tools, and pay an advertised amount of SQT for each request.
+Konsumen akan meminta Jaringan SubQuery untuk data spesifik untuk dApps atau alat mereka, dan membayar sejumlah SQT yang diiklankan untuk setiap permintaan.
 
-[Learn more about Consumers](./consumers.md)
+[Pelajari lebih lanjut tentang SubQuery](./consumers.md)
 
 ### Pengindeks
 
-Indexers will run and maintain high quality SubQuery projects in their own infrastructure, running both the indexer and query service, and will be rewarded in SQT for the requests that they serve.
+Pengindeks akan menjalankan dan memelihara proyek SubQuery berkualitas tinggi di infrastruktur mereka sendiri, menjalankan pengindeks dan layanan kueri, dan akan diberi imbalan dalam SQT untuk permintaan yang mereka layani.
 
-[Learn more about Indexers](./indexers.md)
+[Pelajari lebih lanjut tentang SubQuery](./indexers.md)
 
 ### Delegator
 
-Delegators will participate in the Network by supporting their favourite Indexers to earn rewards based on the work those indexers do.
+Delegator akan berpartisipasi dalam Jaringan dengan mendukung Pengindeks favorit mereka untuk mendapatkan hadiah berdasarkan pekerjaan yang dilakukan pengindeks tersebut.
 
-[Learn more about Consumers](./delegators.md)
+[Pelajari lebih lanjut tentang SubQuery](./delegators.md)
 
-### Architects
+### Arsitek
 
-Architects are the builders of the SubQuery projects that the Network runs on. They author and publish SubQuery projects for the Network to index and run.
+Arsitek adalah pembangun proyek SubQuery yang dijalankan Jaringan. Mereka menulis dan menerbitkan proyek SubQuery untuk Jaringan untuk diindeks dan dijalankan.
 
-[Learn more about how to build your first SubQuery project](/build/introduction.md)
+[Pelajari lebih lanjut tentang cara membuat proyek SubQuery pertama Anda](/build/introduction.md)
