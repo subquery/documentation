@@ -179,10 +179,16 @@ function getSidebar(locale, language) {
         collapsable: true,
         children: [
           `${locale}/quickstart/quickstart.md`,
-          `${locale}/quickstart/quickstart-polkadot.md`,
-          `${locale}/quickstart/quickstart-avalanche.md`,
-          `${locale}/quickstart/quickstart-cosmos.md`,
-          `${locale}/quickstart/quickstart-terra.md`,
+          {
+            title: "Chains Quick Start",
+            collapsable: true,
+            children: [
+              `${locale}/quickstart/quickstart_blockchains/quickstart-polkadot.md`,
+              `${locale}/quickstart/quickstart_blockchains/quickstart-avalanche.md`,
+              `${locale}/quickstart/quickstart_blockchains/quickstart-cosmos.md`,
+              `${locale}/quickstart/quickstart_blockchains/quickstart-terra.md`,
+            ]
+          }
         ]
       },
       {
@@ -219,7 +225,7 @@ function getSidebar(locale, language) {
         ],
       },
       {
-        title: "The SubQuery Network",
+        title: "SubQuery Network",
         path: `${locale}/subquery_network/introduction`,
         collapsable: true,
         children: [
@@ -232,6 +238,7 @@ function getSidebar(locale, language) {
           `${locale}/subquery_network/foundation.md`,
           `${locale}/subquery_network/terminology.md`,
           `${locale}/subquery_network/design-philosophy.md`,
+          `${locale}/subquery_network/frontier-testnet.md`,
         ],
       },
       {
@@ -239,7 +246,6 @@ function getSidebar(locale, language) {
         path: `${locale}/academy/herocourse/welcome`,
         collapsable: true,
         children: [
-          //`${locale}/academy/herocourse/welcome.md`,
           {
             title: "Hero Course",
             path: `${locale}/academy/herocourse/welcome`,
@@ -270,14 +276,6 @@ function getSidebar(locale, language) {
             ],
           },
           `${locale}/academy/subquery101/subquery101.md`,
-        ],
-      },
-      {
-        title: "Public Testnet",
-        path: `${locale}/testnet/testnet`,
-        collapsable: true,
-        children: [
-          `${locale}/miscellaneous/contributing.md`,
         ],
       },
       {

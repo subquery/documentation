@@ -1,4 +1,4 @@
-# Quick Start Guide for Beginners 
+# Quick Start Guide
 
 ## Develop Your First Blockchain Project
 
@@ -41,7 +41,7 @@ Before you begin creating your first Blockchain project with SubQuery, make sure
 
 Now, you are all set to start with the first step, which is the installation of the SubQuery CLI. 
 
-## 1. Install the SubQuery CLI
+### Install the SubQuery CLI
 
 Install SubQuery CLI globally on your terminal by using NPM:
 
@@ -59,7 +59,7 @@ subql help
 ```
 Now that you have explored important commands, let’s begin setting up your first project.
 
-## 2. Initialise the SubQuery Starter Project
+### Initialise the SubQuery Starter Project
 
 Run the following command inside the directory you want to create a SubQuery project:
 
