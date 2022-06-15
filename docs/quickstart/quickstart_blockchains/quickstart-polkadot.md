@@ -31,6 +31,8 @@ Now, let's take you ahead and update these configurations one by one.
 
 # 1. Make Changes to Your Project
 
+Previously, in the [Beginner's Quick Guide](../quickstart.md), you got clear information on the three standard configurations of the project. Let's begin updating them one by one. 
+
 ## 1.1 Update Your GraphQL Schema File
 
 The `schema.graphql` file determines the shape of your data from SubQuery due to the mechanism of the GraphQL query language. Hence, updating the GraphQL Schema file is the perfect start. It allows you to define your end goal beforehand.
