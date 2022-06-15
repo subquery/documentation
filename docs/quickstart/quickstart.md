@@ -66,6 +66,15 @@ Run the following command inside the directory you want to create a SubQuery pro
 ```shell
 subql init
 ```
+<hr />
+
+#### - *Important: For Cosmos Users:*
+Cosmos is not yet supported in SubQuery's CLI (`subql`). Hence, if you are using Cosmos, you must start with Juno clone or fork the [starter project](https://github.com/subquery/juno-subql-starter). 
+
+**To initialise your project with Cosmos, refer to these [4 steps shown in this link.](https://github.com/subquery/juno-subql-starter#readme.md)**
+
+ <hr />
+
 You'll be asked certain questions as you proceed ahead:
 
 - **Project name**: A project name for your SubQuery project
@@ -146,7 +155,7 @@ SubQuery supports various Blockchain networks and provides you with a dedicated 
 
 Pick up your preferred network and proceed ahead to update the configurations, and move an inch closer to finishing your first ever project:
 
-### **[Polkadot Quick Start](../quickstart/quickstart-polkadot.html)**
-### **[Avalanche Quick Start](../quickstart/quickstart-avalanche.html)**
-### **[Cosmos Quick Start](../quickstart/quickstart-cosmos.html)**
-### **[Terra Quick Start](../quickstart/quickstart-terra.html)**
+### **[Polkadot Quick Start](../quickstart/quickstart_blockchains/quickstart-polkadot.md)**
+### **[Avalanche Quick Start](../quickstart/quickstart_blockchains/quickstart-avalanche.md)**
+### **[Cosmos Quick Start](../quickstart/quickstart_blockchains/quickstart-cosmos.md)**
+### **[Terra Quick Start](../quickstart/quickstart_blockchains/quickstart-terra.md)**
