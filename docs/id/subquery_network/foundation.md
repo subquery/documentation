@@ -1,19 +1,19 @@
-# The SubQuery Foundation
+# SubQuery Foundation
 
-The SubQuery Foundation serves to manage and develop the SubQuery Network and its ecosystem. Its purpose is to foster and guide the development and growth of the SubQuery Network and provide support for users and developers to build their own SubQuery Projects.
+SubQuery Foundation berfungsi untuk mengelola dan mengembangkan Jaringan SubQuery dan ekosistemnya. Tujuannya adalah untuk mendorong dan memandu pengembangan dan pertumbuhan Jaringan SubQuery dan memberikan dukungan bagi pengguna dan pengembang untuk membangun Proyek SubQuery mereka sendiri.
 
-The SubQuery Foundation is the first step towards decentralising ownership over the SubQuery Network.
+Yayasan SubQuery adalah langkah pertama menuju desentralisasi kepemilikan atas Jaringan SubQuery.
 
-## The Purpose
+## Tujuan
 
-The SubQuery Network will be managed by a SubQuery Foundation. The SubQuery Foundation will be a not for profit entity created specifically to serve, manage, and develop the SubQuery Network and provide support for users and developers to participate.
+Jaringan SubQuery akan dikelola oleh SubQuery Foundation. Yayasan SubQuery akan menjadi entitas nirlaba yang dibuat khusus untuk melayani, mengelola, dan mengembangkan Jaringan SubQuery serta memberikan dukungan bagi pengguna dan pengembang untuk berpartisipasi.
 
-The SubQuery Foundation is expected to have the following mandates:
-- Developing and updating the SubQuery Network
-- Manage and distributing assets from the Foundation Treasury
-- Managing the SubQuery Grants Programme to stimulate ecosystem and network development
-- Developing SubQuery ecosystem of partners and user community
-- Driving educational programmes and documentation
-- Decentralising the control over the SubQuery Network
+Yayasan SubQuery diharapkan memiliki mandat berikut:
+- Mengembangkan dan memperbarui Jaringan SubQuery
+- Mengelola dan mendistribusikan aset dari Perbendaharaan Yayasan
+- Mengelola Program Hibah SubQuery untuk merangsang pengembangan ekosistem dan jaringan
+- Mengembangkan ekosistem SubQuery mitra dan komunitas pengguna
+- Program dan dokumentasi pendidikan mengemudi
+- Desentralisasi kontrol atas Jaringan SubQuery
 
-It is planned that the SubQuery Foundation will be accountable to the SubQuery Council, who will oversee governance decisions and will be made up of key representatives from the core SubQuery team and other key partners and advisers.
+Direncanakan bahwa Yayasan SubQuery akan bertanggung jawab kepada Dewan SubQuery, yang akan mengawasi keputusan tata kelola dan akan terdiri dari perwakilan kunci dari tim inti SubQuery serta mitra dan penasihat utama lainnya.
