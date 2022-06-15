@@ -20,7 +20,7 @@ Consumers will ask the SubQuery Network for specific data for their dApps or too
 
 [Learn more about Consumers](./consumers.md)
 
-### Indexers
+### Pengindeks
 
 Indexers will run and maintain high quality SubQuery projects in their own infrastructure, running both the indexer and query service, and will be rewarded in SQT for the requests that they serve.
 
