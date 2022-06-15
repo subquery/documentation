@@ -4,37 +4,27 @@
 
 ### The goal
 
-The goal of this quick start guide is to provide you with a complete development environment and guided steps to create your first SubQuery Blockchain project. 
+The goal of this quick start guide is to provide you with a complete development setup and guided steps to create your first SubQuery blockchain project. It is targeted towards experienced developers right through to those just beginning their blockchain journey. 
 
 ### Duration
 
-This guide should only take around 10-15 minutes.
-
-Note: This step-by-step guide is designed keeping in mind every developer who is just beginning their Blockchain journey. 
+This quick start guide should only take around 10-15 minutes.
 
 ### What will you learn?
 
-After completing this quick guide, you will be able to adapt the standard starter project. You will learn to index transfers from your favourite Blockchain network, for e.g. Polkadot, Avalanch, Cosmos, etc. 
-
-### How will this guide help you in the process?
-
-This guide will help you at every stage of the project; from installing the required development tools to initialising and modifying the files as required. Moreover, you can follow the directions provided in the guide for building, running, and querying the project. 
-
-As you begin with a simple Blockchain project, you will be able to index actual data when you finish the project.
+After completing this quick start guide, you will be able to adapt the standard starter project and index transfers from your favourite blockchain network such as Polkadot, Avalanch, Cosmos, etc. 
 
 ### The end results 
 
-At the end of this guide, you will have a working SubQuery project that will run on a SubQuery node. You will be able to query the data from a GraphQL endpoint. 
-
+Upon completing this quick start guide, you will have a working SubQuery project that will run on a SubQuery node. You will then be able to query the data from a GraphQL endpoint. 
 
 Before you go through this guide, we suggest you to refer to the [terminology](../subquery_network/terminology.md) used in SubQuery. It will help you understand the commands better. 
 
-So, let's start the process of creating your first ever SubQuery Blockchain project. 
-
+Let's start the process of creating your first SubQuery blockchain project. 
 
 ### Before You Begin 
 
-Before you begin creating your first Blockchain project with SubQuery, make sure you have installed the required supporting software applications. These are:
+Before you begin creating your first blockchain project with SubQuery, make sure you have installed the required supporting software applications. These are:
 
 - [Node](https://nodejs.org/en/): A modern (e.g. the LTS version) installation of Node.
 - [Docker](https://docker.com/): This tutorial will use the required Docker
@@ -114,9 +104,9 @@ HelloWorld is ready
 ```
 
 
-After you complete the initialisation process, you will see a folder with your project name created inside the directory. Please note that the contents of this directory should be identical to what's listed in the [Directory Structure](../create/introduction.md#directory-structure).
+After you complete the initialisation process, you will see a folder with your project name created inside the directory. Please note that the contents of this directory should be identical to what's listed in the [Directory Structure](../build/introduction.md#directory-structure).
 
-At last, run the following command to install the new project’s dependencies, under the project directory.
+Finally run the following command to install the new project’s dependencies, under the project directory.
 
 <CodeGroup>
   <CodeGroupItem title="YARN" active>
@@ -138,7 +128,7 @@ At last, run the following command to install the new project’s dependencies, 
   </CodeGroupItem>
 </CodeGroup>
 
-You have initialised your first SubQuery Blockchain project with just a few simple steps. Ready to explore more about your first project? First, let’s make the required changes.
+You have now initialised your first SubQuery blockchain project with just a few simple steps. Let’s now customise the standard template project for a specific blockchain of interest.
 
 # 3. Make Changes to Your Project
 
@@ -148,10 +138,7 @@ A standard configuration has been provided in the starter package that you just 
 2. The Project Manifest in `project.yaml`
 3. The Mapping functions in `src/mappings/` directory
 
-
-Although the initialising process doesn’t depend on which Blockchain network you have chosen, making changes to these configuration files does. 
-
-SubQuery supports various Blockchain networks and provides you with a dedicated guide for each of them. 
+SubQuery supports various blockchain networks and provides you with a dedicated guide for each of them. 
 
 Pick up your preferred network and proceed ahead to update the configurations, and move an inch closer to finishing your first ever project:
 
