@@ -1,4 +1,4 @@
-# Cosmos Quick Start
+# Bắt đầu nhanh với Cosmos
 
 Trong hướng dẫn bắt đầu nhanh này, chúng ta sẽ bắt đầu với một dự án khởi động Cosmos đơn giản trong Mạng Juno và sau đó kết thúc bằng cách lập chỉ mục một số dữ liệu thực tế. Đây là cơ sở tuyệt vời để bắt đầu khi phát triển Dự án SubQuery của riêng bạn.
 
