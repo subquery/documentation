@@ -27,15 +27,15 @@ Có một số lợi ích của việc trở thành một Người ủy quyền 
 
 Những người ủy thác sẽ chỉ nhận được doanh thu cho việc đặt cược Eras mà họ là một phần của toàn bộ thời gian. Ví dụ: nếu họ tham gia Era staking vào giữa giai đoạn có liên quan, thì họ sẽ không kiếm được bất kỳ doanh thu Phí Truy vấn nào cho Era cụ thể đó.
 
-Nếu Người lập chỉ mục muốn tăng Tỷ lệ hoa hồng của Người lập chỉ mục mà họ cung cấp cho Người ủy quyền của họ, họ phải quảng cáo điều này trong toàn bộ Kỷ nguyên đặt cược. Người lập chỉ mục sẽ có thể giảm Tỷ lệ hoa hồng dành cho người lập chỉ mục của họ bất kỳ lúc nào để nâng cao SQT được ủy quyền hơn để đặt cược trong thời gian ngắn hạn. Người ủy quyền có thể rút hoặc hủy bỏ số tiền đã đặt cược của họ bất kỳ lúc nào, nhưng họ sẽ mất bất kỳ phần thưởng nào kiếm được trong Kỷ nguyên đặt cược (vì họ không phải là một phần của nhóm ủy quyền trong toàn bộ thời gian của Kỷ nguyên đặt cược).
+Nếu Người lập chỉ mục muốn tăng Tỷ lệ Hoa hồng Lập chỉ mục mà họ cung cấp cho Người ủy quyền, họ phải quảng cáo điều này cho toàn bộ Era staking . Người lập chỉ mục sẽ có thể giảm Tỷ lệ hoa hồng lập chỉ mục của họ bất kỳ lúc nào để nâng cao SQT được ủy quyền hơn để đặt cược trong thời gian ngắn hạn. Người ủy quyền có thể rút hoặc hủy bỏ số tiền đã đặt cược của họ bất kỳ lúc nào, nhưng họ sẽ mất bất kỳ phần thưởng nào kiếm được trong Era staking (vì họ không phải là một phần của nhóm ủy quyền trong toàn bộ thời gian của Era staking).
 
 ## Rủi ro khi trở thành Người ủy quyền
 
-Mặc dù nó không được coi là một vai trò rủi ro, nhưng việc trở thành Người đại diện bao gồm một số rủi ro cần lưu ý.
+Mặc dù nó không được coi là một vai trò rủi ro, nhưng việc trở thành Người ủy quyền bao gồm một số rủi ro cần lưu ý.
 
 1. Rủi ro biến động thị trường: Những biến động liên tục trên thị trường là rủi ro không chỉ ảnh hưởng đến SQT mà còn ảnh hưởng đến tất cả các mã thông báo trên thị trường tiền điện tử nói chung. Thực hiện một cách tiếp cận dài hạn có thể làm giảm loại rủi ro này.
-2. Việc điều chỉnh liên tục các thông số đặt cược của Người lập chỉ mục và phí ủy quyền có thể làm tăng rủi ro cho Người ủy quyền. Ví dụ: Người ủy quyền có thể bỏ lỡ thay đổi trong các thông số đặt cược dẫn đến lợi nhuận ít hơn mong đợi. Để giảm rủi ro này, khi Người lập chỉ mục giảm các thông số cổ phần của họ, nó sẽ chỉ có hiệu lực sau khi đã hoàn thành Kỷ nguyên đầy đủ tiếp theo, tạo thời gian cho người được ủy quyền đánh giá và thực hiện bất kỳ thay đổi nào.
-3. Trình lập chỉ mục hoạt động kém: Có thể Người ủy quyền có thể chọn Người lập chỉ mục hoạt động kém và do đó cung cấp lợi tức đầu tư không đạt tiêu chuẩn cho Người ủy quyền. Do đó, các đại biểu được khuyến khích thực hiện thẩm định của Indexer đối với các Indexer tiềm năng. Chỉ mục Danh tiếng cũng có sẵn để giúp Người ủy quyền so sánh các Người lập chỉ mục với nhau.
+2. Việc điều chỉnh liên tục các thông số đặt cược của Người lập chỉ mục và phí ủy quyền có thể làm tăng rủi ro cho Người ủy quyền. Ví dụ: Người ủy quyền có thể bỏ lỡ thay đổi trong các thông số đặt cược dẫn đến lợi nhuận ít hơn mong đợi. Để giảm rủi ro này, khi Người lập chỉ mục giảm các thông số cổ phần của họ, nó sẽ chỉ có hiệu lực sau khi đã hoàn thành đầy đủ Era tiếp theo, tạo thời gian cho người được ủy quyền đánh giá và thực hiện bất kỳ thay đổi nào.
+3. Trình lập chỉ mục hoạt động kém: Có thể Người ủy quyền có thể chọn Người lập chỉ mục hoạt động kém và do đó cung cấp lợi tức đầu tư không đạt tiêu chuẩn cho Người ủy quyền. Do đó, Người ủy quyền được khuyến khích thực hiện thẩm định Người lập chỉ mục tiềm năng. Chỉ mục Danh tiếng cũng có sẵn để giúp Người ủy quyền so sánh các Người lập chỉ mục với nhau.
 
 ## Làm thế nào để chọn Người lập chỉ mục?
 
