@@ -38,7 +38,7 @@ subql help
 
 ## Khởi tạo Dự án khởi đầu SubQuery
 
-Cosmos is not yet supported in SubQuery's CLI (`subql`), to start with Juno clone or fork the [starter project](https://github.com/subquery/juno-subql-starter).
+Cosmos vẫn chưa được hỗ trợ trong CLI của SubQuery (`subql`), để bắt đầu với Juno clone hoặc fork [dự án khởi đầu](https://github.com/subquery/juno-subql-starter).
 
 Sau khi quá trình khởi tạo hoàn tất, bạn sẽ thấy một thư mục có tên dự án của bạn đã được tạo bên trong thư mục. Nội dung của thư mục này phải giống với nội dung được liệt kê trong [Cấu trúc thư mục](../create/introduction.md#directory-structure).
 
