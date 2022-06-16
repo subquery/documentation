@@ -1,6 +1,6 @@
 # Polkadot Quick Start
 
-# Develop Your First SubQuery SubStrate/Polkadot Project 
+## Develop Your First SubQuery SubStrate/Polkadot Project 
 
 The goal of this quick guide is to adapt the standard starter project and start indexing all transfers from Polkadot. 
 
@@ -8,7 +8,7 @@ You must have completed the installation of the required software support and in
 
 Now, the next step is making changes to your files and running the project. 
 
-**Important:** Before we begin, make sure that you have initialised your project using the provided steps in the [Beginners' Quick Guide](../quickstart/quickstart.md). You must have got an output similar to as follows:
+**Important:** Before we begin, make sure that you have initialised your project using the provided steps in the [Beginners' Quick Guide](../quickstart.md). You must have got an output similar to as follows:
 
 ```shell
 $ subql init
@@ -29,11 +29,11 @@ HelloWorld is ready
 
 Now, let's take you ahead and update these configurations one by one. 
 
-# 1. Make Changes to Your Project
+## 1. Make Changes to Your Project
 
 Previously, in the [Beginner's Quick Guide](../quickstart.md), you got clear information on the three standard configurations of the project. Let's begin updating them one by one. 
 
-## 1.1 Update Your GraphQL Schema File
+### 1.1 Update Your GraphQL Schema File
 
 The `schema.graphql` file determines the shape of your data from SubQuery due to the mechanism of the GraphQL query language. Hence, updating the GraphQL Schema file is the perfect start. It allows you to define your end goal beforehand.
 
@@ -67,11 +67,11 @@ type Transfer @entity {
 
 You will find the generated models in the `/src/types/models` directory.
 
-Check out our [Build/GraphQL](../build/graphql.md) Schema documentation to get more information on `schema.graphql` file.
+Check out our [Build/GraphQL](../../build/graphql.md) Schema documentation to get more information on `schema.graphql` file.
 
 Now that you have made essential changes to the GraphQL Schema file, let’s move forward to the next configuration. 
 
-## 1.2 Update Your Project Manifest File
+### 1.2 Update Your Project Manifest File
 
 The Project Manifest (`project.yaml`) file works as an entry point to your project. It defines most of the details on how SubQuery will index and transform the chain data.
 
@@ -93,11 +93,11 @@ dataSources:
 
 This indicates that you will be running a `handleEvent` mapping function whenever there is a `balances.Transfer` event.
 
-Check out our [Build/Manifest File](../build/manifest.md) documentation to get more information about the Project Manifest (`project.yaml`) file. 
+Check out our [Build/Manifest File](../../build/manifest.md) documentation to get more information about the Project Manifest (`project.yaml`) file. 
 
 Next, let’s proceed ahead with the Mapping Function’s configuration. 
 
-## 1.3 Add a Mapping Function
+### 1.3 Add a Mapping Function
 
 Mapping functions define how chain data is transformed into the optimised GraphQL entities that we previously defined in the `schema.graphql` file.
 
@@ -138,12 +138,12 @@ Let’s understand how the above code works.
 
 The function here receives a `SubstrateEvent` which includes transfer data in the payload. We extract this data and then instantiate a new `Transfer` entity defined earlier in the `schema.graphql` file. After that, we add additional information and then use the `.save()` function to save the new entity (*SubQuery will automatically save this to the database*).
 
-Check out our [Build/Mappings](../build/mapping.md) documentation to get detailed information on mapping functions.
+Check out our [Build/Mappings](../../build/mapping.md) documentation to get detailed information on mapping functions.
 
 You are about to finish and create your first project. However, there is still an additional and necessary step required to run your SubQuery Project. Take a look further. 
 
 
-## 1.4 Build Your Project
+### 1.4 Build Your Project
 
 You need to build your work first, in order to run your new SubQuery project. Run the build command from the project's root directory as follows:
 
@@ -169,15 +169,15 @@ You need to build your work first, in order to run your new SubQuery project. Ru
 
 Now, you are all set to run your first SubQuery project. Let’s dig out the process of running the project in detail. 
 
-# 2. Run and Query Your Project
+## 2. Run and Query Your Project
 
-## 2.1 Run Your Project with Docker
+### 2.1 Run Your Project with Docker
 
 Whenever you create a new SubQuery Project, first, you must run it locally on your computer and test it. And using Docker is the easiest way to do this. 
 
 `docker-compose.yml` file defines all the configurations that control how a SubQuery node runs. For a new project, which you have just initialised, you won't need to change anything.
 
-However, you must visit the [Run a Project](../run_publish/run.md) section and get detailed information on the file and the settings. 
+However, you must visit the [Run a Project](../../run_publish/run.md) section and get detailed information on the file and the settings. 
 
 Run the following command under the project directory:
 
@@ -203,16 +203,17 @@ Run the following command under the project directory:
 
 Now, move on further and query your project by following the guided steps. 
 
-## 2.2 Query Your Project
+### 2.2 Query Your Project
 
 Follow these three simple steps to query your SubQuery project:
 
-Open your browser and head to [http://localhost:3000](http://localhost:3000).
+1. Open your browser and head to [http://localhost:3000](http://localhost:3000).
 
-You will see a GraphQL playground in the browser and the schemas which are ready to query. 
-Find a *Docs* button on the top right corner of the playground which should open a documentation draw. This documentation is automatically generated and it helps you find what entities and methods you can query.
+2. You will see a GraphQL playground in the browser and the schemas which are ready to query. 
 
-Try the following query to understand how it works for your new SubQuery starter project. Don’t forget to learn more about the [GraphQL Query language](../run_publish/graphql.md). 
+3. Find a *Docs* button on the top right corner of the playground which should open a documentation draw. This documentation is automatically generated and it helps you find what entities and methods you can query.
+
+Try the following query to understand how it works for your new SubQuery starter project. Don’t forget to learn more about the [GraphQL Query language](../../run_publish/graphql.md). 
 
 
 ```graphql
@@ -235,24 +236,23 @@ Try the following query to understand how it works for your new SubQuery starter
 ```
 You are just one step away from creating your first SubQuery project. Keep reading further to find out how to publish it.
 
-## 2.3 Publish Your SubQuery Project
+### 2.3 Publish Your SubQuery Project
 
 SubQuery provides a free managed service where you can deploy your new project. You can deploy it to [SubQuery Projects](https://project.subquery.network) and query it using our [Explorer](https://explorer.subquery.network).
 
-Read the guide to [publish your new project to SubQuery Projects](../run_publish/publish.md)
 
-If you get stuck in the process, read this complete guide on how to [publish your new project to SubQuery Projects](../run_publish/publish.md). 
+If you get stuck in the process, read this complete guide on how to [publish your new project to SubQuery Projects](../../run_publish/publish.md). 
 
 **Congratulations! You have now a locally running SubQuery project that accepts GraphQL API requests for transferring data.**
 
-# What’s Next?
+## What’s Next?
 
 You have done a great job so far. Now that you have a clear understanding of how to build a basic SubQuery project, what should be your next step? Let us guide you through your following journey. 
 
-Since you have finished publishing your first project and if you feel confident, then jump to [Build section of these docs](../build/introduction.md) and learn more about the three key files: **the manifest file, the GraphQL schema, and the mappings file.**
+Since you have finished publishing your first project and if you feel confident, then jump to [Build section of these docs](../../build/introduction.md) and learn more about the three key files: **the manifest file, the GraphQL schema, and the mappings file.**
 
-If you are looking for practising with more real examples and diving deeper, then head to the  [Academy section](../academy/academy.md). You will get access to readily available and open-source projects. 
+If you are looking for practising with more real examples and diving deeper, then head to the  [Academy section](../../academy/academy.md). You will get access to readily available and open-source projects. 
 
 Get ready to find in-depth workshops, tutorials, and example projects, work on advanced modifications, and become a master at running SubQuery projects. 
 
-In the end, if you want to explore more ways to run and publish your project, refer to [Run & Publish section](../run_publish/run.md). Get complete information about all the ways to run your SubQuery project, along with advanced GraphQL aggregation and subscription features.
+In the end, if you want to explore more ways to run and publish your project, refer to [Run & Publish section](../../run_publish/run.md). Get complete information about all the ways to run your SubQuery project, along with advanced GraphQL aggregation and subscription features.
