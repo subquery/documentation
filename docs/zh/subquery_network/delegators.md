@@ -14,44 +14,44 @@
 
 担任代理有若干好处：
 
-- **Easy to get started**: Requiring little technical knowledge, Delegators only need to acquire SQT tokens and then learn the process of delegating the tokens to their preferred Indexer(s).
-- **Contribute to the network**: Delegating to Indexers is a way to support an Indexer’s work service requests to consumers. In return, Delegators are rewarded with SQT.
-- **Earn rewards**: Delegators can put their SQT to work by delegating their SQT to Indexers and earning a share of the reward pool.
-- **No minimum delegation amount**: There is no minimum required delegation to be a Delegator. This means that anyone can join no matter how much SQT one has.
+- **很容易开始**: 需要少量技术知识. 代理只需要获取 SQT 代币，然后学习将代币委托给他们喜欢的 索引者 的过程。
+- **为网络**做出贡献：委托给索引器是支持索引器向消费者提供工作服务请求的一种方式。 作为回报，代理们将得到SQT奖励。
+- **赚取奖励**: 代表可以通过将他们的 SQT 委托给索引员和赚取一部分的奖励，将他们的 SQT 用于工作。
+- **没有最低委托金额**：成为代理没有最低要求的委托。 这意味着任何人都可以加入，无论他有多少SQT。
 
-## How Delegators are rewarded?
+## 代理如何得到奖励？
 
-To attract Delegators to support their work, Indexers offer Delegators a share of the rewards they earn. The Indexer will advertise an Indexer Commission Rate, where the remaining revenue will then be shared within the total delegation/staking pool proportionally to the individual delegated/staked value in the pool.
+为了吸引代理们支持他们的工作，索引者向代表们提供他们赚取的部分报酬。 索引者将刊登索引者委员会评分的广告。 然后将余下的收入按比例分配给人才库中的个人代表/利益攸关者。
 
-*Indexer’s Commission Rate*: This is a percentage share of the fees earned from serving requests to Consumers. Indexers are free to set this rate to any value they desire. A higher percentage indicates that Indexers keep more of the profits. A lower percentage indicates that the Indexers share more of their profits with their Delegators.
+*索引者的佣金率*: 这是从向消费者服务请求所得费用中的一个百分比。 索引者可自由地将此比率设置为他们想要的任何值。 较高的百分比表明，索引者持有更多的利润。 较低的百分比表明，索引者与代理们分享更多的利润。
 
-Delegators will only receive revenue for staking Eras that they were a part of for the entire period. For example, if they join a staking Era in the middle of the relevant period, then they will not earn any Query Fee revenue for that particular Era.
+代理将仅获得在整个期间他们参与的时期的收益。 例如，如果他们在相关期间的中间加入了一个质押的时期，那么他们将不会获得该特定时代的任何查询费收入。
 
-If an Indexer wishes to increase the Indexer Commission Rate that they offer to their Delegators, they must advertise this for an entire staking Era . The Indexer will be able to decrease their Indexer Commission Rate at any point to raise more delegated SQT for staking in the short term. Delegators can withdraw or undelegate their staked amount at any time, but they will forfeit any rewards earned within the staking Era (as they were not part of the delegation pool for the entire duration of the staking Era).
+如果索引者希望提高他们提供给代理的索引者佣金率，他们必须在整个质押时期宣传这一点。 索引者将能够在任何时候降低索引者的佣金率，以便在短期内提取更多经授权的SQT。 代理可以随时撤回或取消委托他们的质押金额，但他们将丧失在质押时期获得的任何奖励（因为他们在质押时期的整个期间都不是委托池的一部分）。
 
-## Risks of being a Delegator
+## 担任代理的风险
 
-Even though it is not considered a risky role, being a Delegator includes a few risks to be aware of.
+即使不被认为是一种危险的角色，作为代理也包括一些需要意识到的风险。
 
-1. Market volatility risk: The constant fluctuations in the market is a risk that affects not just SQT, but all tokens in the general cryptocurrency marketplace. Taking a long term approach can reduce this type of risk.
-2. Constant adjustments of staking parameters by Indexers and delegation fees can increase the risk to a Delegator. For example, a Delegator might miss a change in staking parameters resulting in a less than expected return. To reduce this risk, when Indexers decrease their stake parameters, it will only take effect after the next full Era has been completed, giving time for delegators to assess and make any changes.
-3. Indexer poor performance: It is possible that Delegators can select Indexers that perform poorly and therefore provide a substandard return on investment to Delegators. Delegators are therefore encouraged to do Indexer due diligence on potential Indexers. A Reputation Index is also available to help Delegators compare Indexers to each other.
+1. 市场波动风险：市场中的持续波动不仅影响SQT，而且影响到一般加密货币市场中的所有代币。 采取长期策略可以降低此类风险。
+2. 索引器和委托费用不断调整质押参数可能会增加委托人的风险。 例如，代理可能会错过质押参数的更改，从而导致低于预期的回报。 为了降低这种风险，当索引者减少他们的质押参数时，它只会在下一个完整时期完成后生效，让委托人有时间评估和做出任何改变。
+3. 索引者业绩不佳：代理们有可能挑选业绩不佳的索引员，从而向代理们提供低于标准的投资回报。 因此，鼓励代理对潜在的索引者进行尽职调查。 还有一个信誉指数，可帮助代理们相互比较索引者。
 
-## How to select Indexers?
+## 如何选择索引者？
 
-Delegators can select potential Indexers based on a *Reputation Index* or RI. This RI takes into account an Indexer’s uptime, indexer commission rate, slashing events, and Indexer parameter change frequency.
+代表们可以根据 *信誉指数* /RI选择潜在的索引者。 RI考虑到索引者的更新时间、佣金率、清除事件和索引器参数更改频率。
 
-SubQuery will launch the official RI soon, but we expect other delegation applications to calculate and release their own.
+SubQuery 将很快推出官方 RI，但我们希望其他代理应用程序能够计算和发布自己的。
 
-## Non-reward period
+## 非奖励期
 
-Besides the period when Delegators can effectively earn money, a non-reward period also occurs. Delegators receive rewards for staking Eras that they were a part of for the entire duration. For example, if a Delegator joins a staking era halfway through, they will not earn any rewards for that particular era.
+除了代理可以有效赚钱的时期外，还会出现非奖励时期。 代理会因在整个时段参与某质押时期而获得奖励。 例如，如果一位代理加入了一个历时已过半的关卡时代，他们就不会在这一特定时代得到任何奖励。
 
-Delegators can change the indexer that their SQT is delegated to (called redelegating), this change will be queued to happen automatically at the end of the the Era and no thawing period will occur.
+代理可以更改他们的 SQT 被委托给的索引器（称为重新委托），此更改将排队等待並在时期结束时自动发生，并且不会发生解冻期。
 
-If a Delegator decides to undelegate their SQT, a 28 day thawing period starts. The tokens cannot be used during this period, no fees can be accrued or any reward gained.
+如果代理决定取消其 SQT 的委托，则开始 28 天的解冻期。 在此期间不能使用代币，不能收取任何费用或获得任何奖励。
 
-## Indexer due diligence for Delegators
+## 代理的索引者尽职调查
 
 Once a preferred Indexer(s) is found, due diligence should be performed to check an Indexer’s reputation and reliability. Assessments could be performed to evaluate if the Indexer is active in the community, if the Indexer helps other members, if it is possible to get in touch with the Indexer, and if the Indexer is up-to-date with protocol and project updates.
 
