@@ -1,37 +1,37 @@
-# Consumers
+# 消费者
 
-## What is a Consumer?
+## 消费者是什么？
 
-A Consumer is a participant in the SubQuery network and is either an individual or organisation that pays for processed and organised blockchain data from the SubQuery Network. Consumers effectively make requests to the SubQuery Network for specific data and pay an agreed amount of SQT in return.
+用戶是 SubQuery 网络的参与者，是支付来自 SubQuery 网络处理和组织的区块链数据的个人或组织。 消费者将向 SubQuery 网络提出特定数据的请求，并支付以我们的代币 SQT 计数的广播金额。
 
-Consumers are typically dApp (decentralised application) developers, data analytic companies, blockchain networks, middleware developers, or even web aggregating companies that need access to blockchain data to provide services to their end-users.
+消费者通常是 dApp（去中心化应用程序）开发人员、数据分析公司、区块链网络、中间件开发人员，甚至是需要访问区块链数据以向最终用户提供服务的 Web 聚合公司。
 
-## Consumer Requirements
+## 消费者要求
 
-There are no requirements as such to become a SubQuery Consumer. However, Consumers will need to understand how to obtain SQT, how to advertise their data requirements and how to consume the JSON data returned.
+成为 SubQuery 的消費者没有任何要求。 但是，消费者需要了解如何获取 SQT、如何宣传他们的数据需求以及如何使用返回的 JSON 数据。
 
-Consumers may also need to understand how to create SubQuery projects to be Indexed or contract this work out in order to get the data in the format they need.
+消费者可能还需要了解如何创建要索引的子查询项目或将这项工作外包，以便以他们需要的格式获取数据。
 
-## Service Cost
+## 服务成本
 
-The cost of querying data on the blockchain will be based on supply and demand and will be comparable to other similar services currently available. The advantage of an open and transparent network and ecosystem is that competition is encouraged to provide the best service to the Consumer.
+在区块链上查询数据的成本将基于供需，并将与当前可用的其他类似服务相媲美。 开放透明的网络和生态系统的优势在于鼓励竞争，为消费者提供最好的服务。
 
-## Payment options for Consumers?
+## 消费者的支付方式？
 
-For flexibility, Consumers have 3 payment options to pay for blockchain data. They are:
+为了灵活性，消费者有 3 种支付方式来支付区块链数据。 分别是：
 
-- Pay As You Go (PAYG)
-- Closed Service Agreement
-- Open Service Agreement
+- 按需付费 pay-as-you-go
+- 封闭式服务协议
+- 开放式服务协议
 
-You can read more about the different payment methods, how they work, and the advantages/disadvantages on the [Payment Methods article](./payment-methods.md).
+您可以在[付款方式一文](./payment-methods.md)中详细了解不同的付款方式、它们的工作原理以及优缺点。
 
 ## 常见问题
 
-### As a Consumer, do I select 1 Indexer or multiple Indexers?
+### 作为消费者，我应该选择 1 个索引器还是多个索引器？
 
-Unless a Closed Service Agreement is being used, there will be one or more Indexers indexing a SubQuery project. Consumers have the choice when deciding which Indexer to read data from. Typically Consumers would select the most reliable and lowest latency Indexer. Consumers could also incorporate automatic failover and read data from another Indexer if the first one times out or is not responsive.
+除非使用封闭服务协议，否则将有一个或多个索引器索引子查询项目。 消费者在决定从哪个索引器读取数据时有选择。 通常消费者将选择最可靠和最最低的延迟指数。 消费者还可纳入自动故障并从另一索引器读取数据，如果第一次出现故障或不具响应性。
 
-### What happens if an Indexer goes off line?
+### 如果索引器关机会发生什么情况？
 
-Unless a Closed Service Agreement is being used, and if there is more than one Indexer indexing your SubQuery project, it would simply be a matter of switching to another Indexer. The ideal scenario would be include strategies like alert monitoring to be notified of potential issues and intelligent routing and caching
+除非正在使用封闭服务协议，否则如果有多个索引器将您的 SubQuery 项目索引。 这只是一个转向另一个索引器的问题。 理想的情景将包括一些策略，例如通知潜在问题的警报监测以及智能路由和缓存。
