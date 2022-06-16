@@ -31,7 +31,7 @@ Before you begin creating your first blockchain project with SubQuery, make sure
 
 Now, you are all set to start with the first step, which is the installation of the SubQuery CLI. 
 
-### Install the SubQuery CLI
+### 1. Install the SubQuery CLI
 
 Install SubQuery CLI globally on your terminal by using NPM:
 
@@ -49,7 +49,7 @@ subql help
 ```
 Now that you have explored important commands, let’s begin setting up your first project.
 
-### Initialise the SubQuery Starter Project
+### 2. Initialise the SubQuery Starter Project
 
 Run the following command inside the directory you want to create a SubQuery project:
 
@@ -59,9 +59,11 @@ subql init
 <hr />
 
 #### - *Important: For Cosmos Users:*
-Cosmos is not yet supported in SubQuery's CLI (`subql`). Hence, if you are using Cosmos, you must start with Juno clone or fork the [starter project](https://github.com/subquery/juno-subql-starter). 
+Cosmos is not yet supported in SubQuery's CLI (`subql`). Hence, if you are using Cosmos, you must start with Juno clone or fork the [starter project](https://github.com/DeveloperInProgress/juno-subql-starter). 
 
-**To initialise your project with Cosmos, refer to these [4 steps shown in this link.](https://github.com/subquery/juno-subql-starter#readme.md)**
+**To initialise your project with Cosmos, refer to these [4 steps shown in this link.](https://github.com/DeveloperInProgress/juno-subql-starter#readme)**
+
+- Once you complete these 4 steps, **jump** to the [how to make further changes to your project](../quickstart/quickstart.html#_3-make-changes-to-your-project) section. 
 
  <hr />
 
@@ -130,7 +132,7 @@ Finally run the following command to install the new project’s dependencies, u
 
 You have now initialised your first SubQuery blockchain project with just a few simple steps. Let’s now customise the standard template project for a specific blockchain of interest.
 
-# 3. Make Changes to Your Project
+### 3. Make Changes to Your Project
 
 A standard configuration has been provided in the starter package that you just initialised.  These are:
 
