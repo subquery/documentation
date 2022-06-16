@@ -53,14 +53,14 @@ SubQuery 将很快推出官方 RI，但我们希望其他代理应用程序能�
 
 ## 代理的索引者尽职调查
 
-Once a preferred Indexer(s) is found, due diligence should be performed to check an Indexer’s reputation and reliability. Assessments could be performed to evaluate if the Indexer is active in the community, if the Indexer helps other members, if it is possible to get in touch with the Indexer, and if the Indexer is up-to-date with protocol and project updates.
+找到首选索引者后，应进行尽职调查以检查索引者的声誉和可靠性。 可以进行评估以评估索引者是否在社区中活跃，是否帮助其他成员，是否可以与索引者取得联系，以及索引器是否是最新的协议和项目更新。
 
-## Delegation Lifecycle
+## 代理周期
 
-Delegators delegate (deposit) SQT into an Indexer’s contract.
+代理将 SQT 委托（存款）到索引者的合约中。
 
-Delegators can then decide how much to redelegate to each Indexer of their choice.
+然后，委托人可以决定将多少重新委托给他们选择的每个索引者。
 
-Delegator can undelegate (withdraw) tokens back to their wallet. This will trigger a lock period of 28 days.
+代理可以将代币取消委托（撤回）回他们的钱包。 这将触发 28 天的锁定期。
 
-After the unlocking period has been completed, tokens become available for withdrawal/claim.
+解锁期结束后，代币可用于提款/索取。
