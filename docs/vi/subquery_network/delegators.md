@@ -1,66 +1,66 @@
-# Delegators
+# Người uỷ quyền
 
-## What is a Delegator?
+## Người ủy quyền là gì?
 
-A Delegator is a non-technical network role in the SubQuery Network and is a great way to start participating in the SubQuery Network. This role enables Delegators to “delegate” their SQT to one or more Indexers and earn rewards (similar to staking).
+Người ủy quyền là người phi kỹ thuật có vai trò trong Mạng SubQuery và là một cách tuyệt vời để bắt đầu tham gia vào Mạng SubQuery. Vai trò này cho phép Người ủy quyền "ủy thác" SQT của họ cho một hoặc nhiều Người lập chỉ mục và kiếm được phần thưởng (tương tự như staking).
 
-Without Delegators, Indexers will likely earn fewer rewards because they will have less SQT to allocate. Therefore, Indexers compete to attract Delegators by offering a competitive share of an Indexer’s rewards.
+Nếu không có Người ủy quyền, Người lập chỉ mục có thể sẽ kiếm được ít phần thưởng hơn vì họ sẽ có ít SQT hơn để phân bổ. Do đó, Người lập chỉ mục cạnh tranh để thu hút Người ủy quyền bằng cách cung cấp một phần của phần thưởng của Người lập chỉ mục.
 
-## Requirements to be a Delegator
+## Yêu cầu để trở thành một Người ủy quyền
 
-One of the best things about being a Delegator is that you don’t need any devops, coding, or technical experience. Basic understanding of the SubQuery Network is all that is required to become a Delegator.
+Một trong những điều tốt nhất về việc trở thành một Người ủy quyền là bạn không cần biết bất kỳ devops, mã hóa, hay kinh nghiệm kỹ thuật. Sự hiểu biết cơ bản về Mạng SubQuery là tất cả những gì cần thiết để trở thành một Người ủy quyền.
 
-## Benefits of being a Delegator
+## Lợi ích của việc trở thành một Người ủy quyền
 
-There are several benefits of becoming a Delegator:
+Có một số lợi ích của việc trở thành một Người ủy quyền như sau:
 
-- **Easy to get started**: Requiring little technical knowledge, Delegators only need to acquire SQT tokens and then learn the process of delegating the tokens to their preferred Indexer(s).
-- **Contribute to the network**: Delegating to Indexers is a way to support an Indexer’s work service requests to consumers. In return, Delegators are rewarded with SQT.
-- **Earn rewards**: Delegators can put their SQT to work by delegating their SQT to Indexers and earning a share of the reward pool.
-- **No minimum delegation amount**: There is no minimum required delegation to be a Delegator. This means that anyone can join no matter how much SQT one has.
+- **Dễ dàng để bắt đầu**: Đòi hỏi ít kiến thức kỹ thuật, Người ủy quyềnn chỉ cần có token SQT và sau đó tìm hiểu quy trình ủy thác token cho Người lập chỉ mục họ ưa thích.
+- **Đóng góp vào mạng**: Ủy thác cho Người lập chỉ mục là một cách để hỗ trợ các yêu cầu dịch vụ làm việc của Người lập chỉ mục cho người tiêu dùng. Đổi lại, Người ủy quyền được thưởng SQT.
+- **Kiếm phần thưởng**: Người ủy quyền có thể gửi SQT của họ hoạt động bằng cách ủy quyền SQT của họ cho Người lập chỉ mục và kiếm một phần trong pool phần thưởng.
+- **Không yêu cầu số tiền ủy quyền tối thiểu**: Không có yêu cầu ủy quyền tối thiểu để trở thành Người ủy quyền. Điều này có nghĩa là bất kỳ ai cũng có thể tham gia cho dù họ có bao nhiêu SQT.
 
-## How Delegators are rewarded?
+## Người ủy quyền được thưởng như thế nào?
 
-To attract Delegators to support their work, Indexers offer Delegators a share of the rewards they earn. The Indexer will advertise an Indexer Commission Rate, where the remaining revenue will then be shared within the total delegation/staking pool proportionally to the individual delegated/staked value in the pool.
+Để thu hút Người ủy quyền hỗ trợ công việc của họ, Người lập chỉ mục cung cấp cho Người ủy quyền một phần phần thưởng mà họ kiếm được. Người lập chỉ mục sẽ quảng cáo Tỷ lệ hoa hồng của Người lập chỉ mục, trong đó doanh thu còn lại sau đó sẽ được chia sẻ trong tổng số ủy quyền/pool đặt cược tương ứng với giá trị được ủy quyền/đặt cược riêng lẻ trong pool.
 
-*Indexer’s Commission Rate*: This is a percentage share of the fees earned from serving requests to Consumers. Indexers are free to set this rate to any value they desire. A higher percentage indicates that Indexers keep more of the profits. A lower percentage indicates that the Indexers share more of their profits with their Delegators.
+*Tỷ lệ hoa hồng của người lập chỉ mục*: Đây là tỷ lệ phần trăm của phí thu được từ việc cung cấp yêu cầu cho Người tiêu dùng. Người lập chỉ mục có thể tự do đặt tỷ lệ này thành bất kỳ giá trị nào họ muốn. Tỷ lệ phần trăm cao hơn cho thấy Người lập chỉ mục giữ nhiều lợi nhuận hơn. Tỷ lệ phần trăm thấp hơn cho thấy Người lập chỉ mục chia sẻ nhiều lợi nhuận hơn với Người ủy quyền của họ.
 
-Delegators will only receive revenue for staking Eras that they were a part of for the entire period. For example, if they join a staking Era in the middle of the relevant period, then they will not earn any Query Fee revenue for that particular Era.
+Những người ủy thác sẽ chỉ nhận được doanh thu cho việc đặt cược Eras mà họ là một phần của toàn bộ thời gian. Ví dụ: nếu họ tham gia Era staking vào giữa giai đoạn có liên quan, thì họ sẽ không kiếm được bất kỳ doanh thu Phí Truy vấn nào cho Era cụ thể đó.
 
-If an Indexer wishes to increase the Indexer Commission Rate that they offer to their Delegators, they must advertise this for an entire staking Era . The Indexer will be able to decrease their Indexer Commission Rate at any point to raise more delegated SQT for staking in the short term. Delegators can withdraw or undelegate their staked amount at any time, but they will forfeit any rewards earned within the staking Era (as they were not part of the delegation pool for the entire duration of the staking Era).
+Nếu Người lập chỉ mục muốn tăng Tỷ lệ hoa hồng của Người lập chỉ mục mà họ cung cấp cho Người ủy quyền của họ, họ phải quảng cáo điều này trong toàn bộ Kỷ nguyên đặt cược. Người lập chỉ mục sẽ có thể giảm Tỷ lệ hoa hồng dành cho người lập chỉ mục của họ bất kỳ lúc nào để nâng cao SQT được ủy quyền hơn để đặt cược trong thời gian ngắn hạn. Người ủy quyền có thể rút hoặc hủy bỏ số tiền đã đặt cược của họ bất kỳ lúc nào, nhưng họ sẽ mất bất kỳ phần thưởng nào kiếm được trong Kỷ nguyên đặt cược (vì họ không phải là một phần của nhóm ủy quyền trong toàn bộ thời gian của Kỷ nguyên đặt cược).
 
-## Risks of being a Delegator
+## Rủi ro khi trở thành Người ủy quyền
 
-Even though it is not considered a risky role, being a Delegator includes a few risks to be aware of.
+Mặc dù nó không được coi là một vai trò rủi ro, nhưng việc trở thành Người đại diện bao gồm một số rủi ro cần lưu ý.
 
-1. Market volatility risk: The constant fluctuations in the market is a risk that affects not just SQT, but all tokens in the general cryptocurrency marketplace. Taking a long term approach can reduce this type of risk.
-2. Constant adjustments of staking parameters by Indexers and delegation fees can increase the risk to a Delegator. For example, a Delegator might miss a change in staking parameters resulting in a less than expected return. To reduce this risk, when Indexers decrease their stake parameters, it will only take effect after the next full Era has been completed, giving time for delegators to assess and make any changes.
-3. Indexer poor performance: It is possible that Delegators can select Indexers that perform poorly and therefore provide a substandard return on investment to Delegators. Delegators are therefore encouraged to do Indexer due diligence on potential Indexers. A Reputation Index is also available to help Delegators compare Indexers to each other.
+1. Rủi ro biến động thị trường: Những biến động liên tục trên thị trường là rủi ro không chỉ ảnh hưởng đến SQT mà còn ảnh hưởng đến tất cả các mã thông báo trên thị trường tiền điện tử nói chung. Thực hiện một cách tiếp cận dài hạn có thể làm giảm loại rủi ro này.
+2. Việc điều chỉnh liên tục các thông số đặt cược của Người lập chỉ mục và phí ủy quyền có thể làm tăng rủi ro cho Người ủy quyền. Ví dụ: Người ủy quyền có thể bỏ lỡ thay đổi trong các thông số đặt cược dẫn đến lợi nhuận ít hơn mong đợi. Để giảm rủi ro này, khi Người lập chỉ mục giảm các thông số cổ phần của họ, nó sẽ chỉ có hiệu lực sau khi đã hoàn thành Kỷ nguyên đầy đủ tiếp theo, tạo thời gian cho người được ủy quyền đánh giá và thực hiện bất kỳ thay đổi nào.
+3. Trình lập chỉ mục hoạt động kém: Có thể Người ủy quyền có thể chọn Người lập chỉ mục hoạt động kém và do đó cung cấp lợi tức đầu tư không đạt tiêu chuẩn cho Người ủy quyền. Do đó, các đại biểu được khuyến khích thực hiện thẩm định của Indexer đối với các Indexer tiềm năng. Chỉ mục Danh tiếng cũng có sẵn để giúp Người ủy quyền so sánh các Người lập chỉ mục với nhau.
 
-## How to select Indexers?
+## Làm thế nào để chọn Người lập chỉ mục?
 
-Delegators can select potential Indexers based on a *Reputation Index* or RI. This RI takes into account an Indexer’s uptime, indexer commission rate, slashing events, and Indexer parameter change frequency.
+Người ủy quyền có thể chọn Người lập chỉ mục tiềm năng dựa trên *Chỉ số danh tiếng* hoặc RI. RI này tính đến thời gian hoạt động của Người lập chỉ mục, tỷ lệ hoa hồng của người lập chỉ mục, sự kiện cắt giảm và tần suất thay đổi tham số của Người lập chỉ mục.
 
-SubQuery will launch the official RI soon, but we expect other delegation applications to calculate and release their own.
+SubQuery sẽ sớm khởi chạy RI chính thức, nhưng chúng tôi hy vọng các ứng dụng ủy quyền khác sẽ tính toán và phát hành riêng của chúng.
 
-## Non-reward period
+## Thời gian không thưởng
 
-Besides the period when Delegators can effectively earn money, a non-reward period also occurs. Delegators receive rewards for staking Eras that they were a part of for the entire duration. For example, if a Delegator joins a staking era halfway through, they will not earn any rewards for that particular era.
+Bên cạnh khoảng thời gian Người đại diện có thể kiếm tiền một cách hiệu quả, một khoảng thời gian không thưởng cũng xảy ra. Những người thanh lịch nhận được phần thưởng khi đặt ra những Kỷ nguyên mà họ đã tham gia trong suốt thời gian đó. Ví dụ: nếu Người đại diện tham gia một kỷ nguyên đặt cược giữa chừng, họ sẽ không kiếm được bất kỳ phần thưởng nào cho kỷ nguyên cụ thể đó.
 
-Delegators can change the indexer that their SQT is delegated to (called redelegating), this change will be queued to happen automatically at the end of the the Era and no thawing period will occur.
+Người ủy quyền có thể thay đổi trình chỉ mục mà SQT của họ được ủy quyền (được gọi là điều chỉnh lại), thay đổi này sẽ được xếp hàng đợi để diễn ra tự động vào cuối Kỷ nguyên và không có giai đoạn tan băng nào xảy ra.
 
-If a Delegator decides to undelegate their SQT, a 28 day thawing period starts. The tokens cannot be used during this period, no fees can be accrued or any reward gained.
+Nếu Người đại diện quyết định hủy tăng tốc SQT của họ, thì thời gian làm tan băng 28 ngày sẽ bắt đầu. Không thể sử dụng các mã thông báo trong thời gian này, không có phí nào có thể được tích lũy hoặc bất kỳ phần thưởng nào đạt được.
 
-## Indexer due diligence for Delegators
+## Thẩm định của người lập chỉ mục cho Người ủy quyền
 
-Once a preferred Indexer(s) is found, due diligence should be performed to check an Indexer’s reputation and reliability. Assessments could be performed to evaluate if the Indexer is active in the community, if the Indexer helps other members, if it is possible to get in touch with the Indexer, and if the Indexer is up-to-date with protocol and project updates.
+Sau khi tìm thấy (các) Người lập chỉ mục ưa thích, nên thực hiện thẩm định để kiểm tra danh tiếng và độ tin cậy của Người lập chỉ mục. Các đánh giá có thể được thực hiện để đánh giá xem Người lập chỉ mục có hoạt động trong cộng đồng hay không, Người lập chỉ mục có giúp đỡ các thành viên khác không, nếu có thể liên lạc với Người lập chỉ mục và liệu Người lập chỉ mục có cập nhật các bản cập nhật về giao thức và dự án hay không.
 
-## Delegation Lifecycle
+## Vòng đời ủy quyền
 
-Delegators delegate (deposit) SQT into an Indexer’s contract.
+Người ủy quyền ủy quyền (đặt cọc) SQT vào hợp đồng của Người lập chỉ mục.
 
-Delegators can then decide how much to redelegate to each Indexer of their choice.
+Sau đó, người ủy quyền có thể quyết định số lượng để điều hướng lại cho mỗi Người lập chỉ mục mà họ lựa chọn.
 
-Delegator can undelegate (withdraw) tokens back to their wallet. This will trigger a lock period of 28 days.
+Người ủy quyền có thể hoàn tác (rút) mã thông báo về ví của họ. Điều này sẽ kích hoạt khoảng thời gian khóa là 28 ngày.
 
-After the unlocking period has been completed, tokens become available for withdrawal/claim.
+Sau khi hoàn thành giai đoạn mở khóa, các mã thông báo sẽ có sẵn để rút / yêu cầu.
