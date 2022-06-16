@@ -1,18 +1,18 @@
-# Delegators
+# 代理
 
-## What is a Delegator?
+## 什么是代理？
 
-A Delegator is a non-technical network role in the SubQuery Network and is a great way to start participating in the SubQuery Network. This role enables Delegators to “delegate” their SQT to one or more Indexers and earn rewards (similar to staking).
+代理是SubQuery网络中的非技术性网络角色，是开始参与SubQuery网络的一个好办法。 这种角色使代理们能够将他们的 SQT “委托”给一个或多个索引员，并获得奖励(类似于正在进行的)。
 
-Without Delegators, Indexers will likely earn fewer rewards because they will have less SQT to allocate. Therefore, Indexers compete to attract Delegators by offering a competitive share of an Indexer’s rewards.
+如果没有代理，索引员可能会获得较少的奖励，因为他们可以得到较少的 SQT 拨款。 因此，索引者通过竞争性地分享索引员的奖励来吸引代表。
 
-## Requirements to be a Delegator
+## 担任代理的要求
 
-One of the best things about being a Delegator is that you don’t need any devops, coding, or technical experience. Basic understanding of the SubQuery Network is all that is required to become a Delegator.
+关于担任代理的最好事情之一是你不需要任何委托、编码或技术经验。 成为代理所需要的只是对 SubQuery Network 的基本了解。
 
-## Benefits of being a Delegator
+## 担任代理的好处
 
-There are several benefits of becoming a Delegator:
+担任代理有若干好处：
 
 - **Easy to get started**: Requiring little technical knowledge, Delegators only need to acquire SQT tokens and then learn the process of delegating the tokens to their preferred Indexer(s).
 - **Contribute to the network**: Delegating to Indexers is a way to support an Indexer’s work service requests to consumers. In return, Delegators are rewarded with SQT.
