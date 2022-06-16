@@ -2,7 +2,7 @@
 
 This guide works through how to publish a local SubQuery project to [IPFS](https://ipfs.io/) and deploy it on our hosting infrastructure.
 
-Hosting a project in IPFS makes it available for all all and reduces your reliance on centralised services like GitHub.
+Hosting a project in IPFS makes it available for all and reduces your reliance on centralised services like GitHub.
 
 ## Requirements
 
