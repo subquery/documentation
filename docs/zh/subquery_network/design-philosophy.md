@@ -10,42 +10,42 @@ SubQuery原生于Polkadot生态系统，它是我们的家，也是SubQuery网�
 
 但未来是多链的。 SubQuery认为未来将会有许多不同的区块链共同合作来解决不同的问题。 我们的长期计划一直是使SubQuery适用于当前没有索引解决方案的其他区块链。 我们在Polkadot的多链解决方案显示了我们非常适合这一挑战。
 
-SubQuery网络旨在支持来自任何Layer 1 网络（无论是否在Polkadot生态内）的SubQuery项目。 It will be designed and built to be multi-chain from the outset, where you will see projects from one network being indexed alongside projects from another.
+SubQuery网络旨在支持来自任何Layer 1 网络（无论是否在Polkadot生态内）的SubQuery项目。 它的设计和构建将从一开始就是多链的，在那里你将看到，来自一个网络的项目与来自另一个网络的项目一起被索引。
 
-SubQuery currently supports Polkadot, Avalanche, and Terra. Expect more layer-1 support over the comming months.
+SubQuery 现在支持 Polkadot, Avalanche 和 Terra. 预计未来几个月会有更多的L 1 支持。
 
-## Simple and Accessible
+## 简约并易用
 
-*The SubQuery Network is designed to be the data provider of the people.*
+*SubQuery网络是被设计成为大众数据提供者。*
 
-The guiding principle with the SubQuery Network is simplicity. It is SubQuery’s opinion that other approaches to decentralised data query services are overly complex and make it difficult for participants to predict their return on investment. The aim is to make it easy for you to get involved in the network, and to clearly forecast your future potential return.
+SubQuery网络的指导原则很简单。 SubQuery认为，其他去中心化数据查询服务的方法过于复杂，使得参与者很难预测他们的投资回报。 简化的目的是让用户更容易地参与到这个网络中来，并能够清楚地预测未来的潜在回报。
 
-It is planned that the SubQuery Network won’t require high staking thresholds to participate or huge investment into hardware. The focus will be on making SubQuery easier to join and build with than other data providers - SubQuery’s success depends on the success of others creating the future on it.
+SubQuery 网络不需要很高的质押门槛来参与或对硬件进行大量投资。 我们的重点将放在使SubQuery比我们的竞争对手更容易参与和构建—— SubQuery的成功取决于其他人在其上创造未来的成功。
 
-This means that a design goal is to make it as easy as possible for anyone to participate. You don’t need to be a developer or have a deep knowledge of the token economic model, you can easily participate as a Delegator. As a Consumer, you also have plenty of payment options to best suit your needs. Finally, a key focus of the SubQuery Foundation is to ensure that there is enough support that anyone, from an expert blockchain team to a new hobbyist developer, can build their own SubQuery project.
+这意味着我们的设计目标是让任何人都能尽可能容易地参与。 你不需要是一名开发人员，也不需要对通证经济模型有深刻的了解，你可以很容易地以代理的身份参与其中。 作为消费者，你还有很多付款选项来最迎合你的需要。 最后，SubQuery 基金会的一个重点是确保有足够的支持，从专家区块链团队到新的爱好者开发人员，任何人都可以构建自己的 SubQuery 项目。
 
-## Flexible
+## 灵活
 
-*SubQuery is just a tool in the hands of our community, endless opportunities exist limited only by the creativity of the people.*
+*SubQuery 只是我们社区手中的一个工具，只有人们的创造力才能存在无限的机会。*
 
-The potential of SubQuery may lie in its flexibility - users will have the freedom to adapt and transform decentralised data to suit their needs. dApp developers need data in a specific format tailored for their dApp for ease of development and to set it apart from others.
+SubQuery 的潜力可能在于它的灵活性——用户可以自由地调整和转换分散的数据以满足他们的需求。 dApp 开发者需要一种特定格式的数据，适合他们的 dApp 以便于开发，并将其与其他人分开。
 
-Unlike other “unified” decentralised API service providers, SubQuery is open source, so Consumers will have the freedom to define their data set specifically for their needs. Rather than having to combine queries from different API endpoints - the creators and consumers of SubQuery projects can define the shape of their APIs data models themselves. It saves time, money, and provides a vastly better experience for end-users.
+与其他“统一”分散的 API 服务提供商不同，SubQuery 是开放源码。 这样消费者就可以自由地根据自己的需要确定自己的数据集。 SubQuery 项目的创建者和消费者可以自行定义他们的 API 数据模型的形状，而不是必须将不同的 API 端点的查询结合起来。 它可以节省时间、金钱，并为最终用户提供更好的体验。
 
-## Natural Demand Signalling and Different Payment Options
+## 自然需求信号和不同的支付方式
 
-With marketplaces like what SubQuery is proposing, where there are both buyers and sellers attempting to commoditise data, signalling demand for future supply tends to be a tricky issue. Other networks create an artificial role in an attempt to predict future demand, and they’re rewarded when that future demand materialises. The plan is to take a different approach, one that requires up-front natural demand signalling.
+对于像 SubQuery 所提议的市场，买卖双方都试图将数据商品化，发出对未来供应的需求往往是一个棘手的问题。 其他网络创造了一个人为的角色，试图预测未来的需求，当未来的需求成为现实时，他们就会得到回报。 该计划是采用一种不同的方法，即需要预先发出自然需求信号。
 
-A Consumer can take advantage of either Open or Closed Service Agreements to concretely indicate and commit demand for a new SubQuery Project. This will facilitate and encourage supply at a fixed price and volume (essentially helping secure pre-allocated rewards for Indexers of a SubQuery Project) and provide price and service certainty to both parties. This can be used both to attract Indexers to new SubQuery Projects, or to attract additional Indexers to existing and uncompetitive SubQuery Projects.
+消费者可以利用开放式或封闭式服务协议来具体指示和提交对新子查询项目的需求。 这将促进和鼓励以固定价格和数量供应（本质上有助于确保为子查询项目的索引器预先分配的奖励），并为双方提供价格和服务确定性。 这既可以用于将索引者吸引到新的SubQuery项目，也可以用于将其他索引者吸引到现有的和没有竞争力的SubQuery项目。
 
-It additionally provides several advanced subscription based options for Consumers and Indexers. Some parties may benefit from the certainty of rewards provided by Closed Agreements and the predictability of recurring costs. Some may instead prefer to hunt out the most affordable data by going for high volume recurring agreements or low spot prices on the Pay as you Go market.
+它还为消费者和索引者提供了几个基于订阅的高级选项。 一些参与者可能会受益于封闭协议提供的奖励确定性和经常性成本的可预测性。 有些人可能更喜欢通过在“即用即付”市场上寻求大批量重复协议或低现货价格来寻找最实惠的数据。
 
-## Indexer/Delegator Imbalance
+## 索引者/代理不平衡
 
-Among some competitors, it is observed that there is a serious imbalance between Indexers and Delegators in terms of the ability to change delegation rates without warning. SubQuery has tried to equalise this imbalance by requiring that the Indexer advertise an increase to the Indexer Commission Rate for an entire staking Era. Delegators are also free to withdraw their delegated tokens at any point during the staking Era, but they will lose any rewards that they could have been eligible for during that Era.
+在一些竞争者中，观察到索引者和代理之间在无预警地改变委托率的能力方面存在严重的不平衡。 SubQuery 试图通过要求索引者宣传提高整个质押时期的索引器佣金率来平衡这种不平衡。 代理也可以在质押时期的任何时候自由撤回其委托代币，但他们将失去在该时代他们本有资格获得的任何奖励。
 
-## Incentives for Query Performance
+## 查询性能的激励
 
-To become a high-performing, mission-critical platform - the SubQuery Network must operate at the highest level. That is why the Indexer discovery process will include performance data (latency and uptime) for all Indexers, and we will take steps to ensure that Consumers report on query speed and performance as often as possible.
+要成为高性能的关键任务平台 - SubQuery Network 必须在最高级别运行。 这就是索引器发现过程将包括所有索引器的性能数据（延迟和正常运行时间）的原因，我们将采取措施确保消费者尽可能频繁地报告查询速度和性能。
 
-Tools may also be provided to limit the availability of Indexers to a certain geographical region so that they can focus on providing the best service to that region, attract the most requests, and potentially maximise rewards for their contributions. This will allow larger and more mature Indexers to run location specific infrastructure all around the world.
+还可以提供工具以将索引器的可用性限制在某个地理区域，以便他们可以专注于为该区域提供最佳服务，吸引最多的请求，并可能最大化他们的贡献的回报。 这将允许更大、更成熟的索引器在世界各地运行特定位置的基础设施。
