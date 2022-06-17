@@ -16,18 +16,18 @@ Es gibt mehrere Vorteile, ein Delegator zu werden:
 
 - **Einfacher Einstieg**: Delegatoren erfordern nur geringe technische Kenntnisse und müssen nur SQT-Token erwerben und dann den Prozess der Delegierung der Token an ihre(n) bevorzugte(n) Indexer erlernen.
 - **Zum Netzwerk beitragen**: Das Delegieren an Indexer ist eine Möglichkeit, die Arbeitsdienstanfragen eines Indexers an Verbraucher zu unterstützen. Im Gegenzug werden die Delegators mit SQT belohnt.
-- **Earn rewards**: Delegators can put their SQT to work by delegating their SQT to Indexers and earning a share of the reward pool.
-- **No minimum delegation amount**: There is no minimum required delegation to be a Delegator. This means that anyone can join no matter how much SQT one has.
+- **Die Prämien verdienen **: Delegators können ihre SQT einsetzen, indem sie ihre SQT an Indexer delegieren und einen Anteil am Prämienpool verdienen.
+- **Kein Mindestdelegierungsbetrag**: Es gibt keine erforderliche Mindestdelegation, um Delegator zu sein. Das bedeutet, dass jeder mitmachen kann, egal wie viel SQT man hat.
 
-## How Delegators are rewarded?
+## Wie werden Delegators belohnt?
 
-To attract Delegators to support their work, Indexers offer Delegators a share of the rewards they earn. The Indexer will advertise an Indexer Commission Rate, where the remaining revenue will then be shared within the total delegation/staking pool proportionally to the individual delegated/staked value in the pool.
+Um Delegators für die Unterstützung ihrer Arbeit zu gewinnen, bieten Indexer den Delegators einen Anteil an den Belohnungen, die sie verdienen. Der Indexer bewirbt einen Indexer-Provisionssatz, bei dem die verbleibenden Einnahmen dann innerhalb des gesamten Delegations-/Staking-Pools proportional zum einzelnen delegierten/staked-Wert im Pool geteilt werden.
 
-*Indexer’s Commission Rate*: This is a percentage share of the fees earned from serving requests to Consumers. Indexers are free to set this rate to any value they desire. A higher percentage indicates that Indexers keep more of the profits. A lower percentage indicates that the Indexers share more of their profits with their Delegators.
+*Provisionssatz des Indexers*: Dies ist ein prozentualer Anteil der Gebühren, die durch die Bearbeitung von Anfragen an Verbraucher verdient werden. Indexer können diesen Kurs frei auf jeden gewünschten Wert festlegen. Ein höherer Prozentsatz zeigt an, dass Indexer mehr von den Gewinnen behalten. Ein niedrigerer Prozentsatz zeigt an, dass die Indexer mehr von ihren Gewinnen mit ihren Delegatoren teilen.
 
-Delegators will only receive revenue for staking Eras that they were a part of for the entire period. For example, if they join a staking Era in the middle of the relevant period, then they will not earn any Query Fee revenue for that particular Era.
+Delegators erhalten nur Einnahmen für das Staken von Epochen, an denen sie während des gesamten Zeitraums teilgenommen haben. Wenn sie beispielsweise in der Mitte des relevanten Zeitraums einer Staking-Ära beitreten, verdienen sie für diese bestimmte Ära keine Einnahmen aus Abfragegebühren.
 
-If an Indexer wishes to increase the Indexer Commission Rate that they offer to their Delegators, they must advertise this for an entire staking Era . The Indexer will be able to decrease their Indexer Commission Rate at any point to raise more delegated SQT for staking in the short term. Delegators can withdraw or undelegate their staked amount at any time, but they will forfeit any rewards earned within the staking Era (as they were not part of the delegation pool for the entire duration of the staking Era).
+Wenn ein Indexer den Indexer-Provisionssatz erhöhen möchte, den er seinen Delegatoren anbietet, muss er dies für eine ganze Staking-Ära bewerben. Der Indexer kann seine Indexer-Provisionsrate jederzeit senken, um kurzfristig mehr delegierte SQT für das Staking aufzubringen. Delegators können ihren eingesetzten Betrag jederzeit zurückziehen oder delegieren, aber sie verlieren alle Belohnungen, die sie während der Staking-Ära verdient haben (da sie nicht während der gesamten Dauer der Staking-Ära Teil des Delegationspools waren).
 
 ## Risks of being a Delegator
 
