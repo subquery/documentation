@@ -8,7 +8,7 @@ You must have finished the installation process and initialised your first Cosmo
 
 Now, the next step is making changes to your files and running the project. 
 
-**Important:** Before we begin, make sure that you have initialised your project using the provided steps in the [Beginners' Quick Guide](../quickstart.md). You must complete the suggested [4 steps](https://github.com/DeveloperInProgress/juno-subql-starter#readme) for Cosmos users. 
+**Important:** Before we begin, make sure that you have initialised your project using the provided steps in the [Beginners' Quick Guide](../quickstart.md). You must complete the suggested [4 steps](https://github.com/subquery/juno-subql-starter#readme) for Cosmos users. 
 
 You can see the final code of this project on [visiting this link.](https://github.com/jamesbayly/juno-terra-developer-fund-votes)
 
