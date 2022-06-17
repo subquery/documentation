@@ -1,16 +1,16 @@
-# Design Philosophy of the SubQuery Network
+# SubQuery Network的设计理念
 
-The guiding principle with the SubQuery Network is simplicity and flexibility for different use cases, payment methods, and networks. While other data services have many different major network participants, SubQuery focuses on three key ones. While other networks have complicated algorithmic signalling mechanisms, SubQuery relies on the most fundamental signal, consumer demand. While other networks provide only one type of payment model (generally PAYG), SubQuery provides several advanced subscription based options for Consumers and Indexers, And finally, while other networks only support one layer-1 chain, SubQuery is designed to be multi-chain from the outset.
+SubQuery Network 的指导原则是针对不同用例、支付方式和网络的简单性和灵活性。 虽然其他数据服务有许多不同的主要网络参与者，但 SubQuery 侧重于三个关键参与者。 虽然其他网络具有复杂的算法信号机制，但 SubQuery 依赖于最基本的信号，即消费者需求。 虽然其他网络仅提供一种支付模式（通常为 PAYG），但 SubQuery 为消费者和索引器提供了几种基于订阅的高级选项，最后，虽然其他网络仅支持一个 layer-1 链，但 SubQuery一开始就 被设计为多链 。
 
-## Multi-Chain by Design
+## 多链设计
 
-*SubQuery believes in the idea that a community of blockchains, working together to encourage web3 adoption, is the future*
+*SubQuery相信，共同努力鼓励Web3应用的区块链社区是未来的发展方向。*
 
-SubQuery is native to the Polkadot ecosystem, it’s our home and will be the location of the SubQuery Network. The core premise of Polkadot is to create a thriving community of developers, users, and businesses that will tap into its multichain interoperability. SubQuery believes in the idea that a community of blockchains, working together to encourage web3 adoption, is the future and that Polkadot will be a leading player in that initiative.
+SubQuery原生于Polkadot生态系统，它是我们的家，也是SubQuery网络的所在地。 Polkadot的核心前提是创造一个蓬勃发展的开发者、用户和企业社群，发掘其多功能互操作性。 SubQuery 相信区块链社区共同鼓励采用 web3 的想法是未来，并且 Polkadot 将成为该计划的领先者。
 
-But the future is multi-chain. SubQuery knows that there are going to be many different blockchains working together to solve different problems. The plan is to take SubQuery and to adapt it to work for other blockchains that don't have sufficient indexing solutions. The multi-chain approach that is needed to make it work for Polkadot means SubQuery is uniquely suited for this challenge.
+但未来是多链的。 SubQuery认为未来将会有许多不同的区块链共同合作来解决不同的问题。 我们的长期计划一直是使SubQuery适用于当前没有索引解决方案的其他区块链。 我们在Polkadot的多链解决方案显示了我们非常适合这一挑战。
 
-The SubQuery Network is designed to support any SubQuery Project from any Layer 1 network (within Polkadot or not) within it. It will be designed and built to be multi-chain from the outset, where you will see projects from one network being indexed alongside projects from another.
+SubQuery网络旨在支持来自任何Layer 1 网络（无论是否在Polkadot生态内）的SubQuery项目。 It will be designed and built to be multi-chain from the outset, where you will see projects from one network being indexed alongside projects from another.
 
 SubQuery currently supports Polkadot, Avalanche, and Terra. Expect more layer-1 support over the comming months.
 
