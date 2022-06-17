@@ -1,21 +1,21 @@
 # Delegators
 
-## What is a Delegator?
+## Wer ist ein Delegator?
 
-A Delegator is a non-technical network role in the SubQuery Network and is a great way to start participating in the SubQuery Network. This role enables Delegators to “delegate” their SQT to one or more Indexers and earn rewards (similar to staking).
+Ein Delegator ist eine nicht-technische Netzwerkrolle im SubQuery-Netzwerk und eine großartige Möglichkeit, mit der Teilnahme am SubQuery-Netzwerk zu beginnen. Diese Rolle ermöglicht es Delegatoren, ihre SQT an einen oder mehrere Indexer zu „delegieren“ und Belohnungen zu verdienen (ähnlich wie beim Staking).
 
-Without Delegators, Indexers will likely earn fewer rewards because they will have less SQT to allocate. Therefore, Indexers compete to attract Delegators by offering a competitive share of an Indexer’s rewards.
+Ohne Delegatoren werden Indexer wahrscheinlich weniger Belohnungen verdienen, weil sie weniger SQT zuzuweisen haben. Daher konkurrieren Indexer darum, Delegatoren anzuziehen, indem sie einen wettbewerbsfähigen Anteil an den Belohnungen eines Indexers anbieten.
 
-## Requirements to be a Delegator
+## Voraussetzungen, um ein Delegator zu sein
 
-One of the best things about being a Delegator is that you don’t need any devops, coding, or technical experience. Basic understanding of the SubQuery Network is all that is required to become a Delegator.
+Eines der besten Dinge daran, ein Delegator zu sein, ist, dass Sie keine Entwickler, Codierung oder technische Erfahrung benötigen. Um ein Delegator zu werden, ist lediglich ein grundlegendes Verständnis des SubQuery-Netzwerks erforderlich.
 
-## Benefits of being a Delegator
+## Vorteile als Delegator
 
-There are several benefits of becoming a Delegator:
+Es gibt mehrere Vorteile, ein Delegator zu werden:
 
-- **Easy to get started**: Requiring little technical knowledge, Delegators only need to acquire SQT tokens and then learn the process of delegating the tokens to their preferred Indexer(s).
-- **Contribute to the network**: Delegating to Indexers is a way to support an Indexer’s work service requests to consumers. In return, Delegators are rewarded with SQT.
+- **Einfacher Einstieg**: Delegatoren erfordern nur geringe technische Kenntnisse und müssen nur SQT-Token erwerben und dann den Prozess der Delegierung der Token an ihre(n) bevorzugte(n) Indexer erlernen.
+- **Zum Netzwerk beitragen**: Das Delegieren an Indexer ist eine Möglichkeit, die Arbeitsdienstanfragen eines Indexers an Verbraucher zu unterstützen. Im Gegenzug werden die Delegators mit SQT belohnt.
 - **Earn rewards**: Delegators can put their SQT to work by delegating their SQT to Indexers and earning a share of the reward pool.
 - **No minimum delegation amount**: There is no minimum required delegation to be a Delegator. This means that anyone can join no matter how much SQT one has.
 
