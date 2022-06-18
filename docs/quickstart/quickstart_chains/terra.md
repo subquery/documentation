@@ -1,4 +1,4 @@
-# Terra Quick Start
+# Terra
 
 In this Quick start guide, we're going to start with a simple Terra starter project and then finish by indexing some actual real data. This is an excellent basis to start with when developing your own SubQuery Project.
 

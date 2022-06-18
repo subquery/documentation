@@ -1,4 +1,4 @@
-# Quick Start Guide
+# 1. SubQuery CLI
 
 ## Develop Your First Blockchain Project
 
@@ -8,7 +8,7 @@ The goal of this quick start guide is to provide you with a complete development
 
 ### Duration
 
-This quick start guide should only take around 10-15 minutes.
+This quick start guide should take around 10-15 minutes.
 
 ### What will you learn?
 
@@ -18,7 +18,7 @@ After completing this quick start guide, you will be able to adapt the standard 
 
 Upon completing this quick start guide, you will have a working SubQuery project that will run on a SubQuery node. You will then be able to query the data from a GraphQL endpoint. 
 
-Before you go through this guide, we suggest you to refer to the [terminology](../subquery_network/terminology.md) used in SubQuery. It will help you understand the commands better. 
+Before you go through this guide, we suggest you refer to the [command lines](../run_publish/references.md) used in SubQuery. It will help you understand the commands better. 
 
 Let's start the process of creating your first SubQuery blockchain project. 
 
@@ -47,7 +47,6 @@ Take a look at all available commands and their use. Run the given below command
 ```shell
 subql help
 ```
-Now that you have explored important commands, let’s begin setting up your first project.
 
 ### 2. Initialise the SubQuery Starter Project
 
@@ -59,19 +58,17 @@ subql init
 <hr />
 
 #### - *Important: For Cosmos Users:*
-Cosmos is not yet supported in SubQuery's CLI (`subql`). Hence, if you are using Cosmos, you must start with Juno clone or fork the [starter project](https://github.com/DeveloperInProgress/juno-subql-starter). 
+Cosmos is not yet supported in SubQuery's CLI (`subql`). Hence, if you are using Cosmos, you must start with a Juno clone or fork this [starter project](https://github.com/DeveloperInProgress/juno-subql-starter). 
 
-**To initialise your project with Cosmos, refer to these [4 steps shown in this link.](https://github.com/subquery/juno-subql-starter#readme)**
-
-- Once you complete these 4 steps, **jump** to the [how to make further changes to your project](../quickstart/quickstart.html#_3-make-changes-to-your-project) section. 
+To initialise your project with Cosmos, refer to these 4 steps shown in this [link.](https://github.com/subquery/juno-subql-starter#readme). Once you complete these 4 steps, **jump** to the [3. Make Changes to Your Project](../quickstart/quickstart.html#_3-make-changes-to-your-project) section. 
 
  <hr />
 
 You'll be asked certain questions as you proceed ahead:
 
 - **Project name**: A project name for your SubQuery project
-- **Network family**: The layer-1 blockchain network family that this SubQuery project will index. Use the arrow keys to select from the available options. Use the respective name of the network you have chosen, for eg. Polkadot, Avalanche, or any other supported network. 
-- **Network**: The specific network that this SubQuery project will index. Use the arrow keys to select from the available options. Use the respective name of the network you have chosen, for eg. Polkadot, Avalanche, or any other supported network. 
+- **Network family**: The layer-1 blockchain network family that this SubQuery project will index. Use the arrow keys to select from the available options. For example, Polkadot, Avalanche, or any other supported network. 
+- **Network**: The specific network that this SubQuery project will index. Use the arrow keys to select from the available options. For example, Polkadot, Avalanche, or any other supported network. 
 - **Template project**: Select a SubQuery template project that will provide a starting point in the development. We suggest selecting the *"subql-starter"* project.
 - **RPC endpoint**: Provide an HTTPS URL to a running RPC endpoint, which will be used by default for this project. You can quickly access public endpoints for different networks, create your own private dedicated node using [OnFinality](https://app.onfinality.io), or just use the default endpoint. This RPC node must be an archive node (have the full chain state). <br />
 
@@ -134,7 +131,7 @@ You have now initialised your first SubQuery blockchain project with just a few 
 
 ### 3. Make Changes to Your Project
 
-A standard configuration has been provided in the starter package that you just initialised.  These are:
+There are 3 important files that need to be modified. These are:
 
 1. The GraphQL Schema in `schema.graphql`
 2. The Project Manifest in `project.yaml`
@@ -142,9 +139,9 @@ A standard configuration has been provided in the starter package that you just 
 
 SubQuery supports various blockchain networks and provides you with a dedicated guide for each of them. 
 
-Pick up your preferred network and proceed ahead to update the configurations, and move an inch closer to finishing your first ever project:
+Pick up your preferred network and proceed ahead to make the modifications required, and move an inch closer to finishing your first ever project:
 
-### **[Polkadot Quick Start](../quickstart/quickstart_blockchains/quickstart-polkadot.md)**
-### **[Avalanche Quick Start](../quickstart/quickstart_blockchains/quickstart-avalanche.md)**
-### **[Cosmos Quick Start](../quickstart/quickstart_blockchains/quickstart-cosmos.md)**
-### **[Terra Quick Start](../quickstart/quickstart_blockchains/quickstart-terra.md)**
+### **[Polkadot](../quickstart/quickstart_chains/polkadot.md)**
+### **[Avalanche](../quickstart/quickstart_chains/avalanche.md)**
+### **[Cosmos](../quickstart/quickstart_chains/cosmos.md)**
+### **[Terra](../quickstart/quickstart_chains/terra.md)**

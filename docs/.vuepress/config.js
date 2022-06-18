@@ -180,15 +180,16 @@ function getSidebar(locale, language) {
         children: [
           `${locale}/quickstart/quickstart.md`,
           {
-            title: "Chains Quick Start",
+            title: "2. Specific Chains",
             collapsable: true,
             children: [
-              `${locale}/quickstart/quickstart_blockchains/quickstart-polkadot.md`,
-              `${locale}/quickstart/quickstart_blockchains/quickstart-avalanche.md`,
-              `${locale}/quickstart/quickstart_blockchains/quickstart-cosmos.md`,
-              `${locale}/quickstart/quickstart_blockchains/quickstart-terra.md`,
+              `${locale}/quickstart/quickstart_chains/polkadot.md`,
+              `${locale}/quickstart/quickstart_chains/avalanche.md`,
+              `${locale}/quickstart/quickstart_chains/cosmos.md`,
+              `${locale}/quickstart/quickstart_chains/terra.md`,
             ]
-          }
+          },
+          `${locale}/quickstart/whats-next.md`,
         ]
       },
       {
