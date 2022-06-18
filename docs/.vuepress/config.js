@@ -175,13 +175,21 @@ function getSidebar(locale, language) {
       },
       {
         title: "Quick Start",
-        path: `${locale}/quickstart/quickstart-polkadot`,
+        path: `${locale}/quickstart/quickstart`,
         collapsable: true,
         children: [
-          `${locale}/quickstart/quickstart-polkadot.md`,
-          `${locale}/quickstart/quickstart-avalanche.md`,
-          `${locale}/quickstart/quickstart-cosmos.md`,
-          `${locale}/quickstart/quickstart-terra.md`,
+          `${locale}/quickstart/quickstart.md`,
+          {
+            title: "2. Specific Chains",
+            collapsable: true,
+            children: [
+              `${locale}/quickstart/quickstart_chains/polkadot.md`,
+              `${locale}/quickstart/quickstart_chains/avalanche.md`,
+              `${locale}/quickstart/quickstart_chains/cosmos.md`,
+              `${locale}/quickstart/quickstart_chains/terra.md`,
+            ]
+          },
+          `${locale}/quickstart/whats-next.md`,
         ]
       },
       {
@@ -218,7 +226,7 @@ function getSidebar(locale, language) {
         ],
       },
       {
-        title: "The SubQuery Network",
+        title: "SubQuery Network",
         path: `${locale}/subquery_network/introduction`,
         collapsable: true,
         children: [
@@ -231,6 +239,7 @@ function getSidebar(locale, language) {
           `${locale}/subquery_network/foundation.md`,
           `${locale}/subquery_network/terminology.md`,
           `${locale}/subquery_network/design-philosophy.md`,
+          `${locale}/subquery_network/frontier-testnet.md`,
         ],
       },
       {
@@ -238,7 +247,6 @@ function getSidebar(locale, language) {
         path: `${locale}/academy/herocourse/welcome`,
         collapsable: true,
         children: [
-          //`${locale}/academy/herocourse/welcome.md`,
           {
             title: "Hero Course",
             path: `${locale}/academy/herocourse/welcome`,

@@ -1,6 +1,6 @@
-# Avalanche Quick Start
+# Terra
 
-In this Quick start guide, we're going to start with a simple Avalanche starter project and then finish by indexing some actual real data. This is an excellent basis to start with when developing your own SubQuery Project.
+In this Quick start guide, we're going to start with a simple Terra starter project and then finish by indexing some actual real data. This is an excellent basis to start with when developing your own SubQuery Project.
 
 **If your are looking for guides for Substrate/Polkadot, you can read the [Substrate/Polkadot specific quick start guide](./quickstart-polkadot).**
 
@@ -8,7 +8,7 @@ At the end of this guide, you'll have a working SubQuery project running on a Su
 
 If you haven't already, we suggest that you familiarise yourself with the [terminology](../#terminology) used in SubQuery.
 
-**The goal of this quick start guide is to index all Pangolin token _Approve_ logs, it should only take 10-15 minutes**
+**The goal of this quick start guide is to adapt the standard starter project to begin indexing all transfers from Terra, it should only take 10-15 minutes**
 
 ## Preparation
 
@@ -45,11 +45,11 @@ subql init
 You'll be asked certain questions as the SubQuery project is initalised:
 
 - Project Name: A name for your SubQuery project
-- Network Family: The layer-1 blockchain network family that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use _"Avalanche"_
-- Network: The specific network that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use _"Avalanche"_
-- Template: Select a SubQuery project template that will provide a starting point to begin development, we suggest selecting the _"Starter project"_
+- Network Family: The layer-1 blockchain network family that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use *"Terra"*
+- Network: The specific network that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use *"Terra"*
+- Template: Select a SubQuery project template that will provide a starting point to begin development, we suggest selecting the *"Starter project"*
 - Git repository (Optional): Provide a Git URL to a repo that this SubQuery project will be hosted in (when hosted in SubQuery Explorer)
-- RPC endpoint (Required): Provide a HTTPS URL to a running RPC endpoint that will be used by default for this project. This RPC node must be an archive node (have the full chain state). For this guide we will use the default value _"avalanche.api.onfinality.io"_
+- RPC endpoint (Required): Provide a HTTPS URL to a running RPC endpoint that will be used by default for this project. This RPC node must be an archive node (have the full chain state). For this guide we will use the default value *"https://terra-columbus-5.beta.api.onfinality.io"*
 - Authors (Required): Enter the owner of this SubQuery project here (e.g. your name!)
 - Description (Optional): You can provide a short paragraph about your project that describe what data it contains and what users can do with it
 - Version (Required): Enter a custom version number or use the default (`1.0.0`)
@@ -62,19 +62,19 @@ Last, under the project directory, run following command to install the new proj
 <CodeGroup>
   <CodeGroupItem title="YARN" active>
 
-```shell
-cd PROJECT_NAME
-yarn install
-```
+  ```shell
+  cd PROJECT_NAME
+  yarn install
+  ```
 
   </CodeGroupItem>
 
   <CodeGroupItem title="NPM">
 
-```shell
-cd PROJECT_NAME
-npm install
-```
+  ```shell
+  cd PROJECT_NAME
+  npm install
+  ```
 
   </CodeGroupItem>
 </CodeGroup>
@@ -87,23 +87,22 @@ In the starter package that you just initialised, we have provided a standard co
 2. The Project Manifest in `project.yaml`
 3. The Mapping functions in `src/mappings/` directory
 
-The goal of this quick start guide is to adapt the standard starter project to index all Pangolin `Approve` transaction logs.
+The goal of this quick start guide is to adapt the standard starter project to begin indexing all transfers from the bLuna smart contract.
 
 ### Updating your GraphQL Schema File
 
 The `schema.graphql` file defines the various GraphQL schemas. Due to the way that the GraphQL query language works, the schema file essentially dictates the shape of your data from SubQuery. Its a great place to start becuase it allows you to define your end goal up front.
 
-We're going to update the `schema.graphql` file to remove all existing entities and read as follows
+We're going to update the `schema.graphql` file to read as follows
 
 ```graphql
-type PangolinApproval @entity {
-  id: ID!
-  transactionHash: String!
-  blockNumber: String!
-  blockHash: String!
-  addressFrom: String
-  addressTo: String
-  amount: String
+type Transfer @entity {
+  id: ID! # id field is always required and must look like this
+  txHash: String!
+  blockHeight: BigInt # The block height of the transfer
+  sender: String! # The account that transfers are made from
+  recipient: String! # The account that transfers are made to
+  amount: String! # Amount that is transferred
 }
 ```
 
@@ -112,17 +111,17 @@ type PangolinApproval @entity {
 <CodeGroup>
   <CodeGroupItem title="YARN" active>
 
-```shell
-yarn codegen
-```
+  ```shell
+  yarn codegen
+  ```
 
   </CodeGroupItem>
 
   <CodeGroupItem title="NPM">
 
-```shell
-npm run-script codegen
-```
+  ```shell
+  npm run-script codegen
+  ```
 
   </CodeGroupItem>
 </CodeGroup>
@@ -133,32 +132,28 @@ You'll find the generated models in the `/src/types/models` directory. For more 
 
 The Projet Manifest (`project.yaml`) file can be seen as an entry point of your project and it defines most of the details on how SubQuery will index and transform the chain data.
 
-We won't do many changes to the manifest file as it already has been setup correctly, but we need to change our handlers. Remember we are planning to index all Pangolin approval logs, as a result, we need to update the `datasources` section to read the following.
+We won't do many changes to the manifest file as it already has been setup correctly, but we need to change our handlers. Remember we are planning to index all Terra transfer events, as a result, we need to update the `datasources` section to read the following.
 
 ```yaml
 dataSources:
-  - kind: avalanche/Runtime
-    startBlock: 57360 # Block when the Pangolin contract was created
-    options:
-      # Must be a key of assets
-      abi: erc20
-      ## Pangolin token https://snowtrace.io/token/0x60781c2586d68229fde47564546784ab3faca982
-      address: "0x60781C2586D68229fde47564546784ab3fACA982"
-    assets:
-      erc20:
-        file: "./node_modules/@pangolindex/exchange-contracts/artifacts/contracts/pangolin-core/interfaces/IPangolinERC20.sol/IPangolinERC20.json"
+  - kind: terra/Runtime
+    startBlock: 4724001 # Colombus-5 Starts at this height
     mapping:
-      file: "./dist/index.js"
+      file: ./dist/index.js
       handlers:
-        - handler: handleLog
-          kind: avalanche/LogHandler
+        - handler: handleEvent
+          kind: terra/EventHandler
+          # this will trigger on all events that match the following smart contract filter condition
           filter:
-            ## Follows standard log filters https://docs.ethers.io/v5/concepts/events/
-            function: Approve(address spender, uint256 rawAmount)
-            # address: "0x60781C2586D68229fde47564546784ab3fACA982"
+            type: transfer
+            messageFilter:
+              type: /terra.wasm.v1beta1.MsgExecuteContract
+              values:
+                # We are subscribing to the bLuna smart contract (e.g. only transfer events from this contract)
+                contract: terra1j66jatn3k50hjtg2xemnjm8s7y8dws9xqa5y8w
 ```
 
-This means we'll run a `handleLog` mapping function each and every time there is a `approve` log on any transaction from the [Pangolin contract](https://snowtrace.io/txs?a=0x60781C2586D68229fde47564546784ab3fACA982&p=1).
+This means we'll run a `handleEvent` mapping function each and every time there is a `transfer` event from the bLuna smart contract.
 
 For more information about the Project Manifest (`project.yaml`) file, check out our documentation under [Build/Manifest File](../build/manifest.md)
 
@@ -166,34 +161,48 @@ For more information about the Project Manifest (`project.yaml`) file, check out
 
 Mapping functions define how chain data is transformed into the optimised GraphQL entities that we have previously defined in the `schema.graphql` file.
 
-Navigate to the default mapping function in the `src/mappings` directory. You'll see three exported functions, `handleBlock`, `handleLog`, and `handleTransaction`. You can delete both the `handleBlock` and `handleTransaction` functions, we are only dealing with the `handleLog` function.
+Navigate to the default mapping function in the `src/mappings` directory. You'll see three exported functions, `handleBlock`, `handleEvent`, and `handleCall`. You can delete both the `handleBlock` and `handleCall` functions, we are only dealing with the `handleEvent` function.
 
-The `handleLog` function recieved event data whenever event matches the filters that we specify previously in our `project.yaml`. We are going to update it to process all `approval` transaction logs and save them to the GraphQL entities that we created earlier.
+The `handleEvent` function recieved event data whenever event matches the filters that we specify previously in our `project.yaml`. We are going to update it to process all `transfer` events and save them to the GraphQL entities that we created earlier.
 
-You can update the `handleLog` function to the following (note the additional imports):
+You can update the `handleEvent` function to the following (note the additional imports):
 
 ```ts
-import { PangolinApproval } from "../types";
-import { AvalancheLog } from "@subql/types-avalanche";
+import { TerraEvent } from "@subql/types-terra";
+import { Transfer } from "../types";
+import { MsgExecuteContract } from "@terra-money/terra.js";
 
-export async function handleLog(event: AvalancheLog): Promise<void> {
-  const pangolinApprovalRecord = new PangolinApproval(
-    `${event.blockHash}-${event.logIndex}`
-  );
-
-  pangolinApprovalRecord.transactionHash = event.transactionHash;
-  pangolinApprovalRecord.blockHash = event.blockHash;
-  pangolinApprovalRecord.blockNumber = event.blockNumber;
-  # topics store data as an array
-  pangolinApprovalRecord.addressFrom = event.topics[0];
-  pangolinApprovalRecord.addressTo = event.topics[1];
-  pangolinApprovalRecord.amount = event.topics[2];
-
-  await pangolinApprovalRecord.save();
+export async function handleEvent(
+  event: TerraEvent<MsgExecuteContract>
+): Promise<void> {
+    // Print debugging data from the event
+    // logger.info(JSON.stringify(event));
+    
+    // Create the new transfer entity with a unique ID
+    const transfer = new Transfer(
+      `${event.tx.tx.txhash}-${event.msg.idx}-${event.idx}`
+    );
+    transfer.blockHeight = BigInt(event.block.block.block.header.height);
+    transfer.txHash = event.tx.tx.txhash;
+    for (const attr of event.event.attributes) {
+      switch (attr.key) {
+        case "sender":
+          transfer.sender = attr.value;
+          break;
+        case "recipient":
+          transfer.recipient = attr.value;
+          break;
+        case "amount":
+          transfer.amount = attr.value;
+          break;
+        default:
+      }
+    }
+    await transfer.save();
 }
 ```
 
-What this is doing is receiving an Avalanche Log which includes the transation log data on the payload. We extract this data and then instantiate a new `PangolinApproval` entity that we defined earlier in the `schema.graphql` file. We add additional information and then use the `.save()` function to save the new entity (SubQuery will automatically save this to the database).
+What this is doing is receiving a SubstrateEvent which includes transfer data on the payload. We extract this data and then instantiate a new `Transfer` entity that we defined earlier in the `schema.graphql` file. We add additional information and then use the `.save()` function to save the new entity (SubQuery will automatically save this to the database).
 
 For more information about mapping functions, check out our documentation under [Build/Mappings](../build/mapping.md)
 
@@ -204,16 +213,16 @@ In order run your new SubQuery Project we first need to build our work. Run the 
 <CodeGroup>
   <CodeGroupItem title="YARN" active>
 
-```shell
-yarn build
-```
+  ```shell
+  yarn build
+  ```
 
   </CodeGroupItem>
   <CodeGroupItem title="NPM">
 
-```shell
-npm run-script build
-```
+  ```shell
+  npm run-script build
+  ```
 
   </CodeGroupItem>
 </CodeGroup>
@@ -224,7 +233,7 @@ npm run-script build
 
 ### Run your Project with Docker
 
-Whenever you create a new SubQuery Project, you should always run it locally on your computer to test it first. The easiest way to do this is by using Docker.
+Whenever you create a new SubQuery Project, you should always run it locally on your computer to test it first. The easiest way to do this is by using Docker. 
 
 All configuration that controls how a SubQuery node is run is defined in this `docker-compose.yml` file. For a new project that has been just initalised you won't need to change anything here, but you can read more about the file and the settings in our [Run a Project section](../run_publish/run.md)
 
@@ -233,16 +242,16 @@ Under the project directory run following command:
 <CodeGroup>
   <CodeGroupItem title="YARN" active>
 
-```shell
-yarn start:docker
-```
+  ```shell
+  yarn start:docker
+  ```
 
   </CodeGroupItem>
   <CodeGroupItem title="NPM">
 
-```shell
-npm run-script start:docker
-```
+  ```shell
+  npm run-script start:docker
+  ```
 
   </CodeGroupItem>
 </CodeGroup>
@@ -258,16 +267,20 @@ You should see a GraphQL playground is showing in the explorer and the schemas t
 For a new SubQuery starter project, you can try the following query to get a taste of how it works or [learn more about the GraphQL Query language](../run_publish/graphql.md).
 
 ```graphql
-query {
-  pangolinApprovals(first: 5) {
-    nodes {
-      id
-      blockNumber
-      blockHash
-      transactionHash
-      addressFrom
-      addressTo
-      amount
+{
+  query {
+    transfers(
+      first: 10,
+      orderBy: ID_DESC
+    ) {
+      nodes {
+        id
+        txHash
+        amount
+        blockHeight
+        sender
+        recipient
+      }
     }
   }
 }
@@ -277,7 +290,7 @@ query {
 
 SubQuery provides a free managed service when you can deploy your new project to. You can deploy it to [SubQuery Projects](https://project.subquery.network) and query it using our [Explorer](https://explorer.subquery.network).
 
-[Read the guide to publish your new project to SubQuery Projects](../run_publish/publish.md), **Note that you must deploy via IPFS**.
+[Read the guide to publish your new project to SubQuery Projects](../run_publish/publish.md)
 
 ## Next Steps
 
