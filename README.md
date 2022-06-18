@@ -1,4 +1,4 @@
-# SubQuery University
+# SubQuery Academy
 
 SubQuery enables better dApps by making decentralised data more accessible - [learn more](https://subquery.network).
 
