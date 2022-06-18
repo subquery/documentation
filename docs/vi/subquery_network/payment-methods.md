@@ -8,17 +8,17 @@
 
 ## Dùng đến đâu thanh toán đến đó (PAYG)
 
-Đây là phương thức thanh toán cơ bản và là phương thức dự phòng cho những phương thức khác. Each Indexer will advertise their PAYG prices when registering their ability to serve requests for specific SubQuery projects.
+Đây là phương thức thanh toán cơ bản và là phương thức dự phòng cho những phương thức khác. Mỗi Người lập chỉ mục sẽ quảng cáo giá PAYG của họ khi đăng ký khả năng phục vụ yêu cầu cho các dự án SubQuery cụ thể.
 
-Consumers making requests will have to lock the tokens necessary to make that request in a state channel, and at the end of an Era, these tokens will be distributed to the Indexers based on the Cobb-Douglas production function.
+Người tiêu dùng đưa ra yêu cầu sẽ phải khóa các mã thông báo cần thiết để thực hiện yêu cầu đó trong một kênh trạng thái và khi kết thúc Chu kỳ, các mã thông báo này sẽ được phân phối cho Người lập chỉ mục dựa trên hàm sản xuất Cobb-Douglas.
 
 ## Các kế hoạch và thỏa thuận kín
 
-Closed Agreements represent an agreement between only one Indexer and one Consumer. It’s a direct relationship where all payment flows between the two parties for the work that is done.
+Các thỏa thuận kín cho thỏa thuận giữa chỉ một người lập chỉ mục và một người tiêu dùng. Đó là mối quan hệ trực tiếp, nơi tất cả các khoản thanh toán luân chuyển giữa hai bên cho công việc được thực hiện.
 
-Closed Agreements are designed to give Indexers confidence that there is a market and ROI for data from a particular SubQuery Project, and essentially signal to them which Projects should be indexed.
+Thỏa thuận kín được thiết kế để cung cấp cho người lập chỉ mục tin tưởng rằng có một thị trường và ROI cho dữ liệu từ một Dự án SubQuery cụ thể và về cơ bản báo hiệu cho họ biết Dự án nào nên được lập chỉ mục.
 
-Closed Plans can also be placed on existing SubQuery Projects to attract additional Indexers to that SubQuery Project. This may be useful in situations where the existing monopolistic Indexer may be charging an unreasonable amount for the data or there is a lack of competition to drive prices to equilibrium.
+Kế hoạch kín cũng có thể được đặt trên các Dự án SubQuery hiện có để thu hút thêm người lập chỉ mục vào Dự án SubQuery đó. Điều này có thể hữu ích trong các tình huống mà công cụ lập chỉ mục độc quyền hiện tại có thể tính phí dữ liệu một số tiền không hợp lý hoặc thiếu sự cạnh tranh để thúc đẩy giá về trạng thái cân bằng.
 
 ## Thỏa thuận dịch vụ mở
 
