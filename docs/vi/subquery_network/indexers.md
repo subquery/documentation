@@ -80,21 +80,21 @@ Thông tin chi tiết hơn sẽ sớm công bố.
 
 ## Bảo mật & Cân nhắc về hiệu suất
 
-Security and performance considerations are as follows.
+Các cân nhắc về bảo mật và hiệu suất như sau.
 
-### Operator Wallets
+### Ví vận hành
 
-Secure storage of an Indexer’s wallet recovery seed phrase is highly recommended.
+Việc lưu trữ an toàn cụm từ bảo mật khôi phục ví của Người lập chỉ mục rất được khuyến khích.
 
-### Firewalls
+### Tường lửa
 
-Indexers need to keep security front of mind. Infrastructure security, in particular firewalls, should be implemented to prevent public exposure to personal ports.
+Người lập chỉ mục cần phải lưu ý đến vấn đề bảo mật. Bảo mật cơ sở hạ tầng, đặc biệt là tường lửa, nên được thực hiện để ngăn chặn truy cập công khai với các cổng cá nhân.
 
-Secure passwords should be used by default and password rotation policies should be considered.
+Mật khẩu an toàn nên được sử dụng theo mặc định và các chính sách xoay vòng mật khẩu nên được xem xét.
 
-### Indexer’s Performance
+### Hiệu suất của người lập chỉ mục
 
-In order to generate desirable performances, Indexers need to consider various factors such as:
+Để tạo ra hiệu suất mong muốn, Người lập chỉ mục cần xem xét các yếu tố khác nhau như:
 
 - the balance between their own stake and that of Delegators.
 - the type of contract being served. The Indexer will receive all the query fees if it is a closed contract. If it is open, then an Indexer’s reward will depend on how many other Indexers there are.
