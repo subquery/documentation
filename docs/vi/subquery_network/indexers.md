@@ -6,7 +6,7 @@ Người lập chỉ mục là người tham gia vào mạng SubQuery, là ngư�
 
 Người lập chỉ mục đóng một vai trò rất quan trọng trong mạng SubQuery. Là một phần của dịch vụ kinh doanh dữ liệu, Người lập chỉ mục biến sức mạnh tính toán và mạng thành lợi nhuận.
 
-## Indexer Staking
+## Người lập chỉ mục đặt cược
 
 Để kiếm được phần thưởng từ doanh thu truy vấn với tư cách là Người lập chỉ mục, người lập chỉ mục phải đặt cược SQT vào một Dự án SubQuery cụ thể mà họ đang cung cấp dịch vụ. Hàm sản xuất Cobb-Douglas sẽ được sử dụng để xác định phần thưởng được phân phối cho mỗi người lập chỉ mục.
 
@@ -96,45 +96,45 @@ Mật khẩu an toàn nên được sử dụng theo mặc định và các chí
 
 Để tạo ra hiệu suất mong muốn, Người lập chỉ mục cần xem xét các yếu tố khác nhau như:
 
-- the balance between their own stake and that of Delegators.
-- the type of contract being served. The Indexer will receive all the query fees if it is a closed contract. If it is open, then an Indexer’s reward will depend on how many other Indexers there are.
-- fulfilling of the Service Level Agreement (SLA) specifications (to avoid slashing penalties)
-- the accuracy of the data being served to avoid slashing penalties
+- sự cân bằng giữa cổ phần của chính họ và cổ phần của Người ủy quyền.
+- loại hợp đồng đang được phục vụ. Người lập chỉ mục sẽ nhận được tất cả các khoản phí truy vấn nếu đó là hợp đồng đã đóng. Nếu nó đang mở, thì phần thưởng của Người lập chỉ mục sẽ phụ thuộc vào số lượng Người lập chỉ mục khác.
+- đáp ứng các thông số kỹ thuật của Thỏa thuận mức dịch vụ (SLA) (để tránh bị phạt nặng)
+- tính chính xác của dữ liệu được cung cấp để tránh bị phạt
 
-## Selecting SubQuery Projects to Index
+## Chọn các dự án SubQuery để lập chỉ mục
 
-There are several indicators that an Indexer needs to consider when selecting a SubQuery project to index.
+Có một số chỉ báo mà Người lập chỉ mục cần xem xét khi chọn dự án SubQuery để lập chỉ mục.
 
-### Query Fee Opportunities
+### Cơ hội phí truy vấn
 
-Some projects will have open or closed plans advertised by consumers.
+Một số dự án sẽ có kế hoạch mở hoặc đóng được quảng cáo bởi người tiêu dùng.
 
-When a Consumer advertises an open or closed plan for a project, they ultimately specify how much they are willing to pay for a set volume of requests. The more a Consumer is willing to pay, the more attractive the project will be for an Indexer. It also provides confidence that there will likely be recurring revenue from this SubQuery project.
+Khi Người tiêu dùng quảng cáo kế hoạch mở hoặc đóng cho một dự án, cuối cùng họ chỉ định số tiền họ sẵn sàng trả cho một lượng yêu cầu nhất định. Người tiêu dùng càng sẵn sàng trả nhiều tiền, thì dự án càng hấp dẫn đối với Người lập chỉ mục. Nó cũng cung cấp niềm tin rằng có thể sẽ có doanh thu định kỳ từ dự án SubQuery này.
 
-### Project complexity
+### Độ phức tạp của dự án
 
-Projects will vary in computation requirements. Simple projects will only index a few parameters whereas more complicated projects will require more computation resources and more bandwidth. Indexers need to understand the complexity of the project and its hardware capabilities.
+Các dự án sẽ khác nhau về yêu cầu tính toán. Các dự án đơn giản sẽ chỉ lập chỉ mục một vài thông số trong khi các dự án phức tạp hơn sẽ đòi hỏi nhiều tài nguyên tính toán hơn và băng thông nhiều hơn. Người lập chỉ mục cần hiểu mức độ phức tạp của dự án và khả năng phần cứng của nó.
 
-### Indexer Competition
+### Cạnh tranh lập chỉ mục
 
-Popular projects offering a high query volume that attract a large number of Indexers. This also implies that the rewards will be shared amongst more people. A single Indexer’s share may be less than a less popular project with a slightly lower query fee but with far fewer Indexers.
+Các dự án phổ biến cung cấp lượng truy vấn cao thu hút một lượng lớn Người lập chỉ mục. Điều này cũng ngụ ý rằng phần thưởng sẽ được chia sẻ cho nhiều người hơn. Một Người lập chỉ mục có thể chia ít hơn đối với một dự án ít phổ biến hơn với phí truy vấn thấp hơn một chút nhưng với số Người lập chỉ mục ít hơn nhiều.
 
-### Pricing Strategy
+### Chiến lược định giá
 
-Indexers need to be aware of their operation cost and expected incomes to understand their break-even point. Some considerations are:
+Người lập chỉ mục cần phải biết về chi phí hoạt động và thu nhập dự kiến ​​của họ để hiểu điểm hòa vốn của họ. Một số cân nhắc như sau:
 
-- How should Indexers set their plan prices?
-- At what price can Indexers accept a service agreement or not?
+- Người lập chỉ mục nên đặt giá kế hoạch của họ như thế nào?
+- Người lập chỉ mục có thể chấp nhận thỏa thuận dịch vụ ở mức giá nào?
 
-### Advertisements
+### Quảng cáo
 
-Indexers need to advertise themselves to Delegators as well as Consumers. Indexers may do this from their own website, in the Subquery forums or any other places deemed necessary. Some examples of the information to provide are:
+Người lập chỉ mục cần tự quảng cáo cho Người ủy quyền cũng như Người tiêu dùng. Người lập chỉ mục có thể làm điều này từ trang web của riêng họ, trong các diễn đàn Subquery hoặc bất kỳ nơi nào khác được coi là cần thiết. Một số ví dụ về thông tin cần cung cấp là:
 
-- The background and experience of the Indexer or Indexer’s team
-- The hardware approach and why it provides superior performance
-- The customer support policy or SLA
-- Evidence of historical performances
+- Nền tảng và kinh nghiệm của người hoặc nhóm của Người lập chỉ mục
+- Cách tiếp cận phần cứng và lý do tại sao nó cung cấp hiệu suất vượt trội
+- Chính sách hỗ trợ khách hàng hoặc SLA
+- Bằng chứng về các màn trình diễn lịch sử
 
-### Customer support
+### Hỗ trợ Khách hàng
 
-Indexers are highly encouraged to provide a communication method for its customers to report inavailability and also to provide feedback.
+Người lập chỉ mục được khuyến khích cung cấp một phương thức giao tiếp để khách hàng của họ báo cáo tình trạng không có sẵn và cũng để cung cấp phản hồi.
