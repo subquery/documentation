@@ -25,7 +25,7 @@ Có một số lợi ích của việc trở thành một Người ủy quyền 
 
 *Tỷ lệ hoa hồng của người lập chỉ mục*: Đây là tỷ lệ phần trăm của phí thu được từ việc cung cấp yêu cầu cho Người tiêu dùng. Người lập chỉ mục có thể tự do đặt tỷ lệ này thành bất kỳ giá trị nào họ muốn. Tỷ lệ phần trăm cao hơn cho thấy Người lập chỉ mục giữ nhiều lợi nhuận hơn. Tỷ lệ phần trăm thấp hơn cho thấy Người lập chỉ mục chia sẻ nhiều lợi nhuận hơn với Người ủy quyền của họ.
 
-Những người ủy quyền sẽ chỉ nhận được doanh thu của Chu kỳ đặt cược khi họ đã tham gia trong suốt thời gian đó. Ví dụ: nếu họ tham gia Chu kỳ đặt cược vào khoảng giữa giai đoạn có liên quan, thì họ sẽ không kiếm được bất kỳ doanh thu Phí Truy vấn nào cho Chu kỳ cụ thể đó.
+Những người ủy quyền sẽ chỉ nhận được doanh thu của Chu kỳ đặt cược khi họ đã tham gia trong suốt thời gian đó. Ví dụ: nếu họ tham gia Chu kỳ đặt cược giữa chừng, thì họ sẽ không kiếm được bất kỳ doanh thu Phí Truy vấn nào cho Chu kỳ cụ thể đó.
 
 Nếu Người lập chỉ mục muốn tăng Tỷ lệ Hoa hồng Lập chỉ mục mà họ cung cấp cho Người ủy quyền, họ phải quảng cáo điều này cho toàn bộ Chu kỳ đặt cược. Người lập chỉ mục sẽ có thể giảm Tỷ lệ hoa hồng lập chỉ mục của họ bất kỳ lúc nào để nâng cao SQT được ủy quyền hơn để đặt cược trong thời gian ngắn hạn. Người ủy quyền có thể rút hoặc hủy bỏ số tiền đã đặt cược của họ bất kỳ lúc nào, nhưng họ sẽ mất bất kỳ phần thưởng nào kiếm được trong Chu kỳ đặt cược (vì họ không phải là một phần của nhóm ủy quyền trong toàn bộ thời gian của Chu kỳ đặt cược).
 
@@ -45,11 +45,11 @@ SubQuery sẽ sớm khởi chạy RI chính thức, nhưng chúng tôi hy vọng
 
 ## Thời gian không thưởng
 
-Bên cạnh khoảng thời gian Người đại diện có thể kiếm tiền một cách hiệu quả, một khoảng thời gian không thưởng cũng xảy ra. Những người thanh lịch nhận được phần thưởng khi đặt ra những Kỷ nguyên mà họ đã tham gia trong suốt thời gian đó. Ví dụ: nếu Người đại diện tham gia một kỷ nguyên đặt cược giữa chừng, họ sẽ không kiếm được bất kỳ phần thưởng nào cho kỷ nguyên cụ thể đó.
+Bên cạnh khoảng thời gian Người đại diện có thể kiếm tiền một cách hiệu quả, một khoảng thời gian không thưởng cũng xảy ra. Những người ủy quyền sẽ chỉ nhận được doanh thu của Chu kỳ đặt cược khi họ đã tham gia trong suốt thời gian đó. Ví dụ: nếu Người ủy quyền tham gia một Chu kỳ đặt cược giữa chừng, họ sẽ không kiếm được bất kỳ phần thưởng nào cho Chu kỳ cụ thể đó.
 
-Người ủy quyền có thể thay đổi trình chỉ mục mà SQT của họ được ủy quyền (được gọi là điều chỉnh lại), thay đổi này sẽ được xếp hàng đợi để diễn ra tự động vào cuối Kỷ nguyên và không có giai đoạn tan băng nào xảy ra.
+Người ủy quyền có thể thay đổi trình chỉ mục mà SQT của họ được ủy quyền (được gọi là điều chỉnh lại), thay đổi này sẽ được xếp hàng đợi để diễn ra tự động vào cuối Chu kỳ và không có giai đoạn tan băng nào xảy ra.
 
-Nếu Người đại diện quyết định hủy tăng tốc SQT của họ, thì thời gian làm tan băng 28 ngày sẽ bắt đầu. Không thể sử dụng các mã thông báo trong thời gian này, không có phí nào có thể được tích lũy hoặc bất kỳ phần thưởng nào đạt được.
+Nếu Người ủy quyền quyết định hủy ủy thác SQT của họ, thì thời gian làm tan băng 28 ngày sẽ bắt đầu. Không thể sử dụng các mã thông báo trong thời gian này, không có phí nào có thể được tích lũy hoặc bất kỳ phần thưởng nào đạt được.
 
 ## Thẩm định của người lập chỉ mục cho Người ủy quyền
 
@@ -63,4 +63,4 @@ Sau đó, người ủy quyền có thể quyết định số lượng để đ
 
 Người ủy quyền có thể hoàn tác (rút) mã thông báo về ví của họ. Điều này sẽ kích hoạt khoảng thời gian khóa là 28 ngày.
 
-Sau khi hoàn thành giai đoạn mở khóa, các mã thông báo sẽ có sẵn để rút / yêu cầu.
+Sau khi hoàn thành giai đoạn mở khóa, các mã thông báo sẽ có sẵn để rút/yêu cầu nhận thưởng.
