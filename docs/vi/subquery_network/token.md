@@ -1,6 +1,6 @@
-# The SubQuery Token (SQT)
+# Mã thông báo SubQuery (SQT)
 
-The SubQuery Network is powered by the SubQuery Token (SQT).
+Mạng SubQuery được cung cấp năng lượng bởi Mã thông báo SubQuery (SQT).
 
 The SubQuery Token (SQT) is designed as a utility token that powers the SubQuery Network, providing an incentive for participation, as well as serving as a medium of exchange for transactions within the SubQuery Network. Consumers of data will commit SQT in exchange for data from Indexers and this SQT will be distributed among Indexers based on the payment method selected.
 
