@@ -14,7 +14,7 @@ Người tiêu dùng đưa ra yêu cầu sẽ phải khóa các mã thông báo 
 
 ## Các kế hoạch và thỏa thuận kín
 
-Các thỏa thuận kín cho thỏa thuận giữa chỉ một người lập chỉ mục và một người tiêu dùng. Đó là mối quan hệ trực tiếp, nơi tất cả các khoản thanh toán luân chuyển giữa hai bên cho công việc được thực hiện.
+Các thỏa thuận kín là thỏa thuận giữa chỉ một người lập chỉ mục và một người tiêu dùng. Đó là mối quan hệ trực tiếp, nơi tất cả các khoản thanh toán luân chuyển giữa hai bên cho công việc được thực hiện.
 
 Thỏa thuận kín được thiết kế để cung cấp cho người lập chỉ mục tin tưởng rằng có một thị trường và ROI cho dữ liệu từ một Dự án SubQuery cụ thể và về cơ bản báo hiệu cho họ biết Dự án nào nên được lập chỉ mục.
 
