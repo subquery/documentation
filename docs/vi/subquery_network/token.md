@@ -30,18 +30,18 @@ Ngay từ đầu, SubQuery đã tập trung vào việc xây dựng giá trị t
 
 Quỹ dự kiến sẽ được thành lập vào đầu năm 2022, sẽ quản lý việc quản trị và tăng trưởng trong tương lai của hệ sinh thái và quyền sở hữu Mạng SubQuery sẽ thuộc về SubQuery Foundation ban đầu. Sở dĩ có sự phân bổ lớn này bởi chúng tôi đã cân nhắc việc đầu tư trong tương lai vào sự phát triển và hoạt động của Mạng lưới cũng như các động lực tăng trưởng chính của hệ sinh thái. Việc này bao gồm các khoản tài trợ và ưu đãi/sự kiện hệ sinh thái cũng như các hoạt động tiếp thị khác bao gồm thưởng phát hiện lỗi và thưởng khuyến khích trong mạng chính.
 
-Các nhà đầu tư sớm trong cả hai vòng Hạt giống và Seri A của chúng tôi có mức phân bổ tổng cộng là 27%. In the case of our Seed investors, SubQuery is grateful for their early vision and commitment to build the initial phase of SubQuery. Following on from this, growth was accelerated with the support of Series A investors who allowed the project to accelerate to the next level.
+Các nhà đầu tư sớm trong cả hai vòng Hạt giống và Seri A của chúng tôi có mức phân bổ tổng cộng là 27%. Đối với của các nhà đầu tư Hạt giống của chúng tôi, SubQuery rất biết ơn tầm nhìn ban đầu và cam kết của họ để xây dựng giai đoạn đầu của SubQuery. Sau đó, sự phát triển của chúng tôi đã được đẩy nhanh với sự hỗ trợ của các nhà đầu tư Seri A, những người đã cho phép chúng tôi đưa dự án lên một tầm cao mới.
 
-For the Public Sale, 12% of token supply has been allocated across at least two sequential rounds. The exact structure and timing of these rounds will be provided at a later date, however guaranteed allocation will be provided for key community members (e.g. Ambassadors, Spartans) and network participants (e.g. test network participants and referenceable customers). Each category will have its own minimum and maximum allocation.
+Đối với việc bán công khai, 12% nguồn cung token sẽ được phân bổ qua ít nhất hai vòng tuần tự. Cấu trúc và thời gian chính xác của các vòng này sẽ được công bố sau. Tuy nhiên, chúng tôi cũng sẽ có các suất đảm bảo cho thành viên quan trọng trong cộng đồng (ví dụ: Đại sứ, Spartan) và những người tham gia vào mạng lưới (ví dụ: những người tham gia mạng thử nghiệm hoặc giới thiệu khách hàng mới). Mỗi danh mục sẽ có mức phân bổ tối thiểu và tối đa riêng.
 
-Finally, the SubQuery Team and Launch Partners have been allocated 20% of the token supply in return for their tireless dedication and contribution in building and promoting the project from the outset.
+Cuối cùng, Đội ngũ SubQuery và các Đối tác khi khởi chạy sẽ được phân bổ 20% nguồn cung token để đền đáp cho những đóng góp của họ trong việc xây dựng và thúc đẩy dự án ngay từ ban đầu.
 
 ### Lịch phân bổ
 
-We have designed our vesting schedule to demonstrate the commitment of various stakeholders. The graphic below illustrates the release of the SQT tokens to each participant over time culminating in the full circulation of tokens occurring 5 years (60 months) after launch.
+Chúng tôi đã thiết kế lịch trình phân bổ của mình để thể hiện cam kết của các bên liên quan khác nhau. Hình ảnh bên dưới minh họa việc phát hành token SQT cho mỗi người tham gia theo thời gian. Quá trình mở khoá token đầy đủ diễn trong vòng 5 năm (60 tháng) kể từ khi ra mắt.
 
 ![lịch phân bổ](/assets/img/vesting_schedule.png)
 
-The vesting schedules for each participant has been designed to create long-term value for the project and generate confidence to token-holders. Perhaps most significantly, the core team will have a 24 month lock-up period which will then vest over another 24 months while some Public Sale participants can freely use the utility of their token upon launch.
+Lịch trình phân bổ cho mỗi người tham gia đã được thiết kế để tạo ra giá trị lâu dài cho dự án và tạo niềm tin cho chủ sở hữu mã thông báo. Có lẽ điều quan trọng nhất ở đây là đội ngũ chủ chốt sẽ có thời gian khóa 24 tháng trong khi một số người tham gia vòng mở bán công khai có thể tự do trải nghiệm tiện ích của token ngay khi ra mắt.
 
-The Foundation and Community will have approximately 30% of the allocation unlocked from the start to meet the operational needs of launching and promoting mainnet with the rest of the allocation vesting gradually over 5 years.
+Quỹ và Cộng đồng sẽ có khoảng 30% token phân bổ được mở khóa ngay từ đầu để đáp ứng nhu cầu hoạt động của việc khởi chạy và quảng bá mainnet, phần còn lại sẽ mở khoá dần dần trong 5 năm.
