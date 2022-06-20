@@ -52,16 +52,17 @@ type Transfer @entity {
 
 You will find the generated models in the `/src/types/models` directory.
 
-Check out [GraphQL Schema](../../build/graphql.md) documentation to get detailed information on `schema.graphql` file.
+Check out the [GraphQL Schema](../../build/graphql.md) documentation to get in-depth information on `schema.graphql` file.
 
-Now, you have made important changes to the GraphQL Schema file. Let’s move on with the next configuration. 
+Now that you have made essential changes to the GraphQL Schema file, let’s move forward to the next file
 
 ### 1.2 Update Your Project Manifest File
 
 The Project Manifest (`project.yaml`) file works as an entry point to your Terra project. It defines most of the details on how SubQuery will index and transform the chain data.
 
-Please note that the manifest file has already been set up correctly and doesn’t require many changes, but you need to change the handlers. **Since you are going to index all Terra transfer events, you need to update the `datasources` section as follows:**
+Please note that the manifest file has already been set up correctly and doesn’t require many changes, but you need to change the handlers. 
 
+**Since you are going to index all Terra transfer events, you need to update the `datasources` section as follows:**
 
 ```yaml
 dataSources:
@@ -84,10 +85,9 @@ dataSources:
 
 The above code shows that you will be running a `handleEvent` mapping function whenever there is a `transfer` event from the bLuna smart contract.
 
-Check out the [Manifest File](../../build/manifest.md) documentation to learn more about the Project Manifest (`project.yaml`) file. 
+Check out our [Manifest File](../../build/manifest.md) documentation to get more information about the Project Manifest (`project.yaml`) file. 
 
 Next, let’s proceed ahead with the Mapping Function’s configuration. 
-
 
 ### 1.3 Add a Mapping Function
 
@@ -100,7 +100,7 @@ Follow these steps to add a mapping function:
 
 - The `handleEvent` function receives event data whenever an event matches filters, which you specified previously in the `project.yaml`. Let’s make changes to it, process all `transfer` events , and save them to the GraphQL entities created earlier.
 
-Update the `handleEvent` function as follows (note the additional imports):
+Update the `handleEvent` function as follows(**note the additional imports**):
 
 ```ts
 import { TerraEvent } from "@subql/types-terra";
@@ -142,12 +142,9 @@ The function here receives a SubstrateEvent which includes the transfer data on 
 
 Check out our [Mappings](../../build/mapping.md) documentation to get detailed information on mapping functions.
 
-You are about to finish and create your first project. But, there is still an additional step required to run your SubQuery Project. Let’s take a look. 
-
-
 ### 1.4 Build Your Project
 
-First, you need to build your work to run your new SubQuery project. Run the build command from the project's root directory as given here:
+Next, build your work to run your new SubQuery project. Run the build command from the project's root directory as given here:
 
 
 <CodeGroup>
@@ -179,7 +176,7 @@ Whenever you create a new SubQuery Project, you must not forget to run it locall
 
 `docker-compose.yml` file defines all the configurations that control how a SubQuery node runs. For a new project, which you have just initialised, you won't need to change anything.
 
-However, you must visit the [Runnning SubQuery Locally](../../run_publish/run.md) section and get a detailed explanation of the file and the settings. 
+However, visit the [Running SubQuery Locally](../../run_publish/run.md) to get more information on the file and the settings. 
 
 Run the following command under the project directory:
 
@@ -201,34 +198,27 @@ Run the following command under the project directory:
   </CodeGroupItem>
 </CodeGroup>
 
-**Note:** You have to keep patience here. It may take some time to download the required packages ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), and Postgres) for the first time, but soon you will see a running SubQuery node. 
-
-
-Let’s move forward to the next step of querying your project. 
-
+**Note:** It may take a few minutes to download the required images and start the various nodes and Postgres databases.
 
 ### 2.2 Query Your Project
 
 Open your browser and head to [http://localhost:3000](http://localhost:3000).
 
-Follow these three simple steps to query your SubQuery project:
+ Next, let's query our project. Follow these three simple steps to query your SubQuery project:
 
 1. Open your browser and head to [http://localhost:3000](http://localhost:3000).
 
-2. You must see a GraphQL playground in the browser and the schemas which are ready to query. 
+2. You will see a GraphQL playground in the browser and the schemas which are ready to query. 
 
-3.  Find the *Docs* tab on the right side of the playground which should open a documentation drawer. This documentation is automatically generated and it helps you find what entities and methods you can query.
+3. Find the *Docs* tab on the right side of the playground which should open a documentation drawer. This documentation is automatically generated and it helps you find what entities and methods you can query.
 
-Try the following query to figure out how it works for your new SubQuery starter project. Don’t forget to check out the [GraphQL Query language](../../run_publish/graphql.md) and dig out more important information. 
+Try the following query to understand how it works for your new SubQuery starter project. Don’t forget to learn more about the [GraphQL Query language](../../run_publish/graphql.md). 
 
 
 ```graphql
 {
   query {
-    transfers(
-      first: 10,
-      orderBy: ID_DESC
-    ) {
+    transfers(first: 10,orderBy: ID_DESC) {
       nodes {
         id
         txHash
@@ -241,9 +231,6 @@ Try the following query to figure out how it works for your new SubQuery starter
   }
 }
 ```
-
-You will see the result similar to below:
-
 
 ## What's next? 
 

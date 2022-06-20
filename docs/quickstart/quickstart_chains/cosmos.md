@@ -127,12 +127,9 @@ Here, the function receives a CosmosMessage which includes message data on the p
 
 Check out our [Mappings](../../build/mapping.md) documentation and get information on the mapping functions in detail. 
 
-You are closer to creating your first SubQuery project. However, there is still an additional step required to run your SubQuery Project. Let’s find out more. 
-
 ### 1.4 Build Your Project
 
-You need to build your work first, in order to run your new SubQuery project. Run the build command from the project's root directory as follows:
-
+Next, build your work to run your new SubQuery project. Run the build command from the project's root directory as given here:
 
 <CodeGroup>
   <CodeGroupItem title="YARN" active>
@@ -163,9 +160,9 @@ Whenever you create a new SubQuery Project, never forget to run it locally on yo
 
 `docker-compose.yml` file defines all the configurations that control how a SubQuery node runs. For a new project, which you have just initialised, no major changes are needed. 
 
-However, you must visit the [Running SubQuery Locally](../../run_publish/run.md) section and check out the file and the settings in detail. 
+However, visit the [Running SubQuery Locally](../../run_publish/run.md) to get more information on the file and the settings. 
 
-Now, run the following command under the project directory:
+Run the following command under the project directory:
 
 <CodeGroup>
   <CodeGroupItem title="YARN" active>
@@ -188,7 +185,7 @@ Now, run the following command under the project directory:
 
 ### 2.2 Query your Project
 
-Follow these three simple steps to query your SubQuery project:
+ Next, let's query our project. Follow these three simple steps to query your SubQuery project:
 
 1. Open your browser and head to [http://localhost:3000](http://localhost:3000).
 
@@ -196,16 +193,13 @@ Follow these three simple steps to query your SubQuery project:
 
 3. Find the *Docs* tab on the right side of the playground which should open a documentation drawer. This documentation is automatically generated and it helps you find what entities and methods you can query.
 
-Try the following query to understand how it works for your new SubQuery starter project. Don’t forget to learn more about the [GraphQL Query language](../../run_publish/graphql.md) and dig out more information. 
+Try the following query to understand how it works for your new SubQuery starter project. Don’t forget to learn more about the [GraphQL Query language](../../run_publish/graphql.md). 
+
 
 
 ```graphql
 query {
-	votes(
-    first: 5
-    orderBy: BLOCK_HEIGHT_DESC
-    # filter: {proposalID: {equalTo: "4"}}
-  ) {
+	votes(first: 5 orderBy: BLOCK_HEIGHT_DESC) {
     nodes {
       id
       blockHeight

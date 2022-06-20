@@ -121,9 +121,6 @@ The function here receives a `SubstrateEvent` which includes transfer data in th
 
 Check out our [Mappings](../../build/mapping.md) documentation to get detailed information on mapping functions.
 
-You are about to finish and create your first project. However, there is still an additional and necessary step required to run your SubQuery Project. Take a look further. 
-
-
 ### 1.4 Build Your Project
 
 Next, build your work to run your new SubQuery project. Run the build command from the project's root directory as given here:
