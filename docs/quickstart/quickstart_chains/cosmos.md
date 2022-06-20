@@ -241,7 +241,7 @@ You will see the result similar to below:
 }
 ```
 
-**Note:  Have a look at the final code of this project [here](https://github.com/jamesbayly/juno-terra-developer-fund-votes](https://github.com/jamesbayly/juno-terra-developer-fund-votes), and explore all the in-and-out of it. 
+**Note:  Have a look at the final code of this project [here](https://github.com/jamesbayly/juno-terra-developer-fund-votes](https://github.com/jamesbayly/juno-terra-developer-fund-votes), and explore all the in-and-out of it.**
 
 
 ## What’s Next?
