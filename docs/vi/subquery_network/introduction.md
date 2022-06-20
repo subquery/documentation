@@ -20,13 +20,13 @@ Consumers will ask the SubQuery Network for specific data for their dApps or too
 
 [Learn more about Consumers](./consumers.md)
 
-### Indexers
+### Người lập chỉ mục
 
 Indexers will run and maintain high quality SubQuery projects in their own infrastructure, running both the indexer and query service, and will be rewarded in SQT for the requests that they serve.
 
 [Learn more about Indexers](./indexers.md)
 
-### Delegators
+### Người uỷ quyền
 
 Delegators will participate in the Network by supporting their favourite Indexers to earn rewards based on the work those indexers do.
 

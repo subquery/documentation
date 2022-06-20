@@ -11,7 +11,7 @@ Mặc dù bạn luôn có quyền nâng cấp và triển khai các phiên bản
 
 Đăng nhập vào SubQuery Project và chọn dự án bạn muốn triển khai phiên bản mới. Bạn có thể chọn triển khai trên vị trí sản xuất hoặc vị trí dàn dựng. Hai vị trí này là môi trường biệt lập và mỗi vị trí sở hữu cơ sở dữ liệu riêng và đồng bộ hóa độc lập.
 
-Chúng tôi khuyên bạn chỉ nên triển khai vào vùng phân đoạn của mình để kiểm tra giai đoạn cuối cùng hoặc khi bạn cần đồng bộ lại dữ liệu dự án của mình. Sau đó, bạn có thể thăng cấp nó lên bản phát hành với thời gian chết bằng 0. You will find testing is faster when [running a project locally](../run_publish/run.md) as you can more [easily debug issues](../academy/tutorials_examples/debug-projects.md).
+Chúng tôi khuyên bạn chỉ nên triển khai vào vùng phân đoạn của mình để kiểm tra giai đoạn cuối cùng hoặc khi bạn cần đồng bộ lại dữ liệu dự án của mình. Sau đó, bạn có thể thăng cấp nó lên bản phát hành với thời gian chết bằng 0. Bạn sẽ thấy kiểm tra nhanh hơn khi [chạy một dự án cục bộ](../run_publish/run.md) vì bạn có thể [dễ dàng gỡ lỗi các sự cố](../academy/tutorials_examples/debug-projects.md).
 
 Vị trí dàn dựng sẽ hoàn hảo cho việc:
 
@@ -35,4 +35,4 @@ Sau khi việc triển khai đã thành công và các nút của chúng ta đã
 
 ![Các dự án đang được triển khai và đồng bộ](/assets/img/projects-deploy-sync.png)
 
-Ngoài ra, bạn có thể nhấp vào ba dấu chấm bên cạnh tiêu đề dự án của mình và xem nó trên SubQuery Explorer. There you can use the in browser playground to get started - [read more about how to user our Explorer here](../run_publish/query.md).
+Ngoài ra, bạn có thể nhấp vào ba dấu chấm bên cạnh tiêu đề dự án của mình và xem nó trên SubQuery Explorer. Tại đó bạn có thể sử dụng nền tảng trong trình duyệt để bắt đầu - [đọc thêm về cách thức sử dụng Explorer của chúng tôi tại đây](../run_publish/query.md).

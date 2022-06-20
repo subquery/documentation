@@ -1,65 +1,65 @@
-# Terminology
+# Terminologi
 
 ![terminology](/assets/img/terminology.png)
 
-## **Allocating**
+## **Mengalokasikan**
 
-Act of an Indexer assigning SQT to a given project.
+Tindakan Pengindeks yang menugaskan SQT ke proyek tertentu.
 
-### **Reallocating**
+### **Mengalokasikan kembali**
 
-A combined operation of removing staked tokens from one project and immediately associating that with another project (comes into effect at the end of the next Era). This is represented/expressed as a percentage of the indexer’s bonded SQT.
+Operasi gabungan untuk menghapus token yang dipertaruhkan dari satu proyek dan segera mengaitkannya dengan proyek lain (mulai berlaku pada akhir Era berikutnya). Ini direpresentasikan/dinyatakan sebagai persentase dari SQT terikat pengindeks.
 
-## **Bonding**
+## **Ikatan**
 
-Act of depositing SQT into a global staking contract performed by either an Indexer or a Delegator
+Tindakan menyetorkan SQT ke dalam kontrak taruhan global yang dilakukan oleh Pengindeks atau Delegator
 
-### **Unbonding**
+### **Tidak terikat**
 
-Act of an Indexer or a Delegator withdrawing SQT from the global staking contract.
+Tindakan Pengindeks atau Delegator yang menarik SQT dari kontrak taruhan global.
 
-This is effectively a transfer of SQT from the global staking contract to the Indexer’s or Delegator’s wallet. In other words, this can be thought of as the Indexer or Delegator withdrawing part or all of their stake. Note that a lock period applies when tokens are unbonded.
+Ini secara efektif merupakan transfer SQT dari kontrak taruhan global ke dompet Pengindeks atau Delegator. Dengan kata lain, ini dapat dianggap sebagai Pengindeks atau Delegator yang menarik sebagian atau seluruh saham mereka. Perhatikan bahwa periode penguncian berlaku ketika token tidak terikat.
 
-## **Delegating**
+## **Mendelegasikan**
 
-Act of a Delegator assigning SQT into the global staking contract and then assigning SQT to an Indexer. Note that delegating and bonding are atomic operations.
+Tindakan Delegator yang menugaskan SQT ke dalam kontrak taruhan global dan kemudian menugaskan SQT ke Pengindeks. Perhatikan bahwa mendelegasikan dan mengikat adalah operasi atom.
 
-### **Undelegating**
+### **Membatalkan pendelegasian**
 
-Act of withdrawing SQT from an Indexer at the end of an Era and then withdrawing that SQT from the global staking contract to a wallet address. This is subject to a lock period.
+Tindakan menarik SQT dari Pengindeks di akhir Era dan kemudian menarik SQT itu dari kontrak taruhan global ke alamat dompet. Ini tunduk pada periode penguncian.
 
-### **Redelegating**
+### **Pendelegasian ulang**
 
-Act of a Delegator reassigning SQT from one Indexer to another Indexer. Redelegating does not require tokens to be undelegated and is queued to take effect at the end of the Era.
+Tindakan Delegator menugaskan kembali SQT dari satu Pengindeks ke Pengindeks lain. Pendelegasian ulang tidak memerlukan token untuk didelegasikan dan diantrekan untuk berlaku di akhir Era.
 
 ## **Staking**
 
-Act of an Indexer assigning tokens in a global staking contract and into the Indexer’s own contract.
+Tindakan Pengindeks yang menetapkan token dalam kontrak taruhan global dan ke dalam kontrak Pengindeks sendiri.
 
 ### **Unstaking**
 
-Act of an Indexer withdrawing their SQT. This triggers a 28 day “lock period”. Indexer can restake to cancel this process and return their lock period tokens to the staking contract.
+Tindakan Pengindeks menarik SQT mereka. Ini memicu "periode penguncian" 28 hari. Pengindeks dapat mengambil kembali untuk membatalkan proses ini dan mengembalikan token periode kunci mereka ke kontrak taruhan.
 
 ### **Restaking**
 
-Act of Indexer restaking SQT during the lock period to return locked period tokens to the staking contract.
+Tindakan Pengindeks yang membuat ulang SQT selama periode penguncian untuk mengembalikan token periode terkunci ke kontrak taruhan.
 
 ---
 
-## **Contract Ratio**
+## **Rasio Kontrak**
 
-The sum of daily contracts value (defined as contract value/period) can not exceed a ratio with their total stake (indexer + delegator).
+Jumlah nilai kontrak harian (didefinisikan sebagai nilai/periode kontrak) tidak boleh melebihi rasio dengan total sahamnya (pengindeks + delegator).
 
 ## **Era**
 
-A period or duration of time where configurations and settings remain constant and calculations take place. For example, during an Era:
+Periode atau durasi waktu di mana konfigurasi dan pengaturan tetap konstan dan perhitungan berlangsung. Misalnya, selama Era:
 
-- the Indexer Commission Rate cannot be changed during an Era.
+- tarif Komisi Pengindeks tidak dapat diubah selama Era.
 
-## **Indexer Delegation Ratio**
+## **Rasio Delegasi Pengindeks**
 
-The amount an Indexer can “borrow” or leverage from Delegators. This ratio is yet to be determined.
+Jumlah yang dapat "dipinjam" atau dimanfaatkan oleh Pengindeks dari Delegator. Rasio ini masih belum ditentukan.
 
-## **Lock period**
+## **Periode kunci**
 
-A period where tokens are unbonded awaiting withdrawal. During this period, tokens do not earn any rewards. Currently, the lock period is defined as 28 days.
+Periode di mana token tidak terikat menunggu penarikan. Selama periode ini, token tidak mendapatkan hadiah apa pun. Saat ini, periode penguncian didefinisikan sebagai 28 hari.

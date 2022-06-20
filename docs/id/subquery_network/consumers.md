@@ -1,37 +1,37 @@
-# Consumers
+# Konsumen
 
-## What is a Consumer?
+## Apa itu Konsumen?
 
-A Consumer is a participant in the SubQuery network and is either an individual or organisation that pays for processed and organised blockchain data from the SubQuery Network. Consumers effectively make requests to the SubQuery Network for specific data and pay an agreed amount of SQT in return.
+Konsumen adalah peserta dalam jaringan SubQuery dan merupakan individu atau organisasi yang membayar untuk data blockchain yang diproses dan diatur dari Jaringan SubQuery. Konsumen secara efektif membuat permintaan ke Jaringan SubQuery untuk data tertentu dan membayar sejumlah SQT yang disepakati sebagai imbalannya.
 
-Consumers are typically dApp (decentralised application) developers, data analytic companies, blockchain networks, middleware developers, or even web aggregating companies that need access to blockchain data to provide services to their end-users.
+Konsumen biasanya adalah pengembang dApp (aplikasi terdesentralisasi), perusahaan analitik data, jaringan blockchain, pengembang middleware, atau bahkan perusahaan agregasi web yang memerlukan akses ke data blockchain untuk menyediakan layanan kepada pengguna akhir mereka.
 
-## Consumer Requirements
+## Persyaratan Konsumen
 
-There are no requirements as such to become a SubQuery Consumer. However, Consumers will need to understand how to obtain SQT, how to advertise their data requirements and how to consume the JSON data returned.
+Tidak ada persyaratan seperti itu untuk menjadi Konsumen SubQuery. Namun, Konsumen perlu memahami cara mendapatkan SQT, cara mengiklankan persyaratan data mereka, dan cara menggunakan data JSON yang dikembalikan.
 
-Consumers may also need to understand how to create SubQuery projects to be Indexed or contract this work out in order to get the data in the format they need.
+Konsumen mungkin juga perlu memahami cara membuat proyek SubQuery untuk Diindeks atau mengontrak pekerjaan ini untuk mendapatkan data dalam format yang mereka butuhkan.
 
-## Service Cost
+## Biaya Layanan
 
-The cost of querying data on the blockchain will be based on supply and demand and will be comparable to other similar services currently available. The advantage of an open and transparent network and ecosystem is that competition is encouraged to provide the best service to the Consumer.
+Biaya permintaan data pada blockchain akan didasarkan pada penawaran dan permintaan dan akan sebanding dengan layanan serupa lainnya yang tersedia saat ini. Keuntungan dari jaringan dan ekosistem yang terbuka dan transparan adalah mendorong persaingan untuk memberikan layanan terbaik kepada Konsumen.
 
-## Payment options for Consumers?
+## Pilihan pembayaran untuk Konsumen?
 
-For flexibility, Consumers have 3 payment options to pay for blockchain data. They are:
+Untuk fleksibilitas, Konsumen memiliki 3 opsi pembayaran untuk membayar data blockchain. Mereka:
 
-- Pay As You Go (PAYG)
-- Closed Service Agreement
-- Open Service Agreement
+- Bayar Saat Anda Pergi (PAYG)
+- Perjanjian Layanan Tertutup
+- Perjanjian Layanan Terbuka
 
-You can read more about the different payment methods, how they work, and the advantages/disadvantages on the [Payment Methods article](./payment-methods.md).
+Anda dapat membaca lebih lanjut tentang berbagai metode pembayaran, cara kerjanya, dan keuntungan/kerugiannya di [artikel Metode Pembayaran](./payment-methods.md).
 
 ## Pertanyaan Umum
 
-### As a Consumer, do I select 1 Indexer or multiple Indexers?
+### Sebagai Konsumen, apakah saya memilih 1 Pengindeks atau beberapa Pengindeks?
 
-Unless a Closed Service Agreement is being used, there will be one or more Indexers indexing a SubQuery project. Consumers have the choice when deciding which Indexer to read data from. Typically Consumers would select the most reliable and lowest latency Indexer. Consumers could also incorporate automatic failover and read data from another Indexer if the first one times out or is not responsive.
+Kecuali jika Perjanjian Layanan Tertutup digunakan, akan ada satu atau lebih Pengindeks yang mengindeks proyek SubQuery. Konsumen memiliki pilihan saat memutuskan Pengindeks mana yang akan membaca data. Biasanya Konsumen akan memilih Pengindeks latensi paling andal dan terendah. Konsumen juga dapat menggabungkan failover otomatis dan membaca data dari Pengindeks lain jika yang pertama kali habis atau tidak responsif.
 
-### What happens if an Indexer goes off line?
+### Apa yang terjadi jika Pengindeks keluar jalur?
 
-Unless a Closed Service Agreement is being used, and if there is more than one Indexer indexing your SubQuery project, it would simply be a matter of switching to another Indexer. The ideal scenario would be include strategies like alert monitoring to be notified of potential issues and intelligent routing and caching
+Kecuali jika Perjanjian Layanan Tertutup digunakan, dan jika ada lebih dari satu Pengindeks yang mengindeks proyek SubQuery Anda, itu hanya masalah beralih ke Pengindeks lain. Skenario yang ideal akan mencakup strategi seperti pemantauan peringatan untuk diberitahu tentang potensi masalah dan perutean dan caching yang cerdas

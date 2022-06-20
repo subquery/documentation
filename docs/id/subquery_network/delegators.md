@@ -1,66 +1,66 @@
-# Delegators
+# Delegator
 
-## What is a Delegator?
+## Apa itu Delegator?
 
-A Delegator is a non-technical network role in the SubQuery Network and is a great way to start participating in the SubQuery Network. This role enables Delegators to “delegate” their SQT to one or more Indexers and earn rewards (similar to staking).
+Delegator adalah peran jaringan non-teknis di Jaringan SubQuery dan merupakan cara yang bagus untuk mulai berpartisipasi dalam Jaringan SubQuery. Peran ini memungkinkan Delegator untuk “mendelegasikan” SQT mereka ke satu atau lebih Pengindeks dan mendapatkan hadiah (mirip dengan staking).
 
-Without Delegators, Indexers will likely earn fewer rewards because they will have less SQT to allocate. Therefore, Indexers compete to attract Delegators by offering a competitive share of an Indexer’s rewards.
+Tanpa Delegator, Pengindeks kemungkinan akan mendapatkan lebih sedikit imbalan karena mereka akan memiliki lebih sedikit SQT untuk dialokasikan. Oleh karena itu, Pengindeks bersaing untuk menarik Delegator dengan menawarkan bagian yang kompetitif dari penghargaan Pengindeks.
 
-## Requirements to be a Delegator
+## Persyaratan menjadi Delegator
 
-One of the best things about being a Delegator is that you don’t need any devops, coding, or technical experience. Basic understanding of the SubQuery Network is all that is required to become a Delegator.
+Salah satu hal terbaik tentang menjadi Delegator adalah Anda tidak memerlukan devops, coding, atau pengalaman teknis. Pemahaman dasar tentang Jaringan SubQuery adalah semua yang diperlukan untuk menjadi Delegator.
 
-## Benefits of being a Delegator
+## Manfaat menjadi Delegator
 
-There are several benefits of becoming a Delegator:
+Ada beberapa keuntungan menjadi Delegator:
 
-- **Easy to get started**: Requiring little technical knowledge, Delegators only need to acquire SQT tokens and then learn the process of delegating the tokens to their preferred Indexer(s).
-- **Contribute to the network**: Delegating to Indexers is a way to support an Indexer’s work service requests to consumers. In return, Delegators are rewarded with SQT.
-- **Earn rewards**: Delegators can put their SQT to work by delegating their SQT to Indexers and earning a share of the reward pool.
-- **No minimum delegation amount**: There is no minimum required delegation to be a Delegator. This means that anyone can join no matter how much SQT one has.
+- **Mudah untuk memulai**: Memerlukan sedikit pengetahuan teknis, Delegator hanya perlu memperoleh token SQT dan kemudian mempelajari proses pendelegasian token ke Pengindeks pilihan mereka.
+- **Berkontribusi ke jaringan**: Mendelegasikan ke Pengindeks adalah cara untuk mendukung permintaan layanan kerja Pengindeks kepada konsumen. Sebagai imbalannya, Delegator dihargai dengan SQT.
+- **Dapatkan hadiah**: Delegator dapat menerapkan SQT mereka dengan mendelegasikan SQT mereka ke Pengindeks dan mendapatkan bagian dari kumpulan hadiah.
+- **Tidak ada jumlah delegasi minimum**: Tidak ada delegasi minimum yang diperlukan untuk menjadi Delegator. Ini berarti bahwa siapa pun dapat bergabung tidak peduli berapa banyak SQT yang dimilikinya.
 
-## How Delegators are rewarded?
+## Bagaimana Delegator dihargai?
 
-To attract Delegators to support their work, Indexers offer Delegators a share of the rewards they earn. The Indexer will advertise an Indexer Commission Rate, where the remaining revenue will then be shared within the total delegation/staking pool proportionally to the individual delegated/staked value in the pool.
+Untuk menarik Delegator untuk mendukung pekerjaan mereka, Pengindeks menawarkan Delegator bagian dari hadiah yang mereka peroleh. Pengindeks akan mengiklankan Tarif Komisi Pengindeks, di mana pendapatan yang tersisa kemudian akan dibagi dalam total delegasi/stake pool secara proporsional dengan nilai individu yang didelegasikan/dipertaruhkan di pool.
 
-*Indexer’s Commission Rate*: This is a percentage share of the fees earned from serving requests to Consumers. Indexers are free to set this rate to any value they desire. A higher percentage indicates that Indexers keep more of the profits. A lower percentage indicates that the Indexers share more of their profits with their Delegators.
+*Tarif Komisi Pengindeks*: Ini adalah persentase bagian dari biaya yang diperoleh dari melayani permintaan ke Konsumen. Pengindeks bebas mengatur tarif ini ke nilai apa pun yang mereka inginkan. Persentase yang lebih tinggi menunjukkan bahwa Pengindeks menyimpan lebih banyak keuntungan. Persentase yang lebih rendah menunjukkan bahwa Pengindeks berbagi lebih banyak keuntungan mereka dengan Delegator mereka.
 
-Delegators will only receive revenue for staking Eras that they were a part of for the entire period. For example, if they join a staking Era in the middle of the relevant period, then they will not earn any Query Fee revenue for that particular Era.
+Delegator hanya akan menerima pendapatan untuk mempertaruhkan Era yang mereka ikuti selama seluruh periode. Misalnya, jika mereka bergabung dengan Era yang dipertaruhkan di tengah periode yang relevan, maka mereka tidak akan memperoleh pendapatan Biaya Kueri untuk Era tersebut.
 
-If an Indexer wishes to increase the Indexer Commission Rate that they offer to their Delegators, they must advertise this for an entire staking Era . The Indexer will be able to decrease their Indexer Commission Rate at any point to raise more delegated SQT for staking in the short term. Delegators can withdraw or undelegate their staked amount at any time, but they will forfeit any rewards earned within the staking Era (as they were not part of the delegation pool for the entire duration of the staking Era).
+Jika Pengindeks ingin meningkatkan Tarif Komisi Pengindeks yang mereka tawarkan kepada Delegator mereka, mereka harus mengiklankan ini untuk seluruh Era staking . Pengindeks akan dapat menurunkan Tingkat Komisi Pengindeks mereka kapan saja untuk meningkatkan SQT yang lebih didelegasikan untuk dipertaruhkan dalam jangka pendek. Delegator dapat menarik atau membatalkan pendelegasian jumlah taruhan mereka kapan saja, tetapi mereka akan kehilangan hadiah apa pun yang diperoleh dalam Era taruhan (karena mereka bukan bagian dari kumpulan delegasi selama seluruh durasi Era taruhan).
 
-## Risks of being a Delegator
+## Risiko menjadi Delegator
 
-Even though it is not considered a risky role, being a Delegator includes a few risks to be aware of.
+Meskipun tidak dianggap sebagai peran yang berisiko, menjadi Delegator mencakup beberapa risiko yang harus diperhatikan.
 
-1. Market volatility risk: The constant fluctuations in the market is a risk that affects not just SQT, but all tokens in the general cryptocurrency marketplace. Taking a long term approach can reduce this type of risk.
-2. Constant adjustments of staking parameters by Indexers and delegation fees can increase the risk to a Delegator. For example, a Delegator might miss a change in staking parameters resulting in a less than expected return. To reduce this risk, when Indexers decrease their stake parameters, it will only take effect after the next full Era has been completed, giving time for delegators to assess and make any changes.
-3. Indexer poor performance: It is possible that Delegators can select Indexers that perform poorly and therefore provide a substandard return on investment to Delegators. Delegators are therefore encouraged to do Indexer due diligence on potential Indexers. A Reputation Index is also available to help Delegators compare Indexers to each other.
+1. Risiko volatilitas pasar: Fluktuasi konstan di pasar adalah risiko yang memengaruhi tidak hanya SQT, tetapi semua token di pasar cryptocurrency umum. Mengambil pendekatan jangka panjang dapat mengurangi jenis risiko ini.
+2. Penyesuaian konstan parameter staking oleh Pengindeks dan biaya delegasi dapat meningkatkan risiko bagi Delegator. Misalnya, Delegator mungkin melewatkan perubahan parameter staking yang mengakibatkan pengembalian yang kurang dari yang diharapkan. Untuk mengurangi risiko ini, ketika Pengindeks menurunkan parameter taruhannya, itu hanya akan berlaku setelah Era penuh berikutnya selesai, memberikan waktu bagi para delegator untuk menilai dan membuat perubahan apa pun.
+3. Pengindeks kinerja buruk: Ada kemungkinan Delegator dapat memilih Pengindeks yang berkinerja buruk dan karena itu memberikan pengembalian investasi di bawah standar kepada Delegator. Oleh karena itu, para Delegator didorong untuk melakukan uji tuntas Pengindeks terhadap Pengindeks potensial. Indeks Reputasi juga tersedia untuk membantu Delegator membandingkan Pengindeks satu sama lain.
 
-## How to select Indexers?
+## Bagaimana cara memilih Pengindeks?
 
-Delegators can select potential Indexers based on a *Reputation Index* or RI. This RI takes into account an Indexer’s uptime, indexer commission rate, slashing events, and Indexer parameter change frequency.
+Delegator dapat memilih Pengindeks potensial berdasarkan *Indeks Reputasi* atau RI. RI ini memperhitungkan waktu aktif Pengindeks, tingkat komisi pengindeks, peristiwa pemotongan, dan frekuensi perubahan parameter Pengindeks.
 
-SubQuery will launch the official RI soon, but we expect other delegation applications to calculate and release their own.
+SubQuery akan segera meluncurkan RI resmi, tetapi kami mengharapkan aplikasi delegasi lain untuk menghitung dan merilisnya sendiri.
 
-## Non-reward period
+## Periode non-hadiah
 
-Besides the period when Delegators can effectively earn money, a non-reward period also occurs. Delegators receive rewards for staking Eras that they were a part of for the entire duration. For example, if a Delegator joins a staking era halfway through, they will not earn any rewards for that particular era.
+Selain periode ketika Delegator dapat menghasilkan uang secara efektif, periode non-hadiah juga terjadi. Delegator menerima hadiah karena mempertaruhkan Era yang menjadi bagian mereka selama durasi. Misalnya, jika Delegator bergabung dengan era staking di tengah jalan, mereka tidak akan mendapatkan hadiah apa pun untuk era tersebut.
 
-Delegators can change the indexer that their SQT is delegated to (called redelegating), this change will be queued to happen automatically at the end of the the Era and no thawing period will occur.
+Delegator dapat mengubah pengindeks tempat SQT mereka didelegasikan (disebut redelegating), perubahan ini akan diantrekan untuk terjadi secara otomatis pada akhir Era dan tidak akan terjadi periode pencairan.
 
-If a Delegator decides to undelegate their SQT, a 28 day thawing period starts. The tokens cannot be used during this period, no fees can be accrued or any reward gained.
+Jika Delegator memutuskan untuk membatalkan pendelegasian SQT mereka, periode pencairan 28 hari dimulai. Token tidak dapat digunakan selama periode ini, tidak ada biaya yang dapat diperoleh atau hadiah apa pun yang diperoleh.
 
-## Indexer due diligence for Delegators
+## Uji tuntas pengindeks untuk Delegator
 
-Once a preferred Indexer(s) is found, due diligence should be performed to check an Indexer’s reputation and reliability. Assessments could be performed to evaluate if the Indexer is active in the community, if the Indexer helps other members, if it is possible to get in touch with the Indexer, and if the Indexer is up-to-date with protocol and project updates.
+Setelah Pengindeks pilihan ditemukan, uji tuntas harus dilakukan untuk memeriksa reputasi dan keandalan Pengindeks. Penilaian dapat dilakukan untuk mengevaluasi apakah Pengindeks aktif di komunitas, apakah Pengindeks membantu anggota lain, apakah mungkin untuk berhubungan dengan Pengindeks, dan apakah Pengindeks up-to-date dengan protokol dan pembaruan proyek.
 
-## Delegation Lifecycle
+## Siklus Hidup Delegasi
 
-Delegators delegate (deposit) SQT into an Indexer’s contract.
+Delegator mendelegasikan (menyetorkan) SQT ke dalam kontrak Pengindeks.
 
-Delegators can then decide how much to redelegate to each Indexer of their choice.
+Delegator kemudian dapat memutuskan berapa banyak yang akan didelegasikan ulang ke setiap Pengindeks pilihan mereka.
 
-Delegator can undelegate (withdraw) tokens back to their wallet. This will trigger a lock period of 28 days.
+Delegator dapat membatalkan delegasi (menarik) token kembali ke dompet mereka. Ini akan memicu periode penguncian selama 28 hari.
 
-After the unlocking period has been completed, tokens become available for withdrawal/claim.
+Setelah periode pembukaan kunci selesai, token tersedia untuk penarikan/klaim.

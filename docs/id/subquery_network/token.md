@@ -1,47 +1,47 @@
-# The SubQuery Token (SQT)
+# SubQuery Token (SQT)
 
-The SubQuery Network is powered by the SubQuery Token (SQT).
+Jaringan SubQuery didukung oleh SubQuery Token (SQT).
 
-The SubQuery Token (SQT) is designed as a utility token that powers the SubQuery Network, providing an incentive for participation, as well as serving as a medium of exchange for transactions within the SubQuery Network. Consumers of data will commit SQT in exchange for data from Indexers and this SQT will be distributed among Indexers based on the payment method selected.
+Seperti yang diuraikan dalam Whitepaper, SQT dimaksudkan untuk menjadi token yang menggerakkan Jaringan SubQuery, memberikan insentif untuk partisipasi, serta berfungsi sebagai media pertukaran untuk transaksi dalam Jaringan SubQuery. Konsumen data akan melakukan SQT dengan imbalan data dari Pengindeks dan SQT ini akan didistribusikan di antara Pengindeks berdasarkan metode pembayaran yang dipilih.
 
-This token is the utility and incentive mechanism driving the network, however, the network was not initially designed with a token in mind. The network is designed to provide value where Indexers can index, aggregate and then serve blockchain data and make this available with speed and simplicity to Consumers who need blockchain data to power their applications. SQT is a natural solution allowing market participants to transact and transfer value. This approach ensures that the fundamental value of SubQuery drives the value of the token and not the other way around.
+Token ini adalah utilitas dan mekanisme insentif yang menggerakkan jaringan, namun, jaringan pada awalnya tidak dirancang dengan mempertimbangkan token. Jaringan ini dirancang untuk memberikan nilai di mana Pengindeks dapat mengindeks, mengagregasi, dan kemudian menyajikan data blockchain dan membuatnya tersedia dengan kecepatan dan kesederhanaan bagi Konsumen yang membutuhkan data blockchain untuk menjalankan aplikasi mereka. SQT adalah solusi alami yang memungkinkan pelaku pasar untuk bertransaksi dan mentransfer nilai. Pendekatan ini memastikan bahwa nilai dasar SubQuery mendorong nilai token dan bukan sebaliknya.
 
-There is no intention for SQT to be used as a medium of exchange for goods or services outside of the SubQuery Network. SQT does not in any way represent or confer upon its holders any right to, title of, interest or participation in, the ownership, shareholding and/or management of SubQuery whatsoever. SQT will not entitle holders to any promise of fees, dividends, revenue, profits, or investment returns.
+Tidak ada maksud agar SQT digunakan sebagai media pertukaran barang atau jasa di luar Jaringan SubQuery. SQT dengan cara apapun tidak mewakili atau memberikan kepada pemegangnya hak, kepemilikan, kepentingan atau partisipasi dalam, kepemilikan, kepemilikan saham dan/atau pengelolaan SubQuery apapun. SQT tidak akan memberikan hak kepada pemegangnya atas janji biaya, dividen, pendapatan, keuntungan, atau pengembalian investasi.
 
 ## Tokenomics
 
-**Please note that the following SQT Token Allocation Plan and Token Vesting Schedule are still subject to change.**
+**Harap dicatat bahwa Rencana Alokasi Token SQT dan Jadwal Vesting Token berikut masih dapat berubah.**
 
-### Supply
+### Pasokan
 
-The initial supply will be 10 Billion tokens.
+Pasokan awal akan menjadi 10 Miliar token.
 
-### Inflation
+### Inflasi
 
-The inflation will be 2% per annum. This will be used to help the SubQuery Foundation bootstrap the network by supporting Indexers during the early launch phase where Consumers numbers will still be growing.
+Inflasi akan menjadi 2% per tahun. Ini akan digunakan untuk membantu SubQuery Foundation mem-bootstrap jaringan dengan mendukung Pengindeks selama fase peluncuran awal di mana jumlah Konsumen akan terus bertambah.
 
-### Allocation
+### Alokasi
 
-Token allocation is as follows:
+Alokasi token adalah sebagai berikut:
 
-![token allocation](/assets/img/token_allocation.png)
+![alokasi Token](/assets/img/token_allocation.png)
 
-From the start, SubQuery has been focused on building value within the community and this aim continues with the largest allocation of tokens (41%) being apportioned to the Community and SubQuery Foundation.
+Sejak awal, SubQuery telah difokuskan untuk membangun nilai dalam komunitas kami dan kami bertujuan untuk mempertahankannya dengan membagikan alokasi token terbesar (41%) ke Komunitas dan SubQuery Foundation.
 
-The Foundation, which is expected to be established in early 2022, will administer the future governance and growth of the ecosystem and the ownership of the SubQuery Network will come under the SubQuery Foundation initially. This large allocation also includes consideration for future investment into the development and operations of the Network, and key ecosystem growth drivers. This will include tools such as grants and ecosystem incentives/events as well as other marketing activities including bug bounties and mainnet incentives.
+Yayasan, yang akan didirikan pada awal 2022, akan mengelola governance dan pertumbuhan ekosistem di masa mendatang dan kepemilikan Jaringan SubQuery akan berada di bawah SubQuery Foundation pada awalnya. Alokasi besar ini juga mencakup pertimbangan untuk investasi masa depan ke dalam pengembangan dan operasi Jaringan, dan pendorong pertumbuhan ekosistem utama. Ini akan mencakup alat seperti grant dan insentif/acara ekosistem serta kegiatan marketing lainnya termasuk bug bounties dan insentif mainnet.
 
-Early investors in both the Seed and Series A rounds have a combined allocation of 27%. In the case of our Seed investors, SubQuery is grateful for their early vision and commitment to build the initial phase of SubQuery. Following on from this, growth was accelerated with the support of Series A investors who allowed the project to accelerate to the next level.
+Investor awal kami di putaran Seed dan Seri A kami memiliki alokasi gabungan sebesar 27%. Dalam kasus investor Seed kami, SubQuery berterima kasih atas visi dan komitmen awal mereka untuk membangun fase awal SubQuery. Selanjutnya, pertumbuhan kami dipercepat dengan dukungan investor Seri A kami yang memungkinkan kami membawa proyek ini ke tingkat berikutnya.
 
-For the Public Sale, 12% of token supply has been allocated across at least two sequential rounds. The exact structure and timing of these rounds will be provided at a later date, however guaranteed allocation will be provided for key community members (e.g. Ambassadors, Spartans) and network participants (e.g. test network participants and referenceable customers). Each category will have its own minimum and maximum allocation.
+Untuk Penjualan Publik, 12% pasokan token telah dialokasikan di setidaknya dua putaran berurutan. Struktur dan waktu yang tepat dari putaran ini akan diberikan di kemudian hari, namun kami akan memberikan alokasi yang dijamin untuk anggota komunitas utama (misalnya Ambassador, Spartan) dan peserta jaringan (misalnya peserta test network dan pelanggan yang dapat direferensikan). Setiap kategori akan memiliki alokasi minimum dan maksimumnya sendiri.
 
-Finally, the SubQuery Team and Launch Partners have been allocated 20% of the token supply in return for their tireless dedication and contribution in building and promoting the project from the outset.
+Terakhir, Tim SubQuery dan Mitra Peluncuran telah dialokasikan 20% dari pasokan token sebagai imbalan atas kontribusi mereka dalam membangun dan mempromosikan proyek.
 
-### Vesting schedule
+### Jadwal vesting
 
-We have designed our vesting schedule to demonstrate the commitment of various stakeholders. The graphic below illustrates the release of the SQT tokens to each participant over time culminating in the full circulation of tokens occurring 5 years (60 months) after launch.
+Kami telah merancang jadwal vesting kami untuk menunjukkan komitmen dari berbagai pemangku kepentingan. Grafik di bawah ini menggambarkan pelepasan token SQT ke setiap peserta dari waktu ke waktu yang berpuncak pada sirkulasi penuh token yang terjadi 5 tahun (60 bulan) setelah peluncuran.
 
 ![vesting schedule](/assets/img/vesting_schedule.png)
 
-The vesting schedules for each participant has been designed to create long-term value for the project and generate confidence to token-holders. Perhaps most significantly, the core team will have a 24 month lock-up period which will then vest over another 24 months while some Public Sale participants can freely use the utility of their token upon launch.
+Kami telah memikirkan dengan hati-hati tentang jadwal vesting untuk setiap peserta untuk menciptakan nilai jangka panjang untuk proyek dan menghasilkan kepercayaan bagi pemegang token. Mungkin yang paling signifikan, tim inti akan memiliki periode penguncian 24 bulan sementara beberapa peserta Public Sale dapat dengan bebas menggunakan utilitas token mereka saat diluncurkan.
 
-The Foundation and Community will have approximately 30% of the allocation unlocked from the start to meet the operational needs of launching and promoting mainnet with the rest of the allocation vesting gradually over 5 years.
+Foundation dan Komunitas akan memiliki sekitar 30% dari alokasi yang dibuka dari awal untuk memenuhi kebutuhan operasional peluncuran dan promosi mainnet dengan sisa alokasi secara bertahap selama 5 tahun.
