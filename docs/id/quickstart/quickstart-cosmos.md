@@ -38,7 +38,7 @@ bantuan subql
 
 ## Inisialisasi Proyek Pemula SubQuery
 
-Cosmos is not yet supported in SubQuery's CLI (`subql`), to start with Juno clone or fork the [starter project](https://github.com/subquery/juno-subql-starter).
+Cosmos belum didukung di CLI SubQuery (`subql`), untuk memulai dengan kloning Juno atau fork [proyek pemula](https://github.com/subquery/juno-subql-starter).
 
 Setelah proses inisialisasi selesai, Anda akan melihat folder dengan nama proyek Anda telah dibuat di dalam direktori. Isi direktori ini harus identik dengan apa yang tercantum dalam [Struktur Direktori](../create/introduction.md#directory-structure).
 
@@ -84,7 +84,7 @@ Anda akan menemukan model yang dihasilkan di direktori `/src/types/models`. Untu
 
 File Projek Manifest (`project.yaml`) dapat dilihat sebagai titik masuk proyek Anda dan ini mendefinisikan sebagian besar detail tentang bagaimana SubQuery akan mengindeks dan mengubah data rantai.
 
-Kami tidak akan melakukan banyak perubahan pada file manifes karena sudah diatur dengan benar, tetapi kami perlu mengubah penangan kami. Remember we are planning to index all votes on the [Terra Developer Fund](https://daodao.zone/multisig/juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2). This means that we we will look at messages that use the `vote` contract call, we need to update the `datasources` section to read the following.
+Kami tidak akan melakukan banyak perubahan pada file manifes karena sudah diatur dengan benar, tetapi kami perlu mengubah penangan kami. Ingat kami berencana untuk mengindeks semua suara di [Terra Developer Fund](https://daodao.zone/multisig/juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2). Ini berarti bahwa kita akan melihat pesan yang menggunakan panggilan kontrak `vote`, kita perlu memperbarui bagian `sumber data` untuk membaca berikut ini.
 
 ```yml
 dataSources:
@@ -111,7 +111,7 @@ Untuk informasi selengkapnya tentang file Project Manifest (`project.yaml`), lih
 
 Fungsi pemetaan menentukan bagaimana data rantai diubah menjadi entitas GraphQL yang dioptimalkan yang sebelumnya telah kita definisikan dalam file `schema.graphql`.
 
-Navigasikan ke fungsi pemetaan default di direktori `src/mappings`. You'll see four exported functions, `handleBlock`, `handleEvent`, `handleMessage`, and `handleTransaction`. Since we are dealing only with messages, you can delete everything other than the `handleMessage` function.
+Navigasikan ke fungsi pemetaan default di direktori `src/mappings`. Anda akan melihat empat fungsi yang diekspor, `handleBlock`, `handleEvent`, `handleMessage`, dan `handleTransaction`. Karena kita hanya berurusan dengan pesan, Anda dapat menghapus semua hal selain fungsi `handleMessage`.
 
 Fungsi `handleLog` menerima data peristiwa setiap kali peristiwa cocok dengan filter yang kami tentukan sebelumnya di `project.yaml` kami. Kami akan memperbaruinya untuk memproses semua `persetujuan` log transaksi dan menyimpannya ke entitas GraphQL yang kami buat sebelumnya.
 
@@ -209,7 +209,7 @@ SubQuery menyediakan layanan terkelola gratis saat Anda dapat menerapkan proyek 
 
 ## Langkah selanjutnya
 
-Congratulations, you now have a locally running SubQuery project that accepts GraphQL API requests for transfers data from bLuna.
+Selamat, Anda sekarang memiliki proyek SubQuery yang berjalan secara lokal yang menerima permintaan GraphQL API untuk mentransfer data dari bLuna.
 
 Sekarang setelah Anda memiliki wawasan tentang cara membangun proyek SubQuery dasar, pertanyaannya adalah dari mana dari sini? Jika Anda merasa percaya diri, Anda dapat mempelajari lebih lanjut tentang tiga file utama. File manifes, skema GraphQL, dan file pemetaan di bawah [bagian Build dari dokumen ini](../build/introduction.md).
 
