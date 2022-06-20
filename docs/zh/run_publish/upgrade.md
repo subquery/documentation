@@ -25,7 +25,19 @@
 
 如果你只是想升级到最新的索引器([`@subql/node`](https://www.npmjs.com/package/@subql/node))或查询服务([`@subql/quy`](https://www.npmjs.com/package/@subql/query))来利用我们的正常性能和稳定性改进。 这只会导致几分钟的停用。
 
-#### 部署您的 SubQuery 项目的新版本
+#### When using `@subql/cli`
+#### Requirement
+- `@subql/cli` version 1.1.0 or above.
+- Get your [SUBQL_ACCESS_TOKEN](/docs/run_publish/ipfs.md#prepare-your-subqlaccesstoken) ready.
+```
+// You can directly set your Indexer and Query versions
+$ subql deployment:deploy --indexerVersion=1.1.2 --queryVersion=1.1.1
+
+// OR you can use the interface, it will validate your IPFS CID and render a list of image versions that matches your manifest file `project.yaml`
+
+$ subql deployment:deploy
+```
+#### Deploy New Version of your SubQuery Project
 
 在 GitHub 中填写您想要部署的 SubQuery 项目代码库版本的 SubQuery 哈希(复制完整的提交哈希)。 这将导致更长的停机时间，取决于索引当前链所需的时间。 您可以一直在这里报告进度。
 
