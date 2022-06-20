@@ -12,7 +12,7 @@ Now, let's move ahead in the process and update these configurations.
 
 ## 1. Make Changes to Your Project
 
-Previously, in the [SubQuery CLI](../quickstart.md) section, you must have noted [3 key files](../quickstart.md#3-make-changes-to-your-project). Let's begin updating them one by one. 
+Previously, in the [SubQuery CLI](../quickstart.md) section, you must have noted [3 key files](../quickstart.html#_3-make-changes-to-your-project). Let's begin updating them one by one. 
 
 ### 1.1 Update Your GraphQL Schema File
 
