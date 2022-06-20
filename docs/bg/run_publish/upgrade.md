@@ -25,7 +25,19 @@
 
 Ако просто искате да надстроите до най-новия индексатор ([`@subql/node`](https://www.npmjs.com/package/@subql/node)) или услуга за заявки ([`@subql/query`](https://www.npmjs.com/package/@subql/query)), за да се възползвате от нашите редовни подобрения в производителността и стабилността, просто изберете по-нови версии на нашите пакети и запазете. Това ще доведе само до няколко минути престой.
 
-#### Внедрете нова версия на вашия проект SubQuery
+#### When using `@subql/cli`
+#### Requirement
+- `@subql/cli` version 1.1.0 or above.
+- Get your [SUBQL_ACCESS_TOKEN](/docs/run_publish/ipfs.md#prepare-your-subqlaccesstoken) ready.
+```
+// You can directly set your Indexer and Query versions
+$ subql deployment:deploy --indexerVersion=1.1.2 --queryVersion=1.1.1
+
+// OR you can use the interface, it will validate your IPFS CID and render a list of image versions that matches your manifest file `project.yaml`
+
+$ subql deployment:deploy
+```
+#### Deploy New Version of your SubQuery Project
 
 Попълнете Commit Hash от GitHub (копирайте пълния хеш за комит) на версията на кодовата база на вашия SubQuery проект, която искате да бъде разгърната. Това ще доведе до по-дълъг престой в зависимост от времето, необходимо за индексиране на текущата верига. Винаги можете да докладвате тук за напредък.
 
