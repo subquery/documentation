@@ -1,22 +1,19 @@
-# Cosmos
+# Cosmos Quick Start
+
 ## Develop Your First SubQuery Cosmos Project 
 
 The goal of this quick start guide is to adapt the standard starter project in the Juno Network. And then begin indexing all votes on the [Terra Developer Fund](https://daodao.zone/multisig/juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2) (which also contributed to SubQuery) from Cosmos. 
 
-You must have finished the installation process and initialised your first Cosmos Project. 
-
-Now, the next step is making changes to your files and running the project. 
-
-**Important:** Before we begin, make sure that you have initialised your project using the provided steps in the [Beginners' Quick Guide](../quickstart.md). You must complete the suggested [4 steps](https://github.com/subquery/juno-subql-starter#readme) for Cosmos users. 
+**Important:** Before we begin, make sure that you have initialised your project using the provided steps in the **[Start Here](../quickstart.md)** section. You must complete the suggested [4 steps](https://github.com/DeveloperInProgress/juno-subql-starter#readme) for Cosmos users. 
 
 You can see the final code of this project on [visiting this link.](https://github.com/jamesbayly/juno-terra-developer-fund-votes)
 
+Now, let's move ahead in the process and update these configurations. 
 
-Now, let's move ahead in the process and edit the files and configurations.
 
 ## 1. Make Changes to Your Project
 
-Previously, in the [Beginner's Quick Guide](../quickstart.md), you got clear information on the three standard configurations of the project. Let's begin updating them one by one. 
+Previously, in the [SubQuery CLI](../quickstart.md) section, you must have noted [3 key files](../quickstart.md#3-make-changes-to-your-project). Let's begin updating them one by one. 
 
 ### 1.1 Update Your GraphQL Schema File
 
@@ -57,7 +54,7 @@ type Vote @entity {
 
 You will find the generated models in the `/src/types/models` directory.
 
-Check out our [Build/GraphQL](../../build/graphql.md) Schema documentation to get more information on `schema.graphql` file.
+Check out our [GraphQL Schema](../../build/graphql.md) documentation to get more information on `schema.graphql` file.
 
 Now that you have made essential changes to the GraphQL Schema file, let’s go ahead with the next configuration. 
 
@@ -89,7 +86,7 @@ dataSources:
 
 The above code defines that you will be running a `handleTerraDeveloperFund` mapping function whenever there is a `vote` message from the [Terra Developer Fund](https://daodao.zone/multisig/juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2) smart contract.
 
-Check out our [Build/Manifest File](../../build/manifest.md) documentation to get more information about the Project Manifest (`project.yaml`) file. 
+Check out our [Manifest File](../../build/manifest.md) documentation to get more information about the Project Manifest (`project.yaml`) file. 
 
 Next, let’s dig further into Mapping Function’s configuration. 
 
@@ -129,7 +126,7 @@ Let’s understand how the above code works.
 
 Here, the function receives a CosmosMessage which includes message data on the payload. We extract this data and then instantiate a new `Vote` entity defined earlier in the `schema.graphql` file. After that, we add additional information and then use the `.save()` function to save the new entity (SubQuery will automatically save this to the database).
 
-Check out our [Build/Mappings](../../build/mapping.md) documentation and get information on the mapping functions in detail. 
+Check out our [Mappings](../../build/mapping.md) documentation and get information on the mapping functions in detail. 
 
 You are closer to creating your first SubQuery project. However, there is still an additional step required to run your SubQuery Project. Let’s find out more. 
 
@@ -167,7 +164,7 @@ Whenever you create a new SubQuery Project, never forget to run it locally on yo
 
 `docker-compose.yml` file defines all the configurations that control how a SubQuery node runs. For a new project, which you have just initialised, no major changes are needed. 
 
-However, you must visit the [Run a Project](../../run_publish/run.md) section and check out the file and the settings in detail. 
+However, you must visit the [Running SubQuery Locally](../../run_publish/run.md) section and check out the file and the settings in detail. 
 
 Now, run the following command under the project directory:
 
@@ -227,27 +224,9 @@ query {
 
 **Note:  Have a look at the final code of this project [here](https://github.com/jamesbayly/juno-terra-developer-fund-votes](https://github.com/jamesbayly/juno-terra-developer-fund-votes), and explore all the in-and-out of it. 
 
-You are about to finish creating your first SubQuery project. Keep reading further to find out how to publish it.
-
-
-### 2.3 Publish your SubQuery Project
-
-SubQuery provides a free managed service where you can deploy your new project. You can deploy it to [SubQuery Projects](https://project.subquery.network) and query it using our [Explorer](https://explorer.subquery.network).
-
-If you get stuck in the process, read this complete guide on how to [publish your new project to SubQuery Projects](../../run_publish/publish.md). 
-
-
-**Congratulations! You have now a locally running SubQuery Cosmos project that accepts GraphQL API requests for transferring data from bLuna.** 
-
 
 ## What’s Next?
 
-You have done a great job so far. Now that you have a clear understanding of how to build a basic SubQuery project, what should be your next step? Let us guide you through your following journey. 
+Congratulations! You have now a locally running SubQuery project that accepts GraphQL API requests for transferring data from bLuna.
 
-Since you have finished publishing your first project and if you feel confident, then jump to [Build section of these docs](../../build//introduction.md) and learn more about the three key files: **the manifest file, the GraphQL schema, and the mappings file.**
-
-If you are looking for practising with more real examples and diving deeper, then head to the  [Academy section](../../academy/academy.md). You will get access to readily available and open-source projects. 
-
-Get ready to find in-depth workshops, tutorials, and example projects, work on advanced modifications, and become a master at running SubQuery projects. 
-
-In the end, if you want to explore more ways to run and publish your project, refer to [Run & Publish section](../../run_publish/run.md). Get complete information about all the ways to run your SubQuery project, along with advanced GraphQL aggregation and subscription features.
+Click [here](../../quickstart/whats-next.md) to learn what should be your **next step** in your SubQuery journey.
