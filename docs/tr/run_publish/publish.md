@@ -52,22 +52,66 @@ Projenizi oluşturursanız, SubQuery Projenizin listesinde görürsünüz. _Nere
 
 ![Dağıtım olmadan Oluşturulan Proje](/assets/img/projects-no-deployment.png)
 
-### İlk Sürümünüzü Dağıtma
+### Creating Projects using CLI
 
-Bir proje oluşturmak projenin görüntüleme davranışını ayarlarken, çalışmadan önce bir sürümünü dağıtmanız gerekir. Bir sürümü dağıtmak, yeni bir SubQuery dizin oluşturma işlemini başlatır ve GraphQL isteklerini kabul etmeye başlamak için gerekli sorgu hizmetini ayarlar. Yeni sürümleri varolan projelere de buradan dağıtabilirsiniz.
+You can also use `@subql/cli` to create your project
+#### Gereksinimler
+- `@subql/cli` version 1.1.0 or above.
+- Get your [SUBQL_ACCESS_TOKEN](/docs/run_publish/ipfs.md#prepare-your-subqlaccesstoken) ready.
 
-Yeni projenizde Deploy New Version düğmesi görürsünüz. Bunu tıklatın ve dağıtım hakkında gerekli bilgileri doldurun:
+```
+// Creating a project using the CLI
+$ subql project:create-project
 
-- **Şube:** GitHub'dan, dağıtmak istediğiniz projenin dalını seçin
-- **Yeni Sürüm'ün Karma'ını:** GitHub'dan, subquery proje kod tabanınızın dağıtılmasını istediğiniz sürümünün tam tamamlama karmasını kopyalayın
-- **IPFS:** IPFS'den dağıtım yapıyorsanız, IPFS dağıtım CID'nizi yapıştırın (öndeki `ipfs://` olmadan)
-- **Ağ ve Sözlük Uç Noktalarını Geçersiz Kıl:** Proje bildiriminizdeki uç noktaları burada geçersiz kılabilirsiniz
-- **Indexer Version:** Bu, SubQuery'yi çalıştırmak istediğiniz SubQuery düğüm hizmetinin sürümüdür. Bkz[`@subql/node`](https://www.npmjs.com/package/@subql/node)
-- **Query Version:** Bu, Bu SubQuery'yu çalıştırmak istediğiniz SubQuery'nin sorgu hizmetinin sürümüdür. Bkz[`@subql/query`](https://www.npmjs.com/package/@subql/query)
+// OR using non-interactive, it will prompt you if the required fields are missing
+$ subql project:create-project
+    --apiVersion=apiVersion      Api version is default to 2
+    --description=description    Enter description
+    --gitRepo=gitRepo            Enter git repository
+    --org=org                    Enter organization name
+    --project_name=project_name  Enter project name
+```
 
-![İlk Projenizi dağıtma](https://static.subquery.network/media/projects/projects-first-deployment.png)
+### Deploy your first Version
 
-Başarıyla dağıtılırsa, dizinleyicinin çalışmaya başladığını görürsünüz ve geçerli zinciri dizine alma konusundaki ilerlemeyi raporlarsınız. Bu işlem %100'e ulaşana kadar zaman alabilir.
+### Seçenek 1:
+
+While creating a project will setup the display behaviour of the project, you must deploy a version of it before it becomes operational. Deploying a version triggers a new SubQuery indexing operation to start, and sets up the required query service to start accepting GraphQL requests. You can also deploy new versions to existing projects here.
+
+With your new project, you'll see a Deploy New Version button. Click this, and fill in the required information about the deployment:
+
+- **Branch:** From GitHub, select the branch of the project that you want to deploy from
+- **Commit Hash:** From GitHub, select the specific commit of the version of your SubQuery project codebase that you want deployed
+- **IPFS:** If deploying from IPFS, paste you IPFS deployment CID (without the leading `ipfs://`)
+- **Override Network and Dictionary Endpoints:** You can override the endpoints in your project manifest here
+- **Indexer Version:** This is the version of SubQuery's node service that you want to run this SubQuery on. See [`@subql/node`](https://www.npmjs.com/package/@subql/node)
+- **Query Version:** This is the version of SubQuery's query service that you want to run this SubQuery on. See [`@subql/query`](https://www.npmjs.com/package/@subql/query)
+
+![Deploy your first Project](https://static.subquery.network/media/projects/projects-first-deployment.png)
+
+If deployed successfully, you'll see the indexer start working and report back progress on indexing the current chain. This process may take time until it reaches 100%.
+
+### Seçenek 2:
+#### Deploying using CLI
+#### Gereksinimler
+- `@subql/cli` version 1.1.0 or above.
+- Get your [SUBQL_ACCESS_TOKEN](/docs/run_publish/ipfs.md#prepare-your-subqlaccesstoken) ready.
+
+```
+// Deploy using the CLI
+$ suqbl deployment:deploy
+
+// OR Deploy using non-interactive CLI
+$ suqbl deployment:deploy
+  --dict=dict                      Enter Dictionary Endpoint
+  --endpoint=endpoint              Enter Network Endpoint
+  --indexerVersion=indexerVersion  Enter indexer-version
+  --ipfsCID=ipfsCID                Enter IPFS CID
+  --org=org                        Enter Organization Name
+  --project_name=project_name      Enter Project Name
+  --queryVersion=queryVersion      Enter Query-version
+  --type=type                      Enter deployment type e.g. primary or stage
+```
 
 ## Sonraki Adımlar - Projenize Bağlanın
 
@@ -77,20 +121,23 @@ Dağıtımınız başarıyla tamamlandıktan ve node'larımız zincirdeki verile
 
 Alternatif olarak, projenizin başlığının yanında bulunan üç noktaya tıklayabilir ve onu SubQuery Explorer'da görüntüleyebilirsiniz. There you can use the in-browser playground to get started - [read more about how to use our Explorer here](../run_publish/query.md).
 
-![SubQuery Explorer'deki Projeler](/assets/img/projects-explorer.png)
+![Projects in SubQuery Explorer](/assets/img/projects-explorer.png)
 
 ## GitHub Kuruluş Hesabını SubQuery Projelerine Ekleme
 
-SubQuery projenizi kişisel GitHub hesabınız yerine GitHub Kuruluş hesabınızın adı altında yayımlamak yaygındır. İstediğiniz noktada, hesap değiştiriciyi kullanarak [SubQuery Projects](https://project.subquery.network)'da seçili hesabınızı değiştirebilirsiniz.
+It is common to publish your SubQuery project under the name of your GitHub Organization account rather than your personal GitHub account. At any point your can change your currently selected account on [SubQuery Projects](https://project.subquery.network) using the account switcher.
 
 ![GitHub hesapları arasında geçiş yapma](/assets/img/projects-account-switcher.png)
 
-GitHub Kuruluş hesabınızı switcher'de listelenmiş olarak göremiyorsanız GitHub Kuruluşunuz için SubQuery'ye erişim izni vermeniz (veya bir yöneticiden istemeniz) gerekebilir. Bunu yapmak için öncelikle GitHub hesabınızdan SubQuery Uygulamasına olan izinleri iptal etmeniz gerekir. Bunu yapmak için GitHub'daki hesap ayarlarınıza giriş yapın, Uygulamalar'a gidin ve Yetkili OAuth Uygulamaları sekmesinin altında SubQueryyu iptal edin - [ buradan tam adımları izleyebilirsiniz](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/reviewing-your-authorized-applications-oauth). **Endişelenmeyin, bu SubQuery projenizi silmez ve herhangi bir veri kaybetmezsiniz.**
+If you can't see your GitHub Organization account listed in the switcher, the you may need to grant access to SubQuery for your GitHub Organization (or request it from an administrator). To do this, you first need to revoke permissions from your GitHub account to the SubQuery Application. To do this, login to your account settings in GitHub, go to Applications, and under the Authorized OAuth Apps tab, revoke SubQuery - [you can follow the exact steps here](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/reviewing-your-authorized-applications-oauth). **Don't worry, this will not delete your SubQuery project and you will not lose any data.**
 
-![GitHub hesabına erişimi iptal etme](/assets/img/project_auth_revoke.png)
+![Revoke access to GitHub account](/assets/img/project_auth_revoke.png)
 
-Erişimi iptal ettikten sonra, [SubQuery Projects](https://project.subquery.network) oturumunu kapatın ve yeniden oturum açın. GitHub Organization hesabınıza SubQuery erişimi isteyebileceğiniz veya verebileceğiniz _SubQuery Yetkilendir_ başlıklı bir sayfaya yönlendirilmeniz gerekir. Yönetici izinleriniz yoksa, bunu sizin için etkinleştirmek için bir yönetici isteğinde bulunmalısınız.
+Once you have revoked access, log out of [SubQuery Projects](https://project.subquery.network) and log back in again. You should be redirected to a page titled _Authorize SubQuery_ where you can request or grant SubQuery access to your GitHub Organization account. If you don't have admin permissions, you must make a request for an adminstrator to enable this for you.
 
 ![GitHub hesabından onayı iptal et](/assets/img/project_auth_request.png)
 
-Bu istek yöneticiniz tarafından onaylandıktan sonra (veya size kendisi verebilirse), hesap değiştiricide doğru GitHub Organization hesabını görürsünüz.
+Once this request has been approved by your administrator (or if are able to grant it youself), you will see the correct GitHub Organization account in the account switcher.
+
+
+
