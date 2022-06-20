@@ -53,7 +53,29 @@ Create your project and you'll see it on your SubQuery Project's list. _We're al
 
 ![Created Project with no deployment](/assets/img/projects-no-deployment.png)
 
+### Creating Projects using CLI
+
+You can also use `@subql/cli` to create your project
+#### Requirements
+- `@subql/cli` version 1.1.0 or above.
+- Get your [SUBQL_ACCESS_TOKEN](/docs/run_publish/ipfs.md#prepare-your-subqlaccesstoken) ready.
+
+```
+// Creating a project using the CLI
+$ subql project:create-project
+
+// OR using non-interactive, it will prompt you if the required fields are missing
+$ subql project:create-project
+    --apiVersion=apiVersion      Api version is default to 2
+    --description=description    Enter description
+    --gitRepo=gitRepo            Enter git repository
+    --org=org                    Enter organization name
+    --project_name=project_name  Enter project name
+```
+
 ### Deploy your first Version
+
+### Option 1:
 
 While creating a project will setup the display behaviour of the project, you must deploy a version of it before it becomes operational. Deploying a version triggers a new SubQuery indexing operation to start, and sets up the required query service to start accepting GraphQL requests. You can also deploy new versions to existing projects here.
 
@@ -69,6 +91,28 @@ With your new project, you'll see a Deploy New Version button. Click this, and f
 ![Deploy your first Project](https://static.subquery.network/media/projects/projects-first-deployment.png)
 
 If deployed successfully, you'll see the indexer start working and report back progress on indexing the current chain. This process may take time until it reaches 100%.
+
+### Option 2:
+#### Deploying using CLI
+#### Requirements
+- `@subql/cli` version 1.1.0 or above.
+- Get your [SUBQL_ACCESS_TOKEN](/docs/run_publish/ipfs.md#prepare-your-subqlaccesstoken) ready.
+
+```
+// Deploy using the CLI
+$ suqbl deployment:deploy
+
+// OR Deploy using non-interactive CLI
+$ suqbl deployment:deploy
+  --dict=dict                      Enter Dictionary Endpoint
+  --endpoint=endpoint              Enter Network Endpoint
+  --indexerVersion=indexerVersion  Enter indexer-version
+  --ipfsCID=ipfsCID                Enter IPFS CID
+  --org=org                        Enter Organization Name
+  --project_name=project_name      Enter Project Name
+  --queryVersion=queryVersion      Enter Query-version
+  --type=type                      Enter deployment type e.g. primary or stage
+```
 
 ## Next Steps - Connect to your Project
 
@@ -95,3 +139,6 @@ Once you have revoked access, log out of [SubQuery Projects](https://project.sub
 ![Revoke approval from a GitHub account](/assets/img/project_auth_request.png)
 
 Once this request has been approved by your administrator (or if are able to grant it youself), you will see the correct GitHub Organization account in the account switcher.
+
+
+

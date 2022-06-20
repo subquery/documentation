@@ -25,6 +25,18 @@ The staging slot is perfect for:
 
 If you just want to upgrade to the latest indexer ([`@subql/node`](https://www.npmjs.com/package/@subql/node)) or query service ([`@subql/query`](https://www.npmjs.com/package/@subql/query)) to take advantage of our regular performance and stability improvements, just select a newer versions of our packages and save. This will cause only a few minutes of downtime.
 
+#### When using `@subql/cli` 
+#### Requirement
+- `@subql/cli` version 1.1.0 or above.
+- Get your [SUBQL_ACCESS_TOKEN](/docs/run_publish/ipfs.md#prepare-your-subqlaccesstoken) ready.
+```
+// You can directly set your Indexer and Query versions
+$ subql deployment:deploy --indexerVersion=1.1.2 --queryVersion=1.1.1
+
+// OR you can use the interface, it will validate your IPFS CID and render a list of image versions that matches your manifest file `project.yaml`
+
+$ subql deployment:deploy
+```
 #### Deploy New Version of your SubQuery Project
 
 Fill in the Commit Hash from GitHub (copy the full commit hash) of the version of your SubQuery project codebase that you want deployed. This will cause a longer downtime depending on the time it takes to index the current chain. You can always report back here for progress.
