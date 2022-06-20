@@ -25,19 +25,19 @@ Slot staging sangat cocok untuk:
 
 Jika Anda hanya ingin meningkatkan ke pengindeks terbaru ([`@subql/node`](https://www.npmjs.com/package/@subql/node)) atau layanan kueri ([`@subql/query`](https://www.npmjs.com/package/@subql/query)) untuk mendapat keuntungan dari peningkatan stabilitas dan performa reguler kami, cukup pilih versi terbaru dari paket kami dan simpan. Ini hanya akan menyebabkan waktu henti beberapa menit.
 
-#### When using `@subql/cli`
-#### Requirement
-- `@subql/cli` version 1.1.0 or above.
-- Get your [SUBQL_ACCESS_TOKEN](/docs/run_publish/ipfs.md#prepare-your-subqlaccesstoken) ready.
+#### Ketika memakai `@subql/cli`
+#### Standar permintaan
+- `@subql/cli` versi 1.1.0 atau lebih tinggi.
+- Siapkan [SUBQL_ACCESS_TOKEN](/docs/run_publish/ipfs.md#prepare-your-subqlaccesstoken) Anda.
 ```
-// You can directly set your Indexer and Query versions
+// Anda dapat langsung mengatur versi Pengindeks dan Kueri Anda
 $ subql deployment:deploy --indexerVersion=1.1.2 --queryVersion=1.1.1
 
-// OR you can use the interface, it will validate your IPFS CID and render a list of image versions that matches your manifest file `project.yaml`
+// ATAU Anda dapat menggunakan antarmuka, itu akan memvalidasi CID IPFS Anda dan membuat daftar versi gambar yang cocok dengan file manifes Anda `project.yaml`
 
 $ subql deployment:deploy
 ```
-#### Deploy New Version of your SubQuery Project
+#### Terapkan Versi Baru Proyek SubQuery Anda
 
 Isi Commit Hash dari GitHub (salin commit hash penuh) dari versi basis kode proyek SubQuery yang ingin Anda terapkan. Ini akan menyebabkan waktu henti yang lebih lama tergantung pada waktu yang diperlukan untuk mengindeks rangkaian saat ini. Anda selalu dapat melaporkan kembali ke sini untuk perkembangan.
 
