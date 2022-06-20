@@ -1,15 +1,14 @@
-# Cosmos Quick Start
+# Cosmos
 
 ## Develop Your First SubQuery Cosmos Project 
 
-The goal of this quick start guide is to adapt the standard starter project in the Juno Network. And then begin indexing all votes on the [Terra Developer Fund](https://daodao.zone/multisig/juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2) (which also contributed to SubQuery) from Cosmos. 
+The goal of this quick start guide is to adapt the standard starter project in the Juno Network and then begin indexing all votes on the [Terra Developer Fund](https://daodao.zone/multisig/juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2) (which also contributed to SubQuery) from Cosmos. 
 
 **Important:** Before we begin, make sure that you have initialised your project using the provided steps in the **[Start Here](../quickstart.md)** section. You must complete the suggested [4 steps](https://github.com/DeveloperInProgress/juno-subql-starter#readme) for Cosmos users. 
 
 You can see the final code of this project on [visiting this link.](https://github.com/jamesbayly/juno-terra-developer-fund-votes)
 
 Now, let's move ahead in the process and update these configurations. 
-
 
 ## 1. Make Changes to Your Project
 
@@ -62,7 +61,7 @@ Now that you have made essential changes to the GraphQL Schema file, let’s go 
 
 The Project Manifest (`project.yaml`) file is an entry point to your project. It defines most of the details on how SubQuery will index and transform the chain data.
 
-Note that the manifest file has already been set up correctly. But we have to change our handlers. 
+Note that the manifest file has already been set up correctly and doesn’t require significant changes, but you need to change the handlers. 
 
 *Since we are going to index all votes on the [Terra Developer Fund](https://daodao.zone/multisig/juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2), we will look at messages that use the `vote` contract call. And following to that, we need to update the `datasources` section as follows:
 
@@ -152,9 +151,9 @@ You need to build your work first, in order to run your new SubQuery project. Ru
   </CodeGroupItem>
 </CodeGroup>
 
-**Important: Each and every time you make changes to your mapping functions, never forget to rebuild your project.** 
+**Important: Whenever you make changes to your mapping functions, you must rebuild your project.**
 
-Next, gear up for running your first SubQuery Cosmos project. Let’s explore the process step by step. 
+Now, you are ready to run your first SubQuery project. Let’s check out the process of running your project in detail. 
 
 ## 2. Run and Query Your Project
 
@@ -185,10 +184,7 @@ Now, run the following command under the project directory:
   </CodeGroupItem>
 </CodeGroup>
 
-**Note**: It may take some time to download the required packages ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), and Postgres) for the first time, but soon you will see a running SubQuery node on the terminal screen. 
-
-You have successfully run the project locally. Now, let’s have a look at how to query your project with guided steps.  
-
+**Note:** It may take a few minutes to download the required images and start the various nodes and Postgres databases.
 
 ### 2.2 Query your Project
 
@@ -198,11 +194,9 @@ Follow these three simple steps to query your SubQuery project:
 
 2. You will see a GraphQL playground in the browser and the schemas which are ready to query. 
 
-3. Find a *Docs* button on the top right corner of the playground which will open a documentation draw. This documentation is automatically generated and it helps you find the entities and methods that you can query.
+3. Find the *Docs* tab on the right side of the playground which should open a documentation drawer. This documentation is automatically generated and it helps you find what entities and methods you can query.
 
-Try the following query to understand how it works for your new SubQuery starter project. 
-
-Don’t skip to learn more about the [GraphQL Query language](../../run_publish/graphql.md). 
+Try the following query to understand how it works for your new SubQuery starter project. Don’t forget to learn more about the [GraphQL Query language](../../run_publish/graphql.md) and dig out more information. 
 
 
 ```graphql
@@ -217,6 +211,37 @@ query {
       blockHeight
       voter
       vote
+    }
+  }
+}
+```
+
+You will see the result similar to below:
+
+```
+{
+  "data": {
+    "votes": {
+      "nodes": [
+        {
+          "id": "14B3EE22278C494DFE90EA440A4F049F2D39A31634F0062B0FF362DB2872A979-0",
+          "blockHeight": "3246683",
+          "voter": "juno1njyvry0t3j5dy4rr6ar5zfglg3cy2e8u745hl7",
+          "vote": true
+        },
+        {
+          "id": "23329451CAFF77D5A0416013045530011F4FAFEA94FEEF43784CDF0947B6CA90-0",
+          "blockHeight": "3246670",
+          "voter": "juno1ewq9l5ae69csh57j8sgjh8z37ypm3lt0jzamwy",
+          "vote": true
+        },
+        {
+          "id": "BEAB15E994A4E99BD0631DACF4716C5627E5D0C14E0848BF07A45609CEFB2F0D-0",
+          "blockHeight": "3246665",
+          "voter": "juno1az0ehz2e5emudyh8hx2qwtfely0lstzj08gg9j",
+          "vote": true
+        }
+      ]
     }
   }
 }
