@@ -25,7 +25,19 @@ Vị trí dàn dựng sẽ hoàn hảo cho việc:
 
 Nếu bạn muốn nâng cấp lên trình lập chỉ mục mới nhất ([`@subql/node`](https://www.npmjs.com/package/@subql/node)) hoặc dịch vụ truy vấn ([`@subql/query`](https://www.npmjs.com/package/@subql/query)) để có lợi thế về khả năng cải thiện độ ổn định và hiệu năng thông thường của chúng tôi, chỉ cần chọn ra các phiên bản mới hơn trong các gói của chúng tôi và lưu lại. Bước này sẽ chỉ tốn vài phút.
 
-#### Triển Khai Phiên Bản Mới Dự Án SubQuery của bạn
+#### When using `@subql/cli`
+#### Requirement
+- `@subql/cli` version 1.1.0 or above.
+- Get your [SUBQL_ACCESS_TOKEN](/docs/run_publish/ipfs.md#prepare-your-subqlaccesstoken) ready.
+```
+// You can directly set your Indexer and Query versions
+$ subql deployment:deploy --indexerVersion=1.1.2 --queryVersion=1.1.1
+
+// OR you can use the interface, it will validate your IPFS CID and render a list of image versions that matches your manifest file `project.yaml`
+
+$ subql deployment:deploy
+```
+#### Deploy New Version of your SubQuery Project
 
 Điền vào Commit Hash từ GitHub (sao chép toàn bộ commit hash) của phiên bản codebase dự án SubQuery mà bạn muốn triển khai. Bước này sẽ làm tốn nhiều thời gian hơn nữa tùy thuộc vào thời gian cần để lập chỉ mục chuỗi hiện tại. Bạn luôn có thể báo cáo lại tại đây để biết tiến độ.
 
