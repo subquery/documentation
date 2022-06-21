@@ -1,140 +1,140 @@
-# Indexers
+# Indexadores
 
-## What is an Indexer?
+## ¿Qué es un índice?
 
-An Indexer is a SubQuery network participant who is responsible for indexing blockchain data and providing this data to their customers.
+Un Indexer es un participante en la red de SubQuery que es responsable de indexar los datos de la cadena de bloques y proporcionar estos datos a sus clientes.
 
-Indexers play a very important role within the SubQuery network. As a part of a data-as-a-service business, an Indexer turns computational and networking power into profits.
+Los indexadores desempeñan un papel muy importante dentro de la red de SubQuery. Como parte de un negocio de datos-as-a-service, un Indexer convierte el poder computacional y de red en beneficios.
 
-## Indexer Staking
+## Toma de Indexador
 
-In order to earn rewards from query revenue as an Indexer it is proposed that Indexers must stake SQT against a particular SubQuery Project that they are providing the service to. The Cobb-Douglas production function will be used to determine the rewards distributed to each Indexer.
+Con el fin de obtener recompensas de los ingresos por consulta como un Indexador se propone que los Indexadores deben apostar SQT contra un Proyecto de Subconsulta particular al que están prestando el servicio. La función de producción Cobb-Douglas se utilizará para determinar las recompensas distribuidas a cada Indexador.
 
-SubQuery plans to add a constraint to the network where an indexer must stake a minimum amount of SQT on the relevant reward pool to be able to participate in its matching Open Agreement. They must also stake a minimum amount on an equivalent staking contract for any Closed Agreements in the same fashion. This indexer staked minimum value must be a certain percentage of the Agreement’s per Era reward value, which means in order to renew the Agreement to higher volumes, the indexer must also increase their stake. When an indexer’s stake decreases beneath this minimum amount, they will be unable to renew the Agreement at the existing price.
+SubQuery planea agregar una restricción a la red donde un indexador debe colocar una cantidad mínima de SQT en el fondo de recompensas pertinente para poder participar en su correspondiente Acuerdo Abierto. También deben apostar una cantidad mínima en un contrato de apuesta equivalente para cualquier Contrato Cerrado de la misma forma. Este valor mínimo apostado por el indexador debe ser un porcentaje determinado del valor de recompensa por Era del Acuerdo lo que significa que para renovar el Acuerdo a volúmenes más altos, el indexador también debe aumentar su participación. Cuando la participación de un índice disminuya bajo esta cantidad mínima, no podrán renovar el Acuerdo al precio existente.
 
-If an Indexer is caught misbehaving (such as by providing invalid, incomplete, or incorrect data), they are liable to have a portion of their staked SQT (on the particular reward pool ip) reallocated to the SubQuery Foundation Treasury, diminishing their holdings of staked SQT in the network and therefore their potential reward. Since the indexer’s allocated stake is determined by a percentage of their total SQT, this will have a flow on effect to all other reward pools that the indexer is party to.
+Si un Indexador es detectado mal (tal como proporcionando datos no válidos, incompletos o incorrectos), son susceptibles de reasignar una porción de su SQT apostada (en el ip de premio en particular) al Tesoro de la Fundación SubQuery, disminuyendo sus participaciones de SQT apuestadas en la red y, por lo tanto, su potencial recompensa. Dado que la participación asignada del índice está determinada por un porcentaje de su SQT total, esto tendrá un flujo en efecto a todos los demás pozos de recompensa en los que sea parte el indexador.
 
-## How are Indexers rewarded?
+## ¿Cómo se recompensa a los indexadores?
 
-Indexers are rewarded in SQT in two ways:
-- Rewards from SQT reward pools based on distribution defined by the Cobb-Douglas Production Function
-- Direct SQT query fee rewards from Closed Agreements that an indexer is party to
+Los indexadores son recompensados en SQT de dos maneras:
+- Recompensas de los grupos de recompensas SQT basados en la distribución definida por la Función de Producción Cobb-Douglas
+- Recompensas directas de cuota de consulta SQT de acuerdos cerrados en los que un indexador es parte
 
-Indexers are rewarded the fees that Consumers pay for providing blockchain data that the Consumer has reqested. An Indexer will receive all the fees from a Closed Agreement. Otherwise, the fees are split based on the amount of work performed (requests served) and the amount of delegated SQT - this split is determined by applying the Cobb-Douglas Production Function.
+Los indexadores son recompensados con las comisiones que los consumidores pagan por proporcionar datos de blockchain que el Consumidor ha solicitado. Un Indexador recibirá todas las cuotas de un Contrato Cerrado. De lo contrario, los honorarios se dividen en base a la cantidad de trabajo realizado (solicitudes atendidas) y la cantidad de SQT delegado - esta división se determina aplicando la Función de Producción Cobb-Douglas.
 
-There may be multiple reward pools simultaneously active for a given Indexer. The indexer’s job is to allocate their staked and delegated SQT amongst these pools (in terms of a percentage of their total SQT). There will be a reward pool for each project that the Indexer accepts PAYG, and a reward pool for each Market Agreement that the Indexer is a party of.
+Puede haber múltiples grupos de recompensas simultáneamente activos para un determinado índice. El trabajo del indexador es asignar su SQT apuestado y delegado entre estos grupos (en términos de un porcentaje de su total SQT). Habrá un fondo de recompensas para cada proyecto que el Indexador acepte PAYG, y un fondo de recompensas por cada Acuerdo de Mercado del que sea parte el Indexador.
 
-## Attracting Delegators
+## Atracción de Delegadores
 
-Indexers can increase their earning potential by attracting Delegators. Delegators are SQT token holders who can delegate their tokens to Indexers for additional rewards. Indexers use these additional tokens to increase the amount they allocate to projects of their choice. This allows Indexers to increase their earnings.
+Los indexadores pueden aumentar su potencial de ganancias atrayendo a los Delegadores. Los deelegadores son poseedores de fichas SQT que pueden delegar sus fichas a Indexadores para obtener recompensas adicionales. Los indexadores utilizan estos tokens adicionales para aumentar la cantidad que asignan a proyectos de su elección. Esto permite a los indexadores aumentar sus ganancias.
 
-Indexers set an Indexer’s Commission Rate (ICR) which is the percentage Indexers earn. The remaining is then shared amongst the Indexer and all Delegators propotionally by staked/delegated amount. Therefore, Indexers need to decide on the proportion of profits an Indexer wishes to retain versus the amount to share with their Delegators. A lower ICR will be more attractive for Delegators.
+Los indexadores fijan la tasa de la Comisión del Indexador (ICR) que es el porcentaje que ganan. El resto se reparte entonces entre el Indexer y todos los Delegadores proponiendo una cantidad apuesta/delegada. Por lo tanto, los Indexadores tienen que decidir la proporción de beneficios que un Indexer desea conservar frente a la cantidad a compartir con sus Delegadores. Un ICR más bajo será más atractivo para los Delegers.
 
-For example, Indexer A has set an ICR of 80% and has received SQT from 8 Delegators. This means that the 8 Delegators plus the Indexer itself, will be rewarded a share of the remaining 20% of what the Indexer has earned. The share will be split proportionally between them. Note that Delegators must have delegated their tokens for the entire Era to be eligible for these rewards. For more information on Delegators rewards, see [Delegators](./delegators.md).
+Por ejemplo, Indexer A ha establecido un ICR del 80% y ha recibido SQT de 8 Delegators. Esto significa que los 8 Delegadores más el propio Indexer recibirán una parte del 20% restante de lo que el Indexador ha ganado. La parte se dividirá proporcionalmente entre ellos. Tenga en cuenta que los Delegadores deben haber delegado sus fichas para toda la Era para ser elegibles para estas recompensas. Para obtener más información sobre las recompensas de los Delegadores, consulte [Delegadores](./delegators.md).
 
-## Becoming an Indexer
+## Convertirse en un indexador
 
-To become an Indexer on the SubQuery Network, the Indexer must possess the necessary hardware, run the required SubQuery services, have a publicly accessible network via a static IP or a domain name, and register as an Indexer.
+Para convertirse en un indexador en la red de subconsultas, el indexador debe poseer el hardware necesario, ejecutar los servicios de subconsulta requeridos, tener una red de acceso público a través de una IP estática o un nombre de dominio, y registrarse como un índice.
 
-### Indexer skillset
+### Habilidad de indexador
 
-In general, an Indexer should be a technically proficient computer user. However, the simplicity of the SubQuery network and proposed frameworks allows even a junior developer to successfully participate.
+En general, un Indexer debe ser un usuario de ordenador técnicamente competente. Sin embargo, la simplicidad de la red SubQuery y los frameworks propuestos permiten incluso a un desarrollador junior participar con éxito.
 
-A basic user should be familiar with provisioning and managing servers, installing the SubQuery CLI tools, database management, and basic networking. More experienced users may run nodes in a clustered environment, incorporate monitoring and alerts and also more advanced networking management.
+Un usuario básico debería estar familiarizado con la provisión y administración de servidores, la instalación de las herramientas CLI de SubQuery, la administración de bases de datos y la red básica. Los usuarios más experimentados pueden ejecutar nodos en un entorno agrupado, incorporar monitoreos y alertas y también una gestión de redes más avanzada.
 
-Finally, interested parties should be prepared to invest time in maintaining their indexing nodes and infrastructure.
+Por último, las partes interesadas deberían estar dispuestas a invertir tiempo en el mantenimiento de sus nodos de indexación e infraestructura.
 
-### Staking requirements
+### Requisitos de toma
 
-Indexers are expected to stake and maintain a minimum amount of tokens. This is to ensure that Indexers have some skin in the game and are committed to supporting the network. SubQuery is yet to determine this but it is one of our [design philosophies](./design-philosophy.md) that this be as low and as accessible as possible.
+Se espera que los indexadores se aposten y mantengan una cantidad mínima de fichas. Esto es para asegurar que los Indexadores tengan algo de piel en el juego y se comprometan a apoyar la red. SubQuery todavía está por determinar esto, pero es una de nuestras [apariencias de diseño](./design-philosophy.md) que esto sea lo más bajo y accesible posible.
 
-Should an Indexer experience a slashable event and their staked SQT balance fall below the minimum required, they will have to top up their staked SQT in order to continue to earn rewards from their work.
+Si un Indexador experimentara un evento barrido y su saldo SQT apuestado cayera por debajo del mínimo requerido, tendrán que recargar su SQT apostada para seguir ganando recompensas de su trabajo.
 
-### Hardware requirements
+### Hardware necesario
 
-Indexers can either invest in their own infrastructure hardware or rent infrastructure from the likes of AWS, Google Cloud, Digital Ocean, Microsoft Azure etc.
+Los indexadores pueden invertir en su propio hardware de infraestructura o alquilar infraestructura de los gustos de AWS, Google Cloud, Digital Ocean, Microsoft Azure etc.
 
-### Maintenance/operational requirements
+### Requisitos de mantenimiento/operación
 
-Here are some of the maintenance and/or operational requirements Indexers should expect:
+Aquí están algunos de los Indexadores de mantenimiento y/o de requerimientos operativos que deben esperar:
 
-- Always upgrade to the latest Subquery software version
-- Identify and take advantage of new indexing opportunities
-- Update project version to latest and reindex where necessary
-- Infrastructure maintenance
-  - Constantly monitoring and upsizing disk
-  - Right size query and indexing compute based on traffic
-  - Increase query services for increasing ingress traffic
+- Actualizar siempre a la última versión del software de Subquery
+- Identificar y aprovechar las nuevas oportunidades de indexación
+- Actualizar la versión del proyecto a la última y reindexar cuando sea necesario
+- Mantenimiento de infraestructura
+  - Monitoreo constante y mejora del disco
+  - Calcular el tamaño correcto de la consulta y el índice basado en el tráfico
+  - Aumentar los servicios de consulta para aumentar el tráfico de ingles
 
-### Infrastructure
+### Infraestructura
 
-The minimum infrastructure requirement includes:
+El requisito mínimo de infraestructura incluye:
 
-- At least one computational node to run the following services:
-  - [Node (indexing) Service](https://www.npmjs.com/package/@subql/node)
-  - [Query Service](https://www.npmjs.com/package/@subql/query)
-  - [Indexer Coordinator Service](https://www.npmjs.com/package/@subql/indexer-coordinator)
-- One database node to run Postgresql db (v12 and above).
+- Al menos un nodo computacional para ejecutar los siguientes servicios:
+  - [Servicio de nodo (indexación)](https://www.npmjs.com/package/@subql/node)
+  - [Servicio de Consulta](https://www.npmjs.com/package/@subql/query)
+  - [Servicio Coordinator Indexer](https://www.npmjs.com/package/@subql/indexer-coordinator)
+- Un nodo de base de datos para ejecutar Postgresql db (v12 y superior).
 
-More detailed information will come soon.
+Pronto llegará información más detallada.
 
-## Security & Performance considerations
+## Protección de seguridad & Rendimiento
 
-Security and performance considerations are as follows.
+Las consideraciones de seguridad y rendimiento son las siguientes.
 
-### Operator Wallets
+### Carteras Operadoras
 
-Secure storage of an Indexer’s wallet recovery seed phrase is highly recommended.
+Almacenamiento seguro de la frase de semilla de recuperación de cartera de un Indexer es altamente recomendable.
 
-### Firewalls
+### Cortafuegos
 
-Indexers need to keep security front of mind. Infrastructure security, in particular firewalls, should be implemented to prevent public exposure to personal ports.
+Los indexadores deben tener en mente la seguridad. La seguridad de las infraestructuras, en particular los muros de incendio, debería aplicarse para evitar la exposición pública a los puertos personales.
 
-Secure passwords should be used by default and password rotation policies should be considered.
+Las contraseñas seguras deben ser usadas por defecto y las políticas de rotación de contraseñas deben ser consideradas.
 
-### Indexer’s Performance
+### Rendimiento del índice
 
-In order to generate desirable performances, Indexers need to consider various factors such as:
+Para generar rendimientos deseables, los Indexadores deben tener en cuenta diversos factores como:
 
-- the balance between their own stake and that of Delegators.
-- the type of contract being served. The Indexer will receive all the query fees if it is a closed contract. If it is open, then an Indexer’s reward will depend on how many other Indexers there are.
-- fulfilling of the Service Level Agreement (SLA) specifications (to avoid slashing penalties)
-- the accuracy of the data being served to avoid slashing penalties
+- el equilibrio entre su propia apuesta y la de los Delegadores.
+- el tipo de contrato que se está cumpliendo. El Indexador recibirá todos los honorarios de consulta si es un contrato cerrado. Si está abierto, entonces la recompensa de un Indexador dependerá de cuántos otros Indexadores hay.
+- cumplimiento de las especificaciones del Acuerdo de Nivel de Servicio (SLA) (para evitar cortar las penalidades)
+- la exactitud de los datos que se están sirviendo para evitar recorte de sanciones
 
-## Selecting SubQuery Projects to Index
+## Seleccionando Proyectos de Subconsulta a Índice
 
-There are several indicators that an Indexer needs to consider when selecting a SubQuery project to index.
+Hay varios indicadores que un Indexador debe tener en cuenta al seleccionar un proyecto de SubQuery para indexar.
 
-### Query Fee Opportunities
+### Oportunidades de tarifa de consulta
 
-Some projects will have open or closed plans advertised by consumers.
+Algunos proyectos tendrán planes abiertos o cerrados anunciados por los consumidores.
 
-When a Consumer advertises an open or closed plan for a project, they ultimately specify how much they are willing to pay for a set volume of requests. The more a Consumer is willing to pay, the more attractive the project will be for an Indexer. It also provides confidence that there will likely be recurring revenue from this SubQuery project.
+Cuando un consumidor anuncia un plan abierto o cerrado para un proyecto, especifican cuánto están dispuestos a pagar por un volumen determinado de solicitudes. Cuanto más un consumidor esté dispuesto a pagar, más atractivo será el proyecto para un Indexador. También proporciona confianza en que probablemente habrá ingresos recurrentes de este proyecto SubQuery.
 
-### Project complexity
+### Complejidad del proyecto
 
-Projects will vary in computation requirements. Simple projects will only index a few parameters whereas more complicated projects will require more computation resources and more bandwidth. Indexers need to understand the complexity of the project and its hardware capabilities.
+Los proyectos variarán en los requerimientos de cálculo. Los proyectos simples sólo indicarán unos pocos parámetros, mientras que los proyectos más complicados requerirán más recursos de cálculo y más ancho de banda. Los indexadores necesitan entender la complejidad del proyecto y sus capacidades de hardware.
 
-### Indexer Competition
+### Competición de indexador
 
-Popular projects offering a high query volume that attract a large number of Indexers. This also implies that the rewards will be shared amongst more people. A single Indexer’s share may be less than a less popular project with a slightly lower query fee but with far fewer Indexers.
+Proyectos populares que ofrecen un alto volumen de consultas que atraen un gran número de índices. Esto también implica que las recompensas se compartirán entre más personas. La participación de un único Indexer puede ser menor que un proyecto menos popular con una cuota de consulta ligeramente más baja, pero con muchos menos Indexadores.
 
-### Pricing Strategy
+### Estrategia de precios
 
-Indexers need to be aware of their operation cost and expected incomes to understand their break-even point. Some considerations are:
+Los indexadores deben ser conscientes del coste de su operación y de los ingresos esperados para entender su punto de ruptura. Algunas consideraciones son:
 
-- How should Indexers set their plan prices?
-- At what price can Indexers accept a service agreement or not?
+- ¿Cómo deberían los indexadores fijar los precios de sus planes?
+- ¿A qué precio pueden los Indexadores aceptar un acuerdo de servicio o no?
 
-### Advertisements
+### Publicidad
 
-Indexers need to advertise themselves to Delegators as well as Consumers. Indexers may do this from their own website, in the Subquery forums or any other places deemed necessary. Some examples of the information to provide are:
+Los indexadores tienen que anunciarse a los Delegadores y a los Consumidores. Los indexadores pueden hacerlo desde su propio sitio web, en los foros de Subconsulta o en cualquier otro lugar que se considere necesario. Algunos ejemplos de la información que se debe proporcionar son:
 
-- The background and experience of the Indexer or Indexer’s team
-- The hardware approach and why it provides superior performance
-- The customer support policy or SLA
-- Evidence of historical performances
+- El fondo y la experiencia del equipo de Indexador o Indexer
+- El enfoque de hardware y por qué proporciona un rendimiento superior
+- La política de asistencia al cliente o SLA
+- Experiencia de actuaciones históricas
 
 ### Customer support
 
-Indexers are highly encouraged to provide a communication method for its customers to report inavailability and also to provide feedback.
+Se recomienda encarecidamente a los indexadores que proporcionen un método de comunicación para que sus clientes informen de indisponibilidad y también proporcionen comentarios.
