@@ -1,6 +1,6 @@
 # Thuật ngữ
 
-![terminology](/assets/img/terminology.png)
+![thuật ngữ](/assets/img/terminology.png)
 
 ## **Phân bổ**
 
@@ -8,7 +8,7 @@ Hành động của Người lập chỉ mục gán SQT cho một dự án nhấ
 
 ### **Tái phân bổ**
 
-A combined operation of removing staked tokens from one project and immediately associating that with another project (comes into effect at the end of the next Era). This is represented/expressed as a percentage of the indexer’s bonded SQT.
+Một hoạt động kết hợp của việc loại bỏ các mã thông báo cổ phần khỏi một dự án và ngay lập tức liên kết nó với một dự án khác (có hiệu lực vào cuối Chu kỳ tiếp theo). Điều này được đại diện/thể hiện dưới dạng tỷ lệ phần trăm của Người lập chỉ mục liên kết SQT.
 
 ## **Liên kết**
 
@@ -18,48 +18,48 @@ Hành động gửi SQT vào hợp đồng đặt cược toàn cầu được t
 
 Hành động của Người lập chỉ mục hoặc Người đại diện rút SQT khỏi hợp đồng đặt cược toàn cầu.
 
-This is effectively a transfer of SQT from the global staking contract to the Indexer’s or Delegator’s wallet. In other words, this can be thought of as the Indexer or Delegator withdrawing part or all of their stake. Note that a lock period applies when tokens are unbonded.
+Đây thực sự là việc chuyển SQT từ hợp đồng đặt cược toàn cầu sang ví của Người lập chỉ mục hoặc Người ủy quyền. Nói cách khác, điều này có thể được coi là Người lập chỉ mục hay Người ủy quyền rút một phần hoặc toàn bộ cổ phần của họ. Lưu ý rằng khoảng thời gian khóa được áp dụng khi mã thông báo được hủy liên kết.
 
-## **Delegating**
+## **Ủy quyền**
 
-Act of a Delegator assigning SQT into the global staking contract and then assigning SQT to an Indexer. Note that delegating and bonding are atomic operations.
+Hành động của Người ủy quyền gán SQT vào hợp đồng đặt cược toàn cầu và sau đó gán SQT cho Người lập chỉ mục. Lưu ý rằng ủy quyền và liên kết là các hoạt động mức nhỏ nhất.
 
-### **Undelegating**
+### **Bỏ ủy quyền**
 
-Act of withdrawing SQT from an Indexer at the end of an Era and then withdrawing that SQT from the global staking contract to a wallet address. This is subject to a lock period.
+Hành động rút SQT từ Người lập chỉ mục vào cuối Chu kỳ và sau đó rút SQT đó khỏi hợp đồng đặt cược toàn cầu về địa chỉ ví. Hành động này sẽ chịu một khoảng thời gian khóa.
 
-### **Redelegating**
+### **Tái ủy quyền**
 
-Act of a Delegator reassigning SQT from one Indexer to another Indexer. Redelegating does not require tokens to be undelegated and is queued to take effect at the end of the Era.
+Hành động của Người ủy quyền gán SQT từ một Người lập chỉ mục này sang một Người lập chỉ mục khác. Tái ủy quyền không yêu cầu bỏ ủy quyền các mã thông báo và được xếp hàng để có hiệu lực vào cuối Chu kỳ.
 
-## **Staking**
+## **Đặt cọc**
 
-Act of an Indexer assigning tokens in a global staking contract and into the Indexer’s own contract.
+Hành động của Người lập chỉ mục gán mã thông báo trong hợp đồng đặt cược toàn cầu và vào hợp đồng của Người lập chỉ mục.
 
-### **Unstaking**
+### **Hủy đặt cọc**
 
-Act of an Indexer withdrawing their SQT. This triggers a 28 day “lock period”. Indexer can restake to cancel this process and return their lock period tokens to the staking contract.
+Hành động của một Người lập chỉ mục rút SQT của họ. Điều này mất 28 ngày "thời gian khóa". Người lập chỉ mục có đặt cọc lại để hủy bỏ quá trình này và trả lại mã thông báo trong thời gian khóa của họ cho hợp đồng đặt cược.
 
-### **Restaking**
+### **Tái đặt cọc**
 
-Act of Indexer restaking SQT during the lock period to return locked period tokens to the staking contract.
+Hành động của Người lập chỉ mục đặt cọc lại SQT trong khoảng thời gian khóa để trả lại các mã thông báo trong thời gian bị khóa cho hợp đồng đặt cược.
 
 ---
 
-## **Contract Ratio**
+## **Tỷ lệ hợp đồng**
 
-The sum of daily contracts value (defined as contract value/period) can not exceed a ratio with their total stake (indexer + delegator).
+Tổng giá trị hợp đồng hàng ngày (được định nghĩa là giá trị hợp đồng/kỳ hạn) không được vượt quá tỷ lệ với tổng số cổ phần của họ (Người lập chỉ mục + Người ủy quyền).
 
-## **Era**
+## **Chu kỳ**
 
 Một khoảng thời gian hoặc thời gian mà các cấu hình và cài đặt không đổi và các phép tính diễn ra. Ví dụ, trong một Chu kỳ:
 
 - không thể thay đổi Tỷ lệ Hoa hồng của Người lập chỉ mục trong một Chu kỳ.
 
-## **Indexer Delegation Ratio**
+## **Tỷ lệ ủy quyền của Người lập chỉ mục**
 
-The amount an Indexer can “borrow” or leverage from Delegators. This ratio is yet to be determined.
+Số tiền mà một Người lập chỉ mục có thể vay mượn hoặc tận dụng từ Người ủy quyền. Tỷ lệ này vẫn chưa được xác định.
 
-## **Lock period**
+## **Thời gian khoá**
 
-A period where tokens are unbonded awaiting withdrawal. During this period, tokens do not earn any rewards. Currently, the lock period is defined as 28 days.
+Một khoảng thời gian mà các mã thông báo hủy liên kết chờ để rút tiền,. Trong thời gian này, mã thông báo không kiếm được bất kỳ phần thưởng nào. Hiện tại, thời gian khóa được định nghĩa là 28 ngày.
