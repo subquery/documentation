@@ -1,6 +1,6 @@
 # El token de SubQuery (SQT)
 
-SubQuery Network está alimentada por SubQuery Token (SQT).
+SubQuery Network está alimentada por el token de SubQuery (SQT).
 
 SubQuery Token (SQT) está diseñado como un token de utilidad que potencia la SubQuery Network, proporcionando un incentivo para la participación, así como servir como medio de intercambio para transacciones dentro de SubQuery Network. Los consumidores de datos comprometerán SQT a cambio de datos de los Indexadores y este SQT se distribuirá entre Indexadores basados en el método de pago seleccionado.
 
@@ -12,7 +12,7 @@ No hay intención de que SQT se utilice como medio de intercambio de bienes o se
 
 **Tenga en cuenta que el siguiente Plan de Asignación de Token de SQT y el Programa de Concesión de Token todavía están sujetos a cambios.**
 
-### Suministrar
+### Suministro
 
 El suministro inicial será de 10 billones de fichas.
 
