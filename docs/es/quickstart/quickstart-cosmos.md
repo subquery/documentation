@@ -1,4 +1,4 @@
-# Cosmos Quick Start
+# Inicio rápido de Cosmos
 
 En esta guía de inicio rápido, vamos a empezar con un simple proyecto de iniciación de Cosmos en la Red Juno y luego terminar indexando algunos datos reales reales. Esta es una base excelente para comenzar a desarrollar su propio Proyecto SubQuery.
 
@@ -8,9 +8,9 @@ Al final de esta guía, tendrá un proyecto de SubQuery funcionando en un nodo d
 
 Si aún no lo has hecho, te sugerimos familiarizarte con la [terminología](../#terminology) utilizada en SubQuery.
 
-**The goal of this quick start guide is to adapt the standard starter project to begin indexing all votes on the [Terra Developer Fund](https://daodao.zone/multisig/juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2) (which also contributed to SubQuery) from Cosmos, it should only take 10-15 minutes**
+**El objetivo de esta guía de inicio rápido es adaptar el proyecto inicial estándar para comenzar a indexar todos los votos en el [Fondo de Desarrolladores ](https://daodao.zone/multisig/juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2) (que también contribuyó a SubQuery) de Cosmos, solo debería tomar 10-15 minutos**
 
-You can see the final code of this project here at [https://github.com/jamesbayly/juno-terra-developer-fund-votes](https://github.com/jamesbayly/juno-terra-developer-fund-votes)
+Puedes ver el código final de este proyecto aquí en [https://github.com/jamesbayly/juno-terra-develop-fund-votes](https://github.com/jamesbayly/juno-terra-developer-fund-votes)
 
 ## Preparación
 
@@ -38,7 +38,7 @@ subql help
 
 ## Inicializar el proyecto starter de SubQuery
 
-Cosmos is not yet supported in SubQuery's CLI (`subql`), to start with Juno clone or fork the [starter project](https://github.com/subquery/juno-subql-starter).
+Cosmos aún no está soportado en la CLI de SubQuery (`subql`), para empezar con Juno clon o bifurcar el proyecto [inicial](https://github.com/subquery/juno-subql-starter).
 
 Después de completar el proceso de inicialización, debería ver una carpeta con el nombre de su proyecto que se ha creado dentro del directorio. El contenido de este directorio debe ser idéntico a lo que se muestra en la [estructura de directorio](../create/introduction.md#directory-structure).
 
@@ -56,16 +56,17 @@ El objetivo de esta guía de inicio rápido es adaptar el proyecto de inicio est
 
 El archivo `schema.graphql` define los diversos esquemas GraphQL. Debido a la forma en que funciona el lenguaje de consulta de GraphQL, el archivo de esquema esencialmente dicta la forma de sus datos de SubQuery. Es un buen lugar para comenzar porque te permite definir tu objetivo final por adelantado.
 
-We're going to update the `schema.graphql` file to read as follows so we can index all votes on the [Terra Developer Fund](https://daodao.zone/multisig/juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2).
+Vamos a actualizar el esquema `. raphql` archivo para leer de la siguiente manera para que podamos indexar todos los votos en el [Fondo de Desarrollo Terra](https://daodao.zone/multisig/juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2).
 
 ```graphql
 type Vote @entity {
-  id: ID! # id field is always required and must look like this
-  blockHeight: BigInt!
-  voter: String! # The address that voted
+  id: ID! # El campo id siempre es obligatorio y debe verse como este bloque de altura
+  : ¡BigInt!
+  voter: String!
+ # The address that voted
   proposalID: BigInt! # The proposal ID
   vote: Boolean! # If they voted to support or reject the proposal
-}
+
 ```
 
 **Importante: Cuando realice cambios en el archivo de esquema, asegúrese de que regenera el directorio de sus tipos. Hágalo ahora.**
@@ -177,7 +178,7 @@ query {
 }
 ```
 
-You can see the final code of this project here at [https://github.com/jamesbayly/juno-terra-developer-fund-votes](https://github.com/jamesbayly/juno-terra-developer-fund-votes)
+Puedes ver el código final de este proyecto aquí en [https://github.com/jamesbayly/juno-terra-develop-fund-votes](https://github.com/jamesbayly/juno-terra-developer-fund-votes)
 
 ### Publica tu SubQuery Project
 
