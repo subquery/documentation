@@ -1,51 +1,51 @@
-# Design Philosophy of the SubQuery Network
+# Filos de diseño de la red de subconsultas
 
-The guiding principle with the SubQuery Network is simplicity and flexibility for different use cases, payment methods, and networks. While other data services have many different major network participants, SubQuery focuses on three key ones. While other networks have complicated algorithmic signalling mechanisms, SubQuery relies on the most fundamental signal, consumer demand. While other networks provide only one type of payment model (generally PAYG), SubQuery provides several advanced subscription based options for Consumers and Indexers, And finally, while other networks only support one layer-1 chain, SubQuery is designed to be multi-chain from the outset.
+El principio rector con SubQuery Network es la simplicidad y flexibilidad para diferentes casos de uso, métodos de pago y redes. Mientras que otros servicios de datos tienen muchos participantes importantes en la red, SubQuery se centra en tres puntos clave. Mientras que otras redes han complicado los mecanismos de señalización algorítmica, SubQuery se basa en la señal más fundamental, la demanda de los consumidores. Mientras que otras redes proporcionan sólo un tipo de modelo de pago (generalmente PAYG), SubQuery proporciona varias opciones de suscripción avanzada para consumidores e indexadores, Y finalmente, mientras que otras redes sólo soportan una cadena de capas 1, SubQuery está diseñado para ser multicadena desde el principio.
 
-## Multi-Chain by Design
+## Multi-cadena por diseño
 
-*SubQuery believes in the idea that a community of blockchains, working together to encourage web3 adoption, is the future*
+*SubQuery cree en la idea de que una comunidad de blockchains, trabajando juntos para fomentar la adopción de la web3, es el futuro*
 
-SubQuery is native to the Polkadot ecosystem, it’s our home and will be the location of the SubQuery Network. The core premise of Polkadot is to create a thriving community of developers, users, and businesses that will tap into its multichain interoperability. SubQuery believes in the idea that a community of blockchains, working together to encourage web3 adoption, is the future and that Polkadot will be a leading player in that initiative.
+SubQuery es nativo del ecosistema Polkadot, es nuestro hogar y será la ubicación de la Red SubQuery. El núcleo de la misión de Polkadot es crear una emocionante comunidad de desarrolladores, usuarios y empresas que aprovecharán su interoperabilidad multicadena. SubQuery cree en la idea de que una comunidad de blockchains, trabajando juntos para alentar la adopción web3, es el futuro y que Polkadot será un actor líder en esa iniciativa.
 
-But the future is multi-chain. SubQuery knows that there are going to be many different blockchains working together to solve different problems. The plan is to take SubQuery and to adapt it to work for other blockchains that don't have sufficient indexing solutions. The multi-chain approach that is needed to make it work for Polkadot means SubQuery is uniquely suited for this challenge.
+Pero el futuro es la multicadena. SubQuery sabe que habrá muchas cadenas de bloques diferentes trabajando juntas para resolver diferentes problemas. El plan es tomar SubQuery y adaptarlo al trabajo para otras blockchains que no tienen suficientes soluciones de indexación. El enfoque multicadena que se necesita para hacer que funcione para Polkadot significa que SubQuery se adapta de manera única a este desafío.
 
-The SubQuery Network is designed to support any SubQuery Project from any Layer 1 network (within Polkadot or not) within it. It will be designed and built to be multi-chain from the outset, where you will see projects from one network being indexed alongside projects from another.
+La red SubQuery está diseñada para soportar cualquier proyecto SubQuery desde cualquier red de capa 1 (dentro o no) dentro de ella. Se diseñará y construirá para ser multicadena desde el principio, donde se verán proyectos de una red indexados junto a proyectos de otra.
 
-SubQuery currently supports Polkadot, Avalanche, and Terra. Expect more layer-1 support over the comming months.
+SubQuery actualmente soporta Polkadot, Avalanche y Terra. Espere más soporte para la capa 1 en los próximos meses.
 
-## Simple and Accessible
+## Simple y Accesible
 
-*The SubQuery Network is designed to be the data provider of the people.*
+*La Red SubQuery está diseñada para ser el proveedor de datos de las personas.*
 
-The guiding principle with the SubQuery Network is simplicity. It is SubQuery’s opinion that other approaches to decentralised data query services are overly complex and make it difficult for participants to predict their return on investment. The aim is to make it easy for you to get involved in the network, and to clearly forecast your future potential return.
+El principio que rige la Red SubQuery es la simplicidad. En opinión de SubQuery, otros enfoques de los servicios descentralizados de consulta de datos son demasiado complejos y dificultan a los participantes la previsión de su rentabilidad. El objetivo es facilitarle la participación en la red y prever claramente su rendimiento potencial futuro.
 
-It is planned that the SubQuery Network won’t require high staking thresholds to participate or huge investment into hardware. The focus will be on making SubQuery easier to join and build with than other data providers - SubQuery’s success depends on the success of others creating the future on it.
+Está previsto que la SubQuery Network no requiera altos umbrales para participar o una enorme inversión en hardware. El foco será hacer que SubQuery sea más fácil unirse y construir con él que otros proveedores de datos. El éxito de SubQuery depende del éxito de otros que creen el futuro.
 
-This means that a design goal is to make it as easy as possible for anyone to participate. You don’t need to be a developer or have a deep knowledge of the token economic model, you can easily participate as a Delegator. As a Consumer, you also have plenty of payment options to best suit your needs. Finally, a key focus of the SubQuery Foundation is to ensure that there is enough support that anyone, from an expert blockchain team to a new hobbyist developer, can build their own SubQuery project.
+Esto significa que un objetivo del diseño es facilitar al máximo la participación de cualquier persona. No necesitas ser un desarrollador o tener un profundo conocimiento del modelo económico de los tokens, puedes participar fácilmente como Delegador. Como consumidor, también tiene muchas opciones de pago para adaptarse a sus necesidades. Por último, un objetivo clave de la Fundación SubQuery es garantizar que haya suficiente apoyo para que cualquiera, desde un equipo experto en blockchain hasta un nuevo desarrollador aficionado, pueda construir su propio proyecto SubQuery.
 
 ## Flexible
 
-*SubQuery is just a tool in the hands of our community, endless opportunities exist limited only by the creativity of the people.*
+*SubQuery es sólo una herramienta en manos de nuestra comunidad, existen infinitas oportunidades limitadas sólo por la creatividad de la gente.*
 
-The potential of SubQuery may lie in its flexibility - users will have the freedom to adapt and transform decentralised data to suit their needs. dApp developers need data in a specific format tailored for their dApp for ease of development and to set it apart from others.
+El potencial de SubQuery puede residir en su flexibilidad - los usuarios tendrán la libertad de adaptar y transformar datos descentralizados para satisfacer sus necesidades. Los desarrolladores de dApp necesitan datos en un formato específico adaptado a su dApp para facilitar el desarrollo y separarlos de otros.
 
-Unlike other “unified” decentralised API service providers, SubQuery is open source, so Consumers will have the freedom to define their data set specifically for their needs. Rather than having to combine queries from different API endpoints - the creators and consumers of SubQuery projects can define the shape of their APIs data models themselves. It saves time, money, and provides a vastly better experience for end-users.
+A diferencia de otros proveedores de servicios descentralizados “unificados”, SubQuery es de código abierto, por lo tanto, los consumidores tendrán la libertad de definir sus datos específicamente para sus necesidades. En lugar de tener que combinar consultas de diferentes puntos finales de la API - los creadores y consumidores de proyectos de SubQuery pueden definir la forma de sus propios modelos de datos API. Ahorra tiempo, dinero y proporciona una experiencia inmensamente mejor para los usuarios finales.
 
-## Natural Demand Signalling and Different Payment Options
+## Señalización de la demanda natural y diferentes opciones de pago
 
-With marketplaces like what SubQuery is proposing, where there are both buyers and sellers attempting to commoditise data, signalling demand for future supply tends to be a tricky issue. Other networks create an artificial role in an attempt to predict future demand, and they’re rewarded when that future demand materialises. The plan is to take a different approach, one that requires up-front natural demand signalling.
+Con mercados como lo que SubQuery está proponiendo, donde hay compradores y vendedores que intentan comercializar datos, indicar la demanda de la oferta futura tiende a ser una cuestión complicada. Otras redes crean un papel artificial en un intento de predecir la demanda futura, y son recompensadas cuando esa demanda futura se materializa. El plan consiste en adoptar un enfoque diferente, que requiera una señalización de la demanda por adelantado.
 
-A Consumer can take advantage of either Open or Closed Service Agreements to concretely indicate and commit demand for a new SubQuery Project. This will facilitate and encourage supply at a fixed price and volume (essentially helping secure pre-allocated rewards for Indexers of a SubQuery Project) and provide price and service certainty to both parties. This can be used both to attract Indexers to new SubQuery Projects, or to attract additional Indexers to existing and uncompetitive SubQuery Projects.
+Un consumidor puede aprovechar los Acuerdos de Servicio Abierto o Cerrado para indicar y comprometer la demanda de un nuevo Proyecto de Consulta Sujeto. Esto facilitará y fomentará el suministro a un precio fijo y al volumen (esencialmente ayudando a asegurar recompensas preasignadas para los Indexadores de un Proyecto SubQuery) y proporcionar seguridad de precio y servicio a ambas partes. Esto se puede utilizar tanto para atraer Indexadores a nuevos Proyectos de SubQuery como para atraer Indexadores adicionales a Proyectos de SubQuery existentes y no competitivos.
 
-It additionally provides several advanced subscription based options for Consumers and Indexers. Some parties may benefit from the certainty of rewards provided by Closed Agreements and the predictability of recurring costs. Some may instead prefer to hunt out the most affordable data by going for high volume recurring agreements or low spot prices on the Pay as you Go market.
+Además, ofrece varias opciones avanzadas de suscripción para consumidores e índices. Algunas partes pueden beneficiarse de la seguridad de las recompensas que ofrecen los acuerdos cerrados y de la previsibilidad de los costes recurrentes. En cambio, algunos prefieren buscar los datos más asequibles recurriendo a acuerdos de alto volumen o a precios al contado bajos en el mercado de Pagos de Pago.
 
-## Indexer/Delegator Imbalance
+## Indexador/Desequilibrio de Delegator
 
-Among some competitors, it is observed that there is a serious imbalance between Indexers and Delegators in terms of the ability to change delegation rates without warning. SubQuery has tried to equalise this imbalance by requiring that the Indexer advertise an increase to the Indexer Commission Rate for an entire staking Era. Delegators are also free to withdraw their delegated tokens at any point during the staking Era, but they will lose any rewards that they could have been eligible for during that Era.
+Entre algunos competidores, se observa que existe un grave desequilibrio entre los Indexadores y los Delegadores en cuanto a la capacidad de cambiar las tarifas de las delegaciones sin previo aviso. SubQuery ha intentado igualar este desequilibrio exigiendo que el indexador anuncie un aumento de la tasa de la Comisión del Indexador para toda una era de participación. Los elegadores también pueden retirar sus fichas delegadas en cualquier momento durante la era apostante, pero perderán cualquier recompensa para la que pudiesen haber sido elegibles durante esa Era.
 
-## Incentives for Query Performance
+## Incentivos para el rendimiento de la consulta
 
-To become a high-performing, mission-critical platform - the SubQuery Network must operate at the highest level. That is why the Indexer discovery process will include performance data (latency and uptime) for all Indexers, and we will take steps to ensure that Consumers report on query speed and performance as often as possible.
+Para convertirse en una plataforma crítica de misión de alto rendimiento - SubQuery Network debe operar al más alto nivel. Por eso el proceso de descubrimiento del Indexador incluirá datos de rendimiento (latencia y actualización) para todos los Indexadores, y tomaremos medidas para garantizar que los consumidores informen sobre la velocidad y el rendimiento de las consultas tan a menudo como sea posible.
 
-Tools may also be provided to limit the availability of Indexers to a certain geographical region so that they can focus on providing the best service to that region, attract the most requests, and potentially maximise rewards for their contributions. This will allow larger and more mature Indexers to run location specific infrastructure all around the world.
+También se pueden proporcionar herramientas para limitar la disponibilidad de los indexadores a una determinada región geográfica para que puedan centrarse en prestar el mejor servicio a esa región. atraer a la mayoría de las solicitudes y potencialmente maximizar las recompensas por sus contribuciones. Esto permitirá que los Indexadores más grandes y maduros gestionen infraestructura específica de localización en todo el mundo.
