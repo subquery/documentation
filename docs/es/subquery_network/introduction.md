@@ -12,28 +12,28 @@ La red SubQuery está facilitando una revolución abierta de datos en web3 al pe
 
 ## Participantes
 
-There’s a role for everyone in the network, from highly technical developers to those that are not. The SubQuery network includes four main network participants
+Hay un papel para todos en la red, desde desarrolladores altamente técnicos hasta aquellos que no lo son. La red SubQuery incluye cuatro participantes principales de la red
 
 ### Consumidores
 
-Consumers will ask the SubQuery Network for specific data for their dApps or tools, and pay an advertised amount of SQT for each request.
+Los consumidores solicitarán a SubQuery Network datos específicos para sus dApps o herramientas, y pagarán una cantidad anunciada de SQT por cada solicitud.
 
-[Learn more about Consumers](./consumers.md)
+[Más información sobre los consumidores](./consumers.md)
 
 ### Indexadores
 
-Indexers will run and maintain high quality SubQuery projects in their own infrastructure, running both the indexer and query service, and will be rewarded in SQT for the requests that they serve.
+Los indexadores ejecutarán y mantendrán proyectos de SubQuery de alta calidad en su propia infraestructura, ejecutando tanto el indexador como el servicio de consultas, y será recompensado en SQT por las peticiones que sirven.
 
-[Learn more about Indexers](./indexers.md)
+[Más información sobre los indexadores](./indexers.md)
 
 ### Delegadores
 
-Delegators will participate in the Network by supporting their favourite Indexers to earn rewards based on the work those indexers do.
+Los dedores participarán en la Red apoyando a sus indexadores favoritos para ganar recompensas en función del trabajo que hagan esos indexadores.
 
-[Learn more about Consumers](./delegators.md)
+[Más información sobre los consumidores](./delegadors.md)
 
-### Architects
+### Arquitectos
 
-Architects are the builders of the SubQuery projects that the Network runs on. They author and publish SubQuery projects for the Network to index and run.
+Los arquitectos son los constructores de los proyectos SubQuery en los que se ejecuta la red. Autorizan y publican proyectos de SubQuery para la Red para indexar y ejecutar.
 
-[Learn more about how to build your first SubQuery project](/build/introduction.md)
+[Aprende más sobre cómo construir tu primer proyecto de SubQuery](/build/introduction.md)
