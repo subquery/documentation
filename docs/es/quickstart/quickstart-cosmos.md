@@ -80,7 +80,7 @@ You'll find the generated models in the `/src/types/models`  Para más informaci
 
 El Manifiesto del Proyecto (`proyecto. el archivo aml`) puede ser visto como un punto de entrada de tu proyecto y define la mayoría de los detalles sobre cómo SubQuery indexará y transformará los datos en cadena.
 
-No haremos muchos cambios en el archivo manifest ya que ya ha sido configurado correctamente, pero necesitamos cambiar nuestros manejadores. Remember we are planning to index all votes on the [Terra Developer Fund](https://daodao.zone/multisig/juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2). This means that we we will look at messages that use the `vote` contract call, we need to update the `datasources` section to read the following.
+No haremos muchos cambios en el archivo manifest ya que ya ha sido configurado correctamente, pero necesitamos cambiar nuestros manejadores. Recuerda que estamos planeando indexar todos los votos en el [Fondo de Desarrolladores de Terra](https://daodao.zone/multisig/juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2). Esto significa que vamos a ver los mensajes que utilizan la `llamada de voto`, necesitamos actualizar las `fuentes de datos` para leer lo siguiente.
 
 ```yml
 dataSources:
@@ -99,7 +99,7 @@ dataSources:
               contract: "juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2"
 ```
 
-This means we'll run a `handleTerraDeveloperFund` mapping function each and every time there is a `vote` message from the [Terra Developer Fund](https://daodao.zone/multisig/juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2) smart contract.
+Esto significa que ejecutaremos una función de mapeo de `handleTerraDeveloperFund` cada vez que haya un `mensaje de voto` del [contrato inteligente](https://daodao.zone/multisig/juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2) del Fondo de Desarrolladores de Terra.
 
 Para más información sobre el manifiesto del proyecto (`project.yaml`), revisa nuestra documentación en [Archivo de construcción/Manifiesto](../build/manifest.md)
 
@@ -107,11 +107,11 @@ Para más información sobre el manifiesto del proyecto (`project.yaml`), revisa
 
 Las funciones de mapeo definen cómo se transforman los datos de la cadena en las entidades optimizadas GraphQL que hemos definido previamente en el archivo `schema.graphql`.
 
-Vaya a la función de mapeo predeterminada en el directorio `src/mappings`. You'll see four exported functions, `handleBlock`, `handleEvent`, `handleMessage`, and `handleTransaction`. Since we are dealing only with messages, you can delete everything other than the `handleMessage` function.
+Vaya a la función de mapeo predeterminada en el directorio `src/mappings`. Verás tres funciones exportadas, `handleBlock`, `handleLog`, y `handleTransaction`. Ya que solo estamos tratando con mensajes, puedes eliminar todo lo que no sea la función `handleMessage`.
 
-The `handleMessage` function recieved event data whenever event matches the filters that we specify previously in our `project.yaml`. We are going to update it to process all `vote` messages and save them to the GraphQL entity that we created earlier.
+La función `handleLog` recibe los datos del evento siempre que éste coincida con los filtros que especificamos previamente en nuestro `project.yaml`. Lo vamos a actualizar para procesar todos los eventos `transferir` y guardarlos en las entidades GraphQL que creamos anteriormente.
 
-You can update the `handleMessage` function to the following (note the additional imports and renaming the function):
+Puedes actualizar la función `handleLog` a lo siguiente (observa las importaciones adicionales):
 
 ```ts
 import { Vote } from "../types";
@@ -133,7 +133,7 @@ export async function handleTerraDeveloperFund(
 }
 ```
 
-What this is doing is receiving a CosmosMessage which includes message data on the payload. We extract this data and then instantiate a new `Vote` entity that we defined earlier in the `schema.graphql` file. Añadimos información adicional y luego usamos la función `.save()` para guardar la nueva entidad (SubQuery automáticamente guardará esto en la base de datos).
+Lo que esto está haciendo es recibir un SubstrateEvent que incluye datos de transferencia en la carga útil. Extraemos estos datos y luego instanciamos una nueva entidad de `transferencia` que definimos anteriormente en el archivo `schema.graphql`. Añadimos información adicional y luego usamos la función `.save()` para guardar la nueva entidad (SubQuery automáticamente guardará esto en la base de datos).
 
 Para más información sobre las funciones de mapeo, revisa nuestra documentación en [Construcción/Mapeo](../build/mapping.md)
 
