@@ -1,65 +1,65 @@
-# Terminology
+# Terminología
 
-![terminology](/assets/img/terminology.png)
+![terminología](/assets/img/terminology.png)
 
-## **Allocating**
+## **Reservando espacio**
 
-Act of an Indexer assigning SQT to a given project.
+Acto de un Indexador asignando SQT a un proyecto determinado.
 
-### **Reallocating**
+### **Reasignando**
 
-A combined operation of removing staked tokens from one project and immediately associating that with another project (comes into effect at the end of the next Era). This is represented/expressed as a percentage of the indexer’s bonded SQT.
+Una operación combinada de remover fichas apuestadas de un proyecto y asociarlo inmediatamente con otro proyecto (entra en vigor al final de la próxima Era). Esto está representado/expresado como un porcentaje de la SQT vinculada al índice.
 
 ## **Bonding**
 
-Act of depositing SQT into a global staking contract performed by either an Indexer or a Delegator
+Acto de depósito de SQT en un contrato global de apuesta, realizado por un Indexador o un Delegator
 
-### **Unbonding**
+### **En desvinculación**
 
-Act of an Indexer or a Delegator withdrawing SQT from the global staking contract.
+Acto de un Indexador o un Delegator retirando SQT del contrato global de apuesta.
 
-This is effectively a transfer of SQT from the global staking contract to the Indexer’s or Delegator’s wallet. In other words, this can be thought of as the Indexer or Delegator withdrawing part or all of their stake. Note that a lock period applies when tokens are unbonded.
+Se trata efectivamente de una transferencia de SQT del contrato global de apuestas al monedero del Indexer o del Delegador. En otras palabras, esto puede ser considerado como el Indexador o el Delegador retirando parte o toda su apuesta. Tenga en cuenta que se aplica un período de bloqueo cuando las fichas no están vinculadas.
 
-## **Delegating**
+## **Delegando**
 
-Act of a Delegator assigning SQT into the global staking contract and then assigning SQT to an Indexer. Note that delegating and bonding are atomic operations.
+Acto de un Delegator asignando SQT al contrato global de apuestas, y luego asignando SQT a un Indexer. Tenga en cuenta que delegar y unir son operaciones atómicas.
 
-### **Undelegating**
+### **.**
 
-Act of withdrawing SQT from an Indexer at the end of an Era and then withdrawing that SQT from the global staking contract to a wallet address. This is subject to a lock period.
+Acto de retirar SQT de un Indexador al final de una Era y luego retirar ese SQT del contrato global de acopio a una dirección de cartera. Esto está sujeto a un período de bloqueo.
 
-### **Redelegating**
+### **Redelegante**
 
-Act of a Delegator reassigning SQT from one Indexer to another Indexer. Redelegating does not require tokens to be undelegated and is queued to take effect at the end of the Era.
+Acto de un Delegator reasignando SQT de un Indexador a otro Indexador. Redelegar no requiere que las fichas no sean elegadas y está en cola para que surtan efecto al final de la Era.
 
-## **Staking**
+## **Generación de interés**
 
-Act of an Indexer assigning tokens in a global staking contract and into the Indexer’s own contract.
+Acto de asignación de fichas de un Indexador en un contrato de apuesta global y en el propio contrato del Indexador.
 
-### **Unstaking**
+### **Quitando la participación**
 
-Act of an Indexer withdrawing their SQT. This triggers a 28 day “lock period”. Indexer can restake to cancel this process and return their lock period tokens to the staking contract.
+Acto de un Indexador retirando su SQT. Esto activa un “periodo de bloqueo” de 28 días. El indexador puede reiniciarse para cancelar este proceso y devolver sus tokens de período de bloqueo al contrato de apuesta.
 
-### **Restaking**
+### **Descanso**
 
-Act of Indexer restaking SQT during the lock period to return locked period tokens to the staking contract.
+Acto del Indexador restando SQT durante el período de bloqueo para devolver las fichas de período bloqueado al contrato de apuesta.
 
 ---
 
-## **Contract Ratio**
+## **Ratio de Contrato**
 
-The sum of daily contracts value (defined as contract value/period) can not exceed a ratio with their total stake (indexer + delegator).
+La suma del valor diario de los contratos (definido como valor del contrato/período) no puede exceder una proporción con su participación total (indexador + delegador).
 
 ## **Era**
 
-A period or duration of time where configurations and settings remain constant and calculations take place. For example, during an Era:
+Período o duración de tiempo donde las configuraciones y ajustes permanecen constantes y los cálculos se llevan a cabo. Por ejemplo, durante una Era:
 
-- the Indexer Commission Rate cannot be changed during an Era.
+- la tasa de la Comisión del Indexador no se puede cambiar durante una Era.
 
-## **Indexer Delegation Ratio**
+## **Ratio de deelegación del indexador**
 
-The amount an Indexer can “borrow” or leverage from Delegators. This ratio is yet to be determined.
+La cantidad que un Indexador puede “tomar prestado” o apalancarse de los Delegadores. Esta proporción todavía está por determinar.
 
-## **Lock period**
+## **Periodo de bloqueo**
 
-A period where tokens are unbonded awaiting withdrawal. During this period, tokens do not earn any rewards. Currently, the lock period is defined as 28 days.
+Período en el que las fichas no están vinculadas a la espera de la retirada. Durante este período, los tokens no ganan ninguna recompensa. Actualmente, el período de bloqueo se define como 28 días.
