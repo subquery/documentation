@@ -239,7 +239,46 @@ function getSidebar(locale, language) {
           `${locale}/subquery_network/foundation.md`,
           `${locale}/subquery_network/terminology.md`,
           `${locale}/subquery_network/design-philosophy.md`,
-          `${locale}/subquery_network/frontier-testnet.md`,
+          {
+            title: "Frontier Testnet",
+            path: `${locale}/subquery_network/testnet/welcome`,
+            collapsable: true,
+            children: [
+              `${locale}/subquery_network/testnet/welcome.md`,
+              {
+                title: "Indexers",
+                path: `${locale}/subquery_network/testnet/indexers/become-indexers`,
+                collapsable: true,
+                children: [
+                  `${locale}/subquery_network/testnet/indexers/become-indexers.md`,
+                ],
+              },
+              {
+                title: "Delegators",
+                path: `${locale}/subquery_network/testnet/delegators/become-delegator`,
+                collapsable: true,
+                children: [
+                  `${locale}/subquery_network/testnet/delegators/become-delegator.md`,
+                ],
+              },
+              {
+                title: "Consumer",
+                path: `${locale}/subquery_network/testnet/consumers/become-consumer`,
+                collapsable: true,
+                children: [
+                  `${locale}/subquery_network/testnet/consumers/become-consumer.md`,
+                ],
+              },
+              {
+                title: "Metamask",
+                path: `${locale}/subquery_network/testnet/metamask/metamask`,
+                collapsable: true,
+                children: [
+                  `${locale}/subquery_network/testnet/metamask/metamask.md`,
+                ],
+              },
+            ],
+          },
         ],
       },
       {
