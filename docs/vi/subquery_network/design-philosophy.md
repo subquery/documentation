@@ -1,8 +1,8 @@
-# Design Philosophy of the SubQuery Network
+# Triết lý thiết kế của Mạng SubQuery
 
 The guiding principle with the SubQuery Network is simplicity and flexibility for different use cases, payment methods, and networks. While other data services have many different major network participants, SubQuery focuses on three key ones. While other networks have complicated algorithmic signalling mechanisms, SubQuery relies on the most fundamental signal, consumer demand. While other networks provide only one type of payment model (generally PAYG), SubQuery provides several advanced subscription based options for Consumers and Indexers, And finally, while other networks only support one layer-1 chain, SubQuery is designed to be multi-chain from the outset.
 
-## Multi-Chain by Design
+## Thiết kế Đa chuỗi
 
 *SubQuery believes in the idea that a community of blockchains, working together to encourage web3 adoption, is the future*
 
@@ -14,7 +14,7 @@ The SubQuery Network is designed to support any SubQuery Project from any Layer 
 
 SubQuery currently supports Polkadot, Avalanche, and Terra. Expect more layer-1 support over the comming months.
 
-## Simple and Accessible
+## Đơn giản và dễ tiếp cận
 
 *The SubQuery Network is designed to be the data provider of the people.*
 
@@ -24,7 +24,7 @@ It is planned that the SubQuery Network won’t require high staking thresholds 
 
 This means that a design goal is to make it as easy as possible for anyone to participate. You don’t need to be a developer or have a deep knowledge of the token economic model, you can easily participate as a Delegator. As a Consumer, you also have plenty of payment options to best suit your needs. Finally, a key focus of the SubQuery Foundation is to ensure that there is enough support that anyone, from an expert blockchain team to a new hobbyist developer, can build their own SubQuery project.
 
-## Flexible
+## Linh hoạt
 
 *SubQuery is just a tool in the hands of our community, endless opportunities exist limited only by the creativity of the people.*
 
