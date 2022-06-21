@@ -37,7 +37,11 @@ SubQuery Projects - это место, где вы управляете всем
 
 ### Создайте ваш первый проект
 
-Начните с нажатия на "Создать проект". Вы попадете на форму "Новый проект". Пожалуйста, введите следующие данные (вы можете изменить их в будущем):
+There are two methods to create a project in the SubQuery Managed Service, you can use the UI or directly via the `subql` cli tool.
+
+#### Using the UI
+
+Let's start by clicking on "Create Project". You'll be taken to the New Project form. Please enter the following (you can change this in the future):
 
 - ** Учетная запись GitHub: ** Если у вас есть более одной учётной записи GitHub, выберите, под какой учётной записью будет создан этот проект. Проекты, созданные в учетной записи организации GitHub, совместно используются участниками в этой организации.
 - **Название проекта**
@@ -48,18 +52,18 @@ SubQuery Projects - это место, где вы управляете всем
 - **Источник развертывания:** Вы можете выбрать развертывание проекта из репозитория GitHub или альтернативное развертывание из IPFS CID, см. наше руководство о [хостинге с IPFS.](ipfs.md)
 - **Скрыть проект:** Это скроет ваш проект для публичного изучения. Не устанавливайте этот флажок, если хотите поделиться своим проектом с сообществом! ![Создайте свой первый проект](/assets/img/projects-create.png)
 
-Создайте свой проект, и вы увидите его в списке SubQuery Project. _ Мы почти у цели! Нам просто нужно развернуть новую версию._
+Create your project and you'll see it on your SubQuery Project's list. _We're almost there! We just need to deploy a new version of it._
 
-![Созданный проект без развертывания](/assets/img/projects-no-deployment.png)
+![Created Project with no deployment](/assets/img/projects-no-deployment.png)
 
-### Creating Projects using CLI
+#### Using the CLI
 
-You can also use `@subql/cli` to create your project
-#### Требования
+You can also use `@subql/cli` to publish your project to our managed service. This requires:
+
 - `@subql/cli` version 1.1.0 or above.
-- Get your [SUBQL_ACCESS_TOKEN](/docs/run_publish/ipfs.md#prepare-your-subqlaccesstoken) ready.
+- A valid [SUBQL_ACCESS_TOKEN](/docs/run_publish/ipfs.md#prepare-your-subqlaccesstoken) ready.
 
-```
+```shell
 // Creating a project using the CLI
 $ subql project:create-project
 
@@ -72,9 +76,11 @@ $ subql project:create-project
     --project_name=project_name  Enter project name
 ```
 
-### Deploy your first Version
+### Deploy your First Version
 
-### Вариант 1:
+There are two methods to deploy a new version of your project to the SubQuery Managed Service, you can use the UI or directly via the `subql` cli tool.
+
+#### Using the UI
 
 While creating a project will setup the display behaviour of the project, you must deploy a version of it before it becomes operational. Deploying a version triggers a new SubQuery indexing operation to start, and sets up the required query service to start accepting GraphQL requests. You can also deploy new versions to existing projects here.
 
@@ -91,13 +97,14 @@ With your new project, you'll see a Deploy New Version button. Click this, and f
 
 If deployed successfully, you'll see the indexer start working and report back progress on indexing the current chain. This process may take time until it reaches 100%.
 
-### Вариант 2:
-#### Deploying using CLI
-#### Требования
-- `@subql/cli` version 1.1.0 or above.
-- Get your [SUBQL_ACCESS_TOKEN](/docs/run_publish/ipfs.md#prepare-your-subqlaccesstoken) ready.
+#### Using the CLI
 
-```
+You can also use `@subql/cli` to create a new deployment of your project to our managed service. This requires:
+
+- `@subql/cli` version 1.1.0 or above.
+- A valid [SUBQL_ACCESS_TOKEN](/docs/run_publish/ipfs.md#prepare-your-subqlaccesstoken) ready.
+
+```shell
 // Deploy using the CLI
 $ suqbl deployment:deploy
 
@@ -138,6 +145,3 @@ Once you have revoked access, log out of [SubQuery Projects](https://project.sub
 ![Отмена одобрения учетной записи GitHub](/assets/img/project_auth_request.png)
 
 Once this request has been approved by your administrator (or if are able to grant it youself), you will see the correct GitHub Organization account in the account switcher.
-
-
-
