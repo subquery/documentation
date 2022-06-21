@@ -9,27 +9,32 @@ Meskipun Anda memiliki kebebasan untuk selalu meningkatkan dan menerapkan versi 
 
 ## Terapkan Perubahan
 
-Masuk ke Proyek SubQuery dan pilih proyek yang ingin Anda terapkan versi barunya. Anda dapat memilih untuk menyebarkan ke slot produksi atau pementasan. Kedua slot ini adalah lingkungan yang terisolasi dan masing-masing memiliki database sendiri dan disinkronkan secara independen.
+There are two methods to deploy a new version of your project to the SubQuery Managed Service, you can use the UI or directly via the `subql` cli tool.
 
-Kami merekomendasikan penerapan ke slot staging Anda hanya untuk pengujian staging akhir atau saat Anda perlu menyinkronkan ulang data proyek Anda. Anda kemudian dapat mempromosikannya ke produksi tanpa downtime. Anda akan menemukan pengujian lebih cepat ketika [menjalankan proyek secara lokal](../run_publish/run.md) karena Anda dapat [men-debug masalah dengan lebih mudah](../academy/tutorials_examples/debug-projects.md).
+### Using the UI
 
-Slot staging sangat cocok untuk:
+Log into SubQuery Project and select the project you want to deploy a new version of. You can choose to either deploy to the production or staging slot. These two slots are isolated environments and each has their own databases and synchronise independently.
+
+We recommend deploying to your staging slot only for final staging testing or when you need to resync your project data. You can then promote it to production with zero downtime. You will find testing is faster when [running a project locally](../run_publish/run.md) as you can more [easily debug issues](../academy/tutorials_examples/debug-projects.md).
+
+The staging slot is perfect for:
 
 - Validasi akhir perubahan pada Proyek SubQuery Anda di lingkungan yang terpisah. Slot staging memiliki URL berbeda untuk produksi yang dapat Anda gunakan di dApps Anda.
 - Pemanasan dan pengindeksan data untuk proyek SubQuery yang diperbarui untuk mengeliminasi downtime di dApp Anda
 - Mempersiapkan rilis baru untuk Proyek SubQuery Anda tanpa mengeksposnya secara publik. Slot staging tidak ditampilkan kepada publik di Explorer dan memiliki URL unik yang hanya dapat dilihat oleh Anda.
 
-![Slot staging](/assets/img/staging_slot.png)
+![Staging slot](/assets/img/staging_slot.png)
 
-#### Tingkatkan ke Latest Indexer and Query Service
+Isi Commit Hash dari GitHub (salin commit hash penuh) dari versi basis kode proyek SubQuery yang ingin Anda terapkan. Ini akan menyebabkan waktu henti yang lebih lama tergantung pada waktu yang diperlukan untuk mengindeks rangkaian saat ini. Anda selalu dapat melaporkan kembali ke sini untuk perkembangan.
 
-Jika Anda hanya ingin meningkatkan ke pengindeks terbaru ([`@subql/node`](https://www.npmjs.com/package/@subql/node)) atau layanan kueri ([`@subql/query`](https://www.npmjs.com/package/@subql/query)) untuk mendapat keuntungan dari peningkatan stabilitas dan performa reguler kami, cukup pilih versi terbaru dari paket kami dan simpan. Ini hanya akan menyebabkan waktu henti beberapa menit.
+### Using the CLI
 
-#### Ketika memakai `@subql/cli`
-#### Standar permintaan
+You can also use `@subql/cli` to create a new deployment of your project to our managed service. This requires:
+
 - `@subql/cli` versi 1.1.0 atau lebih tinggi.
-- Siapkan [SUBQL_ACCESS_TOKEN](/docs/run_publish/ipfs.md#prepare-your-subqlaccesstoken) Anda.
-```
+- A valid [SUBQL_ACCESS_TOKEN](/docs/run_publish/ipfs.md#prepare-your-subqlaccesstoken) ready.
+
+```shell
 // Anda dapat langsung mengatur versi Pengindeks dan Kueri Anda
 $ subql deployment:deploy --indexerVersion=1.1.2 --queryVersion=1.1.1
 
@@ -37,9 +42,10 @@ $ subql deployment:deploy --indexerVersion=1.1.2 --queryVersion=1.1.1
 
 $ subql deployment:deploy
 ```
-#### Terapkan Versi Baru Proyek SubQuery Anda
 
-Isi Commit Hash dari GitHub (salin commit hash penuh) dari versi basis kode proyek SubQuery yang ingin Anda terapkan. Ini akan menyebabkan waktu henti yang lebih lama tergantung pada waktu yang diperlukan untuk mengindeks rangkaian saat ini. Anda selalu dapat melaporkan kembali ke sini untuk perkembangan.
+## Upgrade to the Latest Indexer and Query Service
+
+If you just want to upgrade to the latest indexer ([`@subql/node`](https://www.npmjs.com/package/@subql/node)) or query service ([`@subql/query`](https://www.npmjs.com/package/@subql/query)) to take advantage of our regular performance and stability improvements, just select a newer versions of our packages and save. This will cause only a few minutes of downtime as the services running your project are restarted.
 
 ## Langkah Selanjutnya - Hubungkan ke Proyek Anda
 
@@ -47,4 +53,4 @@ Setelah penerapan Anda berhasil diselesaikan dan node kami telah mengindeks data
 
 ![Proyek sedang diterapkan dan disinkronkan](/assets/img/projects-deploy-sync.png)
 
-Atau, Anda dapat mengklik tiga titik di samping judul proyek Anda, dan melihatnya di SubQuery Explorer. Di sana Anda dapat menggunakan taman bermain dalam browser untuk memulai - [baca selengkapnya tentang cara menggunakan Explorer kami di sini](../run_publish/query.md).
+Atau, Anda dapat mengklik tiga titik di samping judul proyek Anda, dan melihatnya di SubQuery Explorer. There you can use the in browser playground to get started - [read more about how to user our Explorer here](../run_publish/query.md).
