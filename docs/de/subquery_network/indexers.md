@@ -1,30 +1,30 @@
 # Indexers
 
-## What is an Indexer?
+## Wer ist ein Indexer?
 
-An Indexer is a SubQuery network participant who is responsible for indexing blockchain data and providing this data to their customers.
+Ein Indexer ist ein SubQuery-Netzwerkteilnehmer, der für die Indizierung von Blockchain-Daten und die Bereitstellung dieser Daten für seine Kunden verantwortlich ist.
 
-Indexers play a very important role within the SubQuery network. As a part of a data-as-a-service business, an Indexer turns computational and networking power into profits.
+Indexer spielen innerhalb des SubQuery-Netzwerks eine sehr wichtige Rolle. Als Teil eines Data-as-a-Service-Geschäfts verwandelt ein Indexer Rechen- und Netzwerkleistung in Gewinne.
 
 ## Indexer Staking
 
-In order to earn rewards from query revenue as an Indexer it is proposed that Indexers must stake SQT against a particular SubQuery Project that they are providing the service to. The Cobb-Douglas production function will be used to determine the rewards distributed to each Indexer.
+Um Belohnungen aus Abfrageeinnahmen als Indexer zu verdienen, wird vorgeschlagen, dass Indexer SQT gegen ein bestimmtes SubQuery-Projekt einsetzen müssen, für das sie den Service bereitstellen. Die Cobb-Douglas-Produktionsfunktion wird verwendet, um die Belohnungen zu bestimmen, die an jeden Indexer verteilt werden.
 
-SubQuery plans to add a constraint to the network where an indexer must stake a minimum amount of SQT on the relevant reward pool to be able to participate in its matching Open Agreement. They must also stake a minimum amount on an equivalent staking contract for any Closed Agreements in the same fashion. This indexer staked minimum value must be a certain percentage of the Agreement’s per Era reward value, which means in order to renew the Agreement to higher volumes, the indexer must also increase their stake. When an indexer’s stake decreases beneath this minimum amount, they will be unable to renew the Agreement at the existing price.
+SubQuery plant, dem Netzwerk eine Einschränkung hinzuzufügen, bei der ein Indexierer einen Mindestbetrag an SQT auf den entsprechenden Belohnungspool setzen muss, um an seiner übereinstimmenden offenen Vereinbarung teilnehmen zu können. Sie müssen auch einen Mindestbetrag für einen gleichwertigen Einsatzvertrag für alle geschlossenen Vereinbarungen auf die gleiche Weise einsetzen. Dieser Indexer-Staked-Mindestwert muss ein bestimmter Prozentsatz des Belohnungswerts der Vereinbarung pro Ära sein, was bedeutet, dass der Indexer auch seinen Einsatz erhöhen muss, um die Vereinbarung auf höhere Volumina zu erneuern. Wenn der Einsatz eines Indexierers unter diesen Mindestbetrag fällt, kann er die Vereinbarung nicht zum bestehenden Preis verlängern.
 
-If an Indexer is caught misbehaving (such as by providing invalid, incomplete, or incorrect data), they are liable to have a portion of their staked SQT (on the particular reward pool ip) reallocated to the SubQuery Foundation Treasury, diminishing their holdings of staked SQT in the network and therefore their potential reward. Since the indexer’s allocated stake is determined by a percentage of their total SQT, this will have a flow on effect to all other reward pools that the indexer is party to.
+Wenn ein Indexer bei Fehlverhalten erwischt wird (z. B. durch die Angabe ungültiger, unvollständiger oder falscher Daten), ist er dafür verantwortlich, dass ein Teil seiner eingesetzten SQT (auf der bestimmten Belohnungspool-IP) der SubQuery Foundation Treasury neu zugewiesen wird, wodurch seine Bestände von verringert werden gestakete SQT im Netzwerk und damit ihre potenzielle Belohnung. Da der dem Indexer zugeteilte Anteil durch einen Prozentsatz seiner gesamten SQT bestimmt wird, wirkt sich dies auf alle anderen Belohnungspools aus, an denen der Indexer beteiligt ist.
 
-## How are Indexers rewarded?
+## Wie werden Indexer belohnt?
 
-Indexers are rewarded in SQT in two ways:
-- Rewards from SQT reward pools based on distribution defined by the Cobb-Douglas Production Function
-- Direct SQT query fee rewards from Closed Agreements that an indexer is party to
+Indexer werden in SQT auf zwei Arten belohnt:
+- Belohnungen aus SQT-Belohnungspools basierend auf der von der Cobb-Douglas-Produktionsfunktion definierten Verteilung
+- Belohnungen für direkte SQT-Abfragegebühren aus geschlossenen Vereinbarungen, an denen ein Indexer beteiligt ist
 
-Indexers are rewarded the fees that Consumers pay for providing blockchain data that the Consumer has reqested. An Indexer will receive all the fees from a Closed Agreement. Otherwise, the fees are split based on the amount of work performed (requests served) and the amount of delegated SQT - this split is determined by applying the Cobb-Douglas Production Function.
+Indexer werden mit den Gebühren belohnt, die Verbraucher für die Bereitstellung von Blockchain-Daten zahlen, die der Verbraucher angefordert hat. Ein Indexer erhält alle Gebühren aus einer geschlossenen Vereinbarung. Andernfalls werden die Gebühren basierend auf der Menge der geleisteten Arbeit (zugestellte Anfragen) und der Menge der delegierten SQT aufgeteilt – diese Aufteilung wird durch Anwendung der Cobb-Douglas-Produktionsfunktion bestimmt.
 
-There may be multiple reward pools simultaneously active for a given Indexer. The indexer’s job is to allocate their staked and delegated SQT amongst these pools (in terms of a percentage of their total SQT). There will be a reward pool for each project that the Indexer accepts PAYG, and a reward pool for each Market Agreement that the Indexer is a party of.
+Für einen bestimmten Indexer können mehrere Belohnungspools gleichzeitig aktiv sein. Die Aufgabe des Indexierers besteht darin, seine abgesteckten und delegierten SQT diesen Pools zuzuweisen (als Prozentsatz ihrer gesamten SQT). Es gibt einen Belohnungspool für jedes Projekt, das der Indexer PAYG akzeptiert, und einen Belohnungspool für jede Marktvereinbarung, an der der Indexer beteiligt ist.
 
-## Attracting Delegators
+## Delegators-Gewinn
 
 Indexers can increase their earning potential by attracting Delegators. Delegators are SQT token holders who can delegate their tokens to Indexers for additional rewards. Indexers use these additional tokens to increase the amount they allocate to projects of their choice. This allows Indexers to increase their earnings.
 
