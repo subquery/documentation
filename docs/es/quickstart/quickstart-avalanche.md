@@ -44,7 +44,7 @@ subql init
 
 Se le harán ciertas preguntas ya que el proyecto de SubQuery está initalizado:
 
-- Project Name: A name for your SubQuery project
+- Nombre del proyecto: Un nombre para tu proyecto de Subconsulta
 - Familia de redes: La familia de redes de blockchain de capa 1 para la que se desarrollará este proyecto de SubQuery, utiliza las flechas de tu teclado para seleccionar entre las opciones, para esta guía utilizaremos _"Avalanche"_
 - Red: La red específica para la que se desarrollará este proyecto de SubQuery, utilice las flechas de su teclado para seleccionar entre las opciones, para esta guía utilizaremos _"Avalanche"_
 - Plantilla: Seleccione una plantilla de proyecto SubQuery que le proporcione un punto de partida para comenzar el desarrollo, le sugerimos que seleccione el _"Proyecto de inicio"_
