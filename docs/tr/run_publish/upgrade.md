@@ -25,7 +25,19 @@ Staging slotu aşağıdakiler için idealdir:
 
 Düzenli performans ve stabilite iyileştirmelerimizden yararlanmak için yalnızca en son endeksleyiciye ([`@subql/node`](https://www.npmjs.com/package/@subql/node)) veya sorgu hizmetine ([`@subql/query`](https://www.npmjs.com/package/@subql/query)) yükseltmek istiyorsanız, sadece paketlerimizin daha yeni sürümlerini seçin ve kaydedin. Bu, yalnızca birkaç dakikalık kesinti süresine neden olacaktır.
 
-#### SubQuery Projenizin Yeni Sürümünü Dağıtın
+#### When using `@subql/cli`
+#### Requirement
+- `@subql/cli` version 1.1.0 or above.
+- Get your [SUBQL_ACCESS_TOKEN](/docs/run_publish/ipfs.md#prepare-your-subqlaccesstoken) ready.
+```
+// You can directly set your Indexer and Query versions
+$ subql deployment:deploy --indexerVersion=1.1.2 --queryVersion=1.1.1
+
+// OR you can use the interface, it will validate your IPFS CID and render a list of image versions that matches your manifest file `project.yaml`
+
+$ subql deployment:deploy
+```
+#### Deploy New Version of your SubQuery Project
 
 Dağıtılmasını istediğiniz SubQuery proje kod tabanınızın sürümünün GitHub'dan Commit Hash'ini doldurun (tam Commit Hash'ini kopyalayın). Bu, mevcut zincirin endekslenmesi için geçen süreye bağlı olarak daha uzun bir kesinti süresine neden olacaktır. Buradan her zaman ilerleme raporları sağlayabilirsiniz.
 

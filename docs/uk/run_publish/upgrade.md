@@ -25,7 +25,19 @@
 
 Якщо ви просто хочете оновити до останнього індексатора ([` @ subql / node `](https://www.npmjs.com/package/@subql/node)) або послуги запитів ([` @ subql / query `](https://www.npmjs.com/package/@subql/query)), щоб скористатися нашими регулярними поліпшеннями продуктивності та стабільності, просто виберіть новіші версії наших пакетів і збережіть. Це спричинить лише кілька хвилин простоїв.
 
-#### Розгорніть нову версію проекту SubQuery
+#### When using `@subql/cli`
+#### Requirement
+- `@subql/cli` version 1.1.0 or above.
+- Get your [SUBQL_ACCESS_TOKEN](/docs/run_publish/ipfs.md#prepare-your-subqlaccesstoken) ready.
+```
+// You can directly set your Indexer and Query versions
+$ subql deployment:deploy --indexerVersion=1.1.2 --queryVersion=1.1.1
+
+// OR you can use the interface, it will validate your IPFS CID and render a list of image versions that matches your manifest file `project.yaml`
+
+$ subql deployment:deploy
+```
+#### Deploy New Version of your SubQuery Project
 
 Заповніть хеш-консистенцію від GitHub (копіюйте повний хеш-комплект) версії кодової бази проекту SubQuery, яку ви хочете розгорнути. Це призведе до більш тривалого простоїв, залежно від часу, необхідного для індексації поточного ланцюга. Ви завжди можете повідомити про це назад на прогрес.
 

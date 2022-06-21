@@ -25,6 +25,18 @@ Slot staging sangat cocok untuk:
 
 Jika Anda hanya ingin meningkatkan ke pengindeks terbaru ([`@subql/node`](https://www.npmjs.com/package/@subql/node)) atau layanan kueri ([`@subql/query`](https://www.npmjs.com/package/@subql/query)) untuk mendapat keuntungan dari peningkatan stabilitas dan performa reguler kami, cukup pilih versi terbaru dari paket kami dan simpan. Ini hanya akan menyebabkan waktu henti beberapa menit.
 
+#### Ketika memakai `@subql/cli`
+#### Standar permintaan
+- `@subql/cli` versi 1.1.0 atau lebih tinggi.
+- Siapkan [SUBQL_ACCESS_TOKEN](/docs/run_publish/ipfs.md#prepare-your-subqlaccesstoken) Anda.
+```
+// Anda dapat langsung mengatur versi Pengindeks dan Kueri Anda
+$ subql deployment:deploy --indexerVersion=1.1.2 --queryVersion=1.1.1
+
+// ATAU Anda dapat menggunakan antarmuka, itu akan memvalidasi CID IPFS Anda dan membuat daftar versi gambar yang cocok dengan file manifes Anda `project.yaml`
+
+$ subql deployment:deploy
+```
 #### Terapkan Versi Baru Proyek SubQuery Anda
 
 Isi Commit Hash dari GitHub (salin commit hash penuh) dari versi basis kode proyek SubQuery yang ingin Anda terapkan. Ini akan menyebabkan waktu henti yang lebih lama tergantung pada waktu yang diperlukan untuk mengindeks rangkaian saat ini. Anda selalu dapat melaporkan kembali ke sini untuk perkembangan.

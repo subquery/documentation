@@ -25,7 +25,19 @@ Der Staging-Slot ist perfekt für:
 
 Wenn Sie nur auf den neuesten Indexer ([`@subql/node`](https://www.npmjs.com/package/@subql/node)) oder den Abfragedienst ([`@subql/query`](https://www.npmjs.com/package/@subql/query)) aktualisieren möchten, um von unseren regelmäßigen Leistungs- und Stabilitätsverbesserungen zu profitieren, Wählen Sie einfach eine neuere Version unserer Pakete aus und sparen Sie. Dies führt zu einer Ausfallzeit nur von wenigen Minuten.
 
-#### Stellen Sie eine neue Version Ihres SubQuery-Projekts bereit
+#### When using `@subql/cli`
+#### Requirement
+- `@subql/cli` version 1.1.0 or above.
+- Get your [SUBQL_ACCESS_TOKEN](/docs/run_publish/ipfs.md#prepare-your-subqlaccesstoken) ready.
+```
+// You can directly set your Indexer and Query versions
+$ subql deployment:deploy --indexerVersion=1.1.2 --queryVersion=1.1.1
+
+// OR you can use the interface, it will validate your IPFS CID and render a list of image versions that matches your manifest file `project.yaml`
+
+$ subql deployment:deploy
+```
+#### Deploy New Version of your SubQuery Project
 
 Geben Sie den Commit-Hash von GitHub ein (kopieren Sie den vollständigen Commit-Hash) der Version Ihrer SubQuery-Projektcodebasis, die Sie bereitstellen möchten. Dies führt zu einer längeren Ausfallzeit, je nachdem, wie lange es dauert, die aktuelle Chain zu indizieren. Hier können Sie jederzeit über Fortschritte berichten.
 

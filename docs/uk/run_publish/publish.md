@@ -52,22 +52,66 @@ SubQuery Projects — це місце, де ви керуєте всіма св�
 
 ![Створений проект без розгортання](/assets/img/projects-no-deployment.png)
 
-### Розгорніть свою першу версію
+### Creating Projects using CLI
 
-У той час як створення проекту налаштує поведінку проекту відображення, ви повинні розгорнути його версію, перш ніж він почне працювати. Розгортання версії викликає нову операцію індексування підзапити для початку і налаштує необхідний сервіс запитів для прийняття графічних запитів. Ви також можете розгорнути нові версії на існуючі проекти.
+You can also use `@subql/cli` to create your project
+#### Вимоги
+- `@subql/cli` version 1.1.0 or above.
+- Get your [SUBQL_ACCESS_TOKEN](/docs/run_publish/ipfs.md#prepare-your-subqlaccesstoken) ready.
 
-У вашому новому проекті ви побачите кнопку Розгорнути нову версію. Натисніть це та введіть необхідну інформацію про розгортання:
+```
+// Creating a project using the CLI
+$ subql project:create-project
 
-- ** Branch:** на GitHub виберіть гілку проекту, з якої потрібно розгорнути
-- **Commit Hash:** на GitHub виберіть конкретну фіксацію версії кодової бази вашого проекту SubQuery, яку потрібно розгорнути
-- **IPFS:** у разі розгортання з IPFS вставте свій ідентифікатор розгортання IPFS (без початкового `ipfs://`)
-- **Перевизначити кінцеві точки мережі та словника:** Ви можете замінити кінцеві точки в маніфесті проекту тут
-- **Версія індексера:** Це версія служби вузла SubQuery, на якій ви хочете запустити цей SubQuery далі. Див. [` @subql / node `](https://www.npmjs.com/package/@subql/node)
-- **Версія індексера:** Це версія служби вузла SubQuery, на якій ви хочете запустити цей SubQuery далі. Див. [` @subql / node `](https://www.npmjs.com/package/@subql/query)
+// OR using non-interactive, it will prompt you if the required fields are missing
+$ subql project:create-project
+    --apiVersion=apiVersion      Api version is default to 2
+    --description=description    Enter description
+    --gitRepo=gitRepo            Enter git repository
+    --org=org                    Enter organization name
+    --project_name=project_name  Enter project name
+```
 
-![Розгорніть свій перший проект](https://static.subquery.network/media/projects/projects-first-deployment.png)
+### Deploy your first Version
 
-У разі успішного розгортання ви побачите, як індексатор починає працювати та звітує про прогрес індексування поточного ланцюжка. Цей процес може зайняти деякий час, поки він не досягне 100%.
+### Варіант 1
+
+While creating a project will setup the display behaviour of the project, you must deploy a version of it before it becomes operational. Deploying a version triggers a new SubQuery indexing operation to start, and sets up the required query service to start accepting GraphQL requests. You can also deploy new versions to existing projects here.
+
+With your new project, you'll see a Deploy New Version button. Click this, and fill in the required information about the deployment:
+
+- **Branch:** From GitHub, select the branch of the project that you want to deploy from
+- **Commit Hash:** From GitHub, select the specific commit of the version of your SubQuery project codebase that you want deployed
+- **IPFS:** If deploying from IPFS, paste you IPFS deployment CID (without the leading `ipfs://`)
+- **Override Network and Dictionary Endpoints:** You can override the endpoints in your project manifest here
+- **Indexer Version:** This is the version of SubQuery's node service that you want to run this SubQuery on. See [`@subql/node`](https://www.npmjs.com/package/@subql/node)
+- **Query Version:** This is the version of SubQuery's query service that you want to run this SubQuery on. See [`@subql/query`](https://www.npmjs.com/package/@subql/query)
+
+![Deploy your first Project](https://static.subquery.network/media/projects/projects-first-deployment.png)
+
+If deployed successfully, you'll see the indexer start working and report back progress on indexing the current chain. This process may take time until it reaches 100%.
+
+### Варіант 2
+#### Deploying using CLI
+#### Вимоги
+- `@subql/cli` version 1.1.0 or above.
+- Get your [SUBQL_ACCESS_TOKEN](/docs/run_publish/ipfs.md#prepare-your-subqlaccesstoken) ready.
+
+```
+// Deploy using the CLI
+$ suqbl deployment:deploy
+
+// OR Deploy using non-interactive CLI
+$ suqbl deployment:deploy
+  --dict=dict                      Enter Dictionary Endpoint
+  --endpoint=endpoint              Enter Network Endpoint
+  --indexerVersion=indexerVersion  Enter indexer-version
+  --ipfsCID=ipfsCID                Enter IPFS CID
+  --org=org                        Enter Organization Name
+  --project_name=project_name      Enter Project Name
+  --queryVersion=queryVersion      Enter Query-version
+  --type=type                      Enter deployment type e.g. primary or stage
+```
 
 ## Наступні етапи - Підключіться до вашого проекту
 
@@ -77,20 +121,23 @@ SubQuery Projects — це місце, де ви керуєте всіма св�
 
 Крім того, ви можете натиснути на три точки поруч із заголовком проекту та переглянути його на SubQuery Explorer. There you can use the in-browser playground to get started - [read more about how to use our Explorer here](../run_publish/query.md).
 
-![Проекти в SubQuery Explorer](/assets/img/projects-explorer.png)
+![Projects in SubQuery Explorer](/assets/img/projects-explorer.png)
 
 ## Додайте обліковий запис організації GitHub до проектів SubQuery
 
-Зазвичай проект SubQuery публікують під назвою облікового запису організації GitHub, а не під вашим особистим обліковим записом GitHub. У будь-який момент ви можете змінити свій поточний обліковий запис у [SubQuery Projects](https://project.subquery.network) за допомогою перемикача облікових записів.
+It is common to publish your SubQuery project under the name of your GitHub Organization account rather than your personal GitHub account. At any point your can change your currently selected account on [SubQuery Projects](https://project.subquery.network) using the account switcher.
 
 ![Перемикайтеся між обліковими записами GitHub](/assets/img/projects-account-switcher.png)
 
-Якщо ви не бачите свого облікового запису організації GitHub у списку перемикача, можливо, вам знадобиться надати доступ до SubQuery для вашої організації GitHub (або запитати його в адміністратора). Для цього вам спочатку потрібно скасувати дозволи з вашого облікового запису GitHub на додаток SubQuery. Для цього увійдіть у налаштування свого облікового запису на GitHub, перейдіть до Програми та на вкладці Авторизовані програми OAuth відкликайте SubQuery - [виконайте точні дії тут](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/reviewing-your-authorized-applications-oauth). **Не хвилюйтеся, це не призведе до видалення вашого проекту SubQuery, і ви не втратите жодних даних.**
+If you can't see your GitHub Organization account listed in the switcher, the you may need to grant access to SubQuery for your GitHub Organization (or request it from an administrator). To do this, you first need to revoke permissions from your GitHub account to the SubQuery Application. To do this, login to your account settings in GitHub, go to Applications, and under the Authorized OAuth Apps tab, revoke SubQuery - [you can follow the exact steps here](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/reviewing-your-authorized-applications-oauth). **Don't worry, this will not delete your SubQuery project and you will not lose any data.**
 
-![Скасувати доступ до облікового запису GitHub](/assets/img/project_auth_revoke.png)
+![Revoke access to GitHub account](/assets/img/project_auth_revoke.png)
 
-Після скасування доступу вийдіть із [SubQuery Projects](https://project.subquery.network) та знову увійдіть.</0> Вас буде перенаправлено на сторінку під назвою _Авторизувати SubQuery _, де ви можете попросити або надати доступ SubQuery до свого облікового запису організації GitHub. Якщо у вас немає прав адміністратора, ви повинні подати запит до адміністратора, щоб увімкнути це для вас.
+Once you have revoked access, log out of [SubQuery Projects](https://project.subquery.network) and log back in again. You should be redirected to a page titled _Authorize SubQuery_ where you can request or grant SubQuery access to your GitHub Organization account. If you don't have admin permissions, you must make a request for an adminstrator to enable this for you.
 
 ![Скасувати схвалення облікового запису GitHub](/assets/img/project_auth_request.png)
 
-Після того, як ваш адміністратор схвалить цей запит (або якщо ви зможете задовольнити його самостійно), ви побачите правильний обліковий запис організації GitHub у перемикачі облікових записів.
+Once this request has been approved by your administrator (or if are able to grant it youself), you will see the correct GitHub Organization account in the account switcher.
+
+
+
