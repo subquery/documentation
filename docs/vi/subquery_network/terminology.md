@@ -1,22 +1,22 @@
-# Terminology
+# Thuật ngữ
 
 ![terminology](/assets/img/terminology.png)
 
-## **Allocating**
+## **Phân bổ**
 
-Act of an Indexer assigning SQT to a given project.
+Hành động của Người lập chỉ mục gán SQT cho một dự án nhất định.
 
-### **Reallocating**
+### **Tái phân bổ**
 
 A combined operation of removing staked tokens from one project and immediately associating that with another project (comes into effect at the end of the next Era). This is represented/expressed as a percentage of the indexer’s bonded SQT.
 
-## **Bonding**
+## **Liên kết**
 
-Act of depositing SQT into a global staking contract performed by either an Indexer or a Delegator
+Hành động gửi SQT vào hợp đồng đặt cược toàn cầu được thực hiện bởi Người lập chỉ mục hoặc Người ủy quyền
 
-### **Unbonding**
+### **Hủy liên kết**
 
-Act of an Indexer or a Delegator withdrawing SQT from the global staking contract.
+Hành động của Người lập chỉ mục hoặc Người đại diện rút SQT khỏi hợp đồng đặt cược toàn cầu.
 
 This is effectively a transfer of SQT from the global staking contract to the Indexer’s or Delegator’s wallet. In other words, this can be thought of as the Indexer or Delegator withdrawing part or all of their stake. Note that a lock period applies when tokens are unbonded.
 
@@ -52,9 +52,9 @@ The sum of daily contracts value (defined as contract value/period) can not exce
 
 ## **Era**
 
-A period or duration of time where configurations and settings remain constant and calculations take place. For example, during an Era:
+Một khoảng thời gian hoặc thời gian mà các cấu hình và cài đặt không đổi và các phép tính diễn ra. Ví dụ, trong một Chu kỳ:
 
-- the Indexer Commission Rate cannot be changed during an Era.
+- không thể thay đổi Tỷ lệ Hoa hồng của Người lập chỉ mục trong một Chu kỳ.
 
 ## **Indexer Delegation Ratio**
 
