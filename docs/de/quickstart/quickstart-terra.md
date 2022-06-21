@@ -44,7 +44,7 @@ subql init
 
 Während das SubQuery-Projekt initialisiert wird, werden Ihnen bestimmte Fragen gestellt:
 
-- Project Name: A name for your SubQuery project
+- Projektname: Ein Name für Ihr SubQuery-Projekt
 - Netzwerkfamilie: Die Layer-1-Blockchain-Netzwerkfamilie, für deren Indizierung dieses SubQuery-Projekt entwickelt wird, verwenden Sie die Pfeiltasten auf Ihrer Tastatur, um aus den Optionen auszuwählen. Für diese Anleitung verwenden wir *"Terra"*
 - Netzwerk: Das spezifische Netzwerk, für dessen Indexierung dieses SubQuery-Projekt entwickelt wird, verwenden Sie die Pfeiltasten auf Ihrer Tastatur, um aus den Optionen auszuwählen. Für diese Anleitung verwenden wir *"Terra"*
 - Vorlage: Wählen Sie eine SubQuery-Projektvorlage aus, die einen Ausgangspunkt für den Beginn der Entwicklung bietet. Wir empfehlen die Auswahl des *"Starter-Projekts"*
