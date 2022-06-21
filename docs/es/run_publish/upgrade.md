@@ -9,43 +9,43 @@ Aunque siempre tienes la libertad de actualizar e implementar nuevas versiones d
 
 ## Desplegar Cambios
 
-There are two methods to deploy a new version of your project to the SubQuery Managed Service, you can use the UI or directly via the `subql` cli tool.
+Hay dos métodos para desplegar una nueva versión de su proyecto en el Servicio Administrado de SubQuery, puedes usar la interfaz de usuario o directamente a través de la herramienta de cli `subql`.
 
-### Using the UI
+### Usando la interfaz de usuario
 
-Log into SubQuery Project and select the project you want to deploy a new version of. You can choose to either deploy to the production or staging slot. These two slots are isolated environments and each has their own databases and synchronise independently.
+Inicie sesión en SubQuery Project y seleccione el proyecto del que desea desplegar una nueva versión. Puede elegir entre desplegar en la zona de producción o de puesta en escena. Estos dos espacios son entornos aislados y cada uno tiene sus propias bases de datos y sincronizan de forma independiente.
 
-We recommend deploying to your staging slot only for final staging testing or when you need to resync your project data. You can then promote it to production with zero downtime. You will find testing is faster when [running a project locally](../run_publish/run.md) as you can more [easily debug issues](../academy/tutorials_examples/debug-projects.md).
+Recomendamos desplegar en su puesto de trabajo sólo para las pruebas finales de puesta en escena o cuando necesite resinc los datos de su proyecto. Entonces se puede promover a la producción sin tiempo de inactividad. Encontrarás que probar es más rápido cuando [ejecute un proyecto localmente](../run_publish/run.md) ya que puedes más [depurar fácilmente problemas](../academy/tutorials_examples/debug-projects.md).
 
-The staging slot is perfect for:
+La ranura de montaje es perfecta para:
 
 - Validación final de los cambios en su SubQuery Project en un entorno separado. La ranura de staging (montaje) tiene una URL diferente a la de producción que puedes usar en tus dApps.
 - Calentando e indexando datos para un proyecto actualizado de SubQuery para eliminar los tiempos de inactividad en tu dApp
 - Preparando una nueva versión para su SubQuery Project sin exponerla públicamente. El espacio para escenarios no se muestra al público en el explorador y tiene una URL única que solo es visible para usted.
 
-![Staging slot](/assets/img/staging_slot.png)
+![Ranura provisional](/assets/img/staging_slot.png)
 
 Rellena el Hash de Compromiso desde GitHub (copia el hash de commit completo) de la versión de tu proyecto de SubQuery código base que quieras desplegar. Esto causará un tiempo de inactividad más largo dependiendo del tiempo que tarda en indexar la cadena actual. Siempre puede reportar aquí para que avance.
 
 ### Using the CLI
 
-You can also use `@subql/cli` to create a new deployment of your project to our managed service. This requires:
+También puede utilizar `@subql/cli` para crear un nuevo despliegue de su proyecto en nuestro servicio administrado. Esto requiere:
 
 - `@subql/cli` version 1.1.0 or above.
 - A valid [SUBQL_ACCESS_TOKEN](/docs/run_publish/ipfs.md#prepare-your-subqlaccesstoken) ready.
 
 ```shell
-// You can directly set your Indexer and Query versions
-$ subql deployment:deploy --indexerVersion=1.1.2 --queryVersion=1.1.1
+// Puede establecer directamente las versiones de su Indexador y Consulta
+$ subql deployment:deploy --indexerVersion=1.1.2 --queryVersion=1.1.
 
-// OR you can use the interface, it will validate your IPFS CID and render a list of image versions that matches your manifest file `project.yaml`
+// O puedes usar la interfaz, validará su IPFS CID y renderizará una lista de versiones de imágenes que coincidan con su archivo manifest `project. aml`
 
-$ subql deployment:deploy
+$ despliegue de subql:deploy
 ```
 
-## Upgrade to the Latest Indexer and Query Service
+## Actualizar al último Indexador y Servicio de Consultas
 
-If you just want to upgrade to the latest indexer ([`@subql/node`](https://www.npmjs.com/package/@subql/node)) or query service ([`@subql/query`](https://www.npmjs.com/package/@subql/query)) to take advantage of our regular performance and stability improvements, just select a newer versions of our packages and save. This will cause only a few minutes of downtime as the services running your project are restarted.
+Si solo desea actualizar al último indexador ([`@subql/node`](https://www.npmjs.com/package/@subql/node)) o al servicio de consulta ([`@subql/query`](https://www.npmjs.com/package/@subql/query)) para aprovechar nuestras mejoras regulares de rendimiento y estabilidad, sólo tiene que seleccionar una versión más reciente de nuestros paquetes y guardar. Esto causará sólo unos minutos de inactividad a medida que se reinicien los servicios que ejecutan su proyecto.
 
 ## Siguiente paso - Conecta a tu proyecto
 
@@ -53,4 +53,4 @@ Una vez que el despliegue se ha completado correctamente y nuestros nodos han in
 
 ![Proyecto en despliegue y sincronización](/assets/img/projects-deploy-sync.png)
 
-Alternativamente, puedes hacer clic en los tres puntos al lado del título de tu proyecto, y verlo en SubQuery Explorer. There you can use the in browser playground to get started - [read more about how to user our Explorer here](../run_publish/query.md).
+Alternativamente, puedes hacer clic en los tres puntos al lado del título de tu proyecto, y verlo en SubQuery Explorer. Allí puedes usar el playground del navegador para empezar - [lee más sobre cómo usar nuestro explorador aquí](../run_publish/query.md).
