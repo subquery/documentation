@@ -13,17 +13,17 @@ Es gibt zwei Methoden zum Bereitstellen einer neuen Version Ihres Projekts für 
 
 ### Verwendung von UI
 
-Log into SubQuery Project and select the project you want to deploy a new version of. You can choose to either deploy to the production or staging slot. These two slots are isolated environments and each has their own databases and synchronise independently.
+Melden Sie sich bei SubQuery Project an und wählen Sie das Projekt aus, von dem Sie eine neue Version bereitstellen möchten. Sie können wählen, ob Sie entweder im Produktions- oder im Staging-Slot bereitstellen möchten. Diese beiden Slots sind isolierte Umgebungen und jeder hat seine eigenen Datenbanken und synchronisiert sich unabhängig voneinander.
 
-We recommend deploying to your staging slot only for final staging testing or when you need to resync your project data. You can then promote it to production with zero downtime. You will find testing is faster when [running a project locally](../run_publish/run.md) as you can more [easily debug issues](../academy/tutorials_examples/debug-projects.md).
+Wir empfehlen die Bereitstellung in Ihrem Staging-Slot nur für abschließende Staging-Tests oder wenn Sie Ihre Projektdaten erneut synchronisieren müssen. Sie können es dann ohne Ausfallzeit in die Produktion hochstufen. Sie werden feststellen, dass das Testen schneller ist, wenn Sie [ein Projekt lokal ausführen](../run_publish/run.md), da Sie [Probleme einfacher debuggen](../academy/tutorials_examples/debug-projects.md) können.
 
-The staging slot is perfect for:
+Der Staging-Slot ist perfekt für:
 
 - Abschließende Validierung von Änderungen an Ihrem SubQuery-Projekt in einer separaten Umgebung. Der Staging-Slot hat eine andere URL als die Produktion, die Sie in Ihren dApps verwenden können.
 - Aufwärmen und Indizierung von Daten für ein aktualisiertes SubQuery-Projekt, um Ausfallzeiten in Ihrer dApp zu vermeiden
 - Vorbereitung einer neuen Version für Ihr SubQuery-Projekt, ohne sie öffentlich zugänglich zu machen. Der Staging-Slot wird im Explorer nicht öffentlich angezeigt und hat eine eindeutige URL, die nur für Sie sichtbar ist.
 
-![Staging slot](/assets/img/staging_slot.png)
+![Staging-Slot](/assets/img/staging_slot.png)
 
 Geben Sie den Commit-Hash von GitHub ein (kopieren Sie den vollständigen Commit-Hash) der Version Ihrer SubQuery-Projektcodebasis, die Sie bereitstellen möchten. Dies führt zu einer längeren Ausfallzeit, je nachdem, wie lange es dauert, die aktuelle Chain zu indizieren. Hier können Sie jederzeit über Fortschritte berichten.
 
@@ -35,17 +35,21 @@ Sie können auch `@subql/cli` verwenden, um eine neue Bereitstellung Ihres Proje
 - Ein gültiges [SUBQL_ACCESS_TOKEN](/docs/run_publish/ipfs.md#prepare-your-subqlaccesstoken)  ist bereit.
 
 ```shell
-// You can directly set your Indexer and Query versions
-$ subql deployment:deploy --indexerVersion=1.1.2 --queryVersion=1.1.1
+// Sie können Ihre Indexer- und Abfrageversionen direkt festlegen
+$ subql Bereitstellung: Bereitstellung --indexerVersion=1.1.2 --queryVersion=1.1.1
 
-// OR you can use the interface, it will validate your IPFS CID and render a list of image versions that matches your manifest file `project.yaml`
+// ODER Sie können die Schnittstelle verwenden, sie validiert Ihre IPFS-CID und rendert eine Liste von Bildversionen, die mit Ihrer Manifestdatei „project.yaml“ übereinstimmen
 
 $ subql deployment:deploy
 ```
 
-## Upgrade to the Latest Indexer and Query Service
+## Führen Sie ein Upgrade auf den neuesten Indexer- und Abfragedienst durch
 
-If you just want to upgrade to the latest indexer ([`@subql/node`](https://www.npmjs.com/package/@subql/node)) or query service ([`@subql/query`](https://www.npmjs.com/package/@subql/query)) to take advantage of our regular performance and stability improvements, just select a newer versions of our packages and save. This will cause only a few minutes of downtime as the services running your project are restarted.
+Wenn Sie nur auf den neuesten Indexer ([`@subql/node`](https://www.npmjs.com/package/@subql/node)) oder Abfragedienst (
+
+`@subql/query`</) aktualisieren möchten 2>) Um von unseren regelmäßigen Leistungs- und Stabilitätsverbesserungen zu profitieren, wählen Sie einfach eine neuere Version unserer Pakete aus und speichern Sie. Dies verursacht nur wenige Minuten Ausfallzeit, da die Dienste, auf denen Ihr Projekt ausgeführt wird, neu gestartet werden.</p> 
+
+
 
 ## Nächste Schritte - Verbinden Sie sich mit Ihrem Projekt
 
@@ -53,4 +57,4 @@ Sobald Ihre Bereitstellung erfolgreich abgeschlossen wurde und unsere Nodes Ihre
 
 ![Projekt wird bereitgestellt und synchronisiert](/assets/img/projects-deploy-sync.png)
 
-Alternativ können Sie auf die drei Punkte neben dem Titel Ihres Projekts klicken und es im SubQuery Explorer anzeigen. There you can use the in browser playground to get started - [read more about how to user our Explorer here](../run_publish/query.md).
+Alternativ können Sie auf die drei Punkte neben dem Titel Ihres Projekts klicken und es im SubQuery Explorer anzeigen. Dort können Sie den Spielplatz im Browser verwenden, um loszulegen - [lesen Sie hier mehr darüber, wie Sie unseren Explorer verwenden](../run_publish/query.md).
