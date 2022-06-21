@@ -1,19 +1,19 @@
-# The SubQuery Foundation
+# SubQuery Foundation
 
-The SubQuery Foundation serves to manage and develop the SubQuery Network and its ecosystem. Its purpose is to foster and guide the development and growth of the SubQuery Network and provide support for users and developers to build their own SubQuery Projects.
+SubQuery Foundation phục vụ để quản lý và phát triển Mạng SubQuery và hệ sinh thái của nó. Mục đích của nó là để thúc đẩy và định hướng sự phát triển và tăng trưởng của Mạng SubQuery và cung cấp hỗ trợ cho người dùng và nhà phát triển để xây dựng các dự án SubQuery của riêng họ.
 
-The SubQuery Foundation is the first step towards decentralising ownership over the SubQuery Network.
+SubQuery Foundation là bước đầu tiên hướng tới việc phân cấp quyền sở hữu đối với Mạng SubQuery.
 
-## The Purpose
+## Mục đích
 
-The SubQuery Network will be managed by a SubQuery Foundation. The SubQuery Foundation will be a not for profit entity created specifically to serve, manage, and develop the SubQuery Network and provide support for users and developers to participate.
+Mạng SubQuery sẽ được quản lý bởi SubQuery Foundation. SubQuery Foundation sẽ là một tổ chức phi lợi nhuận được tạo ra đặc biệt để phục vụ, quản lý và phát triển Mạng SubQuery và cung cấp hỗ trợ cho người dùng và nhà phát triển tham gia.
 
-The SubQuery Foundation is expected to have the following mandates:
-- Developing and updating the SubQuery Network
-- Manage and distributing assets from the Foundation Treasury
-- Managing the SubQuery Grants Programme to stimulate ecosystem and network development
-- Developing SubQuery ecosystem of partners and user community
-- Driving educational programmes and documentation
-- Decentralising the control over the SubQuery Network
+SubQuery Foundation dự kiến ​​sẽ có các nhiệm vụ sau:
+- Phát triển và cập nhật Mạng SubQuery
+- Quản lý và phân phối tài sản từ Foundation Treasury
+- Quản lý Chương trình Tài trợ SubQuery để kích thích phát triển hệ sinh thái và mạng lưới
+- Phát triển hệ sinh thái SubQuery của các đối tác và cộng đồng người dùng
+- Hướng dẫn các chương trình giáo dục và tài liệu
+- Phân cấp quyền kiểm soát đối với Mạng SubQuery
 
-It is planned that the SubQuery Foundation will be accountable to the SubQuery Council, who will oversee governance decisions and will be made up of key representatives from the core SubQuery team and other key partners and advisers.
+Theo kế hoạch, SubQuery Foundation sẽ chịu trách nhiệm trước Hội đồng SubQuery, người sẽ giám sát các quyết định quản trị và sẽ bao gồm các đại diện chủ chốt từ nhóm SubQuery cốt lõi cũng như các đối tác và cố vấn chính khác.
