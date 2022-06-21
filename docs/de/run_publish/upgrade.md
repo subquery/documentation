@@ -9,9 +9,9 @@ Obwohl Sie jederzeit die Freiheit haben, neue Versionen Ihres SubQuery-Projekts 
 
 ## Deploy-Änderungen
 
-There are two methods to deploy a new version of your project to the SubQuery Managed Service, you can use the UI or directly via the `subql` cli tool.
+Es gibt zwei Methoden zum Bereitstellen einer neuen Version Ihres Projekts für den SubQuery Managed Service: Sie können die Benutzeroberfläche oder direkt über das CLI-Tool `subql` verwenden.
 
-### Using the UI
+### Verwendung von UI
 
 Log into SubQuery Project and select the project you want to deploy a new version of. You can choose to either deploy to the production or staging slot. These two slots are isolated environments and each has their own databases and synchronise independently.
 
@@ -27,12 +27,12 @@ The staging slot is perfect for:
 
 Geben Sie den Commit-Hash von GitHub ein (kopieren Sie den vollständigen Commit-Hash) der Version Ihrer SubQuery-Projektcodebasis, die Sie bereitstellen möchten. Dies führt zu einer längeren Ausfallzeit, je nachdem, wie lange es dauert, die aktuelle Chain zu indizieren. Hier können Sie jederzeit über Fortschritte berichten.
 
-### Using the CLI
+### Verwendung von CLI
 
-You can also use `@subql/cli` to create a new deployment of your project to our managed service. This requires:
+Sie können auch `@subql/cli` verwenden, um eine neue Bereitstellung Ihres Projekts für unseren Managed Service zu erstellen. Dies erfordert:
 
-- `@subql/cli` version 1.1.0 or above.
-- A valid [SUBQL_ACCESS_TOKEN](/docs/run_publish/ipfs.md#prepare-your-subqlaccesstoken) ready.
+- `@subql/cli` Version 1.1.0 oder höher.
+- Ein gültiges [SUBQL_ACCESS_TOKEN](/docs/run_publish/ipfs.md#prepare-your-subqlaccesstoken)  ist bereit.
 
 ```shell
 // You can directly set your Indexer and Query versions
