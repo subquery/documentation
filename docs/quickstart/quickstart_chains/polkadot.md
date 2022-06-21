@@ -4,13 +4,13 @@
 
 The goal of this quick guide is to adapt the standard starter project and start indexing all transfers from Polkadot.
 
-**Important:** Before we begin, make sure that you have initialised your project using the provided steps in the [Start Here](../quickstart.md). 
+**Important:** Before we begin, make sure that you have initialised your project using the provided steps in the [Start Here](../quickstart.md) section. 
 
-Let's now update these configurations one by one. 
+Now, let's move forward and update these configurations. 
 
 ## 1. Make Changes to Your Project
 
-Previously, in the [SubQuery CLI](../quickstart.md) section, 3 key files were noted. Let's begin updating them one by one. 
+Previously, in the [SubQuery CLI](../quickstart.md) section, you must have noted [3 key files](../quickstart.html#_3-make-changes-to-your-project). Let's begin updating them one by one. 
 
 ### 1.1 Update Your GraphQL Schema File
 
@@ -121,9 +121,6 @@ The function here receives a `SubstrateEvent` which includes transfer data in th
 
 Check out our [Mappings](../../build/mapping.md) documentation to get detailed information on mapping functions.
 
-You are about to finish and create your first project. However, there is still an additional and necessary step required to run your SubQuery Project. Take a look further. 
-
-
 ### 1.4 Build Your Project
 
 Next, build your work to run your new SubQuery project. Run the build command from the project's root directory as given here:
@@ -209,7 +206,7 @@ Try the following query to understand how it works for your new SubQuery starter
 }
 ```
 
-You should see results similar to below:
+You will see the result similar to below:
 
 ```
 {
@@ -263,4 +260,4 @@ You should see results similar to below:
 
 Congratulations! You have now a locally running SubQuery project that accepts GraphQL API requests for transferring data.
 
-Click [here](../../quickstart/whats-next.md) to learn where to next on your SubQuery journey.
+Click [here](../../quickstart/whats-next.md) to learn what should be your **next step** in your SubQuery journey.
