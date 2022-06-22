@@ -1,6 +1,6 @@
 # Introducción
 
-**La red de subconsultas es el futuro de la infraestructura web 3**
+**SubQuery Network es el futuro de la infraestructura web 3**
 
 Estamos construyendo el servicio de datos más abierto, eficiente, fiable y escalable para desarrolladores de dApp.
 
