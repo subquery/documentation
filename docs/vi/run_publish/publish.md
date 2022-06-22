@@ -37,7 +37,7 @@ Nếu bạn có kết nối các tài khoản GitHub Organization, bạn có th�
 
 ### Tạo Dự Án Đầu Tiên
 
-There are two methods to create a project in the SubQuery Managed Service, you can use the UI or directly via the `subql` cli tool.
+Có hai phương pháp để tạo một dự án trong Dịch vụ quản lý SubQuery, bạn có thể sử dụng giao diện người dùng hoặc trực tiếp thông qua công cụ `subql` cli.
 
 #### Sử dụng giao diện người dùng
 
@@ -58,16 +58,16 @@ Hãy tạo dự án cho riêng mình và bạn sẽ thấy nó trong danh sách 
 
 #### Sử dụng CLI
 
-You can also use `@subql/cli` to publish your project to our managed service. Điều này yêu cầu:
+Bạn cũng có thể sử dụng `@subql/cli` để triển khai mới của dự án lên dịch vụ được quản lý của chúng tôi. Điều này yêu cầu:
 
 - `@subql/cli` phiên bản 1.1.0 trở lên.
 - Một [SUBQL_ACCESS_TOKEN](/docs/run_publish/ipfs.md#prepare-your-subqlaccesstoken) hợp lệ đã sẵn sàng.
 
 ```shell
-// Creating a project using the CLI
+// Tạo dự án sử dụng CLI
 $ subql project:create-project
 
-// OR using non-interactive, it will prompt you if the required fields are missing
+// HOẶC không tác động đến, nó sẽ nhắc bạn nếu thiếu các trường bắt buộc
 $ subql project:create-project
     --apiVersion=apiVersion      Api version is default to 2
     --description=description    Enter description
@@ -82,20 +82,20 @@ Có hai phương pháp để triển khai một phiên bản mới của dự á
 
 #### Sử dụng giao diện người dùng
 
-While creating a project will setup the display behaviour of the project, you must deploy a version of it before it becomes operational. Deploying a version triggers a new SubQuery indexing operation to start, and sets up the required query service to start accepting GraphQL requests. You can also deploy new versions to existing projects here.
+Trong khi đang khởi tạo, dự án sẽ thiết lập hành vi hiển thị của nó, bạn phải triển khai một phiên bản của nó trước khi dự án đi vào vận hành. Triển khai một phiên bản sẽ kích hoạt khởi động lập chỉ mục SubQuery mới để bắt đầu, và cài đặt dịch vụ truy vấn để chấp nhận các yêu cầu từ GraphQl. Bạn cũng có thể triển khai các phiên bản mới đối với các dự án hiện tại tại đây.
 
-With your new project, you'll see a Deploy New Version button. Click this, and fill in the required information about the deployment:
+Cùng với dự án mới của mình, bạn sẽ thấy một nút bấm Deploy New Version. Nhấp vào nút này, và điền vào các thông tin bắt buộc để thực hiện triển khai:
 
-- **Branch:** From GitHub, select the branch of the project that you want to deploy from
-- **Commit Hash:** From GitHub, select the specific commit of the version of your SubQuery project codebase that you want deployed
-- **IPFS:** If deploying from IPFS, paste you IPFS deployment CID (without the leading `ipfs://`)
-- **Override Network and Dictionary Endpoints:** You can override the endpoints in your project manifest here
-- **Indexer Version:** This is the version of SubQuery's node service that you want to run this SubQuery on. See [`@subql/node`](https://www.npmjs.com/package/@subql/node)
-- **Query Version:** This is the version of SubQuery's query service that you want to run this SubQuery on. See [`@subql/query`](https://www.npmjs.com/package/@subql/query)
+- **Branch:** Từ GitHub, chọn nhánh của dự án mà bạn muốn triển khai
+- **Commit Hash:** Từ GitHub, hãy chọn commit cụ thể của phiên bản codebase dự án SubQuery mà bạn muốn triển khai
+- **IPFS:** Nếu triển khai từ IPFS, hãy dán CID triển khai IPFS của bạn (không có `ipfs: //` đứng đầu)
+- **Override Network and Dictionary Endpoints:** Bạn có thể ghi đè các điểm cuối trong tệp kê khai dự án của mình tại đây
+- **Indexer Version:** Đây là phiên bản của dịch vụ nút SubQuery mà bạn muốn chạy SubQuery này. Xem [`@subql/node`](https://www.npmjs.com/package/@subql/node)
+- **Query Version:** Đây là phiên bản của dịch vụ truy vấn SubQuery mà bạn muốn chạy SubQuery này. Xem [`@subql/query`](https://www.npmjs.com/package/@subql/query)
 
 ![Triển khai Dự Án đầu tiên của bạn](https://static.subquery.network/media/projects/projects-first-deployment.png)
 
-If deployed successfully, you'll see the indexer start working and report back progress on indexing the current chain. This process may take time until it reaches 100%.
+Nếu được triển khai thành công, bạn sẽ thấy trình lập chỉ mục bắt đầu hoạt động và báo cáo về tiến độ lập chỉ mục cho chuỗi hiện tại. Tiến trình này có thể mất nhiều thời gian cho tới khi nó đạt đến 100%.
 
 #### Sử dụng CLI
 
@@ -105,10 +105,10 @@ Bạn cũng có thể sử dụng `@subql/cli` để tạo một triển khai m�
 - Một [SUBQL_ACCESS_TOKEN](/docs/run_publish/ipfs.md#prepare-your-subqlaccesstoken) hợp lệ đã sẵn sàng.
 
 ```shell
-// Deploy using the CLI
+// Triển khai sử dụng CLI
 $ suqbl deployment:deploy
 
-// OR Deploy using non-interactive CLI
+// Hoặc triển khai không tác động tới CLI
 $ suqbl deployment:deploy
   --dict=dict                      Enter Dictionary Endpoint
   --endpoint=endpoint              Enter Network Endpoint
