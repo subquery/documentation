@@ -1,14 +1,14 @@
-# Payment Methods
+# 支付方式
 
-For flexibility, there are 3 payment options to pay for blockchain data. 分别是：
+为了支付的灵活性，SubQuery 一共提供了3种支付选项可用于支付区块链数据。 分别是：
 
-- Pay-As-You-Go (PAYG)
-- 封闭式服务协议
-- 开放式服务协议
+- 按需付费 (PAYG)
+- 闭环服务协议
+- 开环服务协议
 
-## Pay-As-You-Go (PAYG)
+## 按需付费 (PAYG)
 
-This is the baseline payment method and a fallback for others. Each Indexer will advertise their PAYG prices when registering their ability to serve requests for specific SubQuery projects.
+这是基础付款方法，也是其他付款方法的后备方法。 Each Indexer will advertise their PAYG prices when registering their ability to serve requests for specific SubQuery projects.
 
 Consumers making requests will have to lock the tokens necessary to make that request in a state channel, and at the end of an Era, these tokens will be distributed to the Indexers based on the Cobb-Douglas production function.
 
