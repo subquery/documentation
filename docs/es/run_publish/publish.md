@@ -56,7 +56,7 @@ Crea tu proyecto y lo verás en la lista de proyectos de SubQuery. _¡Ya casi he
 
 ![Proyecto creado sin despliegue](/assets/img/projects-no-deployment.png)
 
-#### Using the CLI
+#### Usando la interfaz de usuario
 
 También puede utilizar `@subql/cli` para publicar su proyecto en nuestro servicio administrado. Esto requiere:
 
@@ -97,7 +97,7 @@ Con su nuevo proyecto, verá un botón Desplegar Nueva versión. Haga clic en es
 
 Si se implementa con éxito, verás que el indexador empieza a funcionar e informa de los avances en la indexación de la cadena actual. Este proceso puede llevar tiempo hasta que llegue al 100%.
 
-#### Using the CLI
+#### Usando la interfaz de usuario
 
 También puede utilizar `@subql/cli` para crear un nuevo despliegue de su proyecto en nuestro servicio administrado. Esto requiere:
 
