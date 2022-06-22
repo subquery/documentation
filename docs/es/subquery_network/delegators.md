@@ -19,7 +19,7 @@ Hay varios beneficios de convertirse en un Delegador:
 - **Gana recompensas**: Los elegadores pueden poner su SQT a trabajar delegando su SQT a los Indexadores y ganando una parte del paquete de recompensas.
 - **No hay una delegación mínima**: No hay una delegación mínima requerida para ser un Delegador. Esto significa que cualquiera puede unirse sin importar cuánto SQT uno tiene.
 
-## ¿Cómo se recompensa a los elegidores?
+## ¿Cómo se recompensa a los delegadores?
 
 Para atraer a los Delegadores a apoyar su trabajo, los Indexadores ofrecen a los Delegadores una parte de las recompensas que ganan. El Indexador anunciará una tasa de Comisión del Indexador, donde los ingresos restantes se repartirán dentro de la totalidad de la delegación/fondo de apuestas proporcionalmente al valor individual delegado/apostado en el albergue.
 
@@ -29,7 +29,7 @@ Los desempleados sólo recibirán ingresos por apostar Eras de las que formaron 
 
 Si un indexador desea aumentar el tipo de Comisión del Indexador que ofrecen a sus deselegantes, Ellos deben anunciar esto para toda una era de apuestas. El Indexador podrá reducir su tasa de Comisión del Indexador en cualquier momento para elevar más delegados SQT para participar a corto plazo. Los dedos pueden retirar o deseleccionar su cantidad apostada en cualquier momento pero perderán cualquier recompensa ganada en la Era (ya que no formaron parte del grupo de delegaciones durante toda la duración de la Era).
 
-## Riesgos de ser un deselegador
+## Riesgos de ser un delegador
 
 A pesar de que no se considera un papel arriesgado, ser un Delegador incluye algunos riesgos que deben ser conscientes.
 
@@ -57,10 +57,10 @@ Una vez que se encuentre un (los) índice(s) preferido(s), debe realizarse la di
 
 ## Ciclo de vida de deelegación
 
-Los dedores delegan (depósito) SQT en el contrato de un índice.
+Los delegadores delegan (depósito) SQT en el contrato de un índice.
 
-Los dedores pueden entonces decidir cuánto redelegar a cada Indexador de su elección.
+Los delegadores pueden entonces decidir cuánto redelegar a cada Indexador de su elección.
 
-Delegator puede deseleccionar (retirar) los tokens de vuelta a su cartera. Esto activará un período de bloqueo de 28 días.
+El delegador puede deseleccionar (retirar) los tokens de vuelta a su cartera. Esto activará un período de bloqueo de 28 días.
 
 Después de completar el período de desbloqueo, los tokens están disponibles para retirar/reclamar.
