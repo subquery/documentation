@@ -32,6 +32,6 @@ Puede leer más sobre los diferentes métodos de pago, cómo funcionan, y las ve
 
 A menos que se utilice un Acuerdo de Servicio Cerrado, habrá uno o más Indexadores que indizarán un proyecto de SubQuery. Los consumidores tienen la opción de elegir a la hora de decidir el Indexador del que leer los datos. Típicamente los consumidores seleccionarían el índice de latencia más confiable y más bajo. Los consumidores también podrían incorporar la tolerancia automática contra fallos y leer datos de otro Indexador si la primera vez sale o no responde.
 
-### ¿Qué pasa si un Indexer sale de línea?
+### ¿Qué pasa si un Indexador sale de línea?
 
 A menos que se utilice un acuerdo de servicio cerrado, y si hay más de un índice de su proyecto SubQuery, sería simplemente una cuestión de cambiar a otro índice. El escenario ideal sería incluir estrategias como el seguimiento de alertas para ser notificado de posibles problemas y enrutamiento inteligente y cacheo
