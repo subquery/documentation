@@ -9,43 +9,43 @@ Mặc dù bạn luôn có quyền nâng cấp và triển khai các phiên bản
 
 ## Các Thay Đổi Triển Khai
 
-There are two methods to deploy a new version of your project to the SubQuery Managed Service, you can use the UI or directly via the `subql` cli tool.
+Có hai phương pháp để triển khai một phiên bản mới của dự án của bạn cho Dịch vụ quản lý SubQuery, bạn có thể sử dụng giao diện người dùng hoặc trực tiếp thông qua công cụ `subql` cli.
 
-### Using the UI
+### Sử dụng giao diện người dùng
 
-Log into SubQuery Project and select the project you want to deploy a new version of. You can choose to either deploy to the production or staging slot. These two slots are isolated environments and each has their own databases and synchronise independently.
+Đăng nhập vào SubQuery Project và chọn dự án bạn muốn triển khai phiên bản mới. Bạn có thể chọn triển khai trên vị trí sản xuất hoặc vị trí dàn dựng. Hai vị trí này là môi trường biệt lập và mỗi vị trí sở hữu cơ sở dữ liệu riêng và đồng bộ hóa độc lập.
 
-We recommend deploying to your staging slot only for final staging testing or when you need to resync your project data. You can then promote it to production with zero downtime. You will find testing is faster when [running a project locally](../run_publish/run.md) as you can more [easily debug issues](../academy/tutorials_examples/debug-projects.md).
+Chúng tôi khuyên bạn chỉ nên triển khai vào vị trí dàn dựng của mình để kiểm tra giai đoạn cuối cùng hoặc khi bạn cần đồng bộ lại dữ liệu dự án của mình. Sau đó, bạn có thể nâng cấp nó lên phiên bản sản xuất với thời gian chết bằng 0. Bạn sẽ thấy kiểm tra nhanh hơn khi [chạy một dự án cục bộ](../run_publish/run.md) vì bạn có thể [dễ dàng gỡ lỗi các sự cố](../academy/tutorials_examples/debug-projects.md).
 
-The staging slot is perfect for:
+Vị trí dàn dựng sẽ hoàn hảo cho việc:
 
 - Xác thực lần cuối các thay đổi đối với Dự án SubQuery của bạn trong một môi trường riêng biệt. Vị trí dàn dựng có một URL khác để xuất bản mà bạn có thể sử dụng trong dApps của mình.
 - Khởi động và lập chỉ mục dữ liệu cho một dự án SubQuery được cập nhật để loại bỏ thời gian chết trong dApp của bạn
 - Chuẩn bị một bản phát hành mới cho Dự án SubQuery của bạn với chế độ không công khai. Vị trí dàn dựng không được hiển thị công khai trong Explorer và có một URL duy nhất chỉ hiển thị cho bạn.
 
-![Staging slot](/assets/img/staging_slot.png)
+![Vị trí dàn dựng](/assets/img/staging_slot.png)
 
 Điền vào Commit Hash từ GitHub (sao chép toàn bộ commit hash) của phiên bản codebase dự án SubQuery mà bạn muốn triển khai. Bước này sẽ làm tốn nhiều thời gian hơn nữa tùy thuộc vào thời gian cần để lập chỉ mục chuỗi hiện tại. Bạn luôn có thể báo cáo lại tại đây để biết tiến độ.
 
-### Using the CLI
+### Sử dụng CLI
 
-You can also use `@subql/cli` to create a new deployment of your project to our managed service. This requires:
+Bạn cũng có thể sử dụng `@subql/cli` để tạo một triển khai mới của dự án cho dịch vụ được quản lý của chúng tôi. Điều này yêu cầu:
 
-- `@subql/cli` version 1.1.0 or above.
-- A valid [SUBQL_ACCESS_TOKEN](/docs/run_publish/ipfs.md#prepare-your-subqlaccesstoken) ready.
+- `@subql/cli` phiên bản 1.1.0 trở lên.
+- Một [SUBQL_ACCESS_TOKEN](/docs/run_publish/ipfs.md#prepare-your-subqlaccesstoken) hợp lệ đã sẵn sàng.
 
 ```shell
-// You can directly set your Indexer and Query versions
+// Bạn có thể đặt trực tiếp phiên bản Trình lập chỉ mục và Truy vấn của mình
 $ subql deployment:deploy --indexerVersion=1.1.2 --queryVersion=1.1.1
 
-// OR you can use the interface, it will validate your IPFS CID and render a list of image versions that matches your manifest file `project.yaml`
+// HOẶC bạn có thể sử dụng giao diện, nó sẽ xác thực IPFS CID của bạn và hiển thị danh sách các phiên bản image phù hợp với tệp kê khai của bạn 'project.yaml'
 
 $ subql deployment:deploy
 ```
 
-## Upgrade to the Latest Indexer and Query Service
+## Nâng cấp lên Dịch vụ lập chỉ mục và Truy vấn mới nhất
 
-If you just want to upgrade to the latest indexer ([`@subql/node`](https://www.npmjs.com/package/@subql/node)) or query service ([`@subql/query`](https://www.npmjs.com/package/@subql/query)) to take advantage of our regular performance and stability improvements, just select a newer versions of our packages and save. This will cause only a few minutes of downtime as the services running your project are restarted.
+Nếu bạn muốn nâng cấp lên trình lập chỉ mục mới nhất ([`@subql/node`](https://www.npmjs.com/package/@subql/node)) hoặc dịch vụ truy vấn ([`@subql/query`](https://www.npmjs.com/package/@subql/query)) để có lợi thế về khả năng cải thiện độ ổn định và hiệu năng thông thường của chúng tôi, chỉ cần chọn ra các phiên bản mới hơn trong các gói của chúng tôi và lưu lại. Điều này sẽ chỉ gây ra một vài phút ngừng hoạt động khi các dịch vụ chạy dự án của bạn được khởi động lại.
 
 ## Các Bước Tiếp Theo - Kết nối đến Dự Án của bạn
 
@@ -53,4 +53,4 @@ Sau khi việc triển khai đã thành công và các nút của chúng ta đã
 
 ![Các dự án đang được triển khai và đồng bộ](/assets/img/projects-deploy-sync.png)
 
-Ngoài ra, bạn có thể nhấp vào ba dấu chấm bên cạnh tiêu đề dự án của mình và xem nó trên SubQuery Explorer. There you can use the in browser playground to get started - [read more about how to user our Explorer here](../run_publish/query.md).
+Ngoài ra, bạn có thể nhấp vào ba dấu chấm bên cạnh tiêu đề dự án của mình và xem nó trên SubQuery Explorer. Tại đó bạn có thể sử dụng nền tảng trong trình duyệt để bắt đầu - [đọc thêm về cách thức sử dụng Explorer của chúng tôi tại đây](../run_publish/query.md).
