@@ -1,4 +1,4 @@
-# Cosmos Quick Start
+# Bắt đầu nhanh với Cosmos
 
 Trong hướng dẫn bắt đầu nhanh này, chúng ta sẽ bắt đầu với một dự án khởi động Cosmos đơn giản trong Mạng Juno và sau đó kết thúc bằng cách lập chỉ mục một số dữ liệu thực tế. Đây là cơ sở tuyệt vời để bắt đầu khi phát triển Dự án SubQuery của riêng bạn.
 
@@ -8,9 +8,9 @@ Sau khi hoàn thành xong hướng dẫn này, bạn sẽ có một dự án Sub
 
 Nếu bạn chưa sẵn sàng, chúng tôi khuyên bạn nên tự làm quen với [thuật ngữ](../#terminology) được sử dụng trong SubQuery.
 
-**The goal of this quick start guide is to adapt the standard starter project to begin indexing all votes on the [Terra Developer Fund](https://daodao.zone/multisig/juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2) (which also contributed to SubQuery) from Cosmos, it should only take 10-15 minutes**
+**Mục tiêu của hướng dẫn nhanh này là điều chỉnh dự án khởi động tiêu chuẩn để bắt đầu lập chỉ mục tất cả các phiếu bầu trên [ Terra Developer Fund](https://daodao.zone/multisig/juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2) (cũng đóng góp cho SubQuery) từ Cosmos, chỉ mất 10-15 phút**
 
-You can see the final code of this project here at [https://github.com/jamesbayly/juno-terra-developer-fund-votes](https://github.com/jamesbayly/juno-terra-developer-fund-votes)
+Bạn có thể xem code cuối cùng của dự án này tại [https://github.com/jamesbayly/juno-terra-developer-fund-votes](https://github.com/jamesbayly/juno-terra-developer-fund-votes)
 
 ## Chuẩn bị
 
@@ -38,7 +38,7 @@ subql help
 
 ## Khởi tạo Dự án khởi đầu SubQuery
 
-Cosmos is not yet supported in SubQuery's CLI (`subql`), to start with Juno clone or fork the [starter project](https://github.com/subquery/juno-subql-starter).
+Cosmos vẫn chưa được hỗ trợ trong CLI của SubQuery (`subql`), để bắt đầu với Juno clone hoặc fork [dự án khởi đầu](https://github.com/subquery/juno-subql-starter).
 
 Sau khi quá trình khởi tạo hoàn tất, bạn sẽ thấy một thư mục có tên dự án của bạn đã được tạo bên trong thư mục. Nội dung của thư mục này phải giống với nội dung được liệt kê trong [Cấu trúc thư mục](../create/introduction.md#directory-structure).
 
@@ -61,15 +61,15 @@ Mục tiêu của hướng dẫn bắt đầu nhanh này là điều chỉnh d�
 
 Tệp `schema.graphql` xác định các lược đồ GraphQL khác nhau. Do cách hoạt động của ngôn ngữ truy vấn GraphQL, về cơ bản tệp lược đồ chỉ ra hình dạng dữ liệu của bạn từ SubQuery. Đây là một nơi tuyệt vời để bắt đầu vì nó cho phép bạn xác định trước mục tiêu cuối cùng của mình.
 
-We're going to update the `schema.graphql` file to read as follows so we can index all votes on the [Terra Developer Fund](https://daodao.zone/multisig/juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2).
+Chúng tôi sẽ cập nhật tệp `schema.graphql` để trông như sau để chúng tôi có thể lập chỉ mục tất cả các phiếu bầu trên [Terra Developer Fund](https://daodao.zone/multisig/juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2).
 
 ```graphql
 type Vote @entity {
-  id: ID! # id field is always required and must look like this
+  id: ID! # trường id luôn là bắt buộc và phải trông như thế này
   blockHeight: BigInt!
-  voter: String! # The address that voted
-  proposalID: BigInt! # The proposal ID
-  vote: Boolean! # If they voted to support or reject the proposal
+  voter: String! # Địa chỉ đã bỏ phiếu
+  proposalID: BigInt! # ID đề xuất
+  vote: Boolean! # Nếu họ bỏ phiếu ủng hộ hoặc từ chối đề xuất
 }
 ```
 
@@ -84,7 +84,7 @@ Bạn sẽ tìm thấy các model đã tạo trong `thư mục /src/types/models
 
 Tệp Project Manifest (`project.yaml`) có thể được xem là điểm vào dự án của bạn và nó xác định hầu hết các thông tin chi tiết về cách SubQuery sẽ lập chỉ mục và chuyển đổi dữ liệu chuỗi.
 
-Chúng tôi sẽ không thực hiện nhiều thay đổi đối với tệp kê khai vì tệp đã được thiết lập đúng cách, nhưng chúng tôi cần thay đổi trình xử lý của mình. Remember we are planning to index all votes on the [Terra Developer Fund](https://daodao.zone/multisig/juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2). This means that we we will look at messages that use the `vote` contract call, we need to update the `datasources` section to read the following.
+Chúng tôi sẽ không thực hiện nhiều thay đổi đối với tệp kê khai vì tệp đã được thiết lập đúng cách, nhưng chúng tôi cần thay đổi trình xử lý của mình. Hãy nhớ rằng chúng tôi đang có kế hoạch lập chỉ mục tất cả các phiếu bầu trên [Terra Developer Fund](https://daodao.zone/multisig/juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2). Điều này có nghĩa là chúng tôi sẽ xem xét các tin nhắn sử dụng lệnh gọi hợp đồng `vote`, chúng tôi cần cập nhật phần `datasources` để trông nó như sau.
 
 ```yml
 dataSources:
@@ -103,7 +103,7 @@ dataSources:
               contract: "juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2"
 ```
 
-This means we'll run a `handleTerraDeveloperFund` mapping function each and every time there is a `vote` message from the [Terra Developer Fund](https://daodao.zone/multisig/juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2) smart contract.
+Điều này có nghĩa là chúng tôi sẽ chạy một hàm `handleTerraDeveloperFund` lập lược đồ mỗi khi có một `vote` từ hợp đồng thông minh [Terra Developer Fund](https://daodao.zone/multisig/juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2).
 
 Để biết thêm thông tin về tệp Project Manifest (`project.yaml`), hãy xem tài liệu của chúng tôi trong [Build/Manifest File](../build/manifest.md)
 
@@ -111,11 +111,11 @@ This means we'll run a `handleTerraDeveloperFund` mapping function each and ever
 
 Các hàm ánh xạ xác định cách dữ liệu chuỗi được chuyển đổi thành các thực thể GraphQL được tối ưu hóa mà chúng ta đã xác định trước đó trong tệp `schema.graphql`.
 
-Điều hướng đến hàm ánh xạ mặc định trong thư mục `src/mappings `. You'll see four exported functions, `handleBlock`, `handleEvent`, `handleMessage`, and `handleTransaction`. Since we are dealing only with messages, you can delete everything other than the `handleMessage` function.
+Điều hướng đến hàm ánh xạ mặc định trong thư mục `src/mappings `. Bạn sẽ thấy bốn hàm được xuất, `handleBlock`, `handleEvent`, `handleMessage`, và `handleTransaction`. Vì chúng ta chỉ xử lý tin nhắn, bạn có thể xóa mọi thứ khác ngoài hàm `handleMessage`.
 
-The `handleMessage` function recieved event data whenever event matches the filters that we specify previously in our `project.yaml`. We are going to update it to process all `vote` messages and save them to the GraphQL entity that we created earlier.
+Hàm `handleMessage` nhận dữ liệu sự kiện bất cứ khi nào sự kiện khớp với các bộ lọc mà chúng tôi chỉ định trước đó trong `project.yaml` của chúng tôi. Chúng tôi sẽ cập nhật nó để xử lý tất cả các tin nhắn `vote` và lưu chúng vào các thực thể GraphQL mà chúng tôi đã tạo trước đó.
 
-You can update the `handleMessage` function to the following (note the additional imports and renaming the function):
+Bạn có thể cập nhật hàm `handleMessage` lên như sau (lưu ý việc nhập bổ sung và đổi tên hàm):
 
 ```ts
 import { Vote } from "../types";
@@ -137,7 +137,7 @@ export async function handleTerraDeveloperFund(
 }
 ```
 
-What this is doing is receiving a CosmosMessage which includes message data on the payload. We extract this data and then instantiate a new `Vote` entity that we defined earlier in the `schema.graphql` file. Chúng tôi thêm thông tin bổ sung và sau đó sử dụng hàm `.save()` để lưu thực thể mới (SubQuery sẽ tự động lưu nó vào cơ sở dữ liệu).
+Hàm này đang nhận CosmosMessage bao gồm dữ liệu tin nhắn trên trọng tải. Chúng tôi trích xuất dữ liệu này và sau đó khởi tạo thực thể `Vote` mới mà chúng tôi đã xác định trước đó trong tệp `schema.graphql`. Chúng tôi thêm thông tin bổ sung và sau đó sử dụng hàm `.save()` để lưu thực thể mới (SubQuery sẽ tự động lưu nó vào cơ sở dữ liệu).
 
 Để biết thêm thông tin về các hàm ánh xạ, hãy xem tài liệu của chúng tôi trong [Build/Mappings](../build/mapping.md)
 
@@ -188,7 +188,7 @@ query {
 }
 ```
 
-You can see the final code of this project here at [https://github.com/jamesbayly/juno-terra-developer-fund-votes](https://github.com/jamesbayly/juno-terra-developer-fund-votes)
+Bạn có thể xem code cuối cùng của dự án này tại [https://github.com/jamesbayly/juno-terra-developer-fund-votes](https://github.com/jamesbayly/juno-terra-developer-fund-votes)
 
 ### Xuất bản Dự Án SubQuery của bạn
 

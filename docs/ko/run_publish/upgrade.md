@@ -25,7 +25,19 @@
 
 최신 인덱스 ([`@subql/node`](https://www.npmjs.com/package/@subql/node)) 또는 Query 서비스 ([`@subql/query`](https://www.npmjs.com/package/@subql/query)) 업그레이드를 통해 정기적인 성능 및 안정성을 향상시키고자 한다면 새로운 버전의 패키지를 선택하고 저장하세요. 이로 인해 단 몇 분간의 다운타임만 발생합니다.
 
-#### 서브쿼리 프로젝트 신규 버전 배포하기
+#### When using `@subql/cli`
+#### Requirement
+- `@subql/cli` version 1.1.0 or above.
+- Get your [SUBQL_ACCESS_TOKEN](/docs/run_publish/ipfs.md#prepare-your-subqlaccesstoken) ready.
+```
+// You can directly set your Indexer and Query versions
+$ subql deployment:deploy --indexerVersion=1.1.2 --queryVersion=1.1.1
+
+// OR you can use the interface, it will validate your IPFS CID and render a list of image versions that matches your manifest file `project.yaml`
+
+$ subql deployment:deploy
+```
+#### Deploy New Version of your SubQuery Project
 
 배포하려는 SubQuery 프로젝트 코드베이스 버전의 GitHub에서 커밋 해시를 입력합니다(전체 커밋 해시 복사). 이로 인해 현재 체인을 인덱싱하는 데 걸리는 시간에 따라 다운타임이 발생합니다. 진행상황은 언제든지 여기에 보고할 수 있습니다.
 

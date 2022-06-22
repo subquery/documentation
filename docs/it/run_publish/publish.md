@@ -52,9 +52,31 @@ Create your project and you'll see it on your SubQuery Project's list. _We're al
 
 ![Created Project with no deployment](/assets/img/projects-no-deployment.png)
 
+### Creating Projects using CLI
+
+You can also use `@subql/cli` to create your project
+#### Requirements
+- `@subql/cli` version 1.1.0 or above.
+- Get your [SUBQL_ACCESS_TOKEN](/docs/run_publish/ipfs.md#prepare-your-subqlaccesstoken) ready.
+
+```
+// Creating a project using the CLI
+$ subql project:create-project
+
+// OR using non-interactive, it will prompt you if the required fields are missing
+$ subql project:create-project
+    --apiVersion=apiVersion      Api version is default to 2
+    --description=description    Enter description
+    --gitRepo=gitRepo            Enter git repository
+    --org=org                    Enter organization name
+    --project_name=project_name  Enter project name
+```
+
 ### Deploy your first Version
 
-While creating a project will setup the display behaviour of the project, you must deploy a version of it before it becomes operational. Il deploy di una versione fa partire una nuova operazione di indicizzazione SubQuery e imposta il servizio di query richiesto per iniziare ad accettare richieste GraphQL. Qui puoi anche distribuire le nuove versioni ai progetti esistenti.
+### Option 1:
+
+While creating a project will setup the display behaviour of the project, you must deploy a version of it before it becomes operational. Deploying a version triggers a new SubQuery indexing operation to start, and sets up the required query service to start accepting GraphQL requests. You can also deploy new versions to existing projects here.
 
 With your new project, you'll see a Deploy New Version button. Click this, and fill in the required information about the deployment:
 
@@ -63,11 +85,33 @@ With your new project, you'll see a Deploy New Version button. Click this, and f
 - **IPFS:** If deploying from IPFS, paste you IPFS deployment CID (without the leading `ipfs://`)
 - **Override Network and Dictionary Endpoints:** You can override the endpoints in your project manifest here
 - **Indexer Version:** This is the version of SubQuery's node service that you want to run this SubQuery on. See [`@subql/node`](https://www.npmjs.com/package/@subql/node)
-- **Query Version:** Questa è la versione del servizio di query di SubQuery su cui si vuole eseguire questa SubQuery. See [`@subql/query`](https://www.npmjs.com/package/@subql/query)
+- **Query Version:** This is the version of SubQuery's query service that you want to run this SubQuery on. See [`@subql/query`](https://www.npmjs.com/package/@subql/query)
 
 ![Deploy your first Project](https://static.subquery.network/media/projects/projects-first-deployment.png)
 
 If deployed successfully, you'll see the indexer start working and report back progress on indexing the current chain. This process may take time until it reaches 100%.
+
+### Option 2:
+#### Deploying using CLI
+#### Requirements
+- `@subql/cli` version 1.1.0 or above.
+- Get your [SUBQL_ACCESS_TOKEN](/docs/run_publish/ipfs.md#prepare-your-subqlaccesstoken) ready.
+
+```
+// Deploy using the CLI
+$ suqbl deployment:deploy
+
+// OR Deploy using non-interactive CLI
+$ suqbl deployment:deploy
+  --dict=dict                      Enter Dictionary Endpoint
+  --endpoint=endpoint              Enter Network Endpoint
+  --indexerVersion=indexerVersion  Enter indexer-version
+  --ipfsCID=ipfsCID                Enter IPFS CID
+  --org=org                        Enter Organization Name
+  --project_name=project_name      Enter Project Name
+  --queryVersion=queryVersion      Enter Query-version
+  --type=type                      Enter deployment type e.g. primary or stage
+```
 
 ## Passi successivi - Collegati al tuo progetto
 
@@ -77,7 +121,7 @@ Una volta che il tuo deployment è stato completato con successo e i nostri nodi
 
 In alternativa, puoi cliccare sui tre puntini accanto al titolo del tuo progetto e visualizzarlo su SubQuery Explorer. There you can use the in-browser playground to get started - [read more about how to use our Explorer here](../run_publish/query.md).
 
-![Progetti nell'esploratore di subquery](/assets/img/projects-explorer.png)
+![Projects in SubQuery Explorer](/assets/img/projects-explorer.png)
 
 ## Aggiungere l'account dell'organizzazione GitHub ai progetti SubQuery
 
@@ -94,3 +138,6 @@ Once you have revoked access, log out of [SubQuery Projects](https://project.sub
 ![Revoke approval from a GitHub account](/assets/img/project_auth_request.png)
 
 Once this request has been approved by your administrator (or if are able to grant it youself), you will see the correct GitHub Organization account in the account switcher.
+
+
+

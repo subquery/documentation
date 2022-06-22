@@ -25,7 +25,19 @@ Lo slot per la messa in scena è perfetto per:
 
 Se vuoi solo aggiornare all'ultimo indexer ([`@subql/node`](https://www.npmjs.com/package/@subql/node)) o servizio di query ([`@subql/query`](https://www.npmjs.com/package/@subql/query)) per approfittare dei nostri regolari miglioramenti di prestazioni e stabilità, basta selezionare una versione più recente dei nostri pacchetti e salvare. Questo causerà solo pochi minuti di inattività.
 
-#### Distribuire una nuova versione del tuo progetto SubQuery
+#### When using `@subql/cli`
+#### Requirement
+- `@subql/cli` version 1.1.0 or above.
+- Get your [SUBQL_ACCESS_TOKEN](/docs/run_publish/ipfs.md#prepare-your-subqlaccesstoken) ready.
+```
+// You can directly set your Indexer and Query versions
+$ subql deployment:deploy --indexerVersion=1.1.2 --queryVersion=1.1.1
+
+// OR you can use the interface, it will validate your IPFS CID and render a list of image versions that matches your manifest file `project.yaml`
+
+$ subql deployment:deploy
+```
+#### Deploy New Version of your SubQuery Project
 
 Compila il Commit Hash da GitHub (copia l'hash di commit completo) della versione del codice del tuo progetto SubQuery che vuoi distribuire. Questo causerà un tempo di inattività più lungo a seconda del tempo necessario per indicizzare la catena corrente. Puoi sempre fare rapporto qui per i progressi.
 

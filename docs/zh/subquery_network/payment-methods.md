@@ -1,10 +1,10 @@
 # Payment Methods
 
-For flexibility, there are 3 payment options to pay for blockchain data. They are:
+For flexibility, there are 3 payment options to pay for blockchain data. 分别是：
 
 - Pay-As-You-Go (PAYG)
-- Closed Service Agreement
-- Open Service Agreement
+- 封闭式服务协议
+- 开放式服务协议
 
 ## Pay-As-You-Go (PAYG)
 
@@ -20,7 +20,7 @@ Closed Agreements are designed to give Indexers confidence that there is a marke
 
 Closed Plans can also be placed on existing SubQuery Projects to attract additional Indexers to that SubQuery Project. This may be useful in situations where the existing monopolistic Indexer may be charging an unreasonable amount for the data or there is a lack of competition to drive prices to equilibrium.
 
-## Open Service Agreement
+## 开放式服务协议
 
 Open Market Service Agreements are similar to Closed Market Service Agreements, but allow multiple Indexers to join and compete to provide data to the Consumer. An Open Market Service Agreement may start as a contract between 1 Consumer and 1 Indexer, but more parties may join the contract resulting in *n* consumer and *n* indexers.
 
@@ -34,4 +34,4 @@ Today, we generally pay with subscription-based payments for the music we listen
 
 We think subscription based or recurring payment methods are here to stay. Service providers like them because they represent predictable revenue, similarly on the other side consumers like them because they are a known and easily quantified cost. There’s also a psychological factor where once you subscribe, most consumers will feel obligated to consume as much if not all of it, increasing the demand for the service and allowing economies of scale to kick in.
 
-The combination of the above three payment options for indexers provide several advanced subscription based options for Consumers and Indexers. Some parties may benefit from the certainty of rewards provided by Closed Agreements and the predictability of recurring costs. Equally, others may instead prefer to hunt out the most affordable data by going for high volume recurring agreements or low spot prices on the Pay-As-You-Go market.
+The combination of the above three payment options for indexers provide several advanced subscription based options for Consumers and Indexers. 一些参与者可能会受益于封闭协议提供的奖励确定性和经常性成本的可预测性。 Equally, others may instead prefer to hunt out the most affordable data by going for high volume recurring agreements or low spot prices on the Pay-As-You-Go market.

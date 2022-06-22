@@ -25,7 +25,19 @@ Staging slot เหมาะสำหรับ:
 
 หากคุณต้องการอัปเกรด indexer ([`@subql/node`](https://www.npmjs.com/package/@subql/node)) หรือ query service ([`@subql/query`](https://www.npmjs.com/package/@subql/query)) เป็นตัวล่าสุด เพื่อใช้ประโยชน์จากการปรับปรุงประสิทธิภาพและความเสถียร เพียงเลือกแพ็คเกจเวอร์ชันใหม่กว่าของเราแล้วบันทึก การอัปเกรดนี้จะทำให้เกิดการ downtime เพียงไม่กี่นาที
 
-#### Deploy SubQuery Project เวอร์ชันใหม่ของคุณ
+#### When using `@subql/cli`
+#### Requirement
+- `@subql/cli` version 1.1.0 or above.
+- Get your [SUBQL_ACCESS_TOKEN](/docs/run_publish/ipfs.md#prepare-your-subqlaccesstoken) ready.
+```
+// You can directly set your Indexer and Query versions
+$ subql deployment:deploy --indexerVersion=1.1.2 --queryVersion=1.1.1
+
+// OR you can use the interface, it will validate your IPFS CID and render a list of image versions that matches your manifest file `project.yaml`
+
+$ subql deployment:deploy
+```
+#### Deploy New Version of your SubQuery Project
 
 กรอก Commit Hash จาก GitHub (คัดลอก commit hash แบบเต็ม) ของโค้ดโปรเจกต์ SubQuery เวอร์ชั่นที่คุณต้องการ deploy การกรอก Commit Hash จาก GitHub จะทำให้มี downtime นานขึ้น ซึ่งขึ้นอยู่กับเวลาที่ใช้ในการจัดทำ index ข้อมูลของเชนปัจจุบัน คุณสามารถรายงาน progress ของคุณได้ที่นี่
 

@@ -1,140 +1,140 @@
-# Indexers
+# Pengindeks
 
-## What is an Indexer?
+## Apa itu Pengindeks?
 
-An Indexer is a SubQuery network participant who is responsible for indexing blockchain data and providing this data to their customers.
+Pengindeks adalah peserta jaringan SubQuery yang bertanggung jawab untuk mengindeks data blockchain dan memberikan data ini kepada pelanggan mereka.
 
-Indexers play a very important role within the SubQuery network. As a part of a data-as-a-service business, an Indexer turns computational and networking power into profits.
+Pengindeks memainkan peran yang sangat penting dalam jaringan SubQuery. Sebagai bagian dari bisnis data sebagai layanan, Pengindeks mengubah kekuatan komputasi dan jaringan menjadi keuntungan.
 
-## Indexer Staking
+## Staking Pengindeks
 
-In order to earn rewards from query revenue as an Indexer it is proposed that Indexers must stake SQT against a particular SubQuery Project that they are providing the service to. The Cobb-Douglas production function will be used to determine the rewards distributed to each Indexer.
+Untuk mendapatkan imbalan dari pendapatan kueri sebagai Pengindeks, diusulkan agar Pengindeks harus mempertaruhkan SQT terhadap Proyek SubQuery tertentu yang mereka sediakan layanannya. Fungsi produksi Cobb-Douglas akan digunakan untuk menentukan hadiah yang didistribusikan ke setiap Pengindeks.
 
-SubQuery plans to add a constraint to the network where an indexer must stake a minimum amount of SQT on the relevant reward pool to be able to participate in its matching Open Agreement. They must also stake a minimum amount on an equivalent staking contract for any Closed Agreements in the same fashion. This indexer staked minimum value must be a certain percentage of the Agreement’s per Era reward value, which means in order to renew the Agreement to higher volumes, the indexer must also increase their stake. When an indexer’s stake decreases beneath this minimum amount, they will be unable to renew the Agreement at the existing price.
+SubQuery berencana untuk menambahkan batasan ke jaringan di mana pengindeks harus mempertaruhkan jumlah minimum SQT pada kumpulan hadiah yang relevan untuk dapat berpartisipasi dalam Perjanjian Terbuka yang cocok. Mereka juga harus mempertaruhkan jumlah minimum pada kontrak taruhan yang setara untuk setiap Perjanjian Tertutup dengan cara yang sama. Nilai minimum yang dipertaruhkan pengindeks ini harus berupa persentase tertentu dari nilai hadiah Perjanjian per Era, yang berarti untuk memperbarui Perjanjian ke volume yang lebih tinggi, pengindeks juga harus meningkatkan taruhannya. Ketika saham pengindeks berkurang di bawah jumlah minimum ini, mereka tidak akan dapat memperbarui Perjanjian dengan harga yang ada.
 
-If an Indexer is caught misbehaving (such as by providing invalid, incomplete, or incorrect data), they are liable to have a portion of their staked SQT (on the particular reward pool ip) reallocated to the SubQuery Foundation Treasury, diminishing their holdings of staked SQT in the network and therefore their potential reward. Since the indexer’s allocated stake is determined by a percentage of their total SQT, this will have a flow on effect to all other reward pools that the indexer is party to.
+Jika Pengindeks ketahuan melakukan kesalahan (seperti dengan memberikan data yang tidak valid, tidak lengkap, atau salah), mereka bertanggung jawab untuk memiliki sebagian dari SQT mereka yang dipertaruhkan (pada ip kumpulan hadiah tertentu) yang dialokasikan kembali ke SubQuery Foundation Treasury, mengurangi kepemilikan mereka atas mempertaruhkan SQT dalam jaringan dan oleh karena itu potensi imbalan mereka. Karena saham yang dialokasikan pengindeks ditentukan oleh persentase dari total SQT mereka, ini akan memiliki aliran yang berpengaruh ke semua kumpulan hadiah lain yang menjadi pihak pengindeks.
 
-## How are Indexers rewarded?
+## Bagaimana Pengindeks dihargai?
 
-Indexers are rewarded in SQT in two ways:
-- Rewards from SQT reward pools based on distribution defined by the Cobb-Douglas Production Function
-- Direct SQT query fee rewards from Closed Agreements that an indexer is party to
+Pengindeks dihargai di SQT dalam dua cara:
+- Hadiah dari kumpulan hadiah SQT berdasarkan distribusi yang ditentukan oleh Fungsi Produksi Cobb-Douglas
+- Imbalan biaya kueri SQT langsung dari Perjanjian Tertutup yang merupakan pihak pengindeks
 
-Indexers are rewarded the fees that Consumers pay for providing blockchain data that the Consumer has reqested. An Indexer will receive all the fees from a Closed Agreement. Otherwise, the fees are split based on the amount of work performed (requests served) and the amount of delegated SQT - this split is determined by applying the Cobb-Douglas Production Function.
+Pengindeks diberi imbalan atas biaya yang dibayar Konsumen untuk menyediakan data blockchain yang diminta Konsumen. Pengindeks akan menerima semua biaya dari Perjanjian Tertutup. Jika tidak, biaya dibagi berdasarkan jumlah pekerjaan yang dilakukan (permintaan dilayani) dan jumlah SQT yang didelegasikan - pembagian ini ditentukan dengan menerapkan Fungsi Produksi Cobb-Douglas.
 
-There may be multiple reward pools simultaneously active for a given Indexer. The indexer’s job is to allocate their staked and delegated SQT amongst these pools (in terms of a percentage of their total SQT). There will be a reward pool for each project that the Indexer accepts PAYG, and a reward pool for each Market Agreement that the Indexer is a party of.
+Mungkin ada beberapa kumpulan hadiah yang aktif secara bersamaan untuk Pengindeks tertentu. Tugas pengindeks adalah mengalokasikan SQT yang dipertaruhkan dan didelegasikan di antara kumpulan ini (dalam hal persentase dari total SQT mereka). Akan ada kumpulan hadiah untuk setiap proyek yang Pengindeks menerima PAYG, dan kumpulan hadiah untuk setiap Perjanjian Pasar yang Pengindeks adalah salah satu pihak.
 
-## Attracting Delegators
+## Menarik Delegator
 
-Indexers can increase their earning potential by attracting Delegators. Delegators are SQT token holders who can delegate their tokens to Indexers for additional rewards. Indexers use these additional tokens to increase the amount they allocate to projects of their choice. This allows Indexers to increase their earnings.
+Pengindeks dapat meningkatkan potensi penghasilan mereka dengan menarik Delegator. Delegator adalah pemegang token SQT yang dapat mendelegasikan token mereka ke Pengindeks untuk hadiah tambahan. Pengindeks menggunakan token tambahan ini untuk meningkatkan jumlah yang mereka alokasikan ke proyek pilihan mereka. Hal ini memungkinkan Pengindeks untuk meningkatkan penghasilan mereka.
 
-Indexers set an Indexer’s Commission Rate (ICR) which is the percentage Indexers earn. The remaining is then shared amongst the Indexer and all Delegators propotionally by staked/delegated amount. Therefore, Indexers need to decide on the proportion of profits an Indexer wishes to retain versus the amount to share with their Delegators. A lower ICR will be more attractive for Delegators.
+Pengindeks menetapkan Tingkat Komisi Pengindeks (ICR) yang merupakan persentase yang diperoleh Pengindeks. Sisanya kemudian dibagikan di antara Pengindeks dan semua Delegator secara proporsional berdasarkan jumlah yang dipertaruhkan/didelegasikan. Oleh karena itu, Pengindeks perlu memutuskan proporsi keuntungan yang ingin dipertahankan Pengindeks versus jumlah yang akan dibagikan dengan Delegator mereka. ICR yang lebih rendah akan lebih menarik bagi Delegator.
 
-For example, Indexer A has set an ICR of 80% and has received SQT from 8 Delegators. This means that the 8 Delegators plus the Indexer itself, will be rewarded a share of the remaining 20% of what the Indexer has earned. The share will be split proportionally between them. Note that Delegators must have delegated their tokens for the entire Era to be eligible for these rewards. For more information on Delegators rewards, see [Delegators](./delegators.md).
+Misalnya, Pengindeks A telah menetapkan ICR sebesar 80% dan telah menerima SQT dari 8 Delegator. Ini berarti bahwa 8 Delegator ditambah Pengindeks itu sendiri, akan diberikan bagian dari 20% sisa dari apa yang telah diperoleh Pengindeks. Bagian itu akan dibagi secara proporsional di antara mereka. Perhatikan bahwa Delegator harus mendelegasikan token mereka untuk seluruh Era agar memenuhi syarat untuk hadiah ini. Untuk informasi selengkapnya tentang hadiah Delegator, lihat [Delegator](./delegators.md).
 
-## Becoming an Indexer
+## Menjadi Pengindeks
 
-To become an Indexer on the SubQuery Network, the Indexer must possess the necessary hardware, run the required SubQuery services, have a publicly accessible network via a static IP or a domain name, and register as an Indexer.
+Untuk menjadi Pengindeks di Jaringan SubQuery, Pengindeks harus memiliki perangkat keras yang diperlukan, menjalankan layanan SubQuery yang diperlukan, memiliki jaringan yang dapat diakses publik melalui IP statis atau nama domain, dan mendaftar sebagai Pengindeks.
 
-### Indexer skillset
+### Keahlian pengindeks
 
-In general, an Indexer should be a technically proficient computer user. However, the simplicity of the SubQuery network and proposed frameworks allows even a junior developer to successfully participate.
+Secara umum, Pengindeks harus menjadi pengguna komputer yang mahir secara teknis. Namun, kesederhanaan jaringan SubQuery dan kerangka kerja yang diusulkan memungkinkan pengembang junior untuk berpartisipasi dengan sukses.
 
-A basic user should be familiar with provisioning and managing servers, installing the SubQuery CLI tools, database management, and basic networking. More experienced users may run nodes in a clustered environment, incorporate monitoring and alerts and also more advanced networking management.
+Pengguna dasar harus terbiasa dengan penyediaan dan pengelolaan server, menginstal alat SubQuery CLI, manajemen database, dan jaringan dasar. Pengguna yang lebih berpengalaman dapat menjalankan node dalam lingkungan berkerumun, menggabungkan pemantauan dan peringatan dan juga manajemen jaringan yang lebih maju.
 
-Finally, interested parties should be prepared to invest time in maintaining their indexing nodes and infrastructure.
+Terakhir, pihak yang berkepentingan harus siap untuk menginvestasikan waktu dalam memelihara node dan infrastruktur pengindeksan mereka.
 
-### Staking requirements
+### Persyaratan taruhan
 
-Indexers are expected to stake and maintain a minimum amount of tokens. This is to ensure that Indexers have some skin in the game and are committed to supporting the network. SubQuery is yet to determine this but it is one of our [design philosophies](./design-philosophy.md) that this be as low and as accessible as possible.
+Pengindeks diharapkan untuk mempertaruhkan dan mempertahankan jumlah token minimum. Ini untuk memastikan bahwa Pengindeks memiliki beberapa kulit dalam permainan dan berkomitmen untuk mendukung jaringan. SubQuery belum menentukan hal ini tetapi ini adalah salah satu [filosofi desain](./design-philosophy.md) kami bahwa ini serendah dan semudah mungkin.
 
-Should an Indexer experience a slashable event and their staked SQT balance fall below the minimum required, they will have to top up their staked SQT in order to continue to earn rewards from their work.
+Jika Pengindeks mengalami peristiwa slashable dan saldo SQT yang dipertaruhkan turun di bawah minimum yang dipersyaratkan, mereka harus menambah SQT yang dipertaruhkan untuk terus mendapatkan imbalan dari pekerjaan mereka.
 
-### Hardware requirements
+### Persyaratan perangkat keras
 
-Indexers can either invest in their own infrastructure hardware or rent infrastructure from the likes of AWS, Google Cloud, Digital Ocean, Microsoft Azure etc.
+Pengindeks dapat berinvestasi dalam perangkat keras infrastruktur mereka sendiri atau menyewa infrastruktur dari AWS, Google Cloud, Digital Ocean, Microsoft Azure, dll.
 
-### Maintenance/operational requirements
+### Persyaratan pemeliharaan/operasional
 
-Here are some of the maintenance and/or operational requirements Indexers should expect:
+Berikut adalah beberapa pemeliharaan dan/atau persyaratan operasional yang diharapkan Pengindeks:
 
-- Always upgrade to the latest Subquery software version
-- Identify and take advantage of new indexing opportunities
-- Update project version to latest and reindex where necessary
-- Infrastructure maintenance
-  - Constantly monitoring and upsizing disk
-  - Right size query and indexing compute based on traffic
-  - Increase query services for increasing ingress traffic
+- Selalu tingkatkan ke versi perangkat lunak Subquery terbaru
+- Identifikasi dan manfaatkan peluang pengindeksan baru
+- Perbarui versi proyek ke yang terbaru dan indeks ulang jika perlu
+- Pemeliharaan infrastruktur
+  - Memantau dan meningkatkan ukuran disk secara konstan
+  - Kueri ukuran yang tepat dan penghitungan pengindeksan berdasarkan lalu lintas
+  - Tingkatkan layanan kueri untuk meningkatkan lalu lintas masuk
 
-### Infrastructure
+### Infrastruktur
 
-The minimum infrastructure requirement includes:
+Persyaratan infrastruktur minimal meliputi:
 
-- At least one computational node to run the following services:
-  - [Node (indexing) Service](https://www.npmjs.com/package/@subql/node)
-  - [Query Service](https://www.npmjs.com/package/@subql/query)
-  - [Indexer Coordinator Service](https://www.npmjs.com/package/@subql/indexer-coordinator)
-- One database node to run Postgresql db (v12 and above).
+- Setidaknya satu node komputasi untuk menjalankan layanan berikut:
+  - [Layanan Node (pengindeksan)](https://www.npmjs.com/package/@subql/node)
+  - [Layanan Permintaan](https://www.npmjs.com/package/@subql/query)
+  - [Layanan Koordinator Pengindeks](https://www.npmjs.com/package/@subql/indexer-coordinator)
+- Satu node database untuk menjalankan Postgresql db (v12 ke atas).
 
-More detailed information will come soon.
+Informasi lebih detail akan segera hadir.
 
-## Security & Performance considerations
+## Keamanan & Pertimbangan kinerja
 
-Security and performance considerations are as follows.
+Pertimbangan keamanan dan kinerja adalah sebagai berikut.
 
-### Operator Wallets
+### Dompet Operator
 
-Secure storage of an Indexer’s wallet recovery seed phrase is highly recommended.
+Penyimpanan yang aman dari frase benih pemulihan dompet Pengindeks sangat disarankan.
 
-### Firewalls
+### Firewall
 
-Indexers need to keep security front of mind. Infrastructure security, in particular firewalls, should be implemented to prevent public exposure to personal ports.
+Pengindeks perlu menjaga keamanan di depan pikiran. Keamanan infrastruktur, khususnya firewall, harus diterapkan untuk mencegah paparan publik terhadap port pribadi.
 
-Secure passwords should be used by default and password rotation policies should be considered.
+Kata sandi yang aman harus digunakan secara default dan kebijakan rotasi kata sandi harus dipertimbangkan.
 
-### Indexer’s Performance
+### Kinerja Pengindeks
 
-In order to generate desirable performances, Indexers need to consider various factors such as:
+Untuk menghasilkan kinerja yang diinginkan, Pengindeks perlu mempertimbangkan berbagai faktor seperti:
 
-- the balance between their own stake and that of Delegators.
-- the type of contract being served. The Indexer will receive all the query fees if it is a closed contract. If it is open, then an Indexer’s reward will depend on how many other Indexers there are.
-- fulfilling of the Service Level Agreement (SLA) specifications (to avoid slashing penalties)
-- the accuracy of the data being served to avoid slashing penalties
+- keseimbangan antara taruhan mereka sendiri dan Delegator.
+- jenis kontrak yang dilayani. Pengindeks akan menerima semua biaya kueri jika itu adalah kontrak tertutup. Jika terbuka, maka hadiah Pengindeks akan tergantung pada berapa banyak Pengindeks lain yang ada.
+- memenuhi spesifikasi Service Level Agreement (SLA) (untuk menghindari hukuman pemotongan)
+- akurasi data yang disajikan untuk menghindari pemotongan penalti
 
-## Selecting SubQuery Projects to Index
+## Memilih Proyek SubQuery untuk Diindeks
 
-There are several indicators that an Indexer needs to consider when selecting a SubQuery project to index.
+Ada beberapa indikator yang perlu dipertimbangkan oleh Pengindeks saat memilih proyek SubQuery untuk diindeks.
 
-### Query Fee Opportunities
+### Peluang Biaya Kueri
 
-Some projects will have open or closed plans advertised by consumers.
+Beberapa proyek akan memiliki rencana terbuka atau tertutup yang diiklankan oleh konsumen.
 
-When a Consumer advertises an open or closed plan for a project, they ultimately specify how much they are willing to pay for a set volume of requests. The more a Consumer is willing to pay, the more attractive the project will be for an Indexer. It also provides confidence that there will likely be recurring revenue from this SubQuery project.
+Ketika Konsumen mengiklankan rencana terbuka atau tertutup untuk sebuah proyek, mereka akhirnya menentukan berapa banyak mereka bersedia membayar untuk sejumlah permintaan. Semakin banyak Konsumen yang bersedia membayar, semakin menarik proyek tersebut bagi Pengindeks. Ini juga memberikan keyakinan bahwa kemungkinan akan ada pendapatan berulang dari proyek SubQuery ini.
 
-### Project complexity
+### Kompleksitas proyek
 
-Projects will vary in computation requirements. Simple projects will only index a few parameters whereas more complicated projects will require more computation resources and more bandwidth. Indexers need to understand the complexity of the project and its hardware capabilities.
+Proyek akan bervariasi dalam persyaratan komputasi. Proyek sederhana hanya akan mengindeks beberapa parameter sedangkan proyek yang lebih rumit akan membutuhkan lebih banyak sumber daya komputasi dan lebih banyak bandwidth. Pengindeks perlu memahami kompleksitas proyek dan kemampuan perangkat kerasnya.
 
-### Indexer Competition
+### Kompetisi Pengindeks
 
-Popular projects offering a high query volume that attract a large number of Indexers. This also implies that the rewards will be shared amongst more people. A single Indexer’s share may be less than a less popular project with a slightly lower query fee but with far fewer Indexers.
+Kompetisi Pengindeks. Ini juga menyiratkan bahwa hadiah akan dibagikan di antara lebih banyak orang. Bagian Pengindeks tunggal mungkin kurang dari proyek yang kurang populer dengan biaya kueri yang sedikit lebih rendah tetapi dengan Pengindeks yang jauh lebih sedikit.
 
-### Pricing Strategy
+### Strategi Harga
 
-Indexers need to be aware of their operation cost and expected incomes to understand their break-even point. Some considerations are:
+Pengindeks perlu menyadari biaya operasi mereka dan pendapatan yang diharapkan untuk memahami titik impas mereka. Beberapa pertimbangan adalah:
 
-- How should Indexers set their plan prices?
-- At what price can Indexers accept a service agreement or not?
+- Bagaimana seharusnya Pengindeks menetapkan harga paket mereka?
+- Pada harga berapa Pengindeks dapat menerima perjanjian layanan atau tidak?
 
-### Advertisements
+### Iklan
 
-Indexers need to advertise themselves to Delegators as well as Consumers. Indexers may do this from their own website, in the Subquery forums or any other places deemed necessary. Some examples of the information to provide are:
+Pengindeks perlu mengiklankan diri mereka sendiri kepada Delegator dan juga Konsumen. Pengindeks dapat melakukan ini dari situs web mereka sendiri, di forum Subquery atau tempat lain yang dianggap perlu. Beberapa contoh informasi yang harus diberikan adalah:
 
-- The background and experience of the Indexer or Indexer’s team
-- The hardware approach and why it provides superior performance
-- The customer support policy or SLA
-- Evidence of historical performances
+- Latar belakang dan pengalaman tim Pengindeks atau Pengindeks
+- Pendekatan perangkat keras dan mengapa itu memberikan kinerja yang unggul
+- Kebijakan dukungan pelanggan atau SLA
+- Bukti pertunjukan sejarah
 
-### Customer support
+### Dukungan pelanggan
 
-Indexers are highly encouraged to provide a communication method for its customers to report inavailability and also to provide feedback.
+Pengindeks sangat dianjurkan untuk menyediakan metode komunikasi bagi pelanggannya untuk melaporkan ketidaktersediaan dan juga untuk memberikan umpan balik.

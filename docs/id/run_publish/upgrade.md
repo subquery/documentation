@@ -11,7 +11,7 @@ Meskipun Anda memiliki kebebasan untuk selalu meningkatkan dan menerapkan versi 
 
 Masuk ke Proyek SubQuery dan pilih proyek yang ingin Anda terapkan versi barunya. Anda dapat memilih untuk menyebarkan ke slot produksi atau pementasan. Kedua slot ini adalah lingkungan yang terisolasi dan masing-masing memiliki database sendiri dan disinkronkan secara independen.
 
-Kami merekomendasikan penerapan ke slot staging Anda hanya untuk pengujian staging akhir atau saat Anda perlu menyinkronkan ulang data proyek Anda. Anda kemudian dapat mempromosikannya ke produksi tanpa downtime. You will find testing is faster when [running a project locally](../run_publish/run.md) as you can more [easily debug issues](../academy/tutorials_examples/debug-projects.md).
+Kami merekomendasikan penerapan ke slot staging Anda hanya untuk pengujian staging akhir atau saat Anda perlu menyinkronkan ulang data proyek Anda. Anda kemudian dapat mempromosikannya ke produksi tanpa downtime. Anda akan menemukan pengujian lebih cepat ketika [menjalankan proyek secara lokal](../run_publish/run.md) karena Anda dapat [men-debug masalah dengan lebih mudah](../academy/tutorials_examples/debug-projects.md).
 
 Slot staging sangat cocok untuk:
 
@@ -25,6 +25,18 @@ Slot staging sangat cocok untuk:
 
 Jika Anda hanya ingin meningkatkan ke pengindeks terbaru ([`@subql/node`](https://www.npmjs.com/package/@subql/node)) atau layanan kueri ([`@subql/query`](https://www.npmjs.com/package/@subql/query)) untuk mendapat keuntungan dari peningkatan stabilitas dan performa reguler kami, cukup pilih versi terbaru dari paket kami dan simpan. Ini hanya akan menyebabkan waktu henti beberapa menit.
 
+#### Ketika memakai `@subql/cli`
+#### Standar permintaan
+- `@subql/cli` versi 1.1.0 atau lebih tinggi.
+- Siapkan [SUBQL_ACCESS_TOKEN](/docs/run_publish/ipfs.md#prepare-your-subqlaccesstoken) Anda.
+```
+// Anda dapat langsung mengatur versi Pengindeks dan Kueri Anda
+$ subql deployment:deploy --indexerVersion=1.1.2 --queryVersion=1.1.1
+
+// ATAU Anda dapat menggunakan antarmuka, itu akan memvalidasi CID IPFS Anda dan membuat daftar versi gambar yang cocok dengan file manifes Anda `project.yaml`
+
+$ subql deployment:deploy
+```
 #### Terapkan Versi Baru Proyek SubQuery Anda
 
 Isi Commit Hash dari GitHub (salin commit hash penuh) dari versi basis kode proyek SubQuery yang ingin Anda terapkan. Ini akan menyebabkan waktu henti yang lebih lama tergantung pada waktu yang diperlukan untuk mengindeks rangkaian saat ini. Anda selalu dapat melaporkan kembali ke sini untuk perkembangan.
@@ -35,4 +47,4 @@ Setelah penerapan Anda berhasil diselesaikan dan node kami telah mengindeks data
 
 ![Proyek sedang diterapkan dan disinkronkan](/assets/img/projects-deploy-sync.png)
 
-Atau, Anda dapat mengklik tiga titik di samping judul proyek Anda, dan melihatnya di SubQuery Explorer. There you can use the in browser playground to get started - [read more about how to user our Explorer here](../run_publish/query.md).
+Atau, Anda dapat mengklik tiga titik di samping judul proyek Anda, dan melihatnya di SubQuery Explorer. Di sana Anda dapat menggunakan taman bermain dalam browser untuk memulai - [baca selengkapnya tentang cara menggunakan Explorer kami di sini](../run_publish/query.md).

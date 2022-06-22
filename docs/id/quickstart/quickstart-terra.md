@@ -1,14 +1,14 @@
-# Terra Quick Start
+# Memulai Cepat Terra
 
-In this Quick start guide, we're going to start with a simple Terra starter project and then finish by indexing some actual real data. Ini adalah dasar yang sangat baik untuk memulai ketika mengembangkan Proyek SubQuery Anda sendiri.
+Dalam panduan singkat ini, kita akan memulai dengan proyek awal yang sederhana dan kemudian menyelesaikannya dengan mengindeks beberapa data nyata yang sebenarnya. Ini adalah dasar yang sangat baik untuk memulai ketika mengembangkan Proyek SubQuery Anda sendiri.
 
-**If your are looking for guides for Substrate/Polkadot, you can read the [Substrate/Polkadot specific quick start guide](./quickstart-polkadot).**
+**Jika Anda mencari panduan untuk Substrat/Polkadot, Anda dapat membaca [Panduan memulai cepat khusus Substrat/Polkadot](./quickstart-polkadot).**
 
 Di akhir panduan ini, Anda akan memiliki proyek SubQuery yang berjalan pada node SubQuery dengan titik akhir GraphQL tempat dimana Anda dapat membuat kueri data.
 
 Jika Anda belum melakukannya, sebaiknya Anda membiasakan diri dengan [terminologi](../#terminology) yang digunakan di SubQuery.
 
-**The goal of this quick start guide is to adapt the standard starter project to begin indexing all transfers from Terra, it should only take 10-15 minutes**
+**Tujuan dari panduan memulai cepat ini adalah untuk mengadaptasi proyek pemula standar untuk mulai mengindeks semua transfer dari Terra, hanya membutuhkan waktu 10-15 menit**
 
 ## Persiapan
 
@@ -44,12 +44,12 @@ subql init
 
 Anda akan ditanyai pertanyaan tertentu saat proyek SubQuery diinisialisasi:
 
-- Project Name: A name for your SubQuery project
-- Network Family: The layer-1 blockchain network family that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use *"Terra"*
-- Network: The specific network that this SubQuery project will be developed to index, use the arrow keys on your keyboard to select from the options, for this guide we will use *"Terra"*
+- Nama Proyek: Nama untuk proyek SubQuery Anda
+- Keluarga Jaringan: Keluarga jaringan blockchain layer-1 yang proyek SubQuery ini akan dikembangkan untuk diindeks, gunakan tombol panah pada keyboard Anda untuk memilih dari opsi, untuk panduan ini kita akan menggunakan *"Terra"*
+- Jaringan: Jaringan spesifik yang akan diindeks oleh proyek SubQuery ini, gunakan tombol panah pada keyboard Anda untuk memilih dari opsi, untuk panduan ini kami akan menggunakan *"Terra"*
 - Template: Pilih template proyek SubQuery yang akan memberikan titik awal untuk memulai pengembangan, sebaiknya pilih *"Proyek Pemula"*
 - Git repository (Opsional): Berikan URL Git ke repo tempat proyek SubQuery ini akan dihosting (saat dihosting di SubQuery Explorer)
-- RPC endpoint (Diperlukan): Berikan URL HTTPS ke titik akhir RPC yang sedang berjalan yang akan digunakan secara default untuk proyek ini. Node RPC ini harus berupa node arsip (memiliki status rantai penuh). For this guide we will use the default value *"https://terra-columbus-5.beta.api.onfinality.io"*
+- RPC endpoint (Diperlukan): Berikan URL HTTPS ke titik akhir RPC yang sedang berjalan yang akan digunakan secara default untuk proyek ini. Node RPC ini harus berupa node arsip (memiliki status rantai penuh). Untuk panduan ini kita akan menggunakan nilai default *"https://terra-columbus-5.beta.api.onfinality.io"*
 - Authors (Diperlukan): Masukkan pemilik proyek SubQuery ini di sini (misal. nama Anda!)
 - Description (Opsional): Anda dapat memberikan paragraf singkat tentang proyek Anda yang menjelaskan data apa yang ada di dalamnya dan apa yang dapat dilakukan pengguna dengannya
 - Version (Diperlukan): Masukkan nomor versi khusus atau gunakan default (`1.0.0`)
@@ -62,15 +62,15 @@ Terakhir, di bawah direktori proyek, jalankan perintah berikut untuk menginstal 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```shell cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
 
-## Making Changes to your Project
+## Membuat Perubahan pada Proyek Anda
 
-In the starter package that you just initialised, we have provided a standard configuration for your new project. Anda terutama akan mengerjakan file-file berikut:
+Dalam package awal yang baru saja Anda inisialisasi, kami telah menyediakan konfigurasi standar untuk proyek baru Anda. Anda terutama akan mengerjakan file-file berikut:
 
 1. Skema GraphQL di `schema.graphql`
 2. Manifes Proyek di `project.yaml`
 3. Fungsi Pemetaan di direktori `src/mappings/`
 
-The goal of this quick start guide is to adapt the standard starter project to begin indexing all transfers from the bLuna smart contract.
+Tujuan dari panduan memulai cepat ini adalah untuk mengadaptasi proyek awal standar untuk mulai mengindeks semua transfer dari kontrak pintar bLuna.
 
 ### Memperbarui File Skema GraphQL Anda
 
@@ -80,12 +80,12 @@ Kami akan memperbarui file `schema.graphql` agar terbaca sebagai berikut
 
 ```graphql
 type Transfer @entity {
-  id: ID! # id field is always required and must look like this
+  id: ID! # bidang id selalu diperlukan dan harus terlihat seperti ini
   txHash: String!
-  blockHeight: BigInt # The block height of the transfer
-  sender: String! # The account that transfers are made from
-  recipient: String! # The account that transfers are made to
-  amount: String! # Amount that is transferred
+  blockHeight: BigInt # Ketinggian blok transfer
+  sender: String! # Dari akun mana transfer dilakukan
+  recipient: String! # Rekening yang ditransfer ke
+  amount: String! #Jumlah yang ditransfer
 }
 ```
 
@@ -94,13 +94,13 @@ type Transfer @entity {
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```shell npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
 
-You'll find the generated models in the `/src/types/models` directory. Untuk informasi lebih lanjut tentang file `schema.graphql`, lihat dokumentasi kami di bawah [Build/GraphQL Schema](../build/graphql.md)
+Anda akan menemukan model yang dihasilkan di direktori `/src/types/models`. Untuk informasi lebih lanjut tentang file `schema.graphql`, lihat dokumentasi kami di bawah [Build/GraphQL Schema](../build/graphql.md)
 
 ### Memperbarui File Manifes Proyek
 
 File Projek Manifest (`project.yaml`) dapat dilihat sebagai titik masuk proyek Anda dan ini mendefinisikan sebagian besar detail tentang bagaimana SubQuery akan mengindeks dan mengubah data rantai.
 
-Kami tidak akan melakukan banyak perubahan pada file manifes karena sudah diatur dengan benar, tetapi kami perlu mengubah penangan kami. Remember we are planning to index all Terra transfer events, as a result, we need to update the `datasources` section to read the following.
+Kami tidak akan melakukan banyak perubahan pada file manifes karena sudah diatur dengan benar, tetapi kami perlu mengubah penangan kami. Ingat kami berencana untuk mengindeks semua peristiwa transfer Terra, sebagai hasilnya, kami perlu memperbarui bagian `sumber data` untuk membaca yang berikut ini.
 
 ```yaml
 dataSources:
@@ -121,7 +121,7 @@ dataSources:
                 contract: terra1j66jatn3k50hjtg2xemnjm8s7y8dws9xqa5y8w
 ```
 
-This means we'll run a `handleEvent` mapping function each and every time there is a `transfer` event from the bLuna smart contract.
+Ini berarti kita akan menjalankan fungsi pemetaan `handleEvent` setiap kali ada peristiwa `transfer` dari kontrak pintar bLuna.
 
 Untuk informasi selengkapnya tentang file Project Manifest (`project.yaml`), lihat dokumentasi kami di [Build/Manifest File](../build/manifest.md)
 
@@ -131,7 +131,7 @@ Fungsi pemetaan menentukan bagaimana data rantai diubah menjadi entitas GraphQL 
 
 Navigasikan ke fungsi pemetaan default di direktori `src/mappings`. Anda akan melihat tiga fungsi yang diekspor, `handleBlock`, `handleEvent`, dan `handleCall`. Anda dapat menghapus fungsi `handleBlock` dan `handleCall`, kita hanya berurusan dengan fungsi `handleEvent`.
 
-Fungsi `handleEvent` menerima data peristiwa setiap kali peristiwa cocok dengan filter yang kami tentukan sebelumnya di `project.yaml` kami. We are going to update it to process all `transfer` events and save them to the GraphQL entities that we created earlier.
+Fungsi `handleEvent` menerima data peristiwa setiap kali peristiwa cocok dengan filter yang kami tentukan sebelumnya di `project.yaml` kami. Kami akan memperbaruinya untuk memproses semua `transfer` peristiwa dan menyimpannya ke entitas GraphQL yang kami buat sebelumnya.
 
 Anda dapat memperbarui fungsi `handleEvent` sebagai berikut (perhatikan impor tambahan):
 
@@ -180,13 +180,13 @@ Untuk menjalankan Proyek SubQuery baru Anda, pertama-tama kita perlu membangun p
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script build ``` </CodeGroupItem> </CodeGroup>
 
-**Important: Whenever you make changes to your mapping functions, you'll need to rebuild your project**
+**Penting: Setiap kali Anda membuat perubahan pada fungsi pemetaan, Anda harus membangun kembali proyek Anda**
 
-## Running and Querying your Project
+## Menjalankan dan Membuat Kueri Proyek Anda
 
-### Run your Project with Docker
+### Jalankan Proyek Anda dengan Docker
 
-Whenever you create a new SubQuery Project, you should always run it locally on your computer to test it first. Cara termudah untuk melakukannya adalah dengan menggunakan Docker.
+Setiap kali Anda membuat Proyek SubQuery baru, Anda harus selalu menjalankannya secara lokal di komputer Anda untuk mengujinya terlebih dahulu. Cara termudah untuk melakukannya adalah dengan menggunakan Docker.
 
 Semua konfigurasi yang mengontrol bagaimana node SubQuery dijalankan didefinisikan dalam file `docker-compose.yml` ini. Untuk proyek baru yang baru saja diinisialisasi, Anda tidak perlu mengubah apa pun di sini, tetapi Anda dapat membaca lebih lanjut tentang file dan pengaturannya di [Jalankan bagian Proyek](../run_publish/run.md)
 
@@ -194,7 +194,11 @@ Di bawah direktori proyek jalankan perintah berikut:
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn start:docker ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script start:docker ``` </CodeGroupItem> </CodeGroup>
 
-It may take some time to download the required packages ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), and Postgres) for the first time but soon you'll see a running SubQuery node. Sabar pada proses di sini.
+Mungkin perlu beberapa saat untuk mengunduh paket yang diperlukan ([`@subql/node`](https://www.npmjs.com/package/@subql/node),
+
+`@subql/query`</7 >, dan Postgres) untuk pertama kalinya tetapi segera Anda akan melihat node SubQuery yang sedang berjalan. Sabar pada proses di sini.</p> 
+
+
 
 ### Kueri Proyek Anda
 
@@ -203,6 +207,8 @@ Buka browser Anda dan buka [http://localhost:3000](http://localhost:3000).
 Anda akan melihat taman bermain GraphQL ditampilkan di explorer dan skema yang siap untuk kueri. Di kanan atas taman bermain, Anda akan menemukan tombol _Dokumen_ yang akan membuka undian dokumentasi. Dokumentasi ini dibuat secara otomatis dan membantu Anda menemukan entitas dan metode apa yang dapat Anda kueri.
 
 Untuk proyek pemula SubQuery baru, Anda dapat mencoba kueri berikut untuk mengetahui cara kerjanya atau [pelajari lebih lanjut tentang bahasa Kueri GraphQL](../run_publish/graphql.md).
+
+
 
 ```graphql
 {
@@ -224,15 +230,20 @@ Untuk proyek pemula SubQuery baru, Anda dapat mencoba kueri berikut untuk menget
 }
 ```
 
+
+
+
 ### Publikasikan Proyek SubQuery Anda
 
 SubQuery menyediakan layanan terkelola gratis saat Anda dapat menerapkan proyek baru Anda. Anda dapat menerapkannya ke [Proyek SubQuery](https://project.subquery.network) dan menanyakannya menggunakan [Explorer](https://explorer.subquery.network) kami.
 
 [Baca panduan untuk memublikasikan proyek baru Anda ke Proyek SubQuery](../run_publish/publish.md)
 
+
+
 ## Langkah selanjutnya
 
-Congratulations, you now have a locally running SubQuery project that accepts GraphQL API requests for transfers data from bLuna.
+Selamat, Anda sekarang memiliki proyek SubQuery yang berjalan secara lokal yang menerima permintaan GraphQL API untuk mentransfer data dari bLuna.
 
 Sekarang setelah Anda memiliki wawasan tentang cara membangun proyek SubQuery dasar, pertanyaannya adalah dari mana dari sini? Jika Anda merasa percaya diri, Anda dapat mempelajari lebih lanjut tentang tiga file utama. File manifes, skema GraphQL, dan file pemetaan di bawah [bagian Build dari dokumen ini](../build/introduction.md).
 

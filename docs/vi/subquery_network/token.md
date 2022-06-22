@@ -1,47 +1,47 @@
-# The SubQuery Token (SQT)
+# Mã thông báo SubQuery (SQT)
 
-The SubQuery Network is powered by the SubQuery Token (SQT).
+Mạng SubQuery được cung cấp năng lượng bởi Mã thông báo SubQuery (SQT).
 
-The SubQuery Token (SQT) is designed as a utility token that powers the SubQuery Network, providing an incentive for participation, as well as serving as a medium of exchange for transactions within the SubQuery Network. Consumers of data will commit SQT in exchange for data from Indexers and this SQT will be distributed among Indexers based on the payment method selected.
+Mã thông báo SubQuery (SQT) được thiết kế như một mã thông báo tiện ích cung cấp năng lượng cho Mạng SubQuery, cung cấp động lực cho sự tham gia, cũng như phục vụ như một phương tiện trao đổi cho các giao dịch trong Mạng SubQuery. Người tiêu dùng dữ liệu sẽ cam kết SQT để đổi lấy dữ liệu từ Người lập chỉ mục và SQT này sẽ được phân phối giữa Người lập chỉ mục dựa trên phương thức thanh toán đã chọn.
 
-This token is the utility and incentive mechanism driving the network, however, the network was not initially designed with a token in mind. The network is designed to provide value where Indexers can index, aggregate and then serve blockchain data and make this available with speed and simplicity to Consumers who need blockchain data to power their applications. SQT is a natural solution allowing market participants to transact and transfer value. This approach ensures that the fundamental value of SubQuery drives the value of the token and not the other way around.
+Mã thông báo này có cơ chế tiện ích và khuyến khích thúc đẩy mạng, tuy nhiên, mạng ban đầu không được thiết kế với mã thông báo. Mạng được thiết kế để cung cấp giá trị nơi Người lập chỉ mục có thể lập chỉ mục, tổng hợp và sau đó phân phát dữ liệu blockchain và cung cấp dữ liệu này với tốc độ và sự đơn giản cho Người tiêu dùng, người mà cần dữ liệu blockchain để cung cấp năng lượng cho các ứng dụng của họ. SQT là một giải pháp tự nhiên cho phép các bên tham gia thị trường giao dịch và chuyển nhượng giá trị. Cách tiếp cận này đảm bảo rằng giá trị cơ bản của SubQuery thúc đẩy giá trị của mã thông báo chứ không phải ngược lại.
 
-There is no intention for SQT to be used as a medium of exchange for goods or services outside of the SubQuery Network. SQT does not in any way represent or confer upon its holders any right to, title of, interest or participation in, the ownership, shareholding and/or management of SubQuery whatsoever. SQT will not entitle holders to any promise of fees, dividends, revenue, profits, or investment returns.
+Không có ý định cho SQT được sử dụng như một phương tiện trao đổi hàng hóa hoặc dịch vụ bên ngoài Mạng SubQuery. SQT không đại diện hoặc trao cho chủ sở hữu bất kỳ quyền nào, quyền sở hữu, quyền lợi hoặc sự tham gia, quyền sở hữu, cổ phần và/hoặc quản lý SubQuery theo bất kỳ cách nào. SQT sẽ không đảm bảo cho chủ sở hữu có bất kỳ lời hứa nào về phí, cổ tức, doanh thu, lợi nhuận hoặc lợi nhuận đầu tư.
 
 ## Tokenomics
 
-**Please note that the following SQT Token Allocation Plan and Token Vesting Schedule are still subject to change.**
+**Xin lưu ý rằng Kế hoạch phân bổ mã thông báo SQT và Lịch trả mã thông báo sau đây vẫn có thể thay đổi.**
 
-### Supply
+### Nguồn cung
 
-The initial supply will be 10 Billion tokens.
+Nguồn cung ban đầu sẽ là 10 tỷ tokens.
 
-### Inflation
+### Lạm phát
 
-The inflation will be 2% per annum. This will be used to help the SubQuery Foundation bootstrap the network by supporting Indexers during the early launch phase where Consumers numbers will still be growing.
+Lạm phát sẽ là 2 mỗi năm. Nó sẽ được sử dụng để giúp SubQuery Foundation khởi động mạng bằng cách hỗ trợ Người lập chỉ mục trong giai đoạn khởi chạy ban đầu, nơi số lượng Người tiêu dùng vẫn sẽ tăng lên.
 
-### Allocation
+### Phân bổ
 
-Token allocation is as follows:
+Phân bổ mã thông báo như sau:
 
-![token allocation](/assets/img/token_allocation.png)
+![phân bổ mã thông báo](/assets/img/token_allocation.png)
 
-From the start, SubQuery has been focused on building value within the community and this aim continues with the largest allocation of tokens (41%) being apportioned to the Community and SubQuery Foundation.
+Ngay từ đầu, SubQuery đã tập trung vào việc xây dựng giá trị trong cộng đồng và mục tiêu này tiếp tục với việc phân bổ mã thông báo lớn nhất (41%) được phân bổ cho Cộng đồng và SubQuery Foundation.
 
-The Foundation, which is expected to be established in early 2022, will administer the future governance and growth of the ecosystem and the ownership of the SubQuery Network will come under the SubQuery Foundation initially. This large allocation also includes consideration for future investment into the development and operations of the Network, and key ecosystem growth drivers. This will include tools such as grants and ecosystem incentives/events as well as other marketing activities including bug bounties and mainnet incentives.
+Quỹ dự kiến sẽ được thành lập vào đầu năm 2022, sẽ quản lý việc quản trị và tăng trưởng trong tương lai của hệ sinh thái và quyền sở hữu Mạng SubQuery sẽ thuộc về SubQuery Foundation ban đầu. Sở dĩ có sự phân bổ lớn này bởi chúng tôi đã cân nhắc việc đầu tư trong tương lai vào sự phát triển và hoạt động của Mạng lưới cũng như các động lực tăng trưởng chính của hệ sinh thái. Việc này bao gồm các khoản tài trợ và ưu đãi/sự kiện hệ sinh thái cũng như các hoạt động tiếp thị khác bao gồm thưởng phát hiện lỗi và thưởng khuyến khích trong mạng chính.
 
-Early investors in both the Seed and Series A rounds have a combined allocation of 27%. In the case of our Seed investors, SubQuery is grateful for their early vision and commitment to build the initial phase of SubQuery. Following on from this, growth was accelerated with the support of Series A investors who allowed the project to accelerate to the next level.
+Các nhà đầu tư sớm trong cả hai vòng Hạt giống và Seri A của chúng tôi có mức phân bổ tổng cộng là 27%. Đối với của các nhà đầu tư Hạt giống của chúng tôi, SubQuery rất biết ơn tầm nhìn ban đầu và cam kết của họ để xây dựng giai đoạn đầu của SubQuery. Sau đó, sự phát triển của chúng tôi đã được đẩy nhanh với sự hỗ trợ của các nhà đầu tư Seri A, những người đã cho phép chúng tôi đưa dự án lên một tầm cao mới.
 
-For the Public Sale, 12% of token supply has been allocated across at least two sequential rounds. The exact structure and timing of these rounds will be provided at a later date, however guaranteed allocation will be provided for key community members (e.g. Ambassadors, Spartans) and network participants (e.g. test network participants and referenceable customers). Each category will have its own minimum and maximum allocation.
+Đối với việc bán công khai, 12% nguồn cung token sẽ được phân bổ qua ít nhất hai vòng tuần tự. Cấu trúc và thời gian chính xác của các vòng này sẽ được công bố sau. Tuy nhiên, chúng tôi cũng sẽ có các suất đảm bảo cho thành viên quan trọng trong cộng đồng (ví dụ: Đại sứ, Spartan) và những người tham gia vào mạng lưới (ví dụ: những người tham gia mạng thử nghiệm hoặc giới thiệu khách hàng mới). Mỗi danh mục sẽ có mức phân bổ tối thiểu và tối đa riêng.
 
-Finally, the SubQuery Team and Launch Partners have been allocated 20% of the token supply in return for their tireless dedication and contribution in building and promoting the project from the outset.
+Cuối cùng, Đội ngũ SubQuery và các Đối tác khi khởi chạy sẽ được phân bổ 20% nguồn cung token để đền đáp cho những đóng góp của họ trong việc xây dựng và thúc đẩy dự án ngay từ ban đầu.
 
-### Vesting schedule
+### Lịch phân bổ
 
-We have designed our vesting schedule to demonstrate the commitment of various stakeholders. The graphic below illustrates the release of the SQT tokens to each participant over time culminating in the full circulation of tokens occurring 5 years (60 months) after launch.
+Chúng tôi đã thiết kế lịch trình phân bổ của mình để thể hiện cam kết của các bên liên quan khác nhau. Hình ảnh bên dưới minh họa việc phát hành token SQT cho mỗi người tham gia theo thời gian. Quá trình mở khoá token đầy đủ diễn trong vòng 5 năm (60 tháng) kể từ khi ra mắt.
 
-![vesting schedule](/assets/img/vesting_schedule.png)
+![lịch phân bổ](/assets/img/vesting_schedule.png)
 
-The vesting schedules for each participant has been designed to create long-term value for the project and generate confidence to token-holders. Perhaps most significantly, the core team will have a 24 month lock-up period which will then vest over another 24 months while some Public Sale participants can freely use the utility of their token upon launch.
+Lịch trình phân bổ cho mỗi người tham gia đã được thiết kế để tạo ra giá trị lâu dài cho dự án và tạo niềm tin cho chủ sở hữu mã thông báo. Có lẽ điều quan trọng nhất ở đây là đội ngũ chủ chốt sẽ có thời gian khóa 24 tháng trong khi một số người tham gia vòng mở bán công khai có thể tự do trải nghiệm tiện ích của token ngay khi ra mắt.
 
-The Foundation and Community will have approximately 30% of the allocation unlocked from the start to meet the operational needs of launching and promoting mainnet with the rest of the allocation vesting gradually over 5 years.
+Quỹ và Cộng đồng sẽ có khoảng 30% token phân bổ được mở khóa ngay từ đầu để đáp ứng nhu cầu hoạt động của việc khởi chạy và quảng bá mainnet, phần còn lại sẽ mở khoá dần dần trong 5 năm.

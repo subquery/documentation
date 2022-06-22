@@ -52,22 +52,66 @@ Buat proyek Anda dan Anda akan melihatnya di daftar Proyek SubQuery Anda. _Kita 
 
 ![Membuat Proyek tanpa penerapan](/assets/img/projects-no-deployment.png)
 
+### Membuat Proyek menggunakan CLI
+
+Anda juga dapat menggunakan `@subql/cli` untuk membuat proyek Anda
+#### Persyaratan
+- `@subql/cli` versi 1.1.0 atau lebih tinggi.
+- Siapkan [SUBQL_ACCESS_TOKEN](/docs/run_publish/ipfs.md#prepare-your-subqlaccesstoken) Anda.
+
+```
+// Membuat proyek menggunakan CLI
+$ subql project:create-project
+
+// ATAU menggunakan non-interaktif, ini akan meminta Anda jika bidang yang diperlukan tidak ada
+$ subql project:create-project
+    --apiVersion=apiVersion      Api version is default to 2
+    --description=description    Enter description
+    --gitRepo=gitRepo            Enter git repository
+    --org=org                    Enter organization name
+    --project_name=project_name  Enter project name
+```
+
 ### Terapkan Versi pertama Anda
 
-Saat membuat proyek akan menyiapkan perilaku tampilan proyek, Anda harus menerapkan versi itu sebelum menjadi operasional. Menerapkan versi memicu operasi pengindeksan SubQuery baru untuk memulai, dan menyiapkan layanan kueri yang diperlukan untuk mulai menerima permintaan GraphQL. Anda juga dapat menerapkan versi baru ke proyek yang ada di sini.
+### Pilihan 1:
+
+Saat membuat proyek akan menyiapkan perilaku tampilan proyek, Anda harus menerapkan versi sebelum menjadi operasional. Menerapkan versi memicu operasi pengindeksan SubQuery baru untuk memulai, dan menyiapkan layanan kueri yang diperlukan untuk mulai menerima permintaan GraphQL. Anda juga dapat menerapkan versi baru ke proyek yang sudah ada di sini.
 
 Dengan proyek baru Anda, Anda akan melihat tombol Deploy New Version. Klik ini, dan isi informasi yang diperlukan tentang penerapan:
 
 - **Cabang:** Dari GitHub, pilih cabang proyek yang ingin Anda gunakan
-- **Commit Hash:** Dari GitHub, pilih komit spesifik dari versi basis kode proyek SubQuery yang ingin Anda terapkan
+- **Komit Hash:** Dari GitHub, pilih komit spesifik dari versi basis kode proyek SubQuery yang ingin Anda terapkan
 - **IPFS:** Jika menerapkan dari IPFS, tempel CID penerapan IPFS Anda (tanpa awalan `ipfs://`)
 - **Ganti Titik Akhir Jaringan dan Kamus:** Anda dapat mengganti titik akhir dalam manifes proyek Anda di sini
-- **Versi Pengindeks:** Ini adalah versi layanan simpul SubQuery yang Anda inginkan untuk menjalankan SubQuery ini. Lihat [`@subql/node`](https://www.npmjs.com/package/@subql/node)
+- **Versi Pengindeks:** Ini adalah versi layanan simpul SubQuery yang Anda inginkan untuk menjalankan SubQuery ini. Lihat[`@subql/node`](https://www.npmjs.com/package/@subql/node)
 - **Versi Kueri:** Ini adalah versi layanan kueri SubQuery yang Anda inginkan untuk menjalankan SubQuery ini. Lihat [`@subql/query`](https://www.npmjs.com/package/@subql/query)
 
 ![Terapkan Proyek pertama Anda](https://static.subquery.network/media/projects/projects-first-deployment.png)
 
 Jika berhasil diterapkan, Anda akan melihat pengindeks mulai bekerja dan melaporkan kembali kemajuan pengindeksan rantai saat ini. Proses ini mungkin memakan waktu hingga mencapai 100%.
+
+### Pilihan 2:
+#### Menyebarkan menggunakan CLI
+#### Persyaratan
+- `@subql/cli` versi 1.1.0 atau lebih tinggi.
+- Siapkan [SUBQL_ACCESS_TOKEN](/docs/run_publish/ipfs.md#prepare-your-subqlaccesstoken) Anda.
+
+```
+// Terapkan menggunakan CLI
+$ suqbl deployment:deploy
+
+// ATAU Terapkan menggunakan CLI non-interaktif
+$ suqbl deployment:deploy
+  --dict=dict                      Enter Dictionary Endpoint
+  --endpoint=endpoint              Enter Network Endpoint
+  --indexerVersion=indexerVersion  Enter indexer-version
+  --ipfsCID=ipfsCID                Enter IPFS CID
+  --org=org                        Enter Organization Name
+  --project_name=project_name      Enter Project Name
+  --queryVersion=queryVersion      Enter Query-version
+  --type=type                      Enter deployment type e.g. primary or stage
+```
 
 ## Langkah Selanjutnya - Hubungkan ke Proyek Anda
 
@@ -75,17 +119,17 @@ Setelah penerapan Anda berhasil diselesaikan dan node kami telah mengindeks data
 
 ![Proyek sedang diterapkan dan disinkronkan](/assets/img/projects-deploy-sync.png)
 
-Atau, Anda dapat mengklik tiga titik di samping judul proyek Anda, dan melihatnya di SubQuery Explorer. There you can use the in-browser playground to get started - [read more about how to use our Explorer here](../run_publish/query.md).
+Atau, Anda dapat mengklik tiga titik di samping judul proyek Anda, dan melihatnya di SubQuery Explorer. Di sana Anda dapat menggunakan taman bermain dalam browser untuk memulai - [baca selengkapnya tentang cara menggunakan Explorer kami di sini](../run_publish/query.md).
 
 ![Proyek di SubQuery Explorer](/assets/img/projects-explorer.png)
 
 ## Tambahkan Akun Organisasi GitHub ke Proyek SubQuery
 
-Adalah umum untuk mempublikasikan proyek SubQuery Anda dengan nama akun Organisasi GitHub Anda daripada akun GitHub pribadi Anda. Kapan pun Anda dapat mengubah akun yang dipilih saat ini di [Proyek SubQuery](https://project.subquery.network) menggunakan pengalih akun.
+Umum untuk mempublikasikan proyek SubQuery Anda dengan nama akun Organisasi GitHub Anda daripada akun GitHub pribadi Anda. Kapan pun Anda dapat mengubah akun yang dipilih saat ini di [Proyek SubQuery](https://project.subquery.network) menggunakan pengalih akun.
 
 ![Beralih antar akun GitHub](/assets/img/projects-account-switcher.png)
 
-Jika Anda tidak dapat melihat akun Organisasi GitHub Anda terdaftar di pengalih, Anda mungkin perlu memberikan akses ke SubQuery untuk Organisasi GitHub Anda (atau memintanya dari administrator). Untuk melakukan ini, Anda harus terlebih dahulu mencabut izin dari akun GitHub Anda ke Aplikasi SubQuery. Untuk melakukannya, masuk ke pengaturan akun Anda di GitHub, buka Aplikasi, dan di bawah tab Aplikasi OAuth Resmi, cabut SubQuery - [Anda dapat mengikuti langkah-langkah yang tepat di sini](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/reviewing-your-authorized-applications-oauth). **Jangan khawatir, ini tidak akan menghapus proyek SubQuery Anda dan Anda tidak akan kehilangan data apa pun.**
+Jika Anda tidak dapat melihat akun Organisasi GitHub Anda tercantum di pengalih, Anda mungkin perlu memberikan akses ke SubQuery untuk Organisasi GitHub Anda (atau memintanya dari administrator). Untuk melakukan ini, Anda harus terlebih dahulu mencabut izin dari akun GitHub Anda ke Aplikasi SubQuery. Untuk melakukannya, masuk ke pengaturan akun Anda di GitHub, buka Aplikasi, dan di bawah tab Aplikasi OAuth Resmi, cabut SubQuery - [Anda dapat mengikuti langkah-langkah yang tepat di sini](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/reviewing-your-authorized-applications-oauth). **Jangan khawatir, ini tidak akan menghapus proyek SubQuery Anda dan Anda tidak akan kehilangan data apa pun.**
 
 ![Cabut akses ke akun GitHub](/assets/img/project_auth_revoke.png)
 
@@ -94,3 +138,6 @@ Setelah Anda mencabut akses, keluar dari [Proyek SubQuery](https://project.subqu
 ![Cabut persetujuan dari akun GitHub](/assets/img/project_auth_request.png)
 
 Setelah permintaan ini disetujui oleh administrator Anda (atau jika dapat mengabulkannya sendiri), Anda akan melihat akun Organisasi GitHub yang benar di pengalih akun.
+
+
+

@@ -1,140 +1,140 @@
-# Indexers
+# Người lập chỉ mục
 
-## What is an Indexer?
+## Người lập chỉ mục là gì?
 
-An Indexer is a SubQuery network participant who is responsible for indexing blockchain data and providing this data to their customers.
+Người lập chỉ mục là người tham gia vào mạng SubQuery, là người chịu trách nhiệm lập chỉ mục dữ liệu chuỗi khối và cung cấp dữ liệu này cho khách hàng của họ.
 
-Indexers play a very important role within the SubQuery network. As a part of a data-as-a-service business, an Indexer turns computational and networking power into profits.
+Người lập chỉ mục đóng một vai trò rất quan trọng trong mạng SubQuery. Là một phần của dịch vụ kinh doanh dữ liệu, Người lập chỉ mục biến sức mạnh tính toán và mạng thành lợi nhuận.
 
-## Indexer Staking
+## Người lập chỉ mục đặt cược
 
-In order to earn rewards from query revenue as an Indexer it is proposed that Indexers must stake SQT against a particular SubQuery Project that they are providing the service to. The Cobb-Douglas production function will be used to determine the rewards distributed to each Indexer.
+Để kiếm được phần thưởng từ doanh thu truy vấn với tư cách là Người lập chỉ mục, người lập chỉ mục phải đặt cược SQT vào một Dự án SubQuery cụ thể mà họ đang cung cấp dịch vụ. Hàm sản xuất Cobb-Douglas sẽ được sử dụng để xác định phần thưởng được phân phối cho mỗi người lập chỉ mục.
 
-SubQuery plans to add a constraint to the network where an indexer must stake a minimum amount of SQT on the relevant reward pool to be able to participate in its matching Open Agreement. They must also stake a minimum amount on an equivalent staking contract for any Closed Agreements in the same fashion. This indexer staked minimum value must be a certain percentage of the Agreement’s per Era reward value, which means in order to renew the Agreement to higher volumes, the indexer must also increase their stake. When an indexer’s stake decreases beneath this minimum amount, they will be unable to renew the Agreement at the existing price.
+SubQuery có kế hoạch thêm một ràng buộc vào mạng trong đó người lập chỉ mục phải đặt số tiền SQT tối thiểu vào pool phần thưởng liên quan để có thể tham gia vào Thỏa thuận mở phù hợp. Họ cũng phải đặt cược một số tiền tối thiểu vào một hợp đồng đặt cược tương đương cho bất kỳ Thỏa thuận kín nào theo cùng một cách. Có thể tham gia vào Thỏa thuận mở phù hợp. Người lập chỉ mục này đặt cược giá trị tối thiểu phải là một tỷ lệ phần trăm nhất định của giá trị phần thưởng theo thời kỳ của Thỏa thuận, có nghĩa là để gia hạn Thỏa thuận với khối lượng cao hơn, người lập chỉ mục cũng phải tăng cổ phần của họ. Khi cổ phần của người lập chỉ mục giảm xuống dưới số tiền tối thiểu này, họ sẽ không thể gia hạn Thỏa thuận ở mức giá hiện tại.
 
-If an Indexer is caught misbehaving (such as by providing invalid, incomplete, or incorrect data), they are liable to have a portion of their staked SQT (on the particular reward pool ip) reallocated to the SubQuery Foundation Treasury, diminishing their holdings of staked SQT in the network and therefore their potential reward. Since the indexer’s allocated stake is determined by a percentage of their total SQT, this will have a flow on effect to all other reward pools that the indexer is party to.
+Nếu một Người lập chỉ mục có hành vi sai trái (chẳng hạn như cách cung cấp dữ liệu không hợp lệ, không đầy đủ hoặc không chính xác), họ có trách nhiệm phải phân bổ lại một phần SQT đã đặt cọc của họ (trên từng pool phần thưởng cụ thể) cho SubQuery Foundation Treasury, làm giảm việc nắm giữ SQT cổ phần trong mạng và phần thưởng tiềm năng của họ. Vì cổ phần được phân bổ của người lập chỉ mục được xác định theo tỷ lệ phần trăm trong tổng số SQT của họ, điều này sẽ có hiệu lực đối với tất cả các pool phần thưởng khác mà người lập chỉ mục tham gia.
 
-## How are Indexers rewarded?
+## Người lập chỉ mục được thưởng như thế nào?
 
-Indexers are rewarded in SQT in two ways:
-- Rewards from SQT reward pools based on distribution defined by the Cobb-Douglas Production Function
-- Direct SQT query fee rewards from Closed Agreements that an indexer is party to
+Người lập chỉ mục được thưởng trong SQT theo hai cách:
+- Phần thưởng từ nhóm phần thưởng SQT dựa trên phân phối được xác định bởi Hàm Sản xuất Cobb-Douglas
+- Phần thưởng phí truy vấn SQT trực tiếp từ các Thỏa thuận kín mà người lập chỉ mục là bên tham gia
 
-Indexers are rewarded the fees that Consumers pay for providing blockchain data that the Consumer has reqested. An Indexer will receive all the fees from a Closed Agreement. Otherwise, the fees are split based on the amount of work performed (requests served) and the amount of delegated SQT - this split is determined by applying the Cobb-Douglas Production Function.
+Người lập chỉ mục được thưởng các khoản phí mà Người tiêu dùng trả cho việc cung cấp dữ liệu blockchain mà Người tiêu dùng đã yêu cầu. Người lập chỉ mục sẽ nhận được tất cả các khoản phí từ một Thỏa thuận kín. Nếu không, các khoản phí được phân chia dựa trên khối lượng công việc được thực hiện (các yêu cầu được cung cấp) và số lượng SQT được ủy quyền - sự phân chia này được xác định bằng cách áp dụng Hàm Sản xuất Cobb-Douglas.
 
-There may be multiple reward pools simultaneously active for a given Indexer. The indexer’s job is to allocate their staked and delegated SQT amongst these pools (in terms of a percentage of their total SQT). There will be a reward pool for each project that the Indexer accepts PAYG, and a reward pool for each Market Agreement that the Indexer is a party of.
+Có thể có nhiều pool phần thưởng hoạt động đồng thời cho một Người lập chỉ mục nhất định. Công việc của người lập chỉ mục là phân bổ SQT được đặt cọc và ủy quyền của họ giữa các nhóm này (tính theo tỷ lệ phần trăm trong tổng số SQT của họ). Sẽ có một phần thưởng cho mỗi dự án mà Người lập chỉ mục chấp nhận PAYG và một pool thưởng cho mỗi Thỏa thuận thị trường mà Người lập chỉ mục tham gia.
 
-## Attracting Delegators
+## Thu hút Người ủy quyền
 
-Indexers can increase their earning potential by attracting Delegators. Delegators are SQT token holders who can delegate their tokens to Indexers for additional rewards. Indexers use these additional tokens to increase the amount they allocate to projects of their choice. This allows Indexers to increase their earnings.
+Người lập chỉ mục có thể tăng tiềm năng kiếm tiền của họ bằng cách thu hút Người ủy quyền. Người ủy quyền là chủ sở hữu mã thông báo SQT có thể ủy quyền mã thông báo của họ cho Người lập chỉ mục để nhận thêm phần thưởng. Người lập chỉ mục sử dụng các mã thông báo bổ sung này để tăng số lượng họ phân bổ cho các dự án mà họ lựa chọn. Điều này cho phép Người lập chỉ mục tăng thu nhập của họ.
 
-Indexers set an Indexer’s Commission Rate (ICR) which is the percentage Indexers earn. The remaining is then shared amongst the Indexer and all Delegators propotionally by staked/delegated amount. Therefore, Indexers need to decide on the proportion of profits an Indexer wishes to retain versus the amount to share with their Delegators. A lower ICR will be more attractive for Delegators.
+Người lập chỉ mục đặt Tỷ lệ hoa hồng của Người lập chỉ mục (ICR), là tỷ lệ phần trăm mà Người lập chỉ mục kiếm được. Phần còn lại sau đó được chia sẻ giữa Người lập chỉ mục và tất cả Người ủy quyền theo tỷ lệ theo số tiền đặt cọc/ủy quyền. Do đó, Người lập chỉ mục cần quyết định tỷ lệ lợi nhuận mà Người lập chỉ mục muốn giữ lại so với số tiền chia sẻ với Người ủy quyền của họ. ICR thấp sẽ hấp dẫn hơn đối với Người ủy quyền.
 
-For example, Indexer A has set an ICR of 80% and has received SQT from 8 Delegators. This means that the 8 Delegators plus the Indexer itself, will be rewarded a share of the remaining 20% of what the Indexer has earned. The share will be split proportionally between them. Note that Delegators must have delegated their tokens for the entire Era to be eligible for these rewards. For more information on Delegators rewards, see [Delegators](./delegators.md).
+Ví dụ: Người lập chỉ mục A đã đặt ICR là 80% và đã nhận được SQT từ 8 Người ủy quyền. Điều này có nghĩa là 8 Người ủy quyền cộng với chính Người lập chỉ mục, sẽ được thưởng một phần trong số 20% còn lại của những gì Người lập chỉ mục đã kiếm được. Cổ phần sẽ được chia theo tỷ lệ với nhau. Lưu ý rằng Người ủy quyền phải ủy quyền mã thông báo của họ cho toàn bộ Chu kỳ để đủ điều kiện nhận những phần thưởng này. Để biết thêm thông tin về phần thưởng Người ủy quyền, hãy xem [Người ủy quyền](./delegators.md).
 
-## Becoming an Indexer
+## Trở thành Người lập chỉ mục
 
-To become an Indexer on the SubQuery Network, the Indexer must possess the necessary hardware, run the required SubQuery services, have a publicly accessible network via a static IP or a domain name, and register as an Indexer.
+Để trở thành Người lập chỉ mục trên Mạng SubQuery, Người lập chỉ mục phải có phần cứng cần thiết, chạy các dịch vụ SubQuery được yêu cầu, có mạng truy cập công cộng qua IP tĩnh hoặc tên miền và đăng ký làm Người lập chỉ mục.
 
-### Indexer skillset
+### Bộ kỹ năng lập chỉ mục
 
-In general, an Indexer should be a technically proficient computer user. However, the simplicity of the SubQuery network and proposed frameworks allows even a junior developer to successfully participate.
+Nói chung, một Người lập chỉ mục phải là một người sử dụng máy tính thành thạo về mặt kỹ thuật. Tuy nhiên, sự đơn giản của mạng SubQuery và các khuôn khổ được đề xuất cho phép ngay cả một nhà phát triển junior cũng có thể tham gia thành công.
 
-A basic user should be familiar with provisioning and managing servers, installing the SubQuery CLI tools, database management, and basic networking. More experienced users may run nodes in a clustered environment, incorporate monitoring and alerts and also more advanced networking management.
+Người dùng cơ bản phải quen thuộc với việc cung cấp và quản lý máy chủ, cài đặt các công cụ SubQuery CLI, quản lý cơ sở dữ liệu và mạng cơ bản. Những người dùng có kinh nghiệm hơn có thể chạy các nút trong cụm môi trường, kết hợp giám sát và cảnh báo cũng như quản lý mạng nâng cao hơn.
 
-Finally, interested parties should be prepared to invest time in maintaining their indexing nodes and infrastructure.
+Cuối cùng, các bên quan tâm nên chuẩn bị đầu tư thời gian vào việc duy trì các nút lập chỉ mục và cơ sở hạ tầng của họ.
 
-### Staking requirements
+### Yêu cầu đặt cược bắt buộc
 
-Indexers are expected to stake and maintain a minimum amount of tokens. This is to ensure that Indexers have some skin in the game and are committed to supporting the network. SubQuery is yet to determine this but it is one of our [design philosophies](./design-philosophy.md) that this be as low and as accessible as possible.
+Người lập chỉ mục dự kiến sẽ phải đặt cược và duy trì một số lượng tối thiểu các mã thông báo. Điều này nhằm đảm bảo rằng Người lập chỉ mục chấp nhận một số rủi ro trong cuộc chơi và cam kết hỗ trợ mạng. SubQuery vẫn chưa xác định được điều này nhưng một trong những [triết lý thiết kế](./design-philosophy.md) của chúng tôi là điều này càng thấp và càng dễ tiếp cận càng tốt.
 
-Should an Indexer experience a slashable event and their staked SQT balance fall below the minimum required, they will have to top up their staked SQT in order to continue to earn rewards from their work.
+Nếu Người lập chỉ mục trải qua một sự kiện có thể xử lý được và số dư SQT đặt cược của họ giảm xuống dưới mức tối thiểu được yêu cầu, họ sẽ phải nạp tiền vào SQT đã đặt cọc để tiếp tục kiếm phần thưởng từ công việc của mình.
 
-### Hardware requirements
+### Yêu cầu phần cứng
 
-Indexers can either invest in their own infrastructure hardware or rent infrastructure from the likes of AWS, Google Cloud, Digital Ocean, Microsoft Azure etc.
+Người lập chỉ mục có thể đầu tư vào phần cứng cơ sở hạ tầng của riêng họ hoặc thuê cơ sở hạ tầng từ AWS, Google Cloud, Digital Ocean, Microsoft Azure, v. v.
 
-### Maintenance/operational requirements
+### Yêu cầu bảo trì/vận hành
 
-Here are some of the maintenance and/or operational requirements Indexers should expect:
+Dưới đây là một số yêu cầu về bảo trì và/hoặc vận hành mà Người lập chỉ mục nên mong đợi:
 
-- Always upgrade to the latest Subquery software version
-- Identify and take advantage of new indexing opportunities
-- Update project version to latest and reindex where necessary
-- Infrastructure maintenance
-  - Constantly monitoring and upsizing disk
-  - Right size query and indexing compute based on traffic
-  - Increase query services for increasing ingress traffic
+- Luôn nâng cấp lên phiên bản phần mềm Subquery mới nhất
+- Xác định và tận dụng các cơ hội lập chỉ mục mới
+- Cập nhật phiên bản dự án lên mới nhất và lập chỉ mục khi cần thiết
+- Bảo trì cơ sở hạ tầng
+  - Liên tục theo dõi và tăng kích thước ổ cứng
+  - Truy vấn kích thước phù hợp và tính toán lập chỉ mục dựa trên lưu lượng truy cập
+  - Tăng các dịch vụ truy vấn để tăng lưu lượng truy cập vào
 
-### Infrastructure
+### Cơ sở hạ tầng
 
-The minimum infrastructure requirement includes:
+Yêu cầu cơ sở hạ tầng tối thiểu bao gồm:
 
-- At least one computational node to run the following services:
-  - [Node (indexing) Service](https://www.npmjs.com/package/@subql/node)
-  - [Query Service](https://www.npmjs.com/package/@subql/query)
-  - [Indexer Coordinator Service](https://www.npmjs.com/package/@subql/indexer-coordinator)
-- One database node to run Postgresql db (v12 and above).
+- Ít nhất một nút tính toán để chạy các dịch vụ sau:
+  - [Dịch vụ nút (lập chỉ mục)](https://www.npmjs.com/package/@subql/node)
+  - [Dịch vụ truy vấn](https://www.npmjs.com/package/@subql/query)
+  - [Dịch vụ điều phối lập chỉ mục](https://www.npmjs.com/package/@subql/indexer-coordinator)
+- Một nút cơ sở dữ liệu để chạy Postgresql db (v12 trở lên).
 
-More detailed information will come soon.
+Thông tin chi tiết hơn sẽ sớm công bố.
 
-## Security & Performance considerations
+## Bảo mật & Cân nhắc về hiệu suất
 
-Security and performance considerations are as follows.
+Các cân nhắc về bảo mật và hiệu suất như sau.
 
-### Operator Wallets
+### Ví vận hành
 
-Secure storage of an Indexer’s wallet recovery seed phrase is highly recommended.
+Việc lưu trữ an toàn cụm từ bảo mật khôi phục ví của Người lập chỉ mục rất được khuyến khích.
 
-### Firewalls
+### Tường lửa
 
-Indexers need to keep security front of mind. Infrastructure security, in particular firewalls, should be implemented to prevent public exposure to personal ports.
+Người lập chỉ mục cần phải lưu ý đến vấn đề bảo mật. Bảo mật cơ sở hạ tầng, đặc biệt là tường lửa, nên được thực hiện để ngăn chặn truy cập công khai với các cổng cá nhân.
 
-Secure passwords should be used by default and password rotation policies should be considered.
+Mật khẩu an toàn nên được sử dụng theo mặc định và các chính sách xoay vòng mật khẩu nên được xem xét.
 
-### Indexer’s Performance
+### Hiệu suất của người lập chỉ mục
 
-In order to generate desirable performances, Indexers need to consider various factors such as:
+Để tạo ra hiệu suất mong muốn, Người lập chỉ mục cần xem xét các yếu tố khác nhau như:
 
-- the balance between their own stake and that of Delegators.
-- the type of contract being served. The Indexer will receive all the query fees if it is a closed contract. If it is open, then an Indexer’s reward will depend on how many other Indexers there are.
-- fulfilling of the Service Level Agreement (SLA) specifications (to avoid slashing penalties)
-- the accuracy of the data being served to avoid slashing penalties
+- sự cân bằng giữa cổ phần của chính họ và cổ phần của Người ủy quyền.
+- loại hợp đồng đang được phục vụ. Người lập chỉ mục sẽ nhận được tất cả các khoản phí truy vấn nếu đó là hợp đồng đã đóng. Nếu nó đang mở, thì phần thưởng của Người lập chỉ mục sẽ phụ thuộc vào số lượng Người lập chỉ mục khác.
+- đáp ứng các thông số kỹ thuật của Thỏa thuận mức dịch vụ (SLA) (để tránh bị phạt nặng)
+- tính chính xác của dữ liệu được cung cấp để tránh bị phạt
 
-## Selecting SubQuery Projects to Index
+## Chọn các dự án SubQuery để lập chỉ mục
 
-There are several indicators that an Indexer needs to consider when selecting a SubQuery project to index.
+Có một số chỉ báo mà Người lập chỉ mục cần xem xét khi chọn dự án SubQuery để lập chỉ mục.
 
-### Query Fee Opportunities
+### Cơ hội phí truy vấn
 
-Some projects will have open or closed plans advertised by consumers.
+Một số dự án sẽ có kế hoạch mở hoặc đóng được quảng cáo bởi người tiêu dùng.
 
-When a Consumer advertises an open or closed plan for a project, they ultimately specify how much they are willing to pay for a set volume of requests. The more a Consumer is willing to pay, the more attractive the project will be for an Indexer. It also provides confidence that there will likely be recurring revenue from this SubQuery project.
+Khi Người tiêu dùng quảng cáo kế hoạch mở hoặc đóng cho một dự án, cuối cùng họ chỉ định số tiền họ sẵn sàng trả cho một lượng yêu cầu nhất định. Người tiêu dùng càng sẵn sàng trả nhiều tiền, thì dự án càng hấp dẫn đối với Người lập chỉ mục. Nó cũng cung cấp niềm tin rằng có thể sẽ có doanh thu định kỳ từ dự án SubQuery này.
 
-### Project complexity
+### Độ phức tạp của dự án
 
-Projects will vary in computation requirements. Simple projects will only index a few parameters whereas more complicated projects will require more computation resources and more bandwidth. Indexers need to understand the complexity of the project and its hardware capabilities.
+Các dự án sẽ khác nhau về yêu cầu tính toán. Các dự án đơn giản sẽ chỉ lập chỉ mục một vài thông số trong khi các dự án phức tạp hơn sẽ đòi hỏi nhiều tài nguyên tính toán hơn và băng thông nhiều hơn. Người lập chỉ mục cần hiểu mức độ phức tạp của dự án và khả năng phần cứng của nó.
 
-### Indexer Competition
+### Cạnh tranh lập chỉ mục
 
-Popular projects offering a high query volume that attract a large number of Indexers. This also implies that the rewards will be shared amongst more people. A single Indexer’s share may be less than a less popular project with a slightly lower query fee but with far fewer Indexers.
+Các dự án phổ biến cung cấp lượng truy vấn cao thu hút một lượng lớn Người lập chỉ mục. Điều này cũng ngụ ý rằng phần thưởng sẽ được chia sẻ cho nhiều người hơn. Một Người lập chỉ mục có thể chia ít hơn đối với một dự án ít phổ biến hơn với phí truy vấn thấp hơn một chút nhưng với số Người lập chỉ mục ít hơn nhiều.
 
-### Pricing Strategy
+### Chiến lược định giá
 
-Indexers need to be aware of their operation cost and expected incomes to understand their break-even point. Some considerations are:
+Người lập chỉ mục cần phải biết về chi phí hoạt động và thu nhập dự kiến ​​của họ để hiểu điểm hòa vốn của họ. Một số cân nhắc như sau:
 
-- How should Indexers set their plan prices?
-- At what price can Indexers accept a service agreement or not?
+- Người lập chỉ mục nên đặt giá kế hoạch của họ như thế nào?
+- Người lập chỉ mục có thể chấp nhận thỏa thuận dịch vụ ở mức giá nào?
 
-### Advertisements
+### Quảng cáo
 
-Indexers need to advertise themselves to Delegators as well as Consumers. Indexers may do this from their own website, in the Subquery forums or any other places deemed necessary. Some examples of the information to provide are:
+Người lập chỉ mục cần tự quảng cáo cho Người ủy quyền cũng như Người tiêu dùng. Người lập chỉ mục có thể làm điều này từ trang web của riêng họ, trong các diễn đàn Subquery hoặc bất kỳ nơi nào khác được coi là cần thiết. Một số ví dụ về thông tin cần cung cấp là:
 
-- The background and experience of the Indexer or Indexer’s team
-- The hardware approach and why it provides superior performance
-- The customer support policy or SLA
-- Evidence of historical performances
+- Nền tảng và kinh nghiệm của người hoặc nhóm của Người lập chỉ mục
+- Cách tiếp cận phần cứng và lý do tại sao nó cung cấp hiệu suất vượt trội
+- Chính sách hỗ trợ khách hàng hoặc SLA
+- Bằng chứng về các màn trình diễn lịch sử
 
-### Customer support
+### Hỗ trợ Khách hàng
 
-Indexers are highly encouraged to provide a communication method for its customers to report inavailability and also to provide feedback.
+Người lập chỉ mục được khuyến khích cung cấp một phương thức giao tiếp để khách hàng của họ báo cáo tình trạng không có sẵn và cũng để cung cấp phản hồi.

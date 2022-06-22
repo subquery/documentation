@@ -1,37 +1,37 @@
-# Payment Methods
+# Cara Pembayaran
 
-For flexibility, there are 3 payment options to pay for blockchain data. They are:
+Untuk fleksibilitas, ada 3 opsi pembayaran untuk membayar data blockchain. Mereka:
 
 - Pay-As-You-Go (PAYG)
-- Closed Service Agreement
-- Open Service Agreement
+- Perjanjian Layanan Tertutup
+- Perjanjian Layanan Terbuka
 
 ## Pay-As-You-Go (PAYG)
 
-This is the baseline payment method and a fallback for others. Each Indexer will advertise their PAYG prices when registering their ability to serve requests for specific SubQuery projects.
+Ini adalah metode pembayaran dasar dan cadangan untuk orang lain. Setiap Pengindeks akan mengiklankan harga PAYG mereka saat mendaftarkan kemampuan mereka untuk melayani permintaan untuk Proyek SubQuery tertentu.
 
-Consumers making requests will have to lock the tokens necessary to make that request in a state channel, and at the end of an Era, these tokens will be distributed to the Indexers based on the Cobb-Douglas production function.
+Konsumen yang membuat permintaan harus mengunci token yang diperlukan untuk membuat permintaan itu di saluran negara bagian, dan di akhir Era, token ini akan didistribusikan ke Pengindeks berdasarkan fungsi produksi Cobb-Douglas.
 
-## Closed Plans and Agreements
+## Rencana dan Perjanjian Tertutup
 
-Closed Agreements represent an agreement between only one Indexer and one Consumer. It’s a direct relationship where all payment flows between the two parties for the work that is done.
+Perjanjian Tertutup merupakan perjanjian antara hanya satu Pengindeks dan satu Konsumen. Ini adalah hubungan langsung di mana semua pembayaran mengalir antara kedua pihak untuk pekerjaan yang dilakukan.
 
-Closed Agreements are designed to give Indexers confidence that there is a market and ROI for data from a particular SubQuery Project, and essentially signal to them which Projects should be indexed.
+Perjanjian Tertutup dirancang untuk memberikan keyakinan Pengindeks bahwa ada pasar untuk data dari Proyek SubQuery tertentu, dan pada dasarnya memberi sinyal kepada mereka Proyek mana yang harus diindeks.
 
-Closed Plans can also be placed on existing SubQuery Projects to attract additional Indexers to that SubQuery Project. This may be useful in situations where the existing monopolistic Indexer may be charging an unreasonable amount for the data or there is a lack of competition to drive prices to equilibrium.
+Rencana Tertutup juga dapat ditempatkan pada Proyek SubQuery yang ada untuk menarik Pengindeks tambahan ke Proyek SubQuery tersebut. Ini mungkin berguna dalam situasi di mana Pengindeks monopolistik yang ada mungkin membebankan jumlah yang tidak masuk akal untuk data atau ada kurangnya persaingan untuk mendorong harga ke ekuilibrium.
 
-## Open Service Agreement
+## Perjanjian Layanan Terbuka
 
-Open Market Service Agreements are similar to Closed Market Service Agreements, but allow multiple Indexers to join and compete to provide data to the Consumer. An Open Market Service Agreement may start as a contract between 1 Consumer and 1 Indexer, but more parties may join the contract resulting in *n* consumer and *n* indexers.
+Perjanjian Terbuka mirip dengan Perjanjian Tertutup, tetapi memungkinkan beberapa Pengindeks untuk bergabung dan bersaing untuk memberikan data kepada Konsumen. Perjanjian Layanan Pasar Terbuka dapat dimulai sebagai kontrak antara 1 Konsumen dan 1 Pengindeks, tetapi lebih banyak pihak dapat bergabung dalam kontrak yang menghasilkan *n* konsumen dan *n* pengindeks.
 
-Each Open Market Service Agreement results in a new reward pool being created for that contract, and SQT is distributed amongst participating indexers by the Cobb-Douglas production function.
+Setiap Perjanjian Layanan Pasar Terbuka menghasilkan kumpulan hadiah baru yang dibuat untuk kontrak itu, dan SQT didistribusikan di antara pengindeks yang berpartisipasi oleh fungsi produksi Cobb-Douglas.
 
-Open Agreements provide favourable terms for both Indexers and Consumers, but enable better performance and reliability for Consumers by attracting more Indexers to compete and serve the same data. If Consumers are running large scale applications with users around the world, then Open Agreements are ideal.
+Perjanjian Terbuka memberikan persyaratan yang menguntungkan bagi Pengindeks dan Konsumen, tetapi memungkinkan kinerja dan keandalan yang lebih baik bagi Konsumen dengan menarik lebih banyak Pengindeks untuk bersaing dan menyajikan data yang sama. Jika Konsumen menjalankan aplikasi skala besar dengan pengguna di seluruh dunia, maka Perjanjian Terbuka sangat ideal.
 
-## SubQuery’s Innovation in Payment Methods
+## Inovasi SubQuery dalam Metode Pembayaran
 
-Today, we generally pay with subscription-based payments for the music we listen to, the TV shows we watch, and the applications that we use. In pioneering web3 service applications, we’ve instead adopted a pay-as-you-go model, where each atomic transaction has an exact cost in the network.
+Saat ini, kami biasanya membayar dengan pembayaran berbasis langganan untuk musik yang kami dengarkan, acara TV yang kami tonton, dan aplikasi yang kami gunakan. Dalam aplikasi layanan web3 perintis, kami telah mengadopsi model bayar sesuai penggunaan, di mana setiap transaksi atomik memiliki biaya yang tepat di jaringan.
 
-We think subscription based or recurring payment methods are here to stay. Service providers like them because they represent predictable revenue, similarly on the other side consumers like them because they are a known and easily quantified cost. There’s also a psychological factor where once you subscribe, most consumers will feel obligated to consume as much if not all of it, increasing the demand for the service and allowing economies of scale to kick in.
+Kami pikir metode pembayaran berbasis langganan atau berulang akan tetap ada. Penyedia layanan menyukai mereka karena mereka mewakili pendapatan yang dapat diprediksi, demikian pula di sisi lain konsumen menyukai mereka karena mereka adalah biaya yang diketahui dan mudah diukur. Ada juga faktor psikologis di mana setelah Anda berlangganan, sebagian besar konsumen akan merasa berkewajiban untuk mengkonsumsi sebanyak jika tidak semuanya, meningkatkan permintaan layanan dan memungkinkan skala ekonomi untuk digunakan.
 
-The combination of the above three payment options for indexers provide several advanced subscription based options for Consumers and Indexers. Some parties may benefit from the certainty of rewards provided by Closed Agreements and the predictability of recurring costs. Equally, others may instead prefer to hunt out the most affordable data by going for high volume recurring agreements or low spot prices on the Pay-As-You-Go market.
+Kombinasi dari tiga opsi pembayaran di atas untuk pengindeks menyediakan beberapa opsi berbasis langganan lanjutan untuk Konsumen dan Pengindeks. Beberapa pihak dapat memperoleh manfaat dari kepastian imbalan yang diberikan oleh Perjanjian Tertutup dan perkiraan biaya berulang. Demikian pula, orang lain mungkin lebih memilih untuk mencari data yang paling terjangkau dengan menggunakan perjanjian berulang volume tinggi atau harga spot rendah di pasar Pay-as-you-Go.
