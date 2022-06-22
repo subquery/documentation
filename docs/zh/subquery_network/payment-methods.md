@@ -3,35 +3,35 @@
 为了支付的灵活性，SubQuery 一共提供了3种支付选项可用于支付区块链数据。 分别是：
 
 - 按需付费 (PAYG)
-- 闭环服务协议
-- 开环服务协议
+- 封闭式服务协议
+- 开放式服务协议
 
 ## 按需付费 (PAYG)
 
-这是基础付款方法，也是其他付款方法的后备方法。 Each Indexer will advertise their PAYG prices when registering their ability to serve requests for specific SubQuery projects.
+这是基础付款方法，也是其他付款方法的后备方法。 每位索引者将在注册提供特定 SubQuery 项目服务时公布其 PAYG 的价格。
 
-Consumers making requests will have to lock the tokens necessary to make that request in a state channel, and at the end of an Era, these tokens will be distributed to the Indexers based on the Cobb-Douglas production function.
+提出服务请求的消费者必须在状态通道中锁定对应所需的令牌，在每一个周期结束时，这些令牌将根据 Cobb-Douglas 生产函数分配给索引器。
 
-## Closed Plans and Agreements
+## 封闭式套餐与协议
 
-Closed Agreements represent an agreement between only one Indexer and one Consumer. It’s a direct relationship where all payment flows between the two parties for the work that is done.
+闭环协议表示仅有一个索引者和一个消费者之间的协议。 这是一种直接的关系，所有的报酬都在双方之间流动，以换取所完成的工作。
 
-Closed Agreements are designed to give Indexers confidence that there is a market and ROI for data from a particular SubQuery Project, and essentially signal to them which Projects should be indexed.
+闭环协议的设计目的是让索引者相信来自特定 SubQuery 项目的数据是有市场的，并且本质上是在向他们提供哪些项目应该被索引的信息。
 
-Closed Plans can also be placed on existing SubQuery Projects to attract additional Indexers to that SubQuery Project. This may be useful in situations where the existing monopolistic Indexer may be charging an unreasonable amount for the data or there is a lack of competition to drive prices to equilibrium.
+闭环套餐也可以应用在已有的 SubQuery 项目上，以吸引更多的索引者到该 SubQuery 项目。 在具有垄断性的索引者可能会对数据收取不合理的金额，或者在缺乏市场竞争来推动价格达到均衡的情况下，这可能是有用的。
 
 ## 开放式服务协议
 
-Open Market Service Agreements are similar to Closed Market Service Agreements, but allow multiple Indexers to join and compete to provide data to the Consumer. An Open Market Service Agreement may start as a contract between 1 Consumer and 1 Indexer, but more parties may join the contract resulting in *n* consumer and *n* indexers.
+开放式市场协议类似于封闭式市场协议，但是它允许多个索引者加入并竞争向消费者提供数据。 开放式市场服务协议可以从1个消费者和1个索引者之间的合约开始，不过，更多的人也可以加入该合同，从而产生*n*个消费者和*n</n>个索引者。</p>
 
-Each Open Market Service Agreement results in a new reward pool being created for that contract, and SQT is distributed amongst participating indexers by the Cobb-Douglas production function.
+每个开放式市场服务协议都会为该合约创建一个新的奖励池，其中 SQT 代币由 Cobb-Douglas 生产函数分配给参与的索引者。
 
-Open Agreements provide favourable terms for both Indexers and Consumers, but enable better performance and reliability for Consumers by attracting more Indexers to compete and serve the same data. If Consumers are running large scale applications with users around the world, then Open Agreements are ideal.
+开放式市场协议为索引者和消费者都提供了有利的条件，通过吸引更多的索引者竞争并服务于相同的数据，为消费者提供了更好的性能和可靠性。 如果消费者与世界各地的用户一起运行大型应用程序，那么开放式市场协议是理想的选择。
 
-## SubQuery’s Innovation in Payment Methods
+## SubQuery 在付款方法上的创新
 
-Today, we generally pay with subscription-based payments for the music we listen to, the TV shows we watch, and the applications that we use. In pioneering web3 service applications, we’ve instead adopted a pay-as-you-go model, where each atomic transaction has an exact cost in the network.
+日常生活中，我们通常为我们听的音乐、看的电视节目和我们使用的应用程序支付订阅的费用。 在开创 Web3 服务应用的先河中，我们转而采用pay-as-you-go的模式，在这种模式下，每笔交易记录在网络中都有确切的成本。
 
-We think subscription based or recurring payment methods are here to stay. Service providers like them because they represent predictable revenue, similarly on the other side consumers like them because they are a known and easily quantified cost. There’s also a psychological factor where once you subscribe, most consumers will feel obligated to consume as much if not all of it, increasing the demand for the service and allowing economies of scale to kick in.
+我们认为基于订阅或循环付费的支付方式将会继续存在。 服务提供商喜欢它们是因为它们代表了可预测的收入，而另一方面，消费者喜欢它们是因为它们是一种已知的、容易量化的成本。 另外还与心理因素有关，一旦你订阅了，大多数消费者会觉得有义务消费同样多的东西，这会增加对服务的需求，并允许规模经济发挥作用。
 
-The combination of the above three payment options for indexers provide several advanced subscription based options for Consumers and Indexers. 一些参与者可能会受益于封闭协议提供的奖励确定性和经常性成本的可预测性。 Equally, others may instead prefer to hunt out the most affordable data by going for high volume recurring agreements or low spot prices on the Pay-As-You-Go market.
+以上三个为索引者提供的支付选项之间的组合可以为消费者和索引者提供多个基于订阅的高级选项。 一些参与者可能会受益于封闭式市场协议提供的奖励确定性和经常性成本的可预测性。 同样地，其他人可能更愿意通过在按需付款（PAYG）市场上寻找大量循环付费性协议或以低价格来寻找最负担得起的数据。
