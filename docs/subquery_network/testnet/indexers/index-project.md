@@ -129,9 +129,11 @@ After finishing the process of adding your project, move forward with indexing t
 
 ![Project Details Page](/assets/img/projectdetails_index_project.png)
 
-For a brand new project, the status will be `NOT INDEXING`. Select the `**Start Indexing**` button to begin indexing the project.
+For a brand new project, the status will be `NOT INDEXING`. Select the **`Start Indexing`** button to begin indexing the project.
 
-Press the `**Confirm**` button to trigger the request to start the node and query service for this project in the coordinator service.
+
+
+Press the `Confirm` button to trigger the request to start the node and query service for this project in the coordinator service.
 
 - Enter the following values for each project and select specific image versions if needed:
     
@@ -141,27 +143,27 @@ Press the `**Confirm**` button to trigger the request to start the node and quer
     - Network Dictionary Endpoint: `https://api.subquery.network/sq/subquery/dictionary-polkadot`
     
     **Staking Threshold - Kusama**
+
     
     - Indexing Network Endpoint: `wss://kusama.api.onfinality.io/public-ws`
     - Network Dictionary Endpoint: `https://api.subquery.network/sq/subquery/kusama-dictionary`
     
     <aside>
-    🚨 Please make sure that you set “Enable POI” to true
-    
+        Please make sure that you set “Enable POI” to true
     </aside>
-    
 
-![Restart Indexing Project Screen](/assets/img/restartproject_index_project.png)
+    ![Restart Indexing Project Screen](/assets/img/restartproject_index_project.png)
 
 - Once the services are started, the service information will be displayed.
 
-![Indexig Service Information Screen](assets/img/servicedetails_index_project.png)
+![Indexing Service Information Screen](/assets/img/servicedetails_index_project.png)
 
 - The Indexer can then check the service log to see the indexing details:
 
 ![Indexer Service Log](/assets/img/service_log_index_project.png)
 
 You have successfully completed the indexing process. Next comes the Announcements section. Let’s dig out further. 
+
 
 ## 4. Announcements
 
