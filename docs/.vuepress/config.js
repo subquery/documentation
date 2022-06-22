@@ -251,6 +251,9 @@ function getSidebar(locale, language) {
                 collapsable: true,
                 children: [
                   `${locale}/subquery_network/testnet/indexers/become-indexers.md`,
+                  `${locale}/subquery_network/testnet/indexers/set-up-indexer.md`,
+                  `${locale}/subquery_network/testnet/indexers/install-indexer.md`,
+                  `${locale}/subquery_network/testnet/indexers/index-project.md`,
                 ],
               },
               {
@@ -275,6 +278,9 @@ function getSidebar(locale, language) {
                 collapsable: true,
                 children: [
                   `${locale}/subquery_network/testnet/metamask/metamask.md`,
+                  `${locale}/subquery_network/testnet/metamask/connect-metamask.md`,
+                  `${locale}/subquery_network/testnet/metamask/request-token.md`,
+
                 ],
               },
             ],
