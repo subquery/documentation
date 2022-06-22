@@ -14,7 +14,7 @@ No hay intención de que SQT se utilice como medio de intercambio de bienes o se
 
 ### Suministro
 
-El suministro inicial será de 10 billones de fichas.
+El suministro inicial será de 10 billones de tokens.
 
 ### Inflación
 
