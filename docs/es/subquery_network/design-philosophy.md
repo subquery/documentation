@@ -1,4 +1,4 @@
-# Filos de diseño de la red de subconsultas
+# Filos de diseño de SubQuery Network
 
 El principio rector con SubQuery Network es la simplicidad y flexibilidad para diferentes casos de uso, métodos de pago y redes. Mientras que otros servicios de datos tienen muchos participantes importantes en la red, SubQuery se centra en tres puntos clave. Mientras que otras redes han complicado los mecanismos de señalización algorítmica, SubQuery se basa en la señal más fundamental, la demanda de los consumidores. Mientras que otras redes proporcionan sólo un tipo de modelo de pago (generalmente PAYG), SubQuery proporciona varias opciones de suscripción avanzada para consumidores e indexadores, Y finalmente, mientras que otras redes sólo soportan una cadena de capas 1, SubQuery está diseñado para ser multicadena desde el principio.
 
