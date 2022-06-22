@@ -1,8 +1,8 @@
 # Indexadores
 
-## ¿Qué es un índice?
+## ¿Qué es un índexador?
 
-Un Indexer es un participante en la red de SubQuery que es responsable de indexar los datos de la cadena de bloques y proporcionar estos datos a sus clientes.
+Un Indexador es un participante en la red de SubQuery que es responsable de indexar los datos de la cadena de bloques y proporcionar estos datos a sus clientes.
 
 Los indexadores desempeñan un papel muy importante dentro de la red de SubQuery. Como parte de un negocio de datos-as-a-service, un Indexer convierte el poder computacional y de red en beneficios.
 
@@ -101,7 +101,7 @@ Para generar rendimientos deseables, los Indexadores deben tener en cuenta diver
 - cumplimiento de las especificaciones del Acuerdo de Nivel de Servicio (SLA) (para evitar cortar las penalidades)
 - la exactitud de los datos que se están sirviendo para evitar recorte de sanciones
 
-## Seleccionando Proyectos de Subconsulta a Índice
+## Seleccionando Proyectos de SubQuery para indexar
 
 Hay varios indicadores que un Indexador debe tener en cuenta al seleccionar un proyecto de SubQuery para indexar.
 
