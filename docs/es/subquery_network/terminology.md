@@ -24,7 +24,7 @@ Se trata efectivamente de una transferencia de SQT del contrato global de apuest
 
 Acto de un Delegator asignando SQT al contrato global de apuestas, y luego asignando SQT a un Indexer. Tenga en cuenta que delegar y unir son operaciones atómicas.
 
-### **.**
+### **Desdelegando**
 
 Acto de retirar SQT de un Indexador al final de una Era y luego retirar ese SQT del contrato global de acopio a una dirección de cartera. Esto está sujeto a un período de bloqueo.
 
@@ -32,15 +32,15 @@ Acto de retirar SQT de un Indexador al final de una Era y luego retirar ese SQT 
 
 Acto de un Delegator reasignando SQT de un Indexador a otro Indexador. Redelegar no requiere que las fichas no sean elegadas y está en cola para que surtan efecto al final de la Era.
 
-## **Generación de interés**
+## **Staking**
 
-Acto de asignación de fichas de un Indexador en un contrato de apuesta global y en el propio contrato del Indexador.
+Acto de asignación de fichas de un Indexador en un contrato de staking global y en el propio contrato del Indexador.
 
-### **Quitando la participación**
+### **Unstaking**
 
 Acto de un Indexador retirando su SQT. Esto activa un “periodo de bloqueo” de 28 días. El indexador puede reiniciarse para cancelar este proceso y devolver sus tokens de período de bloqueo al contrato de apuesta.
 
-### **Descanso**
+### **Restaking**
 
 Acto del Indexador restando SQT durante el período de bloqueo para devolver las fichas de período bloqueado al contrato de apuesta.
 
