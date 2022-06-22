@@ -1,65 +1,67 @@
-# Terminology
+# 相关术语
 
-![terminology](/assets/img/terminology.png)
+![terminology
+](/assets/img/terminology.png
+)
 
-## **Allocating**
+## **分配（Allocating）**
 
-Act of an Indexer assigning SQT to a given project.
+索引者将 SQT 代币分配给特定项目的行为。
 
-### **Reallocating**
+### **重新分配（Reallocating）**
 
-A combined operation of removing staked tokens from one project and immediately associating that with another project (comes into effect at the end of the next Era). This is represented/expressed as a percentage of the indexer’s bonded SQT.
+从一个项目中移除质押的代币并立即将其转移至另一个项目的组合操作（在下一个周期结束时生效）。 这是以索引者锁定的 SQT 代币的百分比表示的。
 
-## **Bonding**
+## **锁定（Bonding）**
 
-Act of depositing SQT into a global staking contract performed by either an Indexer or a Delegator
+将 SQT 代币存入由索引者或委托者执行的合约的行为
 
-### **Unbonding**
+### **解除锁定（Unboding）**
 
-Act of an Indexer or a Delegator withdrawing SQT from the global staking contract.
+索引者或委托者从质押合约中撤回 SQT 代币的行为。
 
-This is effectively a transfer of SQT from the global staking contract to the Indexer’s or Delegator’s wallet. In other words, this can be thought of as the Indexer or Delegator withdrawing part or all of their stake. Note that a lock period applies when tokens are unbonded.
+这实际上是 SQT 代币从质押合约转移到索引者或委托者钱包的过程。 换句话说，这可以被视为索引者或委托者撤回其部分或全部质押的行为。 请注意，当执行代币解除锁定的时候将会有一个锁定期限。
 
-## **Delegating**
+## **委托（Delegating）**
 
-Act of a Delegator assigning SQT into the global staking contract and then assigning SQT to an Indexer. Note that delegating and bonding are atomic operations.
+委托人将 SQT 代币送入到质押合约中，然后将 SQT 分配给索引者的行为。 请注意，委托和锁定都是原子操作。
 
-### **Undelegating**
+### **解除委托（Undelegating）**
 
-Act of withdrawing SQT from an Indexer at the end of an Era and then withdrawing that SQT from the global staking contract to a wallet address. This is subject to a lock period.
+在一个周期结束时从索引器中提取 SQT 代币，然后再将该 SQT 从质押合约中提取到钱包地址的行为。 这需要一段锁定时间。
 
-### **Redelegating**
+### **重新委托（Redelegating）**
 
-Act of a Delegator reassigning SQT from one Indexer to another Indexer. Redelegating does not require tokens to be undelegated and is queued to take effect at the end of the Era.
+将 SQT 代币从一个索引器重新分配给另一个索引器的行为。 重新委托不需要解除委托，而只是需要排队等待在一个周期结束时生效即可。
 
-## **Staking**
+## **质押（Staking）**
 
-Act of an Indexer assigning tokens in a global staking contract and into the Indexer’s own contract.
+索引器在质押合约中存入代币并将其分配到索引器自己的合约中的行为。
 
-### **Unstaking**
+### **解除质押（Unstaking）**
 
-Act of an Indexer withdrawing their SQT. This triggers a 28 day “lock period”. Indexer can restake to cancel this process and return their lock period tokens to the staking contract.
+索引器取回 SQT 代币的行为。 将会触发 28 天的锁定期限。 索引器可以重新质押以取消此锁定过程，并将其处于锁定期的代币返回到质押合约中。
 
-### **Restaking**
+### **重新质押（Restaking）**
 
-Act of Indexer restaking SQT during the lock period to return locked period tokens to the staking contract.
+索引器在锁定期内重新质押 SQT 代币的行为，以将锁定期代币重新送回质押合同中。
 
 ---
 
-## **Contract Ratio**
+## **合约比率（Contract Ratio）**
 
-The sum of daily contracts value (defined as contract value/period) can not exceed a ratio with their total stake (indexer + delegator).
+每日合约价值（定义为合约价值/期限）的总和不能超过与其总质押数的一个比率（索引者+委托者）。
 
-## **Era**
+## **周期（Era）**
 
-A period or duration of time where configurations and settings remain constant and calculations take place. For example, during an Era:
+配置和设置保持不变并持续的一段时间或持续时间。 比如，在一个周期中：
 
-- the Indexer Commission Rate cannot be changed during an Era.
+- 索引者的佣金率在一个周期内是不能改变的。
 
-## **Indexer Delegation Ratio**
+## **索引者委托额（Indexer Delegation Ratio）**
 
-The amount an Indexer can “borrow” or leverage from Delegators. This ratio is yet to be determined.
+索引者可以从委托者处“借入”或利用的金额。 这一比率尚待确定。
 
-## **Lock period**
+## **锁定期限（Lock period）**
 
-A period where tokens are unbonded awaiting withdrawal. During this period, tokens do not earn any rewards. Currently, the lock period is defined as 28 days.
+代币等待退还的期间。 在此期间，代币不会获得任何奖励。 目前，锁定期限是28天。
