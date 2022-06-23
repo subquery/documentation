@@ -30,111 +30,111 @@ Indexers können ihr Verdienstpotenzial erhöhen, indem sie Delegatoren gewinnen
 
 Indexer legen einen Provisionssatz für Indexer (ICR) fest, der dem Prozentsatz entspricht, den Indexer verdienen. Der Rest wird dann unter dem Indexer und allen Delegatoren proportional nach eingesetztem/delegiertem Betrag aufgeteilt. Daher müssen Indexer entscheiden, welchen Anteil der Gewinne ein Indexer einbehalten möchte, im Vergleich zu dem Betrag, den er mit seinen Delegatoren teilen möchte. Ein niedrigerer ICR wird für Delegators attraktiver sein.
 
-Beispielsweise hat Indexer A einen ICR von 80 % festgelegt und SQT von 8 Delegatoren erhalten. Das bedeutet, dass die 8 Delegatoren plus der Indexer selbst mit einem Anteil der restlichen 20 % dessen, was der Indexer verdient hat, belohnt werden. Der Anteil wird anteilig zwischen ihnen aufgeteilt. Note that Delegators must have delegated their tokens for the entire Era to be eligible for these rewards. For more information on Delegators rewards, see [Delegators](./delegators.md).
+Beispielsweise hat Indexer A einen ICR von 80 % festgelegt und SQT von 8 Delegatoren erhalten. Das bedeutet, dass die 8 Delegatoren plus der Indexer selbst mit einem Anteil der restlichen 20 % dessen, was der Indexer verdient hat, belohnt werden. Der Anteil wird anteilig zwischen ihnen aufgeteilt. Beachten Sie, dass Delegatoren ihre Token für die gesamte Ära delegiert haben müssen, um sich für diese Belohnungen zu qualifizieren. Weitere Informationen zu den Prämien für Delegatoren finden Sie unter [Delegatoren](./delegators.md).
 
-## Becoming an Indexer
+## Indexer werden
 
-To become an Indexer on the SubQuery Network, the Indexer must possess the necessary hardware, run the required SubQuery services, have a publicly accessible network via a static IP or a domain name, and register as an Indexer.
+Um ein Indexer im SubQuery-Netzwerk zu werden, muss der Indexer über die erforderliche Hardware verfügen, die erforderlichen SubQuery-Dienste ausführen, über ein öffentlich zugängliches Netzwerk über eine statische IP oder einen Domänennamen verfügen und sich als Indexer registrieren.
 
-### Indexer skillset
+### Indexer-Fähigkeiten
 
-In general, an Indexer should be a technically proficient computer user. However, the simplicity of the SubQuery network and proposed frameworks allows even a junior developer to successfully participate.
+Im Allgemeinen sollte ein Indexer ein technisch versierter Computerbenutzer sein. Die Einfachheit des SubQuery-Netzwerks und der vorgeschlagenen Frameworks ermöglicht jedoch selbst einem Junior-Entwickler die erfolgreiche Teilnahme.
 
-A basic user should be familiar with provisioning and managing servers, installing the SubQuery CLI tools, database management, and basic networking. More experienced users may run nodes in a clustered environment, incorporate monitoring and alerts and also more advanced networking management.
+Ein einfacher Benutzer sollte mit der Bereitstellung und Verwaltung von Servern, der Installation der SubQuery-CLI-Tools, der Datenbankverwaltung und grundlegenden Netzwerkfunktionen vertraut sein. Erfahrenere Benutzer können Nodes in einer geclusterten Umgebung ausführen, Überwachung und Warnungen sowie eine erweiterte Netzwerkverwaltung integrieren.
 
-Finally, interested parties should be prepared to invest time in maintaining their indexing nodes and infrastructure.
+Schließlich sollten interessierte Parteien bereit sein, Zeit in die Wartung ihrer Indexierungsnodes und -infrastruktur zu investieren.
 
-### Staking requirements
+### Staking-Anforderungen
 
-Indexers are expected to stake and maintain a minimum amount of tokens. This is to ensure that Indexers have some skin in the game and are committed to supporting the network. SubQuery is yet to determine this but it is one of our [design philosophies](./design-philosophy.md) that this be as low and as accessible as possible.
+Von Indexern wird erwartet, dass sie eine Mindestmenge an Token einsetzen und verwalten. Dadurch soll sichergestellt werden, dass Indexer etwas im Spiel haben und sich verpflichtet fühlen, das Netzwerk zu unterstützen. SubQuery muss dies noch bestimmen, aber es ist eine unserer [Designphilosophien](./design-philosophy.md), dass dies so niedrig und zugänglich wie möglich ist.
 
-Should an Indexer experience a slashable event and their staked SQT balance fall below the minimum required, they will have to top up their staked SQT in order to continue to earn rewards from their work.
+Sollte ein Indexer ein Slashable Event erleben und sein SQT-Guthaben unter das erforderliche Minimum fallen, muss er sein SQT aufstocken, um weiterhin Belohnungen für seine Arbeit zu verdienen.
 
-### Hardware requirements
+### Hardware-Anforderungen
 
-Indexers can either invest in their own infrastructure hardware or rent infrastructure from the likes of AWS, Google Cloud, Digital Ocean, Microsoft Azure etc.
+Indexer können entweder in ihre eigene Infrastruktur-Hardware investieren oder Infrastruktur von AWS, Google Cloud, Digital Ocean, Microsoft Azure usw. mieten.
 
-### Maintenance/operational requirements
+### Wartungs-/Betriebsanforderungen
 
-Here are some of the maintenance and/or operational requirements Indexers should expect:
+Hier sind einige der Wartungs- und/oder Betriebsanforderungen, mit denen Indexer rechnen sollten:
 
-- Always upgrade to the latest Subquery software version
-- Identify and take advantage of new indexing opportunities
-- Update project version to latest and reindex where necessary
-- Infrastructure maintenance
-  - Constantly monitoring and upsizing disk
-  - Right size query and indexing compute based on traffic
-  - Increase query services for increasing ingress traffic
+- Führen Sie immer ein Upgrade auf die neueste Subquery-Softwareversion durch
+- Identifizieren und nutzen Sie neue Indizierungsmöglichkeiten
+- Aktualisieren Sie die Projektversion auf die neueste und indizieren Sie sie gegebenenfalls neu
+- Instandhaltung der Infrastruktur
+  - Ständige Überwachung und Upsizing der Festplatte
+  - Abfragen in der richtigen Größe und Indexierung basierend auf dem Datenverkehr
+  - Erhöhen Sie die Abfragedienste, um den eingehenden Datenverkehr zu erhöhen
 
-### Infrastructure
+### Infrastruktur
 
-The minimum infrastructure requirement includes:
+Die Mindestanforderungen an die Infrastruktur umfassen:
 
-- At least one computational node to run the following services:
-  - [Node (indexing) Service](https://www.npmjs.com/package/@subql/node)
-  - [Query Service](https://www.npmjs.com/package/@subql/query)
-  - [Indexer Coordinator Service](https://www.npmjs.com/package/@subql/indexer-coordinator)
-- One database node to run Postgresql db (v12 and above).
+- Mindestens ein Rechennode zum Ausführen der folgenden Dienste:
+  - [Nodedienst (Indizierung).](https://www.npmjs.com/package/@subql/node)
+  - [Abfragedienst](https://www.npmjs.com/package/@subql/query)
+  - [Indexer-Koordinator-Dienst](https://www.npmjs.com/package/@subql/indexer-coordinator)
+- Ein Datenbanknode zum Ausführen von Postgresql db (v12 und höher).
 
-More detailed information will come soon.
+Genauere Informationen folgen in Kürze.
 
-## Security & Performance considerations
+## Sicherheit & Leistungsüberlegungen
 
-Security and performance considerations are as follows.
+Sicherheits- und Leistungsüberlegungen sind wie folgt.
 
-### Operator Wallets
+### Operator-Wallets
 
-Secure storage of an Indexer’s wallet recovery seed phrase is highly recommended.
+Die sichere Speicherung der Wallet-Recovery-Seed-Phrase eines Indexers wird dringend empfohlen.
 
 ### Firewalls
 
-Indexers need to keep security front of mind. Infrastructure security, in particular firewalls, should be implemented to prevent public exposure to personal ports.
+Indexer müssen die Sicherheit im Auge behalten. Infrastruktursicherheit, insbesondere Firewalls, sollten implementiert werden, um zu verhindern, dass die Öffentlichkeit persönlichen Ports ausgesetzt wird.
 
-Secure passwords should be used by default and password rotation policies should be considered.
+Sichere Passwörter sollten standardmäßig verwendet werden, und Richtlinien zur Passwortrotation sollten berücksichtigt werden.
 
-### Indexer’s Performance
+### Leistung des Indexers
 
-In order to generate desirable performances, Indexers need to consider various factors such as:
+Um wünschenswerte Leistungen zu erzielen, müssen Indexer verschiedene Faktoren berücksichtigen, wie z.B:
 
-- the balance between their own stake and that of Delegators.
-- the type of contract being served. The Indexer will receive all the query fees if it is a closed contract. If it is open, then an Indexer’s reward will depend on how many other Indexers there are.
-- fulfilling of the Service Level Agreement (SLA) specifications (to avoid slashing penalties)
-- the accuracy of the data being served to avoid slashing penalties
+- das Gleichgewicht zwischen ihrem eigenen Anteil und dem der Delegierenden.
+- die Art des zuzustellenden Vertrages. Der Indexer erhält alle Abfragegebühren, wenn es sich um einen geschlossenen Vertrag handelt. Wenn es offen ist, hängt die Belohnung eines Indexers davon ab, wie viele andere Indexer es gibt.
+- Erfüllung der Vorgaben des Service Level Agreements (SLA) (um Strafen zu vermeiden)
+- die Genauigkeit der übermittelten Daten, um drastische Strafen zu vermeiden
 
-## Selecting SubQuery Projects to Index
+## Auswählen von SubQuery-Projekten zum Indexieren
 
-There are several indicators that an Indexer needs to consider when selecting a SubQuery project to index.
+Es gibt mehrere Indikatoren, die ein Indexer berücksichtigen muss, wenn er ein zu indexierendes SubQuery-Projekt auswählt.
 
-### Query Fee Opportunities
+### Möglichkeiten zur Abfrage von Gebühren
 
-Some projects will have open or closed plans advertised by consumers.
+Einige Projekte haben offene oder geschlossene Pläne, die von Verbrauchern beworben werden.
 
-When a Consumer advertises an open or closed plan for a project, they ultimately specify how much they are willing to pay for a set volume of requests. The more a Consumer is willing to pay, the more attractive the project will be for an Indexer. It also provides confidence that there will likely be recurring revenue from this SubQuery project.
+Wenn ein Verbraucher einen offenen oder geschlossenen Plan für ein Projekt bewirbt, gibt er letztendlich an, wie viel er bereit ist, für eine bestimmte Anzahl von Anfragen zu zahlen. Je mehr ein Verbraucher zu zahlen bereit ist, desto attraktiver wird das Projekt für einen Indexer. Es gibt auch Vertrauen, dass es wahrscheinlich wiederkehrende Einnahmen aus diesem SubQuery-Projekt geben wird.
 
-### Project complexity
+### Komplexität des Projekts
 
-Projects will vary in computation requirements. Simple projects will only index a few parameters whereas more complicated projects will require more computation resources and more bandwidth. Indexers need to understand the complexity of the project and its hardware capabilities.
+Die Berechnungsanforderungen der Projekte variieren. Einfache Projekte indizieren nur wenige Parameter, während kompliziertere Projekte mehr Rechenressourcen und mehr Bandbreite erfordern. Indexer müssen die Komplexität des Projekts und seine Hardwarefähigkeiten verstehen.
 
-### Indexer Competition
+### Indexer-Wettbewerb
 
-Popular projects offering a high query volume that attract a large number of Indexers. This also implies that the rewards will be shared amongst more people. A single Indexer’s share may be less than a less popular project with a slightly lower query fee but with far fewer Indexers.
+Beliebte Projekte mit einem hohen Abfragevolumen, die eine große Anzahl von Indexern anziehen. Dies impliziert auch, dass die Belohnungen unter mehr Menschen geteilt werden. Der Anteil eines einzelnen Indexers kann geringer sein als ein weniger beliebtes Projekt mit einer etwas niedrigeren Abfragegebühr, aber mit weit weniger Indexern.
 
-### Pricing Strategy
+### Preisstrategie
 
-Indexers need to be aware of their operation cost and expected incomes to understand their break-even point. Some considerations are:
+Indexierer müssen sich ihrer Betriebskosten und erwarteten Einnahmen bewusst sein, um ihre Gewinnschwelle zu verstehen. Einige Überlegungen sind:
 
-- How should Indexers set their plan prices?
-- At what price can Indexers accept a service agreement or not?
+- Wie sollten Indexer ihre Planpreise festlegen?
+- Zu welchem Preis können Indexer einen Servicevertrag annehmen oder nicht?
 
-### Advertisements
+### Anzeige
 
-Indexers need to advertise themselves to Delegators as well as Consumers. Indexers may do this from their own website, in the Subquery forums or any other places deemed necessary. Some examples of the information to provide are:
+Indexierer müssen sich sowohl bei Delegierenden als auch bei Verbrauchern bewerben. Indexierer können dies auf ihrer eigenen Website, in den Subquery-Foren oder an anderen Stellen tun, die sie für erforderlich halten. Einige Beispiele für die bereitzustellenden Informationen sind:
 
-- The background and experience of the Indexer or Indexer’s team
-- The hardware approach and why it provides superior performance
-- The customer support policy or SLA
-- Evidence of historical performances
+- Der Hintergrund und die Erfahrung des Indexers oder des Teams des Indexers
+- Der Hardware-Ansatz und warum er eine überlegene Leistung bietet
+- Die Kundensupportrichtlinie oder SLA
+- Zeugnisse historischer Aufführungen
 
-### Customer support
+### Kundendienst
 
-Indexers are highly encouraged to provide a communication method for its customers to report inavailability and also to provide feedback.
+Indexer werden dringend ermutigt, ihren Kunden eine Kommunikationsmethode zur Verfügung zu stellen, um die Nichtverfügbarkeit zu melden und auch Feedback zu geben.
