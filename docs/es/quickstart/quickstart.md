@@ -4,7 +4,7 @@ El objetivo de esta guía de inicio rápido es proporcionarte una configuración
 
 Esta guía de inicio rápido debería tardar unos 10-15 minutos.
 
-Después de completar esta guía de inicio rápido, tendrá un proyecto de SubQuery que funcionará en un nodo de SubQuery. Podrás adaptar el proyecto inicial estándar y las transferencias de índices desde tu red de blockchain favorita como Polkadot, Avalanch, Cosmos, etc.
+Después de completar esta guía de inicio rápido, tendrá un proyecto de SubQuery que funcionará en un nodo de SubQuery. Podrás adaptar el proyecto inicial estándar y las transferencias de índices desde tu red de blockchain favorita como Polkadot, Avalanche, Cosmos, etc.
 
 Vamos a comenzar el proceso de creación de tu primer proyecto de cadena de bloques de SubQuery.
 
