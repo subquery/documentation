@@ -51,7 +51,7 @@ Para inicializar tu proyecto con Cosmos, consulta estos 4 pasos mostrados en est
 Se le harán ciertas preguntas mientras avance:
 
 - **Nombre del proyecto**: Un nombre de proyecto para su proyecto de Subconsulta
-- **Familia de red**: La familia de red de cadena de bloques de capa 1 que indexará este proyecto de SubQuery. Utilice las teclas de flecha para seleccionar las opciones disponibles. Por ejemplo, Polkadot, Avalanche, Cosmos o cualquier otra red soportada.
+- **Familia de redes**: La familia de redes de blockchain de capa 1 que indexará este proyecto de SubQuery. Utilice las teclas de flecha para seleccionar las opciones disponibles. Por ejemplo, Polkadot, Avalanche, Cosmos o cualquier otra red soportada.
 - **Red**: La red específica que indexará este proyecto de Subconsulta. Utilice las teclas de flecha para seleccionar las opciones disponibles. Por ejemplo, Polkadot, Avalanche o cualquier otra red soportada.
 - **Proyecto de plantilla**: Seleccione un proyecto de plantilla de subconsulta que proporcionará un punto de partida en el desarrollo. Sugerimos seleccionar el proyecto _"subql-starter"_.
 - **endpoint RPC**: Proporcione una URL HTTPS a un endpoint RPC en ejecución, que se utilizará por defecto para este proyecto. Puede acceder rápidamente a los extremos públicos de diferentes redes, crea tu propio nodo privado dedicado usando [OnFinality](https://app.onfinality.io)o simplemente usa el punto final por defecto. Este nodo RPC debe ser un nodo de archivo (tienen el estado completo de cadena). Utilizaremos el valor por defecto para esta guía. Basado en la red que ha elegido, el valor por defecto puede ser:
