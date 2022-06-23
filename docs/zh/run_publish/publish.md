@@ -37,7 +37,11 @@ SubQuery 项目是您管理上传到SubQuery平台的所有托管项目的地方
 
 ### 创建您的第一个项目。
 
-让我们先点击“创建项目”。 您将被带到新的项目表格。 请输入以下内容(您将来可以更改):
+There are two methods to create a project in the SubQuery Managed Service, you can use the UI or directly via the `subql` cli tool.
+
+#### Using the UI
+
+Let's start by clicking on "Create Project". You'll be taken to the New Project form. Please enter the following (you can change this in the future):
 
 - **GitHub 帐户：** 如果您有多个GitHub 帐户，请选择该项目将在哪个帐户下创建。 GitHub 组织账户中创建的项目由该组织的成员共享。
 - **项目名称**
@@ -48,18 +52,18 @@ SubQuery 项目是您管理上传到SubQuery平台的所有托管项目的地方
 - **部署源:** 您可以选择从GitHub 仓库部署项目或从IPFS CID部署项目。 请参阅我们的指南 [与 IPFS 托管。](ipfs.md)
 - **隐藏项目：** 如果选中，如果选中，这将在公共 SubQuery 浏览器中隐藏项目。 如果您想与社区共享您的SubQuery项目，请不要选择此项！ ![创建您的第一个项目。](/assets/img/projects-create.png)
 
-创建您的项目，您将在 SubQuery 项目列表中看到。 _到这里，就即将完成了！ 我们只需要再部署一个新版本。 _
+Create your project and you'll see it on your SubQuery Project's list. _We're almost there! We just need to deploy a new version of it._
 
-![创建了没有部署的项目](/assets/img/projects-no-deployment.png)
+![Created Project with no deployment](/assets/img/projects-no-deployment.png)
 
-### Creating Projects using CLI
+#### Using the CLI
 
-You can also use `@subql/cli` to create your project
-#### 安装要求
+You can also use `@subql/cli` to publish your project to our managed service. This requires:
+
 - `@subql/cli` version 1.1.0 or above.
-- Get your [SUBQL_ACCESS_TOKEN](/docs/run_publish/ipfs.md#prepare-your-subqlaccesstoken) ready.
+- A valid [SUBQL_ACCESS_TOKEN](/docs/run_publish/ipfs.md#prepare-your-subqlaccesstoken) ready.
 
-```
+```shell
 // Creating a project using the CLI
 $ subql project:create-project
 
@@ -72,9 +76,11 @@ $ subql project:create-project
     --project_name=project_name  Enter project name
 ```
 
-### Deploy your first Version
+### Deploy your First Version
 
-### 选项 1
+There are two methods to deploy a new version of your project to the SubQuery Managed Service, you can use the UI or directly via the `subql` cli tool.
+
+#### Using the UI
 
 While creating a project will setup the display behaviour of the project, you must deploy a version of it before it becomes operational. Deploying a version triggers a new SubQuery indexing operation to start, and sets up the required query service to start accepting GraphQL requests. You can also deploy new versions to existing projects here.
 
@@ -91,13 +97,14 @@ With your new project, you'll see a Deploy New Version button. Click this, and f
 
 If deployed successfully, you'll see the indexer start working and report back progress on indexing the current chain. This process may take time until it reaches 100%.
 
-### 选项 2
-#### Deploying using CLI
-#### 安装要求
-- `@subql/cli` version 1.1.0 or above.
-- Get your [SUBQL_ACCESS_TOKEN](/docs/run_publish/ipfs.md#prepare-your-subqlaccesstoken) ready.
+#### Using the CLI
 
-```
+You can also use `@subql/cli` to create a new deployment of your project to our managed service. This requires:
+
+- `@subql/cli` version 1.1.0 or above.
+- A valid [SUBQL_ACCESS_TOKEN](/docs/run_publish/ipfs.md#prepare-your-subqlaccesstoken) ready.
+
+```shell
 // Deploy using the CLI
 $ suqbl deployment:deploy
 
@@ -138,6 +145,3 @@ Once you have revoked access, log out of [SubQuery Projects](https://project.sub
 ![撤销GitHub 帐户的批准](/assets/img/project_auth_request.png)
 
 Once this request has been approved by your administrator (or if are able to grant it youself), you will see the correct GitHub Organization account in the account switcher.
-
-
-

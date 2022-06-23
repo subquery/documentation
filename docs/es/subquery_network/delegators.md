@@ -1,66 +1,66 @@
-# Delegators
+# Delegadores
 
-## What is a Delegator?
+## ¿Qué es un Delegador?
 
-A Delegator is a non-technical network role in the SubQuery Network and is a great way to start participating in the SubQuery Network. This role enables Delegators to “delegate” their SQT to one or more Indexers and earn rewards (similar to staking).
+Un Delegator es un rol de red no técnica en SubQuery Network y es una gran manera de empezar a participar en SubQuery Network. Este rol permite a los Delegadores "delegar" su SQT a uno o más Indexadores y ganar recompensas (similares a la apuesta).
 
-Without Delegators, Indexers will likely earn fewer rewards because they will have less SQT to allocate. Therefore, Indexers compete to attract Delegators by offering a competitive share of an Indexer’s rewards.
+Sin elegantes, es probable que los indexadores ganen menos recompensas porque tendrán menos SQT que asignar. Por lo tanto, los Indexers compiten para atraer a los Delegadores ofreciendo una parte competitiva de las recompensas de un Indexer.
 
-## Requirements to be a Delegator
+## Requisitos para ser un Delegador
 
-One of the best things about being a Delegator is that you don’t need any devops, coding, or technical experience. Basic understanding of the SubQuery Network is all that is required to become a Delegator.
+Una de las mejores cosas de ser un Delegator es que no necesitas ningún desarrollador, programación o experiencia técnica. La comprensión básica de SubQuery Network es todo lo que se requiere para convertirse en un Delegator.
 
-## Benefits of being a Delegator
+## Beneficios de ser un Delegador
 
-There are several benefits of becoming a Delegator:
+Hay varios beneficios de convertirse en un Delegador:
 
-- **Easy to get started**: Requiring little technical knowledge, Delegators only need to acquire SQT tokens and then learn the process of delegating the tokens to their preferred Indexer(s).
-- **Contribute to the network**: Delegating to Indexers is a way to support an Indexer’s work service requests to consumers. In return, Delegators are rewarded with SQT.
-- **Earn rewards**: Delegators can put their SQT to work by delegating their SQT to Indexers and earning a share of the reward pool.
-- **No minimum delegation amount**: There is no minimum required delegation to be a Delegator. This means that anyone can join no matter how much SQT one has.
+- **Fácil de comenzar**: Requiere poco conocimiento técnico, Los descalificadores sólo necesitan adquirir fichas SQT y luego aprender el proceso de delegar las fichas a su Indexer(s) preferido(s).
+- **Contribuir a la red**: Delegar a los Indexadores es una forma de apoyar las solicitudes de servicio de trabajo de un Indexer a los consumidores. A cambio, los Delegadores son recompensados con SQT.
+- **Gana recompensas**: Los elegadores pueden poner su SQT a trabajar delegando su SQT a los Indexadores y ganando una parte del paquete de recompensas.
+- **No hay una delegación mínima**: No hay una delegación mínima requerida para ser un Delegador. Esto significa que cualquiera puede unirse sin importar cuánto SQT uno tiene.
 
-## How Delegators are rewarded?
+## ¿Cómo se recompensa a los delegadores?
 
-To attract Delegators to support their work, Indexers offer Delegators a share of the rewards they earn. The Indexer will advertise an Indexer Commission Rate, where the remaining revenue will then be shared within the total delegation/staking pool proportionally to the individual delegated/staked value in the pool.
+Para atraer a los Delegadores a apoyar su trabajo, los Indexadores ofrecen a los Delegadores una parte de las recompensas que ganan. El Indexador anunciará una tasa de Comisión del Indexador, donde los ingresos restantes se repartirán dentro de la totalidad de la delegación/fondo de apuestas proporcionalmente al valor individual delegado/apostado en el albergue.
 
-*Indexer’s Commission Rate*: This is a percentage share of the fees earned from serving requests to Consumers. Indexers are free to set this rate to any value they desire. A higher percentage indicates that Indexers keep more of the profits. A lower percentage indicates that the Indexers share more of their profits with their Delegators.
+*Tipo de Comisión del Indexador*: Este es un porcentaje de las comisiones obtenidas al servir solicitudes a los Consumidores. Los indexadores son libres de fijar esta tasa a cualquier valor que deseen. Un porcentaje más alto indica que los Indexadores tienen más ganancias. Un porcentaje menor indica que los Indexadores comparten más de sus ganancias con sus Distribuidores.
 
-Delegators will only receive revenue for staking Eras that they were a part of for the entire period. For example, if they join a staking Era in the middle of the relevant period, then they will not earn any Query Fee revenue for that particular Era.
+Los desempleados sólo recibirán ingresos por apostar Eras de las que formaron parte durante todo el período. Por ejemplo, si se unen a una era participante a mediados del período correspondiente. entonces no ganarán ningún ingreso de Cuota de Consulta por esa Era particular.
 
-If an Indexer wishes to increase the Indexer Commission Rate that they offer to their Delegators, they must advertise this for an entire staking Era . The Indexer will be able to decrease their Indexer Commission Rate at any point to raise more delegated SQT for staking in the short term. Delegators can withdraw or undelegate their staked amount at any time, but they will forfeit any rewards earned within the staking Era (as they were not part of the delegation pool for the entire duration of the staking Era).
+Si un indexador desea aumentar el tipo de Comisión del Indexador que ofrecen a sus deselegantes, Ellos deben anunciar esto para toda una era de apuestas. El Indexador podrá reducir su tasa de Comisión del Indexador en cualquier momento para elevar más delegados SQT para participar a corto plazo. Los dedos pueden retirar o deseleccionar su cantidad apostada en cualquier momento pero perderán cualquier recompensa ganada en la Era (ya que no formaron parte del grupo de delegaciones durante toda la duración de la Era).
 
-## Risks of being a Delegator
+## Riesgos de ser un delegador
 
-Even though it is not considered a risky role, being a Delegator includes a few risks to be aware of.
+A pesar de que no se considera un papel arriesgado, ser un Delegador incluye algunos riesgos que deben ser conscientes.
 
-1. Market volatility risk: The constant fluctuations in the market is a risk that affects not just SQT, but all tokens in the general cryptocurrency marketplace. Taking a long term approach can reduce this type of risk.
-2. Constant adjustments of staking parameters by Indexers and delegation fees can increase the risk to a Delegator. For example, a Delegator might miss a change in staking parameters resulting in a less than expected return. To reduce this risk, when Indexers decrease their stake parameters, it will only take effect after the next full Era has been completed, giving time for delegators to assess and make any changes.
-3. Indexer poor performance: It is possible that Delegators can select Indexers that perform poorly and therefore provide a substandard return on investment to Delegators. Delegators are therefore encouraged to do Indexer due diligence on potential Indexers. A Reputation Index is also available to help Delegators compare Indexers to each other.
+1. Riesgo de volatilidad de mercado: Las fluctuaciones constantes en el mercado es un riesgo que afecta no sólo a SQT, sino a todos los tokens en el mercado general de criptomonedas. Adoptar un enfoque a largo plazo puede reducir este tipo de riesgos.
+2. Los constantes ajustes de parámetros de apuesta por parte de los Indexadores y las tarifas de las delegaciones pueden aumentar el riesgo para un Delegador. Por ejemplo, un Delegator podría perder un cambio en los parámetros de apuesta, resultando en un rendimiento inferior al esperado. Para reducir este riesgo, cuando los Indexadores disminuyen sus parámetros de estancia, sólo entrará en vigor una vez que se haya completado la siguiente Era completa, dando tiempo a los delegados para que evalúen y hagan cualquier cambio.
+3. Indice de rendimiento deficiente: es posible que los Delegators puedan seleccionar los Indexadores que tienen un desempeño deficiente y, por lo tanto, proporcionar un rendimiento deficiente de la inversión a los Delegadores. Por lo tanto, se anima a los dedores a hacer el Indexer debido diligencia en los índices potenciales. También está disponible un Índice de Reputación para ayudar a los Delegadores a comparar los Indexadores entre sí.
 
-## How to select Indexers?
+## ¿Cómo seleccionar indexadores?
 
-Delegators can select potential Indexers based on a *Reputation Index* or RI. This RI takes into account an Indexer’s uptime, indexer commission rate, slashing events, and Indexer parameter change frequency.
+Los deducidos pueden seleccionar los índices potenciales basados en un *Índice de reputación* o RI. Este RI tiene en cuenta el tiempo de actividad, el índice de comisión del índice, los eventos de recorte y la frecuencia de cambio del parámetro Indexer.
 
-SubQuery will launch the official RI soon, but we expect other delegation applications to calculate and release their own.
+SubQuery lanzará pronto el programa oficial de RI, pero esperamos que otras solicitudes de delegación calculen y publiquen las suyas.
 
-## Non-reward period
+## Periodo sin recompensa
 
-Besides the period when Delegators can effectively earn money, a non-reward period also occurs. Delegators receive rewards for staking Eras that they were a part of for the entire duration. For example, if a Delegator joins a staking era halfway through, they will not earn any rewards for that particular era.
+Además del período en el que los Delegadores pueden ganar dinero de forma efectiva, también se produce un período sin recompensa. Los dedores reciben recompensas por apostar Eras de las que fueron parte durante toda la duración. Por ejemplo, si un Delegador se une a la mitad de la era de apuestas, no ganará ninguna recompensa por esa era en particular.
 
-Delegators can change the indexer that their SQT is delegated to (called redelegating), this change will be queued to happen automatically at the end of the the Era and no thawing period will occur.
+Los elegadores pueden cambiar el indexador al que se delega su SQT (llamado redelegación), este cambio se pondrá en cola para que suceda automáticamente al final de la Era y no ocurrirá ningún período de deshielo.
 
-If a Delegator decides to undelegate their SQT, a 28 day thawing period starts. The tokens cannot be used during this period, no fees can be accrued or any reward gained.
+Si un Delegador decide deseleccionar su SQT, comienza un período de deshielo de 28 días. Las fichas no se pueden utilizar durante este período, no se pueden cobrar comisiones o ninguna recompensa ganada.
 
-## Indexer due diligence for Delegators
+## Condiligencia debida del indizador para los Delegadores
 
-Once a preferred Indexer(s) is found, due diligence should be performed to check an Indexer’s reputation and reliability. Assessments could be performed to evaluate if the Indexer is active in the community, if the Indexer helps other members, if it is possible to get in touch with the Indexer, and if the Indexer is up-to-date with protocol and project updates.
+Una vez que se encuentre un (los) índice(s) preferido(s), debe realizarse la diligencia debida para comprobar la reputación y fiabilidad de un índice. Se podrían realizar evaluaciones para evaluar si el Indexador está activo en la comunidad, si el Indexador ayuda a otros miembros, si es posible ponerse en contacto con el Indexador, y si el Indexador está actualizado con el protocolo y las actualizaciones del proyecto.
 
-## Delegation Lifecycle
+## Ciclo de vida de deelegación
 
-Delegators delegate (deposit) SQT into an Indexer’s contract.
+Los delegadores delegan (depósito) SQT en el contrato de un índice.
 
-Delegators can then decide how much to redelegate to each Indexer of their choice.
+Los delegadores pueden entonces decidir cuánto redelegar a cada Indexador de su elección.
 
-Delegator can undelegate (withdraw) tokens back to their wallet. This will trigger a lock period of 28 days.
+El delegador puede deseleccionar (retirar) los tokens de vuelta a su cartera. Esto activará un período de bloqueo de 28 días.
 
-After the unlocking period has been completed, tokens become available for withdrawal/claim.
+Después de completar el período de desbloqueo, los tokens están disponibles para retirar/reclamar.

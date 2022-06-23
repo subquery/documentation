@@ -1,37 +1,37 @@
-# Consumers
+# Consumidores
 
-## What is a Consumer?
+## ¿Qué es un consumidor?
 
-A Consumer is a participant in the SubQuery network and is either an individual or organisation that pays for processed and organised blockchain data from the SubQuery Network. Consumers effectively make requests to the SubQuery Network for specific data and pay an agreed amount of SQT in return.
+Un Consumidor es un participante en la red de SubQuery y es un individuo u organización que paga los datos procesados y organizados de la SubQuery Network. Los consumidores efectivamente hacen solicitudes a la SubQuery Network para datos específicos y pagan una cantidad acordada de SQT a cambio.
 
-Consumers are typically dApp (decentralised application) developers, data analytic companies, blockchain networks, middleware developers, or even web aggregating companies that need access to blockchain data to provide services to their end-users.
+Los consumidores son típicamente desarrolladores de dApp (aplicación descentralizada), empresas analíticas de datos, redes blockchain, desarrolladores de middleware, o incluso compañías de agregación web que necesitan acceso a datos de blockchain para proporcionar servicios a sus usuarios finales.
 
-## Consumer Requirements
+## Requisitos del consumidor
 
-There are no requirements as such to become a SubQuery Consumer. However, Consumers will need to understand how to obtain SQT, how to advertise their data requirements and how to consume the JSON data returned.
+No hay requisitos como tales para convertirse en un Consumidor de Subconsulta. Sin embargo, los consumidores tendrán que entender cómo obtener SQT, cómo anunciar sus necesidades de datos y cómo consumir los datos devueltos JSON.
 
-Consumers may also need to understand how to create SubQuery projects to be Indexed or contract this work out in order to get the data in the format they need.
+Los consumidores también pueden tener que entender cómo crear proyectos SubQuery para ser Indexados o contratar este trabajo a fin de obtener los datos en el formato que necesitan.
 
-## Service Cost
+## Costo de servicio
 
-The cost of querying data on the blockchain will be based on supply and demand and will be comparable to other similar services currently available. The advantage of an open and transparent network and ecosystem is that competition is encouraged to provide the best service to the Consumer.
+El costo de consultar datos en el blockchain se basará en la oferta y la demanda y será comparable a otros servicios similares actualmente disponibles. La ventaja de una red y un ecosistema abiertos y transparentes es que se fomenta la competencia para ofrecer el mejor servicio al consumidor.
 
-## Payment options for Consumers?
+## ¿Opciones de pago para los consumidores?
 
-For flexibility, Consumers have 3 payment options to pay for blockchain data. They are:
+Para flexibilidad, los consumidores tienen 3 opciones de pago para pagar los datos de blockchain. Estas son:
 
-- Pay As You Go (PAYG)
-- Closed Service Agreement
-- Open Service Agreement
+- Pagar a medida que vayas (PAYG)
+- Acuerdo de Servicio Cerrado
+- Acuerdo de Servicio Abierto
 
-You can read more about the different payment methods, how they work, and the advantages/disadvantages on the [Payment Methods article](./payment-methods.md).
+Puede leer más sobre los diferentes métodos de pago, cómo funcionan, y las ventajas o desventajas en el artículo [Métodos de pago](./payment-methods.md).
 
 ## Preguntas Frecuentes (FAQ)
 
-### As a Consumer, do I select 1 Indexer or multiple Indexers?
+### Como consumidor, ¿selecciono 1 Indexador o varios Indexadores?
 
-Unless a Closed Service Agreement is being used, there will be one or more Indexers indexing a SubQuery project. Consumers have the choice when deciding which Indexer to read data from. Typically Consumers would select the most reliable and lowest latency Indexer. Consumers could also incorporate automatic failover and read data from another Indexer if the first one times out or is not responsive.
+A menos que se utilice un Acuerdo de Servicio Cerrado, habrá uno o más Indexadores que indizarán un proyecto de SubQuery. Los consumidores tienen la opción de elegir a la hora de decidir el Indexador del que leer los datos. Típicamente los consumidores seleccionarían el índice de latencia más confiable y más bajo. Los consumidores también podrían incorporar la tolerancia automática contra fallos y leer datos de otro Indexador si la primera vez sale o no responde.
 
-### What happens if an Indexer goes off line?
+### ¿Qué pasa si un Indexador sale de línea?
 
-Unless a Closed Service Agreement is being used, and if there is more than one Indexer indexing your SubQuery project, it would simply be a matter of switching to another Indexer. The ideal scenario would be include strategies like alert monitoring to be notified of potential issues and intelligent routing and caching
+A menos que se utilice un acuerdo de servicio cerrado, y si hay más de un índice de su proyecto SubQuery, sería simplemente una cuestión de cambiar a otro índice. El escenario ideal sería incluir estrategias como el seguimiento de alertas para ser notificado de posibles problemas y enrutamiento inteligente y cacheo

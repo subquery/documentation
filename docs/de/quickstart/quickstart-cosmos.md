@@ -1,6 +1,6 @@
-# Cosmos Quick Start
+# Cosmos Schnellstart
 
-In this Quick start guide, we're going to start with a simple Cosmos starter project in the Juno Network and then finish by indexing some actual real data. Dies ist eine hervorragende Basis, um mit der Entwicklung Ihres eigenen SubQuery-Projekts zu beginnen.
+In dieser Schnellstartanleitung beginnen wir mit einem einfachen Cosmos-Starterprojekt im Juno-Netzwerk und schließen dann mit der Indizierung einiger echter Daten ab. Dies ist eine hervorragende Basis, um mit der Entwicklung Ihres eigenen SubQuery-Projekts zu beginnen.
 
 **Wenn Sie nach Anleitungen für Substrat/Polkadot suchen, können Sie die [Substrat/Polkadot-spezifische Kurzanleitung](./quickstart-polkadot) lesen.**
 
@@ -8,9 +8,9 @@ Am Ende dieses Handbuchs haben Sie ein funktionierendes SubQuery-Projekt, das au
 
 Falls noch nicht geschehen, empfehlen wir Ihnen, sich mit der [Terminologie](../#terminology) vertraut zu machen, die in SubQuery verwendet wird.
 
-**The goal of this quick start guide is to adapt the standard starter project to begin indexing all votes on the [Terra Developer Fund](https://daodao.zone/multisig/juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2) (which also contributed to SubQuery) from Cosmos, it should only take 10-15 minutes**
+**Das Ziel dieser Schnellstartanleitung besteht darin, das standardmäßige Starterprojekt so anzupassen, dass mit der Indizierung aller Stimmen zum [Terra Developer Fund](https://daodao.zone/multisig/juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2) (der auch zu SubQuery beigetragen hat) von Cosmos begonnen werden kann. Dies sollte nur 10–15 Minuten dauern**
 
-You can see the final code of this project here at [https://github.com/jamesbayly/juno-terra-developer-fund-votes](https://github.com/jamesbayly/juno-terra-developer-fund-votes)
+Den endgültigen Code dieses Projekts können Sie hier unter [https://github.com/jamesbayly/juno-terra-developer-fund-votes](https://github.com/jamesbayly/juno-terra-developer-fund-votes) einsehen
 
 ## Vorbereitung
 
@@ -38,7 +38,7 @@ subql help
 
 ## Initialisieren Sie das SubQuery-Starterprojekt
 
-Cosmos is not yet supported in SubQuery's CLI (`subql`), to start with Juno clone or fork the [starter project](https://github.com/subquery/juno-subql-starter).
+Cosmos wird noch nicht in der Befehlszeilenschnittstelle von SubQuery (`subql`) unterstützt, um mit Juno-Clone oder Fork des [Starter-Projekts](https://github.com/subquery/juno-subql-starter) zu beginnen.
 
 Nachdem der Initialisierungsprozess abgeschlossen ist, sollten Sie sehen, dass ein Ordner mit Ihrem Projektnamen im Verzeichnis erstellt wurde. Der Inhalt dieses Verzeichnisses sollte mit dem identisch sein, was in der [Verzeichnisstruktur](../create/introduction.md#directory-structure) aufgeführt ist.
 
@@ -61,15 +61,15 @@ Das Ziel dieser Schnellstartanleitung ist es, das Standard-Starterprojekt so anz
 
 Die Datei `schema.graphql` definiert die verschiedenen GraphQL-Schemas. Aufgrund der Funktionsweise der GraphQL-Abfragesprache bestimmt die Schemadatei im Wesentlichen die Form Ihrer Daten aus SubQuery. Es ist ein großartiger Ausgangspunkt, da es Ihnen ermöglicht, Ihr Endziel im Voraus zu definieren.
 
-We're going to update the `schema.graphql` file to read as follows so we can index all votes on the [Terra Developer Fund](https://daodao.zone/multisig/juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2).
+Wir werden die Datei `schema.graphql` so aktualisieren, dass sie wie folgt lautet, damit wir alle Stimmen für den [Terra Developer Fund](https://daodao.zone/multisig/juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2) indizieren können.
 
 ```graphql
 type Vote @entity {
-  id: ID! # id field is always required and must look like this
+  id: ID! # id-Feld ist immer erforderlich und muss so aussehen
   blockHeight: BigInt!
-  voter: String! # The address that voted
-  proposalID: BigInt! # The proposal ID
-  vote: Boolean! # If they voted to support or reject the proposal
+  voter: String! # Die Adresse, die abgestimmt hat
+  proposalID: BigInt! # Die Angebots-ID
+  vote: Boolean! # Ob sie für die Unterstützung oder Ablehnung des Vorschlags gestimmt haben
 }
 ```
 
@@ -84,26 +84,26 @@ Sie finden die generierten Modelle im Verzeichnis `/src/types/models`. Weitere I
 
 Die Projektmanifestdatei (`project.yaml`) kann als Einstiegspunkt Ihres Projekts angesehen werden und definiert die meisten Details darüber, wie SubQuery die Chaindaten indiziert und umwandelt.
 
-Wir werden nicht viele Änderungen an der Manifestdatei vornehmen, da sie bereits korrekt eingerichtet wurde, aber wir müssen unsere Handler ändern. Remember we are planning to index all votes on the [Terra Developer Fund](https://daodao.zone/multisig/juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2). This means that we we will look at messages that use the `vote` contract call, we need to update the `datasources` section to read the following.
+Wir werden nicht viele Änderungen an der Manifestdatei vornehmen, da sie bereits korrekt eingerichtet wurde, aber wir müssen unsere Handler ändern. Denken Sie daran, dass wir planen, alle Stimmen für den [Terra Developer Fund](https://daodao.zone/multisig/juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2) zu indizieren. Das bedeutet, dass wir uns Nachrichten ansehen werden, die den Vertragsaufruf `vote` verwenden, wir müssen den Abschnitt `datasources` aktualisieren, um Folgendes zu lesen.
 
 ```yml
 dataSources:
   - kind: cosmos/Runtime
-    startBlock: 3246370 # The block when the first proposal in this fund was created
-    mapping:
+    startBlock: 3246370 # Der Block, als der erste Vorschlag in diesem Fonds erstellt wurde
+     Kartierung:
       file: "./dist/index.js"
       handlers:
         - handler: handleTerraDeveloperFund
           kind: cosmos/MessageHandler
           filter:
             type: "/cosmwasm.wasm.v1.MsgExecuteContract"
-            # Filter to only messages with the vote function call
-            contractCall: "vote" # The name of the contract function that was called
-            values: # This is the specific smart contract that we are subscribing to
-              contract: "juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2"
+            # Filtern Sie nur nach Nachrichten mit dem Aufruf der Abstimmungsfunktion
+             contractCall: "vote" # Der Name der aufgerufenen Vertragsfunktion
+             values: # Dies ist der spezifische Smart Contract, den wir abonnieren
+               Vertrag:"juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2"
 ```
 
-This means we'll run a `handleTerraDeveloperFund` mapping function each and every time there is a `vote` message from the [Terra Developer Fund](https://daodao.zone/multisig/juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2) smart contract.
+Das bedeutet, dass wir jedes Mal eine `handleTerraDeveloperFund`-Zuordnungsfunktion ausführen, wenn eine `vote`-Nachricht vom intelligenten Vertrag [Terra Developer Fund](https://daodao.zone/multisig/juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2) eingeht.
 
 Weitere Informationen zur Projektmanifestdatei (`project.yaml`) finden Sie in unserer Dokumentation unter [Build-/Manifestdatei](../build/manifest.md)
 
@@ -111,11 +111,11 @@ Weitere Informationen zur Projektmanifestdatei (`project.yaml`) finden Sie in un
 
 Zuordnungsfunktionen definieren, wie Chaindaten in die optimierten GraphQL-Entitäten umgewandelt werden, die wir zuvor in der Datei `schema.graphql` definiert haben.
 
-Navigieren Sie zur Standardzuordnungsfunktion im Verzeichnis `src/mappings`. You'll see four exported functions, `handleBlock`, `handleEvent`, `handleMessage`, and `handleTransaction`. Since we are dealing only with messages, you can delete everything other than the `handleMessage` function.
+Navigieren Sie zur Standardzuordnungsfunktion im Verzeichnis `src/mappings`. Sie sehen vier exportierte Funktionen, `handleBlock`, `handleEvent`, `handleMessage` und `handleTransaction`. Da wir es nur mit Nachrichten zu tun haben, können Sie alles außer der Funktion `handleMessage` löschen.
 
-The `handleMessage` function recieved event data whenever event matches the filters that we specify previously in our `project.yaml`. We are going to update it to process all `vote` messages and save them to the GraphQL entity that we created earlier.
+Die Funktion `handleMessage` hat Ereignisdaten empfangen, wenn das Ereignis mit den Filtern übereinstimmt, die wir zuvor in unserer `project.yaml` angegeben haben. Wir werden es aktualisieren, um alle `vote`-Nachrichten zu verarbeiten und sie in der zuvor erstellten GraphQL-Entität zu speichern.
 
-You can update the `handleMessage` function to the following (note the additional imports and renaming the function):
+Sie können die Funktion `handleMessage` wie folgt aktualisieren (beachten Sie die zusätzlichen Importe und die Umbenennung der Funktion):
 
 ```ts
 import { Vote } from "../types";
@@ -137,7 +137,7 @@ export async function handleTerraDeveloperFund(
 }
 ```
 
-What this is doing is receiving a CosmosMessage which includes message data on the payload. We extract this data and then instantiate a new `Vote` entity that we defined earlier in the `schema.graphql` file. Wir fügen zusätzliche Informationen hinzu und verwenden dann die Funktion `.save()`, um die neue Entität zu speichern (SubQuery speichert diese automatisch in der Datenbank).
+Dadurch wird eine CosmosMessage empfangen, die Nachrichtendaten in der Nutzlast enthält. Wir extrahieren diese Daten und instanziieren dann eine neue Entität `Vote`, die wir zuvor in der Datei `schema.graphql` definiert haben. Wir fügen zusätzliche Informationen hinzu und verwenden dann die Funktion `.save()`, um die neue Entität zu speichern (SubQuery speichert diese automatisch in der Datenbank).
 
 Weitere Informationen zu Mapping-Funktionen finden Sie in unserer Dokumentation unter [Build/Mappings](../build/mapping.md)
 
@@ -195,7 +195,7 @@ query {
 ```
 
 
-You can see the final code of this project here at [https://github.com/jamesbayly/juno-terra-developer-fund-votes](https://github.com/jamesbayly/juno-terra-developer-fund-votes)
+Den endgültigen Code dieses Projekts können Sie hier unter [https://github.com/jamesbayly/juno-terra-developer-fund-votes](https://github.com/jamesbayly/juno-terra-developer-fund-votes) einsehen
 
 
 

@@ -9,27 +9,32 @@
 
 ## 部署变更
 
-登录到 SubQuery 项目并选择你想要部署一个新版本的项目。 您可以选择要么部署到生产插槽或中转插槽。 这两个插槽是各自独立的环境，各自都有自己的数据库并独立地同步进行。
+There are two methods to deploy a new version of your project to the SubQuery Managed Service, you can use the UI or directly via the `subql` cli tool.
 
-我们建议只部署到您的中转插槽进行最后的中期测试，或者您需要重新同步您的项目数据。 然后您可以在不停机的情况下平滑的发布到生产。 You will find testing is faster when [running a project locally](../run_publish/run.md) as you can more [easily debug issues](../academy/tutorials_examples/debug-projects.md).
+### Using the UI
 
-中转插槽的优势有如下几点:
+Log into SubQuery Project and select the project you want to deploy a new version of. You can choose to either deploy to the production or staging slot. These two slots are isolated environments and each has their own databases and synchronise independently.
+
+We recommend deploying to your staging slot only for final staging testing or when you need to resync your project data. You can then promote it to production with zero downtime. You will find testing is faster when [running a project locally](../run_publish/run.md) as you can more [easily debug issues](../academy/tutorials_examples/debug-projects.md).
+
+The staging slot is perfect for:
 
 - 在独立的环境中最后验证您的 SubQuery 项目的更改。 中转插槽有一个不同的用于生产的URL，可以在dApps中使用它。
 - 为更新的SubQuery项目预热和索引数据，以消除dApp中的停机时间。
 - 为您的SubQuery Project准备一个新版本，而不公开它。 中转插槽不会在Explorer中显示给公众，它有一个唯一的URL，仅对您可见。
 
-![暂存槽位](/assets/img/staging_slot.png)
+![Staging slot](/assets/img/staging_slot.png)
 
-#### 升级到最新索引和查询服务
+在 GitHub 中填写您想要部署的 SubQuery 项目代码库版本的 SubQuery 哈希(复制完整的提交哈希)。 这将导致更长的停机时间，取决于索引当前链所需的时间。 您可以一直在这里报告进度。
 
-如果你只是想升级到最新的索引器([`@subql/node`](https://www.npmjs.com/package/@subql/node))或查询服务([`@subql/quy`](https://www.npmjs.com/package/@subql/query))来利用我们的正常性能和稳定性改进。 这只会导致几分钟的停用。
+### Using the CLI
 
-#### When using `@subql/cli`
-#### Requirement
+You can also use `@subql/cli` to create a new deployment of your project to our managed service. This requires:
+
 - `@subql/cli` version 1.1.0 or above.
-- Get your [SUBQL_ACCESS_TOKEN](/docs/run_publish/ipfs.md#prepare-your-subqlaccesstoken) ready.
-```
+- A valid [SUBQL_ACCESS_TOKEN](/docs/run_publish/ipfs.md#prepare-your-subqlaccesstoken) ready.
+
+```shell
 // You can directly set your Indexer and Query versions
 $ subql deployment:deploy --indexerVersion=1.1.2 --queryVersion=1.1.1
 
@@ -37,9 +42,10 @@ $ subql deployment:deploy --indexerVersion=1.1.2 --queryVersion=1.1.1
 
 $ subql deployment:deploy
 ```
-#### Deploy New Version of your SubQuery Project
 
-在 GitHub 中填写您想要部署的 SubQuery 项目代码库版本的 SubQuery 哈希(复制完整的提交哈希)。 这将导致更长的停机时间，取决于索引当前链所需的时间。 您可以一直在这里报告进度。
+## Upgrade to the Latest Indexer and Query Service
+
+If you just want to upgrade to the latest indexer ([`@subql/node`](https://www.npmjs.com/package/@subql/node)) or query service ([`@subql/query`](https://www.npmjs.com/package/@subql/query)) to take advantage of our regular performance and stability improvements, just select a newer versions of our packages and save. This will cause only a few minutes of downtime as the services running your project are restarted.
 
 ## 下一步 - 连接到您的项目
 

@@ -1,6 +1,6 @@
-# Payment Methods
+# Zahlungsmethoden
 
-For flexibility, there are 3 payment options to pay for blockchain data. Sie sind:
+Aus Gründen der Flexibilität gibt es 3 Zahlungsoptionen, um Blockchain-Daten zu bezahlen. Sie sind:
 
 - Pay-As-You-Go (PAYG)
 - Geschlossener Servicevertrag
@@ -8,30 +8,30 @@ For flexibility, there are 3 payment options to pay for blockchain data. Sie sin
 
 ## Pay-As-You-Go (PAYG)
 
-This is the baseline payment method and a fallback for others. Each Indexer will advertise their PAYG prices when registering their ability to serve requests for specific SubQuery projects.
+Dies ist die grundlegende Zahlungsmethode und ein Fallback für andere. Jeder Indexer gibt seine PAYG-Preise bekannt, wenn er seine Fähigkeit registriert, Anforderungen für bestimmte SubQuery-Projekte zu bedienen.
 
-Consumers making requests will have to lock the tokens necessary to make that request in a state channel, and at the end of an Era, these tokens will be distributed to the Indexers based on the Cobb-Douglas production function.
+Verbraucher, die Anfragen stellen, müssen die für diese Anfrage erforderlichen Token in einem staatlichen Kanal sperren, und am Ende einer Ära werden diese Token auf der Grundlage der Cobb-Douglas-Produktionsfunktion an die Indexer verteilt.
 
-## Closed Plans and Agreements
+## Geschlossene Pläne und Vereinbarungen
 
-Closed Agreements represent an agreement between only one Indexer and one Consumer. It’s a direct relationship where all payment flows between the two parties for the work that is done.
+Geschlossene Vereinbarungen stellen eine Vereinbarung zwischen nur einem Indexer und einem Verbraucher dar. Es ist eine direkte Beziehung, bei der alle Zahlungen zwischen den beiden Parteien für die geleistete Arbeit fließen.
 
-Closed Agreements are designed to give Indexers confidence that there is a market and ROI for data from a particular SubQuery Project, and essentially signal to them which Projects should be indexed.
+Geschlossene Vereinbarungen sollen den Indexierern das Vertrauen geben, dass es einen Markt und einen ROI für Daten aus einem bestimmten SubQuery-Projekt gibt, und ihnen im Wesentlichen signalisieren, welche Projekte indexiert werden sollten.
 
-Closed Plans can also be placed on existing SubQuery Projects to attract additional Indexers to that SubQuery Project. This may be useful in situations where the existing monopolistic Indexer may be charging an unreasonable amount for the data or there is a lack of competition to drive prices to equilibrium.
+Geschlossene Pläne können auch für bestehende SubQuery-Projekte platziert werden, um zusätzliche Indexer für dieses SubQuery-Projekt zu gewinnen. Dies kann in Situationen nützlich sein, in denen der vorhandene monopolistische Indexer einen unangemessenen Betrag für die Daten verlangt oder es an Wettbewerb mangelt, um die Preise ins Gleichgewicht zu bringen.
 
 ## Servicevertrag öffnen
 
-Open Market Service Agreements are similar to Closed Market Service Agreements, but allow multiple Indexers to join and compete to provide data to the Consumer. An Open Market Service Agreement may start as a contract between 1 Consumer and 1 Indexer, but more parties may join the contract resulting in *n* consumer and *n* indexers.
+Offenmarkt-Dienstleistungsvereinbarungen ähneln geschlossenen Marktdienstleistungsvereinbarungen, ermöglichen jedoch mehreren Indexierern, sich anzuschließen und zu konkurrieren, um dem Verbraucher Daten bereitzustellen. Eine Offenmarkt-Dienstleistungsvereinbarung kann als Vertrag zwischen 1 Verbraucher und 1 Indexierer beginnen, aber es können weitere Parteien dem Vertrag beitreten, was zu *n* Verbrauchern und *n* Indexierern führt.
 
-Each Open Market Service Agreement results in a new reward pool being created for that contract, and SQT is distributed amongst participating indexers by the Cobb-Douglas production function.
+Jede Offenmarkt-Servicevereinbarung führt dazu, dass für diesen Vertrag ein neuer Belohnungspool erstellt wird, und SQT wird von der Cobb-Douglas-Produktionsfunktion unter den teilnehmenden Indexierern verteilt.
 
-Open Agreements provide favourable terms for both Indexers and Consumers, but enable better performance and reliability for Consumers by attracting more Indexers to compete and serve the same data. If Consumers are running large scale applications with users around the world, then Open Agreements are ideal.
+Offene Vereinbarungen bieten sowohl für Indexer als auch für Verbraucher günstige Bedingungen, ermöglichen jedoch eine bessere Leistung und Zuverlässigkeit für Verbraucher, indem sie mehr Indexer dazu bringen, zu konkurrieren und dieselben Daten bereitzustellen. Wenn Verbraucher umfangreiche Anwendungen mit Benutzern auf der ganzen Welt ausführen, sind offene Vereinbarungen ideal.
 
-## SubQuery’s Innovation in Payment Methods
+## Die Innovation von SubQuery bei Zahlungsmethoden
 
-Today, we generally pay with subscription-based payments for the music we listen to, the TV shows we watch, and the applications that we use. In pioneering web3 service applications, we’ve instead adopted a pay-as-you-go model, where each atomic transaction has an exact cost in the network.
+Heutzutage zahlen wir im Allgemeinen mit abonnementbasierten Zahlungen für die Musik, die wir hören, die Fernsehsendungen, die wir uns ansehen, und die Anwendungen, die wir verwenden. Bei wegweisenden Web3-Serviceanwendungen haben wir stattdessen ein Pay-as-you-go-Modell eingeführt, bei dem jede atomare Transaktion genaue Kosten im Netzwerk hat.
 
-We think subscription based or recurring payment methods are here to stay. Service providers like them because they represent predictable revenue, similarly on the other side consumers like them because they are a known and easily quantified cost. There’s also a psychological factor where once you subscribe, most consumers will feel obligated to consume as much if not all of it, increasing the demand for the service and allowing economies of scale to kick in.
+Wir glauben, dass abonnementbasierte oder wiederkehrende Zahlungsmethoden hier bleiben werden. Dienstleister mögen sie, weil sie vorhersehbare Einnahmen darstellen, und auf der anderen Seite mögen sie Verbraucher, weil sie bekannte und leicht quantifizierbare Kosten darstellen. Es gibt auch einen psychologischen Faktor, bei dem sich die meisten Verbraucher nach dem Abonnieren verpflichtet fühlen, so viel, wenn nicht alles davon zu konsumieren, was die Nachfrage nach dem Dienst erhöht und Skaleneffekte ermöglicht.
 
-The combination of the above three payment options for indexers provide several advanced subscription based options for Consumers and Indexers. Some parties may benefit from the certainty of rewards provided by Closed Agreements and the predictability of recurring costs. Equally, others may instead prefer to hunt out the most affordable data by going for high volume recurring agreements or low spot prices on the Pay-As-You-Go market.
+Die Kombination der oben genannten drei Zahlungsoptionen für Indexierer bietet mehrere erweiterte abonnementbasierte Optionen für Verbraucher und Indexierer. Einige Parteien können von der Gewissheit der Belohnungen durch geschlossene Vereinbarungen und der Vorhersagbarkeit wiederkehrender Kosten profitieren. Ebenso ziehen es andere möglicherweise vor, die günstigsten Daten zu suchen, indem sie sich für wiederkehrende Vereinbarungen mit hohem Volumen oder niedrigen Spotpreisen auf dem Pay-As-You-Go-Markt entscheiden.
