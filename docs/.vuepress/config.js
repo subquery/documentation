@@ -239,7 +239,60 @@ function getSidebar(locale, language) {
           `${locale}/subquery_network/foundation.md`,
           `${locale}/subquery_network/terminology.md`,
           `${locale}/subquery_network/design-philosophy.md`,
-          `${locale}/subquery_network/frontier-testnet.md`,
+          {
+            title: "Frontier Testnet",
+            path: `${locale}/subquery_network/testnet/welcome`,
+            collapsable: true,
+            children: [
+              `${locale}/subquery_network/testnet/welcome.md`,
+           /*   {
+                title: "Indexers",
+                path: `${locale}/subquery_network/testnet/indexers/become-indexers`,
+                collapsable: true,
+                children: [
+                  `${locale}/subquery_network/testnet/indexers/become-indexers.md`,
+                  `${locale}/subquery_network/testnet/indexers/set-up-indexer.md`,
+                  `${locale}/subquery_network/testnet/indexers/install-indexer.md`,
+                  `${locale}/subquery_network/testnet/indexers/index-project.md`,
+                ],
+              },
+              {
+                title: "Delegators",
+                path: `${locale}/subquery_network/testnet/delegators/become-delegator`,
+                collapsable: true,
+                children: [
+                  `${locale}/subquery_network/testnet/delegators/become-delegator.md`,
+                ],
+              },
+              {
+                title: "Consumer",
+                path: `${locale}/subquery_network/testnet/consumers/become-consumer`,
+                collapsable: true,
+                children: [
+                  `${locale}/subquery_network/testnet/consumers/become-consumer.md`,
+                ],
+              },
+              {
+                title: "Metamask",
+                path: `${locale}/subquery_network/testnet/metamask/metamask`,
+                collapsable: true,
+                children: [
+                  `${locale}/subquery_network/testnet/metamask/metamask.md`,
+                  `${locale}/subquery_network/testnet/metamask/connect-metamask.md`,
+                  `${locale}/subquery_network/testnet/metamask/request-token.md`,
+
+                ],
+              },*/
+              {
+                title: "Season 3 Challenges",
+                path: `${locale}/subquery_network/testnet/season3-challenges/season3`,
+                collapsable: true,
+                children: [
+                  `${locale}/subquery_network/testnet/season3-challenges/season3.md`,
+                ],
+              },
+            ],
+          },
         ],
       },
       {
