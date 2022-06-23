@@ -1,39 +1,39 @@
-# Introduction
+# Die Einführung
 
-**The SubQuery Network is the future of web3 infrastructure**
+**Das SubQuery-Netzwerk ist die Zukunft der web3-Infrastruktur**
 
-We’re building the most open, performant, reliable, and scalable data service for dApp developers.
+Wir entwickeln den offensten, leistungsfähigsten, zuverlässigsten und skalierbarsten Datendienst für dApp-Entwickler.
 
-The SubQuery Network indexes and services data to the global community in an incentivised and verifiable way.
+Das SubQuery-Netzwerk indiziert und stellt Daten für die globale Gemeinschaft auf eine motivierte und überprüfbare Weise bereit.
 
-After publishing your project to the SubQuery Network, anyone can index and host it - providing data to users around the world faster and reliably.
+Nachdem Sie Ihr Projekt im SubQuery-Netzwerk veröffentlicht haben, kann jeder es indizieren und hosten, wodurch Daten schneller und zuverlässiger für Benutzer auf der ganzen Welt bereitgestellt werden.
 
-The SubQuery Network is facilitating an open web3 data revolution by allowing you to completely decentralise your infrastructure stack.
+Das SubQuery-Netzwerk erleichtert eine offene Web3-Datenrevolution, indem es Ihnen ermöglicht, Ihren Infrastruktur-Stack vollständig zu dezentralisieren.
 
-## Participants
+## Teilnehmer
 
-There’s a role for everyone in the network, from highly technical developers to those that are not. The SubQuery network includes four main network participants
+Es gibt eine Rolle für jeden im Netzwerk, von hochtechnischen Entwicklern bis hin zu denen, die es nicht sind. Das SubQuery-Netzwerk umfasst vier Hauptnetzwerkteilnehmer
 
 ### Verbraucher
 
-Consumers will ask the SubQuery Network for specific data for their dApps or tools, and pay an advertised amount of SQT for each request.
+Verbraucher fragen das SubQuery-Netzwerk nach bestimmten Daten für ihre dApps oder Tools und zahlen für jede Anfrage einen beworbenen SQT-Betrag.
 
-[Learn more about Consumers](./consumers.md)
+[Erfahren Sie mehr über Verbraucher](./consumers.md)
 
 ### Indexers
 
-Indexers will run and maintain high quality SubQuery projects in their own infrastructure, running both the indexer and query service, and will be rewarded in SQT for the requests that they serve.
+Indexer führen und pflegen qualitativ hochwertige SubQuery-Projekte in ihrer eigenen Infrastruktur, führen sowohl den Indexer als auch den Abfragedienst aus und werden für die von ihnen bedienten Anforderungen mit SQT belohnt.
 
-[Learn more about Indexers](./indexers.md)
+[Erfahren Sie mehr über Indexers](./indexers.md)
 
 ### Delegators
 
-Delegators will participate in the Network by supporting their favourite Indexers to earn rewards based on the work those indexers do.
+Die Delegierenden beteiligen sich am Netzwerk, indem sie ihre bevorzugten Indexer dabei unterstützen, Belohnungen basierend auf der Arbeit dieser Indexer zu verdienen.
 
-[Learn more about Consumers](./delegators.md)
+[Erfahren Sie mehr über Verbraucher](./delegators.md)
 
-### Architects
+### Architekt
 
-Architects are the builders of the SubQuery projects that the Network runs on. They author and publish SubQuery projects for the Network to index and run.
+Architekten sind die Ersteller der SubQuery-Projekte, auf denen das Netzwerk ausgeführt wird. Sie erstellen und veröffentlichen SubQuery-Projekte, die das Netzwerk indizieren und ausführen kann.
 
-[Learn more about how to build your first SubQuery project](/build/introduction.md)
+[Erfahren Sie mehr darüber, wie Sie Ihr erstes SubQuery-Projekt erstellen](/build/introduction.md)
