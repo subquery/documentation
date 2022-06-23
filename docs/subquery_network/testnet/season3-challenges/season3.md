@@ -2,50 +2,66 @@
 
 ## Indexer Challenges
 
-### Index a single project (TBA)
+### (TBA) Index a single project
 
 
-### Index all projects (TBA)
+### (TBA) Index all projects 
 
 
-### Maintain daily availability (TBA)
+### (TBA) Maintain daily availability 
 
 
-### Obtain your first Delegator (TBA)
+### (TBA) Obtain your first Delegator 
 
 
-### Create a default plan (TBA)
+### Create a default plan 
+
+To create a default plan, navigate to `Plan & Offer` -> `My Plans`, select the `Default` tab and then select `Create a Plan`.
+
+![Create plan](/assets/img/create_plan.png)
+
+Then select a plan template.
+
+![Select plan template](/assets/img/select_plan_template.png)
+
+Then select the plan parameters and click `Create`.
+
+![Set plan parameters](/assets/img/set_plan_parameters.png)
 
 
-### Create a deployment specific plan (TBA)
+### (TBA) Create a deployment specific plan 
+
+To create a deployment specific plan, navigate to `Plan & Offer` -> `My Plans` and then select `Create a Plan`.
+
+![Create specific plan](/assets/img/create_specific_plan.png)
 
 
-### Request a Consumer purchase your plan (TBA)
+### (TBA) Request a Consumer purchase your plan 
 
 
-### Claim your reward (TBA)
+### (TBA) Claim your reward 
 
 
-### Withdraw unstaked amount (TBA)
+### (TBA) Withdraw unstaked amount 
 Here, an Indexer withdraws an unstaked amount from the staking contract back to an Indexer's wallet. 
 
 
-### Request undelegation from a Delegator TBA)
+### (TBA) Request undelegation from a Delegator
 
 
-### Accept an offer in the offer market (TBA)
+### (TBA) Accept an offer in the offer market 
 
 
-### Update controller account (TBA)
+### (TBA) Update controller account
 
 
-### Unregister your indexer (TBA)
+### (TBA) Unregister your indexer
 
 
 ## Delegator Challenges
 
 
-### Claim Rewards(TBA)
+### (TBA) Claim Rewards
 
 ### Delegate to an Indexer
 
@@ -63,7 +79,7 @@ Note that some Indexers cannot be delegated to until they collect all the early 
 
 ### Undelegate from an Indexer
 
-To undelegate from an Indexer, navigate to `Stake & Delegate` -> `My profile` and then select `Delegate`. 
+To undelegate from an Indexer, navigate to `Stake & Delegate` -> `My profile` and then select the `Delegate` tab.
 
 ![Undelegate from an Indexer](/assets/img/undelegate_from_indexer_a.png)
 
@@ -72,22 +88,34 @@ Enter the amount of SQT you want to undelegate and then click `Confirm Undelegat
 ![Confirm undelegate](/assets/img/undelegate_from_indexer_b.png)
 
 
-### Withdraw undelegated amount from an Indexer(TBA)
+### Withdraw undelegated amount from an Indexer
+
+Upon undelegating from an Indexer, the tokens are locked for a specific period before they can be withdrawed. This period is indicated by the `START AT` and `END AT` columns.
+
+To withdraw the undelegated amount from an Indexer, navigate to `Stake & Delegate` -> `My profile` and then select the `Locked` tab.
+
+When the tokens are unlocked, the `Withdraw` button is available.  
+
+![Withdraw delegated tokens](/assets/img/withdraw_delegated_tokens.png)
+ 
+Click on `Withdraw` and then confirm the withdraw.
+
+![Confirm withdraw](/assets/img/confirm_withdraw.png)
 
 
 ## Consumer Challenges
 
-### Create a purchase offer (TBA)
+### (TBA) Create a purchase offer
 
 
-### Get a service agreement from an Indexer (TBA)
+### (TBA) Get a service agreement from an Indexer 
 
 
 
-### Cancel an offer before it expires (TBA)
+### (TBA) Cancel an offer before it expires
 
 
-### Withdraw SQT locked in an offer after it expires (TBA)
+### (TBA) Withdraw SQT locked in an offer after it expires
 
 
 ### Purchase a plan from an Indexer (TBA)
