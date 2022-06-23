@@ -245,7 +245,7 @@ function getSidebar(locale, language) {
             collapsable: true,
             children: [
               `${locale}/subquery_network/testnet/welcome.md`,
-              {
+           /*   {
                 title: "Indexers",
                 path: `${locale}/subquery_network/testnet/indexers/become-indexers`,
                 collapsable: true,
@@ -281,6 +281,14 @@ function getSidebar(locale, language) {
                   `${locale}/subquery_network/testnet/metamask/connect-metamask.md`,
                   `${locale}/subquery_network/testnet/metamask/request-token.md`,
 
+                ],
+              },*/
+              {
+                title: "Season 3 Challenges",
+                path: `${locale}/subquery_network/testnet/season3-challenges/season3`,
+                collapsable: true,
+                children: [
+                  `${locale}/subquery_network/testnet/season3-challenges/season3.md`,
                 ],
               },
             ],
