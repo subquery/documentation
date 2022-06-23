@@ -1,21 +1,21 @@
-# 1. Create a New Project
+# 1. Crear un nuevo proyecto
 
-The goal of this quick start guide is to provide you with a complete development setup and guided steps to create your first SubQuery blockchain project. It is targeted towards experienced developers right through to those just beginning their blockchain journey.
+El objetivo de esta guía de inicio rápido es proporcionarte una configuración de desarrollo completa y pasos guiados para crear tu primer proyecto de cadena de bloques de SubQuery. Está dirigido a desarrolladores experimentados hasta aquellos que acaban de comenzar su viaje en blockchain.
 
-This quick start guide should take around 10-15 minutes.
+Esta guía de inicio rápido debería tardar unos 10-15 minutos.
 
-After completing this quick start guide, you will have a working SubQuery project that will run on a SubQuery node. You will be able to adapt the standard starter project and index transfers from your favourite blockchain network such as Polkadot, Avalanch, Cosmos, etc.
+Después de completar esta guía de inicio rápido, tendrá un proyecto de SubQuery que funcionará en un nodo de SubQuery. Podrás adaptar el proyecto inicial estándar y las transferencias de índices desde tu red de blockchain favorita como Polkadot, Avalanch, Cosmos, etc.
 
-Let's start the process of creating your first SubQuery blockchain project.
+Vamos a comenzar el proceso de creación de tu primer proyecto de cadena de bloques de SubQuery.
 
-## Prerequisites
+## Prerrequisitos
 
-Before you begin creating your first blockchain project with SubQuery, make sure you have installed the required supporting software applications. These are:
+Antes de comenzar a crear su primer proyecto de blockchain con SubQuery, asegúrese de haber instalado las aplicaciones de software de soporte requeridas. Estos son:
 
 - [Node](https://nodejs.org/en/): Una instalación moderna (por ejemplo, la versión LTS) de Node.
-- [Docker](https://docker.com/): This tutorial will use the required Docker
+- [Docker](https://docker.com/): Este tutorial usará el Docker requerido
 
-Now, you are all set to start with the first step, which is the installation of the SubQuery CLI.
+Ahora, todos están listos para comenzar con el primer paso, que es la instalación de SubQuery CLI.
 
 ## 1. Instalar SubQuery CLI
 
@@ -26,9 +26,9 @@ Instalar SubQuery CLI globalmente en tu terminal usando Yarn o NPM:
 npm install -g @subql/cli
 ```
 
-**Note**: We **DO NOT** encourage the use of `yarn global` for installing `@subql/cli` due to its poor dependency management. This may lead to multiple errors.
+**Nota**: **NO** alentamos el uso de `yarn global` para instalar `@subql/cli` debido a su mala gestión de dependencias. Esto puede llevar a múltiples errores.
 
-Take a look at all available commands and their use. Run the given below command in the CLI:
+Eche un vistazo a todos los comandos disponibles y su uso. Ejecuta el comando indicado a continuación en el CLI:
 
 ```shell
 subql help
@@ -36,41 +36,41 @@ subql help
 
 ## 2. Inicializar el proyecto starter de SubQuery
 
-Run the following command inside the directory you want to create a SubQuery project:
+Ejecute el siguiente comando dentro del directorio que desea crear un proyecto SubQuery:
 
 ```shell
 subql init
 ```
 
-::: warning **For Cosmos Users**
+::: advertencia **para usuarios de Cosmos**
 
-Cosmos is not yet supported in SubQuery's CLI (`subql`). Hence, if you are using Cosmos, you must start with a Juno clone or fork this [starter project](https://github.com/DeveloperInProgress/juno-subql-starter).
+Cosmos aún no está soportado en la CLI de SubQuery (`subql`). Por lo tanto, si estás usando Cosmos, debes comenzar con un clon de Juno o bifurcar este [proyecto inicial](https://github.com/DeveloperInProgress/juno-subql-starter).
 
-To initialise your project with Cosmos, refer to these 4 steps shown in this [link.](https://github.com/subquery/juno-subql-starter#readme). Once you complete these 4 steps, **jump** to the [Make Changes to Your Project](../quickstart/quickstart.html#_3-make-changes-to-your-project) section. :::
+Para inicializar tu proyecto con Cosmos, consulta estos 4 pasos mostrados en este [enlace.](https://github.com/subquery/juno-subql-starter#readme). Una vez que completes estos 4 pasos, **salta** a la sección [Hacer cambios a tu proyecto](../quickstart/quickstart.html#_3-make-changes-to-your-project). :::
 
-You'll be asked certain questions as you proceed ahead:
+Se le harán ciertas preguntas mientras avance:
 
-- **Project name**: A project name for your SubQuery project
-- **Network family**: The layer-1 blockchain network family that this SubQuery project will index. Utilice las teclas de flecha para seleccionar las opciones disponibles. For example, Polkadot, Avalanche, Cosmos, or any other supported network.
-- **Network**: The specific network that this SubQuery project will index. Utilice las teclas de flecha para seleccionar las opciones disponibles. For example, Polkadot, Avalanche, or any other supported network.
-- **Template project**: Select a SubQuery template project that will provide a starting point in the development. We suggest selecting the _"subql-starter"_ project.
-- **RPC endpoint**: Provide an HTTPS URL to a running RPC endpoint, which will be used by default for this project. You can quickly access public endpoints for different networks, create your own private dedicated node using [OnFinality](https://app.onfinality.io), or just use the default endpoint. Este nodo RPC debe ser un nodo de archivo (tienen el estado completo de cadena). We will use the default value for this guide. Based on the network you have chosen, the default value may be:
-  - For Polkadot - _"https://polkadot.api.onfinality.io"_ <br />
-  - For Avalanche - _"https://avalanche.api.onfinality.io"_ <br />
-  - For Terra - _“https://terra-columbus-5.beta.api.onfinality.io”_ and likewise for other networks. <br/>
-- **Git repository**: Provide a Git URL to a repo that this SubQuery project will be hosted in (when hosted in SubQuery Explorer) or accept the provided default.
-- **Authors**: Enter the owner of this SubQuery project here (e.g. your name!) or accept the provided default.
-- **Description**: Provide a short paragraph about your project that describes what data it contains and what users can do with it, or accept the provided default.
-- **Version**: Enter a custom version number or use the default (`1.0.0`)
-- **License**: Provide the software license for this project or accept the default (`MIT`)
+- **Nombre del proyecto**: Un nombre de proyecto para su proyecto de Subconsulta
+- **Familia de red**: La familia de red de cadena de bloques de capa 1 que indexará este proyecto de SubQuery. Utilice las teclas de flecha para seleccionar las opciones disponibles. Por ejemplo, Polkadot, Avalanche, Cosmos o cualquier otra red soportada.
+- **Red**: La red específica que indexará este proyecto de Subconsulta. Utilice las teclas de flecha para seleccionar las opciones disponibles. Por ejemplo, Polkadot, Avalanche o cualquier otra red soportada.
+- **Proyecto de plantilla**: Seleccione un proyecto de plantilla de subconsulta que proporcionará un punto de partida en el desarrollo. Sugerimos seleccionar el proyecto _"subql-starter"_.
+- **endpoint RPC**: Proporcione una URL HTTPS a un endpoint RPC en ejecución, que se utilizará por defecto para este proyecto. Puede acceder rápidamente a los extremos públicos de diferentes redes, crea tu propio nodo privado dedicado usando [OnFinality](https://app.onfinality.io)o simplemente usa el punto final por defecto. Este nodo RPC debe ser un nodo de archivo (tienen el estado completo de cadena). Utilizaremos el valor por defecto para esta guía. Basado en la red que ha elegido, el valor por defecto puede ser:
+  - Para Polkadot - _"https://polkadot.api.onfinality.io"_ <br />
+  - Para Avalanche - _"https://avalanche.api.onfinality.io"_ <br />
+  - Para Terra - _“https://terra-columbus-5.beta.api.onfinality.io”_ y también para otras redes. <br/>
+- **Repositorio Git**: Proporcione una URL Git a un repositorio en el que este proyecto de SubQuery será alojado (cuando esté alojado en SubQuery Explorer) o acepte el valor predeterminado proporcionado.
+- **Autores**: Introduzca el propietario de este proyecto de SubQuery aquí (por ejemplo, su nombre!) o acepte el valor predeterminado proporcionado.
+- **Descripción**: Provide a short paragraph about your project that describes what data it contains and what users can do with it, o aceptar el predeterminado proporcionado.
+- **Versión**: Introduzca un número de versión personalizado o utilice el predeterminado (`1.0.0`)
+- **Licencia**: Proporcione la licencia de software para este proyecto o acepte el predeterminado (`MIT`)
 
-Let’s look at an example:
+Veamos un ejemplo:
 
 ```shell
 $ subql init
-Project name [subql-starter]: HelloWorld
-? Select a network family Substrate
-? Select a network Polkadot
+Nombre del proyecto [subql-starter]: HelloWorld
+? ¿Seleccionar una familia de red de Substrate
+? ¿Seleccionar una red Polkadot
 ? Select a template project subql-starter     Starter project for subquery
 RPC endpoint: [wss://polkadot.api.onfinality.io/public-ws]:
 Git repository [https://github.com/subquery/subql-starter]:
@@ -83,28 +83,28 @@ Preparing project... done
 HelloWorld is ready
 ```
 
-After you complete the initialisation process, you will see a folder with your project name created inside the directory. Please note that the contents of this directory should be identical to what's listed in the [Directory Structure](../build/introduction.md#directory-structure).
+Después de completar el proceso de inicialización, verá una carpeta con el nombre de su proyecto creado dentro del directorio. Tenga en cuenta que el contenido de este directorio debe ser idéntico a lo que se muestra en la [estructura de directorio](../build/introduction.md#directory-structure).
 
-Finally, run the following command to install the new project’s dependencies from within the new project's directory.
+Finalmente, ejecute el siguiente comando para instalar las dependencias del nuevo proyecto desde el directorio del nuevo proyecto.
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```shell cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
 
-You have now initialised your first SubQuery project with just a few simple steps. Let’s now customise the standard template project for a specific blockchain of interest.
+You have now initialised your first SubQuery project with just a few simple steps. Personalicemos ahora el proyecto de plantilla estándar para un blockchain específico de interés.
 
-You may want to refer to the [command line arguments](../run_publish/references.md) used in SubQuery. It will help you understand the commands better.
+Puede que desee referirse a los [argumentos de línea de comandos](../run_publish/references.md) utilizados en SubQuery. Te ayudará a entender mejor los comandos.
 
-## 3. Make Changes to Your Project
+## 3. Haz cambios a tu proyecto
 
-There are 3 important files that need to be modified. Estos son:
+Hay 3 archivos importantes que necesitan ser modificados. Estos son:
 
 1. El esquema GraphQL en `schema.graphql`
 2. El manifiesto del proyecto en `project.yaml`
 3. Las funciones de mapeo en el directorio `src/mappings/`
 
-SubQuery supports various blockchain networks and provides you with a dedicated guide for each of them.
+SubQuery soporta varias redes de blockchain y te proporciona una guía dedicada para cada una de ellas.
 
-Pick up your preferred network and proceed ahead to make the modifications required, and move an inch closer to finishing your first ever project:
+Recoge tu red preferida y proceda a hacer las modificaciones requeridas, y mueve un pulgada más cerca de terminar tu primer proyecto:
 
 **[Polkadot/Substrate](../quickstart/quickstart_chains/polkadot.md)**
 
