@@ -19,29 +19,29 @@ Reach out and ask for a Delegator to delegate to your indexer. Alternatively, se
 
 ### Create a default plan 
 
-To create a default plan, navigate to `Plan & Offer` -> `My Plans`, select the `Default` tab and then select `Create a Plan`.
+To create a default plan, navigate to `Plan & Offer` -> `My Plans`, and then select `Create a Plan`.
 
-![Create plan](/assets/img/create_plan.png)
+![Create plan](/assets/img/create_default_plan.png)
 
 Then select a plan template.
 
 ![Select plan template](/assets/img/select_plan_template.png)
 
-Then select the plan parameters and click `Create`.
+Then select the price for this plan but DO NOT select a specific deployment ID. Then click `Create`.
 
-![Set plan parameters](/assets/img/set_plan_parameters.png)
+![Set plan parameters](/assets/img/set_default_plan_parameters.png)
 
-Default plan created.
+You will then see a default plan created in the Default tab.
 
 ![Default plan created](/assets/img/default_plan_created.png)
 
 ### Create a deployment specific plan 
 
-To create a deployment specific plan, navigate to `Plan & Offer` -> `My Plans` and then select `Create a Plan`.
+To create a deployment specific plan, navigate to `Plan & Offer` -> `My Plans` and then select `Create a Plan` just like when creating a default plan. However, also select a specific deployment Id. 
 
-![Create specific plan](/assets/img/create_specific_plan.png)
+![Create specific plan](/assets/img/set_specific_plan_parameters.png)
 
-The remaining steps are identical to [create a default plan](#create-a-default-plan) from above.
+The remaining steps are identical to [create a default plan](#create-a-default-plan) from above with the plan appear in the `specific` tab.
 
 ### (TBA) Request a Consumer purchase your plan 
 
