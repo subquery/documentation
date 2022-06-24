@@ -4,7 +4,7 @@
 
 | Steps | Process Flow | Additional References
 --- | --- | ---
-1 | Set Up & Start Indexing (3 Methods)<ul><li>[Locally](../indexers/install-indexer-locally.md)</li><li>Or [On Linux](../indexers/install-indexer-on-linux.md)</li><li>Or [On AWS](../indexers/set-up-indexer-aws.md)</li></ul> | [How to SSH on AWS](../indexers/ssh-in-aws.md)
+1 | Set Up & Start Indexing (3 Methods)<ul><li>[Locally](../indexers/install-indexer-locally.md)</li><li>Or [On Linux](../indexers/install-indexer-linux.md)</li><li>Or [On AWS](../indexers/install-indexer-aws.md)</li></ul> | [How to SSH on AWS](../indexers/ssh-in-aws.md)
 2 | [Connect to MetaMask](../metamask/connect-metamask.md) | - 
 3 | [Request TestNet Tokens](../metamask/request-token.md) | - 
 4 | [Index a SubQuery Project](../indexers/index-project.md) | -
@@ -68,15 +68,15 @@ Depending on the method you choose, you will encounter some differences in the p
 
 ## 1. For Running the Indexing Service Locally
 
-Visit **[this guide](../indexers/install-indexer.md)** and begin with installing the service
+Visit **[this guide](../indexers/install-indexer-locally.md)** and begin with installing the service
 
 ## 2. For Running the Indexing Service on Linux
 
-Visit **[this guide](../indexers/install-indexer-on-linux.md)** and begin with installing the service 
+Visit **[this guide](../indexers/install-indexer-linux.md)** and begin with installing the service 
 
 ## 3. For Running the Indexing Service on AWS
 
-Visit **[this guide](../indexers/set-up-indexer.md)** and begin with setting up the service 
+Visit **[this guide](../indexers/install-indexer-aws.md)** and begin with setting up the service 
 
 <br />
 

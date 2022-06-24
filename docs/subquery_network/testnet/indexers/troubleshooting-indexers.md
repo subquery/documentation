@@ -1,6 +1,5 @@
 # Troubleshooting
 
-
 ## Got permission denied while trying to connect to the Docker daemon socket
 
 ```jsx
@@ -21,6 +20,8 @@ The alternative solution is to run as sudo user:
 
 ```jsx
 sudo docker-compose up
+
+
 ```
 
 ## Invalid proxy endpoint
@@ -33,7 +34,6 @@ You get this error because the endpoint is pinged for validity.
 Use a valid endpoint such as: 
 
 ![Valid Proxy EndPoint](/assets/img/valid_proxy_endpoint_troubleshooting.png)
-
 
 ## initdb: error: directory "/var/lib/postgresql/data" exists but is not empty
 
@@ -58,7 +58,6 @@ services:
       PGDATA: /var/lib/postgresql/data/some_name/
 ```
 
-
 ## fork/exec /usr/local/bin/docker-compose-v1: bad CPU type in executable
 
 ```jsx
@@ -69,7 +68,6 @@ fork/exec /usr/local/bin/docker-compose-v1: bad CPU type in executable
 To work around this issue in Docker, select “Use Docker Compose V2” in preferences. 
 
 ![Use Docker Compose V2](/assets/img/Use_Docker_Compose_V2.troubleshooting.png) <br />
-
 
 ## You need to enable JavaScript to run this app.
 
@@ -103,7 +101,6 @@ To fix this, check you are using an endpoint consistent with the network.
 
 For e.g. for a Kusama project, use the Kusama endpoint of: wss://kusama.api.onfinality.io/public-ws
 
-
 ## Error: cannot estimate gas; transaction may fail or may require manual gas limit
 
 Indexers may see this error in their logs:
@@ -114,7 +111,6 @@ transaction may fail or may require manual gas limit
 ```
 
 This may occur in case your controller account is low on the operational token (DEV). Check your controller account balance on the Account tab of your indexer. You can request more tokens at the faucent channel on Discord.
-
 
 ## depends_on contains an invalid type, it should be an array
 
@@ -132,8 +128,7 @@ If all has worked you should get `docker-compose version 1.29.2, build 5becea4c`
 
 The official installation guide can be found at: [https://docs.docker.com/compose/install/#install-compose-on-linux-systems](https://docs.docker.com/compose/install/#install-compose-on-linux-systems)
 
-
-## (WIP) coordinator_service <contract> ERROR failed to get indexing status for project: 0xQmYR8x...
+## (WIP) coordinator_service contract ERROR failed to get indexing status for project: 0xQmYR8x...
 
 
 ## (WIP) Unexpected EOF on client connection with an open transaction

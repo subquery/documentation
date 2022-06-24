@@ -31,7 +31,7 @@ Once MetaMask is installed, select the network dropdown and click “Add Network
 
 Now, fill in the network details with the following:
 
-1. Network Name: <name>
+1. Network Name: \<name\>
 2. New RPC URL: [https://sqtn.api.onfinality.io/public](https://sqtn.api.onfinality.io/public)
 3. Chain ID: 1280
 

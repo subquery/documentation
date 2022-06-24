@@ -1,4 +1,4 @@
-# How to Install the Indexing Service on Linux(TestNet)?
+# Install Indexing Service on Linux
 
 Let's see how to run the Indexer Service on a cloud provider. 
 

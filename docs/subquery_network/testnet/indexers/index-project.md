@@ -1,4 +1,4 @@
-# How to Index a SubQuery Project?
+# Indexing a SubQuery Project
 
 ## Introduction
 

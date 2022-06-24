@@ -1,4 +1,4 @@
-# How to Set Up an Indexer with AWS?
+# Install Indexing Service on AWS
 
 
 ## Introduction

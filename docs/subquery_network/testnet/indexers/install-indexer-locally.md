@@ -1,7 +1,6 @@
-# How to Install and Run the Indexing Service Locally?
+# Install Indexing Service Locally
 
 ## Introduction
-
 
 If you are a beginner, installing the Indexing service locally via Docker is preferred. 
 
