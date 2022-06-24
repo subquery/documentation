@@ -31,9 +31,11 @@ Once MetaMask is installed, select the network dropdown and click “Add Network
 
 Now, fill in the network details with the following:
 
-1. Network Name: \<name\>
-2. New RPC URL: [https://sqtn.api.onfinality.io/public](https://sqtn.api.onfinality.io/public)
-3. Chain ID: 1280
+1. Network Name: Acala
+2. New RPC URL: https://tc7-eth.aca-dev.network
+3. Chain ID: 595
+4. Currency Symbol: ACA
+5. Block Explorer URL: https://blockscout.mandala.acala.network/ (Optional)
 
 <br />
 
