@@ -6,6 +6,7 @@
 This guide describes how to create an EC2 instance for installing the Indexing services. 
 
 You can use our pre-built image or build your own. Let's start with SubQuery's pre-built image. 
+<br />
 
 ## Method 1. Use SubQuery’s Pre-Built Image in AWS
 
@@ -48,9 +49,9 @@ You can use our pre-built image or build your own. Let's start with SubQuery's p
 
 ### 1.6 Create a Key Pair
 
-- Either select one or create your own new key pair
+- Either select one or create your own new key pair <br />
     
-    ![Create Key Pair](/assets/img/create_keypair_aws.png)
+![Create Key Pair](/assets/img/create_keypair_aws.png) <br />
     
 
 ### 1.7 Set Network Settings
@@ -84,6 +85,8 @@ Finally, ensure that your Indexer is up to date by following these 3 steps:
 2. Run cd subquery-indexer & vi docker-compose.yml
 3. Edit the image to the latest version, which you can find at: [Current Versions](https://www.notion.so/Current-Versions-39f2e40910d1438b82e97ba3009cbee2)  
 
+``` @sean, the above link is from notion- kindly have a look.```
+
 ### 1.11 Update User Group (Optional)
 
 Run:
@@ -110,14 +113,15 @@ The URL will be [http://you-ec2-public-path:8000/](http://localhost:8000/)
 
 For example: [ec2-14-273-116-26.ap-southeast-2.compute.amazonaws.com:8000](http://ec2-54-253-236-26.ap-southeast-2.compute.amazonaws.com/)
 
+---
+
 ### 1.14 Next steps
 
 You have successfully set up and started the Indexer service into AWS. 
 
 **Now, connect your application to MetaMask via: [How to Connect to MetaMask](../metamask/connect-metamask.md)** 
 
-
-<hr />
+---
 
 Now, let’s see how to create your own Indexer using EC2.
 
@@ -138,7 +142,7 @@ You’ll need 30GB of storage for this season
 
 - Select the tab: `Configure Security Group` on the top of the page. Add the following rules: <br />
 
-```Security  Group Setting Table here`` 
+```Security  Group Setting Table here``` 
 
 <br />
 
@@ -156,12 +160,14 @@ You’ll need 30GB of storage for this season
 
 Now, you have successfully set up an Indexer VM on AWS. 
 
+---
 
 ## **Next Step:**
 
 After setting up the Indexer, you must proceed ahead to connect your application with MetaMask. Visit our guide on [How to connect with a MetaMask](../metamask/connect-metamask.md)
 
 
-Additional Note: In order to SSH into your AWS instance, refer to this guide:
+`Additional Note:` In order to SSH into your AWS instance, refer to this guide:
+<br />
 
 [How to SSH into your AWS instance](../indexers/ssh-in-aws.md)

@@ -16,7 +16,7 @@ Navigate to your Indexer administration page. The URL will depend on where you h
 For: 
 
 - localhost, it will most likely be [http://localhost:8000/](http://localhost:8000/)
-- AWS, it will likely be [http://you-ec2-public-path:8000/](http://localhost:8000/) (for example [ec2-14-273-116-26.ap-southeast-2.compute.amazonaws.com:8000](http://ec2-54-253-236-26.ap-southeast-2.compute.amazonaws.com/))
+- AWS, it will likely be [http://you-ec2-public-path:8000/](http://localhost:8000/) for example ([ec2-14-273-116-26.ap-southeast-2.compute.amazonaws.com:8000](http://ec2-54-253-236-26.ap-southeast-2.compute.amazonaws.com/))
 - ***Linux --- ????***
 
 Then, you will see the following message: <br />
@@ -59,7 +59,7 @@ After connecting to MetaMask, the admin app will display the registry page. <br 
 
 ![Stake SQT_Registry Page](/assets/img/stakeSQT_index_project.png)
 
-
+---
 ## Next Steps:
 
 Once you have connected with MetaMask, you need to fund your account with some DEV and Testnet tokens. 

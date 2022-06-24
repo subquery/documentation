@@ -34,6 +34,8 @@ Import the tokens and you should see the 1000 SQT appear. <br />
 
 ![Token - End Result Screen](/assets/img/token_endresult_metamask.png)
 
+---
+
 ## Next Steps
 
-Once this is done, visit [How to Index a SubQuery Project](../indexers/index-project.md), and proceed ahead. 
+Once this is done, visit [How to Index a SubQuery Project](../indexers/index-project.md). 

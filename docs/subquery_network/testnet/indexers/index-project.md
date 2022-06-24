@@ -278,11 +278,11 @@ You can remove the project from the service if a project is not required anymore
 
 In the network page, the Indexer can check the era information and confirm that the reward collection is up to date. The service log component provides the logs for the coordinator service. <br />
 
-![Indexer Network Information](/assets/img/indexer_network_info.png)
+![Indexer Network Information](/assets/img/indexer_network_info.png) <br />
 
 
 Congartulations! You have successfully indexed your SubQuery Project. 
 
 - If you encounter any trouble while running the indexing service, please visit [Troubleshooting](../indexers/) and get all your solutions at one place. 
 
-- Find the list of [FAQs](https://www.notion.so/FAQs-e8b4ad36872e4161a191556ea8a32811), and resolve your query. 
+- Find the list of [FAQs](../indexers/faqs-indexers.md), and resolve your query. 

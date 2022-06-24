@@ -28,6 +28,7 @@ ssh -i sean.cer ec2-user@ec2-54-153-196-193.ap-southeast-2.compute.amazonaws.com
 
 ![Running Command Line](/assets/img/command_line_ssh.png)
 
+---
 
 ### **Next Steps:**
 
