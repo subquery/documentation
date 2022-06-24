@@ -247,13 +247,17 @@ function getSidebar(locale, language) {
               `${locale}/subquery_network/testnet/welcome.md`,
            /*   {
                 title: "Indexers",
-                path: `${locale}/subquery_network/testnet/indexers/become-indexers`,
+                path: `${locale}/subquery_network/testnet/indexers/become-an-indexer`,
                 collapsable: true,
                 children: [
-                  `${locale}/subquery_network/testnet/indexers/become-indexers.md`,
-                  `${locale}/subquery_network/testnet/indexers/set-up-indexer.md`,
-                  `${locale}/subquery_network/testnet/indexers/install-indexer.md`,
+                  `${locale}/subquery_network/testnet/indexers/become-an-indexer.md`,
+                  `${locale}/subquery_network/testnet/indexers/install-indexer-locally.md`,
+                  `${locale}/subquery_network/testnet/indexers/install-indexer-linux.md`,
+                  `${locale}/subquery_network/testnet/indexers/install-indexer-aws.md`,
                   `${locale}/subquery_network/testnet/indexers/index-project.md`,
+                  `${locale}/subquery_network/testnet/indexers/ssh-in-aws.md`,
+                  `${locale}/subquery_network/testnet/indexers/troubleshooting-indexers.md`,
+                  `${locale}/subquery_network/testnet/indexers/faqs-indexers.md`,
                 ],
               },
               {
@@ -274,10 +278,9 @@ function getSidebar(locale, language) {
               },
               {
                 title: "Metamask",
-                path: `${locale}/subquery_network/testnet/metamask/metamask`,
+                path: `${locale}/subquery_network/testnet/metamask/connect-metamask`,
                 collapsable: true,
                 children: [
-                  `${locale}/subquery_network/testnet/metamask/metamask.md`,
                   `${locale}/subquery_network/testnet/metamask/connect-metamask.md`,
                   `${locale}/subquery_network/testnet/metamask/request-token.md`,
 
