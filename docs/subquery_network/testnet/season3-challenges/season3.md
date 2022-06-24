@@ -113,7 +113,17 @@ Click on `Withdraw` and then confirm the withdraw.
 
 ## Consumer Challenges
 
-### (TBA) Create a purchase offer
+### (WIP) Create a purchase offer
+
+To create a purchase offer, navigate to `Plan & Offer` -> `Manage My Offers` and then select `Create an Offer`. 
+
+![Create purchase offer](/assets/img/create_purchase_offer.png)
+
+`Confirm Approval` for "the SubQuery Network to use your SQT".
+
+![Confirm approval](/assets/img/confirm_approval.png)
+
+![Create purchase offer](/assets/img/create_purchase_offer_steps.png)
 
 
 ### (TBA) Get a service agreement from an Indexer 
@@ -126,4 +136,19 @@ Click on `Withdraw` and then confirm the withdraw.
 ### (TBA) Withdraw SQT locked in an offer after it expires
 
 
-### Purchase a plan from an Indexer (TBA)
+### (WIP) Purchase a plan from an Indexer
+
+To create a purchase a plan from an Indexer, navigate to `Explorer` and select a project of your choice.
+
+![Explorer](/assets/img/explorer.png)
+
+Then click in `Indexer`, and expand the plan of the Indexer you wish to purchase from. Here you will see the plans on offer and some information to help you make your choice. 
+
+Price: <br>
+Period: <br>
+Daily Request Cap: <br>
+Rate Limt: <br>
+
+![Purchase plan](/assets/img/purchase_plan.png)
+
+![Purchase plan](/assets/img/purchase_plan_a.png)
