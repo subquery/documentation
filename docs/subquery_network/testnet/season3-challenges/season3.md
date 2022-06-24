@@ -8,11 +8,14 @@
 ### (TBA) Index all projects 
 
 
-### (TBA) Maintain daily availability 
+### Maintain daily availability 
+
+Ensure that your indexer is up and available at all times. Your indexer will be pinged to check connectivity.
 
 
-### (TBA) Obtain your first Delegator 
+### Obtain your first Delegator 
 
+Reach out and ask for a Delegator to delegate to your indexer. Alternatively, set up another account and delegator to your indexer. 
 
 ### Create a default plan 
 
@@ -28,13 +31,17 @@ Then select the plan parameters and click `Create`.
 
 ![Set plan parameters](/assets/img/set_plan_parameters.png)
 
+Default plan created.
 
-### (TBA) Create a deployment specific plan 
+![Default plan created](/assets/img/default_plan_created.png)
+
+### Create a deployment specific plan 
 
 To create a deployment specific plan, navigate to `Plan & Offer` -> `My Plans` and then select `Create a Plan`.
 
 ![Create specific plan](/assets/img/create_specific_plan.png)
 
+The remaining steps are identical to [create a default plan](#create-a-default-plan) from above.
 
 ### (TBA) Request a Consumer purchase your plan 
 
@@ -62,6 +69,7 @@ Here, an Indexer withdraws an unstaked amount from the staking contract back to 
 
 
 ### (TBA) Claim Rewards
+
 
 ### Delegate to an Indexer
 
