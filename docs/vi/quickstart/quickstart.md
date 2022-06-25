@@ -4,13 +4,13 @@ Mục tiêu của hướng dẫn nhanh này là cung cấp cho bạn thiết l�
 
 Hướng dẫn nhanh này sẽ mất khoảng 10-15 phút.
 
-Sau khi hoàn thành hướng dẫn nhanh này, bạn sẽ có một dự án SubQuery hoạt động sẽ chạy trên một nút SubQuery. You will be able to adapt the standard starter project and index transfers from your favourite blockchain network such as Polkadot, Avalanch, Cosmos, etc.
+Sau khi hoàn thành hướng dẫn nhanh này, bạn sẽ có một dự án SubQuery hoạt động sẽ chạy trên một nút SubQuery. Bạn sẽ có thể điều chỉnh dự án khởi đầu và chuyển chỉ mục tới mạng blockchain yêu thích của bạn như Polkadot, Avalanch, Cosmos, v. v.
 
-Let's start the process of creating your first SubQuery blockchain project.
+Hãy bắt đầu quá trình tạo ra dự án blockchain SubQuery đầu tiên của bạn.
 
 ## Điều kiện tiên quyết
 
-Before you begin creating your first blockchain project with SubQuery, make sure you have installed the required supporting software applications. These are:
+Before you begin creating your first blockchain project with SubQuery, make sure you have installed the required supporting software applications. Đó là:
 
 - [Node](https://nodejs.org/en/): Cài đặt một phiên bản mới nhất của Node (ví dụ: phiên bản LTS).
 - [Docker](https://docker.com/): Hướng dẫn này sẽ yêu cầu sử dụng Docker
