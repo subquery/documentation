@@ -1,21 +1,21 @@
-# 1. Create a New Project
+# 1. Tạo một Dự án Mới
 
-The goal of this quick start guide is to provide you with a complete development setup and guided steps to create your first SubQuery blockchain project. It is targeted towards experienced developers right through to those just beginning their blockchain journey.
+Mục tiêu của hướng dẫn nhanh này là cung cấp cho bạn thiết lập phát triển hoàn chỉnh và hướng dẫn các bước để tạo dự án blockchain SubQuery đầu tiên của bạn. Nó được nhắm mục tiêu đến các nhà phát triển có kinh nghiệm và cho cả những người mới bắt đầu hành trình blockchain của họ.
 
-This quick start guide should take around 10-15 minutes.
+Hướng dẫn nhanh này sẽ mất khoảng 10-15 phút.
 
-After completing this quick start guide, you will have a working SubQuery project that will run on a SubQuery node. You will be able to adapt the standard starter project and index transfers from your favourite blockchain network such as Polkadot, Avalanch, Cosmos, etc.
+Sau khi hoàn thành hướng dẫn nhanh này, bạn sẽ có một dự án SubQuery hoạt động sẽ chạy trên một nút SubQuery. You will be able to adapt the standard starter project and index transfers from your favourite blockchain network such as Polkadot, Avalanch, Cosmos, etc.
 
 Let's start the process of creating your first SubQuery blockchain project.
 
-## Prerequisites
+## Điều kiện tiên quyết
 
 Before you begin creating your first blockchain project with SubQuery, make sure you have installed the required supporting software applications. These are:
 
 - [Node](https://nodejs.org/en/): Cài đặt một phiên bản mới nhất của Node (ví dụ: phiên bản LTS).
-- [Docker](https://docker.com/): This tutorial will use the required Docker
+- [Docker](https://docker.com/): Hướng dẫn này sẽ yêu cầu sử dụng Docker
 
-Now, you are all set to start with the first step, which is the installation of the SubQuery CLI.
+Bây giờ, bạn đã sẵn sàng để bắt đầu với bước đầu tiên, đó là cài đặt SubQuery CLI.
 
 ## 1. Cài đặt CLI SubQuery
 
@@ -26,9 +26,9 @@ Cài đặt SubQuery CLI tổng thể trên terminal của bạn bằng cách s�
 npm install -g @subql/cli
 ```
 
-**Note**: We **DO NOT** encourage the use of `yarn global` for installing `@subql/cli` due to its poor dependency management. This may lead to multiple errors.
+**Lưu ý**: Chúng tôi **KHÔNG** khuyến khích sử dụng `yarn global` để cài đặt `@subql/cli` do quản lý phụ thuộc kém. Nó có thể dẫn đến nhiều lỗi.
 
-Take a look at all available commands and their use. Run the given below command in the CLI:
+Hãy xem tất cả các lệnh có sẵn và việc sử dụng chúng. Chạy lệnh dưới đây trong CLI:
 
 ```shell
 subql help
@@ -36,13 +36,13 @@ subql help
 
 ## 2. Khởi tạo Dự án khởi đầu SubQuery
 
-Run the following command inside the directory you want to create a SubQuery project:
+Chạy lệnh sau bên trong thư mục bạn muốn tạo dự án SubQuery:
 
 ```shell
 subql init
 ```
 
-::: warning **For Cosmos Users**
+::: cảnh báo **Dành cho người dùng Cosmos**
 
 Cosmos is not yet supported in SubQuery's CLI (`subql`). Hence, if you are using Cosmos, you must start with a Juno clone or fork this [starter project](https://github.com/DeveloperInProgress/juno-subql-starter).
 
@@ -94,17 +94,17 @@ You have now initialised your first SubQuery project with just a few simple step
 
 You may want to refer to the [command line arguments](../run_publish/references.md) used in SubQuery. It will help you understand the commands better.
 
-## 3. Make Changes to Your Project
+## 3. Thực hiện các thay đổi trên Dự án của bạn
 
-There are 3 important files that need to be modified. Đó là:
+Có 3 tệp quan trọng cần được sửa đổi. Đó là:
 
 1. Lược đồ GraphQL trong ` schema.graphql `
 2. Tệp Kê khai dự án ở ` project.yaml `
 3. Các chức năng ánh xạ trong thư mục `src/mappings/`
 
-SubQuery supports various blockchain networks and provides you with a dedicated guide for each of them.
+SubQuery hỗ trợ các mạng blockchain khác nhau và cung cấp cho bạn hướng dẫn riêng cho từng mạng.
 
-Pick up your preferred network and proceed ahead to make the modifications required, and move an inch closer to finishing your first ever project:
+Lựa chọn mạng ưa thích của bạn và tiếp tục để thực hiện các sửa đổi cần thiết và tiến gần hơn một chút để hoàn thành dự án đầu tiên của bạn:
 
 **[Polkadot/Substrate](../quickstart/quickstart_chains/polkadot.md)**
 
