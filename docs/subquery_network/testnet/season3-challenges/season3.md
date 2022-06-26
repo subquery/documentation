@@ -2,11 +2,13 @@
 
 ## Indexer Challenges
 
-### (TBA) Index a single project
+### Index a single project
 
+To index a single project, please follow the instructions [here](../../testnet/indexers/index-project.html).
 
 ### (TBA) Index all projects 
 
+To index a single project, please follow the instructions [here](../../testnet/indexers/index-project.html).
 
 ### Maintain daily availability 
 
@@ -43,8 +45,9 @@ To create a deployment specific plan, navigate to `Plan & Offer` -> `My Plans` a
 
 The remaining steps are identical to [create a default plan](#create-a-default-plan) from above with the plan appear in the `specific` tab.
 
-### (TBA) Request a Consumer purchase your plan 
+### Request a Consumer purchase your plan 
 
+Reach out and ask for a Consumer to purchase your plan. Alternatively, set up another account and purchase your own plan. 
 
 ### (TBA) Claim your reward 
 
@@ -53,8 +56,9 @@ The remaining steps are identical to [create a default plan](#create-a-default-p
 Here, an Indexer withdraws an unstaked amount from the staking contract back to an Indexer's wallet. 
 
 
-### (TBA) Request undelegation from a Delegator
+### Request undelegation from a Delegator
 
+Reach out and ask for a Delegator to undelegate their tokens from your Indexer. 
 
 ### (TBA) Accept an offer in the offer market 
 
@@ -113,7 +117,7 @@ Click on `Withdraw` and then confirm the withdraw.
 
 ## Consumer Challenges
 
-### (WIP) Create a purchase offer
+### (FIX) Create a purchase offer
 
 To create a purchase offer, navigate to `Plan & Offer` -> `Manage My Offers` and then select `Create an Offer`. 
 
