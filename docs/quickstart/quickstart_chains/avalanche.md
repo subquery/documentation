@@ -10,6 +10,8 @@ Now, let's move forward and update these configurations.
 
 Previously, in the [1. Create a New Project](../quickstart.md) section, you must have noted [3 key files](../quickstart.html#_3-make-changes-to-your-project). Let's begin updating them one by one.
 
+**Note: The final code of this project can be found [here](https://github.com/jamesbayly/pangolin-approvals-tutorial).**
+
 ## 1. Update Your GraphQL Schema File
 
 The `schema.graphql` file determines the shape of your data from SubQuery due to the mechanism of the GraphQL query language. Hence, updating the GraphQL Schema file is the perfect place to start. It allows you to define your end goal beforehand.
@@ -18,13 +20,13 @@ Remove all existing entities and update the `schema.graphql` file as follows:
 
 ```graphql
 type PangolinApproval @entity {
-  id: ID!
+  id: ID! # Id is required and made up of block has and log index
   transactionHash: String!
-  blockNumber: String!
+  blockNumber: BigInt!
   blockHash: String!
   addressFrom: String
   addressTo: String
-  amount: String
+  amount: BigInt
 }
 ```
 
@@ -82,7 +84,7 @@ dataSources:
           filter:
             ## Follows standard log filters https://docs.ethers.io/v5/concepts/events/
             function: Approve(address spender, uint256 rawAmount)
-            # address: "0x60781C2586D68229fde47564546784ab3fACA982"
+            address: "0x60781C2586D68229fde47564546784ab3fACA982"
 ```
 
 The above code indicates that you will be running a `handleLog` mapping function whenever there is an `approve` log on any transaction from the [Pangolin contract](https://snowtrace.io/txs?a=0x60781C2586D68229fde47564546784ab3fACA982&p=1).
@@ -114,11 +116,12 @@ export async function handleLog(event: AvalancheLog): Promise<void> {
 
   pangolinApprovalRecord.transactionHash = event.transactionHash;
   pangolinApprovalRecord.blockHash = event.blockHash;
-  pangolinApprovalRecord.blockNumber = event.blockNumber;
-  # topics store data as an array
+  pangolinApprovalRecord.blockNumber = BigInt(event.blockNumber);
+
+  // topics store data as an array
   pangolinApprovalRecord.addressFrom = event.topics[0];
   pangolinApprovalRecord.addressTo = event.topics[1];
-  pangolinApprovalRecord.amount = event.topics[2];
+  pangolinApprovalRecord.amount = BigInt(event.topics[2]);
 
   await pangolinApprovalRecord.save();
 }
@@ -233,6 +236,8 @@ You will see the result similar to below:
   }
 }
 ```
+
+**Note: The final code of this project can be found [here](https://github.com/jamesbayly/pangolin-approvals-tutorial).**
 
 ## What's next?
 
