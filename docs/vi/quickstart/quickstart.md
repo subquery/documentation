@@ -44,27 +44,27 @@ subql init
 
 ::: cảnh báo **Dành cho người dùng Cosmos**
 
-Cosmos hiện chưa được hỗ trợ trong CLI của SubQuery (`subql`). Hence, if you are using Cosmos, you must start with a Juno clone or fork this [starter project](https://github.com/DeveloperInProgress/juno-subql-starter).
+Cosmos hiện chưa được hỗ trợ trong CLI của SubQuery (`subql`). Do đó, nếu bạn sử dụng Cosmos, bạn phải bắt đầu với một bản sao Juno hoặc fork [starter project](https://github.com/DeveloperInProgress/juno-subql-starter) này.
 
-To initialise your project with Cosmos, refer to these 4 steps shown in this [link.](https://github.com/subquery/juno-subql-starter#readme). Once you complete these 4 steps, **jump** to the [Make Changes to Your Project](../quickstart/quickstart.html#_3-make-changes-to-your-project) section. :::
+Để khởi tạo dự án của bạn với Cosmos, hãy tham khảo 4 bước được hiển thị trong [link.](https://github.com/subquery/juno-subql-starter#readme) này. Sau khi bạn hoàn thành 4 bước này, **nhảy** đến phần [Thực hiện các thay đổi trên Dự án của bạn](../quickstart/quickstart.html#_3-make-changes-to-your-project). :::
 
-You'll be asked certain questions as you proceed ahead:
+Bạn sẽ được hỏi một số câu hỏi nhất định khi tiếp tục:
 
-- **Project name**: A project name for your SubQuery project
-- **Network family**: The layer-1 blockchain network family that this SubQuery project will index. Sử dụng các phím mũi tên để chọn từ các tùy chọn có sẵn. For example, Polkadot, Avalanche, Cosmos, or any other supported network.
-- **Network**: The specific network that this SubQuery project will index. Sử dụng các phím mũi tên để chọn từ các tùy chọn có sẵn. For example, Polkadot, Avalanche, or any other supported network.
-- **Template project**: Select a SubQuery template project that will provide a starting point in the development. We suggest selecting the _"subql-starter"_ project.
-- **RPC endpoint**: Provide an HTTPS URL to a running RPC endpoint, which will be used by default for this project. You can quickly access public endpoints for different networks, create your own private dedicated node using [OnFinality](https://app.onfinality.io), or just use the default endpoint. Nút RPC này phải là một nút lưu trữ (có trạng thái chuỗi đầy đủ). We will use the default value for this guide. Based on the network you have chosen, the default value may be:
-  - For Polkadot - _"https://polkadot.api.onfinality.io"_ <br />
-  - For Avalanche - _"https://avalanche.api.onfinality.io"_ <br />
-  - For Terra - _“https://terra-columbus-5.beta.api.onfinality.io”_ and likewise for other networks. <br/>
-- **Git repository**: Provide a Git URL to a repo that this SubQuery project will be hosted in (when hosted in SubQuery Explorer) or accept the provided default.
-- **Authors**: Enter the owner of this SubQuery project here (e.g. your name!) or accept the provided default.
-- **Description**: Provide a short paragraph about your project that describes what data it contains and what users can do with it, or accept the provided default.
-- **Version**: Enter a custom version number or use the default (`1.0.0`)
-- **License**: Provide the software license for this project or accept the default (`MIT`)
+- **Project name**: tên của dự án SubQuery
+- **Network family**: Nhóm mạng blockchain layer-1 mà dự án SubQuery này sẽ lập chỉ mục. Sử dụng các phím mũi tên để chọn từ các tùy chọn có sẵn. Ví dụ: Polkadot, Avalanche, Cosmos, hoặc bất kỳ mạng được hỗ trợ nào khác.
+- **Network**: Mạng cụ thể mà dự án SubQuery này sẽ lập chỉ mục. Sử dụng các phím mũi tên để chọn từ các tùy chọn có sẵn. Ví dụ: Polkadot, Avalanche, hoặc bất kỳ mạng được hỗ trợ nào khác.
+- **Template project**: Chọn một dự án mẫu SubQuery sẽ cung cấp một điểm khởi đầu để bắt đầu phát triển. Chúng tôi khuyên bạn nên chọn dự án _"subql-starter"_.
+- **RPC endpoint**: Cung cấp HTTPS URL cho RPC endpoint đang chạy, sẽ được sử dụng mặc định cho dự án này. Bạn có thể nhanh chóng truy cập các điểm cuối công khai cho các mạng khác nhau, tạo node chuyên dụng riêng của mình bằng cách sử dụng [OnFinality](https://app.onfinality.io) hoặc chỉ sử dụng điểm cuối mặc định. Nút RPC này phải là một nút lưu trữ (có trạng thái chuỗi đầy đủ). Chúng tôi sẽ sử dụng giá trị mặc định cho hướng dẫn này. Dựa trên mạng bạn đã chọn, giá trị mặc định có thể là:
+  - Đối với Polkadot - _"https://polkadot.api.onfinality.io"_ <br />
+  - Đối với Avalanche - _"https://avalanche.api.onfinality.io"_ <br />
+  - Đối với Terra - _“https://terra-columbus-5.beta.api.onfinality.io”_ và tương tự với các mạng khác. <br/>
+- **Git repository**: Cung cấp Git URL cho repo mà dự án SubQuery này sẽ được lưu trữ (khi được lưu trữ trong SubQuery Explorer) hoặc chấp nhận giá trị mặc định được cung cấp.
+- **Authors**: Nhập chủ sở hữu của dự án SubQuery này tại đây (ví dụ: tên của bạn!) Hoặc chấp nhận giá trị mặc định đã cung cấp.
+- **Description**: Cung cấp một đoạn giới thiệu ngắn về dự án của bạn, mô tả dự án chứa dữ liệu gì và người dùng có thể làm gì với dự án đó hoặc chấp nhận giá trị mặc định đã cung cấp.
+- **Version**: Nhập số phiên bản tùy chỉnh hoặc sử dụng mặc định (`1.0.0`)
+- **License**: Cung cấp giấy phép phần mềm cho dự án này hoặc chấp nhận giấy phép mặc định (`MIT`)
 
-Let’s look at an example:
+Hãy xem xét ví dụ sau đây:
 
 ```shell
 $ subql init
@@ -83,16 +83,16 @@ Preparing project... done
 HelloWorld is ready
 ```
 
-After you complete the initialisation process, you will see a folder with your project name created inside the directory. Please note that the contents of this directory should be identical to what's listed in the [Directory Structure](../build/introduction.md#directory-structure).
+Sau khi quá trình khởi tạo hoàn tất, bạn sẽ thấy một thư mục có tên dự án của bạn đã được tạo bên trong thư mục. Xin lưu ý rằng nội dung của thư mục này phải giống hệt với nội dung được liệt kê trong [Cấu trúc thư mục](../build/introduction.md#directory-structure).
 
-Finally, run the following command to install the new project’s dependencies from within the new project's directory.
+Cuối cùng, chạy lệnh sau để cài đặt các phụ thuộc từ bên trong thư mục của dự án mới.
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```shell cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
 
-You have now initialised your first SubQuery project with just a few simple steps. Let’s now customise the standard template project for a specific blockchain of interest.
+Bây giờ bạn đã khởi tạo dự án SubQuery đầu tiên của mình chỉ với một vài bước đơn giản. Bây giờ chúng ta hãy tùy chỉnh dự án mẫu chuẩn cho một chuỗi khối cụ thể mà bạn quan tâm.
 
-You may want to refer to the [command line arguments](../run_publish/references.md) used in SubQuery. It will help you understand the commands better.
+Bạn có thể muốn tham khảo [đối số dòng lệnh](../run_publish/references.md) được sử dụng trong SubQuery. Nó sẽ giúp bạn hiểu rõ hơn về các lệnh.
 
 ## 3. Thực hiện các thay đổi trên Dự án của bạn
 
