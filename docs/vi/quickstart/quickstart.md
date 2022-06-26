@@ -10,7 +10,7 @@ Hãy bắt đầu quá trình tạo ra dự án blockchain SubQuery đầu tiên
 
 ## Điều kiện tiên quyết
 
-Before you begin creating your first blockchain project with SubQuery, make sure you have installed the required supporting software applications. Đó là:
+Trước khi bạn bắt đầu tạo dự án blockchain đầu tiên với SubQuery, hãy đảm bảo rằng bạn đã cài đặt các ứng dụng phần mềm hỗ trợ cần thiết. Đó là:
 
 - [Node](https://nodejs.org/en/): Cài đặt một phiên bản mới nhất của Node (ví dụ: phiên bản LTS).
 - [Docker](https://docker.com/): Hướng dẫn này sẽ yêu cầu sử dụng Docker
@@ -44,7 +44,7 @@ subql init
 
 ::: cảnh báo **Dành cho người dùng Cosmos**
 
-Cosmos is not yet supported in SubQuery's CLI (`subql`). Hence, if you are using Cosmos, you must start with a Juno clone or fork this [starter project](https://github.com/DeveloperInProgress/juno-subql-starter).
+Cosmos hiện chưa được hỗ trợ trong CLI của SubQuery (`subql`). Hence, if you are using Cosmos, you must start with a Juno clone or fork this [starter project](https://github.com/DeveloperInProgress/juno-subql-starter).
 
 To initialise your project with Cosmos, refer to these 4 steps shown in this [link.](https://github.com/subquery/juno-subql-starter#readme). Once you complete these 4 steps, **jump** to the [Make Changes to Your Project](../quickstart/quickstart.html#_3-make-changes-to-your-project) section. :::
 
