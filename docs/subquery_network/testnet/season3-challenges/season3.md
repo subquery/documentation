@@ -6,14 +6,13 @@
 
 To index a single project, please follow the instructions [here](../../testnet/indexers/index-project.html).
 
-### (TBA) Index all projects 
+### Index all projects 
 
-To index a single project, please follow the instructions [here](../../testnet/indexers/index-project.html).
+To index all projects, please follow the instructions [here](../../testnet/indexers/index-project.html).
 
 ### Maintain daily availability 
 
 Ensure that your indexer is up and available at all times. Your indexer will be pinged to check connectivity.
-
 
 ### Obtain your first Delegator 
 
