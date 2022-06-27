@@ -31,8 +31,7 @@ If you use the SubQuery community image in AWS, it comes with everything you nee
 
 ### 3. Start the Indexing Service
 
-After you are done with the installation stage, start the Indexing Service with just s a **one-line**
- Docker command.
+After you are done with the installation stage, start the Indexing Service with just **one-line** Docker command.
 
 ```jsx
 docker-compose up
