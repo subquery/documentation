@@ -1,158 +1,187 @@
 # Season 3 Challenges
 
+- If you are an Indexer, jump to [Indexers Challenges Section](../season3-challenges/season3.html#indexer-challenges)
+- If you are a Delegator, jump to [Delegator Challenges Section](../season3-challenges/season3.html#delegator-challenges)
+- If you are a Consumer, jump to [Consumers Challenges Section](../season3-challenges/season3.html#consumer-challenges)
+
+<br /><br />
+
 ## Indexer Challenges
 
-### Index a single project
+### 1. Index a Single Project
 
-To index a single project, please follow the instructions [here](../../testnet/indexers/index-project.html).
+To index a single project, please follow the instructions **[here](../../testnet/indexers/index-project.html).**
 
-### (TBA) Index all projects 
+### 2. (TBA) Index All Projects 
 
-To index a single project, please follow the instructions [here](../../testnet/indexers/index-project.html).
+To index a single project, please follow the instructions **[here](../../testnet/indexers/index-project.html).**
 
-### Maintain daily availability 
+### 3. Maintain Daily Availability 
 
-Ensure that your indexer is up and available at all times. Your indexer will be pinged to check connectivity.
+Ensure that your indexer is all set and available at all times. Your indexer will be pinged to check connectivity.
 
 
-### Obtain your first Delegator 
+### 4. Obtain Your First Delegator 
 
 Reach out and ask for a Delegator to delegate to your indexer. Alternatively, set up another account and delegator to your indexer. 
 
-### Create a default plan 
+### 5. Create a Default Plan 
 
-To create a default plan, navigate to `Plan & Offer` -> `My Plans`, and then select `Create a Plan`.
+- To create a default plan, navigate to `Plan & Offer` -> `My Plans`. Then select `Create a Plan`. <br />
 
-![Create plan](/assets/img/create_default_plan.png)
+![Create plan](/assets/img/create_default_plan.png) <br />
 
-Then select a plan template.
+- After that, select a template for the plan. <br />
 
-![Select plan template](/assets/img/select_plan_template.png)
+![Select plan template](/assets/img/select_plan_template.png) <br />
 
-Then select the price for this plan but DO NOT select a specific deployment ID. Then click `Create`.
+- Select `Set a price for this plan` but DO NOT select a specific deployment ID. Then click `Create`. <br />
 
-![Set plan parameters](/assets/img/set_default_plan_parameters.png)
+![Set plan parameters](/assets/img/set_default_plan_parameters.png) <br />
 
-You will then see a default plan created in the Default tab.
+- You will see a pop up to confirm your transaction with Metamask. Click on `Confirm` and wait for a few seconds. <br />
 
-![Default plan created](/assets/img/default_plan_created.png)
+![Confirm Price for the Plan](/assets/img/confirm_price_of_plan.png) <br />
 
-### Create a deployment specific plan 
+![Contract Information Confirmed](/assets/img/contract_info_confirmed.png) <br />
 
-To create a deployment specific plan, navigate to `Plan & Offer` -> `My Plans` and then select `Create a Plan` just like when creating a default plan. However, also select a specific deployment Id. 
+![Transaction Saved on Dashboard](/assets/img/transaction_saved_on_dashboard.png) <br />
+
+- Then you will see a default plan created in the `Default` tab. <br />
+
+![Default plan created](/assets/img/default_plan_created.png) <br />
+
+### 6. Create a Deployment Specific Plan 
+
+To create a deployment specific plan, navigate to `Plan & Offer` -> `My Plans`. Then select `Create a Plan` just like you did while creating a default plan. ***However, also select a specific deployment Id.*** <br />
 
 ![Create specific plan](/assets/img/set_specific_plan_parameters.png)
 
-The remaining steps are identical to [create a default plan](#create-a-default-plan) from above with the plan appear in the `specific` tab.
+The remaining steps are identical to [create a default plan](../season3-challenges/season3.html#_5-create-a-default-plan) from above with the plan appear in the `specific` tab.
 
-### Request a Consumer purchase your plan 
+### 7. Request a Consumer Purchase Your Plan 
 
 Reach out and ask for a Consumer to purchase your plan. Alternatively, set up another account and purchase your own plan. 
 
-### (TBA) Claim your reward 
+### 8. (TBA) Claim Your Reward 
 
 
-### (TBA) Withdraw unstaked amount 
+### (TBA) Withdraw Unstaked Amount 
 Here, an Indexer withdraws an unstaked amount from the staking contract back to an Indexer's wallet. 
 
 
-### Request undelegation from a Delegator
+### 9. Request Undelegation from a Delegator
 
 Reach out and ask for a Delegator to undelegate their tokens from your Indexer. 
 
-### (TBA) Accept an offer in the offer market 
+### 10. (TBA) Accept an offer in the offer market 
 
 
-### (TBA) Update controller account
+### 11. (TBA) Update controller account
 
 
-### (TBA) Unregister your indexer
+### 12. (TBA) Unregister your indexer
 
+<br /><br />
+<hr />
 
 ## Delegator Challenges
 
 
-### (TBA) Claim Rewards
+### 1. (TBA) Claim Rewards
 
 
-### Delegate to an Indexer
+### 2. Delegate to an Indexer
 
-To delegate to an Indexer of your choice, navigate to `Stake & Delegate` -> `Indexers` and then select `Delegate`. 
+- To delegate to an Indexer of your choice, navigate to `Stake & Delegate` -> `Indexers`. Then select `Delegate`. <br />
 
-![Delegate to an Indexer](/assets/img/delegate_to_indexer_a.png)
+![Delegate to an Indexer](/assets/img/delegate_to_indexer_a.png) <br />
 
-Then select your wallet and your delegated amount. Then click `Delegate`. You will be asked to confirm your transaction with Metamask
+- You will be asked to confirm your transaction with Metamask. Please wait for a while after confirming the transaction. 
 
-![Delegate to an Indexer part 2](/assets/img/delegate_to_indexer_b.png)
+- Then select your wallet and your delegation amount. Click on `Delegate`. <br />
+
+![Delegate to an Indexer part 2](/assets/img/delegate_to_indexer_b.png) <br />
 
 Note that some Indexers cannot be delegated to until they collect all the early era's rewards. You will have to contact the indexer to resolve the issue.
 
-![Cannot delegate](/assets/img/cannot_delegate.png)
+![Cannot delegate](/assets/img/cannot_delegate.png) <br />
 
-### Undelegate from an Indexer
+### 3. Undelegate from an Indexer
 
-To undelegate from an Indexer, navigate to `Stake & Delegate` -> `My profile` and then select the `Delegate` tab.
+- To undelegate from an Indexer, navigate to `Stake & Delegate` -> `My profile`. Then select the `Delegate` tab. <br />
 
-![Undelegate from an Indexer](/assets/img/undelegate_from_indexer_a.png)
+![Undelegate from an Indexer](/assets/img/undelegate_from_indexer_a.png) <br />
 
-Enter the amount of SQT you want to undelegate and then click `Confirm Undelegation`. You will be asked to confirm your transaction with Metamask
+- Enter the amount of SQT you want to undelegate and then click `Confirm Undelegation`. You will be asked to confirm your transaction with Metamask. Confirm it and wait for a few seconds. <br />
 
-![Confirm undelegate](/assets/img/undelegate_from_indexer_b.png)
+![Confirm undelegate](/assets/img/undelegate_from_indexer_b.png) <br />
 
 
-### Withdraw undelegated amount from an Indexer
+### 4. Withdraw undelegated amount from an Indexer
 
-Upon undelegating from an Indexer, the tokens are locked for a specific period before they can be withdrawed. This period is indicated by the `START AT` and `END AT` columns.
+- When you undelegate from an Indexer, the tokens are locked for a specific period before they can be withdrawed. This period is indicated by the `START AT` and `END AT` columns. 
 
-To withdraw the undelegated amount from an Indexer, navigate to `Stake & Delegate` -> `My profile` and then select the `Locked` tab.
+- To withdraw the undelegated amount from an Indexer, navigate to `Stake & Delegate` -> `My profile`. Then select the `Locked` tab. <br />
 
-When the tokens are unlocked, the `Withdraw` button is available.  
+- When the tokens are unlocked, the `Withdraw` button will be available.  <br />
 
-![Withdraw delegated tokens](/assets/img/withdraw_delegated_tokens.png)
+![Withdraw delegated tokens](/assets/img/withdraw_delegated_tokens.png) <br />
  
-Click on `Withdraw` and then confirm the withdraw.
+- Click on `Withdraw` and then confirm the withdraw. <br />
 
-![Confirm withdraw](/assets/img/confirm_withdraw.png)
+![Confirm withdraw](/assets/img/confirm_withdraw.png) <br /> <br />
 
+<hr />
 
 ## Consumer Challenges
 
-### (FIX) Create a purchase offer
+### 1. (FIX) Create a purchase offer
 
-To create a purchase offer, navigate to `Plan & Offer` -> `Manage My Offers` and then select `Create an Offer`. 
+- To create a purchase offer, navigate to `Plan & Offer` -> `Manage My Offers`. Then select `Create an Offer`. <br />
 
-![Create purchase offer](/assets/img/create_purchase_offer.png)
+![Create purchase offer](/assets/img/create_purchase_offer.png) <br />
 
-`Confirm Approval` for "the SubQuery Network to use your SQT".
+- `Confirm Approval` for "the SubQuery Network to use your SQT". <br />
 
-![Confirm approval](/assets/img/confirm_approval.png)
+![Confirm approval](/assets/img/confirm_approval.png) <br />
 
-![Create purchase offer](/assets/img/create_purchase_offer_steps.png)
-
-
-### (TBA) Get a service agreement from an Indexer 
+![Create purchase offer](/assets/img/create_purchase_offer_steps.png) <br />
 
 
-
-### (TBA) Cancel an offer before it expires
-
-
-### (TBA) Withdraw SQT locked in an offer after it expires
+### 2. (TBA) Get a Service Agreement from an Indexer 
 
 
-### (WIP) Purchase a plan from an Indexer
 
-To create a purchase a plan from an Indexer, navigate to `Explorer` and select a project of your choice.
+### 3. (TBA) Cancel an Offer Before It Expires
 
-![Explorer](/assets/img/explorer.png)
 
-Then click in `Indexer`, and expand the plan of the Indexer you wish to purchase from. Here you will see the plans on offer and some information to help you make your choice. 
+### 4. (TBA) Withdraw SQT locked in an Offer Aafter It Expires
 
-Price: <br>
-Period: <br>
-Daily Request Cap: <br>
-Rate Limt: <br>
 
-![Purchase plan](/assets/img/purchase_plan.png)
+### 5. (WIP) Purchase a Plan from an Indexer
 
-![Purchase plan](/assets/img/purchase_plan_a.png)
+- To create a purchase a plan from an Indexer, navigate to `Explorer` and select a project of your choice. <br />
+
+![Explorer](/assets/img/explorer.png) <br />
+
+- Then click on `Indexer`, and expand the plan of the Indexer you wish to purchase from. <br />
+
+Here, you will see some information to help you make your choice: <br />
+
+Price: <br />
+Period: <br />
+Daily Request Cap: <br />
+Rate Limt: <br /> 
+
+- Click on `Purchase`.
+
+![Purchase plan](/assets/img/purchase_plan.png) <br />
+
+- You will be asked for the confirmation. Hit `Confirm Approval`. You will be asked to confirm your transaction with MetaMask. Click `Confirm` over there. <br />
+
+![Confirm Purchase Plan](/assets/img/confirm_approval_purchase_plan.png) <br />
+
+- You will be notified with a screen showing the details of the plan you have chosen. Clcik on `Purchase`. <br />
+
+![Purchase plan](/assets/img/purchase_a_plan_details.png) <br />
