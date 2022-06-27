@@ -21,7 +21,7 @@ DEV tokens can be addressed as anything. Here it is called SQT_TESTNET. <br />
 
 ## SQT Tokens
 
-To claim your SQT token, click Import tokens. The contract address for SQT is `0xc37E7F793416449270D207B0d24894B48b1689c8`. Paste this into the Token Contract Address field. <br />
+To claim your SQT token, click Import tokens. The contract address for SQT is `0x2F87033B54D34b8Ed1c632b25567f20136D5D5A4`. Paste this into the Token Contract Address field. <br />
 
 ![Import Dev Tokens](/assets/img/Import_Dev_tokens_Metamask.png) <br />
 
