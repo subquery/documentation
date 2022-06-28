@@ -28,12 +28,16 @@ sudo docker-compose up
 
 You get this error because the endpoint is pinged for validity. 
 
-![Invalid Endpoint](/assets/img/invalid_endpoint_troubleshooting.png)
+<!--- ![Invalid Endpoint](/assets/img/invalid_endpoint_troubleshooting.png) --->
+<img src="/assets/img/invalid_endpoint_troubleshooting.png" alt="Invalid Endpoint"  height="50%" width="50%">
+
 
 **Solution:**
 Use a valid endpoint such as: 
 
-![Valid Proxy EndPoint](/assets/img/valid_proxy_endpoint_troubleshooting.png)
+<!--- ![Valid Proxy EndPoint](/assets/img/valid_proxy_endpoint_troubleshooting.png) --->
+
+<img src="/assets/img/valid_proxy_endpoint_troubleshooting.png" alt="Valid Proxy EndPoint"  height="50%" width="50%">
 
 ## initdb: error: directory "/var/lib/postgresql/data" exists but is not empty
 

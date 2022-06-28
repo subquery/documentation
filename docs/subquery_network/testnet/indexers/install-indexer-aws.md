@@ -83,9 +83,13 @@ Finally, ensure that your Indexer is up to date by following these 3 steps:
 
 1. SSH to your EC2 instance. (Visit [How to SSH into your AWS instance](../indexers/ssh-in-aws.md))
 2. Run cd subquery-indexer & vi docker-compose.yml
-3. Edit the image to the latest version, which you can find at: [Current Versions](https://www.notion.so/Current-Versions-39f2e40910d1438b82e97ba3009cbee2)  
+3. Edit the image to the latest version, as given below:
 
-``` @sean, the above link is from notion- kindly have a look.```
+| onfinality/subql-coordinator | v0.1.9 
+--- | --- 
+**onfinality/subql-indexer-proxy** | **v0.1.7**
+
+
 
 ### 1.11 Update User Group (Optional)
 
