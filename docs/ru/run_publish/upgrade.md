@@ -9,27 +9,32 @@
 
 ## Запустить изменения
 
-Войдите в SubQuery Project и выберите проект, который новую версию которого вы хотите установить. Вы можете выбрать развертывание в производственном или промежуточном слоте. Эти два слота представляют собой изолированные среды, каждый из которых имеет свои собственные базы данных и синхронизируется независимо.
+There are two methods to deploy a new version of your project to the SubQuery Managed Service, you can use the UI or directly via the `subql` cli tool.
 
-Мы рекомендуем выполнять развертывание в промежуточный слот только для окончательного промежуточного тестирования или когда вам необходимо повторно синхронизировать данные проекта. Затем вы можете продвигать его в производство с нулевым временем простоя. You will find testing is faster when [running a project locally](../run_publish/run.md) as you can more [easily debug issues](../academy/tutorials_examples/debug-projects.md).
+### Using the UI
 
-Промежуточный слот идеально подходит для:
+Log into SubQuery Project and select the project you want to deploy a new version of. You can choose to either deploy to the production or staging slot. These two slots are isolated environments and each has their own databases and synchronise independently.
+
+We recommend deploying to your staging slot only for final staging testing or when you need to resync your project data. You can then promote it to production with zero downtime. You will find testing is faster when [running a project locally](../run_publish/run.md) as you can more [easily debug issues](../academy/tutorials_examples/debug-projects.md).
+
+The staging slot is perfect for:
 
 - Окончательная проверка изменений в вашем проекте SubQuery в отдельной среде. Промежуточный слот имеет другой URL-адрес для производства, который вы можете использовать в своих dApps.
 - Разогрев и индексирование данных для обновленного проекта SubQuery, чтобы устранить простои в вашем dApp
 - Подготовка нового релиза для вашего проекта SubQuery без его опубликования. Промежуточный слот не отображается публично в поисковике и имеет уникальный URL-адрес, который виден только вам.
 
-![Промежуточный слот](/assets/img/staging_slot.png)
+![Staging slot](/assets/img/staging_slot.png)
 
-#### Обновление до последней версии индексатора и службы запросов
+Заполните Commit Hash из GitHub (скопируйте полный Commit Hash) той версии базы кода вашего проекта SubQuery, которую вы хотите развернуть. Это приведет к увеличению времени простоя в зависимости от времени, необходимого для индексации текущей цепочки. Вы всегда можете сообщить об этом здесь.
 
-Если вы просто хотите перейти на последнюю версию индексатора ([`@ subql / node`](https://www.npmjs.com/package/@subql/node)) или службы запросов ([`@ subql / query`](https://www.npmjs.com/package/@subql/query)), чтобы воспользоваться нашими регулярными улучшениями производительности и стабильности, просто выберите более новые версии наших пакетов и сохраните. Это приведет к задержкам всего на несколько минут.
+### Using the CLI
 
-#### When using `@subql/cli`
-#### Requirement
+You can also use `@subql/cli` to create a new deployment of your project to our managed service. This requires:
+
 - `@subql/cli` version 1.1.0 or above.
-- Get your [SUBQL_ACCESS_TOKEN](/docs/run_publish/ipfs.md#prepare-your-subqlaccesstoken) ready.
-```
+- A valid [SUBQL_ACCESS_TOKEN](/docs/run_publish/ipfs.md#prepare-your-subqlaccesstoken) ready.
+
+```shell
 // You can directly set your Indexer and Query versions
 $ subql deployment:deploy --indexerVersion=1.1.2 --queryVersion=1.1.1
 
@@ -37,9 +42,10 @@ $ subql deployment:deploy --indexerVersion=1.1.2 --queryVersion=1.1.1
 
 $ subql deployment:deploy
 ```
-#### Deploy New Version of your SubQuery Project
 
-Заполните Commit Hash из GitHub (скопируйте полный Commit Hash) той версии базы кода вашего проекта SubQuery, которую вы хотите развернуть. Это приведет к увеличению времени простоя в зависимости от времени, необходимого для индексации текущей цепочки. Вы всегда можете сообщить об этом здесь.
+## Upgrade to the Latest Indexer and Query Service
+
+If you just want to upgrade to the latest indexer ([`@subql/node`](https://www.npmjs.com/package/@subql/node)) or query service ([`@subql/query`](https://www.npmjs.com/package/@subql/query)) to take advantage of our regular performance and stability improvements, just select a newer versions of our packages and save. This will cause only a few minutes of downtime as the services running your project are restarted.
 
 ## Следующие шаги - подключитесь к вашему проекту
 

@@ -3,7 +3,7 @@
   <section class="welcomeWords">
     <div class="main">
       <div>
-        <h2 class="welcomeTitle">Welcome to SubQuery <span>Academy</span></h2>
+        <h2 class="welcomeTitle">Bienvenido a SubQuery <span>Academy</span></h2>
         <p>¡Explora y transforma los datos de tu cadena para crear dApps intuitivos más rápido!</p>
         <p><strong>SubQuery ahora soporta Polkadot, Avalanche y Cosmos (comenzando con Juno)</strong></p>
       </div>

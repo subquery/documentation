@@ -9,11 +9,15 @@
 
 ## Внедряване на промени
 
-Влезте в SubQuery Project и изберете проекта, на който искате да разположите нова версия. Можете да изберете или да внедрите в производствения или стейджинг слот. Тези два слота са изолирани среди и всеки има свои собствени бази данни и се синхронизира независимо.
+There are two methods to deploy a new version of your project to the SubQuery Managed Service, you can use the UI or directly via the `subql` cli tool.
 
-Препоръчваме внедряване в стейджинг слота само за окончателно тестване или когато трябва да синхронизирате повторно данните си за проекта. След това можете да го популяризирате до производство с нулев престой. You will find testing is faster when [running a project locally](../run_publish/run.md) as you can more [easily debug issues](../academy/tutorials_examples/debug-projects.md).
+### Using the UI
 
-Етапния слот е идеален за:
+Log into SubQuery Project and select the project you want to deploy a new version of. You can choose to either deploy to the production or staging slot. These two slots are isolated environments and each has their own databases and synchronise independently.
+
+We recommend deploying to your staging slot only for final staging testing or when you need to resync your project data. You can then promote it to production with zero downtime. You will find testing is faster when [running a project locally](../run_publish/run.md) as you can more [easily debug issues](../academy/tutorials_examples/debug-projects.md).
+
+The staging slot is perfect for:
 
 - Окончателно валидиране на промените във вашия SubQuery Project в отделна среда. Стейджинг слота има различен URL адрес от производствения, който можете да използвате във вашите dApps.
 - Подготвяне и индексиране на данни за актуализиран SubQuery проект, за да се елиминира забавянето във вашият dApp
@@ -21,15 +25,16 @@
 
 ![Staging slot](/assets/img/staging_slot.png)
 
-#### Надстройте до най-новата услуга за индексиране и заявки
+Попълнете Commit Hash от GitHub (копирайте пълния хеш за комит) на версията на кодовата база на вашия SubQuery проект, която искате да бъде разгърната. Това ще доведе до по-дълъг престой в зависимост от времето, необходимо за индексиране на текущата верига. Винаги можете да докладвате тук за напредък.
 
-Ако просто искате да надстроите до най-новия индексатор ([`@subql/node`](https://www.npmjs.com/package/@subql/node)) или услуга за заявки ([`@subql/query`](https://www.npmjs.com/package/@subql/query)), за да се възползвате от нашите редовни подобрения в производителността и стабилността, просто изберете по-нови версии на нашите пакети и запазете. Това ще доведе само до няколко минути престой.
+### Using the CLI
 
-#### When using `@subql/cli`
-#### Requirement
+You can also use `@subql/cli` to create a new deployment of your project to our managed service. This requires:
+
 - `@subql/cli` version 1.1.0 or above.
-- Get your [SUBQL_ACCESS_TOKEN](/docs/run_publish/ipfs.md#prepare-your-subqlaccesstoken) ready.
-```
+- A valid [SUBQL_ACCESS_TOKEN](/docs/run_publish/ipfs.md#prepare-your-subqlaccesstoken) ready.
+
+```shell
 // You can directly set your Indexer and Query versions
 $ subql deployment:deploy --indexerVersion=1.1.2 --queryVersion=1.1.1
 
@@ -37,9 +42,10 @@ $ subql deployment:deploy --indexerVersion=1.1.2 --queryVersion=1.1.1
 
 $ subql deployment:deploy
 ```
-#### Deploy New Version of your SubQuery Project
 
-Попълнете Commit Hash от GitHub (копирайте пълния хеш за комит) на версията на кодовата база на вашия SubQuery проект, която искате да бъде разгърната. Това ще доведе до по-дълъг престой в зависимост от времето, необходимо за индексиране на текущата верига. Винаги можете да докладвате тук за напредък.
+## Upgrade to the Latest Indexer and Query Service
+
+If you just want to upgrade to the latest indexer ([`@subql/node`](https://www.npmjs.com/package/@subql/node)) or query service ([`@subql/query`](https://www.npmjs.com/package/@subql/query)) to take advantage of our regular performance and stability improvements, just select a newer versions of our packages and save. This will cause only a few minutes of downtime as the services running your project are restarted.
 
 ## Следващи стъпки - Свържете се с вашия проект
 

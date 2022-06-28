@@ -1,39 +1,39 @@
-# Introduction
+# Giới thiệu
 
-**The SubQuery Network is the future of web3 infrastructure**
+**Mạng SubQuery là tương lai của cơ sở hạ tầng web3**
 
-We’re building the most open, performant, reliable, and scalable data service for dApp developers.
+Chúng tôi đang xây dựng dịch vụ dữ liệu mở, hiệu suất, đáng tin cậy và có thể mở rộng nhất cho các nhà phát triển dApp.
 
-The SubQuery Network indexes and services data to the global community in an incentivised and verifiable way.
+Mạng SubQuery lập chỉ mục và dữ liệu dịch vụ cho cộng đồng toàn cầu theo cách được khuyến khích và có thể xác minh.
 
-After publishing your project to the SubQuery Network, anyone can index and host it - providing data to users around the world faster and reliably.
+Sau khi xuất bản dự án của bạn lên Mạng SubQuery, bất kỳ ai cũng có thể lập chỉ mục và lưu trữ nó - cung cấp dữ liệu cho người dùng trên toàn thế giới nhanh hơn và đáng tin cậy hơn.
 
-The SubQuery Network is facilitating an open web3 data revolution by allowing you to completely decentralise your infrastructure stack.
+Mạng SubQuery đang tạo điều kiện cho một cuộc cách mạng dữ liệu web3 mở bằng cách cho phép bạn phân cấp hoàn toàn ngăn xếp cơ sở hạ tầng của mình.
 
-## Participants
+## Những người tham gia
 
-There’s a role for everyone in the network, from highly technical developers to those that are not. The SubQuery network includes four main network participants
+Mọi người trong mạng đều có vai trò, từ những nhà phát triển có kỹ thuật cao đến những người không có kỹ thuật. Mạng SubQuery bao gồm bốn người tham gia mạng chính
 
 ### Người tiêu dùng
 
-Consumers will ask the SubQuery Network for specific data for their dApps or tools, and pay an advertised amount of SQT for each request.
+Người tiêu dùng sẽ yêu cầu Mạng SubQuery cung cấp dữ liệu cụ thể cho các dApp hoặc công cụ của họ và trả một số tiền SQT được quảng cáo cho mỗi yêu cầu.
 
-[Learn more about Consumers](./consumers.md)
+[Tìm hiểu thêm về Người tiêu dùng](./consumers.md)
 
 ### Người lập chỉ mục
 
-Indexers will run and maintain high quality SubQuery projects in their own infrastructure, running both the indexer and query service, and will be rewarded in SQT for the requests that they serve.
+Người lập chỉ mục sẽ chạy và duy trì các dự án SubQuery chất lượng cao trong cơ sở hạ tầng của riêng họ, chạy cả dịch vụ lập chỉ mục và truy vấn và sẽ được thưởng trong SQT cho các yêu cầu mà họ phục vụ.
 
-[Learn more about Indexers](./indexers.md)
+[Tìm hiểu thêm về Người lập chỉ mục](./indexers.md)
 
 ### Người uỷ quyền
 
-Delegators will participate in the Network by supporting their favourite Indexers to earn rewards based on the work those indexers do.
+Người ủy quyền sẽ tham gia vào Mạng bằng cách hỗ trợ Người lập chỉ mục yêu thích của họ để kiếm phần thưởng dựa trên công việc mà người lập chỉ mục đó làm.
 
-[Learn more about Consumers](./delegators.md)
+[Tìm hiểu thêm về Người tiêu dùng](./delegators.md)
 
-### Architects
+### Kiến trúc sư
 
-Architects are the builders of the SubQuery projects that the Network runs on. They author and publish SubQuery projects for the Network to index and run.
+Kiến trúc sư là người xây dựng các dự án SubQuery mà Mạng chạy trên đó. Họ là tác giả và xuất bản các dự án SubQuery cho Mạng để lập chỉ mục và chạy.
 
-[Learn more about how to build your first SubQuery project](/build/introduction.md)
+[Tìm hiểu thêm về cách xây dựng dự án SubQuery đầu tiên của bạn](/build/introduction.md)

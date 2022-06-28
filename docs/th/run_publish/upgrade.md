@@ -9,11 +9,15 @@
 
 ## Deploy การเปลี่ยนแปลง
 
-เข้าสู่ระบบ SubQuery Project และเลือกโปรเจกต์ที่คุณต้องการ deploy เวอร์ชันใหม่ คุณสามารถเลือกที่จะ deploy ไปยัง production slot หรือ staging slot ซึ่งทั้งสอง slot นี้มีสภาพแวดล้อมที่แยกจากกัน และต่างมีฐานข้อมูลของตัวเองรวมถึงมีการ sync ที่มีอิสระจากกัน
+There are two methods to deploy a new version of your project to the SubQuery Managed Service, you can use the UI or directly via the `subql` cli tool.
 
-เราแนะนำให้คุณ deploy ไปยัง staging slot ของคุณสำหรับการทดสอบขั้นสุดท้ายเท่านั้น หรือเมื่อคุณต้องการ sync ข้อมูลโปรเจกต์ของคุณอีกครั้ง จากนั้นคุณสามารถปรับเป็นเวอร์ชัน production โดยไม่มี downtime You will find testing is faster when [running a project locally](../run_publish/run.md) as you can more [easily debug issues](../academy/tutorials_examples/debug-projects.md).
+### Using the UI
 
-Staging slot เหมาะสำหรับ:
+Log into SubQuery Project and select the project you want to deploy a new version of. You can choose to either deploy to the production or staging slot. These two slots are isolated environments and each has their own databases and synchronise independently.
+
+We recommend deploying to your staging slot only for final staging testing or when you need to resync your project data. You can then promote it to production with zero downtime. You will find testing is faster when [running a project locally](../run_publish/run.md) as you can more [easily debug issues](../academy/tutorials_examples/debug-projects.md).
+
+The staging slot is perfect for:
 
 - การตรวจสอบการเปลี่ยนแปลงโปรเจกต์ SubQuery ในสภาพแวดล้อมที่แยกจากกัน Staging slot มี URL ที่แตกต่างไปจากการ production ที่คุณสามารถใช้ได้ใน dApps ของคุณ
 - การวอร์มอัพและทำจัดทำดัชนีข้อมูลสำหรับโปรเจ็กต์ SubQuery ที่อัปเดต โดยไม่ต้องหยุดการทำงานของ dApp ของคุณ
@@ -21,15 +25,16 @@ Staging slot เหมาะสำหรับ:
 
 ![Staging slot](/assets/img/staging_slot.png)
 
-#### อัปเกรด Indexer และ Query Service ล่าสุด
+กรอก Commit Hash จาก GitHub (คัดลอก commit hash แบบเต็ม) ของโค้ดโปรเจกต์ SubQuery เวอร์ชั่นที่คุณต้องการ deploy การกรอก Commit Hash จาก GitHub จะทำให้มี downtime นานขึ้น ซึ่งขึ้นอยู่กับเวลาที่ใช้ในการจัดทำ index ข้อมูลของเชนปัจจุบัน คุณสามารถรายงาน progress ของคุณได้ที่นี่
 
-หากคุณต้องการอัปเกรด indexer ([`@subql/node`](https://www.npmjs.com/package/@subql/node)) หรือ query service ([`@subql/query`](https://www.npmjs.com/package/@subql/query)) เป็นตัวล่าสุด เพื่อใช้ประโยชน์จากการปรับปรุงประสิทธิภาพและความเสถียร เพียงเลือกแพ็คเกจเวอร์ชันใหม่กว่าของเราแล้วบันทึก การอัปเกรดนี้จะทำให้เกิดการ downtime เพียงไม่กี่นาที
+### Using the CLI
 
-#### When using `@subql/cli`
-#### Requirement
+You can also use `@subql/cli` to create a new deployment of your project to our managed service. This requires:
+
 - `@subql/cli` version 1.1.0 or above.
-- Get your [SUBQL_ACCESS_TOKEN](/docs/run_publish/ipfs.md#prepare-your-subqlaccesstoken) ready.
-```
+- A valid [SUBQL_ACCESS_TOKEN](/docs/run_publish/ipfs.md#prepare-your-subqlaccesstoken) ready.
+
+```shell
 // You can directly set your Indexer and Query versions
 $ subql deployment:deploy --indexerVersion=1.1.2 --queryVersion=1.1.1
 
@@ -37,9 +42,10 @@ $ subql deployment:deploy --indexerVersion=1.1.2 --queryVersion=1.1.1
 
 $ subql deployment:deploy
 ```
-#### Deploy New Version of your SubQuery Project
 
-กรอก Commit Hash จาก GitHub (คัดลอก commit hash แบบเต็ม) ของโค้ดโปรเจกต์ SubQuery เวอร์ชั่นที่คุณต้องการ deploy การกรอก Commit Hash จาก GitHub จะทำให้มี downtime นานขึ้น ซึ่งขึ้นอยู่กับเวลาที่ใช้ในการจัดทำ index ข้อมูลของเชนปัจจุบัน คุณสามารถรายงาน progress ของคุณได้ที่นี่
+## Upgrade to the Latest Indexer and Query Service
+
+If you just want to upgrade to the latest indexer ([`@subql/node`](https://www.npmjs.com/package/@subql/node)) or query service ([`@subql/query`](https://www.npmjs.com/package/@subql/query)) to take advantage of our regular performance and stability improvements, just select a newer versions of our packages and save. This will cause only a few minutes of downtime as the services running your project are restarted.
 
 ## ขั้นตอนต่อไป - เชื่อมต่อกับโปรเจกต์ของคุณ
 

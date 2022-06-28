@@ -9,27 +9,32 @@ Anche se hai la libertà di aggiornare e distribuire sempre nuove versioni del t
 
 ## Distribuire le modifiche
 
-Accedi a SubQuery Projects e trova il progetto di cui vuoi distribuire una nuova versione. Puoi scegliere di distribuire nello slot di produzione o in quello di staging. Questi due slot sono ambienti isolati e ognuno ha i propri database e si sincronizzano indipendentemente.
+There are two methods to deploy a new version of your project to the SubQuery Managed Service, you can use the UI or directly via the `subql` cli tool.
 
-Raccomandiamo di effettuare il deploy sul tuo slot di staging solo per i test finali di staging o quando hai bisogno di risincronizzare i dati del tuo progetto. Potete poi promuoverlo alla produzione con zero downtime. You will find testing is faster when [running a project locally](../run_publish/run.md) as you can more [easily debug issues](../academy/tutorials_examples/debug-projects.md).
+### Using the UI
 
-Lo slot per la messa in scena è perfetto per:
+Log into SubQuery Project and select the project you want to deploy a new version of. You can choose to either deploy to the production or staging slot. These two slots are isolated environments and each has their own databases and synchronise independently.
+
+We recommend deploying to your staging slot only for final staging testing or when you need to resync your project data. You can then promote it to production with zero downtime. You will find testing is faster when [running a project locally](../run_publish/run.md) as you can more [easily debug issues](../academy/tutorials_examples/debug-projects.md).
+
+The staging slot is perfect for:
 
 - Convalida finale delle modifiche al tuo progetto SubQuery in un ambiente separato. Lo slot di staging ha un URL diverso da quello di produzione che puoi usare nelle tue dApps.
 - Riscaldamento e indicizzazione dei dati per un progetto SubQuery aggiornato per eliminare i tempi morti nella tua dApp
 - Preparare una nuova release per il tuo progetto SubQuery senza esporlo pubblicamente. Lo slot di staging non è mostrato al pubblico nell'Explorer e ha un URL unico che è visibile solo a te.
 
-![Slot per la messa in scena](/assets/img/staging_slot.png)
+![Staging slot](/assets/img/staging_slot.png)
 
-#### Aggiornamento all'ultimo Indexer e servizio di query
+Compila il Commit Hash da GitHub (copia l'hash di commit completo) della versione del codice del tuo progetto SubQuery che vuoi distribuire. Questo causerà un tempo di inattività più lungo a seconda del tempo necessario per indicizzare la catena corrente. Puoi sempre fare rapporto qui per i progressi.
 
-Se vuoi solo aggiornare all'ultimo indexer ([`@subql/node`](https://www.npmjs.com/package/@subql/node)) o servizio di query ([`@subql/query`](https://www.npmjs.com/package/@subql/query)) per approfittare dei nostri regolari miglioramenti di prestazioni e stabilità, basta selezionare una versione più recente dei nostri pacchetti e salvare. Questo causerà solo pochi minuti di inattività.
+### Using the CLI
 
-#### When using `@subql/cli`
-#### Requirement
+You can also use `@subql/cli` to create a new deployment of your project to our managed service. This requires:
+
 - `@subql/cli` version 1.1.0 or above.
-- Get your [SUBQL_ACCESS_TOKEN](/docs/run_publish/ipfs.md#prepare-your-subqlaccesstoken) ready.
-```
+- A valid [SUBQL_ACCESS_TOKEN](/docs/run_publish/ipfs.md#prepare-your-subqlaccesstoken) ready.
+
+```shell
 // You can directly set your Indexer and Query versions
 $ subql deployment:deploy --indexerVersion=1.1.2 --queryVersion=1.1.1
 
@@ -37,9 +42,10 @@ $ subql deployment:deploy --indexerVersion=1.1.2 --queryVersion=1.1.1
 
 $ subql deployment:deploy
 ```
-#### Deploy New Version of your SubQuery Project
 
-Compila il Commit Hash da GitHub (copia l'hash di commit completo) della versione del codice del tuo progetto SubQuery che vuoi distribuire. Questo causerà un tempo di inattività più lungo a seconda del tempo necessario per indicizzare la catena corrente. Puoi sempre fare rapporto qui per i progressi.
+## Upgrade to the Latest Indexer and Query Service
+
+If you just want to upgrade to the latest indexer ([`@subql/node`](https://www.npmjs.com/package/@subql/node)) or query service ([`@subql/query`](https://www.npmjs.com/package/@subql/query)) to take advantage of our regular performance and stability improvements, just select a newer versions of our packages and save. This will cause only a few minutes of downtime as the services running your project are restarted.
 
 ## Passi successivi - Collegati al tuo progetto
 

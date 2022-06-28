@@ -9,27 +9,32 @@ SubQueryプロジェクトは、常に新しいバージョンをアップグレ
 
 ## 変更をデプロイする
 
-SubQuery Project にログインし、新しいバージョンをデプロイするプロジェクトを選択します。 本番またはステージングスロットにデプロイするかを選択できます。 この2つのスロットは分離された環境で、それぞれ独自のデータベースを持ち、独立して同期をとっています。
+There are two methods to deploy a new version of your project to the SubQuery Managed Service, you can use the UI or directly via the `subql` cli tool.
 
-ステージングスロットへのデプロイは、最終的なステージングテストやプロジェクトデータの再同期が必要な場合のみ行うことをお勧めします。 その後、ダウンタイムなしで本番環境に昇格させることができます。 You will find testing is faster when [running a project locally](../run_publish/run.md) as you can more [easily debug issues](../academy/tutorials_examples/debug-projects.md).
+### Using the UI
 
-ステージングスロットは以下の場合に最適です：
+Log into SubQuery Project and select the project you want to deploy a new version of. You can choose to either deploy to the production or staging slot. These two slots are isolated environments and each has their own databases and synchronise independently.
+
+We recommend deploying to your staging slot only for final staging testing or when you need to resync your project data. You can then promote it to production with zero downtime. You will find testing is faster when [running a project locally](../run_publish/run.md) as you can more [easily debug issues](../academy/tutorials_examples/debug-projects.md).
+
+The staging slot is perfect for:
 
 - SubQuery Projectの変更を別環境で最終検証します。 ステージングスロットは、dAppsで使用できる本番環境とは異なるURLを持っています。
 - 更新されたSubQueryプロジェクトのデータのウォームアップとインデックス作成により、dAppのダウンタイムをなくすことができます
 - 公開せずに、SubQuery プロジェクトの新しいリリースを準備します。 ステージングスロットはエクスプローラでは公開されず、あなただけに表示される固有のURLを持っています。
 
-![ステージングスロット](/assets/img/staging_slot.png)
+![Staging slot](/assets/img/staging_slot.png)
 
-#### 最新のインデクサとクエリサービスにアップグレードする
+デプロイしたいSubQueryプロジェクトのコードベースのバージョンのGitHubからコミットハッシュ（完全なコミットハッシュをコピー）を記入する。 これは現在のチェーンをインデックスするのにかかる時間に応じて、より長いダウンタイムを引き起こします。 いつでもここで進捗状況を確認することができます.
 
-もし、最新のインデクサ ([`@subql/node`](https://www.npmjs.com/package/@subql/node)) やクエリーサービス ([`@subql/query`](https://www.npmjs.com/package/@subql/query)) にアップグレードして定期的にパフォーマンスと安定性を改善したいだけなら、新しいバージョンのパッケージを選択して保存するだけでよいのです。 これはわずか数分間のダウンタイムを引き起こします。
+### Using the CLI
 
-#### When using `@subql/cli`
-#### Requirement
+You can also use `@subql/cli` to create a new deployment of your project to our managed service. This requires:
+
 - `@subql/cli` version 1.1.0 or above.
-- Get your [SUBQL_ACCESS_TOKEN](/docs/run_publish/ipfs.md#prepare-your-subqlaccesstoken) ready.
-```
+- A valid [SUBQL_ACCESS_TOKEN](/docs/run_publish/ipfs.md#prepare-your-subqlaccesstoken) ready.
+
+```shell
 // You can directly set your Indexer and Query versions
 $ subql deployment:deploy --indexerVersion=1.1.2 --queryVersion=1.1.1
 
@@ -37,9 +42,10 @@ $ subql deployment:deploy --indexerVersion=1.1.2 --queryVersion=1.1.1
 
 $ subql deployment:deploy
 ```
-#### Deploy New Version of your SubQuery Project
 
-デプロイしたいSubQueryプロジェクトのコードベースのバージョンのGitHubからコミットハッシュ（完全なコミットハッシュをコピー）を記入する。 これは現在のチェーンをインデックスするのにかかる時間に応じて、より長いダウンタイムを引き起こします。 いつでもここで進捗状況を確認することができます.
+## Upgrade to the Latest Indexer and Query Service
+
+If you just want to upgrade to the latest indexer ([`@subql/node`](https://www.npmjs.com/package/@subql/node)) or query service ([`@subql/query`](https://www.npmjs.com/package/@subql/query)) to take advantage of our regular performance and stability improvements, just select a newer versions of our packages and save. This will cause only a few minutes of downtime as the services running your project are restarted.
 
 ## 次のステップ - プロジェクトに接続
 

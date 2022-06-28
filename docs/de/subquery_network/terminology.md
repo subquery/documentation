@@ -1,65 +1,65 @@
-# Terminology
+# Terminologie
 
-![terminology](/assets/img/terminology.png)
+![Terminologie](/assets/img/terminology.png)
 
-## **Allocating**
+## **Reservierung**
 
-Act of an Indexer assigning SQT to a given project.
+Akt eines Indexierers, der SQT einem bestimmten Projekt zuweist.
 
-### **Reallocating**
+### **Umverteilung**
 
-A combined operation of removing staked tokens from one project and immediately associating that with another project (comes into effect at the end of the next Era). This is represented/expressed as a percentage of the indexer’s bonded SQT.
+Eine kombinierte Operation, bei der gesteckte Token aus einem Projekt entfernt und sofort mit einem anderen Projekt verknüpft werden (tritt am Ende der nächsten Ära in Kraft). Dies wird als Prozentsatz der gebundenen SQT des Indexers dargestellt/ausgedrückt.
 
 ## **Bonding**
 
-Act of depositing SQT into a global staking contract performed by either an Indexer or a Delegator
+Akt der Einzahlung von SQT in einen globalen Staking-Vertrag, der entweder von einem Indexer oder einem Delegator durchgeführt wird
 
 ### **Unbonding**
 
-Act of an Indexer or a Delegator withdrawing SQT from the global staking contract.
+Akt eines Indexierers oder Delegators, der SQT aus dem Global Staking-Vertrag zurückzieht.
 
-This is effectively a transfer of SQT from the global staking contract to the Indexer’s or Delegator’s wallet. In other words, this can be thought of as the Indexer or Delegator withdrawing part or all of their stake. Note that a lock period applies when tokens are unbonded.
+Dies ist effektiv eine Übertragung von SQT aus dem globalen Staking-Vertrag in die Brieftasche des Indexers oder Delegators. Mit anderen Worten, man kann sich das so vorstellen, als würde der Indexer oder Delegator einen Teil oder seinen gesamten Einsatz zurückziehen. Beachten Sie, dass eine Sperrfrist gilt, wenn Token ungebunden sind.
 
 ## **Delegating**
 
-Act of a Delegator assigning SQT into the global staking contract and then assigning SQT to an Indexer. Note that delegating and bonding are atomic operations.
+Handlung eines Delegators, der SQT in den globalen Staking-Vertrag einbezieht und dann SQT einem Indexierer zuweist. Beachten Sie, dass das Delegieren und Binden atomare Operationen sind.
 
 ### **Undelegating**
 
-Act of withdrawing SQT from an Indexer at the end of an Era and then withdrawing that SQT from the global staking contract to a wallet address. This is subject to a lock period.
+Akt des Abhebens von SQT von einem Indexer am Ende einer Ära und anschließendes Abheben dieses SQT aus dem globalen Staking-Vertrag an eine Wallet-Adresse. Dies unterliegt einer Sperrfrist.
 
 ### **Redelegating**
 
-Act of a Delegator reassigning SQT from one Indexer to another Indexer. Redelegating does not require tokens to be undelegated and is queued to take effect at the end of the Era.
+Handlung eines Delegators, der SQT von einem Indexer zu einem anderen Indexer neu zuweist. Das erneute Delegieren erfordert nicht, dass Token nicht delegiert werden, und wird in die Warteschlange gestellt, um am Ende der Ära wirksam zu werden.
 
 ## **Staking**
 
-Act of an Indexer assigning tokens in a global staking contract and into the Indexer’s own contract.
+Handlung eines Indexers, der Token in einem Global Staking-Vertrag und in den eigenen Vertrag des Indexers zuweist.
 
 ### **Unstaking**
 
-Act of an Indexer withdrawing their SQT. This triggers a 28 day “lock period”. Indexer can restake to cancel this process and return their lock period tokens to the staking contract.
+Handlung eines Indexierers, der seinen SQT zurückzieht. Dies löst eine 28-tägige „Sperrfrist“ aus. Der Indexer kann erneut spielen, um diesen Vorgang abzubrechen und seine Sperrzeit-Token an den Staking-Vertrag zurückzugeben.
 
 ### **Restaking**
 
-Act of Indexer restaking SQT during the lock period to return locked period tokens to the staking contract.
+Handlung des Indexers, der SQT während des Sperrzeitraums erneut ausführt, um Sperrzeit-Token an den Staking-Vertrag zurückzugeben.
 
 ---
 
-## **Contract Ratio**
+## **Vertragsverhältnis**
 
-The sum of daily contracts value (defined as contract value/period) can not exceed a ratio with their total stake (indexer + delegator).
+Die Summe des täglichen Kontraktwerts (definiert als Kontraktwert/Laufzeit) darf ein Verhältnis zu ihrem Gesamteinsatz (Indexer + Delegator) nicht überschreiten.
 
 ## **Era**
 
-A period or duration of time where configurations and settings remain constant and calculations take place. For example, during an Era:
+Ein Zeitraum oder eine Zeitdauer, in der Konfigurationen und Einstellungen konstant bleiben und Berechnungen stattfinden. Zum Beispiel während einer Era:
 
-- the Indexer Commission Rate cannot be changed during an Era.
+- Der Indexer-Provisionssatz kann während einer Era nicht geändert werden.
 
-## **Indexer Delegation Ratio**
+## **Indexer-Delegierungsverhältnis**
 
-The amount an Indexer can “borrow” or leverage from Delegators. This ratio is yet to be determined.
+Der Betrag, den ein Indexer von Delegatoren „leihen“ oder nutzen kann. Dieses Verhältnis muss noch ermittelt werden.
 
 ## **Lock period**
 
-A period where tokens are unbonded awaiting withdrawal. During this period, tokens do not earn any rewards. Currently, the lock period is defined as 28 days.
+Ein Zeitraum, in dem Token ungebunden sind und auf die Auszahlung warten. Während dieser Zeit verdienen Token keine Belohnungen. Derzeit ist die Sperrfrist auf 28 Tage festgelegt.
