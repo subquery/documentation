@@ -6,7 +6,9 @@ Welcome to [Frontier](https://frontier.subquery.network/), SubQuery's Testnet. L
 
 ### Explorer
 
-This area displays a list of projects that are being indexed.
+This area displays a list of all projects that are being indexed and where consumers can go to purchase plans. If no plans are listed, this means that the Indexer has not yet created a plan. Indexers also cannot purchase their own plans.
+
+![Purchase plans](/assets/img/purchase_plans.png)
 
 ### Studio
 

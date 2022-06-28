@@ -12,9 +12,9 @@
 
 To index a single project, please follow the instructions **[here](../../testnet/indexers/index-project.html).**
 
-### 2. (TBA) Index All Projects 
+### 2. Index all Projects 
 
-To index a single project, please follow the instructions **[here](../../testnet/indexers/index-project.html).**
+To index all project, please follow the instructions **[here](../../testnet/indexers/index-project.html).**
 
 ### 3. Maintain Daily Availability 
 
@@ -41,12 +41,12 @@ Reach out and ask for a Delegator to delegate to your indexer. Alternatively, se
 
 - You will see a pop up to confirm your transaction with Metamask. Click on `Confirm` and wait for a few seconds. <br />
 
-![Confirm Price for the Plan](/assets/img/confirm_price_of_plan.png) <br />
+<!--![Confirm Price for the Plan](/assets/img/confirm_price_of_plan.png) <br />
 
 ![Contract Information Confirmed](/assets/img/contract_info_confirmed.png) <br />
 
 ![Transaction Saved on Dashboard](/assets/img/transaction_saved_on_dashboard.png) <br />
-
+-->
 - Then you will see a default plan created in the `Default` tab. <br />
 
 ![Default plan created](/assets/img/default_plan_created.png) <br />
@@ -57,32 +57,47 @@ To create a deployment specific plan, navigate to `Plan & Offer` -> `My Plans`. 
 
 ![Create specific plan](/assets/img/set_specific_plan_parameters.png)
 
-The remaining steps are identical to [create a default plan](../season3-challenges/season3.html#_5-create-a-default-plan) from above with the plan appear in the `specific` tab.
+The remaining steps are identical to [create a default plan](../season3-challenges/season3.html#_5-create-a-default-plan) from above with the plan appearing in the `specific` tab.
+
+![Specific plan created](/assets/img/specific_plan_created.png)
 
 ### 7. Request a Consumer Purchase Your Plan 
 
 Reach out and ask for a Consumer to purchase your plan. Alternatively, set up another account and purchase your own plan. 
 
+Once this is done, the purchased plan will appear in  `Plan & Offer` -> `My Service Agreements`. The example here shows Consumer 0xB559... purchasing a plan from Indexer 0x5F36... aka `Sean Indexer 27Jun`.
+
+![Plan purchased](/assets/img/plan_purchased.png)
+
 ### 8. (TBA) Claim Your Reward 
 
+<!-- need to wait for at least an era before rewards can be claimed. -->
 
-### (TBA) Withdraw Unstaked Amount 
+
+### 9. (TBA) Withdraw Unstaked Amount 
 Here, an Indexer withdraws an unstaked amount from the staking contract back to an Indexer's wallet. 
 
 
-### 9. Request Undelegation from a Delegator
+### 10. Request Undelegation from a Delegator
 
 Reach out and ask for a Delegator to undelegate their tokens from your Indexer. 
 
-### 10. (TBA) Accept an offer in the offer market 
+### 11. (FIX) Accept an offer in the offer market 
+
+To accept an offer in the offer marketplace, navigate to `Plan & Offer` -> `Offer Marketplace`. Then select `Accept` in the last column.
+
+![Accept offer](/assets/img/accept_offer.png) <br />
+
+Ensure that you have passed the 3 criteria. Then click `Accept` and sign the Metamask transaction.
+
+![Accept offer screen](/assets/img/accept_offer_screen.png) <br />
+
+### 12. (TBA) Update controller account
 
 
-### 11. (TBA) Update controller account
+### 13. (TBA) Unregister your indexer
 
 
-### 12. (TBA) Unregister your indexer
-
-<br /><br />
 <hr />
 
 ## Delegator Challenges
@@ -136,7 +151,7 @@ Note that some Indexers cannot be delegated to until they collect all the early 
 
 ## Consumer Challenges
 
-### 1. (FIX) Create a purchase offer
+### 1. Create a purchase offer
 
 - To create a purchase offer, navigate to `Plan & Offer` -> `Manage My Offers`. Then select `Create an Offer`. <br />
 
@@ -146,20 +161,41 @@ Note that some Indexers cannot be delegated to until they collect all the early 
 
 ![Confirm approval](/assets/img/confirm_approval.png) <br />
 
+In step 1, find the SubQuery project deployment ID for this offer. 
+
 ![Create purchase offer](/assets/img/create_purchase_offer_steps.png) <br />
 
+Choose a template for this offer.
 
-### 2. (TBA) Get a Service Agreement from an Indexer 
+![Create purchase offer](/assets/img/create_purchase_offer_2.png) <br />
 
+Set the details of your offer. 
+- Indexer cap: the maximum number of Indexers desired to index your project.
+- Required deposit: Calculated automatically based on reward per Indexer x Indexer cap. 
+- Minimum indexed height: The blockheight the Indexer should starting indexing from.
+- Expiration time: How long the offer will be valid for.
 
+![Create purchase offer](/assets/img/create_purchase_offer_3.png) <br />
+
+Confirm the details of your purchase offer and then sign the transaction with Metamask.
+
+![Create purchase offer](/assets/img/create_purchase_offer_4.png) <br />
+
+The newly created purchase offer will appear in the `Open` tab.
+
+![Purchase offer created](/assets/img/purchase_offer_created.png) <br />
+
+### 2. Get a Service Agreement from an Indexer 
+
+Reach out and ask an Indexer to purchase your offer.  
 
 ### 3. (TBA) Cancel an Offer Before It Expires
 
 
-### 4. (TBA) Withdraw SQT locked in an Offer Aafter It Expires
+### 4. (TBA) Withdraw SQT locked in an Offer After It Expires
 
 
-### 5. (WIP) Purchase a Plan from an Indexer
+### 5. Purchase a Plan from an Indexer
 
 - To create a purchase a plan from an Indexer, navigate to `Explorer` and select a project of your choice. <br />
 
@@ -182,6 +218,6 @@ Rate Limt: <br />
 
 ![Confirm Purchase Plan](/assets/img/confirm_approval_purchase_plan.png) <br />
 
-- You will be notified with a screen showing the details of the plan you have chosen. Clcik on `Purchase`. <br />
+- You will be notified with a screen showing the details of the plan you have chosen. Click on `Purchase`. <br />
 
 ![Purchase plan](/assets/img/purchase_a_plan_details.png) <br />
