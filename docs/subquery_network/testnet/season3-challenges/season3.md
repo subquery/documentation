@@ -20,7 +20,6 @@ To index all project, please follow the instructions **[here](../../testnet/inde
 
 Ensure that your indexer is all set and available at all times. Your indexer will be pinged to check connectivity.
 
-
 ### 4. Obtain Your First Delegator 
 
 Reach out and ask for a Delegator to delegate to your indexer. Alternatively, set up another account and delegator to your indexer. 
