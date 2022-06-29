@@ -70,7 +70,7 @@ To create a deployment specific plan, navigate to `Plan & Offer` -> `My Plans`. 
 
 ![Plan purchased](/assets/img/plan_purchased.png) <br />
 
-### 8. (TBA) Claim Your Reward 
+### 8. Claim Your Reward 
 
 <!-- need to wait for at least an era before rewards can be claimed. -->
 
@@ -80,10 +80,14 @@ To create a deployment specific plan, navigate to `Plan & Offer` -> `My Plans`. 
 
 - Then confirm the transaction with MetaMask as asked.
 
+![Claim Reward Modal](/assets/img/claim_reward_modal.png) <br />
+
 - Wait for a few seconds and you will see the status as `claimed` under the `Action` column. 
 
+![Reward Claimed](/assets/img/reward_claimed.png) <br />
 
-### 9. (TBA) Withdraw Unstaked Amount 
+
+### 9. Withdraw Unstaked Amount 
 Here, an Indexer withdraws an unstaked amount from the staking contract back to an Indexer's wallet. 
 
 - To withdraw the unstaked amount, navigate to `Stake & Delegate` -> `My profile`. Then select the `Locked` tab. <br />
@@ -102,21 +106,24 @@ Here, an Indexer withdraws an unstaked amount from the staking contract back to 
 Reach out and ask a Delegator to undelegate their tokens from your Indexer. 
 
 
-### 11. (FIX) Accept an Offer in the Offer Marketplace 
+### 11. Accept an Offer in the Offer Marketplace 
 
 - To accept an offer in the offer marketplace, navigate to `Plan & Offer` -> `Offer Marketplace`. Then select `Accept` in the last column. <br />
 
 ![Accept offer](/assets/img/accept_offer.png) <br />
 
-- Ensure that you have passed the 3 criteria. Then click `Accept` and sign the Metamask transaction.
+- Check the offer summary to see whether your want to accpet this offer
 
 ![Accept offer screen](/assets/img/accept_offer_screen.png) <br />
+
+- Ensure that you have passed the 3 criteria. Then click `Accept` and sign the Metamask transaction.
+
+![Accept offer screen](/assets/img/accept_offer_criteria.png) <br />
 
 ### 12. (TBA) Update Controller Account
 
 
 ### 13. (TBA) Unregister Your Indexer
-
 
 <hr />
 
