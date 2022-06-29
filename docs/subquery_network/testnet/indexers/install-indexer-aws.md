@@ -85,9 +85,9 @@ Finally, ensure that your Indexer is up to date by following these 3 steps:
 2. Run cd subquery-indexer & vi docker-compose.yml
 3. Edit the image to the latest version, as given below:
 
-| onfinality/subql-coordinator | v0.1.9 
---- | --- 
-**onfinality/subql-indexer-proxy** | **v0.1.7**
+| **onfinality/subql-coordinator** | **v0.2.0**
+| :--- | :--- |
+| **onfinality/subql-indexer-proxy** | **v0.3.2**
 
 
 
