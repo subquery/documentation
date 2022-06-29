@@ -18,7 +18,7 @@ The initial supply will be 10 Billion tokens.
 
 ### Inflation
 
-The inflation will be 2% per annum. This will be used to help the SubQuery Foundation bootstrap the network by supporting Indexers during the early launch phase where Consumers numbers will still be growing.
+The inflation will be ~2% per annum. This will be used to help the SubQuery Foundation bootstrap the network by supporting Indexers during the early launch phase where Consumers numbers will still be growing.
 
 ### Allocation
 
@@ -26,13 +26,13 @@ Token allocation is as follows:
 
 ![token allocation](/assets/img/token_allocation.png)
 
-From the start, SubQuery has been focused on building value within the community and this aim continues with the largest allocation of tokens (41%) being apportioned to the Community and SubQuery Foundation.
+From the start, SubQuery has been focused on building value within the community and this aim continues with the largest allocation of tokens (44%) being apportioned to the Community and SubQuery Foundation.
 
 The Foundation, which is expected to be established in early 2022, will administer the future governance and growth of the ecosystem and the ownership of the SubQuery Network will come under the SubQuery Foundation initially. This large allocation also includes consideration for future investment into the development and operations of the Network, and key ecosystem growth drivers. This will include tools such as grants and ecosystem incentives/events as well as other marketing activities including bug bounties and mainnet incentives.
 
 Early investors in both the Seed and Series A rounds have a combined allocation of 27%. In the case of our Seed investors, SubQuery is grateful for their early vision and commitment to build the initial phase of SubQuery. Following on from this, growth was accelerated with the support of Series A investors who allowed the project to accelerate to the next level.
 
-For the Public Sale, 12% of token supply has been allocated across at least two sequential rounds. The exact structure and timing of these rounds will be provided at a later date, however guaranteed allocation will be provided for key community members (e.g. Ambassadors, Spartans) and network participants (e.g. test network participants and referenceable customers). Each category will have its own minimum and maximum allocation.
+For the Public Sale, 9% of token supply has been allocated across at least two sequential rounds. The exact structure and timing of these rounds can be found [here](https://subquery.medium.com/subquery-publishes-the-sqt-public-sale-date-and-sale-guide-64b8aff10882).
 
 Finally, the SubQuery Team and Launch Partners have been allocated 20% of the token supply in return for their tireless dedication and contribution in building and promoting the project from the outset.
 

@@ -20,13 +20,13 @@ Remove all existing entities and update the `schema.graphql` file as follows:
 
 ```graphql
 type PangolinApproval @entity {
-  id: ID! # Id is required and made up of block has and log index
+  id: ID!
   transactionHash: String!
-  blockNumber: BigInt!
+  blockNumber: String!
   blockHash: String!
   addressFrom: String
   addressTo: String
-  amount: BigInt
+  amount: String
 }
 ```
 
@@ -84,7 +84,7 @@ dataSources:
           filter:
             ## Follows standard log filters https://docs.ethers.io/v5/concepts/events/
             function: Approve(address spender, uint256 rawAmount)
-            address: "0x60781C2586D68229fde47564546784ab3fACA982"
+            # address: "0x60781C2586D68229fde47564546784ab3fACA982"
 ```
 
 The above code indicates that you will be running a `handleLog` mapping function whenever there is an `approve` log on any transaction from the [Pangolin contract](https://snowtrace.io/txs?a=0x60781C2586D68229fde47564546784ab3fACA982&p=1).
@@ -116,12 +116,11 @@ export async function handleLog(event: AvalancheLog): Promise<void> {
 
   pangolinApprovalRecord.transactionHash = event.transactionHash;
   pangolinApprovalRecord.blockHash = event.blockHash;
-  pangolinApprovalRecord.blockNumber = BigInt(event.blockNumber);
-
-  // topics store data as an array
+  pangolinApprovalRecord.blockNumber = event.blockNumber;
+  # topics store data as an array
   pangolinApprovalRecord.addressFrom = event.topics[0];
   pangolinApprovalRecord.addressTo = event.topics[1];
-  pangolinApprovalRecord.amount = BigInt(event.topics[2]);
+  pangolinApprovalRecord.amount = event.topics[2];
 
   await pangolinApprovalRecord.save();
 }
