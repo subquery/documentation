@@ -95,6 +95,10 @@ Make sure the indexer service versions are correct:
 --- | --- 
 **onfinality/subql-indexer-proxy** | **v0.2.0**
 
+
+> **IMPORTANT**
+> Please change the `POSTGRES_PASSWORD` in postgres and `postgres-password` in coordinator-service to your own one
+
 ### 1.11 Update User Group (Optional)
 
 Run:

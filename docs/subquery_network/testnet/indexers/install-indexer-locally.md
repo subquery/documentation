@@ -28,6 +28,9 @@ cd testnet
 curl https://raw.githubusercontent.com/subquery/indexer-services/main/docker-compose.yml -o docker-compose.yml
 ```
 
+> **IMPORTANT**
+> Please change the `POSTGRES_PASSWORD` in postgres and `postgres-password` in coordinator-service to your own one
+
 ### **Step 2 - Start the Indexing Service**
 
 Run the following command to start the Indexing service:
