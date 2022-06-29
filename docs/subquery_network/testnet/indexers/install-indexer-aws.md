@@ -95,8 +95,6 @@ Make sure the indexer service versions are correct:
 --- | --- 
 **onfinality/subql-indexer-proxy** | **v0.2.0**
 
-
-
 ### 1.11 Update User Group (Optional)
 
 Run:
