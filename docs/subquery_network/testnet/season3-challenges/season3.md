@@ -1,5 +1,8 @@
 # Season 3 Challenges
 
+Visit [Frontier](https://frontier.subquery.network/explorer) before you begin your season 3 challenges and make sure your MetaMask is connected properly. 
+
+Now, <br />
 - If you are an Indexer, jump to [Indexers Challenges Section](../season3-challenges/season3.html#indexer-challenges)
 - If you are a Delegator, jump to [Delegator Challenges Section](../season3-challenges/season3.html#delegator-challenges)
 - If you are a Consumer, jump to [Consumers Challenges Section](../season3-challenges/season3.html#consumer-challenges)
