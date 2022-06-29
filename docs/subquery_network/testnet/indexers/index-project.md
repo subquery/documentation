@@ -116,7 +116,7 @@ Now, select a project of your choice and copy the deployment ID. <br />
 
 <br />
 
-![Deployment ID of the Project](/assests/img/deployID_Polkadot_index_project.png)
+![Deployment ID of the Project](/assets/img/deployID_Polkadot_index_project.png)
 
 
 Then return to the project page and add the project. <br />

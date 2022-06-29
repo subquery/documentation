@@ -13,7 +13,7 @@ We will use this address to SSH into our instance via our command line terminal.
 
 ![Instance Summary Screen_Public Address](/assets/img/instance_summary_pubad_ssh.png) <br />
 
-## Step 2: SSH
+## Step 2: SSH 
 
 Run the following command
 
@@ -32,4 +32,4 @@ ssh -i sean.cer ec2-user@ec2-54-153-196-193.ap-southeast-2.compute.amazonaws.com
 
 ### **Next Steps:**
 
-After finishing SSH, continue to the [next step of setting up your indexer](../indexers/set-up-indexer-aws.html#_1-10-check-indexer-version).
+After finishing SSH, continue to the [next step of setting up your indexer](../indexers/set-up-indexer-aws.html#_1-10-ssh-to-your-ec2-instance).

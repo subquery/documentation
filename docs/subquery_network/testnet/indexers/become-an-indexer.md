@@ -29,6 +29,27 @@ Note that you may or may not need to install Docker.
 
 If you use the SubQuery community image in AWS, it comes with everything you need to set up and run quickly. If you have your own customised VM, you will need to install Docker and some command tools, and then obtain the docker-compose.yml file. 
 
+- After installing your Indexer, you must SSH to your EC2 instance. (Visit [How to SSH into your AWS instance](../indexers/ssh-in-aws.md)).
+
+`Important:`
+#### Check Indexer Version
+
+After you SSH your EC2 instance, ensure that your indexer is up to date. Follow these 2 steps:
+
+2. Run cd subquery-indexer & vi docker-compose.yml
+3. Edit the image to the latest version, as given below:
+
+| **onfinality/subql-coordinator** | **v0.2.0**
+| :--- | :--- |
+| **onfinality/subql-indexer-proxy** | **v0.3.2**
+
+Note: 
+- If you are continuing the installation Locally: Visit [here](../indexers/install-indexer-locally.html#step-2-start-the-indexing-service)
+- If you are continuing the installation with Linux: Visit [here](../indexers/install-indexer-linux.html#step-2-install-docker-and-docker-compose)
+- If you are continuing the installation with AWS: Visit [here](../indexers/install-indexer-aws.html#_1-11-update-user-group-optional)
+
+Next step is to start the indexer. 
+
 ### 3. Start the Indexing Service
 
 After you are done with the installation stage, start the Indexing Service with just **one-line** Docker command.
