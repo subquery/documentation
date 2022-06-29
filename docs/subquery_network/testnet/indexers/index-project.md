@@ -104,15 +104,13 @@ Before clicking **`Add Project`,** click on the SubQuery Explorer hyperlink. Thi
 ![Add Project Screen](/assets/img/add_project_index_project.png)
 
 
-Now, select a project of your choice and copy the deployment ID. <br />
+Select the Polkadot Project as your first indexing project <br />
 
 ![Select a Project](/assets/img/select_project_index_project.png)
 
+**Note:** The polkadot project in this Testnet is:
 
-**Note:** The two projects in this Testnet are as follows:
-
-- Staking Threshold - Polkadot `QmYR8xQgAXuCXMPGPVxxR91L4VtKZsozCM7Qsa5oAbyaQ3`
-- Staking Threshold - Kusama `QmSzPQ9f4U1GERvN1AxJ28xq9B5s4M72CPvotmmv1N2bN7`
+- Staking Threshold - Polkadot `QmduAur8aCENpuizuTGLAsXumG2BX8zSgWLsVpp5b8GEGN`
 
 <br />
 
@@ -146,12 +144,6 @@ Press the `Confirm` button to trigger the request to start the node and query se
     
     - Indexing Network Endpoint: `wss://polkadot.api.onfinality.io/public-ws`
     - Network Dictionary Endpoint: `https://api.subquery.network/sq/subquery/dictionary-polkadot`
-    
-    **Staking Threshold - Kusama**
-
-    
-    - Indexing Network Endpoint: `wss://kusama.api.onfinality.io/public-ws`
-    - Network Dictionary Endpoint: `https://api.subquery.network/sq/subquery/kusama-dictionary`
     
     ```
     Please make sure that you set “Enable POI” to true
