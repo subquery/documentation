@@ -3,7 +3,7 @@
 There are two types of tokens on the Testnet:
 
 - ACA tokens (the equivalent of ETH) for gas fee
-- SQT tokens for staking
+- SQT tokens for staking (contract address is `0x6B3953381f777Fa7136f1EA263e37174440090D1`)
 
 You can receive ACA and SQT tokens from the [faucet channel](https://discord.com/channels/796198414798028831/949038537053966446) under the Frontier Testnet Group in SubQuery’s Discord community.
 
