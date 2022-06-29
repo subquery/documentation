@@ -11,20 +11,15 @@ MetaMask is the browser-based crypto wallet that allows you to interact with the
 
 ### 1. Initial Preparation:
 
-Navigate to your Indexer administration page. The URL will depend on where you have installed your Indexing service. 
-
-For: 
-
-- localhost, it will most likely be [http://localhost:8000/](http://localhost:8000/)
-- AWS, it will likely be [http://you-ec2-public-path:8000/](http://localhost:8000/) for example ([ec2-14-273-116-26.ap-southeast-2.compute.amazonaws.com:8000](http://ec2-54-253-236-26.ap-southeast-2.compute.amazonaws.com/))
-
-Then, you will see the following message: <br />
+Navigate to your Indexer administration page at: https://frontier.subquery.network/explorer. Then, you will see the following message: <br />
 
 ![Connect MetaMask](/assets/img/connect_metamask.png)
 
 ### 2. Add a network
 
-Once MetaMask is installed, select the network dropdown and click “Add Network”. <br />
+Once MetaMask is installed, the network can be automatically imported. 
+
+If there are issues with the auto import, manually add the network by selecting the network dropdown and click “Add Network”. <br />
 
 ![Add a Network](/assets/img/add_network_metamask.png)
 

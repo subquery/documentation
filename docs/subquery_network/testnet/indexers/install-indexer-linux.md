@@ -21,13 +21,18 @@ Follow these instructions to launch an EC2 instance:
 
 ### **Step 2 - Install Docker and Docker-Compose**
 
-SSH access to the EC2 instance:
+- SSH access to the EC2 instance:
 
 ```bash
  ssh -i key_file.pem ec2-user@ec2-34-204-200-76.compute-1.amazonaws.com
 ```
 
-Then, install Docker and set auto start:
+`Important:` DO NOT skip checking the Indexer Version after you finish the SSH process. 
+
+- Visit [this section](../indexers/become-an-indexer.html#check-indexer-version) and complete the process. 
+
+
+- Then, install Docker and set auto start:
 
 ```bash
 sudo yum install docker
@@ -35,7 +40,7 @@ sudo systemctl enable docker
 sudo systemctl start docker
 ```
 
-Note that you need to install the docker-compose command tool in EC2, in order to use the docker-compose features:
+- Note that you need to install the docker-compose command tool in EC2, in order to use the docker-compose features:
 
 ```bash
 # get the latest version for docker-compose
@@ -56,6 +61,9 @@ Run the following command:
 mkdir subquery-indexer & cd subquery-indexer
 curl https://raw.githubusercontent.com/subquery/indexer-services/main/docker-compose.yml -o docker-compose.yml
 ```
+
+> **IMPORTANT**
+> Please change the `POSTGRES_PASSWORD` in postgres and `postgres-password` in coordinator-service to your own one
 
 ### **Step 4 - Start Indexer Services**
 
