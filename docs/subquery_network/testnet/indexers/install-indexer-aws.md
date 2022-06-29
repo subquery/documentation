@@ -89,7 +89,7 @@ Finally, ensure that your Indexer is up to date by following these 3 steps:
 curl https://raw.githubusercontent.com/subquery/indexer-services/main/docker-compose.yml -o docker-compose.yml
 ```
 
-Make sure the indexer service versions is correct:
+Make sure the indexer service versions are correct:
 
 | onfinality/subql-coordinator | v0.3.3
 --- | --- 
