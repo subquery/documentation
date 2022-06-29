@@ -77,23 +77,13 @@ You can use our pre-built image or build your own. Let's start with SubQuery's p
 
 - Next, click on Launch Instance.
 
-### 1.10 Check Indexer Version
+### 1.10 SSH to your EC2 instance
 
-Finally, ensure that your Indexer is up to date by following these 3 steps:
+To SSH your EC2 instance, visit [How to SSH into your AWS instance](../indexers/ssh-in-aws.md)). 
 
-1. SSH to your EC2 instance. (Visit [How to SSH into your AWS instance](../indexers/ssh-in-aws.md))
-2. Run cd subquery-indexer
-3. Run the follow cmd to download the latest `dcoker-compose.yml`:
+`Important:` DO NOT skip checking the Indexer Version after you finish the SSH process. 
 
-```sh
-curl https://raw.githubusercontent.com/subquery/indexer-services/main/docker-compose.yml -o docker-compose.yml
-```
-
-Make sure the indexer service versions are correct:
-
-| onfinality/subql-coordinator | v0.3.3
---- | --- 
-**onfinality/subql-indexer-proxy** | **v0.2.0**
+- Visit [this section](../indexers/become-an-indexer.html#check-indexer-version) and complete the process. 
 
 ### 1.11 Update User Group (Optional)
 
@@ -173,9 +163,3 @@ Now, you have successfully set up an Indexer VM on AWS.
 ## **Next Step:**
 
 After setting up the Indexer, you must proceed ahead to connect your application with MetaMask. Visit our guide on [How to connect with a MetaMask](../metamask/connect-metamask.md)
-
-
-`Additional Note:` In order to SSH into your AWS instance, refer to this guide:
-<br />
-
-[How to SSH into your AWS instance](../indexers/ssh-in-aws.md)

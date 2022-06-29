@@ -114,7 +114,7 @@ Select the Polkadot Project as your first indexing project <br />
 
 <br />
 
-![Deployment ID of the Project](/assests/img/deployID_Polkadot_index_project.png)
+![Deployment ID of the Project](/assets/img/deployID_Polkadot_index_project.png)
 
 
 Then return to the project page and add the project. <br />
