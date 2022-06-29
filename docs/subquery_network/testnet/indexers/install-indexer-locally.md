@@ -28,7 +28,11 @@ cd testnet
 curl https://raw.githubusercontent.com/subquery/indexer-services/main/docker-compose.yml -o docker-compose.yml
 ```
 
-`Important:` DO NOT skip checking the Indexer Version after you finish the installation process. 
+> **IMPORTANT**
+> Please change the `POSTGRES_PASSWORD` in postgres and `postgres-password` in coordinator-service to your own one
+
+> **IMPORTANT** 
+> DO NOT skip checking the Indexer Version after you finish the installation process. 
 
 - Visit [this section](../indexers/become-an-indexer.html#check-indexer-version) and complete the process. 
 

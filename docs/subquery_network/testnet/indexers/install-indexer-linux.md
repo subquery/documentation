@@ -62,6 +62,9 @@ mkdir subquery-indexer & cd subquery-indexer
 curl https://raw.githubusercontent.com/subquery/indexer-services/main/docker-compose.yml -o docker-compose.yml
 ```
 
+> **IMPORTANT**
+> Please change the `POSTGRES_PASSWORD` in postgres and `postgres-password` in coordinator-service to your own one
+
 ### **Step 4 - Start Indexer Services**
 
 Run the service using the following command:
