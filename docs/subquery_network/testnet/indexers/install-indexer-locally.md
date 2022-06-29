@@ -33,7 +33,7 @@ curl https://raw.githubusercontent.com/subquery/indexer-services/main/docker-com
 Run the following command to start the Indexing service:
 
 ```bash
-docker-compose up
+docker-compose up -d
 ```
 
 Please check that the Docker is already running. The images will be pulled from Docker and then it will start the following services:
