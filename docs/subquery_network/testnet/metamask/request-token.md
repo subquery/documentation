@@ -1,29 +1,29 @@
 # How to Request Testnet Tokens?
 
-There are two types of tokens on the SubQuery Testnet:
+There are two types of tokens on the Testnet:
 
-- DEV tokens (the equivalent of ETH) for gas fee
-- SQT tokens for staking
+- ACA tokens (the equivalent of ETH) for gas fee
+- SQT tokens for staking (contract address is `0x6B3953381f777Fa7136f1EA263e37174440090D1`)
 
-You can receive DEV and SQT tokens from the faucet channel under the Frontier Testnet Group in SubQuery’s Discord community.
+You can receive ACA and SQT tokens from the [faucet channel](https://discord.com/channels/796198414798028831/949038537053966446) under the Frontier Testnet Group in SubQuery’s Discord community.
 
-## Dev tokens
+## ACA tokens
 
-- Copy your account address from MetaMask and type `!drip <address>` to send SQT and DEV tokens to a given address. You can only make this call **once per hour**.
+- Copy your account address from MetaMask and type `!drip <address>` to send SQT and ACA tokens to a given address. You can only make this call **once per 6 hour**.
 - You will receive the tokens within a few minutes. <br />
 
 ![Copy MetaMask Account Address](/assets/img/copy_metamask_account_address.png)
 
 
-DEV tokens can be addressed as anything. Here it is called SQT_TESTNET. <br />
+ACA tokens can be addressed as anything. Here it is called SQT_TESTNET. <br />
 
-![DEV Tokens](/assets/img/Dev_tokens_metamask.png)
+![ACA Tokens](/assets/img/Dev_tokens_metamask.png)
 
 ## SQT Tokens
 
-To claim your SQT token, click Import tokens. The contract address for SQT is `0x2F87033B54D34b8Ed1c632b25567f20136D5D5A4`. Paste this into the Token Contract Address field. <br />
+To claim your SQT token, click Import tokens. The contract address for SQT is `0x6B3953381f777Fa7136f1EA263e37174440090D1`. Paste this into the Token Contract Address field. <br />
 
-![Import Dev Tokens](/assets/img/Import_Dev_tokens_Metamask.png) <br />
+![Import ACA Tokens](/assets/img/Import_Dev_tokens_Metamask.png) <br />
 
 ![Enter Token Address](/assets/img/enter_token_address_metamask.png)
 

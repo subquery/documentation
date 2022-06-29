@@ -14,7 +14,7 @@ version: 0.0.1
 runner:
   node:
     name: '@subql/node'
-    version: '1.2.1'
+    version: '*'
   query:
     name: '@subql/query'
     version: '*'
