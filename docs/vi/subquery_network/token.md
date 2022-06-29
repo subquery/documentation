@@ -18,7 +18,7 @@ Nguồn cung ban đầu sẽ là 10 tỷ tokens.
 
 ### Lạm phát
 
-The inflation will be ~2% per annum. Nó sẽ được sử dụng để giúp SubQuery Foundation khởi động mạng bằng cách hỗ trợ Người lập chỉ mục trong giai đoạn khởi chạy ban đầu, nơi số lượng Người tiêu dùng vẫn sẽ tăng lên.
+Lạm phát sẽ xấp xỉ ~2% mỗi năm. Nó sẽ được sử dụng để giúp SubQuery Foundation khởi động mạng bằng cách hỗ trợ Người lập chỉ mục trong giai đoạn khởi chạy ban đầu, nơi số lượng Người tiêu dùng vẫn sẽ tăng lên.
 
 ### Phân bổ
 
@@ -26,13 +26,13 @@ Phân bổ mã thông báo như sau:
 
 ![phân bổ mã thông báo](/assets/img/token_allocation.png)
 
-From the start, SubQuery has been focused on building value within the community and this aim continues with the largest allocation of tokens (44%) being apportioned to the Community and SubQuery Foundation.
+Ngay từ đầu, SubQuery đã tập trung vào việc xây dựng giá trị trong cộng đồng và mục tiêu này tiếp tục với việc phân bổ mã thông báo lớn nhất (44%) được phân bổ cho Cộng đồng và SubQuery Foundation.
 
 Quỹ dự kiến sẽ được thành lập vào đầu năm 2022, sẽ quản lý việc quản trị và tăng trưởng trong tương lai của hệ sinh thái và quyền sở hữu Mạng SubQuery sẽ thuộc về SubQuery Foundation ban đầu. Sở dĩ có sự phân bổ lớn này bởi chúng tôi đã cân nhắc việc đầu tư trong tương lai vào sự phát triển và hoạt động của Mạng lưới cũng như các động lực tăng trưởng chính của hệ sinh thái. Việc này bao gồm các khoản tài trợ và ưu đãi/sự kiện hệ sinh thái cũng như các hoạt động tiếp thị khác bao gồm thưởng phát hiện lỗi và thưởng khuyến khích trong mạng chính.
 
 Các nhà đầu tư sớm trong cả hai vòng Hạt giống và Seri A của chúng tôi có mức phân bổ tổng cộng là 27%. Đối với của các nhà đầu tư Hạt giống của chúng tôi, SubQuery rất biết ơn tầm nhìn ban đầu và cam kết của họ để xây dựng giai đoạn đầu của SubQuery. Sau đó, sự phát triển của chúng tôi đã được đẩy nhanh với sự hỗ trợ của các nhà đầu tư Seri A, những người đã cho phép chúng tôi đưa dự án lên một tầm cao mới.
 
-For the Public Sale, 9% of token supply has been allocated across at least two sequential rounds. The exact structure and timing of these rounds can be found [here](https://subquery.medium.com/subquery-publishes-the-sqt-public-sale-date-and-sale-guide-64b8aff10882).
+Đối với việc bán công khai, 9% nguồn cung token sẽ được phân bổ qua ít nhất hai vòng tuần tự. Cấu trúc và thời gian chính xác của các vòng này có thể được tìm thấy [tại đây](https://subquery.medium.com/subquery-publishes-the-sqt-public-sale-date-and-sale-guide-64b8aff10882).
 
 Cuối cùng, Đội ngũ SubQuery và các Đối tác khi khởi chạy sẽ được phân bổ 20% nguồn cung token để đền đáp cho những đóng góp của họ trong việc xây dựng và thúc đẩy dự án ngay từ ban đầu.
 
