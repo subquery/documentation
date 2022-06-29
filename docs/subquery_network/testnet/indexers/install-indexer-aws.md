@@ -82,14 +82,18 @@ You can use our pre-built image or build your own. Let's start with SubQuery's p
 Finally, ensure that your Indexer is up to date by following these 3 steps:
 
 1. SSH to your EC2 instance. (Visit [How to SSH into your AWS instance](../indexers/ssh-in-aws.md))
-2. Run cd subquery-indexer & vi docker-compose.yml
-3. Edit the image to the latest version, as given below:
+2. Run cd subquery-indexer
+3. Run the follow cmd to download the latest `dcoker-compose.yml`:
 
-| onfinality/subql-coordinator | v0.1.9 
+```sh
+curl https://raw.githubusercontent.com/subquery/indexer-services/main/docker-compose.yml -o docker-compose.yml
+```
+
+Make sure the indexer service versions are correct:
+
+| onfinality/subql-coordinator | v0.3.3
 --- | --- 
-**onfinality/subql-indexer-proxy** | **v0.1.7**
-
-
+**onfinality/subql-indexer-proxy** | **v0.2.0**
 
 ### 1.11 Update User Group (Optional)
 

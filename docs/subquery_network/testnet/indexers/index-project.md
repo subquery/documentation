@@ -66,45 +66,17 @@ The Controller is a separate account that needs to be created and it holds a sma
 
 Updating a configuration is a signable event. That means, it is an on-chain update that requires transaction fees to be paid (in DEV).
 
-To add a controller account, the Indexer will need the private key of the controller account from MetaMask. Here are the steps you should follow:
+Click `Managed Controllers` and then select `Create an Account`. This adds an account where you will need to fund with some tokens. Then set the account to `Active`.
 
-- Select an account NOT to be used as a controller account for other Indexers and select the `ellipsis` (3 dots) button. (See [How to connect to MetaMask](../metamask/connect-metamask.md) for connecting to a new MetaMask account).
-- Select `Account details` then `Export Private Key`.
-- Then input your password for MetaMask and get the private key. 
+![Add Controller](/assets/img/add_controller.png) <br />
 
-<br />
+Activating a controller is an on-chain signable event.
 
-![Add Controller](/assets/img/add_controller_index_project.png) <br />
+![Activate Controller](/assets/img/activate_controller.png) <br />
 
+Once the controller account is added, it should appear as follows:
 
-![Export Private Key](/assets/img/export_privatekey_index_project.png) <br />
-
-
-![Show Private Key](/assets/img/show_privatekey_index_project.png) <br />
-
-
-```
-The private key of the controller account will be encrypted and saved in the indexer coordinator service. 
-The indexer can update the controller account at any time.
-
-```
-
-The first step after getting the private key is to synchronise the private key with the coordinator service. The reason is that the controller account cannot be the Indexer itself or used by other Indexers. Select `**Add Controller**`. 
-
-<br />
-
-![Configure and Add Controller Account](/assets/img/config_controller_account.png)
-
-
-After synchronising the controller key, the second step is sending a transaction to confirm the controller account. Select **`Send Transaction`**. <br />
-
-![Send Transaction from Controller Account](/assets/img/controller_transaction_index_projcet.png)
-
-
-Once the transaction has been processed, you will see the Controller Account under your account page. This may take a few minutes. If nothing shows up, refresh the page. <br />
-
-![2 Accounts Screen_Indexer and Controller](/assets/img/2accounts_screen_index_project.png)
-
+![Activate Controller](/assets/img/controller_account_added.png) <br />
 
 ### 1.7 **Update Indexer Metadata (Optional)**
 
@@ -132,15 +104,13 @@ Before clicking **`Add Project`,** click on the SubQuery Explorer hyperlink. Thi
 ![Add Project Screen](/assets/img/add_project_index_project.png)
 
 
-Now, select a project of your choice and copy the deployment ID. <br />
+Select the Polkadot Project as your first indexing project <br />
 
 ![Select a Project](/assets/img/select_project_index_project.png)
 
+**Note:** The polkadot project in this Testnet is:
 
-**Note:** The two projects in this Testnet are as follows:
-
-- Staking Threshold - Polkadot `QmYR8xQgAXuCXMPGPVxxR91L4VtKZsozCM7Qsa5oAbyaQ3`
-- Staking Threshold - Kusama `QmSzPQ9f4U1GERvN1AxJ28xq9B5s4M72CPvotmmv1N2bN7`
+- Staking Threshold - Polkadot `QmduAur8aCENpuizuTGLAsXumG2BX8zSgWLsVpp5b8GEGN`
 
 <br />
 
@@ -174,12 +144,6 @@ Press the `Confirm` button to trigger the request to start the node and query se
     
     - Indexing Network Endpoint: `wss://polkadot.api.onfinality.io/public-ws`
     - Network Dictionary Endpoint: `https://api.subquery.network/sq/subquery/dictionary-polkadot`
-    
-    **Staking Threshold - Kusama**
-
-    
-    - Indexing Network Endpoint: `wss://kusama.api.onfinality.io/public-ws`
-    - Network Dictionary Endpoint: `https://api.subquery.network/sq/subquery/kusama-dictionary`
     
     ```
     Please make sure that you set “Enable POI” to true

@@ -14,10 +14,10 @@ version: 0.0.1
 runner:
   node:
     name: '@subql/node'
-    version: latest
+    version: '*'
   query:
     name: '@subql/query'
-    version: latest
+    version: '*'
 description: 'This project can be use as a starting point for developing your Polkadot based SubQuery project'
 repository: https://github.com/subquery/subql-starter
 schema:
@@ -259,7 +259,7 @@ dataSources:
 - Now that SubQuery supports multiple layer 1 networks, you must provide runner information for various services.
 - `runner.node` specify the node image that is used to run the current project [`@subql/node` or `@subql/node-avalanche`].
 - `runner.query` specify the query service image associate with the project database - use `@subql/query`.
-- `version` specifies the version of these service, they should follow the [SEMVER](https://semver.org/) rules or `'latest'` and match a published version on our [package repository](https://www.npmjs.com/package/@subql/node).
+- `version` specifies the version of these service, they should follow the [SEMVER](https://semver.org/) rules and match a published version on our [package repository](https://www.npmjs.com/package/@subql/node). `Latest` and `Dev` are not supported.
 
 **Under `templates`:**
 
