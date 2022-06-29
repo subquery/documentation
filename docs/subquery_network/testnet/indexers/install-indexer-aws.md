@@ -79,7 +79,7 @@ You can use our pre-built image or build your own. Let's start with SubQuery's p
 
 ### 1.10 SSH to your EC2 instance
 
-To SSH your EC2 instance, visit [How to SSH into your AWS instance](../indexers/ssh-in-aws.md)). 
+To SSH your EC2 instance, visit [How to SSH into your AWS instance](../indexers/ssh-in-aws.md). 
 
 `Important:` DO NOT skip checking the Indexer Version after you finish the SSH process. 
 

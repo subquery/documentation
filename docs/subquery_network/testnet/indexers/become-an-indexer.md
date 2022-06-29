@@ -36,8 +36,8 @@ If you use the SubQuery community image in AWS, it comes with everything you nee
 
 After you SSH your EC2 instance, ensure that your indexer is up to date. Follow these 2 steps:
 
-2. Run cd subquery-indexer & vi docker-compose.yml
-3. Edit the image to the latest version, as given below:
+1. Run cd subquery-indexer & vi docker-compose.yml
+2. Edit the image to the latest version, as given below:
 
 | **onfinality/subql-coordinator** | **v0.2.0**
 | :--- | :--- |
