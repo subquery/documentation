@@ -143,7 +143,7 @@ Press the `Confirm` button to trigger the request to start the node and query se
     **Staking Threshold - Polkadot**
     
     - Indexing Network Endpoint: `wss://polkadot.api.onfinality.io/public-ws`
-    - Network Dictionary Endpoint: `https://api.subquery.network/sq/subquery/dictionary-polkadot`
+    - Network Dictionary Endpoint: `https://api.subquery.network/sq/subquery/polkadot-dictionary`
     
     ```
     Please make sure that you set “Enable POI” to true
