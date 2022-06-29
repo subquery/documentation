@@ -55,7 +55,7 @@ Next step is to start the indexer.
 After you are done with the installation stage, start the Indexing Service with just **one-line** Docker command.
 
 ```jsx
-docker-compose up
+docker-compose up -d
 ```
 
 Now, move ahead in the process and connect to MetaMask.
