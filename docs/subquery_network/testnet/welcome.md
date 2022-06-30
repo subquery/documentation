@@ -10,9 +10,6 @@ This area displays a list of all projects that are being indexed and where consu
 
 ![Purchase plans](/assets/img/purchase_plans.png)
 
-### Studio
-
-TBA
 
 ### Stake & Delegate: 
 

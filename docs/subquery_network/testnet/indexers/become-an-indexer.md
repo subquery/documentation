@@ -31,17 +31,25 @@ If you use the SubQuery community image in AWS, it comes with everything you nee
 
 - After installing your Indexer, you must SSH to your EC2 instance. (Visit [How to SSH into your AWS instance](../indexers/ssh-in-aws.md)).
 
-`Important:`
-#### Check Indexer Version
+`Important:` 
+#### 2.1 Check Indexer Version
 
-After you SSH your EC2 instance, ensure that your indexer is up to date. Follow these 2 steps:
+After you SSH your EC2 instance, ensure that your indexer is up to date. Follow these 3 steps:
 
-1. Run cd subquery-indexer & vi docker-compose.yml
-2. Edit the image to the latest version, as given below:
+1. Run cd subquery-indexer
+2. Run the following command to download the latest dcoker-compose.yml:
 
-| **onfinality/subql-coordinator** | **v0.2.0**
+```shell
+curl https://raw.githubusercontent.com/subquery/indexer-services/main/docker-compose.yml -o docker-compose.yml
+```
+
+3. Edit the image to the latest version, as given below:
+
+| **onfinality/subql-coordinator** | **v0.3.3**
 | :--- | :--- |
-| **onfinality/subql-indexer-proxy** | **v0.3.2**
+| **onfinality/subql-indexer-proxy** | **v0.2.0**
+
+>IMPORTANT: Please change the `POSTGRES_PASSWORD` in the postgres and `postgres-password` in the coordinator-service and create your own one. <br /> 
 
 Note: 
 - If you are continuing the installation Locally: Visit [here](../indexers/install-indexer-locally.html#step-2-start-the-indexing-service)

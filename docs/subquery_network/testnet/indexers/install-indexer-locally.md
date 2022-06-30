@@ -27,6 +27,7 @@ mkdir testnet
 cd testnet
 curl https://raw.githubusercontent.com/subquery/indexer-services/main/docker-compose.yml -o docker-compose.yml
 ```
+<br />
 
 > **IMPORTANT**
 > Please change the `POSTGRES_PASSWORD` in postgres and `postgres-password` in coordinator-service to your own one
@@ -34,7 +35,7 @@ curl https://raw.githubusercontent.com/subquery/indexer-services/main/docker-com
 > **IMPORTANT** 
 > DO NOT skip checking the Indexer Version after you finish the installation process. 
 
-- Visit [this section](../indexers/become-an-indexer.html#check-indexer-version) and complete the process. 
+- Visit [this section](../indexers/become-an-indexer.html#_2-1-check-indexer-version) and complete the process. 
 
 ### **Step 2 - Start the Indexing Service**
 
@@ -70,7 +71,7 @@ Open [http://localhost:8000/](http://localhost:8000/) in your browser and you wi
 
 ### **Next Steps**
 
-You have successfully installed the Indexing service locally. The next step is to connect your applicaion with MetaMask. 
+You have successfully installed the Indexing service locally. The next step is to connect your application with MetaMask. 
 
 **Head to [How to Connect to MetaMask](../metamask/connect-metamask.md) guide.** <br />
 

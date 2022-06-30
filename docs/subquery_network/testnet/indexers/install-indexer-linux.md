@@ -7,7 +7,7 @@ Let's see how to run the Indexer Service on a cloud provider.
 We will use a Linux EC2 instance from AWS in the following examples. 
 
 ```
-**Note**: You can use any other cloud provider, but we will be able to provide only limited support and troubleshooting help.
+Note: You can use any other cloud provider, but we will be able to provide only limited support and troubleshooting help.
 ```
 
 
@@ -15,7 +15,7 @@ We will use a Linux EC2 instance from AWS in the following examples.
 
 Follow these instructions to launch an EC2 instance:
 
-[How to Set Up an Indexer with AWS](../indexers/set-up-indexer-aws.md) 
+[How to Set Up an Indexer with AWS](../indexers/install-indexer-aws.md) 
 
 - We recommend a t3.medium linux EC2
 
@@ -26,10 +26,11 @@ Follow these instructions to launch an EC2 instance:
 ```bash
  ssh -i key_file.pem ec2-user@ec2-34-204-200-76.compute-1.amazonaws.com
 ```
+<br />
 
 `Important:` DO NOT skip checking the Indexer Version after you finish the SSH process. 
 
-- Visit [this section](../indexers/become-an-indexer.html#check-indexer-version) and complete the process. 
+- Visit [this section](../indexers/become-an-indexer.html#_2-1-check-indexer-version) and complete the process.
 
 
 - Then, install Docker and set auto start:
@@ -85,8 +86,6 @@ Now, check the service status: <br />
 
 ### Step 5 - Set Up Auto Start
 
-
-******************* `@sean -- Didn't get the following line`*****************
 
 Create/etc/systemd/system/subquery.service
 

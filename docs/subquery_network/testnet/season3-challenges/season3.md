@@ -41,7 +41,7 @@ Reach out to a Delegator and ask them to delegate to your indexer. Alternatively
 
 ![Set plan parameters](/assets/img/set_default_plan_parameters.png) <br />
 
-- You will see a pop up to confirm your transaction with Metamask. Click on `Confirm` and wait for a few seconds. <br />
+- You will see a pop-up to confirm your transaction with Metamask. Click on `Confirm` and wait for a few seconds. <br />
 
 ![Confirm the Plan with MetaMask](/assets/img/createplan_metamask_confirmation.png) <br />
 
@@ -49,9 +49,9 @@ Reach out to a Delegator and ask them to delegate to your indexer. Alternatively
 
 ![Default plan created](/assets/img/default_plan_created.png) <br />
 
-### 6. Create a Deployment Specific Plan 
+### 6. Create a Deployment-Specific Plan 
 
-To create a deployment specific plan, navigate to `Plan & Offer` -> `My Plans`. Then select `Create a Plan` just like you did while creating a default plan. ***However, also select a specific deployment Id.*** <br />
+To create a deployment-specific plan, navigate to `Plan & Offer` -> `My Plans`. Then select `Create a Plan` just like you did while creating a default plan. ***However, also select a specific deployment Id.*** <br />
 
 ![Create specific plan](/assets/img/set_specific_plan_parameters.png)
 
@@ -71,11 +71,11 @@ To create a deployment specific plan, navigate to `Plan & Offer` -> `My Plans`. 
 
 ![Plan purchased](/assets/img/plan_purchased.png) <br />
 
-### 8. (TBA) Claim Your Reward 
+### 8. Claim Your Reward 
 
 <!-- need to wait for at least an era before rewards can be claimed. -->
 
-- To claim your rewards, head to `Stake & Delegate` -> `My Profile`. Then select `Claim` in the last colmun. <br />
+- To claim your rewards, head to `Stake & Delegate` -> `My Profile`. Then select `Claim` in the last column. <br />
 
 ![Claim Reward](/assets/img/claim_rewards.png) <br /> 
 
@@ -88,7 +88,7 @@ To create a deployment specific plan, navigate to `Plan & Offer` -> `My Plans`. 
 ![Reward Claimed](/assets/img/reward_confirmed.png) <br />
 
 
-### 9. (TBA) Withdraw Unstaked Amount 
+### 9. Withdraw Unstaked Amount 
 Here, an Indexer withdraws the unstaked amount. The amount is withdrawn from the staking contract back to the Indexer's wallet. 
 
 When an amount is unstaked, the tokens are locked for a specific period before they can be withdrawn. This period is indicated by the `START AT` and `END AT` columns. 
@@ -111,16 +111,20 @@ When an amount is unstaked, the tokens are locked for a specific period before t
 Reach out and ask a Delegator to undelegate their tokens from your Indexer. 
 
 
-### 11. (FIX) Accept an Offer in the Offer Marketplace 
+### 11. Accept an Offer in the Offer Marketplace 
 
-- To accept an offer in the offer marketplace, navigate to `Plan & Offer` -> `Offer Marketplace`. Then select `Accept` in the last column. <br />
+- To accept an offer in the "Offer Marketplace", navigate to `Plan & Offer` -> `Offer Marketplace`. Then select `Accept` in the last column. <br />
 
 ![Accept offer](/assets/img/accept_offer.png) <br />
 
 - Ensure that you have passed the 3 criteria. Then click `Accept` and confirm the Metamask transaction as well.
 You will be notified about the successful transaction within a few seconds. <br />
 
-![Accept offer and confirm MetaMask Transaction](/assets/img//accept_offer_criteria_and_confirmation.png) <br />
+![Accept offer and confirm MetaMask Transaction](/assets/img/accept_offer_criteria_and_confirmation.png) <br />
+
+- Once your offer has been accepted, you can note the change under the `Accepted` column. <br />
+
+![Offer Accepted](/assets/img/offer_accepted.png) <br />
 
 ### 12. (TBA) Update Controller Account
 
@@ -134,9 +138,9 @@ You will be notified about the successful transaction within a few seconds. <br 
 ## Delegator Challenges
 
 
-### 1. (TBA) Claim Rewards
+### 1. Claim Rewards
 
-- To claim rewards, head to `Stake & Delegate` -> `My Profile`. Then select `Claim` in the last colmun. <br />
+- To claim rewards, head to `Stake & Delegate` -> `My Profile`. Then select `Claim` in the last column. <br />
 
 ![Claim Reward](/assets/img/claim_rewards.png) <br /> 
 
@@ -226,17 +230,17 @@ Note: You can find the link in the `Explorer` Tab. <br />
 
 - Now, set the details of your offer: 
     - Indexer cap: the maximum number of Indexers desired to index your project.
-    - Required deposit: Calculated automatically based on reward per Indexer x Indexer cap. 
-    - Minimum indexed height: The blockheight the Indexer should starting indexing from.
-    - Expiration time: How long the offer will be valid for. <br />
+    - Required deposit: Calculated automatically based on (reward per Indexer x Indexer cap). 
+    - Minimum indexed height: The blockheight the Indexer should start indexing from.
+    - Expiration time: How long the offer will be valid. <br />
 
 ![Set Details to Create Purchase Offer](/assets/img/create_purchase_offer_3.png) <br />
 
-- Confirm the details of your purchase offer. Then you will see a pop up of MetaMask. Confirm the transaction with MetaMask ask well. <br />
+- Confirm the details of your purchase offer. Then you will see a pop-up of MetaMask. Confirm the transaction with MetaMask as well. <br />
 
 ![Confirm purchase offer](/assets/img/create_purchase_offer_4.png) <br />
 
-- The newly created purchase offer will appear in  the `Open` tab.
+- The newly created purchase offer will appear in the `Open` tab.
 
 ![Purchase offer created](/assets/img/purchase_offer_created.png) <br />
 
@@ -244,7 +248,7 @@ Note: You can find the link in the `Explorer` Tab. <br />
 
 Reach out and ask an Indexer to purchase your offer.  
 
-### 3. (TBA) Cancel an Offer Before It Expires
+### 3. Cancel an Offer Before It Expires
 
 - Head to `Plan & Offer` -> `Manage My Offers`. 
 
@@ -252,7 +256,7 @@ Reach out and ask an Indexer to purchase your offer.
 
 ![Cancel Offer](/assets/img/cancel_order.png) <br />
 
-- You will be asked to confirm the offer cancellation. In this screen, you can see your balance details as below: 
+- You will be asked to confirm the offer cancellation. On this screen, you can see your balance details as below: 
     - Unspent Balance: 
     - Cancellation Fee:
     - You will receive: 
@@ -265,7 +269,7 @@ Reach out and ask an Indexer to purchase your offer.
 
 - Confirm it and wait for a few seconds. Your offer will be cancelled soon.  <br />
 
-### 4. (TBA) Withdraw SQT locked in an Offer After It Expires
+### 4. Withdraw SQT locked in an Offer After It Expires
 
 - When an offer expires, the unspent tokens are locked for a specific period before they can be withdrawn. This period is indicated by the `START AT` and `END AT` columns. 
 
@@ -284,11 +288,11 @@ Reach out and ask an Indexer to purchase your offer.
 
 ### 5. Purchase a Plan from an Indexer
 
-- To create a purchase a plan from an Indexer, navigate to `Explorer` and select a project of your choice. <br />
+- To create a purchase plan from an Indexer, navigate to `Explorer` and select a project of your choice. <br />
 
 ![Explorer](/assets/img/explorer.png) <br />
 
-- Then click on `Indexers` tab, and expand the plan of your preferred Indexer. <br />
+- Then click on the `Indexers` tab, and expand the plan of your preferred Indexer. <br />
 
 Here, you will see some information to help you make your choice: <br />
 
@@ -309,4 +313,4 @@ Rate Limt: <br />
 
 ![Confirm Purchase Plan](/assets/img/confirm_approval_purchase_plan.png) <br />
 
-- You will then see a pop up to confirm your transaction with MetaMask. Click `Confirm` over there. 
+- You will then see a pop-up to confirm your transaction with MetaMask. Click `Confirm` over there. 
