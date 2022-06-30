@@ -351,7 +351,13 @@ function getSidebar(locale, language) {
         path: `${locale}/faqs/faqs`,
         collapsable: true,
         children: [`${locale}/faqs/faqs.md`],
-      }
+      },
+      {
+        title:"Glossary",
+        path: `${locale}/glossary/glossary`,
+        collapsable: true,
+        children: [`${locale}/glossary/glossary.md`],
+      },
     ],
   };
 }
