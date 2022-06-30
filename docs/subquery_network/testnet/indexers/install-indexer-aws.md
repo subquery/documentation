@@ -86,23 +86,6 @@ To SSH your EC2 instance, visit [How to SSH into your AWS instance](../indexers/
 - Visit [this section](../indexers/become-an-indexer.html#_2-1-check-indexer-version) and complete the process. 
 
 
-1. SSH to your EC2 instance. (Visit [How to SSH into your AWS instance](../indexers/ssh-in-aws.md))
-2. Run cd subquery-indexer
-3. Run the follow cmd to download the latest `dcoker-compose.yml`:
-
-```sh
-curl https://raw.githubusercontent.com/subquery/indexer-services/main/docker-compose.yml -o docker-compose.yml
-```
-
-Make sure the indexer service versions are correct:
-
-| onfinality/subql-coordinator | v0.3.3
---- | --- 
-**onfinality/subql-indexer-proxy** | **v0.2.0**
-
-> **IMPORTANT**
-> Please change the `POSTGRES_PASSWORD` in postgres and `postgres-password` in coordinator-service to your own one
-
 ### 1.11 Update User Group (Optional)
 
 Run:

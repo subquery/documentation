@@ -20,7 +20,7 @@ Now, let's explore how to run the Indexing Service Locally step-by-step.
 
 ### **Step 1 - Clone the Indexing Service Repo**
 
-- Clone the Indexing services repository to your local machine. This repository contains a docker-compose.yml file, which consists of all the images to build and start the various applications.
+- Clone the indexing services repository to your local machine. This repository contains a docker-compose.yml file, which consists of all the images to build and start the various applications.
 
 ```bash
 mkdir testnet
@@ -28,9 +28,6 @@ cd testnet
 curl https://raw.githubusercontent.com/subquery/indexer-services/main/docker-compose.yml -o docker-compose.yml
 ```
 <br />
-
-> **IMPORTANT**
-> Please change the `POSTGRES_PASSWORD` in postgres and `postgres-password` in coordinator-service to your own one
 
 > **IMPORTANT** 
 > DO NOT skip checking the Indexer Version after you finish the installation process. 
