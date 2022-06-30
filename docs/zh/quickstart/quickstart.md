@@ -55,8 +55,8 @@ You'll be asked certain questions as you proceed ahead:
 - **Network**: The specific network that this SubQuery project will index. 使用箭头键从可用选项中选择。 For example, Polkadot, Avalanche, or any other supported network.
 - **Template project**: Select a SubQuery template project that will provide a starting point in the development. We suggest selecting the _"subql-starter"_ project.
 - **RPC endpoint**: Provide an HTTPS URL to a running RPC endpoint, which will be used by default for this project. You can quickly access public endpoints for different networks, create your own private dedicated node using [OnFinality](https://app.onfinality.io), or just use the default endpoint. 此 RPC 节点必须是归档节点 (具有完整链状态)。 We will use the default value for this guide. Based on the network you have chosen, the default value may be:
-  - For Polkadot - _"https://polkadot.api.onfinality.io"_ <br />
-  - For Avalanche - _"https://avalanche.api.onfinality.io"_ <br />
+  - For Polkadot - _"https://polkadot.api.onfinality.io"_
+  - For Avalanche - _"https://avalanche.api.onfinality.io"_
   - For Terra - _“https://terra-columbus-5.beta.api.onfinality.io”_ and likewise for other networks. <br/>
 - **Git repository**: Provide a Git URL to a repo that this SubQuery project will be hosted in (when hosted in SubQuery Explorer) or accept the provided default.
 - **Authors**: Enter the owner of this SubQuery project here (e.g. your name!) or accept the provided default.
