@@ -55,8 +55,8 @@ Bạn sẽ được hỏi một số câu hỏi nhất định khi tiếp tục:
 - **Network**: Mạng cụ thể mà dự án SubQuery này sẽ lập chỉ mục. Sử dụng các phím mũi tên để chọn từ các tùy chọn có sẵn. Ví dụ: Polkadot, Avalanche, hoặc bất kỳ mạng được hỗ trợ nào khác.
 - **Template project**: Chọn một dự án mẫu SubQuery sẽ cung cấp một điểm khởi đầu để bắt đầu phát triển. Chúng tôi khuyên bạn nên chọn dự án _"subql-starter"_.
 - **RPC endpoint**: Cung cấp HTTPS URL cho RPC endpoint đang chạy, sẽ được sử dụng mặc định cho dự án này. Bạn có thể nhanh chóng truy cập các điểm cuối công khai cho các mạng khác nhau, tạo node chuyên dụng riêng của mình bằng cách sử dụng [OnFinality](https://app.onfinality.io) hoặc chỉ sử dụng điểm cuối mặc định. Nút RPC này phải là một nút lưu trữ (có trạng thái chuỗi đầy đủ). Chúng tôi sẽ sử dụng giá trị mặc định cho hướng dẫn này. Dựa trên mạng bạn đã chọn, giá trị mặc định có thể là:
-  - Đối với Polkadot - _"https://polkadot.api.onfinality.io"_ <br />
-  - Đối với Avalanche - _"https://avalanche.api.onfinality.io"_ <br />
+  - Đối với Polkadot - _"https://polkadot.api.onfinality.io"_
+  - Đối với Avalanche - _"https://avalanche.api.onfinality.io"_
   - Đối với Terra - _“https://terra-columbus-5.beta.api.onfinality.io”_ và tương tự với các mạng khác. <br/>
 - **Git repository**: Cung cấp Git URL cho repo mà dự án SubQuery này sẽ được lưu trữ (khi được lưu trữ trong SubQuery Explorer) hoặc chấp nhận giá trị mặc định được cung cấp.
 - **Authors**: Nhập chủ sở hữu của dự án SubQuery này tại đây (ví dụ: tên của bạn!) Hoặc chấp nhận giá trị mặc định đã cung cấp.
