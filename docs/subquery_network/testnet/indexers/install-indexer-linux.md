@@ -15,7 +15,7 @@ Note: You can use any other cloud provider, but we will be able to provide only 
 
 Follow these instructions to launch an EC2 instance:
 
-[How to Set Up an Indexer with AWS](../indexers/set-up-indexer-aws.md) 
+[How to Set Up an Indexer with AWS](../indexers/install-indexer-aws.md) 
 
 - We recommend a t3.medium linux EC2
 
