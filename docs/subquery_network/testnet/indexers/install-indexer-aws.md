@@ -85,7 +85,6 @@ To SSH your EC2 instance, visit [How to SSH into your AWS instance](../indexers/
 
 - Visit [this section](../indexers/become-an-indexer.html#_2-1-check-indexer-version) and complete the process. 
 
-
 ### 1.11 Update User Group (Optional)
 
 Run:

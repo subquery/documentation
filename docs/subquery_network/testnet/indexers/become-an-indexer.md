@@ -32,11 +32,10 @@ If you use the SubQuery community image in AWS, it comes with everything you nee
 - After installing your Indexer, you must SSH to your EC2 instance. (Visit [How to SSH into your AWS instance](../indexers/ssh-in-aws.md)).
 
 `Important:` 
-#### 2.1 Check Indexer Version and docker-compose.yml file
+#### 2.1 Check Indexer Version
 
-1. SSH to your EC2 instance. (Visit [How to SSH into your AWS instance](../indexers/ssh-in-aws.md))
-2. Run cd subquery-indexer
-3. Run the follow cmd to download the latest `docker-compose.yml`:
+1. Run cd subquery-indexer
+2. Run the follow cmd to download the latest `docker-compose.yml`:
 
 ```sh
 curl https://raw.githubusercontent.com/subquery/indexer-services/main/docker-compose.yml -o docker-compose.yml
