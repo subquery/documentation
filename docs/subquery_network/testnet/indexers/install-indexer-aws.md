@@ -85,6 +85,9 @@ To SSH your EC2 instance, visit [How to SSH into your AWS instance](../indexers/
 
 - Visit [this section](../indexers/become-an-indexer.html#_2-1-check-indexer-version) and complete the process. 
 
+> **IMPORTANT**
+> Please change the `POSTGRES_PASSWORD` in postgres and `postgres-password` in coordinator-service to your own one
+
 ### 1.11 Update User Group (Optional)
 
 Run:

@@ -89,6 +89,7 @@ To create a deployment-specific plan, navigate to `Plan & Offer` -> `My Plans`. 
 
 
 ### 9. Withdraw Unstaked Amount 
+
 Here, an Indexer withdraws the unstaked amount. The amount is withdrawn from the staking contract back to the Indexer's wallet. 
 
 When an amount is unstaked, the tokens are locked for a specific period before they can be withdrawn. This period is indicated by the `START AT` and `END AT` columns. 
@@ -240,7 +241,7 @@ Note: You can find the link in the `Explorer` Tab. <br />
 
 ![Confirm purchase offer](/assets/img/create_purchase_offer_4.png) <br />
 
-- The newly created purchase offer will appear in the `Open` tab.
+- The newly created purchase offer will appear in  the `Open` tab.
 
 ![Purchase offer created](/assets/img/purchase_offer_created.png) <br />
 

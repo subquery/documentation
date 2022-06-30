@@ -32,7 +32,6 @@ Follow these instructions to launch an EC2 instance:
 
 - Visit [this section](../indexers/become-an-indexer.html#_2-1-check-indexer-version) and complete the process.
 
-
 - Then, install Docker and set auto start:
 
 ```bash
