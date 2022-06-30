@@ -1,6 +1,5 @@
 # FAQs - for Indexers
 
-
 ## What does the Indexer Service comprise?
 
 The Indexer Service is comprised of:
@@ -10,7 +9,7 @@ The Indexer Service is comprised of:
 
 ## What should I do if the indexing node is unhealthy?
 
-If the indexing node is unhealthy, first visit the service log to determine if any errors are present. 
+If the indexing node is unhealthy, first visit the service log to determine if any errors are present.
 
 ![Service Logs](/assets/img/service_logs_indexerfaqs.png)
 
@@ -18,15 +17,13 @@ The other option is to restart the service and/or servers involved.
 
 ## Can the same Indexer run 2 services on different platforms?
 
-The same Indexer can index 2 **different** projects on 2 **different** hosting providers. 
-
- 
+The same Indexer can index 2 **different** projects on 2 **different** hosting providers.
 
 ![Same Indexer - 2 Projects - 2 Different Services - Without DB ](/assets/img/same_indexers_twoservices_without_db_indexerfaqs.png)
 
-If the same Indexer wants to index the same project across 2 different hosting providers then the database needs to be shared. 
+If the same Indexer wants to index the same project across 2 different hosting providers then the database needs to be shared.
 
-**However, this is currently not supported, and it’s on our roadmap.** 
+**However, this is currently not supported, and it’s on our roadmap.**
 
 ![Same Indexer - Same Project - 2 Different Hosting Providers](/assets/img/two_indexers_with_db_indexerfaqs.png)
 
@@ -34,7 +31,7 @@ If the same Indexer wants to index the same project across 2 different hosting p
 
 ## How to change the default password of the PostgreSQL DB?
 
-To change the password for coordinator-service: v0.18.0, ensure the password config for the DB is the same as the one for the coordinator service .yml file. 
+To change the password for coordinator-service: v0.18.0, ensure the password config for the DB is the same as the one for the coordinator service .yml file.
 
 ```
 // For postgres db
@@ -55,7 +52,7 @@ docker-compose up -d
 
 // 3. For the running projects, there is a tricky way to force the “restart the
 // project” with a new DB password. (force restart to be supported as an option flag in the future).
-// Force remove the running query containers, then press `restart project` 
+// Force remove the running query containers, then press `restart project`
 // with the previous form values in the admin app.
 docker stop query_qmyr8xqgaxucxmp query_qmszpq9f4u1gerv
 docker rm query_qmyr8xqgaxucxmp query_qmszpq9f4u1gerv
@@ -63,7 +60,7 @@ docker rm query_qmyr8xqgaxucxmp query_qmszpq9f4u1gerv
 
 ## Can I connect my Docker node to an externally hosted database
 
-Not currently, but this is on our roadmap and we will ty to incorporate it soon. 
+Not currently, but this is on our roadmap and we will ty to incorporate it soon.
 
 ![Connect Docker Node to Externally Hosted Database](/assets/img/connect_node_externalDB_indexerfaqs.png)
 
@@ -73,11 +70,11 @@ Not currently, but this is on our roadmap and we will ty to incorporate it soon.
 
 Our developers are constantly improving the application and you can find the latest version of the subql-coordinator and subql-indexer-proxy [here](https://www.notion.so/SubQuery-Frontier-Testnet-27843cfb69a14dbb8fbf7b1477014ad8).
 
-``` @Sean, the link above is from notion -- Kindly have a look```
+` @Sean, the link above is from notion -- Kindly have a look`
 
 We do recommend that you upgrade to the latest version to take advantage of the new features. However, we do recommend that you follow best practices. For example:
 
-1. Duplicate your PROD environment 
+1. Duplicate your PROD environment
 2. Upgrade using this new environment
 3. Test this new environment to ensure there are no issues
 4. Switch over to this new environment
@@ -125,30 +122,30 @@ This indicates that it is able to bypass any UFW configuration you may have set 
 There are a number of options to solve this:
 
 1. Disable the IP tables option in Docker.
-    - Pros
-        - Immediately stops Docker overriding the UFW configuration.
-    - Cons
-        - Requires additional configuration to fix up the way Docker creates networks which allow the containers to talk to each other.
+   - Pros
+     - Immediately stops Docker overriding the UFW configuration.
+   - Cons
+     - Requires additional configuration to fix up the way Docker creates networks which allow the containers to talk to each other.
 2. Use `expose` instead of `ports` in the `docker-compose.yml`.
-    - Pros
-        - Nice and neat as the change is only in the docker-compose file which is where we are defining the rest of the behaviour in our stack.
-    - Cons
-        - The `query_` containers that are created to index a project need to talk to other containers in the stack. They do this by running on a specific port. And it gets allocated when they are created starting at 3000 and are incremented with each project indexed.
-        - That makes `expose` a little inconvenient/complex- either suffer the disruption of adding/removing the internal port as projects are added/removed, or just expose a bunch (3000 - 3100 for example) up front and hope you don't forget when your 101st project won't index.
-        - This means that if you pull the latest from the official repository you may overwrite the change in `docker-compose.yml`.
+   - Pros
+     - Nice and neat as the change is only in the docker-compose file which is where we are defining the rest of the behaviour in our stack.
+   - Cons
+     - The `query_` containers that are created to index a project need to talk to other containers in the stack. They do this by running on a specific port. And it gets allocated when they are created starting at 3000 and are incremented with each project indexed.
+     - That makes `expose` a little inconvenient/complex- either suffer the disruption of adding/removing the internal port as projects are added/removed, or just expose a bunch (3000 - 3100 for example) up front and hope you don't forget when your 101st project won't index.
+     - This means that if you pull the latest from the official repository you may overwrite the change in `docker-compose.yml`.
 3. Configure UFW with a bunch of additional rules that drop messages to the Docker container ports unless you explicitly allow them.
-    - Pros
-        - Allows Docker to maintain its IP table use - the default behaviour.
-        - Allows UFW to function as it was always intended to.
-    - Cons
-        - Difficult to do.
+   - Pros
+     - Allows Docker to maintain its IP table use - the default behaviour.
+     - Allows UFW to function as it was always intended to.
+   - Cons
+     - Difficult to do.
 4. Use your VPS/VDS provider's firewall.
-    - Pros
-        - Probably the easiest solution of all of them.
-    - Cons
-        - Potentially unavailable to you.
+   - Pros
+     - Probably the easiest solution of all of them.
+   - Cons
+     - Potentially unavailable to you.
 
-Credit for the suggestion of trying option 1 first goes to crypto_new on Discord. Credit for suggesting options 2, 3 and 4 first goes to kw1k on Discord (thanks!). Credit for this section goes to counterpointsoftware. 
+Credit for the suggestion of trying option 1 first goes to crypto_new on Discord. Credit for suggesting options 2, 3 and 4 first goes to kw1k on Discord (thanks!). Credit for this section goes to counterpointsoftware.
 
 For more details on option 3, visit counterpointsoftware’s guide [here](https://github.com/counterpointsoftware/subquery-indexer/tree/documentation-gotchas-and-faqs).
 
@@ -156,4 +153,3 @@ For more details on option 3, visit counterpointsoftware’s guide [here](https:
 
 - [counterpointsoftware](https://github.com/counterpointsoftware/subquery-indexer/tree/documentation-gotchas-and-faqs)
 - [Staking7pc](https://github.com/Staking7pc)
-
