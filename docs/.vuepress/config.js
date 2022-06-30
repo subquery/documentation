@@ -187,10 +187,10 @@ function getSidebar(locale, language) {
               `${locale}/quickstart/quickstart_chains/avalanche.md`,
               `${locale}/quickstart/quickstart_chains/cosmos.md`,
               `${locale}/quickstart/quickstart_chains/terra.md`,
-            ]
+            ],
           },
           `${locale}/quickstart/whats-next.md`,
-        ]
+        ],
       },
       {
         title: "Build",
@@ -283,7 +283,6 @@ function getSidebar(locale, language) {
                 children: [
                   `${locale}/subquery_network/testnet/metamask/connect-metamask.md`,
                   `${locale}/subquery_network/testnet/metamask/request-token.md`,
-
                 ],
               },
               {
@@ -351,7 +350,7 @@ function getSidebar(locale, language) {
         path: `${locale}/faqs/faqs`,
         collapsable: true,
         children: [`${locale}/faqs/faqs.md`],
-      }
+      },
     ],
   };
 }

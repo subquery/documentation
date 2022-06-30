@@ -1,25 +1,24 @@
 # Install Indexing Service on Linux
 
-Let's see how to run the Indexer Service on a cloud provider. 
+Let's see how to run the Indexer Service on a cloud provider.
 
-## **Run Indexer Services on Cloud Linux Instance**
+## Run Indexer Services on Cloud Linux Instance
 
-We will use a Linux EC2 instance from AWS in the following examples. 
+We will use a Linux EC2 instance from AWS in the following examples.
 
 ```
-**Note**: You can use any other cloud provider, but we will be able to provide only limited support and troubleshooting help.
+Note: You can use any other cloud provider, but we will be able to provide only limited support and troubleshooting help.
 ```
 
-
-### **Step 1 - Launch a Virtual Machine**
+### Step 1 - Launch a Virtual Machine
 
 Follow these instructions to launch an EC2 instance:
 
-[How to Set Up an Indexer with AWS](../indexers/set-up-indexer-aws.md) 
+[How to Set Up an Indexer with AWS](../indexers/install-indexer-aws.md)
 
 - We recommend a t3.medium linux EC2
 
-### **Step 2 - Install Docker and Docker-Compose**
+### Step 2 - Install Docker and Docker-Compose
 
 - SSH access to the EC2 instance:
 
@@ -27,10 +26,9 @@ Follow these instructions to launch an EC2 instance:
  ssh -i key_file.pem ec2-user@ec2-34-204-200-76.compute-1.amazonaws.com
 ```
 
-`Important:` DO NOT skip checking the Indexer Version after you finish the SSH process. 
+`Important:` DO NOT skip checking the Indexer Version after you finish the SSH process.
 
-- Visit [this section](../indexers/become-an-indexer.html#check-indexer-version) and complete the process. 
-
+- Visit [this section](../indexers/become-an-indexer.html#_2-1-check-indexer-version) and complete the process.
 
 - Then, install Docker and set auto start:
 
@@ -53,7 +51,7 @@ sudo chmod +x /usr/bin/docker-compose
 sudo docker-compose version
 ```
 
-### **Step 3 - Download the Docker Compose File for Indexer Services**
+### Step 3 - Download the Docker Compose File for Indexer Services
 
 Run the following command:
 
@@ -65,7 +63,7 @@ curl https://raw.githubusercontent.com/subquery/indexer-services/main/docker-com
 > **IMPORTANT**
 > Please change the `POSTGRES_PASSWORD` in postgres and `postgres-password` in coordinator-service to your own one
 
-### **Step 4 - Start Indexer Services**
+### Step 4 - Start Indexer Services
 
 Run the service using the following command:
 
@@ -79,14 +77,11 @@ It will start the following services:
 - coordinator_service
 - coordinator_proxy
 
-Now, check the service status: <br />
+Now, check the service status:
 
 ![CLI- Check Service Status](/assets/img/cli_servicestatuss_install_on_linux.png)
 
 ### Step 5 - Set Up Auto Start
-
-
-******************* `@sean -- Didn't get the following line`*****************
 
 Create/etc/systemd/system/subquery.service
 
@@ -126,10 +121,9 @@ systemctl status subquery.service
 
 ---
 
-### **Next Steps:**
+## Next Steps
 
-**You have successfully installed and started the Indexer Service on Linux. Now, move forward to [connect with MetaMask](../metamask/connect-metamask.md).** 
-
+**You have successfully installed and started the Indexer Service on Linux. Now, move forward to [connect with MetaMask](../metamask/connect-metamask.md).**
 
 **Additional Note:**
 Having trouble running a command or setting up the service? Got stuck in the process? Find your solutions [here](../indexers/troubleshooting-indexers.md).
