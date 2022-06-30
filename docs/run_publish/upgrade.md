@@ -36,11 +36,11 @@ You can also use `@subql/cli` to create a new deployment of your project to our 
 
 ```shell
 // You can directly set your Indexer and Query versions
-$ subql deployment:deploy --indexerVersion=1.1.2 --queryVersion=1.1.1
+$ subql deploy:deploy --indexerVersion=1.1.2 --queryVersion=1.1.1
 
 // OR you can use the interface, it will validate your IPFS CID and render a list of image versions that matches your manifest file `project.yaml`
 
-$ subql deployment:deploy
+$ subql deploy:deploy
 ```
 
 ## Upgrade to the Latest Indexer and Query Service

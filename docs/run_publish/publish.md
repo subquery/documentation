@@ -107,10 +107,10 @@ You can also use `@subql/cli` to create a new deployment of your project to our 
 
 ```shell
 // Deploy using the CLI
-$ suqbl deployment:deploy
+$ suqbl deploy
 
 // OR Deploy using non-interactive CLI
-$ suqbl deployment:deploy
+$ suqbl deploy:deploy
   --dict=dict                      Enter Dictionary Endpoint
   --endpoint=endpoint              Enter Network Endpoint
   --indexerVersion=indexerVersion  Enter indexer-version
