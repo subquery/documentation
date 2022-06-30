@@ -122,6 +122,10 @@ You will be notified about the successful transaction within a few seconds. <br 
 
 ![Accept offer and confirm MetaMask Transaction](/assets/img/accept_offer_criteria_and_confirmation.png) <br />
 
+- Once your offer has been accepted, you can note the change under the `Accepted` column. <br />
+
+![Offer Accepted](/assets/img/offer_accepted.png) <br />
+
 ### 12. (TBA) Update Controller Account
 
 
