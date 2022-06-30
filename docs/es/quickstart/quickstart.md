@@ -55,8 +55,8 @@ Se le harán ciertas preguntas mientras avance:
 - **Red**: La red específica que indexará este proyecto de Subconsulta. Utilice las teclas de flecha para seleccionar las opciones disponibles. Por ejemplo, Polkadot, Avalanche o cualquier otra red soportada.
 - **Proyecto de plantilla**: Seleccione un proyecto de plantilla de subconsulta que proporcionará un punto de partida en el desarrollo. Sugerimos seleccionar el proyecto _"subql-starter"_.
 - **endpoint RPC**: Proporcione una URL HTTPS a un endpoint RPC en ejecución, que se utilizará por defecto para este proyecto. Puede acceder rápidamente a los extremos públicos de diferentes redes, crea tu propio nodo privado dedicado usando [OnFinality](https://app.onfinality.io)o simplemente usa el punto final por defecto. Este nodo RPC debe ser un nodo de archivo (tienen el estado completo de cadena). Utilizaremos el valor por defecto para esta guía. Basado en la red que ha elegido, el valor por defecto puede ser:
-  - Para Polkadot - _"https://polkadot.api.onfinality.io"_ <br />
-  - Para Avalanche - _"https://avalanche.api.onfinality.io"_ <br />
+  - Para Polkadot - _"https://polkadot.api.onfinality.io"_
+  - Para Avalanche - _"https://avalanche.api.onfinality.io"_
   - Para Terra - _“https://terra-columbus-5.beta.api.onfinality.io”_ y también para otras redes. <br/>
 - **Repositorio Git**: Proporcione una URL Git a un repositorio en el que este proyecto de SubQuery será alojado (cuando esté alojado en SubQuery Explorer) o acepte el valor predeterminado proporcionado.
 - **Autores**: Introduzca el propietario de este proyecto de SubQuery aquí (por ejemplo, su nombre!) o acepte el valor predeterminado proporcionado.
