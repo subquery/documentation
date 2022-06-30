@@ -172,7 +172,7 @@ To announce a project to the network, select the `Announce Indexing` button and 
 ![Announce a Project to Network](/assets/img/announce_project_index_project.png)
 
 
-After the transaction is processed, the status of the project will change to `INDEXING`. Now, the Indexer can:
+After the transaction is processed, the project's status will change to `INDEXING`. Now, the Indexer can:
 
 - Publish the project to `READY` on the network via `Announce Ready`
 - `Stop indexing` the project
@@ -226,7 +226,7 @@ Once the services are terminated, the Indexer also needs to send a transaction t
 
 ### 4.4 Restarting a Project
 
-Restart the project if you want to change the network endpoint, network dictionary or image versions. <br />
+Restart the project if you want to change the network endpoint, network dictionary, or image versions. <br />
 
 ![Restart a Project](/assets/img/restart_index_project.png)
 
@@ -240,12 +240,12 @@ You can remove the project from the service if a project is not required anymore
 
 ## 5. **Indexer Network Information**
 
-In the network page, the Indexer can check the era information and confirm that the reward collection is up to date. The service log component provides the logs for the coordinator service. <br />
+On the network page, the Indexer can check the era information and confirm that the reward collection is up to date. The service log component provides the logs for the coordinator service. <br />
 
 ![Indexer Network Information](/assets/img/indexer_network_info.png) <br />
 
 
-Congartulations! You have successfully indexed your SubQuery Project. 
+Congratulations! You have successfully indexed your SubQuery Project. 
 
 - If you encounter any trouble while running the indexing service, please visit [Troubleshooting](../indexers/) and get all your solutions at one place. 
 
