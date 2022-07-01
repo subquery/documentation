@@ -28,7 +28,12 @@ Follow these instructions to launch an EC2 instance:
 
 `Important:` DO NOT skip checking the Indexer Version after you finish the SSH process.
 
-- Visit [this section](../indexers/become-an-indexer.html#_2-1-check-indexer-version) and complete the process.
+- Visit [this section](../indexers/become-an-indexer.html#_2-1-check-indexer-version) and complete the process. <br />
+
+
+> **IMPORTANT Note**: Please change the default PostgreSQL password in the `POSTGRES_PASSWORD` field and in the coordinator-service's `postgres-password` field. Replace it with your own one. 
+
+<br />
 
 - Then, install Docker and set auto start:
 
@@ -59,9 +64,6 @@ Run the following command:
 mkdir subquery-indexer & cd subquery-indexer
 curl https://raw.githubusercontent.com/subquery/indexer-services/main/docker-compose.yml -o docker-compose.yml
 ```
-
-> **IMPORTANT**
-> Please change the `POSTGRES_PASSWORD` in postgres and `postgres-password` in coordinator-service to your own one
 
 ### Step 4 - Start Indexer Services
 
