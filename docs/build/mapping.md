@@ -368,7 +368,7 @@ const b2 = await api.rpc.chain.getBlock();
   
 ### Chain Type Registries
   
-Some decoded message data from Cosmos Chain have nested message types that don't get decoded.
+Some decoded message data from Cosmos Chains has nested message types that don't get decoded.
   
 We inject the [`registry`](https://cosmos.github.io/cosmjs/latest/proto-signing/classes/Registry.html) globally into the sandbox so that users can decode more messages as they need.
   
