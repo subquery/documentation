@@ -123,9 +123,33 @@ Reach out and ask a Delegator to undelegate their tokens from your Indexer.
 
 ![Offer Accepted](/assets/img/offer_accepted.png)
 
-### 12. (TBA) Update Controller Account
+### 12. Update Controller Account
 
-### 13. (TBA) Unregister Your Indexer
+- In the account page, press `Manage Controllers` button to go to controller management page
+
+![Controller Management](/assets/img/manage-controllers-page.png)
+
+- Press `Create an Account` button to create a new controller account
+  
+![Create new controller](/assets/img/create-new-controller-account.png)
+
+- Then press `Active` button on the new controller account and send the transaction on MetaMask
+
+![Active controller](/assets/img/send-tx-to-update-controller.png)
+
+- After transaction processed, the new controller account be on the top of the list and with active label
+
+![Controller updated](/assets/img/controller-page-controller-updated.png)
+
+
+### 13. Unregister Your Indexer
+
+Unregister indexer should be the last challenge for indexer to be completed. We recommend indexer complete this challenge at the end of the Season3.
+
+- To unregister indexer, go to account page and press the `Unregister` button and send the transaction on MetaMask. Once transaction processed your will be logout from the account page and back to register page.
+Note that only indexer without ongoing service agreement and all the projects are change to `Not Indexing` can unregister from network.
+
+![Controller updated](/assets/img/unregister-indexer.png)
 
 ## Delegator Challenges
 
