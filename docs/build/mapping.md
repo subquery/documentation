@@ -365,6 +365,19 @@ const b1 = await api.rpc.chain.getBlock(blockhash);
 const b2 = await api.rpc.chain.getBlock();
 ```
 - For [Custom Substrate Chains](#custom-substrate-chains) RPC calls, see [usage](#usage).
+  
+### Chain Type Registries
+  
+Some decoded message data from Cosmos Chain have nested message types that don't get decoded.
+  
+We inject the [`registry`](https://cosmos.github.io/cosmjs/latest/proto-signing/classes/Registry.html) globally into the sandbox so that users can decode more messages as they need.
+  
+```typescript
+  
+import {MsgUpdateClient} from "cosmjs-types/ibc/core/client/v1/tx";
+  
+registry.register("/ibc.core.client.v1.MsgUpdateClient", MsgUpdateClient)
+```
  
 ## Custom Substrate Chains
 
