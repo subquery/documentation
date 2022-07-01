@@ -110,12 +110,12 @@ Reach out and ask a Delegator to undelegate their tokens from your Indexer.
 
 ### 11. Accept an Offer in the Offer Marketplace
 
-- To accept an offer in the "Offer Marketplace", navigate to `Plan & Offer` -> `Offer Marketplace`. Then select `Accept` in the last column.
+- To accept an offer in the "Offer Marketplace", navigate to `Plan & Offer` -> `Offer Marketplace`. 
+Then select `Accept` in the last column.
 
 ![Accept offer](/assets/img/accept_offer.png)
 
-- Ensure that you have passed the 3 criteria. Then click `Accept` and confirm the Metamask transaction as well.
-  You will be notified about the successful transaction within a few seconds.
+- Ensure that you have passed the 3 criteria. Then click `Accept` and confirm the Metamask transaction as well. You will be notified about the successful transaction within a few seconds.
 
 ![Accept offer and confirm MetaMask Transaction](/assets/img/accept_offer_criteria_and_confirmation.png)
 
