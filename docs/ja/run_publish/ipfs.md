@@ -2,7 +2,7 @@
 
 このガイドでは、ローカルの SubQuery プロジェクトを [IPFS](https://ipfs.io/) に公開し、ホスティングインフラストラクチャにデプロイする方法について説明します。
 
-IPFSにプロジェクトをホストすることで、すべての人が利用できるようになり、GitHubのような中央集権的なサービスへの依存を減らすことができます。
+Hosting a project in IPFS makes it available for all and reduces your reliance on centralised services like GitHub.
 
 ## 要件
 
