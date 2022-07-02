@@ -2,7 +2,7 @@
 
 本指南通过如何发布本地的 SubQuery 项目到 [IPFS](https://ipfs.io/) 并将其部署到我们的托管基础设施上。
 
-在 IPFS 中托管一个项目，可以让所有人都能使用，并减少您对集中服务的依赖，例如GitHub。
+Hosting a project in IPFS makes it available for all and reduces your reliance on centralised services like GitHub.
 
 ## 安装要求
 
