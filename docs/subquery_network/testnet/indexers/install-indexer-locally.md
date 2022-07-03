@@ -34,13 +34,7 @@ curl https://raw.githubusercontent.com/subquery/indexer-services/main/docker-com
 
 - Visit [this section](../indexers/become-an-indexer.html#_2-1-check-indexer-version) and complete the process.
 
-> **IMPORTANT**
-> Please change the `POSTGRES_PASSWORD` in postgres and `postgres-password` in coordinator-service to your own one
-
-> **IMPORTANT**
-> DO NOT skip checking the Indexer Version after you finish the installation process.
-
-- Visit [this section](../indexers/become-an-indexer.html#check-indexer-version) and complete the process.
+> **IMPORTANT Note**: Please change the default PostgreSQL password in the `POSTGRES_PASSWORD` field and in the coordinator-service's `postgres-password` field. Replace it with  your own one. 
 
 ### Step 2 - Start the Indexing Service
 

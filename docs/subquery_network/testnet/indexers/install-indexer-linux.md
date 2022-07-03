@@ -30,6 +30,8 @@ Follow these instructions to launch an EC2 instance:
 
 - Visit [this section](../indexers/become-an-indexer.html#_2-1-check-indexer-version) and complete the process.
 
+> **IMPORTANT Note**: Please change the default PostgreSQL password in the `POSTGRES_PASSWORD` field and in the coordinator-service's `postgres-password` field. Replace it with your own one. 
+
 - Then, install Docker and set auto start:
 
 ```bash
