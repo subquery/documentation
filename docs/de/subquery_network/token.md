@@ -18,7 +18,7 @@ Die anfängliche Lieferung wird 10 Milliarden Token betragen.
 
 ### Inflation
 
-Die Inflation beträgt 2 % pro Jahr. Dies wird verwendet, um der SubQuery Foundation dabei zu helfen, das Netzwerk zu booten, indem Indexer während der frühen Startphase unterstützt werden, in der die Zahl der Verbraucher noch wachsen wird.
+The inflation will be ~2% per annum. Dies wird verwendet, um der SubQuery Foundation dabei zu helfen, das Netzwerk zu booten, indem Indexer während der frühen Startphase unterstützt werden, in der die Zahl der Verbraucher noch wachsen wird.
 
 ### Allocation
 
@@ -26,13 +26,13 @@ Die Token-Allocation ist wie folgt:
 
 ![Token-Allocation](/assets/img/token_allocation.png)
 
-Von Anfang an konzentrierte sich SubQuery auf die Schaffung von Wert innerhalb der Community, und dieses Ziel setzt sich fort, wobei die größte Zuteilung von Token (41 %) der Community und der SubQuery Foundation zugeteilt wird.
+From the start, SubQuery has been focused on building value within the community and this aim continues with the largest allocation of tokens (44%) being apportioned to the Community and SubQuery Foundation.
 
 Die Foundation, die voraussichtlich Anfang 2022 gegründet wird, wird die zukünftige Governance und das Wachstum des Ökosystems verwalten, und das Eigentum am SubQuery Network wird zunächst unter die SubQuery Foundation fallen. Diese große Zuteilung beinhaltet auch die Berücksichtigung zukünftiger Investitionen in die Entwicklung und den Betrieb des Netzwerks sowie wichtige Wachstumstreiber des Ökosystems. Dazu gehören Tools wie Zuschüsse und Ökosystemanreize/-veranstaltungen sowie andere Marketingaktivitäten, einschließlich Bug-Bounties und Mainnet-Anreize.
 
 Frühinvestoren sowohl in der Seed- als auch in der Serie-A-Runde haben eine kombinierte Allokation von 27 %. Im Fall unserer Seed-Investoren ist SubQuery dankbar für ihre frühe Vision und ihr Engagement beim Aufbau der Anfangsphase von SubQuery. Im Anschluss daran wurde das Wachstum mit der Unterstützung von Investoren der Serie A beschleunigt, die es dem Projekt ermöglichten, die nächste Stufe zu erreichen.
 
-Für den öffentlichen Verkauf wurden 12 % des Token-Vorrats auf mindestens zwei aufeinanderfolgende Runden verteilt. Die genaue Struktur und das Timing dieser Runden werden zu einem späteren Zeitpunkt bekannt gegeben, es wird jedoch eine garantierte Zuteilung für wichtige Community-Mitglieder (z. B. Botschafter, Spartaner) und Netzwerkteilnehmer (z. B. Testnetzwerkteilnehmer und referenzierbare Kunden) bereitgestellt. Jede Kategorie hat ihre eigene Mindest- und Höchstzuteilung.
+For the Public Sale, 9% of token supply has been allocated across at least two sequential rounds. The exact structure and timing of these rounds can be found [here](https://subquery.medium.com/subquery-publishes-the-sqt-public-sale-date-and-sale-guide-64b8aff10882).
 
 Schließlich wurden dem SubQuery-Team und den Startpartnern 20 % des Token-Vorrats als Gegenleistung für ihr unermüdliches Engagement und ihren Beitrag beim Aufbau und der Förderung des Projekts von Anfang an zugeteilt.
 

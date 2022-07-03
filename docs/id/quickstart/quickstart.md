@@ -1,21 +1,23 @@
-# Selamat Datang
+# 1. Create a New Project
 
-Dalam panduan singkat ini, kita akan memulai dengan proyek awal yang sederhana dan kemudian menyelesaikannya dengan mengindeks beberapa data nyata yang sebenarnya. Ini adalah dasar yang sangat baik untuk memulai ketika mengembangkan Proyek SubQuery Anda sendiri.
+The goal of this quick start guide is to provide you with a complete development setup and guided steps to create your first SubQuery blockchain project. It is targeted towards experienced developers right through to those just beginning their blockchain journey.
 
-Di akhir panduan ini, Anda akan memiliki proyek SubQuery yang berjalan pada node SubQuery dengan titik akhir GraphQL tempat dimana Anda dapat membuat kueri data.
+This quick start guide should take around 10-15 minutes.
 
-Jika Anda belum melakukannya, sebaiknya Anda membiasakan diri dengan [terminologi](../#terminology) yang digunakan di SubQuery.
+After completing this quick start guide, you will have a working SubQuery project that will run on a SubQuery node. You will be able to adapt the standard starter project and index transfers from your favourite blockchain network such as Polkadot, Avalanch, Cosmos, etc.
 
-**Tujuan dari panduan memulai cepat ini adalah untuk mengadaptasi proyek pemula standar untuk mulai mengindeks semua transfer dari Polkadot, hanya membutuhkan waktu 10-15 menit**
+Let's start the process of creating your first SubQuery blockchain project.
 
-## Persiapan
+## Prerequisites
 
-### Lingkungan Pengembangan Lokal
+Before you begin creating your first blockchain project with SubQuery, make sure you have installed the required supporting software applications. These are:
 
 - [Node](https://nodejs.org/en/): Instalasi Node.js modern (misalnya versi LTS).
-- [Docker](https://docker.com/): Tutorial ini akan membutuhkan Docker
+- [Docker](https://docker.com/): This tutorial will use the required Docker
 
-### Pasang CLI SubQuery
+Now, you are all set to start with the first step, which is the installation of the SubQuery CLI.
+
+## 1. Pasang CLI SubQuery
 
 Instal SubQuery CLI secara global di terminal Anda dengan menggunakan NPM:
 
@@ -24,198 +26,90 @@ Instal SubQuery CLI secara global di terminal Anda dengan menggunakan NPM:
 npm install -g @subql/cli
 ```
 
-Harap dicatat bahwa kami **JANGAN** mendorong penggunaan `yarn global` untuk menginstal `@subql/cli` karena manajemen ketergantungannya yang buruk yang dapat menyebabkan kesalahan di lini depan.
+**Note**: We **DO NOT** encourage the use of `yarn global` for installing `@subql/cli` due to its poor dependency management. This may lead to multiple errors.
 
-Anda kemudian dapat menjalankan bantuan untuk melihat perintah dan penggunaan yang tersedia yang disediakan oleh CLI
+Take a look at all available commands and their use. Run the given below command in the CLI:
 
 ```shell
 bantuan subql
 ```
 
-## Inisialisasi Proyek Pemula SubQuery
+## 2. Inisialisasi Proyek Pemula SubQuery
 
-Di dalam direktori tempat Anda ingin membuat proyek SubQuery, cukup jalankan perintah berikut untuk memulai.
+Run the following command inside the directory you want to create a SubQuery project:
 
 ```shell
 subql init
 ```
 
-Anda akan ditanyai pertanyaan tertentu saat proyek SubQuery diinisialisasi:
+::: warning **For Cosmos Users**
 
-- Name: Nama projek SubQuery anda
-- Network: Jaringan blockchain tempat proyek SubQuery ini akan dikembangkan untuk diindeks, gunakan tombol panah pada keyboard Anda untuk memilih dari opsi, untuk panduan ini kami akan menggunakan *"Polkadot"*
-- Template: Pilih template proyek SubQuery yang akan memberikan titik awal untuk memulai pengembangan, sebaiknya pilih *"Proyek Pemula"*
-- Git repository (Opsional): Berikan URL Git ke repo tempat proyek SubQuery ini akan dihosting (saat dihosting di SubQuery Explorer)
-- RPC endpoint (Diperlukan): Berikan URL HTTPS ke titik akhir RPC yang sedang berjalan yang akan digunakan secara default untuk proyek ini. Anda dapat dengan cepat mengakses titik akhir publik untuk jaringan Polkadot yang berbeda atau bahkan membuat simpul khusus pribadi Anda sendiri menggunakan [OnFinality](https://app.onfinality.io) atau cukup gunakan titik akhir Polkadot default. Node RPC ini harus berupa node arsip (memiliki status rantai penuh). Untuk panduan ini kami akan menggunakan nilai default *"https://polkadot.api.onfinality.io"*
-- Authors (Diperlukan): Masukkan pemilik proyek SubQuery ini di sini (misal. nama Anda!)
-- Description (Opsional): Anda dapat memberikan paragraf singkat tentang proyek Anda yang menjelaskan data apa yang ada di dalamnya dan apa yang dapat dilakukan pengguna dengannya
-- Version (Diperlukan): Masukkan nomor versi khusus atau gunakan default (`1.0.0`)
-- License (Diperlukan): Berikan lisensi perangkat lunak untuk proyek ini atau terima default (`Apache-2.0`)
+Cosmos is not yet supported in SubQuery's CLI (`subql`). Hence, if you are using Cosmos, you must start with a Juno clone or fork this [starter project](https://github.com/DeveloperInProgress/juno-subql-starter).
 
-Setelah proses inisialisasi selesai, Anda akan melihat folder dengan nama proyek Anda telah dibuat di dalam direktori. Isi direktori ini harus identik dengan apa yang tercantum dalam [Struktur Direktori](../create/introduction.md#directory-structure).
+To initialise your project with Cosmos, refer to these 4 steps shown in this [link.](https://github.com/subquery/juno-subql-starter#readme). Once you complete these 4 steps, **jump** to the [Make Changes to Your Project](../quickstart/quickstart.html#_3-make-changes-to-your-project) section. :::
 
-Terakhir, di bawah direktori proyek, jalankan perintah berikut untuk menginstal dependensi proyek baru.
+You'll be asked certain questions as you proceed ahead:
+
+- **Project name**: A project name for your SubQuery project
+- **Network family**: The layer-1 blockchain network family that this SubQuery project will index. Gunakan tombol panah untuk memilih dari opsi yang tersedia. For example, Polkadot, Avalanche, Cosmos, or any other supported network.
+- **Network**: The specific network that this SubQuery project will index. Gunakan tombol panah untuk memilih dari opsi yang tersedia. For example, Polkadot, Avalanche, or any other supported network.
+- **Template project**: Select a SubQuery template project that will provide a starting point in the development. We suggest selecting the _"subql-starter"_ project.
+- **RPC endpoint**: Provide an HTTPS URL to a running RPC endpoint, which will be used by default for this project. You can quickly access public endpoints for different networks, create your own private dedicated node using [OnFinality](https://app.onfinality.io), or just use the default endpoint. Node RPC ini harus berupa node arsip (memiliki status rantai penuh). We will use the default value for this guide. Based on the network you have chosen, the default value may be:
+  - For Polkadot - _"https://polkadot.api.onfinality.io"_
+  - For Avalanche - _"https://avalanche.api.onfinality.io"_
+  - For Terra - _“https://terra-columbus-5.beta.api.onfinality.io”_ and likewise for other networks. <br/>
+- **Git repository**: Provide a Git URL to a repo that this SubQuery project will be hosted in (when hosted in SubQuery Explorer) or accept the provided default.
+- **Authors**: Enter the owner of this SubQuery project here (e.g. your name!) or accept the provided default.
+- **Description**: Provide a short paragraph about your project that describes what data it contains and what users can do with it, or accept the provided default.
+- **Version**: Enter a custom version number or use the default (`1.0.0`)
+- **License**: Provide the software license for this project or accept the default (`MIT`)
+
+Let’s look at an example:
+
+```shell
+$ subql init
+Project name [subql-starter]: HelloWorld
+? Select a network family Substrate
+? Select a network Polkadot
+? Select a template project subql-starter     Starter project for subquery
+RPC endpoint: [wss://polkadot.api.onfinality.io/public-ws]:
+Git repository [https://github.com/subquery/subql-starter]:
+Fetching network genesis hash... done
+Author [Ian He & Jay Ji]: Sean
+Description [This project can be used as a starting po...]:
+Version [1.0.0]:
+License [MIT]:
+Preparing project... done
+HelloWorld is ready
+```
+
+After you complete the initialisation process, you will see a folder with your project name created inside the directory. Please note that the contents of this directory should be identical to what's listed in the [Directory Structure](../build/introduction.md#directory-structure).
+
+Finally, run the following command to install the new project’s dependencies from within the new project's directory.
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```shell cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
 
-## Making Changes to your Project
+You have now initialised your first SubQuery project with just a few simple steps. Let’s now customise the standard template project for a specific blockchain of interest.
 
-In the starter package that you just initialised, we have provided a standard configuration for your new project. Anda terutama akan mengerjakan file-file berikut:
+You may want to refer to the [command line arguments](../run_publish/references.md) used in SubQuery. It will help you understand the commands better.
+
+## 3. Make Changes to Your Project
+
+There are 3 important files that need to be modified. Anda terutama akan mengerjakan file-file berikut:
 
 1. Skema GraphQL di `schema.graphql`
 2. Manifes Proyek di `project.yaml`
 3. Fungsi Pemetaan di direktori `src/mappings/`
 
-Tujuan dari panduan memulai cepat ini adalah untuk mengadaptasi proyek awal standar untuk mulai mengindeks semua transfer dari Polkadot.
+SubQuery supports various blockchain networks and provides you with a dedicated guide for each of them.
 
-### Memperbarui File Skema GraphQL Anda
+Pick up your preferred network and proceed ahead to make the modifications required, and move an inch closer to finishing your first ever project:
 
-`schema.graphql` file mendefinisikan berbagai skema GraphQL. Karena cara kerja bahasa kueri GraphQL, file skema pada dasarnya menentukan bentuk data Anda dari SubQuery. Ini adalah tempat yang bagus untuk memulai karena memungkinkan Anda untuk menentukan tujuan akhir Anda di depan.
+**[Polkadot/Substrate](../quickstart/quickstart_chains/polkadot.md)**
 
-Kami akan memperbarui file `schema.graphql` agar terbaca sebagai berikut
+**[Avalanche](../quickstart/quickstart_chains/avalanche.md)**
 
-```graphql
-type Transfer @entity {
-  id: ID! # id bidang selalu diperlukan dan harus terlihat seperti ini
-  amount: BigInt # Jumlah yang ditransfer
-  blockNumber: BigInt # Ketinggian blok transfer
-  from: Account! # Dari akun mana transfer dilakukan
-  to: Account! # Rekening yang ditransfer ke
-}
-```
+**[Cosmos](../quickstart/quickstart_chains/cosmos.md)**
 
-**Penting: Saat Anda membuat perubahan apa pun pada file skema, pastikan Anda membuat ulang direktori tipe Anda. Lakukan ini sekarang.**
-
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```shell npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
-
-You'll find the generated models in the `/src/types/models` directory. Untuk informasi lebih lanjut tentang file `schema.graphql`, lihat dokumentasi kami di bawah [Build/GraphQL Schema](../build/graphql.md)
-
-### Memperbarui File Manifes Proyek
-
-File Projek Manifest (`project.yaml`) dapat dilihat sebagai titik masuk proyek Anda dan ini mendefinisikan sebagian besar detail tentang bagaimana SubQuery akan mengindeks dan mengubah data rantai.
-
-Kami tidak akan melakukan banyak perubahan pada file manifes karena sudah diatur dengan benar, tetapi kami perlu mengubah penangan kami. Ingat kami berencana untuk mengindeks semua transfer Polkadot, sebagai hasilnya, kami perlu memperbarui bagian `sumber data` untuk membaca yang berikut ini.
-
-```yaml
-dataSources:
-  - kind: substrate/Runtime
-    startBlock: 1
-    mapping:
-      file: ./dist/index.js
-      handlers:
-        - handler: handleEvent
-          kind: substrate/EventHandler
-          filter:
-            module: balances
-            method: Transfer
-```
-
-Ini berarti kita akan menjalankan fungsi pemetaan `handleEvent` setiap kali ada peristiwa `balances.Transfer`.
-
-Untuk informasi selengkapnya tentang file Project Manifest (`project.yaml`), lihat dokumentasi kami di [Build/Manifest File](../build/manifest.md)
-
-### Tambahkan Fungsi Pemetaan
-
-Fungsi pemetaan menentukan bagaimana data rantai diubah menjadi entitas GraphQL yang dioptimalkan yang sebelumnya telah kita definisikan dalam file `schema.graphql`.
-
-Navigasikan ke fungsi pemetaan default di direktori `src/mappings`. Anda akan melihat tiga fungsi yang diekspor, `handleBlock`, `handleEvent`, dan `handleCall`. Anda dapat menghapus fungsi `handleBlock` dan `handleCall`, kita hanya berurusan dengan fungsi `handleEvent`.
-
-Fungsi `handleEvent` menerima data peristiwa setiap kali peristiwa cocok dengan filter yang kami tentukan sebelumnya di `project.yaml` kami. Kita akan memperbaruinya untuk memproses semua `balances.Transfer` event dan menyimpannya ke entitas GraphQL yang kita buat sebelumnya.
-
-Anda dapat memperbarui fungsi `handleEvent` sebagai berikut (perhatikan impor tambahan):
-
-```ts
-import { SubstrateEvent } from "@subql/types";
-import { Transfer } from "../types";
-import { Balance } from "@polkadot/types/interfaces";
-
-export async function handleTransfer(event: SubstrateEvent): Promise<void> {
-    // Dapatkan data dari event
-    // Peristiwa balances.transfer memiliki muatan berikut \[from, to, value\]
-    // logger.info(JSON.stringify(event));
-    const from = event.event.data[0];
-    const to = event.event.data[1];
-    const amount = event.event.data[2];
-
-    // Buat entitas transfer baru
-    const transfer = new Transfer(
-        `${event.block.block.header.number.toNumber()}-${event.idx}`,
-    );
-    transfer.blockNumber = event.block.block.header.number.toBigInt();
-    transfer.from = from.toString();
-    transfer.to = to.toString();
-    transfer.amount = (amount as Balance).toBigInt();
-    await transfer.save();
-}
-```
-
-Apa yang dilakukan adalah menerima SubstrateEvent yang mencakup transfer data pada payload. Kami mengekstrak data ini dan kemudian membuat instance entitas `Transfer` baru yang kami definisikan sebelumnya di file `schema.graphql`. Kami menambahkan informasi tambahan dan kemudian menggunakan fungsi `.save()` untuk menyimpan entitas baru (SubQuery akan secara otomatis menyimpan ini ke database).
-
-Untuk informasi lebih lanjut tentang fungsi pemetaan, lihat dokumentasi kami di bawah [Build/Mappings](../build/mapping.md)
-
-### Bangun Proyek
-
-Untuk menjalankan Proyek SubQuery baru Anda, pertama-tama kita perlu membangun pekerjaan kita. Jalankan perintah build dari direktori root proyek.
-
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script build ``` </CodeGroupItem> </CodeGroup>
-
-**Important: Whenever you make changes to your mapping functions, you'll need to rebuild your project**
-
-## Running and Querying your Project
-
-### Run your Project with Docker
-
-Whenever you create a new SubQuery Project, you should always run it locally on your computer to test it first. Cara termudah untuk melakukannya adalah dengan menggunakan Docker.
-
-Semua konfigurasi yang mengontrol bagaimana node SubQuery dijalankan didefinisikan dalam file `docker-compose.yml` ini. Untuk proyek baru yang baru saja diinisialisasi, Anda tidak perlu mengubah apa pun di sini, tetapi Anda dapat membaca lebih lanjut tentang file dan pengaturannya di [Jalankan bagian Proyek](../run_publish/run.md)
-
-Di bawah direktori proyek jalankan perintah berikut:
-
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn start:docker ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script start:docker ``` </CodeGroupItem> </CodeGroup>
-
-It may take some time to download the required packages ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), and Postgres) for the first time but soon you'll see a running SubQuery node. Sabar pada proses di sini.
-
-### Kueri Proyek Anda
-
-Buka browser Anda dan buka [http://localhost:3000](http://localhost:3000).
-
-Anda akan melihat taman bermain GraphQL ditampilkan di explorer dan skema yang siap untuk kueri. Di kanan atas taman bermain, Anda akan menemukan tombol _Dokumen_ yang akan membuka undian dokumentasi. Dokumentasi ini dibuat secara otomatis dan membantu Anda menemukan entitas dan metode apa yang dapat Anda kueri.
-
-Untuk proyek pemula SubQuery baru, Anda dapat mencoba kueri berikut untuk mengetahui cara kerjanya atau [pelajari lebih lanjut tentang bahasa Kueri GraphQL](../run_publish/graphql.md).
-
-```graphql
-{
-  query {
-    transfers(
-      first: 10,
-      orderBy: AMOUNT_DESC
-    ) {
-      nodes {
-        id
-        amount
-        blockNumber
-        from
-        to
-      }
-    }
-  }
-}
-```
-
-### Publikasikan Proyek SubQuery Anda
-
-SubQuery menyediakan layanan terkelola gratis saat Anda dapat menerapkan proyek baru Anda. Anda dapat menerapkannya ke [Proyek SubQuery](https://project.subquery.network) dan menanyakannya menggunakan [Explorer](https://explorer.subquery.network) kami.
-
-[Baca panduan untuk memublikasikan proyek baru Anda ke Proyek SubQuery](../run_publish/publish.md)
-
-## Langkah selanjutnya
-
-Selamat, Anda sekarang memiliki proyek SubQuery yang berjalan secara lokal yang menerima permintaan GraphQL API untuk transfer data.
-
-Sekarang setelah Anda memiliki wawasan tentang cara membangun proyek SubQuery dasar, pertanyaannya adalah dari mana dari sini? Jika Anda merasa percaya diri, Anda dapat mempelajari lebih lanjut tentang tiga file utama. File manifes, skema GraphQL, dan file pemetaan di bawah [bagian Build dari dokumen ini](../build/introduction.md).
-
-Jika tidak, lanjutkan ke [bagian Akademi](../academy/academy.md) kami di mana terdapat lokakarya, tutorial, dan contoh proyek yang lebih mendalam. Di sana kita akan melihat modifikasi yang lebih canggih, dan kita akan menyelami lebih dalam dalam menjalankan proyek SubQuery dengan menjalankan proyek yang tersedia dan open source.
-
-Terakhir, jika Anda mencari lebih banyak cara untuk menjalankan dan memublikasikan proyek Anda, [Jalankan & Bagian Publikasikan](../run_publish/run.md) memberikan informasi mendetail tentang semua cara untuk menjalankan proyek SubQuery Anda dan fitur agregasi dan langganan GraphQL lanjutan lainnya.
+**[Terra](../quickstart/quickstart_chains/terra.md)**
