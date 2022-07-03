@@ -110,12 +110,12 @@ Reach out and ask a Delegator to undelegate their tokens from your Indexer.
 
 ### 11. Accept an Offer in the Offer Marketplace
 
-- To accept an offer in the "Offer Marketplace", navigate to `Plan & Offer` -> `Offer Marketplace`. Then select `Accept` in the last column.
+- To accept an offer in the "Offer Marketplace", navigate to `Plan & Offer` -> `Offer Marketplace`. 
+Then select `Accept` in the last column.
 
 ![Accept offer](/assets/img/accept_offer.png)
 
-- Ensure that you have passed the 3 criteria. Then click `Accept` and confirm the Metamask transaction as well.
-  You will be notified about the successful transaction within a few seconds.
+- Ensure that you have passed the 3 criteria. Then click `Accept` and confirm the Metamask transaction as well. You will be notified about the successful transaction within a few seconds.
 
 ![Accept offer and confirm MetaMask Transaction](/assets/img/accept_offer_criteria_and_confirmation.png)
 
@@ -123,9 +123,46 @@ Reach out and ask a Delegator to undelegate their tokens from your Indexer.
 
 ![Offer Accepted](/assets/img/offer_accepted.png)
 
-### 12. (TBA) Update Controller Account
+### 12. Update Controller Account
 
-### 13. (TBA) Unregister Your Indexer
+- On the `Account` page, click on `Manage Controllers` button to visit the `Controller Management` page. <br />
+
+<!--Put an image of the above screen here -->
+
+- Next, click on `Create an Account` button to create a new controller account. <br />
+
+![Controller Management](/assets/img/manage-controllers-page.png) <br />
+
+- Then you will see your new account on the screen. Click on the `Active` button as shown in the screen. <br /> 
+![Create new controller](/assets/img/create-new-controller-account.png) <br />
+
+- You will be asked to send the transaction on MetaMask. Hit `Send Transaction`. Confirm the transaction with Metamask as well. <br />
+
+![Active controller](/assets/img/send-tx-to-update-controller.png) <br />
+
+- After the transaction has been processed, you would be able to see the new controller the top of the list. Note the `Active` label. <br />
+
+![Controller updated](/assets/img/controller-page-controller-updated.png) <br />
+
+
+### 13. Unregister Your Indexer
+
+The last challenge for the indexer is to "Unregister Indexer". We recommend the indexer to complete this challenge at the end of the Season3.
+
+- To unregister indexer, go to the `Account` page and press the `Unregister` button. 
+
+<!--- If possible, please provide a screenshot with Unregister button here-->
+
+![Controller updated](/assets/img/unregister-indexer.png) <br />
+
+- Confirm the transaction with MetaMask. 
+
+- Once the transaction is processed, you will be logged out from the `Account` page and will be redirected to the `Register` page.
+
+- `Important Note:` To unregister from the network, Indexers must have **no ongoing service agreements** and have a **project status** of `Not Indexing`. <br />
+<!--- If possible, please provide a screenshot here-->
+
+<br /><hr />
 
 ## Delegator Challenges
 
