@@ -1,10 +1,5 @@
 name: Deploy to PROD - doc.subquery.network
 on:
-  push:
-    branches:
-      - master
-    paths:
-      - 'docs/**'
   workflow_dispatch:
     
 jobs:
@@ -27,7 +22,7 @@ jobs:
       - name: Invalidate CloudFront
         uses: chetan/invalidate-cloudfront-action@v2
         env:
-          DISTRIBUTION: E36FB3OLTA80GH
+          DISTRIBUTION: ${{ secrets.CF_DISTRIBUTION }}
           PATHS: "/*"
           AWS_REGION: "us-east-1"
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
