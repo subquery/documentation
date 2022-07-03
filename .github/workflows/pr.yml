@@ -1,9 +1,8 @@
-name: Build DEV
+name: PR
 on:
   pull_request:
     branches:
       - master
-      - staging
     paths:
       - 'docs/**'
   workflow_dispatch:

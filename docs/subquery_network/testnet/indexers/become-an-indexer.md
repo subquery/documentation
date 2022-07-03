@@ -48,7 +48,6 @@ Make sure the indexer service versions are correct:
 
 > **IMPORTANT Note**: Please change the default PostgreSQL password in the `POSTGRES_PASSWORD` field and in the coordinator-service's `postgres-password` field. Replace it with your own one. 
 
-
 Note:
 
 - If you are continuing the installation Locally: Visit [here](../indexers/install-indexer-locally.html#step-2-start-the-indexing-service)

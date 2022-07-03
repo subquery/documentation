@@ -2,7 +2,7 @@
 
 Bu kılavuz, yerel bir Subquery projesinin [IPFS](https://ipfs.io/)'de nasıl yayınlanacağını ve barındırma altyapımıza nasıl dağıtılacağını açıklamaktadır.
 
-IPFS'de bir projeye ev sahipliği yapmak, onu herkes için kullanılabilir hale getirir ve GitHub gibi merkezi hizmetlere olan bağımlılığınızı azaltır.
+Hosting a project in IPFS makes it available for all and reduces your reliance on centralised services like GitHub.
 
 ## Gereksinimler
 

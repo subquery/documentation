@@ -36,7 +36,6 @@ curl https://raw.githubusercontent.com/subquery/indexer-services/main/docker-com
 
 > **IMPORTANT Note**: Please change the default PostgreSQL password in the `POSTGRES_PASSWORD` field and in the coordinator-service's `postgres-password` field. Replace it with  your own one. 
 
-
 ### Step 2 - Start the Indexing Service
 
 Run the following command to start the Indexing service:
