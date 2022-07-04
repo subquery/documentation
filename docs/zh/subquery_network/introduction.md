@@ -30,7 +30,7 @@ SubQuery 网络通过允许用户将项目基础架构完全去中心化，从�
 
 委托者将通过委托来参与网络，支持他们最喜欢的索引者来，以根据索引者所做的工作获得奖励。
 
-[进一步了解委托者相关信息](./delegators.md)
+[Learn more about Delegators](./delegators.md)
 
 ### 构建者
 
