@@ -30,7 +30,7 @@ Pengindeks akan menjalankan dan memelihara proyek SubQuery berkualitas tinggi di
 
 Delegator akan berpartisipasi dalam Jaringan dengan mendukung Pengindeks favorit mereka untuk mendapatkan hadiah berdasarkan pekerjaan yang dilakukan pengindeks tersebut.
 
-[Pelajari lebih lanjut tentang SubQuery](./delegators.md)
+[Learn more about Delegators](./delegators.md)
 
 ### Arsitek
 
