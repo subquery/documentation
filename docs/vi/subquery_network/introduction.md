@@ -30,7 +30,7 @@ Người lập chỉ mục sẽ chạy và duy trì các dự án SubQuery chấ
 
 Người ủy quyền sẽ tham gia vào Mạng bằng cách hỗ trợ Người lập chỉ mục yêu thích của họ để kiếm phần thưởng dựa trên công việc mà người lập chỉ mục đó làm.
 
-[Tìm hiểu thêm về Người tiêu dùng](./delegators.md)
+[Learn more about Delegators](./delegators.md)
 
 ### Kiến trúc sư
 
