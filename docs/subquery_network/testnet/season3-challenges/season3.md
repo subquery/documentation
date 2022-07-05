@@ -125,44 +125,41 @@ Then select `Accept` in the last column.
 
 ### 12. Update Controller Account
 
-- On the `Account` page, click on `Manage Controllers` button to visit the `Controller Management` page. <br />
+- On the `Account` page, click on `Manage Controllers` button to visit the `Controller Management` page. 
 
 <!--Put an image of the above screen here -->
 
-- Next, click on `Create an Account` button to create a new controller account. <br />
+- Next, click on `Create an Account` button to create a new controller account. 
 
-![Controller Management](/assets/img/manage-controllers-page.png) <br />
+![Controller Management](/assets/img/manage-controllers-page.png) 
 
-- Then you will see your new account on the screen. Click on the `Active` button as shown in the screen. <br /> 
-![Create new controller](/assets/img/create-new-controller-account.png) <br />
+- Then you will see your new account on the screen. Click on the `Active` button as shown in the screen.  
+![Create new controller](/assets/img/create-new-controller-account.png) 
 
-- You will be asked to send the transaction on MetaMask. Hit `Send Transaction`. Confirm the transaction with Metamask as well. <br />
+- You will be asked to send the transaction on MetaMask. Hit `Send Transaction`. Confirm the transaction with Metamask as well. 
 
-![Active controller](/assets/img/send-tx-to-update-controller.png) <br />
+![Active controller](/assets/img/send-tx-to-update-controller.png) 
 
-- After the transaction has been processed, you would be able to see the new controller the top of the list. Note the `Active` label. <br />
+- After the transaction has been processed, you would be able to see the new controller the top of the list. Note the `Active` label. 
 
-![Controller updated](/assets/img/controller-page-controller-updated.png) <br />
+![Controller updated](/assets/img/controller-page-controller-updated.png) 
 
-
+<!--
 ### 13. Unregister Your Indexer
 
 The last challenge for the indexer is to "Unregister Indexer". We recommend the indexer to complete this challenge at the end of the Season3.
 
 - To unregister indexer, go to the `Account` page and press the `Unregister` button. 
 
-<!--- If possible, please provide a screenshot with Unregister button here-->
-
-![Controller updated](/assets/img/unregister-indexer.png) <br />
+![Controller updated](/assets/img/unregister-indexer.png) 
 
 - Confirm the transaction with MetaMask. 
 
 - Once the transaction is processed, you will be logged out from the `Account` page and will be redirected to the `Register` page.
 
-- `Important Note:` To unregister from the network, Indexers must have **no ongoing service agreements** and have a **project status** of `Not Indexing`. <br />
-<!--- If possible, please provide a screenshot here-->
+- `Important Note:` To unregister from the network, Indexers must have **no ongoing service agreements** and have a **project status** of `Not Indexing`. 
 
-<br /><hr />
+-->
 
 ## Delegator Challenges
 
@@ -225,8 +222,6 @@ Note that some Indexers cannot be delegated to, until they collect all the early
 ![Confirm withdraw](/assets/img/confirm_withdrawal.png)
 
 - Confirm the transaction.
-
-<hr />
 
 ## Consumer Challenges
 
