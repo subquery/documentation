@@ -30,7 +30,7 @@ Indexers will run and maintain high quality SubQuery projects in their own infra
 
 Delegators will participate in the Network by supporting their favourite Indexers to earn rewards based on the work those indexers do.
 
-[Learn more about Consumers](./delegators.md)
+[Learn more about Delegators](./delegators.md)
 
 ### Architects
 

@@ -30,7 +30,7 @@ Los indexadores ejecutarán y mantendrán proyectos de SubQuery de alta calidad 
 
 Los dedores participarán en la Red apoyando a sus indexadores favoritos para ganar recompensas en función del trabajo que hagan esos indexadores.
 
-[Más información sobre los consumidores](./delegadors.md)
+[Learn more about Delegators](./delegadors.md)
 
 ### Arquitectos
 

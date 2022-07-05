@@ -30,7 +30,7 @@ Indexer führen und pflegen qualitativ hochwertige SubQuery-Projekte in ihrer ei
 
 Die Delegierenden beteiligen sich am Netzwerk, indem sie ihre bevorzugten Indexer dabei unterstützen, Belohnungen basierend auf der Arbeit dieser Indexer zu verdienen.
 
-[Erfahren Sie mehr über Verbraucher](./delegators.md)
+[Learn more about Delegators](./delegators.md)
 
 ### Architekt
 
