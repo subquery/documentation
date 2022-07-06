@@ -118,8 +118,19 @@ Press the `Confirm` button to trigger the request to start the node and query se
 Enter the following values for each project and select specific image versions if needed:
 
 - Staking Threshold - Polkadot
-  - Indexing Network Endpoint: `wss://polkadot.api.onfinality.io/public-ws`
-  - Network Dictionary Endpoint: `https://api.subquery.network/sq/subquery/polkadot-dictionary`
+  - Deployment ID: QmduAur8aCENpuizuTGLAsXumG2BX8zSgWLsVpp5b8GEGN
+  - Indexing Endpoint: `wss://polkadot.api.onfinality.io/public-ws`
+  - Dictionary Endpoint: `https://api.subquery.network/sq/subquery/polkadot-dictionary`
+
+- Developer Fund Votes - Juno
+  - Deployment ID: QmPZrgnpCrhU3bBXvNQG8qX3VBQTyNVj7agx1hiav14imM
+  - Indexing Endpoint: `https://rpc.juno-1.api.onfinality.io`
+  - Dictionary Endpoint: `https://api.subquery.network/sq/subquery/cosmos-juno-dictionary`
+
+- Pangolin Approvals - Avalanche
+  - Deployment ID: QmWaCmiiNNSPKVuXGfwb7m67UuUeb39MjdNTSfz6K5A9S1
+  - Indexing Endpoint: `http://avalanche.api.onfinality.io:9650`
+  - Dictionary Endpoint: `https://api.subquery.network/sq/subquery/avalanche-dictionary`
 
 **Please make sure that you set “Enable POI” to true**
 
@@ -162,9 +173,6 @@ Once the Indexer announces that they have started indexing the project on the ne
 ### 4.3 **Stopping Indexing the Project**
 
 When you stop indexing the project, the node and query service will be terminated on the coordinator service side. In addition, the status of the indexing service will need to be changed back to `NOT INDEXING`.
-
-For existing Indexers, upgrade to `@onfinality/subql-coordinator v0.1.8` can only finish the first step to
-terminate the containers for the running project and don’t have to send the transaction for announcing `NOT INDEXING` .
 
 After the status changes to `TERMINATED`, remove the project directly.
 
