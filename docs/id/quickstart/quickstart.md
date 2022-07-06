@@ -4,7 +4,7 @@ The goal of this quick start guide is to provide you with a complete development
 
 This quick start guide should take around 10-15 minutes.
 
-After completing this quick start guide, you will have a working SubQuery project that will run on a SubQuery node. You will be able to adapt the standard starter project and index transfers from your favourite blockchain network such as Polkadot, Avalanch, Cosmos, etc.
+After completing this quick start guide, you will have a working SubQuery project that will run on a SubQuery node. You will be able to adapt the standard starter project and index transfers from your favourite blockchain network such as Polkadot, Avalanche, Cosmos, etc.
 
 Let's start the process of creating your first SubQuery blockchain project.
 
