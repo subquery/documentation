@@ -15,7 +15,7 @@
       <p>SubQueryを理解するために、従来のHello Worldの例を使います。 Docker 環境内でのテンプレート プロジェクトの使用して、いくつかの簡単なコマンドですぐにノードを起動して実行し、わずか数分でブロックチェーンのクエリを開始できます。
       </p>
       <span class="button">
-        <router-link :to="{path: '/quickstart/quickstart-polkadot.html'}">
+        <router-link :to="{path: '/quickstart/quickstart.html'}"> 
           <span>Get started</span>
         </router-link>
       </span>
@@ -35,7 +35,7 @@
         </router-link>
       </li>
       <li>
-        <router-link :to="{path: '/create/introduction.html'}">
+        <router-link :to="{path: '/build/introduction.html'}"> 
           <div>
             <img src="/assets/img/docsIcon.svg" />
             <span>テクニカルリファレンスドキュメント</span>
@@ -44,13 +44,13 @@
         </router-link>
       </li>
       <li>
-        <a href="https://static.subquery.network/whitepaper.pdf" target="_blank">
+        <router-link :to="{path: '/subquery_network/introduction.html'}"> 
           <div>
             <img src="/assets/img/networkIcon.svg" />
-            <span>SubQuery Network</span>
-            <p>SubQueryの分散型未来。 インデックス作成者と使用者がどのように報酬を与えられるかについての詳細をご覧ください。 </p>
+            <span>The SubQuery Network</span>
+            <p>SubQuery’s decentralised future. Read more about how indexers and consumers are rewarded.</p>
           </div>
-        </a>
+        </router-link>
       </li>
     </ul>
   </div>
@@ -71,7 +71,7 @@
       <li>
         <div class="title">SubQueryを始めるための最良の方法は何ですか？</div>
         <div class="content">
-          <p>The best way to get started with SubQuery is to try out our <a href="/quickstart/quickstart-polkadot.html">Quick Start tutorial</a>. スターターテンプレートをダウンロードし、プロジェクトをビルドし、Dockerを使用してローカルホスト上でノードを実行し、簡単なクエリを実行する5分間のウォークスルーです。 </p>
+          <p>The best way to get started with SubQuery is to try out our <a href="/quickstart/quickstart.html">Quick Start tutorial</a>. スターターテンプレートをダウンロードし、プロジェクトをビルドし、Dockerを使用してローカルホスト上でノードを実行し、簡単なクエリを実行する5分間のウォークスルーです。 </p>
         </div>
       </li>
       <li>
@@ -79,14 +79,14 @@
         <div class="content">
           <p>私たちはコミュニティからの貢献とフィードバックが大好きです。 コードに貢献するためには、関心のあるリポジトリをフォークして変更を加えます。 次にPRまたはPullリクエストを送信します。 ああ、テストすることを忘れないでください！ 私たちの貢献ガイドラインもチェックしてください(近日公開)。 </p>
           <span class="more">
-            <router-link :to="{path: '/faqs/faqs.html#what-is-the-best-way-to-get-started-with-subquery'}">READ MORE</router-link>
-          </span>
+            <router-link :to="{path: '/faqs/faqs.html#how-can-i-contribute-or-give-feedback-to-subquery'}">READ MORE</router-link>
+          </span> 
         </div>
       </li>
       <li>
         <div class="title">自分のプロジェクトをSubQuery Projectsで公開するにはどのくらいの費用がかかりますか？</div>
         <div class="content">
-          <p>SubQuery Projectsであなたのプロジェクトを公開することは完全に無料です - それはコミュニティに還元する私たちの方法です。 To learn how to host your project with us, please check out the <a href="/quickstart/quickstart-polkadot.html">Hello World (SubQuery Hosted)</a> tutorial.</p>
+          <p>SubQuery Projectsであなたのプロジェクトを公開することは完全に無料です - それはコミュニティに還元する私たちの方法です。 To learn how to host your project with us, please check out the <a href="https://academy.subquery.network/run_publish/publish.html">Hello World (SubQuery Hosted)</a> tutorial.</p>
           <span class="more">
             <router-link :to="{path: '/run_publish/publish.html'}">HOSTING YOUR PROJECT</router-link>
           </span>
@@ -102,7 +102,7 @@
         <h5>カスタムチェーンと統合しますか？</h5>
         <p>新しいparachainを構築する場合でも、全く新しいブロックチェーンをSubstrate上で構築する場合でも、SubQueryはインデックスを作成し、チェーンのデータをトラブルシューティングするのに役立ちます。 SubQuery は Substrate ベースのカスタムチェーンと簡単に統合できるように設計されています。</p>
         <span class="more">
-          <router-link :to="{path: '/create/manifest.html#custom-substrate-chains'}">LEARN HOW TO INTEGRATE WITH YOUR CHAIN</router-link>
+          <router-link :to="{path: '/build/manifest.html#custom-substrate-and-cosmos-chains'}">LEARN HOW TO INTEGRATE WITH YOUR CHAIN</router-link>
         </span>
     </div>
     <div class="lastIntroduce lastIntroduce_2">
@@ -126,7 +126,7 @@
       <a href="https://t.me/subquerynetwork" target="_blank" class="connectTelegram">telegram</a>
       <a href="https://github.com/OnFinality-io/subql" target="_blank" class="connectGithub">github</a>
       <a href="https://matrix.to/#/#subquery:matrix.org" target="_blank" class="connectMatrix">matrix</a>
-      <a href="https://www.linkedin.com/company/subquery" target="_blank" class="connectLinkedin">linkedin</a>
+      <a href="https://www.linkedin.com/company/subquery/" target="_blank" class="connectLinkedin">linkedin</a>
     </div>
   </div>
 </section>
