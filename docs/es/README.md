@@ -15,8 +15,8 @@
       <p>Vamos a comprender SubQuery poniendo manos a la obra un ejemplo tradicional de Hola Mundo. Utilizando un proyecto de plantilla dentro de un entorno Docker puede obtener rápidamente un nodo funcionando y comenzar a consultar un blockchain en tan solo unos minutos con algunos comandos simples.
       </p>
       <span class="button">
-        <router-link :to="{path: '/quickstart/quickstart-polkadot.html'}">
-          <span>Empezar</span>
+        <router-link :to="{path: '/quickstart/quickstart.html'}"> 
+          <span>Get started</span>
         </router-link>
       </span>
     </div>
@@ -35,7 +35,7 @@
         </router-link>
       </li>
       <li>
-        <router-link :to="{path: '/create/introduction.html'}">
+        <router-link :to="{path: '/build/introduction.html'}"> 
           <div>
             <img src="/assets/img/docsIcon.svg" />
             <span>Documentos de Referencia Técnica</span>
@@ -44,13 +44,13 @@
         </router-link>
       </li>
       <li>
-        <a href="https://static.subquery.network/whitepaper.pdf" target="_blank">
+        <router-link :to="{path: '/subquery_network/introduction.html'}"> 
           <div>
             <img src="/assets/img/networkIcon.svg" />
-            <span>La red de SubQuery</span>
-            <p>El futuro descentralizado de SubQuery. Lea más sobre cómo se recompensa a los indexadores y consumidores.</p>
+            <span>The SubQuery Network</span>
+            <p>SubQuery’s decentralised future. Read more about how indexers and consumers are rewarded.</p>
           </div>
-        </a>
+        </router-link>
       </li>
     </ul>
   </div>
@@ -71,7 +71,7 @@
       <li>
         <div class="title">¿Cuál es la mejor manera de comenzar con SubQuery?</div>
         <div class="content">
-          <p>La mejor manera de empezar con SubQuery es probar nuestro <a href="/quickstart/quickstart-polkadot.html">tutorial de inicio rápido</a>. Este es un simple paseo de 5 minutos para descargar la plantilla de inicio, construir el proyecto, y luego usar Docker para ejecutar un nodo en su localhost y ejecutar una simple consulta. </p>
+          <p>The best way to get started with SubQuery is to try out our <a href="/quickstart/quickstart.html">Quick Start tutorial</a>. Este es un simple paseo de 5 minutos para descargar la plantilla de inicio, construir el proyecto, y luego usar Docker para ejecutar un nodo en su localhost y ejecutar una simple consulta. </p>
         </div>
       </li>
       <li>
@@ -79,14 +79,14 @@
         <div class="content">
           <p>Nos encantan las contribuciones y comentarios de la comunidad. Para contribuir con el código, bifurca el repositorio de interés y realice sus cambios. Luego envíe un PR o Pull Request. ¡Oh, no te olvides del test probar también! Consulte también nuestras directrices de contribuciones (próximamente). </p>
           <span class="more">
-            <router-link :to="{path: '/faqs/faqs.html#what-is-the-best-way-to-get-started-with-subquery'}">LEER MAS</router-link>
-          </span>
+            <router-link :to="{path: '/faqs/faqs.html#how-can-i-contribute-or-give-feedback-to-subquery'}">READ MORE</router-link>
+          </span> 
         </div>
       </li>
       <li>
         <div class="title">¿Cuánto cuesta alojar mi proyecto en SubQuery Projects?</div>
         <div class="content">
-          <p>Hospedar tu proyecto en SubQuery Projects es absolutamente gratuito - es nuestra manera de devolver a la comunidad. Para aprender cómo alojar tu proyecto con nosotros, por favor echa un vistazo al tutorial de <a href="/quickstart/quickstart-polkadot.html">Hola World (Hospedado en SubQuery)</a>.</p>
+          <p>Hospedar tu proyecto en SubQuery Projects es absolutamente gratuito - es nuestra manera de devolver a la comunidad. To learn how to host your project with us, please check out the <a href="https://academy.subquery.network/run_publish/publish.html">Hello World (SubQuery Hosted)</a> tutorial.</p>
           <span class="more">
             <router-link :to="{path: '/run_publish/publish.html'}">ALOJAMIENTO DE TU PROYECTO </router-link>
           </span>
@@ -102,7 +102,7 @@
         <h5>¿Integrar con tu cadena personalizada?</h5>
         <p>Ya sea que esté construyendo una nueva cadena de bloques o una cadena de bloques completamente nueva en Substrate - SubQuery puede ayudarle a indexar y solucionar problemas los datos de su cadena. SubQuery está diseñado para integrar fácilmente con una cadena basada en Substrate personalizada.</p>
         <span class="more">
-          <router-link :to="{path: '/create/manifest.html#custom-substrate-chains'}">APRENDE COMO INTEGRAR CON TU CADENA</router-link>
+          <router-link :to="{path: '/build/manifest.html#custom-substrate-and-cosmos-chains'}">LEARN HOW TO INTEGRATE WITH YOUR CHAIN</router-link>
         </span>
     </div>
     <div class="lastIntroduce lastIntroduce_2">
@@ -126,7 +126,7 @@
       <a href="https://t.me/subquerynetwork" target="_blank" class="connectTelegram">telegram</a>
       <a href="https://github.com/OnFinality-io/subql" target="_blank" class="connectGithub">github</a>
       <a href="https://matrix.to/#/#subquery:matrix.org" target="_blank" class="connectMatrix">matrix</a>
-      <a href="https://www.linkedin.com/company/subquery" target="_blank" class="connectLinkedin">linkedin</a>
+      <a href="https://www.linkedin.com/company/subquery/" target="_blank" class="connectLinkedin">linkedin</a>
     </div>
   </div>
 </section>
