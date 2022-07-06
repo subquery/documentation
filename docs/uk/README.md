@@ -15,8 +15,8 @@
       <p>Зрозумійте SubQuery, взявши участь у традиційному прикладі Hello World. Використовуючи проект шаблону в середовищі Docker, ви можете швидко запустити і запустити вузол і почати запитувати блокчейн всього за кілька хвилин за допомогою декількох простих команд.
       </p>
       <span class="button">
-        <router-link :to="{path: '/quickstart/quickstart-polkadot.html'}">
-          <span>Почати</span>
+        <router-link :to="{path: '/quickstart/quickstart.html'}"> 
+          <span>Get started</span>
         </router-link>
       </span>
     </div>
@@ -35,7 +35,7 @@
         </router-link>
       </li>
       <li>
-        <router-link :to="{path: '/create/introduction.html'}">
+        <router-link :to="{path: '/build/introduction.html'}"> 
           <div>
             <img src="/assets/img/docsIcon.svg" />
             <span>Технічні довідкові документи</span>
@@ -44,13 +44,13 @@
         </router-link>
       </li>
       <li>
-        <a href="https://static.subquery.network/whitepaper.pdf" target="_blank">
+        <router-link :to="{path: '/subquery_network/introduction.html'}"> 
           <div>
             <img src="/assets/img/networkIcon.svg" />
             <span>The SubQuery Network</span>
-            <p>SubQuery’s decentralised future. Детальніше про те, як винагороджуються індексатори та споживачі.</p>
+            <p>SubQuery’s decentralised future. Read more about how indexers and consumers are rewarded.</p>
           </div>
-        </a>
+        </router-link>
       </li>
     </ul>
   </div>
@@ -71,7 +71,7 @@
       <li>
         <div class="title">Який найкращий спосіб розпочати роботу з SubQuery?</div>
         <div class="content">
-          <p>Найкращий спосіб розпочати роботу з SubQuery – це спробувати наш <a href="/quickstart/quickstart-polkadot.html">підручник швидкого початку</a>. Це простий 5 хвилин ходьби від завантаження шаблону для початківців, побудови проекту, а потім використання Docker для запуску вузла на локальному хості та запуску простого запиту. </p>
+          <p>The best way to get started with SubQuery is to try out our <a href="/quickstart/quickstart.html">Quick Start tutorial</a>. Це простий 5 хвилин ходьби від завантаження шаблону для початківців, побудови проекту, а потім використання Docker для запуску вузла на локальному хості та запуску простого запиту. </p>
         </div>
       </li>
       <li>
@@ -79,14 +79,14 @@
         <div class="content">
           <p>Ми любимо внески та відгуки громади. Щоб внести код, розщепіть сховище, що цікавить, і внесіть свої зміни. Сформуйте PR або Pull Request. О, також не забудьте його протестувати! Також ознайомтеся з нашими рекомендаціями щодо внесків (незабаром). </p>
           <span class="more">
-            <router-link :to="{path: '/faqs/faqs.html#what-is-the-best-way-to-get-started-with-subquery'}">ПРОЧИТАТИ БІЛЬШЕ</router-link>
-          </span>
+            <router-link :to="{path: '/faqs/faqs.html#how-can-i-contribute-or-give-feedback-to-subquery'}">READ MORE</router-link>
+          </span> 
         </div>
       </li>
       <li>
         <div class="title">Скільки коштує розміщення мого проекту в проектах SubQuery?</div>
         <div class="content">
-          <p>Розміщення вашого проекту в проектах SubQuery абсолютно безкоштовне - це наш спосіб повернути спільноту. Щоб дізнатися, як розмістити свій проект у нас, перегляньте підручник <a href="/quickstart/quickstart-polkadot.html">Hello World (Hosted SubQuery)</a>.</p>
+          <p>Розміщення вашого проекту в проектах SubQuery абсолютно безкоштовне - це наш спосіб повернути спільноту. To learn how to host your project with us, please check out the <a href="https://academy.subquery.network/run_publish/publish.html">Hello World (SubQuery Hosted)</a> tutorial.</p>
           <span class="more">
             <router-link :to="{path: '/run_publish/publish.html'}">Розміщення ВАШОГО ПРОЕКТУ</router-link>
           </span>
@@ -102,7 +102,7 @@
         <h5>Інтеграція зі своїм користувальницьким ланцюгом?</h5>
         <p>Незалежно від того, чи будуєте ви новий парашайн або абсолютно новий блокчейн на Substrate - SubQuery, ви можете допомогти вам індексувати та усунути неполадки даних вашої мережі. SubQuery призначений для легкої інтеграції зі спеціальною ланцюжком на основі Substrate.</p>
         <span class="more">
-          <router-link :to="{path: '/create/manifest.html#custom-substrate-chains'}">LEARN HOW TO INTEGRATE WITH YOUR CHAIN</router-link>
+          <router-link :to="{path: '/build/manifest.html#custom-substrate-and-cosmos-chains'}">LEARN HOW TO INTEGRATE WITH YOUR CHAIN</router-link>
         </span>
     </div>
     <div class="lastIntroduce lastIntroduce_2">
@@ -126,7 +126,7 @@
       <a href="https://t.me/subquerynetwork" target="_blank" class="connectTelegram">telegram</a>
       <a href="https://github.com/OnFinality-io/subql" target="_blank" class="connectGithub">github</a>
       <a href="https://matrix.to/#/#subquery:matrix.org" target="_blank" class="connectMatrix">matrix</a>
-      <a href="https://www.linkedin.com/company/subquery" target="_blank" class="connectLinkedin">linkedin</a>
+      <a href="https://www.linkedin.com/company/subquery/" target="_blank" class="connectLinkedin">linkedin</a>
     </div>
   </div>
 </section>
