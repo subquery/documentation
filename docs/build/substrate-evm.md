@@ -48,11 +48,11 @@ Theoretically the following networks should also be supported since they impleme
 
 ## Data Source Spec
 
-| Field             | Type                                                          | Required | Description                                |
-| ----------------- | ------------------------------------------------------------- | -------- | ------------------------------------------ |
-| processor.file    | `'/node_modules/@subql/frontier-evm-processor/dist/index.js'` | Yes      | File reference to the data processor code  |
-| processor.options | [ProcessorOptions](#processor-options)                        | No       | Options specific to the Frontier Processor |
-| assets            | `{ [key: String]: { file: String }}`                          | No       | An object of external asset files          |
+| Field             | Type                                                           | Required | Description                                |
+| ----------------- | -------------------------------------------------------------- | -------- | ------------------------------------------ |
+| processor.file    | `'./node_modules/@subql/frontier-evm-processor/dist/index.js'` | Yes      | File reference to the data processor code  |
+| processor.options | [ProcessorOptions](#processor-options)                         | No       | Options specific to the Frontier Processor |
+| assets            | `{ [key: String]: { file: String }}`                           | No       | An object of external asset files          |
 
 ### Processor Options
 
