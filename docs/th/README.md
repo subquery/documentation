@@ -15,8 +15,8 @@
       <p>ทำความเข้าใจ SubQuery โดยการลองใช้ตัวอย่าง Hello World การใช้โปรเจ็กต์เทมเพลตภายในสภาพแวดล้อมของ Docker ทำให้คุณสร้างโหนดและทำงานได้อย่างรวดเร็ว และเริ่มการสืบค้นบล็อกเชนในเวลาเพียงไม่กี่นาทีด้วยคำสั่งง่ายๆ
       </p>
       <span class="button">
-        <router-link :to="{path: '/quickstart/quickstart-polkadot.html'}">
-          <span>เริ่มต้น</span>
+        <router-link :to="{path: '/quickstart/quickstart.html'}"> 
+          <span>Get started</span>
         </router-link>
       </span>
     </div>
@@ -35,7 +35,7 @@
         </router-link>
       </li>
       <li>
-        <router-link :to="{path: '/create/introduction.html'}">
+        <router-link :to="{path: '/build/introduction.html'}"> 
           <div>
             <img src="/assets/img/docsIcon.svg" />
             <span>เอกสารอ้างอิงทางเทคนิค</span>
@@ -44,13 +44,13 @@
         </router-link>
       </li>
       <li>
-        <a href="https://static.subquery.network/whitepaper.pdf" target="_blank">
+        <router-link :to="{path: '/subquery_network/introduction.html'}"> 
           <div>
             <img src="/assets/img/networkIcon.svg" />
-            <span>SubQuery Network</span>
-            <p>อนาคตเกี่ยวกับการกระจายอำนาจของ SubQuery อ่านเพิ่มเติมเกี่ยวกับวิธีการให้รางวัลแก่ indexers และผู้ใช้งาน</p>
+            <span>The SubQuery Network</span>
+            <p>SubQuery’s decentralised future. Read more about how indexers and consumers are rewarded.</p>
           </div>
-        </a>
+        </router-link>
       </li>
     </ul>
   </div>
@@ -71,7 +71,7 @@
       <li>
         <div class="title">วิธีที่ดีที่สุดในการเริ่มต้นใช้งาน SubQuery คืออะไร?</div>
         <div class="content">
-          <p>วิธีที่ดีที่สุดในการเริ่มต้นใช้งาน SubQuery คือลองใช้ <a href="/quickstart/quickstart-polkadot.html">Quick Start tutorial</a> ของเรา นี่คือขั้นตอนง่ายๆ ในการดาวน์โหลดเทมเพลตเริ่มต้น สร้างโครงการ จากนั้นใช้ Docker เพื่อเรียกใช้โหนดบน localhost ของคุณและรัน query อย่างง่าย </p>
+          <p>The best way to get started with SubQuery is to try out our <a href="/quickstart/quickstart.html">Quick Start tutorial</a>. นี่คือขั้นตอนง่ายๆ ในการดาวน์โหลดเทมเพลตเริ่มต้น สร้างโครงการ จากนั้นใช้ Docker เพื่อเรียกใช้โหนดบน localhost ของคุณและรัน query อย่างง่าย </p>
         </div>
       </li>
       <li>
@@ -79,14 +79,14 @@
         <div class="content">
           <p>เรารักการมีส่วนร่วมและข้อเสนอแนะจากชุมชน ในการสนับสนุนโค้ด ให้ fork repository ที่สนใจ และทำการเปลี่ยนแปลง จากนั้นส่ง PR หรือ Pull Request อ้อ อย่าลืมทดสอบด้วยล่ะ! รวมถึงตรวจสอบหลักเกณฑ์การสนับสนุน (Tba) ของเราด้วย </p>
           <span class="more">
-            <router-link :to="{path: '/faqs/faqs.html#what-is-the-best-way-to-get-started-with-subquery'}">อ่านเพิ่มเติม</router-link>
-          </span>
+            <router-link :to="{path: '/faqs/faqs.html#how-can-i-contribute-or-give-feedback-to-subquery'}">READ MORE</router-link>
+          </span> 
         </div>
       </li>
       <li>
         <div class="title">การโฮสต์โปรเจ็กต์ของฉันใน SubQuery Projects มีค่าใช้จ่ายเท่าไหร่?</div>
         <div class="content">
-          <p>การโฮสต์โปรเจ็กต์ของคุณใน SubQuery Projects นั้นฟรี - นั่นเป็นวิธีการตอบแทนชุมชนของเรา หากต้องการเรียนรู้วิธีโฮสต์โปรเจกต์ของคุณกับเรา โปรดดูบทแนะนำที่ <a href="/quickstart/quickstart-polkadot.html">Hello World (SubQuery Hosted)</a> tutorial.</p>
+          <p>การโฮสต์โปรเจ็กต์ของคุณใน SubQuery Projects นั้นฟรี - นั่นเป็นวิธีการตอบแทนชุมชนของเรา To learn how to host your project with us, please check out the <a href="https://academy.subquery.network/run_publish/publish.html">Hello World (SubQuery Hosted)</a> tutorial.</p>
           <span class="more">
             <router-link :to="{path: '/run_publish/publish.html'}">โฮสต์โปรเจกต์ของคุณ</router-link>
           </span>
@@ -102,7 +102,7 @@
         <h5>การผสานรวมกับ Custom Chain ของคุณ?</h5>
         <p>ไม่ว่าคุณกำลังสร้าง Parachain ใหม่หรือ blockchain ใหม่ทั้งหมดบน Substrate - SubQuery สามารถช่วยคุณ index และแก้ไขปัญหาข้อมูลของ chain ของคุณ SubQuery ได้รับการออกแบบให้สามารถรวมกับ Substrate แบบกำหนดเองได้อย่างง่ายดาย</p>
         <span class="more">
-          <router-link :to="{path: '/create/manifest.html#custom-substrate-chains'}">LEARN HOW TO INTEGRATE WITH YOUR CHAIN</router-link>
+          <router-link :to="{path: '/build/manifest.html#custom-substrate-and-cosmos-chains'}">LEARN HOW TO INTEGRATE WITH YOUR CHAIN</router-link>
         </span>
     </div>
     <div class="lastIntroduce lastIntroduce_2">
@@ -126,7 +126,7 @@
       <a href="https://t.me/subquerynetwork" target="_blank" class="connectTelegram">telegram</a>
       <a href="https://github.com/OnFinality-io/subql" target="_blank" class="connectGithub">github</a>
       <a href="https://matrix.to/#/#subquery:matrix.org" target="_blank" class="connectMatrix">matrix</a>
-      <a href="https://www.linkedin.com/company/subquery" target="_blank" class="connectLinkedin">linkedin</a>
+      <a href="https://www.linkedin.com/company/subquery/" target="_blank" class="connectLinkedin">linkedin</a>
     </div>
   </div>
 </section>
