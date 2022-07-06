@@ -15,8 +15,8 @@
       <p>Pahami SubQuery dengan mempelajari contoh Hello World tradisional. Menggunakan proyek template dalam lingkungan Docker, Anda dapat dengan cepat mengaktifkan dan menjalankan node dan mulai menanyakan blockchain hanya dalam beberapa menit dengan beberapa perintah sederhana.
       </p>
       <span class="button">
-        <router-link :to="{path: '/quickstart/quickstart-polkadot.html'}">
-          <span>Memulai</span>
+        <router-link :to="{path: '/quickstart/quickstart.html'}"> 
+          <span>Get started</span>
         </router-link>
       </span>
     </div>
@@ -35,7 +35,7 @@
         </router-link>
       </li>
       <li>
-        <router-link :to="{path: '/create/introduction.html'}">
+        <router-link :to="{path: '/build/introduction.html'}"> 
           <div>
             <img src="/assets/img/docsIcon.svg" />
             <span>Dokumen Referensi Teknis</span>
@@ -44,13 +44,13 @@
         </router-link>
       </li>
       <li>
-        <a href="https://static.subquery.network/whitepaper.pdf" target="_blank">
+        <router-link :to="{path: '/subquery_network/introduction.html'}"> 
           <div>
-             <img src="/assets/img/networkIcon.svg" />
-             <span>Jaringan Subkueri</span>
-             <p>Masa depan terdesentralisasi SubQuery. Baca lebih lanjut tentang bagaimana pengindeks dan konsumen dihargai.</p>
-           <//>
-        </a>
+            <img src="/assets/img/networkIcon.svg" />
+            <span>The SubQuery Network</span>
+            <p>SubQuery’s decentralised future. Read more about how indexers and consumers are rewarded.</p>
+          </div>
+        </router-link>
       </li>
     </ul>
   </div>
@@ -71,7 +71,7 @@
       <li>
         <div class="title">Apa cara terbaik untuk memulai SubQuery?</div>
         <div class="content">
-          <p>Cara terbaik untuk memulai SubQuery adalah dengan mencoba <a href="/quickstart/quickstart-polkadot.html">tutorial Memulai Cepat</a> kami. Ini adalah 5 menit berjalan sederhana untuk mengunduh template starter, membangun proyek, dan kemudian menggunakan Docker untuk menjalankan node di localhost Anda dan menjalankan kueri sederhana. </p>
+          <p>The best way to get started with SubQuery is to try out our <a href="/quickstart/quickstart.html">Quick Start tutorial</a>. Ini adalah 5 menit berjalan sederhana untuk mengunduh template starter, membangun proyek, dan kemudian menggunakan Docker untuk menjalankan node di localhost Anda dan menjalankan kueri sederhana. </p>
         </div>
       </li>
       <li>
@@ -79,14 +79,14 @@
         <div class="content">
           <p>Kami menyukai kontribusi dan umpan balik dari komunitas. Untuk menyumbangkan kode, garpu repositori yang menarik dan buat perubahan Anda. Kemudian kirimkan PR atau Pull Request. Oh, jangan lupa untuk menguji juga! Lihat juga pedoman kontribusi kami (segera hadir). </p>
           <span class="more">
-            <router-link :to="{path: '/faqs/faqs.html#what-is-the-best-way-to-get-started-with-subquery'}">BACA SELENGKAPNYA</router-link>
-          </span>
+            <router-link :to="{path: '/faqs/faqs.html#how-can-i-contribute-or-give-feedback-to-subquery'}">READ MORE</router-link>
+          </span> 
         </div>
       </li>
       <li>
         <div class="title">Berapa biaya untuk hosting proyek saya di SubQuery Projects?</div>
         <div class="content">
-          <p>Hosting proyek Anda di Proyek SubQuery benar-benar gratis - ini adalah cara kami memberikan kembali kepada komunitas. Untuk mempelajari cara meng-host proyek Anda bersama kami, silakan lihat tutorial <a href="/quickstart/quickstart-polkadot.html">Hello World (SubQuery Hosted)</a>.</p>
+          <p>Hosting proyek Anda di Proyek SubQuery benar-benar gratis - ini adalah cara kami memberikan kembali kepada komunitas. To learn how to host your project with us, please check out the <a href="https://academy.subquery.network/run_publish/publish.html">Hello World (SubQuery Hosted)</a> tutorial.</p>
           <span class="more">
             <router-link :to="{path: '/run_publish/publish.html'}">MENYEDIAKAN PROYEK ANDA</router-link>
           </span>
@@ -102,7 +102,7 @@
         <h5>Mengintegrasi Custom Chain anda?</h5>
         <p>Baik Anda sedang membangun parachain baru atau blockchain yang sama sekali baru di Substrat - SubQuery dapat membantu Anda mengindeks dan memecahkan masalah data rantai Anda. SubQuery dirancang untuk diintegrasikan dengan mudah dengan rantai berbasis Substrat kustom.</p>
         <span class="more">
-          <router-link :to="{path: '/create/manifest.html#custom-substrate-chains'}">PELAJARI CARA MENGINTEGRASI DENGAN RANTAI ANDA</router-link>
+          <router-link :to="{path: '/build/manifest.html#custom-substrate-and-cosmos-chains'}">LEARN HOW TO INTEGRATE WITH YOUR CHAIN</router-link>
         </span>
     </div>
     <div class="lastIntroduce lastIntroduce_2">
@@ -126,12 +126,11 @@
       <a href="https://t.me/subquerynetwork" target="_blank" class="connectTelegram">telegram</a>
       <a href="https://github.com/OnFinality-io/subql" target="_blank" class="connectGithub">github</a>
       <a href="https://matrix.to/#/#subquery:matrix.org" target="_blank" class="connectMatrix">matrix</a>
-      <a href="https://www.linkedin.com/company/subquery" target="_blank" class="connectLinkedin">linkedin</a>
+      <a href="https://www.linkedin.com/company/subquery/" target="_blank" class="connectLinkedin">linkedin</a>
     </div>
   </div>
 </section>
-</div>
-</div>
+</div> </div>
 <div class="footer">
   <div class="main"><div>SubQuery © 2022</div></div>
 </div>
