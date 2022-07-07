@@ -1,11 +1,11 @@
-# 3. What’s Next?
+# 3. Apa berikutnya?
 
-Now that you have a clear understanding of how to build a basic SubQuery project, what are the next steps of your journey?.
+Sekarang setelah Anda memiliki pemahaman yang jelas tentang cara membangun proyek SubQuery dasar, apa langkah selanjutnya dari perjalanan Anda?.
 
-Now, you can easily publish your project. SubQuery provides a free managed service where you can deploy your new project. Anda dapat menerapkannya ke [Proyek SubQuery](https://project.subquery.network) dan menanyakannya menggunakan [Explorer](https://explorer.subquery.network) kami. Read this complete guide on how to [publish your new project to SubQuery Projects](../../run_publish/publish.md).
+Sekarang, Anda bisa dengan mudah mempublikasikan proyek Anda. SubQuery menyediakan layanan terkelola gratis di mana Anda dapat menyebarkan proyek baru Anda. Anda dapat menerapkannya ke [Proyek SubQuery](https://project.subquery.network) dan menanyakannya menggunakan [Explorer](https://explorer.subquery.network) kami. Baca panduan lengkap ini tentang cara [mempublikasikan proyek baru Anda ke Proyek SubQuery](../../run_publish/publish.md).
 
-To dive deeper into the developer documentation, jump to the [Build ](../../build/introduction.md) section and learn more about the three key files: **the manifest file, the GraphQL schema, and the mappings file.**
+Untuk menyelam lebih dalam ke dalam dokumentasi pengembang, lompatlah ke bagian [Build ](../../build/introduction.md) dan pelajari lebih lanjut tentang tiga file kunci: **file manifes, skema GraphQL, dan file pemetaan.**
 
-If you want to practice with more real examples, then head to our [Courses](../../academy/academy.md) section and learn important concepts with related exercises and lab workbooks. Get access to readily available and open-source projects, and get a hands-on experience with SubQuery projects.
+Jika Anda ingin berlatih dengan contoh-contoh yang lebih nyata, maka pergilah ke bagian [Courses](../../academy/academy.md) kami dan pelajari konsep-konsep penting dengan latihan dan buku kerja lab terkait. Dapatkan akses ke proyek-proyek yang tersedia dan open-source, dan dapatkan pengalaman langsung dengan proyek-proyek SubQuery.
 
-In the end, if you want to explore more ways to run and publish your project, refer to [Run & Publish section](../../run_publish/run.md). Get complete information about all the ways to run your SubQuery project, along with advanced GraphQL aggregation and subscription features.
+Pada akhirnya, jika Anda ingin menjelajahi lebih banyak cara untuk menjalankan dan mempublikasikan proyek Anda, lihat bagian [Run & Publish](../../run_publish/run.md). Dapatkan informasi lengkap tentang semua cara untuk menjalankan proyek SubQuery Anda, bersama dengan fitur agregasi dan langganan GraphQL tingkat lanjut.
