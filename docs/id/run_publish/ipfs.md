@@ -2,7 +2,7 @@
 
 Panduan ini berfungsi melalui cara memublikasikan proyek SubQuery lokal ke [IPFS](https://ipfs.io/) dan menerapkannya di infrastruktur hosting kami.
 
-Hosting a project in IPFS makes it available for all and reduces your reliance on centralised services like GitHub.
+Hosting proyek di IPFS membuatnya tersedia untuk semua dan mengurangi ketergantungan Anda pada layanan terpusat seperti GitHub.
 
 ## Persyaratan
 
