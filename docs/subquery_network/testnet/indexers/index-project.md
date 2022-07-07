@@ -128,7 +128,7 @@ Enter the following values for each project and select specific image versions i
   - Dictionary Endpoint: `https://api.subquery.network/sq/subquery/cosmos-juno-dictionary`
 
 - Pangolin Approvals - Avalanche
-  - Deployment ID: QmWaCmiiNNSPKVuXGfwb7m67UuUeb39MjdNTSfz6K5A9S1
+  - Deployment ID: QmTXSopHWTDhei9ukMAJ1huy83jM9KnGsNEkBcpQkZUCVP
   - Indexing Endpoint: `http://avalanche.api.onfinality.io:9650`
   - Dictionary Endpoint: `https://api.subquery.network/sq/subquery/avalanche-dictionary`
 
