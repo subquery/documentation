@@ -16,7 +16,7 @@
       </p>
       <span class="button">
         <router-link :to="{path: '/quickstart/quickstart.html'}"> 
-          <span>Get started</span>
+          <span>Bắt đầu</span>
         </router-link>
       </span>
     </div>
@@ -47,7 +47,7 @@
         <router-link :to="{path: '/subquery_network/introduction.html'}"> 
           <div>
             <img src="/assets/img/networkIcon.svg" />
-            <span>The SubQuery Network</span>
+            <span>Mạng SubQuery</span>
             <p>SubQuery’s decentralised future. Read more about how indexers and consumers are rewarded.</p>
           </div>
         </router-link>
