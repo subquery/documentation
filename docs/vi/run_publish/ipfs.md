@@ -2,7 +2,7 @@
 
 Hướng dẫn này hoạt động thông qua cách xuất bản dự án SubQuery cục bộ lên [IPFS](https://ipfs.io/) và triển khai nó trên cơ sở hạ tầng lưu trữ của chúng tôi.
 
-Hosting a project in IPFS makes it available for all and reduces your reliance on centralised services like GitHub.
+Lưu trữ một dự án trong IPFS làm cho nó khả dụng cho tất cả mọi người và giảm sự phụ thuộc của bạn vào các dịch vụ tập trung như GitHub.
 
 ## Yêu cầu
 
