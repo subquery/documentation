@@ -2,7 +2,7 @@
 
 ## Goals
 
-The goal of this quick start guide is to index all Pangolin token _Approve_ logs.
+The goal of this quick start guide is to index all Pangolin token _RewardPaid_ logs.
 
 **Important:** Before we begin, make sure that you have initialised your project using the provided steps in the [Start Here](../quickstart.md) section.
 
@@ -10,7 +10,7 @@ Now, let's move forward and update these configurations.
 
 Previously, in the [1. Create a New Project](../quickstart.md) section, you must have noted [3 key files](../quickstart.html#_3-make-changes-to-your-project). Let's begin updating them one by one.
 
-**Note: The final code of this project can be found [here](https://github.com/jamesbayly/pangolin-approvals-tutorial).**
+**Note: The final code of this project can be found [here](https://github.com/jamesbayly/pangolin-rewards-tutorial).**
 
 ## 1. Update Your GraphQL Schema File
 
@@ -19,14 +19,13 @@ The `schema.graphql` file determines the shape of your data from SubQuery due to
 Remove all existing entities and update the `schema.graphql` file as follows:
 
 ```graphql
-type PangolinApproval @entity {
-  id: ID!
+type PangolinRewards @entity {
+  id: ID! # Id is required and made up of block has and log index
   transactionHash: String!
-  blockNumber: String!
+  blockNumber: BigInt!
   blockHash: String!
-  addressFrom: String
-  addressTo: String
-  amount: String
+  receiver: String
+  amount: BigInt
 }
 ```
 
@@ -67,15 +66,15 @@ Note that the manifest file has already been set up correctly and doesn’t requ
 ```yaml
 dataSources:
   - kind: avalanche/Runtime
-    startBlock: 57360 # Block when the Pangolin contract was created
+    startBlock: 7906490 # Block when the first reward is made
     options:
       # Must be a key of assets
       abi: erc20
-      ## Pangolin token https://snowtrace.io/token/0x60781c2586d68229fde47564546784ab3faca982
-      address: "0x60781C2586D68229fde47564546784ab3fACA982"
+      ## Pangolin reward contract https://snowtrace.io/token/0x88afdae1a9f58da3e68584421937e5f564a0135b
+      address: "0x88afdae1a9f58da3e68584421937e5f564a0135b"
     assets:
       erc20:
-        file: "./node_modules/@pangolindex/exchange-contracts/artifacts/contracts/pangolin-core/interfaces/IPangolinERC20.sol/IPangolinERC20.json"
+        file: "./node_modules/@pangolindex/exchange-contracts/artifacts/contracts/staking-rewards/StakingRewards.sol/StakingRewards.json"
     mapping:
       file: "./dist/index.js"
       handlers:
@@ -83,11 +82,11 @@ dataSources:
           kind: avalanche/LogHandler
           filter:
             ## Follows standard log filters https://docs.ethers.io/v5/concepts/events/
-            function: Approve(address spender, uint256 rawAmount)
-            # address: "0x60781C2586D68229fde47564546784ab3fACA982"
+            topics:
+              - RewardPaid(address user, uint256 reward)
 ```
 
-The above code indicates that you will be running a `handleLog` mapping function whenever there is an `approve` log on any transaction from the [Pangolin contract](https://snowtrace.io/txs?a=0x60781C2586D68229fde47564546784ab3fACA982&p=1).
+The above code indicates that you will be running a `handleLog` mapping function whenever there is an `RewardPaid` log on any transaction from the [Pangolin reward contract](https://snowtrace.io/txs?a=0x60781C2586D68229fde47564546784ab3fACA982&p=1).
 
 Check out our [Manifest File](../../build/manifest.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
 
@@ -101,34 +100,36 @@ Follow these steps to add a mapping function:
 
 - Navigate to the default mapping function in the `src/mappings` directory. You will be able to see three exported functions: _`handleBlock`_, _`handleLog`_, and _`handleTransaction`_. Delete both the `handleBlock` and `handleTransactionl` functions as you will only deal with the `handleLog` function.
 
-- The `handleLog` function receives event data whenever an event matches the filters, which you specified previously in the `project.yaml`. Let’s make changes to it, process all `approval` transaction logs, and save them to the GraphQL entities created earlier.
+- The `handleLog` function receives event data whenever an event matches the filters, which you specified previously in the `project.yaml`. Let’s make changes to it, process all `RewardPaid` transaction logs, and save them to the GraphQL entities created earlier.
 
 Update the `handleLog` function as follows(**note the additional imports**):
 
 ```ts
-import { PangolinApproval } from "../types";
+import { PangolinRewards } from "../types";
 import { AvalancheLog } from "@subql/types-avalanche";
 
 export async function handleLog(event: AvalancheLog): Promise<void> {
-  const pangolinApprovalRecord = new PangolinApproval(
-    `${event.blockHash}-${event.logIndex}`
-  );
+  const { args } = event;
+  if (args) {
+    const pangolinRewardRecord = new PangolinRewards(
+      `${event.blockHash}-${event.logIndex}`
+    );
 
-  pangolinApprovalRecord.transactionHash = event.transactionHash;
-  pangolinApprovalRecord.blockHash = event.blockHash;
-  pangolinApprovalRecord.blockNumber = event.blockNumber;
-  # topics store data as an array
-  pangolinApprovalRecord.addressFrom = event.topics[0];
-  pangolinApprovalRecord.addressTo = event.topics[1];
-  pangolinApprovalRecord.amount = event.topics[2];
+    pangolinRewardRecord.transactionHash = event.transactionHash;
+    pangolinRewardRecord.blockHash = event.blockHash;
+    pangolinRewardRecord.blockNumber = BigInt(event.blockNumber);
 
-  await pangolinApprovalRecord.save();
+    pangolinRewardRecord.receiver = args.user;
+    pangolinRewardRecord.amount = BigInt(args.reward.toString());
+
+    await pangolinRewardRecord.save();
+  }
 }
 ```
 
 Let’s understand how the above code works.
 
-The function here receives an Avalanche Log which includes transaction log data in the payload. We extract this data and then instantiate a new `PangolinApproval` entity defined earlier in the `schema.graphql` file. After that, we add additional information and then use the `.save()` function to save the new entity (_Note that SubQuery will automatically save this to the database_).
+The function here receives an Avalanche Log which includes transaction log data in the payload. We extract this data and then instantiate a new `PangolinRewards` entity defined earlier in the `schema.graphql` file. After that, we add additional information and then use the `.save()` function to save the new entity (_Note that SubQuery will automatically save this to the database_).
 
 Check out our [Mappings](../../build/mapping.md) documentation to get more information on mapping functions.
 
@@ -200,15 +201,14 @@ Try the following query to understand how it works for your new SubQuery starter
 
 ```graphql
 query {
-  pangolinApprovals(first: 5) {
+  pangolinRewards(first: 5) {
     nodes {
       id
+      receiver
+      amount
       blockNumber
       blockHash
       transactionHash
-      addressFrom
-      addressTo
-      amount
     }
   }
 }
@@ -216,19 +216,18 @@ query {
 
 You will see the result similar to below:
 
-```
+```json
 {
   "data": {
-    "pangolinApprovals": {
+    "pangolinRewards": {
       "nodes": [
         {
-          "id": "0xd3778a1e35d13b02e6bec3df2e3ec3855168b86e9fcb796b512bbd2b44223d1e-0",
-          "blockNumber": "57360",
-          "blockHash": "0xd3778a1e35d13b02e6bec3df2e3ec3855168b86e9fcb796b512bbd2b44223d1e",
-          "transactionHash": "0xfab84552e997848a43f05e440998617d641788d355e3195b6882e9006996d8f9",
-          "addressFrom": "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
-          "addressTo": "0x0000000000000000000000000000000000000000000000000000000000000000",
-          "amount": "0x000000000000000000000000808ce8dec9e10bed8d0892aceef9f1b8ec2f52bd"
+          "id": "0x39b4d0a98192d1509c15543caa70cad7e067a08d98f9b4e335ab92c87585cf54-60",
+          "receiver": "0x3F8D6e7bA3A842642Fd362C7122BE8d17DC82555",
+          "amount": "48537775882115127788",
+          "blockNumber": "7906491",
+          "blockHash": "0x39b4d0a98192d1509c15543caa70cad7e067a08d98f9b4e335ab92c87585cf54",
+          "transactionHash": "0x202891b2c5c62467b08f04816dfe8ecbaf40e967e1926127318ebcb85c76a46d"
         }
       ]
     }
@@ -236,7 +235,7 @@ You will see the result similar to below:
 }
 ```
 
-**Note: The final code of this project can be found [here](https://github.com/jamesbayly/pangolin-approvals-tutorial).**
+**Note: The final code of this project can be found [here](https://github.com/jamesbayly/pangolin-rewards-tutorial).**
 
 ## What's next?
 
