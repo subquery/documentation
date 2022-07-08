@@ -34,7 +34,7 @@ This command is uses webpack to generate a bundle of a subquery project.
 
 - Any `exports` field must map to string type (e.g. `"entry": "./src/file.ts"`), else it will be ignored from build.
 
-[Futher example](https://doc.subquery.network/create/introduction/#build).
+[Futher example](../build/introduction.html#build).
 
 ## subql-node
 
@@ -278,7 +278,7 @@ This removes the created_at and updated_at columns in the starter_entities table
 
 ### -d, --network-dictionary
 
-This allows you to specify a dictionary endpoint which is a free service that is provided and hosted at: [https://explorer.subquery.network/](https://explorer.subquery.network/) (search for dictionary) and presents an API endpoint of: https://api.subquery.network/sq/subquery/dictionary-polkadot
+This allows you to specify a dictionary endpoint which is a free service that is provided and hosted at SubQuery's [Project Explorer](https://explorer.subquery.network/) (search for dictionary) and presents an API endpoint of: https://api.subquery.network/sq/subquery/dictionary-polkadot
 
 Typically this would be set in your manifest file but below shows an example of using it as an argument in the command line.
 
@@ -384,7 +384,7 @@ This flag enables certain aggregation functions including sum, max, avg and othe
 
 These are disabled by default due to the entity limit.
 
-**Note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in SubQuery's managed service [project.subquery.network](https://project.subquery.network).**
+**Note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in [SubQuery's Managed Services](https://project.subquery.network).**
 
 ### --port
 

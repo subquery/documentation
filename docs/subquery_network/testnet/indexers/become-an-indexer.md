@@ -107,6 +107,6 @@ Visit **[this guide](../indexers/install-indexer-aws.md)** and begin with settin
 
 ## Additional Notes
 
-- Got stuck during the indexing process? Or having trouble running the indexing service? Visit [Troubleshooting](../indexers/) and get all your solutions at one place.
+- Got stuck during the indexing process? Or having trouble running the indexing service? Visit [Troubleshooting](../indexers/troubleshooting-indexers.md)) and get all your solutions at one place.
 
 - Find the list of [FAQs](../indexers/faqs-indexers.md), and resolve your query.

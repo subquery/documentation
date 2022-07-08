@@ -261,7 +261,7 @@ yarn start:docker
 
 #### Step 9: Run a query
 
-Once the docker container is up and running, which could take a few minutes, open up your browser and navigate to [www.localhost:3000](www.localhost:3000). 
+Once the docker container is up and running, which could take a few minutes, open up your browser and navigate to `www.localhost:3000`.
 
 This will open up a “playground” where you can create your query. Copy the example below. 
 
@@ -417,7 +417,7 @@ In other words, one account links to many transfers or more verbosely stated, ea
 
 * [Account Transfers PDF workbook](/assets/pdf/Account_Transfers.pdf)
 * [Account Transfers Github](https://github.com/subquery/tutorials-account-transfers)
-* [One-to-many relationships](/build/graphql/#one-to-one-relationships)
+* [One-to-many relationships](../../build/graphql.html#one-to-many-relationships)
 
 ## Lesson 2: Many to many entities
 
@@ -429,7 +429,7 @@ In other words, one account links to many transfers or more verbosely stated, ea
 
 Here we will take the starter project and focus on understanding how many-to-many relationships work. We will create a project that allows us to query for the number of votes that councillors have made and how many votes a given proposal has received. 
 
-To learn more about the Polkadot governance structure, please refer to: [https://polkadot.network/blog/a-walkthrough-of-polkadots-governance/](https://polkadot.network/blog/a-walkthrough-of-polkadots-governance/)
+To learn more about the Polkadot governance structure, please [refer to this page](https://polkadot.network/blog/a-walkthrough-of-polkadots-governance/)
 
 ### Pre-requisites
 
@@ -471,7 +471,7 @@ council-proposal is ready
 
 #### Step 2: Update the graphql schema
 
-Let’s first create an entity called “Proposals”. This proposal is an event of type council. In other words, we are interested in extracting data from the council event. Visit [https://polkadot.js.org/docs/substrate/events#council](https://polkadot.js.org/docs/substrate/events#council) for more information. 
+Let’s first create an entity called “Proposals”. This proposal is an event of type council. In other words, we are interested in extracting data from the council event. Visit [this page](https://polkadot.js.org/docs/substrate/events#council) for more information. 
 
 Within the council event, we are going to focus on the “proposed” method. The proposed method is defined as:
 
@@ -758,7 +758,7 @@ docker-compose pull && docker-compose up
 
 #### Step 9: Run a query
 
-Once the docker container is up and running, which could take a few minutes, open up your browser and navigate to [localhost:3000](http://localhost:3000). 
+Once the docker container is up and running, which could take a few minutes, open up your browser and navigate to `localhost:3000`.
 
 This will open up a “playground” where you can create your query. Copy the example below. 
 
@@ -902,7 +902,7 @@ By adding voteHistory_p and voteHistory_b, voteHistories becomes voteHistory_c
 
 * [Council Proposal PDF workbook](/assets/pdf/Council_Proposal.pdf)
 * [Council Proposal Github](https://github.com/subquery/tutorials-council-proposals)
-* [Many-to-many relationships](/build/graphql/#many-to-many-relationships)
+* [Many-to-many relationships](../../build/graphql.html#many-to-many-relationships)
 
 ## Lesson 3: Reverse lookups
 
@@ -950,7 +950,7 @@ yarn build
 docker-compose pull && docker-compose up
 ```
 
-Once the docker container is up and running, which could take a few minutes, open up your browser and navigate to [www.localhost:3000](www.localhost:3000). 
+Once the docker container is up and running, which could take a few minutes, open up your browser and navigate to `www.localhost:3000`. 
 
 This will open up a “playground” where you can create your query. Copy the example below. 
 
@@ -1153,11 +1153,11 @@ You should get something similar to the following:
 }
 ```
 
-[Reverse lookups](/create/graphql.md)
+[Reverse lookups](../../build/graphql.html#reverse-lookups)
 Adding the @derivedFrom keyword to the myToAddress field allows a “virtual” field to appear in the Account object. This can be seen in the documentation tab. This allows a “reverse lookup” where the Transfer.to field can be accessed from Account.myToAddress. 
 
 ### References
 
 * [Account Transfer with Reverse Lookups PDF Workbook](/assets/pdf/Account_Transfer_with_Reverse_Lookups)
 * [Account Transfer with Reverse Lookups Github](https://github.com/subquery/tutorials-account-transfer-reverse-lookups)
-* [Reverse lookups](/create/graphql.md)
+* [Reverse lookups](../../build/graphql.html#reverse-lookups)

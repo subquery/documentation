@@ -56,7 +56,7 @@ Please check that the Docker is already running. The images will be pulled from 
 
 ### Step 3 - Open the Indexer Admin Page
 
-Open [http://localhost:8000/](http://localhost:8000/) in your browser and you will get to see:
+Open `http://localhost:8000/` in your browser and you will get to see:
 
 ![Indexer Admin Page - Asking to Connect with Metatask](/assets/img/admin_page_installlocally.png)
 

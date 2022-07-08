@@ -8,7 +8,7 @@
 
 **Documentation reference**
 
-[The manifest file](/create/manifest.md)
+[The manifest file](../../build/manifest.md))
 
 ## Lesson 2: The Schema File
 
@@ -264,7 +264,7 @@ yarn start:docker
 
 #### Step 9: Run a query
 
-Once the docker container is up and running, which could take a few minutes, open up your browser and navigate to [www.localhost:3000](www.localhost:3000). 
+Once the docker container is up and running, which could take a few minutes, open up your browser and navigate to `www.localhost:3000`. 
 
 This will open up a “playground” where you can create your query. Copy the example below. 
 

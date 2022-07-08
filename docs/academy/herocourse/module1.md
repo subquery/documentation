@@ -40,7 +40,7 @@ subql -v
 
 ### Docker
 
-Please visit [https://docs.docker.com/get-docker/](https://docs.docker.com/get-docker/) for instructions on how to install Docker for your specific operating system.
+Please visit [Docker's official site](https://docs.docker.com/get-docker/) for instructions on how to install Docker for your specific operating system.
 
 ## Exercise 1: Hello World
 
@@ -228,7 +228,7 @@ Note: You need to have Docker installed as noted in the prerequisite for this to
 
 #### Step 9: Run a query
 
-Once the docker container is up and running, which could take a few minutes, open up your browser and navigate to [www.localhost:3000](www.localhost:3000). 
+Once the docker container is up and running, which could take a few minutes, open up your browser and navigate to `www.localhost:3000`.
 
 This will open up a “playground” where you can create your query. Copy the example below. 
 

@@ -118,7 +118,7 @@ Using a full chain dictionary can dramatically speed up the processing of a SubQ
 
 A full chain dictionary pre-indexes the location of all events and extrinsics within the specific chain and allows your node service to skip to relevant locations when indexing rather than inspecting each block.
 
-You can add the dictionary endpoint in your `project.yaml` file (see [Manifest File](../create/manifest.md)), or specify it at run time using the following command:
+You can add the dictionary endpoint in your `project.yaml` file (see [Manifest File](../build/manifest.md)), or specify it at run time using the following command:
 
 <CodeGroup>
 <CodeGroupItem title='Substrate/Polkadot/Polkadot'>
@@ -305,7 +305,7 @@ Debugger attached.
 ```
 
 Then open up the Chrome dev tools, go to Source > Filesystem and add your project to the workspace and start debugging. For more information, check out
-[How to debug a SubQuery project](https://doc.subquery.network/academy/tutorials_examples/debug-projects/)
+[How to debug a SubQuery project](../academy/tutorials_examples/debug-projects.md)
 
 ## Running a Query Service (subql/query)
 
@@ -325,6 +325,6 @@ export DB_HOST=localhost
 subql-query --name <project_name> --playground
 ```
 
-Make sure the project name is the same as the project name when you [initialize the project](../quickstart/quickstart-polkadot.md#initialise-the-starter-subquery-project). Also, check the environment variables are correct.
+Make sure the project name is the same as the project name when you [initialize the project](../quickstart/quickstart.html#_2-initialise-the-subquery-starter-project). Also, check the environment variables are correct.
 
 After running the subql-query service successfully, open your browser and head to `http://localhost:3000`. You should see a GraphQL playground showing in the Explorer and the schema that is ready to query.

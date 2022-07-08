@@ -18,7 +18,7 @@ To give feedback, contact us at hello@subquery.network or jump onto our [discord
 
 ## How much does it cost to host my project in SubQuery Projects? 
 
-Hosting your project in SubQuery Projects is absolutely free - it's is our way of giving back to the community. To learn how to host your project with us, please check out the [Hello World (SubQuery hosted)](../quickstart/helloworld-hosted.md) tutorial.
+Hosting your project in SubQuery Projects is absolutely free - it's is our way of giving back to the community. To learn how to host your project with us, please check out the [Hello World (SubQuery hosted)](../run_publish/publish.md) tutorial.
 
 ## What are deployment slots? 
 

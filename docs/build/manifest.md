@@ -267,14 +267,14 @@ Template are introduced from manifest v0.2.1, it allows creating datasources dyn
 This is useful when you don't know certain specific details when creating your project.
 A good example of this is when you know a contract will be deployed at a later stage but you don't know what the address will be.
 
-For a more detailed explanation head [here](./dynamicdatasources).
+For a more detailed explanation head [here](../build/dynamicdatasources.md). 
 
 ### Change log for v0.2.0
 
 **Under `network`:**
 
 - There is a new **required** `genesisHash` field which helps to identify the chain being used.
-- For v0.2.0 and above, you are able to reference an external [chaintype file](#custom-chains) if you are referencing a custom chain.
+- For v0.2.0 and above, you are able to reference an external [chaintype file](../build/manifest.html#custom-substrate-and-cosmos-chains) if you are referencing a custom chain.
 
 **Under `dataSources`:**
 
@@ -360,7 +360,7 @@ Additionally you will need to update the `endpoint`. This defines the wss endpoi
 Defines the data that will be filtered and extracted and the location of the mapping function handler for the data transformation to be applied.
 | Field | All manifest versions | Description
 | --------------- |-------------|-------------|
-| **kind** | [substrate/Runtime](./manifest/#data-sources-and-mapping) | substrate/Runtime, [substrate/CustomDataSource](./manifest/#custom-data-sources) | [substrate/Runtime](./manifest/#data-sources-and-mapping), [substrate/CustomDataSource](./manifest/#custom-data-sources), [avalanche/Runtime](./manifest/#data-sources-and-mapping), [cosmos/Runtime](./manifest/#data-sources-and-mapping), and  [terra/Runtime](./manifest/#data-sources-and-mapping) | We supports data type from default Substrate and Avalanche runtime such as block, event and extrinsic(call). <br /> From v0.2.0, we support data from custom runtime, such as smart contract.|
+| **kind** | [substrate/Runtime](../build/manifest.html#data-sources-and-mapping) | substrate/Runtime, [substrate/CustomDataSource](../build/manifest.html#custom-data-sources) | [substrate/Runtime](../build/manifest.html#data-sources-and-mapping), [substrate/CustomDataSource](../build/manifest.html#custom-data-sources), [avalanche/Runtime](../build/manifest.html#data-sources-and-mapping), [cosmos/Runtime](../build/manifest.html#data-sources-and-mapping), and  [terra/Runtime](../build/manifest.html#data-sources-and-mapping) | We supports data type from default Substrate and Avalanche runtime such as block, event and extrinsic(call). <br /> From v0.2.0, we support data from custom runtime, such as smart contract.|
 | **startBlock** | Integer | This changes your indexing start block, set this higher to skip initial blocks with less data|  
 | **mapping** |  Mapping Spec | |
 
@@ -433,12 +433,12 @@ The following table explains filters supported by different handlers.
 | Substrate/Polkadot | [substrate/EventHandler](./mapping.md#event-handler) | `module`,`method`            |
 | Substrate/Polkadot | [substrate/CallHandler](./mapping.md#call-handler)   | `module`,`method` ,`success` |
 | Cosmos              | [cosmos/BlockHandler](./mapping.md#block-handler)     | No filters                   |
-| Cosmos              | [cosmos/TransactionHandler](./mapping.md#terra-transaction-handler-terra-only)     | No filters                   |
-| Cosmos              | [cosmos/MessageHandler](./mapping.md#terra-message-handler-terra-only)     |  `type`, `values`* |
+| Cosmos              | [cosmos/TransactionHandler](./mapping.md#transaction-handler)     | No filters                   |
+| Cosmos              | [cosmos/MessageHandler](./mapping.md#message-handler)     |  `type`, `values`* |
 | Cosmos              | [cosmos/EventHandler](./mapping.md#event-handler)     | `type`, `messageFilter`* |
 | Terra              | [terra/BlockHandler](./mapping.md#block-handler)     | No filters                   |
-| Terra              | [terra/TransactionHandler](./mapping.md#terra-transaction-handler-terra-only)     | No filters                   |
-| Terra              | [terra/MessageHandler](./mapping.md#terra-message-handler-terra-only)     |  `type`, `values`* |
+| Terra              | [terra/TransactionHandler](./mapping.md#transaction-handler)     | No filters                   |
+| Terra              | [terra/MessageHandler](./mapping.md#message-handler)     |  `type`, `values`* |
 | Terra              | [terra/EventHandler](./mapping.md#event-handler)     | `type`, `messageFilter`* |
 | Avalanche          | [avalanche/BlockHandler](./mapping.md#block-handler)     | No filters                   |
 | Avalanche          | [avalanche/TransactionHandler](./mapping.md#transaction-handler)     | `function` filters (either be the function fragment or signature), `from` (address), `to` (address)   |
@@ -629,7 +629,7 @@ Here is a list of supported custom datasources:
 
 | Kind                                                  | Supported Handlers                                                                                       | Filters                         | Description                                                                      |
 | ----------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | ------------------------------- | -------------------------------------------------------------------------------- |
-| [substrate/FrontierEvm](./substrate-evm) | [substrate/FrontierEvmEvent](./substrate-evm/#event-handlers), [substrate/FrontierEvmCall](./substrate-evm/#call-handlers) | See filters under each handlers | Provides easy interaction with EVM transactions and events on the Frontier EVM (widely used across Polkadot including in Moonbeam and Astar networks) |
+| [substrate/FrontierEvm](../build/substrate-evm.md) | [substrate/FrontierEvmEvent](../build/substrate-evm.html#event-handlers), [substrate/FrontierEvmCall](../build/substrate-evm.html#call-handlers) | See filters under each handlers | Provides easy interaction with EVM transactions and events on the Frontier EVM (widely used across Polkadot including in Moonbeam and Astar networks) |
 
 ## Validating
 
