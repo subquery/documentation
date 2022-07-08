@@ -127,9 +127,8 @@ Enter the following values for each project and select specific image versions i
   - Indexing Endpoint: `https://rpc.juno-1.api.onfinality.io`
   - Dictionary Endpoint: `https://api.subquery.network/sq/subquery/cosmos-juno-dictionary`
 
-- Pangolin Approvals - Avalanche
+- [Pangolin Approvals - Avalanche](https://forum.subquery.network/t/indexing-developer-fund-votes-juno-project/148)
   - Deployment ID: QmTXSopHWTDhei9ukMAJ1huy83jM9KnGsNEkBcpQkZUCVP
-  - Indexing Endpoint: `http://avalanche.api.onfinality.io:9650`
   - Dictionary Endpoint: `https://api.subquery.network/sq/subquery/avalanche-dictionary`
 
 **Please make sure that you set “Enable POI” to true**
