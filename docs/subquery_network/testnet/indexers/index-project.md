@@ -122,13 +122,13 @@ Enter the following values for each project and select specific image versions i
   - Indexing Endpoint: `wss://polkadot.api.onfinality.io/public-ws`
   - Dictionary Endpoint: `https://api.subquery.network/sq/subquery/polkadot-dictionary`
 
-- Developer Fund Votes - Juno
+- [Developer Fund Votes - Juno]((https://forum.subquery.network/t/indexing-developer-fund-votes-juno-project/148))
   - Deployment ID: QmPZrgnpCrhU3bBXvNQG8qX3VBQTyNVj7agx1hiav14imM
-  - Indexing Endpoint: `https://rpc.juno-1.api.onfinality.io`
   - Dictionary Endpoint: `https://api.subquery.network/sq/subquery/cosmos-juno-dictionary`
 
-- [Pangolin Approvals - Avalanche](https://forum.subquery.network/t/indexing-developer-fund-votes-juno-project/148)
+- [Pangolin Approvals - Avalanche]
   - Deployment ID: QmTXSopHWTDhei9ukMAJ1huy83jM9KnGsNEkBcpQkZUCVP
+  - Indexing Endpoint: `http://avalanche.api.onfinality.io:9650`
   - Dictionary Endpoint: `https://api.subquery.network/sq/subquery/avalanche-dictionary`
 
 **Please make sure that you set “Enable POI” to true**
