@@ -93,8 +93,6 @@ Preparing project... done
 account-balance is ready
 ```
 
-
-
 #### Step 2: Update the graphql schema
 
 The default schema.graphql file contains 5 fields. Rename field2 to account and field3 to balance. Rename the entity to Account.
@@ -257,7 +255,7 @@ Run the docker command to pull the images and to start the container.
 
 
 ```
-yarn start:docker
+docker-compose pull & docker-compose up
 ```
 
 
