@@ -21,7 +21,7 @@
 
 在启动前，请确保您的 SubQuery 项目在 GitHub 公开存储库中在线。 `schema.graphql` 文件必须在您的目录的根目录中。
 
-要创建您的第一个项目，头部为 [project.subquery.network](https://project.subquery.network)。 您需要使用您的 GitHub 帐户进行身份验证才能登录。
+To create your first project, head to [SubQuery Projects](https://project.subquery.network). 您需要使用您的 GitHub 帐户进行身份验证才能登录。
 
 首次登录时，您将被要求授权 SubQuery。 我们只需要您的电子邮件地址来识别您的帐户，我们不会出于任何其他原因使用您的GitHub 帐户的任何其他数据。 在这一步骤中， 您也可以请求或授予您的 GitHub 组织帐户访问权限，以便您可以在您的 GitHub 组织下发布SubQuery 项目而不是您的个人帐户。
 
@@ -47,7 +47,7 @@ Let's start by clicking on "Create Project". You'll be taken to the New Project 
 - **项目名称**
 - **副标题**
 - **描述**
-- **GitHub 存储库 URL：** 这必须是包含您的 SubQuery 项目的公共存储库的有效 GitHub URL。 `schema.graphql` 文件必须是您目录的根目录([了解更多关于目录结构](../create/introduction.md#directory-structure))。
+- **GitHub 存储库 URL：** 这必须是包含您的 SubQuery 项目的公共存储库的有效 GitHub URL。 The `schema.graphql` file must be in the root of your directory ([learn more about the directory structure](../build/introduction.md#directory-structure)).
 - **数据库：** 高级客户可以访问专用数据库来托管生产SubQuery项目。 如果您感兴趣，您可以联系 [sales@subquery.network](mailto:sales@subquery.network) 来启用此设置。
 - **部署源:** 您可以选择从GitHub 仓库部署项目或从IPFS CID部署项目。 请参阅我们的指南 [与 IPFS 托管。](ipfs.md)
 - **隐藏项目：** 如果选中，如果选中，这将在公共 SubQuery 浏览器中隐藏项目。 如果您想与社区共享您的SubQuery项目，请不要选择此项！ ![创建您的第一个项目。](/assets/img/projects-create.png)
@@ -61,7 +61,7 @@ Create your project and you'll see it on your SubQuery Project's list. _We're al
 You can also use `@subql/cli` to publish your project to our managed service. This requires:
 
 - `@subql/cli` version 1.1.0 or above.
-- A valid [SUBQL_ACCESS_TOKEN](/docs/run_publish/ipfs.md#prepare-your-subqlaccesstoken) ready.
+- A valid [SUBQL_ACCESS_TOKEN]() ready.
 
 ```shell
 // Creating a project using the CLI
@@ -102,7 +102,7 @@ If deployed successfully, you'll see the indexer start working and report back p
 You can also use `@subql/cli` to create a new deployment of your project to our managed service. This requires:
 
 - `@subql/cli` version 1.1.0 or above.
-- A valid [SUBQL_ACCESS_TOKEN](/docs/run_publish/ipfs.md#prepare-your-subqlaccesstoken) ready.
+- A valid [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) ready.
 
 ```shell
 // Deploy using the CLI
