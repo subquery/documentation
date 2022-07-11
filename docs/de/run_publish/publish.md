@@ -21,7 +21,7 @@ Es gibt zwei Möglichkeiten, wie Sie die Codebasis Ihres SubQuery-Projekts vor d
 
 Bevor Sie beginnen, stellen Sie bitte sicher, dass die Codebasis Ihres SubQuery-Projekts online in einem öffentlichen GitHub-Repository oder auf IPFS ist. Die Datei `schema.graphql` muss sich im Stammverzeichnis Ihres Verzeichnisses befinden.
 
-Um Ihr erstes Projekt zu erstellen, gehen Sie zu [project.subquery.network](https://project.subquery.network). Sie müssen sich mit Ihrem GitHub-Konto authentifizieren, um sich anzumelden.
+To create your first project, head to [SubQuery Projects](https://project.subquery.network). Sie müssen sich mit Ihrem GitHub-Konto authentifizieren, um sich anzumelden.
 
 Bei der ersten Anmeldung werden Sie aufgefordert, SubQuery zu autorisieren. Wir benötigen Ihre E-Mail-Adresse nur, um Ihr Konto zu identifizieren, und wir verwenden keine anderen Daten aus Ihrem GitHub-Konto für andere Zwecke. In diesem Schritt können Sie auch Zugriff auf Ihr GitHub-Organisationskonto anfordern oder gewähren, sodass Sie SubQuery-Projekte unter Ihrer GitHub-Organisation statt unter Ihrem persönlichen Konto veröffentlichen können.
 
@@ -47,7 +47,7 @@ Beginnen wir mit einem Klick auf „Create Project“. Sie werden zum Formular �
 - **Projekt-Name**
 - **Untertitel**
 - **Beschreibung**
-- **GitHub-Repository-URL:** Dies muss eine gültige GitHub-URL zu einem öffentlichen Repository sein, das Ihr SubQuery-Projekt enthält. Die Datei `schema.graphql` muss sich im Stammverzeichnis Ihres Verzeichnisses befinden ([weitere Informationen zur Verzeichnisstruktur](../create/introduction.md#directory-structure)).
+- **GitHub-Repository-URL:** Dies muss eine gültige GitHub-URL zu einem öffentlichen Repository sein, das Ihr SubQuery-Projekt enthält. The `schema.graphql` file must be in the root of your directory ([learn more about the directory structure](../build/introduction.md#directory-structure)).
 - **Datenbank:** Premium-Kunden können auf dedizierte Datenbanken zugreifen, um SubQuery-Produktionsprojekte zu hosten. Wenn Sie daran interessiert sind, können Sie sich an [sales@subquery.network](mailto:sales@subquery.network) wenden, um diese Einstellung zu aktivieren.
 - **Bereitstellungsquelle:** Sie können wählen, ob das Projekt aus dem GitHub-Repository oder alternativ von einem IPFS-CID bereitgestellt werden soll, siehe unsere Anleitung zum [Hosting mit IPFS.](ipfs.md)
 - **Hide project:** Wenn ausgewählt, wird das Projekt im öffentlichen SubQuery-Explorer ausgeblendet. Lassen Sie diese Option deaktiviert, wenn Sie Ihre SubQuery mit der Community teilen möchten! ![Erstellen Sie Ihr erstes Projekt](/assets/img/projects-create.png)
@@ -61,7 +61,7 @@ Erstellen Sie Ihr Projekt und Sie sehen es in der Liste Ihres SubQuery-Projekts.
 Sie können auch `@subql/cli` verwenden, um Ihr Projekt in unserem Managed Service zu veröffentlichen. Dies erfordert:
 
 - `@subql/cli` Version 1.1.0 oder höher.
-- Ein gültiges [SUBQL_ACCESS_TOKEN](/docs/run_publish/ipfs.md#prepare-your-subqlaccesstoken)  ist bereit.
+- A valid [SUBQL_ACCESS_TOKEN]() ready.
 
 ```shell
 // Erstellung eines Projekts mit der CLI
@@ -102,7 +102,7 @@ Bei erfolgreicher Bereitstellung sehen Sie, dass der Indexer zu arbeiten beginnt
 Sie können auch `@subql/cli` verwenden, um eine neue Bereitstellung Ihres Projekts für unseren Managed Service zu erstellen. Dies erfordert:
 
 - `@subql/cli` Version 1.1.0 oder höher.
-- Ein gültiges [SUBQL_ACCESS_TOKEN](/docs/run_publish/ipfs.md#prepare-your-subqlaccesstoken)  ist bereit.
+- A valid [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) ready.
 
 ```shell
 // Bereitstellung mit der CLI
