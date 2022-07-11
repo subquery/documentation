@@ -44,9 +44,9 @@ subql init
 
 ::: advertencia **para usuarios de Cosmos**
 
-Cosmos aún no está soportado en la CLI de SubQuery (`subql`). Por lo tanto, si estás usando Cosmos, debes comenzar con un clon de Juno o bifurcar este [proyecto inicial](https://github.com/DeveloperInProgress/juno-subql-starter).
+Cosmos aún no está soportado en la CLI de SubQuery (`subql`). Hence, if you are using Cosmos, you must start with a Juno clone or fork this [starter project](https://github.com/subquery/cosmos-subql-starter).
 
-Para inicializar tu proyecto con Cosmos, consulta estos 4 pasos mostrados en este [enlace.](https://github.com/subquery/juno-subql-starter#readme). Una vez que completes estos 4 pasos, **salta** a la sección [Hacer cambios a tu proyecto](../quickstart/quickstart.html#_3-make-changes-to-your-project). :::
+Para inicializar tu proyecto con Cosmos, consulta estos 4 pasos mostrados en este [enlace.](https://github.com/subquery/juno-subql-starter#readme). Once you complete these 4 steps, **jump** to the [Make Changes to Your Project](../quickstart/quickstart.md#_3-make-changes-to-your-project) section. :::
 
 Se le harán ciertas preguntas mientras avance:
 
