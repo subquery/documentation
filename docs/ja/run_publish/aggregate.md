@@ -26,4 +26,4 @@ SubQueryはunsafeモードの場合に以下の集約関数を提供します。
 
 SubQueryの集約関数の実装は[pg-aggregates](https://github.com/graphile/pg-aggregates)に基づいており、より詳しい情報はそちらを参照してください。
 
-**これらの関数を使用するには、クエリサービスの `--unsafe` フラグを有効にする必要があります。 [Read more](./references.md#unsafe-2). `--unsafe` コマンドを使用すると、SubQuery Network でプロジェクトを実行できなくなることに注意してください。このコマンドを SubQuery のマネージド サービス ([project.subquery.network](https://project.subquery.network)) でプロジェクトと共に実行したい場合は、サポートに連絡する必要があります。**
+**これらの関数を使用するには、クエリサービスの `--unsafe` フラグを有効にする必要があります。 [Read more](./references.md#unsafe-2). Note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in [SubQuery's managed service](https://project.subquery.network))**
