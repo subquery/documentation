@@ -50,9 +50,9 @@ Make sure the indexer service versions are correct:
 
 Note:
 
-- If you are continuing the installation Locally: Visit [here](../indexers/install-indexer-locally.html#step-2-start-the-indexing-service)
-- If you are continuing the installation with Linux: Visit [here](../indexers/install-indexer-linux.html#step-2-install-docker-and-docker-compose)
-- If you are continuing the installation with AWS: Visit [here](../indexers/install-indexer-aws.html#_1-11-update-user-group-optional)
+- If you are continuing the installation Locally: Visit [here](../indexers/install-indexer-locally.md#step-2-start-the-indexing-service)
+- If you are continuing the installation with Linux: Visit [here](../indexers/install-indexer-linux.md#step-2-install-docker-and-docker-compose)
+- If you are continuing the installation with AWS: Visit [here](../indexers/install-indexer-aws.md#_1-11-update-user-group-optional)
 
 Next step is to start the indexer.
 
@@ -107,6 +107,6 @@ Visit **[this guide](../indexers/install-indexer-aws.md)** and begin with settin
 
 ## Additional Notes
 
-- Got stuck during the indexing process? Or having trouble running the indexing service? Visit [Troubleshooting](../indexers/) and get all your solutions at one place.
+- Got stuck during the indexing process? Or having trouble running the indexing service? Visit [Troubleshooting](../indexers/troubleshooting-indexers.md)) and get all your solutions at one place.
 
 - Find the list of [FAQs](../indexers/faqs-indexers.md), and resolve your query.

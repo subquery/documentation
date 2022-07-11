@@ -46,7 +46,7 @@ None
 
 #### Step 1: Hello World (SubQuery hosted)
 
-The detailed steps to deploy a project to SubQuery Projects are outlined on our documentation website at: [https://doc.subquery.network/run_publish/publish.html](/run_publish/publish.html). It takes a starter project, uploads it to GitHub, connects GitHub to SubQuery Projects and then deploys it.
+The detailed steps to deploy a project to SubQuery Projects are outlined on our documentation website. Please visit [this section](../../run_publish/publish.md). It takes a starter project, uploads it to GitHub, connects GitHub to SubQuery Projects and then deploys it.
 
 Any project of your choice can be deployed to SubQuery Projects, but the most appropriate would be a project from the previous module.
 
@@ -70,8 +70,8 @@ To understand more about how dictionaries work, refer to:
 
 Slots are a feature in SubQuery Projects that are the equivalent of a development environments. To learn more, visit:
 
-- [What are deployment slots?](../../faqs/faqs/#what-are-deployment-slots)
-- [What is the advantage of a staging slot?](/faqs/faqs/#what-is-the-advantage-of-a-staging-slot)
+- [What are deployment slots?](../../faqs/faqs.md#what-are-deployment-slots) 
+- [What is the advantage of a staging slot?](../../faqs/faqs.md#what-is-the-advantage-of-a-staging-slot)
 
 #### Step 5: Accessing Playground
 
@@ -87,7 +87,7 @@ GraphQL is the language used to query for data. To learn more about GraphQL visi
 
 Developers will typically query the SubQuery project via API. See an example of how this is done at:
 
-- [Querying via the API](/quickstart/quickstart-polkadot.md#query-your-project)
+- [Querying via the API](../../quickstart/quickstart_chains/polkadot.md#_6-query-your-project)
 
 #### Step 7: Deleting SubQuery projects
 
@@ -98,4 +98,4 @@ It is important to keep your SubQuery projects tidy and ensure that test project
 ### References
 
 - [Deplying a project to SubQuery Explorer](/assets/pdf/Deploying_Subquery_Project)
-- [What are deployment slots?](/faqs/faqs/#how-much-does-it-cost-to-host-my-project-in-subquery-projects)
+- [What are deployment slots?](../../faqs/faqs.md#what-are-deployment-slots)

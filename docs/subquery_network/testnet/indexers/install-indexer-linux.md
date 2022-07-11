@@ -28,7 +28,7 @@ Follow these instructions to launch an EC2 instance:
 
 `Important:` DO NOT skip checking the Indexer Version after you finish the SSH process.
 
-- Visit [this section](../indexers/become-an-indexer.html#_2-1-check-indexer-version) and complete the process.
+- Visit [this section](../indexers/become-an-indexer.md#_2-1-check-indexer-version) and complete the process.
 
 > **IMPORTANT Note**: Please change the default PostgreSQL password in the `POSTGRES_PASSWORD` field and in the coordinator-service's `postgres-password` field. Replace it with your own one. 
 

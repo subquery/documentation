@@ -249,7 +249,7 @@ yarn start:docker
 
 #### Step 4: Query the project
 
-Once the docker container is up and running, which could take a few minutes, open up your browser and navigate to [www.localhost:3000](http://www.localhost:3000). 
+Once the docker container is up and running, which could take a few minutes, open up your browser and navigate to `www.localhost:3000`. 
 
 This will open up a “playground” where you can create your query. Copy the example below:
 

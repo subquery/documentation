@@ -8,7 +8,7 @@ The goal of this quick guide is to adapt the standard starter project and start 
 
 Now, let's move ahead in the process and update these configurations.
 
-Previously, in the [1. Create a New Project](../quickstart.md) section, you must have noted [3 key files](../quickstart.html#_3-make-changes-to-your-project). Let's begin updating them one by one.
+Previously, in the [1. Create a New Project](../quickstart.md) section, you must have noted [3 key files](../quickstart.md#_3-make-changes-to-your-project). Let's begin updating them one by one.
 
 ## 1. Update Your GraphQL Schema File
 
@@ -195,11 +195,9 @@ npm run-script start:docker
 
 ## 6. Query Your Project
 
-Open your browser and head to [http://localhost:3000](http://localhost:3000).
-
 Next, let's query our project. Follow these three simple steps to query your SubQuery project:
 
-1. Open your browser and head to [http://localhost:3000](http://localhost:3000).
+1. Open your browser and head to `http://localhost:3000`.
 
 2. You will see a GraphQL playground in the browser and the schemas which are ready to query.
 

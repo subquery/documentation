@@ -8,7 +8,7 @@ The goal of this quick guide is to adapt the standard starter project and start 
 
 Now, let's move forward and update these configurations.
 
-Previously, in the [1. Create a New Project](../quickstart.md) section, you must have noted [3 key files](../quickstart.html#_3-make-changes-to-your-project). Let's begin updating them one by one.
+Previously, in the [1. Create a New Project](../quickstart.md) section, you must have noted [3 key files](../quickstart.md#_3-make-changes-to-your-project). Let's begin updating them one by one.
 
 ## 1. Update Your GraphQL Schema File
 
@@ -146,7 +146,7 @@ Now, you are all set to run your first SubQuery project. Let’s dig out the pro
 
 ## 5. Run Your Project Locally with Docker
 
-Whenever you create a new SubQuery Project, first, you must run it locally on your computer and test it and using Docker is the easiest and quickiest way to do this.
+Whenever you create a new SubQuery Project, first, you must run it locally on your computer and test it. Using Docker is the easiest and quickiest way to do this.
 
 The `docker-compose.yml` file defines all the configurations that control how a SubQuery node runs. For a new project, which you have just initialised, you won't need to change anything.
 
@@ -177,7 +177,7 @@ npm run-script start:docker
 
 Next, let's query our project. Follow these three simple steps to query your SubQuery project:
 
-1. Open your browser and head to [http://localhost:3000](http://localhost:3000).
+1. Open your browser and head to `http://localhost:3000`.
 
 2. You will see a GraphQL playground in the browser and the schemas which are ready to query.
 

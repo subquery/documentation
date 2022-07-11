@@ -130,7 +130,7 @@ Try to uninstall Docker Compose and re-install it from the official guide rather
 
 If all has worked you should get `docker-compose version 1.29.2, build 5becea4c` from `docker-compose --version`, and you can go ahead and pull/up.
 
-The official installation guide can be found at: [https://docs.docker.com/compose/install/#install-compose-on-linux-systems](https://docs.docker.com/compose/install/#install-compose-on-linux-systems)
+The official installation guide can be found [here](https://docs.docker.com/compose/install/#install-compose-on-linux-systems)
 
 ## (WIP) coordinator_service contract ERROR failed to get indexing status for project: 0xQmYR8x...
 

@@ -8,7 +8,7 @@ The goal of this quick start guide is to index all Pangolin token _RewardPaid_ l
 
 Now, let's move forward and update these configurations.
 
-Previously, in the [1. Create a New Project](../quickstart.md) section, you must have noted [3 key files](../quickstart.html#_3-make-changes-to-your-project). Let's begin updating them one by one.
+Previously, in the [1. Create a New Project](../quickstart.md) section, you must have noted [3 key files](../quickstart.md#_3-make-changes-to-your-project). Let's begin updating them one by one.
 
 **Note: The final code of this project can be found [here](https://github.com/jamesbayly/pangolin-rewards-tutorial).**
 
@@ -191,7 +191,7 @@ npm run-script start:docker
 
 Next, let's query our project. Follow these three simple steps to query your SubQuery project:
 
-1. Open your browser and head to [http://localhost:3000](http://localhost:3000).
+1. Open your browser and head to `http://localhost:3000`.
 
 2. You will see a GraphQL playground in the browser and the schemas which are ready to query.
 
