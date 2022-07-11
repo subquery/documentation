@@ -57,4 +57,4 @@ Sobald Ihre Bereitstellung erfolgreich abgeschlossen wurde und unsere Nodes Ihre
 
 ![Projekt wird bereitgestellt und synchronisiert](/assets/img/projects-deploy-sync.png)
 
-Alternativ können Sie auf die drei Punkte neben dem Titel Ihres Projekts klicken und es im SubQuery Explorer anzeigen. Dort können Sie den Spielplatz im Browser verwenden, um loszulegen - [lesen Sie hier mehr darüber, wie Sie unseren Explorer verwenden](../run_publish/query.md).
+Alternativ können Sie auf die drei Punkte neben dem Titel Ihres Projekts klicken und es im SubQuery Explorer anzeigen. There you can use the in browser playground to get started - [read more about how to use our Explorer here](../run_publish/query.md).
