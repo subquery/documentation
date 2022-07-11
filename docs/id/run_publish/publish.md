@@ -21,7 +21,7 @@ Ada dua cara Anda dapat menghosting basis kode proyek SubQuery Anda sebelum dipu
 
 Sebelum memulai, pastikan bahwa basis kode proyek SubQuery Anda online di repositori GitHub publik atau di IPFS. File `schema.graphql` harus berada di root direktori Anda.
 
-Untuk membuat proyek pertama Anda, buka [project.subquery.network](https://project.subquery.network). Anda harus mengautentikasi dengan akun GitHub Anda untuk masuk.
+To create your first project, head to [SubQuery Projects](https://project.subquery.network). Anda harus mengautentikasi dengan akun GitHub Anda untuk masuk.
 
 Pada login pertama, Anda akan diminta untuk mengotorisasi SubQuery. Kami hanya memerlukan alamat email Anda untuk mengidentifikasi akun Anda, dan kami tidak menggunakan data lain dari akun GitHub Anda untuk alasan lain apa pun. Pada langkah ini, Anda juga dapat meminta atau memberikan akses ke akun Organisasi GitHub Anda sehingga Anda dapat memposting proyek SubQuery di bawah Organisasi GitHub alih-alih akun pribadi Anda.
 
@@ -47,7 +47,7 @@ Mari kita mulai dengan mengklik "Create Project". Anda akan dibawa ke formulir P
 - **Nama Projek**
 - **Subtitle**
 - **Deskripsi**
-- **URL Repositori GitHub:** Ini harus berupa URL GitHub yang valid untuk repositori publik yang memiliki proyek SubQuery Anda. File `schema.graphql` harus berada di root direktori Anda ([pelajari lebih lanjut tentang struktur direktori](../create/introduction.md#directory-structure)).
+- **URL Repositori GitHub:** Ini harus berupa URL GitHub yang valid untuk repositori publik yang memiliki proyek SubQuery Anda. The `schema.graphql` file must be in the root of your directory ([learn more about the directory structure](../build/introduction.md#directory-structure)).
 - **Database:** Pelanggan premium dapat mengakses database khusus untuk menghosting proyek SubQuery produksi. Jika ini menarik minat Anda, Anda dapat menghubungi [sales@subquery.network](mailto:sales@subquery.network) untuk mengaktifkan setelan ini.
 - **Sumber Penerapan:** Anda dapat memilih agar proyek di-deploy dari repositori GitHub atau sebagai alternatif di-deploy dari IPFS CID, lihat panduan kami tentang [hosting dengan IPFS.](ipfs.md)
 - **Sembunyikan proyek:** Jika dipilih, ini akan menyembunyikan proyek dari penjelajah SubQuery publik. Biarkan ini tidak dipilih jika Anda ingin membagikan SubQuery Anda dengan komunitas! ![Buat Proyek pertama Anda](/assets/img/projects-create.png)
@@ -61,7 +61,7 @@ Buat proyek Anda dan Anda akan melihatnya di daftar Proyek SubQuery Anda. _Kita 
 Anda juga dapat menggunakan `@subql/cli` untuk mempublikasikan proyek Anda ke layanan terkelola kami. Hal ini membutuhkan:
 
 - `@subql/cli` versi 1.1.0 atau lebih tinggi.
-- Sebuah [SUBQL_ACCESS_TOKEN](/docs/run_publish/ipfs.md#prepare-your-subqlaccesstoken) yang valid sudah siap.
+- A valid [SUBQL_ACCESS_TOKEN]() ready.
 
 ```shell
 // Membuat proyek menggunakan CLI
@@ -102,7 +102,7 @@ Jika berhasil diterapkan, Anda akan melihat pengindeks mulai bekerja dan melapor
 Anda juga dapat menggunakan `@subql/cli` untuk membuat deployment baru dari proyek Anda ke layanan terkelola kami. Hal ini membutuhkan:
 
 - `@subql/cli` versi 1.1.0 atau lebih tinggi.
-- Sebuah [SUBQL_ACCESS_TOKEN](/docs/run_publish/ipfs.md#prepare-your-subqlaccesstoken) yang valid sudah siap.
+- A valid [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) ready.
 
 ```shell
 // Terapkan menggunakan CLI
