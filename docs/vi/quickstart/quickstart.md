@@ -44,9 +44,9 @@ subql init
 
 ::: cảnh báo **Dành cho người dùng Cosmos**
 
-Cosmos hiện chưa được hỗ trợ trong CLI của SubQuery (`subql`). Do đó, nếu bạn sử dụng Cosmos, bạn phải bắt đầu với một bản sao Juno hoặc fork [starter project](https://github.com/DeveloperInProgress/juno-subql-starter) này.
+Cosmos hiện chưa được hỗ trợ trong CLI của SubQuery (`subql`). Hence, if you are using Cosmos, you must start with a Juno clone or fork this [starter project](https://github.com/subquery/cosmos-subql-starter).
 
-Để khởi tạo dự án của bạn với Cosmos, hãy tham khảo 4 bước được hiển thị trong [link.](https://github.com/subquery/juno-subql-starter#readme) này. Sau khi bạn hoàn thành 4 bước này, **nhảy** đến phần [Thực hiện các thay đổi trên Dự án của bạn](../quickstart/quickstart.html#_3-make-changes-to-your-project). :::
+Để khởi tạo dự án của bạn với Cosmos, hãy tham khảo 4 bước được hiển thị trong [link.](https://github.com/subquery/juno-subql-starter#readme) này. Once you complete these 4 steps, **jump** to the [Make Changes to Your Project](../quickstart/quickstart.md#_3-make-changes-to-your-project) section. :::
 
 Bạn sẽ được hỏi một số câu hỏi nhất định khi tiếp tục:
 
