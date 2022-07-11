@@ -1,6 +1,6 @@
 # Hàm Tổng hợp
 
-## Nhóm theo
+## Nhóm Bởi
 
 SubQuery hỗ trợ các hàm tổng hợp nâng cao để cho phép bạn thực hiện tính toán trên một tập hợp các giá trị trong truy vấn của mình.
 
@@ -26,4 +26,4 @@ SubQuery cung cấp các hàm tổng hợp sau đây khi ở chế độ không 
 
 Việc thực hiện các hàm tổng hợp của SubQuery dựa trên [pg-aggregates](https://github.com/graphile/pg-aggregates), bạn có thể tìm thêm thông tin ở đó
 
-**Xin lưu ý rằng bạn phải bật cờ `--unsafe` trên dịch vụ truy vấn để sử dụng các hàm này. [Đọc thêm](./references.md#unsafe-2). Lưu ý rằng lệnh `--unsafe` sẽ ngăn dự án của bạn được chạy trong SubQuery Network, và bạn phải liên hệ với bộ phận hỗ trợ nếu bạn muốn lệnh này được chạy với dự án của mình trong dịch vụ được quản lý của SubQuery ([project.subquery.network](https://project.subquery.network))**
+**Xin lưu ý rằng bạn phải bật cờ `--unsafe` trên dịch vụ truy vấn để sử dụng các hàm này. [Read more](./references.md#unsafe-2). Note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in [SubQuery's managed service](https://project.subquery.network))**
