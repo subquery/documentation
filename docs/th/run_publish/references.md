@@ -1,4 +1,4 @@
-# คำสั่งต่างๆใน Command Line
+# Command Line Flags
 
 ## subql (cli)
 
@@ -7,60 +7,60 @@
 ```shell
 > subql --help
 
-คำสั่ง
-  build     สร้างโค้ดโปรเจกต์	SubQuery นี้
-  codegen   สร้าง schemas สำหรับโหนดกราฟ
-  help      แสดงความช่วยเหลือสำหรับ subql
-  init      เริ่มต้น scaffold โปรเจกต์ SubQuery
-  migrate   โยกย้าย manifest ของโปรเจกต์ SubQuery v0.0.1 ถึง v0.2.0
-  publish   อัปโหลดโปรเจกต์ SubQuery นี้ไปที่ IPFS
-  validate  ตรวจสอบโฟลเดอร์หรือ github repo ว่าเป็น โปรเจกต์	 SubQuery ที่ถูกต้อง
+COMMANDS
+  build     Build this SubQuery project code
+  codegen   Generate schemas for graph node
+  help      display help for subql
+  init      Initialize a scaffold subquery project
+  migrate   Migrate Subquery project manifest v0.0.1 to v0.2.0
+  publish   Upload this SubQuery project to IPFS
+  validate  Check a folder or github repo is a validate subquery project
 ```
 
-### การสร้าง
+### build
 
-คำสั่งนี้ใช้ webpack เพื่อสร้าง bundle ของโปรเจกต์ SubQuery
+This command is uses webpack to generate a bundle of a subquery project.
 
-| ตัวเลือก           | คำอธิบาย                                                                                                       |
-| ------------------ | -------------------------------------------------------------------------------------------------------------- |
-| -l, --location     | โฟลเดอร์ภายในของโปรเจกต์ subquery (หากไม่ได้อยู่ในโฟลเดอร์อยู่แล้ว)                                            |
-| -o, --output       | ระบุโฟลเดอร์ปลายทางของการสร้าง เช่น build-folder                                                               |
-| --mode=(production | prod                                                        | development | dev) | [ ค่าเริ่มต้น: production ] |
+| Options            | คำอธิบาย                                                                                                   |
+| ------------------ | ---------------------------------------------------------------------------------------------------------- |
+| -l, --location     | local folder of subquery project (if not in folder already)                                                |
+| -o, --output       | specify output folder of build e.g. build-folder                                                           |
+| --mode=(production | prod                                                        | development | dev) | [ default: production ] |
 
-- ด้วย `subql build` คุณสามารถระบุจุดเข้าใช้งานเพิ่มเติมได้ในช่อง exports ถึงแม้ว่าจะมีการสร้าง `index.ts` โดยอัตโนมัติเสมอ
+- With `subql build` you can specify additional entry points in exports field although it will always build `index.ts` automatically
 
-- คุณต้องมี @subql/cli v0.19.0 ขึ้นไปเพื่อใช้ช่อง exports
+- You need to have @subql/cli v0.19.0 or above to use exports field.
 
-- ช่อง `exports` ใดๆ ต้องแมปกับประเภทสตริง (เช่น `"entry": "./src/file.ts"`) มิฉะนั้นจะถูกละเว้นจากการสร้าง
+- Any `exports` field must map to string type (e.g. `"entry": "./src/file.ts"`), else it will be ignored from build.
 
-[ตัวอย่างอื่น ๆ](https://doc.subquery.network/create/introduction/#build).
+[Futher example](../build/introduction.md#build).
 
 ## subql-node
 
 ### --help
 
-คำสั่งนี้จะแสดงตัวเลือกของความช่วยเหลือ
+This shows the help options.
 
 ```shell
 > subql-node --help
 Options:
-      --help                แสดงการช่วยเหลือ                                  [boolean]
-      --version             แสดงหมายเลขเวอร์ชั่น                        [boolean]
-  -f, --subquery            เส้นทางภายในของโปรเจกต์ subquery          [string]
-      --subquery-name       ชื่อของโปรเจกต์ subquery  [deprecated] [string]
-  -c, --config              ระบุไฟล์การตั้งค่า                  [string]
-      --local               ใช้โหมด local                [deprecated] [boolean]
-      --force-clean         บังคับการ clean database, เลิกโปรเจกต์ schemas
-                            และตารางต่าง ๆ                                 [boolean]
-      --db-schema           ชื่อ Db schema ของโปรเจ็ก               [string]
-      --unsafe              อนุญาตให้มีการใช้โหมดบิวท์อินต่าง ๆ ภายใน 
-                            sandbox                    [boolean][ค่าเริ่มต้น: false]
-      --batch-size          Batch size ของบล็อกที่จะใช้ในหนึ่งรอบ [number]
-      --scale-batch-size    ปรับขนาด batch size ตามการใช้หน่วยความจำ
-                                                      [boolean] [ค่าเริ่มต้น: false]
-      --timeout            กำหนดระยะเวลาสำหรับ indexer sandbox ในการใช้คำสั่ง mapping
-                                                              [number]
-      --debug               แสดงข้อมูลการ debug ไปยัง console output will
+      --help                Show help                                  [boolean]
+      --version             Show version number                        [boolean]
+  -f, --subquery            Local path of the subquery project          [string]
+      --subquery-name       Name of the subquery project   [deprecated] [string]
+  -c, --config              Specify configuration file                  [string]
+      --local               Use local mode                [deprecated] [boolean]
+      --force-clean         Force clean the database, dropping project schemas
+                            and tables                                 [boolean]
+      --db-schema           Db schema name of the project               [string]
+      --unsafe              Allows usage of any built-in module within the
+                            sandbox                    [boolean][default: false]
+      --batch-size          Batch size of blocks to fetch in one round  [number]
+      --scale-batch-size    scale batch size based on memory usage
+                                                      [boolean] [default: false]
+      --timeout             Timeout for indexer sandbox to execute the mapping
+                            functions                                   [number]
+      --debug               Show debug information to console output. will
                             forcefully set log level to debug
                                                       [boolean] [default: false]
       --profiler            Show profiler information to console output
@@ -69,25 +69,25 @@ Options:
       --network-endpoint    Blockchain network endpoint to connect      [string]
       --output-fmt          Print log as json or plain text
                                            [string] [choices: "json", "colored"]
-      --log-level           Specify log level to print. เพิกเฉยต่อคำสั่ง เมื่อมีการใช้ --debug
-                           
-          [string] [ตัวเลือก: "fatal", "error", "warn", "info", "debug", "trace",
+      --log-level           Specify log level to print. Ignored when --debug is
+                            used
+          [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
                                                                        "silent"]
-      --migrate             ย้าย db schema (สำหรับตารางการจัดการเท่านั้น)
-                                                      [boolean] [ค่าเริ่มต้น: false]
-      --timestamp-field     เปิด/ปิดการใช้ created_at และ updated_at ใน schema
-                                                      [boolean] [ค่าเริ่มต้น: false]
-  -d, --network-dictionary  ระบุ API พจนานุกรมสำหรับเครือข่ายนี้ [string]
-  -m, --mmr-path            Local path ของไฟล์ merkle mountain range (.mmr)
+      --migrate             Migrate db schema (for management tables only)
+                                                      [boolean] [default: false]
+      --timestamp-field     Enable/disable created_at and updated_at in schema
+                                                      [boolean] [default: false]
+  -d, --network-dictionary  Specify the dictionary api for this network [string]
+  -m, --mmr-path            Local path of the merkle mountain range (.mmr) file
                                                                         [string]
-      --proof-of-index      เปิด/ปิดการใช้ proof of index
-                                                      [boolean] [ค่าเริ่มต้น: false]
-  -p, --port                พอร์ตที่บริการนี้เชื่อมต่อ           [number]
+      --proof-of-index      Enable/disable proof of index
+                                                      [boolean] [default: false]
+  -p, --port                The port the service will bind to           [number]
 ```
 
-### --เวอร์ชัน
+### --version
 
-คำสั่งนี้แสดงเวอร์ชันปัจจุบัน
+This displays the current version.
 
 ```shell
 > subql-node --version
@@ -96,79 +96,79 @@ Options:
 
 ### -f, --subquery
 
-ใช้ flag นี้เพื่อเริ่มการทำงานโปรเจกต์ SubQuery
+Use this flag to start the SubQuery project.
 
 ```shell
-subql-node -f . // หรือ
+subql-node -f . // OR
 subql-node --subquery .
 ```
 
-### --subquery-name (เลิกใช้แล้ว)
+### --subquery-name (deprecated)
 
-Flag นี้อนุญาตให้คุณระบุชื่อสำหรับโปรเจกต์ของคุณ ซึ่งทำหน้าที่เสมือนว่าได้ทำการสร้าง instance ของโปรเจกต์ของคุณ เมื่อมีการระบุชื่อใหม่ database schemaใหม่จะถูกสร้างขึ้น และการซิงโครไนซ์บล็อกจะเริ่มต้นจากศูนย์ เลิกใช้ได้ด้วยคำสั่ง `--db-schema`
+This flag allows you to provide a name for your project which acts as if it creates an instance of your project. Upon providing a new name, a new database schema is created and block synchronisation starts from zero. Deprecated in favour of `--db-schema`
 
 ```shell
 subql-node -f . --subquery-name=test2
 ```
 
-### -c, --การตั้งค่า
+### -c, --config
 
-การกำหนดค่าต่าง ๆ ทั้งหมดเหล่านี้สามารถทำได้ในไฟล์ .yml หรือ .json แล้วอ้างอิงด้วย config flag
+All these various configurations can be placed into a .yml or .json file and then referenced with the config flag.
 
-ตัวอย่างไฟล์ subquery_config.yml
+Sample subquery_config.yml file:
 
 ```shell
-subquery: . // Mandatory นี่คือ local path ของโปรเจกต์ ซึ่งหมายถึงไดเร็กทอรีภายในเครื่องปัจจุบัน
-subqueryName: hello // ชื่อเสริม (Optional)
-batchSize: 55 // การกำหนดค่าเสริม (Optional)
+subquery: . // Mandatory. This is the local path of the project. The period here means the current local directory.
+subqueryName: hello // Optional name
+batchSize: 55 // Optional config
 ```
 
-วางไฟล์นี้ในไดเร็กทอรีเดียวกันกับโปรเจกต์ จากนั้น ในไดเร็กทอรีโปรเจกต์ปัจจุบัน ให้รัน:
+Place this file in the same directory as the project. Then in the current project directory, run:
 
 ```shell
 > subql-node -c ./subquery_config.yml
 ```
 
-### --local (เลิกใช้แล้ว)
+### --local (deprecated)
 
-Flag นี้ใช้เพื่อจุดประสงค์ในการ debug เป็นหลัก โดยจะสร้างตาราง starter_entity เริ่มต้นใน schema "postgres" ที่เป็นค่าเริ่มต้น
+This flag is primarily used for debugging purposes where it creates the default starter_entity table in the default "postgres" schema.
 
 ```shell
 subql-node -f . --local
 ```
 
-โปรดทราบว่าเมื่อคุณใช้ flag นี้ การลบ flag นี้ไม่ได้หมายความว่า flag นี้จะชี้ไปที่ฐานข้อมูลอื่น หากต้องการชี้ไปยังฐานข้อมูลอื่น คุณจะต้องสร้างฐานข้อมูลใหม่และเปลี่ยนการตั้งค่า env เป็นฐานข้อมูลใหม่ คือใช้ "export DB_DATABASE=<new_db_here>"
+Note that once you use this flag, removing it won't mean that it will point to another database. To repoint to another database you will have to create a NEW database and change the env settings to this new database. In other words, "export DB_DATABASE=<new_db_here>"
 
 ### --force-clean
 
-ใช้ flag นี้เพื่อบังคับให้ project schemas และ tables ให้ถูกสร้างขึ้นใหม่ ซึ่งจะช่วยให้พัฒนา graphql schemas เหมือนเริ่มต้นโปรเจกต์ใหม่และทำงานอยู่ใน clean state โปรดทราบว่า flag นี้จะลบข้อมูลที่ทำดัชนีไว้แล้วทั้งหมด
+This flag forces the project schemas and tables to be regenerated, helpful to use when iteratively developing graphql schemas such that new runs of the project are always working with a clean state. Note that this flag will also wipe all indexed data.
 
 ### --db-schema
 
-Flag นี้อนุญาตให้คุณระบุชื่อสำหรับ project database schema เมื่อระบุชื่อใหม่ database schemaใหม่จะถูกสร้างขึ้นด้วยชื่อที่กำหนดค่าไว้และจะเริ่มต้นสร้างดัชนีบล็อก
+This flag allows you to provide a name for the project database schema. Upon providing a new name, a new database schema is created with the configured name and block indexing starts.
 
 ```shell
 subql-node -f . --db-schema=test2
 ```
 
-### --การสมัครสมาชิก
-การดำเนินการนี้จะสร้างตัวกระตุ้นการแจ้งเตือนในเอนทิตีซึ่งเป็นข้อกำหนดเบื้องต้นในการเปิดใช้งานคุณลักษณะการสมัครใช้งานในบริการ query
+### --subscription
+This will create a notification trigger on entity, this also is the prerequisite to enable subscription feature in query service.
 
 ### --unsafe
 
-โปรเจกต์ SubQuery มักจะทำงานใน javascript sandbox เพื่อความปลอดภัย โดยจะจำกัดขอบเขตของการเข้าถึงโปรเจกต์ในระบบของคุณ ซึ่ง sandbox จะจำกัดการนำเข้า javascript ที่พร้อมใช้งานไปยังโมดูลต่อไปนี้:
+SubQuery Projects are usually run in a javascript sandbox for security to limit the scope of access the project has to your system. The sandbox limits the available javascript imports to the following modules:
 
 ```javascript
 ["assert", "buffer", "crypto", "util", "path"];
 ```
 
-แม้ว่าสิ่งนี้จะช่วยเพิ่มความปลอดภัย แต่เราก็เข้าใจดีว่า คำสั่งนี้จะจำกัดฟังก์ชั่นการทำงานที่มีอยู่ของ SubQuery ของคุณ คำสั่ง `--unsafe` จะนำเข้าโมดูล javascript เริ่มต้นทั้งหมด ซึ่งเพิ่มฟังก์ชันการทำงานของ sandbox อย่างมาก แลกกับความปลอดภัยที่ลดลง
+Although this enhances security we understand that this limits the available functionality of your SubQuery. The `--unsafe` command imports all default javascript modules which greatly increases sandbox functionality with the tradeoff of decreased security.
 
 **และโปรดทราบว่าคำสั่ง `--unsafe` จะป้องกันไม่ให้โปรเจกต์ของคุณทำงานในเครือข่าย SubQuery และคุณต้องติดต่อฝ่ายสนับสนุนหากต้องการให้คำสั่งนี้รันกับโปรเจ็กของคุณในบริการที่มีการจัดการของ SubQuery ([project.subquery.network](https://project.subquery.network))**
 
 ### --batch-size
 
-Flag นี้อนุญาตให้คุณตั้งค่าขนาด batch size ผ่าน command line หากมีการตั้งค่า batch size ในไฟล์ config ด้วย การดำเนินการนี้จะมีความสำคัญเหนือกว่า
+This flag allows you to set the batch size in the command line. If batch size is also set in the config file, this takes precedent.
 
 ```shell
 > subql-node -f . --batch-size=20
@@ -180,15 +180,15 @@ Flag นี้อนุญาตให้คุณตั้งค่าขนา
 
 ### --scale-batch-size
 
-ปรับขนาดชุดบล็อกดึงข้อมูลด้วยการใช้หน่วยความจำ
+Scale the block fetch batch size with memory usage
 
 ### --timeout
 
-ตั้งค่า timeout แบบกำหนดเองสำหรับ javascript sandbox เพื่อเรียกใช้ mapping functions บนบล็อก ก่อนที่ mapping functions จะส่งออก timeout exception
+Set custom timeout for the javascript sandbox to execute mapping functions over a block before the block mapping function throws a timeout exception
 
 ### --debug
 
-ข้อมูลนี้จะส่งออกข้อมูลการ debug ไปยัง console output และบังคับตั้งค่า log level เพื่อ debug
+This outputs debug information to the console output and forcefully sets the log level to debug.
 
 ```shell
 > subql-node -f . --debug
@@ -199,7 +199,7 @@ Flag นี้อนุญาตให้คุณตั้งค่าขนา
 
 ### --profiler
 
-ข้อมูลนี้แสดง profiler information
+This shows profiler information.
 
 ```shell
 subql-node -f . --local --profiler
@@ -211,13 +211,13 @@ subql-node -f . --local --profiler
 
 ### --network-endpoint
 
-Flag นี้อนุญาตให้ผู้ใช้ทำการ override endpoint ของเครือข่ายจากไฟล์ manifest
+This flag allows users to override the network endpoint configuration from the manifest file.
 
 ```shell
 subql-node -f . --network-endpoint="wss://polkadot.api.onfinality.io/public-ws"
 ```
 
-โปรดทราบว่าจะต้องตั้งค่านี้ในไฟล์ manifest ด้วย ไม่เช่นนั้น คุณจะได้รับ:
+Note that this must also be set in the manifest file, otherwise you'll get:
 
 ```shell
 ERROR Create Subquery project from given path failed! Error: failed to parse project.yaml.
@@ -228,7 +228,7 @@ An instance of ProjectManifestImpl has failed the validation:
 
 ### --output-fmt
 
-มีรูปแบบ terminal outputs สองแบบที่แตกต่างกัน JSON หรือ colored โดย colored จะเป็นค่าเริ่มต้นและมีข้อความแบบสี
+There are two different terminal output formats. JSON or colored. Colored is the default and contains colored text.
 
 ```shell
 > subql-node -f . --output-fmt=json
@@ -245,7 +245,7 @@ An instance of ProjectManifestImpl has failed the validation:
 
 ### --log-level
 
-จะมีตัวเลือก 7 อย่างให้เลือก ได้แก่ “fatal”, “error”, “warn”, “info”, “debug”, “trace”, “silent”. ซึ่งตัวอย่างด้านล่างจะไม่มีการแสดงผล โดยจะไม่มีการพิมพ์สิ่งใดในเทอร์มินัล ดังนั้นวิธีเดียวที่จะบอกได้ว่าโหนดทำงานหรือไม่คือการสืบค้นฐานข้อมูลสำหรับนับจำนวนแถว (select count(\*) from subquery_1.starter_entities) หรือการสืบค้น block height
+There are 7 options to choose from. “fatal”, “error”, “warn”, “info”, “debug”, “trace”, “silent”. The example below shows silent. Nothing will be printed in the terminal so the only way to tell if the node is working or not is to query the database for row count (select count(\*) from subquery_1.starter_entities) or query the block height.
 
 ```shell
 > subql-node -f . --log-level=silent
@@ -259,37 +259,37 @@ An instance of ProjectManifestImpl has failed the validation:
 (node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
 (node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
 (node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
-(node:24686) [DEP0152] DeprecationWarning: Custom PerformanceEntry accessors are deprecated. กรุณาใช้คุณสมบัติรายละเอียด (detail)
-(node:24686) [PINODEP007] คำเตือน: เลิกใช้ bindings.level แล้ว ให้ใช้ตัวเลือก options.level แทน
+(node:24686) [DEP0152] DeprecationWarning: Custom PerformanceEntry accessors are deprecated. Please use the detail property.
+(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
 ```
 
 <!-- ### --migrate TBA -->
 
 ### --timestamp-field
 
-ค่าเริ่มต้น คือ true หากจะตั้งค่าเป็น false ใช้:
+By default this is true. when set to false with:
 
 ```shell
 > subql-node -f . –timestamp-field=false
 ```
 
-คำสั่งนี้จะลบคอลัมน์ created_at และ updated_at ในตาราง starter_entities
+This removes the created_at and updated_at columns in the starter_entities table.
 
 ### -d, --network-dictionary
 
-คำสั่งนี้ทำให้คุณสามารถระบุ dictionary endpoint ซึ่งเป็นบริการฟรีที่มีให้และโฮสต์ที่: [https://explorer.subquery.network/](https://explorer.subquery.network/) (ค้นหา dictionary) และ API endpoint ของ: https://api.subquery.network/sq/subquery/dictionary-polkadot
+This allows you to specify a dictionary endpoint which is a free service that is provided and hosted at SubQuery's [Project Explorer](https://explorer.subquery.network/) (search for dictionary) and presents an API endpoint of: https://api.subquery.network/sq/subquery/dictionary-polkadot
 
-ปกติจะมีการตั้งค่านี้ในไฟล์ manifest ของคุณ แต่ด้านล่างจะเป็นการแสดงตัวอย่างการใช้แบบเป็น argument ใน command line
+Typically this would be set in your manifest file but below shows an example of using it as an argument in the command line.
 
 ```shell
 subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot"
 ```
 
-[อ่านเพิ่มเติมเกี่ยวกับวิธีการทำงานของ SubQuery Dictionary](../academy/tutorials_examples/dictionary.md)
+[Read more about how a SubQuery Dictionary works](../academy/tutorials_examples/dictionary.md).
 
 ### -p, --port
 
-พอร์ตที่บริการการทำดัชนีแบบสอบถามย่อยผูกไว้ ค่าเริ่มต้นคือ `3000`
+The port the subquery indexing service binds to. By default this is set to `3000`
 
 ### --disable-historical
 
@@ -299,32 +299,32 @@ Disables automated historical state tracking, [see Historic State Tracking](./hi
 
 ### --help
 
-คำสั่งนี้จะแสดงตัวเลือกของความช่วยเหลือ
+This shows the help options.
 
 ```shell
-ทางเลือก:
-      --help          แสดง ความช่วยเหลือ                                          [boolean]
-      --version       แสดงหมายเลขเวอร์ชัน                                [boolean]
-  -n, --name          ชื่อโปรเจค                             [string] [required]
-      --playground    เปิดใช้งาน graphql playground                          [boolean]
-      --subscription  เปิดใช้งานการสมัครสมาชิก               [boolean] [default: false]   
-      --output-fmt    พิมพ์ log เป็น json หรือข้อความธรรมดา
+Options:
+      --help          Show help                                          [boolean]
+      --version       Show version number                                [boolean]
+  -n, --name          Project name                             [string] [required]
+      --playground    Enable graphql playground                          [boolean]
+      --subscription  Enable subscription               [boolean] [default: false]   
+      --output-fmt    Print log as json or plain text
                         [string] [choices: "json", "colored"] [default: "colored"]
-      --log-level     ระบุlog level ที่จะพิมพ์
+      --log-level     Specify log level to print.
             [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
                                                        "silent"] [default: "info"]
-      --log-path      เส้นทางในการสร้างไฟล์บันทึก เช่น ./src/name.log          [string]
-      --log-rotate    หมุนล็อกไฟล์ในไดเร็กทอรีที่ระบุโดย log-path
+      --log-path      Path to create log file e.g ./src/name.log          [string]
+      --log-rotate    Rotate log files in directory specified by log-path
                                                       [boolean] [default: false]
-      --indexer       Url ที่อนุญาตให้สืบค้นเข้าถึงข้อมูลเมตาของตัวสร้างดัชนี    [string]
-      --unsafe        ปิดใช้งานขีดจำกัดความลึกของแบบสอบถามและจำนวนที่อนุญาตที่ส่งคืน
-                      บันทึกแบบสอบถาม                                      [boolean]
-  -p, --port          พอร์ตที่บริการจะผูกกับ                   [number]
+      --indexer       Url that allows query to access indexer metadata    [string]
+      --unsafe        Disable limits on query depth and allowable number returned
+                      query records                                      [boolean]
+  -p, --port          The port the service will bind to                   [number]
 ```
 
-### --เวอร์ชัน
+### --version
 
-คำสั่งนี้แสดงเวอร์ชันปัจจุบัน
+This displays the current version.
 
 ```shell
 > subql-query --version
@@ -333,58 +333,58 @@ Disables automated historical state tracking, [see Historic State Tracking](./hi
 
 ### -n, --name
 
-Flag นี้ใช้เพื่อเริ่มบริการ query service หากไม่มีการตั้งค่า --subquery-name เมื่อทำการรัน indexer ชื่อที่ปรากฎนี้จะหมายถึงชื่อโปรเจกต์เริ่มต้น หากมีการตั้งค่า --subquery-name ชื่อที่ปรากฏนี้ควรตรงกับที่ตั้งไว้
+This flag is used to start the query service. If the --subquery-name flag is not provided when running an indexer, the name here will refer to the default project name. If --subquery-name is set, then the name here should match what was set.
 
 ```shell
 > subql-node -f . // --subquery-name not set
 
-> subql-query -n subql-helloworld  --playground // ชื่อที่เป็นค่าเริ่มต้นคือ ชื่อของ project directory
+> subql-query -n subql-helloworld  --playground // the name defaults to the project directory name
 ```
 
 ```shell
 > subql-node -f . --subquery-name=hiworld // --subquery-name set
 
-> subql-query -n hiworld --playground  // เป็นชื่อที่แสดงถึงโปรเจกต์ subql-helloworld แต่ใช้ชื่อว่า hiworld
+> subql-query -n hiworld --playground  // the name points to the subql-helloworld project but with the name of hiworld
 ```
 
 ### --playground
 
-Flag นี้เป็นการเปิดใช้งาน graphql playground ดังนั้นควรใส่ไว้ตามค่าเริ่มต้นเสมอในทุกการใช้งาน
+This flag enables the graphql playground so should always be included by default to be of any use.
 
 ### --output-fmt
 
-See [--output-fmt](https://doc.subquery.network/run_publish/references.html#output-fmt)
+See [--output-fmt](https://doc.subquery.network/run_publish/references.md#output-fmt)
 
 ### --log-level
 
-See [--log-level](https://doc.subquery.network/run_publish/references.html#log-level)
+See [--log-level](https://doc.subquery.network/run_publish/references.md#log-level)
 
 ### --log-path
 
-เปิดใช้งานการบันทึกไฟล์โดยระบุ path ไปยังไฟล์เพื่อเข้าสู่ระบบ
+Enable file logging by providing a path to a file to log to
 
 ### --log-rotate
 
-เปิดใช้งาน file log rotations ด้วยตัวเลือก 1d rotation interval สูงสุด 7 ไฟล์และขนาดไฟล์สูงสุด 1GB
+Enable file log rotations with the options of a 1d rotation interval, a maximum of 7 files and with a max file size of 1GB
 
 ### --indexer
 
-ตั้งค่า Url ที่กำหนดเองสำหรับตำแหน่งของ endpoints ของ indexer โดยบริการจัดเรียงข้อมูลนี้จะใช้ endpoints เหล่านี้สำหรับการแสดงค่า indexer health, metadata และ readiness status
+Set a custom url for the location of the endpoints of the indexer, the query service uses these endpoints for indexer health, metadata and readiness status
 
-### --การสมัครสมาชิก
+### --subscription
 
 This flag enables [GraphQL Subscriptions](./subscription.md), to enable this feature requires `subql-node` also enable `--subscription`
 
 ### --unsafe
 
-บริการจัดเรียงข้อมูลมีขีดจำกัด 100 รายการสำหรับการสืบค้นที่ไม่ผูกกับ graphql Flag unsafe จะลบขีดจำกัดนี้ซึ่งอาจทำให้เกิดปัญหาด้านประสิทธิภาพในบริการสืบค้น จึงขอแนะนำว่า ให้ใช้ [ paginated ](https://graphql.org/learn/pagination/) แทน
+The query service has a limit of 100 entities for unbounded graphql queries. The unsafe flag removes this limit which may cause performance issues on the query service. It is recommended instead that queries are [paginated](https://graphql.org/learn/pagination/).
 
 This flag enables certain aggregation functions including sum, max, avg and others. Read more about this feature [here](./aggregate.md)
 
-สิ่งเหล่านี้ถูกปิดใช้งานโดยค่าเริ่มต้นเนื่องจากขีดจำกัดของเอนทิตี
+These are disabled by default due to the entity limit.
 
-**โปรดทราบว่า คำสั่ง `--unsafe` จะป้องกันไม่ให้โปรเจกต์ของคุณ runในเครือข่าย SubQuery และคุณต้องติดต่อฝ่ายสนับสนุน หากต้องการให้คำสั่งนี้รันกับโปรเจกต์ของคุณในบริการส่วนของ SubQuery [project.subquery.network](https://project.subquery.network)**
+**Note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in [SubQuery's Managed Services](https://project.subquery.network).**
 
 ### --port
 
-พอร์ตที่บริการการทำดัชนีแบบสอบถามย่อยผูกไว้ ค่าเริ่มต้นคือ `3000`
+The port the subquery query service binds to. By default this is set to `3000`
