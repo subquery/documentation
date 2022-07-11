@@ -1,63 +1,63 @@
-# Часто задаваемые вопросы
+# Frequently Asked Questions
 
 ## Что такое SubQuery?
 
-SubQuery - это проект с открытым исходным кодом, который позволяет разработчикам индексировать, преобразовывать и запрашивать данные цепи Substrate для обеспечения своих приложений.
+SubQuery - это проект с открытым исходным кодом, который позволяет разработчикам индексировать, преобразовывать и запрашивать данные из Substrate для работы своих приложений.
 
-SubQuery также предоставляет бесплатный хостинг проектов по производству для разработчиков, позволяя им снять ответственность за построение инфраструктуры, и также позволяет разработчикам делать то, что они делают лучше всего - строить.
+SubQuery also provides free, production grade hosting of projects for developers removing the responsiblity of manging infrastructure, and letting developers do what they do best - build.
 
 ## Как лучше всего начать работу с SubQuery?
 
-Лучший способ начать работу с SubQuery - попробовать наш [Урок «Приветствуем мир»](../quickstart/helloworld-localhost.md). Это простая 5-минутная прогулка по загрузке начального шаблона, построению проекта, а затем с помощью использования Docker для запуска узла на вашем локальном хосте и выполнения простого запроса.
+The best way to get started with SubQuery is to try out our [Hello World tutorial](../quickstart/helloworld-localhost.md). Это простой 5-минутный урок по загрузке стартового шаблона, сборке проекта, а затем использованию Docker для запуска узла на локальном хосте и выполнения простого запроса.
 
-## Как я могу внести свой вклад или оставить отзыв для SubQuery?
+## Как я могу внести свой вклад или оставить отзыв о SubQuery?
 
-Нам нравится вклад и отзывы сообщества. Чтобы внести свой код, форкните интересующее вас хранилище и внесите свои изменения. Затем отправьте PR или Pull Request. Ах, не забудь еще и протестировать! Также ознакомьтесь с нашими рекомендациями внесению дополнений (скоро).
+Нам нравится вклад и обратная связь от сообщества. Чтобы внести свой код, форкните интересующий вас репозиторий и внесите свои изменения. Далее отправьте PR или Pull Request. О, не забудьте также протестировать! Also check out our contributions guide lines (TBA).
 
-Чтобы оставить отзыв, свяжитесь с нами по адресу hello@subquery.network или перейдите на наш [discord channel](https://discord.com/invite/78zg8aBSMG)
+To give feedback, contact us at hello@subquery.network or jump onto our [discord channel](https://discord.com/invite/78zg8aBSMG)
 
-## Сколько стоит разместить мой проект в SubQuery?
+## Сколько стоит размещение моего проекта в SubQuery?
 
-Размещение вашего проекта в SubQuery Projects абсолютно бесплатно - это наш способ отблагодарить сообщество. Чтобы научиться каким образом размещать ваш проект у нас, пожалуйста ознакомьтесь с руководством [Hello World (SubQuery hosted)](../quickstart/helloworld-hosted.md).
+Размещение вашего проекта в SubQuery абсолютно бесплатно - это наш способ отблагодарить сообщество. To learn how to host your project with us, please check out the [Hello World (SubQuery hosted)](../run_publish/publish.md) tutorial.
 
-## Что такое слоты развертывания?
+## What are deployment slots?
 
-Слоты развертывания - это функция в [SubQuery Projects](https://project.subquery.network), которая является эквивалентом среды разработки. Например, в любой организации занимающейся программным обеспечением обычно есть как минимум среда разработки и производственная среда (без учета localhost). Обычно дополнительные условия, такие как постановка и пре-продакшен или даже QA, включаются в зависимости от потребностей организации и их разработки.
+Deployment slots are a feature in [SubQuery Projects](https://project.subquery.network) that is the equivalent of a development environment. For example, in any software organisation there is normally a development environment and a production environment as a minimum (ignoring localhost that is). Typically additional environments such as staging and pre-prod or even QA are included depending on the needs of the organisation and their development set up.
 
-SubQuery в настоящее время имеет два доступных слота. Промежуточный слот и производственный слот. Это позволяет разработчикам установить свой SubQuery в промежуточную среду и если все хорошо, "продвинуть в производство" щелчком по кнопке.
+SubQuery currently has two slots available. A staging slot and a production slot. This allows developers to deploy their SubQuery to the staging environment and all going well, "promote to production" at the click of a button.
 
-## В чем преимущество промежуточного слота?
+## What is the advantage of a staging slot?
 
-Основное преимущество использования промежуточного слота состоит в том, что он позволяет вам подготовить новую версию вашего проекта SubQuery, не раскрывая ее публично. Вы можете подождать, пока промежуточный слот переиндексирует все данные, не затрагивая рабочие приложения.
+The main benefit of using a staging slot is that it allows you to prepare a new release of your SubQuery project without exposing it publicly. You can wait for the staging slot to reindex all data without affecting your production applications.
 
-Промежуточный слот не отображается публично в [Explorer](https://explorer.subquery.network/) и имеет уникальный URL, который видим только вам. И, конечно же, отдельная среда позволяет вам тестировать новый код, не ущерба вашему производству.
+The staging slot is not shown to the public in the [Explorer](https://explorer.subquery.network/) and has a unique URL that is visible only to you. And of course, the separate environment allows you to test your new code without affecting production.
 
-## Что такое Polkadot's Extrinsics?
+## What are Polkadot's Extrinsics?
 
-Если вы уже знакомы с понятиями блокчейна, вы можете подумать о дополнительных функциях, сопоставимых с транзакциями. Однако более формально надстройками является часть информации, которая поступает извне цепи и включена в блок. Есть три категории надстроек. Они являются неотъемлемыми элементами, подписанными транзакциями и неподписанными транзакциями.
+If you are already familiar with blockchain concepts, you can think of extrinsics as comparable to transactions. More formally though, an extrinsic is a piece of information that comes from outside the chain and is included in a block. There are three categories of extrinsics. They are inherents, signed transactions, and unsigned transactions.
 
-Inherent Extrinsics - это части информации, которые не подписаны и вставляются в блок автором блока.
+Inherent extrinsics are pieces of information that are not signed and only inserted into a block by the block author.
 
-Внешние подписанные транзакции - это транзакции, которые содержат подпись учетной записи, выданного транзакцией. Они должны заплатить комиссию за включение транзакции в цепочку.
+Signed transaction extrinsics are transactions that contain a signature of the account that issued the transaction. They stands to pay a fee to have the transaction included on chain.
 
-Неподписанные транзакции – это транзакции, которые не содержат подписи счета, который выдает транзакцию. Extrinsics неподписанных транзакций следует использовать с осторожностью, поскольку никто не платит комиссию, так как они не подписаны. Из-за этого в очереди транзакций отсутствует экономическая логика для предотвращения спама.
+Unsigned transactions extrinsics are transactions that do not contain a signature of the account that issued the transaction. Unsigned transactions extrinsics should be used with care because there is nobody paying a fee, becaused they are not signed. Because of this, the transaction queue lacks economic logic to prevent spam.
 
-Для получения дополнительной информации нажмите [here](https://substrate.dev/docs/en/knowledgebase/learn-substrate/extrinsics).
+For more information, click [here](https://substrate.dev/docs/en/knowledgebase/learn-substrate/extrinsics).
 
-## Что такое конечная точка для сети Кусама?
+## What is the endpoint for the Kusama network?
 
-Конечная точка сети Kusama - `wss://kusama.api.onfinality.io/public-ws`.
+The network.endpoint for the Kusama network is `wss://kusama.api.onfinality.io/public-ws`.
 
-## Что является конечной точкой для сети Polkadot?
+## What is the endpoint for the Polkadot mainnet network?
 
-Конечная точка сети Polkadot - `wss://polkadot.api.onfinality.io/public-ws`.
+The network.endpoint for the Polkadot network is `wss://polkadot.api.onfinality.io/public-ws`.
 
-## Как итеративно развить свою схему проекта?
+## How do I iteratively develop my project schema?
 
-Известной проблемой при разработке изменяющейся схемы проекта является то, что при запуске узла Subquery для тестирования ранее проиндексированные блоки будут несовместимы с новой схемой. Для итеративной разработки схем индексированные блоки, хранящиеся в базе данных, должны быть очищены, этого можно добиться, запустив узел с флагом `--force-clean`. Например:
+A known issue with developing a changing project schema is that when lauching your Subquery node for testing, the previously indexed blocks will be incompatible with your new schema. In order to iteratively develop schemas the indexed blocks stored in the database must be cleared, this can be achieved by launching your node with the `--force-clean` flag. For example:
 
 ```shell
 subql-node -f . --force-clean --subquery-name=<project-name>
 ```
 
-Обратите внимание, что рекомендуется использовать `--force-clean` при изменении `startBlock` в манифесте проекта (`проекта). aml`) чтобы начать переиндексацию из настроенного блока. Если `startBlock` изменен без `--force-clean` проекта, то индексатор продолжит индексирование с ранее настроенным `startBlock`.
+Note that it is recommended to use `--force-clean` when changing the `startBlock` within the project manifest (`project.yaml`) in order to begin reindexing from the configured block. If `startBlock` is changed without a `--force-clean` of the project then the indexer will continue indexing with the previously configured `startBlock`.
