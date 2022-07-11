@@ -1,28 +1,28 @@
-# 로컬에서 서브쿼리 실행하기
+# Running SubQuery Locally
 
-이 가이드는 인덱서와 쿼리 서비스를 모두 포함하는 인프라에서 로컬 SubQuery 노드를 실행하는 방법을 설명합니다. 자체 SubQuery 인프라를 실행하는 것에 대해 걱정하고 싶지 않으세요? SubQuery는 커뮤니티에 [관리 호스팅 서비스](https://explorer.subquery.network)를 무료로 제공합니다. [Follow our publishing guide](../run_publish/publish.md) to see how you can upload your project to [SubQuery Projects](https://project.subquery.network).
+This guide works through how to run a local SubQuery node on your infrastructure, which includes both the indexer and query service. Don't want to worry about running your own SubQuery infrastructure? SubQuery provides a [managed hosted service](https://explorer.subquery.network) to the community for free. [Follow our publishing guide](../run_publish/publish.md) to see how you can upload your project to [SubQuery Projects](https://project.subquery.network).
 
-## 도커 사용
+## Using Docker
 
-다른 솔루션은 `docker-compose.yml` 파일로 정의된 <strong>Docker Container</strong>를 실행하는 것입니다. 방금 초기화된 새 프로젝트의 경우 여기에서 아무 것도 변경할 필요가 없습니다.
+An alternative solution is to run a <strong>Docker Container</strong>, defined by the `docker-compose.yml` file. For a new project that has been just initialised you won't need to change anything here.
 
-프로젝트 디렉터리에서 다음 명령을 실행합니다.
+Under the project directory run the following command:
 
 ```shell
 docker-compose pull && docker-compose up
 ```
 
-필요한 패키지([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query) 및 Postgres) 를 처음 다운로드하는 데 시간이 걸릴 수 있지만 곧 실행 중인 것을 볼 수 있습니다.
+It may take some time to download the required packages ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), and Postgres) for the first time but soon you'll see a running SubQuery node.
 
-## 인덱서 실행 (subql/node)
+## Running an Indexer (subql/node)
 
-요구 사항:
+Requirements:
 
-- [Postgres](https://www.postgresql.org/) 데이터베이스(버전 12 이상). [SubQuery 노드](#start-a-local-subquery-node)가 블록체인을 인덱싱하는 동안 추출된 데이터는 외부 데이터베이스 인스턴스에 저장됩니다.
+- [Postgres](https://www.postgresql.org/) database (version 12 or higher). While the [SubQuery node](#start-a-local-subquery-node) is indexing the blockchain, the extracted data is stored in an external database instance.
 
 A SubQuery node is an implementation that extracts Substrate/Polkadot-based blockchain data per the SubQuery project and saves it into a Postgres database.
 
-### 설치
+### Installation
 
 <CodeGroup>
 <CodeGroupItem title='Substrate/Polkadot'>
@@ -53,7 +53,7 @@ npm install -g @subql/node-avalanche
 
 Please note that we **DO NOT** encourage the use of `yarn global` due to its poor dependency management which may lead to an errors down the line.
 
-설치가 완료되면 다음 명령으로 노드를 시작할 수 있습니다.
+Once installed, you can start a node with the following command:
 
 
 <CodeGroup>
@@ -82,9 +82,9 @@ subql-node-avalanche <command>
 
 ### Key Commands
 
-The following commands will assist you to complete the configuration of a SubQuery node and begin indexing. 자세히 알아보려면 언제든지 `--help`를 실행할 수 있습니다.
+The following commands will assist you to complete the configuration of a SubQuery node and begin indexing. To find out more, you can always run `--help`.
 
-#### 로컬 프로젝트 경로를 가리킴
+#### Point to local project path
 
 <CodeGroup>
 <CodeGroupItem title='Substrate/Polkadot'>
@@ -116,7 +116,7 @@ Using a full chain dictionary can dramatically speed up the processing of a SubQ
 
 A full chain dictionary pre-indexes the location of all events and extrinsics within the specific chain and allows your node service to skip to relevant locations when indexing rather than inspecting each block.
 
-You can add the dictionary endpoint in your `project.yaml` file (see [Manifest File](../create/manifest.md)), or specify it at run time using the following command:
+You can add the dictionary endpoint in your `project.yaml` file (see [Manifest File](../build/manifest.md)), or specify it at run time using the following command:
 
 <CodeGroup>
 <CodeGroupItem title='Substrate/Polkadot/Polkadot'>
@@ -192,7 +192,7 @@ batchSize:100
 localMode:true
 ```
 
-#### 블록 가져오기 배치 크기 변경
+#### Change the block fetching batch size
 
 ```shell
 subql-node -f your-project-path --batch-size 200
@@ -202,9 +202,9 @@ Result:
 [IndexerManager] fetch block [403, 602]
 ```
 
-인덱서가 체인을 처음 인덱싱할 때 단일 블록을 가져오면 성능이 크게 저하됩니다. 가져오는 블록 수를 조정하기 위해 배치 크기를 늘리면 전체 처리 시간이 줄어듭니다. 현재 기본 배치 크기는 100입니다.
+When the indexer first indexes the chain, fetching single blocks will significantly decrease the performance. Increasing the batch size to adjust the number of blocks fetched will decrease the overall processing time. The current default batch size is 100.
 
-#### Local mode
+#### Run in local mode
 
 <CodeGroup>
 <CodeGroupItem title='Substrate/Polkadot'>
@@ -230,18 +230,18 @@ subql-node-avalanche -f your-project-path --local
 </CodeGroupItem>
 </CodeGroup>
 
-For debugging purposes, users can run the node in local mode. 로컬 모델로 전환하면 기본 스키마 `public`에 Postgres 테이블이 생성됩니다.
+For debugging purposes, users can run the node in local mode. Switching to local model will create Postgres tables in the default schema `public`.
 
-로컬 모드를 사용하지 않는 경우 초기 `subquery_` 및 해당 프로젝트 테이블이 있는 새 Postgres 스키마가 생성됩니다.
+If local mode is not used, a new Postgres schema with the initial `subquery_` and corresponding project tables will be created.
 
-#### 노드 상태 확인
+#### Check your node health
 
-실행 중인 SubQuery 노드의 상태를 확인하고 모니터링하는 데 사용할 수 있는 2개의 엔드포인트가 있습니다.
+There are 2 endpoints that you can use to check and monitor the health of a running SubQuery node.
 
-- 간단한 200 응답을 반환하는 상태 확인 엔드포인트
-- 실행 중인 SubQuery 노드에 대한 추가 분석을 포함하는 메타데이터 엔드포인트
+- Health check endpoint that returns a simple 200 response
+- Metadata endpoint that includes additional analytics of your running SubQuery node
 
-이것을 SubQuery 노드의 기본 URL에 추가합니다. 예를 들어 `http://localhost:3000/meta`는 다음을 반환합니다.
+Append this to the base URL of your SubQuery node. Eg `http://localhost:3000/meta` will return:
 
 ```bash
 {
@@ -264,9 +264,9 @@ For debugging purposes, users can run the node in local mode. 로컬 모델로 �
 }
 ```
 
-`http://localhost:3000/health`는 성공하면 HTTP 200을 반환합니다.
+`http://localhost:3000/health` will return HTTP 200 if successful.
 
-인덱서가 비정상인 경우 오류 500 값이 반환됩니다. 노드가 부팅 중인 과정에서도 종종 볼 수 있습니다.
+A 500 error will be returned if the indexer is not healthy. This can often be seen when the node is booting up.
 
 ```shell
 {
@@ -275,7 +275,7 @@ For debugging purposes, users can run the node in local mode. 로컬 모델로 �
 }
 ```
 
-잘못된 URL을 사용하면 찾을 수 없음 오류 404가 반환됩니다.
+If an incorrect URL is used, a 404 not found error will be returned.
 
 ```shell
 {
@@ -285,42 +285,43 @@ For debugging purposes, users can run the node in local mode. 로컬 모델로 �
 }
 ```
 
-#### 프로젝트 디버그
+#### Debug your project
 
-[노드 검사기](https://nodejs.org/en/docs/guides/debugging-getting-started/)를 사용하여 다음 명령어를 실행하세요.
+Use the [node inspector](https://nodejs.org/en/docs/guides/debugging-getting-started/) to run the following command.
 
 ```shell
 node --inspect-brk <path to subql-node> -f <path to subQuery project>
 ```
 
-예제:
+For example:
 
 ```shell
 node --inspect-brk /usr/local/bin/subql-node -f ~/Code/subQuery/projects/subql-helloworld/
-ws://127.0.0.1:9229/56156753-c07d-4bbe-af2d-2c7ff4bcc5ad에서 수신하는 디버거
-도움이 필요하면 https://nodejs.org/en/docs/inspector를 참조하세요.
+Debugger listening on ws://127.0.0.1:9229/56156753-c07d-4bbe-af2d-2c7ff4bcc5ad
+For help, see: https://nodejs.org/en/docs/inspector
+Debugger attached.
 ```
 
-이후, 크롬 개발자 도구를 통해 Source > Filesystem을 열고, 작업공간에 프로젝트를 추가하고 디버깅을 시작합니다. For more information, check out [How to debug a SubQuery project](https://doc.subquery.network/academy/tutorials_examples/debug-projects/)
+Then open up the Chrome dev tools, go to Source > Filesystem and add your project to the workspace and start debugging. For more information, check out [How to debug a SubQuery project](../academy/tutorials_examples/debug-projects.md)
 
-## 쿼리 서비스 실행(subql/query)
+## Running a Query Service (subql/query)
 
-### 설치
+### Installation
 
 ```shell
 # NPM
 npm install -g @subql/query
 ```
 
-`yarn global`의 사용을 권장하지 **않습니다**. 잘못된 종속성 관리로 인해 오류가 발생할 수 있기 때문입니다.
+Please note that we **DO NOT** encourage the use of `yarn global` due to its poor dependency management which may lead to an errors down the line.
 
-### 쿼리 서비스 실행
+### Running the Query service
 
 ```
 export DB_HOST=localhost
 subql-query --name <project_name> --playground
 ```
 
-[프로젝트를 초기화](../quickstart/quickstart-polkadot.md#initialise-the-starter-subquery-project)할 때 프로젝트 이름이 프로젝트 이름과 동일한지 확인하세요. 또한 환경 변수가 올바른지 확인하십시오.
+Make sure the project name is the same as the project name when you [initialize the project](../quickstart/quickstart.md#_2-initialise-the-subquery-starter-project). Also, check the environment variables are correct.
 
-Subql-query 서비스를 성공적으로 실행한 후 브라우저를 열고 `http://localhost:3000`으로 이동합니다. Explorer에 표시되는 GraphQL 플레이그라운드와 쿼리할 준비가 된 스키마가 표시되어야 합니다.
+After running the subql-query service successfully, open your browser and head to `http://localhost:3000`. You should see a GraphQL playground showing in the Explorer and the schema that is ready to query.
