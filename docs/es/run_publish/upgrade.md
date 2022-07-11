@@ -53,4 +53,4 @@ Una vez que el despliegue se ha completado correctamente y nuestros nodos han in
 
 ![Proyecto en despliegue y sincronización](/assets/img/projects-deploy-sync.png)
 
-Alternativamente, puedes hacer clic en los tres puntos al lado del título de tu proyecto, y verlo en SubQuery Explorer. Allí puedes usar el playground del navegador para empezar - [lee más sobre cómo usar nuestro explorador aquí](../run_publish/query.md).
+Alternativamente, puedes hacer clic en los tres puntos al lado del título de tu proyecto, y verlo en SubQuery Explorer. There you can use the in browser playground to get started - [read more about how to use our Explorer here](../run_publish/query.md).
