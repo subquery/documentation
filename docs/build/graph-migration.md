@@ -13,7 +13,7 @@ Reach out to our team at sales@subquery.network and get professional service to 
 ## Migration Overview
 
 - Both SubGraph and SubQuery use the same `schema.graphql` file to define schema entities. In addition, both have similar sets of supported scalars and entity relationships (SubQuery adds support for JSON types though).
-- The manifest file shows the most differences. But you can easily overcome these differences once you understand them. 
+- The manifest file shows the most differences but you can easily overcome these differences once you understand them. 
 - In addition, Mapping files are also quite similar with an intentionally equivalent set of commands, which are used to access the Graph Node store and the SubQuery Project store.
 
 
