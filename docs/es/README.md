@@ -64,7 +64,7 @@
         <div class="content">
           <p>SubQuery es un proyecto de código abierto que permite a los desarrolladores indexar, transformar y consultar datos en cadena de Substrate para potenciar sus aplicaciones.</p>
           <span class="more">
-            <router-link :to="{path: '/faqs/faqs.html#what-is-subquery'}">LEER MAS</router-link>
+            <router-link :to="{path: '/faqs/faqs.md#what-is-subquery'}">READ MORE</router-link>
           </span>
         </div>
       </li>
@@ -79,7 +79,7 @@
         <div class="content">
           <p>Nos encantan las contribuciones y comentarios de la comunidad. Para contribuir con el código, bifurca el repositorio de interés y realice sus cambios. Luego envíe un PR o Pull Request. ¡Oh, no te olvides del test probar también! Consulte también nuestras directrices de contribuciones (próximamente). </p>
           <span class="more">
-            <router-link :to="{path: '/faqs/faqs.html#how-can-i-contribute-or-give-feedback-to-subquery'}">READ MORE</router-link>
+            <router-link :to="{path: '/faqs/faqs.md#how-can-i-contribute-or-give-feedback-to-subquery'}">READ MORE</router-link>
           </span> 
         </div>
       </li>
@@ -102,7 +102,7 @@
         <h5>¿Integrar con tu cadena personalizada?</h5>
         <p>Ya sea que esté construyendo una nueva cadena de bloques o una cadena de bloques completamente nueva en Substrate - SubQuery puede ayudarle a indexar y solucionar problemas los datos de su cadena. SubQuery está diseñado para integrar fácilmente con una cadena basada en Substrate personalizada.</p>
         <span class="more">
-          <router-link :to="{path: '/build/manifest.html#custom-substrate-and-cosmos-chains'}">LEARN HOW TO INTEGRATE WITH YOUR CHAIN</router-link>
+          <router-link :to="{path: '/build/manifest.md#custom-substrate-and-cosmos-chains'}">LEARN HOW TO INTEGRATE WITH YOUR CHAIN</router-link>
         </span>
     </div>
     <div class="lastIntroduce lastIntroduce_2">
