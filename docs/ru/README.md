@@ -64,7 +64,7 @@
         <div class="content">
           <p>SubQuery - это проект с открытым исходным кодом, который позволяет разработчикам индексировать, преобразовывать и запрашивать данные из Substrate для работы своих приложений.</p>
           <span class="more">
-            <router-link :to="{path: '/faqs/faqs.html#what-is-subquery'}">ПОДРОБНЕЕ</router-link>
+            <router-link :to="{path: '/faqs/faqs.md#what-is-subquery'}">READ MORE</router-link>
           </span>
         </div>
       </li>
@@ -79,7 +79,7 @@
         <div class="content">
           <p>Нам нравится вклад и обратная связь от сообщества. Чтобы внести свой код, форкните интересующий вас репозиторий и внесите свои изменения. Далее отправьте PR или Pull Request. О, не забудьте также протестировать! Также ознакомьтесь с нашими рекомендациями по контрибуции (скоро появятся). </p>
           <span class="more">
-            <router-link :to="{path: '/faqs/faqs.html#how-can-i-contribute-or-give-feedback-to-subquery'}">READ MORE</router-link>
+            <router-link :to="{path: '/faqs/faqs.md#how-can-i-contribute-or-give-feedback-to-subquery'}">READ MORE</router-link>
           </span> 
         </div>
       </li>
@@ -102,7 +102,7 @@
         <h5>Интеграция с вашим кастомным чейном?</h5>
         <p>Создаете ли вы новый парачейн или совершенно новый блокчейн на Substrate - SubQuery поможет вам индексировать и устранять неполадки в данных вашей цепи. SubQuery разработан для легкой интеграции с пользовательской цепочкой на основе субстрата.</p>
         <span class="more">
-          <router-link :to="{path: '/build/manifest.html#custom-substrate-and-cosmos-chains'}">LEARN HOW TO INTEGRATE WITH YOUR CHAIN</router-link>
+          <router-link :to="{path: '/build/manifest.md#custom-substrate-and-cosmos-chains'}">LEARN HOW TO INTEGRATE WITH YOUR CHAIN</router-link>
         </span>
     </div>
     <div class="lastIntroduce lastIntroduce_2">
