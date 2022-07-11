@@ -1,28 +1,28 @@
-# SubQuery Yerel Olarak Çalıştırma
+# Running SubQuery Locally
 
-Bu kılavuz, hem dizinleyiciyi hem de sorgu hizmetini içeren altyapınızda yerel bir SubQuery düğümünün nasıl çalıştırılacağı üzerinde çalışır. Kendi SubQuery altyapınızı çalıştırma konusunda endişelenmek istemiyor musunuz? SubQuery, topluluğa ücretsiz olarak [yönetilen barındırılan bir hizmet](https://explorer.subquery.network) sunar. Projenizi [SubQuery Projects](https://project.subquery.network)'a nasıl yükleyebileceğinizi görmek için [yayın kılavuzumuzu izleyin](../run_publish/publish.md).
+This guide works through how to run a local SubQuery node on your infrastructure, which includes both the indexer and query service. Don't want to worry about running your own SubQuery infrastructure? SubQuery provides a [managed hosted service](https://explorer.subquery.network) to the community for free. [Follow our publishing guide](../run_publish/publish.md) to see how you can upload your project to [SubQuery Projects](https://project.subquery.network).
 
-## Docker'ı kullanma
+## Using Docker
 
-Alternatif bir çözüm, `>docker-compose.yml` dosyası tarafından tanımlanan <strong>Docker Container</strong> çalıştırmaktır. Yeni başlanmış yeni bir proje için burada hiçbir şeyi değiştirmenize gerek kalmayacak.
+An alternative solution is to run a <strong>Docker Container</strong>, defined by the `docker-compose.yml` file. For a new project that has been just initialised you won't need to change anything here.
 
-Proje dizininin altında aşağıdaki komutu çalıştırın:
+Under the project directory run the following command:
 
 ```shell
 docker-compose pull && docker-compose up
 ```
 
-Gerekli paketleri ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query) ve Postgres) ilk kez indirmek biraz zaman alabilir, ancak yakında çalışan bir SubQuery düğümü görürsünüz.
+It may take some time to download the required packages ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), and Postgres) for the first time but soon you'll see a running SubQuery node.
 
-## Dizinleyici çalıştırma (subql/node)
+## Running an Indexer (subql/node)
 
-Gereksinim -leri:
+Requirements:
 
-- [Postgres](https://www.postgresql.org/) database (sürüm 12 veya üstü). [SubQuery node](#start-a-local-subquery-node) blok zincirini dizine alırken, çıkarılan veriler harici bir veritabanı örneğinde depolanır.
+- [Postgres](https://www.postgresql.org/) database (version 12 or higher). While the [SubQuery node](#start-a-local-subquery-node) is indexing the blockchain, the extracted data is stored in an external database instance.
 
-Bir SubQuery düğümü, SubQuery projesi başına Substrate/Polkadot tabanlı blok zinciri verilerini çıkaran ve bir Postgres veritabanına kaydeden bir uygulamadır.
+A SubQuery node is an implementation that extracts Substrate/Polkadot-based blockchain data per the SubQuery project and saves it into a Postgres database.
 
-### Kurma
+### Installation
 
 <CodeGroup>
 <CodeGroupItem title='Substrate/Polkadot'>
@@ -53,10 +53,24 @@ npm install -g @subql/node-avalanche
 
 Please note that we **DO NOT** encourage the use of `yarn global` due to its poor dependency management which may lead to an errors down the line.
 
-Yüklendikten sonra, aşağıdaki komutla bir düğüm başlatabilirsiniz:
+Once installed, you can start a node with the following command:
 
 
-<CodeGroup> </CodeGroupItem>
+<CodeGroup>
+<CodeGroupItem title='Substrate/Polkadot'>
+
+```shell
+subql-node <command>
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Terra'>
+
+```shell
+subql-node-terra <command>
+```
+
+</CodeGroupItem>
 <CodeGroupItem title='Avalanche'>
 
 ```shell
@@ -68,11 +82,25 @@ subql-node-avalanche <command>
 
 ### Key Commands
 
-The following commands will assist you to complete the configuration of a SubQuery node and begin indexing. Daha fazla şey öğrenmek için her zaman `--help` çalıştırabilirsiniz.
+The following commands will assist you to complete the configuration of a SubQuery node and begin indexing. To find out more, you can always run `--help`.
 
-#### Yerel proje yolunun göster
+#### Point to local project path
 
-<CodeGroup> </CodeGroupItem>
+<CodeGroup>
+<CodeGroupItem title='Substrate/Polkadot'>
+
+```shell
+subql-node -f your-project-path
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Terra'>
+
+```shell
+subql-node-terra -f your-project-path
+```
+
+</CodeGroupItem>
 <CodeGroupItem title='Avalanche'>
 
 ```shell
@@ -84,11 +112,11 @@ subql-node-avalanche -f your-project-path
 
 #### Use a Dictionary
 
-Using a full chain dictionary can dramatically speed up the processing of a SubQuery project during testing or during your first index. Bazı durumlarda, dizine ekleme performansında 10 kata kadar artışlar gördük.
+Using a full chain dictionary can dramatically speed up the processing of a SubQuery project during testing or during your first index. In some cases, we've seen indexing performance increases of up to 10x.
 
-Tam zincir sözlüğü, belirli zincir içindeki tüm olayların ve dışsal öğelerin konumunu önceden endeksler ve düğüm hizmetinizin, dizin oluştururken her bloğu incelemek yerine ilgili konumlara atlamasına olanak tanır.
+A full chain dictionary pre-indexes the location of all events and extrinsics within the specific chain and allows your node service to skip to relevant locations when indexing rather than inspecting each block.
 
-Sözlük bitiş noktasını `project.yaml` dosyanıza ekleyebilir (bkz. [Manifest File](../create/manifest.md)) veya aşağıdaki komutu kullanarak çalışma zamanında belirtebilirsiniz:
+You can add the dictionary endpoint in your `project.yaml` file (see [Manifest File](../build/manifest.md)), or specify it at run time using the following command:
 
 <CodeGroup>
 <CodeGroupItem title='Substrate/Polkadot/Polkadot'>
@@ -127,9 +155,9 @@ export DB_PORT=5432
 subql-node -f your-project-path
 ```
 
-Postgres veritabanınızın yapılandırmasına bağlı olarak (ör. farklı bir veritabanı parolası), lütfen hem dizinleyicinin (`subql/node`) hem de sorgu hizmetinin (`subql/query`) ile bağlantı kurabilir.
+Depending on the configuration of your Postgres database (e.g. a different database password), please ensure also that both the indexer (`subql/node`) and the query service (`subql/query`) can establish a connection to it.
 
-#### Yapılandırma dosyası belirtme
+#### Specify a configuration file
 
 <CodeGroup>
 <CodeGroupItem title='Substrate/Polkadot'>
@@ -155,16 +183,16 @@ subql-node-avalanche -c your-project-config.yml
 </CodeGroupItem>
 </CodeGroup>
 
-This will point the query node to a configuration file which can be in YAML or JSON format. Aşağıdaki örneğe göz atın.
+This will point the query node to a configuration file which can be in YAML or JSON format. Check out the example below.
 
 ```yaml
 subquery: ../../../../subql-example/extrinsics
 subqueryName: extrinsics
-partiBoyutu:100
-localMode:doğru
+batchSize:100
+localMode:true
 ```
 
-#### Blok getirme toplu iş boyutunu değiştirme
+#### Change the block fetching batch size
 
 ```shell
 subql-node -f your-project-path --batch-size 200
@@ -174,9 +202,9 @@ Result:
 [IndexerManager] fetch block [403, 602]
 ```
 
-Dizinleyici zinciri ilk dizine aldığında, tek blokları getirmek performansı önemli ölçüde düşürecektir. Getirilen blok sayısını ayarlamak için toplu iş boyutunu artırmak genel işlem süresini azaltır. Geçerli varsayılan toplu iş boyutu 100'dür.
+When the indexer first indexes the chain, fetching single blocks will significantly decrease the performance. Increasing the batch size to adjust the number of blocks fetched will decrease the overall processing time. The current default batch size is 100.
 
-#### Yerel mod
+#### Run in local mode
 
 <CodeGroup>
 <CodeGroupItem title='Substrate/Polkadot'>
@@ -202,18 +230,18 @@ subql-node-avalanche -f your-project-path --local
 </CodeGroupItem>
 </CodeGroup>
 
-For debugging purposes, users can run the node in local mode. Yerel modele geçiş, varsayılan şemada postgres tabloları `public` oluşturur.
+For debugging purposes, users can run the node in local mode. Switching to local model will create Postgres tables in the default schema `public`.
 
-Yerel mod kullanılmazsa, ilk `subquery_` ve karşılık gelen proje tablolarına sahip yeni bir Postgres şeması oluşturulur.
+If local mode is not used, a new Postgres schema with the initial `subquery_` and corresponding project tables will be created.
 
-#### Node sağlığı kontrol ediliyor
+#### Check your node health
 
-Çalışan bir SubQuery node düğümünün durumunu denetlemek ve izlemek için kullanabileceğiniz 2 uç nokta vardır.
+There are 2 endpoints that you can use to check and monitor the health of a running SubQuery node.
 
-- Basit bir 200 yanıtı döndürür sistem durumu denetimi uç noktası
-- Çalışan SubQuery düğümünüzün ek analizlerini içeren meta veri uç noktası
+- Health check endpoint that returns a simple 200 response
+- Metadata endpoint that includes additional analytics of your running SubQuery node
 
-Bunu SubQuery düğümünüzün temel URL'sine ekleyin. Örneğin `http://localhost:3000/meta` geri dönecektir:
+Append this to the base URL of your SubQuery node. Eg `http://localhost:3000/meta` will return:
 
 ```bash
 {
@@ -236,9 +264,9 @@ Bunu SubQuery düğümünüzün temel URL'sine ekleyin. Örneğin `http://localh
 }
 ```
 
-`http://localhost:3000/health` başarılı olursa HTTP 200 döndürür.
+`http://localhost:3000/health` will return HTTP 200 if successful.
 
-Dizin oluşturucu çalışmıyorsa 500 hatası döndürülür. Bu, genellikle node ilk açılırken görülebilen bir hata mesajıdır.
+A 500 error will be returned if the indexer is not healthy. This can often be seen when the node is booting up.
 
 ```shell
 {
@@ -247,7 +275,7 @@ Dizin oluşturucu çalışmıyorsa 500 hatası döndürülür. Bu, genellikle no
 }
 ```
 
-Eğer yanlış bir URL kullanılırsa, geriye bir 404 bulunamadı hatası döndürülür.
+If an incorrect URL is used, a 404 not found error will be returned.
 
 ```shell
 {
@@ -257,15 +285,15 @@ Eğer yanlış bir URL kullanılırsa, geriye bir 404 bulunamadı hatası dönd�
 }
 ```
 
-#### Projenizdeki hataları ayıklayın
+#### Debug your project
 
-Aşağıdaki komutu çalıştırmak için [node inspector](https://nodejs.org/en/docs/guides/debugging-getting-started/) kullanın.
+Use the [node inspector](https://nodejs.org/en/docs/guides/debugging-getting-started/) to run the following command.
 
 ```shell
 node --inspect-brk <path to subql-node> -f <path to subQuery project>
 ```
 
-Mesela:
+For example:
 
 ```shell
 node --inspect-brk /usr/local/bin/subql-node -f ~/Code/subQuery/projects/subql-helloworld/
@@ -274,26 +302,26 @@ For help, see: https://nodejs.org/en/docs/inspector
 Debugger attached.
 ```
 
-Ardından Chrome geliştirme araçlarını açın, Kaynak > Dosya sistemi menüsüne gidin, projenizi çalışma alanına ekleyin ve hataları ayıklamaya başlayın. Daha fazla bilgi için, kontrol edin [Bir SubQuery projesinde nasıl hata ayıklanır](https://doc.subquery.network/academy/tutorials_examples/debug-projects/)
+Then open up the Chrome dev tools, go to Source > Filesystem and add your project to the workspace and start debugging. For more information, check out [How to debug a SubQuery project](../academy/tutorials_examples/debug-projects.md)
 
-## Sorgu Hizmeti Çalıştırma (altql/query)
+## Running a Query Service (subql/query)
 
-### Kurma
+### Installation
 
 ```shell
 # NPM
 npm install -g @subql/query
 ```
 
-Lütfen **YAPAMAZ**, zayıf bağımlılık yönetimi nedeniyle `yarn global` kullanımını teşvik ettiğimizi ve bunun da bir hataya yol açabileceğini unutmayın.
+Please note that we **DO NOT** encourage the use of `yarn global` due to its poor dependency management which may lead to an errors down the line.
 
-### Sorgu Hizmeti Çalıştırma
+### Running the Query service
 
 ```
 export DB_HOST=localhost
 subql-query --name <project_name> --playground
 ```
 
-Projeyi [initialize the project](../quickstart/quickstart-polkadot.md#initialise-the-starter-subquery-project) proje adıyla aynı olduğundan emin olun. Ayrıca, ortam değişkenlerinin doğru olup olmadığını denetleyin.
+Make sure the project name is the same as the project name when you [initialize the project](../quickstart/quickstart.md#_2-initialise-the-subquery-starter-project). Also, check the environment variables are correct.
 
-SubQuery hizmetini başarıyla çalıştırdikten sonra tarayıcınızı açın ve `http://localhost:3000` gidin. Explorer'da ve sorguya hazır şemada gösterilen bir GraphQL oyun alanı görmeniz gerekir.
+After running the subql-query service successfully, open your browser and head to `http://localhost:3000`. You should see a GraphQL playground showing in the Explorer and the schema that is ready to query.
