@@ -1,28 +1,28 @@
-# การรัน SubQuery ภายในเครื่อง
+# Running SubQuery Locally
 
-คู่มือนี้จะศึกษาวิธีการรันโหนด SubQuery บนโครงสร้างพื้นฐานของคุณ ซึ่งรวมถึง indexer และ query service คุณไม่อยากที่จะต้องคอยกังวลเกี่ยวกับการรันโครงสร้างพื้นฐาน SubQuery ของคุณเองใช่หรือไม่? SubQuery ให้บริการ [โฮสต์ที่มีการจัดการ](https://explorer.subquery.network) แก่ชุมชนฟรี ตามไกด์การเผยแพร่ เพื่อแสดงให้เห็นถึงวิธีการอัพโหลด SubQuery Projects
+This guide works through how to run a local SubQuery node on your infrastructure, which includes both the indexer and query service. Don't want to worry about running your own SubQuery infrastructure? SubQuery provides a [managed hosted service](https://explorer.subquery.network) to the community for free. [Follow our publishing guide](../run_publish/publish.md) to see how you can upload your project to [SubQuery Projects](https://project.subquery.network).
 
-## การใช้กับ Docker
+## Using Docker
 
-ทางเลือกหนึ่ง คือการรัน <strong>Docker Container</strong> ซึ่งกำหนดจากไฟล์ `docker-compose.yml` สำหรับโปรเจกต์ใหม่ที่เพิ่งเริ่มต้น คุณไม่จำเป็นต้องเปลี่ยนแปลงอะไรในส่วนนี้
+An alternative solution is to run a <strong>Docker Container</strong>, defined by the `docker-compose.yml` file. For a new project that has been just initialised you won't need to change anything here.
 
-ให้รันคำสั่งต่อไปนี้ ภายใต้ไดเร็กทอรีของโปรเจกต์:
+Under the project directory run the following command:
 
 ```shell
 docker-compose pull && docker-compose up
 ```
 
-อาจใช้เวลาสักครู่ในการดาวน์โหลดแพ็คเกจที่จำเป็น ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query) และ Postgres) ในครั้งแรก แต่ในไม่ช้าคุณจะเห็นการทำงานของโหนด SubQuery
+It may take some time to download the required packages ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), and Postgres) for the first time but soon you'll see a running SubQuery node.
 
-## การรัน Indexer (subql/node)
+## Running an Indexer (subql/node)
 
-สิ่งที่ต้องมี:
+Requirements:
 
-- ฐานข้อมูล [Postgres](https://www.postgresql.org/) (เวอร์ชัน 12 ขึ้นไป) ในขณะที่ [โหนด SubQuery](#start-a-local-subquery-node) กำลังทำการ index บล็อกเชน ข้อมูลที่ออกมาจะถูกเก็บไว้ในอินสแตนซ์ของฐานข้อมูลภายนอก
+- [Postgres](https://www.postgresql.org/) database (version 12 or higher). While the [SubQuery node](#start-a-local-subquery-node) is indexing the blockchain, the extracted data is stored in an external database instance.
 
-โหนดของ SubQuery เป็นการใช้งานที่แยกข้อมูลบล็อกเชนแบบ Substrate/Polkadot ตามโปรเจ็กต์ของ SubQuery และบันทึกลงในฐานข้อมูล Postgres
+A SubQuery node is an implementation that extracts Substrate/Polkadot-based blockchain data per the SubQuery project and saves it into a Postgres database.
 
-### การติดตั้ง
+### Installation
 
 <CodeGroup>
 <CodeGroupItem title='Substrate/Polkadot'>
@@ -51,11 +51,9 @@ npm install -g @subql/node-avalanche
 </CodeGroupItem>
 </CodeGroup>
 
-โปรดทราบว่าเรา ** โปรดอย่า </ 6> ส่งเสริมการใช้งาน ` yarn global </ 7> เนื่องจากการจัดการการพึ่งพาที่ไม่ค่อยดีอาจนำไปสู่ข้อผิดพลาด</p>
+Please note that we **DO NOT** encourage the use of `yarn global` due to its poor dependency management which may lead to an errors down the line.
 
-<p spaces-before="0">เมื่อติดตั้งแล้ว คุณสามารถเริ่มโหนดด้วยคำสั่งต่อไปนี้:</p>
-
-<p spaces-before="0">
+Once installed, you can start a node with the following command:
 
 
 <CodeGroup>
@@ -80,14 +78,13 @@ subql-node-avalanche <command>
 ```
 
 </CodeGroupItem>
-</CodeGroup></p>
+</CodeGroup>
 
-<h3 spaces-before="0">คำสั่งที่สำคัญ</h3>
+### Key Commands
 
-<p spaces-before="0">คำสั่งต่อไปนี้จะช่วยคุณในการกำหนดค่าโหนด SubQuery ให้เสร็จสมบูรณ์และเริ่มสร้างดัชนี
-หากต้องการข้อมูลเพิ่มเติม คุณสามารถรันคำสั่ง <code>--help` ได้ตลอดเวลา</p>
+The following commands will assist you to complete the configuration of a SubQuery node and begin indexing. To find out more, you can always run `--help`.
 
-#### ชี้ไปที่ local path ของโปรเจกต์
+#### Point to local project path
 
 <CodeGroup>
 <CodeGroupItem title='Substrate/Polkadot'>
@@ -113,13 +110,13 @@ subql-node-avalanche -f your-project-path
 </CodeGroupItem>
 </CodeGroup>
 
-#### ใช้พจนานุกรม
+#### Use a Dictionary
 
-การใช้พจนานุกรมเชนแบบเต็มสามารถเร่งการประมวลผลโปรเจ็กต์ SubQuery ได้อย่างมากระหว่างการทดสอบหรือระหว่างดัชนีแรกของคุณ Xpath: /p[10]/CodeGroup File: run. md ในบางกรณี เราพบว่าประสิทธิภาพการจัดทำดัชนีเพิ่มขึ้นถึง 10 เท่า
+Using a full chain dictionary can dramatically speed up the processing of a SubQuery project during testing or during your first index. In some cases, we've seen indexing performance increases of up to 10x.
 
-พจนานุกรมเชนเต็มรูปแบบจัดทำดัชนีล่วงหน้าตำแหน่งของเหตุการณ์และปัจจัยภายนอกทั้งหมดภายในเชนโดยเฉพาะ และช่วยให้บริการโหนดของคุณสามารถข้ามไปยังตำแหน่งที่เกี่ยวข้องเมื่อสร้างดัชนีแทนที่จะตรวจสอบแต่ละบล็อก
+A full chain dictionary pre-indexes the location of all events and extrinsics within the specific chain and allows your node service to skip to relevant locations when indexing rather than inspecting each block.
 
-คุณสามารถเพิ่มจุดสิ้นสุดพจนานุกรมในไฟล์` project.yaml ของคุณ` (ดู[ ไฟล์ Manifest ](../create/manifest.md)) หรือระบุตอนรันไทม์โดยใช้คำสั่งต่อไปนี้:
+You can add the dictionary endpoint in your `project.yaml` file (see [Manifest File](../build/manifest.md)), or specify it at run time using the following command:
 
 <CodeGroup>
 <CodeGroupItem title='Substrate/Polkadot/Polkadot'>
@@ -145,9 +142,9 @@ subql-node-avalanche --network-dictionary=https://api.subquery.network/sq/subque
 </CodeGroupItem>
 </CodeGroup>
 
-[อ่านเพิ่มเติมเกี่ยวกับวิธีการทำงานของพจนานุกรม SubQuery](../academy/tutorials_examples/dictionary.md).
+[Read more about how a SubQuery Dictionary works](../academy/tutorials_examples/dictionary.md).
 
-#### เชื่อมต่อกับฐานข้อมูล
+#### Connect to database
 
 ```shell
 export DB_USER=postgres
@@ -157,11 +154,10 @@ export DB_HOST=localhost
 export DB_PORT=5432
 subql-node -f your-project-path
 ```
- Text XPath: /p[11]/CodeGroup/text
 
-ขึ้นอยู่กับการกำหนดค่าฐานข้อมูล Postgres ของคุณ (เช่นความแตกต่างของฐานข้อมูลรหัสผ่าน) โดยโปรดตรวจสอบให้แน่ใจว่า indexer (`subql/node`) และการบริการ Query (`subql/query`) สามารถเชื่อมต่อกันได้
+Depending on the configuration of your Postgres database (e.g. a different database password), please ensure also that both the indexer (`subql/node`) and the query service (`subql/query`) can establish a connection to it.
 
-#### ระบุไฟล์การกำหนดค่า
+#### Specify a configuration file
 
 <CodeGroup>
 <CodeGroupItem title='Substrate/Polkadot'>
@@ -178,7 +174,16 @@ subql-node-terra -c your-project-config.yml
 ```
 
 </CodeGroupItem>
-<CodeGroupItem title='Avalanche'> ```shell subql-node-avalanche -c your-project-config.yml ดูตัวอย่างด้านล่างต่อไปนี้.
+<CodeGroupItem title='Avalanche'>
+
+```shell
+subql-node-avalanche -c your-project-config.yml
+```
+
+</CodeGroupItem>
+</CodeGroup>
+
+This will point the query node to a configuration file which can be in YAML or JSON format. Check out the example below.
 
 ```yaml
 subquery: ../../../../subql-example/extrinsics
@@ -187,7 +192,7 @@ batchSize:100
 localMode:true
 ```
 
-#### จะเปลี่ยน batch size การ fetch บล็อคเชนได้อย่างไร
+#### Change the block fetching batch size
 
 ```shell
 subql-node -f your-project-path --batch-size 200
@@ -197,9 +202,9 @@ Result:
 [IndexerManager] fetch block [403, 602]
 ```
 
-เมื่อ indexer ทำการ index chain ในครั้งแรก การ fetch ทีละบล็อกจะลดประสิทธิภาพการทำงานลงอย่างมาก การเพิ่ม batch size เพื่อปรับจำนวนบล็อคที่ fetch จะลดเวลาดำเนินการโดยรวมได้ Batch size เริ่มต้นในปัจจุบันคือ 100
+When the indexer first indexes the chain, fetching single blocks will significantly decrease the performance. Increasing the batch size to adjust the number of blocks fetched will decrease the overall processing time. The current default batch size is 100.
 
-#### การรันในโหมด local
+#### Run in local mode
 
 <CodeGroup>
 <CodeGroupItem title='Substrate/Polkadot'>
@@ -225,18 +230,18 @@ subql-node-avalanche -f your-project-path --local
 </CodeGroupItem>
 </CodeGroup>
 
-For debugging purposes, users can run the node in local mode. การเปลี่ยนไปใช้โหมด local จะสร้างตาราง Postgres ใน ` public ` ซึ่งเป็น default schema
+For debugging purposes, users can run the node in local mode. Switching to local model will create Postgres tables in the default schema `public`.
 
-หากไม่ได้ใช้โหมด local, Postgres schema ใหม่ที่มี `subquery_` เริ่มต้นและตารางโปรเจกต์ที่เกี่ยวข้องจะถูกสร้างขึ้น
+If local mode is not used, a new Postgres schema with the initial `subquery_` and corresponding project tables will be created.
 
-#### ตรวจสอบสถานะความสมบูรณ์ของโหนดของคุณ
+#### Check your node health
 
-มีปลายทาง 2 endpoints ที่คุณสามารถใช้ตรวจสอบและมอนิเตอร์ความสมบูรณ์ของโหนด SubQuery ที่ทำงานอยู่
+There are 2 endpoints that you can use to check and monitor the health of a running SubQuery node.
 
-- Health check endpoint ที่ส่งคืนค่า response 200 อย่างง่าย
-- Metadata endpoint ที่รวมการวิเคราะห์เพิ่มเติมเกี่ยวกับโหนด SubQuery ของคุณที่กำลังทำงานอยู่
+- Health check endpoint that returns a simple 200 response
+- Metadata endpoint that includes additional analytics of your running SubQuery node
 
-เพิ่มสิ่งนี้ไปกับ URL พื้นฐานของโหนด SubQuery ของคุณ ตัวอย่างเช่น` http://localhost:3000/meta` จะส่งคืนค่า:
+Append this to the base URL of your SubQuery node. Eg `http://localhost:3000/meta` will return:
 
 ```bash
 {
@@ -259,9 +264,9 @@ For debugging purposes, users can run the node in local mode. การเปล
 }
 ```
 
-`http://localhost:3000/health` จะคืนค่า HTTP 200 ถ้าสำเร็จ
+`http://localhost:3000/health` will return HTTP 200 if successful.
 
-ค่า 500 error จะถูกส่งเมื่อ indexer ไม่สมบูรณ์ ซึ่งมักจะเห็นได้เมื่อโหนดกำลังทำการบูทอัพ
+A 500 error will be returned if the indexer is not healthy. This can often be seen when the node is booting up.
 
 ```shell
 {
@@ -270,7 +275,7 @@ For debugging purposes, users can run the node in local mode. การเปล
 }
 ```
 
-หากใช้ URL ที่ไม่ถูกต้อง ข้อผิดพลาด 404 not found จะถูกส่งกลับมา
+If an incorrect URL is used, a 404 not found error will be returned.
 
 ```shell
 {
@@ -280,15 +285,15 @@ For debugging purposes, users can run the node in local mode. การเปล
 }
 ```
 
-#### การ debug โปรเจกต์ของคุณ
+#### Debug your project
 
-ใช้ [node inspector](https://nodejs.org/en/docs/guides/debugging-getting-started/) เพื่อเรียกใช้คำสั่งต่อไปนี้
+Use the [node inspector](https://nodejs.org/en/docs/guides/debugging-getting-started/) to run the following command.
 
 ```shell
 node --inspect-brk <path to subql-node> -f <path to subQuery project>
 ```
 
-ยกตัวอย่างเช่น:
+For example:
 
 ```shell
 node --inspect-brk /usr/local/bin/subql-node -f ~/Code/subQuery/projects/subql-helloworld/
@@ -297,26 +302,26 @@ For help, see: https://nodejs.org/en/docs/inspector
 Debugger attached.
 ```
 
-จากนั้นเปิดเครื่องมือ Chrome dev ไปที่ Source > Filesystem และเพิ่มโปรเจกต์ของคุณลงในเวิร์กสเปซ แล้วเริ่มการ debug สามารถดูรายละเอียดเพิ่มเติมได้ที่ [วิธีการ debug โปรเจกต์ SubQuery](https://doc.subquery.network/academy/tutorials_examples/debug-projects/)
+Then open up the Chrome dev tools, go to Source > Filesystem and add your project to the workspace and start debugging. For more information, check out [How to debug a SubQuery project](../academy/tutorials_examples/debug-projects.md)
 
-## การรัน Query Service (subql/query)
+## Running a Query Service (subql/query)
 
-### การติดตั้ง
+### Installation
 
 ```shell
 # NPM
 npm install -g @subql/query
 ```
 
-โปรดทราบว่าเรา **ไม่** สนับสนุนให้ใช้ `yarn global` เนื่องจากการจัดการ dependency ที่ไม่ดี ซึ่งอาจนำไปสู่ข้อผิดพลาดได้
+Please note that we **DO NOT** encourage the use of `yarn global` due to its poor dependency management which may lead to an errors down the line.
 
-### การรัน Query service
+### Running the Query service
 
 ```
 export DB_HOST=localhost
 subql-query --name <project_name> --playground
 ```
 
-ตรวจสอบให้แน่ใจว่าชื่อโปรเจกต์นี้ตรงกับชื่อโปรเจกต์เมื่อคุณ [เริ่มต้นโปรเจกต์](../quickstart/quickstart-polkadot.md#initialise-the-starter-subquery-project) ตรวจสอบ environment variables ด้วยว่าถูกต้องหรือไม่
+Make sure the project name is the same as the project name when you [initialize the project](../quickstart/quickstart.md#_2-initialise-the-subquery-starter-project). Also, check the environment variables are correct.
 
-หลังจากรัน service subql-query สำเร็จแล้ว ให้เปิดเบราว์เซอร์ของคุณ แล้วไปที่ `http://localhost:3000` คุณควรเห็น GraphQL playground แสดงใน explorer และ schemas ที่พร้อมสำหรับการ query
+After running the subql-query service successfully, open your browser and head to `http://localhost:3000`. You should see a GraphQL playground showing in the Explorer and the schema that is ready to query.
