@@ -44,9 +44,9 @@ subql init
 
 ::::: peringatan **Untuk Pengguna Cosmos**
 
-Cosmos belum didukung dalam CLI SubQuery (`subql`). Oleh karena itu, jika Anda menggunakan Cosmos, Anda harus mulai dengan klon Juno atau fork [starter project](https://github.com/DeveloperInProgress/juno-subql-starter) ini.
+Cosmos belum didukung dalam CLI SubQuery (`subql`). Hence, if you are using Cosmos, you must start with a Juno clone or fork this [starter project](https://github.com/subquery/cosmos-subql-starter).
 
-Untuk menginisialisasi proyek Anda dengan Cosmos, lihat 4 langkah yang ditunjukkan dalam [link.](https://github.com/subquery/juno-subql-starter#readme) ini. Setelah Anda menyelesaikan 4 langkah ini,, **jump** untuk [Membuat Perubahan pada Proyek Anda](../quickstart/quickstart.html#_3-make-changes-to-your-project) bagian. :::
+Untuk menginisialisasi proyek Anda dengan Cosmos, lihat 4 langkah yang ditunjukkan dalam [link.](https://github.com/subquery/juno-subql-starter#readme) ini. Once you complete these 4 steps, **jump** to the [Make Changes to Your Project](../quickstart/quickstart.md#_3-make-changes-to-your-project) section. :::
 
 Anda akan ditanyai pertanyaan tertentu saat Anda melanjutkan perjalanan:
 
