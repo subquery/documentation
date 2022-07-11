@@ -26,4 +26,4 @@ SubQuery는 안전하지 않은 모드일 때 다음 집계 함수를 제공합�
 
 SubQuery의 집계 함수 구현은 [pg-aggregates](https://github.com/graphile/pg-aggregates)를 기반으로 합니다. 자세한 정보는 여기에서 찾을 수 있습니다.
 
-**이러한 기능을 사용하려면 쿼리 서비스에서 `--unsafe` 플래그를 활성화해야 합니다. [Read more](./references.md#unsafe-2). `--unsafe` 명령은 프로젝트가 SubQuery 네트워크에서 실행되는 것을 방지하며 이 명령을 SubQuery의 관리 서비스([project.subquery.network](https://project.subquery.network))에서 프로젝트와 함께 실행하려면 지원팀에 문의해야 합니다.**
+**이러한 기능을 사용하려면 쿼리 서비스에서 `--unsafe` 플래그를 활성화해야 합니다. [Read more](./references.md#unsafe-2). Note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in [SubQuery's managed service](https://project.subquery.network))**
