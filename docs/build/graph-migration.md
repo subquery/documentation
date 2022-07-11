@@ -1,57 +1,60 @@
 # Migrating from The Graph
 
-When we set out to build SubQuery, we always planned to make the develoer experience as close as possible to other indexing solutions out there in the market, including The Graph.
+When we set out to build SubQuery, we always planned to make the developer experience as close as possible to other indexing solutions out there in the market, including The Graph.
 
-This means that migration from a SubGraph to a SubQuery Project is (by design) easy and extremely quick. In fact, it should only take you an hour or two to migrate depending on the complexity of your SubGraph.
+The migration from a SubGraph to a SubQuery Project is (by design) easy and quick. It may take you an hour or two to complete the migration, depending on the complexity of your SubGraph.
 
-::: info Want support?
+::: info Want Support During Migration?
 
-Reach out to our team at sales@subquery.network if you would like support during your migration, including the help of our professional services to manage the migration for you.
+Reach out to our team at sales@subquery.network and get professional service to manage the migration for you.
 
 :::
 
 ## Migration Overview
 
-At a high level the three main steps when creating a SubGraph/SubQuery Project are largely identical:
+- Both SubGraph and SubQuery use the same `schema.graphql` file to define schema entities. In addition, both have similar sets of supported scalars and entity relationships (SubQuery adds support for JSON types though).
+- The manifest file shows the most differences. But you can easily overcome these differences once you understand them. 
+- In addition, Mapping files are also quite similar with an intentionally equivalent set of commands, which are used to access the Graph Node store and the SubQuery Project store.
 
-- Both use the same `schema.graphql` file to define schema entities and have similar sets of supported scalars and entity relationships (SubQuery adds support for JSON types though)
-- The manifest file has the largest set of differences, but once you understand those they can be easily overcome.
-- Mapping files are also extremely similar with a intentionally equivalent set of commands to access the Graph Node store and the SubQuery Project store.
 
 ## GraphQL Schema
 
-Both SubGraphs and SubQuery projects use the same `schema.graphql` to define entities. you can see the [full documentation for this file here](./graphql.md). **In most cases you will be able to copy this file over from your SubGraph to your SubQuery project.**
+Both SubGraphs and SubQuery projects use the same `schema.graphql` to define entities. 
+
+Visit this [full documentation for `schema.graphql`](./graphql.md). **You can copy this file from your SubGraph to your SubQuery project in most cases.**
+
 
 Notable differences include:
 
 - SubQuery does not have support for `Bytes` (use `String` instead) and `BigDecimal` (use `Float` instead).
 - SubQuery has the additional scalar types of `Float`, `Date`, and `JSON` (see [JSON type](./graphql.md#json-type)).
 - Comments are added to SubQuery Project GraphQL files using hashes (`#`).
-- SubQuery does not yet support fulltext search.
+- SubQuery does not yet support full-text search.
 
 ## Manifest File
 
-The manifest file has the largest set of differences, but once you understand those they can be easily overcome. Most of these changes are due to the layout of this file, you can see the [full documentation of this file here](./manifest.md).
+The manifest file contains the largest set of differences, but once you understand those they can be easily overcome. Most of these changes are due to the layout of this file, you can see the [full documentation of this file here](./manifest.md).
 
-Notable differences include:
 
-- SubQuery has a section in the manifest for the `network:`, this is where you define what network your SubQuery project indexes, and the RPC endpoints (non-pruned archive nodes) that it connects to in order to retrieve data. Where possible, make sure that you include the `dictionary:` endpoint in this section as it will rapidly speed up the indexing speed of your SubQuery project.
+**Notable differences include:**
+
+- SubQuery has a section in the manifest for the `network:`. This is where you define what network your SubQuery project indexes, and the RPC endpoints (non-pruned archive nodes) that it connects to in order to retrieve the data. Make sure to include the `dictionary:` endpoint in this section as it will speed up the indexing speed of your SubQuery project.
 
 ![Difference between a SubGraph and a SubQuery project](/assets/img/subgraph-manifest-1.png)
 
 - Both SubGraphs and SubQuery projects use the `dataSources:` section to list the mapping files.
 - Similarly, you can define the contract ABI information for the smart contract that you are indexing.
-  - In SubQuery this is under the `options:` property rather than `source:`.
-  - In both, you import a custom ABI spec that is used by the processor to parse arguments. For SubGraphs this is done within the `mapping:` section under `abis:`. For a SubQuery project this is at the same level of `options:` under `assets:` and the key is the name of the ABI.
-
+  - In SubQuery, this is under the `options:` property rather than `source:`.
+  - In both, SubQuery and SubGraph, you import a custom ABI spec that is used by the processor to parse arguments. For SubGraphs, this is done within the `mapping:` section under `abis:`. For a SubQuery project, this is at the same level of `options:` under `assets:` and the key is the name of the ABI.
 ![Difference between a SubGraph and a SubQuery project](/assets/img/subgraph-manifest-2.png)
 
 - In a SubQuery project, you can document both block handlers, call handlers, and event handlers in the same `mapping:` object.
-- In a SubQuery project, you do not list all mapping entites in the project manifest.
+- In a SubQuery project, you do not list all mapping entities in the project manifest.
 - Handlers and Filters - Each mapping function is defined slightly differently in a SubQuery project:
-  - Instead of listing the blocks/events/calls as the key and then denoting the handler that processes it, in SubQuery you define the handler as the key and then what follows is the description of how this handler is triggered.
+  - Instead of listing the blocks/events/calls as the key and then denoting the handler that processes it. In SubQuery, you define the handler as the key and then what follows is the description of how this handler is triggered.
+
   - In a SubQuery project, you can document both block handlers, call handlers, and event handlers in the same `mapping:` object, the `kind:` property notes what type we are using
-  - SubQuery support advanced filtering on the handler. The format of what filter is supported varies between block/events/calls/transactions, and between the different blockchain networks. You should consult the [documentation for the description of each filter](./manifest.md#mapping-handlers-and-filters).
+  - SubQuery supports advanced filtering on the handler. The format of the supported filter varies amongst block/events/calls/transactions, and between the different blockchain networks. You should refer to the [documentation for a detailed description of each filter](./manifest.md#mapping-handlers-and-filters).
 
 ![Difference between a SubGraph and a SubQuery project](/assets/img/subgraph-manifest-3.png)
 
@@ -115,7 +118,7 @@ runner:
   query:
     name: "@subql/query"
     version: "*"
-description: "This project can be use as a starting point for developing your new Avalanche SubQuery project"
+description: "This project can be used as a starting point for developing your new Avalanche SubQuery project"
 repository: "https://github.com/subquery/avalanche-subql-starter"
 
 schema:
@@ -166,11 +169,12 @@ dataSources:
 
 ## Mapping
 
-Mapping files are also extremely similar with a intentionally equivalent set of commands to access the Graph Node store and the SubQuery Project store.
+Mapping files are also quite identical to an intentionally equivalent set of commands, which are used to access the Graph Node store and the SubQuery Project store.
 
-In SubQuery, all mapping handler receive a typed parameter that depends on the hander that calls it, for example an `avalanche/LogHandler` will recieve a parameter of type `AvalancheLog` and `substrate/EventHandler` will recieve a parameter of type `SubstrateEvent`.
+In SubQuery, all mapping handlers receive a typed parameter that depends on the handler that calls it. For example, an `avalanche/LogHandler` will receive a parameter of type `AvalancheLog` and `substrate/EventHandler` will receive a parameter of type `SubstrateEvent`.
 
-The functions are defined the same way, and entities can be instantiated, retrieved, saved, and deleted from the SubQuery store in a similar way.
+The functions are defined the same way. Moreover, entities can be instantiated, retrieved, saved, and deleted from the SubQuery store in a similar way as well.
+
 
 ![Difference between a SubGraph and a SubQuery project](/assets/img/subgraph-mapping.png)
 
@@ -225,9 +229,9 @@ export async function handleUnlockAttackNFTs(
 
 ::::
 
-## Whats Next
+## What's Next?
 
-Now that you have a clear understanding of how to build a basic SubQuery project, what are the next steps of your journey?.
+Now that you have a clear understanding of how to build a basic SubQuery project, what are the next steps of your journey?
 
 Now, you can easily publish your project. SubQuery provides a free managed service where you can deploy your new project. You can deploy it to [SubQuery Projects](https://project.subquery.network) and query it using our [Explorer](https://explorer.subquery.network). Read this complete guide on how to [publish your new project to SubQuery Projects](../../run_publish/publish.md).
 
@@ -239,8 +243,8 @@ In the end, if you want to explore more ways to run and publish your project, re
 
 ## Summary
 
-As you can clearly see, it's only a small amount of work to migrate your SubGraphs to SubQuery. Once completed, you can take advantage of SubQuery's absolute performance, allowing you to iterate and deliver faster with extremely fast sync times and indexing optimisations to ensure that you always have fresh data.
+As you can clearly see, it's only a small amount of work to migrate your SubGraphs to SubQuery. Once completed, you can take advantage of SubQuery's absolute performance. Now, start iterating and delivering faster with quicker sync times and indexing optimisations to ensure that you always have fresh data.
 
-Additionally, SubQuery is multi-chain by design, the same project can easily extend across chains and the SubQuery Network supports them all. Indexing across different chains is incredibly easy with SubQuery's unified design.
+Moreover, SubQuery is multi-chain by design. Hence, the same project can be easily extended across chains and the SubQuery Network supports them all. Indexing across different chains is incredibly easy with SubQuery's unified design.
 
-Finally, we're right behind you. Thousands of supporters and builders on our [Discord server](https://discord.com/invite/subquery) can provide you the technical support that you need. Additionally, please reach out via support@subquery.network, we'd love to chat, hear what you're building, and work with you to make your migration easier.
+Finally, be assured that we're right behind you. Thousands of supporters and builders on our [Discord server](https://discord.com/invite/subquery) can provide you with the technical support that you need. Additionally, please reach out via support@subquery.network, we'd love to chat, hear what you're building, and work with you to make your migration easier.
