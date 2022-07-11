@@ -53,4 +53,4 @@ Une fois que votre déploiement a été effectué avec succès et que nos nœuds
 
 ![Projet en cours de déploiement et de synchronisation](/assets/img/projects-deploy-sync.png)
 
-Vous pouvez également cliquer sur les trois points situés à côté du titre de votre projet, et le visualiser dans l'explorateur de SubQuery. There you can use the in browser playground to get started - [read more about how to user our Explorer here](../run_publish/query.md).
+Vous pouvez également cliquer sur les trois points situés à côté du titre de votre projet, et le visualiser dans l'explorateur de SubQuery. There you can use the in browser playground to get started - [read more about how to use our Explorer here](../run_publish/query.md).
