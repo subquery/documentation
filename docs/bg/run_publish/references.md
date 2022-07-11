@@ -1,4 +1,4 @@
-# Флагове на командния ред
+# Command Line Flags
 
 ## subql (cli)
 
@@ -7,39 +7,39 @@
 ```shell
 > subql --help
 
-Команди
-  build     Изграждане на SubQuery кода
-  codegen  Генериране на схеми за graph node
-  help      десплей помощ за subql
-  init      инициализиране на scaffold subquery проект
-  migrate   мигриране на Subquery project манифеста v0.0.1 към v0.2.0
-  publish   ъплоад на проекта SubQuery към IPFS
-  validate  проверете папка или github репо дали проект е валидиран
+COMMANDS
+  build     Build this SubQuery project code
+  codegen   Generate schemas for graph node
+  help      display help for subql
+  init      Initialize a scaffold subquery project
+  migrate   Migrate Subquery project manifest v0.0.1 to v0.2.0
+  publish   Upload this SubQuery project to IPFS
+  validate  Check a folder or github repo is a validate subquery project
 ```
 
-### изграждане
+### build
 
-Тази команда използва webpack за създаване на пакет за проекта subquery.
+This command is uses webpack to generate a bundle of a subquery project.
 
-| Опции              | Описание                                                                                                   |
+| Options            | Описание                                                                                                   |
 | ------------------ | ---------------------------------------------------------------------------------------------------------- |
-| -l, --location     | локална папка на проекта subquery (ако все още не сте в папка)                                             |
-| -o, --output       | посочете изходната папка на build например build-folder                                                    |
+| -l, --location     | local folder of subquery project (if not in folder already)                                                |
+| -o, --output       | specify output folder of build e.g. build-folder                                                           |
 | --mode=(production | prod                                                        | development | dev) | [ default: production ] |
 
-- С помощта на `subql build` можете да посочите допълнителни входни точки в полето за експортиране, въпреки че то постоянно ще се изгражда `index.ts` автоматично
+- With `subql build` you can specify additional entry points in exports field although it will always build `index.ts` automatically
 
-- Трябва да притежавате версия @subql/cli v0.19.0 или по-висока за да използвате полето за експортране.
+- You need to have @subql/cli v0.19.0 or above to use exports field.
 
-- Всяко поле `exports` трябва да съответства на типа (напр. `"entry": "./src/file.ts"`), или ще бъде игнорирано при изграждането.
+- Any `exports` field must map to string type (e.g. `"entry": "./src/file.ts"`), else it will be ignored from build.
 
-[Futher example](https://doc.subquery.network/create/introduction/#build).
+[Futher example](../build/introduction.md#build).
 
 ## subql-node
 
 ### --help
 
-Тук са показани опциите за помощ.
+This shows the help options.
 
 ```shell
 > subql-node --help
@@ -87,7 +87,7 @@ Options:
 
 ### --version
 
-Това показва текущата версия.
+This displays the current version.
 
 ```shell
 > subql-node --version
@@ -96,16 +96,16 @@ Options:
 
 ### -f, --subquery
 
-Използвайте този флаг, за да стартирате проекта SubQuery.
+Use this flag to start the SubQuery project.
 
 ```shell
 subql-node -f . // OR
 subql-node --subquery .
 ```
 
-### --subquery-име (отхвърлено)
+### --subquery-name (deprecated)
 
-Този флаг ви позволява да посочите име за вашия проект, което действа по начин, пресъздаващ екземпляр на вашия проект. След предоставяне на ново име се създава нова схема на базата данни и синхронизирането на блокове започва от нула. Остарял в полза на `--db-schema`
+This flag allows you to provide a name for your project which acts as if it creates an instance of your project. Upon providing a new name, a new database schema is created and block synchronisation starts from zero. Deprecated in favour of `--db-schema`
 
 ```shell
 subql-node -f . --subquery-name=test2
@@ -113,17 +113,17 @@ subql-node -f . --subquery-name=test2
 
 ### -c, --config
 
-Всички тези различни конфигурации могат да бъдат позиционирани във файла .yml или .json, към който ще препращат след това чрез конфигурационен флаг.
+All these various configurations can be placed into a .yml or .json file and then referenced with the config flag.
 
-Пример на subquery_config.yml файл:
+Sample subquery_config.yml file:
 
 ```shell
-subquery: . // Mandatory. Това е локалният път на проекта. Точката тук означава текущата локална директория.
-subqueryName: hello // Име по избор
-batchSize: 55 // Незадължителна конфигурация
+subquery: . // Mandatory. This is the local path of the project. The period here means the current local directory.
+subqueryName: hello // Optional name
+batchSize: 55 // Optional config
 ```
 
-Поставете този файл в същата директория, в която се намира и проекта. След това в текущата директория на проекта стартирайте:
+Place this file in the same directory as the project. Then in the current project directory, run:
 
 ```shell
 > subql-node -c ./subquery_config.yml
@@ -131,44 +131,44 @@ batchSize: 55 // Незадължителна конфигурация
 
 ### --local (deprecated)
 
-Този флаг се използва главно за отстраняване на грешки или бъгове, като създава таблица starter_entity таблица по подразбиране в стандартната схема "postgres".
+This flag is primarily used for debugging purposes where it creates the default starter_entity table in the default "postgres" schema.
 
 ```shell
 subql-node -f . --local
 ```
 
-Имайте предвид, че след като използвате този флаг, премахването му няма да означава, че той ще насочва към друга база данни. За да насочите към друга база данни, ще трябва да създадете НОВА база данни и да промените настройките на env към тази нова база данни. С други думу, "export DB_DATABASE=<new_db_here>"
+Note that once you use this flag, removing it won't mean that it will point to another database. To repoint to another database you will have to create a NEW database and change the env settings to this new database. In other words, "export DB_DATABASE=<new_db_here>"
 
 ### --force-clean
 
-Този флаг принуждава схемите и таблиците на проекта да се опресняват, което е полезно при итеративното проектиране на graphql схеми по такъв начин, че новите стартирания на проекта винаги да работят с обновено състояние. Имайте предвид, че този флаг също така ще изтрие всички индексирани данни.
+This flag forces the project schemas and tables to be regenerated, helpful to use when iteratively developing graphql schemas such that new runs of the project are always working with a clean state. Note that this flag will also wipe all indexed data.
 
 ### --db-schema
 
-Този флаг ви позволява да посочите име за схемата на базата данни за проекта. След предоставяне на ново име създава се нова схема на базата данни с това име и започва индексирането на блокове.
+This flag allows you to provide a name for the project database schema. Upon providing a new name, a new database schema is created with the configured name and block indexing starts.
 
 ```shell
 subql-node -f . --db-schema=test2
 ```
 
 ### --subscription
-Това ще създаде тригер за уведомяване за обект, това също е предпоставка за активиране на функцията за абонамент в услугата за заявки.
+This will create a notification trigger on entity, this also is the prerequisite to enable subscription feature in query service.
 
 ### --unsafe
 
-Проектите SubQuery обикновено се стартират в изолирана среда javascript, спазвайки изискванията за сигурност, за да се ограничи достъп на проекта към вашата система. Sandbox ограничава наличния импорт на javascript към следните модули:
+SubQuery Projects are usually run in a javascript sandbox for security to limit the scope of access the project has to your system. The sandbox limits the available javascript imports to the following modules:
 
 ```javascript
 ["assert", "buffer", "crypto", "util", "path"];
 ```
 
-Въпреки че това повишава сигурността, ние разбираме също така, че се ограничава наличната функционалност на вашата SubQuery. Командата `--unsafe` импортира всички javascript модули по подразбиране, което значително увеличава sandbox функционалността за сметка намаляването нивото на сигурност.
+Although this enhances security we understand that this limits the available functionality of your SubQuery. The `--unsafe` command imports all default javascript modules which greatly increases sandbox functionality with the tradeoff of decreased security.
 
 **Обърнете внимание, че командата `--unsafe` ще попречи на вашия проект да се изпълнява в SubQuery мрежата и трябва да се свържете с поддръжката, ако искате тази команда да се изпълнява с вашия проект в управляваната услуга на SubQuery ([project.subquery.network](https://project.subquery.network))**
 
 ### --batch-size
 
-Този флаг ви позволява да зададете размера на партидата в командния ред. Ако размерът на партидата е зададен и в конфигурационния файл, това има решение.
+This flag allows you to set the batch size in the command line. If batch size is also set in the config file, this takes precedent.
 
 ```shell
 > subql-node -f . --batch-size=20
@@ -180,15 +180,15 @@ subql-node -f . --db-schema=test2
 
 ### --scale-batch-size
 
-Мащабирайте размера на патидата за вземане въз основа на използването на паметта
+Scale the block fetch batch size with memory usage
 
 ### --timeout
 
-Задайте персонализирано време за изчакване javascript Sandbox за изпълнение на функции за картографиране след блока, преди функцията за картографиране на блокове да изиска тайм-аут изключение
+Set custom timeout for the javascript sandbox to execute mapping functions over a block before the block mapping function throws a timeout exception
 
 ### --debug
 
-Това извежда информация за отстраняване на грешки към изхода на конзолата и принудително активира нивото на регистрационния файл за отстраняване на грешки.
+This outputs debug information to the console output and forcefully sets the log level to debug.
 
 ```shell
 > subql-node -f . --debug
@@ -199,7 +199,7 @@ subql-node -f . --db-schema=test2
 
 ### --profiler
 
-Тук се показва информацията за профила.
+This shows profiler information.
 
 ```shell
 subql-node -f . --local --profiler
@@ -211,24 +211,24 @@ subql-node -f . --local --profiler
 
 ### --network-endpoint
 
-Този флаг позволява на потребителите да заменят конфигурацията на крайната точка на мрежата от файла на манифеста.
+This flag allows users to override the network endpoint configuration from the manifest file.
 
 ```shell
 subql-node -f . --network-endpoint="wss://polkadot.api.onfinality.io/public-ws"
 ```
 
-Имайте предвид, че това също трябва да бъде зададено във файла на манифеста, в противен случай ще получите:
+Note that this must also be set in the manifest file, otherwise you'll get:
 
 ```shell
 ERROR Create Subquery project from given path failed! Error: failed to parse project.yaml.
-Пример на ProjectManifestImpl не е преминал валидирането:
+An instance of ProjectManifestImpl has failed the validation:
  - property network has failed the following constraints: isObject
  - property network.network has failed the following constraints: nestedValidation
 ```
 
 ### --output-fmt
 
-Има два различни изходни формата на терминала. JSON or colored. Colored е значение по подразбиране и съдържа цветен текст.
+There are two different terminal output formats. JSON or colored. Colored is the default and contains colored text.
 
 ```shell
 > subql-node -f . --output-fmt=json
@@ -245,7 +245,7 @@ ERROR Create Subquery project from given path failed! Error: failed to parse pro
 
 ### --log-level
 
-Има 7 възможности за избор. “fatal”, “error”, “warn”, “info”, “debug”, “trace”, “silent”. Примерът по-долу показва безшумния режим. Нищо няма да бъде отпечатано в терминала, така че единственият начин да се определи дали дадена нода работи или не е да се направи заявка в базата данни за броя на редовете (select count(\*) from subquery_1.starter_entities) или да се поиска височината на блока.
+There are 7 options to choose from. “fatal”, “error”, “warn”, “info”, “debug”, “trace”, “silent”. The example below shows silent. Nothing will be printed in the terminal so the only way to tell if the node is working or not is to query the database for row count (select count(\*) from subquery_1.starter_entities) or query the block height.
 
 ```shell
 > subql-node -f . --log-level=silent
@@ -259,37 +259,37 @@ ERROR Create Subquery project from given path failed! Error: failed to parse pro
 (node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
 (node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
 (node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
-(node:24686) [DEP0152] DeprecationWarning: Custom PerformanceEntry accessors are deprecated. Моля, използвайте свойството detail.
-(node:24686) [PINODEP007] Предупреждение: bindings.level е отхвърлен, вместо това използвайте опцията options.level
+(node:24686) [DEP0152] DeprecationWarning: Custom PerformanceEntry accessors are deprecated. Please use the detail property.
+(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
 ```
 
 <!-- ### --migrate TBA -->
 
 ### --timestamp-field
 
-По подразбиране тази стойност е true. когато е зададено значение false:
+By default this is true. when set to false with:
 
 ```shell
 > subql-node -f . –timestamp-field=false
 ```
 
-Това премахва колоните created_at и updated_at в таблицата starter_entities.
+This removes the created_at and updated_at columns in the starter_entities table.
 
 ### -d, --network-dictionary
 
-Това ви позволява да посочите крайна точка на речника, безплатна услуга, която се предоставя и разполага на:[https://explorer.subquery.network/](https://explorer.subquery.network/) (search for dictionary) и представлява крайната точка на API: https://api.subquery.network/sq/subquery/dictionary-polkadot
+This allows you to specify a dictionary endpoint which is a free service that is provided and hosted at SubQuery's [Project Explorer](https://explorer.subquery.network/) (search for dictionary) and presents an API endpoint of: https://api.subquery.network/sq/subquery/dictionary-polkadot
 
-Обикновено това ще бъде зададено във вашия манифест файл, по-долу е показан пример за използването му като аргумент в командния ред.
+Typically this would be set in your manifest file but below shows an example of using it as an argument in the command line.
 
 ```shell
 subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot"
 ```
 
-[Прочетете повече за това как работи SubQuery Dictionary](../academy/tutorials_examples/dictionary.md).
+[Read more about how a SubQuery Dictionary works](../academy/tutorials_examples/dictionary.md).
 
 ### -p, --port
 
-Портът, към който е свързана услугата за индексиране subquery. По подразбиране тази стойност е`3000`
+The port the subquery indexing service binds to. By default this is set to `3000`
 
 ### --disable-historical
 
@@ -299,7 +299,7 @@ Disables automated historical state tracking, [see Historic State Tracking](./hi
 
 ### --help
 
-Тук са показани опциите за помощ.
+This shows the help options.
 
 ```shell
 Options:
@@ -324,7 +324,7 @@ Options:
 
 ### --version
 
-Това показва текущата версия.
+This displays the current version.
 
 ```shell
 > subql-query --version
@@ -333,43 +333,43 @@ Options:
 
 ### -n, --name
 
-Този флаг се използва за стартиране на услуга за заявки. Ако --subquery-name флагът не се предоставя при стартирането на индексатора, името тук ще се отнася до името на проекта по подразбиране. Ако --subquery-name е указано, тогава името тук трябва да съответства на зададеното.
+This flag is used to start the query service. If the --subquery-name flag is not provided when running an indexer, the name here will refer to the default project name. If --subquery-name is set, then the name here should match what was set.
 
 ```shell
-> subql-node -f . // --subquery-не е установено
+> subql-node -f . // --subquery-name not set
 
-> subql-query -n subql-helloworld  --playground // името по подразбиране е името на директорията на проекта
+> subql-query -n subql-helloworld  --playground // the name defaults to the project directory name
 ```
 
 ```shell
 > subql-node -f . --subquery-name=hiworld // --subquery-name set
 
-> subql-query -n hiworld --playground  //името му показва  subql-helloworld но с името hiworld
+> subql-query -n hiworld --playground  // the name points to the subql-helloworld project but with the name of hiworld
 ```
 
 ### --playground
 
-Този флаг активира graphql playground затова винаги трябва да бъде включен по подразбиране, за да бъде използван.
+This flag enables the graphql playground so should always be included by default to be of any use.
 
 ### --output-fmt
 
-See [--output-fmt](https://doc.subquery.network/run_publish/references.html#output-fmt)
+See [--output-fmt](https://doc.subquery.network/run_publish/references.md#output-fmt)
 
 ### --log-level
 
-See [--log-level](https://doc.subquery.network/run_publish/references.html#log-level)
+See [--log-level](https://doc.subquery.network/run_publish/references.md#log-level)
 
 ### --log-path
 
-Активирайте регистрирането на файлове, като посочите пътя на файла за логване
+Enable file logging by providing a path to a file to log to
 
 ### --log-rotate
 
-Активирайте ротацията на лог файла със зададени опции за ротационен интервал на 1 ден, максимум 7 файла и с максимален размер на файла 1 Gb
+Enable file log rotations with the options of a 1d rotation interval, a maximum of 7 files and with a max file size of 1GB
 
 ### --indexer
 
-Задайте персонализиран Url адрес за местоположението на крайните точки на индексите, услугата за заявки използва тези крайни точки, за да определи работоспособността на индексатора, метаданните и състоянието на готовност
+Set a custom url for the location of the endpoints of the indexer, the query service uses these endpoints for indexer health, metadata and readiness status
 
 ### --subscription
 
@@ -377,14 +377,14 @@ This flag enables [GraphQL Subscriptions](./subscription.md), to enable this fea
 
 ### --unsafe
 
-Услугата за заявки има ограничение от 100 обекта за неограничени заявки graphql. Флагът unsafe премахва това ограничение, което може да причини проблеми с производителността на услугата за заявки. Вместо това се препоръчва заявките да бъдат [разделени на страници](https://graphql.org/learn/pagination/).
+The query service has a limit of 100 entities for unbounded graphql queries. The unsafe flag removes this limit which may cause performance issues on the query service. It is recommended instead that queries are [paginated](https://graphql.org/learn/pagination/).
 
 This flag enables certain aggregation functions including sum, max, avg and others. Read more about this feature [here](./aggregate.md)
 
-Те са деактивирани по подразбиране поради ограничение на обекта.
+These are disabled by default due to the entity limit.
 
-**Моля, обърнете внимание, че отборът `--опасни` ще попречи на стартирането на проекта в мрежата на подзаявки, и вие трябва да се свържете с поддръжката, ако искате, за тази команда се изпълнява с вашия проект в управлявана услуга subquery [project.subquery.network](https://project.subquery.network).**
+**Note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in [SubQuery's Managed Services](https://project.subquery.network).**
 
 ### --port
 
-Портът, към който е свързана услугата за заявки за подзаявка. По подразбиране тази стойност е`3000`
+The port the subquery query service binds to. By default this is set to `3000`
