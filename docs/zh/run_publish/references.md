@@ -1,4 +1,4 @@
-# 命令行参数
+# Command Line Flags
 
 ## subql (cli)
 
@@ -19,27 +19,27 @@ COMMANDS
 
 ### build
 
-此命令使用 webpack 生成subquery项目的捆绑包。
+This command is uses webpack to generate a bundle of a subquery project.
 
-| 选项                 | 描述                                              |
-| ------------------ | ----------------------------------------------- |
-| -l, --location     | subquery项目的本地文件夹(如果没有在文件夹中)                     |
-| -o, --output       | 指定构建的输出文件夹，例如：build-folder                      |
-| --mode=(production | prod | development | dev) | [ 默认 ︰ production ] |
+| Options            | 描述                                                                                                         |
+| ------------------ | ---------------------------------------------------------------------------------------------------------- |
+| -l, --location     | local folder of subquery project (if not in folder already)                                                |
+| -o, --output       | specify output folder of build e.g. build-folder                                                           |
+| --mode=(production | prod                                                        | development | dev) | [ default: production ] |
 
-- 用`subql build`命令，您可以在exports字段中指定额外的入口点，尽管它总是会自动构建 < 0 >index.ts < / 0 >
+- With `subql build` you can specify additional entry points in exports field although it will always build `index.ts` automatically
 
-- 您需要有 @subql/cli v0.19.0 或更高版本才能使用exports字段。
+- You need to have @subql/cli v0.19.0 or above to use exports field.
 
-- 任何`exports` 字段必须映射到字符串类型(例如， `"entry": "./src/file.ts"`)，否则它将被从构建中忽略。
+- Any `exports` field must map to string type (e.g. `"entry": "./src/file.ts"`), else it will be ignored from build.
 
-更多的示例
+[Futher example](../build/introduction.md#build).
 
 ## subql-node
 
 ### --help
 
-输入该命令行将显示帮助选项。
+This shows the help options.
 
 ```shell
 > subql-node --help
@@ -59,7 +59,8 @@ Options:
       --scale-batch-size    scale batch size based on memory usage
                                                       [boolean] [default: false]
       --timeout             Timeout for indexer sandbox to execute the mapping
-                            functions                                   [number] will
+                            functions                                   [number]
+      --debug               Show debug information to console output. will
                             forcefully set log level to debug
                                                       [boolean] [default: false]
       --profiler            Show profiler information to console output
@@ -86,7 +87,7 @@ Options:
 
 ### --version
 
-这将显示当前版本。
+This displays the current version.
 
 ```shell
 > subql-node --version
@@ -95,16 +96,16 @@ Options:
 
 ### -f, --subquery
 
-使用此标志启动SubQuery项目。
+Use this flag to start the SubQuery project.
 
 ```shell
-subql-node -f . // 或者
+subql-node -f . // OR
 subql-node --subquery .
 ```
 
-### --subquery-name (已废弃)
+### --subquery-name (deprecated)
 
-如果您新建了一个项目的实例，这个命令行将允许您为这个项目提供一个新名称。 在提供一个新名称后，将创建一个新的数据库模式，并从零区块开始进行区块同步。 已弃用 `--db-schema`
+This flag allows you to provide a name for your project which acts as if it creates an instance of your project. Upon providing a new name, a new database schema is created and block synchronisation starts from zero. Deprecated in favour of `--db-schema`
 
 ```shell
 subql-node -f . --subquery-name=test2
@@ -112,62 +113,62 @@ subql-node -f . --subquery-name=test2
 
 ### -c, --config
 
-所有这些不同的配置都可以放置到 .yml 或 .json 文件中，然后用config参数进行引用。
+All these various configurations can be placed into a .yml or .json file and then referenced with the config flag.
 
-示例subquery_config.yml文件：
+Sample subquery_config.yml file:
 
 ```shell
-subquery: . // 必填. 这是项目的本地路径。 这段时间指的是当前本地目录。
-subqueryName：hello // 可选名称
-batchSize：55 // 可选配置
+subquery: . // Mandatory. This is the local path of the project. The period here means the current local directory.
+subqueryName: hello // Optional name
+batchSize: 55 // Optional config
 ```
 
-将此文件放置在与工程相同的目录中。 然后在当前项目目录中，运行：
+Place this file in the same directory as the project. Then in the current project directory, run:
 
 ```shell
 > subql-node -c ./subquery_config.yml
 ```
 
-### --local (废弃)
+### --local (deprecated)
 
-这个标志主要用于调试，在默认的“postgres”模式中创建默认starter_entity 表。
+This flag is primarily used for debugging purposes where it creates the default starter_entity table in the default "postgres" schema.
 
 ```shell
 subql-node -f . --local
 ```
 
-请注意，一旦您使用此命令行，删除它并不意味着它会指向另一个数据库。 要重新指向另一个数据库，您将需要创建一个新的数据库，并将环境设置更改为这个新数据库。 换言之，“export DB_DATABASE=<new_db_here>"
+Note that once you use this flag, removing it won't mean that it will point to another database. To repoint to another database you will have to create a NEW database and change the env settings to this new database. In other words, "export DB_DATABASE=<new_db_here>"
 
 ### --force-clean
 
-此标志强制重新生成项目模式和表，在迭代开发graphql模式时很有用，这样项目的新运行总是以干净的状态运行。 请注意，此命令行也会清除所有索引数据。
+This flag forces the project schemas and tables to be regenerated, helpful to use when iteratively developing graphql schemas such that new runs of the project are always working with a clean state. Note that this flag will also wipe all indexed data.
 
 ### --db-schema
 
-此标志允许您为项目数据库方案提供一个名称。 提供新名称后，将创建一个新的数据库架构，配置名称并开始索引区块。
+This flag allows you to provide a name for the project database schema. Upon providing a new name, a new database schema is created with the configured name and block indexing starts.
 
 ```shell
 subql-node -f . --db-schema=test2
 ```
 
 ### --subscription
-这将在实体上创建一个通知触发器，这也是在查询服务中启用订阅功能的先决条件。
+This will create a notification trigger on entity, this also is the prerequisite to enable subscription feature in query service.
 
 ### --unsafe
 
-SubQuery 项目通常在javascript sandbox中运行，以保证安全，限制项目对您系统的访问范围。 沙盒将可用的 javascript 导入限制为以下模块：
+SubQuery Projects are usually run in a javascript sandbox for security to limit the scope of access the project has to your system. The sandbox limits the available javascript imports to the following modules:
 
 ```javascript
 ["assert", "buffer", "crypto", "util", "path"];
 ```
 
-虽然这会增强安全性，但我们理解这会限制您的 SubQuery 可用的功能。 `--unsafe` 命令导入所有默认的 javascript 模块，这些模块大大增加了安全性降低后的沙盒功能。
+Although this enhances security we understand that this limits the available functionality of your SubQuery. The `--unsafe` command imports all default javascript modules which greatly increases sandbox functionality with the tradeoff of decreased security.
 
 **注意 `--safe` 命令将防止您的项目在 SubQuery 网络中运行。 如果您想要在 SubQuery 的管理服务中运行此命令，您必须联系支持者([项目)。 ubquery.network](https://project.subquery.network)**
 
 ### --batch-size
 
-此命令行将允许您在命令行中设置批量大小。 如果在配置文件中也设置了批量大小，采用前一个例子。
+This flag allows you to set the batch size in the command line. If batch size is also set in the config file, this takes precedent.
 
 ```shell
 > subql-node -f . --batch-size=20
@@ -179,15 +180,15 @@ SubQuery 项目通常在javascript sandbox中运行，以保证安全，限制�
 
 ### --scale-batch-size
 
-用内存使用量缩放方块获取批量的大小
+Scale the block fetch batch size with memory usage
 
 ### --timeout
 
-为javascript沙箱设置自定义超时，以便在块映射函数抛出超时异常之前在区块上执行映射函数
+Set custom timeout for the javascript sandbox to execute mapping functions over a block before the block mapping function throws a timeout exception
 
 ### --debug
 
-这将输出调试信息到控制台输出，并强制设置日志级别进行调试.
+This outputs debug information to the console output and forcefully sets the log level to debug.
 
 ```shell
 > subql-node -f . --debug
@@ -198,7 +199,7 @@ SubQuery 项目通常在javascript sandbox中运行，以保证安全，限制�
 
 ### --profiler
 
-这将显示分析器信息。
+This shows profiler information.
 
 ```shell
 subql-node -f . --local --profiler
@@ -210,13 +211,13 @@ subql-node -f . --local --profiler
 
 ### --network-endpoint
 
-此命令行允许用户从清单文件覆盖网络端点配置。
+This flag allows users to override the network endpoint configuration from the manifest file.
 
 ```shell
 subql-node -f . --network-endpoint="wss://polkadot.api.onfinality.io/public-ws"
 ```
 
-请注意，这也必须在清单文件中设置，否则您将会得到错误：
+Note that this must also be set in the manifest file, otherwise you'll get:
 
 ```shell
 ERROR Create Subquery project from given path failed! Error: failed to parse project.yaml.
@@ -227,7 +228,7 @@ An instance of ProjectManifestImpl has failed the validation:
 
 ### --output-fmt
 
-有两种不同的终端输出格式。 JSON或者有颜色的。 彩色是默认的，包含着彩色文本。
+There are two different terminal output formats. JSON or colored. Colored is the default and contains colored text.
 
 ```shell
 > subql-node -f . --output-fmt=json
@@ -244,7 +245,7 @@ An instance of ProjectManifestImpl has failed the validation:
 
 ### --log-level
 
-有七个选项可供选择： “fatal”, “error”, “warn”, “info”, “debug”, “trace”, “silent”. 下面的示例显示silent。 终端中不会打印任何内容，因此，判断节点是否工作的唯一方法是查询数据库的行数(select count(\*) from subquery_1.starter_entities)或查询块高度。
+There are 7 options to choose from. “fatal”, “error”, “warn”, “info”, “debug”, “trace”, “silent”. The example below shows silent. Nothing will be printed in the terminal so the only way to tell if the node is working or not is to query the database for row count (select count(\*) from subquery_1.starter_entities) or query the block height.
 
 ```shell
 > subql-node -f . --log-level=silent
@@ -258,7 +259,7 @@ An instance of ProjectManifestImpl has failed the validation:
 (node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
 (node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
 (node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
-(node:24686) [DEP0152] DeprecationWarning: Custom PerformanceEntry accessors are deprecated. 请使用详细的属性。
+(node:24686) [DEP0152] DeprecationWarning: Custom PerformanceEntry accessors are deprecated. Please use the detail property.
 (node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
 ```
 
@@ -266,54 +267,39 @@ An instance of ProjectManifestImpl has failed the validation:
 
 ### --timestamp-field
 
-默认情况下是true。 当设置成false时：
+By default this is true. when set to false with:
 
 ```shell
 > subql-node -f . –timestamp-field=false
 ```
 
-这将删除在starter_entities表中的 created_at和updated_at列
+This removes the created_at and updated_at columns in the starter_entities table.
 
 ### -d, --network-dictionary
 
-这允许您指定一个字典端点，它是一个免费服务，提供并托管在:
+This allows you to specify a dictionary endpoint which is a free service that is provided and hosted at SubQuery's [Project Explorer](https://explorer.subquery.network/) (search for dictionary) and presents an API endpoint of: https://api.subquery.network/sq/subquery/dictionary-polkadot
 
-https://explorer.subquery.network/(搜索字典)，并提供:https://api.subquery.network/sq/subquery/dictionary-polkadot的API端点</p> 
-
-通常，这将在您的清单文件中设置，但在下面显示一个在命令行中使用它作为参数的例子。
-
-
+Typically this would be set in your manifest file but below shows an example of using it as an argument in the command line.
 
 ```shell
 subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot"
 ```
 
-
-[阅读更多关于 SubQuery 字典的工作原理](../academy/tutorials_examples/dictionary.md)
-
-
+[Read more about how a SubQuery Dictionary works](../academy/tutorials_examples/dictionary.md).
 
 ### -p, --port
 
-Subquery索引服务绑定到的端口。 默认设置为 `3000`
-
-
+The port the subquery indexing service binds to. By default this is set to `3000`
 
 ### --disable-historical
 
 Disables automated historical state tracking, [see Historic State Tracking](./historical.md). By default this is set to `false`.
 
-
-
 ## subql-query
-
-
 
 ### --help
 
-输入该命令行将显示帮助选项。
-
-
+This shows the help options.
 
 ```shell
 Options:
@@ -325,32 +311,29 @@ Options:
       --output-fmt    Print log as json or plain text
                         [string] [choices: "json", "colored"] [default: "colored"]
       --log-level     Specify log level to print.
-             
-Xpath: /pre[21]/code
+            [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
+                                                       "silent"] [default: "info"]
+      --log-path      Path to create log file e.g ./src/name.log          [string]
+      --log-rotate    Rotate log files in directory specified by log-path
+                                                      [boolean] [default: false]
+      --indexer       Url that allows query to access indexer metadata    [string]
+      --unsafe        Disable limits on query depth and allowable number returned
+                      query records                                      [boolean]
+  -p, --port          The port the service will bind to                   [number]
 ```
-
-
-
 
 ### --version
 
-这将显示当前版本。
-
-
+This displays the current version.
 
 ```shell
 > subql-query --version
 0.7.0
 ```
 
-
-
-
 ### -n, --name
 
-这个命令行用于启动查询服务。 如果运行索引器时没有提供 --subquery-name 标志，此处的名称将指默认项目名称。 如果设置了 --subquery-name, 则此处的名称应该与设置相匹配。
-
-
+This flag is used to start the query service. If the --subquery-name flag is not provided when running an indexer, the name here will refer to the default project name. If --subquery-name is set, then the name here should match what was set.
 
 ```shell
 > subql-node -f . // --subquery-name not set
@@ -358,72 +341,50 @@ Xpath: /pre[21]/code
 > subql-query -n subql-helloworld  --playground // the name defaults to the project directory name
 ```
 
-
-
-
 ```shell
 > subql-node -f . --subquery-name=hiworld // --subquery-name set
 
 > subql-query -n hiworld --playground  // the name points to the subql-helloworld project but with the name of hiworld
 ```
 
-
-
-
 ### --playground
 
-这个命令行启用了graphql playground，所以在默认情况下，应该始终包含有任何用途。
-
-
+This flag enables the graphql playground so should always be included by default to be of any use.
 
 ### --output-fmt
 
-See [--output-fmt](https://doc.subquery.network/run_publish/references.html#output-fmt)
-
-
+See [--output-fmt](https://doc.subquery.network/run_publish/references.md#output-fmt)
 
 ### --log-level
 
-See [--log-level](https://doc.subquery.network/run_publish/references.html#log-level)
-
-
+See [--log-level](https://doc.subquery.network/run_publish/references.md#log-level)
 
 ### --log-path
 
-通过提供一个文件到日志的路径来启用文件日志
-
-
+Enable file logging by providing a path to a file to log to
 
 ### --log-rotate
 
-启用文件日志旋转，可设置为1天旋转时间间隔，最多7个文件，最大文件大小为1GB
-
-
+Enable file log rotations with the options of a 1d rotation interval, a maximum of 7 files and with a max file size of 1GB
 
 ### --indexer
 
-设置索引器终点位置的自定义URL。 查询服务将这些端点用于索引器健康、元数据和准备状态
-
-
+Set a custom url for the location of the endpoints of the indexer, the query service uses these endpoints for indexer health, metadata and readiness status
 
 ### --subscription
 
 This flag enables [GraphQL Subscriptions](./subscription.md), to enable this feature requires `subql-node` also enable `--subscription`
 
-
-
 ### --unsafe
 
-查询服务对于无界的graphql查询有100个实体的限制。 不安全的标志取消了这个限制，这可能给查询服务造成性能问题。 相反，建议查询为 [分页](https://graphql.org/learn/pagination/)。
+The query service has a limit of 100 entities for unbounded graphql queries. The unsafe flag removes this limit which may cause performance issues on the query service. It is recommended instead that queries are [paginated](https://graphql.org/learn/pagination/).
 
 This flag enables certain aggregation functions including sum, max, avg and others. Read more about this feature [here](./aggregate.md)
 
-由于实体限制，它们默认被禁用。
+These are disabled by default due to the entity limit.
 
-**请注意，`——unsafe`命令将阻止您的项目在SubQuery网络中运行，如果您想要在SubQuery的托管服务[project. SubQuery . Network](https://project.subquery.network) 中运行此命令，您必须联系支持人员。**
-
-
+**Note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in [SubQuery's Managed Services](https://project.subquery.network).**
 
 ### --port
 
-Subquery索引服务绑定到的端口。 默认设置为 `3000`
+The port the subquery query service binds to. By default this is set to `3000`
