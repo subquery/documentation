@@ -53,4 +53,4 @@ If you just want to upgrade to the latest indexer ([`@subql/node`](https://www.n
 
 ![배포 및 동기화된 프로젝트](/assets/img/projects-deploy-sync.png)
 
-프로젝트 제목 옆에 있는 3개의 점을 클릭하여 SubQuery 탐색기로 표시할 수도 있습니다. There you can use the in browser playground to get started - [read more about how to user our Explorer here](../run_publish/query.md).
+프로젝트 제목 옆에 있는 3개의 점을 클릭하여 SubQuery 탐색기로 표시할 수도 있습니다. There you can use the in browser playground to get started - [read more about how to use our Explorer here](../run_publish/query.md).
