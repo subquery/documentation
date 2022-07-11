@@ -70,8 +70,8 @@ To understand more about how dictionaries work, refer to:
 
 Slots are a feature in SubQuery Projects that are the equivalent of a development environments. To learn more, visit:
 
-- [What are deployment slots?](../../faqs/faqs.html#what-are-deployment-slots) 
-- [What is the advantage of a staging slot?](../../faqs/faqs.html#what-is-the-advantage-of-a-staging-slot)
+- [What are deployment slots?](../../faqs/faqs.md#what-are-deployment-slots) 
+- [What is the advantage of a staging slot?](../../faqs/faqs.md#what-is-the-advantage-of-a-staging-slot)
 
 #### Step 5: Accessing Playground
 
@@ -87,7 +87,7 @@ GraphQL is the language used to query for data. To learn more about GraphQL visi
 
 Developers will typically query the SubQuery project via API. See an example of how this is done at:
 
-- [Querying via the API](../../quickstart/quickstart_chains/polkadot.html#_6-query-your-project)
+- [Querying via the API](../../quickstart/quickstart_chains/polkadot.md#_6-query-your-project)
 
 #### Step 7: Deleting SubQuery projects
 
@@ -98,4 +98,4 @@ It is important to keep your SubQuery projects tidy and ensure that test project
 ### References
 
 - [Deplying a project to SubQuery Explorer](/assets/pdf/Deploying_Subquery_Project)
-- [What are deployment slots?](../../faqs/faqs.html#what-are-deployment-slots)
+- [What are deployment slots?](../../faqs/faqs.md#what-are-deployment-slots)

@@ -4,9 +4,9 @@ Visit [Frontier](https://frontier.subquery.network/explorer) before you begin yo
 
 Now,
 
-- If you are an Indexer, jump to [Indexers Challenges Section](../season3-challenges/season3.html#indexer-challenges)
-- If you are a Delegator, jump to [Delegator Challenges Section](../season3-challenges/season3.html#delegator-challenges)
-- If you are a Consumer, jump to [Consumers Challenges Section](../season3-challenges/season3.html#consumer-challenges)
+- If you are an Indexer, jump to [Indexers Challenges Section](../season3-challenges/season3.md#indexer-challenges)
+- If you are a Delegator, jump to [Delegator Challenges Section](../season3-challenges/season3.md#delegator-challenges)
+- If you are a Consumer, jump to [Consumers Challenges Section](../season3-challenges/season3.md#consumer-challenges)
 
 ## Indexer Challenges
 
@@ -54,7 +54,7 @@ To create a deployment-specific plan, navigate to `Plan & Offer` -> `My Plans`. 
 
 ![Create specific plan](/assets/img/set_specific_plan_parameters.png)
 
-- The remaining steps(for confirming the transaction) are similar to [create a default plan](../season3-challenges/season3.html#_5-create-a-default-plan).
+- The remaining steps(for confirming the transaction) are similar to [create a default plan](../season3-challenges/season3.md#_5-create-a-default-plan).
 
 - This plan will appear in the `Specific` tab.
 

@@ -63,7 +63,7 @@ Theoretically the following networks should also be supported since they impleme
 
 ## Call Handlers
 
-Works in the same way as [substrate/CallHandler](../build/mapping.html#call-handler) except with a different handler argument and minor filtering changes.
+Works in the same way as [substrate/CallHandler](../build/mapping.md#call-handler) except with a different handler argument and minor filtering changes.
 
 | Field  | Type                                                    | Required | Description                                 |
 | ------ | ------------------------------------------------------- | -------- | ------------------------------------------- |

@@ -274,7 +274,7 @@ For a more detailed explanation head [here](../build/dynamicdatasources.md).
 **Under `network`:**
 
 - There is a new **required** `genesisHash` field which helps to identify the chain being used.
-- For v0.2.0 and above, you are able to reference an external [chaintype file](../build/manifest.html#custom-substrate-and-cosmos-chains) if you are referencing a custom chain.
+- For v0.2.0 and above, you are able to reference an external [chaintype file](../build/manifest.md#custom-substrate-and-cosmos-chains) if you are referencing a custom chain.
 
 **Under `dataSources`:**
 
@@ -360,7 +360,7 @@ Additionally you will need to update the `endpoint`. This defines the wss endpoi
 Defines the data that will be filtered and extracted and the location of the mapping function handler for the data transformation to be applied.
 | Field | All manifest versions | Description
 | --------------- |-------------|-------------|
-| **kind** | [substrate/Runtime](../build/manifest.html#data-sources-and-mapping) | substrate/Runtime, [substrate/CustomDataSource](../build/manifest.html#custom-data-sources) | [substrate/Runtime](../build/manifest.html#data-sources-and-mapping), [substrate/CustomDataSource](../build/manifest.html#custom-data-sources), [avalanche/Runtime](../build/manifest.html#data-sources-and-mapping), [cosmos/Runtime](../build/manifest.html#data-sources-and-mapping), and  [terra/Runtime](../build/manifest.html#data-sources-and-mapping) | We supports data type from default Substrate and Avalanche runtime such as block, event and extrinsic(call). <br /> From v0.2.0, we support data from custom runtime, such as smart contract.|
+| **kind** | [substrate/Runtime](../build/manifest.md#data-sources-and-mapping) | substrate/Runtime, [substrate/CustomDataSource](../build/manifest.md#custom-data-sources) | [substrate/Runtime](../build/manifest.md#data-sources-and-mapping), [substrate/CustomDataSource](../build/manifest.md#custom-data-sources), [avalanche/Runtime](../build/manifest.md#data-sources-and-mapping), [cosmos/Runtime](../build/manifest.md#data-sources-and-mapping), and  [terra/Runtime](../build/manifest.h,md#data-sources-and-mapping) | We supports data type from default Substrate and Avalanche runtime such as block, event and extrinsic(call). <br /> From v0.2.0, we support data from custom runtime, such as smart contract.|
 | **startBlock** | Integer | This changes your indexing start block, set this higher to skip initial blocks with less data|  
 | **mapping** |  Mapping Spec | |
 
@@ -629,7 +629,7 @@ Here is a list of supported custom datasources:
 
 | Kind                                                  | Supported Handlers                                                                                       | Filters                         | Description                                                                      |
 | ----------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | ------------------------------- | -------------------------------------------------------------------------------- |
-| [substrate/FrontierEvm](../build/substrate-evm.md) | [substrate/FrontierEvmEvent](../build/substrate-evm.html#event-handlers), [substrate/FrontierEvmCall](../build/substrate-evm.html#call-handlers) | See filters under each handlers | Provides easy interaction with EVM transactions and events on the Frontier EVM (widely used across Polkadot including in Moonbeam and Astar networks) |
+| [substrate/FrontierEvm](../build/substrate-evm.md) | [substrate/FrontierEvmEvent](../build/substrate-evm.md#event-handlers), [substrate/FrontierEvmCall](../build/substrate-evm.md#call-handlers) | See filters under each handlers | Provides easy interaction with EVM transactions and events on the Frontier EVM (widely used across Polkadot including in Moonbeam and Astar networks) |
 
 ## Validating
 

@@ -34,7 +34,7 @@ This command is uses webpack to generate a bundle of a subquery project.
 
 - Any `exports` field must map to string type (e.g. `"entry": "./src/file.ts"`), else it will be ignored from build.
 
-[Futher example](../build/introduction.html#build).
+[Futher example](../build/introduction.md#build).
 
 ## subql-node
 
@@ -354,11 +354,11 @@ This flag enables the graphql playground so should always be included by default
 
 ### --output-fmt
 
-See [--output-fmt](https://doc.subquery.network/run_publish/references.html#output-fmt)
+See [--output-fmt](https://doc.subquery.network/run_publish/references.md#output-fmt)
 
 ### --log-level
 
-See [--log-level](https://doc.subquery.network/run_publish/references.html#log-level)
+See [--log-level](https://doc.subquery.network/run_publish/references.md#log-level)
 
 ### --log-path
 

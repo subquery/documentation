@@ -32,7 +32,7 @@ curl https://raw.githubusercontent.com/subquery/indexer-services/main/docker-com
 > **IMPORTANT**
 > DO NOT skip checking the Indexer Version after you finish the installation process.
 
-- Visit [this section](../indexers/become-an-indexer.html#_2-1-check-indexer-version) and complete the process.
+- Visit [this section](../indexers/become-an-indexer.md#_2-1-check-indexer-version) and complete the process.
 
 > **IMPORTANT Note**: Please change the default PostgreSQL password in the `POSTGRES_PASSWORD` field and in the coordinator-service's `postgres-password` field. Replace it with  your own one. 
 

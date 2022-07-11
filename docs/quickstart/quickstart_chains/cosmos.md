@@ -8,7 +8,7 @@ The goal of this quick start guide is to adapt the standard starter project in t
 
 Now, let's move ahead in the process and update these configurations.
 
-Previously, in the [1. Create a New Project](../quickstart.md) section, you must have noted [3 key files](../quickstart.html#_3-make-changes-to-your-project). Let's begin updating them one by one.
+Previously, in the [1. Create a New Project](../quickstart.md) section, you must have noted [3 key files](../quickstart.md#_3-make-changes-to-your-project). Let's begin updating them one by one.
 
 **Note: The final code of this project can be found [here](https://github.com/jamesbayly/juno-terra-developer-fund-votes).**
 

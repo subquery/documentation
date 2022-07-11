@@ -417,7 +417,7 @@ In other words, one account links to many transfers or more verbosely stated, ea
 
 * [Account Transfers PDF workbook](/assets/pdf/Account_Transfers.pdf)
 * [Account Transfers Github](https://github.com/subquery/tutorials-account-transfers)
-* [One-to-many relationships](../../build/graphql.html#one-to-many-relationships)
+* [One-to-many relationships](../../build/graphql.md#one-to-many-relationships)
 
 ## Lesson 2: Many to many entities
 
@@ -902,7 +902,7 @@ By adding voteHistory_p and voteHistory_b, voteHistories becomes voteHistory_c
 
 * [Council Proposal PDF workbook](/assets/pdf/Council_Proposal.pdf)
 * [Council Proposal Github](https://github.com/subquery/tutorials-council-proposals)
-* [Many-to-many relationships](../../build/graphql.html#many-to-many-relationships)
+* [Many-to-many relationships](../../build/graphql.md#many-to-many-relationships)
 
 ## Lesson 3: Reverse lookups
 
@@ -1153,11 +1153,11 @@ You should get something similar to the following:
 }
 ```
 
-[Reverse lookups](../../build/graphql.html#reverse-lookups)
+[Reverse lookups](../../build/graphql.md#reverse-lookups)
 Adding the @derivedFrom keyword to the myToAddress field allows a “virtual” field to appear in the Account object. This can be seen in the documentation tab. This allows a “reverse lookup” where the Transfer.to field can be accessed from Account.myToAddress. 
 
 ### References
 
 * [Account Transfer with Reverse Lookups PDF Workbook](/assets/pdf/Account_Transfer_with_Reverse_Lookups)
 * [Account Transfer with Reverse Lookups Github](https://github.com/subquery/tutorials-account-transfer-reverse-lookups)
-* [Reverse lookups](../../build/graphql.html#reverse-lookups)
+* [Reverse lookups](../../build/graphql.md#reverse-lookups)

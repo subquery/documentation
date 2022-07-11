@@ -8,7 +8,7 @@ The goal of this quick guide is to adapt the standard starter project and start 
 
 Now, let's move forward and update these configurations.
 
-Previously, in the [1. Create a New Project](../quickstart.md) section, you must have noted [3 key files](../quickstart.html#_3-make-changes-to-your-project). Let's begin updating them one by one.
+Previously, in the [1. Create a New Project](../quickstart.md) section, you must have noted [3 key files](../quickstart.md#_3-make-changes-to-your-project). Let's begin updating them one by one.
 
 ## 1. Update Your GraphQL Schema File
 
