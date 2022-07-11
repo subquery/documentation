@@ -26,4 +26,4 @@ SubQuery fournit les fonctions d'agrégation suivantes lorsqu'il est en mode non
 
 L'implémentation des fonctions d'agrégation de SubQuery est basée sur [pg-aggregates](https://github.com/graphile/pg-aggregates), vous pouvez trouver plus d'informations ici
 
-**Veuillez noter que vous devez activer l'indicateur `--unsafe` sur le service de requête afin d'utiliser ces fonctions. [Lire la suite](./references.md#unsafe-2). Notez que la commande `--unsafe` empêchera votre projet d'être exécuté dans le réseau SubQuery, et vous devez contacter le support si vous voulez que cette commande soit exécutée avec votre projet dans le service géré de SubQuery ([project.subquery.network](https://project.subquery.network)**)</strong>
+**Veuillez noter que vous devez activer l'indicateur `--unsafe` sur le service de requête afin d'utiliser ces fonctions. [Read more](./references.md#unsafe-2). Note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in [SubQuery's managed service](https://project.subquery.network))**
