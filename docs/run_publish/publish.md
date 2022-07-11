@@ -74,7 +74,7 @@ $ subql project:create-project
     --description=description    Enter description
     --gitRepo=gitRepo            Enter git repository
     --org=org                    Enter organization name
-    --project_name=projectName  Enter project name
+    --projectName=projectName  Enter project name
 ```
 
 ### Deploy your First Version

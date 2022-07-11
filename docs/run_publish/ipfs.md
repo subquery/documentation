@@ -70,7 +70,7 @@ Please note this `CID`. With this `CID`, you can view your published project as 
 
 ### Local IPFS-`CID`
 
-With `@subql/cli` version __ or above, when using `subql publish` it will store a copy of the project's `IPFS CID` in your project directory, the naming of the file will be consistent with your project.yaml.
+With `@subql/cli` version 1.3.0 or above, when using `subql publish` it will store a copy of the project's `IPFS CID` in your project directory, the naming of the file will be consistent with your project.yaml.
 ```
 e.g.
 
