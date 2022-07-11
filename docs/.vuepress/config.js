@@ -140,6 +140,9 @@ module.exports = config({
     markdown: {
       extractHeaders: ["h2", "h3"],
     },
+    mdEnhance: {
+      codegroup: true,
+    },
   },
 });
 
@@ -204,6 +207,7 @@ function getSidebar(locale, language) {
           `${locale}/build/mapping.md`,
           `${locale}/build/substrate-evm.md`,
           `${locale}/build/dynamicdatasources.md`,
+          `${locale}/build/graph-migration.md`,
         ],
       },
       {
