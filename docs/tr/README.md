@@ -64,7 +64,7 @@
         <div class="content">
           <p>SubQuery, geliştiricilerin uygulamalarını güç sağlamak için Substrat zinciri verilerini dizine almalarına, dönüştürmelerine ve sorgulamalarına olanak tanıyan açık kaynaklı bir projedir.</p>
           <span class="more">
-            <router-link :to="{path: '/faqs/faqs.html#what-is-subquery'}">DAHA FAZLA OKU</router-link>
+            <router-link :to="{path: '/faqs/faqs.md#what-is-subquery'}">READ MORE</router-link>
           </span>
         </div>
       </li>
@@ -79,7 +79,7 @@
         <div class="content">
           <p>Topluluktan gelen katkıları ve geri bildirimleri seviyoruz. Koda katkıda bulunmak için, ilgi alanı deponuzu çatallayın ve değişikliklerinizi yapın. Ardından bir PR veya Çekme İsteği gönderin. Test etmeyi de unutma! Ayrıca katkı yönergelerimize de göz atın (yakında). </p>
           <span class="more">
-            <router-link :to="{path: '/faqs/faqs.html#how-can-i-contribute-or-give-feedback-to-subquery'}">READ MORE</router-link>
+            <router-link :to="{path: '/faqs/faqs.md#how-can-i-contribute-or-give-feedback-to-subquery'}">READ MORE</router-link>
           </span> 
         </div>
       </li>
@@ -102,7 +102,7 @@
         <h5>Özel Zinciriniz ile entegre misiniz?</h5>
         <p>İster Substrate'de yeni bir parachain ister tamamen yeni bir blok zinciri oluşturuyor olun - SubQuery zincirinizin verilerini dizine almanıza ve sorun gidermenize yardımcı olabilir. SubQuery, özel bir Substrat tabanlı zincirle kolayca entegre olacak şekilde tasarlanmıştır.</p>
         <span class="more">
-          <router-link :to="{path: '/build/manifest.html#custom-substrate-and-cosmos-chains'}">LEARN HOW TO INTEGRATE WITH YOUR CHAIN</router-link>
+          <router-link :to="{path: '/build/manifest.md#custom-substrate-and-cosmos-chains'}">LEARN HOW TO INTEGRATE WITH YOUR CHAIN</router-link>
         </span>
     </div>
     <div class="lastIntroduce lastIntroduce_2">
