@@ -53,4 +53,4 @@ Sau khi việc triển khai đã thành công và các nút của chúng ta đã
 
 ![Các dự án đang được triển khai và đồng bộ](/assets/img/projects-deploy-sync.png)
 
-Ngoài ra, bạn có thể nhấp vào ba dấu chấm bên cạnh tiêu đề dự án của mình và xem nó trên SubQuery Explorer. Tại đó bạn có thể sử dụng nền tảng trong trình duyệt để bắt đầu - [đọc thêm về cách thức sử dụng Explorer của chúng tôi tại đây](../run_publish/query.md).
+Ngoài ra, bạn có thể nhấp vào ba dấu chấm bên cạnh tiêu đề dự án của mình và xem nó trên SubQuery Explorer. There you can use the in browser playground to get started - [read more about how to use our Explorer here](../run_publish/query.md).
