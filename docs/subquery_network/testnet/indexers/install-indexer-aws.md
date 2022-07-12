@@ -47,16 +47,16 @@ You can use our pre-built image or build your own. Let's start with SubQuery's p
 
 ### 1.6 Create a Key Pair
 
-- Either select one or create your own new key pair
+- Either select one or create your own new key pair.
 
 ![Create Key Pair](/assets/img/create_keypair_aws.png)
 
 ### 1.7 Set Network Settings
 
-- Provide a name for the security setting
+- Provide a name for the security setting.
 - Edit the Network settings to configure the ports. Add the following ports:
-  - port: 8000 & 22 accessible from local IP only (NB: this allows you to open the Indexer Admin page in your browser)
-  - port: 80 & 443 open to any IP
+  - port: 8000 & 22 accessible from local IP only (NB: this allows you to open the Indexer Admin page in your browser).
+  - port: 80 & 443 open to any IP.
 
 **For example:**
 
@@ -78,11 +78,15 @@ You can use our pre-built image or build your own. Let's start with SubQuery's p
 
 To SSH your EC2 instance, visit [How to SSH into your AWS instance](../indexers/ssh-in-aws.md).
 
-`Important:` DO NOT skip checking the Indexer Version after you finish the SSH process.
+::: warning Important
+ DO NOT skip checking the Indexer Version after you finish the SSH process.
+:::
 
 - Visit [this section](../indexers/become-an-indexer.md#_2-1-check-indexer-version) and complete the process. <br />
 
-> **IMPORTANT Note**: Please change the default PostgreSQL password in the `POSTGRES_PASSWORD` field and in the coordinator-service's `postgres-password` field. Replace it with your own one. 
+::: warning Important
+Please change the default PostgreSQL password in the `POSTGRES_PASSWORD` field and in the coordinator-service's `postgres-password` field. Replace it with your own one. 
+:::
 
 ### 1.11 Update User Group (Optional)
 

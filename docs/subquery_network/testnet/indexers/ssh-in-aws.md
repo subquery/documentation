@@ -14,7 +14,7 @@ We will use this address to SSH into our instance via our command line terminal.
 
 ## Step 2: SSH
 
-Run the following command
+Run the following command:
 
 ```jsx
 ssh i <path_to_pem_or_cer_private_key> ec2-user@<public_address>
