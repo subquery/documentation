@@ -1,21 +1,21 @@
-# 1. Create a New Project
+# 1. Создайте новый проект
 
-The goal of this quick start guide is to provide you with a complete development setup and guided steps to create your first SubQuery blockchain project. It is targeted towards experienced developers right through to those just beginning their blockchain journey.
+Цель этого краткого руководства по началу работы - предоставить вам полную настройку разработки и пошаговые инструкции по созданию вашего первого блокчейн проекта SubQuery. Он ориентирован на опытных разработчиков и тех, кто только начинает свой путь в блокчейне.
 
-This quick start guide should take around 10-15 minutes.
+Это краткое руководство по началу работы должно занять около 10-15 минут.
 
-After completing this quick start guide, you will have a working SubQuery project that will run on a SubQuery node. You will be able to adapt the standard starter project and index transfers from your favourite blockchain network such as Polkadot, Avalanche, Cosmos, etc.
+После завершения этого краткого руководства у вас будет рабочий проект SubQuery, который будет выполняться на ноде SubQuery. Вы сможете адаптировать стандартный стартовый проект и индексировать переводы из вашей любимой блокчейн сети, такой, как Polkadot, Avalanche, Cosmos и т. д.
 
-Let's start the process of creating your first SubQuery blockchain project.
+Давайте начнем процесс создания вашего первого блокчейн проекта SubQuery.
 
 ## Prerequisites
 
-Before you begin creating your first blockchain project with SubQuery, make sure you have installed the required supporting software applications. These are:
+Прежде чем вы начнете создавать свой первый блокчейн проект с помощью SubQuery, убедитесь, что у вас установлены необходимые вспомогательные программные приложения. Это:
 
 - [Node](https://nodejs.org/en/): современная (например, LTS-версия) установка Node.
-- [Docker](https://docker.com/): This tutorial will use the required Docker
+- [Docker](https://docker.com/): В этом руководстве будет использоваться Docker
 
-Now, you are all set to start with the first step, which is the installation of the SubQuery CLI.
+Теперь вы готовы начать с первого шага, который заключается в установке SubQuery CLI.
 
 ## 1. Установите SubQuery CLI
 
@@ -26,23 +26,23 @@ Now, you are all set to start with the first step, which is the installation of 
 npm install -g @subql/cli
 ```
 
-**Note**: We **DO NOT** encourage the use of `yarn global` for installing `@subql/cli` due to its poor dependency management. This may lead to multiple errors.
+**Примечание**: Мы **НЕ** поощряем использование `yarn global` для установки `@subql/cli` из-за его плохого управления зависимостями. Это может привести к многочисленным ошибкам.
 
-Take a look at all available commands and their use. Run the given below command in the CLI:
+Взгляните на все доступные команды и их использование. Выполните приведенную ниже команду в командной строке:
 
 ```shell
-помощь subql
+subql help
 ```
 
 ## 2. Инициализируем Начальный Проект SubQuery
 
-Run the following command inside the directory you want to create a SubQuery project:
+Выполните следующую команду внутри каталога, в котором вы хотите создать проект SubQuery:
 
 ```shell
 subql init
 ```
 
-::: warning **For Cosmos Users**
+::: предупреждение **Для пользователей Cosmos**
 
 Cosmos is not yet supported in SubQuery's CLI (`subql`). Hence, if you are using Cosmos, you must start with a Juno clone or fork this [starter project](https://github.com/subquery/cosmos-subql-starter).
 
