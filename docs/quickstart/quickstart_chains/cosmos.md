@@ -4,13 +4,17 @@
 
 The goal of this quick start guide is to adapt the standard starter project in the Juno Network and then begin indexing all votes on the [Terra Developer Fund](https://daodao.zone/multisig/juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2) (which also contributed to SubQuery) from Cosmos.
 
-**Important:** Before we begin, make sure that you have initialised your project using the provided steps in the **[Start Here](../quickstart.md)** section. You must complete the suggested [4 steps](https://github.com/subquery/cosmos-subql-starter#readme) for Cosmos users.
+::: warning Important
+Before we begin, make sure that you have initialised your project using the provided steps in the **[Start Here](../quickstart.md)** section. You must complete the suggested [4 steps](https://github.com/subquery/cosmos-subql-starter#readme) for Cosmos users.
+:::
 
 Now, let's move ahead in the process and update these configurations.
 
 Previously, in the [1. Create a New Project](../quickstart.md) section, you must have noted [3 key files](../quickstart.md#_3-make-changes-to-your-project). Let's begin updating them one by one.
 
-**Note: The final code of this project can be found [here](https://github.com/jamesbayly/juno-terra-developer-fund-votes).**
+::: info Note
+The final code of this project can be found [here](https://github.com/jamesbayly/juno-terra-developer-fund-votes).
+:::
 
 ## 1. Update Your GraphQL Schema File
 
@@ -28,7 +32,9 @@ type Vote @entity {
 }
 ```
 
-**Important: When you make any changes to the schema file, do not forget to regenerate your types directory.**
+::: warning Important
+When you make any changes to the schema file, do not forget to regenerate your types directory.
+:::
 
 <CodeGroup>
   <CodeGroupItem title="YARN" active>
@@ -60,7 +66,7 @@ The Project Manifest (`project.yaml`) file is an entry point to your project. It
 
 Note that the manifest file has already been set up correctly and doesn’t require significant changes, but you need to change the handlers.
 
-\*Since we are going to index all votes on the [Terra Developer Fund](https://daodao.zone/multisig/juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2), we will look at messages that use the `vote` contract call. And following to that, we need to update the `datasources` section as follows:
+Since we are going to index all votes on the [Terra Developer Fund](https://daodao.zone/multisig/juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2), we will look at messages that use the `vote` contract call. And following to that, we need to update the `datasources` section as follows:
 
 ```yml
 dataSources:
@@ -145,7 +151,9 @@ npm run-script build
   </CodeGroupItem>
 </CodeGroup>
 
-**Important: Whenever you make changes to your mapping functions, you must rebuild your project.**
+::: warning Important
+Whenever you make changes to your mapping functions, you must rebuild your project.
+:::
 
 Now, you are ready to run your first SubQuery project. Let’s check out the process of running your project in detail.
 
@@ -176,7 +184,9 @@ npm run-script start:docker
   </CodeGroupItem>
 </CodeGroup>
 
-**Note:** It may take a few minutes to download the required images and start the various nodes and Postgres databases.
+::: tip Tip
+It may take a few minutes to download the required images and start the various nodes and Postgres databases.
+:::
 
 ## 6. Query your Project
 
@@ -234,7 +244,9 @@ You will see the result similar to below:
 }
 ```
 
-**Note: The final code of this project can be found [here](https://github.com/jamesbayly/juno-terra-developer-fund-votes).**
+::: info Note
+The final code of this project can be found [here](https://github.com/jamesbayly/juno-terra-developer-fund-votes).
+:::
 
 ## What’s Next?
 

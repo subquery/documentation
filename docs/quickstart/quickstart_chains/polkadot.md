@@ -4,7 +4,9 @@
 
 The goal of this quick guide is to adapt the standard starter project and start indexing all transfers from Polkadot.
 
-**Important:** Before we begin, make sure that you have initialised your project using the provided steps in the [Start Here](../quickstart.md) section.
+::: warning Important
+Before we begin, make sure that you have initialised your project using the provided steps in the [Start Here](../quickstart.md) section.
+:::
 
 Now, let's move forward and update these configurations.
 
@@ -26,7 +28,9 @@ type Transfer @entity {
 }
 ```
 
-**Important: When you make any changes to the schema file, please ensure that you regenerate your types directory.**
+::: warning Important
+When you make any changes to the schema file, please ensure that you regenerate your types directory.
+:::
 
 <CodeGroup>
   <CodeGroupItem title="YARN" active>
@@ -140,7 +144,9 @@ npm run-script build
   </CodeGroupItem>
 </CodeGroup>
 
-**Important: Whenever you make changes to your mapping functions, make sure to rebuild your project.**
+::: warning Important
+Whenever you make changes to your mapping functions, make sure to rebuild your project.
+::: 
 
 Now, you are all set to run your first SubQuery project. Let’s dig out the process of running the project in detail.
 
@@ -171,7 +177,9 @@ npm run-script start:docker
   </CodeGroupItem>
 </CodeGroup>
 
-**Note:** It may take a few minutes to download the required images and start the various nodes and Postgres databases.
+::: tip Tip
+It may take a few minutes to download the required images and start the various nodes and Postgres databases.
+::: 
 
 ## 6. Query Your Project
 
