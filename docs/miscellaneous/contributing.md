@@ -31,24 +31,24 @@ Bugs are tracked as GitHub issues. When logging an issue, explain the problem an
 
 ### Submitting Pull Requests
 
-In general, we follow the "fork-and-pull" Git workflow
+In general, we follow the "fork-and-pull" Git workflow:
 
-* Fork the repository to your own Github account
-* Clone the project to your machine
-* Create a branch locally with a succinct but descriptive name
-* Commit changes to the branch
-* Following any formatting and testing guidelines specific to this repo
-* Push changes to your fork
-* Open a PR in our repository
+* Fork the repository to your own Github account.
+* Clone the project to your machine.
+* Create a branch locally with a succinct but descriptive name.
+* Commit changes to the branch.
+* Following any formatting and testing guidelines specific to this repo.
+* Push changes to your fork.
+* Open a PR in our repository.
 
 ## Coding Conventions
 
 ### Git Commit Messages
 
-* Use the present tense ("Add feature" not "Added feature")
-* Use the imperative mood ("Move cursor to..." not "Moves cursor to...")
-* Limit the first line to 72 characters or less
+* Use the present tense ("Add feature" not "Added feature").
+* Use the imperative mood ("Move cursor to..." not "Moves cursor to...").
+* Limit the first line to 72 characters or less.
 
 ### JavaScript Styleguide
 
-* All JavaScript code is linted with Prettier and ESLint
+* All JavaScript code is linted with Prettier and ESLint.

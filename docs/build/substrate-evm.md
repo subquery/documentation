@@ -41,10 +41,10 @@ Theoretically the following networks should also be supported since they impleme
 1. Add the custom datasource as a dependency:
 
 - Create a new project from an EVM template though `subql init` OR
-- For existing projects, `yarn add @subql/frontier-evm-processor` or `yarn add @subql/acala-evm-processor`
+- For existing projects, `yarn add @subql/frontier-evm-processor` or `yarn add @subql/acala-evm-processor`.
 
-2. Add a custom data source as described below
-3. Add handlers for the custom data source to your code
+2. Add a custom data source as described below.
+3. Add handlers for the custom data source to your code.
 
 ## Data Source Spec
 
@@ -83,9 +83,9 @@ Unlike a normal handler you will not get a `SubstrateExtrinsic` as the parameter
 
 Changes from the `TransactionResponse` type:
 
-- It doesn't have `wait` and `confirmations` properties
-- A `success` property is added to know if the transaction was a success
-- `args` is added if the `abi` field is provided and the arguments can be successfully parsed. You can add a generic parameter like so to type `args`: `FrontierEvmCall<{ from: string, to: string, value: BigNumber }>`
+- It doesn't have `wait` and `confirmations` properties.
+- A `success` property is added to know if the transaction was a success.
+- `args` is added if the `abi` field is provided and the arguments can be successfully parsed. You can add a generic parameter like so to type `args`: `FrontierEvmCall<{ from: string, to: string, value: BigNumber }>`.
 
 ## Event Handlers
 
@@ -105,8 +105,8 @@ Works in the same way as [substrate/EventHandler](../create/mapping/#event-handl
 <b>Note on topics:</b>
 There are a couple of improvements from basic log filters:
 
-- Topics don't need to be 0 padded
-- [Event Fragment](https://docs.ethers.io/v5/api/utils/abi/fragments/#EventFragment) strings can be provided and automatically converted to their id
+- Topics don't need to be 0 padded.
+- [Event Fragment](https://docs.ethers.io/v5/api/utils/abi/fragments/#EventFragment) strings can be provided and automatically converted to their id.
 
 ### Handler Functions
 
@@ -299,10 +299,10 @@ dataSources:
 
 ## Known Limitations
 
-- There is no way to get the transaction receipts with call handlers
-- `blockHash` properties are currently left undefined, the `blockNumber` property can be used instead
+- There is no way to get the transaction receipts with call handlers.
+- `blockHash` properties are currently left undefined, the `blockNumber` property can be used instead.
 
 ## Extra info
 
-- There is also a `@subql/moonbeam-evm-processor` which is an alias for `@subql/frontier-evm-processor`
-- The source code for these processors can be found in our datasource-processors [repo](https://github.com/subquery/datasource-processors)
+- There is also a `@subql/moonbeam-evm-processor` which is an alias for `@subql/frontier-evm-processor`.
+- The source code for these processors can be found in our datasource-processors [repo](https://github.com/subquery/datasource-processors).

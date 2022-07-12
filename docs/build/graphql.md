@@ -5,7 +5,7 @@
 The `schema.graphql` file defines the various GraphQL schemas. Due to the way that the GraphQL query language works, the schema file essentially dictates the shape of your data from SubQuery.
 To learn more about how to write in GraphQL schema language, we recommend checking out [Schemas and Types](https://graphql.org/learn/schema/#type-language).
 
-**Important: When you make any changes to the schema file, please ensure that you regenerate your types directory**
+**Important: When you make any changes to the schema file, please ensure that you regenerate your types directory.**
 
 <CodeGroup>
   <CodeGroupItem title="YARN" active>
@@ -223,8 +223,8 @@ We are supporting saving data as a JSON type, which is a fast way to store struc
 
 We recommend users use the JSON type in the following scenarios:
 - When storing structured data in a single field is more manageable than creating multiple separate entities.
-- Saving arbitrary key/value user preferences (where the value can be boolean, textual, or numeric, and you don't want to have separate columns for different data types)
-- The schema is volatile and changes frequently
+- Saving arbitrary key/value user preferences (where the value can be boolean, textual, or numeric, and you don't want to have separate columns for different data types).
+- The schema is volatile and changes frequently.
 
 ### Define JSON directive
 Define the property as a JSON type by adding the `jsonField` annotation in the entity. This will automatically generate interfaces for all JSON objects in your project under `types/interfaces.ts`, and you can access them in your mapping function.
