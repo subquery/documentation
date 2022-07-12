@@ -44,27 +44,27 @@ subql init
 
 ::: предупреждение **Для пользователей Cosmos**
 
-Cosmos is not yet supported in SubQuery's CLI (`subql`). Hence, if you are using Cosmos, you must start with a Juno clone or fork this [starter project](https://github.com/subquery/cosmos-subql-starter).
+Cosmos пока не поддерживается в SubQuery's CLI (`subql`). Следовательно, если вы используете Cosmos, вы должны начать с клона Juno или сделать форк [стартовый проект](https://github.com/subquery/cosmos-subql-starter).
 
-To initialise your project with Cosmos, refer to these 4 steps shown in this [link.](https://github.com/subquery/juno-subql-starter#readme). Once you complete these 4 steps, **jump** to the [Make Changes to Your Project](../quickstart/quickstart.md#_3-make-changes-to-your-project) section. :::
+Чтобы начать свой проект на Cosmos, обратитесь к этим 4 шагам, показанным в этой ссылке [.](https://github.com/subquery/juno-subql-starter#readme). Как только вы выполните эти 4 шага, **перейдите** в раздел [Внести изменения в свой проект](../quickstart/quickstart.md#_3-make-changes-to-your-project). :::
 
-You'll be asked certain questions as you proceed ahead:
+По мере продвижения вперед вам будут задаваться определенные вопросы:
 
-- **Project name**: A project name for your SubQuery project
-- **Network family**: The layer-1 blockchain network family that this SubQuery project will index. Используйте клавиши со стрелками для выбора из доступных вариантов. For example, Polkadot, Avalanche, Cosmos, or any other supported network.
-- **Network**: The specific network that this SubQuery project will index. Используйте клавиши со стрелками для выбора из доступных вариантов. For example, Polkadot, Avalanche, or any other supported network.
-- **Template project**: Select a SubQuery template project that will provide a starting point in the development. We suggest selecting the _"subql-starter"_ project.
-- **RPC endpoint**: Provide an HTTPS URL to a running RPC endpoint, which will be used by default for this project. You can quickly access public endpoints for different networks, create your own private dedicated node using [OnFinality](https://app.onfinality.io), or just use the default endpoint. Этот узел RPC должен быть архивным узлом (иметь состояние полной цепочки). We will use the default value for this guide. Based on the network you have chosen, the default value may be:
-  - For Polkadot - _"https://polkadot.api.onfinality.io"_
-  - For Avalanche - _"https://avalanche.api.onfinality.io"_
-  - For Terra - _“https://terra-columbus-5.beta.api.onfinality.io”_ and likewise for other networks. <br/>
-- **Git repository**: Provide a Git URL to a repo that this SubQuery project will be hosted in (when hosted in SubQuery Explorer) or accept the provided default.
-- **Authors**: Enter the owner of this SubQuery project here (e.g. your name!) or accept the provided default.
-- **Description**: Provide a short paragraph about your project that describes what data it contains and what users can do with it, or accept the provided default.
-- **Version**: Enter a custom version number or use the default (`1.0.0`)
-- **License**: Provide the software license for this project or accept the default (`MIT`)
+- **Project name**: Имя проекта для вашего проекта SubQuery
+- **Network family**: Layer-1 блокчейн, которую этот проект SubQuery будет индексировать. Используйте клавиши со стрелками для выбора из доступных вариантов. Например, Polkadot, Avalanche, Cosmos или другая поддерживаемая сеть.
+- **Network**: Конкретная сеть, которую будет индексировать этот проект SubQuery. Используйте клавиши со стрелками для выбора из доступных вариантов. Например, Polkadot, Avalanche или другая поддерживаемая сеть.
+- **Template project**: Выберите шаблон проекта SubQuery, который станет отправной точкой в разработке. Мы предлагаем выбрать проект _"subql-starter"_ project.
+- **RPC endpoint**: Укажите URL-адрес HTTPS для эндпоинта RPC, который будет использоваться по умолчанию для этого проекта. Вы можете быстро получить доступ к общедоступным эндпоинтам для разных сетей, создать свою собственную частную выделенную ноду, используя [OnFinality](https://app.onfinality.io), или просто использовать эндпоинт по умолчанию. Этот узел RPC должен быть архивным узлом (иметь состояние полной цепочки). В этом руководстве мы будем использовать значение по умолчанию. В зависимости от выбранной вами сети значение по умолчанию может быть:
+  - Для Polkadot - _"https://polkadot.api.onfinality.io"_
+  - Для Avalanche - _"https://avalanche.api.onfinality.io"_
+  - Для Terra - _“https://terra-columbus-5.beta.api.onfinality.io”_ and likewise for other networks. <br/>
+- **Git repository**: Укажите URL-адрес Git для репозитория, в котором будет размещен этот проект SubQuery (при размещении в SubQuery Explorer) или примите указанное значение по умолчанию.
+- **Authors**: Введите здесь владельца этого проекта SubQuery (например, ваше имя!) или примите предоставленное значение по умолчанию.
+- **Description**: Предоставьте краткое описание вашего проекта, в котором объясняется, какие данные он содержит и что пользователи могут с ним делать, или примите предоставленное значение по умолчанию.
+- **Version**: Введите пользовательский номер версии или используйте значение по умолчанию (`1.0.0`)
+- **License**: Предоставьте лицензию на программное обеспечение для этого проекта или примите стандартную (`MIT`)
 
-Let’s look at an example:
+Давайте рассмотрим пример:
 
 ```shell
 $ subql init
@@ -83,28 +83,28 @@ Preparing project... done
 HelloWorld is ready
 ```
 
-After you complete the initialisation process, you will see a folder with your project name created inside the directory. Please note that the contents of this directory should be identical to what's listed in the [Directory Structure](../build/introduction.md#directory-structure).
+После завершения процесса инициализации вы увидите папку с именем вашего проекта, созданную внутри каталога. Пожалуйста, обратите внимание, что содержимое этого каталога должно быть идентичным тому, что указано в [Directory Structure](../build/introduction.md#directory-structure).
 
-Finally, run the following command to install the new project’s dependencies from within the new project's directory.
+Наконец, выполните следующую команду, чтобы установить зависимости нового проекта из каталога нового проекта.
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```shell cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
 
-You have now initialised your first SubQuery project with just a few simple steps. Let’s now customise the standard template project for a specific blockchain of interest.
+Теперь вы инициализировали свой первый проект SubQuery всего за несколько простых шагов. Давайте теперь настроим стандартный шаблон проекта для конкретного интересующего блокчейна.
 
-You may want to refer to the [command line arguments](../run_publish/references.md) used in SubQuery. It will help you understand the commands better.
+Возможно, вы захотите обратиться к [command line arguments](../run_publish/references.md), используемым в SubQuery. Это поможет вам лучше понять команды.
 
-## 3. Make Changes to Your Project
+## 3. Внесите изменения в Свой проект
 
-There are 3 important files that need to be modified. Это:
+Есть 3 важных файла, которые необходимо изменить. Это:
 
 1. Схема GraphQL в `schema.graphql`
 2. Манифест проекта в `project.yaml`
 3. Функции сопоставления в каталоге src / mappings /
 
-SubQuery supports various blockchain networks and provides you with a dedicated guide for each of them.
+SubQuery поддерживает различные блокчейн сети и предоставляет вам специальное руководство для каждой из них.
 
-Pick up your preferred network and proceed ahead to make the modifications required, and move an inch closer to finishing your first ever project:
+Выберите предпочитаемую вами сеть и продолжайте вносить необходимые изменения, приближаясь к завершению вашего первого проекта:
 
 **[Polkadot/Substrate](../quickstart/quickstart_chains/polkadot.md)**
 
