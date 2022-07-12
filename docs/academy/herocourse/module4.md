@@ -22,11 +22,11 @@ Before we can aggregate all the staked rewards earned by a user or more specific
 
 ### High level steps
 
-1. Initialise the starter project
+1. Initialise the starter project.
 2. Update your mappings, manifest file and graphql schema file.
-3. Generate, build and deploy your code
-4. Deploy your code in Docker
-5. Query for address balances in the playground
+3. Generate, build and deploy your code.
+4. Deploy your code in Docker.
+5. Query for address balances in the playground.
 
 ### Detailed steps
 
@@ -216,29 +216,59 @@ export async function handleStakingRewarded(event: SubstrateEvent): Promise<void
 
 Run the standard yarn install, codegen, build and docker-compose pull & docker-compose up commands.
 
+<CodeGroup>
+  <CodeGroupItem title="YARN" active>
 
-```
-yarn install
-OR 
-npm install
-```
+  ```shell
+  yarn install
+  ```
 
+  </CodeGroupItem>
 
+  <CodeGroupItem title="NPM">
 
-```
-yarn codegen
-OR 
-npm run-script codegen
-```
+  ```bash
+  npm install
+  ```
 
+  </CodeGroupItem>
+</CodeGroup>
 
+<CodeGroup>
+  <CodeGroupItem title="YARN" active>
 
-```
-yarn build
-OR 
-npm run-script build
-```
+  ```shell
+  yarn codegen
+  ```
 
+  </CodeGroupItem>
+
+  <CodeGroupItem title="NPM">
+
+  ```bash
+  npm run-script codegen
+  ```
+
+  </CodeGroupItem>
+</CodeGroup>
+
+<CodeGroup>
+  <CodeGroupItem title="YARN" active>
+
+  ```shell
+  yarn build
+  ```
+
+  </CodeGroupItem>
+
+  <CodeGroupItem title="NPM">
+
+  ```bash
+  npm run-script build
+  ```
+
+  </CodeGroupItem>
+</CodeGroup>
 
 
 ```
@@ -441,8 +471,9 @@ export async function handleSumRewarded(event: SubstrateEvent): Promise<void> {
 }
 ```
 
-
-Note: Run yarn codegen and import the new entity to remove the errors.
+::: note 
+Run `yarn codegen` and import the new entity to remove the errors.
+:::
 
 The mappings file should now look like:
 
@@ -486,7 +517,9 @@ export async function handleSumRewarded(event: SubstrateEvent): Promise<void> {
 
 See building a project in the previous exercise.
 
-Note: Because we have modified the schema, delete your database instance in the .data folder.
+::: note
+Because we have modified the schema, delete your database instance in the `.data folder`.
+:::
 
 
 #### Step 5: Query the project
@@ -632,9 +665,6 @@ export async function handleSumRewarded(event: SubstrateEvent): Promise<void> {
 #### Step 4: Rebuild the project
 
 See building a project in the previous exercise. Note that you may need to delete your database folder because an new field is being introduced which needs to be included in your database schema.
-
-
-#### 
 
 
 #### Step 5: Query the project

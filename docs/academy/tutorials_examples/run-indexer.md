@@ -22,7 +22,7 @@ Then to run a SubQuery node, run the following command:
 npm install -g @subql/node
 ```
 
-The -g flag means to install it globally which means on OSX, the location will be /usr/local/lib/node_modules.
+The `-g` flag means to install it globally which means on OSX, the location will be `/usr/local/lib/node_modules`.
 
 Once installed, you can check the version by running:
 
@@ -43,7 +43,7 @@ export DB_HOST=localhost
 export DB_PORT=5432
 ```
 
-Of course, if you have different values for the above keys, please adjust accordingly. Note that the `env` command will display the current environment variables and that this process only sets these values temporarily. That is, they are only valid for the duration of the terminal session. To set them permanently, store them in your ~/bash_profile instead.
+Of course, if you have different values for the above keys, please adjust accordingly. Note that the `env` command will display the current environment variables and that this process only sets these values temporarily. That is, they are only valid for the duration of the terminal session. To set them permanently, store them in your `~/bash_profile` instead.
 
 ## Indexing a project
 

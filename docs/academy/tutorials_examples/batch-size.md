@@ -10,7 +10,7 @@
 
 The default batch size is 100, but this can be changed by using the extra command `--batch-size=xx`.
 
-You need to this to the command line as an extra flag or if you are using Docker, modify the docker-compose.yml with:
+You need to this to the command line as an extra flag or if you are using Docker, modify the `docker-compose.yml` with:
 
 ```shell
 subquery-node:

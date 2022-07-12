@@ -12,7 +12,7 @@ By default, all starter projects start synchronising the blockchain from the gen
 
 To start a SubQuery node synchronising from a non-zero height, all you have to do is to modify your project.yaml file and change the startBlock key.
 
-Below is a project.yaml file where the start block has been set to 1,000,000
+Below is a project.yaml file where the start block has been set to 1,000,000.
 
 ```shell
 specVersion: 0.0.1

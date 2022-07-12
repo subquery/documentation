@@ -8,7 +8,7 @@
 
 **Documentation reference**
 
-[The manifest file](../../build/manifest.md))
+[The manifest file](../../build/manifest.md)
 
 ## Lesson 2: The Schema File
 
@@ -62,11 +62,11 @@ In this exercise, we will take the starter project and focus on using an event h
 
 ### High level steps
 
-1. Initialise the starter project
+1. Initialise the starter project.
 2. Update your mappings, manifest file and graphql schema file by removing all the default code except for the handleEvent function.
-3. Generate, build and deploy your code
-4. Deploy your code in Docker
-5. Query for address balances in the playground
+3. Generate, build and deploy your code.
+4. Deploy your code in Docker.
+5. Query for address balances in the playground.
 
 ### Detailed steps
 
@@ -195,56 +195,67 @@ export async function handleEvent(event: SubstrateEvent): Promise<void> {
 Install the node dependencies by running the following commands:
 
 
-```
-yarn install
-```
+<CodeGroup>
+  <CodeGroupItem title="YARN" active>
 
+  ```shell
+  yarn install
+  ```
 
-OR
+  </CodeGroupItem>
 
+  <CodeGroupItem title="NPM">
 
-```
-npm install
-```
+  ```bash
+  npm install
+  ```
 
-
+  </CodeGroupItem>
+</CodeGroup>
 
 #### Step 6: Generate the associated typescript
 
 Next, we will generate the associated typescript with the following command:
 
+<CodeGroup>
+  <CodeGroupItem title="YARN" active>
 
-```
-yarn codegen
-```
+  ```shell
+  yarn codegen
+  ```
 
+  </CodeGroupItem>
 
-OR
+  <CodeGroupItem title="NPM">
 
+  ```bash
+  npm run-script codegen
+  ```
 
-```
-npm run-script codegen
-```
-
-
+  </CodeGroupItem>
+</CodeGroup>
 
 #### Step 7: Build the project
 
 The next step is to build the project with the following command:
 
+<CodeGroup>
+  <CodeGroupItem title="YARN" active>
 
-```
-yarn build
-```
+  ```shell
+  yarn build
+  ```
 
+  </CodeGroupItem>
 
-OR
+  <CodeGroupItem title="NPM">
 
+  ```bash
+  npm run-script build
+  ```
 
-```
-npm run-script build
-```
-
+  </CodeGroupItem>
+</CodeGroup>
 
 This bundles the app into static files for production.
 
