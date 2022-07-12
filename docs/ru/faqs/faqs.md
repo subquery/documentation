@@ -8,13 +8,13 @@ SubQuery also provides free, production grade hosting of projects for developers
 
 ## Как лучше всего начать работу с SubQuery?
 
-The best way to get started with SubQuery is to try out our [Hello World tutorial](../quickstart/helloworld-localhost.md). Это простой 5-минутный урок по загрузке стартового шаблона, сборке проекта, а затем использованию Docker для запуска узла на локальном хосте и выполнения простого запроса.
+Лучший способ начать работу с SubQuery - это попробовать [Hello World tutorial](../quickstart/helloworld-localhost.md). Это простой 5-минутный урок по загрузке стартового шаблона, сборке проекта, а затем использованию Docker для запуска узла на локальном хосте и выполнения простого запроса.
 
 ## Как я могу внести свой вклад или оставить отзыв о SubQuery?
 
 Нам нравится вклад и обратная связь от сообщества. Чтобы внести свой код, форкните интересующий вас репозиторий и внесите свои изменения. Далее отправьте PR или Pull Request. О, не забудьте также протестировать! Also check out our contributions guide lines (TBA).
 
-To give feedback, contact us at hello@subquery.network or jump onto our [discord channel](https://discord.com/invite/78zg8aBSMG)
+Чтобы оставить отзыв, свяжитесь с нами по адресу hello@subquery.network или перейдите на наш канал [discord](https://discord.com/invite/78zg8aBSMG)
 
 ## Сколько стоит размещение моего проекта в SubQuery?
 
