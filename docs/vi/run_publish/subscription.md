@@ -6,7 +6,7 @@ SubQuery hiện đang hỗ trợ Các theo dõi Graphql. Giống như truy vấn
 
 Các theo dõi rất hữu ích khi bạn muốn ứng dụng khách của mình thay đổi dữ liệu hoặc hiển thị một số dữ liệu mới ngay khi dữ liệu thay đổi hoặc dữ liệu mới có sẵn. Các theo dõi cho phép bạn *theo dõi* dự án SubQuery của bạn để biết sự thay đổi.
 
-[Read more about subscriptions here](https://www.apollographql.com/docs/react/data/subscriptions/).
+::: info Note Read more about [Subscriptions](https://www.apollographql.com/docs/react/data/subscriptions/). :::
 
 ## Làm thế nào để theo dõi một thực thể
 
@@ -64,6 +64,8 @@ subscription {
 
 Note that the `mutation` filter can be one of `INSERT`, `UPDATE` or `DELETE`.
 
-**Xin lưu ý rằng bạn phải bật cờ `--subscription` trên cả node và dịch vụ truy vấn để sử dụng các hàm này.**
+::: warning Important Please note that you must enable the `--subscription` flag on both the node and query service in order to use these functions. :::
 
-Tính năng theo dõi hoạt động trên dịch vụ được quản lý bởi SubQuery khi bạn gọi trực tiếp điểm cuối GraphQL được liệt kê. Nó sẽ không hoạt động trong sân chơi GraphQL trong trình duyệt.
+::: warning Important
+The subcription feature works on SubQuery's managed service when you directly call the listed GraphQL endpoint. Nó sẽ không hoạt động trong sân chơi GraphQL trong trình duyệt.
+:::
