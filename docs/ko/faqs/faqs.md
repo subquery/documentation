@@ -8,7 +8,7 @@ SubQuery also provides free, production grade hosting of projects for developers
 
 ## SubQuery를 시작하는 가장 좋은 방법은 무엇입니까?
 
-The best way to get started with SubQuery is to try out our [Hello World tutorial](../quickstart/helloworld-localhost.md). 쿼리를 실행하는 과정을 5분 만에 쉽게 구동할 수 있습니다. 일단 스타트 템플릿을 다운로드하고 프로젝트를 빌드한 다음, Docker를 이용하여 로컬 호스트에서 노드를 실행합니다.
+The best way to get started with SubQuery is to try out our [Hello World tutorial](/assets/pdf/Hello_World_Lab.pdf). 쿼리를 실행하는 과정을 5분 만에 쉽게 구동할 수 있습니다. 일단 스타트 템플릿을 다운로드하고 프로젝트를 빌드한 다음, Docker를 이용하여 로컬 호스트에서 노드를 실행합니다.
 
 ## SubQuery에 기여하거나 피드백을 하려면 어떻게 해야하나요?
 
