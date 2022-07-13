@@ -20,7 +20,7 @@ We recommend deploying to your staging slot only for final staging testing or wh
 The staging slot is perfect for:
 
 - Ayrı bir ortamda SubQuery Projenizde yapılan değişikliklerin nihai doğrulaması. Staging slotu, dApp'lerinizde kullanabileceğiniz farklı bir production URL'sine sahiptir.
-- dApp'inizdeki kesinti süresini ortadan kaldırmak amacıyla güncellenmiş bir SubQuery projesi için verilerin hazırlanması ve dizine eklenmesi
+- Warming up and indexing data for an updated SubQuery project to eliminate downtime in your dApp.
 - SubQuery Projeniz için kamuya açık hale getirmeksizin yeni bir sürüm hazırlamak. Staging slotu tarayıcıda herkese açık değildir ve yalnızca sizin görebileceğiniz benzersiz bir URL'si vardır.
 
 ![Staging slot](/assets/img/staging_slot.png)
