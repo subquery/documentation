@@ -2,17 +2,17 @@
 
 このSubQueryプロジェクトへの貢献をご検討いただき、誠にありがとうございます！ 私たちは共に、より分散化された未来への道を切り開くことができます。
 
-> このドキュメントは、SubQuery チームによって頻繁にメンテナンスされています。 GitHubプロジェクトをフォークして、`docs`ディレクトリにあるすべてのドキュメントのマークダウンファイルを変更することで、あなたの貢献を歓迎します。
+::: info Note This documentation is actively maintained by the SubQuery team. We welcome your contributions. You can do so by forking our GitHub project and making changes to all the documentation markdown files under the `docs` directory. :::
 
-以下は、SubQueryに貢献するためのガイドライン（ルールではありません）です。 これらのガイドラインに従うことで、関係者全員にとって貢献プロセスを簡単かつ効果的にすることができます。 また、このプロジェクトを管理・開発している開発者の時間を尊重することを伝えるものです。 その見返りとして、私たちはあなたの問題に取り組み、変更を検討し、改善について協力し、あなたのプルリクエストを完成させる手助けをすることで、その敬意に報いることにしています。
+What follows is a set of guidelines (not rules) for contributing to SubQuery. Following these guidelines will help us make the contribution process easy and effective for everyone involved. It also communicates that you agree to respect the time of the developers managing and developing this project. In return, we will reciprocate that respect by addressing your issue, considering changes, collaborating on improvements, and helping you finalise your pull requests.
 
 ## 行動規範
 
-私たちは、オープンソースコミュニティのプロジェクトと責任を真剣に受け止め、自分自身と他の貢献者に高いコミュニケーション基準を課しています。 このプロジェクトに参加し、貢献することにより、あなたは私たちの[行動規範](https://github.com/subquery/subql/blob/contributors-guide/CODE_OF_CONDUCT.md)に同意するものとします。
+We take our open source community projects and responsibility seriously and hold ourselves and other contributors to high standards of communication. By participating and contributing to this project, you agree to uphold our [Code of Conduct](https://github.com/subquery/subql/blob/main/CODE_OF_CONDUCT.md).
 
 ## はじめに
 
-リポジトリへの貢献は、Issue と Pull Request (PR) によって行われます。 両方をカバーするいくつかの一般的なガイドライン:
+Contributions to our repositories are made through Issues and Pull Requests (PRs). A few general guidelines that cover both:
 
 * 自分で作成する前に、既存のIssuesやPRを検索してください。
 * 迅速な対応に努めていますが、影響によっては原因究明に時間がかかる場合もあります。 あなたの問題がブロックされている場合、コメントスレッドで投稿者や投稿者に友好的に@で言及することで、注意を引くことができます。
@@ -21,7 +21,7 @@
 
 ### バグ報告
 
-バグはGitHub issuesとして追跡されます。 問題を記録するときは内容を説明し、開発者が問題を再現するのに役立つような詳細情報を含めてください。
+Bugs are tracked as GitHub issues. When logging an issue, explain the problem and include additional details to help maintainers reproduce the problem:
 
 * 問題を特定するために、明確で説明的なタイトルを使用します。
 * 問題を再現するための正確なステップを記述します。
