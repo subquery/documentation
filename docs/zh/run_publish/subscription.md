@@ -6,7 +6,7 @@ SubQuery 现在已支持 Graphql 订阅。 像查询一样，订阅可以让您�
 
 当您想要您的客户端应用程序更改数据或在发生更改或有新数据时显示一些新数据时，订阅非常有用。 订阅允许您 *订阅* SubQuery项目进行修改。
 
-[Read more about subscriptions here](https://www.apollographql.com/docs/react/data/subscriptions/).
+::: info Note Read more about [Subscriptions](https://www.apollographql.com/docs/react/data/subscriptions/). :::
 
 ## 如何订阅
 
@@ -64,6 +64,8 @@ subscription {
 
 Note that the `mutation` filter can be one of `INSERT`, `UPDATE` or `DELETE`.
 
-**131/5000 请注意，为了使用这些函数，必须在节点和查询服务上启用`--subscription`标志。**
+::: warning Important Please note that you must enable the `--subscription` flag on both the node and query service in order to use these functions. :::
 
-当您直接调用列出的GraphQL端点时，订阅特性可以在SubQuery的托管服务上工作。 它不能在浏览器内的GraphQL背景中工作。
+::: warning Important
+The subcription feature works on SubQuery's managed service when you directly call the listed GraphQL endpoint. 它不能在浏览器内的GraphQL背景中工作。
+:::
