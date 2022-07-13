@@ -6,7 +6,7 @@ SubQuery вече поддържа и Graphql абонаменти. Подобн
 
 Абонаментите са много полезни, когато искате вашето клиентско приложение да промени данни или да покаже някои нови данни веднага щом тази промяна настъпи или новите данни са налични. Абонаментите ви позволяват да се *абонирате* за вашия SubQuery проект за промени.
 
-[Read more about subscriptions here](https://www.apollographql.com/docs/react/data/subscriptions/).
+[Прочетете повече за абонаментите тук](https://www.apollographql.com/docs/react/data/subscriptions/).
 
 ## Как да се абонирам за обект
 
@@ -25,8 +25,8 @@ subscription {
 ```
 
 Тялото на обекта във вашата заявка показва какви данни искате да получавате чрез абонамента си, когато таблицата `Transfer` се актуализира:
-- `id`: Returns the ID of the entity that has changed.
-- `mutation_type`: Действието, което е извършено към този обект. Mutation types can be either `INSERT`, `UPDATE` or `DELETE`.
+- `id`: Връща идентификатора на обекта, който е променен.
+- `mutation_type`: Действието, което е извършено към този обект. Типовете мутации могат да бъдат `INSERT`, `UPDATE` или `DELETE`.
 - `_entity`: стойността на самия обект във формат JSON.
 
 ## Филтриране
@@ -62,7 +62,7 @@ subscription {
 }
 ```
 
-Note that the `mutation` filter can be one of `INSERT`, `UPDATE` or `DELETE`.
+Имайте предвид, че филтърът за `mutation` може да бъде един от `INSERT`, `UPDATE` или `DELETE`.
 
 **Моля, имайте предвид, че трябва да активирате флага `--unsafe` на услугата за заявки, за да използвате тези функции.**
 
