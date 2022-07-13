@@ -6,7 +6,7 @@ SubQuery ahora también soporta Suscripciones Graphql. Al igual que las consulta
 
 Las suscripciones son muy útiles cuando desea que su aplicación cliente cambie datos o muestre algunos nuevos datos tan pronto como se produzca ese cambio o los nuevos datos estén disponibles. Las suscripciones te permiten *suscribirte* a tu proyecto de SubQuery para realizar cambios.
 
-[Lea más sobre las suscripciones aquí](https://www.apollographql.com/docs/react/data/subscriptions/)
+[Read more about subscriptions here](https://www.apollographql.com/docs/react/data/subscriptions/).
 
 ## Cómo suscribirse a una entidad
 
@@ -25,8 +25,8 @@ subscripción {
 ```
 
 El cuerpo de la entidad en tu consulta indica qué datos quieres recibir a través de tu suscripción cuando se actualiza la tabla `Transferir`:
-- `id`: Devuelve el ID de la entidad que ha cambiado
-- `mutation_type`: La acción que se ha hecho a esta entidad. Los tipos de mutación pueden ser `INSERT`, `ACTUALIZAR` o `DELETE`
+- `id`: Returns the ID of the entity that has changed.
+- `mutation_type`: La acción que se ha hecho a esta entidad. Mutation types can be either `INSERT`, `UPDATE` or `DELETE`.
 - `_entity`: el valor de la entidad misma en formato JSON.
 
 ## Filtrado
@@ -62,7 +62,7 @@ suscripción {
 }
 ```
 
-Ten en cuenta que el filtro `de mutación` puede ser uno de `INSERT`, `ACTUALAR` o `DELETE`
+Note that the `mutation` filter can be one of `INSERT`, `UPDATE` or `DELETE`.
 
 **Tenga en cuenta que debe habilitar la bandera `--subscription` tanto en el servicio de nodo como en el de consulta para poder utilizar estas funciones.**
 
