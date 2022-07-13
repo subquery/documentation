@@ -2,17 +2,17 @@
 
 Добре дошли и ви благодаря, че обмисляте да допринесете за този SubQuery проект! Заедно можем да проправим пътя към по-децентрализирано бъдеще.
 
-> Тази документация се поддържа активно от екипа на SubQuery. Приветстваме вашия принос, можете да го направите, като форкнете нашия GitHub проект и направите промени във всички файлове с намалена документация в директорията с `документи`.
+::: info Note This documentation is actively maintained by the SubQuery team. We welcome your contributions. You can do so by forking our GitHub project and making changes to all the documentation markdown files under the `docs` directory. :::
 
-Това, което следва, е набор от насоки (не правила) за принос към SubQuery. Следването на тези указания ще ни помогне да направим процеса на принос лесен и ефективен за всички участващи. Той съобщава, че се съгласявате да уважавате времето на разработчиците, които управляват и разработват този проект. В замяна ние ще отвърнем на това уважение, като разгледаме проблема ви, ще разгледаме промените, ще си сътрудничим за подобрения и ще ви помогнем да финализирате заявките си за изтегляне.
+What follows is a set of guidelines (not rules) for contributing to SubQuery. Following these guidelines will help us make the contribution process easy and effective for everyone involved. It also communicates that you agree to respect the time of the developers managing and developing this project. In return, we will reciprocate that respect by addressing your issue, considering changes, collaborating on improvements, and helping you finalise your pull requests.
 
 ## Кодекс на поведение
 
-Ние приемаме нашите обществени проекти с отворен код сериозно и държим себе си и другите участници, както и имаме високи стандарти за комуникация. Като участвате и допринасяте за този проект, вие се съгласявате да спазвате нашия [Кодекс за поведение](https://github.com/subquery/subql/blob/contributors-guide/CODE_OF_CONDUCT.md).
+We take our open source community projects and responsibility seriously and hold ourselves and other contributors to high standards of communication. By participating and contributing to this project, you agree to uphold our [Code of Conduct](https://github.com/subquery/subql/blob/main/CODE_OF_CONDUCT.md).
 
 ## Нека да започнем
 
-Приносът към нашите хранилища се прави чрез проблеми и заявки за изтегляне (Pull Requests - PR). Няколко общи насоки, които обхващат и двете:
+Contributions to our repositories are made through Issues and Pull Requests (PRs). A few general guidelines that cover both:
 
 * Потърсете съществуващи проблеми и заявки за изтегляне, преди да създадете свои собствени.
 * Работим усилено, за да гарантираме, че проблемите се решават бързо, но в зависимост от въздействието може да отнеме известно време, за да се проучи основната причина. Приятелското @ споменаване в коментарите към подателя или сътрудника, може да ви помогне да привлечете внимание, в случай че проблемът ви блокира.
@@ -21,7 +21,7 @@
 
 ### Докладване на грешки
 
-Грешките се проследяват като проблеми с GitHub. Когато регистрирате проблем, обяснете проблема и включете допълнителни подробности, за да помогнете на съпорта да възпроизведе проблема:
+Bugs are tracked as GitHub issues. When logging an issue, explain the problem and include additional details to help maintainers reproduce the problem:
 
 * Използвайте ясно и описателно заглавие на проблема, за да идентифицирате проблема.
 * Опишете точните стъпки за възпроизвеждане на проблема.
@@ -31,7 +31,7 @@
 
 ### Подаване на заявки за изтегляне
 
-Като цяло ние следваме работния процес на Git "разклони и издърпай":
+In general, we follow the "fork-and-pull" Git workflow:
 
 * Разклонете хранилището към вашия собствен Github акаунт.
 * Клонирайте проекта на вашата машина.
