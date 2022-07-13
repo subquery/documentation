@@ -20,7 +20,7 @@ Recomendamos desplegar en su puesto de trabajo sólo para las pruebas finales de
 La ranura de montaje es perfecta para:
 
 - Validación final de los cambios en su SubQuery Project en un entorno separado. La ranura de staging (montaje) tiene una URL diferente a la de producción que puedes usar en tus dApps.
-- Calentando e indexando datos para un proyecto actualizado de SubQuery para eliminar los tiempos de inactividad en tu dApp
+- Warming up and indexing data for an updated SubQuery project to eliminate downtime in your dApp.
 - Preparando una nueva versión para su SubQuery Project sin exponerla públicamente. El espacio para escenarios no se muestra al público en el explorador y tiene una URL única que solo es visible para usted.
 
 ![Ranura provisional](/assets/img/staging_slot.png)
