@@ -14,6 +14,4 @@
 
 ## แพ็คเกจทรัพยากรแบรนด์
 
-แพ็คเกจไฟล์ ZIP ขนาดเล็กของทรัพยากรแบรนด์
-
-[public_branding.zip](https://static.subquery.network/public_branding.zip)
+A smaller ZIP package of brand assets: [public_branding.zip](https://static.subquery.network/public_branding.zip).
