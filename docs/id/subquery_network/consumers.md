@@ -34,4 +34,4 @@ Kecuali jika Perjanjian Layanan Tertutup digunakan, akan ada satu atau lebih Pen
 
 ### Apa yang terjadi jika Pengindeks keluar jalur?
 
-Kecuali jika Perjanjian Layanan Tertutup digunakan, dan jika ada lebih dari satu Pengindeks yang mengindeks proyek SubQuery Anda, itu hanya masalah beralih ke Pengindeks lain. Skenario yang ideal akan mencakup strategi seperti pemantauan peringatan untuk diberitahu tentang potensi masalah dan perutean dan caching yang cerdas
+Kecuali jika Perjanjian Layanan Tertutup digunakan, dan jika ada lebih dari satu Pengindeks yang mengindeks proyek SubQuery Anda, itu hanya masalah beralih ke Pengindeks lain. The ideal scenario would be include strategies like alert monitoring to be notified of potential issues and intelligent routing and caching.
