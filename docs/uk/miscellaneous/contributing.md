@@ -2,17 +2,17 @@
 
 Ласкаво просимо! Ми хочемо подякувати вам за те, що ви розглянули можливість зробити свій вклад у проект SubQuery! Разом ми зможемо прокласти шлях до бiльш децентралізованого майбутнього.
 
-> Дана документація активно підтримується командою SubQuery. Ми дуже раді вашому вкладу у наш проект. Для початку вам необхідно форкнути наш проект GitHub та внести зміни до всіх файлів markdown документації в каталозі `docs`.
+::: info Note This documentation is actively maintained by the SubQuery team. We welcome your contributions. You can do so by forking our GitHub project and making changes to all the documentation markdown files under the `docs` directory. :::
 
-Нижче ви можете ознайомитись з інструкціями (не правилами), які допоможуть вам внести свій вклад у проект SubQuery. Дані інструкції допоможуть зробити участь у проекті найбільш ефективною та простою. Дотримуючись цих інструкцій, ви погоджуєтесь поважати час розробників, які керують цим проектом та розробляють його. З нашого боку, ми зробимо все можливе, щоб допомогти вам з вирішенням будь-яких проблем, з якими ви можете зіткнутися, розглянемо питання про внесення змін і разом працюватимемо над покращенням проекту. Також, ми допоможемо вам фіналізувати ваші пул реквести (pull requests).
+What follows is a set of guidelines (not rules) for contributing to SubQuery. Following these guidelines will help us make the contribution process easy and effective for everyone involved. It also communicates that you agree to respect the time of the developers managing and developing this project. In return, we will reciprocate that respect by addressing your issue, considering changes, collaborating on improvements, and helping you finalise your pull requests.
 
 ## Наш Кодекс Поведінки
 
-Ми серйозно ставимося до наших open source проектів спільноти, та до відповідальності. Також, ми та інші учасники дотримуємося високих стандартів спілкування. Беручи участь у нашому проекті, ви погоджуєтеся дотримуватися нашого [Кодексу Поведінки](https://github.com/subquery/subql/blob/contributors-guide/CODE_OF_CONDUCT.md).
+We take our open source community projects and responsibility seriously and hold ourselves and other contributors to high standards of communication. By participating and contributing to this project, you agree to uphold our [Code of Conduct](https://github.com/subquery/subql/blob/main/CODE_OF_CONDUCT.md).
 
 ## Початок роботи
 
-Вклади у наш репозиторій робляться через Issues та Pull requests (PR). Ось декілька загальних рекомендацій, що охоплюють обидва методи:
+Contributions to our repositories are made through Issues and Pull Requests (PRs). A few general guidelines that cover both:
 
 * Перш ніж створювати власні питання та PR, за допомогою пошука переконайтеся в тому, що вони не були створені раніше.
 * Ми докладаємо всіх зусиль для того, щоб забезпечити своєчасне вирішення проблем, але, залежно від впливу даних проблем, може знадобитися більше часу на дослідження основної причини. Дружня @ згадка відправника або учасника у гілці коментарів може допомогти привернути увагу до вашої проблеми, якщо вона не вирішується.
@@ -21,7 +21,7 @@
 
 ### Звіт про знайдені помилки/баги
 
-Всі помилки/баги реєструються як GitHub issues. При реєстрації проблеми постарайтеся дати детальне пояснення та опис проблеми, це допоможе нашим технічним фахівцям швидше відтворити її:
+Bugs are tracked as GitHub issues. When logging an issue, explain the problem and include additional details to help maintainers reproduce the problem:
 
 * Щоб ідентифікувати проблему, намагайтеся використовувати зрозумілу та описову назву.
 * Опишіть точні кроки для вiдтворення проблеми.
