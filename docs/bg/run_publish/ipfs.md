@@ -8,7 +8,7 @@
 
 - `@subql/cli` версия 0.21.0 или по-нова.
 - Manifest `specVersion` 0.2.0 и по-нова версия.
-- Подгответе своя [SUBQL_ACCESS_TOKEN](#prepare-your-subql-access-token).
+- Get your [SUBQL_ACCESS_TOKEN](ipfs.md#prepare-your-subql-access-token) ready.
 - За да сте сигурни, че внедряването ви е успешно, силно препоръчваме да изградите проекта си с командата `subql build` и да го тествате локално, преди да го публикувате.
 
 ## Подгответе своя SUBQL_ACCESS_TOKEN
@@ -66,7 +66,7 @@ Uploading SupQuery project to IPFS
 SubQuery Project uploaded to IPFS: QmZ3q7YZSmhwBiot4PQCK3c7Z6HkteswN2Py58gkkZ8kNd  //CID
 ```
 
-Моля, обърнете внимание на този `CID`. С този `CID` можете да видите публикувания си проект като това, което ние наричаме [Внедряване на IPFS](#ipfs-deployment).
+Моля, обърнете внимание на този `CID`. With this `CID`, you can view your published project as what we call it [IPFS Deployment](ipfs.md#ipfs-deployment).
 
 ## IPFS Deployment
 
@@ -107,7 +107,7 @@ specVersion: 0.2.0
 
 ### Създайте проект с IPFS внедряване
 
-Можете да следвате ръководството за [Публикуване на вашия проект SubQuery](publish.md), но където задавате източника си за внедряване, можете да изберете **IPFS**.
+You can follow the guide to [Publish your SubQuery project](../run_publish/publish.md) but where you set your deployment source you can select **IPFS**.
 
 След това изберете вашия производствен слот, копирайте и поставете своя CID за разгръщане на IPFS (без водещия `ipfs://`).
 
