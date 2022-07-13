@@ -20,7 +20,7 @@ We recommend deploying to your staging slot only for final staging testing or wh
 The staging slot is perfect for:
 
 - 在独立的环境中最后验证您的 SubQuery 项目的更改。 中转插槽有一个不同的用于生产的URL，可以在dApps中使用它。
-- 为更新的SubQuery项目预热和索引数据，以消除dApp中的停机时间。
+- Warming up and indexing data for an updated SubQuery project to eliminate downtime in your dApp.
 - 为您的SubQuery Project准备一个新版本，而不公开它。 中转插槽不会在Explorer中显示给公众，它有一个唯一的URL，仅对您可见。
 
 ![Staging slot](/assets/img/staging_slot.png)
