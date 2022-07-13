@@ -1,11 +1,11 @@
-# Подключитесь к вашему новому проекту
+# Connect to your new project
 
-После того, как ваше развертывание будет успешно завершено и наши узлы проиндексируют ваши данные из цепочки, вы сможете подключиться к своему проекту через отображаемую конечную точку запроса.
+Once your deployment has succesfully completed and our nodes have indexed your data from the chain, you'll be able to connect to your project via the displayed Query endpoint.
 
-![Проект развернут и синхронизирован](/assets/img/projects-deploy-sync.png)
+![Проект будет развернут и синхронизирован](/assets/img/projects-deploy-sync.png)
 
-Альтернативно, вы можете кликнуть по трем точкам рядом с названием вашего проекта и просмотреть его в SubQuery Explorer. Там вы можете использовать в браузере игровую площадку для начала.
+Кроме того, вы можете щелкнуть три точки рядом с названием вашего проекта и просмотреть его в SubQuery Explorer. There you can use the in browser playground to get started.
 
-![Проекты в SubQuery Эксплорере](/assets/img/projects-explorer.png)
+![Projects in SubQuery Explorer](/assets/img/projects-explorer.png)
 
-[Узнайте больше о языке запросов GraphQL.](./graphql.md)
+::: info Note Learn more about the [GraphQL Query language.](./graphql.md) :::
