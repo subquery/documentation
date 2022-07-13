@@ -42,7 +42,9 @@ Jalankan perintah berikut di dalam direktori yang ingin Anda buat proyek SubQuer
 subql init
 ```
 
-::: warning For Cosmos Users
+::: warning Important
+
+**For Cosmos Users**
 
 Cosmos belum didukung dalam CLI SubQuery (`subql`). Hence, if you are using Cosmos, you must start with a Juno clone or fork this [starter project](https://github.com/subquery/cosmos-subql-starter).
 
@@ -96,20 +98,20 @@ Anda mungkin ingin merujuk ke [argumen baris perintah](../run_publish/references
 
 ## 3. Membuat Perubahan pada Proyek Anda
 
-Ada 3 file penting yang perlu dimodifikasi. Anda terutama akan mengerjakan file-file berikut:
+Ada 3 file penting yang perlu dimodifikasi. These are:
 
-1. Skema GraphQL di `schema.graphql`
-2. Manifes Proyek di `project.yaml`
-3. Fungsi Pemetaan di direktori `src/mappings/`
+1. The GraphQL Schema in `schema.graphql`.
+2. The Project Manifest in `project.yaml`.
+3. The Mapping functions in `src/mappings/` directory.
 
 SubQuery mendukung berbagai jaringan blockchain dan memberi Anda panduan khusus untuk masing-masing jaringan.
 
 Pilih jaringan pilihan Anda dan lanjutkan ke depan untuk melakukan modifikasi yang diperlukan, dan bergerak satu inci lebih dekat untuk menyelesaikan proyek pertama Anda:
 
-**[Polkadot/Substrate](../quickstart/quickstart_chains/polkadot.md)**
+- **[Polkadot/Substrate](../quickstart/quickstart_chains/polkadot.md)**
 
-**[Avalanche](../quickstart/quickstart_chains/avalanche.md)**
+- **[Avalanche](../quickstart/quickstart_chains/avalanche.md)**
 
-**[Cosmos](../quickstart/quickstart_chains/cosmos.md)**
+- **[Cosmos](../quickstart/quickstart_chains/cosmos.md)**
 
-**[Terra](../quickstart/quickstart_chains/terra.md)**
+- **[Terra](../quickstart/quickstart_chains/terra.md)**
