@@ -14,7 +14,7 @@ Hosting a project in IPFS makes it available for all and reduces your reliance o
 ## SUBQL_ACCESS_TOKEN 준비
 
 - 1단계: [SubQuery 프로젝트](https://project.subquery.network/)로 이동하여 로그인합니다.
-- 2단계: 탐색 메뉴의 오른쪽 상단에서 프로필을 클릭한 다음 **_토큰 새로 고침_**을 클릭합니다.
+- Step 2: Click on your profile at the top right of the navigation menu, then click on **_Refresh Token_**.
 - 3단계: 생성된 토큰을 복사합니다.
 - 4단계: 이 토큰을 사용하려면:
   - 옵션 1: 환경 변수에 SUBQL_ACCESS_TOKEN을 추가합니다. `SUBQL_ACCESS_TOKEN= 내보내기<token>`
@@ -22,11 +22,11 @@ Hosting a project in IPFS makes it available for all and reduces your reliance o
 
 ## 프로젝트를 게시하는 방법
 
-프로젝트를 게시하는 두 가지 방법을 제공합니다.
+We provide two methods to publish your project:
 
-### 옵션 1:
+### Option 1
 
-`@subql/cli`가 이미 설치되어 있으므로 다음 명령을 실행할 수 있습니다. 이 명령은 기본 매니페스트 `project.yaml`에서 프로젝트 및 필수 정보를 읽습니다.
+As you have `@subql/cli` already installed, you can run the following command, which will read the project and required information from its default manifest `project.yaml`:
 
 ```
 // Publish it from your project's root directory
@@ -36,7 +36,7 @@ subql publish
 subql publish -f ~/my-project/
 ```
 
-### 옵션 2:
+### Option 2
 
 또는 프로젝트에 여러 매니페스트 파일이 있다고 가정합니다. 예를 들어 여러 네트워크를 지원하지만 동일한 매핑 및 비즈니스 논리를 공유하고 다음과 같은 프로젝트 구조가 있다고 가정합니다.
 
@@ -66,15 +66,15 @@ Uploading SupQuery project to IPFS
 SubQuery Project uploaded to IPFS: QmZ3q7YZSmhwBiot4PQCK3c7Z6HkteswN2Py58gkkZ8kNd  //CID
 ```
 
-이 `CID`를 기록해 두십시오. 이 `CID`를 사용하면 게시된 프로젝트를 [IPFS 배포](#ipfs-deployment)라고 하는 것으로 볼 수 있습니다.
+이 `CID`를 기록해 두십시오. With this `CID`, you can view your published project as what we call it [IPFS Deployment](#ipfs-deployment).
 
 ## IPFS 배포
 
 IPFS 배포는 분산 네트워크에서 SubQuery 프로젝트의 독립적이고 고유한 존재를 나타냅니다. 따라서 프로젝트의 코드를 변경하면 고유성에 영향을 줍니다. 비즈니스 로직을 조정해야 하는 경우 매핑 기능을 변경하려면 프로젝트를 다시 게시해야 하며 `CID`가 변경됩니다.
 
-지금은 게시한 프로젝트를 보려면 [Postman](https://web.postman.co/)과 같은 `REST` api 도구를 사용하고 다음 예제 URL과 함께 `POST` 메서드를 사용하여 검색합니다. `https://ipfs.subquery.network/ipfs/api/v0/cat?arg=<YOUR_PROJECT_CID>`
+For now, to view the project you have published, use a `REST` api tool such as [Postman](https://web.postman.co/), and use `POST` method with the following example URL to retrieve it:`https://ipfs.subquery.network/ipfs/api/v0/cat?arg=<YOUR_PROJECT_CID>`.
 
-아래와 같이 프로젝트 배포의 예가 표시되어야 합니다.
+You should see the example project deployment as below.
 
 이 배포는 매니페스트 파일과 매우 유사합니다. 이러한 설명 필드를 예상할 수 있으며 네트워크 및 사전 끝점은 프로젝트 실행 결과에 직접적인 영향을 미치지 않았기 때문에 제거되었습니다.
 
