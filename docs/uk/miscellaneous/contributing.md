@@ -31,24 +31,24 @@
 
 ### Відправлення Pull Requests
 
-Загалом, ми дотримуємось робочого процесу Git, який заснований на принципах «fork-and-pull»
+In general, we follow the "fork-and-pull" Git workflow:
 
-* Форкнути репозиторій у ваш обліковий запис на Github
-* Клонувати проект на ваш комп'ютер
-* Створити локальну гілку (branch) з коротким, але описовим ім'ям
-* Зберегти зміни у гілці
-* Дотримуватися правил форматування та тестування, які притаманні даному репозиторію
-* Надіслати зміни до вашого форку
-* Відкрити PR у нашому репозиторії
+* Fork the repository to your own Github account.
+* Clone the project to your machine.
+* Create a branch locally with a succinct but descriptive name.
+* Commit changes to the branch.
+* Following any formatting and testing guidelines specific to this repo.
+* Push changes to your fork.
+* Open a PR in our repository.
 
 ## Стандарт Оформлення Коду
 
 ### Повідомлення Git Commit
 
-* Використовуйте теперішній час («Додати об'єкт», а не «Доданий об'єкт»)
-* Використовуйте наказовий спосіб («Перемістити курсор у...», а не «Курсор переміщається у...»)
-* Обмежте перший рядок до 72 символів або ще менше
+* Use the present tense ("Add feature" not "Added feature").
+* Use the imperative mood ("Move cursor to..." not "Moves cursor to...").
+* Limit the first line to 72 characters or less.
 
 ### Посібник із стилю JavaScript
 
-* Весь код JavaScript розміщений на основі Prettier та ESLint
+* All JavaScript code is linted with Prettier and ESLint.
