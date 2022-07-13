@@ -31,24 +31,24 @@ I bug sono tracciati come problemi su GitHub. Quando si registra un problema, sp
 
 ### Invio di richieste di pull
 
-In generale, seguiamo il flusso di lavoro Git "fork-and-pull
+In general, we follow the "fork-and-pull" Git workflow:
 
-* Forking del repository sul proprio account Github
-* Clona il progetto sulla tua macchina
-* Creare localmente un ramo con un nome succinto ma descrittivo
-* Impegnare le modifiche al ramo
-* Seguire tutte le linee guida di formattazione e test specifiche per questo repo
-* Spingi le modifiche alla tua forcella
-* Aprire un PR nel nostro repository
+* Fork the repository to your own Github account.
+* Clone the project to your machine.
+* Create a branch locally with a succinct but descriptive name.
+* Commit changes to the branch.
+* Following any formatting and testing guidelines specific to this repo.
+* Push changes to your fork.
+* Open a PR in our repository.
 
 ## Convenzioni di codifica
 
 ### Messaggi di commit di Git
 
-* Usare il tempo presente ("Add feature" non "Added feature")
-* Usare l'imperativo ("Move cursor to..." non "Moves cursor to...")
-* Limitare la prima riga a 72 caratteri o meno
+* Use the present tense ("Add feature" not "Added feature").
+* Use the imperative mood ("Move cursor to..." not "Moves cursor to...").
+* Limit the first line to 72 characters or less.
 
 ### JavaScript Styleguide
 
-* Tutto il codice JavaScript viene sottoposto a linting con Prettier e ESLint
+* All JavaScript code is linted with Prettier and ESLint.
