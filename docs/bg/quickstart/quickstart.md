@@ -1,21 +1,21 @@
-# 1. Create a New Project
+# 1. Създайте нов проект
 
-The goal of this quick start guide is to provide you with a complete development setup and guided steps to create your first SubQuery blockchain project. It is targeted towards experienced developers right through to those just beginning their blockchain journey.
+Целта на това ръководство за бърз старт е да ви предостави пълна настройка за разработка и напътствани стъпки за създаване на вашия първи блокчейн проект на SubQuery. Той е насочен към опитни разработчици до тези, които тепърва започват своето блокчейн пътуване.
 
-This quick start guide should take around 10-15 minutes.
+Това ръководство за бърз старт трябва да отнеме около 10-15 минути.
 
-After completing this quick start guide, you will have a working SubQuery project that will run on a SubQuery node. You will be able to adapt the standard starter project and index transfers from your favourite blockchain network such as Polkadot, Avalanche, Cosmos, etc.
+След като завършите това ръководство за бърз старт, ще имате работещ проект на SubQuery, който ще се изпълнява на възел на SubQuery. Ще можете да адаптирате стандартния стартов проект и да индексирате трансфери от любимата си блокчейн мрежа като Polkadot, Avalanche, Cosmos и др.
 
-Let's start the process of creating your first SubQuery blockchain project.
+Нека започнем процеса на създаване на вашия първи блокчейн проект SubQuery.
 
-## Prerequisites
+## Предпоставки
 
-Before you begin creating your first blockchain project with SubQuery, make sure you have installed the required supporting software applications. These are:
+Преди да започнете да създавате първия си блокчейн проект с SubQuery, уверете се, че сте инсталирали необходимите поддържащи софтуерни приложения. Това са:
 
 - [Node](https://nodejs.org/en/): Модерна (например LTS версия) инсталация на Node.
-- [Docker](https://docker.com/): This tutorial will use the required Docker.
+- [Docker](https://docker.com/): Този урок ще използва необходимия Docker.
 
-Now, you are all set to start with the first step, which is the installation of the SubQuery CLI.
+Сега сте готови да започнете с първата стъпка, която е инсталирането на SubQuery CLI.
 
 ## 1. Инсталирайте SubQuery CLI
 
@@ -26,45 +26,45 @@ Now, you are all set to start with the first step, which is the installation of 
 npm install -g @subql/cli
 ```
 
-::: danger We **DO NOT** encourage the use of `yarn global` for installing `@subql/cli` due to its poor dependency management. This may lead to multiple errors. :::
+::: опасност Ние **НЕ** насърчаваме използването на `yarn global` за инсталиране на `@subql/cli` поради лошото му управление на зависимостите. Това може да доведе до множество грешки. :::
 
-Take a look at all available commands and their use. Run the given below command in the CLI:
+Разгледайте всички налични команди и тяхното използване. Изпълнете дадената по-долу команда в CLI:
 
 ```shell
-subql помощ
+subql help
 ```
 
 ## 2. Инициализиране на Стартов Проект в SubQuery
 
-Run the following command inside the directory you want to create a SubQuery project:
+Изпълнете следната команда в директорията, в която искате да създадете проект на SubQuery:
 
 ```shell
 subql init
 ```
 
-::: warning For Cosmos Users
+::: предупреждение за потребители на Cosmos
 
-Cosmos is not yet supported in SubQuery's CLI (`subql`). Hence, if you are using Cosmos, you must start with a Juno clone or fork this [starter project](https://github.com/subquery/cosmos-subql-starter).
+Cosmos все още не се поддържа в CLI на SubQuery (`subql`). Следователно, ако използвате Cosmos, трябва да започнете с клонинг на Juno или да разклоните този [стартов проект](https://github.com/subquery/cosmos-subql-starter).
 
-To initialise your project with Cosmos, refer to these 4 steps shown in this [link](https://github.com/subquery/juno-subql-starter#readme). Once you complete these 4 steps, **jump** to the [Make Changes to Your Project](../quickstart/quickstart.md#_3-make-changes-to-your-project) section. :::
+За да инициализирате проекта си с Cosmos, вижте тези 4 стъпки, показани в тази [връзка](https://github.com/subquery/juno-subql-starter#readme). След като изпълните тези 4 стъпки, **преминете** към секцията [Направете промени във вашия проект](../quickstart/quickstart.md#_3-make-changes-to-your-project). :::
 
-You'll be asked certain questions as you proceed ahead:
+Ще ви бъдат зададени определени въпроси, докато продължавате напред:
 
-- **Project name**: A project name for your SubQuery project.
-- **Network family**: The layer-1 blockchain network family that this SubQuery project will index. Използвайте клавишите със стрелки, за да изберете от наличните опции. For example, Polkadot, Avalanche, Cosmos, or any other supported network.
-- **Network**: The specific network that this SubQuery project will index. Използвайте клавишите със стрелки, за да изберете от наличните опции. For example, Polkadot, Avalanche, or any other supported network.
-- **Template project**: Select a SubQuery template project that will provide a starting point in the development. We suggest selecting the _"subql-starter"_ project.
-- **RPC endpoint**: Provide an HTTPS URL to a running RPC endpoint, which will be used by default for this project. You can quickly access public endpoints for different networks, create your own private dedicated node using [OnFinality](https://app.onfinality.io), or just use the default endpoint. Този вид нода RPC трябва да представлява архивна нода (да има състояние на пълна веригата). We will use the default value for this guide. Based on the network you have chosen, the default value may be:
-  - For Polkadot - _"https://polkadot.api.onfinality.io"_,
-  - For Avalanche - _"https://avalanche.api.onfinality.io"_,
-  - For Terra - _“https://terra-columbus-5.beta.api.onfinality.io”_ and likewise for other networks. <br/>
-- **Git repository**: Provide a Git URL to a repo that this SubQuery project will be hosted in (when hosted in SubQuery Explorer) or accept the provided default.
-- **Authors**: Enter the owner of this SubQuery project here (e.g. your name!) or accept the provided default.
-- **Description**: Provide a short paragraph about your project that describes what data it contains and what users can do with it, or accept the provided default.
-- **Version**: Enter a custom version number or use the default (`1.0.0`).
-- **License**: Provide the software license for this project or accept the default (`MIT`).
+- **Име на проект**: Име на проект за вашия проект SubQuery.
+- **Мрежово семейство**: Мрежовото семейство на блокчейн слой-1, което този проект на SubQuery ще индексира. Използвайте клавишите със стрелки, за да изберете от наличните опции. Например Polkadot, Avalanche, Cosmos или всяка друга поддържана мрежа.
+- **Мрежа**: Конкретната мрежа, която този проект на SubQuery ще индексира. Използвайте клавишите със стрелки, за да изберете от наличните опции. Например Polkadot, Avalanche или всяка друга поддържана мрежа.
+- **Шаблонен проект**: Изберете шаблонен проект на SubQuery, който ще предостави отправна точка в разработката. Предлагаме да изберете проекта _"subql-starter"_.
+- **RPC крайна точка**: Предоставете HTTPS URL към работеща RPC крайна точка, която ще се използва по подразбиране за този проект. Можете бързо да осъществявате достъп до публични крайни точки за различни мрежи, да създадете свой собствен частен специализиран възел с помощта на [OnFinality](https://app.onfinality.io) или просто да използвате крайната точка по подразбиране. Този вид нода RPC трябва да представлява архивна нода (да има състояние на пълна веригата). Ще използваме стойността по подразбиране за това ръководство. В зависимост от мрежата, която сте избрали, стойността по подразбиране може да бъде:
+  - За Polkadot - _"https://polkadot.api.onfinality.io"_,
+  - За Avalanche - _"https://avalanche.api.onfinality.io"_,
+  - За Terra - _“https://terra-columbus-5.beta.api.onfinality.io”_ и по същия начин за други мрежи. <br/>
+- **Git хранилище**: Предоставете Git URL към репо, в което този проект на SubQuery ще бъде хостван (когато се хоства в SubQuery Explorer), или приемете предоставеното по подразбиране.
+- **Автори**: Въведете собственика на този проект на SubQuery тук (напр. вашето име!) или приемете предоставеното по подразбиране.
+- **Описание**: Предоставете кратък абзац за вашия проект, който описва какви данни съдържа и какво потребителите могат да правят с него, или приемете предоставеното по подразбиране.
+- **Версия**: Въведете персонализиран номер на версията или използвайте стандартната (`1.0.0`).
+- **Лиценз**: Предоставете софтуерния лиценз за този проект или приемете стандартния (`MIT`).
 
-Let’s look at an example:
+Да разгледаме един пример:
 
 ```shell
 $ subql init
@@ -83,28 +83,28 @@ Preparing project... done
 HelloWorld is ready
 ```
 
-After you complete the initialisation process, you will see a folder with your project name created inside the directory. Please note that the contents of this directory should be identical to what's listed in the [Directory Structure](../build/introduction.md#directory-structure).
+След като завършите процеса на инициализация, ще видите папка с името на вашия проект, създадена вътре в директорията. Моля, обърнете внимание, че съдържанието на тази директория трябва да е идентично с това, което е посочено в [Структурата на директорията](../build/introduction.md#directory-structure).
 
-Finally, run the following command to install the new project’s dependencies from within the new project's directory.
+Накрая изпълнете следната команда, за да инсталирате зависимостите на новия проект от директорията на новия проект.
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```shell cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
 
-You have now initialised your first SubQuery project with just a few simple steps. Let’s now customise the standard template project for a specific blockchain of interest.
+Вече инициализирахте първия си проект на SubQuery само с няколко прости стъпки. Нека сега персонализираме стандартния шаблонен проект за конкретна блокова верига, която представлява интерес.
 
-You may want to refer to the [command line arguments](../run_publish/references.md) used in SubQuery. It will help you understand the commands better.
+Може да искате да се обърнете към [аргументите на командния ред](../run_publish/references.md), използвани в SubQuery. Това ще ви помогне да разберете по-добре командите.
 
-## 3. Make Changes to Your Project
+## 3. Направете промени във вашия проект
 
-There are 3 important files that need to be modified. Това са:
+Има 3 важни файла, които трябва да бъдат модифицирани. Това са:
 
 1. Схемата GraphQL в `schema.graphql`
 2. Манифест на проекта в `project.yaml`
 3. Показване на Функции в директорията `src/mappings/`
 
-SubQuery supports various blockchain networks and provides you with a dedicated guide for each of them.
+SubQuery поддържа различни блокчейн мрежи и ви предоставя специално ръководство за всяка от тях.
 
-Pick up your preferred network and proceed ahead to make the modifications required, and move an inch closer to finishing your first ever project:
+Изберете предпочитаната от вас мрежа и продължете напред, за да направите необходимите модификации и се приближете с един сантиметър до завършването на първия ви проект:
 
 **[Polkadot/Substrate](../quickstart/quickstart_chains/polkadot.md)**
 
