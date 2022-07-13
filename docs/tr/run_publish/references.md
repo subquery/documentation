@@ -27,7 +27,7 @@ This command is uses webpack to generate a bundle of a subquery project.
 | -o, --output       | specify output folder of build e.g. build-folder                                                           |
 | --mode=(production | prod                                                        | development | dev) | [ default: production ] |
 
-- With `subql build` you can specify additional entry points in exports field although it will always build `index.ts` automatically
+- With `subql build` you can specify additional entry points in exports field although it will always build `index.ts` automatically.
 
 - You need to have @subql/cli v0.19.0 or above to use exports field.
 
@@ -137,7 +137,7 @@ This flag is primarily used for debugging purposes where it creates the default 
 subql-node -f . --local
 ```
 
-Note that once you use this flag, removing it won't mean that it will point to another database. To repoint to another database you will have to create a NEW database and change the env settings to this new database. In other words, "export DB_DATABASE=<new_db_here>"
+Note that once you use this flag, removing it won't mean that it will point to another database. To repoint to another database you will have to create a NEW database and change the env settings to this new database. In other words, "export DB_DATABASE=<new_db_here>".
 
 ### --force-clean
 
@@ -164,7 +164,7 @@ SubQuery Projects are usually run in a javascript sandbox for security to limit 
 
 Although this enhances security we understand that this limits the available functionality of your SubQuery. The `--unsafe` command imports all default javascript modules which greatly increases sandbox functionality with the tradeoff of decreased security.
 
-**Bu not `--unsafe` komut, projenizin alt Sorgu Ağında çalıştırılmasını engeller ve bu komutun projenizle alt sorgunun yönetilen hizmetinde çalıştırılmasını istiyorsanız desteğe başvurmanız gerekir ([project.subquery.network](https://project.subquery.network))**
+**Note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in [SubQuery's managed service](https://project.subquery.network).**
 
 ### --batch-size
 
@@ -180,11 +180,11 @@ This flag allows you to set the batch size in the command line. If batch size is
 
 ### --scale-batch-size
 
-Scale the block fetch batch size with memory usage
+Scale the block fetch batch size with memory usage.
 
 ### --timeout
 
-Set custom timeout for the javascript sandbox to execute mapping functions over a block before the block mapping function throws a timeout exception
+Set custom timeout for the javascript sandbox to execute mapping functions over a block before the block mapping function throws a timeout exception.
 
 ### --debug
 
@@ -277,7 +277,7 @@ This removes the created_at and updated_at columns in the starter_entities table
 
 ### -d, --network-dictionary
 
-This allows you to specify a dictionary endpoint which is a free service that is provided and hosted at SubQuery's [Project Explorer](https://explorer.subquery.network/) (search for dictionary) and presents an API endpoint of: https://api.subquery.network/sq/subquery/dictionary-polkadot
+This allows you to specify a dictionary endpoint which is a free service that is provided and hosted at SubQuery's [Project Explorer](https://explorer.subquery.network/) (search for dictionary) and presents an API endpoint of: https://api.subquery.network/sq/subquery/dictionary-polkadot.
 
 Typically this would be set in your manifest file but below shows an example of using it as an argument in the command line.
 
@@ -289,7 +289,7 @@ subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot
 
 ### -p, --port
 
-The port the subquery indexing service binds to. By default this is set to `3000`
+The port the subquery indexing service binds to. By default this is set to `3000`.
 
 ### --disable-historical
 
@@ -353,33 +353,33 @@ This flag enables the graphql playground so should always be included by default
 
 ### --output-fmt
 
-See [--output-fmt](https://doc.subquery.network/run_publish/references.md#output-fmt)
+See [--output-fmt](https://doc.subquery.network/run_publish/references.md#output-fmt).
 
 ### --log-level
 
-See [--log-level](https://doc.subquery.network/run_publish/references.md#log-level)
+See [--log-level](https://doc.subquery.network/run_publish/references.md#log-level).
 
 ### --log-path
 
-Enable file logging by providing a path to a file to log to
+Enable file logging by providing a path to a file to log to.
 
 ### --log-rotate
 
-Enable file log rotations with the options of a 1d rotation interval, a maximum of 7 files and with a max file size of 1GB
+Enable file log rotations with the options of a 1d rotation interval, a maximum of 7 files and with a max file size of 1GB.
 
 ### --indexer
 
-Set a custom url for the location of the endpoints of the indexer, the query service uses these endpoints for indexer health, metadata and readiness status
+Set a custom url for the location of the endpoints of the indexer, the query service uses these endpoints for indexer health, metadata and readiness status.
 
 ### --subscription
 
-This flag enables [GraphQL Subscriptions](./subscription.md), to enable this feature requires `subql-node` also enable `--subscription`
+This flag enables [GraphQL Subscriptions](./subscription.md), to enable this feature requires `subql-node` also enable `--subscription`.
 
 ### --unsafe
 
 The query service has a limit of 100 entities for unbounded graphql queries. The unsafe flag removes this limit which may cause performance issues on the query service. It is recommended instead that queries are [paginated](https://graphql.org/learn/pagination/).
 
-This flag enables certain aggregation functions including sum, max, avg and others. Read more about this feature [here](./aggregate.md)
+This flag enables certain aggregation functions including sum, max, avg and others. Read more about this feature [here](./aggregate.md).
 
 These are disabled by default due to the entity limit.
 
