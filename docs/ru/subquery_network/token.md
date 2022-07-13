@@ -28,9 +28,9 @@
 
 С самого начала компания SubQuery была нацелена на создание ценности в сообществе, и эта цель сохраняется, поскольку наибольшее количество токенов (44%) распределено между сообществом и фондом SubQuery.
 
-The Foundation, which is expected to be established in early 2022, will administer the future governance and growth of the ecosystem and the ownership of the SubQuery Network will come under the SubQuery Foundation initially. This large allocation also includes consideration for future investment into the development and operations of the Network, and key ecosystem growth drivers. This will include tools such as grants and ecosystem incentives/events as well as other marketing activities including bug bounties and mainnet incentives.
+Фонд, который, как ожидается, будет создан в начале 2022 года, будет управлять будущим развитием и ростом экосистемы, а право собственности на сеть SubQuery Network первоначально перейдет к SubQuery Foundation. Это значительное выделение средств также включает в себя учет будущих инвестиций в развитие и эксплуатацию Сети, а также ключевых факторов развития экосистемы. Это будет включать такие инструменты, как гранты и экосистемные стимулы/события, а также другие маркетинговые мероприятия, включая "баг баунти" и стимулы сети.
 
-Early investors in both the Seed and Series A rounds have a combined allocation of 27%. In the case of our Seed investors, SubQuery is grateful for their early vision and commitment to build the initial phase of SubQuery. Following on from this, growth was accelerated with the support of Series A investors who allowed the project to accelerate to the next level.
+Ранние инвесторы как в первоначальном раунде, так и в раунде серии А имеют совокупную долю в 27%. В случае с нашими первоначальными инвесторами, SubQuery выражает благодарность за их раннее видение и приверженность созданию SubQuery на начальном этапе. После этого рост ускорился благодаря поддержке инвесторов серии А, которые позволили проекту выйти на новый уровень.
 
 For the Public Sale, 9% of token supply has been allocated across at least two sequential rounds. The exact structure and timing of these rounds can be found [here](https://subquery.medium.com/subquery-publishes-the-sqt-public-sale-date-and-sale-guide-64b8aff10882).
 
