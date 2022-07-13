@@ -6,7 +6,7 @@ SubQuery теперь также поддерживает подписки Graph
 
 Подписки очень полезны, когда вы хотите, чтобы ваше клиентское приложение изменило данные или показало новые данные, как только это изменение произойдет или новые данные станут доступны. Подписки позволяют вам *подписываться* на изменения в вашем проекте SubQuery.
 
-[Read more about subscriptions here](https://www.apollographql.com/docs/react/data/subscriptions/).
+::: info Note Read more about [Subscriptions](https://www.apollographql.com/docs/react/data/subscriptions/). :::
 
 ## Как подписаться на сущность
 
@@ -64,6 +64,8 @@ subscription {
 
 Note that the `mutation` filter can be one of `INSERT`, `UPDATE` or `DELETE`.
 
-**Обратите внимание, что для использования этих функций необходимо включить флаг `--subscription` как на узле, так и в службе запросов.**
+::: warning Important Please note that you must enable the `--subscription` flag on both the node and query service in order to use these functions. :::
 
-Функция подписки работает на управляемом сервисе SubQuery, когда вы напрямую вызываете указанную конечную точку GraphQL. Он не будет работать в пределах браузерной площадки GraphQL.
+::: warning Important
+The subcription feature works on SubQuery's managed service when you directly call the listed GraphQL endpoint. Он не будет работать в пределах браузерной площадки GraphQL.
+:::
