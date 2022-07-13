@@ -71,9 +71,9 @@ Berikut adalah beberapa pemeliharaan dan/atau persyaratan operasional yang dihar
 Persyaratan infrastruktur minimal meliputi:
 
 - Setidaknya satu node komputasi untuk menjalankan layanan berikut:
-  - [Layanan Node (pengindeksan)](https://www.npmjs.com/package/@subql/node)
-  - [Layanan Permintaan](https://www.npmjs.com/package/@subql/query)
-  - [Layanan Koordinator Pengindeks](https://www.npmjs.com/package/@subql/indexer-coordinator)
+  - [Node (indexing) Service](https://www.npmjs.com/package/@subql/node).
+  - [Query Service](https://www.npmjs.com/package/@subql/query).
+  - [Indexer Coordinator Service](https://www.npmjs.com/package/@subql/indexer-coordinator).
 - Satu node database untuk menjalankan Postgresql db (v12 ke atas).
 
 Informasi lebih detail akan segera hadir.
