@@ -2,10 +2,10 @@
 
 ## Lợi ích của việc lưu trữ dự án của bạn với SubQuery
 
-- Chúng tôi sẽ chạy các dự án SubQuery cho bạn trong một dịch vụ công khai có hiệu suất cao, có thể mở rộng và được quản lý
+- We'll run your SubQuery projects for you in a high performance, scalable, and managed public service.
 - Dịch vụ này đang được cung cấp đến cộng đồng miễn phí!
-- Bạn có thể tạo ra các dự án công khai do đó chúng sẽ được liệt kê trong [SubQuery Explorer](https://explorer.subquery.network) và bất cứ ai trên khắp thế giới cũng đều có thể xem chúng
-- Chúng tôi được tích hợp với GitHub, vì thế bất kỳ ai trong các tổ chức GitHub của bạn cũng sẽ xem được các dự án đã chia sẻ của tổ chức
+- You can make your projects public so that they'll be listed in the [SubQuery Explorer](https://explorer.subquery.network) and anyone around the world can view them.
+- We're integrated with GitHub, so anyone in your GitHub organisations will be able to view shared organisation projects.
 
 ## Tạo dự án đầu tiên của bạn trong Dự án SubQuery
 
@@ -13,9 +13,9 @@
 
 Có hai cách để bạn có thể lưu trữ codebase của dự án SubQuery của mình trước khi xuất bản.
 
-** GitHub **: Codebase của dự án của bạn phải nằm trong kho lưu trữ GitHub công khai
+**GitHub**: Your project's codebase must be in a public GitHub repository.
 
-**IPFS**: Codebase dự án của bạn có thể được lưu trữ trong IPFS, bạn có thể làm theo hướng dẫn lưu trữ IPFS của chúng tôi để xem cách [xuất bản lần đầu lên IPFS](ipfs.md)
+**IPFS**: Your project's codebase can be stored in IPFS, you can follow our IPFS hosting guide to see how to [first publish to IPFS](ipfs.md).
 
 ### Đăng nhập vào Các Dự Án SubQuery
 
@@ -86,12 +86,12 @@ Trong khi đang khởi tạo, dự án sẽ thiết lập hành vi hiển thị 
 
 Cùng với dự án mới của mình, bạn sẽ thấy một nút bấm Deploy New Version. Nhấp vào nút này, và điền vào các thông tin bắt buộc để thực hiện triển khai:
 
-- **Branch:** Từ GitHub, chọn nhánh của dự án mà bạn muốn triển khai
-- **Commit Hash:** Từ GitHub, hãy chọn commit cụ thể của phiên bản codebase dự án SubQuery mà bạn muốn triển khai
-- **IPFS:** Nếu triển khai từ IPFS, hãy dán CID triển khai IPFS của bạn (không có `ipfs: //` đứng đầu)
-- **Override Network and Dictionary Endpoints:** Bạn có thể ghi đè các điểm cuối trong tệp kê khai dự án của mình tại đây
-- **Indexer Version:** Đây là phiên bản của dịch vụ nút SubQuery mà bạn muốn chạy SubQuery này. Xem [`@subql/node`](https://www.npmjs.com/package/@subql/node)
-- **Query Version:** Đây là phiên bản của dịch vụ truy vấn SubQuery mà bạn muốn chạy SubQuery này. Xem [`@subql/query`](https://www.npmjs.com/package/@subql/query)
+- **Branch:** From GitHub, select the branch of the project that you want to deploy from.
+- **Commit Hash:** From GitHub, select the specific commit of the version of your SubQuery project codebase that you want deployed.
+- **IPFS:** If deploying from IPFS, paste you IPFS deployment CID (without the leading `ipfs://`).
+- **Override Network and Dictionary Endpoints:** You can override the endpoints in your project manifest here.
+- **Indexer Version:** Đây là phiên bản của dịch vụ nút SubQuery mà bạn muốn chạy SubQuery này. See [`@subql/node`](https://www.npmjs.com/package/@subql/node).
+- **Query Version:** Đây là phiên bản của dịch vụ truy vấn SubQuery mà bạn muốn chạy SubQuery này. See [`@subql/query`](https://www.npmjs.com/package/@subql/query).
 
 ![Triển khai Dự Án đầu tiên của bạn](https://static.subquery.network/media/projects/projects-first-deployment.png)
 
