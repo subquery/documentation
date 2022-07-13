@@ -14,7 +14,7 @@ Hosting a project in IPFS makes it available for all and reduces your reliance o
 ## Préparez votre SUBQL_ACCESS_TOKEN
 
 - Étape 1 : Allez sur [SubQuery Projects](https://project.subquery.network/) et connectez-vous.
-- Étape 2 : Cliquez sur votre profil en haut à droite du menu de navigation, puis cliquez sur **_Refresh Token_**.
+- Step 2: Click on your profile at the top right of the navigation menu, then click on **_Refresh Token_**.
 - Étape 3 : Copiez le jeton généré.
 - Étape 4 : Pour utiliser ce jeton :
   - Option 1 : Ajoutez SUBQL_ACCESS_TOKEN dans vos variables d'environnement. `EXPORT SUBQL_ACCESS_TOKEN=<token>`
@@ -22,11 +22,11 @@ Hosting a project in IPFS makes it available for all and reduces your reliance o
 
 ## Comment publier un projet
 
-Nous proposons deux méthodes pour publier votre projet,
+We provide two methods to publish your project:
 
-### Option 1 :
+### Option 1
 
-Comme vous avez déjà installé `@subql/cli`, vous pouvez exécuter la commande suivante, qui lira le projet et les informations requises à partir de son manifeste par défaut `project.yaml`.
+As you have `@subql/cli` already installed, you can run the following command, which will read the project and required information from its default manifest `project.yaml`:
 
 ```
 // Publiez-le depuis le répertoire racine de votre projet subql publish
@@ -35,7 +35,7 @@ Comme vous avez déjà installé `@subql/cli`, vous pouvez exécuter la commande
 subql publish -f ~/my-project/
 ```
 
-### Option 2 :
+### Option 2
 
 Alternativement, supposons que votre projet a plusieurs fichiers Manifest, par exemple vous supportez plusieurs réseaux mais partagez le même mapping et la même logique métier, et avez une structure de projet comme suit :
 
@@ -65,15 +65,15 @@ Uploading SupQuery project to IPFS
 SubQuery Project uploaded to IPFS: QmZ3q7YZSmhwBiot4PQCK3c7Z6HkteswN2Py58gkkZ8kNd  //CID
 ```
 
-Veuillez noter ce `CID`. Avec ce `CID`, vous pouvez voir votre projet publié comme ce que nous appelons un [déploiement IPFS](#ipfs-deployment).
+Veuillez noter ce `CID`. With this `CID`, you can view your published project as what we call it [IPFS Deployment](#ipfs-deployment).
 
 ## Déploiement IPFS
 
 Le déploiement IPFS représente une existence indépendante et unique d'un projet SubQuery sur un réseau décentralisé. Par conséquent, toute modification du code du projet affectera son caractère unique. Si vous devez ajuster votre logique commerciale, par exemple modifier la fonction de mappage, vous devez republier le projet, et le `CID` changera.
 
-Pour l'instant, pour visualiser le projet que vous avez publié, utilisez un outil d'api `REST` tel que [Postman](https://web.postman.co/), et utilisez la méthode `POST` avec l'exemple d'URL suivant pour le récupérer. `https://ipfs.subquery.network/ipfs/api/v0/cat?arg=<YOUR_PROJECT_CID>`
+For now, to view the project you have published, use a `REST` api tool such as [Postman](https://web.postman.co/), and use `POST` method with the following example URL to retrieve it:`https://ipfs.subquery.network/ipfs/api/v0/cat?arg=<YOUR_PROJECT_CID>`.
 
-Vous devriez voir l'exemple de déploiement de projet ci-dessous :
+You should see the example project deployment as below.
 
 Ce déploiement ressemble beaucoup à votre fichier manifeste. Vous pouvez vous attendre à ces champs descriptifs, et le réseau et le point de terminaison du dictionnaire ont été supprimés car ils n'ont pas directement affecté le résultat de l'exécution du projet.
 
