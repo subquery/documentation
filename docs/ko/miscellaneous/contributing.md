@@ -31,24 +31,24 @@ SubQuery 프로젝트에 도움을 주는 여러분을 환영하고 깊은 감�
 
 ### Pull Requests 제출
 
-일반적으로 "fork-and-pull" Git 작업 방식을 따릅니다.
+In general, we follow the "fork-and-pull" Git workflow:
 
-* 레포지토리를 자신의 Github 계정에 포크하세요.
-* 당신의 기기에 프로젝트를 복사하세요.
-* 간결하지만 자세한 이름을 사용하여 로컬 브랜치를 만드세요.
-* 브랜치에 변화를 적용하세요.
-* 이 레포지토리와 관련된 형식 및 테스트 지침 준수합니다.
-* 변경사항을 당신의 포크에 적용합니다.
-* 우리 레포지토리에 있는 PR을 열어봅니다.
+* Fork the repository to your own Github account.
+* Clone the project to your machine.
+* Create a branch locally with a succinct but descriptive name.
+* Commit changes to the branch.
+* Following any formatting and testing guidelines specific to this repo.
+* Push changes to your fork.
+* Open a PR in our repository.
 
 ## 코딩 규칙
 
 ### Git 커밋 메시지
 
-* 현재 시제 사용 ("추가된 기능"이 아닌 "기능 추가")
-* 명령형 문장 사용 ("커서를 다음으로 이동"이 아니라 "다음으로 커서 이동")
-* 첫 번째 줄은 72자 이하로 제한하십시오.
+* Use the present tense ("Add feature" not "Added feature").
+* Use the imperative mood ("Move cursor to..." not "Moves cursor to...").
+* Limit the first line to 72 characters or less.
 
 ### 자바스크립트 스타일 지침
 
-* 모든 JavaScript 코드는 Prettier 및 ESLint로 연결됩니다.
+* All JavaScript code is linted with Prettier and ESLint.
