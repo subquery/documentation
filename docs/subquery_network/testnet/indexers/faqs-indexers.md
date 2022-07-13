@@ -98,7 +98,7 @@ in /etc/docker/daemon.json`echo "DOCKER_OPTS=\"--iptables=false\"" >> /etc/defau
 
 `service docker restart`
 
-::: note
+::: info Note
 Note that turning off IP tables in Docker may cause your deployment containers to lose connectivity. If so, try this solution: [To Fix The Docker and UFW Security Flaw Without Disabling Iptables](https://hub.docker.com/r/chaifeng/ufw-docker-agent/).
 :::
 

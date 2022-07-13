@@ -60,7 +60,10 @@ Once installed, you can can start a node with:
 ```shell
 subql-node <command>
 ```
-> Note: If you are using Docker or hosting your project in SubQuery Projects, you do can skip this step. This is because the SubQuery node is already provided in the Docker container and the hosting infrastructure. 
+
+::: info Note
+If you are using Docker or hosting your project in SubQuery Projects, you do can skip this step. This is because the SubQuery node is already provided in the Docker container and the hosting infrastructure. 
+:::
 
 ## Install @subql/query
 
@@ -86,4 +89,6 @@ Install SubQuery query globally on your terminal by using Yarn or NPM:
   </CodeGroupItem>
 </CodeGroup>
 
-> Note: If you are using Docker or hosting your project in SubQuery Projects, you do can skip this step also. This is because the SubQuery node is already provided in the Docker container and the hosting infrastructure. 
+::: info Note
+If you are using Docker or hosting your project in SubQuery Projects, you do can skip this step also. This is because the SubQuery node is already provided in the Docker container and the hosting infrastructure. 
+:::

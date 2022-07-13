@@ -29,7 +29,7 @@ type Transfer @entity {
 }
 ```
 
-::: warning Important
+::: info Note
 When you make any changes to the schema file, do make sure to regenerate your types directory.
 :::
 
@@ -197,7 +197,7 @@ npm run-script start:docker
   </CodeGroupItem>
 </CodeGroup>
 
-::: tip Tip
+::: info Note
 It may take a few minutes to download the required images and start the various nodes and Postgres databases.
 :::
 

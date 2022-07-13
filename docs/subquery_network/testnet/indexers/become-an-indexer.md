@@ -50,11 +50,11 @@ Make sure the indexer service versions are correct:
 Please change the default PostgreSQL password in the `POSTGRES_PASSWORD` field and in the coordinator-service's `postgres-password` field. Replace it with your own one. 
 :::
 
-Note:
-
+:::info Note
 - If you are continuing the installation Locally: Visit [here](../indexers/install-indexer-locally.md#step-2-start-the-indexing-service).
 - If you are continuing the installation with Linux: Visit [here](../indexers/install-indexer-linux.md#step-2-install-docker-and-docker-compose).
 - If you are continuing the installation with AWS: Visit [here](../indexers/install-indexer-aws.md#_1-11-update-user-group-optional).
+:::
 
 Next step is to start the indexer.
 
@@ -91,7 +91,7 @@ _You can run the Indexing Service:_
 2. On AWS or other cloud Services
 3. On Linux
 
-::: note
+::: info Note
 If you are just a beginner, we advise you to run the indexing service locally.
 :::
 

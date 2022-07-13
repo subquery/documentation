@@ -88,7 +88,9 @@ Update the manifest file to only include a handleStakingRewarded handler and upd
 ```
 
 
-Note: The Rewarded method was only recently introduced from block [6,713,249](https://github.com/polkadot-js/api/blob/master/packages/types-known/src/upgrades/polkadot.ts) onwards. It was previously called Reward. For this exercise, we will use this newer format and use a startBlock of 7,000,000
+::: info Note
+The Rewarded method was only recently introduced from block [6,713,249](https://github.com/polkadot-js/api/blob/master/packages/types-known/src/upgrades/polkadot.ts) onwards. It was previously called Reward. For this exercise, we will use this newer format and use a startBlock of 7,000,000
+:::
 
 The full manifest file should look like this:
 
@@ -437,14 +439,14 @@ dataSources:
 
 
     
-
-Note: This is how more than 1 mapping handler can be added to a project. Also note that the order is important too. Otherwise you may encounter an error such as:
-
+::: info Note
+This is how more than 1 mapping handler can be added to a project. Also note that the order is important too. 
+Otherwise you may encounter an error such as:
 
 ```
 ERROR failed to index block at height 7000064 handleStakingRewarded() SequelizeForeignKeyConstraintError: insert or update on table "staking_rewards" violates foreign key constraint "staking_rewards_account_id_fkey"
 ```
-
+:::
 
 
 #### Step 3: handleSumRewarded
@@ -471,7 +473,7 @@ export async function handleSumRewarded(event: SubstrateEvent): Promise<void> {
 }
 ```
 
-::: note 
+::: info Note 
 Run `yarn codegen` and import the new entity to remove the errors.
 :::
 
@@ -517,7 +519,7 @@ export async function handleSumRewarded(event: SubstrateEvent): Promise<void> {
 
 See building a project in the previous exercise.
 
-::: note
+::: info Note
 Because we have modified the schema, delete your database instance in the `.data folder`.
 :::
 
@@ -664,7 +666,11 @@ export async function handleSumRewarded(event: SubstrateEvent): Promise<void> {
 
 #### Step 4: Rebuild the project
 
-See building a project in the previous exercise. Note that you may need to delete your database folder because an new field is being introduced which needs to be included in your database schema.
+See building a project in the previous exercise. 
+
+:::info Note
+You may need to delete your database folder because an new field is being introduced which needs to be included in your database schema.
+:::
 
 
 #### Step 5: Query the project
@@ -778,7 +784,11 @@ See building a project in the previous exercise.
 
 #### Step 4: Query the project
 
-Re-run the previous queries and data should appear for blocks starting from 6M. Note, you may have to wait until the relevant blocks have been indexed. 
+Re-run the previous queries and data should appear for blocks starting from 6M. 
+
+:::info Note
+You may have to wait until the relevant blocks have been indexed. 
+:::
 
 
 ```

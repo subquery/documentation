@@ -84,7 +84,7 @@ It will start the following services:
 - `coordinator_service`
 - `coordinator_proxy`
 
-::: note 
+::: info Note
 Reach project you start indexing will create 2 extra containers `node_qm----------` and `query_qm----------` that has the 13 first characters of the project's Qm-hash.
 :::
 

@@ -93,7 +93,7 @@ Select the Polkadot Project as your first indexing project.
 
 ![Select a Project](/assets/img/select_project_index_project.png)
 
-::: note
+::: info Note
 The polkadot project in this Testnet is:
 
 - Staking Threshold - Polkadot `QmduAur8aCENpuizuTGLAsXumG2BX8zSgWLsVpp5b8GEGN`

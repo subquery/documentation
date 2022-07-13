@@ -13,7 +13,9 @@ Under the project directory run the following command:
 docker-compose pull && docker-compose up
 ```
 
+::: info Note
 It may take some time to download the required packages ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), and Postgres) for the first time but soon you'll see a running SubQuery node.
+:::
 
 ## Running an Indexer (subql/node)
 
@@ -146,7 +148,9 @@ subql-node-avalanche --network-dictionary=https://api.subquery.network/sq/subque
 </CodeGroupItem>
 </CodeGroup>
 
-[Read more about how a SubQuery Dictionary works](../academy/tutorials_examples/dictionary.md).
+::: info Note
+You can read more about [how a SubQuery Dictionary works](../academy/tutorials_examples/dictionary.md).
+:::
 
 #### Connect to database
 
