@@ -14,7 +14,7 @@ The best way to get started with SubQuery is to try out our [Hello World tutoria
 
 Ние харесваме приноса и обратната връзка от общността. За да съдействате с код - форкнете хранилището, което ви интересува, и направете своите промени. След това изпратете PR или Pull Request. О, и не забравяйте да тествате също! Also check out our contributions guide lines (TBA).
 
-To give feedback, contact us at hello@subquery.network or jump onto our [discord channel](https://discord.com/invite/78zg8aBSMG)
+To give feedback, contact us at hello@subquery.network or jump onto our [discord channel](https://discord.com/invite/78zg8aBSMG).
 
 ## Колко струва хостването на моя проект в SubQuery Projects?
 
