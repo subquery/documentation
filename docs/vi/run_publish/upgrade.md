@@ -32,7 +32,7 @@ Vị trí dàn dựng sẽ hoàn hảo cho việc:
 Bạn cũng có thể sử dụng `@subql/cli` để tạo một triển khai mới của dự án cho dịch vụ được quản lý của chúng tôi. Điều này yêu cầu:
 
 - `@subql/cli` phiên bản 1.1.0 trở lên.
-- Một [SUBQL_ACCESS_TOKEN](/docs/run_publish/ipfs.md#prepare-your-subqlaccesstoken) hợp lệ đã sẵn sàng.
+- A valid [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) ready.
 
 ```shell
 // Bạn có thể đặt trực tiếp phiên bản Trình lập chỉ mục và Truy vấn của mình
