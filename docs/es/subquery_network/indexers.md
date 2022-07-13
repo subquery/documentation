@@ -71,9 +71,9 @@ Aquí están algunos de los Indexadores de mantenimiento y/o de requerimientos o
 El requisito mínimo de infraestructura incluye:
 
 - Al menos un nodo computacional para ejecutar los siguientes servicios:
-  - [Servicio de nodo (indexación)](https://www.npmjs.com/package/@subql/node)
-  - [Servicio de Consulta](https://www.npmjs.com/package/@subql/query)
-  - [Servicio Coordinator Indexer](https://www.npmjs.com/package/@subql/indexer-coordinator)
+  - [Node (indexing) Service](https://www.npmjs.com/package/@subql/node).
+  - [Query Service](https://www.npmjs.com/package/@subql/query).
+  - [Indexer Coordinator Service](https://www.npmjs.com/package/@subql/indexer-coordinator).
 - Un nodo de base de datos para ejecutar Postgresql db (v12 y superior).
 
 Pronto llegará información más detallada.
