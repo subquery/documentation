@@ -3,9 +3,9 @@
   <section class="welcomeWords">
     <div class="main">
       <div>
-        <h2 class="welcomeTitle">Selamat datang di SubQuery <span>Akademi</span></h2>
+        <h2 class="welcomeTitle">Welcome to SubQuery<span>Academy</span></h2>
         <p>Jelajahi dan ubah data chain untuk membangun dApps yang intuitif dengan lebih cepat!</p>
-        <p><strong>SubQuery sekarang mendukung Polkadot, Avalanche, dan Cosmos (dimulai dengan Juno)</strong></p>
+        <p><strong>SubQuery now supports Polkadot, Avalanche, and Cosmos (starting with Juno).</strong></p>
       </div>
     </div>
   </section>
@@ -15,8 +15,8 @@
       <p>Pahami SubQuery dengan mempelajari contoh Hello World tradisional. Menggunakan proyek template dalam lingkungan Docker, Anda dapat dengan cepat mengaktifkan dan menjalankan node dan mulai menanyakan blockchain hanya dalam beberapa menit dengan beberapa perintah sederhana.
       </p>
       <span class="button">
-        <router-link :to="{path: '/quickstart/quickstart.html'}">
-          <span>Memulai</span>
+        <router-link :to="{path: '/quickstart/quickstart.html'}"> 
+          <span>Get Started</span>
         </router-link>
       </span>
     </div>
@@ -107,7 +107,7 @@
     </div>
     <div class="lastIntroduce lastIntroduce_2">
         <h5>Dukung dan Kontribusi</h5>
-        <p>Memiliki pertanyaan atau tertarik untuk mengetahui lebih banyak atau bagaimana Anda dapat berkontribusi? Kami ingin mendengar dari Anda. Silakan hubungi kami melalui email atau media sosial dari tautan di bawah ini. Butuh keahlian teknis? Bergabunglah dengan komunitas Discord kami dan dapatkan dukungan dari anggota komunitas kami yang bersemangat. </p>
+        <p>Have a question or are interested in knowing more or how you can contribute? Kami ingin mendengar dari Anda. Silakan hubungi kami melalui email atau media sosial dari tautan di bawah ini. Butuh keahlian teknis? Bergabunglah dengan komunitas Discord kami dan dapatkan dukungan dari anggota komunitas kami yang bersemangat. </p>
         <a class="more" target="_blank" href="https://discord.com/invite/subquery">GABUNG PERBINCANGAN DI DISCORD</a>
     </div>
     </div>
