@@ -13,7 +13,7 @@
 Прежде чем вы начнете создавать свой первый блокчейн проект с помощью SubQuery, убедитесь, что у вас установлены необходимые вспомогательные программные приложения. Это:
 
 - [Node](https://nodejs.org/en/): современная (например, LTS-версия) установка Node.
-- [Docker](https://docker.com/): В этом руководстве будет использоваться Docker
+- [Docker](https://docker.com/): This tutorial will use the required Docker.
 
 Теперь вы готовы начать с первого шага, который заключается в установке SubQuery CLI.
 
@@ -26,7 +26,7 @@
 npm install -g @subql/cli
 ```
 
-**Примечание**: Мы **НЕ** поощряем использование `yarn global` для установки `@subql/cli` из-за его плохого управления зависимостями. Это может привести к многочисленным ошибкам.
+::: danger We **DO NOT** encourage the use of `yarn global` for installing `@subql/cli` due to its poor dependency management. Это может привести к многочисленным ошибкам. :::
 
 Взгляните на все доступные команды и их использование. Выполните приведенную ниже команду в командной строке:
 
@@ -42,27 +42,27 @@ subql help
 subql init
 ```
 
-::: предупреждение **Для пользователей Cosmos**
+::: warning For Cosmos Users
 
 Cosmos пока не поддерживается в SubQuery's CLI (`subql`). Следовательно, если вы используете Cosmos, вы должны начать с клона Juno или сделать форк [стартовый проект](https://github.com/subquery/cosmos-subql-starter).
 
-Чтобы начать свой проект на Cosmos, обратитесь к этим 4 шагам, показанным в этой ссылке [.](https://github.com/subquery/juno-subql-starter#readme). Как только вы выполните эти 4 шага, **перейдите** в раздел [Внести изменения в свой проект](../quickstart/quickstart.md#_3-make-changes-to-your-project). :::
+To initialise your project with Cosmos, refer to these 4 steps shown in this [link](https://github.com/subquery/juno-subql-starter#readme). Как только вы выполните эти 4 шага, **перейдите** в раздел [Внести изменения в свой проект](../quickstart/quickstart.md#_3-make-changes-to-your-project). :::
 
 По мере продвижения вперед вам будут задаваться определенные вопросы:
 
-- **Project name**: Имя проекта для вашего проекта SubQuery
+- **Project name**: A project name for your SubQuery project.
 - **Network family**: Layer-1 блокчейн, которую этот проект SubQuery будет индексировать. Используйте клавиши со стрелками для выбора из доступных вариантов. Например, Polkadot, Avalanche, Cosmos или другая поддерживаемая сеть.
 - **Network**: Конкретная сеть, которую будет индексировать этот проект SubQuery. Используйте клавиши со стрелками для выбора из доступных вариантов. Например, Polkadot, Avalanche или другая поддерживаемая сеть.
 - **Template project**: Выберите шаблон проекта SubQuery, который станет отправной точкой в разработке. Мы предлагаем выбрать проект _"subql-starter"_ project.
 - **RPC endpoint**: Укажите URL-адрес HTTPS для эндпоинта RPC, который будет использоваться по умолчанию для этого проекта. Вы можете быстро получить доступ к общедоступным эндпоинтам для разных сетей, создать свою собственную частную выделенную ноду, используя [OnFinality](https://app.onfinality.io), или просто использовать эндпоинт по умолчанию. Этот узел RPC должен быть архивным узлом (иметь состояние полной цепочки). В этом руководстве мы будем использовать значение по умолчанию. В зависимости от выбранной вами сети значение по умолчанию может быть:
-  - Для Polkadot - _"https://polkadot.api.onfinality.io"_
-  - Для Avalanche - _"https://avalanche.api.onfinality.io"_
+  - For Polkadot - _"https://polkadot.api.onfinality.io"_,
+  - For Avalanche - _"https://avalanche.api.onfinality.io"_,
   - Для Terra - _“https://terra-columbus-5.beta.api.onfinality.io”_ and likewise for other networks. <br/>
 - **Git repository**: Укажите URL-адрес Git для репозитория, в котором будет размещен этот проект SubQuery (при размещении в SubQuery Explorer) или примите указанное значение по умолчанию.
 - **Authors**: Введите здесь владельца этого проекта SubQuery (например, ваше имя!) или примите предоставленное значение по умолчанию.
 - **Description**: Предоставьте краткое описание вашего проекта, в котором объясняется, какие данные он содержит и что пользователи могут с ним делать, или примите предоставленное значение по умолчанию.
-- **Version**: Введите пользовательский номер версии или используйте значение по умолчанию (`1.0.0`)
-- **License**: Предоставьте лицензию на программное обеспечение для этого проекта или примите стандартную (`MIT`)
+- **Version**: Enter a custom version number or use the default (`1.0.0`).
+- **License**: Provide the software license for this project or accept the default (`MIT`).
 
 Давайте рассмотрим пример:
 
