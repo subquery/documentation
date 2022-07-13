@@ -21,17 +21,17 @@
 Задля гнучкості споживачі мають 3 варіанти для оплати даних блокчейну. Вони є такими:
 
 - Pay-As-You-Go (PAYG) - оплата по об'єму використання
-- Closed Service Agreement
-- Open Service Agreement
+- Closed Service Agreement (закритий договір) - угода між одним індексатором і споживачем
+- Open Service Agreement (відкритий договір) - угода між багатьма індексаторами та споживачем
 
-You can read more about the different payment methods, how they work, and the advantages/disadvantages on the [Payment Methods article](./payment-methods.md).
+Ви можете прочитати більше про різні варіанти оплати, як вони працюють, а також переваги/недоліки в статті [Варіанти оплати](./payment-methods.md).
 
 ## FAQ
 
-### As a Consumer, do I select 1 Indexer or multiple Indexers?
+### Як споживач, чи можу я обирати 1 індексатора чи декілька індексаторів?
 
-Unless a Closed Service Agreement is being used, there will be one or more Indexers indexing a SubQuery project. Consumers have the choice when deciding which Indexer to read data from. Typically Consumers would select the most reliable and lowest latency Indexer. Consumers could also incorporate automatic failover and read data from another Indexer if the first one times out or is not responsive.
+Хоча існує відкрита угода, використовуватиметься один або декілька індексаторів, які індексуватимуть проєкт у мережі SubQuery. Споживачі мають вибір, коли вирішують, з якого індексатора зчитувати дані. Зазвичай споживачі обирають найбільш надійних індексаторів, з найменшим часом очікування. Споживачі також можуть включати автоматичний збій і зчитувати дані з іншого індексатора, якщо час першрого індексатора вийшов або він не відповідає.
 
-### What happens if an Indexer goes off line?
+### Що стається, якщо індексатор відключається з мережі?
 
 Unless a Closed Service Agreement is being used, and if there is more than one Indexer indexing your SubQuery project, it would simply be a matter of switching to another Indexer. The ideal scenario would be include strategies like alert monitoring to be notified of potential issues and intelligent routing and caching.
