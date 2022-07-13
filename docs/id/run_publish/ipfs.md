@@ -8,7 +8,7 @@ Hosting proyek di IPFS membuatnya tersedia untuk semua dan mengurangi ketergantu
 
 - `@subql/cli` version 0.21.0 atau lebih tinggi.
 - Manifes `specVersion` 0.2.0 dan yang lebih baru.
-- Siapkan [SUBQL_ACCESS_TOKEN](#prepare-your-subql-access-token) Anda.
+- Get your [SUBQL_ACCESS_TOKEN](ipfs.md#prepare-your-subql-access-token) ready.
 - Untuk memastikan penerapan Anda berhasil, kami sangat menyarankan agar Anda membangun proyek Anda dengan perintah `subql build`, dan mengujinya secara lokal sebelum memublikasikannya.
 
 ## Persiapkan SUBQL_ACCESS_TOKEN
@@ -66,7 +66,7 @@ Mengunggah proyek SupQuery ke IPFS
 Proyek SubQuery yang diunggah ke IPFS: QmZ3q7YZSmhwBiot4PQCK3c7Z6HkteswN2Py58gkkZ8kNd //CID
 ```
 
-Harap perhatikan `CID` ini. With this `CID`, you can view your published project as what we call it [IPFS Deployment](#ipfs-deployment).
+Harap perhatikan `CID` ini. With this `CID`, you can view your published project as what we call it [IPFS Deployment](ipfs.md#ipfs-deployment).
 
 ## IPFS Deployment
 
@@ -107,7 +107,7 @@ specVersion: 0.2.0
 
 ### Buat proyek dengan penerapan IPFS
 
-Anda dapat mengikuti panduan untuk [Memublikasikan proyek SubQuery Anda](publish.md) tetapi di mana Anda mengatur sumber penerapan Anda, Anda dapat memilih **IPFS**.
+You can follow the guide to [Publish your SubQuery project](../run_publish/publish.md) but where you set your deployment source you can select **IPFS**.
 
 Kemudian pilih slot produksi Anda, salin dan tempel CID penerapan IPFS Anda (tanpa awalan `ipfs://`).
 
