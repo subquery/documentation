@@ -1,11 +1,11 @@
-# 连接您的新项目
+# Connect to your new project
 
-一旦您的项目部署成功，且我们的节点已经从该链上为您的数据编制了索引， 您即可通过展示的Query端点连接到所部署的项目。
+Once your deployment has succesfully completed and our nodes have indexed your data from the chain, you'll be able to connect to your project via the displayed Query endpoint.
 
 ![正在部署和同步的项目](/assets/img/projects-deploy-sync.png)
 
-您也可以点击项目标题旁边的“...”图标，从而在 SubQuery 浏览器上查看项目， 您可以通过SubQuery浏览器开始使用。 您可以通过SubQuery浏览器开始使用。
+您也可以点击项目标题旁边的三个小点图标，从而在 SubQuery 浏览器上查看项目， 在这里您可以使用我们的区块链浏览器开始—— [阅读更多关于如何在这里使用](../query/query.md) 的信息。 There you can use the in browser playground to get started.
 
-![SubQuery Explorer 中的项目](/assets/img/projects-explorer.png)
+![Projects in SubQuery Explorer](/assets/img/projects-explorer.png)
 
-[了解更多关于 GraphQL 查询语言的信息。](./graphql.md)
+::: info Note Learn more about the [GraphQL Query language.](./graphql.md) :::
