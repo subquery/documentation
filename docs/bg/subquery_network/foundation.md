@@ -1,19 +1,19 @@
-# The SubQuery Foundation
+# Фондация SubQuery
 
-The SubQuery Foundation serves to manage and develop the SubQuery Network and its ecosystem. Its purpose is to foster and guide the development and growth of the SubQuery Network and provide support for users and developers to build their own SubQuery Projects.
+Фондацията SubQuery служи за управление и развитие на мрежата SubQuery и нейната екосистема. Неговата цел е да насърчава и ръководи развитието и растежа на SubQuery Network и да предоставя поддръжка на потребителите и разработчиците за изграждане на свои собствени SubQuery проекти.
 
-The SubQuery Foundation is the first step towards decentralising ownership over the SubQuery Network.
+SubQuery Foundation е първата стъпка към децентрализиране на собствеността върху SubQuery Network.
 
-## The Purpose
+## Целта
 
-The SubQuery Network will be managed by a SubQuery Foundation. The SubQuery Foundation will be a not for profit entity created specifically to serve, manage, and develop the SubQuery Network and provide support for users and developers to participate.
+SubQuery Network ще се управлява от SubQuery Foundation. Фондацията SubQuery ще бъде юридическо лице с нестопанска цел, създадено специално за обслужване, управление и развитие на мрежата SubQuery и предоставяне на поддръжка за участие на потребители и разработчици.
 
-The SubQuery Foundation is expected to have the following mandates:
-- Developing and updating the SubQuery Network.
-- Manage and distributing assets from the Foundation Treasury.
-- Managing the SubQuery Grants Programme to stimulate ecosystem and network development.
-- Developing SubQuery ecosystem of partners and user community.
-- Driving educational programmes and documentation.
-- Decentralising the control over the SubQuery Network.
+Очаква се SubQuery Foundation да има следните мандати:
+- Разработване и актуализиране на SubQuery Network.
+- Управлявайте и разпределяйте активи от хазната на Фондацията.
+- Управление на програмата за субсидии на SubQuery за стимулиране на развитието на екосистемата и мрежата.
+- Разработване на SubQuery екосистема от партньори и потребителска общност.
+- Шофьорски образователни програми и документация.
+- Децентрализиране на контрола върху SubQuery Network.
 
-It is planned that the SubQuery Foundation will be accountable to the SubQuery Council, who will oversee governance decisions and will be made up of key representatives from the core SubQuery team and other key partners and advisers.
+Планира се Фондация SubQuery да се отчита пред Съвета на SubQuery, който ще наблюдава управленските решения и ще бъде съставен от ключови представители от основния екип на SubQuery и други ключови партньори и съветници.
