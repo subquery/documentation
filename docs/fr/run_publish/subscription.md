@@ -6,7 +6,7 @@ SubQuery prend désormais en charge les abonnements Graphql. Comme les requêtes
 
 Les abonnements sont très utiles lorsque vous souhaitez que votre application client modifie des données ou affiche de nouvelles données dès que ce changement se produit ou que les nouvelles données sont disponibles. Les abonnements vous permettent de *souscrire* à votre projet SubQuery pour les changements.
 
-[Pour en savoir plus sur les abonnements, cliquez ici](https://www.apollographql.com/docs/react/data/subscriptions/)
+[Read more about subscriptions here](https://www.apollographql.com/docs/react/data/subscriptions/).
 
 ## Comment souscrire à une entité
 
@@ -25,8 +25,8 @@ subscription {
 ```
 
 Le corps de l'entité de votre requête indique les données que vous souhaitez recevoir via votre abonnement lorsque la table `Transfert` est mise à jour :
-- `id` : Renvoie l'identifiant de l'entité qui a changé
-- `mutation_type` : L'action qui a été faite à cette entité. Les types de mutation peuvent être soit `INSERT`, `UPDATE` ou `DELETE`
+- `id`: Returns the ID of the entity that has changed.
+- `mutation_type` : L'action qui a été faite à cette entité. Mutation types can be either `INSERT`, `UPDATE` or `DELETE`.
 - `_entity` : la valeur de l'entité elle-même au format JSON.
 
 ## Filtrage
@@ -62,7 +62,7 @@ subscription {
 }
 ```
 
-Notez que le filtre `mutation` peut être l'un de `INSERT`, `UPDATE` ou `DELETE`
+Note that the `mutation` filter can be one of `INSERT`, `UPDATE` or `DELETE`.
 
 **Veuillez noter que vous devez activer l'option `--subscription` à la fois sur le nœud et le service de requête afin d'utiliser ces fonctions.**
 
