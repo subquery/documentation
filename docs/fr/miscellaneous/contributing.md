@@ -2,17 +2,17 @@
 
 Bienvenue et un grand merci d'avoir envisagé de contribuer à ce projet SubQuery ! Ensemble, nous pouvons ouvrir la voie à un avenir plus décentralisé.
 
-> Cette documentation est activement maintenue par l'équipe SubQuery. Nous accueillons vos contributions, vous pouvez le faire en forkant notre projet GitHub et en apportant des modifications à tous les fichiers markdown de la documentation sous le répertoire `docs`.
+::: info Note This documentation is actively maintained by the SubQuery team. We welcome your contributions. You can do so by forking our GitHub project and making changes to all the documentation markdown files under the `docs` directory. :::
 
-Ce qui suit est un ensemble de directives (et non de règles) pour contribuer à SubQuery. Le respect de ces directives nous aidera à rendre le processus de contribution facile et efficace pour toutes les personnes impliquées. Il indique également que vous acceptez de respecter le temps des développeurs qui gèrent et développent ce projet. En retour, nous vous rendrons ce respect en traitant votre problème, en envisageant des modifications, en collaborant à des améliorations et en vous aidant à finaliser vos pull requests.
+What follows is a set of guidelines (not rules) for contributing to SubQuery. Following these guidelines will help us make the contribution process easy and effective for everyone involved. It also communicates that you agree to respect the time of the developers managing and developing this project. In return, we will reciprocate that respect by addressing your issue, considering changes, collaborating on improvements, and helping you finalise your pull requests.
 
 ## Code de conduite
 
-Nous prenons au sérieux nos projets et notre responsabilité dans la communauté des logiciels libres et nous nous imposons, ainsi qu'aux autres contributeurs, des normes de communication élevées. En participant et en contribuant à ce projet, vous acceptez de respecter notre [Code de conduite](https://github.com/subquery/subql/blob/contributors-guide/CODE_OF_CONDUCT.md).
+We take our open source community projects and responsibility seriously and hold ourselves and other contributors to high standards of communication. By participating and contributing to this project, you agree to uphold our [Code of Conduct](https://github.com/subquery/subql/blob/main/CODE_OF_CONDUCT.md).
 
 ## Pour commencer
 
-Les contributions à nos référentiels se font par le biais de issues et de Pull Requests (PRs). Quelques directives générales qui couvrent les deux :
+Contributions to our repositories are made through Issues and Pull Requests (PRs). A few general guidelines that cover both:
 
 * Recherchez les numéros d'Issues et de PRs existants avant de créer les vôtres.
 * Nous nous efforçons de faire en sorte que les problèmes soient traités rapidement mais, en fonction de l'impact, l'enquête sur la cause profonde peut prendre un certain temps. Une mention amicale @ dans le fil de commentaires à l'auteur de la proposition ou à un contributeur peut aider à attirer l'attention si votre problème est bloquant.
@@ -21,7 +21,7 @@ Les contributions à nos référentiels se font par le biais de issues et de Pul
 
 ### Rapporter des bugs
 
-Les bugs sont suivis comme des Issues GitHub. Lorsque vous enregistrez un problème, expliquez-le et incluez des détails supplémentaires pour aider les responsables à reproduire le problème :
+Bugs are tracked as GitHub issues. When logging an issue, explain the problem and include additional details to help maintainers reproduce the problem:
 
 * Utilisez un titre clair et descriptif de la question pour identifier le problème.
 * Décrivez les étapes exactes pour reproduire le problème.
