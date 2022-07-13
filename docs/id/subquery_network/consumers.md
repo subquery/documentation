@@ -32,6 +32,6 @@ Anda dapat membaca lebih lanjut tentang berbagai metode pembayaran, cara kerjany
 
 Kecuali jika Perjanjian Layanan Tertutup digunakan, akan ada satu atau lebih Pengindeks yang mengindeks proyek SubQuery. Konsumen memiliki pilihan saat memutuskan Pengindeks mana yang akan membaca data. Biasanya Konsumen akan memilih Pengindeks latensi paling andal dan terendah. Konsumen juga dapat menggabungkan failover otomatis dan membaca data dari Pengindeks lain jika yang pertama kali habis atau tidak responsif.
 
-### Apa yang terjadi jika Pengindeks keluar jalur?
+### What happens if an Indexer goes offline?
 
 Kecuali jika Perjanjian Layanan Tertutup digunakan, dan jika ada lebih dari satu Pengindeks yang mengindeks proyek SubQuery Anda, itu hanya masalah beralih ke Pengindeks lain. The ideal scenario would be include strategies like alert monitoring to be notified of potential issues and intelligent routing and caching.
