@@ -34,4 +34,4 @@
 
 ### 如果索引器关机会发生什么情况？
 
-除非正在使用封闭服务协议，否则如果有多个索引器将您的 SubQuery 项目索引。 这只是一个转向另一个索引器的问题。 理想的情景将包括一些策略，例如通知潜在问题的警报监测以及智能路由和缓存。
+除非正在使用封闭服务协议，否则如果有多个索引器将您的 SubQuery 项目索引。 这只是一个转向另一个索引器的问题。 The ideal scenario would be include strategies like alert monitoring to be notified of potential issues and intelligent routing and caching.
