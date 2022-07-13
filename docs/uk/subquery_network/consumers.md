@@ -34,4 +34,4 @@
 
 ### Що стається, якщо індексатор відключається з мережі?
 
-Unless a Closed Service Agreement is being used, and if there is more than one Indexer indexing your SubQuery project, it would simply be a matter of switching to another Indexer. The ideal scenario would be include strategies like alert monitoring to be notified of potential issues and intelligent routing and caching.
+Попри те, що використовується закритий договір і, якщо є більше ніж один індексатор, який індексує ваш проєкт в мережі SubQuery, це просто буде питанням перемикання на іншого індексатора. Ідеальним сценарієм будуть такі стратегії, як моніторинг попереджень, щоб бути поінформованим про потенційні проблеми та інтелектуальні маршрутизації та кешування.
