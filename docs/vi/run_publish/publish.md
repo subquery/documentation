@@ -15,7 +15,7 @@ Có hai cách để bạn có thể lưu trữ codebase của dự án SubQuery 
 
 **GitHub**: Your project's codebase must be in a public GitHub repository.
 
-**IPFS**: Your project's codebase can be stored in IPFS, you can follow our IPFS hosting guide to see how to [first publish to IPFS](ipfs.md).
+**IPFS**: Your project's codebase can be stored in IPFS, you can follow our IPFS hosting guide to see how to [first publish to IPFS](../run_publish/ipfs.md).
 
 ### Đăng nhập vào Các Dự Án SubQuery
 
@@ -31,11 +31,11 @@ SubQuery Projects là nơi bạn quản lý tất cả các dự án của bạn
 
 ![Đăng Nhập Các Dự Án](/assets/img/projects-dashboard.png)
 
-Nếu bạn có kết nối các tài khoản GitHub Organization, bạn có thể sử dụng tính năng chuyển đổi ở đầu trang để thay đổi giữa tài khoản cá nhân và tài khoản GitHub Organization. Các dự án được tạo ra trong tài khoản GitHub Organization đều được chia sẻ giữa các thành viên trong GitHub Organization đó. Để kết nối tài khoản GitHub Organization của bạn, bạn có thể [làm theo các bước tại đây](#add-github-organization-account-to-subquery-projects).
+Nếu bạn có kết nối các tài khoản GitHub Organization, bạn có thể sử dụng tính năng chuyển đổi ở đầu trang để thay đổi giữa tài khoản cá nhân và tài khoản GitHub Organization. Các dự án được tạo ra trong tài khoản GitHub Organization đều được chia sẻ giữa các thành viên trong GitHub Organization đó. To connect your GitHub Organization account, you can [follow the steps here](publish.md#add-github-organization-account-to-subquery-projects).
 
 ![Chuyển đổi giữa các tài khoản GitHub](/assets/img/projects-account-switcher.png)
 
-### Tạo Dự Án Đầu Tiên
+### Create Your First Project
 
 Có hai phương pháp để tạo một dự án trong Dịch vụ quản lý SubQuery, bạn có thể sử dụng giao diện người dùng hoặc trực tiếp thông qua công cụ `subql` cli.
 
@@ -50,18 +50,20 @@ Chúng ta hãy bắt đầu bằng cách nhấp vào "Create Project". Bạn s�
 - **URL Kho Lưu Trữ GitHub:** Đây phải là một URL GitHub hợp lệ chỉ đến kho lưu trữ công khai có chứa dự án SubQuery của bạn. The `schema.graphql` file must be in the root of your directory ([learn more about the directory structure](../build/introduction.md#directory-structure)).
 - **Cơ sở dữ liệu:** Khách hàng cao cấp có thể truy cập cơ sở dữ liệu chuyên dụng để lưu trữ các dự án SubQuery sản xuất từ đó. Nếu điều này khiến bạn quan tâm, bạn có thể liên hệ với [sales@subquery.network](mailto:sales@subquery.network) để kích hoạt cài đặt này.
 - **Nguồn triển khai:** Bạn có thể chọn triển khai dự án từ kho lưu trữ GitHub hoặc triển khai cách khác từ IPFS CID, xem hướng dẫn của chúng tôi về [lưu trữ với IPFS.](ipfs.md)
-- **Ẩn dự án:** Nếu được chọn, điều này sẽ ẩn dự án khỏi trình khám phá SubQuery công khai. Hãy bỏ chọn mục này nếu bạn muốn chia sẻ SubQuery của mình với cộng đồng! ![Tạo Dự Án đầu tiên của bạn](/assets/img/projects-create.png)
+- **Ẩn dự án:** Nếu được chọn, điều này sẽ ẩn dự án khỏi trình khám phá SubQuery công khai. Hãy bỏ chọn mục này nếu bạn muốn chia sẻ SubQuery của mình với cộng đồng!
 
-Hãy tạo dự án cho riêng mình và bạn sẽ thấy nó trong danh sách ubQuery Project's của bạn. _Chúng ta sắp xong rồi! Chúng ta chỉ cần triển khai một phiên bản mới của nó._
+![Create your first Project](/assets/img/projects-create.png)
 
-![Tạo Dự án mà không cần triển khai](/assets/img/projects-no-deployment.png)
+Create your project and you'll see it on your SubQuery Project's list. _We're almost there! We just need to deploy a new version of it._
+
+![Created Project with no deployment](/assets/img/projects-no-deployment.png)
 
 #### Sử dụng CLI
 
-Bạn cũng có thể sử dụng `@subql/cli` để triển khai mới của dự án lên dịch vụ được quản lý của chúng tôi. Điều này yêu cầu:
+You can also use `@subql/cli` to publish your project to our managed service. Điều này yêu cầu:
 
 - `@subql/cli` phiên bản 1.1.0 trở lên.
-- A valid [SUBQL_ACCESS_TOKEN]() ready.
+- A valid [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) ready.
 
 ```shell
 // Tạo dự án sử dụng CLI
@@ -82,9 +84,9 @@ Có hai phương pháp để triển khai một phiên bản mới của dự á
 
 #### Sử dụng giao diện người dùng
 
-Trong khi đang khởi tạo, dự án sẽ thiết lập hành vi hiển thị của nó, bạn phải triển khai một phiên bản của nó trước khi dự án đi vào vận hành. Triển khai một phiên bản sẽ kích hoạt khởi động lập chỉ mục SubQuery mới để bắt đầu, và cài đặt dịch vụ truy vấn để chấp nhận các yêu cầu từ GraphQl. Bạn cũng có thể triển khai các phiên bản mới đối với các dự án hiện tại tại đây.
+While creating a project will setup the display behaviour of the project, you must deploy a version of it before it becomes operational. Deploying a version triggers a new SubQuery indexing operation to start, and sets up the required query service to start accepting GraphQL requests. You can also deploy new versions to existing projects here.
 
-Cùng với dự án mới của mình, bạn sẽ thấy một nút bấm Deploy New Version. Nhấp vào nút này, và điền vào các thông tin bắt buộc để thực hiện triển khai:
+With your new project, you'll see a Deploy New Version button. Click this, and fill in the required information about the deployment:
 
 - **Branch:** From GitHub, select the branch of the project that you want to deploy from.
 - **Commit Hash:** From GitHub, select the specific commit of the version of your SubQuery project codebase that you want deployed.
@@ -93,9 +95,9 @@ Cùng với dự án mới của mình, bạn sẽ thấy một nút bấm Deplo
 - **Indexer Version:** Đây là phiên bản của dịch vụ nút SubQuery mà bạn muốn chạy SubQuery này. See [`@subql/node`](https://www.npmjs.com/package/@subql/node).
 - **Query Version:** Đây là phiên bản của dịch vụ truy vấn SubQuery mà bạn muốn chạy SubQuery này. See [`@subql/query`](https://www.npmjs.com/package/@subql/query).
 
-![Triển khai Dự Án đầu tiên của bạn](https://static.subquery.network/media/projects/projects-first-deployment.png)
+![Deploy your first Project](https://static.subquery.network/media/projects/projects-first-deployment.png)
 
-Nếu được triển khai thành công, bạn sẽ thấy trình lập chỉ mục bắt đầu hoạt động và báo cáo về tiến độ lập chỉ mục cho chuỗi hiện tại. Tiến trình này có thể mất nhiều thời gian cho tới khi nó đạt đến 100%.
+If deployed successfully, you'll see the indexer start working and report back progress on indexing the current chain. This process may take time until it reaches 100%.
 
 #### Sử dụng CLI
 
@@ -126,22 +128,22 @@ Sau khi việc triển khai đã thành công và các nút của chúng ta đã
 
 ![Các dự án đang được triển khai và đồng bộ](/assets/img/projects-deploy-sync.png)
 
-Ngoài ra, bạn có thể nhấp vào ba dấu chấm bên cạnh tiêu đề dự án của mình và xem nó trên SubQuery Explorer. Tại đó bạn có thể sử dụng nền tảng trong trình duyệt để tiến hành - [tìm hiểu nhiều hơn về cách sử dụng Explorer của chúng tôi tại đây](../run_publish/query.md).
+Ngoài ra, bạn có thể nhấp vào ba dấu chấm bên cạnh tiêu đề dự án của mình và xem nó trên SubQuery Explorer. There you can use the in-browser playground to get started - [read more about how to use our Explorer here](../run_publish/query.md).
 
-![Projects trong SubQuery Explorer](/assets/img/projects-explorer.png)
+![Projects in SubQuery Explorer](/assets/img/projects-explorer.png)
 
 ## Thêm Tài Khoản GitHub Organization vào các Dự Án SubQuery
 
-Xuất bản dự án SubQuery dưới tên tài khoản GitHub Organization của bạn thay vì dùng tài khoản GitHub cá nhân là điều phổ biến. Bạn có thể thay đổi tài khoản hiện đang chọn trên [SubQuery Projects](https://project.subquery.network) bất cứ lúc nào bằng cách sử dụng tính năng chuyển đổi tài khoản.
+It is common to publish your SubQuery project under the name of your GitHub Organization account rather than your personal GitHub account. At any point your can change your currently selected account on [SubQuery Projects](https://project.subquery.network) using the account switcher.
 
 ![Chuyển đổi giữa các tài khoản GitHub](/assets/img/projects-account-switcher.png)
 
-Nếu bạn không thể nhìn thấy tài khoản GitHub Organization của mình được liệt kê trong phần chuyển đổi tài khoản, bạn có thể cần phải cấp quyền truy cập vào SubQuery đối với GitHub Organization của bạn (hoặc yêu cầu quyền này từ một quản trị viên). Để thực hiện việc này, trước tiên bạn cần thu hồi quyền từ tài khoản GitHub của mình đối với Ứng dụng SubQuery. Để thực hiện việc này, hãy đăng nhập vào phần cài đặt tài khoản của bạn trong GitHub, đến Applications, và bên dưới thẻ Authorized Oauth Apps, thu hồi SubQuery - [ bạn có thể làm theo các bước chính xác tại đây ](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/reviewing-your-authorized-applications-oauth). **Đừng lo, việc này sẽ không xóa đi dự án SubQuery của bạn và bạn sẽ không bị mất bất kỳ dữ liệu nào.**
+If you can't see your GitHub Organization account listed in the switcher, the you may need to grant access to SubQuery for your GitHub Organization (or request it from an administrator). To do this, you first need to revoke permissions from your GitHub account to the SubQuery Application. To do this, login to your account settings in GitHub, go to Applications, and under the Authorized OAuth Apps tab, revoke SubQuery - [you can follow the exact steps here](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/reviewing-your-authorized-applications-oauth). **Don't worry, this will not delete your SubQuery project and you will not lose any data.**
 
-![Thu hồi truy cập đối với tài khoản GitHub](/assets/img/project_auth_revoke.png)
+![Revoke access to GitHub account](/assets/img/project_auth_revoke.png)
 
-Sau khi bạn đã thu hồi quyền truy cập, hãy đăng xuất ra khỏi [SubQuery Projects](https://project.subquery.network) và đăng nhập vào lại. Bạn sẽ được điều hướng đến một trang có tiêu đề _Authorize SubQuery_ đây là trang bạn có thể yêu cầu cấp quyền truy cập SubQuerry đến tài khoản GitHub Organization của bạn. Nếu bạn không có các quyền quản trị, bạn cần phải yêu cầu một quản trị quyên cấp các quyền này cho bạn.
+Once you have revoked access, log out of [SubQuery Projects](https://project.subquery.network) and log back in again. You should be redirected to a page titled _Authorize SubQuery_ where you can request or grant SubQuery access to your GitHub Organization account. If you don't have admin permissions, you must make a request for an adminstrator to enable this for you.
 
 ![Thu hồi chấp thuận từ một tài khoản GitHub](/assets/img/project_auth_request.png)
 
-Sau khi yêu cầu đã được chấp thuận bởi quản trị viên (hoặc nếu bạn có thể tự cấp quyền cho mình), bạn sẽ thấy tài khoản GitHub Organization chính xác trong khu vực chuyển đổi tài khoản.
+Once this request has been approved by your administrator (or if are able to grant it youself), you will see the correct GitHub Organization account in the account switcher.
