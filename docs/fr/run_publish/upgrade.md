@@ -20,7 +20,7 @@ We recommend deploying to your staging slot only for final staging testing or wh
 The staging slot is perfect for:
 
 - Validation finale des modifications apportées à votre projet de SubQuery dans un environnement séparé. Le slot de staging, emplacement de mise à disposition, possède une URL différente de celle de la production que vous pouvez utiliser dans vos dApps.
-- Réchauffer et indexer les données pour un projet SubQuery mis à jour afin d'éliminer les temps d'arrêt dans votre dApp
+- Warming up and indexing data for an updated SubQuery project to eliminate downtime in your dApp.
 - Préparer une nouvelle version de votre projet SubQuery sans l'exposer publiquement. L'emplacement de mise à disposition n'est pas exposé au public dans l'explorateur et possède une URL unique qui n'est visible que par vous.
 
 ![Staging slot](/assets/img/staging_slot.png)
