@@ -12,7 +12,7 @@ SubQuery 网络通过允许用户将项目基础架构完全去中心化，从�
 
 ## 参与者
 
-网络中的每个人都有一个角色，从高技术开发人员到非高技术开发人员。 SubQuery 网络中包括四个主要参与者
+网络中的每个人都有一个角色，从高技术开发人员到非高技术开发人员。 The SubQuery network includes four main network participants.
 
 ### 消费者
 
