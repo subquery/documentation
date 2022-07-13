@@ -103,7 +103,7 @@ This error indicates that you are trying to index one network while using the en
 **Solution:**
 To fix this, check you are using an endpoint consistent with the network.
 
-For e.g. for a Kusama project, use the Kusama endpoint of: wss://kusama.api.onfinality.io/public-ws
+For e.g. for a Kusama project, use the Kusama endpoint of: `wss://kusama.api.onfinality.io/public-ws`
 
 ## Error: cannot estimate gas; transaction may fail or may require manual gas limit
 
@@ -130,7 +130,7 @@ Try to uninstall Docker Compose and re-install it from the official guide rather
 
 If all has worked you should get `docker-compose version 1.29.2, build 5becea4c` from `docker-compose --version`, and you can go ahead and pull/up.
 
-The official installation guide can be found [here](https://docs.docker.com/compose/install/#install-compose-on-linux-systems)
+The official installation guide can be found [here](https://docs.docker.com/compose/install/#install-compose-on-linux-systems).
 
 ## (WIP) coordinator_service contract ERROR failed to get indexing status for project: 0xQmYR8x...
 

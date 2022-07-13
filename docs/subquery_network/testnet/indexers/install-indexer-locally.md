@@ -17,11 +17,11 @@ Now, let's explore how to run the Indexing Service Locally step-by-step.
 
 ### Initial Preparation
 
-- [Docker](https://docs.docker.com/get-docker/) - It contains all the required images to run the entire Web3 application
+- [Docker](https://docs.docker.com/get-docker/) - It contains all the required images to run the entire Web3 application.
 
 ### Step 1 - Clone the Indexing Service Repo
 
-- Clone the indexing services repository to your local machine. This repository contains a docker-compose.yml file, which consists of all the images to build and start the various applications.
+- Clone the indexing services repository to your local machine. This repository contains a `docker-compose.yml` file, which consists of all the images to build and start the various applications.
 
 ```bash
 mkdir testnet
@@ -29,12 +29,15 @@ cd testnet
 curl https://raw.githubusercontent.com/subquery/indexer-services/main/docker-compose.yml -o docker-compose.yml
 ```
 
-> **IMPORTANT**
-> DO NOT skip checking the Indexer Version after you finish the installation process.
+::: warning Important
+DO NOT skip checking the Indexer Version after you finish the installation process.
+:::
 
 - Visit [this section](../indexers/become-an-indexer.md#_2-1-check-indexer-version) and complete the process.
 
-> **IMPORTANT Note**: Please change the default PostgreSQL password in the `POSTGRES_PASSWORD` field and in the coordinator-service's `postgres-password` field. Replace it with  your own one. 
+::: warning Important
+Please change the default PostgreSQL password in the `POSTGRES_PASSWORD` field and in the coordinator-service's `postgres-password` field. Replace it with  your own one. 
+:::
 
 ### Step 2 - Start the Indexing Service
 
@@ -46,9 +49,9 @@ docker-compose up -d
 
 Please check that the Docker is already running. The images will be pulled from Docker and then it will start the following services:
 
-- coordinator_db
-- coordinator_service
-- coordinator_proxy
+- `coordinator_db`
+- `coordinator_service`
+- `coordinator_proxy`
 
 ![docker compose-up command line](/assets/img/docker_compose_up_commandline_installlocally.png)
 
@@ -68,5 +71,6 @@ You have successfully installed the Indexing service locally. The next step is t
 
 **Head to [How to Connect to MetaMask](../metamask/connect-metamask.md) guide.**
 
-**Additional Note:**
+:::tip Tip
 Having trouble running a command or setting up the service? Got stuck in the process? Find your solutions [here](../indexers/troubleshooting-indexers.md).
+:::

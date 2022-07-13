@@ -5,9 +5,9 @@ In the [quick start](../quickstart/quickstart.md) guide, we very quickly ran thr
 Some of the following examples will assume you have successfully initialized the starter package in the [Quick start](../quickstart/quickstart.md) section. From that starter package, we'll walk through the standard process to customise and implement your SubQuery project.
 
 1. Initialise your project using `subql init PROJECT_NAME`.
-2. Update the Manifest file (`project.yaml`) to include information about your blockchain, and the entities that you will map - see [Manifest File](./manifest.md)
-3. Create GraphQL entities in your schema (`schema.graphql`) that define the shape of the data that you will extract and persist for querying - see [GraphQL Schema](./graphql.md)
-4. Add all the mapping functions (eg `mappingHandlers.ts`) you wish to invoke to transform chain data to the GraphQL entities that you have defined - see [Mapping](./mapping.md)
+2. Update the Manifest file (`project.yaml`) to include information about your blockchain, and the entities that you will map - see [Manifest File](./manifest.md).
+3. Create GraphQL entities in your schema (`schema.graphql`) that define the shape of the data that you will extract and persist for querying - see [GraphQL Schema](./graphql.md).
+4. Add all the mapping functions (eg `mappingHandlers.ts`) you wish to invoke to transform chain data to the GraphQL entities that you have defined - see [Mapping](./mapping.md).
 5. Generate, build, and publish your code to SubQuery Projects (or run in your own local node) - see [Running and Querying your Starter Project](../quickstart/quickstart_chains/polkadot.md#_5-run-your-project-locally-with-docker) in our quick start guide.
 
 ## Directory Structure
@@ -35,7 +35,7 @@ For example:
 
 ## Code Generation
 
-Whenever you change your GraphQL entities, you must regenerate your types directory with the following command.
+Whenever you change your GraphQL entities, you must regenerate your types directory with the following command:
 
 ```
 yarn codegen
@@ -71,7 +71,7 @@ Run the build command from the project's root directory.
 
 We support additional build options for subquery projects using `subql build`.
 
-With this you can define additional entry points to build using the exports field in package.json.
+With this you can define additional entry points to build using the exports field in `package.json`.
 
 ```json
 "name": "project-name",

@@ -250,7 +250,7 @@ dataSources:
 
 ## Migrating to v1.0.0 <Badge text="upgrade" type="warning"/>
 
-**If you have a project with specVersion below v1.0.0 you can use `subql migrate` to quickly upgrade. [See the CLI documentation](#cli-options) for more information**
+**If you have a project with specVersion below v1.0.0 you can use `subql migrate` to quickly upgrade. [See the CLI documentation](#cli-options) for more information.**
 
 ### Change Log for v1.0.0
 
@@ -283,7 +283,7 @@ For a more detailed explanation head [here](../build/dynamicdatasources.md).
 
 ### Migrating from v0.2.0 to v0.3.0 <Badge text="upgrade" type="warning"/>
 
-If you have a project with specVersion v0.2.0, The only change is a new **required** `chainId` field which helps to identify the chain being used
+If you have a project with specVersion v0.2.0, The only change is a new **required** `chainId` field which helps to identify the chain being used.
 
 ### CLI Options
 
@@ -321,7 +321,7 @@ The `chainId` or `genesisHash` is the network identifier of the blockchain. Exam
 
 ![Genesis Hash](/assets/img/genesis-hash.jpg)
 
-Additionally you will need to update the `endpoint`. This defines the wss endpoint of the blockchain to be indexed - **This must be a full archive node**. You can retrieve endpoints for all parachains for free from [OnFinality](https://app.onfinality.io)
+Additionally you will need to update the `endpoint`. This defines the wss endpoint of the blockchain to be indexed - **this must be a full archive node**. You can retrieve endpoints for all parachains for free from [OnFinality](https://app.onfinality.io)
 
 | Field           | v1.0.0   | v0.2.0 | Description                     |
 |-----------------|----------|--------|---------------------------------|
@@ -425,7 +425,7 @@ dataSources:
 
 The following table explains filters supported by different handlers.
 
-**Your SubQuery project will be much more efficient when you only use event and call handlers with appropriate mapping filters**
+**Your SubQuery project will be much more efficient when you only use event and call handlers with appropriate mapping filters.**
 
 | Network | Handler | Supported filter |
 | ------------------ | ---------------------------------------------------- | ---------------------------- |

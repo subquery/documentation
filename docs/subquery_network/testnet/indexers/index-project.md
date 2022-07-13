@@ -33,10 +33,10 @@ Click `Get Started` and then select `Approve`. Then MetaMask will pop up, asking
 
 Fill in the details to register your Indexer and confirm the MetaMask transaction.
 
-**Important:**
-
+::: warning Important
 The proxy endpoint is the default public DNS for your EC2 instance.
 For example: [http://ec2-2-22-83-280.ap-southeast-2.compute.amazonaws.com](http://ec2-3-25-83-26.ap-southeast-2.compute.amazonaws.com/)
+:::
 
 ![Register MetMask-Confirm Transaction](/assets/img/registerconfirm_metamask_index_project.png)
 
@@ -74,8 +74,8 @@ Once the controller account is added, it should appear as follows:
 
 The Indexer can update metadata which includes:
 
-- Indexer name
-- Proxy server endpoint
+- Indexer name.
+- Proxy server endpoint.
 
 ![Update Indexer's Metadata](/assets/img/update_indexer_metadata_index_project.png)
 
@@ -89,13 +89,15 @@ Before clicking **`Add Project`,** click on the SubQuery Explorer hyperlink. Thi
 
 ![Add Project Screen](/assets/img/add_project_index_project.png)
 
-Select the Polkadot Project as your first indexing project
+Select the Polkadot Project as your first indexing project.
 
 ![Select a Project](/assets/img/select_project_index_project.png)
 
-**Note:** The polkadot project in this Testnet is:
+::: note
+The polkadot project in this Testnet is:
 
 - Staking Threshold - Polkadot `QmduAur8aCENpuizuTGLAsXumG2BX8zSgWLsVpp5b8GEGN`
+:::
 
 ![Deployment ID of the Project](/assets/img/deployID_Polkadot_index_project.png)
 
@@ -131,7 +133,7 @@ Enter the following values for each project and select specific image versions i
   - Indexing Endpoint: `http://avalanche.api.onfinality.io:9650`
   - Dictionary Endpoint: `https://api.subquery.network/sq/subquery/avalanche-dictionary`
 
-**Please make sure that you set “Enable POI” to true**
+**Please make sure that you set “Enable POI” to `true`.**
 
 ![Restart Indexing Project Screen](/assets/img/restartproject_index_project.png)
 
@@ -155,9 +157,9 @@ To announce a project to the network, select the `Announce Indexing` button and 
 
 After the transaction is processed, the project's status will change to `INDEXING`. Now, the Indexer can:
 
-- Publish the project to `READY` on the network via `Announce Ready`
-- `Stop indexing` the project
-- `Restart indexing` the project with a new network endpoint
+- Publish the project to `READY` on the network via `Announce Ready`.
+- `Stop indexing` the project.
+- `Restart indexing` the project with a new network endpoint.
 
 ![Indexing Status](/assets/img/indexing_status_index_project.png)
 

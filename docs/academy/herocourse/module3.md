@@ -12,17 +12,17 @@ In these exercises, we will take the starter project and focus on understanding 
 
 ### Pre-requisites
 
-Completion of Module 2
+Completion of Module 2.
 
 ### Balances Transfers (1-to-many)
 
 ### High level steps
 
-1. Initialise the starter project
+1. Initialise the starter project.
 2. Update your mappings, manifest file and graphql schema file by removing all the default code except for the handleEvent function.
-3. Generate, build and deploy your code
-4. Deploy your code in Docker
-5. Query for address transfers in the playground
+3. Generate, build and deploy your code.
+4. Deploy your code in Docker.
+5. Query for address transfers in the playground.
 
 ### Detailed steps
 
@@ -113,8 +113,9 @@ dataSources:
             method: Transfer
 ```
 
-
-Note the inclusion of a dictionary and the exclusion of the genesisHash
+::: note Note
+Note the inclusion of a dictionary and the exclusion of the genesisHash.
+:::
 
 
 #### Step 4: Update the mappings file
@@ -193,56 +194,69 @@ export async function handleEvent(event: SubstrateEvent): Promise<void> {
 
 Install the node dependencies by running the following commands:
 
+<CodeGroup>
+  <CodeGroupItem title="YARN" active>
 
-```
-yarn install
-```
+  ```shell
+  yarn install
+  ```
 
+  </CodeGroupItem>
 
-OR
+  <CodeGroupItem title="NPM">
 
+  ```bash
+  npm install
+  ```
 
-```
-npm install
-```
-
-
+  </CodeGroupItem>
+</CodeGroup>
 
 #### Step 6: Generate the associated typescript
 
 Next, we will generate the associated typescript with the following command:
 
+<CodeGroup>
+  <CodeGroupItem title="YARN" active>
 
-```
-yarn codegen
-```
+  ```shell
+  yarn codegen
+  ```
 
+  </CodeGroupItem>
 
-OR
+  <CodeGroupItem title="NPM">
 
+  ```bash
+  npm run-script codegen
+  ```
 
-```
-npm run-script codegen
-```
-
+  </CodeGroupItem>
+</CodeGroup>
 
 
 #### Step 7: Build the project
 
 The next step is to build the project with the following command:
 
+<CodeGroup>
+  <CodeGroupItem title="YARN" active>
 
-```
-yarn build
-```
+  ```shell
+  yarn build
+  ```
 
+  </CodeGroupItem>
 
-OR
+  <CodeGroupItem title="NPM">
 
+  ```bash
+  npm run-script build
+  ```
 
-```
-npm run-script build
-```
+  </CodeGroupItem>
+</CodeGroup>
+
 
 
 This bundles the app into static files for production.
@@ -429,21 +443,21 @@ In other words, one account links to many transfers or more verbosely stated, ea
 
 Here we will take the starter project and focus on understanding how many-to-many relationships work. We will create a project that allows us to query for the number of votes that councillors have made and how many votes a given proposal has received. 
 
-To learn more about the Polkadot governance structure, please [refer to this page](https://polkadot.network/blog/a-walkthrough-of-polkadots-governance/)
+To learn more about the Polkadot governance structure, please [refer to this page](https://polkadot.network/blog/a-walkthrough-of-polkadots-governance/).
 
 ### Pre-requisites
 
-Completion of Module 2
+Completion of Module 2.
 
 ### Council Proposals (many-to-many)
 
 ### High-level steps
 
-1. Initialise the starter project
+1. Initialise the starter project.
 2. Update your mappings, manifest file and graphql schema file by removing all the default code except for the handleEvent function.
-3. Generate, build and deploy your code
-4. Deploy your code in Docker
-5. Query for address balances in the playground
+3. Generate, build and deploy your code.
+4. Deploy your code in Docker.
+5. Query for address balances in the playground.
 
 
 ### Detailed steps
@@ -475,20 +489,22 @@ Let’s first create an entity called “Proposals”. This proposal is an event
 
 Within the council event, we are going to focus on the “proposed” method. The proposed method is defined as:
 
-_“ A motion (given hash) has been proposed (by given account) with a threshold (given MemberCount). [account, proposal_index, proposal_hash, threshold]” - [source](https://polkadot.js.org/docs/substrate/events#proposedaccountid32-u32-h256-u32)_
+>“_A motion (given hash) has been proposed (by given account) with a threshold (given MemberCount). [account, proposal_index, proposal_hash, threshold]” - [source](https://polkadot.js.org/docs/substrate/events#proposedaccountid32-u32-h256-u32)_
 
 We can therefore add the following fields: id, index, hash, voteThreshold and block to our entity. 
+
+
             id => _account_
             index => _proposal_index_
             hash => _proposal_hash_
             voteThreshold => _threshold_
-            block => _Not part of proposed method but useful to extract_
+            block => _Not a part of proposed method but useful to extract_
 
 Next, let’s create an entity object called Councillor. This object will simply hold the number of votes each councillor has made. 
 
 Finally, let’s create a VoteHistory entity. This will be another [council event](https://polkadot.js.org/docs/substrate/events#council) using the [voted](https://polkadot.js.org/docs/substrate/events#votedaccountid32-h256-bool-u32-u32) method defined as:
 
-_“A motion (given hash) has been voted on by a given account, leaving a tally (yes votes and no votes given respectively as MemberCount). [account, proposal_hash, voted, yes, no]”_
+>“_A motion (given hash) has been voted on by a given account, leaving a tally (yes votes and no votes given respectively as MemberCount). [account, proposal_hash, voted, yes, no]”_
 
 We can therefore add the following fields: id, proposalHash, approvedVote, councillor, votedYes, votedNo, and block to our entity. 
 
@@ -499,7 +515,7 @@ We can therefore add the following fields: id, proposalHash, approvedVote, counc
             **Councillor => Councillor**
             votedYes => _yes_
             votedNo => _no_
-            block => _Not part of proposed method but useful to extract_
+            block => _Not a part of proposed method but useful to extract_
 
 Note that for proposalHash, we are specifying the type as the proposal entity. We also introduced a new field called Councillor and gave that a type of Councillor. What this has effectively done is created a table where these two columns are references to their respective tables. 
 
@@ -707,14 +723,23 @@ async function ensureCouncillor(accountId: string): Promise<void> {
 
 Install the node dependencies by running the following commands:
 
-```
-yarn install
-```
+<CodeGroup>
+  <CodeGroupItem title="YARN" active>
 
-OR
+  ```shell
+  yarn install
+  ```
 
-```
-npm install
+  </CodeGroupItem>
+
+  <CodeGroupItem title="NPM">
+
+  ```bash
+  npm install
+  ```
+
+  </CodeGroupItem>
+</CodeGroup>
 ```
 
 #### Step 6: Generate the associated typescript
@@ -722,29 +747,46 @@ npm install
 Next, we will generate the associated typescript with the following command:
 
 
-```
-yarn codegen
-```
+<CodeGroup>
+  <CodeGroupItem title="YARN" active>
 
-OR
+  ```shell
+  yarn codegen
+  ```
 
-```
-npm run-script codegen
-```
+  </CodeGroupItem>
+
+  <CodeGroupItem title="NPM">
+
+  ```bash
+  npm run-script codegen
+  ```
+
+  </CodeGroupItem>
+</CodeGroup>
+
 
 #### Step 7: Build the project
 
 The next step is to build the project with the following command:
 
-```
-yarn build
-```
+<CodeGroup>
+  <CodeGroupItem title="YARN" active>
 
-OR
+  ```shell
+  yarn build
+  ```
 
-```
-npm run-script build
-```
+  </CodeGroupItem>
+
+  <CodeGroupItem title="NPM">
+
+  ```bash
+  npm run-script build
+  ```
+
+  </CodeGroupItem>
+</CodeGroup>
 
 This bundles the app into static files for production.
 
@@ -896,7 +938,7 @@ type Councillor @entity {
 }
 ```
 
-By adding voteHistory_p and voteHistory_b, voteHistories becomes voteHistory_c
+By adding `voteHistory_p` and `voteHistory_b`, `voteHistories` becomes `voteHistory_c`.
 
 ### References
 
@@ -922,10 +964,10 @@ Completion of Module 3: Lesson 2 - One to many entities.
 
 ### High level steps
 
-1. Git clone the tutorials-account-transfers project
-2. Run it to ensure it is working 
-3. Add a new field in the schema and make it a reverse lookup
-4. Requery the project with this new “virtual” field as a reverse look up
+1. Git clone the tutorials-account-transfers project.
+2. Run it to ensure it is working.
+3. Add a new field in the schema and make it a reverse lookup.
+4. Requery the project with this new “virtual” field as a reverse look up.
 
 ### Detailed steps
 
@@ -1044,8 +1086,8 @@ The query above returns the following results:
 
 Add an extra field to the Account entity called myToAddress. Make this of type Transfer and add the @derived annotation. This is making a “virtual field” called myToAddress that can be accessed from the Account entity. It is virtual because the database table structure does not actually change. 
 
-* Allows you to do a reverse lookup in Graphql
-* Adds a GetElementByID() on the child entities
+* Allows you to do a reverse lookup in Graphql.
+* Adds a `GetElementByID()` on the child entities.
 
 ```
 type Account @entity {
@@ -1154,7 +1196,7 @@ You should get something similar to the following:
 ```
 
 [Reverse lookups](../../build/graphql.md#reverse-lookups)
-Adding the @derivedFrom keyword to the myToAddress field allows a “virtual” field to appear in the Account object. This can be seen in the documentation tab. This allows a “reverse lookup” where the Transfer.to field can be accessed from Account.myToAddress. 
+Adding the `@derivedFrom` keyword to the `myToAddress` field allows a “virtual” field to appear in the `Account` object. This can be seen in the documentation tab. This allows a “reverse lookup” where the `Transfer.to` field can be accessed from `Account.myToAddress`. 
 
 ### References
 

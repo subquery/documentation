@@ -30,7 +30,7 @@ Now, let’s learn about the different areas within the explorer dashboard.
 
 This area:
 - Allows Indexers and Delegators to manage their [stake](../terminology.md#staking), [delegation](../terminology.md#delegating), rewards, and view tokens that are [locked](../terminology.md#lock-period). 
-- Allows Delegators to select Indexers and delegate their [SQT](../token.md)
+- Allows Delegators to select Indexers and delegate their [SQT](../token.md).
 - Allows Indexers to delegate to their own project. 
 
 
@@ -43,10 +43,10 @@ This area:
 ### Plan & Offer
 
 This area:
-- Lists [service agreements](../../glossary/glossary.md#_1-service-agreements)
-- Allows Indexers to create and manage their plans
-- Allows Consumers to create and manage their offers
-- Displays an offer marketplace where Indexers can accept an offer from a Consumer
+- Lists [service agreements](../../glossary/glossary.md#_1-service-agreements).
+- Allows Indexers to create and manage their plans.
+- Allows Consumers to create and manage their offers.
+- Displays an offer marketplace where Indexers can accept an offer from a Consumer.
 
 ![Plan & Offer Dashboard](/assets/img/plan_offer_dashboard.png)<br/>
 
@@ -54,8 +54,8 @@ This area:
 ### Mission
 
 This area shows:
-- The enlisted missions, which have been completed by network participants(Indexers, Consumers, Delegators)
-- A leaderboard, grouped by network participants
+- The enlisted missions, which have been completed by network participants(Indexers, Consumers, Delegators).
+- A leaderboard, grouped by network participants.
 
 ![Mission Dashboard](/assets/img/missions_dashboard.png)<br/>
 

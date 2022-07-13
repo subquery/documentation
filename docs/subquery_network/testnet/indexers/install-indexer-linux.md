@@ -26,11 +26,15 @@ Follow these instructions to launch an EC2 instance:
  ssh -i key_file.pem ec2-user@ec2-34-204-200-76.compute-1.amazonaws.com
 ```
 
-`Important:` DO NOT skip checking the Indexer Version after you finish the SSH process.
+::: warning Important
+DO NOT skip checking the Indexer Version after you finish the SSH process.
+:::
 
 - Visit [this section](../indexers/become-an-indexer.md#_2-1-check-indexer-version) and complete the process.
 
-> **IMPORTANT Note**: Please change the default PostgreSQL password in the `POSTGRES_PASSWORD` field and in the coordinator-service's `postgres-password` field. Replace it with your own one. 
+::: warning Important
+Please change the default PostgreSQL password in the `POSTGRES_PASSWORD` field and in the coordinator-service's `postgres-password` field. Replace it with your own one. 
+:::
 
 - Then, install Docker and set auto start:
 
@@ -62,8 +66,9 @@ mkdir subquery-indexer && cd subquery-indexer
 curl https://raw.githubusercontent.com/subquery/indexer-services/main/docker-compose.yml -o docker-compose.yml
 ```
 
-> **IMPORTANT**
-> Please change the `POSTGRES_PASSWORD` in postgres and `postgres-password` in coordinator-service to your own one
+::: warning Important
+Please change the `POSTGRES_PASSWORD` in postgres and `postgres-password` in coordinator-service to your own one
+:::
 
 ### Step 4 - Start Indexer Services
 
@@ -75,11 +80,13 @@ sudo docker-compose up -d
 
 It will start the following services:
 
-- coordinator_db
-- coordinator_service
-- coordinator_proxy
+- `coordinator_db`
+- `coordinator_service`
+- `coordinator_proxy`
 
-*NOTE : each project you start indexing will create 2 extra containers `node_qm----------` and `query_qm----------` that has the 13 first characters of the project's Qm-hash.*
+::: note 
+Reach project you start indexing will create 2 extra containers `node_qm----------` and `query_qm----------` that has the 13 first characters of the project's Qm-hash.
+:::
 
 Now, check the service status:
 
@@ -87,7 +94,7 @@ Now, check the service status:
 
 ### Step 5 - Set Up Auto Start
 
-Create/etc/systemd/system/subquery.service
+Create `/etc/systemd/system/subquery.service`.
 
 ```
 [Unit]
@@ -129,5 +136,6 @@ systemctl status subquery.service
 
 **You have successfully installed and started the Indexer Service on Linux. Now, move forward to [connect with MetaMask](../metamask/connect-metamask.md).**
 
-**Additional Note:**
+::: tip Tip
 Having trouble running a command or setting up the service? Got stuck in the process? Find your solutions [here](../indexers/troubleshooting-indexers.md).
+:::

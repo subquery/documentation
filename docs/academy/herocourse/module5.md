@@ -30,17 +30,17 @@ NB: “SubQuery Project” (uppercase P) is SubQuery’s hosted solution. SubQue
 
 ### Pre-requisites
 
-None
+None.
 
 ### Deploying your project
 
 ### High level steps
 
-1. Upload your project to GitHub
-2. Connect SubQuery Project to GitHub
-3. Create a project
-4. Deploy your project
-5. Testing your project in playground
+1. Upload your project to GitHub.
+2. Connect SubQuery Project to GitHub.
+3. Create a project.
+4. Deploy your project.
+5. Testing your project in playground.
 
 ### Detailed steps
 

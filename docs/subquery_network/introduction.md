@@ -12,7 +12,7 @@ The SubQuery Network is facilitating an open web3 data revolution by allowing yo
 
 ## Participants
 
-There’s a role for everyone in the network, from highly technical developers to those that are not. The SubQuery network includes four main network participants
+There’s a role for everyone in the network, from highly technical developers to those that are not. The SubQuery network includes four main network participants.
 
 ### Consumers
 

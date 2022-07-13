@@ -52,7 +52,9 @@ npm install -g @subql/node-avalanche
 </CodeGroupItem>
 </CodeGroup>
 
+::: danger 
 Please note that we **DO NOT** encourage the use of `yarn global` due to its poor dependency management which may lead to an errors down the line.
+:::
 
 Once installed, you can start a node with the following command:
 
@@ -240,8 +242,8 @@ If local mode is not used, a new Postgres schema with the initial `subquery_ ` a
 
 There are 2 endpoints that you can use to check and monitor the health of a running SubQuery node.
 
-- Health check endpoint that returns a simple 200 response
-- Metadata endpoint that includes additional analytics of your running SubQuery node
+- Health check endpoint that returns a simple 200 response.
+- Metadata endpoint that includes additional analytics of your running SubQuery node.
 
 Append this to the base URL of your SubQuery node. Eg `http://localhost:3000/meta` will return:
 
@@ -305,7 +307,7 @@ Debugger attached.
 ```
 
 Then open up the Chrome dev tools, go to Source > Filesystem and add your project to the workspace and start debugging. For more information, check out
-[How to debug a SubQuery project](../academy/tutorials_examples/debug-projects.md)
+[How to debug a SubQuery project](../academy/tutorials_examples/debug-projects.md).
 
 ## Running a Query Service (subql/query)
 
@@ -316,7 +318,9 @@ Then open up the Chrome dev tools, go to Source > Filesystem and add your projec
 npm install -g @subql/query
 ```
 
+::: danger
 Please note that we **DO NOT** encourage the use of `yarn global` due to its poor dependency management which may lead to an errors down the line.
+:::
 
 ### Running the Query service
 

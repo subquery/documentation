@@ -7,7 +7,7 @@ SubQuery Project, and learn about SubQuery Explorer.
 
 ## Pre-requisites
 
-None
+None.
 
 ## Block v Events v Calls
 
@@ -45,8 +45,8 @@ endpoints) but mentioned here again due to its importance. See [Understanding ho
 A popular question when creating SubQuery projects is how do I know what data I can
 extract from the Polkadot blockchain? There are several resource options:
 
-1. Polkadot documentation
-2. Polkadot blockchain explorer
+1. Polkadot documentation.
+2. Polkadot blockchain explorer.
 3. Interacting with the Polkadot API directly.
 
 Note: These options may also apply to other blockchains.
@@ -229,7 +229,7 @@ logger.info("Blockheight: " + event.block.block.header.number.toNumber());
 ```
 
 When running a subql node locally via a command line, a log level can also be added to help
-troubleshoot. See [Subql CLI logging reference](../../run_publish/references.md#log-level)
+troubleshoot. See [Subql CLI logging reference](../../run_publish/references.md#log-level).
 
 ## Debugging
 
@@ -237,18 +237,18 @@ In order to debug SubQuery projects such as stepping through code, setting break
 and inspecting variables, you will have to use a Node.js inspector in conjunction with
 Chrome developer tools. See [How to debug a SubQuery project?](/academy/tutorials_examples/debug-projects/)
 
-To debug a local subql node, the --debug flag can also be used from the command line. Eg
+To debug a local subql node, the --debug flag can also be used from the command line.
 
 ```shell
 > subql-node -f . --debug
 ```
 
-- [Subql CLI debug reference](/run_publish/references/#debug)
+See [Subql CLI debug reference](/run_publish/references/#debug).
 
 ## Changing the batch block size
 
 Using a smaller batch size can reduce memory usage and not leave users hanging for large
-queries. In other words, your application can be more responsive. See [How to change the batch block size](/academy/tutorials_examples/batch-size/)
+queries. In other words, your application can be more responsive. See [How to change the batch block size](/academy/tutorials_examples/batch-size/).
 
 ## Changing the starting block
 

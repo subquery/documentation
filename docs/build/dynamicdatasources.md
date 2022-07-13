@@ -8,8 +8,8 @@ In order to use dynamic data sources you need to have spec version of at least `
 
 Spec version `0.2.1` introduces a new `templates` field. Templates are the same as data sources with a couple of differences.
 
-* They need a `name` in order to identify the template
-* `startBlock` is no longer necessary. This will be set to the block the data source is created
+* They need a `name` in order to identify the template.
+* `startBlock` is no longer necessary. This will be set to the block the data source is created.
 * In the case of a custom data source the `processor.options` field can also be partially filled out, the rest of the options will be provided when the data source is instanced.
 
 ## Example Project
@@ -18,7 +18,7 @@ The best way to show how to use dynamic data source is with an example.
 
 The below example is for a decentralised exchange that has a factory contract which deploys a new contract when a trading pair is added. When the project is run it's not possible to know the addresses of all trading pair contract that have been created or will be created. Data sources can be dynamically created by a mapping handler from a template in order to index the newly created trading pair contracts.
 
-A more complete example can be found [here](https://github.com/subquery/query-registry-subquery-project/blob/35371925feba357d7064b0221166b857ee2ecb39/project.yaml#L35)
+A more complete example can be found [here](https://github.com/subquery/query-registry-subquery-project/blob/35371925feba357d7064b0221166b857ee2ecb39/project.yaml#L35).
 
 
 ### `project.yaml`
@@ -107,7 +107,7 @@ Dynamic data sources are stored in the projects metadata. If you need to see wha
 }
 ```
 
-Result
+Result:
 ```
 {
   "data": {

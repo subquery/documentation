@@ -4,7 +4,9 @@
 
 The goal of this quick guide is to adapt the standard starter project and start indexing all transfers from Terra.
 
-**Important:** Before we begin, make sure that you have initialised your project using the provided steps in the **[Start Here](../quickstart.md)** section.
+::: warning Important
+Before we begin, make sure that you have initialised your project using the provided steps in the **[Start Here](../quickstart.md)** section.
+:::
 
 Now, let's move ahead in the process and update these configurations.
 
@@ -27,7 +29,9 @@ type Transfer @entity {
 }
 ```
 
-**Important: When you make any changes to the schema file, do make sure to regenerate your types directory.**
+::: warning Important
+When you make any changes to the schema file, do make sure to regenerate your types directory.
+:::
 
 <CodeGroup>
   <CodeGroupItem title="YARN" active>
@@ -51,7 +55,7 @@ You will find the generated models in the `/src/types/models` directory.
 
 Check out the [GraphQL Schema](../../build/graphql.md) documentation to get in-depth information on `schema.graphql` file.
 
-Now that you have made essential changes to the GraphQL Schema file, let’s move forward to the next file
+Now that you have made essential changes to the GraphQL Schema file, let’s move forward to the next file.
 
 ## 2. Update Your Project Manifest File
 
@@ -160,7 +164,9 @@ npm run-script build
   </CodeGroupItem>
 </CodeGroup>
 
-**Important: Whenever you make changes to your mapping functions, you must rebuild your project.**
+::: warning Important
+Whenever you make changes to your mapping functions, you must rebuild your project.
+:::
 
 Now, you are ready to run your first SubQuery project. Let’s check out the process of running your project in detail.
 
@@ -191,7 +197,9 @@ npm run-script start:docker
   </CodeGroupItem>
 </CodeGroup>
 
-**Note:** It may take a few minutes to download the required images and start the various nodes and Postgres databases.
+::: tip Tip
+It may take a few minutes to download the required images and start the various nodes and Postgres databases.
+:::
 
 ## 6. Query Your Project
 

@@ -14,9 +14,9 @@ In this module, students will have the opportunity to become familiar with SubQu
 
 You will require the following:
 
-* NPM package manager
-* SubQuery CLI (@subql/cli)
-* Docker
+* NPM package manager.
+* SubQuery CLI (@subql/cli).
+* Docker.
 
 ### NPM Package manager
 
@@ -46,13 +46,13 @@ Please visit [Docker's official site](https://docs.docker.com/get-docker/) for i
 
 ### High level steps
 
-1. Initialise a project
-2. Update your mappings 
-3. Update your manifest file
-4. Update your graphql schema file
-5. Generate your code
-6. Build your code
-7. Deploy your code in Docker
+1. Initialise a project.
+2. Update your mappings.
+3. Update your manifest file.
+4. Update your graphql schema file.
+5. Generate your code.
+6. Build your code.
+7. Deploy your code in Docker.
 
 ### Detailed steps
 
@@ -160,35 +160,46 @@ type StarterEntity @entity {
 
 Install the node dependencies by running the following commands:
 
-```
-yarn install
-```
 
+<CodeGroup>
+  <CodeGroupItem title="YARN" active>
 
-OR
+  ```shell
+  yarn install
+  ```
 
+  </CodeGroupItem>
 
-```
-npm install
-```
+  <CodeGroupItem title="NPM">
 
+  ```bash
+  npm install
+  ```
 
+  </CodeGroupItem>
+</CodeGroup>
 
 #### Step 6: Generate the associated typescript
 
 Next, we will generate the associated typescript with the following command:
 
+<CodeGroup>
+  <CodeGroupItem title="YARN" active>
 
-```
-yarn codegen
-```
+  ```shell
+  yarn codegen
+  ```
 
+  </CodeGroupItem>
 
-OR
+  <CodeGroupItem title="NPM">
 
-```
-npm run-script codegen
-```
+  ```bash
+  npm run-script codegen
+  ```
+
+  </CodeGroupItem>
+</CodeGroup>
 
 You should see a new folder appear with 2 new files.
 
@@ -196,19 +207,23 @@ You should see a new folder appear with 2 new files.
 
 The next step is to build the project with the following command:
 
+<CodeGroup>
+  <CodeGroupItem title="YARN" active>
 
-```
-yarn build
-```
+  ```shell
+  yarn build
+  ```
 
+  </CodeGroupItem>
 
-OR
+  <CodeGroupItem title="NPM">
 
+  ```bash
+  npm run-script build
+  ```
 
-```
-npm run-script build
-```
-
+  </CodeGroupItem>
+</CodeGroup>
 
 This bundles the app into static files for production.
 
@@ -222,8 +237,9 @@ Run the docker command to pull the images and to start the container.
 docker-compose pull && docker-compose up
 ```
 
-
-Note: You need to have Docker installed as noted in the prerequisite for this to work. 
+::: warning Important
+You need to have Docker installed as noted in the prerequisite for this to work. 
+:::
 
 
 #### Step 9: Run a query

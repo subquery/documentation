@@ -14,6 +14,4 @@ Our Figma file has a full collection of all brand assets (logos,  fonts, colours
 
 ## Brand Assets Package
 
-A smaller ZIP package of brand assets
-
-[public_branding.zip](https://static.subquery.network/public_branding.zip)
+A smaller ZIP package of brand assets: [public_branding.zip](https://static.subquery.network/public_branding.zip).
