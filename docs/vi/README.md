@@ -3,9 +3,9 @@
   <section class="welcomeWords">
     <div class="main">
       <div>
-        <h2 class="welcomeTitle">Chào mừng bạn đến với <span>Học viện</span> SubQuery</h2>
+        <h2 class="welcomeTitle">Welcome to SubQuery<span>Academy</span></h2>
         <p>Khám phá và chuyển đổi dữ liệu chuỗi của bạn để xây dựng các dApp trực quan nhanh hơn!</p>
-        <p><strong>SubQuery hiện hỗ trợ Polkadot, Avalanche và Cosmos (bắt đầu với Juno)</strong></p>
+        <p><strong>SubQuery now supports Polkadot, Avalanche, and Cosmos (starting with Juno).</strong></p>
       </div>
     </div>
   </section>
@@ -16,7 +16,7 @@
       </p>
       <span class="button">
         <router-link :to="{path: '/quickstart/quickstart.html'}"> 
-          <span>Bắt đầu</span>
+          <span>Get Started</span>
         </router-link>
       </span>
     </div>
@@ -107,7 +107,7 @@
     </div>
     <div class="lastIntroduce lastIntroduce_2">
         <h5>Hỗ trợ và đóng góp</h5>
-        <p>Bạn có câu hỏi, cần thêm thông tin hoặc muốn đóng góp? Chúng tôi rất mong nhận được phản hồi của bạn. Vui lòng liên hệ với chúng tôi qua email hoặc các tài khoản mạng xã hội được cung cấp ở bên dưới. Bạn cần tư vấn chuyên môn? Hãy tham gia kênh Discord để nhận được hỗ trợ từ các thành viên nhiệt huyết trong cộng đồng của chúng tôi! </p>
+        <p>Have a question or are interested in knowing more or how you can contribute? Chúng tôi rất mong nhận được phản hồi của bạn. Vui lòng liên hệ với chúng tôi qua email hoặc các tài khoản mạng xã hội được cung cấp ở bên dưới. Bạn cần tư vấn chuyên môn? Hãy tham gia kênh Discord để nhận được hỗ trợ từ các thành viên nhiệt huyết trong cộng đồng của chúng tôi! </p>
         <a class="more" target="_blank" href="https://discord.com/invite/subquery">THAM GIA TRAO ĐỔI TRÊN DISCORD</a>
     </div>
     </div>
