@@ -71,9 +71,9 @@ Dưới đây là một số yêu cầu về bảo trì và/hoặc vận hành m
 Yêu cầu cơ sở hạ tầng tối thiểu bao gồm:
 
 - Ít nhất một nút tính toán để chạy các dịch vụ sau:
-  - [Dịch vụ nút (lập chỉ mục)](https://www.npmjs.com/package/@subql/node)
-  - [Dịch vụ truy vấn](https://www.npmjs.com/package/@subql/query)
-  - [Dịch vụ điều phối lập chỉ mục](https://www.npmjs.com/package/@subql/indexer-coordinator)
+  - [Node (indexing) Service](https://www.npmjs.com/package/@subql/node).
+  - [Query Service](https://www.npmjs.com/package/@subql/query).
+  - [Indexer Coordinator Service](https://www.npmjs.com/package/@subql/indexer-coordinator).
 - Một nút cơ sở dữ liệu để chạy Postgresql db (v12 trở lên).
 
 Thông tin chi tiết hơn sẽ sớm công bố.
