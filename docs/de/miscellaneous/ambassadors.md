@@ -40,18 +40,17 @@ Nachdem Sie eine Bewerbung abgeschickt haben, wählen wir Kandidaten aus, die un
 
 Sobald Sie das Trainee-Programm bestanden haben, können Sie sich SubQuery-Ambassador nennen und werden in unser vollständiges Programm aufgenommen. Von nun an können Sie das Programm weiter durcharbeiten und die Stufen aufsteigen, um beim Aufsteigen der Ränge mehr Belohnungen und Vorteile zu erhalten.
 
-[Jetzt bewerben!](https://forms.gle/GXBbJ6LDpNfM2v1X6)
 
 ## Ambassador-Aktivitäten
 
-SubQuery Ambassadors können in vier Hauptbereichen beitragen, darunter Eventmanagement, Inhaltserstellung, Übersetzung und Community-Moderation. Du kannst in so vielen Bereichen mitmachen wie du willst, du bist an keinen einzigen gebunden.
+SubQuery Ambassadors are able to contribute through four main areas, including event management, content creation, translation, and community moderation. You can participate in as many areas as you want, you’re not bound to any single one.
 
-**Veranstaltungsmanagement:** Bauen Sie lokale Gemeinschaften auf, indem Sie verschiedene Veranstaltungen ausrichten, organisieren und verwalten. Der Aufbau einer lokalen Community wird ein wichtiger Bestandteil des Wachstums der SubQuery-Community sein. SubQuery unterstützt Sie durch die Bereitstellung von Mitteln für Veranstaltungen, das Versenden von Swag/Merchandise zum Verschenken sowie die Teilnahme an Q&As oder Online-Veranstaltungen als Referenten oder in AMA-Sitzungen.
+**Event Management:** Build local communities by hosting, organising, and managing different events. Building a local community will be a key part of growing the SubQuery community. SubQuery will support you by providing funding for events, sending swag/merchandise to be given away, as well as attending Q&As or online events as speakers or in AMA sessions.
 
-**Erstellung von Inhalten:** Wir haben eine lange Liste von Inhalten und unterstützendem Material, bei deren Erstellung wir Hilfe benötigen. Denken Sie daran, dass unser Erfolg von der Fähigkeit unserer Kunden abhängt, erstaunliche Dinge auf unserem Service aufzubauen. Daher brauchen wir Ihre Hilfe, um dies zu vereinfachen. Der Inhalt umfasst Videos, Infografiken, Tutorials, Animationen oder andere verwandte Materialien, um Community-Mitglieder innerhalb des SubQuery-Ökosystems zu informieren, aufzuklären oder zu inspirieren. SubQuery wird Content Creators unterstützen, indem es Branding-Assets und Fachwissen bereitstellt. Wir nutzen auch die Marketingkanäle von SubQuery, um das Bewusstsein für Ihre Inhalte (und Sie selbst) zu steigern.
+**Content Creation:** We have a long list of content and support material that we need help creating. Remember, our success relies on the ability of our customers to build amazing things on our service, so we need your help to make that easier. Content includes videos, infographics, tutorials, animations, or any other related material, to inform, educate, or inspire community members within the SubQuery Ecosystem. SubQuery will support Content Creators by providing branding assets and expertise. We’ll also use SubQuery’s marketing channels to increase awareness of your content (and yourself).
 
-**Übersetzung:** Unsere Kunden sprechen nicht nur auf Englisch! Wir brauchen Ihre Hilfe, um SubQuery leichter zugänglich zu machen, indem wir unseren Inhalt in Ihre eigene Sprache übersetzen und das Wort mit unserer internationalen Gemeinschaft teilen.
+**Translation:** Our customers don’t just speak English! We need your help making SubQuery more accessible by translating our content into your own language, as well as helping sharing the word to our international community.
 
-**Community-Moderation:** Moderatoren tragen zum Wachstum der SubQuery-Community bei, indem sie sicherstellen, dass die offiziellen Community-Kanäle aktiv und ansprechend sind. SubQuery unterstützt Moderatoren, indem es die von ihnen überwachten Kanäle fördert und Richtlinien für unsere Erwartungen bereitstellt.
+**Community Moderation:** Moderators will help grow the SubQuery community by ensuring that official community channels are active and engaging. SubQuery will support Moderators by promoting the channels that they monitor, as well as provide guidelines for our expectations.
 
 [Jetzt bewerben!](https://forms.gle/GXBbJ6LDpNfM2v1X6)
