@@ -24,6 +24,6 @@ SubQuery proporciona las siguientes funciones de agregación cuando está en mod
 - `varianceSample` (se aplica a campos tipo número) - variación de la muestra de los valores
 - `variancePopulation` (aplica a campos tipo número) - la variación poblacional de los valores
 
-La implementación de funciones agregadas de SubQuery se basa en [pg-aggregates](https://github.com/graphile/pg-aggregates), puedes encontrar más información allí
+SubQuery's implementation of aggregate functions is based on [pg-aggregates](https://github.com/graphile/pg-aggregates), you can find more information there.
 
-**Tenga en cuenta que debe habilitar la bandera `--unsafe` en el servicio de consultas para poder usar estas funciones. [Read more](./references.md#unsafe-2). Note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in [SubQuery's managed service](https://project.subquery.network))**
+**Please note that you must enable the `--unsafe` flag on the query service in order to use these functions. [Read more](./references.md#unsafe-2). Note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in [SubQuery's managed service](https://project.subquery.network))**.
