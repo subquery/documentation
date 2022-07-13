@@ -18,22 +18,22 @@ Mọi người trong mạng đều có vai trò, từ những nhà phát triển
 
 Người tiêu dùng sẽ yêu cầu Mạng SubQuery cung cấp dữ liệu cụ thể cho các dApp hoặc công cụ của họ và trả một số tiền SQT được quảng cáo cho mỗi yêu cầu.
 
-[Tìm hiểu thêm về Người tiêu dùng](./consumers.md)
+::: info Note Learn more about [Consumers](./consumers.md). :::
 
 ### Người lập chỉ mục
 
 Người lập chỉ mục sẽ chạy và duy trì các dự án SubQuery chất lượng cao trong cơ sở hạ tầng của riêng họ, chạy cả dịch vụ lập chỉ mục và truy vấn và sẽ được thưởng trong SQT cho các yêu cầu mà họ phục vụ.
 
-[Tìm hiểu thêm về Người lập chỉ mục](./indexers.md)
+::: info Note Learn more about [Indexers](./indexers.md). :::
 
 ### Người uỷ quyền
 
 Người ủy quyền sẽ tham gia vào Mạng bằng cách hỗ trợ Người lập chỉ mục yêu thích của họ để kiếm phần thưởng dựa trên công việc mà người lập chỉ mục đó làm.
 
-[Tìm hiểu thêm về Người ủy quyền](./delegators.md)
+::: info Note Learn more about [Delegators](./delegators.md). :::
 
 ### Kiến trúc sư
 
 Kiến trúc sư là người xây dựng các dự án SubQuery mà Mạng chạy trên đó. Họ là tác giả và xuất bản các dự án SubQuery cho Mạng để lập chỉ mục và chạy.
 
-[Tìm hiểu thêm về cách xây dựng dự án SubQuery đầu tiên của bạn](/build/introduction.md)
+::: info Note Learn more about [how to build your first SubQuery project](../build/introduction.md). :::
