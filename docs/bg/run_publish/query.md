@@ -1,6 +1,6 @@
 # Заявете своя проект в SubQuery Explorer
 
-[SubQuery Explorer](https://explorer.subquery.network) е онлайн хоствана услуга (на [explorer.subquery.network](https://explorer.subquery.network)), която предоставя достъп до публикувани проекти на SubQuery, направени от сътрудници в нашата общност, и управлявана от екипа на SubQuery. You can publish your own SubQuery projects to our explorer by following our guide to [Publish your SubQuery Project](../run_publish/publish.md).
+[SubQuery Explorer](https://explorer.subquery.network) е онлайн хоствана услуга (на [explorer.subquery.network](https://explorer.subquery.network)), която предоставя достъп до публикувани проекти на SubQuery, направени от сътрудници в нашата общност, и управлявана от екипа на SubQuery. Можете да публикувате свои собствени проекти на SubQuery в нашия изследовател, като следвате нашето ръководство за [Публикуване на вашия проект на SubQuery](../run_publish/publish.md).
 
 ![SubQuery Explorer](https://static.subquery.network/media/explorer/explorer-header.png)
 
