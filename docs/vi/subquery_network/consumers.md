@@ -34,4 +34,4 @@ Trừ khi thỏa thuận dịch vụ kín đang được sử dụng, sẽ có m
 
 ### Điều gì xảy ra nếu một Người lập chỉ mục ngoại tuyến?
 
-Trừ khi Thỏa thuận Dịch vụ Kín đang được sử dụng và nếu có nhiều hơn một Người lập chỉ mục lập chỉ mục dự án SubQuery của bạn, nó sẽ chỉ đơn giản là vấn đề chuyển sang Một Người lập chỉ mục khác. Kịch bản lý tưởng sẽ bao gồm các chiến lược như giám sát cảnh báo để được thông báo về các vấn đề tiềm ẩn và định tuyến và bộ nhớ đệm thông minh
+Trừ khi Thỏa thuận Dịch vụ Kín đang được sử dụng và nếu có nhiều hơn một Người lập chỉ mục lập chỉ mục dự án SubQuery của bạn, nó sẽ chỉ đơn giản là vấn đề chuyển sang Một Người lập chỉ mục khác. The ideal scenario would be include strategies like alert monitoring to be notified of potential issues and intelligent routing and caching.
