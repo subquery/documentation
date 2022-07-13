@@ -31,24 +31,24 @@
 
 ### プルリクエストを送る
 
-基本的には、"fork-and-pull" Git ワークフローに従います。
+In general, we follow the "fork-and-pull" Git workflow:
 
-* リポジトリを自分の Github アカウントにフォークする
-* プロジェクトをあなたの環境に複製する。
-* 簡潔で説明的な名前でローカルにブランチを作成します。
-* ブランチに変更をコミットします。
-* このリポジトリ固有のフォーマットとテストのガイドラインに従ってください。
-* フォークに変更をプッシュします。
-* 私たちのリポジトリでPRを送信します。
+* Fork the repository to your own Github account.
+* Clone the project to your machine.
+* Create a branch locally with a succinct but descriptive name.
+* Commit changes to the branch.
+* Following any formatting and testing guidelines specific to this repo.
+* Push changes to your fork.
+* Open a PR in our repository.
 
 ## コーディング規約
 
 ### コミットメッセージ
 
-* 現在形を使います。（「Added feature」ではなく「Add feature」）
-* 命令形を使います。 ("Moves cursor to..." ではなく "Move cursor to...")
-* 最初の行を72文字以下に制限します。
+* Use the present tense ("Add feature" not "Added feature").
+* Use the imperative mood ("Move cursor to..." not "Moves cursor to...").
+* Limit the first line to 72 characters or less.
 
 ### JavaScript Styleguide
 
-* すべてのJavaScriptコードはPrettierとESLintでリンクされています。
+* All JavaScript code is linted with Prettier and ESLint.
