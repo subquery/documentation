@@ -1,4 +1,4 @@
-# Command Line Flags
+# Флагове на командния ред
 
 ## subql (cli)
 
@@ -7,24 +7,24 @@
 ```shell
 > subql --help
 
-COMMANDS
-  build     Build this SubQuery project code
-  codegen   Generate schemas for graph node
-  help      display help for subql
-  init      Initialize a scaffold subquery project
-  migrate   Migrate Subquery project manifest v0.0.1 to v0.2.0
-  publish   Upload this SubQuery project to IPFS
-  validate  Check a folder or github repo is a validate subquery project
+КОМАНДИ
+   build Изградете този код на проекта SubQuery
+   codegen Генериране на схеми за графичен възел
+   help показва помощ за subql
+   init Инициализира проект за subquery на скеле
+   migrate    на манифест на проекта за мигриране на subquery  v0.0.1 към v0.2.0
+   publish  Качете този проект на SubQuery в IPFS
+   validate Check a folder or github repo is validate subquery project
 ```
 
 ### build
 
-This command is uses webpack to generate a bundle of a subquery project.
+Тази команда използва webpack за генериране на пакет от проект на subquery.
 
-| Options            | Описание                                                                                                   |
+| Опции              | Описание                                                                                                   |
 | ------------------ | ---------------------------------------------------------------------------------------------------------- |
-| -l, --location     | local folder of subquery project (if not in folder already)                                                |
-| -o, --output       | specify output folder of build e.g. build-folder                                                           |
+| -l, --location     | локална папка на проекта subquery (ако все още не сте в папка)                                             |
+| -o, --output       | посочете изходната папка на build например build-folder                                                    |
 | --mode=(production | prod                                                        | development | dev) | [ default: production ] |
 
 - With `subql build` you can specify additional entry points in exports field although it will always build `index.ts` automatically.
