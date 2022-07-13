@@ -32,6 +32,6 @@ Bạn có thể đọc thêm về các phương thức thanh toán khác nhau, c
 
 Trừ khi thỏa thuận dịch vụ kín đang được sử dụng, sẽ có một hoặc nhiều Người lập chỉ mục lập chỉ mục một dự án SubQuery. Người tiêu dùng có quyền lựa chọn khi quyết định Người lập chỉ mục để đọc dữ liệu từ đó. Thông thường, Người tiêu dùng sẽ chọn Người lập chỉ mục có độ trễ thấp nhất và đáng tin cậy nhất. Người tiêu dùng có thể kết hợp chuyển đổi dự phòng tự động và đọc dữ liệu từ một Người lập chỉ mục khác nếu lần đầu tiên bị lỗi hoặc không phản hồi.
 
-### Điều gì xảy ra nếu một Người lập chỉ mục ngoại tuyến?
+### What happens if an Indexer goes offline?
 
 Trừ khi Thỏa thuận Dịch vụ Kín đang được sử dụng và nếu có nhiều hơn một Người lập chỉ mục lập chỉ mục dự án SubQuery của bạn, nó sẽ chỉ đơn giản là vấn đề chuyển sang Một Người lập chỉ mục khác. The ideal scenario would be include strategies like alert monitoring to be notified of potential issues and intelligent routing and caching.
