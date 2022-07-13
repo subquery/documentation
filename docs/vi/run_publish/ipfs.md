@@ -8,7 +8,7 @@ Lưu trữ một dự án trong IPFS làm cho nó khả dụng cho tất cả m�
 
 - `@subql/cli` phiên bản 0.21.0 trở lên.
 - Tệp kê khai `specVersion` 0.2.0 trở lên.
-- Chuẩn bị [SUBQL_ACCESS_TOKEN](#prepare-your-subql-access-token) của bạn đã sẵn sàng.
+- Get your [SUBQL_ACCESS_TOKEN](ipfs.md#prepare-your-subql-access-token) ready.
 - Để đảm bảo việc triển khai của bạn thành công, chúng tôi thật sự khuyến nghị bạn nên xây dựng dự án của mình bằng lệnh `subql build`, và kiểm tra cục bộ nó trước khi xuất bản.
 
 ## Chuẩn bị SUBQL_ACCESS_TOKEN của bạn
@@ -66,7 +66,7 @@ Uploading SupQuery project to IPFS
 SubQuery Project uploaded to IPFS: QmZ3q7YZSmhwBiot4PQCK3c7Z6HkteswN2Py58gkkZ8kNd  //CID
 ```
 
-Hãy ghi chú `CID` này. With this `CID`, you can view your published project as what we call it [IPFS Deployment](#ipfs-deployment).
+Hãy ghi chú `CID` này. With this `CID`, you can view your published project as what we call it [IPFS Deployment](ipfs.md#ipfs-deployment).
 
 ## Triển khai IPFS
 
@@ -107,7 +107,7 @@ specVersion: 0.2.0
 
 ### Tạo dự án với IPFS deployment
 
-Bạn có thể làm theo hướng dẫn để [Xuất bản dự án SubQuery của mình](publish.md) nhưng nơi bạn đặt nguồn triển khai, bạn có thể chọn **IPFS**.
+You can follow the guide to [Publish your SubQuery project](../run_publish/publish.md) but where you set your deployment source you can select **IPFS**.
 
 Sau đó, chọn vùng sản xuất của bạn, sao chép và dán CID IPFS triển khai của bạn (không có `ipfs://`).
 
