@@ -12,7 +12,7 @@ Das SubQuery-Netzwerk erleichtert eine offene Web3-Datenrevolution, indem es Ihn
 
 ## Teilnehmer
 
-Es gibt eine Rolle für jeden im Netzwerk, von hochtechnischen Entwicklern bis hin zu denen, die es nicht sind. Das SubQuery-Netzwerk umfasst vier Hauptnetzwerkteilnehmer
+Es gibt eine Rolle für jeden im Netzwerk, von hochtechnischen Entwicklern bis hin zu denen, die es nicht sind. The SubQuery network includes four main network participants.
 
 ### Verbraucher
 
