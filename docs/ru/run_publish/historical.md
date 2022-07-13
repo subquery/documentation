@@ -14,7 +14,7 @@ type Account @entity {
 }
 ```
 
-![Historic Indexing](/assets/img/historic_indexing.png)
+![Историческое индексирование](/assets/img/historic_indexing.png)
 
 В приведенном выше примере баланс DOT Алисы постоянно меняется, и по мере индексации данных свойство `balance` на сущности `Account` будет меняться. Базовый проект SubQuery, индексирующий остатки на счетах, утратит эти исторические данные и будет хранить только состояние текущего уровня блока индексирования. Например, если в данный момент мы индексируем до блока 100, данные в базе данных могут представлять только состояние счета Алисы в блоке 100.
 
@@ -38,9 +38,9 @@ type Account @entity {
 
 Существует специальное (необязательное) свойство фильтра сущностей GraphQL под названием `blockHeight`. Если вы оставите это свойство без внимания, SubQuery будет запрашивать состояние сущности на текущей отметке блока.
 
-Please see one of our example projects: [RMRK NFT](https://explorer.subquery.network/subquery/subquery/rmrk-nft-historical).
+Пожалуйста, ознакомьтесь с одним из наших примеров проектов: [RMRK NFT](https://explorer.subquery.network/subquery/subquery/rmrk-nft-historical).
 
-To query the owners of RMRK NFTs at block height 5,000,000, add the blockHeight parameter as shown below:
+Чтобы запросить владельцев RMRK NFTs на уровне блока 5 000 000, добавьте параметр blockHeight, как показано ниже:
 
 ```graphql
 query {
@@ -53,7 +53,7 @@ query {
 }
 ```
 
-To query the owners of those RMRK NFTs collections at the latest block height, omit the blockHeight parameter as shown below.
+Чтобы запросить владельцев этих коллекций RMRK NFTs на последнем уровне блока, опустите параметр blockHeight, как показано ниже.
 
 ```graphql
 query {
