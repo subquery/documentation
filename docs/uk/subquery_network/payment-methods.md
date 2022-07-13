@@ -1,6 +1,6 @@
 # Payment Methods
 
-For flexibility, there are 3 payment options to pay for blockchain data. They are:
+For flexibility, there are 3 payment options to pay for blockchain data. Вони є такими:
 
 - Pay-As-You-Go (PAYG)
 - Closed Service Agreement
