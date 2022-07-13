@@ -14,7 +14,7 @@ Hosting a project in IPFS makes it available for all and reduces your reliance o
 ## SUBQL_ACCESS_TOKEN'inizi hazırlayın
 
 - Adım 1: [SubQuery Projeleri'ne](https://project.subquery.network/) gidin ve oturum açın.
-- 2. Adım: Gezinme menüsünün sağ üst köşesindeki profilinize tıklayın, ardından **_Tokenu Yenile_** seçeneğine tıklayın
+- Step 2: Click on your profile at the top right of the navigation menu, then click on **_Refresh Token_**.
 - Adım 3: Oluşturulan tokenu kopyalayın.
 - Adım 4: Bu tokenu kullanmak için:
   - Seçenek 1: Ortam değişkenlerinize SUBQL_ACCESS_TOKEN ekleyin. `SUBQL_ACCESS_TOKEN İHRAC ET=<token>`
@@ -22,11 +22,11 @@ Hosting a project in IPFS makes it available for all and reduces your reliance o
 
 ## Bir proje nasıl yayınlanır
 
-Projenizi yayınlamak için iki yöntem sunuyoruz,
+We provide two methods to publish your project:
 
-### Seçenek 1:
+### Option 1
 
-`@subql/cli` zaten kurulu olduğundan, projeyi ve gerekli bilgileri varsayılan bildiriminden `project.yaml` okuyacak olan aşağıdaki komutu çalıştırabilirsiniz
+As you have `@subql/cli` already installed, you can run the following command, which will read the project and required information from its default manifest `project.yaml`:
 
 ```
 // Projenizin kök dizininden yayınlayın
@@ -36,7 +36,7 @@ subql yayınla
 subql yayınla -f ~/projem/
 ```
 
-### Seçenek 2:
+### Option 2
 
 Alternatif olarak, projenizin birden çok Manifest dosyası olduğunu, örneğin birden çok ağı desteklediğinizi ancak aynı eşlemeyi ve iş mantığını paylaştığınızı ve aşağıdaki gibi bir proje yapısına sahip olduğunuzu varsayalım:
 
@@ -66,15 +66,15 @@ Uploading SupQuery project to IPFS
 SubQuery Project uploaded to IPFS: QmZ3q7YZSmhwBiot4PQCK3c7Z6HkteswN2Py58gkkZ8kNd  //CID
 ```
 
-Lütfen bu `CID` not edin. Bu `CID` ile, yayınlanan projenizi [IPFS Dağıtımı olarak adlandırdığımız şekilde görüntüleyebilirsiniz](#ipfs-deployment)
+Lütfen bu `CID` not edin. With this `CID`, you can view your published project as what we call it [IPFS Deployment](#ipfs-deployment).
 
 ## IPFS Dağıtımı
 
 IPFS dağıtımı, merkezi olmayan bir ağ üzerinde bir SubQuery projesinin bağımsız ve benzersiz bir varlığını temsil eder. Bu nedenle, projedeki kodda yapılacak herhangi bir değişiklik, projenin benzersizliğini etkileyecektir. İş mantığınızı ayarlamanız gerekirse, ör. eşleme işlevini değiştirin, projeyi yeniden yayınlamalısınız ve `CID` değişecektir.
 
-Şimdilik yayınladığınız projeyi görüntülemek için [Postacı](https://web.postman.co/) gibi bir `REST` api aracı kullanın ve aşağıdaki örnek URL ile geri almak için `POST` yöntemini kullanın. `https://ipfs.subquery.network/ipfs/api/v0/cat?arg=<YOUR_PROJECT_CID>`
+For now, to view the project you have published, use a `REST` api tool such as [Postman](https://web.postman.co/), and use `POST` method with the following example URL to retrieve it:`https://ipfs.subquery.network/ipfs/api/v0/cat?arg=<YOUR_PROJECT_CID>`.
 
-Örnek proje dağıtımını aşağıdaki gibi görmelisiniz:
+You should see the example project deployment as below.
 
 Bu dağıtım, bildirim dosyanıza çok benziyor. Bu açıklayıcı alanları bekleyebilirsiniz ve ağ ve sözlük uç noktası, proje yürütmenin sonucunu doğrudan etkilemediği için kaldırılmıştır.
 
