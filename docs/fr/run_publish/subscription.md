@@ -6,7 +6,7 @@ SubQuery prend désormais en charge les abonnements Graphql. Comme les requêtes
 
 Les abonnements sont très utiles lorsque vous souhaitez que votre application client modifie des données ou affiche de nouvelles données dès que ce changement se produit ou que les nouvelles données sont disponibles. Les abonnements vous permettent de *souscrire* à votre projet SubQuery pour les changements.
 
-[Read more about subscriptions here](https://www.apollographql.com/docs/react/data/subscriptions/).
+::: info Note Read more about [Subscriptions](https://www.apollographql.com/docs/react/data/subscriptions/). :::
 
 ## Comment souscrire à une entité
 
@@ -64,6 +64,8 @@ subscription {
 
 Note that the `mutation` filter can be one of `INSERT`, `UPDATE` or `DELETE`.
 
-**Veuillez noter que vous devez activer l'option `--subscription` à la fois sur le nœud et le service de requête afin d'utiliser ces fonctions.**
+::: warning Important Please note that you must enable the `--subscription` flag on both the node and query service in order to use these functions. :::
 
-La fonction de souscription fonctionne sur le service géré de SubQuery lorsque vous appelez directement le point de terminaison GraphQL répertorié. Il ne fonctionnera pas dans l'environnement GraphQL du navigateur.
+::: warning Important
+The subcription feature works on SubQuery's managed service when you directly call the listed GraphQL endpoint. Il ne fonctionnera pas dans l'environnement GraphQL du navigateur.
+:::
