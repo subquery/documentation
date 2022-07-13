@@ -31,24 +31,24 @@ Bug ต่างๆ จะถูกติดตามด้วย GitHub Issues 
 
 ### การส่ง Pull Requests
 
-โดยทั่วไปแล้ว เราปฏิบัติตาม Git Workflow แบบ "Fork-and-Pull"
+In general, we follow the "fork-and-pull" Git workflow:
 
-* Fork Repository ไปยังบัญชี Github ของคุณเอง
-* Clone โปรเจ็กต์มายังเครื่องของคุณ
-* สร้าง Branch แบบ Local ด้วยชื่อที่กระชับแต่สื่อความหมาย
-* ยืนยันการเปลี่ยนแปลง Branch
-* ปฏิบัติตาม Format และแนวทางการทดสอบเฉพาะสำหรับ Repo นี้
-* ส่งการเปลี่ยนแปลงไปที่ Fork ของคุณ
-* เปิด PR ใน Repository ของเรา
+* Fork the repository to your own Github account.
+* Clone the project to your machine.
+* Create a branch locally with a succinct but descriptive name.
+* Commit changes to the branch.
+* Following any formatting and testing guidelines specific to this repo.
+* Push changes to your fork.
+* Open a PR in our repository.
 
 ## ข้อตกลงในการเขียนโค้ด
 
 ### ข้อความในการยืนยัน Git
 
-* ใช้ Present Tense ("Add feature" ไม่ใช่ "Added feature")
-* ใช้ประโยคแบบ Imperative ("Move cursor to..." Moves cursor to...")
-* จำกัดบรรทัดแรกไม่เกิน 72 ตัวอักษร
+* Use the present tense ("Add feature" not "Added feature").
+* Use the imperative mood ("Move cursor to..." not "Moves cursor to...").
+* Limit the first line to 72 characters or less.
 
 ### แนวทางรูปแบบสำหรับ JavaScript
 
-* โค้ด JavaScript ทั้งหมดถูกครอบด้วย Prettier และ ESLint
+* All JavaScript code is linted with Prettier and ESLint.
