@@ -40,18 +40,17 @@
 
 След като преминете успешно програмата за стажанти, ще се издигнете до амбасадор на SubQuery и ще бъдете приети напълно в нашата програма. Оттук нататък можете да продължите да работите в програмата, да напредвате нагоре по нивата, като печелите повече награди и предимства, докато се изкачвате в системата от ранговете.
 
-[Кандидатствайте сега!](https://forms.gle/GXBbJ6LDpNfM2v1X6)
 
 ## Активности на Амбасадорите
 
-Амбасадорите на SubQuery имат възможност да допринесатпо четири основни начина, включително организиране на събития, създаване на контент, превод и управляване на общността. Можете да участвате в толкова от областите, в колкото искате, не сте обвързани с нито една.
+SubQuery Ambassadors are able to contribute through four main areas, including event management, content creation, translation, and community moderation. You can participate in as many areas as you want, you’re not bound to any single one.
 
-**Организиране на събития:** Изграждайте местни общности като хоствате, организирате и управлявате на различни събития. Изграждането на местните общности е ключов аспект от разрастването на общността SubQuery. SubQuery ще ви подкрепи като осигурява финансиране за събития, изпраща swag/стоки за раздаване на членовете от общността, както и участие в онлайн събития Q&As като лектори или в сесии на AMA.
+**Event Management:** Build local communities by hosting, organising, and managing different events. Building a local community will be a key part of growing the SubQuery community. SubQuery will support you by providing funding for events, sending swag/merchandise to be given away, as well as attending Q&As or online events as speakers or in AMA sessions.
 
-**Създаване на контент:** Имаме дълъг списък с контент и помощни материали, от които се нуждаем от помощ при създаването им. Не забравяйте, че нашият успех разчита на способността на нашите клиенти да изграждат невероятни неща върху нашата база, така че се нуждаем от вашата помощ, за да направим това по-лесно. Контента, създаден от вас може да включва видеоклипове, инфографики, уроци, анимации или всякакви други свързани материали, за да информират, образоват или вдъхновяват членове на общността в рамките на екосистемата на SubQuery. SubQuery ще ви подкрепи в създаването на контент чрез предоставяне на активи за брандиране и опит в подобна сфера. Използваме също така маркетинговите канали на SubQuery, за да бъдат информирани другите относно вашето съдържание (и за вас самите).
+**Content Creation:** We have a long list of content and support material that we need help creating. Remember, our success relies on the ability of our customers to build amazing things on our service, so we need your help to make that easier. Content includes videos, infographics, tutorials, animations, or any other related material, to inform, educate, or inspire community members within the SubQuery Ecosystem. SubQuery will support Content Creators by providing branding assets and expertise. We’ll also use SubQuery’s marketing channels to increase awareness of your content (and yourself).
 
-**Преводи:** Нашите клиенти не говорят само английски! Нуждаем се от вашата помощ да направим SubQuery по-достъпен, затова очакваме да ни помогнете с превода на нашият контент на вашия собствен език, както и да помогнете за споделянето на информацията с нашата международна общност.
+**Translation:** Our customers don’t just speak English! We need your help making SubQuery more accessible by translating our content into your own language, as well as helping sharing the word to our international community.
 
-**Модериране и управление на общността:** Модераторите помогат за разрастването на общността на SubQuery, като гарантират, че официалните канали на общността са активни и ангажиращи. SubQuery ще подкрепя модераторите, като популяризира каналите, които те ръководят, както и ще предостави насоки за действията.
+**Community Moderation:** Moderators will help grow the SubQuery community by ensuring that official community channels are active and engaging. SubQuery will support Moderators by promoting the channels that they monitor, as well as provide guidelines for our expectations.
 
 [Кандидатствайте сега!](https://forms.gle/GXBbJ6LDpNfM2v1X6)
