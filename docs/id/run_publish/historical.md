@@ -38,7 +38,7 @@ Saat startup, status terkini dari fitur ini dicetak ke konsol (`Status historis 
 
 Ada properti khusus (opsional) pada filter entitas GraphQL yang disebut `blockHeight`. Jika Anda menghilangkan properti ini, SubQuery akan menanyakan status entitas pada ketinggian blok saat ini.
 
-Silakan lihat salah satu contoh proyek kami: [RMRK NFT](https://explorer.subquery.network/subquery/subquery/rmrk-nft-historical)
+Please see one of our example projects: [RMRK NFT](https://explorer.subquery.network/subquery/subquery/rmrk-nft-historical).
 
 Untuk menanyakan pemilik RMRK NFT pada tinggi blok 5.000.000, tambahkan parameter blockHeight seperti yang ditunjukkan di bawah ini:
 
