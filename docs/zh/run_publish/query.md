@@ -1,6 +1,6 @@
 # 如何在 SubQuery Explorer 中查询您的项目
 
-[SubQuery Explorer](https://explorer.subquery.network) 是一个在线托管服务的浏览器，它支持用户访问已经发布的 SubQuery 项目，这些项目是由我们世界各地的社群贡献者制作的，并由SubQuery 团队管理。 You can publish your own SubQuery projects to our explorer by following our guide to [Publish your SubQuery Project](../run_publish/publish.md).
+[SubQuery Explorer](https://explorer.subquery.network) is an online hosted service that provides access to published SubQuery projects made by contributors in our community and managed by the SubQuery team. You can publish your own SubQuery projects to our explorer by following our guide to [Publish your SubQuery Project](../run_publish/publish.md).
 
 ![SubQuery 浏览器](https://static.subquery.network/media/explorer/explorer-header.png)
 
@@ -14,4 +14,4 @@ SubQuery 浏览器使启动变得更加容易。 我们正在在线托管这些S
 
 ![SubQuery 文档](https://static.subquery.network/media/explorer/explorer-documentation.png)
 
-[了解更多关于 GraphQL 查询语言的信息。](./graphql.md)
+::: info Note Learn more about the [GraphQL Query language.](./graphql.md) :::
