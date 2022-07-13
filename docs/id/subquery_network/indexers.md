@@ -17,8 +17,8 @@ Jika Pengindeks ketahuan melakukan kesalahan (seperti dengan memberikan data yan
 ## Bagaimana Pengindeks dihargai?
 
 Pengindeks dihargai di SQT dalam dua cara:
-- Hadiah dari kumpulan hadiah SQT berdasarkan distribusi yang ditentukan oleh Fungsi Produksi Cobb-Douglas
-- Imbalan biaya kueri SQT langsung dari Perjanjian Tertutup yang merupakan pihak pengindeks
+- Rewards from SQT reward pools based on distribution defined by the Cobb-Douglas Production Function.
+- Direct SQT query fee rewards from Closed Agreements that an indexer is party to.
 
 Pengindeks diberi imbalan atas biaya yang dibayar Konsumen untuk menyediakan data blockchain yang diminta Konsumen. Pengindeks akan menerima semua biaya dari Perjanjian Tertutup. Jika tidak, biaya dibagi berdasarkan jumlah pekerjaan yang dilakukan (permintaan dilayani) dan jumlah SQT yang didelegasikan - pembagian ini ditentukan dengan menerapkan Fungsi Produksi Cobb-Douglas.
 
@@ -58,13 +58,13 @@ Pengindeks dapat berinvestasi dalam perangkat keras infrastruktur mereka sendiri
 
 Berikut adalah beberapa pemeliharaan dan/atau persyaratan operasional yang diharapkan Pengindeks:
 
-- Selalu tingkatkan ke versi perangkat lunak Subquery terbaru
-- Identifikasi dan manfaatkan peluang pengindeksan baru
-- Perbarui versi proyek ke yang terbaru dan indeks ulang jika perlu
-- Pemeliharaan infrastruktur
-  - Memantau dan meningkatkan ukuran disk secara konstan
-  - Kueri ukuran yang tepat dan penghitungan pengindeksan berdasarkan lalu lintas
-  - Tingkatkan layanan kueri untuk meningkatkan lalu lintas masuk
+- Always upgrade to the latest Subquery software version.
+- Identify and take advantage of new indexing opportunities.
+- Update project version to latest and reindex where necessary.
+- Infrastructure maintenance:
+  - Constantly monitoring and upsizing disk.
+  - Right size query and indexing compute based on traffic.
+  - Increase query services for increasing ingress traffic.
 
 ### Infrastruktur
 
@@ -98,8 +98,8 @@ Untuk menghasilkan kinerja yang diinginkan, Pengindeks perlu mempertimbangkan be
 
 - keseimbangan antara taruhan mereka sendiri dan Delegator.
 - jenis kontrak yang dilayani. Pengindeks akan menerima semua biaya kueri jika itu adalah kontrak tertutup. Jika terbuka, maka hadiah Pengindeks akan tergantung pada berapa banyak Pengindeks lain yang ada.
-- memenuhi spesifikasi Service Level Agreement (SLA) (untuk menghindari hukuman pemotongan)
-- akurasi data yang disajikan untuk menghindari pemotongan penalti
+- fulfilling of the Service Level Agreement (SLA) specifications (to avoid slashing penalties).
+- the accuracy of the data being served to avoid slashing penalties.
 
 ## Memilih Proyek SubQuery untuk Diindeks
 
@@ -130,10 +130,10 @@ Pengindeks perlu menyadari biaya operasi mereka dan pendapatan yang diharapkan u
 
 Pengindeks perlu mengiklankan diri mereka sendiri kepada Delegator dan juga Konsumen. Pengindeks dapat melakukan ini dari situs web mereka sendiri, di forum Subquery atau tempat lain yang dianggap perlu. Beberapa contoh informasi yang harus diberikan adalah:
 
-- Latar belakang dan pengalaman tim Pengindeks atau Pengindeks
-- Pendekatan perangkat keras dan mengapa itu memberikan kinerja yang unggul
-- Kebijakan dukungan pelanggan atau SLA
-- Bukti pertunjukan sejarah
+- The background and experience of the Indexer or Indexer’s team.
+- The hardware approach and why it provides superior performance.
+- The customer support policy or SLA.
+- Evidence of historical performances.
 
 ### Dukungan pelanggan
 
