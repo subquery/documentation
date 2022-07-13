@@ -43,5 +43,5 @@ Learn more about [Delegators](./delegators.md).
 Architects are the builders of the SubQuery projects that the Network runs on. They author and publish SubQuery projects for the Network to index and run.
 
 ::: info Note
-Learn more about [how to build your first SubQuery project](/build/introduction.md).
+Learn more about [how to build your first SubQuery project](../build/introduction.md).
 :::
