@@ -2,25 +2,25 @@
 
 ## Хто такий споживач?
 
-Споживач - це учасник мережі SubQuery і є особою або організацією, що платить за оброблені та зібрані дані блокчейну з мережі SubQuery. Consumers effectively make requests to the SubQuery Network for specific data and pay an agreed amount of SQT in return.
+Споживач - це учасник мережі SubQuery і є особою або організацією, що платить за оброблені та зібрані дані блокчейну з мережі SubQuery. Споживачі надсилають запити до мережі SubQuery на конкретні дані та сплачуватимуть за це оголошену суму в токенах SQT.
 
-Consumers are typically dApp (decentralised application) developers, data analytic companies, blockchain networks, middleware developers, or even web aggregating companies that need access to blockchain data to provide services to their end-users.
+Споживачі - це зазвичай розробники dApp (децентралізовані додатки), компанії по аналізу даних, мережі блокчейну, проміжні розробники або навіть компанії веб-агрегатори, яким потрібен доступ до даних блокчейну, щоб надавати послуги своїм кінцевим користувачам.
 
-## Consumer Requirements
+## Вимоги до споживача
 
-There are no requirements as such to become a SubQuery Consumer. However, Consumers will need to understand how to obtain SQT, how to advertise their data requirements and how to consume the JSON data returned.
+Немає вимог, щоб стати споживачем SubQuery. Однак споживачам потрібно буде зрозуміти, як отримати токени SQT, як повідомляти свої вимоги до даних та як використовувати отримані дані у форматі JSON.
 
-Consumers may also need to understand how to create SubQuery projects to be Indexed or contract this work out in order to get the data in the format they need.
+Споживачі, напевно, також повинні розуміти, як створити проєкт у мережі SubQuery, щоб вони були індексованими або стиснути (перекодувати дані з метою зменшення їх обсягу) цю роботу для того, щоб отримати дані в потрібному форматі.
 
-## Service Cost
+## Вартість сервісу
 
-The cost of querying data on the blockchain will be based on supply and demand and will be comparable to other similar services currently available. The advantage of an open and transparent network and ecosystem is that competition is encouraged to provide the best service to the Consumer.
+Вартість отримання даних з блокчейну буде залежати від попиту та пропозиції та порівняння з іншими подібними послугами, які зараз є доступними. Перевага відкритої та прозорої мережі та екосистеми - це заохочення конкуренції, щоб надавати найкращий сервіс споживачеві.
 
-## Payment options for Consumers?
+## Варіанти оплати для споживачів?
 
-For flexibility, Consumers have 3 payment options to pay for blockchain data. They are:
+Задля гнучкості споживачі мають 3 варіанти для оплати даних блокчейну. Вони є такими:
 
-- Pay As You Go (PAYG)
+- Pay-As-You-Go (PAYG) - оплата по об'єму використання
 - Closed Service Agreement
 - Open Service Agreement
 
