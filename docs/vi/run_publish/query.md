@@ -1,6 +1,6 @@
 # Truy vấn dự án của bạn trong SubQuery Explorer
 
-[SubQuery Explorer](https://explorer.subquery.network) là một dịch vụ được lưu trữ trực tuyến (tại [explorer.subquery.network](https://explorer.subquery.network)) cung cấp quyền truy cập vào các dự án SubQuery đã xuất bản được thực hiện bởi những người đóng góp trong cộng đồng của chúng tôi và được quản lý bởi nhóm SubQuery. Bạn có thể xuất bản các dự án SubQuery của riêng mình lên explorer của chúng tôi bằng cách làm theo hướng dẫn của chúng tôi để [Xuất bản Dự án SubQuery của bạn](../run_publish/publish.md).
+[SubQuery Explorer](https://explorer.subquery.network) is an online hosted service that provides access to published SubQuery projects made by contributors in our community and managed by the SubQuery team. Bạn có thể xuất bản các dự án SubQuery của riêng mình lên explorer của chúng tôi bằng cách làm theo hướng dẫn của chúng tôi để [Xuất bản Dự án SubQuery của bạn](../run_publish/publish.md).
 
 ![SubQuery Explorer](https://static.subquery.network/media/explorer/explorer-header.png)
 
@@ -14,4 +14,4 @@ Bạn cũng sẽ lưu ý rằng SubQuery Explorer cung cấp một sân chơi đ
 
 ![Tài Liệu SubQuery](https://static.subquery.network/media/explorer/explorer-documentation.png)
 
-[Tìm hiểu thêm về ngôn ngữ GraphQL Query.](./graphql.md)
+::: info Note Learn more about the [GraphQL Query language.](./graphql.md) :::
