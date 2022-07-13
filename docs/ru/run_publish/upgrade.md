@@ -20,7 +20,7 @@ We recommend deploying to your staging slot only for final staging testing or wh
 The staging slot is perfect for:
 
 - Окончательная проверка изменений в вашем проекте SubQuery в отдельной среде. Промежуточный слот имеет другой URL-адрес для производства, который вы можете использовать в своих dApps.
-- Разогрев и индексирование данных для обновленного проекта SubQuery, чтобы устранить простои в вашем dApp
+- Warming up and indexing data for an updated SubQuery project to eliminate downtime in your dApp.
 - Подготовка нового релиза для вашего проекта SubQuery без его опубликования. Промежуточный слот не отображается публично в поисковике и имеет уникальный URL-адрес, который виден только вам.
 
 ![Staging slot](/assets/img/staging_slot.png)
