@@ -31,24 +31,24 @@ Fehler werden als GitHub-Probleme verfolgt. Wenn Sie ein Problem protokollieren,
 
 ### Senden von Pull-Requests
 
-Im Allgemeinen folgen wir dem "Fork-and-Pull"-Git-Workflow
+In general, we follow the "fork-and-pull" Git workflow:
 
-* Verzweigen Sie das Repository in Ihr eigenes Github-Konto
-* Klonen Sie das Projekt auf Ihren Computer
-* Erstellen Sie lokal eine Filiale mit einem prägnanten, aber aussagekräftigen Namen
-* Nehmen Sie die Änderungen an der Filiale vor
-* Befolgen Sie alle Formatierungs- und Testrichtlinien, die für dieses Repository spezifisch sind
-* Senden Sie Push-Änderungen an Ihre Fork
-* Öffnen Sie eine PR in unserem Repository
+* Fork the repository to your own Github account.
+* Clone the project to your machine.
+* Create a branch locally with a succinct but descriptive name.
+* Commit changes to the branch.
+* Following any formatting and testing guidelines specific to this repo.
+* Push changes to your fork.
+* Open a PR in our repository.
 
 ## Kodierungskonventionen
 
 ### Git-Commit-Nachrichten
 
-* Verwenden Sie das Präsens ("Add feature" nicht "Added feature")
-* Verwenden Sie die Imperativ-Stimmung ("Move Cursor to..." nicht "Moves Cursor to...")
-* Beschränken Sie die erste Zeile auf 72 Zeichen oder weniger
+* Use the present tense ("Add feature" not "Added feature").
+* Use the imperative mood ("Move cursor to..." not "Moves cursor to...").
+* Limit the first line to 72 characters or less.
 
 ### JavaScript-Styleguide
 
-* Der gesamte JavaScript-Code enthält Prettier und ESLint
+* All JavaScript code is linted with Prettier and ESLint.
