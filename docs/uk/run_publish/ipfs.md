@@ -8,7 +8,7 @@ Hosting a project in IPFS makes it available for all and reduces your reliance o
 
 - `@subql/cli` version 0.21.0 or above.
 - Маніфест `specVersion` 0.2.0 або вище.
-- Підготуйте свій [SUBQL_ACCESS_TOKEN](#prepare-your-subql-access-token).
+- Get your [SUBQL_ACCESS_TOKEN](ipfs.md#prepare-your-subql-access-token) ready.
 - Щоб переконатися в успіху вашого розгортання, ми наполегливо рекомендуємо вам створити проект за допомогою команди `subql build` і протестувати його локально перед публікацією.
 
 ## Підготуйте свій SUBQL_ACCESS_TOKEN
@@ -66,7 +66,7 @@ subql опублікувати -f ~/my-projectRoot/polkadot.yaml
 Проект SubQuery, завантажений до IPFS: QmZ3q7YZSmhwBiot4PQCK3c7Z6HkteswN2Py58gkkZ8kNd //CID
 ```
 
-Будь ласка, зверніть увагу на `CID`. With this `CID`, you can view your published project as what we call it [IPFS Deployment](#ipfs-deployment).
+Будь ласка, зверніть увагу на `CID`. With this `CID`, you can view your published project as what we call it [IPFS Deployment](ipfs.md#ipfs-deployment).
 
 ## Розгортання в IPFS
 
@@ -107,7 +107,7 @@ specVersion: 0.2.0
 
 ### Створіть проект із розгортанням IPFS
 
-Ви можете дотримуватись посібника з [Опублікувати проект SubQuery ](publish.md), але там, де ви встановите джерело розгортання, ви можете вибрати **IPFS**.
+You can follow the guide to [Publish your SubQuery project](../run_publish/publish.md) but where you set your deployment source you can select **IPFS**.
 
 Потім виберіть свій робочий слот, скопіюйте та вставте свій CID розгортання IPFS (без початкового `ipfs://`).
 
