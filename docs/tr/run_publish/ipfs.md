@@ -8,7 +8,7 @@ Hosting a project in IPFS makes it available for all and reduces your reliance o
 
 - `@subql/cli` sürüm 0.21.0 veya üzeri.
 - Manifest `specVersion 0.2.0` ve üstü.
-- [SUBQL_ACCESS_TOKEN](#prepare-your-subql-access-token)'ınızı hazırlayın.
+- Get your [SUBQL_ACCESS_TOKEN](ipfs.md#prepare-your-subql-access-token) ready.
 - Dağıtımınızın başarılı olduğundan emin olmak için projenizi `subql build` komutuyla oluşturmanızı ve yayınlamadan önce yerel olarak test etmenizi şiddetle öneririz.
 
 ## SUBQL_ACCESS_TOKEN'inizi hazırlayın
@@ -66,7 +66,7 @@ Uploading SupQuery project to IPFS
 SubQuery Project uploaded to IPFS: QmZ3q7YZSmhwBiot4PQCK3c7Z6HkteswN2Py58gkkZ8kNd  //CID
 ```
 
-Lütfen bu `CID` not edin. With this `CID`, you can view your published project as what we call it [IPFS Deployment](#ipfs-deployment).
+Lütfen bu `CID` not edin. With this `CID`, you can view your published project as what we call it [IPFS Deployment](ipfs.md#ipfs-deployment).
 
 ## IPFS Dağıtımı
 
@@ -107,7 +107,7 @@ specVersion: 0.2.0
 
 ### Dağıtım olmadan Oluşturulan Proje
 
-[SubQuery projenizi yayınlama](publish.md) kılavuzunu takip edebilirsiniz, ancak dağıtım kaynağınızı belirlediğiniz yerde **IPFS**'i seçebilirsiniz.
+You can follow the guide to [Publish your SubQuery project](../run_publish/publish.md) but where you set your deployment source you can select **IPFS**.
 
 Ardından üretim yuvanızı seçin, IPFS dağıtım CID'nizi kopyalayıp yapıştırın (baştaki `ipfs:// ` olmadan).
 
