@@ -34,4 +34,4 @@ A menos que se utilice un Acuerdo de Servicio Cerrado, habrá uno o más Indexad
 
 ### ¿Qué pasa si un Indexador sale de línea?
 
-A menos que se utilice un acuerdo de servicio cerrado, y si hay más de un índice de su proyecto SubQuery, sería simplemente una cuestión de cambiar a otro índice. El escenario ideal sería incluir estrategias como el seguimiento de alertas para ser notificado de posibles problemas y enrutamiento inteligente y cacheo
+A menos que se utilice un acuerdo de servicio cerrado, y si hay más de un índice de su proyecto SubQuery, sería simplemente una cuestión de cambiar a otro índice. The ideal scenario would be include strategies like alert monitoring to be notified of potential issues and intelligent routing and caching.
