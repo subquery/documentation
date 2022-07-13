@@ -42,7 +42,9 @@ Chạy lệnh sau bên trong thư mục bạn muốn tạo dự án SubQuery:
 subql init
 ```
 
-::: warning For Cosmos Users
+::: warning Important
+
+**For Cosmos Users**
 
 Cosmos hiện chưa được hỗ trợ trong CLI của SubQuery (`subql`). Hence, if you are using Cosmos, you must start with a Juno clone or fork this [starter project](https://github.com/subquery/cosmos-subql-starter).
 
@@ -96,20 +98,20 @@ Bạn có thể muốn tham khảo [đối số dòng lệnh](../run_publish/ref
 
 ## 3. Thực hiện các thay đổi trên Dự án của bạn
 
-Có 3 tệp quan trọng cần được sửa đổi. Đó là:
+Có 3 tệp quan trọng cần được sửa đổi. These are:
 
-1. Lược đồ GraphQL trong ` schema.graphql `
-2. Tệp Kê khai dự án ở ` project.yaml `
-3. Các chức năng ánh xạ trong thư mục `src/mappings/`
+1. The GraphQL Schema in `schema.graphql`.
+2. The Project Manifest in `project.yaml`.
+3. The Mapping functions in `src/mappings/` directory.
 
 SubQuery hỗ trợ các mạng blockchain khác nhau và cung cấp cho bạn hướng dẫn riêng cho từng mạng.
 
 Lựa chọn mạng ưa thích của bạn và tiếp tục để thực hiện các sửa đổi cần thiết và tiến gần hơn một chút để hoàn thành dự án đầu tiên của bạn:
 
-**[Polkadot/Substrate](../quickstart/quickstart_chains/polkadot.md)**
+- **[Polkadot/Substrate](../quickstart/quickstart_chains/polkadot.md)**
 
-**[Avalanche](../quickstart/quickstart_chains/avalanche.md)**
+- **[Avalanche](../quickstart/quickstart_chains/avalanche.md)**
 
-**[Cosmos](../quickstart/quickstart_chains/cosmos.md)**
+- **[Cosmos](../quickstart/quickstart_chains/cosmos.md)**
 
-**[Terra](../quickstart/quickstart_chains/terra.md)**
+- **[Terra](../quickstart/quickstart_chains/terra.md)**
