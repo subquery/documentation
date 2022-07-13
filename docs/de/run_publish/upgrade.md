@@ -20,7 +20,7 @@ Wir empfehlen die Bereitstellung in Ihrem Staging-Slot nur für abschließende S
 Der Staging-Slot ist perfekt für:
 
 - Abschließende Validierung von Änderungen an Ihrem SubQuery-Projekt in einer separaten Umgebung. Der Staging-Slot hat eine andere URL als die Produktion, die Sie in Ihren dApps verwenden können.
-- Aufwärmen und Indizierung von Daten für ein aktualisiertes SubQuery-Projekt, um Ausfallzeiten in Ihrer dApp zu vermeiden
+- Warming up and indexing data for an updated SubQuery project to eliminate downtime in your dApp.
 - Vorbereitung einer neuen Version für Ihr SubQuery-Projekt, ohne sie öffentlich zugänglich zu machen. Der Staging-Slot wird im Explorer nicht öffentlich angezeigt und hat eine eindeutige URL, die nur für Sie sichtbar ist.
 
 ![Staging-Slot](/assets/img/staging_slot.png)
