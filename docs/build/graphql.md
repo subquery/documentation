@@ -48,15 +48,15 @@ We currently supporting flowing scalars types:
 - `Float`
 - `Date`
 - `Boolean`
-- `<EntityName>` for nested relationship entities, you might use the defined entity's name as one of the fields. Please see in [Entity Relationships](#entity-relationships).
-- `JSON` can alternatively store structured data, please see [JSON type](#json-type)
+- `<EntityName>` for nested relationship entities, you might use the defined entity's name as one of the fields. Please see in [Entity Relationships](graphql.md#entity-relationships).
+- `JSON` can alternatively store structured data, please see [JSON type](graphql.md#json-type)
 - `<EnumName>` types are a special kind of enumerated scalar that is restricted to a particular set of allowed values. Please see [Graphql Enum](https://graphql.org/learn/schema/#enumeration-types)
 
 ## Indexing by non-primary-key field
 
 To improve query performance, index an entity field simply by implementing the `@index` annotation on a non-primary-key field. 
 
-However, we don't allow users to add `@index` annotation on any [JSON](#json-type) object. By default, indexes are automatically added to foreign keys and for JSON fields in the database, but only to enhance query service performance.
+However, we don't allow users to add `@index` annotation on any [JSON](graphql.md#json-type) object. By default, indexes are automatically added to foreign keys and for JSON fields in the database, but only to enhance query service performance.
 
 Here is an example.
 

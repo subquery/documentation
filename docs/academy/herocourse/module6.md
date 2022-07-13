@@ -235,7 +235,7 @@ troubleshoot. See [Subql CLI logging reference](../../run_publish/references.md#
 
 In order to debug SubQuery projects such as stepping through code, setting breakpoints,
 and inspecting variables, you will have to use a Node.js inspector in conjunction with
-Chrome developer tools. See [How to debug a SubQuery project?](/academy/tutorials_examples/debug-projects/)
+Chrome developer tools. See [How to debug a SubQuery project?](../tutorials_examples/debug-projects.md)
 
 To debug a local subql node, the --debug flag can also be used from the command line.
 
@@ -243,17 +243,17 @@ To debug a local subql node, the --debug flag can also be used from the command 
 > subql-node -f . --debug
 ```
 
-See [Subql CLI debug reference](/run_publish/references/#debug).
+See [Subql CLI debug reference](/run_publish/references.md#debug).
 
 ## Changing the batch block size
 
 Using a smaller batch size can reduce memory usage and not leave users hanging for large
-queries. In other words, your application can be more responsive. See [How to change the batch block size](/academy/tutorials_examples/batch-size/).
+queries. In other words, your application can be more responsive. See [How to change the batch block size](../tutorials_examples/batch-size.md)
 
 ## Changing the starting block
 
 Note that some events only start to occur at higher block height so one way to test a
-mapping function faster is to adjust the starting block height. See [How to start at a different block height?](/academy/tutorials_examples/block-height/)
+mapping function faster is to adjust the starting block height. See [How to start at a different block height?](../tutorials_examples/block-height.md)
 
 ## Bonus Tutorial
 * [201 Lab List All Transaction Workbook](/assets/pdf/SubQuery_201_Lab_List_All_Transaction.pdf)

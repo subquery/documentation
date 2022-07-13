@@ -110,9 +110,9 @@ sudo docker-compose up -d
 
 Navigate to your Indexer administration page.
 
-The URL will be [http://you-ec2-public-path:8000/](http://localhost:8000/)
+The URL will be `http://you-ec2-public-path:8000/`.
 
-For example: [ec2-14-273-116-26.ap-southeast-2.compute.amazonaws.com:8000](http://ec2-54-253-236-26.ap-southeast-2.compute.amazonaws.com/)
+For example: `ec2-14-273-116-26.ap-southeast-2.compute.amazonaws.com:8000`.
 
 ---
 

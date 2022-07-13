@@ -279,7 +279,7 @@ For a more detailed explanation head [here](../build/dynamicdatasources.md).
 **Under `dataSources`:**
 
 - Can directly link an `index.js` entry point for mapping handlers. By default this `index.js` will be generated from `index.ts` during the build process.
-- Data sources can now be either a regular runtime data source or [custom data source](#custom-data-sources).
+- Data sources can now be either a regular runtime data source or [custom data source](manifest.md#custom-data-sources).
 
 ### Migrating from v0.2.0 to v0.3.0 <Badge text="upgrade" type="warning"/>
 
@@ -300,11 +300,11 @@ If you have a project with specVersion v0.2.0, The only change is a new **requir
 | **version**     | String                              | String                      | Version of your project                             |
 | **description** | String                              | String                      | Discription of your project                         |
 | **repository**  | String                              | String                      | Git repository address of your project              |
-| **schema**      | [Schema Spec](#schema-spec)         | [Schema Spec](#schema-spec) | The location of your GraphQL schema file            |
-| **network**     | [Network Spec](#network-spec)       | Network Spec                | Detail of the network to be indexed                 |
-| **dataSources** | [DataSource Spec](#datasource-spec) | DataSource Spec             | The datasource to your project                      |
-| **templates**   | [Templates Spec](#templates-spec)   | x                           | Allows creating new datasources from this templates |
-| **runner**      | [Runner Spec](#runner-spec)         | x                           | Runner specs info                                   |
+| **schema**      | [Schema Spec](manifest.md#schema-spec)         | [Schema Spec](manifest.md#schema-spec) | The location of your GraphQL schema file            |
+| **network**     | [Network Spec](manifest.md#network-spec)       | Network Spec                | Detail of the network to be indexed                 |
+| **dataSources** | [DataSource Spec](manifest.md#datasource-spec) | DataSource Spec             | The datasource to your project                      |
+| **templates**   | [Templates Spec](manifest.md#templates-spec)   | x                           | Allows creating new datasources from this templates |
+| **runner**      | [Runner Spec](manifest.md#runner-spec)         | x                           | Runner specs info                                   |
 
 
 ### Schema Spec
@@ -315,7 +315,7 @@ If you have a project with specVersion v0.2.0, The only change is a new **requir
 
 ### Network Spec
 
-If you start your project by using the `subql init` command, you'll generally receive a starter project with the correct network settings. If you are changing the target chain of an existing project, you'll need to edit the [Network Spec](#network-spec) section of this manifest.
+If you start your project by using the `subql init` command, you'll generally receive a starter project with the correct network settings. If you are changing the target chain of an existing project, you'll need to edit the [Network Spec](manifest.md#network-spec) section of this manifest.
 
 The `chainId` or `genesisHash` is the network identifier of the blockchain. Examples in Terra include `bombay-12`, or `columbus-12`, Avalanche might be `mainnet`, Cosmos might be `juno-1`, and in Substrate it is always the genesis hash of the network (hash of the first block). You can retrieve this easily by going to [PolkadotJS](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fkusama.api.onfinality.io%2Fpublic-ws#/explorer/query/0) and looking for the hash on **block 0** (see the image below).
 
@@ -337,8 +337,8 @@ Additionally you will need to update the `endpoint`. This defines the wss endpoi
 
 | Field     | v1.0.0                                  | Description                                |
 |-----------|-----------------------------------------|--------------------------------------------|
-| **node**  | [Runner node spec](#runner-node-spec)   | Describe the node service use for indexing |
-| **query** | [Runner query spec](#runner-query-spec) | Describe the query service                 |
+| **node**  | [Runner node spec](manifest.md#runner-node-spec)   | Describe the node service use for indexing |
+| **query** | [Runner query spec](manifest.md#runner-query-spec) | Describe the query service                 |
 
 ### Runner Node Spec
 
@@ -368,7 +368,7 @@ Defines the data that will be filtered and extracted and the location of the map
 
 | Field                  | All manifest versions | Description |
 | ---------------------- |------------------------------------------------------------------------------------------| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **handlers & filters** | Default handlers and filters, <br />[Custom handlers and filters](#custom-data-sources)  | List all the [mapping functions](./mapping.md) and their corresponding handler types, with additional mapping filters. <br /><br /> For custom runtimes mapping handlers please view [Custom data sources](#custom-data-sources) |
+| **handlers & filters** | Default handlers and filters, <br />[Custom handlers and filters](manifest.md#custom-data-sources)  | List all the [mapping functions](./mapping.md) and their corresponding handler types, with additional mapping filters. <br /><br /> For custom runtimes mapping handlers please view [Custom data sources](manifest.md#custom-data-sources) |
 
 ## Data Sources and Mapping
 

@@ -42,7 +42,7 @@ The most obvious drawback will be that you won’t be able to query for data on 
 
 ## How to figure out the current blockchain height?
 
-If you are using the Polkadot network, you can visit [https://polkascan.io/](https://polkascan.io/), select the network, and then view the  "Finalised Block" figure.
+If you are using the Polkadot network, you can visit [visit this site](https://polkascan.io/), select the network, and then view the  "Finalised Block" figure.
 
 ## Do I have to do a rebuild or a codegen?
 

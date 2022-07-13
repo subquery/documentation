@@ -6,7 +6,7 @@ Mapping functions define how chain data is transformed into the optimised GraphQ
 - These mappings are also exported in `src/index.ts`.
 - The mappings files are reference in `project.yaml` under the mapping handlers.
 
-There are different classes of mappings functions depending on the network you are indexing; [Block handlers](#block-handler), [Event Handlers](#event-handler), [Call Handlers](#call-handler), [Log Handlers](#log-handler), [Transaction Handlers](#transaction-handler), and [Message Handlers](#message-handler).
+There are different classes of mappings functions depending on the network you are indexing; [Block handlers](mapping.md#block-handler), [Event Handlers](mapping.md#event-handler), [Call Handlers](mapping.md#call-handler), [Log Handlers](mapping.md#log-handler), [Transaction Handlers](mapping.md#transaction-handler), and [Message Handlers](mapping.md#message-handler).
 
 ## Block Handler
 
@@ -299,12 +299,12 @@ By default, the [VM2](https://www.npmjs.com/package/vm2) sandbox only allows the
 - only some certain built-in modules, e.g. `assert`, `buffer`, `crypto`,`util` and `path`
 - third-party libraries written by *CommonJS*. 
 - hybrid libraries like `@polkadot/*` that uses ESM as default. However, if any other libraries depend on any modules in *ESM* format, the virtual machine will *NOT* compile and return an error.
-- Historical/safe queries, see [RPC Calls](#rpc-calls).
+- Historical/safe queries, see [RPC Calls](mapping.md#rpc-calls).
 - Note `HTTP` and `WebSocket` connections are forbidden 
 
 ## Modules and Libraries
 
-To improve SubQuery's data processing capabilities, we have allowed some of the NodeJS's built-in modules for running mapping functions in the [sandbox](#the-sandbox), and have allowed users to call third-party libraries.
+To improve SubQuery's data processing capabilities, we have allowed some of the NodeJS's built-in modules for running mapping functions in the [sandbox](mapping.md#the-sandbox), and have allowed users to call third-party libraries.
 
 Please note this is an **experimental feature** and you may encounter bugs or issues that may negatively impact your mapping functions. Please report any bugs you find by creating an issue in [GitHub](https://github.com/subquery/subql).
 
@@ -364,7 +364,7 @@ const b1 = await api.rpc.chain.getBlock(blockhash);
 // It will use the current block has by default like so
 const b2 = await api.rpc.chain.getBlock();
 ```
-- For [Custom Substrate Chains](#custom-substrate-chains) RPC calls, see [usage](#usage).
+- For [Custom Substrate Chains](#custom-substrate-chains) RPC calls, see [usage](mapping.md#usage).
   
 ### Chain Type Registries
   
@@ -413,7 +413,7 @@ Next, copy and paste the output to a JSON file. In our [kitty example](https://g
 
 **Type definitions**
 
-We assume that the user knows the specific types and RPC support from the chain, and it is defined in the [Manifest](./manifest.md). 
+We assume that the user knows the specific types and RPC support from the chain, and it is defined in the [Manifest](../build/manifest.md). 
 
 Following [types setup](https://polkadot.js.org/docs/api/examples/promise/typegen#metadata-setup), we create :
 - `src/api-interfaces/definitions.ts` - this exports all the sub-folder definitions 
@@ -518,7 +518,7 @@ After the updates, the paths in the config will look like this (without the comm
 #### Usage
 
 Now in the mapping function, we can show how the metadata and types actually decorate the API. The RPC endpoint will support the modules and methods we declared above.
-And to use custom rpc call, please see section [Custom chain rpc calls](#custom-chain-rpc-calls)
+And to use custom rpc call, please see section [Custom chain rpc calls](mapping.md#custom-chain-rpc-calls)
 ```typescript
 export async function kittyApiHandler(): Promise<void> {
     //return the KittyIndex type
