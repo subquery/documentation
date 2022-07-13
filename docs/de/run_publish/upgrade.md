@@ -32,7 +32,7 @@ Geben Sie den Commit-Hash von GitHub ein (kopieren Sie den vollständigen Commit
 Sie können auch `@subql/cli` verwenden, um eine neue Bereitstellung Ihres Projekts für unseren Managed Service zu erstellen. Dies erfordert:
 
 - `@subql/cli` Version 1.1.0 oder höher.
-- Ein gültiges [SUBQL_ACCESS_TOKEN](/docs/run_publish/ipfs.md#prepare-your-subqlaccesstoken)  ist bereit.
+- A valid [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) ready.
 
 ```shell
 // Sie können Ihre Indexer- und Abfrageversionen direkt festlegen
