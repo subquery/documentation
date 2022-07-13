@@ -42,7 +42,9 @@ Run the following command inside the directory you want to create a SubQuery pro
 subql init
 ```
 
-::: warning For Cosmos Users
+::: warning Important
+
+**For Cosmos Users**
 
 Cosmos is not yet supported in SubQuery's CLI (`subql`). Hence, if you are using Cosmos, you must start with a Juno clone or fork this [starter project](https://github.com/subquery/cosmos-subql-starter).
 
@@ -96,20 +98,20 @@ You may want to refer to the [command line arguments](../run_publish/references.
 
 ## 3. Make Changes to Your Project
 
-There are 3 important files that need to be modified. 您将主要处理下列文件：
+There are 3 important files that need to be modified. These are:
 
-1. 在 `schema.graphql`中的 GraphQL Schema
-2. `project.yaml` 中的项目清单
-3. `src/mappings/` 目录中的映射函数
+1. The GraphQL Schema in `schema.graphql`.
+2. The Project Manifest in `project.yaml`.
+3. The Mapping functions in `src/mappings/` directory.
 
 SubQuery supports various blockchain networks and provides you with a dedicated guide for each of them.
 
 Pick up your preferred network and proceed ahead to make the modifications required, and move an inch closer to finishing your first ever project:
 
-**[Polkadot/Substrate](../quickstart/quickstart_chains/polkadot.md)**
+- **[Polkadot/Substrate](../quickstart/quickstart_chains/polkadot.md)**
 
-**[Avalanche](../quickstart/quickstart_chains/avalanche.md)**
+- **[Avalanche](../quickstart/quickstart_chains/avalanche.md)**
 
-**[Cosmos](../quickstart/quickstart_chains/cosmos.md)**
+- **[Cosmos](../quickstart/quickstart_chains/cosmos.md)**
 
-**[Terra](../quickstart/quickstart_chains/terra.md)**
+- **[Terra](../quickstart/quickstart_chains/terra.md)**
