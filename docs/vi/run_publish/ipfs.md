@@ -14,7 +14,7 @@ Lưu trữ một dự án trong IPFS làm cho nó khả dụng cho tất cả m�
 ## Chuẩn bị SUBQL_ACCESS_TOKEN của bạn
 
 - Bước 1: Truy cập [Dự án SubQuery](https://project.subquery.network/) và đăng nhập.
-- Bước 2: Nhấp vào hồ sơ của bạn ở trên cùng bên phải của menu điều hướng, sau đó nhấp vào **_Refresh Token_**
+- Step 2: Click on your profile at the top right of the navigation menu, then click on **_Refresh Token_**.
 - Bước 3: Sao chép mã thông báo đã tạo.
 - Bước 4: Để sử dụng mã thông báo này:
   - Tùy chọn 1: Thêm SUBQL_ACCESS_TOKEN trong các biến môi trường của bạn. `EXPORT SUBQL_ACCESS_TOKEN=<token>`
@@ -22,11 +22,11 @@ Lưu trữ một dự án trong IPFS làm cho nó khả dụng cho tất cả m�
 
 ## Làm thế nào để xuất bản một dự án
 
-Chúng tôi cung cấp hai phương pháp để xuất bản dự án của bạn,
+We provide two methods to publish your project:
 
-### Tùy chọn 1:
+### Option 1
 
-Khi bạn đã cài đặt `@subql/cli`, bạn có thể chạy lệnh sau, lệnh này sẽ đọc dự án và thông tin cần thiết từ tệp kê khai mặc định của nó `project.yaml`
+As you have `@subql/cli` already installed, you can run the following command, which will read the project and required information from its default manifest `project.yaml`:
 
 ```
 // Xuất bản nó từ thư mục gốc dự án của bạn
@@ -36,7 +36,7 @@ subql publish
 subql publish -f ~/my-project/
 ```
 
-### Tùy chọn 2:
+### Option 2
 
 Ngoài ra, giả sử dự án của bạn có nhiều tệp kê khai, ví dụ: bạn hỗ trợ nhiều mạng nhưng chia sẻ cùng một bản đồ và logic nghiệp vụ, đồng thời có cấu trúc dự án như sau:
 
@@ -66,15 +66,15 @@ Uploading SupQuery project to IPFS
 SubQuery Project uploaded to IPFS: QmZ3q7YZSmhwBiot4PQCK3c7Z6HkteswN2Py58gkkZ8kNd  //CID
 ```
 
-Hãy ghi chú `CID` này. Với `CID` này, bạn có thể xem dự án đã xuất bản của mình như cái mà chúng tôi gọi là [Triển khai IPFS](#ipfs-deployment)
+Hãy ghi chú `CID` này. With this `CID`, you can view your published project as what we call it [IPFS Deployment](#ipfs-deployment).
 
 ## Triển khai IPFS
 
 Triển khai IPFS thể hiện sự tồn tại độc lập và duy nhất của một dự án SubQuery trên một mạng phi tập trung. Do đó, bất kỳ thay đổi nào với mã trong dự án sẽ ảnh hưởng đến tính duy nhất của nó. Nếu bạn cần điều chỉnh logic kinh doanh của mình, ví dụ: thay đổi chức năng ánh xạ, bạn phải xuất bản lại dự án và `CID` sẽ thay đổi.
 
-Hiện tại, để xem dự án bạn đã xuất bản, hãy sử dụng công cụ api `REST` như [Postman](https://web.postman.co/) và sử dụng phương thức `POST` với URL mẫu sau để lấy nó. `https://ipfs.subquery.network/ipfs/api/v0/cat?arg=<YOUR_PROJECT_CID>`
+For now, to view the project you have published, use a `REST` api tool such as [Postman](https://web.postman.co/), and use `POST` method with the following example URL to retrieve it:`https://ipfs.subquery.network/ipfs/api/v0/cat?arg=<YOUR_PROJECT_CID>`.
 
-Bạn sẽ thấy mẫu triển khai dự án như bên dưới:
+You should see the example project deployment as below.
 
 Việc triển khai này tương đồng với tệp kê khai của bạn. Bạn có thể hy vọng các trường mô tả đó, và điểm cuối mạng và từ điển đã bị gỡ bỏ vì chúng không ảnh hưởng trực tiếp đến kết quả thực hiện dự án.
 
