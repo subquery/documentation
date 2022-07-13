@@ -353,11 +353,11 @@ This flag enables the graphql playground so should always be included by default
 
 ### --output-fmt
 
-See [--output-fmt](https://doc.subquery.network/run_publish/references.md#output-fmt).
+See [--output-fmt](../run_publish/references.md#output-fmt).
 
 ### --log-level
 
-See [--log-level](https://doc.subquery.network/run_publish/references.md#log-level).
+See [--log-level](../run_publish/references.md#log-level).
 
 ### --log-path
 
@@ -379,7 +379,7 @@ This flag enables [GraphQL Subscriptions](./subscription.md), to enable this fea
 
 The query service has a limit of 100 entities for unbounded graphql queries. The unsafe flag removes this limit which may cause performance issues on the query service. It is recommended instead that queries are [paginated](https://graphql.org/learn/pagination/).
 
-This flag enables certain aggregation functions including sum, max, avg and others. Read more about this feature [here](./aggregate.md).
+This flag enables certain aggregation functions including sum, max, avg and others. Read more about this feature [here](../run_publish/aggregate.md).
 
 These are disabled by default due to the entity limit.
 
