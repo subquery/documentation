@@ -1,32 +1,32 @@
-# The SubQuery Token (SQT)
+# Токен SubQuery (SQT)
 
-The SubQuery Network is powered by the SubQuery Token (SQT).
+Сеть SubQuery работает на основе токена SubQuery Token (SQT).
 
-The SubQuery Token (SQT) is designed as a utility token that powers the SubQuery Network, providing an incentive for participation, as well as serving as a medium of exchange for transactions within the SubQuery Network. Consumers of data will commit SQT in exchange for data from Indexers and this SQT will be distributed among Indexers based on the payment method selected.
+Токен SubQuery Token (SQT) разработан как полезный токен, который обеспечивает работу сети SubQuery Network, стимулирует участие в ней, а также служит средством обмена для транзакций в сети SubQuery Network. Потребители данных будут предоставлять SQT в обмен на данные от индексаторов, и эти SQT будут распределяться между индексаторами на основе выбранного метода оплаты.
 
-This token is the utility and incentive mechanism driving the network, however, the network was not initially designed with a token in mind. The network is designed to provide value where Indexers can index, aggregate and then serve blockchain data and make this available with speed and simplicity to Consumers who need blockchain data to power their applications. SQT is a natural solution allowing market participants to transact and transfer value. This approach ensures that the fundamental value of SubQuery drives the value of the token and not the other way around.
+Этот токен является полезным и стимулирующим механизмом, стимулирующим сеть, однако изначально сеть не была разработана с мыслью о фокине. Сеть создана для обеспечения ценности, где индексаторы могут индексировать, агрегировать и затем обслуживать данные блокчейна и предоставлять их со скоростью и простотой потребителям, которым нужны данные блокчейна для работы их приложений. SQT - это естественное решение, позволяющее участникам рынка совершать сделки и передавать ценность. Такой подход гарантирует, что фундаментальное значение SubQuery определяет значение токена, а не наоборот.
 
-There is no intention for SQT to be used as a medium of exchange for goods or services outside of the SubQuery Network. SQT does not in any way represent or confer upon its holders any right to, title of, interest or participation in, the ownership, shareholding and/or management of SubQuery whatsoever. SQT will not entitle holders to any promise of fees, dividends, revenue, profits, or investment returns.
+Нет намерения использовать SQT в качестве средства обмена на товары или услуги за пределами сети SubQuery. SQT никоим образом не представляет и не наделяет своих владельцев какими-либо правами, титулами, интересами или участием в собственности, владении акциями и/или управлении SubQuery. SQT не дает держателям права на какие-либо гарантии гонораров, дивидендов, доходов, прибыли или инвестиционных доходов.
 
-## Tokenomics
+## Токеномика
 
-**Please note that the following SQT Token Allocation Plan and Token Vesting Schedule are still subject to change.**
+**Обратите внимание, что приведенные ниже План распределения токенов SQT и График распределения прав на токены могут быть изменены.**
 
-### Supply
+### Предложение
 
-The initial supply will be 10 Billion tokens.
+Первоначальный объем предложения составит 10 миллиардов токенов.
 
-### Inflation
+### Инфляция
 
-The inflation will be ~2% per annum. This will be used to help the SubQuery Foundation bootstrap the network by supporting Indexers during the early launch phase where Consumers numbers will still be growing.
+Инфляция составит около 2% в год. Эти средства будут использованы для помощи Фонду SubQuery Foundation в создании сети путем поддержки индексаторов на начальном этапе запуска, когда число потребителей еще будет расти.
 
-### Allocation
+### Распределение
 
-Token allocation is as follows:
+Распределение токенов будет следующим:
 
 ![token allocation](/assets/img/token_allocation.png)
 
-From the start, SubQuery has been focused on building value within the community and this aim continues with the largest allocation of tokens (44%) being apportioned to the Community and SubQuery Foundation.
+С самого начала компания SubQuery была нацелена на создание ценности в сообществе, и эта цель сохраняется, поскольку наибольшее количество токенов (44%) распределено между сообществом и фондом SubQuery.
 
 The Foundation, which is expected to be established in early 2022, will administer the future governance and growth of the ecosystem and the ownership of the SubQuery Network will come under the SubQuery Foundation initially. This large allocation also includes consideration for future investment into the development and operations of the Network, and key ecosystem growth drivers. This will include tools such as grants and ecosystem incentives/events as well as other marketing activities including bug bounties and mainnet incentives.
 
