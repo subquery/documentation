@@ -31,24 +31,24 @@
 
 ### 提交 Pull requests
 
-一般情况下，我们按照"fork-and-pull" Github 工作方式
+In general, we follow the "fork-and-pull" Git workflow:
 
-* 将repository 分派到您自己的 Github 帐户
-* 复制项目到您的设备
-* 以简洁但描述性的名称创建本地分支
-* 提交对项目的更改
-* 遵循原repo 的格式和测试准则
-* 将更改推送到你的账户中
-* 在 repository中打开一个Pull requests。
+* Fork the repository to your own Github account.
+* Clone the project to your machine.
+* Create a branch locally with a succinct but descriptive name.
+* Commit changes to the branch.
+* Following any formatting and testing guidelines specific to this repo.
+* Push changes to your fork.
+* Open a PR in our repository.
 
 ## 代码约定
 
 ### 提交消息
 
-* 使用当前时态("去添加功能"而不是"添加过的功能")
-* 使用准确的代码时态("移动光标到..."而不是“移动光标到...")
-* 第一行限制为72个字符或更少字符
+* Use the present tense ("Add feature" not "Added feature").
+* Use the imperative mood ("Move cursor to..." not "Moves cursor to...").
+* Limit the first line to 72 characters or less.
 
 ### JavaScript 样式表
 
-* 所有 JavaScript 代码都与Prettier 和 ESLint 同调
+* All JavaScript code is linted with Prettier and ESLint.
