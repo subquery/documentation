@@ -20,7 +20,7 @@ We recommend deploying to your staging slot only for final staging testing or wh
 The staging slot is perfect for:
 
 - Окончателно валидиране на промените във вашия SubQuery Project в отделна среда. Стейджинг слота има различен URL адрес от производствения, който можете да използвате във вашите dApps.
-- Подготвяне и индексиране на данни за актуализиран SubQuery проект, за да се елиминира забавянето във вашият dApp
+- Warming up and indexing data for an updated SubQuery project to eliminate downtime in your dApp.
 - Подготовяте нова версия за вашия SubQuery Project, без да го представяте публично. Стейджинг слота не се показва на обществеността в Explorer и има уникален URL адрес, който е видим само за вас.
 
 ![Staging slot](/assets/img/staging_slot.png)
