@@ -12,7 +12,7 @@ Jaringan SubQuery memfasilitasi revolusi data web3 terbuka dengan memungkinkan A
 
 ## Peserta
 
-Ada peran untuk semua orang di jaringan, mulai dari pengembang yang sangat teknis hingga yang tidak. Jaringan SubQuery mencakup empat peserta jaringan utama
+Ada peran untuk semua orang di jaringan, mulai dari pengembang yang sangat teknis hingga yang tidak. The SubQuery network includes four main network participants.
 
 ### Konsumen
 
