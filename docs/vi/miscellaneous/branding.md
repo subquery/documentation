@@ -14,6 +14,4 @@ Tệp Figma của chúng tôi có một bộ sưu tập đầy đủ tất cả 
 
 ## Gói tài sản thương hiệu
 
-Một gói tài sản thương hiệu ZIP nhỏ hơn
-
-[public_branding.zip](https://static.subquery.network/public_branding.zip)
+A smaller ZIP package of brand assets: [public_branding.zip](https://static.subquery.network/public_branding.zip).
