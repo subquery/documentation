@@ -1,6 +1,6 @@
 # Projenizi SubQuery Explorer'da Sorgulayın
 
-[SubQuery Explorer](https://explorer.subquery.network), topluluğumuzdaki katkıda bulunan kişiler tarafından geliştirilen ve SubQuery ekibi tarafından yönetilen yayınlanmış SubQuery projelerine erişim sağlayan çevrimiçi olarak ([explorer.subquery.network](https://explorer.subquery.network) adresinde) barındırılan bir hizmettir. You can publish your own SubQuery projects to our explorer by following our guide to [Publish your SubQuery Project](../run_publish/publish.md).
+[SubQuery Explorer](https://explorer.subquery.network) is an online hosted service that provides access to published SubQuery projects made by contributors in our community and managed by the SubQuery team. You can publish your own SubQuery projects to our explorer by following our guide to [Publish your SubQuery Project](../run_publish/publish.md).
 
 ![SubQuery Explorer](https://static.subquery.network/media/explorer/explorer-header.png)
 
@@ -14,4 +14,4 @@ Oyun alanının sağ üst kısmında, belge çizimini açacak bir _Docs_ düğme
 
 ![SubQuery Dokümantasyonu](https://static.subquery.network/media/explorer/explorer-documentation.png)
 
-[GraphQL Sorgu dili hakkında daha fazla bilgi edinin.](./graphql.md)
+::: info Note Learn more about the [GraphQL Query language.](./graphql.md) :::
