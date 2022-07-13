@@ -32,6 +32,6 @@ Weitere Informationen zu den verschiedenen Zahlungsmethoden, ihrer Funktionsweis
 
 Sofern kein geschlossener Servicevertrag verwendet wird, gibt es einen oder mehrere Indexer, die ein SubQuery-Projekt indizieren. Verbraucher haben die Wahl, von welchem Indexer Daten gelesen werden sollen. Typischerweise würden Verbraucher den zuverlässigsten Indexer mit der niedrigsten Latenz auswählen. Verbraucher könnten auch ein automatisches Failover einbauen und Daten von einem anderen Indexer lesen, wenn der erste eine Zeitüberschreitung hat oder nicht reagiert.
 
-### Was passiert, wenn ein Indexer offline geht?
+### What happens if an Indexer goes offline?
 
 Sofern kein geschlossener Servicevertrag verwendet wird und mehr als ein Indexer Ihr SubQuery-Projekt indiziert, müsste einfach zu einem anderen Indexer gewechselt werden. The ideal scenario would be include strategies like alert monitoring to be notified of potential issues and intelligent routing and caching.
