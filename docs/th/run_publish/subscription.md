@@ -6,7 +6,7 @@ SubQuery ยังรองรับ Graphql Subscriptions อีกด้วย
 
 การสมัครสมาชิกมีประโยชน์มากเมื่อคุณต้องการให้ client application ของคุณเปลี่ยนแปลงข้อมูลหรือแสดงข้อมูลใหม่บางอย่างทันทีที่การเปลี่ยนแปลงนั้นเกิดขึ้นหรือมีข้อมูลใหม่ Subscriptions อนุญาติให้คุณ *subscribe* to your SubQuery project for changes.
 
-[อ่านเพิ่มเติมเกี่ยวกับการสมัครสมาชิกได้ที่นี่](https://www.apollographql.com/docs/react/data/subscriptions/)
+[Read more about subscriptions here](https://www.apollographql.com/docs/react/data/subscriptions/).
 
 ## วิธีการสมัครสมาชิกให้กับ Entity
 
@@ -25,8 +25,8 @@ subscription {
 ```
 
 Body ของ entity ในขั้นตอนการ query จะแสดงให้เห็นถึงข้อมูลต่าง ๆ ที่คุณต้องการรับผ่านทาง subscription ของคุณ เมื่อตาราง `Transfer` ถูกอัพเดท:
-- `id`: การส่งกลับ ID ของเอนทิตีที่เปลี่ยนแปลงไป
-- `mutation_type`: การปฏิบัติที่ทำกับเอนทิตีนี้ ประเภทการเปลี่ยนรูปแบบอาจเป็น `INSERT`, `UPDATE` หรือ `DELETE`
+- `id`: Returns the ID of the entity that has changed.
+- `mutation_type`: การปฏิบัติที่ทำกับเอนทิตีนี้ Mutation types can be either `INSERT`, `UPDATE` or `DELETE`.
 - `_entity`: คุณค่าของตัวเอนทิตีเองในรูปแบบ JSON
 
 ## การคัดกรอง
@@ -62,7 +62,7 @@ subscription {
 }
 ```
 
-โปรดทราบว่า `mutation` ฟิลเตอร์ สามารถเป็น หนึ่งใน `INSERT`, `UPDATE` or `DELETE`
+Note that the `mutation` filter can be one of `INSERT`, `UPDATE` or `DELETE`.
 
 **คุณต้องเปิดใช้งาน `--subscription` บน Node และ query service ถึงสมารถใช้งาน function นีได้**
 
