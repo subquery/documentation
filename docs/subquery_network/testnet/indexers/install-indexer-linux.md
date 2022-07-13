@@ -85,7 +85,7 @@ It will start the following services:
 - `coordinator_proxy`
 
 ::: info Note
-Reach project you start indexing will create 2 extra containers `node_qm----------` and `query_qm----------` that has the 13 first characters of the project's Qm-hash.
+Each project you start indexing will create 2 extra containers `node_qm----------` and `query_qm----------` that has the 13 first characters of the project's Qm-hash.
 :::
 
 Now, check the service status:
