@@ -8,7 +8,7 @@ SubQuery also provides free, production grade hosting of projects for developers
 
 ## ¿Cuál es la mejor manera de comenzar con SubQuery?
 
-The best way to get started with SubQuery is to try out our [Hello World tutorial](../quickstart/helloworld-localhost.md). Este es un simple paseo de 5 minutos para descargar la plantilla de inicio, construir el proyecto, y luego usar Docker para ejecutar un nodo en su localhost y ejecutar una simple consulta.
+The best way to get started with SubQuery is to try out our [Hello World tutorial](/assets/pdf/Hello_World_Lab.pdf). Este es un simple paseo de 5 minutos para descargar la plantilla de inicio, construir el proyecto, y luego usar Docker para ejecutar un nodo en su localhost y ejecutar una simple consulta.
 
 ## ¿Cómo puedo contribuir o dar comentarios a SubQuery?
 
