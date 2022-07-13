@@ -17,8 +17,8 @@ Si un Indexador es detectado mal (tal como proporcionando datos no válidos, inc
 ## ¿Cómo se recompensa a los indexadores?
 
 Los indexadores son recompensados en SQT de dos maneras:
-- Recompensas de los grupos de recompensas SQT basados en la distribución definida por la Función de Producción Cobb-Douglas
-- Recompensas directas de cuota de consulta SQT de acuerdos cerrados en los que un indexador es parte
+- Rewards from SQT reward pools based on distribution defined by the Cobb-Douglas Production Function.
+- Direct SQT query fee rewards from Closed Agreements that an indexer is party to.
 
 Los indexadores son recompensados con las comisiones que los consumidores pagan por proporcionar datos de blockchain que el Consumidor ha solicitado. Un Indexador recibirá todas las cuotas de un Contrato Cerrado. De lo contrario, los honorarios se dividen en base a la cantidad de trabajo realizado (solicitudes atendidas) y la cantidad de SQT delegado - esta división se determina aplicando la Función de Producción Cobb-Douglas.
 
@@ -58,13 +58,13 @@ Los indexadores pueden invertir en su propio hardware de infraestructura o alqui
 
 Aquí están algunos de los Indexadores de mantenimiento y/o de requerimientos operativos que deben esperar:
 
-- Actualizar siempre a la última versión del software de Subquery
-- Identificar y aprovechar las nuevas oportunidades de indexación
-- Actualizar la versión del proyecto a la última y reindexar cuando sea necesario
-- Mantenimiento de infraestructura
-  - Monitoreo constante y mejora del disco
-  - Calcular el tamaño correcto de la consulta y el índice basado en el tráfico
-  - Aumentar los servicios de consulta para aumentar el tráfico de ingles
+- Always upgrade to the latest Subquery software version.
+- Identify and take advantage of new indexing opportunities.
+- Update project version to latest and reindex where necessary.
+- Infrastructure maintenance:
+  - Constantly monitoring and upsizing disk.
+  - Right size query and indexing compute based on traffic.
+  - Increase query services for increasing ingress traffic.
 
 ### Infraestructura
 
@@ -98,8 +98,8 @@ Para generar rendimientos deseables, los Indexadores deben tener en cuenta diver
 
 - el equilibrio entre su propia apuesta y la de los Delegadores.
 - el tipo de contrato que se está cumpliendo. El Indexador recibirá todos los honorarios de consulta si es un contrato cerrado. Si está abierto, entonces la recompensa de un Indexador dependerá de cuántos otros Indexadores hay.
-- cumplimiento de las especificaciones del Acuerdo de Nivel de Servicio (SLA) (para evitar cortar las penalidades)
-- la exactitud de los datos que se están sirviendo para evitar recorte de sanciones
+- fulfilling of the Service Level Agreement (SLA) specifications (to avoid slashing penalties).
+- the accuracy of the data being served to avoid slashing penalties.
 
 ## Seleccionando Proyectos de SubQuery para indexar
 
@@ -130,10 +130,10 @@ Los indexadores deben ser conscientes del coste de su operación y de los ingres
 
 Los indexadores tienen que anunciarse a los Delegadores y a los Consumidores. Los indexadores pueden hacerlo desde su propio sitio web, en los foros de Subconsulta o en cualquier otro lugar que se considere necesario. Algunos ejemplos de la información que se debe proporcionar son:
 
-- El fondo y la experiencia del equipo de Indexador o Indexer
-- El enfoque de hardware y por qué proporciona un rendimiento superior
-- La política de asistencia al cliente o SLA
-- Experiencia de actuaciones históricas
+- The background and experience of the Indexer or Indexer’s team.
+- The hardware approach and why it provides superior performance.
+- The customer support policy or SLA.
+- Evidence of historical performances.
 
 ### Customer support
 
