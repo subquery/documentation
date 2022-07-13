@@ -42,7 +42,9 @@ subql help
 subql init
 ```
 
-::: warning For Cosmos Users
+::: warning Important
+
+**For Cosmos Users**
 
 Cosmos пока не поддерживается в SubQuery's CLI (`subql`). Следовательно, если вы используете Cosmos, вы должны начать с клона Juno или сделать форк [стартовый проект](https://github.com/subquery/cosmos-subql-starter).
 
@@ -96,20 +98,20 @@ HelloWorld is ready
 
 ## 3. Внесите изменения в Свой проект
 
-Есть 3 важных файла, которые необходимо изменить. Это:
+Есть 3 важных файла, которые необходимо изменить. These are:
 
-1. Схема GraphQL в `schema.graphql`
-2. Манифест проекта в `project.yaml`
-3. Функции сопоставления в каталоге src / mappings /
+1. The GraphQL Schema in `schema.graphql`.
+2. The Project Manifest in `project.yaml`.
+3. The Mapping functions in `src/mappings/` directory.
 
 SubQuery поддерживает различные блокчейн сети и предоставляет вам специальное руководство для каждой из них.
 
 Выберите предпочитаемую вами сеть и продолжайте вносить необходимые изменения, приближаясь к завершению вашего первого проекта:
 
-**[Polkadot/Substrate](../quickstart/quickstart_chains/polkadot.md)**
+- **[Polkadot/Substrate](../quickstart/quickstart_chains/polkadot.md)**
 
-**[Avalanche](../quickstart/quickstart_chains/avalanche.md)**
+- **[Avalanche](../quickstart/quickstart_chains/avalanche.md)**
 
-**[Cosmos](../quickstart/quickstart_chains/cosmos.md)**
+- **[Cosmos](../quickstart/quickstart_chains/cosmos.md)**
 
-**[Terra](../quickstart/quickstart_chains/terra.md)**
+- **[Terra](../quickstart/quickstart_chains/terra.md)**
