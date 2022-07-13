@@ -13,7 +13,7 @@ Let's start the process of creating your first SubQuery blockchain project.
 Before you begin creating your first blockchain project with SubQuery, make sure you have installed the required supporting software applications. These are:
 
 - [Node](https://nodejs.org/en/): Eine moderne (z. B. die LTS-Version) Installation von Node.
-- [Docker](https://docker.com/): This tutorial will use the required Docker
+- [Docker](https://docker.com/): This tutorial will use the required Docker.
 
 Now, you are all set to start with the first step, which is the installation of the SubQuery CLI.
 
@@ -26,7 +26,7 @@ Installieren Sie die SubQuery-CLI mithilfe von NPM global auf Ihrem Terminal:
 npm install -g @subql/cli
 ```
 
-**Note**: We **DO NOT** encourage the use of `yarn global` for installing `@subql/cli` due to its poor dependency management. This may lead to multiple errors.
+::: danger We **DO NOT** encourage the use of `yarn global` for installing `@subql/cli` due to its poor dependency management. This may lead to multiple errors. :::
 
 Take a look at all available commands and their use. Run the given below command in the CLI:
 
@@ -42,27 +42,27 @@ Run the following command inside the directory you want to create a SubQuery pro
 subql init
 ```
 
-::: warning **For Cosmos Users**
+::: warning For Cosmos Users
 
 Cosmos is not yet supported in SubQuery's CLI (`subql`). Hence, if you are using Cosmos, you must start with a Juno clone or fork this [starter project](https://github.com/subquery/cosmos-subql-starter).
 
-To initialise your project with Cosmos, refer to these 4 steps shown in this [link.](https://github.com/subquery/juno-subql-starter#readme). Once you complete these 4 steps, **jump** to the [Make Changes to Your Project](../quickstart/quickstart.md#_3-make-changes-to-your-project) section. :::
+To initialise your project with Cosmos, refer to these 4 steps shown in this [link](https://github.com/subquery/juno-subql-starter#readme). Once you complete these 4 steps, **jump** to the [Make Changes to Your Project](../quickstart/quickstart.md#_3-make-changes-to-your-project) section. :::
 
 You'll be asked certain questions as you proceed ahead:
 
-- **Project name**: A project name for your SubQuery project
+- **Project name**: A project name for your SubQuery project.
 - **Network family**: The layer-1 blockchain network family that this SubQuery project will index. Verwenden Sie die Pfeiltasten, um aus den verfügbaren Optionen auszuwählen. For example, Polkadot, Avalanche, Cosmos, or any other supported network.
 - **Network**: The specific network that this SubQuery project will index. Verwenden Sie die Pfeiltasten, um aus den verfügbaren Optionen auszuwählen. For example, Polkadot, Avalanche, or any other supported network.
 - **Template project**: Select a SubQuery template project that will provide a starting point in the development. We suggest selecting the _"subql-starter"_ project.
 - **RPC endpoint**: Provide an HTTPS URL to a running RPC endpoint, which will be used by default for this project. You can quickly access public endpoints for different networks, create your own private dedicated node using [OnFinality](https://app.onfinality.io), or just use the default endpoint. Dieser RPC-Node muss ein Archivnode sein (den Zustand der vollständigen Chain haben). We will use the default value for this guide. Based on the network you have chosen, the default value may be:
-  - For Polkadot - _"https://polkadot.api.onfinality.io"_
-  - For Avalanche - _"https://avalanche.api.onfinality.io"_
+  - For Polkadot - _"https://polkadot.api.onfinality.io"_,
+  - For Avalanche - _"https://avalanche.api.onfinality.io"_,
   - For Terra - _“https://terra-columbus-5.beta.api.onfinality.io”_ and likewise for other networks. <br/>
 - **Git repository**: Provide a Git URL to a repo that this SubQuery project will be hosted in (when hosted in SubQuery Explorer) or accept the provided default.
 - **Authors**: Enter the owner of this SubQuery project here (e.g. your name!) or accept the provided default.
 - **Description**: Provide a short paragraph about your project that describes what data it contains and what users can do with it, or accept the provided default.
-- **Version**: Enter a custom version number or use the default (`1.0.0`)
-- **License**: Provide the software license for this project or accept the default (`MIT`)
+- **Version**: Enter a custom version number or use the default (`1.0.0`).
+- **License**: Provide the software license for this project or accept the default (`MIT`).
 
 Let’s look at an example:
 
