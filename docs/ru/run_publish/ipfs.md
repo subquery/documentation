@@ -8,7 +8,7 @@ Hosting a project in IPFS makes it available for all and reduces your reliance o
 
 - `@subql/cli` версии 0.21.0 или выше.
 - Манифест `specVersion` 0.2.0 и выше.
-- Подготовьте свой [SUBQL_ACCESS_TOKEN](#prepare-your-subql-access-token).
+- Get your [SUBQL_ACCESS_TOKEN](ipfs.md#prepare-your-subql-access-token) ready.
 - Чтобы обеспечить успешное развертывание, мы настоятельно рекомендуем вам собрать проект с помощью команды `subql build` и протестировать его локально перед публикацией.
 
 ## Подготовьте свой SUBQL_ACCESS_TOKEN
@@ -66,7 +66,7 @@ Uploading SupQuery project to IPFS
 SubQuery Project uploaded to IPFS: QmZ3q7YZSmhwBiot4PQCK3c7Z6HkteswN2Py58gkkZ8kNd  //CID
 ```
 
-Обратите внимание на этот `CID`. With this `CID`, you can view your published project as what we call it [IPFS Deployment](#ipfs-deployment).
+Обратите внимание на этот `CID`. With this `CID`, you can view your published project as what we call it [IPFS Deployment](ipfs.md#ipfs-deployment).
 
 ## IPFS Deployment
 
@@ -107,7 +107,7 @@ specVersion: 0.2.0
 
 ### Создать проект с развертыванием в IPFS
 
-Вы можете следовать инструкциям по [публикации проекта SubQuery](publish.md), но там, где вы устанавливаете источник развертывания, вы можете выбрать **IPFS**.
+You can follow the guide to [Publish your SubQuery project](../run_publish/publish.md) but where you set your deployment source you can select **IPFS**.
 
 Затем выберите производственный слот, скопируйте и вставьте CID развертывания IPFS (без начального `ipfs://`).
 
