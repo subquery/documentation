@@ -12,7 +12,7 @@ La red SubQuery está facilitando una revolución abierta de datos en web3 al pe
 
 ## Participantes
 
-Hay un papel para todos en la red, desde desarrolladores altamente técnicos hasta aquellos que no lo son. La red SubQuery incluye cuatro participantes principales de la red
+Hay un papel para todos en la red, desde desarrolladores altamente técnicos hasta aquellos que no lo son. The SubQuery network includes four main network participants.
 
 ### Consumidores
 
