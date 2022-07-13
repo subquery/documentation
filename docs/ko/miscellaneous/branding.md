@@ -14,6 +14,4 @@
 
 ## 브랜드 자산 패키지
 
-브랜드 자산을 포함한 ZIP 패키지
-
-[public_branding.zip](https://static.subquery.network/public_branding.zip)
+A smaller ZIP package of brand assets: [public_branding.zip](https://static.subquery.network/public_branding.zip).
