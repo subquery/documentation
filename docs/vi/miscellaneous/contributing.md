@@ -2,17 +2,17 @@
 
 Chào mừng và chân thành cảm ơn bạn đã cân nhắc đóng góp cho dự án SubQuery! Cùng nhau, chúng ta có thể mở đường cho một tương lai phi tập trung hơn.
 
-> Tài liệu này được duy trì tích cực bởi nhóm SubQuery. Chúng tôi hoan nghênh những đóng góp của bạn, bạn có thể làm như vậy bằng cách nhân bản dự án GitHub của chúng tôi và thực hiện các thay đổi đối với tất cả các tệp đánh dấu tài liệu trong thư mục `docs`.
+::: info Note This documentation is actively maintained by the SubQuery team. We welcome your contributions. You can do so by forking our GitHub project and making changes to all the documentation markdown files under the `docs` directory. :::
 
-Sau đây là một tập hợp các nguyên tắc (không phải quy tắc) để đóng góp vào SubQuery. Việc tuân theo các nguyên tắc này sẽ giúp chúng tôi thực hiện quá trình đóng góp dễ dàng và hiệu quả cho tất cả mọi người tham gia. Nó cũng thông báo rằng bạn đồng ý tôn trọng thời gian của các nhà phát triển quản lý và phát triển dự án này. Đổi lại, chúng tôi sẽ đáp lại sự tôn trọng đó bằng cách giải quyết vấn đề của bạn, xem xét các thay đổi, cộng tác để cải tiến và giúp bạn hoàn thiện các pull requests của bạn.
+What follows is a set of guidelines (not rules) for contributing to SubQuery. Following these guidelines will help us make the contribution process easy and effective for everyone involved. It also communicates that you agree to respect the time of the developers managing and developing this project. In return, we will reciprocate that respect by addressing your issue, considering changes, collaborating on improvements, and helping you finalise your pull requests.
 
 ## Quy tắc ứng xử
 
-Chúng tôi coi trọng trách nhiệm và các dự án cộng đồng mã nguồn mở của mình, đồng thời giữ bản thân và những người đóng góp khác tuân theo các tiêu chuẩn cao về giao tiếp. Bằng cách tham gia và đóng góp vào dự án này, bạn đồng ý tuân thủ [Quy tắc ứng xử](https://github.com/subquery/subql/blob/contributors-guide/CODE_OF_CONDUCT.md) của chúng tôi.
+We take our open source community projects and responsibility seriously and hold ourselves and other contributors to high standards of communication. By participating and contributing to this project, you agree to uphold our [Code of Conduct](https://github.com/subquery/subql/blob/main/CODE_OF_CONDUCT.md).
 
 ## Bắt đầu
 
-Sự đóng góp vào tệp mã nguồn của chúng tôi được thực hiện thông qua Issues và Pull Requests (PR). Một số nguyên tắc chung bao gồm cả hai điều sau:
+Contributions to our repositories are made through Issues and Pull Requests (PRs). A few general guidelines that cover both:
 
 * Tìm kiếm các Vấn đề và PR hiện có trước khi tự làm.
 * Chúng tôi làm việc chăm chỉ để đảm bảo các vấn đề được xử lý kịp thời nhưng tùy thuộc vào mức độ ảnh hưởng, có thể mất một khoảng thời gian để điều tra nguyên nhân gốc rễ. Đề cập @ thân thiện trong chuỗi nhận xét cho người gửi hoặc người đóng góp có thể giúp thu hút sự chú ý nếu vấn đề của bạn đang bị chặn.
@@ -21,7 +21,7 @@ Sự đóng góp vào tệp mã nguồn của chúng tôi được thực hiện
 
 ### Báo cáo lỗi
 
-Lỗi được theo dõi là sự cố GitHub. Khi ghi nhật ký sự cố, hãy giải thích sự cố và bao gồm các chi tiết bổ sung để giúp người bảo trì tái tạo sự cố:
+Bugs are tracked as GitHub issues. When logging an issue, explain the problem and include additional details to help maintainers reproduce the problem:
 
 * Sử dụng tiêu đề rõ ràng và mang tính mô tả cho vấn đề để xác định vấn đề.
 * Mô tả các bước chính xác để tái tạo vấn đề.
