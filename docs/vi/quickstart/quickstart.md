@@ -13,7 +13,7 @@ Hãy bắt đầu quá trình tạo ra dự án blockchain SubQuery đầu tiên
 Trước khi bạn bắt đầu tạo dự án blockchain đầu tiên với SubQuery, hãy đảm bảo rằng bạn đã cài đặt các ứng dụng phần mềm hỗ trợ cần thiết. Đó là:
 
 - [Node](https://nodejs.org/en/): Cài đặt một phiên bản mới nhất của Node (ví dụ: phiên bản LTS).
-- [Docker](https://docker.com/): Hướng dẫn này sẽ yêu cầu sử dụng Docker
+- [Docker](https://docker.com/): This tutorial will use the required Docker.
 
 Bây giờ, bạn đã sẵn sàng để bắt đầu với bước đầu tiên, đó là cài đặt SubQuery CLI.
 
@@ -26,7 +26,7 @@ Cài đặt SubQuery CLI tổng thể trên terminal của bạn bằng cách s�
 npm install -g @subql/cli
 ```
 
-**Lưu ý**: Chúng tôi **KHÔNG** khuyến khích sử dụng `yarn global` để cài đặt `@subql/cli` do quản lý phụ thuộc kém. Nó có thể dẫn đến nhiều lỗi.
+::: danger We **DO NOT** encourage the use of `yarn global` for installing `@subql/cli` due to its poor dependency management. Nó có thể dẫn đến nhiều lỗi. :::
 
 Hãy xem tất cả các lệnh có sẵn và việc sử dụng chúng. Chạy lệnh dưới đây trong CLI:
 
@@ -42,27 +42,27 @@ Chạy lệnh sau bên trong thư mục bạn muốn tạo dự án SubQuery:
 subql init
 ```
 
-::: cảnh báo **Dành cho người dùng Cosmos**
+::: warning For Cosmos Users
 
 Cosmos hiện chưa được hỗ trợ trong CLI của SubQuery (`subql`). Hence, if you are using Cosmos, you must start with a Juno clone or fork this [starter project](https://github.com/subquery/cosmos-subql-starter).
 
-Để khởi tạo dự án của bạn với Cosmos, hãy tham khảo 4 bước được hiển thị trong [link.](https://github.com/subquery/juno-subql-starter#readme) này. Once you complete these 4 steps, **jump** to the [Make Changes to Your Project](../quickstart/quickstart.md#_3-make-changes-to-your-project) section. :::
+To initialise your project with Cosmos, refer to these 4 steps shown in this [link](https://github.com/subquery/juno-subql-starter#readme). Once you complete these 4 steps, **jump** to the [Make Changes to Your Project](../quickstart/quickstart.md#_3-make-changes-to-your-project) section. :::
 
 Bạn sẽ được hỏi một số câu hỏi nhất định khi tiếp tục:
 
-- **Project name**: tên của dự án SubQuery
+- **Project name**: A project name for your SubQuery project.
 - **Network family**: Nhóm mạng blockchain layer-1 mà dự án SubQuery này sẽ lập chỉ mục. Sử dụng các phím mũi tên để chọn từ các tùy chọn có sẵn. Ví dụ: Polkadot, Avalanche, Cosmos, hoặc bất kỳ mạng được hỗ trợ nào khác.
 - **Network**: Mạng cụ thể mà dự án SubQuery này sẽ lập chỉ mục. Sử dụng các phím mũi tên để chọn từ các tùy chọn có sẵn. Ví dụ: Polkadot, Avalanche, hoặc bất kỳ mạng được hỗ trợ nào khác.
 - **Template project**: Chọn một dự án mẫu SubQuery sẽ cung cấp một điểm khởi đầu để bắt đầu phát triển. Chúng tôi khuyên bạn nên chọn dự án _"subql-starter"_.
 - **RPC endpoint**: Cung cấp HTTPS URL cho RPC endpoint đang chạy, sẽ được sử dụng mặc định cho dự án này. Bạn có thể nhanh chóng truy cập các điểm cuối công khai cho các mạng khác nhau, tạo node chuyên dụng riêng của mình bằng cách sử dụng [OnFinality](https://app.onfinality.io) hoặc chỉ sử dụng điểm cuối mặc định. Nút RPC này phải là một nút lưu trữ (có trạng thái chuỗi đầy đủ). Chúng tôi sẽ sử dụng giá trị mặc định cho hướng dẫn này. Dựa trên mạng bạn đã chọn, giá trị mặc định có thể là:
-  - Đối với Polkadot - _"https://polkadot.api.onfinality.io"_
-  - Đối với Avalanche - _"https://avalanche.api.onfinality.io"_
+  - For Polkadot - _"https://polkadot.api.onfinality.io"_,
+  - For Avalanche - _"https://avalanche.api.onfinality.io"_,
   - Đối với Terra - _“https://terra-columbus-5.beta.api.onfinality.io”_ và tương tự với các mạng khác. <br/>
 - **Git repository**: Cung cấp Git URL cho repo mà dự án SubQuery này sẽ được lưu trữ (khi được lưu trữ trong SubQuery Explorer) hoặc chấp nhận giá trị mặc định được cung cấp.
 - **Authors**: Nhập chủ sở hữu của dự án SubQuery này tại đây (ví dụ: tên của bạn!) Hoặc chấp nhận giá trị mặc định đã cung cấp.
 - **Description**: Cung cấp một đoạn giới thiệu ngắn về dự án của bạn, mô tả dự án chứa dữ liệu gì và người dùng có thể làm gì với dự án đó hoặc chấp nhận giá trị mặc định đã cung cấp.
-- **Version**: Nhập số phiên bản tùy chỉnh hoặc sử dụng mặc định (`1.0.0`)
-- **License**: Cung cấp giấy phép phần mềm cho dự án này hoặc chấp nhận giấy phép mặc định (`MIT`)
+- **Version**: Enter a custom version number or use the default (`1.0.0`).
+- **License**: Provide the software license for this project or accept the default (`MIT`).
 
 Hãy xem xét ví dụ sau đây:
 
