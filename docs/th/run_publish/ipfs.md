@@ -14,7 +14,7 @@ Hosting a project in IPFS makes it available for all and reduces your reliance o
 ## เตรียม SUBQL_ACCESS_TOKEN . ของคุณ
 
 - ขั้นตอนที่ 1: ไปที่ [SubQuery Projects](https://project.subquery.network/) และเข้าสู่ระบบ
-- ขั้นตอนที่ 2: คลิกที่โปรไฟล์ของคุณที่ด้านบนขวาของเมนู จากนั้นคลิกที่ **_Refresh Token_**
+- Step 2: Click on your profile at the top right of the navigation menu, then click on **_Refresh Token_**.
 - ขั้นตอนที่ 3: คัดลอกโทเค็นที่สร้างขึ้น
 - ขั้นตอนที่ 4: ในการใช้โทเค็นนี้:
   - ตัวเลือกที่ 1: เพิ่ม SUBQL_ACCESS_TOKEN ในตัวแปรของคุณ `EXPORT SUBQL_ACCESS_TOKEN=<token>`
@@ -22,11 +22,11 @@ Hosting a project in IPFS makes it available for all and reduces your reliance o
 
 ## วิธีเผยแพร่โปรเจกต์
 
-เรามีสองวิธีในการเผยแพร่โครงการของคุณ
+We provide two methods to publish your project:
 
-### ตัวเลือกที่ 1:
+### Option 1
 
-เนื่องจากคุณได้ติดตั้ง `@subql/cli` แล้ว คุณสามารถเรียกใช้คำสั่งต่อไปนี้ ซึ่งจะอ่านจากโปรเจกต์และร้องขอข้อมูลจาก Manifest `project.yaml`
+As you have `@subql/cli` already installed, you can run the following command, which will read the project and required information from its default manifest `project.yaml`:
 
 ```
 // Publish it from your project's root directory
@@ -36,7 +36,7 @@ subql publish
 subql publish -f ~/my-project/
 ```
 
-### ตัวเลือกที่ 2:
+### Option 2
 
 สมมติว่าโปรเจกต์ของคุณมีไฟล์ Manifest หลายไฟล์ ตัวอย่างเช่น คุณสนับสนุนเครือข่ายหลายเครือข่าย แต่ใช้การ Mapping, Business Logic รว่มกัน และมีโครงสร้างของโปรเจกต์ดังต่อไปนี้:
 
@@ -66,15 +66,15 @@ Uploading SupQuery project to IPFS
 SubQuery Project uploaded to IPFS: QmZ3q7YZSmhwBiot4PQCK3c7Z6HkteswN2Py58gkkZ8kNd  //CID
 ```
 
-โปรดทราบว่า `CID` นี้ ด้วย `CID` นี้ คุณสามารถดูโปรเจกต์ที่เผยแพร่ของคุณในที่นี้ เราเรียกว่า [IPFS Deployment](#ipfs-deployment)
+โปรดทราบว่า `CID` นี้ With this `CID`, you can view your published project as what we call it [IPFS Deployment](#ipfs-deployment).
 
 ## การปรับใช้ IPFS
 
 การปรับใช้ IPFS ทำให้โปรเจกต์ SubQuery มีความเป็นอิสระและไม่ซ้ำใครบนเครือข่ายแบบกระจายอำนาจ ดังนั้นการเปลี่ยนแปลงใด ๆ กับโค้ดในโปรเจกต์จะส่งผลต่อความเป็นเอกลักษณ์ หากคุณต้องการ Business Logic เช่น เปลี่ยน Mapping Function คุณต้องทำการเผยแพร่อีกครั้ง และ `CID` จะเปลี่ยนไป
 
-สำหรับตอนนี้ หากต้องการดูโปรเจกต์ที่คุณเผยแพร่ ให้ใช้เครื่องมือ API `REST` เช่น [Postman](https://web.postman.co/) และใช้ `POST` ด้วย URL ตัวอย่างต่อไปนี้ `https://ipfs.subquery.network/ipfs/api/v0/cat?arg=<YOUR_PROJECT_CID>`
+For now, to view the project you have published, use a `REST` api tool such as [Postman](https://web.postman.co/), and use `POST` method with the following example URL to retrieve it:`https://ipfs.subquery.network/ipfs/api/v0/cat?arg=<YOUR_PROJECT_CID>`.
 
-คุณควรเห็นตัวอย่างการปรับใช้โปรเจกต์ดังต่อไปนี้:
+You should see the example project deployment as below.
 
 การปรับใช้นี้ดูคล้ายกับไฟล์ Manifest ของคุณ คุณสามารถเลือกใช้ฟิลด์คำอธิบาย, เครือข่าย และ Dictionary Endpoint จะถูกลบออกและ ผลลัพธ์จะไม่ส่งผลกระทบโดยตรงต่อการดำเนินการของโปรเจกต์
 
