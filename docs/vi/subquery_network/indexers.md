@@ -17,8 +17,8 @@ Nếu một Người lập chỉ mục có hành vi sai trái (chẳng hạn nh�
 ## Người lập chỉ mục được thưởng như thế nào?
 
 Người lập chỉ mục được thưởng trong SQT theo hai cách:
-- Phần thưởng từ nhóm phần thưởng SQT dựa trên phân phối được xác định bởi Hàm Sản xuất Cobb-Douglas
-- Phần thưởng phí truy vấn SQT trực tiếp từ các Thỏa thuận kín mà người lập chỉ mục là bên tham gia
+- Rewards from SQT reward pools based on distribution defined by the Cobb-Douglas Production Function.
+- Direct SQT query fee rewards from Closed Agreements that an indexer is party to.
 
 Người lập chỉ mục được thưởng các khoản phí mà Người tiêu dùng trả cho việc cung cấp dữ liệu blockchain mà Người tiêu dùng đã yêu cầu. Người lập chỉ mục sẽ nhận được tất cả các khoản phí từ một Thỏa thuận kín. Nếu không, các khoản phí được phân chia dựa trên khối lượng công việc được thực hiện (các yêu cầu được cung cấp) và số lượng SQT được ủy quyền - sự phân chia này được xác định bằng cách áp dụng Hàm Sản xuất Cobb-Douglas.
 
@@ -58,13 +58,13 @@ Người lập chỉ mục có thể đầu tư vào phần cứng cơ sở hạ
 
 Dưới đây là một số yêu cầu về bảo trì và/hoặc vận hành mà Người lập chỉ mục nên mong đợi:
 
-- Luôn nâng cấp lên phiên bản phần mềm Subquery mới nhất
-- Xác định và tận dụng các cơ hội lập chỉ mục mới
-- Cập nhật phiên bản dự án lên mới nhất và lập chỉ mục khi cần thiết
-- Bảo trì cơ sở hạ tầng
-  - Liên tục theo dõi và tăng kích thước ổ cứng
-  - Truy vấn kích thước phù hợp và tính toán lập chỉ mục dựa trên lưu lượng truy cập
-  - Tăng các dịch vụ truy vấn để tăng lưu lượng truy cập vào
+- Always upgrade to the latest Subquery software version.
+- Identify and take advantage of new indexing opportunities.
+- Update project version to latest and reindex where necessary.
+- Infrastructure maintenance:
+  - Constantly monitoring and upsizing disk.
+  - Right size query and indexing compute based on traffic.
+  - Increase query services for increasing ingress traffic.
 
 ### Cơ sở hạ tầng
 
@@ -98,8 +98,8 @@ Mật khẩu an toàn nên được sử dụng theo mặc định và các chí
 
 - sự cân bằng giữa cổ phần của chính họ và cổ phần của Người ủy quyền.
 - loại hợp đồng đang được phục vụ. Người lập chỉ mục sẽ nhận được tất cả các khoản phí truy vấn nếu đó là hợp đồng đã đóng. Nếu nó đang mở, thì phần thưởng của Người lập chỉ mục sẽ phụ thuộc vào số lượng Người lập chỉ mục khác.
-- đáp ứng các thông số kỹ thuật của Thỏa thuận mức dịch vụ (SLA) (để tránh bị phạt nặng)
-- tính chính xác của dữ liệu được cung cấp để tránh bị phạt
+- fulfilling of the Service Level Agreement (SLA) specifications (to avoid slashing penalties).
+- the accuracy of the data being served to avoid slashing penalties.
 
 ## Chọn các dự án SubQuery để lập chỉ mục
 
@@ -130,10 +130,10 @@ Người lập chỉ mục cần phải biết về chi phí hoạt động và 
 
 Người lập chỉ mục cần tự quảng cáo cho Người ủy quyền cũng như Người tiêu dùng. Người lập chỉ mục có thể làm điều này từ trang web của riêng họ, trong các diễn đàn Subquery hoặc bất kỳ nơi nào khác được coi là cần thiết. Một số ví dụ về thông tin cần cung cấp là:
 
-- Nền tảng và kinh nghiệm của người hoặc nhóm của Người lập chỉ mục
-- Cách tiếp cận phần cứng và lý do tại sao nó cung cấp hiệu suất vượt trội
-- Chính sách hỗ trợ khách hàng hoặc SLA
-- Bằng chứng về các màn trình diễn lịch sử
+- The background and experience of the Indexer or Indexer’s team.
+- The hardware approach and why it provides superior performance.
+- The customer support policy or SLA.
+- Evidence of historical performances.
 
 ### Hỗ trợ Khách hàng
 
