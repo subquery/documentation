@@ -6,7 +6,7 @@ SubQuery теперь также поддерживает подписки Graph
 
 Підписки дуже корисні, коли ви хочете, щоб ваша клієнтська програма змінювала дані або показувала нові дані, як тільки ця зміна станеться або нові дані стануть доступними. Підписки дозволяють вам *підписатися* на ваш проект SubQuery для отримання змін.
 
-[Перегляньте більше про підписки тут](https://www.apollographql.com/docs/react/data/subscriptions/)
+[Read more about subscriptions here](https://www.apollographql.com/docs/react/data/subscriptions/).
 
 ## Як підписатися на істоту
 
@@ -25,8 +25,8 @@ subscription {
 ```
 
 Тіло об’єкта у вашому запиті вказує, які дані ви хочете отримувати через свою підписку, коли оновлюється таблиця ` Transfer `:
-- `id`: повертає ідентифікатор об’єкта, який змінився
-- `mutation_type`: дія, зроблена з цією сутністю. Типами мутації можуть бути `INSERT`, `UPDATE` або `DELETE`
+- `id`: Returns the ID of the entity that has changed.
+- `mutation_type`: дія, зроблена з цією сутністю. Mutation types can be either `INSERT`, `UPDATE` or `DELETE`.
 - `_entity`: значення самої сутності у форматі JSON.
 
 ## Фільтрація
@@ -62,7 +62,7 @@ subscription {
 }
 ```
 
-Зауважте, що фільтр ` mutation ` може бути одним із `INSERT`, `UPDATE` або `DELETE`
+Note that the `mutation` filter can be one of `INSERT`, `UPDATE` or `DELETE`.
 
 **Зауважте, що для використання цих функцій потрібно ввімкнути прапор `--subscription` як на вузлі, так і на службі запитів.**
 
