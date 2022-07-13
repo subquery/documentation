@@ -1,11 +1,11 @@
-# Hubungkan ke Proyek Baru Anda
+# Connect to your new project
 
-Setelah penerapan Anda berhasil diselesaikan dan node kami telah mengindeks data Anda dari chain, Anda akan dapat terhubung ke proyek Anda melalui titik akhir Queri yang ditampilkan.
+Once your deployment has succesfully completed and our nodes have indexed your data from the chain, you'll be able to connect to your project via the displayed Query endpoint.
 
 ![Proyek sedang diterapkan dan disinkronkan](/assets/img/projects-deploy-sync.png)
 
-Atau, Anda dapat mengklik tiga titik di samping judul proyek Anda, dan melihatnya di SubQuery Explorer. Di sana Anda dapat menggunakan taman bermain di browser untuk memulai.
+Atau, Anda dapat mengklik tiga titik di samping judul proyek Anda, dan melihatnya di SubQuery Explorer. There you can use the in browser playground to get started.
 
-![Proyek di SubQuery Explorer](/assets/img/projects-explorer.png)
+![Projects in SubQuery Explorer](/assets/img/projects-explorer.png)
 
-[Pelajari lebih lanjut tentang bahasa GraphQL Query.](./graphql.md)
+::: info Note Learn more about the [GraphQL Query language.](./graphql.md) :::
