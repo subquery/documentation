@@ -2,17 +2,17 @@
 
 SubQuery 프로젝트에 도움을 주는 여러분을 환영하고 깊은 감사의 말씀을 드립니다. 우리는 함께 보다 탈중화 미래를 위한 길을 마련할 수 있습니다.
 
-> 이 문서는 SubQuery 팀이 적극적으로 관리합니다. 여러분의 기여를 환영합니다. 여러분은 우리의 GitHub 프로젝트를 사용하고 `docs` 디렉토리 하위의 모든 문서 markdown 파일을 변경하면 됩니다.
+::: info Note This documentation is actively maintained by the SubQuery team. We welcome your contributions. You can do so by forking our GitHub project and making changes to all the documentation markdown files under the `docs` directory. :::
 
-다음은 SubQuery에 기여하는 일련의 지침(규칙이 아님)입니다. 이 지침을 따르는 것은 관련된 모든 사람이 기여하는 과정을 쉽고 효과적으로 만드는 데 도움이 됩니다. 또한 이 프로젝트를 관리하고 개발하는 개발자의 시간을 존중한다는 것을 의미합니다. 그 보답으로, 우리는 당신의 문제를 해결하고, 변경 사항을 고려하고, 개선을 위해 협력하고, pull request들을 완료하는 것들을 도와줄 것입니다.
+What follows is a set of guidelines (not rules) for contributing to SubQuery. Following these guidelines will help us make the contribution process easy and effective for everyone involved. It also communicates that you agree to respect the time of the developers managing and developing this project. In return, we will reciprocate that respect by addressing your issue, considering changes, collaborating on improvements, and helping you finalise your pull requests.
 
 ## 운영 규칙
 
-우리는 오픈 소스 커뮤니티 프로젝트로서의 책임을 진지하게 받아들이고 우리 자신 뿐만 아니라 다른 기여자들 모두에게 높은 수준의 커뮤니케이션을 요구합니다. 이 프로젝트에 참여하고 기여함으로써, 당신은 우리의 [운영 규칙](https://github.com/subquery/subql/blob/contributors-guide/CODE_OF_CONDUCT.md)을 준수하는 데 동의합니다.
+We take our open source community projects and responsibility seriously and hold ourselves and other contributors to high standards of communication. By participating and contributing to this project, you agree to uphold our [Code of Conduct](https://github.com/subquery/subql/blob/main/CODE_OF_CONDUCT.md).
 
 ## 시작하기
 
-우리 레포지토리에 대한 기여는 Issues 및 Pull Requests (PRs)를 통해 이루어집니다. 두 가지에 대한 일반 지침:
+Contributions to our repositories are made through Issues and Pull Requests (PRs). A few general guidelines that cover both:
 
 * 본인의 것을 만들기 전에 기존의 Issues 및 PRs를 검색하십시오.
 * 우리는 문제가 신속하게 처리될 수 있도록 열심히 노력하고 있지만, 영향 정도에 따라 근본 원인을 파악하는데 좀 더 시간이 걸릴 수 있습니다. 당신의 문제가 막힌 경우, 댓글로 친절하게 @로 제출자 혹은 기여자를 언급하면 보다 쉽게 관심을 끌 수 있습니다.
@@ -21,7 +21,7 @@ SubQuery 프로젝트에 도움을 주는 여러분을 환영하고 깊은 감�
 
 ### 버그 신고
 
-버그는 GitHub 문제로 추적합니다. 문제를 기록할 때, 문제를 설명하고 유지 관리자가 문제를 재현해서 확인할 수 있도록 추가 세부 정보를 포함해야 합니다.
+Bugs are tracked as GitHub issues. When logging an issue, explain the problem and include additional details to help maintainers reproduce the problem:
 
 * 문제를 식별하기 위해 문제에 대해 명확하고 자세한 제목을 사용합니다.
 * 문제를 재현 확인하기 위한 정확한 단계를 설명합니다.
