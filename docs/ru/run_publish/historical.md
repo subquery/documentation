@@ -1,10 +1,10 @@
-# Automated Historical State Tracking
+# Автоматическое отслеживание Исторического Состояния
 
-## Background
+## Справочный материал
 
-SubQuery allows you to index any data that you want from Substrate, Avalance, and other networks. Currently, SubQuery operates as a mutable data store, where you can append, update, delete, or otherwise change existing saved entities in the dataset that is indexed by SubQuery. As SubQuery indexes each block, the state of each entity may be updated or deleted based on your project's logic.
+SubQuery позволяет вам индексировать любые данные из Substrate, Avalance и других сетей. В настоящее время SubQuery работает как изменяемое хранилище данных, где вы можете добавлять, обновлять, удалять или иным образом изменять существующие сохраненные сущности в наборе данных, которые индексируются SubQuery. Поскольку SubQuery индексирует каждый блок, состояние каждой сущности может быть обновлено или удалено в соответствии с логикой вашего проекта.
 
-A basic SubQuery project that indexes account balances might have an entity that looks like the following.
+Базовый проект SubQuery, индексирующий остатки на счетах, может иметь сущность, которая выглядит следующим образом.
 
 ```graphql
 type Account @entity {
@@ -16,27 +16,27 @@ type Account @entity {
 
 ![Historic Indexing](/assets/img/historic_indexing.png)
 
-In the above example, Alice's DOT balance constantly changes, and as we index the data, the `balance` property on the `Account` entity will change. A basic SubQuery project that indexes account balances will lose this historical data and will only store the state of the current indexing block height. For example, if we currently index to block 100, the data in the database can only represent the state of Alice's account at block 100.
+В приведенном выше примере баланс DOT Алисы постоянно меняется, и по мере индексации данных свойство `balance` на сущности `Account` будет меняться. Базовый проект SubQuery, индексирующий остатки на счетах, утратит эти исторические данные и будет хранить только состояние текущего уровня блока индексирования. Например, если в данный момент мы индексируем до блока 100, данные в базе данных могут представлять только состояние счета Алисы в блоке 100.
 
-Then we are faced with a problem. Assuming the data has changed when indexing to block 200, how can we query the state of the data at block 100?
+Тогда мы сталкиваемся с проблемой. Если предположить, что данные изменились при индексировании до блока 200, как мы можем запросить состояние данных в блоке 100?
 
-## Automated Historical State Tracking
+## Автоматическое отслеживание Исторического Состояния
 
-SubQuery now automates the historical state tracking of entities for all new projects. You can automatically query the state of your SubQuery project at any block height. This means that you can build applications that allow users to go back in time, or show how the state of your data changes over time.
+Теперь в SubQuery автоматизировано отслеживание исторического состояния сущностей для всех новых проектов. Вы можете автоматически запрашивать состояние вашего проекта SubQuery на любом уровне блоков. Это означает, что вы можете создавать приложения, позволяющие пользователям возвращаться в прошлое или показывать, как состояние ваших данных меняется с течением времени.
 
-In short, when you create, update, or delete any SubQuery entity, we store the previous state with the block range that it was valid for. You can then query data from a specific block height using the same GraphQL endpoints and API.
+Короче говоря, когда вы создаете, обновляете или удаляете любую сущность SubQuery, мы сохраняем предыдущее состояние с диапазоном блоков, для которого оно было действительно. Затем вы можете запрашивать данные с определенного уровня блока, используя те же конечные точки GraphQL и API.
 
-## Enabling This
+## Активизация
 
-This feature is enabled by default for all new projects started with at least `@subql/node@1.1.1` and `@subql/query1.1.0`. If you want to add it to your existing project, update `@subql/node` and `@subql/query` and then reindex your project with a clean database.
+Эта функция включена по умолчанию для всех новых проектов, запущенных как минимум с `@subql/node@1.1.1` и `@subql/query1.1.0`. Если вы хотите добавить его в существующий проект, обновите `@subql/node` и `@subql/query`, а затем переиндексируйте проект с чистой базой данных.
 
-If you want to disable this feature for any reason, you can set the `--disable-historical=true` parameter on `subql-node`.
+Если вы хотите отключить эту функцию по какой-либо причине, вы можете установить параметр `--disable-historical=true` на `subql-node`.
 
-On startup, the current status of this feature is printed to the console (`Historical state is enabled`).
+При запуске текущее состояние этой функции выводится на консоль (`Историческое состояние включено`).
 
-## Querying Historical State
+## Запрос исторического состояния
 
-There is a special (optional) property on the GraphQL entity filter called `blockHeight`. If you omit this property, SubQuery will query the entity state at the current block height.
+Существует специальное (необязательное) свойство фильтра сущностей GraphQL под названием `blockHeight`. Если вы оставите это свойство без внимания, SubQuery будет запрашивать состояние сущности на текущей отметке блока.
 
 Please see one of our example projects: [RMRK NFT](https://explorer.subquery.network/subquery/subquery/rmrk-nft-historical).
 
