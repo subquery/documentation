@@ -2,17 +2,17 @@
 
 Hoş geldiniz ve bu SubQuery projesine katkıda bulunmayı düşündüğünüz için büyük bir teşekkür ederiz! Birlikte daha merkezi olmayan bir geleceğin yolunu açabiliriz.
 
-> Bu belge, SubQuery ekibi tarafından etkin bir şekilde korunur. Katkılarınızı memnuniyetle karşılıyoruz, GitHub projemizi çatallayarak ve `docs` dizini altındaki tüm belge işaretleme dosyalarında değişiklik yaparak bunu yapabilirsiniz.
+::: info Note This documentation is actively maintained by the SubQuery team. We welcome your contributions. You can do so by forking our GitHub project and making changes to all the documentation markdown files under the `docs` directory. :::
 
-Aşağıdakiler, SubQuery'ye katkıda bulunmak için bir dizi kılavuzdur (kurallar değil). Bu yönergeleri takip etmek, katkı sürecini ilgili herkes için kolay ve etkili hale getirmemize yardımcı olacaktır. Ayrıca, geliştiricilerin bu projeyi yönetme ve geliştirme zamanına saygı göstermeyi kabul ettiğinizi de iletir. Buna karşılık, sorununuzu ele alarak, değişiklikleri göz önünde bulundurarak, iyileştirmeler üzerinde işbirliği yaparak ve çekme isteklerinizi sonuçlandırmanıza yardımcı olarak bu saygıyı karşılık vereceğiz.
+What follows is a set of guidelines (not rules) for contributing to SubQuery. Following these guidelines will help us make the contribution process easy and effective for everyone involved. It also communicates that you agree to respect the time of the developers managing and developing this project. In return, we will reciprocate that respect by addressing your issue, considering changes, collaborating on improvements, and helping you finalise your pull requests.
 
 ## Davranış Kuralları
 
-Açık kaynak topluluk projelerimizi ve sorumluluğumuzu ciddiye alıyoruz ve kendimizi ve diğer katılımcıları yüksek iletişim standartlarına tutuyoruz. Bu projeye katılarak ve katkıda bulunarak, [Code of Conduct](https://github.com/subquery/subql/blob/contributors-guide/CODE_OF_CONDUCT.md) korumayı kabul edersiniz.
+We take our open source community projects and responsibility seriously and hold ourselves and other contributors to high standards of communication. By participating and contributing to this project, you agree to uphold our [Code of Conduct](https://github.com/subquery/subql/blob/main/CODE_OF_CONDUCT.md).
 
 ## Başlarken
 
-Depolarımıza katkılar Sorunlar ve Çekme İstekleri (PRs) aracılığıyla yapılır. Her ikisini de kapsayan birkaç genel kılavuz:
+Contributions to our repositories are made through Issues and Pull Requests (PRs). A few general guidelines that cover both:
 
 * Kendi sorunlarınızı oluşturmadan önce mevcut Sorunları ve PRs arayın.
 * Sorunların derhal ele alınmasından emin olmak için çok çalışıyoruz, ancak etkiye bağlı olarak, temel nedeni araştırmak biraz zaman alabilir. Yorum başlığındaki bir dost @ bahsetmesi gönderene veya bir katılımcıya sorununuzu engelliyorsa dikkat çekmeye yardımcı olabilir.
@@ -21,7 +21,7 @@ Depolarımıza katkılar Sorunlar ve Çekme İstekleri (PRs) aracılığıyla ya
 
 ### Raporlama Hataları
 
-Hatalar GitHub sorunları olarak izlenir. Bir sorunu günlüğe kaydedirken, sorunu açıklayın ve bakımcıların sorunu yeniden oluşturmalarına yardımcı olmak için ek ayrıntılar ekleyin:
+Bugs are tracked as GitHub issues. When logging an issue, explain the problem and include additional details to help maintainers reproduce the problem:
 
 * Sorunu tanımlamak için sorun için açık ve açıklayıcı bir başlık kullanın.
 * Sorunu yeniden oluşturmak için tam adımları açıklayın.
