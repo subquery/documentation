@@ -40,18 +40,17 @@
 
 После прохождения программы "Стажер" вы можете называть себя амбассадором SubQuery и будете приняты в нашу команду. С этого момента вы можете продолжать работать по определенной программе и продвигаться выше по уровням, получая все больше наград и преимуществ.
 
-[Подайте заявку прямо сейчас!](https://forms.gle/GXBbJ6LDpNfM2v1X6)
 
 ## Амбассадорские деятельность
 
-Амбассадоры SubQuery могут вносить свой вклад в четырех основных областях - это организация мероприятий, создание контента, переводы и модерирование сообщества. Вы можете участвовать в тех областях, в каких захотите.
+SubQuery Ambassadors are able to contribute through four main areas, including event management, content creation, translation, and community moderation. You can participate in as many areas as you want, you’re not bound to any single one.
 
-** Организация мероприятий:** Создание местных сообществ путем проведения, организации и управления различными мероприятиями. Создание местного сообщества будет ключевой частью развития сообщества SubQuery. SubQuery будет поддерживать вас, предоставляя финансирование для проведения мероприятий, присылая сувениры/атрибутику для раздачи ее участникам, а также участвовать в вопросах/ответах или онлайн мероприятиях в качестве докладчиков или в сессиях AMA.
+**Event Management:** Build local communities by hosting, organising, and managing different events. Building a local community will be a key part of growing the SubQuery community. SubQuery will support you by providing funding for events, sending swag/merchandise to be given away, as well as attending Q&As or online events as speakers or in AMA sessions.
 
-** Создание контента:** У нас есть длинный список контента и вспомогательных материалов, в создании которых нам нужна помощь. Помните, наш успех зависит от способности наших клиентов создавать удивительные вещи на основе нашего сервиса, поэтому нам нужна ваша помощь, чтобы сделать это проще. Контент включает в себя видео, инфографику, учебные материалы, анимацию или любой другой материал, который информирует, обучает или вдохновляет членов сообщества в рамках экосистемы SubQuery. SubQuery будет поддерживать создателей контента путем предоставления брендинговых активов и опыта. Мы также будем использовать маркетинговые каналы SubQuery для повышения осведомленности о вашем контенте (и о вас самих).
+**Content Creation:** We have a long list of content and support material that we need help creating. Remember, our success relies on the ability of our customers to build amazing things on our service, so we need your help to make that easier. Content includes videos, infographics, tutorials, animations, or any other related material, to inform, educate, or inspire community members within the SubQuery Ecosystem. SubQuery will support Content Creators by providing branding assets and expertise. We’ll also use SubQuery’s marketing channels to increase awareness of your content (and yourself).
 
-**Переводы:** Наши клиенты говорят не только на английском языке! Нам нужна ваша помощь, чтобы сделать SubQuery более доступным, переводя наши материалы на ваш родной язык, а также помогая распространять информацию среди нашего международного сообщества.
+**Translation:** Our customers don’t just speak English! We need your help making SubQuery more accessible by translating our content into your own language, as well as helping sharing the word to our international community.
 
-**Модератор сообщества:** Модераторы будут способствовать развитию сообщества SubQuery, обеспечивая активность и вовлеченность официальных каналов сообщества. SubQuery будет поддерживать модераторов, продвигая каналы, которые они контролируют, а также предоставлять рекомендации по нашим ожиданиям.
+**Community Moderation:** Moderators will help grow the SubQuery community by ensuring that official community channels are active and engaging. SubQuery will support Moderators by promoting the channels that they monitor, as well as provide guidelines for our expectations.
 
-[Подайте заявку прямо сейчас!](https://forms.gle/GXBbJ6LDpNfM2v1X6)
+[Подай заявку прямо сейчас!](https://forms.gle/GXBbJ6LDpNfM2v1X6)
