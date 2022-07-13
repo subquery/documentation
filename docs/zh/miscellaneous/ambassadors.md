@@ -40,18 +40,17 @@
 
 一旦通过实习阶段，您就可以成为SubQuery大使，并将被纳入我们的全部方案。 从这里你可以继续向上晋升， 以此在你升高等级时赚取更多的奖励和报酬。
 
-[立即申请！](https://forms.gle/GXBbJ6LDpNfM2v1X6)
 
 ## 大使活动
 
-SubQuery 大使需要通过四个主要领域做出贡献，包括活动管理、内容创建、翻译和社区管理。 你可以参与尽可能多的领域，而不是被绑定到任何单一方向。
+SubQuery Ambassadors are able to contribute through four main areas, including event management, content creation, translation, and community moderation. You can participate in as many areas as you want, you’re not bound to any single one.
 
-**活动管理：** 通过主办、组织和管理不同的活动来建立本地社区。 建立一个地方社区将是扩大SubQuery社区的一个关键部分。 SubQuery 将为你举办的活动提供资金支持，或准备礼物与奖品， 还以发言者身份或在AMA会议上以及其他线上活动提供帮助。
+**Event Management:** Build local communities by hosting, organising, and managing different events. Building a local community will be a key part of growing the SubQuery community. SubQuery will support you by providing funding for events, sending swag/merchandise to be given away, as well as attending Q&As or online events as speakers or in AMA sessions.
 
-**内容创建：** 我们有很长的内容和支持材料，我们需要你帮助创建。 记住，我们的成功取决于我们的用户能否在我们的服务中制造惊人的东西。 这样我们就需要你的帮助来使这更加容易实现。 内容包括视频、信息图表、教程、动画或任何其他相关材料，用于在SubQuery生态系统内宣传、教育或激励社区成员。 SubQuery 将通过提供品牌物件和专门知识来支持内容创建者。 我们还将使用 SubQuery 的营销渠道来提高对您的内容的认识(和您自己)。
+**Content Creation:** We have a long list of content and support material that we need help creating. Remember, our success relies on the ability of our customers to build amazing things on our service, so we need your help to make that easier. Content includes videos, infographics, tutorials, animations, or any other related material, to inform, educate, or inspire community members within the SubQuery Ecosystem. SubQuery will support Content Creators by providing branding assets and expertise. We’ll also use SubQuery’s marketing channels to increase awareness of your content (and yourself).
 
-**翻译：** 我们的客户不只是说英语！ 我们需要您的帮助，通过将我们的内容翻译成您自己的语言，使世界各地的人都更容易了解 SubQuery。
+**Translation:** Our customers don’t just speak English! We need your help making SubQuery more accessible by translating our content into your own language, as well as helping sharing the word to our international community.
 
-**社区管理：** 管理员将通过活跃官方社交平台的方式来帮助SubQuery社区的成长。 SubQuery将支持管理员发展他们管理的社交平台渠道，并为我们的目标提供指导方针。
+**Community Moderation:** Moderators will help grow the SubQuery community by ensuring that official community channels are active and engaging. SubQuery will support Moderators by promoting the channels that they monitor, as well as provide guidelines for our expectations.
 
 [立即申请！](https://forms.gle/GXBbJ6LDpNfM2v1X6)
