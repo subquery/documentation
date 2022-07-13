@@ -8,7 +8,7 @@ Hosting a project in IPFS makes it available for all and reduces your reliance o
 
 - `@subql/cli` version 0.21.0 or above.
 - Manifest `specVersion` 0.2.0 and above.
-- Get your [SUBQL_ACCESS_TOKEN](#prepare-your-subql-access-token) ready.
+- Get your [SUBQL_ACCESS_TOKEN](ipfs.md#prepare-your-subql-access-token) ready.
 - To make sure your deployment success, we strongly recommend that you build your project with the `subql build` command, and test it locally before publishing.
 
 ## Prepare your SUBQL_ACCESS_TOKEN
@@ -66,7 +66,7 @@ Uploading SupQuery project to IPFS
 SubQuery Project uploaded to IPFS: QmZ3q7YZSmhwBiot4PQCK3c7Z6HkteswN2Py58gkkZ8kNd  //CID
 ```
 
-Please note this `CID`. With this `CID`, you can view your published project as what we call it [IPFS Deployment](#ipfs-deployment).
+Please note this `CID`. With this `CID`, you can view your published project as what we call it [IPFS Deployment](ipfs.md#ipfs-deployment).
 
 ## IPFS Deployment
 
@@ -107,7 +107,7 @@ specVersion: 0.2.0
 
 ### Create project with IPFS deployment
 
-You can follow the guide to [Publish your SubQuery project](publish.md) but where you set your deployment source you can select **IPFS**.
+You can follow the guide to [Publish your SubQuery project](../run_publish/publish.md) but where you set your deployment source you can select **IPFS**.
 
 Then choose your production slot, copy and paste you IPFS deployment CID (without the leading `ipfs://`).
 

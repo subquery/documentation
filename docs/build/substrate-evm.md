@@ -51,7 +51,7 @@ Theoretically the following networks should also be supported since they impleme
 | Field             | Type                                                           | Required | Description                                |
 | ----------------- | -------------------------------------------------------------- | -------- | ------------------------------------------ |
 | processor.file    | `'./node_modules/@subql/frontier-evm-processor/dist/index.js'` | Yes      | File reference to the data processor code  |
-| processor.options | [ProcessorOptions](#processor-options)                         | No       | Options specific to the Frontier Processor |
+| processor.options | [ProcessorOptions](substrate-evm.md#processor-options)                         | No       | Options specific to the Frontier Processor |
 | assets            | `{ [key: String]: { file: String }}`                           | No       | An object of external asset files          |
 
 ### Processor Options
@@ -68,7 +68,7 @@ Works in the same way as [substrate/CallHandler](../build/mapping.md#call-handle
 | Field  | Type                                                    | Required | Description                                 |
 | ------ | ------------------------------------------------------- | -------- | ------------------------------------------- |
 | kind   | `substrate/FrontierEvmCall` or `substrate/AcalaEvmCall` | Yes      | Specifies that this is an Call type handler |
-| filter | [Call Filter](#call-filters)                            | No       | Filter the data source to execute           |
+| filter | [Call Filter](substrate-evm.md#call-filters)                            | No       | Filter the data source to execute           |
 
 ### Call Filters
 
@@ -89,7 +89,7 @@ Changes from the `TransactionResponse` type:
 
 ## Event Handlers
 
-Works in the same way as [substrate/EventHandler](../create/mapping/#event-handler) except with a different handler argument and minor filtering changes.
+Works in the same way as [substrate/EventHandler](../build/mapping.md#event-handler) except with a different handler argument and minor filtering changes.
 
 | Field  | Type                                                      | Required | Description                                  |
 | ------ | --------------------------------------------------------- | -------- | -------------------------------------------- |

@@ -40,7 +40,6 @@ Once you have sent through an application, we will select candidates that align 
 
 Once you pass the trainee program, you can call yourself a SubQuery ambassador and will be accepted into our full program. From here on you can continue to work through the program and progress up the tiers, earning more rewards and benefits as you climb the ranks.
 
-[Apply Now!](https://forms.gle/GXBbJ6LDpNfM2v1X6)
 
 ## Ambassador Activities
 
