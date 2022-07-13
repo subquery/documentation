@@ -2,10 +2,10 @@
 
 ## Beneficios de alojar tu proyecto con SubQuery
 
-- Ejecutaremos tus proyectos de SubQuery en un servicio público de alto rendimiento, escalable y administrado
+- We'll run your SubQuery projects for you in a high performance, scalable, and managed public service.
 - ¡Este servicio está siendo proporcionado a la comunidad gratis!
-- Puedes hacer públicos tus proyectos para que estén listados en el [SubQuery Explorer](https://explorer.subquery.network) y cualquier persona de todo el mundo puede verlos
-- Estamos integrados con GitHub, por lo que cualquiera en sus organizaciones de GitHub podrá ver proyectos de organización compartidos
+- You can make your projects public so that they'll be listed in the [SubQuery Explorer](https://explorer.subquery.network) and anyone around the world can view them.
+- We're integrated with GitHub, so anyone in your GitHub organisations will be able to view shared organisation projects.
 
 ## Crea tu primer proyecto en SubQuery Projects
 
@@ -13,9 +13,9 @@
 
 Hay dos maneras de alojar el código base de su proyecto SubQuery antes de publicarlo.
 
-**GitHub**: El código base de tu proyecto debe estar en un repositorio público de GitHub
+**GitHub**: Your project's codebase must be in a public GitHub repository.
 
-**IPFS**: El código base de su proyecto puede almacenarse en IPFS, puedes seguir nuestra guía de alojamiento IPFS para ver cómo [publicar primero en IPFS](ipfs.md)
+**IPFS**: Your project's codebase can be stored in IPFS, you can follow our IPFS hosting guide to see how to [first publish to IPFS](ipfs.md).
 
 ### Iniciar sesión en los proyectos de SubQuery
 
@@ -86,12 +86,12 @@ Al crear un proyecto configurará el comportamiento de visualización del proyec
 
 Con su nuevo proyecto, verá un botón Desplegar Nueva versión. Haga clic en esto y rellene la información requerida sobre el despliegue:
 
-- **Rama:** Desde GitHub, selecciona la rama del proyecto desde el que quieres desplegar
-- **Commit Hash de la nueva versión:** Desde GitHub seleccione el commit correcto del código base del proyecto SubQuery que desea desplegar
-- **IPFS:** Si se desplegan desde IPFS, pega el CID de despliegue IPFS (sin el CID principal `ipfs://`)
-- **Anular los puntos finales de red y de diccionario:** Aquí puedes sobreescribir los puntos finales en el manifiesto de tu proyecto
-- **Versión del indexador:** Esta es la versión del servicio de nodos de SubQuery en la que desea ejecutar esta SubQuery. Ver [`@subql/node`](https://www.npmjs.com/package/@subql/node)
-- **Versión de consulta:** Esta es la versión del servicio de consulta de SubQuery en la que desea ejecutar esta SubQuery. Ver [`@subql/query`](https://www.npmjs.com/package/@subql/query)
+- **Branch:** From GitHub, select the branch of the project that you want to deploy from.
+- **Commit Hash:** From GitHub, select the specific commit of the version of your SubQuery project codebase that you want deployed.
+- **IPFS:** If deploying from IPFS, paste you IPFS deployment CID (without the leading `ipfs://`).
+- **Override Network and Dictionary Endpoints:** You can override the endpoints in your project manifest here.
+- **Versión del indexador:** Esta es la versión del servicio de nodos de SubQuery en la que desea ejecutar esta SubQuery. See [`@subql/node`](https://www.npmjs.com/package/@subql/node).
+- **Versión de consulta:** Esta es la versión del servicio de consulta de SubQuery en la que desea ejecutar esta SubQuery. See [`@subql/query`](https://www.npmjs.com/package/@subql/query).
 
 ![Desplegar tu primer proyecto](https://static.subquery.network/media/projects/projects-first-deployment.png)
 
