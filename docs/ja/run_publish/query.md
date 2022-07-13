@@ -1,6 +1,6 @@
 # SubQuery Explorer でプロジェクトのクエリを実行する
 
-[SubQuery Explorer](https://explorer.subquery.network) は、コミュニティの貢献者によって作成され、SubQueryチームによって管理されている、公開済みのSubQueryプロジェクトへのアクセスを提供するオンラインホスティングサービス（[explorer.subquery.network](https://explorer.subquery.network)）です。 You can publish your own SubQuery projects to our explorer by following our guide to [Publish your SubQuery Project](../run_publish/publish.md).
+[SubQuery Explorer](https://explorer.subquery.network) is an online hosted service that provides access to published SubQuery projects made by contributors in our community and managed by the SubQuery team. You can publish your own SubQuery projects to our explorer by following our guide to [Publish your SubQuery Project](../run_publish/publish.md).
 
 ![SubQuery Explorer](https://static.subquery.network/media/explorer/explorer-header.png)
 
@@ -14,4 +14,4 @@ SubQuery Explorer は、サンプルクエリを使用して利用可能なデ�
 
 ![SubQuery Documentation](https://static.subquery.network/media/explorer/explorer-documentation.png)
 
-[GraphQL クエリ言語の詳細を参照してください。](./graphql.md)
+::: info Note Learn more about the [GraphQL Query language.](./graphql.md) :::
