@@ -6,7 +6,7 @@ SubQuery unterstützt jetzt auch Graphql-Abonnements. Wie Abfragen ermöglichen 
 
 Abonnements sind sehr nützlich, wenn Sie möchten, dass Ihre Clientanwendung Daten ändert oder einige neue Daten anzeigt, sobald diese Änderung eintritt oder die neuen Daten verfügbar sind. Mit Abonnements können Sie Ihr SubQuery-Projekt für Änderungen *abonnieren*.
 
-[Lesen Sie hier mehr über Abonnements](https://www.apollographql.com/docs/react/data/subscriptions/)
+[Read more about subscriptions here](https://www.apollographql.com/docs/react/data/subscriptions/).
 
 ## So abonnieren Sie eine Entität
 
@@ -25,8 +25,8 @@ subscription {
 ```
 
 Der Körper der Entität in Ihrer Abfrage gibt an, welche Daten Sie über Ihr Abonnement erhalten möchten, wenn die Tabelle `Transfer` aktualisiert wird:
-- `id`: Gibt die ID der geänderten Entität zurück
-- `mutation_type`: Die Aktion, die an dieser Entität vorgenommen wurde. Mutationstypen können entweder `INSERT`, `UPDATE` oder `DELETE` sein
+- `id`: Returns the ID of the entity that has changed.
+- `mutation_type`: Die Aktion, die an dieser Entität vorgenommen wurde. Mutation types can be either `INSERT`, `UPDATE` or `DELETE`.
 - `_entity`: Der Wert der Entität selbst im JSON-Format.
 
 ## die Filterung
@@ -63,7 +63,7 @@ subscription {
 }
 ```
 
-Beachten Sie, dass der Filter `Mutation` einer der Filter `INSERT`, `UPDATE` oder `DELETE` sein kann
+Note that the `mutation` filter can be one of `INSERT`, `UPDATE` or `DELETE`.
 
 **Bitte beachten Sie, dass Sie das Flag `--subscription` sowohl im Node als auch im Abfragedienst aktivieren müssen, um diese Funktionen nutzen zu können.**
 
