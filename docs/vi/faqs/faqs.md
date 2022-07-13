@@ -14,7 +14,7 @@ The best way to get started with SubQuery is to try out our [Hello World tutoria
 
 Chúng tôi rất mong nhận được ý kiến đóng góp và phản hồi từ cộng đồng. Để đóng góp vào việc phát triển, hãy tạo bản sao cho những phần bạn quan tâm và đưa ra những thay đổi. Sau đó hãy sử dụng chức năng Pull Request hay gọi tắt là PR. À, đừng quên chạy thử đấy nhé! Also check out our contributions guide lines (TBA).
 
-To give feedback, contact us at hello@subquery.network or jump onto our [discord channel](https://discord.com/invite/78zg8aBSMG)
+To give feedback, contact us at hello@subquery.network or jump onto our [discord channel](https://discord.com/invite/78zg8aBSMG).
 
 ## Chi phí để lưu trữ dự án của tôi trong SubQuery là bao nhiêu?
 
