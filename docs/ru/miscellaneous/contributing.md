@@ -2,17 +2,17 @@
 
 Добро пожаловать и большое спасибо за то, что рассмотрели возможность внести свой вклад в этот проект SubQuery! Вместе мы сможем проложить путь к более децентрализованному будущему.
 
-> Эта документация активно поддерживается командой SubQuery . Мы приветствуем ваш вклад, вы можете сделать это, форкнув наш проект GitHub и внеся изменения во все файлы markdown документации в каталоге `docs`.
+::: info Note This documentation is actively maintained by the SubQuery team. We welcome your contributions. You can do so by forking our GitHub project and making changes to all the documentation markdown files under the `docs` directory. :::
 
-Ниже приводится набор руководящих принципов (не правил) для внесения вклада в SubQuery. Следуя этим руководящим принципам, мы сделаем процесс внесения вклада простым и эффективным для всех заинтересованных сторон. Он также сообщает, что вы соглашаетесь уважать время управления и разработки этого проекта. В свою очередь, мы будем с уважением относиться к вашему вопросу, учитывая изменения, сотрудничаем с улучшениями и помогая вам окончательно оформлять запросы на слияние.
+What follows is a set of guidelines (not rules) for contributing to SubQuery. Following these guidelines will help us make the contribution process easy and effective for everyone involved. It also communicates that you agree to respect the time of the developers managing and developing this project. In return, we will reciprocate that respect by addressing your issue, considering changes, collaborating on improvements, and helping you finalise your pull requests.
 
 ## Кодекс поведения
 
-Мы серьезно относимся к нашим проектам сообщества с открытым исходным кодом и к ответственности, и считаем, что мы и другие участники соблюдаем высокие стандарты общения. Участвуя в этом проекте, вы соглашаетесь соблюдать наш [Кодекс поведения](https://github.com/subquery/subql/blob/contributors-guide/CODE_OF_CONDUCT.md).
+We take our open source community projects and responsibility seriously and hold ourselves and other contributors to high standards of communication. By participating and contributing to this project, you agree to uphold our [Code of Conduct](https://github.com/subquery/subql/blob/main/CODE_OF_CONDUCT.md).
 
 ## Приступая к работе
 
-Взносы в наши репозитории делаются через Issues и Pull requests (PR). Несколько общих руководящих принципов, которые охватывают и то и другое:
+Contributions to our repositories are made through Issues and Pull Requests (PRs). A few general guidelines that cover both:
 
 * Ищите существующие Замечания и PR, прежде чем создавать собственные.
 * Мы прилагаем все усилия, чтобы обеспечить своевременное решение проблем, но, в зависимости от последствий, может потребоваться некоторое время, чтобы исследовать основную причину. Дружественное @ упоминание в ветке комментариев отправителю или участнику может помочь привлечь внимание, если ваша проблема блокируется.
@@ -21,7 +21,7 @@
 
 ### Сообщить об ошибках
 
-Ошибки отслеживаются как проблемы в GitHub. При регистрации проблемы объясните проблему и включите дополнительные сведения, чтобы помочь специалистам по обслуживанию воспроизвести проблему:
+Bugs are tracked as GitHub issues. When logging an issue, explain the problem and include additional details to help maintainers reproduce the problem:
 
 * Чтобы идентифицировать проблему, используйте понятное и описательное название.
 * Опишите точные шаги для воспроизведения проблемы.
