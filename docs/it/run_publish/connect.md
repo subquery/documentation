@@ -1,11 +1,11 @@
-# Collegati al tuo nuovo progetto
+# Connect to your new project
 
-Una volta che il tuo deployment è stato completato con successo e i nostri nodi hanno indicizzato i tuoi dati dalla catena, sarai in grado di connetterti al tuo progetto tramite l'endpoint Query visualizzato.
+Once your deployment has succesfully completed and our nodes have indexed your data from the chain, you'll be able to connect to your project via the displayed Query endpoint.
 
 ![Progetto distribuito e sincronizzato](/assets/img/projects-deploy-sync.png)
 
-In alternativa, puoi cliccare sui tre puntini accanto al titolo del tuo progetto e visualizzarlo su SubQuery Explorer. Lì puoi usare il parco giochi nel browser per iniziare.
+In alternativa, puoi cliccare sui tre puntini accanto al titolo del tuo progetto e visualizzarlo su SubQuery Explorer. There you can use the in browser playground to get started.
 
-![Progetti nell'esploratore di subquery](/assets/img/projects-explorer.png)
+![Projects in SubQuery Explorer](/assets/img/projects-explorer.png)
 
-[Per saperne di più sul linguaggio GraphQL Query.](./graphql.md)
+::: info Note Learn more about the [GraphQL Query language.](./graphql.md) :::
