@@ -31,24 +31,24 @@ Hatalar GitHub sorunları olarak izlenir. Bir sorunu günlüğe kaydedirken, sor
 
 ### Çekme İstekleri Gönderme
 
-Genel olarak, "çatal ve çekme" Git iş akışını takip ediyoruz
+In general, we follow the "fork-and-pull" Git workflow:
 
-* Depoyu kendi Github hesabınıza çatalla
-* Projeyi makinenize klonlama
-* Özlü ama açıklayıcı bir adla yerel olarak dal oluşturma
-* Daldaki değişiklikleri kaydetme
-* Bu depoya özgü biçimlendirme ve test yönergelerini izleme
-* Değişiklikleri çatalınıza itin
-* Depomuzda bir PR açın
+* Fork the repository to your own Github account.
+* Clone the project to your machine.
+* Create a branch locally with a succinct but descriptive name.
+* Commit changes to the branch.
+* Following any formatting and testing guidelines specific to this repo.
+* Push changes to your fork.
+* Open a PR in our repository.
 
 ## Kodlama Kuralları
 
 ### Git İletileri Kaydet
 
-* Şimdiki zamanı kullanın ("Eklenen özellik" değil"Özellik ekle")
-* Zorunlu ruh halini kullanın ("İmleci taşı..." "İmleci taşır...") değil
-* İlk satırı 72 karakter veya daha az karakterle sınırlandırma
+* Use the present tense ("Add feature" not "Added feature").
+* Use the imperative mood ("Move cursor to..." not "Moves cursor to...").
+* Limit the first line to 72 characters or less.
 
 ### JavaScript Stil Kılavuzu
 
-* Tüm JavaScript kodları Prettier ve ESLint ile astarlanmıştır
+* All JavaScript code is linted with Prettier and ESLint.
