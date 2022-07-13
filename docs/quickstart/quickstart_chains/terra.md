@@ -29,7 +29,7 @@ type Transfer @entity {
 }
 ```
 
-::: info Note
+::: warning Important
 When you make any changes to the schema file, do make sure to regenerate your types directory.
 :::
 
