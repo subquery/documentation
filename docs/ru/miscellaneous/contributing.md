@@ -31,24 +31,24 @@
 
 ### Отправка Pull Request'ов
 
-В общем, мы следуем рабочему процессу Git, основанному на принципах «fork-and-pull»
+In general, we follow the "fork-and-pull" Git workflow:
 
-* Форкнуть репозиторий для вашей учетной записи на Github
-* Клонировать проект на вашу машину
-* Создать филиал локально с кратким, но описательным именем
-* Сохранить изменения в ветке
-* Следуя любым правилам форматирования и тестирования, специфичным для этого репозитория
-* Отправить изменения в ваш форк
-* Открыть PR в нашем репозитории
+* Fork the repository to your own Github account.
+* Clone the project to your machine.
+* Create a branch locally with a succinct but descriptive name.
+* Commit changes to the branch.
+* Following any formatting and testing guidelines specific to this repo.
+* Push changes to your fork.
+* Open a PR in our repository.
 
 ## Контрагенты кодирования
 
 ### Сообщения Git Commit
 
-* Используйте настоящее время («Добавить объект», а не «Добавлен объект»)
-* Используйте повелительное наклонение («Переместить курсор в...», а не «Перемещен курсор в...»)
-* Ограничьте первую строку до 72 символов или меньше
+* Use the present tense ("Add feature" not "Added feature").
+* Use the imperative mood ("Move cursor to..." not "Moves cursor to...").
+* Limit the first line to 72 characters or less.
 
 ### Руководство по стилю JavaScript
 
-* Весь код JavaScript размещен на основе Prettier и ESLint
+* All JavaScript code is linted with Prettier and ESLint.
