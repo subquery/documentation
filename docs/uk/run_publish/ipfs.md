@@ -14,7 +14,7 @@ Hosting a project in IPFS makes it available for all and reduces your reliance o
 ## Підготуйте свій SUBQL_ACCESS_TOKEN
 
 - Крок 1. Перейдіть до [SubQuery Projects](https://project.subquery.network/) та увійдіть.
-- Крок 2. Натисніть свій профіль у верхньому правому куті навігаційного меню, а потім натисніть **_Оновити токен_**
+- Step 2: Click on your profile at the top right of the navigation menu, then click on **_Refresh Token_**.
 - Крок 3: скопіюйте згенерований токен.
 - Крок 4. Щоб використовувати цей токен:
   - Варіант 1. Додайте SUBQL_ACCESS_TOKEN у змінні середовища. `EXPORT SUBQL_ACCESS_TOKEN=<token>`
@@ -22,11 +22,11 @@ Hosting a project in IPFS makes it available for all and reduces your reliance o
 
 ## Як опублікувати проект
 
-Ми пропонуємо два способи опублікувати ваш проект,
+We provide two methods to publish your project:
 
-### Варіант 1
+### Option 1
 
-Оскільки у вас уже встановлено `@subql/cli`, ви можете запустити таку команду, яка прочитає проект і необхідну інформацію з його маніфесту за замовчуванням `project.yaml`
+As you have `@subql/cli` already installed, you can run the following command, which will read the project and required information from its default manifest `project.yaml`:
 
 ```
 // Опублікувати його з кореневого каталогу вашого проекту
@@ -36,7 +36,7 @@ subql опублікувати
 subql опублікувати -f ~/мій-проект/
 ```
 
-### Варіант 2
+### Option 2
 
 Крім того, припустімо, що у вашому проекті є кілька файлів маніфесту, наприклад, ви підтримуєте кілька мереж, але використовуєте однакове відображення та бізнес-логіку та маєте таку структуру проекту:
 
@@ -66,15 +66,15 @@ subql опублікувати -f ~/my-projectRoot/polkadot.yaml
 Проект SubQuery, завантажений до IPFS: QmZ3q7YZSmhwBiot4PQCK3c7Z6HkteswN2Py58gkkZ8kNd //CID
 ```
 
-Будь ласка, зверніть увагу на `CID`. За допомогою цього `CID` ви можете розглядати свій опублікований проект як те, що ми називаємо [розгортанням IPFS](#ipfs-deployment)
+Будь ласка, зверніть увагу на `CID`. With this `CID`, you can view your published project as what we call it [IPFS Deployment](#ipfs-deployment).
 
 ## Розгортання в IPFS
 
 Розгортання IPFS являє собою незалежне та унікальне існування проекту SubQuery в децентралізованій мережі. Тому будь-які зміни коду в проекті вплинуть на його унікальність. Якщо вам потрібно налаштувати свою бізнес-логіку, напр. змінити функцію відображення, ви повинні повторно опублікувати проект, і `CID` зміниться.
 
-Наразі, щоб переглянути опублікований вами проект, скористайтеся інструментом API `REST`, таким як [Postman](https://web.postman.co/), і скористайтеся методом `POST` з наступним прикладом URL-адреси щоб отримати його. `https://ipfs.subquery.network/ipfs/api/v0/cat?arg=<YOUR_PROJECT_CID>`
+For now, to view the project you have published, use a `REST` api tool such as [Postman](https://web.postman.co/), and use `POST` method with the following example URL to retrieve it:`https://ipfs.subquery.network/ipfs/api/v0/cat?arg=<YOUR_PROJECT_CID>`.
 
-Ви повинні побачити приклад розгортання проекту, як показано нижче:
+You should see the example project deployment as below.
 
 Це розгортання дуже схоже на ваш файл маніфесту. Ви можете очікувати цих описових полів, а кінцеву точку мережі та словника було видалено, оскільки вони не впливали безпосередньо на результат виконання проекту.
 
