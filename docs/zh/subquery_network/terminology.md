@@ -14,7 +14,7 @@
 
 ## **锁定（Bonding）**
 
-将 SQT 代币存入由索引者或委托者执行的合约的行为
+Act of depositing SQT into a global staking contract performed by either an Indexer or a Delegator.
 
 ### **解除锁定（Unboding）**
 
