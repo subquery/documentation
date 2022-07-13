@@ -18,22 +18,22 @@ There’s a role for everyone in the network, from highly technical developers t
 
 Consumers will ask the SubQuery Network for specific data for their dApps or tools, and pay an advertised amount of SQT for each request.
 
-[Learn more about Consumers](./consumers.md)
+::: info Note Learn more about [Consumers](./consumers.md). :::
 
 ### Indexers
 
 Indexers will run and maintain high quality SubQuery projects in their own infrastructure, running both the indexer and query service, and will be rewarded in SQT for the requests that they serve.
 
-[Learn more about Indexers](./indexers.md)
+::: info Note Learn more about [Indexers](./indexers.md). :::
 
 ### Delegators
 
 Delegators will participate in the Network by supporting their favourite Indexers to earn rewards based on the work those indexers do.
 
-[Learn more about Delegators](./delegators.md)
+::: info Note Learn more about [Delegators](./delegators.md). :::
 
 ### Architects
 
 Architects are the builders of the SubQuery projects that the Network runs on. They author and publish SubQuery projects for the Network to index and run.
 
-[Learn more about how to build your first SubQuery project](/build/introduction.md)
+::: info Note Learn more about [how to build your first SubQuery project](../build/introduction.md). :::
