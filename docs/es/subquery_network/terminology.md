@@ -12,7 +12,7 @@ Una operación combinada de remover fichas apuestadas de un proyecto y asociarlo
 
 ## **Bonding**
 
-Acto de depósito de SQT en un contrato global de apuesta, realizado por un Indexador o un Delegator
+Act of depositing SQT into a global staking contract performed by either an Indexer or a Delegator.
 
 ### **En desvinculación**
 
