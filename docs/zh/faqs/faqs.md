@@ -14,7 +14,7 @@ The best way to get started with SubQuery is to try out our [Hello World tutoria
 
 我们热爱社区的贡献和反馈。 若要贡献代码，请分派感兴趣的仓库并做出更改。 然后提交 PR 或 Pull 请求。 哦，不要忘记测试！ Also check out our contributions guide lines (TBA).
 
-To give feedback, contact us at hello@subquery.network or jump onto our [discord channel](https://discord.com/invite/78zg8aBSMG)
+To give feedback, contact us at hello@subquery.network or jump onto our [discord channel](https://discord.com/invite/78zg8aBSMG).
 
 ## 在SubQuery项目中托管我的项目需要多少费用？
 
