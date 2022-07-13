@@ -8,7 +8,7 @@ Hosting a project in IPFS makes it available for all and reduces your reliance o
 
 - `@subql/cli` เวอร์ชั่น 0.21.0 หรือสูงกว่า
 - Manifest `specVersion` 0.2.0 หรือสูงกว่า
-- เตรียม [SUBQL_ACCESS_TOKEN](#prepare-your-subql-access-token) ของคุณให้พร้อม
+- Get your [SUBQL_ACCESS_TOKEN](ipfs.md#prepare-your-subql-access-token) ready.
 - เพื่อให้แน่ใจว่าการทำให้ใช้งานได้สำเร็จ เราขอแนะนำให้คุณสร้างโปรเจกต์ด้วยคำสั่ง `subql build` และทดสอบในเครื่องก่อนเผยแพร่
 
 ## เตรียม SUBQL_ACCESS_TOKEN . ของคุณ
@@ -66,7 +66,7 @@ Uploading SupQuery project to IPFS
 SubQuery Project uploaded to IPFS: QmZ3q7YZSmhwBiot4PQCK3c7Z6HkteswN2Py58gkkZ8kNd  //CID
 ```
 
-โปรดทราบว่า `CID` นี้ With this `CID`, you can view your published project as what we call it [IPFS Deployment](#ipfs-deployment).
+โปรดทราบว่า `CID` นี้ With this `CID`, you can view your published project as what we call it [IPFS Deployment](ipfs.md#ipfs-deployment).
 
 ## การปรับใช้ IPFS
 
@@ -107,7 +107,7 @@ specVersion: 0.2.0
 
 ### สร้างโปรเจกต์ด้วยการปรับใช้ IPFS
 
-คุณสามารถทำตามคำแนะนำเพื่อ [Publish your SubQuery project](publish.md) และเลือกการตั้งค่าจากแหล่งที่มา **IPFS**
+You can follow the guide to [Publish your SubQuery project](../run_publish/publish.md) but where you set your deployment source you can select **IPFS**.
 
 จากนั้นเลือกสล็อตที่ใช้งานจริงของคุณ คัดลอกและวาง CID การปรับใช้ IPFS ของคุณ (โดยไม่มี `ipfs://` นำหน้า)
 
