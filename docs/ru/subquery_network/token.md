@@ -24,7 +24,7 @@
 
 Распределение токенов будет следующим:
 
-![token allocation](/assets/img/token_allocation.png)
+![Распределение токенов](/assets/img/token_allocation.png)
 
 С самого начала компания SubQuery была нацелена на создание ценности в сообществе, и эта цель сохраняется, поскольку наибольшее количество токенов (44%) распределено между сообществом и фондом SubQuery.
 
@@ -32,16 +32,16 @@
 
 Ранние инвесторы как в первоначальном раунде, так и в раунде серии А имеют совокупную долю в 27%. В случае с нашими первоначальными инвесторами, SubQuery выражает благодарность за их раннее видение и приверженность созданию SubQuery на начальном этапе. После этого рост ускорился благодаря поддержке инвесторов серии А, которые позволили проекту выйти на новый уровень.
 
-For the Public Sale, 9% of token supply has been allocated across at least two sequential rounds. The exact structure and timing of these rounds can be found [here](https://subquery.medium.com/subquery-publishes-the-sqt-public-sale-date-and-sale-guide-64b8aff10882).
+Для публичной продажи 9% от общего количества токенов было распределено как минимум на два последовательных раунда. Точную инструкцию по проведению и времени проведения этих раундов можно найти [здесь](https://subquery.medium.com/subquery-publishes-the-sqt-public-sale-date-and-sale-guide-64b8aff10882).
 
-Finally, the SubQuery Team and Launch Partners have been allocated 20% of the token supply in return for their tireless dedication and contribution in building and promoting the project from the outset.
+Наконец, команде SubQuery и партнерам по запуску было выделено 20% от общего количества токенов в обмен на их неустанную преданность и вклад в создание и продвижение проекта с самого начала.
 
-### Vesting schedule
+### График распределения прав
 
-We have designed our vesting schedule to demonstrate the commitment of various stakeholders. The graphic below illustrates the release of the SQT tokens to each participant over time culminating in the full circulation of tokens occurring 5 years (60 months) after launch.
+Мы разработали график распределения прав, чтобы продемонстрировать приверженность различных заинтересованных сторон. На графике ниже показан выпуск токенов SQT для каждого участника с течением времени, в результате чего полное обращение токенов произойдет через 5 лет (60 месяцев) после запуска.
 
-![vesting schedule](/assets/img/vesting_schedule.png)
+![график распределения прав](/assets/img/vesting_schedule.png)
 
-The vesting schedules for each participant has been designed to create long-term value for the project and generate confidence to token-holders. Perhaps most significantly, the core team will have a 24 month lock-up period which will then vest over another 24 months while some Public Sale participants can freely use the utility of their token upon launch.
+Графики наделения правами каждого участника были разработаны таким образом, чтобы создать долгосрочную ценность для проекта и вызвать доверие у держателей токенов. Возможно, наиболее существенным является то, что основная команда будет иметь 24-месячный период блокировки, который затем будет действовать в течение еще 24 месяцев, в то время как некоторые участники публичной продажи смогут свободно использовать полезность своего токена после запуска.
 
-The Foundation and Community will have approximately 30% of the allocation unlocked from the start to meet the operational needs of launching and promoting mainnet with the rest of the allocation vesting gradually over 5 years.
+Фонду и сообществу будет выделено около 30% средств с самого начала для удовлетворения операционных потребностей, связанных с запуском и продвижением mainnet, а остальные средства будут распределяться постепенно в течение 5 лет.
