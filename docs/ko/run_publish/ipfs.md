@@ -8,7 +8,7 @@ Hosting a project in IPFS makes it available for all and reduces your reliance o
 
 - `@subql/cli` 버전 0.21.0 이상.
 - 매니페스트 `specVersion` 0.2.0 이상.
-- [SUBQL_ACCESS_TOKEN](#prepare-your-subql-access-token)을 준비하세요.
+- Get your [SUBQL_ACCESS_TOKEN](ipfs.md#prepare-your-subql-access-token) ready.
 - 배포에 성공하려면 `subql build` 명령으로 프로젝트를 빌드하고 게시하기 전에 로컬에서 테스트하는 것이 좋습니다.
 
 ## SUBQL_ACCESS_TOKEN 준비
@@ -66,7 +66,7 @@ Uploading SupQuery project to IPFS
 SubQuery Project uploaded to IPFS: QmZ3q7YZSmhwBiot4PQCK3c7Z6HkteswN2Py58gkkZ8kNd  //CID
 ```
 
-이 `CID`를 기록해 두십시오. With this `CID`, you can view your published project as what we call it [IPFS Deployment](#ipfs-deployment).
+이 `CID`를 기록해 두십시오. With this `CID`, you can view your published project as what we call it [IPFS Deployment](ipfs.md#ipfs-deployment).
 
 ## IPFS 배포
 
@@ -107,7 +107,7 @@ specVersion: 0.2.0
 
 ### IPFS 배포로 프로젝트 만들기
 
-가이드에 따라 [SubQuery 프로젝트 게시](publish.md)를 수행할 수 있지만 배포 소스를 설정한 곳에서 **IPFS**를 선택할 수 있습니다.
+You can follow the guide to [Publish your SubQuery project](../run_publish/publish.md) but where you set your deployment source you can select **IPFS**.
 
 그런 다음 프로덕션 슬롯을 선택하고 IPFS 배포 CID(앞에 `ipfs://` 제외)를 복사하여 붙여넣습니다.
 
