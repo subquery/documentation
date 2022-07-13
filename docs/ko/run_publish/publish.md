@@ -15,7 +15,7 @@
 
 **GitHub**: Your project's codebase must be in a public GitHub repository.
 
-**IPFS**: Your project's codebase can be stored in IPFS, you can follow our IPFS hosting guide to see how to [first publish to IPFS](ipfs.md).
+**IPFS**: Your project's codebase can be stored in IPFS, you can follow our IPFS hosting guide to see how to [first publish to IPFS](../run_publish/ipfs.md).
 
 ### SubQuery 프로젝트에 로그인
 
@@ -31,11 +31,11 @@ SubQuery 프로젝트는 SubQuery 플랫폼에 업로드된 모든 호스팅 프
 
 ![프로젝트 로그인](/assets/img/projects-dashboard.png)
 
-GitHub 조직 계정이 연결된 경우 헤더의 스위처를 사용하여 개인 계정과 GitHub 조직 계정 간에 변경할 수 있습니다. GitHub 조직 계정에서 생성된 프로젝트는 해당 GitHub 조직의 구성원 간에 공유됩니다. GitHub 조직 계정을 연결하려면 [여기의 단계를 따르세요](#add-github-organization-account-to-subquery-projects).
+GitHub 조직 계정이 연결된 경우 헤더의 스위처를 사용하여 개인 계정과 GitHub 조직 계정 간에 변경할 수 있습니다. GitHub 조직 계정에서 생성된 프로젝트는 해당 GitHub 조직의 구성원 간에 공유됩니다. To connect your GitHub Organization account, you can [follow the steps here](publish.md#add-github-organization-account-to-subquery-projects).
 
 ![GitHub 계정 간 전환](/assets/img/projects-account-switcher.png)
 
-### 첫 번째 프로젝트 만들기
+### Create Your First Project
 
 There are two methods to create a project in the SubQuery Managed Service, you can use the UI or directly via the `subql` cli tool.
 
@@ -50,7 +50,9 @@ Let's start by clicking on "Create Project". You'll be taken to the New Project 
 - **GitHub 저장 URL:** 이것은 SubQuery 프로젝트가 있는 공개 저장소에 대한 유효한 GitHub URL이어야 합니다. The `schema.graphql` file must be in the root of your directory ([learn more about the directory structure](../build/introduction.md#directory-structure)).
 - **데이터베이스:** 프리미엄 고객은 프로덕션 SubQuery 프로젝트를 호스팅하기 위한 전용 데이터베이스에 액세스할 수 있습니다. 관심이 있는 경우 [sales@subquery.network](mailto:sales@subquery.network)에 연락하여 이 설정을 활성화할 수 있습니다.
 - **배포 소스:** GitHub 리포지토리에서 프로젝트를 배포하거나 IPFS CID에서 배포하도록 선택할 수 있습니다. [IPFS를 사용한 호스팅](ipfs.md)에 대한 가이드를 참조하세요.
-- **Hide project:**선택하면, 공개 SubQuery 탐색기에서 프로젝트를 숨깁니다. 커뮤니티와 SubQuery를 공유하려면 이 항목을 선택하지 않은 상태로 유지하십시오! ![첫 번째 프로젝트 만들기](/assets/img/projects-create.png)
+- **Hide project:**선택하면, 공개 SubQuery 탐색기에서 프로젝트를 숨깁니다. 커뮤니티와 SubQuery를 공유하려면 이 항목을 선택하지 않은 상태로 유지하십시오!
+
+![Create your first Project](/assets/img/projects-create.png)
 
 Create your project and you'll see it on your SubQuery Project's list. _We're almost there! We just need to deploy a new version of it._
 
@@ -61,7 +63,7 @@ Create your project and you'll see it on your SubQuery Project's list. _We're al
 You can also use `@subql/cli` to publish your project to our managed service. This requires:
 
 - `@subql/cli` version 1.1.0 or above.
-- A valid [SUBQL_ACCESS_TOKEN]() ready.
+- A valid [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) ready.
 
 ```shell
 // Creating a project using the CLI
