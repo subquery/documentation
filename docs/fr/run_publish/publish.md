@@ -15,7 +15,7 @@ Il y a deux façons d'héberger la base de code de votre projet SubQuery avant d
 
 **GitHub**: Your project's codebase must be in a public GitHub repository.
 
-**IPFS**: Your project's codebase can be stored in IPFS, you can follow our IPFS hosting guide to see how to [first publish to IPFS](ipfs.md).
+**IPFS**: Your project's codebase can be stored in IPFS, you can follow our IPFS hosting guide to see how to [first publish to IPFS](../run_publish/ipfs.md).
 
 ### Connectez-vous à SubQuery Projects
 
@@ -31,11 +31,11 @@ SubQuery Projects est l'endroit où vous gérez tous vos projets hébergés tél
 
 ![Connexion aux projets](/assets/img/projects-dashboard.png)
 
-Si vous avez un compte d'organisation GitHub connecté, vous pouvez utiliser le commutateur situé dans l'en-tête pour passer de votre compte personnel à votre compte d'organisation GitHub. Les projets créés dans un compte d'organisation GitHub sont partagés entre les membres de cette organisation GitHub. Pour connecter votre compte d'organisation GitHub, vous pouvez suivre [les étapes suivantes](#add-github-organization-account-to-subquery-projects).
+Si vous avez un compte d'organisation GitHub connecté, vous pouvez utiliser le commutateur situé dans l'en-tête pour passer de votre compte personnel à votre compte d'organisation GitHub. Les projets créés dans un compte d'organisation GitHub sont partagés entre les membres de cette organisation GitHub. To connect your GitHub Organization account, you can [follow the steps here](publish.md#add-github-organization-account-to-subquery-projects).
 
 ![Passer d'un compte GitHub à un autre](/assets/img/projects-account-switcher.png)
 
-### Créez votre premier projet
+### Create Your First Project
 
 There are two methods to create a project in the SubQuery Managed Service, you can use the UI or directly via the `subql` cli tool.
 
@@ -50,7 +50,9 @@ Let's start by clicking on "Create Project". You'll be taken to the New Project 
 - **L'URL du dépôt GitHub:** Il doit s'agir d'une URL GitHub valide vers un dépôt public qui contient votre projet SubQuery. The `schema.graphql` file must be in the root of your directory ([learn more about the directory structure](../build/introduction.md#directory-structure)).
 - **Base de données :** Les clients Premium peuvent accéder à des bases de données dédiées pour héberger des projets de SubQuery de production. Si cela vous intéresse, vous pouvez contacter [sales@subquery.network](mailto:sales@subquery.network) pour activer ce paramètre.
 - **Source de déploiement :** Vous pouvez choisir de faire déployer le projet depuis le dépôt GitHub ou de le déployer alternativement depuis un CID IPFS, voir notre guide sur [l'hébergement avec IPFS.](ipfs.md)
-- **Masquer le projet :** Si cette option est sélectionnée, le projet sera masqué dans l'explorateur public SubQuery. Ne sélectionnez pas cette option si vous souhaitez partager votre SubQuery avec la communauté ! ![Créez votre premier projet](/assets/img/projects-create.png)
+- **Masquer le projet :** Si cette option est sélectionnée, le projet sera masqué dans l'explorateur public SubQuery. Ne sélectionnez pas cette option si vous souhaitez partager votre SubQuery avec la communauté !
+
+![Create your first Project](/assets/img/projects-create.png)
 
 Create your project and you'll see it on your SubQuery Project's list. _We're almost there! We just need to deploy a new version of it._
 
@@ -61,7 +63,7 @@ Create your project and you'll see it on your SubQuery Project's list. _We're al
 You can also use `@subql/cli` to publish your project to our managed service. This requires:
 
 - `@subql/cli` version 1.1.0 or above.
-- A valid [SUBQL_ACCESS_TOKEN]() ready.
+- A valid [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) ready.
 
 ```shell
 // Creating a project using the CLI
