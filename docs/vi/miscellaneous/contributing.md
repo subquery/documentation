@@ -31,24 +31,24 @@ Lỗi được theo dõi là sự cố GitHub. Khi ghi nhật ký sự cố, hã
 
 ### Gửi Pull Requests
 
-Nói chung, chúng tôi tuân theo quy trình làm việc Git "fork-and-pull"
+In general, we follow the "fork-and-pull" Git workflow:
 
-* Chuyển tập mã nguồn vào tài khoản Github của riêng bạn
-* Sao chép dự án vào máy của bạn
-* Tạo một nhánh cục bộ với tên ngắn gọn nhưng mô tả đầy đủ
-* Commit các thay đổi đối với nhánh
-* Tuân theo mọi nguyên tắc định dạng và kiểm tra cụ thể cho tập mã nguồn này
-* Đẩy các thay đổi đối với nhánh của bạn
-* Mở một PR trong tập mã nguồn của chúng tôi
+* Fork the repository to your own Github account.
+* Clone the project to your machine.
+* Create a branch locally with a succinct but descriptive name.
+* Commit changes to the branch.
+* Following any formatting and testing guidelines specific to this repo.
+* Push changes to your fork.
+* Open a PR in our repository.
 
 ## Quy ước mã hóa
 
 ### Thông báo cam kết Git
 
-* Sử dụng thì hiện tại ("Thêm tính năng" không phải "Đã thêm tính năng")
-* Sử dụng mệnh lệnh thức ("Move cursor to..." not "Moves cursor to...")
-* Giới hạn dòng đầu tiên trong vòng 72 ký tự trở xuống
+* Use the present tense ("Add feature" not "Added feature").
+* Use the imperative mood ("Move cursor to..." not "Moves cursor to...").
+* Limit the first line to 72 characters or less.
 
 ### Hướng dẫn định kiểu JavaScript
 
-* Tất cả mã JavaScript được in bằng Prettier và ESLint
+* All JavaScript code is linted with Prettier and ESLint.
