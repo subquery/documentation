@@ -6,7 +6,7 @@ SubQuery sekarang juga mendukung Graphql Subscriptions. Seperti kueri, langganan
 
 Langganan sangat berguna ketika Anda ingin aplikasi klien Anda mengubah data atau menampilkan beberapa data baru segera setelah perubahan itu terjadi atau data baru tersedia. Langganan memungkinkan Anda untuk *berlangganan* ke proyek SubQuery Anda untuk perubahan.
 
-[Baca lebih lanjut tentang langganan di sini](https://www.apollographql.com/docs/react/data/subscriptions/)
+[Read more about subscriptions here](https://www.apollographql.com/docs/react/data/subscriptions/).
 
 ## Cara Berlangganan Entitas
 
@@ -25,8 +25,8 @@ subscription {
 ```
 
 Badan entitas dalam kueri Anda menunjukkan data apa yang ingin Anda terima melalui langganan Anda saat tabel `Transfer` diperbarui:
-- `id`: Mengembalikan ID entitas yang telah diubah
-- `mutation_type`: Tindakan yang telah dilakukan pada entitas ini. Jenis mutasi dapat berupa `INSERT`, `UPDATE` or `DELETE`
+- `id`: Returns the ID of the entity that has changed.
+- `mutation_type`: Tindakan yang telah dilakukan pada entitas ini. Mutation types can be either `INSERT`, `UPDATE` or `DELETE`.
 - `_entity`: nilai entitas itu sendiri dalam format JSON.
 
 ## Penyaringan
@@ -62,7 +62,7 @@ subscription {
 }
 ```
 
-Perhatikan bahwa filter `mutasi` dapat menjadi salah satu dari `INSERT`, `UPDATE` or `DELETE`
+Note that the `mutation` filter can be one of `INSERT`, `UPDATE` or `DELETE`.
 
 **Harap perhatikan bahwa Anda harus mengaktifkan tanda `--berlangganan` pada node dan layanan kueri untuk menggunakan fungsi ini.**
 
