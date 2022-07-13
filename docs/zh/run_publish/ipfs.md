@@ -8,7 +8,7 @@ Hosting a project in IPFS makes it available for all and reduces your reliance o
 
 - `@subql/cli` 版本 0.21.0 或以上.
 - Manifest `spec版本` 0.2.0 及以上.
-- 准备好您的 [SUBQL_ACCESS_TOKEN](#prepare-your-subql-access-token)
+- Get your [SUBQL_ACCESS_TOKEN](ipfs.md#prepare-your-subql-access-token) ready.
 - 为了确保您的部署成功，我们强烈建议您使用 `subql build` 命令来构建您的项目。 并在发布前在本地测试它。
 
 ## 准备您的 SUBQL_ACCESS_TOKEN
@@ -66,7 +66,7 @@ Uploading SupQuery project to IPFS
 SubQuery Project uploaded to IPFS: QmZ3q7YZSmhwBiot4PQCK3c7Z6HkteswN2Py58gkkZ8kNd  //CID
 ```
 
-请注意此 `CID`。 With this `CID`, you can view your published project as what we call it [IPFS Deployment](#ipfs-deployment).
+请注意此 `CID`。 With this `CID`, you can view your published project as what we call it [IPFS Deployment](ipfs.md#ipfs-deployment).
 
 ## IPFS部署
 
@@ -107,7 +107,7 @@ specVersion: 0.2.0
 
 ### 使用IPFS部署创建项目
 
-您可以遵循[发布您的SubQuery项目](publish.md)指南，但是您也可以选择 **IPFS**作为您的部署源。
+You can follow the guide to [Publish your SubQuery project](../run_publish/publish.md) but where you set your deployment source you can select **IPFS**.
 
 然后选择你的产品插槽，复制并粘贴你的IPFS部署CID(去掉前面的`ipfs://`)。
 
