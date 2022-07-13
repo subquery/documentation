@@ -14,6 +14,4 @@ Nuestro archivo Figma tiene una colección completa de todos los activos de la m
 
 ## Paquete de Recursos de Marca
 
-Un paquete ZIP más pequeño de activos de marca
-
-[public_branding.zip](https://static.subquery.network/public_branding.zip)
+A smaller ZIP package of brand assets: [public_branding.zip](https://static.subquery.network/public_branding.zip).
