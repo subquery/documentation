@@ -6,7 +6,7 @@ SubQuery unterstützt jetzt auch Graphql-Abonnements. Wie Abfragen ermöglichen 
 
 Abonnements sind sehr nützlich, wenn Sie möchten, dass Ihre Clientanwendung Daten ändert oder einige neue Daten anzeigt, sobald diese Änderung eintritt oder die neuen Daten verfügbar sind. Mit Abonnements können Sie Ihr SubQuery-Projekt für Änderungen *abonnieren*.
 
-[Read more about subscriptions here](https://www.apollographql.com/docs/react/data/subscriptions/).
+::: info Note Read more about [Subscriptions](https://www.apollographql.com/docs/react/data/subscriptions/). :::
 
 ## So abonnieren Sie eine Entität
 
@@ -65,6 +65,8 @@ subscription {
 
 Note that the `mutation` filter can be one of `INSERT`, `UPDATE` or `DELETE`.
 
-**Bitte beachten Sie, dass Sie das Flag `--subscription` sowohl im Node als auch im Abfragedienst aktivieren müssen, um diese Funktionen nutzen zu können.**
+::: warning Important Please note that you must enable the `--subscription` flag on both the node and query service in order to use these functions. :::
 
-Die Abonnementfunktion funktioniert auf dem verwalteten Dienst SubQueries, wenn Sie den aufgelisteten GraphQL-Endpunkt direkt aufrufen. Es funktioniert nicht innerhalb des GraphQL-Playgrounds im Browser.
+::: warning Important
+The subcription feature works on SubQuery's managed service when you directly call the listed GraphQL endpoint. Es funktioniert nicht innerhalb des GraphQL-Playgrounds im Browser.
+:::
