@@ -31,24 +31,24 @@
 
 ### Подаване на заявки за изтегляне
 
-In general, we follow the "fork-and-pull" Git workflow:
+Като цяло ние следваме работния процес на Git "разклони и издърпай":
 
-* Fork the repository to your own Github account.
-* Clone the project to your machine.
-* Create a branch locally with a succinct but descriptive name.
-* Commit changes to the branch.
-* Following any formatting and testing guidelines specific to this repo.
-* Push changes to your fork.
-* Open a PR in our repository.
+* Разклонете хранилището към вашия собствен Github акаунт.
+* Клонирайте проекта на вашата машина.
+* Създайте клон локално със сбито, но описателно име.
+* Извършете промени в клона.
+* Следвайки всички указания за форматиране и тестване, специфични за това репо.
+* Изпратете промените във вашата вилица.
+* Отворете PR в нашето хранилище.
 
 ## Правила за кодиране
 
 ### Git Commit съобщения
 
-* Use the present tense ("Add feature" not "Added feature").
-* Use the imperative mood ("Move cursor to..." not "Moves cursor to...").
-* Limit the first line to 72 characters or less.
+* Използвайте сегашно време („Добавяне на функция“, а не „Добавена функция“).
+* Използвайте повелително наклонение („Преместване на курсора на...“, а не „Преместване на курсора на...“).
+* Ограничете първия ред до 72 знака или по-малко.
 
 ### JavaScript Styleguide
 
-* All JavaScript code is linted with Prettier and ESLint.
+* Целият JavaScript код е линтиран с Prettier и ESLint.
