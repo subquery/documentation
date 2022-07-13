@@ -20,7 +20,7 @@ Chúng tôi khuyên bạn chỉ nên triển khai vào vị trí dàn dựng c�
 Vị trí dàn dựng sẽ hoàn hảo cho việc:
 
 - Xác thực lần cuối các thay đổi đối với Dự án SubQuery của bạn trong một môi trường riêng biệt. Vị trí dàn dựng có một URL khác để xuất bản mà bạn có thể sử dụng trong dApps của mình.
-- Khởi động và lập chỉ mục dữ liệu cho một dự án SubQuery được cập nhật để loại bỏ thời gian chết trong dApp của bạn
+- Warming up and indexing data for an updated SubQuery project to eliminate downtime in your dApp.
 - Chuẩn bị một bản phát hành mới cho Dự án SubQuery của bạn với chế độ không công khai. Vị trí dàn dựng không được hiển thị công khai trong Explorer và có một URL duy nhất chỉ hiển thị cho bạn.
 
 ![Vị trí dàn dựng](/assets/img/staging_slot.png)
