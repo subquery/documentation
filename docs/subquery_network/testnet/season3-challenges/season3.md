@@ -6,7 +6,7 @@ Now,
 
 - If you are an Indexer, jump to [Indexers Challenges Section](../season3-challenges/season3.md#indexer-challenges).
 - If you are a Delegator, jump to [Delegator Challenges Section](../season3-challenges/season3.md#delegator-challenges).
-- If you are a Consumer, jump to [Consumers Challenges Section](../season3-challenges/season3.md#consumer-challenges)
+- If you are a Consumer, jump to [Consumers Challenges Section](../season3-challenges/season3.md#consumer-challenges).
 
 ## Indexer Challenges
 
