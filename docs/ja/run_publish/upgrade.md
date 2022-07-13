@@ -20,7 +20,7 @@ We recommend deploying to your staging slot only for final staging testing or wh
 The staging slot is perfect for:
 
 - SubQuery Projectの変更を別環境で最終検証します。 ステージングスロットは、dAppsで使用できる本番環境とは異なるURLを持っています。
-- 更新されたSubQueryプロジェクトのデータのウォームアップとインデックス作成により、dAppのダウンタイムをなくすことができます
+- Warming up and indexing data for an updated SubQuery project to eliminate downtime in your dApp.
 - 公開せずに、SubQuery プロジェクトの新しいリリースを準備します。 ステージングスロットはエクスプローラでは公開されず、あなただけに表示される固有のURLを持っています。
 
 ![Staging slot](/assets/img/staging_slot.png)
