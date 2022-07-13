@@ -113,7 +113,7 @@ dataSources:
             method: Transfer
 ```
 
-::: note Note
+::: info Note
 Note the inclusion of a dictionary and the exclusion of the genesisHash.
 :::
 

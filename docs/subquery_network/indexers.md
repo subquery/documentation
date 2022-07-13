@@ -71,9 +71,9 @@ Here are some of the maintenance and/or operational requirements Indexers should
 The minimum infrastructure requirement includes:
 
 - At least one computational node to run the following services:
-  - [Node (indexing) Service](https://www.npmjs.com/package/@subql/node)
-  - [Query Service](https://www.npmjs.com/package/@subql/query) 
-  - [Indexer Coordinator Service](https://www.npmjs.com/package/@subql/indexer-coordinator)
+  - [Node (indexing) Service](https://www.npmjs.com/package/@subql/node).
+  - [Query Service](https://www.npmjs.com/package/@subql/query).
+  - [Indexer Coordinator Service](https://www.npmjs.com/package/@subql/indexer-coordinator).
 - One database node to run Postgresql db (v12 and above).
 
 More detailed information will come soon.

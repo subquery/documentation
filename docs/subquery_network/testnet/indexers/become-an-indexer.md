@@ -91,7 +91,7 @@ _You can run the Indexing Service:_
 2. On AWS or other cloud Services
 3. On Linux
 
-::: note
+::: info Note
 If you are just a beginner, we advise you to run the indexing service locally.
 :::
 

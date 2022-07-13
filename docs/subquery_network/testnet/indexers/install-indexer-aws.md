@@ -159,4 +159,4 @@ Now, you have successfully set up an Indexer VM on AWS.
 
 ## Next Step
 
-After setting up the Indexer, you must proceed ahead to connect your application with MetaMask. Visit our guide on [How to connect with a MetaMask](../metamask/connect-metamask.md)
+After setting up the Indexer, you must proceed ahead to connect your application with MetaMask. Visit our guide on [How to connect with a MetaMask](../metamask/connect-metamask.md).

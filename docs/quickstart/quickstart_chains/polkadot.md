@@ -177,7 +177,7 @@ npm run-script start:docker
   </CodeGroupItem>
 </CodeGroup>
 
-::: tip Tip
+::: info Note
 It may take a few minutes to download the required images and start the various nodes and Postgres databases.
 ::: 
 

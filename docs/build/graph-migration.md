@@ -4,7 +4,9 @@ When we set out to build SubQuery, we always planned to make the developer exper
 
 The migration from a SubGraph to a SubQuery Project is (by design) easy and quick. It may take you an hour or two to complete the migration, depending on the complexity of your SubGraph.
 
-::: info Want Support During Migration?
+::: tip Tip
+
+**Want Support During Migration?**
 
 Reach out to our team at sales@subquery.network and get professional service to manage the migration for you.
 
