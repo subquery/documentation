@@ -2,10 +2,10 @@
 
 ## Manfaat menghosting proyek Anda dengan SubQuery
 
-- Kami akan menjalankan proyek SubQuery untuk Anda dalam layanan publik berkinerja tinggi, skalabel, dan terkelola
+- We'll run your SubQuery projects for you in a high performance, scalable, and managed public service.
 - Layanan ini disediakan untuk komunitas secara gratis!
-- Anda dapat menjadikan proyek Anda publik sehingga akan dicantumkan di [SubQuery Explorer](https://explorer.subquery.network) dan siapa saja di seluruh dunia dapat melihatnya
-- Kami terintegrasi dengan GitHub, jadi siapa pun di organisasi GitHub Anda dapat melihat proyek organisasi bersama
+- You can make your projects public so that they'll be listed in the [SubQuery Explorer](https://explorer.subquery.network) and anyone around the world can view them.
+- We're integrated with GitHub, so anyone in your GitHub organisations will be able to view shared organisation projects.
 
 ## Buat proyek pertama Anda di Proyek SubQuery
 
@@ -13,9 +13,9 @@
 
 Ada dua cara Anda dapat menghosting basis kode proyek SubQuery Anda sebelum dipublikasikan.
 
-**GitHub**: Basis kode proyek Anda harus berada di repositori GitHub publik
+**GitHub**: Your project's codebase must be in a public GitHub repository.
 
-**IPFS**: Basis kode proyek Anda dapat disimpan di IPFS, Anda dapat mengikuti panduan hosting IPFS kami untuk melihat cara [memublikasikan pertama ke IPFS](ipfs.md)
+**IPFS**: Your project's codebase can be stored in IPFS, you can follow our IPFS hosting guide to see how to [first publish to IPFS](ipfs.md).
 
 ### Masuk ke Proyek SubQuery
 
@@ -86,12 +86,12 @@ Meskipun membuat proyek akan menyiapkan perilaku tampilan proyek, Anda harus men
 
 Dengan proyek baru Anda, Anda akan melihat tombol Deploy New Version. Klik ini, dan isi informasi yang diperlukan tentang penyebaran:
 
-- **Cabang:** Dari GitHub, pilih cabang proyek yang ingin Anda gunakan
-- **Komit Hash:** Dari GitHub, pilih komit spesifik dari versi basis kode proyek SubQuery yang ingin Anda terapkan
-- **IPFS:** Jika menerapkan dari IPFS, tempel CID penerapan IPFS Anda (tanpa awalan `ipfs://`)
-- **Ganti Titik Akhir Jaringan dan Kamus:** Anda dapat mengganti titik akhir dalam manifes proyek Anda di sini
-- **Versi Pengindeks:** Ini adalah versi layanan simpul SubQuery yang Anda inginkan untuk menjalankan SubQuery ini. Lihat[`@subql/node`](https://www.npmjs.com/package/@subql/node)
-- **Versi Kueri:** Ini adalah versi layanan kueri SubQuery yang Anda inginkan untuk menjalankan SubQuery ini. Lihat [`@subql/query`](https://www.npmjs.com/package/@subql/query)
+- **Branch:** From GitHub, select the branch of the project that you want to deploy from.
+- **Commit Hash:** From GitHub, select the specific commit of the version of your SubQuery project codebase that you want deployed.
+- **IPFS:** If deploying from IPFS, paste you IPFS deployment CID (without the leading `ipfs://`).
+- **Override Network and Dictionary Endpoints:** You can override the endpoints in your project manifest here.
+- **Versi Pengindeks:** Ini adalah versi layanan simpul SubQuery yang Anda inginkan untuk menjalankan SubQuery ini. See [`@subql/node`](https://www.npmjs.com/package/@subql/node).
+- **Versi Kueri:** Ini adalah versi layanan kueri SubQuery yang Anda inginkan untuk menjalankan SubQuery ini. See [`@subql/query`](https://www.npmjs.com/package/@subql/query).
 
 ![Terapkan Proyek pertama Anda](https://static.subquery.network/media/projects/projects-first-deployment.png)
 
