@@ -2,17 +2,17 @@
 
 Selamat datang dan terima kasih banyak telah mempertimbangkan untuk berkontribusi pada proyek SubQuery ini! Bersama-sama kita dapat membuka jalan menuju masa depan yang lebih terdesentralisasi.
 
-> Dokumentasi ini dikelola secara aktif oleh tim SubQuery. Kami menyambut kontribusi Anda, Anda dapat melakukannya dengan melakukan forking pada proyek GitHub kami dan membuat perubahan pada semua file dokumentasi markdown di bawah direktori `docs`.
+::: info Note This documentation is actively maintained by the SubQuery team. We welcome your contributions. You can do so by forking our GitHub project and making changes to all the documentation markdown files under the `docs` directory. :::
 
-Berikut ini adalah seperangkat pedoman (bukan aturan) untuk berkontribusi pada SubQuery. Mengikuti panduan ini akan membantu kami membuat proses kontribusi menjadi mudah dan efektif untuk semua orang yang terlibat. Ini juga menyampaikan bahwa Anda setuju untuk menghormati waktu dari developer yang mengelola dan mengembangkan proyek ini. Sebagai imbalannya, kami akan membalas rasa hormat itu dengan mengatasi masalah Anda, mempertimbangkan perubahan, berkolaborasi dalam peningkatan, dan membantu Anda menyelesaikan pull request Anda.
+What follows is a set of guidelines (not rules) for contributing to SubQuery. Following these guidelines will help us make the contribution process easy and effective for everyone involved. It also communicates that you agree to respect the time of the developers managing and developing this project. In return, we will reciprocate that respect by addressing your issue, considering changes, collaborating on improvements, and helping you finalise your pull requests.
 
 ## Kode Etik
 
-Kami menganggap serius proyek dan tanggung jawab komunitas open source kami dan menjaga diri kami dan kontributor lain pada standar komunikasi yang tinggi. Dengan berpartisipasi dan berkontribusi pada proyek ini, Anda setuju untuk menjunjung [Kode Etik](https://github.com/subquery/subql/blob/contributors-guide/CODE_OF_CONDUCT.md) kami.
+We take our open source community projects and responsibility seriously and hold ourselves and other contributors to high standards of communication. By participating and contributing to this project, you agree to uphold our [Code of Conduct](https://github.com/subquery/subql/blob/main/CODE_OF_CONDUCT.md).
 
 ## Memulai
 
-Kontribusi ke repositori kami dilakukan melalui Issue and Pull Request (PR). Beberapa pedoman umum yang mencakup keduanya:
+Contributions to our repositories are made through Issues and Pull Requests (PRs). A few general guidelines that cover both:
 
 * Cari Issue and PR yang ada terlebih dahulu sebelum membuat milik Anda sendiri.
 * Kami bekerja keras untuk memastikan issue ditangani dengan segera, tetapi tergantung pada dampaknya, mungkin bisa memakan waktu cukup lama untuk menyelidiki akar masalahnya. Sebuah @ sebutan ramah di utas komentar kepada pengirim atau kontributor dapat membantu menarik perhatian jika issue Anda terblokir.
@@ -21,7 +21,7 @@ Kontribusi ke repositori kami dilakukan melalui Issue and Pull Request (PR). Beb
 
 ### Melaporkan Bug
 
-Bug dilacak sebagai issue GitHub. Saat mencatatkan log issue, jelaskan masalahnya dan sertakan detail tambahan untuk membantu pengelola mereproduksi masalah itu:
+Bugs are tracked as GitHub issues. When logging an issue, explain the problem and include additional details to help maintainers reproduce the problem:
 
 * Gunakan judul issue yang jelas dan deskriptif untuk mengidentifikasi masalah.
 * Jelaskan langkah-langkah yang akurat untuk mereproduksi masalah.
