@@ -2,10 +2,10 @@
 
 ## Vorteile des Hostens Ihres Projekts mit SubQuery
 
-- Wir führen Ihre SubQuery-Projekte für Sie in einem leistungsstarken, skalierbaren und verwalteten öffentlichen Dienst durch
+- We'll run your SubQuery projects for you in a high performance, scalable, and managed public service.
 - Dieser Service wird der Community kostenlos zur Verfügung gestellt!
-- Sie können Ihre Projekte öffentlich machen, damit sie im [SubQuery Explorer](https://explorer.subquery.network) aufgelistet werden und jeder auf der Welt sie sehen kann
-- Wir sind in GitHub integriert, sodass jeder in Ihren GitHub-Organisationen freigegebene Organisationsprojekte anzeigen kann
+- You can make your projects public so that they'll be listed in the [SubQuery Explorer](https://explorer.subquery.network) and anyone around the world can view them.
+- We're integrated with GitHub, so anyone in your GitHub organisations will be able to view shared organisation projects.
 
 ## Erstellen Sie Ihr erstes Projekt in SubQuery Projects
 
@@ -13,9 +13,9 @@
 
 Es gibt zwei Möglichkeiten, wie Sie die Codebasis Ihres SubQuery-Projekts vor der Veröffentlichung hosten können.
 
-**GitHub**: Die Codebasis Ihres Projekts muss sich in einem öffentlichen GitHub-Repository befinden
+**GitHub**: Your project's codebase must be in a public GitHub repository.
 
-**IPFS**: Die Codebasis Ihres Projekts kann in IPFS gespeichert werden. Folgen Sie unserem IPFS-Hosting-Leitfaden, um zu erfahren, wie Sie [zuerst in IPFS veröffentlichen](ipfs.md)
+**IPFS**: Your project's codebase can be stored in IPFS, you can follow our IPFS hosting guide to see how to [first publish to IPFS](ipfs.md).
 
 ### Melden Sie sich bei SubQuery-Projekten an
 
@@ -86,12 +86,12 @@ Während das Erstellen eines Projekts das Anzeigeverhalten des Projekts einricht
 
 Bei Ihrem neuen Projekt sehen Sie die Schaltfläche Neue Version bereitstellen. Klicken Sie darauf und geben Sie die erforderlichen Informationen zur Bereitstellung ein:
 
-- **Branch:** Wählen Sie auf GitHub den Zweig des Projekts aus, von dem aus Sie bereitstellen möchten
-- **Commit-Hash:** Wählen Sie auf GitHub den spezifischen Commit der Version Ihrer SubQuery-Projektcodebasis aus, die Sie bereitstellen möchten
-- **IPFS:** Wenn Sie von IPFS aus bereitstellen, fügen Sie Ihre IPFS-Bereitstellungs-CID ein (ohne das vorangestellte `ipfs://`).
-- **Netzwerk- und Wörterbuchendpunkte überschreiben:** Hier können Sie die Endpunkte in Ihrem Projektmanifest überschreiben
-- **Indexer Version:** Dies ist die Version des Nodendienstes von SubQuery, auf der Sie diese SubQuery ausführen möchten. Sehen Sie [`@subql/node`](https://www.npmjs.com/package/@subql/node)
-- **Query Version:** Dies ist die Version des Abfragedienstes von SubQuery, auf der Sie diese SubQuery ausführen möchten. Sehen Sie [`@subql/query`](https://www.npmjs.com/package/@subql/query)
+- **Branch:** From GitHub, select the branch of the project that you want to deploy from.
+- **Commit Hash:** From GitHub, select the specific commit of the version of your SubQuery project codebase that you want deployed.
+- **IPFS:** If deploying from IPFS, paste you IPFS deployment CID (without the leading `ipfs://`).
+- **Override Network and Dictionary Endpoints:** You can override the endpoints in your project manifest here.
+- **Indexer Version:** Dies ist die Version des Nodendienstes von SubQuery, auf der Sie diese SubQuery ausführen möchten. See [`@subql/node`](https://www.npmjs.com/package/@subql/node).
+- **Query Version:** Dies ist die Version des Abfragedienstes von SubQuery, auf der Sie diese SubQuery ausführen möchten. See [`@subql/query`](https://www.npmjs.com/package/@subql/query).
 
 ![Stellen Sie Ihr erstes Projekt bereit](https://static.subquery.network/media/projects/projects-first-deployment.png)
 
