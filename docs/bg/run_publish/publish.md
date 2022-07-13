@@ -15,7 +15,7 @@
 
 **GitHub**: Your project's codebase must be in a public GitHub repository.
 
-**IPFS**: Your project's codebase can be stored in IPFS, you can follow our IPFS hosting guide to see how to [first publish to IPFS](ipfs.md).
+**IPFS**: Your project's codebase can be stored in IPFS, you can follow our IPFS hosting guide to see how to [first publish to IPFS](../run_publish/ipfs.md).
 
 ### Влезте в SubQuery Projects
 
@@ -31,11 +31,11 @@ SubQuery Projects е мястото, където управлявате вси�
 
 ![Вход в Проекти](/assets/img/projects-dashboard.png)
 
-Ако имате свързани акаунти на организацията GitHub, можете да използвате превключвателя в хедъра, за да превключите между личния си акаунт и акаунта на организацията в GitHub. Проектите, създадени в акаунт на GitHub Organization, се споделят между членовете в тази GitHub организация. За да свържете своя акаунт в GitHub Organization, можете да [следвате стъпките тук](#add-github-organization-account-to-subquery-projects).
+Ако имате свързани акаунти на организацията GitHub, можете да използвате превключвателя в хедъра, за да превключите между личния си акаунт и акаунта на организацията в GitHub. Проектите, създадени в акаунт на GitHub Organization, се споделят между членовете в тази GitHub организация. To connect your GitHub Organization account, you can [follow the steps here](publish.md#add-github-organization-account-to-subquery-projects).
 
 ![Превключване между акаунти в GitHub](/assets/img/projects-account-switcher.png)
 
-### Създайте своя първи проект
+### Create Your First Project
 
 There are two methods to create a project in the SubQuery Managed Service, you can use the UI or directly via the `subql` cli tool.
 
@@ -50,7 +50,9 @@ Let's start by clicking on "Create Project". You'll be taken to the New Project 
 - **URL адрес на GitHub хранилище:** Това трябва да е валиден URL адрес на GitHub към публичното хранилище, което има вашият SubQuery проект. The `schema.graphql` file must be in the root of your directory ([learn more about the directory structure](../build/introduction.md#directory-structure)).
 - **Database:** Премиум клиентите имат достъп до специализирани бази данни, от които да хостват производствени проекти на SubQuery. Ако това ви интересува, можете да се свържете с [sales@subquery.network](mailto:sales@subquery.network), за да активирате тази настройка.
 - **Deployment Source:** Можете да изберете проектът да бъде внедрен от хранилището на GitHub или алтернативно да се внедри от IPFS CID, вижте нашето ръководство за [хостинг с IPFS.](ipfs.md)
-- **Скриване на проект:** Ако е маркирано, това ще скрие проекта от публичния SubQuery експлорър. Запазете това немаркирано, ако искате да споделите вашият SubQuery с общността! ![Създайте своя първи проект](/assets/img/projects-create.png)
+- **Скриване на проект:** Ако е маркирано, това ще скрие проекта от публичния SubQuery експлорър. Запазете това немаркирано, ако искате да споделите вашият SubQuery с общността!
+
+![Create your first Project](/assets/img/projects-create.png)
 
 Create your project and you'll see it on your SubQuery Project's list. _We're almost there! We just need to deploy a new version of it._
 
@@ -61,7 +63,7 @@ Create your project and you'll see it on your SubQuery Project's list. _We're al
 You can also use `@subql/cli` to publish your project to our managed service. This requires:
 
 - `@subql/cli` version 1.1.0 or above.
-- A valid [SUBQL_ACCESS_TOKEN]() ready.
+- A valid [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) ready.
 
 ```shell
 // Creating a project using the CLI
