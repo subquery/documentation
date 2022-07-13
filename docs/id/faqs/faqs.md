@@ -8,7 +8,7 @@ SubQuery juga menyediakan penyelenggaraan proyek kelas produksi gratis untuk pen
 
 ## Apa cara terbaik untuk memulai SubQuery?
 
-Cara terbaik untuk memulai SubQuery adalah dengan mencoba [tutorial Hello World](../quickstart/helloworld-localhost.md) kami. Ini adalah 5 menit berjalan sederhana untuk mengunduh template starter, membangun proyek, dan kemudian menggunakan Docker untuk menjalankan node di localhost Anda dan menjalankan kueri sederhana.
+The best way to get started with SubQuery is to try out our [Hello World tutorial](/assets/pdf/Hello_World_Lab.pdf). Ini adalah 5 menit berjalan sederhana untuk mengunduh template starter, membangun proyek, dan kemudian menggunakan Docker untuk menjalankan node di localhost Anda dan menjalankan kueri sederhana.
 
 ## Bagaimana saya bisa berkontribusi atau memberi masukan ke SubQuery?
 
