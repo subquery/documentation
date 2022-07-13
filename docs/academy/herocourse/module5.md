@@ -14,7 +14,7 @@
 
 **Documentation reference**
 
-[What are deployment slots?](/faqs/faqs/#how-much-does-it-cost-to-host-my-project-in-subquery-projects)
+[What are deployment slots?](/faqs/faqs.md#how-much-does-it-cost-to-host-my-project-in-subquery-projects)
 
 ## Lesson 3 - Exploring projects
 
@@ -60,7 +60,7 @@ It is common to publish your SubQuery project under the name of your GitHub Orga
 
 When deploying your project, it is possible to override your default network or dictionary endpoints with another network. For more information please see:
 
-- [5. Deploy your project](/run_publish/publish.md#deploy-your-first-version)
+- [Deploy your project](/run_publish/publish.md#deploy-your-first-version)
 
 To understand more about how dictionaries work, refer to:
 

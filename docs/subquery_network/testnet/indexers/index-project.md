@@ -16,7 +16,7 @@ If you are willing to become a SubQuery Indexer, you need to stake a minimum of 
 Depending on where the application has been installed, you may find the Indexer admin page at:
 
 - http://localhost:8000/
-- http://your-ec2-public-path:8000/ (for example [ec2-14-273-116-26.ap-southeast-2.compute.amazonaws.com:8000](http://ec2-54-253-236-26.ap-southeast-2.compute.amazonaws.com/))
+- http://your-ec2-public-path:8000/ (for example `ec2-14-273-116-26.ap-southeast-2.compute.amazonaws.com:8000`)
 - http://some-public-ip-address:8000
 
 ![Stake-SQT](/assets/img/stakeSQT_index_project.png)
@@ -35,7 +35,7 @@ Fill in the details to register your Indexer and confirm the MetaMask transactio
 
 ::: warning Important
 The proxy endpoint is the default public DNS for your EC2 instance.
-For example: [http://ec2-2-22-83-280.ap-southeast-2.compute.amazonaws.com](http://ec2-3-25-83-26.ap-southeast-2.compute.amazonaws.com/)
+For example: `http://ec2-2-22-83-280.ap-southeast-2.compute.amazonaws.com`
 :::
 
 ![Register MetMask-Confirm Transaction](/assets/img/registerconfirm_metamask_index_project.png)
