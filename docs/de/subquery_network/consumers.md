@@ -34,4 +34,4 @@ Sofern kein geschlossener Servicevertrag verwendet wird, gibt es einen oder mehr
 
 ### Was passiert, wenn ein Indexer offline geht?
 
-Sofern kein geschlossener Servicevertrag verwendet wird und mehr als ein Indexer Ihr SubQuery-Projekt indiziert, müsste einfach zu einem anderen Indexer gewechselt werden. Das ideale Szenario wäre Strategien wie Alarmüberwachung, um über potenzielle Probleme informiert zu werden, sowie intelligentes Routing und Caching
+Sofern kein geschlossener Servicevertrag verwendet wird und mehr als ein Indexer Ihr SubQuery-Projekt indiziert, müsste einfach zu einem anderen Indexer gewechselt werden. The ideal scenario would be include strategies like alert monitoring to be notified of potential issues and intelligent routing and caching.
