@@ -15,7 +15,7 @@
 
 **GitHub**: Your project's codebase must be in a public GitHub repository.
 
-**IPFS**: Your project's codebase can be stored in IPFS, you can follow our IPFS hosting guide to see how to [first publish to IPFS](ipfs.md).
+**IPFS**: Your project's codebase can be stored in IPFS, you can follow our IPFS hosting guide to see how to [first publish to IPFS](../run_publish/ipfs.md).
 
 ### การเข้าสู่ระบบ SubQuery Projects
 
@@ -31,11 +31,11 @@ SubQuery Projects คือที่ที่คุณสามารถจั�
 
 ![เข้าสู่โปรเจกต์](/assets/img/projects-dashboard.png)
 
-ถ้าคุณเชื่อมต่อบัญชี GitHub Organization แล้ว คุณสามารถใช้ switcher ที่อยู่ด้านบนเพื่อเปลี่ยนระหว่างบัญชีส่วนตัวและบัญชี GitHub Organization ของคุณได้ โปรเจกต์ที่สร้างในบัญชี GitHub Organization จะถูกแบ่งปันกันระหว่างสมาชิกภายในองค์กร คุณสามารถเชื่อมต่อบัญชี GitHub Organization ของคุณได้โดย [การทำตามขั้นตอนเหล่านี้](#add-github-organization-account-to-subquery-projects)
+ถ้าคุณเชื่อมต่อบัญชี GitHub Organization แล้ว คุณสามารถใช้ switcher ที่อยู่ด้านบนเพื่อเปลี่ยนระหว่างบัญชีส่วนตัวและบัญชี GitHub Organization ของคุณได้ โปรเจกต์ที่สร้างในบัญชี GitHub Organization จะถูกแบ่งปันกันระหว่างสมาชิกภายในองค์กร To connect your GitHub Organization account, you can [follow the steps here](publish.md#add-github-organization-account-to-subquery-projects).
 
 ![สลับระหว่างบัญชี GitHub](/assets/img/projects-account-switcher.png)
 
-### สร้างโปรเจกต์แรกของคุณ
+### Create Your First Project
 
 There are two methods to create a project in the SubQuery Managed Service, you can use the UI or directly via the `subql` cli tool.
 
@@ -50,7 +50,9 @@ Let's start by clicking on "Create Project". You'll be taken to the New Project 
 - **GitHub Repository URL:** ต้องเป็น GitHub URL ที่ถูกต้องที่อยู่ใน repository สาธารณะที่มีโปรเจกต์ SubQuery ของคุณ The `schema.graphql` file must be in the root of your directory ([learn more about the directory structure](../build/introduction.md#directory-structure)).
 - **ฐานข้อมูล:** ลูกค้าระดับพรีเมียมสามารถเข้าถึงฐานข้อมูลเฉพาะเพื่อโฮสต์โปรเจกต์ SubQuery หากคุณสนใจ คุณสามารถติดต่อ [sales@subquery.network](mailto:sales@subquery.network) เพื่อเปิดการตั้งค่านี้
 - **Deployment Source:** คุณสามารถเลือกที่จะจัดโปรเจกต์เพื่อใช้งานจาก GitHub repository หรือ จาก IPFS CID ก็ได้ โดยคุณสามารถดูคำแนะนำของเราเกี่ยวกับ [การโฮสต์กับ IPFS.](ipfs.md)
-- **ซ่อนโปรเจกต์:** หากคุณเลือกที่จะซ่อนโปรเจกต์ โปรเจกต์ของคุณจะไม่ปรากฎบน SubQuery explorer สาธารณะ อย่าเลือกตัวเลือกนี้ หากคุณต้องการแบ่งปัน SubQuery ของคุณแก่คอมมูนิตี้! ![สร้างโปรเจกต์แรกของคุณ](/assets/img/projects-create.png)
+- **ซ่อนโปรเจกต์:** หากคุณเลือกที่จะซ่อนโปรเจกต์ โปรเจกต์ของคุณจะไม่ปรากฎบน SubQuery explorer สาธารณะ อย่าเลือกตัวเลือกนี้ หากคุณต้องการแบ่งปัน SubQuery ของคุณแก่คอมมูนิตี้!
+
+![Create your first Project](/assets/img/projects-create.png)
 
 Create your project and you'll see it on your SubQuery Project's list. _We're almost there! We just need to deploy a new version of it._
 
@@ -61,7 +63,7 @@ Create your project and you'll see it on your SubQuery Project's list. _We're al
 You can also use `@subql/cli` to publish your project to our managed service. This requires:
 
 - `@subql/cli` version 1.1.0 or above.
-- A valid [SUBQL_ACCESS_TOKEN]() ready.
+- A valid [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) ready.
 
 ```shell
 // Creating a project using the CLI
