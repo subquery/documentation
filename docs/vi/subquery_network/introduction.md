@@ -12,7 +12,7 @@ Mạng SubQuery đang tạo điều kiện cho một cuộc cách mạng dữ li
 
 ## Những người tham gia
 
-Mọi người trong mạng đều có vai trò, từ những nhà phát triển có kỹ thuật cao đến những người không có kỹ thuật. Mạng SubQuery bao gồm bốn người tham gia mạng chính
+Mọi người trong mạng đều có vai trò, từ những nhà phát triển có kỹ thuật cao đến những người không có kỹ thuật. The SubQuery network includes four main network participants.
 
 ### Người tiêu dùng
 
