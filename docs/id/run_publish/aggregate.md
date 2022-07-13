@@ -24,6 +24,6 @@ SubQuery menyediakan fungsi agregat berikut saat dalam mode tidak aman:
 - `varianceSample` (berlaku untuk bidang seperti angka) - varians sampel dari nilai
 - `variancePopulation` (berlaku untuk bidang seperti angka) - varians populasi dari nilai
 
-Implementasi fungsi agregat SubQuery didasarkan pada [pg-agregates](https://github.com/graphile/pg-aggregates), Anda dapat menemukan informasi lebih lanjut di sana
+SubQuery's implementation of aggregate functions is based on [pg-aggregates](https://github.com/graphile/pg-aggregates), you can find more information there.
 
-**Harap perhatikan bahwa Anda harus mengaktifkan tanda `--unsafe` pada layanan kueri untuk menggunakan fungsi ini. [Read more](./references.md#unsafe-2). Note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in [SubQuery's managed service](https://project.subquery.network))**
+**Please note that you must enable the `--unsafe` flag on the query service in order to use these functions. [Read more](./references.md#unsafe-2). Note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in [SubQuery's managed service](https://project.subquery.network))**.
