@@ -1,6 +1,6 @@
 # สืบค้นโปรเจกต์ของคุณใน SubQuery Explorer
 
-[SubQuery Explorer](https://explorer.subquery.network) เป็นบริการออนไลน์ ([explorer.subquery.network](https://explorer.subquery.network)) ที่ให้บริการการเข้าถึงโครงการ SubQuery ซึ่งเผยแพร่โดยผู้ร่วมให้ข้อมูลในคอมมูนิตี้ของเราและถูกจัดการโดยทีม SubQuery You can publish your own SubQuery projects to our explorer by following our guide to [Publish your SubQuery Project](../run_publish/publish.md).
+[SubQuery Explorer](https://explorer.subquery.network) is an online hosted service that provides access to published SubQuery projects made by contributors in our community and managed by the SubQuery team. You can publish your own SubQuery projects to our explorer by following our guide to [Publish your SubQuery Project](../run_publish/publish.md).
 
 ![SubQuery Explorer](https://static.subquery.network/media/explorer/explorer-header.png)
 
@@ -14,4 +14,4 @@ SubQuery explorer ทำให้การเริ่มต้นใช้ง�
 
 ![เอกสารเกี่ยวกับ SubQuery](https://static.subquery.network/media/explorer/explorer-documentation.png)
 
-[เรียนรู้เพิ่มเติมเกี่ยวกับภาษา GraphQL Query](./graphql.md)
+::: info Note Learn more about the [GraphQL Query language.](./graphql.md) :::
