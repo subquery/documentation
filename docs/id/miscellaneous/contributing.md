@@ -31,24 +31,24 @@ Bug dilacak sebagai issue GitHub. Saat mencatatkan log issue, jelaskan masalahny
 
 ### Mengirimkan Pull Request
 
-Secara umum, kami mengikuti alur kerja "fork-and-pull" Git
+In general, we follow the "fork-and-pull" Git workflow:
 
-* Fork repositori ke akun Github Anda sendiri
-* Clone proyek ke mesin Anda
-* Buat branch secara lokal dengan nama yang ringkas namun deskriptif
-* Commit perubahan ke branch
-* Ikuti pedoman pemformatan dan testing apa pun yang khusus untuk repo ini
-* Push perubahan ke fork Anda
-* Buka sebuah PR di repositori kami
+* Fork the repository to your own Github account.
+* Clone the project to your machine.
+* Create a branch locally with a succinct but descriptive name.
+* Commit changes to the branch.
+* Following any formatting and testing guidelines specific to this repo.
+* Push changes to your fork.
+* Open a PR in our repository.
 
 ## Konvensi Coding
 
 ### Pesan Git Commit
 
-* Gunakan bentuk waktu kini ("Tambahkan fitur" bukan "Fitur yang ditambahkan")
-* Gunakan suasana perintah ("Pindahkan kursor ke..." bukan "Memindahkan kursor ke...")
-* Batasi baris pertama hingga 72 karakter atau kurang
+* Use the present tense ("Add feature" not "Added feature").
+* Use the imperative mood ("Move cursor to..." not "Moves cursor to...").
+* Limit the first line to 72 characters or less.
 
 ### JavaScript Styleguide
 
-* Semua kode JavaScript diverifikasi dengan Prettier dan ESLint
+* All JavaScript code is linted with Prettier and ESLint.
