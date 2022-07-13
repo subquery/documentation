@@ -15,7 +15,7 @@
 
 **GitHub**: Your project's codebase must be in a public GitHub repository.
 
-**IPFS**: Your project's codebase can be stored in IPFS, you can follow our IPFS hosting guide to see how to [first publish to IPFS](ipfs.md).
+**IPFS**: Your project's codebase can be stored in IPFS, you can follow our IPFS hosting guide to see how to [first publish to IPFS](../run_publish/ipfs.md).
 
 ### 登录到 SubQuery 项目
 
@@ -31,11 +31,11 @@ SubQuery 项目是您管理上传到SubQuery平台的所有托管项目的地方
 
 ![项目登录](/assets/img/projects-dashboard.png)
 
-如果您已连接到GitHub 组织帐户， 您可以使用页眉上的切换器来更改您的个人帐户和您的GitHub 组织帐户。 GitHub 组织帐户中创建的项目由GitHub 组织的成员共享。 若要连接您的 GitHub 组织账户，您可以在这里 [按照步骤](#add-github-organization-account-to-subquery-projects)
+如果您已连接到GitHub 组织帐户， 您可以使用页眉上的切换器来更改您的个人帐户和您的GitHub 组织帐户。 GitHub 组织帐户中创建的项目由GitHub 组织的成员共享。 To connect your GitHub Organization account, you can [follow the steps here](publish.md#add-github-organization-account-to-subquery-projects).
 
 ![在GitHub 帐户间切换](/assets/img/projects-account-switcher.png)
 
-### 创建您的第一个项目。
+### Create Your First Project
 
 There are two methods to create a project in the SubQuery Managed Service, you can use the UI or directly via the `subql` cli tool.
 
@@ -50,7 +50,9 @@ Let's start by clicking on "Create Project". You'll be taken to the New Project 
 - **GitHub 存储库 URL：** 这必须是包含您的 SubQuery 项目的公共存储库的有效 GitHub URL。 The `schema.graphql` file must be in the root of your directory ([learn more about the directory structure](../build/introduction.md#directory-structure)).
 - **数据库：** 高级客户可以访问专用数据库来托管生产SubQuery项目。 如果您感兴趣，您可以联系 [sales@subquery.network](mailto:sales@subquery.network) 来启用此设置。
 - **部署源:** 您可以选择从GitHub 仓库部署项目或从IPFS CID部署项目。 请参阅我们的指南 [与 IPFS 托管。](ipfs.md)
-- **隐藏项目：** 如果选中，如果选中，这将在公共 SubQuery 浏览器中隐藏项目。 如果您想与社区共享您的SubQuery项目，请不要选择此项！ ![创建您的第一个项目。](/assets/img/projects-create.png)
+- **隐藏项目：** 如果选中，如果选中，这将在公共 SubQuery 浏览器中隐藏项目。 如果您想与社区共享您的SubQuery项目，请不要选择此项！
+
+![Create your first Project](/assets/img/projects-create.png)
 
 Create your project and you'll see it on your SubQuery Project's list. _We're almost there! We just need to deploy a new version of it._
 
@@ -61,7 +63,7 @@ Create your project and you'll see it on your SubQuery Project's list. _We're al
 You can also use `@subql/cli` to publish your project to our managed service. This requires:
 
 - `@subql/cli` version 1.1.0 or above.
-- A valid [SUBQL_ACCESS_TOKEN]() ready.
+- A valid [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) ready.
 
 ```shell
 // Creating a project using the CLI
