@@ -17,8 +17,8 @@ Wenn ein Indexer bei Fehlverhalten erwischt wird (z. B. durch die Angabe ungült
 ## Wie werden Indexer belohnt?
 
 Indexer werden in SQT auf zwei Arten belohnt:
-- Belohnungen aus SQT-Belohnungspools basierend auf der von der Cobb-Douglas-Produktionsfunktion definierten Verteilung
-- Belohnungen für direkte SQT-Abfragegebühren aus geschlossenen Vereinbarungen, an denen ein Indexer beteiligt ist
+- Rewards from SQT reward pools based on distribution defined by the Cobb-Douglas Production Function.
+- Direct SQT query fee rewards from Closed Agreements that an indexer is party to.
 
 Indexer werden mit den Gebühren belohnt, die Verbraucher für die Bereitstellung von Blockchain-Daten zahlen, die der Verbraucher angefordert hat. Ein Indexer erhält alle Gebühren aus einer geschlossenen Vereinbarung. Andernfalls werden die Gebühren basierend auf der Menge der geleisteten Arbeit (zugestellte Anfragen) und der Menge der delegierten SQT aufgeteilt – diese Aufteilung wird durch Anwendung der Cobb-Douglas-Produktionsfunktion bestimmt.
 
@@ -58,13 +58,13 @@ Indexer können entweder in ihre eigene Infrastruktur-Hardware investieren oder 
 
 Hier sind einige der Wartungs- und/oder Betriebsanforderungen, mit denen Indexer rechnen sollten:
 
-- Führen Sie immer ein Upgrade auf die neueste Subquery-Softwareversion durch
-- Identifizieren und nutzen Sie neue Indizierungsmöglichkeiten
-- Aktualisieren Sie die Projektversion auf die neueste und indizieren Sie sie gegebenenfalls neu
-- Instandhaltung der Infrastruktur
-  - Ständige Überwachung und Upsizing der Festplatte
-  - Abfragen in der richtigen Größe und Indexierung basierend auf dem Datenverkehr
-  - Erhöhen Sie die Abfragedienste, um den eingehenden Datenverkehr zu erhöhen
+- Always upgrade to the latest Subquery software version.
+- Identify and take advantage of new indexing opportunities.
+- Update project version to latest and reindex where necessary.
+- Infrastructure maintenance:
+  - Constantly monitoring and upsizing disk.
+  - Right size query and indexing compute based on traffic.
+  - Increase query services for increasing ingress traffic.
 
 ### Infrastruktur
 
@@ -98,8 +98,8 @@ Um wünschenswerte Leistungen zu erzielen, müssen Indexer verschiedene Faktoren
 
 - das Gleichgewicht zwischen ihrem eigenen Anteil und dem der Delegierenden.
 - die Art des zuzustellenden Vertrages. Der Indexer erhält alle Abfragegebühren, wenn es sich um einen geschlossenen Vertrag handelt. Wenn es offen ist, hängt die Belohnung eines Indexers davon ab, wie viele andere Indexer es gibt.
-- Erfüllung der Vorgaben des Service Level Agreements (SLA) (um Strafen zu vermeiden)
-- die Genauigkeit der übermittelten Daten, um drastische Strafen zu vermeiden
+- fulfilling of the Service Level Agreement (SLA) specifications (to avoid slashing penalties).
+- the accuracy of the data being served to avoid slashing penalties.
 
 ## Auswählen von SubQuery-Projekten zum Indexieren
 
@@ -130,10 +130,10 @@ Indexierer müssen sich ihrer Betriebskosten und erwarteten Einnahmen bewusst se
 
 Indexierer müssen sich sowohl bei Delegierenden als auch bei Verbrauchern bewerben. Indexierer können dies auf ihrer eigenen Website, in den Subquery-Foren oder an anderen Stellen tun, die sie für erforderlich halten. Einige Beispiele für die bereitzustellenden Informationen sind:
 
-- Der Hintergrund und die Erfahrung des Indexers oder des Teams des Indexers
-- Der Hardware-Ansatz und warum er eine überlegene Leistung bietet
-- Die Kundensupportrichtlinie oder SLA
-- Zeugnisse historischer Aufführungen
+- The background and experience of the Indexer or Indexer’s team.
+- The hardware approach and why it provides superior performance.
+- The customer support policy or SLA.
+- Evidence of historical performances.
 
 ### Kundendienst
 
