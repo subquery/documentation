@@ -14,7 +14,7 @@ The best way to get started with SubQuery is to try out our [Hello World tutoria
 
 Nos encantan las contribuciones y comentarios de la comunidad. Para contribuir con el código, bifurca el repositorio de interés y realice sus cambios. Luego envíe un PR o Pull Request. ¡Oh, no te olvides del test probar también! Also check out our contributions guide lines (TBA).
 
-To give feedback, contact us at hello@subquery.network or jump onto our [discord channel](https://discord.com/invite/78zg8aBSMG)
+To give feedback, contact us at hello@subquery.network or jump onto our [discord channel](https://discord.com/invite/78zg8aBSMG).
 
 ## ¿Cuánto cuesta alojar mi proyecto en SubQuery Projects?
 
