@@ -71,9 +71,9 @@ Hier sind einige der Wartungs- und/oder Betriebsanforderungen, mit denen Indexer
 Die Mindestanforderungen an die Infrastruktur umfassen:
 
 - Mindestens ein Rechennode zum Ausführen der folgenden Dienste:
-  - [Nodedienst (Indizierung).](https://www.npmjs.com/package/@subql/node)
-  - [Abfragedienst](https://www.npmjs.com/package/@subql/query)
-  - [Indexer-Koordinator-Dienst](https://www.npmjs.com/package/@subql/indexer-coordinator)
+  - [Node (indexing) Service](https://www.npmjs.com/package/@subql/node).
+  - [Query Service](https://www.npmjs.com/package/@subql/query).
+  - [Indexer Coordinator Service](https://www.npmjs.com/package/@subql/indexer-coordinator).
 - Ein Datenbanknode zum Ausführen von Postgresql db (v12 und höher).
 
 Genauere Informationen folgen in Kürze.
