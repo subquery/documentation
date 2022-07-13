@@ -3,9 +3,9 @@
   <section class="welcomeWords">
     <div class="main">
       <div>
-        <h2 class="welcomeTitle">Welcome to SubQuery <span>Academy</span></h2>
+        <h2 class="welcomeTitle">Welcome to SubQuery<span>Academy</span></h2>
         <p>체인 데이터를 탐색하고 변환하여 직관적인 디앱을 더 빠르게 구축해보십시오!</p>
-        <p><strong>SubQuery now supports Polkadot, Avalanche, and Cosmos (starting with Juno)</strong></p>
+        <p><strong>SubQuery now supports Polkadot, Avalanche, and Cosmos (starting with Juno).</strong></p>
       </div>
     </div>
   </section>
@@ -16,7 +16,7 @@
       </p>
       <span class="button">
         <router-link :to="{path: '/quickstart/quickstart.html'}"> 
-          <span>Get started</span>
+          <span>Get Started</span>
         </router-link>
       </span>
     </div>
@@ -107,7 +107,7 @@
     </div>
     <div class="lastIntroduce lastIntroduce_2">
         <h5>지원 및 기여</h5>
-        <p>어떠한 질문이 있거나, 더 자세히 알고 싶거나 또는 기여하고 싶다면 어떻게 해아하나요? 저희는 여러분의 의견을 듣고 싶습니다. 아래에 게시된 링크에서 이메일이나 소셜 미디어를 통해 문의해주세요. 전문적인 기술 지원이 필요하십니까? 디스코드 커뮤니티에 가입하고 열정적인 커뮤니티 구성원들에게 지원을 받아보세요. </p>
+        <p>Have a question or are interested in knowing more or how you can contribute? 저희는 여러분의 의견을 듣고 싶습니다. 아래에 게시된 링크에서 이메일이나 소셜 미디어를 통해 문의해주세요. 전문적인 기술 지원이 필요하십니까? 디스코드 커뮤니티에 가입하고 열정적인 커뮤니티 구성원들에게 지원을 받아보세요. </p>
         <a class="more" target="_blank" href="https://discord.com/invite/subquery">디스코드 커뮤니티에 참여하세요</a>
     </div>
     </div>
