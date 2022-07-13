@@ -31,24 +31,24 @@ Los fallos se rastrean como problemas de GitHub. Al registrar un problema, expli
 
 ### Envío de Pull Request
 
-En general, seguimos el flujo de trabajo "fork-and-pull" de Git
+In general, we follow the "fork-and-pull" Git workflow:
 
-* Bifurcar el repositorio a su propia cuenta de Github
-* Clona el proyecto a tu máquina
-* Crear una rama localmente con un nombre sucinto pero descriptivo
-* Confirma los cambios en tu proyecto
-* Siguiendo cualquier guía de formato y prueba específica de este repositorio
-* Enviar cambios a tu bifurcación
-* Abra un PR en nuestro repositorio
+* Fork the repository to your own Github account.
+* Clone the project to your machine.
+* Create a branch locally with a succinct but descriptive name.
+* Commit changes to the branch.
+* Following any formatting and testing guidelines specific to this repo.
+* Push changes to your fork.
+* Open a PR in our repository.
 
 ## Convenciones de Código
 
 ### Mensajes de Git Commit
 
-* Utilice el tiempo actual ("Añadir característica" no "Añadida característica")
-* Usa el ambiente imperativo ("Mover cursor a..." no "Mueve el cursor a...")
-* Limitar la primera línea a 72 caracteres o menos
+* Use the present tense ("Add feature" not "Added feature").
+* Use the imperative mood ("Move cursor to..." not "Moves cursor to...").
+* Limit the first line to 72 characters or less.
 
 ### Guía de estilo de JavaScript
 
-* Todo el código JavaScript está pulido con Prettier y ESLint
+* All JavaScript code is linted with Prettier and ESLint.
