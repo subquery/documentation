@@ -6,7 +6,7 @@ SubQuery 现在已支持 Graphql 订阅。 像查询一样，订阅可以让您�
 
 当您想要您的客户端应用程序更改数据或在发生更改或有新数据时显示一些新数据时，订阅非常有用。 订阅允许您 *订阅* SubQuery项目进行修改。
 
-[在此阅读更多关于订阅的信息](https://www.apollographql.com/docs/react/data/subscriptions/)
+[Read more about subscriptions here](https://www.apollographql.com/docs/react/data/subscriptions/).
 
 ## 如何订阅
 
@@ -25,8 +25,8 @@ subscription {
 ```
 
 当`Transfer`表被更新时，查询中的实体体表明你想通过订阅接收什么数据:
-- `id`: 返回已更改的项目的 ID
-- `mutation_type`: 已经对这个选项进行了操作。 类型可以是 `INSERT`, `UPDATE` 或 `DELETE`
+- `id`: Returns the ID of the entity that has changed.
+- `mutation_type`: 已经对这个选项进行了操作。 Mutation types can be either `INSERT`, `UPDATE` or `DELETE`.
 - `_entity`: 项目本身的值为 JSON 格式。
 
 ## 筛选
@@ -62,7 +62,7 @@ subscription {
 }
 ```
 
-请注意， `mutation` 过滤器可以是 `INSERT`, `UPDATE` 或 `DELETE`
+Note that the `mutation` filter can be one of `INSERT`, `UPDATE` or `DELETE`.
 
 **131/5000 请注意，为了使用这些函数，必须在节点和查询服务上启用`--subscription`标志。**
 
