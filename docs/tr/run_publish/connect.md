@@ -1,11 +1,11 @@
-# Yeni Projenize Bağlanın
+# Connect to your new project
 
-Dağıtımınız başarıyla tamamlandıktan ve node'larımız zincirdeki verilerinizi dizine ekledikten sonra, görüntülenen Query uç noktası aracılığıyla projenize bağlanabileceksiniz.
+Once your deployment has succesfully completed and our nodes have indexed your data from the chain, you'll be able to connect to your project via the displayed Query endpoint.
 
-![Proje dağıtılıyor ve senkronize ediliyor](/assets/img/projects-deploy-sync.png)
+![Projenize yeni sürümü dağıtın](/assets/img/projects-deploy-sync.png)
 
-Alternatif olarak, projenizin başlığının yanında bulunan üç noktaya tıklayabilir ve projenizi SubQuery Explorer'da görüntüleyebilirsiniz. Başlamak için tarayıcıda bulunan çalışma alanını kullanabilirsiniz.
+Alternatif olarak, projenizin başlığının yanında bulunan üç noktaya tıklayabilir ve onu SubQuery Explorer'da görüntüleyebilirsiniz. There you can use the in browser playground to get started.
 
-![SubQuery Explorer'deki Projeler](/assets/img/projects-explorer.png)
+![Projects in SubQuery Explorer](/assets/img/projects-explorer.png)
 
-[GraphQL Sorgu dili hakkında daha fazla bilgi edinin.](./graphql.md)
+::: info Note Learn more about the [GraphQL Query language.](./graphql.md) :::
