@@ -2,9 +2,9 @@
 
 For flexibility, there are 3 payment options to pay for blockchain data. Вони є такими:
 
-- Pay-As-You-Go (PAYG)
-- Closed Service Agreement (закритий договір) - угода між одним індексатором і споживачем
-- Open Service Agreement (відкритий договір) - угода між багатьма індексаторами та споживачем
+- Pay-As-You-Go (PAYG).
+- Closed Service Agreement.
+- Open Service Agreement.
 
 ## Pay-As-You-Go (PAYG)
 
