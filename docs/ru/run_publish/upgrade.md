@@ -9,43 +9,43 @@
 
 ## Запустить изменения
 
-There are two methods to deploy a new version of your project to the SubQuery Managed Service, you can use the UI or directly via the `subql` cli tool.
+Существует два способа развертывания новой версии вашего проекта в SubQuery Managed Service: вы можете использовать пользовательский интерфейс или непосредственно инструмент `subql` cli.
 
 ### Использование пользовательского интерфейса
 
-Log into SubQuery Project and select the project you want to deploy a new version of. You can choose to either deploy to the production or staging slot. These two slots are isolated environments and each has their own databases and synchronise independently.
+Войдите в SubQuery Project и выберите проект, для которого вы хотите развернуть новую версию. Вы можете выбрать развертывание в производственном или промежуточном слоте. Эти два слота являются изолированными средами, каждая из которых имеет свои собственные базы данных и синхронизируется независимо друг от друга.
 
-We recommend deploying to your staging slot only for final staging testing or when you need to resync your project data. You can then promote it to production with zero downtime. You will find testing is faster when [running a project locally](../run_publish/run.md) as you can more [easily debug issues](../academy/tutorials_examples/debug-projects.md).
+Мы рекомендуем выполнять развертывание в слот постановки только для окончательного тестирования постановки или когда необходимо повторно синхронизировать данные проекта. Затем вы можете запустить его в производство с нулевым временем простоя. Вы обнаружите, что тестирование проходит быстрее, если [запускать проект локально](../run_publish/run.md), так как вы можете более [легко отлаживать проблемы](../academy/tutorials_examples/debug-projects.md).
 
-The staging slot is perfect for:
+Постановочный слот идеально подходит для:
 
 - Окончательная проверка изменений в вашем проекте SubQuery в отдельной среде. Промежуточный слот имеет другой URL-адрес для производства, который вы можете использовать в своих dApps.
-- Warming up and indexing data for an updated SubQuery project to eliminate downtime in your dApp.
+- Разогрев и индексирование данных для обновленного проекта SubQuery для устранения простоев в вашем dApp.
 - Подготовка нового релиза для вашего проекта SubQuery без его опубликования. Промежуточный слот не отображается публично в поисковике и имеет уникальный URL-адрес, который виден только вам.
 
-![Staging slot](/assets/img/staging_slot.png)
+![Промежуточный слот](/assets/img/staging_slot.png)
 
 Заполните Commit Hash из GitHub (скопируйте полный Commit Hash) той версии базы кода вашего проекта SubQuery, которую вы хотите развернуть. Это приведет к увеличению времени простоя в зависимости от времени, необходимого для индексации текущей цепочки. Вы всегда можете сообщить об этом здесь.
 
 ### Использование CLI
 
-You can also use `@subql/cli` to create a new deployment of your project to our managed service. This requires:
+Вы также можете использовать `@subql/cli` для создания нового развертывания вашего проекта в нашей управляемой службе. Для этого необходимо:
 
 - `@subql/cli` версии 1.1.0 или выше.
-- A valid [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) ready.
+- Действительный [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) готов.
 
 ```shell
-// You can directly set your Indexer and Query versions
+// Вы можете напрямую установить версии индексатора и запроса
 $ subql deployment:deploy --indexerVersion=1.1.2 --queryVersion=1.1.1
 
-// OR you can use the interface, it will validate your IPFS CID and render a list of image versions that matches your manifest file `project.yaml`
+// ИЛИ вы можете использовать интерфейс, он проверит ваш IPFS CID и выдаст список версий образов, соответствующих вашему файлу манифеста `project.yaml`.
 
 $ subql deployment:deploy
 ```
 
-## Upgrade to the Latest Indexer and Query Service
+## Обновление до последней версии индексатора и Query Service
 
-If you just want to upgrade to the latest indexer ([`@subql/node`](https://www.npmjs.com/package/@subql/node)) or query service ([`@subql/query`](https://www.npmjs.com/package/@subql/query)) to take advantage of our regular performance and stability improvements, just select a newer versions of our packages and save. This will cause only a few minutes of downtime as the services running your project are restarted.
+Если вы просто хотите перейти на последнюю версию индексатора ([`@subql/node`](https://www.npmjs.com/package/@subql/node)) или службы запросов ([`@subql/query`](https://www.npmjs.com/package/@subql/query)), чтобы воспользоваться преимуществами наших регулярных улучшений производительности и стабильности, просто выберите более новые версии наших пакетов и сохраните. Это вызовет лишь несколько минут простоя, когда будут перезапущены службы, работающие с вашим проектом.
 
 ## Следующие шаги - подключитесь к вашему проекту
 
@@ -53,4 +53,4 @@ If you just want to upgrade to the latest indexer ([`@subql/node`](https://www.n
 
 ![Проект будет развернут и синхронизирован](/assets/img/projects-deploy-sync.png)
 
-Кроме того, вы можете щелкнуть три точки рядом с названием вашего проекта и просмотреть его в SubQuery Explorer. There you can use the in browser playground to get started - [read more about how to use our Explorer here](../run_publish/query.md).
+Кроме того, вы можете щелкнуть три точки рядом с названием вашего проекта и просмотреть его в SubQuery Explorer. Там вы можете использовать игровую площадку в браузере, чтобы начать работу - [читайте больше о том, как использовать наш Explorer здесь](../run_publish/query.md).
