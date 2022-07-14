@@ -20,23 +20,46 @@ You will require the following:
 
 ### NPM Package manager
 
-Run the following command in your terminal to install the latest version of node. Node v12 or higher is required. 
+First, you must check whether you have installed the latest version of node or not. 
+
+Run this command:
+
+`node -v`
+
+It should return a result with the latest version of npm, if you have it installed. For eg:
+
+`v18.2.0`
+
+::: info Note 
+Node v12 or higher is required. 
+::: 
+
+If you haven't installed the npm, please run the following command in your terminal and install the latest version of node. 
 
 ```
 brew update
 brew install node
 node -v
-v18.2.0
 ```
+You will get the latest npm version as the output in the end.
 
 ### SubQuery CLI
 
-```
-npm install -g @subql/cli
-subql -v
-@subql/cli/1.0.1 darwin-x64 node-v18.2.0
+- First, run the following command. It installs the `subql cli`.
 
 ```
+npm install -g @subql/cli
+```
+
+- Then check the `subql cli` version by running the given below command:
+
+```
+subql -v
+```
+
+You will get an output similar to this:
+`@subql/cli/1.0.1 darwin-x64 node-v18.2.0`
+
 
 ### Docker
 
