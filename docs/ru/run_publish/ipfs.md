@@ -2,19 +2,19 @@
 
 В этом руководстве рассказывается, как опубликовать локальный проект SubQuery в [IPFS](https://ipfs.io/) и развернуть его в нашей инфраструктуре хостинга.
 
-Hosting a project in IPFS makes it available for all and reduces your reliance on centralised services like GitHub.
+Размещение проекта в IPFS делает его доступным для всех и снижает вашу зависимость от централизованных служб, таких как GitHub.
 
 ## Требования
 
 - `@subql/cli` версии 0.21.0 или выше.
 - Манифест `specVersion` 0.2.0 и выше.
-- Get your [SUBQL_ACCESS_TOKEN](ipfs.md#prepare-your-subql-access-token) ready.
+- Подготовьте свой [SUBQL_ACCESS_TOKEN](ipfs.md#prepare-your-subql-access-token).
 - Чтобы обеспечить успешное развертывание, мы настоятельно рекомендуем вам собрать проект с помощью команды `subql build` и протестировать его локально перед публикацией.
 
 ## Подготовьте свой SUBQL_ACCESS_TOKEN
 
 - Шаг 1. Перейдите в раздел [SubQuery Projects](https://project.subquery.network/) и войдите в систему.
-- Step 2: Click on your profile at the top right of the navigation menu, then click on **_Refresh Token_**.
+- Шаг 2: Нажмите на свой профиль в правом верхнем углу навигационного меню, затем нажмите на **_Refresh Token_**.
 - Шаг 3: Скопируйте сгенерированный токен.
 - Шаг 4: Чтобы использовать этот токен:
   - Вариант 1: Добавьте SUBQL_ACCESS_TOKEN в переменные среды. `EXPORT SUBQL_ACCESS_TOKEN=<token>`
@@ -22,11 +22,11 @@ Hosting a project in IPFS makes it available for all and reduces your reliance o
 
 ## Как опубликовать проект
 
-We provide two methods to publish your project:
+Мы предоставляем два способа публикации вашего проекта:
 
-### Option 1
+### Вариант 1
 
-As you have `@subql/cli` already installed, you can run the following command, which will read the project and required information from its default manifest `project.yaml`:
+Поскольку у вас уже установлен `@subql/cli`, вы можете выполнить следующую команду, которая прочитает проект и необходимую информацию из его стандартного манифеста `project.yaml`:
 
 ```
 // Публикуем из корневого каталога вашего проекта
@@ -36,7 +36,7 @@ subql publish
 subql publish -f ~/my-project/
 ```
 
-### Option 2
+### Вариант 2
 
 В качестве альтернативы предположим, что в вашем проекте есть несколько manifest файлов, например, вы поддерживаете несколько сетей, но используете одно и то же сопоставление и бизнес-логику, а структура проекта выглядит следующим образом:
 
@@ -66,15 +66,15 @@ Uploading SupQuery project to IPFS
 SubQuery Project uploaded to IPFS: QmZ3q7YZSmhwBiot4PQCK3c7Z6HkteswN2Py58gkkZ8kNd  //CID
 ```
 
-Обратите внимание на этот `CID`. With this `CID`, you can view your published project as what we call it [IPFS Deployment](ipfs.md#ipfs-deployment).
+Обратите внимание на этот `CID`. С помощью этого `CID` вы можете рассматривать свой опубликованный проект как то, что мы называем [IPFS Deployment](ipfs.md#ipfs-deployment).
 
-## IPFS Deployment
+## Развертывание IPFS
 
 Развертывание в IPFS представляет собой независимое и уникальное существование проекта SubQuery в децентрализованной сети. Поэтому любые изменения с кодом в проекте повлияют на его уникальность. Если вам нужно перестроить свою бизнес-логику, например, изменить функцию сопоставления, вы должны повторно опубликовать проект, и `CID` изменится.
 
-For now, to view the project you have published, use a `REST` api tool such as [Postman](https://web.postman.co/), and use `POST` method with the following example URL to retrieve it:`https://ipfs.subquery.network/ipfs/api/v0/cat?arg=<YOUR_PROJECT_CID>`.
+Пока что для просмотра опубликованного вами проекта используйте инструмент `REST` api, такой как [Postman](https://web.postman.co/), и используйте метод `POST` со следующим примером URL для его получения:`https://ipfs.subquery.network/ipfs/api/v0/cat?arg=<YOUR_PROJECT_CID>`.
 
-You should see the example project deployment as below.
+Вы должны увидеть пример развертывания проекта, как показано ниже.
 
 Это развертывание очень похоже на ваш файл манифеста. Вы можете ожидать эти описательные поля, а конечная точка сети и словаря была удалена, поскольку они не влияли напрямую на результат выполнения проекта.
 
@@ -107,7 +107,7 @@ specVersion: 0.2.0
 
 ### Создать проект с развертыванием в IPFS
 
-You can follow the guide to [Publish your SubQuery project](../run_publish/publish.md) but where you set your deployment source you can select **IPFS**.
+Вы можете следовать руководству [Publish your SubQuery project](../run_publish/publish.md), но при установке источника развертывания вы можете выбрать **IPFS**.
 
 Затем выберите производственный слот, скопируйте и вставьте CID развертывания IPFS (без начального `ipfs://`).
 
