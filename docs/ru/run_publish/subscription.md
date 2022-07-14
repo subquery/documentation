@@ -6,7 +6,7 @@ SubQuery теперь также поддерживает подписки Graph
 
 Подписки очень полезны, когда вы хотите, чтобы ваше клиентское приложение изменило данные или показало новые данные, как только это изменение произойдет или новые данные станут доступны. Подписки позволяют вам *подписываться* на изменения в вашем проекте SubQuery.
 
-::: info Note Read more about [Subscriptions](https://www.apollographql.com/docs/react/data/subscriptions/). :::
+::: информация Примечание Подробнее о [Подписках](https://www.apollographql.com/docs/react/data/subscriptions/). :::
 
 ## Как подписаться на сущность
 
@@ -25,8 +25,8 @@ subscription {
 ```
 
 Тело сущности в вашем запросе указывает, какие данные вы хотите получать по подписке при обновлении таблицы `Transfer`:
-- `id`: Returns the ID of the entity that has changed.
-- `mutation_type`: Действие, которое было произведено с этой сущностью. Mutation types can be either `INSERT`, `UPDATE` or `DELETE`.
+- `id`: Возвращает идентификатор сущности, которая изменилась.
+- `mutation_type`: Действие, которое было произведено с этой сущностью. Типы мутации могут быть либо `INSERT`, `UPDATE` или `DELETE`.
 - `_сущность`: значение самой сущности в формате JSON.
 
 ## Фильтрация
@@ -62,10 +62,10 @@ subscription {
 }
 ```
 
-Note that the `mutation` filter can be one of `INSERT`, `UPDATE` or `DELETE`.
+Обратите внимание, что фильтр `mutation` может быть одним из `INSERT`, `UPDATE` или `DELETE`.
 
-::: warning Important Please note that you must enable the `--subscription` flag on both the node and query service in order to use these functions. :::
+::: предупреждение Важно Обратите внимание, что для использования этих функций необходимо включить флаг `--subscription` как на узле, так и на службе запросов. :::
 
-::: warning Important
-The subcription feature works on SubQuery's managed service when you directly call the listed GraphQL endpoint. Он не будет работать в пределах браузерной площадки GraphQL.
+::: предупреждение Важно
+Функция подписки работает на управляемом сервисе SubQuery, когда вы напрямую вызываете указанную конечную точку GraphQL. Он не будет работать в пределах браузерной площадки GraphQL.
 :::
