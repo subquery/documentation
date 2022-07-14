@@ -1,6 +1,6 @@
 # Запросите свой проект в SubQuery Explorer
 
-[SubQuery Explorer](https://explorer.subquery.network) is an online hosted service that provides access to published SubQuery projects made by contributors in our community and managed by the SubQuery team. You can publish your own SubQuery projects to our explorer by following our guide to [Publish your SubQuery Project](../run_publish/publish.md).
+[SubQuery Explorer](https://explorer.subquery.network) - это онлайн-сервис, предоставляющий доступ к опубликованным проектам SubQuery, созданным участниками нашего сообщества и управляемым командой SubQuery. Вы можете опубликовать свои собственные проекты SubQuery в нашем проводнике, следуя нашему руководству [Publish your SubQuery Project](../run_publish/publish.md).
 
 ![SubQuery Explorer](https://static.subquery.network/media/explorer/explorer-header.png)
 
@@ -14,4 +14,4 @@ SubQuery explorer упрощает начало работы. Мы размещ�
 
 ![SubQuery Documentation](https://static.subquery.network/media/explorer/explorer-documentation.png)
 
-::: info Note Learn more about the [GraphQL Query language.](./graphql.md) :::
+::: Информация Примечание Узнайте больше о языке запросов [GraphQL.](./graphql.md) :::
