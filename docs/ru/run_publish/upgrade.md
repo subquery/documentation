@@ -27,11 +27,11 @@ The staging slot is perfect for:
 
 Заполните Commit Hash из GitHub (скопируйте полный Commit Hash) той версии базы кода вашего проекта SubQuery, которую вы хотите развернуть. Это приведет к увеличению времени простоя в зависимости от времени, необходимого для индексации текущей цепочки. Вы всегда можете сообщить об этом здесь.
 
-### Using the CLI
+### Использование CLI
 
 You can also use `@subql/cli` to create a new deployment of your project to our managed service. This requires:
 
-- `@subql/cli` version 1.1.0 or above.
+- `@subql/cli` версии 1.1.0 или выше.
 - A valid [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) ready.
 
 ```shell
