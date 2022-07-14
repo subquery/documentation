@@ -38,17 +38,17 @@
 * Создайте локальный филиал с кратким, но описательным именем.
 * Зафиксируйте изменения в ветке.
 * Соблюдение всех рекомендаций по форматированию и тестированию, характерных для данного репозитория.
-* Push changes to your fork.
-* Open a PR in our repository.
+* Отправить изменения в ваш форк.
+* Откройте PR в нашем репозитории.
 
 ## Контрагенты кодирования
 
 ### Сообщения Git Commit
 
-* Use the present tense ("Add feature" not "Added feature").
-* Use the imperative mood ("Move cursor to..." not "Moves cursor to...").
-* Limit the first line to 72 characters or less.
+* Используйте настоящее время ("Добавить функцию", а не "Добавлена функция").
+* Используйте повелительное наклонение ("Move cursor to...", а не "Moves cursor to...").
+* Ограничьте первую строку 72 символами или менее.
 
 ### Руководство по стилю JavaScript
 
-* All JavaScript code is linted with Prettier and ESLint.
+* Весь код JavaScript проверяется с помощью Prettier и ESLint.
