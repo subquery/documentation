@@ -14,4 +14,4 @@
 
 ## Пакет брендовых активов
 
-A smaller ZIP package of brand assets: [public_branding.zip](https://static.subquery.network/public_branding.zip).
+Уменьшенный ZIP-пакет активов бренда: [public_branding.zip](https://static.subquery.network/public_branding.zip).
