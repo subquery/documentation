@@ -47,50 +47,51 @@ SubQuery Projects - это место, где вы управляете всем
 - **Название проекта**
 - **Тема**
 - **Описание**
-- ** URL-адрес репозитория GitHub: ** Это должен быть действующий URL-адрес GitHub для общедоступного репозитория, в котором находится ваш проект SubQuery. The `schema.graphql` file must be in the root of your directory ([learn more about the directory structure](../build/introduction.md#directory-structure)).
+- ** URL-адрес репозитория GitHub: ** Это должен быть действующий URL-адрес GitHub для общедоступного репозитория, в котором находится ваш проект SubQuery. Пожалуйста, введите следующие данные (вы можете изменить их в будущем):
 - ** База данных:** Премиум-клиенты могут получить доступ к выделенным базам данных для размещения производственных проектов SubQuery. Если это вас интересует, вы можете связаться с [sales@subquery.network](mailto:sales@subquery.network), чтобы включить эту настройку.
 - **Источник развертывания:** Вы можете выбрать развертывание проекта из репозитория GitHub или альтернативное развертывание из IPFS CID, см. наше руководство о [хостинге с IPFS.](ipfs.md)
 - **Скрыть проект:** Это скроет ваш проект для публичного изучения. Не устанавливайте этот флажок, если хотите поделиться своим проектом с сообществом!
 
 ![Create your first Project](/assets/img/projects-create.png)
 
-Create your project and you'll see it on your SubQuery Project's list. _We're almost there! We just need to deploy a new version of it._
+Создайте свой проект, и вы увидите его в списке SubQuery Project. _ Мы почти у цели! Нам просто нужно развернуть новую версию._
 
 ![Created Project with no deployment](/assets/img/projects-no-deployment.png)
 
-#### Using the CLI
+#### Использование CLI
 
-You can also use `@subql/cli` to publish your project to our managed service. This requires:
+Вы также можете использовать `@subql/cli` для публикации вашего проекта в нашей управляемой службе. Для этого необходимо:
 
-- `@subql/cli` version 1.1.0 or above.
-- A valid [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) ready.
+- `@subql/cli` версии 1.1.0 или выше.
+- Действительный [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) готов.
 
 ```shell
-// Creating a project using the CLI
+// Создание проекта с помощью CLI
 $ subql project:create-project
 
-// OR using non-interactive, it will prompt you if the required fields are missing
+// ИЛИ при неинтерактивном использовании, он подскажет вам, если отсутствуют необходимые поля
 $ subql project:create-project
-    --apiVersion=apiVersion      Api version is default to 2
-    --description=description    Enter description
-    --gitRepo=gitRepo            Enter git repository
-    --org=org                    Enter organization name
-    --project_name=project_name  Enter project name
+    --apiVersion=apiVersion Версия Api по умолчанию равна 2
+    --description=description Введите описание
+    --gitRepo=gitRepo Введите git-репозиторий
+    --org=org Введите имя организации
+    --project_name=project_name Введите имя проекта
+
 ```
 
-### Deploy your First Version
+### Разверните свою первую версию
 
-There are two methods to deploy a new version of your project to the SubQuery Managed Service, you can use the UI or directly via the `subql` cli tool.
+Существует два способа развертывания новой версии вашего проекта в SubQuery Managed Service: вы можете использовать пользовательский интерфейс или непосредственно инструмент `subql` cli.
 
 #### Использование пользовательского интерфейса
 
-While creating a project will setup the display behaviour of the project, you must deploy a version of it before it becomes operational. Deploying a version triggers a new SubQuery indexing operation to start, and sets up the required query service to start accepting GraphQL requests. You can also deploy new versions to existing projects here.
+Хотя создание проекта настроит поведение проекта на экране, вы должны развернуть его версию, прежде чем он начнет работать. Развертывание версии запускает новую операцию индексирования SubQuery и устанавливает необходимую службу запросов, чтобы начать принимать запросы GraphQL. Здесь же можно развернуть новые версии в существующих проектах.
 
-With your new project, you'll see a Deploy New Version button. Click this, and fill in the required information about the deployment:
+В новом проекте вы увидите кнопку Развернуть новую версию. Щелкните это и заполните необходимую информацию о развертывании:
 
-- **Branch:** From GitHub, select the branch of the project that you want to deploy from.
-- **Commit Hash:** From GitHub, select the specific commit of the version of your SubQuery project codebase that you want deployed.
-- **IPFS:** If deploying from IPFS, paste you IPFS deployment CID (without the leading `ipfs://`).
+- **Branch:** На GitHub выберите ветвь проекта, из которой вы хотите развернуть проект.
+- **Commit Hash:** На GitHub выберите конкретный коммит той версии кодовой базы вашего проекта SubQuery, которую вы хотите развернуть.
+- **IPFS:** При развертывании из IPFS вставьте CID развертывания IPFS (без ведущего `ipfs://`).
 - **Override Network and Dictionary Endpoints:** You can override the endpoints in your project manifest here.
 - **Indexer Version:** This is the version of SubQuery's node service that you want to run this SubQuery on. See [`@subql/node`](https://www.npmjs.com/package/@subql/node).
 - **Query Version:** This is the version of SubQuery's query service that you want to run this SubQuery on. See [`@subql/query`](https://www.npmjs.com/package/@subql/query).
@@ -99,11 +100,11 @@ With your new project, you'll see a Deploy New Version button. Click this, and f
 
 If deployed successfully, you'll see the indexer start working and report back progress on indexing the current chain. This process may take time until it reaches 100%.
 
-#### Using the CLI
+#### Использование CLI
 
 You can also use `@subql/cli` to create a new deployment of your project to our managed service. This requires:
 
-- `@subql/cli` version 1.1.0 or above.
+- `@subql/cli` версии 1.1.0 или выше.
 - A valid [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) ready.
 
 ```shell
