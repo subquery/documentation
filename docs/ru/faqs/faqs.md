@@ -8,7 +8,7 @@ SubQuery также предоставляет бесплатное размещ
 
 ## Как лучше всего начать работу с SubQuery?
 
-The best way to get started with SubQuery is to try out our [Hello World tutorial](/assets/pdf/Hello_World_Lab.pdf). Это простой 5-минутный урок по загрузке стартового шаблона, сборке проекта, а затем использованию Docker для запуска узла на локальном хосте и выполнения простого запроса.
+Лучший способ начать работу с SubQuery - попробовать наш учебник [Hello World](/assets/pdf/Hello_World_Lab.pdf). Это простой 5-минутный урок по загрузке стартового шаблона, сборке проекта, а затем использованию Docker для запуска узла на локальном хосте и выполнения простого запроса.
 
 ## Как я могу внести свой вклад или оставить отзыв о SubQuery?
 
@@ -52,12 +52,12 @@ Inherent Extrinsics - это части информации, которые н�
 
 Конечная точка сети Polkadot является - `wss://polkadot.api.onfinality.io/public-ws`.
 
-## How do I iteratively develop my project schema?
+## Как итеративно разработать схему проекта?
 
-A known issue with developing a changing project schema is that when lauching your Subquery node for testing, the previously indexed blocks will be incompatible with your new schema. In order to iteratively develop schemas the indexed blocks stored in the database must be cleared, this can be achieved by launching your node with the `--force-clean` flag. For example:
+Известной проблемой при разработке изменяющейся схемы проекта является то, что при запуске узла Subquery для тестирования ранее проиндексированные блоки будут несовместимы с новой схемой. Для итеративной разработки схем индексированные блоки, хранящиеся в базе данных, должны быть очищены, этого можно добиться, запустив узел с флагом `--force-clean`. Например:
 
 ```shell
 subql-node -f . --force-clean --subquery-name=<project-name>
 ```
 
-Note that it is recommended to use `--force-clean` when changing the `startBlock` within the project manifest (`project.yaml`) in order to begin reindexing from the configured block. If `startBlock` is changed without a `--force-clean` of the project then the indexer will continue indexing with the previously configured `startBlock`.
+Обратите внимание, что рекомендуется использовать `--force-clean` при изменении `startBlock` в манифесте проекта (`project.yaml`), чтобы начать переиндексацию с настроенного блока. Если `startBlock` изменен без `--force-clean` проекта, то индексатор продолжит индексирование с ранее настроенным `startBlock`.
