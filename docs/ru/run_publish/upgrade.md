@@ -11,7 +11,7 @@
 
 There are two methods to deploy a new version of your project to the SubQuery Managed Service, you can use the UI or directly via the `subql` cli tool.
 
-### Using the UI
+### Использование пользовательского интерфейса
 
 Log into SubQuery Project and select the project you want to deploy a new version of. You can choose to either deploy to the production or staging slot. These two slots are isolated environments and each has their own databases and synchronise independently.
 
