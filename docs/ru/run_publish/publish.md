@@ -2,10 +2,10 @@
 
 ## Преимущества хостинга вашего проекта с SubQuery
 
-- We'll run your SubQuery projects for you in a high performance, scalable, and managed public service.
+- Мы будем выполнять ваши проекты SubQuery для вас в высокопроизводительной, масштабируемой и управляемой публичной службе.
 - Эта услуга предоставляется сообществу бесплатно!
-- You can make your projects public so that they'll be listed in the [SubQuery Explorer](https://explorer.subquery.network) and anyone around the world can view them.
-- We're integrated with GitHub, so anyone in your GitHub organisations will be able to view shared organisation projects.
+- Вы можете сделать свои проекты публичными, чтобы они были перечислены в [SubQuery Explorer](https://explorer.subquery.network) и любой человек в мире мог их просмотреть.
+- Мы интегрированы с GitHub, поэтому все члены ваших организаций GitHub смогут просматривать общие проекты организации.
 
 ## Создайте свой первый проект в разделе SubQuery Projects
 
@@ -13,15 +13,15 @@
 
 Существует два способа размещения кодовой базы вашего проекта SubQuery перед публикацией.
 
-**GitHub**: Your project's codebase must be in a public GitHub repository.
+**GitHub**: Кодовая база вашего проекта должна находиться в публичном репозитории GitHub.
 
-**IPFS**: Your project's codebase can be stored in IPFS, you can follow our IPFS hosting guide to see how to [first publish to IPFS](../run_publish/ipfs.md).
+**IPFS**: Кодовая база вашего проекта может храниться в IPFS, вы можете следовать нашему руководству по хостингу IPFS, чтобы узнать, как [первая публикация в IPFS](../run_publish/ipfs.md).
 
 ### Вход в проекты SubQuery
 
 Перед началом работы убедитесь, что кодовая база вашего проекта SubQuery находится в открытом репозитории GitHub или на IPFS. Файл `schema.graphql` должен находиться в корне вашего каталога.
 
-To create your first project, head to [SubQuery Projects](https://project.subquery.network). Для входа в систему вам потребуется аутентификация с помощью учетной записи GitHub.
+Чтобы создать свой первый проект, перейдите в раздел [SubQuery Projects](https://project.subquery.network). Для входа в систему вам потребуется аутентификация с помощью учетной записи GitHub.
 
 При первом входе в систему вам будет предложено авторизоваться в SubQuery. Ваш адрес электронной почты нужен нам только для идентификации вашего аккаунта, никакие другие данные из вашего аккаунта на GitHub мы не используем ни для каких других целей. На этом шаге вы также можете запросить или предоставить доступ к своей учетной записи GitHub Organization, чтобы вы могли размещать проекты SubQuery под своей GitHub Organization вместо личной учетной записи.
 
@@ -31,17 +31,17 @@ SubQuery Projects - это место, где вы управляете всем
 
 ![Вход в проекты](/assets/img/projects-dashboard.png)
 
-Если у вас подключены аккаунты GitHub Organization, вы можете использовать переключатель в заголовке, чтобы переключаться между личным аккаунтом и аккаунтом GitHub Organization. Проекты, созданные в учетной записи GitHub Organization, распространяются между членами этой GitHub Organization. To connect your GitHub Organization account, you can [follow the steps here](publish.md#add-github-organization-account-to-subquery-projects).
+Если у вас подключены аккаунты GitHub Organization, вы можете использовать переключатель в заголовке, чтобы переключаться между личным аккаунтом и аккаунтом GitHub Organization. Проекты, созданные в учетной записи GitHub Organization, распространяются между членами этой GitHub Organization. Для подключения учетной записи GitHub Organization вы можете [последовать следующим шагам](publish.md#add-github-organization-account-to-subquery-projects).
 
 ![Переключение между учетными записями GitHub](/assets/img/projects-account-switcher.png)
 
-### Create Your First Project
+### Создайте свой первый проект
 
-There are two methods to create a project in the SubQuery Managed Service, you can use the UI or directly via the `subql` cli tool.
+Существует два способа создания проекта в SubQuery Managed Service, вы можете использовать пользовательский интерфейс или непосредственно через инструмент `subql` cli.
 
-#### Using the UI
+#### Использование пользовательского интерфейса
 
-Let's start by clicking on "Create Project". You'll be taken to the New Project form. Please enter the following (you can change this in the future):
+Начнем с нажатия кнопки "Создать проект". Вы попадете на форму "Новый проект". Пожалуйста, введите следующие данные (вы можете изменить их в будущем):
 
 - ** Учетная запись GitHub: ** Если у вас есть более одной учётной записи GitHub, выберите, под какой учётной записью будет создан этот проект. Проекты, созданные в учетной записи организации GitHub, совместно используются участниками в этой организации.
 - **Название проекта**
@@ -82,7 +82,7 @@ $ subql project:create-project
 
 There are two methods to deploy a new version of your project to the SubQuery Managed Service, you can use the UI or directly via the `subql` cli tool.
 
-#### Using the UI
+#### Использование пользовательского интерфейса
 
 While creating a project will setup the display behaviour of the project, you must deploy a version of it before it becomes operational. Deploying a version triggers a new SubQuery indexing operation to start, and sets up the required query service to start accepting GraphQL requests. You can also deploy new versions to existing projects here.
 
