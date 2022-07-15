@@ -26,7 +26,7 @@ Indexers will run and maintain high quality SubQuery projects in their own infra
 
 ::: info Note Learn more about [Indexers](./indexers.md). :::
 
-### Delegators
+### Делегатори
 
 Delegators will participate in the Network by supporting their favourite Indexers to earn rewards based on the work those indexers do.
 
