@@ -2,36 +2,36 @@
 
 ## Какво е потребител?
 
-A Consumer is a participant in the SubQuery network and is either an individual or organisation that pays for processed and organised blockchain data from the SubQuery Network. Consumers effectively make requests to the SubQuery Network for specific data and pay an agreed amount of SQT in return.
+Потребителят е участник в мрежата на SubQuery и е физическо лице или организация, която плаща за обработени и организирани блокчейн данни от мрежата на SubQuery. Потребителите ефективно правят заявки към SubQuery Network за конкретни данни и плащат договорена сума SQT в замяна.
 
-Consumers are typically dApp (decentralised application) developers, data analytic companies, blockchain networks, middleware developers, or even web aggregating companies that need access to blockchain data to provide services to their end-users.
+Потребителите обикновено са разработчици на dApp (децентрализирано приложение), компании за анализ на данни, блокчейн мрежи, разработчици на междинен софтуер или дори компании за уеб агрегиране, които се нуждаят от достъп до блокчейн данни, за да предоставят услуги на своите крайни потребители.
 
-## Consumer Requirements
+## Изисквания на потребителите
 
-There are no requirements as such to become a SubQuery Consumer. However, Consumers will need to understand how to obtain SQT, how to advertise their data requirements and how to consume the JSON data returned.
+Няма изисквания като такива, за да станете потребител на подзаявка. Потребителите обаче ще трябва да разберат как да получат SQT, как да рекламират своите изисквания за данни и как да използват върнатите JSON данни.
 
-Consumers may also need to understand how to create SubQuery projects to be Indexed or contract this work out in order to get the data in the format they need.
+Потребителите може също да трябва да разберат как да създават проекти на SubQuery, които да бъдат индексирани, или да договорят тази работа, за да получат данните във формата, от който се нуждаят.
 
-## Service Cost
+## Цена на услугата
 
-The cost of querying data on the blockchain will be based on supply and demand and will be comparable to other similar services currently available. The advantage of an open and transparent network and ecosystem is that competition is encouraged to provide the best service to the Consumer.
+Разходите за търсене на данни в блокчейна ще се основават на търсенето и предлагането и ще бъдат сравними с други подобни услуги, налични в момента. Предимството на отворената и прозрачна мрежа и екосистема е, че се насърчава конкуренцията, за да се предостави най-добрата услуга на Потребителя.
 
-## Payment options for Consumers?
+## Опции за плащане за потребители?
 
-For flexibility, Consumers have 3 payment options to pay for blockchain data. They are:
+За гъвкавост потребителите имат 3 опции за плащане за блокчейн данни. Те са:
 
 - Pay As You Go (PAYG)
-- Closed Service Agreement
-- Open Service Agreement
+- Затворен договор за услуга
+- Отворено споразумение за услуга
 
-You can read more about the different payment methods, how they work, and the advantages/disadvantages on the [Payment Methods article](./payment-methods.md).
+Можете да прочетете повече за различните методи на плащане, как работят и предимствата/недостатъците в [статията за методи на плащане](./payment-methods.md).
 
 ## FAQ
 
-### As a Consumer, do I select 1 Indexer or multiple Indexers?
+### Като потребител, избирам ли 1 индексатор или няколко индексатора?
 
-Unless a Closed Service Agreement is being used, there will be one or more Indexers indexing a SubQuery project. Consumers have the choice when deciding which Indexer to read data from. Typically Consumers would select the most reliable and lowest latency Indexer. Consumers could also incorporate automatic failover and read data from another Indexer if the first one times out or is not responsive.
+Освен ако не се използва затворено споразумение за услугата, ще има един или повече индексатори, индексиращи проект на SubQuery. Потребителите имат избор, когато решават от кой индексатор да четат данни. Обикновено потребителите биха избрали най-надеждния индексатор с най-ниска латентност. Потребителите биха могли също така да включат автоматичен отказ и да четат данни от друг индексатор, ако първият изтече или не реагира.
 
-### What happens if an Indexer goes offline?
+### Какво се случва, ако Indexer излезе офлайн?
 
-Unless a Closed Service Agreement is being used, and if there is more than one Indexer indexing your SubQuery project, it would simply be a matter of switching to another Indexer. The ideal scenario would be include strategies like alert monitoring to be notified of potential issues and intelligent routing and caching.
+Освен ако не се използва затворено споразумение за услуга и ако има повече от един индексатор, който индексира вашия проект на SubQuery, просто ще бъде въпрос на превключване към друг индексатор. Идеалният сценарий би бил включване на стратегии като наблюдение на предупреждения за уведомяване за потенциални проблеми и интелигентно маршрутизиране и кеширане.
