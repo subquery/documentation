@@ -1,4 +1,4 @@
-# Command Line Flags
+# Флаги командной строки
 
 ## subql (cli)
 
