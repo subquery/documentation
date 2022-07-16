@@ -14,4 +14,4 @@ File Figma kami memiliki koleksi lengkap semua aset merek (logo, font, warna, ga
 
 ## Paket Aset Merek
 
-A smaller ZIP package of brand assets: [public_branding.zip](https://static.subquery.network/public_branding.zip).
+Paket ZIP aset merek yang lebih kecil: [public_branding.zip](https://static.subquery.network/public_branding.zip).
