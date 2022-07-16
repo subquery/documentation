@@ -1,6 +1,6 @@
-# 1. Create a New Project
+# 1. สร้างโครงการใหม่
 
-The goal of this quick start guide is to provide you with a complete development setup and guided steps to create your first SubQuery blockchain project. It is targeted towards experienced developers right through to those just beginning their blockchain journey.
+เป้าหมายของคู่มือเริ่มต้นฉบับย่อนี้คือ เพื่อให้คุณมีการตั้งค่าการพัฒนาที่สมบูรณ์ และเข้าใจแนวทางการสร้างโครงการ SubQuery blockchain แรกของคุณ It is targeted towards experienced developers right through to those just beginning their blockchain journey.
 
 This quick start guide should take around 10-15 minutes.
 
