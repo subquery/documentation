@@ -3,8 +3,8 @@
 Untuk fleksibilitas, ada 3 opsi pembayaran untuk membayar data blockchain. Mereka:
 
 - Pay-As-You-Go (PAYG).
-- Closed Service Agreement.
-- Open Service Agreement.
+- Perjanjian Layanan Tertutup.
+- Perjanjian Layanan Terbuka.
 
 ## Pay-As-You-Go (PAYG)
 
