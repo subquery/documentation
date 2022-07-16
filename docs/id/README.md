@@ -3,9 +3,9 @@
   <section class="welcomeWords">
     <div class="main">
       <div>
-        <h2 class="welcomeTitle">Welcome to SubQuery<span>Academy</span></h2>
+        <h2 class="welcomeTitle">Selamat datang di SubQuery <span>Akademi</span></h2>
         <p>Jelajahi dan ubah data chain untuk membangun dApps yang intuitif dengan lebih cepat!</p>
-        <p><strong>SubQuery now supports Polkadot, Avalanche, and Cosmos (starting with Juno).</strong></p>
+        <p><strong>SubQuery sekarang mendukung Polkadot, Avalanche, dan Cosmos (dimulai dengan Juno).</strong></p>
       </div>
     </div>
   </section>
@@ -64,7 +64,7 @@
         <div class="content">
           <p>SubQuery adalah proyek open source yang memungkinkan developer untuk mengindeks, mengubah, dan melakukan query Substrate data chain untuk mentenagai aplikasi mereka.</p>
           <span class="more">
-            <router-link :to="{path: '/faqs/faqs.md#what-is-subquery'}">READ MORE</router-link>
+            <router-link :to="{path: '/faqs/faqs.md#what-is-subquery'}">BACA SELENGKAPNYA</router-link>
           </span>
         </div>
       </li>
@@ -79,7 +79,7 @@
         <div class="content">
           <p>Kami menyukai kontribusi dan umpan balik dari komunitas. Untuk menyumbangkan kode, garpu repositori yang menarik dan buat perubahan Anda. Kemudian kirimkan PR atau Pull Request. Oh, jangan lupa untuk menguji juga! Lihat juga pedoman kontribusi kami (segera hadir). </p>
           <span class="more">
-            <router-link :to="{path: '/faqs/faqs.md#how-can-i-contribute-or-give-feedback-to-subquery'}">READ MORE</router-link>
+            <router-link :to="{path: '/faqs/faqs.md#how-can-i-contribute-or-give-feedback-to-subquery'}">BACA SELENGKAPNYA</router-link>
           </span> 
         </div>
       </li>
@@ -102,12 +102,12 @@
         <h5>Mengintegrasi Custom Chain anda?</h5>
         <p>Baik Anda sedang membangun parachain baru atau blockchain yang sama sekali baru di Substrat - SubQuery dapat membantu Anda mengindeks dan memecahkan masalah data rantai Anda. SubQuery dirancang untuk diintegrasikan dengan mudah dengan rantai berbasis Substrat kustom.</p>
         <span class="more">
-          <router-link :to="{path: '/build/manifest.md#custom-substrate-and-cosmos-chains'}">LEARN HOW TO INTEGRATE WITH YOUR CHAIN</router-link>
+          <router-link :to="{path: '/build/manifest.md#custom-substrate-and-cosmos-chains'}">PELAJARI CARA MENGINTEGRASIKAN DENGAN RANTAI ANDA</router-link>
         </span>
     </div>
     <div class="lastIntroduce lastIntroduce_2">
         <h5>Dukung dan Kontribusi</h5>
-        <p>Have a question or are interested in knowing more or how you can contribute? Kami ingin mendengar dari Anda. Silakan hubungi kami melalui email atau media sosial dari tautan di bawah ini. Butuh keahlian teknis? Bergabunglah dengan komunitas Discord kami dan dapatkan dukungan dari anggota komunitas kami yang bersemangat. </p>
+        <p>Memiliki pertanyaan atau tertarik untuk mengetahui lebih banyak atau bagaimana Anda dapat berkontribusi? Kami ingin mendengar dari Anda. Silakan hubungi kami melalui email atau media sosial dari tautan di bawah ini. Butuh keahlian teknis? Bergabunglah dengan komunitas Discord kami dan dapatkan dukungan dari anggota komunitas kami yang bersemangat. </p>
         <a class="more" target="_blank" href="https://discord.com/invite/subquery">GABUNG PERBINCANGAN DI DISCORD</a>
     </div>
     </div>
