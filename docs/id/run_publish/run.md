@@ -1,28 +1,28 @@
-# Running SubQuery Locally
+# Menjalankan SubQuery Secara Lokal
 
-This guide works through how to run a local SubQuery node on your infrastructure, which includes both the indexer and query service. Don't want to worry about running your own SubQuery infrastructure? SubQuery provides a [managed hosted service](https://explorer.subquery.network) to the community for free. [Follow our publishing guide](../run_publish/publish.md) to see how you can upload your project to [SubQuery Projects](https://project.subquery.network).
+Panduan ini bekerja melalui cara menjalankan node SubQuery lokal pada infrastruktur Anda, yang mencakup pengindeks dan layanan kueri. Tidak ingin khawatir menjalankan infrastruktur SubQuery Anda sendiri? SubQuery menyediakan [layanan yang dihosting terkelola](https://explorer.subquery.network) kepada komunitas secara gratis. [Ikuti panduan penerbitan kami](../run_publish/publish.md) untuk melihat bagaimana Anda dapat mengunggah proyek Anda ke [Proyek SubQuery](https://project.subquery.network).
 
-## Using Docker
+## Gunakan Docker
 
-An alternative solution is to run a <strong>Docker Container</strong>, defined by the `docker-compose.yml` file. For a new project that has been just initialised you won't need to change anything here.
+Solusi alternatif adalah dengan menjalankan <strong>Docker Container</strong>, yang ditentukan oleh file `docker-compose.yml`. Untuk proyek baru yang baru saja diinisialisasi, Anda tidak perlu mengubah apa pun di sini.
 
-Under the project directory run the following command:
+Di bawah direktori proyek jalankan perintah berikut:
 
 ```shell
 docker-compose pull && docker-compose up
 ```
 
-::: info Note It may take some time to download the required packages ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), and Postgres) for the first time but soon you'll see a running SubQuery node. :::
+::: Mungkin perlu beberapa waktu untuk mengunduh paket yang diperlukan ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), dan Postgres) untuk pertama kalinya tetapi segera Anda akan melihat Node subkueri. :::
 
-## Running an Indexer (subql/node)
+## Menjalankan Pengindeks (subql/node)
 
-Requirements:
+Persyaratan:
 
-- [Postgres](https://www.postgresql.org/) database (version 12 or higher). While the [SubQuery node](run.md#start-a-local-subquery-node) is indexing the blockchain, the extracted data is stored in an external database instance.
+- Basis data [Postgres](https://www.postgresql.org/) (versi 12 atau lebih tinggi). Sementara [Node SubQuery](run.md#start-a-local-subquery-node) mengindeks blockchain, data yang diekstraksi disimpan dalam instance database eksternal.
 
-A SubQuery node is an implementation that extracts Substrate/Polkadot-based blockchain data per the SubQuery project and saves it into a Postgres database.
+Node SubQuery adalah implementasi yang mengekstrak data blockchain berbasis substrat per proyek SubQuery dan menyimpannya ke dalam database Postgres.
 
-### Installation
+### Instalasi
 
 <CodeGroup>
 <CodeGroupItem title='Substrate/Polkadot'>
@@ -53,7 +53,7 @@ npm install -g @subql/node-avalanche
 
 ::: danger Please note that we **DO NOT** encourage the use of `yarn global` due to its poor dependency management which may lead to an errors down the line. :::
 
-Once installed, you can start a node with the following command:
+Setelah terinstal, Anda dapat memulai node dengan perintah berikut:
 
 
 <CodeGroup>
@@ -82,22 +82,15 @@ subql-node-avalanche <command>
 
 ### Key Commands
 
-The following commands will assist you to complete the configuration of a SubQuery node and begin indexing. To find out more, you can always run `--help`.
+The following commands will assist you to complete the configuration of a SubQuery node and begin indexing. Untuk mengetahui lebih lanjut, Anda selalu dapat menjalankan `--help`.
 
-#### Point to local project path
+#### Arahkan ke jalur proyek lokal
 
 <CodeGroup>
-<CodeGroupItem title='Substrate/Polkadot'>
+<CodeGroupItem title='Substrate'>
 
 ```shell
 subql-node -f your-project-path
-```
-
-</CodeGroupItem>
-<CodeGroupItem title='Terra'>
-
-```shell
-subql-node-terra -f your-project-path
 ```
 
 </CodeGroupItem>
@@ -112,39 +105,39 @@ subql-node-avalanche -f your-project-path
 
 #### Use a Dictionary
 
-Using a full chain dictionary can dramatically speed up the processing of a SubQuery project during testing or during your first index. In some cases, we've seen indexing performance increases of up to 10x.
+Menggunakan kamus rantai lengkap dapat secara dramatis mempercepat pemrosesan proyek SubQuery selama pengujian atau selama indeks pertama Anda. Dalam beberapa kasus, kami telah melihat peningkatan kinerja pengindeksan hingga 10x.
 
-A full chain dictionary pre-indexes the location of all events and extrinsics within the specific chain and allows your node service to skip to relevant locations when indexing rather than inspecting each block.
+Kamus rantai penuh mengindeks lokasi semua peristiwa dan ekstrinsik dalam rantai tertentu dan memungkinkan layanan node Anda untuk melompat ke lokasi yang relevan saat mengindeks daripada memeriksa setiap blok.
 
-You can add the dictionary endpoint in your `project.yaml` file (see [Manifest File](../build/manifest.md)), or specify it at run time using the following command:
+Anda dapat menambahkan titik akhir kamus dalam file `project.yaml` Anda (lihat [Manifest File](../build/manifest.md)), atau tentukan pada saat run time menggunakan perintah berikut:
 
 <CodeGroup>
 <CodeGroupItem title='Substrate/Polkadot/Polkadot'>
 
 ```shell
-subql-node --network-dictionary=https://api.subquery.network/sq/subquery/dictionary-polkadot
+subql-node --jaringan-kamus=https://api.subquery.network/sq/subquery/dictionary-polkadot
 ```
 
 </CodeGroupItem>
 <CodeGroupItem title='Terra'>
 
 ```shell
-subql-node-terra --network-dictionary=https://api.subquery.network/sq/subquery/terra-columbus-5-dictionary
+subql-node-terra --kamus jaringan=https://api.subquery.network/sq/subquery/terra-columbus-5-dictionary
 ```
 
 </CodeGroupItem>
 <CodeGroupItem title='Avalanche'>
 
 ```shell
-subql-node-avalanche --network-dictionary=https://api.subquery.network/sq/subquery/avalanche-dictionary
+subql-node-avalanche --kamus jaringan=https://api.subquery.network/sq/subquery/avalanche-dictionary
 ```
 
 </CodeGroupItem>
 </CodeGroup>
 
-::: info Note You can read more about [how a SubQuery Dictionary works](../academy/tutorials_examples/dictionary.md). :::
+::::: info Catatan Anda dapat membaca lebih lanjut tentang [bagaimana Kamus SubQuery bekerja](../academy/tutorials_examples/dictionary.md). :::
 
-#### Connect to database
+#### Hubungkan ke basis data
 
 ```shell
 export DB_USER=postgres
@@ -155,22 +148,15 @@ export DB_PORT=5432
 subql-node -f your-project-path
 ```
 
-Depending on the configuration of your Postgres database (e.g. a different database password), please ensure also that both the indexer (`subql/node`) and the query service (`subql/query`) can establish a connection to it.
+Bergantung pada konfigurasi database Postgres Anda (misalnya kata sandi database yang berbeda), harap pastikan juga bahwa pengindeks (`subql/node`) dan layanan kueri (`subql/query`) dapat membuat koneksi ke sana.
 
-#### Specify a configuration file
+#### Tentukan file konfigurasi
 
 <CodeGroup>
-<CodeGroupItem title='Substrate/Polkadot'>
+<CodeGroupItem title='Substrate'>
 
-```shell
+``shell
 subql-node -c your-project-config.yml
-```
-
-</CodeGroupItem>
-<CodeGroupItem title='Terra'>
-
-```shell
-subql-node-terra -c your-project-config.yml
 ```
 
 </CodeGroupItem>
@@ -183,7 +169,7 @@ subql-node-avalanche -c your-project-config.yml
 </CodeGroupItem>
 </CodeGroup>
 
-This will point the query node to a configuration file which can be in YAML or JSON format. Check out the example below.
+This will redirect the query node to the configuration file which can be in YAML or JSON format. Check out the example below.
 
 ```yaml
 subquery: ../../../../subql-example/extrinsics
@@ -192,7 +178,7 @@ batchSize:100
 localMode:true
 ```
 
-#### Change the block fetching batch size
+#### Bagaimana cara mengubah ukuran blockchain fetching batch
 
 ```shell
 subql-node -f your-project-path --batch-size 200
@@ -202,9 +188,9 @@ Result:
 [IndexerManager] fetch block [403, 602]
 ```
 
-When the indexer first indexes the chain, fetching single blocks will significantly decrease the performance. Increasing the batch size to adjust the number of blocks fetched will decrease the overall processing time. The current default batch size is 100.
+Saat pengindeks pertama kali mengindeks rantai, mengambil blok tunggal akan secara signifikan menurunkan kinerja. Meningkatkan ukuran batch untuk menyesuaikan jumlah blok yang diambil akan mengurangi waktu pemrosesan secara keseluruhan. Ukuran batch default saat ini adalah 100.
 
-#### Run in local mode
+#### Berjalan dalam mode lokal
 
 <CodeGroup>
 <CodeGroupItem title='Substrate/Polkadot'>
@@ -230,18 +216,18 @@ subql-node-avalanche -f your-project-path --local
 </CodeGroupItem>
 </CodeGroup>
 
-For debugging purposes, users can run the node in local mode. Switching to local model will create Postgres tables in the default schema `public`.
+Untuk tujuan debugging, pengguna dapat menjalankan node dalam mode lokal. Beralih ke model lokal akan membuat tabel Postgres dalam skema default `publik`.
 
-If local mode is not used, a new Postgres schema with the initial `subquery_` and corresponding project tables will be created.
+Jika mode lokal tidak digunakan, skema Postgres baru dengan `subquery_` awal dan tabel proyek yang sesuai akan dibuat.
 
-#### Check your node health
+#### Mengcek kesehatan Node
 
-There are 2 endpoints that you can use to check and monitor the health of a running SubQuery node.
+Ada 2 endpoint yang dapat Anda gunakan untuk memeriksa dan memantau kesehatan node SubQuery yang sedang berjalan.
 
-- Health check endpoint that returns a simple 200 response.
-- Metadata endpoint that includes additional analytics of your running SubQuery node.
+- Titik akhir pemeriksaan kesehatan yang mengembalikan respons 200 sederhana.
+- Endpoint metadata yang mencakup analisis tambahan dari node SubQuery yang sedang berjalan.
 
-Append this to the base URL of your SubQuery node. Eg `http://localhost:3000/meta` will return:
+Tambahkan ini ke URL dasar node SubQuery Anda. Misalnya `http://localhost:3000/meta` akan kembali:
 
 ```bash
 {
@@ -264,18 +250,18 @@ Append this to the base URL of your SubQuery node. Eg `http://localhost:3000/met
 }
 ```
 
-`http://localhost:3000/health` will return HTTP 200 if successful.
+`http://localhost:3000/health` akan mengembalikan HTTP 200 jika berhasil.
 
-A 500 error will be returned if the indexer is not healthy. This can often be seen when the node is booting up.
+Kesalahan 500 akan dikembalikan jika pengindeks tidak sehat. Hal ini sering terlihat ketika node sedang booting.
 
 ```shell
 {
     "status": 500,
-    "error": "Indexer is not healthy"
+    "error": "Pengindeks tidak sehat"
 }
 ```
 
-If an incorrect URL is used, a 404 not found error will be returned.
+Jika URL yang digunakan salah, kesalahan 404 tidak ditemukan akan ditampilkan.
 
 ```shell
 {
@@ -285,9 +271,9 @@ If an incorrect URL is used, a 404 not found error will be returned.
 }
 ```
 
-#### Debug your project
+#### Debug proyek Anda
 
-Use the [node inspector](https://nodejs.org/en/docs/guides/debugging-getting-started/) to run the following command.
+Gunakan [inspektur simpul](https://nodejs.org/en/docs/guides/debugging-getting-started/) untuk menjalankan perintah berikut.
 
 ```shell
 node --inspect-brk <path to subql-node> -f <path to subQuery project>
@@ -298,30 +284,30 @@ Sebagai contoh:
 ```shell
 node --inspect-brk /usr/local/bin/subql-node -f ~/Code/subQuery/projects/subql-helloworld/
 Debugger listening on ws://127.0.0.1:9229/56156753-c07d-4bbe-af2d-2c7ff4bcc5ad
-For help, see: https://nodejs.org/en/docs/inspector
-Debugger attached.
+Untuk bantuan, klik link berikut: https://nodejs.org/en/docs/inspector
+Debugger Terpasang.
 ```
 
-Then open up the Chrome dev tools, go to Source > Filesystem and add your project to the workspace and start debugging. For more information, check out [How to debug a SubQuery project](../academy/tutorials_examples/debug-projects.md).
+Kemudian buka alat pengembang Chrome, buka Sumber > Filesystem dan tambahkan proyek Anda ke ruang kerja dan mulai debugging. Untuk informasi lebih lanjut, periksa [Cara men-debug proyek SubQuery](../academy/tutorials_examples/debug-projects.md).
 
-## Running a Query Service (subql/query)
+## Menjalankan Layanan Kueri (subql/query)
 
-### Installation
+### Instalasi
 
 ```shell
 # NPM
 npm install -g @subql/query
 ```
 
-::: danger Please note that we **DO NOT** encourage the use of `yarn global` due to its poor dependency management which may lead to an errors down the line. :::
+::: Harap dicatat bahwa kami **JANGAN** mendorong penggunaan `global benang` karena manajemen ketergantungannya yang buruk yang dapat menyebabkan kesalahan di masa mendatang. :::
 
-### Running the Query service
+### Menjalankan layanan Kueri
 
 ```
 export DB_HOST=localhost
 subql-query --name <project_name> --playground
 ```
 
-Make sure the project name is the same as the project name when you [initialize the project](../quickstart/quickstart.md#_2-initialise-the-subquery-starter-project). Also, check the environment variables are correct.
+Pastikan nama proyek sama dengan nama proyek saat Anda [menginisialisasi proyek](../quickstart/quickstart.md#_2-initialise-the-subquery-starter-project). Juga, periksa variabel lingkungan sudah benar.
 
-After running the subql-query service successfully, open your browser and head to `http://localhost:3000`. You should see a GraphQL playground showing in the Explorer and the schema that is ready to query.
+Setelah menjalankan layanan subql-query dengan sukses, buka browser Anda dan buka `http://localhost:3000`. Anda akan melihat taman bermain GraphQL ditampilkan di Explorer dan skema yang siap untuk kueri.
