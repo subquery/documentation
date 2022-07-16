@@ -4,27 +4,27 @@
 
 Индексатор - это участник сети SubQuery, который отвечает за индексирование данных блокчейна и предоставление этих данных своим клиентам.
 
-Индексаторы играют очень важную роль в сети SubQuery. As a part of a data-as-a-service business, an Indexer turns computational and networking power into profits.
+Индексаторы играют очень важную роль в сети SubQuery. Являясь частью бизнеса по предоставлению данных как услуги, индексатор превращает вычислительные и сетевые мощности в прибыль.
 
-## Indexer Staking
+## Ставка индексатора
 
-In order to earn rewards from query revenue as an Indexer it is proposed that Indexers must stake SQT against a particular SubQuery Project that they are providing the service to. The Cobb-Douglas production function will be used to determine the rewards distributed to each Indexer.
+Для того чтобы получать вознаграждение от доходов от запросов в качестве индексатора, предлагается, что индексаторы должны делать ставки SQT против определенного проекта SubQuery, которому они предоставляют услуги. Производственная функция Кобба-Дугласа будет использоваться для определения вознаграждения, распределяемого каждому индексатору.
 
-SubQuery plans to add a constraint to the network where an indexer must stake a minimum amount of SQT on the relevant reward pool to be able to participate in its matching Open Agreement. They must also stake a minimum amount on an equivalent staking contract for any Closed Agreements in the same fashion. This indexer staked minimum value must be a certain percentage of the Agreement’s per Era reward value, which means in order to renew the Agreement to higher volumes, the indexer must also increase their stake. When an indexer’s stake decreases beneath this minimum amount, they will be unable to renew the Agreement at the existing price.
+SubQuery планирует добавить в сеть ограничение, при котором индексатор должен поставить минимальное количество SQT на соответствующий пул вознаграждений, чтобы иметь возможность участвовать в соответствующем открытом соглашении. Они также должны сделать ставку на минимальную сумму по эквивалентному контракту на ставку для любых Закрытых соглашений таким же образом. Минимальная ставка индексатора должна составлять определенный процент от суммы вознаграждения по Соглашению за Era, что означает, что для продления Соглашения на более высокие объемы индексатор также должен увеличить свою ставку. Если доля индексатора уменьшится ниже этой минимальной суммы, он не сможет продлить Соглашение по существующей цене.
 
-If an Indexer is caught misbehaving (such as by providing invalid, incomplete, or incorrect data), they are liable to have a portion of their staked SQT (on the particular reward pool ip) reallocated to the SubQuery Foundation Treasury, diminishing their holdings of staked SQT in the network and therefore their potential reward. Since the indexer’s allocated stake is determined by a percentage of their total SQT, this will have a flow on effect to all other reward pools that the indexer is party to.
+Если индексатора поймают на неправильном поведении (например, на предоставлении недействительных, неполных или неверных данных), он будет обязан перераспределить часть своих SQT (на конкретный пул вознаграждения ip) в казну фонда SubQuery, что уменьшит его долю SQT в сети и, следовательно, его потенциальное вознаграждение. Поскольку выделенная доля индексатора определяется процентом от его общего SQT, это окажет влияние на все остальные пулы вознаграждений, в которых участвует индексатор.
 
-## How are Indexers rewarded?
+## Как вознаграждаются индексаторы?
 
-Indexers are rewarded in SQT in two ways:
-- Rewards from SQT reward pools based on distribution defined by the Cobb-Douglas Production Function.
-- Direct SQT query fee rewards from Closed Agreements that an indexer is party to.
+Индексаторы вознаграждаются в SQT двумя способами:
+- Вознаграждения из пулов вознаграждений SQT на основе распределения, определяемого производственной функцией Кобба-Дугласа.
+- Прямые вознаграждения за запросы SQT из Закрытых соглашений, в которых участвует индексатор.
 
-Indexers are rewarded the fees that Consumers pay for providing blockchain data that the Consumer has reqested. An Indexer will receive all the fees from a Closed Agreement. Otherwise, the fees are split based on the amount of work performed (requests served) and the amount of delegated SQT - this split is determined by applying the Cobb-Douglas Production Function.
+Индексаторы получают вознаграждение, которое платят потребители за предоставление данных блокчейна, которые запросил потребитель. Индексатор будет получать все вознаграждения от Закрытого соглашения. В противном случае плата распределяется в зависимости от объема выполненной работы (обслуженных заявок) и объема делегированного SQT - это распределение определяется путем применения производственной функции Кобба-Дугласа.
 
-There may be multiple reward pools simultaneously active for a given Indexer. The indexer’s job is to allocate their staked and delegated SQT amongst these pools (in terms of a percentage of their total SQT). There will be a reward pool for each project that the Indexer accepts PAYG, and a reward pool for each Market Agreement that the Indexer is a party of.
+Для данного индексатора могут быть одновременно активны несколько пулов вознаграждений. Работа индексатора заключается в распределении своего SQT между этими пулами (в процентном соотношении от их общего SQT). Будет создан пул вознаграждений для каждого проекта, который Индексатор принимает PAYG, и пул вознаграждений для каждого рыночного соглашения, стороной которого является Индексатор.
 
-## Attracting Delegators
+## Привлечение делегаторов
 
 Indexers can increase their earning potential by attracting Delegators. Delegators are SQT token holders who can delegate their tokens to Indexers for additional rewards. Indexers use these additional tokens to increase the amount they allocate to projects of their choice. This allows Indexers to increase their earnings.
 
