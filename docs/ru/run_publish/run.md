@@ -230,18 +230,18 @@ subql-node-avalanche -f your-project-path --local
 </CodeGroupItem>
 </CodeGroup>
 
-For debugging purposes, users can run the node in local mode. Switching to local model will create Postgres tables in the default schema `public`.
+В целях отладки пользователи могут запустить узел в локальном режиме. При переключении на локальную модель будут созданы таблицы Postgres в схеме по умолчанию `public`.
 
-If local mode is not used, a new Postgres schema with the initial `subquery_` and corresponding project tables will be created.
+Если локальный режим не используется, будет создана новая схема Postgres с исходным `subquery_` и соответствующими таблицами проекта.
 
-#### Check your node health
+#### Проверка состояния вашего узла
 
-There are 2 endpoints that you can use to check and monitor the health of a running SubQuery node.
+Существует 2 конечные точки, которые вы можете использовать для проверки и мониторинга состояния работоспособности узла SubQuery.
 
-- Health check endpoint that returns a simple 200 response.
-- Metadata endpoint that includes additional analytics of your running SubQuery node.
+- Конечная точка проверки работоспособности, которая возвращает простой ответ 200.
+- Конечная точка метаданных, которая включает дополнительную аналитику вашего работающего узла SubQuery.
 
-Append this to the base URL of your SubQuery node. Eg `http://localhost:3000/meta` will return:
+Добавьте это к базовому URL-адресу вашего узла SubQuery. Например, `http: // localhost: 3000 / meta` вернет:
 
 ```bash
 {
@@ -262,11 +262,13 @@ Append this to the base URL of your SubQuery node. Eg `http://localhost:3000/met
     "genesisHash": "0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3",
     "blockTime": 6000
 }
+ 
+
 ```
 
-`http://localhost:3000/health` will return HTTP 200 if successful.
+`http: // localhost: 3000 / health` вернет HTTP 200 в случае успеха.
 
-A 500 error will be returned if the indexer is not healthy. This can often be seen when the node is booting up.
+Если индексатор неисправен, будет возвращена ошибка 500. Это часто можно увидеть при загрузке узла.
 
 ```shell
 {
@@ -275,7 +277,7 @@ A 500 error will be returned if the indexer is not healthy. This can often be se
 }
 ```
 
-If an incorrect URL is used, a 404 not found error will be returned.
+Если используется неправильный URL, будет возвращена ошибка 404 not found.
 
 ```shell
 {
@@ -285,9 +287,9 @@ If an incorrect URL is used, a 404 not found error will be returned.
 }
 ```
 
-#### Debug your project
+#### Отладка вашего проекта
 
-Use the [node inspector](https://nodejs.org/en/docs/guides/debugging-getting-started/) to run the following command.
+Используйте [инспектор узлов](https://nodejs.org/en/docs/guides/debugging-getting-started/) для выполнения следующей команды.
 
 ```shell
 node --inspect-brk <path to subql-node> -f <path to subQuery project>
@@ -302,9 +304,9 @@ For help, see: https://nodejs.org/en/docs/inspector
 Debugger attached.
 ```
 
-Then open up the Chrome dev tools, go to Source > Filesystem and add your project to the workspace and start debugging. For more information, check out [How to debug a SubQuery project](../academy/tutorials_examples/debug-projects.md).
+Затем откройте инструменты разработчика Chrome , перейдите в Source > Filesystem, добавьте свой проект в рабочую область и начните отладку. Для получения дополнительной информации посмотрите [Как отладить проект SubQuery](../academy/tutorials_examples/debug-projects.md).
 
-## Running a Query Service (subql/query)
+## Запуск службы запросов (subql / query)
 
 ### Установка
 
@@ -313,15 +315,15 @@ Then open up the Chrome dev tools, go to Source > Filesystem and add your projec
 npm install -g @subql/query
 ```
 
-::: danger Please note that we **DO NOT** encourage the use of `yarn global` due to its poor dependency management which may lead to an errors down the line. :::
+::: риски Обратите внимание, что мы ** НЕ** поощряем использование `yarn global` из-за его плохого управления зависимостями, что может в дальнейшем привести к ошибкам. :::
 
-### Running the Query service
+### Запуск службы Запросов
 
 ```
 export DB_HOST=localhost
 subql-query --name <project_name> --playground
 ```
 
-Make sure the project name is the same as the project name when you [initialize the project](../quickstart/quickstart.md#_2-initialise-the-subquery-starter-project). Also, check the environment variables are correct.
+Убедитесь, что имя проекта совпадает с именем проекта при [инициализации проекта](../quickstart/quickstart.md#_2-initialise-the-subquery-starter-project). Также проверьте правильность переменных среды.
 
-After running the subql-query service successfully, open your browser and head to `http://localhost:3000`. You should see a GraphQL playground showing in the Explorer and the schema that is ready to query.
+После успешного запуска службы subql-query откройте браузер и перейдите по следующему пути: `http://localhost:3000`. Вы должны увидеть площадку GraphQL, отображаемую в проводнике, и схему, готовую для запросов.
