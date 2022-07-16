@@ -30,34 +30,34 @@ Deployment slots เป็นฟีเจอร์ใน [SubQuery Projects ](ht
 
 ประโยชน์หลักของการใช้ Staging slot คือช่วยให้คุณสามารถเตรียม New release ของโปรเจ็กต์ SubQuery โดยที่ไม่ต้องเปิดเผยต่อสาธารณะ คุณสามารถรอให้ Staging slot ทำการ Index ข้อมูลทั้งหมดใหม่ก่อน โดยไม่กระทบต่อแอปพลิเคชันที่ใช้งานจริงของคุณ
 
-The staging slot is not shown to the public in the [Explorer](https://explorer.subquery.network/) and has a unique URL that is visible only to you. And of course, the separate environment allows you to test your new code without affecting production.
+Staging slot จะไม่แสดงต่อสาธารณะใน [Explorer](https://explorer.subquery.network/) และมี URL ที่มองเห็นได้เฉพาะคุณเท่านั้น และแน่นอน สภาพแวดล้อมที่แยกจากกันทำให้คุณสามารถทดสอบโค้ดใหม่ได้โดยไม่กระทบต่อการใช้งานจริง
 
-## What are Polkadot's Extrinsics?
+## Polkadot's Extrinsics คืออะไร
 
-If you are already familiar with blockchain concepts, you can think of extrinsics as comparable to transactions. More formally though, an extrinsic is a piece of information that comes from outside the chain and is included in a block. There are three categories of extrinsics. They are inherents, signed transactions, and unsigned transactions.
+หากคุณคุ้นเคยกับบล็อคเชนอยู่แล้ว คุณสามารถเปรียบ Extrinsics ได้กับธุรกรรม หรืออธิบายให้เป็นทางการมากขึ้น extrinsic เป็นส่วนของข้อมูลที่มาจากนอก chain และถูกรวมอยู่ในบล็อก โดย Extrinsics มีทั้งหมดสามประเภท ได้แก่ inherents, signed transactions และ unsigned transactions
 
-Inherent extrinsics are pieces of information that are not signed and only inserted into a block by the block author.
+Inherent extrinsics คือชิ้นส่วนของข้อมูลที่ไม่ได้ถูก signed และแทรกเข้าไปในบล็อกโดยผู้เขียนบล็อกเท่านั้น
 
-Signed transaction extrinsics are transactions that contain a signature of the account that issued the transaction. They stands to pay a fee to have the transaction included on chain.
+Signed transaction extrinsics คือธุรกรรมที่มีลายเซ็นของบัญชีที่ออกธุรกรรม โดยพวกเขาพร้อมที่จะจ่ายค่าธรรมเนียมเพื่อให้ธุรกรรมรวมอยู่ใน chain
 
-Unsigned transactions extrinsics are transactions that do not contain a signature of the account that issued the transaction. Unsigned transactions extrinsics should be used with care because there is nobody paying a fee, becaused they are not signed. Because of this, the transaction queue lacks economic logic to prevent spam.
+Unsigned transactions extrinsics คือธุรกรรมที่ไม่มีลายเซ็นของบัญชีที่ออกธุรกรรม Unsigned transactions extrinsics ควรถูกใช้อย่างระมัดระวัง เนื่องจากไม่มีใครจ่ายค่าธรรมเนียม เพราะธุรกรรมไม่ได้ถูกลงนาม (signed) ด้วยเหตุนี้ คิวของธุรกรรมจึงขาดตรรกะทางเศรษฐศาสตร์ในการป้องกันการสแปม
 
-For more information, click [here](https://substrate.dev/docs/en/knowledgebase/learn-substrate/extrinsics).
+สำหรับข้อมูลเพิ่มเติม คลิก [ที่นี่](https://substrate.dev/docs/en/knowledgebase/learn-substrate/extrinsics)
 
-## What is the endpoint for the Kusama network?
+## Endpoint สำหรับเครือข่าย Kusama คืออะไร?
 
-The network.endpoint for the Kusama network is `wss://kusama.api.onfinality.io/public-ws`.
+network.endpoint สำหรับเครือข่าย Kusama คือ `wss://kusama.api.onfinality.io/public-ws`
 
-## What is the endpoint for the Polkadot mainnet network?
+## Endpoint สำหรับเครือข่าย Polkadot mainnet คืออะไร?
 
-The network.endpoint for the Polkadot network is `wss://polkadot.api.onfinality.io/public-ws`.
+network.endpoint สำหรับเครือข่าย Polkadot คือ `wss://polkadot.api.onfinality.io/public-ws`
 
-## How do I iteratively develop my project schema?
+## ฉันจะพัฒนา Schema ของโปรเจกต์ของฉันได้อย่างไร
 
-A known issue with developing a changing project schema is that when lauching your Subquery node for testing, the previously indexed blocks will be incompatible with your new schema. In order to iteratively develop schemas the indexed blocks stored in the database must be cleared, this can be achieved by launching your node with the `--force-clean` flag. For example:
+ปัญหาที่เราทราบกับการพัฒนาและเปลี่ยนโปรเจกค์ Schema คือเมื่อคุณเริ่มต้น Subquery node สำหรับทดสอบ ข้อมูลที่ทำ Index แล้วจะเข้ากับ Schema ใหม่ของคุณไม่ได้ ในการพัฒนา Schemas ข้อมูล Indexed block ที่ถูกเก็บไว้ในฐานข้อมูลจะต้องถูกลบออก โดยทำได้จากการเริ่มต้น node ของคุณด้วย flag `--force-clean` ยกตัวอย่างเช่น:
 
 ```shell
 subql-node -f . --force-clean --subquery-name=<project-name>
 ```
 
-Note that it is recommended to use `--force-clean` when changing the `startBlock` within the project manifest (`project.yaml`) in order to begin reindexing from the configured block. If `startBlock` is changed without a `--force-clean` of the project then the indexer will continue indexing with the previously configured `startBlock`.
+แนะนำว่าควรใช้ `--force-clean` เมื่อเปลี่ยน `startBlock` ที่อยู่ใน Project manifest (`project.yaml`) เพื่มเริ่มต้นการทำ Indexing ใหม่จาก Block ที่ถูกตั้งค่าไว้ ถ้า `startBlock` ถูกเปลี่ยนโดยไม่ได้ใช้ `--force-clean` แล้วล่ะก็ indexer จะทำการ index ต่อจากค่า `startBlock` เดิม
