@@ -13,7 +13,7 @@ Mari kita mulai proses pembuatan proyek blockchain SubQuery pertama Anda.
 Sebelum Anda mulai membuat proyek blockchain pertama Anda dengan SubQuery, pastikan Anda telah menginstal aplikasi perangkat lunak pendukung yang diperlukan. Ini adalah:
 
 - [Node](https://nodejs.org/en/): Instalasi Node.js modern (misalnya versi LTS).
-- [Docker](https://docker.com/): This tutorial will use the required Docker.
+- [Docker](https://docker.com/): Tutorial ini akan menggunakan Docker yang diperlukan.
 
 Sekarang, Anda siap untuk memulai dengan langkah pertama, yaitu instalasi SubQuery CLI.
 
@@ -26,7 +26,7 @@ Instal SubQuery CLI secara global di terminal Anda dengan menggunakan NPM:
 npm install -g @subql/cli
 ```
 
-::: danger We **DO NOT** encourage the use of `yarn global` for installing `@subql/cli` due to its poor dependency management. Hal ini dapat menyebabkan beberapa kesalahan. :::
+::::: bahaya Kami **JANGAN** mendorong penggunaan `yarn global` untuk menginstal `@subql/cli` karena manajemen ketergantungannya yang buruk. Hal ini dapat menyebabkan beberapa kesalahan. :::
 
 Lihatlah semua perintah yang tersedia dan penggunaannya. Jalankan perintah yang diberikan di bawah ini di CLI:
 
@@ -42,29 +42,29 @@ Jalankan perintah berikut di dalam direktori yang ingin Anda buat proyek SubQuer
 subql init
 ```
 
-::: warning Important
+:::: peringatan Penting
 
-**For Cosmos Users**
+**Untuk Pengguna Cosmos**
 
-Cosmos belum didukung dalam CLI SubQuery (`subql`). Hence, if you are using Cosmos, you must start with a Juno clone or fork this [starter project](https://github.com/subquery/cosmos-subql-starter).
+Cosmos belum didukung dalam CLI SubQuery (`subql`). Oleh karena itu, jika Anda menggunakan Cosmos, Anda harus mulai dengan klon Juno atau fork [starter project](https://github.com/subquery/cosmos-subql-starter) ini.
 
-To initialise your project with Cosmos, refer to these 4 steps shown in this [link](https://github.com/subquery/juno-subql-starter#readme). Once you complete these 4 steps, **jump** to the [Make Changes to Your Project](../quickstart/quickstart.md#_3-make-changes-to-your-project) section. :::
+Untuk menginisialisasi proyek Anda dengan Cosmos, lihat 4 langkah yang ditunjukkan dalam [link](https://github.com/subquery/juno-subql-starter#readme) ini. Setelah anda menyelesaikan 4 langkah ini, **lompat** ke bagian [Make Changes to Your Project](../quickstart/quickstart.md#_3-make-changes-to-your-project). :::
 
 Anda akan ditanyai pertanyaan tertentu saat Anda melanjutkan perjalanan:
 
-- **Project name**: A project name for your SubQuery project.
+- **Nama proyek**: Nama proyek untuk proyek SubQuery Anda.
 - **Keluarga Network**: Keluarga jaringan blockchain layer-1 yang akan diindeks oleh proyek SubQuery ini. Gunakan tombol panah untuk memilih dari opsi yang tersedia. Misalnya, Polkadot, Avalanche, Cosmos, atau jaringan lain yang didukung.
 - **Network**: Jaringan spesifik yang akan diindeks oleh proyek SubQuery ini. Gunakan tombol panah untuk memilih dari opsi yang tersedia. Misalnya, Polkadot, Avalanche, atau jaringan lain yang didukung.
 - **Proyek template**: Pilih proyek template SubQuery yang akan memberikan titik awal dalam pengembangan. Kami menyarankan untuk memilih proyek _"subql-starter"_.
 - **Titik akhir RPC**: Berikan URL HTTPS ke endpoint RPC yang sedang berjalan, yang akan digunakan secara default untuk proyek ini. Anda dapat dengan cepat mengakses titik akhir publik untuk jaringan yang berbeda, membuat node khusus pribadi Anda sendiri menggunakan [OnFinality](https://app.onfinality.io), atau hanya menggunakan titik akhir default. Node RPC ini harus berupa node arsip (memiliki status rantai penuh). Kita akan menggunakan nilai default untuk panduan ini. Berdasarkan jaringan yang Anda pilih, nilai default mungkin:
-  - For Polkadot - _"https://polkadot.api.onfinality.io"_,
-  - For Avalanche - _"https://avalanche.api.onfinality.io"_,
+  - Untuk Polkadot - _"https://polkadot.api.onfinality.io"_,
+  - Untuk Avalanche - _"https://avalanche.api.onfinality.io"_,
   - Untuk Terra - _"https://terra-columbus-5.beta.api.onfinality.io"_ dan demikian juga untuk jaringan lain. <br/>
 - ** Repositori Git**: Berikan URL Git ke repo tempat proyek SubQuery ini akan dihosting (saat dihosting di SubQuery Explorer) atau terima default yang disediakan.
 - **Authors**: Masukkan pemilik proyek SubQuery ini di sini (misalnya nama Anda!) atau terima default yang disediakan.
 - **Deskripsi**: Sediakan paragraf singkat tentang proyek Anda yang menjelaskan data apa saja yang ada di dalamnya dan apa yang bisa dilakukan pengguna dengannya, atau terima default yang disediakan.
-- **Version**: Enter a custom version number or use the default (`1.0.0`).
-- **License**: Provide the software license for this project or accept the default (`MIT`).
+- **Versi**: Masukkan nomor versi khusus atau gunakan default (`1.0.0`).
+- **Lisensi**: Berikan lisensi perangkat lunak untuk proyek ini atau terima default (`MIT`).
 
 Mari kita lihat sebuah contoh:
 
@@ -98,11 +98,11 @@ Anda mungkin ingin merujuk ke [argumen baris perintah](../run_publish/references
 
 ## 3. Membuat Perubahan pada Proyek Anda
 
-Ada 3 file penting yang perlu dimodifikasi. These are:
+Ada 3 file penting yang perlu dimodifikasi. Ini adalah:
 
-1. The GraphQL Schema in `schema.graphql`.
-2. The Project Manifest in `project.yaml`.
-3. The Mapping functions in `src/mappings/` directory.
+1. Skema GraphQL di `schema.graphql`.
+2. Manifes Proyek di `project.yaml`.
+3. Fungsi-fungsi pemetaan dalam direktori `src/mappings/`.
 
 SubQuery mendukung berbagai jaringan blockchain dan memberi Anda panduan khusus untuk masing-masing jaringan.
 
