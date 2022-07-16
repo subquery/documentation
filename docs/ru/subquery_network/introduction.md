@@ -14,7 +14,7 @@ The SubQuery Network is facilitating an open web3 data revolution by allowing yo
 
 There’s a role for everyone in the network, from highly technical developers to those that are not. The SubQuery network includes four main network participants.
 
-### Consumers
+### Потребители
 
 Consumers will ask the SubQuery Network for specific data for their dApps or tools, and pay an advertised amount of SQT for each request.
 
@@ -26,7 +26,7 @@ Indexers will run and maintain high quality SubQuery projects in their own infra
 
 ::: info Note Learn more about [Indexers](./indexers.md). :::
 
-### Delegators
+### Делегаторы
 
 Delegators will participate in the Network by supporting their favourite Indexers to earn rewards based on the work those indexers do.
 
