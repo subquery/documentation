@@ -6,7 +6,7 @@ SubQuery sekarang juga mendukung Graphql Subscriptions. Seperti kueri, langganan
 
 Langganan sangat berguna ketika Anda ingin aplikasi klien Anda mengubah data atau menampilkan beberapa data baru segera setelah perubahan itu terjadi atau data baru tersedia. Langganan memungkinkan Anda untuk *berlangganan* ke proyek SubQuery Anda untuk perubahan.
 
-::: info Note Read more about [Subscriptions](https://www.apollographql.com/docs/react/data/subscriptions/). :::
+:::: info Catatan Baca lebih lanjut tentang [Langganan](https://www.apollographql.com/docs/react/data/subscriptions/). :::
 
 ## Cara Berlangganan Entitas
 
@@ -25,8 +25,8 @@ subscription {
 ```
 
 Badan entitas dalam kueri Anda menunjukkan data apa yang ingin Anda terima melalui langganan Anda saat tabel `Transfer` diperbarui:
-- `id`: Returns the ID of the entity that has changed.
-- `mutation_type`: Tindakan yang telah dilakukan pada entitas ini. Mutation types can be either `INSERT`, `UPDATE` or `DELETE`.
+- `id`: Mengembalikan ID entitas yang telah berubah.
+- `mutation_type`: Tindakan yang telah dilakukan pada entitas ini. Jenis mutasi bisa berupa `INSERT`, `UPDATE` atau `DELETE`.
 - `_entity`: nilai entitas itu sendiri dalam format JSON.
 
 ## Penyaringan
@@ -62,10 +62,10 @@ subscription {
 }
 ```
 
-Note that the `mutation` filter can be one of `INSERT`, `UPDATE` or `DELETE`.
+Perhatikan bahwa filter `mutasi` dapat berupa salah satu dari `INSERT`, `UPDATE` atau `DELETE`.
 
-::: warning Important Please note that you must enable the `--subscription` flag on both the node and query service in order to use these functions. :::
+:::: peringatan Penting Harap dicatat bahwa Anda harus mengaktifkan flag `--subscription` pada node dan layanan kueri untuk menggunakan fungsi-fungsi ini. :::
 
-::: warning Important
-The subcription feature works on SubQuery's managed service when you directly call the listed GraphQL endpoint. Ini tidak akan berfungsi dalam taman bermain GraphQL dalam browser.
+::::: peringatan Penting
+Fitur subkripsi berfungsi pada layanan terkelola SubQuery ketika Anda langsung memanggil titik akhir GraphQL yang terdaftar. Ini tidak akan berfungsi dalam taman bermain GraphQL dalam browser.
 :::
