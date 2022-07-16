@@ -8,13 +8,13 @@ Hosting proyek di IPFS membuatnya tersedia untuk semua dan mengurangi ketergantu
 
 - `@subql/cli` version 0.21.0 atau lebih tinggi.
 - Manifes `specVersion` 0.2.0 dan yang lebih baru.
-- Get your [SUBQL_ACCESS_TOKEN](ipfs.md#prepare-your-subql-access-token) ready.
+- Siapkan [SUBQL_ACCESS_TOKEN](ipfs.md#prepare-your-subql-access-token) Anda.
 - Untuk memastikan penerapan Anda berhasil, kami sangat menyarankan agar Anda membangun proyek Anda dengan perintah `subql build`, dan mengujinya secara lokal sebelum memublikasikannya.
 
 ## Persiapkan SUBQL_ACCESS_TOKEN
 
 - Langkah 1: Buka [Proyek SubQuery](https://project.subquery.network/) dan masuk.
-- Step 2: Click on your profile at the top right of the navigation menu, then click on **_Refresh Token_**.
+- Langkah 2: Klik profil Anda di kanan atas menu navigasi, lalu klik **_Refresh Token_**.
 - Langkah 3: Salin token yang dihasilkan.
 - Langkah 4: Untuk menggunakan token ini:
   - Opsi 1: Tambahkan SUBQL_ACCESS_TOKEN di variabel lingkungan Anda. `EXPORT SUBQL_ACCESS_TOKEN=<token>`
@@ -22,11 +22,11 @@ Hosting proyek di IPFS membuatnya tersedia untuk semua dan mengurangi ketergantu
 
 ## Cara mempublikasikan proyek
 
-We provide two methods to publish your project:
+Kami menyediakan dua metode untuk mempublikasikan proyek Anda:
 
-### Option 1
+### Pilihan 1
 
-As you have `@subql/cli` already installed, you can run the following command, which will read the project and required information from its default manifest `project.yaml`:
+Karena Anda telah menginstal `@subql/cli`, Anda dapat menjalankan perintah berikut, yang akan membaca proyek dan informasi yang diperlukan dari manifes default `project.yaml`:
 
 ```
 // Publikasikan dari direktori root proyek Anda
@@ -36,7 +36,7 @@ subql publish
 subql publish -f ~/my-project/
 ```
 
-### Option 2
+### Pilihan 2
 
 Atau, misalkan proyek Anda memiliki beberapa file Manifes, misalnya Anda mendukung beberapa jaringan tetapi berbagi pemetaan dan logika bisnis yang sama, dan memiliki struktur proyek sebagai berikut:
 
@@ -66,15 +66,15 @@ Mengunggah proyek SupQuery ke IPFS
 Proyek SubQuery yang diunggah ke IPFS: QmZ3q7YZSmhwBiot4PQCK3c7Z6HkteswN2Py58gkkZ8kNd //CID
 ```
 
-Harap perhatikan `CID` ini. With this `CID`, you can view your published project as what we call it [IPFS Deployment](ipfs.md#ipfs-deployment).
+Harap perhatikan `CID` ini. Dengan `CID` ini, Anda dapat melihat proyek yang dipublikasikan sebagai apa yang kami sebut [Penerapan IPFS](ipfs.md#ipfs-deployment).
 
 ## IPFS Deployment
 
 Penyebaran IPFS mewakili keberadaan proyek SubQuery yang independen dan unik pada jaringan yang terdesentralisasi. Oleh karena itu, setiap perubahan dengan kode dalam proyek akan mempengaruhi keunikannya. Jika Anda perlu menyesuaikan logika bisnis Anda, mis. mengubah fungsi pemetaan, Anda harus memublikasikan ulang proyek, dan `CID` akan berubah.
 
-For now, to view the project you have published, use a `REST` api tool such as [Postman](https://web.postman.co/), and use `POST` method with the following example URL to retrieve it:`https://ipfs.subquery.network/ipfs/api/v0/cat?arg=<YOUR_PROJECT_CID>`.
+Untuk saat ini, untuk melihat proyek yang telah Anda publikasikan, gunakan alat `REST` api seperti [Postman](https://web.postman.co/), dan gunakan metode `POST` dengan contoh URL berikut untuk mengambilnya:`https://ipfs.subquery.network/ipfs/api/v0/cat?arg=<YOUR_PROJECT_CID>`.
 
-You should see the example project deployment as below.
+Anda akan melihat contoh penerapan proyek seperti di bawah ini.
 
 Penerapan ini terlihat sangat mirip dengan file manifes Anda. Anda dapat mengharapkan bidang deskriptif tersebut, dan titik akhir jaringan dan kamus telah dihapus karena tidak secara langsung memengaruhi hasil eksekusi proyek.
 
@@ -107,7 +107,7 @@ specVersion: 0.2.0
 
 ### Buat proyek dengan penerapan IPFS
 
-You can follow the guide to [Publish your SubQuery project](../run_publish/publish.md) but where you set your deployment source you can select **IPFS**.
+Anda dapat mengikuti panduan untuk [Publikasikan proyek SubQuery Anda](../run_publish/publish.md) tetapi di mana Anda mengatur sumber penyebaran Anda, Anda dapat memilih **IPFS**.
 
 Kemudian pilih slot produksi Anda, salin dan tempel CID penerapan IPFS Anda (tanpa awalan `ipfs://`).
 
