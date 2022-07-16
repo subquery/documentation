@@ -4,7 +4,7 @@ Prinsip panduan dengan Jaringan SubQuery adalah kesederhanaan dan fleksibilitas 
 
 ## Multi-Rantai dengan Desain
 
-*SubQuery believes in the idea that a community of blockchains, working together to encourage web3 adoption, is the future.*
+*SubQuery percaya pada gagasan bahwa komunitas blockchain, bekerja sama untuk mendorong adopsi web3, adalah masa depan.*
 
 SubQuery berasal dari ekosistem Polkadot, ini adalah rumah kami dan akan menjadi lokasi Jaringan SubQuery. Premis inti Polkadot adalah untuk menciptakan komunitas pengembang, pengguna, dan bisnis yang berkembang yang akan memanfaatkan interoperabilitas multirantai. SubQuery percaya pada gagasan bahwa komunitas blockchain, bekerja sama untuk mendorong adopsi web3, adalah masa depan dan bahwa Polkadot akan menjadi pemain terkemuka dalam inisiatif itu.
 
