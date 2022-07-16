@@ -43,14 +43,14 @@ Setelah Anda lulus program pelatihan, Anda dapat menyebut diri Anda sebagai duta
 
 ## Aktivitas Ambassador
 
-SubQuery Ambassadors are able to contribute through four main areas, including event management, content creation, translation, and community moderation. You can participate in as many areas as you want, you’re not bound to any single one.
+Duta SubQuery dapat berkontribusi melalui empat bidang utama, termasuk manajemen acara, pembuatan konten, terjemahan, dan moderasi komunitas. Anda dapat berpartisipasi di sebanyak mungkin bidang yang Anda inginkan, Anda tidak terikat pada satu bidang saja.
 
-**Event Management:** Build local communities by hosting, organising, and managing different events. Building a local community will be a key part of growing the SubQuery community. SubQuery will support you by providing funding for events, sending swag/merchandise to be given away, as well as attending Q&As or online events as speakers or in AMA sessions.
+**Manajemen Acara:** Membangun komunitas lokal dengan menjadi tuan rumah, mengatur, dan mengelola berbagai acara. Membangun komunitas lokal akan menjadi bagian penting dalam menumbuhkan komunitas SubQuery. SubQuery akan mendukung Anda dengan menyediakan dana untuk acara, mengirimkan barang curian/merchandise untuk diberikan, serta menghadiri Q&As atau acara online sebagai pembicara atau dalam sesi AMA.
 
-**Content Creation:** We have a long list of content and support material that we need help creating. Remember, our success relies on the ability of our customers to build amazing things on our service, so we need your help to make that easier. Content includes videos, infographics, tutorials, animations, or any other related material, to inform, educate, or inspire community members within the SubQuery Ecosystem. SubQuery will support Content Creators by providing branding assets and expertise. We’ll also use SubQuery’s marketing channels to increase awareness of your content (and yourself).
+**Pembuatan Konten:** Kami memiliki daftar panjang konten dan materi pendukung yang perlu kami bantu buat. Ingat, kesuksesan kami bergantung pada kemampuan pelanggan kami untuk membangun hal-hal luar biasa pada layanan kami, jadi kami membutuhkan bantuan Anda untuk membuatnya lebih mudah. Konten mencakup video, infografis, tutorial, animasi, atau materi terkait lainnya, untuk menginformasikan, mengedukasi, atau menginspirasi anggota komunitas dalam Ekosistem SubQuery. SubQuery akan mendukung Pembuat Konten dengan menyediakan aset dan keahlian branding. Kami juga akan menggunakan saluran pemasaran SubQuery untuk meningkatkan kesadaran akan konten Anda (dan diri Anda sendiri).
 
-**Translation:** Our customers don’t just speak English! We need your help making SubQuery more accessible by translating our content into your own language, as well as helping sharing the word to our international community.
+**Penerjemahan:** Pelanggan kami tidak hanya berbicara bahasa Inggris! Kami membutuhkan bantuan Anda untuk membuat SubQuery lebih mudah diakses dengan menerjemahkan konten kami ke dalam bahasa Anda sendiri, serta membantu menyebarkan berita ke komunitas internasional kami.
 
-**Community Moderation:** Moderators will help grow the SubQuery community by ensuring that official community channels are active and engaging. SubQuery will support Moderators by promoting the channels that they monitor, as well as provide guidelines for our expectations.
+**Moderasi Komunitas:** Moderator akan membantu menumbuhkan komunitas SubQuery dengan memastikan bahwa saluran komunitas resmi aktif dan menarik. SubQuery akan mendukung Moderator dengan mempromosikan saluran yang mereka pantau, serta memberikan pedoman untuk harapan kami.
 
 [Daftar Sekarang!](https://forms.gle/GXBbJ6LDpNfM2v1X6)
