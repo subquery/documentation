@@ -1,10 +1,10 @@
-# Indexers
+# Индексаторы
 
-## What is an Indexer?
+## Кто такой индексатор?
 
-An Indexer is a SubQuery network participant who is responsible for indexing blockchain data and providing this data to their customers.
+Индексатор - это участник сети SubQuery, который отвечает за индексирование данных блокчейна и предоставление этих данных своим клиентам.
 
-Indexers play a very important role within the SubQuery network. As a part of a data-as-a-service business, an Indexer turns computational and networking power into profits.
+Индексаторы играют очень важную роль в сети SubQuery. As a part of a data-as-a-service business, an Indexer turns computational and networking power into profits.
 
 ## Indexer Staking
 
