@@ -20,7 +20,7 @@ Kami merekomendasikan untuk menyebarkan ke slot staging Anda hanya untuk penguji
 Slot pementasan sangat cocok untuk:
 
 - Validasi akhir perubahan pada Proyek SubQuery Anda di lingkungan yang terpisah. Slot staging memiliki URL berbeda untuk produksi yang dapat Anda gunakan di dApps Anda.
-- Warming up and indexing data for an updated SubQuery project to eliminate downtime in your dApp.
+- Pemanasan dan pengindeksan data untuk proyek SubQuery yang diperbarui untuk menghilangkan waktu henti di dApp Anda.
 - Mempersiapkan rilis baru untuk Proyek SubQuery Anda tanpa mengeksposnya secara publik. Slot staging tidak ditampilkan kepada publik di Explorer dan memiliki URL unik yang hanya dapat dilihat oleh Anda.
 
 ![Slot staging](/assets/img/staging_slot.png)
@@ -53,4 +53,4 @@ Setelah penerapan Anda berhasil diselesaikan dan node kami telah mengindeks data
 
 ![Proyek sedang diterapkan dan disinkronkan](/assets/img/projects-deploy-sync.png)
 
-Atau, Anda dapat mengklik tiga titik di samping judul proyek Anda, dan melihatnya di SubQuery Explorer. There you can use the in browser playground to get started - [read more about how to use our Explorer here](../run_publish/query.md).
+Atau, Anda dapat mengklik tiga titik di samping judul proyek Anda, dan melihatnya di SubQuery Explorer. Di sana Anda dapat menggunakan taman bermain di browser untuk memulai - [baca lebih lanjut tentang cara menggunakan Explorer kami di sini](../run_publish/query.md).
