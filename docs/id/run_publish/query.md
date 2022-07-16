@@ -1,6 +1,6 @@
 # Buat kueri Proyek Anda di SubQuery Explorer
 
-[SubQuery Explorer](https://explorer.subquery.network) is an online hosted service that provides access to published SubQuery projects made by contributors in our community and managed by the SubQuery team. Anda dapat memublikasikan proyek SubQuery Anda sendiri ke penjelajah kami dengan mengikuti panduan kami untuk [Menerbitkan Proyek SubQuery Anda](../run_publish/publish.md).
+[SubQuery Explorer](https://explorer.subquery.network) adalah layanan yang di-host secara online yang menyediakan akses ke proyek-proyek SubQuery yang diterbitkan yang dibuat oleh kontributor di komunitas kami dan dikelola oleh tim SubQuery. Anda dapat memublikasikan proyek SubQuery Anda sendiri ke penjelajah kami dengan mengikuti panduan kami untuk [Menerbitkan Proyek SubQuery Anda](../run_publish/publish.md).
 
 ![Penjelajah SubQuery](https://static.subquery.network/media/explorer/explorer-header.png)
 
@@ -14,4 +14,4 @@ Di kanan atas taman bermain, Anda akan menemukan tombol _Dokumen_ yang akan memb
 
 ![Dokumentasi SubQuery](https://static.subquery.network/media/explorer/explorer-documentation.png)
 
-::: info Note Learn more about the [GraphQL Query language.](./graphql.md) :::
+::::: info Catatan Pelajari lebih lanjut tentang [GraphQL Query language.](./graphql.md) :::
