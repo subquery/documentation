@@ -32,7 +32,7 @@ Isi Commit Hash dari GitHub (salin commit hash penuh) dari versi basis kode proy
 Anda juga dapat menggunakan `@subql/cli` untuk membuat deployment baru dari proyek Anda ke layanan terkelola kami. Hal ini membutuhkan:
 
 - `@subql/cli` versi 1.1.0 atau lebih tinggi.
-- A valid [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) ready.
+- Sebuah [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) yang valid sudah siap.
 
 ```shell
 // Anda dapat langsung mengatur versi Pengindeks dan Kueri Anda
