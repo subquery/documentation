@@ -26,19 +26,19 @@ SubQuery планирует добавить в сеть ограничение,
 
 ## Привлечение делегаторов
 
-Indexers can increase their earning potential by attracting Delegators. Delegators are SQT token holders who can delegate their tokens to Indexers for additional rewards. Indexers use these additional tokens to increase the amount they allocate to projects of their choice. This allows Indexers to increase their earnings.
+Индексаторы могут увеличить свой потенциал заработка, привлекая Делегаторов. Делегаторы - это держатели токенов SQT, которые могут делегировать свои токены индексаторам для получения дополнительного вознаграждения. Индексаторы используют эти дополнительные токены для увеличения суммы, которую они выделяют на проекты по своему выбору. Это позволяет индексаторам увеличить свои доходы.
 
-Indexers set an Indexer’s Commission Rate (ICR) which is the percentage Indexers earn. The remaining is then shared amongst the Indexer and all Delegators propotionally by staked/delegated amount. Therefore, Indexers need to decide on the proportion of profits an Indexer wishes to retain versus the amount to share with their Delegators. A lower ICR will be more attractive for Delegators.
+Индексаторы устанавливают ставку комиссии индексатора (ICR), которая представляет собой процент, зарабатываемый индексаторами. Оставшаяся сумма распределяется между индексатором и всеми делегаторами пропорционально размеру ставки/делегированной суммы. Поэтому Индексаторам необходимо решить, какую долю прибыли Индексатор хочет оставить себе, а какую разделить со своими Делегаторами. Более низкий ICR будет более привлекательным для делегаторов.
 
-For example, Indexer A has set an ICR of 80% and has received SQT from 8 Delegators. This means that the 8 Delegators plus the Indexer itself, will be rewarded a share of the remaining 20% of what the Indexer has earned. The share will be split proportionally between them. Note that Delegators must have delegated their tokens for the entire Era to be eligible for these rewards. For more information on Delegators rewards, see [Delegators](./delegators.md).
+Например, индексатор А установил ICR 80% и получил SQT от 8 делегаторов. Это означает, что 8 делегаторов плюс сам Индексатор получат вознаграждение в размере оставшихся 20% от заработанного Индексатором. Доля будет разделена между ними пропорционально. Обратите внимание, что делегаторы должны делегировать свои токены в течение всей Era, чтобы иметь право на получение этих вознаграждений. Для получения дополнительной информации о вознаграждениях делегаторов см. раздел [Делегаторы](./delegators.md).
 
-## Becoming an Indexer
+## Становление индексатором
 
-To become an Indexer on the SubQuery Network, the Indexer must possess the necessary hardware, run the required SubQuery services, have a publicly accessible network via a static IP or a domain name, and register as an Indexer.
+Чтобы стать индексатором в сети SubQuery, индексатор должен обладать необходимым оборудованием, запускать необходимые службы SubQuery, иметь общедоступную сеть через статический IP или доменное имя и зарегистрироваться в качестве индексатора.
 
-### Indexer skillset
+### Набор навыков индексатора
 
-In general, an Indexer should be a technically proficient computer user. However, the simplicity of the SubQuery network and proposed frameworks allows even a junior developer to successfully participate.
+В целом, индексатор должен быть технически грамотным пользователем компьютера. Однако простота сети SubQuery и предлагаемых фреймворков позволяет даже начинающему разработчику успешно участвовать в проекте.
 
 A basic user should be familiar with provisioning and managing servers, installing the SubQuery CLI tools, database management, and basic networking. More experienced users may run nodes in a clustered environment, incorporate monitoring and alerts and also more advanced networking management.
 
