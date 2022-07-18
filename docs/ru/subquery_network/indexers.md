@@ -48,7 +48,7 @@ Finally, interested parties should be prepared to invest time in maintaining the
 
 Ожидается что индексаторы будут стейкать и поддерживать минимальное количество токенов. Это необходимо для того, чтобы обеспечить вовлеченность и заинтересованность индексаторов в поддержании сети. SubQuery все еще определяет это, но одна из наших позиций дизайна это то, чтобы он был как можно низкопороговым и доступным.
 
-Если индексатор столкнется с сокращением и баланс его монет SQT снизится ниже минимально требуемого, ему будет необходимо пополнить свой баланс застейканных SQT, чтобы продолжать получать вознаграждение за свою работу.
+Если индексатор столкнется со случаем штрафа и баланс его монет SQT снизится ниже минимально требуемого, ему будет необходимо пополнить свой баланс застейканных SQT, чтобы продолжать получать вознаграждение за свою работу.
 
 ### Требования по оборудованию
 
@@ -58,58 +58,58 @@ Finally, interested parties should be prepared to invest time in maintaining the
 
 Вот некоторые требования к техническому обслуживанию и/или эксплуатации, которые будут ожидать индексаторов:
 
-- Always upgrade to the latest Subquery software version.
-- Identify and take advantage of new indexing opportunities.
-- Update project version to latest and reindex where necessary.
-- Infrastructure maintenance:
-  - Constantly monitoring and upsizing disk.
-  - Right size query and indexing compute based on traffic.
-  - Increase query services for increasing ingress traffic.
+- Всегда обновляйте программное обеспечение Subquery до последней версии.
+- Определяйте и пользуйтесь новыми возможностями индексации.
+- Обновляйте версию проекта до последней и переиндексируйте проект при необходимости.
+- Техническое обслуживание инфраструктуры:
+  - Постоянный мониторинг и увеличение объема диска.
+  - Правильный размер запросов и индексации вычисляются на основе трафика.
+  - Увеличьте количество запросов для увеличения входящего трафика.
 
-### Infrastructure
+### Инфраструктура
 
-The minimum infrastructure requirement includes:
+Минимальные требования к инфраструктуре включают в себя:
 
-- At least one computational node to run the following services:
-  - [Node (indexing) Service](https://www.npmjs.com/package/@subql/node).
-  - [Query Service](https://www.npmjs.com/package/@subql/query).
-  - [Indexer Coordinator Service](https://www.npmjs.com/package/@subql/indexer-coordinator).
-- One database node to run Postgresql db (v12 and above).
+- Как минимум один вычислительный узел для запуска нижеуказанных сервисов:
+  - Обслуживание (индексация) Узла.
+  - Служба запросов.
+  - Служба координации индексатора.
+- Один узел базы данных для запуска Postgresql db (v12 и выше).
 
-More detailed information will come soon.
+Более подробная информация появится в скором времени.
 
-## Security & Performance considerations
+## Вопросы безопасности и производительности
 
-Security and performance considerations are as follows.
+Вопросы безопасности и производительности приведены ниже.
 
-### Operator Wallets
+### Кошельки оператора
 
-Secure storage of an Indexer’s wallet recovery seed phrase is highly recommended.
+Настоятельно рекомендуется безопасное хранение исходной фразы восстановления кошелька индексатора.
 
-### Firewalls
+### Firewalls/Файрволл
 
-Indexers need to keep security front of mind. Infrastructure security, in particular firewalls, should be implemented to prevent public exposure to personal ports.
+Индексаторы должны помнить о безопасности. Безопасность инфраструктуры, в частности файрволлы, должна быть реализована, чтобы предотвратить публичный доступ к личным портам.
 
-Secure passwords should be used by default and password rotation policies should be considered.
+По умолчанию должны использоваться надежные пароли и также нужно рассматривать политику ротации паролей.
 
-### Indexer’s Performance
+### Производительность Индексатора
 
-In order to generate desirable performances, Indexers need to consider various factors such as:
+Для обеспечения желаемой производительности, индексаторы должны учитывать различные факторы, такие как:
 
-- the balance between their own stake and that of Delegators.
-- the type of contract being served. The Indexer will receive all the query fees if it is a closed contract. If it is open, then an Indexer’s reward will depend on how many other Indexers there are.
-- fulfilling of the Service Level Agreement (SLA) specifications (to avoid slashing penalties).
-- the accuracy of the data being served to avoid slashing penalties.
+- баланс между их собственной долей стейкинг монет и долей стейкинга Делегаторов.
+- тип ослуживаемого контракта. Индексатор получит все вознаграждение за запрос, если это закрытый контракт. Если это открытый контракт, то вознаграждение индексатора будет зависеть от количества других индексаторов.
+- выполнение условий Соглашения об уровне обслуживания (SLA) (чтобы избежать штрафных санкций).
+- точность предоставляемых данных, чтобы избежать штрафов.
 
-## Selecting SubQuery Projects to Index
+## Выбор Проектов Subquery для индексации
 
-There are several indicators that an Indexer needs to consider when selecting a SubQuery project to index.
+Существует несколько индикаторов, которые необходимо учитывать индексатору при выборе проекта SubQuery для индексации.
 
-### Query Fee Opportunities
+### Возможности Оплаты Запросов
 
-Some projects will have open or closed plans advertised by consumers.
+Некоторые проекты будут иметь открытые или закрытые планы, рекламируемые потребителями.
 
-When a Consumer advertises an open or closed plan for a project, they ultimately specify how much they are willing to pay for a set volume of requests. The more a Consumer is willing to pay, the more attractive the project will be for an Indexer. It also provides confidence that there will likely be recurring revenue from this SubQuery project.
+Когда Потребитель рекламирует открытый или закрытый план для проекта, он в итоге указывает, сколько он готов платить за заданный объем запросов. Чем больше Потребитель готов заплатить, тем более привлекательным будет проект для Индексатора. Это также придает уверенность в том, что данный проект SubQuery, вероятней всего, будет приносить регулярный доход.
 
 ### Project complexity
 
@@ -119,12 +119,12 @@ Projects will vary in computation requirements. Simple projects will only index 
 
 Popular projects offering a high query volume that attract a large number of Indexers. This also implies that the rewards will be shared amongst more people. A single Indexer’s share may be less than a less popular project with a slightly lower query fee but with far fewer Indexers.
 
-### Pricing Strategy
+### Ценовая политика
 
-Indexers need to be aware of their operation cost and expected incomes to understand their break-even point. Some considerations are:
+Indexers need to be aware of their operation cost and expected incomes to understand their break-even point. Некоторые вопросы по этому поводу:
 
-- How should Indexers set their plan prices?
-- At what price can Indexers accept a service agreement or not?
+- Как индексаторам следует устанавливать цены на свои планы?
+- По какой цене индексаторы могут принять соглашение об обслуживании или нет?
 
 ### Advertisements
 
