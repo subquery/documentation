@@ -66,16 +66,16 @@ You can also use `@subql/cli` to publish your project to our managed service. Di
 - A valid [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) ready.
 
 ```shell
-// Erstellung eines Projekts mit der CLI
+// Creating a project using the CLI
 $ subql project:create-project
 
-// Bei Verwendung von nicht interaktiv OR werden Sie gefragt, ob die erforderlichen Felder fehlen
+// OR using non-interactive, it will prompt you if the required fields are missing
 $ subql project:create-project
-    --apiVersion=apiVersion      Die API-Version ist standardmäßig 2
-    --description=description    Beschreibung eingeben
-    --gitRepo=gitRepo            Geben Sie das Git-Repository ein
-    --org=org                    Geben Sie den Namen der Organisation ein
-    --project_name=project_name  Geben Sie den Projektnamen ein
+    --apiVersion=apiVersion      Api version is default to 2
+    --description=description    Enter description
+    --gitRepo=gitRepo            Enter git repository
+    --org=org                    Enter organization name
+    --projectName=projectName  Enter project name
 ```
 
 ### Stellen Sie Ihre erste Version bereit
@@ -107,19 +107,21 @@ Sie können auch `@subql/cli` verwenden, um eine neue Bereitstellung Ihres Proje
 - A valid [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) ready.
 
 ```shell
-// Bereitstellung mit der CLI
+// Deploy using the CLI
 $ suqbl deployment:deploy
 
-// OR Bereitstellung mit nicht interaktiver CLI
+// OR Deploy using non-interactive CLI
 $ suqbl deployment:deploy
---dict=dict Wörterbuchendpunkt eingeben
-   --endpoint=endpoint Geben Sie den Netzwerkendpunkt ein
-   --indexerVersion=indexerVersion Geben Sie die Indexer-Version ein
-   --ipfsCID=ipfsCID Geben Sie die IPFS-CID ein
-   --org=org Geben Sie den Organisationsnamen ein
-   --project_name=Projektname Geben Sie den Projektnamen ein
-   --queryVersion=queryVersion Geben Sie die Abfrageversion ein
-   --type=type Geben Sie den Bereitstellungstyp ein, z. Grundschule oder Stufe
+
+  -d, --useDefaults                Use default values for indexerVerion, queryVersion, dictionary, endpoint
+  --dict=dict                      Enter dictionary
+  --endpoint=endpoint              Enter endpoint
+  --indexerVersion=indexerVersion  Enter indexer-version
+  --ipfsCID=ipfsCID                Enter IPFS CID
+  --org=org                        Enter organization name
+  --projectName=projectName        Enter project name
+  --queryVersion=queryVersion      Enter query-version
+  --type=(stage|primary)           [default: primary]
 ```
 
 ## Nächste Schritte - Verbinden Sie sich mit Ihrem Projekt
