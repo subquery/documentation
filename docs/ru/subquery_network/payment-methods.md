@@ -22,16 +22,16 @@
 
 ## Открытое соглашение об оказании услуг
 
-Open Market Service Agreements are similar to Closed Market Service Agreements, but allow multiple Indexers to join and compete to provide data to the Consumer. An Open Market Service Agreement may start as a contract between 1 Consumer and 1 Indexer, but more parties may join the contract resulting in *n* consumer and *n* indexers.
+Соглашения об оказании услуг на Открытом Рынке аналогичны соглашениям об оказании услуг на Закрытом Рынке, но позволяют многим индексаторам объединяться и конкурировать за предоставление данных Потребителю. Соглашение об оказании услуг на Открытом Рынке может начинаться как договор между 1 потребителем и 1 индексатором, но к больше сторон может далее присоединиться к договору, что приведет к появлению n потребителей и n индексаторов.
 
-Each Open Market Service Agreement results in a new reward pool being created for that contract, and SQT is distributed amongst participating indexers by the Cobb-Douglas production function.
+Каждое соглашение об обслуживании на Открытом Рынке приводит к созданию нового пула вознаграждений для данного контракта, и SQT распределяется между участвующими индексаторами согласно производственной функции Кобба-Дугласа.
 
-Open Agreements provide favourable terms for both Indexers and Consumers, but enable better performance and reliability for Consumers by attracting more Indexers to compete and serve the same data. If Consumers are running large scale applications with users around the world, then Open Agreements are ideal.
+Открытые соглашения обеспечивают выгодные условия как для Индексаторов, так и для Потребителей, но обеспечивают более высокую производительность и надежность для Потребителей, привлекая больше индексаторов конкурировать и обслуживать одни и те же данные. Если потребители запускают крупномасштабные приложения с пользователями по всему миру, то Открытые Соглашения идеальны.
 
-## SubQuery’s Innovation in Payment Methods
+## Инновации SubQuery в способах оплаты
 
-Today, we generally pay with subscription-based payments for the music we listen to, the TV shows we watch, and the applications that we use. In pioneering web3 service applications, we’ve instead adopted a pay-as-you-go model, where each atomic transaction has an exact cost in the network.
+Сегодня за музыку, которую слушаем, телепередачи, которые смотрим, и приложения, которые используем мы обычно платим на основании подписок. Вместо этого в инновационных сервисных приложениях веб-3 мы приняли модель оплаты по мере использования (Payg), в которой каждая атомарная транзакция имеет точную стоимость в сети.
 
-We think subscription based or recurring payment methods are here to stay. Service providers like them because they represent predictable revenue, similarly on the other side consumers like them because they are a known and easily quantified cost. There’s also a psychological factor where once you subscribe, most consumers will feel obligated to consume as much if not all of it, increasing the demand for the service and allowing economies of scale to kick in.
+Мы думаем, что способы оплаты на основе подписки или регулярные платежи никуда не исчезнут. Поставщикам услуг они нравятся, потому что они приносят предсказуемый доход, точно так же, с другой стороны, они нравятся потребителям, потому что они представляют собой известную и легко определяемую стоимость. Существует также психологический фактор: после того, как вы подпишетесь, большинство потребителей почувствуют себя обязанными потреблять столько же, если не все, что увеличивает спрос на услугу и дает эффект масштаба.
 
-The combination of the above three payment options for indexers provide several advanced subscription based options for Consumers and Indexers. Некоторые стороны могут извлечь выгоду из определенности вознаграждений, обеспечиваемых Закрытыми соглашениями, и предсказуемости повторяющихся затрат. Equally, others may instead prefer to hunt out the most affordable data by going for high volume recurring agreements or low spot prices on the Pay-As-You-Go market.
+Комбинация трех указанных вариантов оплаты для индексаторов обеспечивает несколько расширенных вариантов подписки для Потребителей и Индексаторов. Некоторые стороны могут извлечь выгоду из определенности вознаграждений, обеспечиваемых Закрытыми соглашениями, и предсказуемости повторяющихся затрат. Точно так же другие могут вместо этого предпочесть искать наиболее доступные данные, заключая повторяющиеся соглашения с большими объемами или низкие спотовые цены на рынке с оплатой по мере использования.
