@@ -22,18 +22,18 @@ SubQuery Network облегчает революцию открытых данн
 
 ### Индексаторы
 
-Indexers will run and maintain high quality SubQuery projects in their own infrastructure, running both the indexer and query service, and will be rewarded in SQT for the requests that they serve.
+Индексаторы запустят и будут поддерживать высококачественные проекты SubQuery в своей собственной инфраструктуре, запуская как индексатор, так и службу запросов, и будут вознаграждаться токенами SQT за запросы, которые они обрабатывают.
 
-::: info Note Learn more about [Indexers](./indexers.md). :::
+Примечание Узнайте больше об Индексаторах. :::
 
 ### Делегаторы
 
-Delegators will participate in the Network by supporting their favourite Indexers to earn rewards based on the work those indexers do.
+Делегаторы будут участвовать в Сети, поддерживая своих индексаторов фаворитов, чтобы получать вознаграждение, которое будет зависеть от работы, которую выполняют эти индексаторы.
 
-::: info Note Learn more about [Delegators](./delegators.md). :::
+Примечание Узнайте больше о Делегаторах. :::
 
-### Architects
+### Архитекторы
 
-Architects are the builders of the SubQuery projects that the Network runs on. They author and publish SubQuery projects for the Network to index and run.
+Архитекторы — это строители проектов SubQuery, на которых работает Сеть. Они являются авторами и публикуют проекты SubQuery для сети с целью индексации и запуска.
 
-::: info Note Learn more about [how to build your first SubQuery project](../build/introduction.md). :::
+Примечание Узнайте больше о том как создать ваш первый SubQuery проект. :::
