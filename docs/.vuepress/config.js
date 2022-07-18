@@ -101,7 +101,7 @@ module.exports = config({
     },
     cleanUrl: false,
     contributor: false,
-    hostname: "https://doc.subquery.network",
+    hostname: "https://academy.subquery.network",
     lastUpdated: true,
     locales: {
       "/": getSidebar("", "English"),
