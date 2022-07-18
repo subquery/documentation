@@ -42,7 +42,7 @@ curl https://raw.githubusercontent.com/subquery/indexer-services/main/docker-com
 
 Make sure the indexer service versions are correct:
 
-| onfinality/subql-coordinator   | v0.3.6 |
+| onfinality/subql-coordinator   | v0.3.11 |
 | :----------------------------- | :----- |
 | onfinality/subql-indexer-proxy | v0.2.0 |
 
