@@ -66,17 +66,16 @@ SubQuery Projects - это место, где вы управляете всем
 - Действительный [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) готов.
 
 ```shell
-// Создание проекта с помощью CLI
+// Creating a project using the CLI
 $ subql project:create-project
 
-// ИЛИ при неинтерактивном использовании, он подскажет вам, если отсутствуют необходимые поля
+// OR using non-interactive, it will prompt you if the required fields are missing
 $ subql project:create-project
-    --apiVersion=apiVersion Версия Api по умолчанию равна 2
-    --description=description Введите описание
-    --gitRepo=gitRepo Введите git-репозиторий
-    --org=org Введите имя организации
-    --project_name=project_name Введите имя проекта
-
+    --apiVersion=apiVersion      Api version is default to 2
+    --description=description    Enter description
+    --gitRepo=gitRepo            Enter git repository
+    --org=org                    Enter organization name
+    --projectName=projectName  Enter project name
 ```
 
 ### Разверните свою первую версию
@@ -108,20 +107,21 @@ $ subql project:create-project
 - Действительный [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) готов.
 
 ```shell
-// Развертывание с помощью CLI
+// Deploy using the CLI
 $ suqbl deployment:deploy
 
-// ИЛИ Развертывание с помощью неинтерактивного CLI
+// OR Deploy using non-interactive CLI
 $ suqbl deployment:deploy
-  --dict=dict Введите конечную точку словаря
-  --endpoint=endpoint Введите конечную точку сети
-  --indexerVersion=indexerVersion Введите версию индексатора
-  --ipfsCID=ipfsCID Введите CID IPFS
-  --org=org Введите имя организации
-  --project_name=project_name Введите имя проекта
-  --queryVersion=queryVersion Введите Query-версию
-  --type=type Введите тип развертывания, например, первичный или этапный
 
+  -d, --useDefaults                Use default values for indexerVerion, queryVersion, dictionary, endpoint
+  --dict=dict                      Enter dictionary
+  --endpoint=endpoint              Enter endpoint
+  --indexerVersion=indexerVersion  Enter indexer-version
+  --ipfsCID=ipfsCID                Enter IPFS CID
+  --org=org                        Enter organization name
+  --projectName=projectName        Enter project name
+  --queryVersion=queryVersion      Enter query-version
+  --type=(stage|primary)           [default: primary]
 ```
 
 ## Следующие шаги - подключитесь к вашему проекту
