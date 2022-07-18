@@ -128,13 +128,13 @@ SubQuery планирует добавить в сеть ограничение,
 
 ### Объявления
 
-Indexers need to advertise themselves to Delegators as well as Consumers. Индексаторы могут делать это, используя свой собственный веб-сайт, форумы Subquery или любые другие площадки, которые сочтут необходимыми. Some examples of the information to provide are:
+Индексаторы должны рекламировать себя как Делегаторам, так и Потребителям. Индексаторы могут делать это, используя свой собственный веб-сайт, форумы Subquery или любые другие площадки, которые сочтут необходимыми. Некоторые примеры информации, необходимой для предоставления:
 
-- The background and experience of the Indexer or Indexer’s team.
-- The hardware approach and why it provides superior performance.
-- The customer support policy or SLA.
-- Evidence of historical performances.
+- Опыт работы Индексатора или команды Индексатора.
+- Аппаратный подход и почему он обеспечивает лучшую производительность.
+- Политика поддержки клиентов или SLA.
+- Свидетельства/данные прошлой производительности.
 
-### Customer support
+### Служба поддержки
 
-Indexers are highly encouraged to provide a communication method for its customers to report inavailability and also to provide feedback.
+Индексаторам настоятельно рекомендуется предоставить своим клиентам способ связи, чтобы информировать о недоступности, а также обеспечения обратной связи.
