@@ -40,11 +40,11 @@ SubQuery планирует добавить в сеть ограничение,
 
 В целом, индексатор должен быть технически грамотным пользователем компьютера. Однако простота сети SubQuery и предлагаемых фреймворков позволяет даже начинающему разработчику успешно участвовать в проекте.
 
-A basic user should be familiar with provisioning and managing servers, installing the SubQuery CLI tools, database management, and basic networking. More experienced users may run nodes in a clustered environment, incorporate monitoring and alerts and also more advanced networking management.
+Базовый пользователь должен быть знаком с выделением и управлением серверов, установкой инструментов интерфейса командной строки (CLI) SubQuery, управлением базой данных и основами работы в сети. Более опытные пользователи могут устанавливать ноды/узлы в кластерной среде, выполнять мониторинг и оповещения, а также более продвинутое управление сетью.
 
-Finally, interested parties should be prepared to invest time in maintaining their indexing nodes and infrastructure.
+Наконец, заинтересованные стороны должны быть готовы инвестировать время на обслуживание своих узлов индексации и обслуживание инфраструктуры.
 
-### Staking requirements
+### Требования по стейкингу
 
 Ожидается что индексаторы будут стейкать и поддерживать минимальное количество токенов. Это необходимо для того, чтобы обеспечить вовлеченность и заинтересованность индексаторов в поддержании сети. SubQuery все еще определяет это, но одна из наших позиций дизайна это то, чтобы он был как можно низкопороговым и доступным.
 
@@ -54,7 +54,7 @@ Finally, interested parties should be prepared to invest time in maintaining the
 
 Индексаторы могут инвестировать в собственное инфраструктурное оборудование или арендовать инфраструктуру у таких компаний, как AWS, Google Cloud, Digital Ocean, Microsoft Azure и др.
 
-### Maintenance/operational requirements
+### Техническое обслуживание/операционные требования
 
 Вот некоторые требования к техническому обслуживанию и/или эксплуатации, которые будут ожидать индексаторов:
 
@@ -111,24 +111,24 @@ Finally, interested parties should be prepared to invest time in maintaining the
 
 Когда Потребитель рекламирует открытый или закрытый план для проекта, он в итоге указывает, сколько он готов платить за заданный объем запросов. Чем больше Потребитель готов заплатить, тем более привлекательным будет проект для Индексатора. Это также придает уверенность в том, что данный проект SubQuery, вероятней всего, будет приносить регулярный доход.
 
-### Project complexity
+### Сложность проекта
 
-Projects will vary in computation requirements. Simple projects will only index a few parameters whereas more complicated projects will require more computation resources and more bandwidth. Indexers need to understand the complexity of the project and its hardware capabilities.
+Проекты будут отличаться по вычислительным требованиям. Простые проекты будут индексировать лишь небольшое количество параметров, тогда как более сложные проекты потребуют больше вычислительных ресурсов и большей пропускной способности. Индексаторам следует понимать сложность проекта и его аппаратные возможности.
 
-### Indexer Competition
+### Конкуренция индексаторов
 
-Popular projects offering a high query volume that attract a large number of Indexers. This also implies that the rewards will be shared amongst more people. A single Indexer’s share may be less than a less popular project with a slightly lower query fee but with far fewer Indexers.
+Популярные проекты предлагают большой объем запросов, которые привлекают большое количество индексаторов. Это также предполагает, что награды будут разделены между большим количеством людей. Доля одного индексатора может быть меньше, чем у менее популярного проекта с немного меньшей оплатой за запрос, но с гораздо меньшим количеством индексаторов.
 
 ### Ценовая политика
 
-Indexers need to be aware of their operation cost and expected incomes to understand their break-even point. Некоторые вопросы по этому поводу:
+Индексаторы должны знать свои операционные расходы и ожидаемые доходы, чтобы понимать свою точку безубыточности. Некоторые вопросы по этому поводу:
 
 - Как индексаторам следует устанавливать цены на свои планы?
 - По какой цене индексаторы могут принять соглашение об обслуживании или нет?
 
-### Advertisements
+### Объявления
 
-Indexers need to advertise themselves to Delegators as well as Consumers. Indexers may do this from their own website, in the Subquery forums or any other places deemed necessary. Some examples of the information to provide are:
+Indexers need to advertise themselves to Delegators as well as Consumers. Индексаторы могут делать это, используя свой собственный веб-сайт, форумы Subquery или любые другие площадки, которые сочтут необходимыми. Some examples of the information to provide are:
 
 - The background and experience of the Indexer or Indexer’s team.
 - The hardware approach and why it provides superior performance.
