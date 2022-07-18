@@ -68,6 +68,8 @@ subql опублікувати -f ~/my-projectRoot/polkadot.yaml
 
 Будь ласка, зверніть увагу на `CID`. With this `CID`, you can view your published project as what we call it [IPFS Deployment](ipfs.md#ipfs-deployment).
 
+With `@subql/cli` version 1.3.0 or above, when using `subql publish` it will store a copy of the project's `IPFS CID` in a file in your project directory, the naming of the file will be consistent with your project.yaml. For example, if your manfiest file is named `project.yaml`, the IPFS file will be named  `.project-cid`.
+
 ## Розгортання в IPFS
 
 Розгортання IPFS являє собою незалежне та унікальне існування проекту SubQuery в децентралізованій мережі. Тому будь-які зміни коду в проекті вплинуть на його унікальність. Якщо вам потрібно налаштувати свою бізнес-логіку, напр. змінити функцію відображення, ви повинні повторно опублікувати проект, і `CID` зміниться.
