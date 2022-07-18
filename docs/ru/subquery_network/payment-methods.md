@@ -1,24 +1,24 @@
-# Payment Methods
+# Способы оплаты
 
-For flexibility, there are 3 payment options to pay for blockchain data. Это:
+Для обеспечения гибкости существует 3 варианта оплаты данных блокчейна. Это:
 
-- Pay-As-You-Go (PAYG).
-- Closed Service Agreement.
-- Open Service Agreement.
+- Оплата по мере использования (PAYG).
+- Закрытое Соглашение на оказание услуг.
+- Открытое Соглашение на оказание услуг.
 
 ## Pay-As-You-Go (PAYG)
 
-This is the baseline payment method and a fallback for others. Each Indexer will advertise their PAYG prices when registering their ability to serve requests for specific SubQuery projects.
+Это базовый способ оплаты и запасной вариант для других способов. Каждый индексатор будет объявлять свои цены PAYG при регистрации своей способности обрабатывать запросы для определенных проектов SubQuery.
 
-Consumers making requests will have to lock the tokens necessary to make that request in a state channel, and at the end of an Era, these tokens will be distributed to the Indexers based on the Cobb-Douglas production function.
+Потребители, создающие запросы, должны будут заблокировать токены, необходимые для исполнения этого запроса в канале состояния, и в конце Эры эти токены будут распределены среди индексаторов основываясь на производственной функции Кобба-Дугласа.
 
-## Closed Plans and Agreements
+## Закрытые Планы и Соглашения
 
-Closed Agreements represent an agreement between only one Indexer and one Consumer. It’s a direct relationship where all payment flows between the two parties for the work that is done.
+Закрытые соглашения - это соглашение только между одним Индексатором и одним Потребителем. Это прямые взаимоотношения, когда все платежи происходят между двумя сторонами за выполненную работу.
 
-Closed Agreements are designed to give Indexers confidence that there is a market and ROI for data from a particular SubQuery Project, and essentially signal to them which Projects should be indexed.
+Закрытые соглашения предназначены для того, чтобы дать индексаторам уверенность в том, что существует рынок и окупаемость инвестиций для данных определенного проекта SubQuery, и, в cущности, сигнализировать им, какие проекты следует индексировать.
 
-Closed Plans can also be placed on existing SubQuery Projects to attract additional Indexers to that SubQuery Project. This may be useful in situations where the existing monopolistic Indexer may be charging an unreasonable amount for the data or there is a lack of competition to drive prices to equilibrium.
+Закрытые планы также могут быть применимы к существующим проектам SubQuery, чтобы привлечь дополнительных индексаторов к данному проекту SubQuery. Это может быть полезно в ситуациях, когда существующий монополист индексатор может взимать необоснованную оплату за данные или отсутствует конкуренция, для того чтобы привести цены к разумному равновесию.
 
 ## Открытое соглашение об оказании услуг
 
