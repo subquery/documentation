@@ -46,17 +46,17 @@ Finally, interested parties should be prepared to invest time in maintaining the
 
 ### Staking requirements
 
-Indexers are expected to stake and maintain a minimum amount of tokens. This is to ensure that Indexers have some skin in the game and are committed to supporting the network. SubQuery is yet to determine this but it is one of our [design philosophies](./design-philosophy.md) that this be as low and as accessible as possible.
+Ожидается что индексаторы будут стейкать и поддерживать минимальное количество токенов. Это необходимо для того, чтобы обеспечить вовлеченность и заинтересованность индексаторов в поддержании сети. SubQuery все еще определяет это, но одна из наших позиций дизайна это то, чтобы он был как можно низкопороговым и доступным.
 
-Should an Indexer experience a slashable event and their staked SQT balance fall below the minimum required, they will have to top up their staked SQT in order to continue to earn rewards from their work.
+Если индексатор столкнется с сокращением и баланс его монет SQT снизится ниже минимально требуемого, ему будет необходимо пополнить свой баланс застейканных SQT, чтобы продолжать получать вознаграждение за свою работу.
 
-### Hardware requirements
+### Требования по оборудованию
 
-Indexers can either invest in their own infrastructure hardware or rent infrastructure from the likes of AWS, Google Cloud, Digital Ocean, Microsoft Azure etc.
+Индексаторы могут инвестировать в собственное инфраструктурное оборудование или арендовать инфраструктуру у таких компаний, как AWS, Google Cloud, Digital Ocean, Microsoft Azure и др.
 
 ### Maintenance/operational requirements
 
-Here are some of the maintenance and/or operational requirements Indexers should expect:
+Вот некоторые требования к техническому обслуживанию и/или эксплуатации, которые будут ожидать индексаторов:
 
 - Always upgrade to the latest Subquery software version.
 - Identify and take advantage of new indexing opportunities.
