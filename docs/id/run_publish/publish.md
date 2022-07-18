@@ -66,16 +66,16 @@ Anda juga dapat menggunakan `@subql/cli` untuk mempublikasikan proyek Anda ke la
 - Sebuah [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) yang valid sudah siap.
 
 ```shell
-// Membuat proyek menggunakan CLI
+// Creating a project using the CLI
 $ subql project:create-project
 
-// ATAU menggunakan non-interaktif, ini akan meminta Anda jika bidang yang diperlukan tidak ada
+// OR using non-interactive, it will prompt you if the required fields are missing
 $ subql project:create-project
     --apiVersion=apiVersion      Api version is default to 2
     --description=description    Enter description
     --gitRepo=gitRepo            Enter git repository
     --org=org                    Enter organization name
-    --project_name=project_name  Enter project name
+    --projectName=projectName  Enter project name
 ```
 
 ### Terapkan Versi pertama Anda
@@ -107,19 +107,21 @@ Anda juga dapat menggunakan `@subql/cli` untuk membuat deployment baru dari proy
 - Sebuah [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) yang valid sudah siap.
 
 ```shell
-// Terapkan menggunakan CLI
+// Deploy using the CLI
 $ suqbl deployment:deploy
 
-// ATAU Terapkan menggunakan CLI non-interaktif
+// OR Deploy using non-interactive CLI
 $ suqbl deployment:deploy
-  --dict=dict                      Enter Dictionary Endpoint
-  --endpoint=endpoint              Enter Network Endpoint
+
+  -d, --useDefaults                Use default values for indexerVerion, queryVersion, dictionary, endpoint
+  --dict=dict                      Enter dictionary
+  --endpoint=endpoint              Enter endpoint
   --indexerVersion=indexerVersion  Enter indexer-version
   --ipfsCID=ipfsCID                Enter IPFS CID
-  --org=org                        Enter Organization Name
-  --project_name=project_name      Enter Project Name
-  --queryVersion=queryVersion      Enter Query-version
-  --type=type                      Enter deployment type e.g. primary or stage
+  --org=org                        Enter organization name
+  --projectName=projectName        Enter project name
+  --queryVersion=queryVersion      Enter query-version
+  --type=(stage|primary)           [default: primary]
 ```
 
 ## Langkah Selanjutnya - Hubungkan ke Proyek Anda
