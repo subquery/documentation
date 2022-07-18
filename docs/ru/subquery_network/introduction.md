@@ -1,24 +1,24 @@
-# Introduction
+# Введение
 
-**The SubQuery Network is the future of web3 infrastructure**
+**SubQuery Network — это будущее инфраструктуры web3**
 
-We’re building the most open, performant, reliable, and scalable data service for dApp developers.
+Мы создаем самую открытую, производительную, надежную и масштабируемую службу данных для разработчиков децентрализованных приложений.
 
 The SubQuery Network indexes and services data to the global community in an incentivised and verifiable way.
 
-After publishing your project to the SubQuery Network, anyone can index and host it - providing data to users around the world faster and reliably.
+После публикации вашего проекта в SubQuery Network любой может индексировать и разместить его, предоставляя данные пользователям по всему миру быстрее и надежнее.
 
-The SubQuery Network is facilitating an open web3 data revolution by allowing you to completely decentralise your infrastructure stack.
+SubQuery Network облегчает революцию открытых данных в Web3, позволяя вам полностью децентрализовать ваши инфраструктурные ресурсы.
 
-## Participants
+## Участники
 
-There’s a role for everyone in the network, from highly technical developers to those that are not. The SubQuery network includes four main network participants.
+В сети предусмотрена роль для всех, от высокотехнологичных разработчиков до тех, кто ими не является. В Сети SubQuery существуют четыре основных участников сети.
 
 ### Потребители
 
-Consumers will ask the SubQuery Network for specific data for their dApps or tools, and pay an advertised amount of SQT for each request.
+Потребители будут запрашивать у SubQuery Network определенные данные для своих децентрализованных приложений или инструментов, и оплачивать объявленную сумму SQT за каждый запрос.
 
-::: info Note Learn more about [Consumers](./consumers.md). :::
+Примечание Узнайте больше о Потребителях. :::
 
 ### Индексаторы
 
