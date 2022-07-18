@@ -66,16 +66,16 @@ You can also use `@subql/cli` to publish your project to our managed service. Đ
 - A valid [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) ready.
 
 ```shell
-// Tạo dự án sử dụng CLI
+// Creating a project using the CLI
 $ subql project:create-project
 
-// HOẶC không tác động đến, nó sẽ nhắc bạn nếu thiếu các trường bắt buộc
+// OR using non-interactive, it will prompt you if the required fields are missing
 $ subql project:create-project
     --apiVersion=apiVersion      Api version is default to 2
     --description=description    Enter description
     --gitRepo=gitRepo            Enter git repository
     --org=org                    Enter organization name
-    --project_name=project_name  Enter project name
+    --projectName=projectName  Enter project name
 ```
 
 ### Triển khai phiên bản đầu tiên
@@ -107,19 +107,21 @@ Bạn cũng có thể sử dụng `@subql/cli` để tạo một triển khai m�
 - A valid [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) ready.
 
 ```shell
-// Triển khai sử dụng CLI
+// Deploy using the CLI
 $ suqbl deployment:deploy
 
-// Hoặc triển khai không tác động tới CLI
+// OR Deploy using non-interactive CLI
 $ suqbl deployment:deploy
-  --dict=dict                      Enter Dictionary Endpoint
-  --endpoint=endpoint              Enter Network Endpoint
+
+  -d, --useDefaults                Use default values for indexerVerion, queryVersion, dictionary, endpoint
+  --dict=dict                      Enter dictionary
+  --endpoint=endpoint              Enter endpoint
   --indexerVersion=indexerVersion  Enter indexer-version
   --ipfsCID=ipfsCID                Enter IPFS CID
-  --org=org                        Enter Organization Name
-  --project_name=project_name      Enter Project Name
-  --queryVersion=queryVersion      Enter Query-version
-  --type=type                      Enter deployment type e.g. primary or stage
+  --org=org                        Enter organization name
+  --projectName=projectName        Enter project name
+  --queryVersion=queryVersion      Enter query-version
+  --type=(stage|primary)           [default: primary]
 ```
 
 ## Các Bước Tiếp Theo - Kết nối đến Dự Án của bạn
