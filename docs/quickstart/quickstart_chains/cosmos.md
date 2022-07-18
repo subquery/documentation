@@ -8,6 +8,15 @@ The goal of this quick start guide is to adapt the standard starter project in t
 Before we begin, make sure that you have initialised your project using the provided steps in the **[Start Here](../quickstart.md)** section. You must complete the suggested [4 steps](https://github.com/subquery/cosmos-subql-starter#readme) for Cosmos users.
 :::
 
+Note that we are using Juno as the example here, but SubQuery supports all the following Cosmos networks and you can quickly initialise a new project in any of them using the `subql init` command:
+
+- Juno
+- CosmosHub
+- Fetch.ai
+- Stargaze
+- Osmosis
+- Cronos
+
 Now, let's move ahead in the process and update these configurations.
 
 Previously, in the [1. Create a New Project](../quickstart.md) section, you must have noted [3 key files](../quickstart.md#_3-make-changes-to-your-project). Let's begin updating them one by one.
