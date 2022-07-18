@@ -1,0 +1,8 @@
+{
+    "name": "SubQuery Academy",
+    "short_name": "SubQuery Academy",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#fff",
+    "description": "Explore and transform your chain data to build intuitive dApps faster!"
+  }
