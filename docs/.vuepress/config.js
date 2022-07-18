@@ -153,10 +153,6 @@ module.exports = config({
     pwa: true,
     sidebarDepth: 2,
     themeColor: false,
-    
- 
-   
-  
   },
 });
 

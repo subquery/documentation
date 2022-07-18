@@ -1,7 +1,3 @@
----
-lastUpdated: false
----
-
 <link rel="stylesheet" href="/assets/style/welcome.css" as="style" />
 <div class="top2Sections">
   <section class="welcomeWords">
