@@ -4,7 +4,7 @@ The SubQuery Foundation serves to manage and develop the SubQuery Network and it
 
 The SubQuery Foundation is the first step towards decentralising ownership over the SubQuery Network.
 
-## The Purpose
+## Мета
 
 The SubQuery Network will be managed by a SubQuery Foundation. The SubQuery Foundation will be a not for profit entity created specifically to serve, manage, and develop the SubQuery Network and provide support for users and developers to participate.
 
