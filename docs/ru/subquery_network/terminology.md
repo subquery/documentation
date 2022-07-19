@@ -4,19 +4,19 @@
 
 ## **Склеивание. Действие по внесению Sqt в контракт глобального стейкинга, выполняемое индексатором или делегатом. Разъединение. Действие индексатора или делегатора, выводящего Sqt из контракта глобального стейкинга. По сути, это перевод Sqt из контракта глобального стейкинга на кошелек Индексатора или Делегатора. Другими словами, это можно рассматривать как снятие индексатором или делегатом части или всей своей доли. Обратите внимание, что период блокировки применяется, когда токены не привязаны**
 
-Act of an Indexer assigning SQT to a given project.
+Действие индексатора, назначающего SQT на данный проект.
 
-### **Reallocating**
+### **Перераспределение**
 
-A combined operation of removing staked tokens from one project and immediately associating that with another project (comes into effect at the end of the next Era). This is represented/expressed as a percentage of the indexer’s bonded SQT.
+Комбинированная операция по удалению поставленных жетонов из одного проекта и немедленное связывание их с другим проектом (вступает в силу в конце следующей Era). Это представлено/выражено в процентах от связанного SQT индексатора.
 
-## **Bonding**
+## **Связка**
 
-Act of depositing SQT into a global staking contract performed by either an Indexer or a Delegator.
+Акт депонирования SQT в глобальный контракт на ставку, осуществляемый либо Индексатором, либо Делегатором.
 
-### **Unbonding**
+### **Отмена связывания**
 
-Act of an Indexer or a Delegator withdrawing SQT from the global staking contract.
+Акт индексатора или делегатора о выходе SQT из глобального контракта на ставку.
 
 This is effectively a transfer of SQT from the global staking contract to the Indexer’s or Delegator’s wallet. In other words, this can be thought of as the Indexer or Delegator withdrawing part or all of their stake. Note that a lock period applies when tokens are unbonded.
 
