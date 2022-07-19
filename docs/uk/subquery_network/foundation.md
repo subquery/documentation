@@ -1,18 +1,18 @@
-# The SubQuery Foundation
+# Фонд "SubQuery Foundation"
 
-The SubQuery Foundation serves to manage and develop the SubQuery Network and its ecosystem. Its purpose is to foster and guide the development and growth of the SubQuery Network and provide support for users and developers to build their own SubQuery Projects.
+Фонд "SubQuery Foundation" служить для управління та розвитку мережі SubQuery та її екосистеми. Його мета - сприяти розробці та росту мережі SubQuery та надавати підтримку користувачам і розробникам для створення власних проектів для SubQuery.
 
-The SubQuery Foundation is the first step towards decentralising ownership over the SubQuery Network.
+Фонд "SubQuery Foundation" - це перший крок до децентралізації власності за мережею SubQuery.
 
 ## Мета
 
-The SubQuery Network will be managed by a SubQuery Foundation. The SubQuery Foundation will be a not for profit entity created specifically to serve, manage, and develop the SubQuery Network and provide support for users and developers to participate.
+Мережа SubQuery буде керуватись фондом "SubQuery Foundation". Фонд "SubQuery Foundation" буде неприбутковою організацією, створеною спеціально для обслуговування, управління, розвитку мережі SubQuery та надання підтримки користувачам і розробникам.
 
-The SubQuery Foundation is expected to have the following mandates:
-- Developing and updating the SubQuery Network.
-- Manage and distributing assets from the Foundation Treasury.
-- Managing the SubQuery Grants Programme to stimulate ecosystem and network development.
-- Developing SubQuery ecosystem of partners and user community.
+Попередньо, фонд "SubQuery Foundation" матиме наступні обов'язки:
+- Розробка та оновлення мережі SubQuery.
+- Управління та розподіл активів із казни Фонду.
+- Управління програмою грантів SubQuery для стимулювання розробки екосистеми та мережі.
+- Розробка екосистеми партнерів і спільноти SubQuery.
 - Driving educational programmes and documentation.
 - Decentralising the control over the SubQuery Network.
 
