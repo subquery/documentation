@@ -13,7 +13,7 @@
 - Управління та розподіл активів із казни Фонду.
 - Управління програмою грантів SubQuery для стимулювання розробки екосистеми та мережі.
 - Розробка екосистеми партнерів і спільноти SubQuery.
-- Driving educational programmes and documentation.
-- Decentralising the control over the SubQuery Network.
+- Управління освітніми програмами та документаціями.
+- Децентралізація контролю над мережею SubQuery.
 
-It is planned that the SubQuery Foundation will be accountable to the SubQuery Council, who will oversee governance decisions and will be made up of key representatives from the core SubQuery team and other key partners and advisers.
+Заплановано, що Фонд SubQuery буде підзвітний Раді SubQueri, контра буде контролювати рішення щодо управління та буде складатися з ключових представників основної команди SubQuery та інших ключових партнерів та консультантів.
