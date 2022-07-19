@@ -1,26 +1,26 @@
-# Frequently Asked Questions
+# Preguntas Frecuentes
 
 ## ¿Qué es SubQuery?
 
 SubQuery es un proyecto de código abierto que permite a los desarrolladores indexar, transformar y consultar datos en cadena de Substrate para potenciar sus aplicaciones.
 
-SubQuery also provides free, production grade hosting of projects for developers removing the responsiblity of manging infrastructure, and letting developers do what they do best - build.
+SubQuery también proporciona alojamiento gratuito con grado de producción de proyectos para desarrolladores, eliminando la responsabilidad de la infraestructura de gestión y dejar que los desarrolladores hagan lo que hacen mejor - construir.
 
 ## ¿Cuál es la mejor manera de comenzar con SubQuery?
 
-The best way to get started with SubQuery is to try out our [Hello World tutorial](/assets/pdf/Hello_World_Lab.pdf). Este es un simple paseo de 5 minutos para descargar la plantilla de inicio, construir el proyecto, y luego usar Docker para ejecutar un nodo en su localhost y ejecutar una simple consulta.
+La mejor manera de empezar con SubQuery es probar nuestro [tutorial de Hola Mundo](/assets/pdf/Hello_World_Lab.pdf). Este es un simple paseo de 5 minutos para descargar la plantilla de inicio, construir el proyecto, y luego usar Docker para ejecutar un nodo en su localhost y ejecutar una simple consulta.
 
 ## ¿Cómo puedo contribuir o dar comentarios a SubQuery?
 
-Nos encantan las contribuciones y comentarios de la comunidad. Para contribuir con el código, bifurca el repositorio de interés y realice sus cambios. Luego envíe un PR o Pull Request. ¡Oh, no te olvides del test probar también! Also check out our contributions guide lines (TBA).
+Nos encantan las contribuciones y comentarios de la comunidad. Para contribuir con el código, bifurca el repositorio de interés y realice sus cambios. Luego envíe un PR o Pull Request. ¡Oh, no te olvides del test probar también! Consulte también nuestras líneas de guía de contribuciones (TBA).
 
 To give feedback, contact us at hello@subquery.network or jump onto our [discord channel](https://discord.com/invite/78zg8aBSMG).
 
 ## ¿Cuánto cuesta alojar mi proyecto en SubQuery Projects?
 
-Hospedar tu proyecto en SubQuery Projects es absolutamente gratuito - es nuestra manera de devolver a la comunidad. To learn how to host your project with us, please check out the [Hello World (SubQuery hosted)](../run_publish/publish.md) tutorial.
+Hospedar tu proyecto en SubQuery Projects es absolutamente gratuito - es nuestra manera de devolver a la comunidad. Para aprender cómo alojar tu proyecto con nosotros, por favor revisa el tutorial [Hola Mundo (hospedado en SubQuery)](../run_publish/publish.md).
 
-## What are deployment slots?
+## ¿Qué son las ranuras de despliegue?
 
 Deployment slots are a feature in [SubQuery Projects](https://project.subquery.network) that is the equivalent of a development environment. For example, in any software organisation there is normally a development environment and a production environment as a minimum (ignoring localhost that is). Typically additional environments such as staging and pre-prod or even QA are included depending on the needs of the organisation and their development set up.
 
