@@ -68,7 +68,7 @@ SubQuery Project uploaded to IPFS: QmZ3q7YZSmhwBiot4PQCK3c7Z6HkteswN2Py58gkkZ8kN
 
 Обратите внимание на этот `CID`. С помощью этого `CID` вы можете рассматривать свой опубликованный проект как то, что мы называем [IPFS Deployment](ipfs.md#ipfs-deployment).
 
-With `@subql/cli` version 1.3.0 or above, when using `subql publish` it will store a copy of the project's `IPFS CID` in a file in your project directory, the naming of the file will be consistent with your project.yaml. For example, if your manfiest file is named `project.yaml`, the IPFS file will be named  `.project-cid`.
+С `@subql/cli` версии 1.3.0 или выше, при использовании `subql publish` он будет хранить копию `IPFS CID проекта` в файле в каталоге проекта, именование файла будет соответствовать вашему project.yaml. Например, если ваш файл manfiest имеет имя `project.yaml`, файл IPFS будет иметь имя `.project-cid`.
 
 ## Развертывание IPFS
 
