@@ -62,16 +62,16 @@
       <li>
         <div class="title">SubQueryとは？</div>
         <div class="content">
-          <p>SubQueryは開発者がSubstrateチェーンのデータにインデックスを付け、変換し、クエリを実行して、アプリケーションを強化するためのオープンソースプロジェクトです。</p>
+          <p>SubQuery is an open source blockchain data indexer for developers that provides fast, flexible, reliable, and decentralised APIs to power leading multi-chain apps. Our mission is to help developers create the decentralised products of the future.</p>
           <span class="more">
-            <router-link :to="{path: '/faqs/faqs.md#what-is-subquery'}">READ MORE</router-link>
+            <router-link :to="{path: '/faqs/faqs.html#what-is-subquery'}">READ MORE</router-link>
           </span>
         </div>
       </li>
       <li>
         <div class="title">SubQueryを始めるための最良の方法は何ですか？</div>
         <div class="content">
-          <p>The best way to get started with SubQuery is to try out our <a href="/quickstart/quickstart.html">Quick Start tutorial</a>. スターターテンプレートをダウンロードし、プロジェクトをビルドし、Dockerを使用してローカルホスト上でノードを実行し、簡単なクエリを実行する5分間のウォークスルーです。 </p>
+          <p>The best way to get started with SubQuery is to try out our <a href="/quickstart/quickstart.html">Quick Start</a> tutorial. スターターテンプレートをダウンロードし、プロジェクトをビルドし、Dockerを使用してローカルホスト上でノードを実行し、簡単なクエリを実行する5分間のウォークスルーです。 </p>
         </div>
       </li>
       <li>
@@ -79,14 +79,14 @@
         <div class="content">
           <p>私たちはコミュニティからの貢献とフィードバックが大好きです。 コードに貢献するためには、関心のあるリポジトリをフォークして変更を加えます。 次にPRまたはPullリクエストを送信します。 ああ、テストすることを忘れないでください！ 私たちの貢献ガイドラインもチェックしてください(近日公開)。 </p>
           <span class="more">
-            <router-link :to="{path: '/faqs/faqs.md#how-can-i-contribute-or-give-feedback-to-subquery'}">READ MORE</router-link>
+            <router-link :to="{path: '/faqs/faqs.html#how-can-i-contribute-or-give-feedback-to-subquery'}">READ MORE</router-link>
           </span> 
         </div>
       </li>
       <li>
         <div class="title">自分のプロジェクトをSubQuery Projectsで公開するにはどのくらいの費用がかかりますか？</div>
         <div class="content">
-          <p>SubQuery Projectsであなたのプロジェクトを公開することは完全に無料です - それはコミュニティに還元する私たちの方法です。 To learn how to host your project with us, please check out the <a href="https://academy.subquery.network/run_publish/publish.html">Hello World (SubQuery Hosted)</a> tutorial.</p>
+          <p>Hosting your project in SubQuery Projects is absolutely free — it is our way of giving back to the community. To learn how to host your project with us, please check out the <a href="https://academy.subquery.network/run_publish/publish.html">Hello World (SubQuery Hosted)</a> tutorial.</p>
           <span class="more">
             <router-link :to="{path: '/run_publish/publish.html'}">HOSTING YOUR PROJECT</router-link>
           </span>
@@ -100,9 +100,9 @@
   <div>
     <div class="lastIntroduce lastIntroduce_1">
         <h5>カスタムチェーンと統合しますか？</h5>
-        <p>新しいparachainを構築する場合でも、全く新しいブロックチェーンをSubstrate上で構築する場合でも、SubQueryはインデックスを作成し、チェーンのデータをトラブルシューティングするのに役立ちます。 SubQuery は Substrate ベースのカスタムチェーンと簡単に統合できるように設計されています。</p>
+        <p>Whether you're building a new parachain or an entirely new blockchain on Substrate — SubQuery can help you index and troubleshoot your chain's data. SubQuery は Substrate ベースのカスタムチェーンと簡単に統合できるように設計されています。</p>
         <span class="more">
-          <router-link :to="{path: '/build/manifest.md#custom-substrate-and-cosmos-chains'}">LEARN HOW TO INTEGRATE WITH YOUR CHAIN</router-link>
+          <router-link :to="{path: '/build/manifest.html#custom-substrate-and-cosmos-chains'}">LEARN HOW TO INTEGRATE WITH YOUR CHAIN</router-link>
         </span>
     </div>
     <div class="lastIntroduce lastIntroduce_2">
