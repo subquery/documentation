@@ -2,23 +2,37 @@
 
 ## Cos'è SubQuery?
 
-SubQuery è un progetto open source che consente agli sviluppatori di indicizzare, trasformare e interrogare i dati della catena di substrati per ottimizzare le applicazioni.
+SubQuery is an open source blockchain data indexer for developers that provides fast, flexible, reliable, and decentralised APIs to power leading multi-chain apps.
 
-SubQuery also provides free, production grade hosting of projects for developers removing the responsiblity of manging infrastructure, and letting developers do what they do best - build.
+Our goal is to save developers' time and money by eliminating the need of building their own indexing solution. Now, they can fully focus on developing their applications. SubQuery helps developers create the decentralised products of the future.
+
+<figure class="video_container">
+<iframe src="https://www.youtube.com/embed/gCpVz_mkWdo" title="Introducing The SubQuery Network" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscree="true"></iframe>
+</figure>
+
+**SubQuery Managed Service**
+
+SubQuery also provides free, production grade hosting of projects for developers. Our Managed Service removes the responsiblity of managing infrastructure, so that developers do what they do best — build. Find out more [here](/run_publish/publish.md).
+
+**The SubQuery Network**
+
+The SubQuery Network allows developers to completely decentralise their infrastructure stack. It is the most open, performant, reliable, and scalable data service for dApps. The SubQuery Network indexes and services data to the global community in an incentivised and verifiable way.  After publishing your project to the SubQuery Network, anyone can index and host it - providing data to users around the world faster and reliably.
+
+More information [here](/subquery_network/introduction.md).
 
 ## Qual è il modo migliore per iniziare con SubQuery?
 
-The best way to get started with SubQuery is to try out our [Hello World tutorial](/assets/pdf/Hello_World_Lab.pdf). Questo è un semplice 5 min passeggiata attraverso il download del modello di avvio, la costruzione del progetto, e poi utilizzando Docker per eseguire un nodo sul vostro localhost ed eseguire una semplice query.
+The best way to get started with SubQuery is to try out our [Hello World tutorial](/assets/pdf/Hello_World_Lab.pdf). This is a simple 5 min walk through exercise. Download the starter template, build the project, use Docker to run a node on your localhost, and run a simple query.
 
 ## Come posso contribuire o fornire feedback a SubQuery?
 
-Amiamo i contributi e il feedback della comunità. Per contribuire al codice, forgiare il repository di interesse e apportare le modifiche desiderate. Quindi inviate una PR o una richiesta di estrazione. Oh, non dimenticare di fare il test pure! Also check out our contributions guide lines (TBA).
+Amiamo i contributi e il feedback della comunità. To contribute the code, fork the repository of your interest and make your changes. Quindi inviate una PR o una richiesta di estrazione. Don't forget to test as well. Also check out our contributions guide lines (TBA).
 
 To give feedback, contact us at hello@subquery.network or jump onto our [discord channel](https://discord.com/invite/78zg8aBSMG).
 
 ## Quanto costa ospitare il progetto in Progetti SubQuery?
 
-Ospitare il tuo progetto in SubQuery Projects è assolutamente gratuito - è il nostro modo di restituire alla comunità. To learn how to host your project with us, please check out the [Hello World (SubQuery hosted)](../run_publish/publish.md) tutorial.
+Hosting your project in SubQuery Projects is absolutely free — it is our way of giving back to the community. Please check out the [Hello World (SubQuery hosted)](../run_publish/publish.md) tutorial and learn how to host your project with us.
 
 ## What are deployment slots?
 
@@ -60,4 +74,4 @@ A known issue with developing a changing project schema is that when lauching yo
 subql-node -f . --force-clean --subquery-name=<project-name>
 ```
 
-Note that it is recommended to use `--force-clean` when changing the `startBlock` within the project manifest (`project.yaml`) in order to begin reindexing from the configured block. If `startBlock` is changed without a `--force-clean` of the project then the indexer will continue indexing with the previously configured `startBlock`.
+Note that it is recommended to use `--force-clean` when changing the `startBlock` within the project manifest (`project.yaml`) in order to begin reindexing from the configured block. If `startBlock` is changed without a `--force-clean` of the project, then the indexer will continue indexing with the previously configured `startBlock`.
