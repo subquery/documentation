@@ -2,9 +2,21 @@
 
 ## What is SubQuery?
 
-SubQuery is an open source project that allows developers to index, transform, and query Substrate chain data to power their applications.
+SubQuery is an open source blockchain data indexer for developers that provides fast, flexible, reliable, and decentralised APIs to power leading multi-chain apps. 
 
-SubQuery also provides free, production grade hosting of projects for developers removing the responsiblity of manging infrastructure, and letting developers do what they do best - build.
+Our goal is to help developers save their time and money by not needing to build their own indexing solution and being able to fully focus on developing their applications. SubQuery helps developers create the decentralised products of the future. 
+
+<figure class="video_container">
+<iframe src="https://www.youtube.com/embed/gCpVz_mkWdo" title="Introducing The SubQuery Network" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscree="true"></iframe>
+</figure>
+
+**SubQuery Managed Service**
+
+SubQuery also provides free, production grade hosting of projects for developers removing the responsiblity of managing infrastructure, and letting developers do what they do best - build. Find out more [here](/run_publish/publish.md).
+
+**The SubQuery Network**
+
+The SubQuery Network enables an open web3 data revolution by allowing developers to completely decentralise their infrastructure stack. The SubQuery Network will be the most open, performant, reliable, and scalable data service for dApps. More information [here](/subquery_network/introduction.md).
 
 ## What is the best way to get started with SubQuery?
 
@@ -18,7 +30,7 @@ To give feedback, contact us at hello@subquery.network or jump onto our [discord
 
 ## How much does it cost to host my project in SubQuery Projects? 
 
-Hosting your project in SubQuery Projects is absolutely free - it's is our way of giving back to the community. To learn how to host your project with us, please check out the [Hello World (SubQuery hosted)](../run_publish/publish.md) tutorial.
+Hosting your project in SubQuery Projects is absolutely free — it is our way of giving back to the community. To learn how to host your project with us, please check out the [Hello World (SubQuery hosted)](../run_publish/publish.md) tutorial.
 
 ## What are deployment slots? 
 
