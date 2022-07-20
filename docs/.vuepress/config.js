@@ -1,6 +1,15 @@
 const { config } = require("vuepress-theme-hope");
 
 module.exports = config({
+  title: "SubQuery Academy",
+  head: [
+    ['link', { rel: 'icon', href: 'public/assets/img/logo.png' }],
+    ['link', { rel: 'icon', href: 'public/assets/favicons/favicon.ico', type: 'image/x-icon' }],
+    ['link', { rel: 'apple-touch-icon', type: 'image/png', sizes: '180x180', href: 'public/assets/favicons/apple-touch-icon.png'}],
+    ['link', { rel: 'icon', type: 'image/png', sizes: '32x32', href: 'public/assets/favicons/favicon-32x32.png'}],
+    ['link', { rel: 'icon', type: 'image/png', sizes: '16x16', href: 'public/assets/favicons/favicon-16x16.png'}],
+    ['link', { rel: 'manifest', href: 'public/assets/manifest.json'}]
+  ],
   locales: {
     "/": {
       lang: "en-UK",
@@ -86,12 +95,31 @@ module.exports = config({
     */
   },
   themeConfig: {
-    hostname: "https://doc.subquery.network",
+    algolia: {
+      appId: "30B5W460WL",
+      apiKey: "7f75a78b4f95cebe82c0ced1ff75235e",
+      indexName: "subquery",
+    },
     cleanUrl: false,
-    pwa: false,
+    contributor: false,
+    hostname: "https://academy.subquery.network",
+    lastUpdated: true,
+    locales: {
+      "/": getSidebar("", "English"),
+      "/zh/": getSidebar("/zh", "Chinese"),
+      "/de/": getSidebar("/de", "German"),
+      "/vi/": getSidebar("/vi", "Vietnamese"),
+      "/ru/": getSidebar("/ru", "Russian"),
+      "/uk/": getSidebar("/uk", "Ukranian"),
+    },
     logo: "/assets/img/logo.png",
     logoLink: "https://subquery.network",
-    lastUpdated: true,
+    markdown: {
+      extractHeaders: ["h2", "h3"],
+    },
+    mdEnhance: {
+      codegroup: true,
+    },
     nav: [
       {
         text: "Explorer",
@@ -113,16 +141,6 @@ module.exports = config({
         rel: "",
       },
     ],
-    sidebarDepth: 2,
-    themeColor: false,
-    locales: {
-      "/": getSidebar("", "English"),
-      "/zh/": getSidebar("/zh", "Chinese"),
-      "/de/": getSidebar("/de", "German"),
-      "/vi/": getSidebar("/vi", "Vietnamese"),
-      "/ru/": getSidebar("/ru", "Russian"),
-      "/uk/": getSidebar("/uk", "Ukranian"),
-    },
     plugins: [
       [
         "@vuepress/plugin-google-analytics",
@@ -130,19 +148,12 @@ module.exports = config({
           id: "G-MY90N76MNK",
         },
         "fulltext-search",
+        '@vuepress/pwa'
       ],
     ],
-    algolia: {
-      appId: "30B5W460WL",
-      apiKey: "7f75a78b4f95cebe82c0ced1ff75235e",
-      indexName: "subquery",
-    },
-    markdown: {
-      extractHeaders: ["h2", "h3"],
-    },
-    mdEnhance: {
-      codegroup: true,
-    },
+    pwa: true,
+    sidebarDepth: 2,
+    themeColor: false,
   },
 });
 
@@ -216,7 +227,6 @@ function getSidebar(locale, language) {
         collapsable: true,
         children: [
           `${locale}/run_publish/run.md`,
-          `${locale}/run_publish/sandbox.md`,
           `${locale}/run_publish/publish.md`,
           `${locale}/run_publish/upgrade.md`,
           `${locale}/run_publish/connect.md`,
