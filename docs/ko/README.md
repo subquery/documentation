@@ -62,16 +62,16 @@
       <li>
         <div class="title">SubQuery란?</div>
         <div class="content">
-          <p>SubQuery는 개발자가 서브스트레이트 체인 데이터를 인덱싱, 변환 및 쿼리하여 애플리케이션을 구동할 수 있도록 하는 오픈 소스 프로젝트입니다.</p>
+          <p>SubQuery is an open source blockchain data indexer for developers that provides fast, flexible, reliable, and decentralised APIs to power leading multi-chain apps. Our mission is to help developers create the decentralised products of the future.</p>
           <span class="more">
-            <router-link :to="{path: '/faqs/faqs.md#what-is-subquery'}">READ MORE</router-link>
+            <router-link :to="{path: '/faqs/faqs.html#what-is-subquery'}">READ MORE</router-link>
           </span>
         </div>
       </li>
       <li>
         <div class="title">SubQuery를 시작하는 가장 좋은 방법은 무엇입니까?</div>
         <div class="content">
-          <p>The best way to get started with SubQuery is to try out our <a href="/quickstart/quickstart.html">Quick Start tutorial</a>. 쿼리를 실행하는 과정을 5분 만에 쉽게 구동할 수 있습니다. 일단 스타트 템플릿을 다운로드하고 프로젝트를 빌드한 다음, Docker를 이용하여 로컬 호스트에서 노드를 실행합니다. </p>
+          <p>The best way to get started with SubQuery is to try out our <a href="/quickstart/quickstart.html">Quick Start</a> tutorial. 쿼리를 실행하는 과정을 5분 만에 쉽게 구동할 수 있습니다. 일단 스타트 템플릿을 다운로드하고 프로젝트를 빌드한 다음, Docker를 이용하여 로컬 호스트에서 노드를 실행합니다. </p>
         </div>
       </li>
       <li>
@@ -79,14 +79,14 @@
         <div class="content">
           <p>우리는 언제나 커뮤니티의 기여와 피드백을 환영합니다. 코드를 피드백을 하려면 관심 있는 레포지토리를 포크하고 변경합니다. 그런 다음 PR 또는 풀 리퀘스트를 통해 제출해주세요. 맞다! 테스트도 잊지 마시구요! 또한 기여를위한 가이드(곧 제공될 예정입니다) 도 확인해주세요. </p>
           <span class="more">
-            <router-link :to="{path: '/faqs/faqs.md#how-can-i-contribute-or-give-feedback-to-subquery'}">READ MORE</router-link>
+            <router-link :to="{path: '/faqs/faqs.html#how-can-i-contribute-or-give-feedback-to-subquery'}">READ MORE</router-link>
           </span> 
         </div>
       </li>
       <li>
         <div class="title">SubQuery 프로젝트에서 내 프로젝트를 호스팅하는 데 비용이 얼마나 듭니까?</div>
         <div class="content">
-          <p>SubQuery 프로젝트에서 프로젝트를 호스팅하는 비용은 무료입니다! 이것이 저희가 커뮤니티에 보답하는 방법입니다! To learn how to host your project with us, please check out the <a href="https://academy.subquery.network/run_publish/publish.html">Hello World (SubQuery Hosted)</a> tutorial.</p>
+          <p>Hosting your project in SubQuery Projects is absolutely free — it is our way of giving back to the community. To learn how to host your project with us, please check out the <a href="https://academy.subquery.network/run_publish/publish.html">Hello World (SubQuery Hosted)</a> tutorial.</p>
           <span class="more">
             <router-link :to="{path: '/run_publish/publish.html'}">HOSTING YOUR PROJECT</router-link>
           </span>
@@ -100,9 +100,9 @@
   <div>
     <div class="lastIntroduce lastIntroduce_1">
         <h5>커스텀 체인과 통합하시겠습니까?</h5>
-        <p>새로운 파라체인을 구축하든, Substrate에 완전히 새로운 블록체인을 구축하든 SubQuery는 체인 데이터를 색인화하고 문제를 해결하는 데 큰 도움이 됩니다. 또한 SubQuery는 Substrate 기반의 커스텀 체인과 쉽게 통합되도록 설계되었습니다.</p>
+        <p>Whether you're building a new parachain or an entirely new blockchain on Substrate — SubQuery can help you index and troubleshoot your chain's data. 또한 SubQuery는 Substrate 기반의 커스텀 체인과 쉽게 통합되도록 설계되었습니다.</p>
         <span class="more">
-          <router-link :to="{path: '/build/manifest.md#custom-substrate-and-cosmos-chains'}">LEARN HOW TO INTEGRATE WITH YOUR CHAIN</router-link>
+          <router-link :to="{path: '/build/manifest.html#custom-substrate-and-cosmos-chains'}">LEARN HOW TO INTEGRATE WITH YOUR CHAIN</router-link>
         </span>
     </div>
     <div class="lastIntroduce lastIntroduce_2">
