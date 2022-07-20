@@ -12,7 +12,7 @@ Our goal is to help developers save their time and money by not needing to build
 
 **SubQuery Managed Service**
 
-SubQuery also provides free, production grade hosting of projects for developers removing the responsiblity of managing infrastructure, and letting developers do what they do best - build. Find out more [here](/run_publish/publish.md).
+SubQuery also provides free, production grade hosting of projects for developers removing the responsiblity of managing infrastructure, and letting developers do what they do best — build. Find out more [here](/run_publish/publish.md).
 
 **The SubQuery Network**
 
