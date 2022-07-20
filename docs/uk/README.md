@@ -62,16 +62,16 @@
       <li>
         <div class="title">Що таке SubQuery?</div>
         <div class="content">
-          <p>SubQuery - це проект з відкритим кодом, який дозволяє розробникам індексувати, трансформувати та запитувати дані ланцюгів Substrate для живлення своїх програм.</p>
+          <p>SubQuery is an open source blockchain data indexer for developers that provides fast, flexible, reliable, and decentralised APIs to power leading multi-chain apps. Our mission is to help developers create the decentralised products of the future.</p>
           <span class="more">
-            <router-link :to="{path: '/faqs/faqs.md#what-is-subquery'}">READ MORE</router-link>
+            <router-link :to="{path: '/faqs/faqs.html#what-is-subquery'}">READ MORE</router-link>
           </span>
         </div>
       </li>
       <li>
         <div class="title">Який найкращий спосіб розпочати роботу з SubQuery?</div>
         <div class="content">
-          <p>The best way to get started with SubQuery is to try out our <a href="/quickstart/quickstart.html">Quick Start tutorial</a>. Це простий 5 хвилин ходьби від завантаження шаблону для початківців, побудови проекту, а потім використання Docker для запуску вузла на локальному хості та запуску простого запиту. </p>
+          <p>The best way to get started with SubQuery is to try out our <a href="/quickstart/quickstart.html">Quick Start</a> tutorial. Це простий 5 хвилин ходьби від завантаження шаблону для початківців, побудови проекту, а потім використання Docker для запуску вузла на локальному хості та запуску простого запиту. </p>
         </div>
       </li>
       <li>
@@ -79,14 +79,14 @@
         <div class="content">
           <p>Ми любимо внески та відгуки громади. Щоб внести код, розщепіть сховище, що цікавить, і внесіть свої зміни. Сформуйте PR або Pull Request. О, також не забудьте його протестувати! Також ознайомтеся з нашими рекомендаціями щодо внесків (незабаром). </p>
           <span class="more">
-            <router-link :to="{path: '/faqs/faqs.md#how-can-i-contribute-or-give-feedback-to-subquery'}">READ MORE</router-link>
+            <router-link :to="{path: '/faqs/faqs.html#how-can-i-contribute-or-give-feedback-to-subquery'}">READ MORE</router-link>
           </span> 
         </div>
       </li>
       <li>
         <div class="title">Скільки коштує розміщення мого проекту в проектах SubQuery?</div>
         <div class="content">
-          <p>Розміщення вашого проекту в проектах SubQuery абсолютно безкоштовне - це наш спосіб повернути спільноту. To learn how to host your project with us, please check out the <a href="https://academy.subquery.network/run_publish/publish.html">Hello World (SubQuery Hosted)</a> tutorial.</p>
+          <p>Hosting your project in SubQuery Projects is absolutely free — it is our way of giving back to the community. To learn how to host your project with us, please check out the <a href="https://academy.subquery.network/run_publish/publish.html">Hello World (SubQuery Hosted)</a> tutorial.</p>
           <span class="more">
             <router-link :to="{path: '/run_publish/publish.html'}">Розміщення ВАШОГО ПРОЕКТУ</router-link>
           </span>
@@ -100,9 +100,9 @@
   <div>
     <div class="lastIntroduce lastIntroduce_1">
         <h5>Інтеграція зі своїм користувальницьким ланцюгом?</h5>
-        <p>Незалежно від того, чи будуєте ви новий парашайн або абсолютно новий блокчейн на Substrate - SubQuery, ви можете допомогти вам індексувати та усунути неполадки даних вашої мережі. SubQuery призначений для легкої інтеграції зі спеціальною ланцюжком на основі Substrate.</p>
+        <p>Whether you're building a new parachain or an entirely new blockchain on Substrate — SubQuery can help you index and troubleshoot your chain's data. SubQuery призначений для легкої інтеграції зі спеціальною ланцюжком на основі Substrate.</p>
         <span class="more">
-          <router-link :to="{path: '/build/manifest.md#custom-substrate-and-cosmos-chains'}">LEARN HOW TO INTEGRATE WITH YOUR CHAIN</router-link>
+          <router-link :to="{path: '/build/manifest.html#custom-substrate-and-cosmos-chains'}">LEARN HOW TO INTEGRATE WITH YOUR CHAIN</router-link>
         </span>
     </div>
     <div class="lastIntroduce lastIntroduce_2">
