@@ -22,7 +22,7 @@ Hospedar tu proyecto en SubQuery Projects es absolutamente gratuito - es nuestra
 
 ## ¿Qué son las ranuras de despliegue?
 
-Deployment slots are a feature in [SubQuery Projects](https://project.subquery.network) that is the equivalent of a development environment. For example, in any software organisation there is normally a development environment and a production environment as a minimum (ignoring localhost that is). Typically additional environments such as staging and pre-prod or even QA are included depending on the needs of the organisation and their development set up.
+Las ranuras de despliegue son una característica en [SubQuery Proyects](https://project.subquery.network) que es el equivalente a un entorno de desarrollo. For example, in any software organisation there is normally a development environment and a production environment as a minimum (ignoring localhost that is). Typically additional environments such as staging and pre-prod or even QA are included depending on the needs of the organisation and their development set up.
 
 SubQuery currently has two slots available. A staging slot and a production slot. This allows developers to deploy their SubQuery to the staging environment and all going well, "promote to production" at the click of a button.
 
