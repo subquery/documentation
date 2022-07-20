@@ -62,16 +62,16 @@
       <li>
         <div class="title">Cos'è SubQuery?</div>
         <div class="content">
-          <p>SubQuery è un progetto open source che consente agli sviluppatori di indicizzare, trasformare e interrogare i dati della catena di substrati per ottimizzare le applicazioni.</p>
+          <p>SubQuery is an open source blockchain data indexer for developers that provides fast, flexible, reliable, and decentralised APIs to power leading multi-chain apps. Our mission is to help developers create the decentralised products of the future.</p>
           <span class="more">
-            <router-link :to="{path: '/faqs/faqs.md#what-is-subquery'}">READ MORE</router-link>
+            <router-link :to="{path: '/faqs/faqs.html#what-is-subquery'}">READ MORE</router-link>
           </span>
         </div>
       </li>
       <li>
         <div class="title">Qual è il modo migliore per iniziare con SubQuery?</div>
         <div class="content">
-          <p>The best way to get started with SubQuery is to try out our <a href="/quickstart/quickstart.html">Quick Start tutorial</a>. Questo è un semplice 5 min passeggiata attraverso il download del modello di avvio, la costruzione del progetto, e poi utilizzando Docker per eseguire un nodo sul vostro localhost ed eseguire una semplice query. </p>
+          <p>The best way to get started with SubQuery is to try out our <a href="/quickstart/quickstart.html">Quick Start</a> tutorial. Questo è un semplice 5 min passeggiata attraverso il download del modello di avvio, la costruzione del progetto, e poi utilizzando Docker per eseguire un nodo sul vostro localhost ed eseguire una semplice query. </p>
         </div>
       </li>
       <li>
@@ -79,7 +79,7 @@
         <div class="content">
           <p>Amiamo i contributi e il feedback della comunità. Per contribuire al codice, forgiare il repository di interesse e apportare le modifiche desiderate. Quindi inviate una PR o una richiesta di estrazione. Oh, non dimenticare di fare il test pure! Controlla anche le nostre linee guida sui contributi (in arrivo a breve). </p>
           <span class="more">
-            <router-link :to="{path: '/faqs/faqs.md#how-can-i-contribute-or-give-feedback-to-subquery'}">READ MORE</router-link>
+            <router-link :to="{path: '/faqs/faqs.html#how-can-i-contribute-or-give-feedback-to-subquery'}">READ MORE</router-link>
           </span> 
         </div>
       </li>
@@ -87,7 +87,7 @@
         <div class="title">Quanto costa ospitare il progetto in Progetti SubQuery?
 </div>
         <div class="content">
-          <p>Ospitare il tuo progetto in SubQuery Projects è assolutamente gratuito - è il nostro modo di restituire alla comunità. To learn how to host your project with us, please check out the <a href="https://academy.subquery.network/run_publish/publish.html">Hello World (SubQuery Hosted)</a> tutorial.</p>
+          <p>Hosting your project in SubQuery Projects is absolutely free — it is our way of giving back to the community. To learn how to host your project with us, please check out the <a href="https://academy.subquery.network/run_publish/publish.html">Hello World (SubQuery Hosted)</a> tutorial.</p>
           <span class="more">
             <router-link :to="{path: '/run_publish/publish.html'}">HOSTING YOUR PROJECT</router-link>
           </span>
@@ -101,9 +101,9 @@
   <div>
     <div class="lastIntroduce lastIntroduce_1">
         <h5>Integrazione con la tua catena personalizzata?</h5>
-        <p>Che tu stia costruendo una nuova paracadute o una blockchain completamente nuova su Substrate - SubQuery può aiutarti a indicizzare e risolvere i dati della tua catena. SubQuery è progettato per integrarsi facilmente con una catena personalizzata basata su substrato.</p>
+        <p>Whether you're building a new parachain or an entirely new blockchain on Substrate — SubQuery can help you index and troubleshoot your chain's data. SubQuery è progettato per integrarsi facilmente con una catena personalizzata basata su substrato.</p>
         <span class="more">
-          <router-link :to="{path: '/build/manifest.md#custom-substrate-and-cosmos-chains'}">LEARN HOW TO INTEGRATE WITH YOUR CHAIN</router-link>
+          <router-link :to="{path: '/build/manifest.html#custom-substrate-and-cosmos-chains'}">LEARN HOW TO INTEGRATE WITH YOUR CHAIN</router-link>
         </span>
     </div>
     <div class="lastIntroduce lastIntroduce_2">
