@@ -62,16 +62,16 @@
       <li>
         <div class="title">Apa itu SubQuery?</div>
         <div class="content">
-          <p>SubQuery adalah proyek open source yang memungkinkan developer untuk mengindeks, mengubah, dan melakukan query Substrate data chain untuk mentenagai aplikasi mereka.</p>
+          <p>SubQuery is an open source blockchain data indexer for developers that provides fast, flexible, reliable, and decentralised APIs to power leading multi-chain apps. Our mission is to help developers create the decentralised products of the future.</p>
           <span class="more">
-            <router-link :to="{path: '/faqs/faqs.md#what-is-subquery'}">BACA SELENGKAPNYA</router-link>
+            <router-link :to="{path: '/faqs/faqs.html#what-is-subquery'}">READ MORE</router-link>
           </span>
         </div>
       </li>
       <li>
         <div class="title">Apa cara terbaik untuk memulai SubQuery?</div>
         <div class="content">
-          <p>Cara terbaik untuk memulai dengan SubQuery adalah dengan mencoba tutorial <a href="/quickstart/quickstart.html">Quick Start</a> kami. Ini adalah 5 menit berjalan sederhana untuk mengunduh template starter, membangun proyek, dan kemudian menggunakan Docker untuk menjalankan node di localhost Anda dan menjalankan kueri sederhana. </p>
+          <p>The best way to get started with SubQuery is to try out our <a href="/quickstart/quickstart.html">Quick Start</a> tutorial. Ini adalah 5 menit berjalan sederhana untuk mengunduh template starter, membangun proyek, dan kemudian menggunakan Docker untuk menjalankan node di localhost Anda dan menjalankan kueri sederhana. </p>
         </div>
       </li>
       <li>
@@ -79,14 +79,14 @@
         <div class="content">
           <p>Kami menyukai kontribusi dan umpan balik dari komunitas. Untuk menyumbangkan kode, garpu repositori yang menarik dan buat perubahan Anda. Kemudian kirimkan PR atau Pull Request. Oh, jangan lupa untuk menguji juga! Lihat juga pedoman kontribusi kami (segera hadir). </p>
           <span class="more">
-            <router-link :to="{path: '/faqs/faqs.md#how-can-i-contribute-or-give-feedback-to-subquery'}">BACA SELENGKAPNYA</router-link>
+            <router-link :to="{path: '/faqs/faqs.html#how-can-i-contribute-or-give-feedback-to-subquery'}">READ MORE</router-link>
           </span> 
         </div>
       </li>
       <li>
         <div class="title">Berapa biaya untuk hosting proyek saya di SubQuery Projects?</div>
         <div class="content">
-          <p>Hosting proyek Anda di Proyek SubQuery benar-benar gratis - ini adalah cara kami memberikan kembali kepada komunitas. Untuk mempelajari cara meng-host proyek Anda bersama kami, silakan lihat tutorial <a href="https://academy.subquery.network/run_publish/publish.html">Hello World (SubQuery Hosted)</a>.</p>
+          <p>Hosting your project in SubQuery Projects is absolutely free — it is our way of giving back to the community. Untuk mempelajari cara meng-host proyek Anda bersama kami, silakan lihat tutorial <a href="https://academy.subquery.network/run_publish/publish.html">Hello World (SubQuery Hosted)</a>.</p>
           <span class="more">
             <router-link :to="{path: '/run_publish/publish.html'}">MENYEDIAKAN PROYEK ANDA</router-link>
           </span>
@@ -100,9 +100,9 @@
   <div>
     <div class="lastIntroduce lastIntroduce_1">
         <h5>Mengintegrasi Custom Chain anda?</h5>
-        <p>Baik Anda sedang membangun parachain baru atau blockchain yang sama sekali baru di Substrat - SubQuery dapat membantu Anda mengindeks dan memecahkan masalah data rantai Anda. SubQuery dirancang untuk diintegrasikan dengan mudah dengan rantai berbasis Substrat kustom.</p>
+        <p>Whether you're building a new parachain or an entirely new blockchain on Substrate — SubQuery can help you index and troubleshoot your chain's data. SubQuery dirancang untuk diintegrasikan dengan mudah dengan rantai berbasis Substrat kustom.</p>
         <span class="more">
-          <router-link :to="{path: '/build/manifest.md#custom-substrate-and-cosmos-chains'}">PELAJARI CARA MENGINTEGRASIKAN DENGAN RANTAI ANDA</router-link>
+          <router-link :to="{path: '/build/manifest.html#custom-substrate-and-cosmos-chains'}">LEARN HOW TO INTEGRATE WITH YOUR CHAIN</router-link>
         </span>
     </div>
     <div class="lastIntroduce lastIntroduce_2">
