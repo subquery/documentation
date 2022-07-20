@@ -2,23 +2,37 @@
 
 ## Что такое SubQuery?
 
-SubQuery - это проект с открытым исходным кодом, который позволяет разработчикам индексировать, преобразовывать и запрашивать данные из Substrate для работы своих приложений.
+SubQuery is an open source blockchain data indexer for developers that provides fast, flexible, reliable, and decentralised APIs to power leading multi-chain apps.
 
-SubQuery также предоставляет бесплатное размещение проектов производственного уровня для разработчиков, снимая с них ответственность за управление инфраструктурой и позволяя разработчикам заниматься тем, что у них получается лучше всего, — строить.
+Our goal is to save developers' time and money by eliminating the need of building their own indexing solution. Now, they can fully focus on developing their applications. SubQuery helps developers create the decentralised products of the future.
+
+<figure class="video_container">
+<iframe src="https://www.youtube.com/embed/gCpVz_mkWdo" title="Introducing The SubQuery Network" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscree="true"></iframe>
+</figure>
+
+**SubQuery Managed Service**
+
+SubQuery also provides free, production grade hosting of projects for developers. Our Managed Service removes the responsiblity of managing infrastructure, so that developers do what they do best — build. Find out more [here](/run_publish/publish.md).
+
+**Сеть SubQuery**
+
+The SubQuery Network allows developers to completely decentralise their infrastructure stack. It is the most open, performant, reliable, and scalable data service for dApps. SubQuery Network индексирует и предоставляет данные глобальному сообществу вознаграждаемым и поддающимся проверке способом.  После публикации вашего проекта в SubQuery Network любой может индексировать и разместить его, предоставляя данные пользователям по всему миру быстрее и надежнее.
+
+More information [here](/subquery_network/introduction.md).
 
 ## Как лучше всего начать работу с SubQuery?
 
-Лучший способ начать работу с SubQuery - попробовать наш учебник [Hello World](/assets/pdf/Hello_World_Lab.pdf). Это простой 5-минутный урок по загрузке стартового шаблона, сборке проекта, а затем использованию Docker для запуска узла на локальном хосте и выполнения простого запроса.
+Лучший способ начать работу с SubQuery - попробовать наш учебник [Hello World](/assets/pdf/Hello_World_Lab.pdf). This is a simple 5 min walk through exercise. Download the starter template, build the project, use Docker to run a node on your localhost, and run a simple query.
 
 ## Как я могу внести свой вклад или оставить отзыв о SubQuery?
 
-Нам нравится вклад и обратная связь от сообщества. Чтобы внести свой код, форкните интересующий вас репозиторий и внесите свои изменения. Далее отправьте PR или Pull Request. О, не забудьте также протестировать! Также ознакомьтесь с нашими рекомендациями внесению дополнений (будет анонсировано).
+Нам нравится вклад и обратная связь от сообщества. To contribute the code, fork the repository of your interest and make your changes. Далее отправьте PR или Pull Request. Don't forget to test as well. Также ознакомьтесь с нашими рекомендациями внесению дополнений (будет анонсировано).
 
 Чтобы оставить отзыв, свяжитесь с нами по адресу hello@subquery.network или перейдите на наш канал [discord](https://discord.com/invite/78zg8aBSMG).
 
 ## Сколько стоит размещение моего проекта в SubQuery Projects?
 
-Размещение вашего проекта в SubQuery абсолютно бесплатно - это наш способ отблагодарить сообщество. Чтобы научиться каким образом размещать ваш проект у нас, пожалуйста ознакомьтесь с руководством [Hello World (SubQuery hosted)](../run_publish/publish.md).
+Hosting your project in SubQuery Projects is absolutely free — it is our way of giving back to the community. Please check out the [Hello World (SubQuery hosted)](../run_publish/publish.md) tutorial and learn how to host your project with us.
 
 ## Что такое слоты развертывания?
 
@@ -60,4 +74,4 @@ Inherent Extrinsics - это части информации, которые н�
 subql-node -f . --force-clean --subquery-name=<project-name>
 ```
 
-Обратите внимание, что рекомендуется использовать `--force-clean` при изменении `startBlock` в манифесте проекта (`project.yaml`), чтобы начать переиндексацию с настроенного блока. Если `startBlock` изменен без `--force-clean` проекта, то индексатор продолжит индексирование с ранее настроенным `startBlock`.
+Обратите внимание, что рекомендуется использовать `--force-clean` при изменении `startBlock` в манифесте проекта (`project.yaml`), чтобы начать переиндексацию с настроенного блока. If `startBlock` is changed without a `--force-clean` of the project, then the indexer will continue indexing with the previously configured `startBlock`.
