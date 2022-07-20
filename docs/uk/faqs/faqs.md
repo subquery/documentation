@@ -1,4 +1,4 @@
-# Frequently Asked Questions
+# Часті Питання
 
 ## Що таке SubQuery?
 
@@ -7,7 +7,7 @@ SubQuery-це індексатор даних блокчейн з відкрит
 Наша мета заощадити час і гроші розробників, позбавивши їх від необхідності створювати власне рішення для індексації. Тепер вони можуть повністю зосередитися на розробці своїх додатків. SubQuery допомагає розробникам створювати децентралізовані продукти майбутнього.
 
 <figure class="video_container">
-<iframe src="https://www.youtube.com/embed/gCpVz_mkWdo" title="Introducing The SubQuery Network" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscree="true"></iframe>
+<iframe src="https://www.youtube.com/embed/gCpVz_mkWdo" title="Знайомство з SubQuery Network" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscree="true"></iframe>
 </figure>
 
 **SubQuery керована служба**
@@ -16,62 +16,62 @@ SubQuery також надає безплатний хостинг проєкт 
 
 **Про SubQuery Network**
 
-SubQuery Network дозволяє розробникам повністю децентралізувати свій стек інфраструктури. Це відкритий, продуктивний, надійний і масштабований сервіс передачі даних для додатків. The SubQuery Network indexes and services data to the global community in an incentivised and verifiable way.  After publishing your project to the SubQuery Network, anyone can index and host it - providing data to users around the world faster and reliably.
+SubQuery Network дозволяє розробникам повністю децентралізувати свій стек інфраструктури. Це відкритий, продуктивний, надійний і масштабований сервіс передачі даних для додатків. SubQuery Network індексує і надає дані світовій спільноті стимульованим і піддається перевірці способом.  Після публікації вашого проєкт в SubQuery Network будь-який охочий може проіндексувати й розмістити його, надаючи дані користувачам по всьому світу швидше й надійніше.
 
-More information [here](/subquery_network/introduction.md).
+Більш детальна інформація [тут](/subquery_network/introduction.md).
 
 ## Який найкращий спосіб розпочати роботу з SubQuery?
 
-The best way to get started with SubQuery is to try out our [Hello World tutorial](/assets/pdf/Hello_World_Lab.pdf). This is a simple 5 min walk through exercise. Download the starter template, build the project, use Docker to run a node on your localhost, and run a simple query.
+Найкращий спосіб розпочати роботу з SubQuery це спробувати наш [Навчальний посібник з Hello World](/assets/pdf/Hello_World_Lab.pdf). Це проста 5-хвилинна прогулянка з вправою. Завантажте початковий шаблон, створіть проєкт, використовуйте Docker для запуску вузла на вашому локальному хості та виконайте простий запит.
 
 ## Як я можу внести або надати відгуки на SubQuery?
 
-Ми любимо внески та відгуки громади. To contribute the code, fork the repository of your interest and make your changes. Сформуйте PR або Pull Request. Don't forget to test as well. Also check out our contributions guide lines (TBA).
+Ми любимо внески та відгуки громади. Щоб внести свій внесок в код, розгалузите цікавить Вас репозиторій і внесіть свої зміни. Сформуйте PR або Pull Request. Не забудьте також протестувати. Також ознайомтеся з нашими керівними принципами щодо внесків (TBA).
 
-To give feedback, contact us at hello@subquery.network or jump onto our [discord channel](https://discord.com/invite/78zg8aBSMG).
+Щоб залишити відгук, зв'яжіться з нами за адресою hello@subquery.network або перейдіть на наш канал [discord](https://discord.com/invite/78zg8aBSMG).
 
 ## Скільки коштує розміщення мого проекту в проектах SubQuery?
 
-Hosting your project in SubQuery Projects is absolutely free — it is our way of giving back to the community. Please check out the [Hello World (SubQuery hosted)](../run_publish/publish.md) tutorial and learn how to host your project with us.
+Розміщення вашого проєкт в проєкт SubQuery абсолютно безплатність наш спосіб повернути гроші спільноті. Будь ласка, ознайомтеся з [Hello World (SubQuery hosted)](../run_publish/publish.md) керівництво і дізнайтеся, як розмістити свій проєкт у нас.
 
-## What are deployment slots?
+## Що таке слоти розгортання?
 
-Deployment slots are a feature in [SubQuery Projects](https://project.subquery.network) that is the equivalent of a development environment. For example, in any software organisation there is normally a development environment and a production environment as a minimum (ignoring localhost that is). Typically additional environments such as staging and pre-prod or even QA are included depending on the needs of the organisation and their development set up.
+Слоти розгортання функція в [SubQuery Projects](https://project.subquery.network) це еквівалент середовища розробки. Наприклад, в будь-якій організації, що займається розробкою програмного забезпечення, зазвичай існує середовище розробки й, як мінімум, виробниче середовище (ігноруючи localhost, тобто). Зазвичай Додаткові середовища, такі як проміжна і попередня підготовка або навіть контроль якості, включаються в залежності від потреб організації та їх налаштування розробки.
 
-SubQuery currently has two slots available. A staging slot and a production slot. This allows developers to deploy their SubQuery to the staging environment and all going well, "promote to production" at the click of a button.
+SubQuery зараз доступно два слоти. Проміжний слот і виробничий слот. Це дозволяє розробникам розгортати свої під запити в проміжному середовищі, і все йде добре, "просуваючись до виробництва" одним натисненням кнопки.
 
-## What is the advantage of a staging slot?
+## У чому перевага проміжного слота?
 
-The main benefit of using a staging slot is that it allows you to prepare a new release of your SubQuery project without exposing it publicly. You can wait for the staging slot to reindex all data without affecting your production applications.
+Основна перевага використання проміжного слота полягає в тому, що він дозволяє вам підготувати новий випуск вашого проєкт SubQuery, не розкриваючи його публічно. Ви можете дочекатися, поки проміжний слот переіндексує всі дані, не зачіпаючи ваші робочі програми.
 
-The staging slot is not shown to the public in the [Explorer](https://explorer.subquery.network/) and has a unique URL that is visible only to you. And of course, the separate environment allows you to test your new code without affecting production.
+Проміжний слот не показується публіці в [Explorer](https://explorer.subquery.network/) і має унікальну URL-адресу, яку видно тільки вам. І, звичайно ж, окреме середовище дозволяє вам тестувати ваш новий код, не впливаючи на продуктивність.
 
-## What are Polkadot's Extrinsics?
+## Що таке Polkadots Extrinsic?
 
-If you are already familiar with blockchain concepts, you can think of extrinsics as comparable to transactions. More formally though, an extrinsic is a piece of information that comes from outside the chain and is included in a block. There are three categories of extrinsics. They are inherents, signed transactions, and unsigned transactions.
+Якщо ви вже знайомі з концепціями блокчейн, ви можете думати про зовнішній як про порівнянного з транзакціями. Більш формально, однак, зовнішня інформація частина інформації, яка надходить ззовні ланцюжка і включається в блок. Існує три категорії зовнішніх факторів. Це невіддільна, підписані транзакції та непідписані транзакції.
 
-Inherent extrinsics are pieces of information that are not signed and only inserted into a block by the block author.
+Невіддільна зовнішніми елементами є фрагменти інформації, які не підписуються і вставляються в блок тільки автором блоку.
 
-Signed transaction extrinsics are transactions that contain a signature of the account that issued the transaction. They stands to pay a fee to have the transaction included on chain.
+Зовнішні транзакції з підписом транзакції, що містять підпис облікового запису, який видав транзакцію. Вони повинні заплатити комісію, щоб транзакція була включена в ланцюжок.
 
-Unsigned transactions extrinsics are transactions that do not contain a signature of the account that issued the transaction. Unsigned transactions extrinsics should be used with care because there is nobody paying a fee, becaused they are not signed. Because of this, the transaction queue lacks economic logic to prevent spam.
+Непідписані зовнішні транзакції, які не містять підпису облікового запису, що видав транзакцію. Непідписані зовнішні транзакції слід використовувати з обережністю, тому що ніхто не платить комісію, тому що вони не підписані. Через це в черзі транзакцій відсутня економічна логіка для запобігання спаму.
 
-For more information, click [here](https://substrate.dev/docs/en/knowledgebase/learn-substrate/extrinsics).
+Для отримання додаткової інформації натисніть [тут](https://substrate.dev/docs/en/knowledgebase/learn-substrate/extrinsics).
 
-## What is the endpoint for the Kusama network?
+## Що є кінцевою точкою для Kusama network?
 
-The network.endpoint for the Kusama network is `wss://kusama.api.onfinality.io/public-ws`.
+Кінцевою точкою network.endpoint для Kusama network є `wss://kusama.api.onfinality.io/public-ws`.
 
-## What is the endpoint for the Polkadot mainnet network?
+## Яка кінцева точка для основної мережі Polkadot?
 
-The network.endpoint for the Polkadot network is `wss://polkadot.api.onfinality.io/public-ws`.
+Кінцевою точкою network.endpoint для Polkadot network є `wss://polkadot.api.onfinality.io/public-ws`.
 
-## How do I iteratively develop my project schema?
+## Як я можу ітеративна розробити схему мого проєкту?
 
-A known issue with developing a changing project schema is that when lauching your Subquery node for testing, the previously indexed blocks will be incompatible with your new schema. In order to iteratively develop schemas the indexed blocks stored in the database must be cleared, this can be achieved by launching your node with the `--force-clean` flag. For example:
+Відома проблема при розробці змінної схеми проєкту полягає в тому, що при запуску вашого вузла Subquery для тестування раніше проіндексовані блоки будуть несумісні з вашою новою схемою. Для ітеративної розробки схем необхідно очистити індексовані блоки, що зберігаються в базі даних, цього можна досягти, запустивши ваш вузол з `--force-clean` прапором. Наприклад:
 
 ```shell
 subql-node -f . --force-clean --subquery-name=<project-name>
 ```
 
-Note that it is recommended to use `--force-clean` when changing the `startBlock` within the project manifest (`project.yaml`) in order to begin reindexing from the configured block. If `startBlock` is changed without a `--force-clean` of the project, then the indexer will continue indexing with the previously configured `startBlock`.
+Зверніть увагу, що рекомендується використовувати `--force-clean` при зміні `startBlock` в рамках маніфесту проєкту (`project.yaml`) для того, щоб почати пере індексацію з налаштованого блоку. Якщо `startBlock` змінюється без `--force-clean` проєкту, то індекси продовжать індексування за допомогою раніше налаштованих `startBlock`.
