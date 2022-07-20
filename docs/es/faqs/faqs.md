@@ -2,23 +2,37 @@
 
 ## ¿Qué es SubQuery?
 
-SubQuery es un proyecto de código abierto que permite a los desarrolladores indexar, transformar y consultar datos en cadena de Substrate para potenciar sus aplicaciones.
+SubQuery is an open source blockchain data indexer for developers that provides fast, flexible, reliable, and decentralised APIs to power leading multi-chain apps.
 
-SubQuery también proporciona alojamiento gratuito con grado de producción de proyectos para desarrolladores, eliminando la responsabilidad de la infraestructura de gestión y dejar que los desarrolladores hagan lo que hacen mejor - construir.
+Our goal is to save developers' time and money by eliminating the need of building their own indexing solution. Now, they can fully focus on developing their applications. SubQuery helps developers create the decentralised products of the future.
+
+<figure class="video_container">
+<iframe src="https://www.youtube.com/embed/gCpVz_mkWdo" title="Introducing The SubQuery Network" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscree="true"></iframe>
+</figure>
+
+**SubQuery Managed Service**
+
+SubQuery also provides free, production grade hosting of projects for developers. Our Managed Service removes the responsiblity of managing infrastructure, so that developers do what they do best — build. Find out more [here](/run_publish/publish.md).
+
+**The SubQuery Network**
+
+The SubQuery Network allows developers to completely decentralise their infrastructure stack. It is the most open, performant, reliable, and scalable data service for dApps. SubQuery Network indexa y da servicio a la comunidad global de una manera incentivada y verificable.  Después de publicar tu proyecto en SubQuery Network, cualquiera puede indexarlo y alojarlo - proporcionando datos a los usuarios de todo el mundo de manera más rápida y fiable.
+
+More information [here](/subquery_network/introduction.md).
 
 ## ¿Cuál es la mejor manera de comenzar con SubQuery?
 
-La mejor manera de empezar con SubQuery es probar nuestro [tutorial de Hola Mundo](/assets/pdf/Hello_World_Lab.pdf). Este es un simple paseo de 5 minutos para descargar la plantilla de inicio, construir el proyecto, y luego usar Docker para ejecutar un nodo en su localhost y ejecutar una simple consulta.
+La mejor manera de empezar con SubQuery es probar nuestro [tutorial de Hola Mundo](/assets/pdf/Hello_World_Lab.pdf). This is a simple 5 min walk through exercise. Download the starter template, build the project, use Docker to run a node on your localhost, and run a simple query.
 
 ## ¿Cómo puedo contribuir o dar comentarios a SubQuery?
 
-Nos encantan las contribuciones y comentarios de la comunidad. Para contribuir con el código, bifurca el repositorio de interés y realice sus cambios. Luego envíe un PR o Pull Request. ¡Oh, no te olvides del test probar también! Consulte también nuestras líneas de guía de contribuciones (TBA).
+Nos encantan las contribuciones y comentarios de la comunidad. To contribute the code, fork the repository of your interest and make your changes. Luego envíe un PR o Pull Request. Don't forget to test as well. Consulte también nuestras líneas de guía de contribuciones (TBA).
 
 To give feedback, contact us at hello@subquery.network or jump onto our [discord channel](https://discord.com/invite/78zg8aBSMG).
 
 ## ¿Cuánto cuesta alojar mi proyecto en SubQuery Projects?
 
-Hospedar tu proyecto en SubQuery Projects es absolutamente gratuito - es nuestra manera de devolver a la comunidad. Para aprender cómo alojar tu proyecto con nosotros, por favor revisa el tutorial [Hola Mundo (hospedado en SubQuery)](../run_publish/publish.md).
+Hosting your project in SubQuery Projects is absolutely free — it is our way of giving back to the community. Please check out the [Hello World (SubQuery hosted)](../run_publish/publish.md) tutorial and learn how to host your project with us.
 
 ## ¿Qué son las ranuras de despliegue?
 
@@ -60,4 +74,4 @@ A known issue with developing a changing project schema is that when lauching yo
 subql-node -f . --force-clean --subquery-name=<project-name>
 ```
 
-Note that it is recommended to use `--force-clean` when changing the `startBlock` within the project manifest (`project.yaml`) in order to begin reindexing from the configured block. If `startBlock` is changed without a `--force-clean` of the project then the indexer will continue indexing with the previously configured `startBlock`.
+Note that it is recommended to use `--force-clean` when changing the `startBlock` within the project manifest (`project.yaml`) in order to begin reindexing from the configured block. If `startBlock` is changed without a `--force-clean` of the project, then the indexer will continue indexing with the previously configured `startBlock`.
