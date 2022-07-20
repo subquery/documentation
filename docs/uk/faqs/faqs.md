@@ -2,21 +2,21 @@
 
 ## Що таке SubQuery?
 
-SubQuery is an open source blockchain data indexer for developers that provides fast, flexible, reliable, and decentralised APIs to power leading multi-chain apps.
+SubQuery-це індексатор даних блокчейн з відкритим вихідним кодом для розробників, який надає швидкі, гнучкі, надійні й децентралізовані API-інтерфейси для підтримки провідних багатоланцюгових додатків.
 
-Our goal is to save developers' time and money by eliminating the need of building their own indexing solution. Now, they can fully focus on developing their applications. SubQuery helps developers create the decentralised products of the future.
+Наша мета заощадити час і гроші розробників, позбавивши їх від необхідності створювати власне рішення для індексації. Тепер вони можуть повністю зосередитися на розробці своїх додатків. SubQuery допомагає розробникам створювати децентралізовані продукти майбутнього.
 
 <figure class="video_container">
 <iframe src="https://www.youtube.com/embed/gCpVz_mkWdo" title="Introducing The SubQuery Network" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscree="true"></iframe>
 </figure>
 
-**SubQuery Managed Service**
+**SubQuery керована служба**
 
-SubQuery also provides free, production grade hosting of projects for developers. Our Managed Service removes the responsiblity of managing infrastructure, so that developers do what they do best — build. Find out more [here](/run_publish/publish.md).
+SubQuery також надає безплатний хостинг проєкт виробничого рівня для розробників. Наш керований сервіс знімає відповідальність за управління інфраструктурою, так що розробники роблять те, що у них виходить найкраще — створюють. Дізнайтеся більше [тут](/run_publish/publish.md).
 
-**The SubQuery Network**
+**Про SubQuery Network**
 
-The SubQuery Network allows developers to completely decentralise their infrastructure stack. It is the most open, performant, reliable, and scalable data service for dApps. The SubQuery Network indexes and services data to the global community in an incentivised and verifiable way.  After publishing your project to the SubQuery Network, anyone can index and host it - providing data to users around the world faster and reliably.
+SubQuery Network дозволяє розробникам повністю децентралізувати свій стек інфраструктури. Це відкритий, продуктивний, надійний і масштабований сервіс передачі даних для додатків. The SubQuery Network indexes and services data to the global community in an incentivised and verifiable way.  After publishing your project to the SubQuery Network, anyone can index and host it - providing data to users around the world faster and reliably.
 
 More information [here](/subquery_network/introduction.md).
 
