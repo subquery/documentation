@@ -108,10 +108,10 @@ Anda juga dapat menggunakan `@subql/cli` untuk membuat deployment baru dari proy
 
 ```shell
 // Deploy using the CLI
-$ suqbl deployment:deploy
+$ subql deployment:deploy
 
 // OR Deploy using non-interactive CLI
-$ suqbl deployment:deploy
+$ subql deployment:deploy
 
   -d, --useDefaults                Use default values for indexerVerion, queryVersion, dictionary, endpoint
   --dict=dict                      Enter dictionary
