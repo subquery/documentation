@@ -1,10 +1,10 @@
-# 1. Create a New Project
+# 1. Створіть новий проєкт
 
-The goal of this quick start guide is to provide you with a complete development setup and guided steps to create your first SubQuery blockchain project. It is targeted towards experienced developers right through to those just beginning their blockchain journey.
+Мета цього короткого керівництва по початку роботи надати вам повну настройку розробки й покрокові інструкції по створенню вашого першого проєкт блокчейн SubQuery. Він орієнтований на досвідчених розробників і тих, хто тільки починає свій шлях в блокчейнові.
 
-This quick start guide should take around 10-15 minutes.
+Цей короткий посібник з початку роботи повинен зайняти близько 10-15 хвилин.
 
-After completing this quick start guide, you will have a working SubQuery project that will run on a SubQuery node. You will be able to adapt the standard starter project and index transfers from your favourite blockchain network such as Polkadot, Avalanche, Cosmos, etc.
+Після завершення цього короткого посібника у вас буде робочий проєкт SubQuery, який буде виконуватися на вузлі SubQuery. Ви зможете адаптувати стандартний стартовий проєкт і індексувати переклади з вашої улюбленої блокчейн-мережі, такий як Polkadot, Avalanche, Cosmos і т. д.
 
 Let's start the process of creating your first SubQuery blockchain project.
 
