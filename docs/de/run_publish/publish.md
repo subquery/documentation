@@ -108,10 +108,10 @@ Sie können auch `@subql/cli` verwenden, um eine neue Bereitstellung Ihres Proje
 
 ```shell
 // Deploy using the CLI
-$ suqbl deployment:deploy
+$ subql deployment:deploy
 
 // OR Deploy using non-interactive CLI
-$ suqbl deployment:deploy
+$ subql deployment:deploy
 
   -d, --useDefaults                Use default values for indexerVerion, queryVersion, dictionary, endpoint
   --dict=dict                      Enter dictionary
