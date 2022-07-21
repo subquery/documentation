@@ -144,6 +144,17 @@ An AvalancheEvent encapsulates Event data and Transaction/Block information corr
 
 A CosmosEvent/TerraEvent encapsulates Event data and TxLog corresponding to the event. It also contains CosmosMessage/TerraMessage data of the message connected to the event. Also, it includes the CosmosBlock/TerraBlock and CosmosTransaction/TerraTransaction data of the block and transaction from which the event was emitted.
 
+::: info Note
+From `@subql/types` version `X.X.X` onwards `SubstrateEvent` is now generic. This can give you better typesafety when developing your project.
+
+```ts
+async function handleEvmLog(event: SubstrateEvent<[EvmLog]>): Promise<void> {
+  // `eventData` will be of type `EvmLog` before it would have been `Codec`
+  const [eventData] = original.event.data;
+}
+```
+:::
+
 ## Call Handler
 
 Call handlers (Substrate/Polkadot only) are used when you want to capture information on certain substrate extrinsics. You should use [Mapping Filters](../build/manifest.md#mapping-handlers-and-filters) in your manifest to filter calls to reduce the time it takes to index data and improve mapping performance.
@@ -157,6 +168,17 @@ export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
 ```
 
 The [SubstrateExtrinsic](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L21) extends [GenericExtrinsic](https://github.com/polkadot-js/api/blob/a9c9fb5769dec7ada8612d6068cf69de04aa15ed/packages/types/src/extrinsic/Extrinsic.ts#L170). It is assigned an `id` (the block to which this extrinsic belongs) and provides an extrinsic property that extends the events among this block. Additionally, it records the success status of this extrinsic.
+
+::: info Note
+From `@subql/types` version `X.X.X` onwards `SubstrateExtrinsic` is now generic. This can give you better typesafety when developing your project.
+
+```ts
+async function handleEvmCall(call: SubstrateExtrinsic<[TransactionV2 | EthTransaction]>): Promise<void> {
+  // `tx` will be of type `TransactionV2 | EthTransaction` before it would have been `Codec`
+  const [tx] = original.extrinsic.method.args;
+}
+````
+:::
 
 ## Log Handler
 
