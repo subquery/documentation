@@ -62,7 +62,7 @@
       <li>
         <div class="title">Apa itu SubQuery?</div>
         <div class="content">
-          <p>SubQuery is an open source blockchain data indexer for developers that provides fast, flexible, reliable, and decentralised APIs to power leading multi-chain apps. Our mission is to help developers create the decentralised products of the future.</p>
+          <p>SubQuery adalah pengindeks data blockchain open source untuk pengembang yang menyediakan API yang cepat, fleksibel, andal, dan terdesentralisasi untuk mendukung aplikasi multi-rantai terkemuka. Misi kami adalah membantu pengembang menciptakan produk masa depan yang terdesentralisasi.</p>
           <span class="more">
             <router-link :to="{path: '/faqs/faqs.html#what-is-subquery'}">READ MORE</router-link>
           </span>
@@ -71,7 +71,7 @@
       <li>
         <div class="title">Apa cara terbaik untuk memulai SubQuery?</div>
         <div class="content">
-          <p>The best way to get started with SubQuery is to try out our <a href="/quickstart/quickstart.html">Quick Start</a> tutorial. Ini adalah 5 menit berjalan sederhana untuk mengunduh template starter, membangun proyek, dan kemudian menggunakan Docker untuk menjalankan node di localhost Anda dan menjalankan kueri sederhana. </p>
+          <p>Cara terbaik untuk memulai SubQuery adalah dengan mencoba tutorial <a href="/quickstart/quickstart.html">Quick Start</a>tutorial. Ini adalah 5 menit berjalan sederhana untuk mengunduh template starter, membangun proyek, dan kemudian menggunakan Docker untuk menjalankan node di localhost Anda dan menjalankan kueri sederhana. </p>
         </div>
       </li>
       <li>
