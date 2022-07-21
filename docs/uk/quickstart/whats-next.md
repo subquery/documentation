@@ -1,11 +1,11 @@
-# 3. What’s Next?
+# 3. Що далі?
 
-Now that you have a clear understanding of how to build a basic SubQuery project, what are the next steps of your journey?
+Тепер, коли у вас є чітке уявлення про те, як створити базовий проєкт SubQuery, які наступні кроки на вашому шляху?
 
-- Now, you can easily publish your project. SubQuery provides a free managed service where you can deploy your new project. Ви можете розгорнути його в [SubQuery Projects](https://project.subquery.network) і зробити запит за допомогою нашого [ Explorer](https://explorer.subquery.network). Read this complete guide on how to [publish your new project to SubQuery Projects](../../run_publish/publish.md).
+- Тепер ви можете легко опублікувати свій проєкт. SubQuery надає безплатний керовану службу, в якій ви можете розгорнути свій новий проєкт. Ви можете розгорнути його в [SubQuery Projects](https://project.subquery.network) і зробити запит за допомогою нашого [Explorer](https://explorer.subquery.network). Прочитайте це повне керівництво про те, як [опублікувати свій новий проєкт у проєктах вкладених запитів](../../run_publish/publish.md).
 
-- To dive deeper into the developer documentation, jump to the [Build ](../../build/introduction.md) section and learn more about the three key files: **the manifest file, the GraphQL schema, and the mappings file.**
+- Щоб глибше зануритися в документацію розробника, перейдіть до розділу [збірка ](../../build/introduction.md) і дізнайтеся більше про три ключові файли: **файл маніфесту, схема GraphQL і файл зіставлень.**
 
-- If you want to practice with more real examples, then head to our [Courses](../academy/herocourse/welcome.md) section and learn important concepts with related exercises and lab workbooks. Get access to readily available and open-source projects, and get a hands-on experience with SubQuery projects.
+- Якщо ви хочете попрактикуватися на більш реальних прикладах, тоді перейдіть в наш розділ [курси](../academy/herocourse/welcome.md) й вивчіть важливі концепції з відповідними вправами й лабораторними роботами. Отримайте доступ до легкодоступних проєкту з відкритим вихідним кодом і отримаєте практичний досвід роботи з проєктами SubQuery.
 
-- In the end, if you want to explore more ways to run and publish your project, refer to [Run & Publish section](../../run_publish/run.md). Get complete information about all the ways to run your SubQuery project, along with advanced GraphQL aggregation and subscription features.
+- Зрештою, якщо ви хочете вивчити додаткові способи запуску і публікації свого проєкту, зверніться до розділу [Запуск & Розділ публікації](../../run_publish/run.md). Отримайте повну інформацію про всі способи запуску вашого проєкту SubQuery, а також про розширені функції агрегації GraphQL і підписки.
