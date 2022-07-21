@@ -108,10 +108,10 @@ Bạn cũng có thể sử dụng `@subql/cli` để tạo một triển khai m�
 
 ```shell
 // Deploy using the CLI
-$ suqbl deployment:deploy
+$ subql deployment:deploy
 
 // OR Deploy using non-interactive CLI
-$ suqbl deployment:deploy
+$ subql deployment:deploy
 
   -d, --useDefaults                Use default values for indexerVerion, queryVersion, dictionary, endpoint
   --dict=dict                      Enter dictionary
