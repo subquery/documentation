@@ -509,7 +509,7 @@ Let’s first create an entity called `Proposals`. This proposal is an event of 
 
 Focus on the `proposed` method within the council event. The `proposed` method is defined as:
 
->“*A motion (given hash) has been proposed (by given account) with a threshold (given MemberCount). [account, proposal_index, proposal_hash, threshold]” - [source](https://polkadot.js.org/docs/substrate/events#proposedaccountid32-u32-h256-u32)*
+>“*A motion (given hash) has been proposed (by given account) with a threshold (given MemberCount). [account, proposal_index, proposal_hash, threshold]” - [source](https://polkadot.js.org/docs/substrate/events/#proposedaccountid32-u32-h256-u32-1)*
 
 Hence, you need to add the following fields: `id`, `index`, `hash`, `voteThreshold` and `block` to your entity. 
 
@@ -525,7 +525,7 @@ Next, let’s create an entity object called `Councillor`. This object will hold
 
 Finally, let’s create a **VoteHistory** entity. This will be another [council event](https://polkadot.js.org/docs/substrate/events#council) using the [voted](https://polkadot.js.org/docs/substrate/events#votedaccountid32-h256-bool-u32-u32) method defined as:
 
->“*A motion (given hash) has been voted on by a given account, leaving a tally ("yes votes" and "no votes" respectively given as MemberCount). [account, proposal_hash, voted, yes, no]”*
+>“*A motion (given hash) has been voted on by a given account, leaving a tally ("yes votes" and "no votes" respectively given as MemberCount). [account, proposal_hash, voted, yes, no]”- [source](https://polkadot.js.org/docs/substrate/events/#votedaccountid32-h256-bool-u32-u32-1)*
 
 You need to add the following fields: `id`, `proposalHash`, `approvedVote`, `councillor`, `votedYes`, `votedNo`, and `block` to your entity. 
 
