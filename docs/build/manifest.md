@@ -301,10 +301,10 @@ If you have a project with specVersion v0.2.0, The only change is a new **requir
 | **description** | String                              | String                      | Discription of your project                         |
 | **repository**  | String                              | String                      | Git repository address of your project              |
 | **schema**      | [Schema Spec](manifest.md#schema-spec)         | [Schema Spec](manifest.md#schema-spec) | The location of your GraphQL schema file            |
-| **network**     | [Network Spec](manifest.md#network-spec)       | Network Spec                | Detail of the network to be indexed                 |
-| **dataSources** | [DataSource Spec](manifest.md#datasource-spec) | DataSource Spec             | The datasource to your project                      |
-| **templates**   | [Templates Spec](manifest.md#templates-spec)   | x                           | Allows creating new datasources from this templates |
-| **runner**      | [Runner Spec](manifest.md#runner-spec)         | x                           | Runner specs info                                   |
+| **network**     | [Network Spec](manifest.md#network-spec)       | [Network Spec](manifest.md#network-spec)                | Detail of the network to be indexed                 |
+| **dataSources** | [DataSource Spec](manifest.md#datasource-spec) | [DataSource Spec](manifest.md#datasource-spec)             | The datasource to your project                      |
+| **templates**   | [Templates Spec](dynamicdatasources.md#the-templates-field)   | [Templates Spec](dynamicdatasources.md#the-templates-field)                           | Allows creating new datasources from this templates |
+| **runner**      | [Runner Spec](manifest.md#runner-spec)         | [Runner Spec](manifest.md#runner-spec)                           | Runner specs info                                   |
 
 
 ### Schema Spec
@@ -360,9 +360,12 @@ Additionally you will need to update the `endpoint`. This defines the wss endpoi
 Defines the data that will be filtered and extracted and the location of the mapping function handler for the data transformation to be applied.
 | Field | All manifest versions | Description
 | --------------- |-------------|-------------|
-| **kind** | [substrate/Runtime](../build/manifest.md#data-sources-and-mapping) | substrate/Runtime, [substrate/CustomDataSource](../build/manifest.md#custom-data-sources) | [substrate/Runtime](../build/manifest.md#data-sources-and-mapping), [substrate/CustomDataSource](../build/manifest.md#custom-data-sources), [avalanche/Runtime](../build/manifest.md#data-sources-and-mapping), [cosmos/Runtime](../build/manifest.md#data-sources-and-mapping), and  [terra/Runtime](../build/manifest.h,md#data-sources-and-mapping) | We supports data type from default Substrate and Avalanche runtime such as block, event and extrinsic(call). <br /> From v0.2.0, we support data from custom runtime, such as smart contract.|
+| **kind** | <ul><li>[substrate/Runtime](manifest.md#data-sources-and-mapping)</li><li>[avalanche/Runtime](manifest.md#data-sources-and-mapping)</li><li>[cosmos/Runtime](manifest.md#data-sources-and-mapping)</li><li>[terra/Runtime](manifest.md#data-sources-and-mapping)</li></ul> | <ul><li>[substrate/Runtime](manifest.md#data-sources-and-mapping), [substrate/CustomDataSource](manifest.md#custom-data-sources)</li><li>[avalanche/Runtime](manifest.md#data-sources-and-mapping)</li><li>[cosmos/Runtime](manifest.md#data-sources-and-mapping)</li><li>[terra/Runtime](manifest.h,md#data-sources-and-mapping)</li></ul>
 | **startBlock** | Integer | This changes your indexing start block, set this higher to skip initial blocks with less data|  
 | **mapping** |  Mapping Spec | |
+
+
+<!--- We support data type from default Substrate and Avalanche runtime such as block, event and extrinsic(call). <br /> From v0.2.0, we support data from custom runtime, such as smart contract.| -->
 
 ### Mapping Spec
 
