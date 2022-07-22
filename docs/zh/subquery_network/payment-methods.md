@@ -2,9 +2,9 @@
 
 为了支付的灵活性，SubQuery 一共提供了3种支付选项可用于支付区块链数据。 分别是：
 
-- 按需付费 (PAYG)
-- 封闭式服务协议
-- 开放式服务协议
+- Pay-As-You-Go (PAYG).
+- Closed Service Agreement.
+- Open Service Agreement.
 
 ## 按需付费 (PAYG)
 

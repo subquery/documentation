@@ -1,39 +1,39 @@
-# Introduction
+# Введение
 
-**The SubQuery Network is the future of web3 infrastructure**
+**SubQuery Network — это будущее инфраструктуры web3**
 
-We’re building the most open, performant, reliable, and scalable data service for dApp developers.
+Мы создаем самую открытую, производительную, надежную и масштабируемую службу данных для разработчиков децентрализованных приложений.
 
-The SubQuery Network indexes and services data to the global community in an incentivised and verifiable way.
+SubQuery Network индексирует и предоставляет данные глобальному сообществу вознаграждаемым и поддающимся проверке способом.
 
-After publishing your project to the SubQuery Network, anyone can index and host it - providing data to users around the world faster and reliably.
+После публикации вашего проекта в SubQuery Network любой может индексировать и разместить его, предоставляя данные пользователям по всему миру быстрее и надежнее.
 
-The SubQuery Network is facilitating an open web3 data revolution by allowing you to completely decentralise your infrastructure stack.
+SubQuery Network облегчает революцию открытых данных в Web3, позволяя вам полностью децентрализовать ваши инфраструктурные ресурсы.
 
-## Participants
+## Участники
 
-There’s a role for everyone in the network, from highly technical developers to those that are not. The SubQuery network includes four main network participants
+В сети предусмотрена роль для всех, от высокотехнологичных разработчиков до тех, кто ими не является. В Сети SubQuery существуют четыре основных участников сети.
 
-### Consumers
+### Потребители
 
-Consumers will ask the SubQuery Network for specific data for their dApps or tools, and pay an advertised amount of SQT for each request.
+Потребители будут запрашивать у SubQuery Network определенные данные для своих децентрализованных приложений или инструментов, и оплачивать объявленную сумму SQT за каждый запрос.
 
-[Learn more about Consumers](./consumers.md)
+Примечание Узнайте больше о Потребителях. :::
 
-### Indexers
+### Индексаторы
 
-Indexers will run and maintain high quality SubQuery projects in their own infrastructure, running both the indexer and query service, and will be rewarded in SQT for the requests that they serve.
+Индексаторы запустят и будут поддерживать высококачественные проекты SubQuery в своей собственной инфраструктуре, запуская как индексатор, так и службу запросов, и будут вознаграждаться токенами SQT за запросы, которые они обрабатывают.
 
-[Learn more about Indexers](./indexers.md)
+Примечание Узнайте больше об Индексаторах. :::
 
-### Delegators
+### Делегаторы
 
-Delegators will participate in the Network by supporting their favourite Indexers to earn rewards based on the work those indexers do.
+Делегаторы будут участвовать в Сети, поддерживая своих индексаторов фаворитов, чтобы получать вознаграждение, которое будет зависеть от работы, которую выполняют эти индексаторы.
 
-[Learn more about Delegators](./delegators.md)
+Примечание Узнайте больше о Делегаторах. :::
 
-### Architects
+### Архитекторы
 
-Architects are the builders of the SubQuery projects that the Network runs on. They author and publish SubQuery projects for the Network to index and run.
+Архитекторы — это строители проектов SubQuery, на которых работает Сеть. Они являются авторами и публикуют проекты SubQuery для сети с целью индексации и запуска.
 
-[Learn more about how to build your first SubQuery project](/build/introduction.md)
+Примечание Узнайте больше о том как создать ваш первый SubQuery проект. :::

@@ -14,6 +14,4 @@
 
 ## 品牌资源包
 
-较小的ZIP品牌资源包
-
-[public_branding.zip](https://static.subquery.network/public_branding.zip)
+A smaller ZIP package of brand assets: [public_branding.zip](https://static.subquery.network/public_branding.zip).

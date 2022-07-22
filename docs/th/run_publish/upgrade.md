@@ -20,7 +20,7 @@ We recommend deploying to your staging slot only for final staging testing or wh
 The staging slot is perfect for:
 
 - การตรวจสอบการเปลี่ยนแปลงโปรเจกต์ SubQuery ในสภาพแวดล้อมที่แยกจากกัน Staging slot มี URL ที่แตกต่างไปจากการ production ที่คุณสามารถใช้ได้ใน dApps ของคุณ
-- การวอร์มอัพและทำจัดทำดัชนีข้อมูลสำหรับโปรเจ็กต์ SubQuery ที่อัปเดต โดยไม่ต้องหยุดการทำงานของ dApp ของคุณ
+- Warming up and indexing data for an updated SubQuery project to eliminate downtime in your dApp.
 - การเตรียมปล่อยเวอร์ชันใหม่สำหรับโปรเจกต์ SubQuery ของคุณโดยไม่เปิดเผยต่อสาธารณะ Staging slot จะไม่ปรากฏต่อสาธารณะใน Explorer และมี URL เฉพาะที่มองเห็นได้เฉพาะคุณเท่านั้น
 
 ![Staging slot](/assets/img/staging_slot.png)
@@ -32,7 +32,7 @@ The staging slot is perfect for:
 You can also use `@subql/cli` to create a new deployment of your project to our managed service. This requires:
 
 - `@subql/cli` version 1.1.0 or above.
-- A valid [SUBQL_ACCESS_TOKEN](/docs/run_publish/ipfs.md#prepare-your-subqlaccesstoken) ready.
+- A valid [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) ready.
 
 ```shell
 // You can directly set your Indexer and Query versions
@@ -53,4 +53,4 @@ If you just want to upgrade to the latest indexer ([`@subql/node`](https://www.n
 
 ![โปรเจกต์ที่กำลัง deploy และ sync](/assets/img/projects-deploy-sync.png)
 
-หรือคุณสามารถคลิกที่จุดสามจุดถัดจากชื่อโปรเจกต์ของคุณ และดูบน SubQuery Explorer There you can use the in browser playground to get started - [read more about how to user our Explorer here](../run_publish/query.md).
+หรือคุณสามารถคลิกที่จุดสามจุดถัดจากชื่อโปรเจกต์ของคุณ และดูบน SubQuery Explorer There you can use the in browser playground to get started - [read more about how to use our Explorer here](../run_publish/query.md).

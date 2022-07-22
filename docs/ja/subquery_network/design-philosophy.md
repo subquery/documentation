@@ -4,7 +4,7 @@ The guiding principle with the SubQuery Network is simplicity and flexibility fo
 
 ## Multi-Chain by Design
 
-*SubQuery believes in the idea that a community of blockchains, working together to encourage web3 adoption, is the future*
+*SubQuery believes in the idea that a community of blockchains, working together to encourage web3 adoption, is the future.*
 
 SubQuery is native to the Polkadot ecosystem, it’s our home and will be the location of the SubQuery Network. The core premise of Polkadot is to create a thriving community of developers, users, and businesses that will tap into its multichain interoperability. SubQuery believes in the idea that a community of blockchains, working together to encourage web3 adoption, is the future and that Polkadot will be a leading player in that initiative.
 

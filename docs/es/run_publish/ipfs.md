@@ -8,13 +8,13 @@ Hosting a project in IPFS makes it available for all and reduces your reliance o
 
 - `@subql/cli` versión 0.21.0 o superior.
 - Manifiesto `specVersion` 0.2.0 o superior.
-- Prepara tu [SUBQL_ACCESS_TOKEN](#prepare-your-subql-access-token).
+- Get your [SUBQL_ACCESS_TOKEN](ipfs.md#prepare-your-subql-access-token) ready.
 - Para asegurarse de que su despliegue sea exitoso, le recomendamos que construya su proyecto con el comando `subql build`, y pruébalo localmente antes de publicar.
 
 ## Prepara tu SUBQL_ACCESS_TOKEN
 
 - Paso 1: Vaya a [Proyectos de Subconsulta](https://project.subquery.network/) e inicie sesión.
-- Paso 2: Haga clic en su perfil en la parte superior derecha del menú de navegación, luego haga clic en **_Actualizar token_**
+- Step 2: Click on your profile at the top right of the navigation menu, then click on **_Refresh Token_**.
 - Paso 3: Copie el token generado.
 - Paso 4: Para usar este token:
   - Opción 1: Añada SUBQL_ACCESS_TOKEN en sus variables de entorno. `EXPORT SUBQL_ACCESS_TOKEN=<token>`
@@ -22,11 +22,11 @@ Hosting a project in IPFS makes it available for all and reduces your reliance o
 
 ## Cómo publicar un proyecto
 
-Proporcionamos dos métodos para publicar su proyecto,
+We provide two methods to publish your project:
 
-### Opción 1:
+### Option 1
 
-Como ya tienes `@subql/cli` instalado, puedes ejecutar el siguiente comando, que leerá el proyecto e información requerida de su proyecto manifest predeterminado `. ml`
+As you have `@subql/cli` already installed, you can run the following command, which will read the project and required information from its default manifest `project.yaml`:
 
 ```
 // Publish it from your project's root directory
@@ -36,7 +36,7 @@ subql publish
 subql publish -f ~/my-project/
 ```
 
-### Opción 2:
+### Option 2
 
 Alternativamente, supongamos que tu proyecto tiene múltiples archivos de manifiesto, por ejemplo soporta múltiples redes pero comparte el mismo mapeo y lógica de negocio, y tiene una estructura de proyecto como sigue:
 
@@ -66,15 +66,17 @@ Uploading SupQuery project to IPFS
 SubQuery Project uploaded to IPFS: QmZ3q7YZSmhwBiot4PQCK3c7Z6HkteswN2Py58gkkZ8kNd  //CID
 ```
 
-Tenga en cuenta este `CID`. Con este `CID`, puedes ver tu proyecto publicado como lo que llamamos [despliegue IPFS](#ipfs-deployment)
+Tenga en cuenta este `CID`. With this `CID`, you can view your published project as what we call it [IPFS Deployment](ipfs.md#ipfs-deployment).
+
+With `@subql/cli` version 1.3.0 or above, when using `subql publish` it will store a copy of the project's `IPFS CID` in a file in your project directory, the naming of the file will be consistent with your project.yaml. For example, if your manfiest file is named `project.yaml`, the IPFS file will be named  `.project-cid`.
 
 ## Despliegue IPFS
 
 El despliegue IPFS representa una existencia independiente y única de un proyecto SubQuery en una red descentralizada. Por lo tanto, cualquier cambio con el código del proyecto afectará a su singularidad. Si necesitas ajustar la lógica de tu negocio, por ejemplo, cambiar la función de mapeo, debes volver a publicar el proyecto y el `CID` cambiará.
 
-Por ahora, para ver el proyecto que has publicado, usa una herramienta api `REST` como [Postman](https://web.postman.co/), y utilice el método `POST` con la siguiente URL de ejemplo para recuperarla. `https://ipfs.subquery.network/ipfs/api/v0/cat?arg=<YOUR_PROJECT_CID>`
+For now, to view the project you have published, use a `REST` api tool such as [Postman](https://web.postman.co/), and use `POST` method with the following example URL to retrieve it:`https://ipfs.subquery.network/ipfs/api/v0/cat?arg=<YOUR_PROJECT_CID>`.
 
-Deberías ver el ejemplo de despliegue del proyecto como a continuación:
+You should see the example project deployment as below.
 
 Este despliegue se parece mucho a su archivo manifiesto. Puedes esperar esos campos descriptivos, y se ha eliminado el punto final de red y diccionario, ya que no afectaron directamente al resultado de la ejecución del proyecto.
 
@@ -104,7 +106,7 @@ network:
 
 ### Crear proyecto con implementación IPFS
 
-Puedes seguir la guía para [Publicar tu proyecto de SubQuery](publish.md) pero donde configuraste tu fuente de despliegue puedes seleccionar **IPFS**.
+You can follow the guide to [Publish your SubQuery project](../run_publish/publish.md) but where you set your deployment source you can select **IPFS**.
 
 A continuación, elija su ranura de producción, copie y pegue el CID de despliegue de IPFS (sin el principal `ipfs://`).
 

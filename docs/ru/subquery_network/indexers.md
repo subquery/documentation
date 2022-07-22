@@ -1,140 +1,140 @@
-# Indexers
+# Индексаторы
 
-## What is an Indexer?
+## Кто такой индексатор?
 
-An Indexer is a SubQuery network participant who is responsible for indexing blockchain data and providing this data to their customers.
+Индексатор - это участник сети SubQuery, который отвечает за индексирование данных блокчейна и предоставление этих данных своим клиентам.
 
-Indexers play a very important role within the SubQuery network. As a part of a data-as-a-service business, an Indexer turns computational and networking power into profits.
+Индексаторы играют очень важную роль в сети SubQuery. Являясь частью бизнеса по предоставлению данных как услуги, индексатор превращает вычислительные и сетевые мощности в прибыль.
 
-## Indexer Staking
+## Ставка индексатора
 
-In order to earn rewards from query revenue as an Indexer it is proposed that Indexers must stake SQT against a particular SubQuery Project that they are providing the service to. The Cobb-Douglas production function will be used to determine the rewards distributed to each Indexer.
+Для того чтобы получать вознаграждение от доходов от запросов в качестве индексатора, предлагается, что индексаторы должны делать ставки SQT против определенного проекта SubQuery, которому они предоставляют услуги. Производственная функция Кобба-Дугласа будет использоваться для определения вознаграждения, распределяемого каждому индексатору.
 
-SubQuery plans to add a constraint to the network where an indexer must stake a minimum amount of SQT on the relevant reward pool to be able to participate in its matching Open Agreement. They must also stake a minimum amount on an equivalent staking contract for any Closed Agreements in the same fashion. This indexer staked minimum value must be a certain percentage of the Agreement’s per Era reward value, which means in order to renew the Agreement to higher volumes, the indexer must also increase their stake. When an indexer’s stake decreases beneath this minimum amount, they will be unable to renew the Agreement at the existing price.
+SubQuery планирует добавить в сеть ограничение, при котором индексатор должен поставить минимальное количество SQT на соответствующий пул вознаграждений, чтобы иметь возможность участвовать в соответствующем открытом соглашении. Они также должны сделать ставку на минимальную сумму по эквивалентному контракту на ставку для любых Закрытых соглашений таким же образом. Минимальная ставка индексатора должна составлять определенный процент от суммы вознаграждения по Соглашению за Era, что означает, что для продления Соглашения на более высокие объемы индексатор также должен увеличить свою ставку. Если доля индексатора уменьшится ниже этой минимальной суммы, он не сможет продлить Соглашение по существующей цене.
 
-If an Indexer is caught misbehaving (such as by providing invalid, incomplete, or incorrect data), they are liable to have a portion of their staked SQT (on the particular reward pool ip) reallocated to the SubQuery Foundation Treasury, diminishing their holdings of staked SQT in the network and therefore their potential reward. Since the indexer’s allocated stake is determined by a percentage of their total SQT, this will have a flow on effect to all other reward pools that the indexer is party to.
+Если индексатора поймают на неправильном поведении (например, на предоставлении недействительных, неполных или неверных данных), он будет обязан перераспределить часть своих SQT (на конкретный пул вознаграждения ip) в казну фонда SubQuery, что уменьшит его долю SQT в сети и, следовательно, его потенциальное вознаграждение. Поскольку выделенная доля индексатора определяется процентом от его общего SQT, это окажет влияние на все остальные пулы вознаграждений, в которых участвует индексатор.
 
-## How are Indexers rewarded?
+## Как вознаграждаются индексаторы?
 
-Indexers are rewarded in SQT in two ways:
-- Rewards from SQT reward pools based on distribution defined by the Cobb-Douglas Production Function
-- Direct SQT query fee rewards from Closed Agreements that an indexer is party to
+Индексаторы вознаграждаются в SQT двумя способами:
+- Вознаграждения из пулов вознаграждений SQT на основе распределения, определяемого производственной функцией Кобба-Дугласа.
+- Прямые вознаграждения за запросы SQT из Закрытых соглашений, в которых участвует индексатор.
 
-Indexers are rewarded the fees that Consumers pay for providing blockchain data that the Consumer has reqested. An Indexer will receive all the fees from a Closed Agreement. Otherwise, the fees are split based on the amount of work performed (requests served) and the amount of delegated SQT - this split is determined by applying the Cobb-Douglas Production Function.
+Индексаторы получают вознаграждение, которое платят потребители за предоставление данных блокчейна, которые запросил потребитель. Индексатор будет получать все вознаграждения от Закрытого соглашения. В противном случае плата распределяется в зависимости от объема выполненной работы (обслуженных заявок) и объема делегированного SQT - это распределение определяется путем применения производственной функции Кобба-Дугласа.
 
-There may be multiple reward pools simultaneously active for a given Indexer. The indexer’s job is to allocate their staked and delegated SQT amongst these pools (in terms of a percentage of their total SQT). There will be a reward pool for each project that the Indexer accepts PAYG, and a reward pool for each Market Agreement that the Indexer is a party of.
+Для данного индексатора могут быть одновременно активны несколько пулов вознаграждений. Работа индексатора заключается в распределении своего SQT между этими пулами (в процентном соотношении от их общего SQT). Будет создан пул вознаграждений для каждого проекта, который Индексатор принимает PAYG, и пул вознаграждений для каждого рыночного соглашения, стороной которого является Индексатор.
 
-## Attracting Delegators
+## Привлечение делегаторов
 
-Indexers can increase their earning potential by attracting Delegators. Delegators are SQT token holders who can delegate their tokens to Indexers for additional rewards. Indexers use these additional tokens to increase the amount they allocate to projects of their choice. This allows Indexers to increase their earnings.
+Индексаторы могут увеличить свой потенциал заработка, привлекая Делегаторов. Делегаторы - это держатели токенов SQT, которые могут делегировать свои токены индексаторам для получения дополнительного вознаграждения. Индексаторы используют эти дополнительные токены для увеличения суммы, которую они выделяют на проекты по своему выбору. Это позволяет индексаторам увеличить свои доходы.
 
-Indexers set an Indexer’s Commission Rate (ICR) which is the percentage Indexers earn. The remaining is then shared amongst the Indexer and all Delegators propotionally by staked/delegated amount. Therefore, Indexers need to decide on the proportion of profits an Indexer wishes to retain versus the amount to share with their Delegators. A lower ICR will be more attractive for Delegators.
+Индексаторы устанавливают ставку комиссии индексатора (ICR), которая представляет собой процент, зарабатываемый индексаторами. Оставшаяся сумма распределяется между индексатором и всеми делегаторами пропорционально размеру ставки/делегированной суммы. Поэтому Индексаторам необходимо решить, какую долю прибыли Индексатор хочет оставить себе, а какую разделить со своими Делегаторами. Более низкий ICR будет более привлекательным для делегаторов.
 
-For example, Indexer A has set an ICR of 80% and has received SQT from 8 Delegators. This means that the 8 Delegators plus the Indexer itself, will be rewarded a share of the remaining 20% of what the Indexer has earned. The share will be split proportionally between them. Note that Delegators must have delegated their tokens for the entire Era to be eligible for these rewards. For more information on Delegators rewards, see [Delegators](./delegators.md).
+Например, индексатор А установил ICR 80% и получил SQT от 8 делегаторов. Это означает, что 8 делегаторов плюс сам Индексатор получат вознаграждение в размере оставшихся 20% от заработанного Индексатором. Доля будет разделена между ними пропорционально. Обратите внимание, что делегаторы должны делегировать свои токены в течение всей Era, чтобы иметь право на получение этих вознаграждений. Для получения дополнительной информации о вознаграждениях делегаторов см. раздел [Делегаторы](./delegators.md).
 
-## Becoming an Indexer
+## Становление индексатором
 
-To become an Indexer on the SubQuery Network, the Indexer must possess the necessary hardware, run the required SubQuery services, have a publicly accessible network via a static IP or a domain name, and register as an Indexer.
+Чтобы стать индексатором в сети SubQuery, индексатор должен обладать необходимым оборудованием, запускать необходимые службы SubQuery, иметь общедоступную сеть через статический IP или доменное имя и зарегистрироваться в качестве индексатора.
 
-### Indexer skillset
+### Набор навыков индексатора
 
-In general, an Indexer should be a technically proficient computer user. However, the simplicity of the SubQuery network and proposed frameworks allows even a junior developer to successfully participate.
+В целом, индексатор должен быть технически грамотным пользователем компьютера. Однако простота сети SubQuery и предлагаемых фреймворков позволяет даже начинающему разработчику успешно участвовать в проекте.
 
-A basic user should be familiar with provisioning and managing servers, installing the SubQuery CLI tools, database management, and basic networking. More experienced users may run nodes in a clustered environment, incorporate monitoring and alerts and also more advanced networking management.
+Базовый пользователь должен быть знаком с выделением и управлением серверов, установкой инструментов интерфейса командной строки (CLI) SubQuery, управлением базой данных и основами работы в сети. Более опытные пользователи могут устанавливать ноды/узлы в кластерной среде, выполнять мониторинг и оповещения, а также более продвинутое управление сетью.
 
-Finally, interested parties should be prepared to invest time in maintaining their indexing nodes and infrastructure.
+Наконец, заинтересованные стороны должны быть готовы инвестировать время на обслуживание своих узлов индексации и обслуживание инфраструктуры.
 
-### Staking requirements
+### Требования по стейкингу
 
-Indexers are expected to stake and maintain a minimum amount of tokens. This is to ensure that Indexers have some skin in the game and are committed to supporting the network. SubQuery is yet to determine this but it is one of our [design philosophies](./design-philosophy.md) that this be as low and as accessible as possible.
+Ожидается что индексаторы будут стейкать и поддерживать минимальное количество токенов. Это необходимо для того, чтобы обеспечить вовлеченность и заинтересованность индексаторов в поддержании сети. SubQuery все еще определяет это, но одна из наших позиций дизайна это то, чтобы он был как можно низкопороговым и доступным.
 
-Should an Indexer experience a slashable event and their staked SQT balance fall below the minimum required, they will have to top up their staked SQT in order to continue to earn rewards from their work.
+Если индексатор столкнется со случаем штрафа и баланс его монет SQT снизится ниже минимально требуемого, ему будет необходимо пополнить свой баланс застейканных SQT, чтобы продолжать получать вознаграждение за свою работу.
 
-### Hardware requirements
+### Требования по оборудованию
 
-Indexers can either invest in their own infrastructure hardware or rent infrastructure from the likes of AWS, Google Cloud, Digital Ocean, Microsoft Azure etc.
+Индексаторы могут инвестировать в собственное инфраструктурное оборудование или арендовать инфраструктуру у таких компаний, как AWS, Google Cloud, Digital Ocean, Microsoft Azure и др.
 
-### Maintenance/operational requirements
+### Техническое обслуживание/операционные требования
 
-Here are some of the maintenance and/or operational requirements Indexers should expect:
+Вот некоторые требования к техническому обслуживанию и/или эксплуатации, которые будут ожидать индексаторов:
 
-- Always upgrade to the latest Subquery software version
-- Identify and take advantage of new indexing opportunities
-- Update project version to latest and reindex where necessary
-- Infrastructure maintenance
-  - Constantly monitoring and upsizing disk
-  - Right size query and indexing compute based on traffic
-  - Increase query services for increasing ingress traffic
+- Всегда обновляйте программное обеспечение Subquery до последней версии.
+- Определяйте и пользуйтесь новыми возможностями индексации.
+- Обновляйте версию проекта до последней и переиндексируйте проект при необходимости.
+- Техническое обслуживание инфраструктуры:
+  - Постоянный мониторинг и увеличение объема диска.
+  - Правильный размер запросов и индексации вычисляются на основе трафика.
+  - Увеличьте количество запросов для увеличения входящего трафика.
 
-### Infrastructure
+### Инфраструктура
 
-The minimum infrastructure requirement includes:
+Минимальные требования к инфраструктуре включают в себя:
 
-- At least one computational node to run the following services:
-  - [Node (indexing) Service](https://www.npmjs.com/package/@subql/node)
-  - [Query Service](https://www.npmjs.com/package/@subql/query)
-  - [Indexer Coordinator Service](https://www.npmjs.com/package/@subql/indexer-coordinator)
-- One database node to run Postgresql db (v12 and above).
+- Как минимум один вычислительный узел для запуска нижеуказанных сервисов:
+  - Обслуживание (индексация) Узла.
+  - Служба запросов.
+  - Служба координации индексатора.
+- Один узел базы данных для запуска Postgresql db (v12 и выше).
 
-More detailed information will come soon.
+Более подробная информация появится в скором времени.
 
-## Security & Performance considerations
+## Вопросы безопасности и производительности
 
-Security and performance considerations are as follows.
+Вопросы безопасности и производительности приведены ниже.
 
-### Operator Wallets
+### Кошельки оператора
 
-Secure storage of an Indexer’s wallet recovery seed phrase is highly recommended.
+Настоятельно рекомендуется безопасное хранение исходной фразы восстановления кошелька индексатора.
 
-### Firewalls
+### Firewalls/Файрволл
 
-Indexers need to keep security front of mind. Infrastructure security, in particular firewalls, should be implemented to prevent public exposure to personal ports.
+Индексаторы должны помнить о безопасности. Безопасность инфраструктуры, в частности файрволлы, должна быть реализована, чтобы предотвратить публичный доступ к личным портам.
 
-Secure passwords should be used by default and password rotation policies should be considered.
+По умолчанию должны использоваться надежные пароли и также нужно рассматривать политику ротации паролей.
 
-### Indexer’s Performance
+### Производительность Индексатора
 
-In order to generate desirable performances, Indexers need to consider various factors such as:
+Для обеспечения желаемой производительности, индексаторы должны учитывать различные факторы, такие как:
 
-- the balance between their own stake and that of Delegators.
-- the type of contract being served. The Indexer will receive all the query fees if it is a closed contract. If it is open, then an Indexer’s reward will depend on how many other Indexers there are.
-- fulfilling of the Service Level Agreement (SLA) specifications (to avoid slashing penalties)
-- the accuracy of the data being served to avoid slashing penalties
+- баланс между их собственной долей стейкинг монет и долей стейкинга Делегаторов.
+- тип ослуживаемого контракта. Индексатор получит все вознаграждение за запрос, если это закрытый контракт. Если это открытый контракт, то вознаграждение индексатора будет зависеть от количества других индексаторов.
+- выполнение условий Соглашения об уровне обслуживания (SLA) (чтобы избежать штрафных санкций).
+- точность предоставляемых данных, чтобы избежать штрафов.
 
-## Selecting SubQuery Projects to Index
+## Выбор Проектов Subquery для индексации
 
-There are several indicators that an Indexer needs to consider when selecting a SubQuery project to index.
+Существует несколько индикаторов, которые необходимо учитывать индексатору при выборе проекта SubQuery для индексации.
 
-### Query Fee Opportunities
+### Возможности Оплаты Запросов
 
-Some projects will have open or closed plans advertised by consumers.
+Некоторые проекты будут иметь открытые или закрытые планы, рекламируемые потребителями.
 
-When a Consumer advertises an open or closed plan for a project, they ultimately specify how much they are willing to pay for a set volume of requests. The more a Consumer is willing to pay, the more attractive the project will be for an Indexer. It also provides confidence that there will likely be recurring revenue from this SubQuery project.
+Когда Потребитель рекламирует открытый или закрытый план для проекта, он в итоге указывает, сколько он готов платить за заданный объем запросов. Чем больше Потребитель готов заплатить, тем более привлекательным будет проект для Индексатора. Это также придает уверенность в том, что данный проект SubQuery, вероятней всего, будет приносить регулярный доход.
 
-### Project complexity
+### Сложность проекта
 
-Projects will vary in computation requirements. Simple projects will only index a few parameters whereas more complicated projects will require more computation resources and more bandwidth. Indexers need to understand the complexity of the project and its hardware capabilities.
+Проекты будут отличаться по вычислительным требованиям. Простые проекты будут индексировать лишь небольшое количество параметров, тогда как более сложные проекты потребуют больше вычислительных ресурсов и большей пропускной способности. Индексаторам следует понимать сложность проекта и его аппаратные возможности.
 
-### Indexer Competition
+### Конкуренция индексаторов
 
-Popular projects offering a high query volume that attract a large number of Indexers. This also implies that the rewards will be shared amongst more people. A single Indexer’s share may be less than a less popular project with a slightly lower query fee but with far fewer Indexers.
+Популярные проекты предлагают большой объем запросов, которые привлекают большое количество индексаторов. Это также предполагает, что награды будут разделены между большим количеством людей. Доля одного индексатора может быть меньше, чем у менее популярного проекта с немного меньшей оплатой за запрос, но с гораздо меньшим количеством индексаторов.
 
-### Pricing Strategy
+### Ценовая политика
 
-Indexers need to be aware of their operation cost and expected incomes to understand their break-even point. Some considerations are:
+Индексаторы должны знать свои операционные расходы и ожидаемые доходы, чтобы понимать свою точку безубыточности. Некоторые вопросы по этому поводу:
 
-- How should Indexers set their plan prices?
-- At what price can Indexers accept a service agreement or not?
+- Как индексаторам следует устанавливать цены на свои планы?
+- По какой цене индексаторы могут принять соглашение об обслуживании или нет?
 
-### Advertisements
+### Объявления
 
-Indexers need to advertise themselves to Delegators as well as Consumers. Indexers may do this from their own website, in the Subquery forums or any other places deemed necessary. Some examples of the information to provide are:
+Индексаторы должны рекламировать себя как Делегаторам, так и Потребителям. Индексаторы могут делать это, используя свой собственный веб-сайт, форумы Subquery или любые другие площадки, которые сочтут необходимыми. Некоторые примеры информации, необходимой для предоставления:
 
-- The background and experience of the Indexer or Indexer’s team
-- The hardware approach and why it provides superior performance
-- The customer support policy or SLA
-- Evidence of historical performances
+- Опыт работы Индексатора или команды Индексатора.
+- Аппаратный подход и почему он обеспечивает лучшую производительность.
+- Политика поддержки клиентов или SLA.
+- Свидетельства/данные прошлой производительности.
 
-### Customer support
+### Служба поддержки
 
-Indexers are highly encouraged to provide a communication method for its customers to report inavailability and also to provide feedback.
+Индексаторам настоятельно рекомендуется предоставить своим клиентам способ связи, чтобы информировать о недоступности, а также обеспечения обратной связи.

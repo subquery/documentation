@@ -3,9 +3,9 @@
   <section class="welcomeWords">
     <div class="main">
       <div>
-        <h2 class="welcomeTitle">Welcome to SubQuery <span>Academy</span></h2>
+        <h2 class="welcomeTitle">Welcome to SubQuery<span>Academy</span></h2>
         <p>Sezgisel dApp'leri daha hızlı oluşturmak için zincir verilerinizi keşfedin ve dönüştürün!</p>
-        <p><strong>SubQuery artık Polkadot, Avalanche ve Cosmos'u destekliyor (Juno'dan başlayarak)</strong></p>
+        <p><strong>SubQuery now supports Polkadot, Avalanche, and Cosmos (starting with Juno).</strong></p>
       </div>
     </div>
   </section>
@@ -15,8 +15,8 @@
       <p>Geleneksel bir Hello World örneğiyle el ele tutuşarak SubQuery'i anlayın. Docker ortamındaki bir şablon projesini kullanarak, hızlı bir şekilde bir düğüm çalıştırabilir ve birkaç basit komutla birkaç dakika içinde bir blok zincirini sorgulamaya başlayabilirsiniz.
       </p>
       <span class="button">
-        <router-link :to="{path: '/quickstart/quickstart-polkadot.html'}">
-          <span>Get started</span>
+        <router-link :to="{path: '/quickstart/quickstart.html'}"> 
+          <span>Get Started</span>
         </router-link>
       </span>
     </div>
@@ -35,7 +35,7 @@
         </router-link>
       </li>
       <li>
-        <router-link :to="{path: '/create/introduction.html'}">
+        <router-link :to="{path: '/build/introduction.html'}"> 
           <div>
             <img src="/assets/img/docsIcon.svg" />
             <span>Teknik Başvuru Belgeleri</span>
@@ -44,13 +44,13 @@
         </router-link>
       </li>
       <li>
-        <a href="https://static.subquery.network/whitepaper.pdf" target="_blank">
+        <router-link :to="{path: '/subquery_network/introduction.html'}"> 
           <div>
             <img src="/assets/img/networkIcon.svg" />
             <span>The SubQuery Network</span>
-            <p>SubQuery’s decentralised future. Dizinleyicilerin ve tüketicilerin nasıl ödüllendirildiklerine ilişkin daha fazla bilgi edinin.</p>
+            <p>SubQuery’s decentralised future. Read more about how indexers and consumers are rewarded.</p>
           </div>
-        </a>
+        </router-link>
       </li>
     </ul>
   </div>
@@ -62,16 +62,16 @@
       <li>
         <div class="title">SubQuery nedir?</div>
         <div class="content">
-          <p>SubQuery, geliştiricilerin uygulamalarını güç sağlamak için Substrat zinciri verilerini dizine almalarına, dönüştürmelerine ve sorgulamalarına olanak tanıyan açık kaynaklı bir projedir.</p>
+          <p>SubQuery is an open source blockchain data indexer for developers that provides fast, flexible, reliable, and decentralised APIs to power leading multi-chain apps. Our mission is to help developers create the decentralised products of the future.</p>
           <span class="more">
-            <router-link :to="{path: '/faqs/faqs.html#what-is-subquery'}">DAHA FAZLA OKU</router-link>
+            <router-link :to="{path: '/faqs/faqs.html#what-is-subquery'}">READ MORE</router-link>
           </span>
         </div>
       </li>
       <li>
         <div class="title">SubQuery'ye başlamanın en iyi yolu nedir?</div>
         <div class="content">
-          <p>SubQuery'yi kullanmaya başlamanın en iyi yolu <a href="/quickstart/quickstart-polkadot.html">Hızlı Başlangıç ​​eğitimimizi</a> denemektir. Bu, başlangıç şablonunu indirme, projeyi oluşturma ve ardından localhost'unuzda bir düğüm çalıştırmak ve basit bir sorgu çalıştırmak için Docker'ı kullanma konusunda basit bir 5 dakikalık yürüme mesafesindedir. </p>
+          <p>The best way to get started with SubQuery is to try out our <a href="/quickstart/quickstart.html">Quick Start</a> tutorial. Bu, başlangıç şablonunu indirme, projeyi oluşturma ve ardından localhost'unuzda bir düğüm çalıştırmak ve basit bir sorgu çalıştırmak için Docker'ı kullanma konusunda basit bir 5 dakikalık yürüme mesafesindedir. </p>
         </div>
       </li>
       <li>
@@ -79,14 +79,14 @@
         <div class="content">
           <p>Topluluktan gelen katkıları ve geri bildirimleri seviyoruz. Koda katkıda bulunmak için, ilgi alanı deponuzu çatallayın ve değişikliklerinizi yapın. Ardından bir PR veya Çekme İsteği gönderin. Test etmeyi de unutma! Ayrıca katkı yönergelerimize de göz atın (yakında). </p>
           <span class="more">
-            <router-link :to="{path: '/faqs/faqs.html#what-is-the-best-way-to-get-started-with-subquery'}">DAHA FAZLA OKU</router-link>
-          </span>
+            <router-link :to="{path: '/faqs/faqs.html#how-can-i-contribute-or-give-feedback-to-subquery'}">READ MORE</router-link>
+          </span> 
         </div>
       </li>
       <li>
         <div class="title">Projemi SubQuery Projelerinde barındırmanın maliyeti nedir?</div>
         <div class="content">
-          <p>Projenizi SubQuery Projects'te barındırmak tamamen ücretsizdir - bu bizim topluma geri verme yöntemimizdir. Projenizi bizimle nasıl barındıracaklarınızı öğrenmek için lütfen <a href="/quickstart/quickstart-polkadot.html">Hello World (SubQuery Hosted)</a> öğreticisine göz atın.</p>
+          <p>Hosting your project in SubQuery Projects is absolutely free — it is our way of giving back to the community. To learn how to host your project with us, please check out the <a href="https://academy.subquery.network/run_publish/publish.html">Hello World (SubQuery Hosted)</a> tutorial.</p>
           <span class="more">
             <router-link :to="{path: '/run_publish/publish.html'}">PROJENİZE EV SAHİPLİĞİ YAPMA</router-link>
           </span>
@@ -100,14 +100,14 @@
   <div>
     <div class="lastIntroduce lastIntroduce_1">
         <h5>Özel Zinciriniz ile entegre misiniz?</h5>
-        <p>İster Substrate'de yeni bir parachain ister tamamen yeni bir blok zinciri oluşturuyor olun - SubQuery zincirinizin verilerini dizine almanıza ve sorun gidermenize yardımcı olabilir. SubQuery, özel bir Substrat tabanlı zincirle kolayca entegre olacak şekilde tasarlanmıştır.</p>
+        <p>Whether you're building a new parachain or an entirely new blockchain on Substrate — SubQuery can help you index and troubleshoot your chain's data. SubQuery, özel bir Substrat tabanlı zincirle kolayca entegre olacak şekilde tasarlanmıştır.</p>
         <span class="more">
-          <router-link :to="{path: '/create/manifest.html#custom-substrate-chains'}">ZİNCİRİNİZLE NASIL ENTEGRE OLACAĞINIZI ÖĞRENİN</router-link>
+          <router-link :to="{path: '/build/manifest.html#custom-substrate-and-cosmos-chains'}">LEARN HOW TO INTEGRATE WITH YOUR CHAIN</router-link>
         </span>
     </div>
     <div class="lastIntroduce lastIntroduce_2">
         <h5>Destek ve Katkıda Bulun</h5>
-        <p>Bir sorunuz mu var veya daha fazlasını veya nasıl katkıda bulunabileceğinizi öğrenmek mi istersiniz? Sizden haber almak isteriz. Lütfen aşağıdaki bağlantılardan e-posta veya sosyal medya aracılığıyla bizimle iletişime geçin. Teknik uzmanlığa mı ihtiyacınız var? Discord topluluğumuza katılın ve tutkulu topluluk üyelerimizden destek alın. </p>
+        <p>Have a question or are interested in knowing more or how you can contribute? Sizden haber almak isteriz. Lütfen aşağıdaki bağlantılardan e-posta veya sosyal medya aracılığıyla bizimle iletişime geçin. Teknik uzmanlığa mı ihtiyacınız var? Discord topluluğumuza katılın ve tutkulu topluluk üyelerimizden destek alın. </p>
         <a class="more" target="_blank" href="https://discord.com/invite/subquery">DISCORD'DA SOHBETE KATıLıN</a>
     </div>
     </div>
@@ -126,7 +126,7 @@
       <a href="https://t.me/subquerynetwork" target="_blank" class="connectTelegram">telegram</a>
       <a href="https://github.com/OnFinality-io/subql" target="_blank" class="connectGithub">github</a>
       <a href="https://matrix.to/#/#subquery:matrix.org" target="_blank" class="connectMatrix">matrix</a>
-      <a href="https://www.linkedin.com/company/subquery" target="_blank" class="connectLinkedin">linkedin</a>
+      <a href="https://www.linkedin.com/company/subquery/" target="_blank" class="connectLinkedin">linkedin</a>
     </div>
   </div>
 </section>

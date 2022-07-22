@@ -38,7 +38,7 @@ Au démarrage, l'état actuel de cette fonctionnalité est imprimé dans la cons
 
 Il y a une propriété spéciale (facultative) sur le filtre d'entité GraphQL appelé `blockHeight`. Si vous omettez cette propriété, SubQuery interroge l'état de l'entité à la hauteur du bloc courant.
 
-Veuillez consulter l'un de nos exemples de projets : [RMRK NFT](https://explorer.subquery.network/subquery/subquery/rmrk-nft-historical)
+Please see one of our example projects: [RMRK NFT](https://explorer.subquery.network/subquery/subquery/rmrk-nft-historical).
 
 Pour interroger les propriétaires de NFT RMRK à la hauteur du bloc 5.000,000, ajoutez le paramètre blockHeight comme montré ci-dessous:
 

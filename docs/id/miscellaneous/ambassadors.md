@@ -40,18 +40,17 @@ Setelah Anda mengirim melalui aplikasi, kami akan memilih kandidat yang sesuai d
 
 Setelah Anda lulus program pelatihan, Anda dapat menyebut diri Anda sebagai duta besar SubQuery dan akan diterima dalam program penuh kami. Dari sini Anda dapat terus bekerja melalui program dan naik tingkatan, mendapatkan lebih banyak hadiah dan keuntungan saat Anda naik peringkat.
 
-[Daftar Sekarang!](https://forms.gle/GXBbJ6LDpNfM2v1X6)
 
 ## Aktivitas Ambassador
 
-Ambassador SubQuery dapat berkontribusi melalui empat area utama, termasuk manajemen acara, pembuatan konten, penerjemahan, dan moderasi komunitas. Anda dapat berpartisipasi di sebanyak mungkin area yang Anda inginkan, Anda tidak terikat pada satu pun.
+Duta SubQuery dapat berkontribusi melalui empat bidang utama, termasuk manajemen acara, pembuatan konten, terjemahan, dan moderasi komunitas. Anda dapat berpartisipasi di sebanyak mungkin bidang yang Anda inginkan, Anda tidak terikat pada satu bidang saja.
 
-**Manajemen Acara:** Bangun komunitas lokal dengan menyelenggarakan, mengatur, dan mengelola berbagai acara. Membangun komunitas lokal akan menjadi bagian utama dalam mengembangkan komunitas SubQuery. SubQuery akan mendukung Anda dengan menyediakan dana untuk acara, mengirimkan hadiah/barang dagangan untuk dibagikan, serta menghadiri Tanya Jawab atau acara online sebagai pembicara atau dalam sesi AMA.
+**Manajemen Acara:** Membangun komunitas lokal dengan menjadi tuan rumah, mengatur, dan mengelola berbagai acara. Membangun komunitas lokal akan menjadi bagian penting dalam menumbuhkan komunitas SubQuery. SubQuery akan mendukung Anda dengan menyediakan dana untuk acara, mengirimkan barang curian/merchandise untuk diberikan, serta menghadiri Q&As atau acara online sebagai pembicara atau dalam sesi AMA.
 
-**Pembuatan Konten:** Kami memiliki daftar panjang konten dan materi pendukung yang perlu bantuan untuk membuatnya. Ingat, kesuksesan kami bergantung pada kemampuan pelanggan kami untuk membangun hal-hal luar biasa pada layanan kami, jadi kami membutuhkan bantuan Anda untuk membuatnya lebih mudah. Konten mencakup video, infografis, tutorial, animasi, atau materi terkait lainnya, untuk menginformasikan, mendidik, atau menginspirasi anggota komunitas dalam Ekosistem SubQuery. SubQuery akan mendukung Pembuat Konten dengan menyediakan aset dan keahlian pembuatan merek. Kami juga akan menggunakan saluran pemasaran SubQuery untuk meningkatkan kesadaran akan konten Anda (dan Anda sendiri).
+**Pembuatan Konten:** Kami memiliki daftar panjang konten dan materi pendukung yang perlu kami bantu buat. Ingat, kesuksesan kami bergantung pada kemampuan pelanggan kami untuk membangun hal-hal luar biasa pada layanan kami, jadi kami membutuhkan bantuan Anda untuk membuatnya lebih mudah. Konten mencakup video, infografis, tutorial, animasi, atau materi terkait lainnya, untuk menginformasikan, mengedukasi, atau menginspirasi anggota komunitas dalam Ekosistem SubQuery. SubQuery akan mendukung Pembuat Konten dengan menyediakan aset dan keahlian branding. Kami juga akan menggunakan saluran pemasaran SubQuery untuk meningkatkan kesadaran akan konten Anda (dan diri Anda sendiri).
 
-**Penerjemahan:** Pelanggan kami tidak hanya berbicara bahasa Inggris! Kami membutuhkan bantuan Anda membuat SubQuery lebih mudah diakses dengan menerjemahkan konten kami ke dalam bahasa Anda sendiri, serta membantu membagikan kepada komunitas internasional kami.
+**Penerjemahan:** Pelanggan kami tidak hanya berbicara bahasa Inggris! Kami membutuhkan bantuan Anda untuk membuat SubQuery lebih mudah diakses dengan menerjemahkan konten kami ke dalam bahasa Anda sendiri, serta membantu menyebarkan berita ke komunitas internasional kami.
 
-**Moderasi Komunitas:** Moderator akan membantu mengembangkan komunitas SubQuery dengan memastikan bahwa saluran komunitas resmi aktif dan menarik. SubQuery akan mendukung Moderator dengan mempromosikan saluran yang mereka pantau, serta menyediakan bimbingan untuk harapan kami.
+**Moderasi Komunitas:** Moderator akan membantu menumbuhkan komunitas SubQuery dengan memastikan bahwa saluran komunitas resmi aktif dan menarik. SubQuery akan mendukung Moderator dengan mempromosikan saluran yang mereka pantau, serta memberikan pedoman untuk harapan kami.
 
 [Daftar Sekarang!](https://forms.gle/GXBbJ6LDpNfM2v1X6)

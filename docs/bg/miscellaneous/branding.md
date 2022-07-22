@@ -14,6 +14,4 @@
 
 ## Пакет от брандинг активи
 
-ZIP пакет от активи на марката
-
-[public_branding.zip](https://static.subquery.network/public_branding.zip)
+По-малък ZIP пакет с активи на марката: [public_branding.zip](https://static.subquery.network/public_branding.zip).

@@ -20,7 +20,7 @@ We recommend deploying to your staging slot only for final staging testing or wh
 The staging slot is perfect for:
 
 - Окончателно валидиране на промените във вашия SubQuery Project в отделна среда. Стейджинг слота има различен URL адрес от производствения, който можете да използвате във вашите dApps.
-- Подготвяне и индексиране на данни за актуализиран SubQuery проект, за да се елиминира забавянето във вашият dApp
+- Warming up and indexing data for an updated SubQuery project to eliminate downtime in your dApp.
 - Подготовяте нова версия за вашия SubQuery Project, без да го представяте публично. Стейджинг слота не се показва на обществеността в Explorer и има уникален URL адрес, който е видим само за вас.
 
 ![Staging slot](/assets/img/staging_slot.png)
@@ -32,7 +32,7 @@ The staging slot is perfect for:
 You can also use `@subql/cli` to create a new deployment of your project to our managed service. This requires:
 
 - `@subql/cli` version 1.1.0 or above.
-- A valid [SUBQL_ACCESS_TOKEN](/docs/run_publish/ipfs.md#prepare-your-subqlaccesstoken) ready.
+- A valid [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) ready.
 
 ```shell
 // You can directly set your Indexer and Query versions
@@ -53,4 +53,4 @@ If you just want to upgrade to the latest indexer ([`@subql/node`](https://www.n
 
 ![Проектът се внедрява и се синхронизира](/assets/img/projects-deploy-sync.png)
 
-Като алтернатива можете да щракнете върху трите точки до заглавието на вашия проект и да го видите в SubQuery Explorer. There you can use the in browser playground to get started - [read more about how to user our Explorer here](../run_publish/query.md).
+Като алтернатива можете да щракнете върху трите точки до заглавието на вашия проект и да го видите в SubQuery Explorer. There you can use the in browser playground to get started - [read more about how to use our Explorer here](../run_publish/query.md).

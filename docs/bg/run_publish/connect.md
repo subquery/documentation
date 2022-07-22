@@ -1,11 +1,11 @@
-# Свържете се с новия си проект
+# Connect to your new project
 
-След като внедряването ви завърши успешно и нашите нодове са индексирали вашите данни от веригата, ще можете да се свържете с вашия проект чрез показания Query ендпойнт.
+Once your deployment has succesfully completed and our nodes have indexed your data from the chain, you'll be able to connect to your project via the displayed Query endpoint.
 
 ![Проектът се внедрява и се синхронизира](/assets/img/projects-deploy-sync.png)
 
-Като алтернатива можете да щракнете върху трите точки до заглавието на вашия проект и да го видите в SubQuery Explorer. Там можете да използвате функциите в браузъра и да започнете.
+Като алтернатива можете да щракнете върху трите точки до заглавието на вашия проект и да го видите в SubQuery Explorer. There you can use the in browser playground to get started.
 
-![Проекти в SubQuery Explorer](/assets/img/projects-explorer.png)
+![Projects in SubQuery Explorer](/assets/img/projects-explorer.png)
 
-[Научете повече за езика за заявки GraphQL.](./graphql.md)
+::: info Note Learn more about the [GraphQL Query language.](./graphql.md) :::

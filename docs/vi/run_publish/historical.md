@@ -38,7 +38,7 @@ Khi khởi động, trạng thái hiện tại của tính năng này được i
 
 Có một thuộc tính đặc biệt (tùy chọn) trên bộ lọc thực thể GraphQL được gọi là `blockHeight`. Nếu bạn bỏ qua thuộc tính này, SubQuery sẽ truy vấn trạng thái thực thể ở chiều cao khối hiện tại.
 
-Vui lòng xem một trong những dự án ví dụ của chúng tôi: [RMRK NFT](https://explorer.subquery.network/subquery/subquery/rmrk-nft-historical)
+Please see one of our example projects: [RMRK NFT](https://explorer.subquery.network/subquery/subquery/rmrk-nft-historical).
 
 Để truy vấn chủ sở hữu của NFT RMRK ở chiều cao khối 5.000.000, hãy thêm tham số blockHeight như hình dưới đây:
 

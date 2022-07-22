@@ -1,66 +1,66 @@
-# Delegators
+# Делегатори
 
-## What is a Delegator?
+## Какво е Делегатор?
 
-A Delegator is a non-technical network role in the SubQuery Network and is a great way to start participating in the SubQuery Network. This role enables Delegators to “delegate” their SQT to one or more Indexers and earn rewards (similar to staking).
+Делегаторът е нетехническа мрежова роля в SubQuery Network и е чудесен начин да започнете да участвате в SubQuery Network. Тази роля позволява на Делегаторите да „делегират“ своя SQT на един или повече Индексатори и да печелят награди (подобно на залагане).
 
-Without Delegators, Indexers will likely earn fewer rewards because they will have less SQT to allocate. Therefore, Indexers compete to attract Delegators by offering a competitive share of an Indexer’s rewards.
+Без делегати, индексаторите вероятно ще спечелят по-малко награди, защото ще имат по-малко SQT за разпределяне. Следователно Индексаторите се състезават да привлекат Делегатори, като предлагат конкурентен дял от наградите на Индексаторите.
 
-## Requirements to be a Delegator
+## Изисквания да бъдете Делегатор
 
-One of the best things about being a Delegator is that you don’t need any devops, coding, or technical experience. Basic understanding of the SubQuery Network is all that is required to become a Delegator.
+Едно от най-хубавите неща в това да си Делегатор е, че нямаш нужда от devops, кодиране или технически опит. Основно разбиране на SubQuery Network е всичко, което се изисква, за да станете Делегатор.
 
-## Benefits of being a Delegator
+## Предимства да бъдете Делегатор
 
-There are several benefits of becoming a Delegator:
+Има няколко предимства да станете Делегатор:
 
-- **Easy to get started**: Requiring little technical knowledge, Delegators only need to acquire SQT tokens and then learn the process of delegating the tokens to their preferred Indexer(s).
-- **Contribute to the network**: Delegating to Indexers is a way to support an Indexer’s work service requests to consumers. In return, Delegators are rewarded with SQT.
-- **Earn rewards**: Delegators can put their SQT to work by delegating their SQT to Indexers and earning a share of the reward pool.
-- **No minimum delegation amount**: There is no minimum required delegation to be a Delegator. This means that anyone can join no matter how much SQT one has.
+- **Лесно за започване**: Изискващи малко технически познания, делегаторите трябва само да придобият SQT токени и след това да научат процеса на делегиране на токените към предпочитания от тях индексатор(и).
+- **Принос към мрежата**: Делегирането на Indexers е начин да се поддържат заявките за работни услуги на Indexer към потребителите. В замяна делегаторите се възнаграждават със SQT.
+- **Печелете награди**: Делегиращите могат да пуснат своя SQT в действие, като делегират своя SQT на индексатори и спечелят дял от фонда за награди.
+- **Няма минимална сума за делегиране**: Няма минимално необходимо делегиране, за да бъдете Делегатор. Това означава, че всеки може да се присъедини, независимо колко SQT има.
 
-## How Delegators are rewarded?
+## Как се възнаграждават делегиращите?
 
-To attract Delegators to support their work, Indexers offer Delegators a share of the rewards they earn. The Indexer will advertise an Indexer Commission Rate, where the remaining revenue will then be shared within the total delegation/staking pool proportionally to the individual delegated/staked value in the pool.
+За да привлекат Делегатори да подкрепят работата им, Индексаторите предлагат на Делегаторите дял от наградите, които печелят. Индексаторът ще рекламира комисионна на Индексатора, при което оставащите приходи ще бъдат споделени в общия пул за делегиране/залагане пропорционално на индивидуалната делегирана/заложена стойност в пула.
 
-*Indexer’s Commission Rate*: This is a percentage share of the fees earned from serving requests to Consumers. Indexers are free to set this rate to any value they desire. A higher percentage indicates that Indexers keep more of the profits. A lower percentage indicates that the Indexers share more of their profits with their Delegators.
+*Комисионна на Индексатора*: Това е процентен дял от таксите, спечелени от обслужването на заявки на Потребители. Индексаторите са свободни да задават този процент на всяка желана стойност. По-високият процент показва, че индексаторите запазват по-голяма част от печалбите. По-нисък процент показва, че Индексаторите споделят повече от печалбите си със своите Делегатори.
 
-Delegators will only receive revenue for staking Eras that they were a part of for the entire period. For example, if they join a staking Era in the middle of the relevant period, then they will not earn any Query Fee revenue for that particular Era.
+Делегаторите ще получават приходи само за залагане на епохи, в които са участвали за целия период. Например, ако се присъединят към ера на залагане в средата на съответния период, тогава те няма да спечелят никакви приходи от такси за заявка за тази конкретна ера.
 
-If an Indexer wishes to increase the Indexer Commission Rate that they offer to their Delegators, they must advertise this for an entire staking Era . The Indexer will be able to decrease their Indexer Commission Rate at any point to raise more delegated SQT for staking in the short term. Delegators can withdraw or undelegate their staked amount at any time, but they will forfeit any rewards earned within the staking Era (as they were not part of the delegation pool for the entire duration of the staking Era).
+Ако индексатор желае да увеличи комисионната на индексатора, която предлага на своите делегати, той трябва да рекламира това за цяла ера на залагане. Индексаторът ще може да намали своята комисионна на индексатора по всяко време, за да събере повече делегирани SQT за залагане в краткосрочен план. Делегаторите могат да изтеглят или отменят делегирането на своята заложена сума по всяко време, но ще загубят всички награди, спечелени в рамките на ерата на залагане (тъй като не са били част от пула за делегиране през цялата продължителност на ерата на залагане).
 
-## Risks of being a Delegator
+## Рисковете да бъдете Делегатор
 
-Even though it is not considered a risky role, being a Delegator includes a few risks to be aware of.
+Въпреки че не се счита за рискована роля, да бъдеш Делегатор включва няколко риска, които трябва да знаете.
 
-1. Market volatility risk: The constant fluctuations in the market is a risk that affects not just SQT, but all tokens in the general cryptocurrency marketplace. Taking a long term approach can reduce this type of risk.
-2. Constant adjustments of staking parameters by Indexers and delegation fees can increase the risk to a Delegator. For example, a Delegator might miss a change in staking parameters resulting in a less than expected return. To reduce this risk, when Indexers decrease their stake parameters, it will only take effect after the next full Era has been completed, giving time for delegators to assess and make any changes.
-3. Indexer poor performance: It is possible that Delegators can select Indexers that perform poorly and therefore provide a substandard return on investment to Delegators. Delegators are therefore encouraged to do Indexer due diligence on potential Indexers. A Reputation Index is also available to help Delegators compare Indexers to each other.
+1. Риск от нестабилност на пазара: Постоянните колебания на пазара са риск, който засяга не само SQT, но и всички токени на общия пазар на криптовалута. Възприемането на дългосрочен подход може да намали този вид риск.
+2. Постоянните корекции на параметрите на залагане от Индексаторите и таксите за делегиране могат да увеличат риска за Делегатора. Например Делегатор може да пропусне промяна в параметрите на залагане, което да доведе до по-малка от очакваната възвръщаемост. За да се намали този риск, когато индексаторите намалят своите параметри на залога, това ще влезе в сила едва след завършване на следващата пълна ера, давайки време на делегатите да преценят и направят промени.
+3. Лоша производителност на индексатора: Възможно е Делегаторите да изберат Индексатори, които се представят лошо и следователно да осигурят нестандартна възвръщаемост на инвестицията на Делегаторите. Следователно делегаторите се насърчават да извършват надлежна проверка на потенциалните индексатори. Индексът на репутацията също е наличен, за да помогне на Делегаторите да сравняват Индексаторите един с друг.
 
-## How to select Indexers?
+## Как да изберем индексатори?
 
-Delegators can select potential Indexers based on a *Reputation Index* or RI. This RI takes into account an Indexer’s uptime, indexer commission rate, slashing events, and Indexer parameter change frequency.
+Делегаторите могат да избират потенциални индексатори въз основа на *индекс на репутация* или RI. Този RI взема под внимание времето на работа на индексатора, коефициента на комисионна на индексатора, събитията за намаляване и честотата на промяна на параметрите на индексатора.
 
-SubQuery will launch the official RI soon, but we expect other delegation applications to calculate and release their own.
+SubQuery скоро ще стартира официалния RI, но очакваме други приложения за делегиране да изчислят и пуснат свои собствени.
 
-## Non-reward period
+## Период без възнаграждение
 
-Besides the period when Delegators can effectively earn money, a non-reward period also occurs. Delegators receive rewards for staking Eras that they were a part of for the entire duration. For example, if a Delegator joins a staking era halfway through, they will not earn any rewards for that particular era.
+Освен периода, когато Делегаторите могат ефективно да печелят пари, настъпва и период без възнаграждение. Делегаторите получават награди за залагане на епохи, в които са участвали през цялото времетраене. Например, ако Делегатор се присъедини към ера на залагане по средата, той няма да спечели никакви награди за тази конкретна ера.
 
-Delegators can change the indexer that their SQT is delegated to (called redelegating), this change will be queued to happen automatically at the end of the the Era and no thawing period will occur.
+Делегаторите могат да променят индексатора, на който е делегиран техният SQT (наречено повторно делегиране), тази промяна ще бъде поставена на опашка, за да се случи автоматично в края на ерата и няма да настъпи период на размразяване.
 
-If a Delegator decides to undelegate their SQT, a 28 day thawing period starts. The tokens cannot be used during this period, no fees can be accrued or any reward gained.
+Ако Делегатор реши да отмени делегирането на своя SQT, започва 28-дневен период на размразяване. Токените не могат да се използват през този период, не могат да се начисляват такси или да се печелят награди.
 
-## Indexer due diligence for Delegators
+## Надлежна проверка на Indexer за делегиращи лица
 
-Once a preferred Indexer(s) is found, due diligence should be performed to check an Indexer’s reputation and reliability. Assessments could be performed to evaluate if the Indexer is active in the community, if the Indexer helps other members, if it is possible to get in touch with the Indexer, and if the Indexer is up-to-date with protocol and project updates.
+След като бъде намерен(и) предпочитан индексатор(и), трябва да се извърши надлежна проверка, за да се провери репутацията и надеждността на индексатора. Могат да се извършват оценки, за да се прецени дали Индексаторът е активен в общността, дали Индексаторът помага на други членове, дали е възможно да се свържете с Индексатора и дали Индексаторът е актуален с актуализации на протоколи и проекти.
 
-## Delegation Lifecycle
+## Жизнен цикъл на делегиране
 
-Delegators delegate (deposit) SQT into an Indexer’s contract.
+Делегаторите делегират (депозират) SQT в договора на индексатора.
 
-Delegators can then decide how much to redelegate to each Indexer of their choice.
+След това делегаторите могат да решат колко да делегират отново на всеки индексатор по техен избор.
 
-Delegator can undelegate (withdraw) tokens back to their wallet. This will trigger a lock period of 28 days.
+Делегиращият може да отмени делегирането (изтегли) токени обратно в своя портфейл. Това ще задейства период на заключване от 28 дни.
 
 After the unlocking period has been completed, tokens become available for withdrawal/claim.

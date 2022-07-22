@@ -2,19 +2,19 @@
 
 Hướng dẫn này hoạt động thông qua cách xuất bản dự án SubQuery cục bộ lên [IPFS](https://ipfs.io/) và triển khai nó trên cơ sở hạ tầng lưu trữ của chúng tôi.
 
-Hosting a project in IPFS makes it available for all and reduces your reliance on centralised services like GitHub.
+Lưu trữ một dự án trong IPFS làm cho nó khả dụng cho tất cả mọi người và giảm sự phụ thuộc của bạn vào các dịch vụ tập trung như GitHub.
 
 ## Yêu cầu
 
 - `@subql/cli` phiên bản 0.21.0 trở lên.
 - Tệp kê khai `specVersion` 0.2.0 trở lên.
-- Chuẩn bị [SUBQL_ACCESS_TOKEN](#prepare-your-subql-access-token) của bạn đã sẵn sàng.
+- Get your [SUBQL_ACCESS_TOKEN](ipfs.md#prepare-your-subql-access-token) ready.
 - Để đảm bảo việc triển khai của bạn thành công, chúng tôi thật sự khuyến nghị bạn nên xây dựng dự án của mình bằng lệnh `subql build`, và kiểm tra cục bộ nó trước khi xuất bản.
 
 ## Chuẩn bị SUBQL_ACCESS_TOKEN của bạn
 
 - Bước 1: Truy cập [Dự án SubQuery](https://project.subquery.network/) và đăng nhập.
-- Bước 2: Nhấp vào hồ sơ của bạn ở trên cùng bên phải của menu điều hướng, sau đó nhấp vào **_Refresh Token_**
+- Step 2: Click on your profile at the top right of the navigation menu, then click on **_Refresh Token_**.
 - Bước 3: Sao chép mã thông báo đã tạo.
 - Bước 4: Để sử dụng mã thông báo này:
   - Tùy chọn 1: Thêm SUBQL_ACCESS_TOKEN trong các biến môi trường của bạn. `EXPORT SUBQL_ACCESS_TOKEN=<token>`
@@ -22,11 +22,11 @@ Hosting a project in IPFS makes it available for all and reduces your reliance o
 
 ## Làm thế nào để xuất bản một dự án
 
-Chúng tôi cung cấp hai phương pháp để xuất bản dự án của bạn,
+We provide two methods to publish your project:
 
-### Tùy chọn 1:
+### Option 1
 
-Khi bạn đã cài đặt `@subql/cli`, bạn có thể chạy lệnh sau, lệnh này sẽ đọc dự án và thông tin cần thiết từ tệp kê khai mặc định của nó `project.yaml`
+As you have `@subql/cli` already installed, you can run the following command, which will read the project and required information from its default manifest `project.yaml`:
 
 ```
 // Xuất bản nó từ thư mục gốc dự án của bạn
@@ -36,7 +36,7 @@ subql publish
 subql publish -f ~/my-project/
 ```
 
-### Tùy chọn 2:
+### Option 2
 
 Ngoài ra, giả sử dự án của bạn có nhiều tệp kê khai, ví dụ: bạn hỗ trợ nhiều mạng nhưng chia sẻ cùng một bản đồ và logic nghiệp vụ, đồng thời có cấu trúc dự án như sau:
 
@@ -66,15 +66,17 @@ Uploading SupQuery project to IPFS
 SubQuery Project uploaded to IPFS: QmZ3q7YZSmhwBiot4PQCK3c7Z6HkteswN2Py58gkkZ8kNd  //CID
 ```
 
-Hãy ghi chú `CID` này. Với `CID` này, bạn có thể xem dự án đã xuất bản của mình như cái mà chúng tôi gọi là [Triển khai IPFS](#ipfs-deployment)
+Hãy ghi chú `CID` này. With this `CID`, you can view your published project as what we call it [IPFS Deployment](ipfs.md#ipfs-deployment).
+
+With `@subql/cli` version 1.3.0 or above, when using `subql publish` it will store a copy of the project's `IPFS CID` in a file in your project directory, the naming of the file will be consistent with your project.yaml. For example, if your manfiest file is named `project.yaml`, the IPFS file will be named  `.project-cid`.
 
 ## Triển khai IPFS
 
 Triển khai IPFS thể hiện sự tồn tại độc lập và duy nhất của một dự án SubQuery trên một mạng phi tập trung. Do đó, bất kỳ thay đổi nào với mã trong dự án sẽ ảnh hưởng đến tính duy nhất của nó. Nếu bạn cần điều chỉnh logic kinh doanh của mình, ví dụ: thay đổi chức năng ánh xạ, bạn phải xuất bản lại dự án và `CID` sẽ thay đổi.
 
-Hiện tại, để xem dự án bạn đã xuất bản, hãy sử dụng công cụ api `REST` như [Postman](https://web.postman.co/) và sử dụng phương thức `POST` với URL mẫu sau để lấy nó. `https://ipfs.subquery.network/ipfs/api/v0/cat?arg=<YOUR_PROJECT_CID>`
+For now, to view the project you have published, use a `REST` api tool such as [Postman](https://web.postman.co/), and use `POST` method with the following example URL to retrieve it:`https://ipfs.subquery.network/ipfs/api/v0/cat?arg=<YOUR_PROJECT_CID>`.
 
-Bạn sẽ thấy mẫu triển khai dự án như bên dưới:
+You should see the example project deployment as below.
 
 Việc triển khai này tương đồng với tệp kê khai của bạn. Bạn có thể hy vọng các trường mô tả đó, và điểm cuối mạng và từ điển đã bị gỡ bỏ vì chúng không ảnh hưởng trực tiếp đến kết quả thực hiện dự án.
 
@@ -107,7 +109,7 @@ specVersion: 0.2.0
 
 ### Tạo dự án với IPFS deployment
 
-Bạn có thể làm theo hướng dẫn để [Xuất bản dự án SubQuery của mình](publish.md) nhưng nơi bạn đặt nguồn triển khai, bạn có thể chọn **IPFS**.
+You can follow the guide to [Publish your SubQuery project](../run_publish/publish.md) but where you set your deployment source you can select **IPFS**.
 
 Sau đó, chọn vùng sản xuất của bạn, sao chép và dán CID IPFS triển khai của bạn (không có `ipfs://`).
 

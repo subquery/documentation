@@ -40,18 +40,17 @@ Une fois que vous aurez envoyé votre candidature, nous sélectionnerons les can
 
 Une fois que vous aurez réussi le programme de formation, vous pourrez vous considérer comme un ambassadeur de SubQuery et serez accepté dans notre programme complet. À partir de là, vous pouvez continuer à travailler dans le cadre du programme et gravir les échelons, en obtenant davantage de récompenses et d'avantages à mesure que vous gravissez les échelons.
 
-[Postulez maintenant !](https://forms.gle/GXBbJ6LDpNfM2v1X6)
 
 ## Activités des ambassadeurs
 
-Les ambassadeurs de SubQuery peuvent apporter leur contribution dans quatre domaines principaux, à savoir la gestion d'événements, la création de contenu, la traduction et la modération de la communauté. Vous pouvez participer à autant de domaines que vous le souhaitez, vous n'êtes pas lié à un seul.
+SubQuery Ambassadors are able to contribute through four main areas, including event management, content creation, translation, and community moderation. You can participate in as many areas as you want, you’re not bound to any single one.
 
-**Gestion d'événements:** Construisez des communautés locales en accueillant, organisant et gérant différents événements. La création d'une communauté locale sera un élément clé de la croissance de la communauté SubQuery. SubQuery vous soutiendra en finançant des événements, en envoyant des cadeaux ou des articles à distribuer, ainsi qu'en participant à des séances de questions-réponses ou à des événements en ligne en tant qu'orateur ou dans des sessions AMA.
+**Event Management:** Build local communities by hosting, organising, and managing different events. Building a local community will be a key part of growing the SubQuery community. SubQuery will support you by providing funding for events, sending swag/merchandise to be given away, as well as attending Q&As or online events as speakers or in AMA sessions.
 
-**Création de contenu:** Nous avons une longue liste de contenu et de matériel de soutien que nous avons besoin d'aide pour créer. N'oubliez pas que notre succès repose sur la capacité de nos clients à réaliser des choses étonnantes grâce à nos services, et nous avons donc besoin de votre aide pour faciliter cette tâche. Le contenu comprend des vidéos, des infographies, des tutoriels, des animations ou tout autre matériel connexe, pour informer, éduquer ou inspirer les membres de la communauté au sein de l'écosystème SubQuery. SubQuery soutiendra les créateurs de contenu en leur fournissant des ressources et une expertise en matière de stratégie de marque. Nous utiliserons également les canaux de marketing de SubQuery pour faire connaître votre contenu (et vous-même).
+**Content Creation:** We have a long list of content and support material that we need help creating. Remember, our success relies on the ability of our customers to build amazing things on our service, so we need your help to make that easier. Content includes videos, infographics, tutorials, animations, or any other related material, to inform, educate, or inspire community members within the SubQuery Ecosystem. SubQuery will support Content Creators by providing branding assets and expertise. We’ll also use SubQuery’s marketing channels to increase awareness of your content (and yourself).
 
-**Traduction:** Nos clients ne parlent pas seulement anglais ! Nous avons besoin de votre aide pour rendre SubQuery plus accessible en traduisant notre contenu dans votre propre langue, ainsi que pour faire passer le message à notre communauté internationale.
+**Translation:** Our customers don’t just speak English! We need your help making SubQuery more accessible by translating our content into your own language, as well as helping sharing the word to our international community.
 
-**Modération de la communauté:** Les modérateurs aideront à faire croître la communauté SubQuery en s'assurant que les canaux communautaires officiels sont actifs et engageants. SubQuery soutiendra les modérateurs en faisant la promotion des canaux qu'ils surveillent, et fournira des directives concernant nos attentes.
+**Community Moderation:** Moderators will help grow the SubQuery community by ensuring that official community channels are active and engaging. SubQuery will support Moderators by promoting the channels that they monitor, as well as provide guidelines for our expectations.
 
 [Postulez maintenant !](https://forms.gle/GXBbJ6LDpNfM2v1X6)

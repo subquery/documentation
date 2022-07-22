@@ -2,10 +2,10 @@
 
 ## 서브쿼리를 통한 프로젝트 호스팅의 장점
 
-- 서브쿼리 프로젝트를 고성능, 확장성, 관리성 높은 공공서비스로 실행합니다.
+- We'll run your SubQuery projects for you in a high performance, scalable, and managed public service.
 - 이 서비스는 커뮤니티에 무료로 제공되고 있어요!
-- 프로젝트를 퍼블리싱하고 [SubQuery Explorer](https://explorer.subquery.network) 에 등록할 수 있으며 누구나 프로젝트를 참조할 수 있습니다.
-- 저희는 깃허브과 통합이 되어 있으므로 깃허브에서 누구나 공유된 프로젝트를 볼 수 있습니다.
+- You can make your projects public so that they'll be listed in the [SubQuery Explorer](https://explorer.subquery.network) and anyone around the world can view them.
+- We're integrated with GitHub, so anyone in your GitHub organisations will be able to view shared organisation projects.
 
 ## SubQuery 프로젝트에서 첫 번째 프로젝트 만들기
 
@@ -13,15 +13,15 @@
 
 게시하기 전에 SubQuery 프로젝트의 코드베이스를 호스팅할 수 있는 두 가지 방법이 있습니다.
 
-**GitHub**: 프로젝트의 코드베이스는 공개 GitHub 리포지토리에 있어야 합니다.
+**GitHub**: Your project's codebase must be in a public GitHub repository.
 
-**IPFS**: 프로젝트의 코드베이스를 IPFS에 저장할 수 있습니다. IPFS 호스팅 가이드를 따라 [먼저 IPFS에 게시](ipfs.md)하는 방법을 확인할 수 있습니다.
+**IPFS**: Your project's codebase can be stored in IPFS, you can follow our IPFS hosting guide to see how to [first publish to IPFS](../run_publish/ipfs.md).
 
 ### SubQuery 프로젝트에 로그인
 
 시작하기 전에 SubQuery 프로젝트 코드베이스가 공개 GitHub 리포지토리 또는 IPFS에서 온라인 상태인지 확인하십시오. `schema.graphql` 파일은 디렉토리의 루트에 있어야 합니다.
 
-첫 번째 프로젝트를 만들려면 [project.subquery.network](https://project.subquery.network)로 이동하세요. 로그인하려면 GitHub 계정으로 인증해야 합니다.
+To create your first project, head to [SubQuery Projects](https://project.subquery.network). 로그인하려면 GitHub 계정으로 인증해야 합니다.
 
 처음 로그인하면 SubQuery를 인증하라는 메시지가 표시됩니다. 계정을 식별하는 데만 이메일 주소가 필요하며 다른 이유로 GitHub 계정의 다른 데이터는 사용하지 않습니다. 이 단계에서 개인 계정 대신 GitHub 조직에 SubQuery 프로젝트를 게시할 수 있도록 GitHub 조직 계정에 대한 액세스 권한을 요청하거나 부여할 수도 있습니다.
 
@@ -31,11 +31,11 @@ SubQuery 프로젝트는 SubQuery 플랫폼에 업로드된 모든 호스팅 프
 
 ![프로젝트 로그인](/assets/img/projects-dashboard.png)
 
-GitHub 조직 계정이 연결된 경우 헤더의 스위처를 사용하여 개인 계정과 GitHub 조직 계정 간에 변경할 수 있습니다. GitHub 조직 계정에서 생성된 프로젝트는 해당 GitHub 조직의 구성원 간에 공유됩니다. GitHub 조직 계정을 연결하려면 [여기의 단계를 따르세요](#add-github-organization-account-to-subquery-projects).
+GitHub 조직 계정이 연결된 경우 헤더의 스위처를 사용하여 개인 계정과 GitHub 조직 계정 간에 변경할 수 있습니다. GitHub 조직 계정에서 생성된 프로젝트는 해당 GitHub 조직의 구성원 간에 공유됩니다. To connect your GitHub Organization account, you can [follow the steps here](publish.md#add-github-organization-account-to-subquery-projects).
 
 ![GitHub 계정 간 전환](/assets/img/projects-account-switcher.png)
 
-### 첫 번째 프로젝트 만들기
+### Create Your First Project
 
 There are two methods to create a project in the SubQuery Managed Service, you can use the UI or directly via the `subql` cli tool.
 
@@ -47,10 +47,12 @@ Let's start by clicking on "Create Project". You'll be taken to the New Project 
 - **프로젝트 이름**
 - **부제목**
 - **설명**
-- **GitHub 저장 URL:** 이것은 SubQuery 프로젝트가 있는 공개 저장소에 대한 유효한 GitHub URL이어야 합니다. `schema.graphql` 파일은 디렉토리의 루트에 있어야 합니다([디렉토리 구조에 대해 자세히 알아보기](../create/introduction.md#directory-structure)).
+- **GitHub 저장 URL:** 이것은 SubQuery 프로젝트가 있는 공개 저장소에 대한 유효한 GitHub URL이어야 합니다. The `schema.graphql` file must be in the root of your directory ([learn more about the directory structure](../build/introduction.md#directory-structure)).
 - **데이터베이스:** 프리미엄 고객은 프로덕션 SubQuery 프로젝트를 호스팅하기 위한 전용 데이터베이스에 액세스할 수 있습니다. 관심이 있는 경우 [sales@subquery.network](mailto:sales@subquery.network)에 연락하여 이 설정을 활성화할 수 있습니다.
 - **배포 소스:** GitHub 리포지토리에서 프로젝트를 배포하거나 IPFS CID에서 배포하도록 선택할 수 있습니다. [IPFS를 사용한 호스팅](ipfs.md)에 대한 가이드를 참조하세요.
-- **Hide project:**선택하면, 공개 SubQuery 탐색기에서 프로젝트를 숨깁니다. 커뮤니티와 SubQuery를 공유하려면 이 항목을 선택하지 않은 상태로 유지하십시오! ![첫 번째 프로젝트 만들기](/assets/img/projects-create.png)
+- **Hide project:**선택하면, 공개 SubQuery 탐색기에서 프로젝트를 숨깁니다. 커뮤니티와 SubQuery를 공유하려면 이 항목을 선택하지 않은 상태로 유지하십시오!
+
+![Create your first Project](/assets/img/projects-create.png)
 
 Create your project and you'll see it on your SubQuery Project's list. _We're almost there! We just need to deploy a new version of it._
 
@@ -61,7 +63,7 @@ Create your project and you'll see it on your SubQuery Project's list. _We're al
 You can also use `@subql/cli` to publish your project to our managed service. This requires:
 
 - `@subql/cli` version 1.1.0 or above.
-- A valid [SUBQL_ACCESS_TOKEN](/docs/run_publish/ipfs.md#prepare-your-subqlaccesstoken) ready.
+- A valid [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) ready.
 
 ```shell
 // Creating a project using the CLI
@@ -73,7 +75,7 @@ $ subql project:create-project
     --description=description    Enter description
     --gitRepo=gitRepo            Enter git repository
     --org=org                    Enter organization name
-    --project_name=project_name  Enter project name
+    --projectName=projectName  Enter project name
 ```
 
 ### Deploy your First Version
@@ -86,12 +88,12 @@ While creating a project will setup the display behaviour of the project, you mu
 
 With your new project, you'll see a Deploy New Version button. Click this, and fill in the required information about the deployment:
 
-- **Branch:** From GitHub, select the branch of the project that you want to deploy from
-- **Commit Hash:** From GitHub, select the specific commit of the version of your SubQuery project codebase that you want deployed
-- **IPFS:** If deploying from IPFS, paste you IPFS deployment CID (without the leading `ipfs://`)
-- **Override Network and Dictionary Endpoints:** You can override the endpoints in your project manifest here
-- **Indexer Version:** This is the version of SubQuery's node service that you want to run this SubQuery on. See [`@subql/node`](https://www.npmjs.com/package/@subql/node)
-- **Query Version:** This is the version of SubQuery's query service that you want to run this SubQuery on. See [`@subql/query`](https://www.npmjs.com/package/@subql/query)
+- **Branch:** From GitHub, select the branch of the project that you want to deploy from.
+- **Commit Hash:** From GitHub, select the specific commit of the version of your SubQuery project codebase that you want deployed.
+- **IPFS:** If deploying from IPFS, paste you IPFS deployment CID (without the leading `ipfs://`).
+- **Override Network and Dictionary Endpoints:** You can override the endpoints in your project manifest here.
+- **Indexer Version:** This is the version of SubQuery's node service that you want to run this SubQuery on. See [`@subql/node`](https://www.npmjs.com/package/@subql/node).
+- **Query Version:** This is the version of SubQuery's query service that you want to run this SubQuery on. See [`@subql/query`](https://www.npmjs.com/package/@subql/query).
 
 ![Deploy your first Project](https://static.subquery.network/media/projects/projects-first-deployment.png)
 
@@ -102,22 +104,24 @@ If deployed successfully, you'll see the indexer start working and report back p
 You can also use `@subql/cli` to create a new deployment of your project to our managed service. This requires:
 
 - `@subql/cli` version 1.1.0 or above.
-- A valid [SUBQL_ACCESS_TOKEN](/docs/run_publish/ipfs.md#prepare-your-subqlaccesstoken) ready.
+- A valid [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) ready.
 
 ```shell
 // Deploy using the CLI
-$ suqbl deployment:deploy
+$ subql deployment:deploy
 
 // OR Deploy using non-interactive CLI
-$ suqbl deployment:deploy
-  --dict=dict                      Enter Dictionary Endpoint
-  --endpoint=endpoint              Enter Network Endpoint
+$ subql deployment:deploy
+
+  -d, --useDefaults                Use default values for indexerVerion, queryVersion, dictionary, endpoint
+  --dict=dict                      Enter dictionary
+  --endpoint=endpoint              Enter endpoint
   --indexerVersion=indexerVersion  Enter indexer-version
   --ipfsCID=ipfsCID                Enter IPFS CID
-  --org=org                        Enter Organization Name
-  --project_name=project_name      Enter Project Name
-  --queryVersion=queryVersion      Enter Query-version
-  --type=type                      Enter deployment type e.g. primary or stage
+  --org=org                        Enter organization name
+  --projectName=projectName        Enter project name
+  --queryVersion=queryVersion      Enter query-version
+  --type=(stage|primary)           [default: primary]
 ```
 
 ## 다음 단계 - 프로젝트 연결하기

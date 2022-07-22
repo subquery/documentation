@@ -20,7 +20,7 @@ We recommend deploying to your staging slot only for final staging testing or wh
 The staging slot is perfect for:
 
 - Ayrı bir ortamda SubQuery Projenizde yapılan değişikliklerin nihai doğrulaması. Staging slotu, dApp'lerinizde kullanabileceğiniz farklı bir production URL'sine sahiptir.
-- dApp'inizdeki kesinti süresini ortadan kaldırmak amacıyla güncellenmiş bir SubQuery projesi için verilerin hazırlanması ve dizine eklenmesi
+- Warming up and indexing data for an updated SubQuery project to eliminate downtime in your dApp.
 - SubQuery Projeniz için kamuya açık hale getirmeksizin yeni bir sürüm hazırlamak. Staging slotu tarayıcıda herkese açık değildir ve yalnızca sizin görebileceğiniz benzersiz bir URL'si vardır.
 
 ![Staging slot](/assets/img/staging_slot.png)
@@ -32,7 +32,7 @@ Dağıtılmasını istediğiniz SubQuery proje kod tabanınızın sürümünün 
 You can also use `@subql/cli` to create a new deployment of your project to our managed service. This requires:
 
 - `@subql/cli` version 1.1.0 or above.
-- A valid [SUBQL_ACCESS_TOKEN](/docs/run_publish/ipfs.md#prepare-your-subqlaccesstoken) ready.
+- A valid [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) ready.
 
 ```shell
 // You can directly set your Indexer and Query versions
@@ -53,4 +53,4 @@ Dağıtımınız başarıyla tamamlandıktan ve node'larımız zincirdeki verile
 
 ![Projenize yeni sürümü dağıtın](/assets/img/projects-deploy-sync.png)
 
-Alternatif olarak, projenizin başlığının yanında bulunan üç noktaya tıklayabilir ve onu SubQuery Explorer'da görüntüleyebilirsiniz. There you can use the in browser playground to get started - [read more about how to user our Explorer here](../run_publish/query.md).
+Alternatif olarak, projenizin başlığının yanında bulunan üç noktaya tıklayabilir ve onu SubQuery Explorer'da görüntüleyebilirsiniz. There you can use the in browser playground to get started - [read more about how to use our Explorer here](../run_publish/query.md).

@@ -20,7 +20,7 @@ We recommend deploying to your staging slot only for final staging testing or wh
 The staging slot is perfect for:
 
 - SubQuery Projectの変更を別環境で最終検証します。 ステージングスロットは、dAppsで使用できる本番環境とは異なるURLを持っています。
-- 更新されたSubQueryプロジェクトのデータのウォームアップとインデックス作成により、dAppのダウンタイムをなくすことができます
+- Warming up and indexing data for an updated SubQuery project to eliminate downtime in your dApp.
 - 公開せずに、SubQuery プロジェクトの新しいリリースを準備します。 ステージングスロットはエクスプローラでは公開されず、あなただけに表示される固有のURLを持っています。
 
 ![Staging slot](/assets/img/staging_slot.png)
@@ -32,7 +32,7 @@ The staging slot is perfect for:
 You can also use `@subql/cli` to create a new deployment of your project to our managed service. This requires:
 
 - `@subql/cli` version 1.1.0 or above.
-- A valid [SUBQL_ACCESS_TOKEN](/docs/run_publish/ipfs.md#prepare-your-subqlaccesstoken) ready.
+- A valid [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) ready.
 
 ```shell
 // You can directly set your Indexer and Query versions
@@ -53,4 +53,4 @@ If you just want to upgrade to the latest indexer ([`@subql/node`](https://www.n
 
 ![プロジェクトを展開および同期する](/assets/img/projects-deploy-sync.png)
 
-または、プロジェクトのタイトルの横にある3つの点をクリックして、SubQuery Explorer で表示することもできます。 There you can use the in browser playground to get started - [read more about how to user our Explorer here](../run_publish/query.md).
+または、プロジェクトのタイトルの横にある3つの点をクリックして、SubQuery Explorer で表示することもできます。 There you can use the in browser playground to get started - [read more about how to use our Explorer here](../run_publish/query.md).

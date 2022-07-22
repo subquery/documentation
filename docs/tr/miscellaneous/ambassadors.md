@@ -40,18 +40,17 @@ Siz bir başvuru gönderdikten sonra, bizim değerlerimizle uyumlu olan adaylar�
 
 Stajyer programını başarıyla geçtikten sonra kendinize bir SubQuery elçisi olarak adlandırabilirsiniz. Bu aşamadan sonra tam programımıza kabul edileceksiniz. Bundan sonra program boyunca çalışmaya devam edebilir ve kademelerde ilerleyebilirsiniz. Bu kademelerde yukarıya doğru tırmandıkça daha fazla ödül ve avantaj elde edeceksiniz.
 
-[Şimdi Başvurun!](https://forms.gle/GXBbJ6LDpNfM2v1X6)
 
 ## Büyükelçi Aktiviteleri
 
-SubQuery Elçileri, etkinlik yönetimi, içerik oluşturma, tercüme ve topluluk moderasyonu dahil olmak üzere dört ana alan üzerinde programa katkıda bulunabilirler. İstediğiniz sayıda alana katılabilirsiniz, sadece tek bir alana bağlı kalmak zorunda değilsiniz.
+SubQuery Ambassadors are able to contribute through four main areas, including event management, content creation, translation, and community moderation. You can participate in as many areas as you want, you’re not bound to any single one.
 
-**Etkinlik Yönetimi:** Farklı etkinliklere ev sahipliği yaparak, organize ederek ve yöneterek yerel topluluklar oluşturun. Yerel bir topluluk oluşturmak, SubQuery topluluğunu büyütmenin en önemli parçalarından biri olacaktır. SubQuery, etkinlikler için finansman sağlayarak, hediye edilmek üzere swag/ürünler göndererek ve ayrıca Soru-Cevap veya çevrimiçi etkinliklerde konuşmacı olarak veya AMA oturumlarına katılarak sizi destekleyecektir.
+**Event Management:** Build local communities by hosting, organising, and managing different events. Building a local community will be a key part of growing the SubQuery community. SubQuery will support you by providing funding for events, sending swag/merchandise to be given away, as well as attending Q&As or online events as speakers or in AMA sessions.
 
-**İçerik Oluşturma:** Oluşturması için yardıma ihtiyacımız olan oldukça uzun bir içerik ve destek materyali listemiz var. Unutmayın, bizim başarımız müşterilerimizin hizmetimize dayanarak harika şeyler geliştirme yeteneğine bağlıdır, bu yüzden bu süreçleri kolaylaştırmak için yardımınıza ihtiyacımız var. Söz konusu içerikler, SubQuery Ekosistemindeki topluluk üyelerini bilgilendirmek, eğitmek veya onlara ilham vermek için videolar, bilgi grafikleri, öğreticiler, animasyonlar veya diğer ilgili materyaller şeklinde olabilir. SubQuery, İçerik Oluşturucularını marka varlıkları ve uzmanlık ile destekleyecektir. İçeriğiniz (ve kendiniz) hakkında farkındalığı artırmak için SubQuery'nin pazarlama kanallarını da kullanacağız.
+**Content Creation:** We have a long list of content and support material that we need help creating. Remember, our success relies on the ability of our customers to build amazing things on our service, so we need your help to make that easier. Content includes videos, infographics, tutorials, animations, or any other related material, to inform, educate, or inspire community members within the SubQuery Ecosystem. SubQuery will support Content Creators by providing branding assets and expertise. We’ll also use SubQuery’s marketing channels to increase awareness of your content (and yourself).
 
-**Tercüme:** Müşterilerimiz sadece İngilizce konuşmuyor! İçeriğimizi kendi dilinize çevirerek SubQuery'yi daha erişilebilir hale getirmek için yardımınız çok önemli ve aynı zamanda ismimizi uluslararası topluluğumuzda daha fazla duyurmak için de yardımınıza ihtiyacımız var.
+**Translation:** Our customers don’t just speak English! We need your help making SubQuery more accessible by translating our content into your own language, as well as helping sharing the word to our international community.
 
-**Topluluk Moderasyonu:** Moderatörler, resmi topluluk kanallarının aktif ve ilgi çekici olmasını sağlayarak SubQuery topluluğunun büyümesine katkıda bulunacaktır. SubQuery, denetledikleri kanalları tanıtarak moderatörleri destekleyecektir ve aynı zamanda Moderatörlerimiz beklentilerimiz için birer yol gösteren rolünü üstlenecekler.
+**Community Moderation:** Moderators will help grow the SubQuery community by ensuring that official community channels are active and engaging. SubQuery will support Moderators by promoting the channels that they monitor, as well as provide guidelines for our expectations.
 
-[Şimdi Başvurun!](https://forms.gle/GXBbJ6LDpNfM2v1X6)
+[Şimdi Başvur!](https://forms.gle/GXBbJ6LDpNfM2v1X6)

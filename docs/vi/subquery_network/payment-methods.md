@@ -2,9 +2,9 @@
 
 Để linh hoạt, có 3 tùy chọn thanh toán để trả cho dữ liệu blockchain. Đó là:
 
-- Dùng đến đâu thanh toán đến đó (PAYG)
-- Thỏa thuận dịch vụ kín
-- Thỏa thuận dịch vụ mở
+- Pay-As-You-Go (PAYG).
+- Closed Service Agreement.
+- Open Service Agreement.
 
 ## Dùng đến đâu thanh toán đến đó (PAYG)
 

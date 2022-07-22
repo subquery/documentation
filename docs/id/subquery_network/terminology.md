@@ -12,7 +12,7 @@ Operasi gabungan untuk menghapus token yang dipertaruhkan dari satu proyek dan s
 
 ## **Ikatan**
 
-Tindakan menyetorkan SQT ke dalam kontrak taruhan global yang dilakukan oleh Pengindeks atau Delegator
+Tindakan menyetorkan SQT ke dalam kontrak staking global yang dilakukan oleh Indexer atau Delegator.
 
 ### **Tidak terikat**
 

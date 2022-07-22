@@ -8,13 +8,13 @@ Hosting a project in IPFS makes it available for all and reduces your reliance o
 
 - `@subql/cli` バージョン 0.21.0 以上。
 - マニフェスト `specVersion` 0.2.0 以上。
-- [SUBQL_ACCESS_TOKEN](#prepare-your-subql-access-token) を準備すること。
+- Get your [SUBQL_ACCESS_TOKEN](ipfs.md#prepare-your-subql-access-token) ready.
 - デプロイを確実に成功させるために、`subql build` コマンドでプロジェクトをビルドし、公開する前にローカルでテストすることを強くお勧めします。
 
 ## SUBQL_ACCESS_TOKENを準備する
 
 - ステップ 1: [SubQuery Projects](https://project.subquery.network/) に移動してログインします。
-- ステップ 2: ナビゲーションメニューの右上にあるプロフィールをクリックし、 **_Refresh Token_** をクリックします
+- Step 2: Click on your profile at the top right of the navigation menu, then click on **_Refresh Token_**.
 - ステップ 3: 生成されたトークンをコピーします。
 - ステップ 4: このトークンを使用するには:
   - オプション1:環境変数に SUBQL_ACCESS_TOKENを追加します。 `EXPORT SUBQL_ACCESS_TOKEN=<token>`
@@ -22,11 +22,11 @@ Hosting a project in IPFS makes it available for all and reduces your reliance o
 
 ## プロジェクトを公開する方法
 
-プロジェクトを公開するには2つの方法があります。
+We provide two methods to publish your project:
 
-### オプション1:
+### Option 1
 
-すでに `@subql/cli` がインストールされているので、以下のコマンドを実行すると、プロジェクトとそのデフォルトマニフェスト `project.yaml` から必要な情報を読み込むことができます。
+As you have `@subql/cli` already installed, you can run the following command, which will read the project and required information from its default manifest `project.yaml`:
 
 ```
 // Publish it from your project's root directory
@@ -36,7 +36,7 @@ subql publish
 subql publish -f ~/my-project/
 ```
 
-### オプション2:
+### Option 2
 
 または、プロジェクトに複数のマニフェストファイルがあるとします。 たとえば、複数のネットワークをサポートしていますが、同じマッピングとビジネスロジックを共有し、以下のようにプロジェクト構造を持っています:
 
@@ -66,15 +66,17 @@ Uploading SupQuery project to IPFS
 SubQuery Project uploaded to IPFS: QmZ3q7YZSmhwBiot4PQCK3c7Z6HkteswN2Py58gkkZ8kNd  //CID
 ```
 
-この `CID` に注意してください。 この `CID`を使用すると、公開されたプロジェクトを [IPFS Deployment](#ipfs-deployment) と呼びます。
+この `CID` に注意してください。 With this `CID`, you can view your published project as what we call it [IPFS Deployment](ipfs.md#ipfs-deployment).
+
+With `@subql/cli` version 1.3.0 or above, when using `subql publish` it will store a copy of the project's `IPFS CID` in a file in your project directory, the naming of the file will be consistent with your project.yaml. For example, if your manfiest file is named `project.yaml`, the IPFS file will be named  `.project-cid`.
 
 ## IPFS Deployment
 
 IPFS Deploymentは、分散ネットワーク上のSubQueryプロジェクトの独立したユニークな存在を表します。 そのため、プロジェクト内のコードに変更があると、そのユニーク性に影響が出ます。 ビジネスロジックを調整する必要がある場合、例えばマッピング機能を変更する場合は、プロジェクトを再発行する必要があり、 `CID` が変更されます。
 
-とりあえず公開したプロジェクトを見るには、[Postman](https://web.postman.co/)などの `REST` apiツールを使い、以下のサンプルURLで `POST` メソッドを使用して取得します。 `https://ipfs.subquery.network/ipfs/api/v0/cat?arg=<YOUR_PROJECT_CID>`
+For now, to view the project you have published, use a `REST` api tool such as [Postman](https://web.postman.co/), and use `POST` method with the following example URL to retrieve it:`https://ipfs.subquery.network/ipfs/api/v0/cat?arg=<YOUR_PROJECT_CID>`.
 
-以下のように、プロジェクトのデプロイ例が表示されます。
+You should see the example project deployment as below.
 
 このデプロイメントはマニフェストファイルによく似ています。 それらの記述フィールドを期待することができ、ネットワークとディクショナリーのエンドポイントは、プロジェクトの実行結果に直接影響しないため、削除されました。
 
@@ -107,7 +109,7 @@ specVersion: 0.2.0
 
 ### IPFS Deploymentでプロジェクトを作成する
 
-ガイドに従って、 [SubQuery プロジェクトの公開](publish.md) を参照してください。ただし、デプロイソースを設定する場合は、 **IPFS** を選択できます。
+You can follow the guide to [Publish your SubQuery project](../run_publish/publish.md) but where you set your deployment source you can select **IPFS**.
 
 次に、本番用環境を選択し、IPFS Deploymentの CID（先頭の `ipfs://` を除く）をコピーして貼り付けます。
 

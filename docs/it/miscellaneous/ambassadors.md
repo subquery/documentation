@@ -40,18 +40,17 @@ Una volta inviata la candidatura, selezioneremo i candidati che si allineano con
 
 Una volta superato il programma di tirocinio, potrai definirti un ambasciatore di SubQuery e sarai accettato nel nostro programma completo. Da qui in poi si può continuare a lavorare attraverso il programma e progredire nei livelli, guadagnando più premi e benefici man mano che si sale di livello.
 
-[Applica Ora!](https://forms.gle/GXBbJ6LDpNfM2v1X6)
 
 ## Attività dell'ambasciatore
 
-Gli ambasciatori di SubQuery sono in grado di contribuire attraverso quattro aree principali, tra cui la gestione degli eventi, la creazione di contenuti, la traduzione e la moderazione della comunità. Puoi partecipare a tutte le aree che vuoi, non sei legato a nessuna.
+SubQuery Ambassadors are able to contribute through four main areas, including event management, content creation, translation, and community moderation. You can participate in as many areas as you want, you’re not bound to any single one.
 
-**Gestione di eventi:** Costruisci comunità locali ospitando, organizzando e gestendo diversi eventi. Costruire una comunità locale sarà una parte fondamentale della crescita della comunità di SubQuery. SubQuery vi sosterrà fornendovi finanziamenti per gli eventi, inviando swag/merchandise da regalare, oltre a partecipare a Q&As o eventi online come speaker o nelle sessioni AMA.
+**Event Management:** Build local communities by hosting, organising, and managing different events. Building a local community will be a key part of growing the SubQuery community. SubQuery will support you by providing funding for events, sending swag/merchandise to be given away, as well as attending Q&As or online events as speakers or in AMA sessions.
 
-**Creazione di contenuti:** Abbiamo una lunga lista di contenuti e materiale di supporto che abbiamo bisogno di aiuto per creare. Ricorda, il nostro successo si basa sulla capacità dei nostri clienti di costruire cose incredibili sul nostro servizio, quindi abbiamo bisogno del tuo aiuto per renderlo più facile. Il contenuto include video, infografiche, tutorial, animazioni o qualsiasi altro materiale correlato, per informare, educare o ispirare i membri della comunità all'interno dell'ecosistema SubQuery. SubQuery sosterrà i creatori di contenuti fornendo risorse e competenze di branding. Useremo anche i canali di marketing di SubQuery per aumentare la consapevolezza del tuo contenuto (e di te stesso).
+**Content Creation:** We have a long list of content and support material that we need help creating. Remember, our success relies on the ability of our customers to build amazing things on our service, so we need your help to make that easier. Content includes videos, infographics, tutorials, animations, or any other related material, to inform, educate, or inspire community members within the SubQuery Ecosystem. SubQuery will support Content Creators by providing branding assets and expertise. We’ll also use SubQuery’s marketing channels to increase awareness of your content (and yourself).
 
-**Traduzione:** I nostri clienti non parlano solo inglese! Abbiamo bisogno del tuo aiuto per rendere SubQuery più accessibile traducendo i nostri contenuti nella tua lingua, così come per aiutare a condividere la parola alla nostra comunità internazionale.
+**Translation:** Our customers don’t just speak English! We need your help making SubQuery more accessible by translating our content into your own language, as well as helping sharing the word to our international community.
 
-**Moderazione della comunità:** I moderatori aiuteranno a far crescere la comunità di SubQuery assicurando che i canali ufficiali della comunità siano attivi e coinvolgenti. SubQuery supporterà i moderatori promuovendo i canali che essi monitorano, oltre a fornire le linee guida per le nostre aspettative.
+**Community Moderation:** Moderators will help grow the SubQuery community by ensuring that official community channels are active and engaging. SubQuery will support Moderators by promoting the channels that they monitor, as well as provide guidelines for our expectations.
 
-[Applica Ora!](https://forms.gle/GXBbJ6LDpNfM2v1X6)
+[Candidati ora!](https://forms.gle/GXBbJ6LDpNfM2v1X6)

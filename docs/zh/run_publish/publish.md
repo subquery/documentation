@@ -2,10 +2,10 @@
 
 ## 使用 SubQuery 托管您的项目有哪些优势
 
-- 我们将以高性能、可扩展和管理的公共服务来管理您的 SubQuery 项目
+- We'll run your SubQuery projects for you in a high performance, scalable, and managed public service.
 - 此服务正在免费提供给社区！
-- 你可以公开你的项目，以便他们被列入 [SubQuery Explorer](https://explorer.subquery.network) 中，世界各地的任何人都可以查看这些项目
-- 我们已经与 GitHub 集成，因此您的 GitHub 组织中的任何人都可以查看共享的组织项目
+- You can make your projects public so that they'll be listed in the [SubQuery Explorer](https://explorer.subquery.network) and anyone around the world can view them.
+- We're integrated with GitHub, so anyone in your GitHub organisations will be able to view shared organisation projects.
 
 ## 在 SubQuery 项目中创建您的第一个项目
 
@@ -13,15 +13,15 @@
 
 在发布之前，您可以使用两种方式托管您的 SubQuery 项目的代码库。
 
-**GitHub**: 您的项目代码库必须是公开的 GitHub 仓库
+**GitHub**: Your project's codebase must be in a public GitHub repository.
 
-**IPFS**: 您的项目代码库可以保存在IPFS中 您可以遵循我们的 IPFS 主机指南，查看 [首次发布到 IPFS](ipfs.md)
+**IPFS**: Your project's codebase can be stored in IPFS, you can follow our IPFS hosting guide to see how to [first publish to IPFS](../run_publish/ipfs.md).
 
 ### 登录到 SubQuery 项目
 
 在启动前，请确保您的 SubQuery 项目在 GitHub 公开存储库中在线。 `schema.graphql` 文件必须在您的目录的根目录中。
 
-要创建您的第一个项目，头部为 [project.subquery.network](https://project.subquery.network)。 您需要使用您的 GitHub 帐户进行身份验证才能登录。
+To create your first project, head to [SubQuery Projects](https://project.subquery.network). 您需要使用您的 GitHub 帐户进行身份验证才能登录。
 
 首次登录时，您将被要求授权 SubQuery。 我们只需要您的电子邮件地址来识别您的帐户，我们不会出于任何其他原因使用您的GitHub 帐户的任何其他数据。 在这一步骤中， 您也可以请求或授予您的 GitHub 组织帐户访问权限，以便您可以在您的 GitHub 组织下发布SubQuery 项目而不是您的个人帐户。
 
@@ -31,11 +31,11 @@ SubQuery 项目是您管理上传到SubQuery平台的所有托管项目的地方
 
 ![项目登录](/assets/img/projects-dashboard.png)
 
-如果您已连接到GitHub 组织帐户， 您可以使用页眉上的切换器来更改您的个人帐户和您的GitHub 组织帐户。 GitHub 组织帐户中创建的项目由GitHub 组织的成员共享。 若要连接您的 GitHub 组织账户，您可以在这里 [按照步骤](#add-github-organization-account-to-subquery-projects)
+如果您已连接到GitHub 组织帐户， 您可以使用页眉上的切换器来更改您的个人帐户和您的GitHub 组织帐户。 GitHub 组织帐户中创建的项目由GitHub 组织的成员共享。 To connect your GitHub Organization account, you can [follow the steps here](publish.md#add-github-organization-account-to-subquery-projects).
 
 ![在GitHub 帐户间切换](/assets/img/projects-account-switcher.png)
 
-### 创建您的第一个项目。
+### Create Your First Project
 
 There are two methods to create a project in the SubQuery Managed Service, you can use the UI or directly via the `subql` cli tool.
 
@@ -47,10 +47,12 @@ Let's start by clicking on "Create Project". You'll be taken to the New Project 
 - **项目名称**
 - **副标题**
 - **描述**
-- **GitHub 存储库 URL：** 这必须是包含您的 SubQuery 项目的公共存储库的有效 GitHub URL。 `schema.graphql` 文件必须是您目录的根目录([了解更多关于目录结构](../create/introduction.md#directory-structure))。
+- **GitHub 存储库 URL：** 这必须是包含您的 SubQuery 项目的公共存储库的有效 GitHub URL。 The `schema.graphql` file must be in the root of your directory ([learn more about the directory structure](../build/introduction.md#directory-structure)).
 - **数据库：** 高级客户可以访问专用数据库来托管生产SubQuery项目。 如果您感兴趣，您可以联系 [sales@subquery.network](mailto:sales@subquery.network) 来启用此设置。
 - **部署源:** 您可以选择从GitHub 仓库部署项目或从IPFS CID部署项目。 请参阅我们的指南 [与 IPFS 托管。](ipfs.md)
-- **隐藏项目：** 如果选中，如果选中，这将在公共 SubQuery 浏览器中隐藏项目。 如果您想与社区共享您的SubQuery项目，请不要选择此项！ ![创建您的第一个项目。](/assets/img/projects-create.png)
+- **隐藏项目：** 如果选中，如果选中，这将在公共 SubQuery 浏览器中隐藏项目。 如果您想与社区共享您的SubQuery项目，请不要选择此项！
+
+![Create your first Project](/assets/img/projects-create.png)
 
 Create your project and you'll see it on your SubQuery Project's list. _We're almost there! We just need to deploy a new version of it._
 
@@ -61,7 +63,7 @@ Create your project and you'll see it on your SubQuery Project's list. _We're al
 You can also use `@subql/cli` to publish your project to our managed service. This requires:
 
 - `@subql/cli` version 1.1.0 or above.
-- A valid [SUBQL_ACCESS_TOKEN](/docs/run_publish/ipfs.md#prepare-your-subqlaccesstoken) ready.
+- A valid [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) ready.
 
 ```shell
 // Creating a project using the CLI
@@ -73,7 +75,7 @@ $ subql project:create-project
     --description=description    Enter description
     --gitRepo=gitRepo            Enter git repository
     --org=org                    Enter organization name
-    --project_name=project_name  Enter project name
+    --projectName=projectName  Enter project name
 ```
 
 ### Deploy your First Version
@@ -86,12 +88,12 @@ While creating a project will setup the display behaviour of the project, you mu
 
 With your new project, you'll see a Deploy New Version button. Click this, and fill in the required information about the deployment:
 
-- **Branch:** From GitHub, select the branch of the project that you want to deploy from
-- **Commit Hash:** From GitHub, select the specific commit of the version of your SubQuery project codebase that you want deployed
-- **IPFS:** If deploying from IPFS, paste you IPFS deployment CID (without the leading `ipfs://`)
-- **Override Network and Dictionary Endpoints:** You can override the endpoints in your project manifest here
-- **Indexer Version:** This is the version of SubQuery's node service that you want to run this SubQuery on. See [`@subql/node`](https://www.npmjs.com/package/@subql/node)
-- **Query Version:** This is the version of SubQuery's query service that you want to run this SubQuery on. See [`@subql/query`](https://www.npmjs.com/package/@subql/query)
+- **Branch:** From GitHub, select the branch of the project that you want to deploy from.
+- **Commit Hash:** From GitHub, select the specific commit of the version of your SubQuery project codebase that you want deployed.
+- **IPFS:** If deploying from IPFS, paste you IPFS deployment CID (without the leading `ipfs://`).
+- **Override Network and Dictionary Endpoints:** You can override the endpoints in your project manifest here.
+- **Indexer Version:** This is the version of SubQuery's node service that you want to run this SubQuery on. See [`@subql/node`](https://www.npmjs.com/package/@subql/node).
+- **Query Version:** This is the version of SubQuery's query service that you want to run this SubQuery on. See [`@subql/query`](https://www.npmjs.com/package/@subql/query).
 
 ![Deploy your first Project](https://static.subquery.network/media/projects/projects-first-deployment.png)
 
@@ -102,22 +104,24 @@ If deployed successfully, you'll see the indexer start working and report back p
 You can also use `@subql/cli` to create a new deployment of your project to our managed service. This requires:
 
 - `@subql/cli` version 1.1.0 or above.
-- A valid [SUBQL_ACCESS_TOKEN](/docs/run_publish/ipfs.md#prepare-your-subqlaccesstoken) ready.
+- A valid [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) ready.
 
 ```shell
 // Deploy using the CLI
-$ suqbl deployment:deploy
+$ subql deployment:deploy
 
 // OR Deploy using non-interactive CLI
-$ suqbl deployment:deploy
-  --dict=dict                      Enter Dictionary Endpoint
-  --endpoint=endpoint              Enter Network Endpoint
+$ subql deployment:deploy
+
+  -d, --useDefaults                Use default values for indexerVerion, queryVersion, dictionary, endpoint
+  --dict=dict                      Enter dictionary
+  --endpoint=endpoint              Enter endpoint
   --indexerVersion=indexerVersion  Enter indexer-version
   --ipfsCID=ipfsCID                Enter IPFS CID
-  --org=org                        Enter Organization Name
-  --project_name=project_name      Enter Project Name
-  --queryVersion=queryVersion      Enter Query-version
-  --type=type                      Enter deployment type e.g. primary or stage
+  --org=org                        Enter organization name
+  --projectName=projectName        Enter project name
+  --queryVersion=queryVersion      Enter query-version
+  --type=(stage|primary)           [default: primary]
 ```
 
 ## 下一步 - 连接到您的项目

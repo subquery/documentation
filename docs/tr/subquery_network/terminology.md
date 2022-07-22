@@ -12,7 +12,7 @@ A combined operation of removing staked tokens from one project and immediately 
 
 ## **Bonding**
 
-Act of depositing SQT into a global staking contract performed by either an Indexer or a Delegator
+Act of depositing SQT into a global staking contract performed by either an Indexer or a Delegator.
 
 ### **Unbonding**
 

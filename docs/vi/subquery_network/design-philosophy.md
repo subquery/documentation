@@ -4,7 +4,7 @@ Nguyên tắc với Mạng SubQuery là sự đơn giản và linh hoạt cho c�
 
 ## Thiết kế Đa chuỗi
 
-*SubQuery tin tưởng vào ý tưởng rằng một cộng đồng các blockchain, làm việc cùng nhau để khuyến khích việc áp dụng web3 vào đời sống, là tương lai của thế giới*
+*SubQuery believes in the idea that a community of blockchains, working together to encourage web3 adoption, is the future.*
 
 SubQuery có nguồn gốc từ hệ sinh thái Polkadot, đó là ngôi nhà của chúng tôi và sẽ là vị trí của Mạng SubQuery. Tiền đề cốt lõi của Polkadot là tạo ra một cộng đồng lớn mạnh gồm các nhà phát triển, người dùng và doanh nghiệp sẽ khai thác khả năng tương tác đa chuỗi của nó. SubQuery tin tưởng vào ý tưởng rằng một cộng đồng các blockchain, làm việc cùng nhau để khuyến khích việc áp dụng web3, là tương lai và Polkadot sẽ là người dẫn đầu trong sáng kiến ​​đó.
 

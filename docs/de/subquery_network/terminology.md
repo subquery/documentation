@@ -12,7 +12,7 @@ Eine kombinierte Operation, bei der gesteckte Token aus einem Projekt entfernt u
 
 ## **Bonding**
 
-Akt der Einzahlung von SQT in einen globalen Staking-Vertrag, der entweder von einem Indexer oder einem Delegator durchgeführt wird
+Act of depositing SQT into a global staking contract performed by either an Indexer or a Delegator.
 
 ### **Unbonding**
 
