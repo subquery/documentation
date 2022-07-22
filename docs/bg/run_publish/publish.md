@@ -41,7 +41,7 @@ There are two methods to create a project in the SubQuery Managed Service, you c
 
 #### Using the UI
 
-Let's start by clicking on "Create Project". You'll be taken to the New Project form. Please enter the following (you can change this in the future):
+Нека започнем с щракване върху „Създаване на проект“.  You'll be taken to the New Project form. Please enter the following (you can change this in the future):
 
 - **GitHub акаунт:** Ако имате повече от един акаунт в GitHub, изберете под кой акаунт ще бъде създаден този проект. Проектите, създадени в акаунт на GitHub организацията, се споделят между членовете в тази организация.
 - **Име на проекта**
