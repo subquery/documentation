@@ -63,16 +63,16 @@
       <li>
         <div class="title">Что такое SubQuery?</div>
         <div class="content">
-          <p>SubQuery is an open source blockchain data indexer for developers that provides fast, flexible, reliable, and decentralised APIs to power leading multi-chain apps. Our mission is to help developers create the decentralised products of the future.</p>
+          <p>SubQuery - это индексатор данных блокчейна с открытым исходным кодом для разработчиков, который предоставляет быстрые, гибкие, надежные и децентрализованные API для управления ведущими многоканальными приложениями. Наша миссия это помочь разработчикам создать децентрализованные продукты будущего.</p>
           <span class="more">
-            <router-link :to="{path: '/faqs/faqs.html#what-is-subquery'}">READ MORE</router-link>
+            <router-link :to="{path: '/faqs/faqs.html#what-is-subquery'}">ПОДРОБНЕЕ</router-link>
           </span>
         </div>
       </li>
       <li>
         <div class="title">Как лучше всего начать работу с SubQuery?</div>
         <div class="content">
-          <p>The best way to get started with SubQuery is to try out our <a href="/quickstart/quickstart.html">Quick Start</a> tutorial. Это простой 5-минутный урок по загрузке стартового шаблона, сборке проекта, а затем использованию Docker для запуска узла на локальном хосте и выполнения простого запроса. </p>
+          <p>Самый лучший способ начать работу с SubQuery - попробовать наш учебник <a href="/quickstart/quickstart.html">Quick Start</a>. Это простой 5-минутный урок по загрузке стартового шаблона, сборке проекта, а затем использованию Docker для запуска узла на локальном хосте и выполнения простого запроса. </p>
         </div>
       </li>
       <li>
@@ -80,14 +80,14 @@
         <div class="content">
           <p>Нам нравится вклад и обратная связь от сообщества. Чтобы внести свой код, форкните интересующий вас репозиторий и внесите свои изменения. Далее отправьте PR или Pull Request. О, не забудьте также протестировать! Также ознакомьтесь с нашими рекомендациями по контрибуции (скоро появятся). </p>
           <span class="more">
-            <router-link :to="{path: '/faqs/faqs.html#how-can-i-contribute-or-give-feedback-to-subquery'}">READ MORE</router-link>
+            <router-link :to="{path: '/faqs/faqs.html#how-can-i-contribute-or-give-feedback-to-subquery'}">ПОДРОБНЕЕ</router-link>
           </span> 
         </div>
       </li>
       <li>
         <div class="title">Сколько стоит размещение моего проекта в SubQuery?</div>
         <div class="content">
-          <p>Hosting your project in SubQuery Projects is absolutely free — it is our way of giving back to the community. Чтобы узнать, как разместить свой проект у нас, ознакомьтесь с руководством <a href="https://academy.subquery.network/run_publish/publish.html">Hello World (SubQuery Hosted)</a>.</p>
+          <p>Размещение вашего проекта в SubQuery Projects  абсолютно бесплатно это наш способ отблагодарить сообщество. Чтобы узнать, как разместить свой проект у нас, ознакомьтесь с руководством <a href="https://academy.subquery.network/run_publish/publish.html">Hello World (SubQuery Hosted)</a>.</p>
           <span class="more">
             <router-link :to="{path: '/run_publish/publish.html'}">РАЗМЕЩЕНИЕ ВАШЕГО ПРОЕКТА</router-link>
           </span>
