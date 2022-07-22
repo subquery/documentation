@@ -101,9 +101,9 @@
   <div>
     <div class="lastIntroduce lastIntroduce_1">
         <h5>Интеграция с вашим кастомным чейном?</h5>
-        <p>Whether you're building a new parachain or an entirely new blockchain on Substrate — SubQuery can help you index and troubleshoot your chain's data. SubQuery разработан для легкой интеграции с пользовательской цепочкой на основе субстрата.</p>
+        <p>Создаете ли вы новый парачейн или совершенно новый блокчейн в Substrate — субзапрос поможет вам индексировать и устранить неполадки в цепочке. SubQuery разработан для легкой интеграции с пользовательской цепочкой на основе субстрата.</p>
         <span class="more">
-          <router-link :to="{path: '/build/manifest.html#custom-substrate-and-cosmos-chains'}">LEARN HOW TO INTEGRATE WITH YOUR CHAIN</router-link>
+          <<router-link :to="{path: '/build/manifest.html#custom-substrate-and-cosmos-chains'}">УЗНАЙТЕ, КАК ИНТЕГРИРОВАТЬСЯ С ВАШЕЙ ЦЕПОЧКОЙ</router-link>
         </span>
     </div>
     <div class="lastIntroduce lastIntroduce_2">
