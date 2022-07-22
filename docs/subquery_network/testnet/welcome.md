@@ -43,7 +43,7 @@ This area:
 ### Plan & Offer
 
 This area:
-- Lists [service agreements](../../glossary/glossary.md#_1-service-agreements).
+- Lists [service agreements](../../glossary/glossary.md#service-agreements).
 - Allows Indexers to create and manage their plans.
 - Allows Consumers to create and manage their offers.
 - Displays an offer marketplace where Indexers can accept an offer from a Consumer.
