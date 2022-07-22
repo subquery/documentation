@@ -54,15 +54,15 @@ Refer to the documentation references, given at the end of the each lesson, for 
 
 [Call Handler](/build/mapping.md#call-handler)
 
-### Exercises
+---
+
+### Exercise - Account Balances
+
+Let's take up a starter project in this exercise and use an **event handler** to extract the balance of each account.
 
 ### Pre-Requisites
 
 - **Completion of [Module 1](../herocourse/module1.md)**
-
-### Account Balances
-
-Let's take up a starter project in this exercise and use an event handler to extract the balance of each account.
 
 ### Overview of Steps Involved 
 
@@ -105,7 +105,7 @@ The default `schema.graphql` file contains 5 fields. Rename the field2 to `accou
 Whenever you update the manifest file, don’t forget to update the reference to field1 in the `mappings` file and to regenerate the code via yarn codegen.
 :::
 
-The schema file should look like this:
+- The schema file should look like this:
 
 
 ```
@@ -119,26 +119,16 @@ type Account @entity {
 
 #### Step 3: Update the Manifest File (aka project.yaml)
 
-The initialisation command also pre-creates a sample manifest file and defines 3 handlers. Because we are only focusing on Events, let’s remove `handleBlock`and `handleCall` from the mappings file. The manifest file should look like this:
+The initialisation command also pre-creates a sample manifest file and defines 3 handlers. Because we are only focusing on Events, let’s remove `handleBlock`and `handleCall` from the mappings file. 
 
+::: warning Important
+Avoid messing with the auto-generated version names(as shown in the initial section of the manifest file).
+:::
+
+- The ***updated*** part of the manifest file should look like this:
 
 ```
-specVersion: 1.0.0
-name: account-balance
-version: 1.0.0
-runner:
-  node:
-    name: '@subql/node'
-    version: '>=1.0.0'
-  query:
-    name: '@subql/query'
-    version: '*'
-description: >-
-  This project can be use as a starting point for developing your SubQuery
-  project
-repository: 'https://github.com/subquery/subql-starter'
-schema:
-  file: ./schema.graphql
+
 network:
   chainId: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3'
   endpoint: 'wss://polkadot.api.onfinality.io/public-ws'
@@ -173,7 +163,7 @@ let record = new Account(event.extrinsic.block.block.header.hash.toString());
 ```
 
 
-The mappingHandler.ts file should look like this:
+- The mappingHandler.ts file should look like this:
 
 
 ```
@@ -280,74 +270,77 @@ docker-compose pull & docker-compose up
 
 Once the docker container is up to date and starts running, which might take a few minutes, open up your browser and navigate to `www.localhost:3000`. 
 
-This will open up a “playground” where you can create your query. Copy the example below. 
+This will open up a “playground” where you can create your query. Copy the example below: 
 
-
-```
-query {
-   accounts(first:10 orderBy:BALANCE_DESC){
-    nodes{
-      account
-      balance
+<CodeGroup>
+  <CodeGroupItem title="Query" active>
+  
+  ```
+  query {
+    accounts(first:10 orderBy:BALANCE_DESC){
+      nodes{
+        account
+        balance
+      }
     }
   }
-}
-```
+  ```
+  </CodeGroupItem>
 
-
-This should return something similar to the following:
-
-
-```
-{
-  "data": {
-    "accounts": {
-      "nodes": [
-        {
-          "account": "13wY4rD88C3Xzd4brFMPkAMEMC3dSuAR2NC6PZ5BEsZ5t6rJ",
-          "balance": "162804160"
-        },
-        {
-          "account": "146YJHyD5cjFN77HrfKhxUFbU8WjApwk9ncGD6NbxE66vhMS",
-          "balance": "130775360"
-        },
-        {
-          "account": "146YJHyD5cjFN77HrfKhxUFbU8WjApwk9ncGD6NbxE66vhMS",
-          "balance": "130644160"
-        },
-        {
-          "account": "146YJHyD5cjFN77HrfKhxUFbU8WjApwk9ncGD6NbxE66vhMS",
-          "balance": "117559360"
-        },
-        {
-          "account": "12H7nsDUrJUSCQQJrTKAFfyCWSactiSdjoVUixqcd9CZHTGt",
-          "balance": "117359360"
-        },
-        {
-          "account": "146YJHyD5cjFN77HrfKhxUFbU8WjApwk9ncGD6NbxE66vhMS",
-          "balance": "108648000"
-        },
-        {
-          "account": "13wY4rD88C3Xzd4brFMPkAMEMC3dSuAR2NC6PZ5BEsZ5t6rJ",
-          "balance": "108648000"
-        },
-        {
-          "account": "12zSBXtK9evQRCG9Gsdr72RbqNzbNn2Suox2cTfugCLmWjqG",
-          "balance": "108648000"
-        },
-        {
-          "account": "15zF7zvdUiy2eYCgN6KWbv2SJPdbSP6vdHs1YTZDGjRcSMHN",
-          "balance": "108448000"
-        },
-        {
-          "account": "15zF7zvdUiy2eYCgN6KWbv2SJPdbSP6vdHs1YTZDGjRcSMHN",
-          "balance": "108448000"
-        }
-      ]
+  <CodeGroupItem title="Result">
+  
+  ```
+  {
+    "data": {
+      "accounts": {
+        "nodes": [
+          {
+            "account": "13wY4rD88C3Xzd4brFMPkAMEMC3dSuAR2NC6PZ5BEsZ5t6rJ",
+            "balance": "162804160"
+          },
+          {
+            "account": "146YJHyD5cjFN77HrfKhxUFbU8WjApwk9ncGD6NbxE66vhMS",
+            "balance": "130775360"
+          },
+          {
+            "account": "146YJHyD5cjFN77HrfKhxUFbU8WjApwk9ncGD6NbxE66vhMS",
+            "balance": "130644160"
+          },
+          {
+            "account": "146YJHyD5cjFN77HrfKhxUFbU8WjApwk9ncGD6NbxE66vhMS",
+            "balance": "117559360"
+          },
+          {
+            "account": "12H7nsDUrJUSCQQJrTKAFfyCWSactiSdjoVUixqcd9CZHTGt",
+            "balance": "117359360"
+          },
+          {
+            "account": "146YJHyD5cjFN77HrfKhxUFbU8WjApwk9ncGD6NbxE66vhMS",
+            "balance": "108648000"
+          },
+          {
+            "account": "13wY4rD88C3Xzd4brFMPkAMEMC3dSuAR2NC6PZ5BEsZ5t6rJ",
+            "balance": "108648000"
+          },
+          {
+            "account": "12zSBXtK9evQRCG9Gsdr72RbqNzbNn2Suox2cTfugCLmWjqG",
+            "balance": "108648000"
+          },
+          {
+            "account": "15zF7zvdUiy2eYCgN6KWbv2SJPdbSP6vdHs1YTZDGjRcSMHN",
+            "balance": "108448000"
+          },
+          {
+            "account": "15zF7zvdUiy2eYCgN6KWbv2SJPdbSP6vdHs1YTZDGjRcSMHN",
+            "balance": "108448000"
+          }
+        ]
+      }
     }
   }
-}
-```
+  ```
+  </CodeGroupItem>
+</CodeGroup>
 
 
 If you have nothing returned, wait for a few minutes and let your node index a few blocks.
