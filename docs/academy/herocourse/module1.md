@@ -67,7 +67,7 @@ Please visit [Docker's official site](https://docs.docker.com/get-docker/) for i
 
 ## Exercise 1: Hello World
 
-### High level steps
+### Overview of Steps Involved
 
 1. Initialise a project.
 2. Update your mappings.
@@ -107,7 +107,9 @@ This creates a framework and the following directory structure, saving your time
 
 #### Step 2: Update the Mappings File
 
-The initialisation command pre-creates a sample mappings file with 3 functions: `handleBlock, handleEvent and handleCall`. We will focus on the first function called `handleBlock` for this excerise. Hence, delete the remaining functions. The `mappingHandler.ts` file should look like this:
+The initialisation command pre-creates a sample mappings file with 3 functions: `handleBlock, handleEvent and handleCall`. We will focus on the first function called `handleBlock` for this excerise. Hence, delete the remaining functions. 
+
+- The `mappingHandler.ts` file should look like this:
 
 
 ```
@@ -128,29 +130,11 @@ export async function handleBlock(block: SubstrateBlock): Promise<void> {
 
 The initialisation command also pre-creates a sample manifest file and defines 3 handlers. Since you have removed `handleEvent` and `handleCall` from the mappings file, you have to remove them from the manifest file as well. 
 
-The manifest file should look like this:
+- The ***updated*** part of the manifest file should look like this:
 
 
 ```
-specVersion: 1.0.0
-name: HelloWorld
-version: 1.0.0
-runner:
-  node:
-    name: '@subql/node'
-    version: '>=1.0.0'
-  query:
-    name: '@subql/query'
-    version: '*'
-description: >-
-  This project can be use as a starting point for developing your SubQuery project
-repository: 'https://github.com/subquery/subql-starter'
-schema:
-  file: ./schema.graphql
-network:
-  chainId: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3'
-  endpoint: 'wss://polkadot.api.onfinality.io/public-ws'
-  dictionary: 'https://api.subquery.network/sq/subquery/polkadot-dictionary'
+
 dataSources:
   - kind: substrate/Runtime
     startBlock: 1
