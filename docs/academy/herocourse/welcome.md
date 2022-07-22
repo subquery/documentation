@@ -25,7 +25,7 @@ Take a look at our first course, **SubQuery Hero Course**, and the modules it co
 
 
 ## About the Content 
-Each module consists of 5-10 minutes video lessons. Each video is explained by industry experts and will guide you step by step. Moreover, to make it easier for you, each video content is followed by written tutorials, slides, lab workbooks, and links to the finished GitHub code repository. It focues on the mantra of "learning by trying". 
+Each module consists of 5-10 minutes video lessons. Each video is explained by industry experts and will guide you step by step. Moreover, to make it easier for you, each video content is followed by written tutorials, slides, lab workbooks, and links to the finished GitHub code repository. It focuses on the mantra of "learning by doing". 
 
 ## Results for You
 The course is designed in a way that even if you are a beginner and know very little about SubQuery, you will become an expert in building a SubQuery data source for your new blockchain application. And that even includes developing complex SubQuery Projects and deploying them in SubQuery Projects.
