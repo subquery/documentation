@@ -1,32 +1,32 @@
-# Terminology
+# Термінологія
 
 ![terminology](/assets/img/terminology.png)
 
-## **Allocating**
+## **Розподіл**
 
-Act of an Indexer assigning SQT to a given project.
+Процес призначення SQT для проекту індексатором.
 
-### **Reallocating**
+### **Перерозподілення**
 
-A combined operation of removing staked tokens from one project and immediately associating that with another project (comes into effect at the end of the next Era). This is represented/expressed as a percentage of the indexer’s bonded SQT.
+Одночасний процес з вилучення застейканих токенів з одного проекту і негайне їх стейкінг в іншому проекті(набирає чинність в кінці наступної Ери). Це представлено / виражено як відсоток від усіх залучених SQT токенів індексатора.
 
-## **Bonding**
+## **Залучення**
 
-Act of depositing SQT into a global staking contract performed by either an Indexer or a Delegator.
+Процес внесення SQT в глобальний контракт стейкінгу, виконаний Індексатором або Делегатором.
 
-### **Unbonding**
+### **Відлучення**
 
-Act of an Indexer or a Delegator withdrawing SQT from the global staking contract.
+Процес при яскому Індексатор або Делегатор вилучає частину своїх SQT з глобального контракту.
 
-This is effectively a transfer of SQT from the global staking contract to the Indexer’s or Delegator’s wallet. In other words, this can be thought of as the Indexer or Delegator withdrawing part or all of their stake. Note that a lock period applies when tokens are unbonded.
+Наспраді це просто переміщення SQT з глобального контракту до гаманців Індексатора або Делегатора. Іншими словами, це можна вважати частковим або повним виводом Індексатором або Делегатором своїх застейканих токенів. Зверніть увагу, що діє термін блокування після відлучення токенів.
 
-## **Delegating**
+## **Делегування**
 
-Act of a Delegator assigning SQT into the global staking contract and then assigning SQT to an Indexer. Note that delegating and bonding are atomic operations.
+Процес призначення SQT у глобальний контракт стейкінгу Делегатором, з подальшим призначенням SQT для одного з індексаторів. Зверніть увагу, що делегування і залучення є атомарними операціями.
 
-### **Undelegating**
+### **Припинення делегування**
 
-Act of withdrawing SQT from an Indexer at the end of an Era and then withdrawing that SQT from the global staking contract to a wallet address. This is subject to a lock period.
+Процес виводу SQT з Індексатора в кінці Ери з подальшим виводом цих токенів з глобального контракту стейкінгу на адресу гаманця. Цей процес підпадає від дію періоду блокування.
 
 ### **Redelegating**
 
