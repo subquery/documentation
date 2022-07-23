@@ -88,7 +88,10 @@ cd subqlHelloWorld
 
 现在执行 yarn 或 node install 以安装各种依赖包。
 
-<CodeGroup> # Yarn yarn install # NPM npm install
+```shell
+# Yarn yarn install
+# NPM npm install
+```
 
 ```shell
 > yarn install
@@ -107,6 +110,7 @@ success Saved lockfile.
 success Saved lockfile.
 ✨  Done in 31.84s.
 ```
+
 </p>
 
 ```shell
@@ -129,9 +133,12 @@ success Saved lockfile.
 
 ## 3. 3. 生成代码
 
-现在运行 `yarn codegen` 生成来自 GraphQL schema 的Typescript。
+现在运行 `yarn codegen` 生成来自 GraphQL schema 的 Typescript。
 
-<CodeGroup> # Yarn yarn build # NPM npm run-script build
+```shell
+# Yarn yarn build
+# NPM npm run-script build
+```
 
 ```shell
 > yarn build
@@ -139,6 +146,7 @@ yarn run v1.22.10
 $ tsc -b
 ✨  Done in 5.68s.
 ```
+
 </p>
 
 ```shell
@@ -157,13 +165,16 @@ $ ./node_modules/.bin/subql codegen
 ✨  Done in 1.02s.
 ```
 
-**警告** 当更改schema 文件时，请记住重新运行 `yarn codegen` 以重新生成您的类型目录。
+**警告** 当更改 schema 文件时，请记住重新运行 `yarn codegen` 以重新生成您的类型目录。
 
 ## 4. Build code
 
 下一步是使用 `yarn building` 来构建代码。
 
-<CodeGroup> # Yarn yarn codegen # NPM npm run-script codegen
+````shell
+# Yarn yarn codegen
+# NPM npm run-script codegen
+```
 
 ```shell
 > yarn codegen
@@ -180,6 +191,7 @@ $ ./node_modules/.bin/subql codegen
 * Types index generated !
 ✨  Done in 1.02s.
 ```
+
 </p>
 
 ```shell
@@ -249,3 +261,4 @@ Playground 中的区块计数也应与终端中的区块计数（严格来说是
 ## 概括
 
 在这个快速入门中，我们演示了在 Docker 环境中启动和运行一个初始项目的基本步骤，然后导航到 localhost:3000，并运行查询以返回主网 Polkadot network 的区块号。
+````

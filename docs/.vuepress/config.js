@@ -3,12 +3,43 @@ const { config } = require("vuepress-theme-hope");
 module.exports = config({
   title: "SubQuery Academy",
   head: [
-    ['link', { rel: 'icon', href: 'public/assets/img/logo.png' }],
-    ['link', { rel: 'icon', href: 'public/assets/favicons/favicon.ico', type: 'image/x-icon' }],
-    ['link', { rel: 'apple-touch-icon', type: 'image/png', sizes: '180x180', href: 'public/assets/favicons/apple-touch-icon.png'}],
-    ['link', { rel: 'icon', type: 'image/png', sizes: '32x32', href: 'public/assets/favicons/favicon-32x32.png'}],
-    ['link', { rel: 'icon', type: 'image/png', sizes: '16x16', href: 'public/assets/favicons/favicon-16x16.png'}],
-    ['link', { rel: 'manifest', href: 'public/assets/manifest.json'}]
+    ["link", { rel: "icon", href: "public/assets/img/logo.png" }],
+    [
+      "link",
+      {
+        rel: "icon",
+        href: "public/assets/favicons/favicon.ico",
+        type: "image/x-icon",
+      },
+    ],
+    [
+      "link",
+      {
+        rel: "apple-touch-icon",
+        type: "image/png",
+        sizes: "180x180",
+        href: "public/assets/favicons/apple-touch-icon.png",
+      },
+    ],
+    [
+      "link",
+      {
+        rel: "icon",
+        type: "image/png",
+        sizes: "32x32",
+        href: "public/assets/favicons/favicon-32x32.png",
+      },
+    ],
+    [
+      "link",
+      {
+        rel: "icon",
+        type: "image/png",
+        sizes: "16x16",
+        href: "public/assets/favicons/favicon-16x16.png",
+      },
+    ],
+    ["link", { rel: "manifest", href: "public/assets/manifest.json" }],
   ],
   locales: {
     "/": {
@@ -148,10 +179,79 @@ module.exports = config({
           id: "G-MY90N76MNK",
         },
         "fulltext-search",
-        '@vuepress/pwa'
+        "@vuepress/pwa",
       ],
     ],
-    pwa: true,
+    pwa: {
+      manifest: {
+        name: "SubQuery Academy",
+        short_name: "SubQuery Academy",
+        start_url: "https://academy.subquery.network",
+        display: "standalone",
+        theme_color: "#fff",
+        background_color: "#fff",
+        description:
+          "Explore and transform your chain data to build intuitive dApps faster!",
+        orientation: "portrait-primary",
+        scope: "./",
+        icons: [
+          {
+            src: "public/assets/icons/icon-48x48.png",
+            sizes: "48x48",
+            type: "image/png",
+            purpose: "any",
+          },
+          {
+            src: "public/assets/icons/icon-72x72.png",
+            sizes: "72x72",
+            type: "image/png",
+            purpose: "any",
+          },
+          {
+            src: "public/assets/icons/icon-96x96.png",
+            sizes: "96x96",
+            type: "image/png",
+            purpose: "any",
+          },
+          {
+            src: "public/assets/icons/icon-128x128.png",
+            sizes: "128x128",
+            type: "image/png",
+            purpose: "any",
+          },
+          {
+            src: "public/assets/icons/icon-144x144.png",
+            sizes: "144x144",
+            type: "image/png",
+            purpose: "any",
+          },
+          {
+            src: "public/assets/icons/icon-152x152.png",
+            sizes: "152x152",
+            type: "image/png",
+            purpose: "any",
+          },
+          {
+            src: "public/assets/icons/icon-192x192.png",
+            sizes: "192x192",
+            type: "image/png",
+            purpose: "any",
+          },
+          {
+            src: "public/assets/icons/icon-384x384.png",
+            sizes: "384x384",
+            type: "image/png",
+            purpose: "any",
+          },
+          {
+            src: "public/assets/icons/icon-512x512.png",
+            sizes: "512x512",
+            type: "image/png",
+            purpose: "any",
+          },
+        ],
+      },
+    },
     sidebarDepth: 2,
     themeColor: false,
   },
