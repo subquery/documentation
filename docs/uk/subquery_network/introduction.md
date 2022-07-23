@@ -1,6 +1,6 @@
-# Introduction
+# Вступ
 
-**The SubQuery Network is the future of web3 infrastructure**
+**Мережа SubQuery - це майбутнє web3 інфраструктури**
 
 We’re building the most open, performant, reliable, and scalable data service for dApp developers.
 
