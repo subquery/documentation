@@ -2,38 +2,38 @@
 
 **Мережа SubQuery - це майбутнє web3 інфраструктури**
 
-We’re building the most open, performant, reliable, and scalable data service for dApp developers.
+Ми будуємо найбільш відкритий, продуктивний, надійний та маштабуємий сервіс даних для розробників dApp.
 
-The SubQuery Network indexes and services data to the global community in an incentivised and verifiable way.
+Мережа SubQuery індексує та надає данні всесвітній спільноті шляхом що є одночасно стимулюючим та може бути верифікованим.
 
-After publishing your project to the SubQuery Network, anyone can index and host it - providing data to users around the world faster and reliably.
+Після публікації вашого проектут в Мережі SubQuery, будь-хто може індексувати та розміщувати ваш проект - надаючи дані користувачам по всьому світі швидше та надійніше.
 
-The SubQuery Network is facilitating an open web3 data revolution by allowing you to completely decentralise your infrastructure stack.
+Мережа SubQuery сприяє революції відкритих даних web3 дозволяючи вам повністю децентралізувавши вашу інфраструктуру.
 
-## Participants
+## Учасники
 
-There’s a role for everyone in the network, from highly technical developers to those that are not. The SubQuery network includes four main network participants.
+В мережі знайдеться відповідна роль для кожного, починаючи з високотехнічних розробників і закінчуючи повністю не технічними учасниками. Мережа SubQuery включає чотири основних учасника мережі.
 
 ### Споживачі
 
-Consumers will ask the SubQuery Network for specific data for their dApps or tools, and pay an advertised amount of SQT for each request.
+Споживачи роблять запити Мережі SubQuery на конкретні дані для їх інструпенту або dApp, та платять відповідну кількість токенів SQT за кожен запит.
 
-::: info Note Learn more about [Consumers](./consumers.md). :::
+::: інформація Дізнайтеся більше про [Споживачів](./consumers.md). :::
 
-### Indexers
+### Індексатор
 
-Indexers will run and maintain high quality SubQuery projects in their own infrastructure, running both the indexer and query service, and will be rewarded in SQT for the requests that they serve.
+Індексатори працюватимуть та підтримуватимуть високоякісні проекти SubQuery в своїй власній інфраструктурі, виконуючи роль індексатора та обробляючи запиті, та будуть винагороджені в SQT за запити що вони обробили.
 
-::: info Note Learn more about [Indexers](./indexers.md). :::
+::: інформація Дізнайтеся більше про [Споживачів](./indexers.md). :::
 
-### Делегат
+### Делегатори
 
-Delegators will participate in the Network by supporting their favourite Indexers to earn rewards based on the work those indexers do.
+Делегатори братимуть участь в роботі Мережі, підтримуючи обраних Індексаторів та отримуючи винагороди на основі результатів роботи цих індексаторів.
 
-::: info Note Learn more about [Delegators](./delegators.md). :::
+::: інформація Дізнайтеся більше про [Споживачів](./delegators.md). :::
 
-### Architects
+### Архітектори
 
-Architects are the builders of the SubQuery projects that the Network runs on. They author and publish SubQuery projects for the Network to index and run.
+Архітектори - це розробники проектів SubQuery на яких працює мережа. Вони займаються розробкою та публікацією SubQuery проектів, які будуть запускатися та індексуватися Мережою.
 
-::: info Note Learn more about [how to build your first SubQuery project](../build/introduction.md). :::
+::: інформація дізнатися більше про [як створити перший проект SubQuery](../build/introduction.md). :::
