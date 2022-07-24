@@ -3,7 +3,7 @@
   <section class="welcomeWords">
     <div class="main">
       <div>
-        <h2 class="welcomeTitle">Добро пожаловать в SubQuery’s <span>Docs</span></h2>
+        <h2 class="welcomeTitle">Добро пожаловать в SubQuery <span>Docs</span></h2>
         <p>Изучите и преобразуйте свои ончейн данные, чтобы быстрее создавать интуитивно понятные приложения!</p>
         <p><strong>SubQuery теперь поддерживает Polkadot, Avalanche и Cosmos (начиная с Juno).
 </strong></p>
