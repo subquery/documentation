@@ -1,12 +1,12 @@
-# Running SubQuery Locally
+# การรัน Subquery แบบ Local
 
 This guide works through how to run a local SubQuery node on your infrastructure, which includes both the indexer and query service. Don't want to worry about running your own SubQuery infrastructure? SubQuery provides a [managed hosted service](https://explorer.subquery.network) to the community for free. [Follow our publishing guide](../run_publish/publish.md) to see how you can upload your project to [SubQuery Projects](https://project.subquery.network).
 
-## Using Docker
+## การใช้งานรวมกับ Docker
 
 An alternative solution is to run a <strong>Docker Container</strong>, defined by the `docker-compose.yml` file. For a new project that has been just initialised you won't need to change anything here.
 
-Under the project directory run the following command:
+ภายใต้ Project Directory สามารถรันคำสั่งเหล่านี้
 
 ```shell
 docker-compose pull && docker-compose up
@@ -16,13 +16,13 @@ docker-compose pull && docker-compose up
 
 ## Running an Indexer (subql/node)
 
-Requirements:
+ความต้องการ
 
 - [Postgres](https://www.postgresql.org/) database (version 12 or higher). While the [SubQuery node](run.md#start-a-local-subquery-node) is indexing the blockchain, the extracted data is stored in an external database instance.
 
 A SubQuery node is an implementation that extracts Substrate/Polkadot-based blockchain data per the SubQuery project and saves it into a Postgres database.
 
-### Installation
+### การติดตั้ง
 
 <CodeGroup>
 <CodeGroupItem title='Substrate/Polkadot'>
@@ -53,7 +53,7 @@ npm install -g @subql/node-avalanche
 
 ::: danger Please note that we **DO NOT** encourage the use of `yarn global` due to its poor dependency management which may lead to an errors down the line. :::
 
-Once installed, you can start a node with the following command:
+เมื่อติดตั้งแล้ว สามารถเริ่มรันโหนดด้วยคำสั่งเหล่านี้:
 
 
 <CodeGroup>
@@ -82,9 +82,9 @@ subql-node-avalanche <command>
 
 ### Key Commands
 
-The following commands will assist you to complete the configuration of a SubQuery node and begin indexing. To find out more, you can always run `--help`.
+The following commands will assist you to complete the configuration of a SubQuery node and begin indexing. หากต้องการดูคำสั่งเพิ่มเติม ให้ใช้ `--help`
 
-#### Point to local project path
+#### ชี้ไปที่ local path ของโปรเจ็คต์
 
 <CodeGroup>
 <CodeGroupItem title='Substrate/Polkadot'>
@@ -142,9 +142,9 @@ subql-node-avalanche --network-dictionary=https://api.subquery.network/sq/subque
 </CodeGroupItem>
 </CodeGroup>
 
-::: info Note You can read more about [how a SubQuery Dictionary works](../academy/tutorials_examples/dictionary.md). :::
+::: ข้อมูลเพิ่มเติม คุณสามารถอ่านข้อมูลเพิ่มเติมได้ที่ [how a SubQuery Dictionary works](../academy/tutorials_examples/dictionary.md). :::
 
-#### Connect to database
+#### เชื่อมต่อกับฐานข้อมูล
 
 ```shell
 export DB_USER=postgres
@@ -183,7 +183,7 @@ subql-node-avalanche -c your-project-config.yml
 </CodeGroupItem>
 </CodeGroup>
 
-This will point the query node to a configuration file which can be in YAML or JSON format. Check out the example below.
+This will point the query node to a configuration file which can be in YAML or JSON format. ดูตัวอย่างข้างล่างนี้.
 
 ```yaml
 subquery: ../../../../subql-example/extrinsics
@@ -204,7 +204,7 @@ Result:
 
 When the indexer first indexes the chain, fetching single blocks will significantly decrease the performance. Increasing the batch size to adjust the number of blocks fetched will decrease the overall processing time. The current default batch size is 100.
 
-#### Run in local mode
+#### รันในโหมด Local
 
 <CodeGroup>
 <CodeGroupItem title='Substrate/Polkadot'>
@@ -234,9 +234,9 @@ For debugging purposes, users can run the node in local mode. Switching to local
 
 If local mode is not used, a new Postgres schema with the initial `subquery_` and corresponding project tables will be created.
 
-#### Check your node health
+#### ตรวจสอบสถานะของโหนด
 
-There are 2 endpoints that you can use to check and monitor the health of a running SubQuery node.
+มีอยู่ 2 endpoints ที่คุณสามารถใช้ตรวจสอบและมอนิเตอร์สถานะของ Subquery โหนดที่กำลังรันอยู่
 
 - Health check endpoint that returns a simple 200 response.
 - Metadata endpoint that includes additional analytics of your running SubQuery node.
@@ -264,7 +264,7 @@ Append this to the base URL of your SubQuery node. Eg `http://localhost:3000/met
 }
 ```
 
-`http://localhost:3000/health` will return HTTP 200 if successful.
+`http://localhost:3000/health` จะคืนค่า HTTP200 ถ้าสำเร็จ
 
 A 500 error will be returned if the indexer is not healthy. This can often be seen when the node is booting up.
 
@@ -275,7 +275,7 @@ A 500 error will be returned if the indexer is not healthy. This can often be se
 }
 ```
 
-If an incorrect URL is used, a 404 not found error will be returned.
+ถ้าหากใช้ URL ที่ไม่ถูกต้อง 404 not found error จะถูกส่งกลับมา
 
 ```shell
 {
@@ -306,7 +306,7 @@ Then open up the Chrome dev tools, go to Source > Filesystem and add your projec
 
 ## Running a Query Service (subql/query)
 
-### Installation
+### การติดตั้ง
 
 ```shell
 # NPM
