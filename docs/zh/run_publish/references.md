@@ -19,27 +19,27 @@ COMMANDS
 
 ### 构建...
 
-This command is uses webpack to generate a bundle of a subquery project.
+此命令使用 webpack 生成subquery项目的捆绑包。
 
-| Options            | 描述                                                                                                         |
-| ------------------ | ---------------------------------------------------------------------------------------------------------- |
-| -l, --location     | local folder of subquery project (if not in folder already)                                                |
-| -o, --output       | specify output folder of build e.g. build-folder                                                           |
-| --mode=(production | prod                                                        | development | dev) | [ default: production ] |
+| 选项                 | 描述                                              |
+| ------------------ | ----------------------------------------------- |
+| -l, --location     | subquery项目的本地文件夹(如果没有在文件夹中)                     |
+| -o, --output       | 指定构建的输出文件夹，例如：build-folder                      |
+| --mode=(production | prod | development | dev) | [ 默认 ︰ production ] |
 
-- With `subql build` you can specify additional entry points in exports field although it will always build `index.ts` automatically.
+- 用`subql build`命令，您可以在exports字段中指定额外的入口点，尽管它总是会自动构建 < 0 >index.ts < / 0 >
 
-- You need to have @subql/cli v0.19.0 or above to use exports field.
+- 您需要有 @subql/cli v0.19.0 或更高版本才能使用exports字段。
 
-- Any `exports` field must map to string type (e.g. `"entry": "./src/file.ts"`), else it will be ignored from build.
+- 任何`exports` 字段必须映射到字符串类型(例如， `"entry": "./src/file.ts"`)，否则它将被从构建中忽略。
 
-[Futher example](../build/introduction.md#build).
+[另一个例子](../build/introduction.md#build)。
 
 ## subql-node
 
 ### --help
 
-This shows the help options.
+这显示了帮助选项。
 
 ```shell
 > subql-node --help
@@ -87,7 +87,7 @@ Options:
 
 ### --version
 
-This displays the current version.
+这将显示当前版本。
 
 ```shell
 > subql-node --version
@@ -96,16 +96,16 @@ This displays the current version.
 
 ### -f, --subquery
 
-Use this flag to start the SubQuery project.
+使用此标志启动SubQuery项目。
 
 ```shell
-subql-node -f . // OR
+subql-node -f . // 或者
 subql-node --subquery .
 ```
 
-### --subquery-name (deprecated)
+### --subquery-name (已废弃)
 
-This flag allows you to provide a name for your project which acts as if it creates an instance of your project. Upon providing a new name, a new database schema is created and block synchronisation starts from zero. Deprecated in favour of `--db-schema`
+如果您新建了一个项目的实例，这个命令行将允许您为这个项目提供一个新名称。 在提供一个新名称后，将创建一个新的数据库模式，并从零区块开始进行区块同步。 已弃用，取而代之的是 `--db-schema`
 
 ```shell
 subql-node -f . --subquery-name=test2
@@ -113,9 +113,9 @@ subql-node -f . --subquery-name=test2
 
 ### -c, --config
 
-All these various configurations can be placed into a .yml or .json file and then referenced with the config flag.
+所有这些不同的配置都可以放置到 .yml 或 .json 文件中，然后用config参数进行引用。
 
-Sample subquery_config.yml file:
+示例subquery_config.yml文件：
 
 ```shell
 subquery: . // Mandatory. This is the local path of the project. The period here means the current local directory.
@@ -123,52 +123,58 @@ subqueryName: hello // Optional name
 batchSize: 55 // Optional config
 ```
 
-Place this file in the same directory as the project. Then in the current project directory, run:
+将此文件放在与项目相同的目录中。 然后在当前项目目录中，运行：
 
 ```shell
 > subql-node -c ./subquery_config.yml
 ```
 
-### --local (deprecated)
+### --local (已废弃)
 
-This flag is primarily used for debugging purposes where it creates the default starter_entity table in the default "postgres" schema.
+这个标志主要用于调试，在默认的“postgres”模式中创建默认starter_entity 表。
 
 ```shell
 subql-node -f . --local
 ```
 
-Note that once you use this flag, removing it won't mean that it will point to another database. To repoint to another database you will have to create a NEW database and change the env settings to this new database. In other words, "export DB_DATABASE=<new_db_here>".
+请注意，一旦您使用此命令行，删除它并不意味着它会指向另一个数据库。 要重新指向另一个数据库，您将需要创建一个新的数据库，并将环境设置更改为这个新数据库。 换言之，“export DB_DATABASE=<new_db_here>".
 
 ### --force-clean
 
-This flag forces the project schemas and tables to be regenerated, helpful to use when iteratively developing graphql schemas such that new runs of the project are always working with a clean state. Note that this flag will also wipe all indexed data.
+此标志强制重新生成项目模式和表，在迭代开发graphql模式时很有用，这样项目的新运行总是以干净的状态运行。 请注意，此命令行也会清除所有索引数据。
 
 ### --db-schema
 
-This flag allows you to provide a name for the project database schema. Upon providing a new name, a new database schema is created with the configured name and block indexing starts.
+此标志允许您为项目数据库方案提供一个名称。 提供新名称后，将使用配置的名称创建新的数据库模式，并开始块索引。
 
 ```shell
 subql-node -f . --db-schema=test2
 ```
 
 ### --subscription
-This will create a notification trigger on entity, this also is the prerequisite to enable subscription feature in query service.
+这将在实体上创建一个通知触发器，这也是在查询服务中启用订阅功能的先决条件。
 
 ### --unsafe
 
-SubQuery Projects are usually run in a javascript sandbox for security to limit the scope of access the project has to your system. The sandbox limits the available javascript imports to the following modules:
+SubQuery 项目通常在javascript sandbox中运行，以保证安全，限制项目对您系统的访问范围。 沙盒将可用的 javascript 导入限制为以下模块：
 
 ```javascript
 ["assert", "buffer", "crypto", "util", "path"];
 ```
 
-Although this enhances security we understand that this limits the available functionality of your SubQuery. The `--unsafe` command imports all default javascript modules which greatly increases sandbox functionality with the tradeoff of decreased security.
+虽然这会增强安全性，但我们理解这会限制您的 SubQuery 可用的功能。 `--unsafe` 命令导入所有默认的 javascript 模块，这些模块大大增加了安全性降低后的沙盒功能。
 
-**Note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in [SubQuery's managed service](https://project.subquery.network).**
+**请注意，`--unsafe` 命令将阻止您的项目在 SubQuery 网络中运行，如果您希望此命令与您的项目一起在
+
+SubQuery 的托管服务中运行< /1>。</strong></p> 
+
+
 
 ### --batch-size
 
-This flag allows you to set the batch size in the command line. If batch size is also set in the config file, this takes precedent.
+此标志将允许您在命令行中设置批量大小。 如果在配置文件中也设置了批量大小，则优先。
+
+
 
 ```shell
 > subql-node -f . --batch-size=20
@@ -178,17 +184,26 @@ This flag allows you to set the batch size in the command line. If batch size is
 2021-08-09T23:24:49.235Z <fetch> INFO fetch block [6661,6680], total 20 blocks
 ```
 
-### --scale-batch-size
 
-Scale the block fetch batch size with memory usage.
+
+
+### --scale-batch-size 
+
+使用内存使用来缩放区块获取批量大小。
+
+
 
 ### --timeout
 
-Set custom timeout for the javascript sandbox to execute mapping functions over a block before the block mapping function throws a timeout exception.
+为 javascript 沙箱设置自定义超时以在块映射函数引发超时异常之前在块上执行映射函数。
+
+
 
 ### --debug
 
-This outputs debug information to the console output and forcefully sets the log level to debug.
+这会将调试信息输出到控制台输出并强制将日志级别设置为调试。
+
+
 
 ```shell
 > subql-node -f . --debug
@@ -197,9 +212,14 @@ This outputs debug information to the console output and forcefully sets the log
 2021-08-10T11:45:39.472Z <db> DEBUG Executing (1b0d0c23-d7c7-4adb-a703-e4e5c414e035): COMMIT;
 ```
 
+
+
+
 ### --profiler
 
-This shows profiler information.
+这将显示分析器信息。
+
+
 
 ```shell
 subql-node -f . --local --profiler
@@ -209,15 +229,23 @@ subql-node -f . --local --profiler
 2021-08-10T10:57:10.361Z <fetch> INFO fetch block [3801,3900], total 100 blocks
 ```
 
+
+
+
 ### --network-endpoint
 
-This flag allows users to override the network endpoint configuration from the manifest file.
+此命令行允许用户从清单文件覆盖网络端点配置。
+
+
 
 ```shell
 subql-node -f . --network-endpoint="wss://polkadot.api.onfinality.io/public-ws"
 ```
 
+
 Note that this must also be set in the manifest file, otherwise you'll get:
+
+
 
 ```shell
 ERROR Create Subquery project from given path failed! Error: failed to parse project.yaml.
@@ -226,14 +254,22 @@ An instance of ProjectManifestImpl has failed the validation:
  - property network.network has failed the following constraints: nestedValidation
 ```
 
+
+
+
 ### --output-fmt
 
 There are two different terminal output formats. JSON or colored. Colored is the default and contains colored text.
+
+
 
 ```shell
 > subql-node -f . --output-fmt=json
 {"level":"info","timestamp":"2021-08-10T11:58:18.087Z","pid":24714,"hostname":"P.local","category":"fetch","message":"fetch block [10501,10600], total 100 blocks"}
 ```
+
+
+
 
 ```shell
 > subql-node -f . --output-fmt=colored
@@ -243,9 +279,14 @@ There are two different terminal output formats. JSON or colored. Colored is the
 2021-08-10T11:57:51.862Z <fetch> INFO fetch block [10301,10400], total 100 blocks
 ```
 
+
+
+
 ### --log-level
 
 There are 7 options to choose from. “fatal”, “error”, “warn”, “info”, “debug”, “trace”, “silent”. The example below shows silent. Nothing will be printed in the terminal so the only way to tell if the node is working or not is to query the database for row count (select count(\*) from subquery_1.starter_entities) or query the block height.
+
+
 
 ```shell
 > subql-node -f . --log-level=silent
@@ -269,11 +310,16 @@ There are 7 options to choose from. “fatal”, “error”, “warn”, “inf
 
 By default this is true. when set to false with:
 
+
+
 ```shell
 > subql-node -f . –timestamp-field=false
 ```
 
+
 This removes the created_at and updated_at columns in the starter_entities table.
+
+
 
 ### -d, --network-dictionary
 
@@ -281,25 +327,38 @@ This allows you to specify a dictionary endpoint which is a free service that is
 
 Typically this would be set in your manifest file but below shows an example of using it as an argument in the command line.
 
+
+
 ```shell
 subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot"
 ```
 
+
 [Read more about how a SubQuery Dictionary works](../academy/tutorials_examples/dictionary.md).
+
+
 
 ### -p, --port
 
 The port the subquery indexing service binds to. By default this is set to `3000`.
 
+
+
 ### --disable-historical
 
 Disables automated historical state tracking, [see Historic State Tracking](./historical.md). By default this is set to `false`.
 
+
+
 ## subql-query
+
+
 
 ### --help
 
-This shows the help options.
+这显示了帮助选项。
+
+
 
 ```shell
 Options:
@@ -322,18 +381,28 @@ Options:
   -p, --port          The port the service will bind to                   [number]
 ```
 
+
+
+
 ### --version
 
-This displays the current version.
+这将显示当前版本。
+
+
 
 ```shell
 > subql-query --version
 0.7.0
 ```
 
+
+
+
 ### -n, --name
 
 This flag is used to start the query service. If the --subquery-name flag is not provided when running an indexer, the name here will refer to the default project name. If --subquery-name is set, then the name here should match what was set.
+
+
 
 ```shell
 > subql-node -f . // --subquery-name not set
@@ -341,39 +410,59 @@ This flag is used to start the query service. If the --subquery-name flag is not
 > subql-query -n subql-helloworld  --playground // the name defaults to the project directory name
 ```
 
+
+
+
 ```shell
 > subql-node -f . --subquery-name=hiworld // --subquery-name set
 
 > subql-query -n hiworld --playground  // the name points to the subql-helloworld project but with the name of hiworld
 ```
 
+
+
+
 ### --playground
 
 This flag enables the graphql playground so should always be included by default to be of any use.
+
+
 
 ### --output-fmt
 
 See [--output-fmt](../run_publish/references.md#output-fmt).
 
+
+
 ### --log-level
 
 See [--log-level](../run_publish/references.md#log-level).
+
+
 
 ### --log-path
 
 Enable file logging by providing a path to a file to log to.
 
+
+
 ### --log-rotate
 
 Enable file log rotations with the options of a 1d rotation interval, a maximum of 7 files and with a max file size of 1GB.
+
+
 
 ### --indexer
 
 Set a custom url for the location of the endpoints of the indexer, the query service uses these endpoints for indexer health, metadata and readiness status.
 
+
+
 ### --subscription
 
 This flag enables [GraphQL Subscriptions](./subscription.md), to enable this feature requires `subql-node` also enable `--subscription`.
+
+
 
 ### --unsafe
 
@@ -384,6 +473,8 @@ This flag enables certain aggregation functions including sum, max, avg and othe
 These are disabled by default due to the entity limit.
 
 **Note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in [SubQuery's Managed Services](https://project.subquery.network).**
+
+
 
 ### --port
 
