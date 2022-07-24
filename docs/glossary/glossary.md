@@ -1,11 +1,9 @@
 # Glossary
 
-<!--->
-# Terminology
+
+# Network
 
 ![terminology](/assets/img/terminology.png)
-
--->
 
 ## **Service Agreements**
 
