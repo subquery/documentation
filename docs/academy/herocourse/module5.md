@@ -97,5 +97,4 @@ It is important to keep your SubQuery projects tidy and ensure that test project
 
 ### References
 
-- [Deplying a project to SubQuery Explorer](/assets/pdf/Deploying_Subquery_Project)
 - [What are deployment slots?](../../faqs/faqs.md#what-are-deployment-slots)
