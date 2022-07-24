@@ -11,7 +11,7 @@ SubQuery는 다양한 소셜 미디어 채널을 통해 팔로워들과 소통�
 - [Medium](https://subquery.medium.com) (기본 공지 채널)
 - [Twitter](https://twitter.com/subquerynetwork)
 - [Telegram](https://t.me/subquerynetwork) (공식 발표 채널만)
-- [GitHub](https://github.com/SubQuery/subql)
+- [GitHub](https://github.com/subquery/)
 - [Matrix/Riot](https://matrix.to/#/#subquery:matrix.org)
 - [LinkedIn](https://www.linkedin.com/company/subquery)
 
