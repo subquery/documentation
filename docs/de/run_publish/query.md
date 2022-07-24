@@ -10,8 +10,6 @@ Der SubQuery-Explorer erleichtert den Einstieg. Wir hosten diese SubQuery-Projek
 
 Sie werden auch feststellen, dass der SubQuery-Explorer eine Spielwiese zum Auffinden verfügbarer Daten mit Beispielabfragen bietet – Sie können Abfragen direkt in Ihrem Browser testen, ohne Code zu implementieren. Darüber hinaus haben wir einige kleine Verbesserungen an unserer Dokumentation vorgenommen, um Entwickler auf ihrem Weg zur besseren Abfrage und Analyse der Polkadot-Daten der Welt besser zu unterstützen.
 
-Oben rechts auf dem Playground finden Sie eine Schaltfläche _Dokumente_, die eine Dokumentationsverlosung öffnet. Diese Dokumentation wird automatisch generiert und hilft Ihnen zu finden, welche Entitäten und Methoden Sie abfragen können. Im folgenden Beispiel verwenden wir die [Sum Rewards SubQuery](https://explorer.subquery.network/subquery/OnFinality-io/sum-reward), um die 5 Konten mit den höchsten Prämien (in Bezug auf den Staking-Umsatz) auf Polkadot zu ermitteln, die noch nie gekürzt wurden.
-
-![SubQuery-Dokumentation](https://static.subquery.network/media/explorer/explorer-documentation.png)
+On the top right of the playground, you'll find a *Docs* button that will open a documentation draw. Diese Dokumentation wird automatisch generiert und hilft Ihnen zu finden, welche Entitäten und Methoden Sie abfragen können.
 
 ::: info Note Learn more about the [GraphQL Query language.](./graphql.md) :::
