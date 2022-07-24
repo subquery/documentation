@@ -11,7 +11,7 @@
 
 There are two methods to deploy a new version of your project to the SubQuery Managed Service, you can use the UI or directly via the `subql` cli tool.
 
-### Using the UI
+### 使用用户界面
 
 Log into SubQuery Project and select the project you want to deploy a new version of. You can choose to either deploy to the production or staging slot. These two slots are isolated environments and each has their own databases and synchronise independently.
 
@@ -27,12 +27,12 @@ The staging slot is perfect for:
 
 在 GitHub 中填写您想要部署的 SubQuery 项目代码库版本的 SubQuery 哈希(复制完整的提交哈希)。 这将导致更长的停机时间，取决于索引当前链所需的时间。 您可以一直在这里报告进度。
 
-### Using the CLI
+### 使用CLI
 
 You can also use `@subql/cli` to create a new deployment of your project to our managed service. This requires:
 
-- `@subql/cli` version 1.1.0 or above.
-- A valid [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) ready.
+- `@subql/cli` 版本 1.1.0 或以上.
+- 有效的 [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) 就绪。
 
 ```shell
 // You can directly set your Indexer and Query versions
