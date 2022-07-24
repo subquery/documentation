@@ -10,8 +10,6 @@ Trình khám phá SubQuery giúp bạn bắt đầu dễ dàng. Chúng tôi đan
 
 Bạn cũng sẽ lưu ý rằng SubQuery Explorer cung cấp một sân chơi để khám phá dữ liệu có sẵn với các truy vấn mẫu - bạn có thể kiểm tra các truy vấn trực tiếp trong trình duyệt của mình mà không cần triển khai mã. Ngoài ra, chúng tôi đã thực hiện một số cải tiến nhỏ đối với tài liệu của mình để hỗ trợ tốt hơn cho các nhà phát triển trong hành trình truy vấn và phân tích dữ liệu của thế giới Polkadot tốt hơn.
 
-Ở trên cùng bên phải của sân chơi, bạn sẽ tìm thấy nút _Tài liệu_ sẽ mở bản vẽ tài liệu. Tài liệu này được tạo tự động và giúp bạn tìm thấy những thực thể và phương pháp nào bạn có thể truy vấn. Trong ví dụ dưới đây, chúng tôi đang sử dụng [ Sum Rewards SubQuery ](https://explorer.subquery.network/subquery/OnFinality-io/sum-reward) để có được 5 tài khoản được thưởng nhiều nhất (về doanh thu đặt cược) trên Polkadot chưa bao giờ bị cắt giảm.
-
-![Tài Liệu SubQuery](https://static.subquery.network/media/explorer/explorer-documentation.png)
+On the top right of the playground, you'll find a *Docs* button that will open a documentation draw. Tài liệu này được tạo tự động và giúp bạn tìm thấy những thực thể và phương pháp nào bạn có thể truy vấn.
 
 ::: info Note Learn more about the [GraphQL Query language.](./graphql.md) :::
