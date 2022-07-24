@@ -48,7 +48,7 @@
           <div>
             <img src="/assets/img/networkIcon.svg" />
             <span>The SubQuery Network</span>
-            <p>SubQuery’s decentralised future. Read more about how indexers and consumers are rewarded.</p>
+            <p>SubQuery’s decentralised future. อ่านเพิ่มเติมเกียวกับการให้รางวัลแก Indexers และ ผู้บริโภค</p>
           </div>
         </router-link>
       </li>
