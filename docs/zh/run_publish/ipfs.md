@@ -2,13 +2,13 @@
 
 本指南通过如何发布本地的 SubQuery 项目到 [IPFS](https://ipfs.io/) 并将其部署到我们的托管基础设施上。
 
-Hosting a project in IPFS makes it available for all and reduces your reliance on centralised services like GitHub.
+在 IPFS 中托管一个项目，可以让所有人都能使用，并减少您对中心化服务的依赖，例如GitHub。
 
 ## 安装要求
 
 - `@subql/cli` 版本 0.21.0 或以上.
 - Manifest `spec版本` 0.2.0 及以上.
-- Get your [SUBQL_ACCESS_TOKEN](ipfs.md#prepare-your-subql-access-token) ready.
+- 准备好您的 [SUBQL_ACCESS_TOKEN](ipfs.md#prepare-your-subql-access-token)
 - 为了确保您的部署成功，我们强烈建议您使用 `subql build` 命令来构建您的项目。 并在发布前在本地测试它。
 
 ## 准备您的 SUBQL_ACCESS_TOKEN
