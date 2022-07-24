@@ -58,7 +58,7 @@ Refer to the documentation references, given at the end of the each lesson, for 
 
 ### Exercise - Account Balances
 
-Let's take up a starter project in this exercise and use an **event handler** to extract the balance of each account.
+Using the starter project for this exercise, we will use an **event handler** to extract the balance of each account.
 
 ### Pre-Requisites
 
