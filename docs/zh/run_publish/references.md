@@ -1,4 +1,4 @@
-# Command Line Flags
+# 命令行标志
 
 ## subql (cli)
 
@@ -17,7 +17,7 @@ COMMANDS
   validate  Check a folder or github repo is a validate subquery project
 ```
 
-### build
+### 构建...
 
 This command is uses webpack to generate a bundle of a subquery project.
 
