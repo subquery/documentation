@@ -12,18 +12,6 @@ The course is 100% free and accessible online.
   <iframe src="https://www.youtube.com/embed/LgkXd4f3WKg" frameborder="0" allowfullscreen="true"></iframe>
 </figure>
 
-Take a look at our first course, **SubQuery Hero Course**, and the modules it covers in the following structure:
-
-| Module                                                                         | 
-| ------------------------------------------------------------------------------ | 
-| [Module 1 — Getting Started](../herocourse/module1.md)                      | 
-| [Module 2 — SubQuery Basics](../herocourse/module2.md)                      | 
-| [Module 3 — Relationships](../herocourse/module3.md)                        | 
-| [Module 4 — Aggregation and Event Calls](../herocourse/module4.md)          | 
-| [Module 5 — SubQuery Projects & SubQuery Explorer](../herocourse/module5.md)| 
-| [Module 6 — Tips & Tricks](../herocourse/module6.md)                        | 
-
-
 ## About the Content 
 Each module consists of 5-10 minutes video lessons. Each video is explained by industry experts and will guide you step by step. Moreover, to make it easier for you, each video content is followed by written tutorials, slides, lab workbooks, and links to the finished GitHub code repository. It focuses on the mantra of "learning by doing". 
 
