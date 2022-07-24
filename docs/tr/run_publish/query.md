@@ -10,8 +10,6 @@ SubQuery gezgini, başlama sürecini oldukça kolay bir hale getirir. Bu SubQuer
 
 Ayrıca, SubQuery Explorer'ın örnek sorgularla mevcut verileri keşfetmek için bir oyun alanı sağladığını da unutmayın - sorguları kod implemente etmeye gerek kalmadan doğrudan tarayıcınızda test edebilirsiniz. Ek olarak, dünyanın Polkadot verilerini daha iyi sorgulama ve analiz etme yolculuklarında geliştiricileri daha iyi bir şekilde desteklemek için dokümantasyonumuzda bazı küçük iyileştirmeler yaptık.
 
-Oyun alanının sağ üst kısmında, belge çizimini açacak bir _Docs_ düğmesi bulacaksınız. Bu dokümantasyonlar otomatik olarak oluşturulur ve hangi varlıkları ve yöntemleri sorgulayabileceğinizi bulmanıza yardımcı olur. Aşağıdaki örnekte, Polkadot'ta hiç kesintiye uğramamış en çok ödül alan ilk 5 hesabı (bahis geliri açısından) elde etmek için [Ödüller Toplamı SubQuery](https://explorer.subquery.network/subquery/OnFinality-io/sum-reward)'i kullanıyoruz.
-
-![SubQuery Dokümantasyonu](https://static.subquery.network/media/explorer/explorer-documentation.png)
+On the top right of the playground, you'll find a *Docs* button that will open a documentation draw. Bu dokümantasyonlar otomatik olarak oluşturulur ve hangi varlıkları ve yöntemleri sorgulayabileceğinizi bulmanıza yardımcı olur.
 
 ::: info Note Learn more about the [GraphQL Query language.](./graphql.md) :::
