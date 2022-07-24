@@ -7,7 +7,7 @@ SubQuery , это индексатор данных блокчейна с отк
 Наша цель -  это сэкономить время и деньги разработчиков, устранив необходимость разработки собственного решения для индексации. Сейчас они могут полностью сосредоточиться на разработке своих приложений. SubQuery -  помогает разработчикам создавать децентрализованные продукты будущего.
 
 <figure class="video_container">
-<iframe src="https://www.youtube.com/embed/gCpVz_mkWdo" title="Introducing The SubQuery Network" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscree="true"></iframe>
+<iframe src="https://www.youtube.com/embed/gCpVz_mkWdo" title="Представляем сеть SubQuery" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscree="true"></iframe>
 </figure>
 
 **Управляемая служба подзапроса**
