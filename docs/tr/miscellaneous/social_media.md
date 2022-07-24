@@ -11,7 +11,7 @@ Amacımız her zaman sadık topluluğumuzu dinlemek ve onlarla etkileşim kurmak
 - [Medium](https://subquery.medium.com) (Birincil duyuru kanalı)
 - [Twitter](https://twitter.com/subquerynetwork)
 - [Telegram](https://t.me/subquerynetwork) (Yalnızca duyuru kanalı)
-- [GitHub](https://github.com/SubQuery/subql)
+- [GitHub](https://github.com/subquery/)
 - [Matrix/Riot](https://matrix.to/#/#subquery:matrix.org)
 - [LinkedIn](https://www.linkedin.com/company/subquery)
 
