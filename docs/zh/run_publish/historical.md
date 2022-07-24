@@ -1,46 +1,57 @@
-# Automated Historical State Tracking
+# 自动化历史状态跟踪
 
-## Background
+## 背景
 
-SubQuery allows you to index any data that you want from Substrate, Avalance, and other networks. Currently, SubQuery operates as a mutable data store, where you can append, update, delete, or otherwise change existing saved entities in the dataset that is indexed by SubQuery. As SubQuery indexes each block, the state of each entity may be updated or deleted based on your project's logic.
+SubQuery 允许您从 Substrate, Avalance 和其他网络索引您想要的数据。 目前，SubQuery是一个可变的数据存储，您可以在那里附加、更新、删除， 或以其他方式更改在 SubQuery 索引的数据集中已保存的实体。 由于SubQuery索引每个区块，每个实体的状态可以根据您的项目逻辑更新或删除。
 
-A basic SubQuery project that indexes account balances might have an entity that looks like the following.
+用于索引账户余额的基本SubQuery项目可能有一个看起来像以下的实体。
 
 ```graphql
+type Person @entity {
+  id: ID!
+  type Person @entity {
+  id: ID!
+  accounts: [Account] 
+}
+
 type Account @entity {
-  id: ID! # Alice's account address
+  id: ID!
+  publicAddress: String!
+}
+  publicAddress: String!
+} # Alice's account address
   balance: BigInt
   transfers: [Transfer]
 }
 ```
 
-![Historic Indexing](/assets/img/historic_indexing.png)
+![历史索引](/assets/img/historic_indexing.png)
 
-In the above example, Alice's DOT balance constantly changes, and as we index the data, the `balance` property on the `Account` entity will change. A basic SubQuery project that indexes account balances will lose this historical data and will only store the state of the current indexing block height. For example, if we currently index to block 100, the data in the database can only represent the state of Alice's account at block 100.
+在上述示例中，Alice的DOT 平衡不断变化，并随着我们索引数据而变化。 `账户` 实体将更改 `余额` 属性。 一个基本的 SubQuery 项目，将帐户余额索引将丢失这个历史数据，并且只能存储当前索引块高度的状态。 例如，如果我们目前正在索引区块100，数据库中的数据只能代表Alice在第100区块上的帐户状态。
 
-Then we are faced with a problem. Assuming the data has changed when indexing to block 200, how can we query the state of the data at block 100?
+然后我们面临一个问题。 假定将数据索引到第200项时发生变化，我们如何查询第100项数据的状态？
 
-## Automated Historical State Tracking
+## 自动化历史状态跟踪
 
-SubQuery now automates the historical state tracking of entities for all new projects. You can automatically query the state of your SubQuery project at any block height. This means that you can build applications that allow users to go back in time, or show how the state of your data changes over time.
+SubQuery 现在实现所有新项目的历史状态跟踪自动化。 您可以在任何区块高度自动查询您的 SubQuery 项目的状态。 这意味着您可以建立允许用户返回的应用程序。 或显示您的数据状态如何随着时间的推移而变化。
 
-In short, when you create, update, or delete any SubQuery entity, we store the previous state with the block range that it was valid for. You can then query data from a specific block height using the same GraphQL endpoints and API.
+简而言之，当您创建、更新或删除任何SubQuery实体时，我们将先前的状态存储在它有效的区块范围。 然后您可以使用相同的 GraphQL 端点和 API 从特定区块高度查询数据。
 
-## Enabling This
+## 启用这个
 
-This feature is enabled by default for all new projects started with at least `@subql/node@1.1.1` and `@subql/query1.1.0`. If you want to add it to your existing project, update `@subql/node` and `@subql/query` and then reindex your project with a clean database.
+对于至少以 `@subql/node@1.1.1` 和 `@subql/query1.1.0` 开始的所有新项目，此功能默认启用。 如果您想要将其添加到您现有的项目中， 更新 `@subql/node` and `@subql/quy` 然后用一个干净的数据库重建你的项目。
 
-If you want to disable this feature for any reason, you can set the `--disable-historical=true` parameter on `subql-node`.
+如果您想要出于任何原因禁用此功能，您可以在 `subql-node` 设置 `--disable-historical=true` 参数。
 
-On startup, the current status of this feature is printed to the console (`Historical state is enabled`).
+启动时，此功能的当前状态将被打印到控制台(`历史状态已启用`)。
 
-## Querying Historical State
+## 查询历史状态
 
-There is a special (optional) property on the GraphQL entity filter called `blockHeight`. If you omit this property, SubQuery will query the entity state at the current block height.
+GraphQL实体过滤器上有一个特殊(可选)属性，名为 `blockheight`。 如果您省略了此属性，SubQuery将查询当前区块高度的实体状态。
 
-Please see one of our example projects: [RMRK NFT](https://explorer.subquery.network/subquery/subquery/rmrk-nft-historical).
+请查看我们的一个示例项目： [RMRK NFT](https://explorer.subquery.network/subquery/subquery/rmrk-nft-historical)。
 
-To query the owners of RMRK NFTs at block height 5,000,000, add the blockHeight parameter as shown below:
+要在方块高度500,000,000,000时查询RMRK NFT的所有者，请添加如下方块高度参数：
 
 ```graphql
 query {
@@ -53,7 +64,7 @@ query {
 }
 ```
 
-To query the owners of those RMRK NFTs collections at the latest block height, omit the blockHeight parameter as shown below.
+要查询这些RMRK NFT集合的所有者在最晚的区块高度时，省略下面显示的区块高度参数。
 
 ```graphql
 query {
