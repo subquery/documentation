@@ -3,9 +3,9 @@
   <section class="welcomeWords">
     <div class="main">
       <div>
-        <h2 class="welcomeTitle">Welcome to SubQuery<span>Academy</span></h2>
+        <h2 class="welcomeTitle">Chào mừng bạn đến với SubQuery<span>Academy</span></h2>
         <p>Khám phá và chuyển đổi dữ liệu chuỗi của bạn để xây dựng các dApp trực quan nhanh hơn!</p>
-        <p><strong>SubQuery now supports Polkadot, Avalanche, and Cosmos (starting with Juno).</strong></p>
+        <p><strong>SubQuery hiện hỗ trợ Polkadot, Avalanche và Cosmos (bắt đầu với Juno).</strong></p>
       </div>
     </div>
   </section>
@@ -16,7 +16,7 @@
       </p>
       <span class="button">
         <router-link :to="{path: '/quickstart/quickstart.html'}"> 
-          <span>Get Started</span>
+          <span>Bắt đầu</span>
         </router-link>
       </span>
     </div>
