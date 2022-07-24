@@ -1,10 +1,10 @@
-# Automated Historical State Tracking
+# Автоматичне Відстеження Історичного Стану
 
-## Background
+## Фон
 
-SubQuery allows you to index any data that you want from Substrate, Avalance, and other networks. Currently, SubQuery operates as a mutable data store, where you can append, update, delete, or otherwise change existing saved entities in the dataset that is indexed by SubQuery. As SubQuery indexes each block, the state of each entity may be updated or deleted based on your project's logic.
+SubQuery дозволяє індексувати будь-які дані, які ви хочете отримати з Substrate, Avalanche та інших мереж. Зараз SubQuery працює як змінюване сховище даних, де ви можете додавати, оновлювати, видаляти або іншим чином змінювати що існує збережені об'єкти в наборі даних, який індексується SubQuery. Оскільки SubQuery індексує кожен блок, стан кожного об'єкта може бути оновлено або видалено в залежності від логіки вашого проєкту.
 
-A basic SubQuery project that indexes account balances might have an entity that looks like the following.
+Базовий проєкт SubQuery, який індексує залишки на рахунках, може мати об'єкт, який виглядає наступним чином.
 
 ```graphql
 type Account @entity {
@@ -20,7 +20,7 @@ In the above example, Alice's DOT balance constantly changes, and as we index th
 
 Then we are faced with a problem. Assuming the data has changed when indexing to block 200, how can we query the state of the data at block 100?
 
-## Automated Historical State Tracking
+## Автоматичне Відстеження Історичного Стану
 
 SubQuery now automates the historical state tracking of entities for all new projects. You can automatically query the state of your SubQuery project at any block height. This means that you can build applications that allow users to go back in time, or show how the state of your data changes over time.
 
