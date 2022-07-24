@@ -11,7 +11,7 @@ Merupakan tujuan kami untuk selalu mendengarkan dan terlibat dengan komunitas se
 - [Medium](https://subquery.medium.com) (Saluran pengumuman utama)
 - [Twitter](https://twitter.com/subquerynetwork)
 - [Telegram](https://t.me/subquerynetwork) (Hanya jalur pengumuman)
-- [GitHub](https://github.com/SubQuery/subql)
+- [GitHub](https://github.com/subquery/)
 - [Matrix/Riot](https://matrix.to/#/#subquery:matrix.org)
 - [LinkedIn](https://www.linkedin.com/company/subquery)
 
