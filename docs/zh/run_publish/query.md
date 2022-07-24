@@ -12,4 +12,4 @@ SubQuery 浏览器使启动变得更加容易。 我们正在在线托管这些S
 
 On the top right of the playground, you'll find a *Docs* button that will open a documentation draw. 该文档是自动生成的，可帮助您查找实体和方法。
 
-::: info Note Learn more about the [GraphQL Query language.](./graphql.md) :::
+:::: 信息注释 了解更多关于 [GraphQL 查询语言。](./graphql.md) :::
