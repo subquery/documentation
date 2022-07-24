@@ -14,7 +14,7 @@
 ## 准备您的 SUBQL_ACCESS_TOKEN
 
 - 步骤1：去 [SubQuery Projects](https://project.subquery.network/) 并登录。
-- Step 2: Click on your profile at the top right of the navigation menu, then click on **_Refresh Token_**.
+- 第 2 步：点击导航菜单右上角的个人资料，然后点击 **_刷新令牌_**
 - 步骤3:复制生成的令牌。
 - 步骤4：使用此令牌：
   - 选项1：在您的环境变量中添加SUBQL_ACCESS_TOKEN。 `ExPORT SUBQL_ACCESS_TOKEN=<token>`
@@ -22,11 +22,11 @@
 
 ## 如何发布一个项目
 
-We provide two methods to publish your project:
+我们提供两种方法来发布您的项目。
 
-### Option 1
+### 方法1
 
-As you have `@subql/cli` already installed, you can run the following command, which will read the project and required information from its default manifest `project.yaml`:
+由于您已经安装了 `@subql/cli` ，您可以运行以下命令。 该项目将从默认清单 `项目中读取项目和所需信息。 aml`:
 
 ```
 // 从你项目的根目录发布
@@ -36,7 +36,7 @@ subql publish
 subql publish -f ~/my-project/
 ```
 
-### Option 2
+### 方法2
 
 另外，假定您的项目有多个清单文件， 例如，您支持多个网络，但共享相同的映射和业务逻辑，且具有以下项目结构：
 
@@ -66,17 +66,17 @@ Uploading SupQuery project to IPFS
 SubQuery Project uploaded to IPFS: QmZ3q7YZSmhwBiot4PQCK3c7Z6HkteswN2Py58gkkZ8kNd  //CID
 ```
 
-请注意此 `CID`。 With this `CID`, you can view your published project as what we call it [IPFS Deployment](ipfs.md#ipfs-deployment).
+请注意此 `CID`。 通过这个 `CID`, 您可以将您已发布的项目视为我们称之为 [IPFS 部署](ipfs.md#ipfs-deployment)的项目。
 
-With `@subql/cli` version 1.3.0 or above, when using `subql publish` it will store a copy of the project's `IPFS CID` in a file in your project directory, the naming of the file will be consistent with your project.yaml. For example, if your manfiest file is named `project.yaml`, the IPFS file will be named  `.project-cid`.
+对于 `@subql/cli` 1.3.0 或更高版本，当使用 `subql publish` 时，它会将项目的 `IPFS CID` 的副本存储在文件中 在您的项目目录中，文件的命名将与您的 project.yaml 一致。 例如，如果你的文件命名为 `project.yaml`, 那么IPFS 文件将被命名为  `.project-cid`。
 
 ## IPFS部署
 
 IPFS的部署代表着分散网络上一个SubQuery项目的独立独特的存在。 因此，对项目代码的任何修改都会影响到项目的独特性。 如果您需要调整您的业务逻辑，例如更改映射功能，您必须重新发布项目， `CID`将会改变。
 
-For now, to view the project you have published, use a `REST` api tool such as [Postman](https://web.postman.co/), and use `POST` method with the following example URL to retrieve it:`https://ipfs.subquery.network/ipfs/api/v0/cat?arg=<YOUR_PROJECT_CID>`.
+现在，要查看您发布的项目，请使用 `REST` api工具，例如 [Postman](https://web.postman.co/)并使用`POST` 方法与下面的示例URL获取它。
 
-You should see the example project deployment as below.
+您应该看到项目部署的示例如下：
 
 此部署看起来与您的清单文件非常相似。 您可以预知这些描述性的字段。 且因为网络和字典端点并不直接影响项目执行的结果而导致他们被删除出字段。
 
@@ -109,7 +109,7 @@ specVersion: 0.2.0
 
 ### 使用IPFS部署创建项目
 
-You can follow the guide to [Publish your SubQuery project](../run_publish/publish.md) but where you set your deployment source you can select **IPFS**.
+您可以遵循[发布您的SubQuery项目](../run_publish/publish.md)指南，但是您也可以选择 **IPFS**作为您的部署源。
 
 然后选择你的产品插槽，复制并粘贴你的IPFS部署CID(去掉前面的`ipfs://`)。
 
