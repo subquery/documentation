@@ -432,7 +432,7 @@ The following table explains filters supported by different handlers.
 | Substrate/Polkadot | [substrate/BlockHandler](./mapping.md#block-handler) | `specVersion`, `modulo`      |
 | Substrate/Polkadot | [substrate/EventHandler](./mapping.md#event-handler) | `module`,`method`            |
 | Substrate/Polkadot | [substrate/CallHandler](./mapping.md#call-handler)   | `module`,`method` ,`success` |
-| Cosmos              | [cosmos/BlockHandler](./mapping.md#block-handler)     | No filters                   |
+| Cosmos             | [cosmos/BlockHandler](./mapping.md#block-handler)    | `modulo`                     |
 | Cosmos              | [cosmos/TransactionHandler](./mapping.md#transaction-handler)     | No filters                   |
 | Cosmos              | [cosmos/MessageHandler](./mapping.md#message-handler)     |  `type`, `values`* |
 | Cosmos              | [cosmos/EventHandler](./mapping.md#event-handler)     | `type`, `messageFilter`* |
@@ -514,7 +514,7 @@ filter:
   specVersion: [null, 23] # Index block with specVersion less than or equal 23.
 ```
 
-The `modulo` filter allows handling every N blocks, this is useful if you want to group or calculate data at a set interval. The folloing example shows how to use this filter.
+The `modulo` filter allows handling every N blocks, which is useful if you want to group or calculate data at a set interval. The following example shows how to use this filter.
 
 ```yml
 filter:
