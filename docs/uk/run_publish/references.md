@@ -69,25 +69,25 @@ Options:
       --network-endpoint    Кінцева точка блокчейн-мережі для підключення      [string]
       --output-fmt          Друк журналу у форматі json або звичайного тексту
                                            [string] [choices: "json", "colored"]
-      --log-level           Вкажіть рівень журналу для друку. Ignored when --debug is
-                            used
+      --log-level           Вкажіть рівень журналу для друку. Ігнорується, коли --debug is
+                            використаний
           [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
                                                                        "silent"]
-      --migrate             Migrate db schema (for management tables only)
+      --migrate             Перенесення схеми Бд (тільки для таблиць управління)
                                                       [boolean] [default: false]
-      --timestamp-field     Enable/disable created_at and updated_at in schema
+      --timestamp-field     Включити/відключити created_at і updated_at в схемі
                                                       [boolean] [default: false]
-  -d, --network-dictionary  Specify the dictionary api for this network [string]
-  -m, --mmr-path            Local path of the merkle mountain range (.mmr) file
+  -d, --network-dictionary  Вкажіть api-інтерфейс словника для цієї мережі [string]
+  -m, --mmr-path            Місцева стежка гірського хребта Меркле (.mmr) файл
                                                                         [string]
-      --proof-of-index      Enable/disable proof of index
+      --proof-of-index      Включення/відключення перевірки індексу
                                                       [boolean] [default: false]
-  -p, --port                The port the service will bind to           [number]
+  -p, --port                Порт, до якого буде прив'язана служба           [number]
 ```
 
 ### --version
 
-This displays the current version.
+При цьому показуватися поточна версія.
 
 ```shell
 > subql-node --version
@@ -96,16 +96,16 @@ This displays the current version.
 
 ### -f, --subquery
 
-Use this flag to start the SubQuery project.
+Використовуйте цей прапорець, щоб запустити проєкт SubQuery.
 
 ```shell
-subql-node -f . // OR
+subql-node -f . // бо
 subql-node --subquery .
 ```
 
-### --subquery-name (deprecated)
+### --subquery-name (засуджувати)
 
-This flag allows you to provide a name for your project which acts as if it creates an instance of your project. Upon providing a new name, a new database schema is created and block synchronisation starts from zero. Deprecated in favour of `--db-schema`
+Цей прапорець дозволяє вказати ім'я для вашого проєкту, яке діє так, як якби він створив екземпляр вашого проєкту. Після надання нового імені створюється нова схема бази даних, і синхронізація блоків починається з нуля. Застарів на користь `--db-schema`
 
 ```shell
 subql-node -f . --subquery-name=test2
@@ -113,62 +113,62 @@ subql-node -f . --subquery-name=test2
 
 ### -c, --config
 
-All these various configurations can be placed into a .yml or .json file and then referenced with the config flag.
+Всі ці різні конфігурації можуть бути поміщені в .yml yml або .json, на який потім посилаються за допомогою прапора конфігурації.
 
-Sample subquery_config.yml file:
+Зразок subquery_config.yml file:
 
 ```shell
-subquery: . // Mandatory. This is the local path of the project. The period here means the current local directory.
-subqueryName: hello // Optional name
-batchSize: 55 // Optional config
+subquery: . // Mandatory. Це локальний шлях проєкту. Точка тут означає поточний локальний каталог.
+subqueryName: hello // Необов'язкове ім'я
+batchSize: 55 // Додаткова конфігурація
 ```
 
-Place this file in the same directory as the project. Then in the current project directory, run:
+Помістіть цей файл в той же каталог, що і проєкт. Потім в поточному каталозі проєкту запустіть:
 
 ```shell
 > subql-node -c ./subquery_config.yml
 ```
 
-### --local (deprecated)
+### --local (засуджувати)
 
-This flag is primarily used for debugging purposes where it creates the default starter_entity table in the default "postgres" schema.
+Цей прапор в основному використовується для цілей налагодження, де він створює таблицю starter_entity за замовчуванням у схемі postgres за замовчуванням.
 
 ```shell
 subql-node -f . --local
 ```
 
-Note that once you use this flag, removing it won't mean that it will point to another database. To repoint to another database you will have to create a NEW database and change the env settings to this new database. In other words, "export DB_DATABASE=<new_db_here>".
+Зверніть увагу, що як тільки ви використовуєте цей прапор, його видалення не означатиме, що він буде вказувати на іншу базу даних. Щоб вказати на іншу базу даних, вам потрібно буде створити нову базу даних та змінити налаштування env для цієї нової бази даних. Іншими словами, "export DB_DATABASE=<new_db_here>".
 
 ### --force-clean
 
-This flag forces the project schemas and tables to be regenerated, helpful to use when iteratively developing graphql schemas such that new runs of the project are always working with a clean state. Note that this flag will also wipe all indexed data.
+Цей прапор змушує схеми й таблиці проєкту регенеруватися, що корисно використовувати при ітеративній розробці схем graphql таким чином, щоб нові запуски проєкту завжди працювали в чистому стані. Зверніть увагу, що цей прапор також призведе до видалення всіх індексованих даних.
 
 ### --db-schema
 
-This flag allows you to provide a name for the project database schema. Upon providing a new name, a new database schema is created with the configured name and block indexing starts.
+Цей прапорець дозволяє вказати ім'я для схеми бази даних проєкту. Після надання нового імені створюється нова схема бази даних з налаштованим ім'ям і починається індексація блоків.
 
 ```shell
 subql-node -f . --db-schema=test2
 ```
 
 ### --subscription
-This will create a notification trigger on entity, this also is the prerequisite to enable subscription feature in query service.
+Це створить тригер повідомлення для об'єкта, це також є необхідною умовою для включення функції підписки в службі запитів.
 
 ### --unsafe
 
-SubQuery Projects are usually run in a javascript sandbox for security to limit the scope of access the project has to your system. The sandbox limits the available javascript imports to the following modules:
+Проєкти SubQuery зазвичай виконуються в ізольованому середовищі javascript для забезпечення безпеки, щоб обмежити обсяг доступу проєкту до вашої системи. Ізольоване середовище обмежує доступний імпорт javascript наступними модулями:
 
 ```javascript
 ["assert", "buffer", "crypto", "util", "path"];
 ```
 
-Although this enhances security we understand that this limits the available functionality of your SubQuery. The `--unsafe` command imports all default javascript modules which greatly increases sandbox functionality with the tradeoff of decreased security.
+Хоча це підвищує безпеку, ми розуміємо, що це обмежує доступну функціональність вашого SubQuery. Команда `--unsafe ` імпортує всі модулі javascript за замовчуванням, що значно збільшує функціональність пісочниці з компромісом у вигляді зниження безпеки.
 
-**Note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in [SubQuery's managed service](https://project.subquery.network).**
+**Зверніть увагу, що команда `--unsafe` запобігає запуску вашого проєкту в мережі SubQuery, і ви повинні звернутися в службу підтримки, якщо хочете, щоб ця команда виконувалася з вашим проєктом в [керованому сервісі SubQuery ](https://project.subquery.network).**
 
 ### --batch-size
 
-This flag allows you to set the batch size in the command line. If batch size is also set in the config file, this takes precedent.
+Цей прапор дозволяє встановити розмір пакета в командному рядку. Якщо розмір пакета також заданий в конфігураційному файлі, це має прецедент.
 
 ```shell
 > subql-node -f . --batch-size=20
@@ -180,15 +180,15 @@ This flag allows you to set the batch size in the command line. If batch size is
 
 ### --scale-batch-size
 
-Scale the block fetch batch size with memory usage.
+Масштабуйте розмір пакета вибірки блоків залежно від використання пам'яті.
 
 ### --timeout
 
-Set custom timeout for the javascript sandbox to execute mapping functions over a block before the block mapping function throws a timeout exception.
+Встановіть користувальницький тайм-аут для пісочниці javascript для виконання функцій зіставлення над блоком, перш ніж функція зіставлення блоків видасть виняток тайм-ауту.
 
 ### --debug
 
-This outputs debug information to the console output and forcefully sets the log level to debug.
+Це виводить налагоджувальну інформацію на висновок консолі й примусово встановлює рівень журналу для налагодження.
 
 ```shell
 > subql-node -f . --debug
@@ -199,7 +199,7 @@ This outputs debug information to the console output and forcefully sets the log
 
 ### --profiler
 
-This shows profiler information.
+Тут показуватися інформація про профілювальника.
 
 ```shell
 subql-node -f . --local --profiler
@@ -211,13 +211,13 @@ subql-node -f . --local --profiler
 
 ### --network-endpoint
 
-This flag allows users to override the network endpoint configuration from the manifest file.
+Цей прапорець дозволяє користувачам перевизначати конфігурацію кінцевої точки мережі з файлу маніфесту.
 
 ```shell
 subql-node -f . --network-endpoint="wss://polkadot.api.onfinality.io/public-ws"
 ```
 
-Note that this must also be set in the manifest file, otherwise you'll get:
+Зверніть увагу, що це також має бути задано у файлі маніфесту, в іншому випадку ви отримаєте:
 
 ```shell
 ERROR Create Subquery project from given path failed! Error: failed to parse project.yaml.
@@ -228,7 +228,7 @@ An instance of ProjectManifestImpl has failed the validation:
 
 ### --output-fmt
 
-There are two different terminal output formats. JSON or colored. Colored is the default and contains colored text.
+Існує два різних форматів виводу терміналу. JSON або кольоровий. Кольорове значення за замовчуванням і містить кольоровий текст.
 
 ```shell
 > subql-node -f . --output-fmt=json
@@ -245,7 +245,7 @@ There are two different terminal output formats. JSON or colored. Colored is the
 
 ### --log-level
 
-There are 7 options to choose from. “fatal”, “error”, “warn”, “info”, “debug”, “trace”, “silent”. The example below shows silent. Nothing will be printed in the terminal so the only way to tell if the node is working or not is to query the database for row count (select count(\*) from subquery_1.starter_entities) or query the block height.
+Є 7 варіантів на вибір. “fatal”, “error”, “warn”, “info”, “debug”, “trace”, “silent”. У наведеному нижче прикладі показано мовчання. У терміналі нічого не буде надруковано, тому єдиним способом визначити, чи працює вузол чи ні, є запит на кількість рядків у базі даних (виберіть count(\*) з subquery_1.starter_entities) або запитати висоту блоку.
 
 ```shell
 > subql-node -f . --log-level=silent
@@ -259,7 +259,7 @@ There are 7 options to choose from. “fatal”, “error”, “warn”, “inf
 (node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
 (node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
 (node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
-(node:24686) [DEP0152] DeprecationWarning: Custom PerformanceEntry accessors are deprecated. Please use the detail property.
+(node:24686) [DEP0152] DeprecationWarning: Custom PerformanceEntry accessors are deprecated. Будь ласка, використовуйте властивість detail.
 (node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
 ```
 
@@ -267,33 +267,33 @@ There are 7 options to choose from. “fatal”, “error”, “warn”, “inf
 
 ### --timestamp-field
 
-By default this is true. when set to false with:
+За замовчуванням це значення дорівнює true. коли встановлено значення false за допомогою:
 
 ```shell
 > subql-node -f . –timestamp-field=false
 ```
 
-This removes the created_at and updated_at columns in the starter_entities table.
+При цьому видаляються стовпці created_at і updated_at в таблиці starter_entities.
 
 ### -d, --network-dictionary
 
-This allows you to specify a dictionary endpoint which is a free service that is provided and hosted at SubQuery's [Project Explorer](https://explorer.subquery.network/) (search for dictionary) and presents an API endpoint of: https://api.subquery.network/sq/subquery/dictionary-polkadot.
+Це дозволяє вказати кінцеву точку словника, яка є безплатною службою, що надається та розміщується в [Project Explorer](https://explorer.subquery.network/) SubQuery's (пошук за словником) і представляє кінцеву точку API: https://api.subquery.network/sq/subquery/dictionary-polkadot.
 
-Typically this would be set in your manifest file but below shows an example of using it as an argument in the command line.
+Зазвичай це значення задається у вашому файлі маніфесту, але нижче наведено приклад його використання в якості аргументу в командному рядку.
 
 ```shell
 subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot"
 ```
 
-[Read more about how a SubQuery Dictionary works](../academy/tutorials_examples/dictionary.md).
+[докладніше про те, як працює словник SubQuery, читайте тут](../academy/tutorials_examples/dictionary.md).
 
 ### -p, --port
 
-The port the subquery indexing service binds to. By default this is set to `3000`.
+Порт, до якого прив'язується служба індексації subquery. За замовчуванням це значення дорівнює `3000`.
 
 ### --disable-historical
 
-Disables automated historical state tracking, [see Historic State Tracking](./historical.md). By default this is set to `false`.
+Вимикає автоматичне відстеження історичного стану, [див. розділ відстеження історичного стану](./historical.md). За замовчуванням для цього параметра встановлено значення `false`.
 
 ## subql-query
 
@@ -303,28 +303,28 @@ Disables automated historical state tracking, [see Historic State Tracking](./hi
 
 ```shell
 Options:
-      --help          Show help                                          [boolean]
-      --version       Show version number                                [boolean]
-  -n, --name          Project name                             [string] [required]
-      --playground    Enable graphql playground                          [boolean]
-      --subscription  Enable subscription               [boolean] [default: false]   
-      --output-fmt    Print log as json or plain text
+      --help          Показати довідку                                          [boolean]
+      --version       Показати номер версії                                [boolean]
+  -n, --name          Назва проекту                             [string] [required]
+      --playground    Включити graphql playground                          [boolean]
+      --subscription  Увімкнути підписку               [boolean] [default: false]   
+      --output-fmt    Друк журналу у форматі json або звичайного тексту
                         [string] [choices: "json", "colored"] [default: "colored"]
-      --log-level     Specify log level to print.
-            [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
+      --log-level     Вкажіть рівень журналу для друку.
+            [string] [вибір: "fatal", "error", "warn", "info", "debug", "trace",
                                                        "silent"] [default: "info"]
-      --log-path      Path to create log file e.g ./src/name.log          [string]
-      --log-rotate    Rotate log files in directory specified by log-path
+      --log-path      Шлях для створення файлу журналу e.g ./src/name.log          [string]
+      --log-rotate    Поворот файлів журналу в каталозі, зазначеному log-path
                                                       [boolean] [default: false]
-      --indexer       Url that allows query to access indexer metadata    [string]
-      --unsafe        Disable limits on query depth and allowable number returned
-                      query records                                      [boolean]
-  -p, --port          The port the service will bind to                   [number]
+      --indexer       Url-адреса, що дозволяє запиту отримати доступ до метаданих індексатора    [string]
+      --unsafe        Вимкніть обмеження на глибину запиту і допустиме число, що повертається
+                      записи query                                      [boolean]
+  -p, --port          Порт, до якого буде прив'язана служба                   [number]
 ```
 
 ### --version
 
-This displays the current version.
+При цьому показуватися поточна версія.
 
 ```shell
 > subql-query --version
@@ -333,58 +333,58 @@ This displays the current version.
 
 ### -n, --name
 
-This flag is used to start the query service. If the --subquery-name flag is not provided when running an indexer, the name here will refer to the default project name. If --subquery-name is set, then the name here should match what was set.
+Цей прапор використовується для запуску служби query. Якщо прапор -- subquery-name не вказано при запуску індексатора, ім'я тут буде посилатися на ім'я проєкту за замовчуванням. Якщо задано --subquery-name, то ім'я тут має відповідати тому, що було задано.
 
 ```shell
-> subql-node -f . // --subquery-name not set
+> subql-node -f . // --subquery-name не встановлено
 
-> subql-query -n subql-helloworld  --playground // the name defaults to the project directory name
+> subql-query -n subql-helloworld  --playground // ім'я за замовчуванням дорівнює імені каталогу проекту
 ```
 
 ```shell
 > subql-node -f . --subquery-name=hiworld // --subquery-name set
 
-> subql-query -n hiworld --playground  // the name points to the subql-helloworld project but with the name of hiworld
+> subql-query -n hiworld --playground  // назва вказує на проєкт subql-helloworld, але з назвою hiworld
 ```
 
 ### --playground
 
-This flag enables the graphql playground so should always be included by default to be of any use.
+Цей прапор включає ігровий майданчик graphql, тому вона завжди повинна бути включена за замовчуванням, щоб бути корисною.
 
 ### --output-fmt
 
-See [--output-fmt](../run_publish/references.md#output-fmt).
+Бачачи [--output-fmt](../run_publish/references.md#output-fmt).
 
 ### --log-level
 
-See [--log-level](../run_publish/references.md#log-level).
+Бачачи [--log-level](../run_publish/references.md#log-level).
 
 ### --log-path
 
-Enable file logging by providing a path to a file to log to.
+Увімкніть ведення журналу файлів, вказавши шлях до файлу для входу в систему.
 
 ### --log-rotate
 
-Enable file log rotations with the options of a 1d rotation interval, a maximum of 7 files and with a max file size of 1GB.
+Увімкніть обертання журналу файлів з параметрами інтервалу обертання 1D, максимум 7 файлів і з максимальним розміром файлу 1 Гб.
 
 ### --indexer
 
-Set a custom url for the location of the endpoints of the indexer, the query service uses these endpoints for indexer health, metadata and readiness status.
+Задайте користувацьку Url-адресу для розташування кінцевих точок індексів, служба запитів використовує ці кінцеві точки для визначення працездатності індексатора, метаданих і стану готовності.
 
 ### --subscription
 
-This flag enables [GraphQL Subscriptions](./subscription.md), to enable this feature requires `subql-node` also enable `--subscription`.
+Цей прапорець включає [підписки на GraphQL](./subscription.md), для включення цієї функції потрібно `subql-node` також включити `--subscription`.
 
 ### --unsafe
 
-The query service has a limit of 100 entities for unbounded graphql queries. The unsafe flag removes this limit which may cause performance issues on the query service. It is recommended instead that queries are [paginated](https://graphql.org/learn/pagination/).
+Служба запитів має обмеження в 100 об'єктів для необмежених запитів graphql. Прапор unsafe видаляє це обмеження, яке може викликати проблеми з продуктивністю служби запитів. Замість цього рекомендується, щоб запити були [розбиті на сторінки](https://graphql.org/learn/pagination/).
 
-This flag enables certain aggregation functions including sum, max, avg and others. Read more about this feature [here](../run_publish/aggregate.md).
+Цей прапор включає певні функції агрегування, включаючи sum, max, avg та інші. Докладніше про цю функцію [читайте тут](../run_publish/aggregate.md).
 
-These are disabled by default due to the entity limit.
+За замовчуванням вони відключені через обмеження сутності.
 
-**Note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in [SubQuery's Managed Services](https://project.subquery.network).**
+**Зверніть увагу, що команда `--unsafe` запобігає запуску вашого проєкту в мережі SubQuery, і ви повинні звернутися в службу підтримки, якщо хочете, щоб ця команда виконувалася з вашим проєктом в [керованих службах SubQuery's ](https://project.subquery.network).**
 
 ### --port
 
-The port the subquery query service binds to. By default this is set to `3000`
+Порт, до якого прив'язується служба запитів subquery. За замовчуванням це значення дорівнює `3000`
