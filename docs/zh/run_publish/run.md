@@ -1,210 +1,28 @@
-# Running SubQuery Locally
+# 本地运行 SubQuery
 
-This guide works through how to run a local SubQuery node on your infrastructure, which includes both the indexer and query service. Don't want to worry about running your own SubQuery infrastructure? SubQuery provides a [managed hosted service](https://explorer.subquery.network) to the community for free. [Follow our publishing guide](../run_publish/publish.md) to see how you can upload your project to [SubQuery Projects](https://project.subquery.network).
+本指南通过如何在您的基础设施上运行本地的 SubQuery 节点，其中包括索引器和查询服务。 不用担心在运行自己的SubQuery基础架构中所出现的问题。 SubQuery 向社区免费提供 [管理的托管服务](https://explorer.subquery.network)。 [按照我们所发布的指南](../run_publish/publish.md) 查看您如何将项目部署到 [SubQuery 项目](https://project.subquery.network)。
 
-## Using Docker
+## 使用 Docker
 
-An alternative solution is to run a <strong>Docker Container</strong>, defined by the `docker-compose.yml` file. For a new project that has been just initialised you won't need to change anything here.
+其中一种解决方案是运行<strong>Docker容器</strong>，它是由`Docker-component.yml`文件所定义的。 对于刚刚初始化的新项目，您无需在此处进行任何更改。
 
-Under the project directory run the following command:
+在项目目录下运行以下命令：
 
 ```shell
 docker-compose pull && docker-compose up
 ```
 
-::: info Note It may take some time to download the required packages ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), and Postgres) for the first time but soon you'll see a running SubQuery node. :::
+第一次下载所需软件包可能需要一些时间([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/quiry`](https://www.npmjs.com/package/@subql/query), and Postgress) ，但很快你就会看到一个运行中的 SubQuery 节点。 :::
 
-## Running an Indexer (subql/node)
+## 运行Indexer (subql/node)
 
-Requirements:
+需求：
 
-- [Postgres](https://www.postgresql.org/) database (version 12 or higher). While the [SubQuery node](run.md#start-a-local-subquery-node) is indexing the blockchain, the extracted data is stored in an external database instance.
+- [Postgres](https://www.postgresql.org/) 数据库（版本 12 或更高版本）。 当 [SubQuery 节点](run.md#start-a-local-subquery-node) 索引区块链时，提取的数据存储在外部数据库实例中。
 
-A SubQuery node is an implementation that extracts Substrate/Polkadot-based blockchain data per the SubQuery project and saves it into a Postgres database.
+SubQuery 节点需要一个加载的过程，它能够从 SubQuery 项目中提取基于子区块链的数据，并将其保存到 Postgres 数据库。
 
-### Installation
-
-<CodeGroup>
-<CodeGroupItem title='Substrate/Polkadot'>
-
-``` shell
-# NPM
-npm install -g @subql/node
-```
-
-</CodeGroupItem>
-<CodeGroupItem title='Terra'>
-
-``` shell
-# NPM
-npm install -g @subql/node-terra
-```
-
-</CodeGroupItem>
-<CodeGroupItem title='Avalanche'>
-
-``` shell
-# NPM
-npm install -g @subql/node-avalanche
-````
-
-</CodeGroupItem>
-</CodeGroup>
-
-::: danger Please note that we **DO NOT** encourage the use of `yarn global` due to its poor dependency management which may lead to an errors down the line. :::
-
-Once installed, you can start a node with the following command:
-
-
-<CodeGroup>
-<CodeGroupItem title='Substrate/Polkadot'>
-
-```shell
-subql-node <command>
-```
-
-</CodeGroupItem>
-<CodeGroupItem title='Terra'>
-
-```shell
-subql-node-terra <command>
-```
-
-</CodeGroupItem>
-<CodeGroupItem title='Avalanche'>
-
-```shell
-subql-node-avalanche <command> 
-```
-
-</CodeGroupItem>
-</CodeGroup>
-
-### Key Commands
-
-The following commands will assist you to complete the configuration of a SubQuery node and begin indexing. To find out more, you can always run `--help`.
-
-#### Point to local project path
-
-<CodeGroup>
-<CodeGroupItem title='Substrate/Polkadot'>
-
-```shell
-subql-node -f your-project-path
-```
-
-</CodeGroupItem>
-<CodeGroupItem title='Terra'>
-
-```shell
-subql-node-terra -f your-project-path
-```
-
-</CodeGroupItem>
-<CodeGroupItem title='Avalanche'>
-
-```shell
-subql-node-avalanche -f your-project-path
-```
-
-</CodeGroupItem>
-</CodeGroup>
-
-#### Use a Dictionary
-
-Using a full chain dictionary can dramatically speed up the processing of a SubQuery project during testing or during your first index. In some cases, we've seen indexing performance increases of up to 10x.
-
-A full chain dictionary pre-indexes the location of all events and extrinsics within the specific chain and allows your node service to skip to relevant locations when indexing rather than inspecting each block.
-
-You can add the dictionary endpoint in your `project.yaml` file (see [Manifest File](../build/manifest.md)), or specify it at run time using the following command:
-
-<CodeGroup>
-<CodeGroupItem title='Substrate/Polkadot/Polkadot'>
-
-```shell
-subql-node --network-dictionary=https://api.subquery.network/sq/subquery/dictionary-polkadot
-```
-
-</CodeGroupItem>
-<CodeGroupItem title='Terra'>
-
-```shell
-subql-node-terra --network-dictionary=https://api.subquery.network/sq/subquery/terra-columbus-5-dictionary
-```
-
-</CodeGroupItem>
-<CodeGroupItem title='Avalanche'>
-
-```shell
-subql-node-avalanche --network-dictionary=https://api.subquery.network/sq/subquery/avalanche-dictionary
-```
-
-</CodeGroupItem>
-</CodeGroup>
-
-::: info Note You can read more about [how a SubQuery Dictionary works](../academy/tutorials_examples/dictionary.md). :::
-
-#### Connect to database
-
-```shell
-export DB_USER=postgres
-export DB_PASS=postgres
-export DB_DATABASE=postgres
-export DB_HOST=localhost
-export DB_PORT=5432
-subql-node -f your-project-path
-```
-
-Depending on the configuration of your Postgres database (e.g. a different database password), please ensure also that both the indexer (`subql/node`) and the query service (`subql/query`) can establish a connection to it.
-
-#### Specify a configuration file
-
-<CodeGroup>
-<CodeGroupItem title='Substrate/Polkadot'>
-
-```shell
-subql-node -c your-project-config.yml
-```
-
-</CodeGroupItem>
-<CodeGroupItem title='Terra'>
-
-```shell
-subql-node-terra -c your-project-config.yml
-```
-
-</CodeGroupItem>
-<CodeGroupItem title='Avalanche'>
-
-```shell
-subql-node-avalanche -c your-project-config.yml
-```
-
-</CodeGroupItem>
-</CodeGroup>
-
-This will point the query node to a configuration file which can be in YAML or JSON format. Check out the example below.
-
-```yaml
-subquery: ../../../../subql-example/extrinsics
-subqueryName: extrinsics
-batchSize:100
-localMode:true
-```
-
-#### Change the block fetching batch size
-
-```shell
-subql-node -f your-project-path --batch-size 200
-
-Result:
-[IndexerManager] fetch block [203, 402]
-[IndexerManager] fetch block [403, 602]
-```
-
-When the indexer first indexes the chain, fetching single blocks will significantly decrease the performance. Increasing the batch size to adjust the number of blocks fetched will decrease the overall processing time. The current default batch size is 100.
-
-#### Run in local mode
+### 安装
 
 <CodeGroup>
 <CodeGroupItem title='Substrate/Polkadot'>
@@ -230,18 +48,205 @@ subql-node-avalanche -f your-project-path --local
 </CodeGroupItem>
 </CodeGroup>
 
-For debugging purposes, users can run the node in local mode. Switching to local model will create Postgres tables in the default schema `public`.
+出于调试的目的，用户可以以本地方式运行该节点。 :::
 
-If local mode is not used, a new Postgres schema with the initial `subquery_` and corresponding project tables will be created.
+安装完毕后，您可以使用以下命令来启动节点：
 
-#### Check your node health
 
-There are 2 endpoints that you can use to check and monitor the health of a running SubQuery node.
+<CodeGroup>
+<CodeGroupItem title='Substrate/Polkadot'>
 
-- Health check endpoint that returns a simple 200 response.
-- Metadata endpoint that includes additional analytics of your running SubQuery node.
+```shell
+subql-node -f your-project-path --local
+```
 
-Append this to the base URL of your SubQuery node. Eg `http://localhost:3000/meta` will return:
+</CodeGroupItem>
+<CodeGroupItem title='Terra'>
+
+```shell
+subql-node-terra -f your-project-path --local
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Avalanche'>
+
+```shell
+subql-node-avalanche -f your-project-path --local
+```
+
+</CodeGroupItem>
+</CodeGroup>
+
+出于调试的目的，用户可以以本地方式运行该节点。 要了解更多信息，您可以运行 `--help`。
+
+#### 指向本地项目路径
+
+<CodeGroup>
+<CodeGroupItem title='Substrate/Polkadot'>
+
+```shell
+subql-node -f your-project-path --local
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Terra'>
+
+```shell
+subql-node-terra -f your-project-path --local
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Avalanche'>
+
+```shell
+subql-node-avalanche -f your-project-path --local
+```
+
+</CodeGroupItem>
+</CodeGroup>
+
+出于调试的目的，用户可以以本地方式运行该节点。 在某些情况下，我们看到索引性能增加最多10x。
+
+完整的链词典预索引特定链中所有事件和外观的位置，并允许您的节点服务在索引时跳到相关位置，而不是检查每个方块。
+
+您可以在您的 `项目中添加字典终点。 aml` 文件(见 [清单文件](../create/manifest.md))，或在运行时使用以下命令指定它：
+
+<CodeGroup>
+<CodeGroupItem title='Substrate/Polkadot/Polkadot'>
+
+```shell
+subql-node --network-dictionary=https://api.subquery.network/sq/subquery/dictionary-polkadot
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Terra'>
+
+```shell
+subql-node-terra --network-dictionary=https://api.subquery.network/sq/subquery/terra-columbus-5-dictionary
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Avalanche'>
+
+```shell
+subql-node-avalanche --network-dictionary=https://api.subquery.network/sq/subquery/avalanche-dictionary
+```
+
+</CodeGroupItem>
+</CodeGroup>
+
+[阅读更多关于SubQuery Dictionary如何工作的信息](../academy/tutorials_examples/dictionary.md).
+
+#### 连接到数据库
+
+```shell
+export DB_USER=postgres
+export DB_PASS=postgres
+export DB_DATABASE=postgres
+export DB_HOST=localhost
+export DB_PORT=5432
+subql-node -f your-project-path
+```
+ :::</p>
+
+#### 连接到数据库
+
+```shell
+export DB_USER=postgres
+export DB_PASS=postgres
+export DB_DATABASE=postgres
+export DB_HOST=localhost
+export DB_PORT=5432
+subql-node -f your-project-path
+```
+
+根据您的 Postgres 数据库的配置（例如不同的数据库密码），请同时确保索引器 (`subql/node`) 和查询服务 (`subql/query` ) 可以建立到它的连接。
+
+#### 指定一个配置文件
+
+<CodeGroup>
+<CodeGroupItem title='Substrate/Polkadot'>
+
+```shell
+subql-node -f your-project-path --local
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Terra'>
+
+```shell
+subql-node-terra -f your-project-path --local
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Avalanche'>
+
+```shell
+subql-node-avalanche -f your-project-path --local
+```
+
+</CodeGroupItem>
+</CodeGroup>
+
+出于调试的目的，用户可以以本地方式运行该节点。 查看下面的示例.
+
+```yaml
+subquery: ../../../../subql-example/extrinsics
+subqueryName: extrinsics
+batchSize:100
+localMode:true
+```
+
+#### 更改区块获取批量大小
+
+```shell
+subql-node -f your-project-path --batch-size 200
+
+Result:
+[IndexerManager] fetch block [203, 402]
+[IndexerManager] fetch block [403, 602]
+```
+
+索引器首次对链进行索引时，获取单个区块将显著降低性能。 增加批量大小以调整获取的区块数将减少整体处理时间。 当前的默认批量大小为 100。
+
+#### 在本地模式下运行
+
+<CodeGroup>
+<CodeGroupItem title='Substrate/Polkadot'>
+
+```shell
+subql-node -f your-project-path --local
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Terra'>
+
+```shell
+subql-node-terra -f your-project-path --local
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Avalanche'>
+
+```shell
+subql-node-avalanche -f your-project-path --local
+```
+
+</CodeGroupItem>
+</CodeGroup>
+
+出于调试的目的，用户可以以本地方式运行该节点。 切换到本地模型将在默认架构 `public` 中创建 Postgres 表。
+
+如果不使用本地模式，将创建具有初始 `subquery_` 和相应项目表的新 Postgres 模式。
+
+#### 检查您的节点健康状况
+
+有两个端口可用来检查和监视所运行的 SubQuery 节点的健康状况。
+
+- 健康检查端点，返回一个简单的 200 个响应。
+- 元数据端点，包括您正在运行的 SubQuery 节点的附加分析。
+
+将此附加到您的 SubQuery 节点的基本 URL。 例如：`http://localhost:3000/meta` 将会返回
 
 ```bash
 {
@@ -264,9 +269,9 @@ Append this to the base URL of your SubQuery node. Eg `http://localhost:3000/met
 }
 ```
 
-`http://localhost:3000/health` will return HTTP 200 if successful.
+`http://localhost:3000/health` 如果成功，将返回 HTTP 200。
 
-A 500 error will be returned if the indexer is not healthy. This can often be seen when the node is booting up.
+如果索引器不正常，将返回 500 错误。 这通常可以在节点启动时看到。
 
 ```shell
 {
@@ -275,7 +280,7 @@ A 500 error will be returned if the indexer is not healthy. This can often be se
 }
 ```
 
-If an incorrect URL is used, a 404 not found error will be returned.
+如果使用了不正确的 URL，将返回 404 not found 错误。
 
 ```shell
 {
@@ -285,15 +290,15 @@ If an incorrect URL is used, a 404 not found error will be returned.
 }
 ```
 
-#### Debug your project
+#### 调试您的项目
 
-Use the [node inspector](https://nodejs.org/en/docs/guides/debugging-getting-started/) to run the following command.
+使用 [节点检查器](https://nodejs.org/en/docs/guides/debugging-getting-started/) 运行以下命令。
 
 ```shell
 node --inspect-brk <path to subql-node> -f <path to subQuery project>
 ```
 
-For example:
+例如：
 
 ```shell
 node --inspect-brk /usr/local/bin/subql-node -f ~/Code/subQuery/projects/subql-helloworld/
@@ -302,20 +307,20 @@ For help, see: https://nodejs.org/en/docs/inspector
 Debugger attached.
 ```
 
-Then open up the Chrome dev tools, go to Source > Filesystem and add your project to the workspace and start debugging. For more information, check out [How to debug a SubQuery project](../academy/tutorials_examples/debug-projects.md).
+然后打开Chrome开发工具，进入Source>Filesystem，将项目添加到工作区并开始调试。 查看更多信息[如何调试SubQuery项目](../academy/tutorials_examples/debug-projects.md).
 
-## Running a Query Service (subql/query)
+## 运行Query服务(subql/query)
 
-### Installation
+### 安装
 
 ```shell
 # NPM
 npm install -g @subql/query
 ```
 
-::: danger Please note that we **DO NOT** encourage the use of `yarn global` due to its poor dependency management which may lead to an errors down the line. :::
+：：： 危险 请注意，我们**不**鼓励使用 `yarn global`，因为它糟糕的依赖管理可能会导致错误。 :::
 
-### Running the Query service
+### 运行Query服务
 
 ```
 export DB_HOST=localhost
