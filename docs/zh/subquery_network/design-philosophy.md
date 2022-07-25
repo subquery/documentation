@@ -4,7 +4,7 @@ SubQuery Network 的指导原则是针对不同用例、支付方式和网络的
 
 ## 多链设计
 
-*SubQuery believes in the idea that a community of blockchains, working together to encourage web3 adoption, is the future.*
+*SubQuery相信，共同努力鼓励Web3应用的区块链社区是未来的发展方向。*
 
 SubQuery原生于Polkadot生态系统，它是我们的家，也是SubQuery网络的所在地。 Polkadot的核心前提是创造一个蓬勃发展的开发者、用户和企业社群，发掘其多功能互操作性。 SubQuery 相信区块链社区共同鼓励采用 web3 的想法是未来，并且 Polkadot 将成为该计划的领先者。
 
