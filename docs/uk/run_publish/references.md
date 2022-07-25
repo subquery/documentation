@@ -1,4 +1,4 @@
-# Command Line Flags
+# Прапори командного рядка
 
 ## subql (cli)
 
@@ -8,68 +8,68 @@
 > subql --help
 
 COMMANDS
-  build     Build this SubQuery project code
-  codegen   Generate schemas for graph node
-  help      display help for subql
-  init      Initialize a scaffold subquery project
-  migrate   Migrate Subquery project manifest v0.0.1 to v0.2.0
-  publish   Upload this SubQuery project to IPFS
-  validate  Check a folder or github repo is a validate subquery project
+  build     Створіть цей код проекту SubQuery
+  codegen   Створення схем для вузла graph
+  help      відображення довідки для subql
+  init      Ініціалізуйте проект SubQuery scaffold
+  migrate   Перенести маніфест проекту SubQuery v0.0.1 в v0.2.0
+  publish   Завантажте цей проект SubQuery в IPFS
+  validate  Перевірка папки або сховища github - це проект перевірки SubQuery
 ```
 
-### build
+### будувати
 
-This command is uses webpack to generate a bundle of a subquery project.
+Ця команда використовує webpack для створення пакету проєкту subquery.
 
-| Options            | Описання                                                                                                   |
+| Опція              | Описання                                                                                                   |
 | ------------------ | ---------------------------------------------------------------------------------------------------------- |
-| -l, --location     | local folder of subquery project (if not in folder already)                                                |
-| -o, --output       | specify output folder of build e.g. build-folder                                                           |
+| -l, --location     | локальна тека проєкту subquery (якщо вона ще не знаходиться в теці)                                        |
+| -o, --output       | вкажіть вихідну теку збірки, наприклад, build-folder                                                       |
 | --mode=(production | prod                                                        | development | dev) | [ default: production ] |
 
-- With `subql build` you can specify additional entry points in exports field although it will always build `index.ts` automatically.
+- За допомогою `subql build` ви можете вказати додаткові точки входу в поле exports, хоча він завжди буде будуватися `index.Ts` автоматично.
 
-- You need to have @subql/cli v0.19.0 or above to use exports field.
+- Для використання поля експорту у вас повинен бути @subql/cli версії 0.19.0 або вище.
 
-- Any `exports` field must map to string type (e.g. `"entry": "./src/file.ts"`), else it will be ignored from build.
+- Будь-яке поле `exports` має відповідати рядковому типу (наприклад, `"entry": "./src/file.ts"`), інакше воно буде проігноровано при складанні.
 
-[Futher example](../build/introduction.md#build).
+[ ще один приклад](../build/introduction.md#build).
 
 ## subql-node
 
 ### --help
 
-This shows the help options.
+Тут показуватися параметри довідки.
 
 ```shell
 > subql-node --help
 Options:
-      --help                Show help                                  [boolean]
-      --version             Show version number                        [boolean]
-  -f, --subquery            Local path of the subquery project          [string]
-      --subquery-name       Name of the subquery project   [deprecated] [string]
-  -c, --config              Specify configuration file                  [string]
-      --local               Use local mode                [deprecated] [boolean]
-      --force-clean         Force clean the database, dropping project schemas
-                            and tables                                 [boolean]
-      --db-schema           Db schema name of the project               [string]
-      --unsafe              Allows usage of any built-in module within the
+      --help                Показати довідку                                  [boolean]
+      --version             Показати номер версії                        [boolean]
+  -f, --subquery            Локальний шлях до проекту subquery          [string]
+      --subquery-name       Назва проекту subquery   [deprecated] [string]
+  -c, --config              Вкажіть файл конфігурації                  [string]
+      --local               Використовуйте локальний режим                [deprecated] [boolean]
+      --force-clean         Примусово очистіть базу даних, видаливши схеми проекту
+                            і таблиці                                 [boolean]
+      --db-schema           Назва схеми db проекту               [string]
+      --unsafe              Дозволяє використовувати будь-який вбудований модуль в
                             sandbox                    [boolean][default: false]
-      --batch-size          Batch size of blocks to fetch in one round  [number]
-      --scale-batch-size    scale batch size based on memory usage
+      --batch-size          Розмір партії блоків для вибірки за один раунд  [number]
+      --scale-batch-size    масштабуйте розмір пакета в залежності від використання пам'яті
                                                       [boolean] [default: false]
-      --timeout             Timeout for indexer sandbox to execute the mapping
-                            functions                                   [number]
-      --debug               Show debug information to console output. will
-                            forcefully set log level to debug
+      --timeout             Тайм-аут для пісочниці індексатора для виконання зіставлення
+                            функція                                   [number]
+      --debug               Відображення налагоджувальної інформації на вивід консолі. буде
+                            примусово встановіть рівень журналу для налагодження
                                                       [boolean] [default: false]
-      --profiler            Show profiler information to console output
+      --profiler            Відображення інформації профілювальника на вивід консолі
                                                       [boolean] [default: false]
-      --subscription        Enable subscription       [boolean] [default: false]                                                     
-      --network-endpoint    Blockchain network endpoint to connect      [string]
-      --output-fmt          Print log as json or plain text
+      --subscription        Увімкнути підписку       [boolean] [default: false]                                                     
+      --network-endpoint    Кінцева точка блокчейн-мережі для підключення      [string]
+      --output-fmt          Друк журналу у форматі json або звичайного тексту
                                            [string] [choices: "json", "colored"]
-      --log-level           Specify log level to print. Ignored when --debug is
+      --log-level           Вкажіть рівень журналу для друку. Ignored when --debug is
                             used
           [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
                                                                        "silent"]
@@ -299,7 +299,7 @@ Disables automated historical state tracking, [see Historic State Tracking](./hi
 
 ### --help
 
-This shows the help options.
+Тут показуватися параметри довідки.
 
 ```shell
 Options:
