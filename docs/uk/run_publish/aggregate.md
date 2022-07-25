@@ -24,8 +24,8 @@ SubQuery надає наступні агрегатні функції, коли
 - `varianceSample` (застосовується до числових полів) - похибка вибірки значень
 - `variancePopulation` (застосовується до числових полів) - дисперсія генеральної сукупності значень
 
-SubQuery's implementation of aggregate functions is based on [pg-aggregates](https://github.com/graphile/pg-aggregates), you can find more information there.
+Реалізація SubQuery's агрегатних функцій заснована на [pg-aggregates](https://github.com/graphile/pg-aggregates) більш детальну інформацію ви можете знайти там.
 
-::: warning Important Please note that you must enable the `--unsafe` flag on the query service in order to use these functions. [Read more](./references.md#unsafe-2).
+::: важливе попередження Будь ласка, зверніть увагу, що ви повинні включити прапор `--unsafe` в службі запитів, щоб використовувати ці функції. [Детальніше](./references.md#unsafe-2).
 
-Also, note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in [SubQuery's managed service](https://project.subquery.network). :::
+Також зверніть увагу, що команда `--unsafe` запобігає запуску вашого проєкту в мережі SubQuery, і ви повинні звернутися в службу підтримки, якщо хочете, щоб ця команда виконувалася з вашим проєктом в [керованому сервісі SubQuery's ](https://project.subquery.network). :::
