@@ -327,6 +327,6 @@ export DB_HOST=localhost
 subql-query --name <project_name> --playground
 ```
 
-Make sure the project name is the same as the project name when you [initialize the project](../quickstart/quickstart.md#_2-initialise-the-subquery-starter-project). Also, check the environment variables are correct.
+确保项目名称与[初始化项目](../quickstart/quickstart.md#_2-initialise-the-subquery-starter-project)时的项目名称相同。 另外，请检查环境变量是否正确。
 
-After running the subql-query service successfully, open your browser and head to `http://localhost:3000`. You should see a GraphQL playground showing in the Explorer and the schema that is ready to query.
+成功运行subql查询服务后，打开浏览器并转到`http://localhost:3000`. 您应该看到在 Explorer 中显示的 GraphQL 播放地和准备查询的模式。 您应该看到在 Explorer 中显示的 GraphQL 播放器和准备查询的模式。
