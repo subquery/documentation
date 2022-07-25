@@ -1,11 +1,11 @@
-# Connect to your new project
+# Увімкнутися до свого нового проєкту
 
-Once your deployment has succesfully completed and our nodes have indexed your data from the chain, you'll be able to connect to your project via the displayed Query endpoint.
+Як тільки ваше розгортання буде успішно завершено і наші вузли проіндексують ваші дані з ланцюжка, ви зможете увімкнутися до свого проєкту через відбиваний кінцеву точку запиту.
 
-![Проект розгортається та синхронізується](/assets/img/projects-deploy-sync.png)
+![Проєкт розгортається і синхронізується](/assets/img/projects-deploy-sync.png)
 
-Крім того, ви можете натиснути на три точки поруч із заголовком проекту та переглянути його на SubQuery Explorer. There you can use the in browser playground to get started.
+Крім того, ви можете натиснути на три точки поруч із заголовком проєкту та переглянути його на SubQuery Explorer. Там ви можете використовувати ігровий майданчик в браузері, щоб почати роботу.
 
-![Projects in SubQuery Explorer](/assets/img/projects-explorer.png)
+![Проєкти в провіднику вкладених SubQuery](/assets/img/projects-explorer.png)
 
-::: info Note Learn more about the [GraphQL Query language.](./graphql.md) :::
+::: інформаційна записка Дізнайтеся більше про [GraphQL Query language.](./graphql.md):::
