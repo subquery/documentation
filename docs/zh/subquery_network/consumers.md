@@ -32,6 +32,6 @@
 
 除非使用封闭服务协议，否则将有一个或多个索引器索引子查询项目。 消费者在决定从哪个索引器读取数据时有选择。 通常消费者将选择最可靠和最最低的延迟指数。 消费者还可纳入自动故障并从另一索引器读取数据，如果第一次出现故障或不具响应性。
 
-### What happens if an Indexer goes offline?
+### 如果索引器关机会发生什么情况？
 
-除非正在使用封闭服务协议，否则如果有多个索引器将您的 SubQuery 项目索引。 这只是一个转向另一个索引器的问题。 The ideal scenario would be include strategies like alert monitoring to be notified of potential issues and intelligent routing and caching.
+除非正在使用封闭服务协议，否则如果有多个索引器将您的 SubQuery 项目索引。 这只是一个转向另一个索引器的问题。 理想的情景将包括一些策略，例如通知潜在问题的警报监测以及智能路由和缓存。
