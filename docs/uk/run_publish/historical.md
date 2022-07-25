@@ -7,40 +7,40 @@ SubQuery дозволяє індексувати будь-які дані, як�
 Базовий проєкт SubQuery, який індексує залишки на рахунках, може мати об'єкт, який виглядає наступним чином.
 
 ```graphql
-type Account @entity {
+Введіть обліковий запис @entity {
   id: ID! # Alice's account address
   balance: BigInt
   transfers: [Transfer]
 }
 ```
 
-![Historic Indexing](/assets/img/historic_indexing.png)
+![Історична індексація](/assets/img/historic_indexing.png)
 
-In the above example, Alice's DOT balance constantly changes, and as we index the data, the `balance` property on the `Account` entity will change. A basic SubQuery project that indexes account balances will lose this historical data and will only store the state of the current indexing block height. For example, if we currently index to block 100, the data in the database can only represent the state of Alice's account at block 100.
+У наведеному вище прикладі баланс DOT Аліси постійно змінюється, і в міру того, як ми індексуємо дані, властивість ` balance ` по суті ` Account ` буде змінюватися. Базовий проєкт SubQuery, який індексує залишки на рахунках, втратить ці Історичні дані й збереже тільки стан поточної висоти блоку індексації. Наприклад, якщо ми зараз індексуємо блок 100, дані в базі даних можуть представляти лише стан облікового запису Аліси в блоці 100.
 
-Then we are faced with a problem. Assuming the data has changed when indexing to block 200, how can we query the state of the data at block 100?
+Тоді ми стикаємося з проблемою. Припускаючи, що дані змінилися при індексації в блок 200, як ми можемо запитати стан даних в блоці 100?
 
 ## Автоматичне Відстеження Історичного Стану
 
-SubQuery now automates the historical state tracking of entities for all new projects. You can automatically query the state of your SubQuery project at any block height. This means that you can build applications that allow users to go back in time, or show how the state of your data changes over time.
+SubQuery тепер автоматизує відстеження історичного стану об'єктів для всіх нових проєктів. Ви можете автоматично запитувати стан вашого проєкту SubQuery на будь-якій висоті блоку. Це означає, що ви можете створювати додатки, які дозволяють користувачам повертатися в минуле або показувати, як стан ваших даних змінюється з плином часу.
 
-In short, when you create, update, or delete any SubQuery entity, we store the previous state with the block range that it was valid for. You can then query data from a specific block height using the same GraphQL endpoints and API.
+Коротко кажучи, Коли ви створюєте, оновлюєте або видаляєте будь-який об'єкт SubQuery, ми зберігаємо попередній стан з діапазоном блоків, для якого він був дійсним. Потім ви можете запросити дані з певної висоти блоку, використовуючи ті ж кінцеві точки GraphQL і API.
 
-## Enabling This
+## Включення Цього
 
-This feature is enabled by default for all new projects started with at least `@subql/node@1.1.1` and `@subql/query1.1.0`. If you want to add it to your existing project, update `@subql/node` and `@subql/query` and then reindex your project with a clean database.
+Ця функція включена за замовчуванням для всіх нових проєктів, розпочатих як мінімум з `@subql/node@1.1.1` і `@subql/query1.1.0`. Якщо ви хочете додати його до що існує проєкт, оновіть `@subql/node` та `@subql/query`, а потім переіндексуйте свій проєкту за допомогою чистої бази даних.
 
-If you want to disable this feature for any reason, you can set the `--disable-historical=true` parameter on `subql-node`.
+Якщо ви хочете вимкнути цю функцію з будь-якої причини, ви можете встановити параметр `--disable-historical=true` на `subql-node`.
 
-On startup, the current status of this feature is printed to the console (`Historical state is enabled`).
+При запуску поточний стан цієї функції виводиться на консоль (`Historical state is enabled`).
 
-## Querying Historical State
+## Запит історичного стану
 
-There is a special (optional) property on the GraphQL entity filter called `blockHeight`. If you omit this property, SubQuery will query the entity state at the current block height.
+У фільтрі сутностей GraphQL є спеціальна (необов'язкова) властивість, яка називається `blockHeight`. Якщо ви опустите цю властивість, SubQuery буде запитувати стан об'єкта на поточній висоті блоку.
 
-Please see one of our example projects: [RMRK NFT](https://explorer.subquery.network/subquery/subquery/rmrk-nft-historical).
+Будь ласка, ознайомтеся з одним з наших прикладів проєктів: [RMRK NFT](https://explorer.subquery.network/subquery/subquery/rmrk-nft-historical).
 
-To query the owners of RMRK NFTs at block height 5,000,000, add the blockHeight parameter as shown below:
+Щоб запросити власників RMRK NFTs з висотою блоку 5 000 000, додайте параметр blockHeight, як показано нижче:
 
 ```graphql
 query {
@@ -53,7 +53,7 @@ query {
 }
 ```
 
-To query the owners of those RMRK NFTs collections at the latest block height, omit the blockHeight parameter as shown below.
+Щоб запросити власників цих колекцій RMRK NFTs з останньою висотою блоку, опустіть параметр blockHeight, як показано нижче.
 
 ```graphql
 query {
