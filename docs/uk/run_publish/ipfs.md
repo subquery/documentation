@@ -2,19 +2,19 @@
 
 У цьому посібнику описано, як опублікувати локальний проект SubQuery в [IPFS](https://ipfs.io/) і розгорнути його в нашій інфраструктурі хостингу.
 
-Hosting a project in IPFS makes it available for all and reduces your reliance on centralised services like GitHub.
+Розміщення проєкту в IPFS робить його доступним для всіх і знижує вашу залежність від централізованих сервісів, таких як GitHub.
 
 ## Вимоги
 
 - `@subql/cli` version 0.21.0 or above.
 - Маніфест `specVersion` 0.2.0 або вище.
-- Get your [SUBQL_ACCESS_TOKEN](ipfs.md#prepare-your-subql-access-token) ready.
+- Підготуйте свій [SUBQL_ACCESS_TOKEN](ipfs.md#prepare-your-subql-access-token).
 - Щоб переконатися в успіху вашого розгортання, ми наполегливо рекомендуємо вам створити проект за допомогою команди `subql build` і протестувати його локально перед публікацією.
 
 ## Підготуйте свій SUBQL_ACCESS_TOKEN
 
 - Крок 1. Перейдіть до [SubQuery Projects](https://project.subquery.network/) та увійдіть.
-- Step 2: Click on your profile at the top right of the navigation menu, then click on **_Refresh Token_**.
+- Крок 2: Натисніть на свій профіль у верхньому правому куті навігаційного меню, а потім натисніть **_Refresh Token_**.
 - Крок 3: скопіюйте згенерований токен.
 - Крок 4. Щоб використовувати цей токен:
   - Варіант 1. Додайте SUBQL_ACCESS_TOKEN у змінні середовища. `EXPORT SUBQL_ACCESS_TOKEN=<token>`
@@ -22,21 +22,21 @@ Hosting a project in IPFS makes it available for all and reduces your reliance o
 
 ## Як опублікувати проект
 
-We provide two methods to publish your project:
+Ми пропонуємо два способи публікації вашого проєкту:
 
-### Option 1
+### Варіант 1
 
-As you have `@subql/cli` already installed, you can run the following command, which will read the project and required information from its default manifest `project.yaml`:
+Оскільки у вас вже встановлено `@subql/cli`, ви можете запустити таку команду, яка вважає проєкт і необхідну інформацію з його маніфесту за замовчуванням `project.yaml`:
 
 ```
-// Опублікувати його з кореневого каталогу вашого проекту
-subql опублікувати
+// Опублікувати його з кореневого каталогу вашого проєкту
+subql publish
 
-// АБО вказуйте на корінь вашого проекту
-subql опублікувати -f ~/мій-проект/
+// АБО вказуйте на корінь вашого проєкту
+subql publish -f ~/my-project/
 ```
 
-### Option 2
+### Варіант 2
 
 Крім того, припустімо, що у вашому проекті є кілька файлів маніфесту, наприклад, ви підтримуєте кілька мереж, але використовуєте однакове відображення та бізнес-логіку та маєте таку структуру проекту:
 
@@ -66,17 +66,17 @@ subql опублікувати -f ~/my-projectRoot/polkadot.yaml
 Проект SubQuery, завантажений до IPFS: QmZ3q7YZSmhwBiot4PQCK3c7Z6HkteswN2Py58gkkZ8kNd //CID
 ```
 
-Будь ласка, зверніть увагу на `CID`. With this `CID`, you can view your published project as what we call it [IPFS Deployment](ipfs.md#ipfs-deployment).
+Будь ласка, зверніть увагу на `CID`. За допомогою цього `CID` ви можете переглядати свій опублікований проєкт як те, що ми називаємо його [ IPFS Deployment ](ipfs.md#ipfs-deployment).
 
-With `@subql/cli` version 1.3.0 or above, when using `subql publish` it will store a copy of the project's `IPFS CID` in a file in your project directory, the naming of the file will be consistent with your project.yaml. For example, if your manfiest file is named `project.yaml`, the IPFS file will be named  `.project-cid`.
+З `@subql/cli` версії 1.3.0 або вище, при використанні `subql publish` Він збереже копію проєкту ` IPFS CID ` у файлі в каталозі вашого проєкту, ім'я файлу буде будьте послідовні з вашим project.yaml. Наприклад, якщо ваш файл manfest має ім'я `project.yaml`, файл IPFS матиме ім'я `.project-cid`.
 
 ## Розгортання в IPFS
 
 Розгортання IPFS являє собою незалежне та унікальне існування проекту SubQuery в децентралізованій мережі. Тому будь-які зміни коду в проекті вплинуть на його унікальність. Якщо вам потрібно налаштувати свою бізнес-логіку, напр. змінити функцію відображення, ви повинні повторно опублікувати проект, і `CID` зміниться.
 
-For now, to view the project you have published, use a `REST` api tool such as [Postman](https://web.postman.co/), and use `POST` method with the following example URL to retrieve it:`https://ipfs.subquery.network/ipfs/api/v0/cat?arg=<YOUR_PROJECT_CID>`.
+На цей час, щоб переглянути опублікований вами проєкт, використовуйте інструмент api `REST`, такий як [Postman](https://web.postman.co/), і використовуйте метод `POST` з наступним прикладом URL для його вилучення:`https://ipfs.subquery.network/ipfs/api/v0/cat?arg =<YOUR_PROJECT_CID>`.
 
-You should see the example project deployment as below.
+Ви повинні побачити приклад розгортання проєкту, як показано нижче.
 
 Це розгортання дуже схоже на ваш файл маніфесту. Ви можете очікувати цих описових полів, а кінцеву точку мережі та словника було видалено, оскільки вони не впливали безпосередньо на результат виконання проекту.
 
@@ -109,7 +109,7 @@ specVersion: 0.2.0
 
 ### Створіть проект із розгортанням IPFS
 
-You can follow the guide to [Publish your SubQuery project](../run_publish/publish.md) but where you set your deployment source you can select **IPFS**.
+Ви можете слідувати керівництву, щоб [опублікувати свій проєкт SubQuery ](../run_publish/publish.md), але там, де ви встановлюєте джерело розгортання, ви можете вибрати **IPFS**.
 
 Потім виберіть свій робочий слот, скопіюйте та вставте свій CID розгортання IPFS (без початкового `ipfs://`).
 
