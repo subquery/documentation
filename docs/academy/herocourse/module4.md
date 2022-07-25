@@ -1,38 +1,42 @@
 # Module 4: Aggregation
 
+This module explains how you can aggregate data with a video lesson. The module is further divided into 4 guided exercises. 
+
 ## Lesson 1: Aggregation Basics
 
 <figure class="video_container">
   <iframe src="https://www.youtube.com/embed/3s5ePkDERGQ" frameborder="0" allowfullscreen="true"></iframe>
 </figure>
 
-### Exercises
+## Exercises
 
-In these exercises, we will take the starter project and look at how we can aggregate data. Specifically, we will index staking rewards and then aggregate them over a particular account. In effect we are determining how much reward an account has accumulated over time. 
+In these exercises, we will take the starter project and see how we can aggregate data. We will focus on indexing the staking rewards and then aggregating them over a particular account. 
 
-### Pre-requisites
+To summarise, we will determine how much reward an account has accumulated over time. 
 
-Completion of Module 3.
+## Pre-Requisites
 
-
-### Exercise 1: Index Staking Rewards
-
-Before we can aggregate all the staked rewards earned by a user or more specifically an DOT account owner, we need to index all the staking rewards. 
+Completion of [Module 3](../herocourse/module3.md).
 
 
-### High level steps
+## Exercise 1: Index Staking Rewards
+
+Before you aggregate all the staked rewards earned by a user, or to be precise a **DOT account owner**, you need to index those staking rewards. 
+
+
+### Overview of Steps Involved
 
 1. Initialise the starter project.
-2. Update your mappings, manifest file and graphql schema file.
-3. Generate, build and deploy your code.
+2. Update your mappings file, manifest file, and graphql schema file.
+3. Generate, build, and deploy your code.
 4. Deploy your code in Docker.
 5. Query for address balances in the playground.
 
-### Detailed steps
+### Detailed Steps
 
-#### Step 1: Initialize your project
+#### Step 1: Initialise Your Project
 
-The first step in creating a SubQuery project is to create a project with the following command:
+The first step to create a SubQuery project with the following command:
 
 
 ```
@@ -54,10 +58,11 @@ staking-rewards is ready
 
 
 
-#### Step 2: Update the graphql schema
+#### Step 2: Update the Graphql Schema
 
-Add an entity called StakingReward. This has fields that allows us to record the account reward along with the balance. The block height will allow us to do a cross check.
+Add an entity called `StakingReward`. This entity will allow you to record the account-reward along with the balance. Moreover, the block height will help you perform a cross check.
 
+- The schema file should look similar to as below:
 
 ```
 type StakingReward @entity{
@@ -71,12 +76,9 @@ type StakingReward @entity{
 
 
 
-#### 
+#### Step 3: Update the Manifest File (aka project.yaml)
 
-
-#### Step 3: Update the manifest file (aka project.yaml)
-
-Update the manifest file to only include a handleStakingRewarded handler and update the filter method to staking/Rewarded. This is the only event we want to capture for now.
+Update the manifest file by including a `handleStakingRewarded` handler and updating the filter method to `staking/Rewarded`. This is the only event you require to capture for now. Hence, remove the `blockHandler` and `callHandler`. 
 
 
 ```
@@ -87,31 +89,19 @@ Update the manifest file to only include a handleStakingRewarded handler and upd
     method: Rewarded
 ```
 
-
 ::: info Note
-The Rewarded method was only recently introduced from block [6,713,249](https://github.com/polkadot-js/api/blob/master/packages/types-known/src/upgrades/polkadot.ts) onwards. It was previously called Reward. For this exercise, we will use this newer format and use a startBlock of 7,000,000
+The `Rewarded` method was recently introduced from the block [6,713,249](https://github.com/polkadot-js/api/blob/master/packages/types-known/src/upgrades/polkadot.ts) onwards. It was previously called `Reward`. For this exercise, we will use this the new format and use a startBlock of 7,000,000. 
 :::
 
-The full manifest file should look like this:
 
+::: warning Important
+Avoid messing with the auto-generated version names(as shown in the initial section of the manifest file).
+:::
+
+
+- The updated part of the manifest file will look like as follows:
 
 ```
-specVersion: 1.0.0
-name: staking-rewards
-version: 1.0.0
-runner:
-  node:
-    name: '@subql/node'
-    version: '>=1.0.0'
-  query:
-    name: '@subql/query'
-    version: '*'
-description: >-
-  This project can be use as a starting point for developing your SubQuery
-  project
-repository: 'https://github.com/subquery/subql-starter'
-schema:
-  file: ./schema.graphql
 network:
   chainId: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3'
   endpoint: 'wss://polkadot.api.onfinality.io/public-ws'
@@ -130,9 +120,11 @@ dataSources:
             method: Rewarded
 ```
 
+Notice that `genesisHash` has been excluded. 
 
-Note: We are starting at block height 7 million in this example and indenting matters. Otherwise you will get the following error:
-
+:::info note
+In this example, we are starting at the block height 7 million, and **strictly note that indenting matters here**. Otherwise you will get the following error:
+:::
 
 ```
  ./node_modules/.bin/subql codegen
@@ -153,9 +145,9 @@ error Command failed with exit code 1.
 
 
 
-#### Step 4: handleStakingRewarded
+#### Step 4: Create `handleStakingRewarded` and Update Mapping File
 
-The initialisation command pre-creates a sample mappings file with 3 functions, handleBlock, handleEvent and handleCall. Delete all of them as we will create our own. 
+The initialisation of the project also pre-creates a sample mappings file with 3 functions: `handleBlock`, `handleEvent` and `handleCall`. Delete all of these functions as you need to create your own. 
 
 
 ```
@@ -165,7 +157,7 @@ export async function handleStakingRewarded(event: SubstrateEvent): Promise<void
 ```
 
 
-Next, we declare an event object as follows:
+Next, declare an event object as follows:
 
 
 ```
@@ -173,7 +165,7 @@ Next, we declare an event object as follows:
 ```
 
 
-We then declare a new instance of the StakeReward object and pass through the blockheight +hyphen + eventid to create a unique identifier. 
+After that declare a new instance of the `StakeReward` object. Pass it through the **blockheight + hyphen + eventid** to create a unique identifier. 
 
 
 ```
@@ -181,7 +173,7 @@ const entity = new StakingReward(`${event.block.block.header.number}-${event.idx
 ```
 
 
-We then obtain the account, newReward and the block timestamp and store it within the relevant fields within our entity object.  We then save the entity.
+Next, obtain the `account`, `newReward` and the block **timestamp**, and store it within the relevant fields of our entity object. Then, save the entity. 
 
 
 ```
@@ -193,7 +185,7 @@ await entity.save();
 ```
 
 
-The full mapping file should look like this:
+- The complete mapping file should look like this:
 
 
 ```
@@ -214,9 +206,11 @@ export async function handleStakingRewarded(event: SubstrateEvent): Promise<void
 
 
 
-#### Step 5: Build the project
+#### Step 5: Install Dependencies and Build the Project
 
-Run the standard yarn install, codegen, build and docker-compose pull & docker-compose up commands.
+The next step is building the project. 
+
+For that first. run the standard `yarn install`and then `yarn codegen`. After that run the `docker-compose pull & docker-compose up` command.  
 
 <CodeGroup>
   <CodeGroupItem title="YARN" active>
@@ -279,76 +273,88 @@ yarn start:docker
 
 
 
-#### Step 4: Query the project
+#### Step 6: Query the Project
 
-Once the docker container is up and running, which could take a few minutes, open up your browser and navigate to `www.localhost:3000`. 
+Once the docker container is all set and running successfully, which may take a few minutes, open up your browser and navigate to `www.localhost:3000`. 
 
-This will open up a “playground” where you can create your query. Copy the example below:
+This will open up a “playground” where you can create your query. Copy the example below and see the results:
 
+<CodeGroup>
+  <CodeGroupItem title="Query" active>
 
-```
-query{
-  stakingRewards(first: 3 orderBy:BLOCK_HEIGHT_ASC){
-    nodes{
-      blockHeight
-      account
-      date
-      balance
+  ```
+  query{
+    stakingRewards(first: 3 orderBy:BLOCK_HEIGHT_ASC){
+      nodes{
+        blockHeight
+        account
+        date
+        balance
+      }
     }
   }
-}
-```
+  ```
+  </CodeGroupItem>
+
+  <CodeGroupItem title="Result">
+
+  ```
+  {
+    "data": {
+      "stakingRewards": {
+        "nodes": [
+          {
+            "blockHeight": 7000064,
+            "account": "16jWQMBXZNxfgXJmVL61gMX4uqtc9WTXV3c8DGx6DUKejm7",
+            "date": "2021-09-26T16:50:18.001",
+            "balance": "2189068638"
+          },
+          {
+            "blockHeight": 7000064,
+            "account": "13MnytvGDqJLGZbizqd8CDKJUPa9UJyzXcdxRiJEv5g2hq47",
+            "date": "2021-09-26T16:50:18.001",
+            "balance": "2050030971"
+          },
+          {
+            "blockHeight": 7000064,
+            "account": "12L117g377z195J3WaPshEaFC8vsNMyiMi8CTWfWVJdmBAJ4",
+            "date": "2021-09-26T16:50:18.001",
+            "balance": "2007885451"
+          },
+          {
+            "blockHeight": 7000064,
+            "account": "13owVsvG3GtmDYfcnDNCVm54z6X6VgYf37QRMFywrVPpkJvv",
+            "date": "2021-09-26T16:50:18.001",
+            "balance": "1987101808"
+          },
+      }
+    }
+  ```
+  </CodeGroupItem>
+</CodeGroup>
 
 
-This should return something similar to below:
 
+Congratulations! You have now indexed all staking rewards for all accounts from the block 7 Million onwards. 
 
-```
-{
-  "data": {
-    "stakingRewards": {
-      "nodes": [
-        {
-          "blockHeight": 7000064,
-          "account": "16jWQMBXZNxfgXJmVL61gMX4uqtc9WTXV3c8DGx6DUKejm7",
-          "date": "2021-09-26T16:50:18.001",
-          "balance": "2189068638"
-        },
-        {
-          "blockHeight": 7000064,
-          "account": "13MnytvGDqJLGZbizqd8CDKJUPa9UJyzXcdxRiJEv5g2hq47",
-          "date": "2021-09-26T16:50:18.001",
-          "balance": "2050030971"
-        },
-        {
-          "blockHeight": 7000064,
-          "account": "12L117g377z195J3WaPshEaFC8vsNMyiMi8CTWfWVJdmBAJ4",
-          "date": "2021-09-26T16:50:18.001",
-          "balance": "2007885451"
-        },
-        {
-          "blockHeight": 7000064,
-          "account": "13owVsvG3GtmDYfcnDNCVm54z6X6VgYf37QRMFywrVPpkJvv",
-          "date": "2021-09-26T16:50:18.001",
-          "balance": "1987101808"
-        },
-```
+In the next exercise, let’s aggregate or sum up these rewards for each account.
 
-
-Congratulations. You have now indexed all staking rewards for all accounts from block 7M onwards. Next, let’s aggregate or sum up these rewards for each account.
-
+---
 
 ## Exercise 2: Aggregate Staking Rewards
 
-To aggregate the staking rewards, we first of all need to create another entity.
+First of all, you need to create another entity to aggregate the staking rewards.
 
+### Pre-Requisites
+
+Compeletion of [Module 4 - Exercise](module4.md#exercise-1-index-staking-rewards).
 
 ### Detailed Steps
 
 
-#### Step 1: Add an entity called Sum Reward
+#### Step 1: Add an Entity Called Sum Reward
 
-Add a new entity called SumReward with extra fields as seen below. 
+Add a new entity called `SumReward` with extra fields as shown below:
 
 
 ```
@@ -360,7 +366,7 @@ type SumReward @entity{
 ```
 
 
-The new schema file should now look like this:
+- **The new schema file should now look like this:**
 
 
 ```
@@ -380,9 +386,9 @@ type SumReward @entity{
 
 
 
-#### Step 2: Update the manifest file
+#### Step 2: Update the Manifest File(aka project.yaml)
 
-Add an extra handler called handleSumRewarded and filter it by staking/Rewarded.
+Add an extra handler called `handleSumRewarded` and filter it by `staking/Rewarded`.
 
 
 ```
@@ -394,31 +400,10 @@ Add an extra handler called handleSumRewarded and filter it by staking/Rewarded.
 ```
 
 
-The complete manifest file should look like: 
+The ***latest and updated part*** of the manifest file should look like as below: 
 
 
 ```
-specVersion: 1.0.0
-name: staking-rewards
-version: 1.0.0
-runner:
-  node:
-    name: '@subql/node'
-    version: '>=1.0.0'
-  query:
-    name: '@subql/query'
-    version: '*'
-description: >-
-  This project can be use as a starting point for developing your SubQuery
-  project
-repository: 'https://github.com/subquery/subql-starter'
-schema:
-  file: ./schema.graphql
-network:
-  chainId: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3'
-  endpoint: 'wss://polkadot.api.onfinality.io/public-ws'
-  dictionary: 'https://api.subquery.network/sq/subquery/polkadot-dictionary'
-  #genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3'
 dataSources:
   - kind: substrate/Runtime
     startBlock: 7000000
@@ -440,7 +425,7 @@ dataSources:
 
     
 ::: info Note
-This is how more than 1 mapping handler can be added to a project. Also note that the order is important too. 
+This is how more than one mapping handler can be added to a project. Also note that the order is very crucial. 
 Otherwise you may encounter an error such as:
 
 ```
@@ -449,9 +434,9 @@ ERROR failed to index block at height 7000064 handleStakingRewarded() SequelizeF
 :::
 
 
-#### Step 3: handleSumRewarded
+#### Step 3: Create `handleSumRewarded` Function and Update Mapping File  
 
-Next, create a function called handleSumRewarded along with a helper function called createSumReward.
+Next, create a function called `handleSumRewarded` along with a helper function called `createSumReward`.
 
 
 ```
@@ -477,7 +462,7 @@ export async function handleSumRewarded(event: SubstrateEvent): Promise<void> {
 Run `yarn codegen` and import the new entity to remove the errors.
 :::
 
-The mappings file should now look like:
+The complete and updated mapping file should now look like:
 
 
 ```
@@ -515,76 +500,87 @@ export async function handleSumRewarded(event: SubstrateEvent): Promise<void> {
 
 
 
-#### Step 4: Rebuild the project
+#### Step 4: Rebuild the Project
 
-See building a project in the previous exercise.
+See building a project in the [previous exercise](module4.md#step-5-install-dependencies-and-build-the-project).
 
 ::: info Note
-Because we have modified the schema, delete your database instance in the `.data folder`.
+Delete your database instance in the `.data folder`, as you have modified the schema file. 
 :::
 
 
-#### Step 5: Query the project
+#### Step 5: Query the Project
 
-The following query will list out the total rewards for each account.
+Run the following query to list out the total rewards for each account.
 
+<CodeGroup>
+  <CodeGroupItem title="Query" active>
 
-```
-query{
-  sumRewards(first:3 orderBy:BLOCKHEIGHT_ASC){
-    nodes{
-      blockheight
-      id
-      totalReward
+  ```
+  query{
+    sumRewards(first:3 orderBy:BLOCKHEIGHT_ASC){
+      nodes{
+        blockheight
+        id
+        totalReward
+      }
     }
   }
-}
-```
+  ```
+  </CodeGroupItem>
 
+  <CodeGroupItem title="Result">
 
-You should see something similar to below:
-
-
-```
-{
-  "data": {
-    "sumRewards": {
-      "nodes": [
-        {
-          "blockheight": 7000064,
-          "id": "121FXj85TuKfrQM1Pdcjj4ibbJNnfsqCtMsJ24rSvGEdWDdv",
-          "totalReward": "10901386603"
-        },
-        {
-          "blockheight": 7000064,
-          "id": "123MFw5gAkCjcqEhapJ5zon4Ppyp59Rq2kyNQqEHbfwvM4Ni",
-          "totalReward": "1023809925"
-        },
-        {
-          "blockheight": 7000064,
-          "id": "129N6sYY5r9LnfaMY2AG9px9yYyUhN6FERPXKLfirwBrjkJv",
-          "totalReward": "980420660"
-        }
-      ]
+  ```
+  {
+    "data": {
+      "sumRewards": {
+        "nodes": [
+          {
+            "blockheight": 7000064,
+            "id": "121FXj85TuKfrQM1Pdcjj4ibbJNnfsqCtMsJ24rSvGEdWDdv",
+            "totalReward": "10901386603"
+          },
+          {
+            "blockheight": 7000064,
+            "id": "123MFw5gAkCjcqEhapJ5zon4Ppyp59Rq2kyNQqEHbfwvM4Ni",
+            "totalReward": "1023809925"
+          },
+          {
+            "blockheight": 7000064,
+            "id": "129N6sYY5r9LnfaMY2AG9px9yYyUhN6FERPXKLfirwBrjkJv",
+            "totalReward": "980420660"
+          }
+        ]
+      }
     }
   }
-}
 
-```
+  ```
 
 
-This is great, but wouldn’t it be better if we could not only display the totalReward, but also the individual rewards that made up the totalReward? We’ll look at this in the next exercise.
+  </CodeGroupItem>
+</CodeGroup>
+
+
+What if not only could you display the `totalReward`, but also the show the individual rewards that made up this `totalReward`? 
+That's what we will explore in our next exercise. 
+
+---
 
 
 ## Exercise 3: Viewing Both Aggregated and Individual Staking Rewards
 
-So far in this workbook, we managed to query for all the staking rewards and then aggregate or add them all together for each account. Now we will make another improvement to allow us to view the aggregate amount as well as the individual amounts as a child set. 
+So far in this module, we have managed to query for all the staking rewards and aggregate them for each account. Now we will make an improvement, and view the aggregate amount as well as the individual amounts as a child set. 
 
+### Pre-Requisites
+
+Completion of **[Module 4 - Exercise 1](module4.md#exercise-1-index-staking-rewards).**
 
 ### Detailed Steps
 
 
-#### Step 1: Modify the schema file
+#### Step 1: Modify the Schema File
 
 Update the graphql schema field called account to be type SumReward. We are creating a one-many entity relationship where one sumReward will comprise of many individual staking rewards. 
 
@@ -600,14 +596,14 @@ type StakingReward @entity{
 
 
 
-#### Step 2: Check the manifest file 
+#### Step 2: Check the Manifest File 
 
 The manifest file does not need to be modified.
 
 
-#### Step 3: Update handleStakingRewarded
+#### Step 3: Update `handleStakingRewarded` in the Mapping File(aka project.yaml)
 
-In handleStakingRewarded, modify:
+In `handleStakingRewarded`, modify:
 
 
 ```
@@ -623,11 +619,11 @@ entity.accountId = account.toString();
 ```
 
 
-Because we are effectively creating a relationship or link between our two entities or tables, the StakingReward entity needs to have a column that is the same value as the primary key column in the SumReward entity. 
+Note that you are creating here a relationship between two entities or tables. Hence, he `StakingReward` entity needs to have a column that contains the same value as the primary key column in the `SumReward` entity. 
 
-Because the SumReward entity has been assigned the account value (account.toString()), we must do the same here. 
+Because the `SumReward` entity has been assigned the **account value (account.toString())**, you must do the same here. 
 
-The updated mappings file should look like this:
+- **Now, the whole updated mappings file should look like this:**
 
 
 ```
@@ -664,82 +660,98 @@ export async function handleSumRewarded(event: SubstrateEvent): Promise<void> {
 
 
 
-#### Step 4: Rebuild the project
+#### Step 4: Rebuild the Project
 
-See building a project in the previous exercise. 
+Refer the steps given in the previous exercise to [build the project](module4.md#step-5-install-dependencies-and-build-the-project). 
 
 :::info Note
-You may need to delete your database folder because an new field is being introduced which needs to be included in your database schema.
+You may need to delete your database folder because a new field will be created and included in your database schema.
 :::
 
 
-#### Step 5: Query the project
+#### Step 5: Query the Project
 
-Now we can run a query and utilise a stakingRewardsByAccountId field that is automatically created in order to find the individual staking rewards. 
+Now, run a query and utilise a `stakingRewardsByAccountId` field. This field is automatically created to find the individual staking rewards. 
 
-Below is an example query of one specific account. 
+Below is an example query of one specific account: 
 
+<CodeGroup>
+  <CodeGroupItem title="Query" active>
 
-```
-query{
-  sumRewards(filter: {id:{equalTo:"16jWQMBXZNxfgXJmVL61gMX4uqtc9WTXV3c8DGx6DUKejm7"}}){
-    nodes{
-	blockheight
-      id
-      totalReward
-        stakingRewardsByAccountId{
-          nodes{
-            balance
+  ```
+  query{
+    sumRewards(filter: {id:{equalTo:"16jWQMBXZNxfgXJmVL61gMX4uqtc9WTXV3c8DGx6DUKejm7"}}){
+      nodes{
+    blockheight
+        id
+        totalReward
+          stakingRewardsByAccountId{
+            nodes{
+              balance
+            }
           }
-        }
+      }
     }
   }
-}
-```
+  ```
+  </CodeGroupItem>
 
+  <CodeGroupItem title="Result">
 
-The result returned shows that a total reward of 4049635655 is made up of two balances. 
-
-
-```
-{
-  "data": {
-    "sumRewards": {
-      "nodes": [
-        {
-          "blockheight": 7013941,
-          "id": "16jWQMBXZNxfgXJmVL61gMX4uqtc9WTXV3c8DGx6DUKejm7",
-          "totalReward": "4049635655",
-          "stakingRewardsByAccountId": {
-            "nodes": [
-              {
-                "balance": "2189068638"
-              },
-              {
-                "balance": "1860567017"
-              }
-            ]
+  ```
+  {
+    "data": {
+      "sumRewards": {
+        "nodes": [
+          {
+            "blockheight": 7013941,
+            "id": "16jWQMBXZNxfgXJmVL61gMX4uqtc9WTXV3c8DGx6DUKejm7",
+            "totalReward": "4049635655",
+            "stakingRewardsByAccountId": {
+              "nodes": [
+                {
+                  "balance": "2189068638"
+                },
+                {
+                  "balance": "1860567017"
+                }
+              ]
+            }
           }
-        }
-      ]
+        ]
+      }
     }
   }
-}
-```
+
+  ```
+  </CodeGroupItem>
+</CodeGroup>
 
 
-
-## Exercise 4: Reward v Rewarded
-
-Thus far, we have been using the Rewarded method in the manifest file which was only recently introduced from block [6713249](https://github.com/polkadot-js/api/blob/master/packages/types-known/src/upgrades/polkadot.ts) onwards as mentioned earlier. It was previously called Reward so to capture all the staking rewards prior to this change, we need to update our code.
+- Note that the result shows that a total reward of `4049635655` is made up of two balances. 
 
 
-#### Step 1: Update the manifest file
+---
 
-Add the following mapping filters to the manifest file. Essentially we have removed the “ed” from the handler name and the method. 
+## Exercise 4: Reward vs Rewarded
+
+So far, we have used the `Rewarded` method in the manifest file.
+
+As mentioned in the previous exercise, `Rewarded` was only recently introduced from block [6713249](https://github.com/polkadot-js/api/blob/master/packages/types-known/src/upgrades/polkadot.ts) onwards. It was previously called `Reward`. 
+
+Hence, you need to update your code to capture all the staking rewards prior to this change. 
+
+### Pre-Requisites
+
+Completion of **[Module 4 - Exercise 2](module4.md#exercise-2-aggregate-staking-rewards).**
+
+### Detailed Steps
+
+#### Step 1: Update the Manifest File(aka project.yaml)
+
+Add the following mapping filters to the manifest file. Note that we have removed the **“ed”** from the handler name and the method. 
 
    
-
 
 ```
         - handler: handleSumReward
@@ -754,15 +766,38 @@ Add the following mapping filters to the manifest file. Essentially we have remo
             method: Reward
 ```
 
+- The ***updated part** of the manifest file should like this:
 
-Also changing the start block to 6,000,000 should result in staking reward data being returned.
+
+```
+dataSources:
+  - kind: substrate/Runtime
+    startBlock: 6000000
+    mapping:
+      file: ./dist/index.js
+      handlers:
+        - handler: handleSumReward
+          kind: substrate/EventHandler
+          filter:
+            module: staking
+            method: Reward
+        - handler: handleStakingReward
+          kind: substrate/EventHandler
+          filter:
+            module: staking
+            method: Reward
+```
+
+
+::: info Note
+Also change the start block to 6,000,000, which should return the staking reward data.
 
 When you change the starting block, don’t forget to delete the database and reindex.
+:::
 
+#### Step 2: Update the Mapping File(aka project.yaml)
 
-#### Step 2: Update the mapping file
-
-Here we can create a redirect function from the old method to utilise the same code as we have already captured the event.
+Create a redirect function from the old method to utilise the same code. The reason is that we have already captured the event.
 
 
 ```
@@ -777,63 +812,67 @@ export async function handleStakingReward(event: SubstrateEvent): Promise<void> 
 
 
 
-#### Step 3: Rebuild the project
+#### Step 3: Rebuild the Project
 
-See building a project in the previous exercise.
+To build the project, refer the steps provided in the [previous exercise](module4.md#step-5-install-dependencies-and-build-the-project). 
 
 
-#### Step 4: Query the project
+#### Step 4: Query the Project
 
-Re-run the previous queries and data should appear for blocks starting from 6M. 
+Re-run the previous queries. The data should appear for the blocks starting from 6 Million. 
 
 :::info Note
-You may have to wait until the relevant blocks have been indexed. 
+You have to wait for a while until the relevant blocks get indexed. 
 :::
 
+<CodeGroup>
+  <CodeGroupItem title="Query" active>
 
-```
-query{
-  sumRewards(first:3 orderBy:BLOCKHEIGHT_ASC){
-    nodes{
-      blockheight
-      id
-      totalReward
+  ```
+  query{
+    sumRewards(first:3 orderBy:BLOCKHEIGHT_ASC){
+      nodes{
+        blockheight
+        id
+        totalReward
+      }
     }
   }
-}
-```
+  ```
+  </CodeGroupItem>
 
+  <CodeGroupItem title="Result">
 
-You should see:
-
-
-```
-{
-  "data": {
-    "sumRewards": {
-      "nodes": [
-        {
-          "blockheight": 6001338,
-          "id": "11283CvjWWXesEPQxryZYxjBwTqFV7NMRw8reNGJfzQF4GvS",
-          "totalReward": "5068047768"
-        },
-        {
-          "blockheight": 6001338,
-          "id": "112EHZp2Dn8jqW9iqpAUFW3ChmiiT6cMnN1arsqJtatnthfz",
-          "totalReward": "503936239"
-        },
-        {
-          "blockheight": 6001338,
-          "id": "11agCcnJ8cYvKby6p27CiLxBaS1G1hnbRmwtUBAQ3beygUA",
-          "totalReward": "1874696285"
-        }
-      ]
+  ```
+  {
+    "data": {
+      "sumRewards": {
+        "nodes": [
+          {
+            "blockheight": 6001338,
+            "id": "11283CvjWWXesEPQxryZYxjBwTqFV7NMRw8reNGJfzQF4GvS",
+            "totalReward": "5068047768"
+          },
+          {
+            "blockheight": 6001338,
+            "id": "112EHZp2Dn8jqW9iqpAUFW3ChmiiT6cMnN1arsqJtatnthfz",
+            "totalReward": "503936239"
+          },
+          {
+            "blockheight": 6001338,
+            "id": "11agCcnJ8cYvKby6p27CiLxBaS1G1hnbRmwtUBAQ3beygUA",
+            "totalReward": "1874696285"
+          }
+        ]
+      }
     }
   }
-}
-```
+  ```
+  </CodeGroupItem>
+</CodeGroup>
+
 
 ### References
 
-* [Sum Rewards PDF workbook](/assets/pdf/Sum_Rewards.pdf)
-* [Sum Rewards GitHub](https://github.com/subquery/tutorials-simple-aggregation)
+- [Sum Rewards PDF workbook](/assets/pdf/Sum_Rewards.pdf)
+- [Sum Rewards GitHub](https://github.com/subquery/tutorials-simple-aggregation)
