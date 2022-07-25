@@ -11,7 +11,7 @@
 
 There are two methods to deploy a new version of your project to the SubQuery Managed Service, you can use the UI or directly via the `subql` cli tool.
 
-### Using the UI
+### Використання інтерфейсу користувача
 
 Log into SubQuery Project and select the project you want to deploy a new version of. You can choose to either deploy to the production or staging slot. These two slots are isolated environments and each has their own databases and synchronise independently.
 
@@ -27,12 +27,12 @@ The staging slot is perfect for:
 
 Заповніть хеш-консистенцію від GitHub (копіюйте повний хеш-комплект) версії кодової бази проекту SubQuery, яку ви хочете розгорнути. Це призведе до більш тривалого простоїв, залежно від часу, необхідного для індексації поточного ланцюга. Ви завжди можете повідомити про це назад на прогрес.
 
-### Using the CLI
+### Використання інтерфейсу командного рядка
 
 You can also use `@subql/cli` to create a new deployment of your project to our managed service. This requires:
 
-- `@subql/cli` version 1.1.0 or above.
-- A valid [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) ready.
+- `@subql/cli` Версія 1.1.0 або вище.
+- Допустимий [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) готовий.
 
 ```shell
 // You can directly set your Indexer and Query versions
@@ -47,7 +47,7 @@ $ subql deployment:deploy
 
 If you just want to upgrade to the latest indexer ([`@subql/node`](https://www.npmjs.com/package/@subql/node)) or query service ([`@subql/query`](https://www.npmjs.com/package/@subql/query)) to take advantage of our regular performance and stability improvements, just select a newer versions of our packages and save. This will cause only a few minutes of downtime as the services running your project are restarted.
 
-## Наступні етапи - Підключіться до вашого проекту
+## Наступні етапи - Увімкнутися до вашого проєкту
 
 Після того, як ваше розгортання успішно завершиться і наші вузли індексують ваші дані з ланцюга, ви зможете підключитися до вашого проекту через відображену кінцеву точку GraphQL Query.
 
