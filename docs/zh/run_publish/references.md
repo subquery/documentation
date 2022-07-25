@@ -243,7 +243,7 @@ subql-node -f . --network-endpoint="wss://polkadot.api.onfinality.io/public-ws"
 ```
 
 
-Note that this must also be set in the manifest file, otherwise you'll get:
+请注意，这也必须在清单文件中设置，否则您将会得到：
 
 
 
@@ -259,7 +259,7 @@ An instance of ProjectManifestImpl has failed the validation:
 
 ### --output-fmt
 
-There are two different terminal output formats. JSON or colored. Colored is the default and contains colored text.
+有两种不同的终端输出格式。 JSON或者colored。 colored是默认的，包含着colored文本。
 
 
 
@@ -284,7 +284,7 @@ There are two different terminal output formats. JSON or colored. Colored is the
 
 ### --log-level
 
-There are 7 options to choose from. “fatal”, “error”, “warn”, “info”, “debug”, “trace”, “silent”. The example below shows silent. Nothing will be printed in the terminal so the only way to tell if the node is working or not is to query the database for row count (select count(\*) from subquery_1.starter_entities) or query the block height.
+有七个选项可供选择： “fatal”, “error”, “warn”, “info”, “debug”, “trace”, “silent”. 下面的示例显示silent。 终端中不会打印任何内容，所以，判断节点工作与否的唯一方法是查询数据库中的行数（从subquery_1.starter_entities选择计数（\*)）或者查询区块的高度。
 
 
 
@@ -308,7 +308,7 @@ There are 7 options to choose from. “fatal”, “error”, “warn”, “inf
 
 ### --timestamp-field
 
-By default this is true. when set to false with:
+默认情况下是正确的。 当设置成false时：
 
 
 
@@ -317,15 +317,15 @@ By default this is true. when set to false with:
 ```
 
 
-This removes the created_at and updated_at columns in the starter_entities table.
+这将删除在starter_entities表中的 created_at和updated_at列
 
 
 
 ### -d, --network-dictionary
 
-This allows you to specify a dictionary endpoint which is a free service that is provided and hosted at SubQuery's [Project Explorer](https://explorer.subquery.network/) (search for dictionary) and presents an API endpoint of: https://api.subquery.network/sq/subquery/dictionary-polkadot.
+这允许您指定一个字典端点，这是一个免费的服务，其在 [https://explorer.subquery etwork/](https://explorer.subquery.network/) (搜索字典) 上提供和托管。并提供了一个 API 端口： https://api.subquery.network/sq/sq/subquery/dictiony-polkadot.
 
-Typically this would be set in your manifest file but below shows an example of using it as an argument in the command line.
+通常，这将在您的清单文件中设置，但在下面显示一个在命令行中使用它作为参数的例子。
 
 
 
@@ -334,19 +334,19 @@ subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot
 ```
 
 
-[Read more about how a SubQuery Dictionary works](../academy/tutorials_examples/dictionary.md).
+[阅读更多关于 SubQuery 字典的工作原理](../academy/tutorials_examples/dictionary.md)
 
 
 
 ### -p, --port
 
-The port the subquery indexing service binds to. By default this is set to `3000`.
+Subquery索引服务绑定到的端口。 默认设置为 `3000`.
 
 
 
-### --disable-historical
+### --disable-history
 
-Disables automated historical state tracking, [see Historic State Tracking](./historical.md). By default this is set to `false`.
+禁用自动状态跟踪， [查看历史状态跟踪](./historical.md)。 默认情况下为 `false`。
 
 
 
@@ -371,14 +371,14 @@ Options:
                         [string] [choices: "json", "colored"] [default: "colored"]
       --log-level     Specify log level to print.
             [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
-                                                       "silent"] [default: "info"]
-      --log-path      Path to create log file e.g ./src/name.log          [string]
-      --log-rotate    Rotate log files in directory specified by log-path
+                                                     "silent"] [default: "info"]
+      --log-path    Path to create log file e.g ./src/name.log          [string]
+      --log-rotate  Rotate log files in directory specified by log-path
                                                       [boolean] [default: false]
-      --indexer       Url that allows query to access indexer metadata    [string]
-      --unsafe        Disable limits on query depth and allowable number returned
-                      query records                                      [boolean]
-  -p, --port          The port the service will bind to                   [number]
+      --indexer     Url that allows query to access indexer metadata    [string]
+      --unsafe      Disable limits on query depth and allowable number returned
+                    query records                                      [boolean]
+  -p, --port        The port the service will bind to                   [number
 ```
 
 
@@ -400,7 +400,7 @@ Options:
 
 ### -n, --name
 
-This flag is used to start the query service. If the --subquery-name flag is not provided when running an indexer, the name here will refer to the default project name. If --subquery-name is set, then the name here should match what was set.
+该标志用于启动查询服务。 如果在运行索引器时未提供 --subquery-name 标志，则此处的名称将引用默认项目名称。 如果设置了 --subquery-name，那么这里的名称应该与设置的匹配。
 
 
 
@@ -424,58 +424,58 @@ This flag is used to start the query service. If the --subquery-name flag is not
 
 ### --playground
 
-This flag enables the graphql playground so should always be included by default to be of any use.
+这个标识符启用了graphql playground，所以在默认情况下，应该始终包含有任何用途。
 
 
 
 ### --output-fmt
 
-See [--output-fmt](../run_publish/references.md#output-fmt).
+查看 [--output-fmt](../run_publish/references.md#output-fmt).
 
 
 
 ### --log-level
 
-See [--log-level](../run_publish/references.md#log-level).
+查看 [--loglevel](../run_publish/references.md#log-level).
 
 
 
 ### --log-path
 
-Enable file logging by providing a path to a file to log to.
+通过提供要记录到的文件的路径来启用文件记录。
 
 
 
 ### --log-rotate
 
-Enable file log rotations with the options of a 1d rotation interval, a maximum of 7 files and with a max file size of 1GB.
+使用 1d 轮换间隔选项启用文件日志轮换，最多 7 个文件，最大文件大小为 1GB。
 
 
 
 ### --indexer
 
-Set a custom url for the location of the endpoints of the indexer, the query service uses these endpoints for indexer health, metadata and readiness status.
+为索引器端点的位置设置自定义 url，查询服务将这些端点用于索引器运行状况、元数据和就绪状态。
 
 
 
 ### --subscription
 
-This flag enables [GraphQL Subscriptions](./subscription.md), to enable this feature requires `subql-node` also enable `--subscription`.
+此标志启用 [GraphQL 订阅](./subscription.md), 以启用此功能需要 `subql-node` 也启用 `--subscription`.
 
 
 
 ### --unsafe
 
-The query service has a limit of 100 entities for unbounded graphql queries. The unsafe flag removes this limit which may cause performance issues on the query service. It is recommended instead that queries are [paginated](https://graphql.org/learn/pagination/).
+查询服务的无界 graphql 查询限制为 100 个实体。 unsafe 标志删除了此限制，这可能会导致查询服务出现性能问题。 建议改为[分页](https://graphql.org/learn/pagination/)查询。
 
-This flag enables certain aggregation functions including sum, max, avg and others. Read more about this feature [here](../run_publish/aggregate.md).
+此标志启用某些聚合函数，包括 sum、max、avg 等。 在[此处](../run_publish/aggregate.md)了解有关此功能的更多信息。
 
-These are disabled by default due to the entity limit.
+由于实体限制，它们默认被禁用。
 
-**Note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in [SubQuery's Managed Services](https://project.subquery.network).**
+**请注意，`--unsafe` 命令将阻止您的项目在 SubQuery 网络中运行，如果您希望此命令与您的项目一起在 SubQuery 的托管服务中运行< /1>。</strong></p> 
 
 
 
 ### --port
 
-The port the subquery query service binds to. By default this is set to `3000`
+Subquery索引服务绑定到的端口。 默认设置为 `3000`
