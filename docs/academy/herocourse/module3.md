@@ -35,7 +35,7 @@ Completion of [Module 2](../herocourse/module2.md).
 ### Detailed Steps
 
 
-#### Step 1: Initialize Your Project
+#### Step 1: Initialise Your Project
 
 The first step to create a SubQuery project using the following command:
 
