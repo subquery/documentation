@@ -1,14 +1,14 @@
-# Design Philosophy of the SubQuery Network
+# Філософія дизайну мережі SubQuery
 
-The guiding principle with the SubQuery Network is simplicity and flexibility for different use cases, payment methods, and networks. While other data services have many different major network participants, SubQuery focuses on three key ones. While other networks have complicated algorithmic signalling mechanisms, SubQuery relies on the most fundamental signal, consumer demand. While other networks provide only one type of payment model (generally PAYG), SubQuery provides several advanced subscription based options for Consumers and Indexers, And finally, while other networks only support one layer-1 chain, SubQuery is designed to be multi-chain from the outset.
+Керівним принципом мережі SubQuery є простота та гнучкість для різних сценаріїв використання, способів оплати та мереж. У той час як інші сервіси даних мають безліч різних основних учасників мережі, SubQuery фокусується на трьох ключових. У той час як інші мережі мають складні алгоритмічні механізми сигналізації, SubQuery покладається на фундаментальний сигнал - споживчий попит. У той час як інші мережі надають лише один тип моделі оплати (зазвичай PAYG), SubQuery надає кілька передових варіантів передплати для споживачів і індексаторів. І, нарешті, в той час як інші мережі підтримують лише один ланцюжок першого рівня, SubQuery із самого початку спроектована як багатоланцюжковий.
 
-## Multi-Chain by Design
+## Багатоланцюжковий дизайн
 
-*SubQuery believes in the idea that a community of blockchains, working together to encourage web3 adoption, is the future.*
+*SubQuery вірить у те, що спільнота блокчейн, яка працює разом для заохочення прийняття web3, – це майбутнє.*
 
-SubQuery is native to the Polkadot ecosystem, it’s our home and will be the location of the SubQuery Network. The core premise of Polkadot is to create a thriving community of developers, users, and businesses that will tap into its multichain interoperability. SubQuery believes in the idea that a community of blockchains, working together to encourage web3 adoption, is the future and that Polkadot will be a leading player in that initiative.
+SubQuery є рідним для екосистеми Polkadot, це наш будинок, і тут буде розміщена мережа SubQuery. Основна ідея Polkadot полягає у створенні процвітаючої спільноти розробників, користувачів та підприємств, які будуть використовувати його багатоланцюгову сумісність. SubQuery вірить у те, що спільнота блокчейн, яка працює разом для заохочення прийняття web3, - це майбутнє, і що Polkadot буде провідним гравцем у цій ініціативі.
 
-But the future is multi-chain. SubQuery knows that there are going to be many different blockchains working together to solve different problems. The plan is to take SubQuery and to adapt it to work for other blockchains that don't have sufficient indexing solutions. The multi-chain approach that is needed to make it work for Polkadot means SubQuery is uniquely suited for this challenge.
+Але майбутнє за мультицепами. SubQuery knows that there are going to be many different blockchains working together to solve different problems. The plan is to take SubQuery and to adapt it to work for other blockchains that don't have sufficient indexing solutions. The multi-chain approach that is needed to make it work for Polkadot means SubQuery is uniquely suited for this challenge.
 
 The SubQuery Network is designed to support any SubQuery Project from any Layer 1 network (within Polkadot or not) within it. It will be designed and built to be multi-chain from the outset, where you will see projects from one network being indexed alongside projects from another.
 
