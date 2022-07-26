@@ -347,7 +347,7 @@ First of all, you need to create another entity to aggregate the staking rewards
 
 ### Pre-Requisites
 
-Compeletion of [Module 4 - Exercise](module4.md#exercise-1-index-staking-rewards).
+Compeletion of [Module 4 - Exercise 1](module4.md#exercise-1-index-staking-rewards).
 
 ### Detailed Steps
 
