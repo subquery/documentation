@@ -1,16 +1,16 @@
-# Indexers
+# Індексатор
 
-## What is an Indexer?
+## Що таке індексатор?
 
-An Indexer is a SubQuery network participant who is responsible for indexing blockchain data and providing this data to their customers.
+Індексатор - це учасник мережі SubQuery, який відповідає за індексування даних блокчейна і надання цих даних своїм клієнтам.
 
-Indexers play a very important role within the SubQuery network. As a part of a data-as-a-service business, an Indexer turns computational and networking power into profits.
+Індексатори відіграють дуже важливу роль у мережі SubQuery. Бувши частиною бізнесу з надання даних як послуги, індексатор перетворює обчислювальні та мережеві потужності в прибуток.
 
-## Indexer Staking
+## Ставка індексатора
 
-In order to earn rewards from query revenue as an Indexer it is proposed that Indexers must stake SQT against a particular SubQuery Project that they are providing the service to. The Cobb-Douglas production function will be used to determine the rewards distributed to each Indexer.
+Для того, щоб отримувати винагороду від доходу від запитів в якості індексатора, пропонується, що індексатори повинні робити ставки SQT проти певного проекту підзапитів, якому вони надають послуги. Виробнича функція Кобба-Дугласа буде використовуватися для визначення винагороди, що розподіляється кожному індексатору.
 
-SubQuery plans to add a constraint to the network where an indexer must stake a minimum amount of SQT on the relevant reward pool to be able to participate in its matching Open Agreement. They must also stake a minimum amount on an equivalent staking contract for any Closed Agreements in the same fashion. This indexer staked minimum value must be a certain percentage of the Agreement’s per Era reward value, which means in order to renew the Agreement to higher volumes, the indexer must also increase their stake. When an indexer’s stake decreases beneath this minimum amount, they will be unable to renew the Agreement at the existing price.
+SubQuery планує додати в мережу обмеження, при якому індексатор повинен поставити мінімальну кількість SQT на відповідний пул винагород, щоб мати можливість брати участь у відповідній відкритій угоді. They must also stake a minimum amount on an equivalent staking contract for any Closed Agreements in the same fashion. This indexer staked minimum value must be a certain percentage of the Agreement’s per Era reward value, which means in order to renew the Agreement to higher volumes, the indexer must also increase their stake. When an indexer’s stake decreases beneath this minimum amount, they will be unable to renew the Agreement at the existing price.
 
 If an Indexer is caught misbehaving (such as by providing invalid, incomplete, or incorrect data), they are liable to have a portion of their staked SQT (on the particular reward pool ip) reallocated to the SubQuery Foundation Treasury, diminishing their holdings of staked SQT in the network and therefore their potential reward. Since the indexer’s allocated stake is determined by a percentage of their total SQT, this will have a flow on effect to all other reward pools that the indexer is party to.
 
