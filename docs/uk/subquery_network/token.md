@@ -1,12 +1,12 @@
-# The SubQuery Token (SQT)
+# Токен SubQuery (SQT)
 
-The SubQuery Network is powered by the SubQuery Token (SQT).
+Мережа SubQuery працює на основі токена SubQuery Token (SQL).
 
-The SubQuery Token (SQT) is designed as a utility token that powers the SubQuery Network, providing an incentive for participation, as well as serving as a medium of exchange for transactions within the SubQuery Network. Consumers of data will commit SQT in exchange for data from Indexers and this SQT will be distributed among Indexers based on the payment method selected.
+Токен SubQuery Token (SQT) розроблений як корисний токен, який забезпечує роботу мережі SubQuery Network, стимулює участь у ній, а також служить засобом обміну для транзакцій у мережі SubQuery Network. Споживачі даних здійснюють SQT в обмін на дані від індексаторів, і ці SQT розподілятимуться між індексаторами на основі обраного методу оплати.
 
-This token is the utility and incentive mechanism driving the network, however, the network was not initially designed with a token in mind. The network is designed to provide value where Indexers can index, aggregate and then serve blockchain data and make this available with speed and simplicity to Consumers who need blockchain data to power their applications. SQT is a natural solution allowing market participants to transact and transfer value. This approach ensures that the fundamental value of SubQuery drives the value of the token and not the other way around.
+Цей токен є корисним і стимулюючим механізмом, що рухає мережею, проте спочатку мережа була розроблена з урахуванням токена. Мережа призначена для забезпечення цінності, де індексатори можуть індексувати, агрегувати і потім обслуговувати дані блокчейна і робити їх доступними зі швидкістю та простотою для споживачів, яким потрібні дані блокчейну для роботи їх додатків. SQT - это естественное решение, позволяющее участникам рынка совершать сделки и передавать стоимость. Такий підхід гарантує, що фундаментальне значення SubQuery визначає значення токена, а чи не навпаки.
 
-There is no intention for SQT to be used as a medium of exchange for goods or services outside of the SubQuery Network. SQT does not in any way represent or confer upon its holders any right to, title of, interest or participation in, the ownership, shareholding and/or management of SubQuery whatsoever. SQT will not entitle holders to any promise of fees, dividends, revenue, profits, or investment returns.
+Немає наміру використовувати SQT як засіб обміну на товари або послуги за межами мережі SubQuery. SQT жодним чином не представляє та не наділяє своїх власників будь-якими правами, титулами, інтересами чи участю у власності, володінні акціями та/або керуванням SubQuery. SQT не дає власникам жодних прав на обіцянку гонорарів, дивідендів, доходів, прибутку чи інвестиційного доходу.
 
 ## Tokenomics
 
