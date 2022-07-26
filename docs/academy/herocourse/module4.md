@@ -210,7 +210,7 @@ export async function handleStakingRewarded(event: SubstrateEvent): Promise<void
 
 The next step is building the project. 
 
-For that, first run the standard `yarn install`and then `yarn codegen`. After that run the `docker-compose pull & docker-compose up` command.  
+For that, first run the standard `yarn install`and then `yarn codegen`, and `yarn build`. After that run the `docker-compose pull & docker-compose up` command.  
 
 <CodeGroup>
   <CodeGroupItem title="YARN" active>
