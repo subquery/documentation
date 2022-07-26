@@ -575,7 +575,7 @@ So far in this module, we have managed to query for all the staking rewards and 
 
 ### Pre-Requisites
 
-Completion of **[Module 4 - Exercise 1](module4.md#exercise-1-index-staking-rewards).**
+Completion of **[Module 4 - Exercise 2](module4.md#exercise-2-aggregate-staking-rewards).**
 
 ### Detailed Steps
 
@@ -594,6 +594,22 @@ type StakingReward @entity{
 }
 ```
 
+- The whole schema file should look like this:
+
+```
+type StakingReward @entity{
+  id: ID! #blockHeight-eventIdx
+  account: SumReward!
+  balance: BigInt!
+  date: Date!
+}
+
+type SumReward @entity{
+  id: ID! # AccountId
+  totalReward: BigInt!
+  blockheight: Int!
+}
+```
 
 
 #### Step 2: Check the Manifest File 
