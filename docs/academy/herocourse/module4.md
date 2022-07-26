@@ -210,7 +210,7 @@ export async function handleStakingRewarded(event: SubstrateEvent): Promise<void
 
 The next step is building the project. 
 
-For that first. run the standard `yarn install`and then `yarn codegen`. After that run the `docker-compose pull & docker-compose up` command.  
+For that, first run the standard `yarn install`and then `yarn codegen`, and `yarn build`. After that run the `docker-compose pull & docker-compose up` command.  
 
 <CodeGroup>
   <CodeGroupItem title="YARN" active>
@@ -275,7 +275,7 @@ yarn start:docker
 
 #### Step 6: Query the Project
 
-Once the docker container is all set and running successfully, which may take a few minutes, open up your browser and navigate to `www.localhost:3000`. 
+Once the docker container is up and running successfully, which may take a few minutes, open up your browser and navigate to `www.localhost:3000`. 
 
 This will open up a “playground” where you can create your query. Copy the example below and see the results:
 
@@ -505,7 +505,7 @@ export async function handleSumRewarded(event: SubstrateEvent): Promise<void> {
 See building a project in the [previous exercise](module4.md#step-5-install-dependencies-and-build-the-project).
 
 ::: info Note
-Delete your database instance in the `.data folder`, as you have modified the schema file. 
+Delete your database instance, i.e. the `.data folder`, as you have modified the schema file. 
 :::
 
 
@@ -582,7 +582,7 @@ Completion of **[Module 4 - Exercise 2](module4.md#exercise-2-aggregate-staking-
 
 #### Step 1: Modify the Schema File
 
-Update the graphql schema field called account to be type SumReward. We are creating a one-many entity relationship where one sumReward will comprise of many individual staking rewards. 
+Update the graphql schema field called account to be type `SumReward`. We are creating a one-many entity relationship where one `sumReward` will comprise of many individual staking rewards. 
 
 
 ```
@@ -681,7 +681,7 @@ export async function handleSumRewarded(event: SubstrateEvent): Promise<void> {
 Refer the steps given in the previous exercise to [build the project](module4.md#step-5-install-dependencies-and-build-the-project). 
 
 :::info Note
-You may need to delete your database folder because a new field will be created and included in your database schema.
+You may need to delete your database folder(`.data folder`) because a new field will be created and included in your database schema.
 :::
 
 
