@@ -505,7 +505,7 @@ export async function handleSumRewarded(event: SubstrateEvent): Promise<void> {
 See building a project in the [previous exercise](module4.md#step-5-install-dependencies-and-build-the-project).
 
 ::: info Note
-Delete your database instance in the `.data folder`, as you have modified the schema file. 
+Delete your database instance, i.e. the `.data folder`, as you have modified the schema file. 
 :::
 
 
@@ -665,7 +665,7 @@ export async function handleSumRewarded(event: SubstrateEvent): Promise<void> {
 Refer the steps given in the previous exercise to [build the project](module4.md#step-5-install-dependencies-and-build-the-project). 
 
 :::info Note
-You may need to delete your database folder because a new field will be created and included in your database schema.
+You may need to delete your database folder(`.data folder`) because a new field will be created and included in your database schema.
 :::
 
 
