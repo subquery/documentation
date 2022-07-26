@@ -107,21 +107,21 @@ $ subql project:create-project
 - Действительный [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) готов.
 
 ```shell
-// Deploy using the CLI
+// Развертывание с помощью CLI
 $ subql deployment:deploy
 
-// OR Deploy using non-interactive CLI
+// ИЛИ Развертывание с помощью неинтерактивного CLI
 $ subql deployment:deploy
 
-  -d, --useDefaults                Use default values for indexerVerion, queryVersion, dictionary, endpoint
-  --dict=dict                      Enter dictionary
-  --endpoint=endpoint              Enter endpoint
-  --indexerVersion=indexerVersion  Enter indexer-version
-  --ipfsCID=ipfsCID                Enter IPFS CID
-  --org=org                        Enter organization name
-  --projectName=projectName        Enter project name
-  --queryVersion=queryVersion      Enter query-version
-  --type=(stage|primary)           [default: primary]
+  -d, --useDefaults Использовать значения по умолчанию для indexerVerion, queryVersion, dictionary, endpoint
+  --dict=dict Введите словарь
+  --endpoint=endpoint Введите конечную точку
+  --indexerVersion=indexerVersion Введите версию индексатора
+  --ipfsCID=ipfsCID Введите CID IPFS
+  --org=org Введите имя организации
+  --projectName=projectName Введите имя проекта
+  --queryVersion=queryVersion Введите версию запроса
+  --type=(stage|primary) [по умолчанию: primary]
 ```
 
 ## Следующие шаги - подключитесь к вашему проекту
