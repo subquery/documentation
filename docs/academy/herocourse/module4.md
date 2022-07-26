@@ -582,7 +582,7 @@ Completion of **[Module 4 - Exercise 1](module4.md#exercise-1-index-staking-rewa
 
 #### Step 1: Modify the Schema File
 
-Update the graphql schema field called account to be type SumReward. We are creating a one-many entity relationship where one `sumReward` will comprise of many individual staking rewards. 
+Update the graphql schema field called account to be type `SumReward`. We are creating a one-many entity relationship where one `sumReward` will comprise of many individual staking rewards. 
 
 
 ```
