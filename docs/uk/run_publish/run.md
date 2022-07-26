@@ -1,12 +1,12 @@
 # Запустити SubQuery локально
 
-У цьому посібнику описано, як запустити локальний вузол SubQuery на вашій інфраструктурі, який включає в себе як індексатор, так і службу запитів. Не хочете турбуватися про створення власної інфраструктури SubQuery? SubQuery provides a [managed hosted service](https://explorer.subquery.network) to the community for free. [Follow our publishing guide](../run_publish/publish.md) to see how you can upload your project to [SubQuery Projects](https://project.subquery.network).
+У цьому посібнику описано, як запустити локальний вузол SubQuery на вашій інфраструктурі, який включає в себе як індексатор, так і службу запитів. Не хочете турбуватися про створення власної інфраструктури SubQuery? SubQuery надає спільноті [Керований хостинг-сервіс](https://explorer.subquery.network) безплатно. [Дотримуйтесь нашого посібника з публікації](../run_publish/publish.md), щоб дізнатися, як завантажити свій проєкт в [SubQuery Projects](https://project.subquery.network).
 
-## Using Docker
+## Використовувати Docker
 
-An alternative solution is to run a <strong>Docker Container</strong>, defined by the `docker-compose.yml` file. For a new project that has been just initialised you won't need to change anything here.
+Альтернативним рішенням є запуск <strong>Docker Container</strong>, визначеного файлом `docker-compose.yml`. Для нового проєкт, який був тільки що ініціалізований, вам не потрібно буде нічого змінювати.
 
-Under the project directory run the following command:
+У каталозі проекту виконайте таку команду:
 
 ```shell
 docker-compose pull && docker-compose up
@@ -14,15 +14,15 @@ docker-compose pull && docker-compose up
 
 ::: info Note It may take some time to download the required packages ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), and Postgres) for the first time but soon you'll see a running SubQuery node. :::
 
-## Running an Indexer (subql/node)
+## Запуск індексатора (subql/node)
 
-Requirements:
+Вимога:
 
-- [Postgres](https://www.postgresql.org/) database (version 12 or higher). While the [SubQuery node](run.md#start-a-local-subquery-node) is indexing the blockchain, the extracted data is stored in an external database instance.
+- База даних [Postgres](https://www.postgresql.org/) (версія 12 або вище). Поки [SubQuery](run.md#start-a-local-subquery-node) індексує блокчейн, витягнуті дані зберігаються в зовнішньому екземплярі бази даних.
 
-A SubQuery node is an implementation that extracts Substrate/Polkadot-based blockchain data per the SubQuery project and saves it into a Postgres database.
+Вузол SubQuery - це реалізація, яка витягує дані блокчейна на основі Substrate/Polkadot відповідно до проекту SubQuery і зберігає їх в базі даних Postgres.
 
-### Installation
+### Установка
 
 <CodeGroup>
 <CodeGroupItem title='Substrate/Polkadot'>
@@ -53,7 +53,7 @@ npm install -g @subql/node-avalanche
 
 ::: danger Please note that we **DO NOT** encourage the use of `yarn global` due to its poor dependency management which may lead to an errors down the line. :::
 
-Once installed, you can start a node with the following command:
+Після встановлення ви можете запустити вузол за допомогою наступної команди:
 
 
 <CodeGroup>
@@ -82,9 +82,9 @@ subql-node-avalanche <command>
 
 ### Key Commands
 
-The following commands will assist you to complete the configuration of a SubQuery node and begin indexing. To find out more, you can always run `--help`.
+The following commands will assist you to complete the configuration of a SubQuery node and begin indexing. Щоб дізнатися більше, ви завжди можете виконати команду `--help`.
 
-#### Point to local project path
+#### Вкажіть шлях до локального проекту
 
 <CodeGroup>
 <CodeGroupItem title='Substrate/Polkadot'>
@@ -112,11 +112,11 @@ subql-node-avalanche -f your-project-path
 
 #### Use a Dictionary
 
-Using a full chain dictionary can dramatically speed up the processing of a SubQuery project during testing or during your first index. In some cases, we've seen indexing performance increases of up to 10x.
+Using a full chain dictionary can dramatically speed up the processing of a SubQuery project during testing or during your first index. У деяких випадках ми спостерігали збільшення продуктивності індексування до 10 разів.
 
-A full chain dictionary pre-indexes the location of all events and extrinsics within the specific chain and allows your node service to skip to relevant locations when indexing rather than inspecting each block.
+повний словник ланцюжка попередньо індексує місце розташування всіх подій і екстрінсіков в межах конкретної ланцюжка і дозволяє вашій службі вузлів переходити до відповідних місць при індексуванні, а не перевіряти кожен блок.
 
-You can add the dictionary endpoint in your `project.yaml` file (see [Manifest File](../build/manifest.md)), or specify it at run time using the following command:
+ви можете додати кінцеву точку словника в файл `project.Yaml` (див. [Manifest File](../build/manifest.md)), або вказати її під час виконання за допомогою наступної команди:
 
 <CodeGroup>
 <CodeGroupItem title='Substrate/Polkadot/Polkadot'>
@@ -155,9 +155,9 @@ export DB_PORT=5432
 subql-node -f your-project-path
 ```
 
-Depending on the configuration of your Postgres database (e.g. a different database password), please ensure also that both the indexer (`subql/node`) and the query service (`subql/query`) can establish a connection to it.
+Залежно від конфігурації вашої бази даних Postgres (наприклад, інший пароль бази даних), переконайтеся також, що індексатор (`subql/node`) і служба запитів (`subql/query`) можуть встановити з'єднання з нею.
 
-#### Specify a configuration file
+#### Вкажіть файл конфігурації
 
 <CodeGroup>
 <CodeGroupItem title='Substrate/Polkadot'>
@@ -192,7 +192,7 @@ batchSize:100
 localMode:true
 ```
 
-#### Change the block fetching batch size
+#### Зміна розміру пакета вибірки блоків
 
 ```shell
 subql-node -f your-project-path --batch-size 200
@@ -202,9 +202,9 @@ Result:
 [IndexerManager] fetch block [403, 602]
 ```
 
-When the indexer first indexes the chain, fetching single blocks will significantly decrease the performance. Increasing the batch size to adjust the number of blocks fetched will decrease the overall processing time. The current default batch size is 100.
+Коли індексатор вперше індексує ланцюжок, вибірка окремих блоків значно знижує продуктивність. Збільшення розміру пакета для регулювання кількості видобутих блоків зменшить загальний час обробки. Поточний розмір пакета за замовчуванням становить 100.
 
-#### Run in local mode
+#### Запуск в локальному режимі
 
 <CodeGroup>
 <CodeGroupItem title='Substrate/Polkadot'>
@@ -230,13 +230,13 @@ subql-node-avalanche -f your-project-path --local
 </CodeGroupItem>
 </CodeGroup>
 
-For debugging purposes, users can run the node in local mode. Switching to local model will create Postgres tables in the default schema `public`.
+For debugging purposes, users can run the node in local mode. Перемикання на локальну модель створить таблиці Postgres у схемі за замовчуванням `public`.
 
-If local mode is not used, a new Postgres schema with the initial `subquery_` and corresponding project tables will be created.
+Якщо локальний режим не використовується, буде створена нова схема Postgres з початковим `subquery_` і відповідними таблицями проекту.
 
-#### Check your node health
+#### Перевірте стан вашого вузла
 
-There are 2 endpoints that you can use to check and monitor the health of a running SubQuery node.
+Існує 2 кінцеві точки, які ви можете використовувати для перевірки та моніторингу стану справного вузла SubQuery.
 
 - Health check endpoint that returns a simple 200 response.
 - Metadata endpoint that includes additional analytics of your running SubQuery node.
@@ -306,7 +306,7 @@ Then open up the Chrome dev tools, go to Source > Filesystem and add your projec
 
 ## Running a Query Service (subql/query)
 
-### Installation
+### Установка
 
 ```shell
 # NPM
