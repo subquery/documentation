@@ -1,47 +1,47 @@
-# The SubQuery Token (SQT)
+# SubQuery 代币 (SQT)
 
-The SubQuery Network is powered by the SubQuery Token (SQT).
+SubQuery 网络由 SubQuery 代币(SQT) 提供动力。
 
-The SubQuery Token (SQT) is designed as a utility token that powers the SubQuery Network, providing an incentive for participation, as well as serving as a medium of exchange for transactions within the SubQuery Network. Consumers of data will commit SQT in exchange for data from Indexers and this SQT will be distributed among Indexers based on the payment method selected.
+我们的目标是将SQT作为SubQuery网络的通证经济，提供参与激励，并作为SubQuery网络内交易的交换媒介。 数据消费者将提交SQT，以换取索引者提供的数据，这个SQT将根据选择的支付方法在索引者中分配。
 
-This token is the utility and incentive mechanism driving the network, however, the network was not initially designed with a token in mind. The network is designed to provide value where Indexers can index, aggregate and then serve blockchain data and make this available with speed and simplicity to Consumers who need blockchain data to power their applications. SQT is a natural solution allowing market participants to transact and transfer value. This approach ensures that the fundamental value of SubQuery drives the value of the token and not the other way around.
+这个代币是驱动网络的实用和激励机制，但最初设计网络时并没有考虑到象征意义。 该网络旨在提供索引者可以索引的值， 汇总然后服务于区块链数据，并以速度和简洁的方式向需要区块链数据的消费者提供这种数据以供其应用程序使用。 SQT 是一种自然的解决办法，允许市场参与者进行交易和转账值。 这种方法确保SubQuery的基本值能够驱动代币的值，而不是相反。
 
-There is no intention for SQT to be used as a medium of exchange for goods or services outside of the SubQuery Network. SQT does not in any way represent or confer upon its holders any right to, title of, interest or participation in, the ownership, shareholding and/or management of SubQuery whatsoever. SQT will not entitle holders to any promise of fees, dividends, revenue, profits, or investment returns.
+不打算使用 SQT 作为在SubQuery Network以外的商品或服务交换媒介。 SQT 不以任何方式代表或授予其所有人对产权的任何权利。 在SubQuery的所有权、股权和/或管理方面的利益或参与。 SQT不会使持有人有权获得任何手续费、股息、收入、利润或投资回报的承诺。
 
-## Tokenomics
+## 代币经济
 
-**Please note that the following SQT Token Allocation Plan and Token Vesting Schedule are still subject to change.**
+**请注意以下SQT Token分配计划和Token Vest计划仍有可能更改。**
 
-### Supply
+### 供应
 
-The initial supply will be 10 Billion tokens.
+最初供应量将为10亿代币。
 
-### Inflation
+### 通胀率
 
-The inflation will be ~2% per annum. This will be used to help the SubQuery Foundation bootstrap the network by supporting Indexers during the early launch phase where Consumers numbers will still be growing.
+通货膨胀将是每年2%。 这将用于帮助SubQuery基金会在消费者人数仍在增长的早期启动阶段支持索引者，从而启动网络。
 
-### Allocation
+### 分配
 
-Token allocation is as follows:
+代币分配如下：
 
-![token allocation](/assets/img/token_allocation.png)
+![分配计划](/assets/img/token_allocation.png)
 
-From the start, SubQuery has been focused on building value within the community and this aim continues with the largest allocation of tokens (44%) being apportioned to the Community and SubQuery Foundation.
+从一开始，SubQuery一直专注于构建我们社区内的价值，我们的目标是通过将最大的通证分配（44%）分配给社区和SubQuery创始基金会持有。
 
-The Foundation, which is expected to be established in early 2022, will administer the future governance and growth of the ecosystem and the ownership of the SubQuery Network will come under the SubQuery Foundation initially. This large allocation also includes consideration for future investment into the development and operations of the Network, and key ecosystem growth drivers. This will include tools such as grants and ecosystem incentives/events as well as other marketing activities including bug bounties and mainnet incentives.
+创始基金会将于2022年初成立，将管理未来的生态系统治理和成长，而SubQuery网络的所有权将在SubQuery 创始基金会的基础之下。 这一巨大的分配还包括考虑未来对网络开发和运营的投资，以及关键的生态系统增长驱动因素。 这将包括赠款和生态系统奖励/活动，以及其他营销活动，包括bug奖金和主网激励。
 
-Early investors in both the Seed and Series A rounds have a combined allocation of 27%. In the case of our Seed investors, SubQuery is grateful for their early vision and commitment to build the initial phase of SubQuery. Following on from this, growth was accelerated with the support of Series A investors who allowed the project to accelerate to the next level.
+我们的早期投资者在种子轮和A轮投资中的总投资比例为27%。 就我们的种子投资者而言，SubQuery感谢他们对建立SubQuery初始阶段的早期远见和承诺。 此后，在A系列投资者的支持下，加速了增长，使该项目能够加速到下一个水平。
 
-For the Public Sale, 9% of token supply has been allocated across at least two sequential rounds. The exact structure and timing of these rounds can be found [here](https://subquery.medium.com/subquery-publishes-the-sqt-public-sale-date-and-sale-guide-64b8aff10882).
+对于公共销售，9%的代币供应至少分两轮相继分配。 这些炮弹的确切结构和时间安排 [在这里](https://subquery.medium.com/subquery-publishes-the-sqt-public-sale-date-and-sale-guide-64b8aff10882)。
 
-Finally, the SubQuery Team and Launch Partners have been allocated 20% of the token supply in return for their tireless dedication and contribution in building and promoting the project from the outset.
+最后，SubQuery团队和启动合伙人获得20%的通证供应，以回报他们在构建和促进项目发展方面的贡献。
 
-### Vesting schedule
+### 行权计划
 
-We have designed our vesting schedule to demonstrate the commitment of various stakeholders. The graphic below illustrates the release of the SQT tokens to each participant over time culminating in the full circulation of tokens occurring 5 years (60 months) after launch.
+我们设计了我们的授予权力时间表，以显示各利益攸关方的承诺。 下图说明了随着时间的推移，SQT通证向每个参与者的发行情况，最终在发行后5年（60个月）内实现通证的全流通。
 
-![vesting schedule](/assets/img/vesting_schedule.png)
+![行权计划](/assets/img/vesting_schedule.png)
 
-The vesting schedules for each participant has been designed to create long-term value for the project and generate confidence to token-holders. Perhaps most significantly, the core team will have a 24 month lock-up period which will then vest over another 24 months while some Public Sale participants can freely use the utility of their token upon launch.
+我们仔细考虑了每个参与者的兑现时间表，以便为项目创造长期价值，并为通证持有人带来信心。 当然最重要的是，核心团队将有一个24个月的锁定期，而一些公开销售参与者可以在发行时自由使用他们的通证。
 
-The Foundation and Community will have approximately 30% of the allocation unlocked from the start to meet the operational needs of launching and promoting mainnet with the rest of the allocation vesting gradually over 5 years.
+创始基金会和社区 将有大约30%的分配从一开始就解封，以满足启动和推广主干网络的运营需求，其余的将在五年内逐步解封。
