@@ -2,7 +2,7 @@
 
 ## 什么是SubQuery？
 
-SubQuery is an open source blockchain data indexer for developers that provides fast, flexible, reliable, and decentralised APIs to power leading multi-chain apps.
+SubQuery 是一个开放源码区块链数据索引器，为开发者提供快速、灵活、可靠和分散的 API，为多链应用提供动力。
 
 Our goal is to save developers' time and money by eliminating the need of building their own indexing solution. Now, they can fully focus on developing their applications. SubQuery helps developers create the decentralised products of the future.
 
@@ -14,7 +14,7 @@ Our goal is to save developers' time and money by eliminating the need of buildi
 
 SubQuery also provides free, production grade hosting of projects for developers. Our Managed Service removes the responsiblity of managing infrastructure, so that developers do what they do best — build. Find out more [here](/run_publish/publish.md).
 
-**The SubQuery Network**
+**关于Subuery Network**
 
 The SubQuery Network allows developers to completely decentralise their infrastructure stack. It is the most open, performant, reliable, and scalable data service for dApps. SubQuery 网络以一种激励和可验证的方式为全球社区提供数据索引的服务。  将项目发布到 SubQuery 网络后，任何人都可以对其进行索引和托管，从而可以更快、更可靠地向世界各地的用户提供数据。
 
@@ -32,7 +32,7 @@ To give feedback, contact us at hello@subquery.network or jump onto our [discord
 
 ## 在SubQuery项目中托管我的项目需要多少费用？
 
-Hosting your project in SubQuery Projects is absolutely free — it is our way of giving back to the community. Please check out the [Hello World (SubQuery hosted)](../run_publish/publish.md) tutorial and learn how to host your project with us.
+在 SubQuery 项目中托管您的项目是绝对免费的，这是我们回归社区的方式。 Please check out the [Hello World (SubQuery hosted)](../run_publish/publish.md) tutorial and learn how to host your project with us.
 
 ## What are deployment slots?
 
