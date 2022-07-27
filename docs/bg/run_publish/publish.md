@@ -13,9 +13,10 @@
 
 Има два начина, по които можете да хоствате кодовата база на вашия проект SubQuery преди публикуване.
 
-**GitHub**: Your project's codebase must be in a public GitHub repository.
 
-**IPFS**: Your project's codebase can be stored in IPFS, you can follow our IPFS hosting guide to see how to [first publish to IPFS](../run_publish/ipfs.md).
+**IPFS (Suggested)**: Your project's codebase can be stored in IPFS, you can follow our IPFS hosting guide to see how to [first publish to IPFS](../run_publish/ipfs.md).
+
+**GitHub**: Your project's codebase must be in a public GitHub repository, this process may be deprecated soon.
 
 ### Влезте в SubQuery Projects
 
