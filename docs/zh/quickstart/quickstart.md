@@ -1,12 +1,12 @@
-# 1. Create a New Project
+# 1. 创建一个新项目
 
-The goal of this quick start guide is to provide you with a complete development setup and guided steps to create your first SubQuery blockchain project. It is targeted towards experienced developers right through to those just beginning their blockchain journey.
+此快速启动指南的目标是为您提供完整的开发设置和引导步骤来创建您的第一个SubQuery区块链项目。 它针对的是那些刚刚开始他们的 blockchain 旅程的有经验的开发者。
 
-This quick start guide should take around 10-15 minutes.
+这个快速启动指南将需要10-15分钟左右。
 
-After completing this quick start guide, you will have a working SubQuery project that will run on a SubQuery node. You will be able to adapt the standard starter project and index transfers from your favourite blockchain network such as Polkadot, Avalanche, Cosmos, etc.
+完成这个快速启动指南后，您将有一个工作的 SubQuery 项目，运行在 SubQuery 节点上。 您将能够从您最喜欢的区块链网络（如Polkadot、Avalanche、Cosmos等）调整标准启动器项目和索引传输。
 
-Let's start the process of creating your first SubQuery blockchain project.
+让我们开始创建您的第一个SubQuery区块链项目的过程。
 
 ## Prerequisites
 
