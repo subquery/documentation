@@ -13,9 +13,10 @@
 
 在发布之前，您可以使用两种方式托管您的 SubQuery 项目的代码库。
 
-**GitHub**：您项目的代码库必须位于公共 GitHub 存储库中。
 
 **IPFS**: 您的项目代码库可以保存在IPFS中 您可以遵循我们的 IPFS 主机指南，查看 [首次发布到 IPFS](../run_publish/ipfs.md).
+
+**GitHub**：您项目的代码库必须位于公共 GitHub 存储库中。
 
 ### 登录到 SubQuery 项目
 
