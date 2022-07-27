@@ -6,21 +6,21 @@
 
 索引者在SubQuery网络中发挥着非常重要的作用。 作为数据服务业务的一部分，索引者将计算和联网功率转变为利润。
 
-## Indexer Staking
+## 索引者权益质押
 
-In order to earn rewards from query revenue as an Indexer it is proposed that Indexers must stake SQT against a particular SubQuery Project that they are providing the service to. The Cobb-Douglas production function will be used to determine the rewards distributed to each Indexer.
+为了从作为索引器的查询收入中获得回报，建议索引者必须在他们提供服务的特定的 SubQuery 项目中订购SQT 。 Cobb-Douglas生产功能将用于确定分配给每个索引者的奖励。
 
-SubQuery plans to add a constraint to the network where an indexer must stake a minimum amount of SQT on the relevant reward pool to be able to participate in its matching Open Agreement. They must also stake a minimum amount on an equivalent staking contract for any Closed Agreements in the same fashion. This indexer staked minimum value must be a certain percentage of the Agreement’s per Era reward value, which means in order to renew the Agreement to higher volumes, the indexer must also increase their stake. When an indexer’s stake decreases beneath this minimum amount, they will be unable to renew the Agreement at the existing price.
+SubQuery 计划为网络添加一个约束，即索引者必须在相关奖励池中拥有最低数量的 SQT 才能参加匹配的开放协议。 它们还必须以同样方式在任何封闭协定的同等风险合同上承担最低数额。 这个指数化的最低值必须是协议每个时代奖励值的特定百分比。 这意味着要将协定延长到更高的卷宗，索引者还必须增加它们的利害关系。 当索引者的质押低于这个最低金额时，它们将无法以现有价格续延协定。
 
-If an Indexer is caught misbehaving (such as by providing invalid, incomplete, or incorrect data), they are liable to have a portion of their staked SQT (on the particular reward pool ip) reallocated to the SubQuery Foundation Treasury, diminishing their holdings of staked SQT in the network and therefore their potential reward. Since the indexer’s allocated stake is determined by a percentage of their total SQT, this will have a flow on effect to all other reward pools that the indexer is party to.
+如果索引者被发现错误(例如提供无效、不完整或不正确的数据)， 他们有责任将他们的Staked SQT（关于特定奖励池）的一部分重新分配给SubQuery基金会财务处。 减少他们在网络中所持的 SQT ，因而减少他们的潜在奖励。 因为索引者分配的股份是由他们SQT总额的百分比决定的， 这将对索引者所加入的所有其他奖励池产生影响。
 
-## How are Indexers rewarded?
+## 索引者如何获取奖励?
 
-Indexers are rewarded in SQT in two ways:
-- Rewards from SQT reward pools based on distribution defined by the Cobb-Douglas Production Function.
-- Direct SQT query fee rewards from Closed Agreements that an indexer is party to.
+索引者以两种方式在 SQT 中获得奖励：
+- 基于 Cobb-Douglas 生产功能定义的分布，来自SQT 奖励池的奖励。
+- 索引者从封闭协议中直接获得SQT查询费奖励。
 
-Indexers are rewarded the fees that Consumers pay for providing blockchain data that the Consumer has reqested. An Indexer will receive all the fees from a Closed Agreement. Otherwise, the fees are split based on the amount of work performed (requests served) and the amount of delegated SQT - this split is determined by applying the Cobb-Douglas Production Function.
+索引者会被奖励消费者因提供消费者要求的区块链数据而支付的费用。 索引者将从封闭协议中收取所有费用。 Otherwise, the fees are split based on the amount of work performed (requests served) and the amount of delegated SQT - this split is determined by applying the Cobb-Douglas Production Function.
 
 There may be multiple reward pools simultaneously active for a given Indexer. The indexer’s job is to allocate their staked and delegated SQT amongst these pools (in terms of a percentage of their total SQT). There will be a reward pool for each project that the Indexer accepts PAYG, and a reward pool for each Market Agreement that the Indexer is a party of.
 
@@ -101,40 +101,40 @@ In order to generate desirable performances, Indexers need to consider various f
 - fulfilling of the Service Level Agreement (SLA) specifications (to avoid slashing penalties).
 - the accuracy of the data being served to avoid slashing penalties.
 
-## Selecting SubQuery Projects to Index
+## 选择SubQuery项目到索引
 
-There are several indicators that an Indexer needs to consider when selecting a SubQuery project to index.
+索引者在选择要索引的SubQuery项目时需要考虑若干指标。
 
-### Query Fee Opportunities
+### 查询费用的商机
 
-Some projects will have open or closed plans advertised by consumers.
+有些项目将有消费者公布的开放或封闭计划。
 
-When a Consumer advertises an open or closed plan for a project, they ultimately specify how much they are willing to pay for a set volume of requests. The more a Consumer is willing to pay, the more attractive the project will be for an Indexer. It also provides confidence that there will likely be recurring revenue from this SubQuery project.
+当一个消费者为一个项目发布一个开放或关闭的计划时， 它们最终具体说明它们愿意为一定数量的请求付款的程度。 消费者越愿意支付，项目就越吸引力越大。 它还使人相信，这个SubQuery项目很可能会有经常性的收入。
 
-### Project complexity
+### 项目的复杂性
 
-Projects will vary in computation requirements. Simple projects will only index a few parameters whereas more complicated projects will require more computation resources and more bandwidth. Indexers need to understand the complexity of the project and its hardware capabilities.
+项目在计算要求方面会有差异。 简单的项目只能索引几个参数，而较复杂的项目则需要更多的计算资源和更多的带宽。 索引者需要了解项目的复杂性及其硬件能力。
 
-### Indexer Competition
+### 索引者比赛
 
-Popular projects offering a high query volume that attract a large number of Indexers. This also implies that the rewards will be shared amongst more people. A single Indexer’s share may be less than a less popular project with a slightly lower query fee but with far fewer Indexers.
+最受欢迎的项目提供了一个高查询量，吸引了大量索引者。 这也意味着奖励将由更多的人分享。 单个索引者的份额可能低于较不受欢迎的项目，但查询费略低，但索引者却少得多。
 
-### Pricing Strategy
+### 价格策略
 
-Indexers need to be aware of their operation cost and expected incomes to understand their break-even point. Some considerations are:
+索引者需要了解他们的操作成本和预期收入，以了解他们的突破点。 以下是一些考虑因素：
 
-- How should Indexers set their plan prices?
-- At what price can Indexers accept a service agreement or not?
+- 索引者应如何确定其计划价格？
+- 索引者能以何种价格接受一项服务协议？
 
-### Advertisements
+### 广告
 
-Indexers need to advertise themselves to Delegators as well as Consumers. Indexers may do this from their own website, in the Subquery forums or any other places deemed necessary. Some examples of the information to provide are:
+索引员需要将自己广告给代表和消费者。 索引者可以从自己的网站、SubQuery论坛或被认为必要的任何其他地方这样做。 提供资料的一些例子包括：
 
-- The background and experience of the Indexer or Indexer’s team.
-- The hardware approach and why it provides superior performance.
-- The customer support policy or SLA.
-- Evidence of historical performances.
+- 索引者或索引者团队的背景和经验。
+- 硬件方法和为什么它提供了优秀的性能。
+- 客户支持政策或服务级协议。
+- 历史优秀成绩的证据。
 
-### Customer support
+### 客户支持
 
-Indexers are highly encouraged to provide a communication method for its customers to report inavailability and also to provide feedback.
+非常鼓励索引员向客户提供一种沟通方法，让他们报告不存在的情况，并提供反馈。
