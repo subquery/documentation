@@ -17,7 +17,7 @@
 - Шаг 2: Нажмите на свой профиль в правом верхнем углу навигационного меню, затем нажмите на **_Refresh Token_**.
 - Шаг 3: Скопируйте сгенерированный токен.
 - Шаг 4: Чтобы использовать этот токен:
-  - Вариант 1: Добавьте SUBQL_ACCESS_TOKEN в переменные среды. `EXPORT SUBQL_ACCESS_TOKEN=<token>`
+  - Вариант 1: Добавьте SUBQL_ACCESS_TOKEN в переменные среды. `EXPORT SUBQL_ACCESS_TOKEN=<token>` (Windows) or `export SUBQL_ACCESS_TOKEN=<token>` (Mac/Linux)
   - Вариант 2: (последует в скором времени) `subql/cli` будет поддерживать локальное хранение вашего SUBQL_ACCESS_TOKEN.
 
 ## Как опубликовать проект
