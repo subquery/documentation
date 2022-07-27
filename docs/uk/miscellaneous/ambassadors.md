@@ -43,14 +43,14 @@
 
 ## Діяльність Амбассадора
 
-SubQuery Ambassadors are able to contribute through four main areas, including event management, content creation, translation, and community moderation. You can participate in as many areas as you want, you’re not bound to any single one.
+Посли SubQuery можуть робити внесок у чотирьох основних сферах, включаючи керування подіями, створення вмісту, переклад і модерування спільноти. Ви можете брати участь у будь-якій кількості областей, не прив’язаних до жодної.
 
-**Event Management:** Build local communities by hosting, organising, and managing different events. Building a local community will be a key part of growing the SubQuery community. SubQuery will support you by providing funding for events, sending swag/merchandise to be given away, as well as attending Q&As or online events as speakers or in AMA sessions.
+**Керування подіями:** створюйте місцеві спільноти, проводячи, організовуючи та керуючи різними подіями. Створення місцевої спільноти буде ключовою частиною розвитку спільноти SubQuery. SubQuery підтримуватиме вас, забезпечуючи фінансування заходів, надсилаючи подарунки/товари для роздачі, а також відвідуючи питання та відповіді чи онлайн-події в якості доповідачів або на сесіях AMA.
 
-**Content Creation:** We have a long list of content and support material that we need help creating. Remember, our success relies on the ability of our customers to build amazing things on our service, so we need your help to make that easier. Content includes videos, infographics, tutorials, animations, or any other related material, to inform, educate, or inspire community members within the SubQuery Ecosystem. SubQuery will support Content Creators by providing branding assets and expertise. We’ll also use SubQuery’s marketing channels to increase awareness of your content (and yourself).
+**Створення вмісту:** у нас є довгий список вмісту та допоміжних матеріалів, у створенні яких нам потрібна допомога. Пам’ятайте, що наш успіх залежить від здатності наших клієнтів створювати дивовижні речі на нашому сервісі, тому нам потрібна ваша допомога, щоб зробити це простіше. Вміст включає відео, інфографіку, навчальні посібники, анімацію або будь-який інший пов’язаний матеріал для інформування, навчання або надихання членів спільноти в екосистемі SubQuery. SubQuery підтримуватиме творців вмісту, надаючи активи брендингу та досвід. Ми також використовуватимемо маркетингові канали SubQuery, щоб підвищити обізнаність про ваш вміст (і вас самих).
 
-**Translation:** Our customers don’t just speak English! We need your help making SubQuery more accessible by translating our content into your own language, as well as helping sharing the word to our international community.
+**Переклад:** наші клієнти не просто розмовляють англійською! Нам потрібна ваша допомога, щоб зробити SubQuery доступнішим, перекладаючи наш вміст на вашу рідну мову, а також допомагаючи ділитися інформацією з нашою міжнародною спільнотою.
 
-**Community Moderation:** Moderators will help grow the SubQuery community by ensuring that official community channels are active and engaging. SubQuery will support Moderators by promoting the channels that they monitor, as well as provide guidelines for our expectations.
+**Модерація спільноти:** модератори допоможуть розширити спільноту SubQuery, забезпечуючи активність і залучення офіційних каналів спільноти. SubQuery підтримуватиме модераторів, рекламуючи канали, які вони відстежують, а також надаватиме вказівки щодо наших очікувань.
 
 [Подати зараз](https://forms.gle/GXBbJ6LDpNfM2v1X6)
