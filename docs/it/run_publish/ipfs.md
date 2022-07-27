@@ -17,7 +17,7 @@ Hosting a project in IPFS makes it available for all and reduces your reliance o
 - Step 2: Click on your profile at the top right of the navigation menu, then click on **_Refresh Token_**.
 - Step 3: Copy the generated token.
 - Step 4: To use this token:
-  - Option 1: Add SUBQL_ACCESS_TOKEN in your environment variables. `EXPORT SUBQL_ACCESS_TOKEN=<token>`
+  - Option 1: Add SUBQL_ACCESS_TOKEN in your environment variables. `EXPORT SUBQL_ACCESS_TOKEN=<token>` (Windows) or `export SUBQL_ACCESS_TOKEN=<token>` (Mac/Linux)
   - Option 2: Coming soon, `subql/cli` will support storing your SUBQL_ACCESS_TOKEN locally.
 
 ## How to publish a project
