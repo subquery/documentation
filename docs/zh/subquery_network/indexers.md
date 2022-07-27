@@ -1,10 +1,10 @@
-# Indexers
+# 索引者
 
-## What is an Indexer?
+## 什么是索引者？
 
-An Indexer is a SubQuery network participant who is responsible for indexing blockchain data and providing this data to their customers.
+索引者是 SubQuery 网络参与者，负责索引区块链数据并向客户提供这种数据。
 
-Indexers play a very important role within the SubQuery network. As a part of a data-as-a-service business, an Indexer turns computational and networking power into profits.
+索引者在SubQuery网络中发挥着非常重要的作用。 作为数据服务业务的一部分，索引者将计算和联网功率转变为利润。
 
 ## Indexer Staking
 
