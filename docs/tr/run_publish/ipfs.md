@@ -17,7 +17,7 @@ Hosting a project in IPFS makes it available for all and reduces your reliance o
 - Step 2: Click on your profile at the top right of the navigation menu, then click on **_Refresh Token_**.
 - Adım 3: Oluşturulan tokenu kopyalayın.
 - Adım 4: Bu tokenu kullanmak için:
-  - Seçenek 1: Ortam değişkenlerinize SUBQL_ACCESS_TOKEN ekleyin. `SUBQL_ACCESS_TOKEN İHRAC ET=<token>`
+  - Seçenek 1: Ortam değişkenlerinize SUBQL_ACCESS_TOKEN ekleyin. `EXPORT SUBQL_ACCESS_TOKEN=<token>` (Windows) or `export SUBQL_ACCESS_TOKEN=<token>` (Mac/Linux)
   - 2. Seçenek: Yakında, `subql/cli`, SUBQL_ACCESS_TOKEN'inizin yerel olarak depolanmasını destekleyecektir.
 
 ## Bir proje nasıl yayınlanır
