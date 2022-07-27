@@ -6,7 +6,7 @@ SubQuery теперь также поддерживает подписки Graph
 
 Підписки дуже корисні, коли ви хочете, щоб ваша клієнтська програма змінювала дані або показувала нові дані, як тільки ця зміна станеться або нові дані стануть доступними. Підписки дозволяють вам *підписатися* на ваш проект SubQuery для отримання змін.
 
-::: info Note Read more about [Subscriptions](https://www.apollographql.com/docs/react/data/subscriptions/). :::
+::: інформація Примітка Докладніше про [Підписки](https://www.apollographql.com/docs/react/data/subscriptions/). :::
 
 ## Як підписатися на істоту
 
@@ -25,8 +25,8 @@ subscription {
 ```
 
 Тіло об’єкта у вашому запиті вказує, які дані ви хочете отримувати через свою підписку, коли оновлюється таблиця ` Transfer `:
-- `id`: Returns the ID of the entity that has changed.
-- `mutation_type`: дія, зроблена з цією сутністю. Mutation types can be either `INSERT`, `UPDATE` or `DELETE`.
+- `id`: повертає ідентифікатор сутності, яка була змінена.
+- `mutation_type`: дія, зроблена з цією сутністю. Типи мутацій можуть бути `INSERT`, `UPDATE` або `DELETE`.
 - `_entity`: значення самої сутності у форматі JSON.
 
 ## Фільтрація
@@ -62,10 +62,10 @@ subscription {
 }
 ```
 
-Note that the `mutation` filter can be one of `INSERT`, `UPDATE` or `DELETE`.
+Зауважте, що фільтр `мутації` може бути одним із `INSERT`, `UPDATE` або `DELETE`.
 
-::: warning Important Please note that you must enable the `--subscription` flag on both the node and query service in order to use these functions. :::
+::: попередження Важливо Зауважте, що для використання цих функцій потрібно ввімкнути прапорець `--subscription` і на вузлі, і на службі запитів. :::
 
-::: warning Important
-The subcription feature works on SubQuery's managed service when you directly call the listed GraphQL endpoint. Він не працюватиме на ігровому майданчику GraphQL у браузері.
+::: попередження Важливо
+Функція підписки працює в керованій службі SubQuery, коли ви безпосередньо викликаєте вказану кінцеву точку GraphQL. Він не працюватиме на ігровому майданчику GraphQL у браузері.
 :::
