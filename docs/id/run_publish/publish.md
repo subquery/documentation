@@ -13,9 +13,10 @@
 
 Ada dua cara Anda dapat menghosting basis kode proyek SubQuery Anda sebelum dipublikasikan.
 
-**GitHub**: Basis kode proyek Anda harus berada di repositori GitHub publik.
 
-**IPFS**: Basis kode proyek Anda dapat disimpan di IPFS, Anda dapat mengikuti panduan hosting IPFS kami untuk melihat cara [memublikasikan pertama ke IPFS](../run_publish/ipfs.md).
+**IPFS (Suggested)**: Your project's codebase can be stored in IPFS, you can follow our IPFS hosting guide to see how to [first publish to IPFS](../run_publish/ipfs.md).
+
+**GitHub**: Your project's codebase must be in a public GitHub repository, this process may be deprecated soon.
 
 ### Masuk ke Proyek SubQuery
 
