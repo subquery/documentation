@@ -17,7 +17,7 @@ Lưu trữ một dự án trong IPFS làm cho nó khả dụng cho tất cả m�
 - Step 2: Click on your profile at the top right of the navigation menu, then click on **_Refresh Token_**.
 - Bước 3: Sao chép mã thông báo đã tạo.
 - Bước 4: Để sử dụng mã thông báo này:
-  - Tùy chọn 1: Thêm SUBQL_ACCESS_TOKEN trong các biến môi trường của bạn. `EXPORT SUBQL_ACCESS_TOKEN=<token>`
+  - Tùy chọn 1: Thêm SUBQL_ACCESS_TOKEN trong các biến môi trường của bạn. `EXPORT SUBQL_ACCESS_TOKEN=<token>` (Windows) or `export SUBQL_ACCESS_TOKEN=<token>` (Mac/Linux)
   - Tùy chọn 2: Sắp có, `subql/cli` sẽ hỗ trợ lưu trữ cục bộ SUBQL_ACCESS_TOKEN của bạn.
 
 ## Làm thế nào để xuất bản một dự án
