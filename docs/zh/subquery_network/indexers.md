@@ -20,7 +20,7 @@ SubQuery 计划为网络添加一个约束，即索引者必须在相关奖励�
 - 基于 Cobb-Douglas 生产功能定义的分布，来自SQT 奖励池的奖励。
 - 索引者从封闭协议中直接获得SQT查询费奖励。
 
-索引者会被奖励消费者因提供消费者要求的区块链数据而支付的费用。 索引者将从封闭协议中收取所有费用。 Otherwise, the fees are split based on the amount of work performed (requests served) and the amount of delegated SQT - this split is determined by applying the Cobb-Douglas Production Function.
+索引者会被奖励消费者因提供消费者要求的区块链数据而支付的费用。 索引者将从封闭协议中收取所有费用。 否则， 费用根据完成的工作量(请求已送达) 和授权的 SQT 金额进行拆分——这种拆分是通过应用Cobb-Douglas Production 功能来确定的。
 
 给定索引者可能同时激活多个奖励池。 索引者的工作是在这些池中分配他们的分级和委派的 SQT (占其总SQT的百分比)。 索引者接受PAYG的每个项目都有奖励池。 并为索引者所缔结的每一项市场协定提供奖励库。
 
@@ -30,76 +30,76 @@ SubQuery 计划为网络添加一个约束，即索引者必须在相关奖励�
 
 索引者设置索引者的佣金率 (ICR) 是索引者赚取的百分比。 其余部分随后由索引者和所有代表按预定/授权数额分摊。 因此，索引者需要决定索引者希望保留的利润相对于与代表分享的数额的比例。 较低的ICR对委托方更有吸引力。
 
-For example, Indexer A has set an ICR of 80% and has received SQT from 8 Delegators. This means that the 8 Delegators plus the Indexer itself, will be rewarded a share of the remaining 20% of what the Indexer has earned. The share will be split proportionally between them. Note that Delegators must have delegated their tokens for the entire Era to be eligible for these rewards. For more information on Delegators rewards, see [Delegators](./delegators.md).
+例如，Indexer A将ICR 设定为80%，并从8名委托者收到了SQT。 这意味着8名委托者加上索引者本身将得到索引者剩余20%收入的奖励。 份额将按比例在它们之间分配。 请注意，委托者必须已经授予他们的代币，才有资格获得这些奖励。 关于代表奖励的更多信息，请参阅 [Delegators](./delegators.md)。
 
-## Becoming an Indexer
+## 成为索引者
 
-To become an Indexer on the SubQuery Network, the Indexer must possess the necessary hardware, run the required SubQuery services, have a publicly accessible network via a static IP or a domain name, and register as an Indexer.
+要成为SubQuery网络的索引者，索引者必须拥有必要的硬件，运行所需的SubQuery服务。 有一个通过静态IP或域名公开可访问的网络，并注册为索引者。
 
-### Indexer skillset
+### 索引器技能集
 
-In general, an Indexer should be a technically proficient computer user. However, the simplicity of the SubQuery network and proposed frameworks allows even a junior developer to successfully participate.
+一般而言，索引者应是技术熟练的计算机用户。 然而，SubQuery网络和拟议框架的简单性甚至使初级开发者能够成功地参与。
 
-A basic user should be familiar with provisioning and managing servers, installing the SubQuery CLI tools, database management, and basic networking. More experienced users may run nodes in a clustered environment, incorporate monitoring and alerts and also more advanced networking management.
+基本用户应该熟悉提供和管理服务器，安装 SubQuery CLI 工具、数据库管理和基本网络。 经验丰富的用户可以在集群环境中运行节点，纳入监测和警示以及更先进的网络管理。
 
-Finally, interested parties should be prepared to invest time in maintaining their indexing nodes and infrastructure.
+最后，有关各方应准备投入时间维持其索引节点和基础设施。
 
-### Staking requirements
+### 质押要求
 
-Indexers are expected to stake and maintain a minimum amount of tokens. This is to ensure that Indexers have some skin in the game and are committed to supporting the network. SubQuery is yet to determine this but it is one of our [design philosophies](./design-philosophy.md) that this be as low and as accessible as possible.
+索引者预计会有利害关系并保持最低数量的代币。 这是为了确保索引者在游戏中有一些皮肤并致力于支持网络。 SubQuery 尚未确定这一点，但这是我们 [的设计哲学](./design-philosophy.md) 中的一种，它尽可能低并且容易获得。
 
-Should an Indexer experience a slashable event and their staked SQT balance fall below the minimum required, they will have to top up their staked SQT in order to continue to earn rewards from their work.
+如果一个索引器经历一个可闪烁的事件，它们的 SQT 余额低于所需的最低值。 他们必须充值他们的Staked SQT才能继续从他们的工作中获得奖励。
 
-### Hardware requirements
+### 硬件要求:
 
-Indexers can either invest in their own infrastructure hardware or rent infrastructure from the likes of AWS, Google Cloud, Digital Ocean, Microsoft Azure etc.
+索引者可以对自己的基础设施硬件进行投资，也可以从喜欢的AWS、谷歌云、数字大洋、微软Azure等地租赁基础设施。
 
-### Maintenance/operational requirements
+### 维修/业务要求
 
-Here are some of the maintenance and/or operational requirements Indexers should expect:
+以下是一些维护和/或业务需求索引者应该期望：
 
-- Always upgrade to the latest Subquery software version.
-- Identify and take advantage of new indexing opportunities.
-- Update project version to latest and reindex where necessary.
-- Infrastructure maintenance:
-  - Constantly monitoring and upsizing disk.
-  - Right size query and indexing compute based on traffic.
-  - Increase query services for increasing ingress traffic.
+- 总是升级到最新的SubQuery软件版本。
+- 查明并利用新的索引机会。
+- 更新项目版本到最新版本，并在必要时重新索引。
+- 基础结构管理器
+  - 不断监视和调整磁盘大小。
+  - 基于流量的右尺寸查询和索引计算。
+  - 增加查询服务以增加流量。
 
-### Infrastructure
+### 基础架构
 
-The minimum infrastructure requirement includes:
+最低限度的基础设施要求包括：
 
-- At least one computational node to run the following services:
+- 至少有一个计算节点来运行以下服务：
   - [Node (indexing) Service](https://www.npmjs.com/package/@subql/node).
   - [Query Service](https://www.npmjs.com/package/@subql/query).
   - [Indexer Coordinator Service](https://www.npmjs.com/package/@subql/indexer-coordinator).
-- One database node to run Postgresql db (v12 and above).
+- 运行Postgresql db (v12及以上) 的数据库节点。
 
-More detailed information will come soon.
+更详细的信息会在不就得将来发布。
 
-## Security & Performance considerations
+## 安全 & 性能考虑
 
-Security and performance considerations are as follows.
+安全和业绩方面的考虑如下。
 
-### Operator Wallets
+### 操作员钱包
 
-Secure storage of an Indexer’s wallet recovery seed phrase is highly recommended.
+强烈建议安全存储索引器的钱包恢复种子短语。
 
-### Firewalls
+### 防火墙
 
-Indexers need to keep security front of mind. Infrastructure security, in particular firewalls, should be implemented to prevent public exposure to personal ports.
+索引者需要保持安全心理。 基础设施安全，特别是防火墙，应当加以实施，以防止公众接触到个人端口。
 
-Secure passwords should be used by default and password rotation policies should be considered.
+安全密码应默认使用，并应考虑密码旋转策略。
 
-### Indexer’s Performance
+### 索引者的成绩
 
-In order to generate desirable performances, Indexers need to consider various factors such as:
+为了产生理想的业绩，索引员需要考虑各种因素，例如：
 
-- the balance between their own stake and that of Delegators.
-- the type of contract being served. The Indexer will receive all the query fees if it is a closed contract. If it is open, then an Indexer’s reward will depend on how many other Indexers there are.
-- fulfilling of the Service Level Agreement (SLA) specifications (to avoid slashing penalties).
-- the accuracy of the data being served to avoid slashing penalties.
+- (c) 在代表们的利益之间保持平衡。
+- 所提供的合同类型。 如果索引者收到的是封闭的合同，它将收到所有查询费用。 如果它是开放的，那么索引者的奖励将取决于还有多少其他索引者。
+- 《服务级协议》的具体规定得到执行(以避免罚金)。
+- 为避免罚金，所提供的数据准确无误。
 
 ## 选择SubQuery项目到索引
 
