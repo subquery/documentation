@@ -22,13 +22,13 @@ SubQuery 计划为网络添加一个约束，即索引者必须在相关奖励�
 
 索引者会被奖励消费者因提供消费者要求的区块链数据而支付的费用。 索引者将从封闭协议中收取所有费用。 Otherwise, the fees are split based on the amount of work performed (requests served) and the amount of delegated SQT - this split is determined by applying the Cobb-Douglas Production Function.
 
-There may be multiple reward pools simultaneously active for a given Indexer. The indexer’s job is to allocate their staked and delegated SQT amongst these pools (in terms of a percentage of their total SQT). There will be a reward pool for each project that the Indexer accepts PAYG, and a reward pool for each Market Agreement that the Indexer is a party of.
+给定索引者可能同时激活多个奖励池。 索引者的工作是在这些池中分配他们的分级和委派的 SQT (占其总SQT的百分比)。 索引者接受PAYG的每个项目都有奖励池。 并为索引者所缔结的每一项市场协定提供奖励库。
 
-## Attracting Delegators
+## 吸引委托者
 
-Indexers can increase their earning potential by attracting Delegators. Delegators are SQT token holders who can delegate their tokens to Indexers for additional rewards. Indexers use these additional tokens to increase the amount they allocate to projects of their choice. This allows Indexers to increase their earnings.
+指数化可以通过吸引委托者来增加他们的收入潜力。 委托者成员是 SQT 代币持有者，可以将其代币分配给索引者以获得额外奖励。 索引者使用这些额外的代币来增加分配给他们选择的项目的金额。 这使索引者能够增加收入。
 
-Indexers set an Indexer’s Commission Rate (ICR) which is the percentage Indexers earn. The remaining is then shared amongst the Indexer and all Delegators propotionally by staked/delegated amount. Therefore, Indexers need to decide on the proportion of profits an Indexer wishes to retain versus the amount to share with their Delegators. A lower ICR will be more attractive for Delegators.
+索引者设置索引者的佣金率 (ICR) 是索引者赚取的百分比。 其余部分随后由索引者和所有代表按预定/授权数额分摊。 因此，索引者需要决定索引者希望保留的利润相对于与代表分享的数额的比例。 较低的ICR对委托方更有吸引力。
 
 For example, Indexer A has set an ICR of 80% and has received SQT from 8 Delegators. This means that the 8 Delegators plus the Indexer itself, will be rewarded a share of the remaining 20% of what the Indexer has earned. The share will be split proportionally between them. Note that Delegators must have delegated their tokens for the entire Era to be eligible for these rewards. For more information on Delegators rewards, see [Delegators](./delegators.md).
 
