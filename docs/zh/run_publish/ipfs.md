@@ -17,7 +17,7 @@
 - 第 2 步：点击导航菜单右上角的个人资料，然后点击 **_刷新令牌_**
 - 步骤3:复制生成的令牌。
 - 步骤4：使用此令牌：
-  - 选项1：在您的环境变量中添加SUBQL_ACCESS_TOKEN。 `ExPORT SUBQL_ACCESS_TOKEN=<token>`
+  - 选项1：在您的环境变量中添加SUBQL_ACCESS_TOKEN。 `EXPORT SUBQL_ACCESS_TOKEN=<token>` (Windows) or `export SUBQL_ACCESS_TOKEN=<token>` (Mac/Linux)
   - 选项2：在即将到来的新版本中， `subql/cli` 将支持本地存储您的 SUBQL_ACCESS_TOKEN
 
 ## 如何发布一个项目
