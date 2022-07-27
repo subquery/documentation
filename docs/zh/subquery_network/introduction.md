@@ -12,28 +12,28 @@ SubQuery 网络通过允许用户将项目基础架构完全去中心化，从�
 
 ## 参与者
 
-网络中的每个人都有一个角色，从高技术开发人员到非高技术开发人员。 The SubQuery network includes four main network participants.
+网络中的每个人都有一个角色，从高技术开发人员到非高技术开发人员。 SubQuery 网络中包括四个主要参与者.
 
 ### 消费者
 
 消费者将向 SubQuery 网络检索其 dApp 或其工具的特定数据，并为每个请求通过代币 SQT 的形式支付广播费用。
 
-::: info Note Learn more about [Consumers](./consumers.md). :::
+::: 信息注释 了解更多关于 [Consumers](./consumers.md) :::
 
 ### 索引者
 
 索引器者将在自己的基础设施中运行和维护高质量的 SubQuery 项目，同时运行着索引器和查询服务，并将会根据其提供的服务获得 SQT 代币奖励。
 
-::: info Note Learn more about [Indexers](./indexers.md). :::
+::: 信息注释 了解更多关于 [Indexers](./indexers.md) :::
 
 ### 委托者
 
 委托者将通过委托来参与网络，支持他们最喜欢的索引者来，以根据索引者所做的工作获得奖励。
 
-::: info Note Learn more about [Delegators](./delegators.md). :::
+::: 信息注释 了解更多关于 [Delegators](./delegators.md) :::
 
 ### 构建者
 
 构建者是网络中运行的 SubQuery 项目的构建者。 他们编写并发布 SubQuery 项目，以便网络索引和运行。
 
-::: info Note Learn more about [how to build your first SubQuery project](../build/introduction.md). :::
+::: 信息注释 了解更多关于 [如何建立你的第一个SubQuery 项目](../build/introduction.md) :::
