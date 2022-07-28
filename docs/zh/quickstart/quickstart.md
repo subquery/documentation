@@ -8,14 +8,14 @@
 
 让我们开始创建您的第一个SubQuery区块链项目的过程。
 
-## Prerequisites
+## 前提条件
 
-Before you begin creating your first blockchain project with SubQuery, make sure you have installed the required supporting software applications. These are:
+在开始使用 SubQuery 创建您的第一个区块链项目之前，请确保您已经安装了所需的支持软件应用程序。 分别是：
 
 - [Node](https://nodejs.org/en/): 一个现代（如LTS版本）的Node安装。
-- [Docker](https://docker.com/): This tutorial will use the required Docker.
+- [Docker](https://docker.com/): 本教程将使用Docker的程序。
 
-Now, you are all set to start with the first step, which is the installation of the SubQuery CLI.
+现在，您即将开始第一步，即安装SubQuery CLI。
 
 ## 1. 安装 SubQuery CLI
 
@@ -26,9 +26,9 @@ Now, you are all set to start with the first step, which is the installation of 
 npm install -g @subql/cli
 ```
 
-::: danger We **DO NOT** encourage the use of `yarn global` for installing `@subql/cli` due to its poor dependency management. This may lead to multiple errors. :::
+请注意，我们**不**鼓励使用`yarn global`来安装`@subql/cli`，因为它的依赖性管理不好，可能会导致下一步的错误。 这可能导致多个错误。 :::
 
-Take a look at all available commands and their use. Run the given below command in the CLI:
+查看所有可用的命令及其使用情况。 运行下面的 CLI 命令：
 
 ```shell
 subql help
@@ -36,29 +36,29 @@ subql help
 
 ## 2. 初始化 Starter SubQuery 项目
 
-Run the following command inside the directory you want to create a SubQuery project:
+在你想要创建subquery项目的目录中运行以下命令：
 
 ```shell
 subql init
 ```
 
-::: warning Important
+::: 警告
 
-**For Cosmos Users**
+**适合Cosmos用户**
 
-Cosmos is not yet supported in SubQuery's CLI (`subql`). Hence, if you are using Cosmos, you must start with a Juno clone or fork this [starter project](https://github.com/subquery/cosmos-subql-starter).
+SubQuery的 CLI 尚不支持Cosmos(`subql`)。 因此，如果你正在使用Cosmos，你必须从Juno克隆开始或fork这个 [起点项目](https://github.com/subquery/cosmos-subql-starter)。
 
-To initialise your project with Cosmos, refer to these 4 steps shown in this [link](https://github.com/subquery/juno-subql-starter#readme). Once you complete these 4 steps, **jump** to the [Make Changes to Your Project](../quickstart/quickstart.md#_3-make-changes-to-your-project) section. :::
+要使用Cosmos初始化您的项目，请参考此 [链接](https://github.com/subquery/juno-subql-starter#readme) 中显示的这4个步骤。 一旦你完成这4个步骤，**跳转**到[对你的项目进行修改](../quickstart/quickstart.md#_3-make-changes-to-your-project)部分。 :::
 
-You'll be asked certain questions as you proceed ahead:
+当你继续前进时，你会遇到一些问题：
 
-- **Project name**: A project name for your SubQuery project.
-- **Network family**: The layer-1 blockchain network family that this SubQuery project will index. 使用箭头键从可用选项中选择。 For example, Polkadot, Avalanche, Cosmos, or any other supported network.
-- **Network**: The specific network that this SubQuery project will index. 使用箭头键从可用选项中选择。 For example, Polkadot, Avalanche, or any other supported network.
-- **Template project**: Select a SubQuery template project that will provide a starting point in the development. We suggest selecting the _"subql-starter"_ project.
-- **RPC endpoint**: Provide an HTTPS URL to a running RPC endpoint, which will be used by default for this project. You can quickly access public endpoints for different networks, create your own private dedicated node using [OnFinality](https://app.onfinality.io), or just use the default endpoint. 此 RPC 节点必须是归档节点 (具有完整链状态)。 We will use the default value for this guide. Based on the network you have chosen, the default value may be:
-  - For Polkadot - _"https://polkadot.api.onfinality.io"_,
-  - For Avalanche - _"https://avalanche.api.onfinality.io"_,
+- **Project name**: 您的 SubQuery 项目的项目名称。
+- **Network family**: 此SubQuery 项目将索引的图层1 区块链网络类。 使用箭头键从可用选项中选择。 例如，Polkadot、Avalanche、Cosmos或任何其他支持的网络。
+- **Network**: 此SubQuery 项目将索引的特定网络。 使用箭头键从可用选项中选择。 例如，Polkadot, Avalanche, 或任何其他支持的网络。
+- **Template project**：选择一个SubQuery 项目模板，它将为开始开发提供起始点. 我们建议选择 _"subql-starter"_ 项目。
+- **RPC endpoint**(必填)：提供一个 wss URL给一个正在运行的 RPC 端点，该端点将默认用于此项目。 您可以快速访问不同的 Polkadot 网络的公共端点，甚至可以使用 [OnFinality](https://app.onfinality.io) 或仅使用默认的 Polkadot 端点创建您自己的专用节点。 此 RPC 节点必须是归档节点 (具有完整链状态)。 我们将使用本指南的默认值。 基于您选择的网络，默认值可以是：
+  - 对于Polkadot - _"https://polkadot.api.onfinality.io"_,
+  - 对于Avalanche - _"https://avalanche.apionfinality.io"_,
   - For Terra - _“https://terra-columbus-5.beta.api.onfinality.io”_ and likewise for other networks. <br/>
 - **Git repository**: Provide a Git URL to a repo that this SubQuery project will be hosted in (when hosted in SubQuery Explorer) or accept the provided default.
 - **Authors**: Enter the owner of this SubQuery project here (e.g. your name!) or accept the provided default.
