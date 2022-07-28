@@ -432,10 +432,10 @@ The following table explains filters supported by different handlers.
 
 | Network | Handler | Supported filter |
 | ------------------ | ---------------------------------------------------- | ---------------------------- |
-| Substrate/Polkadot | [substrate/BlockHandler](./mapping.md#block-handler) | `specVersion`                |
+| Substrate/Polkadot | [substrate/BlockHandler](./mapping.md#block-handler) | `specVersion`, `modulo`      |
 | Substrate/Polkadot | [substrate/EventHandler](./mapping.md#event-handler) | `module`,`method`            |
 | Substrate/Polkadot | [substrate/CallHandler](./mapping.md#call-handler)   | `module`,`method` ,`success` |
-| Cosmos              | [cosmos/BlockHandler](./mapping.md#block-handler)     | No filters                   |
+| Cosmos             | [cosmos/BlockHandler](./mapping.md#block-handler)    | `modulo`                     |
 | Cosmos              | [cosmos/TransactionHandler](./mapping.md#transaction-handler)     | No filters                   |
 | Cosmos              | [cosmos/MessageHandler](./mapping.md#message-handler)     |  `type`, `values`* |
 | Cosmos              | [cosmos/EventHandler](./mapping.md#event-handler)     | `type`, `messageFilter`* |
@@ -515,6 +515,13 @@ filter:
   specVersion: [23, 24]   # Index block with specVersion in between 23 and 24 (inclusive).
   specVersion: [100]      # Index block with specVersion greater than or equal 100.
   specVersion: [null, 23] # Index block with specVersion less than or equal 23.
+```
+
+The `modulo` filter allows handling every N blocks, which is useful if you want to group or calculate data at a set interval. The following example shows how to use this filter.
+
+```yml
+filter:
+  modulo: 50 # Index every 50 blocks: 0, 50, 100, 150....
 ```
 
 ## Custom Substrate and Cosmos Chains
