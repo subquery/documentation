@@ -125,6 +125,17 @@ $ subql deployment:deploy
   --type=(stage|primary)           [default: primary]
 ```
 
+#### Using Github actions
+
+With the introduction of the deployment feature for the CLI, we've added a worflow to Github that will allow you to publish and deploy with ease
+
+- Step 1: After pushing your project to Github, create `DEPLOYMENT` environment on Github, and add the secret [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) to it.
+- Step 2: Create a project on HostedServices, this can be done using the [CLI](#using-the-cli) or the [UI](#using-the-ui). 
+- Step 3: Once the project is created, navigate to the Github Actions page for your project, and select the workflow `CLI deploy`
+- Step 4: You'll see an input field where you can enter the name of your project created on HostedServices. If the name of your project contains spaces, please replace them with `-`. e.g. `my project name` becomes `my-project-name`
+- Once the workflow is complete, you should be able to your project deployed on the HostedServices.
+
+
 ## Next Steps - Connect to your Project
 
 Once your deployment has succesfully completed and our nodes have indexed your data from the chain, you'll be able to connect to your project via the displayed GraphQL Query endpoint.
