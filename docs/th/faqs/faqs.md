@@ -4,7 +4,7 @@
 
 SubQuery is an open source blockchain data indexer for developers that provides fast, flexible, reliable, and decentralised APIs to power leading multi-chain apps.
 
-Our goal is to save developers' time and money by eliminating the need of building their own indexing solution. Now, they can fully focus on developing their applications. SubQuery helps developers create the decentralised products of the future.
+เป้าหมายของพวกเราคือการทำให้ นักพัฒนาได้ประหยัดเวลาและเงิน โดยการอำนวยสิ่งจำเป็นต่างๆในการทำ Indexing พวกเขาจะได้เอาเวลาไปม่งเน้นพัฒนา แอปพลิเคชั่น Subquery ได้ช่วยให้พัฒนาได้สร้างผลิตภัณฑ์กระจายศุนย์แห่งอนาคต
 
 <figure class="video_container">
 <iframe src="https://www.youtube.com/embed/gCpVz_mkWdo" title="Introducing The SubQuery Network" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscree="true"></iframe>
@@ -12,13 +12,13 @@ Our goal is to save developers' time and money by eliminating the need of buildi
 
 **SubQuery Managed Service**
 
-SubQuery also provides free, production grade hosting of projects for developers. Our Managed Service removes the responsiblity of managing infrastructure, so that developers do what they do best — build. Find out more [here](/run_publish/publish.md).
+SubQuery also provides free, production grade hosting of projects for developers. Our Managed Service removes the responsiblity of managing infrastructure, so that developers do what they do best — build. ข้อมูลเพิ่มเติม [ที่นี่](/run_publish/publish.md)
 
 **เครื่อข่าย SubQuery**
 
 The SubQuery Network allows developers to completely decentralise their infrastructure stack. It is the most open, performant, reliable, and scalable data service for dApps. The SubQuery Network indexes and services data to the global community in an incentivised and verifiable way.  After publishing your project to the SubQuery Network, anyone can index and host it - providing data to users around the world faster and reliably.
 
-More information [here](/subquery_network/introduction.md).
+ข้อมูลเพิ่มเติม [ที่นี่](/subquery_network/introduction.md).
 
 ## วิธีที่ดีที่สุดในการเริ่มต้นใช้งาน SubQuery คืออะไร?
 
@@ -26,7 +26,7 @@ More information [here](/subquery_network/introduction.md).
 
 ## ฉันจะมีส่วนร่วมหรือให้คำติชมกับ SubQuery ได้อย่างไร?
 
-เรารักการมีส่วนร่วมและข้อเสนอแนะจากชุมชน To contribute the code, fork the repository of your interest and make your changes. จากนั้นส่ง PR หรือ Pull Request Don't forget to test as well. รวมถึงตรวจสอบแนวทางการสนับสนุน (TBA) ของเราด้วย
+เรารักการมีส่วนร่วมและข้อเสนอแนะจากชุมชน To contribute the code, fork the repository of your interest and make your changes. จากนั้นส่ง PR หรือ Pull Request อย่าลืมทดสอบด้วยนะ รวมถึงตรวจสอบแนวทางการสนับสนุน (TBA) ของเราด้วย
 
 หากต้องการแสดงความคิดเห็น โปรดติดต่อเราที่ hello@subquery.network หรือไปที่ [discord ของเรา](https://discord.com/invite/78zg8aBSMG).
 
