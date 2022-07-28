@@ -59,14 +59,14 @@ SubQuery的 CLI 尚不支持Cosmos(`subql`)。 因此，如果你正在使用Cos
 - **RPC endpoint**(必填)：提供一个 wss URL给一个正在运行的 RPC 端点，该端点将默认用于此项目。 您可以快速访问不同的 Polkadot 网络的公共端点，甚至可以使用 [OnFinality](https://app.onfinality.io) 或仅使用默认的 Polkadot 端点创建您自己的专用节点。 此 RPC 节点必须是归档节点 (具有完整链状态)。 我们将使用本指南的默认值。 基于您选择的网络，默认值可以是：
   - 对于Polkadot - _"https://polkadot.api.onfinality.io"_,
   - 对于Avalanche - _"https://avalanche.apionfinality.io"_,
-  - For Terra - _“https://terra-columbus-5.beta.api.onfinality.io”_ and likewise for other networks. <br/>
-- **Git repository**: Provide a Git URL to a repo that this SubQuery project will be hosted in (when hosted in SubQuery Explorer) or accept the provided default.
-- **Authors**: Enter the owner of this SubQuery project here (e.g. your name!) or accept the provided default.
-- **Description**: Provide a short paragraph about your project that describes what data it contains and what users can do with it, or accept the provided default.
-- **Version**: Enter a custom version number or use the default (`1.0.0`).
-- **License**: Provide the software license for this project or accept the default (`MIT`).
+  - 对于 Terra - _“https://terra-columbus-5.beta.api.onfinality.io”_ 等于其他网络。 <br/>
+- **Git repository（可选）**：提供指向此 SubQuery 项目的，并将在其中托管的存储库的 Git URL（当托管在 SubQuery Explorer 中时）
+- **Authors**：在此输入此SubQuery项目的所有者(例如您的名字!)或接受所提供的默认值。
+- **Description**：提供一个关于您项目的简短段落，描述项目包含哪些数据，用户可以做什么或接受提供的默认值。
+- **Version (必填)**：输入一个自定义版本号或使用默认版本(`1.0.0`).
+- License（必填)：提供此项目的软件许可或接受默认设置(`Apache-`).
 
-Let’s look at an example:
+让我们看看一个例子：
 
 ```shell
 $ subql init
@@ -85,9 +85,9 @@ Preparing project... done
 HelloWorld is ready
 ```
 
-After you complete the initialisation process, you will see a folder with your project name created inside the directory. Please note that the contents of this directory should be identical to what's listed in the [Directory Structure](../build/introduction.md#directory-structure).
+在初始化过程完成后，您应该看到目录内创建了一个项目名称的文件夹。 此目录的内容应该与 [Directory Structure](../build/introduction.md#directory-structure) 中列出的内容完全相同。
 
-Finally, run the following command to install the new project’s dependencies from within the new project's directory.
+最后，运行以下命令从新项目目录中安装新项目的依赖关系。
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```shell cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
@@ -104,9 +104,9 @@ There are 3 important files that need to be modified. These are:
 2. The Project Manifest in `project.yaml`.
 3. The Mapping functions in `src/mappings/` directory.
 
-SubQuery supports various blockchain networks and provides you with a dedicated guide for each of them.
+SubQuery 支持各种区块链网络并为您提供专用指南。
 
-Pick up your preferred network and proceed ahead to make the modifications required, and move an inch closer to finishing your first ever project:
+拿起您的首选网络并继续进行所需的修改，并将一英寸移动到更接近完成您的第一个项目：
 
 - **[Polkadot/Substrate](../quickstart/quickstart_chains/polkadot.md)**
 
