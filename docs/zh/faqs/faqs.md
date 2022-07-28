@@ -1,77 +1,77 @@
-# Frequently Asked Questions
+# 常见问题解答
 
 ## 什么是SubQuery？
 
 SubQuery 是一个开放源码区块链数据索引器，为开发者提供快速、灵活、可靠和分散的 API，为多链应用提供动力。
 
-Our goal is to save developers' time and money by eliminating the need of building their own indexing solution. Now, they can fully focus on developing their applications. SubQuery helps developers create the decentralised products of the future.
+我们的目标是通过消除建立自己的索引解决方案的需要来节省开发者的时间和金钱。 现在，它们可以充分注重开发其应用。 我们的使命是帮助开发者创建去中心化的产品。
 
 <figure class="video_container">
-<iframe src="https://www.youtube.com/embed/gCpVz_mkWdo" title="Introducing The SubQuery Network" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscree="true"></iframe>
+<iframe src="https://www.youtube.com/embed/gCpVz_mkWdo" title="介绍SubQuery网络：" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscree="true"></iframe>
 </figure>
 
-**SubQuery Managed Service**
+**SubQuery 管理服务**
 
-SubQuery also provides free, production grade hosting of projects for developers. Our Managed Service removes the responsiblity of managing infrastructure, so that developers do what they do best — build. Find out more [here](/run_publish/publish.md).
+SubQuery还为开发者提供免费的生产级托管项目。 我们的管理服务取消了管理基础设施的责任感，以便开发者能够做他们最好的事情——建造。 在这里了解更多 [](/run_publish/publish.md)
 
 **关于Subuery Network**
 
-The SubQuery Network allows developers to completely decentralise their infrastructure stack. It is the most open, performant, reliable, and scalable data service for dApps. SubQuery 网络以一种激励和可验证的方式为全球社区提供数据索引的服务。  将项目发布到 SubQuery 网络后，任何人都可以对其进行索引和托管，从而可以更快、更可靠地向世界各地的用户提供数据。
+SubQuery 网络允许开发者完全分散他们的基础设施堆栈。 我们正在为 dApp 开发者构建最开放的、运行最可靠的、可扩展的数据服务。 SubQuery 网络以一种激励和可验证的方式为全球社区提供数据索引的服务。  将项目发布到 SubQuery 网络后，任何人都可以对其进行索引和托管，从而可以更快、更可靠地向世界各地的用户提供数据。
 
-More information [here](/subquery_network/introduction.md).
+更多信息 [在这里](/subquery_network/introduction.md)。
 
 ## 从SubQuery开始的最佳方式是什么？
 
-The best way to get started with SubQuery is to try out our [Hello World tutorial](/assets/pdf/Hello_World_Lab.pdf). This is a simple 5 min walk through exercise. Download the starter template, build the project, use Docker to run a node on your localhost, and run a simple query.
+开始使用 SubQuery 的最好方法是尝试我们的 [Hello World 教程](/assets/pdf/Hello_World_Lab.pdf)。 这是简单的5分钟步行练习。 下载启动模板，构建项目，使用 Docker 在您的localhost上运行一个节点，并运行一个简单的查询。
 
 ## 我如何向SubQuer贡献或反馈？
 
-我们热爱社区的贡献和反馈。 To contribute the code, fork the repository of your interest and make your changes. 然后提交 PR 或 Pull 请求。 Don't forget to test as well. Also check out our contributions guide lines (TBA).
+我们热爱社区的贡献和反馈。 若要贡献代码，请分派感兴趣的仓库并做出更改。 然后提交 PR 或 Pull 请求。 哦，不要忘记测试！ 同时您可查看我们的贡献指南线 (TBA)。
 
-To give feedback, contact us at hello@subquery.network or jump onto our [discord channel](https://discord.com/invite/78zg8aBSMG).
+要提供反馈，请通过 hello@subquery.network联系我们，或进入我们的 [Discord 频道](https://discord.com/invite/78zg8aBSMG).
 
 ## 在SubQuery项目中托管我的项目需要多少费用？
 
-在 SubQuery 项目中托管您的项目是绝对免费的，这是我们回归社区的方式。 Please check out the [Hello World (SubQuery hosted)](../run_publish/publish.md) tutorial and learn how to host your project with us.
+在 SubQuery 项目中托管您的项目是绝对免费的，这是我们回归社区的方式。 请查看 [Hello World (SubQuery 主机)](../run_publish/publish.md) 教程并学习如何与我们一起主办您的项目。
 
-## What are deployment slots?
+## 什么是部署插槽？
 
-Deployment slots are a feature in [SubQuery Projects](https://project.subquery.network) that is the equivalent of a development environment. For example, in any software organisation there is normally a development environment and a production environment as a minimum (ignoring localhost that is). Typically additional environments such as staging and pre-prod or even QA are included depending on the needs of the organisation and their development set up.
+部署位置是 [SubQuery 项目](https://project.subquery.network) 中的一个功能，相当于一个开发环境。 例如，在任何软件组织中，通常都有一种最起码的开发环境和生产环境(无视本地环境)。 在典型的软件产品开发中，根据具体软件开发需求的要求，包括了其他环境，例如灰度环境、生产环境和测试环境等。
 
-SubQuery currently has two slots available. A staging slot and a production slot. This allows developers to deploy their SubQuery to the staging environment and all going well, "promote to production" at the click of a button.
+SubQuery 目前有两个可用的位置。 一个中转插槽和一个生产插槽。 这使得开发人员可以将他们的 SubQuery 部署到模拟环境中，并且在点击按钮时“发布到生产环境”。
 
-## What is the advantage of a staging slot?
+## 中转插槽的优点是什么？
 
-The main benefit of using a staging slot is that it allows you to prepare a new release of your SubQuery project without exposing it publicly. You can wait for the staging slot to reindex all data without affecting your production applications.
+使用中转插槽的主要好处是，它允许您准备新版本的 SubQuery 项目而不公开。 您可以等待中转插槽重新设置所有数据而不影响您的生产环境应用程序。
 
-The staging slot is not shown to the public in the [Explorer](https://explorer.subquery.network/) and has a unique URL that is visible only to you. And of course, the separate environment allows you to test your new code without affecting production.
+中转插槽不会在 [Explorer](https://explorer.subquery.network/) 中向公众展示，而且有一个唯一的URL，只有您可以看到。 当然，这个单独的环境允许您在不影响生产的情况下测试您的新代码。
 
-## What are Polkadot's Extrinsics?
+## Polkadot的附加组件是什么？
 
-If you are already familiar with blockchain concepts, you can think of extrinsics as comparable to transactions. More formally though, an extrinsic is a piece of information that comes from outside the chain and is included in a block. There are three categories of extrinsics. They are inherents, signed transactions, and unsigned transactions.
+如果你已经熟悉区块链基本概念，你可以将外部状态理解为区块链中的交易。 但更加正式的理解是，外部状态是一种来自链外并被包含在一个区块中的信息。 外部状态的类别包含3种， 分别为：inherents、signed transactions、unsigned transactions。
 
-Inherent extrinsics are pieces of information that are not signed and only inserted into a block by the block author.
+Inherent外部状态是指未经签名且仅由区块作者插入区块的信息。
 
-Signed transaction extrinsics are transactions that contain a signature of the account that issued the transaction. They stands to pay a fee to have the transaction included on chain.
+Signed transaction外部状态是指包含签发交易账户签名的交易。 该类型将支付一笔费用，以使得将该交易上链。
 
-Unsigned transactions extrinsics are transactions that do not contain a signature of the account that issued the transaction. Unsigned transactions extrinsics should be used with care because there is nobody paying a fee, becaused they are not signed. Because of this, the transaction queue lacks economic logic to prevent spam.
+Unsigned transactions外部状态是指不包含交易账户签名的交易。 使用未签名交易的外部事务时应该小心，因为没有人支付费用，因为它们没有签名。 因此，该类型下交易队列缺乏防止欺骗的经济逻辑。
 
-For more information, click [here](https://substrate.dev/docs/en/knowledgebase/learn-substrate/extrinsics).
+想了解更多信息，请点击 [这里](https://substrate.dev/docs/en/knowledgebase/learn-substrate/extrinsics)。
 
-## What is the endpoint for the Kusama network?
+## Kusama网络端点是什么？
 
-The network.endpoint for the Kusama network is `wss://kusama.api.onfinality.io/public-ws`.
+Kusama 网络端点的介绍 `wss://kusama.api.onfinality.io/publicws`。
 
-## What is the endpoint for the Polkadot mainnet network?
+## Polkadot 主网的端点是什么？
 
-The network.endpoint for the Polkadot network is `wss://polkadot.api.onfinality.io/public-ws`.
+Polkadot网络端点的介绍 `wss://polkadot.api.onfinality.io/publicws`。
 
-## How do I iteratively develop my project schema?
+## 如何编辑项目计划？
 
-A known issue with developing a changing project schema is that when lauching your Subquery node for testing, the previously indexed blocks will be incompatible with your new schema. In order to iteratively develop schemas the indexed blocks stored in the database must be cleared, this can be achieved by launching your node with the `--force-clean` flag. For example:
+开发一个更改项目方案的已知问题是，当放松您的子查询节点进行测试时。 此前索引的块将与您的新方案不兼容。 为了反复开发方案，数据库中储存的索引方块必须清除， 这可以通过使用 `--force-clear` 标志启动您的节点来实现。 示例
 
 ```shell
 subql-node -f . --force-clean --subquery-name=<project-name>
 ```
 
-Note that it is recommended to use `--force-clean` when changing the `startBlock` within the project manifest (`project.yaml`) in order to begin reindexing from the configured block. If `startBlock` is changed without a `--force-clean` of the project, then the indexer will continue indexing with the previously configured `startBlock`.
+请注意，建议在项目清单中更改 `startBlock` 时使用 `--force-clear` 。`项目。 aml`) 以开始从已配置的方块进行重新索引。 如果 `startBlock` 在没有 `--force-clean` 的情况下被更改，那么索引器将继续使用先前配置的 `startBlock` 索引。
