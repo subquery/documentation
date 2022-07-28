@@ -2,9 +2,9 @@
 
 ## ¿Qué es SubQuery?
 
-SubQuery is an open source blockchain data indexer for developers that provides fast, flexible, reliable, and decentralised APIs to power leading multi-chain apps.
+SubQuery es un indexador de datos de blockchain de código abierto para desarrolladores que brinda APIs rápidas, flexibles, confiables y descentralizadas para potenciar aplicaciones multi-cadena.
 
-Our goal is to save developers' time and money by eliminating the need of building their own indexing solution. Now, they can fully focus on developing their applications. SubQuery helps developers create the decentralised products of the future.
+Nuestro objetivo es ahorrar tiempo y dinero a los desarrolladores eliminando la necesidad de construir su propia solución de indexación. Now, they can fully focus on developing their applications. SubQuery helps developers create the decentralised products of the future.
 
 <figure class="video_container">
 <iframe src="https://www.youtube.com/embed/gCpVz_mkWdo" title="Introducing The SubQuery Network" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscree="true"></iframe>
