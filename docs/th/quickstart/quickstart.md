@@ -6,11 +6,11 @@ This quick start guide should take around 10-15 minutes.
 
 After completing this quick start guide, you will have a working SubQuery project that will run on a SubQuery node. You will be able to adapt the standard starter project and index transfers from your favourite blockchain network such as Polkadot, Avalanche, Cosmos, etc.
 
-Let's start the process of creating your first SubQuery blockchain project.
+เริ่มกระบวนการสร้างโปรเจคแรกของ Subquery blockchain
 
 ## Prerequisites
 
-Before you begin creating your first blockchain project with SubQuery, make sure you have installed the required supporting software applications. These are:
+ก่อนที่คุณจะเริ่มสร้างโปรเจ็กต์ Subquery กรุณาตรวจสอบให้แน่ใจว่าคุณได้ติดตั้งแอพพลิเคชั่นซอฟต์แวร์ที่จำเป็น These are:
 
 - [Node](https://nodejs.org/en/): ติดตั้ง node ที่ทันสมัย (เช่น LTS version)
 - [Docker](https://docker.com/): This tutorial will use the required Docker.
@@ -26,7 +26,7 @@ Now, you are all set to start with the first step, which is the installation of 
 npm install -g @subql/cli
 ```
 
-::: danger We **DO NOT** encourage the use of `yarn global` for installing `@subql/cli` due to its poor dependency management. This may lead to multiple errors. :::
+::: danger We **DO NOT** encourage the use of `yarn global` for installing `@subql/cli` due to its poor dependency management. มันอาจจะทำให้เกิดการ Error หลายรอบ :::
 
 Take a look at all available commands and their use. Run the given below command in the CLI:
 
@@ -44,7 +44,7 @@ subql init
 
 ::: warning Important
 
-**For Cosmos Users**
+**สำหรับผู้ใช้งาน Cosmos**
 
 Cosmos is not yet supported in SubQuery's CLI (`subql`). Hence, if you are using Cosmos, you must start with a Juno clone or fork this [starter project](https://github.com/subquery/cosmos-subql-starter).
 
@@ -66,7 +66,7 @@ You'll be asked certain questions as you proceed ahead:
 - **Version**: Enter a custom version number or use the default (`1.0.0`).
 - **License**: Provide the software license for this project or accept the default (`MIT`).
 
-Let’s look at an example:
+มาดูตัวอย่าง:
 
 ```shell
 $ subql init
@@ -92,13 +92,13 @@ Finally, run the following command to install the new project’s dependencies f
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```shell cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
 
-You have now initialised your first SubQuery project with just a few simple steps. Let’s now customise the standard template project for a specific blockchain of interest.
+ตอนนี้คุณได้เริ่มต้นโปรเจคแรกของ SubQuery ด้วยขั้นตอนง่ายไม่กี่ขั้นตอน Let’s now customise the standard template project for a specific blockchain of interest.
 
-You may want to refer to the [command line arguments](../run_publish/references.md) used in SubQuery. It will help you understand the commands better.
+You may want to refer to the [command line arguments](../run_publish/references.md) used in SubQuery. มันช่วยให้คุณเข้าใจคำสั่งได้ดีขึ้น.
 
-## 3. Make Changes to Your Project
+## 3. สร้างความเปลี่ยนแปลงให้กับโปรเจคของคุณ
 
-There are 3 important files that need to be modified. These are:
+มี 3 ไฟล์ที่สำคัญที่จำเป็นต้องถูกแก้ไข These are:
 
 1. The GraphQL Schema in `schema.graphql`.
 2. The Project Manifest in `project.yaml`.
