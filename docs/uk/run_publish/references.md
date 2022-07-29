@@ -69,20 +69,25 @@ Options:
       --network-endpoint    Кінцева точка блокчейн-мережі для підключення      [string]
       --output-fmt          Друк журналу у форматі json або звичайного тексту
                                            [string] [choices: "json", "colored"]
-      --log-level           Вкажіть рівень журналу для друку. Ігнорується, коли --debug is
-                            використаний
+      --log-level           Вкажіть рівень журналу для друку. Ignored when --debug is
+                            used
           [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
                                                                        "silent"]
-      --migrate             Перенесення схеми Бд (тільки для таблиць управління)
+      --migrate             Migrate db schema (for management tables only)
                                                       [boolean] [default: false]
-      --timestamp-field     Включити/відключити created_at і updated_at в схемі
+      --timestamp-field     Enable/disable created_at and updated_at in schema
                                                       [boolean] [default: false]
-  -d, --network-dictionary  Вкажіть api-інтерфейс словника для цієї мережі [string]
-  -m, --mmr-path            Місцева стежка гірського хребта Меркле (.mmr) файл
+  -d, --network-dictionary  Specify the dictionary api for this network [string]
+  -m, --mmr-path            Local path of the merkle mountain range (.mmr) file
                                                                         [string]
-      --proof-of-index      Включення/відключення перевірки індексу
+      --proof-of-index      Enable/disable proof of index
                                                       [boolean] [default: false]
-  -p, --port                Порт, до якого буде прив'язана служба           [number]
+  -p, --port                The port the service will bind to           [number]
+      --disable-historical  Disable storing historical state entities
+                                                       [boolean] [default: true]
+      --reindex             Reindex to specified block height           [number]
+  -w, --workers             Number of worker threads to use for fetching and
+                            processing blocks. Disabled by default.     [number]
 ```
 
 ### --version
@@ -294,6 +299,27 @@ subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot
 ### --disable-historical
 
 Вимикає автоматичне відстеження історичного стану, [див. розділ відстеження історичного стану](./historical.md). За замовчуванням для цього параметра встановлено значення `false`.
+
+### --reindex
+
+Use `--reindex=<blockNumber>` to remove indexed data and reindex from specified block height.
+
+:::info Note
+Please note that the way of using this feature will be updated soon.
+:::
+
+### -w, --workers
+
+This will move block fetching and processing into a worker. By default, this feature is **disabled**. You can enable it with the `--workers=<number>` flag. Note that the number of available CPU cores strictly limits the usage of worker threads. So, when using the `--workers=<number>` flag, always specify the number of workers. With no flag provided, everything will run in the same thread.
+
+:::tip Tip It can increase performance by up to 4 times. Give it a try and let us know your feedback!
+
+It is at an early experimental stage at the moment, but we plan to enable it by default. :::
+
+::: info Note
+This feature is available for Substrate and Cosmos, and soon will be integrated for Avalanche.
+:::
+
 
 ## subql-query
 
