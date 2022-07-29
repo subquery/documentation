@@ -65,25 +65,25 @@ Options:
       --network-endpoint    Blockchain network endpoint to connect      [string]
       --output-fmt          Print log as json or plain text
                                            [string] [choices: "json", "colored"]
-      --log-level           Specify log level to print. Ignored when --debug is
-                            used
-          [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
+      --log-level           Specify log level to print. Diabaikan ketika --debug
+                            digunakan
+          [string] [pilihan: "fatal", "error", "warning", "info", "debug", "trace",
                                                                        "silent"]
-      --migrate             Migrate db schema (for management tables only)
+      --migrate Memigrasi skema db (hanya untuk tabel manajemen)
                                                       [boolean] [default: false]
-      --timestamp-field     Enable/disable created_at and updated_at in schema
+      --timestamp-field Mengaktifkan/menonaktifkan created_at dan updated_at dalam skema
                                                       [boolean] [default: false]
-  -d, --network-dictionary  Specify the dictionary api for this network [string]
-  -m, --mmr-path            Local path of the merkle mountain range (.mmr) file
+  -d, --network-dictionary Tentukan kamus api untuk jaringan ini [string]
+  -m, --mmr-path Jalur lokal dari file merkle mountain range (.mmr)
                                                                         [string]
-      --proof-of-index      Enable/disable proof of index
+      --proof-of-index Mengaktifkan/menonaktifkan bukti indeks
                                                       [boolean] [default: false]
-  -p, --port                The port the service will bind to           [number]
-      --disable-historical  Disable storing historical state entities
+  -p, --port Port yang akan diikat oleh layanan [number]
+      --disable-historis Menonaktifkan penyimpanan entitas status historis
                                                        [boolean] [default: true]
-      --reindex             Reindex to specified block height           [number]
-  -w, --workers             Number of worker threads to use for fetching and
-                            processing blocks. Disabled by default.     [number]
+      --reindex Reindex ke tinggi blok yang ditentukan [number]
+  -w, --workers Jumlah thread pekerja yang akan digunakan untuk mengambil dan
+                            memproses blok. Dinonaktifkan oleh Default.     [number]
 ```
 
 ### --version
@@ -298,22 +298,20 @@ Menonaktifkan pelacakan status historis otomatis, [lihat Pelacakan Status Histor
 
 ### --reindex
 
-Use `--reindex=<blockNumber>` to remove indexed data and reindex from specified block height.
+Gunakan `--reindex=<blockNumber>` untuk menghapus data yang diindeks dan mengindeks ulang dari tinggi blok yang ditentukan.
 
-:::info Note
-Please note that the way of using this feature will be updated soon.
-:::
+Catatan Harap diperhatikan bahwa cara menggunakan fitur ini akan segera diperbarui. :::
 
 ### -w, --workers
 
-This will move block fetching and processing into a worker. By default, this feature is **disabled**. You can enable it with the `--workers=<number>` flag. Note that the number of available CPU cores strictly limits the usage of worker threads. So, when using the `--workers=<number>` flag, always specify the number of workers. With no flag provided, everything will run in the same thread.
+Ini akan memindahkan pengambilan dan pemrosesan blok ke dalam worker. Secara default, fitur ini **disabled**. Anda bisa mengaktifkannya dengan flag `--workers=<number>`. Perhatikan bahwa jumlah core CPU yang tersedia sangat membatasi penggunaan thread pekerja. Jadi, ketika menggunakan flag `--workers=<number>`, selalu tentukan jumlah pekerja. Tanpa flag yang disediakan, semuanya akan berjalan dalam thread yang sama.
 
-:::tip Tip It can increase performance by up to 4 times. Give it a try and let us know your feedback!
+:::tip Tip Tip Ini bisa meningkatkan performa hingga 4 kali lipat. Cobalah dan beri tahu kami tanggapan Anda!
 
-It is at an early experimental stage at the moment, but we plan to enable it by default. :::
+Saat ini, ini masih dalam tahap percobaan awal, tetapi kami berencana untuk mengaktifkannya secara default. :::
 
-::: info Note
-This feature is available for Substrate and Cosmos, and soon will be integrated for Avalanche.
+:::: info Catatan
+Fitur ini tersedia untuk Substrate dan Cosmos, dan akan segera diintegrasikan untuk Avalanche.
 :::
 
 
