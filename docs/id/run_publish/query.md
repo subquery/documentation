@@ -10,6 +10,6 @@ Penjelajah SubQuery memudahkan memulai. Kami menghosting proyek SubQuery ini sec
 
 Anda juga akan melihat bahwa SubQuery Explorer menyediakan tempat bermain untuk menemukan data yang tersedia dengan contoh kueri - Anda dapat menguji kueri secara langsung di browser tanpa menerapkan kode. Selain itu, kami telah membuat beberapa perbaikan kecil pada dokumentasi kami untuk mendukung pengembang dengan lebih baik dalam perjalanan mereka untuk membuat kueri dan menganalisis data Polkadot dunia dengan lebih baik.
 
-On the top right of the playground, you'll find a *Docs* button that will open a documentation draw. Dokumentasi ini dibuat secara otomatis dan membantu Anda menemukan entitas dan metode apa yang dapat Anda kueri.
+Pada bagian kanan atas taman bermain, Anda akan menemukan tombol *Docs* yang akan membuka gambar dokumentasi. Dokumentasi ini dibuat secara otomatis dan membantu Anda menemukan entitas dan metode apa yang dapat Anda kueri.
 
 ::::: info Catatan Pelajari lebih lanjut tentang [GraphQL Query language.](./graphql.md) :::
