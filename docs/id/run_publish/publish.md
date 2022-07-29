@@ -14,9 +14,9 @@
 Ada dua cara Anda dapat menghosting basis kode proyek SubQuery Anda sebelum dipublikasikan.
 
 
-**IPFS (Suggested)**: Your project's codebase can be stored in IPFS, you can follow our IPFS hosting guide to see how to [first publish to IPFS](../run_publish/ipfs.md).
+**IPFS (Disarankan)**: Basis kode proyek Anda dapat disimpan di IPFS, Anda dapat mengikuti panduan hosting IPFS kami untuk melihat bagaimana cara [mempublikasikan pertama kali ke IPFS](../run_publish/ipfs.md).
 
-**GitHub**: Your project's codebase must be in a public GitHub repository, this process may be deprecated soon.
+**GitHub**: Basis kode proyek Anda harus berada di repositori GitHub publik, proses ini mungkin akan segera ditinggalkan.
 
 ### Masuk ke Proyek SubQuery
 
@@ -67,16 +67,16 @@ Anda juga dapat menggunakan `@subql/cli` untuk mempublikasikan proyek Anda ke la
 - Sebuah [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) yang valid sudah siap.
 
 ```shell
-// Creating a project using the CLI
+// Membuat proyek menggunakan CLI
 $ subql project:create-project
 
-// OR using non-interactive, it will prompt you if the required fields are missing
+// ATAU menggunakan non-interaktif, ia akan meminta Anda jika bidang yang diperlukan tidak ada
 $ subql project:create-project
-    --apiVersion=apiVersion      Api version is default to 2
-    --description=description    Enter description
-    --gitRepo=gitRepo            Enter git repository
-    --org=org                    Enter organization name
-    --projectName=projectName  Enter project name
+    --apiVersion=apiVersion Versi Api secara default adalah 2
+    --description=description Masukkan deskripsi
+    --gitRepo=gitRepo Masukkan repositori git
+    --org=org Masukkan nama organisasi
+    --projectName=projectName Masukkan nama proyek
 ```
 
 ### Terapkan Versi pertama Anda
@@ -108,21 +108,21 @@ Anda juga dapat menggunakan `@subql/cli` untuk membuat deployment baru dari proy
 - Sebuah [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) yang valid sudah siap.
 
 ```shell
-// Deploy using the CLI
+// Menyebarkan menggunakan CLI
 $ subql deployment:deploy
 
-// OR Deploy using non-interactive CLI
+// ATAU Menyebarkan menggunakan CLI non-interaktif
 $ subql deployment:deploy
 
-  -d, --useDefaults                Use default values for indexerVerion, queryVersion, dictionary, endpoint
-  --dict=dict                      Enter dictionary
-  --endpoint=endpoint              Enter endpoint
-  --indexerVersion=indexerVersion  Enter indexer-version
-  --ipfsCID=ipfsCID                Enter IPFS CID
-  --org=org                        Enter organization name
-  --projectName=projectName        Enter project name
-  --queryVersion=queryVersion      Enter query-version
-  --type=(stage|primary)           [default: primary]
+  -d, --useDefaults Gunakan nilai default untuk indexerVerion, queryVersion, dictionary, endpoint
+  --dict=dict Masukkan kamus
+  --endpoint=endpoint Masukkan endpoint
+  --indexerVersion=indexerVersion Masukkan indexer-version
+  --ipfsCID=ipfsCID Masukkan IPFS CID
+  --org=org Masukkan nama organisasi
+  --projectName=projectName Masukkan nama proyek
+  --queryVersion=queryVersion Masukkan versi query
+  --type=(stage|primary) [default: primary]
 ```
 
 ## Langkah Selanjutnya - Hubungkan ke Proyek Anda
