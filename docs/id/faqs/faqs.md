@@ -4,19 +4,19 @@
 
 SubQuery adalah pengindeks data blockchain open source untuk pengembang yang menyediakan API yang cepat, fleksibel, andal, dan terdesentralisasi untuk mendukung aplikasi multi-rantai terkemuka.
 
-Our goal is to save developers' time and money by eliminating the need of building their own indexing solution. Now, they can fully focus on developing their applications. SubQuery helps developers create the decentralised products of the future.
+Tujuan kami adalah menghemat waktu dan uang para pengembang dengan meniadakan kebutuhan untuk membangun solusi pengindeksan mereka sendiri. Sekarang, mereka bisa sepenuhnya fokus pada pengembangan aplikasi mereka. SubQuery membantu pengembang menciptakan produk masa depan yang terdesentralisasi.
 
 <figure class="video_container">
-<iframe src="https://www.youtube.com/embed/gCpVz_mkWdo" title="Introducing The SubQuery Network" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscree="true"></iframe>
+<iframe src="https://www.youtube.com/embed/gCpVz_mkWdo" title="Memperkenalkan SubQuery Network" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscree="true"></iframe>
 </figure>
 
-**SubQuery Managed Service**
+**Layanan Terkelola SubQuery**
 
-SubQuery also provides free, production grade hosting of projects for developers. Our Managed Service removes the responsiblity of managing infrastructure, so that developers do what they do best — build. Find out more [here](/run_publish/publish.md).
+SubQuery juga menyediakan hosting proyek kelas produksi gratis untuk para pengembang. Managed Service kami menghilangkan tanggung jawab mengelola infrastruktur, sehingga pengembang melakukan yang terbaik - membangun. Cari tahu lebih lanjut [di sini](/run_publish/publish.md).
 
 **SubQuery Network**
 
-The SubQuery Network allows developers to completely decentralise their infrastructure stack. It is the most open, performant, reliable, and scalable data service for dApps. Jaringan SubQuery mengindeks dan melayani data ke komunitas global dengan cara yang berinsentif dan dapat diverifikasi.  Setelah memublikasikan proyek Anda ke Jaringan SubQuery, siapa pun dapat mengindeks dan menghostingnya - menyediakan data kepada pengguna di seluruh dunia dengan lebih cepat dan andal.
+Jaringan SubQuery memungkinkan pengembang untuk sepenuhnya mendesentralisasi tumpukan infrastruktur mereka. It is the most open, performant, reliable, and scalable data service for dApps. Jaringan SubQuery mengindeks dan melayani data ke komunitas global dengan cara yang berinsentif dan dapat diverifikasi.  Setelah memublikasikan proyek Anda ke Jaringan SubQuery, siapa pun dapat mengindeks dan menghostingnya - menyediakan data kepada pengguna di seluruh dunia dengan lebih cepat dan andal.
 
 More information [here](/subquery_network/introduction.md).
 
