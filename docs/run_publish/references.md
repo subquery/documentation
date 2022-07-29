@@ -86,7 +86,7 @@ Options:
   -p, --port                The port the service will bind to           [number]
       --disable-historical  Disable storing historical state entities
                                                        [boolean] [default: true]
-  -reindex                  Reindex to specified block height           [number]
+      --reindex             Reindex to specified block height           [number]
   -w, --workers             Number of worker threads to use for fetching and
                             processing blocks. Disabled by default.     [number]
 ```
@@ -309,10 +309,10 @@ Use `--reindex=<blockNumber>` to remove indexed data and reindex from specified 
 Please note that the way of using this feature will be updated soon.
 :::
 
-### --worker
+### -w, --workers
 
 This will move block fetching and processing into a worker. By default, this feature is **disabled**. You can enable it with the `--workers=<number>` flag. 
-Note that the number of available CPU cores strictly limits the usage of worker threads. So, when using the `--worker=<number>` flag, always specify the number of workers. With no flag provided, everything will run in the same thread.
+Note that the number of available CPU cores strictly limits the usage of worker threads. So, when using the `--workers=<number>` flag, always specify the number of workers. With no flag provided, everything will run in the same thread.
 
 :::tip Tip
 It can increase performance by up to 4 times. Give it a try and let us know your feedback! 
