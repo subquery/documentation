@@ -18,7 +18,7 @@ docker-compose pull && docker-compose up
 
 Вимога:
 
-- База даних [Postgres](https://www.postgresql.org/) (версія 12 або вище). Поки [SubQuery](run.md#start-a-local-subquery-node) індексує блокчейн, витягнуті дані зберігаються в зовнішньому екземплярі бази даних.
+- База даних [Postgres](https://www.postgresql.org/) (версія 12 або вище).  Поки [SubQuery](run.md#start-a-local-subquery-node) індексує блокчейн, витягнуті дані зберігаються в зовнішньому екземплярі бази даних.
 
 Вузол SubQuery - це реалізація, яка витягує дані блокчейна на основі Substrate/Polkadot відповідно до проекту SubQuery і зберігає їх в базі даних Postgres.
 
