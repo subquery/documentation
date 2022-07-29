@@ -16,23 +16,23 @@ SubQuery juga menyediakan hosting proyek kelas produksi gratis untuk para pengem
 
 **SubQuery Network**
 
-Jaringan SubQuery memungkinkan pengembang untuk sepenuhnya mendesentralisasi tumpukan infrastruktur mereka. It is the most open, performant, reliable, and scalable data service for dApps. Jaringan SubQuery mengindeks dan melayani data ke komunitas global dengan cara yang berinsentif dan dapat diverifikasi.  Setelah memublikasikan proyek Anda ke Jaringan SubQuery, siapa pun dapat mengindeks dan menghostingnya - menyediakan data kepada pengguna di seluruh dunia dengan lebih cepat dan andal.
+Jaringan SubQuery memungkinkan pengembang untuk sepenuhnya mendesentralisasi tumpukan infrastruktur mereka. Ini adalah layanan data yang paling terbuka, berkinerja, andal, dan dapat diskalakan untuk dApps. Jaringan SubQuery mengindeks dan melayani data ke komunitas global dengan cara yang berinsentif dan dapat diverifikasi.  Setelah memublikasikan proyek Anda ke Jaringan SubQuery, siapa pun dapat mengindeks dan menghostingnya - menyediakan data kepada pengguna di seluruh dunia dengan lebih cepat dan andal.
 
-More information [here](/subquery_network/introduction.md).
+Informasi lebih lanjut [di sini](/subquery_network/introduction.md).
 
 ## Apa cara terbaik untuk memulai SubQuery?
 
-Cara terbaik untuk memulai SubQuery adalah mencoba [Hello World Tutorial](/assets/pdf/Hello_World_Lab.pdf) kami. This is a simple 5 min walk through exercise. Download the starter template, build the project, use Docker to run a node on your localhost, and run a simple query.
+Cara terbaik untuk memulai SubQuery adalah mencoba [Hello World Tutorial](/assets/pdf/Hello_World_Lab.pdf) kami. Ini adalah latihan berjalan kaki selama 5 menit yang sederhana. Unduh templat pemula, bangun proyek, gunakan Docker untuk menjalankan node di localhost Anda, dan jalankan kueri sederhana.
 
 ## Bagaimana saya bisa berkontribusi atau memberi masukan ke SubQuery?
 
-Kami menyukai kontribusi dan umpan balik dari komunitas. To contribute the code, fork the repository of your interest and make your changes. Kemudian kirimkan PR atau Pull Request. Don't forget to test as well. Periksa juga panduan kontribusi kami (segera hadir).
+Kami menyukai kontribusi dan umpan balik dari komunitas. Untuk menyumbangkan kode, fork repositori yang Anda minati dan buat perubahan Anda. Kemudian kirimkan PR atau Pull Request. Jangan lupa untuk mengujinya juga. Periksa juga panduan kontribusi kami (segera hadir).
 
 Untuk memberi umpan balik, hubungi kami di hello@subquery.network atau buka [discord channel](https://discord.com/invite/78zg8aBSMG) kami.
 
 ## Berapa biaya untuk hosting proyek saya di SubQuery Projects?
 
-Hosting your project in SubQuery Projects is absolutely free — it is our way of giving back to the community. Please check out the [Hello World (SubQuery hosted)](../run_publish/publish.md) tutorial and learn how to host your project with us.
+Hosting proyek Anda di Proyek SubQuery benar-benar gratis - ini adalah cara kami untuk memberikan kembali kepada komunitas. Silakan lihat [Hello World (SubQuery hosted)](../run_publish/publish.md) tutorial dan pelajari cara meng-host proyek Anda bersama kami.
 
 ## Apa itu slot deployment?
 
@@ -74,4 +74,4 @@ Masalah umum dengan mengembangkan skema proyek yang berubah adalah ketika melunc
 subql-node -f . --force-clean --subquery-name=<project-name>
 ```
 
-Perhatikan bahwa disarankan untuk menggunakan `--force-clean` saat mengubah `startBlock` dalam manifes proyek (`project.yaml`) untuk memulai pengindeksan ulang dari blok yang dikonfigurasi. If `startBlock` is changed without a `--force-clean` of the project, then the indexer will continue indexing with the previously configured `startBlock`.
+Perhatikan bahwa disarankan untuk menggunakan `--force-clean` saat mengubah `startBlock` dalam manifes proyek (`project.yaml`) untuk memulai pengindeksan ulang dari blok yang dikonfigurasi. Jika `startBlock` diubah tanpa `--force-clean` proyek, maka pengindeks akan melanjutkan pengindeksan dengan `startBlock` yang dikonfigurasi sebelumnya.
