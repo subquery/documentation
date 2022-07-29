@@ -321,7 +321,7 @@ It is at an early experimental stage at the moment, but we plan to enable it by 
 :::
 
 ::: info Note
-This feature is available for Substrate and soon will be integrated for Cosmos and Avalanche.
+This feature is available for Substrate and Cosmos, and soon will be integrated for Avalanche.
 :::
 
 
