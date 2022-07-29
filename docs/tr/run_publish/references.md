@@ -83,6 +83,11 @@ Options:
       --proof-of-index      Enable/disable proof of index
                                                       [boolean] [default: false]
   -p, --port                The port the service will bind to           [number]
+      --disable-historical  Disable storing historical state entities
+                                                       [boolean] [default: true]
+      --reindex             Reindex to specified block height           [number]
+  -w, --workers             Number of worker threads to use for fetching and
+                            processing blocks. Disabled by default.     [number]
 ```
 
 ### --version
@@ -294,6 +299,27 @@ The port the subquery indexing service binds to. By default this is set to `3000
 ### --disable-historical
 
 Disables automated historical state tracking, [see Historic State Tracking](./historical.md). By default this is set to `false`.
+
+### --reindex
+
+Use `--reindex=<blockNumber>` to remove indexed data and reindex from specified block height.
+
+:::info Note
+Please note that the way of using this feature will be updated soon.
+:::
+
+### -w, --workers
+
+This will move block fetching and processing into a worker. By default, this feature is **disabled**. You can enable it with the `--workers=<number>` flag. Note that the number of available CPU cores strictly limits the usage of worker threads. So, when using the `--workers=<number>` flag, always specify the number of workers. With no flag provided, everything will run in the same thread.
+
+:::tip Tip It can increase performance by up to 4 times. Give it a try and let us know your feedback!
+
+It is at an early experimental stage at the moment, but we plan to enable it by default. :::
+
+::: info Note
+This feature is available for Substrate and Cosmos, and soon will be integrated for Avalanche.
+:::
+
 
 ## subql-query
 
