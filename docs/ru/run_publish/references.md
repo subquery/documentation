@@ -69,20 +69,25 @@
       --network-endpoint Конечная точка сети блокчейн для подключения [string]
       --output-fmt Печать журнала в формате json или обычного текста
                                            [string] [варианты: "json", "colored"]
-      --log-level Укажите уровень журнала для печати. Игнорируется, если используется параметр --debug
-                            используется
-          [string] [варианты: "fatal", "error", "warn", "info", "debug", "trace",
+      --log-level Укажите уровень журнала для печати. Ignored when --debug is
+                            used
+          [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
                                                                        "silent"]
-      --migrate Мигрировать схему базы данных (только для управляющих таблиц)
-                                                      [boolean] [по умолчанию: false]
-      --timestamp-field Включить/выключить created_at и updated_at в схеме
-                                                      [boolean] [по умолчанию: false]
-  -d, --network-dictionary Укажите api словаря для этой сети [строка].
-  -m, --mmr-path Локальный путь файла merkle mountain range (.mmr)
+      --migrate             Migrate db schema (for management tables only)
+                                                      [boolean] [default: false]
+      --timestamp-field     Enable/disable created_at and updated_at in schema
+                                                      [boolean] [default: false]
+  -d, --network-dictionary  Specify the dictionary api for this network [string]
+  -m, --mmr-path            Local path of the merkle mountain range (.mmr) file
                                                                         [string]
-      --proof-of-index Включить/выключить доказательство индекса
-                                                      [boolean] [по умолчанию: false]
-  -p, --port Порт, к которому будет привязан сервис [число]
+      --proof-of-index      Enable/disable proof of index
+                                                      [boolean] [default: false]
+  -p, --port                The port the service will bind to           [number]
+      --disable-historical  Disable storing historical state entities
+                                                       [boolean] [default: true]
+      --reindex             Reindex to specified block height           [number]
+  -w, --workers             Number of worker threads to use for fetching and
+                            processing blocks. Disabled by default.     [number]
 ```
 
 ### --версия
@@ -296,6 +301,27 @@ subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot
 ### --disable-historical
 
 Отключает автоматическое отслеживание исторических состояний, [ см. Historic State Tracking](./historical.md). По умолчанию установлено значение `false`.
+
+### --reindex
+
+Use `--reindex=<blockNumber>` to remove indexed data and reindex from specified block height.
+
+:::info Note
+Please note that the way of using this feature will be updated soon.
+:::
+
+### -w, --workers
+
+This will move block fetching and processing into a worker. By default, this feature is **disabled**. You can enable it with the `--workers=<number>` flag. Note that the number of available CPU cores strictly limits the usage of worker threads. So, when using the `--workers=<number>` flag, always specify the number of workers. With no flag provided, everything will run in the same thread.
+
+:::tip Tip It can increase performance by up to 4 times. Give it a try and let us know your feedback!
+
+It is at an early experimental stage at the moment, but we plan to enable it by default. :::
+
+::: info Note
+This feature is available for Substrate and Cosmos, and soon will be integrated for Avalanche.
+:::
+
 
 ## subql-query
 
