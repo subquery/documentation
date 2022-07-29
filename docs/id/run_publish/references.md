@@ -65,20 +65,25 @@ Options:
       --network-endpoint    Blockchain network endpoint to connect      [string]
       --output-fmt          Print log as json or plain text
                                            [string] [choices: "json", "colored"]
-      --log-level           Specify log level to print. Diabaikan ketika --debug adalah
-                             digunakan
+      --log-level           Specify log level to print. Ignored when --debug is
+                            used
           [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
                                                                        "silent"]
-      --migrate             Migrasikan skema db (hanya untuk tabel manajemen)
+      --migrate             Migrate db schema (for management tables only)
                                                       [boolean] [default: false]
       --timestamp-field     Enable/disable created_at and updated_at in schema
                                                       [boolean] [default: false]
-  -d, --network-dictionary  Tentukan api kamus untuk jaringan ini [string]
-  -m, --mmr-path            Jalur lokal pegunungan merkle (.mmr) file
+  -d, --network-dictionary  Specify the dictionary api for this network [string]
+  -m, --mmr-path            Local path of the merkle mountain range (.mmr) file
                                                                         [string]
       --proof-of-index      Enable/disable proof of index
                                                       [boolean] [default: false]
-  -p, --port                Port yang akan diikat oleh layanan           [number]
+  -p, --port                The port the service will bind to           [number]
+      --disable-historical  Disable storing historical state entities
+                                                       [boolean] [default: true]
+      --reindex             Reindex to specified block height           [number]
+  -w, --workers             Number of worker threads to use for fetching and
+                            processing blocks. Disabled by default.     [number]
 ```
 
 ### --version
@@ -290,6 +295,27 @@ Port yang diikat oleh layanan pengindeksan subquery. Secara default ini diatur k
 ### --disable-historical
 
 Menonaktifkan pelacakan status historis otomatis, [lihat Pelacakan Status Historis](./historical.md). Secara default ini diatur ke `3000`.
+
+### --reindex
+
+Use `--reindex=<blockNumber>` to remove indexed data and reindex from specified block height.
+
+:::info Note
+Please note that the way of using this feature will be updated soon.
+:::
+
+### -w, --workers
+
+This will move block fetching and processing into a worker. By default, this feature is **disabled**. You can enable it with the `--workers=<number>` flag. Note that the number of available CPU cores strictly limits the usage of worker threads. So, when using the `--workers=<number>` flag, always specify the number of workers. With no flag provided, everything will run in the same thread.
+
+:::tip Tip It can increase performance by up to 4 times. Give it a try and let us know your feedback!
+
+It is at an early experimental stage at the moment, but we plan to enable it by default. :::
+
+::: info Note
+This feature is available for Substrate and Cosmos, and soon will be integrated for Avalanche.
+:::
+
 
 ## subql-query
 
