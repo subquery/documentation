@@ -17,7 +17,7 @@ Hosting proyek di IPFS membuatnya tersedia untuk semua dan mengurangi ketergantu
 - Langkah 2: Klik profil Anda di kanan atas menu navigasi, lalu klik **_Refresh Token_**.
 - Langkah 3: Salin token yang dihasilkan.
 - Langkah 4: Untuk menggunakan token ini:
-  - Opsi 1: Tambahkan SUBQL_ACCESS_TOKEN di variabel lingkungan Anda. `EXPORT SUBQL_ACCESS_TOKEN=<token>` (Windows) or `export SUBQL_ACCESS_TOKEN=<token>` (Mac/Linux)
+  - Opsi 1: Tambahkan SUBQL_ACCESS_TOKEN di variabel lingkungan Anda. `EXPORT SUBQL_ACCESS_TOKEN=<token>` (Windows) atau `export SUBQL_ACCESS_TOKEN=<token>` (Mac/Linux)
   - Opsi 2: Segera hadir, `subql/cli` akan mendukung penyimpanan SUBQL_ACCESS_TOKEN Anda secara lokal.
 
 ## Cara mempublikasikan proyek
@@ -68,7 +68,7 @@ Proyek SubQuery yang diunggah ke IPFS: QmZ3q7YZSmhwBiot4PQCK3c7Z6HkteswN2Py58gkk
 
 Harap perhatikan `CID` ini. Dengan `CID` ini, Anda dapat melihat proyek yang dipublikasikan sebagai apa yang kami sebut [Penerapan IPFS](ipfs.md#ipfs-deployment).
 
-With `@subql/cli` version 1.3.0 or above, when using `subql publish` it will store a copy of the project's `IPFS CID` in a file in your project directory, the naming of the file will be consistent with your project.yaml. For example, if your manfiest file is named `project.yaml`, the IPFS file will be named  `.project-cid`.
+Dengan `@subql/cli` versi 1.3.0 atau di atasnya, ketika menggunakan `subql publish`, ia akan menyimpan salinan `IPFS CID` proyek di dalam file di direktori proyek anda, penamaan file akan konsisten dengan project.yaml anda. Misalnya, jika file manfiest Anda bernama `project.yaml`, file IPFS akan diberi nama `.project-cid`.
 
 ## IPFS Deployment
 
