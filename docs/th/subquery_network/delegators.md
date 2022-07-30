@@ -1,31 +1,31 @@
 # Delegators
 
-## What is a Delegator?
+## Delegators คืออะไร
 
-A Delegator is a non-technical network role in the SubQuery Network and is a great way to start participating in the SubQuery Network. This role enables Delegators to “delegate” their SQT to one or more Indexers and earn rewards (similar to staking).
+Delegator เป็นบทบาทเครือข่ายที่ไม่ใช่ด้านเทคนิคในเครือข่าย SubQuery และเป็นวิธีที่ยอดเยี่ยมในการเริ่มเข้าร่วมในเครือข่าย SubQuery บทบาทนี้ช่วยให้ Delegators สามารถ "มอบหมาย" SQT ของตนให้กับผู้จัดทำดัชนีหนึ่งรายขึ้นไปและได้รับรางวัล (คล้ายกับการปักหลัก)
 
-Without Delegators, Indexers will likely earn fewer rewards because they will have less SQT to allocate. Therefore, Indexers compete to attract Delegators by offering a competitive share of an Indexer’s rewards.
+หากไม่มี Delegators ตัวสร้างดัชนีมักจะได้รับรางวัลน้อยลง เพราะพวกเขาจะมี SQT น้อยกว่าในการจัดสรร ดังนั้น นักทำดัชนีจึงแข่งขันกันเพื่อดึงดูด Delegators โดยเสนอส่วนแบ่งที่แข่งขันได้ของรางวัลของ Indexer
 
-## Requirements to be a Delegator
+## ข้อกำหนดในการเป็นผู้มอบสิทธิ์
 
-One of the best things about being a Delegator is that you don’t need any devops, coding, or technical experience. Basic understanding of the SubQuery Network is all that is required to become a Delegator.
+หนึ่งในสิ่งที่ดีที่สุดเกี่ยวกับการเป็น Delegator คือคุณไม่จำเป็นต้องมีนักพัฒนา การเขียนโปรแกรม หรือประสบการณ์ด้านเทคนิคใดๆ ความเข้าใจพื้นฐานเกี่ยวกับ SubQuery Network คือทั้งหมดที่จำเป็นในการเป็น Delegator.
 
-## Benefits of being a Delegator
+## ประโยชน์ของการเป็นตัวแทน Delegator
 
-There are several benefits of becoming a Delegator:
+มีประโยชน์หลายประการในการเป็นDelegator:
 
-- **Easy to get started**: Requiring little technical knowledge, Delegators only need to acquire SQT tokens and then learn the process of delegating the tokens to their preferred Indexer(s).
-- **Contribute to the network**: Delegating to Indexers is a way to support an Indexer’s work service requests to consumers. In return, Delegators are rewarded with SQT.
-- **Earn rewards**: Delegators can put their SQT to work by delegating their SQT to Indexers and earning a share of the reward pool.
-- **No minimum delegation amount**: There is no minimum required delegation to be a Delegator. This means that anyone can join no matter how much SQT one has.
+- **ง่ายต่อการเริ่มต้น**: ต้องการความรู้ด้านเทคนิคเพียงเล็กน้อย Delegators จะต้องได้รับโทเค็น SQT แล้วเรียนรู้กระบวนการมอบโทเค็นให้กับตัวสร้างดัชนีที่ต้องการ
+- **มีส่วนร่วมในเครือข่าย**: การมอบสิทธิ์ให้กับตัวสร้างดัชนีเป็นวิธีสนับสนุนคำขอบริการงานของตัวสร้างดัชนีไปยังผู้ใช้งาน ในทางกลับกัน Delegators จะได้รับรางวัล SQT
+- **รับรางวัล**: Delegators สามารถนำ SQT ของตนไปใช้งานได้โดยมอบหมาย SQT ให้กับตัวสร้างดัชนี และรับส่วนแบ่งจากกลุ่มรางวัล
+- **ไม่มีจำนวนการมอบหมายขั้นต่ำ**: ไม่มีการมอบหมายขั้นต่ำที่จำเป็นในการเป็น Delegator. ซึ่งหมายความว่าทุกคนสามารถเข้าร่วมได้ไม่ว่าจะมี SQT เท่าใด
 
-## How Delegators are rewarded?
+## Delegators จะได้รับผลตอบแทนอย่างไร?
 
-To attract Delegators to support their work, Indexers offer Delegators a share of the rewards they earn. The Indexer will advertise an Indexer Commission Rate, where the remaining revenue will then be shared within the total delegation/staking pool proportionally to the individual delegated/staked value in the pool.
+เพื่อดึงดูด Delegators ให้สนับสนุนงานของพวกเขา Indexers เสนอ Delegators แบ่งรางวัลที่พวกเขาได้รับ ตัวทำดัชนีจะโฆษณาอัตราค่าคอมมิชชันตัวสร้างดัชนี โดยที่รายได้ที่เหลือจะถูกแบ่งปันภายในกลุ่มการมอบหมาย/การถือหุ้นทั้งหมดตามสัดส่วนกับมูลค่าที่ได้รับมอบหมาย/เดิมพันแต่ละรายการในกลุ่ม
 
-*Indexer’s Commission Rate*: This is a percentage share of the fees earned from serving requests to Consumers. Indexers are free to set this rate to any value they desire. A higher percentage indicates that Indexers keep more of the profits. A lower percentage indicates that the Indexers share more of their profits with their Delegators.
+*อัตราค่าคอมมิชชันของผู้จัดทำดัชนี*: นี่คือส่วนแบ่งร้อยละของค่าธรรมเนียมที่ได้รับจากคำขอให้บริการแก่ผู้ใช้งาน ตัวสร้างดัชนีมีอิสระที่จะกำหนดอัตรานี้เป็นค่าที่ต้องการ เปอร์เซ็นต์ที่สูงขึ้นบ่งชี้ว่าผู้จัดทำดัชนีสามารถทำกำไรได้มากกว่าขึ้น เปอร์เซ็นต์ที่ต่ำกว่าบ่งชี้ว่าผู้จัดทำดัชนีแบ่งปันผลกำไรกับ Delegators ของตนมากขึ้น
 
-Delegators will only receive revenue for staking Eras that they were a part of for the entire period. For example, if they join a staking Era in the middle of the relevant period, then they will not earn any Query Fee revenue for that particular Era.
+Delegators จะได้รับรายได้จากการปักหลัก Eras ที่พวกเขาเป็นส่วนหนึ่งของตลอดระยะเวลาเท่านั้น ตัวอย่างเช่น หากพวกเขาเข้าร่วมยุคการปักหลักในช่วงกลางของช่วงเวลาที่เกี่ยวข้อง พวกเขาจะไม่ได้รับรายได้จากค่าธรรมเนียมการค้นหาสำหรับยุคนั้น ๆ
 
 If an Indexer wishes to increase the Indexer Commission Rate that they offer to their Delegators, they must advertise this for an entire staking Era . The Indexer will be able to decrease their Indexer Commission Rate at any point to raise more delegated SQT for staking in the short term. Delegators can withdraw or undelegate their staked amount at any time, but they will forfeit any rewards earned within the staking Era (as they were not part of the delegation pool for the entire duration of the staking Era).
 
