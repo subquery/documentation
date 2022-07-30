@@ -69,25 +69,25 @@
       --network-endpoint Конечная точка сети блокчейн для подключения [string]
       --output-fmt Печать журнала в формате json или обычного текста
                                            [string] [варианты: "json", "colored"]
-      --log-level Укажите уровень журнала для печати. Ignored when --debug is
-                            used
+      --log-level Укажите уровень журнала для печати. Игнорируется когда применяется --debug is
+                            используется
           [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
                                                                        "silent"]
-      --migrate             Migrate db schema (for management tables only)
+      --migrate             Переход db schema (только для управления таблицами)
                                                       [boolean] [default: false]
-      --timestamp-field     Enable/disable created_at and updated_at in schema
+      --timestamp-field     Включить/отключить created_at и updated_at в schema
                                                       [boolean] [default: false]
-  -d, --network-dictionary  Specify the dictionary api for this network [string]
-  -m, --mmr-path            Local path of the merkle mountain range (.mmr) file
+  -d, --network-dictionary  Обозначение api-интерфейса словаря для этой сети [string]
+  -m, --mmr-path            Локальный путь диапозона высоты Меркла (.mmr) файл
                                                                         [string]
-      --proof-of-index      Enable/disable proof of index
+      --proof-of-index      Включить/отключить доказательство индексации
                                                       [boolean] [default: false]
-  -p, --port                The port the service will bind to           [number]
-      --disable-historical  Disable storing historical state entities
+  -p, --port                Порт, к которому будет привязана служба           [number]
+      --disable-historical  Отключить сохранение состояния исторических объектов
                                                        [boolean] [default: true]
-      --reindex             Reindex to specified block height           [number]
-  -w, --workers             Number of worker threads to use for fetching and
-                            processing blocks. Disabled by default.     [number]
+      --reindex             Повторная индексация на заданную высоту блока           [number]
+  -w, --workers             Количество рабочих потоков, используемых для извлечения и
+обработки блоков. Отключено по умолчанию.     [number]
 ```
 
 ### --версия
@@ -302,24 +302,24 @@ subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot
 
 Отключает автоматическое отслеживание исторических состояний, [ см. Historic State Tracking](./historical.md). По умолчанию установлено значение `false`.
 
-### --reindex
+### --reindex индексация заново
 
-Use `--reindex=<blockNumber>` to remove indexed data and reindex from specified block height.
+Для удаления ранее индексированных данных и повторной индексации с указанной высоты блока используйте `--reindex=<blockNumber>`.
 
-:::info Note
-Please note that the way of using this feature will be updated soon.
+:::Примечание.
+Пожалуйста, обратите внимание, что способ использования этой функции будет обновлен в ближайшее время.
 :::
 
 ### -w, --workers
 
-This will move block fetching and processing into a worker. By default, this feature is **disabled**. You can enable it with the `--workers=<number>` flag. Note that the number of available CPU cores strictly limits the usage of worker threads. So, when using the `--workers=<number>` flag, always specify the number of workers. With no flag provided, everything will run in the same thread.
+Это позволит перевести добычу блока и обработку данных в рабочее состояние. По умолчанию эта функция будет выглядеть как **disabled**. Вы можете активировать это с помощью флага `--workers=<number>`. Обращаем ваше внимание, что количество доступных ядер процессора строго ограничивает использование рабочих потоков. Итак, при использовании флага `--workers=<number>` всегда задавайте количество работников. Без указания флага все будет выполняться в одном потоке.
 
-:::tip Tip It can increase performance by up to 4 times. Give it a try and let us know your feedback!
+:::tip Это позволит увеличить производительность в 4 раза. Попробуйте и оставьте нам обратную связь!
 
-It is at an early experimental stage at the moment, but we plan to enable it by default. :::
+На данный момент он находится на ранней стадии эксперимента, но мы планируем включить его по умолчанию. :::
 
-::: info Note
-This feature is available for Substrate and Cosmos, and soon will be integrated for Avalanche.
+:::Примечание
+Эта функция доступна для Substrate и Cosmos и вскоре будет интегрирована в Avalanche.
 :::
 
 
