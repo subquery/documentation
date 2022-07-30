@@ -2,36 +2,36 @@
 
 ## ผู้ใช้งานคืออะไร
 
-A Consumer is a participant in the SubQuery network and is either an individual or organisation that pays for processed and organised blockchain data from the SubQuery Network. Consumers effectively make requests to the SubQuery Network for specific data and pay an agreed amount of SQT in return.
+ผู้ใช้งานเป็นผู้มีส่วนร่วมในเครือข่าย SubQuery และเป็นบุคคลหรือองค์กรที่ชำระเงินสำหรับข้อมูลบล็อกเชนที่ประมวลผลและจัดระเบียบจากเครือข่าย SubQuery ผู้ใช้งานเป็นคนส่งคำขอไปยังเครือข่าย SubQuery สำหรับข้อมูลเฉพาะที่มีประสิทธิภาพและจ่าย SQT เป็นการตอบแทน
 
-Consumers are typically dApp (decentralised application) developers, data analytic companies, blockchain networks, middleware developers, or even web aggregating companies that need access to blockchain data to provide services to their end-users.
+ผู้ใช้งานมักเป็นนักพัฒนา dApp (แอปพลิเคชันที่กระจายอำนาจ) บริษัทวิเคราะห์ข้อมูล เครือข่ายบล็อกเชน นักพัฒนามิดเดิลแวร์ หรือแม้แต่บริษัทรวบรวมเว็บที่ต้องการเข้าถึงข้อมูลบล็อกเชนเพื่อให้บริการแก่ผู้ใช้ปลายทาง
 
-## Consumer Requirements
+## ความต้องการของผู้ใช้งาน
 
-There are no requirements as such to become a SubQuery Consumer. However, Consumers will need to understand how to obtain SQT, how to advertise their data requirements and how to consume the JSON data returned.
+ไม่มีข้อกำหนดใดๆในการเป็นผู้ใช้งาน SubQuery อย่างไรก็ตาม ผู้ใช้งานจะต้องเข้าใจวิธีการรับ SQT วิธีโฆษณาข้อกำหนดด้านข้อมูล และวิธีการใช้ข้อมูล JSON ที่ส่งคืน
 
-Consumers may also need to understand how to create SubQuery projects to be Indexed or contract this work out in order to get the data in the format they need.
+ผู้บใช้งานอาจต้องเข้าใจวิธีการสร้างโปรเจกต์ SubQuery เพื่อสร้างดัชนีหรือทำสัญญางานนี้เพื่อให้ได้ข้อมูลในรูปแบบที่ต้องการ
 
-## Service Cost
+## ค่าบริการ
 
-The cost of querying data on the blockchain will be based on supply and demand and will be comparable to other similar services currently available. The advantage of an open and transparent network and ecosystem is that competition is encouraged to provide the best service to the Consumer.
+ค่าใช้จ่ายในการค้นหาข้อมูลบนบล็อกเชนจะขึ้นอยู่กับอุปสงค์และอุปทานและจะเทียบได้กับบริการอื่นที่คล้ายคลึงกันที่มีอยู่ในปัจจุบัน ข้อดีของเครือข่ายและระบบนิเวศที่เปิดกว้างและโปร่งใสคือการแข่งขันที่ได้รับการสนับสนุนเพื่อให้บริการที่ดีที่สุดแก่ผู้ใช้งานทุกคน
 
-## Payment options for Consumers?
+## ตัวเลือกการชำระเงินสำหรับผู้ใช้งาน?
 
-For flexibility, Consumers have 3 payment options to pay for blockchain data. They are:
+เพื่อความยืดหยุ่นผู้ใช้งานมีตัวเลือกการชำระเงิน 3 แบบเพื่อชำระค่าข้อมูลบล็อคเชน ดังต่อไปนี้
 
-- Pay As You Go (PAYG)
-- Closed Service Agreement
-- Open Service Agreement
+- จ่ายเท่าที่คุณใช้ (PAYG)
+- ข้อตกลงการให้บริการแบบปิด
+- ข้อตกลงการให้บริการแบบเปิด
 
-You can read more about the different payment methods, how they work, and the advantages/disadvantages on the [Payment Methods article](./payment-methods.md).
+คุณสามารถอ่านเพิ่มเติมเกี่ยวกับวิธีการชำระเงินแบบต่างๆ วิธีการทำงาน และข้อดี/ข้อเสียได้ในบทความ [วิธีการชำระเงิน](./payment-methods.md).
 
 ## คำถามที่พบบ่อย
 
-### As a Consumer, do I select 1 Indexer or multiple Indexers?
+### ในฐานะผู้ใช้งาน ฉันจะเลือกตัวสร้างดัชนี 1 ตัวหรือตัวสร้างดัชนีหลายตัว
 
-Unless a Closed Service Agreement is being used, there will be one or more Indexers indexing a SubQuery project. Consumers have the choice when deciding which Indexer to read data from. Typically Consumers would select the most reliable and lowest latency Indexer. Consumers could also incorporate automatic failover and read data from another Indexer if the first one times out or is not responsive.
+ยกเว้นกรณีที่มีการใช้ข้อตกลงการให้บริการแบบปิด จะมีตัวสร้างดัชนีหนึ่งตัวหรือมากกว่าที่จัดทำดัชนีโปรเจ็กต์ SubQuery ผู้ใช้งานมีทางเลือกในการตัดสินใจว่าจะอ่านข้อมูลจากตัวสร้างดัชนีตัวใด โดยทั่วไปแล้วผู้ใช้งานจะเลือกตัวสร้างดัชนีเวลาแฝงที่น่าเชื่อถือที่สุดและต่ำที่สุด ผู้ใช้งานยังสามารถรวมการเฟลโอเวอร์อัตโนมัติและอ่านข้อมูลจากตัวสร้างดัชนีอื่นได้หากครั้งแรกหมดเวลาหรือไม่ตอบสนอง
 
-### What happens if an Indexer goes offline?
+### จะเกิดอะไรขึ้นหากตัวสร้างดัชนีออฟไลน์
 
-Unless a Closed Service Agreement is being used, and if there is more than one Indexer indexing your SubQuery project, it would simply be a matter of switching to another Indexer. The ideal scenario would be include strategies like alert monitoring to be notified of potential issues and intelligent routing and caching.
+ยกเว้นกรณีที่มีการใช้ Closed Service Agreement และหากมี Indexer มากกว่าหนึ่งตัวที่จัดทำดัชนีโปรเจ็กต์ SubQuery ของคุณ ก็จะกลายเป็นเรื่องของการเปลี่ยนไปใช้ Indexer อื่น สถานการณ์ที่เหมาะสมที่สุดจะรวมถึงกลยุทธ์ต่างๆ เช่น การตรวจสอบการแจ้งเตือน เพื่อรับแจ้งปัญหาที่อาจเกิดขึ้น และการกำหนดเส้นทางและการแคชที่ชาญฉลาด
