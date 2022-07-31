@@ -1,9 +1,6 @@
 # Module 5: Projects & Explorer
 
-This module takes you on a tour of the SubQuery Projects & Explorer. It shows you what you can do with the SubQuery Project, other than deploying your own project. 
-
-The module is divided into two video lessons and one guided exercise(with documentation references). Let's have a look. 
-
+SubQuery Projects is our managed service solution and SubQuery Explorer is a dashboard where you can find projects and consume project data using GraphQL. This module takes a deeper dive into both these products.
 
 ## Lesson 1 - Deploying a project
 
@@ -11,7 +8,9 @@ The module is divided into two video lessons and one guided exercise(with docume
   <iframe src="https://www.youtube.com/embed/8QcFvd-_3YQ" frameborder="0" allowfullscreen="true"></iframe>
 </figure>
 
----
+### References
+
+- [SubQuery Projects](https://project.subquery.network/)
 
 ## Lesson 2 - What are SubQuery Slots and How to Use Them?
 
@@ -19,11 +18,10 @@ The module is divided into two video lessons and one guided exercise(with docume
   <iframe src="https://www.youtube.com/embed/JeYa3JlxR1g" frameborder="0" allowfullscreen="true"></iframe>
 </figure>
 
-- **Documentation Reference:**
+### References
 
-[What are deployment slots?](/faqs/faqs.md#how-much-does-it-cost-to-host-my-project-in-subquery-projects)
+- [What are deployment slots?](/faqs/faqs.md#how-much-does-it-cost-to-host-my-project-in-subquery-projects)
 
----
 
 ## Lesson 3 - Exploring Projects
 

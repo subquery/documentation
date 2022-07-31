@@ -1,13 +1,5 @@
 # Module 6: Tips & Tricks
 
-## Introduction
-
-In these exercises, we will learn what SubQuery Project is, how to deploy a project to [SubQuery Project](https://project.subquery.network/), and find out about [SubQuery Explorer](https://explorer.subquery.network/).
-
-## Pre-Requisites
-
-None.
-
 ## Block v Events v Calls
 
 To process a SubQuery project and index data as fast and as efficient as possible, it is necessary to understand how things work under the covers. 
@@ -19,7 +11,7 @@ advisable to avoid using block handlers if possible.
 
 **Event and call handlers** are the recommended handlers to use, in conjunction with mapping filters of course, as their performance is much better. The mapping filter allows the project to index only the blocks that satisfy the filter criteria. 
 
-For example, given below is a filter indexing the **staking** module and the **Rewarded** method.
+For example, below is a filter indexing the **staking** module and the **Rewarded** method.
 
 ```shell
 - handler: myCustomHandle
@@ -30,15 +22,15 @@ For example, given below is a filter indexing the **staking** module and the **R
 ```
 
 ::: info Note
-For even more performance gains, using a dictionary is also highly recommended.
+For even more performance gains, using a dictionary is highly recommended.
 :::
 
 
 ## Using a Dictionary
 
-The concept of **dictionary** was introduced in previous modules (For e.g. [Module 5 - Overriding Endpoints](../herocourse/module5.md#step-3-override-endpoints)). 
+The concept of a **dictionary** was introduced in previous modules (For e.g. [Module 5 - Overriding Endpoints](../herocourse/module5.md#step-3-override-endpoints)). 
 
-Due to its importance, we will have an in-depth understanding again. See [Understanding how a dictionary works](../tutorials_examples/dictionary.md)
+Due to its importance, pleae review [Understanding how a dictionary works](../tutorials_examples/dictionary.md) and remember to include it in all your projects.
 
 ## Event & Extrinsic Names
 
@@ -46,11 +38,9 @@ A popular question while creating SubQuery projects is - how do you know what da
 
 There are several resource options:
 
-1. [Polkadot documentation](module6.md#polkadot-documentation).
-2. [Polkadot blockchain explorer](module6.md#polkadot-explorer).
-3. [Interacting with the Polkadot API directly](module6.md#the-polkadot-cli-api).
-
-Note: These options may also apply to other blockchains.
+1. Polkadot documentation
+2. Polkadot blockchain explorer
+3. Interacting with the Polkadot API directly
 
 ### Polkadot Documentation
 
