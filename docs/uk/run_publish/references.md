@@ -69,25 +69,25 @@ Options:
       --network-endpoint    Кінцева точка блокчейн-мережі для підключення      [string]
       --output-fmt          Друк журналу у форматі json або звичайного тексту
                                            [string] [choices: "json", "colored"]
-      --log-level           Вкажіть рівень журналу для друку. Ignored when --debug is
-                            used
+      --log-level           Вкажіть рівень журналу для друку. Ігнорується, коли використовується --debug
           [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
                                                                        "silent"]
-      --migrate             Migrate db schema (for management tables only)
+      --migrate             Перенести схему бази даних (лише для таблиць керування)
                                                       [boolean] [default: false]
-      --timestamp-field     Enable/disable created_at and updated_at in schema
+      --timestamp-field     Увімкнути/вимкнути created_at і updated_at у схемі
                                                       [boolean] [default: false]
-  -d, --network-dictionary  Specify the dictionary api for this network [string]
-  -m, --mmr-path            Local path of the merkle mountain range (.mmr) file
+  -d, --network-dictionary  Укажіть Api словника для цієї мережі [string]
+  -m, --mmr-path            Місцевий шлях гірського масиву Меркле (.mmr) file
                                                                         [string]
-      --proof-of-index      Enable/disable proof of index
+      --proof-of-index      Увімкнути/вимкнути підтвердження індексу
                                                       [boolean] [default: false]
-  -p, --port                The port the service will bind to           [number]
-      --disable-historical  Disable storing historical state entities
+  -p, --port                33 / 5 000
+Wyniki tłumaczenia
+Порт, до якого прив’яжеться служба           [number]
+      --disable-historical  Вимкнути збереження сутностей історичного стану
                                                        [boolean] [default: true]
-      --reindex             Reindex to specified block height           [number]
-  -w, --workers             Number of worker threads to use for fetching and
-                            processing blocks. Disabled by default.     [number]
+      --reindex            Переіндексувати до вказаної висоти блоку           [number]
+  -w, --workers            Кількість робочих потоків для отримання та обробки блоків. Вимкнено за замовчуванням.     [number]
 ```
 
 ### --version
@@ -302,23 +302,21 @@ subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot
 
 ### --reindex
 
-Use `--reindex=<blockNumber>` to remove indexed data and reindex from specified block height.
+Використовуйте `--reindex=<blockNumber>`, щоб видалити проіндексовані дані та виконати повторне індексування з указаної висоти блоку.
 
-:::info Note
-Please note that the way of using this feature will be updated soon.
+:::info Примітка
+Зверніть увагу, що незабаром спосіб використання цієї функції буде оновлено.
 :::
 
 ### -w, --workers
 
-This will move block fetching and processing into a worker. By default, this feature is **disabled**. You can enable it with the `--workers=<number>` flag. Note that the number of available CPU cores strictly limits the usage of worker threads. So, when using the `--workers=<number>` flag, always specify the number of workers. With no flag provided, everything will run in the same thread.
+Це перемістить вибірку та обробку блоків у Worker. За умовчанням цю функцію ** disabled **. Ви можете ввімкнути його за допомогою позначки `--workers=<number>`. Зауважте, що кількість доступних ядер ЦП суворо обмежує використання робочих потоків. Отже, використовуючи прапорець `--workers=<number>`, завжди вказуйте кількість працівників. Якщо прапорець не надано, усе працюватиме в одному потоці.
 
-:::tip Tip It can increase performance by up to 4 times. Give it a try and let us know your feedback!
+:::tip Порада Це може збільшити продуктивність до 4 разів. Спробуйте й повідомте нам свій відгук!
 
-It is at an early experimental stage at the moment, but we plan to enable it by default. :::
+На даний момент він знаходиться на ранній експериментальній стадії, але ми плануємо ввімкнути його за умовчанням. :::
 
-::: info Note
-This feature is available for Substrate and Cosmos, and soon will be integrated for Avalanche.
-:::
+:: info Примітка Ця функція доступна для Substrate і Cosmos, і незабаром буде інтегрована для Avalanche. :::
 
 
 ## subql-query
