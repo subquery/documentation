@@ -12,7 +12,7 @@
 docker-compose pull && docker-compose up
 ```
 
-::: info Note It may take some time to download the required packages ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), and Postgres) for the first time but soon you'll see a running SubQuery node. :::
+: інформація Примітка Завантаження необхідних пакетів ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query) та Postgres) вперше, але незабаром ви побачите запущений вузол SubQuery. :::
 
 ## Запуск індексатора (subql/node)
 
@@ -51,7 +51,7 @@ npm install -g @subql/node-avalanche
 </CodeGroupItem>
 </CodeGroup>
 
-::: danger Please note that we **DO NOT** encourage the use of `yarn global` due to its poor dependency management which may lead to an errors down the line. :::
+::: небезпека Зауважте, що ми **НЕ** заохочуємо використання `yarn global` через погане керування залежностями, яке може призвести до помилок. :::
 
 Після встановлення ви можете запустити вузол за допомогою наступної команди:
 
@@ -80,9 +80,9 @@ subql-node-avalanche <command>
 </CodeGroupItem>
 </CodeGroup>
 
-### Key Commands
+### Ключові команди
 
-The following commands will assist you to complete the configuration of a SubQuery node and begin indexing. Щоб дізнатися більше, ви завжди можете виконати команду `--help`.
+Наступні команди допоможуть вам завершити налаштування вузла SubQuery та розпочати індексування. Щоб дізнатися більше, ви завжди можете виконати команду `--help`.
 
 #### Вкажіть шлях до локального проекту
 
@@ -110,9 +110,9 @@ subql-node-avalanche -f your-project-path
 </CodeGroupItem>
 </CodeGroup>
 
-#### Use a Dictionary
+#### Використовуйте словник
 
-Using a full chain dictionary can dramatically speed up the processing of a SubQuery project during testing or during your first index. У деяких випадках ми спостерігали збільшення продуктивності індексування до 10 разів.
+Використання повного ланцюжкового словника може значно пришвидшити обробку проекту SubQuery під час тестування або під час першого індексування. У деяких випадках ми спостерігали збільшення продуктивності індексування до 10 разів.
 
 повний словник ланцюжка попередньо індексує місце розташування всіх подій і екстрінсіков в межах конкретної ланцюжка і дозволяє вашій службі вузлів переходити до відповідних місць при індексуванні, а не перевіряти кожен блок.
 
@@ -142,7 +142,7 @@ subql-node-avalanche --network-dictionary=https://api.subquery.network/sq/subque
 </CodeGroupItem>
 </CodeGroup>
 
-::: info Note You can read more about [how a SubQuery Dictionary works](../academy/tutorials_examples/dictionary.md). :::
+:::інформація Примітка Ви можете прочитати більше про [як працює словник підзапитів](../academy/tutorials_examples/dictionary.md). :::
 
 #### Connect to database
 
@@ -183,7 +183,7 @@ subql-node-avalanche -c your-project-config.yml
 </CodeGroupItem>
 </CodeGroup>
 
-This will point the query node to a configuration file which can be in YAML or JSON format. Check out the example below.
+Це вкаже вузол запиту на файл конфігурації, який може бути у форматі YAML або JSON. Перегляньте приклад нижче.
 
 ```yaml
 subquery: ../../../../subql-example/extrinsics
@@ -230,7 +230,7 @@ subql-node-avalanche -f your-project-path --local
 </CodeGroupItem>
 </CodeGroup>
 
-For debugging purposes, users can run the node in local mode. Перемикання на локальну модель створить таблиці Postgres у схемі за замовчуванням `public`.
+З метою налагодження користувачі можуть запускати вузол у локальному режимі. Перемикання на локальну модель створить таблиці Postgres у схемі за замовчуванням `public`.
 
 Якщо локальний режим не використовується, буде створена нова схема Postgres з початковим `subquery_` і відповідними таблицями проекту.
 
@@ -238,10 +238,10 @@ For debugging purposes, users can run the node in local mode. Перемикан
 
 Існує 2 кінцеві точки, які ви можете використовувати для перевірки та моніторингу стану справного вузла SubQuery.
 
-- Health check endpoint that returns a simple 200 response.
-- Metadata endpoint that includes additional analytics of your running SubQuery node.
+- Кінцева точка перевірки справності, яка повертає просту відповідь 200.
+- Кінцева точка метаданих, яка включає додаткову аналітику вашого запущеного вузла SubQuery.
 
-Append this to the base URL of your SubQuery node. Eg `http://localhost:3000/meta` will return:
+Додайте це до базової URL-адреси вашого вузла SubQuery. Наприклад, `http://localhost:3000/meta` поверне:
 
 ```bash
 {
@@ -264,9 +264,9 @@ Append this to the base URL of your SubQuery node. Eg `http://localhost:3000/met
 }
 ```
 
-`http://localhost:3000/health` will return HTTP 200 if successful.
+`http://localhost:3000/health` у разі успіху поверне HTTP 200.
 
-A 500 error will be returned if the indexer is not healthy. This can often be seen when the node is booting up.
+Помилка 500 буде повернена, якщо індексатор несправний. Це часто можна побачити, коли вузол завантажується.
 
 ```shell
 {
@@ -275,7 +275,7 @@ A 500 error will be returned if the indexer is not healthy. This can often be se
 }
 ```
 
-If an incorrect URL is used, a 404 not found error will be returned.
+Якщо використовується неправильна URL-адреса, буде повернено помилку 404 не знайдено.
 
 ```shell
 {
@@ -285,9 +285,9 @@ If an incorrect URL is used, a 404 not found error will be returned.
 }
 ```
 
-#### Debug your project
+#### Налагодьте свій проект
 
-Use the [node inspector](https://nodejs.org/en/docs/guides/debugging-getting-started/) to run the following command.
+Використовуйте інспектор вузлів, щоб виконати наведену нижче команду.
 
 ```shell
 node --inspect-brk <path to subql-node> -f <path to subQuery project>
@@ -296,15 +296,15 @@ node --inspect-brk <path to subql-node> -f <path to subQuery project>
 Наприклад:
 
 ```shell
-node --inspect-brk /usr/local/bin/subql-node -f ~/Code/subQuery/projects/subql-helloworld/
-Debugger listening on ws://127.0.0.1:9229/56156753-c07d-4bbe-af2d-2c7ff4bcc5ad
-For help, see: https://nodejs.org/en/docs/inspector
-Debugger attached.
+вузол --inspect-brk /usr/local/bin/subql-node -f ~/Code/subQuery/projects/subql-helloworld/
+Прослуховування налагоджувача ws://127.0.0.1:9229/56156753-c07d-4bbe-af2d-2c7ff4bcc5ad
+Для отримання допомоги див.: https://nodejs.org/en/docs/inspector
+Налагоджувач додається.
 ```
 
-Then open up the Chrome dev tools, go to Source > Filesystem and add your project to the workspace and start debugging. For more information, check out [How to debug a SubQuery project](../academy/tutorials_examples/debug-projects.md).
+Потім відкрийте інструменти розробника Chrome, перейдіть до «Джерело» > «Файлова система», додайте свій проект у робочу область і почніть налагодження. Щоб отримати додаткові відомості, перегляньте статтю Як налагодити проект SubQuery.
 
-## Running a Query Service (subql/query)
+## Запуск служби запитів (subql/query)
 
 ### Установка
 
@@ -313,15 +313,15 @@ Then open up the Chrome dev tools, go to Source > Filesystem and add your projec
 npm install -g @subql/query
 ```
 
-::: danger Please note that we **DO NOT** encourage the use of `yarn global` due to its poor dependency management which may lead to an errors down the line. :::
+danger Зауважте, що ми НЕ заохочуємо використання yarn global через погане керування залежностями, яке може призвести до помилок у подальшому. :::
 
-### Running the Query service
+### Запуск служби запитів
 
 ```
 export DB_HOST=localhost
 subql-query --name <project_name> --playground
 ```
 
-Make sure the project name is the same as the project name when you [initialize the project](../quickstart/quickstart.md#_2-initialise-the-subquery-starter-project). Also, check the environment variables are correct.
+Під час ініціалізації проекту переконайтеся, що ім’я проекту збігається з ім’ям проекту. Також перевірте правильність змінних середовища.
 
-After running the subql-query service successfully, open your browser and head to `http://localhost:3000`. You should see a GraphQL playground showing in the Explorer and the schema that is ready to query.
+Після успішного запуску служби subql-query відкрийте браузер і перейдіть до http://localhost:3000. Ви повинні побачити ігровий майданчик GraphQL у Провіднику та схему, готову для запиту.
