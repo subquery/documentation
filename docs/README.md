@@ -3,20 +3,21 @@
   <section class="welcomeWords">
     <div class="main">
       <div>
-        <h2 class="welcomeTitle">Welcome to SubQuery<span>Academy</span></h2>
-        <p>Explore and transform your chain data to build intuitive dApps faster!</p>
+        <h2 class="welcomeTitle">Build Faster dApps with<span>SubQuery Academy</span></h2>
+        <p>Explore and implement free indexing APIs to query your chain data faster and save your time.</p></br>
         <p><strong>SubQuery now supports Polkadot, Avalanche, and Cosmos (starting with Juno).</strong></p>
       </div>
     </div>
   </section>
   <section class="startSection main">
     <div>
-      <h2 class="title">Quick Start <span>Guide</span></h2>
-      <p>Understand SubQuery by getting hands on with a traditional Hello World example. Using a template project within a Docker environment, you can quickly get a node up and running and start querying a blockchain in just a few minutes with a few simple commands.
+      <h2 class="title">Get a Kickstart with <span>Quick Start Guide</span></h2>
+      <p><strong>Build your first SubQuery blockchain project in just 5 mins with simple guided steps.</strong></p> 
+      <p>Start querying data for your dApps within few steps. Try a "Hello World" example on your most loved blockchain network. Explore and modify important files, and understand how SubQuery works.
       </p>
       <span class="button">
         <router-link :to="{path: '/quickstart/quickstart.html'}"> 
-          <span>Get Started</span>
+          <span>Start Building</span>
         </router-link>
       </span>
     </div>
@@ -24,13 +25,16 @@
 </div>
 <div class="main">
   <div>
+    <div>
+    <h2 class="title" text-align:center>How to Get Benefited from SubQuery Academy?</h2>
+    </div>
     <ul class="list">
       <li>
         <router-link :to="{path: '/academy/tutorials_examples/introduction.html'}">
           <div>
             <img src="/assets/img/tutorialsIcon.svg" />
-            <span>Tutorials and Examples</span>
-            <p>Learning by doing in our Academy. Tutorials and examples on how to build various SubQuery projects.</p>
+            <span>Practice with Tutorials and Examples</span>
+            <p>Follow "Learning by Doing". Practice with SubQuery’s real-world blockchain projects and improve your skills.</p>
           </div>
         </router-link>
       </li>
@@ -38,8 +42,8 @@
         <router-link :to="{path: '/build/introduction.html'}"> 
           <div>
             <img src="/assets/img/docsIcon.svg" />
-            <span>Technical Reference Docs</span>
-            <p>Written by developers for developers. Find what you need to build awesome dApps quickly.</p>
+            <span>Refer Technical Reference Docs</span>
+            <p>Dig into every term, working, and best-practices that help you build a dApp which your users love.</p>
           </div>
         </router-link>
       </li>
@@ -47,8 +51,8 @@
         <router-link :to="{path: '/subquery_network/introduction.html'}"> 
           <div>
             <img src="/assets/img/networkIcon.svg" />
-            <span>The SubQuery Network</span>
-            <p>SubQuery’s decentralised future. Read more about how indexers and consumers are rewarded.</p>
+            <span>Be a Part of SubQuery Network</span>
+            <p>Host and index projects, or query data for your dApps. Help the community and get rewarded with SQT.</p>
           </div>
         </router-link>
       </li>
@@ -62,7 +66,7 @@
       <li>
         <div class="title">What is SubQuery?</div>
         <div class="content">
-          <p>SubQuery is an open source blockchain data indexer for developers that provides fast, flexible, reliable, and decentralised APIs to power leading multi-chain apps. Our mission is to help developers create the decentralised products of the future.</p>
+          <p>SubQuery is an open-source blockchain data indexer. It provides developers with faster and decentralised APIs. It allows them to build powerful multi-chain apps without wasting hours on indexing and quickly querying data.</p>
           <span class="more">
             <router-link :to="{path: '/faqs/faqs.html#what-is-subquery'}">READ MORE</router-link>
           </span>
@@ -71,13 +75,13 @@
       <li>
         <div class="title">What is the best way to get started with SubQuery?</div>
         <div class="content">
-          <p>The best way to get started with SubQuery is to try out our <a href="/quickstart/quickstart.html">Quick Start</a> tutorial. This is a simple 5 min walk through of downloading the starter template, building the project, and then using Docker to run a node on your localhost and running a simple query. </p>
+          <p>The best way to get started with SubQuery is to try out our <a href="/quickstart/quickstart.html">Quick Start</a> tutorial. This is a simple 5 min walk through exercise. Download the starter template, build the project, use Docker to run a node on your localhost, and run a simple query.</p>
         </div>
       </li>
       <li>
         <div class="title">How can I contribute or give feedback to SubQuery?</div>
         <div class="content">
-          <p>We love contributions and feedback from the community. To contribute code, fork the repository of interest and make your changes. Then submit a PR or Pull Request. Oh, don't forget to test as well! Also check out our contributions guidelines (coming soon). </p>
+          <p>We love contributions and feedback from the community. To contribute the code, fork the repository of your interest and make your changes. Then submit a PR or Pull Request. Don't forget to test as well. Also check out our contributions guide lines (TBA). </p>
           <span class="more">
             <router-link :to="{path: '/faqs/faqs.html#how-can-i-contribute-or-give-feedback-to-subquery'}">READ MORE</router-link>
           </span> 
@@ -93,21 +97,21 @@
         </div>
       </li>
     </ul><br>
-    For further frequently asked questions, please see our <router-link :to="{path: '/faqs/faqs.html'}">FAQ's</router-link> page.    
+    Got more questions? Visit our <router-link :to="{path: '/faqs/faqs.html'}">FAQ's</router-link> page.     
   </div>
 </section>
 <section class="main">
   <div>
     <div class="lastIntroduce lastIntroduce_1">
-        <h5>Integrating with your Custom Chain?</h5>
-        <p>Whether you're building a new parachain or an entirely new blockchain on Substrate — SubQuery can help you index and troubleshoot your chain's data. SubQuery is designed to easily integrate with a custom Substrate based chain.</p>
+        <h5>Integrate with your Custom Chain</h5>
+        <p>Whether you're building a new parachain or an entirely new blockchain on Substrate — SubQuery can help you index and troubleshoot your chain's data. SubQuery helps you easily integrate with a custom Substrate-based chain.</p>
         <span class="more">
           <router-link :to="{path: '/build/manifest.html#custom-substrate-and-cosmos-chains'}">LEARN HOW TO INTEGRATE WITH YOUR CHAIN</router-link>
         </span>
     </div>
     <div class="lastIntroduce lastIntroduce_2">
         <h5>Support and Contribute</h5>
-        <p>Have a question or are interested in knowing more or how you can contribute? We’d love to hear from you. Please contact us via email or social media from the links below. Need technical expertise? Join our Discord community and receive support from our passionate community members. </p>
+        <p>Have a question or interested in knowing how you can contribute? We’d love to hear from you. Please contact us via email or social media from the links below. Need technical expertise? Join our Discord community and receive support from our passionate community members. </p>
         <a class="more" target="_blank" href="https://discord.com/invite/subquery">JOIN THE CONVERSATION ON DISCORD</a>
     </div>
     </div>
