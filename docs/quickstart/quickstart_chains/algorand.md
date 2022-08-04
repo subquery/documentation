@@ -63,33 +63,15 @@ Note that the manifest file has already been set up correctly and doesn’t requ
 
 **TBC**
 **Since you are going to index ..... you need to update the `datasources` section as follows:**
-
+**TBC**
 ```yaml
 dataSources:
-  - kind: avalanche/Runtime
-    startBlock: 7906490 # Block when the first reward is made
-    options:
-      # Must be a key of assets
-      abi: erc20
-      ## Pangolin reward contract https://snowtrace.io/token/0x88afdae1a9f58da3e68584421937e5f564a0135b
-      address: "0x88afdae1a9f58da3e68584421937e5f564a0135b"
-    assets:
-      erc20:
-        file: "./node_modules/@pangolindex/exchange-contracts/artifacts/contracts/staking-rewards/StakingRewards.sol/StakingRewards.json"
-    mapping:
-      file: "./dist/index.js"
-      handlers:
-        - handler: handleLog
-          kind: avalanche/LogHandler
-          filter:
-            ## Follows standard log filters https://docs.ethers.io/v5/concepts/events/
-            topics:
-              - RewardPaid(address user, uint256 reward)
+  
 ```
 
 
 *TBC**
-The above code indicates that you will be running a `handleLog` mapping function whenever there is an `RewardPaid` log on any transaction from the [Pangolin reward contract](https://snowtrace.io/txs?a=0x60781C2586D68229fde47564546784ab3fACA982&p=1).
+The above code indicates that you will be running a **TBC** mapping function whenever there is an **TBC**` log on any transaction from the **TBC**
 
 Check out our [Manifest File](../../build/manifest.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
 
@@ -101,38 +83,14 @@ Mapping functions define how chain data is transformed into the optimised GraphQ
 
 Follow these steps to add a mapping function:
 *TBC**
-- Navigate to the default mapping function in the `src/mappings` directory. You will be able to see three exported functions: _`handleBlock`_, _`handleLog`_, and _`handleTransaction`_. Delete both the `handleBlock` and `handleTransactionl` functions as you will only deal with the `handleLog` function.
-*TBC**
-- The `handleLog` function receives event data whenever an event matches the filters, which you specified previously in the `project.yaml`. Let’s make changes to it, process all `RewardPaid` transaction logs, and save them to the GraphQL entities created earlier.
-*TBC**
-Update the `handleLog` function as follows(**note the additional imports**):
-*TBC**
+
 ```ts
-import { PangolinRewards } from "../types";
-import { AvalancheLog } from "@subql/types-avalanche";
-
-export async function handleLog(event: AvalancheLog): Promise<void> {
-  const { args } = event;
-  if (args) {
-    const pangolinRewardRecord = new PangolinRewards(
-      `${event.blockHash}-${event.logIndex}`
-    );
-
-    pangolinRewardRecord.transactionHash = event.transactionHash;
-    pangolinRewardRecord.blockHash = event.blockHash;
-    pangolinRewardRecord.blockNumber = BigInt(event.blockNumber);
-
-    pangolinRewardRecord.receiver = args.user;
-    pangolinRewardRecord.amount = BigInt(args.reward.toString());
-
-    await pangolinRewardRecord.save();
-  }
 }
 ```
 
 Let’s understand how the above code works.
 *TBC**
-The function here receives an Avalanche Log which includes transaction log data in the payload. We extract this data and then instantiate a new `PangolinRewards` entity defined earlier in the `schema.graphql` file. After that, we add additional information and then use the `.save()` function to save the new entity (_Note that SubQuery will automatically save this to the database_).
+
 
 Check out our [Mappings](../../build/mapping.md) documentation to get more information on mapping functions.
 
