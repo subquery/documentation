@@ -3,7 +3,7 @@
 ## 使用 SubQuery 托管您的项目有哪些优势
 
 - 我们将在高性能、可扩展和托管的公共服务中为您运行 SubQuery 项目。
-- 此服务正在免费提供给社区！
+- This service is being provided to the community with a generous free tier! You can host your first two SubQuery projects for absolutely free!”
 - 你可以公开你的项目，以便他们被列入 [SubQuery Explorer](https://explorer.subquery.network) 中，世界各地的任何人都可以查看这些项目.
 - 我们已经与 GitHub 集成，因此您的 GitHub 组织中的任何人都可以查看共享的组织项目.
 
@@ -13,10 +13,9 @@
 
 在发布之前，您可以使用两种方式托管您的 SubQuery 项目的代码库。
 
-
 **IPFS**: 您的项目代码库可以保存在IPFS中 您可以遵循我们的 IPFS 主机指南，查看 [首次发布到 IPFS](../run_publish/ipfs.md).
 
-**GitHub**：您项目的代码库必须位于公共 GitHub 存储库中。
+**GitHub (will be deprecated)**: Your project's codebase must be in a public GitHub repository, this process may be deprecated soon.
 
 ### 登录到 SubQuery 项目
 
