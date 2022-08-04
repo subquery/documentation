@@ -80,7 +80,7 @@ $ subql project:create-project
 
 ### Разверните свою первую версию
 
-Существует два способа развертывания новой версии вашего проекта в SubQuery Managed Service: вы можете использовать пользовательский интерфейс или непосредственно инструмент `subql` cli.
+There are three methods to deploy a new version of your project to the SubQuery Managed Service, you can use the UI or directly, via the `subql` cli tool, or using an automated GitHub Action.
 
 #### Использование пользовательского интерфейса
 
@@ -124,28 +124,51 @@ $ subql deployment:deploy
   --type=(stage|primary) [по умолчанию: primary]
 ```
 
+#### Using Github actions
+
+With the introduction of the deployment feature for the CLI, we've added a default Action workflow to GitHub that will allow you to publish and deploy your changes automatically:
+
+- Step 1: After pushing your project to GitHub, create `DEPLOYMENT` environment on GitHub, and add the secret [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) to it.
+- Step 2: Create a project on [SubQuery Projects](https://project.subquery.network), this can be done using the the [UI](#using-the-ui) or [CLI](#using-the-cli).
+- Step 3: Once your project is created, navigate to the GitHub Actions page for your project, and select the workflow `CLI deploy`
+- Step 4: You'll see an input field where you can enter the unique code of your project created on SubQuery Projects, you can get the code from the URL in SubQuery Projects [SubQuery Projects](https://project.subquery.network). The code is based on the name of your project, where spaces are replaced with hyphens `-`. e.g. `my project name` becomes `my-project-name`
+- Once the workflow is complete, you should be see your project deployed to our Managed Service
+
+A common approach is to extend the default GitHub Action to automatically deploy changes to our Managed Service when code is merged into main. The following change to the GitHub Action workflow do this:
+
+```yml
+on:
+  push:
+    branches:
+      - main
+jobs:
+  deploy:
+    name: CLI Deploy
+    ...
+```
+
 ## Следующие шаги - подключитесь к вашему проекту
 
 После успешного завершения установки и успешного индексирования нашими узлами ваших данных из цепочки, вы сможете подключиться к вашему проекту через отображённую конечную точку запроса GraphQL Query.
 
 ![Проект будет развернут и синхронизирован](/assets/img/projects-deploy-sync.png)
 
-Кроме того, вы можете щелкнуть три точки рядом с названием вашего проекта и просмотреть его в SubQuery Explorer. Там вы можете использовать внутрибраузерную игровую площадку для начала работы - [читайте больше о том, как использовать наш Explorer здесь](../run_publish/query.md).
+Кроме того, вы можете щелкнуть три точки рядом с названием вашего проекта и просмотреть его в SubQuery Explorer. There you can use the in-browser playground to get started - [read more about how to use our Explorer here](../run_publish/query.md).
 
 ![Проекты в SubQuery Explorer](/assets/img/projects-explorer.png)
 
 ## Добавить учетную запись организации GitHub в проекты подзапроса
 
-Обычно проект SubQuery публикуется под именем вашей учетной записи GitHub Organization, а не вашей личной учетной записи GitHub. В любой момент вы можете изменить выбранную учетную запись на [SubQuery Projects](https://project.subquery.network) с помощью переключателя учетных записей.
+It is common to publish your SubQuery project under the name of your GitHub Organization account rather than your personal GitHub account. At any point your can change your currently selected account on [SubQuery Projects](https://project.subquery.network) using the account switcher.
 
 ![Переключение между учетными записями GitHub](/assets/img/projects-account-switcher.png)
 
-Если вы не видите учетную запись организации GitHub в списке переключателя, возможно, вам необходимо предоставить доступ к SubQuery для вашей организации GitHub (или запросить его у администратора). Для этого сначала нужно отозвать разрешения из учетной записи GitHub на приложение SubQuery. Для этого войдите в настройки вашей учетной записи на GitHub, перейдите в раздел Applications и на вкладке Authorized OAuth Apps отмените SubQuery - [ вы можете следовать точным шагам здесь](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/reviewing-your-authorized-applications-oauth). ** Не волнуйтесь, это не удалит ваш проект SubQuery, и вы не потеряете никаких данных.**
+If you can't see your GitHub Organization account listed in the switcher, the you may need to grant access to SubQuery for your GitHub Organization (or request it from an administrator). To do this, you first need to revoke permissions from your GitHub account to the SubQuery Application. To do this, login to your account settings in GitHub, go to Applications, and under the Authorized OAuth Apps tab, revoke SubQuery - [you can follow the exact steps here](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/reviewing-your-authorized-applications-oauth). **Don't worry, this will not delete your SubQuery project and you will not lose any data.**
 
-![Отозвать доступ к учетной записи GitHub](/assets/img/project_auth_revoke.png)
+![Revoke access to GitHub account](/assets/img/project_auth_revoke.png)
 
-После отзыва доступа выйдите из [SubQuery Projects](https://project.subquery.network) и снова войдите в систему. Вы должны быть перенаправлены на страницу под названием _Authorize SubQuery_, где вы можете запросить или предоставить SubQuery доступ к вашей учетной записи GitHub Organization. Если у вас нет прав администратора, вы должны сделать запрос администратору, чтобы он включил это для вас.
+Once you have revoked access, log out of [SubQuery Projects](https://project.subquery.network) and log back in again. You should be redirected to a page titled _Authorize SubQuery_ where you can request or grant SubQuery access to your GitHub Organization account. If you don't have admin permissions, you must make a request for an adminstrator to enable this for you.
 
 ![Отмена одобрения учетной записи GitHub](/assets/img/project_auth_request.png)
 
-Как только этот запрос будет одобрен вашим администратором (или если вы сможете удовлетворить его самостоятельно), вы увидите правильную учетную запись GitHub Organization в переключателе учетных записей.
+Once this request has been approved by your administrator (or if are able to grant it youself), you will see the correct GitHub Organization account in the account switcher.
