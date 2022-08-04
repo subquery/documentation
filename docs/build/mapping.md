@@ -55,6 +55,22 @@ export async function handleBlock(block: CosmosBlock): Promise<void> {
 ```
 
 </CodeGroupItem>
+<CodeGroupItem title="Algorand">
+
+```ts
+import { AlgorandBlock } from "@subql/types-algorand";
+
+export async function handleBlock(block: AlgorandBlock): Promise<void> {
+  const record = BlockEntity.create({
+    id: block.round.toString(),
+    field1: block.round,
+    field2: "block"
+  });
+  await record.save();
+}
+```
+
+</CodeGroupItem>
 <CodeGroupItem title="Terra">
 
 ```ts
@@ -235,6 +251,22 @@ export async function handleTransaction(tx: CosmosTransaction): Promise<void> {
 ```
 
 </CodeGroupItem>
+<CodeGroupItem title="Algorand">
+
+```ts
+import { AlgorandTransaction } from "@subql/types-algorand";
+
+export async function handleTransaction(tx: AlgorandTransaction): Promise<void> {
+  const record = TransactionEntity.create({
+    id: tx.id,
+    field1: tx.roundTime,
+    field2: 'tx',
+  });
+  await record.save();
+}
+```
+
+</CodeGroupItem>
 <CodeGroupItem title="Terra">
 
 ```ts
@@ -251,7 +283,7 @@ export async function handleTransaction(tx: TerraTransaction): Promise<void> {
 </CodeGroupItem>
 </CodeGroup>
 
-The CosmosTransaction/TerraTransaction encapsulates TxInfo and the corresponding CosmosBlock/TerraBlock in which the transaction occured.
+The `CosmosTransaction`/`TerraTransaction` encapsulates TxInfo and the corresponding `CosmosBlock`/`TerraBlock` in which the transaction occured.
 
 The AvalancheTransaction encapsulates TxInfo and the corresponding block information in which the transaction occured.
 
