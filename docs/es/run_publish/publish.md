@@ -3,7 +3,7 @@
 ## Beneficios de alojar tu proyecto con SubQuery
 
 - We'll run your SubQuery projects for you in a high performance, scalable, and managed public service.
-- ¡Este servicio está siendo proporcionado a la comunidad gratis!
+- This service is being provided to the community with a generous free tier! You can host your first two SubQuery projects for absolutely free!”
 - You can make your projects public so that they'll be listed in the [SubQuery Explorer](https://explorer.subquery.network) and anyone around the world can view them.
 - We're integrated with GitHub, so anyone in your GitHub organisations will be able to view shared organisation projects.
 
@@ -13,10 +13,9 @@
 
 Hay dos maneras de alojar el código base de su proyecto SubQuery antes de publicarlo.
 
-
 **IPFS (Suggested)**: Your project's codebase can be stored in IPFS, you can follow our IPFS hosting guide to see how to [first publish to IPFS](../run_publish/ipfs.md).
 
-**GitHub**: Your project's codebase must be in a public GitHub repository, this process may be deprecated soon.
+**GitHub (will be deprecated)**: Your project's codebase must be in a public GitHub repository, this process may be deprecated soon.
 
 ### Iniciar sesión en los proyectos de SubQuery
 
