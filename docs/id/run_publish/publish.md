@@ -80,7 +80,7 @@ $ subql project:create-project
 
 ### Terapkan Versi pertama Anda
 
-Ada dua metode untuk menyebarkan versi baru proyek Anda ke SubQuery Managed Service, Anda dapat menggunakan UI atau secara langsung melalui alat `subql` cli.
+There are three methods to deploy a new version of your project to the SubQuery Managed Service, you can use the UI or directly, via the `subql` cli tool, or using an automated GitHub Action.
 
 #### Menggunakan UI
 
@@ -124,28 +124,51 @@ $ subql deployment:deploy
   --type=(stage|primary) [default: primary]
 ```
 
+#### Using Github actions
+
+With the introduction of the deployment feature for the CLI, we've added a default Action workflow to GitHub that will allow you to publish and deploy your changes automatically:
+
+- Step 1: After pushing your project to GitHub, create `DEPLOYMENT` environment on GitHub, and add the secret [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) to it.
+- Step 2: Create a project on [SubQuery Projects](https://project.subquery.network), this can be done using the the [UI](#using-the-ui) or [CLI](#using-the-cli).
+- Step 3: Once your project is created, navigate to the GitHub Actions page for your project, and select the workflow `CLI deploy`
+- Step 4: You'll see an input field where you can enter the unique code of your project created on SubQuery Projects, you can get the code from the URL in SubQuery Projects [SubQuery Projects](https://project.subquery.network). The code is based on the name of your project, where spaces are replaced with hyphens `-`. e.g. `my project name` becomes `my-project-name`
+- Once the workflow is complete, you should be see your project deployed to our Managed Service
+
+A common approach is to extend the default GitHub Action to automatically deploy changes to our Managed Service when code is merged into main. The following change to the GitHub Action workflow do this:
+
+```yml
+on:
+  push:
+    branches:
+      - main
+jobs:
+  deploy:
+    name: CLI Deploy
+    ...
+```
+
 ## Langkah Selanjutnya - Hubungkan ke Proyek Anda
 
 Setelah penerapan Anda berhasil diselesaikan dan node kami telah mengindeks data Anda dari chain, Anda akan dapat terhubung ke proyek Anda melalui titik akhir Kueri GraphQL yang ditampilkan.
 
 ![Proyek sedang diterapkan dan disinkronkan](/assets/img/projects-deploy-sync.png)
 
-Atau, Anda dapat mengklik tiga titik di samping judul proyek Anda, dan melihatnya di SubQuery Explorer. Di sana Anda dapat menggunakan taman bermain dalam browser untuk memulai - [baca selengkapnya tentang cara menggunakan Explorer kami di sini](../run_publish/query.md).
+Atau, Anda dapat mengklik tiga titik di samping judul proyek Anda, dan melihatnya di SubQuery Explorer. There you can use the in-browser playground to get started - [read more about how to use our Explorer here](../run_publish/query.md).
 
 ![Proyek di SubQuery Explorer](/assets/img/projects-explorer.png)
 
 ## Tambahkan Akun Organisasi GitHub ke Proyek SubQuery
 
-Umum untuk mempublikasikan proyek SubQuery Anda dengan nama akun Organisasi GitHub Anda daripada akun GitHub pribadi Anda. Kapan pun Anda dapat mengubah akun yang dipilih saat ini di [Proyek SubQuery](https://project.subquery.network) menggunakan pengalih akun.
+It is common to publish your SubQuery project under the name of your GitHub Organization account rather than your personal GitHub account. At any point your can change your currently selected account on [SubQuery Projects](https://project.subquery.network) using the account switcher.
 
 ![Beralih antar akun GitHub](/assets/img/projects-account-switcher.png)
 
-Jika Anda tidak dapat melihat akun Organisasi GitHub Anda tercantum di pengalih, Anda mungkin perlu memberikan akses ke SubQuery untuk Organisasi GitHub Anda (atau memintanya dari administrator). Untuk melakukan ini, Anda harus terlebih dahulu mencabut izin dari akun GitHub Anda ke Aplikasi SubQuery. Untuk melakukannya, masuk ke pengaturan akun Anda di GitHub, buka Aplikasi, dan di bawah tab Aplikasi OAuth Resmi, cabut SubQuery - [Anda dapat mengikuti langkah-langkah yang tepat di sini](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/reviewing-your-authorized-applications-oauth). **Jangan khawatir, ini tidak akan menghapus proyek SubQuery Anda dan Anda tidak akan kehilangan data apa pun.**
+If you can't see your GitHub Organization account listed in the switcher, the you may need to grant access to SubQuery for your GitHub Organization (or request it from an administrator). To do this, you first need to revoke permissions from your GitHub account to the SubQuery Application. To do this, login to your account settings in GitHub, go to Applications, and under the Authorized OAuth Apps tab, revoke SubQuery - [you can follow the exact steps here](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/reviewing-your-authorized-applications-oauth). **Don't worry, this will not delete your SubQuery project and you will not lose any data.**
 
-![Cabut akses ke akun GitHub](/assets/img/project_auth_revoke.png)
+![Revoke access to GitHub account](/assets/img/project_auth_revoke.png)
 
-Setelah Anda mencabut akses, keluar dari [Proyek SubQuery](https://project.subquery.network) dan masuk kembali. Anda harus diarahkan ke halaman berjudul _Otorisasi SubQuery_ di mana Anda dapat meminta atau memberikan akses SubQuery ke akun Organisasi GitHub Anda. Jika Anda tidak memiliki izin admin, Anda harus membuat permintaan kepada administrator untuk mengaktifkannya untuk Anda.
+Once you have revoked access, log out of [SubQuery Projects](https://project.subquery.network) and log back in again. You should be redirected to a page titled _Authorize SubQuery_ where you can request or grant SubQuery access to your GitHub Organization account. If you don't have admin permissions, you must make a request for an adminstrator to enable this for you.
 
 ![Cabut persetujuan dari akun GitHub](/assets/img/project_auth_request.png)
 
-Setelah permintaan ini disetujui oleh administrator Anda (atau jika dapat mengabulkannya sendiri), Anda akan melihat akun Organisasi GitHub yang benar di pengalih akun.
+Once this request has been approved by your administrator (or if are able to grant it youself), you will see the correct GitHub Organization account in the account switcher.
