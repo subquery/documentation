@@ -3,7 +3,7 @@
 ## 서브쿼리를 통한 프로젝트 호스팅의 장점
 
 - We'll run your SubQuery projects for you in a high performance, scalable, and managed public service.
-- 이 서비스는 커뮤니티에 무료로 제공되고 있어요!
+- This service is being provided to the community with a generous free tier! You can host your first two SubQuery projects for absolutely free!”
 - You can make your projects public so that they'll be listed in the [SubQuery Explorer](https://explorer.subquery.network) and anyone around the world can view them.
 - We're integrated with GitHub, so anyone in your GitHub organisations will be able to view shared organisation projects.
 
@@ -13,10 +13,9 @@
 
 게시하기 전에 SubQuery 프로젝트의 코드베이스를 호스팅할 수 있는 두 가지 방법이 있습니다.
 
-
 **IPFS (Suggested)**: Your project's codebase can be stored in IPFS, you can follow our IPFS hosting guide to see how to [first publish to IPFS](../run_publish/ipfs.md).
 
-**GitHub**: Your project's codebase must be in a public GitHub repository, this process may be deprecated soon.
+**GitHub (will be deprecated)**: Your project's codebase must be in a public GitHub repository, this process may be deprecated soon.
 
 ### SubQuery 프로젝트에 로그인
 
