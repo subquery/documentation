@@ -80,7 +80,7 @@ $ subql project:create-project
 
 ### 部署您的第一个版本
 
-有两种方法可以在 SubQuery 管理服务中部署新版本的项目。 您可以使用界面或直接通过 `subql` cli 工具。
+There are three methods to deploy a new version of your project to the SubQuery Managed Service, you can use the UI or directly, via the `subql` cli tool, or using an automated GitHub Action.
 
 #### 使用用户界面
 
@@ -124,28 +124,51 @@ $ subql deployment:deploy
   --type=(stage|primary)           [default: primary]
 ```
 
+#### Using Github actions
+
+With the introduction of the deployment feature for the CLI, we've added a default Action workflow to GitHub that will allow you to publish and deploy your changes automatically:
+
+- Step 1: After pushing your project to GitHub, create `DEPLOYMENT` environment on GitHub, and add the secret [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) to it.
+- Step 2: Create a project on [SubQuery Projects](https://project.subquery.network), this can be done using the the [UI](#using-the-ui) or [CLI](#using-the-cli).
+- Step 3: Once your project is created, navigate to the GitHub Actions page for your project, and select the workflow `CLI deploy`
+- Step 4: You'll see an input field where you can enter the unique code of your project created on SubQuery Projects, you can get the code from the URL in SubQuery Projects [SubQuery Projects](https://project.subquery.network). The code is based on the name of your project, where spaces are replaced with hyphens `-`. e.g. `my project name` becomes `my-project-name`
+- Once the workflow is complete, you should be see your project deployed to our Managed Service
+
+A common approach is to extend the default GitHub Action to automatically deploy changes to our Managed Service when code is merged into main. The following change to the GitHub Action workflow do this:
+
+```yml
+on:
+  push:
+    branches:
+      - main
+jobs:
+  deploy:
+    name: CLI Deploy
+    ...
+```
+
 ## 下一步 - 连接到您的项目
 
 一旦您的部署成功完成并且我们的节点已经从该链中为您的数据编制了索引， 您可以通过显示的 GraphQL 查询端点连接到您的项目。
 
 ![正在部署和同步的项目](/assets/img/projects-deploy-sync.png)
 
-您也可以点击项目标题旁边的三个小点图标，从而在 SubQuery 浏览器上查看项目， 在这里您可以使用我们的区块链浏览器开始—— [阅读更多关于如何在这里使用](../query/query.md) 的信息。 在那里，您可以使用浏览器内的播放场开始 - [在此处阅读有关如何使用我们的资源管理器的更多信息](../run_publish/query.md)。
+您也可以点击项目标题旁边的三个小点图标，从而在 SubQuery 浏览器上查看项目， 在这里您可以使用我们的区块链浏览器开始—— [阅读更多关于如何在这里使用](../query/query.md) 的信息。 There you can use the in-browser playground to get started - [read more about how to use our Explorer here](../run_publish/query.md).
 
 ![SubQuery Explorer 中的项目](/assets/img/projects-explorer.png)
 
 ## 将 GitHub 组织帐户添加到 SubQuery 项目
 
-通常以您的 GitHub 组织帐户而不是您的个人 GitHub 帐户的名称发布您的 SubQuery 项目。 在任何时候，您都可以使用 [SubQuery 项目](https://project.subquery.network) 更改您当前选定的账户。
+It is common to publish your SubQuery project under the name of your GitHub Organization account rather than your personal GitHub account. At any point your can change your currently selected account on [SubQuery Projects](https://project.subquery.network) using the account switcher.
 
 ![在GitHub 帐户间切换](/assets/img/projects-account-switcher.png)
 
-如果您看不到您的 GitHub 组织帐户， 您可能需要授予您的 GitHub 组织 SubQuery 访问权限(或向管理员请求访问权限)。 要做到这一点，您首先需要撤销您的 GitHub 帐户的权限到 SubQuery 应用程序。 要做到这一点，请登录您在 GitHub 中的帐户设置，请转到应用程序，并在授权的 OAuth 应用程序选项卡下登录。 撤回SubQuery - [您可以在这里跟随精确的步骤](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/reviewing-your-authorized-applications-oauth)。 **不要担心，这将不会删除您的 SubQuery 项目，并且您不会丢失任何数据**
+If you can't see your GitHub Organization account listed in the switcher, the you may need to grant access to SubQuery for your GitHub Organization (or request it from an administrator). To do this, you first need to revoke permissions from your GitHub account to the SubQuery Application. To do this, login to your account settings in GitHub, go to Applications, and under the Authorized OAuth Apps tab, revoke SubQuery - [you can follow the exact steps here](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/reviewing-your-authorized-applications-oauth). **Don't worry, this will not delete your SubQuery project and you will not lose any data.**
 
-![撤销对 GitHub 帐户的访问](/assets/img/project_auth_request.png)
+![Revoke access to GitHub account](/assets/img/project_auth_revoke.png)
 
-一旦您撤销访问权限，请注销 [SubQuery 项目](https://project.subquery.network) 并重新登录。 您应该被重定向到一个名为“ _授权 SubQuery_ 的页面，在那里您可以请求或授予您的 GitHub 组织帐户的 SubQuery 权限。 如果您没有管理员权限，您必须请求一个管理员来为您启用此权限。
+Once you have revoked access, log out of [SubQuery Projects](https://project.subquery.network) and log back in again. You should be redirected to a page titled _Authorize SubQuery_ where you can request or grant SubQuery access to your GitHub Organization account. If you don't have admin permissions, you must make a request for an adminstrator to enable this for you.
 
 ![撤销GitHub 帐户的批准](/assets/img/project_auth_request.png)
 
-一旦您的管理员批准了此请求(或者如果您能够授予此请求)， 您将在账户切换器中看到正确的 GitHub 组织帐户。
+Once this request has been approved by your administrator (or if are able to grant it youself), you will see the correct GitHub Organization account in the account switcher.
