@@ -165,43 +165,17 @@ Next, let's query our project. Follow these three simple steps to query your Sub
 Try the following query to understand how it works for your new SubQuery starter project. Don’t forget to learn more about the [GraphQL Query language](../../run_publish/graphql.md).
 
 ```graphql
-query {
-  pangolinRewards(first: 5) {
-    nodes {
-      id
-      receiver
-      amount
-      blockNumber
-      blockHash
-      transactionHash
-    }
-  }
-}
+
 ```
 
 You will see the result similar to below:
 
 ```json
-{
-  "data": {
-    "pangolinRewards": {
-      "nodes": [
-        {
-          "id": "0x39b4d0a98192d1509c15543caa70cad7e067a08d98f9b4e335ab92c87585cf54-60",
-          "receiver": "0x3F8D6e7bA3A842642Fd362C7122BE8d17DC82555",
-          "amount": "48537775882115127788",
-          "blockNumber": "7906491",
-          "blockHash": "0x39b4d0a98192d1509c15543caa70cad7e067a08d98f9b4e335ab92c87585cf54",
-          "transactionHash": "0x202891b2c5c62467b08f04816dfe8ecbaf40e967e1926127318ebcb85c76a46d"
-        }
-      ]
-    }
-  }
-}
+
 ```
 
 ::: info Note
-The final code of this project can be found [here](https://github.com/jamesbayly/pangolin-rewards-tutorial).
+The final code of this project can be found [here]().
 :::
 
 ## What's next?
