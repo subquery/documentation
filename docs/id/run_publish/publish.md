@@ -3,7 +3,7 @@
 ## Manfaat menghosting proyek Anda dengan SubQuery
 
 - Kami akan menjalankan proyek SubQuery untuk Anda dalam layanan publik berkinerja tinggi, skalabel, dan terkelola.
-- Layanan ini disediakan untuk komunitas secara gratis!
+- This service is being provided to the community with a generous free tier! You can host your first two SubQuery projects for absolutely free!”
 - Anda dapat menjadikan proyek Anda publik sehingga akan dicantumkan di [SubQuery Explorer](https://explorer.subquery.network) dan siapa saja di seluruh dunia dapat melihatnya.
 - Kami terintegrasi dengan GitHub, jadi siapa pun di organisasi GitHub Anda dapat melihat proyek organisasi bersama.
 
@@ -13,10 +13,9 @@
 
 Ada dua cara Anda dapat menghosting basis kode proyek SubQuery Anda sebelum dipublikasikan.
 
-
 **IPFS (Disarankan)**: Basis kode proyek Anda dapat disimpan di IPFS, Anda dapat mengikuti panduan hosting IPFS kami untuk melihat bagaimana cara [mempublikasikan pertama kali ke IPFS](../run_publish/ipfs.md).
 
-**GitHub**: Basis kode proyek Anda harus berada di repositori GitHub publik, proses ini mungkin akan segera ditinggalkan.
+**GitHub (will be deprecated)**: Your project's codebase must be in a public GitHub repository, this process may be deprecated soon.
 
 ### Masuk ke Proyek SubQuery
 
