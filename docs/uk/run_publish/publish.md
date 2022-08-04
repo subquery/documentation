@@ -3,7 +3,7 @@
 ## Переваги розміщення вашого проекту за допомогою SubQuery
 
 - Ми запустимо Ваші проєкти SubQuery для вас у високопродуктивному, масштабованому та керованому загальнодоступному сервісі.
-- Ця послуга надається спільноті безплатно!
+- This service is being provided to the community with a generous free tier! You can host your first two SubQuery projects for absolutely free!”
 - Ви можете зробити свої проєкти загальнодоступними, щоб вони були перераховані в [провіднику вкладених запитів](https://explorer.subquery.network), і їх міг переглядати будь-яка людина по всьому світу.
 - Ми інтегровані з GitHub, тому будь-який член вашої організації на GitHub зможе переглядати спільні проєкти організації.
 
@@ -13,10 +13,9 @@
 
 Є два способи розміщення кодової бази проекту SubQuery перед публікацією.
 
-
 **IPFS (пропоноване)**: кодову базу вашого проекту можна зберігати в IPFS. Ви можете скористатися нашим посібником із розміщення IPFS, щоб дізнатися, як [перше опублікувати в IPFS](../run_publish/ipfs.md).
 
-**GitHub**: кодова база вашого проекту має бути в загальнодоступному сховищі GitHub. Незабаром цей процес може припинитися.
+**GitHub (will be deprecated)**: Your project's codebase must be in a public GitHub repository, this process may be deprecated soon.
 
 ### Увійдіть до SubQuery Projects
 
