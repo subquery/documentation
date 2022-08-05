@@ -159,6 +159,49 @@ dataSources:
 ```
 
   </CodeGroupItem>
+  <CodeGroupItem title="v1.0.0 Algorand">
+
+``` yml
+specVersion: 1.0.0
+name: algorand-subql-starter
+version: 1.0.0
+runner:
+  node:
+    name: '@subql/node-algorand'
+    version: '>=1.0.0'
+  query:
+    name: '@subql/query'
+    version: '*'
+description: >-
+  This project can be used as a starting point for developing your Algorand SubQuery project
+repository: 'https://github.com/subquery/algorand-subql-starter'
+schema:
+  file: ./schema.graphql
+network:
+  chainId: 'SGO1GKSzyE7IEPItTxCByw9x8FmnrCDexi9/cOUJOiI='
+  endpoint: 'https://algoindexer.testnet.algoexplorerapi.io'
+dataSources:
+  - kind: algorand/Runtime
+    startBlock: 50000
+    mapping:
+      file: ./dist/index.js
+      handlers:
+        - handler: handleBlock
+          kind: algorand/BlockHandler
+        - handler: handleTransaction
+          kind: algorand/TransactionHandler
+          filter:
+            txType: pay
+            sender: "ZW3ISEHZUHPO7OZGMKLKIIMKVICOUDRCERI454I3DB2BH52HGLSO67W754"
+            receiver: "ZW3ISEHZUHPO7OZGMKLKIIMKVICOUDRCERI454I3DB2BH52HGLSO67W754"
+        - handler: handleTransaction
+          kind: algorand/TransactionHandler
+          filter:
+            txType: acfg
+            applicationId: 1
+```
+
+  </CodeGroupItem>
   <CodeGroupItem title="v1.0.0 Terra">
 
 ``` yml
@@ -360,7 +403,7 @@ Additionally you will need to update the `endpoint`. This defines the wss endpoi
 Defines the data that will be filtered and extracted and the location of the mapping function handler for the data transformation to be applied.
 | Field | All manifest versions | Description
 | --------------- |-------------|-------------|
-| **kind** | <ul><li>[substrate/Runtime](manifest.md#data-sources-and-mapping)</li><li>[avalanche/Runtime](manifest.md#data-sources-and-mapping)</li><li>[cosmos/Runtime](manifest.md#data-sources-and-mapping)</li><li>[terra/Runtime](manifest.md#data-sources-and-mapping)</li></ul> | <ul><li>[substrate/Runtime](manifest.md#data-sources-and-mapping), [substrate/CustomDataSource](manifest.md#custom-data-sources)</li><li>[avalanche/Runtime](manifest.md#data-sources-and-mapping)</li><li>[cosmos/Runtime](manifest.md#data-sources-and-mapping)</li><li>[terra/Runtime](manifest.h,md#data-sources-and-mapping)</li></ul>
+| **kind** | <ul><li>[substrate/Runtime](manifest.md#data-sources-and-mapping)</li><li>[avalanche/Runtime](manifest.md#data-sources-and-mapping)</li><li>[cosmos/Runtime](manifest.md#data-sources-and-mapping)</li><li>[terra/Runtime](manifest.md#data-sources-and-mapping)</li><li>[algorand/Runtime](manifest.md#data-sources-and-mapping)</li></ul> | <ul><li>[substrate/Runtime](manifest.md#data-sources-and-mapping), [substrate/CustomDataSource](manifest.md#custom-data-sources)</li><li>[avalanche/Runtime](manifest.md#data-sources-and-mapping)</li><li>[cosmos/Runtime](manifest.md#data-sources-and-mapping)</li><li>[terra/Runtime](manifest.md#data-sources-and-mapping)</li><li>[algorand/Runtime](manifest.md#data-sources-and-mapping)</li></ul>
 | **startBlock** | Integer | This changes your indexing start block, set this higher to skip initial blocks with less data|  
 | **mapping** |  Mapping Spec | |
 
@@ -411,6 +454,17 @@ dataSources:
 ```
 
 </CodeGroupItem>
+<CodeGroupItem title="Algorand">
+
+```yml
+dataSources:
+  - kind: algorand/Runtime # Indicates that this is default runtime
+    startBlock: 1 # This changes your indexing start block, set this higher to skip initial blocks with less data
+    mapping:
+      file: dist/index.js # Entry path for this mapping
+```
+
+</CodeGroupItem>
 <CodeGroupItem title="Terra">
 
 ```yml
@@ -446,6 +500,8 @@ The following table explains filters supported by different handlers.
 | Avalanche          | [avalanche/BlockHandler](./mapping.md#block-handler)     | No filters                   |
 | Avalanche          | [avalanche/TransactionHandler](./mapping.md#transaction-handler)     | `function` filters (either be the function fragment or signature), `from` (address), `to` (address)   |
 | Avalanche          | [avalanche/LogHandler](./mapping.md#log-handler)     | `topics` filters, and `address` |
+| Algorand           | [algorand/BlockHandler](./mapping.md#block-handler)  | `modulo`      |
+| Algorand           | [algorand/TransactionHandler](./mapping.md#transaction-handler) | `txType`,`sender`, `receiver`, `applicationId`, `nonParticipant`, `assetId`, `newFreezeStatus` `address` |
 
 Default runtime mapping filters are an extremely useful feature to decide what block, event, or extrinsic will trigger a mapping handler.
 
