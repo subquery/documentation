@@ -24,7 +24,7 @@ As a delegator, you can perform the following tasks:
 Now, let's have a look at the process of delegation and undelegation. 
 
 
-## How to delegate and undelegating SQT?
+## How to delegate and undelegate SQT?
 
 ### Initial Preparation: 
 
