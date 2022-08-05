@@ -3,34 +3,38 @@
   <section class="welcomeWords">
     <div class="main">
       <div>
-        <h2 class="welcomeTitle">Добро пожаловать в SubQuery <span>Docs</span></h2>
-        <p>Изучите и преобразуйте свои ончейн данные, чтобы быстрее создавать интуитивно понятные приложения!</p>
-        <p><strong>SubQuery теперь поддерживает сети Polkadot, Avalanche и Cosmos (начиная с Juno).</strong></p>
+        <h2 class="welcomeTitle">Build Faster dApps with<span>SubQuery Academy</span></h2>
+        <p>Explore and implement your own efficient custom open-source API between your decentralised data and tools to query data faster and save you time.</p></br>
+        <p><strong>SubQuery now supports Polkadot, Avalanche, Cosmos, and Algorand.</strong></p>
       </div>
     </div>
   </section>
   <section class="startSection main">
     <div>
-      <h2 class="title">Гайд для быстрого старта</h2>
-      <p>Понимание SubQuery и знакомство с традиционным примером Hello World. Используя шаблон проекта в среде Docker , вы можете быстро запустить узел и запустить запрос блокчейна всего за несколько минут с помощью нескольких простых команд.
+      <h2 class="title">Get a Kick-Start With Our <span>Quick Start Guide</span></h2>
+      <p><strong>Build your first SubQuery project in less than 10 mins with simple guided steps.</strong>
+      <p>Start querying data for your dApps on your most loved blockchain network using our starter projects. Explore and modify important files, and understand how SubQuery works.
       </p>
       <span class="button">
-        <router-link :to="{path: '/quickstart/quickstart.html'}">
-           <span>Начать</span>
-         </router-link>
+        <router-link :to="{path: '/quickstart/quickstart.html'}"> 
+          <span>Start Building</span>
+        </router-link>
       </span>
     </div>
   </section>
 </div>
 <div class="main">
   <div>
+    <div>
+    <h2 class="title" text-align:center>Want to Learn More About SubQuery Academy?</h2>
+    </div>
     <ul class="list">
       <li>
         <router-link :to="{path: '/academy/tutorials_examples/introduction.html'}">
           <div>
             <img src="/assets/img/tutorialsIcon.svg" />
-            <span>Учебные материалы и примеры</span>
-            <p>Обучение на практике в нашей Академии. Обучение на практике Учебники и примеры по созданию различных проектов SubQuery.</p>
+            <span>Practice with Tutorials & Examples</span>
+            <p>Learning by doing. Practice with SubQuery’s real-world blockchain projects & improve your skills.</p>
           </div>
         </router-link>
       </li>
@@ -38,8 +42,8 @@
         <router-link :to="{path: '/build/introduction.html'}"> 
           <div>
             <img src="/assets/img/docsIcon.svg" />
-            <span>Техническая документация</span>
-            <p>Написано разработчиками для разработчиков. Найдите то, что нужно для быстрого создания приложений.</p>
+            <span>Refer to Technical Reference Docs</span>
+            <p>Dig into every term, usecases, and best-practices that help you build a dApp which your users love.</p>
           </div>
         </router-link>
       </li>
@@ -47,8 +51,8 @@
         <router-link :to="{path: '/subquery_network/introduction.html'}"> 
           <div>
             <img src="/assets/img/networkIcon.svg" />
-            <span>Сеть SubQuery</span>
-            <p>Децентрализованное будущее SubQuery. Узнайте больше о том, как вознаграждаются индексаторы и потребители.</p>
+            <span>Be a Part of SubQuery Network</span>
+            <p>Host & index projects in a completely decentralised way. Participate in the network and get rewarded with SQT.</p>
           </div>
         </router-link>
       </li>
@@ -62,7 +66,7 @@
       <li>
         <div class="title">Что такое SubQuery?</div>
         <div class="content">
-          <p>SubQuery - это индексатор данных блокчейна с открытым исходным кодом для разработчиков, что обеспечивает быстрые, гибкие, надежные и децентрализованные API для поддержки ведущих многоканальных приложений. Наша миссия заключается в том, чтобы помогать разработчикам создавать децентрализованные продукты будущего.</p>
+          <p>SubQuery is an open-source blockchain data indexer. It provides developers with faster and decentralised APIs. It allows you to build powerful multi-chain apps without wasting hours on indexing and quickly querying data.</p>
           <span class="more">
             <router-link :to="{path: '/faqs/faqs.html#what-is-subquery'}">ПОДРОБНЕЕ</router-link>
           </span>
@@ -71,13 +75,13 @@
       <li>
         <div class="title">Как лучше всего начать работу с SubQuery?</div>
         <div class="content">
-          <p>Самый лучший способ начать работу с SubQuery - это попробовать наше Руководство по быстрому запуску <a href="/quickstart/quickstart.html">Quick Start</a>. Это простой 5-минутный урок по загрузке стартового шаблона, сборке проекта, а затем использованию Docker для запуска узла на локальном хосте и выполнения простого запроса. </p>
+          <p>Самый лучший способ начать работу с SubQuery - это попробовать наше Руководство по быстрому запуску <a href="/quickstart/quickstart.html">Quick Start</a>. Это простоя 5 минутная прогулка по упражнению. Загрузите начальный шаблон, создайте проект, используйте Docker для запуска узла на вашем локальном хосте и запустите простой запрос.</p>
         </div>
       </li>
       <li>
         <div class="title">Как я могу внести свой вклад или оставить отзыв о SubQuery?</div>
         <div class="content">
-          <p>Нам нравится вклад и обратная связь от сообщества. Чтобы внести свой код, форкните интересующий вас репозиторий и внесите свои изменения. Далее отправьте PR или Pull Request. О, не забудьте также протестировать! Также ознакомьтесь с нашими рекомендациями по контрибуции (скоро появятся). </p>
+          <p>Нам нравится вклад и обратная связь от сообщества. To contribute the code, we suggest starting by creating an issue in our main repository so we can give you support.</p>
           <span class="more">
             <router-link :to="{path: '/faqs/faqs.html#how-can-i-contribute-or-give-feedback-to-subquery'}">ПОДРОБНЕЕ</router-link>
           </span> 
@@ -93,21 +97,21 @@
         </div>
       </li>
     </ul><br>
-    Для получения дополнительной информации по часто задаваемым вопросам, пожалуйста, ознакомьтесь с нашей <router-link :to="{path: '/faqs/faqs.html'}">Страницей часто задаваемых вопросов (FAQ)</router-link> странице.    
+    Got more questions? Visit our <router-link :to="{path: '/faqs/faqs.html'}">Страницей часто задаваемых вопросов (FAQ)</router-link> странице.     
   </div>
 </section>
 <section class="main">
   <div>
     <div class="lastIntroduce lastIntroduce_1">
-        <h5>Интеграция с вашим кастомным чейном?</h5>
-        <p>Создаете ли вы новый парачейн или совершенно новый блокчейн в Substrate — субзапрос поможет вам индексировать и устранить неполадки в цепочке. SubQuery разработан для легкой интеграции с пользовательской цепочкой на основе субстрата.</p>
+        <h5>Integrate with Your Custom Substrate Chain</h5>
+        <p>Создаете ли вы новый парачейн или совершенно новый блокчейн в Substrate — субзапрос поможет вам индексировать и устранить неполадки в цепочке. SubQuery helps you easily integrate with a custom Substrate-based chain.</p>
         <span class="more">
           <<router-link :to="{path: '/build/manifest.html#custom-substrate-and-cosmos-chains'}">УЗНАЙТЕ, КАК ИНТЕГРИРОВАТЬСЯ С ВАШЕЙ ЦЕПОЧКОЙ</router-link>
         </span>
     </div>
     <div class="lastIntroduce lastIntroduce_2">
         <h5>Поддержка и вклад</h5>
-        <p>У вас есть вопрос или вы хотите узнать больше или как вы можете внести свой вклад? Мы будем рады услышать вас. Пожалуйста, свяжитесь с нами по электронной почте или в социальных сетях по ссылкам ниже. Нужна техническая поддержка? Присоединяйтесь к нашему сообществу Discord и получайте поддержку от наших неравнодушных членов сообщества. </p>
+        <p>Have a question or interested in knowing how you can contribute? Мы будем рады услышать вас. Пожалуйста, свяжитесь с нами по электронной почте или в социальных сетях по ссылкам ниже. Нужна техническая поддержка? Присоединяйтесь к нашему сообществу Discord и получайте поддержку от наших неравнодушных членов сообщества. </p>
         <a class="more" target="_blank" href="https://discord.com/invite/subquery">ПРИСОЕДИНЯЙТЕСЬ К ОБСУЖДЕНИЮ В ДИСКОРДЕ</a>
     </div>
     </div>
