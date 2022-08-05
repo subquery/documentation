@@ -1285,6 +1285,6 @@ Adding the `@derivedFrom` keyword to the `myToAddress` field allows a **virtual 
 
 ### References
 
-* [Account Transfer with Reverse Lookups PDF Workbook](/assets/pdf/Account_Transfer_with_Reverse_Lookups)
+* [Account Transfer with Reverse Lookups PDF Workbook](/assets/pdf/Account_Transfer_with_Reverse_Lookups.pdf)
 * [Account Transfer with Reverse Lookups Github](https://github.com/subquery/tutorials-account-transfer-reverse-lookups)
 * [Reverse lookups](../../build/graphql.md#reverse-lookups)
