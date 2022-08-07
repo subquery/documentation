@@ -16,9 +16,9 @@ The final code of this project can be found [here](https://github.com/jamesbayly
 :::
 ## 1. Update Your GraphQL Schema File
 
-The `schema.graphql` file determines the shape of your data from SubQuery due to the mechanism of the GraphQL query language. Hence, updating the GraphQL Schema file is the perfect place to start. It allows you to define your end goal beforehand.
+The `schema.graphql` file determines the shape of your data from SubQuery due to the mechanism of the GraphQL query language. Hence, updating the GraphQL Schema file is the perfect place to start. It allows you to define your end goal right at the start.
 
-Remove all existing entities and update the `schema.graphql` file as follows:
+Remove all existing entities and update the `schema.graphql` file as follows, here you can see we are indexing all rewards in Pangolin:
 
 ```graphql
 type PangolinRewards @entity {
@@ -63,7 +63,7 @@ Now that you have made essential changes to the GraphQL Schema file, let’s mov
 
 The Project Manifest (`project.yaml`) file works as an entry point to your Avalanche project. It defines most of the details on how SubQuery will index and transform the chain data.
 
-Note that the manifest file has already been set up correctly and doesn’t require significant changes, but you need to change the handlers.
+Note that the manifest file has already been set up correctly and doesn’t require significant changes, but you need to change the datasource handlers. This section lists the triggers that look for on the blockchain to start indexing.
 
 **Since you are going to index all Pangolin approval logs, you need to update the `datasources` section as follows:**
 
@@ -102,11 +102,11 @@ Mapping functions define how chain data is transformed into the optimised GraphQ
 
 Follow these steps to add a mapping function:
 
-- Navigate to the default mapping function in the `src/mappings` directory. You will be able to see three exported functions: _`handleBlock`_, _`handleLog`_, and _`handleTransaction`_. Delete both the `handleBlock` and `handleTransactionl` functions as you will only deal with the `handleLog` function.
+- Navigate to the default mapping function in the `src/mappings` directory. You will be able to see three exported functions: `handleBlock`, `handleLog`, and `handleTransaction`. Delete both the `handleBlock` and `handleTransaction` functions as you will only deal with the `handleLog` function.
 
 - The `handleLog` function receives event data whenever an event matches the filters, which you specified previously in the `project.yaml`. Let’s make changes to it, process all `RewardPaid` transaction logs, and save them to the GraphQL entities created earlier.
 
-Update the `handleLog` function as follows(**note the additional imports**):
+Update the `handleLog` function as follows (**note the additional imports**):
 
 ```ts
 import { PangolinRewards } from "../types";
@@ -133,7 +133,7 @@ export async function handleLog(event: AvalancheLog): Promise<void> {
 
 Let’s understand how the above code works.
 
-The function here receives an Avalanche Log which includes transaction log data in the payload. We extract this data and then instantiate a new `PangolinRewards` entity defined earlier in the `schema.graphql` file. After that, we add additional information and then use the `.save()` function to save the new entity (_Note that SubQuery will automatically save this to the database_).
+The function here receives an `AvalancheLog` which includes transaction log data in the payload. We extract this data and then instantiate a new `PangolinRewards` entity defined earlier in the `schema.graphql` file. After that, we add additional information and then use the `.save()` function to save the new entity (_Note that SubQuery will automatically save this to the database_).
 
 Check out our [Mappings](../../build/mapping.md) documentation to get more information on mapping functions.
 
@@ -209,7 +209,7 @@ Try the following query to understand how it works for your new SubQuery starter
 
 ```graphql
 query {
-  pangolinRewards(first: 5) {
+  pangolinRewards(first: 1) {
     nodes {
       id
       receiver

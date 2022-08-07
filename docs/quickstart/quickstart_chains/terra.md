@@ -14,9 +14,9 @@ Previously, in the [1. Create a New Project](../quickstart.md) section, you must
 
 ## 1. Update Your GraphQL Schema File
 
-The `schema.graphql` file defines the shape of your data from SubQuery due to the GraphQL query language’s mechanism. Hence, updating the GraphQL Schema file is the perfect start. It allows you to decide your end goal beforehand.
+The `schema.graphql` file defines the shape of your data from SubQuery due to the GraphQL query language’s mechanism. Hence, updating the GraphQL Schema file is the perfect start. It allows you to decide your end goal right at the start.
 
-Update the `schema.graphql` file as follows and remove all existing entities:
+Update the `schema.graphql` file as follows and remove all existing entities, here you can see we are indexing all transfers in Terra:
 
 ```graphql
 type Transfer @entity {
@@ -61,7 +61,7 @@ Now that you have made essential changes to the GraphQL Schema file, let’s mov
 
 The Project Manifest (`project.yaml`) file works as an entry point to your Terra project. It defines most of the details on how SubQuery will index and transform the chain data.
 
-Please note that the manifest file has already been set up correctly and doesn’t require many changes, but you need to change the handlers.
+Note that the manifest file has already been set up correctly and doesn’t require significant changes, but you need to change the datasource handlers. This section lists the triggers that look for on the blockchain to start indexing.
 
 **Since you are going to index all Terra transfer events, you need to update the `datasources` section as follows:**
 
@@ -96,11 +96,11 @@ Mapping functions define how chain data is transformed into the optimised GraphQ
 
 Follow these steps to add a mapping function:
 
-- Navigate to the default mapping function in the `src/mappings` directory. You will be able to see three exported functions: **`handleBlock`**, **`handleEvent`**, and **`handleCall`**. Delete both the `handleBlock` and `handleCall` functions as you will only deal with the `handleEvent` function.
+- Navigate to the default mapping function in the `src/mappings` directory. You will be able to see three exported functions: `handleBlock`, `handleEvent`, and `handleCall`. Delete both the `handleBlock` and `handleCall` functions as you will only deal with the `handleEvent` function.
 
 - The `handleEvent` function receives event data whenever an event matches filters, which you specified previously in the `project.yaml`. Let’s make changes to it, process all `transfer` events , and save them to the GraphQL entities created earlier.
 
-Update the `handleEvent` function as follows(**note the additional imports**):
+Update the `handleEvent` function as follows (**note the additional imports**):
 
 ```ts
 import { TerraEvent } from "@subql/types-terra";
@@ -139,7 +139,7 @@ export async function handleEvent(
 
 Let’s understand how the above code works.
 
-The function here receives a SubstrateEvent which includes the transfer data on the payload. We extract this data and then instantiate a new `Transfer`entity defined earlier in the `schema.graphql` file. After that, we add additional information and then use the `.save()` function to save the new entity (_Note that SubQuery will automatically save this to the database_).
+The function here receives a `TerraEvent` which includes the transfer data on the payload. We extract this data and then instantiate a new `Transfer`entity defined earlier in the `schema.graphql` file. After that, we add additional information and then use the `.save()` function to save the new entity (_Note that SubQuery will automatically save this to the database_).
 
 Check out our [Mappings](../../build/mapping.md) documentation to get detailed information on mapping functions.
 
