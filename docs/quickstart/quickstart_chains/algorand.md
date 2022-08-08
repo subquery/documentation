@@ -2,7 +2,7 @@
 
 ## Goals
 
-The goal of this quick guide is to adapt the standard starter project and start indexing all PLANET token transfers (https://algoexplorer.io/address/ZW3ISEHZUHPO7OZGMKLKIIMKVICOUDRCERI454I3DB2BH52HGLSO67W754) from Algorand.
+The goal of this quick guide is to adapt the standard starter project and start indexing [all the PLANET token transfers](https://algoexplorer.io/address/ZW3ISEHZUHPO7OZGMKLKIIMKVICOUDRCERI454I3DB2BH52HGLSO67W754) from Algorand.
 
 ::: warning Important
 Before we begin, make sure that you have initialised your project using the provided steps in the **[Start Here](../quickstart.md)** section.
@@ -26,7 +26,7 @@ type Transaction @entity {
   id: ID! # A unique ID - The transaction ID
   blockHeight: Int!
   sender: String!
-  reciever: String
+  receiver: String
   amount: BigInt
 }
 ```
@@ -68,14 +68,14 @@ Note that the manifest file has already been set up correctly and doesn’t requ
 ```yaml
 dataSources:
   - kind: algorand/Runtime
-    startBlock: 8712119 # Block that planet was created on https://algoexplorer.io/tx/G66KX3TLKXUI547DFB4MNVY7SJVADOJKGP4SWMRC632GFHSFX5KQ
+    startBlock: 8712119 #Block that planet was created on https://algoexplorer.io/tx/G66KX3TLKXUI547DFB4MNVY7SJVADOJKGP4SWMRC632GFHSFX5KQ
     mapping:
       file: ./dist/index.js
       handlers:
         - handler: handleTransaction
           kind: algorand/TransactionHandler
           filter:
-            # payments from the Planet Watch Address for the PLANET asset
+            #Payments from the Planet Watch Address for the PLANET asset
             assetId: 27165954
             sender: "ZW3ISEHZUHPO7OZGMKLKIIMKVICOUDRCERI454I3DB2BH52HGLSO67W754"
 ```
@@ -112,7 +112,7 @@ export async function handleTransaction(
     sender: tx.sender,
   });
   if (tx.paymentTransaction) {
-    (transactionEntity.reciever = tx.paymentTransaction.receiver),
+    (transactionEntity.receiver = tx.paymentTransaction.receiver),  
       (transactionEntity.amount = BigInt(tx.paymentTransaction.amount));
   }
   await transactionEntity.save();
@@ -121,7 +121,7 @@ export async function handleTransaction(
 
 Let’s understand how the above code works.
 
-Here, the function recieves a `AlgorandTransaction` which includes all transaction data on the payload. We extract this data and then instantiate a new `Transaction` entity defined earlier in the `schema.graphql` file. After that, we add additional information and then use the `.save()` function to save the new entity (SubQuery will automatically save this to the database).
+Here, the function recieves a `AlgorandTransaction` which includes all transaction data on the payload. We extract this data and then instantiate a new `Transaction` entity (using required properties `id`,`blockHeigh` and `sender`) defined earlier in the `schema.graphql` file. After that, we add additional information about the payment (`receiver` and `amount`properties) and then use the `.save()` function to save the new entity (SubQuery will automatically save this to the database).
 
 Check out our [Mappings](../../build/mapping.md) documentation to get more information on mapping functions.
 
