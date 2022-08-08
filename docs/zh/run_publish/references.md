@@ -76,18 +76,14 @@ Options:
       --migrate             Migrate db schema (for management tables only)
                                                       [boolean] [default: false]
       --timestamp-field     Enable/disable created_at and updated_at in schema
-                                                      [boolean] [default: false]
+                                                       [boolean] [default: true]
   -d, --network-dictionary  Specify the dictionary api for this network [string]
   -m, --mmr-path            Local path of the merkle mountain range (.mmr) file
                                                                         [string]
       --proof-of-index      Enable/disable proof of index
                                                       [boolean] [default: false]
-  -p, --port                The port the service will bind to           [number]
-      --disable-historical  Disable storing historical state entities
-                                                       [boolean] [default: true]
-      --reindex             Reindex to specified block height           [number]
-  -w, --workers             Number of worker threads to use for fetching and
-                            processing blocks. Disabled by default.     [number]
+  -p, --port                The port the service will bind to
+                                                        [number] [default: 3000] Disabled by default.     [number]
 ```
 
 ### --version
@@ -357,24 +353,24 @@ Subquery索引服务绑定到的端口。 默认设置为 `3000`.
 
 ### --reindex
 
-Use `--reindex=<blockNumber>` to remove indexed data and reindex from specified block height. 
+使用 `--reindex=<blockNumber>` 从指定的方块高度删除索引数据和重新索引。 
 
 :::info Note
-Please note that the way of using this feature will be updated soon.
+请注意，使用此功能的方式将很快更新。
 :::
 
 
 
 ### -w, --workers
 
-This will move block fetching and processing into a worker. By default, this feature is **disabled**. You can enable it with the `--workers=<number>` flag. Note that the number of available CPU cores strictly limits the usage of worker threads. So, when using the `--workers=<number>` flag, always specify the number of workers. With no flag provided, everything will run in the same thread.
+这将把块提取和处理移动到一个工作者。 默认情况下，此功能是 **已禁用**。 您可以使用 `--workers=<number>` 标志启用它。 请注意，可用的 CPU 核心数严格限制了工人线程的使用。 因此，当使用 `--workers=<number>` 标志时，总是指定工人的数量。 如果没有提供标记，所有东西都将在同一线程中运行。
 
-:::tip Tip It can increase performance by up to 4 times. Give it a try and let us know your feedback! 
+:::tip 提示 它可以提高性能最多4次。 试试一下，让我们知道你的反馈！ 
 
-It is at an early experimental stage at the moment, but we plan to enable it by default. :::
+目前它处于早期试验阶段，但我们计划默认启用它。 :::
 
-::: info Note
-This feature is available for Substrate and Cosmos, and soon will be integrated for Avalanche.
+::: 信息注释
+此功能可用于 Substrate 和 Cosmos，不久将会被集成到 Avalanche.
 :::
 
 
