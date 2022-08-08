@@ -3,7 +3,7 @@
 ## 使用 SubQuery 托管您的项目有哪些优势
 
 - 我们将在高性能、可扩展和托管的公共服务中为您运行 SubQuery 项目。
-- This service is being provided to the community with a generous free tier! You can host your first two SubQuery projects for absolutely free!”
+- 此服务正在免费提供给社区！ 您可以完全免费地托管您的头两个子查询项目！”
 - 你可以公开你的项目，以便他们被列入 [SubQuery Explorer](https://explorer.subquery.network) 中，世界各地的任何人都可以查看这些项目.
 - 我们已经与 GitHub 集成，因此您的 GitHub 组织中的任何人都可以查看共享的组织项目.
 
@@ -15,7 +15,7 @@
 
 **IPFS**: 您的项目代码库可以保存在IPFS中 您可以遵循我们的 IPFS 主机指南，查看 [首次发布到 IPFS](../run_publish/ipfs.md).
 
-**GitHub (will be deprecated)**: Your project's codebase must be in a public GitHub repository, this process may be deprecated soon.
+**GitHub**：您项目的代码库必须位于公共 GitHub 存储库中。
 
 ### 登录到 SubQuery 项目
 
@@ -80,7 +80,7 @@ $ subql project:create-project
 
 ### 部署您的第一个版本
 
-There are three methods to deploy a new version of your project to the SubQuery Managed Service, you can use the UI or directly, via the `subql` cli tool, or using an automated GitHub Action.
+有两种方法可以在 SubQuery 管理服务中部署新版本的项目。 您可以使用界面或直接通过 `subql` cli 工具。
 
 #### 使用用户界面
 
@@ -124,17 +124,17 @@ $ subql deployment:deploy
   --type=(stage|primary)           [default: primary]
 ```
 
-#### Using Github actions
+#### 使用 GitHub Actions
 
-With the introduction of the deployment feature for the CLI, we've added a default Action workflow to GitHub that will allow you to publish and deploy your changes automatically:
+随着国家排雷行动中心的部署功能的引入。 我们已经添加了默认操作流程到 GitHub ，这将允许您自动发布和部署您的更改：
 
-- Step 1: After pushing your project to GitHub, create `DEPLOYMENT` environment on GitHub, and add the secret [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) to it.
-- Step 2: Create a project on [SubQuery Projects](https://project.subquery.network), this can be done using the the [UI](#using-the-ui) or [CLI](#using-the-cli).
-- Step 3: Once your project is created, navigate to the GitHub Actions page for your project, and select the workflow `CLI deploy`
-- Step 4: You'll see an input field where you can enter the unique code of your project created on SubQuery Projects, you can get the code from the URL in SubQuery Projects [SubQuery Projects](https://project.subquery.network). The code is based on the name of your project, where spaces are replaced with hyphens `-`. e.g. `my project name` becomes `my-project-name`
-- Once the workflow is complete, you should be see your project deployed to our Managed Service
+- 第 1 步：将您的项目推送到 GitHub 后，在 GitHub 上创建 `DEPLOYMENT` 环境，并添加秘钥 [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token)
+- 步骤 2: 在 [SubQuery 项目](https://project.subquery.network), 创建一个项目 这可以使用 [UI](#using-the-ui) 或 [CLI](#using-the-cli) 来完成。
+- 第 3 步：一旦您的项目被创建，导航到您的项目的 GitHub 操作页面，并选择工作流程 `CLI 部署`
+- 第 4 步：您将看到一个输入字段，您可以在这里输入在 SubQuery 项目上创建的项目的唯一代码 您可以从 SubQuery 项目 [SubQuery 项目](https://project.subquery.network) 的 URL 获取代码。 代码基于您项目的名称, 其中空格被连线替换 `-`。 例如： `我的项目名` 变成 `我的项目名称`
+- 工作流程完成后，您应该看到您的项目被部署到我们的管理服务
 
-A common approach is to extend the default GitHub Action to automatically deploy changes to our Managed Service when code is merged into main. The following change to the GitHub Action workflow do this:
+一个常见的方法是扩展默认的 GitHub 动作，以便在代码合并到主页时自动对我们的管理服务进行更改。 以下对 GitHub 行动流程的更改做到这一点：
 
 ```yml
 on:
@@ -153,22 +153,22 @@ jobs:
 
 ![正在部署和同步的项目](/assets/img/projects-deploy-sync.png)
 
-您也可以点击项目标题旁边的三个小点图标，从而在 SubQuery 浏览器上查看项目， 在这里您可以使用我们的区块链浏览器开始—— [阅读更多关于如何在这里使用](../query/query.md) 的信息。 There you can use the in-browser playground to get started - [read more about how to use our Explorer here](../run_publish/query.md).
+您也可以点击项目标题旁边的三个小点图标，从而在 SubQuery 浏览器上查看项目， 在这里您可以使用我们的区块链浏览器开始—— [阅读更多关于如何在这里使用](../query/query.md) 的信息。 在那里，您可以使用浏览器内的播放场开始 - [在此处阅读有关如何使用我们的资源管理器的更多信息](../run_publish/query.md)。
 
 ![SubQuery Explorer 中的项目](/assets/img/projects-explorer.png)
 
 ## 将 GitHub 组织帐户添加到 SubQuery 项目
 
-It is common to publish your SubQuery project under the name of your GitHub Organization account rather than your personal GitHub account. At any point your can change your currently selected account on [SubQuery Projects](https://project.subquery.network) using the account switcher.
+通常以您的 GitHub 组织帐户而不是您的个人 GitHub 帐户的名称发布您的 SubQuery 项目。 在任何时候，您都可以使用 [SubQuery 项目](https://project.subquery.network) 更改您当前选定的账户。
 
 ![在GitHub 帐户间切换](/assets/img/projects-account-switcher.png)
 
-If you can't see your GitHub Organization account listed in the switcher, the you may need to grant access to SubQuery for your GitHub Organization (or request it from an administrator). To do this, you first need to revoke permissions from your GitHub account to the SubQuery Application. To do this, login to your account settings in GitHub, go to Applications, and under the Authorized OAuth Apps tab, revoke SubQuery - [you can follow the exact steps here](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/reviewing-your-authorized-applications-oauth). **Don't worry, this will not delete your SubQuery project and you will not lose any data.**
+如果您看不到您的 GitHub 组织帐户， 您可能需要授予您的 GitHub 组织 SubQuery 访问权限(或向管理员请求访问权限)。 要做到这一点，您首先需要撤销您的 GitHub 帐户的权限到 SubQuery 应用程序。 要做到这一点，请登录您在 GitHub 中的帐户设置，请转到应用程序，并在授权的 OAuth 应用程序选项卡下登录。 撤回SubQuery - [您可以在这里跟随精确的步骤](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/reviewing-your-authorized-applications-oauth)。 **不要担心，这将不会删除您的 SubQuery 项目，并且您不会丢失任何数据**
 
-![Revoke access to GitHub account](/assets/img/project_auth_revoke.png)
+![撤销对 GitHub 帐户的访问](/assets/img/project_auth_request.png)
 
-Once you have revoked access, log out of [SubQuery Projects](https://project.subquery.network) and log back in again. You should be redirected to a page titled _Authorize SubQuery_ where you can request or grant SubQuery access to your GitHub Organization account. If you don't have admin permissions, you must make a request for an adminstrator to enable this for you.
+一旦您撤销访问权限，请注销 [SubQuery 项目](https://project.subquery.network) 并重新登录。 您应该被重定向到一个名为“ _授权 SubQuery_ 的页面，在那里您可以请求或授予您的 GitHub 组织帐户的 SubQuery 权限。 如果您没有管理员权限，您必须请求一个管理员来为您启用此权限。
 
 ![撤销GitHub 帐户的批准](/assets/img/project_auth_request.png)
 
-Once this request has been approved by your administrator (or if are able to grant it youself), you will see the correct GitHub Organization account in the account switcher.
+一旦您的管理员批准了此请求(或者如果您能够授予此请求)， 您将在账户切换器中看到正确的 GitHub 组织帐户。
