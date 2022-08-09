@@ -93,7 +93,7 @@ Performance is a crucial factor in each project. Fortunately, there are several 
     - Try to reduce unnecessary fields and columns.
     - Create  indexes as needed.
 - Use parallel/batch processing as often as possible. 
-    - Use `api.queryMulti()` to optimise Polkadot API calls inside SubQuery mapping functions and query them in parallel. This is a faster way than a loop.
+    - Use `api.queryMulti()` to optimise Polkadot API calls inside mapping functions and query them in parallel. This is a faster way than a loop.
     - Use `Promise.all()`. In case of multiple async functions, it is better to execute them and resolve in parallel.
     - If you want to create a lot of entities within a single handler, you can use `store.bulkCreate(entityName: string, entities: Entity[])`. You can create them in parallel, no need to do this one by one.
 - Making API calls to query state can be slow. You could try to minimise calls where possible and to use `extrinsic/transaction/event` data.
