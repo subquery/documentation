@@ -13,8 +13,9 @@ Now, let's move forward and update these configurations.
 Previously, in the [1. Create a New Project](../quickstart.md) section, you must have noted [3 key files](../quickstart.md#_3-make-changes-to-your-project). Let's begin updating them one by one.
 
 ::: info Note
-The final code of this project can be found [here](https://github.com/jamesbayly/algorand-planet-watch). 
+The final code of this project can be found [here](https://github.com/jamesbayly/algorand-planet-watch).
 :::
+
 ## 1. Update Your GraphQL Schema File
 
 The `schema.graphql` file determines the shape of your data from SubQuery due to the mechanism of the GraphQL query language. Hence, updating the GraphQL Schema file is the perfect place to start. It allows you to define your end goal right at the start.
@@ -75,7 +76,8 @@ dataSources:
         - handler: handleTransaction
           kind: algorand/TransactionHandler
           filter:
-            #Payments from the Planet Watch Address for the PLANET asset
+            # Payments from the Planet Watch Address for the PLANET asset
+            txType: axfer
             assetId: 27165954
             sender: "ZW3ISEHZUHPO7OZGMKLKIIMKVICOUDRCERI454I3DB2BH52HGLSO67W754"
 ```
@@ -112,7 +114,7 @@ export async function handleTransaction(
     sender: tx.sender,
   });
   if (tx.paymentTransaction) {
-    (transactionEntity.receiver = tx.paymentTransaction.receiver),  
+    (transactionEntity.receiver = tx.paymentTransaction.receiver),
       (transactionEntity.amount = BigInt(tx.paymentTransaction.amount));
   }
   await transactionEntity.save();
@@ -181,7 +183,7 @@ npm run-script start:docker
 
 ::: info Note
 It may take a few minutes to download the required images and start the various nodes and Postgres databases.
-::: 
+:::
 
 ## 6. Query your Project
 
