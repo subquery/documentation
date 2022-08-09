@@ -85,8 +85,7 @@ Performance is a crucial factor in each project. Fortunately, there are several 
 - Query only necessary fields. 
 - Try to use filter conditions to reduce the response size. Create filters as specific as possible to avoid querying unnecessary data. 
 - For large data tables, avoid querying `totalCount` without adding conditions.
-- Always add index to schema for the historical project.
-- Add indexes to entity fields for query performance. 
+- Add indexes to entity fields for query performance, this is especially important for historical projects.
 - Set the start block to when the contract was initialised. 
 - Always use a [dictionary](../tutorials_examples/dictionary.html#how-does-a-subquery-dictionary-work) (we can help create one for your new network). 
 - Optimise your schema design, keep it as simple as possible. 
