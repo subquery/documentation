@@ -7,7 +7,7 @@ Hosting a project in IPFS makes it available for all and reduces your reliance o
 ## Conditions requises
 
 - `@subql/cli` version 0.21.0 ou supérieure.
-- Manifest `specVersion` 0.2.0 ou supérieure.
+- Manifest `specVersion` 1.0.0 and above.
 - Get your [SUBQL_ACCESS_TOKEN](ipfs.md#prepare-your-subql-access-token) ready.
 - Pour assurer le succès de votre déploiement, nous vous recommandons fortement de construire votre projet avec la commande `subql build`, et de le tester localement avant de le publier.
 
