@@ -75,3 +75,27 @@ subql-node -f . --force-clean --subquery-name=<project-name>
 ```
 
 Зверніть увагу, що рекомендується використовувати `--force-clean` при зміні `startBlock` в рамках маніфесту проєкту (`project.yaml`) для того, щоб почати пере індексацію з налаштованого блоку. Якщо `startBlock` змінюється без `--force-clean` проєкту, то індекси продовжать індексування за допомогою раніше налаштованих `startBlock`.
+
+
+## How can I optimise my project to speed it up?
+
+Performance is a crucial factor in each project. Fortunately, there are several things you could do to improve it. Here is the list of some suggestions:
+
+- Avoid using block handlers where possible.
+- Query only necessary fields.
+- Try to use filter conditions to reduce the response size. Create filters as specific as possible to avoid querying unnecessary data.
+- For large data tables, avoid querying `totalCount` without adding conditions.
+- Add indexes to entity fields for query performance, this is especially important for historical projects.
+- Set the start block to when the contract was initialised.
+- Always use a [dictionary](../tutorials_examples/dictionary.html#how-does-a-subquery-dictionary-work) (we can help create one for your new network).
+- Optimise your schema design, keep it as simple as possible.
+    - Try to reduce unnecessary fields and columns.
+    - Create  indexes as needed.
+- Use parallel/batch processing as often as possible.
+    - Use `api.queryMulti()` to optimise Polkadot API calls inside mapping functions and query them in parallel. This is a faster way than a loop.
+    - Use `Promise.all()`. In case of multiple async functions, it is better to execute them and resolve in parallel.
+    - If you want to create a lot of entities within a single handler, you can use `store.bulkCreate(entityName: string, entities: Entity[])`. You can create them in parallel, no need to do this one by one.
+- Making API calls to query state can be slow. You could try to minimise calls where possible and to use `extrinsic/transaction/event` data.
+- Use `worker threads` to move block fetching and block processing into its own worker thread. It could speed up indexing by up to 4 times (depending on the particular project). You can easily enable it using the `-workers=<number>` flag. Зауважте, що кількість доступних ядер ЦП суворо обмежує використання робочих потоків. For now, it is only available for Substrate and Cosmos and will soon be integrated for Avalanche.
+- Note that `JSON.stringify` doesn’t support native `BigInts`. Our logging library will do this internally if you attempt to log an object. We are looking at a workaround for this.
+- Use a convenient `modulo` filter to run a handler only once to a specific block. This filter allows handling any given number of blocks, which is extremely useful for grouping and calculating data at a set interval. For instance, if modulo is set to 50, the block handler will run on every 50 blocks. It provides even more control over indexing data to developers and can be implemented like so below in your project manifest.
