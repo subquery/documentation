@@ -4,7 +4,9 @@
 
 The `schema.graphql` file defines the various GraphQL schemas. Due to the way that the GraphQL query language works, the schema file essentially dictates the shape of your data from SubQuery. To learn more about how to write in GraphQL schema language, we recommend checking out [Schemas and Types](https://graphql.org/learn/schema/#type-language).
 
-**Important: When you make any changes to the schema file, please ensure that you regenerate your types directory.**
+::: warning Important
+When you make any changes to the schema file, don't forget to regenerate your types directory.
+:::
 
 <CodeGroup>
   <CodeGroupItem title="YARN" active>
@@ -40,7 +42,7 @@ type Example @entity {
 
 ### Supported scalars and types
 
-We currently supporting flowing scalars types:
+We are currently supporting following scalars types:
 
 - `ID`
 - `Int`
