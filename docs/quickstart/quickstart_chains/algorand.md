@@ -1,31 +1,32 @@
-# Avalanche Quick Start
+# Algorand Quick Start
 
 ## Goals
 
-The goal of this quick start guide is to index all Pangolin token _RewardPaid_ logs.
+The goal of this quick guide is to adapt the standard starter project and start indexing [all the PLANET token transfers](https://algoexplorer.io/address/ZW3ISEHZUHPO7OZGMKLKIIMKVICOUDRCERI454I3DB2BH52HGLSO67W754) from Algorand.
 
 ::: warning Important
-Before we begin, make sure that you have initialised your project using the provided steps in the [Start Here](../quickstart.md) section.
-::: 
+Before we begin, make sure that you have initialised your project using the provided steps in the **[Start Here](../quickstart.md)** section.
+:::
 
 Now, let's move forward and update these configurations.
 
 Previously, in the [1. Create a New Project](../quickstart.md) section, you must have noted [3 key files](../quickstart.md#_3-make-changes-to-your-project). Let's begin updating them one by one.
+
 ::: info Note
-The final code of this project can be found [here](https://github.com/jamesbayly/pangolin-rewards-tutorial).
+The final code of this project can be found [here](https://github.com/jamesbayly/algorand-planet-watch).
 :::
+
 ## 1. Update Your GraphQL Schema File
 
 The `schema.graphql` file determines the shape of your data from SubQuery due to the mechanism of the GraphQL query language. Hence, updating the GraphQL Schema file is the perfect place to start. It allows you to define your end goal right at the start.
 
-Remove all existing entities and update the `schema.graphql` file as follows, here you can see we are indexing all rewards in Pangolin:
+Remove all existing entities and update the `schema.graphql` file as follows, here you can see we are focussing on indexing all transactions ralated to the PLANET asset.
 
 ```graphql
-type PangolinRewards @entity {
-  id: ID! # Id is required and made up of block has and log index
-  transactionHash: String!
-  blockNumber: BigInt!
-  blockHash: String!
+type Transaction @entity {
+  id: ID! # A unique ID - The transaction ID
+  blockHeight: Int!
+  sender: String!
   receiver: String
   amount: BigInt
 }
@@ -61,36 +62,27 @@ Now that you have made essential changes to the GraphQL Schema file, let’s mov
 
 ## 2. Update Your Project Manifest File
 
-The Project Manifest (`project.yaml`) file works as an entry point to your Avalanche project. It defines most of the details on how SubQuery will index and transform the chain data.
+The Project Manifest (`project.yaml`) file works as an entry point to your Algorand project. It defines most of the details on how SubQuery will index and transform the chain data.
 
 Note that the manifest file has already been set up correctly and doesn’t require significant changes, but you need to change the datasource handlers. This section lists the triggers that look for on the blockchain to start indexing.
 
-**Since you are going to index all Pangolin approval logs, you need to update the `datasources` section as follows:**
-
 ```yaml
 dataSources:
-  - kind: avalanche/Runtime
-    startBlock: 7906490 # Block when the first reward is made
-    options:
-      # Must be a key of assets
-      abi: erc20
-      ## Pangolin reward contract https://snowtrace.io/token/0x88afdae1a9f58da3e68584421937e5f564a0135b
-      address: "0x88afdae1a9f58da3e68584421937e5f564a0135b"
-    assets:
-      erc20:
-        file: "./node_modules/@pangolindex/exchange-contracts/artifacts/contracts/staking-rewards/StakingRewards.sol/StakingRewards.json"
+  - kind: algorand/Runtime
+    startBlock: 8712119 #Block that planet was created on https://algoexplorer.io/tx/G66KX3TLKXUI547DFB4MNVY7SJVADOJKGP4SWMRC632GFHSFX5KQ
     mapping:
-      file: "./dist/index.js"
+      file: ./dist/index.js
       handlers:
-        - handler: handleLog
-          kind: avalanche/LogHandler
+        - handler: handleTransaction
+          kind: algorand/TransactionHandler
           filter:
-            ## Follows standard log filters https://docs.ethers.io/v5/concepts/events/
-            topics:
-              - RewardPaid(address user, uint256 reward)
+            # Payments from the Planet Watch Address for the PLANET asset
+            txType: axfer
+            assetId: 27165954
+            sender: "ZW3ISEHZUHPO7OZGMKLKIIMKVICOUDRCERI454I3DB2BH52HGLSO67W754"
 ```
 
-The above code indicates that you will be running a `handleLog` mapping function whenever there is an `RewardPaid` log on any transaction from the [Pangolin reward contract](https://snowtrace.io/txs?a=0x60781C2586D68229fde47564546784ab3fACA982&p=1).
+The above code indicates that you will be running a `handleTransaction` mapping function whenever there is an Algorand Transaction that includes the asset ID `27165954` and is sent from the `ZW3ISEHZUHPO7OZGMKLKIIMKVICOUDRCERI454I3DB2BH52HGLSO67W754` (Planet) address.
 
 Check out our [Manifest File](../../build/manifest.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
 
@@ -102,38 +94,36 @@ Mapping functions define how chain data is transformed into the optimised GraphQ
 
 Follow these steps to add a mapping function:
 
-- Navigate to the default mapping function in the `src/mappings` directory. You will be able to see three exported functions: `handleBlock`, `handleLog`, and `handleTransaction`. Delete both the `handleBlock` and `handleTransaction` functions as you will only deal with the `handleLog` function.
+- Navigate to the default mapping function in the `src/mappings` directory. You will be able to see two exported functions: `handleBlock` and `handleTransaction`. Delete the `handleBlock` function.
 
-- The `handleLog` function receives event data whenever an event matches the filters, which you specified previously in the `project.yaml`. Let’s make changes to it, process all `RewardPaid` transaction logs, and save them to the GraphQL entities created earlier.
+- The `handleTransaction` function receives event data whenever an event matches the filters, which you specified previously in the `project.yaml`. Let’s make changes to it, process all PLANET token transactions, and save them to the GraphQL entities created earlier.
 
-Update the `handleLog` function as follows (**note the additional imports**):
+Update the `handleTransaction` function as follows (**note the additional imports**):
 
 ```ts
-import { PangolinRewards } from "../types";
-import { AvalancheLog } from "@subql/types-avalanche";
+import { AlgorandTransaction } from "@subql/types-algorand";
+import { Transaction } from "../types";
 
-export async function handleLog(event: AvalancheLog): Promise<void> {
-  const { args } = event;
-  if (args) {
-    const pangolinRewardRecord = new PangolinRewards(
-      `${event.blockHash}-${event.logIndex}`
-    );
-
-    pangolinRewardRecord.transactionHash = event.transactionHash;
-    pangolinRewardRecord.blockHash = event.blockHash;
-    pangolinRewardRecord.blockNumber = BigInt(event.blockNumber);
-
-    pangolinRewardRecord.receiver = args.user;
-    pangolinRewardRecord.amount = BigInt(args.reward.toString());
-
-    await pangolinRewardRecord.save();
+export async function handleTransaction(
+  tx: AlgorandTransaction
+): Promise<void> {
+  // logger.info(JSON.stringify(tx));
+  const transactionEntity: Transaction = Transaction.create({
+    id: tx.id,
+    blockHeight: tx.confirmedRound,
+    sender: tx.sender,
+  });
+  if (tx.paymentTransaction) {
+    (transactionEntity.receiver = tx.paymentTransaction.receiver),
+      (transactionEntity.amount = BigInt(tx.paymentTransaction.amount));
   }
+  await transactionEntity.save();
 }
 ```
 
 Let’s understand how the above code works.
 
-The function here receives an `AvalancheLog` which includes transaction log data in the payload. We extract this data and then instantiate a new `PangolinRewards` entity defined earlier in the `schema.graphql` file. After that, we add additional information and then use the `.save()` function to save the new entity (_Note that SubQuery will automatically save this to the database_).
+Here, the function recieves a `AlgorandTransaction` which includes all transaction data on the payload. We extract this data and then instantiate a new `Transaction` entity (using required properties `id`,`blockHeigh` and `sender`) defined earlier in the `schema.graphql` file. After that, we add additional information about the payment (`receiver` and `amount`properties) and then use the `.save()` function to save the new entity (SubQuery will automatically save this to the database).
 
 Check out our [Mappings](../../build/mapping.md) documentation to get more information on mapping functions.
 
@@ -193,7 +183,7 @@ npm run-script start:docker
 
 ::: info Note
 It may take a few minutes to download the required images and start the various nodes and Postgres databases.
-::: 
+:::
 
 ## 6. Query your Project
 
@@ -209,14 +199,11 @@ Try the following query to understand how it works for your new SubQuery starter
 
 ```graphql
 query {
-  pangolinRewards(first: 1) {
+  transactions(first: 5, orderBy: AMOUNT_DESC) {
     nodes {
       id
-      receiver
-      amount
-      blockNumber
-      blockHash
-      transactionHash
+      blockHeight
+      sender
     }
   }
 }
@@ -227,15 +214,42 @@ You will see the result similar to below:
 ```json
 {
   "data": {
-    "pangolinRewards": {
+    "transactions": {
       "nodes": [
         {
-          "id": "0x39b4d0a98192d1509c15543caa70cad7e067a08d98f9b4e335ab92c87585cf54-60",
-          "receiver": "0x3F8D6e7bA3A842642Fd362C7122BE8d17DC82555",
-          "amount": "48537775882115127788",
-          "blockNumber": "7906491",
-          "blockHash": "0x39b4d0a98192d1509c15543caa70cad7e067a08d98f9b4e335ab92c87585cf54",
-          "transactionHash": "0x202891b2c5c62467b08f04816dfe8ecbaf40e967e1926127318ebcb85c76a46d"
+          "id": "22KTREJE4FXRL26PFS3UACSEEXFMG52RSMLGIT2V5VM65IJ37JFA",
+          "blockHeight": 8716270,
+          "sender": "SHTUSO6YCTH5NV74MU2HC4VOKFGX3NLOUVD5TCZCXQWDSX6JCE4SMZMOYA",
+          "reciever": null,
+          "amount": null
+        },
+        {
+          "id": "236KDOYBH5CZDZSDRQ32XK5W25TQFHVTIRKRPFHLIU2PBOCWMSEQ",
+          "blockHeight": 8715704,
+          "sender": "SHTUSO6YCTH5NV74MU2HC4VOKFGX3NLOUVD5TCZCXQWDSX6JCE4SMZMOYA",
+          "reciever": null,
+          "amount": null
+        },
+        {
+          "id": "237QLNWAR6IDCJQGSW5AF7H3TO7HM4WYF7B7XTFEFI6WZZA43I7A",
+          "blockHeight": 8715145,
+          "sender": "SHTUSO6YCTH5NV74MU2HC4VOKFGX3NLOUVD5TCZCXQWDSX6JCE4SMZMOYA",
+          "reciever": null,
+          "amount": null
+        },
+        {
+          "id": "2466NNRTAREB2JLMDHAHJ24DDSDAYVOGO6H3VH2S45TWKVF7YOKA",
+          "blockHeight": 8716418,
+          "sender": "SHTUSO6YCTH5NV74MU2HC4VOKFGX3NLOUVD5TCZCXQWDSX6JCE4SMZMOYA",
+          "reciever": null,
+          "amount": null
+        },
+        {
+          "id": "24JIQD73JR5KMQ5PIM3J5ZVWTF2ZP4L7N3I257JREEEHGHJTGDXA",
+          "blockHeight": 8715583,
+          "sender": "SHTUSO6YCTH5NV74MU2HC4VOKFGX3NLOUVD5TCZCXQWDSX6JCE4SMZMOYA",
+          "reciever": null,
+          "amount": null
         }
       ]
     }
@@ -244,7 +258,7 @@ You will see the result similar to below:
 ```
 
 ::: info Note
-The final code of this project can be found [here](https://github.com/jamesbayly/pangolin-rewards-tutorial).
+The final code of this project can be found [here](https://github.com/jamesbayly/algorand-planet-watch).
 :::
 
 ## What's next?

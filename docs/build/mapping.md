@@ -87,13 +87,13 @@ export async function handleBlock(block: TerraBlock): Promise<void> {
 </CodeGroupItem>
 </CodeGroup>
 
-A SubstrateBlock is an extended interface type of [signedBlock](https://polkadot.js.org/docs/api/cookbook/blocks/), but also includes the `specVersion` and `timestamp`.
+A `SubstrateBlock` is an extended interface type of [signedBlock](https://polkadot.js.org/docs/api/cookbook/blocks/), but also includes the `specVersion` and `timestamp`.
 
-A Cosmos block is a TODO
+A `CosmosBlock` is a TODO
 
-A TerraBlock is an extended interface type of [Terra.js](https://docs.terra.money/docs/develop/sdks/terra-js/README.html) BlockInfo, but also encapsulates the BlockInfo and TxInfo of all transactions in the block.
+A `TerraBlock` is an extended interface type of [Terra.js](https://docs.terra.money/docs/develop/sdks/terra-js/README.html) BlockInfo, but also encapsulates the BlockInfo and TxInfo of all transactions in the block.
 
-An AvalancheBlock encapsulates all transactions and events in the block.
+An `AvalancheBlock` encapsulates all transactions and events in the block.
 
 ## Event Handler
 
@@ -154,11 +154,11 @@ export async function handleEvent(
 </CodeGroupItem>
 </CodeGroup>
 
-A SubstrateEvent is an extended interface type of the [EventRecord](https://github.com/polkadot-js/api/blob/f0ce53f5a5e1e5a77cc01bf7f9ddb7fcf8546d11/packages/types/src/interfaces/system/types.ts#L149). Besides the event data, it also includes an `id` (the block to which this event belongs) and the extrinsic inside of this block.
+A `SubstrateEvent` is an extended interface type of the [EventRecord](https://github.com/polkadot-js/api/blob/f0ce53f5a5e1e5a77cc01bf7f9ddb7fcf8546d11/packages/types/src/interfaces/system/types.ts#L149). Besides the event data, it also includes an `id` (the block to which this event belongs) and the extrinsic inside of this block.
 
-An AvalancheEvent encapsulates Event data and Transaction/Block information corresponding to the event.
+An `AvalancheEvent` encapsulates Event data and Transaction/Block information corresponding to the event.
 
-A CosmosEvent/TerraEvent encapsulates Event data and TxLog corresponding to the event. It also contains CosmosMessage/TerraMessage data of the message connected to the event. Also, it includes the CosmosBlock/TerraBlock and CosmosTransaction/TerraTransaction data of the block and transaction from which the event was emitted.
+A `CosmosEvent`/`TerraEvent` encapsulates Event data and TxLog corresponding to the event. It also contains CosmosMessage/TerraMessage data of the message connected to the event. Also, it includes the CosmosBlock/TerraBlock and CosmosTransaction/TerraTransaction data of the block and transaction from which the event was emitted.
 
 ::: info Note
 From `@subql/types` version `X.X.X` onwards `SubstrateEvent` is now generic. This can provide you with higher type safety when developing your project.
@@ -285,7 +285,7 @@ export async function handleTransaction(tx: TerraTransaction): Promise<void> {
 
 The `CosmosTransaction`/`TerraTransaction` encapsulates TxInfo and the corresponding `CosmosBlock`/`TerraBlock` in which the transaction occured.
 
-The AvalancheTransaction encapsulates TxInfo and the corresponding block information in which the transaction occured.
+The `AvalancheTransaction` encapsulates TxInfo and the corresponding block information in which the transaction occured.
 
 ## Message Handler
 
@@ -330,7 +330,7 @@ export async function handleMessage(
 </CodeGroupItem>
 </CodeGroup>
 
-CosmosMessage/TerraMessage encapsulates the `msg` object containing the message data, the CosmosTransaction/TerraTransaction in which the message occured in and also the CosmosBlock/TerraBlock in which the transaction occured in.
+`CosmosMessage`/`TerraMessage` encapsulates the `msg` object containing the message data, the `CosmosTransaction`/`TerraTransaction` in which the message occured in and also the `CosmosBlock`/`TerraBlock` in which the transaction occured in.
 
 ## The Sandbox
 

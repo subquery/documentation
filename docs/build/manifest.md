@@ -24,12 +24,13 @@ schema:
   file: ./schema.graphql
 network:
   chainId: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3'
+  # Must be a non-pruned archive node
   endpoint: wss://polkadot.api.onfinality.io/public-ws
   # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
   dictionary: https://api.subquery.network/sq/subquery/polkadot-dictionary
 dataSources:
   - kind: substrate/Runtime
-    startBlock: 1
+    startBlock: 1 # Block to start indexing from
     mapping:
       file: ./dist/index.js
       handlers:
@@ -63,15 +64,16 @@ repository: https://github.com/subquery/avalanche-subql-starter
 schema:
   file: ./schema.graphql
 network:
-  endpoint: https://avalanche.api.onfinality.io/
   chainId: mainnet
   type: avalanche
   chainName: C
+  # Must be a non-pruned archive node
+  endpoint: https://avalanche.api.onfinality.io/
   # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
   dictionary: https://api.subquery.network/sq/subquery/avalanche-dictionary
 dataSources:
   - kind: avalanche/Runtime
-    startBlock: 1
+    startBlock: 1 # Block to start indexing from
     options:
       # Must be a key of assets
       abi: erc20
@@ -121,6 +123,7 @@ schema:
   file: ./schema.graphql
 network:
   chainId: juno-1
+  # Must be a non-pruned archive node
   endpoint: https://rpc.juno-1.api.onfinality.io
   # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
   dictionary: https://api.subquery.network/sq/subquery/cosmos-juno-1-dictionary
@@ -178,11 +181,15 @@ repository: 'https://github.com/subquery/algorand-subql-starter'
 schema:
   file: ./schema.graphql
 network:
-  chainId: 'SGO1GKSzyE7IEPItTxCByw9x8FmnrCDexi9/cOUJOiI='
-  endpoint: 'https://algoindexer.testnet.algoexplorerapi.io'
+  chainId: "wGHE2Pwdvd7S12BL5FaOP20EGYesN73ktiC1qzkkit8="
+  # Must be a non-pruned archive node
+  endpoint: "https://algoindexer.algoexplorerapi.io"
+  # For the testnet use the following
+  # chainId: "SGO1GKSzyE7IEPItTxCByw9x8FmnrCDexi9/cOUJOiI="
+  # endpoint: "https://algoindexer.testnet.algoexplorerapi.io"
 dataSources:
   - kind: algorand/Runtime
-    startBlock: 50000
+    startBlock: 50000 # Block to start indexing from
     mapping:
       file: ./dist/index.js
       handlers:
@@ -360,7 +367,7 @@ If you have a project with specVersion v0.2.0, The only change is a new **requir
 
 If you start your project by using the `subql init` command, you'll generally receive a starter project with the correct network settings. If you are changing the target chain of an existing project, you'll need to edit the [Network Spec](manifest.md#network-spec) section of this manifest.
 
-The `chainId` or `genesisHash` is the network identifier of the blockchain. Examples in Terra include `bombay-12`, or `columbus-12`, Avalanche might be `mainnet`, Cosmos might be `juno-1`, and in Substrate it is always the genesis hash of the network (hash of the first block). You can retrieve this easily by going to [PolkadotJS](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fkusama.api.onfinality.io%2Fpublic-ws#/explorer/query/0) and looking for the hash on **block 0** (see the image below).
+The `chainId` or `genesisHash` is the network identifier of the blockchain. Examples in Terra include `bombay-12`, or `columbus-12`, Avalanche might be `mainnet`, Cosmos might be `juno-1`, and in Substrate and Algorand it is always the genesis hash of the network (hash of the first block). You can retrieve this easily by going to [PolkadotJS](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fkusama.api.onfinality.io%2Fpublic-ws#/explorer/query/0) and looking for the hash on **block 0** (see the image below).
 
 ![Genesis Hash](/assets/img/genesis-hash.jpg)
 
