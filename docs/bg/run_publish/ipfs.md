@@ -7,7 +7,7 @@
 ## Изисквания
 
 - `@subql/cli` версия 0.21.0 или по-нова.
-- Manifest `specVersion` 0.2.0 и по-нова версия.
+- Manifest `specVersion` 1.0.0 and above.
 - Get your [SUBQL_ACCESS_TOKEN](ipfs.md#prepare-your-subql-access-token) ready.
 - За да сте сигурни, че внедряването ви е успешно, силно препоръчваме да изградите проекта си с командата `subql build` и да го тествате локално, преди да го публикувате.
 
