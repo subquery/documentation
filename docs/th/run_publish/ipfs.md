@@ -7,7 +7,7 @@ Hosting a project in IPFS makes it available for all and reduces your reliance o
 ## สิ่งที่ต้องมี:
 
 - `@subql/cli` เวอร์ชั่น 0.21.0 หรือสูงกว่า
-- Manifest `specVersion` 0.2.0 หรือสูงกว่า
+- Manifest `specVersion` 1.0.0 and above.
 - Get your [SUBQL_ACCESS_TOKEN](ipfs.md#prepare-your-subql-access-token) ready.
 - เพื่อให้แน่ใจว่าการทำให้ใช้งานได้สำเร็จ เราขอแนะนำให้คุณสร้างโปรเจกต์ด้วยคำสั่ง `subql build` และทดสอบในเครื่องก่อนเผยแพร่
 
