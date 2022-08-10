@@ -7,7 +7,7 @@
 ## 安装要求
 
 - `@subql/cli` 版本 0.21.0 或以上.
-- Manifest `spec版本` 0.2.0 及以上.
+- Manifest `specVersion` 1.0.0 and above.
 - 准备好您的 [SUBQL_ACCESS_TOKEN](ipfs.md#prepare-your-subql-access-token)
 - 为了确保您的部署成功，我们强烈建议您使用 `subql build` 命令来构建您的项目。 并在发布前在本地测试它。
 
