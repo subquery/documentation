@@ -37,7 +37,7 @@ GitHub 조직 계정이 연결된 경우 헤더의 스위처를 사용하여 개
 
 ### Create Your First Project
 
-There are two methods to create a project in the SubQuery Managed Service, you can use the UI or directly via the `subql` cli tool.
+There are three methods to create a project in the SubQuery Managed Service: you can use the UI, create it directly via the `subql` cli tool, or use an automated GitHub action.
 
 #### Using the UI
 
@@ -124,9 +124,9 @@ $ subql deployment:deploy
   --type=(stage|primary)           [default: primary]
 ```
 
-#### Using Github actions
+#### Using GitHub actions
 
-With the introduction of the deployment feature for the CLI, we've added a default Action workflow to GitHub that will allow you to publish and deploy your changes automatically:
+With the introduction of the deployment feature for the CLI, we've added a **Default Action Workflow** to [the starter project in GitHub](https://github.com/subquery/subql-starter/blob/v1.0.0/.github/workflows/cli-deploy.yml) that will allow you to publish and deploy your changes automatically:
 
 - Step 1: After pushing your project to GitHub, create `DEPLOYMENT` environment on GitHub, and add the secret [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) to it.
 - Step 2: Create a project on [SubQuery Projects](https://project.subquery.network), this can be done using the the [UI](#using-the-ui) or [CLI](#using-the-cli).
