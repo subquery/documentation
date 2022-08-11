@@ -37,7 +37,7 @@ Jika Anda memiliki akun Organisasi GitHub yang terhubung, Anda dapat menggunakan
 
 ### Buat Proyek Pertama Anda
 
-Ada dua metode untuk membuat proyek di SubQuery Managed Service, Anda dapat menggunakan UI atau langsung melalui alat `subql` cli.
+There are three methods to create a project in the SubQuery Managed Service: you can use the UI, create it directly via the `subql` cli tool, or use an automated GitHub action.
 
 #### Menggunakan UI
 
@@ -124,9 +124,9 @@ $ subql deployment:deploy
   --type=(stage|primary) [default: primary]
 ```
 
-#### Menggunakan tindakan Github
+#### Using GitHub actions
 
-Dengan diperkenalkannya fitur penyebaran untuk CLI, kami telah menambahkan alur kerja Action default ke GitHub yang akan memungkinkan Anda untuk mempublikasikan dan menyebarkan perubahan Anda secara otomatis:
+With the introduction of the deployment feature for the CLI, we've added a **Default Action Workflow** to [the starter project in GitHub](https://github.com/subquery/subql-starter/blob/v1.0.0/.github/workflows/cli-deploy.yml) that will allow you to publish and deploy your changes automatically:
 
 - Langkah 1: Setelah mendorong proyek Anda ke GitHub, buat lingkungan `DEPLOYMENT` di GitHub, dan tambahkan rahasia [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) ke dalamnya.
 - Langkah 2: Buat proyek pada [Proyek SubQuery](https://project.subquery.network), ini dapat dilakukan dengan menggunakan [UI](#using-the-ui) atau [CLI](#using-the-cli).
