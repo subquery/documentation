@@ -106,7 +106,6 @@ network:
   chainId: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3'
   endpoint: 'wss://polkadot.api.onfinality.io/public-ws'
   dictionary: 'https://api.subquery.network/sq/subquery/polkadot-dictionary'
-  #genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3'
 dataSources:
   - kind: substrate/Runtime
     startBlock: 7000000
@@ -119,8 +118,6 @@ dataSources:
             module: staking
             method: Rewarded
 ```
-
-Notice that `genesisHash` has been excluded. 
 
 :::info note
 In this example, we are starting at the block height 7 million, and **strictly note that indenting matters here**. Otherwise you will get the following error:
@@ -217,7 +214,10 @@ For that, first run the standard `yarn install`and then `yarn codegen`, and `yar
 
   ```shell
   yarn install
-  ```
+  yarn codegen
+  yarn build
+  yarn start:docker
+```
 
   </CodeGroupItem>
 
@@ -225,53 +225,12 @@ For that, first run the standard `yarn install`and then `yarn codegen`, and `yar
 
   ```bash
   npm install
-  ```
-
-  </CodeGroupItem>
-</CodeGroup>
-
-<CodeGroup>
-  <CodeGroupItem title="YARN" active>
-
-  ```shell
-  yarn codegen
-  ```
-
-  </CodeGroupItem>
-
-  <CodeGroupItem title="NPM">
-
-  ```bash
   npm run-script codegen
-  ```
-
-  </CodeGroupItem>
-</CodeGroup>
-
-<CodeGroup>
-  <CodeGroupItem title="YARN" active>
-
-  ```shell
-  yarn build
-  ```
-
-  </CodeGroupItem>
-
-  <CodeGroupItem title="NPM">
-
-  ```bash
   npm run-script build
   ```
 
   </CodeGroupItem>
 </CodeGroup>
-
-
-```
-yarn start:docker
-```
-
-
 
 #### Step 6: Query the Project
 
@@ -470,13 +429,13 @@ import {SubstrateEvent} from "@subql/types";
 import {StakingReward, SumReward} from "../types";
 import {Balance} from "@polkadot/types/interfaces";
 
-
 export async function handleStakingRewarded(event: SubstrateEvent): Promise<void> {
     const {event: {data: [account, newReward]}} = event;
     const entity = new StakingReward(`${event.block.block.header.number}-${event.idx.toString()}`);
     entity.account = account.toString();
     entity.balance = (newReward as Balance).toBigInt();
     entity.date = event.block.timestamp;
+    entity.blockHeight = event.block.block.header.number.toNumber();
     await entity.save();
 }
 
