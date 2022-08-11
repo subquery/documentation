@@ -9,7 +9,7 @@
 
 ## Запустить изменения
 
-Существует два способа развертывания новой версии вашего проекта в SubQuery Managed Service: вы можете использовать пользовательский интерфейс или непосредственно инструмент `subql` cli.
+There are three methods to deploy a new version of your project to the SubQuery Managed Service: you can use the UI, create it directly via the `subql` cli tool, or use an automated GitHub action.
 
 ### Использование пользовательского интерфейса
 
@@ -43,9 +43,35 @@ $ subql deployment:deploy --indexerVersion=1.1.2 --queryVersion=1.1.1
 $ subql deployment:deploy
 ```
 
+### Using GitHub actions
+
+With the introduction of the deployment feature for the CLI, we've added a **Default Action Workflow** to [the starter project in GitHub](https://github.com/subquery/subql-starter/blob/v1.0.0/.github/workflows/cli-deploy.yml) that will allow you to publish and deploy your changes automatically:
+
+- Step 1: After pushing your project to GitHub, create `DEPLOYMENT` environment on GitHub, and add the secret [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) to it.
+- Step 2: If you haven't already, create a project on [SubQuery Projects](https://project.subquery.network). This can be done using the the [UI](#using-the-ui) or [CLI](#using-the-cli).
+- Step 3: Once your project is created, navigate to the GitHub Actions page of your project, and select the workflow `CLI deploy`.
+- Step 4: You'll see an input field where you can enter the unique code of your project created on SubQuery Projects. You can get the code from the URL in SubQuery Projects [SubQuery Projects](https://project.subquery.network). The code is based on the name of your project, where spaces are replaced with hyphens `-`. e.g. `my project name` becomes `my-project-name`.
+
+::: tips Tip
+Once the workflow is complete, you should be able to see your project deployed to our Managed Service.
+:::
+
+A common approach is to extend the default GitHub Action to automatically deploy changes to our Managed Service when code is merged into the main branch. The following change to the GitHub Action workflow do this:
+
+```yml
+on:
+  push:
+    branches:
+      - main
+jobs:
+  deploy:
+    name: CLI Deploy
+    ...
+```
+
 ## Обновление до последней версии индексатора и Query Service
 
-Если вы просто хотите перейти на последнюю версию индексатора ([`@subql/node`](https://www.npmjs.com/package/@subql/node)) или службы запросов ([`@subql/query`](https://www.npmjs.com/package/@subql/query)), чтобы воспользоваться преимуществами наших регулярных улучшений производительности и стабильности, просто выберите более новые версии наших пакетов и сохраните. Это вызовет лишь несколько минут простоя, когда будут перезапущены службы, работающие с вашим проектом.
+If you just want to upgrade to the latest indexer ([`@subql/node`](https://www.npmjs.com/package/@subql/node)) or query service ([`@subql/query`](https://www.npmjs.com/package/@subql/query)) to take advantage of our regular performance and stability improvements, just select a newer versions of our packages and save. This will cause only a few minutes of downtime as the services running your project are restarted.
 
 ## Следующие шаги - подключитесь к вашему проекту
 
@@ -53,4 +79,4 @@ $ subql deployment:deploy
 
 ![Проект будет развернут и синхронизирован](/assets/img/projects-deploy-sync.png)
 
-Кроме того, вы можете щелкнуть три точки рядом с названием вашего проекта и просмотреть его в SubQuery Explorer. Там вы можете использовать игровую площадку в браузере, чтобы начать работу - [читайте больше о том, как использовать наш Explorer здесь](../run_publish/query.md).
+Кроме того, вы можете щелкнуть три точки рядом с названием вашего проекта и просмотреть его в SubQuery Explorer. There you can use the in browser playground to get started - [read more about how to use our Explorer here](../run_publish/query.md).
