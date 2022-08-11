@@ -37,7 +37,7 @@ SubQuery 项目是您管理上传到SubQuery平台的所有托管项目的地方
 
 ### 创建您的第一个项目。
 
-在SubQuery Managed Service中创建一个项目有两种方法。 您可以使用界面或直接通过 `subql` cli 工具。
+There are three methods to create a project in the SubQuery Managed Service: you can use the UI, create it directly via the `subql` cli tool, or use an automated GitHub action.
 
 #### 使用用户界面
 
@@ -124,9 +124,9 @@ $ subql deployment:deploy
   --type=(stage|primary)           [default: primary]
 ```
 
-#### 使用 GitHub Actions
+#### Using GitHub actions
 
-随着国家排雷行动中心的部署功能的引入。 我们已经添加了默认操作流程到 GitHub ，这将允许您自动发布和部署您的更改：
+With the introduction of the deployment feature for the CLI, we've added a **Default Action Workflow** to [the starter project in GitHub](https://github.com/subquery/subql-starter/blob/v1.0.0/.github/workflows/cli-deploy.yml) that will allow you to publish and deploy your changes automatically:
 
 - 第 1 步：将您的项目推送到 GitHub 后，在 GitHub 上创建 `DEPLOYMENT` 环境，并添加秘钥 [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token)
 - 步骤 2: 在 [SubQuery 项目](https://project.subquery.network), 创建一个项目 这可以使用 [UI](#using-the-ui) 或 [CLI](#using-the-cli) 来完成。
