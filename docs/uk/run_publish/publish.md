@@ -37,7 +37,7 @@ SubQuery Projects — це місце, де ви керуєте всіма св�
 
 ### Створіть Свій Перший Проєкт
 
-Існує два способи створення проєкту в керованому сервісі SubQuery, ви можете використовувати користувальницький інтерфейс або безпосередньо через інструмент `subql ` cli.
+There are three methods to create a project in the SubQuery Managed Service: you can use the UI, create it directly via the `subql` cli tool, or use an automated GitHub action.
 
 #### Використання інтерфейсу користувача
 
@@ -124,9 +124,9 @@ $ subql deployment:deploy
   --type=(stage|primary)           [default: primary]
 ```
 
-#### Using Github actions
+#### Using GitHub actions
 
-With the introduction of the deployment feature for the CLI, we've added a default Action workflow to GitHub that will allow you to publish and deploy your changes automatically:
+With the introduction of the deployment feature for the CLI, we've added a **Default Action Workflow** to [the starter project in GitHub](https://github.com/subquery/subql-starter/blob/v1.0.0/.github/workflows/cli-deploy.yml) that will allow you to publish and deploy your changes automatically:
 
 - Step 1: After pushing your project to GitHub, create `DEPLOYMENT` environment on GitHub, and add the secret [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) to it.
 - Step 2: Create a project on [SubQuery Projects](https://project.subquery.network), this can be done using the the [UI](#using-the-ui) or [CLI](#using-the-cli).
@@ -151,9 +151,9 @@ jobs:
 
 Після того, як ваше розгортання успішно завершиться і наші вузли індексують ваші дані з ланцюга, ви зможете підключитися до вашого проекту через відображену кінцеву точку GraphQL Query.
 
-![Проект розгортається та синхронізується](/assets/img/projects-deploy-sync.png)
+![Проєкт розгортається і синхронізується](/assets/img/projects-deploy-sync.png)
 
-Крім того, ви можете натиснути на три точки поруч із заголовком проекту та переглянути його на SubQuery Explorer. There you can use the in-browser playground to get started - [read more about how to use our Explorer here](../run_publish/query.md).
+Крім того, ви можете натиснути на три точки поруч із заголовком проєкту та переглянути його на SubQuery Explorer. There you can use the in-browser playground to get started - [read more about how to use our Explorer here](../run_publish/query.md).
 
 ![Проєкти в провіднику вкладених SubQuery](/assets/img/projects-explorer.png)
 
