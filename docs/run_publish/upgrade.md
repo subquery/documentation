@@ -9,7 +9,7 @@ Although you have the freedom to always upgrade and deploy new versions of your 
 
 ## Deploy Changes
 
-There are three methods to deploy a new version of your project in the SubQuery Managed Service, you can use the UI, directly via the `subql` cli tool, or using an automated GitHub action.
+There are three methods to deploy a new version of your project to the SubQuery Managed Service: you can use the UI, create it directly via the `subql` cli tool, or use an automated GitHub action.
 
 ### Using the UI
 
