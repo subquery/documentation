@@ -77,25 +77,25 @@ subql-node -f . --force-clean --subquery-name=<project-name>
 Perhatikan bahwa disarankan untuk menggunakan `--force-clean` saat mengubah `startBlock` dalam manifes proyek (`project.yaml`) untuk memulai pengindeksan ulang dari blok yang dikonfigurasi. Jika `startBlock` diubah tanpa `--force-clean` proyek, maka pengindeks akan melanjutkan pengindeksan dengan `startBlock` yang dikonfigurasi sebelumnya.
 
 
-## How can I optimise my project to speed it up?
+## Bagaimana saya bisa mengoptimalkan proyek saya untuk mempercepatnya?
 
-Performance is a crucial factor in each project. Fortunately, there are several things you could do to improve it. Here is the list of some suggestions:
+Performa merupakan faktor krusial dalam setiap proyek. Untungnya, ada beberapa hal yang bisa Anda lakukan untuk memperbaikinya. Berikut ini daftar beberapa saran:
 
-- Avoid using block handlers where possible.
-- Query only necessary fields.
-- Try to use filter conditions to reduce the response size. Create filters as specific as possible to avoid querying unnecessary data.
-- For large data tables, avoid querying `totalCount` without adding conditions.
-- Add indexes to entity fields for query performance, this is especially important for historical projects.
-- Set the start block to when the contract was initialised.
-- Always use a [dictionary](../tutorials_examples/dictionary.html#how-does-a-subquery-dictionary-work) (we can help create one for your new network).
-- Optimise your schema design, keep it as simple as possible.
-    - Try to reduce unnecessary fields and columns.
-    - Create  indexes as needed.
-- Use parallel/batch processing as often as possible.
-    - Use `api.queryMulti()` to optimise Polkadot API calls inside mapping functions and query them in parallel. This is a faster way than a loop.
-    - Use `Promise.all()`. In case of multiple async functions, it is better to execute them and resolve in parallel.
-    - If you want to create a lot of entities within a single handler, you can use `store.bulkCreate(entityName: string, entities: Entity[])`. You can create them in parallel, no need to do this one by one.
-- Making API calls to query state can be slow. You could try to minimise calls where possible and to use `extrinsic/transaction/event` data.
-- Use `worker threads` to move block fetching and block processing into its own worker thread. It could speed up indexing by up to 4 times (depending on the particular project). You can easily enable it using the `-workers=<number>` flag. Perhatikan bahwa jumlah core CPU yang tersedia sangat membatasi penggunaan thread pekerja. For now, it is only available for Substrate and Cosmos and will soon be integrated for Avalanche.
-- Note that `JSON.stringify` doesn’t support native `BigInts`. Our logging library will do this internally if you attempt to log an object. We are looking at a workaround for this.
-- Use a convenient `modulo` filter to run a handler only once to a specific block. This filter allows handling any given number of blocks, which is extremely useful for grouping and calculating data at a set interval. For instance, if modulo is set to 50, the block handler will run on every 50 blocks. It provides even more control over indexing data to developers and can be implemented like so below in your project manifest.
+- Hindari menggunakan block handler jika memungkinkan.
+- Kueri hanya bidang yang diperlukan.
+- Coba gunakan kondisi filter untuk mengurangi ukuran respons. Buat filter sespesifik mungkin untuk menghindari kueri data yang tidak perlu.
+- Untuk tabel data yang besar, hindari query `totalCount` tanpa menambahkan kondisi.
+- Tambahkan indeks ke bidang entitas untuk kinerja kueri, ini sangat penting untuk proyek historis.
+- Atur blok awal ke saat kontrak diinisialisasi.
+- Selalu gunakan [dictionary](../tutorials_examples/dictionary.html#how-does-a-subquery-dictionary-work) (kami dapat membantu membuatnya untuk jaringan baru Anda).
+- Optimalkan desain skema Anda, buatlah sesederhana mungkin.
+    - Cobalah untuk mengurangi bidang dan kolom yang tidak perlu.
+    - Buat indeks sesuai kebutuhan.
+- Gunakan pemrosesan paralel/batch sesering mungkin.
+    - Gunakan `api.queryMulti()` untuk mengoptimalkan panggilan API Polkadot di dalam fungsi pemetaan dan menanyakannya secara paralel. Ini adalah cara yang lebih cepat daripada loop.
+    - Gunakan `Promise.all()`. Dalam kasus beberapa fungsi async, lebih baik mengeksekusinya dan menyelesaikannya secara paralel.
+    - Jika Anda ingin membuat banyak entitas dalam satu handler, Anda dapat menggunakan `store.bulkCreate(entityName: string, entities: Entity[])`. Anda bisa membuatnya secara paralel, tidak perlu melakukannya satu per satu.
+- Membuat panggilan API untuk menanyakan state bisa lambat. Anda bisa mencoba untuk meminimalkan pemanggilan jika memungkinkan dan menggunakan data `ekstrinsik/transaksi/event`.
+- Gunakan `worker threads` untuk memindahkan pengambilan blok dan pemrosesan blok ke dalam thread pekerja sendiri. Ini bisa mempercepat pengindeksan hingga 4 kali lipat (tergantung pada proyek tertentu). Anda bisa dengan mudah mengaktifkannya dengan menggunakan flag `-workers=<number>`. Perhatikan bahwa jumlah core CPU yang tersedia sangat membatasi penggunaan thread pekerja. Untuk saat ini, ini hanya tersedia untuk Substrate dan Cosmos dan akan segera diintegrasikan untuk Avalanche.
+- Perhatikan bahwa `JSON.stringify` tidak mendukung native `BigInts`. Pustaka logging kami akan melakukan hal ini secara internal jika Anda mencoba untuk mencatat sebuah objek. Kami sedang mencari solusi untuk ini.
+- Gunakan filter `modulo` yang mudah digunakan untuk menjalankan handler hanya sekali ke blok tertentu. Filter ini memungkinkan penanganan sejumlah blok tertentu, yang sangat berguna untuk mengelompokkan dan menghitung data pada interval yang ditetapkan. Sebagai contoh, jika modulo diatur ke 50, block handler akan berjalan pada setiap 50 blok. Ini memberikan lebih banyak kontrol atas data pengindeksan kepada pengembang dan dapat diimplementasikan seperti di bawah ini dalam manifes proyek Anda.
