@@ -9,7 +9,7 @@ Meskipun Anda memiliki kebebasan untuk selalu meningkatkan dan menerapkan versi 
 
 ## Terapkan Perubahan
 
-There are three methods to deploy a new version of your project to the SubQuery Managed Service: you can use the UI, create it directly via the `subql` cli tool, or use an automated GitHub action.
+Ada tiga metode untuk menyebarkan versi baru proyek Anda ke Layanan Terkelola SubQuery: Anda dapat menggunakan UI, membuatnya langsung melalui alat `subql` cli, atau menggunakan tindakan GitHub otomatis.
 
 ### Menggunakan UI
 
@@ -43,20 +43,20 @@ $ subql deployment:deploy --indexerVersion=1.1.2 --queryVersion=1.1.1
 $ subql deployment:deploy
 ```
 
-### Using GitHub actions
+### Menggunakan tindakan GitHub
 
-With the introduction of the deployment feature for the CLI, we've added a **Default Action Workflow** to [the starter project in GitHub](https://github.com/subquery/subql-starter/blob/v1.0.0/.github/workflows/cli-deploy.yml) that will allow you to publish and deploy your changes automatically:
+Dengan diperkenalkannya fitur penyebaran untuk CLI, kami telah menambahkan **Default Action Workflow** ke [proyek starter di GitHub](https://github.com/subquery/subql-starter/blob/v1.0.0/.github/workflows/cli-deploy.yml) yang akan memungkinkan Anda untuk menerbitkan dan menyebarkan perubahan Anda secara otomatis:
 
 - Langkah 1: Setelah mendorong proyek Anda ke GitHub, buat lingkungan `DEPLOYMENT` di GitHub, dan tambahkan rahasia [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) ke dalamnya.
-- Step 2: If you haven't already, create a project on [SubQuery Projects](https://project.subquery.network). This can be done using the the [UI](#using-the-ui) or [CLI](#using-the-cli).
-- Step 3: Once your project is created, navigate to the GitHub Actions page of your project, and select the workflow `CLI deploy`.
-- Step 4: You'll see an input field where you can enter the unique code of your project created on SubQuery Projects. You can get the code from the URL in SubQuery Projects [SubQuery Projects](https://project.subquery.network). Kode ini didasarkan pada nama proyek Anda, di mana spasi diganti dengan tanda hubung `-`. e.g. `my project name` becomes `my-project-name`.
+- Langkah 2: Jika Anda belum melakukannya, buat proyek pada [Proyek SubQuery](https://project.subquery.network). Hal ini bisa dilakukan dengan menggunakan [UI](#using-the-ui) atau [CLI](#using-the-cli).
+- Langkah 3: Setelah proyek Anda dibuat, navigasikan ke halaman Tindakan GitHub dari proyek Anda, dan pilih alur kerja `CLI deploy`.
+- Langkah 4: Anda akan melihat bidang input di mana Anda dapat memasukkan kode unik proyek Anda yang dibuat di SubQuery Projects. Anda bisa mendapatkan kode dari URL di Proyek SubQuery [Proyek SubQuery](https://project.subquery.network). Kode ini didasarkan pada nama proyek Anda, di mana spasi diganti dengan tanda hubung `-`. misalnya `nama proyek saya` menjadi `nama proyek saya`.
 
-::: tips Tip
-Once the workflow is complete, you should be able to see your project deployed to our Managed Service.
+:::: tips Tip
+Setelah alur kerja selesai, Anda seharusnya dapat melihat proyek Anda diterapkan ke Managed Service kami.
 :::
 
-A common approach is to extend the default GitHub Action to automatically deploy changes to our Managed Service when code is merged into the main branch. Perubahan berikut pada alur kerja GitHub Action melakukan hal ini:
+Pendekatan umum adalah memperluas Tindakan GitHub default untuk secara otomatis menyebarkan perubahan ke Layanan Terkelola kami ketika kode digabungkan ke cabang utama. Perubahan berikut pada alur kerja GitHub Action melakukan hal ini:
 
 ```yml
 on:
@@ -71,7 +71,7 @@ jobs:
 
 ## Tingkatkan ke Pengindeks dan Layanan Kueri Terbaru
 
-If you just want to upgrade to the latest indexer ([`@subql/node`](https://www.npmjs.com/package/@subql/node)) or query service ([`@subql/query`](https://www.npmjs.com/package/@subql/query)) to take advantage of our regular performance and stability improvements, just select a newer versions of our packages and save. This will cause only a few minutes of downtime as the services running your project are restarted.
+Jika Anda hanya ingin meng-upgrade ke indexer terbaru ([`@subql/node`](https://www.npmjs.com/package/@subql/node)) atau layanan kueri ([`@subql/query`](https://www.npmjs.com/package/@subql/query)) untuk memanfaatkan peningkatan kinerja dan stabilitas reguler kami, cukup pilih versi terbaru dari paket kami dan simpan. Ini hanya akan menyebabkan downtime beberapa menit karena layanan yang menjalankan proyek Anda dimulai ulang.
 
 ## Langkah Selanjutnya - Hubungkan ke Proyek Anda
 
@@ -79,4 +79,4 @@ Setelah penerapan Anda berhasil diselesaikan dan node kami telah mengindeks data
 
 ![Proyek sedang diterapkan dan disinkronkan](/assets/img/projects-deploy-sync.png)
 
-Atau, Anda dapat mengklik tiga titik di samping judul proyek Anda, dan melihatnya di SubQuery Explorer. There you can use the in browser playground to get started - [read more about how to use our Explorer here](../run_publish/query.md).
+Atau, Anda dapat mengklik tiga titik di samping judul proyek Anda, dan melihatnya di SubQuery Explorer. Di sana Anda dapat menggunakan taman bermain di browser untuk memulai - [baca lebih lanjut tentang cara menggunakan Explorer kami di sini](../run_publish/query.md).
