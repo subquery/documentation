@@ -34,7 +34,7 @@
           <div>
             <img src="/assets/img/tutorialsIcon.svg" />
             <span>Practice with Tutorials & Examples</span>
-            <p>Learning by doing. Practice with SubQuery’s real-world blockchain projects & improve your skills.</p>
+            <p>Learn by doing and practice with SubQuery’s real-world blockchain projects & improve your skills.</p>
           </div>
         </router-link>
       </li>
@@ -66,7 +66,7 @@
       <li>
         <div class="title">SubQuery란?</div>
         <div class="content">
-          <p>SubQuery is an open-source blockchain data indexer. It provides developers with faster and decentralised APIs. It allows you to build powerful multi-chain apps without wasting hours on indexing and quickly querying data.</p>
+          <p>SubQuery is an open source blockchain data indexer for developers that provides fast, flexible, reliable, and decentralised APIs to power leading multi-chain apps.</p>
           <span class="more">
             <router-link :to="{path: '/faqs/faqs.html#what-is-subquery'}">READ MORE</router-link>
           </span>
@@ -90,7 +90,7 @@
       <li>
         <div class="title">SubQuery 프로젝트에서 내 프로젝트를 호스팅하는 데 비용이 얼마나 듭니까?</div>
         <div class="content">
-          <p>Hosting your project in SubQuery Projects is absolutely free — it is our way of giving back to the community. To learn how to host your project with us, please check out the <a href="https://academy.subquery.network/run_publish/publish.html">Hello World (SubQuery Hosted)</a> tutorial.</p>
+          <p>This service is being provided to the community with a generous free tier! You can host your first two SubQuery projects for absolutely free!</p>
           <span class="more">
             <router-link :to="{path: '/run_publish/publish.html'}">HOSTING YOUR PROJECT</router-link>
           </span>
