@@ -106,7 +106,7 @@
         <h5>Integrate with Your Custom Substrate Chain</h5>
         <p>Создаете ли вы новый парачейн или совершенно новый блокчейн в Substrate — субзапрос поможет вам индексировать и устранить неполадки в цепочке. SubQuery helps you easily integrate with a custom Substrate-based chain.</p>
         <span class="more">
-          <<router-link :to="{path: '/build/manifest.html#custom-substrate-and-cosmos-chains'}">УЗНАЙТЕ, КАК ИНТЕГРИРОВАТЬСЯ С ВАШЕЙ ЦЕПОЧКОЙ</router-link>
+          <router-link :to="{path: '/build/manifest/polkadot.html#custom-substrate-chains'}">LEARN HOW TO INTEGRATE WITH YOUR CHAIN</router-link>
         </span>
     </div>
     <div class="lastIntroduce lastIntroduce_2">
