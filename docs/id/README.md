@@ -34,7 +34,7 @@
           <div>
             <img src="/assets/img/tutorialsIcon.svg" />
             <span>Berlatih dengan Tutorial & Contoh</span>
-            <p>Belajar dengan melakukan. Berlatih dengan proyek-proyek blockchain dunia nyata SubQuery & tingkatkan keterampilan Anda.</p>
+            <p>Learn by doing and practice with SubQuery’s real-world blockchain projects & improve your skills.</p>
           </div>
         </router-link>
       </li>
@@ -66,7 +66,7 @@
       <li>
         <div class="title">Apa itu SubQuery?</div>
         <div class="content">
-          <p>SubQuery adalah pengindeks data blockchain sumber terbuka. Ini memberi pengembang API yang lebih cepat dan terdesentralisasi. Ini memungkinkan Anda untuk membangun aplikasi multi-rantai yang kuat tanpa membuang waktu berjam-jam untuk mengindeks dan dengan cepat menanyakan data.</p>
+          <p>SubQuery adalah pengindeks data blockchain open source untuk pengembang yang menyediakan API yang cepat, fleksibel, andal, dan terdesentralisasi untuk mendukung aplikasi multi-rantai terkemuka.</p>
           <span class="more">
             <router-link :to="{path: '/faqs/faqs.html#what-is-subquery'}">BACA SELENGKAPNYA</router-link>
           </span>
@@ -90,7 +90,7 @@
       <li>
         <div class="title">Berapa biaya untuk hosting proyek saya di SubQuery Projects?</div>
         <div class="content">
-          <p>Hosting proyek Anda di Proyek SubQuery benar-benar gratis - ini adalah cara kami untuk memberikan kembali kepada komunitas. Untuk mempelajari cara meng-host proyek Anda bersama kami, silakan lihat tutorial <a href="https://academy.subquery.network/run_publish/publish.html">Hello World (SubQuery Hosted)</a>.</p>
+          <p>Layanan ini disediakan bagi komunitas dengan tingkat gratis yang murah hati! You can host your first two SubQuery projects for absolutely free!</p>
           <span class="more">
             <router-link :to="{path: '/run_publish/publish.html'}">MENYEDIAKAN PROYEK ANDA</router-link>
           </span>
