@@ -26,13 +26,13 @@ SubQuery 网络允许开发者完全分散他们的基础设施堆栈。 我们�
 
 ## 我如何向SubQuer贡献或反馈？
 
-我们热爱社区的贡献和反馈。 若要贡献代码，请分派感兴趣的仓库并做出更改。 然后提交 PR 或 Pull 请求。 哦，不要忘记测试！ 同时您可查看我们的贡献指南线 (TBA)。
+我们热爱社区的贡献和反馈。 若要贡献代码，请分派感兴趣的仓库并做出更改。 然后提交 PR 或 Pull 请求。 哦，不要忘记测试！ Also check out our <a href="http://localhost:8080/miscellaneous/contributing.html">contributions guidelines.</a>
 
 要提供反馈，请通过 hello@subquery.network联系我们，或进入我们的 [Discord 频道](https://discord.com/invite/78zg8aBSMG).
 
 ## 在SubQuery项目中托管我的项目需要多少费用？
 
-在 SubQuery 项目中托管您的项目是绝对免费的，这是我们回归社区的方式。 请查看 [Hello World (SubQuery 主机)](../run_publish/publish.md) 教程并学习如何与我们一起主办您的项目。
+此服务正在免费提供给社区！ You can host your first two SubQuery projects for absolutely free!
 
 ## 什么是部署插槽？
 
