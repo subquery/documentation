@@ -9,7 +9,7 @@
 1. `subql init PROJECT_NAME` を使用してプロジェクトを初期化します。
 2. マニフェストファイル（`project.yaml`）を更新して、ブロックチェーンとマッピングするエンティティに関する情報を含めます。 （[マニフェストファイル](./manifest.md)を参照）
 3. スキーマ（`schema.graphql`）に GraphQL エンティティを作成し、クエリのために抽出・保存するデータの型を定義します。 （[GraphQL Schema](./graphql.md)を参照）
-4. チェーンデータを定義した GraphQL エンティティに変換するために呼び出したいすべてのマッピング関数（例：`mappingHandlers.ts`）を追加します。 （[マッピング](./mapping.md)を参照）
+4. チェーンデータを定義した GraphQL エンティティに変換するために呼び出したいすべてのマッピング関数（例：`mappingHandlers.ts`）を追加します。 （[マッピング](./mapping/polkadot.md)を参照）
 5. コードの生成、ビルド、SubQuery Projects への公開（または自分のローカル・ノードでの実行）をします。 （クイック・スタートガイドの[スタータープロジェクトの実行とクエリ](./quickstart-polkadot.md#running-and-querying-your-starter-project)を参照）
 
 ## ディレクトリ構造

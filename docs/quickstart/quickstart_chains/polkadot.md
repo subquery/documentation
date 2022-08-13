@@ -76,7 +76,7 @@ dataSources:
 
 This indicates that you will be running a `handleEvent` mapping function whenever there is an event emitted from the `balances` module with the `transfer` method.
 
-Check out our [Manifest File](../../build/manifest.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
+Check out our [Manifest File](../../build/manifest/polkadot.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
 
 Next, let’s proceed ahead with the Mapping Function’s configuration.
 
@@ -121,7 +121,7 @@ Let’s understand how the above code works.
 
 The function here receives a `SubstrateEvent` which includes transfer data in the payload. We extract this data and then instantiate a new `Transfer` entity defined earlier in the `schema.graphql` file. After that, we add additional information and then use the `.save()` function to save the new entity (_SubQuery will automatically save this to the database_).
 
-Check out our [Mappings](../../build/mapping.md) documentation to get detailed information on mapping functions.
+Check out our [Mappings](../../build/mapping/polkadot.md) documentation to get detailed information on mapping functions.
 
 ## 4. Build Your Project
 

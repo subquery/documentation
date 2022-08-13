@@ -4,7 +4,7 @@
 
 To process a SubQuery project and index data as fast and as efficient as possible, it is necessary to understand how things work under the covers. 
 
-SubQuery has three handlers to process blockchain data: [block handlers](../../build/mapping.md#block-handler), [event handlers](../../build/mapping.md#event-handler), and [call handlers](../../build/mapping.md#call-handler).
+SubQuery has three handlers to process blockchain data: [block handlers](../../build/mapping/polkadot.md#block-handler), [event handlers](../../build/mapping/polkadot.md#event-handler), and [call handlers](../../build/mapping/polkadot.md#call-handler).
 
 **Block handlers** are very inefficient. They inspect every single block to grab data to index. In a case with over seven million blocks, if each block could be indexed in 10ms, this would take over eight (8) days to fully index the blockchain. Therefore, it is
 advisable to avoid using block handlers if possible.

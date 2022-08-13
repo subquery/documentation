@@ -105,7 +105,7 @@ dataSources:
 
 Das bedeutet, dass wir jedes Mal eine `handleTerraDeveloperFund`-Zuordnungsfunktion ausführen, wenn eine `vote`-Nachricht vom intelligenten Vertrag [Terra Developer Fund](https://daodao.zone/multisig/juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2) eingeht.
 
-Weitere Informationen zur Projektmanifestdatei (`project.yaml`) finden Sie in unserer Dokumentation unter [Build-/Manifestdatei](../build/manifest.md)
+Weitere Informationen zur Projektmanifestdatei (`project.yaml`) finden Sie in unserer Dokumentation unter [Build-/Manifestdatei](../build/manifest/polkadot.md)
 
 ### Mapping Funktion hinzufügen
 
@@ -139,7 +139,7 @@ export async function handleTerraDeveloperFund(
 
 Dadurch wird eine CosmosMessage empfangen, die Nachrichtendaten in der Nutzlast enthält. Wir extrahieren diese Daten und instanziieren dann eine neue Entität `Vote`, die wir zuvor in der Datei `schema.graphql` definiert haben. Wir fügen zusätzliche Informationen hinzu und verwenden dann die Funktion `.save()`, um die neue Entität zu speichern (SubQuery speichert diese automatisch in der Datenbank).
 
-Weitere Informationen zu Mapping-Funktionen finden Sie in unserer Dokumentation unter [Build/Mappings](../build/mapping.md)
+Weitere Informationen zu Mapping-Funktionen finden Sie in unserer Dokumentation unter [Build/Mappings](../build/mapping/polkadot.md)
 
 ### Erstellen Sie das Projekt
 

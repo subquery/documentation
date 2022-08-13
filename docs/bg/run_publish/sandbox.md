@@ -15,6 +15,6 @@
 
 - За да ограничите достъпа до определени вградени модули, само`assert`, `buffer`, `crypto`,`util` и `path` са включени в белия списък.
 
-- Ние подкрепяме [модули от трети страни](../create/mapping.md#third-party-libraries) написани в **CommonJS** и **hybrid** библиотеки като `@polkadot/*` използващи ESM по подразбиране.
+- Ние подкрепяме [модули от трети страни](../create/mapping/polkadot.md#third-party-libraries) написани в **CommonJS** и **hybrid** библиотеки като `@polkadot/*` използващи ESM по подразбиране.
 
 - Всеки модули използващи `HTTP` и `WebSocket` са забранени.

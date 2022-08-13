@@ -128,7 +128,7 @@ dataSources:
 
 Това означава, че ще стартираме функция за съпоставяне `handleLog` всеки път, когато има лог за `approve` за всяка транзакция от [Pangolin contract](https://snowtrace.io/txs?a=0x60781C2586D68229fde47564546784ab3fACA982&p=1).
 
-За повече информация относна файла Project Manifest (`project.yaml`), проверете документацията ни в раздела [Build/Manifest File](../build/manifest.md)
+За повече информация относна файла Project Manifest (`project.yaml`), проверете документацията ни в раздела [Build/Manifest File](../build/manifest/polkadot.md)
 
 ### Добавяне на Mappring функция
 
@@ -163,7 +163,7 @@ export async function handleLog(event: AvalancheLog): Promise<void> {
 
 Това, което прави, е получаване на Avalanche Log, който включва данните от регистъра на транзакциите на полезния товар. Извличаме тези данни и след това създаваме нов обект `PangolinApproval`, който дефинирахме по-рано във файла `schema.graphql`. Добавяме допълнителна информация и след това използваме функцията `.save()` за запазване на новият обект (SubQuery автоматично ще го съхрани в базата данни).
 
-За повече информация относно mapping функциите вижте нашата документация под[Build/Mappings](../build/mapping.md)
+За повече информация относно mapping функциите вижте нашата документация под[Build/Mappings](../build/mapping/polkadot.md)
 
 ### Изграждане на проект
 

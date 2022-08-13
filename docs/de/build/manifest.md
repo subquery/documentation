@@ -84,7 +84,7 @@ Definiert die Daten, die gefiltert und extrahiert werden, und den Speicherort de
 | Bereich              | v0.0.1                                                                  | v0.2.0                                                                                           | Beschreibung                                                                                                                                                                                                                                                                             |
 | -------------------- | ----------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Datei**            | String                                                                  | 𐄂                                                                                                | Pfad zum Mapping-Eintrag                                                                                                                                                                                                                                                                 |
-| **handler & Filter** | [Standardhandler und -filter](./manifest/#mapping-handlers-and-filters) | Standardhandler und -filter, <br />[Benutzerdefinierte Handler und Filter](#custom-data-sources) | Listen Sie alle [Zuordnungsfunktionen](./mapping.md) und ihre entsprechenden Handlertypen mit zusätzlichen Zuordnungsfiltern auf. <br /><br /> Informationen zu benutzerdefinierten Laufzeit-Zuordnungshandlern finden Sie unter [Benutzerdefinierte Datenquellen](#custom-data-sources) |
+| **handler & Filter** | [Standardhandler und -filter](./manifest/#mapping-handlers-and-filters) | Standardhandler und -filter, <br />[Benutzerdefinierte Handler und Filter](#custom-data-sources) | Listen Sie alle [Zuordnungsfunktionen](./mapping/polkadot.md) und ihre entsprechenden Handlertypen mit zusätzlichen Zuordnungsfiltern auf. <br /><br /> Informationen zu benutzerdefinierten Laufzeit-Zuordnungshandlern finden Sie unter [Benutzerdefinierte Datenquellen](#custom-data-sources) |
 
 ## Data Sources und Mapping
 
@@ -106,9 +106,9 @@ In der folgenden Tabelle werden Filter erläutert, die von verschiedenen Handler
 
 | Handler                                    | Unterstützte Filter:        |
 | ------------------------------------------ | --------------------------- |
-| [Blockhandler](./mapping.md#block-handler) | `specVersion`               |
-| [EventHandler](./mapping.md#event-handler) | `module`,`method`           |
-| [CallHandler](./mapping.md#call-handler)   | `Modul`,`Methode` ,`Erfolg` |
+| [Blockhandler](./mapping/polkadot.md#block-handler) | `specVersion`               |
+| [EventHandler](./mapping/polkadot.md#event-handler) | `module`,`method`           |
+| [CallHandler](./mapping/polkadot.md#call-handler)   | `Modul`,`Methode` ,`Erfolg` |
 
 Standard-Laufzeit-Mapping-Filter sind eine äußerst nützliche Funktion, um zu entscheiden, welcher Block, welches Ereignis oder welche extrinsischen Elemente einen Mapping-Handler auslösen.
 

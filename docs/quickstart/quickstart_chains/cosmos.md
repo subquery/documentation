@@ -94,7 +94,7 @@ dataSources:
 
 The above code defines that you will be running a `handleTerraDeveloperFund` mapping function whenever there is a message with a `vote` contract call from the [Terra Developer Fund](https://daodao.zone/multisig/juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2) smart contract.
 
-Check out our [Manifest File](../../build/manifest.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
+Check out our [Manifest File](../../build/manifest/polkadot.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
 
 Next, let’s dig further into Mapping Function’s configuration.
 
@@ -134,7 +134,7 @@ Let’s understand how the above code works.
 
 Here, the function receives a `CosmosMessage` which includes message data on the payload. We extract this data and then instantiate a new `Vote` entity defined earlier in the `schema.graphql` file. After that, we add additional information and then use the `.save()` function to save the new entity (SubQuery will automatically save this to the database).
 
-Check out our [Mappings](../../build/mapping.md) documentation and get information on the mapping functions in detail.
+Check out our [Mappings](../../build/mapping/polkadot.md) documentation and get information on the mapping functions in detail.
 
 ## 4. Build Your Project
 

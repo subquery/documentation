@@ -85,7 +85,7 @@ ARGUMENTS PROJECTNAME  Give the starter project name
 | Trường                 | v0.0.1                                       | v0.2.0                                                                                        | Mô tả                                                                                                                                                                                                                                            |
 | ---------------------- | -------------------------------------------- | --------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **file**               | String                                       | String                                                                                        | Đường dẫn đến mục nhập ánh xạ                                                                                                                                                                                                                    |
-| **handlers & filters** | [Default handlers and filters](#schema-spec) | Default handlers and filters, <br />[Custom handlers and filters](#custom-data-sources) | Liệt kê tất cả [hàm ánh xạ](./mapping.md) và các hàm xử lý tương ứng của chúng, với các bộ lọc ánh xạ bổ sung. <br /><br /> Đối với hàm xử lý ánh xạ runtime tùy chỉnh, vui lòng xem [Nguồn dữ liệu tùy chỉnh](#custom-data-sources) |
+| **handlers & filters** | [Default handlers and filters](#schema-spec) | Default handlers and filters, <br />[Custom handlers and filters](#custom-data-sources) | Liệt kê tất cả [hàm ánh xạ](./mapping/polkadot.md) và các hàm xử lý tương ứng của chúng, với các bộ lọc ánh xạ bổ sung. <br /><br /> Đối với hàm xử lý ánh xạ runtime tùy chỉnh, vui lòng xem [Nguồn dữ liệu tùy chỉnh](#custom-data-sources) |
 
 ## Nguồn dữ liệu và ánh xạ
 
@@ -107,9 +107,9 @@ Bảng sau giải thích các bộ lọc được hỗ trợ bởi các trình x
 
 | Hàm xử lý                                  | Bộ lọc được hỗ trợ           |
 | ------------------------------------------ | ---------------------------- |
-| [BlockHandler](./mapping.md#block-handler) | `specVersion`                |
-| [EventHandler](./mapping.md#event-handler) | `module`,`method`            |
-| [CallHandler](./mapping.md#call-handler)   | `module`,`method` ,`success` |
+| [BlockHandler](./mapping/polkadot.md#block-handler) | `specVersion`                |
+| [EventHandler](./mapping/polkadot.md#event-handler) | `module`,`method`            |
+| [CallHandler](./mapping/polkadot.md#call-handler)   | `module`,`method` ,`success` |
 
 Bộ lọc ánh xạ runtime mặc định là một tính năng cực kỳ hữu ích để quyết định khối, sự kiện hoặc thông tin ngoại lai nào sẽ kích hoạt trình xử lý ánh xạ.
 

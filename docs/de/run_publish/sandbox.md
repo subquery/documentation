@@ -15,6 +15,6 @@ Einige bösartige Codes werden wahrscheinlich den Host angreifen oder sogar komp
 
 - Um den Zugriff auf bestimmte integrierte Module einzuschränken, nur `assert`, `buffer`, `crypto`, `util` und ` path` stehen auf der Whitelist.
 
-- Wir unterstützen [Module von Drittanbietern](../create/mapping.md#third-party-libraries), die in **CommonJS** und **Hybrid**-Bibliotheken wie `@polkadot/*` geschrieben sind und standardmäßig ESM verwenden.
+- Wir unterstützen [Module von Drittanbietern](../create/mapping/polkadot.md#third-party-libraries), die in **CommonJS** und **Hybrid**-Bibliotheken wie `@polkadot/*` geschrieben sind und standardmäßig ESM verwenden.
 
 - Alle Module, die `HTTP` und `WebSocket` verwenden, sind verboten.

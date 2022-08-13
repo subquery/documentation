@@ -9,7 +9,7 @@ Một vài ví dụ sau có điều kiện tiên quyết là bạn đã khởi �
 1. Khởi tạo dự án của bạn bằng `subql init PROJECT_NAME`.
 2. Cập nhật tệp kê khai (`project.yaml`) để đưa vào thông tin về blockchain của bạn và các thực thể mà bạn sẽ ánh xạ - xem [Manifest File](./manifest.md)
 3. Tạo các thực thể GraphQL trong lược đồ của bạn (`schema.graphql`) nhằm định nghĩa dạng của dữ liệu mà bạn sẽ trích xuất và duy trì để truy vấn - xem [Lược đồ GraphQL](./graphql.md)
-4. Thêm tất cả các hàm ánh xạ (ví dụ: `mappingHandlers.ts`) mà bạn muốn gọi để chuyển đổi dữ liệu chuỗi thành các thực thể GraphQL mà bạn đã xác định - xem [Ánh xạ](./mapping.md)
+4. Thêm tất cả các hàm ánh xạ (ví dụ: `mappingHandlers.ts`) mà bạn muốn gọi để chuyển đổi dữ liệu chuỗi thành các thực thể GraphQL mà bạn đã xác định - xem [Ánh xạ](./mapping/polkadot.md)
 5. Tạo, xây dựng và xuất bản code của bạn lên các dự án SubQuery (hoặc chạy trong node cục bộ của riêng bạn) - xem [Hướng dẫn chạy và truy vấn Dự án bắt đầu của bạn](./quickstart-polkadot.md#running-and-querying-your-starter-project) trong hướng dẫn bắt đầu nhanh của chúng tôi.
 
 ## Cấu trúc thư mục

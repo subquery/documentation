@@ -116,7 +116,7 @@ L'utilisation d'un dictionnaire de chaîne complet peut accélérer considérabl
 
 Un dictionnaire de chaîne complète pré-indexe l'emplacement de tous les événements et extrinsèques dans la chaîne spécifique et permet à votre service de nœud de sauter aux emplacements pertinents lors de l'indexation plutôt que d'inspecter chaque bloc.
 
-Vous pouvez ajouter le point de terminaison du dictionnaire dans votre fichier `project.yaml` (voir [Fichier manifeste](../create/manifest.md)), ou le spécifier au moment de l'exécution en utilisant la commande suivante :
+Vous pouvez ajouter le point de terminaison du dictionnaire dans votre fichier `project.yaml` (voir [Fichier manifeste](../build/manifest/polkadot.md)), ou le spécifier au moment de l'exécution en utilisant la commande suivante :
 
 <CodeGroup>
 <CodeGroupItem title='Substrate/Polkadot/Polkadot'>

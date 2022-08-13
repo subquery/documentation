@@ -128,7 +128,7 @@ dataSources:
 
 这意味着我们将运行一个 `手审批交易` 映射函数。每次都会有一个 `批准` 来自 [Pangolin 合同的交易](https://snowtrace.io/txs?a=0x60781C2586D68229fde47564546784ab3fACA982&p=1)
 
-关于Project Manifest（`project.yaml`）文件的更多信息，请查看我们在[Build/Manifest File](../build/manifest.md)下的文档。
+关于Project Manifest（`project.yaml`）文件的更多信息，请查看我们在[Build/Manifest File](../build/manifest/polkadot.md)下的文档。
 
 ### 添加Mapping Function
 
@@ -163,7 +163,7 @@ export async function handleEvent(event: AvalancheEvent): Promise<void> {
 
 这正在做的是接收一个SubstrateEvent，其中包括有效载荷的传输数据。 我们提取此数据，然后实例化一个我们先前在 `schemagraphql` 文件中定义的新的 `PangolinApplying` 实体。 我们添加额外的信息，然后使用`.save()`函数来保存新的实体（SubQuery将自动将其保存到数据库）。
 
-关于映射函数的更多信息，请查看我们在[Build/Mappings](../build/mapping.md)下的文档。
+关于映射函数的更多信息，请查看我们在[Build/Mappings](../build/mapping/polkadot.md)下的文档。
 
 ### 生成项目
 

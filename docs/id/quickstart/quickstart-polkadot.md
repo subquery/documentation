@@ -115,7 +115,7 @@ dataSources:
 
 Ini berarti kita akan menjalankan fungsi pemetaan `handleEvent` setiap kali ada peristiwa `balances.Transfer`.
 
-Untuk informasi selengkapnya tentang file Project Manifest (`project.yaml`), lihat dokumentasi kami di [Build/Manifest File](../build/manifest.md)
+Untuk informasi selengkapnya tentang file Project Manifest (`project.yaml`), lihat dokumentasi kami di [Build/Manifest File](../build/manifest/polkadot.md)
 
 ### Tambahkan Fungsi Pemetaan
 
@@ -154,7 +154,7 @@ export async function handleTransfer(event: SubstrateEvent): Promise<void> {
 
 Apa yang dilakukan adalah menerima SubstrateEvent yang mencakup transfer data pada payload. Kami mengekstrak data ini dan kemudian membuat instance entitas `Transfer` baru yang kami definisikan sebelumnya di file `schema.graphql`. Kami menambahkan informasi tambahan dan kemudian menggunakan fungsi `.save()` untuk menyimpan entitas baru (SubQuery akan secara otomatis menyimpan ini ke database).
 
-Untuk informasi lebih lanjut tentang fungsi pemetaan, lihat dokumentasi kami di bawah [Build/Mappings](../build/mapping.md)
+Untuk informasi lebih lanjut tentang fungsi pemetaan, lihat dokumentasi kami di bawah [Build/Mappings](../build/mapping/polkadot.md)
 
 ### Bangun Proyek
 

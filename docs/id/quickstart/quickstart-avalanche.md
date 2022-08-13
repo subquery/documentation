@@ -128,7 +128,7 @@ dataSources:
 
 Ini berarti kita akan menjalankan fungsi pemetaan `handleLog` setiap kali ada log `menyetujui` pada setiap transaksi dari [kontrak Trenggiling](https://snowtrace.io/txs?a=0x60781C2586D68229fde47564546784ab3fACA982&p=1).
 
-Untuk informasi selengkapnya tentang file Project Manifest (`project.yaml`), lihat dokumentasi kami di [Build/Manifest File](../build/manifest.md)
+Untuk informasi selengkapnya tentang file Project Manifest (`project.yaml`), lihat dokumentasi kami di [Build/Manifest File](../build/manifest/polkadot.md)
 
 ### Tambahkan Fungsi Pemetaan
 
@@ -163,7 +163,7 @@ export async function handleLog(event: AvalancheLog): Promise<void> {
 
 Apa yang dilakukan adalah menerima Log Longsor yang menyertakan data log transaksi pada muatan. Kami mengekstrak data ini dan kemudian membuat instance entitas `PangolinApproval` baru yang kami definisikan sebelumnya di file `schema.graphql`. Kami menambahkan informasi tambahan dan kemudian menggunakan fungsi `.save()` untuk menyimpan entitas baru (SubQuery akan secara otomatis menyimpan ini ke database).
 
-Untuk informasi lebih lanjut tentang fungsi pemetaan, lihat dokumentasi kami di bawah [Build/Mappings](../build/mapping.md)
+Untuk informasi lebih lanjut tentang fungsi pemetaan, lihat dokumentasi kami di bawah [Build/Mappings](../build/mapping/polkadot.md)
 
 ### Bangun Proyek
 

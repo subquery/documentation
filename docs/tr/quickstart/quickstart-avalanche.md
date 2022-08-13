@@ -128,7 +128,7 @@ dataSources:
 
 Bu, [Pangolin sözleşmesinden](https://snowtrace.io/txs?a=0x60781C2586D68229fde47564546784ab3fACA982&p=1) yapılan herhangi bir işlemde her `onay` günlüğü olduğunda bir `handleLog` eşleme işlevi çalıştıracağımız anlamına gelir.
 
-Proje Bildirimi (`project.yaml`) dosyası hakkında daha fazla bilgi için, [Yapı/Manifest Dosyası](../build/manifest.md) altındaki belgelerimize bakın
+Proje Bildirimi (`project.yaml`) dosyası hakkında daha fazla bilgi için, [Yapı/Manifest Dosyası](../build/manifest/polkadot.md) altındaki belgelerimize bakın
 
 ### Eşleme İşlevi Ekle
 
@@ -163,7 +163,7 @@ export async function handleLog(event: AvalancheLog): Promise<void> {
 
 Bunun yaptığı, yükteki geçiş günlüğü verilerini içeren bir Avalanche Günlüğü almaktır. Bu verileri çıkarırız ve daha sonra `schema.graphql` dosyasında daha önce tanımladığımız yeni bir `PangolinApproval` varlığını başlatırız. Ek bilgiler ekleriz ve ardından yeni varlığı kaydetmek için `.save()` işlevini kullanırız (SubQuery bunu otomatik olarak veritabanına kaydeder).
 
-Eşleme işlevleri hakkında daha fazla bilgi için [Derleme/Eşlemeler](../build/mapping.md) altındaki belgelerimize bakın
+Eşleme işlevleri hakkında daha fazla bilgi için [Derleme/Eşlemeler](../build/mapping/polkadot.md) altındaki belgelerimize bakın
 
 ### Projeyi Oluşturun
 
