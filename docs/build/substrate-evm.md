@@ -51,7 +51,7 @@ Theoretically the following networks should also be supported since they impleme
 | Field             | Type                                                           | Required | Description                                |
 | ----------------- | -------------------------------------------------------------- | -------- | ------------------------------------------ |
 | processor.file    | `'./node_modules/@subql/frontier-evm-processor/dist/index.js'` | Yes      | File reference to the data processor code  |
-| processor.options | [ProcessorOptions](substrate-evm.md#processor-options)                         | No       | Options specific to the Frontier Processor |
+| processor.options | [ProcessorOptions](substrate-evm.md#processor-options)         | No       | Options specific to the Frontier Processor |
 | assets            | `{ [key: String]: { file: String }}`                           | No       | An object of external asset files          |
 
 ### Processor Options
@@ -68,7 +68,7 @@ Works in the same way as [substrate/CallHandler](../build/mapping/polkadot.md#ca
 | Field  | Type                                                    | Required | Description                                 |
 | ------ | ------------------------------------------------------- | -------- | ------------------------------------------- |
 | kind   | `substrate/FrontierEvmCall` or `substrate/AcalaEvmCall` | Yes      | Specifies that this is an Call type handler |
-| filter | [Call Filter](substrate-evm.md#call-filters)                            | No       | Filter the data source to execute           |
+| filter | [Call Filter](substrate-evm.md#call-filters)            | No       | Filter the data source to execute           |
 
 ### Call Filters
 
@@ -98,9 +98,9 @@ Works in the same way as [substrate/EventHandler](../build/mapping/polkadot.md#e
 
 ### Event Filters
 
-| Field  | Type         | Example(s)                                                      | Description                                                                                                                                      |
-| ------ | ------------ | --------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| topics | String array | Transfer(address indexed from,address indexed to,uint256 value) | The topics filter follows the Ethereum JSON-PRC log filters, more documentation can be found [here](https://docs.ethers.io/v5/concepts/events/). |
+| Field  | Type         | Example(s)                                                        | Description                                                                                                                                      |
+| ------ | ------------ | ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| topics | String array | `Transfer(address indexed from,address indexed to,uint256 value)` | The topics filter follows the Ethereum JSON-PRC log filters, more documentation can be found [here](https://docs.ethers.io/v5/concepts/events/). |
 
 <b>Note on topics:</b>
 There are a couple of improvements from basic log filters:
