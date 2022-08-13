@@ -26,13 +26,13 @@ The best way to get started with SubQuery is to try out our [Hello World tutoria
 
 ## Comment puis-je contribuer ou faire un retour à SubQuery?
 
-Nous aimons les contributions et les commentaires de la communauté. To contribute the code, fork the repository of your interest and make your changes. Ensuite soumettez une PR ou une Pull Request. Don't forget to test as well. Also check out our contributions guide lines (TBA).
+Nous aimons les contributions et les commentaires de la communauté. To contribute the code, fork the repository of your interest and make your changes. Ensuite soumettez une PR ou une Pull Request. Don't forget to test as well. Also check out our <a href="http://localhost:8080/miscellaneous/contributing.html">contributions guidelines.</a>
 
 To give feedback, contact us at hello@subquery.network or jump onto our [discord channel](https://discord.com/invite/78zg8aBSMG).
 
 ## Combien coûte l'hébergement de mon projet dans SubQuery Projects?
 
-Hosting your project in SubQuery Projects is absolutely free — it is our way of giving back to the community. Please check out the [Hello World (SubQuery hosted)](../run_publish/publish.md) tutorial and learn how to host your project with us.
+This service is being provided to the community with a generous free tier! You can host your first two SubQuery projects for absolutely free!
 
 ## What are deployment slots?
 
