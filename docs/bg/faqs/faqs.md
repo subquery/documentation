@@ -26,13 +26,13 @@ The best way to get started with SubQuery is to try out our [Hello World tutoria
 
 ## По какъв начин мога да допринеса или да дам обратна връзка към SubQuery?
 
-Ние харесваме приноса и обратната връзка от общността. To contribute the code, fork the repository of your interest and make your changes. След това изпратете PR или Pull Request. Don't forget to test as well. Вижте също нашите насоки за приноси (TBA).
+Ние харесваме приноса и обратната връзка от общността. To contribute the code, fork the repository of your interest and make your changes. След това изпратете PR или Pull Request. Don't forget to test as well. Also check out our <a href="http://localhost:8080/miscellaneous/contributing.html">contributions guidelines.</a>
 
 За да дадете обратна връзка, свържете се с нас на hello@subquery.network или преминете към нашия [канал на discord](https://discord.com/invite/78zg8aBSMG).
 
 ## Колко струва хостването на моя проект в SubQuery Projects?
 
-Hosting your project in SubQuery Projects is absolutely free — it is our way of giving back to the community. Please check out the [Hello World (SubQuery hosted)](../run_publish/publish.md) tutorial and learn how to host your project with us.
+This service is being provided to the community with a generous free tier! You can host your first two SubQuery projects for absolutely free!
 
 ## Какво представляват слотовете за разполагане?
 
