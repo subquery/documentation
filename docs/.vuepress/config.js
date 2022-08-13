@@ -201,6 +201,7 @@ function getSidebar(locale, language) {
               `${locale}/quickstart/quickstart_chains/avalanche.md`,
               `${locale}/quickstart/quickstart_chains/cosmos.md`,
               `${locale}/quickstart/quickstart_chains/terra.md`,
+              `${locale}/quickstart/quickstart_chains/algorand.md`,
             ],
           },
           `${locale}/quickstart/whats-next.md`,

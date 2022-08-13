@@ -27,7 +27,7 @@ The final code of this project can be found [here](https://github.com/jamesbayly
 
 ## 1. Update Your GraphQL Schema File
 
-The `schema.graphql` file determines the shape of your data from SubQuery due to the mechanism of the GraphQL query language. Hence, updating the GraphQL Schema file is the perfect start. It allows you to define your end goal beforehand.
+The `schema.graphql` file determines the shape of your data from SubQuery due to the mechanism of the GraphQL query language. Hence, updating the GraphQL Schema file is the perfect start. It allows you to define your end goal right at the start.
 
 Update the `schema.graphql` file as follows. The aim is to index all votes on the [Terra Developer Fund](https://daodao.zone/multisig/juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2).
 
@@ -73,9 +73,7 @@ Now that you have made essential changes to the GraphQL Schema file, let’s go 
 
 The Project Manifest (`project.yaml`) file is an entry point to your project. It defines most of the details on how SubQuery will index and transform the chain data.
 
-Note that the manifest file has already been set up correctly and doesn’t require significant changes, but you need to change the handlers.
-
-Since we are going to index all votes on the [Terra Developer Fund](https://daodao.zone/multisig/juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2), we will look at messages that use the `vote` contract call. And following to that, we need to update the `datasources` section as follows:
+Note that the manifest file has already been set up correctly and doesn’t require significant changes, but you need to change the datasource handlers. This section lists the triggers that look for on the blockchain to start indexing.
 
 ```yml
 dataSources:
@@ -94,7 +92,7 @@ dataSources:
               contract: "juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2"
 ```
 
-The above code defines that you will be running a `handleTerraDeveloperFund` mapping function whenever there is a `vote` message from the [Terra Developer Fund](https://daodao.zone/multisig/juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2) smart contract.
+The above code defines that you will be running a `handleTerraDeveloperFund` mapping function whenever there is a message with a `vote` contract call from the [Terra Developer Fund](https://daodao.zone/multisig/juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2) smart contract.
 
 Check out our [Manifest File](../../build/manifest.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
 
@@ -110,7 +108,7 @@ Follow these steps to add a mapping function:
 
 - The `handleMessage` function receives event data whenever an event matches the filters that you specified previously in the `project.yaml`. Let’s update it to process all `vote` messages and save them to the GraphQL entity created earlier.
 
-Update the `handleMessage` function as follows(**note the additional imports**):
+Update the `handleMessage` function as follows (**note the additional imports**):
 
 ```ts
 import { Vote } from "../types";
@@ -118,7 +116,6 @@ import { CosmosMessage } from "@subql/types-cosmos";
 
 export async function handleTerraDeveloperFund(
   message: CosmosMessage
-
 ): Promise<void> {
   // logger.info(JSON.stringify(message));
   // Example vote https://www.mintscan.io/juno/txs/EAA2CC113B3EC79AE5C280C04BE851B82414B108273F0D6464A379D7917600A4
@@ -135,7 +132,7 @@ export async function handleTerraDeveloperFund(
 
 Let’s understand how the above code works.
 
-Here, the function receives a CosmosMessage which includes message data on the payload. We extract this data and then instantiate a new `Vote` entity defined earlier in the `schema.graphql` file. After that, we add additional information and then use the `.save()` function to save the new entity (SubQuery will automatically save this to the database).
+Here, the function receives a `CosmosMessage` which includes message data on the payload. We extract this data and then instantiate a new `Vote` entity defined earlier in the `schema.graphql` file. After that, we add additional information and then use the `.save()` function to save the new entity (SubQuery will automatically save this to the database).
 
 Check out our [Mappings](../../build/mapping.md) documentation and get information on the mapping functions in detail.
 
@@ -211,7 +208,7 @@ Try the following query to understand how it works for your new SubQuery starter
 
 ```graphql
 query {
-  votes(first: 5, orderBy: BLOCK_HEIGHT_DESC) {
+  votes(first: 3, orderBy: BLOCK_HEIGHT_DESC) {
     nodes {
       id
       blockHeight
@@ -224,7 +221,7 @@ query {
 
 You will see the result similar to below:
 
-```
+```json
 {
   "data": {
     "votes": {

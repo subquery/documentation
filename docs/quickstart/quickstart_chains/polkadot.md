@@ -14,9 +14,9 @@ Previously, in the [1. Create a New Project](../quickstart.md) section, you must
 
 ## 1. Update Your GraphQL Schema File
 
-The `schema.graphql` file determines the shape of your data from SubQuery due to the mechanism of the GraphQL query language. Hence, updating the GraphQL Schema file is the perfect place to start. It allows you to define your end goal beforehand.
+The `schema.graphql` file determines the shape of your data from SubQuery due to the mechanism of the GraphQL query language. Hence, updating the GraphQL Schema file is the perfect place to start. It allows you to define your end goal right at the start.
 
-Remove all existing entities and update the `schema.graphql` file as follows:
+Remove all existing entities and update the `schema.graphql` file as follows, here you can see we are indexing all transfers from Polkadot:
 
 ```graphql
 type Transfer @entity {
@@ -56,7 +56,7 @@ Now that you have made essential changes to the GraphQL Schema file, let’s mov
 
 The Project Manifest (`project.yaml`) file works as an entry point to your project. It defines most of the details on how SubQuery will index and transform the chain data.
 
-Note that the manifest file has already been set up correctly and doesn’t require significant changes, but you need to change the handlers.
+Note that the manifest file has already been set up correctly and doesn’t require significant changes, but you need to change the datasource handlers. This section lists the triggers that look for on the blockchain to start indexing.
 
 **Since we are planning to index all Polkadot transfers, we need to update the `datasources` section as follows:**
 
@@ -74,7 +74,7 @@ dataSources:
             method: Transfer
 ```
 
-This indicates that you will be running a `handleEvent` mapping function whenever there is a `balances.Transfer` event.
+This indicates that you will be running a `handleEvent` mapping function whenever there is an event emitted from the `balances` module with the `transfer` method.
 
 Check out our [Manifest File](../../build/manifest.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
 
@@ -90,7 +90,7 @@ Follow these steps to add a mapping function:
 
 - The `handleEvent` function receives event data whenever an event matches the filters that you specified previously in the `project.yaml`. Let’s update it to process all `balances.Transfer` events and save them to the GraphQL entities created earlier.
 
-Update the `handleEvent` function as follows(**note the additional imports**):
+Update the `handleEvent` function as follows (**note the additional imports**):
 
 ```ts
 import { SubstrateEvent } from "@subql/types";
@@ -211,7 +211,7 @@ Try the following query to understand how it works for your new SubQuery starter
 
 You will see the result similar to below:
 
-```
+```json
 {
   "data": {
     "query": {
