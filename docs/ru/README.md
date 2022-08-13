@@ -34,7 +34,7 @@
           <div>
             <img src="/assets/img/tutorialsIcon.svg" />
             <span>Practice with Tutorials & Examples</span>
-            <p>Learning by doing. Practice with SubQuery’s real-world blockchain projects & improve your skills.</p>
+            <p>Learn by doing and practice with SubQuery’s real-world blockchain projects & improve your skills.</p>
           </div>
         </router-link>
       </li>
@@ -66,7 +66,7 @@
       <li>
         <div class="title">Что такое SubQuery?</div>
         <div class="content">
-          <p>SubQuery is an open-source blockchain data indexer. It provides developers with faster and decentralised APIs. It allows you to build powerful multi-chain apps without wasting hours on indexing and quickly querying data.</p>
+          <p>SubQuery , это индексатор данных блокчейна с открытым исходным кодом для разработчиков, который предоставляет быстрые, гибкие, надежные и децентрализованные API для управления ведущими многоканальными приложениями. </p>
           <span class="more">
             <router-link :to="{path: '/faqs/faqs.html#what-is-subquery'}">ПОДРОБНЕЕ</router-link>
           </span>
@@ -90,7 +90,7 @@
       <li>
         <div class="title">Сколько стоит размещение моего проекта в SubQuery?</div>
         <div class="content">
-          <p>Размещение вашего проекта в SubQuery Projects  абсолютно бесплатно это наш способ отблагодарить сообщество. Чтобы узнать, как разместить свой проект у нас, ознакомьтесь с руководством <a href="https://academy.subquery.network/run_publish/publish.html">Hello World (SubQuery Hosted)</a>.</p>
+          <p>This service is being provided to the community with a generous free tier! You can host your first two SubQuery projects for absolutely free!</p>
           <span class="more">
             <router-link :to="{path: '/run_publish/publish.html'}">РАЗМЕЩЕНИЕ ВАШЕГО ПРОЕКТА</router-link>
           </span>
