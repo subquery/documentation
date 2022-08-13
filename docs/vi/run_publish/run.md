@@ -116,7 +116,7 @@ Sử dụng từ điển chuỗi đầy đủ có thể tăng tốc đáng kể 
 
 Sử dụng từ điển chuỗi đầy đủ sẽ lập chỉ mục trước vị trí của tất cả các sự kiện và ngoại lại trong chuỗi cụ thể và cho phép nút của bạn bỏ qua các vị trí có liên quan khi lập chỉ mục thay vì kiểm tra từng khối.
 
-Bạn có thể thêm điểm cuối từ điển vào tệp `project.yaml` (xem [Manifest File](../create/manifest.md)), hoặc chỉ định nó tại thời điểm chạy bằng cách sử dụng lệnh sau:
+Bạn có thể thêm điểm cuối từ điển vào tệp `project.yaml` (xem [Manifest File](../build/manifest/polkadot.md)), hoặc chỉ định nó tại thời điểm chạy bằng cách sử dụng lệnh sau:
 
 <CodeGroup>
 <CodeGroupItem title='Substrate/Polkadot/Polkadot'>

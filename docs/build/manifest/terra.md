@@ -127,7 +127,7 @@ Defines the data that will be filtered and extracted and the location of the map
 
 | Field                  | Type                         | Description                                                                                                            |
 | ---------------------- | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| **handlers & filters** | Default handlers and filters | List all the [mapping functions](./mapping.md) and their corresponding handler types, with additional mapping filters. |
+| **handlers & filters** | Default handlers and filters | List all the [mapping functions](./mapping/polkadot.md) and their corresponding handler types, with additional mapping filters. |
 
 ## Data Sources and Mapping
 
@@ -149,10 +149,10 @@ The following table explains filters supported by different handlers.
 
 | Handler                                                      | Supported filter          |
 | ------------------------------------------------------------ | ------------------------- |
-| [terra/BlockHandler](./mapping.md#block-handler)             | No filters                |
-| [terra/TransactionHandler](./mapping.md#transaction-handler) | No filters                |
-| [terra/MessageHandler](./mapping.md#message-handler)         | `type`, `values`\*        |
-| [terra/EventHandler](./mapping.md#event-handler)             | `type`, `messageFilter`\* |
+| [terra/BlockHandler](./mapping/polkadot.md#block-handler)             | No filters                |
+| [terra/TransactionHandler](./mapping/polkadot.md#transaction-handler) | No filters                |
+| [terra/MessageHandler](./mapping/polkadot.md#message-handler)         | `type`, `values`\*        |
+| [terra/EventHandler](./mapping/polkadot.md#event-handler)             | `type`, `messageFilter`\* |
 
 Default runtime mapping filters are an extremely useful feature to decide what block, event, or extrinsic will trigger a mapping handler.
 

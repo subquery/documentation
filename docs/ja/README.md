@@ -102,7 +102,7 @@
         <h5>カスタムチェーンと統合しますか？</h5>
         <p>新しいparachainを構築する場合でも、全く新しいブロックチェーンをSubstrate上で構築する場合でも、SubQueryはインデックスを作成し、チェーンのデータをトラブルシューティングするのに役立ちます。 SubQuery は Substrate ベースのカスタムチェーンと簡単に統合できるように設計されています。</p>
         <span class="more">
-          <router-link :to="{path: '/create/manifest.html#custom-substrate-chains'}">LEARN HOW TO INTEGRATE WITH YOUR CHAIN</router-link>
+          <router-link :to="{path: '/build/manifest/polkadot.html#custom-substrate-chains'}">LEARN HOW TO INTEGRATE WITH YOUR CHAIN</router-link>
         </span>
     </div>
     <div class="lastIntroduce lastIntroduce_2">

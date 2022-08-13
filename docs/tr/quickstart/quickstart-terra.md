@@ -123,7 +123,7 @@ dataSources:
 
 Bu, bLuna akıllı sözleşmesinden her `transfer` olayı olduğunda bir `handleEvent` eşleme işlevi çalıştıracağımız anlamına gelir.
 
-Proje Bildirimi (`project.yaml`) dosyası hakkında daha fazla bilgi için, [Yapı/Manifest Dosyası](../build/manifest.md) altındaki belgelerimize bakın
+Proje Bildirimi (`project.yaml`) dosyası hakkında daha fazla bilgi için, [Yapı/Manifest Dosyası](../build/manifest/polkadot.md) altındaki belgelerimize bakın
 
 ### Eşleme İşlevi Ekle
 
@@ -172,7 +172,7 @@ export async function handleEvent(
 
 Bunun yaptığı, yükteki aktarım verilerini içeren bir SubstrateEvent almaktır. Bu verileri çıkarırız ve daha sonra `schema.graphql` dosyasında daha önce tanımladığımız yeni bir `Transfer` varlığını başlatırız. Ek bilgiler ekleriz ve ardından yeni varlığı kaydetmek için `.save()` işlevini kullanırız (SubQuery bunu otomatik olarak veritabanına kaydeder).
 
-Eşleme işlevleri hakkında daha fazla bilgi için [Derleme/Eşlemeler](../build/mapping.md) altındaki belgelerimize bakın
+Eşleme işlevleri hakkında daha fazla bilgi için [Derleme/Eşlemeler](../build/mapping/polkadot.md) altındaki belgelerimize bakın
 
 ### Projeyi Oluşturun
 

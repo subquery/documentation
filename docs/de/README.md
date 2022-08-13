@@ -101,7 +101,7 @@
         <h5>Integration in Ihre Custom-Chain?</h5>
         <p>Egal, ob Sie eine neue Parachain oder eine völlig neue Blockchain auf Substrate aufbauen – SubQuery kann Ihnen dabei helfen, die Daten Ihrer Chain zu indizieren und Fehler zu beheben. SubQuery ist so konzipiert, dass es sich einfach in eine benutzerdefinierte substratbasierte Chain integrieren lässt.</p>
         <span class="more">
-          <router-link :to="{path: '/create/manifest.html#custom-substrate-chains'}">ERFAHREN SIE, WIE SIE IN IHRE CHAIN INTEGRIERT WERDEN</router-link>
+          <router-link :to="{path: '/build/manifest/polkadot.html#custom-substrate-chains'}">ERFAHREN SIE, WIE SIE IN IHRE CHAIN INTEGRIERT WERDEN</router-link>
         </span>
     </div>
     <div class="lastIntroduce lastIntroduce_2">

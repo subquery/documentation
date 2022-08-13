@@ -102,7 +102,7 @@
         <h5>Інтеграція зі своїм користувальницьким ланцюгом?</h5>
         <p>Незалежно від того, чи будуєте ви новий парашайн або абсолютно новий блокчейн на Substrate - SubQuery, ви можете допомогти вам індексувати та усунути неполадки даних вашої мережі. SubQuery призначений для легкої інтеграції зі спеціальною ланцюжком на основі Substrate.</p>
         <span class="more">
-          <router-link :to="{path: '/create/manifest.html#custom-substrate-chains'}">LEARN HOW TO INTEGRATE WITH YOUR CHAIN</router-link>
+          <router-link :to="{path: '/build/manifest/polkadot.html#custom-substrate-chains'}">LEARN HOW TO INTEGRATE WITH YOUR CHAIN</router-link>
         </span>
     </div>
     <div class="lastIntroduce lastIntroduce_2">

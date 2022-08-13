@@ -134,7 +134,7 @@ Defines the data that will be filtered and extracted and the location of the map
 
 | Field                  | Type                                                                              | Description                                                                                                            |
 | ---------------------- | --------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| **handlers & filters** | Default handlers and filters, <br />[Custom handlers and filters](#custom-chains) | List all the [mapping functions](./mapping.md) and their corresponding handler types, with additional mapping filters. |
+| **handlers & filters** | Default handlers and filters, <br />[Custom handlers and filters](#custom-chains) | List all the [mapping functions](./mapping/polkadot.md) and their corresponding handler types, with additional mapping filters. |
 
 ## Data Sources and Mapping
 
@@ -156,10 +156,10 @@ The following table explains filters supported by different handlers.
 
 | Handler                                                       | Supported filter          |
 | ------------------------------------------------------------- | ------------------------- |
-| [cosmos/BlockHandler](./mapping.md#block-handler)             | `modulo`                  |
-| [cosmos/TransactionHandler](./mapping.md#transaction-handler) | No filters                |
-| [cosmos/MessageHandler](./mapping.md#message-handler)         | `type`, `values`\*        |
-| [cosmos/EventHandler](./mapping.md#event-handler)             | `type`, `messageFilter`\* |
+| [cosmos/BlockHandler](./mapping/polkadot.md#block-handler)             | `modulo`                  |
+| [cosmos/TransactionHandler](./mapping/polkadot.md#transaction-handler) | No filters                |
+| [cosmos/MessageHandler](./mapping/polkadot.md#message-handler)         | `type`, `values`\*        |
+| [cosmos/EventHandler](./mapping/polkadot.md#event-handler)             | `type`, `messageFilter`\* |
 
 Default runtime mapping filters are an extremely useful feature to decide what block, event, or extrinsic will trigger a mapping handler.
 

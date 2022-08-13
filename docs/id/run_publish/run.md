@@ -116,7 +116,7 @@ Using a full chain dictionary can dramatically speed up the processing of a SubQ
 
 Kamus rantai lengkap melakukan pra-indeks lokasi semua peristiwa dan ekstrinsik dalam rantai tertentu dan memungkinkan layanan simpul Anda melompat ke lokasi yang relevan saat mengindeks daripada memeriksa setiap blok.
 
-Anda dapat menambahkan titik akhir kamus di file `project.yaml` Anda (lihat [File Manifes](../create/manifest.md)), atau tentukan saat dijalankan menggunakan perintah berikut:
+Anda dapat menambahkan titik akhir kamus di file `project.yaml` Anda (lihat [File Manifes](../build/manifest/polkadot.md)), atau tentukan saat dijalankan menggunakan perintah berikut:
 
 <CodeGroup>
 <CodeGroupItem title='Substrate/Polkadot/Polkadot'>

@@ -29,7 +29,7 @@ A `TerraBlock` is an extended interface type of [Terra.js](https://docs.terra.mo
 
 You can use event handlers to capture information when certain events are included on a new block. The events that are part of the default runtime and a block may contain multiple events.
 
-During the processing, the event handler will receive an event as an argument with the event's typed inputs and outputs. Any type of event will trigger the mapping, allowing activity with the data source to be captured. You should use [Mapping Filters](../build/manifest.md#mapping-handlers-and-filters) in your manifest to filter events to reduce the time it takes to index data and improve mapping performance.
+During the processing, the event handler will receive an event as an argument with the event's typed inputs and outputs. Any type of event will trigger the mapping, allowing activity with the data source to be captured. You should use [Mapping Filters](../build/manifest/polkadot.md#mapping-handlers-and-filters) in your manifest to filter events to reduce the time it takes to index data and improve mapping performance.
 
 ```ts
 import { TerraEvent } from "@subql/types-terra";
@@ -51,7 +51,7 @@ A `TerraEvent` encapsulates Event data and `TxLog` corresponding to the event. I
 
 ## Transaction Handler
 
-You can use transaction handlers to capture information about each of the transactions in a block. To achieve this, a defined `TransactionHandler` will be called once for every transaction. You should use [Mapping Filters](../build/manifest.md#mapping-handlers-and-filters) in your manifest to filter transactions to reduce the time it takes to index data and improve mapping performance.
+You can use transaction handlers to capture information about each of the transactions in a block. To achieve this, a defined `TransactionHandler` will be called once for every transaction. You should use [Mapping Filters](../build/manifest/polkadot.md#mapping-handlers-and-filters) in your manifest to filter transactions to reduce the time it takes to index data and improve mapping performance.
 
 ```ts
 import { TerraTransaction } from "@subql/types-terra";
@@ -68,7 +68,7 @@ The `TerraTransaction` encapsulates `TxInfo` and the corresponding `TerraBlock` 
 
 ## Message Handler
 
-You can use message handlers to capture information from each message in a transaction. To achieve this, a defined `MessageHandler` will be called once for every message. You should use [Mapping Filters](../build/manifest.md#mapping-handlers-and-filters) in your manifest to filter messages to reduce the time it takes to index data and improve mapping performance.
+You can use message handlers to capture information from each message in a transaction. To achieve this, a defined `MessageHandler` will be called once for every message. You should use [Mapping Filters](../build/manifest/polkadot.md#mapping-handlers-and-filters) in your manifest to filter messages to reduce the time it takes to index data and improve mapping performance.
 
 ```ts
 import { TerraMessage } from "@subql/types-terra";

@@ -15,6 +15,6 @@ Alcuni codici maligni possono attaccare l'host o addirittura comprometterlo, e c
 
 - Per limitare l'accesso a certi moduli integrati, solo`assert`, `buffer`, `crypto`,`util` и `path` sono inseriti nella lista bianca.
 
-- Noi sosteniamo [Moduli di terze parti](../create/mapping.md#third-party-libraries) scritto in **CommonJS** e **ibrido** biblioteche come `@polkadot/*` che usano ESM come predefinito.
+- Noi sosteniamo [Moduli di terze parti](../create/mapping/polkadot.md#third-party-libraries) scritto in **CommonJS** e **ibrido** biblioteche come `@polkadot/*` che usano ESM come predefinito.
 
 - Tutti i moduli che usano `HTTP` e `WebSocket` sono proibiti.

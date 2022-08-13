@@ -8,7 +8,7 @@
 
 **Documentation reference**
 
-[The manifest file](/create/manifest.md)
+[The manifest file](/build/manifest/polkadot.md)
 
 ## Lesson 2: The Schema File
 
@@ -28,7 +28,7 @@
 
 **Documentation reference**
 
-[Block Handler](/build/mapping.md#block-handler)
+[Block Handler](/build/mapping/polkadot.md#block-handler)
 
 ## Lesson 4: The Mappings File - Event Handler
 
@@ -38,7 +38,7 @@
 
 **Documentation reference**
 
-[Event Handler](/build/mapping.md#event-handler)
+[Event Handler](/build/mapping/polkadot.md#event-handler)
 
 ## Lesson 5: The Mappings File - Call Handler
 
@@ -48,7 +48,7 @@
 
 **Documentation reference**
 
-[Call Handler](/build/mapping.md#call-handler)
+[Call Handler](/build/mapping/polkadot.md#call-handler)
 
 ### Exercises
 

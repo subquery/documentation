@@ -9,7 +9,7 @@ Certains des exemples suivants supposent que vous avez initialisé avec succès 
 1. Initialise your project using `subql init PROJECT_NAME`.
 2. Mettre à jour le fichier Manifest (`projet. aml`) pour inclure des informations sur votre blockchain, et les entités que vous allez cartographier - voir [Fichier Manifest](./manifest.md)
 3. Créez des entités GraphQL dans votre schéma (`schéma.graphql`) qui définissent la forme des données que vous allez extraire et persister pour interroger - voir [Schéma GraphQL](./graphql.md)
-4. Ajouter toutes les fonctions de mappage (par exemple `mappingHandlers.ts`) que vous souhaitez appeler pour transformer des chaînes de données en entités GraphQL que vous avez définies - voir [Mapping](./mapping.md)
+4. Ajouter toutes les fonctions de mappage (par exemple `mappingHandlers.ts`) que vous souhaitez appeler pour transformer des chaînes de données en entités GraphQL que vous avez définies - voir [Mapping](./mapping/polkadot.md)
 5. Générer, construire, et publiez votre code sur les projets SubQuery (ou exécutez dans votre propre nœud local) - voir [Exécuter et interroger votre projet de démarrage](./quickstart-polkadot.md#running-and-querying-your-starter-project) dans notre guide de démarrage rapide.
 
 ## Structure du répertoire

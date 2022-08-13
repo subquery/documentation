@@ -70,7 +70,7 @@ For a more detailed explanation head [here](../build/dynamicdatasources.md).
 **Under `network`:**
 
 - There is a new **required** `genesisHash` field which helps to identify the chain being used.
-- For v0.2.0 and above, you are able to reference an external [chaintype file](../build/manifest.md#custom-substrate-and-cosmos-chains) if you are referencing a custom chain.
+- For v0.2.0 and above, you are able to reference an external [chaintype file](../build/manifest/polkadot.md#custom-substrate-and-cosmos-chains) if you are referencing a custom chain.
 
 **Under `dataSources`:**
 
@@ -162,7 +162,7 @@ Defines the data that will be filtered and extracted and the location of the map
 
 | Field                  | All manifest versions                                                                              | Description                                                                                                                                                                                                                                 |
 | ---------------------- | -------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **handlers & filters** | Default handlers and filters, <br />[Custom handlers and filters](manifest.md#custom-data-sources) | List all the [mapping functions](./mapping.md) and their corresponding handler types, with additional mapping filters. <br /><br /> For custom runtimes mapping handlers please view [Custom data sources](manifest.md#custom-data-sources) |
+| **handlers & filters** | Default handlers and filters, <br />[Custom handlers and filters](manifest.md#custom-data-sources) | List all the [mapping functions](./mapping/polkadot.md) and their corresponding handler types, with additional mapping filters. <br /><br /> For custom runtimes mapping handlers please view [Custom data sources](manifest.md#custom-data-sources) |
 
 ## Data Sources and Mapping
 
@@ -184,9 +184,9 @@ The following table explains filters supported by different handlers.
 
 | Handler                                              | Supported filter             |
 | ---------------------------------------------------- | ---------------------------- |
-| [substrate/BlockHandler](./mapping.md#block-handler) | `specVersion`, `modulo`      |
-| [substrate/EventHandler](./mapping.md#event-handler) | `module`,`method`            |
-| [substrate/CallHandler](./mapping.md#call-handler)   | `module`,`method` ,`success` |
+| [substrate/BlockHandler](./mapping/polkadot.md#block-handler) | `specVersion`, `modulo`      |
+| [substrate/EventHandler](./mapping/polkadot.md#event-handler) | `module`,`method`            |
+| [substrate/CallHandler](./mapping/polkadot.md#call-handler)   | `module`,`method` ,`success` |
 
 Default runtime mapping filters are an extremely useful feature to decide what block, event, or extrinsic will trigger a mapping handler.
 

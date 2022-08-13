@@ -9,7 +9,7 @@ Algunos de los siguientes ejemplos asumirán que ha iniciado con éxito el paque
 1. Inicia tu proyecto usando `subql init PROJECT_NAME`.
 2. Actualizar el archivo de manifiesto ( `project.yaml`) para incluir información sobre tu blockchain, y las entidades que vas a mapear - ver [Archivo de manifiesto](./manifest.md)
 3. Crear entidades GraphQL en tu esquema (`schema.graphql`) que definen la forma de los datos que extraerás y persistirá para la consulta - vea [Esquema GraphQL](./graphql.md)
-4. Agrega todas las funciones de mapeo (por ejemplo, `mappingHandlers.ts`) que desea invocar para transformar los datos de cadena a las entidades GraphQL que ha definido - vea [Mapeo](./mapping.md)
+4. Agrega todas las funciones de mapeo (por ejemplo, `mappingHandlers.ts`) que desea invocar para transformar los datos de cadena a las entidades GraphQL que ha definido - vea [Mapeo](./mapping/polkadot.md)
 5. Generar, compilar, y publique su código en los Proyectos SubQuery (o ejecute en su propio nodo local) - vea [Ejecutando y consultando su Proyecto de inicio](./quickstart-polkadot.md#running-and-querying-your-starter-project) en nuestra guía de inicio rápido.
 
 ## Estructura del Directorio

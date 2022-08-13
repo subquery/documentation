@@ -124,7 +124,7 @@ Defines the data that will be filtered and extracted and the location of the map
 
 | Field                  | Type                         | Description                                                                                                            |
 | ---------------------- | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| **handlers & filters** | Default handlers and filters | List all the [mapping functions](./mapping.md) and their corresponding handler types, with additional mapping filters. |
+| **handlers & filters** | Default handlers and filters | List all the [mapping functions](./mapping/polkadot.md) and their corresponding handler types, with additional mapping filters. |
 
 ## Data Sources and Mapping
 
@@ -146,8 +146,8 @@ The following table explains filters supported by different handlers.
 
 | Handler                                                         | Supported filter                                                                                         |
 | --------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| [algorand/BlockHandler](./mapping.md#block-handler)             | `modulo`                                                                                                 |
-| [algorand/TransactionHandler](./mapping.md#transaction-handler) | `txType`,`sender`, `receiver`, `applicationId`, `nonParticipant`, `assetId`, `newFreezeStatus` `address` |
+| [algorand/BlockHandler](./mapping/polkadot.md#block-handler)             | `modulo`                                                                                                 |
+| [algorand/TransactionHandler](./mapping/polkadot.md#transaction-handler) | `txType`,`sender`, `receiver`, `applicationId`, `nonParticipant`, `assetId`, `newFreezeStatus` `address` |
 
 Default runtime mapping filters are an extremely useful feature to decide what block, event, or extrinsic will trigger a mapping handler.
 

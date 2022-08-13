@@ -123,7 +123,7 @@ dataSources:
 
 ซึ่งหมายความว่าเราจะเรียกใช้ mapping function `handleEvent` ทุกครั้งที่มีเหตุการณ์ `transfer` event จาก Smart contract ขอบ bLuna
 
-สำหรับข้อมูลเพิ่มเติมเกี่ยวกับ Project Manifest (`project.yaml`) ไฟล์,โปรดตรวจสอบได้ที่เอกสารของเราภายใต้พ [Build/Manifest File](../build/manifest.md)
+สำหรับข้อมูลเพิ่มเติมเกี่ยวกับ Project Manifest (`project.yaml`) ไฟล์,โปรดตรวจสอบได้ที่เอกสารของเราภายใต้พ [Build/Manifest File](../build/manifest/polkadot.md)
 
 ### เพิ่ม Mapping Function
 
@@ -172,7 +172,7 @@ export async function handleEvent(
 
 สิ่งที่กำลังทำคือการได้รับ SubstrateEvent ซึ่งรวมถึงการถ่ายโอนข้อมูลในส่วนของข้อมูล payload ด้วย เราดึงข้อมูลนี้แล้วสร้าง instantiate entity ใหม่ที่`Transfer` ซึ่งเรากำหนดไว้ก่อนหน้านี้ในไฟล์ `schema.graphql` เราเพิ่มข้อมูลเพิ่มเติมแล้วใช้ function `.save()` เพื่อที่จะบันทึก entity ใหม่ (SubQuery จะบันทึกอัตโนมัติใน database).
 
-สำหรับข้อมูลเพิ่มเติมเกี่ยวกับฟังก์ชันการทำแผนที่ โปรดดูเอกสารประกอบของเราใน [Build/Mappings](../build/mapping.md)
+สำหรับข้อมูลเพิ่มเติมเกี่ยวกับฟังก์ชันการทำแผนที่ โปรดดูเอกสารประกอบของเราใน [Build/Mappings](../build/mapping/polkadot.md)
 
 ### การสร้างโปรเจค
 
