@@ -26,13 +26,13 @@ Cara terbaik untuk memulai SubQuery adalah mencoba [Hello World Tutorial](/asset
 
 ## Bagaimana saya bisa berkontribusi atau memberi masukan ke SubQuery?
 
-Kami menyukai kontribusi dan umpan balik dari komunitas. Untuk menyumbangkan kode, fork repositori yang Anda minati dan buat perubahan Anda. Kemudian kirimkan PR atau Pull Request. Jangan lupa untuk mengujinya juga. Periksa juga panduan kontribusi kami (segera hadir).
+Kami menyukai kontribusi dan umpan balik dari komunitas. Untuk menyumbangkan kode, fork repositori yang Anda minati dan buat perubahan Anda. Kemudian kirimkan PR atau Pull Request. Jangan lupa untuk mengujinya juga. Also check out our <a href="http://localhost:8080/miscellaneous/contributing.html">contributions guidelines.</a>
 
 Untuk memberi umpan balik, hubungi kami di hello@subquery.network atau buka [discord channel](https://discord.com/invite/78zg8aBSMG) kami.
 
 ## Berapa biaya untuk hosting proyek saya di SubQuery Projects?
 
-Hosting proyek Anda di Proyek SubQuery benar-benar gratis - ini adalah cara kami untuk memberikan kembali kepada komunitas. Silakan lihat [Hello World (SubQuery hosted)](../run_publish/publish.md) tutorial dan pelajari cara meng-host proyek Anda bersama kami.
+Layanan ini disediakan bagi komunitas dengan tingkat gratis yang murah hati! You can host your first two SubQuery projects for absolutely free!
 
 ## Apa itu slot deployment?
 
