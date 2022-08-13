@@ -26,13 +26,13 @@ SubQuery Network дозволяє розробникам повністю дец
 
 ## Як я можу внести або надати відгуки на SubQuery?
 
-Ми любимо внески та відгуки громади. Щоб внести свій внесок в код, розгалузите цікавить Вас репозиторій і внесіть свої зміни. Сформуйте PR або Pull Request. Не забудьте також протестувати. Також ознайомтеся з нашими керівними принципами щодо внесків (TBA).
+Ми любимо внески та відгуки громади. Щоб внести свій внесок в код, розгалузите цікавить Вас репозиторій і внесіть свої зміни. Сформуйте PR або Pull Request. Не забудьте також протестувати. Also check out our <a href="http://localhost:8080/miscellaneous/contributing.html">contributions guidelines.</a>
 
 Щоб залишити відгук, зв'яжіться з нами за адресою hello@subquery.network або перейдіть на наш канал [discord](https://discord.com/invite/78zg8aBSMG).
 
 ## Скільки коштує розміщення мого проекту в проектах SubQuery?
 
-Розміщення вашого проєкт в проєкт SubQuery абсолютно безплатність наш спосіб повернути гроші спільноті. Будь ласка, ознайомтеся з [Hello World (SubQuery hosted)](../run_publish/publish.md) керівництво і дізнайтеся, як розмістити свій проєкт у нас.
+This service is being provided to the community with a generous free tier! You can host your first two SubQuery projects for absolutely free!
 
 ## Що таке слоти розгортання?
 
