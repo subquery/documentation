@@ -34,7 +34,7 @@
           <div>
             <img src="/assets/img/networkIcon.svg" />
             <span>练习教程和示例</span>
-            <p>边做边学。 使用 SubQuery 的真实世界区块链项目练习并提高您的技能。</p>
+            <p>Learn by doing and practice with SubQuery’s real-world blockchain projects & improve your skills.</p>
           </div>
         </router-link>
       </li>
@@ -66,7 +66,7 @@
       <li>
         <div class="title">什么是SubQuery？</div>
         <div class="content">
-          <p>SubQuery 是一个开源区块链数据索引器。 它为开发者提供了更快和分散的 API。 它允许您构建强大的多链应用，而不会在索引和快速查询数据时浪费时间。</p>
+          <p>SubQuery 是一个开放源码区块链数据索引器，为开发者提供快速、灵活、可靠和分散的 API，为多链应用提供动力。</p>
           <span class="more">
             <router-link :to="{path: '/faqs/faqs.html#what-is-subquery'}">查看更多</router-link>
           </span>
@@ -90,7 +90,7 @@
       <li>
         <div class="title">在SubQuery项目中托管我的项目需要多少费用？</div>
         <div class="content">
-          <p>在 SubQuery 项目中托管您的项目是绝对免费的，这是我们回归社区的方式。 要学习如何与我们一起主办您的项目，请查看 <a href="https://academy.subquery.network/run_publish/publish.html">Hello World (SubQuery Hosted)</a> 教程。</p>
+          <p>此服务正在免费提供给社区！ You can host your first two SubQuery projects for absolutely free!</p>
           <span class="more">
             <router-link :to="{path: '/run_publish/publish.html'}">了解您的进程</router-link>
           </span>
