@@ -26,13 +26,13 @@ La mejor manera de empezar con SubQuery es probar nuestro [tutorial de Hola Mund
 
 ## ¿Cómo puedo contribuir o dar comentarios a SubQuery?
 
-Nos encantan las contribuciones y comentarios de la comunidad. Para contribuir con el código, bifurca el repositorio de su interés y realice sus cambios. Luego envíe un PR o Pull Request. No te olvides de probar también. Consulte también nuestras líneas de guía de contribuciones (TBA).
+Nos encantan las contribuciones y comentarios de la comunidad. Para contribuir con el código, bifurca el repositorio de su interés y realice sus cambios. Luego envíe un PR o Pull Request. No te olvides de probar también. Also check out our <a href="http://localhost:8080/miscellaneous/contributing.html">contributions guidelines.</a>
 
 Para dar comentarios, contáctanos a hello@subquery.network o salta a nuestro [canal de discord](https://discord.com/invite/78zg8aBSMG).
 
 ## ¿Cuánto cuesta alojar mi proyecto en SubQuery Projects?
 
-Hospedar tu proyecto en SubQuery Projects es absolutamente gratuito - es nuestra manera de retribuir a la comunidad. Por favor consulte el tutorial [Hola Mundo (SubQuery hosting)](../run_publish/publish.md) y aprenda a alojar su proyecto con nosotros.
+This service is being provided to the community with a generous free tier! You can host your first two SubQuery projects for absolutely free!
 
 ## ¿Qué son las ranuras de despliegue?
 
