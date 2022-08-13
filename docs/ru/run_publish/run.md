@@ -112,11 +112,11 @@ subql-node-avalanche -f your-project-path
 
 #### Использование словаря
 
-Использование словаря полной цепочки может значительно ускорить обработку проекта SubQuery во время тестирования или при первом индексировании. В некоторых случаях мы наблюдали увеличение производительности индексирования до 10 раз.
+Использование словаря полной цепочки может значительно ускорить обработку проекта SubQuery во время тестирования или при первом индексировании. In some cases, we've seen indexing performance increases of up to 10x.
 
-Полный словарь цепочки предварительно индексирует местоположение всех событий и экстринсиков в пределах конкретной цепочки и позволяет вашей службе узлов переходить к соответствующим местам при индексировании, а не проверять каждый блок.
+A full chain dictionary pre-indexes the location of all events and extrinsics within the specific chain and allows your node service to skip to relevant locations when indexing rather than inspecting each block.
 
-Вы можете добавить конечную точку словаря в файл `project.yaml` (см. [Manifest File](../build/manifest.md)), или указать ее во время выполнения с помощью следующей команды:
+You can add the dictionary endpoint in your `project.yaml` file (see [Manifest File](../build/manifest/polkadot.md)), or specify it at run time using the following command:
 
 <CodeGroup>
 <CodeGroupItem title='Substrate/Polkadot/Polkadot'>
