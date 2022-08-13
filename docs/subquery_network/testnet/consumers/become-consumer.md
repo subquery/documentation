@@ -2,16 +2,13 @@
 
 ## Introduction 
 
-Welcome to the **step-by-step guide to becoming a Consumer.** This guide explains what is a consumer and includes the necessary steps to become one. 
-
-It also gives you an insight into what benefits you can avail as a consumer. 
+Welcome to the **step-by-step guide to becoming a Consumer.** This guide explains what a consumer is and includes the necessary steps to become one. It also gives you an insight the benefits of becoming a consumer. 
 
 Before you begin exploring further, visit [Frontier](https://frontier.subquery.network/explorer) - SubQuery’s Testnet. This guide takes this testnet into account.  
 
-## Why to Become a Consumer?
+## Why Become a Consumer?
 
-As a [consumer](../../consumers.md), you can get indexed data by determining a specific rate (in SQT). In return, you can test and query the data quickly for your dApps and save your time. 
-
+As a [consumer](../../consumers.md), you can get indexed data by entering into an agreement with an Indexer. In return, you can query the data you need quickly for your dApps, thereby saving you time figuring out how to get blockchain data yourself. 
 
 **Begin your journey as a consumer by creating an offer. Follow any of these two methods:**
 
@@ -21,8 +18,6 @@ As a [consumer](../../consumers.md), you can get indexed data by determining a s
 ### Initial Preparation: 
 
 Before you create or purchase your first offer on SubQuery's Frontier Testnet, you must connect with **MetaMask**. Follow [these guided steps](../metamask/connect-metamask.md) and connect with MetaMask. 
-
-Now, let's move ahead. 
 
 ### Method-1. Create Your Own Offer
 

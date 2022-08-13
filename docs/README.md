@@ -13,7 +13,7 @@
     <div>
       <h2 class="title">Get a Kickstart with Our <span>Quick Start Guide</span></h2>
       <p><strong>Build your first SubQuery blockchain project in less than 10 mins with simple guided steps.</strong>
-      <p>Start querying data for your dApps within a few steps. Try our starter projects on your most loved blockchain network. Explore and modify important files, and understand how SubQuery works.
+      <p>Start querying data for your dApps with a few steps. Try our starter projects on your most loved blockchain network. Explore and modify important files and understand how SubQuery works.
       </p>
       <span class="button">
         <router-link :to="{path: '/quickstart/quickstart.html'}"> 
@@ -34,7 +34,7 @@
           <div>
             <img src="/assets/img/tutorialsIcon.svg" />
             <span>Practice with Tutorials & Examples</span>
-            <p>Learning by Doing. Practice with SubQuery’s real-world blockchain projects & improve your skills.</p>
+            <p>Learn by doing and practice with SubQuery’s real-world blockchain projects & improve your skills.</p>
           </div>
         </router-link>
       </li>
@@ -51,7 +51,7 @@
         <router-link :to="{path: '/subquery_network/introduction.html'}"> 
           <div>
             <img src="/assets/img/networkIcon.svg" />
-            <span>Be a Part of SubQuery Network</span>
+            <span>Be Part of The SubQuery Network</span>
             <p>Host & index projects, or query data for your dApps. Help the community and get rewarded with SQT.</p>
           </div>
         </router-link>
@@ -66,7 +66,7 @@
       <li>
         <div class="title">What is SubQuery?</div>
         <div class="content">
-          <p>SubQuery is an open-source blockchain data indexer. It provides developers with faster and decentralised APIs. It allows you to build powerful multi-chain apps without wasting hours on indexing and quickly querying data.</p>
+          <p>SubQuery is an open source blockchain data indexer for developers that provides fast, flexible, reliable, and decentralised APIs to power leading multi-chain apps.</p>
           <span class="more">
             <router-link :to="{path: '/faqs/faqs.html#what-is-subquery'}">READ MORE</router-link>
           </span>
@@ -81,7 +81,7 @@
       <li>
         <div class="title">How can I contribute or give feedback to SubQuery?</div>
         <div class="content">
-          <p>We love contributions and feedback from the community. To contribute the code, fork the repository of your interest and make your changes. Then submit a PR or Pull Request. Don't forget to test as well. Also check out our contributions guide lines (TBA). </p>
+          <p>We love contributions and feedback from the community. To contribute the code, fork the repository of your interest and make your changes. Then submit a PR or Pull Request. Don't forget to test as well. </p>
           <span class="more">
             <router-link :to="{path: '/faqs/faqs.html#how-can-i-contribute-or-give-feedback-to-subquery'}">READ MORE</router-link>
           </span> 
@@ -90,7 +90,7 @@
       <li>
         <div class="title">How much does it cost to host my project in SubQuery Projects?</div>
         <div class="content">
-          <p>Hosting your project in SubQuery Projects is absolutely free — it is our way of giving back to the community. To learn how to host your project with us, please check out the <a href="https://academy.subquery.network/run_publish/publish.html">Hello World (SubQuery Hosted)</a> tutorial.</p>
+          <p>This service is being provided to the community with a generous free tier! You can host your first two SubQuery projects for absolutely free!</p>
           <span class="more">
             <router-link :to="{path: '/run_publish/publish.html'}">HOSTING YOUR PROJECT</router-link>
           </span>
