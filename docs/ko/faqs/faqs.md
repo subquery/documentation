@@ -26,13 +26,13 @@ The best way to get started with SubQuery is to try out our [Hello World tutoria
 
 ## SubQuery에 기여하거나 피드백을 하려면 어떻게 해야하나요?
 
-우리는 언제나 커뮤니티의 기여와 피드백을 환영합니다. To contribute the code, fork the repository of your interest and make your changes. 그런 다음 PR 또는 풀 리퀘스트를 통해 제출해주세요. Don't forget to test as well. Also check out our contributions guide lines (TBA).
+우리는 언제나 커뮤니티의 기여와 피드백을 환영합니다. To contribute the code, fork the repository of your interest and make your changes. 그런 다음 PR 또는 풀 리퀘스트를 통해 제출해주세요. Don't forget to test as well. Also check out our <a href="http://localhost:8080/miscellaneous/contributing.html">contributions guidelines.</a>
 
 To give feedback, contact us at hello@subquery.network or jump onto our [discord channel](https://discord.com/invite/78zg8aBSMG).
 
 ## SubQuery 프로젝트에서 내 프로젝트를 호스팅하는 데 비용이 얼마나 듭니까?
 
-Hosting your project in SubQuery Projects is absolutely free — it is our way of giving back to the community. Please check out the [Hello World (SubQuery hosted)](../run_publish/publish.md) tutorial and learn how to host your project with us.
+This service is being provided to the community with a generous free tier! You can host your first two SubQuery projects for absolutely free!
 
 ## What are deployment slots?
 
