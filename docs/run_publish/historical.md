@@ -2,7 +2,7 @@
 
 ## Background
 
-SubQuery allows you to index any data that you want from Substrate, Avalance, and other networks. Currently, SubQuery operates as a mutable data store, where you can append, update, delete, or otherwise change existing saved entities in the dataset that is indexed by SubQuery. As SubQuery indexes each block, the state of each entity may be updated or deleted based on your project's logic.
+Currently, SubQuery operates as a mutable data store, where you can append, update, delete, or otherwise change existing saved entities in the dataset that is indexed by SubQuery. As SubQuery indexes each block, the state of each entity may be updated or deleted based on your project's logic.
 
 A basic SubQuery project that indexes account balances might have an entity that looks like the following.
 
@@ -36,7 +36,9 @@ On startup, the current status of this feature is printed to the console (`Histo
 
 ## Querying Historical State
 
-There is a special (optional) property on the GraphQL entity filter called `blockHeight`. If you omit this property, SubQuery will query the entity state at the current block height.
+[You can follow a step by step tutoral on how to use this feature here](../academy/tutorials_examples/historical-queries.md)
+
+There is a special (optional) property on the GraphQL entity filter called `blockHeight` that we add automatically. If you omit this property, SubQuery will query the entity state at the current block height.
 
 Please see one of our example projects: [RMRK NFT](https://explorer.subquery.network/subquery/subquery/rmrk-nft-historical).
 
@@ -44,7 +46,10 @@ To query the owners of RMRK NFTs at block height 5,000,000, add the blockHeight 
 
 ```graphql
 query {
-  nFTEntities(first: 5, blockHeight: "5000000") {
+  nFTEntities(
+    first: 5,
+    blockHeight: "5000000"
+  ) {
     nodes {
       name
       currentOwner
@@ -58,6 +63,22 @@ To query the owners of those RMRK NFTs collections at the latest block height, o
 ```graphql
 query {
   nFTEntities(first: 5) {
+    nodes {
+      name
+      currentOwner
+    }
+  }
+}
+```
+
+You can also order items by this `blockHeight` field, this will essentially order entities by last updated (or created/deleted)
+
+```graphql
+query {
+  nFTEntities(
+    first: 5
+    orderBy: BLOCKHEIGHT_DESC
+  ) {
     nodes {
       name
       currentOwner

@@ -44,10 +44,6 @@ Run the following command inside the directory you want to create a SubQuery pro
 subql init
 ```
 
-::: info Note
-Now, SubQuery also supports **Cosmos** in the SubQuery CLI(`subql`).
-
-
 You'll be asked certain questions as you proceed ahead:
 
 - **Project name**: A project name for your SubQuery project.

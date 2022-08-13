@@ -1,38 +1,30 @@
 # Glossary
 
-# SubQuery Project 
+# SubQuery Project
 
-## **SubQuery project** 
+## **SubQuery project**
 
-(*where the magic happens*)
+(_where the magic happens_)
 
-A definition ([`@subql/cli`](https://www.npmjs.com/package/@subql/cli)) of how a SubQuery Node should traverse and aggregate a projects network, and how the data should be transformed and stored to enable useful GraphQL queries.
+A full self-contained definition ([`@subql/cli`](https://www.npmjs.com/package/@subql/cli)) of how a SubQuery indexer should traverse and aggregate a projects network, and how the data should be transformed and stored to enable useful GraphQL queries. This is essentially a recipie for how you can index and query data and will setup a [SubQuery Node](#subquery-node) and [Query Service](#subquery-query-service) when running
 
+## **SubQuery Node**
 
+(_where the work is done_)
 
-## **SubQuery Node** 
+A package ([`@subql/node`](https://www.npmjs.com/package/@subql/node)) that will accept a SubQuery project definiton, and run a node that constantly indexes a connected network to a postgres database.
 
-(*where the work is done*)
+## **SubQuery Query Service**
 
-A package ([`@subql/node`](https://www.npmjs.com/package/@subql/node)) that will accept a SubQuery project definiton, and run a node that constantly indexes a connected network to a database.
+(_where we get the data from_)
 
+A package ([`@subql/query`](https://www.npmjs.com/package/@subql/query)) that provides a GraphQL API endpoint of a SubQuery project. it interacts with the postgres database that the SubQuery Node saves data to.
 
+## **GraphQL**
 
-## **SubQuery Query Service** 
-
-(*where we get the data from*)
-
-A package ([`@subql/query`](https://www.npmjs.com/package/@subql/query)) that interacts with the GraphQL API of a deployed SubQuery node to query and view the indexed data.
-
-
-
-## **GraphQL** 
-
-(*how we query the data*)
+(_how we query the data_)
 
 A query langage for APIs that is specifically suited for flexible graph based data - see [graphql.org](https://graphql.org/learn/).
-
-
 
 ---
 
@@ -42,20 +34,19 @@ A query langage for APIs that is specifically suited for flexible graph based da
 
 ## **Service Agreements**
 
-A Service Agreement is a mutual agreement between the Consumers and Indexers on how the transactions will take place and how the services will be delivered. 
+A Service Agreement is a mutual agreement between the Consumers and Indexers on how the transactions will take place and how the services will be delivered.
 
-The Service Agreement ensures transparency between both parties. It includes details as given below: 
+The Service Agreement ensures transparency between both parties. It includes details as given below:
+
 - Project Name and the Network Name
-- Version - Deployment Id of the project 	
-- The id of the Consumer	
-- The id of the Indexer	
+- Version - Deployment Id of the project
+- The id of the Consumer
+- The id of the Indexer
 - When the project expires
-- Query URL	
+- Query URL
 - The price that the consumer will pay to the indexer for delivering the service(rewards will be in SQT)
 
 Read more about the two types of Service Agreements(Closed and Open Market) [here](../subquery_network/payment-methods.md)
-
-
 
 ## **Allocating**
 
