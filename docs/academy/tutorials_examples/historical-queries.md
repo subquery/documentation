@@ -18,9 +18,7 @@ In this tutorial, we will refer to the aggregation project that was introduced i
 Complete the above-mentioned exercise before moving forward.
 :::
 
-This project allows users to query the total staking rewards for a particular account.
-
-Try and run this sample query in the `localhost:3000` and check out the results as follows:
+The aggregation project allows users to query the total staking rewards for a particular account. Try and run this sample query in your browser at `localhost:3000` and check out the results as follows:
 
 <CodeGroup>
   <CodeGroupItem title="Query" active>
@@ -73,7 +71,7 @@ The above query returns the total reward of the user `121FXj85TuKfrQM1Pdcjj4ibbJ
 
 But what if you want to see the total earnings of the same user at a previous block? That's where you must use SubQuery's historical state feature.
 
-In order to make this feautre working, create a new folder, called `docker` in your project directory. Then proceed ahead to 3 additional files in this `docker` folder:
+In order to make this feature work, create a new folder, called `docker` in your project directory. Then proceed ahead to 3 additional files in this `docker` folder:
 
 1. docker-compose.yml
 2. load-extensions.sh
@@ -82,7 +80,7 @@ In order to make this feautre working, create a new folder, called `docker` in y
 
 ::: info Note
 
-Visit the [`docker` repository](https://github.com/subquery/subql-starter/tree/historical/docker) to download or copy these files into your own docker folder.
+Visit [this](https://github.com/subquery/subql-starter/tree/historical/docker) docker repository to download or copy these files into your own docker folder.
 
 :::
 
@@ -111,9 +109,9 @@ query {
     }
     ) {
       nodes {
-      blockheight
-      id
-      totalReward
+        blockheight
+        id
+        totalReward
     }
   }
 }
@@ -142,9 +140,9 @@ query {
 </CodeGroupItem>
 </CodeGroup>
 
-The above query retrieves the **total reward** for the `121FXj85TuKfrQM1Pdcjj4ibbJNnfsqCtMsJ24rSvGEdWDdv` at the previous block `7000064`.
+The above query retrieves the **total reward** for `121FXj85TuKfrQM1Pdcjj4ibbJNnfsqCtMsJ24rSvGEdWDdv` at the previous block `7000064`.
 
-To see clearer picture, notice the difference between the balance between the present and previous block height:
+To see a clearer picture, notice the difference between the balance between the present and previous block height:
 
 | Block Height | Balance                         |
 |--------------|---------------------------------|
@@ -157,14 +155,14 @@ Visit [Polkadot Subscan](https://polkadot.subscan.io/) to view this user's comep
 
 :::
 
-## Bonus Exercise
+## Bonus
 
 Run `git clone -b historical https://github.com/subquery/subql-starter.git` and copy the [`docker` folder] to your project directory(as shown in the previous steps).
 
-Now run the following query in the `localhost:3000`:
+Now navigate to `localhost:3000` and run the following query:
 
 <CodeGroup>
-<CodeGroupItem title="Query 1" active>
+  <CodeGroupItem title="Query 1" active>
 
 ```graphql
 query {
@@ -184,7 +182,7 @@ query {
 }
 ```
 
-</CodeGroupItem>
+  </CodeGroupItem>
 <CodeGroupItem title="Result 1">
 
 ```json
