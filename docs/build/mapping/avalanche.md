@@ -23,7 +23,7 @@ export async function handleBlock(block: AvalancheBlock): Promise<void> {
 }
 ```
 
-An AvalancheBlock encapsulates all transactions and events in the block.
+An `AvalancheBlock` encapsulates all transactions and events in the block.
 
 ## Transaction Handler
 
@@ -46,7 +46,7 @@ export async function handleTransaction(
 }
 ```
 
-The AvalancheTransaction encapsulates TxInfo and the corresponding block information in which the transaction occured.
+The `AvalancheTransaction` encapsulates `TxInfo` and the corresponding block information in which the transaction occured.
 
 ## Log Handler
 

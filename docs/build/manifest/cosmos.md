@@ -23,6 +23,7 @@ schema:
   file: ./schema.graphql
 network:
   chainId: juno-1
+  # Must be a non-pruned archive node
   endpoint: https://rpc.juno-1.api.onfinality.io
   # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
   dictionary: https://api.subquery.network/sq/subquery/cosmos-juno-1-dictionary

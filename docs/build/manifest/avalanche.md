@@ -22,15 +22,16 @@ repository: https://github.com/subquery/avalanche-subql-starter
 schema:
   file: ./schema.graphql
 network:
-  endpoint: https://avalanche.api.onfinality.io/
   chainId: mainnet
   type: avalanche
   chainName: C
+  # Must be a non-pruned archive node
+  endpoint: https://avalanche.api.onfinality.io/
   # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
   dictionary: https://api.subquery.network/sq/subquery/avalanche-dictionary
 dataSources:
   - kind: avalanche/Runtime
-    startBlock: 1
+    startBlock: 1 # Block to start indexing from
     options:
       # Must be a key of assets
       abi: erc20

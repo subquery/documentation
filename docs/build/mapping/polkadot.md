@@ -23,7 +23,7 @@ export async function handleBlock(block: SubstrateBlock): Promise<void> {
 }
 ```
 
-A SubstrateBlock is an extended interface type of [signedBlock](https://polkadot.js.org/docs/api/cookbook/blocks/), but also includes the `specVersion` and `timestamp`.
+A `SubstrateBlock` is an extended interface type of [signedBlock](https://polkadot.js.org/docs/api/cookbook/blocks/), but also includes the `specVersion` and `timestamp`.
 
 ## Event Handler
 
@@ -49,7 +49,7 @@ export async function handleEvent(event: SubstrateEvent): Promise<void> {
 }
 ```
 
-A SubstrateEvent is an extended interface type of the [EventRecord](https://github.com/polkadot-js/api/blob/f0ce53f5a5e1e5a77cc01bf7f9ddb7fcf8546d11/packages/types/src/interfaces/system/types.ts#L149). Besides the event data, it also includes an `id` (the block to which this event belongs) and the extrinsic inside of this block.
+A `SubstrateEvent` is an extended interface type of the [EventRecord](https://github.com/polkadot-js/api/blob/f0ce53f5a5e1e5a77cc01bf7f9ddb7fcf8546d11/packages/types/src/interfaces/system/types.ts#L149). Besides the event data, it also includes an `id` (the block to which this event belongs) and the extrinsic inside of this block.
 
 ::: info Note
 From `@subql/types` version `X.X.X` onwards `SubstrateEvent` is now generic. This can provide you with higher type safety when developing your project.

@@ -2,7 +2,7 @@
 
 The Manifest `project.yaml` file can be seen as an entry point of your project and it defines most of the details on how SubQuery will index and transform the chain data. It clearly indicates where we are indexing data from, and to what on chain events we are subscribing to.
 
-The Manifest can be in either YAML or JSON format. In this document, we will use YAML in all the examples. 
+The Manifest can be in either YAML or JSON format. In this document, we will use YAML in all the examples.
 
 Below is a standard example of a basic `project.yaml`.
 
@@ -12,23 +12,24 @@ name: subquery-starter
 version: 0.0.1
 runner:
   node:
-    name: '@subql/node'
-    version: '*'
+    name: "@subql/node"
+    version: "*"
   query:
-    name: '@subql/query'
-    version: '*'
-description: 'This project can be use as a starting point for developing your Polkadot based SubQuery project'
+    name: "@subql/query"
+    version: "*"
+description: "This project can be use as a starting point for developing your Polkadot based SubQuery project"
 repository: https://github.com/subquery/subql-starter
 schema:
   file: ./schema.graphql
 network:
-  chainId: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3'
+  chainId: "0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3"
+  # Must be a non-pruned archive node
   endpoint: wss://polkadot.api.onfinality.io/public-ws
   # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
   dictionary: https://api.subquery.network/sq/subquery/polkadot-dictionary
 dataSources:
   - kind: substrate/Runtime
-    startBlock: 1
+    startBlock: 1 # Block to start indexing from
     mapping:
       file: ./dist/index.js
       handlers:
@@ -62,7 +63,7 @@ Template are introduced from manifest v0.2.1, it allows creating datasources dyn
 This is useful when you don't know certain specific details when creating your project.
 A good example of this is when you know a contract will be deployed at a later stage but you don't know what the address will be.
 
-For a more detailed explanation head [here](../build/dynamicdatasources.md). 
+For a more detailed explanation head [here](../build/dynamicdatasources.md).
 
 ### Change log for v0.2.0
 
@@ -88,23 +89,22 @@ If you have a project with specVersion v0.2.0, The only change is a new **requir
 
 ### Top Level Spec
 
-| Field           | v1.0.0                              | v0.2.0                      | Description                                         |
-|-----------------|-------------------------------------|-----------------------------|-----------------------------------------------------|
-| **specVersion** | String                              | String                      | The spec version of the manifest file               |
-| **name**        | String                              | String                      | Name of your project                                |
-| **version**     | String                              | String                      | Version of your project                             |
-| **description** | String                              | String                      | Discription of your project                         |
-| **repository**  | String                              | String                      | Git repository address of your project              |
-| **schema**      | [Schema Spec](manifest.md#schema-spec)         | [Schema Spec](manifest.md#schema-spec) | The location of your GraphQL schema file            |
-| **network**     | [Network Spec](manifest.md#network-spec)       | [Network Spec](manifest.md#network-spec)                | Detail of the network to be indexed                 |
-| **dataSources** | [DataSource Spec](manifest.md#datasource-spec) | [DataSource Spec](manifest.md#datasource-spec)             | The datasource to your project                      |
-| **templates**   | [Templates Spec](dynamicdatasources.md#the-templates-field)   | [Templates Spec](dynamicdatasources.md#the-templates-field)                           | Allows creating new datasources from this templates |
-| **runner**      | [Runner Spec](manifest.md#runner-spec)         | [Runner Spec](manifest.md#runner-spec)                           | Runner specs info                                   |
-
+| Field           | v1.0.0                                                      | v0.2.0                                                      | Description                                         |
+| --------------- | ----------------------------------------------------------- | ----------------------------------------------------------- | --------------------------------------------------- |
+| **specVersion** | String                                                      | String                                                      | The spec version of the manifest file               |
+| **name**        | String                                                      | String                                                      | Name of your project                                |
+| **version**     | String                                                      | String                                                      | Version of your project                             |
+| **description** | String                                                      | String                                                      | Discription of your project                         |
+| **repository**  | String                                                      | String                                                      | Git repository address of your project              |
+| **schema**      | [Schema Spec](manifest.md#schema-spec)                      | [Schema Spec](manifest.md#schema-spec)                      | The location of your GraphQL schema file            |
+| **network**     | [Network Spec](manifest.md#network-spec)                    | [Network Spec](manifest.md#network-spec)                    | Detail of the network to be indexed                 |
+| **dataSources** | [DataSource Spec](manifest.md#datasource-spec)              | [DataSource Spec](manifest.md#datasource-spec)              | The datasource to your project                      |
+| **templates**   | [Templates Spec](dynamicdatasources.md#the-templates-field) | [Templates Spec](dynamicdatasources.md#the-templates-field) | Allows creating new datasources from this templates |
+| **runner**      | [Runner Spec](manifest.md#runner-spec)                      | [Runner Spec](manifest.md#runner-spec)                      | Runner specs info                                   |
 
 ### Schema Spec
 
-| Field    | Type | Description                              |
+| Field    | Type   | Description                              |
 | -------- | ------ | ---------------------------------------- |
 | **file** | String | The location of your GraphQL schema file |
 
@@ -118,53 +118,51 @@ The `chainId` or `genesisHash` is the network identifier of the blockchain. In S
 
 Additionally you will need to update the `endpoint`. This defines the wss endpoint of the blockchain to be indexed - **this must be a full archive node**. You can retrieve endpoints for all parachains for free from [OnFinality](https://app.onfinality.io)
 
-| Field           | v1.0.0   | v0.2.0 | Description                     |
-|-----------------|----------|--------|---------------------------------|
-| **chainId**     | String | x | A network identifier for the blockchain (`genesisHash` in Substrate) |
-| **genesisHash** | String | String | The genesis hash of the network (from v1.0.0 this is an alias for `chainId` and not necessary) |
-| **endpoint**    | String | String | Defines the wss or ws endpoint of the blockchain to be indexed - **This must be a full archive node**. You can retrieve endpoints for all parachains for free from [OnFinality](https://app.onfinality.io) |
-| **port**    | Number | Number | Optional port number on the `endpoint` to connect to |
-| **dictionary**  | String | String | It is suggested to provide the HTTP endpoint of a full chain dictionary to speed up processing - read [how a SubQuery Dictionary works](../academy/tutorials_examples/dictionary.md). |
-| **chaintypes**  | {file:String} | {file:String} | Path to chain types file, accept `.json` or `.yaml` format |
-
+| Field           | v1.0.0        | v0.2.0        | Description                                                                                                                                                                                                |
+| --------------- | ------------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **chainId**     | String        | x             | A network identifier for the blockchain (`genesisHash` in Substrate)                                                                                                                                       |
+| **genesisHash** | String        | String        | The genesis hash of the network (from v1.0.0 this is an alias for `chainId` and not necessary)                                                                                                             |
+| **endpoint**    | String        | String        | Defines the wss or ws endpoint of the blockchain to be indexed - **This must be a full archive node**. You can retrieve endpoints for all parachains for free from [OnFinality](https://app.onfinality.io) |
+| **port**        | Number        | Number        | Optional port number on the `endpoint` to connect to                                                                                                                                                       |
+| **dictionary**  | String        | String        | It is suggested to provide the HTTP endpoint of a full chain dictionary to speed up processing - read [how a SubQuery Dictionary works](../academy/tutorials_examples/dictionary.md).                      |
+| **chaintypes**  | {file:String} | {file:String} | Path to chain types file, accept `.json` or `.yaml` format                                                                                                                                                 |
 
 ### Runner Spec
 
-| Field     | v1.0.0                                  | Description                                |
-|-----------|-----------------------------------------|--------------------------------------------|
+| Field     | v1.0.0                                             | Description                                |
+| --------- | -------------------------------------------------- | ------------------------------------------ |
 | **node**  | [Runner node spec](manifest.md#runner-node-spec)   | Describe the node service use for indexing |
 | **query** | [Runner query spec](manifest.md#runner-query-spec) | Describe the query service                 |
 
 ### Runner Node Spec
 
-| Field       | v1.0.0 | Description                                                                                                                                                                                              |
-|-------------|--------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **name**    | String | We currently support `@subql/node` |
-| **version** | String | Version of the indexer Node service, it must follow the [SEMVER](https://semver.org/) rules  or `latest`, you can also find available versions in subquery SDK [releases](https://github.com/subquery/subql/releases) |
-
+| Field       | v1.0.0 | Description                                                                                                                                                                                                          |
+| ----------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **name**    | String | We currently support `@subql/node`                                                                                                                                                                                   |
+| **version** | String | Version of the indexer Node service, it must follow the [SEMVER](https://semver.org/) rules or `latest`, you can also find available versions in subquery SDK [releases](https://github.com/subquery/subql/releases) |
 
 ### Runner Query Spec
 
-| Field | All manifest versions | Description |
-|-------------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **name**    | String | We currently support `@subql/query` |
-| **version** | String | Version of the Query service, available versions can be found [here](https://github.com/subquery/subql/blob/main/packages/query/CHANGELOG.md), it also must follow the SEMVER rules  or `latest`. |
+| Field       | All manifest versions | Description                                                                                                                                                                                      |
+| ----------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **name**    | String                | We currently support `@subql/query`                                                                                                                                                              |
+| **version** | String                | Version of the Query service, available versions can be found [here](https://github.com/subquery/subql/blob/main/packages/query/CHANGELOG.md), it also must follow the SEMVER rules or `latest`. |
 
 ### Datasource Spec
 
 Defines the data that will be filtered and extracted and the location of the mapping function handler for the data transformation to be applied.
 
-| Field | Type | Description
-| --------------- |-------------|-------------|
-| **kind** | String | [substrate/Runtime](manifest.md#data-sources-and-mapping) |
-| **startBlock** | Integer | This changes your indexing start block, set this higher to skip initial blocks with less data |  
-| **mapping** |  Mapping Spec | |
+| Field          | Type         | Description                                                                                   |
+| -------------- | ------------ | --------------------------------------------------------------------------------------------- |
+| **kind**       | String       | [substrate/Runtime](manifest.md#data-sources-and-mapping)                                     |
+| **startBlock** | Integer      | This changes your indexing start block, set this higher to skip initial blocks with less data |
+| **mapping**    | Mapping Spec |                                                                                               |
 
 ### Mapping Spec
 
-| Field                  | All manifest versions | Description |
-| ---------------------- |------------------------------------------------------------------------------------------| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **handlers & filters** | Default handlers and filters, <br />[Custom handlers and filters](manifest.md#custom-data-sources)  | List all the [mapping functions](./mapping.md) and their corresponding handler types, with additional mapping filters. <br /><br /> For custom runtimes mapping handlers please view [Custom data sources](manifest.md#custom-data-sources) |
+| Field                  | All manifest versions                                                                              | Description                                                                                                                                                                                                                                 |
+| ---------------------- | -------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **handlers & filters** | Default handlers and filters, <br />[Custom handlers and filters](manifest.md#custom-data-sources) | List all the [mapping functions](./mapping.md) and their corresponding handler types, with additional mapping filters. <br /><br /> For custom runtimes mapping handlers please view [Custom data sources](manifest.md#custom-data-sources) |
 
 ## Data Sources and Mapping
 
@@ -184,8 +182,8 @@ The following table explains filters supported by different handlers.
 
 **Your SubQuery project will be much more efficient when you only use event and call handlers with appropriate mapping filters.**
 
-| Handler | Supported filter |
-| ------------------ | ---------------------------------------------------- | ---------------------------- |
+| Handler                                              | Supported filter             |
+| ---------------------------------------------------- | ---------------------------- |
 | [substrate/BlockHandler](./mapping.md#block-handler) | `specVersion`, `modulo`      |
 | [substrate/EventHandler](./mapping.md#event-handler) | `module`,`method`            |
 | [substrate/CallHandler](./mapping.md#call-handler)   | `module`,`method` ,`success` |
@@ -220,16 +218,16 @@ filter:
 
 ## Custom Chains
 
-You can index data from custom Substrate chains by also including chain types in the manifest. 
+You can index data from custom Substrate chains by also including chain types in the manifest.
 
 We support the additional types used by Substrate runtime modules, `typesAlias`, `typesBundle`, `typesChain`, and `typesSpec` are also supported.
 
 In the example below, the `network.chaintypes` are pointing to a file that has all the custom types included, This is a standard chainspec file that declares the specific types supported by this blockchain in either `.json`, `.yaml` or `.js` format.
 
-``` yml
+```yml
 network:
-  genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3'
-  endpoint: 'ws://host.kittychain.io/public-ws'
+  genesisHash: "0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3"
+  endpoint: "ws://host.kittychain.io/public-ws"
   chaintypes:
     file: ./types.json # The relative filepath to where custom types are stored
 ```
@@ -273,7 +271,7 @@ For example, Acala publish an [offical chain type definition to NPM](https://www
 
 The under `/src/chaintypes.ts` we define a custom export for Acala's types bundle from this package.
 
-``` ts
+```ts
 import { typesBundleForPolkadot } from "@acala-network/type-definitions";
 
 export default { typesBundle: typesBundleForPolkadot };
@@ -281,7 +279,7 @@ export default { typesBundle: typesBundleForPolkadot };
 
 This is then exported in the `package.json` like so:
 
-``` json
+```json
 {
   ...
   "devDependencies": {
@@ -297,7 +295,7 @@ This is then exported in the `package.json` like so:
 
 Finally, in the `project.yaml` manifest, we can import this official types bundle as per standard:
 
-``` yaml
+```yaml
 network:
   genesisHash: "0xfc41b9bd8ef8fe53d58c7ea67c794c7ec9a73daf05e6d54b14ff6342c99ba64c"
   endpoint: wss://acala-polkadot.api.onfinality.io/public-ws
@@ -315,8 +313,8 @@ Custom Data Sources can be used with normal data sources.
 
 Here is a list of supported custom datasources:
 
-| Kind                                                  | Supported Handlers                                                                                       | Filters                         | Description                                                                      |
-| ----------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | ------------------------------- | -------------------------------------------------------------------------------- |
+| Kind                                               | Supported Handlers                                                                                                                           | Filters                         | Description                                                                                                                                           |
+| -------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [substrate/FrontierEvm](../build/substrate-evm.md) | [substrate/FrontierEvmEvent](../build/substrate-evm.md#event-handlers), [substrate/FrontierEvmCall](../build/substrate-evm.md#call-handlers) | See filters under each handlers | Provides easy interaction with EVM transactions and events on the Frontier EVM (widely used across Polkadot including in Moonbeam and Astar networks) |
 
 ## Validating

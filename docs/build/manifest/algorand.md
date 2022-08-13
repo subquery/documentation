@@ -23,11 +23,17 @@ repository: "https://github.com/subquery/algorand-subql-starter"
 schema:
   file: ./schema.graphql
 network:
-  chainId: "SGO1GKSzyE7IEPItTxCByw9x8FmnrCDexi9/cOUJOiI="
-  endpoint: "https://algoindexer.testnet.algoexplorerapi.io"
+  chainId: "wGHE2Pwdvd7S12BL5FaOP20EGYesN73ktiC1qzkkit8="
+  # Must be a non-pruned archive node
+  endpoint: "https://algoindexer.algoexplorerapi.io"
+  # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
+  dictionary: https://api.subquery.network/sq/subquery/Algorand-Dictionary
+  # For the testnet use the following
+  # chainId: "SGO1GKSzyE7IEPItTxCByw9x8FmnrCDexi9/cOUJOiI="
+  # endpoint: "https://algoindexer.testnet.algoexplorerapi.io"
 dataSources:
   - kind: algorand/Runtime
-    startBlock: 50000
+    startBlock: 50000 # Block to start indexing from
     mapping:
       file: ./dist/index.js
       handlers:

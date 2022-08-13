@@ -23,6 +23,7 @@ schema:
   file: ./schema.graphql
 network:
   chainId: columbus-5
+  # Must be a non-pruned archive node
   endpoint: https://terra-columbus-5.beta.api.onfinality.io
   # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
   dictionary: https://api.subquery.network/sq/subquery/terra-columbus-5-dictionary
@@ -30,7 +31,7 @@ network:
   mantlemint: https://mantlemint.terra-columbus-5.beta.api.onfinality.io
 dataSources:
   - kind: terra/Runtime
-    startBlock: 4724001
+    startBlock: 4724001 # Block to start indexing from
     mapping:
       file: ./dist/index.js
       handlers:

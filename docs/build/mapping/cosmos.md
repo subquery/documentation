@@ -42,7 +42,7 @@ export async function handleEvent(event: CosmosEvent): Promise<void> {
 }
 ```
 
-A CosmosEvent encapsulates Event data and TxLog corresponding to the event. It also contains CosmosMessage data of the message connected to the event. Also, it includes the CosmosBlock and CosmosTransaction data of the block and transaction from which the event was emitted.
+A `CosmosEvent` encapsulates Event data and `TxLog` corresponding to the event. It also contains `CosmosMessage` data of the message connected to the event. Also, it includes the `CosmosBlock` and `CosmosTransaction` data of the block and transaction from which the event was emitted.
 
 ## Transaction Handler
 
@@ -78,7 +78,7 @@ export async function handleMessage(msg: CosmosMessage): Promise<void> {
 }
 ```
 
-CosmosMessage encapsulates the `msg` object containing the message data, the CosmosTransaction in which the message occured in and also the CosmosBlock in which the transaction occured in.
+`CosmosMessage` encapsulates the `msg` object containing the message data, the `CosmosTransaction` in which the message occured in and also the `CosmosBlock` in which the transaction occured in.
 
 ## The Sandbox
 

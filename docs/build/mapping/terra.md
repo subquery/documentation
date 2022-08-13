@@ -23,7 +23,7 @@ export async function handleBlock(block: TerraBlock): Promise<void> {
 }
 ```
 
-A TerraBlock is an extended interface type of [Terra.js](https://docs.terra.money/docs/develop/sdks/terra-js/README.html) BlockInfo, but also encapsulates the BlockInfo and TxInfo of all transactions in the block.
+A `TerraBlock` is an extended interface type of [Terra.js](https://docs.terra.money/docs/develop/sdks/terra-js/README.html) BlockInfo, but also encapsulates the BlockInfo and TxInfo of all transactions in the block.
 
 ## Event Handler
 
@@ -47,11 +47,11 @@ export async function handleEvent(
 }
 ```
 
-A TerraEvent encapsulates Event data and TxLog corresponding to the event. It also contains TerraMessage data of the message connected to the event. Also, it includes the TerraBlock and TerraTransaction data of the block and transaction from which the event was emitted.
+A `TerraEvent` encapsulates Event data and `TxLog` corresponding to the event. It also contains `TerraMessage` data of the message connected to the event. Also, it includes the `TerraBlock` and `TerraTransaction` data of the block and transaction from which the event was emitted.
 
 ## Transaction Handler
 
-You can use transaction handlers to capture information about each of the transactions in a block. To achieve this, a defined TransactionHandler will be called once for every transaction. You should use [Mapping Filters](../build/manifest.md#mapping-handlers-and-filters) in your manifest to filter transactions to reduce the time it takes to index data and improve mapping performance.
+You can use transaction handlers to capture information about each of the transactions in a block. To achieve this, a defined `TransactionHandler` will be called once for every transaction. You should use [Mapping Filters](../build/manifest.md#mapping-handlers-and-filters) in your manifest to filter transactions to reduce the time it takes to index data and improve mapping performance.
 
 ```ts
 import { TerraTransaction } from "@subql/types-terra";
@@ -64,13 +64,11 @@ export async function handleTransaction(tx: TerraTransaction): Promise<void> {
 }
 ```
 
-The `TerraTransaction` encapsulates TxInfo and the corresponding `TerraBlock` in which the transaction occured.
-
-The AvalancheTransaction encapsulates TxInfo and the corresponding block information in which the transaction occured.
+The `TerraTransaction` encapsulates `TxInfo` and the corresponding `TerraBlock` in which the transaction occured.
 
 ## Message Handler
 
-You can use message handlers to capture information from each message in a transaction. To achieve this, a defined MessageHandler will be called once for every message. You should use [Mapping Filters](../build/manifest.md#mapping-handlers-and-filters) in your manifest to filter messages to reduce the time it takes to index data and improve mapping performance.
+You can use message handlers to capture information from each message in a transaction. To achieve this, a defined `MessageHandler` will be called once for every message. You should use [Mapping Filters](../build/manifest.md#mapping-handlers-and-filters) in your manifest to filter messages to reduce the time it takes to index data and improve mapping performance.
 
 ```ts
 import { TerraMessage } from "@subql/types-terra";
@@ -89,7 +87,7 @@ export async function handleMessage(
 }
 ```
 
-TerraMessage encapsulates the `msg` object containing the message data, the TerraTransaction in which the message occured in and also the TerraBlock in which the transaction occured in.
+`TerraMessage` encapsulates the `msg` object containing the message data, the `TerraTransaction` in which the message occured in and also the `TerraBlock` in which the transaction occured in.
 
 ## The Sandbox
 

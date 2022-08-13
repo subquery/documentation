@@ -42,7 +42,7 @@ type Example @entity {
 
 ### Supported scalars and types
 
-We are currently supporting following scalars types:
+We currently support the following scalar types:
 
 - `ID`
 - `Int`
