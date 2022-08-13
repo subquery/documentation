@@ -12,7 +12,7 @@ Một hoạt động kết hợp của việc loại bỏ các mã thông báo c
 
 ## **Liên kết**
 
-Act of depositing SQT into a global staking contract performed by either an Indexer or a Delegator.
+Hành động gửi SQT vào hợp đồng đặt cược được thực hiện bởi Người lập chỉ mục hoặc Người ủy quyền.
 
 ### **Hủy liên kết**
 
