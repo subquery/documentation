@@ -84,7 +84,7 @@
 | フィールド             | v0.0.1                                                                     | v0.2.0                                                                                    | 説明                                                                                                                                                                                                                                                         |
 | ---------------------- | -------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **file**               | String                                                                     | 𐄂                                                                                         | マッピングエントリへのパス                                                                                                                                                                                                                                   |
-| **handlers & filters** | [デフォルトのハンドラとフィルタ](./manifest/#mapping-handlers-and-filters) | デフォルトのハンドラとフィルタ、 <br />[カスタムハンドラとフィルタ](#custom-data-sources) | 追加のマッピングフィルタを使用して、すべての [マッピング関数](./mapping.md) とそれに対応するハンドラータイプをリストします。 <br /><br /> カスタムランタイムマッピングハンドラについては、 [カスタムデータソース](#custom-data-sources) を参照してください。 |
+| **handlers & filters** | [デフォルトのハンドラとフィルタ](./manifest/#mapping-handlers-and-filters) | デフォルトのハンドラとフィルタ、 <br />[カスタムハンドラとフィルタ](#custom-data-sources) | 追加のマッピングフィルタを使用して、すべての [マッピング関数](./mapping/polkadot.md) とそれに対応するハンドラータイプをリストします。 <br /><br /> カスタムランタイムマッピングハンドラについては、 [カスタムデータソース](#custom-data-sources) を参照してください。 |
 
 ## データソースとマッピング
 
@@ -106,9 +106,9 @@ dataSources:
 
 | ハンドラ                                   | サポートされるフィルタ       |
 | ------------------------------------------ | ---------------------------- |
-| [BlockHandler](./mapping.md#block-handler) | `specVersion`                |
-| [EventHandler](./mapping.md#event-handler) | `module`,`method`            |
-| [CallHandler](./mapping.md#call-handler)   | `module`,`method` ,`success` |
+| [BlockHandler](./mapping/polkadot.md#block-handler) | `specVersion`                |
+| [EventHandler](./mapping/polkadot.md#event-handler) | `module`,`method`            |
+| [CallHandler](./mapping/polkadot.md#call-handler)   | `module`,`method` ,`success` |
 
 デフォルトのランタイムマッピングフィルタは、どのブロック、イベント、または外部のどちらがマッピングハンドラをトリガーするかを決定するために非常に便利な機能です。
 

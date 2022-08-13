@@ -14,6 +14,6 @@
 ## Обмеження
 
 - Щоб обмежити доступ до певних вбудованих модулів, лише ` Assert `, ` buffer `, ` crypto `, ` util ` та ` path < / 0> білі.</p></li>
-<li><p spaces-before="0">Ми підтримуємо <a href="../create/mapping.md#third-party-libraries"> сторонні модулі </a>, написані в <strong x-id="1"> CommonJS </strong> та <strong x-id="1"> hybrid </strong> бібліотек, таких як <code> @ polkadot / * `, які використовують ESM як за замовчуванням.
+<li><p spaces-before="0">Ми підтримуємо <a href="../create/mapping/polkadot.md#third-party-libraries"> сторонні модулі </a>, написані в <strong x-id="1"> CommonJS </strong> та <strong x-id="1"> hybrid </strong> бібліотек, таких як <code> @ polkadot / * `, які використовують ESM як за замовчуванням.
 
 - Будь-які модулі, що використовують ` HTTP ` та ` WebSocket `, заборонені.

@@ -55,6 +55,22 @@ export async function handleBlock(block: CosmosBlock): Promise<void> {
 ```
 
 </CodeGroupItem>
+<CodeGroupItem title="Algorand">
+
+```ts
+import { AlgorandBlock } from "@subql/types-algorand";
+
+export async function handleBlock(block: AlgorandBlock): Promise<void> {
+  const record = BlockEntity.create({
+    id: block.round.toString(),
+    field1: block.round,
+    field2: "block"
+  });
+  await record.save();
+}
+```
+
+</CodeGroupItem>
 <CodeGroupItem title="Terra">
 
 ```ts
@@ -71,19 +87,19 @@ export async function handleBlock(block: TerraBlock): Promise<void> {
 </CodeGroupItem>
 </CodeGroup>
 
-A SubstrateBlock is an extended interface type of [signedBlock](https://polkadot.js.org/docs/api/cookbook/blocks/), but also includes the `specVersion` and `timestamp`.
+A `SubstrateBlock` is an extended interface type of [signedBlock](https://polkadot.js.org/docs/api/cookbook/blocks/), but also includes the `specVersion` and `timestamp`.
 
-A Cosmos block is a TODO
+A `CosmosBlock` is a TODO
 
-A TerraBlock is an extended interface type of [Terra.js](https://docs.terra.money/docs/develop/sdks/terra-js/README.html) BlockInfo, but also encapsulates the BlockInfo and TxInfo of all transactions in the block.
+A `TerraBlock` is an extended interface type of [Terra.js](https://docs.terra.money/docs/develop/sdks/terra-js/README.html) BlockInfo, but also encapsulates the BlockInfo and TxInfo of all transactions in the block.
 
-An AvalancheBlock encapsulates all transactions and events in the block.
+An `AvalancheBlock` encapsulates all transactions and events in the block.
 
 ## Event Handler
 
 You can use event handlers to capture information when certain events are included on a new block. The events that are part of the default runtime and a block may contain multiple events.
 
-During the processing, the event handler will receive an event as an argument with the event's typed inputs and outputs. Any type of event will trigger the mapping, allowing activity with the data source to be captured. You should use [Mapping Filters](../build/manifest.md#mapping-handlers-and-filters) in your manifest to filter events to reduce the time it takes to index data and improve mapping performance.
+During the processing, the event handler will receive an event as an argument with the event's typed inputs and outputs. Any type of event will trigger the mapping, allowing activity with the data source to be captured. You should use [Mapping Filters](../build/manifest/polkadot.md#mapping-handlers-and-filters) in your manifest to filter events to reduce the time it takes to index data and improve mapping performance.
 
 <CodeGroup>
 <CodeGroupItem title="Substrate/Polkadot" active>
@@ -138,11 +154,11 @@ export async function handleEvent(
 </CodeGroupItem>
 </CodeGroup>
 
-A SubstrateEvent is an extended interface type of the [EventRecord](https://github.com/polkadot-js/api/blob/f0ce53f5a5e1e5a77cc01bf7f9ddb7fcf8546d11/packages/types/src/interfaces/system/types.ts#L149). Besides the event data, it also includes an `id` (the block to which this event belongs) and the extrinsic inside of this block.
+A `SubstrateEvent` is an extended interface type of the [EventRecord](https://github.com/polkadot-js/api/blob/f0ce53f5a5e1e5a77cc01bf7f9ddb7fcf8546d11/packages/types/src/interfaces/system/types.ts#L149). Besides the event data, it also includes an `id` (the block to which this event belongs) and the extrinsic inside of this block.
 
-An AvalancheEvent encapsulates Event data and Transaction/Block information corresponding to the event.
+An `AvalancheEvent` encapsulates Event data and Transaction/Block information corresponding to the event.
 
-A CosmosEvent/TerraEvent encapsulates Event data and TxLog corresponding to the event. It also contains CosmosMessage/TerraMessage data of the message connected to the event. Also, it includes the CosmosBlock/TerraBlock and CosmosTransaction/TerraTransaction data of the block and transaction from which the event was emitted.
+A `CosmosEvent`/`TerraEvent` encapsulates Event data and TxLog corresponding to the event. It also contains CosmosMessage/TerraMessage data of the message connected to the event. Also, it includes the CosmosBlock/TerraBlock and CosmosTransaction/TerraTransaction data of the block and transaction from which the event was emitted.
 
 ::: info Note
 From `@subql/types` version `X.X.X` onwards `SubstrateEvent` is now generic. This can provide you with higher type safety when developing your project.
@@ -157,7 +173,7 @@ async function handleEvmLog(event: SubstrateEvent<[EvmLog]>): Promise<void> {
 
 ## Call Handler
 
-Call handlers (Substrate/Polkadot only) are used when you want to capture information on certain substrate extrinsics. You should use [Mapping Filters](../build/manifest.md#mapping-handlers-and-filters) in your manifest to filter calls to reduce the time it takes to index data and improve mapping performance.
+Call handlers (Substrate/Polkadot only) are used when you want to capture information on certain substrate extrinsics. You should use [Mapping Filters](../build/manifest/polkadot.md#mapping-handlers-and-filters) in your manifest to filter calls to reduce the time it takes to index data and improve mapping performance.
 
 ```ts
 export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
@@ -182,7 +198,7 @@ async function handleEvmCall(call: SubstrateExtrinsic<[TransactionV2 | EthTransa
 
 ## Log Handler
 
-You can use log handlers (Avalanche only) to capture information when certain logs are included on transactions. During the processing, the log handler will receive a log as an argument with the log's typed inputs and outputs. Any type of event will trigger the mapping, allowing activity with the data source to be captured. You should use [Mapping Filters](../build/manifest.md#mapping-handlers-and-filters) in your manifest to filter events to reduce the time it takes to index data and improve mapping performance.
+You can use log handlers (Avalanche only) to capture information when certain logs are included on transactions. During the processing, the log handler will receive a log as an argument with the log's typed inputs and outputs. Any type of event will trigger the mapping, allowing activity with the data source to be captured. You should use [Mapping Filters](../build/manifest/polkadot.md#mapping-handlers-and-filters) in your manifest to filter events to reduce the time it takes to index data and improve mapping performance.
 
 ```ts
 import { AvalancheLog } from "@subql/types-avalanche";
@@ -200,7 +216,7 @@ export async function handleLog(event: AvalancheLog): Promise<void> {
 
 ## Transaction Handler
 
-You can use transaction handlers (Avalanche and Terra only) to capture information about each of the transactions in a block. To achieve this, a defined TransactionHandler will be called once for every transaction. You should use [Mapping Filters](../build/manifest.md#mapping-handlers-and-filters) in your manifest to filter transactions to reduce the time it takes to index data and improve mapping performance.
+You can use transaction handlers (Avalanche and Terra only) to capture information about each of the transactions in a block. To achieve this, a defined TransactionHandler will be called once for every transaction. You should use [Mapping Filters](../build/manifest/polkadot.md#mapping-handlers-and-filters) in your manifest to filter transactions to reduce the time it takes to index data and improve mapping performance.
 
 <CodeGroup>
 <CodeGroupItem title="Avalanche" active>
@@ -235,6 +251,22 @@ export async function handleTransaction(tx: CosmosTransaction): Promise<void> {
 ```
 
 </CodeGroupItem>
+<CodeGroupItem title="Algorand">
+
+```ts
+import { AlgorandTransaction } from "@subql/types-algorand";
+
+export async function handleTransaction(tx: AlgorandTransaction): Promise<void> {
+  const record = TransactionEntity.create({
+    id: tx.id,
+    field1: tx.roundTime,
+    field2: 'tx',
+  });
+  await record.save();
+}
+```
+
+</CodeGroupItem>
 <CodeGroupItem title="Terra">
 
 ```ts
@@ -251,13 +283,13 @@ export async function handleTransaction(tx: TerraTransaction): Promise<void> {
 </CodeGroupItem>
 </CodeGroup>
 
-The CosmosTransaction/TerraTransaction encapsulates TxInfo and the corresponding CosmosBlock/TerraBlock in which the transaction occured.
+The `CosmosTransaction`/`TerraTransaction` encapsulates TxInfo and the corresponding `CosmosBlock`/`TerraBlock` in which the transaction occured.
 
-The AvalancheTransaction encapsulates TxInfo and the corresponding block information in which the transaction occured.
+The `AvalancheTransaction` encapsulates TxInfo and the corresponding block information in which the transaction occured.
 
 ## Message Handler
 
-You can use message handlers to capture information from each message in a transaction. To achieve this, a defined MessageHandler will be called once for every message. You should use [Mapping Filters](../build/manifest.md#mapping-handlers-and-filters) in your manifest to filter messages to reduce the time it takes to index data and improve mapping performance.
+You can use message handlers to capture information from each message in a transaction. To achieve this, a defined MessageHandler will be called once for every message. You should use [Mapping Filters](../build/manifest/polkadot.md#mapping-handlers-and-filters) in your manifest to filter messages to reduce the time it takes to index data and improve mapping performance.
 
 <CodeGroup>
 <CodeGroupItem title="Cosmos">
@@ -298,7 +330,7 @@ export async function handleMessage(
 </CodeGroupItem>
 </CodeGroup>
 
-CosmosMessage/TerraMessage encapsulates the `msg` object containing the message data, the CosmosTransaction/TerraTransaction in which the message occured in and also the CosmosBlock/TerraBlock in which the transaction occured in.
+`CosmosMessage`/`TerraMessage` encapsulates the `msg` object containing the message data, the `CosmosTransaction`/`TerraTransaction` in which the message occured in and also the `CosmosBlock`/`TerraBlock` in which the transaction occured in.
 
 ## The Sandbox
 
@@ -435,7 +467,7 @@ Next, copy and paste the output to a JSON file. In our [kitty example](https://g
 
 **Type definitions**
 
-We assume that the user knows the specific types and RPC support from the chain, and it is defined in the [Manifest](../build/manifest.md). 
+We assume that the user knows the specific types and RPC support from the chain, and it is defined in the [Manifest](../build/manifest/polkadot.md). 
 
 Following [types setup](https://polkadot.js.org/docs/api/examples/promise/typegen#metadata-setup), we create :
 - `src/api-interfaces/definitions.ts` - this exports all the sub-folder definitions 

@@ -110,7 +110,7 @@ dataources:
 
 Esto significa que ejecutaremos una función de mapeo de `handleEvent` cada vez que haya un evento `balances.Transfer`.
 
-Para más información sobre el manifiesto del proyecto (`project.yaml`), revisa nuestra documentación en [Archivo de construcción/Manifiesto](../build/manifest.md)
+Para más información sobre el manifiesto del proyecto (`project.yaml`), revisa nuestra documentación en [Archivo de construcción/Manifiesto](../build/manifest/polkadot.md)
 
 ### Añadir una función de mapeo
 
@@ -143,7 +143,7 @@ export async function handleTransfer(event: SubstrateEvent): Promise<void> {
 
 Lo que hace es recibir un SubstrateEvent que incluye datos de transferencia en la carga útil. Extraemos estos datos y luego instanciamos una nueva entidad de `transferencia` que definimos anteriormente en el archivo `schema.graphql`. Añadimos información adicional y luego usamos la función `.save()` para guardar la nueva entidad (SubQuery automáticamente guardará esto en la base de datos).
 
-Para más información sobre las funciones de mapeo, revisa nuestra documentación en [Construcción/Mapeo](../build/mapping.md)
+Para más información sobre las funciones de mapeo, revisa nuestra documentación en [Construcción/Mapeo](../build/mapping/polkadot.md)
 
 ### Construye Tu Proyecto
 

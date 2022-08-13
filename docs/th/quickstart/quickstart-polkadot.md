@@ -115,7 +115,7 @@ dataSources:
 
 ซึ่งหมายความว่าเราจะเรียกใช้ Mapping function `handleEvent` ทุกครั้งที่มีเหตุการณ์ `balances.Transfer`
 
-สำหรับข้อมูลเพิ่มเติมเกี่ยวกับ Project Manifest (`project.yaml`) ไฟล์ โปรดตรวจสอบได้ที่เอกสารของเราภายใต้ [Build/Manifest File](../build/manifest.md)
+สำหรับข้อมูลเพิ่มเติมเกี่ยวกับ Project Manifest (`project.yaml`) ไฟล์ โปรดตรวจสอบได้ที่เอกสารของเราภายใต้ [Build/Manifest File](../build/manifest/polkadot.md)
 
 ### เพิ่ม Mapping Function
 
@@ -154,7 +154,7 @@ export async function handleEvent(event: SubstrateEvent): Promise<void> {
 
 สิ่งที่กำลังทำคือได้รับ SubstrateEvent ซึ่งรวมถึงการถ่ายโอนข้อมูลใน Payload ด้วย เราดึงข้อมูลนี้แล้วสร้าง Instantiate entity ใหม่ที่`Transfer` ซึ่งเรากำหนดไว้ก่อนหน้านี้ในไฟล์ `schema.graphql` เราเพิ่มข้อมูลเพิ่มเติมแล้วใช้ฟังก์ชัน `.save()` เพื่อที่จะบันทึก Entity ใหม่ (SubQuery จะบันทึกอัตโนมัติใน Database).
 
-สำหรับข้อมูลเพิ่มเติมเกี่ยวกับฟังก์ชันการทำแผนที่ โปรดดูเอกสารประกอบของเราใน [Build/Mappings](../build/mapping.md)
+สำหรับข้อมูลเพิ่มเติมเกี่ยวกับฟังก์ชันการทำแผนที่ โปรดดูเอกสารประกอบของเราใน [Build/Mappings](../build/mapping/polkadot.md)
 
 ### การสร้างโปรเจค
 

@@ -1,11 +1,10 @@
 # Manifest File
 
-The Manifest `project.yaml` file can be seen as an entry point of your project and it defines most of the details on how SubQuery will index and transform the chain data.
+The Manifest `project.yaml` file can be seen as an entry point of your project and it defines most of the details on how SubQuery will index and transform the chain data. It clearly indicates where we are indexing data from, and to what on chain events we are subscribing to.
 
-The Manifest can be in either YAML or JSON format. In this document, we will use YAML in all the examples. Below is a standard example of a basic `project.yaml`.
+Pick your preferred network below to see the detailed guide for each:
 
-<CodeGroup>
-  <CodeGroupItem title="v1.0.0 Polkadot/Substrate" active>
+- **[Polkadot/Substrate](./manifest/polkadot.md)**
 
 ```yml
 specVersion: 1.0.0
@@ -24,12 +23,13 @@ schema:
   file: ./schema.graphql
 network:
   chainId: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3'
+  # Must be a non-pruned archive node
   endpoint: wss://polkadot.api.onfinality.io/public-ws
   # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
   dictionary: https://api.subquery.network/sq/subquery/polkadot-dictionary
 dataSources:
   - kind: substrate/Runtime
-    startBlock: 1
+    startBlock: 1 # Block to start indexing from
     mapping:
       file: ./dist/index.js
       handlers:
@@ -44,8 +44,7 @@ dataSources:
           kind: substrate/CallHandler
 ````
 
-  </CodeGroupItem>
-  <CodeGroupItem title="v1.0.0 Avalanche">
+- **[Cosmos](./manifest/cosmos.md)**
 
 ```yml
 specVersion: 1.0.0
@@ -63,15 +62,16 @@ repository: https://github.com/subquery/avalanche-subql-starter
 schema:
   file: ./schema.graphql
 network:
-  endpoint: https://avalanche.api.onfinality.io/
   chainId: mainnet
   type: avalanche
   chainName: C
+  # Must be a non-pruned archive node
+  endpoint: https://avalanche.api.onfinality.io/
   # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
   dictionary: https://api.subquery.network/sq/subquery/avalanche-dictionary
 dataSources:
   - kind: avalanche/Runtime
-    startBlock: 1
+    startBlock: 1 # Block to start indexing from
     options:
       # Must be a key of assets
       abi: erc20
@@ -121,6 +121,7 @@ schema:
   file: ./schema.graphql
 network:
   chainId: juno-1
+  # Must be a non-pruned archive node
   endpoint: https://rpc.juno-1.api.onfinality.io
   # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
   dictionary: https://api.subquery.network/sq/subquery/cosmos-juno-1-dictionary
@@ -156,6 +157,55 @@ dataSources:
             #contractCall: "provide_liquidity" # The name of the contract function that was called
             #values: # A set of key/value pairs that are present in the message data
               #contract: "juno1v99ehkuetkpf0yxdry8ce92yeqaeaa7lyxr2aagkesrw67wcsn8qxpxay0"
+```
+
+  </CodeGroupItem>
+  <CodeGroupItem title="v1.0.0 Algorand">
+
+``` yml
+specVersion: 1.0.0
+name: algorand-subql-starter
+version: 1.0.0
+runner:
+  node:
+    name: '@subql/node-algorand'
+    version: '>=1.0.0'
+  query:
+    name: '@subql/query'
+    version: '*'
+description: >-
+  This project can be used as a starting point for developing your Algorand SubQuery project
+repository: 'https://github.com/subquery/algorand-subql-starter'
+schema:
+  file: ./schema.graphql
+network:
+  chainId: "wGHE2Pwdvd7S12BL5FaOP20EGYesN73ktiC1qzkkit8="
+  # Must be a non-pruned archive node
+  endpoint: "https://algoindexer.algoexplorerapi.io"
+  # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
+  dictionary: https://api.subquery.network/sq/subquery/Algorand-Dictionary
+  # For the testnet use the following
+  # chainId: "SGO1GKSzyE7IEPItTxCByw9x8FmnrCDexi9/cOUJOiI="
+  # endpoint: "https://algoindexer.testnet.algoexplorerapi.io"
+dataSources:
+  - kind: algorand/Runtime
+    startBlock: 50000 # Block to start indexing from
+    mapping:
+      file: ./dist/index.js
+      handlers:
+        - handler: handleBlock
+          kind: algorand/BlockHandler
+        - handler: handleTransaction
+          kind: algorand/TransactionHandler
+          filter:
+            txType: pay
+            sender: "ZW3ISEHZUHPO7OZGMKLKIIMKVICOUDRCERI454I3DB2BH52HGLSO67W754"
+            receiver: "ZW3ISEHZUHPO7OZGMKLKIIMKVICOUDRCERI454I3DB2BH52HGLSO67W754"
+        - handler: handleTransaction
+          kind: algorand/TransactionHandler
+          filter:
+            txType: acfg
+            applicationId: 1
 ```
 
   </CodeGroupItem>
@@ -274,7 +324,7 @@ For a more detailed explanation head [here](../build/dynamicdatasources.md).
 **Under `network`:**
 
 - There is a new **required** `genesisHash` field which helps to identify the chain being used.
-- For v0.2.0 and above, you are able to reference an external [chaintype file](../build/manifest.md#custom-substrate-and-cosmos-chains) if you are referencing a custom chain.
+- For v0.2.0 and above, you are able to reference an external [chaintype file](../build/manifest/polkadot.md#custom-substrate-and-cosmos-chains) if you are referencing a custom chain.
 
 **Under `dataSources`:**
 
@@ -317,7 +367,7 @@ If you have a project with specVersion v0.2.0, The only change is a new **requir
 
 If you start your project by using the `subql init` command, you'll generally receive a starter project with the correct network settings. If you are changing the target chain of an existing project, you'll need to edit the [Network Spec](manifest.md#network-spec) section of this manifest.
 
-The `chainId` or `genesisHash` is the network identifier of the blockchain. Examples in Terra include `bombay-12`, or `columbus-12`, Avalanche might be `mainnet`, Cosmos might be `juno-1`, and in Substrate it is always the genesis hash of the network (hash of the first block). You can retrieve this easily by going to [PolkadotJS](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fkusama.api.onfinality.io%2Fpublic-ws#/explorer/query/0) and looking for the hash on **block 0** (see the image below).
+The `chainId` or `genesisHash` is the network identifier of the blockchain. Examples in Terra include `bombay-12`, or `columbus-12`, Avalanche might be `mainnet`, Cosmos might be `juno-1`, and in Substrate and Algorand it is always the genesis hash of the network (hash of the first block). You can retrieve this easily by going to [PolkadotJS](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fkusama.api.onfinality.io%2Fpublic-ws#/explorer/query/0) and looking for the hash on **block 0** (see the image below).
 
 ![Genesis Hash](/assets/img/genesis-hash.jpg)
 
@@ -360,7 +410,7 @@ Additionally you will need to update the `endpoint`. This defines the wss endpoi
 Defines the data that will be filtered and extracted and the location of the mapping function handler for the data transformation to be applied.
 | Field | All manifest versions | Description
 | --------------- |-------------|-------------|
-| **kind** | <ul><li>[substrate/Runtime](manifest.md#data-sources-and-mapping)</li><li>[avalanche/Runtime](manifest.md#data-sources-and-mapping)</li><li>[cosmos/Runtime](manifest.md#data-sources-and-mapping)</li><li>[terra/Runtime](manifest.md#data-sources-and-mapping)</li></ul> | <ul><li>[substrate/Runtime](manifest.md#data-sources-and-mapping), [substrate/CustomDataSource](manifest.md#custom-data-sources)</li><li>[avalanche/Runtime](manifest.md#data-sources-and-mapping)</li><li>[cosmos/Runtime](manifest.md#data-sources-and-mapping)</li><li>[terra/Runtime](manifest.h,md#data-sources-and-mapping)</li></ul>
+| **kind** | <ul><li>[substrate/Runtime](manifest.md#data-sources-and-mapping)</li><li>[avalanche/Runtime](manifest.md#data-sources-and-mapping)</li><li>[cosmos/Runtime](manifest.md#data-sources-and-mapping)</li><li>[terra/Runtime](manifest.md#data-sources-and-mapping)</li><li>[algorand/Runtime](manifest.md#data-sources-and-mapping)</li></ul> | <ul><li>[substrate/Runtime](manifest.md#data-sources-and-mapping), [substrate/CustomDataSource](manifest.md#custom-data-sources)</li><li>[avalanche/Runtime](manifest.md#data-sources-and-mapping)</li><li>[cosmos/Runtime](manifest.md#data-sources-and-mapping)</li><li>[terra/Runtime](manifest.md#data-sources-and-mapping)</li><li>[algorand/Runtime](manifest.md#data-sources-and-mapping)</li></ul>
 | **startBlock** | Integer | This changes your indexing start block, set this higher to skip initial blocks with less data|  
 | **mapping** |  Mapping Spec | |
 
@@ -371,7 +421,7 @@ Defines the data that will be filtered and extracted and the location of the map
 
 | Field                  | All manifest versions | Description |
 | ---------------------- |------------------------------------------------------------------------------------------| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **handlers & filters** | Default handlers and filters, <br />[Custom handlers and filters](manifest.md#custom-data-sources)  | List all the [mapping functions](./mapping.md) and their corresponding handler types, with additional mapping filters. <br /><br /> For custom runtimes mapping handlers please view [Custom data sources](manifest.md#custom-data-sources) |
+| **handlers & filters** | Default handlers and filters, <br />[Custom handlers and filters](manifest.md#custom-data-sources)  | List all the [mapping functions](./mapping/polkadot.md) and their corresponding handler types, with additional mapping filters. <br /><br /> For custom runtimes mapping handlers please view [Custom data sources](manifest.md#custom-data-sources) |
 
 ## Data Sources and Mapping
 
@@ -411,6 +461,17 @@ dataSources:
 ```
 
 </CodeGroupItem>
+<CodeGroupItem title="Algorand">
+
+```yml
+dataSources:
+  - kind: algorand/Runtime # Indicates that this is default runtime
+    startBlock: 1 # This changes your indexing start block, set this higher to skip initial blocks with less data
+    mapping:
+      file: dist/index.js # Entry path for this mapping
+```
+
+</CodeGroupItem>
 <CodeGroupItem title="Terra">
 
 ```yml
@@ -432,20 +493,22 @@ The following table explains filters supported by different handlers.
 
 | Network | Handler | Supported filter |
 | ------------------ | ---------------------------------------------------- | ---------------------------- |
-| Substrate/Polkadot | [substrate/BlockHandler](./mapping.md#block-handler) | `specVersion`, `modulo`      |
-| Substrate/Polkadot | [substrate/EventHandler](./mapping.md#event-handler) | `module`,`method`            |
-| Substrate/Polkadot | [substrate/CallHandler](./mapping.md#call-handler)   | `module`,`method` ,`success` |
-| Cosmos             | [cosmos/BlockHandler](./mapping.md#block-handler)    | `modulo`                     |
-| Cosmos              | [cosmos/TransactionHandler](./mapping.md#transaction-handler)     | No filters                   |
-| Cosmos              | [cosmos/MessageHandler](./mapping.md#message-handler)     |  `type`, `values`* |
-| Cosmos              | [cosmos/EventHandler](./mapping.md#event-handler)     | `type`, `messageFilter`* |
-| Terra              | [terra/BlockHandler](./mapping.md#block-handler)     | No filters                   |
-| Terra              | [terra/TransactionHandler](./mapping.md#transaction-handler)     | No filters                   |
-| Terra              | [terra/MessageHandler](./mapping.md#message-handler)     |  `type`, `values`* |
-| Terra              | [terra/EventHandler](./mapping.md#event-handler)     | `type`, `messageFilter`* |
-| Avalanche          | [avalanche/BlockHandler](./mapping.md#block-handler)     | No filters                   |
-| Avalanche          | [avalanche/TransactionHandler](./mapping.md#transaction-handler)     | `function` filters (either be the function fragment or signature), `from` (address), `to` (address)   |
-| Avalanche          | [avalanche/LogHandler](./mapping.md#log-handler)     | `topics` filters, and `address` |
+| Substrate/Polkadot | [substrate/BlockHandler](./mapping/polkadot.md#block-handler) | `specVersion`, `modulo`      |
+| Substrate/Polkadot | [substrate/EventHandler](./mapping/polkadot.md#event-handler) | `module`,`method`            |
+| Substrate/Polkadot | [substrate/CallHandler](./mapping/polkadot.md#call-handler)   | `module`,`method` ,`success` |
+| Cosmos             | [cosmos/BlockHandler](./mapping/polkadot.md#block-handler)    | `modulo`                     |
+| Cosmos              | [cosmos/TransactionHandler](./mapping/polkadot.md#transaction-handler)     | No filters                   |
+| Cosmos              | [cosmos/MessageHandler](./mapping/polkadot.md#message-handler)     |  `type`, `values`* |
+| Cosmos              | [cosmos/EventHandler](./mapping/polkadot.md#event-handler)     | `type`, `messageFilter`* |
+| Terra              | [terra/BlockHandler](./mapping/polkadot.md#block-handler)     | No filters                   |
+| Terra              | [terra/TransactionHandler](./mapping/polkadot.md#transaction-handler)     | No filters                   |
+| Terra              | [terra/MessageHandler](./mapping/polkadot.md#message-handler)     |  `type`, `values`* |
+| Terra              | [terra/EventHandler](./mapping/polkadot.md#event-handler)     | `type`, `messageFilter`* |
+| Avalanche          | [avalanche/BlockHandler](./mapping/polkadot.md#block-handler)     | No filters                   |
+| Avalanche          | [avalanche/TransactionHandler](./mapping/polkadot.md#transaction-handler)     | `function` filters (either be the function fragment or signature), `from` (address), `to` (address)   |
+| Avalanche          | [avalanche/LogHandler](./mapping/polkadot.md#log-handler)     | `topics` filters, and `address` |
+| Algorand           | [algorand/BlockHandler](./mapping/polkadot.md#block-handler)  | `modulo`      |
+| Algorand           | [algorand/TransactionHandler](./mapping/polkadot.md#transaction-handler) | `txType`,`sender`, `receiver`, `applicationId`, `nonParticipant`, `assetId`, `newFreezeStatus` `address` |
 
 Default runtime mapping filters are an extremely useful feature to decide what block, event, or extrinsic will trigger a mapping handler.
 

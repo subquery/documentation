@@ -15,6 +15,6 @@
 
 - 特定の組み込みモジュールへのアクセスを制限するため、`assert`, `buffer`, `crypto`, `util`, `path`  のみをホワイトリストに登録しています。
 
-- **CommonJS** で書かれた[サードパーティモジュール](../create/mapping.md#third-party-libraries) や、`@polkadot/*`のようにESMをデフォルトで使用する**hybrid** ライブラリに対応しています。
+- **CommonJS** で書かれた[サードパーティモジュール](../create/mapping/polkadot.md#third-party-libraries) や、`@polkadot/*`のようにESMをデフォルトで使用する**hybrid** ライブラリに対応しています。
 
 - `HTTP` と `WebSocket` を使用するモジュールは禁止されています。

@@ -80,7 +80,7 @@ Define los datos que serán filtrados y extraídos y la ubicación del manejador
 | Campo                       | v0.0.1                                                                            | v0.2.0                                                                                                    | Descripción                                                                                                                                                                                                                                                                         |
 | --------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **archivo**                 | String                                                                            | 𐄂                                                                                                         | Ruta a la entrada de mapeo                                                                                                                                                                                                                                                          |
-| **manipuladores y filtros** | [Controladores y filtros predeterminados](./manifestar/#mapeo-handlers-y-filtros) | Controladores y filtros por defecto, <br />[Controladores y filtros personalizados](#custom-data-sources) | Lista todas las [funciones de mapeo](./mapping.md) y sus correspondientes tipos de manejador, con filtros de mapeo adicionales. <br /><br /> Para manejadores de mapeo de tiempo de ejecución personalizados, por favor vea [fuentes de datos personalizadas](#custom-data-sources) |
+| **manipuladores y filtros** | [Controladores y filtros predeterminados](./manifestar/#mapeo-handlers-y-filtros) | Controladores y filtros por defecto, <br />[Controladores y filtros personalizados](#custom-data-sources) | Lista todas las [funciones de mapeo](./mapping/polkadot.md) y sus correspondientes tipos de manejador, con filtros de mapeo adicionales. <br /><br /> Para manejadores de mapeo de tiempo de ejecución personalizados, por favor vea [fuentes de datos personalizadas](#custom-data-sources) |
 
 ## Fuentes de datos y mapeo
 
@@ -102,9 +102,9 @@ La siguiente tabla explica los filtros soportados por diferentes manejadores.
 
 | Manejador                                          | Filtro compatible            |
 | -------------------------------------------------- | ---------------------------- |
-| [Manejador de bloques](./mapping.md#block-handler) | `specVersion`                |
-| [EventHandler](./mapping.md#event-handler)         | `module`,`method`            |
-| [CallHandler](./mapping.md#call-handler)           | `module`,`method` ,`success` |
+| [Manejador de bloques](./mapping/polkadot.md#block-handler) | `specVersion`                |
+| [EventHandler](./mapping/polkadot.md#event-handler)         | `module`,`method`            |
+| [CallHandler](./mapping/polkadot.md#call-handler)           | `module`,`method` ,`success` |
 
 Los filtros de mapeo de tiempo de ejecución por defecto son una característica extremadamente útil para decidir qué bloque, evento, o extrínseco activará un manejador de mapeo.
 

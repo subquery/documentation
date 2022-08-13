@@ -155,7 +155,7 @@ DataSources 定义要过滤和提取的数据以及要应用的数据转换的�
 | Field                  | v0.0.1                                                           | v0.2.0                                                                                  | Description                                                                                                                                                         |
 | ---------------------- | ---------------------------------------------------------------- | --------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **file**               | String                                                           | String                                                                                  | 映射条目路径                                                                                                                                                        |
-| **handlers & filters** | [Default handlers and filters](./manifest/#mapping-hand-filters) | Default handlers and filters, <br />[Custom handlers and filters](#custom-data-sources) | 列出所有 [映射函数](./mapping.md) 及其相应的处理类型，并添加附加映射筛选器。 <br /><br /> 对于自定义运行时映射处理程序，请查看 [自定义数据源](#custom-data-sources) |
+| **handlers & filters** | [Default handlers and filters](./manifest/#mapping-hand-filters) | Default handlers and filters, <br />[Custom handlers and filters](#custom-data-sources) | 列出所有 [映射函数](./mapping/polkadot.md) 及其相应的处理类型，并添加附加映射筛选器。 <br /><br /> 对于自定义运行时映射处理程序，请查看 [自定义数据源](#custom-data-sources) |
 
 ## 数据来源和映射
 
@@ -177,9 +177,9 @@ dataSources:
 
 | 处理程序                                   | 支持的过滤器：               |
 | ------------------------------------------ | ---------------------------- |
-| [BlockHandler](./mapping.md#block-handler) | `specVersion`                |
-| [EventHandler](./mapping.md#event-handler) | `module`,`method`            |
-| [CallHandler](./mapping.md#call-handler)   | `module`,`method` ,`success` |
+| [BlockHandler](./mapping/polkadot.md#block-handler) | `specVersion`                |
+| [EventHandler](./mapping/polkadot.md#event-handler) | `module`,`method`            |
+| [CallHandler](./mapping/polkadot.md#call-handler)   | `module`,`method` ,`success` |
 
 过滤器映射是一个非常有用的选项，是用决定哪些块、事件或外部程序将触发映射的过滤器。
 

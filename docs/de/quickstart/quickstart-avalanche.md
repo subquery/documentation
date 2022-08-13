@@ -128,7 +128,7 @@ dataSources:
 
 Das bedeutet, dass wir jedes Mal eine `handleLog`-Zuordnungsfunktion ausführen, wenn es ein `genehmigtes` Protokoll für eine Transaktion aus dem [Pangolin-Vertrag](https://snowtrace.io/txs?a=0x60781C2586D68229fde47564546784ab3fACA982&p=1) gibt.
 
-Weitere Informationen zur Projektmanifestdatei (`project.yaml`) finden Sie in unserer Dokumentation unter [Build-/Manifestdatei](../build/manifest.md)
+Weitere Informationen zur Projektmanifestdatei (`project.yaml`) finden Sie in unserer Dokumentation unter [Build-/Manifestdatei](../build/manifest/polkadot.md)
 
 ### Mapping Funktion hinzufügen
 
@@ -163,7 +163,7 @@ export async function handleLog(event: AvalancheLog): Promise<void> {
 
 Was dies tut, ist das Empfangen eines Avalanche-Protokolls, das die Transaktionsprotokolldaten der Nutzlast enthält. Wir extrahieren diese Daten und instanziieren dann eine neue Entität `PangolinApproval`, die wir zuvor in der Datei `schema.graphql` definiert haben. Wir fügen zusätzliche Informationen hinzu und verwenden dann die Funktion `.save()`, um die neue Entität zu speichern (SubQuery speichert diese automatisch in der Datenbank).
 
-Weitere Informationen zu Mapping-Funktionen finden Sie in unserer Dokumentation unter [Build/Mappings](../build/mapping.md)
+Weitere Informationen zu Mapping-Funktionen finden Sie in unserer Dokumentation unter [Build/Mappings](../build/mapping/polkadot.md)
 
 ### Erstellen Sie das Projekt
 

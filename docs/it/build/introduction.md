@@ -9,7 +9,7 @@ Alcuni degli esempi seguenti presuppongono che tu abbia inizializzato con succes
 1. Initialise your project using `subql init PROJECT_NAME`.
 2. Aggiorna il file Manifest (`project.yaml`) per includere informazioni sulla tua blockchain e le entità che mapperai - vedi [Manifest File](./manifest.md)
 3. Crea entità GraphQL nel tuo schema (`schema.graphql`) che definiscono la forma dei dati che estrarrai e persisterai per l'interrogazione - vedi [GraphQL Schema](./graphql.md)
-4. Aggiungi tutte le funzioni di mappatura (ad esempio `mappingHandlers.ts`) che desideri invocare per trasformare i dati della catena nelle entità GraphQL che hai definito - vedi [Mapping](./mapping.md)
+4. Aggiungi tutte le funzioni di mappatura (ad esempio `mappingHandlers.ts`) che desideri invocare per trasformare i dati della catena nelle entità GraphQL che hai definito - vedi [Mapping](./mapping/polkadot.md)
 5. Genera, costruisci e pubblica il tuo codice nei progetti SubQuery (o eseguilo nel tuo nodo locale) - vedi [Eseguire e interrogare il tuo progetto iniziale](./quickstart-polkadot.md#running-and-querying-your-starter-project) nella nostra guida rapida.
 
 ## Struttura dell'elenco

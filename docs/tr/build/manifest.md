@@ -84,7 +84,7 @@ Uygulanacak veri dönüşümü için eşleme fonksiyonu işleyicisinin konumunun
 | Field                       | v0.0.1                                                                               | v0.2.0                                                                                          | Tanım                                                                                                                                                                                                                                                     |
 | --------------------------- | ------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **dosya**                   | String                                                                               | 𐄂                                                                                               | Eşleme girdisinin yolu                                                                                                                                                                                                                                    |
-| **işleyiciler & filtreler** | [Varsayılan işleyiciler ve filtreler](./manifest/#eşleme-işleyicileri-ve-filtreleri) | Varsayılan işleyiciler ve filtreler,<br />[Özel işleyiciler ve filtreler](#custom-data-sources) | Ek eşleme filtreleriyle birlikte tüm [mapping işlevlerini](./mapping.md) ve karşılık gelen işleyici türlerini listeleyin. <br /><br /> Özel çalışma zamanları eşleme işleyicileri için lütfen [Özel veri kaynaklarını](#custom-data-sources) görüntüleyin |
+| **işleyiciler & filtreler** | [Varsayılan işleyiciler ve filtreler](./manifest/#eşleme-işleyicileri-ve-filtreleri) | Varsayılan işleyiciler ve filtreler,<br />[Özel işleyiciler ve filtreler](#custom-data-sources) | Ek eşleme filtreleriyle birlikte tüm [mapping işlevlerini](./mapping/polkadot.md) ve karşılık gelen işleyici türlerini listeleyin. <br /><br /> Özel çalışma zamanları eşleme işleyicileri için lütfen [Özel veri kaynaklarını](#custom-data-sources) görüntüleyin |
 
 ## Veri Kaynakları ve Eşleme
 
@@ -106,9 +106,9 @@ Aşağıdaki tabloda, farklı işleyiciler tarafından desteklenen filtreler aç
 
 | Handler                                    | Desteklenen filtre           |
 | ------------------------------------------ | ---------------------------- |
-| [BlockHandler](./mapping.md#block-handler) | `spekversiyon`               |
-| [EventHandler](./mapping.md#event-handler) | `module`,`method`            |
-| [CallHandler](./mapping.md#call-handler)   | `module`,`method` ,`success` |
+| [BlockHandler](./mapping/polkadot.md#block-handler) | `spekversiyon`               |
+| [EventHandler](./mapping/polkadot.md#event-handler) | `module`,`method`            |
+| [CallHandler](./mapping/polkadot.md#call-handler)   | `module`,`method` ,`success` |
 
 Varsayılan çalışma zamanı eşleme filtreleri, hangi bloğun, olayın veya dış kaynağın bir eşleme işleyicisini tetikleyeceğine karar vermek için son derece yararlı bir özelliktir.
 

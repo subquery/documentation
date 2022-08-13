@@ -128,7 +128,7 @@ dataSources:
 
 นี้หมายความว่าพวกเราจะรัน `handleLog` แมปปิ้งฟังก์ชั่นที่ทุกครั้งที่มี`approve` log on ทุก transaction จาก [Pangolin contract](https://snowtrace.io/txs?a=0x60781C2586D68229fde47564546784ab3fACA982&p=1).
 
-สำหรับข้อมูลเพิ่มเติมเกี่ยวกับ Project Manifest (`project.yaml`) ไฟล์,โปรดตรวจสอบได้ที่เอกสารของเราภายใต้ [Build/Manifest File](../build/manifest.md)
+สำหรับข้อมูลเพิ่มเติมเกี่ยวกับ Project Manifest (`project.yaml`) ไฟล์,โปรดตรวจสอบได้ที่เอกสารของเราภายใต้ [Build/Manifest File](../build/manifest/polkadot.md)
 
 ### เพิ่ม Mapping Function เข้าไป
 
@@ -163,7 +163,7 @@ export async function handleLog(event: AvalancheLog): Promise<void> {
 
 การดำเนินการนี้คือการได้รับ Avalanche Log ซึ่งรวมถึงข้อมูล transation log บน payload ด้วย เราดึงข้อมูลนี้แล้วสร้าง instantiate ใหม่ `PangolinApproval` entity ที่เรากำหนดไว้ก่อนหน้านี้ ในไฟล์`schema.graphql` เราเพิ่มข้อมูลเพิ่มเติมแล้วใช้ function `.save()` เพื่อที่จะบันทึก entity ใหม่ (SubQuery จะบันทึกอัตโนมัติใน database).
 
-สำหรับข้อมูลเพิ่มเติมเกี่ยวกับmapping functions โปรดดูเอกสารประกอบของเราข้างใต้[Build/Mappings](../build/mapping.md)
+สำหรับข้อมูลเพิ่มเติมเกี่ยวกับmapping functions โปรดดูเอกสารประกอบของเราข้างใต้[Build/Mappings](../build/mapping/polkadot.md)
 
 ### การสร้างโปรเจกต์
 

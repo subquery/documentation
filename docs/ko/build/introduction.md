@@ -9,7 +9,7 @@
 1. `subql init PROJECT_NAME`을 사용하여 프로젝트를 초기화합니다.
 2. Manifest 파일 (`project.yaml`)을 업데이트하여 블록 체인과 매핑할 엔티티에 대한 정보를 포함하세요. [Manifest File](./manifest.md) 참조
 3. Schema(`schema.graphql`)에서 추출하고 Query하기 위해 유지할 데이터의 모양을 정의하는 GraphQL 엔터티 만들기 - [GraphQL Schema](./graphql.md) 참조하세요
-4. 체인 데이터를 정의한 GraphQL 엔터티에 변환하기 위해 호출할 모든 매핑 기능(예. `mappingHandlers.ts`) 추가 - [Mapping](./mapping.md) 참조
+4. 체인 데이터를 정의한 GraphQL 엔터티에 변환하기 위해 호출할 모든 매핑 기능(예. `mappingHandlers.ts`) 추가 - [Mapping](./mapping/polkadot.md) 참조
 5. SubQuery 프로젝트에 대한 코드 생성, 생성 및 게시(또는 자체 로컬 노드에서 실행) - 빠른 시작 가이드의 [Running and Querying your Starter Project](./quickstart-polkadot.md#running-and-querying-your-starter-project)을 참조하세요.
 
 ## 디렉터리 구조

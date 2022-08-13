@@ -9,7 +9,7 @@ Bei einigen der folgenden Beispiele wird davon ausgegangen, dass Sie das Startpa
 1. Initialisieren Sie Ihr Projekt mit `subql init PROJECT_NAME`.
 2. Aktualisieren Sie die Manifestdatei (`project.yaml`), um Informationen über Ihre Blockchain und die Entitäten aufzunehmen, die Sie zuordnen werden – siehe [Manifestdatei](./manifest.md)
 3. Erstellen Sie GraphQL-Entitäten in Ihrem Schema (`schema.graphql`), die die Form der Daten definieren, die Sie extrahieren und für Abfragen beibehalten – siehe [GraphQL-Schema](./graphql.md)
-4. Fügen Sie alle Mapping-Funktionen (zB `mappingHandlers.ts`) hinzu, die Sie aufrufen möchten, um Chain-daten in die von Ihnen definierten GraphQL-Entitäten umzuwandeln - siehe [Mapping](./mapping.md)
+4. Fügen Sie alle Mapping-Funktionen (zB `mappingHandlers.ts`) hinzu, die Sie aufrufen möchten, um Chain-daten in die von Ihnen definierten GraphQL-Entitäten umzuwandeln - siehe [Mapping](./mapping/polkadot.md)
 5. Generieren, erstellen und veröffentlichen Sie Ihren Code in SubQuery-Projekten (oder führen Sie ihn in Ihrem eigenen lokalen Knoten aus) – siehe [Starterprojekt ausführen und abfragen](./quickstart-polkadot.md#running-and-querying-your-starter-project) in unserer Kurzanleitung.
 
 ## Verzeichnisaufbau

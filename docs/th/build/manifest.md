@@ -85,7 +85,7 @@ Manifest สามารถใช้เครื่องมือในรู�
 | Field                  | v0.0.1                                                                   | v0.2.0                                                                                        | Description                                                                                                                                                                                                                                    |
 | ---------------------- | ------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **file**               | String                                                                   | 𐄂                                                                                             | ตำแหน่งไฟล์ของ mapping entry                                                                                                                                                                                                                   |
-| **handlers & filters** | [Default handlers and filters](./manifest/#mapping-handlers-and-filters) | Default handlers and filters, <br />[Custom handlers and filters](#custom-data-sources) | ลิสท์รายการ [mapping functions](./mapping.md) ทั้งหมด และ handler type ที่เกี่ยวข้อง รวมไปถึง mapping filters <br /><br /> สำหรับการใช้ custom runtimes mapping handlers กรุณาดูต่อที่ [Custom data sources](#custom-data-sources) |
+| **handlers & filters** | [Default handlers and filters](./manifest/#mapping-handlers-and-filters) | Default handlers and filters, <br />[Custom handlers and filters](#custom-data-sources) | ลิสท์รายการ [mapping functions](./mapping/polkadot.md) ทั้งหมด และ handler type ที่เกี่ยวข้อง รวมไปถึง mapping filters <br /><br /> สำหรับการใช้ custom runtimes mapping handlers กรุณาดูต่อที่ [Custom data sources](#custom-data-sources) |
 
 ## Data Sources and Mapping
 
@@ -107,9 +107,9 @@ dataSources:
 
 | Handlers (ตัวดำเนินการ)                    | Supported filter (ตัวกรองที่รองรับ) |
 | ------------------------------------------ | ----------------------------------- |
-| [BlockHandler](./mapping.md#block-handler) | `specVersion`                       |
-| [EventHandler](./mapping.md#event-handler) | `module`,`method`                   |
-| [CallHandler](./mapping.md#call-handler)   | `module`,`method` ,`success`        |
+| [BlockHandler](./mapping/polkadot.md#block-handler) | `specVersion`                       |
+| [EventHandler](./mapping/polkadot.md#event-handler) | `module`,`method`                   |
+| [CallHandler](./mapping/polkadot.md#call-handler)   | `module`,`method` ,`success`        |
 
 Runtime mapping filters เบื้องต้น เป็นฟีเจอร์ที่มีประโยชน์เป็นอย่างมาก ใช้ในการตัดสินใจว่า block, event หรือ extrinsic ใดจะใช้เรียก mapping handler
 

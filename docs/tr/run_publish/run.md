@@ -88,7 +88,7 @@ Using a full chain dictionary can dramatically speed up the processing of a SubQ
 
 Tam zincir sözlüğü, belirli zincir içindeki tüm olayların ve dışsal öğelerin konumunu önceden endeksler ve düğüm hizmetinizin, dizin oluştururken her bloğu incelemek yerine ilgili konumlara atlamasına olanak tanır.
 
-Sözlük bitiş noktasını `project.yaml` dosyanıza ekleyebilir (bkz. [Manifest File](../create/manifest.md)) veya aşağıdaki komutu kullanarak çalışma zamanında belirtebilirsiniz:
+Sözlük bitiş noktasını `project.yaml` dosyanıza ekleyebilir (bkz. [Manifest File](../build/manifest/polkadot.md)) veya aşağıdaki komutu kullanarak çalışma zamanında belirtebilirsiniz:
 
 <CodeGroup>
 <CodeGroupItem title='Substrate/Polkadot/Polkadot'>
