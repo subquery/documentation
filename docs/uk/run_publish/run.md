@@ -112,11 +112,11 @@ subql-node-avalanche -f your-project-path
 
 #### Використовуйте словник
 
-Використання повного ланцюжкового словника може значно пришвидшити обробку проекту SubQuery під час тестування або під час першого індексування. У деяких випадках ми спостерігали збільшення продуктивності індексування до 10 разів.
+Використання повного ланцюжкового словника може значно пришвидшити обробку проекту SubQuery під час тестування або під час першого індексування. In some cases, we've seen indexing performance increases of up to 10x.
 
-повний словник ланцюжка попередньо індексує місце розташування всіх подій і екстрінсіков в межах конкретної ланцюжка і дозволяє вашій службі вузлів переходити до відповідних місць при індексуванні, а не перевіряти кожен блок.
+A full chain dictionary pre-indexes the location of all events and extrinsics within the specific chain and allows your node service to skip to relevant locations when indexing rather than inspecting each block.
 
-ви можете додати кінцеву точку словника в файл `project.Yaml` (див. [Manifest File](../build/manifest.md)), або вказати її під час виконання за допомогою наступної команди:
+You can add the dictionary endpoint in your `project.yaml` file (see [Manifest File](../build/manifest/polkadot.md)), or specify it at run time using the following command:
 
 <CodeGroup>
 <CodeGroupItem title='Substrate/Polkadot/Polkadot'>
