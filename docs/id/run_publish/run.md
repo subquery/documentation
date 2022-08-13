@@ -105,11 +105,11 @@ subql-node-avalanche -f your-project-path
 
 #### Use a Dictionary
 
-Menggunakan kamus rantai lengkap dapat secara dramatis mempercepat pemrosesan proyek SubQuery selama pengujian atau selama indeks pertama Anda. Dalam beberapa kasus, kami telah melihat peningkatan kinerja pengindeksan hingga 10x.
+Menggunakan kamus rantai lengkap dapat secara dramatis mempercepat pemrosesan proyek SubQuery selama pengujian atau selama indeks pertama Anda. In some cases, we've seen indexing performance increases of up to 10x.
 
-Kamus rantai penuh mengindeks lokasi semua peristiwa dan ekstrinsik dalam rantai tertentu dan memungkinkan layanan node Anda untuk melompat ke lokasi yang relevan saat mengindeks daripada memeriksa setiap blok.
+A full chain dictionary pre-indexes the location of all events and extrinsics within the specific chain and allows your node service to skip to relevant locations when indexing rather than inspecting each block.
 
-Anda dapat menambahkan titik akhir kamus dalam file `project.yaml` Anda (lihat [Manifest File](../build/manifest.md)), atau tentukan pada saat run time menggunakan perintah berikut:
+You can add the dictionary endpoint in your `project.yaml` file (see [Manifest File](../build/manifest/polkadot.md)), or specify it at run time using the following command:
 
 <CodeGroup>
 <CodeGroupItem title='Substrate/Polkadot/Polkadot'>
