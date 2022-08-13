@@ -26,13 +26,13 @@ The SubQuery Network allows developers to completely decentralise their infrastr
 
 ## ฉันจะมีส่วนร่วมหรือให้คำติชมกับ SubQuery ได้อย่างไร?
 
-เรารักการมีส่วนร่วมและข้อเสนอแนะจากชุมชน To contribute the code, fork the repository of your interest and make your changes. จากนั้นส่ง PR หรือ Pull Request อย่าลืมทดสอบด้วยนะ รวมถึงตรวจสอบแนวทางการสนับสนุน (TBA) ของเราด้วย
+เรารักการมีส่วนร่วมและข้อเสนอแนะจากชุมชน To contribute the code, fork the repository of your interest and make your changes. จากนั้นส่ง PR หรือ Pull Request อย่าลืมทดสอบด้วยนะ Also check out our <a href="http://localhost:8080/miscellaneous/contributing.html">contributions guidelines.</a>
 
 หากต้องการแสดงความคิดเห็น โปรดติดต่อเราที่ hello@subquery.network หรือไปที่ [discord ของเรา](https://discord.com/invite/78zg8aBSMG).
 
 ## การโฮสต์โปรเจ็กต์ของฉันใน SubQuery Projects มีค่าใช้จ่ายเท่าไหร่?
 
-Hosting your project in SubQuery Projects is absolutely free — it is our way of giving back to the community. Please check out the [Hello World (SubQuery hosted)](../run_publish/publish.md) tutorial and learn how to host your project with us.
+This service is being provided to the community with a generous free tier! You can host your first two SubQuery projects for absolutely free!
 
 ## Deployment slots คืออะไร?
 
