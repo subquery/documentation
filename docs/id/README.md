@@ -34,7 +34,7 @@
           <div>
             <img src="/assets/img/tutorialsIcon.svg" />
             <span>Berlatih dengan Tutorial & Contoh</span>
-            <p>Learn by doing and practice with SubQuery’s real-world blockchain projects & improve your skills.</p>
+            <p>Belajar dengan melakukan dan berlatih dengan proyek blockchain dunia nyata SubQuery & tingkatkan keterampilan Anda.</p>
           </div>
         </router-link>
       </li>
@@ -90,7 +90,7 @@
       <li>
         <div class="title">Berapa biaya untuk hosting proyek saya di SubQuery Projects?</div>
         <div class="content">
-          <p>Layanan ini disediakan bagi komunitas dengan tingkat gratis yang murah hati! You can host your first two SubQuery projects for absolutely free!</p>
+          <p>Layanan ini disediakan bagi komunitas dengan tingkat gratis yang murah hati! Anda dapat meng-host dua proyek SubQuery pertama Anda secara gratis!</p>
           <span class="more">
             <router-link :to="{path: '/run_publish/publish.html'}">MENYEDIAKAN PROYEK ANDA</router-link>
           </span>
@@ -106,7 +106,7 @@
         <h5>Integrasikan dengan Rantai Substrat Khusus Anda</h5>
         <p>Baik Anda sedang membangun parachain baru atau blockchain yang sama sekali baru di Substrate - SubQuery dapat membantu Anda mengindeks dan memecahkan masalah data chain Anda. SubQuery membantu Anda dengan mudah berintegrasi dengan rantai berbasis Substrat kustom.</p>
         <span class="more">
-          <router-link :to="{path: '/build/manifest/polkadot.html#custom-substrate-chains'}">LEARN HOW TO INTEGRATE WITH YOUR CHAIN</router-link>
+          <router-link :to="{path: '/build/manifest/polkadot.html#custom-substrate-chains'}">PELAJARI CARA MENGINTEGRASIKAN DENGAN RANTAI ANDA</router-link>
         </span>
     </div>
     <div class="lastIntroduce lastIntroduce_2">
