@@ -1,11 +1,10 @@
 # Manifest File
 
-The Manifest `project.yaml` file can be seen as an entry point of your project and it defines most of the details on how SubQuery will index and transform the chain data.
+The Manifest `project.yaml` file can be seen as an entry point of your project and it defines most of the details on how SubQuery will index and transform the chain data. It clearly indicates where we are indexing data from, and to what on chain events we are subscribing to.
 
-The Manifest can be in either YAML or JSON format. In this document, we will use YAML in all the examples. Below is a standard example of a basic `project.yaml`.
+Pick your preferred network below to see the detailed guide for each:
 
-<CodeGroup>
-  <CodeGroupItem title="v1.0.0 Polkadot/Substrate" active>
+- **[Polkadot/Substrate](./manifest/polkadot.md)**
 
 ```yml
 specVersion: 1.0.0
@@ -45,8 +44,7 @@ dataSources:
           kind: substrate/CallHandler
 ````
 
-  </CodeGroupItem>
-  <CodeGroupItem title="v1.0.0 Avalanche">
+- **[Cosmos](./manifest/cosmos.md)**
 
 ```yml
 specVersion: 1.0.0
@@ -326,7 +324,7 @@ For a more detailed explanation head [here](../build/dynamicdatasources.md).
 **Under `network`:**
 
 - There is a new **required** `genesisHash` field which helps to identify the chain being used.
-- For v0.2.0 and above, you are able to reference an external [chaintype file](../build/manifest.md#custom-substrate-and-cosmos-chains) if you are referencing a custom chain.
+- For v0.2.0 and above, you are able to reference an external [chaintype file](../build/manifest/polkadot.md#custom-substrate-and-cosmos-chains) if you are referencing a custom chain.
 
 **Under `dataSources`:**
 
@@ -423,7 +421,7 @@ Defines the data that will be filtered and extracted and the location of the map
 
 | Field                  | All manifest versions | Description |
 | ---------------------- |------------------------------------------------------------------------------------------| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **handlers & filters** | Default handlers and filters, <br />[Custom handlers and filters](manifest.md#custom-data-sources)  | List all the [mapping functions](./mapping.md) and their corresponding handler types, with additional mapping filters. <br /><br /> For custom runtimes mapping handlers please view [Custom data sources](manifest.md#custom-data-sources) |
+| **handlers & filters** | Default handlers and filters, <br />[Custom handlers and filters](manifest.md#custom-data-sources)  | List all the [mapping functions](./mapping/polkadot.md) and their corresponding handler types, with additional mapping filters. <br /><br /> For custom runtimes mapping handlers please view [Custom data sources](manifest.md#custom-data-sources) |
 
 ## Data Sources and Mapping
 
@@ -495,22 +493,22 @@ The following table explains filters supported by different handlers.
 
 | Network | Handler | Supported filter |
 | ------------------ | ---------------------------------------------------- | ---------------------------- |
-| Substrate/Polkadot | [substrate/BlockHandler](./mapping.md#block-handler) | `specVersion`, `modulo`      |
-| Substrate/Polkadot | [substrate/EventHandler](./mapping.md#event-handler) | `module`,`method`            |
-| Substrate/Polkadot | [substrate/CallHandler](./mapping.md#call-handler)   | `module`,`method` ,`success` |
-| Cosmos             | [cosmos/BlockHandler](./mapping.md#block-handler)    | `modulo`                     |
-| Cosmos              | [cosmos/TransactionHandler](./mapping.md#transaction-handler)     | No filters                   |
-| Cosmos              | [cosmos/MessageHandler](./mapping.md#message-handler)     |  `type`, `values`* |
-| Cosmos              | [cosmos/EventHandler](./mapping.md#event-handler)     | `type`, `messageFilter`* |
-| Terra              | [terra/BlockHandler](./mapping.md#block-handler)     | No filters                   |
-| Terra              | [terra/TransactionHandler](./mapping.md#transaction-handler)     | No filters                   |
-| Terra              | [terra/MessageHandler](./mapping.md#message-handler)     |  `type`, `values`* |
-| Terra              | [terra/EventHandler](./mapping.md#event-handler)     | `type`, `messageFilter`* |
-| Avalanche          | [avalanche/BlockHandler](./mapping.md#block-handler)     | No filters                   |
-| Avalanche          | [avalanche/TransactionHandler](./mapping.md#transaction-handler)     | `function` filters (either be the function fragment or signature), `from` (address), `to` (address)   |
-| Avalanche          | [avalanche/LogHandler](./mapping.md#log-handler)     | `topics` filters, and `address` |
-| Algorand           | [algorand/BlockHandler](./mapping.md#block-handler)  | `modulo`      |
-| Algorand           | [algorand/TransactionHandler](./mapping.md#transaction-handler) | `txType`,`sender`, `receiver`, `applicationId`, `nonParticipant`, `assetId`, `newFreezeStatus` `address` |
+| Substrate/Polkadot | [substrate/BlockHandler](./mapping/polkadot.md#block-handler) | `specVersion`, `modulo`      |
+| Substrate/Polkadot | [substrate/EventHandler](./mapping/polkadot.md#event-handler) | `module`,`method`            |
+| Substrate/Polkadot | [substrate/CallHandler](./mapping/polkadot.md#call-handler)   | `module`,`method` ,`success` |
+| Cosmos             | [cosmos/BlockHandler](./mapping/polkadot.md#block-handler)    | `modulo`                     |
+| Cosmos              | [cosmos/TransactionHandler](./mapping/polkadot.md#transaction-handler)     | No filters                   |
+| Cosmos              | [cosmos/MessageHandler](./mapping/polkadot.md#message-handler)     |  `type`, `values`* |
+| Cosmos              | [cosmos/EventHandler](./mapping/polkadot.md#event-handler)     | `type`, `messageFilter`* |
+| Terra              | [terra/BlockHandler](./mapping/polkadot.md#block-handler)     | No filters                   |
+| Terra              | [terra/TransactionHandler](./mapping/polkadot.md#transaction-handler)     | No filters                   |
+| Terra              | [terra/MessageHandler](./mapping/polkadot.md#message-handler)     |  `type`, `values`* |
+| Terra              | [terra/EventHandler](./mapping/polkadot.md#event-handler)     | `type`, `messageFilter`* |
+| Avalanche          | [avalanche/BlockHandler](./mapping/polkadot.md#block-handler)     | No filters                   |
+| Avalanche          | [avalanche/TransactionHandler](./mapping/polkadot.md#transaction-handler)     | `function` filters (either be the function fragment or signature), `from` (address), `to` (address)   |
+| Avalanche          | [avalanche/LogHandler](./mapping/polkadot.md#log-handler)     | `topics` filters, and `address` |
+| Algorand           | [algorand/BlockHandler](./mapping/polkadot.md#block-handler)  | `modulo`      |
+| Algorand           | [algorand/TransactionHandler](./mapping/polkadot.md#transaction-handler) | `txType`,`sender`, `receiver`, `applicationId`, `nonParticipant`, `assetId`, `newFreezeStatus` `address` |
 
 Default runtime mapping filters are an extremely useful feature to decide what block, event, or extrinsic will trigger a mapping handler.
 

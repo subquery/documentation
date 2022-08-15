@@ -99,7 +99,7 @@ An `AvalancheBlock` encapsulates all transactions and events in the block.
 
 You can use event handlers to capture information when certain events are included on a new block. The events that are part of the default runtime and a block may contain multiple events.
 
-During the processing, the event handler will receive an event as an argument with the event's typed inputs and outputs. Any type of event will trigger the mapping, allowing activity with the data source to be captured. You should use [Mapping Filters](../build/manifest.md#mapping-handlers-and-filters) in your manifest to filter events to reduce the time it takes to index data and improve mapping performance.
+During the processing, the event handler will receive an event as an argument with the event's typed inputs and outputs. Any type of event will trigger the mapping, allowing activity with the data source to be captured. You should use [Mapping Filters](../build/manifest/polkadot.md#mapping-handlers-and-filters) in your manifest to filter events to reduce the time it takes to index data and improve mapping performance.
 
 <CodeGroup>
 <CodeGroupItem title="Substrate/Polkadot" active>
@@ -173,7 +173,7 @@ async function handleEvmLog(event: SubstrateEvent<[EvmLog]>): Promise<void> {
 
 ## Call Handler
 
-Call handlers (Substrate/Polkadot only) are used when you want to capture information on certain substrate extrinsics. You should use [Mapping Filters](../build/manifest.md#mapping-handlers-and-filters) in your manifest to filter calls to reduce the time it takes to index data and improve mapping performance.
+Call handlers (Substrate/Polkadot only) are used when you want to capture information on certain substrate extrinsics. You should use [Mapping Filters](../build/manifest/polkadot.md#mapping-handlers-and-filters) in your manifest to filter calls to reduce the time it takes to index data and improve mapping performance.
 
 ```ts
 export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
@@ -198,7 +198,7 @@ async function handleEvmCall(call: SubstrateExtrinsic<[TransactionV2 | EthTransa
 
 ## Log Handler
 
-You can use log handlers (Avalanche only) to capture information when certain logs are included on transactions. During the processing, the log handler will receive a log as an argument with the log's typed inputs and outputs. Any type of event will trigger the mapping, allowing activity with the data source to be captured. You should use [Mapping Filters](../build/manifest.md#mapping-handlers-and-filters) in your manifest to filter events to reduce the time it takes to index data and improve mapping performance.
+You can use log handlers (Avalanche only) to capture information when certain logs are included on transactions. During the processing, the log handler will receive a log as an argument with the log's typed inputs and outputs. Any type of event will trigger the mapping, allowing activity with the data source to be captured. You should use [Mapping Filters](../build/manifest/polkadot.md#mapping-handlers-and-filters) in your manifest to filter events to reduce the time it takes to index data and improve mapping performance.
 
 ```ts
 import { AvalancheLog } from "@subql/types-avalanche";
@@ -216,7 +216,7 @@ export async function handleLog(event: AvalancheLog): Promise<void> {
 
 ## Transaction Handler
 
-You can use transaction handlers (Avalanche and Terra only) to capture information about each of the transactions in a block. To achieve this, a defined TransactionHandler will be called once for every transaction. You should use [Mapping Filters](../build/manifest.md#mapping-handlers-and-filters) in your manifest to filter transactions to reduce the time it takes to index data and improve mapping performance.
+You can use transaction handlers (Avalanche and Terra only) to capture information about each of the transactions in a block. To achieve this, a defined TransactionHandler will be called once for every transaction. You should use [Mapping Filters](../build/manifest/polkadot.md#mapping-handlers-and-filters) in your manifest to filter transactions to reduce the time it takes to index data and improve mapping performance.
 
 <CodeGroup>
 <CodeGroupItem title="Avalanche" active>
@@ -289,7 +289,7 @@ The `AvalancheTransaction` encapsulates TxInfo and the corresponding block infor
 
 ## Message Handler
 
-You can use message handlers to capture information from each message in a transaction. To achieve this, a defined MessageHandler will be called once for every message. You should use [Mapping Filters](../build/manifest.md#mapping-handlers-and-filters) in your manifest to filter messages to reduce the time it takes to index data and improve mapping performance.
+You can use message handlers to capture information from each message in a transaction. To achieve this, a defined MessageHandler will be called once for every message. You should use [Mapping Filters](../build/manifest/polkadot.md#mapping-handlers-and-filters) in your manifest to filter messages to reduce the time it takes to index data and improve mapping performance.
 
 <CodeGroup>
 <CodeGroupItem title="Cosmos">
@@ -467,7 +467,7 @@ Next, copy and paste the output to a JSON file. In our [kitty example](https://g
 
 **Type definitions**
 
-We assume that the user knows the specific types and RPC support from the chain, and it is defined in the [Manifest](../build/manifest.md). 
+We assume that the user knows the specific types and RPC support from the chain, and it is defined in the [Manifest](../build/manifest/polkadot.md). 
 
 Following [types setup](https://polkadot.js.org/docs/api/examples/promise/typegen#metadata-setup), we create :
 - `src/api-interfaces/definitions.ts` - this exports all the sub-folder definitions 

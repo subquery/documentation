@@ -122,7 +122,7 @@ dataSources:
 
 Cela signifie que nous allons exécuter une fonction de mappage `handleEvent` chaque fois qu'il y a un événement `transfer` provenant du smart contract bLuna.
 
-Pour plus d'informations sur le fichier Project Manifest (`project.yaml`), consultez notre documentation sous [Build/Manifest File](../build/manifest.md)
+Pour plus d'informations sur le fichier Project Manifest (`project.yaml`), consultez notre documentation sous [Build/Manifest File](../build/manifest/polkadot.md)
 
 ### Ajouter une fonction de mappage
 
@@ -171,7 +171,7 @@ export async function handleEvent(
 
 Il s'agit de recevoir un SubstrateEvent qui comprend des données de transfert sur la charge utile. Nous extrayons ces données puis instançons une nouvelle entité `Transfer` que nous avons définie plus tôt dans le fichier `schema.graphql`. Nous ajoutons des informations supplémentaires et utilisons ensuite la fonction `.save()` pour enregistrer la nouvelle entité (SubQuery l'enregistrera automatiquement dans la base de données).
 
-Pour plus d'informations sur les fonctions de mappage, consultez notre documentation sous [Build/Mappings](../build/mapping.md)
+Pour plus d'informations sur les fonctions de mappage, consultez notre documentation sous [Build/Mappings](../build/mapping/polkadot.md)
 
 ### Construire le projet
 

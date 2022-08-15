@@ -15,6 +15,6 @@ Một số mã độc có khả năng tấn công máy chủ hoặc thậm chí 
 
 - Để giới hạn quyền truy cập vào một số modul tích hợp sẵn, chỉ có modul `assert`, `buffer`, `crypto`,`util` và `path` mới được đưa vào danh sách trắng (whitelist).
 
-- Chúng tôi hỗ trợ [các modul của bên thứ 3](../create/mapping.md#third-party-libraries) được viết bằng **CommonJS** và **kết hợp** các thư viện như `@polkadot/*` sử dụng ESM làm mặc định.
+- Chúng tôi hỗ trợ [các modul của bên thứ 3](../create/mapping/polkadot.md#third-party-libraries) được viết bằng **CommonJS** và **kết hợp** các thư viện như `@polkadot/*` sử dụng ESM làm mặc định.
 
 - Bất kỳ modul nào sử dụng `HTTP` và `WebSocket` đều bị cấm.

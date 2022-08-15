@@ -105,7 +105,7 @@ dataSources:
 
 This means we'll run a `handleTerraDeveloperFund` mapping function each and every time there is a `vote` message from the [Terra Developer Fund](https://daodao.zone/multisig/juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2) smart contract.
 
-For more information about the Project Manifest (`project.yaml`) file, check out our documentation under [Build/Manifest File](../build/manifest.md)
+For more information about the Project Manifest (`project.yaml`) file, check out our documentation under [Build/Manifest File](../build/manifest/polkadot.md)
 
 ### Add a Mapping Function
 
@@ -139,7 +139,7 @@ export async function handleTerraDeveloperFund(
 
 What this is doing is receiving a CosmosMessage which includes message data on the payload. We extract this data and then instantiate a new `Vote` entity that we defined earlier in the `schema.graphql` file. We add additional information and then use the `.save()` function to save the new entity (SubQuery will automatically save this to the database).
 
-For more information about mapping functions, check out our documentation under [Build/Mappings](../build/mapping.md)
+For more information about mapping functions, check out our documentation under [Build/Mappings](../build/mapping/polkadot.md)
 
 ### Build the Project
 

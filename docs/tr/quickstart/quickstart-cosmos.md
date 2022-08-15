@@ -105,7 +105,7 @@ dataSources:
 
 This means we'll run a `handleTerraDeveloperFund` mapping function each and every time there is a `vote` message from the [Terra Developer Fund](https://daodao.zone/multisig/juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2) smart contract.
 
-Proje Bildirimi (`project.yaml`) dosyası hakkında daha fazla bilgi için, [Yapı/Manifest Dosyası](../build/manifest.md) altındaki belgelerimize bakın
+Proje Bildirimi (`project.yaml`) dosyası hakkında daha fazla bilgi için, [Yapı/Manifest Dosyası](../build/manifest/polkadot.md) altındaki belgelerimize bakın
 
 ### Eşleme İşlevi Ekle
 
@@ -139,7 +139,7 @@ export async function handleTerraDeveloperFund(
 
 What this is doing is receiving a CosmosMessage which includes message data on the payload. We extract this data and then instantiate a new `Vote` entity that we defined earlier in the `schema.graphql` file. Ek bilgiler ekleriz ve ardından yeni varlığı kaydetmek için `.save()` işlevini kullanırız (SubQuery bunu otomatik olarak veritabanına kaydeder).
 
-Eşleme işlevleri hakkında daha fazla bilgi için [Derleme/Eşlemeler](../build/mapping.md) altındaki belgelerimize bakın
+Eşleme işlevleri hakkında daha fazla bilgi için [Derleme/Eşlemeler](../build/mapping/polkadot.md) altındaki belgelerimize bakın
 
 ### Projeyi Oluşturun
 

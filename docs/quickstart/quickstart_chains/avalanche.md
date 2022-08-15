@@ -92,7 +92,7 @@ dataSources:
 
 The above code indicates that you will be running a `handleLog` mapping function whenever there is an `RewardPaid` log on any transaction from the [Pangolin reward contract](https://snowtrace.io/txs?a=0x60781C2586D68229fde47564546784ab3fACA982&p=1).
 
-Check out our [Manifest File](../../build/manifest.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
+Check out our [Manifest File](../../build/manifest/polkadot.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
 
 Next, let’s proceed ahead with the Mapping Function’s configuration.
 
@@ -135,7 +135,7 @@ Let’s understand how the above code works.
 
 The function here receives an `AvalancheLog` which includes transaction log data in the payload. We extract this data and then instantiate a new `PangolinRewards` entity defined earlier in the `schema.graphql` file. After that, we add additional information and then use the `.save()` function to save the new entity (_Note that SubQuery will automatically save this to the database_).
 
-Check out our [Mappings](../../build/mapping.md) documentation to get more information on mapping functions.
+Check out our [Mappings](../../build/mapping/polkadot.md) documentation to get more information on mapping functions.
 
 ## 4. Build Your Project
 

@@ -105,7 +105,7 @@ dataSources:
 
 Điều này có nghĩa là chúng tôi sẽ chạy một hàm `handleTerraDeveloperFund` lập lược đồ mỗi khi có một `vote` từ hợp đồng thông minh [Terra Developer Fund](https://daodao.zone/multisig/juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2).
 
-Để biết thêm thông tin về tệp Project Manifest (`project.yaml`), hãy xem tài liệu của chúng tôi trong [Build/Manifest File](../build/manifest.md)
+Để biết thêm thông tin về tệp Project Manifest (`project.yaml`), hãy xem tài liệu của chúng tôi trong [Build/Manifest File](../build/manifest/polkadot.md)
 
 ### Thêm một hàm Ánh xạ
 
@@ -139,7 +139,7 @@ export async function handleTerraDeveloperFund(
 
 Hàm này đang nhận CosmosMessage bao gồm dữ liệu tin nhắn trên trọng tải. Chúng tôi trích xuất dữ liệu này và sau đó khởi tạo thực thể `Vote` mới mà chúng tôi đã xác định trước đó trong tệp `schema.graphql`. Chúng tôi thêm thông tin bổ sung và sau đó sử dụng hàm `.save()` để lưu thực thể mới (SubQuery sẽ tự động lưu nó vào cơ sở dữ liệu).
 
-Để biết thêm thông tin về các hàm ánh xạ, hãy xem tài liệu của chúng tôi trong [Build/Mappings](../build/mapping.md)
+Để biết thêm thông tin về các hàm ánh xạ, hãy xem tài liệu của chúng tôi trong [Build/Mappings](../build/mapping/polkadot.md)
 
 ### Xây dựng dự án
 

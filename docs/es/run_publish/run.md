@@ -90,7 +90,7 @@ Using a full chain dictionary can dramatically speed up the processing of a SubQ
 
 Un diccionario de cadena completa pre-indexa la ubicación de todos los eventos y extrinsics dentro de la cadena específica y permite que el servicio de nodo salte a lugares relevantes al indexar en lugar de inspeccionar cada bloque.
 
-Puede añadir el punto final del diccionario en su proyecto `. archivo aml` (ver [Archivo de manifiesto](../create/manifest.md)), o especificarlo en tiempo de ejecución usando el siguiente comando:
+Puede añadir el punto final del diccionario en su proyecto `. archivo aml` (ver [Archivo de manifiesto](../build/manifest/polkadot.md)), o especificarlo en tiempo de ejecución usando el siguiente comando:
 
 <CodeGroup>
 <CodeGroupItem title='Substrate/Polkadot/Polkadot'>

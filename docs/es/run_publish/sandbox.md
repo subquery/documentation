@@ -15,6 +15,6 @@ Es probable que algún código malicioso ataque al anfitrión o incluso lo compr
 
 - Para limitar el acceso a ciertos módulos integrados, solo `assert`, `buffer`, `crypto`,`util` y `path` están en la lista blanca.
 
-- Soportamos [módulos de terceros](../create/mapping.md#third-party-libraries) escritos en **CommonJS** y **bibliotecas híbridas** como `@polkadot/*` que usan ESM por defecto.
+- Soportamos [módulos de terceros](../create/mapping/polkadot.md#third-party-libraries) escritos en **CommonJS** y **bibliotecas híbridas** como `@polkadot/*` que usan ESM por defecto.
 
 - Cualquier módulo que utilice `HTTP` y `WebSocket` está prohibido.

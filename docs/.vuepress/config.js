@@ -214,9 +214,29 @@ function getSidebar(locale, language) {
         children: [
           `${locale}/build/introduction.md`,
           `${locale}/build/install.md`,
-          `${locale}/build/manifest.md`,
+          {
+            title: "Manfest File",
+            collapsable: true,
+            children: [
+              `${locale}/build/manifest/polkadot.md`,
+              `${locale}/build/manifest/avalanche.md`,
+              `${locale}/build/manifest/cosmos.md`,
+              `${locale}/build/manifest/algorand.md`,
+              `${locale}/build/manifest/terra.md`,
+            ],
+          },
           `${locale}/build/graphql.md`,
-          `${locale}/build/mapping.md`,
+          {
+            title: "Mapping",
+            collapsable: true,
+            children: [
+              `${locale}/build/mapping/polkadot.md`,
+              `${locale}/build/mapping/avalanche.md`,
+              `${locale}/build/mapping/cosmos.md`,
+              `${locale}/build/mapping/algorand.md`,
+              `${locale}/build/mapping/terra.md`,
+            ],
+          },
           `${locale}/build/substrate-evm.md`,
           `${locale}/build/dynamicdatasources.md`,
           `${locale}/build/graph-migration.md`,

@@ -116,7 +116,7 @@ Die Verwendung eines vollständigen Kettenwörterbuchs kann die Verarbeitung ein
 
 Ein vollständiges Chainwörterbuch indiziert die Position aller Ereignisse und Extrinsics innerhalb der spezifischen Chain vorab und ermöglicht Ihrem Node-Service, bei der Indizierung zu relevanten Positionen zu springen, anstatt jeden Block zu untersuchen.
 
-Sie können den Dictionary-Endpunkt in Ihrer `project.yaml`-Datei hinzufügen (siehe [Manifest-Datei](../create/manifest.md)) oder zur Laufzeit mit dem folgenden Befehl angeben:
+Sie können den Dictionary-Endpunkt in Ihrer `project.yaml`-Datei hinzufügen (siehe [Manifest-Datei](../build/manifest/polkadot.md)) oder zur Laufzeit mit dem folgenden Befehl angeben:
 
 <CodeGroup>
 <CodeGroupItem title='Substrate/Polkadot/Polkadot'>

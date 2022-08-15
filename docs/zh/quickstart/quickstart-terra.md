@@ -126,7 +126,7 @@ Projet Manifest（`project.yaml`）文件可以被看作是你项目的入口，
 
 这意味着我们将运行一个 `处理事件` 映射功能，每次从 bLuna 智能合约进行 `传输` 事件。
 
-关于Project Manifest（`project.yaml`）文件的更多信息，请查看我们在[Build/Manifest File](../build/manifest.md)下的文档。
+关于Project Manifest（`project.yaml`）文件的更多信息，请查看我们在[Build/Manifest File](../build/manifest/polkadot.md)下的文档。
 
 ### 添加Mapping Function
 
@@ -175,7 +175,7 @@ export async function handleEvent(
 
 这正在做的是接收一个SubstrateEvent，其中包括有效载荷的传输数据。 我们提取这些数据，然后实例化一个新的`Transfer`实体，我们之前在`schema.graphql`文件中定义了这个实体。 我们添加额外的信息，然后使用`.save()`函数来保存新的实体（SubQuery将自动将其保存到数据库）。
 
-关于映射函数的更多信息，请查看我们在[Build/Mappings](../build/mapping.md)下的文档。
+关于映射函数的更多信息，请查看我们在[Build/Mappings](../build/mapping/polkadot.md)下的文档。
 
 ### 生成项目
 
