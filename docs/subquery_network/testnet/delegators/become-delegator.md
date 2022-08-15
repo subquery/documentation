@@ -2,27 +2,21 @@
 
 ## Introduction 
 
-Welcome to the **step-by-step guide to becoming a Delegator.** This guide explains what is a delegator and what you can contribute as a delegator. 
-
-It also gives you an insight into what benefits you can avail as a delegator. 
+Welcome to the **step-by-step guide to becoming a Delegator.** This guide explains what a delegator is and includes the necessary steps to become one. It also gives you an insight the benefits of becoming a delegator. 
 
 Before you begin exploring further, visit [Frontier](https://frontier.subquery.network/explorer) - SubQuery’s Testnet. This guide takes this testnet into account.  
  
 
 ## Why to Become a Delegator?
 
-As a delegator, you not only delegate SQT to inexers, but you also validate and support indexers to provide their service with better rewards. If needed, you can also undelegate from an indexer. And thus, you help the network to become more transparent and secure. 
-
-In return, you get your share of rewards(in SQT) from the reward pool.
+As a delegator, you not only delegate SQT to Indexers, but you also validate and support Indexers to provide their service with better rewards. If needed, you can also undelegate from an indexer and thus, you help the network to become more transparent and secure. In return, you get your share of rewards (in SQT) from the reward pool.
 
 As a delegator, you can perform the following tasks: 
 
-1. Delegation and Undelegation of your SQT
-2. Claim and Withdraw Rewards
+1. Delegate and undelegate your SQT
+2. Claim and withdraw rewards
 
-
-Now, let's have a look at the process of delegation and undelegation. 
-
+Let's have a look at the process of delegating and undelegating. 
 
 ## How to delegate and undelegate SQT?
 
@@ -39,13 +33,11 @@ To delegate to an indexer, [visit this section.](../season3-challenges/season3.m
 
 To undelegate from an indexer, [visit this section.](../season3-challenges/season3.md#_3-undelegate-from-an-indexer)
 
----
-
-## How to earn and deal with your rewards?
+## How to claimm your rewards?
 
 ### Claim Rewards
 
-To claim your rewards as a delegator, follow the steps given [here.](../season3-challenges/season3.md#_1-claim-rewards) 
+To claim your rewards as a Delegator, follow the steps given [here.](../season3-challenges/season3.md#_1-claim-rewards) 
 
 ### Withdraw Undelegated Amount from an Indexer
 
