@@ -77,6 +77,7 @@ In order to make this feature work, create a new folder, called `docker` in your
 2. load-extensions.sh
 3. pg-Dockerfile
 
+![Docker Folder and Files](/assets/img/docker_files_img.png)
 
 ::: info Note
 
