@@ -3,12 +3,43 @@ const { config } = require("vuepress-theme-hope");
 module.exports = config({
   title: "SubQuery Academy",
   head: [
-    ['link', { rel: 'icon', href: 'public/assets/img/logo.png' }],
-    ['link', { rel: 'icon', href: 'public/assets/favicons/favicon.ico', type: 'image/x-icon' }],
-    ['link', { rel: 'apple-touch-icon', type: 'image/png', sizes: '180x180', href: 'public/assets/favicons/apple-touch-icon.png'}],
-    ['link', { rel: 'icon', type: 'image/png', sizes: '32x32', href: 'public/assets/favicons/favicon-32x32.png'}],
-    ['link', { rel: 'icon', type: 'image/png', sizes: '16x16', href: 'public/assets/favicons/favicon-16x16.png'}],
-    ['link', { rel: 'manifest', href: 'public/assets/manifest.json'}]
+    ["link", { rel: "icon", href: "public/assets/img/logo.png" }],
+    [
+      "link",
+      {
+        rel: "icon",
+        href: "public/assets/favicons/favicon.ico",
+        type: "image/x-icon",
+      },
+    ],
+    [
+      "link",
+      {
+        rel: "apple-touch-icon",
+        type: "image/png",
+        sizes: "180x180",
+        href: "public/assets/favicons/apple-touch-icon.png",
+      },
+    ],
+    [
+      "link",
+      {
+        rel: "icon",
+        type: "image/png",
+        sizes: "32x32",
+        href: "public/assets/favicons/favicon-32x32.png",
+      },
+    ],
+    [
+      "link",
+      {
+        rel: "icon",
+        type: "image/png",
+        sizes: "16x16",
+        href: "public/assets/favicons/favicon-16x16.png",
+      },
+    ],
+    ["link", { rel: "manifest", href: "public/assets/manifest.json" }],
   ],
   locales: {
     "/": {
@@ -148,7 +179,7 @@ module.exports = config({
           id: "G-MY90N76MNK",
         },
         "fulltext-search",
-        '@vuepress/pwa'
+        "@vuepress/pwa",
       ],
     ],
     pwa: true,
@@ -235,6 +266,7 @@ function getSidebar(locale, language) {
               `${locale}/build/mapping/cosmos.md`,
               `${locale}/build/mapping/algorand.md`,
               `${locale}/build/mapping/terra.md`,
+              `${locale}/build/mapping/store.md`,
             ],
           },
           `${locale}/build/substrate-evm.md`,
