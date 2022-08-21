@@ -43,7 +43,7 @@
 
 ## 大使活动
 
-SubQuery Ambassadors are able to contribute through four main areas, including event management, content creation, translation, and community moderation. You can participate in as many areas as you want, you’re not bound to any single one. 你可以参与尽可能多的领域，而不是被绑定到任何单一方向。
+SubQuery 大使需要通过四个主要领域做出贡献，包括活动管理、内容创建、翻译和社区管理。 你可以参与尽可能多的领域，而不是被绑定到任何单一方向。
 
 **活动管理：** 通过主办、组织和管理不同的活动来建立本地社区。 建立一个地方社区将是扩大SubQuery社区的一个关键部分。 SubQuery 将为你举办的活动提供资金支持，或准备礼物与奖品， 还以发言者身份或在AMA会议上以及其他线上活动提供帮助。
 
