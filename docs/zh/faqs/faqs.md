@@ -79,23 +79,23 @@ subql-node -f . --force-clean --subquery-name=<project-name>
 
 ## 我如何优化我的项目以加快速度？
 
-业绩是每个项目的一个关键因素。 幸运的是，你们可以做几件事来加以改进。 Here is the list of some suggestions:
+业绩是每个项目的一个关键因素。 幸运的是，你们可以做几件事来加以改进。 以下是一些建议的列表：
 
-- Avoid using block handlers where possible.
-- Query only necessary fields.
-- Try to use filter conditions to reduce the response size. Create filters as specific as possible to avoid querying unnecessary data.
-- For large data tables, avoid querying `totalCount` without adding conditions.
-- Add indexes to entity fields for query performance, this is especially important for historical projects.
-- Set the start block to when the contract was initialised.
-- Always use a [dictionary](../tutorials_examples/dictionary.html#how-does-a-subquery-dictionary-work) (we can help create one for your new network).
-- Optimise your schema design, keep it as simple as possible.
-    - Try to reduce unnecessary fields and columns.
-    - Create  indexes as needed.
-- Use parallel/batch processing as often as possible.
-    - Use `api.queryMulti()` to optimise Polkadot API calls inside mapping functions and query them in parallel. This is a faster way than a loop.
-    - Use `Promise.all()`. In case of multiple async functions, it is better to execute them and resolve in parallel.
-    - If you want to create a lot of entities within a single handler, you can use `store.bulkCreate(entityName: string, entities: Entity[])`. You can create them in parallel, no need to do this one by one.
-- Making API calls to query state can be slow. You could try to minimise calls where possible and to use `extrinsic/transaction/event` data.
-- Use `worker threads` to move block fetching and block processing into its own worker thread. It could speed up indexing by up to 4 times (depending on the particular project). You can easily enable it using the `-workers=<number>` flag. 请注意，可用的 CPU 核心数严格限制了工人线程的使用。 For now, it is only available for Substrate and Cosmos and will soon be integrated for Avalanche.
-- Note that `JSON.stringify` doesn’t support native `BigInts`. Our logging library will do this internally if you attempt to log an object. We are looking at a workaround for this.
-- Use a convenient `modulo` filter to run a handler only once to a specific block. This filter allows handling any given number of blocks, which is extremely useful for grouping and calculating data at a set interval. For instance, if modulo is set to 50, the block handler will run on every 50 blocks. It provides even more control over indexing data to developers and can be implemented like so below in your project manifest.
+- 尽可能避免使用区块处理程序。
+- 只查询必要的字段。
+- 尝试使用过滤条件来减少响应大小。 创建尽可能具体的过滤器，以避免查询不必要的数据。
+- 对于大型数据表，避免查询 `总计计数` 而不添加条件。
+- 为查询性能添加索引到实体字段中，这对历史项目特别重要。
+- 设置合同初始化时的起始模块。
+- 总是使用 [字典](../tutorials_examples/dictionary.html#how-does-a-subquery-dictionary-work) (我们可以帮助为您的新网络创建一个字典)。
+- 优化您的架构设计，使其尽可能简单。
+    - 尝试减少不必要的字段和列。
+    - 根据需要创建索引。
+- 尽可能频繁地使用并行/批量处理。
+    - 使用 `api.queryMulti()` 来优化在映射函数内的 Polkadot API 调用并并行查询它们。 这是一个比循环更快的方式。
+    - 使用 `Promise.all()`. 在多个异步函数的情况下，最好执行它们并并行解决。
+    - 如果您想要在单个处理程序中创建很多实体，您可以使用 `store.bulkCreate(entityname: string, entity: Entity[])`。 您可以同时创建它们，无需单独创建。
+- 让 API 调用查询状态可能很慢。 您可以尽量减少通话，并使用 `扩展/交易/事件` 数据。
+- 使用 `工作线程` 将区块提取和区块处理移动到自己的工作线程。 它可以加快索引速度，最多可达4倍(视具体项目而定)。 您可以轻松地使用 `-workers=<number>` 标志启用它。 请注意，可用的 CPU 核心数严格限制了工人线程的使用。 现在，它只供Substrate and Cosmos使用，很快将会被集成到Avalanche。
+- 注意 `JSONstringify` 不支持原生 `BigInts`。 如果你试图记录一个目标，我们的日志库将会在内部做这件事。 我们正在研究如何解决这一问题。
+- 使用方便的 `模块` 过滤器来运行一个处理程序到一个特定的区块。 此过滤器允许处理任何给定的块数，这对于按设定的时间间隔分组和计算数据极为有用。 例如，如果模块设置为 50，块处理程序将在每50个模块上运行。 它提供了更多的对开发者索引数据的控制，并且可以在下面的项目清单中实现这一点。
