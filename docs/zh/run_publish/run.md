@@ -105,11 +105,11 @@ subql-node-avalanche -f your-project-path --local
 </CodeGroupItem>
 </CodeGroup>
 
-出于调试的目的，用户可以以本地方式运行该节点。 In some cases, we've seen indexing performance increases of up to 10x.
+出于调试的目的，用户可以以本地方式运行该节点。 在某些情况下，我们看到索引性能增加最多10x。
 
-A full chain dictionary pre-indexes the location of all events and extrinsics within the specific chain and allows your node service to skip to relevant locations when indexing rather than inspecting each block.
+完整的链词典预索引特定链中所有事件和外观的位置，并允许您的节点服务在索引时跳到相关位置，而不是检查每个方块。
 
-You can add the dictionary endpoint in your `project.yaml` file (see [Manifest File](../build/manifest/polkadot.md)), or specify it at run time using the following command:
+您可以在您的 `项目中添加字典终点。 aml` 文件(见 [清单文件](../create/manifest.md))，或在运行时使用以下命令指定它：
 
 <CodeGroup>
 <CodeGroupItem title='Substrate/Polkadot/Polkadot'>
