@@ -37,7 +37,7 @@ SubQuery 项目是您管理上传到SubQuery平台的所有托管项目的地方
 
 ### 创建您的第一个项目。
 
-There are three methods to create a project in the SubQuery Managed Service: you can use the UI, create it directly via the `subql` cli tool, or use an automated GitHub action.
+有两种方法可以在 SubQuery 管理服务中部署新版本的项目。 您可以使用界面或直接通过 `subql` cli 工具。
 
 #### 使用用户界面
 
@@ -124,9 +124,11 @@ $ subql deployment:deploy
   --type=(stage|primary)           [default: primary]
 ```
 
-#### Using GitHub actions
+#### 使用 GitHub Actions
 
-With the introduction of the deployment feature for the CLI, we've added a **Default Action Workflow** to [the starter project in GitHub](https://github.com/subquery/subql-starter/blob/v1.0.0/.github/workflows/cli-deploy.yml) that will allow you to publish and deploy your changes automatically:
+随着国家排雷行动中心的部署功能的引入， 我们在 GitHub</a> 中添加了一个 **默认动作流程** 到
+
+启动器项目，它将允许您自动发布并部署您的更改：</p> 
 
 - 第 1 步：将您的项目推送到 GitHub 后，在 GitHub 上创建 `DEPLOYMENT` 环境，并添加秘钥 [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token)
 - 步骤 2: 在 [SubQuery 项目](https://project.subquery.network), 创建一个项目 这可以使用 [UI](#using-the-ui) 或 [CLI](#using-the-cli) 来完成。
@@ -135,6 +137,8 @@ With the introduction of the deployment feature for the CLI, we've added a **Def
 - 工作流程完成后，您应该看到您的项目被部署到我们的管理服务
 
 一个常见的方法是扩展默认的 GitHub 动作，以便在代码合并到主页时自动对我们的管理服务进行更改。 以下对 GitHub 行动流程的更改做到这一点：
+
+
 
 ```yml
 on:
@@ -147,6 +151,9 @@ jobs:
     ...
 ```
 
+
+
+
 ## 下一步 - 连接到您的项目
 
 一旦您的部署成功完成并且我们的节点已经从该链中为您的数据编制了索引， 您可以通过显示的 GraphQL 查询端点连接到您的项目。
@@ -156,6 +163,8 @@ jobs:
 您也可以点击项目标题旁边的三个小点图标，从而在 SubQuery 浏览器上查看项目， 在这里您可以使用我们的区块链浏览器开始—— [阅读更多关于如何在这里使用](../query/query.md) 的信息。 在那里，您可以使用浏览器内的播放场开始 - [在此处阅读有关如何使用我们的资源管理器的更多信息](../run_publish/query.md)。
 
 ![SubQuery Explorer 中的项目](/assets/img/projects-explorer.png)
+
+
 
 ## 将 GitHub 组织帐户添加到 SubQuery 项目
 
