@@ -46,7 +46,7 @@ This returns all of the matching records for the specific entity that matches a 
 await store.getByField(`StarterEntity`, "field1", 50);
 ```
 
-Please note, the third parameter also accept array, you can consider this similar like `bulkGet` with OR search.
+Please note, the third parameter also accepts array, you can consider this similar like `bulkGet` with OR search.
 To get a list of records with `field1` equal to 50, 100 or 150
 
 ```typescript
