@@ -9,7 +9,12 @@ Following is a summary of the `Store` interface
 ```typescript
 export interface Store {
   get(entity: string, id: string): Promise<Entity | null>;
-  getByField(entity: string, field: string, value: any): Promise<Entity[]>;
+  getByField(
+    entity: string,
+    field: string,
+    value: any,
+    options?: { limit?: number, offset?: number }
+  ): Promise<Entity[]>;
   getOneByField(
     entity: string,
     field: string,
@@ -35,9 +40,11 @@ await store.get(`StarterEntity`, id);
 
 ## Get All Records by Field
 
-`getByField(entity: string, field: string, value: any): Promise<Entity[]>;`
+`getByField(entity: string, field: string, value: any, options?: { limit?: number; offset?: number }): Promise<Entity[]>;`
 
-This returns all of the matching records for the specific entity that matches a given search.
+This returns matching records for the specific entity that matches a given search. By default it will return the first 100 results.
+The number of results can be changed via the `query-limit` flag for the node or via the options field. If you need more than the number of results provided you can also specify an `offset` and page your results.
+
 
 ```typescript
 // Get all records with field1 == 50
