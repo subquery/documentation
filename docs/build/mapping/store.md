@@ -122,7 +122,7 @@ Please note, this fields feature is not working currently with any automated his
 
 `remove(entity: string, id: string): Promise<void>;`
 
-This allows remove a single record of the entity with its `id`.
+This allows to remove a single record of the entity with its `id`.
 
 ```typescript
 const id = block.block.header.hash.toString();
