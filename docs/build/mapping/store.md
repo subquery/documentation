@@ -28,7 +28,7 @@ export interface Store {
 
 `get(entity: string, id: string): Promise<Entity | null>;`
 
-This allows get an record of the entity with its `id`.
+This allows you to get a record of the entity with its `id`.
 
 ```typescript
 const id = block.block.header.hash.toString();
