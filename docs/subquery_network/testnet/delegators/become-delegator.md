@@ -33,7 +33,7 @@ To delegate to an indexer, [visit this section.](../season3-challenges/season3.m
 
 To undelegate from an indexer, [visit this section.](../season3-challenges/season3.md#_3-undelegate-from-an-indexer)
 
-## How to claimm your rewards?
+## How to claim your rewards?
 
 ### Claim Rewards
 
