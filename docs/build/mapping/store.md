@@ -104,7 +104,7 @@ await store.bulkUpdate(`StarterEntity`,[
 ])
 ```
 
-The 3rd parameter is optional, allow user provide a list of fields they wish to be updated, and other fields will be ignored.
+The 3rd parameter is optional, and allows user to provide a list of fields they wish to be updated, and other fields will be ignored.
 
 For example, only `field5` will be updated.
 
