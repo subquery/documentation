@@ -116,7 +116,7 @@ await store.bulkUpdate(`StarterEntity`,[
 ])
 ```
 
-Please note, this fields feature currently not working with any automated historical indexing, it will overwrite all attributes. To disable automated historical indexing, please enable `--disable-historical=true` parameter on `subql-node`.
+Please note, this fields feature is not working currently with any automated historical indexing. It will overwrite all attributes. To disable automated historical indexing, please enable `--disable-historical=true` parameter on `subql-node`.
 
 ## Remove Record
 
