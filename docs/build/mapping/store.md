@@ -47,7 +47,7 @@ await store.getByField(`StarterEntity`, "field1", 50);
 ```
 
 Please note, the third parameter also accepts array, you can consider this similar like `bulkGet` with OR search.
-To get a list of records with `field1` equal to 50, 100 or 150
+To get a list of records with `field1` equal to 50, 100 or 150:
 
 ```typescript
 // Get all records with field1 == 50 OR field1 == 100 OR field1 == 150
