@@ -94,7 +94,7 @@ await store.bulkCreate(`StarterEntity`,[
 
 `bulkUpdate(entity: string, data: Entity[], fields?: string[]): Promise<void>;`
 
-This allows to update multiple records for specified entity, if will create the records if they are not exist.
+This allows to update multiple records for specified entity, it will create the records if they are not exist.
 
 ```typescript
 await store.bulkUpdate(`StarterEntity`,[
