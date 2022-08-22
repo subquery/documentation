@@ -395,5 +395,4 @@ You can define the `typesBundle` in the `project.yml`. And please remember only 
       }
     }
   }
-
 ```
