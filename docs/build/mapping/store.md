@@ -47,7 +47,6 @@ await store.get(`StarterEntity`, id);
 This returns matching records for the specific entity that matches a given search. By default it will return the first 100 results.
 The number of results can be changed via the `query-limit` flag for the node or via the options field. If you need more than the number of results provided you can also specify an `offset` and page your results.
 
-
 ```typescript
 // Get all records with field1 == 50
 await store.getByField(`StarterEntity`, "field1", 50);

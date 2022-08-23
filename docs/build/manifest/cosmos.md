@@ -61,6 +61,17 @@ dataSources:
             #contract: "juno1v99ehkuetkpf0yxdry8ce92yeqaeaa7lyxr2aagkesrw67wcsn8qxpxay0"
 ```
 
+### Tested and Supported networks
+
+We expect that SubQuery will work with all Cosmos chains with the import of the correct protobuf definitions. We've tested this with the following chains, and feel free to make a PR to not support for other chains when you are able to test and confirm them.
+
+| Network Name   | Endpoint | Dictionary Endpoint | Protobufs |
+| -------------- | -------------------------------------------------- | ----------------------------------------------------------------------- | --- |
+| Juno       | `rpc.juno-1.api.onfinality.io`       | `https://api.subquery.network/sq/subquery/cosmos-juno-dictionary` | None |
+| Stargaze      | `http://nodes.stargaze-1.publicawesome.dev:26657/`      | `https://api.subquery.network/sq/subquery/cosmos-stargaze-dictionary`         | [Example](https://github.com/subquery/cosmos-subql-starter/blob/stargaze-1/project.yaml#L23) |
+| Cosmos Hub | `https://rpc.cosmos.network` | `https://api.subquery.network/sq/subquery/cosmos-hub-dictionary`    | [Example](https://github.com/subquery/cosmos-subql-starter/blob/cosmoshub-4/project.yaml#L22) |
+| Fetch Hub          | `https://rpc-fetchhub.fetch.ai`          | `https://api.subquery.network/sq/subquery/cosmos-fetch-ai-dictionary`  | [Example](https://github.com/subquery/cosmos-subql-starter/blob/fetchhub-4/project.yaml) |
+
 ## Overview
 
 ### Top Level Spec
@@ -193,9 +204,9 @@ filter:
 
 ## Custom Chains
 
-Similar to with Substrate where chain types are loaded into `network.chaintypes`, we can load protobuf messages specific to cosmos chains. If most are just using Wasm this should be already included.
+We can load protobuf message definitions to allow support for specific to Cosmos chains under `network.chaintypes`. If most are just using Wasm this should be already included.
 
-You can reference a chaintypes file for Cosmos like so:
+You can reference a chaintypes file for Cosmos like so (this is for Stargaze):
 
 ```yml
 chainTypes: # This is a beta feature that allows support for any Cosmos chain by importing the correct protobuf messages
@@ -203,7 +214,21 @@ chainTypes: # This is a beta feature that allows support for any Cosmos chain by
     file: "./proto/cosmos/slashing/v1beta1/tx.proto"
     messages:
       - "MsgUnjail"
+  cosmos.gov.v1beta1:
+    file: "./proto/cosmos/gov/v1beta1/tx.proto"
+    messages:
+      - "MsgVoteWeighted"
+  cosmos.gov.v1beta1.gov: # Key is not used, it matches the one above and is inferred from the file
+    file: "./proto/cosmos/gov/v1beta1/gov.proto"
+    messages:
+      - "WeightedVoteOption"
+  publicawesome.stargaze.claim.v1beta1: # Key is not used, it matches the one above and is inferred from the file
+    file: "./proto/stargaze/claim/v1beta1/tx.proto"
+    messages:
+      - "MsgInitialClaim"
 ```
+
+Our [starter repo has chaintypes for popular Cosmos chains](https://github.com/subquery/cosmos-subql-starter/blob/stargaze-1/project.yaml#L23) already added under a branch for each chain. Additionally see [Tested and Supported networks](#tested-and-supported-networks).
 
 ## Validating
 

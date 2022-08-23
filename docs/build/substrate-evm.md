@@ -41,18 +41,30 @@ Theoretically the following networks should also be supported since they impleme
 1. Add the custom datasource as a dependency:
 
 - Create a new project from an EVM template though `subql init` OR
-- For existing projects, `yarn add @subql/frontier-evm-processor` or `yarn add @subql/acala-evm-processor`.
+- For existing projects, `yarn add @subql/frontier-evm-processor` or `npm i @subql/acala-evm-processor`.
 
-2. Add a custom data source as described below.
-3. Add handlers for the custom data source to your code.
+2. Add exports to your `package.json` like below in order for IPFS deployments to work
+
+```json
+  ...
+  "exports": {
+    "frontierEvm": "./node_modules/@subql/frontier-evm-processor/dist/index.js"
+    //"acalaEvm": "./node_modules/@subql/acala-evm-processor/dist/index.js",
+    "chaintypes": "./src/chaintypes.ts" // chain types if required
+  }
+```
+
+3. Add a custom data source as described below.
+4. Add handlers for the custom data source to your code.
 
 ## Data Source Spec
 
-| Field             | Type                                                           | Required | Description                                |
-| ----------------- | -------------------------------------------------------------- | -------- | ------------------------------------------ |
-| processor.file    | `'./node_modules/@subql/frontier-evm-processor/dist/index.js'` | Yes      | File reference to the data processor code  |
-| processor.options | [ProcessorOptions](substrate-evm.md#processor-options)                         | No       | Options specific to the Frontier Processor |
-| assets            | `{ [key: String]: { file: String }}`                           | No       | An object of external asset files          |
+| Field             | Type                                                   | Required | Description                                |
+| ----------------- | ------------------------------------------------------ | -------- | ------------------------------------------ |
+| kind              | `substrate/FrontierEvm` of `substrate/AcalaEVM`        | Yes      | Type of the datasource                     |
+| processor.file    | `'./dist/frontierEvm.js'`                              | Yes      | File reference to the data processor code  |
+| processor.options | [ProcessorOptions](substrate-evm.md#processor-options) | No       | Options specific to the Frontier Processor |
+| assets            | `{ [key: String]: { file: String }}`                   | No       | An object of external asset files          |
 
 ### Processor Options
 
@@ -68,7 +80,7 @@ Works in the same way as [substrate/CallHandler](../build/mapping/polkadot.md#ca
 | Field  | Type                                                    | Required | Description                                 |
 | ------ | ------------------------------------------------------- | -------- | ------------------------------------------- |
 | kind   | `substrate/FrontierEvmCall` or `substrate/AcalaEvmCall` | Yes      | Specifies that this is an Call type handler |
-| filter | [Call Filter](substrate-evm.md#call-filters)                            | No       | Filter the data source to execute           |
+| filter | [Call Filter](substrate-evm.md#call-filters)            | No       | Filter the data source to execute           |
 
 ### Call Filters
 
@@ -98,11 +110,12 @@ Works in the same way as [substrate/EventHandler](../build/mapping/polkadot.md#e
 
 ### Event Filters
 
-| Field  | Type         | Example(s)                                                      | Description                                                                                                                                      |
-| ------ | ------------ | --------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| topics | String array | Transfer(address indexed from,address indexed to,uint256 value) | The topics filter follows the Ethereum JSON-PRC log filters, more documentation can be found [here](https://docs.ethers.io/v5/concepts/events/). |
+| Field  | Type         | Example(s)                                                        | Description                                                                                                                                      |
+| ------ | ------------ | ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| topics | String array | `Transfer(address indexed from,address indexed to,uint256 value)` | The topics filter follows the Ethereum JSON-PRC log filters, more documentation can be found [here](https://docs.ethers.io/v5/concepts/events/). |
 
-<b>Note on topics:</b>
+**Note on topics:**
+
 There are a couple of improvements from basic log filters:
 
 - Topics don't need to be 0 padded.
