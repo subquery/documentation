@@ -160,8 +160,8 @@ Defines the data that will be filtered and extracted and the location of the map
 
 ### Mapping Spec
 
-| Field                  | All manifest versions                                                                              | Description                                                                                                                                                                                                                                 |
-| ---------------------- | -------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Field                  | All manifest versions                                                                              | Description                                                                                                                                                                                                                                          |
+| ---------------------- | -------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **handlers & filters** | Default handlers and filters, <br />[Custom handlers and filters](manifest.md#custom-data-sources) | List all the [mapping functions](./mapping/polkadot.md) and their corresponding handler types, with additional mapping filters. <br /><br /> For custom runtimes mapping handlers please view [Custom data sources](manifest.md#custom-data-sources) |
 
 ## Data Sources and Mapping
@@ -182,8 +182,8 @@ The following table explains filters supported by different handlers.
 
 **Your SubQuery project will be much more efficient when you only use event and call handlers with appropriate mapping filters.**
 
-| Handler                                              | Supported filter             |
-| ---------------------------------------------------- | ---------------------------- |
+| Handler                                                       | Supported filter             |
+| ------------------------------------------------------------- | ---------------------------- |
 | [substrate/BlockHandler](./mapping/polkadot.md#block-handler) | `specVersion`, `modulo`      |
 | [substrate/EventHandler](./mapping/polkadot.md#event-handler) | `module`,`method`            |
 | [substrate/CallHandler](./mapping/polkadot.md#call-handler)   | `module`,`method` ,`success` |
@@ -254,7 +254,7 @@ export default { typesBundle: typesBundleDeprecated };
 
 #### Working Example
 
-You can see the suggested method for connecting and retrieving custom chain types in [SubQuery's Official Dictionary repository](https://github.com/subquery/subql-dictionary). Here you will find a dictionary project for each network with all the chain types correct inserted. We retrieve these definitions from the [offical Polkadot.js repo](https://github.com/polkadot-js/apps/tree/master/packages/apps-config/src/api/spec), where each network lists their their chaintypes.
+You can see the suggested method for connecting and retrieving custom chain types in [SubQuery's Official Dictionary repository](https://github.com/subquery/subql-dictionary). Here you will find a dictionary project for each network with all the chain types correct inserted. We retrieve these definitions from the [official Polkadot.js repo](https://github.com/polkadot-js/apps/tree/master/packages/apps-config/src/api/spec), where each network lists their their chaintypes.
 
 For example, Acala publish an [offical chain type definition to NPM](https://www.npmjs.com/package/@acala-network/type-definitions). This is imported in your project's `package.json` like so:
 

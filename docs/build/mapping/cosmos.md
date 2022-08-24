@@ -128,6 +128,16 @@ export async function handleMessage(msg: CosmosMessage): Promise<void> {
 }
 ```
 
+## RPC Calls
+
+We also support some [API RPC methods here](https://github.com/subquery/subql-cosmos/blob/main/packages/types/src/global.ts#L11) that are remote calls that allow the mapping function to interact with the actual node and chain state.
+
+Documents in [CosmWasm Stargate Client](https://cosmos.github.io/cosmjs/latest/cosmwasm-stargate/modules.html) provide some methods.
+
+::: warning Important
+One caveat is that when you query, it will currently query state at the latest block height not at the height being indexed. We have been unable to find a way to query at a specific height, please reach out if you know of a way how!
+:::
+
 ## Chain Type Registries
 
 Some decoded message data from Cosmos Chains has nested message types that don't get decoded.

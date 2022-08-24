@@ -184,18 +184,6 @@ const b2 = await api.rpc.chain.getBlock();
 
 - For [Custom Substrate Chains](#custom-substrate-chains) RPC calls, see [usage](mapping.md#usage).
 
-### Chain Type Registries
-
-Some decoded message data from Cosmos Chains has nested message types that don't get decoded.
-
-We inject the [`registry`](https://cosmos.github.io/cosmjs/latest/proto-signing/classes/Registry.html) globally into the sandbox so that users can decode more messages as they need.
-
-```typescript
-import { MsgUpdateClient } from "cosmjs-types/ibc/core/client/v1/tx";
-
-registry.register("/ibc.core.client.v1.MsgUpdateClient", MsgUpdateClient);
-```
-
 ## Custom Substrate Chains
 
 SubQuery can be used on any Substrate-based chain, not just Polkadot or Kusama.
