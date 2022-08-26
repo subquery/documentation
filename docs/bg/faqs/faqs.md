@@ -12,27 +12,27 @@ SubQuery представлява блокчейн индексатор на д�
 
 **Управлявана услуга на SubQuery**
 
-SubQuery also provides free, production grade hosting of projects for developers. Our Managed Service removes the responsiblity of managing infrastructure, so that developers do what they do best — build. Find out more [here](/run_publish/publish.md).
+SubQuery също така предоставя безплатен хостинг на проекти за разработчици. Нашата управлявана услуга премахва отговорността за управление на инфраструктурата, така че разработчиците получават възможността да правят това, което правят най-добре – да изграждат. Научете повече [тук](/run_publish/publish.md).
 
 **Мрежата на SubQuery**
 
-The SubQuery Network allows developers to completely decentralise their infrastructure stack. It is the most open, performant, reliable, and scalable data service for dApps. The SubQuery Network indexes and services data to the global community in an incentivised and verifiable way.  After publishing your project to the SubQuery Network, anyone can index and host it - providing data to users around the world faster and reliably.
+SubQuery Network позволява на разработчиците напълно да децентрализират своят инфраструктурен стек. Това е най-отворена, производителна, надеждна и мащабируема услуга за данни за dApps. SubQuery Network индексира и предоставя данни за глобалната общност по стимулиран начин, който подлежи на проверка.  След като публикувате вашия проект в SubQuery Network, всеки получава възможност да го индексира и хоства - предоставяйки данни на потребителите по целия свят по-бързо и надеждно.
 
-More information [here](/subquery_network/introduction.md).
+Повече информация [тук](/subquery_network/introduction.md).
 
 ## Кой е най-добрият начин да стартирате работа със SubQuery?
 
-The best way to get started with SubQuery is to try out our [Hello World tutorial](/assets/pdf/Hello_World_Lab.pdf). This is a simple 5 min walk through exercise. Download the starter template, build the project, use Docker to run a node on your localhost, and run a simple query.
+Най-добрият начин да започнете със SubQuery е да опитате нашето ръководство за употреба [Hello World](/assets/pdf/Hello_World_Lab.pdf). Това е просто 5-минутен бърз преглед на ръководството. Изтеглете стартовия шаблон, създайте проекта, използвайте Docker, за да стартирате нодата на вашия локален хост и изпълнете проста заявка.
 
 ## По какъв начин мога да допринеса или да дам обратна връзка към SubQuery?
 
-Ние харесваме приноса и обратната връзка от общността. To contribute the code, fork the repository of your interest and make your changes. След това изпратете PR или Pull Request. Don't forget to test as well. Also check out our <a href="http://localhost:8080/miscellaneous/contributing.html">contributions guidelines.</a>
+Ние харесваме приноса и обратната връзка от общността. За да използвате с ваш код, направете "форк" на интересуващото ви хранилището и направете промените си. След това изпратете PR или Pull Request. Не забравяйте да тествате също. Проверете също така нашето <a href="http://localhost:8080/miscellaneous/contributing.html">ръководство за участие.</a>
 
 За да дадете обратна връзка, свържете се с нас на hello@subquery.network или преминете към нашия [канал на discord](https://discord.com/invite/78zg8aBSMG).
 
 ## Колко струва хостването на моя проект в SubQuery Projects?
 
-This service is being provided to the community with a generous free tier! You can host your first two SubQuery projects for absolutely free!
+Тази услуга се предоставя на общността напълно безплатно! Можете да хоствате първите си два SubQuery проекта абсолютно безплатно!
 
 ## Какво представляват слотовете за разполагане?
 
@@ -74,28 +74,28 @@ Network.endpoint за мрежата Polkadot е `wss://polkadot.api.onfinality.
 subql-node -f . --force-clean --subquery-name=<project-name>
 ```
 
-Обърнете внимание, че се препоръчва да използвате `--force-clean`, когато променяте `startBlock` в манифеста на проекта (`project.yaml`), за да започнете преиндексиране от конфигурирания блок. If `startBlock` is changed without a `--force-clean` of the project, then the indexer will continue indexing with the previously configured `startBlock`.
+Обърнете внимание, че се препоръчва да използвате `--force-clean`, когато променяте `startBlock` в манифеста на проекта (`project.yaml`), за да започнете преиндексиране от конфигурирания блок. Ако `startBlock` се промени без `--force-clean` на проекта, тогава индексаторът ще продължи да индексира с предварително конфигурирания `startBlock`.
 
 
-## How can I optimise my project to speed it up?
+## Как мога да оптимизирам проекта си, за да го направя по-бърз?
 
-Performance is a crucial factor in each project. Fortunately, there are several things you could do to improve it. Here is the list of some suggestions:
+Производителността решаващ фактор във всеки един проект. За щастие има няколко неща, които можете да направите, за подобряването и. Представяме Ви списък с някои предложения:
 
-- Avoid using block handlers where possible.
-- Query only necessary fields.
-- Try to use filter conditions to reduce the response size. Create filters as specific as possible to avoid querying unnecessary data.
-- For large data tables, avoid querying `totalCount` without adding conditions.
-- Add indexes to entity fields for query performance, this is especially important for historical projects.
-- Set the start block to when the contract was initialised.
-- Always use a [dictionary](../tutorials_examples/dictionary.html#how-does-a-subquery-dictionary-work) (we can help create one for your new network).
-- Optimise your schema design, keep it as simple as possible.
-    - Try to reduce unnecessary fields and columns.
-    - Create  indexes as needed.
-- Use parallel/batch processing as often as possible.
-    - Use `api.queryMulti()` to optimise Polkadot API calls inside mapping functions and query them in parallel. This is a faster way than a loop.
-    - Use `Promise.all()`. In case of multiple async functions, it is better to execute them and resolve in parallel.
-    - If you want to create a lot of entities within a single handler, you can use `store.bulkCreate(entityName: string, entities: Entity[])`. You can create them in parallel, no need to do this one by one.
-- Making API calls to query state can be slow. You could try to minimise calls where possible and to use `extrinsic/transaction/event` data.
-- Use `worker threads` to move block fetching and block processing into its own worker thread. It could speed up indexing by up to 4 times (depending on the particular project). You can easily enable it using the `-workers=<number>` flag. Note that the number of available CPU cores strictly limits the usage of worker threads. For now, it is only available for Substrate and Cosmos and will soon be integrated for Avalanche.
-- Note that `JSON.stringify` doesn’t support native `BigInts`. Our logging library will do this internally if you attempt to log an object. We are looking at a workaround for this.
-- Use a convenient `modulo` filter to run a handler only once to a specific block. This filter allows handling any given number of blocks, which is extremely useful for grouping and calculating data at a set interval. For instance, if modulo is set to 50, the block handler will run on every 50 blocks. It provides even more control over indexing data to developers and can be implemented like so below in your project manifest.
+- Избягвайте използването на блокови манипулатори, когато е възможно.
+- Заявявайте само необходимите полета.
+- Опитайте се да използвате условия на филтъра, за да намалите размера на отговора. Създавйте възможно най-специфични филтри, за да избегнете заявки за ненужни данни.
+- За големи таблици с данни избягвайте да правите заявки `totalCount` без допълнителни условия.
+- Добавете индекси към полетата на обекти за изпълнение на заявките, това е особено важно за проекти с историческа важност.
+- Задайте началния блок в момента, в който контракта е инициализиран.
+- Винаги използвайте [dictionary](../tutorials_examples/dictionary.html#how-does-a-subquery-dictionary-work) (можем да ви помогнем да създадете такъв за вашата нова мрежа).
+- Оптимизирайте дизайна на вашата схема, организирайте я по възможно най-опростен начин.
+    - Опитайте се да намалите ненужните полета и колони.
+    - Създайте толкова индекси, колкото е необхидимо.
+- Използвайте паралелна/групова обработка възможно най-често.
+    - Използвайте `api.queryMulti()` за оптимизиране на Polkadot API повикванията вътре във функциите за картографиране и поисквайте ги периодично. Това е по-бързият начин.
+    - Използвайте `Promise.all()`. В случай на множество асинхронни функции е по-добре да ги изпълните и разрешите паралелно.
+    - Ако искате да създадете много обекти в рамките на един манипулатор, можете да използвате `store.bulkCreate(entityName: string, entities: Entity[])`. Можете да ги създавате паралелно, няма нужда да правите това по отделно.
+- Осъществяването на API повиквания към състояние на заявка може да бъде бавно. Можете да опитате да сведете до минимум повикванията, където е възможно, и да използвате данни за `външни/транзакции/събития`.
+- Използвайте `worker threads`, за да преместите обработката на блоковете в собствена работна нишка. Може да се ускори индексирането до 4 пъти (в зависимост от конкретния проект). Можете лесно да активирате това с помощта на flag `-workers=<number>`. Имайте предвид, че броят на наличните процесорни ядра стриктно ограничава използването на работните потоци. Засега, тези функции са налични само за Substrate и Cosmos и скоро ще бъдат интегрирани към Avalanche.
+- Забележете, че `JSON.stringify` не подкрепя нативния `BigInts`. Нашата библиотека за регистриране ще направи това вътрешно, при опит за регистрирате на обект. Търсим заобиколно решение за това.
+- Използвайте удобен филтър `modulo`, за да стартирате манипулатор само веднъж към определен блок. Този филтър позволява обработка на произволен брой блокове, което е изключително полезно за групиране и изчисляване на данни на зададен интервал. Например, ако модулът е зададен на 50, манипулаторът на блокове ще работи на всеки 50 блока. Той осигурява дори повече контрол върху индексирането на данни на разработчиците и може да бъде внедрен като такъв в манифеста на вашия проект.
