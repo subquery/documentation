@@ -2,15 +2,15 @@
 
 ## Какво е SubQuery?
 
-SubQuery is an open source blockchain data indexer for developers that provides fast, flexible, reliable, and decentralised APIs to power leading multi-chain apps.
+SubQuery представлява блокчейн индексатор на данни с отворен код за разработчици, който предоставя бързи, гъвкави, надеждни и децентрализирани API за управление на водещи мулти-чейн приложения.
 
-Our goal is to save developers' time and money by eliminating the need of building their own indexing solution. Now, they can fully focus on developing their applications. SubQuery helps developers create the decentralised products of the future.
+Нашата цел е да спестим време и пари на разработчиците, като елиминираме необходимостта от изграждане на собствено решение за индексиране. Затова, те ще могат напълно да се съсредоточат върху разработването на своите приложения. SubQuery помага на разработчиците да създават децентрализираните продукти от бъдещето.
 
 <figure class="video_container">
-<iframe src="https://www.youtube.com/embed/gCpVz_mkWdo" title="Introducing The SubQuery Network" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscree="true"></iframe>
+<iframe src="https://www.youtube.com/embed/gCpVz_mkWdo" title="Представяне на SubQuery Network" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscree="true"></iframe>
 </figure>
 
-**SubQuery Managed Service**
+**Управлявана услуга на SubQuery**
 
 SubQuery also provides free, production grade hosting of projects for developers. Our Managed Service removes the responsiblity of managing infrastructure, so that developers do what they do best — build. Find out more [here](/run_publish/publish.md).
 
