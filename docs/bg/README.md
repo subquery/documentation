@@ -66,7 +66,7 @@
       <li>
         <div class="title">Какво е SubQuery?</div>
         <div class="content">
-          <p>SubQuery is an open source blockchain data indexer for developers that provides fast, flexible, reliable, and decentralised APIs to power leading multi-chain apps.</p>
+          <p>SubQuery представлява блокчейн индексатор на данни с отворен код за разработчици, който предоставя бързи, гъвкави, надеждни и децентрализирани API за управление на водещи мулти-чейн приложения.</p>
           <span class="more">
             <router-link :to="{path: '/faqs/faqs.html#what-is-subquery'}">READ MORE</router-link>
           </span>
