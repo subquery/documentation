@@ -75,7 +75,7 @@
       <li>
         <div class="title">Кой е най-добрият начин да стартирате работа със SubQuery?</div>
         <div class="content">
-          <p>The best way to get started with SubQuery is to try out our <a href="/quickstart/quickstart.html">Quick Start</a> tutorial. This is a simple 5 min walk through exercise. Download the starter template, build the project, use Docker to run a node on your localhost, and run a simple query.</p>
+          <p>The best way to get started with SubQuery is to try out our <a href="/quickstart/quickstart.html">Quick Start</a> tutorial. Това е просто 5-минутен бърз преглед на ръководството. Изтеглете стартовия шаблон, създайте проекта, използвайте Docker, за да стартирате нодата на вашия локален хост и изпълнете проста заявка.</p>
         </div>
       </li>
       <li>
