@@ -43,14 +43,14 @@ Sau khi vượt qua chương trình thực tập sinh, bạn có thể tự gọ
 
 ## Các Hoạt động của Đại sứ
 
-Các Đại sứ SubQuery có thể đóng góp thông qua bốn lĩnh vực chính, bao gồm quản lý sự kiện, sáng tạo nội dung, dịch thuật và kiểm duyệt cộng đồng. You can participate in as many areas as you want, you’re not bound to any single one.
+Các Đại sứ SubQuery có thể đóng góp thông qua bốn lĩnh vực chính, bao gồm quản lý sự kiện, sáng tạo nội dung, dịch thuật và kiểm duyệt cộng đồng. Bạn có thể tham gia vào bao nhiêu lĩnh vực tùy thích, không bị ràng buộc vào bất kỳ lĩnh vực nào.
 
-**Event Management:** Build local communities by hosting, organising, and managing different events. Building a local community will be a key part of growing the SubQuery community. SubQuery will support you by providing funding for events, sending swag/merchandise to be given away, as well as attending Q&As or online events as speakers or in AMA sessions.
+**Quản lý sự kiện:** Xây dựng cộng đồng địa phương bằng cách chia sẻ, tổ chức và quản lý các sự kiện khác nhau. Xây dựng cộng đồng địa phương sẽ là một phần quan trọng trong việc phát triển cộng đồng SubQuery. SubQuery sẽ hỗ trợ bạn bằng cách cung cấp tài chính cho các sự kiện, gửi quà/hàng hóa để tặng, cũng như tham dự Q&A hoặc các sự kiện trực tuyến với tư cách là diễn giả hoặc trong các phiên AMA.
 
-**Content Creation:** We have a long list of content and support material that we need help creating. Remember, our success relies on the ability of our customers to build amazing things on our service, so we need your help to make that easier. Content includes videos, infographics, tutorials, animations, or any other related material, to inform, educate, or inspire community members within the SubQuery Ecosystem. SubQuery will support Content Creators by providing branding assets and expertise. We’ll also use SubQuery’s marketing channels to increase awareness of your content (and yourself).
+**Sáng tạo nội dung:** Chúng tôi có một danh sách dài các nội dung và tài liệu hỗ trợ mà chúng tôi cần sự trợ giúp từ các bạn. Hãy nhớ rằng, thành công của chúng tôi dựa vào khả năng khách hàng có thể tạo ra những điều tuyệt vời trên dịch vụ của chúng tôi, vì vậy chúng tôi cần sự giúp đỡ của bạn để thực hiện điều đó dễ dàng hơn. Nội dung bao gồm video, đồ họa thông tin, hướng dẫn, hoạt ảnh hoặc bất kỳ tài liệu liên quan nào khác, để thông báo, giáo dục hoặc truyền cảm hứng cho các thành viên cộng đồng trong Hệ sinh thái SubQuery. SubQuery sẽ hỗ trợ Người sáng tạo nội dung bằng cách cung cấp tài sản và kiến ​​thức chuyên môn về thương hiệu. Chúng tôi cũng sẽ sử dụng các kênh tiếp thị của SubQuery để nâng cao nhận thức về nội dung của bạn (và chính bạn).
 
-**Translation:** Our customers don’t just speak English! We need your help making SubQuery more accessible by translating our content into your own language, as well as helping sharing the word to our international community.
+**Dịch thuật:** Khách hàng của chúng tôi không chỉ nói tiếng Anh! Chúng tôi cần sự trợ giúp của bạn để làm cho SubQuery dễ tiếp cận hơn bằng cách dịch nội dung của chúng tôi sang ngôn ngữ của bạn, cũng như giúp chia sẻ chúng đến cộng đồng quốc tế của chúng tôi.
 
-**Community Moderation:** Moderators will help grow the SubQuery community by ensuring that official community channels are active and engaging. SubQuery will support Moderators by promoting the channels that they monitor, as well as provide guidelines for our expectations.
+**Kiểm duyệt cộng đồng:** Người kiểm duyệt sẽ giúp phát triển cộng đồng SubQuery bằng cách đảm bảo rằng các kênh cộng đồng chính thức hoạt động tích cực và gắn kết. SubQuery sẽ hỗ trợ Người kiểm duyệt bằng cách quảng bá các kênh mà họ quản lý cũng như cung cấp các hướng dẫn theo đúng với kỳ vọng.
 
 [Đăng ký Ngay!](https://forms.gle/GXBbJ6LDpNfM2v1X6)
