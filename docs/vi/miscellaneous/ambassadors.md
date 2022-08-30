@@ -43,7 +43,7 @@ Sau khi vượt qua chương trình thực tập sinh, bạn có thể tự gọ
 
 ## Các Hoạt động của Đại sứ
 
-SubQuery Ambassadors are able to contribute through four main areas, including event management, content creation, translation, and community moderation. You can participate in as many areas as you want, you’re not bound to any single one.
+Các Đại sứ SubQuery có thể đóng góp thông qua bốn lĩnh vực chính, bao gồm quản lý sự kiện, sáng tạo nội dung, dịch thuật và kiểm duyệt cộng đồng. You can participate in as many areas as you want, you’re not bound to any single one.
 
 **Event Management:** Build local communities by hosting, organising, and managing different events. Building a local community will be a key part of growing the SubQuery community. SubQuery will support you by providing funding for events, sending swag/merchandise to be given away, as well as attending Q&As or online events as speakers or in AMA sessions.
 
