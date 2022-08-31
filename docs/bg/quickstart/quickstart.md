@@ -42,9 +42,9 @@ subql help
 subql init
 ```
 
-::: warning Important
+::: Важно предупреждение
 
-**For Cosmos Users**
+**За потребителите на Cosmos**
 
 Cosmos все още не се поддържа в CLI на SubQuery (`subql`). Следователно, ако използвате Cosmos, трябва да започнете с клонинг на Juno или да разклоните този [стартов проект](https://github.com/subquery/cosmos-subql-starter).
 
@@ -98,11 +98,11 @@ HelloWorld is ready
 
 ## 3. Направете промени във вашия проект
 
-Има 3 важни файла, които трябва да бъдат модифицирани. These are:
+Има 3 важни файла, които трябва да бъдат модифицирани. Те са:
 
-1. The GraphQL Schema in `schema.graphql`.
-2. The Project Manifest in `project.yaml`.
-3. The Mapping functions in `src/mappings/` directory.
+1. The GraphQL Schema в `schema.graphql`.
+2. Манифест на проекта в `project.yaml`.
+3. Mapping функциите в директорията `src/mappings/`.
 
 SubQuery поддържа различни блокчейн мрежи и ви предоставя специално ръководство за всяка от тях.
 
