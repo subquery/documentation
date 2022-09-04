@@ -77,13 +77,13 @@ subql-node -f . --force-clean --subquery-name=<project-name>
 Зверніть увагу, що рекомендується використовувати `--force-clean` при зміні `startBlock` в рамках маніфесту проєкту (`project.yaml`) для того, щоб почати пере індексацію з налаштованого блоку. Якщо `startBlock` змінюється без `--force-clean` проєкту, то індекси продовжать індексування за допомогою раніше налаштованих `startBlock`.
 
 
-## How can I optimise my project to speed it up?
+## Як я можу оптимізувати свій проєкт, щоб прискорити його?
 
-Performance is a crucial factor in each project. Fortunately, there are several things you could do to improve it. Here is the list of some suggestions:
+Продуктивність є вирішальним фактором у кожному проєкті. На щастя, є кілька речей, які ви могли б зробити, щоб її покращити. Ось список деяких пропозицій:
 
-- Avoid using block handlers where possible.
-- Query only necessary fields.
-- Try to use filter conditions to reduce the response size. Create filters as specific as possible to avoid querying unnecessary data.
+- Уникайте використання обробників блоків, де це можливо.
+- Запитуйте лише необхідні поля.
+- Намагайтеся використовувати умови фільтра, щоб зменшити розмір відповіді. Створюйте фільтри якомога конкретніше для уникнення непотрібних даних.
 - For large data tables, avoid querying `totalCount` without adding conditions.
 - Add indexes to entity fields for query performance, this is especially important for historical projects.
 - Set the start block to when the contract was initialised.
