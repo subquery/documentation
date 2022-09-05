@@ -9,7 +9,7 @@ Docker is used to make the installation process as simple as possible as it main
 The process includes obtaining the docker-compose.yml file and then starting the container. This can be done in 2 ways:
 
 1. On your own computer or “localhost”
-2. On a hosted service such as AWS
+2. On a cloud provider such as AWS
 
 Now, let's explore how to run the Indexing Service Locally step-by-step.
 
@@ -36,7 +36,7 @@ DO NOT skip checking the Indexer Version after you finish the installation proce
 - Visit [this section](../indexers/become-an-indexer.md#_2-1-check-indexer-version) and complete the process.
 
 ::: warning Important
-Please change the default PostgreSQL password in the `POSTGRES_PASSWORD` field and in the coordinator-service's `postgres-password` field. Replace it with  your own one. 
+Please change the default PostgreSQL password in the `POSTGRES_PASSWORD` field and in the coordinator-service's `postgres-password` field. Replace it with your own one.
 :::
 
 ### Step 2 - Start the Indexing Service
