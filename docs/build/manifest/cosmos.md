@@ -165,12 +165,12 @@ The following table explains filters supported by different handlers.
 
 **Your SubQuery project will be much more efficient when you only use `TransactionHandler`, `MessageHandler`, or `EventHandler` handlers with appropriate mapping filters (e.g. NOT a `BlockHandler`).**
 
-| Handler                                                       | Supported filter          |
-| ------------------------------------------------------------- | ------------------------- |
-| [cosmos/BlockHandler](./mapping/polkadot.md#block-handler)             | `modulo`                  |
-| [cosmos/TransactionHandler](./mapping/polkadot.md#transaction-handler) | No filters                |
-| [cosmos/MessageHandler](./mapping/polkadot.md#message-handler)         | `type`, `values`\*        |
-| [cosmos/EventHandler](./mapping/polkadot.md#event-handler)             | `type`, `messageFilter`\* |
+| Handler                                                       | Supported filter                               |
+| ------------------------------------------------------------- | ---------------------------------------------- |
+| [cosmos/BlockHandler](./mapping/polkadot.md#block-handler)             | `modulo`                              |
+| [cosmos/TransactionHandler](./mapping/polkadot.md#transaction-handler) | `includeFailedTx`                     |
+| [cosmos/MessageHandler](./mapping/polkadot.md#message-handler)         | `includeFailedTx`, `type`, `values`\* |
+| [cosmos/EventHandler](./mapping/polkadot.md#event-handler)             | `type`, `messageFilter`\*             |
 
 Default runtime mapping filters are an extremely useful feature to decide what block, event, or extrinsic will trigger a mapping handler.
 
@@ -191,8 +191,15 @@ filter:
   type: "/cosmwasm.wasm.v1.MsgExecuteContract"
   # Filter to only messages with the provide_liquidity function call
   contractCall: "provide_liquidity" # The name of the contract function that was called
+  # Include messages that were in a failed transaction
+  includeFailedTx: true
   values: # A set of key/value pairs that are present in the message data
     contract: "juno1v99ehkuetkpf0yxdry8ce92yeqaeaa7lyxr2aagkesrw67wcsn8qxpxay0"
+
+# Example filter from TransactionHandler:
+filter:
+  # Include messages that were in a failed transaction
+  includeFailedTx: true
 ```
 
 The `modulo` filter allows handling every N blocks, which is useful if you want to group or calculate data at a set interval. The following example shows how to use this filter.
