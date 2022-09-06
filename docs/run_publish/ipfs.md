@@ -17,10 +17,13 @@ Using IPFS provides a better experience for developers in a few ways:
    3. Pay attention to this issue: [926](https://github.com/subquery/subql/discussions/926)
 2. `package.json`: Update the build command to `subql build`. It should look like [this](https://github.com/subquery/subql-starter/blob/418440f09226694a0063c939ff3332530f3047c4/package.json#L7).
 3. `src/index.ts`: If updating from `@polkadot/api` v6 (or earlier) add please update your `src/index.ts` to include [this line](https://github.com/subquery/subql-starter/blob/418440f09226694a0063c939ff3332530f3047c4/src/index.ts#L3).
-4. Check if your code entrypoint is `./src/index.ts` and that your mapping file is `./dist/index.js`
-5. `project.yaml`: Make sure your project is using manifest version 1.0.0. You can check this by looking at the `specVersion` field in `project.yaml`. If it is below 1.0.0, then run `subql migrate` and follow the [migration steps to upgrade](../build/manifest/polkadot.md#migrating-to-v100-badge-textupgrade-typewarning).
+4. `project.yaml`:
 
-   1. If you're using a datasource processor (any `processor:` in the `project.yaml`) we need to include the datasource processor in the build pipeline. You can do this by adding exports to your `package.json`.
+   1. Make sure your project is using manifest version 1.0.0. You can check this by looking at the `specVersion` field in `project.yaml`. If it is below 1.0.0, then run `subql migrate` and follow the [migration steps to upgrade](../build/manifest/polkadot.md#migrating-to-v100-badge-textupgrade-typewarning).
+
+   2. Check that the `datasources: mapping: file:` references your code entrypoint correctly, usually this is `./dist/index.js`
+
+   3. If you're using a datasource processor (any `processor:` in the `project.yaml`) we need to include the datasource processor in the build pipeline. You can do this by adding exports to your `package.json`.
 
    ```json
    ...
@@ -35,9 +38,9 @@ Using IPFS provides a better experience for developers in a few ways:
 
    We need to reference the new built processor in your `project.yaml`. To do this replace all occurrences of `./node_modules/path/to/processor` with `./dist/processorName.js`.
 
-   2. If your project uses js/ts based custom [Substrate Chain Types](../build/manifest/polkadot.md#custom-chains) you will need to repeat the steps above but with the reference to your chain types.
+   4. If your project uses js/ts based custom [Substrate Chain Types](../build/manifest/polkadot.md#custom-chains) you will need to repeat the steps above but with the reference to your chain types.
 
-6. `docker-compose.yaml`: Update it to the [latest docker compose version](https://github.com/subquery/subql-starter/blob/v1.0.0/docker-compose.yml). To test it we recommend running your project locally.
+5. `docker-compose.yaml`: Update it to the [latest docker compose version](https://github.com/subquery/subql-starter/blob/main/Polkadot/Polkadot-starter/docker-compose.yml). To test it we recommend running your project locally.
 
 :::warning
 Please now rebuild and run your project locally to test these changes before proceeding using `yarn`, `yarn codegen`, `yarn build`, and then `yarn start:docker`.
