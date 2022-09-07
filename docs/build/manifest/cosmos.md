@@ -169,8 +169,8 @@ The following table explains filters supported by different handlers.
 | ------------------------------------------------------------- | ---------------------------------------------- |
 | [cosmos/BlockHandler](./mapping/polkadot.md#block-handler)             | `modulo`                              |
 | [cosmos/TransactionHandler](./mapping/polkadot.md#transaction-handler) | `includeFailedTx`                     |
-| [cosmos/MessageHandler](./mapping/polkadot.md#message-handler)         | `includeFailedTx`, `type`, `values`\* |
-| [cosmos/EventHandler](./mapping/polkadot.md#event-handler)             | `type`, `messageFilter`\*             |
+| [cosmos/MessageHandler](./mapping/polkadot.md#message-handler)         | `includeFailedTx`, `type`, `values`   |
+| [cosmos/EventHandler](./mapping/polkadot.md#event-handler)             | `type`, `messageFilter`               |
 
 Default runtime mapping filters are an extremely useful feature to decide what block, event, or extrinsic will trigger a mapping handler.
 
