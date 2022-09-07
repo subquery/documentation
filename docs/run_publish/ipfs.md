@@ -40,7 +40,7 @@ Using IPFS provides a better experience for developers in a few ways:
 
    4. If your project uses js/ts based custom [Substrate Chain Types](../build/manifest/polkadot.md#custom-chains) you will need to repeat the steps above but with the reference to your chain types.
 
-5. `docker-compose.yaml`: Update it to the [latest docker compose version](https://github.com/subquery/subql-starter/blob/main/Polkadot/Polkadot-starter/docker-compose.yml). To test it we recommend running your project locally.
+5. `docker-compose.yaml`: Update it to the [latest docker compose version](https://github.com/subquery/subql-starter/blob/main/Polkadot/Polkadot-starter/docker-compose.yml) and add [this directory](https://github.com/subquery/subql-starter/tree/main/Polkadot/Polkadot-starter/docker) to your repo. To test it we recommend running your project locally.
 
 :::warning
 Please now rebuild and run your project locally to test these changes before proceeding using `yarn`, `yarn codegen`, `yarn build`, and then `yarn start:docker`.
