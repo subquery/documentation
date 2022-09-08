@@ -4,7 +4,7 @@
 
 SubQuery sekarang juga mendukung Graphql Subscriptions. Seperti kueri, langganan memungkinkan Anda mengambil data. Tidak seperti kueri, langganan adalah operasi jangka panjang yang dapat mengubah hasilnya seiring waktu.
 
-Langganan sangat berguna ketika Anda ingin aplikasi klien Anda mengubah data atau menampilkan beberapa data baru segera setelah perubahan itu terjadi atau data baru tersedia. Langganan memungkinkan Anda untuk *berlangganan* ke proyek SubQuery Anda untuk perubahan.
+Langganan sangat berguna ketika Anda ingin aplikasi klien Anda mengubah data atau menampilkan beberapa data baru segera setelah perubahan itu terjadi atau data baru tersedia. Subscriptions allow you to _subscribe_ to your SubQuery project for changes.
 
 :::: info Catatan Baca lebih lanjut tentang [Langganan](https://www.apollographql.com/docs/react/data/subscriptions/). :::
 
@@ -25,6 +25,7 @@ subscription {
 ```
 
 Badan entitas dalam kueri Anda menunjukkan data apa yang ingin Anda terima melalui langganan Anda saat tabel `Transfer` diperbarui:
+
 - `id`: Mengembalikan ID entitas yang telah berubah.
 - `mutation_type`: Tindakan yang telah dilakukan pada entitas ini. Jenis mutasi bisa berupa `INSERT`, `UPDATE` atau `DELETE`.
 - `_entity`: nilai entitas itu sendiri dalam format JSON.
@@ -66,6 +67,6 @@ Perhatikan bahwa filter `mutasi` dapat berupa salah satu dari `INSERT`, `UPDATE`
 
 :::: peringatan Penting Harap dicatat bahwa Anda harus mengaktifkan flag `--subscription` pada node dan layanan kueri untuk menggunakan fungsi-fungsi ini. :::
 
-::::: peringatan Penting
-Fitur subkripsi berfungsi pada layanan terkelola SubQuery ketika Anda langsung memanggil titik akhir GraphQL yang terdaftar. Ini tidak akan berfungsi dalam taman bermain GraphQL dalam browser.
+::: warning Important
+The subcription feature works on SubQuery's Managed Service when you directly call the listed GraphQL endpoint. Ini tidak akan berfungsi dalam taman bermain GraphQL dalam browser.
 :::
