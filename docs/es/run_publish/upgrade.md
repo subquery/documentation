@@ -25,11 +25,11 @@ La ranura de montaje es perfecta para:
 
 ![Ranura provisional](/assets/img/staging_slot.png)
 
-Rellena el Hash de Compromiso desde GitHub (copia el hash de commit completo) de la versión de tu proyecto de SubQuery código base que quieras desplegar. Esto causará un tiempo de inactividad más largo dependiendo del tiempo que tarda en indexar la cadena actual. Siempre puede reportar aquí para que avance.
+Fill in the IPFS CID of the new version of your SubQuery project codebase that you want deployed (see the documetation to publish to IPFS [here](./publish.md). Esto causará un tiempo de inactividad más largo dependiendo del tiempo que tarda en indexar la cadena actual. Siempre puede reportar aquí para que avance.
 
 ### Usando la interfaz de usuario
 
-También puede utilizar `@subql/cli` para crear un nuevo despliegue de su proyecto en nuestro servicio administrado. Esto requiere:
+You can also use `@subql/cli` to create a new deployment of your project to our Managed Service. Esto requiere:
 
 - `@subql/cli` version 1.1.0 or above.
 - A valid [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) ready.
