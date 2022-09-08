@@ -4,7 +4,7 @@
 
 SubQuery prend désormais en charge les abonnements Graphql. Comme les requêtes, les abonnements vous permettent d'aller chercher des données. Contrairement aux requêtes, les abonnements sont des opérations de longue durée qui peuvent modifier leur résultat au fil du temps.
 
-Les abonnements sont très utiles lorsque vous souhaitez que votre application client modifie des données ou affiche de nouvelles données dès que ce changement se produit ou que les nouvelles données sont disponibles. Les abonnements vous permettent de *souscrire* à votre projet SubQuery pour les changements.
+Les abonnements sont très utiles lorsque vous souhaitez que votre application client modifie des données ou affiche de nouvelles données dès que ce changement se produit ou que les nouvelles données sont disponibles. Subscriptions allow you to _subscribe_ to your SubQuery project for changes.
 
 ::: info Note Read more about [Subscriptions](https://www.apollographql.com/docs/react/data/subscriptions/). :::
 
@@ -25,6 +25,7 @@ subscription {
 ```
 
 Le corps de l'entité de votre requête indique les données que vous souhaitez recevoir via votre abonnement lorsque la table `Transfert` est mise à jour :
+
 - `id`: Returns the ID of the entity that has changed.
 - `mutation_type` : L'action qui a été faite à cette entité. Mutation types can be either `INSERT`, `UPDATE` or `DELETE`.
 - `_entity` : la valeur de l'entité elle-même au format JSON.
@@ -67,5 +68,5 @@ Note that the `mutation` filter can be one of `INSERT`, `UPDATE` or `DELETE`.
 ::: warning Important Please note that you must enable the `--subscription` flag on both the node and query service in order to use these functions. :::
 
 ::: warning Important
-The subcription feature works on SubQuery's managed service when you directly call the listed GraphQL endpoint. Il ne fonctionnera pas dans l'environnement GraphQL du navigateur.
+The subcription feature works on SubQuery's Managed Service when you directly call the listed GraphQL endpoint. Il ne fonctionnera pas dans l'environnement GraphQL du navigateur.
 :::
