@@ -1,118 +1,49 @@
-# Hosting a Project using IPFS
+# Migrating from GitHub to IPFS Deployments
 
-This guide works through how to publish a local SubQuery project to [IPFS](https://ipfs.io/) and deploy it on our hosting infrastructure.
+In order to make deploying projects easier on the Managed Service, we are deprecating GitHub deployments in favour of IPFS.
 
-Hosting a project in IPFS makes it available for all and reduces your reliance on centralised services like GitHub.
+Using IPFS provides a better experience for developers in a few ways:
 
-## Requirements
+- Unlike with GitHub deployments, projects are built locally on your machine. This means that you can have full control over the environment. Resolving any issues with version compatibility such as node.js version or other dependencies is much faster and easier.
+- You can share your projects CID and ensure that everyone will be able to run the same project with the same results.
+- It’s decentralised, so that you don’t have to rely on a centralised party like GitHub to store your code.
+- And on top of this, you can deploy the same project to the SubQuery Network!
 
-- `@subql/cli` version 0.21.0 or above.
-- Manifest `specVersion` 1.0.0 and above.
-- Get your [SUBQL_ACCESS_TOKEN](ipfs.md#prepare-your-subql-access-token) ready.
-- To make sure your deployment success, we strongly recommend that you build your project with the `subql build` command, and test it locally before publishing.
+## How to migrate your poject to IPFS
 
-## Prepare your SUBQL_ACCESS_TOKEN
+1. Update your project's dependencies.
+   1. Update `@subql/cli` to the latest version: you can do this by running `yarn add -D @subql/cli@latest` or `npm i -dev @subql/cli@latest`
+   2. We also recommend updating other dependencies at this time
+   3. Pay attention to this issue: [926](https://github.com/subquery/subql/discussions/926)
+2. `package.json`: Update the build command to `subql build`. It should look like [this](https://github.com/subquery/subql-starter/blob/418440f09226694a0063c939ff3332530f3047c4/package.json#L7).
+3. `src/index.ts`: If updating from `@polkadot/api` v6 (or earlier) add please update your `src/index.ts` to include [this line](https://github.com/subquery/subql-starter/blob/418440f09226694a0063c939ff3332530f3047c4/src/index.ts#L3).
+4. `project.yaml`:
 
-- Step 1: Go to [SubQuery Projects](https://project.subquery.network/) and log in.
-- Step 2: Click on your profile at the top right of the navigation menu, then click on **_Refresh Token_**.
-- Step 3: Copy the generated token.
-- Step 4: To use this token:
-  - Option 1: Add SUBQL_ACCESS_TOKEN in your environment variables. `EXPORT SUBQL_ACCESS_TOKEN=<token>` (Windows) or `export SUBQL_ACCESS_TOKEN=<token>` (Mac/Linux)
-  - Option 2: Coming soon, `subql/cli` will support storing your SUBQL_ACCESS_TOKEN locally.
+   1. Make sure your project is using manifest version 1.0.0. You can check this by looking at the `specVersion` field in `project.yaml`. If it is below 1.0.0, then run `subql migrate` and follow the [migration steps to upgrade](../build/manifest/polkadot.md#migrating-to-v100-badge-textupgrade-typewarning).
 
-## How to publish a project
+   2. Check that the `datasources: mapping: file:` references your code entrypoint correctly, usually this is `./dist/index.js`
 
-We provide two methods to publish your project:
+   3. If you're using a datasource processor (any `processor:` in the `project.yaml`) we need to ensure that it gets bundled during build and publish. To do so please update to the latest version of the package that now includes a bundled version. You can do this by adding exports to your `package.json`.
 
-### Option 1
+   ```json
+   ...
+   "exports": {
+     "processorName": "./node_modules/path/to/processor.js"
+     // "frontierEvm": "./node_modules/@subql/frontier-evm-processor/dist/index.js"
+     // "acalaEvm": "./node_modules/@subql/acala-evm-processor/dist/index.js",
+     // "ethermintEVM": "./node_modules/@subql/ethermint-evm-processor/dist/index.js"
+     // "chaintypes": "./src/chaintypes.ts" // chain types if required
+   }
+   ```
 
-As you have `@subql/cli` already installed, you can run the following command, which will read the project and required information from its default manifest `project.yaml`:
+   We need to update the reference to the bundle in your `project.yaml`. To do this you can update any processor file paths to `file: ./node_modules/@subql/<processor-name>/dist/bundle.js` and replace `<processor-name>` with the processor you are using. If you are using `@subql/datasource-processors` this package is now deprecated, you can find the relevant replacement from the new [datasource-processors repository](https://github.com/subquery/datasource-processors/tree/main/packages).
 
-```
-// Publish it from your project's root directory
-subql publish
+   4. If your project uses js/ts based custom [Substrate Chain Types](../build/manifest/polkadot.md#custom-chains) you will need to repeat the steps above but with the reference to your chain types.
 
-// OR point to your project root
-subql publish -f ~/my-project/
-```
+5. `docker-compose.yaml`: Update it to the [latest docker compose version](https://github.com/subquery/subql-starter/blob/main/Polkadot/Polkadot-starter/docker-compose.yml) and add [this directory](https://github.com/subquery/subql-starter/tree/main/Polkadot/Polkadot-starter/docker) to your repo. To test it we recommend running your project locally.
 
-### Option 2
+:::warning Please now rebuild and run your project locally to test these changes before proceeding using `yarn`, `yarn codegen`, `yarn build`, and then `yarn start:docker`. :::
 
-Alternatively, suppose your project has multiple Manifest files, for example you support multiple networks but share the same mapping and business logic, and have a project structure as follows:
+## Test deploying your project to IPFS
 
-```
-L projectRoot
- L src/
- L package.json
- L polkadot.yaml (Manifest for Polkadot network)
- L kusama.yaml   (Manifest for Kusama network)
- ...
-```
-
-You can always publish the project with your selected manifest file.
-
-```
- # This will publish project support indexing Polkadot network
-subql publish -f ~/my-projectRoot/polkadot.yaml
-```
-
-## After publish
-
-After successfully publishing the project, the logs below indicate that the project was created on the IPFS cluster and have returned its `CID` (content identifier).
-
-```
-Building and packing code... done
-Uploading SupQuery project to IPFS
-SubQuery Project uploaded to IPFS: QmZ3q7YZSmhwBiot4PQCK3c7Z6HkteswN2Py58gkkZ8kNd  //CID
-```
-
-Please note this `CID`. With this `CID`, you can view your published project as what we call it [IPFS Deployment](ipfs.md#ipfs-deployment).
-
-With `@subql/cli` version 1.3.0 or above, when using `subql publish` it will store a copy of the project's `IPFS CID` in a file in your project directory, the naming of the file will be consistent with your project.yaml. For example, if your manfiest file is named `project.yaml`, the IPFS file will be named  `.project-cid`.
-
-## IPFS Deployment
-
-IPFS deployment represents an independent and unique existence of a SubQuery project on a decentralized network. Therefore, any changes with the code in the project will affect its uniqueness. If you need to adjust your business logic, e.g. change the mapping function, you must republish the project, and the `CID` will change.
-
-For now, to view the project you have published, use a `REST` api tool such as [Postman](https://web.postman.co/), and use `POST` method with the following example URL to retrieve it:`https://ipfs.subquery.network/ipfs/api/v0/cat?arg=<YOUR_PROJECT_CID>`.
-
-You should see the example project deployment as below.
-
-This deployment looks very similar to your manifest file. You can expect those descriptive fields, and the network and dictionary endpoint has been removed as they did not directly affect the outcome of project execution.
-
-Those files been used in your local project has been packed and published to IPFS as well.
-
-```yaml
-dataSources:
-  - kind: substrate/Runtime
-    mapping:
-      file: ipfs://QmTTJKrMVzCZqmRCd5xKHbKymtQQnHZierBMHLtHHGyjLy
-      handlers:
-        - handler: handleBlock
-          kind: substrate/BlockHandler
-        - filter:
-            method: Deposit
-            module: balances
-          handler: handleEvent
-          kind: substrate/EventHandler
-        - handler: handleCall
-          kind: substrate/CallHandler
-    startBlock: 8973820
-network:
-  genesisHash: "0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3"
-schema:
-  file: ipfs://QmTP5BjtxETVqvU4MkRxmgf8NbceB17WtydS6oQeHBCyjz
-specVersion: 0.2.0
-```
-
-## Run your SubQuery project on Hosted Service
-
-### Create project with IPFS deployment
-
-You can follow the guide to [Publish your SubQuery project](../run_publish/publish.md) but where you set your deployment source you can select **IPFS**.
-
-Then choose your production slot, copy and paste you IPFS deployment CID (without the leading `ipfs://`).
-
-You should see you IPFS deployment in the preview section. And you can select the network, dictionary endpoints etc.
-
-After successful deploy the IPFS deployment on our hosted service, it should be available to view on the SubQuery Explorer, you can access the query service just like you do locally.
+Your project should now be ready to deploy via IPFS to SubQuery Managed Service or the SubQuery network. You can follow the guide [here](./publish.md#publish-your-subquery-project-to-ipfs) to deploy to IPFS and then publish to the Managed Service.
