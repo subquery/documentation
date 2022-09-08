@@ -1,56 +1,160 @@
-# เผยแพร่โปรเจกต์ SubQuery ของคุณ
+# Publish to Managed Services
 
-## ประโยชน์ของการโฮสต์โปรเจคของคุณกับ SubQuery
+## Benefits of hosting your project with SubQuery's Managed Service
+
+The biggest dApps depend on SubQuery's enterprise level Managed Service - with 100s of millions of daily requests and hundreds of active projects, SubQuery's Managed Service provides industry leading hosting for our customers.
 
 - We'll run your SubQuery projects for you in a high performance, scalable, and managed public service.
-- This service is being provided to the community with a generous free tier! You can host your first two SubQuery projects for absolutely free!”
+- This service is being provided to the community with a generous free tier! You can host your first two SubQuery projects for absolutely free!
 - You can make your projects public so that they'll be listed in the [SubQuery Explorer](https://explorer.subquery.network) and anyone around the world can view them.
 - We're integrated with GitHub, so anyone in your GitHub organisations will be able to view shared organisation projects.
 
-## สร้างโปรเจกต์แรกของคุณใน SubQuery Projects
+You can upgrade to take advantage of the following paid services:
 
-### การโฮสต์ Project Codebase
+- Production ready hosting for mission critical data with zero-downtime blue/green deployments
+- Dedicated databases
+- Multiple geo-redundant clusters and intelligent routing
+- Advanced monitoring and analytics.
 
-มีสองวิธีที่คุณจะสามารถโฮสต์โปรเจกต์ SubQuery ของคุณก่อนทำการเผยแพร่
+## Publish your SubQuery project to IPFS
 
-**IPFS (Suggested)**: Your project's codebase can be stored in IPFS, you can follow our IPFS hosting guide to see how to [first publish to IPFS](../run_publish/ipfs.md).
+When deploying to SubQuery's Managed Service, you must first host your codebase in [IPFS](https://ipfs.io/). Hosting a project in IPFS makes it available for all and reduces your reliance on centralised services like GitHub.
 
-**GitHub (will be deprecated)**: Your project's codebase must be in a public GitHub repository, this process may be deprecated soon.
+:::warning GitHub Deployment flows have being deprecated for IPFS
 
-### การเข้าสู่ระบบ SubQuery Projects
+If your project is still being deployed via GitHub, read the migration guide for IPFS deployments [here](./ipfs.md) :::
 
-ก่อนจะเริ่มต้น โปรดตรวจสอบให้แน่ใจว่าโปรเจกต์ SubQuery ของคุณได้ออนไลน์อยู่บน GitHub repository สาธารณะ หรือ อยู่บน IPFS เรียบร้อยแล้ว โดยไฟล์ `schema.graphql` จะต้องอยู่ในไดเรกทอรีเริ่มต้นของคุณ
+### สิ่งที่ต้องมี:
 
-To create your first project, head to [SubQuery Projects](https://project.subquery.network). โดยคุณจำเป็นต้องอนุญาตการเข้าถึงบัญชี GitHub ของคุณเพื่อเข้าสู่ระบบ
+- `@subql/cli` เวอร์ชั่น 0.21.0 หรือสูงกว่า
+- Manifest `specVersion` 1.0.0 and above.
+- Get your [SUBQL_ACCESS_TOKEN](ipfs.md#prepare-your-subql-access-token) ready.
+- เพื่อให้แน่ใจว่าการทำให้ใช้งานได้สำเร็จ เราขอแนะนำให้คุณสร้างโปรเจกต์ด้วยคำสั่ง `subql build` และทดสอบในเครื่องก่อนเผยแพร่
 
-ในการเข้าสู่ระบบครั้งแรก คุณจะถูกขออนุญาตการเข้าถึงโดย SubQuery เราต้องการเพียงที่อยู่อีเมลเพื่อระบุบัญชีของคุณ และเราไม่ใช้ข้อมูลอื่น ๆ จากบัญชี GitHub ของคุณเพื่อเหตุผลอื่น ๆ ในขั้นตอนนี้ คุณยังสามารถขอ หรือให้สิทธิ์ในการเข้าถึงบัญชี GitHub Organization ของคุณ เพื่อโพสต์ โปรเจกต์ SubQuery ภายใต้ GitHub Organization แทนที่จะเป็นบัญชีส่วนตัวของคุณ
+### เตรียม SUBQL_ACCESS_TOKEN . ของคุณ
 
-![เพิกถอนการอนุมัติจากบัญชี GitHub](/assets/img/project_auth_request.png)
+- ขั้นตอนที่ 1: ไปที่ [SubQuery Projects](https://project.subquery.network/) และเข้าสู่ระบบ
+- Step 2: Click on your profile at the top right of the navigation menu, then click on **_Refresh Token_**.
+- ขั้นตอนที่ 3: คัดลอกโทเค็นที่สร้างขึ้น
+- ขั้นตอนที่ 4: ในการใช้โทเค็นนี้:
+  - ตัวเลือกที่ 1: เพิ่ม SUBQL_ACCESS_TOKEN ในตัวแปรของคุณ `EXPORT SUBQL_ACCESS_TOKEN=<token>` (Windows) or `export SUBQL_ACCESS_TOKEN=<token>` (Mac/Linux)
+  - ตัวเลือกที่ 2: `subql/cli` จะสนับสนุนการจัดเก็บ SUBQL_ACCESS_TOKEN ของคุณ ในเร็วๆนี้
 
-SubQuery Projects คือที่ที่คุณสามารถจัดการทุกโฮสต์โปรเจกต์ที่คุณอัพโหลดไปที่แพลตฟอร์ม SubQuery คุณสามารถสร้าง ลบ และอัปเกรด ทุกโปรเจกต์จากแอปพลิเคชันนี้
+### วิธีเผยแพร่โปรเจกต์
 
-![เข้าสู่โปรเจกต์](/assets/img/projects-dashboard.png)
+As you have `@subql/cli` already installed, you can run the following command, which will read the project and required information from its default manifest `project.yaml`:
 
-ถ้าคุณเชื่อมต่อบัญชี GitHub Organization แล้ว คุณสามารถใช้ switcher ที่อยู่ด้านบนเพื่อเปลี่ยนระหว่างบัญชีส่วนตัวและบัญชี GitHub Organization ของคุณได้ โปรเจกต์ที่สร้างในบัญชี GitHub Organization จะถูกแบ่งปันกันระหว่างสมาชิกภายในองค์กร To connect your GitHub Organization account, you can [follow the steps here](publish.md#add-github-organization-account-to-subquery-projects).
+```
+// Publish it from your project's root directory
+subql publish
 
-![สลับระหว่างบัญชี GitHub](/assets/img/projects-account-switcher.png)
+// OR point to your project root
+subql publish -f ~/my-project/
+```
+
+สมมติว่าโปรเจกต์ของคุณมีไฟล์ Manifest หลายไฟล์ ตัวอย่างเช่น คุณสนับสนุนเครือข่ายหลายเครือข่าย แต่ใช้การ Mapping, Business Logic รว่มกัน และมีโครงสร้างของโปรเจกต์ดังต่อไปนี้:
+
+```
+L projectRoot
+ L src/
+ L package.json
+ L polkadot.yaml (Manifest for Polkadot network)
+ L kusama.yaml   (Manifest for Kusama network)
+ ...
+```
+
+คุณสามารถเผยแพร่โปรเจกต์ด้วยไฟล์ Manifest ที่คุณเลือก
+
+```
+ # This will publish project support indexing Polkadot network
+subql publish -f ~/my-projectRoot/polkadot.yaml
+```
+
+### หลังจากเผยแพร่
+
+หลังจากเผยแพร่โปรเจ็กต์เรียบร้อยแล้ว บันทึกด้านล่างระบุว่าโปรเจกต์ถูกสร้างขึ้นบน IPFS และส่งคืน `CID` (Content Identifier)
+
+```
+Building and packing code... done
+Uploading SupQuery project to IPFS
+SubQuery Project uploaded to IPFS: QmZ3q7YZSmhwBiot4PQCK3c7Z6HkteswN2Py58gkkZ8kNd  //CID
+```
+
+โปรดทราบว่า `CID` นี้ With this `CID`, you can view your published project as what we call it [IPFS Deployment](ipfs.md#ipfs-deployment).
+
+With `@subql/cli` version 1.3.0 or above, when using `subql publish` it will store a copy of the project's `IPFS CID` in a file in your project directory, the naming of the file will be consistent with your project.yaml. For example, if your manfiest file is named `project.yaml`, the IPFS file will be named `.project-cid`.
+
+### การปรับใช้ IPFS
+
+การปรับใช้ IPFS ทำให้โปรเจกต์ SubQuery มีความเป็นอิสระและไม่ซ้ำใครบนเครือข่ายแบบกระจายอำนาจ ดังนั้นการเปลี่ยนแปลงใด ๆ กับโค้ดในโปรเจกต์จะส่งผลต่อความเป็นเอกลักษณ์ หากคุณต้องการ Business Logic เช่น เปลี่ยน Mapping Function คุณต้องทำการเผยแพร่อีกครั้ง และ `CID` จะเปลี่ยนไป
+
+For now, to view the project you have published, use a `REST` api tool such as [Postman](https://web.postman.co/), and use `POST` method with the following example URL to retrieve it:`https://ipfs.subquery.network/ipfs/api/v0/cat?arg=<YOUR_PROJECT_CID>`.
+
+You should see the example project deployment as below.
+
+การปรับใช้นี้ดูคล้ายกับไฟล์ Manifest ของคุณ คุณสามารถเลือกใช้ฟิลด์คำอธิบาย, เครือข่าย และ Dictionary Endpoint จะถูกลบออกและ ผลลัพธ์จะไม่ส่งผลกระทบโดยตรงต่อการดำเนินการของโปรเจกต์
+
+ไฟล์เหล่านั้นถูกใช้ในโปรเจกต์ของคุณ และจะได้รับการเผยแพร่ไปยัง IPFS ด้วย
+
+```yaml
+dataSources:
+  - kind: substrate/Runtime
+    mapping:
+      file: ipfs://QmTTJKrMVzCZqmRCd5xKHbKymtQQnHZierBMHLtHHGyjLy
+      handlers:
+        - handler: handleBlock
+          kind: substrate/BlockHandler
+        - filter:
+            method: Deposit
+            module: balances
+          handler: handleEvent
+          kind: substrate/EventHandler
+        - handler: handleCall
+          kind: substrate/CallHandler
+    startBlock: 8973820
+network:
+  genesisHash: "0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3"
+schema:
+  file: ipfs://QmTP5BjtxETVqvU4MkRxmgf8NbceB17WtydS6oQeHBCyjz
+specVersion: 0.2.0
+```
+
+## Deploy your SubQuery project in the Managed Service
+
+### Login to SubQuery Projects
+
+Before starting, please make sure that your SubQuery project codebase is published to IPFS.
+
+To create your first project, head to [SubQuery Projects](https://project.subquery.network). You'll need to authenticate with your GitHub account to login.
+
+On first login, you will be asked to authorize SubQuery. We only need your email address to identify your account, and we don't use any other data from your GitHub account for any other reasons. In this step, you can also request or grant access to your GitHub Organization account so you can post SubQuery projects under your GitHub Organization instead of your personal account.
+
+![Revoke approval from a GitHub account](/assets/img/project_auth_request.png)
+
+SubQuery Projects is where you manage all your hosted projects uploaded to the SubQuery platform. You can create, delete, and even upgrade projects all from this application.
+
+![Projects Login](/assets/img/projects-dashboard.png)
+
+If you have a GitHub Organization accounts connected, you can use the switcher on the header to change between your personal account and your GitHub Organization account. Projects created in a GitHub Organization account are shared between members in that GitHub Organization. To connect your GitHub Organization account, you can [follow the steps here](publish.md#add-github-organization-account-to-subquery-projects).
+
+![Switch between GitHub accounts](/assets/img/projects-account-switcher.png)
 
 ### Create Your First Project
 
-There are three methods to create a project in the SubQuery Managed Service: you can use the UI, create it directly via the `subql` cli tool, or use an automated GitHub action.
+There are two methods to create a project in the SubQuery Managed Service: you can use the UI or directly via the `subql` cli tool
 
 #### Using the UI
 
 Let's start by clicking on "Create Project". You'll be taken to the New Project form. Please enter the following (you can change this in the future):
 
-- **บัญชี GitHub:** หากคุณมีบัญชี GitHub มากกว่าหนึ่งบัญชี ให้เลือกบัญชีที่จะใช้สร้างโปรเจ็กต์นี้ โปรเจกต์ที่สร้างในบัญชี GitHub Organization สามารถแบ่งปันกันระหว่างสมาชิกภายในองค์กรได้
-- **ชื่อโปรเจกต์**
-- **ชื่อรอง (Subtitle)**
+- **GitHub account:** If you have more than one GitHub account, select which account this project will be created under. Projects created in a GitHub organisation account are shared between members in that organisation.
+- **Project Name**
+- **Subtitle**
 - **คำอธิบาย**
-- **GitHub Repository URL:** ต้องเป็น GitHub URL ที่ถูกต้องที่อยู่ใน repository สาธารณะที่มีโปรเจกต์ SubQuery ของคุณ The `schema.graphql` file must be in the root of your directory ([learn more about the directory structure](../build/introduction.md#directory-structure)).
-- **ฐานข้อมูล:** ลูกค้าระดับพรีเมียมสามารถเข้าถึงฐานข้อมูลเฉพาะเพื่อโฮสต์โปรเจกต์ SubQuery หากคุณสนใจ คุณสามารถติดต่อ [sales@subquery.network](mailto:sales@subquery.network) เพื่อเปิดการตั้งค่านี้
-- **Deployment Source:** คุณสามารถเลือกที่จะจัดโปรเจกต์เพื่อใช้งานจาก GitHub repository หรือ จาก IPFS CID ก็ได้ โดยคุณสามารถดูคำแนะนำของเราเกี่ยวกับ [การโฮสต์กับ IPFS.](ipfs.md)
-- **ซ่อนโปรเจกต์:** หากคุณเลือกที่จะซ่อนโปรเจกต์ โปรเจกต์ของคุณจะไม่ปรากฎบน SubQuery explorer สาธารณะ อย่าเลือกตัวเลือกนี้ หากคุณต้องการแบ่งปัน SubQuery ของคุณแก่คอมมูนิตี้!
+- **GitHub Repository URL:** This must be a valid GitHub URL to a public repository that has your SubQuery project. The `schema.graphql` file must be in the root of your directory ([learn more about the directory structure](../build/introduction.md#directory-structure)).
+- **Database:** Premium customers can access dedicated databases to host production SubQuery projects from. If this interests you, you can contact [sales@subquery.network](mailto:sales@subquery.network) to have this setting enabled.
+- **Deployment Source:** You can choose to have the project deployed from the GitHub repository or alternatively deployed from a IPFS CID, see our guide about [hosting with IPFS.](ipfs.md)
+- **Hide project:** If selected, this will hide the project from the public SubQuery explorer. Keep this unselected if you want to share your SubQuery with the community!
 
 ![Create your first Project](/assets/img/projects-create.png)
 
@@ -60,7 +164,7 @@ Create your project and you'll see it on your SubQuery Project's list. _We're al
 
 #### Using the CLI
 
-You can also use `@subql/cli` to publish your project to our managed service. This requires:
+You can also use `@subql/cli` to publish your project to our Managed Service. This requires:
 
 - `@subql/cli` version 1.1.0 or above.
 - A valid [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) ready.
@@ -101,7 +205,7 @@ If deployed successfully, you'll see the indexer start working and report back p
 
 #### Using the CLI
 
-You can also use `@subql/cli` to create a new deployment of your project to our managed service. This requires:
+You can also use `@subql/cli` to create a new deployment of your project to our Managed Service. This requires:
 
 - `@subql/cli` version 1.1.0 or above.
 - A valid [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) ready.
@@ -157,11 +261,11 @@ jobs:
 
 ![Projects in SubQuery Explorer](/assets/img/projects-explorer.png)
 
-## เพิ่มบัญชี GitHub Organization ในโปรเจกต์ SubQuery
+## Add GitHub Organization Account to SubQuery Projects
 
 It is common to publish your SubQuery project under the name of your GitHub Organization account rather than your personal GitHub account. At any point your can change your currently selected account on [SubQuery Projects](https://project.subquery.network) using the account switcher.
 
-![สลับระหว่างบัญชี GitHub](/assets/img/projects-account-switcher.png)
+![Switch between GitHub accounts](/assets/img/projects-account-switcher.png)
 
 If you can't see your GitHub Organization account listed in the switcher, the you may need to grant access to SubQuery for your GitHub Organization (or request it from an administrator). To do this, you first need to revoke permissions from your GitHub account to the SubQuery Application. To do this, login to your account settings in GitHub, go to Applications, and under the Authorized OAuth Apps tab, revoke SubQuery - [you can follow the exact steps here](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/reviewing-your-authorized-applications-oauth). **Don't worry, this will not delete your SubQuery project and you will not lose any data.**
 
@@ -169,6 +273,6 @@ If you can't see your GitHub Organization account listed in the switcher, the yo
 
 Once you have revoked access, log out of [SubQuery Projects](https://project.subquery.network) and log back in again. You should be redirected to a page titled _Authorize SubQuery_ where you can request or grant SubQuery access to your GitHub Organization account. If you don't have admin permissions, you must make a request for an adminstrator to enable this for you.
 
-![เพิกถอนการอนุมัติจากบัญชี GitHub](/assets/img/project_auth_request.png)
+![Revoke approval from a GitHub account](/assets/img/project_auth_request.png)
 
 Once this request has been approved by your administrator (or if are able to grant it youself), you will see the correct GitHub Organization account in the account switcher.
