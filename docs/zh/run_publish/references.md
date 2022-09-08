@@ -65,7 +65,7 @@ Options:
                                                       [boolean] [default: false]
       --profiler            Show profiler information to console output
                                                       [boolean] [default: false]
-      --subscription        Enable subscription       [boolean] [default: false]                                                     
+      --subscription        Enable subscription       [boolean] [default: false]
       --network-endpoint    Blockchain network endpoint to connect      [string]
       --output-fmt          Print log as json or plain text
                                            [string] [choices: "json", "colored"]
@@ -153,6 +153,7 @@ subql-node -f . --db-schema=test2
 ```
 
 ### --subscription
+
 这将在实体上创建一个通知触发器，这也是在查询服务中启用订阅功能的先决条件。
 
 ### --unsafe
@@ -165,17 +166,11 @@ SubQuery 项目通常在javascript sandbox中运行，以保证安全，限制�
 
 虽然这会增强安全性，但我们理解这会限制您的 SubQuery 可用的功能。 `--unsafe` 命令导入所有默认的 javascript 模块，这些模块大大增加了安全性降低后的沙盒功能。
 
-**请注意，`--unsafe` 命令将阻止您的项目在 SubQuery 网络中运行，如果您希望此命令与您的项目一起在
-
-SubQuery 的托管服务中运行< /1>。</strong></p> 
-
-
+**Note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in [SubQuery's Managed Service](https://project.subquery.network).**
 
 ### --batch-size
 
 此标志将允许您在命令行中设置批量大小。 如果在配置文件中也设置了批量大小，则优先。
-
-
 
 ```shell
 > subql-node -f . --batch-size=20
@@ -185,26 +180,17 @@ SubQuery 的托管服务中运行< /1>。</strong></p>
 2021-08-09T23:24:49.235Z <fetch> INFO fetch block [6661,6680], total 20 blocks
 ```
 
-
-
-
-### --scale-batch-size 
+### --scale-batch-size
 
 使用内存使用来缩放区块获取批量大小。
-
-
 
 ### --timeout
 
 为 javascript 沙箱设置自定义超时以在块映射函数引发超时异常之前在块上执行映射函数。
 
-
-
 ### --debug
 
 这会将调试信息输出到控制台输出并强制将日志级别设置为调试。
-
-
 
 ```shell
 > subql-node -f . --debug
@@ -213,14 +199,9 @@ SubQuery 的托管服务中运行< /1>。</strong></p>
 2021-08-10T11:45:39.472Z <db> DEBUG Executing (1b0d0c23-d7c7-4adb-a703-e4e5c414e035): COMMIT;
 ```
 
-
-
-
 ### --profiler
 
 这将显示分析器信息。
-
-
 
 ```shell
 subql-node -f . --local --profiler
@@ -230,23 +211,15 @@ subql-node -f . --local --profiler
 2021-08-10T10:57:10.361Z <fetch> INFO fetch block [3801,3900], total 100 blocks
 ```
 
-
-
-
 ### --network-endpoint
 
 此命令行允许用户从清单文件覆盖网络端点配置。
-
-
 
 ```shell
 subql-node -f . --network-endpoint="wss://polkadot.api.onfinality.io/public-ws"
 ```
 
-
 请注意，这也必须在清单文件中设置，否则您将会得到：
-
-
 
 ```shell
 ERROR Create Subquery project from given path failed! Error: failed to parse project.yaml.
@@ -255,22 +228,14 @@ An instance of ProjectManifestImpl has failed the validation:
  - property network.network has failed the following constraints: nestedValidation
 ```
 
-
-
-
 ### --output-fmt
 
 有两种不同的终端输出格式。 JSON或者colored。 colored是默认的，包含着colored文本。
-
-
 
 ```shell
 > subql-node -f . --output-fmt=json
 {"level":"info","timestamp":"2021-08-10T11:58:18.087Z","pid":24714,"hostname":"P.local","category":"fetch","message":"fetch block [10501,10600], total 100 blocks"}
 ```
-
-
-
 
 ```shell
 > subql-node -f . --output-fmt=colored
@@ -280,14 +245,9 @@ An instance of ProjectManifestImpl has failed the validation:
 2021-08-10T11:57:51.862Z <fetch> INFO fetch block [10301,10400], total 100 blocks
 ```
 
-
-
-
 ### --log-level
 
 有七个选项可供选择： “fatal”, “error”, “warn”, “info”, “debug”, “trace”, “silent”. 下面的示例显示silent。 终端中不会打印任何内容，所以，判断节点工作与否的唯一方法是查询数据库中的行数（从subquery_1.starter_entities选择计数（\*)）或者查询区块的高度。
-
-
 
 ```shell
 > subql-node -f . --log-level=silent
@@ -311,16 +271,11 @@ An instance of ProjectManifestImpl has failed the validation:
 
 默认情况下是正确的。 当设置成false时：
 
-
-
 ```shell
 > subql-node -f . –timestamp-field=false
 ```
 
-
 这将删除在starter_entities表中的 created_at和updated_at列
-
-
 
 ### -d, --network-dictionary
 
@@ -328,44 +283,33 @@ An instance of ProjectManifestImpl has failed the validation:
 
 通常，这将在您的清单文件中设置，但在下面显示一个在命令行中使用它作为参数的例子。
 
-
-
 ```shell
 subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot"
 ```
 
-
 [阅读更多关于 SubQuery 字典的工作原理](../academy/tutorials_examples/dictionary.md)
-
-
 
 ### -p, --port
 
 Subquery索引服务绑定到的端口。 默认设置为 `3000`.
 
-
-
 ### --disable-history
 
 禁用自动状态跟踪， [查看历史状态跟踪](./historical.md)。 默认情况下为 `false`。
 
-
-
 ### --reindex
 
-使用 `--reindex=<blockNumber>` 从指定的方块高度删除索引数据和重新索引。 
+使用 `--reindex=<blockNumber>` 从指定的方块高度删除索引数据和重新索引。
 
 :::info Note
 请注意，使用此功能的方式将很快更新。
 :::
 
-
-
 ### -w, --workers
 
 这将把块提取和处理移动到一个工作者。 默认情况下，此功能是 **已禁用**。 您可以使用 `--workers=<number>` 标志启用它。 请注意，可用的 CPU 核心数严格限制了工人线程的使用。 因此，当使用 `--workers=<number>` 标志时，总是指定工人的数量。 如果没有提供标记，所有东西都将在同一线程中运行。
 
-:::tip 提示 它可以提高性能最多4次。 试试一下，让我们知道你的反馈！ 
+:::tip 提示 它可以提高性能最多4次。 试试一下，让我们知道你的反馈！
 
 目前它处于早期试验阶段，但我们计划默认启用它。 :::
 
@@ -373,18 +317,11 @@ Subquery索引服务绑定到的端口。 默认设置为 `3000`.
 此功能可用于 Substrate 和 Cosmos，不久将会被集成到 Avalanche.
 :::
 
-
-
-
 ## subql-query
-
-
 
 ### --help
 
 这显示了帮助选项。
-
-
 
 ```shell
 Options:
@@ -392,7 +329,7 @@ Options:
       --version       Show version number                                [boolean]
   -n, --name          Project name                             [string] [required]
       --playground    Enable graphql playground                          [boolean]
-      --subscription  Enable subscription               [boolean] [default: false]   
+      --subscription  Enable subscription               [boolean] [default: false]
       --output-fmt    Print log as json or plain text
                         [string] [choices: "json", "colored"] [default: "colored"]
       --log-level     Specify log level to print.
@@ -407,28 +344,18 @@ Options:
   -p, --port        The port the service will bind to                   [number
 ```
 
-
-
-
 ### --version
 
 这将显示当前版本。
-
-
 
 ```shell
 > subql-query --version
 0.7.0
 ```
 
-
-
-
 ### -n, --name
 
 该标志用于启动查询服务。 如果在运行索引器时未提供 --subquery-name 标志，则此处的名称将引用默认项目名称。 如果设置了 --subquery-name，那么这里的名称应该与设置的匹配。
-
-
 
 ```shell
 > subql-node -f . // --subquery-name not set
@@ -436,59 +363,39 @@ Options:
 > subql-query -n subql-helloworld  --playground // the name defaults to the project directory name
 ```
 
-
-
-
 ```shell
 > subql-node -f . --subquery-name=hiworld // --subquery-name set
 
 > subql-query -n hiworld --playground  // the name points to the subql-helloworld project but with the name of hiworld
 ```
 
-
-
-
 ### --playground
 
 这个标识符启用了graphql playground，所以在默认情况下，应该始终包含有任何用途。
-
-
 
 ### --output-fmt
 
 查看 [--output-fmt](../run_publish/references.md#output-fmt).
 
-
-
 ### --log-level
 
 查看 [--loglevel](../run_publish/references.md#log-level).
-
-
 
 ### --log-path
 
 通过提供要记录到的文件的路径来启用文件记录。
 
-
-
 ### --log-rotate
 
 使用 1d 轮换间隔选项启用文件日志轮换，最多 7 个文件，最大文件大小为 1GB。
-
-
 
 ### --indexer
 
 为索引器端点的位置设置自定义 url，查询服务将这些端点用于索引器运行状况、元数据和就绪状态。
 
-
-
 ### --subscription
 
 此标志启用 [GraphQL 订阅](./subscription.md), 以启用此功能需要 `subql-node` 也启用 `--subscription`.
-
-
 
 ### --unsafe
 
@@ -498,7 +405,9 @@ Options:
 
 由于实体限制，它们默认被禁用。
 
-**请注意，`--unsafe` 命令将阻止您的项目在 SubQuery 网络中运行，如果您希望此命令与您的项目一起在 SubQuery 的托管服务中运行< /1>。</strong></p> 
+**请注意，`--unsafe` 命令将阻止您的项目在 SubQuery 网络中运行，如果您希望此命令与您的项目一起在
+
+SubQuery 的托管服务中运行< /1>。</strong></p> 
 
 
 
