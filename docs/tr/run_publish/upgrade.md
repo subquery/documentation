@@ -25,11 +25,11 @@ The staging slot is perfect for:
 
 ![Staging slot](/assets/img/staging_slot.png)
 
-Dağıtılmasını istediğiniz SubQuery proje kod tabanınızın sürümünün GitHub'dan Commit Hash'ini doldurun (tam Commit Hash'ini kopyalayın). Bu, mevcut zincirin endekslenmesi için geçen süreye bağlı olarak daha uzun bir kesinti süresine neden olacaktır. Buradan her zaman ilerleme raporları sağlayabilirsiniz.
+Fill in the IPFS CID of the new version of your SubQuery project codebase that you want deployed (see the documetation to publish to IPFS [here](./publish.md). Bu, mevcut zincirin endekslenmesi için geçen süreye bağlı olarak daha uzun bir kesinti süresine neden olacaktır. Buradan her zaman ilerleme raporları sağlayabilirsiniz.
 
 ### Using the CLI
 
-You can also use `@subql/cli` to create a new deployment of your project to our managed service. This requires:
+You can also use `@subql/cli` to create a new deployment of your project to our Managed Service. This requires:
 
 - `@subql/cli` version 1.1.0 or above.
 - A valid [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) ready.
