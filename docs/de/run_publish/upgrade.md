@@ -25,11 +25,11 @@ Der Staging-Slot ist perfekt für:
 
 ![Staging-Slot](/assets/img/staging_slot.png)
 
-Geben Sie den Commit-Hash von GitHub ein (kopieren Sie den vollständigen Commit-Hash) der Version Ihrer SubQuery-Projektcodebasis, die Sie bereitstellen möchten. Dies führt zu einer längeren Ausfallzeit, je nachdem, wie lange es dauert, die aktuelle Chain zu indizieren. Hier können Sie jederzeit über Fortschritte berichten.
+Fill in the IPFS CID of the new version of your SubQuery project codebase that you want deployed (see the documetation to publish to IPFS [here](./publish.md). Dies führt zu einer längeren Ausfallzeit, je nachdem, wie lange es dauert, die aktuelle Chain zu indizieren. Hier können Sie jederzeit über Fortschritte berichten.
 
 ### Verwendung von CLI
 
-Sie können auch `@subql/cli` verwenden, um eine neue Bereitstellung Ihres Projekts für unseren Managed Service zu erstellen. Dies erfordert:
+You can also use `@subql/cli` to create a new deployment of your project to our Managed Service. Dies erfordert:
 
 - `@subql/cli` Version 1.1.0 oder höher.
 - A valid [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) ready.
