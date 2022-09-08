@@ -4,7 +4,7 @@
 
 SubQuery ยังรองรับ Graphql Subscriptions อีกด้วย subscriptions สามารถให้คุณดึงข้อมูลออกมาได้, เช่นเดียวกับการ queries subscriptions ใช้การดำเนินการที่ยาวนานซึ่งผลลัพธ์สามารถเปลี่ยนแปลงได้ตลอดเวลา, ไม่เหมือนกับการ queries
 
-การสมัครสมาชิกมีประโยชน์มากเมื่อคุณต้องการให้ client application ของคุณเปลี่ยนแปลงข้อมูลหรือแสดงข้อมูลใหม่บางอย่างทันทีที่การเปลี่ยนแปลงนั้นเกิดขึ้นหรือมีข้อมูลใหม่ Subscriptions อนุญาติให้คุณ *subscribe* to your SubQuery project for changes.
+การสมัครสมาชิกมีประโยชน์มากเมื่อคุณต้องการให้ client application ของคุณเปลี่ยนแปลงข้อมูลหรือแสดงข้อมูลใหม่บางอย่างทันทีที่การเปลี่ยนแปลงนั้นเกิดขึ้นหรือมีข้อมูลใหม่ Subscriptions allow you to _subscribe_ to your SubQuery project for changes.
 
 ::: info Note Read more about [Subscriptions](https://www.apollographql.com/docs/react/data/subscriptions/). :::
 
@@ -25,6 +25,7 @@ subscription {
 ```
 
 Body ของ entity ในขั้นตอนการ query จะแสดงให้เห็นถึงข้อมูลต่าง ๆ ที่คุณต้องการรับผ่านทาง subscription ของคุณ เมื่อตาราง `Transfer` ถูกอัพเดท:
+
 - `id`: Returns the ID of the entity that has changed.
 - `mutation_type`: การปฏิบัติที่ทำกับเอนทิตีนี้ Mutation types can be either `INSERT`, `UPDATE` or `DELETE`.
 - `_entity`: คุณค่าของตัวเอนทิตีเองในรูปแบบ JSON
@@ -67,5 +68,5 @@ Note that the `mutation` filter can be one of `INSERT`, `UPDATE` or `DELETE`.
 ::: warning Important Please note that you must enable the `--subscription` flag on both the node and query service in order to use these functions. :::
 
 ::: warning Important
-The subcription feature works on SubQuery's managed service when you directly call the listed GraphQL endpoint. มันจะไม่ทำงานภายในเบราว์เซอร์ GraphQL playground.
+The subcription feature works on SubQuery's Managed Service when you directly call the listed GraphQL endpoint. มันจะไม่ทำงานภายในเบราว์เซอร์ GraphQL playground.
 :::
