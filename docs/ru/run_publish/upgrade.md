@@ -25,11 +25,11 @@ There are three methods to deploy a new version of your project to the SubQuery 
 
 ![Промежуточный слот](/assets/img/staging_slot.png)
 
-Заполните Commit Hash из GitHub (скопируйте полный Commit Hash) той версии базы кода вашего проекта SubQuery, которую вы хотите развернуть. Это приведет к увеличению времени простоя в зависимости от времени, необходимого для индексации текущей цепочки. Вы всегда можете сообщить об этом здесь.
+Fill in the IPFS CID of the new version of your SubQuery project codebase that you want deployed (see the documetation to publish to IPFS [here](./publish.md). Это приведет к увеличению времени простоя в зависимости от времени, необходимого для индексации текущей цепочки. Вы всегда можете сообщить об этом здесь.
 
 ### Использование CLI
 
-Вы также можете использовать `@subql/cli` для создания нового развертывания вашего проекта в нашей управляемой службе. Для этого необходимо:
+You can also use `@subql/cli` to create a new deployment of your project to our Managed Service. Для этого необходимо:
 
 - `@subql/cli` версии 1.1.0 или выше.
 - Действительный [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) готов.
