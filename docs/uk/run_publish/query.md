@@ -1,6 +1,6 @@
 # Запитайте свій проект у SubQuery Explorer
 
-[Subquery Explorer](https://explorer.subquery.network) - це розміщений в Інтернеті сервіс, який надає доступ до опублікованих проєктів вкладених запитів, створеним учасниками нашої спільноти й керованим командою вкладених запитів. Ви можете опублікувати свої власні проєкти SubQuery в нашому провіднику, слідуючи нашому керівництву по [опублікувати свій проєкт SubQuery ](../run_publish/publish.md).
+[SubQuery Explorer](https://explorer.subquery.network) is an online Managed Service that provides access to published SubQuery projects made by contributors in our community and managed by the SubQuery team. Ви можете опублікувати свої власні проєкти SubQuery в нашому провіднику, слідуючи нашому керівництву по [опублікувати свій проєкт SubQuery ](../run_publish/publish.md).
 
 ![SubQuery Explorer](https://static.subquery.network/media/explorer/explorer-header.png)
 
@@ -10,6 +10,6 @@
 
 Ви також зауважите, що SubQuery Explorer забезпечує майданчик для виявлення доступних даних із прикладами запитів - ви можете тестувати запити безпосередньо у своєму браузері без коду реалізації. Крім того, ми внесли деякі невеликі вдосконалення в нашу документацію, щоб краще підтримати розробників у їх подорожі для кращого запиту та аналізу світових даних Polkadot.
 
-У правому верхньому куті ігрового майданчика ви знайдете кнопку *Docs*, яка відкриє креслення документації. Ця документація генерується автоматично і допомагає вам знайти, які сутності та методи ви можете запитувати.
+On the top right of the playground, you'll find a _Docs_ button that will open a documentation draw. Ця документація генерується автоматично і допомагає вам знайти, які сутності та методи ви можете запитувати.
 
 ::: інформаційна записка Дізнайтеся більше про [GraphQL Query language.](./graphql.md):::
