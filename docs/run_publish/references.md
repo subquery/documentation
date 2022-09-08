@@ -66,7 +66,7 @@ Options:
                                                       [boolean] [default: false]
       --profiler            Show profiler information to console output
                                                       [boolean] [default: false]
-      --subscription        Enable subscription       [boolean] [default: false]                                                     
+      --subscription        Enable subscription       [boolean] [default: false]
       --network-endpoint    Blockchain network endpoint to connect      [string]
       --output-fmt          Print log as json or plain text
                                            [string] [choices: "json", "colored"]
@@ -158,6 +158,7 @@ subql-node -f . --db-schema=test2
 ```
 
 ### --subscription
+
 This will create a notification trigger on entity, this also is the prerequisite to enable subscription feature in query service.
 
 ### --unsafe
@@ -170,7 +171,7 @@ SubQuery Projects are usually run in a javascript sandbox for security to limit 
 
 Although this enhances security we understand that this limits the available functionality of your SubQuery. The `--unsafe` command imports all default javascript modules which greatly increases sandbox functionality with the tradeoff of decreased security.
 
-**Note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in [SubQuery's managed service](https://project.subquery.network).**
+**Note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in [SubQuery's Managed Service](https://project.subquery.network).**
 
 ### --batch-size
 
@@ -303,7 +304,7 @@ Disables automated historical state tracking, [see Historic State Tracking](./hi
 
 ### --reindex
 
-Use `--reindex=<blockNumber>` to remove indexed data and reindex from specified block height. 
+Use `--reindex=<blockNumber>` to remove indexed data and reindex from specified block height.
 
 :::info Note
 Please note that the way of using this feature will be updated soon.
@@ -311,19 +312,18 @@ Please note that the way of using this feature will be updated soon.
 
 ### -w, --workers
 
-This will move block fetching and processing into a worker. By default, this feature is **disabled**. You can enable it with the `--workers=<number>` flag. 
+This will move block fetching and processing into a worker. By default, this feature is **disabled**. You can enable it with the `--workers=<number>` flag.
 Note that the number of available CPU cores strictly limits the usage of worker threads. So, when using the `--workers=<number>` flag, always specify the number of workers. With no flag provided, everything will run in the same thread.
 
 :::tip Tip
-It can increase performance by up to 4 times. Give it a try and let us know your feedback! 
+It can increase performance by up to 4 times. Give it a try and let us know your feedback!
 
-It is at an early experimental stage at the moment, but we plan to enable it by default. 
+It is at an early experimental stage at the moment, but we plan to enable it by default.
 :::
 
 ::: info Note
 This feature is available for Substrate and Cosmos, and soon will be integrated for Avalanche.
 :::
-
 
 ## subql-query
 
@@ -337,7 +337,7 @@ Options:
       --version       Show version number                                [boolean]
   -n, --name          Project name                             [string] [required]
       --playground    Enable graphql playground                          [boolean]
-      --subscription  Enable subscription               [boolean] [default: false]   
+      --subscription  Enable subscription               [boolean] [default: false]
       --output-fmt    Print log as json or plain text
                         [string] [choices: "json", "colored"] [default: "colored"]
       --log-level     Specify log level to print.

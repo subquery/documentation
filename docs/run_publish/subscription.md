@@ -4,7 +4,7 @@
 
 SubQuery now also supports Graphql Subscriptions. Like queries, subscriptions enable you to fetch data. Unlike queries, subscriptions are long-lasting operations that can change their result over time.
 
-Subscriptions are very useful when you want your client application to change data or show some new data as soon as that change occurs or the new data is available. Subscriptions allow you to *subscribe* to your SubQuery project for changes.
+Subscriptions are very useful when you want your client application to change data or show some new data as soon as that change occurs or the new data is available. Subscriptions allow you to _subscribe_ to your SubQuery project for changes.
 
 ::: info Note
 Read more about [Subscriptions](https://www.apollographql.com/docs/react/data/subscriptions/).
@@ -26,7 +26,8 @@ subscription {
 }
 ```
 
-The body of the entity in your query indicates what data you want to receive via your subscription when the `Transfer` table is updated: 
+The body of the entity in your query indicates what data you want to receive via your subscription when the `Transfer` table is updated:
+
 - `id`: Returns the ID of the entity that has changed.
 - `mutation_type`: The action that has been made to this entity. Mutation types can be either `INSERT`, `UPDATE` or `DELETE`.
 - `_entity`: the value of the entity itself in JSON format.
@@ -71,5 +72,5 @@ Please note that you must enable the `--subscription` flag on both the node and 
 :::
 
 ::: warning Important
-The subcription feature works on SubQuery's managed service when you directly call the listed GraphQL endpoint. It will not work within the in-browser GraphQL playground.
+The subcription feature works on SubQuery's Managed Service when you directly call the listed GraphQL endpoint. It will not work within the in-browser GraphQL playground.
 :::

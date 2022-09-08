@@ -15,16 +15,14 @@ Reach out to our team at sales@subquery.network and get professional service to 
 ## Migration Overview
 
 - Both SubGraph and SubQuery use the same `schema.graphql` file to define schema entities. In addition, both have similar sets of supported scalars and entity relationships (SubQuery adds support for JSON types though).
-- The manifest file shows the most differences but you can easily overcome these differences once you understand them. 
+- The manifest file shows the most differences but you can easily overcome these differences once you understand them.
 - In addition, Mapping files are also quite similar with an intentionally equivalent set of commands, which are used to access the Graph Node store and the SubQuery Project store.
-
 
 ## GraphQL Schema
 
-Both SubGraphs and SubQuery projects use the same `schema.graphql` to define entities. 
+Both SubGraphs and SubQuery projects use the same `schema.graphql` to define entities.
 
 Visit this [full documentation for `schema.graphql`](./graphql.md). **You can copy this file from your SubGraph to your SubQuery project in most cases.**
-
 
 Notable differences include:
 
@@ -37,7 +35,6 @@ Notable differences include:
 
 The manifest file contains the largest set of differences, but once you understand those they can be easily overcome. Most of these changes are due to the layout of this file, you can see the [full documentation of this file here](./manifest.md).
 
-
 **Notable differences include:**
 
 - SubQuery has a section in the manifest for the `network:`. This is where you define what network your SubQuery project indexes, and the RPC endpoints (non-pruned archive nodes) that it connects to in order to retrieve the data. Make sure to include the `dictionary:` endpoint in this section as it will speed up the indexing speed of your SubQuery project.
@@ -46,13 +43,15 @@ The manifest file contains the largest set of differences, but once you understa
 
 - Both SubGraphs and SubQuery projects use the `dataSources:` section to list the mapping files.
 - Similarly, you can define the contract ABI information for the smart contract that you are indexing.
+
   - In SubQuery, this is under the `options:` property rather than `source:`.
   - In both, SubQuery and SubGraph, you import a custom ABI spec that is used by the processor to parse arguments. For SubGraphs, this is done within the `mapping:` section under `abis:`. For a SubQuery project, this is at the same level of `options:` under `assets:` and the key is the name of the ABI.
-![Difference between a SubGraph and a SubQuery project](/assets/img/subgraph-manifest-2.png)
+    ![Difference between a SubGraph and a SubQuery project](/assets/img/subgraph-manifest-2.png)
 
 - In a SubQuery project, you can document both block handlers, call handlers, and event handlers in the same `mapping:` object.
 - In a SubQuery project, you do not list all mapping entities in the project manifest.
 - Handlers and Filters - Each mapping function is defined slightly differently in a SubQuery project:
+
   - Instead of listing the blocks/events/calls as the key and then denoting the handler that processes it. In SubQuery, you define the handler as the key and then what follows is the description of how this handler is triggered.
 
   - In a SubQuery project, you can document both block handlers, call handlers, and event handlers in the same `mapping:` object, the `kind:` property notes what type we are using.
@@ -177,7 +176,6 @@ In SubQuery, all mapping handlers receive a typed parameter that depends on the 
 
 The functions are defined the same way. Moreover, entities can be instantiated, retrieved, saved, and deleted from the SubQuery store in a similar way as well.
 
-
 ![Difference between a SubGraph and a SubQuery project](/assets/img/subgraph-mapping.png)
 
 :::: code-group
@@ -249,7 +247,7 @@ const balance = await erc20.balanceOf(address);
 
 Now that you have a clear understanding of how to build a basic SubQuery project, what are the next steps of your journey?
 
-Now, you can easily publish your project. SubQuery provides a free managed service where you can deploy your new project. You can deploy it to [SubQuery Projects](https://project.subquery.network) and query it using our [Explorer](https://explorer.subquery.network). Read this complete guide on how to [publish your new project to SubQuery Projects](../../run_publish/publish.md).
+Now, you can easily publish your project. SubQuery provides a free Managed Service where you can deploy your new project. You can deploy it to [SubQuery Projects](https://project.subquery.network) and query it using our [Explorer](https://explorer.subquery.network). Read this complete guide on how to [publish your new project to SubQuery Projects](../../run_publish/publish.md).
 
 To dive deeper into the developer documentation, jump to the [Build ](../../build/introduction.md) section and learn more about the three key files: **the manifest file, the GraphQL schema, and the mappings file.**
 

@@ -1,7 +1,7 @@
 # Running SubQuery Locally
 
 This guide works through how to run a local SubQuery node on your infrastructure, which includes both the indexer and query service.
-Don't want to worry about running your own SubQuery infrastructure? SubQuery provides a [managed hosted service](https://explorer.subquery.network) to the community for free. [Follow our publishing guide](../run_publish/publish.md) to see how you can upload your project to [SubQuery Projects](https://project.subquery.network).
+Don't want to worry about running your own SubQuery infrastructure? SubQuery provides a [Managed Service](https://explorer.subquery.network) to the community for free. [Follow our publishing guide](../run_publish/publish.md) to see how you can upload your project to [SubQuery Projects](https://project.subquery.network).
 
 ## Using Docker
 
@@ -30,7 +30,7 @@ A SubQuery node is an implementation that extracts Substrate/Polkadot-based bloc
 <CodeGroup>
 <CodeGroupItem title='Substrate/Polkadot'>
 
-``` shell
+```shell
 # NPM
 npm install -g @subql/node
 ```
@@ -38,7 +38,7 @@ npm install -g @subql/node
 </CodeGroupItem>
 <CodeGroupItem title='Terra'>
 
-``` shell
+```shell
 # NPM
 npm install -g @subql/node-terra
 ```
@@ -46,20 +46,19 @@ npm install -g @subql/node-terra
 </CodeGroupItem>
 <CodeGroupItem title='Avalanche'>
 
-``` shell
+```shell
 # NPM
 npm install -g @subql/node-avalanche
-````
+```
 
 </CodeGroupItem>
 </CodeGroup>
 
-::: danger 
+::: danger
 Please note that we **DO NOT** encourage the use of `yarn global` due to its poor dependency management which may lead to an errors down the line.
 :::
 
 Once installed, you can start a node with the following command:
-
 
 <CodeGroup>
 <CodeGroupItem title='Substrate/Polkadot'>
@@ -79,7 +78,7 @@ subql-node-terra <command>
 <CodeGroupItem title='Avalanche'>
 
 ```shell
-subql-node-avalanche <command> 
+subql-node-avalanche <command>
 ```
 
 </CodeGroupItem>
