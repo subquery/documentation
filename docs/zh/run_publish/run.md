@@ -1,6 +1,6 @@
 # 本地运行 SubQuery
 
-本指南通过如何在您的基础设施上运行本地的 SubQuery 节点，其中包括索引器和查询服务。 不用担心在运行自己的SubQuery基础架构中所出现的问题。 SubQuery 向社区免费提供 [管理的托管服务](https://explorer.subquery.network)。 [按照我们所发布的指南](../run_publish/publish.md) 查看您如何将项目部署到 [SubQuery 项目](https://project.subquery.network)。
+本指南通过如何在您的基础设施上运行本地的 SubQuery 节点，其中包括索引器和查询服务。 不用担心在运行自己的SubQuery基础架构中所出现的问题。 SubQuery provides a [Managed Service](https://explorer.subquery.network) to the community for free. [按照我们所发布的指南](../run_publish/publish.md) 查看您如何将项目部署到 [SubQuery 项目](https://project.subquery.network)。
 
 ## 使用 Docker
 
@@ -28,56 +28,60 @@ SubQuery 节点需要一个加载的过程，它能够从 SubQuery 项目中提�
 <CodeGroupItem title='Substrate/Polkadot'>
 
 ```shell
-subql-node -f your-project-path --local
+# NPM
+npm install -g @subql/node
 ```
 
 </CodeGroupItem>
 <CodeGroupItem title='Terra'>
 
 ```shell
-subql-node-terra -f your-project-path --local
+# NPM
+npm install -g @subql/node-terra
 ```
 
 </CodeGroupItem>
 <CodeGroupItem title='Avalanche'>
 
 ```shell
-subql-node-avalanche -f your-project-path --local
+# NPM
+npm install -g @subql/node-avalanche
 ```
 
 </CodeGroupItem>
 </CodeGroup>
 
-出于调试的目的，用户可以以本地方式运行该节点。 :::
+::: danger Please note that we **DO NOT** encourage the use of `yarn global` due to its poor dependency management which may lead to an errors down the line. :::
 
 安装完毕后，您可以使用以下命令来启动节点：
-
 
 <CodeGroup>
 <CodeGroupItem title='Substrate/Polkadot'>
 
 ```shell
-subql-node -f your-project-path --local
+subql-node <command>
 ```
 
 </CodeGroupItem>
 <CodeGroupItem title='Terra'>
 
 ```shell
-subql-node-terra -f your-project-path --local
+subql-node-terra <command>
 ```
 
 </CodeGroupItem>
 <CodeGroupItem title='Avalanche'>
 
 ```shell
-subql-node-avalanche -f your-project-path --local
+subql-node-avalanche <command>
 ```
 
 </CodeGroupItem>
 </CodeGroup>
 
-出于调试的目的，用户可以以本地方式运行该节点。 要了解更多信息，您可以运行 `--help`。
+### Key Commands
+
+The following commands will assist you to complete the configuration of a SubQuery node and begin indexing. 要了解更多信息，您可以运行 `--help`。
 
 #### 指向本地项目路径
 
