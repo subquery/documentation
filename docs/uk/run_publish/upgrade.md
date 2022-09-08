@@ -25,11 +25,11 @@ The staging slot is perfect for:
 
 ![Staging slot](/assets/img/staging_slot.png)
 
-Заповніть хеш-консистенцію від GitHub (копіюйте повний хеш-комплект) версії кодової бази проекту SubQuery, яку ви хочете розгорнути. Це призведе до більш тривалого простоїв, залежно від часу, необхідного для індексації поточного ланцюга. Ви завжди можете повідомити про це назад на прогрес.
+Fill in the IPFS CID of the new version of your SubQuery project codebase that you want deployed (see the documetation to publish to IPFS [here](./publish.md). Це призведе до більш тривалого простоїв, залежно від часу, необхідного для індексації поточного ланцюга. Ви завжди можете повідомити про це назад на прогрес.
 
 ### Використання інтерфейсу командного рядка
 
-You can also use `@subql/cli` to create a new deployment of your project to our managed service. This requires:
+You can also use `@subql/cli` to create a new deployment of your project to our Managed Service. This requires:
 
 - `@subql/cli` Версія 1.1.0 або вище.
 - Допустимий [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) готовий.
