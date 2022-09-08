@@ -25,11 +25,11 @@ The staging slot is perfect for:
 
 ![Staging slot](/assets/img/staging_slot.png)
 
-배포하려는 SubQuery 프로젝트 코드베이스 버전의 GitHub에서 커밋 해시를 입력합니다(전체 커밋 해시 복사). 이로 인해 현재 체인을 인덱싱하는 데 걸리는 시간에 따라 다운타임이 발생합니다. 진행상황은 언제든지 여기에 보고할 수 있습니다.
+Fill in the IPFS CID of the new version of your SubQuery project codebase that you want deployed (see the documetation to publish to IPFS [here](./publish.md). 이로 인해 현재 체인을 인덱싱하는 데 걸리는 시간에 따라 다운타임이 발생합니다. 진행상황은 언제든지 여기에 보고할 수 있습니다.
 
 ### Using the CLI
 
-You can also use `@subql/cli` to create a new deployment of your project to our managed service. This requires:
+You can also use `@subql/cli` to create a new deployment of your project to our Managed Service. This requires:
 
 - `@subql/cli` version 1.1.0 or above.
 - A valid [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) ready.
