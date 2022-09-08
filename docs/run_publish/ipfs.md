@@ -23,7 +23,7 @@ Using IPFS provides a better experience for developers in a few ways:
 
    2. Check that the `datasources: mapping: file:` references your code entrypoint correctly, usually this is `./dist/index.js`
 
-   3. If you're using a datasource processor (any `processor:` in the `project.yaml`) we need to include the datasource processor in the build pipeline. You can do this by adding exports to your `package.json`.
+   3. If you're using a datasource processor (any `processor:` in the `project.yaml`) we need to ensure that it gets bundled during build and publish. To do so please update to the latest version of the package that now includes a bundled version. You can do this by adding exports to your `package.json`.
 
    ```json
    ...
@@ -36,7 +36,7 @@ Using IPFS provides a better experience for developers in a few ways:
    }
    ```
 
-   We need to reference the new built processor in your `project.yaml`. To do this replace all occurrences of `./node_modules/path/to/processor` with `./dist/processorName.js`.
+   We need to update the reference to the bundle in your `project.yaml`. To do this you can update any processor file paths to `file: ./node_modules/@subql/<processor-name>/dist/bundle.js` and replace `<processor-name>` with the processor you are using. If you are using `@subql/datasource-processors` this package is now deprecated, you can find the relevant replacement from the new [datasource-processors repository](https://github.com/subquery/datasource-processors/tree/main/packages).
 
    4. If your project uses js/ts based custom [Substrate Chain Types](../build/manifest/polkadot.md#custom-chains) you will need to repeat the steps above but with the reference to your chain types.
 
