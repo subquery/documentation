@@ -25,11 +25,11 @@ The staging slot is perfect for:
 
 ![Staging slot](/assets/img/staging_slot.png)
 
-กรอก Commit Hash จาก GitHub (คัดลอก commit hash แบบเต็ม) ของโค้ดโปรเจกต์ SubQuery เวอร์ชั่นที่คุณต้องการ deploy การกรอก Commit Hash จาก GitHub จะทำให้มี downtime นานขึ้น ซึ่งขึ้นอยู่กับเวลาที่ใช้ในการจัดทำ index ข้อมูลของเชนปัจจุบัน คุณสามารถรายงาน progress ของคุณได้ที่นี่
+Fill in the IPFS CID of the new version of your SubQuery project codebase that you want deployed (see the documetation to publish to IPFS [here](./publish.md). การกรอก Commit Hash จาก GitHub จะทำให้มี downtime นานขึ้น ซึ่งขึ้นอยู่กับเวลาที่ใช้ในการจัดทำ index ข้อมูลของเชนปัจจุบัน คุณสามารถรายงาน progress ของคุณได้ที่นี่
 
 ### Using the CLI
 
-You can also use `@subql/cli` to create a new deployment of your project to our managed service. This requires:
+You can also use `@subql/cli` to create a new deployment of your project to our Managed Service. This requires:
 
 - `@subql/cli` version 1.1.0 or above.
 - A valid [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) ready.
