@@ -1,6 +1,6 @@
 # Menjalankan SubQuery Secara Lokal
 
-Panduan ini bekerja melalui cara menjalankan node SubQuery lokal pada infrastruktur Anda, yang mencakup pengindeks dan layanan kueri. Tidak ingin khawatir menjalankan infrastruktur SubQuery Anda sendiri? SubQuery menyediakan [layanan yang dihosting terkelola](https://explorer.subquery.network) kepada komunitas secara gratis. [Ikuti panduan penerbitan kami](../run_publish/publish.md) untuk melihat bagaimana Anda dapat mengunggah proyek Anda ke [Proyek SubQuery](https://project.subquery.network).
+Panduan ini bekerja melalui cara menjalankan node SubQuery lokal pada infrastruktur Anda, yang mencakup pengindeks dan layanan kueri. Tidak ingin khawatir menjalankan infrastruktur SubQuery Anda sendiri? SubQuery provides a [Managed Service](https://explorer.subquery.network) to the community for free. [Ikuti panduan penerbitan kami](../run_publish/publish.md) untuk melihat bagaimana Anda dapat mengunggah proyek Anda ke [Proyek SubQuery](https://project.subquery.network).
 
 ## Gunakan Docker
 
@@ -27,7 +27,7 @@ Node SubQuery adalah implementasi yang mengekstrak data blockchain berbasis subs
 <CodeGroup>
 <CodeGroupItem title='Substrate/Polkadot'>
 
-``` shell
+```shell
 # NPM
 npm install -g @subql/node
 ```
@@ -35,7 +35,7 @@ npm install -g @subql/node
 </CodeGroupItem>
 <CodeGroupItem title='Terra'>
 
-``` shell
+```shell
 # NPM
 npm install -g @subql/node-terra
 ```
@@ -43,10 +43,10 @@ npm install -g @subql/node-terra
 </CodeGroupItem>
 <CodeGroupItem title='Avalanche'>
 
-``` shell
+```shell
 # NPM
 npm install -g @subql/node-avalanche
-````
+```
 
 </CodeGroupItem>
 </CodeGroup>
@@ -54,7 +54,6 @@ npm install -g @subql/node-avalanche
 ::: danger Please note that we **DO NOT** encourage the use of `yarn global` due to its poor dependency management which may lead to an errors down the line. :::
 
 Setelah terinstal, Anda dapat memulai node dengan perintah berikut:
-
 
 <CodeGroup>
 <CodeGroupItem title='Substrate/Polkadot'>
@@ -74,7 +73,7 @@ subql-node-terra <command>
 <CodeGroupItem title='Avalanche'>
 
 ```shell
-subql-node-avalanche <command> 
+subql-node-avalanche <command>
 ```
 
 </CodeGroupItem>
