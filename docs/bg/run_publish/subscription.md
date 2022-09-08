@@ -4,7 +4,7 @@
 
 SubQuery вече поддържа и Graphql абонаменти. Подобно на заявките, абонаментите ви позволяват да извличате данни. За разлика от заявките, абонаментите са дълготрайни операции, които могат да променят резултата си с течение на времето.
 
-Абонаментите са много полезни, когато искате вашето клиентско приложение да промени данни или да покаже някои нови данни веднага щом тази промяна настъпи или новите данни са налични. Абонаментите ви позволяват да се *абонирате* за вашия SubQuery проект за промени.
+Абонаментите са много полезни, когато искате вашето клиентско приложение да промени данни или да покаже някои нови данни веднага щом тази промяна настъпи или новите данни са налични. Subscriptions allow you to _subscribe_ to your SubQuery project for changes.
 
 ::: info Note Read more about [Subscriptions](https://www.apollographql.com/docs/react/data/subscriptions/). :::
 
@@ -25,6 +25,7 @@ subscription {
 ```
 
 Тялото на обекта във вашата заявка показва какви данни искате да получавате чрез абонамента си, когато таблицата `Transfer` се актуализира:
+
 - `id`: Връща идентификатора на обекта, който е променен.
 - `mutation_type`: Действието, което е извършено към този обект. Типовете мутации могат да бъдат `INSERT`, `UPDATE` или `DELETE`.
 - `_entity`: стойността на самия обект във формат JSON.
@@ -67,5 +68,5 @@ subscription {
 ::: warning Important Please note that you must enable the `--subscription` flag on both the node and query service in order to use these functions. :::
 
 ::: warning Important
-The subcription feature works on SubQuery's managed service when you directly call the listed GraphQL endpoint. Няма да работи в рамките на игралната площадка на GraphQL в браузъра.
+The subcription feature works on SubQuery's Managed Service when you directly call the listed GraphQL endpoint. Няма да работи в рамките на игралната площадка на GraphQL в браузъра.
 :::
