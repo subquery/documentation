@@ -25,11 +25,11 @@
 
 ![暂存槽位](/assets/img/staging_slot.png)
 
-在 GitHub 中填写您想要部署的 SubQuery 项目代码库版本的 SubQuery 哈希(复制完整的提交哈希)。 这将导致更长的停机时间，取决于索引当前链所需的时间。 您可以一直在这里报告进度。
+Fill in the IPFS CID of the new version of your SubQuery project codebase that you want deployed (see the documetation to publish to IPFS [here](./publish.md). 这将导致更长的停机时间，取决于索引当前链所需的时间。 您可以一直在这里报告进度。
 
 ### 使用CLI
 
-您还可以使用 `@subql/cli` 为您的项目创建新的部署到我们的托管服务。 这需要：
+You can also use `@subql/cli` to create a new deployment of your project to our Managed Service. 这需要：
 
 - `@subql/cli` 版本 1.1.0 或以上.
 - 有效的 [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) 就绪。
