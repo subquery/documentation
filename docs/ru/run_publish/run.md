@@ -1,6 +1,6 @@
 # Запуск SubQuery локально
 
-В этом руководстве описано, как запустить локальный узел SubQuery на вашей инфраструктуре, который включает в себя как индексатор, так и службу запросов. Не хотите беспокоиться о создании собственной инфраструктуры SubQuery? SubQuery предоставляет сообществу [управляемый хостинг-сервис](https://explorer.subquery.network) бесплатно. [Следуйте нашему руководству по публикации](../run_publish/publish.md), чтобы узнать, как загрузить свой проект в [SubQuery Projects](https://project.subquery.network).
+В этом руководстве описано, как запустить локальный узел SubQuery на вашей инфраструктуре, который включает в себя как индексатор, так и службу запросов. Не хотите беспокоиться о создании собственной инфраструктуры SubQuery? SubQuery provides a [Managed Service](https://explorer.subquery.network) to the community for free. [Следуйте нашему руководству по публикации](../run_publish/publish.md), чтобы узнать, как загрузить свой проект в [SubQuery Projects](https://project.subquery.network).
 
 ## Использование Docker
 
@@ -27,7 +27,7 @@ docker-compose pull && docker-compose up
 <CodeGroup>
 <CodeGroupItem title='Substrate/Polkadot'>
 
-``оболочка
+```shell
 # NPM
 npm install -g @subql/node
 ```
@@ -35,7 +35,7 @@ npm install -g @subql/node
 </CodeGroupItem>
 <CodeGroupItem title='Terra'>
 
-``` shell
+```shell
 # NPM
 npm install -g @subql/node-terra
 ```
@@ -43,46 +43,45 @@ npm install -g @subql/node-terra
 </CodeGroupItem>
 <CodeGroupItem title='Avalanche'>
 
-``` shell
+```shell
 # NPM
 npm install -g @subql/node-avalanche
-````
+```
 
 </CodeGroupItem>
 </CodeGroup>
 
-::: опасность Обратите внимание, что мы ** НЕ** рекомендуем использовать `yarn global` из-за его плохого управления зависимостями, что может привести к ошибкам в дальнейшем. :::
+::: danger Please note that we **DO NOT** encourage the use of `yarn global` due to its poor dependency management which may lead to an errors down the line. :::
 
 После установки вы можете запустить узел с помощью следующей команды:
-
 
 <CodeGroup>
 <CodeGroupItem title='Substrate/Polkadot'>
 
-``оболочка
+```shell
 subql-node <command>
 ```
 
 </CodeGroupItem>
 <CodeGroupItem title='Terra'>
 
-``оболочка
+```shell
 subql-node-terra <command>
 ```
 
 </CodeGroupItem>
 <CodeGroupItem title='Avalanche'>
 
-``оболочка
-subql-node-avalanche <command> 
+```shell
+subql-node-avalanche <command>
 ```
 
 </CodeGroupItem>
 </CodeGroup>
 
-### Ключевые команды
+### Key Commands
 
-Следующие команды помогут вам завершить конфигурацию узла SubQuery и начать индексирование. Чтобы узнать больше, вы всегда можете выполнить команду `--help`.
+The following commands will assist you to complete the configuration of a SubQuery node and begin indexing. Чтобы узнать больше, вы всегда можете выполнить команду `--help`.
 
 #### Укажите путь к локальному проекту
 
