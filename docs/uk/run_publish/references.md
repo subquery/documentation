@@ -60,16 +60,16 @@ Options:
                                                       [boolean] [default: false]
       --timeout             Тайм-аут для пісочниці індексатора для виконання зіставлення
                             функція                                   [number]
-      --debug               Відображення налагоджувальної інформації на вивід консолі. буде
-                            примусово встановіть рівень журналу для налагодження
+      --debug               Відображення налагоджувальної інформації на вивід консолі. will
+                            forcefully set log level to debug
                                                       [boolean] [default: false]
-      --profiler            Відображення інформації профілювальника на вивід консолі
+      --profiler            Show profiler information to console output
                                                       [boolean] [default: false]
-      --subscription        Увімкнути підписку       [boolean] [default: false]                                                     
-      --network-endpoint    Кінцева точка блокчейн-мережі для підключення      [string]
-      --output-fmt          Друк журналу у форматі json або звичайного тексту
+      --subscription        Enable subscription       [boolean] [default: false]
+      --network-endpoint    Blockchain network endpoint to connect      [string]
+      --output-fmt          Print log as json or plain text
                                            [string] [choices: "json", "colored"]
-      --log-level           Вкажіть рівень журналу для друку. Ігнорується, коли використовується --debug
+      --log-level           Specify log level to print. Ігнорується, коли використовується --debug
           [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
                                                                        "silent"]
       --migrate             Перенести схему бази даних (лише для таблиць керування)
@@ -157,6 +157,7 @@ subql-node -f . --db-schema=test2
 ```
 
 ### --subscription
+
 Це створить тригер повідомлення для об'єкта, це також є необхідною умовою для включення функції підписки в службі запитів.
 
 ### --unsafe
@@ -169,7 +170,7 @@ subql-node -f . --db-schema=test2
 
 Хоча це підвищує безпеку, ми розуміємо, що це обмежує доступну функціональність вашого SubQuery. Команда `--unsafe ` імпортує всі модулі javascript за замовчуванням, що значно збільшує функціональність пісочниці з компромісом у вигляді зниження безпеки.
 
-**Зверніть увагу, що команда `--unsafe` запобігає запуску вашого проєкту в мережі SubQuery, і ви повинні звернутися в службу підтримки, якщо хочете, щоб ця команда виконувалася з вашим проєктом в [керованому сервісі SubQuery ](https://project.subquery.network).**
+**Note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in [SubQuery's Managed Service](https://project.subquery.network).**
 
 ### --batch-size
 
@@ -318,7 +319,6 @@ subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot
 
 :: info Примітка Ця функція доступна для Substrate і Cosmos, і незабаром буде інтегрована для Avalanche. :::
 
-
 ## subql-query
 
 ### --help
@@ -327,14 +327,14 @@ subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot
 
 ```shell
 Options:
-      --help          Показати довідку                                          [boolean]
-      --version       Показати номер версії                                [boolean]
-  -n, --name          Назва проекту                             [string] [required]
-      --playground    Включити graphql playground                          [boolean]
-      --subscription  Увімкнути підписку               [boolean] [default: false]   
-      --output-fmt    Друк журналу у форматі json або звичайного тексту
+      --help          Show help                                          [boolean]
+      --version       Show version number                                [boolean]
+  -n, --name          Project name                             [string] [required]
+      --playground    Enable graphql playground                          [boolean]
+      --subscription  Enable subscription               [boolean] [default: false]
+      --output-fmt    Print log as json or plain text
                         [string] [choices: "json", "colored"] [default: "colored"]
-      --log-level     Вкажіть рівень журналу для друку.
+      --log-level     Specify log level to print.
             [string] [вибір: "fatal", "error", "warn", "info", "debug", "trace",
                                                        "silent"] [default: "info"]
       --log-path      Шлях для створення файлу журналу e.g ./src/name.log          [string]
