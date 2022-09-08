@@ -4,7 +4,7 @@
 
 SubQuery artık Graphql Aboneliklerini de destekliyor. Sorgular gibi, abonelikler de veri almanızı sağlar. Sorguların aksine abonelikler, zamanla sonuçlarını değiştirebilen uzun süreli işlemlerdir.
 
-Abonelikler, istemci uygulamanızın verileri değiştirmesini veya bu değişiklik meydana gelir gelmez veya yeni veriler kullanılabilir olduğunda bazı yeni verileri göstermesini istediğinizde çok kullanışlıdır. Abonelikler, değişiklikler için Alt Sorgu projenize *abone olmanıza* olanak tanır.
+Abonelikler, istemci uygulamanızın verileri değiştirmesini veya bu değişiklik meydana gelir gelmez veya yeni veriler kullanılabilir olduğunda bazı yeni verileri göstermesini istediğinizde çok kullanışlıdır. Subscriptions allow you to _subscribe_ to your SubQuery project for changes.
 
 ::: info Note Read more about [Subscriptions](https://www.apollographql.com/docs/react/data/subscriptions/). :::
 
@@ -25,6 +25,7 @@ subscription {
 ```
 
 Sorgunuzdaki varlığın gövdesi, `Transfer` tablosu güncellendiğinde aboneliğiniz aracılığıyla hangi verileri almak istediğinizi belirtir:
+
 - `id`: Returns the ID of the entity that has changed.
 - `mutation_type`: Bu varlığa yapılan eylem. Mutation types can be either `INSERT`, `UPDATE` or `DELETE`.
 - `_entity`: varlığın kendisinin JSON biçimindeki değeri.
@@ -67,5 +68,5 @@ Note that the `mutation` filter can be one of `INSERT`, `UPDATE` or `DELETE`.
 ::: warning Important Please note that you must enable the `--subscription` flag on both the node and query service in order to use these functions. :::
 
 ::: warning Important
-The subcription feature works on SubQuery's managed service when you directly call the listed GraphQL endpoint. Tarayıcı içi GraphQL oyun alanında çalışmayacaktır.
+The subcription feature works on SubQuery's Managed Service when you directly call the listed GraphQL endpoint. Tarayıcı içi GraphQL oyun alanında çalışmayacaktır.
 :::
