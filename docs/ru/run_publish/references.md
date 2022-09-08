@@ -60,16 +60,16 @@
                                                       [булево] [по умолчанию: false]
       --timeout Тайм-аут для песочницы индексатора для выполнения отображения
                             функции [число]
-      --debug Показать отладочную информацию в консольном выводе. будет
-                            принудительно установить уровень журнала на отладочный
-                                                      [boolean] [по умолчанию: false]
-      --profiler Показывать информацию профилировщика в консольном выводе
-                                                      [boolean] [по умолчанию: false]
-      --subscription Включить подписку [boolean] [по умолчанию: false]                                                     
-      --network-endpoint Конечная точка сети блокчейн для подключения [string]
-      --output-fmt Печать журнала в формате json или обычного текста
-                                           [string] [варианты: "json", "colored"]
-      --log-level Укажите уровень журнала для печати. Игнорируется когда применяется --debug is
+      --debug Показать отладочную информацию в консольном выводе. will
+                            forcefully set log level to debug
+                                                      [boolean] [default: false]
+      --profiler            Show profiler information to console output
+                                                      [boolean] [default: false]
+      --subscription        Enable subscription       [boolean] [default: false]
+      --network-endpoint    Blockchain network endpoint to connect      [string]
+      --output-fmt          Print log as json or plain text
+                                           [string] [choices: "json", "colored"]
+      --log-level           Specify log level to print. Игнорируется когда применяется --debug is
                             используется
           [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
                                                                        "silent"]
@@ -157,6 +157,7 @@ subql-node -f . --db-schema=test2
 ```
 
 ### --подписка
+
 Это создаст триггер уведомления на сущность, что также является необходимым условием для включения функции подписки в службе запросов.
 
 ### - небезопасно
@@ -169,7 +170,7 @@ subql-node -f . --db-schema=test2
 
 Хотя это повышает безопасность, мы понимаем, что это ограничивает доступную функциональность вашего SubQuery. Команда `--unsafe` импортирует все модули javascript по умолчанию, что значительно увеличивает функциональность песочницы, но при этом снижает безопасность.
 
-**Обратите внимание, что команда `--unsafe` не позволит запустить ваш проект в сети SubQuery, и вы должны обратиться в службу поддержки, если хотите, чтобы эта команда была запущена с вашим проектом в [ управляемой службе SubQuery](https://project.subquery.network).**
+**Note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in [SubQuery's Managed Service](https://project.subquery.network).**
 
 ### --размер партии
 
@@ -322,7 +323,6 @@ subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot
 Эта функция доступна для Substrate и Cosmos и вскоре будет интегрирована в Avalanche.
 :::
 
-
 ## subql-query
 
 ### - помощь
@@ -330,15 +330,15 @@ subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot
 Здесь отображаются параметры справки.
 
 ```shell
-Опции:
-      --help Показать справку [булево]
-      --version Показать номер версии [булево]
-  -n, --name Имя проекта [строка] [обязательно]
-      --playground Включить graphql playground [boolean]
-      --subscription Включить подписку [булево] [по умолчанию: false]   
-      --output-fmt Выводить журнал в формате json или обычного текста
-                        [string] [варианты: "json", "colored"] [по умолчанию: "colored"]
-      --log-level Укажите уровень журнала для печати.
+Options:
+      --help          Show help                                          [boolean]
+      --version       Show version number                                [boolean]
+  -n, --name          Project name                             [string] [required]
+      --playground    Enable graphql playground                          [boolean]
+      --subscription  Enable subscription               [boolean] [default: false]
+      --output-fmt    Print log as json or plain text
+                        [string] [choices: "json", "colored"] [default: "colored"]
+      --log-level     Specify log level to print.
             [string] [варианты: "fatal", "error", "warn", "info", "debug", "trace",
                                                        "silent"] [по умолчанию: "info"]
       --log-path Путь для создания файла журнала, например ./src/name.log [string]
