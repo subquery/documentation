@@ -61,7 +61,7 @@ Options:
                                                       [boolean] [default: false]
       --profiler            Show profiler information to console output
                                                       [boolean] [default: false]
-      --subscription        Enable subscription       [boolean] [default: false]                                                     
+      --subscription        Enable subscription       [boolean] [default: false]
       --network-endpoint    Blockchain network endpoint to connect      [string]
       --output-fmt          Print log as json or plain text
                                            [string] [choices: "json", "colored"]
@@ -153,6 +153,7 @@ subql-node -f . --db-schema=test2
 ```
 
 ### --berlangganan
+
 Ini akan membuat pemicu notifikasi pada entitas, ini juga merupakan prasyarat untuk mengaktifkan fitur berlangganan di layanan kueri.
 
 ### --unsafe
@@ -165,7 +166,7 @@ Proyek SubQuery biasanya dijalankan dalam kotak pasir javascript untuk keamanan 
 
 Meskipun ini meningkatkan keamanan, kami memahami bahwa ini membatasi fungsionalitas SubQuery Anda yang tersedia. Perintah `--unsafe` mengimpor semua modul javascript default yang sangat meningkatkan fungsionalitas kotak pasir dengan pengorbanan keamanan yang menurun.
 
-**Juga, perhatikan bahwa perintah `--unsafe` akan mencegah proyek Anda dijalankan di Jaringan SubQuery, dan Anda harus menghubungi dukungan jika Anda ingin perintah ini dijalankan dengan proyek Anda di [ layanan terkelola SubQuery](https://project.subquery.network).**
+**Note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in [SubQuery's Managed Service](https://project.subquery.network).**
 
 ### --batch-size
 
@@ -314,7 +315,6 @@ Saat ini, ini masih dalam tahap percobaan awal, tetapi kami berencana untuk meng
 Fitur ini tersedia untuk Substrate dan Cosmos, dan akan segera diintegrasikan untuk Avalanche.
 :::
 
-
 ## subql-query
 
 ### --help
@@ -323,11 +323,11 @@ Ini menunjukkan opsi bantuan.
 
 ```shell
 Options:
-      --help          Menunjukan help                                          [boolean]
-      --version       Menunjukan version number                                [boolean]
-  -n, --name          Nama Project                              [string] [required]
+      --help          Show help                                          [boolean]
+      --version       Show version number                                [boolean]
+  -n, --name          Project name                             [string] [required]
       --playground    Enable graphql playground                          [boolean]
-      --subscription  Enable subscription               [boolean] [default: false]   
+      --subscription  Enable subscription               [boolean] [default: false]
       --output-fmt    Print log as json or plain text
                         [string] [choices: "json", "colored"] [default: "colored"]
       --log-level     Specify log level to print.
