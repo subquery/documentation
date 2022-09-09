@@ -108,7 +108,7 @@ Menggunakan kamus rantai lengkap dapat secara dramatis mempercepat pemrosesan pr
 
 Kamus rantai penuh mengindeks lokasi semua peristiwa dan ekstrinsik dalam rantai tertentu dan memungkinkan layanan node Anda untuk melompat ke lokasi yang relevan saat mengindeks daripada memeriksa setiap blok.
 
-Anda dapat menambahkan titik akhir kamus dalam file `project.yaml` Anda (lihat [Manifest File](../build/manifest/polkadot.md)), atau tentukan pada saat run time menggunakan perintah berikut:
+Anda dapat menambahkan titik akhir kamus di file `project.yaml` Anda (lihat [File Manifes](../build/manifest/polkadot.md)), atau tentukan saat dijalankan menggunakan perintah berikut:
 
 <CodeGroup>
 <CodeGroupItem title='Substrate/Polkadot/Polkadot'>
@@ -156,14 +156,15 @@ Bergantung pada konfigurasi database Postgres Anda (misalnya kata sandi database
 
 ``shell
 subql-node -c your-project-config.yml
-```
+
+````
 
 </CodeGroupItem>
 <CodeGroupItem title='Avalanche'>
 
 ```shell
 subql-node-avalanche -c your-project-config.yml
-```
+````
 
 </CodeGroupItem>
 </CodeGroup>

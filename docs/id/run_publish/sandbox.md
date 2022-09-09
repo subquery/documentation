@@ -15,6 +15,6 @@ Beberapa kode berbahaya kemungkinan akan menyerang host atau bahkan membahayakan
 
 - Untuk membatasi akses ke modul bawaan tertentu, hanya `nyatakan`, `buffer`, `crypto`,`util` dan `jalur` dimasukkan dalam whitelist.
 
-- Kami mendukung [modul pihak ketiga](../create/mapping.md#third-party-libraries) yang ditulis di **CommonJS** dan **hybrid** library seperti `@polkadot/*` yang menggunakan ESM sebagai default.
+- Kami mendukung [modul pihak ketiga](../create/mapping/polkadot.md#third-party-libraries) yang ditulis di **CommonJS** dan **hybrid** library seperti `@polkadot/*` yang menggunakan ESM sebagai default.
 
 - Semua modul yang menggunakan `HTTP` dan `WebSocket` dilarang.

@@ -123,7 +123,7 @@ dataSources:
 
 Това означава, че ще стартираме функция за съпоставяне `handleEvent` всеки път, когато има събитие `transfer` от интелигентния договор на bLuna.
 
-За повече информация относна файла Project Manifest (`project.yaml`), проверете документацията ни в раздела [Build/Manifest File](../build/manifest.md)
+За повече информация относна файла Project Manifest (`project.yaml`), проверете документацията ни в раздела [Build/Manifest File](../build/manifest/polkadot.md)
 
 ### Добавяне на Mappring функция
 
@@ -172,7 +172,7 @@ export async function handleEvent(
 
 Това, което прави, е получаване на SubstrateEvent, който включва данни за прехвърляне на payload. Ние извличаме тези данни и след това създаваме нов обект `Transfer`, който сме определили по-рано във файла `schema.graphql`. Добавяме допълнителна информация и след това използваме функцията `.save()` за запазване на новият обект (SubQuery автоматично ще го съхрани в базата данни).
 
-За повече информация относно mapping функциите вижте нашата документация под[Build/Mappings](../build/mapping.md)
+За повече информация относно mapping функциите вижте нашата документация под[Build/Mappings](../build/mapping/polkadot.md)
 
 ### Изграждане на проект
 

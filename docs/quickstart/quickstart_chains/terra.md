@@ -4,17 +4,19 @@
 
 The goal of this quick guide is to adapt the standard starter project and start indexing all transfers from Terra.
 
-**Important:** Before we begin, make sure that you have initialised your project using the provided steps in the **[Start Here](../quickstart.md)** section.
+::: warning Important
+Before we begin, make sure that you have initialised your project using the provided steps in the **[Start Here](../quickstart.md)** section.
+:::
 
 Now, let's move ahead in the process and update these configurations.
 
-Previously, in the [1. Create a New Project](../quickstart.md) section, you must have noted [3 key files](../quickstart.html#_3-make-changes-to-your-project). Let's begin updating them one by one.
+Previously, in the [1. Create a New Project](../quickstart.md) section, you must have noted [3 key files](../quickstart.md#_3-make-changes-to-your-project). Let's begin updating them one by one.
 
 ## 1. Update Your GraphQL Schema File
 
-The `schema.graphql` file defines the shape of your data from SubQuery due to the GraphQL query language’s mechanism. Hence, updating the GraphQL Schema file is the perfect start. It allows you to decide your end goal beforehand.
+The `schema.graphql` file defines the shape of your data from SubQuery due to the GraphQL query language’s mechanism. Hence, updating the GraphQL Schema file is the perfect start. It allows you to decide your end goal right at the start.
 
-Update the `schema.graphql` file as follows and remove all existing entities:
+Update the `schema.graphql` file as follows and remove all existing entities, here you can see we are indexing all transfers in Terra:
 
 ```graphql
 type Transfer @entity {
@@ -27,7 +29,9 @@ type Transfer @entity {
 }
 ```
 
-**Important: When you make any changes to the schema file, do make sure to regenerate your types directory.**
+::: warning Important
+When you make any changes to the schema file, do make sure to regenerate your types directory.
+:::
 
 <CodeGroup>
   <CodeGroupItem title="YARN" active>
@@ -51,13 +55,13 @@ You will find the generated models in the `/src/types/models` directory.
 
 Check out the [GraphQL Schema](../../build/graphql.md) documentation to get in-depth information on `schema.graphql` file.
 
-Now that you have made essential changes to the GraphQL Schema file, let’s move forward to the next file
+Now that you have made essential changes to the GraphQL Schema file, let’s move forward to the next file.
 
 ## 2. Update Your Project Manifest File
 
 The Project Manifest (`project.yaml`) file works as an entry point to your Terra project. It defines most of the details on how SubQuery will index and transform the chain data.
 
-Please note that the manifest file has already been set up correctly and doesn’t require many changes, but you need to change the handlers.
+Note that the manifest file has already been set up correctly and doesn’t require significant changes, but you need to change the datasource handlers. This section lists the triggers that look for on the blockchain to start indexing.
 
 **Since you are going to index all Terra transfer events, you need to update the `datasources` section as follows:**
 
@@ -82,7 +86,7 @@ dataSources:
 
 The above code shows that you will be running a `handleEvent` mapping function whenever there is a `transfer` event from the bLuna smart contract.
 
-Check out our [Manifest File](../../build/manifest.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
+Check out our [Manifest File](../../build/manifest/polkadot.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
 
 Next, let’s proceed ahead with the Mapping Function’s configuration.
 
@@ -92,11 +96,11 @@ Mapping functions define how chain data is transformed into the optimised GraphQ
 
 Follow these steps to add a mapping function:
 
-- Navigate to the default mapping function in the `src/mappings` directory. You will be able to see three exported functions: **`handleBlock`**, **`handleEvent`**, and **`handleCall`**. Delete both the `handleBlock` and `handleCall` functions as you will only deal with the `handleEvent` function.
+- Navigate to the default mapping function in the `src/mappings` directory. You will be able to see three exported functions: `handleBlock`, `handleEvent`, and `handleCall`. Delete both the `handleBlock` and `handleCall` functions as you will only deal with the `handleEvent` function.
 
 - The `handleEvent` function receives event data whenever an event matches filters, which you specified previously in the `project.yaml`. Let’s make changes to it, process all `transfer` events , and save them to the GraphQL entities created earlier.
 
-Update the `handleEvent` function as follows(**note the additional imports**):
+Update the `handleEvent` function as follows (**note the additional imports**):
 
 ```ts
 import { TerraEvent } from "@subql/types-terra";
@@ -135,9 +139,9 @@ export async function handleEvent(
 
 Let’s understand how the above code works.
 
-The function here receives a SubstrateEvent which includes the transfer data on the payload. We extract this data and then instantiate a new `Transfer`entity defined earlier in the `schema.graphql` file. After that, we add additional information and then use the `.save()` function to save the new entity (_Note that SubQuery will automatically save this to the database_).
+The function here receives a `TerraEvent` which includes the transfer data on the payload. We extract this data and then instantiate a new `Transfer`entity defined earlier in the `schema.graphql` file. After that, we add additional information and then use the `.save()` function to save the new entity (_Note that SubQuery will automatically save this to the database_).
 
-Check out our [Mappings](../../build/mapping.md) documentation to get detailed information on mapping functions.
+Check out our [Mappings](../../build/mapping/polkadot.md) documentation to get detailed information on mapping functions.
 
 ## 4. Build Your Project
 
@@ -160,7 +164,9 @@ npm run-script build
   </CodeGroupItem>
 </CodeGroup>
 
-**Important: Whenever you make changes to your mapping functions, you must rebuild your project.**
+::: warning Important
+Whenever you make changes to your mapping functions, you must rebuild your project.
+:::
 
 Now, you are ready to run your first SubQuery project. Let’s check out the process of running your project in detail.
 
@@ -191,15 +197,15 @@ npm run-script start:docker
   </CodeGroupItem>
 </CodeGroup>
 
-**Note:** It may take a few minutes to download the required images and start the various nodes and Postgres databases.
+::: info Note
+It may take a few minutes to download the required images and start the various nodes and Postgres databases.
+:::
 
 ## 6. Query Your Project
 
-Open your browser and head to [http://localhost:3000](http://localhost:3000).
-
 Next, let's query our project. Follow these three simple steps to query your SubQuery project:
 
-1. Open your browser and head to [http://localhost:3000](http://localhost:3000).
+1. Open your browser and head to `http://localhost:3000`.
 
 2. You will see a GraphQL playground in the browser and the schemas which are ready to query.
 

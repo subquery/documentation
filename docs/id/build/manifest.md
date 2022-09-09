@@ -84,7 +84,7 @@ Mendefinisikan data yang akan difilter dan diekstraksi dan lokasi pengendali fun
 | Field                  | v0.0.1                                                                  | v0.2.0                                                                                | Deskripsi                                                                                                                                                                                                              |
 | ---------------------- | ----------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **file**               | String                                                                  | 𐄂                                                                                     | Jalur ke entri pemetaan                                                                                                                                                                                                |
-| **handlers & filters** | [Penangan dan filter default](./manifest/#mapping-handlers-and-filters) | Penangan dan filter default, <br />[Penangan dan filter khusus](#custom-data-sources) | Buat daftar semua [fungsi pemetaan](./mapping.md) dan jenis handler yang sesuai, dengan filter pemetaan tambahan. <br /><br /> Untuk handler pemetaan runtime kustom, lihat [Sumber data kustom](#custom-data-sources) |
+| **handlers & filters** | [Penangan dan filter default](./manifest/#mapping-handlers-and-filters) | Penangan dan filter default, <br />[Penangan dan filter khusus](#custom-data-sources) | Buat daftar semua [fungsi pemetaan](./mapping/polkadot.md) dan jenis handler yang sesuai, dengan filter pemetaan tambahan. <br /><br /> Untuk handler pemetaan runtime kustom, lihat [Sumber data kustom](#custom-data-sources) |
 
 ## Sumber Data dan Pemetaan
 
@@ -106,9 +106,9 @@ Tabel berikut menjelaskan filter yang didukung oleh penangan yang berbeda.
 
 | Handler                                    | Filter yang didukung         |
 | ------------------------------------------ | ---------------------------- |
-| [BlockHandler](./mapping.md#block-handler) | `specVersion`                |
-| [EventHandler](./mapping.md#event-handler) | `module`,`method`            |
-| [CallHandler](./mapping.md#call-handler)   | `module`,`method` ,`success` |
+| [BlockHandler](./mapping/polkadot.md#block-handler) | `specVersion`                |
+| [EventHandler](./mapping/polkadot.md#event-handler) | `module`,`method`            |
+| [CallHandler](./mapping/polkadot.md#call-handler)   | `module`,`method` ,`success` |
 
 Filter pemetaan runtime default adalah fitur yang sangat berguna untuk memutuskan blok, peristiwa, atau ekstrinsik apa yang akan memicu pengendali pemetaan.
 

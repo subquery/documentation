@@ -4,19 +4,30 @@
 
 The goal of this quick start guide is to adapt the standard starter project in the Juno Network and then begin indexing all votes on the [Terra Developer Fund](https://daodao.zone/multisig/juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2) (which also contributed to SubQuery) from Cosmos.
 
-**Important:** Before we begin, make sure that you have initialised your project using the provided steps in the **[Start Here](../quickstart.md)** section. You must complete the suggested [4 steps](https://github.com/DeveloperInProgress/juno-subql-starter#readme) for Cosmos users.
+::: warning Important
+Before we begin, make sure that you have initialised your project using the provided steps in the **[Start Here](../quickstart.md)** section. You must complete the suggested [4 steps](https://github.com/subquery/cosmos-subql-starter#readme) for Cosmos users.
+:::
 
-You can see the final code of this project on [visiting this link.](https://github.com/jamesbayly/juno-terra-developer-fund-votes)
+Note that we are using Juno as the example here, but SubQuery supports all the following Cosmos networks and you can quickly initialise a new project in any of them using the `subql init` command:
+
+- Juno
+- CosmosHub
+- Fetch.ai
+- Stargaze
+- Osmosis
+- Cronos
 
 Now, let's move ahead in the process and update these configurations.
 
-Previously, in the [1. Create a New Project](../quickstart.md) section, you must have noted [3 key files](../quickstart.html#_3-make-changes-to-your-project). Let's begin updating them one by one.
+Previously, in the [1. Create a New Project](../quickstart.md) section, you must have noted [3 key files](../quickstart.md#_3-make-changes-to-your-project). Let's begin updating them one by one.
 
-**Note: The final code of this project can be found [here](https://github.com/jamesbayly/juno-terra-developer-fund-votes).**
+::: info Note
+The final code of this project can be found [here](https://github.com/jamesbayly/juno-terra-developer-fund-votes).
+:::
 
 ## 1. Update Your GraphQL Schema File
 
-The `schema.graphql` file determines the shape of your data from SubQuery due to the mechanism of the GraphQL query language. Hence, updating the GraphQL Schema file is the perfect start. It allows you to define your end goal beforehand.
+The `schema.graphql` file determines the shape of your data from SubQuery due to the mechanism of the GraphQL query language. Hence, updating the GraphQL Schema file is the perfect start. It allows you to define your end goal right at the start.
 
 Update the `schema.graphql` file as follows. The aim is to index all votes on the [Terra Developer Fund](https://daodao.zone/multisig/juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2).
 
@@ -30,7 +41,9 @@ type Vote @entity {
 }
 ```
 
-**Important: When you make any changes to the schema file, do not forget to regenerate your types directory.**
+::: warning Important
+When you make any changes to the schema file, do not forget to regenerate your types directory.
+:::
 
 <CodeGroup>
   <CodeGroupItem title="YARN" active>
@@ -60,9 +73,7 @@ Now that you have made essential changes to the GraphQL Schema file, let’s go 
 
 The Project Manifest (`project.yaml`) file is an entry point to your project. It defines most of the details on how SubQuery will index and transform the chain data.
 
-Note that the manifest file has already been set up correctly and doesn’t require significant changes, but you need to change the handlers.
-
-\*Since we are going to index all votes on the [Terra Developer Fund](https://daodao.zone/multisig/juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2), we will look at messages that use the `vote` contract call. And following to that, we need to update the `datasources` section as follows:
+Note that the manifest file has already been set up correctly and doesn’t require significant changes, but you need to change the datasource handlers. This section lists the triggers that look for on the blockchain to start indexing.
 
 ```yml
 dataSources:
@@ -81,9 +92,9 @@ dataSources:
               contract: "juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2"
 ```
 
-The above code defines that you will be running a `handleTerraDeveloperFund` mapping function whenever there is a `vote` message from the [Terra Developer Fund](https://daodao.zone/multisig/juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2) smart contract.
+The above code defines that you will be running a `handleTerraDeveloperFund` mapping function whenever there is a message with a `vote` contract call from the [Terra Developer Fund](https://daodao.zone/multisig/juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2) smart contract.
 
-Check out our [Manifest File](../../build/manifest.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
+Check out our [Manifest File](../../build/manifest/polkadot.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
 
 Next, let’s dig further into Mapping Function’s configuration.
 
@@ -97,7 +108,7 @@ Follow these steps to add a mapping function:
 
 - The `handleMessage` function receives event data whenever an event matches the filters that you specified previously in the `project.yaml`. Let’s update it to process all `vote` messages and save them to the GraphQL entity created earlier.
 
-Update the `handleMessage` function as follows(**note the additional imports**):
+Update the `handleMessage` function as follows (**note the additional imports**):
 
 ```ts
 import { Vote } from "../types";
@@ -105,7 +116,6 @@ import { CosmosMessage } from "@subql/types-cosmos";
 
 export async function handleTerraDeveloperFund(
   message: CosmosMessage
-
 ): Promise<void> {
   // logger.info(JSON.stringify(message));
   // Example vote https://www.mintscan.io/juno/txs/EAA2CC113B3EC79AE5C280C04BE851B82414B108273F0D6464A379D7917600A4
@@ -122,9 +132,9 @@ export async function handleTerraDeveloperFund(
 
 Let’s understand how the above code works.
 
-Here, the function receives a CosmosMessage which includes message data on the payload. We extract this data and then instantiate a new `Vote` entity defined earlier in the `schema.graphql` file. After that, we add additional information and then use the `.save()` function to save the new entity (SubQuery will automatically save this to the database).
+Here, the function receives a `CosmosMessage` which includes message data on the payload. We extract this data and then instantiate a new `Vote` entity defined earlier in the `schema.graphql` file. After that, we add additional information and then use the `.save()` function to save the new entity (SubQuery will automatically save this to the database).
 
-Check out our [Mappings](../../build/mapping.md) documentation and get information on the mapping functions in detail.
+Check out our [Mappings](../../build/mapping/polkadot.md) documentation and get information on the mapping functions in detail.
 
 ## 4. Build Your Project
 
@@ -147,7 +157,9 @@ npm run-script build
   </CodeGroupItem>
 </CodeGroup>
 
-**Important: Whenever you make changes to your mapping functions, you must rebuild your project.**
+::: warning Important
+Whenever you make changes to your mapping functions, you must rebuild your project.
+:::
 
 Now, you are ready to run your first SubQuery project. Let’s check out the process of running your project in detail.
 
@@ -178,13 +190,15 @@ npm run-script start:docker
   </CodeGroupItem>
 </CodeGroup>
 
-**Note:** It may take a few minutes to download the required images and start the various nodes and Postgres databases.
+::: info Note
+It may take a few minutes to download the required images and start the various nodes and Postgres databases.
+:::
 
 ## 6. Query your Project
 
 Next, let's query our project. Follow these three simple steps to query your SubQuery project:
 
-1. Open your browser and head to [http://localhost:3000](http://localhost:3000).
+1. Open your browser and head to `http://localhost:3000`.
 
 2. You will see a GraphQL playground in the browser and the schemas which are ready to query.
 
@@ -194,7 +208,7 @@ Try the following query to understand how it works for your new SubQuery starter
 
 ```graphql
 query {
-  votes(first: 5, orderBy: BLOCK_HEIGHT_DESC) {
+  votes(first: 3, orderBy: BLOCK_HEIGHT_DESC) {
     nodes {
       id
       blockHeight
@@ -207,7 +221,7 @@ query {
 
 You will see the result similar to below:
 
-```
+```json
 {
   "data": {
     "votes": {
@@ -236,7 +250,9 @@ You will see the result similar to below:
 }
 ```
 
-**Note: The final code of this project can be found [here](https://github.com/jamesbayly/juno-terra-developer-fund-votes).**
+::: info Note
+The final code of this project can be found [here](https://github.com/jamesbayly/juno-terra-developer-fund-votes).
+:::
 
 ## What’s Next?
 

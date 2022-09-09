@@ -115,7 +115,7 @@ Using a full chain dictionary can dramatically speed up the processing of a SubQ
 
 A full chain dictionary pre-indexes the location of all events and extrinsics within the specific chain and allows your node service to skip to relevant locations when indexing rather than inspecting each block.
 
-You can add the dictionary endpoint in your `project.yaml` file (see [Manifest File](../build/manifest/polkadot.md)), or specify it at run time using the following command:
+Vous pouvez ajouter le point de terminaison du dictionnaire dans votre fichier `project.yaml` (voir [Fichier manifeste](../build/manifest/polkadot.md)), ou le spécifier au moment de l'exécution en utilisant la commande suivante :
 
 <CodeGroup>
 <CodeGroupItem title='Substrate/Polkadot/Polkadot'>

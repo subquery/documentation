@@ -2,7 +2,7 @@
 
 ## Introduction
 
-In this module, students will have the opportunity to become familiar with SubQuery with some hands-on experience creating a simple Hello World SubQuery project. This project will use the subql CLI to create an empty project shell, and then code will be provided to query the Polkadot mainnet for the blockheight. A Docker environment will be used to run this example for simplicity.
+In this module, you will become familiar with SubQuery and get some hands-on experience by creating a simple Hello World SubQuery project. This project will use the **subql CLI** to create an empty project shell. Then a code will be provided to query the Polkadot mainnet for the blockheight. Note that a Docker environment will be used to simplify the running process.
 
 
 ## Reference
@@ -10,55 +10,78 @@ In this module, students will have the opportunity to become familiar with SubQu
 * [Hello World PDF workbook](/assets/pdf/Hello_World_Lab.pdf)
 * [Subql Starter Github](https://github.com/subquery/subql-starter)
 
-## Pre-requisites
+## Pre-Requisites
 
 You will require the following:
 
-* NPM package manager
-* SubQuery CLI (@subql/cli)
-* Docker
+* NPM package manager.
+* SubQuery CLI (@subql/cli).
+* Docker.
 
-### NPM Package manager
+### NPM Package Manager
 
-Run the following command in your terminal to install the latest version of node. Node v12 or higher is required. 
+First, you must check whether you have installed the latest version of node or not. 
+
+Run this command:
+
+`node -v`
+
+It should return a result with the latest version of npm, if you have it installed. For eg:
+
+`v18.2.0`
+
+::: info Note 
+Node v12 or higher is required. 
+::: 
+
+If you haven't installed the npm, please run the following command in your terminal and install the latest version of node. 
 
 ```
 brew update
 brew install node
 node -v
-v18.2.0
 ```
+You will get the latest npm version as the output in the end.
 
 ### SubQuery CLI
 
-```
-npm install -g @subql/cli
-subql -v
-@subql/cli/1.0.1 darwin-x64 node-v18.2.0
+- First, run the following command. It installs the `subql cli`.
 
 ```
+npm install -g @subql/cli
+```
+
+- Then check the `subql cli` version by running the given below command:
+
+```
+subql -v
+```
+
+You will get an output similar to this:
+`@subql/cli/1.0.1 darwin-x64 node-v18.2.0`
+
 
 ### Docker
 
-Please visit [https://docs.docker.com/get-docker/](https://docs.docker.com/get-docker/) for instructions on how to install Docker for your specific operating system.
+Please visit [Docker's official site](https://docs.docker.com/get-docker/) for instructions on how to install Docker for your specific operating system.
 
 ## Exercise 1: Hello World
 
-### High level steps
+### Overview of Steps Involved
 
-1. Initialise a project
-2. Update your mappings 
-3. Update your manifest file
-4. Update your graphql schema file
-5. Generate your code
-6. Build your code
-7. Deploy your code in Docker
+1. Initialise a project.
+2. Update your mappings.
+3. Update your manifest file.
+4. Update your graphql schema file.
+5. Generate your code.
+6. Build your code.
+7. Deploy your code in Docker.
 
-### Detailed steps
+### Detailed Steps
 
-#### Step 1: Initialise your project
+#### Step 1: Initialise Your Project
 
-The first step in creating a SubQuery project is to create a project with the following command:
+The first step to create a SubQuery project with the following command:
 
 
 ```
@@ -78,13 +101,15 @@ Preparing project... done
 HelloWorld is ready
 ```
 
-Note that any text in the square brackets are the default values that will be used if nothing is provided.
+Note that any text in the square brackets are the default values, which will be used if nothing is provided.
 
-This creates a framework and the following directory structure saving you time. 
+This creates a framework and the following directory structure, saving your time. 
 
-#### Step 2: Update the mappings file
+#### Step 2: Update the Mappings File
 
-The initialisation command pre-creates a sample mappings file with 3 functions, handleBlock, handleEvent and handleCall. For this exercise we will focus on the first function called handleBlock so delete the remaining functions. The mappingHandler.ts file should look like this:
+The initialisation command pre-creates a sample mappings file with 3 functions: `handleBlock, handleEvent and handleCall`. We will focus on the first function called `handleBlock` for this excerise. Hence, delete the remaining functions. 
+
+- The `mappingHandler.ts` file should look like this:
 
 
 ```
@@ -101,33 +126,15 @@ export async function handleBlock(block: SubstrateBlock): Promise<void> {
 }
 ```
 
-#### Step 3: Update the manifest file (aka project.yaml)
+#### Step 3: Update the Manifest File (aka project.yaml)
 
-The initialisation command also pre-creates a sample manifest file and defines 3 handlers. Because we have removed handleEvent and handleCall from the mappings file, we have to remove them from the manifest file as well. 
+The initialisation command also pre-creates a sample manifest file and defines 3 handlers. Since you have removed `handleEvent` and `handleCall` from the mappings file, you have to remove them from the manifest file as well. 
 
-The manifest file should look like this:
+- The ***updated*** part of the manifest file should look like this:
 
 
 ```
-specVersion: 1.0.0
-name: HelloWorld
-version: 1.0.0
-runner:
-  node:
-    name: '@subql/node'
-    version: '>=1.0.0'
-  query:
-    name: '@subql/query'
-    version: '*'
-description: >-
-  This project can be use as a starting point for developing your SubQuery project
-repository: 'https://github.com/subquery/subql-starter'
-schema:
-  file: ./schema.graphql
-network:
-  chainId: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3'
-  endpoint: 'wss://polkadot.api.onfinality.io/public-ws'
-  dictionary: 'https://api.subquery.network/sq/subquery/polkadot-dictionary'
+
 dataSources:
   - kind: substrate/Runtime
     startBlock: 1
@@ -140,14 +147,15 @@ dataSources:
 
 
 
-#### Step 4: Update the graphql schema
+#### Step 4: Update the Graphql Schema
 
-The default schema.graphql file will contain 5 fields. We can remove fields 2 through to 5 because the handleBlock function in the mappings file only uses “field1”. 
+The default `schema.graphql` file will contain 5 fields. We can remove the fields from 2 to 5, because the `handleBlock` function in the mappings file only uses “field1”. 
 
-Extra: Rename field1 to something more meaningful. Eg blockHeight. Note that if you do this, don’t forget to update the reference to field1 in the mappings file appropriately. 
+::: info Note
+Rename field1 to something more meaningful. Eg blockHeight. Note that if you do this, don’t forget to update the reference to field1 in the mappings file appropriately. 
+:::
 
 The schema file should look like this:
-
 
 ```
 type StarterEntity @entity {
@@ -156,64 +164,79 @@ type StarterEntity @entity {
 }
 ```
 
-#### Step 5: Install the dependencies
+#### Step 5: Install the Dependencies
 
 Install the node dependencies by running the following commands:
 
-```
-yarn install
-```
 
+<CodeGroup>
+  <CodeGroupItem title="YARN" active>
 
-OR
+  ```shell
+  yarn install
+  ```
 
+  </CodeGroupItem>
 
-```
-npm install
-```
+  <CodeGroupItem title="NPM">
 
+  ```bash
+  npm install
+  ```
 
+  </CodeGroupItem>
+</CodeGroup>
 
-#### Step 6: Generate the associated typescript
+#### Step 6: Generate the Associated Typescript
 
 Next, we will generate the associated typescript with the following command:
 
+<CodeGroup>
+  <CodeGroupItem title="YARN" active>
 
-```
-yarn codegen
-```
+  ```shell
+  yarn codegen
+  ```
 
+  </CodeGroupItem>
 
-OR
+  <CodeGroupItem title="NPM">
 
-```
-npm run-script codegen
-```
+  ```bash
+  npm run-script codegen
+  ```
+
+  </CodeGroupItem>
+</CodeGroup>
 
 You should see a new folder appear with 2 new files.
 
-#### Step 7: Build the project
+#### Step 7: Build the Project
 
 The next step is to build the project with the following command:
 
+<CodeGroup>
+  <CodeGroupItem title="YARN" active>
 
-```
-yarn build
-```
+  ```shell
+  yarn build
+  ```
 
+  </CodeGroupItem>
 
-OR
+  <CodeGroupItem title="NPM">
 
+  ```bash
+  npm run-script build
+  ```
 
-```
-npm run-script build
-```
-
+  </CodeGroupItem>
+</CodeGroup>
 
 This bundles the app into static files for production.
 
 
-#### Step 8: Start the Docker container
+#### Step 8: Start the Docker Container
 
 Run the docker command to pull the images and to start the container.
 
@@ -222,13 +245,14 @@ Run the docker command to pull the images and to start the container.
 docker-compose pull && docker-compose up
 ```
 
+::: warning Important
+You need to have Docker installed as noted in the prerequisite. 
+:::
 
-Note: You need to have Docker installed as noted in the prerequisite for this to work. 
 
+#### Step 9: Run a Query
 
-#### Step 9: Run a query
-
-Once the docker container is up and running, which could take a few minutes, open up your browser and navigate to [www.localhost:3000](www.localhost:3000). 
+Once the docker container is up and running, which could take a few minutes, open up your browser, and navigate to `www.localhost:3000`.
 
 This will open up a “playground” where you can create your query. Copy the example below. 
 
@@ -245,4 +269,6 @@ This will open up a “playground” where you can create your query. Copy the e
 }
 ```
 
-Note: If you renamed field1 something else, modify this query appropriately. 
+::: info Note
+If you renamed field1 something else, modify this query appropriately. 
+:::

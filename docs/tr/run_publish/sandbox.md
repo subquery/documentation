@@ -15,6 +15,6 @@ Bazı kötü amaçlı kodların ana makineye saldırması, hatta güvenliğini t
 
 - Belirli yerleşik modüllere erişimi sınırlamak için, yalnızca `assert`, `buffer`, `crypto`,`util` ve `path` beyaz listededir.
 
-- **CommonJS** ile yazılmış [3rd party modules](../create/mapping.md#third-party-libraries) ve ESM'yi varsayılan olarak kullanan `@polkadot/*` gibi **hybrid** kitaplıkları destekliyoruz.
+- **CommonJS** ile yazılmış [3rd party modules](../create/mapping/polkadot.md#third-party-libraries) ve ESM'yi varsayılan olarak kullanan `@polkadot/*` gibi **hybrid** kitaplıkları destekliyoruz.
 
 - `HTTP` ve `WebSocket` kullanan tüm modüller yasaktır.

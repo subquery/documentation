@@ -15,6 +15,6 @@
 
 - 특정 임베디드 모듈에 대한 액세스를 제한하기 위해 `assert`, `buffer`, `crypto`,`util` 와 `path` 만이 화이트 리스트에 표시됩니다.
 
-- 저희는 ESM 를 디폴트로서 사용하는**CommonJS** 과 **hybrid**등의 라이브러리, `@polkadot/*` 와 같은 기술된 [3rd party modules](../create/mapping.md#third-party-libraries) 을 지원 합니다.
+- 저희는 ESM 를 디폴트로서 사용하는**CommonJS** 과 **hybrid**등의 라이브러리, `@polkadot/*` 와 같은 기술된 [3rd party modules](../create/mapping/polkadot.md#third-party-libraries) 을 지원 합니다.
 
 - `HTTP` 을 사용하는 임의의 모듈 및 `WebSocket` 은 금지되어 있습니다.

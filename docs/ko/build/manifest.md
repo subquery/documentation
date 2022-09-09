@@ -84,7 +84,7 @@ ARGUMENTS PROJECTNAME Give the starter project name
 | 필드                   | v0.0.1                                                         | v0.2.0                                                                        | 설명                                                                                                                                                                                                        |
 | ---------------------- | -------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **file**               | String                                                         | 𐄂                                                                             | Entry 맵핑을 위한 path                                                                                                                                                                                      |
-| **handlers & filters** | [기본 핸들러와 필터](./manifest/#mapping-handlers-and-filters) | 기본 핸들러와 필터, <br />[Custom handlers and filters](#custom-data-sources) | [mapping functions](./mapping.md) 과 그에 상응하는 핸들러 유형을 추가적인 맵핑 필터와 함께 나열하세요. <br /><br /> 커스텀 런타임 맵핑을 위해서는 [Custom data sources](#custom-data-sources)을 참조하세요. |
+| **handlers & filters** | [기본 핸들러와 필터](./manifest/#mapping-handlers-and-filters) | 기본 핸들러와 필터, <br />[Custom handlers and filters](#custom-data-sources) | [mapping functions](./mapping/polkadot.md) 과 그에 상응하는 핸들러 유형을 추가적인 맵핑 필터와 함께 나열하세요. <br /><br /> 커스텀 런타임 맵핑을 위해서는 [Custom data sources](#custom-data-sources)을 참조하세요. |
 
 ## Data Source와 맵핑
 
@@ -106,9 +106,9 @@ dataSources:
 
 | 핸들러                                      | 지원되는 필터                |
 | ------------------------------------------- | ---------------------------- |
-| [블록핸들러](./mapping.md#block-handler)    | `specVersion`                |
-| [이벤트 핸들러](./mapping.md#event-handler) | `module`,`method`            |
-| [콜핸들러](./mapping.md#call-handler)       | `module`,`method` ,`success` |
+| [블록핸들러](./mapping/polkadot.md#block-handler)    | `specVersion`                |
+| [이벤트 핸들러](./mapping/polkadot.md#event-handler) | `module`,`method`            |
+| [콜핸들러](./mapping/polkadot.md#call-handler)       | `module`,`method` ,`success` |
 
 기본 런타임 매핑 필터는 매핑 핸들러를 트리거할 블록, 이벤트 또는 외부 항목을 결정하는 데 매우 유용한 기능입니다.
 

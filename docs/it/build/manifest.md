@@ -84,7 +84,7 @@ Defines the data that will be filtered and extracted and the location of the map
 | Field                  | v0.0.1                                                                   | v0.2.0                                                                                  | Description                                                                                                                                                                                                                   |
 | ---------------------- | ------------------------------------------------------------------------ | --------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **file**               | String                                                                   | 𐄂                                                                                       | Path to the mapping entry                                                                                                                                                                                                     |
-| **handlers & filters** | [Default handlers and filters](./manifest/#mapping-handlers-and-filters) | Default handlers and filters, <br />[Custom handlers and filters](#custom-data-sources) | Elenca tutte le [mapping functions](./mapping.md) e i relativi tipi di gestori, con filtri di mappatura aggiuntivi. <br /><br /> For custom runtimes mapping handlers please view [Custom data sources](#custom-data-sources) |
+| **handlers & filters** | [Default handlers and filters](./manifest/#mapping-handlers-and-filters) | Default handlers and filters, <br />[Custom handlers and filters](#custom-data-sources) | Elenca tutte le [mapping functions](./mapping/polkadot.md) e i relativi tipi di gestori, con filtri di mappatura aggiuntivi. <br /><br /> For custom runtimes mapping handlers please view [Custom data sources](#custom-data-sources) |
 
 ## Data Sources and Mapping
 
@@ -106,9 +106,9 @@ The following table explains filters supported by different handlers.
 
 | Handler                                    | Supported filter             |
 | ------------------------------------------ | ---------------------------- |
-| [BlockHandler](./mapping.md#block-handler) | `specVersion`                |
-| [EventHandler](./mapping.md#event-handler) | `module`,`method`            |
-| [CallHandler](./mapping.md#call-handler)   | `module`,`method` ,`success` |
+| [BlockHandler](./mapping/polkadot.md#block-handler) | `specVersion`                |
+| [EventHandler](./mapping/polkadot.md#event-handler) | `module`,`method`            |
+| [CallHandler](./mapping/polkadot.md#call-handler)   | `module`,`method` ,`success` |
 
 Default runtime mapping filters are an extremely useful feature to decide what block, event, or extrinsic will trigger a mapping handler.
 

@@ -115,7 +115,7 @@ dataSources:
 
 Това означава, че ще изпълняваме функция за съпоставяне `handleEvent` всеки път, когато има събитие `balans.Transfer`.
 
-За повече информация относна файла Project Manifest (`project.yaml`), проверете документацията ни в раздела [Build/Manifest File](../build/manifest.md)
+За повече информация относна файла Project Manifest (`project.yaml`), проверете документацията ни в раздела [Build/Manifest File](../build/manifest/polkadot.md)
 
 ### Добавяне на Mappring функция
 
@@ -154,7 +154,7 @@ export async function handleEvent(event: SubstrateEvent): Promise<void> {
 
 Това, което прави, е получаването на SubstrateEvent, което включва трансфер на данни в полезния товар. Ние извличаме тези данни и след това създаваме нов обект `Transfer`, който сме определили по-рано във файла `schema.graphql`. Добавяме допълнителна информация и след това използваме функцията `.save()` за запазване на новият обект (SubQuery автоматично ще го съхрани в базата данни).
 
-За повече информация относно mapping функциите вижте нашата документация под[Build/Mappings](../build/mapping.md)
+За повече информация относно mapping функциите вижте нашата документация под[Build/Mappings](../build/mapping/polkadot.md)
 
 ### Изграждане на проект
 

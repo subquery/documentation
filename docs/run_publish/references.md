@@ -28,13 +28,13 @@ This command is uses webpack to generate a bundle of a subquery project.
 | --mode=(production | prod                                                        | development | dev) | [ default: production ] |
 
 - With `subql build` you can specify additional entry points in exports field although it will always build
-  `index.ts` automatically
+  `index.ts` automatically.
 
 - You need to have @subql/cli v0.19.0 or above to use exports field.
 
 - Any `exports` field must map to string type (e.g. `"entry": "./src/file.ts"`), else it will be ignored from build.
 
-[Futher example](https://doc.subquery.network/create/introduction/#build).
+[Futher example](../build/introduction.md#build).
 
 ## subql-node
 
@@ -66,7 +66,7 @@ Options:
                                                       [boolean] [default: false]
       --profiler            Show profiler information to console output
                                                       [boolean] [default: false]
-      --subscription        Enable subscription       [boolean] [default: false]                                                     
+      --subscription        Enable subscription       [boolean] [default: false]
       --network-endpoint    Blockchain network endpoint to connect      [string]
       --output-fmt          Print log as json or plain text
                                            [string] [choices: "json", "colored"]
@@ -84,6 +84,11 @@ Options:
       --proof-of-index      Enable/disable proof of index
                                                       [boolean] [default: false]
   -p, --port                The port the service will bind to           [number]
+      --disable-historical  Disable storing historical state entities
+                                                       [boolean] [default: true]
+      --reindex             Reindex to specified block height           [number]
+  -w, --workers             Number of worker threads to use for fetching and
+                            processing blocks. Disabled by default.     [number]
 ```
 
 ### --version
@@ -138,7 +143,7 @@ This flag is primarily used for debugging purposes where it creates the default 
 subql-node -f . --local
 ```
 
-Note that once you use this flag, removing it won't mean that it will point to another database. To repoint to another database you will have to create a NEW database and change the env settings to this new database. In other words, "export DB_DATABASE=<new_db_here>"
+Note that once you use this flag, removing it won't mean that it will point to another database. To repoint to another database you will have to create a NEW database and change the env settings to this new database. In other words, "export DB_DATABASE=<new_db_here>".
 
 ### --force-clean
 
@@ -153,6 +158,7 @@ subql-node -f . --db-schema=test2
 ```
 
 ### --subscription
+
 This will create a notification trigger on entity, this also is the prerequisite to enable subscription feature in query service.
 
 ### --unsafe
@@ -165,7 +171,7 @@ SubQuery Projects are usually run in a javascript sandbox for security to limit 
 
 Although this enhances security we understand that this limits the available functionality of your SubQuery. The `--unsafe` command imports all default javascript modules which greatly increases sandbox functionality with the tradeoff of decreased security.
 
-**Note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in SubQuery's managed service ([project.subquery.network](https://project.subquery.network))**
+**Note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in [SubQuery's Managed Service](https://project.subquery.network).**
 
 ### --batch-size
 
@@ -181,11 +187,11 @@ This flag allows you to set the batch size in the command line. If batch size is
 
 ### --scale-batch-size
 
-Scale the block fetch batch size with memory usage
+Scale the block fetch batch size with memory usage.
 
 ### --timeout
 
-Set custom timeout for the javascript sandbox to execute mapping functions over a block before the block mapping function throws a timeout exception
+Set custom timeout for the javascript sandbox to execute mapping functions over a block before the block mapping function throws a timeout exception.
 
 ### --debug
 
@@ -278,7 +284,7 @@ This removes the created_at and updated_at columns in the starter_entities table
 
 ### -d, --network-dictionary
 
-This allows you to specify a dictionary endpoint which is a free service that is provided and hosted at: [https://explorer.subquery.network/](https://explorer.subquery.network/) (search for dictionary) and presents an API endpoint of: https://api.subquery.network/sq/subquery/dictionary-polkadot
+This allows you to specify a dictionary endpoint which is a free service that is provided and hosted at SubQuery's [Project Explorer](https://explorer.subquery.network/) (search for dictionary) and presents an API endpoint of: https://api.subquery.network/sq/subquery/dictionary-polkadot.
 
 Typically this would be set in your manifest file but below shows an example of using it as an argument in the command line.
 
@@ -290,11 +296,34 @@ subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot
 
 ### -p, --port
 
-The port the subquery indexing service binds to. By default this is set to `3000`
+The port the subquery indexing service binds to. By default this is set to `3000`.
 
 ### --disable-historical
 
 Disables automated historical state tracking, [see Historic State Tracking](./historical.md). By default this is set to `false`.
+
+### --reindex
+
+Use `--reindex=<blockNumber>` to remove indexed data and reindex from specified block height.
+
+:::info Note
+Please note that the way of using this feature will be updated soon.
+:::
+
+### -w, --workers
+
+This will move block fetching and processing into a worker. By default, this feature is **disabled**. You can enable it with the `--workers=<number>` flag.
+Note that the number of available CPU cores strictly limits the usage of worker threads. So, when using the `--workers=<number>` flag, always specify the number of workers. With no flag provided, everything will run in the same thread.
+
+:::tip Tip
+It can increase performance by up to 4 times. Give it a try and let us know your feedback!
+
+It is at an early experimental stage at the moment, but we plan to enable it by default.
+:::
+
+::: info Note
+This feature is available for Substrate and Cosmos, and soon will be integrated for Avalanche.
+:::
 
 ## subql-query
 
@@ -308,7 +337,7 @@ Options:
       --version       Show version number                                [boolean]
   -n, --name          Project name                             [string] [required]
       --playground    Enable graphql playground                          [boolean]
-      --subscription  Enable subscription               [boolean] [default: false]   
+      --subscription  Enable subscription               [boolean] [default: false]
       --output-fmt    Print log as json or plain text
                         [string] [choices: "json", "colored"] [default: "colored"]
       --log-level     Specify log level to print.
@@ -354,37 +383,37 @@ This flag enables the graphql playground so should always be included by default
 
 ### --output-fmt
 
-See [--output-fmt](https://doc.subquery.network/run_publish/references.html#output-fmt)
+See [--output-fmt](../run_publish/references.md#output-fmt).
 
 ### --log-level
 
-See [--log-level](https://doc.subquery.network/run_publish/references.html#log-level)
+See [--log-level](../run_publish/references.md#log-level).
 
 ### --log-path
 
-Enable file logging by providing a path to a file to log to
+Enable file logging by providing a path to a file to log to.
 
 ### --log-rotate
 
-Enable file log rotations with the options of a 1d rotation interval, a maximum of 7 files and with a max file size of 1GB
+Enable file log rotations with the options of a 1d rotation interval, a maximum of 7 files and with a max file size of 1GB.
 
 ### --indexer
 
-Set a custom url for the location of the endpoints of the indexer, the query service uses these endpoints for indexer health, metadata and readiness status
+Set a custom url for the location of the endpoints of the indexer, the query service uses these endpoints for indexer health, metadata and readiness status.
 
 ### --subscription
 
-This flag enables [GraphQL Subscriptions](./subscription.md), to enable this feature requires `subql-node` also enable `--subscription`
+This flag enables [GraphQL Subscriptions](./subscription.md), to enable this feature requires `subql-node` also enable `--subscription`.
 
 ### --unsafe
 
 The query service has a limit of 100 entities for unbounded graphql queries. The unsafe flag removes this limit which may cause performance issues on the query service. It is recommended instead that queries are [paginated](https://graphql.org/learn/pagination/).
 
-This flag enables certain aggregation functions including sum, max, avg and others. Read more about this feature [here](./aggregate.md)
+This flag enables certain aggregation functions including sum, max, avg and others. Read more about this feature [here](../run_publish/aggregate.md).
 
 These are disabled by default due to the entity limit.
 
-**Note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in SubQuery's managed service [project.subquery.network](https://project.subquery.network).**
+**Note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in [SubQuery's Managed Services](https://project.subquery.network).**
 
 ### --port
 

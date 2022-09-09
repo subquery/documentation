@@ -1,7 +1,7 @@
 # Running SubQuery Locally
 
 This guide works through how to run a local SubQuery node on your infrastructure, which includes both the indexer and query service.
-Don't want to worry about running your own SubQuery infrastructure? SubQuery provides a [managed hosted service](https://explorer.subquery.network) to the community for free. [Follow our publishing guide](../run_publish/publish.md) to see how you can upload your project to [SubQuery Projects](https://project.subquery.network).
+Don't want to worry about running your own SubQuery infrastructure? SubQuery provides a [Managed Service](https://explorer.subquery.network) to the community for free. [Follow our publishing guide](../run_publish/publish.md) to see how you can upload your project to [SubQuery Projects](https://project.subquery.network).
 
 ## Using Docker
 
@@ -13,13 +13,15 @@ Under the project directory run the following command:
 docker-compose pull && docker-compose up
 ```
 
+::: info Note
 It may take some time to download the required packages ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), and Postgres) for the first time but soon you'll see a running SubQuery node.
+:::
 
 ## Running an Indexer (subql/node)
 
 Requirements:
 
-- [Postgres](https://www.postgresql.org/) database (version 12 or higher). While the [SubQuery node](#start-a-local-subquery-node) is indexing the blockchain, the extracted data is stored in an external database instance.
+- [Postgres](https://www.postgresql.org/) database (version 12 or higher). While the [SubQuery node](run.md#start-a-local-subquery-node) is indexing the blockchain, the extracted data is stored in an external database instance.
 
 A SubQuery node is an implementation that extracts Substrate/Polkadot-based blockchain data per the SubQuery project and saves it into a Postgres database.
 
@@ -28,7 +30,7 @@ A SubQuery node is an implementation that extracts Substrate/Polkadot-based bloc
 <CodeGroup>
 <CodeGroupItem title='Substrate/Polkadot'>
 
-``` shell
+```shell
 # NPM
 npm install -g @subql/node
 ```
@@ -36,7 +38,7 @@ npm install -g @subql/node
 </CodeGroupItem>
 <CodeGroupItem title='Terra'>
 
-``` shell
+```shell
 # NPM
 npm install -g @subql/node-terra
 ```
@@ -44,18 +46,19 @@ npm install -g @subql/node-terra
 </CodeGroupItem>
 <CodeGroupItem title='Avalanche'>
 
-``` shell
+```shell
 # NPM
 npm install -g @subql/node-avalanche
-````
+```
 
 </CodeGroupItem>
 </CodeGroup>
 
+::: danger
 Please note that we **DO NOT** encourage the use of `yarn global` due to its poor dependency management which may lead to an errors down the line.
+:::
 
 Once installed, you can start a node with the following command:
-
 
 <CodeGroup>
 <CodeGroupItem title='Substrate/Polkadot'>
@@ -75,7 +78,7 @@ subql-node-terra <command>
 <CodeGroupItem title='Avalanche'>
 
 ```shell
-subql-node-avalanche <command> 
+subql-node-avalanche <command>
 ```
 
 </CodeGroupItem>
@@ -118,7 +121,7 @@ Using a full chain dictionary can dramatically speed up the processing of a SubQ
 
 A full chain dictionary pre-indexes the location of all events and extrinsics within the specific chain and allows your node service to skip to relevant locations when indexing rather than inspecting each block.
 
-You can add the dictionary endpoint in your `project.yaml` file (see [Manifest File](../create/manifest.md)), or specify it at run time using the following command:
+You can add the dictionary endpoint in your `project.yaml` file (see [Manifest File](../build/manifest/polkadot.md)), or specify it at run time using the following command:
 
 <CodeGroup>
 <CodeGroupItem title='Substrate/Polkadot/Polkadot'>
@@ -144,7 +147,9 @@ subql-node-avalanche --network-dictionary=https://api.subquery.network/sq/subque
 </CodeGroupItem>
 </CodeGroup>
 
-[Read more about how a SubQuery Dictionary works](../academy/tutorials_examples/dictionary.md).
+::: info Note
+You can read more about [how a SubQuery Dictionary works](../academy/tutorials_examples/dictionary.md).
+:::
 
 #### Connect to database
 
@@ -240,8 +245,8 @@ If local mode is not used, a new Postgres schema with the initial `subquery_ ` a
 
 There are 2 endpoints that you can use to check and monitor the health of a running SubQuery node.
 
-- Health check endpoint that returns a simple 200 response
-- Metadata endpoint that includes additional analytics of your running SubQuery node
+- Health check endpoint that returns a simple 200 response.
+- Metadata endpoint that includes additional analytics of your running SubQuery node.
 
 Append this to the base URL of your SubQuery node. Eg `http://localhost:3000/meta` will return:
 
@@ -305,7 +310,7 @@ Debugger attached.
 ```
 
 Then open up the Chrome dev tools, go to Source > Filesystem and add your project to the workspace and start debugging. For more information, check out
-[How to debug a SubQuery project](https://doc.subquery.network/academy/tutorials_examples/debug-projects/)
+[How to debug a SubQuery project](../academy/tutorials_examples/debug-projects.md).
 
 ## Running a Query Service (subql/query)
 
@@ -316,7 +321,9 @@ Then open up the Chrome dev tools, go to Source > Filesystem and add your projec
 npm install -g @subql/query
 ```
 
+::: danger
 Please note that we **DO NOT** encourage the use of `yarn global` due to its poor dependency management which may lead to an errors down the line.
+:::
 
 ### Running the Query service
 
@@ -325,6 +332,6 @@ export DB_HOST=localhost
 subql-query --name <project_name> --playground
 ```
 
-Make sure the project name is the same as the project name when you [initialize the project](../quickstart/quickstart-polkadot.md#initialise-the-starter-subquery-project). Also, check the environment variables are correct.
+Make sure the project name is the same as the project name when you [initialize the project](../quickstart/quickstart.md#_2-initialise-the-subquery-starter-project). Also, check the environment variables are correct.
 
 After running the subql-query service successfully, open your browser and head to `http://localhost:3000`. You should see a GraphQL playground showing in the Explorer and the schema that is ready to query.

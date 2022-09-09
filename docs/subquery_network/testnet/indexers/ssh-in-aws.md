@@ -14,7 +14,7 @@ We will use this address to SSH into our instance via our command line terminal.
 
 ## Step 2: SSH
 
-Run the following command
+Run the following command:
 
 ```jsx
 ssh i <path_to_pem_or_cer_private_key> ec2-user@<public_address>
@@ -28,4 +28,4 @@ ssh -i sean.cer ec2-user@ec2-54-153-196-193.ap-southeast-2.compute.amazonaws.com
 
 ## **Next Steps:**
 
-After finishing SSH, continue to the [next step of setting up your indexer](../indexers/install-indexer-aws.html#_1-10-ssh-to-your-ec2-instance).
+After finishing SSH, continue to the [next step of setting up your indexer](../indexers/install-indexer-aws.md#_1-10-ssh-to-your-ec2-instance).

@@ -15,6 +15,6 @@ Un code malveillant est susceptible d'attaquer l'hôte ou même de le compromett
 
 - Pour limiter l'accès à certains modules intégrés, seuls `assert`, `buffer`, `crypto``, util` et `path` sont sur la liste blanche.
 
-- Nous supportons les [modules tiers](../create/mapping.md#third-party-libraries) écrits en **CommonJS** et les bibliothèques **hybrides** comme `@polkadot/*` qui utilisent ESM par défaut.
+- Nous supportons les [modules tiers](../create/mapping/polkadot.md#third-party-libraries) écrits en **CommonJS** et les bibliothèques **hybrides** comme `@polkadot/*` qui utilisent ESM par défaut.
 
 - Tout module utilisant `HTTP` et `WebSocket` sont interdit.

@@ -4,7 +4,7 @@ The whole idea of a generic dictionary project is to index all the data from a b
 
 The `network.dictionary` endpoint is an optional parameter that if present, the SDK will automatically detect and use. `network.endpoint` is mandatory and will not compile if not present. 
 
-Taking the [SubQuery dictionary](https://github.com/subquery/subql-dictionary) project as an example, the [schema](https://github.com/subquery/subql-dictionary/blob/main/schema.graphql) file defines 3 entities; extrinsic, events, specVersion. These 3 entities contain 6, 4, and 2 fields respectively. When this project is run, these fields are reflected in the database tables. 
+Taking the [SubQuery dictionary](https://github.com/subquery/subql-dictionary) project as an example, the schema file defines 3 entities; extrinsic, events, specVersion. These 3 entities contain 6, 4, and 2 fields respectively. When this project is run, these fields are reflected in the database tables. 
 
 ![extrinsics table](/assets/img/extrinsics_table.png)
 ![events table](/assets/img/events_table.png)
@@ -40,6 +40,6 @@ This means that using a dictionary can reduce the amount of data that the indexe
 
 ## When is a dictionary NOT useful? 
 
-When [block handlers](https://doc.subquery.network/create/mapping.html#block-handler) are used to grab data from a chain, every block needs to be processed. Therefore, using a dictionary in this case does not provide any advantage and the indexer will automatically switch to the default non-dictionary approach. 
+When [block handlers](../../build/mapping/polkadot.md#block-handler) are used to grab data from a chain, every block needs to be processed. Therefore, using a dictionary in this case does not provide any advantage and the indexer will automatically switch to the default non-dictionary approach. 
 
 Also, when dealing with events or extrinsic that occur or exist in every block such as `timestamp.set`, using a dictionary will not offer any additional advantage.

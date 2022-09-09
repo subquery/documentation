@@ -11,7 +11,7 @@ It is our aim to always listen and engage with our loyal community so please joi
 - [Medium](https://subquery.medium.com) (Primary announcements channel)
 - [Twitter](https://twitter.com/subquerynetwork)
 - [Telegram](https://t.me/subquerynetwork) (Announcements channel only)
-- [GitHub](https://github.com/SubQuery/subql)
+- [GitHub](https://github.com/subquery/)
 - [Matrix/Riot](https://matrix.to/#/#subquery:matrix.org)
 - [LinkedIn](https://www.linkedin.com/company/subquery)
 

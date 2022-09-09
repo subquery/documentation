@@ -8,4 +8,6 @@ Alternatively, you can click on the three dots next to the title of your project
 
 ![Projects in SubQuery Explorer](/assets/img/projects-explorer.png)
 
-[Learn more about the GraphQL Query language.](./graphql.md)
+::: info Note
+Learn more about the [GraphQL Query language.](./graphql.md)
+:::
