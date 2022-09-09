@@ -66,7 +66,7 @@
       <li>
         <div class="title">Was ist SubQuery?</div>
         <div class="content">
-          <p>SubQuery is an open source blockchain data indexer for developers that provides fast, flexible, reliable, and decentralised APIs to power leading multi-chain apps.</p>
+          <p>SubQuery ist ein Open-Source-Blockchain-Datenindexer für Entwickler, der schnelle, flexible, zuverlässige und dezentralisierte APIs bereitstellt, um führende Multi-Chain-Apps zu betreiben.</p>
           <span class="more">
             <router-link :to="{path: '/faqs/faqs.html#what-is-subquery'}">READ MORE</router-link>
           </span>
@@ -75,7 +75,7 @@
       <li>
         <div class="title">Was ist der beste Weg, um mit SubQuery zu beginnen?</div>
         <div class="content">
-          <p>The best way to get started with SubQuery is to try out our <a href="/quickstart/quickstart.html">Quick Start</a> tutorial. This is a simple 5 min walk through exercise. Download the starter template, build the project, use Docker to run a node on your localhost, and run a simple query.</p>
+          <p>The best way to get started with SubQuery is to try out our <a href="/quickstart/quickstart.html">Quick Start</a> tutorial. Dies ist eine einfache 5-minütige Walk-Through-Übung. Laden Sie die Startvorlage herunter, erstellen Sie das Projekt, verwenden Sie Docker, um einen Knoten auf Ihrem lokalen Host auszuführen, und führen Sie eine einfache Abfrage aus.</p>
         </div>
       </li>
       <li>
@@ -106,7 +106,7 @@
         <h5>Integrate with Your Custom Substrate Chain</h5>
         <p>Whether you're building a new parachain or an entirely new blockchain on Substrate — SubQuery can help you index and troubleshoot your chain's data. SubQuery helps you easily integrate with a custom Substrate-based chain.</p>
         <span class="more">
-          <router-link :to="{path: '/build/manifest/polkadot.html#custom-substrate-chains'}">ERFAHREN SIE, WIE SIE IN IHRE CHAIN INTEGRIERT WERDEN</router-link>
+          <router-link :to="{path: '/build/manifest/polkadot.html#custom-substrate-chains'}">LEARN HOW TO INTEGRATE WITH YOUR CHAIN</router-link>
         </span>
     </div>
     <div class="lastIntroduce lastIntroduce_2">
