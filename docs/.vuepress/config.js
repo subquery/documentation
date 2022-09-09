@@ -270,6 +270,7 @@ function getSidebar(locale, language) {
             ],
           },
           `${locale}/build/substrate-evm.md`,
+          `${locale}/build/substrate-wasm.md`,
           `${locale}/build/cosmos-evm.md`,
           `${locale}/build/dynamicdatasources.md`,
           `${locale}/build/graph-migration.md`,
