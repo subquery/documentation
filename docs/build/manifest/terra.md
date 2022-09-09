@@ -23,7 +23,11 @@ schema:
   file: ./schema.graphql
 network:
   chainId: columbus-5
-  # Must be a non-pruned archive node
+  # This endpoint must be a public non-pruned archive node
+  # Public nodes may be rate limited, which can affect indexing speed
+  # When developing your project we suggest getting a private API key
+  # You can get them from OnFinality for free https://app.onfinality.io
+  # https://documentation.onfinality.io/support/the-enhanced-api-service
   endpoint: https://terra-columbus-5.beta.api.onfinality.io
   # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
   dictionary: https://api.subquery.network/sq/subquery/terra-columbus-5-dictionary
@@ -125,8 +129,8 @@ Defines the data that will be filtered and extracted and the location of the map
 
 ### Mapping Spec
 
-| Field                  | Type                         | Description                                                                                                            |
-| ---------------------- | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| Field                  | Type                         | Description                                                                                                                     |
+| ---------------------- | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
 | **handlers & filters** | Default handlers and filters | List all the [mapping functions](./mapping/polkadot.md) and their corresponding handler types, with additional mapping filters. |
 
 ## Data Sources and Mapping
@@ -147,8 +151,8 @@ The following table explains filters supported by different handlers.
 
 **Your SubQuery project will be much more efficient when you only use `TransactionHandler`, `MessageHandler`, or `EventHandler` handlers with appropriate mapping filters (e.g. NOT a `BlockHandler`).**
 
-| Handler                                                      | Supported filter          |
-| ------------------------------------------------------------ | ------------------------- |
+| Handler                                                               | Supported filter          |
+| --------------------------------------------------------------------- | ------------------------- |
 | [terra/BlockHandler](./mapping/polkadot.md#block-handler)             | No filters                |
 | [terra/TransactionHandler](./mapping/polkadot.md#transaction-handler) | No filters                |
 | [terra/MessageHandler](./mapping/polkadot.md#message-handler)         | `type`, `values`\*        |

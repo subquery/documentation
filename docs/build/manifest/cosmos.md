@@ -23,13 +23,18 @@ schema:
   file: ./schema.graphql
 network:
   chainId: juno-1
-  # Must be a non-pruned archive node
-  endpoint: https://rpc.juno-1.api.onfinality.io
+  # This endpoint must be a public non-pruned archive node
+  # Public nodes may be rate limited, which can affect indexing speed
+  # When developing your project we suggest getting a private API key
+  # You can get them from OnFinality for free https://app.onfinality.io
+  # https://documentation.onfinality.io/support/the-enhanced-api-service
+  endpoint: https://juno.api.onfinality.io/public
   # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
-  dictionary: https://api.subquery.network/sq/subquery/cosmos-juno-1-dictionary
+  dictionary: https://api.subquery.network/sq/subquery/cosmos-juno-dictionary
+
 dataSources:
   - kind: cosmos/Runtime
-    startBlock: 3062001 # first block on juno-1
+    startBlock: 4415041 # first block on the fourth iteration of juno
     #chainTypes: # This is a beta feature that allows support for any Cosmos chain by importing the correct protobuf messages
     #  cosmos.slashing.v1beta1:
     #    file: "./proto/cosmos/slashing/v1beta1/tx.proto"
@@ -65,12 +70,12 @@ dataSources:
 
 We expect that SubQuery will work with all Cosmos chains with the import of the correct protobuf definitions. We've tested this with the following chains, and feel free to make a PR to not support for other chains when you are able to test and confirm them.
 
-| Network Name   | Endpoint | Dictionary Endpoint | Protobufs |
-| -------------- | -------------------------------------------------- | ----------------------------------------------------------------------- | --- |
-| Juno       | `rpc.juno-1.api.onfinality.io`       | `https://api.subquery.network/sq/subquery/cosmos-juno-dictionary` | None |
-| Stargaze      | `http://nodes.stargaze-1.publicawesome.dev:26657/`      | `https://api.subquery.network/sq/subquery/cosmos-stargaze-dictionary`         | [Example](https://github.com/subquery/cosmos-subql-starter/blob/stargaze-1/project.yaml#L23) |
-| Cosmos Hub | `https://rpc.cosmos.network` | `https://api.subquery.network/sq/subquery/cosmos-hub-dictionary`    | [Example](https://github.com/subquery/cosmos-subql-starter/blob/cosmoshub-4/project.yaml#L22) |
-| Fetch Hub          | `https://rpc-fetchhub.fetch.ai`          | `https://api.subquery.network/sq/subquery/cosmos-fetch-ai-dictionary`  | [Example](https://github.com/subquery/cosmos-subql-starter/blob/fetchhub-4/project.yaml) |
+| Network Name | Endpoint                                           | Dictionary Endpoint                                                   | Protobufs                                                                                     |
+| ------------ | -------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| Juno         | `rpc.juno-1.api.onfinality.io`                     | `https://api.subquery.network/sq/subquery/cosmos-juno-dictionary`     | None                                                                                          |
+| Stargaze     | `http://nodes.stargaze-1.publicawesome.dev:26657/` | `https://api.subquery.network/sq/subquery/cosmos-stargaze-dictionary` | [Example](https://github.com/subquery/cosmos-subql-starter/blob/stargaze-1/project.yaml#L23)  |
+| Cosmos Hub   | `https://rpc.cosmos.network`                       | `https://api.subquery.network/sq/subquery/cosmos-hub-dictionary`      | [Example](https://github.com/subquery/cosmos-subql-starter/blob/cosmoshub-4/project.yaml#L22) |
+| Fetch Hub    | `https://rpc-fetchhub.fetch.ai`                    | `https://api.subquery.network/sq/subquery/cosmos-fetch-ai-dictionary` | [Example](https://github.com/subquery/cosmos-subql-starter/blob/fetchhub-4/project.yaml)      |
 
 ## Overview
 
@@ -143,8 +148,8 @@ Defines the data that will be filtered and extracted and the location of the map
 
 ### Mapping Spec
 
-| Field                  | Type                                                                              | Description                                                                                                            |
-| ---------------------- | --------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| Field                  | Type                                                                              | Description                                                                                                                     |
+| ---------------------- | --------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
 | **handlers & filters** | Default handlers and filters, <br />[Custom handlers and filters](#custom-chains) | List all the [mapping functions](./mapping/polkadot.md) and their corresponding handler types, with additional mapping filters. |
 
 ## Data Sources and Mapping
@@ -165,12 +170,12 @@ The following table explains filters supported by different handlers.
 
 **Your SubQuery project will be much more efficient when you only use `TransactionHandler`, `MessageHandler`, or `EventHandler` handlers with appropriate mapping filters (e.g. NOT a `BlockHandler`).**
 
-| Handler                                                       | Supported filter                               |
-| ------------------------------------------------------------- | ---------------------------------------------- |
-| [cosmos/BlockHandler](./mapping/polkadot.md#block-handler)             | `modulo`                              |
-| [cosmos/TransactionHandler](./mapping/polkadot.md#transaction-handler) | `includeFailedTx`                     |
-| [cosmos/MessageHandler](./mapping/polkadot.md#message-handler)         | `includeFailedTx`, `type`, `values`   |
-| [cosmos/EventHandler](./mapping/polkadot.md#event-handler)             | `type`, `messageFilter`               |
+| Handler                                                                | Supported filter                    |
+| ---------------------------------------------------------------------- | ----------------------------------- |
+| [cosmos/BlockHandler](./mapping/polkadot.md#block-handler)             | `modulo`                            |
+| [cosmos/TransactionHandler](./mapping/polkadot.md#transaction-handler) | `includeFailedTx`                   |
+| [cosmos/MessageHandler](./mapping/polkadot.md#message-handler)         | `includeFailedTx`, `type`, `values` |
+| [cosmos/EventHandler](./mapping/polkadot.md#event-handler)             | `type`, `messageFilter`             |
 
 Default runtime mapping filters are an extremely useful feature to decide what block, event, or extrinsic will trigger a mapping handler.
 

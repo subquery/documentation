@@ -22,11 +22,14 @@ repository: https://github.com/subquery/avalanche-subql-starter
 schema:
   file: ./schema.graphql
 network:
-  chainId: mainnet
-  type: avalanche
-  chainName: C
-  # Must be a non-pruned archive node
-  endpoint: https://avalanche.api.onfinality.io/
+  chainId: "mainnet"
+  subnet: "C"
+  # This endpoint must be a public non-pruned archive node
+  # Public nodes may be rate limited, which can affect indexing speed
+  # When developing your project we suggest getting a private API key
+  # You can get them from OnFinality for free https://app.onfinality.io
+  # https://documentation.onfinality.io/support/the-enhanced-api-service
+  endpoint: "https://avalanche.api.onfinality.io/public"
   # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
   dictionary: https://api.subquery.network/sq/subquery/avalanche-dictionary
 dataSources:
@@ -132,8 +135,8 @@ Defines the data that will be filtered and extracted and the location of the map
 
 ### Mapping Spec
 
-| Field                  | Type                         | Description                                                                                                            |
-| ---------------------- | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| Field                  | Type                         | Description                                                                                                                     |
+| ---------------------- | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
 | **handlers & filters** | Default handlers and filters | List all the [mapping functions](./mapping/polkadot.md) and their corresponding handler types, with additional mapping filters. |
 
 ## Data Sources and Mapping
@@ -155,8 +158,8 @@ The following table explains filters supported by different handlers.
 
 **Your SubQuery project will be much more efficient when you only use `TransactionHandler` or `LogHandler` handlers with appropriate mapping filters (e.g. NOT a `BlockHandler`).**
 
-| Handler                                                | Supported filter                                                                                    |
-| ------------------------------------------------------ | --------------------------------------------------------------------------------------------------- |
+| Handler                                                         | Supported filter                                                                                    |
+| --------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
 | [BlockHandler](./mapping/polkadot.md#block-handler)             | No filters                                                                                          |
 | [TransactionHandler](./mapping/polkadot.md#transaction-handler) | `function` filters (either be the function fragment or signature), `from` (address), `to` (address) |
 | [LogHandler](./mapping/polkadot.md#log-handler)                 | `topics` filters, and `address`                                                                     |
