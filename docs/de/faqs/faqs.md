@@ -48,54 +48,54 @@ Der Staging-Slot wird der Öffentlichkeit im [Explorer](https://explorer.subquer
 
 ## Was sind Polkadots Extrinsics?
 
-Wenn Sie bereits mit Blockchain-Konzepten vertraut sind, können Sie sich Extrinsics als vergleichbar mit Transaktionen vorstellen. More formally though, an extrinsic is a piece of information that comes from outside the chain and is included in a block. There are three categories of extrinsics. They are inherents, signed transactions, and unsigned transactions.
+Wenn Sie bereits mit Blockchain-Konzepten vertraut sind, können Sie sich Extrinsics als vergleichbar mit Transaktionen vorstellen. Formaler ist eine extrinsische Information jedoch eine Information, die von außerhalb der Chain kommt und in einem Block enthalten ist. Es gibt drei Kategorien von Extrinsics. Sie sind Inhärente, signierte Transaktionen und nicht signierte Transaktionen.
 
-Inherent extrinsics are pieces of information that are not signed and only inserted into a block by the block author.
+Inhärente Extrinsics sind Informationen, die nicht signiert sind und nur vom Blockautor in einen Block eingefügt werden.
 
-Signed transaction extrinsics are transactions that contain a signature of the account that issued the transaction. They stands to pay a fee to have the transaction included on chain.
+Signierte Transaktionsextrinsiken sind Transaktionen, die eine Signatur des Kontos enthalten, das die Transaktion ausgegeben hat. Sie zahlen eine Gebühr, um die Transaktion in die Chain aufzunehmen.
 
-Unsigned transactions extrinsics are transactions that do not contain a signature of the account that issued the transaction. Unsigned transactions extrinsics should be used with care because there is nobody paying a fee, becaused they are not signed. Because of this, the transaction queue lacks economic logic to prevent spam.
+Extrinsische nicht signierte Transaktionen sind Transaktionen, die keine Signatur des Kontos enthalten, das die Transaktion ausgegeben hat. Unsignierte Transaktionen sollten mit Vorsicht verwendet werden, da niemand eine Gebühr zahlt, da sie nicht signiert sind. Aus diesem Grund fehlt der Transaktionswarteschlange die ökonomische Logik, um Spam zu verhindern.
 
-For more information, click [here](https://substrate.dev/docs/en/knowledgebase/learn-substrate/extrinsics).
+Für weitere Info klicken Sie [hier](https://substrate.dev/docs/en/knowledgebase/learn-substrate/extrinsics).
 
-## What is the endpoint for the Kusama network?
+## Was ist der Endpunkt für das Kusama-Netzwerk?
 
-The network.endpoint for the Kusama network is `wss://kusama.api.onfinality.io/public-ws`.
+Der network.endpoint für das Kusama-Netzwerk ist `wss://kusama.api.onfinality.io/public-ws`.
 
-## What is the endpoint for the Polkadot mainnet network?
+## Was ist der Endpunkt für das Polkadot-Mainnet-Netzwerk?
 
-The network.endpoint for the Polkadot network is `wss://polkadot.api.onfinality.io/public-ws`.
+Der network.endpoint für das Polkadot-Netzwerk ist `wss://polkadot.api.onfinality.io/public-ws`.
 
-## How do I iteratively develop my project schema?
+## Wie entwickle ich mein Projektschema iterativ?
 
-A known issue with developing a changing project schema is that when lauching your Subquery node for testing, the previously indexed blocks will be incompatible with your new schema. In order to iteratively develop schemas the indexed blocks stored in the database must be cleared, this can be achieved by launching your node with the `--force-clean` flag. For example:
+Ein bekanntes Problem bei der Entwicklung eines sich ändernden Projektschemas besteht darin, dass beim Starten Ihres Unterabfrageknotens zum Testen die zuvor indizierten Blöcke nicht mit Ihrem neuen Schema kompatibel sind. Um Schemata iterativ zu entwickeln, müssen die in der Datenbank gespeicherten indizierten Blöcke gelöscht werden. Dies kann erreicht werden, indem Sie Ihren Knoten mit dem Flag `--force-clean` starten. Zum Beispiel:
 
 ```shell
 subql-node -f . --force-clean --subquery-name=<project-name>
 ```
 
-Note that it is recommended to use `--force-clean` when changing the `startBlock` within the project manifest (`project.yaml`) in order to begin reindexing from the configured block. If `startBlock` is changed without a `--force-clean` of the project, then the indexer will continue indexing with the previously configured `startBlock`.
+Beachten Sie, dass empfohlen wird, `--force-clean` zu verwenden, wenn Sie den `startBlock` im Projektmanifest (`project.yaml`) ändern, um zu beginnen Neuindizierung aus dem konfigurierten Block. Wenn `startBlock` ohne `--force-clean` des Projekts geändert wird, dann wird der Indexer die Indizierung mit dem zuvor konfigurierten `startBlock` fortsetzen.
 
 
-## How can I optimise my project to speed it up?
+## Wie kann ich mein Projekt optimieren, um es zu beschleunigen?
 
-Performance is a crucial factor in each project. Fortunately, there are several things you could do to improve it. Here is the list of some suggestions:
+Leistung ist ein entscheidender Faktor in jedem Projekt. Glücklicherweise gibt es mehrere Dinge, die Sie tun könnten, um es zu verbessern. Hier ist die Liste mit einigen Vorschlägen:
 
-- Avoid using block handlers where possible.
-- Query only necessary fields.
-- Try to use filter conditions to reduce the response size. Create filters as specific as possible to avoid querying unnecessary data.
-- For large data tables, avoid querying `totalCount` without adding conditions.
-- Add indexes to entity fields for query performance, this is especially important for historical projects.
-- Set the start block to when the contract was initialised.
-- Always use a [dictionary](../tutorials_examples/dictionary.html#how-does-a-subquery-dictionary-work) (we can help create one for your new network).
-- Optimise your schema design, keep it as simple as possible.
-    - Try to reduce unnecessary fields and columns.
-    - Create  indexes as needed.
-- Use parallel/batch processing as often as possible.
-    - Use `api.queryMulti()` to optimise Polkadot API calls inside mapping functions and query them in parallel. This is a faster way than a loop.
-    - Use `Promise.all()`. In case of multiple async functions, it is better to execute them and resolve in parallel.
-    - If you want to create a lot of entities within a single handler, you can use `store.bulkCreate(entityName: string, entities: Entity[])`. You can create them in parallel, no need to do this one by one.
-- Making API calls to query state can be slow. You could try to minimise calls where possible and to use `extrinsic/transaction/event` data.
-- Use `worker threads` to move block fetching and block processing into its own worker thread. It could speed up indexing by up to 4 times (depending on the particular project). You can easily enable it using the `-workers=<number>` flag. Note that the number of available CPU cores strictly limits the usage of worker threads. For now, it is only available for Substrate and Cosmos and will soon be integrated for Avalanche.
-- Note that `JSON.stringify` doesn’t support native `BigInts`. Our logging library will do this internally if you attempt to log an object. We are looking at a workaround for this.
-- Use a convenient `modulo` filter to run a handler only once to a specific block. This filter allows handling any given number of blocks, which is extremely useful for grouping and calculating data at a set interval. For instance, if modulo is set to 50, the block handler will run on every 50 blocks. It provides even more control over indexing data to developers and can be implemented like so below in your project manifest.
+- Vermeiden Sie nach Möglichkeit die Verwendung von Block-Handlern.
+- Nur notwendige Felder abfragen.
+- Versuchen Sie, Filterbedingungen zu verwenden, um die Antwortgröße zu reduzieren. Erstellen Sie möglichst spezifische Filter, um das Abfragen unnötiger Daten zu vermeiden.
+- Vermeiden Sie es bei großen Datentabellen, `totalCount` abzufragen, ohne Bedingungen hinzuzufügen.
+- Hinzufügen von Indizes zu Entitätsfeldern für die Abfrageleistung, dies ist besonders wichtig für historische Projekte.
+- Setzen Sie den Startblock auf den Zeitpunkt, an dem der Vertrag initialisiert wurde.
+- Verwenden Sie immer ein [Wörterbuch](../tutorials_examples/dictionary.html#how-does-a-subquery-dictionary-work) (wir können Ihnen helfen, eines für Ihr neues Netzwerk zu erstellen).
+- Optimieren Sie Ihr Schemadesign, halten Sie es so einfach wie möglich.
+    - Versuchen Sie unnötige Felder und Spalten zu reduzieren.
+    - Erstellen Sie nach Bedarf Indizes.
+- Verwenden Sie so oft wie möglich Parallel-/Batch-Verarbeitung.
+    - Verwenden Sie `api.queryMulti()`, um Polkadot-API-Aufrufe innerhalb von Mapping-Funktionen zu optimieren und sie parallel abzufragen. Dies ist ein schnellerer Weg als eine Schleife.
+    - Verwende `Promise.all()`. Bei mehreren asynchronen Funktionen ist es besser, sie parallel auszuführen und aufzulösen.
+    - Wenn Sie viele Entitäten in einem einzigen Handler erstellen möchten, können Sie `store.bulkCreate(entityName: string, entity: Entity[])` verwenden. Sie können sie parallel erstellen, ohne dass Sie dies einzeln tun müssen.
+- Das Ausführen von API-Aufrufen zum Abfragen des Status kann langsam sein. Sie könnten versuchen, Anrufe nach Möglichkeit zu minimieren und `extrinsische/Transaktions-/Ereignisdaten` zu verwenden.
+- Verwenden Sie `Worker-Threads`, um den Blockabruf und die Blockverarbeitung in einen eigenen Worker-Thread zu verschieben. Es könnte die Indizierung um das bis zu 4-fache beschleunigen (abhängig vom jeweiligen Projekt). Sie können es einfach mit dem Flag `-workers=<number>` aktivieren. Beachten Sie, dass die Anzahl der verfügbaren CPU-Kerne die Verwendung von Worker-Threads streng begrenzt. Derzeit ist es nur für Substrate und Cosmos verfügbar und wird bald für Avalanche integriert.
+- Beachten Sie, dass `JSON.stringify` keine nativen `BigInts` unterstützt. Unsere Protokollierungsbibliothek wird dies intern tun, wenn Sie versuchen, ein Objekt zu protokollieren. Wir suchen nach einem Workaround dafür.
+- Verwenden Sie einen praktischen `Modulo`-Filter, um einen Handler nur einmal für einen bestimmten Block auszuführen. Dieser Filter ermöglicht die Verarbeitung einer beliebigen Anzahl von Blöcken, was äußerst nützlich ist, um Daten in einem festgelegten Intervall zu gruppieren und zu berechnen. Wenn Modulo beispielsweise auf 50 eingestellt ist, wird der Blockhandler alle 50 Blöcke ausgeführt. Es bietet Entwicklern noch mehr Kontrolle über die Indizierung von Daten und kann wie unten in Ihrem Projektmanifest implementiert werden.
