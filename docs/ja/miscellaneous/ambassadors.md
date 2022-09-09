@@ -40,18 +40,17 @@ SubQueryでは、私たちがやっていることを達成するために懸命
 
 研修生プログラムに合格すると、SubQueryアンバサダーを名乗ることができ、正式なプログラムへの参加も認められます。 ここから先はプログラムを継続し、ランクアップしていくことで、より多くの報酬や特典を得ることができます。
 
-[今すぐ申し込む](https://forms.gle/GXBbJ6LDpNfM2v1X6)
 
 ## アンバサダーの活動
 
-SubQueryアンバサダーは、イベント運営、コンテンツ作成、翻訳、コミュニティ・モデレーションなど、主に4つの分野で貢献することができます。 好きなだけ多くのエリアに参加できます。あなたは誰にも縛られません。
+SubQuery Ambassadors are able to contribute through four main areas, including event management, content creation, translation, and community moderation. You can participate in as many areas as you want, you’re not bound to any single one.
 
-**イベント運営：**さまざまなイベントの主催、企画、運営を行い、ローカルコミュニティを形成します。 ローカルコミュニティを構築することは、SubQuery コミュニティを成長させる上で重要な役割を果たします。 SubQueryはイベントへの資金提供、スワッグ/グッズの送付、Q&AやオンラインイベントでのスピーカーやAMAセッションへの参加など、様々な形で皆様をサポートします。
+**Event Management:** Build local communities by hosting, organising, and managing different events. Building a local community will be a key part of growing the SubQuery community. SubQuery will support you by providing funding for events, sending swag/merchandise to be given away, as well as attending Q&As or online events as speakers or in AMA sessions.
 
-**コンテンツ作成：**私たちは、作成に協力してほしいコンテンツやサポート資料を数多く持っています。 私たちの成功は、ユーザが私たちのサービスを使って素晴らしいものを作ることができるかどうかにかかっていることを忘れないでください。 コンテンツにはSubQueryエコシステム内のコミュニティメンバーに情報を提供し、教育し、刺激を与えるためのビデオ、グラフィック、チュートリアル、アニメーション、またはその他の関連素材が含まれます。 SubQueryは、ブランディングアセットと専門知識を提供することで、コンテンツクリエーターをサポートします。 また、SubQueryのマーケティングチャネルを利用して、あなたのコンテンツ（とあなた自身）の認知度を高めます。
+**Content Creation:** We have a long list of content and support material that we need help creating. Remember, our success relies on the ability of our customers to build amazing things on our service, so we need your help to make that easier. Content includes videos, infographics, tutorials, animations, or any other related material, to inform, educate, or inspire community members within the SubQuery Ecosystem. SubQuery will support Content Creators by providing branding assets and expertise. We’ll also use SubQuery’s marketing channels to increase awareness of your content (and yourself).
 
-**翻訳：** 私たちのユーザは、英語だけを話すだけではありません！ SubQueryのコンテンツをあなたの言語に翻訳し、SubQueryをより利用しやすいものにするため、また、国際的なコミュニティへの情報発信のために、あなたの力を必要としています。
+**Translation:** Our customers don’t just speak English! We need your help making SubQuery more accessible by translating our content into your own language, as well as helping sharing the word to our international community.
 
-**コミュニティモデレーション：** モデレーターは、公式コミュニティチャンネルが活発で魅力的であることを確認し、SubQueryコミュニティの成長を支援します。 SubQueryは、モデレーターが監視するチャンネルを宣伝することでモデレーターをサポートし、また、私たちが期待するガイドラインを提供します。
+**Community Moderation:** Moderators will help grow the SubQuery community by ensuring that official community channels are active and engaging. SubQuery will support Moderators by promoting the channels that they monitor, as well as provide guidelines for our expectations.
 
 [今すぐ申し込む](https://forms.gle/GXBbJ6LDpNfM2v1X6)

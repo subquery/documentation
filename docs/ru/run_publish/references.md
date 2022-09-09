@@ -1,93 +1,98 @@
-# Флаги команд
+# Флаги командной строки
 
 ## subql (cli)
 
-### --help
+### - помощь
 
 ```shell
 > subql --help
 
-COMMANDS
-  build     Build this SubQuery project code
-  codegen   Generate schemas for graph node
-  help      display help for subql
-  init      Initialize a scaffold subquery project
-  migrate   Migrate Subquery project manifest v0.0.1 to v0.2.0
-  publish   Upload this SubQuery project to IPFS
-  validate  Check a folder or github repo is a validate subquery project
+КОМАНДЫ
+  build Построить код проекта SubQuery
+  codegen Генерировать схемы для узла графа
+  help Вывести справку для subql
+  init Инициализировать проект Subquery на основе эшафота
+  migrate Мигрировать манифест проекта Subquery с v0.0.1 на v0.2.0
+  publish Загрузите этот проект Subquery в IPFS
+  validate Проверить папку или репозиторий github на наличие проекта Subquery validate
 ```
 
-### build
+### создать
 
-Эта команда использует webpack для создания пакета проекта subquery.
+Эта команда использует webpack для генерации пакета проекта subquery.
 
 | Параметры          | Описание                                                                                                   |
 | ------------------ | ---------------------------------------------------------------------------------------------------------- |
-| -l, --location     | локальная папка проекта subquery (если вы еще не в папке)                                                  |
-| -o, --output       | указать выходную папку сборки, например build-folder                                                       |
+| -l, --location     | локальная папка проекта subquery (если ее еще нет в папке)                                                 |
+| -o, --output       | указать выходную папку сборки, например, build-folder                                                      |
 | --mode=(production | prod                                                        | development | dev) | [ default: production ] |
 
-- С помощью `subql build` вы можете указать дополнительные точки входа в поле экспорта, хотя он всегда будет создавать `index.ts` автоматически
+- В `subql build` вы можете указать дополнительные точки входа в поле exports, хотя он всегда будет строить `index.ts` автоматически.
 
-- Вам нужно иметь @subql/cli v0.19.0 или выше, чтобы использовать поле экспорта.
+- Для использования поля exports необходимо иметь @subql/cli версии 0.19.0 или выше.
 
-- Любое поле `exports` должно сопоставляться со строковым типом (например, `"entry": "./src/file.ts"`), иначе оно будет проигнорировано при сборке.
+- Любое поле `exports` должно соответствовать строковому типу (например, `"entry": "./src/file.ts"`), иначе оно будет проигнорировано при сборке.
 
-[Еще один пример](https://doc.subquery.network/create/introduction/#build).
+[Еще один пример](../build/introduction.md#build).
 
 ## subql-node
 
-### --help
+### - помощь
 
-Эта команда показывает варианты справки.
+Здесь отображаются параметры справки.
 
 ```shell
 > subql-node --help
-Options:
-      --help                Show help                                  [boolean]
-      --version             Show version number                        [boolean]
-  -f, --subquery            Local path of the subquery project          [string]
-      --subquery-name       Name of the subquery project   [deprecated] [string]
-  -c, --config              Specify configuration file                  [string]
-      --local               Use local mode                [deprecated] [boolean]
-      --force-clean         Force clean the database, dropping project schemas
-                            and tables                                 [boolean]
-      --db-schema           Db schema name of the project               [string]
-      --unsafe              Allows usage of any built-in module within the
-                            sandbox                    [boolean][default: false]
-      --batch-size          Batch size of blocks to fetch in one round  [number]
-      --scale-batch-size    scale batch size based on memory usage
-                                                      [boolean] [default: false]
-      --timeout             Timeout for indexer sandbox to execute the mapping
-                            functions                                   [number]
-      --debug               Show debug information to console output. will
+Опции:
+      --help Показать справку [boolean]
+      --version Показать номер версии [boolean]
+  -f, --subquery Локальный путь проекта подзапроса [string]
+      --subquery-name Имя проекта подзапроса [deprecated] [string]
+  -c, --config Укажите файл конфигурации [string]
+      --local Использовать локальный режим [deprecated] [boolean]
+      --force-clean Принудительно очистить базу данных, удаляя схемы проекта
+                            и таблицы [boolean]
+      --db-schema Имя схемы базы данных проекта [string]
+      --unsafe Разрешает использование любого встроенного модуля в пределах
+                            песочницы [boolean][по умолчанию: false]
+      --batch-size Пакетный размер блоков для выборки за один раунд [число]
+      --scale-batch-size Масштабировать размер пакета на основе использования памяти
+                                                      [булево] [по умолчанию: false]
+      --timeout Тайм-аут для песочницы индексатора для выполнения отображения
+                            функции [число]
+      --debug Показать отладочную информацию в консольном выводе. will
                             forcefully set log level to debug
                                                       [boolean] [default: false]
       --profiler            Show profiler information to console output
                                                       [boolean] [default: false]
-      --subscription        Enable subscription       [boolean] [default: false]                                                     
+      --subscription        Enable subscription       [boolean] [default: false]
       --network-endpoint    Blockchain network endpoint to connect      [string]
       --output-fmt          Print log as json or plain text
                                            [string] [choices: "json", "colored"]
-      --log-level           Specify log level to print. Ignored when --debug is
-                            used
+      --log-level           Specify log level to print. Игнорируется когда применяется --debug is
+                            используется
           [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
                                                                        "silent"]
-      --migrate             Migrate db schema (for management tables only)
+      --migrate             Переход db schema (только для управления таблицами)
                                                       [boolean] [default: false]
-      --timestamp-field     Enable/disable created_at and updated_at in schema
+      --timestamp-field     Включить/отключить created_at и updated_at в schema
                                                       [boolean] [default: false]
-  -d, --network-dictionary  Specify the dictionary api for this network [string]
-  -m, --mmr-path            Local path of the merkle mountain range (.mmr) file
+  -d, --network-dictionary  Обозначение api-интерфейса словаря для этой сети [string]
+  -m, --mmr-path            Локальный путь диапозона высоты Меркла (.mmr) файл
                                                                         [string]
-      --proof-of-index      Enable/disable proof of index
+      --proof-of-index      Включить/отключить доказательство индексации
                                                       [boolean] [default: false]
-  -p, --port                The port the service will bind to           [number]
+  -p, --port                Порт, к которому будет привязана служба           [number]
+      --disable-historical  Отключить сохранение состояния исторических объектов
+                                                       [boolean] [default: true]
+      --reindex             Повторная индексация на заданную высоту блока           [number]
+  -w, --workers             Количество рабочих потоков, используемых для извлечения и
+обработки блоков. Отключено по умолчанию.     [number]
 ```
 
-### --version
+### --версия
 
-Это отображает текущую версию.
+Здесь отображается текущая версия.
 
 ```shell
 > subql-node --version
@@ -96,31 +101,31 @@ Options:
 
 ### -f, --subquery
 
-Используйте этот флаг, чтобы запустить проект SubQuery.
+Используйте этот флаг для запуска проекта SubQuery.
 
 ```shell
 subql-node -f . // или
 subql-node --subquery .
 ```
 
-### --subquery-name (устарел)
+### --subquery-имя (устаревшее)
 
-Этот флаг позволяет вам указать имя для вашего проекта, которое действует так, как будто он создает экземпляр вашего проекта. После предоставления нового имени создается новая схема базы данных, и синхронизация блоков начинается с нуля. Устарело в пользу `--db-schema`
+Этот флаг позволяет задать имя для вашего проекта, которое действует так, как будто создает экземпляр вашего проекта. При указании нового имени создается новая схема базы данных, и синхронизация блоков начинается с нуля. Утратил силу в пользу `--db-schema`
 
 ```shell
 subql-node -f . --subquery-name=test2
 ```
 
-### -c, --config
+### -c, --конфигурация
 
-Все эти различные конфигурации можно поместить в файл .yml или .json, а затем ссылаться на них с помощью флага конфигурации.
+Все эти различные конфигурации можно поместить в файл .yml или .json, а затем сослаться на него с помощью флага config.
 
 Пример файла subquery_config.yml:
 
 ```shell
 subquery: . // Обязательно. Это локальный путь проекта. Точка здесь означает текущий локальный каталог.
-subqueryName: hello // Опциональное имя
-batchSize: 55 // Опциональный конфиг
+subqueryName: hello // Необязательное имя
+batchSize: 55 // Необязательная конфигурация
 ```
 
 Поместите этот файл в тот же каталог, что и проект. Затем в текущем каталоге проекта запустите:
@@ -129,46 +134,47 @@ batchSize: 55 // Опциональный конфиг
 > subql-node -c ./subquery_config.yml
 ```
 
-### --local (устарело)
+### --локальный (устаревший)
 
-Этот флаг в основном используется для целей отладки, когда он создает таблицу starter_entity по умолчанию в стандартной схеме «postgres».
+Этот флаг используется в основном для отладочных целей, где он создает таблицу starter_entity по умолчанию в схеме "postgres" по умолчанию.
 
 ```shell
 subql-node -f . --local
 ```
 
-Обратите внимание, что если вы используете этот флаг, его удаление не будет означать, что он будет указывать на другую базу данных. Чтобы перенаправить на другую базу данных, вам нужно будет создать НОВУЮ базу данных и изменить настройки env на эту новую базу данных. Другими словами, "export DB_DATABASE=<new_db_here>"
+Обратите внимание, что если вы используете этот флаг, его удаление не означает, что он будет указывать на другую базу данных. Для перенаправления на другую базу данных вам придется создать НОВУЮ базу данных и изменить настройки env на эту новую базу данных. Другими словами, "export DB_DATABASE=<new_db_here>".
 
-### --force-clean
+### --force-очистка
 
-Этот флаг принудительно создает схемы и таблицы проекта, что полезно при итеративной разработке схем graphql, чтобы новые запуски проекта всегда работали с чистым состоянием. Обратите внимание, что этот флаг также сотрет все проиндексированные данные.
+Этот флаг заставляет схемы и таблицы проекта регенерироваться, что полезно использовать при итеративном развитии схем graphql, чтобы новые запуски проекта всегда работали с чистым состоянием. Обратите внимание, что этот флаг также сотрет все индексированные данные.
 
-### --db-schema
+### --db-схема
 
-Этот флаг позволяет указать имя схемы базы данных проекта. После предоставления нового имени создается новая схема базы данных с с этим именем, и начинается индексация блока.
+Этот флаг позволяет задать имя для схемы базы данных проекта. При указании нового имени создается новая схема базы данных с настроенным именем и начинается блочное индексирование.
 
 ```shell
 subql-node -f . --db-schema=test2
 ```
 
 ### --подписка
+
 Это создаст триггер уведомления на сущность, что также является необходимым условием для включения функции подписки в службе запросов.
 
-### --unsafe
+### - небезопасно
 
-Проекты SubQuery обычно запускаются в изолированной программной среде javascript в целях безопасности, чтобы ограничить сферу доступа, который проект имеет к вашей системе. Песочница ограничивает доступный импорт javascript следующими модулями:
+Проекты SubQuery обычно запускаются в песочнице javascript для безопасности, чтобы ограничить объем доступа проекта к вашей системе. Песочница ограничивает доступный импорт javascript следующими модулями:
 
 ```javascript
 ["assert", "buffer", "crypto", "util", "path"];
 ```
 
-Хотя это повышает безопасность, мы понимаем, что это ограничивает доступную функциональность вашего SubQuery. Команда `--unsafe` импортирует все модули javascript по умолчанию, что значительно увеличивает функциональность песочницы за счет снижения безопасности.
+Хотя это повышает безопасность, мы понимаем, что это ограничивает доступную функциональность вашего SubQuery. Команда `--unsafe` импортирует все модули javascript по умолчанию, что значительно увеличивает функциональность песочницы, но при этом снижает безопасность.
 
-**Обратите внимание, что команда `--unsafe` не позволит запустить ваш проект в сети SubQuery, и вы должны обратиться в службу поддержки, если хотите, чтобы эта команда была запущена с вашим проектом в управляемой службе SubQuery ([project.subquery.network](https://project.subquery.network)).**
+**Note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in [SubQuery's Managed Service](https://project.subquery.network).**
 
-### --batch-size
+### --размер партии
 
-Этот флаг позволяет установить размер пакета в командной строке. Если размер пакета также установлен в файле конфигурации, то это имеет приоритет.
+Этот флаг позволяет задать размер партии в командной строке. Если размер партии также задан в конфигурационном файле, он имеет приоритет.
 
 ```shell
 > subql-node -f . --batch-size=20
@@ -178,28 +184,29 @@ subql-node -f . --db-schema=test2
 2021-08-09T23:24:49.235Z <fetch> INFO fetch block [6661,6680], total 20 blocks
 ```
 
-### --scale-batch-size
+### --масштабируемый размер партии
 
-Масштабируйте размер пакета выборки блоков с использованием памяти
+Масштабируйте размер пакета выборки блоков в зависимости от использования памяти.
 
-### --timeout
+### --тайм-аут
 
-Установите пользовательский тайм-аут для песочницы javascript для выполнения функций сопоставления через блок до того, как функция сопоставления блоков вызовет исключение тайм-аута
+Установите пользовательский таймаут для javascript-песочницы для выполнения функций отображения над блоком до того, как функция отображения блока выбросит исключение по таймауту.
 
-### --debug
+### отладка
 
-Эта команда выводит отладочную информацию в консоль и принудительно устанавливает уровень логирования для отладки.
+Это выводит отладочную информацию на консольный вывод и принудительно устанавливает уровень журнала на отладочный.
 
 ```shell
 > subql-node -f . --debug
 2021-08-10T11:45:39.471Z <db> DEBUG Executing (1b0d0c23-d7c7-4adb-a703-e4e5c414e035): INSERT INTO "subquery_1"."starter_entities" ("id","block_height","created_at","updated_at") VALUES ($1,$2,$3,$4) ON CONFLICT ("id") DO UPDATE SET "id"=EXCLUDED."id","block_height"=EXCLUDED."block_height","updated_at"=EXCLUDED."updated_at" RETURNING "id","block_height","created_at","updated_at";
 2021-08-10T11:45:39.472Z <db> DEBUG Executing (default): UPDATE "subqueries" SET "next_block_height"=$1,"updated_at"=$2 WHERE "id" = $3
 2021-08-10T11:45:39.472Z <db> DEBUG Executing (1b0d0c23-d7c7-4adb-a703-e4e5c414e035): COMMIT;
+
 ```
 
-### --profiler
+### профиль
 
-Эта команда показывает информацию профайлера.
+Здесь отображается информация о профилировщике.
 
 ```shell
 subql-node -f . --local --profiler
@@ -209,26 +216,27 @@ subql-node -f . --local --profiler
 2021-08-10T10:57:10.361Z <fetch> INFO fetch block [3801,3900], total 100 blocks
 ```
 
-### --network-endpoint
+### --Сетевая конечная точка
 
 Этот флаг позволяет пользователям переопределять конфигурацию конечной точки сети из файла манифеста.
 
 ```shell
 subql-node -f . --network-endpoint="wss://polkadot.api.onfinality.io/public-ws"
+
 ```
 
-Обратите внимание, что это также должно быть задано в файле манифеста, иначе вы получите:
+Обратите внимание, что это также должно быть установлено в файле манифеста, иначе вы получите:
 
 ```shell
-ERROR Create Subquery project from given path failed! Error: failed to parse project.yaml.
-An instance of ProjectManifestImpl has failed the validation:
- - property network has failed the following constraints: isObject
- - property network.network has failed the following constraints: nestedValidation
+ERROR Создать проект Subquery по заданному пути не удалось! Ошибка: не удалось разобрать project.yaml.
+Экземпляр ProjectManifestImpl не прошел проверку:
+ - свойство network не выполнило следующие ограничения: isObject
+ - свойство network.network не прошло следующие ограничения: nestedValidation
 ```
 
-### --output-fmt
+### --Вывод
 
-Существует два разных формата вывода в терминал. JSON или colored. Colored — значение по умолчанию и содержит цветной текст.
+Существует два различных формата вывода терминала. JSON или цвет. Colored (Цветной) используется по умолчанию и содержит цветной текст.
 
 ```shell
 > subql-node -f . --output-fmt=json
@@ -243,31 +251,31 @@ An instance of ProjectManifestImpl has failed the validation:
 2021-08-10T11:57:51.862Z <fetch> INFO fetch block [10301,10400], total 100 blocks
 ```
 
-### --log-level
+### --уровень лога
 
-Есть 7 вариантов на выбор. “fatal”, “error”, “warn”, “info”, “debug”, “trace”, “silent”. В приведенном ниже примере показано молчание. В терминале ничего не будет напечатано, поэтому единственный способ узнать, работает узел или нет, — запросить в базе данных количество строк (выберите count(\*) из subquery_1.starter_entities) или запросить высоту блока.
+На выбор предлагается 7 вариантов. “fatal”, “error”, “warn”, “info”, “debug”, “trace”, “silent”. В приведенном ниже примере ничего не показывается. В терминале ничего не будет выведено, поэтому единственный способ узнать, работает узел или нет, - это запросить в базе данных количество строк (select count(\*) from subquery_1.starter_entities) или запросить высоту блока.
 
 ```shell
 > subql-node -f . --log-level=silent
-(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
-(Use `node --trace-warnings ...` to show where the warning was created)
-(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
-(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
+(node:24686) [PINODEP007] Предупреждение: bindings.level устарел, вместо него используйте опцию options.level
+(Используйте `node --trace-warnings ...`, чтобы показать, где было создано предупреждение)
 (node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
 (node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
 (node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
 (node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
 (node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
 (node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
-(node:24686) [DEP0152] DeprecationWarning: Custom PerformanceEntry accessors are deprecated. Please use the detail property.
 (node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
+(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
+(node:24686) [DEP0152] DeprecationWarning: Пользовательские аксессоры PerformanceEntry устарели. Пожалуйста, используйте свойство детализации.
+(node:24686) [PINODEP007] Предупреждение: bindings.level устарел, вместо него используйте опцию options.level
 ```
 
 <!-- ### --migrate TBA -->
 
-### --timestamp-field
+### --поле временной метки
 
-По умолчанию это true. когда установлено значение false:
+По умолчанию это значение истина. если установлено значение ложь:
 
 ```shell
 > subql-node -f . –timestamp-field=false
@@ -275,31 +283,51 @@ An instance of ProjectManifestImpl has failed the validation:
 
 Это удаляет столбцы created_at и updated_at в таблице starter_entities.
 
-### -d, --network-dictionary
+### -d, --сетевой словарь
 
-Это позволяет вам указать конечную точку словаря, бесплатную службу, которая предоставляется и размещается по адресу: [https://explorer.subquery.network/](https://explorer.subquery.network/) (поиск словаря) и представляет конечную точку API: https://api.subquery.network/sq/subquery/словарь-polkadot
+Это позволяет вам указать конечную точку словаря, который является бесплатной услугой, предоставляемой и размещаемой в SubQuery's [Project Explorer](https://explorer.subquery.network/) (поиск словаря) и представляет конечную точку API: https://api.subquery.network/sq/subquery/dictionary-polkadot.
 
-Обычно это устанавливается в вашем файле манифеста, но ниже показан пример использования в качестве аргумента в командной строке.
+Обычно этот параметр задается в файле манифеста, но ниже показан пример использования его в качестве аргумента в командной строке.
 
 ```shell
 subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot"
 ```
 
-[ Подробнее о том, как работает словарь SubQuery ](../academy/tutorials_examples/dictionary.md).
+[Подробнее о том, как работает словарь SubQuery ](../academy/tutorials_examples/dictionary.md).
 
-### -p, --port
+### -p, --порт
 
-Порт, к которому привязывается служба индексации подзапросов. По умолчанию установлено значение `3000`
+Порт, к которому привязывается служба индексирования подзапросов. По умолчанию установлено значение `3000`.
 
 ### --disable-historical
 
-Disables automated historical state tracking, [see Historic State Tracking](./historical.md). By default this is set to `false`.
+Отключает автоматическое отслеживание исторических состояний, [ см. Historic State Tracking](./historical.md). По умолчанию установлено значение `false`.
+
+### --reindex индексация заново
+
+Для удаления ранее индексированных данных и повторной индексации с указанной высоты блока используйте `--reindex=<blockNumber>`.
+
+:::Примечание.
+Пожалуйста, обратите внимание, что способ использования этой функции будет обновлен в ближайшее время.
+:::
+
+### -w, --workers
+
+Это позволит перевести добычу блока и обработку данных в рабочее состояние. По умолчанию эта функция будет выглядеть как **disabled**. Вы можете активировать это с помощью флага `--workers=<number>`. Обращаем ваше внимание, что количество доступных ядер процессора строго ограничивает использование рабочих потоков. Итак, при использовании флага `--workers=<number>` всегда задавайте количество работников. Без указания флага все будет выполняться в одном потоке.
+
+:::tip Это позволит увеличить производительность в 4 раза. Попробуйте и оставьте нам обратную связь!
+
+На данный момент он находится на ранней стадии эксперимента, но мы планируем включить его по умолчанию. :::
+
+:::Примечание
+Эта функция доступна для Substrate и Cosmos и вскоре будет интегрирована в Avalanche.
+:::
 
 ## subql-query
 
-### --help
+### - помощь
 
-Эта команда показывает варианты справки.
+Здесь отображаются параметры справки.
 
 ```shell
 Options:
@@ -307,84 +335,85 @@ Options:
       --version       Show version number                                [boolean]
   -n, --name          Project name                             [string] [required]
       --playground    Enable graphql playground                          [boolean]
-      --subscription  Enable subscription               [boolean] [default: false]   
+      --subscription  Enable subscription               [boolean] [default: false]
       --output-fmt    Print log as json or plain text
                         [string] [choices: "json", "colored"] [default: "colored"]
       --log-level     Specify log level to print.
-            [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
-                                                       "silent"] [default: "info"]
-      --log-path      Path to create log file e.g ./src/name.log          [string]
-      --log-rotate    Rotate log files in directory specified by log-path
-                                                      [boolean] [default: false]
-      --indexer       Url that allows query to access indexer metadata    [string]
-      --unsafe        Disable limits on query depth and allowable number returned
-                      query records                                      [boolean]
-  -p, --port          The port the service will bind to                   [number]
+            [string] [варианты: "fatal", "error", "warn", "info", "debug", "trace",
+                                                       "silent"] [по умолчанию: "info"]
+      --log-path Путь для создания файла журнала, например ./src/name.log [string]
+      --log-rotate Вращать файлы журнала в каталоге, указанном log-path
+                                                      [boolean] [по умолчанию: false]
+      --indexer Url, позволяющий запросу получить доступ к метаданным индексатора [string]
+      --unsafe Отключить ограничения на глубину запроса и допустимое количество возвращаемых
+                      query records [boolean]
+  -p, --port Порт, к которому будет привязан сервис [число]
+
 ```
 
-### --version
+### --версия
 
-Это отображает текущую версию.
+Здесь отображается текущая версия.
 
 ```shell
 > subql-query --version
 0.7.0
 ```
 
-### -n, --name
+### -n, --имя
 
-Этот флаг используется для запуска службы запросов. Если флаг --subquery-name не указан при запуске индексатора, имя здесь будет ссылаться на имя проекта заданное по умолчанию. Если --subquery-name указано, то имя здесь должно совпадать с тем, что было установлено.
+Этот флаг используется для запуска службы запросов. Если флаг --subquery-name не указан при запуске индексатора, имя здесь будет ссылаться на имя проекта по умолчанию. Если задано --subquery-name, то имя здесь должно соответствовать заданному.
 
 ```shell
-> subql-node -f . // --subquery-name не установлено
+> subql-node -f . // --subquery-name not set
 
-> subql-query -n subql-helloworld  --playground //имя по умолчанию соответствует имени каталога проекта
+> subql-query -n subql-helloworld --playground // имя по умолчанию соответствует имени каталога проекта
 ```
 
 ```shell
-> subql-node -f . --subquery-name=hiworld // --subquery-name установлено
+> subql-node -f . --subquery-name=hiworld // --subquery-name set
 
-> subql-query -n hiworld --playground  // имя указывает на проект subql-helloworld, но с именем hiworld
+> subql-query -n hiworld --playground // имя указывает на проект subql-helloworld, но с именем hiworld
 ```
 
-### --playground
+### игровая площадка
 
-Этот флаг делает доступной игровую площадку graphql, поэтому всегда должен быть включен по умолчанию для любого использования.
+Этот флаг включает игровую площадку graphql, поэтому он всегда должен быть включен по умолчанию, чтобы быть полезным.
 
-### --output-fmt
+### --Вывод
 
-See [--output-fmt](https://doc.subquery.network/run_publish/references.html#output-fmt)
+Смотрите [--output-fmt](../run_publish/references.md#output-fmt).
 
-### --log-level
+### --уровень лога
 
-See [--log-level](https://doc.subquery.network/run_publish/references.html#log-level)
+Смотрите [--loglevel](../run_publish/references.md#log-level).
 
 ### --log-path
 
-Включите логгирование файлов, указав путь к файлу для ведения лога
+Включите ведение журнала файлов, указав путь к файлу, в который будет вестись журнал.
 
-### --log-rotate
+### --log-поворот
 
-Включить ротацию лог-файла с параметрами интервала ротации 1 день, максимум 7 файлов и максимальный размер файла 1 Гб
+Включите ротацию журналов с параметрами интервала ротации 1d, максимум 7 файлов и с максимальным размером файла 1GB.
 
-### --indexer
+### --индексатор
 
-Установите настраиваемый url-адрес для расположения конечных точек индексатора, служба запросов использует эти конечные точки для проверки работоспособности индексатора, метаданных и состояния готовности
+Установите пользовательский url для расположения конечных точек индексатора, служба запросов использует эти конечные точки для определения состояния здоровья индексатора, метаданных и статуса готовности.
 
 ### --подписка
 
-This flag enables [GraphQL Subscriptions](./subscription.md), to enable this feature requires `subql-node` also enable `--subscription`
+Этот флаг включает [GraphQL Subscriptions](./subscription.md), для включения этой функции требуется `subql-node` также включить `--subscription`.
 
-### --unsafe
+### - небезопасно
 
-Служба запросов имеет лимит в 100 объектов для неограниченных запросов graphql. Unsafe флаг снимает это ограничение, что может вызвать проблемы с производительностью службы запросов. Вместо этого рекомендуется, чтобы запросы были [разбиты на страницы](https://graphql.org/learn/pagination/).
+Служба запросов имеет ограничение в 100 сущностей для неограниченных запросов graphql. Флаг unsafe снимает это ограничение, что может вызвать проблемы с производительностью службы запросов. Вместо этого рекомендуется, чтобы запросы были [пагинированными](https://graphql.org/learn/pagination/).
 
-This flag enables certain aggregation functions including sum, max, avg and others. Read more about this feature [here](./aggregate.md)
+Этот флаг позволяет использовать некоторые функции агрегирования, включая sum, max, avg и другие. Подробнее об этой функции [здесь](../run_publish/aggregate.md).
 
-Они отключены по умолчанию из-за ограничения сущностей.
+По умолчанию они отключены из-за лимита сущностей.
 
-**Обратите внимание, что команда `--unsafe` предотвратит запуск вашего проекта в SubQuery Network, и вы должны обратиться в службу поддержки, если хотите, чтобы эта команда выполнялась с вашим проектом в службе управляемой SubQuery [project.subquery.network](https://project.subquery.network).**
+**Обратите внимание, что команда `--unsafe` не позволит запустить ваш проект в сети SubQuery, и вы должны обратиться в службу поддержки, если хотите, чтобы эта команда была запущена с вашим проектом в [SubQuery's Managed Services](https://project.subquery.network).**
 
-### --port
+### --порт
 
 Порт, к которому привязывается служба запросов Subquery. По умолчанию установлено значение `3000`

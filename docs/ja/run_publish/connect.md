@@ -1,11 +1,11 @@
-# 新しいプロジェクトに接続
+# Connect to your new project
 
-デプロイが正常に完了し、ノードがチェーンからデータのインデックスを作成したら、表示されたクエリエンドポイントからプロジェクトに接続することができるようになります。
+Once your deployment has succesfully completed and our nodes have indexed your data from the chain, you'll be able to connect to your project via the displayed Query endpoint.
 
 ![プロジェクトを展開および同期する](/assets/img/projects-deploy-sync.png)
 
-または、プロジェクトのタイトルの横にある3つの点をクリックして、SubQuery Explorer で表示することもできます。 そこでは、ブラウザ内のプレイグラウンドを利用して開始することができます。
+または、プロジェクトのタイトルの横にある3つの点をクリックして、SubQuery Explorer で表示することもできます。 There you can use the in browser playground to get started.
 
-![SubQuery Explorer のプロジェクト](/assets/img/projects-explorer.png)
+![Projects in SubQuery Explorer](/assets/img/projects-explorer.png)
 
-[GraphQL クエリ言語の詳細を参照してください。](./graphql.md)
+::: info Note Learn more about the [GraphQL Query language.](./graphql.md) :::

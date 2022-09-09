@@ -1,6 +1,6 @@
 # Fragen Sie Ihr Projekt im SubQuery Explorer ab
 
-[SubQuery Explorer](https://explorer.subquery.network) ist ein online gehosteter Dienst (unter [explorer.subquery.network](https://explorer.subquery.network)), der Zugriff auf veröffentlichte SubQuery-Projekte bietet, die von Mitwirkenden in unserer Community erstellt und vom SubQuery-Team verwaltet werden. Sie können Ihre eigenen SubQuery-Projekte in unserem Explorer veröffentlichen, indem Sie unserem Leitfaden zum [Veröffentlichen Ihres SubQuery-Projekts](../run_publish/publish.md) folgen.
+[SubQuery Explorer](https://explorer.subquery.network) is an online Managed Service that provides access to published SubQuery projects made by contributors in our community and managed by the SubQuery team. Sie können Ihre eigenen SubQuery-Projekte in unserem Explorer veröffentlichen, indem Sie unserem Leitfaden zum [Veröffentlichen Ihres SubQuery-Projekts](../run_publish/publish.md) folgen.
 
 ![SubQuery-Explorer](https://static.subquery.network/media/explorer/explorer-header.png)
 
@@ -10,8 +10,6 @@ Der SubQuery-Explorer erleichtert den Einstieg. Wir hosten diese SubQuery-Projek
 
 Sie werden auch feststellen, dass der SubQuery-Explorer eine Spielwiese zum Auffinden verfügbarer Daten mit Beispielabfragen bietet – Sie können Abfragen direkt in Ihrem Browser testen, ohne Code zu implementieren. Darüber hinaus haben wir einige kleine Verbesserungen an unserer Dokumentation vorgenommen, um Entwickler auf ihrem Weg zur besseren Abfrage und Analyse der Polkadot-Daten der Welt besser zu unterstützen.
 
-Oben rechts auf dem Playground finden Sie eine Schaltfläche _Dokumente_, die eine Dokumentationsverlosung öffnet. Diese Dokumentation wird automatisch generiert und hilft Ihnen zu finden, welche Entitäten und Methoden Sie abfragen können. Im folgenden Beispiel verwenden wir die [Sum Rewards SubQuery](https://explorer.subquery.network/subquery/OnFinality-io/sum-reward), um die 5 Konten mit den höchsten Prämien (in Bezug auf den Staking-Umsatz) auf Polkadot zu ermitteln, die noch nie gekürzt wurden.
+On the top right of the playground, you'll find a _Docs_ button that will open a documentation draw. Diese Dokumentation wird automatisch generiert und hilft Ihnen zu finden, welche Entitäten und Methoden Sie abfragen können.
 
-![SubQuery-Dokumentation](https://static.subquery.network/media/explorer/explorer-documentation.png)
-
-[Erfahren Sie mehr über die GraphQL-Abfragesprache.](./graphql.md)
+::: info Note Learn more about the [GraphQL Query language.](./graphql.md) :::

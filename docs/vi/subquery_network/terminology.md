@@ -12,7 +12,7 @@ Một hoạt động kết hợp của việc loại bỏ các mã thông báo c
 
 ## **Liên kết**
 
-Hành động gửi SQT vào hợp đồng đặt cược toàn cầu được thực hiện bởi Người lập chỉ mục hoặc Người ủy quyền
+Hành động gửi SQT vào hợp đồng đặt cược được thực hiện bởi Người lập chỉ mục hoặc Người ủy quyền.
 
 ### **Hủy liên kết**
 

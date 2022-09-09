@@ -4,9 +4,9 @@
 
 SubQuery hiện đang hỗ trợ Các theo dõi Graphql. Giống như truy vấn, các theo dõi cho phép bạn lấy dữ liệu. Không giống như truy vấn, theo dõi hoạt động lâu dài, có thể thay đổi kết quả của chúng theo thời gian.
 
-Các theo dõi rất hữu ích khi bạn muốn ứng dụng khách của mình thay đổi dữ liệu hoặc hiển thị một số dữ liệu mới ngay khi dữ liệu thay đổi hoặc dữ liệu mới có sẵn. Các theo dõi cho phép bạn *theo dõi* dự án SubQuery của bạn để biết sự thay đổi.
+Các theo dõi rất hữu ích khi bạn muốn ứng dụng khách của mình thay đổi dữ liệu hoặc hiển thị một số dữ liệu mới ngay khi dữ liệu thay đổi hoặc dữ liệu mới có sẵn. Subscriptions allow you to _subscribe_ to your SubQuery project for changes.
 
-[Đọc thêm về các theo dõi tại đây](https://www.apollographql.com/docs/react/data/subscriptions/)
+::: info Note Read more about [Subscriptions](https://www.apollographql.com/docs/react/data/subscriptions/). :::
 
 ## Làm thế nào để theo dõi một thực thể
 
@@ -25,8 +25,9 @@ subscription {
 ```
 
 Nội dung của thực thể trong truy vấn của bạn cho biết dữ liệu bạn muốn nhận được thông qua theo dõi của mình khi bảng `Transfer` được cập nhật:
-- `id`: Trả về ID của thực thể đã thay đổi
-- `mutation_type`: Hành động đã được thực hiện đối với thực thể này. Các kiểu thay đổi có thể là `INSERT`, `UPDATE` hoặc `DELETE`
+
+- `id`: Returns the ID of the entity that has changed.
+- `mutation_type`: Hành động đã được thực hiện đối với thực thể này. Mutation types can be either `INSERT`, `UPDATE` or `DELETE`.
 - `_entity`: giá trị của thực thể đó ở định dạng JSON.
 
 ## Bộ lọc
@@ -62,8 +63,10 @@ subscription {
 }
 ```
 
-Lưu ý rằng bộ lọc `mutation` có thể là một trong những hàm ` INSERT `, ` UPDATE ` hoặc ` DELETE `
+Note that the `mutation` filter can be one of `INSERT`, `UPDATE` or `DELETE`.
 
-**Xin lưu ý rằng bạn phải bật cờ `--subscription` trên cả node và dịch vụ truy vấn để sử dụng các hàm này.**
+::: warning Important Please note that you must enable the `--subscription` flag on both the node and query service in order to use these functions. :::
 
-Tính năng theo dõi hoạt động trên dịch vụ được quản lý bởi SubQuery khi bạn gọi trực tiếp điểm cuối GraphQL được liệt kê. Nó sẽ không hoạt động trong sân chơi GraphQL trong trình duyệt.
+::: warning Important
+The subcription feature works on SubQuery's Managed Service when you directly call the listed GraphQL endpoint. Nó sẽ không hoạt động trong sân chơi GraphQL trong trình duyệt.
+:::

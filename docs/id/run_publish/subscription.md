@@ -4,9 +4,9 @@
 
 SubQuery sekarang juga mendukung Graphql Subscriptions. Seperti kueri, langganan memungkinkan Anda mengambil data. Tidak seperti kueri, langganan adalah operasi jangka panjang yang dapat mengubah hasilnya seiring waktu.
 
-Langganan sangat berguna ketika Anda ingin aplikasi klien Anda mengubah data atau menampilkan beberapa data baru segera setelah perubahan itu terjadi atau data baru tersedia. Langganan memungkinkan Anda untuk *berlangganan* ke proyek SubQuery Anda untuk perubahan.
+Langganan sangat berguna ketika Anda ingin aplikasi klien Anda mengubah data atau menampilkan beberapa data baru segera setelah perubahan itu terjadi atau data baru tersedia. Subscriptions allow you to _subscribe_ to your SubQuery project for changes.
 
-[Baca lebih lanjut tentang langganan di sini](https://www.apollographql.com/docs/react/data/subscriptions/)
+:::: info Catatan Baca lebih lanjut tentang [Langganan](https://www.apollographql.com/docs/react/data/subscriptions/). :::
 
 ## Cara Berlangganan Entitas
 
@@ -25,8 +25,9 @@ subscription {
 ```
 
 Badan entitas dalam kueri Anda menunjukkan data apa yang ingin Anda terima melalui langganan Anda saat tabel `Transfer` diperbarui:
-- `id`: Mengembalikan ID entitas yang telah diubah
-- `mutation_type`: Tindakan yang telah dilakukan pada entitas ini. Jenis mutasi dapat berupa `INSERT`, `UPDATE` or `DELETE`
+
+- `id`: Mengembalikan ID entitas yang telah berubah.
+- `mutation_type`: Tindakan yang telah dilakukan pada entitas ini. Jenis mutasi bisa berupa `INSERT`, `UPDATE` atau `DELETE`.
 - `_entity`: nilai entitas itu sendiri dalam format JSON.
 
 ## Penyaringan
@@ -62,8 +63,10 @@ subscription {
 }
 ```
 
-Perhatikan bahwa filter `mutasi` dapat menjadi salah satu dari `INSERT`, `UPDATE` or `DELETE`
+Perhatikan bahwa filter `mutasi` dapat berupa salah satu dari `INSERT`, `UPDATE` atau `DELETE`.
 
-**Harap perhatikan bahwa Anda harus mengaktifkan tanda `--berlangganan` pada node dan layanan kueri untuk menggunakan fungsi ini.**
+:::: peringatan Penting Harap dicatat bahwa Anda harus mengaktifkan flag `--subscription` pada node dan layanan kueri untuk menggunakan fungsi-fungsi ini. :::
 
-Fitur berlangganan berfungsi pada layanan terkelola SubQuery saat Anda langsung memanggil titik akhir GraphQL yang terdaftar. Ini tidak akan berfungsi dalam taman bermain GraphQL dalam browser.
+::: warning Important
+The subcription feature works on SubQuery's Managed Service when you directly call the listed GraphQL endpoint. Ini tidak akan berfungsi dalam taman bermain GraphQL dalam browser.
+:::

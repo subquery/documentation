@@ -18,7 +18,7 @@ Pasokan awal akan menjadi 10 Miliar token.
 
 ### Inflasi
 
-The inflation will be ~2% per annum. Ini akan digunakan untuk membantu SubQuery Foundation mem-bootstrap jaringan dengan mendukung Pengindeks selama fase peluncuran awal di mana jumlah Konsumen akan terus bertambah.
+Inflasi akan menjadi 2% per tahun. Ini akan digunakan untuk membantu SubQuery Foundation mem-bootstrap jaringan dengan mendukung Pengindeks selama fase peluncuran awal di mana jumlah Konsumen akan terus bertambah.
 
 ### Alokasi
 
@@ -26,13 +26,13 @@ Alokasi token adalah sebagai berikut:
 
 ![alokasi Token](/assets/img/token_allocation.png)
 
-From the start, SubQuery has been focused on building value within the community and this aim continues with the largest allocation of tokens (44%) being apportioned to the Community and SubQuery Foundation.
+Sejak awal, SubQuery telah difokuskan untuk membangun nilai di dalam komunitas dan tujuan ini terus berlanjut dengan alokasi token terbesar (44%) yang dialokasikan ke Komunitas dan Yayasan SubQuery.
 
 Yayasan, yang akan didirikan pada awal 2022, akan mengelola governance dan pertumbuhan ekosistem di masa mendatang dan kepemilikan Jaringan SubQuery akan berada di bawah SubQuery Foundation pada awalnya. Alokasi besar ini juga mencakup pertimbangan untuk investasi masa depan ke dalam pengembangan dan operasi Jaringan, dan pendorong pertumbuhan ekosistem utama. Ini akan mencakup alat seperti grant dan insentif/acara ekosistem serta kegiatan marketing lainnya termasuk bug bounties dan insentif mainnet.
 
 Investor awal kami di putaran Seed dan Seri A kami memiliki alokasi gabungan sebesar 27%. Dalam kasus investor Seed kami, SubQuery berterima kasih atas visi dan komitmen awal mereka untuk membangun fase awal SubQuery. Selanjutnya, pertumbuhan kami dipercepat dengan dukungan investor Seri A kami yang memungkinkan kami membawa proyek ini ke tingkat berikutnya.
 
-For the Public Sale, 9% of token supply has been allocated across at least two sequential rounds. The exact structure and timing of these rounds can be found [here](https://subquery.medium.com/subquery-publishes-the-sqt-public-sale-date-and-sale-guide-64b8aff10882).
+Untuk Penjualan Publik, 9% dari pasokan token telah dialokasikan di setidaknya dua putaran berurutan. Struktur dan waktu yang tepat untuk putaran-putaran ini bisa ditemukan [di sini](https://subquery.medium.com/subquery-publishes-the-sqt-public-sale-date-and-sale-guide-64b8aff10882).
 
 Terakhir, Tim SubQuery dan Mitra Peluncuran telah dialokasikan 20% dari pasokan token sebagai imbalan atas kontribusi mereka dalam membangun dan mempromosikan proyek.
 

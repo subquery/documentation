@@ -38,7 +38,7 @@ Başlangıçta, bu özelliğin mevcut durumu konsola yazdırılır (`Geçmiş du
 
 GraphQL varlık filtresinde `blockHeight` adlı özel (isteğe bağlı) bir özellik vardır. Bu özelliği atlarsanız, SubQuery, mevcut blok yüksekliğinde varlık durumunu sorgulayacaktır.
 
-Lütfen örnek projelerimizden birine bakın: [RMRK NFT](https://explorer.subquery.network/subquery/subquery/rmrk-nft-historical)
+Please see one of our example projects: [RMRK NFT](https://explorer.subquery.network/subquery/subquery/rmrk-nft-historical).
 
 5.000.000 blok yüksekliğindeki RMRK NFT'lerin sahiplerini sorgulamak için, aşağıda gösterildiği gibi blockHeight parametresini ekleyin:
 

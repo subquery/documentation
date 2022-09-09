@@ -39,7 +39,7 @@ Al iniciar, el estado actual de esta función se imprime en la consola (`estado 
 
 Hay una propiedad especial (opcional) en el filtro de entidad GraphQL llamado `blockHeight`. Si omite esta propiedad, SubQuery preguntará el estado de la entidad en la altura del bloque actual.
 
-Consulte uno de nuestros proyectos de ejemplo: [RMRK NFT](https://explorer.subquery.network/subquery/subquery/rmrk-nft-historical)
+Please see one of our example projects: [RMRK NFT](https://explorer.subquery.network/subquery/subquery/rmrk-nft-historical).
 
 Para consultar a los propietarios de RMRK NFTs a la altura del bloque 5,000,000, añada el parámetro blockHeight como se muestra a continuación:
 

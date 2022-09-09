@@ -14,6 +14,4 @@
 
 ## Пакет активів марки
 
-Менший пакет ZIP активів торгової марки
-
-[public_branding.zip](https://static.subquery.network/public_branding.zip)
+Менший пакет ZIP активів бренду: [public_branding.zip](https://static.subquery.network/public_branding.zip).

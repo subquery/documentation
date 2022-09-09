@@ -14,6 +14,4 @@ Il nostro file Figma ha una collezione completa di tutte le risorse del marchio 
 
 ## Pacchetto di risorse del marchio
 
-Un pacchetto ZIP più piccolo di risorse del marchio
-
-[public_branding.zip](https://static.subquery.network/public_branding.zip)
+A smaller ZIP package of brand assets: [public_branding.zip](https://static.subquery.network/public_branding.zip).

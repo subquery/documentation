@@ -4,7 +4,7 @@ El principio rector con SubQuery Network es la simplicidad y flexibilidad para d
 
 ## Multi-cadena por diseño
 
-*SubQuery cree en la idea de que una comunidad de blockchains, trabajando juntos para fomentar la adopción de la web3, es el futuro*
+*SubQuery believes in the idea that a community of blockchains, working together to encourage web3 adoption, is the future.*
 
 SubQuery es nativo del ecosistema Polkadot, es nuestro hogar y será la ubicación de la Red SubQuery. El núcleo de la misión de Polkadot es crear una emocionante comunidad de desarrolladores, usuarios y empresas que aprovecharán su interoperabilidad multicadena. SubQuery cree en la idea de que una comunidad de blockchains, trabajando juntos para alentar la adopción web3, es el futuro y que Polkadot será un actor líder en esa iniciativa.
 

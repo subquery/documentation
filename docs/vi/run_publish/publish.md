@@ -1,123 +1,254 @@
-# Xuất bản Dự Án SubQuery của bạn
+# Publish to Managed Services
 
-## Lợi ích của việc lưu trữ dự án của bạn với SubQuery
+## Benefits of hosting your project with SubQuery's Managed Service
 
-- Chúng tôi sẽ chạy các dự án SubQuery cho bạn trong một dịch vụ công khai có hiệu suất cao, có thể mở rộng và được quản lý
-- Dịch vụ này đang được cung cấp đến cộng đồng miễn phí!
-- Bạn có thể tạo ra các dự án công khai do đó chúng sẽ được liệt kê trong [SubQuery Explorer](https://explorer.subquery.network) và bất cứ ai trên khắp thế giới cũng đều có thể xem chúng
-- Chúng tôi được tích hợp với GitHub, vì thế bất kỳ ai trong các tổ chức GitHub của bạn cũng sẽ xem được các dự án đã chia sẻ của tổ chức
+The biggest dApps depend on SubQuery's enterprise level Managed Service - with 100s of millions of daily requests and hundreds of active projects, SubQuery's Managed Service provides industry leading hosting for our customers.
 
-## Tạo dự án đầu tiên của bạn trong Dự án SubQuery
+- We'll run your SubQuery projects for you in a high performance, scalable, and managed public service.
+- This service is being provided to the community with a generous free tier! You can host your first two SubQuery projects for absolutely free!
+- You can make your projects public so that they'll be listed in the [SubQuery Explorer](https://explorer.subquery.network) and anyone around the world can view them.
+- We're integrated with GitHub, so anyone in your GitHub organisations will be able to view shared organisation projects.
 
-### Lưu trữ Codebase dự án
+You can upgrade to take advantage of the following paid services:
 
-Có hai cách để bạn có thể lưu trữ codebase của dự án SubQuery của mình trước khi xuất bản.
+- Production ready hosting for mission critical data with zero-downtime blue/green deployments
+- Dedicated databases
+- Multiple geo-redundant clusters and intelligent routing
+- Advanced monitoring and analytics.
 
-** GitHub **: Codebase của dự án của bạn phải nằm trong kho lưu trữ GitHub công khai
+## Publish your SubQuery project to IPFS
 
-**IPFS**: Codebase dự án của bạn có thể được lưu trữ trong IPFS, bạn có thể làm theo hướng dẫn lưu trữ IPFS của chúng tôi để xem cách [xuất bản lần đầu lên IPFS](ipfs.md)
+When deploying to SubQuery's Managed Service, you must first host your codebase in [IPFS](https://ipfs.io/). Hosting a project in IPFS makes it available for all and reduces your reliance on centralised services like GitHub.
 
-### Đăng nhập vào Các Dự Án SubQuery
+:::warning GitHub Deployment flows have being deprecated for IPFS
 
-Trước khi bắt đầu, vui lòng đảm bảo rằng codebase dự án SubQuery của bạn trực tuyến trong kho lưu trữ GitHub công khai hoặc trên IPFS. Tệp tin `schema.graphql` phải được nằm trong thư mục gốc của bạn.
+If your project is still being deployed via GitHub, read the migration guide for IPFS deployments [here](./ipfs.md) :::
 
-Để tạo ra dự án đầu tiên, hãy đến [project.subquery.network](https://project.subquery.network). Bạn sẽ cần xác thực tài khoản GitHub của mình để đăng nhập.
+### Yêu cầu
 
-Trong lần đăng nhập đầu tiên, bạn sẽ được yêu cầu cấp quyền cho SubQuery. Chúng tôi chỉ cần địa chỉ email của bạn để định dạnh tài khoản của bạn, và chúng tôi không sử dụng bất kỳ dữ liệu nào từ tài khoản GitHub của bạn vì bất kỳ lý do gì. Trong bước này, bạn cũng có thể yêu cầu cấp quyền truy cập đến tài khoản GitHub Organization của bạn để đăng các dự án SubQuery dưới GitHub Organization của mình thay vì tài khoản cá nhân.
+- `@subql/cli` phiên bản 0.21.0 trở lên.
+- Manifest `specVersion` 1.0.0 and above.
+- Get your [SUBQL_ACCESS_TOKEN](ipfs.md#prepare-your-subql-access-token) ready.
+- Để đảm bảo việc triển khai của bạn thành công, chúng tôi thật sự khuyến nghị bạn nên xây dựng dự án của mình bằng lệnh `subql build`, và kiểm tra cục bộ nó trước khi xuất bản.
 
-![Thu hồi chấp thuận từ một tài khoản GitHub](/assets/img/project_auth_request.png)
+### Chuẩn bị SUBQL_ACCESS_TOKEN của bạn
 
-SubQuery Projects là nơi bạn quản lý tất cả các dự án của bạn đã được tải lên nền tảng SubQuery. Bạn có thể tạo, xóa, và thậm chí nâng cấp các dự án từ ứng dụng này.
+- Bước 1: Truy cập [Dự án SubQuery](https://project.subquery.network/) và đăng nhập.
+- Step 2: Click on your profile at the top right of the navigation menu, then click on **_Refresh Token_**.
+- Bước 3: Sao chép mã thông báo đã tạo.
+- Bước 4: Để sử dụng mã thông báo này:
+  - Tùy chọn 1: Thêm SUBQL_ACCESS_TOKEN trong các biến môi trường của bạn. `EXPORT SUBQL_ACCESS_TOKEN=<token>` (Windows) or `export SUBQL_ACCESS_TOKEN=<token>` (Mac/Linux)
+  - Tùy chọn 2: Sắp có, `subql/cli` sẽ hỗ trợ lưu trữ cục bộ SUBQL_ACCESS_TOKEN của bạn.
 
-![Đăng Nhập Các Dự Án](/assets/img/projects-dashboard.png)
+### Làm thế nào để xuất bản một dự án
 
-Nếu bạn có kết nối các tài khoản GitHub Organization, bạn có thể sử dụng tính năng chuyển đổi ở đầu trang để thay đổi giữa tài khoản cá nhân và tài khoản GitHub Organization. Các dự án được tạo ra trong tài khoản GitHub Organization đều được chia sẻ giữa các thành viên trong GitHub Organization đó. Để kết nối tài khoản GitHub Organization của bạn, bạn có thể [làm theo các bước tại đây](#add-github-organization-account-to-subquery-projects).
+As you have `@subql/cli` already installed, you can run the following command, which will read the project and required information from its default manifest `project.yaml`:
 
-![Chuyển đổi giữa các tài khoản GitHub](/assets/img/projects-account-switcher.png)
+```
+// Xuất bản nó từ thư mục gốc dự án của bạn
+subql publish
 
-### Tạo Dự Án Đầu Tiên
+// HOẶC trỏ tới dự án gốc của bạn
+subql publish -f ~/my-project/
+```
 
-Có hai phương pháp để tạo một dự án trong Dịch vụ quản lý SubQuery, bạn có thể sử dụng giao diện người dùng hoặc trực tiếp thông qua công cụ `subql` cli.
+Ngoài ra, giả sử dự án của bạn có nhiều tệp kê khai, ví dụ: bạn hỗ trợ nhiều mạng nhưng chia sẻ cùng một bản đồ và logic nghiệp vụ, đồng thời có cấu trúc dự án như sau:
+
+```
+L projectRoot
+ L src/
+ L package.json
+ L polkadot.yaml (Manifest for Polkadot network)
+ L kusama.yaml   (Manifest for Kusama network)
+ ...
+```
+
+Bạn luôn có thể xuất bản dự án với tệp kê khai đã chọn của mình.
+
+```
+ # Lệnh này sẽ xuất bản hỗ trợ dự án lập chỉ mục mạng Polkadot
+subql publish -f ~/my-projectRoot/polkadot.yaml
+```
+
+### Sau khi xuất bản
+
+Sau khi xuất bản dự án thành công, nhật ký bên dưới cho biết rằng dự án đã được tạo trên cụm IPFS và đã trả về `CID` (mã định danh nội dung) của nó.
+
+```
+Building and packing code... done
+Uploading SupQuery project to IPFS
+SubQuery Project uploaded to IPFS: QmZ3q7YZSmhwBiot4PQCK3c7Z6HkteswN2Py58gkkZ8kNd  //CID
+```
+
+Hãy ghi chú `CID` này. With this `CID`, you can view your published project as what we call it [IPFS Deployment](ipfs.md#ipfs-deployment).
+
+With `@subql/cli` version 1.3.0 or above, when using `subql publish` it will store a copy of the project's `IPFS CID` in a file in your project directory, the naming of the file will be consistent with your project.yaml. For example, if your manfiest file is named `project.yaml`, the IPFS file will be named `.project-cid`.
+
+### Triển khai IPFS
+
+Triển khai IPFS thể hiện sự tồn tại độc lập và duy nhất của một dự án SubQuery trên một mạng phi tập trung. Do đó, bất kỳ thay đổi nào với mã trong dự án sẽ ảnh hưởng đến tính duy nhất của nó. Nếu bạn cần điều chỉnh logic kinh doanh của mình, ví dụ: thay đổi chức năng ánh xạ, bạn phải xuất bản lại dự án và `CID` sẽ thay đổi.
+
+For now, to view the project you have published, use a `REST` api tool such as [Postman](https://web.postman.co/), and use `POST` method with the following example URL to retrieve it:`https://ipfs.subquery.network/ipfs/api/v0/cat?arg=<YOUR_PROJECT_CID>`.
+
+You should see the example project deployment as below.
+
+Việc triển khai này tương đồng với tệp kê khai của bạn. Bạn có thể hy vọng các trường mô tả đó, và điểm cuối mạng và từ điển đã bị gỡ bỏ vì chúng không ảnh hưởng trực tiếp đến kết quả thực hiện dự án.
+
+Các tệp đó được sử dụng trong dự án cục bộ của bạn cũng đã được đóng gói và xuất bản lên IPFS.
+
+```yaml
+dataSources:
+  - kind: substrate/Runtime
+    mapping:
+      file: ipfs://QmTTJKrMVzCZqmRCd5xKHbKymtQQnHZierBMHLtHHGyjLy
+      handlers:
+        - handler: handleBlock
+          kind: substrate/BlockHandler
+        - filter:
+            method: Deposit
+            module: balances
+          handler: handleEvent
+          kind: substrate/EventHandler
+        - handler: handleCall
+          kind: substrate/CallHandler
+    startBlock: 8973820
+network:
+  genesisHash: "0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3"
+schema:
+  file: ipfs://QmTP5BjtxETVqvU4MkRxmgf8NbceB17WtydS6oQeHBCyjz
+specVersion: 0.2.0
+```
+
+## Deploy your SubQuery project in the Managed Service
+
+### Login to SubQuery Projects
+
+Before starting, please make sure that your SubQuery project codebase is published to IPFS.
+
+To create your first project, head to [SubQuery Projects](https://project.subquery.network). You'll need to authenticate with your GitHub account to login.
+
+On first login, you will be asked to authorize SubQuery. We only need your email address to identify your account, and we don't use any other data from your GitHub account for any other reasons. In this step, you can also request or grant access to your GitHub Organization account so you can post SubQuery projects under your GitHub Organization instead of your personal account.
+
+![Revoke approval from a GitHub account](/assets/img/project_auth_request.png)
+
+SubQuery Projects is where you manage all your hosted projects uploaded to the SubQuery platform. You can create, delete, and even upgrade projects all from this application.
+
+![Projects Login](/assets/img/projects-dashboard.png)
+
+If you have a GitHub Organization accounts connected, you can use the switcher on the header to change between your personal account and your GitHub Organization account. Projects created in a GitHub Organization account are shared between members in that GitHub Organization. To connect your GitHub Organization account, you can [follow the steps here](publish.md#add-github-organization-account-to-subquery-projects).
+
+![Switch between GitHub accounts](/assets/img/projects-account-switcher.png)
+
+### Create Your First Project
+
+There are two methods to create a project in the SubQuery Managed Service: you can use the UI or directly via the `subql` cli tool
 
 #### Sử dụng giao diện người dùng
 
-Chúng ta hãy bắt đầu bằng cách nhấp vào "Create Project". Bạn sẽ được đưa đến biểu mẫu New Project. Vui lòng nhập theo hướng dẫn sau (bạn có thể thay đổi trong tương lai):
+Let's start by clicking on "Create Project". You'll be taken to the New Project form. Please enter the following (you can change this in the future):
 
-- **Tài khoản GitHub:** Nếu bạn có nhiều hơn một tài khoản GitHub, hãy chọn ra tài khoản mà dự án sẽ được tạo ra bởi nó. Các dự án được tạo ra trong tài khoản GitHub Organization đều được chia sẻ giữa các thành viên trong cùng tổ chức.
-- **Tên dự án**
-- **Phụ đề**
+- **GitHub account:** If you have more than one GitHub account, select which account this project will be created under. Projects created in a GitHub organisation account are shared between members in that organisation.
+- **Project Name**
+- **Subtitle**
 - **Mô tả**
-- **URL Kho Lưu Trữ GitHub:** Đây phải là một URL GitHub hợp lệ chỉ đến kho lưu trữ công khai có chứa dự án SubQuery của bạn. Tập tin `schema.graphql` phải nằm trong thư mục gốc của bạn ([tìm hiểu thêm về cấu trúc thư mục gốc](../create/introduction.md#directory-structure)).
-- **Cơ sở dữ liệu:** Khách hàng cao cấp có thể truy cập cơ sở dữ liệu chuyên dụng để lưu trữ các dự án SubQuery sản xuất từ đó. Nếu điều này khiến bạn quan tâm, bạn có thể liên hệ với [sales@subquery.network](mailto:sales@subquery.network) để kích hoạt cài đặt này.
-- **Nguồn triển khai:** Bạn có thể chọn triển khai dự án từ kho lưu trữ GitHub hoặc triển khai cách khác từ IPFS CID, xem hướng dẫn của chúng tôi về [lưu trữ với IPFS.](ipfs.md)
-- **Ẩn dự án:** Nếu được chọn, điều này sẽ ẩn dự án khỏi trình khám phá SubQuery công khai. Hãy bỏ chọn mục này nếu bạn muốn chia sẻ SubQuery của mình với cộng đồng! ![Tạo Dự Án đầu tiên của bạn](/assets/img/projects-create.png)
+- **GitHub Repository URL:** This must be a valid GitHub URL to a public repository that has your SubQuery project. The `schema.graphql` file must be in the root of your directory ([learn more about the directory structure](../build/introduction.md#directory-structure)).
+- **Database:** Premium customers can access dedicated databases to host production SubQuery projects from. If this interests you, you can contact [sales@subquery.network](mailto:sales@subquery.network) to have this setting enabled.
+- **Deployment Source:** You can choose to have the project deployed from the GitHub repository or alternatively deployed from a IPFS CID, see our guide about [hosting with IPFS.](ipfs.md)
+- **Hide project:** If selected, this will hide the project from the public SubQuery explorer. Keep this unselected if you want to share your SubQuery with the community!
 
-Hãy tạo dự án cho riêng mình và bạn sẽ thấy nó trong danh sách ubQuery Project's của bạn. _Chúng ta sắp xong rồi! Chúng ta chỉ cần triển khai một phiên bản mới của nó._
+![Create your first Project](/assets/img/projects-create.png)
 
-![Tạo Dự án mà không cần triển khai](/assets/img/projects-no-deployment.png)
+Create your project and you'll see it on your SubQuery Project's list. _We're almost there! We just need to deploy a new version of it._
+
+![Created Project with no deployment](/assets/img/projects-no-deployment.png)
 
 #### Sử dụng CLI
 
-Bạn cũng có thể sử dụng `@subql/cli` để triển khai mới của dự án lên dịch vụ được quản lý của chúng tôi. Điều này yêu cầu:
+You can also use `@subql/cli` to publish your project to our Managed Service. Điều này yêu cầu:
 
 - `@subql/cli` phiên bản 1.1.0 trở lên.
-- Một [SUBQL_ACCESS_TOKEN](/docs/run_publish/ipfs.md#prepare-your-subqlaccesstoken) hợp lệ đã sẵn sàng.
+- A valid [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) ready.
 
 ```shell
-// Tạo dự án sử dụng CLI
+// Creating a project using the CLI
 $ subql project:create-project
 
-// HOẶC không tác động đến, nó sẽ nhắc bạn nếu thiếu các trường bắt buộc
+// OR using non-interactive, it will prompt you if the required fields are missing
 $ subql project:create-project
     --apiVersion=apiVersion      Api version is default to 2
     --description=description    Enter description
     --gitRepo=gitRepo            Enter git repository
     --org=org                    Enter organization name
-    --project_name=project_name  Enter project name
+    --projectName=projectName  Enter project name
 ```
 
-### Triển khai phiên bản đầu tiên
+### Deploy your First Version
 
-Có hai phương pháp để triển khai một phiên bản mới của dự án của bạn cho Dịch vụ quản lý SubQuery, bạn có thể sử dụng giao diện người dùng hoặc trực tiếp thông qua công cụ `subql` cli.
+There are three methods to deploy a new version of your project to the SubQuery Managed Service, you can use the UI or directly, via the `subql` cli tool, or using an automated GitHub Action.
 
 #### Sử dụng giao diện người dùng
 
-Trong khi đang khởi tạo, dự án sẽ thiết lập hành vi hiển thị của nó, bạn phải triển khai một phiên bản của nó trước khi dự án đi vào vận hành. Triển khai một phiên bản sẽ kích hoạt khởi động lập chỉ mục SubQuery mới để bắt đầu, và cài đặt dịch vụ truy vấn để chấp nhận các yêu cầu từ GraphQl. Bạn cũng có thể triển khai các phiên bản mới đối với các dự án hiện tại tại đây.
+While creating a project will setup the display behaviour of the project, you must deploy a version of it before it becomes operational. Deploying a version triggers a new SubQuery indexing operation to start, and sets up the required query service to start accepting GraphQL requests. You can also deploy new versions to existing projects here.
 
-Cùng với dự án mới của mình, bạn sẽ thấy một nút bấm Deploy New Version. Nhấp vào nút này, và điền vào các thông tin bắt buộc để thực hiện triển khai:
+With your new project, you'll see a Deploy New Version button. Click this, and fill in the required information about the deployment:
 
-- **Branch:** Từ GitHub, chọn nhánh của dự án mà bạn muốn triển khai
-- **Commit Hash:** Từ GitHub, hãy chọn commit cụ thể của phiên bản codebase dự án SubQuery mà bạn muốn triển khai
-- **IPFS:** Nếu triển khai từ IPFS, hãy dán CID triển khai IPFS của bạn (không có `ipfs: //` đứng đầu)
-- **Override Network and Dictionary Endpoints:** Bạn có thể ghi đè các điểm cuối trong tệp kê khai dự án của mình tại đây
-- **Indexer Version:** Đây là phiên bản của dịch vụ nút SubQuery mà bạn muốn chạy SubQuery này. Xem [`@subql/node`](https://www.npmjs.com/package/@subql/node)
-- **Query Version:** Đây là phiên bản của dịch vụ truy vấn SubQuery mà bạn muốn chạy SubQuery này. Xem [`@subql/query`](https://www.npmjs.com/package/@subql/query)
+- **Branch:** From GitHub, select the branch of the project that you want to deploy from.
+- **Commit Hash:** From GitHub, select the specific commit of the version of your SubQuery project codebase that you want deployed.
+- **IPFS:** If deploying from IPFS, paste you IPFS deployment CID (without the leading `ipfs://`).
+- **Override Network and Dictionary Endpoints:** You can override the endpoints in your project manifest here.
+- **Indexer Version:** This is the version of SubQuery's node service that you want to run this SubQuery on. See [`@subql/node`](https://www.npmjs.com/package/@subql/node).
+- **Query Version:** This is the version of SubQuery's query service that you want to run this SubQuery on. See [`@subql/query`](https://www.npmjs.com/package/@subql/query).
 
-![Triển khai Dự Án đầu tiên của bạn](https://static.subquery.network/media/projects/projects-first-deployment.png)
+![Deploy your first Project](https://static.subquery.network/media/projects/projects-first-deployment.png)
 
-Nếu được triển khai thành công, bạn sẽ thấy trình lập chỉ mục bắt đầu hoạt động và báo cáo về tiến độ lập chỉ mục cho chuỗi hiện tại. Tiến trình này có thể mất nhiều thời gian cho tới khi nó đạt đến 100%.
+If deployed successfully, you'll see the indexer start working and report back progress on indexing the current chain. This process may take time until it reaches 100%.
 
 #### Sử dụng CLI
 
-Bạn cũng có thể sử dụng `@subql/cli` để tạo một triển khai mới của dự án cho dịch vụ được quản lý của chúng tôi. Điều này yêu cầu:
+You can also use `@subql/cli` to create a new deployment of your project to our Managed Service. Điều này yêu cầu:
 
 - `@subql/cli` phiên bản 1.1.0 trở lên.
-- Một [SUBQL_ACCESS_TOKEN](/docs/run_publish/ipfs.md#prepare-your-subqlaccesstoken) hợp lệ đã sẵn sàng.
+- A valid [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) ready.
 
 ```shell
-// Triển khai sử dụng CLI
-$ suqbl deployment:deploy
+// Deploy using the CLI
+$ subql deployment:deploy
 
-// Hoặc triển khai không tác động tới CLI
-$ suqbl deployment:deploy
-  --dict=dict                      Enter Dictionary Endpoint
-  --endpoint=endpoint              Enter Network Endpoint
+// OR Deploy using non-interactive CLI
+$ subql deployment:deploy
+
+  -d, --useDefaults                Use default values for indexerVerion, queryVersion, dictionary, endpoint
+  --dict=dict                      Enter dictionary
+  --endpoint=endpoint              Enter endpoint
   --indexerVersion=indexerVersion  Enter indexer-version
   --ipfsCID=ipfsCID                Enter IPFS CID
-  --org=org                        Enter Organization Name
-  --project_name=project_name      Enter Project Name
-  --queryVersion=queryVersion      Enter Query-version
-  --type=type                      Enter deployment type e.g. primary or stage
+  --org=org                        Enter organization name
+  --projectName=projectName        Enter project name
+  --queryVersion=queryVersion      Enter query-version
+  --type=(stage|primary)           [default: primary]
+```
+
+#### Using GitHub actions
+
+With the introduction of the deployment feature for the CLI, we've added a **Default Action Workflow** to [the starter project in GitHub](https://github.com/subquery/subql-starter/blob/v1.0.0/.github/workflows/cli-deploy.yml) that will allow you to publish and deploy your changes automatically:
+
+- Step 1: After pushing your project to GitHub, create `DEPLOYMENT` environment on GitHub, and add the secret [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) to it.
+- Step 2: Create a project on [SubQuery Projects](https://project.subquery.network), this can be done using the the [UI](#using-the-ui) or [CLI](#using-the-cli).
+- Step 3: Once your project is created, navigate to the GitHub Actions page for your project, and select the workflow `CLI deploy`
+- Step 4: You'll see an input field where you can enter the unique code of your project created on SubQuery Projects, you can get the code from the URL in SubQuery Projects [SubQuery Projects](https://project.subquery.network). The code is based on the name of your project, where spaces are replaced with hyphens `-`. e.g. `my project name` becomes `my-project-name`
+- Once the workflow is complete, you should be see your project deployed to our Managed Service
+
+A common approach is to extend the default GitHub Action to automatically deploy changes to our Managed Service when code is merged into main. The following change to the GitHub Action workflow do this:
+
+```yml
+on:
+  push:
+    branches:
+      - main
+jobs:
+  deploy:
+    name: CLI Deploy
+    ...
 ```
 
 ## Các Bước Tiếp Theo - Kết nối đến Dự Án của bạn
@@ -126,22 +257,22 @@ Sau khi việc triển khai đã thành công và các nút của chúng ta đã
 
 ![Các dự án đang được triển khai và đồng bộ](/assets/img/projects-deploy-sync.png)
 
-Ngoài ra, bạn có thể nhấp vào ba dấu chấm bên cạnh tiêu đề dự án của mình và xem nó trên SubQuery Explorer. Tại đó bạn có thể sử dụng nền tảng trong trình duyệt để tiến hành - [tìm hiểu nhiều hơn về cách sử dụng Explorer của chúng tôi tại đây](../run_publish/query.md).
+Ngoài ra, bạn có thể nhấp vào ba dấu chấm bên cạnh tiêu đề dự án của mình và xem nó trên SubQuery Explorer. There you can use the in-browser playground to get started - [read more about how to use our Explorer here](../run_publish/query.md).
 
-![Projects trong SubQuery Explorer](/assets/img/projects-explorer.png)
+![Projects in SubQuery Explorer](/assets/img/projects-explorer.png)
 
-## Thêm Tài Khoản GitHub Organization vào các Dự Án SubQuery
+## Add GitHub Organization Account to SubQuery Projects
 
-Xuất bản dự án SubQuery dưới tên tài khoản GitHub Organization của bạn thay vì dùng tài khoản GitHub cá nhân là điều phổ biến. Bạn có thể thay đổi tài khoản hiện đang chọn trên [SubQuery Projects](https://project.subquery.network) bất cứ lúc nào bằng cách sử dụng tính năng chuyển đổi tài khoản.
+It is common to publish your SubQuery project under the name of your GitHub Organization account rather than your personal GitHub account. At any point your can change your currently selected account on [SubQuery Projects](https://project.subquery.network) using the account switcher.
 
-![Chuyển đổi giữa các tài khoản GitHub](/assets/img/projects-account-switcher.png)
+![Switch between GitHub accounts](/assets/img/projects-account-switcher.png)
 
-Nếu bạn không thể nhìn thấy tài khoản GitHub Organization của mình được liệt kê trong phần chuyển đổi tài khoản, bạn có thể cần phải cấp quyền truy cập vào SubQuery đối với GitHub Organization của bạn (hoặc yêu cầu quyền này từ một quản trị viên). Để thực hiện việc này, trước tiên bạn cần thu hồi quyền từ tài khoản GitHub của mình đối với Ứng dụng SubQuery. Để thực hiện việc này, hãy đăng nhập vào phần cài đặt tài khoản của bạn trong GitHub, đến Applications, và bên dưới thẻ Authorized Oauth Apps, thu hồi SubQuery - [ bạn có thể làm theo các bước chính xác tại đây ](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/reviewing-your-authorized-applications-oauth). **Đừng lo, việc này sẽ không xóa đi dự án SubQuery của bạn và bạn sẽ không bị mất bất kỳ dữ liệu nào.**
+If you can't see your GitHub Organization account listed in the switcher, the you may need to grant access to SubQuery for your GitHub Organization (or request it from an administrator). To do this, you first need to revoke permissions from your GitHub account to the SubQuery Application. To do this, login to your account settings in GitHub, go to Applications, and under the Authorized OAuth Apps tab, revoke SubQuery - [you can follow the exact steps here](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/reviewing-your-authorized-applications-oauth). **Don't worry, this will not delete your SubQuery project and you will not lose any data.**
 
-![Thu hồi truy cập đối với tài khoản GitHub](/assets/img/project_auth_revoke.png)
+![Revoke access to GitHub account](/assets/img/project_auth_revoke.png)
 
-Sau khi bạn đã thu hồi quyền truy cập, hãy đăng xuất ra khỏi [SubQuery Projects](https://project.subquery.network) và đăng nhập vào lại. Bạn sẽ được điều hướng đến một trang có tiêu đề _Authorize SubQuery_ đây là trang bạn có thể yêu cầu cấp quyền truy cập SubQuerry đến tài khoản GitHub Organization của bạn. Nếu bạn không có các quyền quản trị, bạn cần phải yêu cầu một quản trị quyên cấp các quyền này cho bạn.
+Once you have revoked access, log out of [SubQuery Projects](https://project.subquery.network) and log back in again. You should be redirected to a page titled _Authorize SubQuery_ where you can request or grant SubQuery access to your GitHub Organization account. If you don't have admin permissions, you must make a request for an adminstrator to enable this for you.
 
-![Thu hồi chấp thuận từ một tài khoản GitHub](/assets/img/project_auth_request.png)
+![Revoke approval from a GitHub account](/assets/img/project_auth_request.png)
 
-Sau khi yêu cầu đã được chấp thuận bởi quản trị viên (hoặc nếu bạn có thể tự cấp quyền cho mình), bạn sẽ thấy tài khoản GitHub Organization chính xác trong khu vực chuyển đổi tài khoản.
+Once this request has been approved by your administrator (or if are able to grant it youself), you will see the correct GitHub Organization account in the account switcher.

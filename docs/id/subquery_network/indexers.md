@@ -17,8 +17,8 @@ Jika Pengindeks ketahuan melakukan kesalahan (seperti dengan memberikan data yan
 ## Bagaimana Pengindeks dihargai?
 
 Pengindeks dihargai di SQT dalam dua cara:
-- Hadiah dari kumpulan hadiah SQT berdasarkan distribusi yang ditentukan oleh Fungsi Produksi Cobb-Douglas
-- Imbalan biaya kueri SQT langsung dari Perjanjian Tertutup yang merupakan pihak pengindeks
+- Imbalan dari kumpulan imbalan SQT berdasarkan distribusi yang ditentukan oleh Fungsi Produksi Cobb-Douglas.
+- Imbalan biaya kueri SQT langsung dari Perjanjian Tertutup yang menjadi pihak pengindeks.
 
 Pengindeks diberi imbalan atas biaya yang dibayar Konsumen untuk menyediakan data blockchain yang diminta Konsumen. Pengindeks akan menerima semua biaya dari Perjanjian Tertutup. Jika tidak, biaya dibagi berdasarkan jumlah pekerjaan yang dilakukan (permintaan dilayani) dan jumlah SQT yang didelegasikan - pembagian ini ditentukan dengan menerapkan Fungsi Produksi Cobb-Douglas.
 
@@ -58,22 +58,22 @@ Pengindeks dapat berinvestasi dalam perangkat keras infrastruktur mereka sendiri
 
 Berikut adalah beberapa pemeliharaan dan/atau persyaratan operasional yang diharapkan Pengindeks:
 
-- Selalu tingkatkan ke versi perangkat lunak Subquery terbaru
-- Identifikasi dan manfaatkan peluang pengindeksan baru
-- Perbarui versi proyek ke yang terbaru dan indeks ulang jika perlu
-- Pemeliharaan infrastruktur
-  - Memantau dan meningkatkan ukuran disk secara konstan
-  - Kueri ukuran yang tepat dan penghitungan pengindeksan berdasarkan lalu lintas
-  - Tingkatkan layanan kueri untuk meningkatkan lalu lintas masuk
+- Selalu tingkatkan ke versi perangkat lunak Subquery terbaru.
+- Identifikasi dan manfaatkan peluang pengindeksan baru.
+- Perbarui versi proyek ke yang terbaru dan indeks ulang jika perlu.
+- Pemeliharaan infrastruktur:
+  - Memantau dan meningkatkan ukuran disk secara konstan.
+  - Kueri ukuran yang tepat dan penghitungan pengindeksan berdasarkan lalu lintas.
+  - Tingkatkan layanan kueri untuk meningkatkan lalu lintas masuk.
 
 ### Infrastruktur
 
 Persyaratan infrastruktur minimal meliputi:
 
 - Setidaknya satu node komputasi untuk menjalankan layanan berikut:
-  - [Layanan Node (pengindeksan)](https://www.npmjs.com/package/@subql/node)
-  - [Layanan Permintaan](https://www.npmjs.com/package/@subql/query)
-  - [Layanan Koordinator Pengindeks](https://www.npmjs.com/package/@subql/indexer-coordinator)
+  - [Node (indexing) Service](https://www.npmjs.com/package/@subql/node).
+  - [Query Service](https://www.npmjs.com/package/@subql/query).
+  - [Indexer Coordinator Service](https://www.npmjs.com/package/@subql/indexer-coordinator).
 - Satu node database untuk menjalankan Postgresql db (v12 ke atas).
 
 Informasi lebih detail akan segera hadir.
@@ -98,8 +98,8 @@ Untuk menghasilkan kinerja yang diinginkan, Pengindeks perlu mempertimbangkan be
 
 - keseimbangan antara taruhan mereka sendiri dan Delegator.
 - jenis kontrak yang dilayani. Pengindeks akan menerima semua biaya kueri jika itu adalah kontrak tertutup. Jika terbuka, maka hadiah Pengindeks akan tergantung pada berapa banyak Pengindeks lain yang ada.
-- memenuhi spesifikasi Service Level Agreement (SLA) (untuk menghindari hukuman pemotongan)
-- akurasi data yang disajikan untuk menghindari pemotongan penalti
+- memenuhi spesifikasi Service Level Agreement (SLA) (untuk menghindari hukuman pemotongan).
+- keakuratan data yang disajikan untuk menghindari hukuman pemotongan.
 
 ## Memilih Proyek SubQuery untuk Diindeks
 
@@ -130,10 +130,10 @@ Pengindeks perlu menyadari biaya operasi mereka dan pendapatan yang diharapkan u
 
 Pengindeks perlu mengiklankan diri mereka sendiri kepada Delegator dan juga Konsumen. Pengindeks dapat melakukan ini dari situs web mereka sendiri, di forum Subquery atau tempat lain yang dianggap perlu. Beberapa contoh informasi yang harus diberikan adalah:
 
-- Latar belakang dan pengalaman tim Pengindeks atau Pengindeks
-- Pendekatan perangkat keras dan mengapa itu memberikan kinerja yang unggul
-- Kebijakan dukungan pelanggan atau SLA
-- Bukti pertunjukan sejarah
+- Latar belakang dan pengalaman tim Pengindeks atau Pengindeks.
+- Pendekatan perangkat keras dan mengapa itu memberikan kinerja yang unggul.
+- Kebijakan dukungan pelanggan atau SLA.
+- Bukti pertunjukan sejarah.
 
 ### Dukungan pelanggan
 

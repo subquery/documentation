@@ -4,9 +4,9 @@
 
 SubQuery artık Graphql Aboneliklerini de destekliyor. Sorgular gibi, abonelikler de veri almanızı sağlar. Sorguların aksine abonelikler, zamanla sonuçlarını değiştirebilen uzun süreli işlemlerdir.
 
-Abonelikler, istemci uygulamanızın verileri değiştirmesini veya bu değişiklik meydana gelir gelmez veya yeni veriler kullanılabilir olduğunda bazı yeni verileri göstermesini istediğinizde çok kullanışlıdır. Abonelikler, değişiklikler için Alt Sorgu projenize *abone olmanıza* olanak tanır.
+Abonelikler, istemci uygulamanızın verileri değiştirmesini veya bu değişiklik meydana gelir gelmez veya yeni veriler kullanılabilir olduğunda bazı yeni verileri göstermesini istediğinizde çok kullanışlıdır. Subscriptions allow you to _subscribe_ to your SubQuery project for changes.
 
-[Abonelikler hakkında daha fazla bilgiyi buradan okuyun](https://www.apollographql.com/docs/react/data/subscriptions/)
+::: info Note Read more about [Subscriptions](https://www.apollographql.com/docs/react/data/subscriptions/). :::
 
 ## Bir Varlığa Nasıl Abone Olunur
 
@@ -25,8 +25,9 @@ subscription {
 ```
 
 Sorgunuzdaki varlığın gövdesi, `Transfer` tablosu güncellendiğinde aboneliğiniz aracılığıyla hangi verileri almak istediğinizi belirtir:
-- `id`: Değişen varlığın kimliğini döndürür
-- `mutation_type`: Bu varlığa yapılan eylem. Mutasyon türleri `INSERT`, `UPDATE` veya `DELETE` olabilir
+
+- `id`: Returns the ID of the entity that has changed.
+- `mutation_type`: Bu varlığa yapılan eylem. Mutation types can be either `INSERT`, `UPDATE` or `DELETE`.
 - `_entity`: varlığın kendisinin JSON biçimindeki değeri.
 
 ## Filtreleme
@@ -62,8 +63,10 @@ abonelik {
 }
 ```
 
-`mutasyon` filtresinin `INSERT`, `UPDATE` veya `DELETE` seçeneklerinden biri olabileceğini unutmayın
+Note that the `mutation` filter can be one of `INSERT`, `UPDATE` or `DELETE`.
 
-**Bu işlevleri kullanmak için hem düğüm hem de sorgu hizmetinde `--subscription` işaretini etkinleştirmeniz gerektiğini lütfen unutmayın.**
+::: warning Important Please note that you must enable the `--subscription` flag on both the node and query service in order to use these functions. :::
 
-Abonelik özelliği, doğrudan listelenen GraphQL uç noktasını aradığınızda SubQuery'nin yönetilen hizmetinde çalışır. Tarayıcı içi GraphQL oyun alanında çalışmayacaktır.
+::: warning Important
+The subcription feature works on SubQuery's Managed Service when you directly call the listed GraphQL endpoint. Tarayıcı içi GraphQL oyun alanında çalışmayacaktır.
+:::

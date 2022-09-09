@@ -1,24 +1,24 @@
-# Indexers
+# Індексатор
 
-## What is an Indexer?
+## Що таке індексатор?
 
-An Indexer is a SubQuery network participant who is responsible for indexing blockchain data and providing this data to their customers.
+Індексатор - це учасник мережі SubQuery, який відповідає за індексування даних блокчейна і надання цих даних своїм клієнтам.
 
-Indexers play a very important role within the SubQuery network. As a part of a data-as-a-service business, an Indexer turns computational and networking power into profits.
+Індексатори відіграють дуже важливу роль у мережі SubQuery. Бувши частиною бізнесу з надання даних як послуги, індексатор перетворює обчислювальні та мережеві потужності в прибуток.
 
-## Indexer Staking
+## Ставка індексатора
 
-In order to earn rewards from query revenue as an Indexer it is proposed that Indexers must stake SQT against a particular SubQuery Project that they are providing the service to. The Cobb-Douglas production function will be used to determine the rewards distributed to each Indexer.
+Для того, щоб отримувати винагороду від доходу від запитів в якості індексатора, пропонується, що індексатори повинні робити ставки SQT проти певного проекту підзапитів, якому вони надають послуги. Виробнича функція Кобба-Дугласа буде використовуватися для визначення винагороди, що розподіляється кожному індексатору.
 
-SubQuery plans to add a constraint to the network where an indexer must stake a minimum amount of SQT on the relevant reward pool to be able to participate in its matching Open Agreement. They must also stake a minimum amount on an equivalent staking contract for any Closed Agreements in the same fashion. This indexer staked minimum value must be a certain percentage of the Agreement’s per Era reward value, which means in order to renew the Agreement to higher volumes, the indexer must also increase their stake. When an indexer’s stake decreases beneath this minimum amount, they will be unable to renew the Agreement at the existing price.
+SubQuery планує додати в мережу обмеження, при якому індексатор повинен поставити мінімальну кількість SQT на відповідний пул винагород, щоб мати можливість брати участь у відповідній відкритій угоді. They must also stake a minimum amount on an equivalent staking contract for any Closed Agreements in the same fashion. This indexer staked minimum value must be a certain percentage of the Agreement’s per Era reward value, which means in order to renew the Agreement to higher volumes, the indexer must also increase their stake. When an indexer’s stake decreases beneath this minimum amount, they will be unable to renew the Agreement at the existing price.
 
 If an Indexer is caught misbehaving (such as by providing invalid, incomplete, or incorrect data), they are liable to have a portion of their staked SQT (on the particular reward pool ip) reallocated to the SubQuery Foundation Treasury, diminishing their holdings of staked SQT in the network and therefore their potential reward. Since the indexer’s allocated stake is determined by a percentage of their total SQT, this will have a flow on effect to all other reward pools that the indexer is party to.
 
 ## How are Indexers rewarded?
 
 Indexers are rewarded in SQT in two ways:
-- Rewards from SQT reward pools based on distribution defined by the Cobb-Douglas Production Function
-- Direct SQT query fee rewards from Closed Agreements that an indexer is party to
+- Rewards from SQT reward pools based on distribution defined by the Cobb-Douglas Production Function.
+- Direct SQT query fee rewards from Closed Agreements that an indexer is party to.
 
 Indexers are rewarded the fees that Consumers pay for providing blockchain data that the Consumer has reqested. An Indexer will receive all the fees from a Closed Agreement. Otherwise, the fees are split based on the amount of work performed (requests served) and the amount of delegated SQT - this split is determined by applying the Cobb-Douglas Production Function.
 
@@ -58,22 +58,22 @@ Indexers can either invest in their own infrastructure hardware or rent infrastr
 
 Here are some of the maintenance and/or operational requirements Indexers should expect:
 
-- Always upgrade to the latest Subquery software version
-- Identify and take advantage of new indexing opportunities
-- Update project version to latest and reindex where necessary
-- Infrastructure maintenance
-  - Constantly monitoring and upsizing disk
-  - Right size query and indexing compute based on traffic
-  - Increase query services for increasing ingress traffic
+- Always upgrade to the latest Subquery software version.
+- Identify and take advantage of new indexing opportunities.
+- Update project version to latest and reindex where necessary.
+- Infrastructure maintenance:
+  - Constantly monitoring and upsizing disk.
+  - Right size query and indexing compute based on traffic.
+  - Increase query services for increasing ingress traffic.
 
 ### Infrastructure
 
 The minimum infrastructure requirement includes:
 
 - At least one computational node to run the following services:
-  - [Node (indexing) Service](https://www.npmjs.com/package/@subql/node)
-  - [Query Service](https://www.npmjs.com/package/@subql/query)
-  - [Indexer Coordinator Service](https://www.npmjs.com/package/@subql/indexer-coordinator)
+  - [Node (indexing) Service](https://www.npmjs.com/package/@subql/node).
+  - [Query Service](https://www.npmjs.com/package/@subql/query).
+  - [Indexer Coordinator Service](https://www.npmjs.com/package/@subql/indexer-coordinator).
 - One database node to run Postgresql db (v12 and above).
 
 More detailed information will come soon.
@@ -98,8 +98,8 @@ In order to generate desirable performances, Indexers need to consider various f
 
 - the balance between their own stake and that of Delegators.
 - the type of contract being served. The Indexer will receive all the query fees if it is a closed contract. If it is open, then an Indexer’s reward will depend on how many other Indexers there are.
-- fulfilling of the Service Level Agreement (SLA) specifications (to avoid slashing penalties)
-- the accuracy of the data being served to avoid slashing penalties
+- fulfilling of the Service Level Agreement (SLA) specifications (to avoid slashing penalties).
+- the accuracy of the data being served to avoid slashing penalties.
 
 ## Selecting SubQuery Projects to Index
 
@@ -130,10 +130,10 @@ Indexers need to be aware of their operation cost and expected incomes to unders
 
 Indexers need to advertise themselves to Delegators as well as Consumers. Indexers may do this from their own website, in the Subquery forums or any other places deemed necessary. Some examples of the information to provide are:
 
-- The background and experience of the Indexer or Indexer’s team
-- The hardware approach and why it provides superior performance
-- The customer support policy or SLA
-- Evidence of historical performances
+- The background and experience of the Indexer or Indexer’s team.
+- The hardware approach and why it provides superior performance.
+- The customer support policy or SLA.
+- Evidence of historical performances.
 
 ### Customer support
 

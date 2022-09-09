@@ -1,11 +1,11 @@
-# Connectez-vous à votre nouveau projet
+# Connect to your new project
 
-Une fois que votre déploiement a été effectué avec succès et que nos nœuds ont indexé vos données de la chaîne, vous pourrez vous connecter à votre projet via le point de terminaison Query affiché.
+Once your deployment has succesfully completed and our nodes have indexed your data from the chain, you'll be able to connect to your project via the displayed Query endpoint.
 
 ![Projet en cours de déploiement et de synchronisation](/assets/img/projects-deploy-sync.png)
 
-Vous pouvez également cliquer sur les trois points situés à côté du titre de votre projet, et le visualiser dans l'explorateur de SubQuery. Là, vous pouvez utiliser le playground dans le navigateur pour commencer.
+Vous pouvez également cliquer sur les trois points situés à côté du titre de votre projet, et le visualiser dans l'explorateur de SubQuery. There you can use the in browser playground to get started.
 
-![Projets dans l'explorateur de SubQuery](/assets/img/projects-explorer.png)
+![Projects in SubQuery Explorer](/assets/img/projects-explorer.png)
 
-[En savoir plus sur le langage d'interrogation GraphQL.](./graphql.md)
+::: info Note Learn more about the [GraphQL Query language.](./graphql.md) :::

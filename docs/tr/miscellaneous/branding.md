@@ -14,6 +14,4 @@ Figma dosyamız, ihracat için tüm marka varlıklarının (logolar, yazı tiple
 
 ## Marka Varlıkları Paketi
 
-Marka varlıklarının daha küçük bir ZIP paketi
-
-[public_branding.zip](https://static.subquery.network/public_branding.zip)
+A smaller ZIP package of brand assets: [public_branding.zip](https://static.subquery.network/public_branding.zip).

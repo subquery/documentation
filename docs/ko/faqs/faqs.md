@@ -1,63 +1,101 @@
-# 자주 묻는 질문
+# Frequently Asked Questions
 
 ## SubQuery란?
 
-SubQuery는 개발자가 서브스트레이트 체인 데이터를 인덱싱, 변환 및 쿼리하여 애플리케이션을 구동할 수 있도록 하는 오픈 소스 프로젝트입니다.
+SubQuery is an open source blockchain data indexer for developers that provides fast, flexible, reliable, and decentralised APIs to power leading multi-chain apps.
 
-서브쿼리는 또한 개발자가 인프라 관리에 대한 책임 없이 오직 개발에만 집중할 수 있는 프로덕션 수준의 프로젝트 호스팅을 무료로 제공합니다.
+Our goal is to save developers' time and money by eliminating the need of building their own indexing solution. Now, they can fully focus on developing their applications. SubQuery helps developers create the decentralised products of the future.
+
+<figure class="video_container">
+<iframe src="https://www.youtube.com/embed/gCpVz_mkWdo" title="Introducing The SubQuery Network" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscree="true"></iframe>
+</figure>
+
+**SubQuery Managed Service**
+
+SubQuery also provides free, production grade hosting of projects for developers. Our Managed Service removes the responsiblity of managing infrastructure, so that developers do what they do best — build. Find out more [here](/run_publish/publish.md).
+
+**The SubQuery Network**
+
+The SubQuery Network allows developers to completely decentralise their infrastructure stack. It is the most open, performant, reliable, and scalable data service for dApps. The SubQuery Network indexes and services data to the global community in an incentivised and verifiable way.  After publishing your project to the SubQuery Network, anyone can index and host it - providing data to users around the world faster and reliably.
+
+More information [here](/subquery_network/introduction.md).
 
 ## SubQuery를 시작하는 가장 좋은 방법은 무엇입니까?
 
-서브쿼리를 시작하는 가장 좋은 방법은 [Hello World 튜토리얼](../quickstart/helloworld-localhost.md)을 따라해 보는 것입니다. 쿼리를 실행하는 과정을 5분 만에 쉽게 구동할 수 있습니다. 일단 스타트 템플릿을 다운로드하고 프로젝트를 빌드한 다음, Docker를 이용하여 로컬 호스트에서 노드를 실행합니다.
+The best way to get started with SubQuery is to try out our [Hello World tutorial](/assets/pdf/Hello_World_Lab.pdf). This is a simple 5 min walk through exercise. Download the starter template, build the project, use Docker to run a node on your localhost, and run a simple query.
 
 ## SubQuery에 기여하거나 피드백을 하려면 어떻게 해야하나요?
 
-우리는 언제나 커뮤니티의 기여와 피드백을 환영합니다. 코드를 피드백을 하려면 관심 있는 레포지토리를 포크하고 변경합니다. 그런 다음 PR 또는 풀 리퀘스트를 통해 제출해주세요. 맞다! 테스트도 잊지 마시구요! 또한, 기여 가이드 라인(TBA)도 확인해주세요.
+우리는 언제나 커뮤니티의 기여와 피드백을 환영합니다. To contribute the code, fork the repository of your interest and make your changes. 그런 다음 PR 또는 풀 리퀘스트를 통해 제출해주세요. Don't forget to test as well. Also check out our <a href="http://localhost:8080/miscellaneous/contributing.html">contributions guidelines.</a>
 
-피드백은 hello@subquery.network 또는 [디스코드 채널](https://discord.com/invite/78zg8aBSMG)을 통해 주시기 바랍니다.
+To give feedback, contact us at hello@subquery.network or jump onto our [discord channel](https://discord.com/invite/78zg8aBSMG).
 
 ## SubQuery 프로젝트에서 내 프로젝트를 호스팅하는 데 비용이 얼마나 듭니까?
 
-SubQuery 프로젝트에서 프로젝트를 호스팅하는 비용은 무료입니다! 이것이 저희가 커뮤니티에 보답하는 방법입니다! 프로젝트의 호스트 방법에 대해서는, [Hello World (SubQuery hosted)](../quickstart/helloworld-hosted.md)튜토리얼을 참조해 주세요.
+This service is being provided to the community with a generous free tier! You can host your first two SubQuery projects for absolutely free!
 
-## 배치 슬롯은 무엇인가요?
+## What are deployment slots?
 
-배치 슬롯은 개발 환경과 같도록 하는 [서브쿼리 프로젝트](https://project.subquery.network)의 특징입니다. 예를 들어, 어느 소프트웨어 조직이든 최소한 개발 환경과 가동 환경을 갖습니다(로컬호스트 무시). 통상적으로 조직의 수요와 개발 설정에 따라, 스테이징이나 예비가동 또는 QA와 같은 추가적인 환경이 포함됩니다.
+Deployment slots are a feature in [SubQuery Projects](https://project.subquery.network) that is the equivalent of a development environment. For example, in any software organisation there is normally a development environment and a production environment as a minimum (ignoring localhost that is). Typically additional environments such as staging and pre-prod or even QA are included depending on the needs of the organisation and their development set up.
 
-서브쿼리에는 현재 2개의 슬롯이 있습니다. 스테이징 슬롯과 가동 슬롯. 그러면 개발자는 서브쿼리를 스테이징 환경에 배치하고, 버튼 클릭을 통해 "가동 환경으로 승격"할 수 있습니다.
+SubQuery currently has two slots available. A staging slot and a production slot. This allows developers to deploy their SubQuery to the staging environment and all going well, "promote to production" at the click of a button.
 
-## 스테이징 슬롯의 장점은 무엇인가요?
+## What is the advantage of a staging slot?
 
-스테이징 슬롯을 사용하는 주요 장점은 서브쿼리 프로젝트의 공개하지 않고 새로운 릴리즈를 준비할 수 있다는 것입니다. 스테이징 슬롯이 가동 애플리케이션에 영향을 주지 않고 모든 데이터를 재인덱스화할 때까지 기다릴 수 있습니다.
+The main benefit of using a staging slot is that it allows you to prepare a new release of your SubQuery project without exposing it publicly. You can wait for the staging slot to reindex all data without affecting your production applications.
 
-스테이징 슬롯은 [Explorer](https://explorer.subquery.network/)에서는 일반에는 공개되지 않고, 유저만이 참조할 수 있는 일의 URL이 있습니다. 물론 별도의 환경을 통해 가동에 영향을 주지 않고 새로운 코드를 테스트할 수 있습니다.
+The staging slot is not shown to the public in the [Explorer](https://explorer.subquery.network/) and has a unique URL that is visible only to you. And of course, the separate environment allows you to test your new code without affecting production.
 
 ## What are Polkadot's Extrinsics?
 
-만약 여러분이 이미 블록체인의 개념에 익숙하시다면, 여러분은 외인성을 트랜잭션과 비교해 생각해볼 수 있을 것입니다. 정확히 말하자면, 외인성은 체인 외부로부터 오는 정보의 일부이며 블록 내에 포함되어 있습니다. 외인성은 세가지 카테고리로 분류해볼 수 있습니다. 바로 고유성, 서명된 트랜잭션, 서명되지 않은 트랜잭션입니다.
+If you are already familiar with blockchain concepts, you can think of extrinsics as comparable to transactions. More formally though, an extrinsic is a piece of information that comes from outside the chain and is included in a block. There are three categories of extrinsics. They are inherents, signed transactions, and unsigned transactions.
 
-고유의 외인성은 서명되지 않았고 블록 작성자에 의해 블록에 삽입되기만 하는 정보입니다.
+Inherent extrinsics are pieces of information that are not signed and only inserted into a block by the block author.
 
-서명된 트랜잭션 외인성은 트랜잭션을 발생시킨 계정의 서명을 포함한 트랜잭션들입니다. 이것은 트랜잭션을 체인에 포함시키기 위해 수수료를 지불해야 합니다.
+Signed transaction extrinsics are transactions that contain a signature of the account that issued the transaction. They stands to pay a fee to have the transaction included on chain.
 
-서명되지 않은 트랜잭션 외인성은 트랜잭션을 발행한 계정의 서명을 포함하지 않는 트랜잭션입니다. Unsigned transactions extrinsics should be used with care because there is nobody paying a fee, becaused they are not signed. 그래서 트랜잭션 대기열은 스팸을 방지하기 위한 경제 논리가 부족합니다.
+Unsigned transactions extrinsics are transactions that do not contain a signature of the account that issued the transaction. Unsigned transactions extrinsics should be used with care because there is nobody paying a fee, becaused they are not signed. Because of this, the transaction queue lacks economic logic to prevent spam.
 
-보다 자세한 정보를 원하시면, [here](https://substrate.dev/docs/en/knowledgebase/learn-substrate/extrinsics)을 클릭해주세요.
+For more information, click [here](https://substrate.dev/docs/en/knowledgebase/learn-substrate/extrinsics).
 
-## Kusama 네트워크의 엔드포인트는 무엇입니까?
+## What is the endpoint for the Kusama network?
 
-Kusama 네트워크의 network.endpoint는 `wss://kusama.api.onfinality.io/public-ws`입니다.
+The network.endpoint for the Kusama network is `wss://kusama.api.onfinality.io/public-ws`.
 
-## Polkadot 메인넷 네트워크의 엔드포인트는 무엇입니까?
+## What is the endpoint for the Polkadot mainnet network?
 
-Polkadot 네트워크의 network.endpoint는 `wss://polkadot.api.onfinality.io/public-ws`입니다.
+The network.endpoint for the Polkadot network is `wss://polkadot.api.onfinality.io/public-ws`.
 
-## 내 프로젝트의 스키마를 어떻게 반복적으로 개발할 수 있습니까?
+## How do I iteratively develop my project schema?
 
-프로젝트 스키마를 변경하는 작업 중의 이슈는, 여러분의 서브쿼리 노드를 테스트런칭할 때 앞서 인덱싱된 블록들은 새로운 스키마와 호환되지 않는다는 것입니다. 반복적인 스키마 작업을 위해서는 데이터베이스에 저장된 인덱싱된 블록들은 반드시 정리되어야 하며, 이것은 여러분의 노드를 `--force-clean` flag 와 함께 런칭함으로써 해결할 수 있습니다. 예제:
+A known issue with developing a changing project schema is that when lauching your Subquery node for testing, the previously indexed blocks will be incompatible with your new schema. In order to iteratively develop schemas the indexed blocks stored in the database must be cleared, this can be achieved by launching your node with the `--force-clean` flag. For example:
 
 ```shell
 subql-node -f . --force-clean --subquery-name=<project-name>
 ```
 
-설정된 블록으로부터 재인덱싱을 시작하기 위해서 프로젝트 manifest(`project.yaml`) 내의 `startBlock` 를 변경할 때는 `--force-clean` 를 사용하세요. 만약 `startBlock`이 프로젝트의 `--force-clean` 없이 변경된다면 인덱서는 이전에 설정된 `startBlock`없이 인덱싱을 계속할 것입니다.
+Note that it is recommended to use `--force-clean` when changing the `startBlock` within the project manifest (`project.yaml`) in order to begin reindexing from the configured block. If `startBlock` is changed without a `--force-clean` of the project, then the indexer will continue indexing with the previously configured `startBlock`.
+
+
+## How can I optimise my project to speed it up?
+
+Performance is a crucial factor in each project. Fortunately, there are several things you could do to improve it. Here is the list of some suggestions:
+
+- Avoid using block handlers where possible.
+- Query only necessary fields.
+- Try to use filter conditions to reduce the response size. Create filters as specific as possible to avoid querying unnecessary data.
+- For large data tables, avoid querying `totalCount` without adding conditions.
+- Add indexes to entity fields for query performance, this is especially important for historical projects.
+- Set the start block to when the contract was initialised.
+- Always use a [dictionary](../tutorials_examples/dictionary.html#how-does-a-subquery-dictionary-work) (we can help create one for your new network).
+- Optimise your schema design, keep it as simple as possible.
+    - Try to reduce unnecessary fields and columns.
+    - Create  indexes as needed.
+- Use parallel/batch processing as often as possible.
+    - Use `api.queryMulti()` to optimise Polkadot API calls inside mapping functions and query them in parallel. This is a faster way than a loop.
+    - Use `Promise.all()`. In case of multiple async functions, it is better to execute them and resolve in parallel.
+    - If you want to create a lot of entities within a single handler, you can use `store.bulkCreate(entityName: string, entities: Entity[])`. You can create them in parallel, no need to do this one by one.
+- Making API calls to query state can be slow. You could try to minimise calls where possible and to use `extrinsic/transaction/event` data.
+- Use `worker threads` to move block fetching and block processing into its own worker thread. It could speed up indexing by up to 4 times (depending on the particular project). You can easily enable it using the `-workers=<number>` flag. Note that the number of available CPU cores strictly limits the usage of worker threads. For now, it is only available for Substrate and Cosmos and will soon be integrated for Avalanche.
+- Note that `JSON.stringify` doesn’t support native `BigInts`. Our logging library will do this internally if you attempt to log an object. We are looking at a workaround for this.
+- Use a convenient `modulo` filter to run a handler only once to a specific block. This filter allows handling any given number of blocks, which is extremely useful for grouping and calculating data at a set interval. For instance, if modulo is set to 50, the block handler will run on every 50 blocks. It provides even more control over indexing data to developers and can be implemented like so below in your project manifest.

@@ -1,11 +1,11 @@
-# เชื่อมต่อกับโปรเจกต์ใหม่ของคุณ
+# Connect to your new project
 
-เมื่อการ deploy ของคุณเสร็จสิ้นเรียบร้อยแล้ว และ โหนดของเราได้จัดทำดัชนีข้อมูลของคุณจากเชน คุณจะสามารถเชื่อมต่อกับโปรเจกต์ของคุณผ่านทาง Query endpoint ที่แสดงอยู่
+Once your deployment has succesfully completed and our nodes have indexed your data from the chain, you'll be able to connect to your project via the displayed Query endpoint.
 
-![โปรเจกต์ที่กำลังถูก deploy และ sync](/assets/img/projects-deploy-sync.png)
+![โปรเจกต์ที่กำลัง deploy และ sync](/assets/img/projects-deploy-sync.png)
 
-หรือคุณสามารถคลิกที่จุดสามจุดถัดจากชื่อโปรเจกต์ของคุณ แล้วดูบน SubQuery Explorer คุณสามารถใช้ playground ในเบราว์เซอร์เพื่อเริ่มต้นได้
+หรือคุณสามารถคลิกที่จุดสามจุดถัดจากชื่อโปรเจกต์ของคุณ และดูบน SubQuery Explorer There you can use the in browser playground to get started.
 
-![โปรเจ็กต์ใน SubQuery Explorer](/assets/img/projects-explorer.png)
+![Projects in SubQuery Explorer](/assets/img/projects-explorer.png)
 
-[เรียนรู้เพิ่มเติมเกี่ยวกับภาษา GraphQL Query](./graphql.md)
+::: info Note Learn more about the [GraphQL Query language.](./graphql.md) :::

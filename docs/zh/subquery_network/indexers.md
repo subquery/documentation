@@ -1,140 +1,140 @@
-# Indexers
+# 索引者
 
-## What is an Indexer?
+## 什么是索引者？
 
-An Indexer is a SubQuery network participant who is responsible for indexing blockchain data and providing this data to their customers.
+索引者是 SubQuery 网络参与者，负责索引区块链数据并向客户提供这种数据。
 
-Indexers play a very important role within the SubQuery network. As a part of a data-as-a-service business, an Indexer turns computational and networking power into profits.
+索引者在SubQuery网络中发挥着非常重要的作用。 作为数据服务业务的一部分，索引者将计算和联网功率转变为利润。
 
-## Indexer Staking
+## 索引者权益质押
 
-In order to earn rewards from query revenue as an Indexer it is proposed that Indexers must stake SQT against a particular SubQuery Project that they are providing the service to. The Cobb-Douglas production function will be used to determine the rewards distributed to each Indexer.
+为了从作为索引器的查询收入中获得回报，建议索引者必须在他们提供服务的特定的 SubQuery 项目中订购SQT 。 Cobb-Douglas生产功能将用于确定分配给每个索引者的奖励。
 
-SubQuery plans to add a constraint to the network where an indexer must stake a minimum amount of SQT on the relevant reward pool to be able to participate in its matching Open Agreement. They must also stake a minimum amount on an equivalent staking contract for any Closed Agreements in the same fashion. This indexer staked minimum value must be a certain percentage of the Agreement’s per Era reward value, which means in order to renew the Agreement to higher volumes, the indexer must also increase their stake. When an indexer’s stake decreases beneath this minimum amount, they will be unable to renew the Agreement at the existing price.
+SubQuery 计划为网络添加一个约束，即索引者必须在相关奖励池中拥有最低数量的 SQT 才能参加匹配的开放协议。 它们还必须以同样方式在任何封闭协定的同等风险合同上承担最低数额。 这个指数化的最低值必须是协议每个时代奖励值的特定百分比。 这意味着要将协定延长到更高的卷宗，索引者还必须增加它们的利害关系。 当索引者的质押低于这个最低金额时，它们将无法以现有价格续延协定。
 
-If an Indexer is caught misbehaving (such as by providing invalid, incomplete, or incorrect data), they are liable to have a portion of their staked SQT (on the particular reward pool ip) reallocated to the SubQuery Foundation Treasury, diminishing their holdings of staked SQT in the network and therefore their potential reward. Since the indexer’s allocated stake is determined by a percentage of their total SQT, this will have a flow on effect to all other reward pools that the indexer is party to.
+如果索引者被发现错误(例如提供无效、不完整或不正确的数据)， 他们有责任将他们的Staked SQT（关于特定奖励池）的一部分重新分配给SubQuery基金会财务处。 减少他们在网络中所持的 SQT ，因而减少他们的潜在奖励。 因为索引者分配的股份是由他们SQT总额的百分比决定的， 这将对索引者所加入的所有其他奖励池产生影响。
 
-## How are Indexers rewarded?
+## 索引者如何获取奖励?
 
-Indexers are rewarded in SQT in two ways:
-- Rewards from SQT reward pools based on distribution defined by the Cobb-Douglas Production Function
-- Direct SQT query fee rewards from Closed Agreements that an indexer is party to
+索引者以两种方式在 SQT 中获得奖励：
+- 基于 Cobb-Douglas 生产功能定义的分布，来自SQT 奖励池的奖励。
+- 索引者从封闭协议中直接获得SQT查询费奖励。
 
-Indexers are rewarded the fees that Consumers pay for providing blockchain data that the Consumer has reqested. An Indexer will receive all the fees from a Closed Agreement. Otherwise, the fees are split based on the amount of work performed (requests served) and the amount of delegated SQT - this split is determined by applying the Cobb-Douglas Production Function.
+索引者会被奖励消费者因提供消费者要求的区块链数据而支付的费用。 索引者将从封闭协议中收取所有费用。 否则， 费用根据完成的工作量(请求已送达) 和授权的 SQT 金额进行拆分——这种拆分是通过应用Cobb-Douglas Production 功能来确定的。
 
-There may be multiple reward pools simultaneously active for a given Indexer. The indexer’s job is to allocate their staked and delegated SQT amongst these pools (in terms of a percentage of their total SQT). There will be a reward pool for each project that the Indexer accepts PAYG, and a reward pool for each Market Agreement that the Indexer is a party of.
+给定索引者可能同时激活多个奖励池。 索引者的工作是在这些池中分配他们的分级和委派的 SQT (占其总SQT的百分比)。 索引者接受PAYG的每个项目都有奖励池。 并为索引者所缔结的每一项市场协定提供奖励库。
 
-## Attracting Delegators
+## 吸引委托者
 
-Indexers can increase their earning potential by attracting Delegators. Delegators are SQT token holders who can delegate their tokens to Indexers for additional rewards. Indexers use these additional tokens to increase the amount they allocate to projects of their choice. This allows Indexers to increase their earnings.
+指数化可以通过吸引委托者来增加他们的收入潜力。 委托者成员是 SQT 代币持有者，可以将其代币分配给索引者以获得额外奖励。 索引者使用这些额外的代币来增加分配给他们选择的项目的金额。 这使索引者能够增加收入。
 
-Indexers set an Indexer’s Commission Rate (ICR) which is the percentage Indexers earn. The remaining is then shared amongst the Indexer and all Delegators propotionally by staked/delegated amount. Therefore, Indexers need to decide on the proportion of profits an Indexer wishes to retain versus the amount to share with their Delegators. A lower ICR will be more attractive for Delegators.
+索引者设置索引者的佣金率 (ICR) 是索引者赚取的百分比。 其余部分随后由索引者和所有代表按预定/授权数额分摊。 因此，索引者需要决定索引者希望保留的利润相对于与代表分享的数额的比例。 较低的ICR对委托方更有吸引力。
 
-For example, Indexer A has set an ICR of 80% and has received SQT from 8 Delegators. This means that the 8 Delegators plus the Indexer itself, will be rewarded a share of the remaining 20% of what the Indexer has earned. The share will be split proportionally between them. Note that Delegators must have delegated their tokens for the entire Era to be eligible for these rewards. For more information on Delegators rewards, see [Delegators](./delegators.md).
+例如，Indexer A将ICR 设定为80%，并从8名委托者收到了SQT。 这意味着8名委托者加上索引者本身将得到索引者剩余20%收入的奖励。 份额将按比例在它们之间分配。 请注意，委托者必须已经授予他们的代币，才有资格获得这些奖励。 关于代表奖励的更多信息，请参阅 [Delegators](./delegators.md)。
 
-## Becoming an Indexer
+## 成为索引者
 
-To become an Indexer on the SubQuery Network, the Indexer must possess the necessary hardware, run the required SubQuery services, have a publicly accessible network via a static IP or a domain name, and register as an Indexer.
+要成为SubQuery网络的索引者，索引者必须拥有必要的硬件，运行所需的SubQuery服务。 有一个通过静态IP或域名公开可访问的网络，并注册为索引者。
 
-### Indexer skillset
+### 索引器技能集
 
-In general, an Indexer should be a technically proficient computer user. However, the simplicity of the SubQuery network and proposed frameworks allows even a junior developer to successfully participate.
+一般而言，索引者应是技术熟练的计算机用户。 然而，SubQuery网络和拟议框架的简单性甚至使初级开发者能够成功地参与。
 
-A basic user should be familiar with provisioning and managing servers, installing the SubQuery CLI tools, database management, and basic networking. More experienced users may run nodes in a clustered environment, incorporate monitoring and alerts and also more advanced networking management.
+基本用户应该熟悉提供和管理服务器，安装 SubQuery CLI 工具、数据库管理和基本网络。 经验丰富的用户可以在集群环境中运行节点，纳入监测和警示以及更先进的网络管理。
 
-Finally, interested parties should be prepared to invest time in maintaining their indexing nodes and infrastructure.
+最后，有关各方应准备投入时间维持其索引节点和基础设施。
 
-### Staking requirements
+### 质押要求
 
-Indexers are expected to stake and maintain a minimum amount of tokens. This is to ensure that Indexers have some skin in the game and are committed to supporting the network. SubQuery is yet to determine this but it is one of our [design philosophies](./design-philosophy.md) that this be as low and as accessible as possible.
+索引者预计会有利害关系并保持最低数量的代币。 这是为了确保索引者在游戏中有一些皮肤并致力于支持网络。 SubQuery 尚未确定这一点，但这是我们 [的设计哲学](./design-philosophy.md) 中的一种，它尽可能低并且容易获得。
 
-Should an Indexer experience a slashable event and their staked SQT balance fall below the minimum required, they will have to top up their staked SQT in order to continue to earn rewards from their work.
+如果一个索引器经历一个可闪烁的事件，它们的 SQT 余额低于所需的最低值。 他们必须充值他们的Staked SQT才能继续从他们的工作中获得奖励。
 
-### Hardware requirements
+### 硬件要求:
 
-Indexers can either invest in their own infrastructure hardware or rent infrastructure from the likes of AWS, Google Cloud, Digital Ocean, Microsoft Azure etc.
+索引者可以对自己的基础设施硬件进行投资，也可以从喜欢的AWS、谷歌云、数字大洋、微软Azure等地租赁基础设施。
 
-### Maintenance/operational requirements
+### 维修/业务要求
 
-Here are some of the maintenance and/or operational requirements Indexers should expect:
+以下是一些维护和/或业务需求索引者应该期望：
 
-- Always upgrade to the latest Subquery software version
-- Identify and take advantage of new indexing opportunities
-- Update project version to latest and reindex where necessary
-- Infrastructure maintenance
-  - Constantly monitoring and upsizing disk
-  - Right size query and indexing compute based on traffic
-  - Increase query services for increasing ingress traffic
+- 总是升级到最新的SubQuery软件版本。
+- 查明并利用新的索引机会。
+- 更新项目版本到最新版本，并在必要时重新索引。
+- 基础结构管理器
+  - 不断监视和调整磁盘大小。
+  - 基于流量的右尺寸查询和索引计算。
+  - 增加查询服务以增加流量。
 
-### Infrastructure
+### 基础架构
 
-The minimum infrastructure requirement includes:
+最低限度的基础设施要求包括：
 
-- At least one computational node to run the following services:
-  - [Node (indexing) Service](https://www.npmjs.com/package/@subql/node)
-  - [Query Service](https://www.npmjs.com/package/@subql/query)
-  - [Indexer Coordinator Service](https://www.npmjs.com/package/@subql/indexer-coordinator)
-- One database node to run Postgresql db (v12 and above).
+- 至少有一个计算节点来运行以下服务：
+  - [Node (indexing) Service](https://www.npmjs.com/package/@subql/node).
+  - [Query Service](https://www.npmjs.com/package/@subql/query).
+  - [Indexer Coordinator Service](https://www.npmjs.com/package/@subql/indexer-coordinator).
+- 运行Postgresql db (v12及以上) 的数据库节点。
 
-More detailed information will come soon.
+更详细的信息会在不就得将来发布。
 
-## Security & Performance considerations
+## 安全 & 性能考虑
 
-Security and performance considerations are as follows.
+安全和业绩方面的考虑如下。
 
-### Operator Wallets
+### 操作员钱包
 
-Secure storage of an Indexer’s wallet recovery seed phrase is highly recommended.
+强烈建议安全存储索引器的钱包恢复种子短语。
 
-### Firewalls
+### 防火墙
 
-Indexers need to keep security front of mind. Infrastructure security, in particular firewalls, should be implemented to prevent public exposure to personal ports.
+索引者需要保持安全心理。 基础设施安全，特别是防火墙，应当加以实施，以防止公众接触到个人端口。
 
-Secure passwords should be used by default and password rotation policies should be considered.
+安全密码应默认使用，并应考虑密码旋转策略。
 
-### Indexer’s Performance
+### 索引者的成绩
 
-In order to generate desirable performances, Indexers need to consider various factors such as:
+为了产生理想的业绩，索引员需要考虑各种因素，例如：
 
-- the balance between their own stake and that of Delegators.
-- the type of contract being served. The Indexer will receive all the query fees if it is a closed contract. If it is open, then an Indexer’s reward will depend on how many other Indexers there are.
-- fulfilling of the Service Level Agreement (SLA) specifications (to avoid slashing penalties)
-- the accuracy of the data being served to avoid slashing penalties
+- (c) 在代表们的利益之间保持平衡。
+- 所提供的合同类型。 如果索引者收到的是封闭的合同，它将收到所有查询费用。 如果它是开放的，那么索引者的奖励将取决于还有多少其他索引者。
+- 《服务级协议》的具体规定得到执行(以避免罚金)。
+- 为避免罚金，所提供的数据准确无误。
 
-## Selecting SubQuery Projects to Index
+## 选择SubQuery项目到索引
 
-There are several indicators that an Indexer needs to consider when selecting a SubQuery project to index.
+索引者在选择要索引的SubQuery项目时需要考虑若干指标。
 
-### Query Fee Opportunities
+### 查询费用的商机
 
-Some projects will have open or closed plans advertised by consumers.
+有些项目将有消费者公布的开放或封闭计划。
 
-When a Consumer advertises an open or closed plan for a project, they ultimately specify how much they are willing to pay for a set volume of requests. The more a Consumer is willing to pay, the more attractive the project will be for an Indexer. It also provides confidence that there will likely be recurring revenue from this SubQuery project.
+当一个消费者为一个项目发布一个开放或关闭的计划时， 它们最终具体说明它们愿意为一定数量的请求付款的程度。 消费者越愿意支付，项目就越吸引力越大。 它还使人相信，这个SubQuery项目很可能会有经常性的收入。
 
-### Project complexity
+### 项目的复杂性
 
-Projects will vary in computation requirements. Simple projects will only index a few parameters whereas more complicated projects will require more computation resources and more bandwidth. Indexers need to understand the complexity of the project and its hardware capabilities.
+项目在计算要求方面会有差异。 简单的项目只能索引几个参数，而较复杂的项目则需要更多的计算资源和更多的带宽。 索引者需要了解项目的复杂性及其硬件能力。
 
-### Indexer Competition
+### 索引者比赛
 
-Popular projects offering a high query volume that attract a large number of Indexers. This also implies that the rewards will be shared amongst more people. A single Indexer’s share may be less than a less popular project with a slightly lower query fee but with far fewer Indexers.
+最受欢迎的项目提供了一个高查询量，吸引了大量索引者。 这也意味着奖励将由更多的人分享。 单个索引者的份额可能低于较不受欢迎的项目，但查询费略低，但索引者却少得多。
 
-### Pricing Strategy
+### 价格策略
 
-Indexers need to be aware of their operation cost and expected incomes to understand their break-even point. Some considerations are:
+索引者需要了解他们的操作成本和预期收入，以了解他们的突破点。 以下是一些考虑因素：
 
-- How should Indexers set their plan prices?
-- At what price can Indexers accept a service agreement or not?
+- 索引者应如何确定其计划价格？
+- 索引者能以何种价格接受一项服务协议？
 
-### Advertisements
+### 广告
 
-Indexers need to advertise themselves to Delegators as well as Consumers. Indexers may do this from their own website, in the Subquery forums or any other places deemed necessary. Some examples of the information to provide are:
+索引员需要将自己广告给代表和消费者。 索引者可以从自己的网站、SubQuery论坛或被认为必要的任何其他地方这样做。 提供资料的一些例子包括：
 
-- The background and experience of the Indexer or Indexer’s team
-- The hardware approach and why it provides superior performance
-- The customer support policy or SLA
-- Evidence of historical performances
+- 索引者或索引者团队的背景和经验。
+- 硬件方法和为什么它提供了优秀的性能。
+- 客户支持政策或服务级协议。
+- 历史优秀成绩的证据。
 
-### Customer support
+### 客户支持
 
-Indexers are highly encouraged to provide a communication method for its customers to report inavailability and also to provide feedback.
+非常鼓励索引员向客户提供一种沟通方法，让他们报告不存在的情况，并提供反馈。

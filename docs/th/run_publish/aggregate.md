@@ -24,6 +24,8 @@ SubQuery มีฟังก์ชันการรวมต่อไปนี�
 - `varianceSample` (ใช้กับช่องตัวเลข) - ความแปรปรวนตัวอย่าง
 - `variancePopulation` (ใช้กับช่องตัวเลข) - ความแปรปรวนประชากร
 
-การใช้งานฟังก์ชันการรวมของ SubQuery ขึ้นอยู่กับ [pg-aggregates](https://github.com/graphile/pg-aggregates) ซึ่งคุณสามารถหาข้อมูลเพิ่มเติมได้จากลิ้งค์
+SubQuery's implementation of aggregate functions is based on [pg-aggregates](https://github.com/graphile/pg-aggregates), you can find more information there.
 
-**โปรดทราบว่าคุณต้องเปิดใช้งาน `--unsafe` ในบริการสืบค้นข้อมูลเพื่อใช้ฟังก์ชันเหล่านี้ [Read more](./references.md#unsafe-2). และโปรดทราบว่าคำสั่ง `--unsafe` จะป้องกันไม่ให้โปรเจกต์ของคุณทำงานในเครือข่าย SubQuery และคุณต้องติดต่อฝ่ายสนับสนุนหากต้องการให้คำสั่งนี้รันกับโปรเจ็กของคุณในบริการที่มีการจัดการของ SubQuery ([project.subquery.network](https://project.subquery.network))**
+::: warning Important Please note that you must enable the `--unsafe` flag on the query service in order to use these functions. [Read more](./references.md#unsafe-2).
+
+Also, note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in [SubQuery's managed service](https://project.subquery.network). :::

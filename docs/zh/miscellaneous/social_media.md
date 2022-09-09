@@ -11,7 +11,7 @@ SubQuery 是一个活跃的项目，通过许多社交媒体与我们的用户�
 - [ Medium ](https://subquery.medium.com) (主要通知公告)
 - [Twitter](https://twitter.com/subquerynetwork)
 - [Telegram](https://t.me/subquerynetwork) (公告频道)
-- [GitHub](https://github.com/SubQuery/subql)
+- [GitHub](https://github.com/subquery/)
 - [Matrix/Riot](https://matrix.to/#/#subquery:matrix.org)
 - [LinkedIn](https://www.linkedin.com/company/subquery)
 

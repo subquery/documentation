@@ -1,66 +1,66 @@
 # Delegators
 
-## What is a Delegator?
+## Delegators คืออะไร
 
-A Delegator is a non-technical network role in the SubQuery Network and is a great way to start participating in the SubQuery Network. This role enables Delegators to “delegate” their SQT to one or more Indexers and earn rewards (similar to staking).
+Delegator เป็นบทบาทเครือข่ายที่ไม่ใช่ด้านเทคนิคในเครือข่าย SubQuery และเป็นวิธีที่ยอดเยี่ยมในการเริ่มเข้าร่วมในเครือข่าย SubQuery บทบาทนี้ช่วยให้ Delegators สามารถ "มอบหมาย" SQT ของตนให้กับผู้จัดทำดัชนีหนึ่งรายขึ้นไปและได้รับรางวัล (คล้ายกับการปักหลัก)
 
-Without Delegators, Indexers will likely earn fewer rewards because they will have less SQT to allocate. Therefore, Indexers compete to attract Delegators by offering a competitive share of an Indexer’s rewards.
+หากไม่มี Delegators ตัวสร้างดัชนีมักจะได้รับรางวัลน้อยลง เพราะพวกเขาจะมี SQT น้อยกว่าในการจัดสรร ดังนั้น นักทำดัชนีจึงแข่งขันกันเพื่อดึงดูด Delegators โดยเสนอส่วนแบ่งที่แข่งขันได้ของรางวัลของ Indexer
 
-## Requirements to be a Delegator
+## ข้อกำหนดในการเป็นผู้มอบสิทธิ์
 
-One of the best things about being a Delegator is that you don’t need any devops, coding, or technical experience. Basic understanding of the SubQuery Network is all that is required to become a Delegator.
+หนึ่งในสิ่งที่ดีที่สุดเกี่ยวกับการเป็น Delegator คือคุณไม่จำเป็นต้องมีนักพัฒนา การเขียนโปรแกรม หรือประสบการณ์ด้านเทคนิคใดๆ ความเข้าใจพื้นฐานเกี่ยวกับ SubQuery Network คือทั้งหมดที่จำเป็นในการเป็น Delegator.
 
-## Benefits of being a Delegator
+## ประโยชน์ของการเป็นตัวแทน Delegator
 
-There are several benefits of becoming a Delegator:
+มีประโยชน์หลายประการในการเป็นDelegator:
 
-- **Easy to get started**: Requiring little technical knowledge, Delegators only need to acquire SQT tokens and then learn the process of delegating the tokens to their preferred Indexer(s).
-- **Contribute to the network**: Delegating to Indexers is a way to support an Indexer’s work service requests to consumers. In return, Delegators are rewarded with SQT.
-- **Earn rewards**: Delegators can put their SQT to work by delegating their SQT to Indexers and earning a share of the reward pool.
-- **No minimum delegation amount**: There is no minimum required delegation to be a Delegator. This means that anyone can join no matter how much SQT one has.
+- **ง่ายต่อการเริ่มต้น**: ต้องการความรู้ด้านเทคนิคเพียงเล็กน้อย Delegators จะต้องได้รับโทเค็น SQT แล้วเรียนรู้กระบวนการมอบโทเค็นให้กับตัวสร้างดัชนีที่ต้องการ
+- **มีส่วนร่วมในเครือข่าย**: การมอบสิทธิ์ให้กับตัวสร้างดัชนีเป็นวิธีสนับสนุนคำขอบริการงานของตัวสร้างดัชนีไปยังผู้ใช้งาน ในทางกลับกัน Delegators จะได้รับรางวัล SQT
+- **รับรางวัล**: Delegators สามารถนำ SQT ของตนไปใช้งานได้โดยมอบหมาย SQT ให้กับตัวสร้างดัชนี และรับส่วนแบ่งจากกลุ่มรางวัล
+- **ไม่มีจำนวนการมอบหมายขั้นต่ำ**: ไม่มีการมอบหมายขั้นต่ำที่จำเป็นในการเป็น Delegator. ซึ่งหมายความว่าทุกคนสามารถเข้าร่วมได้ไม่ว่าจะมี SQT เท่าใด
 
-## How Delegators are rewarded?
+## Delegators จะได้รับผลตอบแทนอย่างไร?
 
-To attract Delegators to support their work, Indexers offer Delegators a share of the rewards they earn. The Indexer will advertise an Indexer Commission Rate, where the remaining revenue will then be shared within the total delegation/staking pool proportionally to the individual delegated/staked value in the pool.
+เพื่อดึงดูด Delegators ให้สนับสนุนงานของพวกเขา Indexers เสนอ Delegators แบ่งรางวัลที่พวกเขาได้รับ ตัวทำดัชนีจะโฆษณาอัตราค่าคอมมิชชันตัวสร้างดัชนี โดยที่รายได้ที่เหลือจะถูกแบ่งปันภายในกลุ่มการมอบหมาย/การถือหุ้นทั้งหมดตามสัดส่วนกับมูลค่าที่ได้รับมอบหมาย/เดิมพันแต่ละรายการในกลุ่ม
 
-*Indexer’s Commission Rate*: This is a percentage share of the fees earned from serving requests to Consumers. Indexers are free to set this rate to any value they desire. A higher percentage indicates that Indexers keep more of the profits. A lower percentage indicates that the Indexers share more of their profits with their Delegators.
+*อัตราค่าคอมมิชชันของผู้จัดทำดัชนี*: นี่คือส่วนแบ่งร้อยละของค่าธรรมเนียมที่ได้รับจากคำขอให้บริการแก่ผู้ใช้งาน ตัวสร้างดัชนีมีอิสระที่จะกำหนดอัตรานี้เป็นค่าที่ต้องการ เปอร์เซ็นต์ที่สูงขึ้นบ่งชี้ว่าผู้จัดทำดัชนีสามารถทำกำไรได้มากกว่าขึ้น เปอร์เซ็นต์ที่ต่ำกว่าบ่งชี้ว่าผู้จัดทำดัชนีแบ่งปันผลกำไรกับ Delegators ของตนมากขึ้น
 
-Delegators will only receive revenue for staking Eras that they were a part of for the entire period. For example, if they join a staking Era in the middle of the relevant period, then they will not earn any Query Fee revenue for that particular Era.
+Delegators จะได้รับรายได้จากการปักหลัก Eras ที่พวกเขาเป็นส่วนหนึ่งของตลอดระยะเวลาเท่านั้น ตัวอย่างเช่น หากพวกเขาเข้าร่วมยุคการปักหลักในช่วงกลางของช่วงเวลาที่เกี่ยวข้อง พวกเขาจะไม่ได้รับรายได้จากค่าธรรมเนียมการค้นหาสำหรับยุคนั้น ๆ
 
-If an Indexer wishes to increase the Indexer Commission Rate that they offer to their Delegators, they must advertise this for an entire staking Era . The Indexer will be able to decrease their Indexer Commission Rate at any point to raise more delegated SQT for staking in the short term. Delegators can withdraw or undelegate their staked amount at any time, but they will forfeit any rewards earned within the staking Era (as they were not part of the delegation pool for the entire duration of the staking Era).
+หากผู้จัดทำดัชนีต้องการเพิ่มอัตราค่าคอมมิชชันผู้จัดทำดัชนีที่พวกเขาเสนอให้กับDelegatorsของตน พวกเขาต้องโฆษณาสิ่งนี้ตลอดยุคการปักหลัก Indexer จะสามารถลดค่าคอมมิชชั่นของ Indexer ได้ทุกเมื่อเพื่อเพิ่ม SQT ที่ได้รับมอบหมายมากขึ้นสำหรับการ stake ในระยะสั้น Delegators สามารถถอนหรือยกเลิกการมอบหมายจำนวน stake ของตนได้ตลอดเวลา แต่พวกเขาจะริบรางวัลใดๆ ที่ได้รับภายในยุคการปักหลัก (เนื่องจากพวกเขาไม่ได้เป็นส่วนหนึ่งของกลุ่มตัวแทนตลอดระยะเวลาของยุคการปักหลัก)
 
-## Risks of being a Delegator
+## ความเสี่ยงของการเป็น Delegator
 
-Even though it is not considered a risky role, being a Delegator includes a few risks to be aware of.
+แม้ว่าจะไม่ถือว่าเป็นบทบาทที่เสี่ยง แต่การเป็นDelegatorก็มีความเสี่ยงบางประการที่ต้องระวัง
 
-1. Market volatility risk: The constant fluctuations in the market is a risk that affects not just SQT, but all tokens in the general cryptocurrency marketplace. Taking a long term approach can reduce this type of risk.
-2. Constant adjustments of staking parameters by Indexers and delegation fees can increase the risk to a Delegator. For example, a Delegator might miss a change in staking parameters resulting in a less than expected return. To reduce this risk, when Indexers decrease their stake parameters, it will only take effect after the next full Era has been completed, giving time for delegators to assess and make any changes.
-3. Indexer poor performance: It is possible that Delegators can select Indexers that perform poorly and therefore provide a substandard return on investment to Delegators. Delegators are therefore encouraged to do Indexer due diligence on potential Indexers. A Reputation Index is also available to help Delegators compare Indexers to each other.
+1. ความเสี่ยงจากความผันผวนของตลาด: ความผันผวนอย่างต่อเนื่องในตลาดเป็นความเสี่ยงที่ส่งผลกระทบไม่เพียงแค่ SQT แต่รวมถึงโทเค็นทั้งหมดในตลาดสกุลเงินดิจิทัลทั่วไป การใช้แนวทางระยะยาวสามารถลดความเสี่ยงประเภทนี้ได้
+2. การปรับค่าพารามิเตอร์การ stake อย่างต่อเนื่องโดยตัวสร้างดัชนีและค่าธรรมเนียมการมอบหมายสามารถเพิ่มความเสี่ยงให้กับ Delegator ตัวอย่างเช่น Delegator อาจพลาดการเปลี่ยนแปลงในพารามิเตอร์การปักหลักส่งผลให้ได้ผลตอบแทนน้อยกว่าที่คาดไว้ เพื่อลดความเสี่ยงนี้ เมื่อผู้จัดทำดัชนีลดพารามิเตอร์สเตคของตน จะมีผลก็ต่อเมื่อสิ้นสุด Era ถัดไปเต็มเท่านั้น โดยให้เวลา Delegators ในการประเมินและทำการเปลี่ยนแปลงใดๆ
+3. ตัวสร้างดัชนีมีประสิทธิภาพต่ำ: เป็นไปได้ที่ Delegators สามารถเลือกตัวสร้างดัชนีที่ทำงานได้ไม่ดี ดังนั้นจึงให้ผลตอบแทนจากการลงทุนที่ต่ำกว่ามาตรฐานแก่ Delegators Delegators จึงได้รับการสนับสนุนให้ทำตัวทำดัชนีมีความขยันหมั่นเพียรเพื่องานที่มีศักยภาพ นอกจากนี้ยังมีดัชนีชื่อเสียงเพื่อช่วย Delegators เปรียบเทียบ Indexers ซึ่งกันและกัน
 
-## How to select Indexers?
+## จะเลือกตัวสร้างดัชนีได้อย่างไร
 
-Delegators can select potential Indexers based on a *Reputation Index* or RI. This RI takes into account an Indexer’s uptime, indexer commission rate, slashing events, and Indexer parameter change frequency.
+Delegators สามารถเลือกตัวสร้างดัชนีที่เป็นไปได้โดยพิจารณาจาก *ดัชนีชื่อเสียง*หรือ RI. RI นี้จะพิจารณาเวลาทำงานของตัวทำดัชนี อัตราค่าคอมมิชชันตัวทำดัชนี เหตุการณ์สแลช และความถี่ในการเปลี่ยนแปลงพารามิเตอร์ตัวสร้างดัชนี
 
-SubQuery will launch the official RI soon, but we expect other delegation applications to calculate and release their own.
+SubQuery จะเปิดตัว RI อย่างเป็นทางการในไม่ช้า แต่เราคาดว่าแอปพลิเคชันการมอบหมายอื่น ๆ จะคำนวณและเผยแพร่ของตนเอง
 
-## Non-reward period
+## ช่วงที่ไม่ได้รับรางวัล
 
-Besides the period when Delegators can effectively earn money, a non-reward period also occurs. Delegators receive rewards for staking Eras that they were a part of for the entire duration. For example, if a Delegator joins a staking era halfway through, they will not earn any rewards for that particular era.
+นอกจากช่วงเวลาที่ Delegators สามารถรับเงินได้อย่างมีประสิทธิภาพ Delegators จะได้รับรางวัลจากการ staking Eras ที่พวกเขาเป็นส่วนหนึ่งตลอดระยะเวลา ตัวอย่างเช่น หาก Delegator เข้าร่วม staking era ผ่านครึ่งทาง พวกเขาจะไม่ได้รับรางวัลใดๆ สำหรับช่วงนั้น
 
-Delegators can change the indexer that their SQT is delegated to (called redelegating), this change will be queued to happen automatically at the end of the the Era and no thawing period will occur.
+Delegators สามารถเปลี่ยนตัวสร้างดัชนีที่ SQT ของตนได้รับมอบหมายให้ (เรียกว่าการมอบหมายซ้ำ) การเปลี่ยนแปลงนี้จะถูกจัดคิวให้เกิดขึ้นโดยอัตโนมัติเมื่อสิ้นสุดยุคและจะไม่มีช่วงการละลายเกิดขึ้น
 
-If a Delegator decides to undelegate their SQT, a 28 day thawing period starts. The tokens cannot be used during this period, no fees can be accrued or any reward gained.
+หาก Delegator ตัดสินใจที่จะยกเลิกการมอบหมาย SQT ของตน ระยะเวลาการละลาย 28 วันจะเริ่มต้นขึ้น ไม่สามารถใช้โทเค็นได้ในช่วงเวลานี้ ไม่มีการเรียกเก็บค่าธรรมเนียมหรือรางวัลใดๆ ที่ได้รับ
 
-## Indexer due diligence for Delegators
+## การตรวจสอบวิเคราะห์สถานะสำหรับตัวสร้างดัชนีสำหรับ Delegators
 
-Once a preferred Indexer(s) is found, due diligence should be performed to check an Indexer’s reputation and reliability. Assessments could be performed to evaluate if the Indexer is active in the community, if the Indexer helps other members, if it is possible to get in touch with the Indexer, and if the Indexer is up-to-date with protocol and project updates.
+เมื่อพบตัวทำดัชนีที่ต้องการแล้ว ควรทำการตรวจสอบสถานะเพื่อตรวจสอบชื่อเสียงและความน่าเชื่อถือของตัวทำดัชนี การประเมินสามารถทำได้เพื่อประเมินว่าตัวสร้างดัชนีมีการใช้งานอยู่ในชุมชนหรือไม่ ถ้าตัวทำดัชนีช่วยสมาชิกคนอื่น ๆ หากเป็นไปได้ที่จะติดต่อกับตัวสร้างดัชนี และตัวสร้างดัชนีมีการอัปเดตโปรโตคอลและโครงการล่าสุดหรือไม่
 
-## Delegation Lifecycle
+## วัฏจักรการ Delegation
 
-Delegators delegate (deposit) SQT into an Indexer’s contract.
+Delegators มอบหมาย (ฝาก) SQT เข้าสู่สัญญาของ Indexe
 
-Delegators can then decide how much to redelegate to each Indexer of their choice.
+จากนั้น Delegators สามารถตัดสินใจว่าจะมอบสิทธิ์ให้ผู้จัดทำดัชนีแต่ละคนจำนวนเท่าใดก็ได้ตามที่ตนเลือก
 
-Delegator can undelegate (withdraw) tokens back to their wallet. This will trigger a lock period of 28 days.
+Delegator สามารถยกเลิกการมอบหมาย (ถอน) โทเค็นกลับไปที่กระเป๋าเงินของพวกเขา การดำเนินการนี้จะทริกเกอร์ระยะเวลาล็อก 28 วัน
 
-After the unlocking period has been completed, tokens become available for withdrawal/claim.
+หลังจากสิ้นสุดระยะเวลาการปลดล็อกแล้ว โทเค็นจะสามารถถอนออก/รับสิทธิ์ได้

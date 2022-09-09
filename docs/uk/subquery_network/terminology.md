@@ -1,65 +1,65 @@
-# Terminology
+# Термінологія
 
-![terminology](/assets/img/terminology.png)
+![термінологія](/assets/img/terminology.png)
 
-## **Allocating**
+## **Розподіл**
 
-Act of an Indexer assigning SQT to a given project.
+Процес призначення SQT для проекту індексатором.
 
-### **Reallocating**
+### **Перерозподілення**
 
-A combined operation of removing staked tokens from one project and immediately associating that with another project (comes into effect at the end of the next Era). This is represented/expressed as a percentage of the indexer’s bonded SQT.
+Одночасний процес з вилучення застейканих токенів з одного проекту і негайне їх стейкінг в іншому проекті(набирає чинність в кінці наступної Ери). Це представлено / виражено як відсоток від усіх залучених SQT токенів індексатора.
 
-## **Bonding**
+## **Залучення**
 
-Act of depositing SQT into a global staking contract performed by either an Indexer or a Delegator
+Процес внесення SQT в глобальний контракт стейкінгу, виконаний Індексатором або Делегатором.
 
-### **Unbonding**
+### **Відлучення**
 
-Act of an Indexer or a Delegator withdrawing SQT from the global staking contract.
+Процес при яскому Індексатор або Делегатор вилучає частину своїх SQT з глобального контракту.
 
-This is effectively a transfer of SQT from the global staking contract to the Indexer’s or Delegator’s wallet. In other words, this can be thought of as the Indexer or Delegator withdrawing part or all of their stake. Note that a lock period applies when tokens are unbonded.
+Наспраді це просто переміщення SQT з глобального контракту до гаманців Індексатора або Делегатора. Іншими словами, це можна вважати частковим або повним виводом Індексатором або Делегатором своїх застейканих токенів. Зверніть увагу, що діє термін блокування після відлучення токенів.
 
-## **Delegating**
+## **Делегування**
 
-Act of a Delegator assigning SQT into the global staking contract and then assigning SQT to an Indexer. Note that delegating and bonding are atomic operations.
+Процес призначення SQT у глобальний контракт стейкінгу Делегатором, з подальшим призначенням SQT для одного з індексаторів. Зверніть увагу, що делегування і залучення є атомарними операціями.
 
-### **Undelegating**
+### **Відкликання делегування**
 
-Act of withdrawing SQT from an Indexer at the end of an Era and then withdrawing that SQT from the global staking contract to a wallet address. This is subject to a lock period.
+Процес виводу SQT з Індексатора в кінці Ери з подальшим виводом цих токенів з глобального контракту стейкінгу на адресу гаманця. Цей процес підпадає від дію періоду блокування.
 
-### **Redelegating**
+### **Передача делегування**
 
-Act of a Delegator reassigning SQT from one Indexer to another Indexer. Redelegating does not require tokens to be undelegated and is queued to take effect at the end of the Era.
+Процес при якому Делегатор перепризначає токени SQT з одного Індексатора на інший. Передача делегування не потребує попереднього відкликання делегування, та ставиться в чергу для виконання в кінці Ери.
 
-## **Staking**
+## **Стейкінг**
 
-Act of an Indexer assigning tokens in a global staking contract and into the Indexer’s own contract.
+Процес призначення токенів глобальному контракту стейкінга Індексатором та на свій власний контракт.
 
-### **Unstaking**
+### **Анстейкінг**
 
-Act of an Indexer withdrawing their SQT. This triggers a 28 day “lock period”. Indexer can restake to cancel this process and return their lock period tokens to the staking contract.
+Процес виводу своїх SQT Індексатором. Це є тригером для 28-денного періоду блокування. Індексатор може поновити стейкінг для скасувати цього процесу і повернути свої заблоковані токени до контракту стейкінгу.
 
-### **Restaking**
+### **Поновлення стейкінгу**
 
-Act of Indexer restaking SQT during the lock period to return locked period tokens to the staking contract.
+Процес поновлення стейкінгу SQT Індексатором під час періоду блокування задля повернення токенів в контракт стейкінгу.
 
 ---
 
-## **Contract Ratio**
+## **Коефіцієнт контракту**
 
-The sum of daily contracts value (defined as contract value/period) can not exceed a ratio with their total stake (indexer + delegator).
+Сума щоденних вартостей договорів (визначена як вартість договору/період) не може перевищувати співвідношення з їх сумарним стейком (індексатор + делегатор).
 
-## **Era**
+## **Ера**
 
-A period or duration of time where configurations and settings remain constant and calculations take place. For example, during an Era:
+Період або тривалість часу, коли конфігурації і налаштування залишаються постійними і відбуваються обчислення. Наприклад, під час Ери:
 
-- the Indexer Commission Rate cannot be changed during an Era.
+- ставка комісії Індексатора не може юути змінена під час Ери.
 
-## **Indexer Delegation Ratio**
+## **Коефіцієнт делегації індексатора**
 
-The amount an Indexer can “borrow” or leverage from Delegators. This ratio is yet to be determined.
+Сума, яку індексатор може "позичати" або використовувати від делегаторів. Це співвідношення ще має бути визначене.
 
-## **Lock period**
+## **Період блокування**
 
-A period where tokens are unbonded awaiting withdrawal. During this period, tokens do not earn any rewards. Currently, the lock period is defined as 28 days.
+Період коли токени відлучени та очікують на вивід. Протягом цього періоду токени не отримують жодних винагород. На даний момент, період блокування визначено як 28 днів.

@@ -1,6 +1,6 @@
 # Truy vấn dự án của bạn trong SubQuery Explorer
 
-[SubQuery Explorer](https://explorer.subquery.network) là một dịch vụ được lưu trữ trực tuyến (tại [explorer.subquery.network](https://explorer.subquery.network)) cung cấp quyền truy cập vào các dự án SubQuery đã xuất bản được thực hiện bởi những người đóng góp trong cộng đồng của chúng tôi và được quản lý bởi nhóm SubQuery. Bạn có thể xuất bản các dự án SubQuery của riêng mình lên explorer của chúng tôi bằng cách làm theo hướng dẫn của chúng tôi để [Xuất bản Dự án SubQuery của bạn](../run_publish/publish.md).
+[SubQuery Explorer](https://explorer.subquery.network) is an online Managed Service that provides access to published SubQuery projects made by contributors in our community and managed by the SubQuery team. Bạn có thể xuất bản các dự án SubQuery của riêng mình lên explorer của chúng tôi bằng cách làm theo hướng dẫn của chúng tôi để [Xuất bản Dự án SubQuery của bạn](../run_publish/publish.md).
 
 ![SubQuery Explorer](https://static.subquery.network/media/explorer/explorer-header.png)
 
@@ -10,8 +10,6 @@ Trình khám phá SubQuery giúp bạn bắt đầu dễ dàng. Chúng tôi đan
 
 Bạn cũng sẽ lưu ý rằng SubQuery Explorer cung cấp một sân chơi để khám phá dữ liệu có sẵn với các truy vấn mẫu - bạn có thể kiểm tra các truy vấn trực tiếp trong trình duyệt của mình mà không cần triển khai mã. Ngoài ra, chúng tôi đã thực hiện một số cải tiến nhỏ đối với tài liệu của mình để hỗ trợ tốt hơn cho các nhà phát triển trong hành trình truy vấn và phân tích dữ liệu của thế giới Polkadot tốt hơn.
 
-Ở trên cùng bên phải của sân chơi, bạn sẽ tìm thấy nút _Tài liệu_ sẽ mở bản vẽ tài liệu. Tài liệu này được tạo tự động và giúp bạn tìm thấy những thực thể và phương pháp nào bạn có thể truy vấn. Trong ví dụ dưới đây, chúng tôi đang sử dụng [ Sum Rewards SubQuery ](https://explorer.subquery.network/subquery/OnFinality-io/sum-reward) để có được 5 tài khoản được thưởng nhiều nhất (về doanh thu đặt cược) trên Polkadot chưa bao giờ bị cắt giảm.
+On the top right of the playground, you'll find a _Docs_ button that will open a documentation draw. Tài liệu này được tạo tự động và giúp bạn tìm thấy những thực thể và phương pháp nào bạn có thể truy vấn.
 
-![Tài Liệu SubQuery](https://static.subquery.network/media/explorer/explorer-documentation.png)
-
-[Tìm hiểu thêm về ngôn ngữ GraphQL Query.](./graphql.md)
+::: info Note Learn more about the [GraphQL Query language.](./graphql.md) :::

@@ -1,4 +1,4 @@
-# Perintah Line Flags
+# Bendera Baris Perintah
 
 ## subql (cli)
 
@@ -7,17 +7,17 @@
 ```shell
 > subql --help
 
-COMMANDS
-  build     Buat kode proyek SubQuery ini
-  codegen   Hasilkan skema untuk simpul grafik
-  help      Tampilkan bantuan untuk subql
-  init      Inisialisasi proyek subquery scaffold
-  migrate   Migrasikan manifes proyek Subquery v0.0.1 ke v0.2.0
-  publish   Unggah proyek SubQuery ini ke IPFS
-  validate  Periksa folder atau repo github adalah proyek subquery yang valid
+PERINTAH
+  build Bangun kode proyek SubQuery ini
+  codegen Hasilkan skema untuk simpul graf
+  help menampilkan bantuan untuk subql
+  init Inisialisasi proyek subquery perancah
+  migrate Migrasikan Manifest proyek SubQuery v0.0.1 ke v0.2.0
+  publish Unggah proyek SubQuery ini ke IPFS
+  validate Memeriksa folder atau repo github adalah proyek subquery yang validate
 ```
 
-### membangun
+### build
 
 Perintah ini menggunakan webpack untuk menghasilkan bundel proyek subquery.
 
@@ -27,13 +27,13 @@ Perintah ini menggunakan webpack untuk menghasilkan bundel proyek subquery.
 | -o, --output       | tentukan folder keluaran build mis. membangun-folder                                                       |
 | --mode=(production | prod                                                        | development | dev) | [ default: production ] |
 
-- Dengan `subql build` Anda dapat menentukan titik masuk tambahan di bidang ekspor meskipun itu akan selalu dibangun `index.ts` secara otomatis
+- Dengan `subql build` Anda dapat menentukan titik masuk tambahan di bidang ekspor meskipun itu akan selalu dibangun `index.ts` secara otomatis.
 
 - Anda harus memiliki @subql/cli v0.19.0 atau lebih tinggi untuk menggunakan bidang ekspor.
 
 - Setiap bidang `ekspor` harus dipetakan ke tipe string (mis. `"entry": "./src/file.ts"`), jika tidak, akan diabaikan dari build.
 
-[Contoh lebih lanjut](https://doc.subquery.network/create/introduction/#build).
+[Contoh lebih lanjut](../build/introduction.md#build).
 
 ## subql-node
 
@@ -61,24 +61,29 @@ Options:
                                                       [boolean] [default: false]
       --profiler            Show profiler information to console output
                                                       [boolean] [default: false]
-      --subscription        Enable subscription       [boolean] [default: false]                                                     
+      --subscription        Enable subscription       [boolean] [default: false]
       --network-endpoint    Blockchain network endpoint to connect      [string]
       --output-fmt          Print log as json or plain text
                                            [string] [choices: "json", "colored"]
-      --log-level           Specify log level to print. Diabaikan ketika --debug adalah
-                             digunakan
-          [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
+      --log-level           Specify log level to print. Diabaikan ketika --debug
+                            digunakan
+          [string] [pilihan: "fatal", "error", "warning", "info", "debug", "trace",
                                                                        "silent"]
-      --migrate             Migrasikan skema db (hanya untuk tabel manajemen)
+      --migrate Memigrasi skema db (hanya untuk tabel manajemen)
                                                       [boolean] [default: false]
-      --timestamp-field     Enable/disable created_at and updated_at in schema
+      --timestamp-field Mengaktifkan/menonaktifkan created_at dan updated_at dalam skema
                                                       [boolean] [default: false]
-  -d, --network-dictionary  Tentukan api kamus untuk jaringan ini [string]
-  -m, --mmr-path            Jalur lokal pegunungan merkle (.mmr) file
+  -d, --network-dictionary Tentukan kamus api untuk jaringan ini [string]
+  -m, --mmr-path Jalur lokal dari file merkle mountain range (.mmr)
                                                                         [string]
-      --proof-of-index      Enable/disable proof of index
+      --proof-of-index Mengaktifkan/menonaktifkan bukti indeks
                                                       [boolean] [default: false]
-  -p, --port                Port yang akan diikat oleh layanan           [number]
+  -p, --port Port yang akan diikat oleh layanan [number]
+      --disable-historis Menonaktifkan penyimpanan entitas status historis
+                                                       [boolean] [default: true]
+      --reindex Reindex ke tinggi blok yang ditentukan [number]
+  -w, --workers Jumlah thread pekerja yang akan digunakan untuk mengambil dan
+                            memproses blok. Dinonaktifkan oleh Default.     [number]
 ```
 
 ### --version
@@ -133,7 +138,7 @@ Bendera ini terutama digunakan untuk tujuan debugging di mana ia membuat tabel s
 subql-node -f . --local
 ```
 
-Perhatikan bahwa setelah Anda menggunakan bendera ini, menghapusnya tidak berarti bahwa itu akan mengarah ke database lain. Untuk menunjuk kembali ke database lain, Anda harus membuat database BARU dan mengubah pengaturan env ke database baru ini. Dengan kata lain, "ekspor DB_DATABASE=<new_db_here>"
+Perhatikan bahwa setelah Anda menggunakan bendera ini, menghapusnya tidak berarti bahwa itu akan mengarah ke database lain. Untuk menunjuk kembali ke database lain, Anda harus membuat database BARU dan mengubah pengaturan env ke database baru ini. Dengan kata lain, "ekspor DB_DATABASE=<new_db_here>".
 
 ### --force-clean
 
@@ -148,6 +153,7 @@ subql-node -f . --db-schema=test2
 ```
 
 ### --berlangganan
+
 Ini akan membuat pemicu notifikasi pada entitas, ini juga merupakan prasyarat untuk mengaktifkan fitur berlangganan di layanan kueri.
 
 ### --unsafe
@@ -160,7 +166,7 @@ Proyek SubQuery biasanya dijalankan dalam kotak pasir javascript untuk keamanan 
 
 Meskipun ini meningkatkan keamanan, kami memahami bahwa ini membatasi fungsionalitas SubQuery Anda yang tersedia. Perintah `--unsafe` mengimpor semua modul javascript default yang sangat meningkatkan fungsionalitas kotak pasir dengan pengorbanan keamanan yang menurun.
 
-**Perhatikan bahwa perintah `--unsafe` akan mencegah proyek Anda dijalankan di Jaringan SubQuery, dan Anda harus menghubungi dukungan jika Anda ingin perintah ini dijalankan dengan proyek Anda di layanan terkelola SubQuery ([ project.subquery.network](https://project.subquery.network))**
+**Note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in [SubQuery's Managed Service](https://project.subquery.network).**
 
 ### --batch-size
 
@@ -176,11 +182,11 @@ Bendera ini memungkinkan Anda untuk mengatur ukuran batch di baris perintah. Jik
 
 ### --scale-batch-size
 
-Skala ukuran batch pengambilan blok dengan penggunaan memori
+Skala ukuran batch pengambilan blok dengan penggunaan memori.
 
 ### --timeout
 
-Setel batas waktu khusus untuk kotak pasir javascript untuk menjalankan fungsi pemetaan di atas satu blok sebelum fungsi pemetaan blok mengeluarkan pengecualian batas waktu
+Setel batas waktu khusus untuk kotak pasir javascript untuk menjalankan fungsi pemetaan di atas satu blok sebelum fungsi pemetaan blok mengeluarkan pengecualian batas waktu.
 
 ### --debug
 
@@ -241,7 +247,7 @@ Ada dua format keluaran terminal yang berbeda. JSON atau berwarna. Berwarna adal
 
 ### --log-level
 
-Ada 7 pilihan yang bisa dipilih. “fatal”, “error”, “warn”, “info”, “debug”, “trace”, “silent”. Contoh di bawah ini menunjukkan diam. Tidak ada yang akan dicetak di terminal sehingga satu-satunya cara untuk mengetahui apakah node berfungsi atau tidak adalah dengan menanyakan database untuk jumlah baris (pilih count(\*) dari subquery_1.starter_entities) atau kueri tinggi blok.
+Ada 7 pilihan yang bisa dipilih. “fatal”, “error”, “warn”, “info”, “debug”, “trace”, “silent”. Contoh di bawah ini menunjukkan diam. Tidak ada yang akan dicetak di terminal sehingga satu-satunya cara untuk mengetahui apakah node berfungsi atau tidak adalah dengan menanyakan database untuk jumlah baris (pilih count(\*) dari subquery_1.starter_entities) atau kueri ketinggian blok.
 
 ```shell
 > subql-node -f . --log-level=silent
@@ -273,7 +279,7 @@ Ini menghapus kolom create_at dan updated_at di tabel starter_entities.
 
 ### -d, --network-dictionary
 
-Ini memungkinkan Anda untuk menentukan titik akhir kamus yang merupakan layanan gratis yang disediakan dan dihosting di: [https://explorer.subquery.network/](https://explorer.subquery.network/) (mencari kamus) dan menyajikan titik akhir API: https //api.subquery.network/sq/subquery/dictionary-polkadot
+Ini memungkinkan Anda untuk menentukan titik akhir kamus yang merupakan layanan gratis yang disediakan dan dihosting di: [https://explorer.subquery.network/](https://explorer.subquery.network/) (mencari kamus) dan menyajikan titik akhir API: https //api.subquery.network/sq/subquery/dictionary-polkadot.
 
 Biasanya ini akan diatur dalam file manifes Anda, tetapi di bawah ini menunjukkan contoh penggunaannya sebagai argumen di baris perintah.
 
@@ -285,11 +291,29 @@ subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot
 
 ### -p, --port
 
-Port yang diikat oleh layanan pengindeksan subquery. Secara default ini diatur ke `3000`
+Port yang diikat oleh layanan pengindeksan subquery. Secara default ini diatur ke `3000`.
 
 ### --disable-historical
 
-Disables automated historical state tracking, [see Historic State Tracking](./historical.md). By default this is set to `false`.
+Menonaktifkan pelacakan status historis otomatis, [lihat Pelacakan Status Historis](./historical.md). Secara default ini diatur ke `3000`.
+
+### --reindex
+
+Gunakan `--reindex=<blockNumber>` untuk menghapus data yang diindeks dan mengindeks ulang dari tinggi blok yang ditentukan.
+
+Catatan Harap diperhatikan bahwa cara menggunakan fitur ini akan segera diperbarui. :::
+
+### -w, --workers
+
+Ini akan memindahkan pengambilan dan pemrosesan blok ke dalam worker. Secara default, fitur ini **disabled**. Anda bisa mengaktifkannya dengan flag `--workers=<number>`. Perhatikan bahwa jumlah core CPU yang tersedia sangat membatasi penggunaan thread pekerja. Jadi, ketika menggunakan flag `--workers=<number>`, selalu tentukan jumlah pekerja. Tanpa flag yang disediakan, semuanya akan berjalan dalam thread yang sama.
+
+:::tip Tip Tip Ini bisa meningkatkan performa hingga 4 kali lipat. Cobalah dan beri tahu kami tanggapan Anda!
+
+Saat ini, ini masih dalam tahap percobaan awal, tetapi kami berencana untuk mengaktifkannya secara default. :::
+
+:::: info Catatan
+Fitur ini tersedia untuk Substrate dan Cosmos, dan akan segera diintegrasikan untuk Avalanche.
+:::
 
 ## subql-query
 
@@ -299,11 +323,11 @@ Ini menunjukkan opsi bantuan.
 
 ```shell
 Options:
-      --help          Menunjukan help                                          [boolean]
-      --version       Menunjukan version number                                [boolean]
-  -n, --name          Nama Project                              [string] [required]
+      --help          Show help                                          [boolean]
+      --version       Show version number                                [boolean]
+  -n, --name          Project name                             [string] [required]
       --playground    Enable graphql playground                          [boolean]
-      --subscription  Enable subscription               [boolean] [default: false]   
+      --subscription  Enable subscription               [boolean] [default: false]
       --output-fmt    Print log as json or plain text
                         [string] [choices: "json", "colored"] [default: "colored"]
       --log-level     Specify log level to print.
@@ -349,37 +373,37 @@ Bendera ini mengaktifkan taman bermain graphql sehingga harus selalu disertakan 
 
 ### --output-fmt
 
-See [--output-fmt](https://doc.subquery.network/run_publish/references.html#output-fmt)
+Lihat [--output-fmt](../run_publish/references.md#output-fmt).
 
 ### --log-level
 
-See [--log-level](https://doc.subquery.network/run_publish/references.html#log-level)
+Lihat [--log-level](../run_publish/references.md#log-level).
 
 ### --log-path
 
-Aktifkan logging file dengan menyediakan jalur ke file untuk login ke
+Aktifkan logging file dengan menyediakan jalur ke file untuk login ke.
 
 ### --log-rotate
 
-Aktifkan rotasi log file dengan opsi interval rotasi 1d, maksimal 7 file dan dengan ukuran file maksimal 1GB
+Aktifkan rotasi log file dengan opsi interval rotasi 1d, maksimal 7 file dan dengan ukuran file maksimal 1GB.
 
 ### --indexer
 
-Tetapkan url khusus untuk lokasi titik akhir pengindeks, layanan kueri menggunakan titik akhir ini untuk kesehatan pengindeks, metadata, dan status kesiapan
+Tetapkan url khusus untuk lokasi titik akhir pengindeks, layanan kueri menggunakan titik akhir ini untuk kesehatan pengindeks, metadata, dan status kesiapan.
 
-### --berlangganan
+### --subscription
 
-This flag enables [GraphQL Subscriptions](./subscription.md), to enable this feature requires `subql-node` also enable `--subscription`
+Tanda ini mengaktifkan [GraphQL Langganan](./subscription.md), untuk mengaktifkan fitur ini memerlukan `subql-node` juga mengaktifkan `--langganan`.
 
 ### --unsafe
 
 Layanan kueri memiliki batas 100 entitas untuk kueri graphql tak terbatas. Bendera tidak aman menghapus batas ini yang dapat menyebabkan masalah kinerja pada layanan kueri. Sebagai gantinya, disarankan agar kueri [diberi halaman](https://graphql.org/learn/pagination/).
 
-This flag enables certain aggregation functions including sum, max, avg and others. Read more about this feature [here](./aggregate.md)
+Bendera ini memungkinkan fungsi agregasi tertentu termasuk jumlah, maks, rata-rata, dan lainnya. Baca selengkapnya tentang fitur ini [di sini](../run_publish/aggregate.md).
 
 Ini dinonaktifkan secara default karena batas entitas.
 
-**Perhatikan bahwa perintah `--unsafe` akan mencegah proyek Anda dijalankan di Jaringan SubQuery, dan Anda harus menghubungi dukungan jika Anda ingin perintah ini dijalankan dengan proyek Anda di proyek [layanan terkelola SubQuery.subquery.network](https://project.subquery.network).**
+**Juga, perhatikan bahwa perintah `--unsafe` akan mencegah proyek Anda dijalankan di Jaringan SubQuery, dan Anda harus menghubungi dukungan jika Anda ingin perintah ini dijalankan dengan proyek Anda di [ layanan terkelola SubQuery](https://project.subquery.network).**
 
 ### --port
 

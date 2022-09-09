@@ -11,7 +11,7 @@ Mục đích của chúng tôi là lắng nghe và tương tác với cộng đ�
 - [Medium](https://subquery.medium.com) (Kênh thông báo chính)
 - [Twitter](https://twitter.com/subquerynetwork)
 - [ Telegram ](https://t.me/subquerynetwork) (Chỉ kênh thông báo)
-- [GitHub](https://github.com/SubQuery/subql)
+- [GitHub](https://github.com/subquery/)
 - [Matrix/Riot](https://matrix.to/#/#subquery:matrix.org)
 - [LinkedIn](https://www.linkedin.com/company/subquery)
 

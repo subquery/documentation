@@ -9,7 +9,7 @@ Mặc dù bạn luôn có quyền nâng cấp và triển khai các phiên bản
 
 ## Các Thay Đổi Triển Khai
 
-Có hai phương pháp để triển khai một phiên bản mới của dự án của bạn cho Dịch vụ quản lý SubQuery, bạn có thể sử dụng giao diện người dùng hoặc trực tiếp thông qua công cụ `subql` cli.
+There are three methods to deploy a new version of your project to the SubQuery Managed Service: you can use the UI, create it directly via the `subql` cli tool, or use an automated GitHub action.
 
 ### Sử dụng giao diện người dùng
 
@@ -20,19 +20,19 @@ Chúng tôi khuyên bạn chỉ nên triển khai vào vị trí dàn dựng c�
 Vị trí dàn dựng sẽ hoàn hảo cho việc:
 
 - Xác thực lần cuối các thay đổi đối với Dự án SubQuery của bạn trong một môi trường riêng biệt. Vị trí dàn dựng có một URL khác để xuất bản mà bạn có thể sử dụng trong dApps của mình.
-- Khởi động và lập chỉ mục dữ liệu cho một dự án SubQuery được cập nhật để loại bỏ thời gian chết trong dApp của bạn
+- Warming up and indexing data for an updated SubQuery project to eliminate downtime in your dApp.
 - Chuẩn bị một bản phát hành mới cho Dự án SubQuery của bạn với chế độ không công khai. Vị trí dàn dựng không được hiển thị công khai trong Explorer và có một URL duy nhất chỉ hiển thị cho bạn.
 
 ![Vị trí dàn dựng](/assets/img/staging_slot.png)
 
-Điền vào Commit Hash từ GitHub (sao chép toàn bộ commit hash) của phiên bản codebase dự án SubQuery mà bạn muốn triển khai. Bước này sẽ làm tốn nhiều thời gian hơn nữa tùy thuộc vào thời gian cần để lập chỉ mục chuỗi hiện tại. Bạn luôn có thể báo cáo lại tại đây để biết tiến độ.
+Fill in the IPFS CID of the new version of your SubQuery project codebase that you want deployed (see the documetation to publish to IPFS [here](./publish.md). Bước này sẽ làm tốn nhiều thời gian hơn nữa tùy thuộc vào thời gian cần để lập chỉ mục chuỗi hiện tại. Bạn luôn có thể báo cáo lại tại đây để biết tiến độ.
 
 ### Sử dụng CLI
 
-Bạn cũng có thể sử dụng `@subql/cli` để tạo một triển khai mới của dự án cho dịch vụ được quản lý của chúng tôi. Điều này yêu cầu:
+You can also use `@subql/cli` to create a new deployment of your project to our Managed Service. Điều này yêu cầu:
 
 - `@subql/cli` phiên bản 1.1.0 trở lên.
-- Một [SUBQL_ACCESS_TOKEN](/docs/run_publish/ipfs.md#prepare-your-subqlaccesstoken) hợp lệ đã sẵn sàng.
+- A valid [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) ready.
 
 ```shell
 // Bạn có thể đặt trực tiếp phiên bản Trình lập chỉ mục và Truy vấn của mình
@@ -43,9 +43,35 @@ $ subql deployment:deploy --indexerVersion=1.1.2 --queryVersion=1.1.1
 $ subql deployment:deploy
 ```
 
+### Using GitHub actions
+
+With the introduction of the deployment feature for the CLI, we've added a **Default Action Workflow** to [the starter project in GitHub](https://github.com/subquery/subql-starter/blob/v1.0.0/.github/workflows/cli-deploy.yml) that will allow you to publish and deploy your changes automatically:
+
+- Step 1: After pushing your project to GitHub, create `DEPLOYMENT` environment on GitHub, and add the secret [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) to it.
+- Step 2: If you haven't already, create a project on [SubQuery Projects](https://project.subquery.network). This can be done using the the [UI](#using-the-ui) or [CLI](#using-the-cli).
+- Step 3: Once your project is created, navigate to the GitHub Actions page of your project, and select the workflow `CLI deploy`.
+- Step 4: You'll see an input field where you can enter the unique code of your project created on SubQuery Projects. You can get the code from the URL in SubQuery Projects [SubQuery Projects](https://project.subquery.network). The code is based on the name of your project, where spaces are replaced with hyphens `-`. e.g. `my project name` becomes `my-project-name`.
+
+::: tips Tip
+Once the workflow is complete, you should be able to see your project deployed to our Managed Service.
+:::
+
+A common approach is to extend the default GitHub Action to automatically deploy changes to our Managed Service when code is merged into the main branch. The following change to the GitHub Action workflow do this:
+
+```yml
+on:
+  push:
+    branches:
+      - main
+jobs:
+  deploy:
+    name: CLI Deploy
+    ...
+```
+
 ## Nâng cấp lên Dịch vụ lập chỉ mục và Truy vấn mới nhất
 
-Nếu bạn muốn nâng cấp lên trình lập chỉ mục mới nhất ([`@subql/node`](https://www.npmjs.com/package/@subql/node)) hoặc dịch vụ truy vấn ([`@subql/query`](https://www.npmjs.com/package/@subql/query)) để có lợi thế về khả năng cải thiện độ ổn định và hiệu năng thông thường của chúng tôi, chỉ cần chọn ra các phiên bản mới hơn trong các gói của chúng tôi và lưu lại. Điều này sẽ chỉ gây ra một vài phút ngừng hoạt động khi các dịch vụ chạy dự án của bạn được khởi động lại.
+If you just want to upgrade to the latest indexer ([`@subql/node`](https://www.npmjs.com/package/@subql/node)) or query service ([`@subql/query`](https://www.npmjs.com/package/@subql/query)) to take advantage of our regular performance and stability improvements, just select a newer versions of our packages and save. This will cause only a few minutes of downtime as the services running your project are restarted.
 
 ## Các Bước Tiếp Theo - Kết nối đến Dự Án của bạn
 
@@ -53,4 +79,4 @@ Sau khi việc triển khai đã thành công và các nút của chúng ta đã
 
 ![Các dự án đang được triển khai và đồng bộ](/assets/img/projects-deploy-sync.png)
 
-Ngoài ra, bạn có thể nhấp vào ba dấu chấm bên cạnh tiêu đề dự án của mình và xem nó trên SubQuery Explorer. Tại đó bạn có thể sử dụng nền tảng trong trình duyệt để bắt đầu - [đọc thêm về cách thức sử dụng Explorer của chúng tôi tại đây](../run_publish/query.md).
+Ngoài ra, bạn có thể nhấp vào ba dấu chấm bên cạnh tiêu đề dự án của mình và xem nó trên SubQuery Explorer. There you can use the in browser playground to get started - [read more about how to use our Explorer here](../run_publish/query.md).

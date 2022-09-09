@@ -4,9 +4,9 @@
 
 SubQuery 现在已支持 Graphql 订阅。 像查询一样，订阅可以让您获取数据。 与查询不同的是，订阅是长期操作，可以随着时间的推移改变其结果。
 
-当您想要您的客户端应用程序更改数据或在发生更改或有新数据时显示一些新数据时，订阅非常有用。 订阅允许您 *订阅* SubQuery项目进行修改。
+当您想要您的客户端应用程序更改数据或在发生更改或有新数据时显示一些新数据时，订阅非常有用。 Subscriptions allow you to _subscribe_ to your SubQuery project for changes.
 
-[在此阅读更多关于订阅的信息](https://www.apollographql.com/docs/react/data/subscriptions/)
+::: 信息说明 阅读更多关于 [订阅](https://www.apollographql.com/docs/react/data/subscriptions/) :::
 
 ## 如何订阅
 
@@ -25,8 +25,9 @@ subscription {
 ```
 
 当`Transfer`表被更新时，查询中的实体体表明你想通过订阅接收什么数据:
-- `id`: 返回已更改的项目的 ID
-- `mutation_type`: 已经对这个选项进行了操作。 类型可以是 `INSERT`, `UPDATE` 或 `DELETE`
+
+- `id`: 返回已更改的项目的 ID.
+- `mutation_type`: 已经对这个选项进行了操作。 突变类型可以是 `INSERT`、`UPDATE` 或 `DELETE`。
 - `_entity`: 项目本身的值为 JSON 格式。
 
 ## 筛选
@@ -62,8 +63,10 @@ subscription {
 }
 ```
 
-请注意， `mutation` 过滤器可以是 `INSERT`, `UPDATE` 或 `DELETE`
+请注意， `mutation` 过滤器可以是 `INSERT`, `UPDATE` 或 `DELETE`.
 
-**131/5000 请注意，为了使用这些函数，必须在节点和查询服务上启用`--subscription`标志。**
+::: 警告 重要 请注意，您必须在节点和查询服务上启用 `--subscription` 标志才能使用这些功能。 :::
 
-当您直接调用列出的GraphQL端点时，订阅特性可以在SubQuery的托管服务上工作。 它不能在浏览器内的GraphQL背景中工作。
+::: warning Important
+The subcription feature works on SubQuery's Managed Service when you directly call the listed GraphQL endpoint. 它不能在浏览器内的GraphQL背景中工作。
+:::

@@ -1,37 +1,37 @@
-# Payment Methods
+# Способы оплаты
 
-For flexibility, there are 3 payment options to pay for blockchain data. They are:
+Для обеспечения гибкости существует 3 варианта оплаты данных блокчейна. Это:
 
-- Pay-As-You-Go (PAYG)
-- Closed Service Agreement
-- Open Service Agreement
+- Оплата по мере использования (PAYG).
+- Закрытое Соглашение на оказание услуг.
+- Открытое Соглашение на оказание услуг.
 
-## Pay-As-You-Go (PAYG)
+## Оплата по факту (PAYG)
 
-This is the baseline payment method and a fallback for others. Each Indexer will advertise their PAYG prices when registering their ability to serve requests for specific SubQuery projects.
+Это базовый способ оплаты и запасной вариант для других способов. Каждый индексатор будет объявлять свои цены PAYG при регистрации своей способности обрабатывать запросы для определенных проектов SubQuery.
 
-Consumers making requests will have to lock the tokens necessary to make that request in a state channel, and at the end of an Era, these tokens will be distributed to the Indexers based on the Cobb-Douglas production function.
+Потребители, создающие запросы, должны будут заблокировать токены, необходимые для исполнения этого запроса в канале состояния, и в конце Эры эти токены будут распределены среди индексаторов основываясь на производственной функции Кобба-Дугласа.
 
-## Closed Plans and Agreements
+## Закрытые Планы и Соглашения
 
-Closed Agreements represent an agreement between only one Indexer and one Consumer. It’s a direct relationship where all payment flows between the two parties for the work that is done.
+Закрытые соглашения - это соглашение только между одним Индексатором и одним Потребителем. Это прямые взаимоотношения, когда все платежи происходят между двумя сторонами за выполненную работу.
 
-Closed Agreements are designed to give Indexers confidence that there is a market and ROI for data from a particular SubQuery Project, and essentially signal to them which Projects should be indexed.
+Закрытые соглашения предназначены для того, чтобы дать индексаторам уверенность в том, что существует рынок и окупаемость инвестиций для данных определенного проекта SubQuery, и, в cущности, сигнализировать им, какие проекты следует индексировать.
 
-Closed Plans can also be placed on existing SubQuery Projects to attract additional Indexers to that SubQuery Project. This may be useful in situations where the existing monopolistic Indexer may be charging an unreasonable amount for the data or there is a lack of competition to drive prices to equilibrium.
+Закрытые планы также могут быть применимы к существующим проектам SubQuery, чтобы привлечь дополнительных индексаторов к данному проекту SubQuery. Это может быть полезно в ситуациях, когда существующий монополист индексатор может взимать необоснованную оплату за данные или отсутствует конкуренция, для того чтобы привести цены к разумному равновесию.
 
-## Open Service Agreement
+## Открытое соглашение об оказании услуг
 
-Open Market Service Agreements are similar to Closed Market Service Agreements, but allow multiple Indexers to join and compete to provide data to the Consumer. An Open Market Service Agreement may start as a contract between 1 Consumer and 1 Indexer, but more parties may join the contract resulting in *n* consumer and *n* indexers.
+Соглашения об оказании услуг на Открытом Рынке аналогичны соглашениям об оказании услуг на Закрытом Рынке, но позволяют многим индексаторам объединяться и конкурировать за предоставление данных Потребителю. Соглашение об оказании услуг на Открытом Рынке может начинаться как договор между 1 потребителем и 1 индексатором, но к больше сторон может далее присоединиться к договору, что приведет к появлению n потребителей и n индексаторов.
 
-Each Open Market Service Agreement results in a new reward pool being created for that contract, and SQT is distributed amongst participating indexers by the Cobb-Douglas production function.
+Каждое соглашение об обслуживании на Открытом Рынке приводит к созданию нового пула вознаграждений для данного контракта, и SQT распределяется между участвующими индексаторами согласно производственной функции Кобба-Дугласа.
 
-Open Agreements provide favourable terms for both Indexers and Consumers, but enable better performance and reliability for Consumers by attracting more Indexers to compete and serve the same data. If Consumers are running large scale applications with users around the world, then Open Agreements are ideal.
+Открытые соглашения обеспечивают выгодные условия как для Индексаторов, так и для Потребителей, но обеспечивают более высокую производительность и надежность для Потребителей, привлекая больше индексаторов конкурировать и обслуживать одни и те же данные. Если потребители запускают крупномасштабные приложения с пользователями по всему миру, то Открытые Соглашения идеальны.
 
-## SubQuery’s Innovation in Payment Methods
+## Инновации SubQuery в способах оплаты
 
-Today, we generally pay with subscription-based payments for the music we listen to, the TV shows we watch, and the applications that we use. In pioneering web3 service applications, we’ve instead adopted a pay-as-you-go model, where each atomic transaction has an exact cost in the network.
+Сегодня за музыку, которую слушаем, телепередачи, которые смотрим, и приложения, которые используем мы обычно платим на основании подписок. Вместо этого в инновационных сервисных приложениях веб-3 мы приняли модель оплаты по мере использования (Payg), в которой каждая атомарная транзакция имеет точную стоимость в сети.
 
-We think subscription based or recurring payment methods are here to stay. Service providers like them because they represent predictable revenue, similarly on the other side consumers like them because they are a known and easily quantified cost. There’s also a psychological factor where once you subscribe, most consumers will feel obligated to consume as much if not all of it, increasing the demand for the service and allowing economies of scale to kick in.
+Мы думаем, что способы оплаты на основе подписки или регулярные платежи никуда не исчезнут. Поставщикам услуг они нравятся, потому что они приносят предсказуемый доход, точно так же, с другой стороны, они нравятся потребителям, потому что они представляют собой известную и легко определяемую стоимость. Существует также психологический фактор: после того, как вы подпишетесь, большинство потребителей почувствуют себя обязанными потреблять столько же, если не все, что увеличивает спрос на услугу и дает эффект масштаба.
 
-The combination of the above three payment options for indexers provide several advanced subscription based options for Consumers and Indexers. Some parties may benefit from the certainty of rewards provided by Closed Agreements and the predictability of recurring costs. Equally, others may instead prefer to hunt out the most affordable data by going for high volume recurring agreements or low spot prices on the Pay-As-You-Go market.
+Комбинация трех указанных вариантов оплаты для индексаторов обеспечивает несколько расширенных вариантов подписки для Потребителей и Индексаторов. Некоторые стороны могут извлечь выгоду из определенности вознаграждений, обеспечиваемых Закрытыми соглашениями, и предсказуемости повторяющихся затрат. Точно так же другие могут вместо этого предпочесть искать наиболее доступные данные, заключая повторяющиеся соглашения с большими объемами или низкие спотовые цены на рынке с оплатой по мере использования.

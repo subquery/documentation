@@ -3,20 +3,21 @@
   <section class="welcomeWords">
     <div class="main">
       <div>
-        <h2 class="welcomeTitle">Welcome to SubQuery <span>Academy</span></h2>
-        <p>探索并改造您的链数据以更快地构建直观的 dApp！</p>
-        <p><strong>SubQuery now supports Polkadot, Avalanche, and Cosmos (starting with Juno)</strong></p>
+        <h2 class="welcomeTitle">使用<span>SubQuery 学院构建更快的 dapps</span></h2>
+        <p>在您分散的数据和工具之间探索和实现您自己高效的自定义开源API，以更快地查询数据并节省时间。</p></br>
+        <p><strong>SubQuery 现在支持Polkadot、Avalanche和 Cosmos(从Juno开始)。</strong></p>
       </div>
     </div>
   </section>
   <section class="startSection main">
     <div>
-      <h2 class="title">快速启动 <span>指南</span></h2>
-      <p>借助传统的Hello World 范例来理解SubQuery。 在 Docker 环境中使用模板项目 您可以快速获得一个节点上线并运行运行，并且在短短几分钟内用几个简单的命令开始查询区块链。
+      <h2 class="title">使用我们的 <span>快速启动指南获得一个启动</span></h2>
+      <p><strong>在不到10分钟的时间内构建您的第一个子查询项目，并带有简单的引导步骤。</strong>
+      <p>开始在您最爱的区块链网络上查询您的 dApps 数据，使用我们的启动项目。 探索和修改重要文件，了解SubQuery是如何工作的。
       </p>
       <span class="button">
-        <router-link :to="{path: '/quickstart/quickstart-polkadot.html'}">
-          <span>开始</span>
+        <router-link :to="{path: '/quickstart/quickstart.html'}"> 
+          <span>Get Started</span>
         </router-link>
       </span>
     </div>
@@ -24,45 +25,48 @@
 </div>
 <div class="main">
   <div>
+    <div>
+    <h2 class="title" text-align:center>想了解更多关于子查询学院的信息吗？</h2>
+    </div>
     <ul class="list">
       <li>
         <router-link :to="{path: '/academy/tutorials_examples/introduction.html'}">
           <div>
-            <img src="/assets/img/tutorialsIcon.svg" />
-            <span>教程 & 案例</span>
-            <p>在我们的学院学习。 如何构建各种子查询项目的教程和示例。</p>
+            <img src="/assets/img/networkIcon.svg" />
+            <span>练习教程和示例</span>
+            <p>Learn by doing and practice with SubQuery’s real-world blockchain projects & improve your skills.</p>
           </div>
         </router-link>
       </li>
       <li>
-        <router-link :to="{path: '/create/introduction.html'}">
-          <div>
-            <img src="/assets/img/docsIcon.svg" />
-            <span>技术参考文档</span>
-            <p>由开发者为开发者编写。 快速查找建立你所需的超棒的 dapp 。</p>
-          </div>
-        </router-link>
-      </li>
-      <li>
-        <a href="https://static.subquery.network/whitepaper.pdf" target="_blank">
+        <router-link :to="{path: '/build/introduction.html'}"> 
           <div>
             <img src="/assets/img/networkIcon.svg" />
-            <span>SubQuery 网络</span>
-            <p>SubQuery 的去中心化未来。 阅读更多关于如何奖励索引提供者和索引使用者。 </p>
+            <span>技术参考文档</span>
+            <p>挖掘到每个词，使用者和最佳做法，帮助您建立一个用户喜欢的dapp。</p>
           </div>
-        </a>
+        </router-link>
+      </li>
+      <li>
+        <router-link :to="{path: '/subquery_network/introduction.html'}"> 
+          <div>
+            <img src="/assets/img/networkIcon.svg" />
+            <span>成为SubQuery 网络的一部分</span>
+            <p>以完全分散的方式管理和索引项目。 参与网络并获得SQT奖励。</p>
+          </div>
+        </router-link>
       </li>
     </ul>
   </div>
 </div>
 <section class="faqSection main">
   <div>
-    <h2 class="title">常见问题</h2>
+    <h2 class="title">常见问答（FAQ）</h2>
     <ul class="faqList">
       <li>
         <div class="title">什么是SubQuery？</div>
         <div class="content">
-          <p>SubQuery 是一个开放源代码项目，它允许开发者索引、转换和查询底层链数据为他们的应用程序提供动力。</p>
+          <p>SubQuery 是一个开放源码区块链数据索引器，为开发者提供快速、灵活、可靠和分散的 API，为多链应用提供动力。</p>
           <span class="more">
             <router-link :to="{path: '/faqs/faqs.html#what-is-subquery'}">查看更多</router-link>
           </span>
@@ -71,35 +75,35 @@
       <li>
         <div class="title">从SubQuery开始的最佳方式是什么？</div>
         <div class="content">
-          <p>开始使用 SubQuery 的最好方法是尝试我们的 <a href="/quickstart/quickstart-polkadot.html">Hello World 教程</a>。 这是一个简单的5分钟步行来下载启动模板，构建项目。 然后使用 Docker 在您的本地主机上运行一个节点，运行一个简单的查询。 </p>
+          <p>开始使用 SubQuery 的最好方法是尝试我们的 <a href="/quickstart/quickstart.html">Quick Start tutorial</a>。 这是简单的5分钟步行练习。 下载启动模板，构建项目，使用 Docker 在您的localhost上运行一个节点，并运行一个简单的查询。</p>
         </div>
       </li>
       <li>
         <div class="title">我如何向SubQuer贡献或反馈？</div>
         <div class="content">
-          <p>我们热爱社区的贡献和反馈。 若要贡献代码，请分派感兴趣的仓库并做出更改。 然后提交 PR 或 Pull 请求。 哦，不要忘记测试！ 你也可以查阅我们给贡献者的指南(即将出台)。 </p>
+          <p>我们热爱社区的贡献和反馈。 为了贡献代码，我们建议首先在我们的主要仓库中创建一个问题，以便我们能够支持您。</p>
           <span class="more">
-            <router-link :to="{path: '/faqs/faqs.html#what-is-the-best-way-to-get-started-with-subquery'}">查看更多</router-link>
-          </span>
+            <router-link :to="{path: '/faqs/faqs.html#how-can-i-contribute-or-give-feedback-to-subquery'}">查看更多</router-link>
+          </span> 
         </div>
       </li>
       <li>
         <div class="title">在SubQuery项目中托管我的项目需要多少费用？</div>
         <div class="content">
-          <p>在 SubQuery 项目中托管您的项目是绝对免费的，这是我们回归社区的方式。 要学习如何与我们一起主办您的项目，请查看 <a href="/quickstart/quickstart-polkadot.html">Hello World (SubQuery Hosted)</a> 教程。</p>
+          <p>此服务正在免费提供给社区！ You can host your first two SubQuery projects for absolutely free!</p>
           <span class="more">
             <router-link :to="{path: '/run_publish/publish.html'}">了解您的进程</router-link>
           </span>
         </div>
       </li>
     </ul><br>
-    欲了解更多常见问题，请参阅我们的 <router-link :to="{path: '/faqs/faqs.html'}">FAQ's</router-link> 页面    
+    还有其他疑问吗？ 访问我们的 <router-link :to="{path: '/faqs/faqs.html'}">FAQ's</router-link> 页面     
   </div>
 </section>
 <section class="main">
   <div>
     <div class="lastIntroduce lastIntroduce_1">
-        <h5>与您的自定义链集成？</h5>
+        <h5>与您的自定义Substrate 链集成</h5>
         <p>无论您在底层上构建一个新的平行链，还是一个全新的区块链——SubQuery 都可以帮助您索引并帮您链中的数据做数据纠错。 SubQuery 旨在轻松地与基于自定义的底层链集成。</p>
         <span class="more">
           <router-link :to="{path: '/build/manifest/polkadot.html#custom-substrate-chains'}">LEARN HOW TO INTEGRATE WITH YOUR CHAIN</router-link>
@@ -125,8 +129,8 @@
       <a href="https://medium.com/@subquery" target="_blank" class="connectMedium">medium</a>
       <a href="https://t.me/subquerynetwork" target="_blank" class="connectTelegram">telegram</a>
       <a href="https://github.com/OnFinality-io/subql" target="_blank" class="connectGithub">github</a>
-      <a href="https://matrix.to/#/#subquery:matrix.org" target="_blank" class="connectMatrix"></a>
-      <a href="https://www.linkedin.com/company/subquery" target="_blank" class="connectLinkedin">linkedin</a>
+      <a href="https://matrix.to/#/#subquery:matrix.org" target="_blank" class="connectMatrix">matrix</a>
+      <a href="https://www.linkedin.com/company/subquery/" target="_blank" class="connectLinkedin">linkedin</a>
     </div>
   </div>
 </section>

@@ -1,37 +1,37 @@
-# Payment Methods
+# Методи сплати
 
-For flexibility, there are 3 payment options to pay for blockchain data. They are:
+Для гнучкості існує 3 варіанти оплати даних блокчейну. Вони є такими:
 
-- Pay-As-You-Go (PAYG)
-- Closed Service Agreement
-- Open Service Agreement
+- Pay-As-You-Go (PAYG).
+- Закритий договір про надання послуг.
+- Відкритий договір про надання послуг.
 
 ## Pay-As-You-Go (PAYG)
 
-This is the baseline payment method and a fallback for others. Each Indexer will advertise their PAYG prices when registering their ability to serve requests for specific SubQuery projects.
+Це базовий метод оплати та резервний для інших. Кожен Індексатор оголошуватиме свої ціни PAYG під час реєстрації своєї здатності обслуговувати запити для конкретних проектів SubQuery.
 
-Consumers making requests will have to lock the tokens necessary to make that request in a state channel, and at the end of an Era, these tokens will be distributed to the Indexers based on the Cobb-Douglas production function.
+Споживачі, які надсилають запити, повинні будуть заблокувати токени, необхідні для виконання цього запиту, у каналі стану, і наприкінці Епохи ці токени будуть розподілені до Індексаторів на основі функції виробництва Кобба-Дугласа.
 
-## Closed Plans and Agreements
+## Закритий договір про надання послуг.
 
-Closed Agreements represent an agreement between only one Indexer and one Consumer. It’s a direct relationship where all payment flows between the two parties for the work that is done.
+Закриті угоди являють собою угоди лише між одним Індексатором і одним Споживачем. Це прямі відносини, коли вся оплата йде між двома сторонами за виконану роботу.
 
-Closed Agreements are designed to give Indexers confidence that there is a market and ROI for data from a particular SubQuery Project, and essentially signal to them which Projects should be indexed.
+Закриті угоди призначені для того, щоб дати індексаторам впевненість у наявності ринку та рентабельності інвестицій для даних із певного проекту підзапиту та, по суті, сигналізувати їм, які проекти слід індексувати.
 
-Closed Plans can also be placed on existing SubQuery Projects to attract additional Indexers to that SubQuery Project. This may be useful in situations where the existing monopolistic Indexer may be charging an unreasonable amount for the data or there is a lack of competition to drive prices to equilibrium.
+Закриті плани також можна розмістити в існуючих проектах підзапитів, щоб залучити додаткові індексатори до цього проекту підзапитів. Це може бути корисним у ситуаціях, коли існуючий монополістичний Індексатор може стягувати необґрунтовану суму за дані або немає конкуренції для досягнення рівноваги цін.
 
-## Open Service Agreement
+## Open Service Agreement (відкритий договір) - угода між багатьма індексаторами та споживачем
 
-Open Market Service Agreements are similar to Closed Market Service Agreements, but allow multiple Indexers to join and compete to provide data to the Consumer. An Open Market Service Agreement may start as a contract between 1 Consumer and 1 Indexer, but more parties may join the contract resulting in *n* consumer and *n* indexers.
+Угоди про надання послуг на відкритому ринку схожі на угоди про надання послуг на закритому ринку, але дозволяють кільком індексаторам приєднуватися та конкурувати за надання даних Споживачу. Угоди про надання послуг на відкритому ринку схожі на угоди про надання послуг на закритому ринку, але дозволяють кільком індексаторам приєднуватися та конкурувати за надання даних Споживачу.
 
-Each Open Market Service Agreement results in a new reward pool being created for that contract, and SQT is distributed amongst participating indexers by the Cobb-Douglas production function.
+Кожна угода про обслуговування відкритого ринку призводить до створення нового пулу винагород для цього контракту, а SQT розподіляється між індексаторами, які беруть участь, виробничою функцією Кобба-Дугласа.
 
-Open Agreements provide favourable terms for both Indexers and Consumers, but enable better performance and reliability for Consumers by attracting more Indexers to compete and serve the same data. If Consumers are running large scale applications with users around the world, then Open Agreements are ideal.
+Відкриті угоди забезпечують вигідні умови як для Індексаторів, так і для Споживачів, але забезпечують кращу продуктивність і надійність для Споживачів, залучаючи більше Індексаторів до конкуренції та обслуговування тих самих даних. Якщо Споживачі запускають великомасштабні програми з користувачами по всьому світу, тоді відкриті угоди ідеальні.
 
-## SubQuery’s Innovation in Payment Methods
+## Інновації SubQuery у методах оплати
 
-Today, we generally pay with subscription-based payments for the music we listen to, the TV shows we watch, and the applications that we use. In pioneering web3 service applications, we’ve instead adopted a pay-as-you-go model, where each atomic transaction has an exact cost in the network.
+Сьогодні ми зазвичай платимо за підписку за музику, яку слухаємо, телевізійні шоу, які ми дивимося, і програми, якими ми користуємося. У новаторських сервісних програмах web3 ми натомість прийняли модель оплати за використання, де кожна атомарна транзакція має точну вартість у мережі.
 
-We think subscription based or recurring payment methods are here to stay. Service providers like them because they represent predictable revenue, similarly on the other side consumers like them because they are a known and easily quantified cost. There’s also a psychological factor where once you subscribe, most consumers will feel obligated to consume as much if not all of it, increasing the demand for the service and allowing economies of scale to kick in.
+Ми вважаємо, що методи оплати на основі передплати або регулярні платежі тут залишаться. Постачальники послуг люблять їх, тому що вони представляють передбачуваний дохід, так само, з іншого боку, вони подобаються споживачам, тому що це відомі витрати, які легко визначити кількісно. Існує також психологічний фактор, через який після того, як ви підписалися, більшість споживачів відчують обов’язок споживати якомога більше, якщо не все, що підвищує попит на послугу та дозволяє досягти ефекту масштабу.
 
-The combination of the above three payment options for indexers provide several advanced subscription based options for Consumers and Indexers. Some parties may benefit from the certainty of rewards provided by Closed Agreements and the predictability of recurring costs. Equally, others may instead prefer to hunt out the most affordable data by going for high volume recurring agreements or low spot prices on the Pay-As-You-Go market.
+Поєднання трьох наведених вище варіантів оплати для індексаторів надає кілька розширених варіантів підписки для споживачів та індексаторів. Деякі сторони можуть отримати вигоду з визначеності винагород, що забезпечуються Закритими угодами, та передбачуваності витрат, що повторюються. Так само інші можуть натомість віддати перевагу пошукам найдоступніших даних, уклавши великі обсяги повторюваних угод або низькі спотові ціни на ринку оплати за використання.

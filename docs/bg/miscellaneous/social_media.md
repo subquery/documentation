@@ -11,7 +11,7 @@ SubQuery е активен проект, който поддържа връзк�
 - [Medium](https://subquery.medium.com) (Основен канал за съобщения)
 - [Twitter](https://twitter.com/subquerynetwork)
 - [Telegram](https://t.me/subquerynetwork) (Канал само за анонси)
-- [GitHub](https://github.com/SubQuery/subql)
+- [GitHub](https://github.com/subquery/)
 - [Matrix/Riot](https://matrix.to/#/#subquery:matrix.org)
 - [LinkedIn](https://www.linkedin.com/company/subquery)
 

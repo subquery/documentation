@@ -2,9 +2,9 @@
 
 Aus Gründen der Flexibilität gibt es 3 Zahlungsoptionen, um Blockchain-Daten zu bezahlen. Sie sind:
 
-- Pay-As-You-Go (PAYG)
-- Geschlossener Servicevertrag
-- Servicevertrag öffnen
+- Pay-As-You-Go (PAYG).
+- Closed Service Agreement.
+- Open Service Agreement.
 
 ## Pay-As-You-Go (PAYG)
 

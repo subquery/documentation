@@ -2,13 +2,13 @@
 
 Selamat datang dan terima kasih banyak telah mempertimbangkan untuk berkontribusi pada proyek SubQuery ini! Bersama-sama kita dapat membuka jalan menuju masa depan yang lebih terdesentralisasi.
 
-> Dokumentasi ini dikelola secara aktif oleh tim SubQuery. Kami menyambut kontribusi Anda, Anda dapat melakukannya dengan melakukan forking pada proyek GitHub kami dan membuat perubahan pada semua file dokumentasi markdown di bawah direktori `docs`.
+:::: info Catatan Dokumentasi ini secara aktif dikelola oleh tim SubQuery. Kami juga menerima kontribusi. Anda dapat melakukannya dengan melakukan forking proyek GitHub kami dan membuat perubahan pada semua file markdown dokumentasi di bawah direktori `docs`. :::
 
 Berikut ini adalah seperangkat pedoman (bukan aturan) untuk berkontribusi pada SubQuery. Mengikuti panduan ini akan membantu kami membuat proses kontribusi menjadi mudah dan efektif untuk semua orang yang terlibat. Ini juga menyampaikan bahwa Anda setuju untuk menghormati waktu dari developer yang mengelola dan mengembangkan proyek ini. Sebagai imbalannya, kami akan membalas rasa hormat itu dengan mengatasi masalah Anda, mempertimbangkan perubahan, berkolaborasi dalam peningkatan, dan membantu Anda menyelesaikan pull request Anda.
 
 ## Kode Etik
 
-Kami menganggap serius proyek dan tanggung jawab komunitas open source kami dan menjaga diri kami dan kontributor lain pada standar komunikasi yang tinggi. Dengan berpartisipasi dan berkontribusi pada proyek ini, Anda setuju untuk menjunjung [Kode Etik](https://github.com/subquery/subql/blob/contributors-guide/CODE_OF_CONDUCT.md) kami.
+Kami menganggap serius proyek dan tanggung jawab komunitas open source kami dan menjaga diri kami dan kontributor lain pada standar komunikasi yang tinggi. Dengan berpartisipasi dan berkontribusi pada proyek ini, Anda setuju untuk menjunjung [Kode Etik](https://github.com/subquery/subql/blob/main/CODE_OF_CONDUCT.md) kami.
 
 ## Memulai
 
@@ -31,24 +31,24 @@ Bug dilacak sebagai issue GitHub. Saat mencatatkan log issue, jelaskan masalahny
 
 ### Mengirimkan Pull Request
 
-Secara umum, kami mengikuti alur kerja "fork-and-pull" Git
+Secara umum, kami mengikuti alur kerja "fork-and-pull" Git:
 
-* Fork repositori ke akun Github Anda sendiri
-* Clone proyek ke mesin Anda
-* Buat branch secara lokal dengan nama yang ringkas namun deskriptif
-* Commit perubahan ke branch
-* Ikuti pedoman pemformatan dan testing apa pun yang khusus untuk repo ini
-* Push perubahan ke fork Anda
-* Buka sebuah PR di repositori kami
+* Fork repositori ke akun Github Anda sendiri.
+* Clone proyek ke mesin Anda.
+* Buat branch secara lokal dengan nama yang ringkas namun deskriptif.
+* Commit perubahan ke branch.
+* Ikuti pedoman pemformatan dan testing apa pun yang khusus untuk repo ini.
+* Push perubahan ke fork Anda.
+* Buka sebuah PR di repositori kami.
 
 ## Konvensi Coding
 
 ### Pesan Git Commit
 
-* Gunakan bentuk waktu kini ("Tambahkan fitur" bukan "Fitur yang ditambahkan")
-* Gunakan suasana perintah ("Pindahkan kursor ke..." bukan "Memindahkan kursor ke...")
-* Batasi baris pertama hingga 72 karakter atau kurang
+* Gunakan bentuk waktu kini ("Tambahkan fitur" bukan "Fitur yang ditambahkan").
+* Gunakan suasana perintah ("Pindahkan kursor ke..." bukan "Memindahkan kursor ke...").
+* Batasi baris pertama hingga 72 karakter atau kurang.
 
 ### JavaScript Styleguide
 
-* Semua kode JavaScript diverifikasi dengan Prettier dan ESLint
+* Semua kode JavaScript diverifikasi dengan Prettier dan ESLint.

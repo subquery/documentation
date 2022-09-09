@@ -1,6 +1,6 @@
 # Hàm Tổng hợp
 
-## Nhóm theo
+## Group By
 
 SubQuery hỗ trợ các hàm tổng hợp nâng cao để cho phép bạn thực hiện tính toán trên một tập hợp các giá trị trong truy vấn của mình.
 
@@ -24,6 +24,8 @@ SubQuery cung cấp các hàm tổng hợp sau đây khi ở chế độ không 
 - `varianceSample` (áp dụng cho các trường giống số) - phương sai mẫu của các giá trị
 - `variancePopulation` (áp dụng cho các trường giống số) - phương sai tổng thể của các giá trị
 
-Việc thực hiện các hàm tổng hợp của SubQuery dựa trên [pg-aggregates](https://github.com/graphile/pg-aggregates), bạn có thể tìm thêm thông tin ở đó
+Việc thực hiện các hàm tổng hợp của SubQuery dựa trên [pg-aggregates](https://github.com/graphile/pg-aggregates), bạn có thể tìm thêm thông tin ở đó.
 
-**Xin lưu ý rằng bạn phải bật cờ `--unsafe` trên dịch vụ truy vấn để sử dụng các hàm này. [Đọc thêm](./references.md#unsafe-2). Lưu ý rằng lệnh `--unsafe` sẽ ngăn dự án của bạn được chạy trong SubQuery Network, và bạn phải liên hệ với bộ phận hỗ trợ nếu bạn muốn lệnh này được chạy với dự án của mình trong dịch vụ được quản lý của SubQuery ([project.subquery.network](https://project.subquery.network))**
+::: Cảnh báo quan trọng Xin lưu ý rằng bạn phải bật cờ `--unsafe` trên dịch vụ truy vấn để sử dụng chức năng này. [Đọc thêm](./references.md#unsafe-2).
+
+Ngoài ra, lưu ý rằng lệnh `--unsafe` sẽ ngăn dự án của bạn được chạy trong Mạng SubQuery, và bạn sẽ phải liên hệ với bộ phận hỗ trợ nếu bạn muốn lệnh này có thể chạy trên dự án của bạn trong [Dịch vụ quản lý bởi SubQuery ](https://project.subquery.network). :::
