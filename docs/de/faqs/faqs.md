@@ -1,54 +1,54 @@
-# Frequently Asked Questions
+# Häufig Gestellte Fragen
 
 ## Was ist SubQuery?
 
-SubQuery is an open source blockchain data indexer for developers that provides fast, flexible, reliable, and decentralised APIs to power leading multi-chain apps.
+SubQuery ist ein Open-Source-Blockchain-Datenindexer für Entwickler, der schnelle, flexible, zuverlässige und dezentralisierte APIs bereitstellt, um führende Multi-Chain-Apps zu betreiben.
 
-Our goal is to save developers' time and money by eliminating the need of building their own indexing solution. Now, they can fully focus on developing their applications. SubQuery helps developers create the decentralised products of the future.
+Unser Ziel ist es, Entwicklern Zeit und Geld zu sparen, indem wir die Notwendigkeit beseitigen, ihre eigene Indizierungslösung zu erstellen. Jetzt können sie sich voll und ganz auf die Entwicklung ihrer Anwendungen konzentrieren. SubQuery hilft Entwicklern, die dezentralen Produkte der Zukunft zu erstellen.
 
 <figure class="video_container">
-<iframe src="https://www.youtube.com/embed/gCpVz_mkWdo" title="Introducing The SubQuery Network" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscree="true"></iframe>
+<iframe src="https://www.youtube.com/embed/gCpVz_mkWdo" title="Einführung in das SubQuery Network" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscree="true"></iframe>
 </figure>
 
 **SubQuery Managed Service**
 
-SubQuery also provides free, production grade hosting of projects for developers. Our Managed Service removes the responsiblity of managing infrastructure, so that developers do what they do best — build. Find out more [here](/run_publish/publish.md).
+SubQuery bietet Entwicklern außerdem kostenloses, produktionstaugliches Hosting von Projekten. Unser Managed Service entlastet Sie von der Verantwortung für die Verwaltung der Infrastruktur, sodass Entwickler das tun können, was sie am besten können – bauen. Weitere Informationen finden Sie [hier](/run_publish/publish.md).
 
-**The SubQuery Network**
+**SubQuery-Netzwerk**
 
-The SubQuery Network allows developers to completely decentralise their infrastructure stack. It is the most open, performant, reliable, and scalable data service for dApps. Das SubQuery-Netzwerk indiziert und stellt Daten für die globale Gemeinschaft auf eine motivierte und überprüfbare Weise bereit.  Nachdem Sie Ihr Projekt im SubQuery-Netzwerk veröffentlicht haben, kann jeder es indizieren und hosten, wodurch Daten schneller und zuverlässiger für Benutzer auf der ganzen Welt bereitgestellt werden.
+Das SubQuery-Netzwerk ermöglicht Entwicklern die vollständige Dezentralisierung ihres Infrastruktur-Stacks. Es ist der offenste, leistungsfähigste, zuverlässigste und skalierbarste Datendienst für dApps. Das SubQuery-Netzwerk indiziert und stellt Daten für die globale Gemeinschaft auf eine motivierte und überprüfbare Weise bereit.  Nachdem Sie Ihr Projekt im SubQuery-Netzwerk veröffentlicht haben, kann jeder es indizieren und hosten, wodurch Daten schneller und zuverlässiger für Benutzer auf der ganzen Welt bereitgestellt werden.
 
-More information [here](/subquery_network/introduction.md).
+Weitere Info finden Sie [hier](/subquery_network/introduction.md).
 
 ## Was ist der beste Weg, um mit SubQuery zu beginnen?
 
-The best way to get started with SubQuery is to try out our [Hello World tutorial](/assets/pdf/Hello_World_Lab.pdf). This is a simple 5 min walk through exercise. Download the starter template, build the project, use Docker to run a node on your localhost, and run a simple query.
+Der beste Einstieg in SubQuery ist unser [Hello World Tutorial](/assets/pdf/Hello_World_Lab.pdf). Dies ist eine einfache 5-minütige Walk-Through-Übung. Laden Sie die Startvorlage herunter, erstellen Sie das Projekt, verwenden Sie Docker, um einen Knoten auf Ihrem lokalen Host auszuführen, und führen Sie eine einfache Abfrage aus.
 
 ## Wie kann ich zu SubQuery beitragen oder Feedback geben?
 
-Wir lieben Beiträge und Feedback aus der Community. To contribute the code, fork the repository of your interest and make your changes. Senden Sie dann einen PR- oder Pull-Request. Don't forget to test as well. Also check out our <a href="http://localhost:8080/miscellaneous/contributing.html">contributions guidelines.</a>
+Wir lieben Beiträge und Feedback aus der Community. Um den Code beizutragen, forken Sie das Repository Ihres Interesses und nehmen Sie Ihre Änderungen vor. Senden Sie dann einen PR- oder Pull-Request. Vergessen Sie nicht, auch zu testen. Sehen Sie sich auch unsere <a href="http://localhost:8080/miscellaneous/contributing.html">Richtlinien für Beiträge</a> an
 
-To give feedback, contact us at hello@subquery.network or jump onto our [discord channel](https://discord.com/invite/78zg8aBSMG).
+Um Feedback zu geben, kontaktiere uns unter hello@subquery.net oder besuche unseren [Discord-Kanal](https://discord.com/invite/78zg8aBSMG).
 
 ## Wie viel kostet es, mein Projekt in SubQuery Projects zu hosten?
 
-This service is being provided to the community with a generous free tier! You can host your first two SubQuery projects for absolutely free!
+Dieser Service wird der Community mit einem großzügigen kostenlosen Kontingent zur Verfügung gestellt! Sie können Ihre ersten beiden SubQuery-Projekte absolut kostenlos hosten!
 
-## What are deployment slots?
+## Was sind Bereitstellungsslots?
 
-Deployment slots are a feature in [SubQuery Projects](https://project.subquery.network) that is the equivalent of a development environment. For example, in any software organisation there is normally a development environment and a production environment as a minimum (ignoring localhost that is). Typically additional environments such as staging and pre-prod or even QA are included depending on the needs of the organisation and their development set up.
+Bereitstellungsslots sind eine Funktion in [SubQuery-Projekten](https://project.subquery.network), die einer Entwicklungsumgebung entsprechen. Beispielsweise gibt es in jeder Softwareorganisation normalerweise mindestens eine Entwicklungsumgebung und eine Produktionsumgebung (das heißt, localhost wird ignoriert). Typischerweise sind zusätzliche Umgebungen wie Staging und Pre-Prod oder sogar QA enthalten, abhängig von den Anforderungen der Organisation und ihrer Entwicklungsumgebung.
 
-SubQuery currently has two slots available. A staging slot and a production slot. This allows developers to deploy their SubQuery to the staging environment and all going well, "promote to production" at the click of a button.
+SubQuery hat derzeit zwei verfügbare Slots. Ein Bereitstellungsslot und ein Produktionsslot. Auf diese Weise können Entwickler ihre SubQuery in der Staging-Umgebung bereitstellen und alles, was gut läuft, auf Knopfdruck „in die Produktion befördern“.
 
-## What is the advantage of a staging slot?
+## Was ist der Vorteil eines Staging-Slots?
 
-The main benefit of using a staging slot is that it allows you to prepare a new release of your SubQuery project without exposing it publicly. You can wait for the staging slot to reindex all data without affecting your production applications.
+Der Hauptvorteil der Verwendung eines Staging-Slots besteht darin, dass Sie eine neue Version Ihres SubQuery-Projekts vorbereiten können, ohne es öffentlich zugänglich zu machen. Sie können warten, bis der Staging-Slot alle Daten neu indiziert, ohne Ihre Produktionsanwendungen zu beeinträchtigen.
 
-The staging slot is not shown to the public in the [Explorer](https://explorer.subquery.network/) and has a unique URL that is visible only to you. And of course, the separate environment allows you to test your new code without affecting production.
+Der Staging-Slot wird der Öffentlichkeit im [Explorer](https://explorer.subquery.network/) nicht angezeigt und hat eine eindeutige URL, die nur für Sie sichtbar ist. Und natürlich ermöglicht Ihnen die separate Umgebung, Ihren neuen Code zu testen, ohne die Produktion zu beeinträchtigen.
 
-## What are Polkadot's Extrinsics?
+## Was sind Polkadots Extrinsics?
 
-If you are already familiar with blockchain concepts, you can think of extrinsics as comparable to transactions. More formally though, an extrinsic is a piece of information that comes from outside the chain and is included in a block. There are three categories of extrinsics. They are inherents, signed transactions, and unsigned transactions.
+Wenn Sie bereits mit Blockchain-Konzepten vertraut sind, können Sie sich Extrinsics als vergleichbar mit Transaktionen vorstellen. More formally though, an extrinsic is a piece of information that comes from outside the chain and is included in a block. There are three categories of extrinsics. They are inherents, signed transactions, and unsigned transactions.
 
 Inherent extrinsics are pieces of information that are not signed and only inserted into a block by the block author.
 
