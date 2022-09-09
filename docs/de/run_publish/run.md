@@ -115,7 +115,7 @@ Using a full chain dictionary can dramatically speed up the processing of a SubQ
 
 A full chain dictionary pre-indexes the location of all events and extrinsics within the specific chain and allows your node service to skip to relevant locations when indexing rather than inspecting each block.
 
-Sie können den Dictionary-Endpunkt in Ihrer `project.yaml`-Datei hinzufügen (siehe [Manifest-Datei](../build/manifest/polkadot.md)) oder zur Laufzeit mit dem folgenden Befehl angeben:
+You can add the dictionary endpoint in your `project.yaml` file (see [Manifest File](../build/manifest/polkadot.md)), or specify it at run time using the following command:
 
 <CodeGroup>
 <CodeGroupItem title='Substrate/Polkadot/Polkadot'>
@@ -292,7 +292,7 @@ Use the [node inspector](https://nodejs.org/en/docs/guides/debugging-getting-sta
 node --inspect-brk <path to subql-node> -f <path to subQuery project>
 ```
 
-For example:
+Zum Beispiel:
 
 ```shell
 node --inspect-brk /usr/local/bin/subql-node -f ~/Code/subQuery/projects/subql-helloworld/
