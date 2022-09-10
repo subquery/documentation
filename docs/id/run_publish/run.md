@@ -1,6 +1,6 @@
 # Menjalankan SubQuery Secara Lokal
 
-Panduan ini bekerja melalui cara menjalankan node SubQuery lokal pada infrastruktur Anda, yang mencakup pengindeks dan layanan kueri. Tidak ingin khawatir menjalankan infrastruktur SubQuery Anda sendiri? SubQuery provides a [Managed Service](https://explorer.subquery.network) to the community for free. [Ikuti panduan penerbitan kami](../run_publish/publish.md) untuk melihat bagaimana Anda dapat mengunggah proyek Anda ke [Proyek SubQuery](https://project.subquery.network).
+Panduan ini bekerja melalui cara menjalankan node SubQuery lokal pada infrastruktur Anda, yang mencakup pengindeks dan layanan kueri. Tidak ingin khawatir menjalankan infrastruktur SubQuery Anda sendiri? SubQuery menyediakan [Layanan Terkelola](https://explorer.subquery.network) kepada komunitas secara gratis. [Ikuti panduan penerbitan kami](../run_publish/publish.md) untuk melihat bagaimana Anda dapat mengunggah proyek Anda ke [Proyek SubQuery](https://project.subquery.network).
 
 ## Gunakan Docker
 
@@ -35,7 +35,7 @@ npm install -g @subql/node
 </CodeGroupItem>
 <CodeGroupItem title='Terra'>
 
-```shell
+````shell
 # NPM
 npm install -g @subql/node-terra
 ```
@@ -51,7 +51,7 @@ npm install -g @subql/node-avalanche
 </CodeGroupItem>
 </CodeGroup>
 
-::: danger Please note that we **DO NOT** encourage the use of `yarn global` due to its poor dependency management which may lead to an errors down the line. :::
+::::: bahaya Harap dicatat bahwa kami **JANGAN** mendorong penggunaan `yarn global` karena manajemen ketergantungannya yang buruk yang dapat menyebabkan kesalahan. :::
 
 Setelah terinstal, Anda dapat memulai node dengan perintah berikut:
 
@@ -79,9 +79,9 @@ subql-node-avalanche <command>
 </CodeGroupItem>
 </CodeGroup>
 
-### Key Commands
+### Perintah Kunci
 
-The following commands will assist you to complete the configuration of a SubQuery node and begin indexing. Untuk mengetahui lebih lanjut, Anda selalu dapat menjalankan `--help`.
+Perintah berikut akan membantu Anda untuk menyelesaikan konfigurasi node SubQuery dan memulai pengindeksan. Untuk mengetahui lebih lanjut, Anda selalu dapat menjalankan `--help`.
 
 #### Arahkan ke jalur proyek lokal
 
@@ -108,7 +108,7 @@ Menggunakan kamus rantai lengkap dapat secara dramatis mempercepat pemrosesan pr
 
 Kamus rantai penuh mengindeks lokasi semua peristiwa dan ekstrinsik dalam rantai tertentu dan memungkinkan layanan node Anda untuk melompat ke lokasi yang relevan saat mengindeks daripada memeriksa setiap blok.
 
-Anda dapat menambahkan titik akhir kamus di file `project.yaml` Anda (lihat [File Manifes](../build/manifest/polkadot.md)), atau tentukan saat dijalankan menggunakan perintah berikut:
+Anda dapat menambahkan titik akhir kamus dalam file `project.yaml` Anda (lihat [Manifest File](../build/manifest/polkadot.md)), atau tentukan pada saat run time menggunakan perintah berikut:
 
 <CodeGroup>
 <CodeGroupItem title='Substrate/Polkadot/Polkadot'>
@@ -156,15 +156,14 @@ Bergantung pada konfigurasi database Postgres Anda (misalnya kata sandi database
 
 ``shell
 subql-node -c your-project-config.yml
-
-````
+```
 
 </CodeGroupItem>
 <CodeGroupItem title='Avalanche'>
 
 ```shell
 subql-node-avalanche -c your-project-config.yml
-````
+```
 
 </CodeGroupItem>
 </CodeGroup>
