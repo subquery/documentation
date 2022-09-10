@@ -29,7 +29,7 @@ Fill in the IPFS CID of the new version of your SubQuery project codebase that y
 
 ### Menggunakan CLI
 
-You can also use `@subql/cli` to create a new deployment of your project to our Managed Service. Hal ini membutuhkan:
+Anda juga dapat menggunakan `@subql/cli` untuk membuat deployment baru dari proyek Anda ke layanan terkelola kami. Hal ini membutuhkan:
 
 - `@subql/cli` versi 1.1.0 atau lebih tinggi.
 - Sebuah [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) yang valid sudah siap.
