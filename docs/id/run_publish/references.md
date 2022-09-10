@@ -322,15 +322,15 @@ Fitur ini tersedia untuk Substrate dan Cosmos, dan akan segera diintegrasikan un
 Ini menunjukkan opsi bantuan.
 
 ```shell
-Options:
-      --help          Show help                                          [boolean]
-      --version       Show version number                                [boolean]
-  -n, --name          Project name                             [string] [required]
-      --playground    Enable graphql playground                          [boolean]
-      --subscription  Enable subscription               [boolean] [default: false]
-      --output-fmt    Print log as json or plain text
-                        [string] [choices: "json", "colored"] [default: "colored"]
-      --log-level     Specify log level to print.
+Pilihan:
+      --help Tampilkan bantuan [boolean]
+      --version Tampilkan nomor versi [boolean]
+  -n, --name Nama proyek [string] [required]]
+      --playground Aktifkan taman bermain graphql [boolean]
+      --subscription Aktifkan subscription [boolean] [default: false]
+      --output-fmt Mencetak log sebagai json atau teks biasa
+                        [string] [pilihan: "json", "colored"] [default: "colored"]
+      --log-level Tentukan level log yang akan dicetak.
             [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
                                                        "silent"] [default: "info"]
       --log-path      Path to create log file e.g ./src/name.log          [string]
