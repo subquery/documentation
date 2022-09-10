@@ -25,7 +25,7 @@ Slot pementasan sangat cocok untuk:
 
 ![Slot staging](/assets/img/staging_slot.png)
 
-Fill in the IPFS CID of the new version of your SubQuery project codebase that you want deployed (see the documetation to publish to IPFS [here](./publish.md). Ini akan menyebabkan waktu henti yang lebih lama tergantung pada waktu yang diperlukan untuk mengindeks rangkaian saat ini. Anda selalu dapat melaporkan kembali ke sini untuk perkembangan.
+Isi IPFS CID versi baru dari basis kode proyek SubQuery Anda yang ingin Anda sebarkan (lihat dokumentasi untuk mempublikasikan ke IPFS [di sini](./publish.md). Ini akan menyebabkan waktu henti yang lebih lama tergantung pada waktu yang diperlukan untuk mengindeks rangkaian saat ini. Anda selalu dapat melaporkan kembali ke sini untuk perkembangan.
 
 ### Menggunakan CLI
 
