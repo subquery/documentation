@@ -211,5 +211,5 @@ dataSources:
 [SubstrateWasmProvider](https://github.com/subquery/datasource-processors/blob/main/packages/substrate-wasm/src/substrateWasmProvider.ts) provides contract query method like `getStorage` and `call`.
 
 ## Known Limitations
-- Not support dynamic datasource at the moment, which means we are unable to import and handle contract dynamically.
+- Not supporting dynamic datasource at the moment. which means we are unable to import and handle contracts dynamically.
 
