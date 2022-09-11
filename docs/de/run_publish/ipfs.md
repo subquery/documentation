@@ -36,14 +36,14 @@ Die Verwendung von IPFS bietet Entwicklern in mehrfacher Hinsicht ein besseres E
    }
    ```
 
-   Wir müssen den Verweis auf das Paket in Ihrer `project.yaml` aktualisieren. To do this you can update any processor file paths to `file: ./node_modules/@subql/<processor-name>/dist/bundle.js` and replace `<processor-name>` with the processor you are using. If you are using `@subql/datasource-processors` this package is now deprecated, you can find the relevant replacement from the new [datasource-processors repository](https://github.com/subquery/datasource-processors/tree/main/packages).
+   Wir müssen den Verweis auf das Paket in Ihrer `project.yaml` aktualisieren. Dazu können Sie alle Prozessordateipfade auf `file: ./node_modules/@subql/<processor-name>/dist/bundle.js` aktualisieren und `<processor-name>` durch die ersetzen Prozessor, den Sie verwenden. Wenn Sie `@subql/datasource-processors` verwenden, ist dieses Paket jetzt veraltet, Sie können den entsprechenden Ersatz im neuen [datasource-processors-Repository](https://github.com/subquery/datasource-processors/tree/main/packages) finden.
 
-   4. If your project uses js/ts based custom [Substrate Chain Types](../build/manifest/polkadot.md#custom-chains) you will need to repeat the steps above but with the reference to your chain types.
+   4. Wenn Ihr Projekt js/ts-basierte benutzerdefinierte [Substratkettentypen](../build/manifest/polkadot.md#custom-chains) verwendet, müssen Sie die obigen Schritte wiederholen, jedoch unter Bezugnahme auf Ihre Kettentypen.
 
-5. `docker-compose.yaml`: Update it to the [latest docker compose version](https://github.com/subquery/subql-starter/blob/main/Polkadot/Polkadot-starter/docker-compose.yml) and add [this directory](https://github.com/subquery/subql-starter/tree/main/Polkadot/Polkadot-starter/docker) to your repo. To test it we recommend running your project locally.
+5. `docker-compose.yaml`: Aktualisieren Sie es auf die [neueste Docker-Compose-Version](https://github.com/subquery/subql-starter/blob/main/Polkadot/Polkadot-starter/docker-compose.yml) und fügen Sie [dieses Verzeichnis](https://github.com/subquery/subql-starter/tree/main/Polkadot/Polkadot-starter/docker) zu Ihrem Repository hinzu. Zum Testen empfehlen wir, Ihr Projekt lokal auszuführen.
 
-:::warning Please now rebuild and run your project locally to test these changes before proceeding using `yarn`, `yarn codegen`, `yarn build`, and then `yarn start:docker`. :::
+:::Warnung Bitte erstellen Sie Ihr Projekt jetzt neu und führen Sie es lokal aus, um diese Änderungen zu testen, bevor Sie mit `Yarn`, `Yarn Codegen`, `Yarn Build` und dann mit `Yarn fortfahren start:docker`. :::
 
-## Test deploying your project to IPFS
+## Testen Sie die Bereitstellung Ihres Projekts in IPFS
 
-Your project should now be ready to deploy via IPFS to SubQuery Managed Service or the SubQuery network. You can follow the guide [here](./publish.md#publish-your-subquery-project-to-ipfs) to deploy to IPFS and then publish to the Managed Service.
+Ihr Projekt sollte jetzt für die Bereitstellung über IPFS für SubQuery Managed Service oder das SubQuery-Netzwerk bereit sein. Sie können der Anleitung [hier](./publish.md#publish-your-subquery-project-to-ipfs) folgen, um sie in IPFS bereitzustellen und dann im Managed Service zu veröffentlichen.
