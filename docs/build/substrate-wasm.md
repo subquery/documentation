@@ -5,9 +5,10 @@ We provide a custom data source processor for [Substrate WASM contract](https://
 **Tested and Supported networks**
 
 | Network Name   | Websocket Endpoint                         | Dictionary Endpoint                                           |
-|----------------|--------------------------------------------|---------------------------------------------------------------|
-| Shiden         | `wss://shiden.api.onfinality.io/public-ws` | `https://api.subquery.network/sq/subquery/shiden-dictionary`  |
-| Shibuya        |                                            | `https://api.subquery.network/sq/subquery/shibuya-dictionary` |
+|----------------|--------------------------------------------  |---------------------------------------------------------------|
+| Shiden         | `wss://shiden.api.onfinality.io/public-ws`   | `https://api.subquery.network/sq/subquery/shiden-dictionary`  |
+| Shibuya        |                                              | `https://api.subquery.network/sq/subquery/shibuya-dictionary` |
+| Edgeware       | `wss://edgeware.api.onfinality.io/public-ws` | `https://api.subquery.network/sq/subquery/edgeware-dictionary`  |
 
 
 **You can also refer to the basic [Substrate WASM](https://github.com/subquery/substrate-wasm-starter) example projects with an event and call handler.** This project is also hosted live in the SubQuery Explorer [here](https://explorer.subquery.network/subquery/subquery/tutorial-substrate-wasm-starter).
