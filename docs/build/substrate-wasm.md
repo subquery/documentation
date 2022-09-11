@@ -70,7 +70,7 @@ Works in the same way as [substrate/CallHandler](../build/mapping/polkadot.md#ca
 
 Unlike a normal handler you will not get a `SubstrateExtrinsic` as the parameter, instead you will use `substrate/WasmCall` and receive `WasmCall` as the parameter. 
 
-The `WasmCall` includes these useful information:
+The `WasmCall` includes following data:
 ```
   from: Address; // An Substrate Account that submitted the transaction  
   dest: Address; // The contract address been called
