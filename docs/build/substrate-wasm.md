@@ -104,7 +104,7 @@ Works in the same way as [substrate/EventHandler](../build/mapping/polkadot.md#e
 ### Handler Functions
 
 Unlike a normal handler you will not get a `SubstrateEvent` as the parameter, instead you will get a `substrate/WasmEvent` with `WasmEvent` as its parameter.
-
+The `WasmEvent` includes following data:
 ```
   from: string; // An Substrate Account that triggered this event  
   contract: AccountId; // A contract address where the event is from     
