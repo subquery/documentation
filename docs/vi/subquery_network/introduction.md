@@ -12,28 +12,28 @@ Mạng SubQuery đang tạo điều kiện cho một cuộc cách mạng dữ li
 
 ## Những người tham gia
 
-Mọi người trong mạng đều có vai trò, từ những nhà phát triển có kỹ thuật cao đến những người không có kỹ thuật. The SubQuery network includes four main network participants.
+Mọi người trong mạng đều có vai trò, từ những nhà phát triển có kỹ thuật cao đến những người không có kỹ thuật. Mạng SubQuery bao gồm bốn người tham gia mạng chính.
 
 ### Người tiêu dùng
 
 Người tiêu dùng sẽ yêu cầu Mạng SubQuery cung cấp dữ liệu cụ thể cho các dApp hoặc công cụ của họ và trả một số tiền SQT được quảng cáo cho mỗi yêu cầu.
 
-::: info Note Learn more about [Consumers](./consumers.md). :::
+::: thông tin Lưu ý Tìm hiểu thêm về [Người tiêu dùng](./consumers.md). :::
 
 ### Người lập chỉ mục
 
 Người lập chỉ mục sẽ chạy và duy trì các dự án SubQuery chất lượng cao trong cơ sở hạ tầng của riêng họ, chạy cả dịch vụ lập chỉ mục và truy vấn và sẽ được thưởng trong SQT cho các yêu cầu mà họ phục vụ.
 
-::: info Note Learn more about [Indexers](./indexers.md). :::
+::: thông tin Lưu ý Tìm hiểu thêm về [Người lập chỉ mục](./indexers.md). :::
 
 ### Người uỷ quyền
 
 Người ủy quyền sẽ tham gia vào Mạng bằng cách hỗ trợ Người lập chỉ mục yêu thích của họ để kiếm phần thưởng dựa trên công việc mà người lập chỉ mục đó làm.
 
-::: info Note Learn more about [Delegators](./delegators.md). :::
+::: thông tin Lưu ý Tìm hiểu thêm về [Người ủy quyền](./delegators.md). :::
 
 ### Kiến trúc sư
 
 Kiến trúc sư là người xây dựng các dự án SubQuery mà Mạng chạy trên đó. Họ là tác giả và xuất bản các dự án SubQuery cho Mạng để lập chỉ mục và chạy.
 
-::: info Note Learn more about [how to build your first SubQuery project](../build/introduction.md). :::
+::: thông tin Lưu ý Tìm hiểu thêm về [Làm thể nào để xây dựng dự án SubQuery đầu tiên](../build/introduction.md). :::
