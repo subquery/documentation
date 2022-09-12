@@ -1,21 +1,21 @@
-# 1. Create a New Project
+# 1. Erstellen Sie ein neues Projekt
 
-The goal of this quick start guide is to provide you with a complete development setup and guided steps to create your first SubQuery blockchain project. It is targeted towards experienced developers right through to those just beginning their blockchain journey.
+Das Ziel dieser Schnellstartanleitung ist es, Ihnen ein vollständiges Entwicklungssetup und geführte Schritte zum Erstellen Ihres ersten SubQuery-Blockchain-Projekts bereitzustellen. Es richtet sich an erfahrene Entwickler bis hin zu denen, die gerade erst ihre Blockchain-Reise beginnen.
 
-This quick start guide should take around 10-15 minutes.
+Diese Kurzanleitung sollte etwa 10-15 Minuten dauern.
 
-After completing this quick start guide, you will have a working SubQuery project that will run on a SubQuery node. You will be able to adapt the standard starter project and index transfers from your favourite blockchain network such as Polkadot, Avalanche, Cosmos, etc.
+Nach Abschluss dieser Kurzanleitung verfügen Sie über ein funktionierendes SubQuery-Projekt, das auf einem SubQuery-Knoten ausgeführt wird. Sie können das Standard-Starterprojekt anpassen und Übertragungen von Ihrem bevorzugten Blockchain-Netzwerk wie Polkadot, Avalanche, Cosmos usw. indizieren.
 
-Let's start the process of creating your first SubQuery blockchain project.
+Beginnen wir mit der Erstellung Ihres ersten SubQuery-Blockchain-Projekts.
 
-## Prerequisites
+## Voraussetzungen
 
-Before you begin creating your first blockchain project with SubQuery, make sure you have installed the required supporting software applications. These are:
+Bevor Sie mit der Erstellung Ihres Blockchain-Projekts mit SubQuery beginnen, vergewissern Sie sich, dass Sie die ersten unterstützenden Softwareanwendungen installiert haben. Diese sind:
 
 - [Node](https://nodejs.org/en/): Eine moderne (z. B. die LTS-Version) Installation von Node.
-- [Docker](https://docker.com/): This tutorial will use the required Docker.
+- [Docker](https://docker.com/): Dieses Tutorial verwendet das erforderliche Docker.
 
-Now, you are all set to start with the first step, which is the installation of the SubQuery CLI.
+Jetzt können Sie mit dem ersten Schritt beginnen, nämlich der Installation der SubQuery-CLI.
 
 ## 1. Installieren Sie die SubQuery-CLI
 
@@ -26,9 +26,9 @@ Installieren Sie die SubQuery-CLI mithilfe von NPM global auf Ihrem Terminal:
 npm install -g @subql/cli
 ```
 
-::: danger We **DO NOT** encourage the use of `yarn global` for installing `@subql/cli` due to its poor dependency management. This may lead to multiple errors. :::
+::: Achtung Wir empfehlen **NICHT** die Verwendung von `yarn global` für die Installation von `@subql/cli` aufgrund seines schlechten Abhängigkeitsmanagements. Dies kann zu mehreren Fehlern führen. :::
 
-Take a look at all available commands and their use. Run the given below command in the CLI:
+Sehen Sie sich alle verfügbaren Befehle und ihre Verwendung an. Führen Sie den folgenden Befehl in der CLI aus:
 
 ```shell
 subql help
@@ -36,7 +36,7 @@ subql help
 
 ## 2. Initialisieren Sie das SubQuery-Starterprojekt
 
-Run the following command inside the directory you want to create a SubQuery project:
+Führen Sie den folgenden Befehl in dem Verzeichnis aus, in dem Sie ein SubQuery-Projekt erstellen möchten:
 
 ```shell
 subql init
