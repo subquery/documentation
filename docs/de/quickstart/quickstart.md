@@ -42,37 +42,37 @@ Führen Sie den folgenden Befehl in dem Verzeichnis aus, in dem Sie ein SubQuery
 subql init
 ```
 
-::: warning Important
+::: wichtige Warnung
 
-**For Cosmos Users**
+**Für Cosmos-Benutzer**
 
-Cosmos is not yet supported in SubQuery's CLI (`subql`). Hence, if you are using Cosmos, you must start with a Juno clone or fork this [starter project](https://github.com/subquery/cosmos-subql-starter).
+Cosmos wird noch nicht in der Befehlszeilenschnittstelle von SubQuery (`subql`) unterstützt. Wenn Sie Cosmos verwenden, müssen Sie daher mit einem Juno-Klon beginnen oder dieses [Starterprojekt](https://github.com/subquery/cosmos-subql-starter) forken.
 
-To initialise your project with Cosmos, refer to these 4 steps shown in this [link](https://github.com/subquery/juno-subql-starter#readme). Once you complete these 4 steps, **jump** to the [Make Changes to Your Project](../quickstart/quickstart.md#_3-make-changes-to-your-project) section. :::
+Um Ihr Projekt mit Cosmos zu initialisieren, folgen Sie diesen 4 Schritten, die in diesem [Link](https://github.com/subquery/juno-subql-starter#readme) gezeigt werden. Sobald Sie diese 4 Schritte ausgeführt haben, **springen** Sie zum Abschnitt [Änderungen an Ihrem Projekt vornehmen](../quickstart/quickstart.md#_3-make-changes-to-your-project). :::
 
-You'll be asked certain questions as you proceed ahead:
+Im weiteren Verlauf werden Ihnen bestimmte Fragen gestellt:
 
-- **Project name**: A project name for your SubQuery project.
-- **Network family**: The layer-1 blockchain network family that this SubQuery project will index. Verwenden Sie die Pfeiltasten, um aus den verfügbaren Optionen auszuwählen. For example, Polkadot, Avalanche, Cosmos, or any other supported network.
-- **Network**: The specific network that this SubQuery project will index. Verwenden Sie die Pfeiltasten, um aus den verfügbaren Optionen auszuwählen. For example, Polkadot, Avalanche, or any other supported network.
-- **Template project**: Select a SubQuery template project that will provide a starting point in the development. We suggest selecting the _"subql-starter"_ project.
-- **RPC endpoint**: Provide an HTTPS URL to a running RPC endpoint, which will be used by default for this project. You can quickly access public endpoints for different networks, create your own private dedicated node using [OnFinality](https://app.onfinality.io), or just use the default endpoint. Dieser RPC-Node muss ein Archivnode sein (den Zustand der vollständigen Chain haben). We will use the default value for this guide. Based on the network you have chosen, the default value may be:
-  - For Polkadot - _"https://polkadot.api.onfinality.io"_,
-  - For Avalanche - _"https://avalanche.api.onfinality.io"_,
-  - For Terra - _“https://terra-columbus-5.beta.api.onfinality.io”_ and likewise for other networks. <br/>
-- **Git repository**: Provide a Git URL to a repo that this SubQuery project will be hosted in (when hosted in SubQuery Explorer) or accept the provided default.
-- **Authors**: Enter the owner of this SubQuery project here (e.g. your name!) or accept the provided default.
-- **Description**: Provide a short paragraph about your project that describes what data it contains and what users can do with it, or accept the provided default.
-- **Version**: Enter a custom version number or use the default (`1.0.0`).
-- **License**: Provide the software license for this project or accept the default (`MIT`).
+- **Projektname**: Ein Projektname für Ihr SubQuery-Projekt.
+- **Netzwerkfamilie**: Die Layer-1-Blockchain-Netzwerkfamilie, die dieses SubQuery-Projekt indizieren wird. Verwenden Sie die Pfeiltasten, um aus den verfügbaren Optionen auszuwählen. Zum Beispiel Polkadot, Avalanche, Cosmos oder jedes andere unterstützte Netzwerk.
+- **Netzwerk**: Das spezifische Netzwerk, das dieses SubQuery-Projekt indizieren wird. Verwenden Sie die Pfeiltasten, um aus den verfügbaren Optionen auszuwählen. Zum Beispiel Polkadot, Avalanche oder jedes andere unterstützte Netzwerk.
+- **Vorlagenprojekt**: Wählen Sie ein SubQuery-Vorlagenprojekt aus, das einen Ausgangspunkt für die Entwicklung darstellt. Wir empfehlen, das Projekt _"subql-starter"_ auszuwählen.
+- **RPC-Endpunkt**: Geben Sie eine HTTPS-URL zu einem ausgeführten RPC-Endpunkt an, der standardmäßig für dieses Projekt verwendet wird. Sie können schnell auf öffentliche Endpunkte für verschiedene Netzwerke zugreifen, Ihren eigenen privaten dedizierten Knoten mit [OnFinality](https://app.onfinality.io) erstellen oder einfach den Standardendpunkt verwenden. Dieser RPC-Node muss ein Archivnode sein (den Zustand der vollständigen Chain haben). Wir werden den Standardwert für diese Anleitung verwenden. Basierend auf dem ausgewählten Netzwerk kann der Standardwert wie folgt lauten:
+  - Für Polkadot - _"https://polkadot.api.onfinality.io"_,
+  - Für Avalanche - _"https://avalanche.api.onfinality.io"_,
+  - Für Terra - _"https://terra-columbus-5.beta.api.onfinality.io"_ und ebenso für andere Netzwerke. <br/>
+- **Git-Repository**: Geben Sie eine Git-URL zu einem Repository an, in dem dieses SubQuery-Projekt gehostet wird (wenn es in SubQuery Explorer gehostet wird), oder akzeptieren Sie die bereitgestellte Standardeinstellung.
+- **Autoren**: Geben Sie hier den Eigentümer dieses SubQuery-Projekts ein (z. B. Ihren Namen!) oder übernehmen Sie die vorgegebene Vorgabe.
+- **Beschreibung**: Geben Sie einen kurzen Absatz zu Ihrem Projekt an, der beschreibt, welche Daten es enthält und was Benutzer damit tun können, oder akzeptieren Sie die bereitgestellte Standardeinstellung.
+- **Version**: Geben Sie eine benutzerdefinierte Versionsnummer ein oder verwenden Sie die Standardversion (`1.0.0`).
+- **Lizenz**: Geben Sie die Softwarelizenz für dieses Projekt an oder akzeptieren Sie die Standardeinstellung (`MIT`).
 
-Let’s look at an example:
+Sehen wir uns ein Beispiel an:
 
 ```shell
 $ subql init
 Project name [subql-starter]: HelloWorld
-? Select a network family Substrate
-? Select a network Polkadot
+? Wählen Sie ein Substrat der Netzwerkfamilie aus
+? Wählen Sie einen Netzwerk-Polkadot aus
 ? Select a template project subql-starter     Starter project for subquery
 RPC endpoint: [wss://polkadot.api.onfinality.io/public-ws]:
 Git repository [https://github.com/subquery/subql-starter]:
@@ -85,28 +85,28 @@ Preparing project... done
 HelloWorld is ready
 ```
 
-After you complete the initialisation process, you will see a folder with your project name created inside the directory. Please note that the contents of this directory should be identical to what's listed in the [Directory Structure](../build/introduction.md#directory-structure).
+Nachdem Sie den Initialisierungsprozess abgeschlossen haben, sehen Sie einen Ordner mit Ihrem Projektnamen, der im Verzeichnis erstellt wurde. Bitte beachten Sie, dass der Inhalt dieses Verzeichnisses mit dem identisch sein sollte, was in der [Verzeichnisstruktur](../build/introduction.md#directory-structure) aufgeführt ist.
 
-Finally, run the following command to install the new project’s dependencies from within the new project's directory.
+Führen Sie abschließend den folgenden Befehl aus, um die Abhängigkeiten des neuen Projekts aus dem Verzeichnis des neuen Projekts zu installieren.
 
 <CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
 <CodeGroupItem title="NPM"> ```shell cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
 
-You have now initialised your first SubQuery project with just a few simple steps. Let’s now customise the standard template project for a specific blockchain of interest.
+Mit wenigen Handgriffen haben Sie nun Ihr erstes SubQuery-Projekt initialisiert. Lassen Sie uns nun das Standardvorlagenprojekt für eine bestimmte Blockchain von Interesse anpassen.
 
-You may want to refer to the [command line arguments](../run_publish/references.md) used in SubQuery. It will help you understand the commands better.
+Sie können sich auf die [Befehlszeilenargumente](../run_publish/references.md) beziehen, die in SubQuery verwendet werden. Es wird Ihnen helfen, die Befehle besser zu verstehen.
 
-## 3. Make Changes to Your Project
+## 3. Nehmen Sie Änderungen an Ihrem Projekt vor
 
-There are 3 important files that need to be modified. These are:
+Es gibt 3 wichtige Dateien, die geändert werden müssen. Dies sind:
 
-1. The GraphQL Schema in `schema.graphql`.
-2. The Project Manifest in `project.yaml`.
-3. The Mapping functions in `src/mappings/` directory.
+1. Das GraphQL-Schema in `schema.graphql`.
+2. Das Projektmanifest in `project.yaml`.
+3. Die Mapping-Funktionen im Verzeichnis `src/mappings/`.
 
-SubQuery supports various blockchain networks and provides you with a dedicated guide for each of them.
+SubQuery unterstützt verschiedene Blockchain-Netzwerke und bietet Ihnen für jedes von ihnen eine eigene Anleitung.
 
-Pick up your preferred network and proceed ahead to make the modifications required, and move an inch closer to finishing your first ever project:
+Wählen Sie Ihr bevorzugtes Netzwerk und fahren Sie fort, um die erforderlichen Änderungen vorzunehmen, und kommen Sie dem Abschluss Ihres allerersten Projekts einen Zentimeter näher:
 
 - **[Polkadot/Substrate](../quickstart/quickstart_chains/polkadot.md)**
 
