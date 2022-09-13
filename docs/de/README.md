@@ -90,7 +90,7 @@
       <li>
         <div class="title">Wie viel kostet es, mein Projekt in SubQuery Projects zu hosten?</div>
         <div class="content">
-          <p>This service is being provided to the community with a generous free tier! You can host your first two SubQuery projects for absolutely free!</p>
+          <p>Dieser Service wird der Community mit einem großzügigen kostenlosen Kontingent zur Verfügung gestellt! You can host your first two SubQuery projects for absolutely free!</p>
           <span class="more">
             <router-link :to="{path: '/run_publish/publish.html'}">HOST IHRES PROJEKTS</router-link>
           </span>
