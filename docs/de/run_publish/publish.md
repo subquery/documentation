@@ -1,48 +1,48 @@
-# Publish to Managed Services
+# In Managed Services veröffentlichen
 
-## Benefits of hosting your project with SubQuery's Managed Service
+## Vorteile des Hostens Ihres Projekts mit dem Managed Service von SubQuery
 
-The biggest dApps depend on SubQuery's enterprise level Managed Service - with 100s of millions of daily requests and hundreds of active projects, SubQuery's Managed Service provides industry leading hosting for our customers.
+Die größten dApps sind auf den Managed Service auf Unternehmensebene von SubQuery angewiesen – mit Hunderten von Millionen täglicher Anfragen und Hunderten von aktiven Projekten bietet der Managed Service von SubQuery branchenführendes Hosting für unsere Kunden.
 
-- We'll run your SubQuery projects for you in a high performance, scalable, and managed public service.
-- This service is being provided to the community with a generous free tier! You can host your first two SubQuery projects for absolutely free!
-- You can make your projects public so that they'll be listed in the [SubQuery Explorer](https://explorer.subquery.network) and anyone around the world can view them.
-- We're integrated with GitHub, so anyone in your GitHub organisations will be able to view shared organisation projects.
+- Wir führen Ihre SubQuery-Projekte für Sie in einem leistungsstarken, skalierbaren und verwalteten öffentlichen Dienst aus.
+- Dieser Service wird der Community mit einem großzügigen kostenlosen Kontingent zur Verfügung gestellt! Sie können Ihre ersten beiden SubQuery-Projekte absolut kostenlos hosten!
+- Sie können Ihre Projekte öffentlich machen, damit sie im [SubQuery Explorer](https://explorer.subquery.network) aufgelistet werden und jeder auf der ganzen Welt sie anzeigen kann.
+- Wir sind in GitHub integriert, sodass jeder in Ihren GitHub-Organisationen freigegebene Organisationsprojekte anzeigen kann.
 
-You can upgrade to take advantage of the following paid services:
+Sie können ein Upgrade durchführen, um die folgenden kostenpflichtigen Dienste zu nutzen:
 
-- Production ready hosting for mission critical data with zero-downtime blue/green deployments
-- Dedicated databases
-- Multiple geo-redundant clusters and intelligent routing
-- Advanced monitoring and analytics.
+- Produktionsreifes Hosting für geschäftskritische Daten mit Blue/Green-Bereitstellungen ohne Ausfallzeiten
+- Dedizierte Datenbanken
+- Mehrere georedundante Cluster und intelligentes Routing
+- Erweiterte Überwachung und Analyse.
 
-## Publish your SubQuery project to IPFS
+## Veröffentlichen Sie Ihr SubQuery-Projekt in IPFS
 
-When deploying to SubQuery's Managed Service, you must first host your codebase in [IPFS](https://ipfs.io/). Hosting a project in IPFS makes it available for all and reduces your reliance on centralised services like GitHub.
+Bei der Bereitstellung für den Managed Service von SubQuery müssen Sie zuerst Ihre Codebasis in [IPFS](https://ipfs.io/) hosten. Das Hosten eines Projekts in IPFS macht es für alle verfügbar und verringert Ihre Abhängigkeit von zentralisierten Diensten wie GitHub.
 
-:::warning GitHub Deployment flows have being deprecated for IPFS
+:::Warnung GitHub-Bereitstellungsflows sind für IPFS veraltet
 
-If your project is still being deployed via GitHub, read the migration guide for IPFS deployments [here](./ipfs.md) :::
+Wenn Ihr Projekt noch über GitHub bereitgestellt wird, lesen Sie den Migrationsleitfaden für IPFS-Bereitstellungen [hier](./ipfs.md) :::
 
 ### Anforderungen
 
 - `@subql/cli` Version 0.21.0 oder höher.
-- Manifest `specVersion` 1.0.0 and above.
-- Get your [SUBQL_ACCESS_TOKEN](ipfs.md#prepare-your-subql-access-token) ready.
+- Manifest `specVersion` 1.0.0 und höher.
+- Halten Sie Ihr [SUBQL_ACCESS_TOKEN](ipfs.md#prepare-your-subql-access-token) bereit.
 - Um sicherzustellen, dass Ihre Bereitstellung erfolgreich ist, empfehlen wir dringend, dass Sie Ihr Projekt mit dem Befehl `subql build` erstellen und es vor der Veröffentlichung lokal testen.
 
 ### Bereiten Sie Ihr SUBQL_ACCESS_TOKEN vor
 
 - Schritt 1: Gehen Sie zu [SubQuery Projects](https://project.subquery.network/) und melden Sie sich an.
-- Step 2: Click on your profile at the top right of the navigation menu, then click on **_Refresh Token_**.
+- Schritt 2: Klicken Sie oben rechts im Navigationsmenü auf Ihr Profil und dann auf **_Token aktualisieren_**.
 - Schritt 3: Kopieren Sie das generierte Token.
 - Schritt 4: So verwenden Sie dieses Token:
-  - Variante 1: Fügen Sie SUBQL_ACCESS_TOKEN zu Ihren Umgebungsvariablen hinzu. `EXPORT SUBQL_ACCESS_TOKEN=<token>` (Windows) or `export SUBQL_ACCESS_TOKEN=<token>` (Mac/Linux)
+  - Variante 1: Fügen Sie SUBQL_ACCESS_TOKEN zu Ihren Umgebungsvariablen hinzu. `EXPORT SUBQL_ACCESS_TOKEN=<token>` (Windows) oder `export SUBQL_ACCESS_TOKEN=<token>` (Mac/Linux)
   - Variante 2: Demnächst wird `subql/cli` das lokale Speichern Ihres SUBQL_ACCESS_TOKEN unterstützen.
 
 ### Wie kann man ein Projekt veröffentlichen?
 
-As you have `@subql/cli` already installed, you can run the following command, which will read the project and required information from its default manifest `project.yaml`:
+Da Sie `@subql/cli` bereits installiert haben, können Sie den folgenden Befehl ausführen, der das Projekt und die erforderlichen Informationen aus seinem Standardmanifest `project.yaml` liest:
 
 ```
 // Veröffentlichen Sie es aus dem Stammverzeichnis Ihres Projekts
@@ -81,17 +81,17 @@ Auf IPFS hochgeladenes SubQuery-Projekt:
 QmZ3q7YZSmhwBiot4PQCK3c7Z6HkteswN2Py58gkkZ8kNd  //CID
 ```
 
-Bitte notieren Sie sich diese `CID`. With this `CID`, you can view your published project as what we call it [IPFS Deployment](ipfs.md#ipfs-deployment).
+Bitte notieren Sie sich diese `CID`. Mit dieser `CID` können Sie Ihr veröffentlichtes Projekt als die sogenannte [IPFS-Bereitstellung](ipfs.md#ipfs-deployment) anzeigen.
 
-With `@subql/cli` version 1.3.0 or above, when using `subql publish` it will store a copy of the project's `IPFS CID` in a file in your project directory, the naming of the file will be consistent with your project.yaml. For example, if your manfiest file is named `project.yaml`, the IPFS file will be named `.project-cid`.
+Mit `@subql/cli` Version 1.3.0 oder höher wird bei Verwendung von `subql publish` eine Kopie der `IPFS-CID` des Projekts in einer Datei gespeichert In Ihrem Projektverzeichnis stimmt die Benennung der Datei mit Ihrer project.yaml überein. Wenn Ihre Manfiest-Datei beispielsweise `project.yaml` heißt, heißt die IPFS-Datei `.project-cid`.
 
 ### IPFS-Bereitstellung
 
 Die IPFS-Bereitstellung stellt eine unabhängige und einzigartige Existenz eines SubQuery-Projekts in einem dezentralisierten Netzwerk dar. Daher wirken sich alle Änderungen am Code im Projekt auf dessen Eindeutigkeit aus. Wenn Sie Ihre Geschäftslogik anpassen müssen, z.B. Wenn Sie die Zuordnungsfunktion ändern, müssen Sie das Projekt erneut veröffentlichen, und die `CID` ändert sich.
 
-For now, to view the project you have published, use a `REST` api tool such as [Postman](https://web.postman.co/), and use `POST` method with the following example URL to retrieve it:`https://ipfs.subquery.network/ipfs/api/v0/cat?arg=<YOUR_PROJECT_CID>`.
+Um das von Ihnen veröffentlichte Projekt anzuzeigen, verwenden Sie vorerst ein `REST`-API-Tool wie [Postman](https://web.postman.co/) und die `POST`-Methode mit der folgenden Beispiel-URL zum Abrufen:`https://ipfs.subquery.network/ipfs/api/v0/cat?arg=<YOUR_PROJECT_CID>`.
 
-You should see the example project deployment as below.
+Sie sollten die Beispielprojektbereitstellung wie unten sehen.
 
 Diese Bereitstellung sieht Ihrer Manifestdatei sehr ähnlich. Sie können diese beschreibenden Felder erwarten, und der Netzwerk- und Wörterbuchendpunkt wurde entfernt, da sie das Ergebnis der Projektausführung nicht direkt beeinflussten.
 
@@ -120,13 +120,13 @@ schema:
 specVersion: 0.2.0
 ```
 
-## Deploy your SubQuery project in the Managed Service
+## Stellen Sie Ihr SubQuery-Projekt im Managed Service bereit
 
-### Login to SubQuery Projects
+### Melden Sie sich bei SubQuery-Projekten an
 
-Before starting, please make sure that your SubQuery project codebase is published to IPFS.
+Bevor Sie beginnen, stellen Sie bitte sicher, dass die Codebasis Ihres SubQuery-Projekts in IPFS veröffentlicht ist.
 
-To create your first project, head to [SubQuery Projects](https://project.subquery.network). You'll need to authenticate with your GitHub account to login.
+Um Ihr erstes Projekt zu erstellen, gehen Sie zu [SubQuery Projects](https://project.subquery.network). You'll need to authenticate with your GitHub account to login.
 
 On first login, you will be asked to authorize SubQuery. We only need your email address to identify your account, and we don't use any other data from your GitHub account for any other reasons. In this step, you can also request or grant access to your GitHub Organization account so you can post SubQuery projects under your GitHub Organization instead of your personal account.
 
