@@ -44,6 +44,12 @@ This shows the help options.
 
 ```shell
 > subql-node --help
+Commands:
+  run force-clean  Force cleans the database, dropping project schemas and
+                   tables (Once the command is executed, the application would
+                   exit upon completion)
+  run reindex      Reindex to specified block height (Once the command is
+                   executed, the application would exit upon completion).
 Options:
       --help                Show help                                  [boolean]
       --version             Show version number                        [boolean]
@@ -51,8 +57,7 @@ Options:
       --subquery-name       Name of the subquery project   [deprecated] [string]
   -c, --config              Specify configuration file                  [string]
       --local               Use local mode                [deprecated] [boolean]
-      --force-clean         Force clean the database, dropping project schemas
-                            and tables                                 [boolean]
+                               [boolean]
       --db-schema           Db schema name of the project               [string]
       --unsafe              Allows usage of any built-in module within the
                             sandbox                    [boolean][default: false]
@@ -86,7 +91,6 @@ Options:
   -p, --port                The port the service will bind to           [number]
       --disable-historical  Disable storing historical state entities
                                                        [boolean] [default: true]
-      --reindex             Reindex to specified block height           [number]
   -w, --workers             Number of worker threads to use for fetching and
                             processing blocks. Disabled by default.     [number]
 ```
@@ -98,6 +102,30 @@ This displays the current version.
 ```shell
 > subql-node --version
 0.19.1
+```
+
+### reindex
+
+When using reindex command, historical must be enabled for the targeted project(`--disable-historical=false`).
+
+Use `--targetHeight=<blockNumber>` with `reindex` to remove indexed data and reindex from specified block height.
+`-f`, `--subquery` flag must be passed in, to set path of the targeted project.
+
+:::note Once the command is executed, the application would exit upon completion.
+(If the set targetHeight is less than the declared starting height, it would execute the `force-clean` command).
+```shell
+subql-node -f /example/subql-project reindex --targetHeight=30
+```
+
+### force-clean
+This command forces the project schemas and tables to be regenerated, helpful to use when iteratively developing graphql schemas such that new runs of the project are always working with a clean state. Note that this flag will also wipe all indexed data.
+This will also drop all related schema and tables of the project.
+
+`-f`, `--subquery` flag must be passed in, to set path of the targeted project.
+
+:::note Similar to `reindex` command, the application would exit upon completion
+```shell
+subql-node -f /example/subql-project force-clean
 ```
 
 ### -f, --subquery
@@ -144,10 +172,6 @@ subql-node -f . --local
 ```
 
 Note that once you use this flag, removing it won't mean that it will point to another database. To repoint to another database you will have to create a NEW database and change the env settings to this new database. In other words, "export DB_DATABASE=<new_db_here>".
-
-### --force-clean
-
-This flag forces the project schemas and tables to be regenerated, helpful to use when iteratively developing graphql schemas such that new runs of the project are always working with a clean state. Note that this flag will also wipe all indexed data.
 
 ### --db-schema
 
@@ -302,13 +326,6 @@ The port the subquery indexing service binds to. By default this is set to `3000
 
 Disables automated historical state tracking, [see Historic State Tracking](./historical.md). By default this is set to `false`.
 
-### --reindex
-
-Use `--reindex=<blockNumber>` to remove indexed data and reindex from specified block height.
-
-:::info Note
-Please note that the way of using this feature will be updated soon.
-:::
 
 ### -w, --workers
 
