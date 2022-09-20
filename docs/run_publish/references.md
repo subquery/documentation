@@ -45,11 +45,13 @@ This shows the help options.
 ```shell
 > subql-node --help
 Commands:
-  run force-clean  Force cleans the database, dropping project schemas and
-                   tables (Once the command is executed, the application would
-                   exit upon completion)
-  run reindex      Reindex to specified block height (Once the command is
-                   executed, the application would exit upon completion).
+  run force-clean  Clean the database dropping project schemas and tables. Once
+                   the command is executed, the application would exit upon
+                   completion.
+  run reindex      Reindex to specified block height. Historical must be enabled
+                   for the targeted project (--disable-historical=false). Once
+                   the command is executed, the application would exit upon
+                   completion.
 Options:
       --help                Show help                                  [boolean]
       --version             Show version number                        [boolean]
@@ -110,19 +112,23 @@ When using reindex command, historical must be enabled for the targeted project(
 Use `--targetHeight=<blockNumber>` with `reindex` to remove indexed data and reindex from specified block height.
 `-f`, `--subquery` flag must be passed in, to set path of the targeted project.
 
-:::note Once the command is executed, the application would exit upon completion.
-(If the set targetHeight is less than the declared starting height, it would execute the `force-clean` command).
+::: info Note
+Once the command is executed, the application would exit upon completion.
+
+If the set targetHeight is less than the declared starting height, it would execute the `force-clean` command.
 ```shell
 subql-node -f /example/subql-project reindex --targetHeight=30
 ```
 
 ### force-clean
-This command forces the project schemas and tables to be regenerated, helpful to use when iteratively developing graphql schemas such that new runs of the project are always working with a clean state. Note that this flag will also wipe all indexed data.
+This command forces the project schemas and tables to be regenerated. It is helpful to use when iteratively developing graphql schemas in order to ensure a clean state when starting a project. Note that this flag will also wipe all indexed data.
 This will also drop all related schema and tables of the project.
 
 `-f`, `--subquery` flag must be passed in, to set path of the targeted project.
 
-:::note Similar to `reindex` command, the application would exit upon completion
+::: info Note
+Similar to `reindex` command, the application would exit upon completion
+
 ```shell
 subql-node -f /example/subql-project force-clean
 ```
