@@ -127,7 +127,8 @@ This will also drop all related schema and tables of the project.
 `-f`, `--subquery` flag must be passed in, to set path of the targeted project.
 
 ::: info Note
-Similar to `reindex` command, the application would exit upon completion
+Similar to `reindex` command, the application would exit upon completion.
+:::
 
 ```shell
 subql-node -f /example/subql-project force-clean
