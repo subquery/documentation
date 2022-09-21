@@ -107,6 +107,8 @@ This displays the current version.
 
 ### reindex
 
+- In order to use this command you need to have `@subql/node` v1.10.0 or above.
+
 When using reindex command, historical must be enabled for the targeted project(`--disable-historical=false`).
 
 Use `--targetHeight=<blockNumber>` with `reindex` to remove indexed data and reindex from specified block height.
@@ -123,6 +125,9 @@ subql-node -f /example/subql-project reindex --targetHeight=30
 ```
 
 ### force-clean
+
+- In order to use this command you need to have `@subql/node` v1.10.0 or above.
+
 This command forces the project schemas and tables to be regenerated. It is helpful to use when iteratively developing graphql schemas in order to ensure a clean state when starting a project. Note that this flag will also wipe all indexed data.
 This will also drop all related schema and tables of the project.
 
