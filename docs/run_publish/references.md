@@ -114,6 +114,7 @@ Use `--targetHeight=<blockNumber>` with `reindex` to remove indexed data and rei
 
 ::: info Note
 Once the command is executed, the application would exit upon completion.
+:::
 
 If the set targetHeight is less than the declared starting height, it would execute the `force-clean` command.
 
