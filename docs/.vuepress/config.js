@@ -228,11 +228,11 @@ function getSidebar(locale, language) {
             title: "2. Specific Chains",
             collapsable: true,
             children: [
-              `${locale}/quickstart/quickstart_chains/polkadot.md`,
+              `${locale}/quickstart/quickstart_chains/algorand.md`,
               `${locale}/quickstart/quickstart_chains/avalanche.md`,
               `${locale}/quickstart/quickstart_chains/cosmos.md`,
+              `${locale}/quickstart/quickstart_chains/polkadot.md`,
               `${locale}/quickstart/quickstart_chains/terra.md`,
-              `${locale}/quickstart/quickstart_chains/algorand.md`,
             ],
           },
           `${locale}/quickstart/whats-next.md`,
