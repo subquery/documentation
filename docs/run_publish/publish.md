@@ -2,12 +2,11 @@
 
 ## Benefits of hosting your project with SubQuery's Managed Service
 
-The biggest dApps depend on SubQuery's enterprise level Managed Service - with 100s of millions of daily requests and hundreds of active projects, SubQuery's Managed Service provides industry leading hosting for our customers.
+The biggest dApps depend on SubQuery's enterprise level Managed Service. With 100's of millions of daily requests and hundreds of active projects, SubQuery's Managed Service provides industry leading hosting for our customers.
 
 - We'll run your SubQuery projects for you in a high performance, scalable, and managed public service.
 - This service is being provided to the community with a generous free tier! You can host your first two SubQuery projects for absolutely free!
 - You can make your projects public so that they'll be listed in the [SubQuery Explorer](https://explorer.subquery.network) and anyone around the world can view them.
-- We're integrated with GitHub, so anyone in your GitHub organisations will be able to view shared organisation projects.
 
 You can upgrade to take advantage of the following paid services:
 
@@ -18,7 +17,7 @@ You can upgrade to take advantage of the following paid services:
 
 ## Publish your SubQuery project to IPFS
 
-When deploying to SubQuery's Managed Service, you must first host your codebase in [IPFS](https://ipfs.io/). Hosting a project in IPFS makes it available for all and reduces your reliance on centralised services like GitHub.
+When deploying to SubQuery's Managed Service, you must first host your codebase in [IPFS](https://ipfs.io/). Hosting a project in IPFS makes it available for everyone and reduces your reliance on centralised services like GitHub.
 
 :::warning
 GitHub Deployment flows have being deprecated for IPFS
@@ -30,8 +29,8 @@ If your project is still being deployed via GitHub, read the migration guide for
 
 - `@subql/cli` version 0.21.0 or above.
 - Manifest `specVersion` 1.0.0 and above.
-- Get your [SUBQL_ACCESS_TOKEN](ipfs.md#prepare-your-subql-access-token) ready.
-- To make sure your deployment success, we strongly recommend that you build your project with the `subql build` command, and test it locally before publishing.
+- Get your SUBQL_ACCESS_TOKEN ready.
+- To make sure your deployment is successful, we strongly recommend that you build your project with the `subql build` command, and test it locally before publishing.
 
 ### Prepare your SUBQL_ACCESS_TOKEN
 
@@ -44,7 +43,7 @@ If your project is still being deployed via GitHub, read the migration guide for
 
 ### How to publish a project
 
-As you have `@subql/cli` already installed, you can run the following command, which will read the project and required information from its default manifest `project.yaml`:
+Run the following command, which will read the project's default manifest `project.yaml` for the required information.
 
 ```
 // Publish it from your project's root directory
@@ -54,7 +53,7 @@ subql publish
 subql publish -f ~/my-project/
 ```
 
-Alternatively, suppose your project has multiple Manifest files, for example you support multiple networks but share the same mapping and business logic, and have a project structure as follows:
+Alternatively, if your project has multiple manifest files, for example you support multiple networks but share the same mapping and business logic, and have a project structure as follows:
 
 ```
 L projectRoot
@@ -74,7 +73,7 @@ subql publish -f ~/my-projectRoot/polkadot.yaml
 
 ### After publish
 
-After successfully publishing the project, the logs below indicate that the project was created on the IPFS cluster and have returned its `CID` (content identifier).
+After successfully publishing the project, the logs below indicate that the project was created on the IPFS cluster and have returned its `CID` (Content IDentifier). Please note down this `CID`. 
 
 ```
 Building and packing code... done
@@ -82,15 +81,13 @@ Uploading SupQuery project to IPFS
 SubQuery Project uploaded to IPFS: QmZ3q7YZSmhwBiot4PQCK3c7Z6HkteswN2Py58gkkZ8kNd  //CID
 ```
 
-Please note this `CID`. With this `CID`, you can view your published project as what we call it [IPFS Deployment](ipfs.md#ipfs-deployment).
-
-With `@subql/cli` version 1.3.0 or above, when using `subql publish` it will store a copy of the project's `IPFS CID` in a file in your project directory, the naming of the file will be consistent with your project.yaml. For example, if your manfiest file is named `project.yaml`, the IPFS file will be named `.project-cid`.
+Note: With `@subql/cli` version 1.3.0 or above, when using `subql publish`, a copy of the project's `IPFS CID` will be stored in a file in your project directory. The naming of the file will be consistent with your project.yaml. For example, if your manfiest file is named `project.yaml`, the IPFS file will be named `.project-cid`.
 
 ### IPFS Deployment
 
 IPFS deployment represents an independent and unique existence of a SubQuery project on a decentralized network. Therefore, any changes with the code in the project will affect its uniqueness. If you need to adjust your business logic, e.g. change the mapping function, you must republish the project, and the `CID` will change.
 
-For now, to view the project you have published, use a `REST` api tool such as [Postman](https://web.postman.co/), and use `POST` method with the following example URL to retrieve it:`https://ipfs.subquery.network/ipfs/api/v0/cat?arg=<YOUR_PROJECT_CID>`.
+For now, to view the project you have published, use a `REST` api tool such as [Postman](https://web.postman.co/), and use the `POST` method with the following example URL to retrieve it:`https://ipfs.subquery.network/ipfs/api/v0/cat?arg=<YOUR_PROJECT_CID>`.
 
 You should see the example project deployment as below.
 
