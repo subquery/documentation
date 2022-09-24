@@ -2,7 +2,7 @@
 
 We provide a custom data source processor for [Cosmos's Ethermint EVM](https://github.com/cosmos/ethermint). This offers a simple way to filter and index both EVM and Cosmos activity on many Cosmos networks within a single SubQuery project.
 
-**You can also refer to the basic [Cronos EVM](https://github.com/DeveloperInProgress/ethermint-evm-starter) example project with an event and call handler.**
+**You can also refer to the basic [Cronos EVM](https://github.com/subquery/cosmos-subql-starter/tree/main/Cronos/cronos-evm-starter) example project with an event and call handler.**
 
 ## Getting started
 
@@ -11,26 +11,17 @@ We provide a custom data source processor for [Cosmos's Ethermint EVM](https://g
 - Create a new project from an EVM template though `subql init` OR
 - For existing projects, `yarn add @subql/ethermint-evm-processor` or `npm i @subql/ethermint-evm-processor`.
 
-2. Add exports to your `package.json` like below in order for IPFS deployments to work
-
-```json
-  ...
-  "exports": {
-    "ethermintEVM": "./node_modules/@subql/ethermint-evm-processor/dist/index.js"
-  }
-```
-
-3. Add a custom data source as described below.
-4. Add handlers for the custom data source to your code.
+2. Add a custom data source as described below.
+3. Add handlers for the custom data source to your code.
 
 ## Data Source Spec
 
-| Field             | Type                                   | Required | Description                                |
-| ----------------- | -------------------------------------- | -------- | ------------------------------------------ |
-| kind              | `cosmos/EthermintEvm`                  | Yes      | Type of the datasource                     |
-| processor.file    | `'./dist/ethermintEvm.js'`             | Yes      | File reference to the data processor code  |
-| processor.options | [ProcessorOptions](#processor-options) | No       | Options specific to the Frontier Processor |
-| assets            | `{ [key: String]: { file: String }}`   | No       | An object of external asset files          |
+| Field             | Type                                                             | Required | Description                                |
+| ----------------- | ---------------------------------------------------------------- | -------- | ------------------------------------------ |
+| kind              | `cosmos/EthermintEvm`                                            | Yes      | Type of the datasource                     |
+| processor.file    | `"./node_modules/@subql/ethermint-evm-processor/dist/bundle.js"` | Yes      | File reference to the data processor code  |
+| processor.options | [ProcessorOptions](#processor-options)                           | No       | Options specific to the Frontier Processor |
+| assets            | `{ [key: String]: { file: String }}`                             | No       | An object of external asset files          |
 
 ### Processor Options
 
@@ -100,26 +91,23 @@ import {
 import { BigNumber } from "ethers";
 
 // Setup types from ABI
-/*
 type TransferEventArgs = [string, string, BigNumber] & {
   from: string;
   to: string;
   value: BigNumber;
 };
-*/
-/*
+
 type ApproveCallArgs = [string, BigNumber] & {
   _spender: string;
   _value: BigNumber;
 };
-*/
 
 export async function handleEthermintEvmEvent(
-  event: EthermintEvmEvent
+  event: EthermintEvmEvent<TransferEventArgs>
 ): Promise<void> {
   const transaction = new Transaction(event.transactionHash);
 
-  transaction.value = JSON.parse(event.args[2]);
+  transaction.value = event.args[2].toBigInt();
   transaction.from = event.args[0];
   transaction.to = event.args[1];
   transaction.contractAddress = event.address;
@@ -128,11 +116,11 @@ export async function handleEthermintEvmEvent(
 }
 
 export async function handleEthermintEvmCall(
-  event: EthermintEvmCall
+  event: EthermintEvmCall<ApproveCallArgs>
 ): Promise<void> {
   const approval = new Approval(event.hash);
   approval.owner = event.from;
-  approval.value = JSON.parse(event.args[1]);
+  approval.value = event.args[1].toBigInt();
   approval.spender = event.args[0];
   approval.contractAddress = event.to;
 
@@ -149,7 +137,7 @@ dataSources:
   - kind: cosmos/EthermintEvm
     startBlock: 1474211
     processor:
-      file: "./node_modules/@subql/ethermint-evm-processor/dist/index.js"
+      file: "./node_modules/@subql/ethermint-evm-processor/dist/bundle.js"
       options:
         abi: erc20
         address: "0xD4949664cD82660AaE99bEdc034a0deA8A0bd517" # wevmos
@@ -171,12 +159,12 @@ dataSources:
               - null
               - null
               - null
-        #- handler: handleEthermintEvmCall
-        #  kind: cosmos/EthermintEvmCall
-        #  filter:
-        #    method: approve(address guy, uint256 wad)
-        ## The transaction sender
-        # from: "0x86ed94fb8fffe265caf38cbefb0431d2fbf862c1"
+        - handler: handleEthermintEvmCall
+          kind: cosmos/EthermintEvmCall
+          filter:
+            method: approve(address guy, uint256 wad)
+            # The transaction sender
+            from: "0x86ed94fb8fffe265caf38cbefb0431d2fbf862c1"
 ```
 
 ## Known Limitations

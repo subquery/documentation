@@ -34,7 +34,7 @@ Theoretically the following networks should also be supported since they impleme
 - Thales
 - Unique
 
-**You can also refer to the basic [Moonriver EVM](https://github.com/subquery/tutorials-frontier-evm-starter/tree/moonriver) or [Acala EVM+](https://github.com/subquery/acala-evm-starter) example projects with an event and call handler.** This project is also hosted live in the SubQuery Explorer [here](https://explorer.subquery.network/subquery/subquery/moonriver-evm-starter-project).
+**You can also refer to the basic [Moonriver EVM](https://github.com/subquery/subql-starter/tree/main/Moonriver/moonriver-evm-starter) or [Acala EVM+](https://github.com/subquery/subql-starter/tree/main/Acala/acala-evm-starter) example projects with an event and call handler.** This project is also hosted live in the SubQuery Explorer [here](https://explorer.subquery.network/subquery/subquery/moonriver-evm-starter-project).
 
 ## Getting started
 
@@ -59,12 +59,12 @@ Theoretically the following networks should also be supported since they impleme
 
 ## Data Source Spec
 
-| Field             | Type                                                   | Required | Description                                |
-| ----------------- | ------------------------------------------------------ | -------- | ------------------------------------------ |
-| kind              | `substrate/FrontierEvm` of `substrate/AcalaEVM`        | Yes      | Type of the datasource                     |
-| processor.file    | `'./dist/frontierEvm.js'`                              | Yes      | File reference to the data processor code  |
-| processor.options | [ProcessorOptions](substrate-evm.md#processor-options) | No       | Options specific to the Frontier Processor |
-| assets            | `{ [key: String]: { file: String }}`                   | No       | An object of external asset files          |
+| Field             | Type                                                                                                                            | Required | Description                                |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------- | -------- | ------------------------------------------ |
+| kind              | `substrate/FrontierEvm` of `substrate/AcalaEVM`                                                                                 | Yes      | Type of the datasource                     |
+| processor.file    | `"./node_modules/@subql/frontier-evm-processor/dist/bundle.js"` or `"./node_modules/@subql/acala-evm-processor/dist/bundle.js"` | Yes      | File reference to the data processor code  |
+| processor.options | [ProcessorOptions](substrate-evm.md#processor-options)                                                                          | No       | Options specific to the Frontier Processor |
+| assets            | `{ [key: String]: { file: String }}`                                                                                            | No       | An object of external asset files          |
 
 ### Processor Options
 
@@ -239,7 +239,7 @@ dataSources:
   - kind: substrate/FrontierEvm
     startBlock: 752073
     processor:
-      file: "./node_modules/@subql/contract-processors/dist/frontierEvm.js"
+      file: "./node_modules/@subql/frontier-evm-processor/dist/bundle.js"
       options:
         # Must be a key of assets
         abi: erc20
@@ -247,15 +247,18 @@ dataSources:
         address: "0x6bd193ee6d2104f14f94e2ca6efefae561a4334b"
     assets:
       erc20:
-        file: "./erc20.abi.json"
+        file: ./erc20.abi.json
     mapping:
-      file: "./dist/index.js"
+      file: ./dist/index.js
       handlers:
         - handler: handleFrontierEvmEvent
           kind: substrate/FrontierEvmEvent
           filter:
             topics:
-              - Transfer(address indexed from,address indexed to,uint256 value)
+              - "Transfer(address indexed from,address indexed to,uint256 value)"
+              - null
+              - null
+              - null
         - handler: handleFrontierEvmCall
           kind: substrate/FrontierEvmCall
           filter:
@@ -263,8 +266,7 @@ dataSources:
             # function: '0x095ea7b3'
             # function: '0x7ff36ab500000000000000000000000000000000000000000000000000000000'
             # function: approve(address,uint256)
-            function: approve(address to,uint256 value)
-            from: "0x6bd193ee6d2104f14f94e2ca6efefae561a4334b"
+            function: "approve(address to,uint256 value)"
 ```
 
 </CodeGroupItem>

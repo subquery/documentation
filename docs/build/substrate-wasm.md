@@ -11,7 +11,7 @@ We provide a custom data source processor for [Substrate WASM contract](https://
 | Shibuya      |                                              | `https://api.subquery.network/sq/subquery/shibuya-dictionary`  |
 | Edgeware     | `wss://edgeware.api.onfinality.io/public-ws` | `https://api.subquery.network/sq/subquery/edgeware-dictionary` |
 
-**You can also refer to the basic [Substrate WASM](https://github.com/subquery/substrate-wasm-starter) example projects with an event and call handler.** This project is also hosted live in the SubQuery Explorer [here](https://explorer.subquery.network/subquery/subquery/tutorial-substrate-wasm-starter).
+**You can also refer to the basic [Substrate WASM](https://github.com/subquery/subql-starter/tree/main/Astar/astar-evm-starter) example projects with an event and call handler.** This project is also hosted live in the SubQuery Explorer [here](https://explorer.subquery.network/subquery/subquery/tutorial-substrate-wasm-starter).
 
 ## Getting started
 
