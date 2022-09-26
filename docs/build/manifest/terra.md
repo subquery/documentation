@@ -151,12 +151,12 @@ The following table explains filters supported by different handlers.
 
 **Your SubQuery project will be much more efficient when you only use `TransactionHandler`, `MessageHandler`, or `EventHandler` handlers with appropriate mapping filters (e.g. NOT a `BlockHandler`).**
 
-| Handler                                                               | Supported filter          |
-| --------------------------------------------------------------------- | ------------------------- |
-| [terra/BlockHandler](./mapping/polkadot.md#block-handler)             | No filters                |
-| [terra/TransactionHandler](./mapping/polkadot.md#transaction-handler) | No filters                |
-| [terra/MessageHandler](./mapping/polkadot.md#message-handler)         | `type`, `values`\*        |
-| [terra/EventHandler](./mapping/polkadot.md#event-handler)             | `type`, `messageFilter`\* |
+| Handler                                                             | Supported filter          |
+| ------------------------------------------------------------------- | ------------------------- |
+| [terra/BlockHandler](../mapping/terra.md#block-handler)             | No filters                |
+| [terra/TransactionHandler](../mapping/terra.md#transaction-handler) | No filters                |
+| [terra/MessageHandler](../mapping/terra.md#message-handler)         | `type`, `values`\*        |
+| [terra/EventHandler](../mapping/terra.md#event-handler)             | `type`, `messageFilter`\* |
 
 Default runtime mapping filters are an extremely useful feature to decide what block, event, or extrinsic will trigger a mapping handler.
 

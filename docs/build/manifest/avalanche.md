@@ -158,11 +158,11 @@ The following table explains filters supported by different handlers.
 
 **Your SubQuery project will be much more efficient when you only use `TransactionHandler` or `LogHandler` handlers with appropriate mapping filters (e.g. NOT a `BlockHandler`).**
 
-| Handler                                                         | Supported filter                                                                                    |
-| --------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| [BlockHandler](./mapping/polkadot.md#block-handler)             | No filters                                                                                          |
-| [TransactionHandler](./mapping/polkadot.md#transaction-handler) | `function` filters (either be the function fragment or signature), `from` (address), `to` (address) |
-| [LogHandler](./mapping/polkadot.md#log-handler)                 | `topics` filters, and `address`                                                                     |
+| Handler                                                                     | Supported filter                                                                                    |
+| --------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| [avalanche/BlockHandler](../mapping/avalanche.md#block-handler)             | No filters                                                                                          |
+| [avalanche/TransactionHandler](../mapping/avalanche.md#transaction-handler) | `function` filters (either be the function fragment or signature), `from` (address), `to` (address) |
+| [avalanche/LogHandler](../mapping/avalanche.md#log-handler)                 | `topics` filters, and `address`                                                                     |
 
 Default runtime mapping filters are an extremely useful feature to decide what block, event, or extrinsic will trigger a mapping handler.
 
