@@ -80,3 +80,7 @@ Sau khi việc triển khai đã thành công và các nút của chúng ta đã
 ![Các dự án đang được triển khai và đồng bộ](/assets/img/projects-deploy-sync.png)
 
 Ngoài ra, bạn có thể nhấp vào ba dấu chấm bên cạnh tiêu đề dự án của mình và xem nó trên SubQuery Explorer. There you can use the in browser playground to get started - [read more about how to use our Explorer here](../run_publish/query.md).
+
+![Projects in SubQuery Explorer](/assets/img/projects-explorer.png)
+
+::: info Note Learn more about the [GraphQL Query language.](./graphql.md) :::
