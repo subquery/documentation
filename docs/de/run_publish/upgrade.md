@@ -84,3 +84,7 @@ Sobald Ihre Bereitstellung erfolgreich abgeschlossen wurde und unsere Nodes Ihre
 ![Projekt wird bereitgestellt und synchronisiert](/assets/img/projects-deploy-sync.png)
 
 Alternativ können Sie auf die drei Punkte neben dem Titel Ihres Projekts klicken und es im SubQuery Explorer anzeigen. Dort können Sie den Playground im Browser verwenden, um loszulegen - [lesen Sie hier mehr über die Verwendung unseres Explorers](../run_publish/query.md).
+
+![Projekte im SubQuery Explorer](/assets/img/projects-explorer.png)
+
+::: info Hinweis Erfahren Sie mehr über die [GraphQL-Abfragesprache.](./graphql.md) :::
