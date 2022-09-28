@@ -9,7 +9,7 @@ Menggunakan IPFS memberikan pengalaman yang lebih baik bagi para pengembang dala
 - Ini terdesentralisasi, sehingga Anda tidak harus bergantung pada pihak terpusat seperti GitHub untuk menyimpan kode Anda.
 - Dan di atas semua ini, Anda bisa menyebarkan proyek yang sama ke SubQuery Network!
 
-## Bagaimana cara memigrasikan proyek Anda ke IPFS
+## How to migrate your project to IPFS
 
 1. Perbarui dependensi proyek Anda.
    1. Perbarui `@subql/cli` ke versi terbaru: Anda dapat melakukannya dengan menjalankan `yarn add -D @subql/cli@latest` atau `npm i -dev @subql/cli@latest`
