@@ -2,7 +2,7 @@
 
 Bây giờ bạn đã hiểu rõ về cách xây dựng một dự án SubQuery cơ bản, các bước tiếp theo trong hành trình của bạn là gì?
 
-- Giờ đây, bạn có thể dễ dàng xuất bản dự án của mình. SubQuery cung cấp dịch vụ quản lý miễn phí nơi bạn có thể triển khai dự án mới của mình. Bạn có thể triển khai nó trên [SubQuery Projects](https://project.subquery.network) và truy vấn nó bằng cách sử dụng [Explorer](https://explorer.subquery.network) của chúng tôi. Đọc hướng dẫn đầy đủ này về cách [xuất bản dự án mới của bạn lên SubQuery Projects](../../run_publish/publish.md).
+- Giờ đây, bạn có thể dễ dàng xuất bản dự án của mình. SubQuery provides a managed service solution where you can deploy your new project. Bạn có thể triển khai nó trên [SubQuery Projects](https://project.subquery.network) và truy vấn nó bằng cách sử dụng [Explorer](https://explorer.subquery.network) của chúng tôi. Đọc hướng dẫn đầy đủ này về cách [xuất bản dự án mới của bạn lên SubQuery Projects](../../run_publish/publish.md).
 
 - Để tìm hiểu sâu hơn về tài liệu dành cho nhà phát triển, hãy chuyển đến phần [Xây dựng](../../build/introduction.md) và tìm hiểu thêm về ba tệp chính: **tên tệp kê khai, lược đồ GraphQL và tệp ánh xạ.**
 
