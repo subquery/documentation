@@ -2,7 +2,9 @@
 
 Welcome to [Kepler](https://kepler.thechaindata.com), SubQuery's canary network. The Kepler network is the final stage before mainnet where network participants can be part of the SubQuery network and be rewarded with kSQT tokens which have real-world value.
 
-Learn how to participate as an [Indexer](../introduction.md), a [Delegator](../introduction.md), or a [Consumer](../introduction.md), and become familiar with all the features of the network.
+Learn more about our network participants [here](../introduction.md), before jumping in and learning how to become an [Indexer](../kepler/indexers/become-an-indexer.md), [Delegator](../delegators.md), or a [Consumer](../consumers.md). First though, learn more about the Kepler dashboard below.
+
+## Kepler Dashboard
 
 The Kepler dashboard is divided into several sections as can be seen below.
 
