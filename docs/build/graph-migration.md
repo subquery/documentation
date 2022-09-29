@@ -243,6 +243,8 @@ const erc20 = Erc20__factory.connect(contractAddress, api);
 const balance = await erc20.balanceOf(address);
 ```
 
+The above example assumes that the user has an ABI file named `erc20.json`, so that TypeChain generates `ERC20__factory` class for them. Check out [this example](https://github.com/dethcrypto/TypeChain/tree/master/examples/ethers-v5) to see how to generate factory code around your contract ABI using TypeChain
+
 ## What's Next?
 
 Now that you have a clear understanding of how to build a basic SubQuery project, what are the next steps of your journey?
