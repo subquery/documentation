@@ -1,28 +1,28 @@
 # Welcome
 
-Welcome to [Frontier](https://frontier.subquery.network/), SubQuery's Testnet. 
+Welcome to [Kepler](https://kepler.thechaindata.com), SubQuery's canary network. The Kepler network is the final stage before mainnet where network participants can be part of the SubQuery network and be rewarded with kSQT tokens which have real-world value.
 
-### Why Should You Try Frontier Testnet? 
+Learn how to participate as an [Indexer](../introduction.md), a [Delegator](../introduction.md), or a [Consumer](../introduction.md), and become familiar with all the features of the network.
 
-Run your Blockchain project on our infrastructure for free and take advantage of our large SubQuery Community. <!--we can add specific number as well -->
+The Kepler dashboard is divided into several sections as can be seen below.
 
-Whether you are an [Indexer](../introduction.md), a [Delegator](../introduction.md), or a [Consumer](../introduction.md), it doesn’t matter. Get a robust testing environment before you implement your project on a functional blockchain. 
-
-Run, Test, and Debug your projects with the help of our community, and get rewarded. 
-
-
-Now, let’s learn about the different areas within the explorer dashboard.
-
-![Testnet dashboard](/assets/img/dashboard.png) <br />
+![Kepler dashboard](/assets/img/kepler_dashboard.png) <br />
 
 ---
 
 ### Explorer
 
-- This area displays a list of all the projects that are being indexed. It’s also the place where consumers can search and purchase plans. 
-- If no plans are listed, it indicated that the Indexer has not yet created a plan. Note that the Indexers can also purchase their own plans.
+The explorer displays a list of all the projects that are being indexed. It’s also the place where consumers can select a particular project and purchase the associated plans. If no plans are listed, this indicates that an Indexer has not yet created a plan.
 
-![Purchase plans](/assets/img/purchase_plans.png) <br />
+![Indexer's plans](/assets/img/indexers_plans.png)
+
+---
+
+### Studio
+
+The studio allows developers to create, install, deploy and publish SubQuery projects. 
+
+![Studio](/assets/img/studio.png)
 
 ---
 
@@ -31,31 +31,40 @@ Now, let’s learn about the different areas within the explorer dashboard.
 This area:
 - Allows Indexers and Delegators to manage their [stake](../terminology.md#staking), [delegation](../terminology.md#delegating), rewards, and view tokens that are [locked](../terminology.md#lock-period). 
 - Allows Delegators to select Indexers and delegate their [SQT](../token.md).
-- Allows Indexers to delegate to their own project. 
-
-
-`Note:` Find about more such network terminologies [here](../terminology.md). <br />
+- Allows Indexers to delegate to projects. 
 
 ![Stake & Delegate Dashboard](/assets/img/stake_delegate_dashboard.png) <br />
 
 ---
 
-### Plan & Offer
+### Plans & Offers
 
 This area:
 - Lists [service agreements](../../glossary/glossary.md#service-agreements).
 - Allows Indexers to create and manage their plans.
 - Allows Consumers to create and manage their offers.
-- Displays an offer marketplace where Indexers can accept an offer from a Consumer.
+- Displays an offer marketplace where Indexers can accept an offer from Consumers.
 
 ![Plan & Offer Dashboard](/assets/img/plan_offer_dashboard.png)<br/>
 
 ---
-### Mission
+### Swap
 
-This area shows:
-- The enlisted missions, which have been completed by network participants(Indexers, Consumers, Delegators).
-- A leaderboard, grouped by network participants.
+Swaps allows users to swap USDC to kSQT and vice versa.
 
-![Mission Dashboard](/assets/img/missions_dashboard.png)<br/>
+![Swaps](/assets/img/swaps.png)<br/>
 
+---
+### Governance
+
+Participate in SubQuery's governance process.
+
+---
+### Documentation
+
+Learn more about the SubQuery network.
+
+---
+### Forum
+
+Join the discussion in our Discourse forum.
