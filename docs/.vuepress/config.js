@@ -328,22 +328,8 @@ function getSidebar(locale, language) {
                   `${locale}/subquery_network/testnet/indexers/faqs-indexers.md`,
                 ],
               },
-              {
-                title: "Delegators",
-                path: `${locale}/subquery_network/testnet/delegators/become-delegator`,
-                collapsable: true,
-                children: [
-                  `${locale}/subquery_network/testnet/delegators/become-delegator.md`,
-                ],
-              },
-              {
-                title: "Consumer",
-                path: `${locale}/subquery_network/testnet/consumers/become-consumer`,
-                collapsable: true,
-                children: [
-                  `${locale}/subquery_network/testnet/consumers/become-consumer.md`,
-                ],
-              },
+              `${locale}/subquery_network/testnet/delegators.md`,
+              `${locale}/subquery_network/testnet/consumers.md`,
               {
                 title: "Metamask",
                 path: `${locale}/subquery_network/testnet/metamask/connect-metamask`,
@@ -351,14 +337,6 @@ function getSidebar(locale, language) {
                 children: [
                   `${locale}/subquery_network/testnet/metamask/connect-metamask.md`,
                   `${locale}/subquery_network/testnet/metamask/request-token.md`,
-                ],
-              },
-              {
-                title: "Season 3 Challenges",
-                path: `${locale}/subquery_network/testnet/season3-challenges/season3`,
-                collapsable: true,
-                children: [
-                  `${locale}/subquery_network/testnet/season3-challenges/season3.md`,
                 ],
               },
             ],
