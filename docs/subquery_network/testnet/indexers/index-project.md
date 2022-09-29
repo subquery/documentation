@@ -33,11 +33,6 @@ Click `Get Started` and then select `Approve`. Then MetaMask will pop up, asking
 
 Fill in the details to register your Indexer and confirm the MetaMask transaction.
 
-::: warning Important
-The proxy endpoint is the default public DNS for your EC2 instance.
-For example: `http://ec2-2-22-83-280.ap-southeast-2.compute.amazonaws.com`
-:::
-
 ![Register MetMask-Confirm Transaction](/assets/img/registerconfirm_metamask_index_project.png)
 
 ### 1.4 Synchronise Your Indexer
