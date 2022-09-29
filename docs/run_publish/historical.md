@@ -34,6 +34,13 @@ If you want to disable this feature for any reason, you can set the `--disable-h
 
 On startup, the current status of this feature is printed to the console (`Historical state is enabled`).
 
+If you are running your project locally using `subql-node`, make sure you enable the pg_extension `btree_gist` 
+
+You can run the following SQL query:
+```shell
+CREATE EXTENSION IF NOT EXISTS btree_gist;
+```
+
 ## Querying Historical State
 
 There is a special (optional) property on the GraphQL entity filter called `blockHeight`. If you omit this property, SubQuery will query the entity state at the current block height.
