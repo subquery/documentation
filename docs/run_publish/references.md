@@ -118,7 +118,7 @@ Use `--targetHeight=<blockNumber>` with `reindex` to remove indexed data and rei
 Once the command is executed, the application would exit upon completion.
 :::
 
-If the set targetHeight is less than the declared starting height, it would execute the `force-clean` command.
+If the `targetHeight` is less than the declared starting height, it would execute the `force-clean` command.
 
 ```shell
 subql-node -f /example/subql-project reindex --targetHeight=30
