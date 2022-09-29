@@ -308,7 +308,7 @@ function getSidebar(locale, language) {
           `${locale}/subquery_network/terminology.md`,
           `${locale}/subquery_network/design-philosophy.md`,
           {
-            title: "Frontier Testnet",
+            title: "Kepler Network",
             path: `${locale}/subquery_network/testnet/welcome`,
             collapsable: true,
             children: [
