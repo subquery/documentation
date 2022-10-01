@@ -350,7 +350,7 @@ function getSidebar(locale, language) {
                 collapsable: true,
                 children: [
                   `${locale}/subquery_network/testnet/metamask/connect-metamask.md`,
-                  `${locale}/subquery_network/testnet/metamask/request-token.md`,
+                  /** `${locale}/subquery_network/testnet/metamask/request-token.md`,*/
                 ],
               },
               {
