@@ -233,7 +233,7 @@ export async function handleUnlockAttackNFTs(
 
 We globally provide an `api` object that implements an [Ethers.js Provider](https://docs.ethers.io/v5/api/providers/provider/). This will allow querying contract state at the current block height being indexed. The easiest way to use the `api` is with [Typechain](https://github.com/dethcrypto/TypeChain), with this you can generate typescript interfaces that are compatible with this `api` that make it much easier to query your contracts.
 
-You can then query contract state at the right block height. For example to query the token balance of a user at the current indexed block height:
+You can then query contract state at the right block height. For example to query the token balance of a user at the current indexed block height (please note the two underscores in `Erc20__factory`):
 
 ```ts
 // Create an instance of the contract, you can get the contract address from the Transaction or Log
