@@ -34,6 +34,13 @@ Nếu bạn muốn vô hiệu hóa tính năng này vì bất kỳ lý do gì, b
 
 Khi khởi động, trạng thái hiện tại của tính năng này được in lên bảng điều khiển (`Historical state is enabled`).
 
+If you are running your project locally using `subql-node`, make sure you enable the pg_extension `btree_gist`
+
+You can run the following SQL query:
+```shell
+CREATE EXTENSION IF NOT EXISTS btree_gist;
+```
+
 ## Truy vấn Trạng thái Lịch sử
 
 Có một thuộc tính đặc biệt (tùy chọn) trên bộ lọc thực thể GraphQL được gọi là `blockHeight`. Nếu bạn bỏ qua thuộc tính này, SubQuery sẽ truy vấn trạng thái thực thể ở chiều cao khối hiện tại.
