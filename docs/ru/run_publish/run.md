@@ -90,22 +90,20 @@ The following commands will assist you to complete the configuration of a SubQue
 
 ``Оболочка
 subql-node -f your-project-path
-
-````
+```
 
 </CodeGroupItem>
 <CodeGroupItem title='Terra'>
 
 ```шелл
 subql-node-terra -f your-project-path
-````
+```
 
 </CodeGroupItem>
 <CodeGroupItem title='Avalanche'>
 
 ``оболочка
 subql-node-avalanche -f your-project-path
-
 ```
 
 </CodeGroupItem>
@@ -117,7 +115,7 @@ subql-node-avalanche -f your-project-path
 
 A full chain dictionary pre-indexes the location of all events and extrinsics within the specific chain and allows your node service to skip to relevant locations when indexing rather than inspecting each block.
 
-Вы можете добавить конечную точку словаря в файл `project.yaml` (см. [Файл манифеста](../build/manifest/polkadot.md)) или указать ее во время выполнения с помощью следующей команды:
+You can add the dictionary endpoint in your `project.yaml` file (see [Manifest File](../build/manifest/polkadot.md)), or specify it at run time using the following command:
 
 <CodeGroup>
 <CodeGroupItem title='Substrate/Polkadot/Polkadot'>
@@ -138,8 +136,7 @@ subql-node-terra --network-dictionary=https://api.subquery.network/sq/subquery/t
 
 ``оболочка
 subql-node-avalanche --network-dictionary=https://api.subquery.network/sq/subquery/avalanche-dictionary
-
-````
+```
 
 </CodeGroupItem>
 </CodeGroup>
@@ -155,7 +152,7 @@ export DB_DATABASE=postgres
 export DB_HOST=localhost
 export DB_PORT=5432
 subql-node -f your-project-path
-````
+```
 
 В зависимости от конфигурации вашей базы данных Postgres (например, другой пароль базы данных), убедитесь также, что индексатор (`subql/node`) и служба запросов (`subql/query`) могут установить соединение с ней.
 
@@ -166,15 +163,14 @@ subql-node -f your-project-path
 
 ``Оболочка
 subql-node -c your-project-config.yml
-
-````
+```
 
 </CodeGroupItem>
 <CodeGroupItem title='Terra'>
 
 ```оболочка
 subql-node-terra -c your-project-config.yml
-````
+```
 
 </CodeGroupItem>
 <CodeGroupItem title='Avalanche'>
@@ -265,7 +261,7 @@ subql-node-avalanche -f your-project-path --local
     "genesisHash": "0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3",
     "blockTime": 6000
 }
-
+ 
 
 ```
 
