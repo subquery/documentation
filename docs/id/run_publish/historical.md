@@ -34,6 +34,13 @@ Jika Anda ingin menonaktifkan fitur ini karena alasan apa pun, Anda dapat menyet
 
 Saat startup, status terkini dari fitur ini dicetak ke konsol (`Status historis diaktifkan`).
 
+If you are running your project locally using `subql-node`, make sure you enable the pg_extension `btree_gist`
+
+You can run the following SQL query:
+```shell
+CREATE EXTENSION IF NOT EXISTS btree_gist;
+```
+
 ## Menanyakan Status Historis
 
 Ada properti khusus (opsional) pada filter entitas GraphQL yang disebut `blockHeight`. Jika Anda menghilangkan properti ini, SubQuery akan menanyakan status entitas pada ketinggian blok saat ini.
