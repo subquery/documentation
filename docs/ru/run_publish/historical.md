@@ -34,6 +34,13 @@ type Account @entity {
 
 При запуске текущее состояние этой функции выводится на консоль (`Историческое состояние включено`).
 
+If you are running your project locally using `subql-node`, make sure you enable the pg_extension `btree_gist`
+
+You can run the following SQL query:
+```shell
+CREATE EXTENSION IF NOT EXISTS btree_gist;
+```
+
 ## Запрос исторического состояния
 
 Существует специальное (необязательное) свойство фильтра сущностей GraphQL под названием `blockHeight`. Если вы оставите это свойство без внимания, SubQuery будет запрашивать состояние сущности на текущей отметке блока.
