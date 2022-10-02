@@ -1,29 +1,29 @@
-# Migrating from GitHub to IPFS Deployments
+# Migrieren von GitHub zu IPFS-Bereitstellungen
 
-In order to make deploying projects easier on the Managed Service, we are deprecating GitHub deployments in favour of IPFS.
+Um die Bereitstellung von Projekten auf dem Managed Service zu vereinfachen, verwerfen wir GitHub-Bereitstellungen zugunsten von IPFS.
 
-Using IPFS provides a better experience for developers in a few ways:
+Die Verwendung von IPFS bietet Entwicklern in mehrfacher Hinsicht ein besseres Erlebnis:
 
-- Unlike with GitHub deployments, projects are built locally on your machine. This means that you can have full control over the environment. Resolving any issues with version compatibility such as node.js version or other dependencies is much faster and easier.
-- You can share your projects CID and ensure that everyone will be able to run the same project with the same results.
-- It’s decentralised, so that you don’t have to rely on a centralised party like GitHub to store your code.
-- And on top of this, you can deploy the same project to the SubQuery Network!
+- Anders als bei GitHub-Bereitstellungen werden Projekte lokal auf Ihrem Computer erstellt. Dies bedeutet, dass Sie die volle Kontrolle über die Umgebung haben. Das Lösen von Problemen mit der Versionskompatibilität wie der node.js-Version oder anderen Abhängigkeiten ist viel schneller und einfacher.
+- Sie können Ihre Projekt-CID teilen und sicherstellen, dass alle dasselbe Projekt mit denselben Ergebnissen ausführen können.
+- Es ist dezentralisiert, sodass Sie sich nicht auf eine zentralisierte Partei wie GitHub verlassen müssen, um Ihren Code zu speichern.
+- Und darüber hinaus können Sie dasselbe Projekt im SubQuery-Netzwerk bereitstellen!
 
-## How to migrate your poject to IPFS
+## How to migrate your project to IPFS
 
-1. Update your project's dependencies.
-   1. Update `@subql/cli` to the latest version: you can do this by running `yarn add -D @subql/cli@latest` or `npm i -dev @subql/cli@latest`
-   2. We also recommend updating other dependencies at this time
-   3. Pay attention to this issue: [926](https://github.com/subquery/subql/discussions/926)
-2. `package.json`: Update the build command to `subql build`. It should look like [this](https://github.com/subquery/subql-starter/blob/418440f09226694a0063c939ff3332530f3047c4/package.json#L7).
-3. `src/index.ts`: If updating from `@polkadot/api` v6 (or earlier) add please update your `src/index.ts` to include [this line](https://github.com/subquery/subql-starter/blob/418440f09226694a0063c939ff3332530f3047c4/src/index.ts#L3).
+1. Aktualisieren Sie die Abhängigkeiten Ihres Projekts.
+   1. Aktualisieren Sie `@subql/cli` auf die neueste Version: Sie können dies tun, indem Sie `yarn add -D @subql/cli@latest` oder `npm i -dev @subql ausführen /cli@neueste`
+   2. Wir empfehlen außerdem, zu diesem Zeitpunkt andere Abhängigkeiten zu aktualisieren
+   3. Achten Sie auf dieses Problem: [926](https://github.com/subquery/subql/discussions/926)
+2. `package.json`: Aktualisieren Sie den Build-Befehl auf `subql build`. Es sollte [so](https://github.com/subquery/subql-starter/blob/418440f09226694a0063c939ff3332530f3047c4/package.json#L7) aussehen.
+3. `src/index.ts`: Wenn Sie von `@polkadot/api` v6 (oder früher) aktualisieren, aktualisieren Sie bitte Ihre `src/index.ts`, um sie einzuschließen [diese Zeile](https://github.com/subquery/subql-starter/blob/418440f09226694a0063c939ff3332530f3047c4/src/index.ts#L3).
 4. `project.yaml`:
 
-   1. Make sure your project is using manifest version 1.0.0. You can check this by looking at the `specVersion` field in `project.yaml`. If it is below 1.0.0, then run `subql migrate` and follow the [migration steps to upgrade](../build/manifest/polkadot.md#migrating-to-v100-badge-textupgrade-typewarning).
+   1. Stellen Sie sicher, dass Ihr Projekt die Manifestversion 1.0.0 verwendet. Sie können dies überprüfen, indem Sie sich das Feld `specVersion` in `project.yaml` ansehen. Wenn es unter 1.0.0 ist, führen Sie `subqlmigration` aus und befolgen Sie die [Migrationsschritte zum Upgrade](../build/manifest/polkadot.md#migrating-to-v100-badge-textupgrade-typewarning).
 
-   2. Check that the `datasources: mapping: file:` references your code entrypoint correctly, usually this is `./dist/index.js`
+   2. Überprüfen Sie, ob die `datasources: mapping: file:` korrekt auf Ihren Code-Einstiegspunkt verweist, normalerweise ist dies `./dist/index.js`
 
-   3. If you're using a datasource processor (any `processor:` in the `project.yaml`) we need to ensure that it gets bundled during build and publish. To do so please update to the latest version of the package that now includes a bundled version. You can do this by adding exports to your `package.json`.
+   3. Wenn Sie einen Datenquellenprozessor (jeden `Prozessor:` in der `project.yaml`) verwenden, müssen wir sicherstellen, dass er während des Erstellens und Veröffentlichens gebündelt wird. Aktualisieren Sie dazu bitte auf die neueste Version des Pakets, das jetzt eine gebündelte Version enthält. Sie können dies tun, indem Sie Ihrer `package.json` Exporte hinzufügen.
 
    ```json
    ...
@@ -36,14 +36,14 @@ Using IPFS provides a better experience for developers in a few ways:
    }
    ```
 
-   We need to update the reference to the bundle in your `project.yaml`. To do this you can update any processor file paths to `file: ./node_modules/@subql/<processor-name>/dist/bundle.js` and replace `<processor-name>` with the processor you are using. If you are using `@subql/datasource-processors` this package is now deprecated, you can find the relevant replacement from the new [datasource-processors repository](https://github.com/subquery/datasource-processors/tree/main/packages).
+   Wir müssen den Verweis auf das Paket in Ihrer `project.yaml` aktualisieren. Dazu können Sie alle Prozessordateipfade auf `file: ./node_modules/@subql/<processor-name>/dist/bundle.js` aktualisieren und `<processor-name>` durch die ersetzen Prozessor, den Sie verwenden. Wenn Sie `@subql/datasource-processors` verwenden, ist dieses Paket jetzt veraltet, Sie können den entsprechenden Ersatz im neuen [datasource-processors-Repository](https://github.com/subquery/datasource-processors/tree/main/packages) finden.
 
-   4. If your project uses js/ts based custom [Substrate Chain Types](../build/manifest/polkadot.md#custom-chains) you will need to repeat the steps above but with the reference to your chain types.
+   4. Wenn Ihr Projekt js/ts-basierte benutzerdefinierte [Substratkettentypen](../build/manifest/polkadot.md#custom-chains) verwendet, müssen Sie die obigen Schritte wiederholen, jedoch unter Bezugnahme auf Ihre Kettentypen.
 
-5. `docker-compose.yaml`: Update it to the [latest docker compose version](https://github.com/subquery/subql-starter/blob/main/Polkadot/Polkadot-starter/docker-compose.yml) and add [this directory](https://github.com/subquery/subql-starter/tree/main/Polkadot/Polkadot-starter/docker) to your repo. To test it we recommend running your project locally.
+5. `docker-compose.yaml`: Aktualisieren Sie es auf die [neueste Docker-Compose-Version](https://github.com/subquery/subql-starter/blob/main/Polkadot/Polkadot-starter/docker-compose.yml) und fügen Sie [dieses Verzeichnis](https://github.com/subquery/subql-starter/tree/main/Polkadot/Polkadot-starter/docker) zu Ihrem Repository hinzu. Zum Testen empfehlen wir, Ihr Projekt lokal auszuführen.
 
-:::warning Please now rebuild and run your project locally to test these changes before proceeding using `yarn`, `yarn codegen`, `yarn build`, and then `yarn start:docker`. :::
+:::Warnung Bitte erstellen Sie Ihr Projekt jetzt neu und führen Sie es lokal aus, um diese Änderungen zu testen, bevor Sie mit `Yarn`, `Yarn Codegen`, `Yarn Build` und dann mit `Yarn fortfahren start:docker`. :::
 
-## Test deploying your project to IPFS
+## Testen Sie die Bereitstellung Ihres Projekts in IPFS
 
-Your project should now be ready to deploy via IPFS to SubQuery Managed Service or the SubQuery network. You can follow the guide [here](./publish.md#publish-your-subquery-project-to-ipfs) to deploy to IPFS and then publish to the Managed Service.
+Ihr Projekt sollte jetzt für die Bereitstellung über IPFS für SubQuery Managed Service oder das SubQuery-Netzwerk bereit sein. Sie können der Anleitung [hier](./publish.md#publish-your-subquery-project-to-ipfs) folgen, um sie in IPFS bereitzustellen und dann im Managed Service zu veröffentlichen.

@@ -25,11 +25,11 @@ Slot pementasan sangat cocok untuk:
 
 ![Slot staging](/assets/img/staging_slot.png)
 
-Fill in the IPFS CID of the new version of your SubQuery project codebase that you want deployed (see the documetation to publish to IPFS [here](./publish.md). Ini akan menyebabkan waktu henti yang lebih lama tergantung pada waktu yang diperlukan untuk mengindeks rangkaian saat ini. Anda selalu dapat melaporkan kembali ke sini untuk perkembangan.
+Isi IPFS CID versi baru dari basis kode proyek SubQuery Anda yang ingin Anda sebarkan (lihat dokumentasi untuk mempublikasikan ke IPFS [di sini](./publish.md). Ini akan menyebabkan waktu henti yang lebih lama tergantung pada waktu yang diperlukan untuk mengindeks rangkaian saat ini. Anda selalu dapat melaporkan kembali ke sini untuk perkembangan.
 
 ### Menggunakan CLI
 
-You can also use `@subql/cli` to create a new deployment of your project to our Managed Service. Hal ini membutuhkan:
+Anda juga dapat menggunakan `@subql/cli` untuk membuat deployment baru dari proyek Anda ke layanan terkelola kami. Hal ini membutuhkan:
 
 - `@subql/cli` versi 1.1.0 atau lebih tinggi.
 - Sebuah [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) yang valid sudah siap.
@@ -80,3 +80,7 @@ Setelah penerapan Anda berhasil diselesaikan dan node kami telah mengindeks data
 ![Proyek sedang diterapkan dan disinkronkan](/assets/img/projects-deploy-sync.png)
 
 Atau, Anda dapat mengklik tiga titik di samping judul proyek Anda, dan melihatnya di SubQuery Explorer. Di sana Anda dapat menggunakan taman bermain di browser untuk memulai - [baca lebih lanjut tentang cara menggunakan Explorer kami di sini](../run_publish/query.md).
+
+![Proyek di SubQuery Explorer](/assets/img/projects-explorer.png)
+
+::::: info Catatan Pelajari lebih lanjut tentang [GraphQL Query language.](./graphql.md) :::

@@ -2,7 +2,7 @@
 
 Now that you have a clear understanding of how to build a basic SubQuery project, what are the next steps of your journey?
 
-- Now, you can easily publish your project. SubQuery provides a free managed service where you can deploy your new project. คุณสามารถปรับใช้มัน [SubQuery Projects](https://project.subquery.network) และ query โดยใช้ [Explorer](https://explorer.subquery.network). Read this complete guide on how to [publish your new project to SubQuery Projects](../../run_publish/publish.md).
+- Now, you can easily publish your project. SubQuery provides a managed service solution where you can deploy your new project. คุณสามารถปรับใช้มัน [SubQuery Projects](https://project.subquery.network) และ query โดยใช้ [Explorer](https://explorer.subquery.network). Read this complete guide on how to [publish your new project to SubQuery Projects](../../run_publish/publish.md).
 
 - To dive deeper into the developer documentation, jump to the [Build ](../../build/introduction.md) section and learn more about the three key files: **the manifest file, the GraphQL schema, and the mappings file.**
 

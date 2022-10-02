@@ -104,14 +104,4 @@ Ada 3 file penting yang perlu dimodifikasi. Ini adalah:
 2. Manifes Proyek di `project.yaml`.
 3. Fungsi-fungsi pemetaan dalam direktori `src/mappings/`.
 
-SubQuery mendukung berbagai jaringan blockchain dan memberi Anda panduan khusus untuk masing-masing jaringan.
-
-Pilih jaringan pilihan Anda dan lanjutkan ke depan untuk melakukan modifikasi yang diperlukan, dan bergerak satu inci lebih dekat untuk menyelesaikan proyek pertama Anda:
-
-- **[Polkadot/Substrate](../quickstart/quickstart_chains/polkadot.md)**
-
-- **[Avalanche](../quickstart/quickstart_chains/avalanche.md)**
-
-- **[Cosmos](../quickstart/quickstart_chains/cosmos.md)**
-
-- **[Terra](../quickstart/quickstart_chains/terra.md)**
+SubQuery supports various blockchain networks and provides a dedicated guide for each of them. Select your preferred blockchain under 2. Specific Chains and continue the quick start guide.

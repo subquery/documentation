@@ -104,14 +104,4 @@ There are 3 important files that need to be modified. These are:
 2. The Project Manifest in `project.yaml`.
 3. The Mapping functions in `src/mappings/` directory.
 
-SubQuery 支持各种区块链网络并为您提供专用指南。
-
-拿起您的首选网络并继续进行所需的修改，并将一英寸移动到更接近完成您的第一个项目：
-
-- **[Polkadot/Substrate](../quickstart/quickstart_chains/polkadot.md)**
-
-- **[Avalanche](../quickstart/quickstart_chains/avalanche.md)**
-
-- **[Cosmos](../quickstart/quickstart_chains/cosmos.md)**
-
-- **[Terra](../quickstart/quickstart_chains/terra.md)**
+SubQuery supports various blockchain networks and provides a dedicated guide for each of them. Select your preferred blockchain under 2. Specific Chains and continue the quick start guide.

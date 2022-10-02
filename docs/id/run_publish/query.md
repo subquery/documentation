@@ -1,6 +1,6 @@
 # Buat kueri Proyek Anda di SubQuery Explorer
 
-[SubQuery Explorer](https://explorer.subquery.network) is an online Managed Service that provides access to published SubQuery projects made by contributors in our community and managed by the SubQuery team. Anda dapat memublikasikan proyek SubQuery Anda sendiri ke penjelajah kami dengan mengikuti panduan kami untuk [Menerbitkan Proyek SubQuery Anda](../run_publish/publish.md).
+[SubQuery Explorer](https://explorer.subquery.network) adalah Layanan Terkelola online yang menyediakan akses ke proyek-proyek SubQuery yang diterbitkan yang dibuat oleh kontributor di komunitas kami dan dikelola oleh tim SubQuery. Anda dapat memublikasikan proyek SubQuery Anda sendiri ke penjelajah kami dengan mengikuti panduan kami untuk [Menerbitkan Proyek SubQuery Anda](../run_publish/publish.md).
 
 ![Penjelajah SubQuery](https://static.subquery.network/media/explorer/explorer-header.png)
 
@@ -10,6 +10,6 @@ Penjelajah SubQuery memudahkan memulai. Kami menghosting proyek SubQuery ini sec
 
 Anda juga akan melihat bahwa SubQuery Explorer menyediakan tempat bermain untuk menemukan data yang tersedia dengan contoh kueri - Anda dapat menguji kueri secara langsung di browser tanpa menerapkan kode. Selain itu, kami telah membuat beberapa perbaikan kecil pada dokumentasi kami untuk mendukung pengembang dengan lebih baik dalam perjalanan mereka untuk membuat kueri dan menganalisis data Polkadot dunia dengan lebih baik.
 
-On the top right of the playground, you'll find a _Docs_ button that will open a documentation draw. Dokumentasi ini dibuat secara otomatis dan membantu Anda menemukan entitas dan metode apa yang dapat Anda kueri.
+Pada bagian kanan atas taman bermain, Anda akan menemukan tombol _Docs_ yang akan membuka gambar dokumentasi. Dokumentasi ini dibuat secara otomatis dan membantu Anda menemukan entitas dan metode apa yang dapat Anda kueri.
 
 ::::: info Catatan Pelajari lebih lanjut tentang [GraphQL Query language.](./graphql.md) :::

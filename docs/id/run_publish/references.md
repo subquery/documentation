@@ -56,16 +56,16 @@ Options:
       --batch-size          Ukuran batch balok untuk diambil dalam satu putaran  [number]
       --scale-batch-size    skala ukuran batch berdasarkan penggunaan memori  [boolean] [default: false]
       --timeout             Batas waktu untuk kotak pasir pengindeks untuk menjalankan pemetaan fungsi                                   [number]
-      --debug               Tampilkan informasi debug ke keluaran konsol. will
-                            forcefully set log level to debug
+      --debug               Tampilkan informasi debug ke keluaran konsol. akan
+                            secara paksa mengatur level log ke debug
                                                       [boolean] [default: false]
-      --profiler            Show profiler information to console output
+      --profiler Tampilkan informasi profiler ke output konsol
                                                       [boolean] [default: false]
-      --subscription        Enable subscription       [boolean] [default: false]
-      --network-endpoint    Blockchain network endpoint to connect      [string]
-      --output-fmt          Print log as json or plain text
-                                           [string] [choices: "json", "colored"]
-      --log-level           Specify log level to print. Diabaikan ketika --debug
+      --subscription Aktifkan langganan [boolean] [default: false]
+      --network-endpoint Titik akhir jaringan Blockchain untuk terhubung [string]
+      --output-fmt Cetak log sebagai json atau teks biasa
+                                           [string] [pilihan: "json", "berwarna"]
+      --log-level Tentukan level log yang akan dicetak. Diabaikan ketika --debug
                             digunakan
           [string] [pilihan: "fatal", "error", "warning", "info", "debug", "trace",
                                                                        "silent"]
@@ -166,7 +166,7 @@ Proyek SubQuery biasanya dijalankan dalam kotak pasir javascript untuk keamanan 
 
 Meskipun ini meningkatkan keamanan, kami memahami bahwa ini membatasi fungsionalitas SubQuery Anda yang tersedia. Perintah `--unsafe` mengimpor semua modul javascript default yang sangat meningkatkan fungsionalitas kotak pasir dengan pengorbanan keamanan yang menurun.
 
-**Note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in [SubQuery's Managed Service](https://project.subquery.network).**
+**Perhatikan bahwa perintah `--unsafe` akan mencegah proyek Anda dijalankan di Jaringan SubQuery, dan Anda harus menghubungi bagian dukungan jika Anda ingin perintah ini dijalankan dengan proyek Anda di [SubQuery's Managed Service](https://project.subquery.network).**
 
 ### --batch-size
 
@@ -322,15 +322,15 @@ Fitur ini tersedia untuk Substrate dan Cosmos, dan akan segera diintegrasikan un
 Ini menunjukkan opsi bantuan.
 
 ```shell
-Options:
-      --help          Show help                                          [boolean]
-      --version       Show version number                                [boolean]
-  -n, --name          Project name                             [string] [required]
-      --playground    Enable graphql playground                          [boolean]
-      --subscription  Enable subscription               [boolean] [default: false]
-      --output-fmt    Print log as json or plain text
-                        [string] [choices: "json", "colored"] [default: "colored"]
-      --log-level     Specify log level to print.
+Pilihan:
+      --help Tampilkan bantuan [boolean]
+      --version Tampilkan nomor versi [boolean]
+  -n, --name Nama proyek [string] [required]]
+      --playground Aktifkan taman bermain graphql [boolean]
+      --subscription Aktifkan subscription [boolean] [default: false]
+      --output-fmt Mencetak log sebagai json atau teks biasa
+                        [string] [pilihan: "json", "colored"] [default: "colored"]
+      --log-level Tentukan level log yang akan dicetak.
             [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
                                                        "silent"] [default: "info"]
       --log-path      Path to create log file e.g ./src/name.log          [string]
