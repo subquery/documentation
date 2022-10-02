@@ -45,6 +45,13 @@ SubQuery 现在实现所有新项目的历史状态跟踪自动化。 您可以�
 
 启动时，此功能的当前状态将被打印到控制台(`历史状态已启用`)。
 
+If you are running your project locally using `subql-node`, make sure you enable the pg_extension `btree_gist`
+
+You can run the following SQL query:
+```shell
+CREATE EXTENSION IF NOT EXISTS btree_gist;
+```
+
 ## 查询历史状态
 
 GraphQL实体过滤器上有一个特殊(可选)属性，名为 `blockheight`。 如果您省略了此属性，SubQuery将查询当前区块高度的实体状态。
