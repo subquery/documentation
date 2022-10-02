@@ -34,6 +34,13 @@ Wenn Sie diese Funktion aus irgendeinem Grund deaktivieren möchten, können Sie
 
 Beim Start wird der aktuelle Status dieser Funktion auf der Konsole ausgegeben (`Historischer Status ist aktiviert`).
 
+If you are running your project locally using `subql-node`, make sure you enable the pg_extension `btree_gist`
+
+You can run the following SQL query:
+```shell
+CREATE EXTENSION IF NOT EXISTS btree_gist;
+```
+
 ## Historischen Zustand abfragen
 
 Es gibt eine spezielle (optionale) Eigenschaft für den GraphQL-Entitätsfilter namens `blockHeight`. Wenn Sie diese Eigenschaft weglassen, fragt SubQuery den Entity-Status auf der aktuellen Blockhöhe ab.
