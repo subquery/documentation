@@ -34,6 +34,13 @@ Bu özelliği herhangi bir nedenle devre dışı bırakmak isterseniz, `subql-no
 
 Başlangıçta, bu özelliğin mevcut durumu konsola yazdırılır (`Geçmiş durum etkindir).`.
 
+If you are running your project locally using `subql-node`, make sure you enable the pg_extension `btree_gist`
+
+You can run the following SQL query:
+```shell
+CREATE EXTENSION IF NOT EXISTS btree_gist;
+```
+
 ## Tarihsel Durumu Sorgulama
 
 GraphQL varlık filtresinde `blockHeight` adlı özel (isteğe bağlı) bir özellik vardır. Bu özelliği atlarsanız, SubQuery, mevcut blok yüksekliğinde varlık durumunu sorgulayacaktır.
