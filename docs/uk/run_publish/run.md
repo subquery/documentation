@@ -18,7 +18,7 @@ docker-compose pull && docker-compose up
 
 Вимога:
 
-- База даних [Postgres](https://www.postgresql.org/) (версія 12 або вище). Поки [SubQuery](run.md#start-a-local-subquery-node) індексує блокчейн, витягнуті дані зберігаються в зовнішньому екземплярі бази даних.
+- База даних [Postgres](https://www.postgresql.org/) (версія 12 або вище).  Поки [SubQuery](run.md#start-a-local-subquery-node) індексує блокчейн, витягнуті дані зберігаються в зовнішньому екземплярі бази даних.
 
 Вузол SubQuery - це реалізація, яка витягує дані блокчейна на основі Substrate/Polkadot відповідно до проекту SubQuery і зберігає їх в базі даних Postgres.
 
@@ -115,7 +115,7 @@ subql-node-avalanche -f your-project-path
 
 A full chain dictionary pre-indexes the location of all events and extrinsics within the specific chain and allows your node service to skip to relevant locations when indexing rather than inspecting each block.
 
-Ви можете додати кінцеву точку словника у свій файл `project.yaml` (див. [Файл маніфесту](../build/manifest/polkadot.md)) або вказати її під час виконання за допомогою такої команди:
+You can add the dictionary endpoint in your `project.yaml` file (see [Manifest File](../build/manifest/polkadot.md)), or specify it at run time using the following command:
 
 <CodeGroup>
 <CodeGroupItem title='Substrate/Polkadot/Polkadot'>
