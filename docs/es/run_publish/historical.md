@@ -35,6 +35,13 @@ Si desea desactivar esta característica por cualquier razón, puede establecer 
 
 Al iniciar, el estado actual de esta función se imprime en la consola (`estado histórico está habilitado`).
 
+If you are running your project locally using `subql-node`, make sure you enable the pg_extension `btree_gist`
+
+You can run the following SQL query:
+```shell
+CREATE EXTENSION IF NOT EXISTS btree_gist;
+```
+
 ## Consultar Estado Histórico
 
 Hay una propiedad especial (opcional) en el filtro de entidad GraphQL llamado `blockHeight`. Si omite esta propiedad, SubQuery preguntará el estado de la entidad en la altura del bloque actual.
