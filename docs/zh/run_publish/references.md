@@ -43,6 +43,14 @@ COMMANDS
 
 ```shell
 > subql-node --help
+Commands:
+  run force-clean  Clean the database dropping project schemas and tables. Once
+                   the command is executed, the application would exit upon
+                   completion.
+  run reindex      Reindex to specified block height. Historical must be enabled
+                   for the targeted project (--disable-historical=false). Once
+                   the command is executed, the application would exit upon
+                   completion.
 Options:
       --help                Show help                                  [boolean]
       --version             Show version number                        [boolean]
@@ -50,8 +58,6 @@ Options:
       --subquery-name       Name of the subquery project   [deprecated] [string]
   -c, --config              Specify configuration file                  [string]
       --local               Use local mode                [deprecated] [boolean]
-      --force-clean         Force clean the database, dropping project schemas
-                            and tables                                 [boolean]
       --db-schema           Db schema name of the project               [string]
       --unsafe              Allows usage of any built-in module within the
                             sandbox                    [boolean][default: false]
@@ -76,14 +82,17 @@ Options:
       --migrate             Migrate db schema (for management tables only)
                                                       [boolean] [default: false]
       --timestamp-field     Enable/disable created_at and updated_at in schema
-                                                       [boolean] [default: true]
+                                                      [boolean] [default: false]
   -d, --network-dictionary  Specify the dictionary api for this network [string]
   -m, --mmr-path            Local path of the merkle mountain range (.mmr) file
                                                                         [string]
       --proof-of-index      Enable/disable proof of index
                                                       [boolean] [default: false]
-  -p, --port                The port the service will bind to
-                                                        [number] [default: 3000] Disabled by default.     [number]
+  -p, --port                The port the service will bind to           [number]
+      --disable-historical  Disable storing historical state entities
+                                                       [boolean] [default: true]
+  -w, --workers             Number of worker threads to use for fetching and
+                            processing blocks. Disabled by default.     [number]
 ```
 
 ### --version
@@ -93,6 +102,39 @@ Options:
 ```shell
 > subql-node --version
 0.19.1
+```
+
+### reindex
+
+- In order to use this command you need to have `@subql/node` v1.10.0 or above.
+
+When using reindex command, historical must be enabled for the targeted project(`--disable-historical=false`). After starting the project, it would print out a log stating if historical is enabled or not. [Further information on Historical](./historical.md)
+
+
+Use `--targetHeight=<blockNumber>` with `reindex` to remove indexed data and reindex from specified block height. `-f`, `--subquery` flag must be passed in, to set path of the targeted project.
+
+::: info Note
+Once the command is executed, the application would exit upon completion.
+:::
+
+If the `targetHeight` is less than the declared starting height, it would execute the `force-clean` command.
+
+```shell
+subql-node -f /example/subql-project reindex --targetHeight=30
+```
+
+### force-clean
+
+- In order to use this command you need to have `@subql/node` v1.10.0 or above.
+
+This command forces the project schemas and tables to be regenerated. It is helpful to use when iteratively developing graphql schemas in order to ensure a clean state when starting a project. 请注意，此命令行也会清除所有索引数据。 This will also drop all related schema and tables of the project.
+
+`-f`, `--subquery` flag must be passed in, to set path of the targeted project.
+
+::: info Note Similar to `reindex` command, the application would exit upon completion. :::
+
+```shell
+subql-node -f /example/subql-project force-clean
 ```
 
 ### -f, --subquery
@@ -139,10 +181,6 @@ subql-node -f . --local
 ```
 
 请注意，一旦您使用此命令行，删除它并不意味着它会指向另一个数据库。 要重新指向另一个数据库，您将需要创建一个新的数据库，并将环境设置更改为这个新数据库。 换言之，“export DB_DATABASE=<new_db_here>".
-
-### --force-clean
-
-此标志强制重新生成项目模式和表，在迭代开发graphql模式时很有用，这样项目的新运行总是以干净的状态运行。 请注意，此命令行也会清除所有索引数据。
 
 ### --db-schema
 
@@ -297,13 +335,6 @@ Subquery索引服务绑定到的端口。 默认设置为 `3000`.
 
 禁用自动状态跟踪， [查看历史状态跟踪](./historical.md)。 默认情况下为 `false`。
 
-### --reindex
-
-使用 `--reindex=<blockNumber>` 从指定的方块高度删除索引数据和重新索引。
-
-:::info Note
-请注意，使用此功能的方式将很快更新。
-:::
 
 ### -w, --workers
 
