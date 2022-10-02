@@ -43,24 +43,30 @@ COMMANDS
 
 ```shell
 > subql-node --help
+Commands:
+  run force-clean  Clean the database dropping project schemas and tables. Once
+                   the command is executed, the application would exit upon
+                   completion.
+  run reindex      Reindex to specified block height. Historical must be enabled
+                   for the targeted project (--disable-historical=false). Once
+                   the command is executed, the application would exit upon
+                   completion.
 Options:
-      --help                Показати довідку                                  [boolean]
-      --version             Показати номер версії                        [boolean]
-  -f, --subquery            Локальний шлях до проекту subquery          [string]
-      --subquery-name       Назва проекту subquery   [deprecated] [string]
-  -c, --config              Вкажіть файл конфігурації                  [string]
-      --local               Використовуйте локальний режим                [deprecated] [boolean]
-      --force-clean         Примусово очистіть базу даних, видаливши схеми проекту
-                            і таблиці                                 [boolean]
-      --db-schema           Назва схеми db проекту               [string]
-      --unsafe              Дозволяє використовувати будь-який вбудований модуль в
+      --help                Show help                                  [boolean]
+      --version             Show version number                        [boolean]
+  -f, --subquery            Local path of the subquery project          [string]
+      --subquery-name       Name of the subquery project   [deprecated] [string]
+  -c, --config              Specify configuration file                  [string]
+      --local               Use local mode                [deprecated] [boolean]
+      --db-schema           Db schema name of the project               [string]
+      --unsafe              Allows usage of any built-in module within the
                             sandbox                    [boolean][default: false]
-      --batch-size          Розмір партії блоків для вибірки за один раунд  [number]
-      --scale-batch-size    масштабуйте розмір пакета в залежності від використання пам'яті
+      --batch-size          Batch size of blocks to fetch in one round  [number]
+      --scale-batch-size    scale batch size based on memory usage
                                                       [boolean] [default: false]
-      --timeout             Тайм-аут для пісочниці індексатора для виконання зіставлення
-                            функція                                   [number]
-      --debug               Відображення налагоджувальної інформації на вивід консолі. will
+      --timeout             Timeout for indexer sandbox to execute the mapping
+                            functions                                   [number]
+      --debug               Show debug information to console output. will
                             forcefully set log level to debug
                                                       [boolean] [default: false]
       --profiler            Show profiler information to console output
@@ -69,25 +75,24 @@ Options:
       --network-endpoint    Blockchain network endpoint to connect      [string]
       --output-fmt          Print log as json or plain text
                                            [string] [choices: "json", "colored"]
-      --log-level           Specify log level to print. Ігнорується, коли використовується --debug
+      --log-level           Specify log level to print. Ignored when --debug is
+                            used
           [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
                                                                        "silent"]
-      --migrate             Перенести схему бази даних (лише для таблиць керування)
+      --migrate             Migrate db schema (for management tables only)
                                                       [boolean] [default: false]
-      --timestamp-field     Увімкнути/вимкнути created_at і updated_at у схемі
+      --timestamp-field     Enable/disable created_at and updated_at in schema
                                                       [boolean] [default: false]
-  -d, --network-dictionary  Укажіть Api словника для цієї мережі [string]
-  -m, --mmr-path            Місцевий шлях гірського масиву Меркле (.mmr) file
+  -d, --network-dictionary  Specify the dictionary api for this network [string]
+  -m, --mmr-path            Local path of the merkle mountain range (.mmr) file
                                                                         [string]
-      --proof-of-index      Увімкнути/вимкнути підтвердження індексу
+      --proof-of-index      Enable/disable proof of index
                                                       [boolean] [default: false]
-  -p, --port                33 / 5 000
-Wyniki tłumaczenia
-Порт, до якого прив’яжеться служба           [number]
-      --disable-historical  Вимкнути збереження сутностей історичного стану
+  -p, --port                The port the service will bind to           [number]
+      --disable-historical  Disable storing historical state entities
                                                        [boolean] [default: true]
-      --reindex            Переіндексувати до вказаної висоти блоку           [number]
-  -w, --workers            Кількість робочих потоків для отримання та обробки блоків. Вимкнено за замовчуванням.     [number]
+  -w, --workers             Number of worker threads to use for fetching and
+                            processing blocks. Вимкнено за замовчуванням.     [number]
 ```
 
 ### --version
@@ -97,6 +102,39 @@ Wyniki tłumaczenia
 ```shell
 > subql-node --version
 0.19.1
+```
+
+### reindex
+
+- In order to use this command you need to have `@subql/node` v1.10.0 or above.
+
+When using reindex command, historical must be enabled for the targeted project(`--disable-historical=false`). After starting the project, it would print out a log stating if historical is enabled or not. [Further information on Historical](./historical.md)
+
+
+Use `--targetHeight=<blockNumber>` with `reindex` to remove indexed data and reindex from specified block height. `-f`, `--subquery` flag must be passed in, to set path of the targeted project.
+
+::: info Note
+Once the command is executed, the application would exit upon completion.
+:::
+
+If the `targetHeight` is less than the declared starting height, it would execute the `force-clean` command.
+
+```shell
+subql-node -f /example/subql-project reindex --targetHeight=30
+```
+
+### force-clean
+
+- In order to use this command you need to have `@subql/node` v1.10.0 or above.
+
+This command forces the project schemas and tables to be regenerated. It is helpful to use when iteratively developing graphql schemas in order to ensure a clean state when starting a project. Зверніть увагу, що цей прапор також призведе до видалення всіх індексованих даних. This will also drop all related schema and tables of the project.
+
+`-f`, `--subquery` flag must be passed in, to set path of the targeted project.
+
+::: info Note Similar to `reindex` command, the application would exit upon completion. :::
+
+```shell
+subql-node -f /example/subql-project force-clean
 ```
 
 ### -f, --subquery
@@ -143,10 +181,6 @@ subql-node -f . --local
 ```
 
 Зверніть увагу, що як тільки ви використовуєте цей прапор, його видалення не означатиме, що він буде вказувати на іншу базу даних. Щоб вказати на іншу базу даних, вам потрібно буде створити нову базу даних та змінити налаштування env для цієї нової бази даних. Іншими словами, "export DB_DATABASE=<new_db_here>".
-
-### --force-clean
-
-Цей прапор змушує схеми й таблиці проєкту регенеруватися, що корисно використовувати при ітеративній розробці схем graphql таким чином, щоб нові запуски проєкту завжди працювали в чистому стані. Зверніть увагу, що цей прапор також призведе до видалення всіх індексованих даних.
 
 ### --db-schema
 
@@ -301,13 +335,6 @@ subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot
 
 Вимикає автоматичне відстеження історичного стану, [див. розділ відстеження історичного стану](./historical.md). За замовчуванням для цього параметра встановлено значення `false`.
 
-### --reindex
-
-Використовуйте `--reindex=<blockNumber>`, щоб видалити проіндексовані дані та виконати повторне індексування з указаної висоти блоку.
-
-:::info Примітка
-Зверніть увагу, що незабаром спосіб використання цієї функції буде оновлено.
-:::
 
 ### -w, --workers
 
