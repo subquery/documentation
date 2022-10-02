@@ -34,6 +34,13 @@ SubQuery тепер автоматизує відстеження історич
 
 При запуску поточний стан цієї функції виводиться на консоль (`Historical state is enabled`).
 
+If you are running your project locally using `subql-node`, make sure you enable the pg_extension `btree_gist`
+
+You can run the following SQL query:
+```shell
+CREATE EXTENSION IF NOT EXISTS btree_gist;
+```
+
 ## Запит історичного стану
 
 У фільтрі сутностей GraphQL є спеціальна (необов'язкова) властивість, яка називається `blockHeight`. Якщо ви опустите цю властивість, SubQuery буде запитувати стан об'єкта на поточній висоті блоку.
