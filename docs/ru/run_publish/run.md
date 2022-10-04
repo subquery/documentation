@@ -22,6 +22,14 @@ docker-compose pull && docker-compose up
 
 Узел SubQuery - это реализация, которая извлекает данные блокчейна на основе Substrate/Polkadot в соответствии с проектом SubQuery и сохраняет их в базе данных Postgres.
 
+If you are running your project locally using `subql-node` or `subql-node-<network>`, make sure you enable the pg_extension `btree_gist`
+
+You can run the following SQL query:
+
+```shell
+CREATE EXTENSION IF NOT EXISTS btree_gist;
+```
+
 ### Установка
 
 <CodeGroup>
@@ -46,6 +54,22 @@ npm install -g @subql/node-terra
 ```shell
 # NPM
 npm install -g @subql/node-avalanche
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Cosmos'>
+
+```shell
+# NPM
+npm install -g @subql/node-cosmos
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Algorand'>
+
+```shell
+# NPM
+npm install -g @subql/node-algorand
 ```
 
 </CodeGroupItem>
@@ -77,6 +101,20 @@ subql-node-avalanche <command>
 ```
 
 </CodeGroupItem>
+<CodeGroupItem title='Cosmos'>
+
+```shell
+subql-node-cosmos <command>
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Algorand'>
+
+```shell
+subql-node-algorand <command>
+```
+
+</CodeGroupItem>
 </CodeGroup>
 
 ### Key Commands
@@ -88,60 +126,40 @@ The following commands will assist you to complete the configuration of a SubQue
 <CodeGroup>
 <CodeGroupItem title='Substrate/Polkadot'>
 
-``Оболочка
+```shell
 subql-node -f your-project-path
 ```
 
 </CodeGroupItem>
 <CodeGroupItem title='Terra'>
 
-```шелл
+```shell
 subql-node-terra -f your-project-path
 ```
 
 </CodeGroupItem>
 <CodeGroupItem title='Avalanche'>
 
-``оболочка
+```shell
 subql-node-avalanche -f your-project-path
 ```
 
 </CodeGroupItem>
-</CodeGroup>
+<CodeGroupItem title='Cosmos'>
 
-#### Использование словаря
-
-Использование словаря полной цепочки может значительно ускорить обработку проекта SubQuery во время тестирования или при первом индексировании. In some cases, we've seen indexing performance increases of up to 10x.
-
-A full chain dictionary pre-indexes the location of all events and extrinsics within the specific chain and allows your node service to skip to relevant locations when indexing rather than inspecting each block.
-
-You can add the dictionary endpoint in your `project.yaml` file (see [Manifest File](../build/manifest/polkadot.md)), or specify it at run time using the following command:
-
-<CodeGroup>
-<CodeGroupItem title='Substrate/Polkadot/Polkadot'>
-
-``Оболочка
-subql-node --network-dictionary=https://api.subquery.network/sq/subquery/dictionary-polkadot
+```shell
+subql-node-cosmos -f your-project-path
 ```
 
 </CodeGroupItem>
-<CodeGroupItem title='Terra'>
+<CodeGroupItem title='Algorand'>
 
-```оболочка
-subql-node-terra --network-dictionary=https://api.subquery.network/sq/subquery/terra-columbus-5-dictionary
-```
-
-</CodeGroupItem>
-<CodeGroupItem title='Avalanche'>
-
-``оболочка
-subql-node-avalanche --network-dictionary=https://api.subquery.network/sq/subquery/avalanche-dictionary
+```shell
+subql-node-algorand -f your-project-path
 ```
 
 </CodeGroupItem>
 </CodeGroup>
-
-::: info Примечание Вы можете прочитать больше о [как работает словарь SubQuery ](../academy/tutorials_examples/dictionary.md). :::
 
 #### Connect to database
 
@@ -161,37 +179,44 @@ subql-node -f your-project-path
 <CodeGroup>
 <CodeGroupItem title='Substrate/Polkadot'>
 
-``Оболочка
+```shell
 subql-node -c your-project-config.yml
 ```
 
 </CodeGroupItem>
 <CodeGroupItem title='Terra'>
 
-```оболочка
+```shell
 subql-node-terra -c your-project-config.yml
 ```
 
 </CodeGroupItem>
 <CodeGroupItem title='Avalanche'>
 
-```оболочка
+```shell
 subql-node-avalanche -c your-project-config.yml
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Cosmos'>
+
+```shell
+subql-node-cosmos -c your-project-config.yml
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Algorand'>
+
+```shell
+subql-node-algorand -c your-project-config.yml
 ```
 
 </CodeGroupItem>
 </CodeGroup>
 
-Это укажет узлу запроса на файл конфигурации, который может быть в формате YAML или JSON. Посмотрите пример ниже.
+This will point the query node to a manifest file which can be in YAML or JSON format.
 
-```yaml
-subquery: ../../../../subql-example/extrinsics
-subqueryName: extrinsics
-batchSize:100
-localMode:true
-```
-
-#### Изменение размера пакета выборки блоков
+#### Change the block fetching batch size
 
 ```shell
 subql-node -f your-project-path --batch-size 200
@@ -227,9 +252,23 @@ subql-node-avalanche -f your-project-path --local
 ```
 
 </CodeGroupItem>
+<CodeGroupItem title='Cosmos'>
+
+```shell
+subql-node-cosmos -f your-project-path --local
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Algorand'>
+
+```shell
+subql-node-algorand -f your-project-path --local
+```
+
+</CodeGroupItem>
 </CodeGroup>
 
-В целях отладки пользователи могут запустить узел в локальном режиме. При переключении на локальную модель будут созданы таблицы Postgres в схеме по умолчанию `public`.
+For debugging purposes, users can run the node in local mode. При переключении на локальную модель будут созданы таблицы Postgres в схеме по умолчанию `public`.
 
 Если локальный режим не используется, будет создана новая схема Postgres с исходным `subquery_` и соответствующими таблицами проекта.
 
