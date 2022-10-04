@@ -22,6 +22,14 @@ Persyaratan:
 
 Node SubQuery adalah implementasi yang mengekstrak data blockchain berbasis substrat per proyek SubQuery dan menyimpannya ke dalam database Postgres.
 
+If you are running your project locally using `subql-node` or `subql-node-<network>`, make sure you enable the pg_extension `btree_gist`
+
+You can run the following SQL query:
+
+```shell
+CREATE EXTENSION IF NOT EXISTS btree_gist;
+```
+
 ### Instalasi
 
 <CodeGroup>
@@ -35,7 +43,7 @@ npm install -g @subql/node
 </CodeGroupItem>
 <CodeGroupItem title='Terra'>
 
-````shell
+```shell
 # NPM
 npm install -g @subql/node-terra
 ```
@@ -49,9 +57,25 @@ npm install -g @subql/node-avalanche
 ```
 
 </CodeGroupItem>
+<CodeGroupItem title='Cosmos'>
+
+```shell
+# NPM
+npm install -g @subql/node-cosmos
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Algorand'>
+
+```shell
+# NPM
+npm install -g @subql/node-algorand
+```
+
+</CodeGroupItem>
 </CodeGroup>
 
-::::: bahaya Harap dicatat bahwa kami **JANGAN** mendorong penggunaan `yarn global` karena manajemen ketergantungannya yang buruk yang dapat menyebabkan kesalahan. :::
+::: danger Please note that we **DO NOT** encourage the use of `yarn global` due to its poor dependency management which may lead to an errors down the line. :::
 
 Setelah terinstal, Anda dapat memulai node dengan perintah berikut:
 
@@ -77,19 +101,40 @@ subql-node-avalanche <command>
 ```
 
 </CodeGroupItem>
+<CodeGroupItem title='Cosmos'>
+
+```shell
+subql-node-cosmos <command>
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Algorand'>
+
+```shell
+subql-node-algorand <command>
+```
+
+</CodeGroupItem>
 </CodeGroup>
 
-### Perintah Kunci
+### Key Commands
 
-Perintah berikut akan membantu Anda untuk menyelesaikan konfigurasi node SubQuery dan memulai pengindeksan. Untuk mengetahui lebih lanjut, Anda selalu dapat menjalankan `--help`.
+The following commands will assist you to complete the configuration of a SubQuery node and begin indexing. Untuk mengetahui lebih lanjut, Anda selalu dapat menjalankan `--help`.
 
 #### Arahkan ke jalur proyek lokal
 
 <CodeGroup>
-<CodeGroupItem title='Substrate'>
+<CodeGroupItem title='Substrate/Polkadot'>
 
 ```shell
 subql-node -f your-project-path
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Terra'>
+
+```shell
+subql-node-terra -f your-project-path
 ```
 
 </CodeGroupItem>
@@ -100,43 +145,23 @@ subql-node-avalanche -f your-project-path
 ```
 
 </CodeGroupItem>
-</CodeGroup>
-
-#### Use a Dictionary
-
-Menggunakan kamus rantai lengkap dapat secara dramatis mempercepat pemrosesan proyek SubQuery selama pengujian atau selama indeks pertama Anda. Dalam beberapa kasus, kami telah melihat peningkatan kinerja pengindeksan hingga 10x.
-
-Kamus rantai penuh mengindeks lokasi semua peristiwa dan ekstrinsik dalam rantai tertentu dan memungkinkan layanan node Anda untuk melompat ke lokasi yang relevan saat mengindeks daripada memeriksa setiap blok.
-
-Anda dapat menambahkan titik akhir kamus dalam file `project.yaml` Anda (lihat [Manifest File](../build/manifest/polkadot.md)), atau tentukan pada saat run time menggunakan perintah berikut:
-
-<CodeGroup>
-<CodeGroupItem title='Substrate/Polkadot/Polkadot'>
+<CodeGroupItem title='Cosmos'>
 
 ```shell
-subql-node --jaringan-kamus=https://api.subquery.network/sq/subquery/dictionary-polkadot
+subql-node-cosmos -f your-project-path
 ```
 
 </CodeGroupItem>
-<CodeGroupItem title='Terra'>
+<CodeGroupItem title='Algorand'>
 
 ```shell
-subql-node-terra --kamus jaringan=https://api.subquery.network/sq/subquery/terra-columbus-5-dictionary
-```
-
-</CodeGroupItem>
-<CodeGroupItem title='Avalanche'>
-
-```shell
-subql-node-avalanche --kamus jaringan=https://api.subquery.network/sq/subquery/avalanche-dictionary
+subql-node-algorand -f your-project-path
 ```
 
 </CodeGroupItem>
 </CodeGroup>
 
-::::: info Catatan Anda dapat membaca lebih lanjut tentang [bagaimana Kamus SubQuery bekerja](../academy/tutorials_examples/dictionary.md). :::
-
-#### Hubungkan ke basis data
+#### Connect to database
 
 ```shell
 export DB_USER=postgres
@@ -152,10 +177,17 @@ Bergantung pada konfigurasi database Postgres Anda (misalnya kata sandi database
 #### Tentukan file konfigurasi
 
 <CodeGroup>
-<CodeGroupItem title='Substrate'>
+<CodeGroupItem title='Substrate/Polkadot'>
 
-``shell
+```shell
 subql-node -c your-project-config.yml
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Terra'>
+
+```shell
+subql-node-terra -c your-project-config.yml
 ```
 
 </CodeGroupItem>
@@ -166,18 +198,25 @@ subql-node-avalanche -c your-project-config.yml
 ```
 
 </CodeGroupItem>
-</CodeGroup>
+<CodeGroupItem title='Cosmos'>
 
-This will redirect the query node to the configuration file which can be in YAML or JSON format. Check out the example below.
-
-```yaml
-subquery: ../../../../subql-example/extrinsics
-subqueryName: extrinsics
-batchSize:100
-localMode:true
+```shell
+subql-node-cosmos -c your-project-config.yml
 ```
 
-#### Bagaimana cara mengubah ukuran blockchain fetching batch
+</CodeGroupItem>
+<CodeGroupItem title='Algorand'>
+
+```shell
+subql-node-algorand -c your-project-config.yml
+```
+
+</CodeGroupItem>
+</CodeGroup>
+
+This will point the query node to a manifest file which can be in YAML or JSON format.
+
+#### Change the block fetching batch size
 
 ```shell
 subql-node -f your-project-path --batch-size 200
@@ -213,9 +252,23 @@ subql-node-avalanche -f your-project-path --local
 ```
 
 </CodeGroupItem>
+<CodeGroupItem title='Cosmos'>
+
+```shell
+subql-node-cosmos -f your-project-path --local
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Algorand'>
+
+```shell
+subql-node-algorand -f your-project-path --local
+```
+
+</CodeGroupItem>
 </CodeGroup>
 
-Untuk tujuan debugging, pengguna dapat menjalankan node dalam mode lokal. Beralih ke model lokal akan membuat tabel Postgres dalam skema default `publik`.
+For debugging purposes, users can run the node in local mode. Beralih ke model lokal akan membuat tabel Postgres dalam skema default `publik`.
 
 Jika mode lokal tidak digunakan, skema Postgres baru dengan `subquery_` awal dan tabel proyek yang sesuai akan dibuat.
 
