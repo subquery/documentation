@@ -106,22 +106,25 @@ Options:
 
 ### reindex
 
-- In order to use this command you need to have `@subql/node` v1.10.0 or above.
+:::warning In order to use this command, you require `@subql/node:v1.10.0`/`@subql/node-<network>:v1.10.0` or above. :::
 
-When using reindex command, historical must be enabled for the targeted project(`--disable-historical=false`). After starting the project, it would print out a log stating if historical is enabled or not. [Further information on Historical](./historical.md)
+When using reindex command, historical must be enabled for the targeted project (`--disable-historical=false`). After starting the project, it would print out a log stating if historical is enabled or not.
 
+[Further information on Automated Historical State Tracking](./historical.md)
 
-Use `--targetHeight=<blockNumber>` with `reindex` to remove indexed data and reindex from specified block height. `-f`, `--subquery` flag must be passed in, to set path of the targeted project.
+Use `--targetHeight=<blockNumber>` with `reindex` to remove indexed data and reindex from specified block height.
 
-::: info Note
-Once the command is executed, the application would exit upon completion.
-:::
+`-f` or `--subquery` flag must be passed in, to set path of the targeted project.
 
-If the `targetHeight` is less than the declared starting height, it would execute the `force-clean` command.
+If the `targetHeight` is less than the declared starting height, it will execute the `--force-clean` command.
 
 ```shell
 subql-node -f /example/subql-project reindex --targetHeight=30
 ```
+
+::: info Note
+Once the command is executed, the application would exit upon completion.
+:::
 
 ### force-clean
 
@@ -334,7 +337,6 @@ Subquery索引服务绑定到的端口。 默认设置为 `3000`.
 ### --disable-history
 
 禁用自动状态跟踪， [查看历史状态跟踪](./historical.md)。 默认情况下为 `false`。
-
 
 ### -w, --workers
 
