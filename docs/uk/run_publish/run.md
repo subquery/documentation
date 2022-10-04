@@ -22,6 +22,14 @@ docker-compose pull && docker-compose up
 
 Вузол SubQuery - це реалізація, яка витягує дані блокчейна на основі Substrate/Polkadot відповідно до проекту SubQuery і зберігає їх в базі даних Postgres.
 
+If you are running your project locally using `subql-node` or `subql-node-<network>`, make sure you enable the pg_extension `btree_gist`
+
+You can run the following SQL query:
+
+```shell
+CREATE EXTENSION IF NOT EXISTS btree_gist;
+```
+
 ### Установка
 
 <CodeGroup>
@@ -46,6 +54,22 @@ npm install -g @subql/node-terra
 ```shell
 # NPM
 npm install -g @subql/node-avalanche
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Cosmos'>
+
+```shell
+# NPM
+npm install -g @subql/node-cosmos
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Algorand'>
+
+```shell
+# NPM
+npm install -g @subql/node-algorand
 ```
 
 </CodeGroupItem>
@@ -74,6 +98,20 @@ subql-node-terra <command>
 
 ```shell
 subql-node-avalanche <command>
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Cosmos'>
+
+```shell
+subql-node-cosmos <command>
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Algorand'>
+
+```shell
+subql-node-algorand <command>
 ```
 
 </CodeGroupItem>
@@ -107,41 +145,21 @@ subql-node-avalanche -f your-project-path
 ```
 
 </CodeGroupItem>
-</CodeGroup>
-
-#### Використовуйте словник
-
-Використання повного ланцюжкового словника може значно пришвидшити обробку проекту SubQuery під час тестування або під час першого індексування. In some cases, we've seen indexing performance increases of up to 10x.
-
-A full chain dictionary pre-indexes the location of all events and extrinsics within the specific chain and allows your node service to skip to relevant locations when indexing rather than inspecting each block.
-
-You can add the dictionary endpoint in your `project.yaml` file (see [Manifest File](../build/manifest/polkadot.md)), or specify it at run time using the following command:
-
-<CodeGroup>
-<CodeGroupItem title='Substrate/Polkadot/Polkadot'>
+<CodeGroupItem title='Cosmos'>
 
 ```shell
-subql-node --network-dictionary=https://api.subquery.network/sq/subquery/dictionary-polkadot
+subql-node-cosmos -f your-project-path
 ```
 
 </CodeGroupItem>
-<CodeGroupItem title='Terra'>
+<CodeGroupItem title='Algorand'>
 
 ```shell
-subql-node-terra --network-dictionary=https://api.subquery.network/sq/subquery/terra-columbus-5-dictionary
-```
-
-</CodeGroupItem>
-<CodeGroupItem title='Avalanche'>
-
-```shell
-subql-node-avalanche --network-dictionary=https://api.subquery.network/sq/subquery/avalanche-dictionary
+subql-node-algorand -f your-project-path
 ```
 
 </CodeGroupItem>
 </CodeGroup>
-
-:::інформація Примітка Ви можете прочитати більше про [як працює словник підзапитів](../academy/tutorials_examples/dictionary.md). :::
 
 #### Connect to database
 
@@ -180,18 +198,25 @@ subql-node-avalanche -c your-project-config.yml
 ```
 
 </CodeGroupItem>
-</CodeGroup>
+<CodeGroupItem title='Cosmos'>
 
-Це вкаже вузол запиту на файл конфігурації, який може бути у форматі YAML або JSON. Перегляньте приклад нижче.
-
-```yaml
-subquery: ../../../../subql-example/extrinsics
-subqueryName: extrinsics
-batchSize:100
-localMode:true
+```shell
+subql-node-cosmos -c your-project-config.yml
 ```
 
-#### Зміна розміру пакета вибірки блоків
+</CodeGroupItem>
+<CodeGroupItem title='Algorand'>
+
+```shell
+subql-node-algorand -c your-project-config.yml
+```
+
+</CodeGroupItem>
+</CodeGroup>
+
+This will point the query node to a manifest file which can be in YAML or JSON format.
+
+#### Change the block fetching batch size
 
 ```shell
 subql-node -f your-project-path --batch-size 200
@@ -227,9 +252,23 @@ subql-node-avalanche -f your-project-path --local
 ```
 
 </CodeGroupItem>
+<CodeGroupItem title='Cosmos'>
+
+```shell
+subql-node-cosmos -f your-project-path --local
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Algorand'>
+
+```shell
+subql-node-algorand -f your-project-path --local
+```
+
+</CodeGroupItem>
 </CodeGroup>
 
-З метою налагодження користувачі можуть запускати вузол у локальному режимі. Перемикання на локальну модель створить таблиці Postgres у схемі за замовчуванням `public`.
+For debugging purposes, users can run the node in local mode. Перемикання на локальну модель створить таблиці Postgres у схемі за замовчуванням `public`.
 
 Якщо локальний режим не використовується, буде створена нова схема Postgres з початковим `subquery_` і відповідними таблицями проекту.
 
