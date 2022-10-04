@@ -22,6 +22,14 @@ docker-compose pull && docker-compose up
 
 SubQuery 节点需要一个加载的过程，它能够从 SubQuery 项目中提取基于子区块链的数据，并将其保存到 Postgres 数据库。
 
+If you are running your project locally using `subql-node` or `subql-node-<network>`, make sure you enable the pg_extension `btree_gist`
+
+You can run the following SQL query:
+
+```shell
+CREATE EXTENSION IF NOT EXISTS btree_gist;
+```
+
 ### 安装
 
 <CodeGroup>
@@ -46,6 +54,22 @@ npm install -g @subql/node-terra
 ```shell
 # NPM
 npm install -g @subql/node-avalanche
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Cosmos'>
+
+```shell
+# NPM
+npm install -g @subql/node-cosmos
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Algorand'>
+
+```shell
+# NPM
+npm install -g @subql/node-algorand
 ```
 
 </CodeGroupItem>
@@ -77,6 +101,20 @@ subql-node-avalanche <command>
 ```
 
 </CodeGroupItem>
+<CodeGroupItem title='Cosmos'>
+
+```shell
+subql-node-cosmos <command>
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Algorand'>
+
+```shell
+subql-node-algorand <command>
+```
+
+</CodeGroupItem>
 </CodeGroup>
 
 ### Key Commands
@@ -89,71 +127,41 @@ The following commands will assist you to complete the configuration of a SubQue
 <CodeGroupItem title='Substrate/Polkadot'>
 
 ```shell
-subql-node -f your-project-path --local
-```
-
-</CodeGroupItem>
-<CodeGroupItem title='Terra'>
-
-```shell
-subql-node-terra -f your-project-path --local
-```
-
-</CodeGroupItem>
-<CodeGroupItem title='Avalanche'>
-
-```shell
-subql-node-avalanche -f your-project-path --local
-```
-
-</CodeGroupItem>
-</CodeGroup>
-
-出于调试的目的，用户可以以本地方式运行该节点。 在某些情况下，我们看到索引性能增加最多10x。
-
-完整的链词典预索引特定链中所有事件和外观的位置，并允许您的节点服务在索引时跳到相关位置，而不是检查每个方块。
-
-您可以在您的 `项目中添加字典终点。 aml` 文件(见 [清单文件](../create/manifest.md))，或在运行时使用以下命令指定它：
-
-<CodeGroup>
-<CodeGroupItem title='Substrate/Polkadot/Polkadot'>
-
-```shell
-subql-node --network-dictionary=https://api.subquery.network/sq/subquery/dictionary-polkadot
-```
-
-</CodeGroupItem>
-<CodeGroupItem title='Terra'>
-
-```shell
-subql-node-terra --network-dictionary=https://api.subquery.network/sq/subquery/terra-columbus-5-dictionary
-```
-
-</CodeGroupItem>
-<CodeGroupItem title='Avalanche'>
-
-```shell
-subql-node-avalanche --network-dictionary=https://api.subquery.network/sq/subquery/avalanche-dictionary
-```
-
-</CodeGroupItem>
-</CodeGroup>
-
-[阅读更多关于SubQuery Dictionary如何工作的信息](../academy/tutorials_examples/dictionary.md).
-
-#### 连接到数据库
-
-```shell
-export DB_USER=postgres
-export DB_PASS=postgres
-export DB_DATABASE=postgres
-export DB_HOST=localhost
-export DB_PORT=5432
 subql-node -f your-project-path
 ```
- :::</p>
 
-#### 连接到数据库
+</CodeGroupItem>
+<CodeGroupItem title='Terra'>
+
+```shell
+subql-node-terra -f your-project-path
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Avalanche'>
+
+```shell
+subql-node-avalanche -f your-project-path
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Cosmos'>
+
+```shell
+subql-node-cosmos -f your-project-path
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Algorand'>
+
+```shell
+subql-node-algorand -f your-project-path
+```
+
+</CodeGroupItem>
+</CodeGroup>
+
+#### Connect to database
 
 ```shell
 export DB_USER=postgres
@@ -172,36 +180,43 @@ subql-node -f your-project-path
 <CodeGroupItem title='Substrate/Polkadot'>
 
 ```shell
-subql-node -f your-project-path --local
+subql-node -c your-project-config.yml
 ```
 
 </CodeGroupItem>
 <CodeGroupItem title='Terra'>
 
 ```shell
-subql-node-terra -f your-project-path --local
+subql-node-terra -c your-project-config.yml
 ```
 
 </CodeGroupItem>
 <CodeGroupItem title='Avalanche'>
 
 ```shell
-subql-node-avalanche -f your-project-path --local
+subql-node-avalanche -c your-project-config.yml
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Cosmos'>
+
+```shell
+subql-node-cosmos -c your-project-config.yml
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Algorand'>
+
+```shell
+subql-node-algorand -c your-project-config.yml
 ```
 
 </CodeGroupItem>
 </CodeGroup>
 
-出于调试的目的，用户可以以本地方式运行该节点。 查看下面的示例.
+This will point the query node to a manifest file which can be in YAML or JSON format.
 
-```yaml
-subquery: ../../../../subql-example/extrinsics
-subqueryName: extrinsics
-batchSize:100
-localMode:true
-```
-
-#### 更改区块获取批量大小
+#### Change the block fetching batch size
 
 ```shell
 subql-node -f your-project-path --batch-size 200
@@ -237,9 +252,23 @@ subql-node-avalanche -f your-project-path --local
 ```
 
 </CodeGroupItem>
+<CodeGroupItem title='Cosmos'>
+
+```shell
+subql-node-cosmos -f your-project-path --local
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Algorand'>
+
+```shell
+subql-node-algorand -f your-project-path --local
+```
+
+</CodeGroupItem>
 </CodeGroup>
 
-出于调试的目的，用户可以以本地方式运行该节点。 切换到本地模型将在默认架构 `public` 中创建 Postgres 表。
+For debugging purposes, users can run the node in local mode. 切换到本地模型将在默认架构 `public` 中创建 Postgres 表。
 
 如果不使用本地模式，将创建具有初始 `subquery_` 和相应项目表的新 Postgres 模式。
 
