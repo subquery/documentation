@@ -45,9 +45,10 @@ SubQuery 现在实现所有新项目的历史状态跟踪自动化。 您可以�
 
 启动时，此功能的当前状态将被打印到控制台(`历史状态已启用`)。
 
-If you are running your project locally using `subql-node`, make sure you enable the pg_extension `btree_gist`
+If you are running your project locally using `subql-node` or `subql-node-<network>`, make sure you enable the pg_extension `btree_gist`
 
 You can run the following SQL query:
+
 ```shell
 CREATE EXTENSION IF NOT EXISTS btree_gist;
 ```
@@ -83,3 +84,13 @@ query {
   }
 }
 ```
+
+## Reindexing with Historical Data
+
+When you enable Automated Historical State Tracking, you can benefit from on demand partial reindexing from certain block heights. 示例
+
+- You can subscribe to new events, transactions, or assets in your manifest file, then backtrack to when they were deployed and start reindexing from that block
+- You could update your mapping files to add new logic to deal with a runtime change, and then backtrack to the block where the runtime change was deployed.
+- _Coming Soon:_ You can update your schema and reindex from a certain block height to reflect those changes
+
+You should see the new [-- reindex command in Command Line Flags](./references.md#reindex) to learn more about how to use this new feature.
