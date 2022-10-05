@@ -3,7 +3,7 @@
   <section class="welcomeWords">
     <div class="main">
       <div>
-        <h2 class="welcomeTitle">Build Faster dApps with<span>SubQuery Academy</span></h2>
+        <h2 class="welcomeTitle">Xây dựng dApps nhanh hơn với <span>Học viện SubQuery</span></h2>
         <p>Explore and implement your own efficient custom open-source API between your decentralised data and tools to query data faster and save you time.</p></br>
         <p><strong>SubQuery now supports Polkadot, Avalanche, Cosmos, and Algorand.</strong></p>
       </div>
@@ -106,7 +106,7 @@
         <h5>Integrate with Your Custom Substrate Chain</h5>
         <p>Whether you're building a new parachain or an entirely new blockchain on Substrate — SubQuery can help you index and troubleshoot your chain's data. SubQuery helps you easily integrate with a custom Substrate-based chain.</p>
         <span class="more">
-          <router-link :to="{path: '/build/manifest/polkadot.html#custom-substrate-chains'}">TÌM HIỂU CÁCH TÍCH HỢP VỚI BLOCKCHAIN CỦA BẠN</router-link>
+          <router-link :to="{path: '/build/manifest/polkadot.html#custom-substrate-chains'}">LEARN HOW TO INTEGRATE WITH YOUR CHAIN</router-link>
         </span>
     </div>
     <div class="lastIntroduce lastIntroduce_2">
