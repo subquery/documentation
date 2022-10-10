@@ -220,17 +220,18 @@ filter:
   modulo: 50 # Index every 50 blocks: 0, 50, 100, 150....
 ```
 
-The `timestamp` filters accepts a valid cron expression and runs a schedule against the timestamps of the blocks being indexed. The starting reference for the schedule is the timestamp of the first block to be indexed. The block handler will run on the first block that is after the next iteration of the cron expression. 
-Example usage:
+The `timestamp` filter is very useful when indexing block data with specific time intervals between them. It can be used in cases where you are aggregating data on a hourly/daily basis. It can be also be used to set a delay between calls to blockHandler functions to reduce the computational costs.
+
+The `timestamp` filters accepts a valid cron expression and runs on schedule against the timestamps of the blocks being indexed. The starting reference for the schedule is the timestamp of the `startBlock` that is indexed in the project manifest (`project.yaml`). The block handler will run on the first block that is after the next iteration of the cron expression.
+
 ```yml
 filter:
+   # This cron expression will index blocks with at least 5 minutes interval 
+   # between their timestamps starting at startBlock given under the datasource. 
   timestamp: "*/5 * * * *" 
-  #this cron expression will index blocks with atleast 5 minutes interval between their timestamps starting at startBlock given under the datasource. 
 ```
 
-We use the [cron-converter](https://github.com/roccivic/cron-converter) package to generate unix timestamps out of cron expression. So, make sure the format of the cron expression given in the `timestamp` filter is compatible with that of the package.
-
-The `timestamp` filter is useful to index block data with specific time intervals between them. It can be used in cases where indexing of data with hourly, monthly or yearly checkpoints is required. It can be also be used to set a delay between calls to blockHandler function to reduce the computational costs.
+We use the [cron-converter](https://github.com/roccivic/cron-converter) package to generate unix timestamps for iterations out of the given cron expression. So, make sure the format of the cron expression given in the `timestamp` filter is compatible with that accepted the package.
 
 ## Custom Chains
 
