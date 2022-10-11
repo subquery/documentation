@@ -235,6 +235,19 @@ filter:
 We use the [cron-converter](https://github.com/roccivic/cron-converter) package to generate unix timestamps for iterations out of the given cron expression. So, make sure the format of the cron expression given in the `timestamp` filter is compatible with that accepted the package.
 :::
 
+Some common examples
+
+```yml
+  # Every minute
+  timestamp: "* * * * *"
+  # Every hour on the hour
+  timestamp: "0 * * * *"
+  # Every day at 1am UTC
+  timestamp: "0 1 * * *"
+  # Every Sunday (weekly) at 0:00 UTC
+  timestamp: "0 0 * * 0"
+```
+
 ## Custom Chains
 
 You can index data from custom Substrate chains by also including chain types in the manifest.
