@@ -220,7 +220,7 @@ filter:
   modulo: 50 # Index every 50 blocks: 0, 50, 100, 150....
 ```
 
-The `timestamp` filter is very useful when indexing block data with specific time intervals between them. It can be used in cases where you are aggregating data on a hourly/daily basis. It can be also be used to set a delay between calls to blockHandler functions to reduce the computational costs.
+The `timestamp` filter is very useful when indexing block data with specific time intervals between them. It can be used in cases where you are aggregating data on a hourly/daily basis. It can be also used to set a delay between calls to `blockHandler` functions to reduce the computational costs.
 
 The `timestamp` filters accepts a valid cron expression and runs on schedule against the timestamps of the blocks being indexed. The starting reference for the schedule is the timestamp of the `startBlock` that is indexed in the project manifest (`project.yaml`). The block handler will run on the first block that is after the next iteration of the cron expression.
 
