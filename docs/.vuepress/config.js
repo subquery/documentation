@@ -231,7 +231,7 @@ function getSidebar(locale, language) {
               `${locale}/quickstart/quickstart_chains/algorand.md`,
               `${locale}/quickstart/quickstart_chains/avalanche.md`,
               {
-                title: "Cosmos Qucik Start",
+                title: "Cosmos Quick Start",
                 path: `${locale}/quickstart/quickstart_chains/cosmos.md`,
                 collapsable: true,
                 children: [
