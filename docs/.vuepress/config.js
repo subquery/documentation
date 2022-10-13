@@ -230,7 +230,14 @@ function getSidebar(locale, language) {
             children: [
               `${locale}/quickstart/quickstart_chains/algorand.md`,
               `${locale}/quickstart/quickstart_chains/avalanche.md`,
-              `${locale}/quickstart/quickstart_chains/cosmos.md`,
+              {
+                title: "Cosmos Qucik Start",
+                path: `${locale}/quickstart/quickstart_chains/cosmos.md`,
+                collapsable: true,
+                children: [
+                  `${locale}/quickstart/quickstart_chains/cosmos-cronos.md`,
+                ]
+              }
               `${locale}/quickstart/quickstart_chains/polkadot.md`,
               `${locale}/quickstart/quickstart_chains/terra.md`,
             ],
