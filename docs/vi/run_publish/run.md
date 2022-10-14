@@ -22,9 +22,9 @@ Requirements:
 
 A SubQuery node is an implementation that extracts Substrate/Polkadot-based blockchain data per the SubQuery project and saves it into a Postgres database.
 
-If you are running your project locally using `subql-node` or `subql-node-<network>`, make sure you enable the pg_extension `btree_gist`
+Nếu bạn đang chạy cục bộ dự án của mình bằng cách sử dụng `subql-node` hoặc `subql-node-<network>`, hãy đảm bảo bạn bật pg_extension `btree_gist`
 
-You can run the following SQL query:
+Bạn có thể chạy SQL query sau:
 
 ```shell
 CREATE EXTENSION IF NOT EXISTS btree_gist;
