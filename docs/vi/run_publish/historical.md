@@ -34,9 +34,9 @@ Nếu bạn muốn vô hiệu hóa tính năng này vì bất kỳ lý do gì, b
 
 Khi khởi động, trạng thái hiện tại của tính năng này được in lên bảng điều khiển (`Historical state is enabled`).
 
-If you are running your project locally using `subql-node` or `subql-node-<network>`, make sure you enable the pg_extension `btree_gist`
+Nếu bạn đang chạy cục bộ dự án của mình bằng cách sử dụng `subql-node` hoặc `subql-node-<network>`, hãy đảm bảo bạn bật pg_extension `btree_gist`
 
-You can run the following SQL query:
+Bạn có thể chạy SQL query sau:
 
 ```shell
 CREATE EXTENSION IF NOT EXISTS btree_gist;
@@ -74,9 +74,9 @@ query {
 }
 ```
 
-## Reindexing with Historical Data
+## Lập chỉ mục lại với Historical Data
 
-When you enable Automated Historical State Tracking, you can benefit from on demand partial reindexing from certain block heights. For example:
+Khi bật Theo dõi trạng thái lịch sử tự động, bạn có thể hưởng lợi từ việc lập chỉ mục lại một phần theo yêu cầu từ một số độ cao nhất định của khối. Ví dụ:
 
 - You can subscribe to new events, transactions, or assets in your manifest file, then backtrack to when they were deployed and start reindexing from that block
 - You could update your mapping files to add new logic to deal with a runtime change, and then backtrack to the block where the runtime change was deployed.
