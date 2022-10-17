@@ -1,4 +1,4 @@
-# Cronos Quick Start
+# Cosmos Quick Start (Cronos)
 
 ## Goals
 
@@ -180,3 +180,4 @@ The final code of this project can be found [here](https://github.com/jamesbayly
 Congratulations! You have now a locally running SubQuery project that accepts GraphQL API requests for transferring data from bLuna.
 
 Click [here](../../quickstart/whats-next.md) to learn what should be your **next step** in your SubQuery journey.
+ 
