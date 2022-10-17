@@ -2,7 +2,7 @@
 
 ## Goals
 
-*The goal of this quick start guide is to adapt the standard starter project in the Juno Network and then begin indexing all votes on the [Terra Developer Fund](https://daodao.zone/multisig/juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2) (which also contributed to SubQuery) from Cosmos.* TO BE UPDATED
+The goal of this quick start guide is to adapt the standard starter project in the Cronos Network and then begin indexing all transfers of [Cro Crow Token](https://www.crocrow.com/).
 
 ::: warning Important
 Before we begin, make sure that you have initialised your project using the provided steps in the **[Start Here](../quickstart.md)** section. You must complete the suggested [4 steps](https://github.com/subquery/cosmos-subql-starter#readme) for Cosmos users.
@@ -13,18 +13,22 @@ Now, let's move ahead in the process and update these configurations.
 Previously, in the [1. Create a New Project](../quickstart.md) section, you must have noted [3 key files](../quickstart.md#_3-make-changes-to-your-project). Let's begin updating them one by one.
 
 ::: info Note
-The final code of this project can be found [here](https://github.com/jamesbayly/juno-terra-developer-fund-votes). TO BE UPDATED
+The final code of this project can be found [here](https://github.com/deverka/cronos_crow_token_transfers).
 :::
 
 ## 1. Update Your GraphQL Schema File
 
 The `schema.graphql` file determines the shape of your data from SubQuery due to the mechanism of the GraphQL query language. Hence, updating the GraphQL Schema file is the perfect start. It allows you to define your end goal right at the start.
 
-Update the `schema.graphql` file as follows. The aim is to index all votes on the [Terra Developer Fund](https://daodao.zone/multisig/juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2).
+Update the `schema.graphql` file as follows. The aim is to index all transfers of [Cro Crow Token](https://www.crocrow.com/).
 
 ```graphql
-TO BE UPDATED
-
+type Transfer @entity {
+  id: ID! # Transfer hash
+  from: String!
+  to: String!
+  tokenId: BigInt!
+}
 ```
 
 ::: warning Important
@@ -62,11 +66,39 @@ The Project Manifest (`project.yaml`) file is an entry point to your project. It
 Note that the manifest file has already been set up correctly and doesn’t require significant changes, but you need to change the datasource handlers. This section lists the triggers that look for on the blockchain to start indexing.
 
 ```yml
-TO BE UPDATED
+dataSources:
+  - kind: cosmos/EthermintEvm
+    startBlock: 5120574 #NoteCro Crow Token started at 946
+    processor:
+      file: ./node_modules/@subql/ethermint-evm-processor/dist/bundle.js
+      options:
+        abi: erc20
+        address: '0xE4ab77ED89528d90E6bcf0E1Ac99C58Da24e79d5' #Cro Crow Token
+    assets:
+      erc20:
+        file: ./cro-crow.abi.json #ABI interface file specific for Cro Crow Token
+    mapping:
+      file: ./dist/index.js
+      handlers:
+        - handler: handleTransfer
+          kind: cosmos/EthermintEvmEvent
+          filter:
+            topics:
+              - 'Transfer(address indexed from, address indexed to, uint256 indexed tokenId)'
+              - null
+              - null
+              - null
 ```
 
-*The above code defines that you will be running a `handleTerraDeveloperFund` mapping function whenever there is a message with a `vote` contract call from the [Terra Developer Fund](https://daodao.zone/multisig/juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2) smart contract. Check out our [Manifest File](../../build/manifest/polkadot.md) documentation to get more information about the Project Manifest (`project.yaml`) file.*
-TO BE UPDATED
+The above code defines that you will be running a `handleTransfer` mapping function whenever there is an event emitted with the `transfer` method. Check out our [Manifest File](../../build/manifest/polkadot.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
+
+::: info Note
+ Please note that Cro Crow token requires a specific ABI interface. You need to:
+ - Get the [Cro Crow contract ABI](https://cronoscan.com/address/0xe4ab77ed89528d90e6bcf0e1ac99c58da24e79d5#code). 
+ You can compare with the [interface file](https://github.com/deverka/cronos_crow_token_transfers/blob/e067a87b69168aa6c05e9095b55d15483dd1bff9/cro-crow.abi.json) from this Quick Start final repo. 
+ - Create a file `cro-crow.abi.json` in the main project's directory.
+ - Link this file as an erc20 asset in the manifest file.
+:::
 
 Next, let’s dig further into Mapping Function’s configuration.
 
@@ -76,18 +108,39 @@ Mapping functions determine how chain data is transformed into the optimised Gra
 
 Follow these steps to add a mapping function:
 
-- Navigate to the default mapping function in the `src/mappings` directory. You will see four exported functions: `handleBlock`, `handleEvent`, `handleMessage`, `handleTransaction`. Delete `handleBlock`, `handleEvent`, and `handleTransaction` functions as you will only deal with the `handleMessage` function.
+- Navigate to the default mapping function in the `src/mappings` directory. You will see setup types for ABI `TransferEventArgs` and `ApproveCallArgs`. Delete those for approvals. You will also see two exported functions: `handleEthermintEvmEvent`, `handleEthermintEvmCall`. Delete them as well. 
 
-- The `handleMessage` function receives event data whenever an event matches the filters that you specified previously in the `project.yaml`. Let’s update it to process all `vote` messages and save them to the GraphQL entity created earlier.
-
-*Update the `handleMessage` function as follows (**note the additional imports**):* TO BE UPDATED
+Update the `TransferEventArgs` and add `handleTransfer` function as follows (**note the additional imports**):
 
 ```ts
-TO BE UPDATED
+import { Transfer } from "../types";
+import { EthermintEvmEvent } from "@subql/ethermint-evm-processor";
+import { BigNumber } from "ethers";
 
+// Setup types from ABI
+type TransferEventArgs = [string, string, BigNumber] & {
+  from: string;
+  to: string;
+  tokenId: BigNumber;
+};
+
+// Save all transfers
+export async function handleTransfer(
+  event: EthermintEvmEvent<TransferEventArgs>
+): Promise<void> {
+
+  const transfer = Transfer.create({
+    id: event.transactionHash,
+    from: event.args.from,
+    to: event.args.to,
+    tokenId: event.args.tokenId.toBigInt()
+  });
+
+  await transfer.save();
+}
 ```
 
-*Let’s understand how the above code works. Here, the function receives a `CosmosMessage` which includes message data on the payload. We extract this data and then instantiate a new `Vote` entity defined earlier in the `schema.graphql` file. After that, we add additional information and then use the `.save()` function to save the new entity (SubQuery will automatically save this to the database).Check out our [Mappings](../../build/mapping/polkadot.md) documentation and get information on the mapping functions in detail.*TO BE UPDATED
+Let’s understand how the above code works. Here, the function receives a `EthermintEvmEvent` which includes data on the payload. We extract this data and then create a new `Transfer` entity defined earlier in the `schema.graphql` file. After that we use the `.save()` function to save the new entity (SubQuery will automatically save this to the database). Check out our [Mappings](../../build/mapping/polkadot.md) documentation and get information on the mapping functions in detail.
 
 ## 4. Build Your Project
 
@@ -160,19 +213,53 @@ Next, let's query our project. Follow these three simple steps to query your Sub
 Try the following query to understand how it works for your new SubQuery starter project. Don’t forget to learn more about the [GraphQL Query language](../../run_publish/graphql.md).
 
 ```graphql
-
-TO BE UPDATED
+{
+  query {
+    transfers (first: 5) {
+        nodes {
+            id
+            to
+            from
+            tokenId
+        }
+    }
+  } 
+}
 ```
 
 You will see the result similar to below:
 
 ```json
-{TO BE UPDATED
+{
+  "data": {
+    "transfers": {
+      "nodes": [
+        {
+          "id": "0xff2bcbf7445c48f95b9e9bb770076e1562db2b58881338ea65c8c60aae1f4d20",
+          "from": "0xe40E86209bf7A563B23dc5625ea968F9DD9269fA",
+          "to": "0x281c2b2a0d5a3db358356537Fb4E1ac6Df9715f0",
+          "tokenId": "1160"
+        },
+        {
+          "id": "0xfbc0594cde0776813f02804e816ecd153f0a3e201523479f93f85b5423e5e1c6",
+          "from": "0x9B94F48372f5ED14f860B86f606ffb61D908E4dC",
+          "to": "0x05d6889ea1593b6e58B3366A95Ac923FC00A37AA",
+          "tokenId": "4921"
+        },
+        {
+          "id": "0xc601f604b5c3a6c78257b0e946429d7085c7a9f04b4c985d499c1118465bc30f",
+          "from": "0x00779809C0089d269C719F5953F7528E4dcE1Bdc",
+          "to": "0x45DfaDC5e74f8Fb62Be7893aA7c1f34db7C26D8d",
+          "tokenId": "7085"
+        }
+      ]
+    }
+  }
 }
 ```
 
 ::: info Note
-The final code of this project can be found [here](https://github.com/jamesbayly/juno-terra-developer-fund-votes).TO BE UPDATED
+The final code of this project can be found [here](https://github.com/deverka/cronos_crow_token_transfers).
 :::
 
 ## What’s Next?
