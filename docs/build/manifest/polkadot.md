@@ -220,9 +220,9 @@ filter:
   modulo: 50 # Index every 50 blocks: 0, 50, 100, 150....
 ```
 
-The `timestamp` filter is very useful when indexing block data with specific time intervals between them. It can be used in cases where you are aggregating data on a hourly/daily basis. It can be also used to set a delay between calls to `blockHandler` functions to reduce the computational costs.
+The `timestamp` filter is very useful when indexing block data with specific time intervals between them. It can be used in cases where you are aggregating data on a hourly/daily basis. It can be also used to set a delay between calls to `blockHandler` functions to reduce the computational costs of this handler.
 
-The `timestamp` filter accepts a valid cron expression and runs on schedule against the timestamps of the blocks being indexed. The starting reference for the schedule is the timestamp of the `startBlock` that is indexed in the project manifest (`project.yaml`). The block handler will run on the first block that is after the next iteration of the cron expression.
+The `timestamp` filter accepts a valid cron expression and runs on schedule against the timestamps of the blocks being indexed. Times are considered on UTC dates and times. The block handler will run on the first block that is after the next iteration of the cron expression.
 
 ```yml
 filter:
@@ -232,7 +232,7 @@ filter:
 ```
 
 ::: info Note
-We use the [cron-converter](https://github.com/roccivic/cron-converter) package to generate unix timestamps for iterations out of the given cron expression. So, make sure the format of the cron expression given in the `timestamp` filter is compatible with that accepted the package.
+We use the [cron-converter](https://github.com/roccivic/cron-converter) package to generate unix timestamps for iterations out of the given cron expression. So, make sure the format of the cron expression given in the `timestamp` filter is compatible with the package.
 :::
 
 Some common examples
@@ -240,7 +240,7 @@ Some common examples
 ```yml
   # Every minute
   timestamp: "* * * * *"
-  # Every hour on the hour
+  # Every hour on the hour (UTC)
   timestamp: "0 * * * *"
   # Every day at 1am UTC
   timestamp: "0 1 * * *"
