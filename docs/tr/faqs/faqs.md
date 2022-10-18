@@ -2,9 +2,9 @@
 
 ## SubQuery nedir?
 
-SubQuery is an open source blockchain data indexer for developers that provides fast, flexible, reliable, and decentralised APIs to power leading multi-chain apps.
+SubQuery, önde gelen çok zincirli uygulamaları desteklemek için hızlı, esnek, güvenilir ve merkezi olmayan API'ler sağlayan geliştiriciler için açık kaynaklı bir blok zinciri veri dizinleyicisidir.
 
-Our goal is to save developers' time and money by eliminating the need of building their own indexing solution. Now, they can fully focus on developing their applications. SubQuery helps developers create the decentralised products of the future.
+Amacımız, kendi indeksleme çözümlerini oluşturma ihtiyacını ortadan kaldırarak geliştiricilerin zaman ve paradan tasarruf etmesini sağlamaktır. Artık tamamen uygulamalarını geliştirmeye odaklanabilirler. SubQuery, geliştiricilerin geleceğin merkezi olmayan ürünlerini oluşturmasına yardımcı olur.
 
 <figure class="video_container">
 <iframe src="https://www.youtube.com/embed/gCpVz_mkWdo" title="Introducing The SubQuery Network" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscree="true"></iframe>
@@ -32,7 +32,7 @@ To give feedback, contact us at hello@subquery.network or jump onto our [discord
 
 ## Projemi SubQuery Projelerinde barındırmanın maliyeti nedir?
 
-This service is being provided to the community with a generous free tier! You can host your first two SubQuery projects for absolutely free!
+Bu hizmet, topluluğa cömert bir ücretsiz katmanla sunuluyor! İlk iki SubQuery projenizi tamamen ücretsiz olarak barındırabilirsiniz!
 
 ## What are deployment slots?
 

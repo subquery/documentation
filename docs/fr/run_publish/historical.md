@@ -34,6 +34,14 @@ Si vous voulez désactiver cette fonctionnalité pour une raison quelconque, vou
 
 Au démarrage, l'état actuel de cette fonctionnalité est imprimé dans la console (`L'état historique est activé`).
 
+If you are running your project locally using `subql-node` or `subql-node-<network>`, make sure you enable the pg_extension `btree_gist`
+
+You can run the following SQL query:
+
+```shell
+CREATE EXTENSION IF NOT EXISTS btree_gist;
+```
+
 ## Interrogation de l'état historique
 
 Il y a une propriété spéciale (facultative) sur le filtre d'entité GraphQL appelé `blockHeight`. Si vous omettez cette propriété, SubQuery interroge l'état de l'entité à la hauteur du bloc courant.
@@ -65,3 +73,13 @@ query {
   }
 }
 ```
+
+## Reindexing with Historical Data
+
+When you enable Automated Historical State Tracking, you can benefit from on demand partial reindexing from certain block heights. For example:
+
+- You can subscribe to new events, transactions, or assets in your manifest file, then backtrack to when they were deployed and start reindexing from that block
+- You could update your mapping files to add new logic to deal with a runtime change, and then backtrack to the block where the runtime change was deployed.
+- _Coming Soon:_ You can update your schema and reindex from a certain block height to reflect those changes
+
+You should see the new [-- reindex command in Command Line Flags](./references.md#reindex) to learn more about how to use this new feature.

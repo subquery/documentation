@@ -34,6 +34,14 @@ Nếu bạn muốn vô hiệu hóa tính năng này vì bất kỳ lý do gì, b
 
 Khi khởi động, trạng thái hiện tại của tính năng này được in lên bảng điều khiển (`Historical state is enabled`).
 
+Nếu bạn đang chạy cục bộ dự án của mình bằng cách sử dụng `subql-node` hoặc `subql-node-<network>`, hãy đảm bảo bạn bật pg_extension `btree_gist`
+
+Bạn có thể chạy SQL query sau:
+
+```shell
+CREATE EXTENSION IF NOT EXISTS btree_gist;
+```
+
 ## Truy vấn Trạng thái Lịch sử
 
 Có một thuộc tính đặc biệt (tùy chọn) trên bộ lọc thực thể GraphQL được gọi là `blockHeight`. Nếu bạn bỏ qua thuộc tính này, SubQuery sẽ truy vấn trạng thái thực thể ở chiều cao khối hiện tại.
@@ -65,3 +73,13 @@ query {
   }
 }
 ```
+
+## Lập chỉ mục lại với Historical Data
+
+Khi bật Theo dõi trạng thái lịch sử tự động, bạn có thể hưởng lợi từ việc lập chỉ mục lại một phần theo yêu cầu từ một số độ cao nhất định của khối. Ví dụ:
+
+- You can subscribe to new events, transactions, or assets in your manifest file, then backtrack to when they were deployed and start reindexing from that block
+- You could update your mapping files to add new logic to deal with a runtime change, and then backtrack to the block where the runtime change was deployed.
+- _Coming Soon:_ You can update your schema and reindex from a certain block height to reflect those changes
+
+You should see the new [-- reindex command in Command Line Flags](./references.md#reindex) to learn more about how to use this new feature.
