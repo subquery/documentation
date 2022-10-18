@@ -1,4 +1,4 @@
-# Frequently Asked Questions
+# Các câu hỏi thường gặp
 
 ## SubQuery là gì?
 
