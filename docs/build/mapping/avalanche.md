@@ -6,7 +6,7 @@ Mapping functions define how chain data is transformed into the optimised GraphQ
 - These mappings are also exported in `src/index.ts`.
 - The mappings files are reference in `project.yaml` under the mapping handlers.
 
-There are different classes of mappings functions for Avalanche; [Block handlers](mapping.md#block-handler), [Transaction Handlers](mapping.md#transaction-handler), and [Log Handlers](mapping.md#log-handler).
+There are different classes of mappings functions for Avalanche; [Block handlers](#block-handler), [Transaction Handlers](#transaction-handler), and [Log Handlers](#log-handler).
 
 ## Block Handler
 
@@ -27,7 +27,7 @@ An `AvalancheBlock` encapsulates all transactions and events in the block.
 
 ## Transaction Handler
 
-You can use transaction handlers (Avalanche and Terra only) to capture information about each of the transactions in a block. To achieve this, a defined TransactionHandler will be called once for every transaction. You should use [Mapping Filters](../build/manifest/polkadot.md#mapping-handlers-and-filters) in your manifest to filter transactions to reduce the time it takes to index data and improve mapping performance.
+You can use transaction handlers (Avalanche and Terra only) to capture information about each of the transactions in a block. To achieve this, a defined TransactionHandler will be called once for every transaction. You should use [Mapping Filters](../manifest/avalanche.md#mapping-handlers-and-filters) in your manifest to filter transactions to reduce the time it takes to index data and improve mapping performance.
 
 ```ts
 import { AvalancheTransaction } from "@subql/types";
@@ -50,7 +50,7 @@ The `AvalancheTransaction` encapsulates `TxInfo` and the corresponding block inf
 
 ## Log Handler
 
-You can use log handlers to capture information when certain logs are included on transactions. During the processing, the log handler will receive a log as an argument with the log's typed inputs and outputs. Any type of event will trigger the mapping, allowing activity with the data source to be captured. You should use [Mapping Filters](../build/manifest/polkadot.md#mapping-handlers-and-filters) in your manifest to filter events to reduce the time it takes to index data and improve mapping performance.
+You can use log handlers to capture information when certain logs are included on transactions. During the processing, the log handler will receive a log as an argument with the log's typed inputs and outputs. Any type of event will trigger the mapping, allowing activity with the data source to be captured. You should use [Mapping Filters](../manifest/avalanche.md#mapping-handlers-and-filters) in your manifest to filter events to reduce the time it takes to index data and improve mapping performance.
 
 ```ts
 import { AvalancheLog } from "@subql/types-avalanche";
@@ -68,7 +68,7 @@ export async function handleLog(event: AvalancheLog): Promise<void> {
 
 SubQuery is deterministic by design, that means that each SubQuery project is guranteed to index the same data set. This is a critical factor that is required to decentralise SubQuery in the SubQuery Network. This limitation means that the indexer is by default run in a strict virtual machine, with access to a strict number of third party libraries.
 
-**You can bypass this limitation, allowing you to index and retrieve information from third party data sources like HTTP endpoints, non historical RPC calls, and more.** In order to do to, you must run your project in `unsafe-mode`, you can read more about this in the [references](../run_publish/references.md#unsafe). An easy way to do this while developing (and running in Docker) is to add the following line to your `docker-compose.yml`:
+**You can bypass this limitation, allowing you to index and retrieve information from third party data sources like HTTP endpoints, non historical RPC calls, and more.** In order to do to, you must run your project in `unsafe-mode`, you can read more about this in the [references](../../run_publish/references.md#unsafe-node-service). An easy way to do this while developing (and running in Docker) is to add the following line to your `docker-compose.yml`:
 
 ```yml
 subquery-node:
@@ -85,13 +85,11 @@ By default, the [VM2](https://www.npmjs.com/package/vm2) sandbox only allows the
 
 - only some certain built-in modules, e.g. `assert`, `buffer`, `crypto`,`util` and `path`
 - third-party libraries written by _CommonJS_.
-- hybrid libraries like `@polkadot/*` that uses ESM as default. However, if any other libraries depend on any modules in _ESM_ format, the virtual machine will _NOT_ compile and return an error.
-- Historical/safe queries, see [RPC Calls](mapping.md#rpc-calls).
 - Note `HTTP` and `WebSocket` connections are forbidden
 
 ## Modules and Libraries
 
-To improve SubQuery's data processing capabilities, we have allowed some of the NodeJS's built-in modules for running mapping functions in the [sandbox](mapping.md#the-sandbox), and have allowed users to call third-party libraries.
+To improve SubQuery's data processing capabilities, we have allowed some of the NodeJS's built-in modules for running mapping functions in the [sandbox](#the-sandbox), and have allowed users to call third-party libraries.
 
 Please note this is an **experimental feature** and you may encounter bugs or issues that may negatively impact your mapping functions. Please report any bugs you find by creating an issue in [GitHub](https://github.com/subquery/subql).
 
