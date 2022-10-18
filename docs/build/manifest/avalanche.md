@@ -29,6 +29,9 @@ network:
   # When developing your project we suggest getting a private API key
   # You can get them from OnFinality for free https://app.onfinality.io
   # https://documentation.onfinality.io/support/the-enhanced-api-service
+  # If using an OnFinality Endpoint, you should append the API key like so:
+  # endpoint: "https://avalanche.api.onfinality.io?apikey=xxxxx-xxxxx-xxxxxx-xxxxxxxx"
+  # Note that we currently only support HTTP endpoints (not Websockets)
   endpoint: "https://avalanche.api.onfinality.io/public"
   # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
   dictionary: https://api.subquery.network/sq/subquery/avalanche-dictionary

@@ -60,8 +60,7 @@ Options:
   -c, --config              Specify configuration file                  [string]
       --local               Use local mode                [deprecated] [boolean]
       --db-schema           Db schema name of the project               [string]
-      --unsafe              Allows usage of any built-in module within the
-                            sandbox                    [boolean][default: false]
+      --unsafe              Allows usage of various other features that compromise a projects determinism                    [boolean][default: false]
       --batch-size          Batch size of blocks to fetch in one round  [number]
       --scale-batch-size    scale batch size based on memory usage
                                                       [boolean] [default: false]
@@ -107,25 +106,27 @@ This displays the current version.
 
 ### reindex
 
-- In order to use this command you need to have `@subql/node` v1.10.0 or above.
-
-When using reindex command, historical must be enabled for the targeted project(`--disable-historical=false`).
-After starting the project, it would print out a log stating if historical is enabled or not.
-[Further information on Historical](./historical.md)
-
-
-Use `--targetHeight=<blockNumber>` with `reindex` to remove indexed data and reindex from specified block height.
-`-f`, `--subquery` flag must be passed in, to set path of the targeted project.
-
-::: info Note
-Once the command is executed, the application would exit upon completion.
+:::warning
+In order to use this command, you require `@subql/node:v1.10.0`/`@subql/node-<network>:v1.10.0` or above.
 :::
 
-If the `targetHeight` is less than the declared starting height, it would execute the `force-clean` command.
+When using reindex command, historical must be enabled for the targeted project (`--disable-historical=false`). After starting the project, it would print out a log stating if historical is enabled or not.
+
+[Further information on Automated Historical State Tracking](./historical.md)
+
+Use `--targetHeight=<blockNumber>` with `reindex` to remove indexed data and reindex from specified block height.
+
+`-f` or `--subquery` flag must be passed in, to set path of the targeted project.
+
+If the `targetHeight` is less than the declared starting height, it will execute the `--force-clean` command.
 
 ```shell
 subql-node -f /example/subql-project reindex --targetHeight=30
 ```
+
+::: info Note
+Once the command is executed and the state has been rolled back the the specified height, the application will exit. You can then start up the indexer to proceed again from this height.
+:::
 
 ### force-clean
 
@@ -201,17 +202,26 @@ subql-node -f . --db-schema=test2
 
 This will create a notification trigger on entity, this also is the prerequisite to enable subscription feature in query service.
 
-### --unsafe
+### --unsafe (Node Service)
 
-SubQuery Projects are usually run in a javascript sandbox for security to limit the scope of access the project has to your system. The sandbox limits the available javascript imports to the following modules:
+Unsafe mode controls various features that compromise the determinism of a SubQuery project by making it impossible to guarantee that the data within two identical projects run independently will be absolutely consistent.
+
+One way we control this is by running all projects in a js sandbox for security to limit the scope of access the project has to your system. The sandbox limits the available javascript imports to the following modules:
 
 ```javascript
 ["assert", "buffer", "crypto", "util", "path"];
 ```
 
-Although this enhances security we understand that this limits the available functionality of your SubQuery. The `--unsafe` command imports all default javascript modules which greatly increases sandbox functionality with the tradeoff of decreased security.
+Although this enhances security we understand that this limits the available functionality of your SubQuery project. The `--unsafe` command allows any import which greatly increases functionality with the tradeoff of decreased security.
 
-**Note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in [SubQuery's Managed Service](https://project.subquery.network).**
+By extension, the `--unsafe` command on the SubQuery Node also allows:
+
+- making external requests (e.g. via Fetch to an external HTTP address or fs)
+- quering block data at any height via the unsafeApi
+
+**Note that must be on a paid plan if you would like to run projects with the `--unsafe` command (on the node service) within [SubQuery's Managed Service](https://project.subquery.network). Additionally, it will prevent your project from being run in the SubQuery Network in the future.**
+
+Also review the [--unsafe command on the query service](#unsafe-query-service).
 
 ### --batch-size
 
@@ -342,7 +352,6 @@ The port the subquery indexing service binds to. By default this is set to `3000
 
 Disables automated historical state tracking, [see Historic State Tracking](./historical.md). By default this is set to `false`.
 
-
 ### -w, --workers
 
 This will move block fetching and processing into a worker. By default, this feature is **disabled**. You can enable it with the `--workers=<number>` flag.
@@ -381,7 +390,7 @@ Options:
                                                       [boolean] [default: false]
       --indexer       Url that allows query to access indexer metadata    [string]
       --unsafe        Disable limits on query depth and allowable number returned
-                      query records                                      [boolean]
+                      query records and enables aggregation functions                                          [boolean]
   -p, --port          The port the service will bind to                   [number]
 ```
 
@@ -438,15 +447,15 @@ Set a custom url for the location of the endpoints of the indexer, the query ser
 
 This flag enables [GraphQL Subscriptions](./subscription.md), to enable this feature requires `subql-node` also enable `--subscription`.
 
-### --unsafe
+### --unsafe (Query Service)
 
 The query service has a limit of 100 entities for unbounded graphql queries. The unsafe flag removes this limit which may cause performance issues on the query service. It is recommended instead that queries are [paginated](https://graphql.org/learn/pagination/).
 
 This flag enables certain aggregation functions including sum, max, avg and others. Read more about this feature [here](../run_publish/aggregate.md).
 
-These are disabled by default due to the entity limit.
+These are disabled by default for database performance reasons.
 
-**Note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in [SubQuery's Managed Services](https://project.subquery.network).**
+**Note that must be on a Partner plan if you would like to run projects with the `--unsafe` command (on the query service) within [SubQuery's Managed Service](https://project.subquery.network). Additionally, it will prevent your project from being run in the SubQuery Network in the future.**
 
 ### --port
 
