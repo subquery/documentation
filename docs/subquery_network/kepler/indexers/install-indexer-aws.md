@@ -8,16 +8,16 @@ You can use our pre-built image or build your own. Let's start with SubQuery's p
 
 ## Method 1. Use SubQuery’s Pre-Built Image in AWS
 
+### 1.1 Switch Regions
+
+- Log into AWS and switch the region to Asia Pacific (Sydney)
+
 **Please note that this is only available in the Asia Pacific (Sydney) region only.**
 
 | Region    | ap-southeast-2 (Sydney)               |
 | --------- | ------------------------------------- |
 | Node Type | >= t3.medium                          |
 | AMI       | Community AMIs: ami-0ba91a7aa45470a3e |
-
-### 1.1 Switch Regions
-
-- Log into AWS and switch the region to Asia Pacific (Sydney)
 
 ### 1.2 Launch Instance
 
@@ -55,7 +55,7 @@ You can use our pre-built image or build your own. Let's start with SubQuery's p
 
 - Provide a name for the security setting.
 - Edit the Network settings to configure the ports. Add the following ports:
-  - port: 8000 & 22 accessible from local IP only (NB: this allows you to open the Indexer Admin page in your browser).
+  - port: 8000 & 22 accessible from local IP & anywhere respectively. (NB: this allows you to open the Indexer Admin page in your browser).
   - port: 80 & 443 open to any IP.
 
 **For example:**
@@ -76,13 +76,7 @@ You can use our pre-built image or build your own. Let's start with SubQuery's p
 
 ### 1.10 SSH to your EC2 instance
 
-To SSH your EC2 instance, visit [How to SSH into your AWS instance](../indexers/ssh-in-aws.md).
-
-::: warning Important
- DO NOT skip checking the Indexer Version after you finish the SSH process.
-:::
-
-- Visit [this section](../indexers/become-an-indexer.md#_2-1-check-indexer-version) and complete the process. <br />
+After your EC2 instance has been launched, you need to download the latest docker-compose.yml file. Visit [How to SSH into your AWS instance](../indexers/ssh-in-aws.md) if required and then visit [this section](../indexers/become-an-indexer.md#_2-1-check-indexer-version) to download the latest file. <br />
 
 ::: warning Important
 Please change the default PostgreSQL password in the `POSTGRES_PASSWORD` field and in the coordinator-service's `postgres-password` field. Replace it with your own one. 

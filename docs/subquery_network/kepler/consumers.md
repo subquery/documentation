@@ -1,4 +1,4 @@
-# How to Become a Consumer
+# Consumers
 
 ## Introduction 
 
