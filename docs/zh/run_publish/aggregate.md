@@ -6,7 +6,7 @@ SubQuery 支持高级的总函数，以便您在查询期间能够对一组值�
 
 聚合函数通常与组一起使用。在您的查询中使用按函数。
 
-Groupby 允许您在一个查询中快速获取一个从 SubQuery 集中的不同值。
+Groupby 允许您在一个查询中快速获取一个从SubQuery 集中的不同值。
 
 ![Graphql Groupby](/assets/img/graphql_合计.png)
 
@@ -24,8 +24,8 @@ Groupby 允许您在一个查询中快速获取一个从 SubQuery 集中的不�
 - `varianceSample` (适用于类似数字的字段) - 值的样本变化量
 - `variancePopulation` (适用于类似数字的字段) - 值的人口变化量
 
-SubQuery 对总函数的实现基于 [pg-aggregates](https://github.com/graphile/pg-aggregates)，您可以在那里找到更多的信息.
+SubQuery对总函数的实现基于 [pg-aggregates](https://github.com/graphile/pg-aggregates)，您可以在那里找到更多的信息.
 
-请注意，您必须在查询服务上启用 `--safe` 标志才能使用这些函数。 [阅读更多](./references.md#unsafe-query-service)。
+请注意，您必须在查询服务上启用 `--safe` 标志才能使用这些函数。 [阅读更多](./references.md#unsafe-2)。
 
-另外，请注意， `--safe` 命令将防止您的项目在 SubQuery 网络中运行。 如果您希望此命令与您的项目一起运行在 [SubQuery 管理的服务](https://project.subquery.network) 中，您必须联系客服。 :::
+另外，请注意， `--safe` 命令将防止您的项目在 SubQuery 网络中运行。 如果您希望此命令与您的项目一起运行在 [SubQuery管理的服务](https://project.subquery.network) 中，您必须联系客服。 :::
