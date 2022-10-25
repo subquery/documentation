@@ -335,7 +335,6 @@ function getSidebar(locale, language) {
                 collapsable: true,
                 children: [
                   `${locale}/subquery_network/kepler/metamask/connect-metamask.md`,
-                  `${locale}/subquery_network/kepler/metamask/request-token.md`,
                 ],
               },
             ],
