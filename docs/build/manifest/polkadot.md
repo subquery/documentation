@@ -186,11 +186,11 @@ The following table explains filters supported by different handlers.
 
 **Your SubQuery project will be much more efficient when you only use event and call handlers with appropriate mapping filters.**
 
-| Handler                                                       | Supported filter             |
-| ------------------------------------------------------------- | ---------------------------- |
-| [substrate/BlockHandler](./mapping/polkadot.md#block-handler) | `specVersion`, `modulo`      |
-| [substrate/EventHandler](./mapping/polkadot.md#event-handler) | `module`,`method`            |
-| [substrate/CallHandler](./mapping/polkadot.md#call-handler)   | `module`,`method` ,`success` |
+| Handler                                                        | Supported filter                          |
+| -------------------------------------------------------------- | ----------------------------              |
+| [substrate/BlockHandler](../mapping/polkadot.md#block-handler) | `specVersion`, `modulo`, `timestamp`      |
+| [substrate/EventHandler](../mapping/polkadot.md#event-handler) | `module`,`method`                         |
+| [substrate/CallHandler](../mapping/polkadot.md#call-handler)   | `module`,`method` ,`success`              |
 
 Default runtime mapping filters are an extremely useful feature to decide what block, event, or extrinsic will trigger a mapping handler.
 
@@ -218,6 +218,34 @@ The `modulo` filter allows handling every N blocks, which is useful if you want 
 ```yml
 filter:
   modulo: 50 # Index every 50 blocks: 0, 50, 100, 150....
+```
+
+The `timestamp` filter is very useful when indexing block data with specific time intervals between them. It can be used in cases where you are aggregating data on a hourly/daily basis. It can be also used to set a delay between calls to `blockHandler` functions to reduce the computational costs of this handler.
+
+The `timestamp` filter accepts a valid cron expression and runs on schedule against the timestamps of the blocks being indexed. Times are considered on UTC dates and times. The block handler will run on the first block that is after the next iteration of the cron expression.
+
+```yml
+filter:
+   # This cron expression will index blocks with at least 5 minutes interval 
+   # between their timestamps starting at startBlock given under the datasource. 
+  timestamp: "*/5 * * * *" 
+```
+
+::: info Note
+We use the [cron-converter](https://github.com/roccivic/cron-converter) package to generate unix timestamps for iterations out of the given cron expression. So, make sure the format of the cron expression given in the `timestamp` filter is compatible with the package.
+:::
+
+Some common examples
+
+```yml
+  # Every minute
+  timestamp: "* * * * *"
+  # Every hour on the hour (UTC)
+  timestamp: "0 * * * *"
+  # Every day at 1am UTC
+  timestamp: "0 1 * * *"
+  # Every Sunday (weekly) at 0:00 UTC
+  timestamp: "0 0 * * 0"
 ```
 
 ## Custom Chains

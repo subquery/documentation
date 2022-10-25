@@ -4,15 +4,15 @@
 
 SubQuery は高度な集約関数をサポートしており、クエリ中に一連の値に対して計算を実行することができます。
 
-集計関数は通常、クエリのGroupBy関数で使用されます。
+集計関数は通常、クエリの GroupBy 関数で使用されます。
 
-GroupByを使用すると、1つのクエリでSubQueryから異なる値をすばやく取得できます。
+GroupBy を使用すると、1 つのクエリで SubQuery から異なる値をすばやく取得できます。
 
 ![Graphql Groupby](/assets/img/graphql_aggregation.png)
 
 ## 高度な集計関数
 
-SubQueryはunsafeモードの場合に以下の集約関数を提供します。
+SubQuery は unsafe モードの場合に以下の集約関数を提供します。
 
 - `sum` (数値のようなフィールドに適用) - すべての値を足した結果
 - `distinctCount`（すべてのフィールドに適用） - 異なる値の数をカウントします。
@@ -26,6 +26,6 @@ SubQueryはunsafeモードの場合に以下の集約関数を提供します。
 
 SubQuery's implementation of aggregate functions is based on [pg-aggregates](https://github.com/graphile/pg-aggregates), you can find more information there.
 
-::: warning Important Please note that you must enable the `--unsafe` flag on the query service in order to use these functions. [Read more](./references.md#unsafe-2).
+::: warning Important Please note that you must enable the `--unsafe` flag on the query service in order to use these functions. [Read more](./references.md#unsafe-query-service).
 
 Also, note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in [SubQuery's managed service](https://project.subquery.network). :::

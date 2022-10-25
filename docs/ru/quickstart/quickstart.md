@@ -104,14 +104,4 @@ HelloWorld is ready
 2. Манифест проекта в `project.yaml`.
 3. Функции отображения в каталоге `src/mappings/`.
 
-SubQuery поддерживает различные блокчейн сети и предоставляет вам специальное руководство для каждой из них.
-
-Выберите предпочитаемую вами сеть и продолжайте вносить необходимые изменения, приближаясь к завершению вашего первого проекта:
-
-- **[Polkadot/Substrate](../quickstart/quickstart_chains/polkadot.md)**
-
-- **[Avalanche](../quickstart/quickstart_chains/avalanche.md)**
-
-- **[Cosmos](../quickstart/quickstart_chains/cosmos.md)**
-
-- **[Terra](../quickstart/quickstart_chains/terra.md)**
+SubQuery supports various blockchain networks and provides a dedicated guide for each of them. Select your preferred blockchain under 2. Specific Chains and continue the quick start guide.

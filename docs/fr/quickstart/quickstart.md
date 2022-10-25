@@ -1,13 +1,23 @@
-# 1. Créer un nouveau projet
+# 1. Create a New Project
+
+The goal of this quick start guide is to provide you with a complete development setup and guided steps to create your first SubQuery blockchain project. Référentiel Git : fournissez une URL Git vers un référentiel dans lequel ce projet de sous-requête sera hébergé (lorsqu'il est hébergé dans l'explorateur de sous-requêtes) ou acceptez la valeur par défaut fournie. Auteurs : saisissez ici le propriétaire de ce projet de sous-requête (par exemple, votre nom !) ou acceptez la valeur par défaut fournie. Description : fournissez un court paragraphe sur votre projet qui décrit les données qu'il contient et ce que les utilisateurs peuvent en faire, ou acceptez la valeur par défaut fournie. Version : saisissez un numéro de version personnalisé ou utilisez la version par défaut (1.0.0). Licence : fournissez la licence du logiciel pour ce projet ou acceptez la valeur par défaut (MIT). Prenons un exemple : $ sous-ql init Nom du projet [subql-starter] : HelloWorld ? Sélectionnez une famille de réseau Substrat ? Sélectionnez un réseau Polkadot ? Sélectionnez un modèle de projet subql-starter Projet de démarrage pour la sous-requête Point de terminaison RPC : [wss://polkadot.api.onfinality.io/public-ws] : Référentiel Git [https://github.com/subquery/subql-starter] : Récupération du hachage de genèse du réseau... terminé Auteur [Ian He & Jay Ji] : Sean Description [Ce projet peut être utilisé comme point de départ...] : Version [1.0.0] : Licence [MIT] : Préparation du projet... terminé HelloWorld est prêt
+
+This quick start guide should take around 10-15 minutes.
+
+After completing this quick start guide, you will have a working SubQuery project that will run on a SubQuery node. You will be able to adapt the standard starter project and index transfers from your favourite blockchain network such as Polkadot, Avalanche, Cosmos, etc.
+
+Let's start the process of creating your first SubQuery blockchain project.
+
+## Prerequisites
 
 Before you begin creating your first blockchain project with SubQuery, make sure you have installed the required supporting software applications. These are:
 
-- [Node](https://nodejs.org/en/): A modern (e.g. the LTS version) installation of Node.
+- [Node](https://nodejs.org/en/) : Une installation moderne (par exemple, la version LTS) de Node.
 - [Docker](https://docker.com/): This tutorial will use the required Docker.
 
 Now, you are all set to start with the first step, which is the installation of the SubQuery CLI.
 
-## 1. Install the SubQuery CLI
+## 1. Installer SubQuery CLI
 
 Installez SubQuery CLI globalement sur votre terminal en utilisant NPM :
 
@@ -79,8 +89,8 @@ After you complete the initialisation process, you will see a folder with your p
 
 Finally, run the following command to install the new project’s dependencies from within the new project's directory.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> `shell cd PROJECT_NAME yarn install ` </CodeGroupItem>
-<CodeGroupItem title="NPM"> `shell cd PROJECT_NAME npm install ` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
+<CodeGroupItem title="NPM"> ```shell cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
 
 You have now initialised your first SubQuery project with just a few simple steps. Let’s now customise the standard template project for a specific blockchain of interest.
 
@@ -94,14 +104,4 @@ There are 3 important files that need to be modified. These are:
 2. The Project Manifest in `project.yaml`.
 3. The Mapping functions in `src/mappings/` directory.
 
-SubQuery supports various blockchain networks and provides you with a dedicated guide for each of them.
-
-Pick up your preferred network and proceed ahead to make the modifications required, and move an inch closer to finishing your first ever project:
-
-- **[Polkadot/Substrate](../quickstart/quickstart_chains/polkadot.md)**
-
-- **[Avalanche](../quickstart/quickstart_chains/avalanche.md)**
-
-- **[Cosmos](../quickstart/quickstart_chains/cosmos.md)**
-
-- **[Terra](../quickstart/quickstart_chains/terra.md)**
+SubQuery supports various blockchain networks and provides a dedicated guide for each of them. Select your preferred blockchain under 2. Specific Chains and continue the quick start guide.

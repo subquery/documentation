@@ -14,4 +14,4 @@ Unsere Figma-Datei enthält eine vollständige Sammlung aller Markenelemente (Lo
 
 ## Marken-Assets-Paket
 
-A smaller ZIP package of brand assets: [public_branding.zip](https://static.subquery.network/public_branding.zip).
+Ein kleineres ZIP-Paket mit Marken-Assets: [public_branding.zip](https://static.subquery.network/public_branding.zip).

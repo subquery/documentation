@@ -170,12 +170,12 @@ The following table explains filters supported by different handlers.
 
 **Your SubQuery project will be much more efficient when you only use `TransactionHandler`, `MessageHandler`, or `EventHandler` handlers with appropriate mapping filters (e.g. NOT a `BlockHandler`).**
 
-| Handler                                                                | Supported filter                    |
-| ---------------------------------------------------------------------- | ----------------------------------- |
-| [cosmos/BlockHandler](./mapping/polkadot.md#block-handler)             | `modulo`                            |
-| [cosmos/TransactionHandler](./mapping/polkadot.md#transaction-handler) | `includeFailedTx`                   |
-| [cosmos/MessageHandler](./mapping/polkadot.md#message-handler)         | `includeFailedTx`, `type`, `values` |
-| [cosmos/EventHandler](./mapping/polkadot.md#event-handler)             | `type`, `messageFilter`             |
+| Handler                                                               | Supported filter                      |
+| --------------------------------------------------------------------- | ------------------------------------- |
+| [cosmos/BlockHandler](../mapping/cosmos.md#block-handler)             | `modulo`                              |
+| [cosmos/TransactionHandler](../mapping/cosmos.md#transaction-handler) | `includeFailedTx`                     |
+| [cosmos/MessageHandler](../mapping/cosmos.md#message-handler)         | `includeFailedTx`, `type`, `values`   |
+| [cosmos/EventHandler](../mapping/cosmos.md#event-handler)             | `type`, `messageFilter`, `attributes` |
 
 Default runtime mapping filters are an extremely useful feature to decide what block, event, or extrinsic will trigger a mapping handler.
 
@@ -185,6 +185,9 @@ Only incoming data that satisfy the filter conditions will be processed by the m
 # Example filter from EventHandler
 filter:
   type: execute
+  # Attributes can be filtered upon by providing matching key/values
+  attributes:
+    _contract_address: "juno1m7qmz49a9g6zeyzl032aj3rnsu856893cwryx8c4v2gf2s0ewv8qvtcsmx"
   messageFilter:
     type: "/cosmwasm.wasm.v1.MsgExecuteContract"
     # contractCall field can be specified here too

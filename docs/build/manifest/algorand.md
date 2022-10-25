@@ -148,10 +148,10 @@ The following table explains filters supported by different handlers.
 
 **Your SubQuery project will be much more efficient when you only use `TransactionHandler` with appropriate mapping filters (e.g. NOT a `BlockHandler`).**
 
-| Handler                                                                  | Supported filter                                                                                         |
-| ------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------- |
-| [algorand/BlockHandler](./mapping/polkadot.md#block-handler)             | `modulo`                                                                                                 |
-| [algorand/TransactionHandler](./mapping/polkadot.md#transaction-handler) | `txType`,`sender`, `receiver`, `applicationId`, `nonParticipant`, `assetId`, `newFreezeStatus` `address` |
+| Handler                                                                   | Supported filter                                                                                         |
+| ------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| [algorand/BlockHandler](../mapping/algorand.md#block-handler)             | `modulo`                                                                                                 |
+| [algorand/TransactionHandler](../mapping/algorand.md#transaction-handler) | `txType`,`sender`, `receiver`, `applicationId`, `nonParticipant`, `assetId`, `newFreezeStatus` `address` |
 
 Default runtime mapping filters are an extremely useful feature to decide what block, event, or extrinsic will trigger a mapping handler.
 

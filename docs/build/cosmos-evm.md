@@ -2,7 +2,7 @@
 
 We provide a custom data source processor for [Cosmos's Ethermint EVM](https://github.com/cosmos/ethermint). This offers a simple way to filter and index both EVM and Cosmos activity on many Cosmos networks within a single SubQuery project.
 
-**You can also refer to the basic [Cronos EVM](https://github.com/subquery/cosmos-subql-starter/tree/main/Cronos/cronos-evm-starter) example project with an event and call handler.**
+**You can also refer to the basic [Cronos EVM Example Project](https://github.com/subquery/cosmos-subql-starter/tree/main/Cronos/cronos-evm-starter) with an event and call handler.**
 
 ## Getting started
 
@@ -147,11 +147,16 @@ dataSources:
     mapping:
       file: "./dist/index.js"
       handlers:
+        # Using block handlers slows your project down as they can be executed with each and every block. Only use if you need to
+        # - handler: handleBlock
+        #   kind: cosmos/BlockHandler
         - handler: handleEthermintEvmEvent
           kind: cosmos/EthermintEvmEvent
           filter:
             topics:
-              ## Example valid values:
+              # The topics filter follows the Ethereum JSON-PRC log filters
+              # https://docs.ethers.io/v5/concepts/events
+              # Example valid values:
               # - '0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef'
               # - Transfer(address,address,u256)
               # - Transfer(address from,address to,uint256 value)
@@ -162,6 +167,8 @@ dataSources:
         - handler: handleEthermintEvmCall
           kind: cosmos/EthermintEvmCall
           filter:
+            # Either Function Signature strings or the function `sighash` to filter the function called on the contract
+            # ](https://docs.ethers.io/v5/api/utils/abi/fragments/#FunctionFragment)
             method: approve(address guy, uint256 wad)
             # The transaction sender
             from: "0x86ed94fb8fffe265caf38cbefb0431d2fbf862c1"

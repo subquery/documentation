@@ -43,47 +43,56 @@ Ini menunjukkan opsi bantuan.
 
 ```shell
 > subql-node --help
+Commands:
+  run force-clean  Clean the database dropping project schemas and tables. Once
+                   the command is executed, the application would exit upon
+                   completion.
+  run reindex      Reindex to specified block height. Historical must be enabled
+                   for the targeted project (--disable-historical=false). Once
+                   the command is executed, the application would exit upon
+                   completion.
 Options:
-      --help                Menunjukkan bantuan                          [boolean]
-      --version             Tampilkan nomor versi                        [boolean]
-  -f, --subquery            Jalur lokal dari proyek subquery             [string]
-      --subquery-name       Nama proyek subquery                         [deprecated] [string]
-  -c, --config              Tentukan file konfigurasi                    [string]
-      --local               Gunakan mode lokal                     [deprecated] [boolean]
-      --force-clean         Bersihkan paksa database, hapus skema proyek dan meja                            [boolean]
-      --db-schema           Nama skema db proyek               [string]
-      --unsafe              Mengizinkan penggunaan modul bawaan apa pun di dalam bak pasir                    [boolean][default: false]
-      --batch-size          Ukuran batch balok untuk diambil dalam satu putaran  [number]
-      --scale-batch-size    skala ukuran batch berdasarkan penggunaan memori  [boolean] [default: false]
-      --timeout             Batas waktu untuk kotak pasir pengindeks untuk menjalankan pemetaan fungsi                                   [number]
-      --debug               Tampilkan informasi debug ke keluaran konsol. will
-                            forcefully set log level to debug
+      --help                Show help                                  [boolean]
+      --version             Show version number                        [boolean]
+  -f, --subquery            Local path of the subquery project          [string]
+      --subquery-name       Name of the subquery project   [deprecated] [string]
+  -c, --config              Specify configuration file                  [string]
+      --local               Use local mode                [deprecated] [boolean]
+      --db-schema           Db schema name of the project               [string]
+      --unsafe              Allows usage of any built-in module within the
+                            sandbox                    [boolean][default: false]
+      --batch-size          Batch size of blocks to fetch in one round  [number]
+      --scale-batch-size    scale batch size based on memory usage
                                                       [boolean] [default: false]
-      --profiler            Show profiler information to console output
+      --timeout             Timeout for indexer sandbox to execute the mapping
+                            functions                                   [number]
+      --debug               Show debug information to console output. akan
+                            secara paksa mengatur level log ke debug
                                                       [boolean] [default: false]
-      --subscription        Enable subscription       [boolean] [default: false]
-      --network-endpoint    Blockchain network endpoint to connect      [string]
-      --output-fmt          Print log as json or plain text
-                                           [string] [choices: "json", "colored"]
-      --log-level           Specify log level to print. Diabaikan ketika --debug
-                            digunakan
-          [string] [pilihan: "fatal", "error", "warning", "info", "debug", "trace",
+      --profiler Tampilkan informasi profiler ke output konsol
+                                                      [boolean] [default: false]
+      --subscription Aktifkan langganan [boolean] [default: false]
+      --network-endpoint Titik akhir jaringan Blockchain untuk terhubung [string]
+      --output-fmt Cetak log sebagai json atau teks biasa
+                                           [string] [pilihan: "json", "berwarna"]
+      --log-level Tentukan level log yang akan dicetak. Ignored when --debug is
+                            used
+          [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
                                                                        "silent"]
-      --migrate Memigrasi skema db (hanya untuk tabel manajemen)
+      --migrate             Migrate db schema (for management tables only)
                                                       [boolean] [default: false]
-      --timestamp-field Mengaktifkan/menonaktifkan created_at dan updated_at dalam skema
+      --timestamp-field     Enable/disable created_at and updated_at in schema
                                                       [boolean] [default: false]
-  -d, --network-dictionary Tentukan kamus api untuk jaringan ini [string]
-  -m, --mmr-path Jalur lokal dari file merkle mountain range (.mmr)
+  -d, --network-dictionary  Specify the dictionary api for this network [string]
+  -m, --mmr-path            Local path of the merkle mountain range (.mmr) file
                                                                         [string]
-      --proof-of-index Mengaktifkan/menonaktifkan bukti indeks
+      --proof-of-index      Enable/disable proof of index
                                                       [boolean] [default: false]
-  -p, --port Port yang akan diikat oleh layanan [number]
-      --disable-historis Menonaktifkan penyimpanan entitas status historis
+  -p, --port                The port the service will bind to           [number]
+      --disable-historical  Disable storing historical state entities
                                                        [boolean] [default: true]
-      --reindex Reindex ke tinggi blok yang ditentukan [number]
-  -w, --workers Jumlah thread pekerja yang akan digunakan untuk mengambil dan
-                            memproses blok. Dinonaktifkan oleh Default.     [number]
+  -w, --workers             Number of worker threads to use for fetching and
+                            processing blocks. Dinonaktifkan oleh Default.     [number]
 ```
 
 ### --version
@@ -93,6 +102,42 @@ Ini menampilkan versi saat ini.
 ```shell
 > subql-node --version
 0.19.1
+```
+
+### reindex
+
+:::warning In order to use this command, you require `@subql/node:v1.10.0`/`@subql/node-<network>:v1.10.0` or above. :::
+
+When using reindex command, historical must be enabled for the targeted project (`--disable-historical=false`). After starting the project, it would print out a log stating if historical is enabled or not.
+
+[Further information on Automated Historical State Tracking](./historical.md)
+
+Use `--targetHeight=<blockNumber>` with `reindex` to remove indexed data and reindex from specified block height.
+
+`-f` or `--subquery` flag must be passed in, to set path of the targeted project.
+
+If the `targetHeight` is less than the declared starting height, it will execute the `--force-clean` command.
+
+```shell
+subql-node -f /example/subql-project reindex --targetHeight=30
+```
+
+::: info Note
+Once the command is executed and the state has been rolled back the the specified height, the application will exit. You can then start up the indexer to proceed again from this height.
+:::
+
+### force-clean
+
+- In order to use this command you need to have `@subql/node` v1.10.0 or above.
+
+This command forces the project schemas and tables to be regenerated. It is helpful to use when iteratively developing graphql schemas in order to ensure a clean state when starting a project. Perhatikan bahwa tanda ini juga akan menghapus semua data yang diindeks. This will also drop all related schema and tables of the project.
+
+`-f`, `--subquery` flag must be passed in, to set path of the targeted project.
+
+::: info Note Similar to `reindex` command, the application would exit upon completion. :::
+
+```shell
+subql-node -f /example/subql-project force-clean
 ```
 
 ### -f, --subquery
@@ -140,10 +185,6 @@ subql-node -f . --local
 
 Perhatikan bahwa setelah Anda menggunakan bendera ini, menghapusnya tidak berarti bahwa itu akan mengarah ke database lain. Untuk menunjuk kembali ke database lain, Anda harus membuat database BARU dan mengubah pengaturan env ke database baru ini. Dengan kata lain, "ekspor DB_DATABASE=<new_db_here>".
 
-### --force-clean
-
-Bendera ini memaksa skema dan tabel proyek untuk dibuat ulang, berguna untuk digunakan saat mengembangkan skema graphql secara iteratif sehingga proyek yang berjalan baru selalu bekerja dengan keadaan bersih. Perhatikan bahwa tanda ini juga akan menghapus semua data yang diindeks.
-
 ### --db-schema
 
 Bendera ini memungkinkan Anda untuk memberikan nama untuk skema database proyek. Setelah memberikan nama baru, skema database baru dibuat dengan nama yang dikonfigurasi dan pengindeksan blok dimulai.
@@ -166,7 +207,7 @@ Proyek SubQuery biasanya dijalankan dalam kotak pasir javascript untuk keamanan 
 
 Meskipun ini meningkatkan keamanan, kami memahami bahwa ini membatasi fungsionalitas SubQuery Anda yang tersedia. Perintah `--unsafe` mengimpor semua modul javascript default yang sangat meningkatkan fungsionalitas kotak pasir dengan pengorbanan keamanan yang menurun.
 
-**Note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in [SubQuery's Managed Service](https://project.subquery.network).**
+**Perhatikan bahwa perintah `--unsafe` akan mencegah proyek Anda dijalankan di Jaringan SubQuery, dan Anda harus menghubungi bagian dukungan jika Anda ingin perintah ini dijalankan dengan proyek Anda di [SubQuery's Managed Service](https://project.subquery.network).**
 
 ### --batch-size
 
@@ -297,12 +338,6 @@ Port yang diikat oleh layanan pengindeksan subquery. Secara default ini diatur k
 
 Menonaktifkan pelacakan status historis otomatis, [lihat Pelacakan Status Historis](./historical.md). Secara default ini diatur ke `3000`.
 
-### --reindex
-
-Gunakan `--reindex=<blockNumber>` untuk menghapus data yang diindeks dan mengindeks ulang dari tinggi blok yang ditentukan.
-
-Catatan Harap diperhatikan bahwa cara menggunakan fitur ini akan segera diperbarui. :::
-
 ### -w, --workers
 
 Ini akan memindahkan pengambilan dan pemrosesan blok ke dalam worker. Secara default, fitur ini **disabled**. Anda bisa mengaktifkannya dengan flag `--workers=<number>`. Perhatikan bahwa jumlah core CPU yang tersedia sangat membatasi penggunaan thread pekerja. Jadi, ketika menggunakan flag `--workers=<number>`, selalu tentukan jumlah pekerja. Tanpa flag yang disediakan, semuanya akan berjalan dalam thread yang sama.
@@ -322,15 +357,15 @@ Fitur ini tersedia untuk Substrate dan Cosmos, dan akan segera diintegrasikan un
 Ini menunjukkan opsi bantuan.
 
 ```shell
-Options:
-      --help          Show help                                          [boolean]
-      --version       Show version number                                [boolean]
-  -n, --name          Project name                             [string] [required]
-      --playground    Enable graphql playground                          [boolean]
-      --subscription  Enable subscription               [boolean] [default: false]
-      --output-fmt    Print log as json or plain text
-                        [string] [choices: "json", "colored"] [default: "colored"]
-      --log-level     Specify log level to print.
+Pilihan:
+      --help Tampilkan bantuan [boolean]
+      --version Tampilkan nomor versi [boolean]
+  -n, --name Nama proyek [string] [required]]
+      --playground Aktifkan taman bermain graphql [boolean]
+      --subscription Aktifkan subscription [boolean] [default: false]
+      --output-fmt Mencetak log sebagai json atau teks biasa
+                        [string] [pilihan: "json", "colored"] [default: "colored"]
+      --log-level Tentukan level log yang akan dicetak.
             [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
                                                        "silent"] [default: "info"]
       --log-path      Path to create log file e.g ./src/name.log          [string]

@@ -80,3 +80,7 @@ If you just want to upgrade to the latest indexer ([`@subql/node`](https://www.n
 ![โปรเจกต์ที่กำลัง deploy และ sync](/assets/img/projects-deploy-sync.png)
 
 หรือคุณสามารถคลิกที่จุดสามจุดถัดจากชื่อโปรเจกต์ของคุณ และดูบน SubQuery Explorer There you can use the in browser playground to get started - [read more about how to use our Explorer here](../run_publish/query.md).
+
+![Projects in SubQuery Explorer](/assets/img/projects-explorer.png)
+
+::: info Note Learn more about the [GraphQL Query language.](./graphql.md) :::

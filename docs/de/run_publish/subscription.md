@@ -4,9 +4,9 @@
 
 SubQuery unterstützt jetzt auch Graphql-Abonnements. Wie Abfragen ermöglichen Ihnen Abonnements das Abrufen von Daten. Im Gegensatz zu Abfragen sind Abonnements langlebige Vorgänge, die ihr Ergebnis im Laufe der Zeit ändern können.
 
-Abonnements sind sehr nützlich, wenn Sie möchten, dass Ihre Clientanwendung Daten ändert oder einige neue Daten anzeigt, sobald diese Änderung eintritt oder die neuen Daten verfügbar sind. Subscriptions allow you to _subscribe_ to your SubQuery project for changes.
+Abonnements sind sehr nützlich, wenn Sie möchten, dass Ihre Clientanwendung Daten ändert oder einige neue Daten anzeigt, sobald diese Änderung eintritt oder die neuen Daten verfügbar sind. Mit Abonnements können Sie Ihr SubQuery-Projekt für Änderungen _abonnieren_.
 
-::: info Note Read more about [Subscriptions](https://www.apollographql.com/docs/react/data/subscriptions/). :::
+::: info Hinweis Lesen Sie mehr über [Abonnements](https://www.apollographql.com/docs/react/data/subscriptions/). :::
 
 ## So abonnieren Sie eine Entität
 
@@ -26,8 +26,8 @@ subscription {
 
 Der Körper der Entität in Ihrer Abfrage gibt an, welche Daten Sie über Ihr Abonnement erhalten möchten, wenn die Tabelle `Transfer` aktualisiert wird:
 
-- `id`: Returns the ID of the entity that has changed.
-- `mutation_type`: Die Aktion, die an dieser Entität vorgenommen wurde. Mutation types can be either `INSERT`, `UPDATE` or `DELETE`.
+- `id`: Gibt die ID der geänderten Entität zurück.
+- `mutation_type`: Die Aktion, die an dieser Entität vorgenommen wurde. Mutationstypen können entweder `INSERT`, `UPDATE` oder `DELETE` sein.
 - `_entity`: Der Wert der Entität selbst im JSON-Format.
 
 ## die Filterung
@@ -64,10 +64,10 @@ subscription {
 }
 ```
 
-Note that the `mutation` filter can be one of `INSERT`, `UPDATE` or `DELETE`.
+Beachten Sie, dass der Filter `Mutation` einer der Filter `INSERT`, `UPDATE` oder `DELETE` sein kann.
 
-::: warning Important Please note that you must enable the `--subscription` flag on both the node and query service in order to use these functions. :::
+::: Warnung Wichtig Bitte beachten Sie, dass Sie das `--subscription`-Flag sowohl im Knoten- als auch im Abfragedienst aktivieren müssen, um diese Funktionen nutzen zu können. :::
 
-::: warning Important
-The subcription feature works on SubQuery's Managed Service when you directly call the listed GraphQL endpoint. Es funktioniert nicht innerhalb des GraphQL-Playgrounds im Browser.
+::: wichtige Warnung
+Die Abonnementfunktion funktioniert auf SubQueries Managed Service, wenn Sie den aufgelisteten GraphQL-Endpunkt direkt aufrufen. Es funktioniert nicht innerhalb des GraphQL-Playgrounds im Browser.
 :::

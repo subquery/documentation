@@ -104,14 +104,4 @@ Có 3 tệp quan trọng cần được sửa đổi. Đó là:
 2. Tệp Kê khai dự án trong `project.yaml`.
 3. Các hàm ánh xạ trong thư mục `src/mappings/`.
 
-SubQuery hỗ trợ các mạng blockchain khác nhau và cung cấp cho bạn hướng dẫn riêng cho từng mạng.
-
-Lựa chọn mạng ưa thích của bạn và tiếp tục để thực hiện các sửa đổi cần thiết và tiến gần hơn một chút để hoàn thành dự án đầu tiên của bạn:
-
-- **[Polkadot/Substrate](../quickstart/quickstart_chains/polkadot.md)**
-
-- **[Avalanche](../quickstart/quickstart_chains/avalanche.md)**
-
-- **[Cosmos](../quickstart/quickstart_chains/cosmos.md)**
-
-- **[Terra](../quickstart/quickstart_chains/terra.md)**
+SubQuery hỗ trợ các mạng blockchain khác nhau và cung cấp hướng dẫn riêng cho từng mạng. Chọn blockchain ưa thích của bạn tối đa là 2. Chuỗi cụ thể và tiếp tục hướng dẫn bắt đầu nhanh.

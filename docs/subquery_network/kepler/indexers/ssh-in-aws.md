@@ -25,7 +25,3 @@ ssh -i sean.cer ec2-user@ec2-54-153-196-193.ap-southeast-2.compute.amazonaws.com
 ```
 
 ![Running Command Line](/assets/img/command_line_ssh.png)
-
-## **Next Steps:**
-
-After finishing SSH, continue to the [next step of setting up your indexer](../indexers/install-indexer-aws.md#_1-10-ssh-to-your-ec2-instance).

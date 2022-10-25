@@ -1,6 +1,6 @@
 # FAQs - for Indexers
 
-## What does the Indexer Service comprise?
+## What does the Indexer Service compris of?
 
 The Indexer Service is comprised of:
 
