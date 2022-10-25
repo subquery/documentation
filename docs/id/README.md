@@ -106,7 +106,7 @@
         <h5>Integrasikan dengan Rantai Substrat Khusus Anda</h5>
         <p>Baik Anda sedang membangun parachain baru atau blockchain yang sama sekali baru di Substrate - SubQuery dapat membantu Anda mengindeks dan memecahkan masalah data chain Anda. SubQuery membantu Anda dengan mudah berintegrasi dengan rantai berbasis Substrat kustom.</p>
         <span class="more">
-          <router-link :to="{path: '/build/manifest/polkadot.html#custom-substrate-chains'}">PELAJARI CARA MENGINTEGRASI DENGAN RANTAI ANDA</router-link>
+          <router-link :to="{path: '/build/manifest/polkadot.html#custom-substrate-chains'}">PELAJARI CARA MENGINTEGRASIKAN DENGAN RANTAI ANDA</router-link>
         </span>
     </div>
     <div class="lastIntroduce lastIntroduce_2">
