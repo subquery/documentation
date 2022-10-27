@@ -8,4 +8,6 @@ Nun, da Sie ein klares Verständnis dafür haben, wie man ein einfaches SubQuery
 
 - Wenn Sie mit realeren Beispielen üben möchten, besuchen Sie unseren Abschnitt [Kurse](../academy/herocourse/welcome.md) und lernen Sie wichtige Konzepte mit zugehörigen Übungen und Laborarbeitsbüchern kennen. Erhalten Sie Zugriff auf leicht verfügbare und Open-Source-Projekte und sammeln Sie praktische Erfahrungen mit SubQuery-Projekten.
 
+- Find out **how to build a performant SubQuery project and avoid common mistakes** in [Project Optimisation](../build/optimisation.md).
+
 - Wenn Sie schließlich weitere Möglichkeiten zum Ausführen und Veröffentlichen Ihres Projekts erkunden möchten, lesen Sie den Abschnitt [Ausführen & Veröffentlichungsbereich](../../run_publish/run.md). Erhalten Sie vollständige Informationen über alle Möglichkeiten, Ihr SubQuery-Projekt auszuführen, zusammen mit erweiterten GraphQL-Aggregations- und Abonnementfunktionen.
