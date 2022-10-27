@@ -8,4 +8,6 @@ Bây giờ bạn đã hiểu rõ về cách xây dựng một dự án SubQuery 
 
 - Nếu bạn muốn thực hành với các ví dụ thực tế hơn, thì hãy truy cập phần [Khóa học](../academy/herocourse/welcome.md) của chúng tôi và tìm hiểu các khái niệm quan trọng với các bài tập liên quan và sách bài tập trong phòng thực hành. Nhận quyền truy cập vào các dự án mã nguồn mở và có sẵn, đồng thời có được trải nghiệm thực tế với các dự án SubQuery.
 
+- Find out **how to build a performant SubQuery project and avoid common mistakes** in [Project Optimisation](../build/optimisation.md).
+
 - Cuối cùng, nếu bạn muốn khám phá thêm các cách để chạy và xuất bản dự án của mình, hãy tham khảo phần [Run & Publish](../../run_publish/run.md). Nhận thông tin đầy đủ về tất cả các cách để chạy dự án SubQuery của bạn, cùng với các tính năng theo dõi và tổng hợp GraphQL nâng cao.
