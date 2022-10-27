@@ -79,23 +79,4 @@ Beachten Sie, dass empfohlen wird, `--force-clean` zu verwenden, wenn Sie den `s
 
 ## Wie kann ich mein Projekt optimieren, um es zu beschleunigen?
 
-Leistung ist ein entscheidender Faktor in jedem Projekt. Glücklicherweise gibt es mehrere Dinge, die Sie tun könnten, um es zu verbessern. Hier ist die Liste mit einigen Vorschlägen:
-
-- Vermeiden Sie nach Möglichkeit die Verwendung von Block-Handlern.
-- Nur notwendige Felder abfragen.
-- Versuchen Sie, Filterbedingungen zu verwenden, um die Antwortgröße zu reduzieren. Erstellen Sie möglichst spezifische Filter, um das Abfragen unnötiger Daten zu vermeiden.
-- Vermeiden Sie es bei großen Datentabellen, `totalCount` abzufragen, ohne Bedingungen hinzuzufügen.
-- Hinzufügen von Indizes zu Entitätsfeldern für die Abfrageleistung, dies ist besonders wichtig für historische Projekte.
-- Setzen Sie den Startblock auf den Zeitpunkt, an dem der Vertrag initialisiert wurde.
-- Verwenden Sie immer ein [Wörterbuch](../tutorials_examples/dictionary.html#how-does-a-subquery-dictionary-work) (wir können Ihnen helfen, eines für Ihr neues Netzwerk zu erstellen).
-- Optimieren Sie Ihr Schemadesign, halten Sie es so einfach wie möglich.
-    - Versuchen Sie unnötige Felder und Spalten zu reduzieren.
-    - Erstellen Sie nach Bedarf Indizes.
-- Verwenden Sie so oft wie möglich Parallel-/Batch-Verarbeitung.
-    - Verwenden Sie `api.queryMulti()`, um Polkadot-API-Aufrufe innerhalb von Mapping-Funktionen zu optimieren und sie parallel abzufragen. Dies ist ein schnellerer Weg als eine Schleife.
-    - Verwende `Promise.all()`. Bei mehreren asynchronen Funktionen ist es besser, sie parallel auszuführen und aufzulösen.
-    - Wenn Sie viele Entitäten in einem einzigen Handler erstellen möchten, können Sie `store.bulkCreate(entityName: string, entity: Entity[])` verwenden. Sie können sie parallel erstellen, ohne dass Sie dies einzeln tun müssen.
-- Das Ausführen von API-Aufrufen zum Abfragen des Status kann langsam sein. Sie könnten versuchen, Anrufe nach Möglichkeit zu minimieren und `extrinsische/Transaktions-/Ereignisdaten` zu verwenden.
-- Verwenden Sie `Worker-Threads`, um den Blockabruf und die Blockverarbeitung in einen eigenen Worker-Thread zu verschieben. Es könnte die Indizierung um das bis zu 4-fache beschleunigen (abhängig vom jeweiligen Projekt). Sie können es einfach mit dem Flag `-workers=<number>` aktivieren. Beachten Sie, dass die Anzahl der verfügbaren CPU-Kerne die Verwendung von Worker-Threads streng begrenzt. Derzeit ist es nur für Substrate und Cosmos verfügbar und wird bald für Avalanche integriert.
-- Beachten Sie, dass `JSON.stringify` keine nativen `BigInts` unterstützt. Unsere Protokollierungsbibliothek wird dies intern tun, wenn Sie versuchen, ein Objekt zu protokollieren. Wir suchen nach einem Workaround dafür.
-- Verwenden Sie einen praktischen `Modulo`-Filter, um einen Handler nur einmal für einen bestimmten Block auszuführen. Dieser Filter ermöglicht die Verarbeitung einer beliebigen Anzahl von Blöcken, was äußerst nützlich ist, um Daten in einem festgelegten Intervall zu gruppieren und zu berechnen. Wenn Modulo beispielsweise auf 50 eingestellt ist, wird der Blockhandler alle 50 Blöcke ausgeführt. Es bietet Entwicklern noch mehr Kontrolle über die Indizierung von Daten und kann wie unten in Ihrem Projektmanifest implementiert werden.
+Leistung ist ein entscheidender Faktor in jedem Projekt. Glücklicherweise gibt es mehrere Dinge, die Sie tun könnten, um es zu verbessern. You can find our recommendations in the [Project Optimisation](../build/optimisation.md). 
