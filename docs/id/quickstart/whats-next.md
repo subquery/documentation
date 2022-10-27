@@ -8,4 +8,6 @@ Sekarang setelah Anda memiliki pemahaman yang jelas tentang cara membangun proye
 
 - Jika Anda ingin berlatih dengan contoh-contoh yang lebih nyata, maka pergilah ke bagian [Courses](../academy/herocourse/welcome.md) kami dan pelajari konsep-konsep penting dengan latihan dan buku kerja lab terkait. Dapatkan akses ke proyek-proyek yang tersedia dan open-source, dan dapatkan pengalaman langsung dengan proyek-proyek SubQuery.
 
+- Find out **how to build a performant SubQuery project and avoid common mistakes** in [Project Optimisation](../build/optimisation.md).
+
 - Pada akhirnya, jika Anda ingin menjelajahi lebih banyak cara untuk menjalankan dan mempublikasikan proyek Anda, lihat bagian [Run & Publish](../../run_publish/run.md). Dapatkan informasi lengkap tentang semua cara untuk menjalankan proyek SubQuery Anda, bersama dengan fitur agregasi dan langganan GraphQL tingkat lanjut.
