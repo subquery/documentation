@@ -63,7 +63,7 @@ subql-node <command>
 ```
 
 ::: info Note
-If you are using Docker or hosting your project in SubQuery Projects, you do can skip this step. This is because the SubQuery node is already provided in the Docker container and the hosting infrastructure.
+If you are using Docker or hosting your project in SubQuery Projects, you can skip this step. This is because the SubQuery node is already provided in the Docker container and the hosting infrastructure.
 :::
 
 ## Install @subql/query
