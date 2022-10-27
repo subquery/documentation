@@ -8,4 +8,6 @@
 
 - 如果您想要练习更多的实际例子， 然后走到我们的 [课程](../academy/herocourse/welcome.md) 部分，并通过相关练习和实验室工作手册学习重要的概念。 获取访问便捷可用和开源项目的机会，并获得一个 SubQuery 项目的手动体验。
 
+- Find out **how to build a performant SubQuery project and avoid common mistakes** in [Project Optimisation](../build/optimisation.md).
+
 - 最后，如果您想要探索更多的方式来运行和发布您的项目，请参阅 [运行 & 发布部分](../../run_publish/run.md)。 获取关于运行您的 SubQuery 项目的所有方式的完整信息，以及高级GraphQL 聚合和订阅功能。
