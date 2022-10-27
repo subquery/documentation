@@ -246,7 +246,7 @@ function getSidebar(locale, language) {
           `${locale}/build/introduction.md`,
           `${locale}/build/install.md`,
           {
-            title: "Manfest File",
+            title: "Manifest File",
             collapsable: true,
             children: [
               `${locale}/build/manifest/polkadot.md`,
@@ -274,6 +274,7 @@ function getSidebar(locale, language) {
           `${locale}/build/cosmos-evm.md`,
           `${locale}/build/dynamicdatasources.md`,
           `${locale}/build/graph-migration.md`,
+          `${locale}/build/optimisation.md`,
         ],
       },
       {
