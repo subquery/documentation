@@ -59,8 +59,7 @@ Options:
   -c, --config              Specify configuration file                  [string]
       --local               Use local mode                [deprecated] [boolean]
       --db-schema           Db schema name of the project               [string]
-      --unsafe              Allows usage of any built-in module within the
-                            sandbox                    [boolean][default: false]
+      --unsafe              Allows usage of various other features that compromise a projects determinism                    [boolean][default: false]
       --batch-size          Batch size of blocks to fetch in one round  [number]
       --scale-batch-size    scale batch size based on memory usage
                                                       [boolean] [default: false]
@@ -197,17 +196,26 @@ subql-node -f . --db-schema=test2
 
 Ini akan membuat pemicu notifikasi pada entitas, ini juga merupakan prasyarat untuk mengaktifkan fitur berlangganan di layanan kueri.
 
-### --unsafe
+### --unsafe (Node Service)
 
-Proyek SubQuery biasanya dijalankan dalam kotak pasir javascript untuk keamanan guna membatasi cakupan akses yang dimiliki proyek ke sistem Anda. Kotak pasir membatasi impor javascript yang tersedia ke modul berikut:
+Unsafe mode controls various features that compromise the determinism of a SubQuery project by making it impossible to guarantee that the data within two identical projects run independently will be absolutely consistent.
+
+One way we control this is by running all projects in a js sandbox for security to limit the scope of access the project has to your system. Kotak pasir membatasi impor javascript yang tersedia ke modul berikut:
 
 ```javascript
 ["assert", "buffer", "crypto", "util", "path"];
 ```
 
-Meskipun ini meningkatkan keamanan, kami memahami bahwa ini membatasi fungsionalitas SubQuery Anda yang tersedia. Perintah `--unsafe` mengimpor semua modul javascript default yang sangat meningkatkan fungsionalitas kotak pasir dengan pengorbanan keamanan yang menurun.
+Although this enhances security we understand that this limits the available functionality of your SubQuery project. The `--unsafe` command allows any import which greatly increases functionality with the tradeoff of decreased security.
 
-**Perhatikan bahwa perintah `--unsafe` akan mencegah proyek Anda dijalankan di Jaringan SubQuery, dan Anda harus menghubungi bagian dukungan jika Anda ingin perintah ini dijalankan dengan proyek Anda di [SubQuery's Managed Service](https://project.subquery.network).**
+By extension, the `--unsafe` command on the SubQuery Node also allows:
+
+- making external requests (e.g. via Fetch to an external HTTP address or fs)
+- quering block data at any height via the unsafeApi
+
+**Note that must be on a paid plan if you would like to run projects with the `--unsafe` command (on the node service) within [SubQuery's Managed Service](https://project.subquery.network). Additionally, it will prevent your project from being run in the SubQuery Network in the future.**
+
+Also review the [--unsafe command on the query service](#unsafe-query-service).
 
 ### --batch-size
 
@@ -371,10 +379,10 @@ Pilihan:
       --log-path      Path to create log file e.g ./src/name.log          [string]
       --log-rotate    Rotate log files in directory specified by log-path
                                                       [boolean] [default: false]
-      --indexer       Url yang memungkinkan kueri mengakses metadata pengindeks    [string]
-      --unsafe        Nonaktifkan batasan pada kedalaman kueri dan jumlah yang diizinkan yang dikembalikan
-                       catatan kueri                                      [boolean]
-  -p, --port          Port yang akan diikat oleh layanan                 [number]
+      --indexer       Url that allows query to access indexer metadata    [string]
+      --unsafe        Disable limits on query depth and allowable number returned
+                      query records and enables aggregation functions                                          [boolean]
+  -p, --port          The port the service will bind to                   [number]
 ```
 
 ### --version
@@ -430,15 +438,15 @@ Tetapkan url khusus untuk lokasi titik akhir pengindeks, layanan kueri menggunak
 
 Tanda ini mengaktifkan [GraphQL Langganan](./subscription.md), untuk mengaktifkan fitur ini memerlukan `subql-node` juga mengaktifkan `--langganan`.
 
-### --unsafe
+### --unsafe (Query Service)
 
 Layanan kueri memiliki batas 100 entitas untuk kueri graphql tak terbatas. Bendera tidak aman menghapus batas ini yang dapat menyebabkan masalah kinerja pada layanan kueri. Sebagai gantinya, disarankan agar kueri [diberi halaman](https://graphql.org/learn/pagination/).
 
 Bendera ini memungkinkan fungsi agregasi tertentu termasuk jumlah, maks, rata-rata, dan lainnya. Baca selengkapnya tentang fitur ini [di sini](../run_publish/aggregate.md).
 
-Ini dinonaktifkan secara default karena batas entitas.
+These are disabled by default for database performance reasons.
 
-**Juga, perhatikan bahwa perintah `--unsafe` akan mencegah proyek Anda dijalankan di Jaringan SubQuery, dan Anda harus menghubungi dukungan jika Anda ingin perintah ini dijalankan dengan proyek Anda di [ layanan terkelola SubQuery](https://project.subquery.network).**
+**Note that must be on a Partner plan if you would like to run projects with the `--unsafe` command (on the query service) within [SubQuery's Managed Service](https://project.subquery.network). Additionally, it will prevent your project from being run in the SubQuery Network in the future.**
 
 ### --port
 
