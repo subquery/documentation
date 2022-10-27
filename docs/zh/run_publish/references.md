@@ -59,8 +59,7 @@ Options:
   -c, --config              Specify configuration file                  [string]
       --local               Use local mode                [deprecated] [boolean]
       --db-schema           Db schema name of the project               [string]
-      --unsafe              Allows usage of any built-in module within the
-                            sandbox                    [boolean][default: false]
+      --unsafe              Allows usage of various other features that compromise a projects determinism                    [boolean][default: false]
       --batch-size          Batch size of blocks to fetch in one round  [number]
       --scale-batch-size    scale batch size based on memory usage
                                                       [boolean] [default: false]
@@ -197,17 +196,26 @@ subql-node -f . --db-schema=test2
 
 这将在实体上创建一个通知触发器，这也是在查询服务中启用订阅功能的先决条件。
 
-### --unsafe
+### --unsafe (Node Service)
 
-SubQuery 项目通常在javascript sandbox中运行，以保证安全，限制项目对您系统的访问范围。 沙盒将可用的 javascript 导入限制为以下模块：
+Unsafe mode controls various features that compromise the determinism of a SubQuery project by making it impossible to guarantee that the data within two identical projects run independently will be absolutely consistent.
+
+One way we control this is by running all projects in a js sandbox for security to limit the scope of access the project has to your system. 沙盒将可用的 javascript 导入限制为以下模块：
 
 ```javascript
 ["assert", "buffer", "crypto", "util", "path"];
 ```
 
-虽然这会增强安全性，但我们理解这会限制您的 SubQuery 可用的功能。 `--unsafe` 命令导入所有默认的 javascript 模块，这些模块大大增加了安全性降低后的沙盒功能。
+Although this enhances security we understand that this limits the available functionality of your SubQuery project. The `--unsafe` command allows any import which greatly increases functionality with the tradeoff of decreased security.
 
-**Note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in [SubQuery's Managed Service](https://project.subquery.network).**
+By extension, the `--unsafe` command on the SubQuery Node also allows:
+
+- making external requests (e.g. via Fetch to an external HTTP address or fs)
+- quering block data at any height via the unsafeApi
+
+**Note that must be on a paid plan if you would like to run projects with the `--unsafe` command (on the node service) within [SubQuery's Managed Service](https://project.subquery.network). Additionally, it will prevent your project from being run in the SubQuery Network in the future.**
+
+Also review the [--unsafe command on the query service](#unsafe-query-service).
 
 ### --batch-size
 
@@ -367,14 +375,14 @@ Options:
                         [string] [choices: "json", "colored"] [default: "colored"]
       --log-level     Specify log level to print.
             [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
-                                                     "silent"] [default: "info"]
-      --log-path    Path to create log file e.g ./src/name.log          [string]
-      --log-rotate  Rotate log files in directory specified by log-path
+                                                       "silent"] [default: "info"]
+      --log-path      Path to create log file e.g ./src/name.log          [string]
+      --log-rotate    Rotate log files in directory specified by log-path
                                                       [boolean] [default: false]
-      --indexer     Url that allows query to access indexer metadata    [string]
-      --unsafe      Disable limits on query depth and allowable number returned
-                    query records                                      [boolean]
-  -p, --port        The port the service will bind to                   [number
+      --indexer       Url that allows query to access indexer metadata    [string]
+      --unsafe        Disable limits on query depth and allowable number returned
+                      query records and enables aggregation functions                                          [boolean]
+  -p, --port          The port the service will bind to                   [number]
 ```
 
 ### --version
@@ -430,19 +438,15 @@ Options:
 
 此标志启用 [GraphQL 订阅](./subscription.md), 以启用此功能需要 `subql-node` 也启用 `--subscription`.
 
-### --unsafe
+### --unsafe (Query Service)
 
 查询服务的无界 graphql 查询限制为 100 个实体。 unsafe 标志删除了此限制，这可能会导致查询服务出现性能问题。 建议改为[分页](https://graphql.org/learn/pagination/)查询。
 
 此标志启用某些聚合函数，包括 sum、max、avg 等。 在[此处](../run_publish/aggregate.md)了解有关此功能的更多信息。
 
-由于实体限制，它们默认被禁用。
+These are disabled by default for database performance reasons.
 
-**请注意，`--unsafe` 命令将阻止您的项目在 SubQuery 网络中运行，如果您希望此命令与您的项目一起在
-
-SubQuery 的托管服务中运行< /1>。</strong></p> 
-
-
+**Note that must be on a Partner plan if you would like to run projects with the `--unsafe` command (on the query service) within [SubQuery's Managed Service](https://project.subquery.network). Additionally, it will prevent your project from being run in the SubQuery Network in the future.**
 
 ### --port
 
