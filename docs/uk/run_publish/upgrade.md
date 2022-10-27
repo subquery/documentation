@@ -4,7 +4,7 @@
 
 Хоча у вас є свобода завжди оновлювати та розгортати нові версії вашого проекту SubQuery, будь ласка, будьте уважні під час цього процесу, якщо ваш проект SubQuery є загальнодоступним для світу. Деякі ключові точки для замітки:
 
-- Якщо оновлення є зміною, або створіть новий проект (наприклад,. ` Мій проект SubQuery V2 `) або повідомте вашій громаді багато попередження про зміни через канали соціальних медіа. Trans
+- Якщо оновлення є зміною, або створіть новий проект (наприклад,. `Мій проект SubQuery V2`) або повідомте вашій громаді багато попередження про зміни через канали соціальних медіа. Trans
 - Розгортання нової версії проекту SubQuery спричиняє деякий час простою, оскільки нова версія індексує повний ланцюг із блоку генезису.
 
 ## Зміни розгортання
@@ -45,7 +45,7 @@ $ subql deployment:deploy
 
 ### Using GitHub actions
 
-With the introduction of the deployment feature for the CLI, we've added a **Default Action Workflow** to [the starter project in GitHub](https://github.com/subquery/subql-starter/blob/v1.0.0/.github/workflows/cli-deploy.yml) that will allow you to publish and deploy your changes automatically:
+With the introduction of the deployment feature for the CLI, we've added a **Default Action Workflow** to [the starter project in GitHub](https://github.com/subquery/subql-starter/blob/main/Polkadot/Polkadot-starter/.github/workflows/cli-deploy.yml) that will allow you to publish and deploy your changes automatically:
 
 - Step 1: After pushing your project to GitHub, create `DEPLOYMENT` environment on GitHub, and add the secret [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) to it.
 - Step 2: If you haven't already, create a project on [SubQuery Projects](https://project.subquery.network). This can be done using the the [UI](#using-the-ui) or [CLI](#using-the-cli).

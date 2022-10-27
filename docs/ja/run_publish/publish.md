@@ -30,13 +30,13 @@ If your project is still being deployed via GitHub, read the migration guide for
 - Get your SUBQL_ACCESS_TOKEN ready.
 - To make sure your deployment is successful, we strongly recommend that you build your project with the `subql build` command, and test it locally before publishing.
 
-### SUBQL_ACCESS_TOKENを準備する
+### SUBQL_ACCESS_TOKEN を準備する
 
 - ステップ 1: [SubQuery Projects](https://project.subquery.network/) に移動してログインします。
 - Step 2: Click on your profile at the top right of the navigation menu, then click on **_Refresh Token_**.
 - ステップ 3: 生成されたトークンをコピーします。
 - ステップ 4: このトークンを使用するには:
-  - オプション1:環境変数に SUBQL_ACCESS_TOKENを追加します。 `EXPORT SUBQL_ACCESS_TOKEN=<token>` (Windows) or `export SUBQL_ACCESS_TOKEN=<token>` (Mac/Linux)
+  - オプション 1:環境変数に SUBQL_ACCESS_TOKEN を追加します。 `EXPORT SUBQL_ACCESS_TOKEN=<token>` (Windows) or `export SUBQL_ACCESS_TOKEN=<token>` (Mac/Linux)
   - オプション 2: 近日中に `subql/cli` が SUBQL_ACCESS_TOKEN をローカルに保存することをサポートする予定です。
 
 ### プロジェクトを公開する方法
@@ -83,7 +83,7 @@ Note: With `@subql/cli` version 1.3.0 or above, when using `subql publish`, a co
 
 ### IPFS Deployment
 
-IPFS Deploymentは、分散ネットワーク上のSubQueryプロジェクトの独立したユニークな存在を表します。 そのため、プロジェクト内のコードに変更があると、そのユニーク性に影響が出ます。 ビジネスロジックを調整する必要がある場合、例えばマッピング機能を変更する場合は、プロジェクトを再発行する必要があり、 `CID` が変更されます。
+IPFS Deployment は、分散ネットワーク上の SubQuery プロジェクトの独立したユニークな存在を表します。 そのため、プロジェクト内のコードに変更があると、そのユニーク性に影響が出ます。 ビジネスロジックを調整する必要がある場合、例えばマッピング機能を変更する場合は、プロジェクトを再発行する必要があり、 `CID` が変更されます。
 
 For now, to view the project you have published, use a `REST` api tool such as [Postman](https://web.postman.co/), and use the `POST` method with the following example URL to retrieve it:`https://ipfs.subquery.network/ipfs/api/v0/cat?arg=<YOUR_PROJECT_CID>`.
 
@@ -91,7 +91,7 @@ You should see the example project deployment as below.
 
 このデプロイメントはマニフェストファイルによく似ています。 それらの記述フィールドを期待することができ、ネットワークとディクショナリーのエンドポイントは、プロジェクトの実行結果に直接影響しないため、削除されました。
 
-ローカルプロジェクトで使用されたファイルは、IPFSにもパックされて公開されています。
+ローカルプロジェクトで使用されたファイルは、IPFS にもパックされて公開されています。
 
 ```yaml
 dataSources:
@@ -223,7 +223,7 @@ $ subql deployment:deploy
 
 #### Using GitHub actions
 
-With the introduction of the deployment feature for the CLI, we've added a **Default Action Workflow** to [the starter project in GitHub](https://github.com/subquery/subql-starter/blob/v1.0.0/.github/workflows/cli-deploy.yml) that will allow you to publish and deploy your changes automatically:
+With the introduction of the deployment feature for the CLI, we've added a **Default Action Workflow** to [the starter project in GitHub](https://github.com/subquery/subql-starter/blob/main/Polkadot/Polkadot-starter/.github/workflows/cli-deploy.yml) that will allow you to publish and deploy your changes automatically:
 
 - Step 1: After pushing your project to GitHub, create `DEPLOYMENT` environment on GitHub, and add the secret [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) to it.
 - Step 2: Create a project on [SubQuery Projects](https://project.subquery.network), this can be done using the the [UI](#using-the-ui) or [CLI](#using-the-cli).
@@ -246,11 +246,11 @@ jobs:
 
 ## 次のステップ - プロジェクトに接続
 
-デプロイが正常に完了し、ノードがチェーンからデータのインデックスを作成したら、表示されたGraphQLクエリエンドポイントからプロジェクトに接続することができるようになります。
+デプロイが正常に完了し、ノードがチェーンからデータのインデックスを作成したら、表示された GraphQL クエリエンドポイントからプロジェクトに接続することができるようになります。
 
 ![プロジェクトを展開および同期する](/assets/img/projects_deploy_sync.png)
 
-または、プロジェクトのタイトルの横にある3つの点をクリックして、SubQuery Explorer で表示することもできます。 There you can use the in-browser playground to get started - [read more about how to use our Explorer here](../run_publish/query.md).
+または、プロジェクトのタイトルの横にある 3 つの点をクリックして、SubQuery Explorer で表示することもできます。 There you can use the in-browser playground to get started - [read more about how to use our Explorer here](../run_publish/query.md).
 
 ![Projects in SubQuery Explorer](/assets/img/projects_explorer.png)
 
