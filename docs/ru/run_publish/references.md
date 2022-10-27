@@ -59,8 +59,7 @@ Options:
   -c, --config              Specify configuration file                  [string]
       --local               Use local mode                [deprecated] [boolean]
       --db-schema           Db schema name of the project               [string]
-      --unsafe              Allows usage of any built-in module within the
-                            sandbox                    [boolean][default: false]
+      --unsafe              Allows usage of various other features that compromise a projects determinism                    [boolean][default: false]
       --batch-size          Batch size of blocks to fetch in one round  [number]
       --scale-batch-size    scale batch size based on memory usage
                                                       [boolean] [default: false]
@@ -197,17 +196,26 @@ subql-node -f . --db-schema=test2
 
 Это создаст триггер уведомления на сущность, что также является необходимым условием для включения функции подписки в службе запросов.
 
-### - небезопасно
+### --unsafe (Node Service)
 
-Проекты SubQuery обычно запускаются в песочнице javascript для безопасности, чтобы ограничить объем доступа проекта к вашей системе. Песочница ограничивает доступный импорт javascript следующими модулями:
+Unsafe mode controls various features that compromise the determinism of a SubQuery project by making it impossible to guarantee that the data within two identical projects run independently will be absolutely consistent.
+
+One way we control this is by running all projects in a js sandbox for security to limit the scope of access the project has to your system. Песочница ограничивает доступный импорт javascript следующими модулями:
 
 ```javascript
 ["assert", "buffer", "crypto", "util", "path"];
 ```
 
-Хотя это повышает безопасность, мы понимаем, что это ограничивает доступную функциональность вашего SubQuery. Команда `--unsafe` импортирует все модули javascript по умолчанию, что значительно увеличивает функциональность песочницы, но при этом снижает безопасность.
+Although this enhances security we understand that this limits the available functionality of your SubQuery project. The `--unsafe` command allows any import which greatly increases functionality with the tradeoff of decreased security.
 
-**Note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in [SubQuery's Managed Service](https://project.subquery.network).**
+By extension, the `--unsafe` command on the SubQuery Node also allows:
+
+- making external requests (e.g. via Fetch to an external HTTP address or fs)
+- quering block data at any height via the unsafeApi
+
+**Note that must be on a paid plan if you would like to run projects with the `--unsafe` command (on the node service) within [SubQuery's Managed Service](https://project.subquery.network). Additionally, it will prevent your project from being run in the SubQuery Network in the future.**
+
+Also review the [--unsafe command on the query service](#unsafe-query-service).
 
 ### --размер партии
 
@@ -368,16 +376,15 @@ Options:
       --output-fmt    Print log as json or plain text
                         [string] [choices: "json", "colored"] [default: "colored"]
       --log-level     Specify log level to print.
-            [string] [варианты: "fatal", "error", "warn", "info", "debug", "trace",
-                                                       "silent"] [по умолчанию: "info"]
-      --log-path Путь для создания файла журнала, например ./src/name.log [string]
-      --log-rotate Вращать файлы журнала в каталоге, указанном log-path
-                                                      [boolean] [по умолчанию: false]
-      --indexer Url, позволяющий запросу получить доступ к метаданным индексатора [string]
-      --unsafe Отключить ограничения на глубину запроса и допустимое количество возвращаемых
-                      query records [boolean]
-  -p, --port Порт, к которому будет привязан сервис [число]
-
+            [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
+                                                       "silent"] [default: "info"]
+      --log-path      Path to create log file e.g ./src/name.log          [string]
+      --log-rotate    Rotate log files in directory specified by log-path
+                                                      [boolean] [default: false]
+      --indexer       Url that allows query to access indexer metadata    [string]
+      --unsafe        Disable limits on query depth and allowable number returned
+                      query records and enables aggregation functions                                          [boolean]
+  -p, --port          The port the service will bind to                   [number]
 ```
 
 ### --версия
@@ -433,15 +440,15 @@ Options:
 
 Этот флаг включает [GraphQL Subscriptions](./subscription.md), для включения этой функции требуется `subql-node` также включить `--subscription`.
 
-### - небезопасно
+### --unsafe (Query Service)
 
 Служба запросов имеет ограничение в 100 сущностей для неограниченных запросов graphql. Флаг unsafe снимает это ограничение, что может вызвать проблемы с производительностью службы запросов. Вместо этого рекомендуется, чтобы запросы были [пагинированными](https://graphql.org/learn/pagination/).
 
 Этот флаг позволяет использовать некоторые функции агрегирования, включая sum, max, avg и другие. Подробнее об этой функции [здесь](../run_publish/aggregate.md).
 
-По умолчанию они отключены из-за лимита сущностей.
+These are disabled by default for database performance reasons.
 
-**Обратите внимание, что команда `--unsafe` не позволит запустить ваш проект в сети SubQuery, и вы должны обратиться в службу поддержки, если хотите, чтобы эта команда была запущена с вашим проектом в [SubQuery's Managed Services](https://project.subquery.network).**
+**Note that must be on a Partner plan if you would like to run projects with the `--unsafe` command (on the query service) within [SubQuery's Managed Service](https://project.subquery.network). Additionally, it will prevent your project from being run in the SubQuery Network in the future.**
 
 ### --порт
 
