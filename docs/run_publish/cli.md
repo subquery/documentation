@@ -77,7 +77,7 @@ $ subql project:create-project
 
 ## Deploy a New Version of your Project
 
-Using the CLI, you can deploy a new version of your SubQuery project to the Managed Service. It supports both interactive and non-interactive methods. You may want to run this command after you delete the target deployment slot (staging or primary)
+Using the CLI, you can deploy a new version of your SubQuery project to the Managed Service. It supports both interactive and non-interactive methods. You may want to run this command after you delete the target deployment slot (staging or primary).
 
 ::: info Note
 We suggest using the `--useDefaults` command for best results.
