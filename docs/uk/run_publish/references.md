@@ -59,8 +59,7 @@ Options:
   -c, --config              Specify configuration file                  [string]
       --local               Use local mode                [deprecated] [boolean]
       --db-schema           Db schema name of the project               [string]
-      --unsafe              Allows usage of any built-in module within the
-                            sandbox                    [boolean][default: false]
+      --unsafe              Allows usage of various other features that compromise a projects determinism                    [boolean][default: false]
       --batch-size          Batch size of blocks to fetch in one round  [number]
       --scale-batch-size    scale batch size based on memory usage
                                                       [boolean] [default: false]
@@ -197,17 +196,26 @@ subql-node -f . --db-schema=test2
 
 Це створить тригер повідомлення для об'єкта, це також є необхідною умовою для включення функції підписки в службі запитів.
 
-### --unsafe
+### --unsafe (Node Service)
 
-Проєкти SubQuery зазвичай виконуються в ізольованому середовищі javascript для забезпечення безпеки, щоб обмежити обсяг доступу проєкту до вашої системи. Ізольоване середовище обмежує доступний імпорт javascript наступними модулями:
+Unsafe mode controls various features that compromise the determinism of a SubQuery project by making it impossible to guarantee that the data within two identical projects run independently will be absolutely consistent.
+
+One way we control this is by running all projects in a js sandbox for security to limit the scope of access the project has to your system. Ізольоване середовище обмежує доступний імпорт javascript наступними модулями:
 
 ```javascript
 ["assert", "buffer", "crypto", "util", "path"];
 ```
 
-Хоча це підвищує безпеку, ми розуміємо, що це обмежує доступну функціональність вашого SubQuery. Команда `--unsafe ` імпортує всі модулі javascript за замовчуванням, що значно збільшує функціональність пісочниці з компромісом у вигляді зниження безпеки.
+Although this enhances security we understand that this limits the available functionality of your SubQuery project. The `--unsafe` command allows any import which greatly increases functionality with the tradeoff of decreased security.
 
-**Note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in [SubQuery's Managed Service](https://project.subquery.network).**
+By extension, the `--unsafe` command on the SubQuery Node also allows:
+
+- making external requests (e.g. via Fetch to an external HTTP address or fs)
+- quering block data at any height via the unsafeApi
+
+**Note that must be on a paid plan if you would like to run projects with the `--unsafe` command (on the node service) within [SubQuery's Managed Service](https://project.subquery.network). Additionally, it will prevent your project from being run in the SubQuery Network in the future.**
+
+Also review the [--unsafe command on the query service](#unsafe-query-service).
 
 ### --batch-size
 
@@ -364,15 +372,15 @@ Options:
       --output-fmt    Print log as json or plain text
                         [string] [choices: "json", "colored"] [default: "colored"]
       --log-level     Specify log level to print.
-            [string] [вибір: "fatal", "error", "warn", "info", "debug", "trace",
+            [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
                                                        "silent"] [default: "info"]
-      --log-path      Шлях для створення файлу журналу e.g ./src/name.log          [string]
-      --log-rotate    Поворот файлів журналу в каталозі, зазначеному log-path
+      --log-path      Path to create log file e.g ./src/name.log          [string]
+      --log-rotate    Rotate log files in directory specified by log-path
                                                       [boolean] [default: false]
-      --indexer       Url-адреса, що дозволяє запиту отримати доступ до метаданих індексатора    [string]
-      --unsafe        Вимкніть обмеження на глибину запиту і допустиме число, що повертається
-                      записи query                                      [boolean]
-  -p, --port          Порт, до якого буде прив'язана служба                   [number]
+      --indexer       Url that allows query to access indexer metadata    [string]
+      --unsafe        Disable limits on query depth and allowable number returned
+                      query records and enables aggregation functions                                          [boolean]
+  -p, --port          The port the service will bind to                   [number]
 ```
 
 ### --version
@@ -428,15 +436,15 @@ Options:
 
 Цей прапорець включає [підписки на GraphQL](./subscription.md), для включення цієї функції потрібно `subql-node` також включити `--subscription`.
 
-### --unsafe
+### --unsafe (Query Service)
 
 Служба запитів має обмеження в 100 об'єктів для необмежених запитів graphql. Прапор unsafe видаляє це обмеження, яке може викликати проблеми з продуктивністю служби запитів. Замість цього рекомендується, щоб запити були [розбиті на сторінки](https://graphql.org/learn/pagination/).
 
 Цей прапор включає певні функції агрегування, включаючи sum, max, avg та інші. Докладніше про цю функцію [читайте тут](../run_publish/aggregate.md).
 
-За замовчуванням вони відключені через обмеження сутності.
+These are disabled by default for database performance reasons.
 
-**Зверніть увагу, що команда `--unsafe` запобігає запуску вашого проєкту в мережі SubQuery, і ви повинні звернутися в службу підтримки, якщо хочете, щоб ця команда виконувалася з вашим проєктом в [керованих службах SubQuery's ](https://project.subquery.network).**
+**Note that must be on a Partner plan if you would like to run projects with the `--unsafe` command (on the query service) within [SubQuery's Managed Service](https://project.subquery.network). Additionally, it will prevent your project from being run in the SubQuery Network in the future.**
 
 ### --port
 
