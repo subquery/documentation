@@ -79,23 +79,4 @@ Perhatikan bahwa disarankan untuk menggunakan `--force-clean` saat mengubah `sta
 
 ## Bagaimana saya bisa mengoptimalkan proyek saya untuk mempercepatnya?
 
-Performa merupakan faktor krusial dalam setiap proyek. Untungnya, ada beberapa hal yang bisa Anda lakukan untuk memperbaikinya. Berikut ini daftar beberapa saran:
-
-- Hindari menggunakan block handler jika memungkinkan.
-- Kueri hanya bidang yang diperlukan.
-- Coba gunakan kondisi filter untuk mengurangi ukuran respons. Buat filter sespesifik mungkin untuk menghindari kueri data yang tidak perlu.
-- Untuk tabel data yang besar, hindari query `totalCount` tanpa menambahkan kondisi.
-- Tambahkan indeks ke bidang entitas untuk kinerja kueri, ini sangat penting untuk proyek historis.
-- Atur blok awal ke saat kontrak diinisialisasi.
-- Selalu gunakan [dictionary](../tutorials_examples/dictionary.html#how-does-a-subquery-dictionary-work) (kami dapat membantu membuatnya untuk jaringan baru Anda).
-- Optimalkan desain skema Anda, buatlah sesederhana mungkin.
-    - Cobalah untuk mengurangi bidang dan kolom yang tidak perlu.
-    - Buat indeks sesuai kebutuhan.
-- Gunakan pemrosesan paralel/batch sesering mungkin.
-    - Gunakan `api.queryMulti()` untuk mengoptimalkan panggilan API Polkadot di dalam fungsi pemetaan dan menanyakannya secara paralel. Ini adalah cara yang lebih cepat daripada loop.
-    - Gunakan `Promise.all()`. Dalam kasus beberapa fungsi async, lebih baik mengeksekusinya dan menyelesaikannya secara paralel.
-    - Jika Anda ingin membuat banyak entitas dalam satu handler, Anda dapat menggunakan `store.bulkCreate(entityName: string, entities: Entity[])`. Anda bisa membuatnya secara paralel, tidak perlu melakukannya satu per satu.
-- Membuat panggilan API untuk menanyakan state bisa lambat. Anda bisa mencoba untuk meminimalkan pemanggilan jika memungkinkan dan menggunakan data `ekstrinsik/transaksi/event`.
-- Gunakan `worker threads` untuk memindahkan pengambilan blok dan pemrosesan blok ke dalam thread pekerja sendiri. Ini bisa mempercepat pengindeksan hingga 4 kali lipat (tergantung pada proyek tertentu). Anda bisa dengan mudah mengaktifkannya dengan menggunakan flag `-workers=<number>`. Perhatikan bahwa jumlah core CPU yang tersedia sangat membatasi penggunaan thread pekerja. Untuk saat ini, ini hanya tersedia untuk Substrate dan Cosmos dan akan segera diintegrasikan untuk Avalanche.
-- Perhatikan bahwa `JSON.stringify` tidak mendukung native `BigInts`. Pustaka logging kami akan melakukan hal ini secara internal jika Anda mencoba untuk mencatat sebuah objek. Kami sedang mencari solusi untuk ini.
-- Gunakan filter `modulo` yang mudah digunakan untuk menjalankan handler hanya sekali ke blok tertentu. Filter ini memungkinkan penanganan sejumlah blok tertentu, yang sangat berguna untuk mengelompokkan dan menghitung data pada interval yang ditetapkan. Sebagai contoh, jika modulo diatur ke 50, block handler akan berjalan pada setiap 50 blok. Ini memberikan lebih banyak kontrol atas data pengindeksan kepada pengembang dan dapat diimplementasikan seperti di bawah ini dalam manifes proyek Anda.
+Performa merupakan faktor krusial dalam setiap proyek. Untungnya, ada beberapa hal yang bisa Anda lakukan untuk memperbaikinya. You can find our recommendations in the [Project Optimisation](../build/optimisation.md). 
