@@ -1,6 +1,6 @@
 # SubQuery CLI
 
-**Most customers use the [@subql/cli](https://github.com/subquery/subql/tree/main/packages/cli) to just initialise, build, and run their project locally, however the CLI can be used to do a whole lot more!**
+**Most customers use the [@subql/cli](https://github.com/subquery/subql/tree/main/packages/cli) to just initialise, build, and run their projects locally, however the CLI can be used to do a whole lot more!**
 
 You can use the CLI to do the following:
 
