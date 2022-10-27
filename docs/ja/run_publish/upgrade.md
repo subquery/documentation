@@ -1,11 +1,11 @@
-# SubQueryプロジェクトの新しいバージョンをデプロイする
+# SubQuery プロジェクトの新しいバージョンをデプロイする
 
 ## ガイドライン
 
-SubQueryプロジェクトは、常に新しいバージョンをアップグレードしてデプロイする自由がありますが、SubQueryプロジェクトが世界に公開されている場合は、このプロセスに配慮してください。 注意すべきいくつかの重要なポイント:
+SubQuery プロジェクトは、常に新しいバージョンをアップグレードしてデプロイする自由がありますが、SubQuery プロジェクトが世界に公開されている場合は、このプロセスに配慮してください。 注意すべきいくつかの重要なポイント:
 
 - アップグレードが破損した変更である場合、新しいプロジェクトを作成するか（例：`My SubQuery Project V2`）、ソーシャルメディアチャンネルを通じてコミュニティに変更の警告を十分に行ってください。
-- 新しいSubQueryプロジェクトのバージョンをデプロイすると、新しいバージョンが生成ブロックから完全なチェーンのインデックスを作成するため、ダウンタイムが発生します。
+- 新しい SubQuery プロジェクトのバージョンをデプロイすると、新しいバージョンが生成ブロックから完全なチェーンのインデックスを作成するため、ダウンタイムが発生します。
 
 ## 変更をデプロイする
 
@@ -19,9 +19,9 @@ We recommend deploying to your staging slot only for final staging testing or wh
 
 The staging slot is perfect for:
 
-- SubQuery Projectの変更を別環境で最終検証します。 ステージングスロットは、dAppsで使用できる本番環境とは異なるURLを持っています。
+- SubQuery Project の変更を別環境で最終検証します。 ステージングスロットは、dApps で使用できる本番環境とは異なる URL を持っています。
 - Warming up and indexing data for an updated SubQuery project to eliminate downtime in your dApp.
-- 公開せずに、SubQuery プロジェクトの新しいリリースを準備します。 ステージングスロットはエクスプローラでは公開されず、あなただけに表示される固有のURLを持っています。
+- 公開せずに、SubQuery プロジェクトの新しいリリースを準備します。 ステージングスロットはエクスプローラでは公開されず、あなただけに表示される固有の URL を持っています。
 
 ![Staging slot](/assets/img/staging_slot.png)
 
@@ -45,7 +45,7 @@ $ subql deployment:deploy
 
 ### Using GitHub actions
 
-With the introduction of the deployment feature for the CLI, we've added a **Default Action Workflow** to [the starter project in GitHub](https://github.com/subquery/subql-starter/blob/v1.0.0/.github/workflows/cli-deploy.yml) that will allow you to publish and deploy your changes automatically:
+With the introduction of the deployment feature for the CLI, we've added a **Default Action Workflow** to [the starter project in GitHub](https://github.com/subquery/subql-starter/blob/main/Polkadot/Polkadot-starter/.github/workflows/cli-deploy.yml) that will allow you to publish and deploy your changes automatically:
 
 - Step 1: After pushing your project to GitHub, create `DEPLOYMENT` environment on GitHub, and add the secret [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) to it.
 - Step 2: If you haven't already, create a project on [SubQuery Projects](https://project.subquery.network). This can be done using the the [UI](#using-the-ui) or [CLI](#using-the-cli).
@@ -75,11 +75,11 @@ If you just want to upgrade to the latest indexer ([`@subql/node`](https://www.n
 
 ## 次のステップ - プロジェクトに接続
 
-デプロイが正常に完了し、ノードがチェーンからデータのインデックスを作成したら、表示されたGraphQLクエリエンドポイントからプロジェクトに接続することができるようになります。
+デプロイが正常に完了し、ノードがチェーンからデータのインデックスを作成したら、表示された GraphQL クエリエンドポイントからプロジェクトに接続することができるようになります。
 
 ![プロジェクトを展開および同期する](/assets/img/projects-deploy-sync.png)
 
-または、プロジェクトのタイトルの横にある3つの点をクリックして、SubQuery Explorer で表示することもできます。 There you can use the in browser playground to get started - [read more about how to use our Explorer here](../run_publish/query.md).
+または、プロジェクトのタイトルの横にある 3 つの点をクリックして、SubQuery Explorer で表示することもできます。 There you can use the in browser playground to get started - [read more about how to use our Explorer here](../run_publish/query.md).
 
 ![Projects in SubQuery Explorer](/assets/img/projects-explorer.png)
 

@@ -202,7 +202,7 @@ If deployed successfully, you'll see the indexer start working and report back p
 Sie können auch `@subql/cli` verwenden, um eine neue Bereitstellung Ihres Projekts für unseren Managed Service zu erstellen. Dies erfordert:
 
 - `@subql/cli` Version 1.1.0 oder höher.
-- Ein gültiges [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token)  ist bereit.
+- Ein gültiges [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) ist bereit.
 
 ```shell
 // Bereitstellen mit der CLI
@@ -224,7 +224,7 @@ $ subql deployment:deploy
 
 #### Verwenden von GitHub-Aktionen
 
-Mit der Einführung der Bereitstellungsfunktion für die CLI haben wir [dem Starterprojekt in GitHub](https://github.com/subquery/subql-starter/blob/v1.0.0/.github/workflows/cli-deploy.yml) einen **Standardaktions-Workflow** hinzugefügt, mit dem Sie Ihre Änderungen automatisch veröffentlichen und bereitstellen können :
+Mit der Einführung der Bereitstellungsfunktion für die CLI haben wir [dem Starterprojekt in GitHub](https://github.com/subquery/subql-starter/blob/main/Polkadot/Polkadot-starter/.github/workflows/cli-deploy.yml) einen **Standardaktions-Workflow** hinzugefügt, mit dem Sie Ihre Änderungen automatisch veröffentlichen und bereitstellen können :
 
 - Schritt 1: Nachdem Sie Ihr Projekt auf GitHub gepusht haben, erstellen Sie eine `DEPLOYMENT`-Umgebung auf GitHub und fügen Sie das Geheimnis [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) hinzu.
 - Schritt 2: Erstellen Sie ein Projekt in [SubQuery Projects](https://project.subquery.network). Dies kann über die [Benutzeroberfläche](#using-the-ui) oder die [CLI](#using-the-cli) erfolgen.
