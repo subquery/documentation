@@ -33,11 +33,6 @@ Click `Get Started` and then select `Approve`. Then MetaMask will pop up, asking
 
 Fill in the details to register your Indexer and confirm the MetaMask transaction.
 
-::: warning Important
-The proxy endpoint is the default public DNS for your EC2 instance.
-For example: `http://ec2-2-22-83-280.ap-southeast-2.compute.amazonaws.com`
-:::
-
 ![Register MetMask-Confirm Transaction](/assets/img/registerconfirm_metamask_index_project.png)
 
 ### 1.4 Synchronise Your Indexer
@@ -79,7 +74,7 @@ The Indexer can update metadata which includes:
 
 ![Update Indexer's Metadata](/assets/img/update_indexer_metadata_index_project.png)
 
-You have completed the initial set-up. Next, let’s work on adding a project.
+You have now completed the initial set-up. Next, let’s work on adding a project.
 
 ## 2. Add a Project
 
@@ -89,17 +84,9 @@ Before clicking **`Add Project`,** click on the SubQuery Explorer hyperlink. Thi
 
 ![Add Project Screen](/assets/img/add_project_index_project.png)
 
-Select the Polkadot Project as your first indexing project.
+Select a project of your choice to index and copy the deployment ID.
 
 ![Select a Project](/assets/img/select_project_index_project.png)
-
-::: info Note
-The polkadot project in this Testnet is:
-
-- Staking Threshold - Polkadot `QmduAur8aCENpuizuTGLAsXumG2BX8zSgWLsVpp5b8GEGN`
-:::
-
-![Deployment ID of the Project](/assets/img/deployID_Polkadot_index_project.png)
 
 Then return to the project page and add the project.
 
@@ -109,33 +96,28 @@ After finishing the process of adding your project, move forward with indexing t
 
 ## 3. Index a Project
 
-- Select the project card to open the project details page.
+Select the project card to open the project details page.
 
 ![Project Details Page](/assets/img/projectdetails_index_project.png)
 
-For a brand new project, the status will be `NOT INDEXING`. Select the **`Start Indexing`** button to begin indexing the project.
-
-Press the `Confirm` button to trigger the request to start the node and query service for this project in the coordinator service.
+For a brand new project, the indexing status will be `NOT INDEXING`. Select the **`Start Indexing`** button to begin indexing the project.
 
 Enter the following values for each project and select specific image versions if needed:
 
 - Staking Threshold - Polkadot
-  - Deployment ID: QmduAur8aCENpuizuTGLAsXumG2BX8zSgWLsVpp5b8GEGN
   - Indexing Endpoint: `wss://polkadot.api.onfinality.io/public-ws`
   - Dictionary Endpoint: `https://api.subquery.network/sq/subquery/polkadot-dictionary`
 
 - [Developer Fund Votes - Juno]((https://forum.subquery.network/t/indexing-developer-fund-votes-juno-project/148))
-  - Deployment ID: QmPZrgnpCrhU3bBXvNQG8qX3VBQTyNVj7agx1hiav14imM
   - Dictionary Endpoint: `https://api.subquery.network/sq/subquery/cosmos-juno-dictionary`
 
 - [Pangolin Approvals - Avalanche]
-  - Deployment ID: QmTXSopHWTDhei9ukMAJ1huy83jM9KnGsNEkBcpQkZUCVP
   - Indexing Endpoint: `http://avalanche.api.onfinality.io:9650`
   - Dictionary Endpoint: `https://api.subquery.network/sq/subquery/avalanche-dictionary`
 
-**Please make sure that you set “Enable POI” to `true`.**
+Please make sure that you set “Enable POI” to `true`. Then press `Confirm` to trigger the request to start the node and query service for this project in the coordinator service.
 
-![Restart Indexing Project Screen](/assets/img/restartproject_index_project.png)
+![Restart Indexing Project Screen](/assets/img/startproject_index_project.png)
 
 Once the services are started, the service information will be displayed.
 
