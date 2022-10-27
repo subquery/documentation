@@ -8,4 +8,6 @@ Now that you have a clear understanding of how to build a basic SubQuery project
 
 - If you want to practice with more real examples, then head to our [Courses](../academy/herocourse/welcome.md) section and learn important concepts with related exercises and lab workbooks. Get access to readily available and open-source projects, and get a hands-on experience with SubQuery projects.
 
+- Find out **how to build a performant SubQuery project and avoid common mistakes** in [Project Optimisation](../build/optimisation.md).
+
 - In the end, if you want to explore more ways to run and publish your project, refer to [Run & Publish section](../../run_publish/run.md). Get complete information about all the ways to run your SubQuery project, along with advanced GraphQL aggregation and subscription features.
