@@ -4,7 +4,7 @@ There are various components required when creating a SubQuery project. The [@su
 
 ## Install @subql/cli
 
-The [@subql/cli](https://github.com/subquery/subql/tree/main/packages/cli) tool helps to create a project framework or scaffold meaning you don't have to start from scratch.
+The [@subql/cli](https://github.com/subquery/subql/tree/main/packages/cli) tool helps to create a project framework or scaffold, meaning you don't have to start from scratch.
 
 Install SubQuery CLI globally on your terminal by using Yarn or NPM:
 
