@@ -24,19 +24,15 @@ Now, let's explore how to run the Indexing Service Locally step-by-step.
 - Clone the indexing services repository to your local machine. This repository contains a `docker-compose.yml` file, which consists of all the images to build and start the various applications.
 
 ```bash
-mkdir testnet
-cd testnet
+mkdir kepler
+cd kepler
 curl https://raw.githubusercontent.com/subquery/indexer-services/main/docker-compose.yml -o docker-compose.yml
 ```
 
 ::: warning Important
-DO NOT skip checking the Indexer Version after you finish the installation process.
-:::
+DO NOT skip checking the indexer version after you finish the installation process. Visit [this section](../indexers/become-an-indexer.md#_2-1-check-indexer-version) to check the latest indexer version is used and to to complete the set up process.
 
-- Visit [this section](../indexers/become-an-indexer.md#_2-1-check-indexer-version) and complete the process.
-
-::: warning Important
-Please change the default PostgreSQL password in the `POSTGRES_PASSWORD` field and in the coordinator-service's `postgres-password` field. Replace it with your own one.
+Also, please change the default PostgreSQL password in the `POSTGRES_PASSWORD` field and in the coordinator-service's `postgres-password` field in the docker-compose.yml file.
 :::
 
 ### Step 2 - Start the Indexing Service
