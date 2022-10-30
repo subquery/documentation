@@ -83,6 +83,8 @@ Options:
                                                       [boolean] [default: false]
       --timestamp-field     Enable/disable created_at and updated_at in schema
                                                       [boolean] [default: false]
+      --unfinalized-blocks  Enable/disable unfinalized blocks indexing 
+                                                       [boolean] [default: false]
   -d, --network-dictionary  Specify the dictionary api for this network [string]
   -m, --mmr-path            Local path of the merkle mountain range (.mmr) file
                                                                         [string]
@@ -331,6 +333,18 @@ By default this is true. when set to false with:
 ```
 
 This removes the created_at and updated_at columns in the starter_entities table.
+
+### --unfinalized-blocks
+
+This will allow you to index blocks before they become finalized. It can be very useful if you want the most up-to-date data possible. It will detect any forks and remove any blocks that don't become finalized. By default it is set to `false`. To change it to `true` run following command: 
+
+```shell
+> subql-node -f . --unfinalized-blocks
+```
+
+::: info Note
+This feature is available for Substrate-based blochchains. 
+:::
 
 ### -d, --network-dictionary
 
