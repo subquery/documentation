@@ -82,6 +82,8 @@ Options:
                                                       [boolean] [default: false]
       --timestamp-field     Enable/disable created_at and updated_at in schema
                                                       [boolean] [default: false]
+      --unfinalized-blocks  Enable/disable unfinalized blocks indexing 
+                                                       [boolean] [default: false]
   -d, --network-dictionary  Specify the dictionary api for this network [string]
   -m, --mmr-path            Local path of the merkle mountain range (.mmr) file
                                                                         [string]
@@ -326,6 +328,20 @@ An instance of ProjectManifestImpl has failed the validation:
 
 При цьому видаляються стовпці created_at і updated_at в таблиці starter_entities.
 
+### --unfinalized-blocks
+
+This will allow you to index blocks before they become finalized. It can be very useful if you want the most up-to-date data possible. It will detect any forks and remove any blocks that don't become finalized. By default it is set to `false`. To change it to `true` run following command:
+
+```shell
+> subql-node -f . --unfinalized-blocks
+```
+
+::: tip Tip Note that this feature **requires historical indexing** to be enabled. Learn more [here](./historical.md). :::
+
+::: info Note
+This feature is only available for Substrate-based blockchains; more networks will be supported in the future. 
+:::
+
 ### -d, --network-dictionary
 
 Це дозволяє вказати кінцеву точку словника, яка є безплатною службою, що надається та розміщується в [Project Explorer](https://explorer.subquery.network/) SubQuery's (пошук за словником) і представляє кінцеву точку API: https://api.subquery.network/sq/subquery/dictionary-polkadot.
@@ -353,8 +369,6 @@ subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot
 :::tip Порада Це може збільшити продуктивність до 4 разів. Спробуйте й повідомте нам свій відгук!
 
 На даний момент він знаходиться на ранній експериментальній стадії, але ми плануємо ввімкнути його за умовчанням. :::
-
-:: info Примітка Ця функція доступна для Substrate і Cosmos, і незабаром буде інтегрована для Avalanche. :::
 
 ## subql-query
 
