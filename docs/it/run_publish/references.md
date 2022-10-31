@@ -82,6 +82,8 @@ Options:
                                                       [boolean] [default: false]
       --timestamp-field     Enable/disable created_at and updated_at in schema
                                                       [boolean] [default: false]
+      --unfinalized-blocks  Enable/disable unfinalized blocks indexing 
+                                                       [boolean] [default: false]
   -d, --network-dictionary  Specify the dictionary api for this network [string]
   -m, --mmr-path            Local path of the merkle mountain range (.mmr) file
                                                                         [string]
@@ -326,6 +328,20 @@ By default this is true. when set to false with:
 
 This removes the created_at and updated_at columns in the starter_entities table.
 
+### --unfinalized-blocks
+
+This will allow you to index blocks before they become finalized. It can be very useful if you want the most up-to-date data possible. It will detect any forks and remove any blocks that don't become finalized. By default it is set to `false`. To change it to `true` run following command:
+
+```shell
+> subql-node -f . --unfinalized-blocks
+```
+
+::: tip Tip Note that this feature **requires historical indexing** to be enabled. Learn more [here](./historical.md). :::
+
+::: info Note
+This feature is only available for Substrate-based blockchains; more networks will be supported in the future. 
+:::
+
 ### -d, --network-dictionary
 
 This allows you to specify a dictionary endpoint which is a free service that is provided and hosted at SubQuery's [Project Explorer](https://explorer.subquery.network/) (search for dictionary) and presents an API endpoint of: https://api.subquery.network/sq/subquery/dictionary-polkadot.
@@ -353,10 +369,6 @@ This will move block fetching and processing into a worker. By default, this fea
 :::tip Tip It can increase performance by up to 4 times. Give it a try and let us know your feedback!
 
 It is at an early experimental stage at the moment, but we plan to enable it by default. :::
-
-::: info Note
-This feature is available for Substrate and Cosmos, and soon will be integrated for Avalanche.
-:::
 
 ## subql-query
 
