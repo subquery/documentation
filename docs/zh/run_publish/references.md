@@ -82,6 +82,8 @@ Options:
                                                       [boolean] [default: false]
       --timestamp-field     Enable/disable created_at and updated_at in schema
                                                       [boolean] [default: false]
+      --unfinalized-blocks  Enable/disable unfinalized blocks indexing 
+                                                       [boolean] [default: false]
   -d, --network-dictionary  Specify the dictionary api for this network [string]
   -m, --mmr-path            Local path of the merkle mountain range (.mmr) file
                                                                         [string]
@@ -326,6 +328,20 @@ An instance of ProjectManifestImpl has failed the validation:
 
 这将删除在starter_entities表中的 created_at和updated_at列
 
+### --unfinalized-blocks
+
+This will allow you to index blocks before they become finalized. It can be very useful if you want the most up-to-date data possible. It will detect any forks and remove any blocks that don't become finalized. By default it is set to `false`. To change it to `true` run following command:
+
+```shell
+> subql-node -f . --unfinalized-blocks
+```
+
+::: tip Tip Note that this feature **requires historical indexing** to be enabled. Learn more [here](./historical.md). :::
+
+::: info Note
+This feature is only available for Substrate-based blockchains; more networks will be supported in the future. 
+:::
+
 ### -d, --network-dictionary
 
 这允许您指定一个字典端点，这是一个免费的服务，其在 [https://explorer.subquery etwork/](https://explorer.subquery.network/) (搜索字典) 上提供和托管。并提供了一个 API 端口： https://api.subquery.network/sq/sq/subquery/dictiony-polkadot.
@@ -353,10 +369,6 @@ Subquery索引服务绑定到的端口。 默认设置为 `3000`.
 :::tip 提示 它可以提高性能最多4次。 试试一下，让我们知道你的反馈！
 
 目前它处于早期试验阶段，但我们计划默认启用它。 :::
-
-::: 信息注释
-此功能可用于 Substrate 和 Cosmos，不久将会被集成到 Avalanche.
-:::
 
 ## subql-query
 
