@@ -344,7 +344,7 @@ This will allow you to index blocks before they become finalized. It can be very
 
 ::: tip Tip
 Note that this feature **requires historical indexing** to be enabled. 
-Lear more [here](./historical.md).
+Learn more [here](./historical.md).
 :::
 
 ::: info Note
