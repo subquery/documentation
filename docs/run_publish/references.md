@@ -348,7 +348,7 @@ Learn more [here](./historical.md).
 :::
 
 ::: info Note
-This feature is available for Substrate-based blockchains. 
+This feature is only available for Substrate-based blockchains; more networks will be supported in the future. 
 :::
 
 ### -d, --network-dictionary
