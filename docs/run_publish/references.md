@@ -363,10 +363,6 @@ It can increase performance by up to 4 times. Give it a try and let us know your
 It is at an early experimental stage at the moment, but we plan to enable it by default.
 :::
 
-::: info Note
-This feature is available for Substrate and Cosmos, and soon will be integrated for Avalanche.
-:::
-
 ## subql-query
 
 ### --help
