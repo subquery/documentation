@@ -342,6 +342,11 @@ This will allow you to index blocks before they become finalized. It can be very
 > subql-node -f . --unfinalized-blocks
 ```
 
+::: tip Tip
+Note that this feature **requires historical indexing** to be enabled. 
+Lear more [here](./historical.md).
+:::
+
 ::: info Note
 This feature is available for Substrate-based blochchains. 
 :::
