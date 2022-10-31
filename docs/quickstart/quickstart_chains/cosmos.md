@@ -12,10 +12,11 @@ Note that we are using Juno as the example here, but SubQuery supports all the f
 
 - Juno
 - CosmosHub
-- Fetch.ai
+- Fetch
 - Stargaze
 - Osmosis
 - Cronos
+- and more, view the full list in [the cosmos-subql-starter repository](https://github.com/subquery/cosmos-subql-starter).
 
 Now, let's move ahead in the process and update these configurations.
 
@@ -260,7 +261,7 @@ Congratulations! You have now a locally running SubQuery project that accepts Gr
 
 ::: tip Tip
 
-Find out how to build a performant SubQuery project and avoid common mistakes in [Project Optimisation](../build/optimisation.md). 
+Find out how to build a performant SubQuery project and avoid common mistakes in [Project Optimisation](../build/optimisation.md).
 
 :::
 
