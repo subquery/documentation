@@ -11,7 +11,7 @@ Fortunately, there are several things you could do to improve it.
 - Always use a [dictionary](../academy/tutorials_examples/dictionary.html#how-does-a-subquery-dictionary-work) (we can help create one for your new network). You can see examples of how to create a dictionary in the [dictionary repository](https://github.com/subquery/subql-dictionary).
 - Use filter conditions in your mapping handlers (within the project mnaifest) to reduce the number of events/transactions that need to be processed. Create filters as specific as possible to avoid querying unnecessary data.
 - Set the start block in your project manifest to when the contract was initialised or when the first event/transaction occurs. 
-- Use `worker threads` to move block fetching and block processing into its own worker thread. It could speed up indexing by up to 4 times (depending on the particular project). You can easily enable it using the `-workers=<number>` flag. Note that the number of available CPU cores strictly limits the usage of worker threads. For now, it is only available for Substrate and Cosmos and will soon be integrated for Avalanche. Read more [here](../run_publish/references.html#w-workers).
+- Use `worker threads` to move block fetching and block processing into its own worker thread. It could speed up indexing by up to 4 times (depending on the particular project). You can easily enable it using the `-workers=<number>` flag. Note that the number of available CPU cores strictly limits the usage of worker threads. Read more [here](../run_publish/references.html#w-workers).
 
 ## Other Improvements 
 
@@ -24,7 +24,7 @@ Here is the list of further suggestions for improvements of query and indexing p
 ```shell
 type Transaction @entity {
   id: ID! # Transaction hash
-  value: BigInt! @index
+  value: BigInt!
   to: Account! # Foreign key field
   from: Account! # Foreign key field
   contractAddress: String! @index
