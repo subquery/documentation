@@ -44,8 +44,8 @@ Make sure the indexer service versions are correct:
 
 | Service  | Version |
 | :----------------------------- | :----- |
-| onfinality/subql-coordinator   | v0.3.11 |
-| onfinality/subql-indexer-proxy | v0.2.0 |
+| onfinality/subql-coordinator   | v0.4.1-11 |
+| onfinality/subql-indexer-proxy | latest |
 
 ::: warning Important
 Please change the default PostgreSQL password in the `POSTGRES_PASSWORD` field and in the coordinator-service's `postgres-password` field. Replace it with your own one. 

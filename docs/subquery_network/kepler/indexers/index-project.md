@@ -153,7 +153,7 @@ Once the Indexer announces that they have started indexing the project on the ne
 
 ![Indexer Ready Screen](/assets/img/indexer_ready_index_project.png)
 
-### 4.3 **Stopping Indexing the Project**
+### 4.3 **Stop Indexing the Project**
 
 When you stop indexing the project, the node and query service will be terminated on the coordinator service side. In addition, the status of the indexing service will need to be changed back to `NOT INDEXING`.
 

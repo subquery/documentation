@@ -1,6 +1,6 @@
 # Welcome
 
-Welcome to [Kepler](https://kepler.thechaindata.com), SubQuery's canary network. The Kepler network is the final stage before mainnet where network participants can be part of the SubQuery network and be rewarded with kSQT tokens which have real-world value.
+Welcome to Kepler, SubQuery's canary network. The Kepler network is the final stage before mainnet where network participants can be part of the SubQuery network and be rewarded with kSQT tokens which have real-world value.
 
 Learn more about our network participants [here](../introduction.md), before jumping in and learning how to become an [Indexer](../kepler/indexers/become-an-indexer.md), [Delegator](../delegators.md), or a [Consumer](../consumers.md). First though, learn more about the Kepler dashboard below.
 
@@ -59,14 +59,14 @@ Swaps allows users to swap USDC to kSQT and vice versa.
 ---
 ### Governance
 
-Participate in SubQuery's governance process.
+Participate in SubQuery's [governance process](https://snapshot.org/#/subquerynetwork.eth).
 
 ---
 ### Documentation
 
-Learn more about the SubQuery network.
+Learn more about the [SubQuery network](../introduction.html).
 
 ---
 ### Forum
 
-Join the discussion in our Discourse forum.
+Join the discussion in our [forum](https://forum.subquery.network/).
