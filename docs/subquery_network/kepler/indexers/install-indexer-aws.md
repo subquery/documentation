@@ -17,7 +17,7 @@ You can use our pre-built image or build your own. Let's start with SubQuery's p
 | Region    | ap-southeast-2 (Sydney)               |
 | --------- | ------------------------------------- |
 | Node Type | >= t3.medium                          |
-| AMI       | Community AMIs: ami-0ba91a7aa45470a3e |
+| AMI       | Community AMIs: TBA |
 
 ### 1.2 Launch Instance
 

@@ -2,9 +2,7 @@
 
 ## Introduction 
 
-Welcome to the **step-by-step guide to becoming a Consumer.** This guide explains what a consumer is and includes the necessary steps to become one. It also gives you an insight the benefits of becoming a consumer. 
-
-Before you begin exploring further, visit [Frontier](https://frontier.subquery.network/explorer) - SubQuery’s Testnet. This guide takes this testnet into account.  
+This guide explains what a consumer is and includes the necessary steps to become one. It also gives you an insight the benefits of becoming a consumer. 
 
 ## Why Become a Consumer?
 
@@ -17,7 +15,7 @@ As a [consumer](../../consumers.md), you can get indexed data by entering into a
 
 ### Initial Preparation: 
 
-Before you create or purchase your first offer on SubQuery's Frontier Testnet, you must connect with **MetaMask**. Follow [these guided steps](../metamask/connect-metamask.md) and connect with MetaMask. 
+Before you create or purchase your first offer on SubQuery's Frontier Testnet, you must connect with **MetaMask**. Follow [these guided steps](./metamask/connect-metamask.md) and connect with MetaMask. 
 
 ### Method-1. Create Your Own Offer
 
