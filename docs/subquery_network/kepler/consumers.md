@@ -10,7 +10,7 @@ As a [consumer](../../consumers.md), you can get indexed data by entering into a
 
 **Begin your journey as a consumer by creating an offer. Follow any of these two methods:**
 
-1. Create your own purchase offer
+1. Create your own  offer
 2. Purchase an Indexer's plan 
 
 ### Initial Preparation: 
@@ -19,13 +19,11 @@ Before you create or purchase your first offer on SubQuery's Frontier Testnet, y
 
 ### Method-1. Create Your Own Offer
 
-To create your own offer, follow the steps shown [here.](../season3-challenges/season3.md#_1-create-a-purchase-offer)
+TBC
 
 ### Method-2. Purchase an Indexer's Plan 
 
-To purchase an indexer’s plan, follow the steps shown [here.](../season3-challenges/season3.md#_5-purchase-a-plan-from-an-indexer)
-
-
+TBC
 
 ## How to make a use of your purchased plan and indexed data?
 
@@ -40,7 +38,7 @@ Playground is the place where you can run the readily available query(from any o
 
 ![Service Agreements](/assets/img/service_agreement.png)
 
-- You will be redirected to a page, generally known as the Playground. 
+- You will be redirected to a page, known as the Playground. 
 
 - You will then see a code that you can directly use as the query and get the chain data for your project. You can also modify this query as per your requirements and retrieve the data in the desired format. 
 
@@ -54,12 +52,12 @@ You can visit the expired plan's service agreement under the `Expired` tab.
 
 ### Get a Service Agreement from an Indexer
 
-Visit this section to know how to [get a service agreement from an indexer.](../season3-challenges/season3.md#_2-get-a-service-agreement-from-an-indexer)
+TBC
 
 ### Cancel an Offer Before It Expires
 
-Visit this section and know how to [cancel an offer before it expires.](../season3-challenges/season3.md#_3-cancel-an-offer-before-it-expires) 
+TBC
 
 ### Withdraw SQT locked in an Offer After It Expires
 
-Visit this section to know more about [withdrawing SQT locked in an offer after it expires.](../season3-challenges/season3.md#_4-withdraw-sqt-locked-in-an-offer-after-it-expires)
+TBC
