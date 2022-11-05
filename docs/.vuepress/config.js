@@ -304,6 +304,7 @@ function getSidebar(locale, language) {
           `${locale}/subquery_network/consumers.md`,
           `${locale}/subquery_network/indexers.md`,
           `${locale}/subquery_network/delegators.md`,
+          `${locale}/subquery_network/architects.md`,
           `${locale}/subquery_network/payment-methods.md`,
           `${locale}/subquery_network/foundation.md`,
           `${locale}/subquery_network/design-philosophy.md`,
