@@ -6,11 +6,18 @@ Ein Verbraucher ist ein Teilnehmer des SubQuery-Netzwerks und entweder eine Einz
 
 Verbraucher sind in der Regel dApp-Entwickler (dezentralisierte Anwendungen), Datenanalyseunternehmen, Blockchain-Netzwerke, Middleware-Entwickler oder sogar Web-Aggregationsunternehmen, die Zugriff auf Blockchain-Daten benötigen, um ihren Endbenutzern Dienste anbieten zu können.
 
-## Verbraucheranforderungen
+## Requirements to be a Consumer
 
 Es gibt keine Anforderungen als solche, um ein SubQuery-Verbraucher zu werden. Verbraucher müssen jedoch verstehen, wie sie SQT erhalten, wie sie ihre Datenanforderungen ankündigen und wie sie die zurückgegebenen JSON-Daten nutzen.
 
 Verbraucher müssen möglicherweise auch verstehen, wie SubQuery-Projekte erstellt werden, die indiziert werden sollen, oder diese Arbeit in Auftrag geben, um die Daten in dem von ihnen benötigten Format zu erhalten.
+
+## Benefits of being a Consumer
+
+There are numerous benefits of being a Consumer.
+ - Easy access to blockchain data. There is no need to learn about the intricacies of a blockchain. Just get access to the exact data you need to run your applications.
+ - Focus on developing your appplication, not on time consuming blockchain integration.
+ - Cost effective. Combining the two points from above, consuming data from SubQuery results in a very cost effective way to power your applications.
 
 ## Servicekosten
 
