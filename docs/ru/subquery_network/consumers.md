@@ -6,11 +6,18 @@
 
 Потребителями обычно являются разработчики dApp (децентрализованных приложений), компании, занимающиеся анализом данных, блокчейн-сети, разработчики промежуточного программного обеспечения или даже компании-агрегаторы, которым необходим доступ к данным блокчейна для предоставления услуг своим конечным пользователям.
 
-## Требования к потребителям
+## Requirements to be a Consumer
 
 Для того чтобы стать потребителем SubQuery, не существует никаких требований. Однако потребителям необходимо понять, как получить SQT, как объявить о своих требованиях к данным и как использовать полученные данные в формате JSON.
 
 Потребителям также может потребоваться понимание того, как создавать проекты SubQuery для индексирования или заключить договор на выполнение этой работы, чтобы получить данные в нужном им формате.
+
+## Benefits of being a Consumer
+
+There are numerous benefits of being a Consumer.
+ - Easy access to blockchain data. There is no need to learn about the intricacies of a blockchain. Just get access to the exact data you need to run your applications.
+ - Focus on developing your appplication, not on time consuming blockchain integration.
+ - Cost effective. Combining the two points from above, consuming data from SubQuery results in a very cost effective way to power your applications.
 
 ## Стоимость услуг
 
