@@ -6,11 +6,18 @@ A Consumer is a participant in the SubQuery network and is either an individual 
 
 Consumers are typically dApp (decentralised application) developers, data analytic companies, blockchain networks, middleware developers, or even web aggregating companies that need access to blockchain data to provide services to their end-users.
 
-## Consumer Requirements
+## Requirements to be a Consumer
 
 There are no requirements as such to become a SubQuery Consumer. However, Consumers will need to understand how to obtain SQT, how to advertise their data requirements and how to consume the JSON data returned.
 
 Consumers may also need to understand how to create SubQuery projects to be Indexed or contract this work out in order to get the data in the format they need.
+
+## Benefits of being a Consumer
+
+There are numerous benefits of being a Consumer.
+ - Easy access to blockchain data. There is no need to learn about the intricacies of a blockchain. Just get access to the exact data you need to run your applications.
+ - Focus on developing your appplication, not on time consuming blockchain integration.
+ - Cost effective. Combining the two points from above, consuming data from SubQuery results in a very cost effective way to power your applications.
 
 ## Service Cost
 
