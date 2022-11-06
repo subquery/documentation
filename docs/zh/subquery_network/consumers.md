@@ -6,11 +6,18 @@
 
 消费者通常是 dApp（去中心化应用程序）开发人员、数据分析公司、区块链网络、中间件开发人员，甚至是需要访问区块链数据以向最终用户提供服务的 Web 聚合公司。
 
-## 消费者要求
+## Requirements to be a Consumer
 
 成为 SubQuery 的消費者没有任何要求。 但是，消费者需要了解如何获取 SQT、如何宣传他们的数据需求以及如何使用返回的 JSON 数据。
 
 消费者可能还需要了解如何创建要索引的子查询项目或将这项工作外包，以便以他们需要的格式获取数据。
+
+## Benefits of being a Consumer
+
+There are numerous benefits of being a Consumer.
+ - Easy access to blockchain data. There is no need to learn about the intricacies of a blockchain. Just get access to the exact data you need to run your applications.
+ - Focus on developing your appplication, not on time consuming blockchain integration.
+ - Cost effective. Combining the two points from above, consuming data from SubQuery results in a very cost effective way to power your applications.
 
 ## 服务成本
 
