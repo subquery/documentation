@@ -6,11 +6,18 @@ Konsumen adalah peserta dalam jaringan SubQuery dan merupakan individu atau orga
 
 Konsumen biasanya adalah pengembang dApp (aplikasi terdesentralisasi), perusahaan analitik data, jaringan blockchain, pengembang middleware, atau bahkan perusahaan agregasi web yang memerlukan akses ke data blockchain untuk menyediakan layanan kepada pengguna akhir mereka.
 
-## Persyaratan Konsumen
+## Requirements to be a Consumer
 
 Tidak ada persyaratan seperti itu untuk menjadi Konsumen SubQuery. Namun, Konsumen perlu memahami cara mendapatkan SQT, cara mengiklankan persyaratan data mereka, dan cara menggunakan data JSON yang dikembalikan.
 
 Konsumen mungkin juga perlu memahami cara membuat proyek SubQuery untuk Diindeks atau mengontrak pekerjaan ini untuk mendapatkan data dalam format yang mereka butuhkan.
+
+## Benefits of being a Consumer
+
+There are numerous benefits of being a Consumer.
+ - Easy access to blockchain data. There is no need to learn about the intricacies of a blockchain. Just get access to the exact data you need to run your applications.
+ - Focus on developing your appplication, not on time consuming blockchain integration.
+ - Cost effective. Combining the two points from above, consuming data from SubQuery results in a very cost effective way to power your applications.
 
 ## Biaya Layanan
 
