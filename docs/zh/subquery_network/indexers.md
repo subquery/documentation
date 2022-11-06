@@ -14,25 +14,7 @@ SubQuery 计划为网络添加一个约束，即索引者必须在相关奖励�
 
 如果索引者被发现错误(例如提供无效、不完整或不正确的数据)， 他们有责任将他们的Staked SQT（关于特定奖励池）的一部分重新分配给SubQuery基金会财务处。 减少他们在网络中所持的 SQT ，因而减少他们的潜在奖励。 因为索引者分配的股份是由他们SQT总额的百分比决定的， 这将对索引者所加入的所有其他奖励池产生影响。
 
-## 索引者如何获取奖励?
-
-索引者以两种方式在 SQT 中获得奖励：
-- 基于 Cobb-Douglas 生产功能定义的分布，来自SQT 奖励池的奖励。
-- 索引者从封闭协议中直接获得SQT查询费奖励。
-
-索引者会被奖励消费者因提供消费者要求的区块链数据而支付的费用。 索引者将从封闭协议中收取所有费用。 否则， 费用根据完成的工作量(请求已送达) 和授权的 SQT 金额进行拆分——这种拆分是通过应用Cobb-Douglas Production 功能来确定的。
-
-给定索引者可能同时激活多个奖励池。 索引者的工作是在这些池中分配他们的分级和委派的 SQT (占其总SQT的百分比)。 索引者接受PAYG的每个项目都有奖励池。 并为索引者所缔结的每一项市场协定提供奖励库。
-
-## 吸引委托者
-
-指数化可以通过吸引委托者来增加他们的收入潜力。 委托者成员是 SQT 代币持有者，可以将其代币分配给索引者以获得额外奖励。 索引者使用这些额外的代币来增加分配给他们选择的项目的金额。 这使索引者能够增加收入。
-
-索引者设置索引者的佣金率 (ICR) 是索引者赚取的百分比。 其余部分随后由索引者和所有代表按预定/授权数额分摊。 因此，索引者需要决定索引者希望保留的利润相对于与代表分享的数额的比例。 较低的ICR对委托方更有吸引力。
-
-例如，Indexer A将ICR 设定为80%，并从8名委托者收到了SQT。 这意味着8名委托者加上索引者本身将得到索引者剩余20%收入的奖励。 份额将按比例在它们之间分配。 请注意，委托者必须已经授予他们的代币，才有资格获得这些奖励。 关于代表奖励的更多信息，请参阅 [Delegators](./delegators.md)。
-
-## 成为索引者
+## Requirements to be an Indexer
 
 要成为SubQuery网络的索引者，索引者必须拥有必要的硬件，运行所需的SubQuery服务。 有一个通过静态IP或域名公开可访问的网络，并注册为索引者。
 
@@ -77,6 +59,30 @@ SubQuery 计划为网络添加一个约束，即索引者必须在相关奖励�
 - 运行Postgresql db (v12及以上) 的数据库节点。
 
 更详细的信息会在不就得将来发布。
+
+## 索引者如何获取奖励?
+
+索引者以两种方式在 SQT 中获得奖励：
+- 基于 Cobb-Douglas 生产功能定义的分布，来自SQT 奖励池的奖励。
+- 索引者从封闭协议中直接获得SQT查询费奖励。
+
+索引者会被奖励消费者因提供消费者要求的区块链数据而支付的费用。 索引者将从封闭协议中收取所有费用。 否则， 费用根据完成的工作量(请求已送达) 和授权的 SQT 金额进行拆分——这种拆分是通过应用Cobb-Douglas Production 功能来确定的。
+
+给定索引者可能同时激活多个奖励池。 索引者的工作是在这些池中分配他们的分级和委派的 SQT (占其总SQT的百分比)。 索引者接受PAYG的每个项目都有奖励池。 并为索引者所缔结的每一项市场协定提供奖励库。
+
+## Risk of being an Indexer
+
+There are a few risks of being an Indexer.
+- Infrastructure investment risk. An Indexer needs to invest in hardware infrastructure which is an upfront cost. However, many infrastructure provides such as AWS provide monthly payments, as opposed to yearly contracts, and the ability to scale servers up and down based on demand. This significantly reduces the risk for an Indexer.
+- Lack of customers. This risk is inherent in any business opportunity and the traditional risk mitigation methods apply here. Indexers can adjust their price to be competitive, advertise their services, and build a solid reputation within the community by contributing to forums and helping others.
+
+## How to attract Delegators?
+
+指数化可以通过吸引委托者来增加他们的收入潜力。 委托者成员是 SQT 代币持有者，可以将其代币分配给索引者以获得额外奖励。 索引者使用这些额外的代币来增加分配给他们选择的项目的金额。 这使索引者能够增加收入。
+
+索引者设置索引者的佣金率 (ICR) 是索引者赚取的百分比。 其余部分随后由索引者和所有代表按预定/授权数额分摊。 因此，索引者需要决定索引者希望保留的利润相对于与代表分享的数额的比例。 较低的ICR对委托方更有吸引力。
+
+例如，Indexer A将ICR 设定为80%，并从8名委托者收到了SQT。 这意味着8名委托者加上索引者本身将得到索引者剩余20%收入的奖励。 份额将按比例在它们之间分配。 请注意，委托者必须已经授予他们的代币，才有资格获得这些奖励。 关于代表奖励的更多信息，请参阅 [Delegators](./delegators.md)。
 
 ## 安全 & 性能考虑
 
