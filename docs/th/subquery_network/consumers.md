@@ -6,11 +6,18 @@
 
 ผู้ใช้งานมักเป็นนักพัฒนา dApp (แอปพลิเคชันที่กระจายอำนาจ) บริษัทวิเคราะห์ข้อมูล เครือข่ายบล็อกเชน นักพัฒนามิดเดิลแวร์ หรือแม้แต่บริษัทรวบรวมเว็บที่ต้องการเข้าถึงข้อมูลบล็อกเชนเพื่อให้บริการแก่ผู้ใช้ปลายทาง
 
-## ความต้องการของผู้ใช้งาน
+## Requirements to be a Consumer
 
 ไม่มีข้อกำหนดใดๆในการเป็นผู้ใช้งาน SubQuery อย่างไรก็ตาม ผู้ใช้งานจะต้องเข้าใจวิธีการรับ SQT วิธีโฆษณาข้อกำหนดด้านข้อมูล และวิธีการใช้ข้อมูล JSON ที่ส่งคืน
 
 ผู้บใช้งานอาจต้องเข้าใจวิธีการสร้างโปรเจกต์ SubQuery เพื่อสร้างดัชนีหรือทำสัญญางานนี้เพื่อให้ได้ข้อมูลในรูปแบบที่ต้องการ
+
+## Benefits of being a Consumer
+
+There are numerous benefits of being a Consumer.
+ - Easy access to blockchain data. There is no need to learn about the intricacies of a blockchain. Just get access to the exact data you need to run your applications.
+ - Focus on developing your appplication, not on time consuming blockchain integration.
+ - Cost effective. Combining the two points from above, consuming data from SubQuery results in a very cost effective way to power your applications.
 
 ## ค่าบริการ
 
