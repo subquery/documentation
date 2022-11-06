@@ -14,25 +14,7 @@ SubQuery planea agregar una restricción a la red donde un indexador debe coloca
 
 Si un Indexador es detectado mal (tal como proporcionando datos no válidos, incompletos o incorrectos), son susceptibles de reasignar una porción de su SQT apostada (en el ip de premio en particular) al Tesoro de la Fundación SubQuery, disminuyendo sus participaciones de SQT apuestadas en la red y, por lo tanto, su potencial recompensa. Dado que la participación asignada del índice está determinada por un porcentaje de su SQT total, esto tendrá un flujo en efecto a todos los demás pozos de recompensa en los que sea parte el indexador.
 
-## ¿Cómo se recompensa a los indexadores?
-
-Los indexadores son recompensados en SQT de dos maneras:
-- Rewards from SQT reward pools based on distribution defined by the Cobb-Douglas Production Function.
-- Direct SQT query fee rewards from Closed Agreements that an indexer is party to.
-
-Los indexadores son recompensados con las comisiones que los consumidores pagan por proporcionar datos de blockchain que el Consumidor ha solicitado. Un Indexador recibirá todas las cuotas de un Contrato Cerrado. De lo contrario, los honorarios se dividen en base a la cantidad de trabajo realizado (solicitudes atendidas) y la cantidad de SQT delegado - esta división se determina aplicando la Función de Producción Cobb-Douglas.
-
-Puede haber múltiples grupos de recompensas simultáneamente activos para un determinado índice. El trabajo del indexador es asignar su SQT apuestado y delegado entre estos grupos (en términos de un porcentaje de su total SQT). Habrá un fondo de recompensas para cada proyecto que el Indexador acepte PAYG, y un fondo de recompensas por cada Acuerdo de Mercado del que sea parte el Indexador.
-
-## Atracción de Delegadores
-
-Los indexadores pueden aumentar su potencial de ganancias atrayendo a los Delegadores. Los deelegadores son poseedores de fichas SQT que pueden delegar sus fichas a Indexadores para obtener recompensas adicionales. Los indexadores utilizan estos tokens adicionales para aumentar la cantidad que asignan a proyectos de su elección. Esto permite a los indexadores aumentar sus ganancias.
-
-Los indexadores fijan la tasa de la Comisión del Indexador (ICR) que es el porcentaje que ganan. El resto se reparte entonces entre el Indexer y todos los Delegadores proponiendo una cantidad apuesta/delegada. Por lo tanto, los Indexadores tienen que decidir la proporción de beneficios que un Indexer desea conservar frente a la cantidad a compartir con sus Delegadores. Un ICR más bajo será más atractivo para los Delegers.
-
-Por ejemplo, Indexer A ha establecido un ICR del 80% y ha recibido SQT de 8 Delegators. Esto significa que los 8 Delegadores más el propio Indexer recibirán una parte del 20% restante de lo que el Indexador ha ganado. La parte se dividirá proporcionalmente entre ellos. Tenga en cuenta que los Delegadores deben haber delegado sus fichas para toda la Era para ser elegibles para estas recompensas. Para obtener más información sobre las recompensas de los Delegadores, consulte [Delegadores](./delegators.md).
-
-## Convertirse en un indexador
+## Requirements to be an Indexer
 
 Para convertirse en un indexador en la red de subconsultas, el indexador debe poseer el hardware necesario, ejecutar los servicios de subconsulta requeridos, tener una red de acceso público a través de una IP estática o un nombre de dominio, y registrarse como un índice.
 
@@ -77,6 +59,30 @@ El requisito mínimo de infraestructura incluye:
 - Un nodo de base de datos para ejecutar Postgresql db (v12 y superior).
 
 Pronto llegará información más detallada.
+
+## ¿Cómo se recompensa a los indexadores?
+
+Los indexadores son recompensados en SQT de dos maneras:
+- Rewards from SQT reward pools based on distribution defined by the Cobb-Douglas Production Function.
+- Direct SQT query fee rewards from Closed Agreements that an indexer is party to.
+
+Los indexadores son recompensados con las comisiones que los consumidores pagan por proporcionar datos de blockchain que el Consumidor ha solicitado. Un Indexador recibirá todas las cuotas de un Contrato Cerrado. De lo contrario, los honorarios se dividen en base a la cantidad de trabajo realizado (solicitudes atendidas) y la cantidad de SQT delegado - esta división se determina aplicando la Función de Producción Cobb-Douglas.
+
+Puede haber múltiples grupos de recompensas simultáneamente activos para un determinado índice. El trabajo del indexador es asignar su SQT apuestado y delegado entre estos grupos (en términos de un porcentaje de su total SQT). Habrá un fondo de recompensas para cada proyecto que el Indexador acepte PAYG, y un fondo de recompensas por cada Acuerdo de Mercado del que sea parte el Indexador.
+
+## Risk of being an Indexer
+
+There are a few risks of being an Indexer.
+- Infrastructure investment risk. An Indexer needs to invest in hardware infrastructure which is an upfront cost. However, many infrastructure provides such as AWS provide monthly payments, as opposed to yearly contracts, and the ability to scale servers up and down based on demand. This significantly reduces the risk for an Indexer.
+- Lack of customers. This risk is inherent in any business opportunity and the traditional risk mitigation methods apply here. Indexers can adjust their price to be competitive, advertise their services, and build a solid reputation within the community by contributing to forums and helping others.
+
+## How to attract Delegators?
+
+Los indexadores pueden aumentar su potencial de ganancias atrayendo a los Delegadores. Los deelegadores son poseedores de fichas SQT que pueden delegar sus fichas a Indexadores para obtener recompensas adicionales. Los indexadores utilizan estos tokens adicionales para aumentar la cantidad que asignan a proyectos de su elección. Esto permite a los indexadores aumentar sus ganancias.
+
+Los indexadores fijan la tasa de la Comisión del Indexador (ICR) que es el porcentaje que ganan. El resto se reparte entonces entre el Indexer y todos los Delegadores proponiendo una cantidad apuesta/delegada. Por lo tanto, los Indexadores tienen que decidir la proporción de beneficios que un Indexer desea conservar frente a la cantidad a compartir con sus Delegadores. Un ICR más bajo será más atractivo para los Delegers.
+
+Por ejemplo, Indexer A ha establecido un ICR del 80% y ha recibido SQT de 8 Delegators. Esto significa que los 8 Delegadores más el propio Indexer recibirán una parte del 20% restante de lo que el Indexador ha ganado. La parte se dividirá proporcionalmente entre ellos. Tenga en cuenta que los Delegadores deben haber delegado sus fichas para toda la Era para ser elegibles para estas recompensas. Para obtener más información sobre las recompensas de los Delegadores, consulte [Delegadores](./delegators.md).
 
 ## Protección de seguridad & Rendimiento
 
