@@ -6,11 +6,18 @@ Người tiêu dùng là người tham gia vào mạng SubQuery và là một c�
 
 Người tiêu dùng thường là các nhà phát triển dApp (ứng dụng phi tập trung), các công ty phân tích dữ liệu, mạng blockchain, nhà phát triển phần mềm trung gian hoặc thậm chí các công ty tổng hợp web cần truy cập vào dữ liệu blockchain để cung cấp dịch vụ cho người dùng cuối của họ.
 
-## Yêu cầu của Người tiêu dùng
+## Requirements to be a Consumer
 
 Không có yêu cầu nào để trở thành người tiêu dùng SubQuery. Tuy nhiên, Người tiêu dùng sẽ cần phải hiểu làm thế nào để có được SQT, làm thế nào để quảng cáo yêu cầu dữ liệu của họ và làm thế nào để xử lý dữ liệu JSON được trả lại.
 
 Người tiêu dùng cũng có thể cần phải hiểu làm thế nào để tạo các dự án SubQuery được Lập chỉ mục hoặc ký hợp đồng này hoạt động để có được dữ liệu ở định dạng họ cần.
+
+## Benefits of being a Consumer
+
+There are numerous benefits of being a Consumer.
+ - Easy access to blockchain data. There is no need to learn about the intricacies of a blockchain. Just get access to the exact data you need to run your applications.
+ - Focus on developing your appplication, not on time consuming blockchain integration.
+ - Cost effective. Combining the two points from above, consuming data from SubQuery results in a very cost effective way to power your applications.
 
 ## Giá dịch vụ
 
