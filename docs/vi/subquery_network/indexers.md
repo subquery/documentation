@@ -14,25 +14,7 @@ SubQuery có kế hoạch thêm một ràng buộc vào mạng trong đó ngư�
 
 Nếu một Người lập chỉ mục có hành vi sai trái (chẳng hạn như cách cung cấp dữ liệu không hợp lệ, không đầy đủ hoặc không chính xác), họ có trách nhiệm phải phân bổ lại một phần SQT đã đặt cọc của họ (trên từng pool phần thưởng cụ thể) cho SubQuery Foundation Treasury, làm giảm việc nắm giữ SQT cổ phần trong mạng và phần thưởng tiềm năng của họ. Vì cổ phần được phân bổ của người lập chỉ mục được xác định theo tỷ lệ phần trăm trong tổng số SQT của họ, điều này sẽ có hiệu lực đối với tất cả các pool phần thưởng khác mà người lập chỉ mục tham gia.
 
-## Người lập chỉ mục được thưởng như thế nào?
-
-Người lập chỉ mục được thưởng trong SQT theo hai cách:
-- Phần thưởng từ pool phần thưởng SQT dựa trên phân phối được xác định bởi Hàm Sản xuất Cobb-Douglas.
-- Phần thưởng phí truy vấn SQT trực tiếp từ các Thỏa thuận kín mà người lập chỉ mục là bên tham gia.
-
-Người lập chỉ mục được thưởng các khoản phí mà Người tiêu dùng trả cho việc cung cấp dữ liệu blockchain mà Người tiêu dùng đã yêu cầu. Người lập chỉ mục sẽ nhận được tất cả các khoản phí từ một Thỏa thuận kín. Nếu không, các khoản phí được phân chia dựa trên khối lượng công việc được thực hiện (các yêu cầu được cung cấp) và số lượng SQT được ủy quyền - sự phân chia này được xác định bằng cách áp dụng Hàm Sản xuất Cobb-Douglas.
-
-Có thể có nhiều pool phần thưởng hoạt động đồng thời cho một Người lập chỉ mục nhất định. Công việc của người lập chỉ mục là phân bổ SQT được đặt cọc và ủy quyền của họ giữa các nhóm này (tính theo tỷ lệ phần trăm trong tổng số SQT của họ). Sẽ có một phần thưởng cho mỗi dự án mà Người lập chỉ mục chấp nhận PAYG và một pool thưởng cho mỗi Thỏa thuận thị trường mà Người lập chỉ mục tham gia.
-
-## Thu hút Người ủy quyền
-
-Người lập chỉ mục có thể tăng tiềm năng kiếm tiền của họ bằng cách thu hút Người ủy quyền. Người ủy quyền là chủ sở hữu mã thông báo SQT có thể ủy quyền mã thông báo của họ cho Người lập chỉ mục để nhận thêm phần thưởng. Người lập chỉ mục sử dụng các mã thông báo bổ sung này để tăng số lượng họ phân bổ cho các dự án mà họ lựa chọn. Điều này cho phép Người lập chỉ mục tăng thu nhập của họ.
-
-Người lập chỉ mục đặt Tỷ lệ hoa hồng của Người lập chỉ mục (ICR), là tỷ lệ phần trăm mà Người lập chỉ mục kiếm được. Phần còn lại sau đó được chia sẻ giữa Người lập chỉ mục và tất cả Người ủy quyền theo tỷ lệ theo số tiền đặt cọc/ủy quyền. Do đó, Người lập chỉ mục cần quyết định tỷ lệ lợi nhuận mà Người lập chỉ mục muốn giữ lại so với số tiền chia sẻ với Người ủy quyền của họ. ICR thấp sẽ hấp dẫn hơn đối với Người ủy quyền.
-
-Ví dụ: Người lập chỉ mục A đã đặt ICR là 80% và đã nhận được SQT từ 8 Người ủy quyền. Điều này có nghĩa là 8 Người ủy quyền cộng với chính Người lập chỉ mục, sẽ được thưởng một phần trong số 20% còn lại của những gì Người lập chỉ mục đã kiếm được. Cổ phần sẽ được chia theo tỷ lệ với nhau. Lưu ý rằng Người ủy quyền phải ủy quyền mã thông báo của họ cho toàn bộ Chu kỳ để đủ điều kiện nhận những phần thưởng này. Để biết thêm thông tin về phần thưởng Người ủy quyền, hãy xem [Người ủy quyền](./delegators.md).
-
-## Trở thành Người lập chỉ mục
+## Requirements to be an Indexer
 
 Để trở thành Người lập chỉ mục trên Mạng SubQuery, Người lập chỉ mục phải có phần cứng cần thiết, chạy các dịch vụ SubQuery được yêu cầu, có mạng truy cập công cộng qua IP tĩnh hoặc tên miền và đăng ký làm Người lập chỉ mục.
 
@@ -77,6 +59,30 @@ Yêu cầu cơ sở hạ tầng tối thiểu bao gồm:
 - Một nút cơ sở dữ liệu để chạy Postgresql db (v12 trở lên).
 
 Thông tin chi tiết hơn sẽ sớm công bố.
+
+## Người lập chỉ mục được thưởng như thế nào?
+
+Người lập chỉ mục được thưởng trong SQT theo hai cách:
+- Phần thưởng từ pool phần thưởng SQT dựa trên phân phối được xác định bởi Hàm Sản xuất Cobb-Douglas.
+- Phần thưởng phí truy vấn SQT trực tiếp từ các Thỏa thuận kín mà người lập chỉ mục là bên tham gia.
+
+Người lập chỉ mục được thưởng các khoản phí mà Người tiêu dùng trả cho việc cung cấp dữ liệu blockchain mà Người tiêu dùng đã yêu cầu. Người lập chỉ mục sẽ nhận được tất cả các khoản phí từ một Thỏa thuận kín. Nếu không, các khoản phí được phân chia dựa trên khối lượng công việc được thực hiện (các yêu cầu được cung cấp) và số lượng SQT được ủy quyền - sự phân chia này được xác định bằng cách áp dụng Hàm Sản xuất Cobb-Douglas.
+
+Có thể có nhiều pool phần thưởng hoạt động đồng thời cho một Người lập chỉ mục nhất định. Công việc của người lập chỉ mục là phân bổ SQT được đặt cọc và ủy quyền của họ giữa các nhóm này (tính theo tỷ lệ phần trăm trong tổng số SQT của họ). Sẽ có một phần thưởng cho mỗi dự án mà Người lập chỉ mục chấp nhận PAYG và một pool thưởng cho mỗi Thỏa thuận thị trường mà Người lập chỉ mục tham gia.
+
+## Risk of being an Indexer
+
+There are a few risks of being an Indexer.
+- Infrastructure investment risk. An Indexer needs to invest in hardware infrastructure which is an upfront cost. However, many infrastructure provides such as AWS provide monthly payments, as opposed to yearly contracts, and the ability to scale servers up and down based on demand. This significantly reduces the risk for an Indexer.
+- Lack of customers. This risk is inherent in any business opportunity and the traditional risk mitigation methods apply here. Indexers can adjust their price to be competitive, advertise their services, and build a solid reputation within the community by contributing to forums and helping others.
+
+## How to attract Delegators?
+
+Người lập chỉ mục có thể tăng tiềm năng kiếm tiền của họ bằng cách thu hút Người ủy quyền. Người ủy quyền là chủ sở hữu mã thông báo SQT có thể ủy quyền mã thông báo của họ cho Người lập chỉ mục để nhận thêm phần thưởng. Người lập chỉ mục sử dụng các mã thông báo bổ sung này để tăng số lượng họ phân bổ cho các dự án mà họ lựa chọn. Điều này cho phép Người lập chỉ mục tăng thu nhập của họ.
+
+Người lập chỉ mục đặt Tỷ lệ hoa hồng của Người lập chỉ mục (ICR), là tỷ lệ phần trăm mà Người lập chỉ mục kiếm được. Phần còn lại sau đó được chia sẻ giữa Người lập chỉ mục và tất cả Người ủy quyền theo tỷ lệ theo số tiền đặt cọc/ủy quyền. Do đó, Người lập chỉ mục cần quyết định tỷ lệ lợi nhuận mà Người lập chỉ mục muốn giữ lại so với số tiền chia sẻ với Người ủy quyền của họ. ICR thấp sẽ hấp dẫn hơn đối với Người ủy quyền.
+
+Ví dụ: Người lập chỉ mục A đã đặt ICR là 80% và đã nhận được SQT từ 8 Người ủy quyền. Điều này có nghĩa là 8 Người ủy quyền cộng với chính Người lập chỉ mục, sẽ được thưởng một phần trong số 20% còn lại của những gì Người lập chỉ mục đã kiếm được. Cổ phần sẽ được chia theo tỷ lệ với nhau. Lưu ý rằng Người ủy quyền phải ủy quyền mã thông báo của họ cho toàn bộ Chu kỳ để đủ điều kiện nhận những phần thưởng này. Để biết thêm thông tin về phần thưởng Người ủy quyền, hãy xem [Người ủy quyền](./delegators.md).
 
 ## Bảo mật & Cân nhắc về hiệu suất
 
