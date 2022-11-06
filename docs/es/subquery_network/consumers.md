@@ -6,11 +6,18 @@ Un Consumidor es un participante en la red de SubQuery y es un individuo u organ
 
 Los consumidores son típicamente desarrolladores de dApp (aplicación descentralizada), empresas analíticas de datos, redes blockchain, desarrolladores de middleware, o incluso compañías de agregación web que necesitan acceso a datos de blockchain para proporcionar servicios a sus usuarios finales.
 
-## Requisitos del consumidor
+## Requirements to be a Consumer
 
 No hay requisitos como tales para convertirse en un Consumidor de Subconsulta. Sin embargo, los consumidores tendrán que entender cómo obtener SQT, cómo anunciar sus necesidades de datos y cómo consumir los datos devueltos JSON.
 
 Los consumidores también pueden tener que entender cómo crear proyectos SubQuery para ser Indexados o contratar este trabajo a fin de obtener los datos en el formato que necesitan.
+
+## Benefits of being a Consumer
+
+There are numerous benefits of being a Consumer.
+ - Easy access to blockchain data. There is no need to learn about the intricacies of a blockchain. Just get access to the exact data you need to run your applications.
+ - Focus on developing your appplication, not on time consuming blockchain integration.
+ - Cost effective. Combining the two points from above, consuming data from SubQuery results in a very cost effective way to power your applications.
 
 ## Costo de servicio
 
