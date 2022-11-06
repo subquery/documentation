@@ -14,25 +14,7 @@ SubQuery berencana untuk menambahkan batasan ke jaringan di mana pengindeks haru
 
 Jika Pengindeks ketahuan melakukan kesalahan (seperti dengan memberikan data yang tidak valid, tidak lengkap, atau salah), mereka bertanggung jawab untuk memiliki sebagian dari SQT mereka yang dipertaruhkan (pada ip kumpulan hadiah tertentu) yang dialokasikan kembali ke SubQuery Foundation Treasury, mengurangi kepemilikan mereka atas mempertaruhkan SQT dalam jaringan dan oleh karena itu potensi imbalan mereka. Karena saham yang dialokasikan pengindeks ditentukan oleh persentase dari total SQT mereka, ini akan memiliki aliran yang berpengaruh ke semua kumpulan hadiah lain yang menjadi pihak pengindeks.
 
-## Bagaimana Pengindeks dihargai?
-
-Pengindeks dihargai di SQT dalam dua cara:
-- Imbalan dari kumpulan imbalan SQT berdasarkan distribusi yang ditentukan oleh Fungsi Produksi Cobb-Douglas.
-- Imbalan biaya kueri SQT langsung dari Perjanjian Tertutup yang menjadi pihak pengindeks.
-
-Pengindeks diberi imbalan atas biaya yang dibayar Konsumen untuk menyediakan data blockchain yang diminta Konsumen. Pengindeks akan menerima semua biaya dari Perjanjian Tertutup. Jika tidak, biaya dibagi berdasarkan jumlah pekerjaan yang dilakukan (permintaan dilayani) dan jumlah SQT yang didelegasikan - pembagian ini ditentukan dengan menerapkan Fungsi Produksi Cobb-Douglas.
-
-Mungkin ada beberapa kumpulan hadiah yang aktif secara bersamaan untuk Pengindeks tertentu. Tugas pengindeks adalah mengalokasikan SQT yang dipertaruhkan dan didelegasikan di antara kumpulan ini (dalam hal persentase dari total SQT mereka). Akan ada kumpulan hadiah untuk setiap proyek yang Pengindeks menerima PAYG, dan kumpulan hadiah untuk setiap Perjanjian Pasar yang Pengindeks adalah salah satu pihak.
-
-## Menarik Delegator
-
-Pengindeks dapat meningkatkan potensi penghasilan mereka dengan menarik Delegator. Delegator adalah pemegang token SQT yang dapat mendelegasikan token mereka ke Pengindeks untuk hadiah tambahan. Pengindeks menggunakan token tambahan ini untuk meningkatkan jumlah yang mereka alokasikan ke proyek pilihan mereka. Hal ini memungkinkan Pengindeks untuk meningkatkan penghasilan mereka.
-
-Pengindeks menetapkan Tingkat Komisi Pengindeks (ICR) yang merupakan persentase yang diperoleh Pengindeks. Sisanya kemudian dibagikan di antara Pengindeks dan semua Delegator secara proporsional berdasarkan jumlah yang dipertaruhkan/didelegasikan. Oleh karena itu, Pengindeks perlu memutuskan proporsi keuntungan yang ingin dipertahankan Pengindeks versus jumlah yang akan dibagikan dengan Delegator mereka. ICR yang lebih rendah akan lebih menarik bagi Delegator.
-
-Misalnya, Pengindeks A telah menetapkan ICR sebesar 80% dan telah menerima SQT dari 8 Delegator. Ini berarti bahwa 8 Delegator ditambah Pengindeks itu sendiri, akan diberikan bagian dari 20% sisa dari apa yang telah diperoleh Pengindeks. Bagian itu akan dibagi secara proporsional di antara mereka. Perhatikan bahwa Delegator harus mendelegasikan token mereka untuk seluruh Era agar memenuhi syarat untuk hadiah ini. Untuk informasi selengkapnya tentang hadiah Delegator, lihat [Delegator](./delegators.md).
-
-## Menjadi Pengindeks
+## Requirements to be an Indexer
 
 Untuk menjadi Pengindeks di Jaringan SubQuery, Pengindeks harus memiliki perangkat keras yang diperlukan, menjalankan layanan SubQuery yang diperlukan, memiliki jaringan yang dapat diakses publik melalui IP statis atau nama domain, dan mendaftar sebagai Pengindeks.
 
@@ -77,6 +59,30 @@ Persyaratan infrastruktur minimal meliputi:
 - Satu node database untuk menjalankan Postgresql db (v12 ke atas).
 
 Informasi lebih detail akan segera hadir.
+
+## Bagaimana Pengindeks dihargai?
+
+Pengindeks dihargai di SQT dalam dua cara:
+- Imbalan dari kumpulan imbalan SQT berdasarkan distribusi yang ditentukan oleh Fungsi Produksi Cobb-Douglas.
+- Imbalan biaya kueri SQT langsung dari Perjanjian Tertutup yang menjadi pihak pengindeks.
+
+Pengindeks diberi imbalan atas biaya yang dibayar Konsumen untuk menyediakan data blockchain yang diminta Konsumen. Pengindeks akan menerima semua biaya dari Perjanjian Tertutup. Jika tidak, biaya dibagi berdasarkan jumlah pekerjaan yang dilakukan (permintaan dilayani) dan jumlah SQT yang didelegasikan - pembagian ini ditentukan dengan menerapkan Fungsi Produksi Cobb-Douglas.
+
+Mungkin ada beberapa kumpulan hadiah yang aktif secara bersamaan untuk Pengindeks tertentu. Tugas pengindeks adalah mengalokasikan SQT yang dipertaruhkan dan didelegasikan di antara kumpulan ini (dalam hal persentase dari total SQT mereka). Akan ada kumpulan hadiah untuk setiap proyek yang Pengindeks menerima PAYG, dan kumpulan hadiah untuk setiap Perjanjian Pasar yang Pengindeks adalah salah satu pihak.
+
+## Risk of being an Indexer
+
+There are a few risks of being an Indexer.
+- Infrastructure investment risk. An Indexer needs to invest in hardware infrastructure which is an upfront cost. However, many infrastructure provides such as AWS provide monthly payments, as opposed to yearly contracts, and the ability to scale servers up and down based on demand. This significantly reduces the risk for an Indexer.
+- Lack of customers. This risk is inherent in any business opportunity and the traditional risk mitigation methods apply here. Indexers can adjust their price to be competitive, advertise their services, and build a solid reputation within the community by contributing to forums and helping others.
+
+## How to attract Delegators?
+
+Pengindeks dapat meningkatkan potensi penghasilan mereka dengan menarik Delegator. Delegator adalah pemegang token SQT yang dapat mendelegasikan token mereka ke Pengindeks untuk hadiah tambahan. Pengindeks menggunakan token tambahan ini untuk meningkatkan jumlah yang mereka alokasikan ke proyek pilihan mereka. Hal ini memungkinkan Pengindeks untuk meningkatkan penghasilan mereka.
+
+Pengindeks menetapkan Tingkat Komisi Pengindeks (ICR) yang merupakan persentase yang diperoleh Pengindeks. Sisanya kemudian dibagikan di antara Pengindeks dan semua Delegator secara proporsional berdasarkan jumlah yang dipertaruhkan/didelegasikan. Oleh karena itu, Pengindeks perlu memutuskan proporsi keuntungan yang ingin dipertahankan Pengindeks versus jumlah yang akan dibagikan dengan Delegator mereka. ICR yang lebih rendah akan lebih menarik bagi Delegator.
+
+Misalnya, Pengindeks A telah menetapkan ICR sebesar 80% dan telah menerima SQT dari 8 Delegator. Ini berarti bahwa 8 Delegator ditambah Pengindeks itu sendiri, akan diberikan bagian dari 20% sisa dari apa yang telah diperoleh Pengindeks. Bagian itu akan dibagi secara proporsional di antara mereka. Perhatikan bahwa Delegator harus mendelegasikan token mereka untuk seluruh Era agar memenuhi syarat untuk hadiah ini. Untuk informasi selengkapnya tentang hadiah Delegator, lihat [Delegator](./delegators.md).
 
 ## Keamanan & Pertimbangan kinerja
 
