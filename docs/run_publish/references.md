@@ -83,7 +83,7 @@ Options:
                                                       [boolean] [default: false]
       --timestamp-field     Enable/disable created_at and updated_at in schema
                                                       [boolean] [default: false]
-      --unfinalized-blocks  Enable/disable unfinalized blocks indexing 
+      --unfinalized-blocks  Enable/disable unfinalized blocks indexing
                                                        [boolean] [default: false]
   -d, --network-dictionary  Specify the dictionary api for this network [string]
   -m, --mmr-path            Local path of the merkle mountain range (.mmr) file
@@ -336,19 +336,19 @@ This removes the created_at and updated_at columns in the starter_entities table
 
 ### --unfinalized-blocks
 
-This will allow you to index blocks before they become finalized. It can be very useful if you want the most up-to-date data possible. It will detect any forks and remove any blocks that don't become finalized. By default it is set to `false`. To change it to `true` run following command: 
+This will allow you to index blocks before they become finalized. It can be very useful if you want the most up-to-date data possible. It will detect any forks and remove any blocks that don't become finalized. By default it is set to `false`. To change it to `true` run following command:
 
 ```shell
 > subql-node -f . --unfinalized-blocks
 ```
 
 ::: tip Tip
-Note that this feature **requires historical indexing** to be enabled. 
+Note that this feature **requires historical indexing** to be enabled.
 Learn more [here](./historical.md).
 :::
 
 ::: info Note
-This feature is only available for Substrate-based blockchains; more networks will be supported in the future. 
+This feature is only available for Substrate-based blockchains; more networks will be supported in the future.
 :::
 
 ### -d, --network-dictionary
@@ -374,6 +374,7 @@ Disables automated historical state tracking, [see Historic State Tracking](./hi
 ### -w, --workers
 
 This will move block fetching and processing into a worker. By default, this feature is **disabled**. You can enable it with the `--workers=<number>` flag.
+
 Note that the number of available CPU cores strictly limits the usage of worker threads. So, when using the `--workers=<number>` flag, always specify the number of workers. With no flag provided, everything will run in the same thread.
 
 :::tip Tip
@@ -381,6 +382,15 @@ It can increase performance by up to 4 times. Give it a try and let us know your
 
 It is at an early experimental stage at the moment, but we plan to enable it by default.
 :::
+
+On initialisation, once the main thread is established, then the fetching and processing workload is disturbed across all worker threads. Each worker has their own buffer (a set of blocks that they are responsible to fetch/process). For example:
+
+- Worker A: Will execute the `fetch` and `indexing` of blocks `[n,..n+10]`
+- Worker B: Will execute the `fetch` and `indexing` of blocks `[n+11,..n+20]`
+- Worker C: Will execute the `fetch` and `indexing` of blocks `[n+21,..n+30]`
+- Then repeat with `n = n + 30`
+
+In the case where Worker C completes its fetch prior to Worker A and B, it will remain in an idle state until A and B have completed, as the processing phase executes sequentially.
 
 ## subql-query
 

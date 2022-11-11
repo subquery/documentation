@@ -1,7 +1,7 @@
 # Project Optimisation
 
 Performance is a crucial factor in each project. So, how to optimise your Suproject to speed it up?
-Fortunately, there are several things you could do to improve it. 
+Fortunately, there are several things you could do to improve it.
 
 ## Common Issues and Top Suggestions
 
@@ -10,12 +10,12 @@ Fortunately, there are several things you could do to improve it.
   - Use a convenient `modulo` filter to run a handler only once to a specific block. This filter allows handling any given number of blocks, which is extremely useful for grouping and calculating data at a set interval. For instance, if modulo is set to 50, the block handler will run on every 50 blocks. It provides even more control over indexing data to developers.
 - Always use a [dictionary](../academy/tutorials_examples/dictionary.html#how-does-a-subquery-dictionary-work) (we can help create one for your new network). You can see examples of how to create a dictionary in the [dictionary repository](https://github.com/subquery/subql-dictionary).
 - Use filter conditions in your mapping handlers (within the project mnaifest) to reduce the number of events/transactions that need to be processed. Create filters as specific as possible to avoid querying unnecessary data.
-- Set the start block in your project manifest to when the contract was initialised or when the first event/transaction occurs. 
-- Use `worker threads` to move block fetching and block processing into its own worker thread. It could speed up indexing by up to 4 times (depending on the particular project). You can easily enable it using the `-workers=<number>` flag. Note that the number of available CPU cores strictly limits the usage of worker threads. Read more [here](../run_publish/references.html#w-workers).
+- Set the start block in your project manifest to when the contract was initialised or when the first event/transaction occurs.
+- Use `node worker threads` to move block fetching and block processing into its own worker thread. It could speed up indexing by up to 4 times (depending on the particular project). You can easily enable it using the `-workers=<number>` flag. Note that the number of available CPU cores strictly limits the usage of worker threads. [Read more here](../run_publish/references.html#w-workers).
 
-## Other Improvements 
+## Other Improvements
 
-Here is the list of further suggestions for improvements of query and indexing performance. 
+Here is the list of further suggestions for improvements of query and indexing performance.
 
 ### Indexing Performance Advice
 
@@ -31,10 +31,10 @@ type Transaction @entity {
 }
 ```
 
-- Use parallel/batch processing as often as possible. 
-    - Use `api.queryMulti()` to optimise Polkadot API calls inside mapping functions and query them in parallel. This is a faster way than a loop.
-    - Use `Promise.all()`. In case of multiple async functions, it is better to execute them and resolve in parallel.
-    - If you want to create a lot of entities within a single handler, you can use `store.bulkCreate(entityName: string, entities: Entity[])`. You can create them in parallel, no need to do this one by one (see example below). Read more in our [advanced access to the store documentation](../build/mapping/store.html).
+- Use parallel/batch processing as often as possible.
+  - Use `api.queryMulti()` to optimise Polkadot API calls inside mapping functions and query them in parallel. This is a faster way than a loop.
+  - Use `Promise.all()`. In case of multiple async functions, it is better to execute them and resolve in parallel.
+  - If you want to create a lot of entities within a single handler, you can use `store.bulkCreate(entityName: string, entities: Entity[])`. You can create them in parallel, no need to do this one by one (see example below). Read more in our [advanced access to the store documentation](../build/mapping/store.html).
 
 ```shell
   await Promise.all([
@@ -63,20 +63,21 @@ type Transfer @entity {
 }
 ```
 
-- Optimise your schema design, keep it as simple as possible. 
-    - Try to reduce unnecessary fields and columns.
-    - Create indexes and reverse lookups as needed.
+- Optimise your schema design, keep it as simple as possible.
+
+  - Try to reduce unnecessary fields and columns.
+  - Create indexes and reverse lookups as needed.
 
 - Note that `JSON.stringify` doesn’t support native `BigInts`. Our logging library will do this internally if you attempt to log an object. We are looking at a workaround for this.
 
 ### Query Performance Advice
 
-- Query only necessary fields from GraphQL. 
+- Query only necessary fields from GraphQL.
 - For large data tables, avoid querying `totalCount` without adding conditions.
 
 ## Review Project Architecture
 
-If your project requires indexing all the blocks, transactions alongside more specific data, consider dividing it into separate SubQuery projects responsible for different data sources. If such separation is possible it can provide better development experience and efficient workflow. This decision can be compared to a design decision between microservices and monolith project architecture. 
+If your project requires indexing all the blocks, transactions alongside more specific data, consider dividing it into separate SubQuery projects responsible for different data sources. If such separation is possible it can provide better development experience and efficient workflow. This decision can be compared to a design decision between microservices and monolith project architecture.
 
 We recommend this approach, because it takes time to index all the blocks and it can slow down your project significantly. If you want to apply some changes to your filters or entities shape you may need to remove your database and reindex the whole project from the beginning.
 
