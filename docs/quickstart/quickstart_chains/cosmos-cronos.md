@@ -5,6 +5,8 @@
 The goal of this quick start guide is to adapt the standard starter project in the Cronos Network and then begin indexing all transfers of [Cro Crow Token](https://www.crocrow.com/).
 
 ::: warning Important
+Cronos is an EVM compatible (Ethermint) chain, as such there are two options for indexing Cronos data. You can index ethermint contract data via the standard Cosmos RPC interface, or via ethereum APIs. For Cronos, we provide a starter project for each.
+
 Before we begin, make sure that you have initialised your project using the provided steps in the **[Start Here](../quickstart.md)** section. You must complete the suggested [4 steps](https://github.com/subquery/cosmos-subql-starter#readme) for Cosmos users.
 :::
 
@@ -65,6 +67,40 @@ The Project Manifest (`project.yaml`) file is an entry point to your project. It
 
 Note that the manifest file has already been set up correctly and doesn’t require significant changes, but you need to change the datasource handlers. This section lists the triggers that look for on the blockchain to start indexing.
 
+::: warning Important
+There are two versions of this file depending on if you chose to index data via the ETH or Cosmos RPC
+:::
+
+<CodeGroup>
+  <CodeGroupItem title="ETH" active>
+
+```yml
+dataSources:
+  - kind: ethereum/Runtime
+    startBlock: 5120574 #NoteCro Crow Token started at 946
+    options:
+      abi: erc20
+      address: "0xE4ab77ED89528d90E6bcf0E1Ac99C58Da24e79d5" #Cro Crow Token
+    assets:
+      erc20:
+        file: ./cro-crow.abi.json #ABI interface file specific for Cro Crow Token
+    mapping:
+      file: ./dist/index.js
+      handlers:
+        - handler: handleTransfer
+          kind: ethereum/LogHandler
+          filter:
+            topics:
+              - "Transfer(address indexed from, address indexed to, uint256 indexed tokenId)"
+              - null
+              - null
+              - null
+```
+
+  </CodeGroupItem>
+
+  <CodeGroupItem title="Cosmos RPC">
+
 ```yml
 dataSources:
   - kind: cosmos/EthermintEvm
@@ -73,7 +109,7 @@ dataSources:
       file: ./node_modules/@subql/ethermint-evm-processor/dist/bundle.js
       options:
         abi: erc20
-        address: '0xE4ab77ED89528d90E6bcf0E1Ac99C58Da24e79d5' #Cro Crow Token
+        address: "0xE4ab77ED89528d90E6bcf0E1Ac99C58Da24e79d5" #Cro Crow Token
     assets:
       erc20:
         file: ./cro-crow.abi.json #ABI interface file specific for Cro Crow Token
@@ -84,21 +120,25 @@ dataSources:
           kind: cosmos/EthermintEvmEvent
           filter:
             topics:
-              - 'Transfer(address indexed from, address indexed to, uint256 indexed tokenId)'
+              - "Transfer(address indexed from, address indexed to, uint256 indexed tokenId)"
               - null
               - null
               - null
 ```
 
-The above code defines that you will be running a `handleTransfer` mapping function whenever there is an event emitted with the `transfer` method. Check out our [Manifest File](../../build/manifest/polkadot.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
+  </CodeGroupItem>
+</CodeGroup>
+
+The above code defines that you will be running a `handleTransfer` mapping function whenever there is an event emitted with the `transfer` method. Check out our [Manifest File](../../build/manifest/cosmos.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
 
 ::: info Note
- Please note that Cro Crow token requires a specific ABI interface. You need to:
- - Get the [Cro Crow contract ABI](https://cronoscan.com/address/0xe4ab77ed89528d90e6bcf0e1ac99c58da24e79d5#code). 
- You can compare with the [interface file](https://github.com/deverka/cronos_crow_token_transfers/blob/e067a87b69168aa6c05e9095b55d15483dd1bff9/cro-crow.abi.json) from this Quick Start final repo. 
- - Create a file `cro-crow.abi.json` in the main project's directory.
- - Link this file as an erc20 asset in the manifest file.
-:::
+Please note that Cro Crow token requires a specific ABI interface. You need to:
+
+- Get the [Cro Crow contract ABI](https://cronoscan.com/address/0xe4ab77ed89528d90e6bcf0e1ac99c58da24e79d5#code).
+  You can compare with the [interface file](https://github.com/deverka/cronos_crow_token_transfers/blob/e067a87b69168aa6c05e9095b55d15483dd1bff9/cro-crow.abi.json) from this Quick Start final repo.
+- Create a file `cro-crow.abi.json` in the main project's directory.
+- Link this file as an erc20 asset in the manifest file.
+  :::
 
 Next, let’s dig further into Mapping Function’s configuration.
 
@@ -108,9 +148,47 @@ Mapping functions determine how chain data is transformed into the optimised Gra
 
 Follow these steps to add a mapping function:
 
-- Navigate to the default mapping function in the `src/mappings` directory. You will see setup types for ABI `TransferEventArgs` and `ApproveCallArgs`. Delete those for approvals. You will also see two exported functions: `handleEthermintEvmEvent`, `handleEthermintEvmCall`. Delete them as well. 
+- Navigate to the default mapping function in the `src/mappings` directory. You will see setup types for ABI `TransferEventArgs` and `ApproveCallArgs`. Delete those for approvals. You will also see two exported functions: `handleEthermintEvmEvent` & `handleEthermintEvmCall` or `handleLog` & `handleTransaction`. Delete them as well.
 
-Update the `TransferEventArgs` and add `handleTransfer` function as follows (**note the additional imports**):
+::: warning Important
+There are two versions of this file depending on if you chose to index data via the ETH or Cosmos RPC
+:::
+
+Update your mapping files to match the following (**note the additional imports**):
+
+<CodeGroup>
+  <CodeGroupItem title="ETH" active>
+
+```ts
+import { Transfer } from "../types";
+import { EthereumLog } from "@subql/types-ethereum";
+import { BigNumber } from "ethers";
+
+// Setup types from ABI
+type TransferEventArgs = [string, string, BigNumber] & {
+  from: string;
+  to: string;
+  tokenId: BigNumber;
+};
+
+// Save all transfers
+export async function handleTransfer(
+  log: EthereumLog<TransferEventArgs>
+): Promise<void> {
+  const transfer = Transfer.create({
+    id: log.transactionHash,
+    from: log.args.from,
+    to: log.args.to,
+    tokenId: log.args.tokenId.toBigInt(),
+  });
+
+  await transfer.save();
+}
+```
+
+  </CodeGroupItem>
+
+  <CodeGroupItem title="Cosmos RPC">
 
 ```ts
 import { Transfer } from "../types";
@@ -128,19 +206,21 @@ type TransferEventArgs = [string, string, BigNumber] & {
 export async function handleTransfer(
   event: EthermintEvmEvent<TransferEventArgs>
 ): Promise<void> {
-
   const transfer = Transfer.create({
     id: event.transactionHash,
     from: event.args.from,
     to: event.args.to,
-    tokenId: event.args.tokenId.toBigInt()
+    tokenId: event.args.tokenId.toBigInt(),
   });
 
   await transfer.save();
 }
 ```
 
-Let’s understand how the above code works. Here, the function receives a `EthermintEvmEvent` which includes data on the payload. We extract this data and then create a new `Transfer` entity defined earlier in the `schema.graphql` file. After that we use the `.save()` function to save the new entity (SubQuery will automatically save this to the database). Check out our [Mappings](../../build/mapping/polkadot.md) documentation and get information on the mapping functions in detail.
+  </CodeGroupItem>
+</CodeGroup>
+
+Let’s understand how the above code works. Here, the function receives an `EthereumLog` or `EthermintEvmEvent` which includes data on the payload. We extract this data and then create a new `Transfer` entity defined earlier in the `schema.graphql` file. After that we use the `.save()` function to save the new entity (SubQuery will automatically save this to the database). Check out our [Mappings](../../build/mapping/polkadot.md) documentation and get information on the mapping functions in detail.
 
 ## 4. Build Your Project
 
@@ -215,15 +295,15 @@ Try the following query to understand how it works for your new SubQuery starter
 ```graphql
 {
   query {
-    transfers (first: 5) {
-        nodes {
-            id
-            to
-            from
-            tokenId
-        }
+    transfers(first: 5) {
+      nodes {
+        id
+        to
+        from
+        tokenId
+      }
     }
-  } 
+  }
 }
 ```
 
@@ -267,4 +347,3 @@ The final code of this project can be found [here](https://github.com/deverka/cr
 Congratulations! You have now a locally running SubQuery project that accepts GraphQL API requests for transferring data from bLuna.
 
 Click [here](../../quickstart/whats-next.md) to learn what should be your **next step** in your SubQuery journey.
- 
