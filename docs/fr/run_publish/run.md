@@ -22,6 +22,14 @@ Requirements:
 
 A SubQuery node is an implementation that extracts Substrate/Polkadot-based blockchain data per the SubQuery project and saves it into a Postgres database.
 
+If you are running your project locally using `subql-node` or `subql-node-<network>`, make sure you enable the pg_extension `btree_gist`
+
+You can run the following SQL query:
+
+```shell
+CREATE EXTENSION IF NOT EXISTS btree_gist;
+```
+
 ### Installation
 
 <CodeGroup>
@@ -46,6 +54,22 @@ npm install -g @subql/node-terra
 ```shell
 # NPM
 npm install -g @subql/node-avalanche
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Cosmos'>
+
+```shell
+# NPM
+npm install -g @subql/node-cosmos
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Algorand'>
+
+```shell
+# NPM
+npm install -g @subql/node-algorand
 ```
 
 </CodeGroupItem>
@@ -74,6 +98,20 @@ subql-node-terra <command>
 
 ```shell
 subql-node-avalanche <command>
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Cosmos'>
+
+```shell
+subql-node-cosmos <command>
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Algorand'>
+
+```shell
+subql-node-algorand <command>
 ```
 
 </CodeGroupItem>
@@ -107,41 +145,21 @@ subql-node-avalanche -f your-project-path
 ```
 
 </CodeGroupItem>
-</CodeGroup>
-
-#### Use a Dictionary
-
-Using a full chain dictionary can dramatically speed up the processing of a SubQuery project during testing or during your first index. In some cases, we've seen indexing performance increases of up to 10x.
-
-A full chain dictionary pre-indexes the location of all events and extrinsics within the specific chain and allows your node service to skip to relevant locations when indexing rather than inspecting each block.
-
-Vous pouvez ajouter le point de terminaison du dictionnaire dans votre fichier `project.yaml` (voir [Fichier manifeste](../build/manifest/polkadot.md)), ou le spécifier au moment de l'exécution en utilisant la commande suivante :
-
-<CodeGroup>
-<CodeGroupItem title='Substrate/Polkadot/Polkadot'>
+<CodeGroupItem title='Cosmos'>
 
 ```shell
-subql-node --network-dictionary=https://api.subquery.network/sq/subquery/dictionary-polkadot
+subql-node-cosmos -f your-project-path
 ```
 
 </CodeGroupItem>
-<CodeGroupItem title='Terra'>
+<CodeGroupItem title='Algorand'>
 
 ```shell
-subql-node-terra --network-dictionary=https://api.subquery.network/sq/subquery/terra-columbus-5-dictionary
-```
-
-</CodeGroupItem>
-<CodeGroupItem title='Avalanche'>
-
-```shell
-subql-node-avalanche --network-dictionary=https://api.subquery.network/sq/subquery/avalanche-dictionary
+subql-node-algorand -f your-project-path
 ```
 
 </CodeGroupItem>
 </CodeGroup>
-
-::: info Note You can read more about [how a SubQuery Dictionary works](../academy/tutorials_examples/dictionary.md). :::
 
 #### Connect to database
 
@@ -180,16 +198,23 @@ subql-node-avalanche -c your-project-config.yml
 ```
 
 </CodeGroupItem>
+<CodeGroupItem title='Cosmos'>
+
+```shell
+subql-node-cosmos -c your-project-config.yml
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Algorand'>
+
+```shell
+subql-node-algorand -c your-project-config.yml
+```
+
+</CodeGroupItem>
 </CodeGroup>
 
-This will point the query node to a configuration file which can be in YAML or JSON format. Check out the example below.
-
-```yaml
-subquery: ../../../../subql-example/extrinsics
-subqueryName: extrinsics
-batchSize:100
-localMode:true
-```
+This will point the query node to a manifest file which can be in YAML or JSON format.
 
 #### Change the block fetching batch size
 
@@ -224,6 +249,20 @@ subql-node-terra -f your-project-path --local
 
 ```shell
 subql-node-avalanche -f your-project-path --local
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Cosmos'>
+
+```shell
+subql-node-cosmos -f your-project-path --local
+```
+
+</CodeGroupItem>
+<CodeGroupItem title='Algorand'>
+
+```shell
+subql-node-algorand -f your-project-path --local
 ```
 
 </CodeGroupItem>

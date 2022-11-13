@@ -10,16 +10,18 @@ Before we begin, make sure that you have initialised your project using the prov
 
 Note that we are using Juno as the example here, but SubQuery supports all the following Cosmos networks and you can quickly initialise a new project in any of them using the `subql init` command:
 
+- [Juno](https://github.com/subquery/cosmos-subql-starter/tree/main/Juno/juno-starter)
 - [CosmosHub](https://github.com/subquery/cosmos-subql-starter/tree/main/Cosmos/cosmos-starter)
 - [Fetch.ai](https://github.com/subquery/cosmos-subql-starter/tree/main/Fetch.ai/fetchhub-starter)
 - [Stargaze](https://github.com/subquery/cosmos-subql-starter/tree/main/Stargaze/stargaze-starter)
-- Osmosis
-- [Cronos](../quickstart/quickstart_chains/cosmos-cronos.md)
+- [Osmosis]
+- [Cronos](https://github.com/subquery/cosmos-subql-starter/tree/main/Cronos)
+- and more, view the full list in [the cosmos-subql-starter repository](https://github.com/subquery/cosmos-subql-starter).
 
 ::: info Note
-SubQuery can support more Cosmos zones than listed above. 
+SubQuery can support more Cosmos zones than listed above.
 It requires importing `protobufs definitions` for specific chain types.
-See [Custom Cosmos Chains](../build/manifest.html#custom-cosmos-chains) for more information.
+See [Custom Cosmos Chains](../../build/manifest/cosmos.md#custom-chains) for more information.
 :::
 
 Now, let's move ahead in the process and update these configurations.
@@ -262,5 +264,11 @@ The final code of this project can be found [here](https://github.com/jamesbayly
 ## What’s Next?
 
 Congratulations! You have now a locally running SubQuery project that accepts GraphQL API requests for transferring data from bLuna.
+
+::: tip Tip
+
+Find out how to build a performant SubQuery project and avoid common mistakes in [Project Optimisation](../build/optimisation.md).
+
+:::
 
 Click [here](../../quickstart/whats-next.md) to learn what should be your **next step** in your SubQuery journey.

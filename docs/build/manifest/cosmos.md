@@ -68,14 +68,7 @@ dataSources:
 
 ### Tested and Supported networks
 
-We expect that SubQuery will work with all Cosmos chains with the import of the correct protobuf definitions. We've tested this with the following chains, and feel free to make a PR to not support for other chains when you are able to test and confirm them.
-
-| Network Name | Endpoint                                           | Dictionary Endpoint                                                   | Protobufs                                                                                     |
-| ------------ | -------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| Juno         | `rpc.juno-1.api.onfinality.io`                     | `https://api.subquery.network/sq/subquery/cosmos-juno-dictionary`     | None                                                                                          |
-| Stargaze     | `http://nodes.stargaze-1.publicawesome.dev:26657/` | `https://api.subquery.network/sq/subquery/cosmos-stargaze-dictionary` | [Example](https://github.com/subquery/cosmos-subql-starter/blob/stargaze-1/project.yaml#L23)  |
-| Cosmos Hub   | `https://rpc.cosmos.network`                       | `https://api.subquery.network/sq/subquery/cosmos-hub-dictionary`      | [Example](https://github.com/subquery/cosmos-subql-starter/blob/cosmoshub-4/project.yaml#L22) |
-| Fetch Hub    | `https://rpc-fetchhub.fetch.ai`                    | `https://api.subquery.network/sq/subquery/cosmos-fetch-ai-dictionary` | [Example](https://github.com/subquery/cosmos-subql-starter/blob/fetchhub-4/project.yaml)      |
+We expect that SubQuery will work with all Ethermint and CosmWasm Cosmos chains with the import of the correct protobuf definitions. We've tested this with the [chains in the cosmos-subql-starter repository](https://github.com/subquery/cosmos-subql-starter), and feel free to make a PR to not support for other chains when you are able to test and confirm them.
 
 ## Overview
 

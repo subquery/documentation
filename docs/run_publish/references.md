@@ -60,8 +60,7 @@ Options:
   -c, --config              Specify configuration file                  [string]
       --local               Use local mode                [deprecated] [boolean]
       --db-schema           Db schema name of the project               [string]
-      --unsafe              Allows usage of any built-in module within the
-                            sandbox                    [boolean][default: false]
+      --unsafe              Allows usage of various other features that compromise a projects determinism                    [boolean][default: false]
       --batch-size          Batch size of blocks to fetch in one round  [number]
       --scale-batch-size    scale batch size based on memory usage
                                                       [boolean] [default: false]
@@ -84,6 +83,8 @@ Options:
                                                       [boolean] [default: false]
       --timestamp-field     Enable/disable created_at and updated_at in schema
                                                       [boolean] [default: false]
+      --unfinalized-blocks  Enable/disable unfinalized blocks indexing
+                                                       [boolean] [default: false]
   -d, --network-dictionary  Specify the dictionary api for this network [string]
   -m, --mmr-path            Local path of the merkle mountain range (.mmr) file
                                                                         [string]
@@ -203,17 +204,26 @@ subql-node -f . --db-schema=test2
 
 This will create a notification trigger on entity, this also is the prerequisite to enable subscription feature in query service.
 
-### --unsafe
+### --unsafe (Node Service)
 
-SubQuery Projects are usually run in a javascript sandbox for security to limit the scope of access the project has to your system. The sandbox limits the available javascript imports to the following modules:
+Unsafe mode controls various features that compromise the determinism of a SubQuery project by making it impossible to guarantee that the data within two identical projects run independently will be absolutely consistent.
+
+One way we control this is by running all projects in a js sandbox for security to limit the scope of access the project has to your system. The sandbox limits the available javascript imports to the following modules:
 
 ```javascript
 ["assert", "buffer", "crypto", "util", "path"];
 ```
 
-Although this enhances security we understand that this limits the available functionality of your SubQuery. The `--unsafe` command imports all default javascript modules which greatly increases sandbox functionality with the tradeoff of decreased security.
+Although this enhances security we understand that this limits the available functionality of your SubQuery project. The `--unsafe` command allows any import which greatly increases functionality with the tradeoff of decreased security.
 
-**Note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in [SubQuery's Managed Service](https://project.subquery.network).**
+By extension, the `--unsafe` command on the SubQuery Node also allows:
+
+- making external requests (e.g. via Fetch to an external HTTP address or fs)
+- quering block data at any height via the unsafeApi
+
+**Note that must be on a paid plan if you would like to run projects with the `--unsafe` command (on the node service) within [SubQuery's Managed Service](https://project.subquery.network). Additionally, it will prevent your project from being run in the SubQuery Network in the future.**
+
+Also review the [--unsafe command on the query service](#unsafe-query-service).
 
 ### --batch-size
 
@@ -324,6 +334,23 @@ By default this is true. when set to false with:
 
 This removes the created_at and updated_at columns in the starter_entities table.
 
+### --unfinalized-blocks
+
+This will allow you to index blocks before they become finalized. It can be very useful if you want the most up-to-date data possible. It will detect any forks and remove any blocks that don't become finalized. By default it is set to `false`. To change it to `true` run following command:
+
+```shell
+> subql-node -f . --unfinalized-blocks
+```
+
+::: tip Tip
+Note that this feature **requires historical indexing** to be enabled.
+Learn more [here](./historical.md).
+:::
+
+::: info Note
+This feature is only available for Substrate-based blockchains; more networks will be supported in the future.
+:::
+
 ### -d, --network-dictionary
 
 This allows you to specify a dictionary endpoint which is a free service that is provided and hosted at SubQuery's [Project Explorer](https://explorer.subquery.network/) (search for dictionary) and presents an API endpoint of: https://api.subquery.network/sq/subquery/dictionary-polkadot.
@@ -347,6 +374,7 @@ Disables automated historical state tracking, [see Historic State Tracking](./hi
 ### -w, --workers
 
 This will move block fetching and processing into a worker. By default, this feature is **disabled**. You can enable it with the `--workers=<number>` flag.
+
 Note that the number of available CPU cores strictly limits the usage of worker threads. So, when using the `--workers=<number>` flag, always specify the number of workers. With no flag provided, everything will run in the same thread.
 
 :::tip Tip
@@ -355,9 +383,14 @@ It can increase performance by up to 4 times. Give it a try and let us know your
 It is at an early experimental stage at the moment, but we plan to enable it by default.
 :::
 
-::: info Note
-This feature is available for Substrate and Cosmos, and soon will be integrated for Avalanche.
-:::
+On initialisation, once the main thread is established, then the fetching and processing workload is disturbed across all worker threads. Each worker has their own buffer (a set of blocks that they are responsible to fetch/process). For example:
+
+- Worker A: Will execute the `fetch` and `indexing` of blocks `[n,..n+10]`
+- Worker B: Will execute the `fetch` and `indexing` of blocks `[n+11,..n+20]`
+- Worker C: Will execute the `fetch` and `indexing` of blocks `[n+21,..n+30]`
+- Then repeat with `n = n + 30`
+
+In the case where Worker C completes its fetch prior to Worker A and B, it will remain in an idle state until A and B have completed, as the processing phase executes sequentially.
 
 ## subql-query
 
@@ -382,7 +415,7 @@ Options:
                                                       [boolean] [default: false]
       --indexer       Url that allows query to access indexer metadata    [string]
       --unsafe        Disable limits on query depth and allowable number returned
-                      query records                                      [boolean]
+                      query records and enables aggregation functions                                          [boolean]
   -p, --port          The port the service will bind to                   [number]
 ```
 
@@ -439,15 +472,15 @@ Set a custom url for the location of the endpoints of the indexer, the query ser
 
 This flag enables [GraphQL Subscriptions](./subscription.md), to enable this feature requires `subql-node` also enable `--subscription`.
 
-### --unsafe
+### --unsafe (Query Service)
 
 The query service has a limit of 100 entities for unbounded graphql queries. The unsafe flag removes this limit which may cause performance issues on the query service. It is recommended instead that queries are [paginated](https://graphql.org/learn/pagination/).
 
 This flag enables certain aggregation functions including sum, max, avg and others. Read more about this feature [here](../run_publish/aggregate.md).
 
-These are disabled by default due to the entity limit.
+These are disabled by default for database performance reasons.
 
-**Note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in [SubQuery's Managed Services](https://project.subquery.network).**
+**Note that must be on a Partner plan if you would like to run projects with the `--unsafe` command (on the query service) within [SubQuery's Managed Service](https://project.subquery.network). Additionally, it will prevent your project from being run in the SubQuery Network in the future.**
 
 ### --port
 

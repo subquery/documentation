@@ -14,25 +14,7 @@ SubQuery plans to add a constraint to the network where an indexer must stake a 
 
 If an Indexer is caught misbehaving (such as by providing invalid, incomplete, or incorrect data), they are liable to have a portion of their staked SQT (on the particular reward pool ip) reallocated to the SubQuery Foundation Treasury, diminishing their holdings of staked SQT in the network and therefore their potential reward. Since the indexer’s allocated stake is determined by a percentage of their total SQT, this will have a flow on effect to all other reward pools that the indexer is party to.
 
-## How are Indexers rewarded?
-
-Indexers are rewarded in SQT in two ways:
-- Rewards from SQT reward pools based on distribution defined by the Cobb-Douglas Production Function.
-- Direct SQT query fee rewards from Closed Agreements that an indexer is party to.
-
-Indexers are rewarded the fees that Consumers pay for providing blockchain data that the Consumer has reqested. An Indexer will receive all the fees from a Closed Agreement. Otherwise, the fees are split based on the amount of work performed (requests served) and the amount of delegated SQT - this split is determined by applying the Cobb-Douglas Production Function.
-
-There may be multiple reward pools simultaneously active for a given Indexer. The indexer’s job is to allocate their staked and delegated SQT amongst these pools (in terms of a percentage of their total SQT). There will be a reward pool for each project that the Indexer accepts PAYG, and a reward pool for each Market Agreement that the Indexer is a party of.
-
-## Attracting Delegators
-
-Indexers can increase their earning potential by attracting Delegators. Delegators are SQT token holders who can delegate their tokens to Indexers for additional rewards. Indexers use these additional tokens to increase the amount they allocate to projects of their choice. This allows Indexers to increase their earnings.
-
-Indexers set an Indexer’s Commission Rate (ICR) which is the percentage Indexers earn. The remaining is then shared amongst the Indexer and all Delegators propotionally by staked/delegated amount. Therefore, Indexers need to decide on the proportion of profits an Indexer wishes to retain versus the amount to share with their Delegators. A lower ICR will be more attractive for Delegators.
-
-For example, Indexer A has set an ICR of 80% and has received SQT from 8 Delegators. This means that the 8 Delegators plus the Indexer itself, will be rewarded a share of the remaining 20% of what the Indexer has earned. The share will be split proportionally between them. Note that Delegators must have delegated their tokens for the entire Era to be eligible for these rewards. For more information on Delegators rewards, see [Delegators](./delegators.md).
-
-## Becoming an Indexer
+## Requirements to be an Indexer
 
 To become an Indexer on the SubQuery Network, the Indexer must possess the necessary hardware, run the required SubQuery services, have a publicly accessible network via a static IP or a domain name, and register as an Indexer.
 
@@ -77,6 +59,30 @@ The minimum infrastructure requirement includes:
 - One database node to run Postgresql db (v12 and above).
 
 More detailed information will come soon.
+
+## How are Indexers rewarded?
+
+Indexers are rewarded in SQT in two ways:
+- Rewards from SQT reward pools based on distribution defined by the Cobb-Douglas Production Function.
+- Direct SQT query fee rewards from Closed Agreements that an indexer is party to.
+
+Indexers are rewarded the fees that Consumers pay for providing blockchain data that the Consumer has reqested. An Indexer will receive all the fees from a Closed Agreement. Otherwise, the fees are split based on the amount of work performed (requests served) and the amount of delegated SQT - this split is determined by applying the Cobb-Douglas Production Function.
+
+There may be multiple reward pools simultaneously active for a given Indexer. The indexer’s job is to allocate their staked and delegated SQT amongst these pools (in terms of a percentage of their total SQT). There will be a reward pool for each project that the Indexer accepts PAYG, and a reward pool for each Market Agreement that the Indexer is a party of.
+
+## Risk of being an Indexer
+
+There are a few risks of being an Indexer. 
+- Infrastructure investment risk. An Indexer needs to invest in hardware infrastructure which is an upfront cost. However, many infrastructure provides such as AWS provide monthly payments, as opposed to yearly contracts, and the ability to scale servers up and down based on demand. This significantly reduces the risk for an Indexer.
+- Lack of customers. This risk is inherent in any business opportunity and the traditional risk mitigation methods apply here. Indexers can adjust their price to be competitive, advertise their services, and build a solid reputation within the community by contributing to forums and helping others.
+
+## How to attract Delegators?
+
+Indexers can increase their earning potential by attracting Delegators. Delegators are SQT token holders who can delegate their tokens to Indexers for additional rewards. Indexers use these additional tokens to increase the amount they allocate to projects of their choice. This allows Indexers to increase their earnings.
+
+Indexers set an Indexer’s Commission Rate (ICR) which is the percentage Indexers earn. The remaining is then shared amongst the Indexer and all Delegators propotionally by staked/delegated amount. Therefore, Indexers need to decide on the proportion of profits an Indexer wishes to retain versus the amount to share with their Delegators. A lower ICR will be more attractive for Delegators.
+
+For example, Indexer A has set an ICR of 80% and has received SQT from 8 Delegators. This means that the 8 Delegators plus the Indexer itself, will be rewarded a share of the remaining 20% of what the Indexer has earned. The share will be split proportionally between them. Note that Delegators must have delegated their tokens for the entire Era to be eligible for these rewards. For more information on Delegators rewards, see [Delegators](./delegators.md).
 
 ## Security & Performance considerations
 
