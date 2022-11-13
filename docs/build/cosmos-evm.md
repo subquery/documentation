@@ -2,7 +2,13 @@
 
 We provide a custom data source processor for [Cosmos's Ethermint EVM](https://github.com/cosmos/ethermint). This offers a simple way to filter and index both EVM and Cosmos activity on many Cosmos networks within a single SubQuery project.
 
-**You can also refer to the basic [Cronos EVM Example Project](https://github.com/subquery/cosmos-subql-starter/tree/main/Cronos/cronos-evm-starter) with an event and call handler.**
+::: info Note
+Ethermint chains (e.g. Cronos) are usually fully EVM compatible, which means that you can use two options for indexing Ethermint data. You can index Ethermint contract data via the standard Cosmos RPC interface, or via Ethereum APIs. For Cronos, we provide a [starter project for each](https://github.com/subquery/cosmos-subql-starter/tree/main/Cronos) and you can compare the two different options in the [Cronos quick start guide](../quickstart/quickstart_chains/cosmos-cronos.md).
+
+This document goes into detail about how to use the Ethermint Cosmos RPCs (rather than the Ethereum API)
+:::
+
+**You can also refer to the basic [Cronos EVM Example Project](https://github.com/subquery/cosmos-subql-starter/tree/main/Cronos) with an event and call handler.**
 
 ## Getting started
 
