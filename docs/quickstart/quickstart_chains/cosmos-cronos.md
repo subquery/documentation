@@ -5,7 +5,7 @@
 The goal of this quick start guide is to adapt the standard starter project in the Cronos Network and then begin indexing all transfers of [Cro Crow Token](https://www.crocrow.com/).
 
 ::: warning Important
-Cronos is an EVM compatible (Ethermint) chain, as such there are two options for indexing Cronos data. You can index ethermint contract data via the standard Cosmos RPC interface, or via ethereum APIs. For Cronos, we provide a starter project for each.
+Cronos is an EVM compatible (Ethermint) chain, as such there are two options for indexing Cronos data. You can index chain data via the standard Cosmos RPC interface, or via Ethereum APIs. For Cronos, we provide a starter project for each.
 
 Before we begin, make sure that you have initialised your project using the provided steps in the **[Start Here](../quickstart.md)** section. You must complete the suggested [4 steps](https://github.com/subquery/cosmos-subql-starter#readme) for Cosmos users.
 :::
@@ -68,7 +68,7 @@ The Project Manifest (`project.yaml`) file is an entry point to your project. It
 Note that the manifest file has already been set up correctly and doesn’t require significant changes, but you need to change the datasource handlers. This section lists the triggers that look for on the blockchain to start indexing.
 
 ::: warning Important
-There are two versions of this file depending on if you chose to index data via the ETH or Cosmos RPC
+There are two versions of this file depending on your choice to index data via the ETH or Cosmos RPC
 :::
 
 <CodeGroup>
@@ -151,7 +151,7 @@ Follow these steps to add a mapping function:
 - Navigate to the default mapping function in the `src/mappings` directory. You will see setup types for ABI `TransferEventArgs` and `ApproveCallArgs`. Delete those for approvals. You will also see two exported functions: `handleEthermintEvmEvent` & `handleEthermintEvmCall` or `handleLog` & `handleTransaction`. Delete them as well.
 
 ::: warning Important
-There are two versions of this file depending on if you chose to index data via the ETH or Cosmos RPC
+There are two versions of this file depending on your choice to index data via the ETH or Cosmos RPC
 :::
 
 Update your mapping files to match the following (**note the additional imports**):
