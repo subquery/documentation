@@ -63,7 +63,7 @@ Run the following command:
 
 ```bash
 mkdir subquery-indexer && cd subquery-indexer
-curl https://raw.githubusercontent.com/subquery/indexer-services/main/docker-compose.yml -o docker-compose.yml
+curl https://raw.githubusercontent.com/subquery/indexer-services/develop/docker-compose.yml -o docker-compose.yml
 ```
 
 ::: warning Important
@@ -83,6 +83,7 @@ It will start the following services:
 - `coordinator_db`
 - `coordinator_service`
 - `coordinator_proxy`
+- `proxy-redis`
 
 ::: info Note
 Each project you start indexing will create 2 extra containers `node_qm----------` and `query_qm----------` that has the 13 first characters of the project's Qm-hash.

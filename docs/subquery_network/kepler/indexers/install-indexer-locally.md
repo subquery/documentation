@@ -26,7 +26,7 @@ Now, let's explore how to run the Indexing Service Locally step-by-step.
 ```bash
 mkdir kepler
 cd kepler
-curl https://raw.githubusercontent.com/subquery/indexer-services/main/docker-compose.yml -o docker-compose.yml
+curl https://raw.githubusercontent.com/subquery/indexer-services/develop/docker-compose.yml -o docker-compose.yml
 ```
 
 ::: warning Important
@@ -48,6 +48,7 @@ Please check that the Docker is already running. The images will be pulled from 
 - `coordinator_db`
 - `coordinator_service`
 - `coordinator_proxy`
+- `proxy-redis`
 
 ![docker compose-up command line](/assets/img/docker_compose_up_commandline_installlocally.png)
 
