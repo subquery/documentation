@@ -125,8 +125,7 @@ Now, let’s see how to create your own Indexer using EC2.
 - Select `AWS Marketplace` on the left menu and enter `ECS` in the search field to get the specific AMI. Then choose the first one, `Amazon ECS-Optimized Amazon Linux 2 AMI`, and click on the select button.
 
 ```
-You’ll need 30GB of storage for this season
-
+You’ll need at least 100GB of storage for indexing dictionary projects.
 ```
 
 ![Create Amazon Marketplace](/assets/img/amazon_marketplace_aws_ec2.png)
