@@ -120,7 +120,7 @@ The `chainId` or `genesisHash` is the network identifier of the blockchain. In S
 
 ![Genesis Hash](/assets/img/genesis-hash.jpg)
 
-Additionally you will need to update the `endpoint`. This defines the wss endpoint of the blockchain to be indexed - **this must be a full archive node**. You can retrieve endpoints for all parachains for free from [OnFinality](https://app.onfinality.io)
+Additionally you will need to update the `endpoint`. This defines the wss endpoint of the blockchain to be indexed - **this must be a full archive node**. Public nodes may be rate limited which can affect indexing speed, when developing your project we suggest getting a private API key. You can retrieve endpoints for all parachains for free from [OnFinality](https://app.onfinality.io)
 
 | Field           | v1.0.0        | v0.2.0        | Description                                                                                                                                                                                                |
 | --------------- | ------------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -164,9 +164,9 @@ Defines the data that will be filtered and extracted and the location of the map
 
 ### Mapping Spec
 
-| Field                  | All manifest versions                                                                              | Description                                                                                                                                                                                                                                          |
-| ---------------------- | -------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **handlers & filters** | Default handlers and filters, <br />[Custom handlers and filters](manifest.md#custom-data-sources) | List all the [mapping functions](./mapping/polkadot.md) and their corresponding handler types, with additional mapping filters. <br /><br /> For custom runtimes mapping handlers please view [Custom data sources](manifest.md#custom-data-sources) |
+| Field                  | All manifest versions                                                                              | Description                                                                                                                                                                                                                                           |
+| ---------------------- | -------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **handlers & filters** | Default handlers and filters, <br />[Custom handlers and filters](manifest.md#custom-data-sources) | List all the [mapping functions](../mapping/polkadot.md) and their corresponding handler types, with additional mapping filters. <br /><br /> For custom runtimes mapping handlers please view [Custom data sources](manifest.md#custom-data-sources) |
 
 ## Data Sources and Mapping
 
@@ -186,11 +186,11 @@ The following table explains filters supported by different handlers.
 
 **Your SubQuery project will be much more efficient when you only use event and call handlers with appropriate mapping filters.**
 
-| Handler                                                        | Supported filter                          |
-| -------------------------------------------------------------- | ----------------------------              |
-| [substrate/BlockHandler](../mapping/polkadot.md#block-handler) | `specVersion`, `modulo`, `timestamp`      |
-| [substrate/EventHandler](../mapping/polkadot.md#event-handler) | `module`,`method`                         |
-| [substrate/CallHandler](../mapping/polkadot.md#call-handler)   | `module`,`method` ,`success`              |
+| Handler                                                        | Supported filter                     |
+| -------------------------------------------------------------- | ------------------------------------ |
+| [substrate/BlockHandler](../mapping/polkadot.md#block-handler) | `specVersion`, `modulo`, `timestamp` |
+| [substrate/EventHandler](../mapping/polkadot.md#event-handler) | `module`,`method`                    |
+| [substrate/CallHandler](../mapping/polkadot.md#call-handler)   | `module`,`method` ,`success`         |
 
 Default runtime mapping filters are an extremely useful feature to decide what block, event, or extrinsic will trigger a mapping handler.
 
@@ -226,9 +226,9 @@ The `timestamp` filter accepts a valid cron expression and runs on schedule agai
 
 ```yml
 filter:
-   # This cron expression will index blocks with at least 5 minutes interval 
-   # between their timestamps starting at startBlock given under the datasource. 
-  timestamp: "*/5 * * * *" 
+  # This cron expression will index blocks with at least 5 minutes interval
+  # between their timestamps starting at startBlock given under the datasource.
+  timestamp: "*/5 * * * *"
 ```
 
 ::: info Note

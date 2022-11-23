@@ -13,13 +13,13 @@ Eşleme işlevlerinin üç sınıfı vardır; [Block handlers ](#block-handler),
 Alt tabaka zincirine her yeni blok numarası bilgi yakalamak için blok işleyicilerini kullanabilirsiniz. Bunu başarmak için, tanımlanan bir BlockHandler her blok için bir kez çağrılır.
 
 ```ts
-import {SubstrateBlock} from "@subql/types";
+import { SubstrateBlock } from "@subql/types";
 
 export async function handleBlock(block: SubstrateBlock): Promise<void> {
-    // Create a new StarterEntity with the block hash as it's ID
-    const record = new starterEntity(block.block.header.hash.toString());
-    record.field1 = block.block.header.number.toNumber();
-    await record.save();
+  // Create a new StarterEntity with the block hash as it's ID
+  const record = new starterEntity(block.block.header.hash.toString());
+  record.field1 = block.block.header.number.toNumber();
+  await record.save();
 }
 ```
 
@@ -51,25 +51,30 @@ export async function handleEvent(event: SubstrateEvent): Promise<void> {
 
 ```ts
 export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
-    const record = new starterEntity(extrinsic.block.block.header.hash.toString());
-    record.field4 = extrinsic.block.timestamp;
-    await record.save();
+  const record = new starterEntity(
+    extrinsic.block.block.header.hash.toString()
+  );
+  record.field4 = extrinsic.block.timestamp;
+  await record.save();
 }
 ```
 
 [SubstrateExtrinsic](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L21) [GenericExtrinsic](https://github.com/polkadot-js/api/blob/a9c9fb5769dec7ada8612d6068cf69de04aa15ed/packages/types/src/extrinsic/Extrinsic.ts#L170)’i genişletir. Bir `id` (bu dışsal öğenin ait olduğu blok) atanır ve olayları bu blok arasında genişleten dışsal bir özellik sağlar. Ayrıca, bu dışsal başarı durumunu kaydeder.
 
 ## Sorgu Durumları
+
 Amacımız, işleyicileri eşlemek için kullanıcılar için tüm veri kaynaklarını kapsamaktır (yukarıdaki üç arabirim olay türünden daha fazlası). Bu nedenle, yetenekleri artırmak için bazı @polkadot/api arabirimlerini kullanıma açtık.
 
 Şu anda desteklediğimiz arayüzler şunlardır:
+
 - [api.query. &lt;module&gt;. &lt;method&gt;()](https://polkadot.js.org/docs/api/start/api.query) <strong>current</strong> bloğunu sorgular.
 - [api.query. &lt;module&gt;. &lt;method&gt;.multi()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-same-type) geçerli blokta <strong>same</strong> türünde birden çok sorgu yapar.
 - [api.queryMulti()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-distinct-types) geçerli blokta <strong>different</strong> türlerinin birden çok sorgusunu yapar.
 
 Şu anda desteklediğimiz **NOT** arabirimler şunlardır:
-- ~~api.tx.*~~
-- ~~api.derive.*~~
+
+- ~~api.tx.\*~~
+- ~~api.derive.\*~~
 - ~~api.query.&lt;module&gt;.&lt;method&gt;.at~~
 - ~~api.query.&lt;module&gt;.&lt;method&gt;.entriesAt~~
 - ~~api.query.&lt;module&gt;.&lt;method&gt;.entriesPaged~~
@@ -97,6 +102,7 @@ const b1 = await api.rpc.chain.getBlock(blockhash);
 // Geçerli bloğun varsayılan olarak böyle olduğunu kullanır
 const b2 = await api.rpc.chain.getBlock();
 ```
+
 - [Özel Substrat Zincirleri](#custom-substrate-chains) RPC çağrıları için [kullanım](#usage) konusuna bakın.
 
 ## Modüller ve Kitaplıklar
@@ -112,14 +118,8 @@ Bunun bir **experimental feature** olduğunu ve eşleme işlevlerinizi olumsuz e
 Modülün tamamını almak yerine, yalnızca ihtiyacınız olan gerekli yöntemleri almanızı öneririz. Bu modüllerdeki bazı yöntemlerin desteklenmeyen bağlılıkları olabilir ve içe aktarma işlemi başarısız olur.
 
 ```ts
-import {hashMessage} from "ethers/lib/utils"; //Good way
-import {utils} from "ethers" //Bad way
-
-export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
-    const record = new starterEntity(extrinsic.block.block.header.hash.toString());
-    record.field1 = hashMessage('Hello');
-    await record.save();
-}
+import { hashMessage } from "ethers/lib/utils"; // Good way
+import { utils } from "ethers"; // Bad way
 ```
 
 ### Üçüncü taraf kitaplıkları
@@ -147,6 +147,7 @@ Gerçek API uç noktalarını oluşturmak için meta verilere ihtiyacımız var.
 ```shell
 curl -H "Content-Type: application/json" -d '{"id":"1", "jsonrpc":"2.0", "method": "state_getMetadata", "params":[]}' http://localhost:9933
 ```
+
 [`websocat`](https://github.com/vi/websocat) yardımıyla **websocket** uç noktasından:
 
 ```shell
@@ -160,46 +161,49 @@ echo state_getMetadata | websocat 'ws://127.0.0.1:9944' --jsonrpc
 Ardından, çıktıyı kopyalayıp bir JSON dosyasına yapıştırın. [kitty örneğimizde](https://github.com/subquery/tutorials-kitty-chain) `api-interface/kitty.json` oluşturduk.
 
 #### Tür tanımları
+
 Kullanıcının zincirden belirli türleri ve RPC desteğini bildiğini ve [Manifest](./manifest.md) tanımlandığını varsayıyoruz.
 
 [types setup](https://polkadot.js.org/docs/api/examples/promise/typegen#metadata-setup)’nu izleyerek aşağıdakileri oluşturuyoruz:
+
 - `src/api-interfaces/definitions.ts` - bu, tüm alt klasör tanımlarını dışa aktarıyor
 
 ```ts
-export { default as kitties } from './kitties/definitions';
+export { default as kitties } from "./kitties/definitions";
 ```
 
 - `src/api-interfaces/kitties/definitions.ts` - kitties modülü için tür tanımları
+
 ```ts
 export default {
-    // custom types
-    types: {
-        Address: "AccountId",
-        LookupSource: "AccountId",
-        KittyIndex: "u32",
-        Kitty: "[u8; 16]"
+  // custom types
+  types: {
+    Address: "AccountId",
+    LookupSource: "AccountId",
+    KittyIndex: "u32",
+    Kitty: "[u8; 16]",
+  },
+  // custom rpc : api.rpc.kitties.getKittyPrice
+  rpc: {
+    getKittyPrice: {
+      description: "Get Kitty price",
+      params: [
+        {
+          name: "at",
+          type: "BlockHash",
+          isHistoric: true,
+          isOptional: false,
+        },
+        {
+          name: "kittyIndex",
+          type: "KittyIndex",
+          isOptional: false,
+        },
+      ],
+      type: "Balance",
     },
-    // custom rpc : api.rpc.kitties.getKittyPrice
-    rpc: {
-        getKittyPrice:{
-            description: 'Get Kitty price',
-            params: [
-                {
-                    name: 'at',
-                    type: 'BlockHash',
-                    isHistoric: true,
-                    isOptional: false
-                },
-                {
-                    name: 'kittyIndex',
-                    type: 'KittyIndex',
-                    isOptional: false
-                }
-            ],
-            type: 'Balance'
-        }
-    }
-}
+  },
+};
 ```
 
 #### Paket
@@ -251,28 +255,32 @@ Bu komut meta verileri ve API'ler için yeni bir api-augment oluşturur. Yerleş
 ```json
 {
   "compilerOptions": {
-      // Bu, kullandığımız paket adıdır (arayüz içe aktarmalarında, --jeneratörler için paket) */
-      "kitty-birthinfo/*": ["src/*"],
-     // Burada @polkadot/api büyütmeyi zincirden oluşturulan kendi büyütmemizle değiştiriyoruz
-      "@polkadot/api/augment": ["src/interfaces/augment-api.ts"],
-     // tanımlardan oluşturulan artırılmış türleri kendi türlerimizle değiştirin
-      "@polkadot/türleri/büyütme": ["src/interfaces/augment-types.ts"]
-    }
+    // Bu, kullandığımız paket adıdır (arayüz içe aktarmalarında, --jeneratörler için paket) */
+    "kitty-birthinfo/*": ["src/*"],
+    // Burada @polkadot/api büyütmeyi zincirden oluşturulan kendi büyütmemizle değiştiriyoruz
+    "@polkadot/api/augment": ["src/interfaces/augment-api.ts"],
+    // tanımlardan oluşturulan artırılmış türleri kendi türlerimizle değiştirin
+    "@polkadot/türleri/büyütme": ["src/interfaces/augment-types.ts"]
+  }
 }
 ```
 
 ### Kullanım
 
 Şimdi eşleme işlevinde, meta verilerin ve türlerin API'yi gerçekte nasıl dekore ederek süslediğini gösterebiliriz. RPC uç noktası yukarıda beyan ettiğimiz modülleri ve yöntemleri destekleyecektir. Ve özel rpc çağrısı kullanmak için, lütfen [Özel zincir rpc çağrıları](#custom-chain-rpc-calls) bölümüne bakın
+
 ```typescript
 export async function kittyApiHandler(): Promise<void> {
-    //KittyIndex türünü döndürme
-    const nextKittyId = await api.query.kitties.nextKittyId();
-   //Kitty türünü döndürür, giriş parametreleri türleri AccountId ve KittyIndex'tir
-    const allKitties  = await api.query.kitties.kitties('xxxxxxxxx',123)
-    logger.info(`Next kitty id ${nextKittyId}`)
-    //Özel rpc, tanımsız olarak blockhash olarak ayarla
-    const kittyPrice = await api.rpc.kitties.getKittyPrice(undefined,nextKittyId);
+  //KittyIndex türünü döndürme
+  const nextKittyId = await api.query.kitties.nextKittyId();
+  //Kitty türünü döndürür, giriş parametreleri türleri AccountId ve KittyIndex'tir
+  const allKitties = await api.query.kitties.kitties("xxxxxxxxx", 123);
+  logger.info(`Next kitty id ${nextKittyId}`);
+  //Özel rpc, tanımsız olarak blockhash olarak ayarla
+  const kittyPrice = await api.rpc.kitties.getKittyPrice(
+    undefined,
+    nextKittyId
+  );
 }
 ```
 
@@ -281,6 +289,7 @@ export async function kittyApiHandler(): Promise<void> {
 ### Özel zincir rpc çağrıları
 
 Özelleştirilmiş zincir RPC çağrılarını desteklemek için, `typesBundle` için RPC tanımlarını el ile eklemeli ve her belirti için yapılandırmaya izin vermeliyiz. `typesBundle`’ı `project.yml`’de tanımlayabilirsiniz. Ve lütfen yalnızca `isHistoric` tür çağrıların desteklendiğini unutmayın.
+
 ```yaml
 ...
   types: {

@@ -13,13 +13,13 @@ Có ba lớp hàm ánh xạ; [Hàm xử lý khối](#block-handler), [Hàm xử 
 Bạn có thể sử dụng hàm xử lý khối để lấy thông tin mỗi khi khối mới được gắn vào Substrate chain, ví dụ: số thứ tự của khối. Để đạt được điều này, một BlockHandler đã xác định sẽ được gọi một lần cho mỗi khối.
 
 ```ts
-import {SubstrateBlock} from "@subql/types";
+import { SubstrateBlock } from "@subql/types";
 
 export async function handleBlock(block: SubstrateBlock): Promise<void> {
-    // Create a new StarterEntity with the block hash as it's ID
-    const record = new starterEntity(block.block.header.hash.toString());
-    record.field1 = block.block.header.number.toNumber();
-    await record.save();
+  // Create a new StarterEntity with the block hash as it's ID
+  const record = new starterEntity(block.block.header.hash.toString());
+  record.field1 = block.block.header.number.toNumber();
+  await record.save();
 }
 ```
 
@@ -51,25 +51,30 @@ Call Handler được sử dụng khi bạn muốn nắm bắt thông tin về m
 
 ```ts
 export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
-    const record = new starterEntity(extrinsic.block.block.header.hash.toString());
-    record.field4 = extrinsic.block.timestamp;
-    await record.save();
+  const record = new starterEntity(
+    extrinsic.block.block.header.hash.toString()
+  );
+  record.field4 = extrinsic.block.timestamp;
+  await record.save();
 }
 ```
 
 [SubstrateExtrinsic](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L21) mở rộng [GenericExtriuality](https://github.com/polkadot-js/api/blob/a9c9fb5769dec7ada8612d6068cf69de04aa15ed/packages/types/src/extrinsic/Extrinsic.ts#L170). Nó được gán một `id` (khối mà khối bên ngoài này thuộc về) và cung cấp một thuộc tính bên ngoài để mở rộng các sự kiện giữa khối này. Ngoài ra, nó ghi lại trạng thái thành công của ngoại cảnh này.
 
 ## Query States
+
 Mục tiêu của chúng tôi là cung cấp tất cả các nguồn dữ liệu cho người dùng để xử lý ánh xạ (không chỉ là ba loại sự kiện giao diện ở trên). Do đó, chúng tôi đã đưa ra một số giao diện @polkadot/api để tăng khả năng.
 
 Đây là những giao diện chúng tôi hiện đang hỗ trợ:
+
 - [api.query. &lt;module&gt;. &lt;method&gt;()](https://polkadot.js.org/docs/api/start/api.query) sẽ truy vấn khối <strong>hiện tại</strong>.
 - [api.query. &lt;module&gt;. &lt;method&gt;.multi ()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-same-type) sẽ thực hiện nhiều truy vấn loại <strong>giống nhau</strong> tại khối hiện tại.
 - [api.queryMulti()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-distinct-types) sẽ thực hiện nhiều truy vấn <strong>khác nhau</strong> tại khối hiện tại.
 
 Đây là những giao diện mà hiện tại chúng tôi **KHÔNG** hỗ trợ:
-- ~~api.tx.*~~
-- ~~api.derive.*~~
+
+- ~~api.tx.\*~~
+- ~~api.derive.\*~~
 - ~~api.query.&lt;module&gt;.&lt;method&gt;.at~~
 - ~~api.query.&lt;module&gt;.&lt;method&gt;.entriesAt~~
 - ~~api.query.&lt;module&gt;.&lt;method&gt;.entriesPaged~~
@@ -97,6 +102,7 @@ const b1 = await api.rpc.chain.getBlock(blockhash);
 // Nó sẽ sử dụng khối hiện tại có mặc định
 const b2 = await api.rpc.chain.getBlock();
 ```
+
 - Đối với [Chuỗi Substrate tùy chỉnh](#custom-substrate-chains) lệnh gọi RPC, hãy xem [usage](#usage).
 
 ## Mô-đun và Thư viện
@@ -112,14 +118,8 @@ Hiện tại, chúng tôi cho phép các mô-đun NodeJS sau: `assert`, `buffer`
 Thay vì nhập toàn bộ mô-đun, chúng tôi khuyên bạn chỉ nên nhập (các) phương thức bắt buộc mà bạn cần. Một số phương thức trong các mô-đun này có thể có các phụ thuộc không được hỗ trợ và sẽ không thành công khi nhập.
 
 ```ts
-import {hashMessage} from "ethers/lib/utils"; //Good way
-import {utils} from "ethers" //Bad way
-
-export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
-    const record = new starterEntity(extrinsic.block.block.header.hash.toString());
-    record.field1 = hashMessage('Hello');
-    await record.save();
-}
+import { hashMessage } from "ethers/lib/utils"; // Good way
+import { utils } from "ethers"; // Bad way
 ```
 
 ### Thư viện bên thứ ba
@@ -147,6 +147,7 @@ Chúng tôi cần metadata để tạo các điểm cuối API thực tế. Tron
 ```shell
 curl -H "Content-Type: application/json" -d '{"id":"1", "jsonrpc":"2.0", "method": "state_getMetadata", "params":[]}' http://localhost:9933
 ```
+
 hoặc từ điểm cuối **websocket** của nó với sự trợ giúp từ [`websocat`](https://github.com/vi/websocat):
 
 ```shell
@@ -160,46 +161,49 @@ echo state_getMetadata | websocat 'ws://127.0.0.1:9944' --jsonrpc
 Tiếp theo, sao chép và dán đầu ra vào tệp JSON. Trong [ví dụ về kitty](https://github.com/subquery/tutorials-kitty-chain), chúng tôi đã tạo `api-interface/kitty.json`.
 
 #### Định nghĩa type
+
 Chúng tôi giả định rằng người dùng biết các types cụ thể và hỗ trợ RPC từ chuỗi và nó được định nghĩa trong [Manifest](./manifest.md).
 
 Sau khi thiết lập [types setup](https://polkadot.js.org/docs/api/examples/promise/typegen#metadata-setup), chúng tôi tạo:
+
 - `src/api-interface/define.ts` - điều này xuất tất cả các định folder definitions
 
 ```ts
-export { default as kitties } from './kitties/definitions';
+export { default as kitties } from "./kitties/definitions";
 ```
 
 - `src/api-interface/kitties/Definition.ts` - định nghĩa cho mô-đun kitties
+
 ```ts
 export default {
-    // custom types
-    types: {
-        Address: "AccountId",
-        LookupSource: "AccountId",
-        KittyIndex: "u32",
-        Kitty: "[u8; 16]"
+  // custom types
+  types: {
+    Address: "AccountId",
+    LookupSource: "AccountId",
+    KittyIndex: "u32",
+    Kitty: "[u8; 16]",
+  },
+  // custom rpc : api.rpc.kitties.getKittyPrice
+  rpc: {
+    getKittyPrice: {
+      description: "Get Kitty price",
+      params: [
+        {
+          name: "at",
+          type: "BlockHash",
+          isHistoric: true,
+          isOptional: false,
+        },
+        {
+          name: "kittyIndex",
+          type: "KittyIndex",
+          isOptional: false,
+        },
+      ],
+      type: "Balance",
     },
-    // custom rpc : api.rpc.kitties.getKittyPrice
-    rpc: {
-        getKittyPrice:{
-            description: 'Get Kitty price',
-            params: [
-                {
-                    name: 'at',
-                    type: 'BlockHash',
-                    isHistoric: true,
-                    isOptional: false
-                },
-                {
-                    name: 'kittyIndex',
-                    type: 'KittyIndex',
-                    isOptional: false
-                }
-            ],
-            type: 'Balance'
-        }
-    }
-}
+  },
+};
 ```
 
 #### Các gói
@@ -251,28 +255,32 @@ Lệnh này sẽ tạo metadata và một api-augment mới cho các API. Vì ch
 ```json
 {
   "compilerOptions": {
-      // this is the package name we use (in the interface imports, --package for generators) */
-      "kitty-birthinfo/*": ["src/*"],
-      // here we replace the @polkadot/api augmentation with our own, generated from chain
-      "@polkadot/api/augment": ["src/interfaces/augment-api.ts"],
-      // replace the augmented types with our own, as generated from definitions
-      "@polkadot/types/augment": ["src/interfaces/augment-types.ts"]
-    }
+    // this is the package name we use (in the interface imports, --package for generators) */
+    "kitty-birthinfo/*": ["src/*"],
+    // here we replace the @polkadot/api augmentation with our own, generated from chain
+    "@polkadot/api/augment": ["src/interfaces/augment-api.ts"],
+    // replace the augmented types with our own, as generated from definitions
+    "@polkadot/types/augment": ["src/interfaces/augment-types.ts"]
+  }
 }
 ```
 
 ### Cách sử dụng
 
 Bây giờ trong hàm ánh xạ, chúng tôi có thể hiển thị rõ ràng cách metadata và types thực sự minh họa cho API. Điểm cuối RPC sẽ hỗ trợ các mô-đun và phương thức mà chúng tôi đã khai báo ở trên. Và để sử dụng lệnh gọi rpc tùy chỉnh, vui lòng xem phần[Custom chain rpc calls](#custom-chain-rpc-calls)
+
 ```typescript
 export async function kittyApiHandler(): Promise<void> {
-    //return the KittyIndex type
-    const nextKittyId = await api.query.kitties.nextKittyId();
-    // return the Kitty type, input parameters types are AccountId and KittyIndex
-    const allKitties  = await api.query.kitties.kitties('xxxxxxxxx',123)
-    logger.info(`Next kitty id ${nextKittyId}`)
-    //Custom rpc, set undefined to blockhash
-    const kittyPrice = await api.rpc.kitties.getKittyPrice(undefined,nextKittyId);
+  //return the KittyIndex type
+  const nextKittyId = await api.query.kitties.nextKittyId();
+  // return the Kitty type, input parameters types are AccountId and KittyIndex
+  const allKitties = await api.query.kitties.kitties("xxxxxxxxx", 123);
+  logger.info(`Next kitty id ${nextKittyId}`);
+  //Custom rpc, set undefined to blockhash
+  const kittyPrice = await api.rpc.kitties.getKittyPrice(
+    undefined,
+    nextKittyId
+  );
 }
 ```
 
@@ -280,7 +288,8 @@ export async function kittyApiHandler(): Promise<void> {
 
 ### Lệnh gọi rpc đối với chuỗi tùy chỉnh
 
-Để hỗ trợ các lệnh gọi RPC chuỗi tùy chỉnh, chúng tôi phải đưa các định nghĩa RPC cho `typesBundle` theo cách thủ công, cho phép cấu hình theo từng thông số kỹ thuật. Bạn có thể định nghĩa `stylesBundle` trong `project.yml`. *Note: chỉ các lệnh gọi dạng `isHistoric` được hỗ trợ.
+Để hỗ trợ các lệnh gọi RPC chuỗi tùy chỉnh, chúng tôi phải đưa các định nghĩa RPC cho `typesBundle` theo cách thủ công, cho phép cấu hình theo từng thông số kỹ thuật. Bạn có thể định nghĩa `stylesBundle` trong `project.yml`. \*Note: chỉ các lệnh gọi dạng `isHistoric` được hỗ trợ.
+
 ```yaml
 ...
   types: {

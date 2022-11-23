@@ -85,14 +85,14 @@ If you start your project by using the `subql init` command, you'll generally re
 
 The `chainId` is the network identifier of the blockchain. In Algorand it is always the genesis hash of the network (hash of the first block).
 
-Additionally you will need to update the `endpoint`. This defines the wss endpoint of the blockchain to be indexed - **this must be a full archive node**. You can retrieve endpoints for all parachains for free from [OnFinality](https://app.onfinality.io)
+Additionally you will need to update the `endpoint`. This defines the wss endpoint of the blockchain to be indexed - **this must be a full archive node**. Public nodes may be rate limited which can affect indexing speed, when developing your project we suggest getting a private API key.
 
-| Field          | Type   | Description                                                                                                                                                                                                |
-| -------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **chainId**    | String | A network identifier for the blockchain                                                                                                                                                                    |
-| **endpoint**   | String | Defines the wss or ws endpoint of the blockchain to be indexed - **This must be a full archive node**. You can retrieve endpoints for all parachains for free from [OnFinality](https://app.onfinality.io) |
-| **port**       | Number | Optional port number on the `endpoint` to connect to                                                                                                                                                       |
-| **dictionary** | String | It is suggested to provide the HTTP endpoint of a full chain dictionary to speed up processing - read [how a SubQuery Dictionary works](../academy/tutorials_examples/dictionary.md).                      |
+| Field          | Type   | Description                                                                                                                                                                           |
+| -------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **chainId**    | String | A network identifier for the blockchain                                                                                                                                               |
+| **endpoint**   | String | Defines the wss or ws endpoint of the blockchain to be indexed - **This must be a full archive node**.                                                                                |
+| **port**       | Number | Optional port number on the `endpoint` to connect to                                                                                                                                  |
+| **dictionary** | String | It is suggested to provide the HTTP endpoint of a full chain dictionary to speed up processing - read [how a SubQuery Dictionary works](../academy/tutorials_examples/dictionary.md). |
 
 ### Runner Spec
 
@@ -126,9 +126,9 @@ Defines the data that will be filtered and extracted and the location of the map
 
 ### Mapping Spec
 
-| Field                  | Type                         | Description                                                                                                                     |
-| ---------------------- | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| **handlers & filters** | Default handlers and filters | List all the [mapping functions](./mapping/polkadot.md) and their corresponding handler types, with additional mapping filters. |
+| Field                  | Type                         | Description                                                                                                                      |
+| ---------------------- | ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| **handlers & filters** | Default handlers and filters | List all the [mapping functions](../mapping/algorand.md) and their corresponding handler types, with additional mapping filters. |
 
 ## Data Sources and Mapping
 

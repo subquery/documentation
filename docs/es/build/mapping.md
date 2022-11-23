@@ -13,13 +13,13 @@ Hay tres clases de funciones de mapeo: [Manejadores de bloques](#block-handler),
 Puede utilizar manejadores de bloques para capturar información cada vez que un nuevo bloque está conectado a la cadena Substrate, por ejemplo, el número de bloque. Para lograrlo, un BlockHandler definido será llamado una vez por cada bloque.
 
 ```ts
-import {SubstrateBlock} from "@subql/types";
+import { SubstrateBlock } from "@subql/types";
 
 export async function handleBlock(block: SubstrateBlock): Promise<void> {
-    // Create a new StarterEntity with the block hash as it's ID
-    const record = new starterEntity(block.block.header.hash.toString());
-    record.field1 = block.block.header.number.toNumber();
-    await record.save();
+  // Create a new StarterEntity with the block hash as it's ID
+  const record = new starterEntity(block.block.header.hash.toString());
+  record.field1 = block.block.header.number.toNumber();
+  await record.save();
 }
 ```
 
@@ -51,25 +51,30 @@ Los manejadores de llamadas se utilizan cuando se desea capturar información so
 
 ```ts
 export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
-    const record = new starterEntity(extrinsic.block.block.header.hash.toString());
-    record.field4 = extrinsic.block.timestamp;
-    await record.save();
+  const record = new starterEntity(
+    extrinsic.block.block.header.hash.toString()
+  );
+  record.field4 = extrinsic.block.timestamp;
+  await record.save();
 }
 ```
 
 El [SubstrateExtrinsic](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L21) extiende [GenericExtrinsic](https://github.com/polkadot-js/api/blob/a9c9fb5769dec7ada8612d6068cf69de04aa15ed/packages/types/src/extrinsic/Extrinsic.ts#L170). Se le asigna un `id` (el bloque al que pertenece este extrínseco) y proporciona una propiedad extrínseca que extiende los eventos entre este bloque. Además, registra el estado de éxito de este extrínseco.
 
 ## Estados de Consulta
+
 Nuestro objetivo es cubrir todas las fuentes de datos para los usuarios de los manejadores de mapeo (más de los tres tipos de eventos de la interfaz anterior). Por lo tanto, hemos expuesto algunas de las interfaces @polkadot/api para aumentar las capacidades.
 
 Estas son las interfaces que actualmente soportamos:
+
 - [api.query.&lt;module&gt;.&lt;method&gt;()](https://polkadot.js.org/docs/api/start/api.query) consultará el bloque <strong></strong> actual.
 - [api.query.&lt;module&gt;.&lt;method&gt;.multi()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-same-type) hará múltiples consultas del mismo tipo <strong></strong> en el bloque actual.
 - [api.queryMulti()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-distinct-types) hará múltiples consultas de <strong>diferentes</strong> tipos en el bloque actual.
 
 Estas son las interfaces que actualmente no soportamos **NOT**:
-- ~~api.tx.*~~
-- ~~api.derive.*~~
+
+- ~~api.tx.\*~~
+- ~~api.derive.\*~~
 - ~~api.query.&lt;module&gt;.&lt;method&gt;.at~~
 - ~~api.query.&lt;module&gt;.&lt;method&gt;.entriesAt~~
 - ~~api.query.&lt;module&gt;.&lt;method&gt;.entriesPaged~~
@@ -92,11 +97,12 @@ Documentos en [JSON-RPC](https://polkadot.js.org/docs/substrate/rpc/#rpc) propor
 const blockhash = `0x844047c4cf1719ba6d54891e92c071a41e3dfe789d064871148e9d41ef086f6a`;
 
 // El método original tiene una entrada opcional es el hash del bloque
-const b1 = await api. pc.chain.getBlock(blockhash);
+const b1 = await api.pc.chain.getBlock(blockhash);
 
 // Utilizará el bloque actual por defecto como
 const b2 = await api.rpc.chain.getBlock();
 ```
+
 - Para [cadenas personalizadas de Substrate](#custom-substrate-chains) llamadas RPC, vea [uso](#usage).
 
 ## Módulos y librerías
@@ -112,21 +118,16 @@ Actualmente, permitimos los siguientes módulos de NodeJS: `assert`, `buffer`, `
 En lugar de importar todo el módulo, recomendamos importar sólo los método(s) requeridos que usted necesita. Algunos métodos en estos módulos pueden tener dependencias que no están soportadas y fallarán al importar.
 
 ```ts
-importar {hashMessage} desde "ethers/lib/utils"; //Good way
-import {utils} from "ethers" //Mala way
-
-export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
-    const record = new starterEntity(extrinsic. lock.block.header.hash.toString());
-    record.field1 = hashMessage('Hola');
-    await record.save();
-}
+import { hashMessage } from "ethers/lib/utils"; // Good way
+import { utils } from "ethers"; // Bad way
 ```
 
 ### Librería de terceros
 
-Import {hashMessage} from "ethers/lib/utils"; //Good way import {utils} from "ethers" //Bad way export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> { const record = new starterEntity(extrinsic. block. block. header. hash. toString()); record. field1 = hashMessage('Hello'); await record. save();}.
-
-import {hashMessage} from "ethers/lib/utils"; //Good way import {utils} from "ethers" //Bad way export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> { const record = new starterEntity(extrinsic.block.block.header.hash.toString()); record.field1 = hashMessage('Hello'); await record.save(); } Sin embargo, si cualquier otra librería depende de cualquier módulo en formato **ESM**, la máquina virtual **NO** compilará y devolverá un error.
+```
+import { hashMessage } from "ethers/lib/utils"; // Good way
+import { utils } from "ethers"; // Bad way
+```
 
 ## Cadenas de Substrate Personalizadas
 
@@ -147,6 +148,7 @@ Necesitamos metadatos para generar los puntos finales actuales de la API. En el 
 ```shell
 curl -H "Content-Type: application/json" -d '{"id":"1", "jsonrpc":"2.0", "method": "state_getMetadata", "params":[]}' http://localhost:9933
 ```
+
 o desde su punto final **websocket** con la ayuda de [`websocat`](https://github.com/vi/websocat):
 
 ```shell
@@ -160,9 +162,14 @@ echo state_getMetadata | websocat 'ws://127.0.0.1:9944' --jsonrpc
 A continuación, copie y pegue la salida a un archivo JSON. In our [kitty example](https://github.com/subquery/subql-examples/tree/main/kitty), we have created `api-interface/kitty.json`.
 
 #### Tipos de definición
+
 Asumimos que el usuario conoce los tipos específicos y el soporte RPC de la cadena, y está definido en el [Manifiesto](./manifest.md).
 
-import {hashMessage} from "ethers/lib/utils"; //Good way import {utils} from "ethers" //Bad way export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> { const record = new starterEntity(extrinsic.block.block.header.hash.toString()); record.field1 = hashMessage('Hello'); await record.save(); }
+```
+import { hashMessage } from "ethers/lib/utils"; // Good way
+import { utils } from "ethers"; // Bad way
+```
+
 - `src/api-interfaces/definitions.ts` - esto exporta todas las definiciones de la sub-carpeta
 
 ```ts
@@ -170,36 +177,37 @@ exportar { default as kitties } desde './kitties/definitions';
 ```
 
 - `src/api-interfaces/kitties/definitions.ts` - escriba definiciones para el módulo kitties
+
 ```ts
 export default {
-    // custom types
-    types: {
-        Address: "AccountId",
-        LookupSource: "AccountId",
-        KittyIndex: "u32",
-        Kitty: "[u8; 16]"
+  // custom types
+  types: {
+    Address: "AccountId",
+    LookupSource: "AccountId",
+    KittyIndex: "u32",
+    Kitty: "[u8; 16]",
+  },
+  // custom rpc : api.rpc.kitties.getKittyPrice
+  rpc: {
+    getKittyPrice: {
+      description: "Get Kitty price",
+      params: [
+        {
+          name: "at",
+          type: "BlockHash",
+          isHistoric: true,
+          isOptional: false,
+        },
+        {
+          name: "kittyIndex",
+          type: "KittyIndex",
+          isOptional: false,
+        },
+      ],
+      type: "Balance",
     },
-    // custom rpc : api.rpc.kitties.getKittyPrice
-    rpc: {
-        getKittyPrice:{
-            description: 'Get Kitty price',
-            params: [
-                {
-                    name: 'at',
-                    type: 'BlockHash',
-                    isHistoric: true,
-                    isOptional: false
-                },
-                {
-                    name: 'kittyIndex',
-                    type: 'KittyIndex',
-                    isOptional: false
-                }
-            ],
-            type: 'Balance'
-        }
-    }
-}
+  },
+};
 ```
 
 #### Paquetes
@@ -262,15 +270,16 @@ Este comando generará los metadatos y un nuevo complemento para las APIs. Como 
 ### Uso
 
 Ahora en la función de mapeo, podemos mostrar cómo los metadatos y los tipos realmente decoran la API. El endpoint RPC soportará los módulos y métodos que declaramos anteriormente. Y para usar una llamada rpc personalizada, por favor vea la sección [Llamadas rpc de cadena personalizadas](#custom-chain-rpc-calls)
+
 ```typescript
 export async function kittyApiHandler(): Promise<void> {
-    // devuelve el tipo de Kitty
-    const nextKittyId = await api. Ojalá. entidades. extKittyId();
-    // devuelve el tipo Kitty, los tipos de parámetros de entrada son AccountId y KittyIndex
-    const allKitties = await api. uery.kitties.kitties('xxxxxxxxxx',123)
-    logger. nfo(`Next kitty id ${nextKittyId}`)
-    //Custom rpc, establecer indefinido a blockhash
-    const kittyPrice = await api. pc.kitties.getKittyPrice(undefined,nextKittyId);
+  // devuelve el tipo de Kitty
+  const nextKittyId = await api.Ojalá.entidades.extKittyId();
+  // devuelve el tipo Kitty, los tipos de parámetros de entrada son AccountId y KittyIndex
+  const allKitties = await api.uery.kitties.kitties("xxxxxxxxxx", 123);
+  logger.nfo(`Next kitty id ${nextKittyId}`);
+  //Custom rpc, establecer indefinido a blockhash
+  const kittyPrice = await api.pc.kitties.getKittyPrice(undefined, nextKittyId);
 }
 ```
 
@@ -279,6 +288,7 @@ export async function kittyApiHandler(): Promise<void> {
 ### Llamadas rpc de cadena personalizadas
 
 Para soportar llamadas RPC personalizadas, debemos inyectar manualmente definiciones RPC para `typesBundle`, permitiendo la configuración por especificación. Puede definir el `typesBundle` en el `project.yml`. Y por favor recuerde que sólo se soportan los tipos de llamadas `isHistórico`.
+
 ```yaml
 ...
   types: {

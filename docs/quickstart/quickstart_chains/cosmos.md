@@ -101,7 +101,7 @@ dataSources:
 
 The above code defines that you will be running a `handleTerraDeveloperFund` mapping function whenever there is a message with a `vote` contract call from the [Terra Developer Fund](https://daodao.zone/multisig/juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2) smart contract.
 
-Check out our [Manifest File](../../build/manifest/polkadot.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
+Check out our [Manifest File](../../build/manifest/cosmos.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
 
 Next, let’s dig further into Mapping Function’s configuration.
 
@@ -109,11 +109,9 @@ Next, let’s dig further into Mapping Function’s configuration.
 
 Mapping functions determine how chain data is transformed into the optimised GraphQL entities that you previously defined in the `schema.graphql` file.
 
-Follow these steps to add a mapping function:
+Navigate to the default mapping function in the `src/mappings` directory. You will see four exported functions: `handleBlock`, `handleEvent`, `handleMessage`, `handleTransaction`. Delete `handleBlock`, `handleEvent`, and `handleTransaction` functions as you will only deal with the `handleMessage` function.
 
-- Navigate to the default mapping function in the `src/mappings` directory. You will see four exported functions: `handleBlock`, `handleEvent`, `handleMessage`, `handleTransaction`. Delete `handleBlock`, `handleEvent`, and `handleTransaction` functions as you will only deal with the `handleMessage` function.
-
-- The `handleMessage` function receives event data whenever an event matches the filters that you specified previously in the `project.yaml`. Let’s update it to process all `vote` messages and save them to the GraphQL entity created earlier.
+The `handleMessage` function receives event data whenever an event matches the filters that you specified previously in the `project.yaml`. Let’s update it to process all `vote` messages and save them to the GraphQL entity created earlier.
 
 Update the `handleMessage` function as follows (**note the additional imports**):
 
@@ -141,7 +139,7 @@ Let’s understand how the above code works.
 
 Here, the function receives a `CosmosMessage` which includes message data on the payload. We extract this data and then instantiate a new `Vote` entity defined earlier in the `schema.graphql` file. After that, we add additional information and then use the `.save()` function to save the new entity (SubQuery will automatically save this to the database).
 
-Check out our [Mappings](../../build/mapping/polkadot.md) documentation and get information on the mapping functions in detail.
+Check out our [Mappings](../../build/mapping/cosmos.md) documentation and get information on the mapping functions in detail.
 
 ## 4. Build Your Project
 

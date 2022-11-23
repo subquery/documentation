@@ -1,70 +1,67 @@
-# Avalanche Manifest File
+# Flare Manifest File
 
 The Manifest `project.yaml` file can be seen as an entry point of your project and it defines most of the details on how SubQuery will index and transform the chain data. It clearly indicates where we are indexing data from, and to what on chain events we are subscribing to.
 
 The Manifest can be in either YAML or JSON format. In this document, we will use YAML in all the examples.
 
-Below is a standard example of a basic Avalanche `project.yaml`.
+Below is a standard example of a basic Flare `project.yaml`.
 
 ```yml
 specVersion: 1.0.0
-name: avalanche-subql-starter
+name: flare-subql-starter
 version: 0.0.1
 runner:
   node:
-    name: "@subql/node-avalanche"
-    version: latest
+    name: "@subql/node-flare"
+    version: "*"
   query:
     name: "@subql/query"
-    version: latest
-description: "This project can be use as a starting point for developing your Avalanche based SubQuery project"
-repository: https://github.com/subquery/avalanche-subql-starter
+    version: "*"
+description: "This project can be use as a starting point for developing your new Flare SubQuery project"
+repository: "https://github.com/subquery/flare-subql-starter"
 schema:
   file: ./schema.graphql
 network:
-  chainId: "mainnet"
-  subnet: "C"
+  # chainId is the EVM Chain ID, for Flare this is 14
+  # https://chainlist.org/chain/14
+  chainId: "14"
   # This endpoint must be a public non-pruned archive node
   # Public nodes may be rate limited, which can affect indexing speed
   # When developing your project we suggest getting a private API key
-  # You can get them from OnFinality for free https://app.onfinality.io
-  # https://documentation.onfinality.io/support/the-enhanced-api-service
-  # If using an OnFinality Endpoint, you should append the API key like so:
-  # endpoint: "https://avalanche.api.onfinality.io?apikey=xxxxx-xxxxx-xxxxxx-xxxxxxxx"
-  # Note that we currently only support HTTP endpoints (not Websockets)
-  endpoint: "https://avalanche.api.onfinality.io/public"
+  # You can get them from Flare's API Portal
+  # https://api-portal.flare.network/
+  endpoint: https://flare-api.flare.network/ext/C/rpc
   # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
-  dictionary: https://api.subquery.network/sq/subquery/avalanche-dictionary
+  dictionary: "https://api.subquery.network/sq/subquery/flare-dictionary"
+
 dataSources:
-  - kind: avalanche/Runtime
-    startBlock: 1 # Block to start indexing from
+  - kind: flare/Runtime
+    startBlock: 2300000
     options:
       # Must be a key of assets
-      abi: erc20
-      ## Pangolin token https://snowtrace.io/token/0x60781c2586d68229fde47564546784ab3faca982
-      address: "0x60781C2586D68229fde47564546784ab3fACA982"
+      abi: priceSubmitter
+      address: "0x1000000000000000000000000000000000000003"
     assets:
-      erc20:
-        file: "IPangolinERC20.json"
+      priceSubmitter:
+        file: "priceSubmitter.abi.json"
     mapping:
-      file: ./dist/index.js
+      file: "./dist/index.js"
       handlers:
-        - handler: handleBlock
-          kind: avalanche/BlockHandler
+        # - handler: handleBlock
+        # kind: flare/BlockHander
         - handler: handleTransaction
-          kind: avalanche/TransactionHandler
+          kind: flare/TransactionHandler
           filter:
             ## The function can either be the function fragment or signature
             # function: '0x095ea7b3'
             # function: '0x7ff36ab500000000000000000000000000000000000000000000000000000000'
-            function: approve(address spender, uint256 rawAmount)
-            ## from: "0x60781C2586D68229fde47564546784ab3fACA982"
+            function: submitHash(uint256 _epochId, bytes32 _hash)
         - handler: handleLog
-          kind: avalanche/LogHandler
+          kind: flare/LogHandler
           filter:
             topics:
               ## Follows standard log filters https://docs.ethers.io/v5/concepts/events/
-              - Transfer(address indexed from, address indexed to, uint256 amount)
+              - HashSubmitted(address indexed submitter, uint256 indexed epochId, bytes32 hash, uint256 timestamp)
 ```
 
 ## Overview
@@ -94,16 +91,16 @@ dataSources:
 
 If you start your project by using the `subql init` command, you'll generally receive a starter project with the correct network settings. If you are changing the target chain of an existing project, you'll need to edit the [Network Spec](manifest.md#network-spec) section of this manifest.
 
-The `chainId` is the network identifier of the blockchain. Examples in Avalanche might be `mainnet`.
+The `chainId` is the network identifier of the blockchain. Examples in Flare is `14` for Flare mainnet and `19` for Songbird.
 
-Additionally you will need to update the `endpoint`. This defines the wss endpoint of the blockchain to be indexed - **this must be a full archive node**. Public nodes may be rate limited which can affect indexing speed, when developing your project we suggest getting a private API key. You can retrieve endpoints for all parachains for free from [OnFinality](https://app.onfinality.io)
+Additionally you will need to update the `endpoint`. This defines the wss endpoint of the blockchain to be indexed - **this must be a full archive node**. Public nodes may be rate limited, which can affect indexing speed, when developing your project we suggest getting a private API key. You can get them from Flare's API Portal https://api-portal.flare.network/
 
-| Field          | Type   | Description                                                                                                                                                                                                |
-| -------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **chainId**    | String | A network identifier for the blockchain                                                                                                                                                                    |
-| **endpoint**   | String | Defines the wss or ws endpoint of the blockchain to be indexed - **This must be a full archive node**. You can retrieve endpoints for all parachains for free from [OnFinality](https://app.onfinality.io) |
-| **port**       | Number | Optional port number on the `endpoint` to connect to                                                                                                                                                       |
-| **dictionary** | String | It is suggested to provide the HTTP endpoint of a full chain dictionary to speed up processing - read [how a SubQuery Dictionary works](../academy/tutorials_examples/dictionary.md).                      |
+| Field          | Type   | Description                                                                                                                                                                           |
+| -------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **chainId**    | String | A network identifier for the blockchain                                                                                                                                               |
+| **endpoint**   | String | Defines the wss or ws endpoint of the blockchain to be indexed - **This must be a full archive node**.                                                                                |
+| **port**       | Number | Optional port number on the `endpoint` to connect to                                                                                                                                  |
+| **dictionary** | String | It is suggested to provide the HTTP endpoint of a full chain dictionary to speed up processing - read [how a SubQuery Dictionary works](../academy/tutorials_examples/dictionary.md). |
 
 ### Runner Spec
 
@@ -116,7 +113,7 @@ Additionally you will need to update the `endpoint`. This defines the wss endpoi
 
 | Field       | Type   | Description                                                                                                                                                                                                          |
 | ----------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **name**    | String | `@subql/node-avalanche`                                                                                                                                                                                              |
+| **name**    | String | `@subql/node-flare`                                                                                                                                                                                                  |
 | **version** | String | Version of the indexer Node service, it must follow the [SEMVER](https://semver.org/) rules or `latest`, you can also find available versions in subquery SDK [releases](https://github.com/subquery/subql/releases) |
 
 ### Runner Query Spec
@@ -132,24 +129,31 @@ Defines the data that will be filtered and extracted and the location of the map
 
 | Field          | Type         | Description                                                                                   |
 | -------------- | ------------ | --------------------------------------------------------------------------------------------- |
-| **kind**       | string       | [avalanche/Runtime](manifest.md#data-sources-and-mapping)                                     |
+| **kind**       | string       | [flare/Runtime](manifest.md#data-sources-and-mapping)                                         |
 | **startBlock** | Integer      | This changes your indexing start block, set this higher to skip initial blocks with less data |
 | **mapping**    | Mapping Spec |                                                                                               |
 
 ### Mapping Spec
 
-| Field                  | Type                         | Description                                                                                                                       |
-| ---------------------- | ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| **handlers & filters** | Default handlers and filters | List all the [mapping functions](../mapping/avalanche.md) and their corresponding handler types, with additional mapping filters. |
+| Field                  | Type                         | Description                                                                                                                   |
+| ---------------------- | ---------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| **handlers & filters** | Default handlers and filters | List all the [mapping functions](../mapping/flare.md) and their corresponding handler types, with additional mapping filters. |
 
 ## Data Sources and Mapping
 
-In this section, we will talk about the default Avalanche runtime and its mapping. Here is an example:
+In this section, we will talk about the default Flare runtime and its mapping. Here is an example:
 
 ```yml
 dataSources:
-  - kind: avalanche/Runtime # Indicates that this is default runtime
-    startBlock: 1 # This changes your indexing start block, set this higher to skip initial blocks with less data
+  - kind: flare/Runtime
+    startBlock: 2300000
+    options:
+      # Must be a key of assets
+      abi: priceSubmitter
+      address: "0x1000000000000000000000000000000000000003"
+    assets:
+      priceSubmitter:
+        file: "priceSubmitter.abi.json"
     mapping:
       file: dist/index.js # Entry path for this mapping
       ...
@@ -161,11 +165,11 @@ The following table explains filters supported by different handlers.
 
 **Your SubQuery project will be much more efficient when you only use `TransactionHandler` or `LogHandler` handlers with appropriate mapping filters (e.g. NOT a `BlockHandler`).**
 
-| Handler                                                                     | Supported filter                                                                                    |
-| --------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| [avalanche/BlockHandler](../mapping/avalanche.md#block-handler)             | No filters                                                                                          |
-| [avalanche/TransactionHandler](../mapping/avalanche.md#transaction-handler) | `function` filters (either be the function fragment or signature), `from` (address), `to` (address) |
-| [avalanche/LogHandler](../mapping/avalanche.md#log-handler)                 | `topics` filters, and `address`                                                                     |
+| Handler                                                             | Supported filter                                                                                    |
+| ------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| [flare/BlockHandler](../mapping/flare.md#block-handler)             | No filters                                                                                          |
+| [flare/TransactionHandler](../mapping/flare.md#transaction-handler) | `function` filters (either be the function fragment or signature), `from` (address), `to` (address) |
+| [flare/LogHandler](../mapping/flare.md#log-handler)                 | `topics` filters, and `address`                                                                     |
 
 Default runtime mapping filters are an extremely useful feature to decide what block, event, or extrinsic will trigger a mapping handler.
 

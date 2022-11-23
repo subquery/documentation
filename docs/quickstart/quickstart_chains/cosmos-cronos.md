@@ -146,9 +146,7 @@ Next, let’s dig further into Mapping Function’s configuration.
 
 Mapping functions determine how chain data is transformed into the optimised GraphQL entities that you previously defined in the `schema.graphql` file.
 
-Follow these steps to add a mapping function:
-
-- Navigate to the default mapping function in the `src/mappings` directory. You will see setup types for ABI `TransferEventArgs` and `ApproveCallArgs`. Delete those for approvals. You will also see two exported functions: `handleEthermintEvmEvent` & `handleEthermintEvmCall` or `handleLog` & `handleTransaction`. Delete them as well.
+Navigate to the default mapping function in the `src/mappings` directory. You will see setup types for ABI `TransferEventArgs` and `ApproveCallArgs`. Delete those for approvals. You will also see two exported functions: `handleEthermintEvmEvent` & `handleEthermintEvmCall` or `handleLog` & `handleTransaction`. Delete them as well.
 
 ::: warning Important
 There are two versions of this file depending on your choice to index data via the ETH or Cosmos RPC
@@ -220,7 +218,7 @@ export async function handleTransfer(
   </CodeGroupItem>
 </CodeGroup>
 
-Let’s understand how the above code works. Here, the function receives an `EthereumLog` or `EthermintEvmEvent` which includes data on the payload. We extract this data and then create a new `Transfer` entity defined earlier in the `schema.graphql` file. After that we use the `.save()` function to save the new entity (SubQuery will automatically save this to the database). Check out our [Mappings](../../build/mapping/polkadot.md) documentation and get information on the mapping functions in detail.
+Let’s understand how the above code works. Here, the function receives an `EthereumLog` or `EthermintEvmEvent` which includes data on the payload. We extract this data and then create a new `Transfer` entity defined earlier in the `schema.graphql` file. After that we use the `.save()` function to save the new entity (SubQuery will automatically save this to the database). Check out our [Mappings](../../build/mapping/cosmos.md) documentation and get information on the mapping functions in detail.
 
 ## 4. Build Your Project
 
