@@ -274,12 +274,15 @@ Ahora en la función de mapeo, podemos mostrar cómo los metadatos y los tipos r
 ```typescript
 export async function kittyApiHandler(): Promise<void> {
   // devuelve el tipo de Kitty
-  const nextKittyId = await api.Ojalá.entidades.extKittyId();
+  const nextKittyId = await api.rpc.kitties.nextKittyId();
   // devuelve el tipo Kitty, los tipos de parámetros de entrada son AccountId y KittyIndex
-  const allKitties = await api.uery.kitties.kitties("xxxxxxxxxx", 123);
-  logger.nfo(`Next kitty id ${nextKittyId}`);
+  const allKitties = await api.query.kitties.kitties("xxxxxxxxxx", 123);
+  logger.info(`Next kitty id ${nextKittyId}`);
   //Custom rpc, establecer indefinido a blockhash
-  const kittyPrice = await api.pc.kitties.getKittyPrice(undefined, nextKittyId);
+  const kittyPrice = await api.rpc.kitties.getKittyPrice(
+    undefined,
+    nextKittyId
+  );
 }
 ```
 
