@@ -8,7 +8,7 @@ Ethermint chains (e.g. Cronos) are usually fully EVM compatible, which means tha
 This document goes into detail about how to use the Ethermint Cosmos RPCs (rather than the Ethereum API)
 :::
 
-**You can also refer to the basic [Cronos EVM Example Project](https://github.com/subquery/cosmos-subql-starter/tree/main/Cronos) with an event and call handler.**
+**You can also refer to the basic [Cronos EVM Example Project](https://github.com/subquery/cosmos-subql-starter/tree/main/Cronos/cronos-evm-starter-via-rpc) with an event and call handler.**
 
 ## Getting started
 

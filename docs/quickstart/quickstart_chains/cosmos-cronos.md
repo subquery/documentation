@@ -162,7 +162,7 @@ Update your mapping files to match the following (**note the additional imports*
 ```ts
 import { Transfer } from "../types";
 import { EthereumLog } from "@subql/types-ethereum";
-import { BigNumber } from "ethers";
+import { BigNumber } from "@ethersproject/bignumber";
 
 // Setup types from ABI
 type TransferEventArgs = [string, string, BigNumber] & {
