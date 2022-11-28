@@ -5,7 +5,7 @@
       <div>
         <h2 class="welcomeTitle">使用<span>SubQuery 学院构建更快的 dapps</span></h2>
         <p>在您分散的数据和工具之间探索和实现您自己高效的自定义开源API，以更快地查询数据并节省时间。</p></br>
-        <p><strong>SubQuery 现在支持Polkadot、Avalanche和 Cosmos(从Juno开始)。</strong></p>
+        <p><strong>SubQuery now supports Polkadot, Avalanche, Cosmos, Algorand, and Flare.</strong></p>
       </div>
     </div>
   </section>
