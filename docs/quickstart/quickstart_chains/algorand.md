@@ -84,7 +84,7 @@ dataSources:
 
 The above code indicates that you will be running a `handleTransaction` mapping function whenever there is an Algorand Transaction that includes the asset ID `27165954` and is sent from the `ZW3ISEHZUHPO7OZGMKLKIIMKVICOUDRCERI454I3DB2BH52HGLSO67W754` (Planet) address.
 
-Check out our [Manifest File](../../build/manifest/polkadot.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
+Check out our [Manifest File](../../build/manifest/algorand.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
 
 Next, let’s proceed ahead with the Mapping Function’s configuration.
 
@@ -92,11 +92,9 @@ Next, let’s proceed ahead with the Mapping Function’s configuration.
 
 Mapping functions define how chain data is transformed into the optimised GraphQL entities that we previously defined in the `schema.graphql` file.
 
-Follow these steps to add a mapping function:
+Navigate to the default mapping function in the `src/mappings` directory. You will be able to see two exported functions: `handleBlock` and `handleTransaction`. Delete the `handleBlock` function.
 
-- Navigate to the default mapping function in the `src/mappings` directory. You will be able to see two exported functions: `handleBlock` and `handleTransaction`. Delete the `handleBlock` function.
-
-- The `handleTransaction` function receives event data whenever an event matches the filters, which you specified previously in the `project.yaml`. Let’s make changes to it, process all PLANET token transactions, and save them to the GraphQL entities created earlier.
+The `handleTransaction` function receives event data whenever an event matches the filters, which you specified previously in the `project.yaml`. Let’s make changes to it, process all PLANET token transactions, and save them to the GraphQL entities created earlier.
 
 Update the `handleTransaction` function as follows (**note the additional imports**):
 
@@ -126,7 +124,7 @@ Let’s understand how the above code works.
 
 Here, the function recieves a `AlgorandTransaction` which includes all transaction data on the payload. We extract this data and then instantiate a new `Transaction` entity (using required properties `id`,`blockHeigh` and `sender`) defined earlier in the `schema.graphql` file. After that, we add additional information about the payment (`receiver` and `amount`properties) and then use the `.save()` function to save the new entity (SubQuery will automatically save this to the database).
 
-Check out our [Mappings](../../build/mapping/polkadot.md) documentation to get more information on mapping functions.
+Check out our [Mappings](../../build/mapping/algorand.md) documentation to get more information on mapping functions.
 
 ## 4. Build Your Project
 

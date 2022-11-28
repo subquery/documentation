@@ -125,14 +125,6 @@ Currently, we allow the following NodeJS modules: `assert`, `buffer`, `crypto`, 
 Rather than importing the whole module, we recommend only importing the required method(s) that you need. Some methods in these modules may have dependencies that are unsupported and will fail on import.
 
 ```ts
-import { hashMessage } from "ethers/lib/utils"; //Good way
-import { utils } from "ethers"; //Bad way
-
-export async function handleMessage(
-  msg: TerraMessage<MsgExecuteContract>
-): Promise<void> {
-  const record = new MessageEntity(`${msg.tx.tx.txhash}-${msg.idx}`);
-  record.field1 = hashMessage("Hello");
-  await record.save();
-}
+import { hashMessage } from "ethers/lib/utils"; // Good way
+import { utils } from "ethers"; // Bad way
 ```

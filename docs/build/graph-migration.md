@@ -237,6 +237,7 @@ You can then query contract state at the right block height. For example to quer
 
 ```ts
 // Create an instance of the contract, you can get the contract address from the Transaction or Log
+// Note the two underscores __ in `Erc20__factory`
 const erc20 = Erc20__factory.connect(contractAddress, api);
 
 // Query the balance of an address

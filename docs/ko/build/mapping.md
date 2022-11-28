@@ -13,13 +13,13 @@
 블록 핸들러를 사용하여 새로운 블록이 Substrate 체인에 접속될 때마다 정보를 캡처할 수 있습니다, 예: 블록 번호. 이를 위해서는 정의된 블록 핸들러를 매 블록마다 1회 호출해야 합니다.
 
 ```ts
-import {SubstrateBlock} from "@subql/types";
+import { SubstrateBlock } from "@subql/types";
 
 export async function handleBlock(block: SubstrateBlock): Promise<void> {
-    // Create a new StarterEntity with the block hash as it's ID
-    const record = new starterEntity(block.block.header.hash.toString());
-    record.field1 = block.block.header.number.toNumber();
-    await record.save();
+  // Create a new StarterEntity with the block hash as it's ID
+  const record = new starterEntity(block.block.header.hash.toString());
+  record.field1 = block.block.header.number.toNumber();
+  await record.save();
 }
 ```
 
@@ -51,25 +51,30 @@ Call handlers는 특정 Substrate 외부의 정보를 캡처할 경우에 사용
 
 ```ts
 export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
-    const record = new starterEntity(extrinsic.block.block.header.hash.toString());
-    record.field4 = extrinsic.block.timestamp;
-    await record.save();
+  const record = new starterEntity(
+    extrinsic.block.block.header.hash.toString()
+  );
+  record.field4 = extrinsic.block.timestamp;
+  await record.save();
 }
 ```
 
 [SubstrateExtrinsic](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L21)은 [GenericExtrinsic](https://github.com/polkadot-js/api/blob/a9c9fb5769dec7ada8612d6068cf69de04aa15ed/packages/types/src/extrinsic/Extrinsic.ts#L170)을 확장합니다. `id`(이 외부 요소가 속한 블록)가 지정되고 이 블록 사이에서 이벤트를 확장하는 외부 속성을 제공합니다. 또, 이 외인성의 성공 상태를 기록합니다.
 
 ## Query 상태
+
 우리의 목표는 맵핑 핸들러(위의 세 가지 인터페이스 이벤트 유형 이상)에 대한 사용자의 모든 데이터 소스를 다루는 것입니다. 따라서, 기능을 향상시키기 위해 일부 @polkadot/api 인터페이스를 공개했습니다.
 
 현재 지원되는 인터페이스는 다음과 같습니다:
+
 - [api.query.&lt;module&gt;.&lt;method&gt;()](https://polkadot.js.org/docs/api/start/api.query) 은 <strong>현재의</strong> 블록을 쿼리합니다.
 - [api.query.&lt;module&gt;.&lt;method&gt;.multi()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-same-type)는 현재의 블록과 <strong>같은</strong> 타입의 여러 Query를 생성합니다.
 - [api.queryMulti()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-distinct-types)은 현재 블럭과 <strong>다른</strong> 타입의 여러 Query를 생성합니다.
 
 현재 **지원하고 있지 않은** 인터페이스는 다음과 같습니다:
-- ~~api.tx.*~~
-- ~~api.derive.*~~
+
+- ~~api.tx.\*~~
+- ~~api.derive.\*~~
 - ~~api.query.&lt;module&gt;.&lt;method&gt;.at~~
 - ~~api.query.&lt;module&gt;.&lt;method&gt;.entriesAt~~
 - ~~api.query.&lt;module&gt;.&lt;method&gt;.entriesPaged~~
@@ -97,6 +102,7 @@ const b1 = await api.rpc.chain.getBlock(blockhash);
 // 기본적으로 현재 블록을 다음과 같이 사용합니다.
 const b2 = await api.rpc.chain.getBlock();
 ```
+
 - [Custom Substrate Chains](#custom-substrate-chains)RPC 콜에 대해서는,[usage](#usage)을 참조해 주세요.
 
 ## 모듈 및 라이브러리
@@ -112,14 +118,8 @@ SubQuery의 데이터 처리 기능을 개선하기 위해 [샌드박스](#the-s
 모듈 전체를 가져오기를 하는 것이 아니라 필요한 방법만 가져오기를 할 것을 권장합니다. 이러한 모듈의 일부 방식은 지원되지 않고 가져오기에 실패하는 종속성이 있을 수 있습니다.
 
 ```ts
-import {hashMessage} from "ethers/lib/utils"; //Good way
-import {utils} from "ethers" //Bad way
-
-export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
-    const record = new starterEntity(extrinsic.block.block.header.hash.toString());
-    record.field1 = hashMessage('Hello');
-    await record.save();
-}
+import { hashMessage } from "ethers/lib/utils"; // Good way
+import { utils } from "ethers"; // Bad way
 ```
 
 ### 제 3자의 라이브러리
@@ -147,6 +147,7 @@ SubQuery는 Polkadot이나 Kusama 뿐만 아니라 Substrate 기반의 체인에
 ```shell
 curl -H "Content-Type: application/json" -d '{"id":"1", "jsonrpc":"2.0", "method": "state_getMetadata", "params":[]}' http://localhost:9933
 ```
+
 또는 [`websocat`](https://github.com/vi/websocat)의 도움으로 **websocket** 엔드포인트에서:
 
 ```shell
@@ -160,46 +161,49 @@ echo state_getMetadata | websocat 'ws://127.0.0.1:9944' --jsonrpc
 다음으로, 출력을 JSON 파일에 복사와 붙여넣기 합니다. [키티 예시](https://github.com/subquery/tutorials-kitty-chain)에서 `api-interface/kitty.json`을 생성했습니다.
 
 #### 유형 정의
+
 여기에서는 사용자가 체인으로부터 특정 유형과 RPC 지원을 알고 있는 것을 전제로 하고 있으며 이는 [Manifest](./manifest.md)에서 정의되어 있습니다.
 
 [types setup](https://polkadot.js.org/docs/api/examples/promise/typegen#metadata-setup)에 따라 다음을 생성합니다:
+
 - < 0 > srcapi-interfaces definitions.ts < 0 >: 모든 서브폴더 정의를 내보냅니다.
 
 ```ts
-export { default as kitties } from './kitties/definitions';
+export { default as kitties } from "./kitties/definitions";
 ```
 
 - `src/api-interfaces/kitties/definitions.ts` - kitties 모듈의 유형 정의
+
 ```ts
 export default {
-    // custom types
-    types: {
-        Address: "AccountId",
-        LookupSource: "AccountId",
-        KittyIndex: "u32",
-        Kitty: "[u8; 16]"
+  // custom types
+  types: {
+    Address: "AccountId",
+    LookupSource: "AccountId",
+    KittyIndex: "u32",
+    Kitty: "[u8; 16]",
+  },
+  // custom rpc : api.rpc.kitties.getKittyPrice
+  rpc: {
+    getKittyPrice: {
+      description: "Get Kitty price",
+      params: [
+        {
+          name: "at",
+          type: "BlockHash",
+          isHistoric: true,
+          isOptional: false,
+        },
+        {
+          name: "kittyIndex",
+          type: "KittyIndex",
+          isOptional: false,
+        },
+      ],
+      type: "Balance",
     },
-    // custom rpc : api.rpc.kitties.getKittyPrice
-    rpc: {
-        getKittyPrice:{
-            description: 'Get Kitty price',
-            params: [
-                {
-                    name: 'at',
-                    type: 'BlockHash',
-                    isHistoric: true,
-                    isOptional: false
-                },
-                {
-                    name: 'kittyIndex',
-                    type: 'KittyIndex',
-                    isOptional: false
-                }
-            ],
-            type: 'Balance'
-        }
-    }
-}
+  },
+};
 ```
 
 #### 패키지
@@ -251,28 +255,32 @@ yarn generate:meta
 ```json
 {
   "compilerOptions": {
-      // this is the package name we use (in the interface imports, --package for generators) */
-      "kitty-birthinfo/*": ["src/*"],
-      // here we replace the @polkadot/api augmentation with our own, generated from chain
-      "@polkadot/api/augment": ["src/interfaces/augment-api.ts"],
-      // replace the augmented types with our own, as generated from definitions
-      "@polkadot/types/augment": ["src/interfaces/augment-types.ts"]
-    }
+    // this is the package name we use (in the interface imports, --package for generators) */
+    "kitty-birthinfo/*": ["src/*"],
+    // here we replace the @polkadot/api augmentation with our own, generated from chain
+    "@polkadot/api/augment": ["src/interfaces/augment-api.ts"],
+    // replace the augmented types with our own, as generated from definitions
+    "@polkadot/types/augment": ["src/interfaces/augment-types.ts"]
+  }
 }
 ```
 
 ### 사용방법
 
 이제 맵핑 기능에서 메타데이터와 유형이 실제로 API를 장식하는 방법을 보여줄 수 있습니다. RPC 엔드포인트는 위에서 선언한 모듈 및 방식을 지원합니다. 커스텀 RPC 콜을 사용하려면, [Custom chain rpc calls](#custom-chain-rpc-calls) 섹션을 참조해 주세요.
+
 ```typescript
 export async function kittyApiHandler(): Promise<void> {
-    //return the KittyIndex type
-    const nextKittyId = await api.query.kitties.nextKittyId();
-    // return the Kitty type, input parameters types are AccountId and KittyIndex
-    const allKitties  = await api.query.kitties.kitties('xxxxxxxxx',123)
-    logger.info(`Next kitty id ${nextKittyId}`)
-    //Custom rpc, set undefined to blockhash
-    const kittyPrice = await api.rpc.kitties.getKittyPrice(undefined,nextKittyId);
+  //return the KittyIndex type
+  const nextKittyId = await api.query.kitties.nextKittyId();
+  // return the Kitty type, input parameters types are AccountId and KittyIndex
+  const allKitties = await api.query.kitties.kitties("xxxxxxxxx", 123);
+  logger.info(`Next kitty id ${nextKittyId}`);
+  //Custom rpc, set undefined to blockhash
+  const kittyPrice = await api.rpc.kitties.getKittyPrice(
+    undefined,
+    nextKittyId
+  );
 }
 ```
 
@@ -281,6 +289,7 @@ export async function kittyApiHandler(): Promise<void> {
 ### 커스텀 체인 rpc 콜
 
 커스텀 체인 RPC 호출을 지원하려면 `typesBundle`에 대한 RPC 정의를 수동으로 주입하여 사양별 구성을 허용해야 합니다. `project.yml` 에서 `typesBundle`을 정의할 수 있습니다. 또, `isHistoric` 타입의 콜만이 지원되고 있음을 주의하기 바랍니다.
+
 ```yaml
 ...
   types: {

@@ -84,11 +84,9 @@ Next, let’s proceed ahead with the Mapping Function’s configuration.
 
 Mapping functions define how chain data is transformed into the optimised GraphQL entities that we previously defined in the `schema.graphql` file.
 
-Follow these steps to add a mapping function:
+Navigate to the default mapping function in the `src/mappings` directory. You will see three exported functions: `handleBlock`, `handleEvent`, and `handleCall`. Delete both the `handleBlock` and `handleCall` functions as you will only deal with the `handleEvent` function.
 
-- Navigate to the default mapping function in the `src/mappings` directory. You will see three exported functions: `handleBlock`, `handleEvent`, and `handleCall`. Delete both the `handleBlock` and `handleCall` functions as you will only deal with the `handleEvent` function.
-
-- The `handleEvent` function receives event data whenever an event matches the filters that you specified previously in the `project.yaml`. Let’s update it to process all `balances.Transfer` events and save them to the GraphQL entities created earlier.
+The `handleEvent` function receives event data whenever an event matches the filters that you specified previously in the `project.yaml`. Let’s update it to process all `balances.Transfer` events and save them to the GraphQL entities created earlier.
 
 Update the `handleEvent` function as follows (**note the additional imports**):
 
@@ -146,7 +144,7 @@ npm run-script build
 
 ::: warning Important
 Whenever you make changes to your mapping functions, make sure to rebuild your project.
-::: 
+:::
 
 Now, you are all set to run your first SubQuery project. Let’s dig out the process of running the project in detail.
 
@@ -179,7 +177,7 @@ npm run-script start:docker
 
 ::: info Note
 It may take a few minutes to download the required images and start the various nodes and Postgres databases.
-::: 
+:::
 
 ## 6. Query Your Project
 
@@ -265,7 +263,7 @@ Congratulations! You have now a locally running SubQuery project that accepts Gr
 
 ::: tip Tip
 
-Find out how to build a performant SubQuery project and avoid common mistakes in [Project Optimisation](../build/optimisation.md). 
+Find out how to build a performant SubQuery project and avoid common mistakes in [Project Optimisation](../build/optimisation.md).
 
 :::
 

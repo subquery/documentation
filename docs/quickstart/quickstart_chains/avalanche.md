@@ -6,7 +6,7 @@ The goal of this quick start guide is to index all Pangolin token _RewardPaid_ l
 
 ::: warning Important
 Before we begin, make sure that you have initialised your project using the provided steps in the [Start Here](../quickstart.md) section.
-::: 
+:::
 
 Now, let's move forward and update these configurations.
 
@@ -14,6 +14,7 @@ Previously, in the [1. Create a New Project](../quickstart.md) section, you must
 ::: info Note
 The final code of this project can be found [here](https://github.com/jamesbayly/pangolin-rewards-tutorial).
 :::
+
 ## 1. Update Your GraphQL Schema File
 
 The `schema.graphql` file determines the shape of your data from SubQuery due to the mechanism of the GraphQL query language. Hence, updating the GraphQL Schema file is the perfect place to start. It allows you to define your end goal right at the start.
@@ -92,7 +93,7 @@ dataSources:
 
 The above code indicates that you will be running a `handleLog` mapping function whenever there is an `RewardPaid` log on any transaction from the [Pangolin reward contract](https://snowtrace.io/txs?a=0x60781C2586D68229fde47564546784ab3fACA982&p=1).
 
-Check out our [Manifest File](../../build/manifest/polkadot.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
+Check out our [Manifest File](../../build/manifest/avalanche.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
 
 Next, let’s proceed ahead with the Mapping Function’s configuration.
 
@@ -100,11 +101,9 @@ Next, let’s proceed ahead with the Mapping Function’s configuration.
 
 Mapping functions define how chain data is transformed into the optimised GraphQL entities that we previously defined in the `schema.graphql` file.
 
-Follow these steps to add a mapping function:
+Navigate to the default mapping function in the `src/mappings` directory. You will be able to see three exported functions: `handleBlock`, `handleLog`, and `handleTransaction`. Delete both the `handleBlock` and `handleTransaction` functions as you will only deal with the `handleLog` function.
 
-- Navigate to the default mapping function in the `src/mappings` directory. You will be able to see three exported functions: `handleBlock`, `handleLog`, and `handleTransaction`. Delete both the `handleBlock` and `handleTransaction` functions as you will only deal with the `handleLog` function.
-
-- The `handleLog` function receives event data whenever an event matches the filters, which you specified previously in the `project.yaml`. Let’s make changes to it, process all `RewardPaid` transaction logs, and save them to the GraphQL entities created earlier.
+The `handleLog` function receives event data whenever an event matches the filters, which you specified previously in the `project.yaml`. Let’s make changes to it, process all `RewardPaid` transaction logs, and save them to the GraphQL entities created earlier.
 
 Update the `handleLog` function as follows (**note the additional imports**):
 
@@ -135,7 +134,7 @@ Let’s understand how the above code works.
 
 The function here receives an `AvalancheLog` which includes transaction log data in the payload. We extract this data and then instantiate a new `PangolinRewards` entity defined earlier in the `schema.graphql` file. After that, we add additional information and then use the `.save()` function to save the new entity (_Note that SubQuery will automatically save this to the database_).
 
-Check out our [Mappings](../../build/mapping/polkadot.md) documentation to get more information on mapping functions.
+Check out our [Mappings](../../build/mapping/avalanche.md) documentation to get more information on mapping functions.
 
 ## 4. Build Your Project
 
@@ -193,7 +192,7 @@ npm run-script start:docker
 
 ::: info Note
 It may take a few minutes to download the required images and start the various nodes and Postgres databases.
-::: 
+:::
 
 ## 6. Query your Project
 
@@ -253,7 +252,7 @@ Congratulations! You have now a locally running SubQuery project that accepts Gr
 
 ::: tip Tip
 
-Find out how to build a performant SubQuery project and avoid common mistakes in [Project Optimisation](../build/optimisation.md). 
+Find out how to build a performant SubQuery project and avoid common mistakes in [Project Optimisation](../build/optimisation.md).
 
 :::
 

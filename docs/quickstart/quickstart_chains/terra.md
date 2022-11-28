@@ -86,7 +86,7 @@ dataSources:
 
 The above code shows that you will be running a `handleEvent` mapping function whenever there is a `transfer` event from the bLuna smart contract.
 
-Check out our [Manifest File](../../build/manifest/polkadot.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
+Check out our [Manifest File](../../build/manifest/terra.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
 
 Next, let’s proceed ahead with the Mapping Function’s configuration.
 
@@ -94,11 +94,9 @@ Next, let’s proceed ahead with the Mapping Function’s configuration.
 
 Mapping functions define how chain data is transformed into the optimised GraphQL entities that we previously defined in the `schema.graphql` file.
 
-Follow these steps to add a mapping function:
+Navigate to the default mapping function in the `src/mappings` directory. You will be able to see three exported functions: `handleBlock`, `handleEvent`, and `handleCall`. Delete both the `handleBlock` and `handleCall` functions as you will only deal with the `handleEvent` function.
 
-- Navigate to the default mapping function in the `src/mappings` directory. You will be able to see three exported functions: `handleBlock`, `handleEvent`, and `handleCall`. Delete both the `handleBlock` and `handleCall` functions as you will only deal with the `handleEvent` function.
-
-- The `handleEvent` function receives event data whenever an event matches filters, which you specified previously in the `project.yaml`. Let’s make changes to it, process all `transfer` events , and save them to the GraphQL entities created earlier.
+The `handleEvent` function receives event data whenever an event matches filters, which you specified previously in the `project.yaml`. Let’s make changes to it, process all `transfer` events , and save them to the GraphQL entities created earlier.
 
 Update the `handleEvent` function as follows (**note the additional imports**):
 
@@ -141,7 +139,7 @@ Let’s understand how the above code works.
 
 The function here receives a `TerraEvent` which includes the transfer data on the payload. We extract this data and then instantiate a new `Transfer`entity defined earlier in the `schema.graphql` file. After that, we add additional information and then use the `.save()` function to save the new entity (_Note that SubQuery will automatically save this to the database_).
 
-Check out our [Mappings](../../build/mapping/polkadot.md) documentation to get detailed information on mapping functions.
+Check out our [Mappings](../../build/mapping/terra.md) documentation to get detailed information on mapping functions.
 
 ## 4. Build Your Project
 
@@ -236,7 +234,7 @@ Congratulations! You have now a locally running SubQuery project that accepts Gr
 
 ::: tip Tip
 
-Find out how to build a performant SubQuery project and avoid common mistakes in [Project Optimisation](../build/optimisation.md). 
+Find out how to build a performant SubQuery project and avoid common mistakes in [Project Optimisation](../build/optimisation.md).
 
 :::
 

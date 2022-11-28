@@ -51,25 +51,30 @@ Call-Handler werden verwendet, wenn Sie Informationen zu bestimmten externen Sub
 
 ```ts
 export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
-    const record = new starterEntity(extrinsic.block.block.header.hash.toString());
-    record.field4 = extrinsic.block.timestamp;
-    await record.save();
+  const record = new starterEntity(
+    extrinsic.block.block.header.hash.toString()
+  );
+  record.field4 = extrinsic.block.timestamp;
+  await record.save();
 }
 ```
 
 Das [SubstratExtrinsic](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L21) erweitert [GenericExtrinsic](https://github.com/polkadot-js/api/blob/a9c9fb5769dec7ada8612d6068cf69de04aa15ed/packages/types/src/extrinsic/Extrinsic.ts#L170). Ihm wird eine `id` (der Block, zu dem diese Extrinsic gehört) zugewiesen und stellt eine extrinsische Eigenschaft bereit, die die Ereignisse innerhalb dieses Blocks erweitert. Darüber hinaus zeichnet es den Erfolgsstatus dieses Extrinsic auf.
 
 ## Abfragestatus
+
 Unser Ziel ist es, alle Datenquellen für Benutzer für das Mapping von Handlern abzudecken (mehr als nur die drei oben genannten Schnittstellenereignistypen). Aus diesem Grund haben wir einige der @polkadot/api-Schnittstellen bereitgestellt, um die Fähigkeiten zu erweitern.
 
 Dies sind die Schnittstellen, die wir derzeit unterstützen:
+
 - [api.query.&lt;module&gt;.&lt;method&gt;()](https://polkadot.js.org/docs/api/start/api.query) fragt den <strong>aktuellen</strong> Block ab.
 - [api.query.&lt;module&gt;.&lt;method&gt;.multi()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-same-type) führt mehrere Abfragen des <strong>gleichen</strong> Typs im aktuellen Block durch.
 - [api.queryMulti()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-distinct-types) führt im aktuellen Block mehrere Abfragen <strong>verschiedener</strong> Typen durch.
 
 Dies sind die Schnittstellen, die wir derzeit **NICHT** unterstützen:
-- ~~api.tx.*~~
-- ~~api.derive.*~~
+
+- ~~api.tx.\*~~
+- ~~api.derive.\*~~
 - ~~api.query.&lt;module&gt;.&lt;method&gt;.at~~
 - ~~api.query.&lt;module&gt;.&lt;method&gt;.entriesAt~~
 - ~~api.query.&lt;module&gt;.&lt;method&gt;.entriesPaged~~
@@ -97,6 +102,7 @@ const b1 = await api.rpc.chain.getBlock(blockhash);
 // Es wird standardmäßig der aktuelle Block verwendet
 const b2 = await api.rpc.chain.getBlock();
 ```
+
 - Informationen zu RPC-Calls für [benutzerdefinierte Substratchain](#custom-substrate-chains) finden Sie unter [Verwendung](#usage).
 
 ## Module und Bibliotheken
@@ -112,14 +118,8 @@ Derzeit erlauben wir die folgenden NodeJS-Module: `assert`, `buffer`, `crypto`, 
 Anstatt das gesamte Modul zu importieren, empfehlen wir, nur die erforderliche(n) Methode(n) zu importieren. Einige Methoden in diesen Modulen können Abhängigkeiten aufweisen, die nicht unterstützt werden und beim Import fehlschlagen.
 
 ```ts
-import {hashMessage} from "ethers/lib/utils"; //Good way
-import {utils} from "ethers" //Bad way
-
-export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
-    const record = new starterEntity(extrinsic.block.block.header.hash.toString());
-    record.field1 = hashMessage('Hello');
-    await record.save();
-}
+import { hashMessage } from "ethers/lib/utils"; // Good way
+import { utils } from "ethers"; // Bad way
 ```
 
 ### Bibliotheken von Drittanbietern
@@ -147,6 +147,7 @@ Wir benötigen Metadaten, um die tatsächlichen API-Endpunkte zu generieren. Im 
 ```shell
 curl -H "Content-Type: application/json" -d '{"id":"1", "jsonrpc":"2.0", "method": "state_getMetadata", "params":[]}' http://localhost:9933
 ```
+
 oder von seinem **websocket**-Endpunkt mit Hilfe von [`websocat`](https://github.com/vi/websocat):
 
 ```shell
@@ -160,46 +161,49 @@ echo state_getMetadata | websocat 'ws://127.0.0.1:9944' --jsonrpc
 Kopieren Sie als Nächstes die Ausgabe und fügen Sie sie in eine JSON-Datei ein. In unserem [kitty-Beispiel](https://github.com/subquery/tutorials-kitty-chain) haben wir `api-interface/kitty.json` erstellt.
 
 #### Typdefinitionen
+
 Wir gehen davon aus, dass der Benutzer die spezifischen Typen und die RPC-Unterstützung aus der Chain kennt und im [Manifest](./manifest.md) definiert ist.
 
 Nach der [Typenkonfiguration](https://polkadot.js.org/docs/api/examples/promise/typegen#metadata-setup) erstellen wir:
+
 - `src/api-interfaces/definitions.ts` - dies exportiert alle Subordnerdefinitionen
 
 ```ts
-export { default as kitties } from './kitties/definitions';
+export { default as kitties } from "./kitties/definitions";
 ```
 
 - `src/api-interfaces/kitties/definitions.ts` -Typdefinitionen für das Kitties-Modul
+
 ```ts
 export default {
-    // custom types
-    types: {
-        Address: "AccountId",
-        LookupSource: "AccountId",
-        KittyIndex: "u32",
-        Kitty: "[u8; 16]"
+  // custom types
+  types: {
+    Address: "AccountId",
+    LookupSource: "AccountId",
+    KittyIndex: "u32",
+    Kitty: "[u8; 16]",
+  },
+  // custom rpc : api.rpc.kitties.getKittyPrice
+  rpc: {
+    getKittyPrice: {
+      description: "Get Kitty price",
+      params: [
+        {
+          name: "at",
+          type: "BlockHash",
+          isHistoric: true,
+          isOptional: false,
+        },
+        {
+          name: "kittyIndex",
+          type: "KittyIndex",
+          isOptional: false,
+        },
+      ],
+      type: "Balance",
     },
-    // custom rpc : api.rpc.kitties.getKittyPrice
-    rpc: {
-        getKittyPrice:{
-            description: 'Get Kitty price',
-            params: [
-                {
-                    name: 'at',
-                    type: 'BlockHash',
-                    isHistoric: true,
-                    isOptional: false
-                },
-                {
-                    name: 'kittyIndex',
-                    type: 'KittyIndex',
-                    isOptional: false
-                }
-            ],
-            type: 'Balance'
-        }
-    }
-}
+  },
+};
 ```
 
 #### Pakete
@@ -251,19 +255,20 @@ Dieser Befehl generiert die Metadaten und ein neues API-Augment für die APIs. D
 ```json
 {
   "compilerOptions": {
-      // Dies ist der Paketname, den wir verwenden (in den Schnittstellenimporten --package für Generatoren) */
-      "kitty-birthinfo/*": ["src/*"],
-      // hier ersetzen wir die @polkadot/api-Erweiterung durch unsere eigene, die aus der Chain generiert wurde
-      "@polkadot/api/augment": ["src/interfaces/augment-api.ts"],
-      // Ersetzen Sie die erweiterten Typen durch unsere eigenen, die aus Definitionen generiert wurden
-      "@polkadot/types/augment": ["src/interfaces/augment-types.ts"]
-    }
+    // Dies ist der Paketname, den wir verwenden (in den Schnittstellenimporten --package für Generatoren) */
+    "kitty-birthinfo/*": ["src/*"],
+    // hier ersetzen wir die @polkadot/api-Erweiterung durch unsere eigene, die aus der Chain generiert wurde
+    "@polkadot/api/augment": ["src/interfaces/augment-api.ts"],
+    // Ersetzen Sie die erweiterten Typen durch unsere eigenen, die aus Definitionen generiert wurden
+    "@polkadot/types/augment": ["src/interfaces/augment-types.ts"]
+  }
 }
 ```
 
 ### Verwendung
 
 Jetzt können wir in der Mapping-Funktion zeigen, wie die Metadaten und Typen die API tatsächlich schmücken. Der RPC-Endpunkt unterstützt die oben deklarierten Module und Methoden. Und um benutzerdefinierte rpc-Aufrufe zu verwenden, lesen Sie bitte den Abschnitt [Benutzerdefinierte Chain-rpc-Aufrufe](#custom-chain-rpc-calls)
+
 ```typescript
 Async-Funktion exportieren kittyApiHandler(): Promise<void> {
     //den KittyIndex-Typ zurückgeben
@@ -281,6 +286,7 @@ Async-Funktion exportieren kittyApiHandler(): Promise<void> {
 ### Benutzerdefinierte Chain-RPC-Aufrufe
 
 Um benutzerdefinierte Chain-RPC-Aufrufe zu unterstützen, müssen wir RPC-Definitionen für `typesBundle` manuell einfügen, um eine spezifikationsspezifische Konfiguration zu ermöglichen. Sie können das `typesBundle` in der `project.yml` definieren. Und denken Sie bitte daran, dass nur Calls vom Typ `isHistoric` unterstützt werden.
+
 ```yaml
 ...
   types: {

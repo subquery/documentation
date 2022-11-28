@@ -1,4 +1,4 @@
-# Avalanche Mapping
+# Flare Mapping
 
 Mapping functions define how chain data is transformed into the optimised GraphQL entities that we have previously defined in the `schema.graphql` file.
 
@@ -6,61 +6,78 @@ Mapping functions define how chain data is transformed into the optimised GraphQ
 - These mappings are also exported in `src/index.ts`.
 - The mappings files are reference in `project.yaml` under the mapping handlers.
 
-There are different classes of mappings functions for Avalanche; [Block handlers](#block-handler), [Transaction Handlers](#transaction-handler), and [Log Handlers](#log-handler).
+There are different classes of mappings functions for Flare; [Block handlers](#block-handler), [Transaction Handlers](#transaction-handler), and [Log Handlers](#log-handler).
 
 ## Block Handler
 
 You can use block handlers to capture information each time a new block is attached to the chain, e.g. block number. To achieve this, a defined BlockHandler will be called once for every block.
 
 ```ts
-import { AvalancheBlock } from "@subql/types-avalanche";
+import { FlareBlock } from "@subql/types-flare";
 
-export async function handleBlock(block: AvalancheBlock): Promise<void> {
+export async function handleBlock(block: FlareBlock): Promise<void> {
   // Create a new BlockEntity with the block hash as it's ID
-  const record = new BlockEntity(block.hash);
-  record.height = BigInt(block.number);
+  const record = new BlockEntity(block.blockHash);
+  record.height = BigInt(block.blockNumber);
   await record.save();
 }
 ```
-
-An `AvalancheBlock` encapsulates all transactions and events in the block.
 
 ## Transaction Handler
 
-You can use transaction handlers (Avalanche and Terra only) to capture information about each of the transactions in a block. To achieve this, a defined TransactionHandler will be called once for every transaction. You should use [Mapping Filters](../manifest/avalanche.md#mapping-handlers-and-filters) in your manifest to filter transactions to reduce the time it takes to index data and improve mapping performance.
+You can use transaction handlers to capture information about each of the transactions in a block. To achieve this, a defined TransactionHandler will be called once for every transaction. You should use [Mapping Filters](../manifest/flare.md#mapping-handlers-and-filters) in your manifest to filter transactions to reduce the time it takes to index data and improve mapping performance.
 
 ```ts
-import { AvalancheTransaction } from "@subql/types";
+import { FlareTransaction } from "@subql/types-flare";
+
+// Setup types from ABI
+type SubmitHashCallArgs = [BigNumber, string] & {
+  epochId: BigNumber;
+  hash: string;
+};
 
 export async function handleTransaction(
-  tx: AvalancheTransaction
+  transaction: FlareTransaction<SubmitHashCallArgs>
 ): Promise<void> {
-  const record = new TransactionEntity(
-    `${transaction.blockHash}-${transaction.hash}`
-  );
-  record.blockHeight = BigInt(tx.blockNumber);
-  record.from = tx.from;
-  record.to = tx.to;
-  record.value = tx.value;
-  await record.save();
+  const approval = SubmitHash.create({
+    id: transaction.hash,
+    epochId: JSON.parse(transaction.args[0].toString()),
+    hash: transaction.args[1],
+    contractAddress: transaction.to,
+  });
+
+  await approval.save();
 }
 ```
 
-The `AvalancheTransaction` encapsulates `TxInfo` and the corresponding block information in which the transaction occured.
-
 ## Log Handler
 
-You can use log handlers to capture information when certain logs are included on transactions. During the processing, the log handler will receive a log as an argument with the log's typed inputs and outputs. Any type of event will trigger the mapping, allowing activity with the data source to be captured. You should use [Mapping Filters](../manifest/avalanche.md#mapping-handlers-and-filters) in your manifest to filter events to reduce the time it takes to index data and improve mapping performance.
+You can use log handlers to capture information when certain logs are included on transactions. During the processing, the log handler will receive a log as an argument with the log's typed inputs and outputs. Any type of event will trigger the mapping, allowing activity with the data source to be captured. You should use [Mapping Filters](../manifest/flare.md#mapping-handlers-and-filters) in your manifest to filter events to reduce the time it takes to index data and improve mapping performance.
 
 ```ts
-import { AvalancheLog } from "@subql/types-avalanche";
+import { FlareLog } from "@subql/types-flare";
 
-export async function handleLog(event: AvalancheLog): Promise<void> {
-  const record = new EventEntity(`${event.blockHash}-${event.logIndex}`);
-  record.blockHeight = BigInt(event.blockNumber);
-  record.topics = event.topics; // Array of strings
-  record.data = event.data;
-  await record.save();
+// Setup types from ABI
+type HashSubmittedEventArgs = [string, BigNumber, string, BigNumber] & {
+  submitter: string;
+  epochId: BigNumber;
+  hash: string;
+  timestamp: BigNumber;
+};
+
+export async function handleLog(
+  log: FlareLog<HashSubmittedEventArgs>
+): Promise<void> {
+  const transaction = HashSubmittedEvent.create({
+    id: log.transactionHash,
+    submitter: log.args.submitter,
+    epochId: log.args.epochId.toBigInt(),
+    hash: log.args.hash,
+    timestamp: log.args.timestamp.toBigInt(),
+    contractAddress: log.address,
+  });
+
+  await transaction.save();
 }
 ```
 
@@ -89,7 +106,7 @@ SubQuery is deterministic by design, that means that each SubQuery project is gu
 
 ```yml
 subquery-node:
-  image: onfinality/subql-node-avalanche:latest
+  image: onfinality/subql-node-flare:latest
   ...
   command:
     - -f=/app

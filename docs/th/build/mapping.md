@@ -13,13 +13,13 @@
 คุณสามารถใช้ Block Handlers ต่าง ๆ เพื่อเก็บข้อมูลทุกครั้งที่มีการแนบบล็อกใหม่เข้ากับเครือข่าย Substrate เช่น หมายเลขบล็อก การจะทำแบบนี้ได้, BlockHandler จะถูกเรียกออกมา 1 ครั้งในทุก ๆ บล็อก
 
 ```ts
-import {SubstrateBlock} from "@subql/types";
+import { SubstrateBlock } from "@subql/types";
 
 export async function handleBlock(block: SubstrateBlock): Promise<void> {
-    // Create a new StarterEntity with the block hash as it's ID
-    const record = new starterEntity(block.block.header.hash.toString());
-    record.field1 = block.block.header.number.toNumber();
-    await record.save();
+  // Create a new StarterEntity with the block hash as it's ID
+  const record = new starterEntity(block.block.header.hash.toString());
+  record.field1 = block.block.header.number.toNumber();
+  await record.save();
 }
 ```
 
@@ -51,26 +51,31 @@ Call Handler ต่าง ๆ จะถูกใช้เมื่อคุณ�
 
 ```ts
 export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
-    const record = new starterEntity(extrinsic.block.block.header.hash.toString());
-    record.field4 = extrinsic.block.timestamp;
-    await record.save();
+  const record = new starterEntity(
+    extrinsic.block.block.header.hash.toString()
+  );
+  record.field4 = extrinsic.block.timestamp;
+  await record.save();
 }
 ```
 
 [SubstrateExtrinsic](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L21) จะไปขยาย [GenericExtrinsic](https://github.com/polkadot-js/api/blob/a9c9fb5769dec7ada8612d6068cf69de04aa15ed/packages/types/src/extrinsic/Extrinsic.ts#L170) มันจะถูกกำหนด `id` (บล็อกที่ Extrinsic นี้อยู่) และให้คุณสมบัติ Extrinsic นั้น ๆ ซึ่งจะช่วยขยาย Event ต่าง ๆ ระหว่างบล็อกนี้ นอกจากนี้ มันยังทำการบันทึกสถานะความสำเร็จของ Extrinsic นี้ด้วย
 
 ## Query States
+
 เป้าหมายของเราคือ การทำให้ข้อมูลทั้งหมดสำหรับผู้ใช้งานมีความครอบคลุมในการใช้ Mapping Handler ต่าง ๆ (มากกว่าแค่อินเทอร์เฟซทั้งสามประเภทของ Event ที่กล่าวไปข้างต้น) ดังนั้นเราจึงได้เปิดเผยอินเทอร์เฟซ @polkadot/api บางส่วนเพื่อเพิ่มความสามารถในการทำงานให้มากขึ้น
 
 ซึ่งอินเทอร์เฟซที่เรารองรับในขณะนี้ ได้แก่
+
 - [api.query.&lt;module&gt;.&lt;method&gt;()](https://polkadot.js.org/docs/api/start/api.query) สำหรับการคิวรี่บล็อก <strong>ปัจจุบัน</strong>
 - [api.query.&lt;module&gt;.&lt;method&gt;.multi()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-same-type) สำหรับการคิวรี่พร้อมกันหลายครั้งในอินเทอร์เฟซประเภท <strong>เดียวกัน</strong> ที่บล็อกปัจจุบัน
 - [api.queryMulti()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-distinct-types) สำหรับการคิวรี่พร้อมกันหลายครั้งในอินเทอร์เฟซประเภท
- <strong>ต่างกัน</strong> ที่บล็อกปัจจุบัน
+  <strong>ต่างกัน</strong> ที่บล็อกปัจจุบัน
 
 และนี่คืออินเทอร์เฟซที่ขณะนี้เรา **ไม่ได้** สนับสนุน ซึ่งได้แก่
-- ~~api.tx.*~~
-- ~~api.derive.*~~
+
+- ~~api.tx.\*~~
+- ~~api.derive.\*~~
 - ~~api.query.&lt;module&gt;.&lt;method&gt;.at~~
 - ~~api.query.&lt;module&gt;.&lt;method&gt;.entriesAt~~
 - ~~api.query.&lt;module&gt;.&lt;method&gt;.entriesPaged~~
@@ -98,6 +103,7 @@ const b1 = await api.rpc.chain.getBlock(blockhash);
 // It will use the current block has by default like so
 const b2 = await api.rpc.chain.getBlock();
 ```
+
 - สำหรับ RPC call ต่าง ๆ ที่เป็น [เครือข่าย Substrate แบบกำหนดเอง](#custom-substrate-chains) ดูที่ [การใช้งาน](#usage)
 
 ## โมดูลและไลบรารีต่าง ๆ
@@ -113,14 +119,8 @@ const b2 = await api.rpc.chain.getBlock();
 เราขอแนะนำให้คุณ Import เฉพาะ Method(s) ที่คุณต้องการ แทนที่จะนำเข้ามาทั้งโมดูล เนื่องจาก Method บางอย่างในโมดูลเหล่านี้ อาจเกี่ยวข้องกับสิ่งที่ยังไม่ได้รับการสนับสนุน จึงอาจจะทำให้การ Import ไม่สำเร็จ
 
 ```ts
-import {hashMessage} from "ethers/lib/utils"; //Good way
-import {utils} from "ethers" //Bad way
-
-export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
-    const record = new starterEntity(extrinsic.block.block.header.hash.toString());
-    record.field1 = hashMessage('Hello');
-    await record.save();
-}
+import { hashMessage } from "ethers/lib/utils"; // Good way
+import { utils } from "ethers"; // Bad way
 ```
 
 ### Third-Party Libraries
@@ -148,6 +148,7 @@ SubQuery สามารถใช้กับเครือข่ายใด�
 ```shell
 curl -H "Content-Type: application/json" -d '{"id":"1", "jsonrpc":"2.0", "method": "state_getMetadata", "params":[]}' http://localhost:9933
 ```
+
 หรือจาก **Websocket** Endpoint ด้วยความช่วยเหลือจาก [`websocat`](https://github.com/vi/websocat):
 
 ```shell
@@ -161,46 +162,49 @@ echo state_getMetadata | websocat 'ws://127.0.0.1:9944' --jsonrpc
 จากนั้น ก็อปปี้และวางผลที่ได้ที่ไฟล์ JSON ในตัวอย่าง [kitty example](https://github.com/subquery/tutorials-kitty-chain) ของเรา เราได้สร้าง `api-interface/kitty.json`
 
 #### คำจำกัดความของประเภทต่างๆ
+
 เราคิดว่า ผู้ใช้รู้จัก ประเภทเฉพาะและการสนับสนุน RPC จากเครือข่ายอยู่แล้ว ซึ่งมันถูกกำหนดไว้ใน [Manifest](./manifest.md)
 
 ตาม [การตั้งค่าของประเภทต่าง ๆ](https://polkadot.js.org/docs/api/examples/promise/typegen#metadata-setup) เราสร้าง:
+
 - `src/api-interfaces/definitions.ts` - ซึ่งช่วยส่งออกคำจำกัดความของโฟลเดอร์ย่อยทั้งหมด
 
 ```ts
-export { default as kitties } from './kitties/definitions';
+export { default as kitties } from "./kitties/definitions";
 ```
 
 - `src/api-interfaces/kitty/definitions.ts` - คำจำกัดความต่าง ๆ เรื่องประเภทสำหรับโมดูลลูกแมว(Kitties Module)
+
 ```ts
 export default {
-    // custom types
-    types: {
-        Address: "AccountId",
-        LookupSource: "AccountId",
-        KittyIndex: "u32",
-        Kitty: "[u8; 16]"
+  // custom types
+  types: {
+    Address: "AccountId",
+    LookupSource: "AccountId",
+    KittyIndex: "u32",
+    Kitty: "[u8; 16]",
+  },
+  // custom rpc : api.rpc.kitties.getKittyPrice
+  rpc: {
+    getKittyPrice: {
+      description: "Get Kitty price",
+      params: [
+        {
+          name: "at",
+          type: "BlockHash",
+          isHistoric: true,
+          isOptional: false,
+        },
+        {
+          name: "kittyIndex",
+          type: "KittyIndex",
+          isOptional: false,
+        },
+      ],
+      type: "Balance",
     },
-    // custom rpc : api.rpc.kitties.getKittyPrice
-    rpc: {
-        getKittyPrice:{
-            description: 'Get Kitty price',
-            params: [
-                {
-                    name: 'at',
-                    type: 'BlockHash',
-                    isHistoric: true,
-                    isOptional: false
-                },
-                {
-                    name: 'kittyIndex',
-                    type: 'KittyIndex',
-                    isOptional: false
-                }
-            ],
-            type: 'Balance'
-        }
-    }
-}
+  },
+};
 ```
 
 #### Packages
@@ -252,28 +256,32 @@ yarn generate:meta
 ```json
 {
   "compilerOptions": {
-      // this is the package name we use (in the interface imports, --package for generators) */
-      "kitty-birthinfo/*": ["src/*"],
-      // here we replace the @polkadot/api augmentation with our own, generated from chain
-      "@polkadot/api/augment": ["src/interfaces/augment-api.ts"],
-      // replace the augmented types with our own, as generated from definitions
-      "@polkadot/types/augment": ["src/interfaces/augment-types.ts"]
-    }
+    // this is the package name we use (in the interface imports, --package for generators) */
+    "kitty-birthinfo/*": ["src/*"],
+    // here we replace the @polkadot/api augmentation with our own, generated from chain
+    "@polkadot/api/augment": ["src/interfaces/augment-api.ts"],
+    // replace the augmented types with our own, as generated from definitions
+    "@polkadot/types/augment": ["src/interfaces/augment-types.ts"]
+  }
 }
 ```
 
 ### การใช้งาน
 
 ในฟังก์ชัน Mapping เราสามารถแสดงให้เห็นว่า Metadata และประเภทต่าง ๆ จะเติมแต่ง API อย่างไร RPC Endpoint จะสนับสนุนโมดูลและวิธีการต่าง ๆ ที่เราประกาศไว้ข้างต้น และหากต้องการเรียกใช้ RPC แบบกำหนดเอง โปรดดูส่วน [การเรียกเรียกใช้ RPC ของเครือข่ายแบบกำหนดเอง](#custom-chain-rpc-calls)
+
 ```typescript
 export async function kittyApiHandler(): Promise<void> {
-    //return the KittyIndex type
-    const nextKittyId = await api.query.kitties.nextKittyId();
-    // return the Kitty type, input parameters types are AccountId and KittyIndex
-    const allKitties  = await api.query.kitties.kitties('xxxxxxxxx',123)
-    logger.info(`Next kitty id ${nextKittyId}`)
-    //Custom rpc, set undefined to blockhash
-    const kittyPrice = await api.rpc.kitties.getKittyPrice(undefined,nextKittyId);
+  //return the KittyIndex type
+  const nextKittyId = await api.query.kitties.nextKittyId();
+  // return the Kitty type, input parameters types are AccountId and KittyIndex
+  const allKitties = await api.query.kitties.kitties("xxxxxxxxx", 123);
+  logger.info(`Next kitty id ${nextKittyId}`);
+  //Custom rpc, set undefined to blockhash
+  const kittyPrice = await api.rpc.kitties.getKittyPrice(
+    undefined,
+    nextKittyId
+  );
 }
 ```
 
@@ -282,6 +290,7 @@ export async function kittyApiHandler(): Promise<void> {
 ### การกำหนดค่า RPC Call ต่าง ๆ ของเครือข่าย
 
 เพื่อรองรับการกำหนดค่า RPC Call ต่าง ๆ ของเครือข่าย เราต้องใส่คำจำกัดความ RPC ของ `typesBundle` เอง เพื่อให้สามารถกำหนดค่าตามข้อกำหนดได้ โดยคุณสามารถกำหนด `typesBundle` ใน `project.yml` ได้ และโปรดทราบว่า ในประเภทต่าง ๆ ของ Call จะมีเพียง `isHistoric` เท่านั้นที่เรารองรับ
+
 ```yaml
 ...
   types: {

@@ -71,18 +71,18 @@ dataSources:
 
 ### Top Level Spec
 
-| Field           | Type                                                        | Description                                         |
-| --------------- | ----------------------------------------------------------- | --------------------------------------------------- |
-| **specVersion** | String                                                      | The spec version of the manifest file               |
-| **name**        | String                                                      | Name of your project                                |
-| **version**     | String                                                      | Version of your project                             |
-| **description** | String                                                      | Discription of your project                         |
-| **repository**  | String                                                      | Git repository address of your project              |
-| **schema**      | [Schema Spec](manifest.md#schema-spec)                      | The location of your GraphQL schema file            |
-| **network**     | [Network Spec](manifest.md#network-spec)                    | Detail of the network to be indexed                 |
-| **dataSources** | [DataSource Spec](manifest.md#datasource-spec)              | The datasource to your project                      |
-| **templates**   | [Templates Spec](dynamicdatasources.md#the-templates-field) | Allows creating new datasources from this templates |
-| **runner**      | [Runner Spec](manifest.md#runner-spec)                      | Runner specs info                                   |
+| Field           | Type                                       | Description                                         |
+| --------------- | ------------------------------------------ | --------------------------------------------------- |
+| **specVersion** | String                                     | The spec version of the manifest file               |
+| **name**        | String                                     | Name of your project                                |
+| **version**     | String                                     | Version of your project                             |
+| **description** | String                                     | Discription of your project                         |
+| **repository**  | String                                     | Git repository address of your project              |
+| **schema**      | [Schema Spec](#schema-spec)                | The location of your GraphQL schema file            |
+| **network**     | [Network Spec](#network-spec)              | Detail of the network to be indexed                 |
+| **dataSources** | [DataSource Spec](#datasource-spec)        | The datasource to your project                      |
+| **templates**   | [Templates Spec](../dynamicdatasources.md) | Allows creating new datasources from this templates |
+| **runner**      | [Runner Spec](#runner-spec)                | Runner specs info                                   |
 
 ### Schema Spec
 
@@ -92,11 +92,11 @@ dataSources:
 
 ### Network Spec
 
-If you start your project by using the `subql init` command, you'll generally receive a starter project with the correct network settings. If you are changing the target chain of an existing project, you'll need to edit the [Network Spec](manifest.md#network-spec) section of this manifest.
+If you start your project by using the `subql init` command, you'll generally receive a starter project with the correct network settings. If you are changing the target chain of an existing project, you'll need to edit the [Network Spec](#network-spec) section of this manifest.
 
 The `chainId` is the network identifier of the blockchain. Examples in Avalanche might be `mainnet`.
 
-Additionally you will need to update the `endpoint`. This defines the wss endpoint of the blockchain to be indexed - **this must be a full archive node**. You can retrieve endpoints for all parachains for free from [OnFinality](https://app.onfinality.io)
+Additionally you will need to update the `endpoint`. This defines the wss endpoint of the blockchain to be indexed - **this must be a full archive node**. Public nodes may be rate limited which can affect indexing speed, when developing your project we suggest getting a private API key. You can retrieve endpoints for all parachains for free from [OnFinality](https://app.onfinality.io)
 
 | Field          | Type   | Description                                                                                                                                                                                                |
 | -------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -107,10 +107,10 @@ Additionally you will need to update the `endpoint`. This defines the wss endpoi
 
 ### Runner Spec
 
-| Field     | Type                                               | Description                                |
-| --------- | -------------------------------------------------- | ------------------------------------------ |
-| **node**  | [Runner node spec](manifest.md#runner-node-spec)   | Describe the node service use for indexing |
-| **query** | [Runner query spec](manifest.md#runner-query-spec) | Describe the query service                 |
+| Field     | Type                                    | Description                                |
+| --------- | --------------------------------------- | ------------------------------------------ |
+| **node**  | [Runner node spec](#runner-node-spec)   | Describe the node service use for indexing |
+| **query** | [Runner query spec](#runner-query-spec) | Describe the query service                 |
 
 ### Runner Node Spec
 
@@ -132,15 +132,15 @@ Defines the data that will be filtered and extracted and the location of the map
 
 | Field          | Type         | Description                                                                                   |
 | -------------- | ------------ | --------------------------------------------------------------------------------------------- |
-| **kind**       | string       | [avalanche/Runtime](manifest.md#data-sources-and-mapping)                                     |
+| **kind**       | string       | [avalanche/Runtime](#data-sources-and-mapping)                                                |
 | **startBlock** | Integer      | This changes your indexing start block, set this higher to skip initial blocks with less data |
 | **mapping**    | Mapping Spec |                                                                                               |
 
 ### Mapping Spec
 
-| Field                  | Type                         | Description                                                                                                                     |
-| ---------------------- | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| **handlers & filters** | Default handlers and filters | List all the [mapping functions](./mapping/polkadot.md) and their corresponding handler types, with additional mapping filters. |
+| Field                  | Type                         | Description                                                                                                                       |
+| ---------------------- | ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| **handlers & filters** | Default handlers and filters | List all the [mapping functions](../mapping/avalanche.md) and their corresponding handler types, with additional mapping filters. |
 
 ## Data Sources and Mapping
 
