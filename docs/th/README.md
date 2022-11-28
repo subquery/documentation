@@ -5,7 +5,7 @@
       <div>
         <h2 class="welcomeTitle">Build Faster dApps with<span>SubQuery Academy</span></h2>
         <p>Explore and implement your own efficient custom open-source API between your decentralised data and tools to query data faster and save you time.</p></br>
-        <p><strong>SubQuery now supports Polkadot, Avalanche, Cosmos, and Algorand.</strong></p>
+        <p><strong>SubQuery now supports Polkadot, Avalanche, Cosmos, Algorand, and Flare.</strong></p>
       </div>
     </div>
   </section>
