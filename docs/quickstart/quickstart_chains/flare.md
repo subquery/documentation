@@ -5,12 +5,13 @@
 The goal of this quick start guide is to index all rewards from the Flare FTSO Reward Manager from Flare's Songbird network.
 
 ::: warning Important
-Before we begin, make sure that you have initialised your project using the provided steps in the [Start Here](../quickstart.md) section.
+Before we begin, make sure that you have initialised your project using the provided steps in the [Start Here](../quickstart.md) section. **Please initialise a Flare Songbird Network, not Flare Network**
 :::
 
 Now, let's move forward and update these configurations.
 
 Previously, in the [1. Create a New Project](../quickstart.md) section, you must have noted [3 key files](../quickstart.md#_3-make-changes-to-your-project). Let's begin updating them one by one.
+
 ::: info Note
 The final code of this project can be found [here](https://github.com/jamesbayly/subql-flare-ftso-rewards).
 :::
@@ -72,7 +73,7 @@ Now that you have made essential changes to the GraphQL Schema file, let’s mov
 
 The Project Manifest (`project.yaml`) file works as an entry point to your Flare project. It defines most of the details on how SubQuery will index and transform the chain data.
 
-Note that the manifest file has already been set up correctly and doesn’t require significant changes, but you need to import the correct contract defintions and update the datasource handlers.
+Note that the manifest file has already been set up correctly and doesn’t require significant changes, but you need to import the correct contract definitions and update the datasource handlers.
 
 We are indexing all RewardClaimed logs from the FTSORewardManager contract, first you will need to import the contract abi defintion from [here](https://songbird-explorer.flare.network/address/0xc5738334b972745067fFa666040fdeADc66Cb925/contracts#address-tabs). You can copy the entire JSON and save as a file `ftsoRewardManager.abi.json` in the root directory.
 
@@ -83,7 +84,7 @@ This section in the Project Manifest now imports all the correct definitions and
 ```yaml
 dataSources:
   - kind: flare/Runtime
-    startBlock: 26625930
+    startBlock: 36036 # Block that this contract was deployed
     options:
       # Must be a key of assets
       abi: ftsoRewardManager
