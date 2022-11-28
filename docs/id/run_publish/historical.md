@@ -2,7 +2,7 @@
 
 ## Latar Belakang
 
-SubQuery memungkinkan Anda untuk mengindeks data apa pun yang Anda inginkan dari Substrat, Avalance, dan jaringan lainnya. Saat ini, SubQuery beroperasi sebagai penyimpanan data yang dapat diubah, tempat Anda dapat menambahkan, memperbarui, menghapus, atau mengubah entitas tersimpan yang ada dalam kumpulan data yang diindeks oleh SubQuery. Saat SubQuery mengindeks setiap blok, status setiap entitas dapat diperbarui atau dihapus berdasarkan logika proyek Anda.
+SubQuery memungkinkan Anda untuk mengindeks data apa pun yang Anda inginkan dari Substrat, Avalanche, dan jaringan lainnya. Saat ini, SubQuery beroperasi sebagai penyimpanan data yang dapat diubah, tempat Anda dapat menambahkan, memperbarui, menghapus, atau mengubah entitas tersimpan yang ada dalam kumpulan data yang diindeks oleh SubQuery. Saat SubQuery mengindeks setiap blok, status setiap entitas dapat diperbarui atau dihapus berdasarkan logika proyek Anda.
 
 Proyek SubQuery dasar yang mengindeks saldo akun mungkin memiliki entitas yang terlihat seperti berikut ini.
 

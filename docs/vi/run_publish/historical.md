@@ -2,7 +2,7 @@
 
 ## Dưới nền
 
-SubQuery cho phép bạn lập chỉ mục bất kỳ dữ liệu nào bạn muốn từ Substrate, Avalance và các mạng khác. Hiện tại, SubQuery hoạt động như một kho dữ liệu có thể thay đổi, nơi bạn có thể thêm, cập nhật, xóa hoặc thay đổi các thực thể đã lưu hiện có trong tập dữ liệu được SubQuery lập chỉ mục. Khi SubQuery lập chỉ mục từng khối, trạng thái của từng thực thể có thể được cập nhật hoặc xóa dựa trên logic của dự án của bạn.
+SubQuery cho phép bạn lập chỉ mục bất kỳ dữ liệu nào bạn muốn từ Substrate, Avalanche và các mạng khác. Hiện tại, SubQuery hoạt động như một kho dữ liệu có thể thay đổi, nơi bạn có thể thêm, cập nhật, xóa hoặc thay đổi các thực thể đã lưu hiện có trong tập dữ liệu được SubQuery lập chỉ mục. Khi SubQuery lập chỉ mục từng khối, trạng thái của từng thực thể có thể được cập nhật hoặc xóa dựa trên logic của dự án của bạn.
 
 Một dự án SubQuery cơ bản lập chỉ mục số dư tài khoản có thể có một thực thể trông giống như sau.
 

@@ -338,6 +338,30 @@ The port the subquery indexing service binds to. By default this is set to `3000
 
 Disables automated historical state tracking, [see Historic State Tracking](./historical.md). By default this is set to `false`.
 
+## --multi-chain
+
+Enables indexing multiple subquery projects into the same data base schema. 
+
+Usage:
+
+``` shell
+> subql-node -f . --multi-chain --db-schema=SCHEMA_NAME
+```
+
+This is useful if you want to capture data from multiple rpc endpoints together so you can then query from one endpoint. 
+
+For example capturing transactional data from seperate blockchains (like kusama and polkadot) or capturing xcm data.
+
+Notes about this feature:
+- It will create multiple metadata tables which you can query using the chainId/genesis hash of the particular subquery project
+- You need to run multiple subql/node instances for each project you are indexing
+- The flag --multi-chain must be enabled from the start of indexing and for all projects. 
+- All multi-chain projects must point to the same schema using `--db-schema=SCHEMA_NAME`
+
+::: info Note
+This feature is not compatible with Historical State and it will be disabled if --multi-chain is used. 
+:::
+
 ### -w, --workers
 
 This will move block fetching and processing into a worker. By default, this feature is **disabled**. You can enable it with the `--workers=<number>` flag. Note that the number of available CPU cores strictly limits the usage of worker threads. So, when using the `--workers=<number>` flag, always specify the number of workers. With no flag provided, everything will run in the same thread.

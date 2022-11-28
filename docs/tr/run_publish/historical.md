@@ -2,7 +2,7 @@
 
 ## Arka Plan
 
-SubQuery, Substrate, Avalance ve diğer ağlardan istediğiniz verileri dizine eklemenize olanak tanır. Şu anda SubQuery, SubQuery tarafından dizine eklenen veri kümesindeki kayıtlı varlıkları ekleyebileceğiniz, güncelleyebileceğiniz, silebileceğiniz veya başka bir şekilde değiştirebileceğiniz, değiştirilebilir bir veri deposu olarak çalışır. SubQuery her bloğu indekslediğinden, projenizin mantığına göre her varlığın durumu güncellenebilir veya silinebilir.
+SubQuery, Substrate, Avalanche ve diğer ağlardan istediğiniz verileri dizine eklemenize olanak tanır. Şu anda SubQuery, SubQuery tarafından dizine eklenen veri kümesindeki kayıtlı varlıkları ekleyebileceğiniz, güncelleyebileceğiniz, silebileceğiniz veya başka bir şekilde değiştirebileceğiniz, değiştirilebilir bir veri deposu olarak çalışır. SubQuery her bloğu indekslediğinden, projenizin mantığına göre her varlığın durumu güncellenebilir veya silinebilir.
 
 Hesap bakiyelerini indeksleyen temel bir SubQuery projesi, aşağıdakine benzer bir varlığa sahip olabilir.
 

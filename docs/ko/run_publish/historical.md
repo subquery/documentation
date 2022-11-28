@@ -2,7 +2,7 @@
 
 ## Background
 
-SubQuery allows you to index any data that you want from Substrate, Avalance, and other networks. Currently, SubQuery operates as a mutable data store, where you can append, update, delete, or otherwise change existing saved entities in the dataset that is indexed by SubQuery. As SubQuery indexes each block, the state of each entity may be updated or deleted based on your project's logic.
+SubQuery allows you to index any data that you want from Substrate, Avalanche, and other networks. Currently, SubQuery operates as a mutable data store, where you can append, update, delete, or otherwise change existing saved entities in the dataset that is indexed by SubQuery. As SubQuery indexes each block, the state of each entity may be updated or deleted based on your project's logic.
 
 A basic SubQuery project that indexes account balances might have an entity that looks like the following.
 

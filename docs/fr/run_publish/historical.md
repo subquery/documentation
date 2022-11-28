@@ -2,7 +2,7 @@
 
 ## Arrière-plan
 
-SubQuery vous permet d'indexer toutes les données que vous voulez de Substrate, Avalance et d'autres réseaux. Actuellement, SubQuery fonctionne comme un stockage de données mutable, où vous pouvez ajouter, mettre à jour, supprimer, ou autrement modifier les entités enregistrées existantes dans le jeu de données indexé par SubQuery. Comme SubQuery indexe chaque bloc, l'état de chaque entité peut être mis à jour ou supprimé selon la logique de votre projet.
+SubQuery vous permet d'indexer toutes les données que vous voulez de Substrate, Avalanche et d'autres réseaux. Actuellement, SubQuery fonctionne comme un stockage de données mutable, où vous pouvez ajouter, mettre à jour, supprimer, ou autrement modifier les entités enregistrées existantes dans le jeu de données indexé par SubQuery. Comme SubQuery indexe chaque bloc, l'état de chaque entité peut être mis à jour ou supprimé selon la logique de votre projet.
 
 Un projet SubQuery basique qui indexe les soldes du compte peut avoir une entité qui ressemble à ce qui suit.
 
