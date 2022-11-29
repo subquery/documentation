@@ -7,7 +7,7 @@
 ## Notes about this feature:
 - It will create multiple metadata tables which you can query using the chainId of the particular subquery project [see below](/build/multi-chain.html#querying)
 - You need to run multiple subql/node instances for each project you are indexing
-- The flag --multi-chain must be enabled from the start of indexing and for all projects. 
+- The flag --multi-chain must be enabled from the start of indexing and for all projects. If you forget to do this you will need to clear the DB schema, the  [--force-clean](/run_publish/references.html#force-clean) sub command can help with this.
 - All multi-chain projects must point to the same schema using `--db-schema=SCHEMA_NAME`
 
 ::: info Note
@@ -26,11 +26,38 @@ This multi-chain project can be started regularly by following the [readme](http
 
 Alternatively you can start the node via your terminal [reference](/run_publish/references.html#multi-chain)
 
-### Querying 
+## Tips
 
-To query metadata when multi-chain indexing you must pass the chainId (included in project.yaml) as shown below:
+- When writing your mapping handlers you need to account for possible colliding id's. If you think there could be an issue you can prefix your id with the network name.
 
-``` gql
+For example:
+
+``` ts
+const transfer = new Transfer(`${NETWORK}-${event.block.block.header.number.toNumber()}-${event.idx}`);
+...
+await transfer.save();
+```
+
+- It is also helpful to include a column of the network so you can filter like below:
+
+``` graphql
+query {
+  transfers(filter: {network: { equalTo: "polkadot"}}) {
+    nodes {
+      id
+      blockNumber
+      network
+      amount
+    }
+  } 
+}
+```
+
+#### Querying Metadata
+
+When queries metadata using this feature you need to pass the chainId (included in project.yaml) as shown below:
+
+``` graphql
   query {
     _metadata(chainId: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3'){
       lastProcessedHeight
@@ -38,5 +65,3 @@ To query metadata when multi-chain indexing you must pass the chainId (included 
     }
   }
 ```
-
-
