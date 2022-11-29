@@ -375,8 +375,6 @@ Disables automated historical state tracking, [see Historic State Tracking](./hi
 
 Enables indexing multiple subquery projects into the same database schema. 
 
-Usage:
-
 ``` shell
 > subql-node -f . --multi-chain --db-schema=SCHEMA_NAME
 ```

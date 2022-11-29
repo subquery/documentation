@@ -1,13 +1,11 @@
-# Multiple Chain Support
+# Multi-Chain Support
 
-We support indexing multiple networks into to the same database schema. 
+- We support indexing multiple networks into to the same database schema. 
 
-This is useful if you want to gather data from multiple network together in one place. 
+- This is useful if you want to gather data from multiple network together in one place. For example capturing transaction data from seperate network (like kusama and polkadot) or capturing xcm data.
 
-For example capturing transaction data from seperate network (like kusama and polkadot) or capturing xcm data.
-
-Notes about this feature:
-- It will create multiple metadata tables which you can query using the chainId of the particular subquery project (see below)
+## Notes about this feature:
+- It will create multiple metadata tables which you can query using the chainId of the particular subquery project [see below](/build/multi-chain.html#querying)
 - You need to run multiple subql/node instances for each project you are indexing
 - The flag --multi-chain must be enabled from the start of indexing and for all projects. 
 - All multi-chain projects must point to the same schema using `--db-schema=SCHEMA_NAME`
@@ -26,7 +24,7 @@ The repo for the example can be found [here](https://github.com/subquery/multi-n
 
 This multi-chain project can be started regularly by following the [readme](https://github.com/subquery/multi-networks-transfers/blob/main/README.md#configure-your-project)
 
-Alternatively you can start the node from your terminal [reference](/docs/run_publish/references.md)
+Alternatively you can start the node via your terminal [reference](/run_publish/references.html#multi-chain)
 
 ### Querying 
 
