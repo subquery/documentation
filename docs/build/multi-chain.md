@@ -6,8 +6,8 @@
 
 ## Notes about this feature:
 - It will create multiple metadata tables which you can query using the chainId of the particular subquery project [see below](/build/multi-chain.html#querying-metadata)
-- You need to run multiple subql/node instances for each project you are indexing
-- The flag --multi-chain must be enabled from the start of indexing and for all projects. If you forget to do this you will need to clear the DB schema, the  [--force-clean](/run_publish/references.html#force-clean) sub command can help with this.
+- You need to a subquery node for each project you are indexing
+- The flag --multi-chain must be enabled from the start of indexing and for all projects. If you forget to do this you will need to clear the specific database schema, the [--force-clean](/run_publish/references.html#force-clean) sub command can help with this.
 - All multi-chain projects must point to the same schema using `--db-schema=SCHEMA_NAME`
 
 ::: info Note
@@ -18,11 +18,10 @@ This feature is not compatible with Historical State and will be disabled if --m
 
 The repository for this example can be found [here](https://github.com/subquery/multi-networks-transfers)
 
-- This repository contains multiple manifest files which must be indexed with a seperate nodes for now.
 - A modified docker-compose.yaml file has been included, with two subql/node images, one for each network being indexed.
-- You will notice that that each image maps to a seperate project.yaml file.
+- You will notice that that each image maps to a seperate manifest file.
 
-This multi-chain project can be started as regular by following the [readme](https://github.com/subquery/multi-networks-transfers/blob/main/README.md#configure-your-project)
+This multi-chain project can be started regularly by following the [readme](https://github.com/subquery/multi-networks-transfers/blob/main/README.md#configure-your-project)
 
 Alternatively you can start the node via the [cli](/run_publish/references.html#multi-chain) but a database must be running.
 
