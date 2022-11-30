@@ -371,15 +371,15 @@ The port the subquery indexing service binds to. By default this is set to `3000
 
 Disables automated historical state tracking, [see Historic State Tracking](./historical.md). By default this is set to `false`.
 
-## --multi-chain
+### --multi-chain
 
-Enables indexing multiple subquery projects into the same database schema. 
+Enables indexing multiple subquery projects into the same database schema.
 
-``` shell
+```shell
 > subql-node -f . --multi-chain --db-schema=SCHEMA_NAME
 ```
 
-[Read more about how this feature including an example](/docs/features/multi-chain.md)
+[Read more about how this feature](../build/multi-chain.md).
 
 ### -w, --workers
 
