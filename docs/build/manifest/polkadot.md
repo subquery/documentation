@@ -31,6 +31,8 @@ network:
   endpoint: wss://polkadot.api.onfinality.io/public-ws
   # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
   dictionary: https://api.subquery.network/sq/subquery/polkadot-dictionary
+  # Optionally provide a list of blocks that you wish to bypass
+  bypassBlocks: [ 1, 2, 100, '200-500']
 dataSources:
   - kind: substrate/Runtime
     startBlock: 1 # Block to start indexing from
@@ -126,10 +128,12 @@ Additionally you will need to update the `endpoint`. This defines the wss endpoi
 | --------------- | ------------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **chainId**     | String        | x             | A network identifier for the blockchain (`genesisHash` in Substrate)                                                                                                                                       |
 | **genesisHash** | String        | String        | The genesis hash of the network (from v1.0.0 this is an alias for `chainId` and not necessary)                                                                                                             |
-| **endpoint**    | String        | String        | Defines the wss or ws endpoint of the blockchain to be indexed - **This must be a full archive node**. You can retrieve endpoints for all parachains for free from [OnFinality](https://app.onfinality.io) |
+| **endpoint**    | String        | String        |Defines the wss or ws endpoint of the blockchain to be indexed - **This must be a full archive node**. You can retrieve endpoints for all parachains for free from [OnFinality](https://app.onfinality.io) |
 | **port**        | Number        | Number        | Optional port number on the `endpoint` to connect to                                                                                                                                                       |
 | **dictionary**  | String        | String        | It is suggested to provide the HTTP endpoint of a full chain dictionary to speed up processing - read [how a SubQuery Dictionary works](../academy/tutorials_examples/dictionary.md).                      |
 | **chaintypes**  | {file:String} | {file:String} | Path to chain types file, accept `.json` or `.yaml` format                                                                                                                                                 |
+| **bypassBlocks** | Array         | x             | Bypasses stated block numbers, accepts `range`(e.g. `'10- 50'`) and `integer`                                                                                                                            | 
+
 
 ### Runner Spec
 
@@ -333,6 +337,19 @@ network:
   endpoint: wss://acala-polkadot.api.onfinality.io/public-ws
   chaintypes:
     file: ./dist/chaintypes.js
+```
+
+## Bypass Blocks
+
+Bypass Blocks allows you to skip the stated blocks. It accepts both a `range` or single entry
+
+When declaring a `range` use an string in the format of `'start - end'`.
+
+```yaml
+network:
+  chainId: "0xfc41b9bd8ef8fe53d58c7ea67c794c7ec9a73daf05e6d54b14ff6342c99ba64c"
+  endpoint: wss://acala-polkadot.api.onfinality.io/public-ws
+  bypassBlocks: [1, 2, 3, '105-200', 290]
 ```
 
 ## Custom Data Sources
