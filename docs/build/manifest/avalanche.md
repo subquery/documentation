@@ -104,7 +104,6 @@ Additionally you will need to update the `endpoint`. This defines the wss endpoi
 | **endpoint**     | String | Defines the wss or ws endpoint of the blockchain to be indexed - **This must be a full archive node**. You can retrieve endpoints for all parachains for free from [OnFinality](https://app.onfinality.io) |
 | **port**         | Number | Optional port number on the `endpoint` to connect to                                                                                                                                                       |
 | **dictionary**   | String | It is suggested to provide the HTTP endpoint of a full chain dictionary to speed up processing - read [how a SubQuery Dictionary works](../academy/tutorials_examples/dictionary.md).                      |
-| **bypassBlocks** | Array  | Bypasses stated block numbers, accepts `range`(e.g. `'10- 50'`) and `integer`                                                                                                                              | 
 
 
 
