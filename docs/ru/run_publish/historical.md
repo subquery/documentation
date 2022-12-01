@@ -2,7 +2,7 @@
 
 ## Справочный материал
 
-SubQuery позволяет вам индексировать любые данные из Substrate, Avalance и других сетей. В настоящее время SubQuery работает как изменяемое хранилище данных, где вы можете добавлять, обновлять, удалять или иным образом изменять существующие сохраненные сущности в наборе данных, которые индексируются SubQuery. Поскольку SubQuery индексирует каждый блок, состояние каждой сущности может быть обновлено или удалено в соответствии с логикой вашего проекта.
+SubQuery allows you to index any data that you want from Substrate, Avalanche, and other networks. В настоящее время SubQuery работает как изменяемое хранилище данных, где вы можете добавлять, обновлять, удалять или иным образом изменять существующие сохраненные сущности в наборе данных, которые индексируются SubQuery. Поскольку SubQuery индексирует каждый блок, состояние каждой сущности может быть обновлено или удалено в соответствии с логикой вашего проекта.
 
 Базовый проект SubQuery, индексирующий остатки на счетах, может иметь сущность, которая выглядит следующим образом.
 
@@ -46,7 +46,7 @@ CREATE EXTENSION IF NOT EXISTS btree_gist;
 
 Существует специальное (необязательное) свойство фильтра сущностей GraphQL под названием `blockHeight`. Если вы оставите это свойство без внимания, SubQuery будет запрашивать состояние сущности на текущей отметке блока.
 
-Пожалуйста, ознакомьтесь с одним из наших примеров проектов: [RMRK NFT](https://explorer.subquery.network/subquery/subquery/rmrk-nft-historical).
+Please see one of our example projects: [RMRK NFT](https://github.com/subquery/tutorial-rmrk-nft).
 
 Чтобы запросить владельцев RMRK NFTs на уровне блока 5 000 000, добавьте параметр blockHeight, как показано ниже:
 
@@ -54,6 +54,7 @@ CREATE EXTENSION IF NOT EXISTS btree_gist;
 query {
   nFTEntities(first: 5, blockHeight: "5000000") {
     nodes {
+      id
       name
       currentOwner
     }
@@ -67,6 +68,7 @@ query {
 query {
   nFTEntities(first: 5) {
     nodes {
+      id
       name
       currentOwner
     }
@@ -83,3 +85,34 @@ When you enable Automated Historical State Tracking, you can benefit from on dem
 - _Coming Soon:_ You can update your schema and reindex from a certain block height to reflect those changes
 
 You should see the new [-- reindex command in Command Line Flags](./references.md#reindex) to learn more about how to use this new feature.
+
+You can also use the reindex feature in the [SubQuery Managed Service](https://project.subquery.network).
+
+## DB Schema
+
+When the Automated Historical State Tracking is enabled, we make some key underlying changes to the DB tables to manage this for you automatically.
+
+The below example shows the table of the `Account` entity provided before
+
+```graphql
+type Account @entity {
+  id: ID! # Alice's account address
+  balance: BigInt
+  transfers: [Transfer]
+}
+```
+
+| `id`      | `_id`                                  | `_block_range` | `balance` |
+| --------- | -------------------------------------- | -------------- | --------- |
+| `alice`   | `0e6a444d-cc33-415b-9bfc-44b5ee64d3f4` | `[0,1000)`     | `5`       |
+| `alice`   | `943c3191-ea96-452c-926e-db31ab5b95c7` | `[1000,2000)`  | `15`      |
+| `alice`   | `b43ef216-967f-4192-975c-b14a0c5cef4b` | `[2000,)`      | `25`      |
+| `bob`     | `4876a354-bd75-4370-9621-24ce1a5b9606` | `[0,)`         | `15`      |
+| `charlie` | `6e319240-ef14-4fd9-86e9-c788ff5de152` | `[1000,)`      | `100`     |
+| ...       | ...                                    | ...            | ...       |
+
+When the historical feature is enabled, the `id` field is no longer used as primary key for the database table, instead we automatically generate an unique GUID key `_id` for this row within the DB table.
+
+The `_block_range` indicates the start to end block for this record using Postgres' [range type](https://www.postgresql.org/docs/current/rangetypes.html). For example, between block 0 to 999, `alice`'s `balance` is 5. Then from block 1000 to 1999, `alice`'s `balance` is 15.
+
+`_id` and `_block_range` are not visible to end users via the query service (GraphQL API), they are internal datatypes automatically generated and handled by the query service.
