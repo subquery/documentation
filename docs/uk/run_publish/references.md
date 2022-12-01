@@ -82,7 +82,7 @@ Options:
                                                       [boolean] [default: false]
       --timestamp-field     Enable/disable created_at and updated_at in schema
                                                       [boolean] [default: false]
-      --unfinalized-blocks  Enable/disable unfinalized blocks indexing 
+      --unfinalized-blocks  Enable/disable unfinalized blocks indexing
                                                        [boolean] [default: false]
   -d, --network-dictionary  Specify the dictionary api for this network [string]
   -m, --mmr-path            Local path of the merkle mountain range (.mmr) file
@@ -339,7 +339,7 @@ This will allow you to index blocks before they become finalized. It can be very
 ::: tip Tip Note that this feature **requires historical indexing** to be enabled. Learn more [here](./historical.md). :::
 
 ::: info Note
-This feature is only available for Substrate-based blockchains; more networks will be supported in the future. 
+This feature is only available for Substrate-based blockchains; more networks will be supported in the future.
 :::
 
 ### -d, --network-dictionary
@@ -362,13 +362,34 @@ subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot
 
 Вимикає автоматичне відстеження історичного стану, [див. розділ відстеження історичного стану](./historical.md). За замовчуванням для цього параметра встановлено значення `false`.
 
+### --multi-chain
+
+Enables indexing multiple subquery projects into the same database schema.
+
+```shell
+> subql-node -f . --multi-chain --db-schema=SCHEMA_NAME
+```
+
+[Read more about how this feature](../build/multi-chain.md).
+
 ### -w, --workers
 
-Це перемістить вибірку та обробку блоків у Worker. За умовчанням цю функцію ** disabled **. Ви можете ввімкнути його за допомогою позначки `--workers=<number>`. Зауважте, що кількість доступних ядер ЦП суворо обмежує використання робочих потоків. Отже, використовуючи прапорець `--workers=<number>`, завжди вказуйте кількість працівників. Якщо прапорець не надано, усе працюватиме в одному потоці.
+Це перемістить вибірку та обробку блоків у Worker. За умовчанням цю функцію ** disabled **. Ви можете ввімкнути його за допомогою позначки `--workers=<number>`.
+
+Зауважте, що кількість доступних ядер ЦП суворо обмежує використання робочих потоків. Отже, використовуючи прапорець `--workers=<number>`, завжди вказуйте кількість працівників. Якщо прапорець не надано, усе працюватиме в одному потоці.
 
 :::tip Порада Це може збільшити продуктивність до 4 разів. Спробуйте й повідомте нам свій відгук!
 
 На даний момент він знаходиться на ранній експериментальній стадії, але ми плануємо ввімкнути його за умовчанням. :::
+
+On initialisation, once the main thread is established, then the fetching and processing workload is disturbed across all worker threads. Each worker has their own buffer (a set of blocks that they are responsible to fetch/process). Наприклад:
+
+- Worker A: Will execute the `fetch` and `indexing` of blocks `[n,..n+10]`
+- Worker B: Will execute the `fetch` and `indexing` of blocks `[n+11,..n+20]`
+- Worker C: Will execute the `fetch` and `indexing` of blocks `[n+21,..n+30]`
+- Then repeat with `n = n + 30`
+
+In the case where Worker C completes its fetch prior to Worker A and B, it will remain in an idle state until A and B have completed, as the processing phase executes sequentially.
 
 ## subql-query
 
