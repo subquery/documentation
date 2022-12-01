@@ -82,7 +82,7 @@ Options:
                                                       [boolean] [default: false]
       --timestamp-field     Enable/disable created_at and updated_at in schema
                                                       [boolean] [default: false]
-      --unfinalized-blocks  Enable/disable unfinalized blocks indexing 
+      --unfinalized-blocks  Enable/disable unfinalized blocks indexing
                                                        [boolean] [default: false]
   -d, --network-dictionary  Specify the dictionary api for this network [string]
   -m, --mmr-path            Local path of the merkle mountain range (.mmr) file
@@ -341,7 +341,7 @@ This will allow you to index blocks before they become finalized. It can be very
 ::: tip Tip Note that this feature **requires historical indexing** to be enabled. Learn more [here](./historical.md). :::
 
 ::: info Note
-This feature is only available for Substrate-based blockchains; more networks will be supported in the future. 
+This feature is only available for Substrate-based blockchains; more networks will be supported in the future.
 :::
 
 ### -d, --сетевой словарь
@@ -364,13 +364,34 @@ subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot
 
 Отключает автоматическое отслеживание исторических состояний, [ см. Historic State Tracking](./historical.md). По умолчанию установлено значение `false`.
 
+### --multi-chain
+
+Enables indexing multiple subquery projects into the same database schema.
+
+```shell
+> subql-node -f . --multi-chain --db-schema=SCHEMA_NAME
+```
+
+[Read more about how this feature](../build/multi-chain.md).
+
 ### -w, --workers
 
-Это позволит перевести добычу блока и обработку данных в рабочее состояние. По умолчанию эта функция будет выглядеть как **disabled**. Вы можете активировать это с помощью флага `--workers=<number>`. Обращаем ваше внимание, что количество доступных ядер процессора строго ограничивает использование рабочих потоков. Итак, при использовании флага `--workers=<number>` всегда задавайте количество работников. Без указания флага все будет выполняться в одном потоке.
+Это позволит перевести добычу блока и обработку данных в рабочее состояние. По умолчанию эта функция будет выглядеть как **disabled**. Вы можете активировать это с помощью флага `--workers=<number>`.
+
+Обращаем ваше внимание, что количество доступных ядер процессора строго ограничивает использование рабочих потоков. Итак, при использовании флага `--workers=<number>` всегда задавайте количество работников. Без указания флага все будет выполняться в одном потоке.
 
 :::tip Это позволит увеличить производительность в 4 раза. Попробуйте и оставьте нам обратную связь!
 
 На данный момент он находится на ранней стадии эксперимента, но мы планируем включить его по умолчанию. :::
+
+On initialisation, once the main thread is established, then the fetching and processing workload is disturbed across all worker threads. Each worker has their own buffer (a set of blocks that they are responsible to fetch/process). Например:
+
+- Worker A: Will execute the `fetch` and `indexing` of blocks `[n,..n+10]`
+- Worker B: Will execute the `fetch` and `indexing` of blocks `[n+11,..n+20]`
+- Worker C: Will execute the `fetch` and `indexing` of blocks `[n+21,..n+30]`
+- Then repeat with `n = n + 30`
+
+In the case where Worker C completes its fetch prior to Worker A and B, it will remain in an idle state until A and B have completed, as the processing phase executes sequentially.
 
 ## subql-query
 
