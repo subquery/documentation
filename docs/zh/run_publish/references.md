@@ -82,7 +82,7 @@ Options:
                                                       [boolean] [default: false]
       --timestamp-field     Enable/disable created_at and updated_at in schema
                                                       [boolean] [default: false]
-      --unfinalized-blocks  Enable/disable unfinalized blocks indexing 
+      --unfinalized-blocks  Enable/disable unfinalized blocks indexing
                                                        [boolean] [default: false]
   -d, --network-dictionary  Specify the dictionary api for this network [string]
   -m, --mmr-path            Local path of the merkle mountain range (.mmr) file
@@ -339,7 +339,7 @@ This will allow you to index blocks before they become finalized. It can be very
 ::: tip Tip Note that this feature **requires historical indexing** to be enabled. Learn more [here](./historical.md). :::
 
 ::: info Note
-This feature is only available for Substrate-based blockchains; more networks will be supported in the future. 
+This feature is only available for Substrate-based blockchains; more networks will be supported in the future.
 :::
 
 ### -d, --network-dictionary
@@ -362,13 +362,34 @@ Subquery索引服务绑定到的端口。 默认设置为 `3000`.
 
 禁用自动状态跟踪， [查看历史状态跟踪](./historical.md)。 默认情况下为 `false`。
 
+### --multi-chain
+
+Enables indexing multiple subquery projects into the same database schema.
+
+```shell
+> subql-node -f . --multi-chain --db-schema=SCHEMA_NAME
+```
+
+[Read more about how this feature](../build/multi-chain.md).
+
 ### -w, --workers
 
-这将把块提取和处理移动到一个工作者。 默认情况下，此功能是 **已禁用**。 您可以使用 `--workers=<number>` 标志启用它。 请注意，可用的 CPU 核心数严格限制了工人线程的使用。 因此，当使用 `--workers=<number>` 标志时，总是指定工人的数量。 如果没有提供标记，所有东西都将在同一线程中运行。
+这将把块提取和处理移动到一个工作者。 默认情况下，此功能是 **已禁用**。 您可以使用 `--workers=<number>` 标志启用它。
+
+请注意，可用的 CPU 核心数严格限制了工人线程的使用。 因此，当使用 `--workers=<number>` 标志时，总是指定工人的数量。 如果没有提供标记，所有东西都将在同一线程中运行。
 
 :::tip 提示 它可以提高性能最多4次。 试试一下，让我们知道你的反馈！
 
 目前它处于早期试验阶段，但我们计划默认启用它。 :::
+
+On initialisation, once the main thread is established, then the fetching and processing workload is disturbed across all worker threads. Each worker has their own buffer (a set of blocks that they are responsible to fetch/process). 示例
+
+- Worker A: Will execute the `fetch` and `indexing` of blocks `[n,..n+10]`
+- Worker B: Will execute the `fetch` and `indexing` of blocks `[n+11,..n+20]`
+- Worker C: Will execute the `fetch` and `indexing` of blocks `[n+21,..n+30]`
+- Then repeat with `n = n + 30`
+
+In the case where Worker C completes its fetch prior to Worker A and B, it will remain in an idle state until A and B have completed, as the processing phase executes sequentially.
 
 ## subql-query
 
