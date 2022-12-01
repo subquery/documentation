@@ -31,6 +31,8 @@ network:
   endpoint: wss://polkadot.api.onfinality.io/public-ws
   # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
   dictionary: https://api.subquery.network/sq/subquery/polkadot-dictionary
+  # Optionally provide a list of blocks that you wish to bypass
+  bypassBlocks: [1, 2, 100, "200-500"]
 dataSources:
   - kind: substrate/Runtime
     startBlock: 1 # Block to start indexing from
@@ -122,14 +124,15 @@ The `chainId` or `genesisHash` is the network identifier of the blockchain. In S
 
 Additionally you will need to update the `endpoint`. This defines the wss endpoint of the blockchain to be indexed - **this must be a full archive node**. Public nodes may be rate limited which can affect indexing speed, when developing your project we suggest getting a private API key. You can retrieve endpoints for all parachains for free from [OnFinality](https://app.onfinality.io)
 
-| Field           | v1.0.0        | v0.2.0        | Description                                                                                                                                                                                                |
-| --------------- | ------------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **chainId**     | String        | x             | A network identifier for the blockchain (`genesisHash` in Substrate)                                                                                                                                       |
-| **genesisHash** | String        | String        | The genesis hash of the network (from v1.0.0 this is an alias for `chainId` and not necessary)                                                                                                             |
-| **endpoint**    | String        | String        | Defines the wss or ws endpoint of the blockchain to be indexed - **This must be a full archive node**. You can retrieve endpoints for all parachains for free from [OnFinality](https://app.onfinality.io) |
-| **port**        | Number        | Number        | Optional port number on the `endpoint` to connect to                                                                                                                                                       |
-| **dictionary**  | String        | String        | It is suggested to provide the HTTP endpoint of a full chain dictionary to speed up processing - read [how a SubQuery Dictionary works](../academy/tutorials_examples/dictionary.md).                      |
-| **chaintypes**  | {file:String} | {file:String} | Path to chain types file, accept `.json` or `.yaml` format                                                                                                                                                 |
+| Field            | v1.0.0        | v0.2.0        | Description                                                                                                                                                                                                |
+| ---------------- | ------------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **chainId**      | String        | x             | A network identifier for the blockchain (`genesisHash` in Substrate)                                                                                                                                       |
+| **genesisHash**  | String        | String        | The genesis hash of the network (from v1.0.0 this is an alias for `chainId` and not necessary)                                                                                                             |
+| **endpoint**     | String        | String        | Defines the wss or ws endpoint of the blockchain to be indexed - **This must be a full archive node**. You can retrieve endpoints for all parachains for free from [OnFinality](https://app.onfinality.io) |
+| **port**         | Number        | Number        | Optional port number on the `endpoint` to connect to                                                                                                                                                       |
+| **dictionary**   | String        | String        | It is suggested to provide the HTTP endpoint of a full chain dictionary to speed up processing - read [how a SubQuery Dictionary works](../academy/tutorials_examples/dictionary.md).                      |
+| **chaintypes**   | {file:String} | {file:String} | Path to chain types file, accept `.json` or `.yaml` format                                                                                                                                                 |
+| **bypassBlocks** | Array         | x             | Bypasses stated block numbers, the values can be a `range`(e.g. `"10- 50"`) or `integer`, see [Bypass Blocks](#bypass-blocks)                                                                              |
 
 ### Runner Spec
 
@@ -333,6 +336,19 @@ network:
   endpoint: wss://acala-polkadot.api.onfinality.io/public-ws
   chaintypes:
     file: ./dist/chaintypes.js
+```
+
+## Bypass Blocks
+
+Bypass Blocks allows you to skip the stated blocks, this is useful when there are erroneous blocks in the chain or when a chain skips a block after an outage or a hard fork. It accepts both a `range` or single `integer` entry in the array.
+
+When declaring a `range` use an string in the format of `"start - end"`. Both start and end are inclusive, e.g. a range of `"100-102"` will skip blocks `100`, `101`, and `102`.
+
+```yaml
+network:
+  chainId: "0xfc41b9bd8ef8fe53d58c7ea67c794c7ec9a73daf05e6d54b14ff6342c99ba64c"
+  endpoint: wss://acala-polkadot.api.onfinality.io/public-ws
+  bypassBlocks: [1, 2, 3, "105-200", 290]
 ```
 
 ## Custom Data Sources

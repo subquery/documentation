@@ -98,12 +98,13 @@ The `chainId` is the network identifier of the blockchain. Examples in Avalanche
 
 Additionally you will need to update the `endpoint`. This defines the wss endpoint of the blockchain to be indexed - **this must be a full archive node**. Public nodes may be rate limited which can affect indexing speed, when developing your project we suggest getting a private API key. You can retrieve endpoints for all parachains for free from [OnFinality](https://app.onfinality.io)
 
-| Field          | Type   | Description                                                                                                                                                                                                |
-| -------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **chainId**    | String | A network identifier for the blockchain                                                                                                                                                                    |
-| **endpoint**   | String | Defines the wss or ws endpoint of the blockchain to be indexed - **This must be a full archive node**. You can retrieve endpoints for all parachains for free from [OnFinality](https://app.onfinality.io) |
-| **port**       | Number | Optional port number on the `endpoint` to connect to                                                                                                                                                       |
-| **dictionary** | String | It is suggested to provide the HTTP endpoint of a full chain dictionary to speed up processing - read [how a SubQuery Dictionary works](../academy/tutorials_examples/dictionary.md).                      |
+| Field            | Type   | Description                                                                                                                                                                                                |
+| ---------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| **chainId**      | String | A network identifier for the blockchain                                                                                                                                                                    |
+| **endpoint**     | String | Defines the wss or ws endpoint of the blockchain to be indexed - **This must be a full archive node**. You can retrieve endpoints for all parachains for free from [OnFinality](https://app.onfinality.io) |
+| **port**         | Number | Optional port number on the `endpoint` to connect to                                                                                                                                                       |
+| **dictionary**   | String | It is suggested to provide the HTTP endpoint of a full chain dictionary to speed up processing - read [how a SubQuery Dictionary works](../academy/tutorials_examples/dictionary.md).                      |
+| **bypassBlocks** | Array  | x                                                                                                                                                                                                          | Bypasses stated block numbers, the values can be a `range`(e.g. `"10- 50"`) or `integer`, see [Bypass Blocks](#bypass-blocks) |
 
 ### Runner Spec
 
@@ -176,6 +177,19 @@ The `modulo` filter allows handling every N blocks, which is useful if you want 
 ```yml
 filter:
   modulo: 50 # Index every 50 blocks: 0, 50, 100, 150....
+```
+
+## Bypass Blocks
+
+Bypass Blocks allows you to skip the stated blocks, this is useful when there are erroneous blocks in the chain or when a chain skips a block after an outage or a hard fork. It accepts both a `range` or single `integer` entry in the array.
+
+When declaring a `range` use an string in the format of `"start - end"`. Both start and end are inclusive, e.g. a range of `"100-102"` will skip blocks `100`, `101`, and `102`.
+
+```yaml
+network:
+  chainId: "0xfc41b9bd8ef8fe53d58c7ea67c794c7ec9a73daf05e6d54b14ff6342c99ba64c"
+  endpoint: wss://acala-polkadot.api.onfinality.io/public-ws
+  bypassBlocks: [1, 2, 3, "105-200", 290]
 ```
 
 ## Validating
