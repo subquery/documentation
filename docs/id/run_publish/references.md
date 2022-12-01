@@ -82,7 +82,7 @@ Options:
                                                       [boolean] [default: false]
       --timestamp-field     Enable/disable created_at and updated_at in schema
                                                       [boolean] [default: false]
-      --unfinalized-blocks  Enable/disable unfinalized blocks indexing 
+      --unfinalized-blocks  Enable/disable unfinalized blocks indexing
                                                        [boolean] [default: false]
   -d, --network-dictionary  Specify the dictionary api for this network [string]
   -m, --mmr-path            Local path of the merkle mountain range (.mmr) file
@@ -339,7 +339,7 @@ This will allow you to index blocks before they become finalized. It can be very
 ::: tip Tip Note that this feature **requires historical indexing** to be enabled. Learn more [here](./historical.md). :::
 
 ::: info Note
-This feature is only available for Substrate-based blockchains; more networks will be supported in the future. 
+This feature is only available for Substrate-based blockchains; more networks will be supported in the future.
 :::
 
 ### -d, --network-dictionary
@@ -362,13 +362,34 @@ Port yang diikat oleh layanan pengindeksan subquery. Secara default ini diatur k
 
 Menonaktifkan pelacakan status historis otomatis, [lihat Pelacakan Status Historis](./historical.md). Secara default ini diatur ke `3000`.
 
+### --multi-chain
+
+Enables indexing multiple subquery projects into the same database schema.
+
+```shell
+> subql-node -f . --multi-chain --db-schema=SCHEMA_NAME
+```
+
+[Read more about how this feature](../build/multi-chain.md).
+
 ### -w, --workers
 
-Ini akan memindahkan pengambilan dan pemrosesan blok ke dalam worker. Secara default, fitur ini **disabled**. Anda bisa mengaktifkannya dengan flag `--workers=<number>`. Perhatikan bahwa jumlah core CPU yang tersedia sangat membatasi penggunaan thread pekerja. Jadi, ketika menggunakan flag `--workers=<number>`, selalu tentukan jumlah pekerja. Tanpa flag yang disediakan, semuanya akan berjalan dalam thread yang sama.
+Ini akan memindahkan pengambilan dan pemrosesan blok ke dalam worker. Secara default, fitur ini **disabled**. Anda bisa mengaktifkannya dengan flag `--workers=<number>`.
+
+Perhatikan bahwa jumlah core CPU yang tersedia sangat membatasi penggunaan thread pekerja. Jadi, ketika menggunakan flag `--workers=<number>`, selalu tentukan jumlah pekerja. Tanpa flag yang disediakan, semuanya akan berjalan dalam thread yang sama.
 
 :::tip Tip Tip Ini bisa meningkatkan performa hingga 4 kali lipat. Cobalah dan beri tahu kami tanggapan Anda!
 
 Saat ini, ini masih dalam tahap percobaan awal, tetapi kami berencana untuk mengaktifkannya secara default. :::
+
+On initialisation, once the main thread is established, then the fetching and processing workload is disturbed across all worker threads. Each worker has their own buffer (a set of blocks that they are responsible to fetch/process). Sebagai contoh:
+
+- Worker A: Will execute the `fetch` and `indexing` of blocks `[n,..n+10]`
+- Worker B: Will execute the `fetch` and `indexing` of blocks `[n+11,..n+20]`
+- Worker C: Will execute the `fetch` and `indexing` of blocks `[n+21,..n+30]`
+- Then repeat with `n = n + 30`
+
+In the case where Worker C completes its fetch prior to Worker A and B, it will remain in an idle state until A and B have completed, as the processing phase executes sequentially.
 
 ## subql-query
 
