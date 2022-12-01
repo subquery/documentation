@@ -273,6 +273,7 @@ function getSidebar(locale, language) {
               `${locale}/build/mapping/store.md`,
             ],
           },
+          `${locale}/build/multi-chain.md`,
           `${locale}/build/substrate-evm.md`,
           `${locale}/build/substrate-wasm.md`,
           `${locale}/build/cosmos-evm.md`,

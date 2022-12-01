@@ -2,7 +2,7 @@
 
 ## Hintergrund
 
-Mit SubQuery können Sie beliebige Daten von Substrate, Avalance und anderen Netzwerken indizieren. Derzeit fungiert SubQuery als veränderlicher Datenspeicher, in dem Sie vorhandene gespeicherte Entitäten in dem von SubQuery indizierten Datensatz anhängen, aktualisieren, löschen oder anderweitig ändern können. Da SubQuery jeden Block indiziert, kann der Status jeder Entität basierend auf der Logik Ihres Projekts aktualisiert oder gelöscht werden.
+Mit SubQuery können Sie beliebige Daten von Substrate, Avalanche und anderen Netzwerken indizieren. Derzeit fungiert SubQuery als veränderlicher Datenspeicher, in dem Sie vorhandene gespeicherte Entitäten in dem von SubQuery indizierten Datensatz anhängen, aktualisieren, löschen oder anderweitig ändern können. Da SubQuery jeden Block indiziert, kann der Status jeder Entität basierend auf der Logik Ihres Projekts aktualisiert oder gelöscht werden.
 
 Ein einfaches SubQuery-Projekt, das Kontostände indiziert, könnte eine Entität haben, die wie folgt aussieht.
 
