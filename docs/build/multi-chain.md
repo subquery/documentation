@@ -6,6 +6,8 @@ You can use the same SubQuery project, which includes the same GraphQL schema an
 
 For example, you could capture XCM transaction data from all Polkadot parachains or monitoring IBC messages across Cosmos Zones in a single project, with a single database, and a single query endpoint.
 
+![Multi-chain](/assets/img/multi-chain.jpg)
+
 ## How it Works
 
 ::: info Requirements for multi-chain indexing
@@ -105,6 +107,8 @@ async function handleEvent(
   // Do something with shared logic
 }
 ```
+
+In many cases, you will have a completely different set of mapping handlers to deal with the differences of each network/chain that you are indexing.
 
 ## Cross-Chain Race Conditions
 
