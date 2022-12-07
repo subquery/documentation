@@ -134,8 +134,7 @@
     </div>
   </div>
 </section>
-</div> </div>
 <div class="footer">
   <div class="main"><div>SubQuery © 2022</div></div>
 </div>
-<script charset="utf-8" src="/assets/js/welcome.js"></script>
+<!--<script charset="utf-8" src="/assets/js/welcome.js"></script>-->

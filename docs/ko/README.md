@@ -12,7 +12,7 @@
   <section class="startSection main">
     <div>
       <h2 class="title">Get a Kick-Start With Our <span>Quick Start Guide</span></h2>
-      <p><strong>Build your first SubQuery project in less than 10 mins with simple guided steps.</strong>
+      <p><strong>Build your first SubQuery project in less than 10 mins with simple guided steps.</strong></p>
       <p>Start querying data for your dApps on your most loved blockchain network using our starter projects. Explore and modify important files, and understand how SubQuery works.
       </p>
       <span class="button">
@@ -134,8 +134,7 @@
     </div>
   </div>
 </section>
-</div> </div>
 <div class="footer">
   <div class="main"><div>SubQuery © 2022</div></div>
 </div>
-<script charset="utf-8" src="/assets/js/welcome.js"></script>
+<!--<script charset="utf-8" src="/assets/js/welcome.js"></script>-->

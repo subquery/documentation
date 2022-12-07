@@ -1,14 +1,31 @@
-const { config } = require("vuepress-theme-hope");
+import { defineUserConfig } from "vuepress";
+import { defaultTheme } from "vuepress";
+import { glob } from "glob";
+import { googleAnalyticsPlugin } from "@vuepress/plugin-google-analytics";
+import { sitemapPlugin } from "vuepress-plugin-sitemap2";
+import { pwaPlugin } from "@vuepress/plugin-pwa";
 
-module.exports = config({
+export default defineUserConfig({
+  plugins: [
+    /*
+    googleAnalyticsPlugin({
+      id: "G-MY90N76MNK",
+    }),
+    */
+    //"fulltext-search", // TODO Restore this
+    pwaPlugin,
+    sitemapPlugin({
+      hostname: "https://blog.subquery.network",
+    }),
+  ],
   title: "SubQuery Academy",
   head: [
-    ["link", { rel: "icon", href: "public/assets/img/logo.png" }],
+    ["link", { rel: "icon", href: "/assets/img/logo.png" }],
     [
       "link",
       {
         rel: "icon",
-        href: "public/assets/favicons/favicon.ico",
+        href: "assets/favicons/favicon.ico",
         type: "image/x-icon",
       },
     ],
@@ -18,7 +35,7 @@ module.exports = config({
         rel: "apple-touch-icon",
         type: "image/png",
         sizes: "180x180",
-        href: "public/assets/favicons/apple-touch-icon.png",
+        href: "assets/favicons/apple-touch-icon.png",
       },
     ],
     [
@@ -27,7 +44,7 @@ module.exports = config({
         rel: "icon",
         type: "image/png",
         sizes: "32x32",
-        href: "public/assets/favicons/favicon-32x32.png",
+        href: "assets/favicons/favicon-32x32.png",
       },
     ],
     [
@@ -36,10 +53,10 @@ module.exports = config({
         rel: "icon",
         type: "image/png",
         sizes: "16x16",
-        href: "public/assets/favicons/favicon-16x16.png",
+        href: "assets/favicons/favicon-16x16.png",
       },
     ],
-    ["link", { rel: "manifest", href: "public/assets/manifest.json" }],
+    ["link", { rel: "manifest", href: "assets/manifest.json" }],
   ],
   locales: {
     "/": {
@@ -97,61 +114,67 @@ module.exports = config({
         "Explore and transform your chain data to build intuitive dApps faster!.",
     },
     /*
-    "/es/": {
-      lang: "es",
-      title: "SubQuery Academy",
-      description:
-        "Explore and transform your chain data to build intuitive dApps faster!.",
-    },
-    */
+      "/es/": {
+        lang: "es",
+        title: "SubQuery Academy",
+        description:
+          "Explore and transform your chain data to build intuitive dApps faster!.",
+      },
+      */
     /*
-    "/it/": {
-      lang: "it",
-      title: "SubQuery Academy",
-      description:
-        "Explore and transform your chain data to build intuitive dApps faster!.",
-    },
-    "/ja/": {
-      lang: "ja",
-      title: "SubQuery Academy",
-      description:
-        "Explore and transform your chain data to build intuitive dApps faster!.",
-    },
-    "/ko/": {
-      lang: "ko",
-      title: "SubQuery Academy",
-      description:
-        "Explore and transform your chain data to build intuitive dApps faster!.",
-    },
-    */
+      "/it/": {
+        lang: "it",
+        title: "SubQuery Academy",
+        description:
+          "Explore and transform your chain data to build intuitive dApps faster!.",
+      },
+      "/ja/": {
+        lang: "ja",
+        title: "SubQuery Academy",
+        description:
+          "Explore and transform your chain data to build intuitive dApps faster!.",
+      },
+      "/ko/": {
+        lang: "ko",
+        title: "SubQuery Academy",
+        description:
+          "Explore and transform your chain data to build intuitive dApps faster!.",
+      },
+      */
   },
-  themeConfig: {
+  theme: defaultTheme({
+    // TODO
+    /*
     algolia: {
       appId: "30B5W460WL",
       apiKey: "7f75a78b4f95cebe82c0ced1ff75235e",
       indexName: "subquery",
     },
-    cleanUrl: false,
-    contributor: false,
-    hostname: "https://academy.subquery.network",
+    */
+    //cleanUrl: false,
+    //contributor: false,
+    //hostname: "https://academy.subquery.network",
     lastUpdated: true,
     locales: {
-      "/": getSidebar("", "English"),
-      "/zh/": getSidebar("/zh", "Chinese"),
-      "/de/": getSidebar("/de", "German"),
-      "/vi/": getSidebar("/vi", "Vietnamese"),
-      "/ru/": getSidebar("/ru", "Russian"),
-      "/uk/": getSidebar("/uk", "Ukranian"),
+      "/": getThemeConfig("", "English"),
+      "/zh/": getThemeConfig("/zh", "Chinese"),
+      "/de/": getThemeConfig("/de", "German"),
+      "/vi/": getThemeConfig("/vi", "Vietnamese"),
+      "/ru/": getThemeConfig("/ru", "Russian"),
+      "/uk/": getThemeConfig("/uk", "Ukranian"),
     },
     logo: "/assets/img/logo.png",
+    /*
     logoLink: "https://subquery.network",
     markdown: {
       extractHeaders: ["h2", "h3"],
     },
+
     mdEnhance: {
       codegroup: true,
     },
-    nav: [
+    */
+    navbar: [
       {
         text: "Explorer",
         link: "https://explorer.subquery.network/",
@@ -172,20 +195,11 @@ module.exports = config({
         rel: "",
       },
     ],
-    plugins: [
-      [
-        "@vuepress/plugin-google-analytics",
-        {
-          id: "G-MY90N76MNK",
-        },
-        "fulltext-search",
-        "@vuepress/pwa",
-      ],
-    ],
-    pwa: true,
+
+    //pwa: true,
     sidebarDepth: 2,
-    themeColor: false,
-  },
+    //themeColor: false,
+  }),
 });
 
 chainWebpack: (config) => {
@@ -209,18 +223,18 @@ chainWebpack: (config) => {
   });
 };
 
-function getSidebar(locale, language) {
+function getThemeConfig(locale, language) {
   return {
     selectLanguageName: language,
     sidebar: [
       {
-        title: "Welcome",
-        path: `${locale === "" ? "/" : locale}`,
+        text: "Welcome",
+        link: `${locale === "" ? "/" : locale}`,
         collapsable: true,
       },
       {
-        title: "Quick Start",
-        path: `${locale}/quickstart/quickstart`,
+        text: "Quick Start",
+        link: `${locale}/quickstart/quickstart`,
         collapsable: true,
         children: [
           `${locale}/quickstart/quickstart.md`,
@@ -241,8 +255,8 @@ function getSidebar(locale, language) {
         ],
       },
       {
-        title: "Build",
-        path: `${locale}/build/introduction`,
+        text: "Build",
+        link: `${locale}/build/introduction`,
         collapsable: true,
         children: [
           `${locale}/build/introduction.md`,
@@ -283,8 +297,8 @@ function getSidebar(locale, language) {
         ],
       },
       {
-        title: "Run & Publish",
-        path: `${locale}/run_publish/publish`,
+        text: "Run & Publish",
+        link: `${locale}/run_publish/publish`,
         collapsable: true,
         children: [
           `${locale}/run_publish/run.md`,
@@ -300,8 +314,8 @@ function getSidebar(locale, language) {
         ],
       },
       {
-        title: "SubQuery Network",
-        path: `${locale}/subquery_network/introduction`,
+        text: "SubQuery Network",
+        link: `${locale}/subquery_network/introduction`,
         collapsable: true,
         children: [
           `${locale}/subquery_network/introduction.md`,
@@ -315,13 +329,13 @@ function getSidebar(locale, language) {
           `${locale}/subquery_network/design-philosophy.md`,
           {
             title: "Kepler Network",
-            path: `${locale}/subquery_network/kepler/welcome`,
+            link: `${locale}/subquery_network/kepler/welcome`,
             collapsable: true,
             children: [
               `${locale}/subquery_network/kepler/welcome.md`,
               {
                 title: "Indexers",
-                path: `${locale}/subquery_network/kepler/indexers/become-an-indexer`,
+                link: `${locale}/subquery_network/kepler/indexers/become-an-indexer`,
                 collapsable: true,
                 children: [
                   `${locale}/subquery_network/kepler/indexers/become-an-indexer.md`,
@@ -338,7 +352,7 @@ function getSidebar(locale, language) {
               `${locale}/subquery_network/kepler/consumers.md`,
               {
                 title: "Metamask",
-                path: `${locale}/subquery_network/kepler/metamask/connect-metamask`,
+                link: `${locale}/subquery_network/kepler/metamask/connect-metamask`,
                 collapsable: true,
                 children: [
                   `${locale}/subquery_network/kepler/metamask/connect-metamask.md`,
@@ -349,13 +363,13 @@ function getSidebar(locale, language) {
         ],
       },
       {
-        title: "Courses",
-        path: `${locale}/academy/herocourse/welcome`,
+        text: "Courses",
+        link: `${locale}/academy/herocourse/welcome`,
         collapsable: true,
         children: [
           {
             title: "Hero Course",
-            path: `${locale}/academy/herocourse/welcome`,
+            link: `${locale}/academy/herocourse/welcome`,
             collapsable: true,
             children: [
               `${locale}/academy/herocourse/welcome.md`,
@@ -369,7 +383,7 @@ function getSidebar(locale, language) {
           },
           {
             title: "Tutorials & Examples",
-            path: `${locale}/academy/tutorials_examples/introduction`,
+            link: `${locale}/academy/tutorials_examples/introduction`,
             collapsable: true,
             children: [
               `${locale}/academy/tutorials_examples/introduction.md`,
@@ -386,8 +400,8 @@ function getSidebar(locale, language) {
         ],
       },
       {
-        title: "Miscellaneous",
-        path: `${locale}/miscellaneous/contributing`,
+        text: "Miscellaneous",
+        link: `${locale}/miscellaneous/contributing`,
         collapsable: true,
         children: [
           `${locale}/miscellaneous/contributing.md`,
@@ -397,14 +411,14 @@ function getSidebar(locale, language) {
         ],
       },
       {
-        title: "FAQs",
-        path: `${locale}/faqs/faqs`,
+        text: "FAQs",
+        link: `${locale}/faqs/faqs`,
         collapsable: true,
         children: [`${locale}/faqs/faqs.md`],
       },
       {
-        title: "Glossary",
-        path: `${locale}/glossary/glossary`,
+        text: "Glossary",
+        link: `${locale}/glossary/glossary`,
         collapsable: true,
         children: [`${locale}/glossary/glossary.md`],
       },
