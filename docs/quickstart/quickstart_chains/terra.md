@@ -59,7 +59,12 @@ Now that you have made essential changes to the GraphQL Schema file, let’s mov
 
 ## 2. Update Your Project Manifest File
 
-The Project Manifest (`project.yaml`) file works as an entry point to your Terra project. It defines most of the details on how SubQuery will index and transform the chain data.
+The Project Manifest (`project.yaml`) file works as an entry point to your Terra project. It defines most of the details on how SubQuery will index and transform the chain data. For Terra, there are four types of mapping handlers (and you can have more than one in each project):
+
+- [BlockHanders](../../build/manifest/terra.md#mapping-handlers-and-filters): On each and every block, run a mapping function
+- [TransactionHandlers](../../build/manifest/terra.md#mapping-handlers-and-filters): On each and every transaction, run a mapping function
+- [MessageHandlers](../../build/manifest/terra.md#mapping-handlers-and-filters): On each and every message that matches optional filter criteria, run a mapping function
+- [EventHanders](../../build/manifest/terra.md#mapping-handlers-and-filters): On each and every event that matches optional filter criteria, run a mapping function
 
 Note that the manifest file has already been set up correctly and doesn’t require significant changes, but you need to change the datasource handlers. This section lists the triggers that look for on the blockchain to start indexing.
 
