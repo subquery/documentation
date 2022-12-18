@@ -9,18 +9,16 @@ Before we begin, ensure that you have initialized your project using the steps i
 :::
 
 Now, let's move forward and update these configurations.
+
 While Creating a [New Project](../quickstart.md), you must have noted [3 key files](../quickstart.md#_3-make-changes-to-your-project). Let's begin updating them one by one.
 
 ## 1. Updating your GraphQL Schema File
 
 The `schema.graphql` file determines the shape of your data from SubQuery due to the mechanism of the GraphQL query language. Hence, updating the GraphQL Schema file is the perfect place to start. It allows you to define your end goal right at the start.
+
 Remove all existing entities and update the `schema.graphql` file as follows, here you can see we are indexing all transfers, bioauthentication events, and online validator nodes from Humanode:
 
 ```graphql
-# To improve query performance, we strongly suggest adding indexes to any field that you plan to filter or sort by
-# Add the `@index` or `@index(unique: true)` annotation after any non-key field
-# https://academy.subquery.network/build/graphql.html#indexing-by-non-primary-key-field
-
 type BioauthNewAuthentication @entity {
   id: ID!
   blockNumber: Int!
@@ -54,13 +52,20 @@ While making any changes to the schema file, make sure to regenerate your types 
   </CodeGroupItem>
  </CodeGroup>
   
-  You will find the generated models in the `/src/types/models` directory.
+You will find the generated models in the `/src/types/models` directory.
+
 Check out the [GraphQL Schema](../../build/graphql.md) documentation to get in-depth information on `schema.graphql` file.
+
 Now that you have made essential changes to the GraphQL Schema file let’s move forward to the next file.
 
 ## 2. Updating Your Project Manifest File
 
-The Project Manifest (`project.yaml`) file works as an entry point to your project. It defines most of the details on how SubQuery will index and transform the chain data.
+The Project Manifest (`project.yaml`) file works as an entry point to your project. It defines most of the details on how SubQuery will index and transform the chain data. For Substrate/Polkadot chains, there are three types of mapping handlers (and you can have more than one in each project):
+
+- [BlockHanders](../../build/manifest/polkadot.md#mapping-handlers-and-filters): On each and every block, run a mapping function
+- [EventHandlers](../../build/manifest/polkadot.md#mapping-handlers-and-filters): On each and every event that matches optional filter criteria, run a mapping function
+- [CallHanders](../../build/manifest/polkadot.md#mapping-handlers-and-filters): On each and every extrinsic call that matches optional filter criteria, run a mapping function
+
 Note that the manifest file has already been set up correctly and doesn’t require significant changes, but you need to change the datasource handlers. This section lists the triggers that look for on the blockchain to start indexing.
 
 **Since we are planning to index all transfers, bioauthentication events, and online nodes, we need to update the `datasources` section as follows:**
@@ -86,7 +91,7 @@ dataSources:
  
 This indicates that you will be running a `handleBioauthNewAuthenticationEvent` and `handleImonlineSomeOfflineEvent` mapping functions whenever there are events emitted from the `bioauth` and `imOnline modules` with the `NewAuthentication` and `SomeOffline` methods, respectively.
  
-Check out our [documentation](../https://github.com/subquery/subql-starter/tree/main/Humanode/Humanode-starter#readme) to get more information about the Project Manifest (`project.yaml`) file.
+Check out our [documentation](../../build/manifest/polkadot.md) to get more information about the Project Manifest (`project.yaml`) file.
 
 Next, let’s proceed ahead with the Mapping Function’s configuration.
 
@@ -171,8 +176,10 @@ Now, you are all set to run your first SubQuery project. Let’s dig out the pro
 ## 5. Running Your Project Locally with Docker
 
 When you create a new SubQuery Project, you must first run it locally on your computer and test it. Using Docker is the easiest and quickest way to do this.
+
 The `docker-compose.yml` file defines all the configurations that control how a SubQuery node runs. You won't need to change anything for a new project which you have just initialized.
-However, visit Running [SubQuery Locally](../https://academy.subquery.network/run_publish/run.html) to get more information on the file and the settings.
+
+However, visit Running [SubQuery Locally](../../run_publish/run.html) to get more information on the file and the settings.
 
 Run the following command under the project directory:
 
@@ -258,3 +265,15 @@ You will see the results similar to below:
   }
 }
 ```
+
+## What's next?
+
+Congratulations! You have now a locally running SubQuery project that accepts GraphQL API requests for transferring data.
+
+::: tip Tip
+
+Find out how to build a performant SubQuery project and avoid common mistakes in [Project Optimisation](../build/optimisation.md).
+
+:::
+
+Click [here](../../quickstart/whats-next.md) to learn what should be your **next step** in your SubQuery journey.
