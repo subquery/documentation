@@ -12,4 +12,4 @@ Sie werden auch feststellen, dass der SubQuery-Explorer eine Spielwiese zum Auff
 
 Oben rechts auf dem Spielplatz finden Sie eine Schaltfläche _Dokumente_, die eine Dokumentationsziehung öffnet. Diese Dokumentation wird automatisch generiert und hilft Ihnen zu finden, welche Entitäten und Methoden Sie abfragen können.
 
-::: info Hinweis Erfahren Sie mehr über die [GraphQL-Abfragesprache.](./graphql.md) :::
+::: tip Note Learn more about the [GraphQL Query language.](./graphql.md) :::
