@@ -6,7 +6,7 @@ SubQuery hiện đang hỗ trợ Các theo dõi Graphql. Giống như truy vấn
 
 Các theo dõi rất hữu ích khi bạn muốn ứng dụng khách của mình thay đổi dữ liệu hoặc hiển thị một số dữ liệu mới ngay khi dữ liệu thay đổi hoặc dữ liệu mới có sẵn. Subscriptions allow you to _subscribe_ to your SubQuery project for changes.
 
-::: info Note Read more about [Subscriptions](https://www.apollographql.com/docs/react/data/subscriptions/). :::
+::: tip Note Read more about [Subscriptions](https://www.apollographql.com/docs/react/data/subscriptions/). :::
 
 ## Làm thế nào để theo dõi một thực thể
 
