@@ -16,7 +16,7 @@ Subquery también provee alojamiento gratuito, de grado de producción de proyec
 
 **La red de SubQuery**
 
-La red SubQuery permite a los desarrolladores descentralizar completamente su pila de infraestructura. Es el servicio de datos más abierto, eficiente, fiable y escalable para dApps. SubQuery Network indexa y da servicio a la comunidad global de una manera incentivada y verificable.  Después de publicar tu proyecto en SubQuery Network, cualquiera puede indexarlo y alojarlo - proporcionando datos a los usuarios de todo el mundo de manera más rápida y fiable.
+La red SubQuery permite a los desarrolladores descentralizar completamente su pila de infraestructura. Es el servicio de datos más abierto, eficiente, fiable y escalable para dApps. SubQuery Network indexa y da servicio a la comunidad global de una manera incentivada y verificable. Después de publicar tu proyecto en SubQuery Network, cualquiera puede indexarlo y alojarlo - proporcionando datos a los usuarios de todo el mundo de manera más rápida y fiable.
 
 Más información [aquí](/subquery_network/introduction.md).
 
@@ -26,7 +26,7 @@ La mejor manera de empezar con SubQuery es probar nuestro [tutorial de Hola Mund
 
 ## ¿Cómo puedo contribuir o dar comentarios a SubQuery?
 
-Nos encantan las contribuciones y comentarios de la comunidad. Para contribuir con el código, bifurca el repositorio de su interés y realice sus cambios. Luego envíe un PR o Pull Request. No te olvides de probar también. Also check out our <a href="http://localhost:8080/miscellaneous/contributing.html">contributions guidelines.</a>
+Nos encantan las contribuciones y comentarios de la comunidad. Para contribuir con el código, bifurca el repositorio de su interés y realice sus cambios. Luego envíe un PR o Pull Request. No te olvides de probar también. Also check out our [contributions guidelines](../miscellaneous/contributing.html).
 
 Para dar comentarios, contáctanos a hello@subquery.network o salta a nuestro [canal de discord](https://discord.com/invite/78zg8aBSMG).
 
@@ -76,7 +76,6 @@ subql-node -f . --force-clean --subquery-name=<project-name>
 
 Tenga en cuenta que se recomienda usar `--force-clean` al cambiar el `startBlock` dentro del manifiesto del proyecto (`proyecto. aml`) para comenzar a reindexar desde el bloque configurado. Si `startBlock` se cambia sin un `--force-clean` del proyecto entonces el indexador continuará indexando con el `startBlock` previamente configurado.
 
-
 ## How can I optimise my project to speed it up?
 
-Performance is a crucial factor in each project. Fortunately, there are several things you could do to improve it. You can find our recommendations in the [Project Optimisation](../build/optimisation.md). 
+Performance is a crucial factor in each project. Fortunately, there are several things you could do to improve it. You can find our recommendations in the [Project Optimisation](../build/optimisation.md).
