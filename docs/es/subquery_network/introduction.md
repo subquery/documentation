@@ -18,22 +18,22 @@ Hay un papel para todos en la red, desde desarrolladores altamente técnicos has
 
 Los consumidores solicitarán a SubQuery Network datos específicos para sus dApps o herramientas, y pagarán una cantidad anunciada de SQT por cada solicitud.
 
-::: info Note Learn more about [Consumers](./consumers.md). :::
+::: tip Note Learn more about [Consumers](./consumers.md). :::
 
 ### Indexadores
 
 Los indexadores ejecutarán y mantendrán proyectos de SubQuery de alta calidad en su propia infraestructura, ejecutando tanto el indexador como el servicio de consultas, y será recompensado en SQT por las peticiones que sirven.
 
-::: info Note Learn more about [Indexers](./indexers.md). :::
+::: tip Note Learn more about [Indexers](./indexers.md). :::
 
 ### Delegadores
 
 Los dedores participarán en la Red apoyando a sus indexadores favoritos para ganar recompensas en función del trabajo que hagan esos indexadores.
 
-::: info Note Learn more about [Delegators](./delegators.md). :::
+::: tip Note Learn more about [Delegators](./delegators.md). :::
 
 ### Arquitectos
 
 Los arquitectos son los constructores de los proyectos SubQuery en los que se ejecuta la red. Autorizan y publican proyectos de SubQuery para la Red para indexar y ejecutar.
 
-::: info Note Learn more about [how to build your first SubQuery project](../build/introduction.md). :::
+::: tip Note Learn more about [how to build your first SubQuery project](../build/introduction.md). :::
