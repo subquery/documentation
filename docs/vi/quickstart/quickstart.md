@@ -89,18 +89,31 @@ Sau khi quá trình khởi tạo hoàn tất, bạn sẽ thấy một thư mục
 
 Cuối cùng, chạy lệnh sau để cài đặt các phụ thuộc từ bên trong thư mục của dự án mới.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```shell cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn
 
-Bây giờ bạn đã khởi tạo dự án SubQuery đầu tiên của mình chỉ với một vài bước đơn giản. Bây giờ chúng ta hãy tùy chỉnh dự án mẫu chuẩn cho một chuỗi khối cụ thể mà bạn quan tâm.
+```shell
+cd PROJECT_NAME
+yarn install
+```
 
-Bạn có thể muốn tham khảo [đối số dòng lệnh](../run_publish/references.md) được sử dụng trong SubQuery. Nó sẽ giúp bạn hiểu rõ hơn về các lệnh.
+@tab npm
 
-## 3. Thực hiện các thay đổi trên Dự án của bạn
+```shell
+cd PROJECT_NAME
+npm install
+```
 
-Có 3 tệp quan trọng cần được sửa đổi. Đó là:
+:::
 
-1. Lược đồ GraphQL trong `schema.graphql`.
+You have now initialised your first SubQuery project with just a few simple steps. Let’s now customise the standard template project for a specific blockchain of interest.
+
+You may want to refer to the [command line arguments](../run_publish/references.md) used in SubQuery. It will help you understand the commands better.
+
+## 3. Make Changes to Your Project
+
+There are 3 important files that need to be modified. Đó là:
+
+1. The GraphQL Schema in `schema.graphql`.
 2. Tệp Kê khai dự án trong `project.yaml`.
 3. Các hàm ánh xạ trong thư mục `src/mappings/`.
 
