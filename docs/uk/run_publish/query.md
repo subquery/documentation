@@ -12,4 +12,4 @@
 
 On the top right of the playground, you'll find a _Docs_ button that will open a documentation draw. Ця документація генерується автоматично і допомагає вам знайти, які сутності та методи ви можете запитувати.
 
-::: інформаційна записка Дізнайтеся більше про [GraphQL Query language.](./graphql.md):::
+::: tip Note Learn more about the [GraphQL Query language.](./graphql.md) :::
