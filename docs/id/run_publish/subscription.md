@@ -6,7 +6,7 @@ SubQuery sekarang juga mendukung Graphql Subscriptions. Seperti kueri, langganan
 
 Langganan sangat berguna ketika Anda ingin aplikasi klien Anda mengubah data atau menampilkan beberapa data baru segera setelah perubahan itu terjadi atau data baru tersedia. Langganan memungkinkan Anda untuk _berlangganan_ ke proyek SubQuery Anda untuk perubahan.
 
-:::: info Catatan Baca lebih lanjut tentang [Langganan](https://www.apollographql.com/docs/react/data/subscriptions/). :::
+::: tip Note Read more about [Subscriptions](https://www.apollographql.com/docs/react/data/subscriptions/). :::
 
 ## Cara Berlangganan Entitas
 
