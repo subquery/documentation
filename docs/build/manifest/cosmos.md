@@ -31,15 +31,15 @@ network:
   endpoint: https://juno.api.onfinality.io/public
   # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
   dictionary: https://api.subquery.network/sq/subquery/cosmos-juno-dictionary
+  # chainTypes: # This is a beta feature that allows support for any Cosmos chain by importing the correct protobuf messages
+  #  cosmos.slashing.v1beta1:
+  #    file: "./proto/cosmos/slashing/v1beta1/tx.proto"
+  #    messages:
+  #     - "MsgUnjail"
 
 dataSources:
   - kind: cosmos/Runtime
     startBlock: 4415041 # first block on the fourth iteration of juno
-    #chainTypes: # This is a beta feature that allows support for any Cosmos chain by importing the correct protobuf messages
-    #  cosmos.slashing.v1beta1:
-    #    file: "./proto/cosmos/slashing/v1beta1/tx.proto"
-    #    messages:
-    #     - "MsgUnjail"
     mapping:
       file: ./dist/index.js
       handlers:
@@ -142,9 +142,9 @@ Defines the data that will be filtered and extracted and the location of the map
 
 ### Mapping Spec
 
-| Field                  | Type                                                                              | Description                                                                                                                    |
-| ---------------------- | --------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| **handlers & filters** | Default handlers and filters, <br />[Custom handlers and filters](#custom-chains) | List all the [mapping functions](../mapping/cosmos.md) and their corresponding handler types, with additional mapping filters. |
+| Field                  | Type                                                                            | Description                                                                                                                    |
+| ---------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| **handlers & filters** | Default handlers and filters, <br />[Custom handlers and filters](#chain-types) | List all the [mapping functions](../mapping/cosmos.md) and their corresponding handler types, with additional mapping filters. |
 
 ## Data Sources and Mapping
 
@@ -211,7 +211,7 @@ filter:
   modulo: 50 # Index every 50 blocks: 0, 50, 100, 150....
 ```
 
-## Custom Chains
+## Chain Types
 
 We can load protobuf message definitions to allow support for specific to Cosmos chains under `network.chaintypes`. If most are just using Wasm this should be already included.
 

@@ -68,7 +68,11 @@ Now that you have made essential changes to the GraphQL Schema file, let’s mov
 
 ## 2. Update Your Project Manifest File
 
-The Project Manifest (`project.yaml`) file works as an entry point to your Flare project. It defines most of the details on how SubQuery will index and transform the chain data.
+The Project Manifest (`project.yaml`) file works as an entry point to your Flare project. It defines most of the details on how SubQuery will index and transform the chain data. For Flare, there are three types of mapping handlers (and you can have more than one in each project):
+
+- [BlockHanders](../../build/manifest/flare.md#mapping-handlers-and-filters): On each and every block, run a mapping function
+- [TransactionHandlers](../../build/manifest/flare.md#mapping-handlers-and-filters): On each and every transaction that matches optional filter criteria, run a mapping function
+- [LogHanders](../../build/manifest/flare.md#mapping-handlers-and-filters): On each and every log that matches optional filter criteria, run a mapping function
 
 Note that the manifest file has already been set up correctly and doesn’t require significant changes, but you need to import the correct contract definitions and update the datasource handlers.
 

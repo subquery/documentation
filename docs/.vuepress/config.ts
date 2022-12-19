@@ -252,8 +252,10 @@ function getSidebar(locale: string): SidebarConfigArray {
           text: "2. Specific Chains",
           children: [
             `${locale}/quickstart/quickstart_chains/polkadot.md`,
+            `${locale}/quickstart/quickstart_chains/polkadot-humanode.md`,
             `${locale}/quickstart/quickstart_chains/cosmos.md`,
             `${locale}/quickstart/quickstart_chains/cosmos-cronos.md`,
+            `${locale}/quickstart/quickstart_chains/cosmos-thorchain.md`,
             `${locale}/quickstart/quickstart_chains/algorand.md`,
             `${locale}/quickstart/quickstart_chains/avalanche.md`,
             `${locale}/quickstart/quickstart_chains/flare.md`,
