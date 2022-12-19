@@ -89,18 +89,31 @@ HelloWorld is ready
 
 Накрая изпълнете следната команда, за да инсталирате зависимостите на новия проект от директорията на новия проект.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```shell cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn
 
-Вече инициализирахте първия си проект на SubQuery само с няколко прости стъпки. Нека сега персонализираме стандартния шаблонен проект за конкретна блокова верига, която представлява интерес.
+```shell
+cd PROJECT_NAME
+yarn install
+```
 
-Може да искате да се обърнете към [аргументите на командния ред](../run_publish/references.md), използвани в SubQuery. Това ще ви помогне да разберете по-добре командите.
+@tab npm
 
-## 3. Направете промени във вашия проект
+```shell
+cd PROJECT_NAME
+npm install
+```
 
-Има 3 важни файла, които трябва да бъдат модифицирани. Те са:
+:::
 
-1. The GraphQL Schema в `schema.graphql`.
+You have now initialised your first SubQuery project with just a few simple steps. Let’s now customise the standard template project for a specific blockchain of interest.
+
+You may want to refer to the [command line arguments](../run_publish/references.md) used in SubQuery. It will help you understand the commands better.
+
+## 3. Make Changes to Your Project
+
+There are 3 important files that need to be modified. Това са:
+
+1. The GraphQL Schema in `schema.graphql`.
 2. Манифест на проекта в `project.yaml`.
 3. Mapping функциите в директорията `src/mappings/`.
 
