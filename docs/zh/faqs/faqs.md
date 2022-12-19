@@ -16,7 +16,7 @@ SubQuery还为开发者提供免费的生产级托管项目。 我们的管理�
 
 **关于Subuery Network**
 
-SubQuery 网络允许开发者完全分散他们的基础设施堆栈。 我们正在为 dApp 开发者构建最开放的、运行最可靠的、可扩展的数据服务。 SubQuery 网络以一种激励和可验证的方式为全球社区提供数据索引的服务。  将项目发布到 SubQuery 网络后，任何人都可以对其进行索引和托管，从而可以更快、更可靠地向世界各地的用户提供数据。
+SubQuery 网络允许开发者完全分散他们的基础设施堆栈。 我们正在为 dApp 开发者构建最开放的、运行最可靠的、可扩展的数据服务。 SubQuery 网络以一种激励和可验证的方式为全球社区提供数据索引的服务。 将项目发布到 SubQuery 网络后，任何人都可以对其进行索引和托管，从而可以更快、更可靠地向世界各地的用户提供数据。
 
 更多信息 [在这里](/subquery_network/introduction.md)。
 
@@ -26,7 +26,7 @@ SubQuery 网络允许开发者完全分散他们的基础设施堆栈。 我们�
 
 ## 我如何向SubQuer贡献或反馈？
 
-我们热爱社区的贡献和反馈。 若要贡献代码，请分派感兴趣的仓库并做出更改。 然后提交 PR 或 Pull 请求。 哦，不要忘记测试！ 同时查看我们的 <a href="http://localhost:8080/miscellaneous/contributing.html">贡献指南。</a>
+我们热爱社区的贡献和反馈。 若要贡献代码，请分派感兴趣的仓库并做出更改。 然后提交 PR 或 Pull 请求。 哦，不要忘记测试！ Also check out our [contributions guidelines](../miscellaneous/contributing.html).
 
 要提供反馈，请通过 hello@subquery.network联系我们，或进入我们的 [Discord 频道](https://discord.com/invite/78zg8aBSMG).
 
@@ -76,7 +76,6 @@ subql-node -f . --force-clean --subquery-name=<project-name>
 
 请注意，建议在项目清单中更改 `startBlock` 时使用 `--force-clear` 。`项目。 aml`) 以开始从已配置的方块进行重新索引。 如果 `startBlock` 在没有 `--force-clean` 的情况下被更改，那么索引器将继续使用先前配置的 `startBlock` 索引。
 
-
 ## 我如何优化我的项目以加快速度？
 
-业绩是每个项目的一个关键因素。 幸运的是，你们可以做几件事来加以改进。 You can find our recommendations in the [Project Optimisation](../build/optimisation.md). 
+业绩是每个项目的一个关键因素。 幸运的是，你们可以做几件事来加以改进。 You can find our recommendations in the [Project Optimisation](../build/optimisation.md).
