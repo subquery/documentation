@@ -12,4 +12,4 @@ Noterai anche che il SubQuery Explorer fornisce un parco giochi per scoprire i d
 
 On the top right of the playground, you'll find a _Docs_ button that will open a documentation draw. Questa documentazione è generata automaticamente e vi aiuta a trovare quali entità e metodi potete interrogare.
 
-::: info Note Learn more about the [GraphQL Query language.](./graphql.md) :::
+::: tip Note Learn more about the [GraphQL Query language.](./graphql.md) :::
