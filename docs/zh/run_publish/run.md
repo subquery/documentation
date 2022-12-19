@@ -4,7 +4,7 @@
 
 ## 使用 Docker
 
-其中一种解决方案是运行<strong>Docker容器</strong>，它是由`Docker-component.yml`文件所定义的。 对于刚刚初始化的新项目，您无需在此处进行任何更改。
+An alternative solution is to run a **Docker Container**, defined by the `docker-compose.yml` file. 对于刚刚初始化的新项目，您无需在此处进行任何更改。
 
 在项目目录下运行以下命令：
 
@@ -12,7 +12,7 @@
 docker-compose pull && docker-compose up
 ```
 
-第一次下载所需软件包可能需要一些时间([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/quiry`](https://www.npmjs.com/package/@subql/query), and Postgress) ，但很快你就会看到一个运行中的 SubQuery 节点。 :::
+::: tip Note It may take some time to download the required packages ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), and Postgres) for the first time but soon you'll see a running SubQuery node. :::
 
 ## 运行Indexer (subql/node)
 
@@ -32,90 +32,78 @@ CREATE EXTENSION IF NOT EXISTS btree_gist;
 
 ### 安装
 
-<CodeGroup>
-<CodeGroupItem title='Substrate/Polkadot'>
+::: code-tabs @tab Substrate/Polkadot
 
 ```shell
 # NPM
 npm install -g @subql/node
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Terra'>
+@tab Terra
 
 ```shell
 # NPM
 npm install -g @subql/node-terra
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Avalanche'>
+@tab Avalanche
 
 ```shell
 # NPM
 npm install -g @subql/node-avalanche
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Cosmos'>
+@tab Cosmos
 
 ```shell
 # NPM
 npm install -g @subql/node-cosmos
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Algorand'>
+@tab Algorand
 
 ```shell
 # NPM
 npm install -g @subql/node-algorand
 ```
 
-</CodeGroupItem>
-</CodeGroup>
+:::
 
-::: danger Please note that we **DO NOT** encourage the use of `yarn global` due to its poor dependency management which may lead to an errors down the line. :::
+：：： 危险 请注意，我们**不**鼓励使用 `yarn global`，因为它糟糕的依赖管理可能会导致错误。 :::
 
 安装完毕后，您可以使用以下命令来启动节点：
 
-<CodeGroup>
-<CodeGroupItem title='Substrate/Polkadot'>
+::: code-tabs @tab Substrate/Polkadot
 
 ```shell
 subql-node <command>
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Terra'>
+@tab Terra
 
 ```shell
 subql-node-terra <command>
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Avalanche'>
+@tab Avalanche
 
 ```shell
 subql-node-avalanche <command>
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Cosmos'>
+@tab Cosmos
 
 ```shell
 subql-node-cosmos <command>
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Algorand'>
+@tab Algorand
 
 ```shell
 subql-node-algorand <command>
 ```
 
-</CodeGroupItem>
-</CodeGroup>
+:::
 
 ### Key Commands
 
@@ -123,43 +111,37 @@ The following commands will assist you to complete the configuration of a SubQue
 
 #### 指向本地项目路径
 
-<CodeGroup>
-<CodeGroupItem title='Substrate/Polkadot'>
+::: code-tabs @tab Substrate/Polkadot
 
 ```shell
 subql-node -f your-project-path
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Terra'>
+@tab Terra
 
 ```shell
 subql-node-terra -f your-project-path
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Avalanche'>
+@tab Avalanche
 
 ```shell
 subql-node-avalanche -f your-project-path
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Cosmos'>
+@tab Cosmos
 
 ```shell
 subql-node-cosmos -f your-project-path
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Algorand'>
+@tab Algorand
 
 ```shell
 subql-node-algorand -f your-project-path
 ```
 
-</CodeGroupItem>
-</CodeGroup>
+:::
 
 #### Connect to database
 
@@ -176,43 +158,37 @@ subql-node -f your-project-path
 
 #### 指定一个配置文件
 
-<CodeGroup>
-<CodeGroupItem title='Substrate/Polkadot'>
+::: code-tabs @tab Substrate/Polkadot
 
 ```shell
 subql-node -c your-project-config.yml
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Terra'>
+@tab Terra
 
 ```shell
 subql-node-terra -c your-project-config.yml
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Avalanche'>
+@tab Avalanche
 
 ```shell
 subql-node-avalanche -c your-project-config.yml
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Cosmos'>
+@tab Cosmos
 
 ```shell
 subql-node-cosmos -c your-project-config.yml
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Algorand'>
+@tab Algorand
 
 ```shell
 subql-node-algorand -c your-project-config.yml
 ```
 
-</CodeGroupItem>
-</CodeGroup>
+:::
 
 This will point the query node to a manifest file which can be in YAML or JSON format.
 
@@ -230,43 +206,37 @@ Result:
 
 #### 在本地模式下运行
 
-<CodeGroup>
-<CodeGroupItem title='Substrate/Polkadot'>
+::: code-tabs @tab Substrate/Polkadot
 
 ```shell
 subql-node -f your-project-path --local
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Terra'>
+@tab Terra
 
 ```shell
 subql-node-terra -f your-project-path --local
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Avalanche'>
+@tab Avalanche
 
 ```shell
 subql-node-avalanche -f your-project-path --local
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Cosmos'>
+@tab Cosmos
 
 ```shell
 subql-node-cosmos -f your-project-path --local
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Algorand'>
+@tab Algorand
 
 ```shell
 subql-node-algorand -f your-project-path --local
 ```
 
-</CodeGroupItem>
-</CodeGroup>
+:::
 
 For debugging purposes, users can run the node in local mode. 切换到本地模型将在默认架构 `public` 中创建 Postgres 表。
 
