@@ -89,18 +89,31 @@ Setelah Anda menyelesaikan proses inisialisasi, Anda akan melihat folder dengan 
 
 Terakhir, jalankan perintah berikut untuk menginstal dependensi proyek baru dari dalam direktori proyek baru.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```shell cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn
 
-You have now initialised your first SubQuery project with just a few simple steps. Sekarang mari kita sesuaikan proyek templat standar untuk blockchain tertentu yang diminati.
+```shell
+cd PROJECT_NAME
+yarn install
+```
 
-Anda mungkin ingin merujuk ke [argumen baris perintah](../run_publish/references.md) yang digunakan dalam SubQuery. Ini akan membantu Anda memahami perintah dengan lebih baik.
+@tab npm
 
-## 3. Membuat Perubahan pada Proyek Anda
+```shell
+cd PROJECT_NAME
+npm install
+```
 
-Ada 3 file penting yang perlu dimodifikasi. Ini adalah:
+:::
 
-1. Skema GraphQL di `schema.graphql`.
+You have now initialised your first SubQuery project with just a few simple steps. Let’s now customise the standard template project for a specific blockchain of interest.
+
+You may want to refer to the [command line arguments](../run_publish/references.md) used in SubQuery. It will help you understand the commands better.
+
+## 3. Make Changes to Your Project
+
+There are 3 important files that need to be modified. Ini adalah:
+
+1. The GraphQL Schema in `schema.graphql`.
 2. Manifes Proyek di `project.yaml`.
 3. Fungsi-fungsi pemetaan dalam direktori `src/mappings/`.
 
