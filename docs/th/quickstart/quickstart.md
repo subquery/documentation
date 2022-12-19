@@ -89,16 +89,29 @@ After you complete the initialisation process, you will see a folder with your p
 
 Finally, run the following command to install the new project’s dependencies from within the new project's directory.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```shell cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn
 
-ตอนนี้คุณได้เริ่มต้นโปรเจคแรกของ SubQuery ด้วยขั้นตอนง่ายไม่กี่ขั้นตอน Let’s now customise the standard template project for a specific blockchain of interest.
+```shell
+cd PROJECT_NAME
+yarn install
+```
 
-You may want to refer to the [command line arguments](../run_publish/references.md) used in SubQuery. มันช่วยให้คุณเข้าใจคำสั่งได้ดีขึ้น.
+@tab npm
 
-## 3. สร้างความเปลี่ยนแปลงให้กับโปรเจคของคุณ
+```shell
+cd PROJECT_NAME
+npm install
+```
 
-มี 3 ไฟล์ที่สำคัญที่จำเป็นต้องถูกแก้ไข These are:
+:::
+
+You have now initialised your first SubQuery project with just a few simple steps. Let’s now customise the standard template project for a specific blockchain of interest.
+
+You may want to refer to the [command line arguments](../run_publish/references.md) used in SubQuery. It will help you understand the commands better.
+
+## 3. Make Changes to Your Project
+
+There are 3 important files that need to be modified. These are:
 
 1. The GraphQL Schema in `schema.graphql`.
 2. The Project Manifest in `project.yaml`.
