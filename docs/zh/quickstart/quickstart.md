@@ -89,8 +89,21 @@ HelloWorld is ready
 
 最后，运行以下命令从新项目目录中安装新项目的依赖关系。
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```shell cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn
+
+```shell
+cd PROJECT_NAME
+yarn install
+```
+
+@tab npm
+
+```shell
+cd PROJECT_NAME
+npm install
+```
+
+:::
 
 You have now initialised your first SubQuery project with just a few simple steps. Let’s now customise the standard template project for a specific blockchain of interest.
 
@@ -98,7 +111,7 @@ You may want to refer to the [command line arguments](../run_publish/references.
 
 ## 3. Make Changes to Your Project
 
-There are 3 important files that need to be modified. These are:
+There are 3 important files that need to be modified. 分别是：
 
 1. The GraphQL Schema in `schema.graphql`.
 2. The Project Manifest in `project.yaml`.
