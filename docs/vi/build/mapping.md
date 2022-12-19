@@ -67,9 +67,9 @@ Mục tiêu của chúng tôi là cung cấp tất cả các nguồn dữ liệu
 
 Đây là những giao diện chúng tôi hiện đang hỗ trợ:
 
-- [api.query. &lt;module&gt;. &lt;method&gt;()](https://polkadot.js.org/docs/api/start/api.query) sẽ truy vấn khối <strong>hiện tại</strong>.
-- [api.query. &lt;module&gt;. &lt;method&gt;.multi ()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-same-type) sẽ thực hiện nhiều truy vấn loại <strong>giống nhau</strong> tại khối hiện tại.
-- [api.queryMulti()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-distinct-types) sẽ thực hiện nhiều truy vấn <strong>khác nhau</strong> tại khối hiện tại.
+- [api.query. &lt;module&gt;. &lt;method&gt;()](https://polkadot.js.org/docs/api/start/api.query) sẽ truy vấn khối **hiện tại**.
+- [api.query. &lt;module&gt;. &lt;method&gt;.multi ()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-same-type) sẽ thực hiện nhiều truy vấn loại **giống nhau** tại khối hiện tại.
+- [api.queryMulti()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-distinct-types) sẽ thực hiện nhiều truy vấn **khác nhau** tại khối hiện tại.
 
 Đây là những giao diện mà hiện tại chúng tôi **KHÔNG** hỗ trợ:
 

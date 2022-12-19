@@ -14,7 +14,7 @@ Now, let's move ahead in the process and update these configurations.
 
 Previously, in the [1. Create a New Project](../quickstart.md) section, you must have noted [3 key files](../quickstart.md#_3-make-changes-to-your-project). Let's begin updating them one by one.
 
-::: info Note
+::: tip Note
 The final code of this project can be found [here](https://github.com/deverka/cronos_crow_token_transfers).
 :::
 
@@ -37,23 +37,20 @@ type Transfer @entity {
 When you make any changes to the schema file, do not forget to regenerate your types directory.
 :::
 
-<CodeGroup>
-  <CodeGroupItem title="YARN" active>
+::: code-tabs
+@tab:active yarn
 
 ```shell
 yarn codegen
 ```
 
-  </CodeGroupItem>
-
-  <CodeGroupItem title="NPM">
+@tab npm
 
 ```shell
 npm run-script codegen
 ```
 
-  </CodeGroupItem>
-</CodeGroup>
+:::
 
 You will find the generated models in the `/src/types/models` directory.
 
@@ -76,8 +73,8 @@ Note that the manifest file has already been set up correctly and doesn’t requ
 There are two versions of this file depending on your choice to index data via the ETH or Cosmos RPC
 :::
 
-<CodeGroup>
-  <CodeGroupItem title="ETH" active>
+::: code-tabs
+@tab ETH
 
 ```yml
 dataSources:
@@ -102,9 +99,7 @@ dataSources:
               - null
 ```
 
-  </CodeGroupItem>
-
-  <CodeGroupItem title="Cosmos RPC">
+@tab Cosmos RPC
 
 ```yml
 dataSources:
@@ -131,12 +126,11 @@ dataSources:
               - null
 ```
 
-  </CodeGroupItem>
-</CodeGroup>
+:::
 
 The above code defines that you will be running a `handleTransfer` mapping function whenever there is an event emitted with the `transfer` method. Check out our [Manifest File](../../build/manifest/cosmos.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
 
-::: info Note
+::: tip Note
 Please note that Cro Crow token requires a specific ABI interface. You need to:
 
 - Get the [Cro Crow contract ABI](https://cronoscan.com/address/0xe4ab77ed89528d90e6bcf0e1ac99c58da24e79d5#code).
@@ -159,8 +153,8 @@ There are two versions of this file depending on your choice to index data via t
 
 Update your mapping files to match the following (**note the additional imports**):
 
-<CodeGroup>
-  <CodeGroupItem title="ETH" active>
+::: code-tabs
+@tab ETH
 
 ```ts
 import { Transfer } from "../types";
@@ -189,9 +183,7 @@ export async function handleTransfer(
 }
 ```
 
-  </CodeGroupItem>
-
-  <CodeGroupItem title="Cosmos RPC">
+@tab Cosmos RPC
 
 ```ts
 import { Transfer } from "../types";
@@ -220,8 +212,7 @@ export async function handleTransfer(
 }
 ```
 
-  </CodeGroupItem>
-</CodeGroup>
+:::
 
 Let’s understand how the above code works. Here, the function receives an `EthereumLog` or `EthermintEvmEvent` which includes data on the payload. We extract this data and then create a new `Transfer` entity defined earlier in the `schema.graphql` file. After that we use the `.save()` function to save the new entity (SubQuery will automatically save this to the database). Check out our [Mappings](../../build/mapping/cosmos.md) documentation and get information on the mapping functions in detail.
 
@@ -229,22 +220,20 @@ Let’s understand how the above code works. Here, the function receives an `Eth
 
 Next, build your work to run your new SubQuery project. Run the build command from the project's root directory as given here:
 
-<CodeGroup>
-  <CodeGroupItem title="YARN" active>
+::: code-tabs
+@tab:active yarn
 
 ```shell
 yarn build
 ```
 
-  </CodeGroupItem>
-  <CodeGroupItem title="NPM">
+@tab npm
 
 ```shell
 npm run-script build
 ```
 
-  </CodeGroupItem>
-</CodeGroup>
+:::
 
 ::: warning Important
 Whenever you make changes to your mapping functions, you must rebuild your project.
@@ -262,24 +251,22 @@ However, visit the [Running SubQuery Locally](../../run_publish/run.md) to get m
 
 Run the following command under the project directory:
 
-<CodeGroup>
-  <CodeGroupItem title="YARN" active>
+::: code-tabs
+@tab:active yarn
 
 ```shell
 yarn start:docker
 ```
 
-  </CodeGroupItem>
-  <CodeGroupItem title="NPM">
+@tab npm
 
 ```shell
 npm run-script start:docker
 ```
 
-  </CodeGroupItem>
-</CodeGroup>
+:::
 
-::: info Note
+::: tip Note
 It may take a few minutes to download the required images and start the various nodes and Postgres databases.
 :::
 
@@ -341,7 +328,7 @@ You will see the result similar to below:
 }
 ```
 
-::: info Note
+::: tip Note
 The final code of this project can be found [here](https://github.com/deverka/cronos_crow_token_transfers).
 :::
 

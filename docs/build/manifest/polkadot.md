@@ -234,7 +234,7 @@ filter:
   timestamp: "*/5 * * * *"
 ```
 
-::: info Note
+::: tip Note
 We use the [cron-converter](https://github.com/roccivic/cron-converter) package to generate unix timestamps for iterations out of the given cron expression. So, make sure the format of the cron expression given in the `timestamp` filter is compatible with the package.
 :::
 

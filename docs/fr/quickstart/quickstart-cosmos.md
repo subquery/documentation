@@ -44,8 +44,8 @@ Une fois le processus d'initialisation terminé, vous devriez voir qu'un dossier
 
 Enfin, dans le répertoire du projet, exécutez la commande suivante pour installer les dépendances du nouveau projet.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```shell cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell cd PROJECT_NAME yarn install `
+@tab npm `shell cd PROJECT_NAME npm install ` :::
 
 ## Apporter des modifications à votre projet
 
@@ -75,8 +75,8 @@ type Vote @entity {
 
 **Important : Lorsque vous apportez des modifications au fichier de schéma, veillez à régénérer votre répertoire de types. Faites-le maintenant.**
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```shell npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell yarn codegen `
+@tab npm `shell npm run-script codegen ` :::
 
 Vous trouverez les modèles générés dans le répertoire `/src/types/models`. Pour plus d'informations sur le fichier `schema.graphql`, consultez notre documentation sous [Build/GraphQL Schema](../build/graphql.md)
 
@@ -145,7 +145,7 @@ Pour plus d'informations sur les fonctions de mappage, consultez notre documenta
 
 Afin d'exécuter votre nouveau projet SubQuery, nous devons d'abord construire notre travail. Exécutez la commande de construction à partir du répertoire racine du projet.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script build ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell yarn build ` @tab npm `shell npm run-script build ` :::
 
 **Important : chaque fois que vous apportez des modifications à vos fonctions de cartographie, vous devez reconstruire votre projet**
 
@@ -159,7 +159,7 @@ Toute la configuration qui contrôle la façon dont un nœud SubQuery est exécu
 
 Dans le répertoire du projet, exécutez la commande suivante :
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn start:docker ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script start:docker ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell yarn start:docker ` @tab npm `shell npm run-script start:docker ` :::
 
 Le téléchargement des paquets nécessaires peut prendre un certain temps. ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), et Postgres) pour la première fois, mais bientôt vous verrez un nœud SubQuery en cours d'exécution. Soyez patient ici.
 
@@ -173,10 +173,9 @@ Pour un nouveau projet de démarrage SubQuery, vous pouvez essayer la requête s
 
 ```graphql
 query {
-    votes(
+  votes(
     first: 5
-    orderBy: BLOCK_HEIGHT_DESC
-    # filter: {proposalID: {equalTo: "4"}}
+    orderBy: BLOCK_HEIGHT_DESC # filter: {proposalID: {equalTo: "4"}}
   ) {
     nodes {
       id

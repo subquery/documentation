@@ -33,7 +33,7 @@ DO NOT skip checking the Indexer Version after you finish the SSH process.
 - Visit [this section](../indexers/become-an-indexer.md#_2-1-check-indexer-version) and complete the process.
 
 ::: warning Important
-Please change the default PostgreSQL password in the `POSTGRES_PASSWORD` field and in the coordinator-service's `postgres-password` field. Replace it with your own one. 
+Please change the default PostgreSQL password in the `POSTGRES_PASSWORD` field and in the coordinator-service's `postgres-password` field. Replace it with your own one.
 :::
 
 - Then, install Docker and set auto start:
@@ -85,7 +85,7 @@ It will start the following services:
 - `coordinator_proxy`
 - `proxy-redis`
 
-::: info Note
+::: tip Note
 Each project you start indexing will create 2 extra containers `node_qm----------` and `query_qm----------` that has the 13 first characters of the project's Qm-hash.
 :::
 

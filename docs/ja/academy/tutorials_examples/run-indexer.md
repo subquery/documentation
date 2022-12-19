@@ -8,13 +8,13 @@
 
 ## はじめに
 
-Docker を使用するか、[SubQuery Projects](https://project.subquery.network/) でプロジェクトをホストしてもらう以外に、インデクサノードを実行することもできます。 より多くの時間と労力を必要としますが、SubQueryがどのように機能するのか、その理解を深めることができます。
+Docker を使用するか、[SubQuery Projects](https://project.subquery.network/) でプロジェクトをホストしてもらう以外に、インデクサノードを実行することもできます。 より多くの時間と労力を必要としますが、SubQuery がどのように機能するのか、その理解を深めることができます。
 
 ## Postgres
 
-インフラストラクチャ上でインデクサノードを実行するには、Postgres データベースのセットアップが必要です。 Postgresは [ここ](https://www.postgresql.org/download/)からインストールできます 。バージョンが12以上であることを確認してください。
+インフラストラクチャ上でインデクサノードを実行するには、Postgres データベースのセットアップが必要です。 Postgres は [ここ](https://www.postgresql.org/download/)からインストールできます 。バージョンが 12 以上であることを確認してください。
 
-## subql/nodeをインストールする
+## subql/node をインストールする
 
 次に、SubQuery ノードを実行するには、次のコマンドを実行します。
 
@@ -31,7 +31,7 @@ npm install -g @subql/node
 0.19.1
 ```
 
-## DBコンフィグの設定
+## DB コンフィグの設定
 
 次に、以下の環境変数を設定する必要があります。
 
@@ -55,8 +55,8 @@ subql-node -f .
 
 もしプロジェクトがない場合は、`git clone https://github.com/subquery/subql-helloworld` を実行してください。 インデクサノードが起動し、ブロックのインデックス作成を開始するのが見えるはずです。
 
-## Postgresの検査
+## Postgres の検査
 
-Postgresに移動すると、作成された2つのテーブルが表示されます。 `public.subquery` と `subquery_1.starter_entities`です。
+Postgres に移動すると、作成された 2 つのテーブルが表示されます。 `public.subquery` と `subquery_1.starter_entities`です。
 
-`public ubqueries <code>` には、インデクサが「現在の状態を理解する」ために開始時にチェックする行が 1 つだけ含まれており、どこから継続するかが分かります。 `starter_entities` テーブルには、インデックスが含まれます。 データを表示するには、`select (*) from subquery_1.starter_entities` を実行してください。
+`public subqueries` には、インデクサが「現在の状態を理解する」ために開始時にチェックする行が 1 つだけ含まれており、どこから継続するかが分かります。 `starter_entities` テーブルには、インデックスが含まれます。 データを表示するには、`select (*) from subquery_1.starter_entities` を実行してください。

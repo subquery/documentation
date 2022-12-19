@@ -67,9 +67,9 @@ export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
 
 これらは現在サポートされているインターフェースです:
 
-- [api.query.&lt;module&gt;.&lt;method&gt;()](https://polkadot.js.org/docs/api/start/api.query) は <strong>現在の</strong> ブロックを問い合わせます。
-- [api.query.&lt;module&gt;.&lt;method&gt;.multi()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-same-type) は、現在のブロックで <strong>同じ</strong> 型の複数のクエリを実行します。
-- [api.queryMulti()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-distinct-types) は、現在のブロックで <strong>異なる</strong> 型の複数のクエリを実行します。
+- [api.query.&lt;module&gt;.&lt;method&gt;()](https://polkadot.js.org/docs/api/start/api.query) は **現在の** ブロックを問い合わせます。
+- [api.query.&lt;module&gt;.&lt;method&gt;.multi()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-same-type) は、現在のブロックで **同じ** 型の複数のクエリを実行します。
+- [api.queryMulti()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-distinct-types) は、現在のブロックで **異なる** 型の複数のクエリを実行します。
 
 これらは現在サポート **されていない** インターフェイスです：
 

@@ -4,7 +4,7 @@
 
 - 映射在`src/Mappings`目录中定义，并作为函数导出
 - 这些映射也可以在`src/index.ts 中导出;
-- 映射文件在映射处理程序下的<code>project.yaml`中引用。
+- 映射文件在映射处理程序下的 `project.yaml`中引用。
 - 映射文件是映射处理器下的 `project.yaml` 的参考文件。
 
 共有三类映射函数的: [Block handlers](#block-handler)，[Event Handlers](#event-handler)和[Call Handlers](#call-handler)。
@@ -68,15 +68,16 @@ export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
 
 这些是我们当前支持的接口：
 
-- [api.query.&lt;module&gt;.&lt;method&gt;()](https://polkadot.js.org/docs/api/start/api.query) 将查询 <strong>当前</strong> 区块。
-- [api.query.&lt;module&gt;.&lt;method&gt;.multi()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-same-type) 将在当前块上进行多个 <strong>相同</strong> 类型的查询。
-- [api.queryMulti()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-distinct-types) 将在当前块进行<strong>不同</strong>类型的多个查询。
+- [api.query.&lt;module&gt;.&lt;method&gt;()](https://polkadot.js.org/docs/api/start/api.query) 将查询 **当前** 区块。
+- [api.query.&lt;module&gt;.&lt;method&gt;.multi()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-same-type) 将在当前块上进行多个 **相同** 类型的查询。
+- [api.queryMulti()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-distinct-types) 将在当前块进行**不同**类型的多个查询。
 
 这些是我们 **当前不支持** 的接口：
 
 - ```api.tx.*~~
 
   ```
+
 - ~~api.derive.\*~~
 - ~~api.query.&lt;module&gt;.&lt;method&gt;.at~~
 - ~~api.query.&lt;module&gt;.&lt;method&gt;.entriesAt~~

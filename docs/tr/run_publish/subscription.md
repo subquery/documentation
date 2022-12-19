@@ -6,7 +6,7 @@ SubQuery artık Graphql Aboneliklerini de destekliyor. Sorgular gibi, abonelikle
 
 Abonelikler, istemci uygulamanızın verileri değiştirmesini veya bu değişiklik meydana gelir gelmez veya yeni veriler kullanılabilir olduğunda bazı yeni verileri göstermesini istediğinizde çok kullanışlıdır. Subscriptions allow you to _subscribe_ to your SubQuery project for changes.
 
-::: info Note Read more about [Subscriptions](https://www.apollographql.com/docs/react/data/subscriptions/). :::
+::: tip Note Read more about [Subscriptions](https://www.apollographql.com/docs/react/data/subscriptions/). :::
 
 ## Bir Varlığa Nasıl Abone Olunur
 

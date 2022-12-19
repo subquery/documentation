@@ -51,8 +51,8 @@ Untuk menjalankan Proyek SubQuery Anda di host Node SubQuery secara lokal, perta
 
 Jalankan perintah bentuk dari direktori proyek.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> `shell yarn build ` </CodeGroupItem>
-<CodeGroupItem title="NPM"> `bash npm run-script build ` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell yarn build `
+@tab npm `bash npm run-script build ` :::
 
 ### Opsi pembuatan alternatif
 

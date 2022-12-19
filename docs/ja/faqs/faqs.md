@@ -1,6 +1,6 @@
 # Frequently Asked Questions
 
-## SubQueryとは？
+## SubQuery とは？
 
 SubQuery is an open source blockchain data indexer for developers that provides fast, flexible, reliable, and decentralised APIs to power leading multi-chain apps.
 
@@ -16,21 +16,21 @@ SubQuery also provides free, production grade hosting of projects for developers
 
 **The SubQuery Network**
 
-The SubQuery Network allows developers to completely decentralise their infrastructure stack. It is the most open, performant, reliable, and scalable data service for dApps. The SubQuery Network indexes and services data to the global community in an incentivised and verifiable way.  After publishing your project to the SubQuery Network, anyone can index and host it - providing data to users around the world faster and reliably.
+The SubQuery Network allows developers to completely decentralise their infrastructure stack. It is the most open, performant, reliable, and scalable data service for dApps. The SubQuery Network indexes and services data to the global community in an incentivised and verifiable way. After publishing your project to the SubQuery Network, anyone can index and host it - providing data to users around the world faster and reliably.
 
 More information [here](/subquery_network/introduction.md).
 
-## SubQueryを始めるための最良の方法は何ですか？
+## SubQuery を始めるための最良の方法は何ですか？
 
 The best way to get started with SubQuery is to try out our [Hello World tutorial](/assets/pdf/Hello_World_Lab.pdf). This is a simple 5 min walk through exercise. Download the starter template, build the project, use Docker to run a node on your localhost, and run a simple query.
 
-## SubQueryにどのように貢献したりフィードバックを与えたりできますか？
+## SubQuery にどのように貢献したりフィードバックを与えたりできますか？
 
-私たちはコミュニティからの貢献とフィードバックが大好きです。 To contribute the code, fork the repository of your interest and make your changes. 次にPRまたはPullリクエストを送信します。 Don't forget to test as well. Also check out our <a href="http://localhost:8080/miscellaneous/contributing.html">contributions guidelines.</a>
+私たちはコミュニティからの貢献とフィードバックが大好きです。 To contribute the code, fork the repository of your interest and make your changes. 次に PR または Pull リクエストを送信します。 Don't forget to test as well. Also check out our [contributions guidelines](../miscellaneous/contributing.html).
 
 To give feedback, contact us at hello@subquery.network or jump onto our [discord channel](https://discord.com/invite/78zg8aBSMG).
 
-## 自分のプロジェクトをSubQuery Projectsで公開するにはどのくらいの費用がかかりますか？
+## 自分のプロジェクトを SubQuery Projects で公開するにはどのくらいの費用がかかりますか？
 
 This service is being provided to the community with a generous free tier! You can host your first two SubQuery projects for absolutely free!
 
@@ -76,7 +76,6 @@ subql-node -f . --force-clean --subquery-name=<project-name>
 
 Note that it is recommended to use `--force-clean` when changing the `startBlock` within the project manifest (`project.yaml`) in order to begin reindexing from the configured block. If `startBlock` is changed without a `--force-clean` of the project, then the indexer will continue indexing with the previously configured `startBlock`.
 
-
 ## How can I optimise my project to speed it up?
 
 Performance is a crucial factor in each project. Fortunately, there are several things you could do to improve it. Here is the list of some suggestions:
@@ -89,12 +88,12 @@ Performance is a crucial factor in each project. Fortunately, there are several 
 - Set the start block to when the contract was initialised.
 - Always use a [dictionary](../tutorials_examples/dictionary.html#how-does-a-subquery-dictionary-work) (we can help create one for your new network).
 - Optimise your schema design, keep it as simple as possible.
-    - Try to reduce unnecessary fields and columns.
-    - Create  indexes as needed.
+  - Try to reduce unnecessary fields and columns.
+  - Create indexes as needed.
 - Use parallel/batch processing as often as possible.
-    - Use `api.queryMulti()` to optimise Polkadot API calls inside mapping functions and query them in parallel. This is a faster way than a loop.
-    - Use `Promise.all()`. In case of multiple async functions, it is better to execute them and resolve in parallel.
-    - If you want to create a lot of entities within a single handler, you can use `store.bulkCreate(entityName: string, entities: Entity[])`. You can create them in parallel, no need to do this one by one.
+  - Use `api.queryMulti()` to optimise Polkadot API calls inside mapping functions and query them in parallel. This is a faster way than a loop.
+  - Use `Promise.all()`. In case of multiple async functions, it is better to execute them and resolve in parallel.
+  - If you want to create a lot of entities within a single handler, you can use `store.bulkCreate(entityName: string, entities: Entity[])`. You can create them in parallel, no need to do this one by one.
 - Making API calls to query state can be slow. You could try to minimise calls where possible and to use `extrinsic/transaction/event` data.
 - Use `worker threads` to move block fetching and block processing into its own worker thread. It could speed up indexing by up to 4 times (depending on the particular project). You can easily enable it using the `-workers=<number>` flag. Note that the number of available CPU cores strictly limits the usage of worker threads. For now, it is only available for Substrate and Cosmos and will soon be integrated for Avalanche.
 - Note that `JSON.stringify` doesn’t support native `BigInts`. Our logging library will do this internally if you attempt to log an object. We are looking at a workaround for this.

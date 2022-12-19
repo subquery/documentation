@@ -8,28 +8,30 @@
 
 Встановіть SubQuery CLI у всьому світі на свій термінал, використовуючи пряжу або NPM:
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn global add @subql/cli ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```bash npm install -g @subql/cli ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell yarn global add @subql/cli `
+@tab npm `bash npm install -g @subql/cli ` :::
 
 Потім ви можете запустити довідку, щоб побачити доступні команди та використання, надані CLI:
 
 ```shell
 subql help
 ```
+
 ## Встановіть @subql/node
 
 Вузол SubQuery - це реалізація, яка витягує дані блокчейна на основі субстрату за проектом SubQuery і зберігає їх у базі даних Postgres.
 
 Встановіть вузол SubQuery у всьому світі на своєму терміналі за допомогою пряжі або NPM:
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn global add @subql/node ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```bash npm install -g @subql/node ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell yarn global add @subql/node `
+@tab npm `bash npm install -g @subql/node ` :::
 
 Після встановлення ви можете запустити вузол з:
 
 ```shell
 subql-node <command>
 ```
+
 > Примітка. Якщо ви використовуєте Docker або розміщуєте свій проект у проектах SubQuery, ви можете пропустити цей крок. Це тому, що вузол SubQuery вже передбачений у контейнері Docker та хостинговій інфраструктурі.
 
 ## Встановіть @subql/query
@@ -38,7 +40,7 @@ subql-node <command>
 
 Встановіть запит SubQuery у всьому світі на своєму терміналі за допомогою пряжі або NPM:
 
-<CodeGroup> <CodeGroupItem title="NPM"> ```bash npm install -g @subql/query ``` </CodeGroupItem>
-<CodeGroupItem title="YARN" active> ```shell yarn global add @subql/query ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab npm `bash npm install -g @subql/query `
+@tab:active yarn `shell yarn global add @subql/query ` :::
 
-> Примітка. Якщо ви використовуєте Docker або розміщуєте свій проект у проектах SubQuery, ви також можете пропустити цей крок. Це тому, що вузол SubQuery вже передбачений у контейнері Docker та хостинговій інфраструктурі. 
+> Примітка. Якщо ви використовуєте Docker або розміщуєте свій проект у проектах SubQuery, ви також можете пропустити цей крок. Це тому, що вузол SubQuery вже передбачений у контейнері Docker та хостинговій інфраструктурі.

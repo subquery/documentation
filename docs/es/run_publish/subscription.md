@@ -6,7 +6,7 @@ SubQuery ahora también soporta Suscripciones Graphql. Al igual que las consulta
 
 Las suscripciones son muy útiles cuando desea que su aplicación cliente cambie datos o muestre algunos nuevos datos tan pronto como se produzca ese cambio o los nuevos datos estén disponibles. Subscriptions allow you to _subscribe_ to your SubQuery project for changes.
 
-::: info Note Read more about [Subscriptions](https://www.apollographql.com/docs/react/data/subscriptions/). :::
+::: tip Note Read more about [Subscriptions](https://www.apollographql.com/docs/react/data/subscriptions/). :::
 
 ## Cómo suscribirse a una entidad
 

@@ -28,7 +28,7 @@ Kısacası, herhangi bir SubQuery varlığı oluşturduğunuzda, güncellediğin
 
 ## Bunu Etkinleştirme
 
-Bu özellik, en az `@subql/node@1.1.1 ve <code>@subql/query1.1.0` ile başlayan tüm yeni projeler için varsayılan olarak etkinleştirilmiştir. Mevcut projenize eklemek istiyorsanız, `@subql/node` ve `@subql/query'i` güncelleyin ve ardından projenizi temiz bir veritabanıyla yeniden indeksleyin.
+Bu özellik, en az `@subql/node@1.1.1` ve `@subql/query1.1.0` ile başlayan tüm yeni projeler için varsayılan olarak etkinleştirilmiştir. Mevcut projenize eklemek istiyorsanız, `@subql/node` ve `@subql/query'i` güncelleyin ve ardından projenizi temiz bir veritabanıyla yeniden indeksleyin.
 
 Bu özelliği herhangi bir nedenle devre dışı bırakmak isterseniz, `subql-node'da` `--disable-historical=true` parametresini ayarlayabilirsiniz.
 

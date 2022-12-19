@@ -89,8 +89,8 @@ Nachdem Sie den Initialisierungsprozess abgeschlossen haben, sehen Sie einen Ord
 
 Führen Sie abschließend den folgenden Befehl aus, um die Abhängigkeiten des neuen Projekts aus dem Verzeichnis des neuen Projekts zu installieren.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```shell cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell cd PROJECT_NAME yarn install `
+@tab npm `shell cd PROJECT_NAME npm install ` :::
 
 Mit wenigen Handgriffen haben Sie nun Ihr erstes SubQuery-Projekt initialisiert. Lassen Sie uns nun das Standardvorlagenprojekt für eine bestimmte Blockchain von Interesse anpassen.
 

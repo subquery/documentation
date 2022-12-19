@@ -59,8 +59,8 @@ subql init
 
 สุดท้ายแล้วภายใต้โปรเจกต์ไดเร็กทอรี ให้รันคำสั่งต่อไปนี้เพื่อติดตั้งการพึ่งพาของโปรเจกต์ใหม่
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```shell cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell cd PROJECT_NAME yarn install `
+@tab npm `shell cd PROJECT_NAME npm install ` :::
 
 ## ทำการเปลี่ยนแปลงโปรเจกต์ของคุณ
 
@@ -91,8 +91,8 @@ type Transfer @entity {
 
 **สำคัญ: เมื่อคุณได้ทำการเปลี่ยนแปลงใดๆกับไฟล์ schema โปรดตรวจสอบให้มั่นใจว่าคุณสามารถนำชนิดของ directory กลับมาใหม่ได้ ทำแบบนี้เลย**
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```shell npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell yarn codegen `
+@tab npm `shell npm run-script codegen ` :::
 
 คุณจะเจอรูปแบบที่สร้างขึ้นภายใน `/src/types/models` directory. สำหรับข้อมูลเพิ่มเติมภายใน `schema.graphql` ไฟล์, โปรดตรวจสอบได้ที่ เอกสารของเราภายใต้ [Build/GraphQL Schema](../build/graphql.md)
 
@@ -143,30 +143,30 @@ import { MsgExecuteContract } from "@terra-money/terra.js";
 export async function handleEvent(
   event: TerraEvent<MsgExecuteContract>
 ): Promise<void> {
-    // Print debugging data from the event
-    // logger.info(JSON.stringify(event));
+  // Print debugging data from the event
+  // logger.info(JSON.stringify(event));
 
-    // Create the new transfer entity with a unique ID
-    const transfer = new Transfer(
-      `${event.tx.tx.txhash}-${event.msg.idx}-${event.idx}`
-    );
-    transfer.blockHeight = BigInt(event.block.block.block.header.height);
-    transfer.txHash = event.tx.tx.txhash;
-    for (const attr of event.event.attributes) {
-      switch (attr.key) {
-        case "sender":
-          transfer.sender = attr.value;
-          break;
-        case "recipient":
-          transfer.recipient = attr.value;
-          break;
-        case "amount":
-          transfer.amount = attr.value;
-          break;
-        default:
-      }
+  // Create the new transfer entity with a unique ID
+  const transfer = new Transfer(
+    `${event.tx.tx.txhash}-${event.msg.idx}-${event.idx}`
+  );
+  transfer.blockHeight = BigInt(event.block.block.block.header.height);
+  transfer.txHash = event.tx.tx.txhash;
+  for (const attr of event.event.attributes) {
+    switch (attr.key) {
+      case "sender":
+        transfer.sender = attr.value;
+        break;
+      case "recipient":
+        transfer.recipient = attr.value;
+        break;
+      case "amount":
+        transfer.amount = attr.value;
+        break;
+      default:
     }
-    await transfer.save();
+  }
+  await transfer.save();
 }
 ```
 
@@ -178,7 +178,7 @@ export async function handleEvent(
 
 ในการรันโปรเจกต์ SubQuery ใหม่ของคุณ เราต้องสร้างงานของเราก่อน ทำการ Run คำสั่งเริ่มต้นจาก project's root directory
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script build ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell yarn build ` @tab npm `shell npm run-script build ` :::
 
 **สำคัญ เมื่อไรก็ตามที่มีการเปลี่ยนแปลงใน Mapping Functions คุณจำเป็นต้องสร้างโปรเจคของคุณใหม่**
 
@@ -192,9 +192,9 @@ export async function handleEvent(
 
 ภายใต้ poject directory ให้รันคำสั่งต่อไปนี้
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn start:docker ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script start:docker ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell yarn start:docker ` @tab npm `shell npm run-script start:docker ` :::
 
-อาจใช้เวลาสักครู่ในการดาวน์โหลดแพ็คเกจที่จำเป็นสำหรับครั้งแรก ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), and Postgres)  แต่ในไม่ช้า คุณจะเห็น SubQuery node ที่ทำงานอยู่ อดทนไว้
+อาจใช้เวลาสักครู่ในการดาวน์โหลดแพ็คเกจที่จำเป็นสำหรับครั้งแรก ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), and Postgres) แต่ในไม่ช้า คุณจะเห็น SubQuery node ที่ทำงานอยู่ อดทนไว้
 
 ### Query โปรเจกต์ของคุณ
 
@@ -207,10 +207,7 @@ export async function handleEvent(
 ```graphql
 {
   query {
-    transfers(
-      first: 10,
-      orderBy: ID_DESC
-    ) {
+    transfers(first: 10, orderBy: ID_DESC) {
       nodes {
         id
         txHash

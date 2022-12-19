@@ -59,7 +59,7 @@ The manifest file contains the largest set of differences, but once you understa
 
 ![Difference between a SubGraph and a SubQuery project](/assets/img/subgraph-manifest-3.png)
 
-:::: code-group
+::: code-group
 
 ::: code-group-item SubGraph
 
@@ -166,7 +166,7 @@ dataSources:
 
 :::
 
-::::
+:::
 
 ## Mapping
 
@@ -178,7 +178,7 @@ The functions are defined the same way. Moreover, entities can be instantiated, 
 
 ![Difference between a SubGraph and a SubQuery project](/assets/img/subgraph-mapping.png)
 
-:::: code-group
+::: code-group
 
 ::: code-group-item SubGraph
 
@@ -227,7 +227,7 @@ export async function handleUnlockAttackNFTs(
 
 :::
 
-::::
+:::
 
 ## Querying Contracts
 

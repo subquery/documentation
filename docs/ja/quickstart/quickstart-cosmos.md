@@ -6,7 +6,7 @@ In this Quick start guide, we're going to start with a simple Cosmos starter pro
 
 このガイドの最後には、SubQuery ノード上で動作する SubQuery プロジェクトを作成し、GraphQL エンドポイントからデータを照会できるようになります。
 
-まだの方は、SubQueryで使われている[用語](../#terminology)に慣れることをお勧めします。
+まだの方は、SubQuery で使われている[用語](../#terminology)に慣れることをお勧めします。
 
 **The goal of this quick start guide is to adapt the standard starter project to begin indexing all votes on the [Terra Developer Fund](https://daodao.zone/multisig/juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2) (which also contributed to SubQuery) from Cosmos, it should only take 10-15 minutes**
 
@@ -44,8 +44,8 @@ After the initialisation process is complete, you should see a folder with your 
 
 Last, under the project directory, run following command to install the new project's dependencies.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```shell cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell cd PROJECT_NAME yarn install `
+@tab npm `shell cd PROJECT_NAME npm install ` :::
 
 ## Making Changes to your Project
 
@@ -75,8 +75,8 @@ type Vote @entity {
 
 **Important: When you make any changes to the schema file, please ensure that you regenerate your types directory. Do this now.**
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```shell npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell yarn codegen `
+@tab npm `shell npm run-script codegen ` :::
 
 You'll find the generated models in the `/src/types/models` directory. For more information about the `schema.graphql` file, check out our documentation under [Build/GraphQL Schema](../build/graphql.md)
 
@@ -145,7 +145,7 @@ For more information about mapping functions, check out our documentation under 
 
 In order run your new SubQuery Project we first need to build our work. Run the build command from the project's root directory.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script build ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell yarn build ` @tab npm `shell npm run-script build ` :::
 
 **Important: Whenever you make changes to your mapping functions, you'll need to rebuild your project**
 
@@ -159,7 +159,7 @@ All configuration that controls how a SubQuery node is run is defined in this `d
 
 Under the project directory run following command:
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn start:docker ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script start:docker ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell yarn start:docker ` @tab npm `shell npm run-script start:docker ` :::
 
 It may take some time to download the required packages ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), and Postgres) for the first time but soon you'll see a running SubQuery node. Be patient here.
 
@@ -173,10 +173,9 @@ For a new SubQuery starter project, you can try the following query to get a tas
 
 ```graphql
 query {
-    votes(
+  votes(
     first: 5
-    orderBy: BLOCK_HEIGHT_DESC
-    # filter: {proposalID: {equalTo: "4"}}
+    orderBy: BLOCK_HEIGHT_DESC # filter: {proposalID: {equalTo: "4"}}
   ) {
     nodes {
       id

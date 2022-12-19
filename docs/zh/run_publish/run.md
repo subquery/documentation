@@ -1,10 +1,10 @@
 # 本地运行 SubQuery
 
-本指南通过如何在您的基础设施上运行本地的 SubQuery 节点，其中包括索引器和查询服务。 不用担心在运行自己的SubQuery基础架构中所出现的问题。 SubQuery provides a [Managed Service](https://explorer.subquery.network) to the community for free. [按照我们所发布的指南](../run_publish/publish.md) 查看您如何将项目部署到 [SubQuery 项目](https://project.subquery.network)。
+本指南通过如何在您的基础设施上运行本地的 SubQuery 节点，其中包括索引器和查询服务。 不用担心在运行自己的 SubQuery 基础架构中所出现的问题。 SubQuery provides a [Managed Service](https://explorer.subquery.network) to the community for free. [按照我们所发布的指南](../run_publish/publish.md) 查看您如何将项目部署到 [SubQuery 项目](https://project.subquery.network)。
 
 ## 使用 Docker
 
-其中一种解决方案是运行<strong>Docker容器</strong>，它是由`Docker-component.yml`文件所定义的。 对于刚刚初始化的新项目，您无需在此处进行任何更改。
+其中一种解决方案是运行**Docker 容器**，它是由`Docker-component.yml`文件所定义的。 对于刚刚初始化的新项目，您无需在此处进行任何更改。
 
 在项目目录下运行以下命令：
 
@@ -14,7 +14,7 @@ docker-compose pull && docker-compose up
 
 第一次下载所需软件包可能需要一些时间([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/quiry`](https://www.npmjs.com/package/@subql/query), and Postgress) ，但很快你就会看到一个运行中的 SubQuery 节点。 :::
 
-## 运行Indexer (subql/node)
+## 运行 Indexer (subql/node)
 
 需求：
 
@@ -32,90 +32,80 @@ CREATE EXTENSION IF NOT EXISTS btree_gist;
 
 ### 安装
 
-<CodeGroup>
-<CodeGroupItem title='Substrate/Polkadot'>
+::: code-tabs
+@tab Substrate/Polkadot
 
 ```shell
 # NPM
 npm install -g @subql/node
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Terra'>
+@tab Terra
 
 ```shell
 # NPM
 npm install -g @subql/node-terra
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Avalanche'>
+@tab Avalanche
 
 ```shell
 # NPM
 npm install -g @subql/node-avalanche
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Cosmos'>
+@tab Cosmos
 
 ```shell
 # NPM
 npm install -g @subql/node-cosmos
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Algorand'>
+@tab Algorand
 
 ```shell
 # NPM
 npm install -g @subql/node-algorand
 ```
 
-</CodeGroupItem>
-</CodeGroup>
+:::
 
 ::: danger Please note that we **DO NOT** encourage the use of `yarn global` due to its poor dependency management which may lead to an errors down the line. :::
 
 安装完毕后，您可以使用以下命令来启动节点：
 
-<CodeGroup>
-<CodeGroupItem title='Substrate/Polkadot'>
+::: code-tabs
+@tab Substrate/Polkadot
 
 ```shell
 subql-node <command>
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Terra'>
+@tab Terra
 
 ```shell
 subql-node-terra <command>
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Avalanche'>
+@tab Avalanche
 
 ```shell
 subql-node-avalanche <command>
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Cosmos'>
+@tab Cosmos
 
 ```shell
 subql-node-cosmos <command>
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Algorand'>
+@tab Algorand
 
 ```shell
 subql-node-algorand <command>
 ```
 
-</CodeGroupItem>
-</CodeGroup>
+:::
 
 ### Key Commands
 
@@ -123,43 +113,38 @@ The following commands will assist you to complete the configuration of a SubQue
 
 #### 指向本地项目路径
 
-<CodeGroup>
-<CodeGroupItem title='Substrate/Polkadot'>
+::: code-tabs
+@tab Substrate/Polkadot
 
 ```shell
 subql-node -f your-project-path
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Terra'>
+@tab Terra
 
 ```shell
 subql-node-terra -f your-project-path
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Avalanche'>
+@tab Avalanche
 
 ```shell
 subql-node-avalanche -f your-project-path
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Cosmos'>
+@tab Cosmos
 
 ```shell
 subql-node-cosmos -f your-project-path
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Algorand'>
+@tab Algorand
 
 ```shell
 subql-node-algorand -f your-project-path
 ```
 
-</CodeGroupItem>
-</CodeGroup>
+:::
 
 #### Connect to database
 
@@ -176,43 +161,38 @@ subql-node -f your-project-path
 
 #### 指定一个配置文件
 
-<CodeGroup>
-<CodeGroupItem title='Substrate/Polkadot'>
+::: code-tabs
+@tab Substrate/Polkadot
 
 ```shell
 subql-node -c your-project-config.yml
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Terra'>
+@tab Terra
 
 ```shell
 subql-node-terra -c your-project-config.yml
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Avalanche'>
+@tab Avalanche
 
 ```shell
 subql-node-avalanche -c your-project-config.yml
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Cosmos'>
+@tab Cosmos
 
 ```shell
 subql-node-cosmos -c your-project-config.yml
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Algorand'>
+@tab Algorand
 
 ```shell
 subql-node-algorand -c your-project-config.yml
 ```
 
-</CodeGroupItem>
-</CodeGroup>
+:::
 
 This will point the query node to a manifest file which can be in YAML or JSON format.
 
@@ -230,43 +210,38 @@ Result:
 
 #### 在本地模式下运行
 
-<CodeGroup>
-<CodeGroupItem title='Substrate/Polkadot'>
+::: code-tabs
+@tab Substrate/Polkadot
 
 ```shell
 subql-node -f your-project-path --local
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Terra'>
+@tab Terra
 
 ```shell
 subql-node-terra -f your-project-path --local
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Avalanche'>
+@tab Avalanche
 
 ```shell
 subql-node-avalanche -f your-project-path --local
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Cosmos'>
+@tab Cosmos
 
 ```shell
 subql-node-cosmos -f your-project-path --local
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Algorand'>
+@tab Algorand
 
 ```shell
 subql-node-algorand -f your-project-path --local
 ```
 
-</CodeGroupItem>
-</CodeGroup>
+:::
 
 For debugging purposes, users can run the node in local mode. 切换到本地模型将在默认架构 `public` 中创建 Postgres 表。
 
@@ -340,9 +315,9 @@ For help, see: https://nodejs.org/en/docs/inspector
 Debugger attached.
 ```
 
-然后打开Chrome开发工具，进入Source>Filesystem，将项目添加到工作区并开始调试。 查看更多信息[如何调试SubQuery项目](../academy/tutorials_examples/debug-projects.md).
+然后打开 Chrome 开发工具，进入 Source>Filesystem，将项目添加到工作区并开始调试。 查看更多信息[如何调试 SubQuery 项目](../academy/tutorials_examples/debug-projects.md).
 
-## 运行Query服务(subql/query)
+## 运行 Query 服务(subql/query)
 
 ### 安装
 
@@ -353,7 +328,7 @@ npm install -g @subql/query
 
 ：：： 危险 请注意，我们**不**鼓励使用 `yarn global`，因为它糟糕的依赖管理可能会导致错误。 :::
 
-### 运行Query服务
+### 运行 Query 服务
 
 ```
 export DB_HOST=localhost
@@ -362,4 +337,4 @@ subql-query --name <project_name> --playground
 
 确保项目名称与[初始化项目](../quickstart/quickstart.md#_2-initialise-the-subquery-starter-project)时的项目名称相同。 另外，请检查环境变量是否正确。
 
-成功运行subql查询服务后，打开浏览器并转到`http://localhost:3000`. 您应该看到在 Explorer 中显示的 GraphQL 播放地和准备查询的模式。 您应该看到在 Explorer 中显示的 GraphQL 播放器和准备查询的模式。
+成功运行 subql 查询服务后，打开浏览器并转到`http://localhost:3000`. 您应该看到在 Explorer 中显示的 GraphQL 播放地和准备查询的模式。 您应该看到在 Explorer 中显示的 GraphQL 播放器和准备查询的模式。

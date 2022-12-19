@@ -44,8 +44,8 @@ Cosmos is not yet supported in SubQuery's CLI (`subql`), to start with Juno clon
 
 Наконец, в каталоге проекта выполните следующую команду, чтобы установить зависимости нового проекта.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```shell cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell cd PROJECT_NAME yarn install `
+@tab npm `shell cd PROJECT_NAME npm install ` :::
 
 ## Внесение изменений в ваш проект
 
@@ -75,8 +75,8 @@ type Vote @entity {
 
 **Важно: когда вы вносите какие-либо изменения в файл schema, убедитесь, что вы заново создали каталог типов. Сделайте это сейчас.**
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```shell npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell yarn codegen `
+@tab npm `shell npm run-script codegen ` :::
 
 Вы найдете сгенерированные модели в каталоге `/src/types/models`. Для получения дополнительной информации о файле `schema.graphql` ознакомьтесь с нашей документацией в разделе [Build/GraphQL Schema](../build/graphql.md)
 
@@ -145,7 +145,7 @@ What this is doing is receiving a CosmosMessage which includes message data on t
 
 Чтобы запустить ваш новый проект SubQuery, нам сначала нужно собрать нашу работу. Запустите команду сборки из корневого каталога проекта.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script build ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell yarn build ` @tab npm `shell npm run-script build ` :::
 
 **Важно: всякий раз, когда вы вносите изменения в свои функции сопоставления, вам нужно будет пересобрать свой проект**.
 
@@ -159,7 +159,7 @@ What this is doing is receiving a CosmosMessage which includes message data on t
 
 В каталоге проекта выполните следующую команду:
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn start:docker ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script start:docker ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell yarn start:docker ` @tab npm `shell npm run-script start:docker ` :::
 
 Загрузка необходимых пакетов ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query) и Postgres) в первый раз может занять некоторое время, но вскоре вы увидите работающий узел SubQuery. Проявите терпение.
 
@@ -173,10 +173,9 @@ What this is doing is receiving a CosmosMessage which includes message data on t
 
 ```graphql
 query {
-    votes(
+  votes(
     first: 5
-    orderBy: BLOCK_HEIGHT_DESC
-    # filter: {proposalID: {equalTo: "4"}}
+    orderBy: BLOCK_HEIGHT_DESC # filter: {proposalID: {equalTo: "4"}}
   ) {
     nodes {
       id

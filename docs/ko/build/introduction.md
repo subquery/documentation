@@ -51,8 +51,8 @@ yarn codegen
 
 프로젝트의 루트 디렉터리에서 빌드 명령을 실행합니다.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> `shell yarn build ` </CodeGroupItem>
-<CodeGroupItem title="NPM"> `bash npm run-script build ` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell yarn build `
+@tab npm `bash npm run-script build ` :::
 
 ### 대체 빌드 옵션
 

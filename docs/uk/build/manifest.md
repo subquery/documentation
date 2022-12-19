@@ -4,7 +4,7 @@
 
 Маніфест може бути у форматі YAML або JSON. У цьому документі ми будемо використовувати YAML у всіх прикладах. Нижче наведено стандартний приклад базового `project.yaml`.
 
-<CodeGroup> <CodeGroupItem title="v0.2.0" active> ` yml specVersion: 0.2.0 name: example-project # Provide the project name version: 1.0.0 # Project version description: '' # Description of your project repository: 'https://github.com/subquery/subql-starter' # Git repository address of your project schema: file: ./schema.graphql # The location of your GraphQL schema file network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' # Genesis hash of the network endpoint: 'wss://polkadot.api.onfinality.io/public-ws' # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing dictionary: 'https://api.subquery.network/sq/subquery/dictionary-polkadot' dataSources: - kind: substrate/Runtime startBlock: 1 # This changes your indexing start block, set this higher to skip initial blocks with less data mapping: file: "./dist/index.js" handlers: - handler: handleBlock kind: substrate/BlockHandler - handler: handleEvent kind: substrate/EventHandler filter: #Filter is optional module: balances method: Deposit - handler: handleCall kind: substrate/CallHandler ```` </CodeGroupItem> <CodeGroupItem title="v0.0.1"> ` yml specVersion: "0.0.1" description: '' # Description of your project repository: 'https://github.com/subquery/subql-starter' # Git repository address of your project schema: ./schema.graphql # The location of your GraphQL schema file network: endpoint: 'wss://polkadot.api.onfinality.io/public-ws' # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing dictionary: 'https://api.subquery.network/sq/subquery/dictionary-polkadot' dataSources: - name: main kind: substrate/Runtime startBlock: 1 # This changes your indexing start block, set this higher to skip initial blocks with less data mapping: handlers: - handler: handleBlock kind: substrate/BlockHandler - handler: handleEvent kind: substrate/EventHandler filter: #Filter is optional but suggested to speed up event processing module: balances method: Deposit - handler: handleCall kind: substrate/CallHandler ```` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab v0.2.0 ` yml specVersion: 0.2.0 name: example-project # Provide the project name version: 1.0.0 # Project version description: '' # Description of your project repository: 'https://github.com/subquery/subql-starter' # Git repository address of your project schema: file: ./schema.graphql # The location of your GraphQL schema file network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' # Genesis hash of the network endpoint: 'wss://polkadot.api.onfinality.io/public-ws' # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing dictionary: 'https://api.subquery.network/sq/subquery/dictionary-polkadot' dataSources: - kind: substrate/Runtime startBlock: 1 # This changes your indexing start block, set this higher to skip initial blocks with less data mapping: file: "./dist/index.js" handlers: - handler: handleBlock kind: substrate/BlockHandler - handler: handleEvent kind: substrate/EventHandler filter: #Filter is optional module: balances method: Deposit - handler: handleCall kind: substrate/CallHandler ````  @tab v0.0.1 ` yml specVersion: "0.0.1" description: '' # Description of your project repository: 'https://github.com/subquery/subql-starter' # Git repository address of your project schema: ./schema.graphql # The location of your GraphQL schema file network: endpoint: 'wss://polkadot.api.onfinality.io/public-ws' # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing dictionary: 'https://api.subquery.network/sq/subquery/dictionary-polkadot' dataSources: - name: main kind: substrate/Runtime startBlock: 1 # This changes your indexing start block, set this higher to skip initial blocks with less data mapping: handlers: - handler: handleBlock kind: substrate/BlockHandler - handler: handleEvent kind: substrate/EventHandler filter: #Filter is optional but suggested to speed up event processing module: balances method: Deposit - handler: handleCall kind: substrate/CallHandler ```` :::
 
 ## Migrating from v0.0.1 to v0.2.0 <Badge text="upgrade" type="warning"/>
 
@@ -22,9 +22,9 @@
 
 ### Параметри CLI
 
-За замовчуванням CLI буде генерувати SubQuery проекти для verison v0.2.0. Ця поведінка може бути перевизначена за керуванням ` SubQL init-specversion 0.0.1 project_name </ 0>, хоча це не рекомендується, оскільки проект не буде підтриманий підзаписом обслуговування в майбутньому</p>
+За замовчуванням CLI буде генерувати SubQuery проекти для verison v0.2.0. Ця поведінка може бути перевизначена за керуванням ` SubQL init-specversion 0.0.1 project_name, хоча це не рекомендується, оскільки проект не буде підтриманий підзаписом обслуговування в майбутньому
 
-<p spaces-before="0"><code> subql migrate ` можна запустити в існуючому проекті для перенесення маніфесту проекту на останню версію.
+`subql migrate` можна запустити в існуючому проекті для перенесення маніфесту проекту на останню версію.
 
 Використання $ subql init [назвапроекту]
 
@@ -81,7 +81,7 @@
 
 ### Специфікація карт
 
-Перерахуйте всі mapping functions<0> та відповідні типи обробників за допомогою додаткових фільтрів відображення. <0 /> <0 /> Для користувацьких обробників відображення часу перегляньте [ Спеціальні джерела даних ](#custom-data-sources)</td> </tr> </tbody> </table>
+Перерахуйте всі mapping functions<0> та відповідні типи обробників за допомогою додаткових фільтрів відображення. Для користувацьких обробників відображення часу перегляньте [ Спеціальні джерела даних ](#custom-data-sources)
 
 ## Джерела даних та картографування
 
@@ -101,8 +101,8 @@ dataSources:
 
 **Ваш проект SubQuery буде набагато ефективнішим, якщо ви використовуєте лише обробники подій і викликів із відповідними фільтрами зіставлення**
 
-| Обробник                                          | Підтримуваний фільтр      |
-| ------------------------------------------------- | ------------------------- |
+| Обробник                                                   | Підтримуваний фільтр      |
+| ---------------------------------------------------------- | ------------------------- |
 | [Обробник блокування](./mapping/polkadot.md#block-handler) | `версія специфікації`     |
 | [Подіяльний обробник](./mapping/polkadot.md#event-handler) | `модуль`,`метод`          |
 | [Обробник дзвінків](./mapping/polkadot.md#call-handler)    | `модуль`,`метод` ,`успіx` |
@@ -148,11 +148,11 @@ filter:
 
 Ми підтримуємо додаткові типи, які використовуються модулями середовища виконання, `typesAlias`, `typesBundle`, `typesChain` і `typesSpec` також підтримуються .
 
-У наведеному нижче прикладі версії 0.2.0 `network.chaintypes` вказує на файл, який містить усі користувацькі типи. Це стандартний файл специфікації ланцюга, який оголошує конкретні типи, які підтримує цей блокчейн у < 0>.json</code>, `.yaml` або `.js`.
+У наведеному нижче прикладі версії 0.2.0 `network.chaintypes` вказує на файл, який містить усі користувацькі типи. Це стандартний файл специфікації ланцюга, який оголошує конкретні типи, які підтримує цей блокчейн у `.json`, `.yaml` або `.js`.
 
-<CodeGroup> <CodeGroupItem title="v0.2.0" active> `yml network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' endpoint: 'ws://host.kittychain.io/public-ws' chaintypes: file: ./types.json # The relative filepath to where custom types are stored ...` </CodeGroupItem>
+::: code-tabs @tab v0.2.0 `yml network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' endpoint: 'ws://host.kittychain.io/public-ws' chaintypes: file: ./types.json # The relative filepath to where custom types are stored ...`
 
-<CodeGroupItem title="v0.0.1"> `yml ... network: endpoint: "ws://host.kittychain.io/public-ws" types: { "KittyIndex": "u32", "Kitty": "[u8; 16]" } # typesChain: { chain: { Type5: 'example' } } # typesSpec: { spec: { Type6: 'example' } } dataSources: - name: runtime kind: substrate/Runtime startBlock: 1 filter: #Optional specName: kitty-chain mapping: handlers: - handler: handleKittyBred kind: substrate/CallHandler filter: module: kitties method: breed success: true` </CodeGroupItem> </CodeGroup>
+@tab v0.0.1 `yml ... network: endpoint: "ws://host.kittychain.io/public-ws" types: { "KittyIndex": "u32", "Kitty": "[u8; 16]" } # typesChain: { chain: { Type5: 'example' } } # typesSpec: { spec: { Type6: 'example' } } dataSources: - name: runtime kind: substrate/Runtime startBlock: 1 filter: #Optional specName: kitty-chain mapping: handlers: - handler: handleKittyBred kind: substrate/CallHandler filter: module: kitties method: breed success: true` :::
 
 To use typescript for your chain types file include it in the `src` folder (e.g. `./src/types.ts`), run `yarn build` and then point to the generated js file located in the `dist` folder.
 
@@ -169,7 +169,7 @@ network:
 
 Ось приклад файлу типів ланцюга `.ts`:
 
-<CodeGroup> <CodeGroupItem title="types.ts"> `тс імпортувати {typeBundleDeprecated } з "moonbeam-types-bundle" експорт за замовчуванням {typeBundle: typesBundleDeprecated }; ` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab types.ts `тс імпортувати {typeBundleDeprecated } з "moonbeam-types-bundle" експорт за замовчуванням {typeBundle: typesBundleDeprecated }; ` :::
 
 ## Спеціальні джерела даних
 
@@ -195,6 +195,6 @@ network:
 
 Нижче наведено приклад, який показує різні джерела даних для мереж Polkadot і Kusama.
 
-<CodeGroup> <CodeGroupItem title="v0.0.1"> `yaml --- network: endpoint: 'wss://polkadot.api.onfinality.io/public-ws' #Create a template to avoid redundancy definitions: mapping: &mymapping handlers: - handler: handleBlock kind: substrate/BlockHandler dataSources: - name: polkadotRuntime kind: substrate/Runtime filter: #Optional specName: polkadot startBlock: 1000 mapping: *mymapping #use template here - name: kusamaRuntime kind: substrate/Runtime filter: specName: kusama startBlock: 12000 mapping: *mymapping # can reuse or change ` </CodeGroupItem>
+::: code-tabs @tab v0.0.1 `yaml --- network: endpoint: 'wss://polkadot.api.onfinality.io/public-ws' #Create a template to avoid redundancy definitions: mapping: &mymapping handlers: - handler: handleBlock kind: substrate/BlockHandler dataSources: - name: polkadotRuntime kind: substrate/Runtime filter: #Optional specName: polkadot startBlock: 1000 mapping: *mymapping #use template here - name: kusamaRuntime kind: substrate/Runtime filter: specName: kusama startBlock: 12000 mapping: *mymapping # can reuse or change `
 
-</CodeGroup>
+:::

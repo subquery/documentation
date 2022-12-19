@@ -59,8 +59,8 @@ subql init
 
 Нарешті, у каталозі проекту виконайте наступну команду, щоб встановити залежності нового проекту.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ``` shell компакт-диск PROJECT_NAME установка yarn ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ``` shell компакт-диск PROJECT_NAME npm встановити ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell компакт-диск PROJECT_NAME установка yarn`
+@tab npm `shell компакт-диск PROJECT_NAME npm встановити` :::
 
 ## Внесення змін до проекту
 
@@ -68,7 +68,7 @@ subql init
 
 1. Схема GraphQL в `schema.graphql`
 2. Маніфест проекту в `project.yaml`
-3. Картографування функціонує в каталозі ` src / mappings / `
+3. Картографування функціонує в каталозі `src / mappings /`
 
 Метою цього короткого посібника є адаптація стандартного стартового проекту для індексації всіх журналів транзакцій Pangolin `Approve`.
 
@@ -92,8 +92,8 @@ type PangolinApproval @entity {
 
 **Важливо: коли ви вносите будь-які зміни до файлу схеми, переконайтеся, що ви повторно створили каталог типів. Зробіть це зараз.**
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ``` shell кодоген пряжі ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ``` shell npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell кодоген пряжі`
+@tab npm `shell npm run-script codegen` :::
 
 Згенеровані моделі можна знайти в каталозі `/src/types/models`. Щоб отримати додаткові відомості про файл `schema.graphql`, перегляньте нашу документацію в розділі [Build/GraphQL Schema](../build/graphql.md)
 
@@ -136,7 +136,7 @@ dataSources:
 
 Перейдіть до функції відображення за замовчуванням у каталозі `src/mappings`. Ви побачите три експортовані функції: `handleBlock`, `handleLog` і `handleTransaction`. Ви можете видалити як функції `handleBlock`, так і `handleTransaction`, ми маємо справу лише з функцією `handleLog`.
 
-Функція `handleLog` отримує дані про події щоразу, коли подія відповідає фільтрам, які ми вказали раніше в нашому `project.yaml`. Ми збираємося оновити його, щоб обробити всі журнали транзакцій ` approval ` та зберегти їх у сутності GraphQL, які ми створили раніше.
+Функція `handleLog` отримує дані про події щоразу, коли подія відповідає фільтрам, які ми вказали раніше в нашому `project.yaml`. Ми збираємося оновити його, щоб обробити всі журнали транзакцій `approval` та зберегти їх у сутності GraphQL, які ми створили раніше.
 
 Ви можете оновити функцію `handleLog` до наступного (зверніть увагу на додатковий імпорт):
 
@@ -169,7 +169,7 @@ export async function handleLog(event: AvalancheLog): Promise<void> {
 
 Щоб запустити ваш новий проект SubQuery, нам спочатку потрібно створити нашу роботу. Запустіть команду збірки з кореневого каталогу проекту.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ``` shell побудова yarn ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ``` shell npm run-script build ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell побудова yarn` @tab npm `shell npm run-script build` :::
 
 **Важливо: щоразу, коли ви вносите зміни у свої функції відображення, вам потрібно буде перебудувати свій проект**
 
@@ -183,13 +183,9 @@ export async function handleLog(event: AvalancheLog): Promise<void> {
 
 У каталозі проекту виконайте таку команду:
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ``` shell початок yarn:docker ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ``` shell npm run-script start:docker ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell початок yarn:docker` @tab npm `shell npm run-script start:docker` :::
 
-Завантаження необхідних пакетів може зайняти деякий час ([`@subql/node`](https://www.npmjs.com/package/@subql/node),
-
-`@subql/query`</7 > і Postgres) вперше, але незабаром ви побачите запущений вузол SubQuery. Будьте терплячі тут.</p> 
-
-
+Завантаження необхідних пакетів може зайняти деякий час ([`@subql/node`](https://www.npmjs.com/package/@subql/node), `@subql/query`і Postgres) вперше, але незабаром ви побачите запущений вузол SubQuery. Будьте терплячі тут.
 
 ### Запитуйте свій проект
 
@@ -198,8 +194,6 @@ export async function handleLog(event: AvalancheLog): Promise<void> {
 Ви повинні побачити, що ігровий майданчик GraphQL відображається в провіднику та схеми, які готові до запиту. У верхньому правому куті ігрового майданчика ви знайдете кнопку _ Docs _, яка відкриє розіграш документації. Ця документація генерується автоматично і допомагає вам знайти, які сутності та методи ви можете запитувати.
 
 Для нового початкового проекту SubQuery ви можете спробувати такий запит, щоб зрозуміти, як він працює, або [дізнатися більше про мову Query GraphQL](../run_publish/graphql.md).
-
-
 
 ```graphql
 query {
@@ -217,16 +211,11 @@ query {
 }
 ```
 
-
-
-
 ### Опублікуйте проект SubQuery
 
 SubQuery надає безкоштовну керовану службу, коли ви можете розгорнути свій новий проект. Ви можете розгорнути його в [SubQuery Projects](https://project.subquery.network) і зробити запит за допомогою нашого [ Explorer](https://explorer.subquery.network).
 
 [Прочитайте посібник, щоб опублікувати свій новий проект у SubQuery Projects](../run_publish/publish.md), **Зверніть увагу, що ви повинні розгорнути через IPFS**.
-
-
 
 ## Настуні кроки
 

@@ -45,11 +45,11 @@ subql init
 По мере инициализации проекта SubQuery вам будут заданы определенные вопросы:
 
 - Project Name: A name for your SubQuery project
-- Network Family: Семейство сетей блокчейнов уровня 1, для индексирования которого будет разработан этот проект SubQuery, используйте клавиши со стрелками на клавиатуре, чтобы выбрать один из вариантов, в этом руководстве мы будем использовать *"Terra"*
-- Network: Конкретная сеть, для индексации которой будет разработан этот проект SubQuery, используйте клавиши со стрелками на клавиатуре, чтобы выбрать один из вариантов, в этом руководстве мы будем использовать *"Terra"*
-- Template: Выберите шаблон проекта SubQuery, который послужит отправной точкой для начала разработки. Мы предлагаем выбрать *"Стартовый проект"*
+- Network Family: Семейство сетей блокчейнов уровня 1, для индексирования которого будет разработан этот проект SubQuery, используйте клавиши со стрелками на клавиатуре, чтобы выбрать один из вариантов, в этом руководстве мы будем использовать _"Terra"_
+- Network: Конкретная сеть, для индексации которой будет разработан этот проект SubQuery, используйте клавиши со стрелками на клавиатуре, чтобы выбрать один из вариантов, в этом руководстве мы будем использовать _"Terra"_
+- Template: Выберите шаблон проекта SubQuery, который послужит отправной точкой для начала разработки. Мы предлагаем выбрать _"Стартовый проект"_
 - Git repository (Опционально): Укажите URL-адрес Git для репозитория, в котором будет размещен этот проект SubQuery (при размещении в SubQuery Explorer)
-- RPC endpoint (Обязательно): Укажите URL-адрес HTTPS для работающей конечной точки RPC, которая будет использоваться по умолчанию для этого проекта. Этот узел RPC должен быть архивным узлом (иметь состояние полной цепочки). В этом руководстве мы будем использовать значение по умолчанию *"https://terra-columbus-5.beta.api.onfinality.io"*
+- RPC endpoint (Обязательно): Укажите URL-адрес HTTPS для работающей конечной точки RPC, которая будет использоваться по умолчанию для этого проекта. Этот узел RPC должен быть архивным узлом (иметь состояние полной цепочки). В этом руководстве мы будем использовать значение по умолчанию _"https://terra-columbus-5.beta.api.onfinality.io"_
 - Authors (Обязательно): Введите здесь владельца этого проекта SubQuery (например, ваше имя!)
 - Description (Опционально): Вы можете предоставить короткий абзац о своем проекте, описывающий, какие данные он содержит и что пользователи могут с ним делать
 - Version (Обязательно): Введите собственный номер версии или используйте версию по умолчанию (`1.0.0`)
@@ -59,8 +59,8 @@ subql init
 
 Наконец, в каталоге проекта выполните следующую команду, чтобы установить зависимости нового проекта.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```shell cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell cd PROJECT_NAME yarn install `
+@tab npm `shell cd PROJECT_NAME npm install ` :::
 
 ## Внесение изменений в ваш проект
 
@@ -90,8 +90,8 @@ type Transfer @entity {
 
 **Важно: когда вы вносите какие-либо изменения в файл schema, убедитесь, что вы заново создали каталог типов. Сделайте это сейчас.**
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```shell npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell yarn codegen `
+@tab npm `shell npm run-script codegen ` :::
 
 Вы найдете сгенерированные модели в каталоге `/src/types/models`. Для получения дополнительной информации о файле `schema.graphql` ознакомьтесь с нашей документацией в разделе [Build/GraphQL Schema](../build/graphql.md)
 
@@ -142,30 +142,30 @@ import { MsgExecuteContract } from "@terra-money/terra.js";
 export async function handleEvent(
   event: TerraEvent<MsgExecuteContract>
 ): Promise<void> {
-    // Печать отладочных данных из события
-    // logger.info(JSON.stringify(event));
+  // Печать отладочных данных из события
+  // logger.info(JSON.stringify(event));
 
-    // Создайте новый объект передачи с уникальным идентификатором
-    const transfer = new Transfer(
-      `${event.tx.tx.txhash}-${event.msg.idx}-${event.idx}`
-    );
-    transfer.blockHeight = BigInt(event.block.block.block.header.height);
-    transfer.txHash = event.tx.tx.txhash;
-    for (const attr of event.event.attributes) {
-      switch (attr.key) {
-        case "sender":
-          transfer.sender = attr.value;
-          break;
-        case "recipient":
-          transfer.recipient = attr.value;
-          break;
-        case "amount":
-          transfer.amount = attr.value;
-          break;
-        default:
-      }
+  // Создайте новый объект передачи с уникальным идентификатором
+  const transfer = new Transfer(
+    `${event.tx.tx.txhash}-${event.msg.idx}-${event.idx}`
+  );
+  transfer.blockHeight = BigInt(event.block.block.block.header.height);
+  transfer.txHash = event.tx.tx.txhash;
+  for (const attr of event.event.attributes) {
+    switch (attr.key) {
+      case "sender":
+        transfer.sender = attr.value;
+        break;
+      case "recipient":
+        transfer.recipient = attr.value;
+        break;
+      case "amount":
+        transfer.amount = attr.value;
+        break;
+      default:
     }
-    await transfer.save();
+  }
+  await transfer.save();
 }
 ```
 
@@ -177,7 +177,7 @@ export async function handleEvent(
 
 Чтобы запустить ваш новый проект SubQuery, нам сначала нужно собрать нашу работу. Запустите команду сборки из корневого каталога проекта.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script build ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell yarn build ` @tab npm `shell npm run-script build ` :::
 
 **Важно: всякий раз, когда вы вносите изменения в свои функции сопоставления, вам нужно будет пересобрать свой проект**.
 
@@ -191,7 +191,7 @@ export async function handleEvent(
 
 В каталоге проекта выполните следующую команду:
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn start:docker ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script start:docker ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell yarn start:docker ` @tab npm `shell npm run-script start:docker ` :::
 
 Загрузка необходимых пакетов ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query) и Postgres) в первый раз может занять некоторое время, но вскоре вы увидите работающий узел SubQuery. Проявите терпение.
 
@@ -206,10 +206,7 @@ export async function handleEvent(
 ```graphql
 {
   query {
-    transfers(
-      first: 10,
-      orderBy: ID_DESC
-    ) {
+    transfers(first: 10, orderBy: ID_DESC) {
       nodes {
         id
         txHash

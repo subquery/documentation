@@ -77,10 +77,10 @@ If you just want to upgrade to the latest indexer ([`@subql/node`](https://www.n
 
 เมื่อการ deploy ของคุณเสร็จสมบูรณ์ และ โหนดของเราได้ทำจัดทำดัชนีข้อมูลของคุณจาก chain แล้ว คุณจะสามารถเชื่อมต่อกับโปรเจกต์ผ่าน GraphQL Query endpoint ที่ปรากฎขึ้นมา
 
-![โปรเจกต์ที่กำลัง deploy และ sync](/assets/img/projects-deploy-sync.png)
+![โปรเจกต์ที่กำลัง deploy และ sync](/assets/img/projects_deploy_sync.png)
 
 หรือคุณสามารถคลิกที่จุดสามจุดถัดจากชื่อโปรเจกต์ของคุณ และดูบน SubQuery Explorer There you can use the in browser playground to get started - [read more about how to use our Explorer here](../run_publish/query.md).
 
-![Projects in SubQuery Explorer](/assets/img/projects-explorer.png)
+![Projects in SubQuery Explorer](/assets/img/projects_explorer.png)
 
-::: info Note Learn more about the [GraphQL Query language.](./graphql.md) :::
+::: tip Note Learn more about the [GraphQL Query language.](./graphql.md) :::

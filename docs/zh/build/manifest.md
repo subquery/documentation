@@ -4,10 +4,10 @@
 
 该清单文件可以是 YAML 或 JSON 格式。 在本文档中，我们将在所有示例中使用 YAML 格式。 下面是`project.yaml`文件的标准示例。
 
-<CodeGroup>
-  <CodeGroupItem title="v0.2.0" active>
-  
-``` yml
+::: code-tabs
+@tab v0.2.0
+
+```yml
 specVersion: 0.2.0
 name: example-project # Provide the project name
 version: 1.0.0  # Project version
@@ -39,23 +39,21 @@ dataSources:
   method: Deposit - handler: handleCall
   kind: substrate/CallHandler
 
-````
+```
 
-  </CodeGroupItem>
+@tab v0.0.1
 
-  <CodeGroupItem title="v0.0.1">
-
-``` yml
+```yml
 specVersion: "0.0.1"
-description: '' # Description of your project
-repository: 'https://github.com/subquery/subql-starter' # Git repository address of your project
+description: "" # Description of your project
+repository: "https://github.com/subquery/subql-starter" # Git repository address of your project
 
 schema: ./schema.graphql # The location of your GraphQL schema file
 
 network:
-  endpoint: 'wss://polkadot.api.onfinality.io/public-ws'
+  endpoint: "wss://polkadot.api.onfinality.io/public-ws"
   # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
-  dictionary: 'https://api.subquery.network/sq/subquery/dictionary-polkadot'
+  dictionary: "https://api.subquery.network/sq/subquery/dictionary-polkadot"
 
 dataSources:
   - name: main
@@ -72,10 +70,9 @@ dataSources:
             method: Deposit
         - handler: handleCall
           kind: substrate/CallHandler
-````
+```
 
-  </CodeGroupItem>
-</CodeGroup>
+:::
 
 ## 从 v0.0.1 迁移到 v0.2.0
 
@@ -152,9 +149,9 @@ DataSources 定义要过滤和提取的数据以及要应用的数据转换的�
 
 ### Mapping Spec
 
-| Field                  | v0.0.1                                                           | v0.2.0                                                                                  | Description                                                                                                                                                         |
-| ---------------------- | ---------------------------------------------------------------- | --------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **file**               | String                                                           | String                                                                                  | 映射条目路径                                                                                                                                                        |
+| Field                  | v0.0.1                                                           | v0.2.0                                                                                  | Description                                                                                                                                                                  |
+| ---------------------- | ---------------------------------------------------------------- | --------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **file**               | String                                                           | String                                                                                  | 映射条目路径                                                                                                                                                                 |
 | **handlers & filters** | [Default handlers and filters](./manifest/#mapping-hand-filters) | Default handlers and filters, <br />[Custom handlers and filters](#custom-data-sources) | 列出所有 [映射函数](./mapping/polkadot.md) 及其相应的处理类型，并添加附加映射筛选器。 <br /><br /> 对于自定义运行时映射处理程序，请查看 [自定义数据源](#custom-data-sources) |
 
 ## 数据来源和映射
@@ -175,8 +172,8 @@ dataSources:
 
 **当您只使用具有适当映射过滤器的事件和呼叫处理程序时，您的子查询项目将会更加有效。**
 
-| 处理程序                                   | 支持的过滤器：               |
-| ------------------------------------------ | ---------------------------- |
+| 处理程序                                            | 支持的过滤器：               |
+| --------------------------------------------------- | ---------------------------- |
 | [BlockHandler](./mapping/polkadot.md#block-handler) | `specVersion`                |
 | [EventHandler](./mapping/polkadot.md#event-handler) | `module`,`method`            |
 | [CallHandler](./mapping/polkadot.md#call-handler)   | `module`,`method` ,`success` |
@@ -227,38 +224,32 @@ filter:
 
 在 v0.2.0 示例中， `network. hainintypes` 指向一个包含所有自定义类型的文件。 这是一个标准的链规格文件，用 `声明此区块链支持的特定类型。 son` 或 `.yaml` 格式。
 
-<CodeGroup>
-  <CodeGroupItem title="v0.2.0" active>
+::: code-tabs
+@tab v0.2.0
 
-``` yml
+```yml
 network:
-  genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3'
-  endpoint: 'ws://host.kittychain.io/public-ws'
+  genesisHash: "0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3"
+  endpoint: "ws://host.kittychain.io/public-ws"
   chaintypes:
     file: ./types.json # The relative filepath to where custom types are stored
-...
 ```
 
-  </CodeGroupItem>
+@tab v0.0.1
 
-  <CodeGroupItem title="v0.0.1">
-
-``` yml
-...
+```yml
+---
 network:
   endpoint: "ws://host.kittychain.io/public-ws"
-  types: {
-    "KittyIndex": "u32",
-    "Kitty": "[u8; 16]"
-  }
+  types: { "KittyIndex": "u32", "Kitty": "[u8; 16]" }
 # typesChain: { chain: { Type5: 'example' } }
 # typesSpec: { spec: { Type6: 'example' } }
 dataSources:
   - name: runtime
     kind: substrate/Runtime
     startBlock: 1
-    filter:  #Optional
-      specName: kitty-chain 
+    filter: #Optional
+      specName: kitty-chain
     mapping:
       handlers:
         - handler: handleKittyBred
@@ -269,8 +260,7 @@ dataSources:
             success: true
 ```
 
-  </CodeGroupItem>
-</CodeGroup>
+:::
 
 自定义数据源提供了特定于网络的功能，使处理数据更容易。
 
@@ -287,7 +277,7 @@ network:
 
 下面是一个 `.ts` 链类型文件的示例：
 
-<CodeGroup> <CodeGroupItem title="types.ts"> `ts import { typesBundleDeprecated } from "moonbeam-types-bundle" export default { typesBundle: typesBundleDeprecated }; ` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab types.ts `ts import { typesBundleDeprecated } from "moonbeam-types-bundle" export default { typesBundle: typesBundleDeprecated }; ` :::
 
 ## 自定义数据源
 
@@ -309,8 +299,8 @@ network:
 
 下方示例是 Polkadot 和 Kusama 网络中不同的数据源。
 
-<CodeGroup>
-  <CodeGroupItem title="v0.0.1">
+::: code-tabs
+@tab v0.0.1
 
 ```yaml
 ---
@@ -339,6 +329,4 @@ dataSources:
     mapping: *mymapping # can reuse or change
 ```
 
-  </CodeGroupItem>
-
-</CodeGroup>
+:::

@@ -8,23 +8,20 @@ The [@subql/cli](https://github.com/subquery/subql/tree/main/packages/cli) tool 
 
 Install SubQuery CLI globally on your terminal by using Yarn or NPM:
 
-<CodeGroup>
-  <CodeGroupItem title="NPM">
+::: code-tabs
+@tab npm
 
 ```bash
 npm install -g @subql/cli
 ```
 
-  </CodeGroupItem>
-
-  <CodeGroupItem title="YARN" active>
+@tab:active yarn
 
 ```shell
 yarn global add @subql/cli
 ```
 
-  </CodeGroupItem>
-</CodeGroup>
+:::
 
 You can then run help to see available commands and usage provide by CLI:
 
@@ -38,23 +35,20 @@ A SubQuery node is an implementation that extracts substrate-based blockchain da
 
 Install SubQuery node globally on your terminal by using Yarn or NPM:
 
-<CodeGroup>
-  <CodeGroupItem title="NPM">
+::: code-tabs
+@tab npm
 
 ```bash
 npm install -g @subql/node
 ```
 
-  </CodeGroupItem>
-
-  <CodeGroupItem title="YARN" active>
+@tab:active yarn
 
 ```shell
 yarn global add @subql/node
 ```
 
-  </CodeGroupItem>
-</CodeGroup>
+:::
 
 Once installed, you can can start a node with:
 
@@ -62,7 +56,7 @@ Once installed, you can can start a node with:
 subql-node <command>
 ```
 
-::: info Note
+::: tip Note
 If you are using Docker or hosting your project in SubQuery Projects, you can skip this step. This is because the SubQuery node is already provided in the Docker container and the hosting infrastructure.
 :::
 
@@ -72,24 +66,21 @@ The SubQuery query library provides a service that allows you to query your proj
 
 Install SubQuery query globally on your terminal by using Yarn or NPM:
 
-<CodeGroup>
-  <CodeGroupItem title="NPM">
+::: code-tabs
+@tab npm
 
 ```bash
 npm install -g @subql/query
 ```
 
-  </CodeGroupItem>
-
-  <CodeGroupItem title="YARN" active>
+@tab:active yarn
 
 ```shell
 yarn global add @subql/query
 ```
 
-  </CodeGroupItem>
-</CodeGroup>
+:::
 
-::: info Note
+::: tip Note
 If you are using Docker or hosting your project in SubQuery Projects, you can skip this step also. This is because the SubQuery node is already provided in the Docker container and the hosting infrastructure.
 :::

@@ -4,7 +4,7 @@
     <div class="main">
       <div>
         <h2 class="welcomeTitle">Bangun dApps Lebih Cepat dengan<span>SubQuery Academy</span></h2>
-        <p>Jelajahi dan terapkan API open-source kustom Anda sendiri yang efisien antara data terdesentralisasi Anda dan alat untuk menanyakan data lebih cepat dan menghemat waktu Anda.</p></br>
+        <p>Jelajahi dan terapkan API open-source kustom Anda sendiri yang efisien antara data terdesentralisasi Anda dan alat untuk menanyakan data lebih cepat dan menghemat waktu Anda.</p>
         <p><strong>SubQuery sekarang mendukung Polkadot, Avalanche, Cosmos, dan Algorand.</strong></p>
       </div>
     </div>
@@ -12,7 +12,7 @@
   <section class="startSection main">
     <div>
       <h2 class="title">Mulailah dengan <span>Panduan Memulai Cepat</span> kami</h2>
-      <p><strong>Bangun proyek SubQuery pertama Anda dalam waktu kurang dari 10 menit dengan langkah-langkah sederhana yang dipandu.</strong>
+      <p><strong>Bangun proyek SubQuery pertama Anda dalam waktu kurang dari 10 menit dengan langkah-langkah sederhana yang dipandu.</strong></p>
       <p>Mulai kueri data untuk dApps Anda di jaringan blockchain yang paling Anda sukai menggunakan proyek pemula kami. Jelajahi dan modifikasi file-file penting, dan pahami cara kerja SubQuery.
       </p>
       <span class="button">
@@ -134,8 +134,7 @@
     </div>
   </div>
 </section>
-</div> </div>
 <div class="footer">
   <div class="main"><div>SubQuery © 2022</div></div>
 </div>
-<script charset="utf-8" src="/assets/js/welcome.js"></script>
+<!--<script charset="utf-8" src="/assets/js/welcome.js"></script>-->

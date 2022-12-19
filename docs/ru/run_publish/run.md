@@ -4,7 +4,7 @@
 
 ## Использование Docker
 
-Альтернативным решением является запуск <strong>Docker Container</strong>, определенного файлом `docker-compose.yml`. Для нового проекта, который был только что инициализирован, вам не нужно будет ничего менять.
+Альтернативным решением является запуск **Docker Container**, определенного файлом `docker-compose.yml`. Для нового проекта, который был только что инициализирован, вам не нужно будет ничего менять.
 
 В каталоге проекта выполните следующую команду:
 
@@ -12,7 +12,7 @@
 docker-compose pull && docker-compose up
 ```
 
-::: info Примечание Для первой загрузки необходимых пакетов ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query) и Postgres) может потребоваться некоторое время, но вскоре вы увидите работающий узел SubQuery. :::
+::: tip Примечание Для первой загрузки необходимых пакетов ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query) и Postgres) может потребоваться некоторое время, но вскоре вы увидите работающий узел SubQuery. :::
 
 ## Запуск индексатора (subql/node)
 
@@ -32,90 +32,80 @@ CREATE EXTENSION IF NOT EXISTS btree_gist;
 
 ### Установка
 
-<CodeGroup>
-<CodeGroupItem title='Substrate/Polkadot'>
+::: code-tabs
+@tab Substrate/Polkadot
 
 ```shell
 # NPM
 npm install -g @subql/node
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Terra'>
+@tab Terra
 
 ```shell
 # NPM
 npm install -g @subql/node-terra
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Avalanche'>
+@tab Avalanche
 
 ```shell
 # NPM
 npm install -g @subql/node-avalanche
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Cosmos'>
+@tab Cosmos
 
 ```shell
 # NPM
 npm install -g @subql/node-cosmos
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Algorand'>
+@tab Algorand
 
 ```shell
 # NPM
 npm install -g @subql/node-algorand
 ```
 
-</CodeGroupItem>
-</CodeGroup>
+:::
 
 ::: danger Please note that we **DO NOT** encourage the use of `yarn global` due to its poor dependency management which may lead to an errors down the line. :::
 
 После установки вы можете запустить узел с помощью следующей команды:
 
-<CodeGroup>
-<CodeGroupItem title='Substrate/Polkadot'>
+::: code-tabs
+@tab Substrate/Polkadot
 
 ```shell
 subql-node <command>
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Terra'>
+@tab Terra
 
 ```shell
 subql-node-terra <command>
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Avalanche'>
+@tab Avalanche
 
 ```shell
 subql-node-avalanche <command>
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Cosmos'>
+@tab Cosmos
 
 ```shell
 subql-node-cosmos <command>
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Algorand'>
+@tab Algorand
 
 ```shell
 subql-node-algorand <command>
 ```
 
-</CodeGroupItem>
-</CodeGroup>
+:::
 
 ### Key Commands
 
@@ -123,43 +113,38 @@ The following commands will assist you to complete the configuration of a SubQue
 
 #### Укажите путь к локальному проекту
 
-<CodeGroup>
-<CodeGroupItem title='Substrate/Polkadot'>
+::: code-tabs
+@tab Substrate/Polkadot
 
 ```shell
 subql-node -f your-project-path
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Terra'>
+@tab Terra
 
 ```shell
 subql-node-terra -f your-project-path
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Avalanche'>
+@tab Avalanche
 
 ```shell
 subql-node-avalanche -f your-project-path
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Cosmos'>
+@tab Cosmos
 
 ```shell
 subql-node-cosmos -f your-project-path
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Algorand'>
+@tab Algorand
 
 ```shell
 subql-node-algorand -f your-project-path
 ```
 
-</CodeGroupItem>
-</CodeGroup>
+:::
 
 #### Connect to database
 
@@ -176,43 +161,38 @@ subql-node -f your-project-path
 
 #### Укажите файл конфигурации
 
-<CodeGroup>
-<CodeGroupItem title='Substrate/Polkadot'>
+::: code-tabs
+@tab Substrate/Polkadot
 
 ```shell
 subql-node -c your-project-config.yml
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Terra'>
+@tab Terra
 
 ```shell
 subql-node-terra -c your-project-config.yml
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Avalanche'>
+@tab Avalanche
 
 ```shell
 subql-node-avalanche -c your-project-config.yml
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Cosmos'>
+@tab Cosmos
 
 ```shell
 subql-node-cosmos -c your-project-config.yml
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Algorand'>
+@tab Algorand
 
 ```shell
 subql-node-algorand -c your-project-config.yml
 ```
 
-</CodeGroupItem>
-</CodeGroup>
+:::
 
 This will point the query node to a manifest file which can be in YAML or JSON format.
 
@@ -230,43 +210,38 @@ Result:
 
 #### Запуск в локальном режиме
 
-<CodeGroup>
-<CodeGroupItem title='Substrate/Polkadot'>
+::: code-tabs
+@tab Substrate/Polkadot
 
 ```shell
 subql-node -f your-project-path --local
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Terra'>
+@tab Terra
 
 ```shell
 subql-node-terra -f your-project-path --local
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Avalanche'>
+@tab Avalanche
 
 ```shell
 subql-node-avalanche -f your-project-path --local
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Cosmos'>
+@tab Cosmos
 
 ```shell
 subql-node-cosmos -f your-project-path --local
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Algorand'>
+@tab Algorand
 
 ```shell
 subql-node-algorand -f your-project-path --local
 ```
 
-</CodeGroupItem>
-</CodeGroup>
+:::
 
 For debugging purposes, users can run the node in local mode. При переключении на локальную модель будут созданы таблицы Postgres в схеме по умолчанию `public`.
 
@@ -300,7 +275,7 @@ For debugging purposes, users can run the node in local mode. При перек�
     "genesisHash": "0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3",
     "blockTime": 6000
 }
- 
+
 
 ```
 

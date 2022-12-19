@@ -51,8 +51,8 @@ yarn codegen
 
 Запустите команду сборки из корневого каталога проекта.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> `shell yarn build ` </CodeGroupItem>
-<CodeGroupItem title="NPM"> `bash npm run-script build ` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell yarn build `
+@tab npm `bash npm run-script build ` :::
 
 ### Альтернативные варианты сборки
 

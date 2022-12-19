@@ -1,13 +1,12 @@
 # Module 3: Relationships
 
-This module explains the different types of entity relations **(one-to-one, one-to-many, and many-to-many)** with guided examples. The module is divided into 3 video lessons for in-depth explanations. 
+This module explains the different types of entity relations **(one-to-one, one-to-many, and many-to-many)** with guided examples. The module is divided into 3 video lessons for in-depth explanations.
 
 :::info Note
-For a basic uderstanding of the terminologies related to entity relations, visit [GraphQL Schema Documentation.](../../build/graphql.md) 
+For a basic uderstanding of the terminologies related to entity relations, visit [GraphQL Schema Documentation.](../../build/graphql.md)
 :::
 
-Let's have a look at each relationship one-by-one. 
-
+Let's have a look at each relationship one-by-one.
 
 ## Lesson 1: One to Many Entities
 
@@ -15,16 +14,15 @@ Let's have a look at each relationship one-by-one.
   <iframe src="https://www.youtube.com/embed/7ApycKhiPTw" frameborder="0" allowfullscreen="true"></iframe>
 </figure>
 
-### Exercise -  Balances Transfers (One-to-Many)
+### Exercise - Balances Transfers (One-to-Many)
 
-In these exercises, we will take the starter project and focus on understanding **one to many entity relationships**. We will create a project that allows us to query for accounts and determine how much was transferred to what receiving address. 
+In these exercises, we will take the starter project and focus on understanding **one to many entity relationships**. We will create a project that allows us to query for accounts and determine how much was transferred to what receiving address.
 
 ### Pre-Requisites
 
 Completion of [Module 2](../herocourse/module2.md).
 
-
-### Overview of Steps Involved 
+### Overview of Steps Involved
 
 1. Initialise the starter project.
 2. Update your mappings, manifest file, and graphql schema file by removing all the default code except for the `handleEvent` function.
@@ -34,11 +32,9 @@ Completion of [Module 2](../herocourse/module2.md).
 
 ### Detailed Steps
 
-
 #### Step 1: Initialise Your Project
 
 The first step to create a SubQuery project using the following command:
-
 
 ```
 $ subql init
@@ -46,27 +42,24 @@ Project name [subql-starter]: account-transfers
 ? Select a network family Substrate
 ? Select a network Polkadot
 ? Select a template project subql-starter     Starter project for subquery
-RPC endpoint: [wss://polkadot.api.onfinality.io/public-ws]: 
-Git repository [https://github.com/subquery/subql-starter]: 
+RPC endpoint: [wss://polkadot.api.onfinality.io/public-ws]:
+Git repository [https://github.com/subquery/subql-starter]:
 Fetching network genesis hash... done
-Author [Ian He & Jay Ji]: 
-Description [This project can be use as a starting po...]: 
-Version [1.0.0]: 
-License [MIT]: 
+Author [Ian He & Jay Ji]:
+Description [This project can be use as a starting po...]:
+Version [1.0.0]:
+License [MIT]:
 Preparing project... done
 account-transfers is ready
 ```
-
-
 
 #### Step 2: Update the Graphql Schema
 
 Create an entity called `Account`. This account will contain multiple transfers. Here, an account can be considered as a **Polkadot address** owned by someone.
 
-Transfers can be considered as a transaction with an amount, a sender, and a receiver(let’s ignore the sender for now). Here, you will obtain the amount transferred, the blockNumber, and to whom it was sent(also known as the receiver). 
+Transfers can be considered as a transaction with an amount, a sender, and a receiver(let’s ignore the sender for now). Here, you will obtain the amount transferred, the blockNumber, and to whom it was sent(also known as the receiver).
 
 - The schema file should look like this:
-
 
 ```
 type Account @entity {
@@ -83,14 +76,13 @@ type Transfer @entity {
 
 #### Step 3: Update the Manifest File (aka project.yaml)
 
-Update the manifest file to only include the `handleEvent` handler and update the filter method to `Transfer`. The reason is that we only want to work with the "balance transfer events" in this example. These events will contain the data of those transactions, which are being transferred from one account to another. 
+Update the manifest file to only include the `handleEvent` handler and update the filter method to `Transfer`. The reason is that we only want to work with the "balance transfer events" in this example. These events will contain the data of those transactions, which are being transferred from one account to another.
 
 ::: warning Important
 Avoid messing with the auto-generated version names(as shown in the initial section of the manifest file).
 :::
 
-- The ***updated*** part of the `project.yaml` file should look similar to as below:
-
+- The **_updated_** part of the `project.yaml` file should look similar to as below:
 
 ```
 network:
@@ -111,31 +103,27 @@ dataSources:
             method: Transfer
 ```
 
-::: info Note
+::: tip Note
 Note the inclusion of a `dictionary` and the exclusion of the `genesisHash`.
 :::
 
-
 #### Step 4: Update the Mappings File
 
-The initialisation command pre-creates a sample mappings file with 3 functions: `handleBlock`, `handleEvent`, and `handleCall`. As we are only focusing on `handleEvent`, delete the remaining functions. 
+The initialisation command pre-creates a sample mappings file with 3 functions: `handleBlock`, `handleEvent`, and `handleCall`. As we are only focusing on `handleEvent`, delete the remaining functions.
 
-Note that you also need to make a few other changes. First, understand that the `balance.transfer` event gives access to an array of data in the following format: [from, to, value]. 
+Note that you also need to make a few other changes. First, understand that the `balance.transfer` event gives access to an array of data in the following format: [from, to, value].
 
 This indicates that you can access the values as follows:
 
-
 ```
     const fromAddress = event.event.data[0];
-    const toAddress = event.event.data[1]; 
+    const toAddress = event.event.data[1];
     const amount = event.event.data[2];
 ```
 
-
-Furthermore, as the `Account` entity (formally called the StarterEntity) was instantiated in the `handleBlock` function and you no longer have this, you need to instantiate it within the `handleEvent` function. 
+Furthermore, as the `Account` entity (formally called the StarterEntity) was instantiated in the `handleBlock` function and you no longer have this, you need to instantiate it within the `handleEvent` function.
 
 However, you must first test and see if this value is already in your database. The reason is that an event can contain multiple transfers to the SAME `toAddress`. As a result, you get the `toAddress` if the value is present in the database. And if it does not exist, save it to the database.
-
 
 ```
        const toAccount = await Account.get(toAddress.toString());
@@ -145,7 +133,6 @@ However, you must first test and see if this value is already in your database. 
 ```
 
 For the `Transfer` entity object, set the primary key as the `blocknumber+event.idx` (which guarantees uniqueness) and then set the other fields of the `Transfer` entity object accordingly.
-
 
 ```
     const transfer = new Transfer(`${event.block.block.header.number.toNumber()}-${event.idx}`, );
@@ -157,7 +144,6 @@ For the `Transfer` entity object, set the primary key as the `blocknumber+event.
 
 - The `mappingHandler.ts` file should look like this:
 
-
 ```
 import {SubstrateEvent} from "@subql/types";
 import {Account, Transfer} from "../types";
@@ -166,110 +152,96 @@ import {Balance} from "@polkadot/types/interfaces";
 export async function handleEvent(event: SubstrateEvent): Promise<void> {
     {
         // The balances.transfer event has the following payload \[from, to, value\] that we can access
-        
+
         // const fromAddress = event.event.data[0];
-        const toAddress = event.event.data[1]; 
+        const toAddress = event.event.data[1];
         const amount = event.event.data[2];
-    
+
            // query for toAddress from DB
            const toAccount = await Account.get(toAddress.toString());
            // if not in DB, instantiate a new Account object using the toAddress as a unique ID
            if (!toAccount) {
                await new Account(toAddress.toString()).save();
            }
-        
+
         // instantiate a new Transfer object using the block number and event.idx as a unique ID
         const transfer = new Transfer(`${event.block.block.header.number.toNumber()}-${event.idx}`, );
         transfer.blockNumber = event.block.block.header.number.toBigInt();
         transfer.toId = toAddress.toString();
         transfer.amount = (amount as Balance).toBigInt();
         await transfer.save();
-    
+
     }
 }
 ```
-
 
 #### Step 5: Install the Dependencies
 
 Install the node dependencies by running the following commands:
 
-<CodeGroup>
-  <CodeGroupItem title="YARN" active>
+::: code-tabs
+@tab:active yarn
 
-  ```shell
-  yarn install
-  ```
+```shell
+yarn install
+```
 
-  </CodeGroupItem>
+@tab npm
 
-  <CodeGroupItem title="NPM">
+```bash
+npm install
+```
 
-  ```bash
-  npm install
-  ```
-
-  </CodeGroupItem>
-</CodeGroup>
+:::
 
 #### Step 6: Generate the Associated Typescript
 
 Next, we will generate the associated typescript with the following command:
 
-<CodeGroup>
-  <CodeGroupItem title="YARN" active>
+::: code-tabs
+@tab:active yarn
 
-  ```shell
-  yarn codegen
-  ```
+```shell
+yarn codegen
+```
 
-  </CodeGroupItem>
+@tab npm
 
-  <CodeGroupItem title="NPM">
+```bash
+npm run-script codegen
+```
 
-  ```bash
-  npm run-script codegen
-  ```
-
-  </CodeGroupItem>
-</CodeGroup>
-
+:::
 
 #### Step 7: Build the Project
 
 The next step is to build the project with the following command:
 
-<CodeGroup>
-  <CodeGroupItem title="YARN" active>
+::: code-tabs
+@tab:active yarn
 
-  ```shell
-  yarn build
-  ```
+```shell
+yarn build
+```
 
-  </CodeGroupItem>
+@tab npm
 
-  <CodeGroupItem title="NPM">
+```bash
+npm run-script build
+```
 
-  ```bash
-  npm run-script build
-  ```
-
-  </CodeGroupItem>
-</CodeGroup>
+:::
 
 This code bundles the app into static files for production.
-
 
 #### Step 8: Start the Docker Container
 
 Run the docker command to pull the images and start the container.
 
-
 ```
 docker-compose pull & docker-compose up
 
 ```
-
 
 #### Step 9: Run a Query
 
@@ -277,179 +249,167 @@ Once the docker container is all set and running, which may take a few minutes, 
 
 This will open up a “playground” where you can create your query. Copy the example below and see the results:
 
-<CodeGroup>
-  <CodeGroupItem title="Query(Account entity)" active>
+::: code-tabs
+@tab:active Query
 
-  ```
-  query{
-  accounts(first: 3){  
-    nodes{
-      id
-    }
+```
+query{
+accounts(first: 3){
+  nodes{
+    id
+  }
+  }
+}
+
+```
+
+@tab result
+
+```
+{
+  "data": {
+    "accounts": {
+      "nodes": [
+        {
+          "id": "11k5GkWb9npuqWRq5Pyk51RSnRyskPrPtsyoCApteEUjNou"
+        },
+        {
+          "id": "121dZJsfG7uNvszPSpYvBzwnrcF1P4ejjrE1G6FSWHqht5tC"
+        },
+        {
+          "id": "121rwkQAH3yCD1EcaRgc3nELSoZn29RoTtCN55mcN7RkBA66"
+        }
+      ]
     }
   }
+}
 
-  ```
-  </CodeGroupItem>
+```
 
-  <CodeGroupItem title="Result(Account entity)">
+:::
 
-  ```
-  {
-    "data": {
-      "accounts": {
-        "nodes": [
-          {
-            "id": "11k5GkWb9npuqWRq5Pyk51RSnRyskPrPtsyoCApteEUjNou"
-          },
-          {
-            "id": "121dZJsfG7uNvszPSpYvBzwnrcF1P4ejjrE1G6FSWHqht5tC"
-          },
-          {
-            "id": "121rwkQAH3yCD1EcaRgc3nELSoZn29RoTtCN55mcN7RkBA66"
-          }
-        ]
-      }
-    }
-  }
-
-  ```
-  </CodeGroupItem>
-</CodeGroup>
-
-
-The above code will query the `account` entity returning the id. We have defined the id here as the `toAddress`(also known as the receiving address). 
-
+The above code will query the `account` entity returning the id. We have defined the id here as the `toAddress`(also known as the receiving address).
 
 - You can also query for all the **transfers**. Copy this given code and see the results:
 
-<CodeGroup>
-  <CodeGroupItem title="Query(Transfer entity)" active>
+::: code-tabs
+@tab query
 
-  ```
-  query{
+```
+query{
+transfers(first: 3){
+  nodes{
+    id
+    amount
+    blockNumber
+    }
+  }
+}
+
+```
+
+@tab result
+
+```
+  {
+  "data": {
+    "transfers": {
+      "nodes": [
+        {
+          "id": "7280565-2",
+          "amount": "400009691000",
+          "blockNumber": "7280565"
+        },
+        {
+          "id": "7280566-2",
+          "amount": "23174700000000",
+          "blockNumber": "7280566"
+        },
+        {
+          "id": "7280570-5",
+          "amount": "400000000000",
+          "blockNumber": "7280570"
+        }
+      ]
+    }
+  }
+}
+```
+
+:::
+
+- Note an amazing possibility here. We can even query the account id from within the transfer query. The example below shows that we are querying for transfers where we have an **associated amount** and **blockNumber**. After that we can link this to the receiving or `to` address as follows:
+
+::: code-tabs
+@tab query
+
+```
+query{
   transfers(first: 3){
     nodes{
       id
       amount
       blockNumber
-      }
-    }
-  }
-  
-  ```
-  </CodeGroupItem>
-  
-  <CodeGroupItem title="Result(Transfer entity)">
-
-  ```
-    {
-    "data": {
-      "transfers": {
-        "nodes": [
-          {
-            "id": "7280565-2",
-            "amount": "400009691000",
-            "blockNumber": "7280565"
-          },
-          {
-            "id": "7280566-2",
-            "amount": "23174700000000",
-            "blockNumber": "7280566"
-          },
-          {
-            "id": "7280570-5",
-            "amount": "400000000000",
-            "blockNumber": "7280570"
-          }
-        ]
-      }
-    }
-  }
-  ```
-  </CodeGroupItem>
-</CodeGroup>
-
-
-
-- Note an amazing possibility here. We can even query the account id from within the transfer query. The example below shows that we are querying for transfers where we have an **associated amount** and **blockNumber**. After that we can link this to the receiving or `to` address as follows: 
-
-<CodeGroup>
-  <CodeGroupItem title="Query(account id within transfer)" active>
-
-  ```
-  query{
-    transfers(first: 3){
-      nodes{
+      to{
         id
-        amount
-        blockNumber
-        to{
-          id
-        }
-        }
       }
-    }
-  ```
-  </CodeGroupItem>
-
-  <CodeGroupItem title="Result(account id within transfer)">
-  ```
-  {
-    "data": {
-      "transfers": {
-        "nodes": [
-          {
-            "id": "7280565-2",
-            "amount": "400009691000",
-            "blockNumber": "7280565",
-            "to": {
-              "id": "15kUt2i86LHRWCkE3D9Bg1HZAoc2smhn1fwPzDERTb1BXAkX"
-            }
-          },
-          {
-            "id": "7280566-2",
-            "amount": "23174700000000",
-            "blockNumber": "7280566",
-            "to": {
-              "id": "14uh77yjhC3TLAE6KaCLvkjN7yFeUkejm7o7fdaSsggwD1ua"
-            }
-          },
-          {
-            "id": "7280567-2",
-            "amount": "3419269000000",
-            "blockNumber": "7280567",
-            "to": {
-              "id": "12sj9HTNQ7aiQoRg5wLyuemgvmFcrWeUJRi3aEUnJLmAE56Y"
-            }
-          }
-        ]
       }
     }
   }
-  ```
-  </CodeGroupItem>
-</CodeGroup>
+```
 
+@tab result
 
+```
+{
+  "data": {
+    "transfers": {
+      "nodes": [
+        {
+          "id": "7280565-2",
+          "amount": "400009691000",
+          "blockNumber": "7280565",
+          "to": {
+            "id": "15kUt2i86LHRWCkE3D9Bg1HZAoc2smhn1fwPzDERTb1BXAkX"
+          }
+        },
+        {
+          "id": "7280566-2",
+          "amount": "23174700000000",
+          "blockNumber": "7280566",
+          "to": {
+            "id": "14uh77yjhC3TLAE6KaCLvkjN7yFeUkejm7o7fdaSsggwD1ua"
+          }
+        },
+        {
+          "id": "7280567-2",
+          "amount": "3419269000000",
+          "blockNumber": "7280567",
+          "to": {
+            "id": "12sj9HTNQ7aiQoRg5wLyuemgvmFcrWeUJRi3aEUnJLmAE56Y"
+          }
+        }
+      ]
+    }
+  }
+}
+```
 
+:::
 
-Let's have a look at the database schema and understand the working. 
+Let's have a look at the database schema and understand the working.
 
-The **accounts table** is a standalone table which contains only receiving addresses(`accounts.id`). The **transfer table** contains `to_id` which are links or points back to the accounts. 
+The **accounts table** is a standalone table which contains only receiving addresses(`accounts.id`). The **transfer table** contains `to_id` which are links or points back to the accounts.
 
-Simply put, one account links to many transfers. In other words, each unique Polkadot address, stored in `accounts.id`, links to one or more than one Polkadot address, which has an associated amount and block number. 
-
-
+Simply put, one account links to many transfers. In other words, each unique Polkadot address, stored in `accounts.id`, links to one or more than one Polkadot address, which has an associated amount and block number.
 
 ### References
 
-* [Account Transfers PDF workbook](/assets/pdf/Account_Transfers.pdf)
-* [Account Transfers Github](https://github.com/subquery/tutorials-account-transfers)
-* [One-to-many relationships](../../build/graphql.md#one-to-many-relationships)
+- [Account Transfers PDF workbook](/assets/pdf/Account_Transfers.pdf)
+- [Account Transfers Github](https://github.com/subquery/tutorials-account-transfers)
+- [One-to-many relationships](../../build/graphql.md#one-to-many-relationships)
 
 ---
-
 
 ## Lesson 2: Many to Many Entities
 
@@ -459,15 +419,13 @@ Simply put, one account links to many transfers. In other words, each unique Pol
 
 ### Exercise - Council Proposals (Many-to-Many)
 
-Here, we will take the starter project and focus on learning how many-to-many entity relationships work. We will create a project which allows us to query for the number of votes that councillors have made and how many votes a given proposal has received. 
+Here, we will take the starter project and focus on learning how many-to-many entity relationships work. We will create a project which allows us to query for the number of votes that councillors have made and how many votes a given proposal has received.
 
-
-[Refer to this page](https://polkadot.network/blog/a-walkthrough-of-polkadots-governance/) to learn more about the Polkadot governance structure. 
+[Refer to this page](https://polkadot.network/blog/a-walkthrough-of-polkadots-governance/) to learn more about the Polkadot governance structure.
 
 ### Pre-Requisites
 
 Completion of [Module 2](../herocourse/module2.md).
-
 
 ### Overview of Steps Involved
 
@@ -476,7 +434,6 @@ Completion of [Module 2](../herocourse/module2.md).
 3. Generate, build, and deploy your code.
 4. Deploy your code in Docker.
 5. Query for address balances in the playground.
-
 
 ### Detailed Steps
 
@@ -490,28 +447,26 @@ Project name [subql-starter]: council-proposal
 ? Select a network Polkadot
 ? Select a template project subql-starter     Starter project for subquery
 Cloning project... done
-RPC endpoint: [wss://polkadot.api.onfinality.io/public-ws]: 
-Git repository [https://github.com/subquery/subql-starter]: 
+RPC endpoint: [wss://polkadot.api.onfinality.io/public-ws]:
+Git repository [https://github.com/subquery/subql-starter]:
 Fetching network genesis hash... done
-Author [Ian He & Jay Ji]: 
-Description [This project can be use as a starting po...]: 
-Version [0.0.4]: 
-License [MIT]: 
+Author [Ian He & Jay Ji]:
+Description [This project can be use as a starting po...]:
+Version [0.0.4]:
+License [MIT]:
 Preparing project... done
 council-proposal is ready
 ```
 
 #### Step 2: Update the Graphql Schema
 
-Let’s first create an entity called `Proposals`. This proposal is an event of type council. To simply put, you will extract data from the **council event**. Visit [this page](https://polkadot.js.org/docs/substrate/events#council) for more information. 
+Let’s first create an entity called `Proposals`. This proposal is an event of type council. To simply put, you will extract data from the **council event**. Visit [this page](https://polkadot.js.org/docs/substrate/events#council) for more information.
 
 Focus on the `proposed` method within the council event. The `proposed` method is defined as:
 
->“*A motion (given hash) has been proposed (by given account) with a threshold (given MemberCount). [account, proposal_index, proposal_hash, threshold]” - [source](https://polkadot.js.org/docs/substrate/events/#proposedaccountid32-u32-h256-u32-1)*
+> “_A motion (given hash) has been proposed (by given account) with a threshold (given MemberCount). [account, proposal_index, proposal_hash, threshold]” - [source](https://polkadot.js.org/docs/substrate/events/#proposedaccountid32-u32-h256-u32-1)_
 
-
-
-Hence, you need to add the following fields: `id`, `index`, `hash`, `voteThreshold` and `block` to your entity. 
+Hence, you need to add the following fields: `id`, `index`, `hash`, `voteThreshold` and `block` to your entity.
 
 ```
             id => account
@@ -521,20 +476,13 @@ Hence, you need to add the following fields: `id`, `index`, `hash`, `voteThresho
             block => Not a part of proposed method but useful to extract
 ```
 
-
-
-Next, let’s create an entity object called `Councillor`. This object will hold the number of votes each **councillor** has made. 
+Next, let’s create an entity object called `Councillor`. This object will hold the number of votes each **councillor** has made.
 
 Finally, let’s create a **VoteHistory** entity. This will be another [council event](https://polkadot.js.org/docs/substrate/events#council) using the [voted](https://polkadot.js.org/docs/substrate/events#votedaccountid32-h256-bool-u32-u32) method defined as:
 
+> “_A motion (given hash) has been voted on by a given account, leaving a tally ("yes votes" and "no votes" respectively given as MemberCount). [account, proposal_hash, voted, yes, no]”- [source](https://polkadot.js.org/docs/substrate/events/#votedaccountid32-h256-bool-u32-u32-1)_
 
-
-
->“*A motion (given hash) has been voted on by a given account, leaving a tally ("yes votes" and "no votes" respectively given as MemberCount). [account, proposal_hash, voted, yes, no]”- [source](https://polkadot.js.org/docs/substrate/events/#votedaccountid32-h256-bool-u32-u32-1)*
-
-
-
-You need to add the following fields: `id`, `proposalHash`, `approvedVote`, `councillor`, `votedYes`, `votedNo`, and `block` to your entity. 
+You need to add the following fields: `id`, `proposalHash`, `approvedVote`, `councillor`, `votedYes`, `votedNo`, and `block` to your entity.
 
 ```
             id => account
@@ -546,13 +494,11 @@ You need to add the following fields: `id`, `proposalHash`, `approvedVote`, `cou
             block => Not a part of proposed method but useful to extract
 ```
 
-Here, we have specified the type as the proposal entityNote for `proposalHash`. We have also introduced a new field called `Councillor` and allocated it the `Councillor` type. This has created a table where these two columns work as references to their respective tables. 
+Here, we have specified the type as the proposal entityNote for `proposalHash`. We have also introduced a new field called `Councillor` and allocated it the `Councillor` type. This has created a table where these two columns work as references to their respective tables.
 
-
-This indicates that the **VoteHistory entity** or **VoteHistory database table** can link the `Councillor` entity to the `Proposal` entity. And that creates a **many to many** relationship. In simple terms, councillor can vote for many proposals and a proposal will have many votes. 
+This indicates that the **VoteHistory entity** or **VoteHistory database table** can link the `Councillor` entity to the `Proposal` entity. And that creates a **many to many** relationship. In simple terms, councillor can vote for many proposals and a proposal will have many votes.
 
 - The schema file should look like this:
-
 
 ```
 type Proposal @entity {
@@ -582,11 +528,9 @@ type Councillor @entity {
 
 #### Step 3: Update the Manifest File (aka project.yaml)
 
-Update the manifest file to include two **Event handlers**. Also update the **filter** method to `council/Proposed` and `council/Voted`. 
+Update the manifest file to include two **Event handlers**. Also update the **filter** method to `council/Proposed` and `council/Voted`.
 
-
-- The ***updated*** part of the `project.yaml` file should look simiar to as below:
-
+- The **_updated_** part of the `project.yaml` file should look simiar to as below:
 
 ```
 dataSources:
@@ -607,17 +551,15 @@ dataSources:
             method: Voted
 ```
 
-
 #### Step 4: Update the Mappings File
 
 This mapping file will contain three functions: `handleCouncilProposedEvent`, `handleCouncilVotedEvent`, and `ensureCouncillor`.
-
 
 Let’s have a look at the first function `handleCouncilProposedEvent`.
 
 ##### 4.1 handleCouncilProposedEvent
 
-You can access the values of the event with the following code: 
+You can access the values of the event with the following code:
 
 ```
   const {
@@ -629,13 +571,11 @@ You can access the values of the event with the following code:
 
 - Then instantiate a new `Proposal` object:
 
-
 ```
   const proposal = new Proposal(proposal_hash.toString());
 ```
 
-- After that assign each of the events to a variable in the Proposal object and save it. 
-
+- After that assign each of the events to a variable in the Proposal object and save it.
 
 ```
   proposal.index = proposal_index.toString();
@@ -645,7 +585,6 @@ You can access the values of the event with the following code:
   proposal.block = event.block.block.header.number.toBigInt();
   await proposal.save();
 ```
-
 
 ##### 4.2 handleCouncilVotedEvent
 
@@ -659,7 +598,7 @@ const {
   } = event;
 ```
 
-However, before storing the values into the `voteHistory` object, a helper function is used to check if the `councillorId` already exists. 
+However, before storing the values into the `voteHistory` object, a helper function is used to check if the `councillorId` already exists.
 
 ```
   await ensureCouncillor(councilorId.toString());
@@ -673,7 +612,6 @@ However, before storing the values into the `voteHistory` object, a helper funct
 
 This helper function checks if the councillor entity exists. If it does NOT exist, a new one is created and the number of votes is set to zero. Otherwise, the number of votes is incremented by one.
 
-
 ```
 async function ensureCouncillor(accountId: string): Promise<void> {
   // ensure that our account entities exist
@@ -686,12 +624,7 @@ async function ensureCouncillor(accountId: string): Promise<void> {
   await councillor.save();
 ```
 
-
-
 - The complete mapping file looks similar to as follows:
-
-
-
 
 ```
 import { SubstrateEvent } from "@subql/types";
@@ -752,73 +685,62 @@ async function ensureCouncillor(accountId: string): Promise<void> {
 
 Install the node dependencies by running the following command:
 
-<CodeGroup>
-  <CodeGroupItem title="YARN" active>
+::: code-tabs
+@tab:active yarn
 
-  ```shell
-  yarn install
-  ```
-
-  </CodeGroupItem>
-
-  <CodeGroupItem title="NPM">
-
-  ```bash
-  npm install
-  ```
-
-  </CodeGroupItem>
-</CodeGroup>
+```shell
+yarn install
 ```
+
+@tab npm
+
+```bash
+npm install
+```
+
+:::
+
+````
 
 #### Step 6: Generate the Associated Typescript
 
 Next, generate the associated typescript using the following command:
 
+::: code-tabs
+@tab:active yarn
 
-<CodeGroup>
-  <CodeGroupItem title="YARN" active>
+```shell
+yarn codegen
+````
 
-  ```shell
-  yarn codegen
-  ```
+@tab npm
 
-  </CodeGroupItem>
+```bash
+npm run-script codegen
+```
 
-  <CodeGroupItem title="NPM">
-
-  ```bash
-  npm run-script codegen
-  ```
-
-  </CodeGroupItem>
-</CodeGroup>
-
+:::
 
 #### Step 7: Build the Project
 
 Now, let's build the project with the following command:
 
-<CodeGroup>
-  <CodeGroupItem title="YARN" active>
+::: code-tabs
+@tab:active yarn
 
-  ```shell
-  yarn build
-  ```
+```shell
+yarn build
+```
 
-  </CodeGroupItem>
+@tab npm
 
-  <CodeGroupItem title="NPM">
+```bash
+npm run-script build
+```
 
-  ```bash
-  npm run-script build
-  ```
-
-  </CodeGroupItem>
-</CodeGroup>
+:::
 
 This code bundles the app into static files for production.
-
 
 #### Step 8: Start the Docker Container
 
@@ -834,123 +756,119 @@ Once the docker container is up to date and running successfully, which may take
 
 This will open up a **playground** where you can create your query. Copy the example below and have a look at the results:
 
-<CodeGroup>
-  <CodeGroupItem title="Query" active>
+::: code-tabs
+@tab:active Query
 
-  ```
-  query {
-      councillors (first: 3 orderBy: NUMBER_OF_VOTES_DESC) {
-          nodes {
-              id
-              numberOfVotes
-              voteHistories (first: 5) {
-                totalCount 
-                nodes {
-                  approvedVote
-                }
-            }
+```
+query {
+    councillors (first: 3 orderBy: NUMBER_OF_VOTES_DESC) {
+        nodes {
+            id
+            numberOfVotes
+            voteHistories (first: 5) {
+              totalCount
+              nodes {
+                approvedVote
+              }
           }
-      }
-  }
+        }
+    }
+}
 
-  ```
-  </CodeGroupItem>
+```
 
-  <CodeGroupItem title="Result">
-  ```
-  {
-    "data": {
-      "councillors": {
-        "nodes": [
-          {
-            "id": "12hAtDZJGt4of3m2GqZcUCVAjZPALfvPwvtUTFZPQUbdX1Ud",
-            "numberOfVotes": 61,
-            "voteHistories": {
-              "totalCount": 61,
-              "nodes": [
-                {
-                  "approvedVote": true
-                },
-                {
-                  "approvedVote": true
-                },
-                {
-                  "approvedVote": true
-                },
-                {
-                  "approvedVote": true
-                },
-                {
-                  "approvedVote": true
-                }
-              ]
-            }
-          },
-          {
-            "id": "1363HWTPzDrzAQ6ChFiMU6mP4b6jmQid2ae55JQcKtZnpLGv",
-            "numberOfVotes": 60,
-            "voteHistory": {
-              "totalCount": 60,
-              "nodes": [
-                {
-                  "approvedVote": true
-                },
-                {
-                  "approvedVote": true
-                },
-                {
-                  "approvedVote": true
-                },
-                {
-                  "approvedVote": true
-                },
-                {
-                  "approvedVote": true
-                }
-              ]
-            }
-          },
-          {
-            "id": "12NLgzqfhuJkc9mZ5XUTTG85N8yhhzfptwqF1xVhtK3ZX7f6",
-            "numberOfVotes": 56,
-            "voteHistory": {
-              "totalCount": 56,
-              "nodes": [
-                {
-                  "approvedVote": true
-                },
-                {
-                  "approvedVote": true
-                },
-                {
-                  "approvedVote": true
-                },
-                {
-                  "approvedVote": true
-                },
-                {
-                  "approvedVote": true
-                }
-              ]
-            }
+@tab result
+
+```
+{
+  "data": {
+    "councillors": {
+      "nodes": [
+        {
+          "id": "12hAtDZJGt4of3m2GqZcUCVAjZPALfvPwvtUTFZPQUbdX1Ud",
+          "numberOfVotes": 61,
+          "voteHistories": {
+            "totalCount": 61,
+            "nodes": [
+              {
+                "approvedVote": true
+              },
+              {
+                "approvedVote": true
+              },
+              {
+                "approvedVote": true
+              },
+              {
+                "approvedVote": true
+              },
+              {
+                "approvedVote": true
+              }
+            ]
           }
-        ]
-      }
+        },
+        {
+          "id": "1363HWTPzDrzAQ6ChFiMU6mP4b6jmQid2ae55JQcKtZnpLGv",
+          "numberOfVotes": 60,
+          "voteHistory": {
+            "totalCount": 60,
+            "nodes": [
+              {
+                "approvedVote": true
+              },
+              {
+                "approvedVote": true
+              },
+              {
+                "approvedVote": true
+              },
+              {
+                "approvedVote": true
+              },
+              {
+                "approvedVote": true
+              }
+            ]
+          }
+        },
+        {
+          "id": "12NLgzqfhuJkc9mZ5XUTTG85N8yhhzfptwqF1xVhtK3ZX7f6",
+          "numberOfVotes": 56,
+          "voteHistory": {
+            "totalCount": 56,
+            "nodes": [
+              {
+                "approvedVote": true
+              },
+              {
+                "approvedVote": true
+              },
+              {
+                "approvedVote": true
+              },
+              {
+                "approvedVote": true
+              },
+              {
+                "approvedVote": true
+              }
+            ]
+          }
+        }
+      ]
     }
   }
-  ```
-  </CodeGroupItem>
-</CodeGroup>
+}
+```
 
+:::
 
-
-The above code will query the councillors. It will return the **number of votes**, the **totalCount**, and the **number of approved votes** for each councillor. 
-
+The above code will query the councillors. It will return the **number of votes**, the **totalCount**, and the **number of approved votes** for each councillor.
 
 ### Bonus
 
-Including a **Reverse Lookup** on the schema file will allow you to customise the fields on which you can query. 
-
+Including a **Reverse Lookup** on the schema file will allow you to customise the fields on which you can query.
 
 ```
 type Proposal @entity {
@@ -982,12 +900,11 @@ type Councillor @entity {
 
 Here, by adding `voteHistory_p` and `voteHistory_b`, `voteHistories` becomes `voteHistory_c`.
 
-
 ### References
 
-* [Council Proposal PDF workbook](/assets/pdf/Council_Proposal.pdf)
-* [Council Proposal Github](https://github.com/subquery/tutorials-council-proposals)
-* [Many-to-Many relationships](../../build/graphql.md#many-to-many-relationships)
+- [Council Proposal PDF workbook](/assets/pdf/Council_Proposal.pdf)
+- [Council Proposal Github](https://github.com/subquery/tutorials-council-proposals)
+- [Many-to-Many relationships](../../build/graphql.md#many-to-many-relationships)
 
 ---
 
@@ -997,16 +914,13 @@ Here, by adding `voteHistory_p` and `voteHistory_b`, `voteHistories` becomes `vo
   <iframe src="https://www.youtube.com/embed/4BllEtKEf9s" frameborder="0" allowfullscreen="true"></iframe>
 </figure>
 
-
-
 ### Exercise - Account Transfer (With Reverse Lookup)
 
-In this exercise, we will take the starter project and learn about the reverse lookups. 
+In this exercise, we will take the starter project and learn about the reverse lookups.
 
 ### Pre-Requisites
 
 Completion of [Module 3: Lesson 1 - One to many entities.](module3.md#lesson-1-one-to-many-entities)
-
 
 ### Overview of Steps Involved
 
@@ -1019,25 +933,22 @@ Completion of [Module 3: Lesson 1 - One to many entities.](module3.md#lesson-1-o
 
 #### Step 1: Clone Account Transfer Project
 
-Start by cloning the `tutorials-account-transfers` Github repository. 
+Start by cloning the `tutorials-account-transfers` Github repository.
 
-::: info Note
-This github project was a part of the exercise for **Module 3 - Lesson 2** (See Reference in the end of the Lesson 2). 
+::: tip Note
+This github project was a part of the exercise for **Module 3 - Lesson 2** (See Reference in the end of the Lesson 2).
 :::
 
 Run the following command:
-
 
 ```
 git clone https://github.com/subquery/tutorials-account-transfers.git
 
 ```
 
-
-#### Step 2: Confirm that Project Works 
+#### Step 2: Confirm that Project Works
 
 Run the basic commands to run the project and check if it's all set.
-
 
 ```
 yarn install
@@ -1047,123 +958,118 @@ docker-compose pull && docker-compose up
 
 ```
 
-Once the docker container is running, which may take a few minutes, open up your browser and navigate to `www.localhost:3000`. 
+Once the docker container is running, which may take a few minutes, open up your browser and navigate to `www.localhost:3000`.
 
 This will open up a **playground** where you can create your query. Copy the example below and see the result:
 
-<CodeGroup>
-  <CodeGroupItem title="Query(Account entity)" active>
+::: code-tabs
+@tab:active Query
 
-  ```
-  query{
-    accounts(first: 3){  
-      nodes{
+```
+query{
+  accounts(first: 3){
+    nodes{
+      id
+    }
+    }
+  }
+```
+
+@tab result
+
+```
+{
+  "data": {
+    "accounts": {
+      "nodes": [
+        {
+          "id": "11k5GkWb9npuqWRq5Pyk51RSnRyskPrPtsyoCApteEUjNou"
+        },
+        {
+          "id": "121dZJsfG7uNvszPSpYvBzwnrcF1P4ejjrE1G6FSWHqht5tC"
+        },
+        {
+          "id": "121rwkQAH3yCD1EcaRgc3nELSoZn29RoTtCN55mcN7RkBA66"
+        }
+      ]
+    }
+  }
+}
+```
+
+:::
+
+The above code will query the account entity returning the id. Here. we have defined the id as the `toAddress`(also known as the **receiving address**).
+
+- As noted in a previous exercise(**Lesson 1**), we query the account id from within the **transfer entity**.
+
+The example given below shows that we are querying for transfers where we have an associated amount and blockNumber. After that, we can link this to the receiving or `to` address as follows:
+
+::: code-tabs
+@tab query
+
+```
+query{
+  transfers(first: 3){
+    nodes{
+      id
+      amount
+      blockNumber
+      to{
         id
       }
       }
     }
-  ```
-  </CodeGroupItem>
+  }
+```
 
-  <CodeGroupItem title="Result(Account entity)">
-  
-  ```
-  {
-    "data": {
-      "accounts": {
-        "nodes": [
-          {
-            "id": "11k5GkWb9npuqWRq5Pyk51RSnRyskPrPtsyoCApteEUjNou"
-          },
-          {
-            "id": "121dZJsfG7uNvszPSpYvBzwnrcF1P4ejjrE1G6FSWHqht5tC"
-          },
-          {
-            "id": "121rwkQAH3yCD1EcaRgc3nELSoZn29RoTtCN55mcN7RkBA66"
+@tab result
+
+```
+{
+  "data": {
+    "transfers": {
+      "nodes": [
+        {
+          "id": "7280565-2",
+          "amount": "400009691000",
+          "blockNumber": "7280565",
+          "to": {
+            "id": "15kUt2i86LHRWCkE3D9Bg1HZAoc2smhn1fwPzDERTb1BXAkX"
           }
-        ]
-      }
+        },
+        {
+          "id": "7280566-2",
+          "amount": "23174700000000",
+          "blockNumber": "7280566",
+          "to": {
+            "id": "14uh77yjhC3TLAE6KaCLvkjN7yFeUkejm7o7fdaSsggwD1ua"
+          }
+        },
+        {
+          "id": "7280567-2",
+          "amount": "3419269000000",
+          "blockNumber": "7280567",
+          "to": {
+            "id": "12sj9HTNQ7aiQoRg5wLyuemgvmFcrWeUJRi3aEUnJLmAE56Y"
+          }
+        }
+      ]
     }
   }
-  ```
-  </CodeGroupItem>
-</CodeGroup>
+}
+```
 
-
-The above code will query the account entity returning the id. Here. we have defined the id as the `toAddress`(also known as the **receiving address**). 
-
-
-- As noted in a previous exercise(**Lesson 1**), we query the account id from within the **transfer entity**. 
-
-The example given below shows that we are querying for transfers where we have an associated amount and blockNumber. After that, we can link this to the receiving or `to` address as follows: 
-
-<CodeGroup>
-  <CodeGroupItem title="Query(Transfer entity)" active>
-  
-  ```
-  query{
-    transfers(first: 3){
-      nodes{
-        id
-        amount
-        blockNumber
-        to{
-          id
-        }
-        }
-      }
-    }
-  ```
-  </CodeGroupItem>
-
-  <CodeGroupItem title="Result(Transfer entity)">
-
-  ```
-  {
-    "data": {
-      "transfers": {
-        "nodes": [
-          {
-            "id": "7280565-2",
-            "amount": "400009691000",
-            "blockNumber": "7280565",
-            "to": {
-              "id": "15kUt2i86LHRWCkE3D9Bg1HZAoc2smhn1fwPzDERTb1BXAkX"
-            }
-          },
-          {
-            "id": "7280566-2",
-            "amount": "23174700000000",
-            "blockNumber": "7280566",
-            "to": {
-              "id": "14uh77yjhC3TLAE6KaCLvkjN7yFeUkejm7o7fdaSsggwD1ua"
-            }
-          },
-          {
-            "id": "7280567-2",
-            "amount": "3419269000000",
-            "blockNumber": "7280567",
-            "to": {
-              "id": "12sj9HTNQ7aiQoRg5wLyuemgvmFcrWeUJRi3aEUnJLmAE56Y"
-            }
-          }
-        ]
-      }
-    }
-  }
-  ```
-  </CodeGroupItem>
-</CodeGroup>
-
-
+:::
 
 #### Step 3: Add a Reverse Lookup
 
-Add an extra field to the **Account** entity called `myToAddress`. Assign it the type `Transfer`, and add the `@derived` annotation. 
+Add an extra field to the **Account** entity called `myToAddress`. Assign it the type `Transfer`, and add the `@derived` annotation.
 
-This will create a **virtual field** called `myToAddress`, which can be accessed from the Account entity. Note that it is virtual because the database table structure does not change. 
+This will create a **virtual field** called `myToAddress`, which can be accessed from the Account entity. Note that it is virtual because the database table structure does not change.
 
 <!--- Kindly mention what the below points are for-->
+
 - Allows you to do a reverse lookup in Graphql.
 - Adds a `GetElementByID()` on the child entities.
 
@@ -1183,108 +1089,105 @@ type Transfer @entity {
 
 #### Step 4: Recompile and Test
 
-<CodeGroup>
-  <CodeGroupItem title="Query" active>
+::: code-tabs
+@tab:active Query
 
-  ```
-  query{
-    accounts(first:5){
-      nodes{
-        id
-        myToAddress{
-          nodes{
-            id
-            amount
-          }
+```
+query{
+  accounts(first:5){
+    nodes{
+      id
+      myToAddress{
+        nodes{
+          id
+          amount
         }
       }
     }
   }
-  ```
-  </CodeGroupItem>
+}
+```
 
-  <CodeGroupItem title="Result">
+@tab result
 
-  ```
-  {
-    "data": {
-      "accounts": {
-        "nodes": [
-          {
-            "id": "1112NRMkvMb5x3EwGsLSzXyw7kSLxug4uFH1ec3CnDe7ZoG",
-            "myToAddress": {
-              "nodes": [
-                {
-                  "id": "1206531-14",
-                  "amount": "123000000000"
-                },
-                {
-                  "id": "1206533-9",
-                  "amount": "30000000000"
-                },
-                {
-                  "id": "1249840-2",
-                  "amount": "100000000000"
-                }
-              ]
-            }
-          },
-          {
-            "id": "1117zZ65F4sz3EH9hZdAivERch99XMXADHicJn7ZmKUrrxT",
-            "myToAddress": {
-              "nodes": [
-                {
-                  "id": "1256968-5",
-                  "amount": "86880000000"
-                },
-                {
-                  "id": "1256984-5",
-                  "amount": "12299500000000"
-                }
-              ]
-            }
-          },
-          {
-            "id": "11212d8rV4pj73RLoXqiEJweNs2qU1SsfwbzzRWVzn2o5ZCt",
-            "myToAddress": {
-              "nodes": [
-                {
-                  "id": "1212424-9",
-                  "amount": "50000000000"
-                },
-                {
-                  "id": "1212680-3",
-                  "amount": "150000000000"
-                },
-                {
-                  "id": "1212719-3",
-                  "amount": "22622363200000"
-                },
-                {
-                  "id": "1240252-2",
-                  "amount": "41055764800000"
-                },
-                {
-                  "id": "1258672-6",
-                  "amount": "49000000000"
-                }
-              ]
-            }
+```
+{
+  "data": {
+    "accounts": {
+      "nodes": [
+        {
+          "id": "1112NRMkvMb5x3EwGsLSzXyw7kSLxug4uFH1ec3CnDe7ZoG",
+          "myToAddress": {
+            "nodes": [
+              {
+                "id": "1206531-14",
+                "amount": "123000000000"
+              },
+              {
+                "id": "1206533-9",
+                "amount": "30000000000"
+              },
+              {
+                "id": "1249840-2",
+                "amount": "100000000000"
+              }
+            ]
           }
-        ]
-      }
+        },
+        {
+          "id": "1117zZ65F4sz3EH9hZdAivERch99XMXADHicJn7ZmKUrrxT",
+          "myToAddress": {
+            "nodes": [
+              {
+                "id": "1256968-5",
+                "amount": "86880000000"
+              },
+              {
+                "id": "1256984-5",
+                "amount": "12299500000000"
+              }
+            ]
+          }
+        },
+        {
+          "id": "11212d8rV4pj73RLoXqiEJweNs2qU1SsfwbzzRWVzn2o5ZCt",
+          "myToAddress": {
+            "nodes": [
+              {
+                "id": "1212424-9",
+                "amount": "50000000000"
+              },
+              {
+                "id": "1212680-3",
+                "amount": "150000000000"
+              },
+              {
+                "id": "1212719-3",
+                "amount": "22622363200000"
+              },
+              {
+                "id": "1240252-2",
+                "amount": "41055764800000"
+              },
+              {
+                "id": "1258672-6",
+                "amount": "49000000000"
+              }
+            ]
+          }
+        }
+      ]
     }
   }
-  ```
-  </CodeGroupItem>
-</CodeGroup>
+}
+```
 
+:::
 
-
-Adding the `@derivedFrom` keyword to the `myToAddress` field allows a **virtual field** to appear in the `Account` object. You can see this in the documentation tab. This allows a **Reverse Lookup** where the `Transfer.to` field can be accessed from `Account.myToAddress`. 
+Adding the `@derivedFrom` keyword to the `myToAddress` field allows a **virtual field** to appear in the `Account` object. You can see this in the documentation tab. This allows a **Reverse Lookup** where the `Transfer.to` field can be accessed from `Account.myToAddress`.
 
 ### References
 
-* [Account Transfer with Reverse Lookups PDF Workbook](/assets/pdf/Account_Transfer_with_Reverse_Lookups.pdf)
-* [Account Transfer with Reverse Lookups Github](https://github.com/subquery/tutorials-account-transfer-reverse-lookups)
-* [Reverse lookups](../../build/graphql.md#reverse-lookups)
+- [Account Transfer with Reverse Lookups PDF Workbook](/assets/pdf/Account_Transfer_with_Reverse_Lookups.pdf)
+- [Account Transfer with Reverse Lookups Github](https://github.com/subquery/tutorials-account-transfer-reverse-lookups)
+- [Reverse lookups](../../build/graphql.md#reverse-lookups)

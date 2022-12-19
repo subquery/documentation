@@ -67,9 +67,9 @@ export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
 
 Це інтерфейси, які ми зараз підтримуємо:
 
-- [api.query.&lt;module&gt;.&lt;method&gt;()](https://polkadot.js.org/docs/api/start/api.query) буде запитувати <strong>поточний</strong> блок.
-- [api.query.&lt;module&gt;.&lt;method&gt;.multi()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-same-type) зробить декілька запитів <strong>того ж</strong> типу в поточному блоці.
-- [api.query.&lt;module&gt;.&lt;method&gt;.multi()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-same-type) зробить декілька запитів <strong>того ж</strong> типу в поточному блоці.
+- [api.query.&lt;module&gt;.&lt;method&gt;()](https://polkadot.js.org/docs/api/start/api.query) буде запитувати **поточний** блок.
+- [api.query.&lt;module&gt;.&lt;method&gt;.multi()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-same-type) зробить декілька запитів **того ж** типу в поточному блоці.
+- [api.query.&lt;module&gt;.&lt;method&gt;.multi()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-same-type) зробить декілька запитів **того ж** типу в поточному блоці.
 
 Це інтерфейси, які ми робимо **НЕ** підтримуємо:
 

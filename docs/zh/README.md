@@ -4,7 +4,7 @@
     <div class="main">
       <div>
         <h2 class="welcomeTitle">使用<span>SubQuery 学院构建更快的 dapps</span></h2>
-        <p>在您分散的数据和工具之间探索和实现您自己高效的自定义开源API，以更快地查询数据并节省时间。</p></br>
+        <p>在您分散的数据和工具之间探索和实现您自己高效的自定义开源API，以更快地查询数据并节省时间。</p>
         <p><strong>SubQuery 现在支持Polkadot、Avalanche和 Cosmos(从Juno开始)。</strong></p>
       </div>
     </div>
@@ -12,7 +12,7 @@
   <section class="startSection main">
     <div>
       <h2 class="title">使用我们的 <span>快速启动指南获得一个启动</span></h2>
-      <p><strong>在不到10分钟的时间内构建您的第一个子查询项目，并带有简单的引导步骤。</strong>
+      <p><strong>在不到10分钟的时间内构建您的第一个子查询项目，并带有简单的引导步骤。</strong></p>
       <p>开始在您最爱的区块链网络上查询您的 dApps 数据，使用我们的启动项目。 探索和修改重要文件，了解SubQuery是如何工作的。
       </p>
       <span class="button">
@@ -134,8 +134,7 @@
     </div>
   </div>
 </section>
-</div> </div>
 <div class="footer">
   <div class="main"><div>SubQuery © 2022</div></div>
 </div>
-<script charset="utf-8" src="/assets/js/welcome.js"></script>
+<!--<script charset="utf-8" src="/assets/js/welcome.js"></script>-->

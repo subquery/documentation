@@ -67,10 +67,10 @@ export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
 
 ซึ่งอินเทอร์เฟซที่เรารองรับในขณะนี้ ได้แก่
 
-- [api.query.&lt;module&gt;.&lt;method&gt;()](https://polkadot.js.org/docs/api/start/api.query) สำหรับการคิวรี่บล็อก <strong>ปัจจุบัน</strong>
-- [api.query.&lt;module&gt;.&lt;method&gt;.multi()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-same-type) สำหรับการคิวรี่พร้อมกันหลายครั้งในอินเทอร์เฟซประเภท <strong>เดียวกัน</strong> ที่บล็อกปัจจุบัน
+- [api.query.&lt;module&gt;.&lt;method&gt;()](https://polkadot.js.org/docs/api/start/api.query) สำหรับการคิวรี่บล็อก **ปัจจุบัน**
+- [api.query.&lt;module&gt;.&lt;method&gt;.multi()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-same-type) สำหรับการคิวรี่พร้อมกันหลายครั้งในอินเทอร์เฟซประเภท **เดียวกัน** ที่บล็อกปัจจุบัน
 - [api.queryMulti()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-distinct-types) สำหรับการคิวรี่พร้อมกันหลายครั้งในอินเทอร์เฟซประเภท
-  <strong>ต่างกัน</strong> ที่บล็อกปัจจุบัน
+  **ต่างกัน** ที่บล็อกปัจจุบัน
 
 และนี่คืออินเทอร์เฟซที่ขณะนี้เรา **ไม่ได้** สนับสนุน ซึ่งได้แก่
 

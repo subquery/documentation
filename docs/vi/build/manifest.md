@@ -4,8 +4,8 @@ Tệp Manifest `project.yaml` có thể được xem như một điểm đầu v
 
 Tệp kê khai có thể ở định dạng YAML hoặc JSON. Trong tài liệu này, chúng tôi sẽ sử dụng YAML trong tất cả các ví dụ. Dưới đây là ví dụ tiêu chuẩn về `project.yaml` cơ bản.
 
-<CodeGroup> <CodeGroupItem title="v0.2.0" active> ``` yml specVersion: 0.2.0 name: example-project #tên của dự án version: 1.0.0  #phiên bản của dự án description: '' #miêu tả dự án của bạn repository: 'https://github.com/subquery/subql-starter' # địa chỉ kho lưu trữ Git cho dự án của bạn schema: file: ./schema.graphql # Vị trí file GraphQL schema network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' # Hàm băm gốc của mạng endpoint: 'wss://polkadot.api.onfinality.io/public-ws' # Phần bổ sung tùy chọn điểm cuối HTTP của full chain dictionary nhằm tăng tốc độ xử lý dictionary: 'https://api.subquery.network/sq/subquery/dictionary-polkadot' dataSources: - kind: substrate/Runtime startBlock: 1 # Thao tác này sẽ thay đổi block chỉ mục khởi đầu, đặt mức giá trị cao hơn để bỏ qua các block khởi đầu với ít dữ liệu hơn. mapping: file: "./dist/index.js" handlers: - handler: handleBlock kind: substrate/BlockHandler - handler: handleEvent kind: substrate/EventHandler filter: #Phần filter (lọc) này là tùy chọn, có hay không cũng được module: balances method: Deposit - handler: handleCall kind: substrate/CallHandler ```` </CodeGroupItem>
-<CodeGroupItem title="v0.0.1"> ``` yml specVersion: "0.0.1" description: '' # Miêu tả dự án của bạn repository: 'https://github.com/subquery/subql-starter' # Địa chỉ kho lưu trữ Git cho dự án của bạn schema: ./schema.graphql #Vị trí file GraphQL schema network: endpoint: 'wss://polkadot.api.onfinality.io/public-ws' # Tùy chọn này giúp cung cấp điểm cuối HTTP của full chain dictionary nhằm tăng tốc độ xử lý dictionary: 'https://api.subquery.network/sq/subquery/dictionary-polkadot' dataSources: - name: main kind: substrate/Runtime startBlock: 1 # Thao tác này sẽ thay đổi block chỉ mục khởi đầu, đặt mức giá trị cao hơn để bỏ qua các block khởi đầu với ít dữ liệu hơn. mapping: handlers: - handler: handleBlock kind: substrate/BlockHandler - handler: handleEvent kind: substrate/EventHandler filter: #Filter (lọc) là một bổ sung tùy chọn (có hay  không cũng được), nhưng nên có để tăng tốc độ xử lý sự kiện            module: balances method: Deposit - handler: handleCall kind: substrate/CallHandler ```` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab v0.2.0 ` yml specVersion: 0.2.0 name: example-project #tên của dự án version: 1.0.0  #phiên bản của dự án description: '' #miêu tả dự án của bạn repository: 'https://github.com/subquery/subql-starter' # địa chỉ kho lưu trữ Git cho dự án của bạn schema: file: ./schema.graphql # Vị trí file GraphQL schema network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' # Hàm băm gốc của mạng endpoint: 'wss://polkadot.api.onfinality.io/public-ws' # Phần bổ sung tùy chọn điểm cuối HTTP của full chain dictionary nhằm tăng tốc độ xử lý dictionary: 'https://api.subquery.network/sq/subquery/dictionary-polkadot' dataSources: - kind: substrate/Runtime startBlock: 1 # Thao tác này sẽ thay đổi block chỉ mục khởi đầu, đặt mức giá trị cao hơn để bỏ qua các block khởi đầu với ít dữ liệu hơn. mapping: file: "./dist/index.js" handlers: - handler: handleBlock kind: substrate/BlockHandler - handler: handleEvent kind: substrate/EventHandler filter: #Phần filter (lọc) này là tùy chọn, có hay không cũng được module: balances method: Deposit - handler: handleCall kind: substrate/CallHandler ```` 
+@tab v0.0.1 ` yml specVersion: "0.0.1" description: '' # Miêu tả dự án của bạn repository: 'https://github.com/subquery/subql-starter' # Địa chỉ kho lưu trữ Git cho dự án của bạn schema: ./schema.graphql #Vị trí file GraphQL schema network: endpoint: 'wss://polkadot.api.onfinality.io/public-ws' # Tùy chọn này giúp cung cấp điểm cuối HTTP của full chain dictionary nhằm tăng tốc độ xử lý dictionary: 'https://api.subquery.network/sq/subquery/dictionary-polkadot' dataSources: - name: main kind: substrate/Runtime startBlock: 1 # Thao tác này sẽ thay đổi block chỉ mục khởi đầu, đặt mức giá trị cao hơn để bỏ qua các block khởi đầu với ít dữ liệu hơn. mapping: handlers: - handler: handleBlock kind: substrate/BlockHandler - handler: handleEvent kind: substrate/EventHandler filter: #Filter (lọc) là một bổ sung tùy chọn (có hay không cũng được), nhưng nên có để tăng tốc độ xử lý sự kiện module: balances method: Deposit - handler: handleCall kind: substrate/CallHandler ```` :::
 
 ## Di chuyển từ v0.0.1 sang v0.2.0<Badge text="upgrade" type="warning"/>
 
@@ -29,15 +29,15 @@ Theo mặc định, CLI sẽ tạo các dự án SubQuery theo phiên bản v0.2
 
 USAGE $ subql init [PROJECTNAME]
 
-ARGUMENTS PROJECTNAME  Give the starter project name
+ARGUMENTS PROJECTNAME Give the starter project name
 
 | Các Tùy chọn            | Mô tả                                                                        |
-| ----------------------- | ---------------------------------------------------------------------------- |
+| ----------------------- | ---------------------------------------------------------------------------- | ------------------------------------------ |
 | -f, --force             |                                                                              |
 | -l, --location=location | thư mục cục bộ để chứa dự án tạo ra                                          |
 | -install-dependencies   | Cài đặt các phần phụ thuộc                                                   |
 | --npm                   | Buộc sử dụng NPM thay vì yarn, chỉ hoạt động với `install-dependencies` flag |
-| --specVersion=0.0.1     | 0.2.0 [mặc định: 0.2.0] | Phiên bản đặc tả sẽ được sử dụng bởi dự án         |
+| --specVersion=0.0.1     | 0.2.0 [mặc định: 0.2.0]                                                      | Phiên bản đặc tả sẽ được sử dụng bởi dự án |
 
 ## Tổng quan
 
@@ -72,19 +72,19 @@ ARGUMENTS PROJECTNAME  Give the starter project name
 ### Thông số kỹ thuật Data Source
 
 Định nghĩa phần dữ liệu sẽ được lọc và trích xuất và vị trí của trình xử lý hàm ánh xạ để áp dụng chuyển đổi dữ liệu.
-| Trường         | v0.0.1                                                    | v0.2.0                                                                           | Mô tả                                                                                                                                                                                                                  |
+| Trường | v0.0.1 | v0.2.0 | Mô tả |
 | -------------- | --------------------------------------------------------- | -------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **name**       | String                                                    | String                                                                           | Tên của nguồn dữ liệu                                                                                                                                                                                                  |
-| **kind**       | [substrate/Runtime](./manifest/#data-sources-and-mapping) | substrate/Runtime, [substrate/CustomDataSource](./manifest/#custom-data-sources) | Chúng tôi hỗ trợ các kiểu dữ liệu mặc định của Substrate runtime, chẳng hạn như khối, sự kiện và phần bổ sung (gọi). <br /> Từ v0.2.0, chúng tôi hỗ trợ dữ liệu runtime tùy chỉnh, chẳng hạn như smart contract. |
-| **startBlock** | Integer                                                   | Integer                                                                          | Thao tác này sẽ thay đổi khối bắt đầu lập chỉ mục, đặt khối này cao hơn để bỏ qua khối ban đầu với ít dữ liệu hơn                                                                                                      |
-| **mapping**    | Thông số kỹ thuật ánh xạ                                  | Thông số kỹ thuật ánh xạ                                                         |                                                                                                                                                                                                                        |
-| **filter**     | [network-filters](./manifest/#network-filters)            | String                                                                           | Lọc nguồn dữ liệu để thực thi theo tên thông số điểm cuối mạng                                                                                                                                                         |
+| **name** | String | String | Tên của nguồn dữ liệu |
+| **kind** | [substrate/Runtime](./manifest/#data-sources-and-mapping) | substrate/Runtime, [substrate/CustomDataSource](./manifest/#custom-data-sources) | Chúng tôi hỗ trợ các kiểu dữ liệu mặc định của Substrate runtime, chẳng hạn như khối, sự kiện và phần bổ sung (gọi). <br /> Từ v0.2.0, chúng tôi hỗ trợ dữ liệu runtime tùy chỉnh, chẳng hạn như smart contract. |
+| **startBlock** | Integer | Integer | Thao tác này sẽ thay đổi khối bắt đầu lập chỉ mục, đặt khối này cao hơn để bỏ qua khối ban đầu với ít dữ liệu hơn |
+| **mapping** | Thông số kỹ thuật ánh xạ | Thông số kỹ thuật ánh xạ | |
+| **filter** | [network-filters](./manifest/#network-filters) | String | Lọc nguồn dữ liệu để thực thi theo tên thông số điểm cuối mạng |
 
 ### Thông số kỹ thuật ánh xạ
 
-| Trường                 | v0.0.1                                       | v0.2.0                                                                                        | Mô tả                                                                                                                                                                                                                                            |
-| ---------------------- | -------------------------------------------- | --------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **file**               | String                                       | String                                                                                        | Đường dẫn đến mục nhập ánh xạ                                                                                                                                                                                                                    |
+| Trường                 | v0.0.1                                       | v0.2.0                                                                                  | Mô tả                                                                                                                                                                                                                                         |
+| ---------------------- | -------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **file**               | String                                       | String                                                                                  | Đường dẫn đến mục nhập ánh xạ                                                                                                                                                                                                                 |
 | **handlers & filters** | [Default handlers and filters](#schema-spec) | Default handlers and filters, <br />[Custom handlers and filters](#custom-data-sources) | Liệt kê tất cả [hàm ánh xạ](./mapping/polkadot.md) và các hàm xử lý tương ứng của chúng, với các bộ lọc ánh xạ bổ sung. <br /><br /> Đối với hàm xử lý ánh xạ runtime tùy chỉnh, vui lòng xem [Nguồn dữ liệu tùy chỉnh](#custom-data-sources) |
 
 ## Nguồn dữ liệu và ánh xạ
@@ -105,8 +105,8 @@ Bảng sau giải thích các bộ lọc được hỗ trợ bởi các trình x
 
 **Dự án SubQuery của bạn sẽ hiệu quả hơn nhiều khi bạn sử dụng trình xử lý sự kiện và cuộc gọi với các bộ lọc ánh xạ thích hợp**
 
-| Hàm xử lý                                  | Bộ lọc được hỗ trợ           |
-| ------------------------------------------ | ---------------------------- |
+| Hàm xử lý                                           | Bộ lọc được hỗ trợ           |
+| --------------------------------------------------- | ---------------------------- |
 | [BlockHandler](./mapping/polkadot.md#block-handler) | `specVersion`                |
 | [EventHandler](./mapping/polkadot.md#event-handler) | `module`,`method`            |
 | [CallHandler](./mapping/polkadot.md#call-handler)   | `module`,`method` ,`success` |
@@ -154,8 +154,8 @@ Chúng tôi hỗ trợ các kiểu bổ sung được sử dụng bởi các mod
 
 Trong ví dụ v0.2.0 bên dưới, `network.chaintypes` đang trỏ đến một tệp có tất cả các loại tùy chỉnh được nhúng vào, Đây là tệp chainpec tiêu chuẩn khai báo các kiểu cụ thể được hỗ trợ bởi chuỗi khối này trong cả định dạng `.json`, `.yaml` hoặc `.js`.
 
-<CodeGroup> <CodeGroupItem title="v0.2.0" active> `yml network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' endpoint: 'ws://host.kittychain.io/public-ws' chaintypes: file: ./types.json # The relative filepath to where custom types are stored ...` </CodeGroupItem>
-<CodeGroupItem title="v0.0.1"> `yml ... network: endpoint: "ws://host.kittychain.io/public-ws" types: { "KittyIndex": "u32", "Kitty": "[u8; 16]" } # typesChain: { chain: { Type5: 'example' } } # typesSpec: { spec: { Type6: 'example' } } dataSources: - name: runtime kind: substrate/Runtime startBlock: 1 filter: #Optional specName: kitty-chain mapping: handlers: - handler: handleKittyBred kind: substrate/CallHandler filter: module: kitties method: breed success: true` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab v0.2.0 `yml network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' endpoint: 'ws://host.kittychain.io/public-ws' chaintypes: file: ./types.json # The relative filepath to where custom types are stored ...`
+@tab v0.0.1 `yml ... network: endpoint: "ws://host.kittychain.io/public-ws" types: { "KittyIndex": "u32", "Kitty": "[u8; 16]" } # typesChain: { chain: { Type5: 'example' } } # typesSpec: { spec: { Type6: 'example' } } dataSources: - name: runtime kind: substrate/Runtime startBlock: 1 filter: #Optional specName: kitty-chain mapping: handlers: - handler: handleKittyBred kind: substrate/CallHandler filter: module: kitties method: breed success: true` :::
 
 Để sử dụng typescript cho các loại chuỗi của bạn, hãy bao gồm tệp đó trong thư mục `src` (ví dụ: `./src/types.ts`), chạy `yarn build` và sau đó trỏ đến tệp js đã tạo nằm trong thư mục `dist`.
 
@@ -172,7 +172,7 @@ Những điều cần lưu ý khi sử dụng tệp loại chuỗi có phần m�
 
 Đây là ví dụ về tệp loại chuỗi `.ts`:
 
-<CodeGroup> <CodeGroupItem title="types.ts"> `ts import { typesBundleDeprecated } from "moonbeam-types-bundle" export default { typesBundle: typesBundleDeprecated }; ` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab types.ts `ts import { typesBundleDeprecated } from "moonbeam-types-bundle" export default { typesBundle: typesBundleDeprecated }; ` :::
 
 ## Nguồn dữ liệu tùy chỉnh
 
@@ -198,6 +198,6 @@ Người dùng có thể thêm `filter` trên `dataSources` để quyết địn
 
 Dưới đây là một ví dụ hiển thị các nguồn dữ liệu khác nhau cho cả mạng Polkadot và Kusama.
 
-<CodeGroup> <CodeGroupItem title="v0.0.1"> `yaml --- network: endpoint: 'wss://polkadot.api.onfinality.io/public-ws' #Create a template to avoid redundancy definitions: mapping: &mymapping handlers: - handler: handleBlock kind: substrate/BlockHandler dataSources: - name: polkadotRuntime kind: substrate/Runtime filter: #Optional specName: polkadot startBlock: 1000 mapping: *mymapping #use template here - name: kusamaRuntime kind: substrate/Runtime filter: specName: kusama startBlock: 12000 mapping: *mymapping # can reuse or change ` </CodeGroupItem>
+::: code-tabs @tab v0.0.1 `yaml --- network: endpoint: 'wss://polkadot.api.onfinality.io/public-ws' #Create a template to avoid redundancy definitions: mapping: &mymapping handlers: - handler: handleBlock kind: substrate/BlockHandler dataSources: - name: polkadotRuntime kind: substrate/Runtime filter: #Optional specName: polkadot startBlock: 1000 mapping: *mymapping #use template here - name: kusamaRuntime kind: substrate/Runtime filter: specName: kusama startBlock: 12000 mapping: *mymapping # can reuse or change `
 
-</CodeGroup>
+:::

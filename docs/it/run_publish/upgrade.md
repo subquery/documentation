@@ -77,10 +77,10 @@ If you just want to upgrade to the latest indexer ([`@subql/node`](https://www.n
 
 Una volta che il tuo deployment è stato completato con successo e i nostri nodi hanno indicizzato i tuoi dati dalla catena, sarai in grado di connetterti al tuo progetto tramite l'endpoint GraphQL Query visualizzato.
 
-![Progetto distribuito e sincronizzato](/assets/img/projects-deploy-sync.png)
+![Progetto distribuito e sincronizzato](/assets/img/projects_deploy_sync.png)
 
 In alternativa, puoi cliccare sui tre puntini accanto al titolo del tuo progetto e visualizzarlo su SubQuery Explorer. There you can use the in browser playground to get started - [read more about how to use our Explorer here](../run_publish/query.md).
 
-![Projects in SubQuery Explorer](/assets/img/projects-explorer.png)
+![Projects in SubQuery Explorer](/assets/img/projects_explorer.png)
 
-::: info Note Learn more about the [GraphQL Query language.](./graphql.md) :::
+::: tip Note Learn more about the [GraphQL Query language.](./graphql.md) :::

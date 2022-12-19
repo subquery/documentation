@@ -247,13 +247,13 @@ If you just want to upgrade to the latest indexer ([`@subql/node`](https://www.n
 
 Once your deployment has succesfully completed and our nodes have indexed your data from the chain, you'll be able to connect to your project via the displayed GraphQL Query endpoint.
 
-![Project being deployed and synced](/assets/img/projects-deploy-sync.png)
+![Project being deployed and synced](/assets/img/projects_deploy_sync.png)
 
 Alternatively, you can click on the three dots next to the title of your project, and view it on SubQuery Explorer. There you can use the in browser playground to get started - [read more about how to use our Explorer here](../run_publish/query.md).
 
-![Projects in SubQuery Explorer](/assets/img/projects-explorer.png)
+![Projects in SubQuery Explorer](/assets/img/projects_explorer.png)
 
-::: info Note
+::: tip Note
 Learn more about the [GraphQL Query language.](./graphql.md)
 :::
 

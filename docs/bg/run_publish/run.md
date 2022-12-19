@@ -4,7 +4,7 @@ This guide works through how to run a local SubQuery node on your infrastructure
 
 ## Using Docker
 
-An alternative solution is to run a <strong>Docker Container</strong>, defined by the `docker-compose.yml` file. For a new project that has been just initialised you won't need to change anything here.
+An alternative solution is to run a **Docker Container**, defined by the `docker-compose.yml` file. For a new project that has been just initialised you won't need to change anything here.
 
 Under the project directory run the following command:
 
@@ -12,7 +12,7 @@ Under the project directory run the following command:
 docker-compose pull && docker-compose up
 ```
 
-::: info Note It may take some time to download the required packages ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), and Postgres) for the first time but soon you'll see a running SubQuery node. :::
+::: tip Note It may take some time to download the required packages ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), and Postgres) for the first time but soon you'll see a running SubQuery node. :::
 
 ## Running an Indexer (subql/node)
 
@@ -32,90 +32,80 @@ CREATE EXTENSION IF NOT EXISTS btree_gist;
 
 ### Installation
 
-<CodeGroup>
-<CodeGroupItem title='Substrate/Polkadot'>
+::: code-tabs
+@tab Substrate/Polkadot
 
 ```shell
 # NPM
 npm install -g @subql/node
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Terra'>
+@tab Terra
 
 ```shell
 # NPM
 npm install -g @subql/node-terra
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Avalanche'>
+@tab Avalanche
 
 ```shell
 # NPM
 npm install -g @subql/node-avalanche
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Cosmos'>
+@tab Cosmos
 
 ```shell
 # NPM
 npm install -g @subql/node-cosmos
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Algorand'>
+@tab Algorand
 
 ```shell
 # NPM
 npm install -g @subql/node-algorand
 ```
 
-</CodeGroupItem>
-</CodeGroup>
+:::
 
 ::: danger Please note that we **DO NOT** encourage the use of `yarn global` due to its poor dependency management which may lead to an errors down the line. :::
 
 Once installed, you can start a node with the following command:
 
-<CodeGroup>
-<CodeGroupItem title='Substrate/Polkadot'>
+::: code-tabs
+@tab Substrate/Polkadot
 
 ```shell
 subql-node <command>
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Terra'>
+@tab Terra
 
 ```shell
 subql-node-terra <command>
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Avalanche'>
+@tab Avalanche
 
 ```shell
 subql-node-avalanche <command>
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Cosmos'>
+@tab Cosmos
 
 ```shell
 subql-node-cosmos <command>
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Algorand'>
+@tab Algorand
 
 ```shell
 subql-node-algorand <command>
 ```
 
-</CodeGroupItem>
-</CodeGroup>
+:::
 
 ### Key Commands
 
@@ -123,43 +113,38 @@ The following commands will assist you to complete the configuration of a SubQue
 
 #### Point to local project path
 
-<CodeGroup>
-<CodeGroupItem title='Substrate/Polkadot'>
+::: code-tabs
+@tab Substrate/Polkadot
 
 ```shell
 subql-node -f your-project-path
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Terra'>
+@tab Terra
 
 ```shell
 subql-node-terra -f your-project-path
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Avalanche'>
+@tab Avalanche
 
 ```shell
 subql-node-avalanche -f your-project-path
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Cosmos'>
+@tab Cosmos
 
 ```shell
 subql-node-cosmos -f your-project-path
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Algorand'>
+@tab Algorand
 
 ```shell
 subql-node-algorand -f your-project-path
 ```
 
-</CodeGroupItem>
-</CodeGroup>
+:::
 
 #### Connect to database
 
@@ -176,43 +161,38 @@ Depending on the configuration of your Postgres database (e.g. a different datab
 
 #### Specify a configuration file
 
-<CodeGroup>
-<CodeGroupItem title='Substrate/Polkadot'>
+::: code-tabs
+@tab Substrate/Polkadot
 
 ```shell
 subql-node -c your-project-config.yml
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Terra'>
+@tab Terra
 
 ```shell
 subql-node-terra -c your-project-config.yml
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Avalanche'>
+@tab Avalanche
 
 ```shell
 subql-node-avalanche -c your-project-config.yml
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Cosmos'>
+@tab Cosmos
 
 ```shell
 subql-node-cosmos -c your-project-config.yml
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Algorand'>
+@tab Algorand
 
 ```shell
 subql-node-algorand -c your-project-config.yml
 ```
 
-</CodeGroupItem>
-</CodeGroup>
+:::
 
 This will point the query node to a manifest file which can be in YAML or JSON format.
 
@@ -230,43 +210,38 @@ When the indexer first indexes the chain, fetching single blocks will significan
 
 #### Run in local mode
 
-<CodeGroup>
-<CodeGroupItem title='Substrate/Polkadot'>
+::: code-tabs
+@tab Substrate/Polkadot
 
 ```shell
 subql-node -f your-project-path --local
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Terra'>
+@tab Terra
 
 ```shell
 subql-node-terra -f your-project-path --local
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Avalanche'>
+@tab Avalanche
 
 ```shell
 subql-node-avalanche -f your-project-path --local
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Cosmos'>
+@tab Cosmos
 
 ```shell
 subql-node-cosmos -f your-project-path --local
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title='Algorand'>
+@tab Algorand
 
 ```shell
 subql-node-algorand -f your-project-path --local
 ```
 
-</CodeGroupItem>
-</CodeGroup>
+:::
 
 For debugging purposes, users can run the node in local mode. Switching to local model will create Postgres tables in the default schema `public`.
 

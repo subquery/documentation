@@ -89,8 +89,8 @@ HelloWorld is ready
 
 Накрая изпълнете следната команда, за да инсталирате зависимостите на новия проект от директорията на новия проект.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```shell cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell cd PROJECT_NAME yarn install `
+@tab npm `shell cd PROJECT_NAME npm install ` :::
 
 Вече инициализирахте първия си проект на SubQuery само с няколко прости стъпки. Нека сега персонализираме стандартния шаблонен проект за конкретна блокова верига, която представлява интерес.
 

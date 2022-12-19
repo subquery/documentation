@@ -8,7 +8,7 @@ SubQuery 支持高级的总函数，以便您在查询期间能够对一组值�
 
 Groupby 允许您在一个查询中快速获取一个从 SubQuery 集中的不同值。
 
-![Graphql Groupby](/assets/img/graphql_合计.png)
+![Graphql Groupby](/assets/img/graphql_aggregation.png)
 
 ## 高级聚合函数
 

@@ -88,8 +88,8 @@ cd subqlHelloWorld
 
 Sekarang lakukan instal yarn atau node untuk menginstal berbagai dependencies.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn install ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```bash npm install ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell yarn install `
+@tab npm `bash npm install ` :::
 
 Sebagai Contoh `yarn install`
 
@@ -109,8 +109,8 @@ berhasil Menyimpan file kunci.
 
 Sekarang jalankan `yarn codegen` untuk menghasilkan TypeScript dari skema GraphQL.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```bash npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell yarn codegen `
+@tab npm `bash npm run-script codegen ` :::
 
 An example of `yarn codegen`
 
@@ -133,8 +133,8 @@ $ ./node_modules/.bin/subql codegen
 
 Langkah selanjutnya adalah membuat kode dengan `yarn build`.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```bash npm run-script build ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell yarn build `
+@tab npm `bash npm run-script build ` :::
 
 An example of `yarn build`
 

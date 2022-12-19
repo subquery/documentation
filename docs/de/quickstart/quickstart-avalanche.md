@@ -59,8 +59,8 @@ Nachdem der Initialisierungsprozess abgeschlossen ist, sollten Sie sehen, dass e
 
 Führen Sie zuletzt im Projektverzeichnis den folgenden Befehl aus, um die Abhängigkeiten des neuen Projekts zu installieren.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```shell cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell cd PROJECT_NAME yarn install `
+@tab npm `shell cd PROJECT_NAME npm install ` :::
 
 ## Änderungen an Ihrem Projekt vornehmen
 
@@ -92,8 +92,8 @@ type PangolinApproval @entity {
 
 **Wichtig: Wenn Sie Änderungen an der Schemadatei vornehmen, stellen Sie bitte sicher, dass Sie Ihr Typenverzeichnis neu generieren. Tun Sie dies jetzt.**
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```shell npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell yarn codegen `
+@tab npm `shell npm run-script codegen ` :::
 
 Sie finden die generierten Modelle im Verzeichnis `/src/types/models`. Weitere Informationen zur Datei `schema.graphql` finden Sie in unserer Dokumentation unter [Build/GraphQL Schema](../build/graphql.md)
 
@@ -169,7 +169,7 @@ Weitere Informationen zu Mapping-Funktionen finden Sie in unserer Dokumentation 
 
 Um Ihr neues SubQuery-Projekt auszuführen, müssen wir zuerst unsere Arbeit erstellen. Führen Sie den Build-Befehl im Stammverzeichnis des Projekts aus.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script build ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell yarn build ` @tab npm `shell npm run-script build ` :::
 
 **Wichtig: Wenn Sie Änderungen an Ihren Zuordnungsfunktionen vornehmen, müssen Sie Ihr Projekt neu erstellen**
 
@@ -183,13 +183,11 @@ Die gesamte Konfiguration, die steuert, wie ein SubQuery-Node ausgeführt wird, 
 
 Führen Sie im Projektverzeichnis den folgenden Befehl aus:
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn start:docker ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script start:docker ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell yarn start:docker ` @tab npm `shell npm run-script start:docker ` :::
 
 Es kann einige Zeit dauern, die erforderlichen Pakete herunterzuladen ([`@subql/node`](https://www.npmjs.com/package/@subql/node),
 
-`@subql/query`</7 > und Postgres) zum ersten Mal, aber bald werden Sie einen laufenden SubQuery-Node sehen. Seien Sie hier bitte geduldig.</p> 
-
-
+`@subql/query` und Postgres) zum ersten Mal, aber bald werden Sie einen laufenden SubQuery-Node sehen. Seien Sie hier bitte geduldig.
 
 ### Fragen Sie Ihr Projekt ab
 
@@ -198,8 +196,6 @@ Es kann einige Zeit dauern, die erforderlichen Pakete herunterzuladen ([`@subql/
 Sie sollten sehen, dass im Explorer ein GraphQL-Playground angezeigt wird und die Schemas, die zur Abfrage bereit sind. Oben rechts auf dem Playground finden Sie eine Schaltfläche _Dokumente_, die eine Dokumentationsverlosung öffnet. Diese Dokumentation wird automatisch generiert und hilft Ihnen zu finden, welche Entitäten und Methoden Sie abfragen können.
 
 Für ein neues SubQuery-Starterprojekt können Sie die folgende Abfrage ausprobieren, um einen Eindruck davon zu bekommen, wie sie funktioniert, oder [mehr über die GraphQL-Abfragesprache erfahren](../run_publish/graphql.md).
-
-
 
 ```graphql
 query {
@@ -215,20 +211,13 @@ query {
     }
   }
 }
-
-
 ```
-
-
-
 
 ### Veröffentlichen Sie Ihr SubQuery-Projekt
 
 SubQuery bietet einen kostenlosen verwalteten Dienst, wenn Sie Ihr neues Projekt bereitstellen können. Sie können es in [SubQuery-Projekten](https://project.subquery.network) bereitstellen und mit unserem [Explorer](https://explorer.subquery.network) abfragen.
 
 [Lesen Sie den Leitfaden zur Veröffentlichung Ihres neuen Projekts in SubQuery Projects](../run_publish/publish.md), **Beachten Sie, dass Sie es über IPFS bereitstellen müssen**.
-
-
 
 ## Weitere Schritte
 

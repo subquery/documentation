@@ -45,11 +45,11 @@ subql init
 Bạn sẽ được hỏi một số câu hỏi khi dự án SubQuery được khởi tạo:
 
 - Project Name: Tên dự án SubQuery của bạn
-- Network Family: Mạng blockchain layer-1 mà dự án Subquery sẽ được phát triển để lập chỉ mục, dùng dấu mũi tên để di chuyển giữa các lựa chọn, trong bài hướng dẫn này, chúng ta sẽ sử dụng *"Terra"*
-- Network: Mạng cụ thể mà dự án SubQuery này sẽ được phát triển để lập chỉ mục, dùng phím mũi tên để di chuyển giữa các lựa chọn, trong bài hướng dẫn này chúng ta sẽ dùng *"Terra"*
-- Template: Chọn mẫu dự án SubQuery để bắt đầu phát triển, chúng tôi gợi ý bạn chọn *"Starter project"*
+- Network Family: Mạng blockchain layer-1 mà dự án Subquery sẽ được phát triển để lập chỉ mục, dùng dấu mũi tên để di chuyển giữa các lựa chọn, trong bài hướng dẫn này, chúng ta sẽ sử dụng _"Terra"_
+- Network: Mạng cụ thể mà dự án SubQuery này sẽ được phát triển để lập chỉ mục, dùng phím mũi tên để di chuyển giữa các lựa chọn, trong bài hướng dẫn này chúng ta sẽ dùng _"Terra"_
+- Template: Chọn mẫu dự án SubQuery để bắt đầu phát triển, chúng tôi gợi ý bạn chọn _"Starter project"_
 - Git repository (Tùy chọn): Cung cấp URL Git cho kho lưu trữ dự án SubQuery này (khi được lưu trữ trong SubQuery Explorer)
-- RPC endpoint (Bắt buộc): Cung cấp URL HTTPS cho điểm cuối RPC đang chạy, sẽ được sử dụng mặc định cho dự án này. Nút RPC này phải là một nút lưu trữ (có trạng thái chuỗi đầy đủ). Đối với hướng dẫn này, chúng tôi sẽ sử dụng giá trị mặc định *"https://terra-columbus-5.beta.api.onfinality.io"*
+- RPC endpoint (Bắt buộc): Cung cấp URL HTTPS cho điểm cuối RPC đang chạy, sẽ được sử dụng mặc định cho dự án này. Nút RPC này phải là một nút lưu trữ (có trạng thái chuỗi đầy đủ). Đối với hướng dẫn này, chúng tôi sẽ sử dụng giá trị mặc định _"https://terra-columbus-5.beta.api.onfinality.io"_
 - Authors (Bắt buộc): Nhập chủ sở hữu của dự án SubQuery này tại đây (ví dụ: tên bạn!)
 - Description (Tùy chọn): Bạn có thể cung cấp một đoạn giới thiệu ngắn về dự án của mình, mô tả dự án chứa dữ liệu gì và người dùng có thể làm gì với dự án
 - Version (Bắt buộc): Nhập số phiên bản tùy chỉnh hoặc sử dụng giá trị mặc định (`1.0.0`)
@@ -59,15 +59,15 @@ Sau khi quá trình khởi tạo hoàn tất, bạn sẽ thấy một thư mục
 
 Cuối cùng, trong thư mục dự án, chạy lệnh sau để cài đặt các phụ thuộc của dự án mới.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```shell cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell cd PROJECT_NAME yarn install `
+@tab npm `shell cd PROJECT_NAME npm install ` :::
 
 ## Thực hiện các thay đổi trên dự án của bạn
 
 Trong gói khởi đầu mà bạn vừa khởi tạo, chúng tôi đã cung cấp cấu hình tiêu chuẩn cho dự án của bạn. Bạn sẽ làm việc chủ yếu trên các tệp sau:
 
 1. Lược đồ GraphQL ở `schema.graphql`
-2. Tệp Kê khai dự án ở ` project.yaml `
+2. Tệp Kê khai dự án ở `project.yaml`
 3. Các chức năng ánh xạ trong thư mục `src/mappings/`
 
 Mục tiêu của hướng dẫn bắt đầu nhanh này là điều chỉnh dự án khởi đầu tiêu chuẩn để bắt đầu lập chỉ mục tất cả các giao dịch từ hợp đồng thông minh bLuna.
@@ -91,8 +91,8 @@ type Transfer @entity {
 
 **Quan trọng: Khi bạn thực hiện bất kỳ thay đổi nào đối với tệp lược đồ, hãy đảm bảo rằng bạn tạo lại thư mục types của mình. Thực hiện ngay bây giờ.**
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```shell npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell yarn codegen `
+@tab npm `shell npm run-script codegen ` :::
 
 Bạn sẽ tìm thấy các model đã tạo trong `thư mục /src/types/models`. Để biết thêm thông tin về tệp `schema.graphql`, hãy xem tài liệu của chúng tôi trong [Lược đồ Build/GraphQL ](../build/graphql.md)
 
@@ -143,30 +143,30 @@ import { MsgExecuteContract } from "@terra-money/terra.js";
 export async function handleEvent(
   event: TerraEvent<MsgExecuteContract>
 ): Promise<void> {
-    // Print debugging data from the event
-    // logger.info(JSON.stringify(event));
+  // Print debugging data from the event
+  // logger.info(JSON.stringify(event));
 
-    // Create the new transfer entity with a unique ID
-    const transfer = new Transfer(
-      `${event.tx.tx.txhash}-${event.msg.idx}-${event.idx}`
-    );
-    transfer.blockHeight = BigInt(event.block.block.block.header.height);
-    transfer.txHash = event.tx.tx.txhash;
-    for (const attr of event.event.attributes) {
-      switch (attr.key) {
-        case "sender":
-          transfer.sender = attr.value;
-          break;
-        case "recipient":
-          transfer.recipient = attr.value;
-          break;
-        case "amount":
-          transfer.amount = attr.value;
-          break;
-        default:
-      }
+  // Create the new transfer entity with a unique ID
+  const transfer = new Transfer(
+    `${event.tx.tx.txhash}-${event.msg.idx}-${event.idx}`
+  );
+  transfer.blockHeight = BigInt(event.block.block.block.header.height);
+  transfer.txHash = event.tx.tx.txhash;
+  for (const attr of event.event.attributes) {
+    switch (attr.key) {
+      case "sender":
+        transfer.sender = attr.value;
+        break;
+      case "recipient":
+        transfer.recipient = attr.value;
+        break;
+      case "amount":
+        transfer.amount = attr.value;
+        break;
+      default:
     }
-    await transfer.save();
+  }
+  await transfer.save();
 }
 ```
 
@@ -178,7 +178,7 @@ Hàm này đang nhận SubstrateEvent bao gồm dữ liệu truyền tải trên
 
 Để chạy Dự án SubQuery mới của bạn trước tiên chúng tôi cần xây dựng công việc của mình. Chạy lệnh xây dựng từ thư mục gốc của dự án.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script build ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell yarn build ` @tab npm `shell npm run-script build ` :::
 
 **Quan trọng: Bất cứ khi nào bạn thực hiện các thay đổi đối với các hàm ánh xạ của mình, bạn sẽ cần phải xây dựng lại dự án của mình**
 
@@ -192,7 +192,7 @@ Tất cả cấu hình kiểm soát cách chạy node SubQuery được định 
 
 Trong thư mục dự án chạy lệnh sau:
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn start:docker ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script start:docker ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell yarn start:docker ` @tab npm `shell npm run-script start:docker ` :::
 
 Có thể mất một chút thời gian để tải xuống các gói cần thiết ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), và Postgres) cho lần đầu tiên, nhưng bạn sẽ sớm thấy một node SubQuery đang chạy. Hãy kiên nhẫn ở bước này.
 
@@ -207,10 +207,7 @@ Bạn sẽ thấy một sân chơi GraphQL đang hiển thị trong explorer và
 ```graphql
 {
   query {
-    transfers(
-      first: 10,
-      orderBy: ID_DESC
-    ) {
+    transfers(first: 10, orderBy: ID_DESC) {
       nodes {
         id
         txHash

@@ -43,10 +43,10 @@ subql init
 Anda akan ditanyai pertanyaan tertentu saat proyek SubQuery diinisialisasi:
 
 - Nama Proyek: Nama untuk proyek SubQuery Anda
-- Jaringan: Jaringan blockchain yang akan diindeks oleh proyek SubQuery ini. Gunakan tombol panah untuk memilih dari opsi yang tersedia. Untuk panduan ini, kami akan menggunakan *"Substrat"*
-- Jaringan: Jaringan blockchain yang akan diindeks oleh proyek SubQuery ini. Gunakan tombol panah untuk memilih dari opsi yang tersedia. Untuk panduan ini, kami akan menggunakan *"Polkadot"*
-- Template: Pilih template proyek SubQuery yang akan memberikan titik awal untuk memulai pengembangan. Sebaiknya pilih proyek *"subql-starter"*.
-- Titik akhir RPC: Berikan URL HTTPS ke titik akhir RPC yang sedang berjalan yang akan digunakan secara default untuk proyek ini. Anda dapat dengan cepat mengakses titik akhir publik untuk jaringan Polkadot yang berbeda atau bahkan membuat simpul khusus pribadi Anda sendiri menggunakan [OnFinality](https://app.onfinality.io) atau cukup gunakan titik akhir Polkadot default. Node RPC ini harus berupa node arsip (memiliki status rantai penuh). Untuk panduan ini kami akan menggunakan nilai default *"https://polkadot.api.onfinality.io"*
+- Jaringan: Jaringan blockchain yang akan diindeks oleh proyek SubQuery ini. Gunakan tombol panah untuk memilih dari opsi yang tersedia. Untuk panduan ini, kami akan menggunakan _"Substrat"_
+- Jaringan: Jaringan blockchain yang akan diindeks oleh proyek SubQuery ini. Gunakan tombol panah untuk memilih dari opsi yang tersedia. Untuk panduan ini, kami akan menggunakan _"Polkadot"_
+- Template: Pilih template proyek SubQuery yang akan memberikan titik awal untuk memulai pengembangan. Sebaiknya pilih proyek _"subql-starter"_.
+- Titik akhir RPC: Berikan URL HTTPS ke titik akhir RPC yang sedang berjalan yang akan digunakan secara default untuk proyek ini. Anda dapat dengan cepat mengakses titik akhir publik untuk jaringan Polkadot yang berbeda atau bahkan membuat simpul khusus pribadi Anda sendiri menggunakan [OnFinality](https://app.onfinality.io) atau cukup gunakan titik akhir Polkadot default. Node RPC ini harus berupa node arsip (memiliki status rantai penuh). Untuk panduan ini kami akan menggunakan nilai default _"https://polkadot.api.onfinality.io"_
 - Repositori Git: Berikan URL Git ke repo tempat proyek SubQuery ini akan dihosting (ketika dihosting di SubQuery Explorer) atau terima default yang disediakan.
 - Penulis: Masukkan pemilik proyek SubQuery ini di sini (mis. nama Anda!) atau terima default yang disediakan.
 - Deskripsi: Berikan paragraf singkat tentang proyek Anda yang menjelaskan data apa yang dikandungnya dan apa yang dapat dilakukan pengguna dengannya atau menerima default yang disediakan.
@@ -57,8 +57,8 @@ Setelah proses inisialisasi selesai, Anda akan melihat bahwa folder dengan nama 
 
 Terakhir, di bawah direktori proyek, jalankan perintah berikut untuk menginstal dependensi proyek baru.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```shell cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell cd PROJECT_NAME yarn install `
+@tab npm `shell cd PROJECT_NAME npm install ` :::
 
 ## Membuat Perubahan pada Proyek Anda
 
@@ -88,8 +88,8 @@ type Transfer @entity {
 
 **Penting: Saat Anda membuat perubahan apa pun pada file skema, pastikan Anda membuat ulang direktori tipe Anda.**
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```shell npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell yarn codegen `
+@tab npm `shell npm run-script codegen ` :::
 
 Anda akan menemukan model yang dihasilkan di `/src/types/models` directory. Untuk informasi lebih lanjut tentang file `schema.graphql`, lihat dokumentasi kami di bawah [Build/GraphQL Schema](../build/graphql.md)
 
@@ -133,22 +133,22 @@ import { Transfer } from "../types";
 import { Balance } from "@polkadot/types/interfaces";
 
 export async function handleTransfer(event: SubstrateEvent): Promise<void> {
-    // Dapatkan data dari event
-    // Peristiwa balances.transfer memiliki muatan berikut \[from, to, value\]
-    // logger.info(JSON.stringify(event));
-    const from = event.event.data[0];
-    const to = event.event.data[1];
-    const amount = event.event.data[2];
+  // Dapatkan data dari event
+  // Peristiwa balances.transfer memiliki muatan berikut \[from, to, value\]
+  // logger.info(JSON.stringify(event));
+  const from = event.event.data[0];
+  const to = event.event.data[1];
+  const amount = event.event.data[2];
 
-    // Buat entitas transfer baru
-    const transfer = new Transfer(
-        `${event.block.block.header.number.toNumber()}-${event.idx}`,
-    );
-    transfer.blockNumber = event.block.block.header.number.toBigInt();
-    transfer.from = from.toString();
-    transfer.to = to.toString();
-    transfer.amount = (amount as Balance).toBigInt();
-    await transfer.save();
+  // Buat entitas transfer baru
+  const transfer = new Transfer(
+    `${event.block.block.header.number.toNumber()}-${event.idx}`
+  );
+  transfer.blockNumber = event.block.block.header.number.toBigInt();
+  transfer.from = from.toString();
+  transfer.to = to.toString();
+  transfer.amount = (amount as Balance).toBigInt();
+  await transfer.save();
 }
 ```
 
@@ -160,7 +160,7 @@ Untuk informasi lebih lanjut tentang fungsi pemetaan, lihat dokumentasi kami di 
 
 Untuk menjalankan Proyek SubQuery baru Anda, pertama-tama kita perlu membangun pekerjaan kita. Jalankan perintah build dari direktori root proyek.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script build ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell yarn build ` @tab npm `shell npm run-script build ` :::
 
 **Penting: Setiap kali Anda membuat perubahan pada fungsi pemetaan, Anda harus membangun kembali proyek Anda**
 
@@ -174,7 +174,7 @@ Semua konfigurasi yang mengontrol bagaimana node SubQuery dijalankan didefinisik
 
 Di bawah direktori proyek jalankan perintah berikut:
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn start:docker ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script start:docker ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell yarn start:docker ` @tab npm `shell npm run-script start:docker ` :::
 
 Mungkin perlu beberapa saat untuk mengunduh paket yang diperlukan ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), and Postgres) untuk pertama kalinya tetapi segera Anda akan melihat node SubQuery yang sedang berjalan.
 
@@ -189,10 +189,7 @@ Untuk proyek pemula SubQuery baru, coba kueri berikut untuk memahami cara kerjan
 ```graphql
 {
   query {
-    transfers(
-      first: 10,
-      orderBy: AMOUNT_DESC
-    ) {
+    transfers(first: 10, orderBy: AMOUNT_DESC) {
       nodes {
         id
         amount

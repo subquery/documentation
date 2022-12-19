@@ -30,7 +30,7 @@ The following map provides an overview of the directory structure of a SubQuery 
   L README.md
   L schema.graphql
   L tsconfig.json
-  
+
 ```
 
 For example:
@@ -53,23 +53,20 @@ In order to run your SubQuery Project on a locally hosted SubQuery Node, you nee
 
 Run the build command from the project's root directory.
 
-<CodeGroup>
-  <CodeGroupItem title="YARN" active>
+::: code-tabs
+@tab:active yarn
 
-  ```shell
-  yarn build
-  ```
+```shell
+yarn build
+```
 
-  </CodeGroupItem>
+@tab npm
 
-  <CodeGroupItem title="NPM">
+```bash
+npm run-script build
+```
 
-  ```bash
-  npm run-script build
-  ```
-
-  </CodeGroupItem>
-</CodeGroup>
+:::
 
 ### Alternative build options
 

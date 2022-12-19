@@ -43,10 +43,10 @@ subql init
 Se le harán ciertas preguntas ya que el proyecto de SubQuery está initalizado:
 
 - Nombre del proyecto: Un nombre de proyecto para su proyecto de SubQuery
-- Familia de redes: La familia de redes de blockchain de capa 1 para la que se desarrollará este proyecto de SubQuery. Utilice las teclas de flecha para seleccionar las opciones disponibles. Para esta guía, utilizaremos *"Substrate"*
-- Red: La red específica para la que se desarrollará este proyecto de SubQuery. Utilice las teclas de flecha para seleccionar las opciones disponibles. Para esta guía, utilizaremos *"Polkadot"*
-- Proyecto de plantilla: Seleccione un proyecto de plantilla de SubQuery que le proporcionará un punto de partida para comenzar el desarrollo. Sugerimos seleccionar el proyecto *"subql-starter"*.
-- Punto final RPC: Proporcione una URL HTTPS a un punto final RPC en ejecución que se utilizará por defecto para este proyecto. Puede acceder rápidamente a los puntos finales públicos para diferentes redes de Polkadot, crear tu propio nodo privado dedicado utilizando [OnFinality](https://app.onfinality.io) o simplemente utilizar el punto final predeterminado de Polkadot. Este nodo RPC debe ser un nodo de archivo (tienen el estado completo de cadena). Para esta guía, utilizaremos el valor por defecto *"https://polkadot.api.onfinality.io"*
+- Familia de redes: La familia de redes de blockchain de capa 1 para la que se desarrollará este proyecto de SubQuery. Utilice las teclas de flecha para seleccionar las opciones disponibles. Para esta guía, utilizaremos _"Substrate"_
+- Red: La red específica para la que se desarrollará este proyecto de SubQuery. Utilice las teclas de flecha para seleccionar las opciones disponibles. Para esta guía, utilizaremos _"Polkadot"_
+- Proyecto de plantilla: Seleccione un proyecto de plantilla de SubQuery que le proporcionará un punto de partida para comenzar el desarrollo. Sugerimos seleccionar el proyecto _"subql-starter"_.
+- Punto final RPC: Proporcione una URL HTTPS a un punto final RPC en ejecución que se utilizará por defecto para este proyecto. Puede acceder rápidamente a los puntos finales públicos para diferentes redes de Polkadot, crear tu propio nodo privado dedicado utilizando [OnFinality](https://app.onfinality.io) o simplemente utilizar el punto final predeterminado de Polkadot. Este nodo RPC debe ser un nodo de archivo (tienen el estado completo de cadena). Para esta guía, utilizaremos el valor por defecto _"https://polkadot.api.onfinality.io"_
 - Git repository: Proporcione una URL Git a un repositorio en el que se alojará este proyecto SubQuery (cuando se aloje en el Explorador de SubQuery) o acepte el predeterminado proporcionado.
 - Autores: Introduzca aquí el propietario de este proyecto de SubQuery (por ejemplo, su nombre) o acepte el valor predeterminado proporcionado.
 - Descripción: Proporcione un breve párrafo sobre su proyecto que describa los datos que contiene y lo que los usuarios pueden hacer con ellos o acepte el valor predeterminado proporcionado.
@@ -57,7 +57,7 @@ Una vez completado el proceso de inicialización, deberías ver que se ha creado
 
 Por último, en el directorio del proyecto, ejecute el siguiente comando para instalar las dependencias del nuevo proyecto.
 
-<CodeGroup> shell cd PROJECT_NAME npm install ``` Hacer cambios en su proyecto En el paquete de inicio que acaba de inicializar, proporcionamos una configuración estándar para su nuevo proyecto. Estos son:
+`cd PROJECT_NAME npm install` Hacer cambios en su proyecto En el paquete de inicio que acaba de inicializar, proporcionamos una configuración estándar para su nuevo proyecto. Estos son:
 
 1. El esquema GraphQL en `schema.graphql`
 2. El manifiesto del proyecto en `project.yaml`
@@ -83,8 +83,8 @@ type Transfer @entity {
 
 **Importante: Cuando realice cambios en el archivo de esquema, asegúrese de que regenera el directorio de sus tipos.**
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```shell npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell yarn codegen `
+@tab npm `shell npm run-script codegen ` :::
 
 You'll find the generated models in the `/src/types/models` directory. Para más información sobre el archivo `schema.graphql` , revisa nuestra documentación en [Esquema de Build/GraphQL](../build/graphql.md)
 
@@ -149,15 +149,15 @@ Para más información sobre las funciones de mapeo, revisa nuestra documentaci�
 
 Para ejecutar su nuevo Proyecto SubQuery, primero tenemos que construir nuestro trabajo. Ejecuta el comando de compilación desde el directorio raíz del proyecto.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script build ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell yarn build ` @tab npm `shell npm run-script build ` :::
 
-**Important: Whenever you make changes to your mapping functions, you'll need to rebuild your project**. La forma más fácil de hacer esto es usando Docker. </p>
+**Important: Whenever you make changes to your mapping functions, you'll need to rebuild your project**. La forma más fácil de hacer esto es usando Docker.
 
 Toda la configuración que controla cómo se ejecuta un nodo SubQuery se define en el archivo `docker-compose.yml`. Para un nuevo proyecto que acaba de ser inicializado no necesitará cambiar nada, pero puede leer más sobre el archivo y los ajustes en nuestra sección [Ejecutar un proyecto](../run_publish/run.md).
 
 En el directorio del proyecto, ejecute el siguiente comando:
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn start:docker ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script start:docker ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell yarn start:docker ` @tab npm `shell npm run-script start:docker ` :::
 
 It may take some time to download the required packages ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), and Postgres) for the first time but soon you'll see a running SubQuery node.
 
@@ -172,10 +172,7 @@ Para un nuevo proyecto de inicio de SubQuery, pruebe la siguiente consulta para 
 ```graphql
 {
   consulta {
-    transfers(
-      first: 10,
-      orderBy: AMOUNT_DESC
-    ) {
+    transfers(first: 10, orderBy: AMOUNT_DESC) {
       nodos {
         id
         cantidad

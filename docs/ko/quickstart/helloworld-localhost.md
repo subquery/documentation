@@ -88,13 +88,13 @@ cd subqlHelloWorld
 
 이제 다양한 종속성을 설치하기 위해 원사 또는 노드 설치를 수행합니다.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> `shell yarn install ` </CodeGroupItem>
-<CodeGroupItem title="NPM"> `bash npm install ` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell yarn install `
+@tab npm `bash npm install ` :::
 
 An example of `yarn install`
 
 ```shell
-# Yarn yarn install # NPM npm install</p>
+# Yarn yarn install # NPM npm install
 
 <pre><code class="shell">> yarn install
 yarn install v1.22.10
@@ -123,7 +123,7 @@ $ ./node_modules/.bin/subql codegen
 ===============================
 ---------Subql Codegen---------
 ===============================
-* Schema StarterEntity generated !</p>
+* Schema StarterEntity generated !
 
 <pre><code class="shell">> yarn codegen
 yarn run v1.22.10
@@ -148,19 +148,19 @@ $ ./node_modules/.bin/subql codegen
 # NPM npm run-script build
 ```
 
-````shell
+```shell
 > yarn build
 yarn run v1.22.10
 $ tsc -b
-✨  Done in 5.68s. ```
-</p>
+✨  Done in 5.68s.
+```
 
 ```shell
 > yarn build
 yarn run v1.22.10
 $ tsc -b
 ✨  Done in 5.68s.
-````
+```
 
 ## 5. Docker 실행
 

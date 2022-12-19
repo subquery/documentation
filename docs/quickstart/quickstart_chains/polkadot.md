@@ -32,19 +32,20 @@ type Transfer @entity {
 When you make any changes to the schema file, please ensure that you regenerate your types directory.
 :::
 
-<CodeGroup>
-  <CodeGroupItem title="YARN" active>
-  ```shell
-  yarn codegen
-  ```
-  </CodeGroupItem>
+::: code-tabs
+@tab:active yarn
 
-  <CodeGroupItem title="NPM">
-  ```shell
-  npm run-script codegen
-  ```
-  </CodeGroupItem>
-</CodeGroup>
+```shell
+yarn codegen
+```
+
+@tab npm
+
+```shell
+npm run-script codegen
+```
+
+:::
 
 You will find the generated models in the `/src/types/models` directory.
 
@@ -129,22 +130,20 @@ Check out our [Mappings](../../build/mapping/polkadot.md) documentation to get d
 
 Next, build your work to run your new SubQuery project. Run the build command from the project's root directory as given here:
 
-<CodeGroup>
-  <CodeGroupItem title="YARN" active>
+::: code-tabs
+@tab:active yarn
 
 ```shell
 yarn build
 ```
 
-  </CodeGroupItem>
-  <CodeGroupItem title="NPM">
+@tab npm
 
 ```shell
 npm run-script build
 ```
 
-  </CodeGroupItem>
-</CodeGroup>
+:::
 
 ::: warning Important
 Whenever you make changes to your mapping functions, make sure to rebuild your project.
@@ -162,24 +161,22 @@ However, visit the [Running SubQuery Locally](../../run_publish/run.md) to get m
 
 Run the following command under the project directory:
 
-<CodeGroup>
-  <CodeGroupItem title="YARN" active>
+::: code-tabs
+@tab:active yarn
 
 ```shell
 yarn start:docker
 ```
 
-  </CodeGroupItem>
-  <CodeGroupItem title="NPM">
+@tab npm
 
 ```shell
 npm run-script start:docker
 ```
 
-  </CodeGroupItem>
-</CodeGroup>
+:::
 
-::: info Note
+::: tip
 It may take a few minutes to download the required images and start the various nodes and Postgres databases.
 :::
 

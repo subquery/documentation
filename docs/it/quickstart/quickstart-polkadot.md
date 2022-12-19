@@ -43,10 +43,10 @@ subql init
 You'll be asked certain questions as the SubQuery project is initalised:
 
 - Project name: A project name for your SubQuery project
-- Network family: The layer-1 blockchain network family that this SubQuery project will be developed to index. Use the arrow keys to select from the available options. For this guide, we will use *"Substrate"*
-- Network: The specific network that this SubQuery project will be developed to index. Use the arrow keys to select from the available options. For this guide, we will use *"Polkadot"*
-- Template project: Select a SubQuery template project that will provide a starting point to begin development. We suggest selecting the *"subql-starter"* project.
-- RPC endpoint: Provide an HTTPS URL to a running RPC endpoint that will be used by default for this project. You can quickly access public endpoints for different Polkadot networks, create your own private dedicated node using [OnFinality](https://app.onfinality.io) or just use the default Polkadot endpoint. This RPC node must be an archive node (have the full chain state). For this guide, we will use the default value *"https://polkadot.api.onfinality.io"*
+- Network family: The layer-1 blockchain network family that this SubQuery project will be developed to index. Use the arrow keys to select from the available options. For this guide, we will use _"Substrate"_
+- Network: The specific network that this SubQuery project will be developed to index. Use the arrow keys to select from the available options. For this guide, we will use _"Polkadot"_
+- Template project: Select a SubQuery template project that will provide a starting point to begin development. We suggest selecting the _"subql-starter"_ project.
+- RPC endpoint: Provide an HTTPS URL to a running RPC endpoint that will be used by default for this project. You can quickly access public endpoints for different Polkadot networks, create your own private dedicated node using [OnFinality](https://app.onfinality.io) or just use the default Polkadot endpoint. This RPC node must be an archive node (have the full chain state). For this guide, we will use the default value _"https://polkadot.api.onfinality.io"_
 - Git repository: Provide a Git URL to a repo that this SubQuery project will be hosted in (when hosted in SubQuery Explorer) or accept the provided default.
 - Authors: Enter the owner of this SubQuery project here (e.g. your name!) or accept the provided default.
 - Description: Provide a short paragraph about your project that describes what data it contains and what users can do with it or accept the provided default.
@@ -57,8 +57,8 @@ After the initialisation process is complete, you should see that a folder with 
 
 Last, under the project directory, run the following command to install the new project's dependencies.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```shell cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell cd PROJECT_NAME yarn install `
+@tab npm `shell cd PROJECT_NAME npm install ` :::
 
 ## Making Changes to your Project
 
@@ -88,8 +88,8 @@ type Transfer @entity {
 
 **Important: When you make any changes to the schema file, please ensure that you regenerate your types directory.**
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```shell npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell yarn codegen `
+@tab npm `shell npm run-script codegen ` :::
 
 You'll find the generated models in the `/src/types/models` directory. For more information about the `schema.graphql` file, check out our documentation under [Build/GraphQL Schema](../build/graphql.md)
 
@@ -133,22 +133,22 @@ import { Transfer } from "../types";
 import { Balance } from "@polkadot/types/interfaces";
 
 export async function handleEvent(event: SubstrateEvent): Promise<void> {
-    // Get data from the event
-    // The balances.transfer event has the following payload \[from, to, value\]
-    // logger.info(JSON.stringify(event));
-    const from = event.event.data[0];
-    const to = event.event.data[1];
-    const amount = event.event.data[2];
+  // Get data from the event
+  // The balances.transfer event has the following payload \[from, to, value\]
+  // logger.info(JSON.stringify(event));
+  const from = event.event.data[0];
+  const to = event.event.data[1];
+  const amount = event.event.data[2];
 
-    // Create the new transfer entity
-    const transfer = new Transfer(
-        `${event.block.block.header.number.toNumber()}-${event.idx}`,
-    );
-    transfer.blockNumber = event.block.block.header.number.toBigInt();
-    transfer.from = from.toString();
-    transfer.to = to.toString();
-    transfer.amount = (amount as Balance).toBigInt();
-    await transfer.save();
+  // Create the new transfer entity
+  const transfer = new Transfer(
+    `${event.block.block.header.number.toNumber()}-${event.idx}`
+  );
+  transfer.blockNumber = event.block.block.header.number.toBigInt();
+  transfer.from = from.toString();
+  transfer.to = to.toString();
+  transfer.amount = (amount as Balance).toBigInt();
+  await transfer.save();
 }
 ```
 
@@ -160,7 +160,7 @@ For more information about mapping functions, check out our documentation under 
 
 In order to run your new SubQuery Project we first need to build our work. Run the build command from the project's root directory.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script build ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell yarn build ` @tab npm `shell npm run-script build ` :::
 
 **Important: Whenever you make changes to your mapping functions, you will need to rebuild your project**
 
@@ -174,7 +174,7 @@ All configuration that controls how a SubQuery node is run is defined in the `do
 
 Under the project directory, run the following command:
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn start:docker ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script start:docker ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell yarn start:docker ` @tab npm `shell npm run-script start:docker ` :::
 
 It may take some time to download the required packages ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), and Postgres) for the first time but soon you should see a running SubQuery node in the terminal screen.
 
@@ -189,10 +189,7 @@ For a new SubQuery starter project, try the following query to understand how it
 ```graphql
 {
   query {
-    transfers(
-      first: 10,
-      orderBy: AMOUNT_DESC
-    ) {
+    transfers(first: 10, orderBy: AMOUNT_DESC) {
       nodes {
         id
         amount

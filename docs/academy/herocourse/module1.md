@@ -1,26 +1,25 @@
-## Module 1: Getting started
+# Module 1: Getting started
 
 ## Introduction
 
 In this module, you will become familiar with SubQuery and get some hands-on experience by creating a simple Hello World SubQuery project. This project will use the **subql CLI** to create an empty project shell. Then a code will be provided to query the Polkadot mainnet for the blockheight. Note that a Docker environment will be used to simplify the running process.
 
-
 ## Reference
 
-* [Hello World PDF workbook](/assets/pdf/Hello_World_Lab.pdf)
-* [Subql Starter Github](https://github.com/subquery/subql-starter)
+- [Hello World PDF workbook](/assets/pdf/Hello_World_Lab.pdf)
+- [Subql Starter Github](https://github.com/subquery/subql-starter)
 
 ## Pre-Requisites
 
 You will require the following:
 
-* NPM package manager.
-* SubQuery CLI (@subql/cli).
-* Docker.
+- NPM package manager.
+- SubQuery CLI (@subql/cli).
+- Docker.
 
 ### NPM Package Manager
 
-First, you must check whether you have installed the latest version of node or not. 
+First, you must check whether you have installed the latest version of node or not.
 
 Run this command:
 
@@ -30,17 +29,18 @@ It should return a result with the latest version of npm, if you have it install
 
 `v18.2.0`
 
-::: info Note 
-Node v12 or higher is required. 
-::: 
+::: tip Note
+Node v12 or higher is required.
+:::
 
-If you haven't installed the npm, please run the following command in your terminal and install the latest version of node. 
+If you haven't installed the npm, please run the following command in your terminal and install the latest version of node.
 
 ```
 brew update
 brew install node
 node -v
 ```
+
 You will get the latest npm version as the output in the end.
 
 ### SubQuery CLI
@@ -59,7 +59,6 @@ subql -v
 
 You will get an output similar to this:
 `@subql/cli/1.0.1 darwin-x64 node-v18.2.0`
-
 
 ### Docker
 
@@ -83,34 +82,32 @@ Please visit [Docker's official site](https://docs.docker.com/get-docker/) for i
 
 The first step to create a SubQuery project with the following command:
 
-
 ```
 $ subql init
 Project name [subql-starter]: HelloWorld
 ? Select a network family Substrate
 ? Select a network Polkadot
 ? Select a template project subql-starter     Starter project for subquery
-RPC endpoint: [wss://polkadot.api.onfinality.io/public-ws]: 
-Git repository [https://github.com/subquery/subql-starter]: 
+RPC endpoint: [wss://polkadot.api.onfinality.io/public-ws]:
+Git repository [https://github.com/subquery/subql-starter]:
 Fetching network genesis hash... done
 Author [Ian He & Jay Ji]: Sean
-Description [This project can be use as a starting po...]: 
-Version [1.0.0]: 
-License [MIT]: 
+Description [This project can be use as a starting po...]:
+Version [1.0.0]:
+License [MIT]:
 Preparing project... done
 HelloWorld is ready
 ```
 
 Note that any text in the square brackets are the default values, which will be used if nothing is provided.
 
-This creates a framework and the following directory structure, saving your time. 
+This creates a framework and the following directory structure, saving your time.
 
 #### Step 2: Update the Mappings File
 
-The initialisation command pre-creates a sample mappings file with 3 functions: `handleBlock, handleEvent and handleCall`. We will focus on the first function called `handleBlock` for this excerise. Hence, delete the remaining functions. 
+The initialisation command pre-creates a sample mappings file with 3 functions: `handleBlock, handleEvent and handleCall`. We will focus on the first function called `handleBlock` for this excerise. Hence, delete the remaining functions.
 
 - The `mappingHandler.ts` file should look like this:
-
 
 ```
 import {SubstrateExtrinsic,SubstrateEvent,SubstrateBlock} from "@subql/types";
@@ -128,10 +125,9 @@ export async function handleBlock(block: SubstrateBlock): Promise<void> {
 
 #### Step 3: Update the Manifest File (aka project.yaml)
 
-The initialisation command also pre-creates a sample manifest file and defines 3 handlers. Since you have removed `handleEvent` and `handleCall` from the mappings file, you have to remove them from the manifest file as well. 
+The initialisation command also pre-creates a sample manifest file and defines 3 handlers. Since you have removed `handleEvent` and `handleCall` from the mappings file, you have to remove them from the manifest file as well.
 
-- The ***updated*** part of the manifest file should look like this:
-
+- The **_updated_** part of the manifest file should look like this:
 
 ```
 
@@ -145,14 +141,12 @@ dataSources:
           kind: substrate/BlockHandler
 ```
 
-
-
 #### Step 4: Update the Graphql Schema
 
-The default `schema.graphql` file will contain 5 fields. We can remove the fields from 2 to 5, because the `handleBlock` function in the mappings file only uses “field1”. 
+The default `schema.graphql` file will contain 5 fields. We can remove the fields from 2 to 5, because the `handleBlock` function in the mappings file only uses “field1”.
 
-::: info Note
-Rename field1 to something more meaningful. Eg blockHeight. Note that if you do this, don’t forget to update the reference to field1 in the mappings file appropriately. 
+::: tip Note
+Rename field1 to something more meaningful. Eg blockHeight. Note that if you do this, don’t forget to update the reference to field1 in the mappings file appropriately.
 :::
 
 The schema file should look like this:
@@ -168,46 +162,39 @@ type StarterEntity @entity {
 
 Install the node dependencies by running the following commands:
 
+::: code-tabs
+@tab:active yarn
 
-<CodeGroup>
-  <CodeGroupItem title="YARN" active>
+```shell
+yarn install
+```
 
-  ```shell
-  yarn install
-  ```
+@tab npm
 
-  </CodeGroupItem>
+```bash
+npm install
+```
 
-  <CodeGroupItem title="NPM">
-
-  ```bash
-  npm install
-  ```
-
-  </CodeGroupItem>
-</CodeGroup>
+:::
 
 #### Step 6: Generate the Associated Typescript
 
 Next, we will generate the associated typescript with the following command:
 
-<CodeGroup>
-  <CodeGroupItem title="YARN" active>
+::: code-tabs
+@tab:active yarn
 
-  ```shell
-  yarn codegen
-  ```
+```shell
+yarn codegen
+```
 
-  </CodeGroupItem>
+@tab npm
 
-  <CodeGroupItem title="NPM">
+```bash
+npm run-script codegen
+```
 
-  ```bash
-  npm run-script codegen
-  ```
-
-  </CodeGroupItem>
-</CodeGroup>
+:::
 
 You should see a new folder appear with 2 new files.
 
@@ -215,47 +202,40 @@ You should see a new folder appear with 2 new files.
 
 The next step is to build the project with the following command:
 
-<CodeGroup>
-  <CodeGroupItem title="YARN" active>
+::: code-tabs
+@tab:active yarn
 
-  ```shell
-  yarn build
-  ```
+```shell
+yarn build
+```
 
-  </CodeGroupItem>
+@tab npm
 
-  <CodeGroupItem title="NPM">
+```bash
+npm run-script build
+```
 
-  ```bash
-  npm run-script build
-  ```
-
-  </CodeGroupItem>
-</CodeGroup>
+:::
 
 This bundles the app into static files for production.
-
 
 #### Step 8: Start the Docker Container
 
 Run the docker command to pull the images and to start the container.
-
 
 ```
 docker-compose pull && docker-compose up
 ```
 
 ::: warning Important
-You need to have Docker installed as noted in the prerequisite. 
+You need to have Docker installed as noted in the prerequisite.
 :::
-
 
 #### Step 9: Run a Query
 
 Once the docker container is up and running, which could take a few minutes, open up your browser, and navigate to `www.localhost:3000`.
 
-This will open up a “playground” where you can create your query. Copy the example below. 
-
+This will open up a “playground” where you can create your query. Copy the example below.
 
 ```
 {
@@ -269,6 +249,6 @@ This will open up a “playground” where you can create your query. Copy the e
 }
 ```
 
-::: info Note
-If you renamed field1 something else, modify this query appropriately. 
+::: tip Note
+If you renamed field1 something else, modify this query appropriately.
 :::

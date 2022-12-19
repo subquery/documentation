@@ -67,9 +67,9 @@ Amacımız, işleyicileri eşlemek için kullanıcılar için tüm veri kaynakla
 
 Şu anda desteklediğimiz arayüzler şunlardır:
 
-- [api.query. &lt;module&gt;. &lt;method&gt;()](https://polkadot.js.org/docs/api/start/api.query) <strong>current</strong> bloğunu sorgular.
-- [api.query. &lt;module&gt;. &lt;method&gt;.multi()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-same-type) geçerli blokta <strong>same</strong> türünde birden çok sorgu yapar.
-- [api.queryMulti()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-distinct-types) geçerli blokta <strong>different</strong> türlerinin birden çok sorgusunu yapar.
+- [api.query. &lt;module&gt;. &lt;method&gt;()](https://polkadot.js.org/docs/api/start/api.query) **current** bloğunu sorgular.
+- [api.query. &lt;module&gt;. &lt;method&gt;.multi()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-same-type) geçerli blokta **same** türünde birden çok sorgu yapar.
+- [api.queryMulti()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-distinct-types) geçerli blokta **different** türlerinin birden çok sorgusunu yapar.
 
 Şu anda desteklediğimiz **NOT** arabirimler şunlardır:
 

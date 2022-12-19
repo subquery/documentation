@@ -88,13 +88,13 @@ cd subqlHelloWorld
 
 Теперь выполните установку yarn или node, чтобы установить различные зависимости.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn install ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```bash npm install ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell yarn install `
+@tab npm `bash npm install ` :::
 
 An example of `yarn install`
 
 ```shell
-# Yarn yarn install # NPM npm install</p>
+# Yarn yarn install # NPM npm install
 
 <pre><code class="shell">> yarn install
 yarn install v1.22.10
@@ -111,7 +111,7 @@ success Saved lockfile.
 
 Теперь запустите `yarn codegen`, чтобы сгенерировать Typescript из схемы GraphQL.
 
-<CodeGroup> # Yarn yarn codegen # NPM npm run-script codegen
+`# Yarn yarn codegen # NPM npm run-script codegen`
 
 ```shell
 &gt; yarn codegen
@@ -120,7 +120,7 @@ $ ./node_modules/.bin/subql codegen
 ===============================
 ---------Subql Codegen---------
 ===============================
-* Schema StarterEntity generated !</p>
+* Schema StarterEntity generated !
 
 <pre><code class="shell">> yarn codegen
 yarn run v1.22.10
@@ -140,14 +140,14 @@ $ ./node_modules/.bin/subql codegen
 
 Следующим шагом является создание кода с помощью `yarn build`.
 
-<CodeGroup> # Yarn yarn build # NPM npm run-script build
+`# Yarn yarn build # NPM npm run-script build`
 
 ```shell
 > yarn build
 yarn run v1.22.10
 $ tsc -b
-✨  Done in 5.68s. ```
-</p>
+✨  Done in 5.68s.
+```
 
 ```shell
 > yarn build

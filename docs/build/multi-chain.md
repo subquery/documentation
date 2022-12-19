@@ -6,11 +6,11 @@ You can use the same SubQuery project, which includes the same GraphQL schema an
 
 For example, you could capture XCM transaction data from all Polkadot parachains or monitoring IBC messages across Cosmos Zones in a single project, with a single database, and a single query endpoint.
 
-![Multi-chain](/assets/img/multi-chain.jpg)
+![Multi-chain](/assets/img/multi_chain.jpg)
 
 ## How it Works
 
-::: info Requirements for multi-chain indexing
+::: tip Requirements for multi-chain indexing
 
 1. All projects must reference the same [GraphQL schema](./graphql.md) in their `project.yaml`
 2. All projects must index to the same PostgreSQL table schema, this is set in your `docker-compose.yml`

@@ -17,23 +17,20 @@ The commands and parameters shown here may change, we suggest reviewing the curr
 
 Install SubQuery CLI globally on your terminal by using Yarn or NPM:
 
-<CodeGroup>
-  <CodeGroupItem title="NPM" active>
+::: code-tabs
+@tab:active npm
 
 ```bash
 npm install -g @subql/cli
 ```
 
-  </CodeGroupItem>
-
-  <CodeGroupItem title="YARN">
+@tab yarn
 
 ```shell
 yarn global add @subql/cli
 ```
 
-  </CodeGroupItem>
-</CodeGroup>
+:::
 
 You can then run help to see available commands and usage provide by CLI:
 
@@ -79,7 +76,7 @@ $ subql project:create-project
 
 Using the CLI, you can deploy a new version of your SubQuery project to the Managed Service. It supports both interactive and non-interactive methods. You may want to run this command after you delete the target deployment slot (staging or primary).
 
-::: info Note
+::: tip Note
 We suggest using the `--useDefaults` command for best results.
 :::
 

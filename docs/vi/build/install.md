@@ -8,28 +8,30 @@ Có nhiều thành phần cần thiết khi bạn muốn tạo một dự án s�
 
 Cài đặt SubQuery CLI trên toàn cầu trên thiết bị đầu cuối (terminal) của bạn bằng cách sử dụng Yarn hoặc NPM:
 
-<CodeGroup> <CodeGroupItem title="NPM"> ```bash npm install -g @subql/cli ``` </CodeGroupItem>
-<CodeGroupItem title="YARN" active> ```shell yarn global add @subql/cli ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab npm `bash npm install -g @subql/cli `
+@tab:active yarn `shell yarn global add @subql/cli ` :::
 
 Sau đó, bạn có thể chạy help để xem các lệnh có sẵn và cách sử dụng do CLI cung cấp:
 
 ```shell
 subql help
 ```
+
 ## Cài đặt @subql/node
 
 Node SubQuery là một phương thức để trích xuất dữ liệu Blockchain trên nền tảng Substrate cho mỗi dự án sử dụng SubQuery và lưu nó vào cơ sở dữ liệu Postgres.
 
 Cài đặt nút SubQuery trên toàn cầu trên thiết bị đầu cuối của bạn bằng cách sử dụng Yarn hoặc NPM:
 
-<CodeGroup> <CodeGroupItem title="NPM"> ```bash npm install -g @subql/node ``` </CodeGroupItem>
-<CodeGroupItem title="YARN" active> ```shell yarn global add @subql/node ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab npm `bash npm install -g @subql/node `
+@tab:active yarn `shell yarn global add @subql/node ` :::
 
 Sau khi cài đặt, bạn có thể bắt đầu một node với:
 
 ```shell
 subql-node <command>
 ```
+
 > Lưu ý: Nếu bạn đang sử dụng Docker hoặc lưu trữ dự án của mình trên SubQuery Projects, bạn có thể bỏ qua bước này. Bởi vì SubQuery Node đã được cung cấp trong Docker Container và cơ sở hạ tầng lưu trữ.
 
 ## Cài đặt @subql/query
@@ -38,7 +40,7 @@ Thư viện truy vấn SubQuery cung cấp dịch vụ cho phép bạn truy vấ
 
 Cài đặt truy vấn SubQuery trên toàn cầu trên thiết bị đầu cuối của bạn bằng cách sử dụng Yarn hoặc NPM:
 
-<CodeGroup> <CodeGroupItem title="NPM"> ```bash npm install -g @subql/query ``` </CodeGroupItem>
-<CodeGroupItem title="YARN" active> ```shell yarn global add @subql/query ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab npm `bash npm install -g @subql/query `
+@tab:active yarn `shell yarn global add @subql/query ` :::
 
-> Lưu ý: Nếu bạn đang sử dụng Docker hoặc lưu trữ dự án của mình trên SubQuery Projects, bạn cũng có thể bỏ qua bước này. Bởi vì SubQuery Node đã được cung cấp trong Docker Container và cơ sở hạ tầng lưu trữ. 
+> Lưu ý: Nếu bạn đang sử dụng Docker hoặc lưu trữ dự án của mình trên SubQuery Projects, bạn cũng có thể bỏ qua bước này. Bởi vì SubQuery Node đã được cung cấp trong Docker Container và cơ sở hạ tầng lưu trữ.

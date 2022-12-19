@@ -43,10 +43,10 @@ subql init
 คุณจะถูกถามคำถามบางอย่างเมื่อโปรเจกต์ SubQuery เริ่มต้น:
 
 - ชื่อโปรเจกต์: ตั้งชื่อว่าโปรเจกต์ A สำหรับ โปรเจกต์ SubQuery ของคุณ
-- Network family: ตระกูลเครือ Blockchain layer-1ที่โปรเจกต์ SubQuery จะ Develop เป็น Index ใช้ลูกศร เพื่อเลือก ตัวเลือกที่มีให้ สำหรับคำแนะนำนี้ เราจะใช้ *"Substrate"*
-- เครือข่าย: เครือข่ายเฉพาะที่โครงการ SubQuery นี้จะถูกพัฒนาเพื่อสร้างดัชนี ใช้ลูกศร เพื่อเลือก ตัวเลือกที่มีให้ สำหรับคำแนะนำนี้ เราจะใช้ *"Polkadot*
-- โครงการแม่แบบ: เลือกโครงการแม่แบบ SubQuery ที่จะใช้เป็นจุดเริ่มต้นเพื่อเริ่มการพัฒนา เราแนะนำให้เลือกโปรเจกต์ *"subql-starter"*
-- RPC endpoint: ระบุ HTTPS URL ไปยัง RPC endpoint ที่ทำงานอยู่ที่จะใช้งานเป็นค่าเริ่มต้นของโปรเจก คุณสามารถเข้าถึง Endpoints สาธารณะได้อย่างรวดเร็วสำหรับเครือข่าย Polkadot ต่างๆหรือแม้แต่สามารถ สร้าง Node เฉพาะส่วนตัวของคุณเองโดยใช้ [OnFinality](https://app.onfinality.io) หรือเพียงแค่ใช้ Polkadot endpoints ที่เป็นค่าเริ่มต้น RPC node นี้ต้องเป็น archive node (มีสถานะ full chain state) สำหรับคู่มือนี้เราจะใช้ค่าเริ่มต้นคือ *"https://polkadot.api.onfinality.io"*
+- Network family: ตระกูลเครือ Blockchain layer-1ที่โปรเจกต์ SubQuery จะ Develop เป็น Index ใช้ลูกศร เพื่อเลือก ตัวเลือกที่มีให้ สำหรับคำแนะนำนี้ เราจะใช้ _"Substrate"_
+- เครือข่าย: เครือข่ายเฉพาะที่โครงการ SubQuery นี้จะถูกพัฒนาเพื่อสร้างดัชนี ใช้ลูกศร เพื่อเลือก ตัวเลือกที่มีให้ สำหรับคำแนะนำนี้ เราจะใช้ _"Polkadot_
+- โครงการแม่แบบ: เลือกโครงการแม่แบบ SubQuery ที่จะใช้เป็นจุดเริ่มต้นเพื่อเริ่มการพัฒนา เราแนะนำให้เลือกโปรเจกต์ _"subql-starter"_
+- RPC endpoint: ระบุ HTTPS URL ไปยัง RPC endpoint ที่ทำงานอยู่ที่จะใช้งานเป็นค่าเริ่มต้นของโปรเจก คุณสามารถเข้าถึง Endpoints สาธารณะได้อย่างรวดเร็วสำหรับเครือข่าย Polkadot ต่างๆหรือแม้แต่สามารถ สร้าง Node เฉพาะส่วนตัวของคุณเองโดยใช้ [OnFinality](https://app.onfinality.io) หรือเพียงแค่ใช้ Polkadot endpoints ที่เป็นค่าเริ่มต้น RPC node นี้ต้องเป็น archive node (มีสถานะ full chain state) สำหรับคู่มือนี้เราจะใช้ค่าเริ่มต้นคือ _"https://polkadot.api.onfinality.io"_
 - Git repository: ระบุ Git URL ไปยัง repo ที่จะโฮสต์โปรเจ็กต์ SubQuery นี้ (เมื่อโฮสต์ใน SubQuery Explorer) หรือยอมรับค่าเริ่มต้นที่ให้ไว้
 - ผู้เขียน: ใส่ชื่อของเจ้าของโปรเจกต์ที่นี้ (เช่น ชื่อของคุณ) หรือใช้ค่าเดิม
 - คำอธิบาย: เป็นคำอธิบายสั้นๆของโปรเจกต์เกี่ยวกับข้อมูลด้านใน และ ผู้ใช้งานทั่วไปสามารถใช้อะไรได้บ้าง หรือ ตั้งไว้ค่าเดิม
@@ -57,8 +57,8 @@ subql init
 
 สุดท้าย ภายใต้ไดเร็กทอรีโครงการ ให้รันคำสั่งต่อไปนี้เพื่อติดตั้งการพึ่งพาของโปรเจ็กต์ใหม่
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```shell cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell cd PROJECT_NAME yarn install `
+@tab npm `shell cd PROJECT_NAME npm install ` :::
 
 ## การเปลี่ยนแปลงโครงการของคุณ
 
@@ -88,8 +88,8 @@ type Transfer @entity {
 
 **สำคัญ: เมื่อคุณได้ทำการเปลี่ยนแปลงใดๆกับไฟล์ Schema โปรดตรวจสอบให้มั่นใจว่าคุณสามารถนำชนิดของ Directory กลับมาใหม่ได้**
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```shell npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell yarn codegen `
+@tab npm `shell npm run-script codegen ` :::
 
 คุณจะพบโมเดลที่สร้างขึ้นใน `/src/types/models` directory. สำหรับข้อมูลเพิ่มเติมภายใน `schema.graphql` ไฟล์, โปรดตรวจสอบได้ที่ เอกสารของเราภายใต้ [Build/GraphQL Schema](../build/graphql.md)
 
@@ -133,22 +133,22 @@ import { Transfer } from "../types";
 import { Balance } from "@polkadot/types/interfaces";
 
 export async function handleEvent(event: SubstrateEvent): Promise<void> {
-    // Get data from the event
-    // The balances.transfer event has the following payload \[from, to, value\]
-    // logger.info(JSON.stringify(event));
-    const from = event.event.data[0];
-    const to = event.event.data[1];
-    const amount = event.event.data[2];
+  // Get data from the event
+  // The balances.transfer event has the following payload \[from, to, value\]
+  // logger.info(JSON.stringify(event));
+  const from = event.event.data[0];
+  const to = event.event.data[1];
+  const amount = event.event.data[2];
 
-    // Create the new transfer entity
-    const transfer = new Transfer(
-        `${event.block.block.header.number.toNumber()}-${event.idx}`,
-    );
-    transfer.blockNumber = event.block.block.header.number.toBigInt();
-    transfer.from = from.toString();
-    transfer.to = to.toString();
-    transfer.amount = (amount as Balance).toBigInt();
-    await transfer.save();
+  // Create the new transfer entity
+  const transfer = new Transfer(
+    `${event.block.block.header.number.toNumber()}-${event.idx}`
+  );
+  transfer.blockNumber = event.block.block.header.number.toBigInt();
+  transfer.from = from.toString();
+  transfer.to = to.toString();
+  transfer.amount = (amount as Balance).toBigInt();
+  await transfer.save();
 }
 ```
 
@@ -160,7 +160,7 @@ export async function handleEvent(event: SubstrateEvent): Promise<void> {
 
 ในการรันโปรเจกต์ SubQuery ใหม่ของคุณ จะมีสิ่งที่ต้องเตรียมการก่อน ทำการ Run คำสั่งเริ่มต้นจาก Project's root directory
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script build ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell yarn build ` @tab npm `shell npm run-script build ` :::
 
 **Important: Whenever you make changes to your mapping functions, you will need to rebuild your project**
 
@@ -174,7 +174,7 @@ Whenever you create a new SubQuery Project, you should always run it locally on 
 
 ให้รันคำสั่งต่อไปนี้ ภายใต้ไดเรกทอรีของโปรเจกต์:
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn start:docker ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script start:docker ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell yarn start:docker ` @tab npm `shell npm run-script start:docker ` :::
 
 อาจจะใช้เวลาสักครู่ในการดาวน์โหลดแพ็คเกจที่จำเป็นสำหรับครั้งแรก ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), and Postgres) แต่ในไม่ช้า คุณจะเห็น SubQuery node ที่ทำงานอยู่ในหน้าจอ
 
@@ -189,10 +189,7 @@ Whenever you create a new SubQuery Project, you should always run it locally on 
 ```graphql
 {
   query {
-    transfers(
-      first: 10,
-      orderBy: AMOUNT_DESC
-    ) {
+    transfers(first: 10, orderBy: AMOUNT_DESC) {
       nodes {
         id
         amount

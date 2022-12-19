@@ -77,10 +77,10 @@ If you just want to upgrade to the latest indexer ([`@subql/node`](https://www.n
 
 След като внедряването ви приключи успешно и нашите нодове са индексирали вашите данни от веригата, ще можете да се свържете с вашия проект чрез показания ендпойнт на GraphQL Query.
 
-![Проектът се внедрява и се синхронизира](/assets/img/projects-deploy-sync.png)
+![Проектът се внедрява и се синхронизира](/assets/img/projects_deploy_sync.png)
 
 Като алтернатива можете да щракнете върху трите точки до заглавието на вашия проект и да го видите в SubQuery Explorer. There you can use the in browser playground to get started - [read more about how to use our Explorer here](../run_publish/query.md).
 
-![Projects in SubQuery Explorer](/assets/img/projects-explorer.png)
+![Projects in SubQuery Explorer](/assets/img/projects_explorer.png)
 
-::: info Note Learn more about the [GraphQL Query language.](./graphql.md) :::
+::: tip Note Learn more about the [GraphQL Query language.](./graphql.md) :::

@@ -12,4 +12,4 @@ Ayrıca, SubQuery Explorer'ın örnek sorgularla mevcut verileri keşfetmek içi
 
 On the top right of the playground, you'll find a _Docs_ button that will open a documentation draw. Bu dokümantasyonlar otomatik olarak oluşturulur ve hangi varlıkları ve yöntemleri sorgulayabileceğinizi bulmanıza yardımcı olur.
 
-::: info Note Learn more about the [GraphQL Query language.](./graphql.md) :::
+::: tip Note Learn more about the [GraphQL Query language.](./graphql.md) :::

@@ -14,7 +14,7 @@ Các mạng được hỗ trợ:
 
 ## Bắt đầu
 
-1. Thêm custom data source dưới dạng dependency ` fiber add @ subql / contract-processors `
+1. Thêm custom data source dưới dạng dependency `fiber add @ subql / contract-processors`
 2. Thêm một custom data source như được mô tả bên dưới
 3. Thêm handlers cho custom data source vào code của bạn
 
@@ -28,10 +28,10 @@ Các mạng được hỗ trợ:
 
 ### Tuỳ chọn Processor
 
-| Trường  | Kiểu dữ liệu     | Bắt buộc | Mô tả                                                                                                                |
-| ------- | ---------------- | -------- | -------------------------------------------------------------------------------------------------------------------- |
-| abi     | String           | Không    | ABI được bộ xử lý sử dụng để phân tích cú pháp các đối số. Phải là key của `assets`                                  |
-| address | String or `null` | Không    | Địa chỉ hợp đồng, nơi mà bắt đầu sự kiện hoặc cuộc gọi được thực hiện tới. ` null ` sẽ bắt các lệnh gọi tạo hợp đồng |
+| Trường  | Kiểu dữ liệu     | Bắt buộc | Mô tả                                                                                                              |
+| ------- | ---------------- | -------- | ------------------------------------------------------------------------------------------------------------------ |
+| abi     | String           | Không    | ABI được bộ xử lý sử dụng để phân tích cú pháp các đối số. Phải là key của `assets`                                |
+| address | String or `null` | Không    | Địa chỉ hợp đồng, nơi mà bắt đầu sự kiện hoặc cuộc gọi được thực hiện tới. `null` sẽ bắt các lệnh gọi tạo hợp đồng |
 
 ## MoonbeamCall
 
@@ -44,10 +44,10 @@ Hoạt động giống như [substrate/CallHandler](../create/mapping/#call-hand
 
 ### Call Filters
 
-| Trường   | Kiểu dữ liệu | Các ví dụ                                     | Mô tả                                                                                                                                                            |
-| -------- | ------------ | --------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| function | String       | 0x095ea7b3, approve(address to,uint256 value) | Hoặc chuỗi [Function Signature](https://docs.ethers.io/v5/api/utils/abi/fragments/#FunctionFragment) hoặc hàm ` sighash ` dùng để lọc hàm được gọi trên hợp đồng |
-| from     | String       | 0x6bd193ee6d2104f14f94e2ca6efefae561a4334b    | Một địa chỉ Ethereum đã gửi giao dịch                                                                                                                            |
+| Trường   | Kiểu dữ liệu | Các ví dụ                                     | Mô tả                                                                                                                                                          |
+| -------- | ------------ | --------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| function | String       | 0x095ea7b3, approve(address to,uint256 value) | Hoặc chuỗi [Function Signature](https://docs.ethers.io/v5/api/utils/abi/fragments/#FunctionFragment) hoặc hàm `sighash` dùng để lọc hàm được gọi trên hợp đồng |
+| from     | String       | 0x6bd193ee6d2104f14f94e2ca6efefae561a4334b    | Một địa chỉ Ethereum đã gửi giao dịch                                                                                                                          |
 
 ### Handlers
 
@@ -74,7 +74,8 @@ Hoạt động giống như [substrate/EventHandler](../create/mapping/#event-ha
 | ------ | ------------ | --------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | topics | String array | Transfer(address indexed from,address indexed to,uint256 value) | Bộ lọc chủ đề tuân theo bộ lọc nhật ký Ethereum JSON-PRC, bạn có thể tìm thêm tài liệu [tại đây](https://docs.ethers.io/v5/concepts/events/). |
 
-<b>Ghi chú về các topic:</b>
+**Ghi chú về các topic:**
+
 Có một vài cải tiến từ các bộ lọc nhật ký cơ bản:
 
 - Các Topics không cần thêm 0
@@ -123,7 +124,7 @@ dataSources:
             # function: approve(address,uint256)
             function: approve(address to,uint256 value)
             from: '0x6bd193ee6d2104f14f94e2ca6efefae561a4334b'
- 
+
 Text
 Xpath: /pre/code
 ```

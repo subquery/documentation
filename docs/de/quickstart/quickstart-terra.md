@@ -45,11 +45,11 @@ subql init
 Während das SubQuery-Projekt initialisiert wird, werden Ihnen bestimmte Fragen gestellt:
 
 - Projektname: Ein Name für Ihr SubQuery-Projekt
-- Netzwerkfamilie: Die Layer-1-Blockchain-Netzwerkfamilie, für deren Indizierung dieses SubQuery-Projekt entwickelt wird, verwenden Sie die Pfeiltasten auf Ihrer Tastatur, um aus den Optionen auszuwählen. Für diese Anleitung verwenden wir *"Terra"*
-- Netzwerk: Das spezifische Netzwerk, für dessen Indexierung dieses SubQuery-Projekt entwickelt wird, verwenden Sie die Pfeiltasten auf Ihrer Tastatur, um aus den Optionen auszuwählen. Für diese Anleitung verwenden wir *"Terra"*
-- Vorlage: Wählen Sie eine SubQuery-Projektvorlage aus, die einen Ausgangspunkt für den Beginn der Entwicklung bietet. Wir empfehlen die Auswahl des *"Starter-Projekts"*
+- Netzwerkfamilie: Die Layer-1-Blockchain-Netzwerkfamilie, für deren Indizierung dieses SubQuery-Projekt entwickelt wird, verwenden Sie die Pfeiltasten auf Ihrer Tastatur, um aus den Optionen auszuwählen. Für diese Anleitung verwenden wir _"Terra"_
+- Netzwerk: Das spezifische Netzwerk, für dessen Indexierung dieses SubQuery-Projekt entwickelt wird, verwenden Sie die Pfeiltasten auf Ihrer Tastatur, um aus den Optionen auszuwählen. Für diese Anleitung verwenden wir _"Terra"_
+- Vorlage: Wählen Sie eine SubQuery-Projektvorlage aus, die einen Ausgangspunkt für den Beginn der Entwicklung bietet. Wir empfehlen die Auswahl des _"Starter-Projekts"_
 - Git-Repository (optional): Geben Sie eine Git-URL zu einem Repository an, in dem dieses SubQuery-Projekt gehostet wird (wenn es in SubQuery Explorer gehostet wird).
-- RPC-Endpunkt (erforderlich): Geben Sie eine HTTPS-URL zu einem ausgeführten RPC-Endpunkt an, der standardmäßig für dieses Projekt verwendet wird. Dieser RPC-Node muss ein Archivnode sein (den Zustand der vollständigen Chain haben). Für diese Anleitung verwenden wir den Standardwert *"https://terra-columbus-5.beta.api.onfinality.io"*
+- RPC-Endpunkt (erforderlich): Geben Sie eine HTTPS-URL zu einem ausgeführten RPC-Endpunkt an, der standardmäßig für dieses Projekt verwendet wird. Dieser RPC-Node muss ein Archivnode sein (den Zustand der vollständigen Chain haben). Für diese Anleitung verwenden wir den Standardwert _"https://terra-columbus-5.beta.api.onfinality.io"_
 - Autoren (erforderlich): Geben Sie hier den Eigentümer dieses SubQuery-Projekts ein (z. B. Ihren Namen!)
 - Beschreibung (Optional): Sie können einen kurzen Absatz über Ihr Projekt bereitstellen, der beschreibt, welche Daten es enthält und was Benutzer damit tun können
 - Version (erforderlich): Geben Sie eine benutzerdefinierte Versionsnummer ein oder verwenden Sie die Standardversion (`1.0.0`).
@@ -59,8 +59,8 @@ Nachdem der Initialisierungsprozess abgeschlossen ist, sollten Sie sehen, dass e
 
 Führen Sie zuletzt im Projektverzeichnis den folgenden Befehl aus, um die Abhängigkeiten des neuen Projekts zu installieren.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```shell cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell cd PROJECT_NAME yarn install `
+@tab npm `shell cd PROJECT_NAME npm install ` :::
 
 ## Änderungen an Ihrem Projekt vornehmen
 
@@ -91,8 +91,8 @@ type Transfer @entity {
 
 **Wichtig: Wenn Sie Änderungen an der Schemadatei vornehmen, stellen Sie bitte sicher, dass Sie Ihr Typenverzeichnis neu generieren. Tun Sie dies jetzt.**
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```shell npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell yarn codegen `
+@tab npm `shell npm run-script codegen ` :::
 
 Sie finden die generierten Modelle im Verzeichnis `/src/types/models`. Weitere Informationen zur Datei `schema.graphql` finden Sie in unserer Dokumentation unter [Build/GraphQL Schema](../build/graphql.md)
 
@@ -143,30 +143,30 @@ import { MsgExecuteContract } from "@terra-money/terra.js";
 export async function handleEvent(
   event: TerraEvent<MsgExecuteContract>
 ): Promise<void> {
-    // Debugging-Daten aus dem Ereignis drucken
-    // logger.info(JSON.stringify(event));
+  // Debugging-Daten aus dem Ereignis drucken
+  // logger.info(JSON.stringify(event));
 
-    // Erstellen Sie die neue Übertragungsentität mit einer eindeutigen ID
-    const transfer = new Transfer(
-      `${event.tx.tx.txhash}-${event.msg.idx}-${event.idx}`
-    );
-    transfer.blockHeight = BigInt(event.block.block.block.header.height);
-    transfer.txHash = event.tx.tx.txhash;
-    for (const attr of event.event.attributes) {
-      switch (attr.key) {
-        case "sender":
-          transfer.sender = attr.value;
-          break;
-        case "recipient":
-          transfer.recipient = attr.value;
-          break;
-        case "amount":
-          transfer.amount = attr.value;
-          break;
-        default:
-      }
+  // Erstellen Sie die neue Übertragungsentität mit einer eindeutigen ID
+  const transfer = new Transfer(
+    `${event.tx.tx.txhash}-${event.msg.idx}-${event.idx}`
+  );
+  transfer.blockHeight = BigInt(event.block.block.block.header.height);
+  transfer.txHash = event.tx.tx.txhash;
+  for (const attr of event.event.attributes) {
+    switch (attr.key) {
+      case "sender":
+        transfer.sender = attr.value;
+        break;
+      case "recipient":
+        transfer.recipient = attr.value;
+        break;
+      case "amount":
+        transfer.amount = attr.value;
+        break;
+      default:
     }
-    await transfer.save();
+  }
+  await transfer.save();
 }
 ```
 
@@ -178,7 +178,7 @@ Weitere Informationen zu Mapping-Funktionen finden Sie in unserer Dokumentation 
 
 Um Ihr neues SubQuery-Projekt auszuführen, müssen wir zuerst unsere Arbeit erstellen. Führen Sie den Build-Befehl im Stammverzeichnis des Projekts aus.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script build ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell yarn build ` @tab npm `shell npm run-script build ` :::
 
 **Wichtig: Wenn Sie Änderungen an Ihren Zuordnungsfunktionen vornehmen, müssen Sie Ihr Projekt neu erstellen**
 
@@ -192,13 +192,11 @@ Die gesamte Konfiguration, die steuert, wie ein SubQuery-Node ausgeführt wird, 
 
 Führen Sie im Projektverzeichnis den folgenden Befehl aus:
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn start:docker ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script start:docker ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell yarn start:docker ` @tab npm `shell npm run-script start:docker ` :::
 
 Es kann einige Zeit dauern, die erforderlichen Pakete herunterzuladen ([`@subql/node`](https://www.npmjs.com/package/@subql/node),
 
-`@subql/query`</7 > und Postgres) zum ersten Mal, aber bald werden Sie einen laufenden SubQuery-Knoten sehen. Seien Sie hier bitte geduldig.</p> 
-
-
+`@subql/query` und Postgres) zum ersten Mal, aber bald werden Sie einen laufenden SubQuery-Knoten sehen. Seien Sie hier bitte geduldig.
 
 ### Fragen Sie Ihr Projekt ab
 
@@ -208,15 +206,10 @@ Sie sollten sehen, dass im Explorer ein GraphQL-Playground angezeigt wird und di
 
 Für ein neues SubQuery-Starterprojekt können Sie die folgende Abfrage ausprobieren, um einen Eindruck davon zu bekommen, wie sie funktioniert, oder [mehr über die GraphQL-Abfragesprache erfahren](../run_publish/graphql.md).
 
-
-
 ```graphql
 {
   query {
-    transfers(
-      first: 10,
-      orderBy: ID_DESC
-    ) {
+    transfers(first: 10, orderBy: ID_DESC) {
       nodes {
         id
         txHash
@@ -230,16 +223,11 @@ Für ein neues SubQuery-Starterprojekt können Sie die folgende Abfrage ausprobi
 }
 ```
 
-
-
-
 ### Veröffentlichen Sie Ihr SubQuery-Projekt
 
 SubQuery bietet einen kostenlosen verwalteten Dienst, wenn Sie Ihr neues Projekt bereitstellen können. Sie können es in [SubQuery-Projekten](https://project.subquery.network) bereitstellen und mit unserem [Explorer](https://explorer.subquery.network) abfragen.
 
 [Lesen Sie die Anleitung zum Veröffentlichen Ihres neuen Projekts in SubQuery Projects](../publish/publish.md)
-
-
 
 ## Weitere Schritte
 

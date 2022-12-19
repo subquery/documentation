@@ -16,7 +16,7 @@ SubQuery juga menyediakan hosting proyek kelas produksi gratis untuk para pengem
 
 **SubQuery Network**
 
-Jaringan SubQuery memungkinkan pengembang untuk sepenuhnya mendesentralisasi tumpukan infrastruktur mereka. Ini adalah layanan data yang paling terbuka, berkinerja, andal, dan dapat diskalakan untuk dApps. Jaringan SubQuery mengindeks dan melayani data ke komunitas global dengan cara yang berinsentif dan dapat diverifikasi.  Setelah memublikasikan proyek Anda ke Jaringan SubQuery, siapa pun dapat mengindeks dan menghostingnya - menyediakan data kepada pengguna di seluruh dunia dengan lebih cepat dan andal.
+Jaringan SubQuery memungkinkan pengembang untuk sepenuhnya mendesentralisasi tumpukan infrastruktur mereka. Ini adalah layanan data yang paling terbuka, berkinerja, andal, dan dapat diskalakan untuk dApps. Jaringan SubQuery mengindeks dan melayani data ke komunitas global dengan cara yang berinsentif dan dapat diverifikasi. Setelah memublikasikan proyek Anda ke Jaringan SubQuery, siapa pun dapat mengindeks dan menghostingnya - menyediakan data kepada pengguna di seluruh dunia dengan lebih cepat dan andal.
 
 Informasi lebih lanjut [di sini](/subquery_network/introduction.md).
 
@@ -26,7 +26,7 @@ Cara terbaik untuk memulai SubQuery adalah mencoba [Hello World Tutorial](/asset
 
 ## Bagaimana saya bisa berkontribusi atau memberi masukan ke SubQuery?
 
-Kami menyukai kontribusi dan umpan balik dari komunitas. Untuk menyumbangkan kode, fork repositori yang Anda minati dan buat perubahan Anda. Kemudian kirimkan PR atau Pull Request. Jangan lupa untuk mengujinya juga. Lihat juga pedoman <a href="http://localhost:8080/miscellaneous/contributing.html">kontribusi kami.</a>
+Kami menyukai kontribusi dan umpan balik dari komunitas. Untuk menyumbangkan kode, fork repositori yang Anda minati dan buat perubahan Anda. Kemudian kirimkan PR atau Pull Request. Jangan lupa untuk mengujinya juga. Lihat juga pedoman [kontribusi kami](../miscellaneous/contributing.html).
 
 Untuk memberi umpan balik, hubungi kami di hello@subquery.network atau buka [discord channel](https://discord.com/invite/78zg8aBSMG) kami.
 
@@ -76,7 +76,6 @@ subql-node -f . --force-clean --subquery-name=<project-name>
 
 Perhatikan bahwa disarankan untuk menggunakan `--force-clean` saat mengubah `startBlock` dalam manifes proyek (`project.yaml`) untuk memulai pengindeksan ulang dari blok yang dikonfigurasi. Jika `startBlock` diubah tanpa `--force-clean` proyek, maka pengindeks akan melanjutkan pengindeksan dengan `startBlock` yang dikonfigurasi sebelumnya.
 
-
 ## Bagaimana saya bisa mengoptimalkan proyek saya untuk mempercepatnya?
 
 Performa merupakan faktor krusial dalam setiap proyek. Untungnya, ada beberapa hal yang bisa Anda lakukan untuk memperbaikinya. Berikut ini daftar beberapa saran:
@@ -89,12 +88,12 @@ Performa merupakan faktor krusial dalam setiap proyek. Untungnya, ada beberapa h
 - Atur blok awal ke saat kontrak diinisialisasi.
 - Selalu gunakan [dictionary](../tutorials_examples/dictionary.html#how-does-a-subquery-dictionary-work) (kami dapat membantu membuatnya untuk jaringan baru Anda).
 - Optimalkan desain skema Anda, buatlah sesederhana mungkin.
-    - Cobalah untuk mengurangi bidang dan kolom yang tidak perlu.
-    - Buat indeks sesuai kebutuhan.
+  - Cobalah untuk mengurangi bidang dan kolom yang tidak perlu.
+  - Buat indeks sesuai kebutuhan.
 - Gunakan pemrosesan paralel/batch sesering mungkin.
-    - Gunakan `api.queryMulti()` untuk mengoptimalkan panggilan API Polkadot di dalam fungsi pemetaan dan menanyakannya secara paralel. Ini adalah cara yang lebih cepat daripada loop.
-    - Gunakan `Promise.all()`. Dalam kasus beberapa fungsi async, lebih baik mengeksekusinya dan menyelesaikannya secara paralel.
-    - Jika Anda ingin membuat banyak entitas dalam satu handler, Anda dapat menggunakan `store.bulkCreate(entityName: string, entities: Entity[])`. Anda bisa membuatnya secara paralel, tidak perlu melakukannya satu per satu.
+  - Gunakan `api.queryMulti()` untuk mengoptimalkan panggilan API Polkadot di dalam fungsi pemetaan dan menanyakannya secara paralel. Ini adalah cara yang lebih cepat daripada loop.
+  - Gunakan `Promise.all()`. Dalam kasus beberapa fungsi async, lebih baik mengeksekusinya dan menyelesaikannya secara paralel.
+  - Jika Anda ingin membuat banyak entitas dalam satu handler, Anda dapat menggunakan `store.bulkCreate(entityName: string, entities: Entity[])`. Anda bisa membuatnya secara paralel, tidak perlu melakukannya satu per satu.
 - Membuat panggilan API untuk menanyakan state bisa lambat. Anda bisa mencoba untuk meminimalkan pemanggilan jika memungkinkan dan menggunakan data `ekstrinsik/transaksi/event`.
 - Gunakan `worker threads` untuk memindahkan pengambilan blok dan pemrosesan blok ke dalam thread pekerja sendiri. Ini bisa mempercepat pengindeksan hingga 4 kali lipat (tergantung pada proyek tertentu). Anda bisa dengan mudah mengaktifkannya dengan menggunakan flag `-workers=<number>`. Perhatikan bahwa jumlah core CPU yang tersedia sangat membatasi penggunaan thread pekerja. Untuk saat ini, ini hanya tersedia untuk Substrate dan Cosmos dan akan segera diintegrasikan untuk Avalanche.
 - Perhatikan bahwa `JSON.stringify` tidak mendukung native `BigInts`. Pustaka logging kami akan melakukan hal ini secara internal jika Anda mencoba untuk mencatat sebuah objek. Kami sedang mencari solusi untuk ini.

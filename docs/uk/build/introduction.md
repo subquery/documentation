@@ -51,8 +51,8 @@ yarn codegen
 
 Запустіть команду збірки з кореневого каталогу проекту.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> `shell yarn build ` </CodeGroupItem>
-<CodeGroupItem title="NPM"> `bash npm run-script build ` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell yarn build `
+@tab npm `bash npm run-script build ` :::
 
 ### Альтернатива будують вибір
 
@@ -80,13 +80,13 @@ yarn codegen
     L index.js
 ```
 
-Зауважте, що він буде створювати ` index.ts </ 0> чи не вказано в поле експорту. </p>
+Зауважте, що він буде створювати ` index.ts чи не вказано в поле експорту.
 
-<p spaces-before="0">Для отримання додаткової інформації про використання цього, включаючи прапори, див. Розділ <a href="https://doc.subquery.network/run_publish/references/#build"> Довідник </ 0>.</p>
+Для отримання додаткової інформації про використання цього, включаючи прапори, див. Розділ https://doc.subquery.network/run_publish/references/#build
 
-<h2 spaces-before="0">Ведення журналу</h2>
+## Ведення журналу
 
-<p spaces-before="0">Метод <code>console.log` **більше не підтримується**. Замість цього ` logger ` модуль був введений в типи, який означає, що ми можемо підтримувати лісоруба, який може прийняти різні реєстраційні рівні.
+Метод `console.log` **більше не підтримується**. Замість цього `logger` модуль був введений в типи, який означає, що ми можемо підтримувати лісоруба, який може прийняти різні реєстраційні рівні.
 
 ```typescript
 logger.info("Інформаційне повідомлення ");

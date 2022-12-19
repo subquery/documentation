@@ -21,11 +21,11 @@
 
 Тази команда използва webpack за генериране на пакет от проект на subquery.
 
-| Опции              | Описание                                                                                                   |
-| ------------------ | ---------------------------------------------------------------------------------------------------------- |
-| -l, --location     | локална папка на проекта subquery (ако все още не сте в папка)                                             |
-| -o, --output       | посочете изходната папка на build например build-folder                                                    |
-| --mode=(production | prod                                                        | development | dev) | [ default: production ] |
+| Опции              | Описание                                                       |
+| ------------------ | -------------------------------------------------------------- | ----------- | ---- | ----------------------- |
+| -l, --location     | локална папка на проекта subquery (ако все още не сте в папка) |
+| -o, --output       | посочете изходната папка на build например build-folder        |
+| --mode=(production | prod                                                           | development | dev) | [ default: production ] |
 
 - With `subql build` you can specify additional entry points in exports field although it will always build `index.ts` automatically.
 
@@ -106,7 +106,7 @@ This displays the current version.
 
 ### reindex
 
-:::warning In order to use this command, you require `@subql/node:v1.10.0`/`@subql/node-<network>:v1.10.0` or above. :::
+:::warning In order to use this command, you require `@subql/node:v1.10.0`/`@subql/node-YOURNETWORK:v1.10.0` or above. :::
 
 When using reindex command, historical must be enabled for the targeted project (`--disable-historical=false`). After starting the project, it would print out a log stating if historical is enabled or not.
 
@@ -122,7 +122,7 @@ If the `targetHeight` is less than the declared starting height, it will execute
 subql-node -f /example/subql-project reindex --targetHeight=30
 ```
 
-::: info Note
+::: tip Note
 Once the command is executed and the state has been rolled back the the specified height, the application will exit. You can then start up the indexer to proceed again from this height.
 :::
 
@@ -134,7 +134,7 @@ This command forces the project schemas and tables to be regenerated. It is help
 
 `-f`, `--subquery` flag must be passed in, to set path of the targeted project.
 
-::: info Note Similar to `reindex` command, the application would exit upon completion. :::
+::: tip Note Similar to `reindex` command, the application would exit upon completion. :::
 
 ```shell
 subql-node -f /example/subql-project force-clean
@@ -338,8 +338,6 @@ The port the subquery indexing service binds to. By default this is set to `3000
 
 Disables automated historical state tracking, [see Historic State Tracking](./historical.md). By default this is set to `false`.
 
-
-
 ### -w, --workers
 
 This will move block fetching and processing into a worker. By default, this feature is **disabled**. You can enable it with the `--workers=<number>` flag. Note that the number of available CPU cores strictly limits the usage of worker threads. So, when using the `--workers=<number>` flag, always specify the number of workers. With no flag provided, everything will run in the same thread.
@@ -348,7 +346,7 @@ This will move block fetching and processing into a worker. By default, this fea
 
 It is at an early experimental stage at the moment, but we plan to enable it by default. :::
 
-::: info Note
+::: tip Note
 This feature is available for Substrate and Cosmos, and soon will be integrated for Avalanche.
 :::
 

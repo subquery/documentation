@@ -43,10 +43,10 @@ subql init
 SubQuery projesi initalised olarak size bazı sorular sorulana olacaktır:
 
 - Proje adı: SubQuery projeniz için bir proje adı
-- Ağ ailesi: Bu SubQuery projesinin dizine eklemek için geliştirileceği katman-1 blok zinciri ağ ailesi. Mevcut seçenekler arasından seçim yapmak için ok tuşlarını kullanın. Bu kılavuz için *"Substrate"* kullanacağız
-- Ağ: Bu SubQuery projesinin dizine eklemek için geliştirileceği belirli ağ. Mevcut seçenekler arasından seçim yapmak için ok tuşlarını kullanın. Bu kılavuz için *"Polkadot"* kullanacağız
-- Şablon: Geliştirmeye başlamak için bir başlangıç ​​noktası sağlayacak bir SubQuery proje şablonu seçin. *"subql-starter"* projesini seçmenizi öneririz.
-- RPC uç noktası: Bu proje için varsayılan olarak kullanılacak çalışan bir RPC uç noktasına wss URL'si sağlayın. Farklı Polkadot ağları için genel uç noktalara hızlı bir şekilde erişebilir veya hatta [OnFinality](https://app.onfinality.io) kullanarak kendi özel özel düğümünüzü oluşturabilir veya yalnızca varsayılan Polkadot uç noktasını kullanabilirsiniz. Bu RPC düğümü bir arşiv düğümü olmalıdır (tam zincir durumuna sahip). Bu kılavuz için *"https://polkadot.api.onfinality.io"* varsayılan değerini kullanacağız
+- Ağ ailesi: Bu SubQuery projesinin dizine eklemek için geliştirileceği katman-1 blok zinciri ağ ailesi. Mevcut seçenekler arasından seçim yapmak için ok tuşlarını kullanın. Bu kılavuz için _"Substrate"_ kullanacağız
+- Ağ: Bu SubQuery projesinin dizine eklemek için geliştirileceği belirli ağ. Mevcut seçenekler arasından seçim yapmak için ok tuşlarını kullanın. Bu kılavuz için _"Polkadot"_ kullanacağız
+- Şablon: Geliştirmeye başlamak için bir başlangıç ​​noktası sağlayacak bir SubQuery proje şablonu seçin. _"subql-starter"_ projesini seçmenizi öneririz.
+- RPC uç noktası: Bu proje için varsayılan olarak kullanılacak çalışan bir RPC uç noktasına wss URL'si sağlayın. Farklı Polkadot ağları için genel uç noktalara hızlı bir şekilde erişebilir veya hatta [OnFinality](https://app.onfinality.io) kullanarak kendi özel özel düğümünüzü oluşturabilir veya yalnızca varsayılan Polkadot uç noktasını kullanabilirsiniz. Bu RPC düğümü bir arşiv düğümü olmalıdır (tam zincir durumuna sahip). Bu kılavuz için _"https://polkadot.api.onfinality.io"_ varsayılan değerini kullanacağız
 - Git deposu: Bu SubQuery projesinin barındırılacağı bir depoya Git URL'si sağlayın (SubQuery Gezgini'nde barındırıldığında).
 - Yazarlar: Bu SubQuery projesinin sahibini buraya girin (örneğin adınız!) veya sağlanan varsayılanı kabul edin.
 - Açıklama: Projeniz hakkında hangi verileri içerdiğini ve kullanıcıların bunlarla neler yapabileceğini açıklayan kısa bir paragraf sağlayın veya sağlanan varsayılanı kabul edin.
@@ -57,16 +57,16 @@ Başlatma işlemi tamamlandıktan sonra, dizin içinde proje adınızın oluştu
 
 Son olarak, proje dizini altında, yeni projenin bağımlılıklarını yüklemek için aşağıdaki komutu çalıştırın.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```shell cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell cd PROJECT_NAME yarn install `
+@tab npm `shell cd PROJECT_NAME npm install ` :::
 
 ## Making Changes to your Project
 
 In the starter package that was just initialised, a standard configuration has been provided. Bunlar:
 
-`schema.graphql içindeki <li>GraphQL Şeması`</li>
-2. `project.yaml` içindeki Proje Manifestosu
-3. `src/mappings/` dizinindeki Eşleme işlevleri
+- `schema.graphql içindeki` GraphQL Şeması`
+- `project.yaml` içindeki Proje Manifestosu
+- `src/mappings/` dizinindeki Eşleme işlevleri
 
 Bu hızlı başlangıç ​​kılavuzunun amacı, standart başlangıç ​​projesini Polkadot'tan tüm transferleri indekslemeye başlayacak şekilde uyarlamaktır, sadece - dakika sürmelidir.
 
@@ -88,8 +88,8 @@ type Transfer @entity {
 
 **Önemli: Şema dosyasında herhangi bir değişiklik yaptığınızda, lütfen türler dizininizi yeniden oluşturduğunuzdan emin olun.**
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```shell npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell yarn codegen `
+@tab npm `shell npm run-script codegen ` :::
 
 You'll find the generated models in the `/src/types/models` directory. `schema.graphql` dosyası hakkında daha fazla bilgi için, [Build/GraphQL Schema](../build/graphql.md) altındaki belgelerimize bakın
 
@@ -133,22 +133,22 @@ import { Transfer } from "../types";
 import { Balance } from "@polkadot/types/interfaces";
 
 export async function handleEvent(event: SubstrateEvent): Promise<void> {
-    // Get data from the event
-    // The balances.transfer event has the following payload \[from, to, value\]
-    // logger.info(JSON.stringify(event));
-    const from = event.event.data[0];
-    const to = event.event.data[1];
-    const amount = event.event.data[2];
+  // Get data from the event
+  // The balances.transfer event has the following payload \[from, to, value\]
+  // logger.info(JSON.stringify(event));
+  const from = event.event.data[0];
+  const to = event.event.data[1];
+  const amount = event.event.data[2];
 
-    // Create the new transfer entity
-    const transfer = new Transfer(
-        `${event.block.block.header.number.toNumber()}-${event.idx}`,
-    );
-    transfer.blockNumber = event.block.block.header.number.toBigInt();
-    transfer.from = from.toString();
-    transfer.to = to.toString();
-    transfer.amount = (amount as Balance).toBigInt();
-    await transfer.save();
+  // Create the new transfer entity
+  const transfer = new Transfer(
+    `${event.block.block.header.number.toNumber()}-${event.idx}`
+  );
+  transfer.blockNumber = event.block.block.header.number.toBigInt();
+  transfer.from = from.toString();
+  transfer.to = to.toString();
+  transfer.amount = (amount as Balance).toBigInt();
+  await transfer.save();
 }
 ```
 
@@ -160,7 +160,7 @@ Eşleme işlevleri hakkında daha fazla bilgi için [Derleme/Eşlemeler](../buil
 
 Yeni SubQuery Projenizi çalıştırmak için önce çalışmamızı oluşturmamız gerekiyor. Yapı komutunu projenin kök dizininden çalıştırın.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script build ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab yarn `yarn build ` @tab npm `npm run-script build ` :::
 
 **Important: Whenever you make changes to your mapping functions, you will need to rebuild your project**
 
@@ -174,7 +174,7 @@ Bir SubQuery düğümünün nasıl çalıştırıldığını kontrol eden tüm y
 
 Proje dizininin altında aşağıdaki komutu çalıştırın:
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn start:docker ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script start:docker ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell yarn start:docker ` @tab npm `shell npm run-script start:docker ` :::
 
 It may take some time to download the required packages ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), and Postgres) for the first time but soon you should see a running SubQuery node in the terminal screen.
 
@@ -189,10 +189,7 @@ Yeni bir SubQuery başlangıç ​​projesi için, nasıl çalıştığını an
 ```graphql
 {
   query {
-    transfers(
-      first: 10,
-      orderBy: AMOUNT_DESC
-    ) {
+    transfers(first: 10, orderBy: AMOUNT_DESC) {
       nodes {
         id
         amount

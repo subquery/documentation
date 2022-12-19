@@ -32,12 +32,12 @@ If your project is still being deployed via GitHub, read the migration guide for
 
 ### 准备您的 SUBQL_ACCESS_TOKEN
 
-- 步骤1：去 [SubQuery Projects](https://project.subquery.network/) 并登录。
+- 步骤 1：去 [SubQuery Projects](https://project.subquery.network/) 并登录。
 - Step 2: Click on your profile at the top right of the navigation menu, then click on **_Refresh Token_**.
-- 步骤3:复制生成的令牌。
-- 步骤4：使用此令牌：
-  - 选项1：在您的环境变量中添加SUBQL_ACCESS_TOKEN。 `EXPORT SUBQL_ACCESS_TOKEN=<token>` (Windows) or `export SUBQL_ACCESS_TOKEN=<token>` (Mac/Linux)
-  - 选项2：在即将到来的新版本中， `subql/cli` 将支持本地存储您的 SUBQL_ACCESS_TOKEN
+- 步骤 3:复制生成的令牌。
+- 步骤 4：使用此令牌：
+  - 选项 1：在您的环境变量中添加 SUBQL_ACCESS_TOKEN。 `EXPORT SUBQL_ACCESS_TOKEN=<token>` (Windows) or `export SUBQL_ACCESS_TOKEN=<token>` (Mac/Linux)
+  - 选项 2：在即将到来的新版本中， `subql/cli` 将支持本地存储您的 SUBQL_ACCESS_TOKEN
 
 ### 如何发布一个项目
 
@@ -81,9 +81,9 @@ SubQuery Project uploaded to IPFS: QmZ3q7YZSmhwBiot4PQCK3c7Z6HkteswN2Py58gkkZ8kN
 
 Note: With `@subql/cli` version 1.3.0 or above, when using `subql publish`, a copy of the project's `IPFS CID` will be stored in a file in your project directory. The naming of the file will be consistent with your project.yaml. For example, if your manfiest file is named `project.yaml`, the IPFS file will be named `.project-cid`.
 
-### IPFS部署
+### IPFS 部署
 
-IPFS的部署代表着分散网络上一个SubQuery项目的独立独特的存在。 因此，对项目代码的任何修改都会影响到项目的独特性。 如果您需要调整您的业务逻辑，例如更改映射功能，您必须重新发布项目， `CID`将会改变。
+IPFS 的部署代表着分散网络上一个 SubQuery 项目的独立独特的存在。 因此，对项目代码的任何修改都会影响到项目的独特性。 如果您需要调整您的业务逻辑，例如更改映射功能，您必须重新发布项目， `CID`将会改变。
 
 For now, to view the project you have published, use a `REST` api tool such as [Postman](https://web.postman.co/), and use the `POST` method with the following example URL to retrieve it:`https://ipfs.subquery.network/ipfs/api/v0/cat?arg=<YOUR_PROJECT_CID>`.
 
@@ -91,7 +91,7 @@ You should see the example project deployment as below.
 
 此部署看起来与您的清单文件非常相似。 您可以预知这些描述性的字段。 且因为网络和字典端点并不直接影响项目执行的结果而导致他们被删除出字段。
 
-这些文件在您的本地项目中已经被打包并发布到IPFS中。
+这些文件在您的本地项目中已经被打包并发布到 IPFS 中。
 
 ```yaml
 dataSources:
@@ -155,7 +155,7 @@ Create your project and you'll see it on your SubQuery Project's list. Next, we 
 
 ![Project created](/assets/img/project_created.png)
 
-#### 使用CLI
+#### 使用 CLI
 
 You can also use `@subql/cli` to publish your project to our Managed Service. 这需要：
 
@@ -196,7 +196,7 @@ With your new project, you'll see a "Deploy your first version" button. Click th
 
 If deployed successfully, you'll see the indexer start working and report back progress on indexing the current chain. This process may take time until it reaches 100%.
 
-#### 使用CLI
+#### 使用 CLI
 
 You can also use `@subql/cli` to create a new deployment of your project to our Managed Service. 这需要：
 
@@ -223,9 +223,9 @@ $ subql deployment:deploy
 
 #### 使用 GitHub Actions
 
-随着国家排雷行动中心的部署功能的引入， 我们在 GitHub</a> 中添加了一个 **默认动作流程** 到
+随着国家排雷行动中心的部署功能的引入， 我们在 GitHub 中添加了一个 **默认动作流程** 到
 
-启动器项目，它将允许您自动发布并部署您的更改：</p> 
+启动器项目，它将允许您自动发布并部署您的更改
 
 - 第 1 步：将您的项目推送到 GitHub 后，在 GitHub 上创建 `DEPLOYMENT` 环境，并添加秘钥 [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token)
 - Step 2: Create a project on [SubQuery Projects](https://project.subquery.network), this can be done using the the [UI](#using-the-ui) or [CLI](#using-the-cli).
@@ -234,8 +234,6 @@ $ subql deployment:deploy
 - Once the workflow is complete, you should be see your project deployed to our Managed Service
 
 A common approach is to extend the default GitHub Action to automatically deploy changes to our Managed Service when code is merged into main. 以下对 GitHub 行动流程的更改做到这一点：
-
-
 
 ```yml
 on:
@@ -248,9 +246,6 @@ jobs:
     ...
 ```
 
-
-
-
 ## 下一步 - 连接到您的项目
 
 一旦您的部署成功完成并且我们的节点已经从该链中为您的数据编制了索引， 您可以通过显示的 GraphQL 查询端点连接到您的项目。
@@ -260,8 +255,6 @@ jobs:
 您也可以点击项目标题旁边的三个小点图标，从而在 SubQuery 浏览器上查看项目， 在这里您可以使用我们的区块链浏览器开始—— [阅读更多关于如何在这里使用](../query/query.md) 的信息。 There you can use the in-browser playground to get started - [read more about how to use our Explorer here](../run_publish/query.md).
 
 ![SubQuery Explorer 中的项目](/assets/img/projects_explorer.png)
-
-
 
 ## Add GitHub Organization Account to SubQuery Projects
 

@@ -51,7 +51,7 @@ Afin d'exécuter votre projet SubQuery sur un noeud SubQuery hébergé localemen
 
 Exécutez la commande build depuis le répertoire racine du projet.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> `shell yarn build ` </CodeGroupItem> <CodeGroupItem title="NPM"> `bash npm run-script build ` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell yarn build ` @tab npm `bash npm run-script build ` :::
 
 ### Autres options de compilation
 

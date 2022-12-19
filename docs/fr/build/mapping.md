@@ -62,14 +62,17 @@ export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
 Le [SubstrateExtrinsic](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L21) étend [GenericExtrinsic](https://github.com/polkadot-js/api/blob/a9c9fb5769dec7ada8612d6068cf69de04aa15ed/packages/types/src/extrinsic/Extrinsic.ts#L170). On lui attribue un `id` (le bloc auquel cet extrinsèque appartient) et il fournit une propriété extrinsèque qui étend les événements parmi ce bloc. En outre, elle enregistre l'état de réussite de cette extrinsèque.
 
 ## États des requêtes
+
 Notre objectif est de couvrir toutes les sources de données des utilisateurs pour les gestionnaires de mappage (plus que les trois types d'événements d'interface ci-dessus). Par conséquent, nous avons exposé certaines des interfaces @polkadot/api pour augmenter les capacités.
 
 Ce sont les interfaces que nous supportons actuellement :
-- [api.query.&lt;module&gt;.&lt;method&gt;()](https://polkadot.js.org/docs/api/start/api.query) interrogera le bloc <strong>actuel</strong>.
-- [api.query.&lt;module&gt;.&lt;method&gt;.multi()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-same-type) fera plusieurs requêtes du <strong>même</strong> type au bloc actuel.
-- [api.queryMulti()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-distinct-types) effectuera plusieurs requêtes de <strong>différents</strong> types dans le bloc actuel.
+
+- [api.query.&lt;module&gt;.&lt;method&gt;()](https://polkadot.js.org/docs/api/start/api.query) interrogera le bloc **actuel**.
+- [api.query.&lt;module&gt;.&lt;method&gt;.multi()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-same-type) fera plusieurs requêtes du **même** type au bloc actuel.
+- [api.queryMulti()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-distinct-types) effectuera plusieurs requêtes de **différents** types dans le bloc actuel.
 
 Voici les interfaces que nous ne supportons **pas** actuellement :
+
 - ~~api.tx.\*~~
 - ~~api.derive.\*~~
 - ~~api.query.&lt;module&gt;.&lt;method&gt;.at~~
@@ -98,6 +101,7 @@ const blockhash = `0x844047c4cf1719ba6d54891e92c071a41e3dfe789d064871148e9d41ef0
 // Il utilisera le bloc actuel par défaut comme ceci
 const b2 = await api.rpc.chain.getBlock();
 ```
+
 - Pour les appels RPC des [chaînes de substrat personnalisées](#custom-substrate-chains), voir l'[utilisation](#usage).
 
 ## Modules et bibliothèques
@@ -150,6 +154,7 @@ Nous avons besoin de métadonnées pour générer les points de terminaison de l
 ```shell
 curl -H "Content-Type: application/json" -d '{"id":"1", "jsonrpc":"2.0", "method": "state_getMetadata", "params":[]}' http://localhost:9933
 ```
+
 ou de son point de terminaison **websocket** avec l'aide de [`websocat`](https://github.com/vi/websocat):
 
 ```shell
@@ -163,9 +168,11 @@ echo state_getMetadata | websocat 'ws://127.0.0.1:9944' --jsonrpc
 Ensuite, copiez et collez la sortie dans un fichier JSON. Dans notre [exemple de kitty](https://github.com/subquery/tutorials-kitty-chain), nous avons créé `api-interface/kitty.json`.
 
 #### Définitions des types
+
 Nous supposons que l'utilisateur connaît les types spécifiques et le support RPC de la chaîne, et que cela est défini dans le [Manifest](./manifest.md).
 
 Après la [configuration des types](https://polkadot.js.org/docs/api/examples/promise/typegen#metadata-setup), nous créons :
+
 - `src/api-interfaces/definitions.ts` - ceci exporte toutes les définitions des sous-dossiers.
 
 ```ts
@@ -173,6 +180,7 @@ export { default as kitties } from "./kitties/definitions";
 ```
 
 - `src/api-interfaces/kitties/definitions.ts` - définitions des types pour le module kitties.
+
 ```ts
 export default {
   // types personnalisés
@@ -267,6 +275,7 @@ Cette commande va générer les métadonnées et un nouvel api-augment pour les 
 ### Utilisation
 
 Maintenant, dans la fonction de mappage, nous pouvons montrer comment les métadonnées et les types décorent réellement l'API. Le point de terminaison RPC supportera les modules et les méthodes que nous avons déclarés ci-dessus. Et pour utiliser un appel RPC personnalisé, veuillez consulter la section [Appels RPC personnalisés de la chaîne](#custom-chain-rpc-calls).
+
 ```typescript
 export async function kittyApiHandler(): Promise<void> {
   // retourne le type de KittyIndex
@@ -286,6 +295,7 @@ export async function kittyApiHandler(): Promise<void> {
 ### Appels rpc de chaîne personnalisés
 
 Pour prendre en charge les appels RPC en chaîne personnalisés, nous devons injecter manuellement des définitions RPC pour `typesBundle`, ce qui permet une configuration par spécification. Vous pouvez définir le `typesBundle` dans le `project.yml`. Et n'oubliez pas que seuls les appels de type `isHistoric` sont supportés.
+
 ```yaml
 ...
   types: {

@@ -4,7 +4,7 @@ El Manifiesto `project.yaml` puede ser visto como un punto de entrada de tu proy
 
 El manifiesto puede estar en formato YAML o JSON. En este documento, utilizaremos YAML en todos los ejemplos. A continuación se muestra un ejemplo estándar de un `project.yaml` básico.
 
-<CodeGroup> ``` yml specVersion: 0.2.0 name: example-project # Provide the project name version: 1.0.0 # Project version description: '' # Description of your project repository: 'https://github.com/subquery/subql-starter' # Git repository address of your project schema: file: ./schema.graphql # The location of your GraphQL schema file network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' # Genesis hash of the network endpoint: 'wss://polkadot.api.onfinality.io/public-ws' # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing dictionary: 'https://api.subquery.network/sq/subquery/dictionary-polkadot' dataSources: - kind: substrate/Runtime startBlock: 1 # This changes your indexing start block, set this higher to skip initial blocks with less data mapping: file: "./dist/index.js" handlers: - handler: handleBlock kind: substrate/BlockHandler - handler: handleEvent kind: substrate/EventHandler filter: #Filter is optional module: balances method: Deposit - handler: handleCall kind: substrate/CallHandler ````. [Vea aquí](#cli-options) para más información</strong>
+``` yml specVersion: 0.2.0 name: example-project # Provide the project name version: 1.0.0 # Project version description: '' # Description of your project repository: 'https://github.com/subquery/subql-starter' # Git repository address of your project schema: file: ./schema.graphql # The location of your GraphQL schema file network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' # Genesis hash of the network endpoint: 'wss://polkadot.api.onfinality.io/public-ws' # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing dictionary: 'https://api.subquery.network/sq/subquery/dictionary-polkadot' dataSources: - kind: substrate/Runtime startBlock: 1 # This changes your indexing start block, set this higher to skip initial blocks with less data mapping: file: "./dist/index.js" handlers: - handler: handleBlock kind: substrate/BlockHandler - handler: handleEvent kind: substrate/EventHandler filter: #Filter is optional module: balances method: Deposit - handler: handleCall kind: substrate/CallHandler ````. [Vea aquí](#cli-options) para más información
 
 Bajo `red`:
 
@@ -77,9 +77,9 @@ Define los datos que serán filtrados y extraídos y la ubicación del manejador
 
 ### Especificación de mapeo
 
-| Campo                       | v0.0.1                                                                            | v0.2.0                                                                                                    | Descripción                                                                                                                                                                                                                                                                         |
-| --------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **archivo**                 | String                                                                            | 𐄂                                                                                                         | Ruta a la entrada de mapeo                                                                                                                                                                                                                                                          |
+| Campo                       | v0.0.1                                                                            | v0.2.0                                                                                                    | Descripción                                                                                                                                                                                                                                                                                  |
+| --------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **archivo**                 | String                                                                            | 𐄂                                                                                                         | Ruta a la entrada de mapeo                                                                                                                                                                                                                                                                   |
 | **manipuladores y filtros** | [Controladores y filtros predeterminados](./manifestar/#mapeo-handlers-y-filtros) | Controladores y filtros por defecto, <br />[Controladores y filtros personalizados](#custom-data-sources) | Lista todas las [funciones de mapeo](./mapping/polkadot.md) y sus correspondientes tipos de manejador, con filtros de mapeo adicionales. <br /><br /> Para manejadores de mapeo de tiempo de ejecución personalizados, por favor vea [fuentes de datos personalizadas](#custom-data-sources) |
 
 ## Fuentes de datos y mapeo
@@ -100,8 +100,8 @@ La siguiente tabla explica los filtros soportados por diferentes manejadores.
 
 **Tu proyecto de SubQuery será mucho más eficiente cuando sólo utilices controladores de eventos y llamadas con filtros de mapeo apropiados**
 
-| Manejador                                          | Filtro compatible            |
-| -------------------------------------------------- | ---------------------------- |
+| Manejador                                                   | Filtro compatible            |
+| ----------------------------------------------------------- | ---------------------------- |
 | [Manejador de bloques](./mapping/polkadot.md#block-handler) | `specVersion`                |
 | [EventHandler](./mapping/polkadot.md#event-handler)         | `module`,`method`            |
 | [CallHandler](./mapping/polkadot.md#call-handler)           | `module`,`method` ,`success` |
@@ -149,8 +149,8 @@ Soportamos los tipos adicionales usados por módulos de tiempo de ejecución sub
 
 En el ejemplo v0.2.0 de abajo, la red `. haintypes` están apuntando a un archivo que tiene todos los tipos personalizados incluidos, Este es un archivo estándar de chainspec que declara los tipos específicos soportados por este blockchain en cualquiera de los dos `. son`, `.yaml` o `.js formato`.
 
-<CodeGroup> <CodeGroupItem title="v0.2.0" active> `yml network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' endpoint: 'ws://host.kittychain.io/public-ws' chaintypes: file: ./types.json # la ruta relativa al lugar donde se almacenan los tipos personalizados ...` </CodeGroupItem>
-<CodeGroupItem title="v0.0.1"> `yml ... network: endpoint: "ws://host.kittychain.io/public-ws" types: { "KittyIndex": "u32", "Kitty": "[u8; 16]" } # typesChain: { chain: { Type5: 'example' } } # typesSpec: { spec: { Type6: 'example' } } dataSources: - name: runtime kind: substrate/Runtime startBlock: 1 filter: #Optional specName: kitty-chain mapping: handlers: - handler: handleKittyBred kind: substrate/CallHandler filter: module: kitties method: breed success: true` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab v0.2.0 `yml network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' endpoint: 'ws://host.kittychain.io/public-ws' chaintypes: file: ./types.json # la ruta relativa al lugar donde se almacenan los tipos personalizados ...`
+@tab v0.0.1 `yml ... network: endpoint: "ws://host.kittychain.io/public-ws" types: { "KittyIndex": "u32", "Kitty": "[u8; 16]" } # typesChain: { chain: { Type5: 'example' } } # typesSpec: { spec: { Type6: 'example' } } dataSources: - name: runtime kind: substrate/Runtime startBlock: 1 filter: #Optional specName: kitty-chain mapping: handlers: - handler: handleKittyBred kind: substrate/CallHandler filter: module: kitties method: breed success: true` :::
 
 To use typescript for your chain types file include it in the `src` folder (e.g. `./src/types.ts`), run `yarn build` and then point to the generated js file located in the `dist` folder.
 
@@ -167,7 +167,7 @@ Cosas a tener en cuenta sobre el uso del archivo de tipos de cadena con extensi�
 
 A continuación se muestra un ejemplo de un archivo de tipos de cadena `.ts `:
 
-<CodeGroup> <CodeGroupItem title="types.ts"> ts importar {typesBundleDeprecated} desde "moonbeam-types-bundle" exportar predeterminado {typesBundle: typesBundleDeprecated}; '' </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab types.ts ts importar {typesBundleDeprecated} desde "moonbeam-types-bundle" exportar predeterminado {typesBundle: typesBundleDeprecated}; '' :::
 
 ## Fuentes de datos personalizadas
 
@@ -179,29 +179,11 @@ Las fuentes de datos personalizadas se pueden utilizar con fuentes de datos norm
 
 Aquí hay una lista de fuentes de datos personalizadas compatibles:
 
-<table spaces-before="0">
-  <tr>
-    <th>
-      Amable
-    </th>
-    
-    <th>
-      Controladores admitidos
-    </th>. Entre redes, es probable que varias opciones sean diferentes (por ejemplo, el bloque de inicio del índice). Por lo tanto, permitimos a los usuarios definir diferentes detalles para cada fuente de datos, lo que significa que un proyecto de SubQuery puede ser utilizado en múltiples redes.</p> 
-    
-    <p spaces-before="0">
-      Los usuarios pueden añadir un <code>filtro</code> en <code>fuentes de datos</code> para decidir qué fuente de datos ejecutar en cada red.
-    </p>
-    
-    <p spaces-before="0">
-      A continuación hay un ejemplo que muestra diferentes fuentes de datos para las redes Polkadot y Kusama.
-    </p>
-    
-    <p spaces-before="0">
+Controladores admitidos
+Entre redes, es probable que varias opciones sean diferentes (por ejemplo, el bloque de inicio del índice). Por lo tanto, permitimos a los usuarios definir diferentes detalles para cada fuente de datos, lo que significa que un proyecto de SubQuery puede ser utilizado en múltiples redes.
 
-<CodeGroup> <CodeGroupItem title="v0.0.1"> `yaml --- network: endpoint: 'wss://polkadot.api.onfinality.io/public-ws' #Create a template to avoid redundancy definitions: mapping: &mymapping handlers: - handler: handleBlock kind: substrate/BlockHandler dataSources: - name: polkadotRuntime kind: substrate/Runtime filter: #Optional specName: polkadot startBlock: 1000 mapping: *mymapping #use template here - name: kusamaRuntime kind: substrate/Runtime filter: specName: kusama startBlock: 12000 mapping: *mymapping # can reuse or change ` </CodeGroupItem>
-</p>
+Los usuarios pueden añadir un `filtro` en `fuentes de datos` para decidir qué fuente de datos ejecutar en cada red.
 
-    <p spaces-before="0">
-      </CodeGroup>
-    </p>
+A continuación hay un ejemplo que muestra diferentes fuentes de datos para las redes Polkadot y Kusama.
+
+::: code-tabs @tab v0.0.1 `yaml --- network: endpoint: 'wss://polkadot.api.onfinality.io/public-ws' #Create a template to avoid redundancy definitions: mapping: &mymapping handlers: - handler: handleBlock kind: substrate/BlockHandler dataSources: - name: polkadotRuntime kind: substrate/Runtime filter: #Optional specName: polkadot startBlock: 1000 mapping: *mymapping #use template here - name: kusamaRuntime kind: substrate/Runtime filter: specName: kusama startBlock: 12000 mapping: *mymapping # can reuse or change ` :::

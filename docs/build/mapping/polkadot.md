@@ -51,7 +51,7 @@ export async function handleEvent(event: SubstrateEvent): Promise<void> {
 
 A `SubstrateEvent` is an extended interface type of the [EventRecord](https://github.com/polkadot-js/api/blob/f0ce53f5a5e1e5a77cc01bf7f9ddb7fcf8546d11/packages/types/src/interfaces/system/types.ts#L149). Besides the event data, it also includes an `id` (the block to which this event belongs) and the extrinsic inside of this block.
 
-::: info Note
+::: tip Note
 From `@subql/types` version `X.X.X` onwards `SubstrateEvent` is now generic. This can provide you with higher type safety when developing your project.
 
 ```ts
@@ -77,7 +77,7 @@ export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
 
 The [SubstrateExtrinsic](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L21) extends [GenericExtrinsic](https://github.com/polkadot-js/api/blob/a9c9fb5769dec7ada8612d6068cf69de04aa15ed/packages/types/src/extrinsic/Extrinsic.ts#L170). It is assigned an `id` (the block to which this extrinsic belongs) and provides an extrinsic property that extends the events among this block. Additionally, it records the success status of this extrinsic.
 
-::: info Note
+::: tip Note
 From `@subql/types` version `X.X.X` onwards `SubstrateExtrinsic` is now generic. This can provide you with higher type safety when developing your project.
 
 ```ts
@@ -139,9 +139,9 @@ Our goal is to cover all data sources for users for mapping handlers (more than 
 
 These are the interfaces we currently support:
 
-- [api.query.&lt;module&gt;.&lt;method&gt;()](https://polkadot.js.org/docs/api/start/api.query) will query the <strong>current</strong> block.
-- [api.query.&lt;module&gt;.&lt;method&gt;.multi()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-same-type) will make multiple queries of the <strong>same</strong> type at the current block.
-- [api.queryMulti()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-distinct-types) will make multiple queries of <strong>different</strong> types at the current block.
+- [api.query.&lt;module&gt;.&lt;method&gt;()](https://polkadot.js.org/docs/api/start/api.query) will query the **current** block.
+- [api.query.&lt;module&gt;.&lt;method&gt;.multi()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-same-type) will make multiple queries of the **same** type at the current block.
+- [api.queryMulti()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-distinct-types) will make multiple queries of **different** types at the current block.
 
 These are the interfaces we do **NOT** support currently:
 

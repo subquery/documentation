@@ -1,4 +1,4 @@
-# Humanode Quick Start
+# Polkadot Quick Start (Humanode)
 
 ## Goals
 
@@ -38,20 +38,21 @@ type ImOnlineSomeOffline @entity {
 While making any changes to the schema file, make sure to regenerate your types directory
 :::
 
-<CodeGroup>
-  <CodeGroupItem title="YARN" active>
-  ```shell
-  yarn codegen
-  ```
-  </CodeGroupItem>
+::: code-tabs
+@tab:active yarn
 
-  <CodeGroupItem title="NPM">
-  ```shell
-  npm run-script codegen
-  ```
-  </CodeGroupItem>
- </CodeGroup>
-  
+```shell
+yarn codegen
+```
+
+@tab npm
+
+```shell
+npm run-script codegen
+```
+
+:::
+
 You will find the generated models in the `/src/types/models` directory.
 
 Check out the [GraphQL Schema](../../build/graphql.md) documentation to get in-depth information on `schema.graphql` file.
@@ -87,10 +88,10 @@ dataSources:
           filter:
             module: imOnline
             method: SomeOffline
- ```
- 
+```
+
 This indicates that you will be running a `handleBioauthNewAuthenticationEvent` and `handleImonlineSomeOfflineEvent` mapping functions whenever there are events emitted from the `bioauth` and `imOnline modules` with the `NewAuthentication` and `SomeOffline` methods, respectively.
- 
+
 Check out our [documentation](../../build/manifest/polkadot.md) to get more information about the Project Manifest (`project.yaml`) file.
 
 Next, let’s proceed ahead with the Mapping Function’s configuration.
@@ -148,24 +149,23 @@ export async function handleImonlineSomeOfflineEvent(
 ```
 
 ## 4. Building Your Project
+
 Next, build your work to run your new SubQuery project. Run the build command from the project's root directory as given here:
 
-<CodeGroup>
-  <CodeGroupItem title="YARN" active>
+::: code-tabs
+@tab:active yarn
 
 ```shell
 yarn build
 ```
 
-  </CodeGroupItem>
-  <CodeGroupItem title="NPM">
+@tab npm
 
 ```shell
 npm run-script build
 ```
 
-  </CodeGroupItem>
-</CodeGroup>
+:::
 
 ::: warning Important
 Make sure to rebuild your project when you change your mapping functions.
@@ -183,22 +183,20 @@ However, visit Running [SubQuery Locally](../../run_publish/run.html) to get mor
 
 Run the following command under the project directory:
 
-<CodeGroup>
-  <CodeGroupItem title="YARN" active>
+::: code-tabs
+@tab:active yarn
 
 ```shell
 yarn start:docker
 ```
 
-  </CodeGroupItem>
-  <CodeGroupItem title="NPM">
+@tab npm
 
 ```shell
 npm run-script start:docker
 ```
 
-  </CodeGroupItem>
-</CodeGroup>
+:::
 
 ::: warning Note
 It may take a few minutes to download the required images and start various nodes and Postgres databases.
@@ -222,7 +220,7 @@ query {
     }
   }
   imOnlineSomeOfflineByNodeId (nodeId : 5) {
-    id 
+    id
   }
   _metadata {
     lastProcessedHeight
