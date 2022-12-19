@@ -12,4 +12,4 @@ SubQuery Explorer は、サンプルクエリを使用して利用可能なデ�
 
 On the top right of the playground, you'll find a _Docs_ button that will open a documentation draw. このドキュメントは自動的に生成され、クエリできるエンティティやメソッドを見つけるのに役立ちます。
 
-::: info Note Learn more about the [GraphQL Query language.](./graphql.md) :::
+::: tip Note Learn more about the [GraphQL Query language.](./graphql.md) :::
