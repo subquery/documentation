@@ -19,7 +19,7 @@ Anda bisa meningkatkan untuk memanfaatkan layanan berbayar berikut ini:
 
 Saat menerapkan ke Layanan Terkelola SubQuery, Anda harus terlebih dahulu meng-host basis kode Anda di [IPFS](https://ipfs.io/). Hosting a project in IPFS makes it available for everyone and reduces your reliance on centralised services like GitHub.
 
-::::peringatan Alur Penyebaran GitHub sudah tidak digunakan lagi untuk IPFS
+:::warning GitHub Deployment flows have been deprecated for IPFS
 
 Jika proyek Anda masih disebarkan melalui GitHub, baca panduan migrasi untuk penyebaran IPFS [di sini](./ipfs.md) :::
 
@@ -69,9 +69,7 @@ Anda selalu dapat memublikasikan proyek dengan file manifes yang Anda pilih.
 subql publish -f ~/my-projectRoot/polkadot.yaml
 ```
 
-### Setelah diterbitkan
-
-After successfully publishing the project, the logs below indicate that the project was created on the IPFS cluster and have returned its `CID` (Content IDentifier). Please note down this `CID`.
+After successfully publishing the project, the logs below indicate that the project was created on the IPFS cluster and have returned its `CID` (Content Identifier). Please note down this `CID`.
 
 ```
 Kode bangunan dan pengepakan... selesai
@@ -81,11 +79,11 @@ Proyek SubQuery yang diunggah ke IPFS: QmZ3q7YZSmhwBiot4PQCK3c7Z6HkteswN2Py58gkk
 
 Note: With `@subql/cli` version 1.3.0 or above, when using `subql publish`, a copy of the project's `IPFS CID` will be stored in a file in your project directory. The naming of the file will be consistent with your project.yaml. For example, if your manfiest file is named `project.yaml`, the IPFS file will be named `.project-cid`.
 
-### IPFS Deployment
+::: details What happens during IPFS Deployment?
 
 Penyebaran IPFS mewakili keberadaan proyek SubQuery yang independen dan unik pada jaringan yang terdesentralisasi. Oleh karena itu, setiap perubahan dengan kode dalam proyek akan mempengaruhi keunikannya. Jika Anda perlu menyesuaikan logika bisnis Anda, mis. mengubah fungsi pemetaan, Anda harus memublikasikan ulang proyek, dan `CID` akan berubah.
 
-For now, to view the project you have published, use a `REST` api tool such as [Postman](https://web.postman.co/), and use the `POST` method with the following example URL to retrieve it:`https://ipfs.subquery.network/ipfs/api/v0/cat?arg=<YOUR_PROJECT_CID>`.
+For now, to view the project you have published, use a `REST` API tool such as [Postman](https://web.postman.co/), and use the `POST` method with the following example URL to retrieve it:`https://ipfs.subquery.network/ipfs/api/v0/cat?arg=<YOUR_PROJECT_CID>`.
 
 You should see the example project deployment as below.
 
@@ -116,11 +114,9 @@ schema:
 specVersion: 0.2.0
 ```
 
-## Menyebarkan proyek SubQuery Anda di Managed Service
+:::
 
-### Masuk ke Proyek SubQuery
-
-Before starting, please make sure that your SubQuery project codebase is published to IPFS.
+## Login to SubQuery Projects
 
 To create your first project, head to [SubQuery Projects](https://project.subquery.network). You'll need to authenticate with your GitHub account to login.
 
@@ -136,11 +132,13 @@ If you have a GitHub Organization accounts connected, you can use the switcher o
 
 ![Switch between GitHub accounts](/assets/img/projects_account_switcher.png)
 
-### Buat Proyek Pertama Anda
+## Create Your First Project
+
+Before starting, please make sure that your SubQuery project codebase is published to IPFS.
 
 There are two methods to create a project in the SubQuery Managed Service: you can use the UI or directly via the `subql` cli tool
 
-#### Menggunakan UI
+### Using the UI
 
 Start by clicking on "Create Project". You'll be taken to the new project form. Please enter the following (you can change this in the future):
 
@@ -155,31 +153,15 @@ Create your project and you'll see it on your SubQuery Project's list. Next, we 
 
 ![Project created](/assets/img/project_created.png)
 
-#### Menggunakan CLI
+### Using the CLI
 
-You can also use `@subql/cli` to publish your project to our Managed Service. Hal ini membutuhkan:
+Anda juga dapat menggunakan `@subql/cli` untuk membuat deployment baru dari proyek Anda ke layanan terkelola kami. Please follow the guide on how to [create a new project](./cli.md#create-a-new-project) on the SubQuery Managed Service in the [CLI documentation](./cli.md).
 
-- `@subql/cli` versi 1.1.0 atau lebih tinggi.
-- Sebuah [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) yang valid sudah siap.
-
-```shell
-// Creating a project using the CLI
-$ subql project:create-project
-
-// OR using non-interactive, it will prompt you if the required fields are missing
-$ subql project:create-project
-    --apiVersion=apiVersion      Api version is default to 2
-    --description=description    Enter description
-    --gitRepo=gitRepo            Enter git repository
-    --org=org                    Enter organization name
-    --projectName=projectName    Enter project name
-```
-
-### Menyebarkan Versi Pertama Anda
+## Deploy your First Version
 
 There are three methods to deploy a new version of your project to the SubQuery Managed Service, you can use the UI or directly, via the `subql` cli tool, or using an automated GitHub Action.
 
-#### Menggunakan UI
+### Using the UI
 
 While creating a project will setup the display behaviour of the project, you must deploy a version of it before it becomes operational. Deploying a version triggers a new SubQuery indexing operation to start, and sets up the required query service to start accepting GraphQL requests. You can also deploy new versions to existing projects here.
 
@@ -196,42 +178,53 @@ With your new project, you'll see a "Deploy your first version" button. Click th
 
 If deployed successfully, you'll see the indexer start working and report back progress on indexing the current chain. This process may take time until it reaches 100%.
 
-#### Menggunakan CLI
+### Using the CLI
 
-Anda juga dapat menggunakan `@subql/cli` untuk membuat deployment baru dari proyek Anda ke layanan terkelola kami. Hal ini membutuhkan:
+Anda juga dapat menggunakan `@subql/cli` untuk membuat deployment baru dari proyek Anda ke layanan terkelola kami. Please follow the guide on how to [deploy to an existing project](./cli.md#deploy-a-new-version-of-your-project) on the SubQuery Managed Service in the [CLI documentation](./cli.md).
 
-- `@subql/cli` versi 1.1.0 atau lebih tinggi.
-- Sebuah [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) yang valid sudah siap.
+## Deploy new versions of your SubQuery project
 
-```shell
-// Menyebarkan menggunakan CLI
-$ subql deployment:deploy
+Meskipun Anda memiliki kebebasan untuk selalu meningkatkan dan menerapkan versi baru proyek SubQuery Anda, mohon berhati-hati selama proses ini jika proyek SubQuery Anda bersifat publik untuk dunia. Beberapa hal penting yang perlu diingat:
 
-// ATAU Menyebarkan menggunakan CLI non-interaktif
-$ subql deployment:deploy
+- Jika peningkatan Anda merupakan perubahan yang melanggar, baik membuat proyek baru (misal. `Proyek SubQuery saya V2`) atau memberi banyak peringatan kepada komunitas Anda tentang perubahan tersebut melalui jalur media sosial.
+- Menerapkan versi proyek SubQuery baru menyebabkan beberapa waktu henti karena versi baru mengindeks rangkaian lengkap dari blok asal.
 
-  -d, --useDefaults Gunakan nilai default untuk indexerVerion, queryVersion, dictionary, endpoint
-  --dict=dict Masukkan kamus
-  --endpoint=endpoint Masukkan endpoint
-  --indexerVersion=indexerVersion Masukkan indexer-version
-  --ipfsCID=ipfsCID Masukkan IPFS CID
-  --org=org Masukkan nama organisasi
-  --projectName=projectName Masukkan nama proyek
-  --queryVersion=queryVersion Masukkan versi query
-  --type=(stage|primary) [default: primary]
-```
+Ada tiga metode untuk menyebarkan versi baru proyek Anda ke Layanan Terkelola SubQuery: Anda dapat menggunakan UI, membuatnya langsung melalui alat `subql` cli, atau menggunakan tindakan GitHub otomatis.
 
-#### Menggunakan tindakan GitHub
+### Using the UI
 
-Dengan diperkenalkannya fitur penyebaran untuk CLI, kami telah menambahkan **Default Action Workflow** ke [proyek starter di GitHub](https://github.com/subquery/subql-starter/blob/v1.0.0/.github/workflows/cli-deploy.yml) yang akan memungkinkan Anda untuk menerbitkan dan menyebarkan perubahan Anda secara otomatis:
+Masuk ke SubQuery Project dan pilih proyek yang ingin Anda gunakan versi barunya. Anda bisa memilih untuk men-deploy ke slot produksi atau staging. Kedua slot ini adalah lingkungan yang terisolasi dan masing-masing memiliki database sendiri dan melakukan sinkronisasi secara independen.
 
-- Langkah 1: Setelah mendorong proyek Anda ke GitHub, buat lingkungan `DEPLOYMENT` di GitHub, dan tambahkan rahasia [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) ke dalamnya.
-- Langkah 2: Buat proyek pada [Proyek SubQuery](https://project.subquery.network), ini dapat dilakukan dengan menggunakan [UI](#using-the-ui) atau [CLI](#using-the-cli).
-- Langkah 3: Setelah proyek Anda dibuat, navigasikan ke halaman GitHub Actions untuk proyek Anda, dan pilih alur kerja `CLI deploy`
-- Langkah 4: Anda akan melihat kolom input di mana Anda dapat memasukkan kode unik proyek Anda yang dibuat di SubQuery Projects, Anda bisa mendapatkan kode dari URL di SubQuery Projects [SubQuery Projects](https://project.subquery.network). Kode ini didasarkan pada nama proyek Anda, di mana spasi diganti dengan tanda hubung `-`. contoh: `nama proyek saya` menjadi `nama-proyek-saya`
-- Setelah alur kerja selesai, Anda akan melihat proyek Anda dikerahkan ke Managed Service kami
+Kami merekomendasikan untuk menyebarkan ke slot staging Anda hanya untuk pengujian staging akhir atau ketika Anda perlu menyinkronkan ulang data proyek Anda. Anda kemudian dapat mempromosikannya ke produksi tanpa downtime. Anda akan menemukan pengujian lebih cepat ketika [menjalankan proyek secara lokal](../run_publish/run.md) karena Anda dapat lebih [mempermudah masalah debug](../academy/tutorials_examples/debug-projects.md).
 
-A common approach is to extend the default GitHub Action to automatically deploy changes to our Managed Service when code is merged into main. Perubahan berikut pada alur kerja GitHub Action melakukan hal ini:
+Slot pementasan sangat cocok untuk:
+
+- Validasi akhir perubahan pada Proyek SubQuery Anda di lingkungan yang terpisah. Slot staging memiliki URL berbeda untuk produksi yang dapat Anda gunakan di dApps Anda.
+- Pemanasan dan pengindeksan data untuk proyek SubQuery yang diperbarui untuk menghilangkan waktu henti di dApp Anda.
+- Mempersiapkan rilis baru untuk Proyek SubQuery Anda tanpa mengeksposnya secara publik. Slot staging tidak ditampilkan kepada publik di Explorer dan memiliki URL unik yang hanya dapat dilihat oleh Anda.
+
+![Slot staging](/assets/img/staging_slot.png)
+
+Fill in the IPFS CID of the new version of your SubQuery project codebase that you want deployed (see the documetation to publish to IPFS [here](#publish-your-subquery-project-to-ipfs). Ini akan menyebabkan waktu henti yang lebih lama tergantung pada waktu yang diperlukan untuk mengindeks rangkaian saat ini. Anda selalu dapat melaporkan kembali ke sini untuk perkembangan.
+
+### Using the CLI
+
+Anda juga dapat menggunakan `@subql/cli` untuk membuat deployment baru dari proyek Anda ke layanan terkelola kami. Please follow the guide on how to [deploy a new version of your project](./cli.md#deploy-a-new-version-of-your-project) on the SubQuery Managed Service in the [CLI documentation](./cli.md).
+
+### Using GitHub actions
+
+With the introduction of the deployment feature for the CLI, we've added a **Default Action Workflow** to [the starter project in GitHub](https://github.com/subquery/subql-starter/blob/main/Polkadot/Polkadot-starter/.github/workflows/cli-deploy.yml) that will allow you to publish and deploy your changes automatically:
+
+- Step 1: After pushing your project to GitHub, create `DEPLOYMENT` environment on GitHub, and add the secret [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) and another secret with the name `ENDPOINT` which matches the RPC API endpoint that you want to connect (you can retrieve this from your `project.yaml` and include a private API key).
+- Langkah 2: Jika Anda belum melakukannya, buat proyek pada [Proyek SubQuery](https://project.subquery.network). Hal ini bisa dilakukan dengan menggunakan [UI](#using-the-ui) atau [CLI](#using-the-cli).
+- Langkah 3: Setelah proyek Anda dibuat, navigasikan ke halaman Tindakan GitHub dari proyek Anda, dan pilih alur kerja `CLI deploy`.
+- Langkah 4: Anda akan melihat bidang input di mana Anda dapat memasukkan kode unik proyek Anda yang dibuat di SubQuery Projects. Anda bisa mendapatkan kode dari URL di Proyek SubQuery [Proyek SubQuery](https://project.subquery.network). Kode ini didasarkan pada nama proyek Anda, di mana spasi diganti dengan tanda hubung `-`. misalnya `nama proyek saya` menjadi `nama proyek saya`.
+
+:::: tips Tip
+Setelah alur kerja selesai, Anda seharusnya dapat melihat proyek Anda diterapkan ke Managed Service kami.
+:::
+
+Pendekatan umum adalah memperluas Tindakan GitHub default untuk secara otomatis menyebarkan perubahan ke Layanan Terkelola kami ketika kode digabungkan ke cabang utama. Perubahan berikut pada alur kerja GitHub Action melakukan hal ini:
 
 ```yml
 on:
@@ -244,17 +237,23 @@ jobs:
     ...
 ```
 
+## Tingkatkan ke Pengindeks dan Layanan Kueri Terbaru
+
+Jika Anda hanya ingin meng-upgrade ke indexer terbaru ([`@subql/node`](https://www.npmjs.com/package/@subql/node)) atau layanan kueri ([`@subql/query`](https://www.npmjs.com/package/@subql/query)) untuk memanfaatkan peningkatan kinerja dan stabilitas reguler kami, cukup pilih versi terbaru dari paket kami dan simpan. Ini hanya akan menyebabkan downtime beberapa menit karena layanan yang menjalankan proyek Anda dimulai ulang.
+
 ## Langkah Selanjutnya - Hubungkan ke Proyek Anda
 
 Setelah penerapan Anda berhasil diselesaikan dan node kami telah mengindeks data Anda dari chain, Anda akan dapat terhubung ke proyek Anda melalui titik akhir Kueri GraphQL yang ditampilkan.
 
 ![Proyek sedang diterapkan dan disinkronkan](/assets/img/projects_deploy_sync.png)
 
-Atau, Anda dapat mengklik tiga titik di samping judul proyek Anda, dan melihatnya di SubQuery Explorer. There you can use the in-browser playground to get started - [read more about how to use our Explorer here](../run_publish/query.md).
+Atau, Anda dapat mengklik tiga titik di samping judul proyek Anda, dan melihatnya di SubQuery Explorer. Di sana Anda dapat menggunakan taman bermain di browser untuk memulai - [baca lebih lanjut tentang cara menggunakan Explorer kami di sini](../run_publish/query.md).
 
-![Proyek di SubQuery Explorer](/assets/img/projects_explorer.png)
+![Projects in SubQuery Explorer](/assets/img/projects_explorer.png)
 
-## Tambahkan Akun Organisasi GitHub ke Proyek SubQuery
+::: tip Note Learn more about the [GraphQL Query language.](./graphql.md) :::
+
+## Add GitHub Organization Account to SubQuery Projects
 
 It is common to publish your SubQuery project under the name of your GitHub Organization account rather than your personal GitHub account. At any point your can change your currently selected account on [SubQuery Projects](https://project.subquery.network) using the account switcher.
 
