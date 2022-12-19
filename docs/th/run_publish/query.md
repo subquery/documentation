@@ -12,4 +12,4 @@ SubQuery explorer ทำให้การเริ่มต้นใช้ง�
 
 On the top right of the playground, you'll find a _Docs_ button that will open a documentation draw. เอกสารนี้สร้างขึ้นโดยอัตโนมัติและช่วยให้คุณค้นหา entities และ methods ที่คุณสามารถค้นหาได้
 
-::: info Note Learn more about the [GraphQL Query language.](./graphql.md) :::
+::: tip Note Learn more about the [GraphQL Query language.](./graphql.md) :::
