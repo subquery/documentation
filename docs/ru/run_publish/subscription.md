@@ -6,7 +6,7 @@ SubQuery теперь также поддерживает подписки Graph
 
 Подписки очень полезны, когда вы хотите, чтобы ваше клиентское приложение изменило данные или показало новые данные, как только это изменение произойдет или новые данные станут доступны. Subscriptions allow you to _subscribe_ to your SubQuery project for changes.
 
-::: информация Примечание Подробнее о [Подписках](https://www.apollographql.com/docs/react/data/subscriptions/). :::
+::: tip Note Read more about [Subscriptions](https://www.apollographql.com/docs/react/data/subscriptions/). :::
 
 ## Как подписаться на сущность
 
