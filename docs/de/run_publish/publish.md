@@ -19,7 +19,7 @@ Sie können ein Upgrade durchführen, um die folgenden kostenpflichtigen Dienste
 
 Bei der Bereitstellung für den Managed Service von SubQuery müssen Sie zuerst Ihre Codebasis in [IPFS](https://ipfs.io/) hosten. Hosting a project in IPFS makes it available for everyone and reduces your reliance on centralised services like GitHub.
 
-:::Warnung GitHub-Bereitstellungsflows sind für IPFS veraltet
+:::warning GitHub Deployment flows have been deprecated for IPFS
 
 Wenn Ihr Projekt noch über GitHub bereitgestellt wird, lesen Sie den Migrationsleitfaden für IPFS-Bereitstellungen [hier](./ipfs.md) :::
 
@@ -69,9 +69,7 @@ Sie können das Projekt jederzeit mit Ihrer ausgewählten Manifestdatei veröffe
 subql publish -f ~/my-projectRoot/polkadot.yaml
 ```
 
-### Nach der Veröffentlichung
-
-After successfully publishing the project, the logs below indicate that the project was created on the IPFS cluster and have returned its `CID` (Content IDentifier). Please note down this `CID`.
+After successfully publishing the project, the logs below indicate that the project was created on the IPFS cluster and have returned its `CID` (Content Identifier). Please note down this `CID`.
 
 ```
 Bau- und Verpackungscode ... fertig
@@ -82,11 +80,11 @@ QmZ3q7YZSmhwBiot4PQCK3c7Z6HkteswN2Py58gkkZ8kNd  //CID
 
 Note: With `@subql/cli` version 1.3.0 or above, when using `subql publish`, a copy of the project's `IPFS CID` will be stored in a file in your project directory. The naming of the file will be consistent with your project.yaml. For example, if your manfiest file is named `project.yaml`, the IPFS file will be named `.project-cid`.
 
-### IPFS-Bereitstellung
+::: details What happens during IPFS Deployment?
 
 Die IPFS-Bereitstellung stellt eine unabhängige und einzigartige Existenz eines SubQuery-Projekts in einem dezentralisierten Netzwerk dar. Daher wirken sich alle Änderungen am Code im Projekt auf dessen Eindeutigkeit aus. Wenn Sie Ihre Geschäftslogik anpassen müssen, z.B. Wenn Sie die Zuordnungsfunktion ändern, müssen Sie das Projekt erneut veröffentlichen, und die `CID` ändert sich.
 
-For now, to view the project you have published, use a `REST` api tool such as [Postman](https://web.postman.co/), and use the `POST` method with the following example URL to retrieve it:`https://ipfs.subquery.network/ipfs/api/v0/cat?arg=<YOUR_PROJECT_CID>`.
+For now, to view the project you have published, use a `REST` API tool such as [Postman](https://web.postman.co/), and use the `POST` method with the following example URL to retrieve it:`https://ipfs.subquery.network/ipfs/api/v0/cat?arg=<YOUR_PROJECT_CID>`.
 
 You should see the example project deployment as below.
 
@@ -117,11 +115,9 @@ schema:
 specVersion: 0.2.0
 ```
 
-## Stellen Sie Ihr SubQuery-Projekt im Managed Service bereit
+:::
 
-### Melden Sie sich bei SubQuery-Projekten an
-
-Before starting, please make sure that your SubQuery project codebase is published to IPFS.
+## Login to SubQuery Projects
 
 To create your first project, head to [SubQuery Projects](https://project.subquery.network). You'll need to authenticate with your GitHub account to login.
 
@@ -137,11 +133,13 @@ If you have a GitHub Organization accounts connected, you can use the switcher o
 
 ![Switch between GitHub accounts](/assets/img/projects_account_switcher.png)
 
-### Erstellen Sie Ihr erstes Projekt
+## Create Your First Project
+
+Before starting, please make sure that your SubQuery project codebase is published to IPFS.
 
 There are two methods to create a project in the SubQuery Managed Service: you can use the UI or directly via the `subql` cli tool
 
-#### Verwendung von UI
+### Using the UI
 
 Start by clicking on "Create Project". You'll be taken to the new project form. Please enter the following (you can change this in the future):
 
@@ -156,31 +154,15 @@ Create your project and you'll see it on your SubQuery Project's list. Next, we 
 
 ![Project created](/assets/img/project_created.png)
 
-#### Verwendung von CLI
+### Using the CLI
 
-You can also use `@subql/cli` to publish your project to our Managed Service. Dies erfordert:
+Sie können auch `@subql/cli` verwenden, um eine neue Bereitstellung Ihres Projekts für unseren Managed Service zu erstellen. Please follow the guide on how to [create a new project](./cli.md#create-a-new-project) on the SubQuery Managed Service in the [CLI documentation](./cli.md).
 
-- `@subql/cli` Version 1.1.0 oder höher.
-- Ein gültiges [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) bereit.
-
-```shell
-// Creating a project using the CLI
-$ subql project:create-project
-
-// OR using non-interactive, it will prompt you if the required fields are missing
-$ subql project:create-project
-    --apiVersion=apiVersion      Api version is default to 2
-    --description=description    Enter description
-    --gitRepo=gitRepo            Enter git repository
-    --org=org                    Enter organization name
-    --projectName=projectName    Enter project name
-```
-
-### Stellen Sie Ihre erste Version bereit
+## Deploy your First Version
 
 There are three methods to deploy a new version of your project to the SubQuery Managed Service, you can use the UI or directly, via the `subql` cli tool, or using an automated GitHub Action.
 
-#### Verwendung von UI
+### Using the UI
 
 While creating a project will setup the display behaviour of the project, you must deploy a version of it before it becomes operational. Deploying a version triggers a new SubQuery indexing operation to start, and sets up the required query service to start accepting GraphQL requests. You can also deploy new versions to existing projects here.
 
@@ -197,42 +179,53 @@ With your new project, you'll see a "Deploy your first version" button. Click th
 
 If deployed successfully, you'll see the indexer start working and report back progress on indexing the current chain. This process may take time until it reaches 100%.
 
-#### Verwendung von CLI
+### Using the CLI
 
-Sie können auch `@subql/cli` verwenden, um eine neue Bereitstellung Ihres Projekts für unseren Managed Service zu erstellen. Dies erfordert:
+Sie können auch `@subql/cli` verwenden, um eine neue Bereitstellung Ihres Projekts für unseren Managed Service zu erstellen. Please follow the guide on how to [deploy to an existing project](./cli.md#deploy-a-new-version-of-your-project) on the SubQuery Managed Service in the [CLI documentation](./cli.md).
 
-- `@subql/cli` Version 1.1.0 oder höher.
-- Ein gültiges [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token)  ist bereit.
+## Deploy new versions of your SubQuery project
 
-```shell
-// Bereitstellen mit der CLI
-$ subql deployment:deploy
+Obwohl Sie jederzeit die Freiheit haben, neue Versionen Ihres SubQuery-Projekts zu aktualisieren und bereitzustellen, nehmen Sie bitte während dieses Vorgangs Rücksicht, wenn Ihr SubQuery-Projekt weltweit öffentlich ist. Einige wichtige Punkte, die Sie beachten sollten:
 
-// ODER Bereitstellen mit nicht interaktiver CLI
-$ subql deployment:deploy
+- Wenn Ihr Upgrade eine bahnbrechende Änderung darstellt, erstellen Sie entweder ein neues Projekt (z. B. `My SubQuery Project V2`) oder warnen Sie Ihre Community über die Social-Media-Kanäle ausreichend vor der Änderung.
+- Das Bereitstellen einer neuen SubQuery-Projektversion verursacht eine gewisse Ausfallzeit, da die neue Version die vollständige Chain aus dem Genesis-Block indiziert.
 
-  -d, --useDefaults                Use default values for indexerVerion, queryVersion, dictionary, endpoint
-  --dict=dict                      Enter dictionary
-  --endpoint=endpoint              Enter endpoint
-  --indexerVersion=indexerVersion  Enter indexer-version
-  --ipfsCID=ipfsCID                Enter IPFS CID
-  --org=org                        Enter organization name
-  --projectName=projectName        Enter project name
-  --queryVersion=queryVersion      Enter query-version
-  --type=(stage|primary)           [default: primary]
-```
+Es gibt drei Methoden, um eine neue Version Ihres Projekts für den SubQuery Managed Service bereitzustellen: Sie können die Benutzeroberfläche verwenden, sie direkt über das CLI-Tool `subql` erstellen oder eine automatisierte GitHub-Aktion verwenden.
 
-#### Verwenden von GitHub-Aktionen
+### Using the UI
 
-Mit der Einführung der Bereitstellungsfunktion für die CLI haben wir [dem Starterprojekt in GitHub](https://github.com/subquery/subql-starter/blob/v1.0.0/.github/workflows/cli-deploy.yml) einen **Standardaktions-Workflow** hinzugefügt, mit dem Sie Ihre Änderungen automatisch veröffentlichen und bereitstellen können :
+Melden Sie sich bei SubQuery Project an und wählen Sie das Projekt aus, von dem Sie eine neue Version bereitstellen möchten. Sie können wählen, ob Sie entweder im Produktions- oder im Staging-Slot bereitstellen möchten. Diese beiden Slots sind isolierte Umgebungen und jeder hat seine eigenen Datenbanken und synchronisiert sich unabhängig voneinander.
 
-- Schritt 1: Nachdem Sie Ihr Projekt auf GitHub gepusht haben, erstellen Sie eine `DEPLOYMENT`-Umgebung auf GitHub und fügen Sie das Geheimnis [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) hinzu.
-- Schritt 2: Erstellen Sie ein Projekt in [SubQuery Projects](https://project.subquery.network). Dies kann über die [Benutzeroberfläche](#using-the-ui) oder die [CLI](#using-the-cli) erfolgen.
-- Schritt 3: Navigieren Sie nach der Erstellung Ihres Projekts zur GitHub-Aktionsseite für Ihr Projekt und wählen Sie den Workflow `CLI-Bereitstellung` aus
-- Schritt 4: Sie sehen ein Eingabefeld, in das Sie den eindeutigen Code Ihres in SubQuery Projects erstellten Projekts eingeben können. Sie können den Code aus der URL in SubQuery Projects [SubQuery Projects](https://project.subquery.network) abrufen. Der Code basiert auf dem Namen Ihres Projekts, wobei Leerzeichen durch Bindestriche `-` ersetzt werden. z.B. `my project name` wird zu `my-project-name`
-- Sobald der Workflow abgeschlossen ist, sollte Ihr Projekt für unseren Managed Service bereitgestellt werden
+Wir empfehlen die Bereitstellung in Ihrem Staging-Slot nur für abschließende Staging-Tests oder wenn Sie Ihre Projektdaten erneut synchronisieren müssen. Sie können es dann ohne Ausfallzeit in die Produktion hochstufen. Sie werden feststellen, dass das Testen schneller ist, wenn Sie [ein Projekt lokal ausführen](../run_publish/run.md), da Sie [Probleme einfacher debuggen](../academy/tutorials_examples/debug-projects.md) können.
 
-A common approach is to extend the default GitHub Action to automatically deploy changes to our Managed Service when code is merged into main. Die folgende Änderung am GitHub Action-Workflow bewirkt dies:
+Der Staging-Slot ist perfekt für:
+
+- Abschließende Validierung von Änderungen an Ihrem SubQuery-Projekt in einer separaten Umgebung. Der Staging-Slot hat eine andere URL als die Produktion, die Sie in Ihren dApps verwenden können.
+- Aufwärmen und Indizieren von Daten für ein aktualisiertes SubQuery-Projekt, um Ausfallzeiten in Ihrer dApp zu vermeiden.
+- Vorbereitung einer neuen Version für Ihr SubQuery-Projekt, ohne sie öffentlich zugänglich zu machen. Der Staging-Slot wird im Explorer nicht öffentlich angezeigt und hat eine eindeutige URL, die nur für Sie sichtbar ist.
+
+![Staging-Slot](/assets/img/staging_slot.png)
+
+Fill in the IPFS CID of the new version of your SubQuery project codebase that you want deployed (see the documetation to publish to IPFS [here](#publish-your-subquery-project-to-ipfs). Dies führt zu einer längeren Ausfallzeit, je nachdem, wie lange es dauert, die aktuelle Chain zu indizieren. Hier können Sie jederzeit über Fortschritte berichten.
+
+### Using the CLI
+
+Sie können auch `@subql/cli` verwenden, um eine neue Bereitstellung Ihres Projekts für unseren Managed Service zu erstellen. Please follow the guide on how to [deploy a new version of your project](./cli.md#deploy-a-new-version-of-your-project) on the SubQuery Managed Service in the [CLI documentation](./cli.md).
+
+### Using GitHub actions
+
+With the introduction of the deployment feature for the CLI, we've added a **Default Action Workflow** to [the starter project in GitHub](https://github.com/subquery/subql-starter/blob/main/Polkadot/Polkadot-starter/.github/workflows/cli-deploy.yml) that will allow you to publish and deploy your changes automatically:
+
+- Step 1: After pushing your project to GitHub, create `DEPLOYMENT` environment on GitHub, and add the secret [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) and another secret with the name `ENDPOINT` which matches the RPC API endpoint that you want to connect (you can retrieve this from your `project.yaml` and include a private API key).
+- Schritt 2: Falls noch nicht geschehen, erstellen Sie ein Projekt in [SubQuery Projects](https://project.subquery.network). Dies kann über die [UI](#using-the-ui) oder die [CLI](#using-the-cli) erfolgen.
+- Schritt 3: Navigieren Sie nach der Erstellung Ihres Projekts zur Seite „GitHub-Aktionen“ Ihres Projekts und wählen Sie den Workflow `CLI-Bereitstellung` aus.
+- Schritt 4: Sie sehen ein Eingabefeld, in das Sie den eindeutigen Code Ihres auf SubQuery Projects erstellten Projekts eingeben können. Sie können den Code aus der URL in SubQuery Projects [SubQuery Projects](https://project.subquery.network) abrufen. Der Code basiert auf dem Namen Ihres Projekts, wobei Leerzeichen durch Bindestriche `-` ersetzt werden. z.B. `my project name` wird zu `my-project-name`.
+
+::: Tipps Tipp
+Sobald der Workflow abgeschlossen ist, sollten Sie sehen können, wie Ihr Projekt in unserem Managed Service bereitgestellt wird.
+:::
+
+Ein gängiger Ansatz besteht darin, die standardmäßige GitHub-Aktion so zu erweitern, dass Änderungen automatisch an unserem verwalteten Dienst bereitgestellt werden, wenn Code in den Hauptzweig zusammengeführt wird. Die folgende Änderung am GitHub Action-Workflow bewirkt dies:
 
 ```yml
 on:
@@ -245,17 +238,29 @@ jobs:
     ...
 ```
 
+## Führen Sie ein Upgrade auf den neuesten Indexer- und Abfragedienst durch
+
+Wenn Sie nur auf den neuesten Indexer ([`@subql/node`](https://www.npmjs.com/package/@subql/node)) oder Abfragedienst (
+
+`@subql/query`</) aktualisieren möchten 2>) Um von unseren regelmäßigen Leistungs- und Stabilitätsverbesserungen zu profitieren, wählen Sie einfach eine neuere Version unserer Pakete aus und speichern Sie. Dies verursacht nur wenige Minuten Ausfallzeit, da die Dienste, auf denen Ihr Projekt ausgeführt wird, neu gestartet werden.</p> 
+
+
+
 ## Nächste Schritte - Verbinden Sie sich mit Ihrem Projekt
 
 Sobald Ihre Bereitstellung erfolgreich abgeschlossen wurde und unsere Nodes Ihre Daten aus der Chain indiziert haben, können Sie über den angezeigten GraphQL-Abfrageendpunkt eine Verbindung zu Ihrem Projekt herstellen.
 
 ![Projekt wird bereitgestellt und synchronisiert](/assets/img/projects_deploy_sync.png)
 
-Alternativ können Sie auf die drei Punkte neben dem Titel Ihres Projekts klicken und es im SubQuery Explorer anzeigen. There you can use the in-browser playground to get started - [read more about how to use our Explorer here](../run_publish/query.md).
+Alternativ können Sie auf die drei Punkte neben dem Titel Ihres Projekts klicken und es im SubQuery Explorer anzeigen. Dort können Sie den Playground im Browser verwenden, um loszulegen - [lesen Sie hier mehr über die Verwendung unseres Explorers](../run_publish/query.md).
 
-![Projekte im SubQuery Explorer](/assets/img/projects_explorer.png)
+![Projects in SubQuery Explorer](/assets/img/projects_explorer.png)
 
-## Fügen Sie das GitHub-Organisationskonto zu SubQuery-Projekten hinzu
+::: tip Note Learn more about the [GraphQL Query language.](./graphql.md) :::
+
+
+
+## Add GitHub Organization Account to SubQuery Projects
 
 It is common to publish your SubQuery project under the name of your GitHub Organization account rather than your personal GitHub account. At any point your can change your currently selected account on [SubQuery Projects](https://project.subquery.network) using the account switcher.
 
