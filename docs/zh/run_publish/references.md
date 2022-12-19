@@ -107,7 +107,7 @@ Options:
 
 ### reindex
 
-:::warning In order to use this command, you require `@subql/node:v1.10.0`/`@subql/node-<network>:v1.10.0` or above. :::
+:::warning In order to use this command, you require `@subql/node:v1.10.0`/`@subql/node-YOURNETWORK:v1.10.0` or above. :::
 
 When using reindex command, historical must be enabled for the targeted project (`--disable-historical=false`). After starting the project, it would print out a log stating if historical is enabled or not.
 
@@ -123,7 +123,7 @@ If the `targetHeight` is less than the declared starting height, it will execute
 subql-node -f /example/subql-project reindex --targetHeight=30
 ```
 
-::: info Note
+::: tip Note
 Once the command is executed and the state has been rolled back the the specified height, the application will exit. You can then start up the indexer to proceed again from this height.
 :::
 
@@ -135,7 +135,7 @@ This command forces the project schemas and tables to be regenerated. It is help
 
 `-f`, `--subquery` flag must be passed in, to set path of the targeted project.
 
-::: info Note Similar to `reindex` command, the application would exit upon completion. :::
+::: tip Note Similar to `reindex` command, the application would exit upon completion. :::
 
 ```shell
 subql-node -f /example/subql-project force-clean
@@ -338,7 +338,7 @@ This will allow you to index blocks before they become finalized. It can be very
 
 ::: tip Tip Note that this feature **requires historical indexing** to be enabled. Learn more [here](./historical.md). :::
 
-::: info Note
+::: tip Note
 This feature is only available for Substrate-based blockchains; more networks will be supported in the future.
 :::
 
