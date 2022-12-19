@@ -12,4 +12,4 @@ Anda juga akan melihat bahwa SubQuery Explorer menyediakan tempat bermain untuk 
 
 Pada bagian kanan atas taman bermain, Anda akan menemukan tombol _Docs_ yang akan membuka gambar dokumentasi. Dokumentasi ini dibuat secara otomatis dan membantu Anda menemukan entitas dan metode apa yang dapat Anda kueri.
 
-::::: info Catatan Pelajari lebih lanjut tentang [GraphQL Query language.](./graphql.md) :::
+::: tip Note Learn more about the [GraphQL Query language.](./graphql.md) :::
