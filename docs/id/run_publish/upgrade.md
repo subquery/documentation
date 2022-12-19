@@ -52,7 +52,7 @@ Dengan diperkenalkannya fitur penyebaran untuk CLI, kami telah menambahkan **Def
 - Langkah 3: Setelah proyek Anda dibuat, navigasikan ke halaman Tindakan GitHub dari proyek Anda, dan pilih alur kerja `CLI deploy`.
 - Langkah 4: Anda akan melihat bidang input di mana Anda dapat memasukkan kode unik proyek Anda yang dibuat di SubQuery Projects. Anda bisa mendapatkan kode dari URL di Proyek SubQuery [Proyek SubQuery](https://project.subquery.network). Kode ini didasarkan pada nama proyek Anda, di mana spasi diganti dengan tanda hubung `-`. misalnya `nama proyek saya` menjadi `nama proyek saya`.
 
-:::: tips Tip
+::: tips Tip
 Setelah alur kerja selesai, Anda seharusnya dapat melihat proyek Anda diterapkan ke Managed Service kami.
 :::
 
@@ -83,4 +83,4 @@ Atau, Anda dapat mengklik tiga titik di samping judul proyek Anda, dan melihatny
 
 ![Proyek di SubQuery Explorer](/assets/img/projects_explorer.png)
 
-::::: info Catatan Pelajari lebih lanjut tentang [GraphQL Query language.](./graphql.md) :::
+:::: tip Catatan Pelajari lebih lanjut tentang [GraphQL Query language.](./graphql.md) :::

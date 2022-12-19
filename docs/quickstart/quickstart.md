@@ -92,25 +92,22 @@ After you complete the initialisation process, you will see a folder with your p
 
 Finally, run the following command to install the new project’s dependencies from within the new project's directory.
 
-<CodeGroup>
-  <CodeGroupItem title="YARN" active>
+::: code-tabs
+@tab:active yarn
 
 ```shell
 cd PROJECT_NAME
 yarn install
 ```
 
-  </CodeGroupItem>
-
-  <CodeGroupItem title="NPM">
+@tab npm
 
 ```shell
 cd PROJECT_NAME
 npm install
 ```
 
-  </CodeGroupItem>
-</CodeGroup>
+:::
 
 You have now initialised your first SubQuery project with just a few simple steps. Let’s now customise the standard template project for a specific blockchain of interest.
 

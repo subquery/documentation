@@ -8,26 +8,28 @@ L'outil [@subql/cli](https://github.com/subquery/subql/tree/docs-new-section/pac
 
 Installez SubQuery CLI globalement sur votre terminal en utilisant Yarn ou NPM :
 
-<CodeGroup> <CodeGroupItem title="NPM"> `bash npm install -g @subql/cli ` </CodeGroupItem> <CodeGroupItem title="YARN" active> `shell yarn global add @subql/cli ` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab npm `bash npm install -g @subql/cli ` @tab:active yarn `shell yarn global add @subql/cli ` :::
 
 Vous pouvez ensuite lancer l'aide pour voir les commandes disponibles et l'utilisation fournie par CLI :
 
 ```shell
 subql help
 ```
+
 ## Installer @subql/node
 
 Un nœud SubQuery est une implémentation qui extrait les données de la blockchain basée sur le substrat par le projet SubQuery et les enregistre dans une base de données Postgres.
 
 Installez le nœud SubQuery globalement sur votre terminal en utilisant Yarn ou NPM :
 
-<CodeGroup> <CodeGroupItem title="NPM"> `bash npm install -g @subql/node ` </CodeGroupItem> <CodeGroupItem title="YARN" active> `shell yarn global add @subql/node ` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab npm `bash npm install -g @subql/node ` @tab:active yarn `shell yarn global add @subql/node ` :::
 
 Une fois installé, vous pouvez démarrer un nœud avec :
 
 ```shell
 subql-node <command>
 ```
+
 > Note : Si vous utilisez Docker ou si vous hébergez votre projet dans SubQuery Projects, vous pouvez sauter cette étape. En effet, le nœud SubQuery est déjà fourni dans le conteneur Docker et l'infrastructure d'hébergement.
 
 ## Installer @subql/query
@@ -36,7 +38,7 @@ La bibliothèque de requêtes SubQuery fournit un service qui vous permet d'inte
 
 Installez SubQuery query globalement sur votre terminal en utilisant Yarn ou NPM :
 
-<CodeGroup> <CodeGroupItem title="NPM"> `bash npm install -g @subql/query ` </CodeGroupItem>
-<CodeGroupItem title="YARN" active> `shell yarn global add @subql/query ` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab npm `bash npm install -g @subql/query `
+@tab:active yarn `shell yarn global add @subql/query ` :::
 
-> Note : Si vous utilisez Docker ou si vous hébergez votre projet dans SubQuery Projects, vous pouvez également sauter cette étape. En effet, le nœud SubQuery est déjà fourni dans le conteneur Docker et l'infrastructure d'hébergement. 
+> Note : Si vous utilisez Docker ou si vous hébergez votre projet dans SubQuery Projects, vous pouvez également sauter cette étape. En effet, le nœud SubQuery est déjà fourni dans le conteneur Docker et l'infrastructure d'hébergement.

@@ -8,4 +8,4 @@ Once your deployment has succesfully completed and our nodes have indexed your d
 
 ![Projects in SubQuery Explorer](/assets/img/projects_explorer.png)
 
-::: info Note Learn more about the [GraphQL Query language.](./graphql.md) :::
+::: tip Note Learn more about the [GraphQL Query language.](./graphql.md) :::

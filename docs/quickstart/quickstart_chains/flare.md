@@ -12,7 +12,7 @@ Now, let's move forward and update these configurations.
 
 Previously, in the [1. Create a New Project](../quickstart.md) section, you must have noted [3 key files](../quickstart.md#_3-make-changes-to-your-project). Let's begin updating them one by one.
 
-::: info Note
+::: tip Note
 The final code of this project can be found [here](https://github.com/jamesbayly/subql-flare-ftso-rewards).
 :::
 
@@ -45,23 +45,20 @@ Since we have a [many-to-many relationship](../../build/graphql.md#many-to-many-
 When you make any changes to the schema file, please ensure that you regenerate your types directory.
 :::
 
-<CodeGroup>
-  <CodeGroupItem title="YARN" active>
+::: code-tabs
+@tab:active yarn
 
 ```shell
 yarn codegen
 ```
 
-  </CodeGroupItem>
-
-  <CodeGroupItem title="NPM">
+@tab npm
 
 ```shell
 npm run-script codegen
 ```
 
-  </CodeGroupItem>
-</CodeGroup>
+:::
 
 You will find the generated models in the `/src/types/models` directory.
 
@@ -181,22 +178,20 @@ Check out our [Mappings](../../build/mapping/flare.md) documentation to get more
 
 Next, build your work to run your new SubQuery project. Run the build command from the project's root directory as given here:
 
-<CodeGroup>
-  <CodeGroupItem title="YARN" active>
+::: code-tabs
+@tab:active yarn
 
 ```shell
 yarn build
 ```
 
-  </CodeGroupItem>
-  <CodeGroupItem title="NPM">
+@tab npm
 
 ```shell
 npm run-script build
 ```
 
-  </CodeGroupItem>
-</CodeGroup>
+:::
 
 ::: warning Important
 Whenever you make changes to your mapping functions, you must rebuild your project.
@@ -214,24 +209,22 @@ However, visit the [Running SubQuery Locally](../../run_publish/run.md) to get m
 
 Run the following command under the project directory:
 
-<CodeGroup>
-  <CodeGroupItem title="YARN" active>
+::: code-tabs
+@tab:active yarn
 
 ```shell
 yarn start:docker
 ```
 
-  </CodeGroupItem>
-  <CodeGroupItem title="NPM">
+@tab npm
 
 ```shell
 npm run-script start:docker
 ```
 
-  </CodeGroupItem>
-</CodeGroup>
+:::
 
-::: info Note
+::: tip Note
 It may take a few minutes to download the required images and start the various nodes and Postgres databases.
 :::
 
@@ -304,7 +297,7 @@ You will see the result similar to below:
 }
 ```
 
-::: info Note
+::: tip Note
 The final code of this project can be found [here](https://github.com/jamesbayly/subql-flare-ftso-rewards).
 :::
 

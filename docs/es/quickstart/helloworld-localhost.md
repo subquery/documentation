@@ -88,7 +88,7 @@ cd subqlHelloWorld
 
 Ahora haga una instalación de yarn o node para instalar las distintas dependencias.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> `shell yarn build ` </CodeGroupItem> <CodeGroupItem title="NPM"> `bash npm run-script build ` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell yarn build ` @tab npm `bash npm run-script build ` :::
 
 An example of `yarn build`
 

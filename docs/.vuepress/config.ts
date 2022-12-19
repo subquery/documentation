@@ -18,7 +18,10 @@ export default defineUserConfig({
       },
       favicon: "https://academy.subquery.network/assets/favicons/favicon.ico",
     }),
-    mdEnhancePlugin({}, true), // TODO remove legacy mode //https://vuepress-theme-hope.github.io/v2/md-enhance/migration.html
+    mdEnhancePlugin({
+      linkCheck: true,
+      codetabs: true,
+    }), // TODO remove legacy mode //https://vuepress-theme-hope.github.io/v2/md-enhance/migration.html
     sitemapPlugin({
       hostname: "https://blog.subquery.network",
     }),

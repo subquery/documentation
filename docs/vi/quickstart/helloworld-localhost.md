@@ -88,8 +88,8 @@ cd subqlHelloWorld
 
 Bây giờ cài đặt yarn hoặc node để cài các phụ thuộc khác nhau.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn install ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```bash npm install ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell yarn install `
+@tab npm `bash npm install ` :::
 
 Ví dụ` yarn install`
 
@@ -109,8 +109,8 @@ success Saved lockfile.
 
 Bây giờ, hãy chạy `yarn codegen` để tạo Typescript từ sơ đồ GraphQL.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```bash npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell yarn codegen `
+@tab npm `bash npm run-script codegen ` :::
 
 Ví dụ` yarn codegen`
 
@@ -133,8 +133,8 @@ $ ./node_modules/.bin/subql codegen
 
 Bước tiếp theo là xây dựng mã với `yarn build`.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```bash npm run-script build ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell yarn build `
+@tab npm `bash npm run-script build ` :::
 
 Ví dụ `yarn build`
 

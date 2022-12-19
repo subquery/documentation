@@ -8,23 +8,20 @@ The `schema.graphql` file defines the various GraphQL schemas. Due to the way th
 When you make any changes to the schema file, don't forget to regenerate your types directory.
 :::
 
-<CodeGroup>
-  <CodeGroupItem title="YARN" active>
+::: code-tabs
+@tab:active yarn
 
 ```shell
 yarn codegen
 ```
 
-  </CodeGroupItem>
-
-  <CodeGroupItem title="NPM">
+@tab npm
 
 ```shell
 npm run-script codegen
 ```
 
-  </CodeGroupItem>
-</CodeGroup>
+:::
 
 ### Entities
 

@@ -2,14 +2,14 @@
 
 ## Block v Events v Calls
 
-To process a SubQuery project and index data as fast and as efficient as possible, it is necessary to understand how things work under the covers. 
+To process a SubQuery project and index data as fast and as efficient as possible, it is necessary to understand how things work under the covers.
 
 SubQuery has three handlers to process blockchain data: [block handlers](../../build/mapping/polkadot.md#block-handler), [event handlers](../../build/mapping/polkadot.md#event-handler), and [call handlers](../../build/mapping/polkadot.md#call-handler).
 
 **Block handlers** are very inefficient. They inspect every single block to grab data to index. In a case with over seven million blocks, if each block could be indexed in 10ms, this would take over eight (8) days to fully index the blockchain. Therefore, it is
 advisable to avoid using block handlers if possible.
 
-**Event and call handlers** are the recommended handlers to use, in conjunction with mapping filters of course, as their performance is much better. The mapping filter allows the project to index only the blocks that satisfy the filter criteria. 
+**Event and call handlers** are the recommended handlers to use, in conjunction with mapping filters of course, as their performance is much better. The mapping filter allows the project to index only the blocks that satisfy the filter criteria.
 
 For example, below is a filter indexing the **staking** module and the **Rewarded** method.
 
@@ -21,20 +21,19 @@ For example, below is a filter indexing the **staking** module and the **Rewarde
        method: Rewarded
 ```
 
-::: info Note
+::: tip Note
 For even more performance gains, using a dictionary is highly recommended.
 :::
 
-
 ## Using a Dictionary
 
-The concept of a **dictionary** was introduced in previous modules (For e.g. [Module 5 - Overriding Endpoints](../herocourse/module5.md#step-3-override-endpoints)). 
+The concept of a **dictionary** was introduced in previous modules (For e.g. [Module 5 - Overriding Endpoints](../herocourse/module5.md#step-3-override-endpoints)).
 
 Due to its importance, pleae review [Understanding how a dictionary works](../tutorials_examples/dictionary.md) and remember to include it in all your projects.
 
 ## Event & Extrinsic Names
 
-A popular question while creating SubQuery projects is - how do you know what data you can extract from the Polkadot blockchain? 
+A popular question while creating SubQuery projects is - how do you know what data you can extract from the Polkadot blockchain?
 
 There are several resource options:
 
@@ -65,7 +64,7 @@ Note that not all explorers are equal. Some may be easier to use and some may re
 
 The previous two methods of knowing what blockchain data is available, along with the **type** (which is just as important), are great. However, learning to connect directly to the **Polkadot API via command line** provides several advantages.
 
-To begin with, it provides access to the most up to date API specifications because the [documentation](https://polkadot.js.org/docs/substrate/events/) could be slightly outdated. 
+To begin with, it provides access to the most up to date API specifications because the [documentation](https://polkadot.js.org/docs/substrate/events/) could be slightly outdated.
 
 Furthermore, it allows developers to understand the exact arguments and their types. This is essential when there are issues and debugging is required. And finally, it is very useful when integrating with custom chains where sometimes documentation is not available.
 
@@ -104,7 +103,7 @@ api = await ApiPromise.create({ provider });
 
 #### Fetching a Block
 
-To get block hash at the height `h`, run: 
+To get block hash at the height `h`, run:
 
 **const blockHash = await api.rpc.chain.getBlockHash(h)**
 
@@ -138,13 +137,13 @@ To check the args (input for transaction) types, enter:
 myExtrinsic.meta.args
 ```
 
-You should see a Vec/array. The size of the array means how many arg this extrinsics takes, and each arg metadata info should include 'name', 'type', 'typeName'. 
+You should see a Vec/array. The size of the array means how many arg this extrinsics takes, and each arg metadata info should include 'name', 'type', 'typeName'.
 
 We are looking for the `type`. For eg: 'MultiAddress' is the type interface from **Polkadot/api**.
 
 #### Getting Events at a Certain Block Height
 
-Events cannot be extracted from a block, but they can be queried. Since we already have the `blockHash `(from above), we can **‘lock’** the current API to this particular block height. 
+Events cannot be extracted from a block, but they can be queried. Since we already have the `blockHash `(from above), we can **‘lock’** the current API to this particular block height.
 
 - Start with:
 
@@ -233,6 +232,6 @@ Using a smaller batch size can reduce memory usage and not leave users hanging f
 
 Note that some events only start to occur at higher block height. Hence, one way to test a mapping function faster is to adjust the starting block height. See [How to start at a different block height?](../tutorials_examples/block-height.md).
 
-
 ## Bonus Tutorial
-* [201 Lab List All Transaction Workbook](/assets/pdf/SubQuery_201_Lab_List_All_Transaction.pdf)
+
+- [201 Lab List All Transaction Workbook](/assets/pdf/SubQuery_201_Lab_List_All_Transaction.pdf)

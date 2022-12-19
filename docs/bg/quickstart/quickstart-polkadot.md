@@ -43,10 +43,10 @@ subql init
 Ще ви бъдат зададени някои въпроси, по време на инициализирането на проекта SubQuery:
 
 - Име на проект: Име на проект за вашия проект SubQuery
-- Мрежово семейство: Семейството на блокчейн от слой 1, което този проект SubQuery ще бъде разработен за индексиране. Използвайте клавишите със стрелки, за да изберете от наличните опции. За това ръководство ще използваме *"Substrate"*
-- Мрежа: Конкретната мрежа, която този проект SubQuery ще бъде разработен за индексиране. Използвайте клавишите със стрелки, за да изберете от наличните опции. За това ръководство ще използваме *"Polkadot"*
-- Шаблонен проект: Изберете шаблонен проект на SubQuery, който ще осигури отправна точка за започване на разработка. Предлагаме да изберете проекта *"subql-starter"*.
-- RPC крайна точка: Предоставете HTTPS URL на работеща RPC крайна точка, която ще се използва по подразбиране за този проект. Можете бързо да получите достъп до публични крайни точки за различни мрежи на Polkadot, да създадете свой собствен частен специален Нод с помощта на [OnFinality](https://app.onfinality.io) или просто да използвате крайната точка на Polkadot по подразбиране. Този вид нода RPC трябва да представлява архивна нода (да има състояние на пълна веригата). За това ръководство ще използваме стойността по подразбиране *"https://polkadot.api.onfinality.io"*
+- Мрежово семейство: Семейството на блокчейн от слой 1, което този проект SubQuery ще бъде разработен за индексиране. Използвайте клавишите със стрелки, за да изберете от наличните опции. За това ръководство ще използваме _"Substrate"_
+- Мрежа: Конкретната мрежа, която този проект SubQuery ще бъде разработен за индексиране. Използвайте клавишите със стрелки, за да изберете от наличните опции. За това ръководство ще използваме _"Polkadot"_
+- Шаблонен проект: Изберете шаблонен проект на SubQuery, който ще осигури отправна точка за започване на разработка. Предлагаме да изберете проекта _"subql-starter"_.
+- RPC крайна точка: Предоставете HTTPS URL на работеща RPC крайна точка, която ще се използва по подразбиране за този проект. Можете бързо да получите достъп до публични крайни точки за различни мрежи на Polkadot, да създадете свой собствен частен специален Нод с помощта на [OnFinality](https://app.onfinality.io) или просто да използвате крайната точка на Polkadot по подразбиране. Този вид нода RPC трябва да представлява архивна нода (да има състояние на пълна веригата). За това ръководство ще използваме стойността по подразбиране _"https://polkadot.api.onfinality.io"_
 - Git хранилище: Предоставете URL на Git към репозитория, в която този проект SubQuery ще бъде хостван (когато се хоства в SubQuery Explorer) или приемете предоставеното по подразбиране.
 - Автори: Въведете собственика на този проект SubQuery тук (например вашето име!) или приемете предоставеното по подразбиране.
 - Описание: Предоставете кратък параграф за вашия проект, който описва какви данни съдържа и какво могат да правят потребителите с него или да приемат предоставеното по подразбиране.
@@ -57,8 +57,8 @@ subql init
 
 Накрая, под директорията на проекта, изпълнете следната команда, за да инсталирате зависимостите на новия проект.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```shell cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell cd PROJECT_NAME yarn install `
+@tab npm `shell cd PROJECT_NAME npm install ` :::
 
 ## Внасяне на промени във вашия проект
 
@@ -88,8 +88,8 @@ type Transfer @entity {
 
 **Важно: Когато правите промени във файла schema, моля, уверете се, че отново сте създали директорията си с типове със следната команда yarn codegen.**
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```shell npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell yarn codegen `
+@tab npm `shell npm run-script codegen ` :::
 
 Ще намерите генерираните модели в директорията `/src/types/models`. За повече информация относно файла `schema.graphql`, проверете нашата документация в раздела [Build/GraphQL Schema](../build/graphql.md)
 
@@ -133,22 +133,22 @@ import { Transfer } from "../types";
 import { Balance } from "@polkadot/types/interfaces";
 
 export async function handleEvent(event: SubstrateEvent): Promise<void> {
-    // Get data from the event
-    // The balances.transfer event has the following payload \[from, to, value\]
-    // logger.info(JSON.stringify(event));
-    const from = event.event.data[0];
-    const to = event.event.data[1];
-    const amount = event.event.data[2];
+  // Get data from the event
+  // The balances.transfer event has the following payload \[from, to, value\]
+  // logger.info(JSON.stringify(event));
+  const from = event.event.data[0];
+  const to = event.event.data[1];
+  const amount = event.event.data[2];
 
-    // Create the new transfer entity
-    const transfer = new Transfer(
-        `${event.block.block.header.number.toNumber()}-${event.idx}`,
-    );
-    transfer.blockNumber = event.block.block.header.number.toBigInt();
-    transfer.from = from.toString();
-    transfer.to = to.toString();
-    transfer.amount = (amount as Balance).toBigInt();
-    await transfer.save();
+  // Create the new transfer entity
+  const transfer = new Transfer(
+    `${event.block.block.header.number.toNumber()}-${event.idx}`
+  );
+  transfer.blockNumber = event.block.block.header.number.toBigInt();
+  transfer.from = from.toString();
+  transfer.to = to.toString();
+  transfer.amount = (amount as Balance).toBigInt();
+  await transfer.save();
 }
 ```
 
@@ -160,7 +160,7 @@ export async function handleEvent(event: SubstrateEvent): Promise<void> {
 
 За да стартираме вашия нов проект SubQuery, първо трябва да изградим нашата работа. Изпълнете командата за изграждане от основната директория на проекта.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script build ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell yarn build ` @tab npm `shell npm run-script build ` :::
 
 **Важно: Всеки път, когато правите промени във вашите функции за картографиране, ще трябва да изградите отново своя проект**
 
@@ -174,7 +174,7 @@ export async function handleEvent(event: SubstrateEvent): Promise<void> {
 
 Под директорията на проекта изпълнете следната команда:
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn start:docker ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script start:docker ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell yarn start:docker ` @tab npm `shell npm run-script start:docker ` :::
 
 Може да отнеме известно време изтеглянето на необходимите пакети ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query) и Postgres) за първи път, но скоро трябва да видите работещ нод на SubQuery на екрана на терминала.
 
@@ -189,10 +189,7 @@ export async function handleEvent(event: SubstrateEvent): Promise<void> {
 ```graphql
 {
   query {
-    transfers(
-      first: 10,
-      orderBy: AMOUNT_DESC
-    ) {
+    transfers(first: 10, orderBy: AMOUNT_DESC) {
       nodes {
         id
         amount

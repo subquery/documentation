@@ -88,7 +88,7 @@ cd subqlHelloWorld
 
 ในตอนนี้ ให้ทำการติดตั้ง yarn หรือ node เพื่อติดตั้ง dependencies ต่างๆ
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn install ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```bash npm install ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell yarn install ` @tab npm `bash npm install ` :::
 
 ตัวอย่างของ `yarn install`
 
@@ -108,7 +108,7 @@ success Saved lockfile.
 
 ให้รัน `yarn codegen` เพื่อสร้าง typescript จาก GraphQL schema
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```bash npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell yarn codegen ` @tab npm `bash npm run-script codegen ` :::
 
 ตัวอย่างของ `yarn codegen`
 
@@ -131,7 +131,7 @@ $ ./node_modules/.bin/subql codegen
 
 ขั้นตอนต่อไปคือการ build โค้ดด้วย `yarn build`
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```bash npm run-script build ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell yarn build ` @tab npm `bash npm run-script build ` :::
 
 ตัวอย่างของ `yarn build`
 

@@ -83,4 +83,4 @@ Ngoài ra, bạn có thể nhấp vào ba dấu chấm bên cạnh tiêu đề d
 
 ![Projects in SubQuery Explorer](/assets/img/projects_explorer.png)
 
-::: info Note Learn more about the [GraphQL Query language.](./graphql.md) :::
+::: tip Note Learn more about the [GraphQL Query language.](./graphql.md) :::

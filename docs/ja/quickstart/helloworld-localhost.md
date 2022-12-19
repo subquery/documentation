@@ -1,6 +1,6 @@
 # Hello World (localhost & Docker)
 
-SubQuery Hello World のクイックスタートへようこそ。 クイックスタートでは、いくつかの簡単な手順でデフォルトのスタータープロジェクトをDockerで実行する方法を説明します。
+SubQuery Hello World のクイックスタートへようこそ。 クイックスタートでは、いくつかの簡単な手順でデフォルトのスタータープロジェクトを Docker で実行する方法を説明します。
 
 ## 学習のねらい
 
@@ -8,12 +8,12 @@ SubQuery Hello World のクイックスタートへようこそ。 クイック�
 
 - 必要な前提条件を理解すること
 - 基本的な一般的なコマンドを理解すること
-- localhost:3000に移動して、プレイグラウンドを表示できるようになること
-- Polkadotメインネットのブロックの高さを取得するための簡単なクエリを実行すること
+- localhost:3000 に移動して、プレイグラウンドを表示できるようになること
+- Polkadot メインネットのブロックの高さを取得するための簡単なクエリを実行すること
 
 ## 対象者
 
-このガイドは、開発経験があり、SubQueryについてもっと学ぶことに興味がある新規開発者を対象としています。
+このガイドは、開発経験があり、SubQuery についてもっと学ぶことに興味がある新規開発者を対象としています。
 
 ## ビデオガイド
 
@@ -86,10 +86,10 @@ cd subqlHelloWorld
 
 ## 2. 依存するモジュールをインストールする
 
-ここで様々な依存関係をインストールするために、yarnまたはnodeのインストールを実行します。
+ここで様々な依存関係をインストールするために、yarn または node のインストールを実行します。
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn install ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```bash npm install ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell yarn install `
+@tab npm `bash npm install ` :::
 
 例 `yarn install`
 
@@ -107,10 +107,10 @@ success Saved lockfile.
 
 ## 3. コードを生成する
 
-ここで`yarn codegen`を実行して、GraphQLスキーマからTypescriptを生成します。
+ここで`yarn codegen`を実行して、GraphQL スキーマから Typescript を生成します。
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```bash npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell yarn codegen `
+@tab npm `bash npm run-script codegen ` :::
 
 例 `yarn codegen`
 
@@ -127,14 +127,14 @@ $ ./node_modules/.bin/subql codegen
 ✨  Done in 1.02s.
 ```
 
-**警告** スキーマファイルに変更があった場合、`yarn codegen` を再実行し、typesディレクトリを再生成することを忘れないようにしてください。
+**警告** スキーマファイルに変更があった場合、`yarn codegen` を再実行し、types ディレクトリを再生成することを忘れないようにしてください。
 
 ## 4. コードをビルドする
 
 次のステップは、 `yarn build` でコードをビルドすることです。
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```bash npm run-script build ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell yarn build `
+@tab npm `bash npm run-script build ` :::
 
 例 `yarn build`
 
@@ -147,7 +147,7 @@ $ tsc -b
 
 ## 5. Docker を実行する
 
-Dockerを使用すると、必要なインフラをすべてDockerイメージ内で提供できるため、この例を非常に迅速に実行することができます。 `docker-compose pull && docker-compose up` を実行する
+Docker を使用すると、必要なインフラをすべて Docker イメージ内で提供できるため、この例を非常に迅速に実行することができます。 `docker-compose pull && docker-compose up` を実行する
 
 これですべてがキックされ、最終的にブロックがフェッチされます。
 
@@ -192,4 +192,4 @@ http://localhost:3000/ にアクセスし、以下のクエリを画面左側に
 
 ## 概要
 
-このクイックスタートでは、Docker環境内でプロジェクトを立ち上げて実行する基本的な手順を示した後、localhost:3000にナビゲートして、メインネットPolkadotネットワークのブロック番号を返すクエリーを実行しました。
+このクイックスタートでは、Docker 環境内でプロジェクトを立ち上げて実行する基本的な手順を示した後、localhost:3000 にナビゲートして、メインネット Polkadot ネットワークのブロック番号を返すクエリーを実行しました。

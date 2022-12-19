@@ -8,4 +8,4 @@ Atau, Anda dapat mengklik tiga titik di samping judul proyek Anda, dan melihatny
 
 ![Proyek di SubQuery Explorer](/assets/img/projects_explorer.png)
 
-::::: info Catatan Pelajari lebih lanjut tentang [GraphQL Query language.](./graphql.md) :::
+:::: tip Catatan Pelajari lebih lanjut tentang [GraphQL Query language.](./graphql.md) :::

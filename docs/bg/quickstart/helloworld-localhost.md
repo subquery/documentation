@@ -88,8 +88,8 @@ cd subqlHelloWorld
 
 Сега направете инсталация на yarn или node, за да инсталирате различните зависимости.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn install ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```bash npm install ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell yarn install `
+@tab npm `bash npm install ` :::
 
 Пример за `yarn install`
 
@@ -109,8 +109,8 @@ success Saved lockfile.
 
 Сега стартирайте `yarn codegen`, за да генерирате Typescript от схемата GraphQL.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```bash npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell yarn codegen `
+@tab npm `bash npm run-script codegen ` :::
 
 Пример за `yarn codegen`
 
@@ -133,8 +133,8 @@ $ ./node_modules/.bin/subql codegen
 
 Следващата стъпка е да създадете код с `yarn build`.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```bash npm run-script build ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell yarn build `
+@tab npm `bash npm run-script build ` :::
 
 Пример за `yarn build`
 

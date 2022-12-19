@@ -83,4 +83,4 @@ Alternativamente, puedes hacer clic en los tres puntos al lado del título de tu
 
 ![Projects in SubQuery Explorer](/assets/img/projects_explorer.png)
 
-::: info Note Learn more about the [GraphQL Query language.](./graphql.md) :::
+::: tip Note Learn more about the [GraphQL Query language.](./graphql.md) :::

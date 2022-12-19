@@ -83,4 +83,4 @@ If you just want to upgrade to the latest indexer ([`@subql/node`](https://www.n
 
 ![Projects in SubQuery Explorer](/assets/img/projects_explorer.png)
 
-::: info Note Learn more about the [GraphQL Query language.](./graphql.md) :::
+::: tip Note Learn more about the [GraphQL Query language.](./graphql.md) :::

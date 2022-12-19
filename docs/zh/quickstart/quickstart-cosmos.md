@@ -44,8 +44,8 @@ Cosmos is not yet supported in SubQuery's CLI (`subql`), to start with Juno clon
 
 最后，在项目目录下，运行以下命令来安装新项目的依赖关系。
 
-<CodeGroup> <CodeGroupItem title="YARN" active> `shell cd PROJECT_NAME yarn install ` </CodeGroupItem>
-<CodeGroupItem title="NPM"> `shell cd PROJECT_NAME npm install ` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell cd PROJECT_NAME yarn install `
+@tab npm `shell cd PROJECT_NAME npm install ` :::
 
 ## 正在对您的项目进行更改
 
@@ -145,7 +145,7 @@ What this is doing is receiving a CosmosMessage which includes message data on t
 
 为了运行您的新的 SubQuery 项目，我们首先需要建立我们的工作。 从项目的根目录运行构建命令。
 
-<CodeGroup> <CodeGroupItem title="YARN" active> `shell yarn build ` </CodeGroupItem> <CodeGroupItem title="NPM"> `shell npm run-script build ` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell yarn build ` @tab npm `shell npm run-script build ` :::
 
 **重要的是：每当你对你的映射函数进行修改时，你就需要重建你的项目**。
 
@@ -159,7 +159,7 @@ What this is doing is receiving a CosmosMessage which includes message data on t
 
 在项目目录下运行以下命令：
 
-<CodeGroup> <CodeGroupItem title="YARN" active> `shell yarn start:docker ` </CodeGroupItem> <CodeGroupItem title="NPM"> `shell npm run-script start:docker ` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell yarn start:docker ` @tab npm `shell npm run-script start:docker ` :::
 
 下载所需软件包可能需要一些时间([`@subql/节点`](https://www.npmjs.com/package/@subql/node), [`@subql/quiry`](https://www.npmjs.com/package/@subql/query), and Postgress) 首次，但很快你会看到一个运行中的 SubQuery 节点。 请耐心等待。
 

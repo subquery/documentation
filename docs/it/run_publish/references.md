@@ -122,7 +122,7 @@ If the `targetHeight` is less than the declared starting height, it will execute
 subql-node -f /example/subql-project reindex --targetHeight=30
 ```
 
-::: info Note
+::: tip Note
 Once the command is executed and the state has been rolled back the the specified height, the application will exit. You can then start up the indexer to proceed again from this height.
 :::
 
@@ -134,7 +134,7 @@ This command forces the project schemas and tables to be regenerated. It is help
 
 `-f`, `--subquery` flag must be passed in, to set path of the targeted project.
 
-::: info Note Similar to `reindex` command, the application would exit upon completion. :::
+::: tip Note Similar to `reindex` command, the application would exit upon completion. :::
 
 ```shell
 subql-node -f /example/subql-project force-clean
@@ -346,7 +346,7 @@ This will move block fetching and processing into a worker. By default, this fea
 
 It is at an early experimental stage at the moment, but we plan to enable it by default. :::
 
-::: info Note
+::: tip Note
 This feature is available for Substrate and Cosmos, and soon will be integrated for Avalanche.
 :::
 

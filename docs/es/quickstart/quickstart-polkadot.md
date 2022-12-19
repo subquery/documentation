@@ -83,8 +83,8 @@ type Transfer @entity {
 
 **Importante: Cuando realice cambios en el archivo de esquema, asegúrese de que regenera el directorio de sus tipos.**
 
-<CodeGroup> <CodeGroupItem title="YARN" active> `shell yarn codegen ` </CodeGroupItem>
-<CodeGroupItem title="NPM"> `shell npm run-script codegen ` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell yarn codegen `
+@tab npm `shell npm run-script codegen ` :::
 
 You'll find the generated models in the `/src/types/models` directory. Para más información sobre el archivo `schema.graphql` , revisa nuestra documentación en [Esquema de Build/GraphQL](../build/graphql.md)
 
@@ -149,7 +149,7 @@ Para más información sobre las funciones de mapeo, revisa nuestra documentaci�
 
 Para ejecutar su nuevo Proyecto SubQuery, primero tenemos que construir nuestro trabajo. Ejecuta el comando de compilación desde el directorio raíz del proyecto.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> `shell yarn build ` </CodeGroupItem> <CodeGroupItem title="NPM"> `shell npm run-script build ` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell yarn build ` @tab npm `shell npm run-script build ` :::
 
 **Important: Whenever you make changes to your mapping functions, you'll need to rebuild your project**. La forma más fácil de hacer esto es usando Docker.
 
@@ -157,7 +157,7 @@ Toda la configuración que controla cómo se ejecuta un nodo SubQuery se define 
 
 En el directorio del proyecto, ejecute el siguiente comando:
 
-<CodeGroup> <CodeGroupItem title="YARN" active> `shell yarn start:docker ` </CodeGroupItem> <CodeGroupItem title="NPM"> `shell npm run-script start:docker ` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell yarn start:docker ` @tab npm `shell npm run-script start:docker ` :::
 
 It may take some time to download the required packages ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), and Postgres) for the first time but soon you'll see a running SubQuery node.
 

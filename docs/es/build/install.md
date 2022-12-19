@@ -8,28 +8,30 @@ La herramienta [@subql/cli](https://github.com/subquery/subql/tree/docs-new-sect
 
 Instalar SubQuery CLI globalmente en tu terminal usando Yarn o NPM:
 
-<CodeGroup> <CodeGroupItem title="NPM"> ```bash npm install -g @subql/cli ``` </CodeGroupItem>
-<CodeGroupItem title="YARN" active> ```shell yarn global add @subql/cli ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab npm `bash npm install -g @subql/cli `
+@tab:active yarn `shell yarn global add @subql/cli ` :::
 
 You can then run help to see available commands and usage provide by CLI:
 
 ```shell
 subql help
 ```
+
 ## Install @subql/node
 
 Un nodo de SubQuery es una implementación que extrae datos de blockchain basados en substrate por el proyecto SubQuery y lo guarda en una base de datos de Postgres.
 
 Instala la consulta de SubQuery globalmente en tu terminal usando Yarn o NPM:
 
-<CodeGroup> <CodeGroupItem title="NPM"> ```bash npm install -g @subql/node ``` </CodeGroupItem>
-<CodeGroupItem title="YARN" active> ```shell yarn global add @subql/node ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab npm `bash npm install -g @subql/node `
+@tab:active yarn `shell yarn global add @subql/node ` :::
 
 Once installed, you can can start a node with:
 
 ```shell
 subql-node <command>
 ```
+
 > Nota: Si estás usando Docker o alojando tu proyecto en Proyectos de SubQuery, puedes saltarte este paso. Esto se debe a que el nodo SubQuery ya se proporciona en el contenedor Docker y en la infraestructura de alojamiento.
 
 ## Install @subql/query
@@ -38,7 +40,7 @@ La biblioteca de consultas de SubQuery proporciona un servicio que le permite co
 
 Instala el nodo SubQuery globalmente en tu terminal usando Yarn o NPM:
 
-<CodeGroup> <CodeGroupItem title="NPM"> ```bash npm install -g @subql/query ``` </CodeGroupItem>
-<CodeGroupItem title="YARN" active> ```shell yarn global add @subql/query ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab npm `bash npm install -g @subql/query `
+@tab:active yarn `shell yarn global add @subql/query ` :::
 
-> Nota: Si estás usando Docker o alojando tu proyecto en Proyectos de SubQuery, puedes saltarte este paso también. Esto se debe a que el nodo SubQuery ya se proporciona en el contenedor Docker y en la infraestructura de alojamiento. 
+> Nota: Si estás usando Docker o alojando tu proyecto en Proyectos de SubQuery, puedes saltarte este paso también. Esto se debe a que el nodo SubQuery ya se proporciona en el contenedor Docker y en la infraestructura de alojamiento.

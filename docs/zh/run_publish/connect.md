@@ -8,4 +8,4 @@
 
 ![SubQuery Explorer 中的项目](/assets/img/projects_explorer.png)
 
-:::: 信息注释 了解更多关于 [GraphQL 查询语言。](./graphql.md) :::
+::: 信息注释 了解更多关于 [GraphQL 查询语言。](./graphql.md) :::

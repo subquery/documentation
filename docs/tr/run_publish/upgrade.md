@@ -83,4 +83,4 @@ Alternatif olarak, projenizin başlığının yanında bulunan üç noktaya tık
 
 ![Projects in SubQuery Explorer](/assets/img/projects_explorer.png)
 
-::: info Note Learn more about the [GraphQL Query language.](./graphql.md) :::
+::: tip Note Learn more about the [GraphQL Query language.](./graphql.md) :::

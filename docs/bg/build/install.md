@@ -16,8 +16,8 @@
 
 Инсталирайте нодата SubQuery node като използвате за целта терминалите Yarn или NPM:
 
-<CodeGroup> <CodeGroupItem title="NPM"> `bash npm install -g @subql/node ` </CodeGroupItem>
-<CodeGroupItem title="YARN" active> `shell yarn global add @subql/node ` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab npm `bash npm install -g @subql/node `
+@tab:active yarn `shell yarn global add @subql/node ` :::
 
 Once installed, you can can start a node with:
 
@@ -33,7 +33,7 @@ subql-node <command>
 
 Инсталирайте запитване SubQuery като използвате за целта терминалите Yarn или NPM:
 
-<CodeGroup> <CodeGroupItem title="NPM"> `bash npm install -g @subql/query ` </CodeGroupItem>
-<CodeGroupItem title="YARN" active> `shell yarn global add @subql/query ` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab npm `bash npm install -g @subql/query `
+@tab:active yarn `shell yarn global add @subql/query ` :::
 
 > Забележка: Ако използвате Docker или хостинг на проекта в други SubQuery проекти, може да пропуснете тази стъпка. Причината е следната: нодата SubQuery вече е част от Docker контейнера и инфраструктурата на хостинга.

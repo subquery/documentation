@@ -89,8 +89,8 @@ HelloWorld is ready
 
 Нарешті, виконайте таку команду, щоб встановити залежності нового проєкту з каталогу нового проєкту.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> `shell cd PROJECT_NAME yarn install ` </CodeGroupItem>
-<CodeGroupItem title="NPM"> `shell cd PROJECT_NAME npm install ` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell cd PROJECT_NAME yarn install `
+@tab npm `shell cd PROJECT_NAME npm install ` :::
 
 Тепер ви ініціалізували свій перший проєкт SubQuery всього за кілька простих кроків. Давайте тепер налаштуємо стандартний шаблон проєкту для конкретного цікавить блокчейну. Це допоможе вам краще зрозуміти команди
 

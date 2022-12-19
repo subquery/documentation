@@ -88,8 +88,8 @@ cd subqlHelloWorld
 
 Теперь выполните установку yarn или node, чтобы установить различные зависимости.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> `shell yarn install ` </CodeGroupItem>
-<CodeGroupItem title="NPM"> `bash npm install ` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell yarn install `
+@tab npm `bash npm install ` :::
 
 An example of `yarn install`
 

@@ -10,7 +10,7 @@ For example, you could capture XCM transaction data from all Polkadot parachains
 
 ## How it Works
 
-::: info Requirements for multi-chain indexing
+::: tip Requirements for multi-chain indexing
 
 1. All projects must reference the same [GraphQL schema](./graphql.md) in their `project.yaml`
 2. All projects must index to the same PostgreSQL table schema, this is set in your `docker-compose.yml`

@@ -18,22 +18,22 @@ Ada peran untuk semua orang di jaringan, mulai dari pengembang yang sangat tekni
 
 Konsumen akan meminta Jaringan SubQuery untuk data spesifik untuk dApps atau alat mereka, dan membayar sejumlah SQT yang diiklankan untuk setiap permintaan.
 
-::: info Note Learn more about [Consumers](./consumers.md). :::
+::: tip Note Learn more about [Consumers](./consumers.md). :::
 
 ### Pengindeks
 
 Pengindeks akan menjalankan dan memelihara proyek SubQuery berkualitas tinggi di infrastruktur mereka sendiri, menjalankan pengindeks dan layanan kueri, dan akan diberi imbalan dalam SQT untuk permintaan yang mereka layani.
 
-::: info Note Learn more about [Indexers](./indexers.md). :::
+::: tip Note Learn more about [Indexers](./indexers.md). :::
 
 ### Delegator
 
 Delegator akan berpartisipasi dalam Jaringan dengan mendukung Pengindeks favorit mereka untuk mendapatkan hadiah berdasarkan pekerjaan yang dilakukan pengindeks tersebut.
 
-::: info Note Learn more about [Delegators](./delegators.md). :::
+::: tip Note Learn more about [Delegators](./delegators.md). :::
 
 ### Arsitek
 
 Arsitek adalah pembangun proyek SubQuery yang dijalankan Jaringan. Mereka menulis dan menerbitkan proyek SubQuery untuk Jaringan untuk diindeks dan dijalankan.
 
-::: info Note Learn more about [how to build your first SubQuery project](../build/introduction.md). :::
+::: tip Note Learn more about [how to build your first SubQuery project](../build/introduction.md). :::

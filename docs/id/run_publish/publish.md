@@ -19,7 +19,7 @@ Anda bisa meningkatkan untuk memanfaatkan layanan berbayar berikut ini:
 
 Saat menerapkan ke Layanan Terkelola SubQuery, Anda harus terlebih dahulu meng-host basis kode Anda di [IPFS](https://ipfs.io/). Hosting a project in IPFS makes it available for everyone and reduces your reliance on centralised services like GitHub.
 
-::::peringatan Alur Penyebaran GitHub sudah tidak digunakan lagi untuk IPFS
+:::peringatan Alur Penyebaran GitHub sudah tidak digunakan lagi untuk IPFS
 
 Jika proyek Anda masih disebarkan melalui GitHub, baca panduan migrasi untuk penyebaran IPFS [di sini](./ipfs.md) :::
 

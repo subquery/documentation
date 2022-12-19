@@ -253,7 +253,7 @@ Alternatively, you can click on the three dots next to the title of your project
 
 ![Projects in SubQuery Explorer](/assets/img/projects_explorer.png)
 
-::: info Note
+::: tip Note
 Learn more about the [GraphQL Query language.](./graphql.md)
 :::
 

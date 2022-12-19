@@ -89,8 +89,8 @@ Sau khi quá trình khởi tạo hoàn tất, bạn sẽ thấy một thư mục
 
 Cuối cùng, chạy lệnh sau để cài đặt các phụ thuộc từ bên trong thư mục của dự án mới.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```shell cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell cd PROJECT_NAME yarn install `
+@tab npm `shell cd PROJECT_NAME npm install ` :::
 
 Bây giờ bạn đã khởi tạo dự án SubQuery đầu tiên của mình chỉ với một vài bước đơn giản. Bây giờ chúng ta hãy tùy chỉnh dự án mẫu chuẩn cho một chuỗi khối cụ thể mà bạn quan tâm.
 

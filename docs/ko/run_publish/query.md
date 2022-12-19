@@ -12,4 +12,4 @@ SubQuery Explorer를 사용하면 쉽게 시작할 수 있습니다. 저희는 �
 
 On the top right of the playground, you'll find a _Docs_ button that will open a documentation draw. 이 문서는 자동으로 생성되어 조회할 수 있는 Entity와 Method를 찾는데 도움이 됩니다.
 
-::: info Note Learn more about the [GraphQL Query language.](./graphql.md) :::
+::: tip Note Learn more about the [GraphQL Query language.](./graphql.md) :::

@@ -51,8 +51,8 @@ Um Ihr SubQuery-Projekt auf einer lokal gehosteten SubQuery-Node auszuführen, m
 
 Führen Sie den Build-Befehl im Stammverzeichnis des Projekts aus.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> `shell yarn build ` </CodeGroupItem>
-<CodeGroupItem title="NPM"> `bash npm run-script build ` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell yarn build `
+@tab npm `bash npm run-script build ` :::
 
 ### Alternative Build-Optionen
 

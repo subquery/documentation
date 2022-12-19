@@ -59,8 +59,8 @@ subql init
 
 Наконец, в каталоге проекта выполните следующую команду, чтобы установить зависимости нового проекта.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ``shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ``shell cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn ` shell cd PROJECT_NAME yarn install ``` 
+@tab npm  `shell cd PROJECT_NAME npm install ``` :::
 
 ## Внесение изменений в ваш проект
 
@@ -92,8 +92,8 @@ type PangolinApproval @entity {
 
 **Важно: когда вы вносите какие-либо изменения в файл schema, убедитесь, что вы заново создали каталог типов. Сделайте это сейчас.**
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ``shell yarn codegen ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ``shell npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn ` shell yarn codegen ``` 
+@tab npm  `shell npm run-script codegen ``` :::
 
 Вы найдете сгенерированные модели в каталоге `/src/types/models`. Для получения дополнительной информации о файле `schema.graphql` ознакомьтесь с нашей документацией в разделе [Build/GraphQL Schema](../build/graphql.md)
 
@@ -169,7 +169,7 @@ export async function handleLog(event: AvalancheLog): Promise<void> {
 
 Чтобы запустить ваш новый проект SubQuery, нам сначала нужно собрать нашу работу. Запустите команду сборки из корневого каталога проекта.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ``shell yarn build ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ``shell npm run-script build ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn ` shell yarn build ```  @tab npm  `shell npm run-script build ``` :::
 
 **Важно: Каждый раз, когда вы вносите изменения в функции отображения, вам нужно будет пересобрать проект**.
 
@@ -183,7 +183,7 @@ export async function handleLog(event: AvalancheLog): Promise<void> {
 
 В каталоге проекта выполните следующую команду:
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ``shell yarn start:docker ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ``shell npm run-script start:docker ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn ` shell yarn start:docker ```  @tab npm  `shell npm run-script start:docker ``` :::
 
 Для первой загрузки необходимых пакетов ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query) и Postgres) может потребоваться некоторое время, но вскоре вы увидите работающий узел SubQuery. Проявите терпение.
 

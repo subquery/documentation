@@ -26,7 +26,7 @@ Instal SubQuery CLI secara global di terminal Anda dengan menggunakan NPM:
 npm install -g @subql/cli
 ```
 
-::::: bahaya Kami **JANGAN** mendorong penggunaan `yarn global` untuk menginstal `@subql/cli` karena manajemen ketergantungannya yang buruk. Hal ini dapat menyebabkan beberapa kesalahan. :::
+:::: bahaya Kami **JANGAN** mendorong penggunaan `yarn global` untuk menginstal `@subql/cli` karena manajemen ketergantungannya yang buruk. Hal ini dapat menyebabkan beberapa kesalahan. :::
 
 Lihatlah semua perintah yang tersedia dan penggunaannya. Jalankan perintah yang diberikan di bawah ini di CLI:
 
@@ -42,7 +42,7 @@ Jalankan perintah berikut di dalam direktori yang ingin Anda buat proyek SubQuer
 subql init
 ```
 
-:::: peringatan Penting
+::: peringatan Penting
 
 **Untuk Pengguna Cosmos**
 
@@ -89,8 +89,8 @@ Setelah Anda menyelesaikan proses inisialisasi, Anda akan melihat folder dengan 
 
 Terakhir, jalankan perintah berikut untuk menginstal dependensi proyek baru dari dalam direktori proyek baru.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```shell cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell cd PROJECT_NAME yarn install `
+@tab npm `shell cd PROJECT_NAME npm install ` :::
 
 You have now initialised your first SubQuery project with just a few simple steps. Sekarang mari kita sesuaikan proyek templat standar untuk blockchain tertentu yang diminati.
 

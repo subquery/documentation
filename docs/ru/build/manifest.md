@@ -4,7 +4,7 @@
 
 Манифест может быть в формате YAML или JSON. В этом документе мы будем использовать YAML во всех примерах. Ниже приведен стандартный пример базового файла Манифест `project.yaml`.
 
-<CodeGroup> <CodeGroupItem title="v0.2.0" active> ``` yml specVersion: 0.2.0 name: example-project # Provide the project name version: 1.0.0  # Project version description: '' # Description of your project repository: 'https://github.com/subquery/subql-starter' # Git repository address of your project schema: file: ./schema.graphql # The location of your GraphQL schema file network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' # Genesis hash of the network endpoint: 'wss://polkadot.api.onfinality.io/public-ws' # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing dictionary: 'https://api.subquery.network/sq/subquery/dictionary-polkadot' dataSources: - kind: substrate/Runtime startBlock: 1 # This changes your indexing start block, set this higher to skip initial blocks with less data mapping: file: "./dist/index.js" handlers: - handler: handleBlock kind: substrate/BlockHandler - handler: handleEvent kind: substrate/EventHandler filter: #Filter is optional module: balances method: Deposit - handler: handleCall kind: substrate/CallHandler ```` </CodeGroupItem> <CodeGroupItem title="v0.0.1"> ``` yml specVersion: "0.0.1" description: '' # Description of your project repository: 'https://github.com/subquery/subql-starter' # Git repository address of your project schema: ./schema.graphql # The location of your GraphQL schema file network: endpoint: 'wss://polkadot.api.onfinality.io/public-ws' # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing dictionary: 'https://api.subquery.network/sq/subquery/dictionary-polkadot' dataSources: - name: main kind: substrate/Runtime startBlock: 1 # This changes your indexing start block, set this higher to skip initial blocks with less data mapping: handlers: - handler: handleBlock kind: substrate/BlockHandler - handler: handleEvent kind: substrate/EventHandler filter: #Filter is optional but suggested to speed up event processing module: balances method: Deposit - handler: handleCall kind: substrate/CallHandler ```` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab v0.2.0 ` yml specVersion: 0.2.0 name: example-project # Provide the project name version: 1.0.0  # Project version description: '' # Description of your project repository: 'https://github.com/subquery/subql-starter' # Git repository address of your project schema: file: ./schema.graphql # The location of your GraphQL schema file network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' # Genesis hash of the network endpoint: 'wss://polkadot.api.onfinality.io/public-ws' # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing dictionary: 'https://api.subquery.network/sq/subquery/dictionary-polkadot' dataSources: - kind: substrate/Runtime startBlock: 1 # This changes your indexing start block, set this higher to skip initial blocks with less data mapping: file: "./dist/index.js" handlers: - handler: handleBlock kind: substrate/BlockHandler - handler: handleEvent kind: substrate/EventHandler filter: #Filter is optional module: balances method: Deposit - handler: handleCall kind: substrate/CallHandler ````  @tab v0.0.1 ` yml specVersion: "0.0.1" description: '' # Description of your project repository: 'https://github.com/subquery/subql-starter' # Git repository address of your project schema: ./schema.graphql # The location of your GraphQL schema file network: endpoint: 'wss://polkadot.api.onfinality.io/public-ws' # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing dictionary: 'https://api.subquery.network/sq/subquery/dictionary-polkadot' dataSources: - name: main kind: substrate/Runtime startBlock: 1 # This changes your indexing start block, set this higher to skip initial blocks with less data mapping: handlers: - handler: handleBlock kind: substrate/BlockHandler - handler: handleEvent kind: substrate/EventHandler filter: #Filter is optional but suggested to speed up event processing module: balances method: Deposit - handler: handleCall kind: substrate/CallHandler ```` :::
 
 ## Migrating from v0.0.1 to v0.2.0 <Badge text="upgrade" type="warning"/>
 
@@ -28,15 +28,15 @@ subql migrate функцию можно запустить в существую
 
 Использование $ subql init [PROJECTNAME]
 
-Аргументы PROJECTNAME  Задайте имя стартовому проекту
+Аргументы PROJECTNAME Задайте имя стартовому проекту
 
 | Параметры               | Описание                                                                                      |
-| ----------------------- | --------------------------------------------------------------------------------------------- |
+| ----------------------- | --------------------------------------------------------------------------------------------- | ---------------------------------------------------------- |
 | f, --force              |                                                                                               |
 | -l, --location=location | локальная папка для создания проекта                                                          |
 | --install-dependencies  | также устанавливает зависимости                                                               |
 | --npm                   | Принудительное использование NPM вместо yarn, работает только с флагом `install-dependencies` |
-| --specVersion=0.0.1     | 0.2.0  [default: 0.2.0] | Версия спецификации, которая будет использоваться проектом          |
+| --specVersion=0.0.1     | 0.2.0 [default: 0.2.0]                                                                        | Версия спецификации, которая будет использоваться проектом |
 
 ## Обзор
 
@@ -71,19 +71,19 @@ subql migrate функцию можно запустить в существую
 ### Спецификация источника данных
 
 Определяет данные, которые будут отфильтрованы и извлечены, а также расположение обработчика mapping функции для применяемого преобразования данных.
-| Поле           | v0.0.1                                                    | v0.2.0                                                                           | Описание                                                                                                                                                                                                                                     |
+| Поле | v0.0.1 | v0.2.0 | Описание |
 | -------------- | --------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **имя**        | String                                                    | 𐄂                                                                                | Имя источника данных                                                                                                                                                                                                                         |
-| **вид**        | [substrate/Runtime](./manifest/#data-sources-and-mapping) | substrate/Runtime, [substrate/CustomDataSource](./manifest/#custom-data-sources) | Мы поддерживаем типы данных из среды выполнения substrate по умолчанию, такие как block, event и extrinsic(call). <br /> Начиная с версии 0.2.0 мы поддерживаем данные из пользовательской среды выполнения, например смарт-контракта. |
-| **startBlock** | Integer                                                   | Integer                                                                          | Это изменяет ваш начальный блок индексации, установите его выше, чтобы пропустить начальные блоки с меньшим количеством данных                                                                                                               |
-| **mapping**    | Mapping Spec                                              | Mapping Spec                                                                     |                                                                                                                                                                                                                                              |
-| **фильтр**     | [network-filters](./manifest/#network-filters)            | 𐄂                                                                                | Отфильтровать источник данных для выполнения по имени спецификации конечной точки сети                                                                                                                                                       |
+| **имя** | String | 𐄂 | Имя источника данных |
+| **вид** | [substrate/Runtime](./manifest/#data-sources-and-mapping) | substrate/Runtime, [substrate/CustomDataSource](./manifest/#custom-data-sources) | Мы поддерживаем типы данных из среды выполнения substrate по умолчанию, такие как block, event и extrinsic(call). <br /> Начиная с версии 0.2.0 мы поддерживаем данные из пользовательской среды выполнения, например смарт-контракта. |
+| **startBlock** | Integer | Integer | Это изменяет ваш начальный блок индексации, установите его выше, чтобы пропустить начальные блоки с меньшим количеством данных |
+| **mapping** | Mapping Spec | Mapping Spec | |
+| **фильтр** | [network-filters](./manifest/#network-filters) | 𐄂 | Отфильтровать источник данных для выполнения по имени спецификации конечной точки сети |
 
 ### Mapping Spec
 
-| Поле                      | v0.0.1                                                                         | v0.2.0                                                                | Описание                                                                                                                                                                                                                                                                                           |
-| ------------------------- | ------------------------------------------------------------------------------ | --------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **файла**                 | String                                                                         | 𐄂                                                                     | Путь к записи сопоставления                                                                                                                                                                                                                                                                        |
+| Поле                      | v0.0.1                                                                         | v0.2.0                                                                | Описание                                                                                                                                                                                                                                                                                                    |
+| ------------------------- | ------------------------------------------------------------------------------ | --------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **файла**                 | String                                                                         | 𐄂                                                                     | Путь к записи сопоставления                                                                                                                                                                                                                                                                                 |
 | **обработчики и фильтры** | [Обработчики и фильтры по умолчанию](./manifest/#mapping-handlers-and-filters) | Базовые обработчики и фильтры, Пользовательские обработчики и фильтры | Перечислите все [функции сопоставления](./mapping/polkadot.md) и их соответствующие типы обработчиков, с дополнительными фильтрами сопоставления. Для получения информации о пользовательских обработчиках отображения времени выполнения, пожалуйста, просмотрите раздел Пользовательские источники данных |
 
 ## Источники данных и Mapping
@@ -104,8 +104,8 @@ dataSources:
 
 **Ваш проект SubQuery будет намного эффективнее, если вы будете использовать только обработчики событий и вызовов с соответствующими фильтрами сопоставления**
 
-| Обработчик                                       | Поддерживаемый фильтр |
-| ------------------------------------------------ | --------------------- |
+| Обработчик                                                | Поддерживаемый фильтр |
+| --------------------------------------------------------- | --------------------- |
 | [Обработчик блоков](./mapping/polkadot.md#block-handler)  | `спецификация версии` |
 | [Обработчик событий](./mapping/polkadot.md#event-handler) | модуль,метод          |
 | [Обработчик вызовов](./mapping/polkadot.md#call-handler)  | модуль,метод ,успех   |
@@ -116,15 +116,15 @@ dataSources:
 
 ```yaml
 # Пример фильтра из обработчика вызовов
-filter: 
-   module: balances
-   method: Deposit
-   success: true
+filter:
+  module: balances
+  method: Deposit
+  success: true
 ```
 
 - Фильтры модулей и методов поддерживаются на любой цепи субстрата.
 - Фильтр success принимает логическое значение и используется для фильтрации по статусу успеха.
-- Фильтр по спецификации  определяет диапазон версии спецификации для блока субстрата. В следующих примерах описано, как выставить диапазоны версий.
+- Фильтр по спецификации определяет диапазон версии спецификации для блока субстрата. В следующих примерах описано, как выставить диапазоны версий.
 
 ```yaml
 filter:
@@ -153,8 +153,8 @@ filter:
 
 В приведенном ниже примере v0.2.0 `network.chaintypes` указывает на файл, в который включены все пользовательские типы, это стандартный файл chainspec, в котором объявляются конкретные типы, поддерживаемые этой цепочкой блоков, в формате `.json`, `.yaml` или `.js`.
 
-<CodeGroup> <CodeGroupItem title="v0.2.0" active> ``` yml network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' endpoint: 'ws://host.kittychain.io/public-ws' chaintypes: file: ./types.json # The relative filepath to where custom types are stored ... ``` </CodeGroupItem>
-<CodeGroupItem title="v0.0.1"> ``` yml ... network: endpoint: "ws://host.kittychain.io/public-ws" types: { "KittyIndex": "u32", "Kitty": "[u8; 16]" } # typesChain: { chain: { Type5: 'example' } } # typesSpec: { spec: { Type6: 'example' } } dataSources: - name: runtime kind: substrate/Runtime startBlock: 1 filter:  #Optional specName: kitty-chain mapping: handlers: - handler: handleKittyBred kind: substrate/CallHandler filter: module: kitties method: breed success: true ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab v0.2.0 `yml network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' endpoint: 'ws://host.kittychain.io/public-ws' chaintypes: file: ./types.json # The relative filepath to where custom types are stored ...`
+@tab v0.0.1 `yml ... network: endpoint: "ws://host.kittychain.io/public-ws" types: { "KittyIndex": "u32", "Kitty": "[u8; 16]" } # typesChain: { chain: { Type5: 'example' } } # typesSpec: { spec: { Type6: 'example' } } dataSources: - name: runtime kind: substrate/Runtime startBlock: 1 filter:  #Optional specName: kitty-chain mapping: handlers: - handler: handleKittyBred kind: substrate/CallHandler filter: module: kitties method: breed success: true` :::
 
 Чтобы использовать typescript для вашего файла типов цепочек, включите его в папку `src` (например, `./src/types.ts`), запустите `yarn build` и затем укажите созданный файл js, расположенный в папке `dist`.
 
@@ -162,7 +162,6 @@ filter:
 network:
   chaintypes:
     file: ./dist/types.js # Будет сгенерирован после yarn run build
-...
 ```
 
 На что следует обратить внимание при использовании файла типов цепочек с расширением `.ts` или `.js`:
@@ -172,9 +171,9 @@ network:
 
 Вот пример файла типов цепочек `.ts`:
 
-<CodeGroup> <CodeGroupItem title="types.ts"> ```ts
+::: code-tabs @tab types.ts `ts
 import { typesBundleDeprecated } from "moonbeam-types-bundle"
-export default { typesBundle: typesBundleDeprecated }; ``` </CodeGroupItem> </CodeGroup>
+export default { typesBundle: typesBundleDeprecated }; ` :::
 
 ## Пользовательские источники данных
 
@@ -200,6 +199,6 @@ export default { typesBundle: typesBundleDeprecated }; ``` </CodeGroupItem> </Co
 
 Ниже приведен пример, который показывает разные источники данных для сетей Polkadot и Kusama.
 
-<CodeGroup> <CodeGroupItem title="v0.0.1"> ```yaml --- network: endpoint: 'wss://polkadot.api.onfinality.io/public-ws' #Create a template to avoid redundancy definitions: mapping: &mymapping handlers: - handler: handleBlock kind: substrate/BlockHandler dataSources: - name: polkadotRuntime kind: substrate/Runtime filter: #Optional specName: polkadot startBlock: 1000 mapping: *mymapping #use template here - name: kusamaRuntime kind: substrate/Runtime filter: specName: kusama startBlock: 12000 mapping: *mymapping # can reuse or change ``` </CodeGroupItem>
+::: code-tabs @tab v0.0.1 `yaml --- network: endpoint: 'wss://polkadot.api.onfinality.io/public-ws' #Create a template to avoid redundancy definitions: mapping: &mymapping handlers: - handler: handleBlock kind: substrate/BlockHandler dataSources: - name: polkadotRuntime kind: substrate/Runtime filter: #Optional specName: polkadot startBlock: 1000 mapping: *mymapping #use template here - name: kusamaRuntime kind: substrate/Runtime filter: specName: kusama startBlock: 12000 mapping: *mymapping # can reuse or change `
 
-</CodeGroup>
+:::

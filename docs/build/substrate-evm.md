@@ -129,8 +129,8 @@ Changes from the `Log` type:
 
 - `args` is added if the `abi` field is provided and the arguments can be successfully parsed. You can add a generic parameter like so to type `args`: `FrontierEvmEvent<{ from: string, to: string, value: BigNumber }>`.
 
-<CodeGroup>
-<CodeGroupItem title="Frontier EVM" active>
+::: code-tabs
+@tab Frontier EVM
 
 ```ts
 import { Approval, Transaction } from "../types";
@@ -178,8 +178,7 @@ export async function handleFrontierEvmCall(
 }
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title="Acala EVM+">
+@tab Acala EVM+
 
 ```ts
 import { Approval, Transaction } from "../types";
@@ -224,15 +223,14 @@ export async function handleAcalaEvmCall(
 }
 ```
 
-</CodeGroupItem>
-</CodeGroup>
+:::
 
 ## Data Source Example
 
 This is an extract from the `project.yaml` manifest file.
 
-<CodeGroup>
-<CodeGroupItem title="Frontier EVM" active>
+::: code-tabs
+@tab Frontier EVM
 
 ```yaml
 dataSources:
@@ -269,8 +267,7 @@ dataSources:
             function: "approve(address to,uint256 value)"
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title="Acala EVM+">
+@tab Acala EVM+
 
 ```yaml
 dataSources:
@@ -305,8 +302,7 @@ dataSources:
             from: "0x6bd193ee6d2104f14f94e2ca6efefae561a4334b"
 ```
 
-</CodeGroupItem>
-</CodeGroup>
+:::
 
 ## Querying contracts
 

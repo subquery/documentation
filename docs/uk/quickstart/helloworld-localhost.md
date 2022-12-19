@@ -59,7 +59,7 @@ My docker version is: Docker version 20.10.5, build 55c4c88
 
 ## 1. Ініціалізація проекту
 
-Перший крок при запуску з SubQuery - це запуск команди ` subql init `. Давайте ініціалізуємо стартовий проект із назвою ` subqlHelloWorld `. Зауважте, що обов'язковий лише автор. Все інше залишається порожнім внизу.
+Перший крок при запуску з SubQuery - це запуск команди `subql init`. Давайте ініціалізуємо стартовий проект із назвою `subqlHelloWorld`. Зауважте, що обов'язковий лише автор. Все інше залишається порожнім внизу.
 
 ```shell
 > subql init subqlHelloWorld
@@ -88,8 +88,8 @@ cd subqlHelloWorld
 
 Тепер зробіть встановлення пряжі або вузла, щоб встановити різні залежності.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn install ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```bash npm install ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell yarn install `
+@tab npm `bash npm install ` :::
 
 An example of `yarn install`
 
@@ -107,10 +107,10 @@ success Saved lockfile.
 
 ## 3. Створити код
 
-Тепер запустіть ` yarn codegen `, щоб генерувати Typescript зі схеми GraphQL.
+Тепер запустіть `yarn codegen`, щоб генерувати Typescript зі схеми GraphQL.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```bash npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell yarn codegen `
+@tab npm `bash npm run-script codegen ` :::
 
 An example of `yarn codegen`
 
@@ -127,14 +127,14 @@ $ ./node_modules/.bin/subql codegen
 ✨  Done in 1.02s.
 ```
 
-** Попередження ** Коли в файл схеми вносяться зміни, будь ласка, не забудьте повторно запустити ` yarn codegen ` для відновлення каталогу типів.
+** Попередження ** Коли в файл схеми вносяться зміни, будь ласка, не забудьте повторно запустити `yarn codegen` для відновлення каталогу типів.
 
 ## 4. Створіть код
 
-Наступний крок - побудувати код із ` yarn build `.
+Наступний крок - побудувати код із `yarn build`.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```bash npm run-script build ``` </CodeGroupItem> </CodeGroup>
+::: code-tabs @tab:active yarn `shell yarn build `
+@tab npm `bash npm run-script build ` :::
 
 An example of `yarn build`
 
