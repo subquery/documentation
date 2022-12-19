@@ -6,7 +6,7 @@ SubQuery 现在已支持 Graphql 订阅。 像查询一样，订阅可以让您�
 
 当您想要您的客户端应用程序更改数据或在发生更改或有新数据时显示一些新数据时，订阅非常有用。 Subscriptions allow you to _subscribe_ to your SubQuery project for changes.
 
-::: 信息说明 阅读更多关于 [订阅](https://www.apollographql.com/docs/react/data/subscriptions/) :::
+::: tip Note Read more about [Subscriptions](https://www.apollographql.com/docs/react/data/subscriptions/). :::
 
 ## 如何订阅
 
