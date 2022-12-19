@@ -21,11 +21,11 @@
 
 Эта команда использует webpack для генерации пакета проекта subquery.
 
-| Параметры          | Описание                                                                                                   |
-| ------------------ | ---------------------------------------------------------------------------------------------------------- |
-| -l, --location     | локальная папка проекта subquery (если ее еще нет в папке)                                                 |
-| -o, --output       | указать выходную папку сборки, например, build-folder                                                      |
-| --mode=(production | prod                                                        | development | dev) | [ default: production ] |
+| Параметры          | Описание                                                   |
+| ------------------ | ---------------------------------------------------------- | ----------- | ---- | ----------------------- |
+| -l, --location     | локальная папка проекта subquery (если ее еще нет в папке) |
+| -o, --output       | указать выходную папку сборки, например, build-folder      |
+| --mode=(production | prod                                                       | development | dev) | [ default: production ] |
 
 - В `subql build` вы можете указать дополнительные точки входа в поле exports, хотя он всегда будет строить `index.ts` автоматически.
 
@@ -106,7 +106,7 @@ Options:
 
 ### reindex
 
-:::warning In order to use this command, you require `@subql/node:v1.10.0`/`@subql/node-<network>:v1.10.0` or above. :::
+:::warning In order to use this command, you require `@subql/node:v1.10.0`/`@subql/node-YOURNETWORK:v1.10.0` or above. :::
 
 When using reindex command, historical must be enabled for the targeted project (`--disable-historical=false`). After starting the project, it would print out a log stating if historical is enabled or not.
 

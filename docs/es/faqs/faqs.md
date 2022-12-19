@@ -16,7 +16,7 @@ Subquery también provee alojamiento gratuito, de grado de producción de proyec
 
 **La red de SubQuery**
 
-La red SubQuery permite a los desarrolladores descentralizar completamente su pila de infraestructura. Es el servicio de datos más abierto, eficiente, fiable y escalable para dApps. SubQuery Network indexa y da servicio a la comunidad global de una manera incentivada y verificable.  Después de publicar tu proyecto en SubQuery Network, cualquiera puede indexarlo y alojarlo - proporcionando datos a los usuarios de todo el mundo de manera más rápida y fiable.
+La red SubQuery permite a los desarrolladores descentralizar completamente su pila de infraestructura. Es el servicio de datos más abierto, eficiente, fiable y escalable para dApps. SubQuery Network indexa y da servicio a la comunidad global de una manera incentivada y verificable. Después de publicar tu proyecto en SubQuery Network, cualquiera puede indexarlo y alojarlo - proporcionando datos a los usuarios de todo el mundo de manera más rápida y fiable.
 
 Más información [aquí](/subquery_network/introduction.md).
 
@@ -26,7 +26,7 @@ La mejor manera de empezar con SubQuery es probar nuestro [tutorial de Hola Mund
 
 ## ¿Cómo puedo contribuir o dar comentarios a SubQuery?
 
-Nos encantan las contribuciones y comentarios de la comunidad. Para contribuir con el código, bifurca el repositorio de su interés y realice sus cambios. Luego envíe un PR o Pull Request. No te olvides de probar también. Also check out our <a href="http://localhost:8080/miscellaneous/contributing.html">contributions guidelines.</a>
+Nos encantan las contribuciones y comentarios de la comunidad. Para contribuir con el código, bifurca el repositorio de su interés y realice sus cambios. Luego envíe un PR o Pull Request. No te olvides de probar también. Also check out our [contributions guidelines](../miscellaneous/contributing.html).
 
 Para dar comentarios, contáctanos a hello@subquery.network o salta a nuestro [canal de discord](https://discord.com/invite/78zg8aBSMG).
 
@@ -76,7 +76,6 @@ subql-node -f . --force-clean --subquery-name=<project-name>
 
 Tenga en cuenta que se recomienda usar `--force-clean` al cambiar el `startBlock` dentro del manifiesto del proyecto (`proyecto. aml`) para comenzar a reindexar desde el bloque configurado. Si `startBlock` se cambia sin un `--force-clean` del proyecto entonces el indexador continuará indexando con el `startBlock` previamente configurado.
 
-
 ## How can I optimise my project to speed it up?
 
 Performance is a crucial factor in each project. Fortunately, there are several things you could do to improve it. Here is the list of some suggestions:
@@ -89,12 +88,12 @@ Performance is a crucial factor in each project. Fortunately, there are several 
 - Set the start block to when the contract was initialised.
 - Always use a [dictionary](../tutorials_examples/dictionary.html#how-does-a-subquery-dictionary-work) (we can help create one for your new network).
 - Optimise your schema design, keep it as simple as possible.
-    - Try to reduce unnecessary fields and columns.
-    - Create  indexes as needed.
+  - Try to reduce unnecessary fields and columns.
+  - Create indexes as needed.
 - Use parallel/batch processing as often as possible.
-    - Use `api.queryMulti()` to optimise Polkadot API calls inside mapping functions and query them in parallel. This is a faster way than a loop.
-    - Use `Promise.all()`. In case of multiple async functions, it is better to execute them and resolve in parallel.
-    - If you want to create a lot of entities within a single handler, you can use `store.bulkCreate(entityName: string, entities: Entity[])`. You can create them in parallel, no need to do this one by one.
+  - Use `api.queryMulti()` to optimise Polkadot API calls inside mapping functions and query them in parallel. This is a faster way than a loop.
+  - Use `Promise.all()`. In case of multiple async functions, it is better to execute them and resolve in parallel.
+  - If you want to create a lot of entities within a single handler, you can use `store.bulkCreate(entityName: string, entities: Entity[])`. You can create them in parallel, no need to do this one by one.
 - Making API calls to query state can be slow. You could try to minimise calls where possible and to use `extrinsic/transaction/event` data.
 - Use `worker threads` to move block fetching and block processing into its own worker thread. It could speed up indexing by up to 4 times (depending on the particular project). You can easily enable it using the `-workers=<number>` flag. Note that the number of available CPU cores strictly limits the usage of worker threads. For now, it is only available for Substrate and Cosmos and will soon be integrated for Avalanche.
 - Note that `JSON.stringify` doesn’t support native `BigInts`. Our logging library will do this internally if you attempt to log an object. We are looking at a workaround for this.

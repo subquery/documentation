@@ -21,11 +21,11 @@
 
 Тази команда използва webpack за генериране на пакет от проект на subquery.
 
-| Опции              | Описание                                                                                                   |
-| ------------------ | ---------------------------------------------------------------------------------------------------------- |
-| -l, --location     | локална папка на проекта subquery (ако все още не сте в папка)                                             |
-| -o, --output       | посочете изходната папка на build например build-folder                                                    |
-| --mode=(production | prod                                                        | development | dev) | [ default: production ] |
+| Опции              | Описание                                                       |
+| ------------------ | -------------------------------------------------------------- | ----------- | ---- | ----------------------- |
+| -l, --location     | локална папка на проекта subquery (ако все още не сте в папка) |
+| -o, --output       | посочете изходната папка на build например build-folder        |
+| --mode=(production | prod                                                           | development | dev) | [ default: production ] |
 
 - With `subql build` you can specify additional entry points in exports field although it will always build `index.ts` automatically.
 
@@ -106,7 +106,7 @@ This displays the current version.
 
 ### reindex
 
-:::warning In order to use this command, you require `@subql/node:v1.10.0`/`@subql/node-<network>:v1.10.0` or above. :::
+:::warning In order to use this command, you require `@subql/node:v1.10.0`/`@subql/node-YOURNETWORK:v1.10.0` or above. :::
 
 When using reindex command, historical must be enabled for the targeted project (`--disable-historical=false`). After starting the project, it would print out a log stating if historical is enabled or not.
 
@@ -337,8 +337,6 @@ The port the subquery indexing service binds to. By default this is set to `3000
 ### --disable-historical
 
 Disables automated historical state tracking, [see Historic State Tracking](./historical.md). By default this is set to `false`.
-
-
 
 ### -w, --workers
 

@@ -77,10 +77,10 @@ If you just want to upgrade to the latest indexer ([`@subql/node`](https://www.n
 
 デプロイが正常に完了し、ノードがチェーンからデータのインデックスを作成したら、表示された GraphQL クエリエンドポイントからプロジェクトに接続することができるようになります。
 
-![プロジェクトを展開および同期する](/assets/img/projects-deploy-sync.png)
+![プロジェクトを展開および同期する](/assets/img/projects_deploy_sync.png)
 
 または、プロジェクトのタイトルの横にある 3 つの点をクリックして、SubQuery Explorer で表示することもできます。 There you can use the in browser playground to get started - [read more about how to use our Explorer here](../run_publish/query.md).
 
-![Projects in SubQuery Explorer](/assets/img/projects-explorer.png)
+![Projects in SubQuery Explorer](/assets/img/projects_explorer.png)
 
 ::: info Note Learn more about the [GraphQL Query language.](./graphql.md) :::

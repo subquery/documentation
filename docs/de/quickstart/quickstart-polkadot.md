@@ -43,10 +43,10 @@ subql init
 Während das SubQuery-Projekt initialisiert wird, werden Ihnen bestimmte Fragen gestellt:
 
 - Projektname: Ein Projektname für Ihr SubQuery-Projekt
-- Netzwerkfamilie: Die Layer-1-Blockchain-Netzwerkfamilie, für deren Indizierung dieses SubQuery-Projekt entwickelt wird. Verwenden Sie die Pfeiltasten, um aus den verfügbaren Optionen auszuwählen. Für diese Anleitung verwenden wir *"Substrat"*
-- Netzwerk: Das spezifische Netzwerk, für das dieses SubQuery-Projekt entwickelt wird, um es zu indizieren. Verwenden Sie die Pfeiltasten, um aus den verfügbaren Optionen auszuwählen. Für diese Anleitung verwenden wir *"Polkadot"*
-- Vorlagenprojekt: Wählen Sie ein SubQuery-Vorlagenprojekt aus, das als Ausgangspunkt für den Beginn der Entwicklung dient. Wir empfehlen, das Projekt *"subql-starter"* auszuwählen.
-- RPC-Endpunkt: Geben Sie eine HTTPS-URL zu einem ausgeführten RPC-Endpunkt an, der standardmäßig für dieses Projekt verwendet wird. Sie können schnell auf öffentliche Endpunkte für verschiedene Polkadot-Netzwerke zugreifen, Ihren eigenen privaten dedizierten Nodes mit [OnFinality](https://app.onfinality.io) erstellen oder einfach den standardmäßigen Polkadot-Endpunkt verwenden. Dieser RPC-Node muss ein Archivnode sein (den Zustand der vollständigen Chain haben). Für diese Anleitung verwenden wir den Standardwert *"https://polkadot.api.onfinality.io"*
+- Netzwerkfamilie: Die Layer-1-Blockchain-Netzwerkfamilie, für deren Indizierung dieses SubQuery-Projekt entwickelt wird. Verwenden Sie die Pfeiltasten, um aus den verfügbaren Optionen auszuwählen. Für diese Anleitung verwenden wir _"Substrat"_
+- Netzwerk: Das spezifische Netzwerk, für das dieses SubQuery-Projekt entwickelt wird, um es zu indizieren. Verwenden Sie die Pfeiltasten, um aus den verfügbaren Optionen auszuwählen. Für diese Anleitung verwenden wir _"Polkadot"_
+- Vorlagenprojekt: Wählen Sie ein SubQuery-Vorlagenprojekt aus, das als Ausgangspunkt für den Beginn der Entwicklung dient. Wir empfehlen, das Projekt _"subql-starter"_ auszuwählen.
+- RPC-Endpunkt: Geben Sie eine HTTPS-URL zu einem ausgeführten RPC-Endpunkt an, der standardmäßig für dieses Projekt verwendet wird. Sie können schnell auf öffentliche Endpunkte für verschiedene Polkadot-Netzwerke zugreifen, Ihren eigenen privaten dedizierten Nodes mit [OnFinality](https://app.onfinality.io) erstellen oder einfach den standardmäßigen Polkadot-Endpunkt verwenden. Dieser RPC-Node muss ein Archivnode sein (den Zustand der vollständigen Chain haben). Für diese Anleitung verwenden wir den Standardwert _"https://polkadot.api.onfinality.io"_
 - Git-Repository: Geben Sie eine Git-URL zu einem Repository an, in dem dieses SubQuery-Projekt gehostet wird (wenn es in SubQuery Explorer gehostet wird), oder akzeptieren Sie die bereitgestellte Standardeinstellung.
 - Autoren: Geben Sie hier den Eigentümer dieses SubQuery-Projekts ein (z. B. Ihren Namen!) oder übernehmen Sie die vorgegebene Vorgabe.
 - Beschreibung: Geben Sie einen kurzen Absatz zu Ihrem Projekt an, der beschreibt, welche Daten es enthält und was Benutzer damit tun können, oder akzeptieren Sie die bereitgestellte Standardeinstellung.
@@ -57,8 +57,8 @@ Nachdem der Initialisierungsprozess abgeschlossen ist, sollten Sie sehen, dass e
 
 Führen Sie zuletzt im Projektverzeichnis den folgenden Befehl aus, um die Abhängigkeiten des neuen Projekts zu installieren.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```shell cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> `shell cd PROJECT_NAME yarn install ` </CodeGroupItem>
+<CodeGroupItem title="NPM"> `shell cd PROJECT_NAME npm install ` </CodeGroupItem> </CodeGroup>
 
 ## Änderungen an Ihrem Projekt vornehmen
 
@@ -88,8 +88,8 @@ type Transfer @entity {
 
 **Wichtig: Wenn Sie Änderungen an der Schemadatei vornehmen, stellen Sie bitte sicher, dass Sie Ihr Typenverzeichnis neu generieren.**
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```shell npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> `shell yarn codegen ` </CodeGroupItem>
+<CodeGroupItem title="NPM"> `shell npm run-script codegen ` </CodeGroupItem> </CodeGroup>
 
 Sie finden die generierten Modelle im Verzeichnis `/src/types/models`. Weitere Informationen zur Datei `schema.graphql` finden Sie in unserer Dokumentation unter [Build/GraphQL Schema](../build/graphql.md)
 
@@ -111,7 +111,6 @@ dataSources:
           filter:
             module: balances
             method: Transfer
-
 ```
 
 Das bedeutet, dass wir jedes Mal, wenn ein `balances.Transfer`-Ereignis auftritt, eine `handleEvent`-Mapping-Funktion ausführen.
@@ -134,22 +133,22 @@ import { Transfer } from "../types";
 import { Balance } from "@polkadot/types/interfaces";
 
 export async function handleEvent(event: SubstrateEvent): Promise<void> {
-    // Get data from the event
-    // The balances.transfer event has the following payload \[from, to, value\]
-    // logger.info(JSON.stringify(event));
-    const from = event.event.data[0];
-    const to = event.event.data[1];
-    const amount = event.event.data[2];
+  // Get data from the event
+  // The balances.transfer event has the following payload \[from, to, value\]
+  // logger.info(JSON.stringify(event));
+  const from = event.event.data[0];
+  const to = event.event.data[1];
+  const amount = event.event.data[2];
 
-    // Create the new transfer entity
-    const transfer = new Transfer(
-        `${event.block.block.header.number.toNumber()}-${event.idx}`,
-    );
-    transfer.blockNumber = event.block.block.header.number.toBigInt();
-    transfer.from = from.toString();
-    transfer.to = to.toString();
-    transfer.amount = (amount as Balance).toBigInt();
-    await transfer.save();
+  // Create the new transfer entity
+  const transfer = new Transfer(
+    `${event.block.block.header.number.toNumber()}-${event.idx}`
+  );
+  transfer.blockNumber = event.block.block.header.number.toBigInt();
+  transfer.from = from.toString();
+  transfer.to = to.toString();
+  transfer.amount = (amount as Balance).toBigInt();
+  await transfer.save();
 }
 ```
 
@@ -161,7 +160,7 @@ Weitere Informationen zu Mapping-Funktionen finden Sie in unserer Dokumentation 
 
 Um Ihr neues SubQuery-Projekt auszuführen, müssen wir zuerst unsere Arbeit erstellen. Führen Sie den Build-Befehl im Stammverzeichnis des Projekts aus.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script build ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> `shell yarn build ` </CodeGroupItem> <CodeGroupItem title="NPM"> `shell npm run-script build ` </CodeGroupItem> </CodeGroup>
 
 **Wichtig: Wenn Sie Änderungen an Ihren Zuordnungsfunktionen vornehmen, müssen Sie Ihr Projekt neu erstellen**
 
@@ -175,13 +174,11 @@ Die gesamte Konfiguration, die steuert, wie ein SubQuery-Node ausgeführt wird, 
 
 Führen Sie im Projektverzeichnis den folgenden Befehl aus:
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn start:docker ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script start:docker ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> `shell yarn start:docker ` </CodeGroupItem> <CodeGroupItem title="NPM"> `shell npm run-script start:docker ` </CodeGroupItem> </CodeGroup>
 
 Es kann einige Zeit dauern, die erforderlichen Pakete herunterzuladen ([`@subql/node`](https://www.npmjs.com/package/@subql/node),
 
-`@subql/query`</7 > und Postgres) zum ersten Mal, aber bald sollten Sie einen laufenden SubQuery-Node auf dem Terminalbildschirm sehen. </p> 
-
-
+`@subql/query` und Postgres) zum ersten Mal, aber bald sollten Sie einen laufenden SubQuery-Node auf dem Terminalbildschirm sehen.
 
 ### Fragen Sie Ihr Projekt ab
 
@@ -191,15 +188,10 @@ Sie sollten einen GraphQL-Playground im Browser und die Schemas sehen, die zur A
 
 Probieren Sie für ein neues SubQuery-Starterprojekt die folgende Abfrage aus, um zu verstehen, wie sie funktioniert, oder erfahren Sie mehr über die [GraphQL-Abfragesprache](../run_publish/graphql.md).
 
-
-
 ```graphql
 {
   query {
-    transfers(
-      first: 10,
-      orderBy: AMOUNT_DESC
-    ) {
+    transfers(first: 10, orderBy: AMOUNT_DESC) {
       nodes {
         id
         amount
@@ -210,20 +202,13 @@ Probieren Sie für ein neues SubQuery-Starterprojekt die folgende Abfrage aus, u
     }
   }
 }
-
-
 ```
-
-
-
 
 ### Veröffentlichen Sie Ihr SubQuery-Projekt
 
 SubQuery bietet einen kostenlosen verwalteten Dienst, in dem Sie Ihr neues Projekt bereitstellen können. Sie können es in [SubQuery-Projekten](https://project.subquery.network) bereitstellen und mit unserem [Explorer](https://explorer.subquery.network) abfragen.
 
 Lesen Sie den Leitfaden zum [Veröffentlichen Ihres neuen Projekts in SubQuery Projects](../run_publish/publish.md)
-
-
 
 ## Weitere Schritte
 

@@ -59,8 +59,8 @@ Setelah proses inisialisasi selesai, Anda akan melihat folder dengan nama proyek
 
 Terakhir, di bawah direktori proyek, jalankan perintah berikut untuk menginstal dependensi proyek baru.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```shell cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> `shell cd PROJECT_NAME yarn install ` </CodeGroupItem>
+<CodeGroupItem title="NPM"> `shell cd PROJECT_NAME npm install ` </CodeGroupItem> </CodeGroup>
 
 ## Membuat Perubahan pada Proyek Anda
 
@@ -92,8 +92,8 @@ type PangolinApproval @entity {
 
 **Penting: Saat Anda membuat perubahan apa pun pada file skema, pastikan Anda membuat ulang direktori tipe Anda. Lakukan ini sekarang.**
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```shell npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> `shell yarn codegen ` </CodeGroupItem>
+<CodeGroupItem title="NPM"> `shell npm run-script codegen ` </CodeGroupItem> </CodeGroup>
 
 Anda akan menemukan model yang dihasilkan di direktori `/src/types/models`. Untuk informasi lebih lanjut tentang file `schema.graphql`, lihat dokumentasi kami di bawah [Build/GraphQL Schema](../build/graphql.md)
 
@@ -169,7 +169,7 @@ Untuk informasi lebih lanjut tentang fungsi pemetaan, lihat dokumentasi kami di 
 
 Untuk menjalankan Proyek SubQuery baru Anda, pertama-tama kita perlu membangun pekerjaan kita. Jalankan perintah build dari direktori root proyek.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script build ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> `shell yarn build ` </CodeGroupItem> <CodeGroupItem title="NPM"> `shell npm run-script build ` </CodeGroupItem> </CodeGroup>
 
 **Penting: Setiap kali Anda membuat perubahan pada fungsi pemetaan, Anda harus membangun kembali proyek Anda**
 
@@ -183,13 +183,11 @@ Semua konfigurasi yang mengontrol bagaimana node SubQuery dijalankan didefinisik
 
 Di bawah direktori proyek jalankan perintah berikut:
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn start:docker ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script start:docker ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> `shell yarn start:docker ` </CodeGroupItem> <CodeGroupItem title="NPM"> `shell npm run-script start:docker ` </CodeGroupItem> </CodeGroup>
 
 Mungkin perlu beberapa saat untuk mengunduh paket yang diperlukan ([`@subql/node`](https://www.npmjs.com/package/@subql/node),
 
-`@subql/query`</7 >, dan Postgres) untuk pertama kalinya tetapi segera Anda akan melihat node SubQuery yang sedang berjalan. Sabar pada proses di sini.</p> 
-
-
+`@subql/query`</7 >, dan Postgres) untuk pertama kalinya tetapi segera Anda akan melihat node SubQuery yang sedang berjalan. Sabar pada proses di sini.
 
 ### Kueri Proyek Anda
 
@@ -198,8 +196,6 @@ Buka browser Anda dan buka [http://localhost:3000](http://localhost:3000).
 Anda akan melihat taman bermain GraphQL ditampilkan di explorer dan skema yang siap untuk kueri. Di kanan atas taman bermain, Anda akan menemukan tombol _Dokumen_ yang akan membuka undian dokumentasi. Dokumentasi ini dibuat secara otomatis dan membantu Anda menemukan entitas dan metode apa yang dapat Anda kueri.
 
 Untuk proyek pemula SubQuery baru, Anda dapat mencoba kueri berikut untuk mengetahui cara kerjanya atau [pelajari lebih lanjut tentang bahasa Kueri GraphQL](../run_publish/graphql.md).
-
-
 
 ```graphql
 query {
@@ -217,16 +213,11 @@ query {
 }
 ```
 
-
-
-
 ### Publikasikan Proyek SubQuery Anda
 
 SubQuery menyediakan layanan terkelola gratis saat Anda dapat menerapkan proyek baru Anda. Anda dapat menerapkannya ke [Proyek SubQuery](https://project.subquery.network) dan menanyakannya menggunakan [Explorer](https://explorer.subquery.network) kami.
 
 [Baca panduan untuk memublikasikan proyek baru Anda ke Proyek SubQuery](../run_publish/publish.md), **Perhatikan bahwa Anda harus menerapkan melalui IPFS**.
-
-
 
 ## Langkah selanjutnya
 

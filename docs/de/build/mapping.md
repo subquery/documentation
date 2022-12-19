@@ -67,9 +67,9 @@ Unser Ziel ist es, alle Datenquellen für Benutzer für das Mapping von Handlern
 
 Dies sind die Schnittstellen, die wir derzeit unterstützen:
 
-- [api.query.&lt;module&gt;.&lt;method&gt;()](https://polkadot.js.org/docs/api/start/api.query) fragt den <strong>aktuellen</strong> Block ab.
-- [api.query.&lt;module&gt;.&lt;method&gt;.multi()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-same-type) führt mehrere Abfragen des <strong>gleichen</strong> Typs im aktuellen Block durch.
-- [api.queryMulti()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-distinct-types) führt im aktuellen Block mehrere Abfragen <strong>verschiedener</strong> Typen durch.
+- [api.query.&lt;module&gt;.&lt;method&gt;()](https://polkadot.js.org/docs/api/start/api.query) fragt den **aktuellen** Block ab.
+- [api.query.&lt;module&gt;.&lt;method&gt;.multi()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-same-type) führt mehrere Abfragen des **gleichen** Typs im aktuellen Block durch.
+- [api.queryMulti()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-distinct-types) führt im aktuellen Block mehrere Abfragen **verschiedener** Typen durch.
 
 Dies sind die Schnittstellen, die wir derzeit **NICHT** unterstützen:
 

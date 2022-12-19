@@ -67,9 +67,9 @@ export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
 
 현재 지원되는 인터페이스는 다음과 같습니다:
 
-- [api.query.&lt;module&gt;.&lt;method&gt;()](https://polkadot.js.org/docs/api/start/api.query) 은 <strong>현재의</strong> 블록을 쿼리합니다.
-- [api.query.&lt;module&gt;.&lt;method&gt;.multi()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-same-type)는 현재의 블록과 <strong>같은</strong> 타입의 여러 Query를 생성합니다.
-- [api.queryMulti()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-distinct-types)은 현재 블럭과 <strong>다른</strong> 타입의 여러 Query를 생성합니다.
+- [api.query.&lt;module&gt;.&lt;method&gt;()](https://polkadot.js.org/docs/api/start/api.query) 은 **현재의** 블록을 쿼리합니다.
+- [api.query.&lt;module&gt;.&lt;method&gt;.multi()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-same-type)는 현재의 블록과 **같은** 타입의 여러 Query를 생성합니다.
+- [api.queryMulti()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-distinct-types)은 현재 블럭과 **다른** 타입의 여러 Query를 생성합니다.
 
 현재 **지원하고 있지 않은** 인터페이스는 다음과 같습니다:
 
@@ -166,7 +166,7 @@ echo state_getMetadata | websocat 'ws://127.0.0.1:9944' --jsonrpc
 
 [types setup](https://polkadot.js.org/docs/api/examples/promise/typegen#metadata-setup)에 따라 다음을 생성합니다:
 
-- < 0 > srcapi-interfaces definitions.ts < 0 >: 모든 서브폴더 정의를 내보냅니다.
+- `src.api-interfaces definitions.ts`: 모든 서브폴더 정의를 내보냅니다.
 
 ```ts
 export { default as kitties } from "./kitties/definitions";

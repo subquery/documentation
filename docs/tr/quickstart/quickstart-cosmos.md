@@ -44,8 +44,8 @@ Başlatma işlemi tamamlandıktan sonra, dizin içinde proje adınızın oluştu
 
 Son olarak, proje dizini altında, yeni projenin bağımlılıklarını yüklemek için aşağıdaki komutu çalıştırın.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell cd PROJECT_NAME yarn install ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```shell cd PROJECT_NAME npm install ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> `shell cd PROJECT_NAME yarn install ` </CodeGroupItem>
+<CodeGroupItem title="NPM"> `shell cd PROJECT_NAME npm install ` </CodeGroupItem> </CodeGroup>
 
 ## Making Changes to your Project
 
@@ -75,8 +75,8 @@ type Vote @entity {
 
 **Önemli: Şema dosyasında herhangi bir değişiklik yaptığınızda, lütfen türler dizininizi yeniden oluşturduğunuzdan emin olun. Bunu şimdi yap.**
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn codegen ``` </CodeGroupItem>
-<CodeGroupItem title="NPM"> ```shell npm run-script codegen ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> `shell yarn codegen ` </CodeGroupItem>
+<CodeGroupItem title="NPM"> `shell npm run-script codegen ` </CodeGroupItem> </CodeGroup>
 
 You'll find the generated models in the `/src/types/models` directory. `schema.graphql` dosyası hakkında daha fazla bilgi için, [Build/GraphQL Schema](../build/graphql.md) altındaki belgelerimize bakın
 
@@ -145,7 +145,7 @@ Eşleme işlevleri hakkında daha fazla bilgi için [Derleme/Eşlemeler](../buil
 
 Yeni SubQuery Projenizi çalıştırmak için önce çalışmamızı oluşturmamız gerekiyor. Yapı komutunu projenin kök dizininden çalıştırın.
 
-<CodeGroup> </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script build ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN"> `yarn build ` </CodeGroupItem> <CodeGroupItem title="NPM"> `npm run-script build ` </CodeGroupItem> </CodeGroup>
 
 **Important: Whenever you make changes to your mapping functions, you'll need to rebuild your project**
 
@@ -159,7 +159,7 @@ Bir SubQuery düğümünün nasıl çalıştırıldığını kontrol eden tüm y
 
 Proje dizini altında aşağıdaki komutu çalıştırın:
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn start:docker ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```shell npm run-script start:docker ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> `shell yarn start:docker ` </CodeGroupItem> <CodeGroupItem title="NPM"> `shell npm run-script start:docker ` </CodeGroupItem> </CodeGroup>
 
 It may take some time to download the required packages ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query`](https://www.npmjs.com/package/@subql/query), and Postgres) for the first time but soon you'll see a running SubQuery node. Burada sabırlı olun.
 
@@ -173,11 +173,11 @@ Yeni bir SubQuery başlangıç projesi için, nasıl çalıştığını öğrenm
 
 ```graphql
 query {
-    votes(
+  votes(
     first: 5
     orderBy: BLOCK_HEIGHT_DESC
-    # filter: {proposalID: {equalTo: "4"}}
-  ) {
+  ) # filter: {proposalID: {equalTo: "4"}}
+  {
     nodes {
       id
       blockHeight

@@ -21,10 +21,10 @@ COMMANDS
 
 This command is uses webpack to generate a bundle of a subquery project.
 
-| Options            | Beschreibung                                                                                               |
-| ------------------ | ---------------------------------------------------------------------------------------------------------- |
-| -l, --location     | local folder of subquery project (if not in folder already)                                                |
-| -o, --output       | specify output folder of build e.g. build-folder                                                           |
+| Options            | Beschreibung                                                |
+| ------------------ | ----------------------------------------------------------- | ----------- | ---- | ----------------------- |
+| -l, --location     | local folder of subquery project (if not in folder already) |
+| -o, --output       | specify output folder of build e.g. build-folder            |
 | --mode=(production | prod                                                        | development | dev) | [ default: production ] |
 
 - With `subql build` you can specify additional entry points in exports field although it will always build `index.ts` automatically.
@@ -106,7 +106,7 @@ This displays the current version.
 
 ### reindex
 
-:::warning In order to use this command, you require `@subql/node:v1.10.0`/`@subql/node-<network>:v1.10.0` or above. :::
+:::warning In order to use this command, you require `@subql/node:v1.10.0`/`@subql/node-YOURNETWORK:v1.10.0` or above. :::
 
 When using reindex command, historical must be enabled for the targeted project (`--disable-historical=false`). After starting the project, it would print out a log stating if historical is enabled or not.
 

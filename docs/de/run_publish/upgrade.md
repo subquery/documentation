@@ -71,18 +71,16 @@ jobs:
 
 ## Führen Sie ein Upgrade auf den neuesten Indexer- und Abfragedienst durch
 
-Wenn Sie nur auf den neuesten Indexer ([`@subql/node`](https://www.npmjs.com/package/@subql/node)) oder Abfragedienst (
-
-`@subql/query`</) aktualisieren möchten 2>) Um von unseren regelmäßigen Leistungs- und Stabilitätsverbesserungen zu profitieren, wählen Sie einfach eine neuere Version unserer Pakete aus und speichern Sie. Dies verursacht nur wenige Minuten Ausfallzeit, da die Dienste, auf denen Ihr Projekt ausgeführt wird, neu gestartet werden.</p>
+Wenn Sie nur auf den neuesten Indexer ([`@subql/node`](https://www.npmjs.com/package/@subql/node)) oder Abfragedienst (`@subql/query`) aktualisieren möchten. Um von unseren regelmäßigen Leistungs- und Stabilitätsverbesserungen zu profitieren, wählen Sie einfach eine neuere Version unserer Pakete aus und speichern Sie. Dies verursacht nur wenige Minuten Ausfallzeit, da die Dienste, auf denen Ihr Projekt ausgeführt wird, neu gestartet werden.
 
 ## Nächste Schritte - Verbinden Sie sich mit Ihrem Projekt
 
 Sobald Ihre Bereitstellung erfolgreich abgeschlossen wurde und unsere Nodes Ihre Daten aus der Chain indiziert haben, können Sie über den angezeigten GraphQL-Abfrageendpunkt eine Verbindung zu Ihrem Projekt herstellen.
 
-![Projekt wird bereitgestellt und synchronisiert](/assets/img/projects-deploy-sync.png)
+![Projekt wird bereitgestellt und synchronisiert](/assets/img/projects_deploy_sync.png)
 
 Alternativ können Sie auf die drei Punkte neben dem Titel Ihres Projekts klicken und es im SubQuery Explorer anzeigen. Dort können Sie den Playground im Browser verwenden, um loszulegen - [lesen Sie hier mehr über die Verwendung unseres Explorers](../run_publish/query.md).
 
-![Projekte im SubQuery Explorer](/assets/img/projects-explorer.png)
+![Projekte im SubQuery Explorer](/assets/img/projects_explorer.png)
 
 ::: info Hinweis Erfahren Sie mehr über die [GraphQL-Abfragesprache.](./graphql.md) :::

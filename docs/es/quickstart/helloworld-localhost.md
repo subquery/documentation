@@ -70,7 +70,7 @@ RPC endpoint: [wss://polkadot. pi.onfinality.io/public-ws]:
 Repositorio Git [https://github.com/subquery/subql-starter]:
 Obteniendo la genesis de red hash.. done
 Autor [Ian He & Jay Ji]:
-Descripción [Este proyecto puede ser utilizado como un inicio de...:
+Descripción [Este proyecto puede ser utilizado como un inicio de...]:
 Versión [0.0.4]:
 Licencia [MIT]:
 proyecto de preparación... hecho
@@ -88,14 +88,16 @@ cd subqlHelloWorld
 
 Ahora haga una instalación de yarn o node para instalar las distintas dependencias.
 
-<CodeGroup> <CodeGroupItem title="YARN" active> ```shell yarn build ``` </CodeGroupItem> <CodeGroupItem title="NPM"> ```bash npm run-script build ``` </CodeGroupItem> </CodeGroup>
+<CodeGroup> <CodeGroupItem title="YARN" active> `shell yarn build ` </CodeGroupItem> <CodeGroupItem title="NPM"> `bash npm run-script build ` </CodeGroupItem> </CodeGroup>
 
 An example of `yarn build`
 
-```shell
-# Yarn yarn install # NPM npm install</p>
+````shell
+# Yarn yarn install # NPM npm install
+```
 
-<pre><code class="shell">> yarn install
+```shell
+yarn install
 yarn install v1.22.10
 info No lockfile found.
 [1/4] 🔍  Resolving packages...
@@ -104,13 +106,16 @@ info No lockfile found.
 [4/4] 🔨  Building fresh packages...
 success Saved lockfile.
 ✨  Done in 31.84s.
-```
+````
 
 ## 3. Step 3: Generador de codigo
 
 Ahora ejecuta `yarn codegen` para generar Typescript desde el esquema GraphQL.
 
-<CodeGroup> # Yarn yarn codegen # NPM npm run-script codegen
+```shell
+# Yarn yarn codegen
+# NPM npm run-script codegen
+```
 
 ```shell
 > yarn codegen
@@ -122,9 +127,11 @@ $ ./node_modules/.bin/subql codegen
 * Schema StarterEntity generated !
 * Models index generated !
 * Types index generated !
-✨  Done in 1.02s</p>
+✨  Done in 1.02s
+```
 
-<pre><code class="shell">> yarn codegen
+````shell
+yarn codegen
 yarn run v1.22.10
 $ ./node_modules/.bin/subql codegen
 ===============================
@@ -138,7 +145,8 @@ $ ./node_modules/.bin/subql codegen
 * Tipo de índice generado!
 * Tipo de índice generado!
 ✨ Hecho en 0.06s. ```
- ✨ Hecho en 1.02s. </code></pre>
+ ✨ Hecho en 1.02s.
+```
 
 **Advertencia** Cuando se hacen cambios en el archivo de schema, por favor recuerde volver a ejecutar `yarn codegen` para regenerar el directorio de tipos.
 
@@ -146,7 +154,7 @@ $ ./node_modules/.bin/subql codegen
 
 El siguiente paso es construir el código con `yarn build`.
 
-<CodeGroup mark="crwd-mark"> # Yarn yarn build # NPM npm run-script build
+`# Yarn yarn build # NPM npm run-script build`
 
 ```shell
 > yarn build
@@ -199,3 +207,4 @@ El número de bloques en el patio de juego debe coincidir con el número de bloq
 ## Resúmen
 
 En este inicio rápido, demostramos los pasos básicos para poner en marcha un proyecto inicial dentro de un entorno Docker y luego navegamos a localhost:3000 y ejecutamos una consulta para devolver el número de bloque de la red mainnet Polkadot.
+````

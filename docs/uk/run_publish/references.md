@@ -21,11 +21,11 @@ COMMANDS
 
 Ця команда використовує webpack для створення пакету проєкту subquery.
 
-| Опція              | Описання                                                                                                   |
-| ------------------ | ---------------------------------------------------------------------------------------------------------- |
-| -l, --location     | локальна тека проєкту subquery (якщо вона ще не знаходиться в теці)                                        |
-| -o, --output       | вкажіть вихідну теку збірки, наприклад, build-folder                                                       |
-| --mode=(production | prod                                                        | development | dev) | [ default: production ] |
+| Опція              | Описання                                                            |
+| ------------------ | ------------------------------------------------------------------- | ----------- | ---- | ----------------------- |
+| -l, --location     | локальна тека проєкту subquery (якщо вона ще не знаходиться в теці) |
+| -o, --output       | вкажіть вихідну теку збірки, наприклад, build-folder                |
+| --mode=(production | prod                                                                | development | dev) | [ default: production ] |
 
 - За допомогою `subql build` ви можете вказати додаткові точки входу в поле exports, хоча він завжди буде будуватися `index.Ts` автоматично.
 
@@ -106,7 +106,7 @@ Options:
 
 ### reindex
 
-:::warning In order to use this command, you require `@subql/node:v1.10.0`/`@subql/node-<network>:v1.10.0` or above. :::
+:::warning In order to use this command, you require `@subql/node:v1.10.0`/`@subql/node-YOURNETWORK:v1.10.0` or above. :::
 
 When using reindex command, historical must be enabled for the targeted project (`--disable-historical=false`). After starting the project, it would print out a log stating if historical is enabled or not.
 

@@ -6,7 +6,7 @@ You can use the same SubQuery project, which includes the same GraphQL schema an
 
 For example, you could capture XCM transaction data from all Polkadot parachains or monitoring IBC messages across Cosmos Zones in a single project, with a single database, and a single query endpoint.
 
-![Multi-chain](/assets/img/multi-chain.jpg)
+![Multi-chain](/assets/img/multi_chain.jpg)
 
 ## How it Works
 

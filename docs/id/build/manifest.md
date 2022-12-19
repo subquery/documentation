@@ -81,9 +81,9 @@ Mendefinisikan data yang akan difilter dan diekstraksi dan lokasi pengendali fun
 
 ### Mapping Spec
 
-| Field                  | v0.0.1                                                                  | v0.2.0                                                                                | Deskripsi                                                                                                                                                                                                              |
-| ---------------------- | ----------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **file**               | String                                                                  | 𐄂                                                                                     | Jalur ke entri pemetaan                                                                                                                                                                                                |
+| Field                  | v0.0.1                                                                  | v0.2.0                                                                                | Deskripsi                                                                                                                                                                                                                       |
+| ---------------------- | ----------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **file**               | String                                                                  | 𐄂                                                                                     | Jalur ke entri pemetaan                                                                                                                                                                                                         |
 | **handlers & filters** | [Penangan dan filter default](./manifest/#mapping-handlers-and-filters) | Penangan dan filter default, <br />[Penangan dan filter khusus](#custom-data-sources) | Buat daftar semua [fungsi pemetaan](./mapping/polkadot.md) dan jenis handler yang sesuai, dengan filter pemetaan tambahan. <br /><br /> Untuk handler pemetaan runtime kustom, lihat [Sumber data kustom](#custom-data-sources) |
 
 ## Sumber Data dan Pemetaan
@@ -104,8 +104,8 @@ Tabel berikut menjelaskan filter yang didukung oleh penangan yang berbeda.
 
 **Proyek SubQuery Anda akan jauh lebih efisien bila Anda hanya menggunakan event dan call handler dengan filter pemetaan yang sesuai**
 
-| Handler                                    | Filter yang didukung         |
-| ------------------------------------------ | ---------------------------- |
+| Handler                                             | Filter yang didukung         |
+| --------------------------------------------------- | ---------------------------- |
 | [BlockHandler](./mapping/polkadot.md#block-handler) | `specVersion`                |
 | [EventHandler](./mapping/polkadot.md#event-handler) | `module`,`method`            |
 | [CallHandler](./mapping/polkadot.md#call-handler)   | `module`,`method` ,`success` |
@@ -151,7 +151,7 @@ Anda dapat mengindeks data dari rantai kustom dengan juga menyertakan jenis rant
 
 Kami mendukung jenis tambahan yang digunakan oleh modul waktu proses media, `typesAlias`, `typesBundle`, `typesChain`, dan `typesSpec` juga didukung.
 
-Dalam contoh v0.2.0 di bawah ini, `network.chaintypes` menunjuk ke file yang memiliki semua tipe kustom yang disertakan, Ini adalah file chainspec standar yang menyatakan tipe spesifik yang didukung oleh blockchain ini di < 0>.json</code>, `.yaml` atau `.js` format.
+Dalam contoh v0.2.0 di bawah ini, `network.chaintypes` menunjuk ke file yang memiliki semua tipe kustom yang disertakan, Ini adalah file chainspec standar yang menyatakan tipe spesifik yang didukung oleh blockchain ini di `.json`, `.yaml` atau `.js` format.
 
 <CodeGroup> <CodeGroupItem title="v0.2.0" active> `yml network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' endpoint: 'ws://host.kittychain.io/public-ws' chaintypes: file: ./types.json # Filepath relatif ke tempat jenis kustom disimpan ...` </CodeGroupItem>
 <CodeGroupItem title="v0.0.1"> `yml ... network: endpoint: "ws://host.kittychain.io/public-ws" types: { "KittyIndex": "u32", "Kitty": "[u8; 16]" } # typesChain: { chain: { Type5: 'example' } } # typesSpec: { spec: { Type6: 'example' } } dataSources: - name: runtime kind: substrate/Runtime startBlock: 1 filter: #Optional specName: kitty-chain mapping: handlers: - handler: handleKittyBred kind: substrate/CallHandler filter: module: kitties method: breed success: true` </CodeGroupItem> </CodeGroup>

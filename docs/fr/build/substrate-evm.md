@@ -44,10 +44,10 @@ Fonctionne de la même manière que [substrate/CallHandler](../create/mapping/#c
 
 ### Filtres d'appel
 
-| Champ    | Type   | Exemple(s)                                    | Description                                                                                                                                                                             |
-| -------- | ------ | --------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| function | String | 0x095ea7b3, approve(address to,uint256 value) | Soit [Signature de fonction](https://docs.ethers.io/v5/api/utils/abi/fragments/#FunctionFragment) chaînes </a> ou la fonction `sighash` pour filtrer la fonction appelée sur le contrat |
-| from     | String | 0x6bd193ee6d2104f14f94e2ca6efefae561a4334b    | Une adresse Ethereum qui a envoyé la transaction                                                                                                                                        |
+| Champ    | Type   | Exemple(s)                                    | Description                                                                                                                                                                        |
+| -------- | ------ | --------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| function | String | 0x095ea7b3, approve(address to,uint256 value) | Soit [Signature de fonction](https://docs.ethers.io/v5/api/utils/abi/fragments/#FunctionFragment) chaînes ou la fonction `sighash` pour filtrer la fonction appelée sur le contrat |
+| from     | String | 0x6bd193ee6d2104f14f94e2ca6efefae561a4334b    | Une adresse Ethereum qui a envoyé la transaction                                                                                                                                   |
 
 ### Gestionnaires
 
@@ -74,7 +74,7 @@ Fonctionne de la même manière que [substrate/CallHandler](../create/mapping/#e
 | ------ | ------------ | --------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | topics | String array | Transfer(address indexed from,address indexed to,uint256 value) | Le filtre des sujets suit les filtres de log Ethereum JSON-PRC , vous trouverez plus de documentation [ici](https://docs.ethers.io/v5/concepts/events/). |
 
-<b>Note sur les sujets :</b>
+**Note sur les sujets:**
 Il y a quelques améliorations à partir des filtres de log de base :
 
 - Les sujets n'ont pas besoin d'être remplis de 0
@@ -97,16 +97,16 @@ dataSources:
   - kind: substrate/Moonbeam
     startBlock: 752073
     processor:
-      file: './node_modules/@subql/contract-processors/dist/moonbeam.js'
+      file: "./node_modules/@subql/contract-processors/dist/moonbeam.js"
       options:
         # Doit être une clé d'actifs
         abi: erc20
         # Adresse du contrat (ou du destinataire en cas de transfert) à filtrer, si `null`, ce sera pour la création du contrat. address: '0x6bd193ee6d2104f14f94e2ca6efefae561a4334b'
     assets:
       erc20:
-        file: './erc20.abi.json'
+        file: "./erc20.abi.json"
     mapping:
-      file: './dist/index.js'
+      file: "./dist/index.js"
       handlers:
         - handler: handleMoonriverEvent
           kind: substrate/MoonbeamEvent
@@ -120,7 +120,7 @@ dataSources:
             # function: '0x7ff36ab500000000000000000000000000000000000000000000000000000000'
             # function: approve(address,uint256)
             function: approve(address to,uint256 value)
-            from: '0x6bd193ee6d2104f14f94e2ca6efefae561a4334b'
+            from: "0x6bd193ee6d2104f14f94e2ca6efefae561a4334b"
 ```
 
 ## Limitations connues

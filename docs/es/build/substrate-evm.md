@@ -74,7 +74,7 @@ Funciona de la misma manera que [substrate/EventHandler](../create/mapping/#even
 | ----- | --------------------- | ------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | temas | Arreglo de secuencias | Transferencia (índice de dirección de,dirección indexada a,valor uint256) | El filtro de temas sigue los filtros de registro JSON-PRC de Ethereum, se puede encontrar más documentación [aquí](https://docs.ethers.io/v5/concepts/events/). |
 
-<b>Nota sobre temas:</b>
+**Nota sobre temas:**
 Hay un par de mejoras en los filtros básicos de registro:
 
 - Los temas no necesitan ser acolchados 0
@@ -97,17 +97,17 @@ dataSources:
   - kind: substrate/Moonbeam
     startBlock: 752073
     processor:
-      file: './node_modules/@subql/contract-processors/dist/moonbeam.js'
+      file: "./node_modules/@subql/contract-processors/dist/moonbeam.js"
       options:
         # Must be a key of assets
         abi: erc20
         # Contract address (or recipient if transfer) to filter, if `null` should be for contract creation
-        address: '0x6bd193ee6d2104f14f94e2ca6efefae561a4334b'
+        address: "0x6bd193ee6d2104f14f94e2ca6efefae561a4334b"
     assets:
       erc20:
-        file: './erc20.abi.json'
+        file: "./erc20.abi.json"
     mapping:
-      file: './dist/index.js'
+      file: "./dist/index.js"
       handlers:
         - handler: handleMoonriverEvent
           kind: substrate/MoonbeamEvent
@@ -122,7 +122,7 @@ dataSources:
             # function: '0x7ff36ab500000000000000000000000000000000000000000000000000000000'
             # function: approve(address,uint256)
             function: approve(address to,uint256 value)
-            from: '0x6bd193ee6d2104f14f94e2ca6efefae561a4334b'
+            from: "0x6bd193ee6d2104f14f94e2ca6efefae561a4334b"
 ```
 
 ## Limitantes conocidas

@@ -13,13 +13,13 @@
 Можете да използвате манипулатори на блокове, за да улавяте информация всеки път, когато нов блок е прикачен към веригата на Substrate, напр. номер на блока. За да се постигне това, дефиниран BlockHandler ще бъде заявен веднъж за всеки блок.
 
 ```ts
-import {SubstrateBlock} from "@subql/types";
+import { SubstrateBlock } from "@subql/types";
 
 export async function handleBlock(block: SubstrateBlock): Promise<void> {
-    // Create a new StarterEntity with the block hash as it's ID
-    const record = new starterEntity(block.block.header.hash.toString());
-    record.field1 = block.block.header.number.toNumber();
-    await record.save();
+  // Create a new StarterEntity with the block hash as it's ID
+  const record = new starterEntity(block.block.header.hash.toString());
+  record.field1 = block.block.header.number.toNumber();
+  await record.save();
 }
 ```
 
@@ -51,25 +51,30 @@ export async function handleEvent(event: SubstrateEvent): Promise<void> {
 
 ```ts
 export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
-    const record = new starterEntity(extrinsic.block.block.header.hash.toString());
-    record.field4 = extrinsic.block.timestamp;
-    await record.save();
+  const record = new starterEntity(
+    extrinsic.block.block.header.hash.toString()
+  );
+  record.field4 = extrinsic.block.timestamp;
+  await record.save();
 }
 ```
 
 [SubstrateExtrinsic](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L21) разширява [GenericExtrinsic](https://github.com/polkadot-js/api/blob/a9c9fb5769dec7ada8612d6068cf69de04aa15ed/packages/types/src/extrinsic/Extrinsic.ts#L170). Прилага му се `id` (блокът, към който принадлежи този външен елемент) и предоставя външен елемент, който разширява събитията между този блок. Освен това, той записва статуса на успех на този външен елемент.
 
 ## Състояния на заявка
+
 Нашата цел е да покрием всички източници на данни за потребители за манипулатори на мапинг (повече от трите типа събития на интерфейса по-горе). Ето защо ние разкрихме някои от @polkadot/api интерфейсите, за да увеличим възможностите.
 
 Това са интерфейсите, които в момента поддържаме:
-- [api.query.&lt;module&gt;.&lt;method&gt;()](https://polkadot.js.org/docs/api/start/api.query) ще направи заявка към <strong>текущия</strong> блок.
-- [api.query.&lt;module&gt;.&lt;method&gt;.multi()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-same-type) ще направи множество заявки от <strong>един</strong> тип към текущия блок.
-- [api.queryMulti()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-distinct-types) ще направи множество заявки от <strong>различен</strong> тип към текущия блок.
+
+- [api.query.&lt;module&gt;.&lt;method&gt;()](https://polkadot.js.org/docs/api/start/api.query) ще направи заявка към **текущия** блок.
+- [api.query.&lt;module&gt;.&lt;method&gt;.multi()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-same-type) ще направи множество заявки от **един** тип към текущия блок.
+- [api.queryMulti()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-distinct-types) ще направи множество заявки от **различен** тип към текущия блок.
 
 Това са интерфейсите, които **НЕ ** поддържаме в момента:
-- ~~api.tx.*~~
-- ~~api.derive.*~~
+
+- ~~api.tx.\*~~
+- ~~api.derive.\*~~
 - ~~api.query.&lt;module&gt;.&lt;method&gt;.at~~
 - ~~api.query.&lt;module&gt;.&lt;method&gt;.entriesAt~~
 - ~~api.query.&lt;module&gt;.&lt;method&gt;.entriesPaged~~
@@ -97,6 +102,7 @@ const b1 = await api.rpc.chain.getBlock(blockhash);
 // Ще използва текущия блок по подразбиране, по този начин:
 const b2 = await api.rpc.chain.getBlock();
 ```
+
 - За [Персонализирани Substrate Вериги](#custom-substrate-chains) RPC повиквания, вижте [употреба](#usage).
 
 ## Модули и библиотеки
@@ -147,6 +153,7 @@ SubQuery може да се използва във всяка верига, б�
 ```shell
 curl -H "Content-Type: application/json" -d '{"id":"1", "jsonrpc":"2.0", "method": "state_getMetadata", "params":[]}' http://localhost:9933
 ```
+
 или от неговата **websocket** крайна точка с помощта на [`websocat`](https://github.com/vi/websocat):
 
 ```shell
@@ -160,46 +167,49 @@ echo state_getMetadata | websocat 'ws://127.0.0.1:9944' --jsonrpc
 След това копирайте и поставете резултата в JSON файл. В нашия пример [kitty](https://github.com/subquery/tutorials-kitty-chain), създадохме `api-interface/kitty.json`.
 
 #### Дефиниции на типове
+
 Предполагаме, че потребителят познава специфичните типове и RPC поддръжка от веригата, и това е дефинирано в [Манифеста](./manifest.md).
 
 Следвайки [видовете сетъпи](https://polkadot.js.org/docs/api/examples/promise/typegen#metadata-setup), създаваме :
+
 - `src/api-interfaces/definitions.ts` - това експортира всички дефиниции на подпапки
 
 ```ts
-export { default as kitties } from './kitties/definitions';
+export { default as kitties } from "./kitties/definitions";
 ```
 
 - `src/api-interfaces/kitties/definitions.ts` - дефиниции на типа за модула Kitties
+
 ```ts
 export default {
-    // custom types
-    types: {
-        Address: "AccountId",
-        LookupSource: "AccountId",
-        KittyIndex: "u32",
-        Kitty: "[u8; 16]"
+  // custom types
+  types: {
+    Address: "AccountId",
+    LookupSource: "AccountId",
+    KittyIndex: "u32",
+    Kitty: "[u8; 16]",
+  },
+  // custom rpc : api.rpc.kitties.getKittyPrice
+  rpc: {
+    getKittyPrice: {
+      description: "Get Kitty price",
+      params: [
+        {
+          name: "at",
+          type: "BlockHash",
+          isHistoric: true,
+          isOptional: false,
+        },
+        {
+          name: "kittyIndex",
+          type: "KittyIndex",
+          isOptional: false,
+        },
+      ],
+      type: "Balance",
     },
-    // custom rpc : api.rpc.kitties.getKittyPrice
-    rpc: {
-        getKittyPrice:{
-            description: 'Get Kitty price',
-            params: [
-                {
-                    name: 'at',
-                    type: 'BlockHash',
-                    isHistoric: true,
-                    isOptional: false
-                },
-                {
-                    name: 'kittyIndex',
-                    type: 'KittyIndex',
-                    isOptional: false
-                }
-            ],
-            type: 'Balance'
-        }
-    }
-}
+  },
+};
 ```
 
 #### Пакети
@@ -251,28 +261,32 @@ yarn generate:meta
 ```json
 {
   "compilerOptions": {
-      // this is the package name we use (in the interface imports, --package for generators) */
-      "kitty-birthinfo/*": ["src/*"],
-      // here we replace the @polkadot/api augmentation with our own, generated from chain
-      "@polkadot/api/augment": ["src/interfaces/augment-api.ts"],
-      // replace the augmented types with our own, as generated from definitions
-      "@polkadot/types/augment": ["src/interfaces/augment-types.ts"]
-    }
+    // this is the package name we use (in the interface imports, --package for generators) */
+    "kitty-birthinfo/*": ["src/*"],
+    // here we replace the @polkadot/api augmentation with our own, generated from chain
+    "@polkadot/api/augment": ["src/interfaces/augment-api.ts"],
+    // replace the augmented types with our own, as generated from definitions
+    "@polkadot/types/augment": ["src/interfaces/augment-types.ts"]
+  }
 }
 ```
 
 ### Използване
 
 Сега във функцията за преобразуване можем да покажем как метаданните и типовете всъщност декорират API. RPC крайната точка ще поддържа модулите и методите, които декларирахме по-горе. И за да използвате персонализирано rpc повикване, моля, вижте раздел [Персонализирани верижни rpc повиквания](#custom-chain-rpc-calls)
+
 ```typescript
 export async function kittyApiHandler(): Promise<void> {
-    //return the KittyIndex type
-    const nextKittyId = await api.query.kitties.nextKittyId();
-    // return the Kitty type, input parameters types are AccountId and KittyIndex
-    const allKitties  = await api.query.kitties.kitties('xxxxxxxxx',123)
-    logger.info(`Next kitty id ${nextKittyId}`)
-    //Custom rpc, set undefined to blockhash
-    const kittyPrice = await api.rpc.kitties.getKittyPrice(undefined,nextKittyId);
+  //return the KittyIndex type
+  const nextKittyId = await api.query.kitties.nextKittyId();
+  // return the Kitty type, input parameters types are AccountId and KittyIndex
+  const allKitties = await api.query.kitties.kitties("xxxxxxxxx", 123);
+  logger.info(`Next kitty id ${nextKittyId}`);
+  //Custom rpc, set undefined to blockhash
+  const kittyPrice = await api.rpc.kitties.getKittyPrice(
+    undefined,
+    nextKittyId
+  );
 }
 ```
 
@@ -281,6 +295,7 @@ export async function kittyApiHandler(): Promise<void> {
 ### Rpc повиквания в персонализирана верига
 
 За да поддържаме персонализирани верижни RPC преобразувания, трябва ръчно да вкараме RPC дефиниции за `typesBundle`, позволявайки конфигурация по спецификация. Можете да дефинирате `typesBundle` в `project.yml`. И моля, не забравяйте, че се поддържат само повиквания тип `isHistoric`.
+
 ```yaml
 ...
   types: {

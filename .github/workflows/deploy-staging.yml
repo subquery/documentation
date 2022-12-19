@@ -12,20 +12,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          # choose pnpm version to use
-          version: 7
-          # install deps with pnpm
-          run_install: true
       - uses: actions/setup-node@v3
         with:
           # choose node.js version to use
-          node-version: 18
-          # cache deps for pnpm
-          cache: pnpm
-      - run: pnpm docs:build
+          node-version: 16
+      - run: npm install -g yarn
+      - run: yarn install
+      - run: yarn docs:build
       - uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}

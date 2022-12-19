@@ -6,20 +6,20 @@
 - Эти сопоставления также экспортированы в `src/index.ts`
 - Файлы сопоставлений являются ссылками в `project.yaml` под обработчиками сопоставлений.
 
-Существует три класса функций сопоставления;  [Block handlers](#block-handler), [Event Handlers](#event-handler), и [Call Handlers](#call-handler).
+Существует три класса функций сопоставления; [Block handlers](#block-handler), [Event Handlers](#event-handler), и [Call Handlers](#call-handler).
 
 ## Обработчик блоков
 
 Вы можете использовать обработчики блоков для сбора информации каждый раз, когда новый блок присоединяется к цепочке Substrate, например, номер блока. Для этого определенный обработчик блоков будет вызываться один раз для каждого блока.
 
 ```ts
-import {SubstrateBlock} from "@subql/types";
+import { SubstrateBlock } from "@subql/types";
 
 export async function handleBlock(block: SubstrateBlock): Promise<void> {
-    // Create a new StarterEntity with the block hash as it's ID
-    const record = new starterEntity(block.block.header.hash.toString());
-    record.field1 = block.block.header.number.toNumber();
-    await record.save();
+  // Create a new StarterEntity with the block hash as it's ID
+  const record = new starterEntity(block.block.header.hash.toString());
+  record.field1 = block.block.header.number.toNumber();
+  await record.save();
 }
 ```
 
@@ -51,26 +51,30 @@ export async function handleEvent(event: SubstrateEvent): Promise<void> {
 
 ```ts
 export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
-    const record = new starterEntity(extrinsic.block.block.header.hash.toString());
-    record.field4 = extrinsic.block.timestamp;
-    await record.save();
+  const record = new starterEntity(
+    extrinsic.block.block.header.hash.toString()
+  );
+  record.field4 = extrinsic.block.timestamp;
+  await record.save();
 }
-
 ```
 
 [SubstrateExtrinsic](https://github.com/OnFinality-io/subql/blob/a5ab06526dcffe5912206973583669c7f5b9fdc9/packages/types/src/interfaces.ts#L21) расширяет [GenericExtrinsic](https://github.com/polkadot-js/api/blob/a9c9fb5769dec7ada8612d6068cf69de04aa15ed/packages/types/src/extrinsic/Extrinsic.ts#L170). Ему присваивается `id` (блок, к которому принадлежит данное внешнее свойство) и предоставляется внешнее свойство, расширяющее события этого блока. Кроме того, он регистрирует успешный статус этой надбавки.
 
 ## Состояния запроса
+
 Наша цель - охватить все источники данных для пользователей для обработчиков отображения (больше, чем просто три вышеуказанных типа событий интерфейса). Поэтому мы раскрыли некоторые интерфейсы @polkadot/api для расширения возможностей.
 
 Это те интерфейсы, которые мы поддерживаем в настоящее время:
-- [api.query.&lt;module&gt;.&lt;method&gt;()](https://polkadot.js.org/docs/api/start/api.query) будет запрашивать <strong>current</strong> блок.
-- [api.query.&lt;module&gt;.&lt;method&gt;.multi()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-same-type) сделает несколько запросов типа <strong>same</strong> в текущем блоке.
-- [api.queryMulti()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-distinct-types) сделает несколько запросов <strong>разных типов</strong> в текущем блоке.
+
+- [api.query.&lt;module&gt;.&lt;method&gt;()](https://polkadot.js.org/docs/api/start/api.query) будет запрашивать **current** блок.
+- [api.query.&lt;module&gt;.&lt;method&gt;.multi()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-same-type) сделает несколько запросов типа **same** в текущем блоке.
+- [api.queryMulti()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-distinct-types) сделает несколько запросов **разных типов** в текущем блоке.
 
 Это интерфейсы, которые мы **НЕ** поддерживаем сейчас:
-- ~~api.tx.*~~
-- ~~api.derive.*~~
+
+- ~~api.tx.\*~~
+- ~~api.derive.\*~~
 - ~~api.query.&lt;module&gt;.&lt;method&gt;.at~~
 - ~~api.query.&lt;module&gt;.&lt;method&gt;.entriesAt~~
 - ~~api.query.&lt;module&gt;.&lt;method&gt;.entriesPaged~~
@@ -98,6 +102,7 @@ const b1 = ожидание api. pc.chain.getBlock(blockhash);
 // Он будет использовать текущий блок по умолчанию так:
 const b2 = await api.rpc.chain.getBlock();
 ```
+
 - Для [Custom Substrate Chains](#custom-substrate-chains) RPC звонки смотрите [usage](#usage).
 
 ## Модули и Библиотеки
@@ -148,6 +153,7 @@ SubQuery можно использовать в любой цепочке на �
 ```shell
 curl -H "Content-Type: application/json" -d '{"id":"1", "jsonrpc":"2.0", "method": "state_getMetadata", "params":[]}' http://localhost:9933
 ```
+
 или из его **веб-сокета** с помощью [`websocat`](https://github.com/vi/websocat):
 
 ```shell
@@ -161,9 +167,11 @@ echo state_getMetadata | websocat 'ws://127.0.0.1:9944' --jsonrpc
 Далее скопируйте и вставьте вывод в файл JSON. В нашем [kitty example](https://github.com/subquery/subql-examples/tree/main/kitty), мы создали `api-interface/kitty.json`.
 
 #### Определения типов
+
 Мы предполагаем, что пользователь знает конкретные типы и поддержку RPC из цепочки, и она определена в [Манифесте](./manifest.md).
 
 Следуя [установке типов](https://polkadot.js.org/docs/api/examples/promise/typegen#metadata-setup), мы создаем :
+
 - `src/api-interfaces/definitions.ts` - экспортирует все определения подпапок
 
 ```ts
@@ -171,6 +179,7 @@ echo state_getMetadata | websocat 'ws://127.0.0.1:9944' --jsonrpc
 ```
 
 - `src/api-interfaces/kitties/definitions.ts` - определения типа для модуля котят
+
 ```ts
 экспорт по умолчанию {
     // пользовательские типы
@@ -248,6 +257,7 @@ yarn generate:meta
 ### Использование
 
 Теперь в функции отображения мы можем показать, как метаданные и типы фактически украшают API. Конечная точка RPC будет поддерживать модули и методы, которые мы объявили выше. А чтобы использовать пользовательский вызов rpc, смотрите раздел [ Пользовательские вызовы rpc цепочки](#custom-chain-rpc-calls).
+
 ```typescript
 export async function kittyApiHandler(): Promise<void> {
     //return the KittyIndex type
@@ -265,6 +275,7 @@ export async function kittyApiHandler(): Promise<void> {
 ### Пользовательские вызовы в цепочке rpc
 
 Для поддержки индивидуальных вызовов цепочки RPC мы должны вручную ввести определения RPC для `typesBundle`, что позволяет настроить каждый конкретный вызов. Вы можете определить `typesBundle` в `project.yml`. И помните, что поддерживаются только звонки типа `isHistoric`.
+
 ```yaml
 ...
   типы: {

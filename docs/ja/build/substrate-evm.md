@@ -1,10 +1,10 @@
-# SubstrateのEVMサポート
+# Substrate の EVM サポート
 
-MoonbeamとMoonriverのEVM用にカスタムデータソースプロセッサを提供しています。 これは、Moonbeamのネットワーク上のEVMとSubstrateのアクティビティを1つのSubQueryプロジェクトでフィルタリングし、インデックスを作成するシンプルな方法です。
+Moonbeam と Moonriver の EVM 用にカスタムデータソースプロセッサを提供しています。 これは、Moonbeam のネットワーク上の EVM と Substrate のアクティビティを 1 つの SubQuery プロジェクトでフィルタリングし、インデックスを作成するシンプルな方法です。
 
 サポートされているネットワーク:
 
-| ネットワーク名        | Websocket エンドポイント                                  | ディクショナリエンドポイント                                                       |
+| ネットワーク名 | Websocket エンドポイント                           | ディクショナリエンドポイント                                         |
 | -------------- | -------------------------------------------------- | -------------------------------------------------------------------- |
 | Moonbeam       | `wss://moonbeam.api.onfinality.io/public-ws`       | `https://api.subquery.network/sq/subquery/moonbeam-dictionary`       |
 | Moonriver      | `wss://moonriver.api.onfinality.io/public-ws`      | `https://api.subquery.network/sq/subquery/moonriver-dictionary`      |
@@ -20,34 +20,34 @@ MoonbeamとMoonriverのEVM用にカスタムデータソースプロセッサを
 
 ## データソース仕様
 
-| フィールド             | 型                                                              | 必須  | 説明                    |
-| ----------------- | -------------------------------------------------------------- | --- | --------------------- |
-| processor.file    | `'./node_modules/@subql/contract-processors/dist/moonbeam.js'` | Yes | データプロセッサコードへのファイル参照   |
-| processor.options | [ProcessorOptions](#processor-options)                         | No  | Moonbeamプロセッサ固有のオプション |
-| assets            | `{ [key: String]: { file: String }}`                           | No  | 外部ファイルのオブジェクト         |
+| フィールド        | 型                                                             | 必須 | 説明                                   |
+| ----------------- | -------------------------------------------------------------- | ---- | -------------------------------------- |
+| processor.file    | `'./node_modules/@subql/contract-processors/dist/moonbeam.js'` | Yes  | データプロセッサコードへのファイル参照 |
+| processor.options | [ProcessorOptions](#processor-options)                         | No   | Moonbeam プロセッサ固有のオプション    |
+| assets            | `{ [key: String]: { file: String }}`                           | No   | 外部ファイルのオブジェクト             |
 
 ### プロセッサオプション
 
-| フィールド   | 型                | 必須 | 説明                                                          |
-| ------- | ---------------- | -- | ----------------------------------------------------------- |
-| abi     | String           | No | 引数を解析するためにプロセッサが使用する ABI です。 `assets` のキーでなければなりません         |
-| address | String or `null` | No | イベントの発信元または発信先となるコントラクトアドレス。 `null` はコントラクトの作成呼び出しをキャプチャします |
+| フィールド | 型               | 必須 | 説明                                                                                                           |
+| ---------- | ---------------- | ---- | -------------------------------------------------------------------------------------------------------------- |
+| abi        | String           | No   | 引数を解析するためにプロセッサが使用する ABI です。 `assets` のキーでなければなりません                        |
+| address    | String or `null` | No   | イベントの発信元または発信先となるコントラクトアドレス。 `null` はコントラクトの作成呼び出しをキャプチャします |
 
 ## MoonbeamCall
 
 ハンドラの引数が異なり、若干のフィルタリング変更以外は、[substrate/CallHandler](../create/mapping/#call-handler)と同じように動作する。
 
-| フィールド  | 型                            | 必須  | 説明                   |
-| ------ | ---------------------------- | --- | -------------------- |
-| kind   | 'substrate/MoonbeamCall'     | Yes | 呼び出しハンドラであることを指定します。 |
-| filter | [Call Filter](#call-filters) | No  | 実行するデータソースをフィルタする    |
+| フィールド | 型                           | 必須 | 説明                                     |
+| ---------- | ---------------------------- | ---- | ---------------------------------------- |
+| kind       | 'substrate/MoonbeamCall'     | Yes  | 呼び出しハンドラであることを指定します。 |
+| filter     | [Call Filter](#call-filters) | No   | 実行するデータソースをフィルタする       |
 
 ### Call Filters
 
-| フィールド    | 型      | 例                                             | 説明                                                                                                                                         |
-| -------- | ------ | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| function | String | 0x095ea7b3, approve(address to,uint256 value) | [Function Signature](https://docs.ethers.io/v5/api/utils/abi/fragments/#FunctionFragment) 文字列、またはコントラクトで呼び出された関数をフィルタする関数 `sighash` のいずれか。 |
-| from     | String | 0x6bd193ee6d2104f14f94e2ca6efefae561a4334b    | トランザクションを送信したイーサリアムアドレス                                                                                                                    |
+| フィールド | 型     | 例                                            | 説明                                                                                                                                                                            |
+| ---------- | ------ | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| function   | String | 0x095ea7b3, approve(address to,uint256 value) | [Function Signature](https://docs.ethers.io/v5/api/utils/abi/fragments/#FunctionFragment) 文字列、またはコントラクトで呼び出された関数をフィルタする関数 `sighash` のいずれか。 |
+| from       | String | 0x6bd193ee6d2104f14f94e2ca6efefae561a4334b    | トランザクションを送信したイーサリアムアドレス                                                                                                                                  |
 
 ### ハンドラ
 
@@ -63,22 +63,22 @@ MoonbeamとMoonriverのEVM用にカスタムデータソースプロセッサを
 
 ハンドラの引数が異なり、若干のフィルタリング変更以外は、[substrate/EventHandler](../create/mapping/#event-handler)と同じように動作する。
 
-| フィールド  | 型                              | 必須  | 説明                   |
-| ------ | ------------------------------ | --- | -------------------- |
-| kind   | 'substrate/MoonbeamEvent'      | Yes | 呼び出しハンドラであることを指定します。 |
-| filter | [Event Filter](#event-filters) | No  | 実行するデータソースをフィルタする    |
+| フィールド | 型                             | 必須 | 説明                                     |
+| ---------- | ------------------------------ | ---- | ---------------------------------------- |
+| kind       | 'substrate/MoonbeamEvent'      | Yes  | 呼び出しハンドラであることを指定します。 |
+| filter     | [Event Filter](#event-filters) | No   | 実行するデータソースをフィルタする       |
 
 ### イベントフィルタ
 
-| フィールド  | 型            | 例                                                               | 説明                                                                                                  |
-| ------ | ------------ | --------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| topics | String array | Transfer(address indexed from,address indexed to,uint256 value) | topicsは、Ethereum JSON-PRCログフィルタに従います。詳細なドキュメントは[こちら](https://docs.ethers.io/v5/concepts/events/)です。 |
+| フィールド | 型           | 例                                                              | 説明                                                                                                                                |
+| ---------- | ------------ | --------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| topics     | String array | Transfer(address indexed from,address indexed to,uint256 value) | topics は、Ethereum JSON-PRC ログフィルタに従います。詳細なドキュメントは[こちら](https://docs.ethers.io/v5/concepts/events/)です。 |
 
-<b>topicsに関する注意:</b>
+**topics に関する注意:**
 基本的なログフィルタにはいくつかの改善点があります:
 
-- topicsを 0 埋めする必要はありません。
-- [Event Fragment](https://docs.ethers.io/v5/api/utils/abi/fragments/#EventFragment) を提供し、そのIDに自動的に変換できます
+- topics を 0 埋めする必要はありません。
+- [Event Fragment](https://docs.ethers.io/v5/api/utils/abi/fragments/#EventFragment) を提供し、その ID に自動的に変換できます
 
 ### ハンドラ
 
@@ -97,17 +97,17 @@ dataSources:
   - kind: substrate/Moonbeam
     startBlock: 752073
     processor:
-      file: './node_modules/@subql/contract-processors/dist/moonbeam.js'
+      file: "./node_modules/@subql/contract-processors/dist/moonbeam.js"
       options:
         # Must be a key of assets
         abi: erc20
         # Contract address (or recipient if transfer) to filter, if `null` should be for contract creation
-        address: '0x6bd193ee6d2104f14f94e2ca6efefae561a4334b'
+        address: "0x6bd193ee6d2104f14f94e2ca6efefae561a4334b"
     assets:
       erc20:
-        file: './erc20.abi.json'
+        file: "./erc20.abi.json"
     mapping:
-      file: './dist/index.js'
+      file: "./dist/index.js"
       handlers:
         - handler: handleMoonriverEvent
           kind: substrate/MoonbeamEvent
@@ -122,11 +122,11 @@ dataSources:
             # function: '0x7ff36ab500000000000000000000000000000000000000000000000000000000'
             # function: approve(address,uint256)
             function: approve(address to,uint256 value)
-            from: '0x6bd193ee6d2104f14f94e2ca6efefae561a4334b'
+            from: "0x6bd193ee6d2104f14f94e2ca6efefae561a4334b"
 ```
 
 ## 既知の制限事項
 
-- ハンドラ内のEVM状態を問い合わせる方法は現在ありません。
+- ハンドラ内の EVM 状態を問い合わせる方法は現在ありません。
 - 呼び出しハンドラで戻り値を取得する方法はありません。
 - `blockHash` プロパティは現在未定義のままです。代わりに `blockNumber` プロパティを使用できます。

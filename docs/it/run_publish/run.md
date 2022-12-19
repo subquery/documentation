@@ -4,7 +4,7 @@ This guide works through how to run a local SubQuery node on your infrastructure
 
 ## Using Docker
 
-An alternative solution is to run a <strong>Docker Container</strong>, defined by the `docker-compose.yml` file. For a new project that has been just initialised you won't need to change anything here.
+An alternative solution is to run a **Docker Container**, defined by the `docker-compose.yml` file. For a new project that has been just initialised you won't need to change anything here.
 
 Under the project directory run the following command:
 

@@ -109,7 +109,7 @@ This displays the current version.
 ### reindex
 
 :::warning
-In order to use this command, you require `@subql/node:v1.10.0`/`@subql/node-<network>:v1.10.0` or above.
+In order to use this command, you require `@subql/node:v1.10.0`/`@subql/node-YOURNETWORK:v1.10.0` or above.
 :::
 
 When using reindex command, historical must be enabled for the targeted project (`--disable-historical=false`). After starting the project, it would print out a log stating if historical is enabled or not.

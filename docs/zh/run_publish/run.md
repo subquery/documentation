@@ -1,10 +1,10 @@
 # 本地运行 SubQuery
 
-本指南通过如何在您的基础设施上运行本地的 SubQuery 节点，其中包括索引器和查询服务。 不用担心在运行自己的SubQuery基础架构中所出现的问题。 SubQuery provides a [Managed Service](https://explorer.subquery.network) to the community for free. [按照我们所发布的指南](../run_publish/publish.md) 查看您如何将项目部署到 [SubQuery 项目](https://project.subquery.network)。
+本指南通过如何在您的基础设施上运行本地的 SubQuery 节点，其中包括索引器和查询服务。 不用担心在运行自己的 SubQuery 基础架构中所出现的问题。 SubQuery provides a [Managed Service](https://explorer.subquery.network) to the community for free. [按照我们所发布的指南](../run_publish/publish.md) 查看您如何将项目部署到 [SubQuery 项目](https://project.subquery.network)。
 
 ## 使用 Docker
 
-其中一种解决方案是运行<strong>Docker容器</strong>，它是由`Docker-component.yml`文件所定义的。 对于刚刚初始化的新项目，您无需在此处进行任何更改。
+其中一种解决方案是运行**Docker 容器**，它是由`Docker-component.yml`文件所定义的。 对于刚刚初始化的新项目，您无需在此处进行任何更改。
 
 在项目目录下运行以下命令：
 
@@ -14,7 +14,7 @@ docker-compose pull && docker-compose up
 
 第一次下载所需软件包可能需要一些时间([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/quiry`](https://www.npmjs.com/package/@subql/query), and Postgress) ，但很快你就会看到一个运行中的 SubQuery 节点。 :::
 
-## 运行Indexer (subql/node)
+## 运行 Indexer (subql/node)
 
 需求：
 
@@ -340,9 +340,9 @@ For help, see: https://nodejs.org/en/docs/inspector
 Debugger attached.
 ```
 
-然后打开Chrome开发工具，进入Source>Filesystem，将项目添加到工作区并开始调试。 查看更多信息[如何调试SubQuery项目](../academy/tutorials_examples/debug-projects.md).
+然后打开 Chrome 开发工具，进入 Source>Filesystem，将项目添加到工作区并开始调试。 查看更多信息[如何调试 SubQuery 项目](../academy/tutorials_examples/debug-projects.md).
 
-## 运行Query服务(subql/query)
+## 运行 Query 服务(subql/query)
 
 ### 安装
 
@@ -353,7 +353,7 @@ npm install -g @subql/query
 
 ：：： 危险 请注意，我们**不**鼓励使用 `yarn global`，因为它糟糕的依赖管理可能会导致错误。 :::
 
-### 运行Query服务
+### 运行 Query 服务
 
 ```
 export DB_HOST=localhost
@@ -362,4 +362,4 @@ subql-query --name <project_name> --playground
 
 确保项目名称与[初始化项目](../quickstart/quickstart.md#_2-initialise-the-subquery-starter-project)时的项目名称相同。 另外，请检查环境变量是否正确。
 
-成功运行subql查询服务后，打开浏览器并转到`http://localhost:3000`. 您应该看到在 Explorer 中显示的 GraphQL 播放地和准备查询的模式。 您应该看到在 Explorer 中显示的 GraphQL 播放器和准备查询的模式。
+成功运行 subql 查询服务后，打开浏览器并转到`http://localhost:3000`. 您应该看到在 Explorer 中显示的 GraphQL 播放地和准备查询的模式。 您应该看到在 Explorer 中显示的 GraphQL 播放器和准备查询的模式。

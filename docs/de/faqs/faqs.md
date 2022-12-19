@@ -16,7 +16,7 @@ SubQuery bietet Entwicklern außerdem kostenloses, produktionstaugliches Hosting
 
 **SubQuery-Netzwerk**
 
-Das SubQuery-Netzwerk ermöglicht Entwicklern die vollständige Dezentralisierung ihres Infrastruktur-Stacks. Es ist der offenste, leistungsfähigste, zuverlässigste und skalierbarste Datendienst für dApps. Das SubQuery-Netzwerk indiziert und stellt Daten für die globale Gemeinschaft auf eine motivierte und überprüfbare Weise bereit.  Nachdem Sie Ihr Projekt im SubQuery-Netzwerk veröffentlicht haben, kann jeder es indizieren und hosten, wodurch Daten schneller und zuverlässiger für Benutzer auf der ganzen Welt bereitgestellt werden.
+Das SubQuery-Netzwerk ermöglicht Entwicklern die vollständige Dezentralisierung ihres Infrastruktur-Stacks. Es ist der offenste, leistungsfähigste, zuverlässigste und skalierbarste Datendienst für dApps. Das SubQuery-Netzwerk indiziert und stellt Daten für die globale Gemeinschaft auf eine motivierte und überprüfbare Weise bereit. Nachdem Sie Ihr Projekt im SubQuery-Netzwerk veröffentlicht haben, kann jeder es indizieren und hosten, wodurch Daten schneller und zuverlässiger für Benutzer auf der ganzen Welt bereitgestellt werden.
 
 Weitere Info finden Sie [hier](/subquery_network/introduction.md).
 
@@ -26,7 +26,7 @@ Der beste Einstieg in SubQuery ist unser [Hello World Tutorial](/assets/pdf/Hell
 
 ## Wie kann ich zu SubQuery beitragen oder Feedback geben?
 
-Wir lieben Beiträge und Feedback aus der Community. Um den Code beizutragen, forken Sie das Repository Ihres Interesses und nehmen Sie Ihre Änderungen vor. Senden Sie dann einen PR- oder Pull-Request. Vergessen Sie nicht, auch zu testen. Sehen Sie sich auch unsere <a href="http://localhost:8080/miscellaneous/contributing.html">Richtlinien für Beiträge</a> an
+Wir lieben Beiträge und Feedback aus der Community. Um den Code beizutragen, forken Sie das Repository Ihres Interesses und nehmen Sie Ihre Änderungen vor. Senden Sie dann einen PR- oder Pull-Request. Vergessen Sie nicht, auch zu testen. Sehen Sie sich auch unsere [Richtlinien für Beiträge](../miscellaneous/contributing.html) an
 
 Um Feedback zu geben, kontaktiere uns unter hello@subquery.net oder besuche unseren [Discord-Kanal](https://discord.com/invite/78zg8aBSMG).
 
@@ -76,7 +76,6 @@ subql-node -f . --force-clean --subquery-name=<project-name>
 
 Beachten Sie, dass empfohlen wird, `--force-clean` zu verwenden, wenn Sie den `startBlock` im Projektmanifest (`project.yaml`) ändern, um zu beginnen Neuindizierung aus dem konfigurierten Block. Wenn `startBlock` ohne `--force-clean` des Projekts geändert wird, dann wird der Indexer die Indizierung mit dem zuvor konfigurierten `startBlock` fortsetzen.
 
-
 ## Wie kann ich mein Projekt optimieren, um es zu beschleunigen?
 
 Leistung ist ein entscheidender Faktor in jedem Projekt. Glücklicherweise gibt es mehrere Dinge, die Sie tun könnten, um es zu verbessern. Hier ist die Liste mit einigen Vorschlägen:
@@ -89,12 +88,12 @@ Leistung ist ein entscheidender Faktor in jedem Projekt. Glücklicherweise gibt 
 - Setzen Sie den Startblock auf den Zeitpunkt, an dem der Vertrag initialisiert wurde.
 - Verwenden Sie immer ein [Wörterbuch](../tutorials_examples/dictionary.html#how-does-a-subquery-dictionary-work) (wir können Ihnen helfen, eines für Ihr neues Netzwerk zu erstellen).
 - Optimieren Sie Ihr Schemadesign, halten Sie es so einfach wie möglich.
-    - Versuchen Sie unnötige Felder und Spalten zu reduzieren.
-    - Erstellen Sie nach Bedarf Indizes.
+  - Versuchen Sie unnötige Felder und Spalten zu reduzieren.
+  - Erstellen Sie nach Bedarf Indizes.
 - Verwenden Sie so oft wie möglich Parallel-/Batch-Verarbeitung.
-    - Verwenden Sie `api.queryMulti()`, um Polkadot-API-Aufrufe innerhalb von Mapping-Funktionen zu optimieren und sie parallel abzufragen. Dies ist ein schnellerer Weg als eine Schleife.
-    - Verwende `Promise.all()`. Bei mehreren asynchronen Funktionen ist es besser, sie parallel auszuführen und aufzulösen.
-    - Wenn Sie viele Entitäten in einem einzigen Handler erstellen möchten, können Sie `store.bulkCreate(entityName: string, entity: Entity[])` verwenden. Sie können sie parallel erstellen, ohne dass Sie dies einzeln tun müssen.
+  - Verwenden Sie `api.queryMulti()`, um Polkadot-API-Aufrufe innerhalb von Mapping-Funktionen zu optimieren und sie parallel abzufragen. Dies ist ein schnellerer Weg als eine Schleife.
+  - Verwende `Promise.all()`. Bei mehreren asynchronen Funktionen ist es besser, sie parallel auszuführen und aufzulösen.
+  - Wenn Sie viele Entitäten in einem einzigen Handler erstellen möchten, können Sie `store.bulkCreate(entityName: string, entity: Entity[])` verwenden. Sie können sie parallel erstellen, ohne dass Sie dies einzeln tun müssen.
 - Das Ausführen von API-Aufrufen zum Abfragen des Status kann langsam sein. Sie könnten versuchen, Anrufe nach Möglichkeit zu minimieren und `extrinsische/Transaktions-/Ereignisdaten` zu verwenden.
 - Verwenden Sie `Worker-Threads`, um den Blockabruf und die Blockverarbeitung in einen eigenen Worker-Thread zu verschieben. Es könnte die Indizierung um das bis zu 4-fache beschleunigen (abhängig vom jeweiligen Projekt). Sie können es einfach mit dem Flag `-workers=<number>` aktivieren. Beachten Sie, dass die Anzahl der verfügbaren CPU-Kerne die Verwendung von Worker-Threads streng begrenzt. Derzeit ist es nur für Substrate und Cosmos verfügbar und wird bald für Avalanche integriert.
 - Beachten Sie, dass `JSON.stringify` keine nativen `BigInts` unterstützt. Unsere Protokollierungsbibliothek wird dies intern tun, wenn Sie versuchen, ein Objekt zu protokollieren. Wir suchen nach einem Workaround dafür.

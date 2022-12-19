@@ -81,9 +81,9 @@ Definiert die Daten, die gefiltert und extrahiert werden, und den Speicherort de
 
 ### Mapping Spec
 
-| Bereich              | v0.0.1                                                                  | v0.2.0                                                                                           | Beschreibung                                                                                                                                                                                                                                                                             |
-| -------------------- | ----------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Datei**            | String                                                                  | 𐄂                                                                                                | Pfad zum Mapping-Eintrag                                                                                                                                                                                                                                                                 |
+| Bereich              | v0.0.1                                                                  | v0.2.0                                                                                           | Beschreibung                                                                                                                                                                                                                                                                                      |
+| -------------------- | ----------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Datei**            | String                                                                  | 𐄂                                                                                                | Pfad zum Mapping-Eintrag                                                                                                                                                                                                                                                                          |
 | **handler & Filter** | [Standardhandler und -filter](./manifest/#mapping-handlers-and-filters) | Standardhandler und -filter, <br />[Benutzerdefinierte Handler und Filter](#custom-data-sources) | Listen Sie alle [Zuordnungsfunktionen](./mapping/polkadot.md) und ihre entsprechenden Handlertypen mit zusätzlichen Zuordnungsfiltern auf. <br /><br /> Informationen zu benutzerdefinierten Laufzeit-Zuordnungshandlern finden Sie unter [Benutzerdefinierte Datenquellen](#custom-data-sources) |
 
 ## Data Sources und Mapping
@@ -104,8 +104,8 @@ In der folgenden Tabelle werden Filter erläutert, die von verschiedenen Handler
 
 **Ihr SubQuery-Projekt wird viel effizienter, wenn Sie nur Ereignis- und Call-handler mit geeigneten Zuordnungsfiltern verwenden**
 
-| Handler                                    | Unterstützte Filter:        |
-| ------------------------------------------ | --------------------------- |
+| Handler                                             | Unterstützte Filter:        |
+| --------------------------------------------------- | --------------------------- |
 | [Blockhandler](./mapping/polkadot.md#block-handler) | `specVersion`               |
 | [EventHandler](./mapping/polkadot.md#event-handler) | `module`,`method`           |
 | [CallHandler](./mapping/polkadot.md#call-handler)   | `Modul`,`Methode` ,`Erfolg` |
@@ -151,12 +151,12 @@ Sie können Daten aus benutzerdefinierten Chains indizieren, indem Sie auch Chai
 
 Wir unterstützen die zusätzlichen Typen, die von Substrat-Laufzeitmodulen verwendet werden, `typesAlias`, `typesBundle`, `typesChain` und `typesSpec` werden ebenfalls unterstützt .
 
-Im folgenden v0.2.0-Beispiel verweisen die `network.chaintypes` auf eine Datei, die alle benutzerdefinierten Typen enthält. Dies ist eine standardmäßige Chainspec-Datei, die die von dieser Blockchain unterstützten spezifischen Typen entweder in < 0>.json</code>-, `.yaml`- oder `.js`-Format.
+Im folgenden v0.2.0-Beispiel verweisen die `network.chaintypes` auf eine Datei, die alle benutzerdefinierten Typen enthält. Dies ist eine standardmäßige Chainspec-Datei, die die von dieser Blockchain unterstützten spezifischen Typen entweder in `.json`, `.yaml`- oder `.js`-Format.
 
 <CodeGroup> <CodeGroupItem title="v0.2.0" active> `yml network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' endpoint: 'ws://host.kittychain.io/public-ws' chaintypes: file: ./types.json # Der relative Dateipfad, in dem benutzerdefinierte Typen gespeichert werden` </CodeGroupItem>
 <CodeGroupItem title="v0.0.1"> `yml ... network: endpoint: "ws://host.kittychain.io/public-ws" types: { "KittyIndex": "u32", "Kitty": "[u8; 16]" } # typesChain: { chain: { Type5: 'example' } } # typesSpec: { spec: { Type6: 'example' } } dataSources: - name: runtime kind: substrate/Runtime startBlock: 1 filter: #Optional specName: kitty-chain mapping: handlers: - handler: handleKittyBred kind: substrate/CallHandler filter: module: kitties method: breed success: true` </CodeGroupItem> </CodeGroup>
 
-Um Typoskript für Ihre Chaintypendatei zu verwenden, fügen Sie es in den `src`-Ordner ein (z. B. `./src/types.ts`), führen Sie `yarn build</ aus. 4> und zeigen Sie dann auf die generierte js-Datei, die sich im Ordner <code>dist` befindet.
+Um Typoskript für Ihre Chaintypendatei zu verwenden, fügen Sie es in den `src`-Ordner ein (z. B. `./src/types.ts`), führen Sie `yarn build</ aus. 4> und zeigen Sie dann auf die generierte js-Datei, die sich im Ordner `dist` befindet.
 
 ```yml
 network:

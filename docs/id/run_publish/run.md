@@ -4,7 +4,7 @@ Panduan ini bekerja melalui cara menjalankan node SubQuery lokal pada infrastruk
 
 ## Gunakan Docker
 
-Solusi alternatif adalah dengan menjalankan <strong>Docker Container</strong>, yang ditentukan oleh file `docker-compose.yml`. Untuk proyek baru yang baru saja diinisialisasi, Anda tidak perlu mengubah apa pun di sini.
+Solusi alternatif adalah dengan menjalankan **Docker Container**, yang ditentukan oleh file `docker-compose.yml`. Untuk proyek baru yang baru saja diinisialisasi, Anda tidak perlu mengubah apa pun di sini.
 
 Di bawah direktori proyek jalankan perintah berikut:
 

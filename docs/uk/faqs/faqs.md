@@ -16,7 +16,7 @@ SubQuery також надає безплатний хостинг проєкт 
 
 **Про SubQuery Network**
 
-SubQuery Network дозволяє розробникам повністю децентралізувати свій стек інфраструктури. Це відкритий, продуктивний, надійний і масштабований сервіс передачі даних для додатків. SubQuery Network індексує і надає дані світовій спільноті стимульованим і піддається перевірці способом.  Після публікації вашого проєкт в SubQuery Network будь-який охочий може проіндексувати й розмістити його, надаючи дані користувачам по всьому світу швидше й надійніше.
+SubQuery Network дозволяє розробникам повністю децентралізувати свій стек інфраструктури. Це відкритий, продуктивний, надійний і масштабований сервіс передачі даних для додатків. SubQuery Network індексує і надає дані світовій спільноті стимульованим і піддається перевірці способом. Після публікації вашого проєкт в SubQuery Network будь-який охочий може проіндексувати й розмістити його, надаючи дані користувачам по всьому світу швидше й надійніше.
 
 Більш детальна інформація [тут](/subquery_network/introduction.md).
 
@@ -26,7 +26,7 @@ SubQuery Network дозволяє розробникам повністю дец
 
 ## Як я можу внести або надати відгуки на SubQuery?
 
-Ми любимо внески та відгуки громади. Щоб внести свій внесок в код, розгалузите цікавить Вас репозиторій і внесіть свої зміни. Сформуйте PR або Pull Request. Не забудьте також протестувати. Also check out our <a href="http://localhost:8080/miscellaneous/contributing.html">contributions guidelines.</a>
+Ми любимо внески та відгуки громади. Щоб внести свій внесок в код, розгалузите цікавить Вас репозиторій і внесіть свої зміни. Сформуйте PR або Pull Request. Не забудьте також протестувати. Also check out our [contributions guidelines](../miscellaneous/contributing.html).
 
 Щоб залишити відгук, зв'яжіться з нами за адресою hello@subquery.network або перейдіть на наш канал [discord](https://discord.com/invite/78zg8aBSMG).
 
@@ -76,7 +76,6 @@ subql-node -f . --force-clean --subquery-name=<project-name>
 
 Зверніть увагу, що рекомендується використовувати `--force-clean` при зміні `startBlock` в рамках маніфесту проєкту (`project.yaml`) для того, щоб почати пере індексацію з налаштованого блоку. Якщо `startBlock` змінюється без `--force-clean` проєкту, то індекси продовжать індексування за допомогою раніше налаштованих `startBlock`.
 
-
 ## Як я можу оптимізувати свій проєкт, щоб прискорити його?
 
 Продуктивність є вирішальним фактором у кожному проєкті. На щастя, є кілька речей, які ви могли б зробити, щоб її покращити. Ось список деяких пропозицій:
@@ -89,12 +88,12 @@ subql-node -f . --force-clean --subquery-name=<project-name>
 - Set the start block to when the contract was initialised.
 - Always use a [dictionary](../tutorials_examples/dictionary.html#how-does-a-subquery-dictionary-work) (we can help create one for your new network).
 - Optimise your schema design, keep it as simple as possible.
-    - Try to reduce unnecessary fields and columns.
-    - Create  indexes as needed.
+  - Try to reduce unnecessary fields and columns.
+  - Create indexes as needed.
 - Use parallel/batch processing as often as possible.
-    - Use `api.queryMulti()` to optimise Polkadot API calls inside mapping functions and query them in parallel. This is a faster way than a loop.
-    - Use `Promise.all()`. In case of multiple async functions, it is better to execute them and resolve in parallel.
-    - If you want to create a lot of entities within a single handler, you can use `store.bulkCreate(entityName: string, entities: Entity[])`. You can create them in parallel, no need to do this one by one.
+  - Use `api.queryMulti()` to optimise Polkadot API calls inside mapping functions and query them in parallel. This is a faster way than a loop.
+  - Use `Promise.all()`. In case of multiple async functions, it is better to execute them and resolve in parallel.
+  - If you want to create a lot of entities within a single handler, you can use `store.bulkCreate(entityName: string, entities: Entity[])`. You can create them in parallel, no need to do this one by one.
 - Making API calls to query state can be slow. You could try to minimise calls where possible and to use `extrinsic/transaction/event` data.
 - Use `worker threads` to move block fetching and block processing into its own worker thread. It could speed up indexing by up to 4 times (depending on the particular project). You can easily enable it using the `-workers=<number>` flag. Зауважте, що кількість доступних ядер ЦП суворо обмежує використання робочих потоків. For now, it is only available for Substrate and Cosmos and will soon be integrated for Avalanche.
 - Note that `JSON.stringify` doesn’t support native `BigInts`. Our logging library will do this internally if you attempt to log an object. We are looking at a workaround for this.

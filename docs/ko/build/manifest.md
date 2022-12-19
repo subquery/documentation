@@ -30,13 +30,13 @@ USAGE $ subql init [PROJECTNAME]
 
 ARGUMENTS PROJECTNAME Give the starter project name
 
-| 옵션                      | 설명                                                    |
-| ----------------------- | ----------------------------------------------------- |
-| -f, --force             |                                                       |
-| -l, --location=location | 프로젝트를 생성할 로컬 폴더                                       |
-| --install-dependencies  | 종속성들의 설치                                              |
+| 옵션                    | 설명                                                                  |
+| ----------------------- | --------------------------------------------------------------------- | ----------------------------- |
+| -f, --force             |                                                                       |
+| -l, --location=location | 프로젝트를 생성할 로컬 폴더                                           |
+| --install-dependencies  | 종속성들의 설치                                                       |
 | --npm                   | yarn 대신 NPM을 강제로 사용, `install-dependencies` 플래그에서만 작동 |
-| --specVersion=0.0.1     | 0.2.0 [기본값: 0.2.0] | 프로젝트에서 사용할 사양 버전                 |
+| --specVersion=0.0.1     | 0.2.0 [기본값: 0.2.0]                                                 | 프로젝트에서 사용할 사양 버전 |
 
 ## 개요
 
@@ -71,19 +71,19 @@ ARGUMENTS PROJECTNAME Give the starter project name
 ### DataSource 사양
 
 필터링 및 추출할 데이터와 적용할 데이터 변환에 대한 매핑 함수 처리기의 위치를 정의합니다.
-| 필드             | v0.0.1                                                    | v0.2.0                                                                           | 설명                                                                                                      |
+| 필드 | v0.0.1 | v0.2.0 | 설명 |
 | -------------- | --------------------------------------------------------- | -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| **name**       | String                                                    | 𐄂                                                                                | 데이터 출처 명명                                                                                               |
-| **kind**       | [substrate/Runtime](./manifest/#data-sources-and-mapping) | substrate/Runtime, [substrate/CustomDataSource](./manifest/#custom-data-sources) | 블록, 이벤트 및 외부(호출)와 같은 기본 기판 런타임의 데이터 유형을 지원합니다. <br /> v0.2.0부터 스마트 계약과 같은 사용자 정의 런타임의 데이터를 지원합니다. |
-| **startBlock** | Integer                                                   | Integer                                                                          | 이것은 인덱싱 시작 블록을 변경하고 더 적은 데이터로 초기 블록을 건너뛰려면 이 값을 높게 설정합니다.                                               |
-| **mapping**    | Mapping Spec                                              | Mapping Spec                                                                     |                                                                                                         |
-| **filter**     | [network-filters](./manifest/#network-filters)            | 𐄂                                                                                | 네트워크 끝점 사양 이름으로 실행할 데이터 원본 필터링                                                                          |
+| **name** | String | 𐄂 | 데이터 출처 명명 |
+| **kind** | [substrate/Runtime](./manifest/#data-sources-and-mapping) | substrate/Runtime, [substrate/CustomDataSource](./manifest/#custom-data-sources) | 블록, 이벤트 및 외부(호출)와 같은 기본 기판 런타임의 데이터 유형을 지원합니다. <br /> v0.2.0부터 스마트 계약과 같은 사용자 정의 런타임의 데이터를 지원합니다. |
+| **startBlock** | Integer | Integer | 이것은 인덱싱 시작 블록을 변경하고 더 적은 데이터로 초기 블록을 건너뛰려면 이 값을 높게 설정합니다. |
+| **mapping** | Mapping Spec | Mapping Spec | |
+| **filter** | [network-filters](./manifest/#network-filters) | 𐄂 | 네트워크 끝점 사양 이름으로 실행할 데이터 원본 필터링 |
 
 ### Mapping Spec
 
-| 필드                   | v0.0.1                                                         | v0.2.0                                                                        | 설명                                                                                                                                                                                                        |
-| ---------------------- | -------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **file**               | String                                                         | 𐄂                                                                             | Entry 맵핑을 위한 path                                                                                                                                                                                      |
+| 필드                   | v0.0.1                                                         | v0.2.0                                                                        | 설명                                                                                                                                                                                                                 |
+| ---------------------- | -------------------------------------------------------------- | ----------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **file**               | String                                                         | 𐄂                                                                             | Entry 맵핑을 위한 path                                                                                                                                                                                               |
 | **handlers & filters** | [기본 핸들러와 필터](./manifest/#mapping-handlers-and-filters) | 기본 핸들러와 필터, <br />[Custom handlers and filters](#custom-data-sources) | [mapping functions](./mapping/polkadot.md) 과 그에 상응하는 핸들러 유형을 추가적인 맵핑 필터와 함께 나열하세요. <br /><br /> 커스텀 런타임 맵핑을 위해서는 [Custom data sources](#custom-data-sources)을 참조하세요. |
 
 ## Data Source와 맵핑
@@ -104,8 +104,8 @@ dataSources:
 
 **적절한 매핑 필터가 있는 이벤트 및 호출 핸들러만 사용할 때 SubQuery 프로젝트가 훨씬 더 효율적입니다.**
 
-| 핸들러                                      | 지원되는 필터                |
-| ------------------------------------------- | ---------------------------- |
+| 핸들러                                               | 지원되는 필터                |
+| ---------------------------------------------------- | ---------------------------- |
 | [블록핸들러](./mapping/polkadot.md#block-handler)    | `specVersion`                |
 | [이벤트 핸들러](./mapping/polkadot.md#event-handler) | `module`,`method`            |
 | [콜핸들러](./mapping/polkadot.md#call-handler)       | `module`,`method` ,`success` |
@@ -156,7 +156,7 @@ filter:
 <CodeGroup> <CodeGroupItem title="v0.2.0" active> `yml network: genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' endpoint: 'ws://host.kittychain.io/public-ws' chaintypes: file: ./types.json # The relative filepath to where custom types are stored ...` </CodeGroupItem>
 <CodeGroupItem title="v0.0.1"> `yml ... network: endpoint: "ws://host.kittychain.io/public-ws" types: { "KittyIndex": "u32", "Kitty": "[u8; 16]" } # typesChain: { chain: { Type5: 'example' } } # typesSpec: { spec: { Type6: 'example' } } dataSources: - name: runtime kind: substrate/Runtime startBlock: 1 filter: #Optional specName: kitty-chain mapping: handlers: - handler: handleKittyBred kind: substrate/CallHandler filter: module: kitties method: breed success: true` </CodeGroupItem> </CodeGroup>
 
-체인 유형 파일에 typescript를 사용하려면 `src` 폴더(예: `./src/types.ts`)에 파일을 포함하고 `yarn build</ 4> 그런 다음 <code>dist` 폴더에 있는 생성된 js 파일을 가리킵니다.
+체인 유형 파일에 typescript를 사용하려면 `src` 폴더(예: `./src/types.ts`)에 파일을 포함하고 `yarn build` 그런 다음 `dist` 폴더에 있는 생성된 js 파일을 가리킵니다.
 
 ```yml
 network:
@@ -183,7 +183,7 @@ network:
 
 다음은 지원되는 사용자 지정 데이터 소스 목록입니다.
 
-| 종류                                                    | 지원 Handlers                                                                                              | 필터                              | 소개                                                                               |
+| 종류                                                  | 지원 Handlers                                                                                            | 필터                            | 소개                                                                             |
 | ----------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | ------------------------------- | -------------------------------------------------------------------------------- |
 | [substrate/Moonbeam](./moonbeam/#data-source-example) | [substrate/MoonbeamEvent](./moonbeam/#moonbeamevent), [substrate/MoonbeamCall](./moonbeam/#moonbeamcall) | See filters under each handlers | Provides easy interaction with EVM transactions and events on Moonbeams networks |
 

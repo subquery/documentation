@@ -8,7 +8,7 @@
 
 ## Introduction
 
-L'esecuzione di un nodo indicizzatore è un'altra opzione al di fuori dell'utilizzo di Docker o di un progetto ospitato in < 0 > Progetti SubQuery </0 >. Richiede più tempo e sforzo, ma migliorerà la comprensione di come SubQuery funziona sotto le copertine.
+L'esecuzione di un nodo indicizzatore è un'altra opzione al di fuori dell'utilizzo di Docker o di un progetto ospitato in `Progetti SubQuery`. Richiede più tempo e sforzo, ma migliorerà la comprensione di come SubQuery funziona sotto le copertine.
 
 ## Postgres
 

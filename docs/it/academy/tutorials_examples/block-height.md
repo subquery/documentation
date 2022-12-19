@@ -42,7 +42,7 @@ Lo svantaggio più ovvio sarà che non sarete in grado di interrogare i dati sul
 
 ## Come capire l'altezza attuale della blockchain?
 
-Se si utilizza la rete Polkadot, è possibile visitare < 0 > https ://polkascan.io/</0 >, selezionare la rete e quindi visualizzare la figura «Blocco finalizzato».
+Se si utilizza la rete Polkadot, è possibile visitare https://polkascan.io/, selezionare la rete e quindi visualizzare la figura «Blocco finalizzato».
 
 ## Devo fare una ricostruzione o un codegen?
 

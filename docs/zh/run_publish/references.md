@@ -19,17 +19,17 @@ COMMANDS
 
 ### 构建...
 
-此命令使用 webpack 生成subquery项目的捆绑包。
+此命令使用 webpack 生成 subquery 项目的捆绑包。
 
-| 选项                 | 描述                                              |
-| ------------------ | ----------------------------------------------- |
-| -l, --location     | subquery项目的本地文件夹(如果没有在文件夹中)                     |
-| -o, --output       | 指定构建的输出文件夹，例如：build-folder                      |
-| --mode=(production | prod | development | dev) | [ 默认 ︰ production ] |
+| 选项               | 描述                                          |
+| ------------------ | --------------------------------------------- | ----------- | ---- | ---------------------- |
+| -l, --location     | subquery 项目的本地文件夹(如果没有在文件夹中) |
+| -o, --output       | 指定构建的输出文件夹，例如：build-folder      |
+| --mode=(production | prod                                          | development | dev) | [ 默认 ︰ production ] |
 
-- 用`subql build`命令，您可以在exports字段中指定额外的入口点，尽管它总是会自动构建 < 0 >index.ts < / 0 >
+- 用`subql build`命令，您可以在 exports 字段中指定额外的入口点，尽管它总是会自动构建 `index.ts`
 
-- 您需要有 @subql/cli v0.19.0 或更高版本才能使用exports字段。
+- 您需要有 @subql/cli v0.19.0 或更高版本才能使用 exports 字段。
 
 - 任何`exports` 字段必须映射到字符串类型(例如， `"entry": "./src/file.ts"`)，否则它将被从构建中忽略。
 
@@ -106,7 +106,7 @@ Options:
 
 ### reindex
 
-:::warning In order to use this command, you require `@subql/node:v1.10.0`/`@subql/node-<network>:v1.10.0` or above. :::
+:::warning In order to use this command, you require `@subql/node:v1.10.0`/`@subql/node-YOURNETWORK:v1.10.0` or above. :::
 
 When using reindex command, historical must be enabled for the targeted project (`--disable-historical=false`). After starting the project, it would print out a log stating if historical is enabled or not.
 
@@ -142,7 +142,7 @@ subql-node -f /example/subql-project force-clean
 
 ### -f, --subquery
 
-使用此标志启动SubQuery项目。
+使用此标志启动 SubQuery 项目。
 
 ```shell
 subql-node -f . // 或者
@@ -159,9 +159,9 @@ subql-node -f . --subquery-name=test2
 
 ### -c, --config
 
-所有这些不同的配置都可以放置到 .yml 或 .json 文件中，然后用config参数进行引用。
+所有这些不同的配置都可以放置到 .yml 或 .json 文件中，然后用 config 参数进行引用。
 
-示例subquery_config.yml文件：
+示例 subquery_config.yml 文件：
 
 ```shell
 subquery: . // Mandatory. This is the local path of the project. The period here means the current local directory.
@@ -177,7 +177,7 @@ batchSize: 55 // Optional config
 
 ### --local (已废弃)
 
-这个标志主要用于调试，在默认的“postgres”模式中创建默认starter_entity 表。
+这个标志主要用于调试，在默认的“postgres”模式中创建默认 starter_entity 表。
 
 ```shell
 subql-node -f . --local
@@ -199,7 +199,7 @@ subql-node -f . --db-schema=test2
 
 ### --unsafe
 
-SubQuery 项目通常在javascript sandbox中运行，以保证安全，限制项目对您系统的访问范围。 沙盒将可用的 javascript 导入限制为以下模块：
+SubQuery 项目通常在 javascript sandbox 中运行，以保证安全，限制项目对您系统的访问范围。 沙盒将可用的 javascript 导入限制为以下模块：
 
 ```javascript
 ["assert", "buffer", "crypto", "util", "path"];
@@ -271,7 +271,7 @@ An instance of ProjectManifestImpl has failed the validation:
 
 ### --output-fmt
 
-有两种不同的终端输出格式。 JSON或者colored。 colored是默认的，包含着colored文本。
+有两种不同的终端输出格式。 JSON 或者 colored。 colored 是默认的，包含着 colored 文本。
 
 ```shell
 > subql-node -f . --output-fmt=json
@@ -288,7 +288,7 @@ An instance of ProjectManifestImpl has failed the validation:
 
 ### --log-level
 
-有七个选项可供选择： “fatal”, “error”, “warn”, “info”, “debug”, “trace”, “silent”. 下面的示例显示silent。 终端中不会打印任何内容，所以，判断节点工作与否的唯一方法是查询数据库中的行数（从subquery_1.starter_entities选择计数（\*)）或者查询区块的高度。
+有七个选项可供选择： “fatal”, “error”, “warn”, “info”, “debug”, “trace”, “silent”. 下面的示例显示 silent。 终端中不会打印任何内容，所以，判断节点工作与否的唯一方法是查询数据库中的行数（从 subquery_1.starter_entities 选择计数（\*)）或者查询区块的高度。
 
 ```shell
 > subql-node -f . --log-level=silent
@@ -310,13 +310,13 @@ An instance of ProjectManifestImpl has failed the validation:
 
 ### --timestamp-field
 
-默认情况下是正确的。 当设置成false时：
+默认情况下是正确的。 当设置成 false 时：
 
 ```shell
 > subql-node -f . –timestamp-field=false
 ```
 
-这将删除在starter_entities表中的 created_at和updated_at列
+这将删除在 starter_entities 表中的 created_at 和 updated_at 列
 
 ### -d, --network-dictionary
 
@@ -332,7 +332,7 @@ subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot
 
 ### -p, --port
 
-Subquery索引服务绑定到的端口。 默认设置为 `3000`.
+Subquery 索引服务绑定到的端口。 默认设置为 `3000`.
 
 ### --disable-history
 
@@ -342,7 +342,7 @@ Subquery索引服务绑定到的端口。 默认设置为 `3000`.
 
 这将把块提取和处理移动到一个工作者。 默认情况下，此功能是 **已禁用**。 您可以使用 `--workers=<number>` 标志启用它。 请注意，可用的 CPU 核心数严格限制了工人线程的使用。 因此，当使用 `--workers=<number>` 标志时，总是指定工人的数量。 如果没有提供标记，所有东西都将在同一线程中运行。
 
-:::tip 提示 它可以提高性能最多4次。 试试一下，让我们知道你的反馈！
+:::tip 提示 它可以提高性能最多 4 次。 试试一下，让我们知道你的反馈！
 
 目前它处于早期试验阶段，但我们计划默认启用它。 :::
 
@@ -404,7 +404,7 @@ Options:
 
 ### --playground
 
-这个标识符启用了graphql playground，所以在默认情况下，应该始终包含有任何用途。
+这个标识符启用了 graphql playground，所以在默认情况下，应该始终包含有任何用途。
 
 ### --output-fmt
 
@@ -438,12 +438,10 @@ Options:
 
 由于实体限制，它们默认被禁用。
 
-**请注意，`--unsafe` 命令将阻止您的项目在 SubQuery 网络中运行，如果您希望此命令与您的项目一起在
+\*\*请注意，`--unsafe` 命令将阻止您的项目在 SubQuery 网络中运行，如果您希望此命令与您的项目一起在
 
-SubQuery 的托管服务中运行< /1>。</strong></p> 
-
-
+SubQuery 的托管服务中运行。
 
 ### --port
 
-Subquery索引服务绑定到的端口。 默认设置为 `3000`
+Subquery 索引服务绑定到的端口。 默认设置为 `3000`

@@ -67,9 +67,9 @@ Nuestro objetivo es cubrir todas las fuentes de datos para los usuarios de los m
 
 Estas son las interfaces que actualmente soportamos:
 
-- [api.query.&lt;module&gt;.&lt;method&gt;()](https://polkadot.js.org/docs/api/start/api.query) consultará el bloque <strong></strong> actual.
-- [api.query.&lt;module&gt;.&lt;method&gt;.multi()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-same-type) hará múltiples consultas del mismo tipo <strong></strong> en el bloque actual.
-- [api.queryMulti()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-distinct-types) hará múltiples consultas de <strong>diferentes</strong> tipos en el bloque actual.
+- [api.query.&lt;module&gt;.&lt;method&gt;()](https://polkadot.js.org/docs/api/start/api.query) consultará el bloque actual.
+- [api.query.&lt;module&gt;.&lt;method&gt;.multi()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-same-type) hará múltiples consultas del mismo tipo en el bloque actual.
+- [api.queryMulti()](https://polkadot.js.org/docs/api/start/api.query.multi/#multi-queries-distinct-types) hará múltiples consultas de **diferentes** tipos en el bloque actual.
 
 Estas son las interfaces que actualmente no soportamos **NOT**:
 

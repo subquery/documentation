@@ -77,10 +77,10 @@ Jika Anda hanya ingin meng-upgrade ke indexer terbaru ([`@subql/node`](https://w
 
 Setelah penerapan Anda berhasil diselesaikan dan node kami telah mengindeks data Anda dari chain, Anda akan dapat terhubung ke proyek Anda melalui titik akhir Kueri GraphQL yang ditampilkan.
 
-![Proyek sedang diterapkan dan disinkronkan](/assets/img/projects-deploy-sync.png)
+![Proyek sedang diterapkan dan disinkronkan](/assets/img/projects_deploy_sync.png)
 
 Atau, Anda dapat mengklik tiga titik di samping judul proyek Anda, dan melihatnya di SubQuery Explorer. Di sana Anda dapat menggunakan taman bermain di browser untuk memulai - [baca lebih lanjut tentang cara menggunakan Explorer kami di sini](../run_publish/query.md).
 
-![Proyek di SubQuery Explorer](/assets/img/projects-explorer.png)
+![Proyek di SubQuery Explorer](/assets/img/projects_explorer.png)
 
 ::::: info Catatan Pelajari lebih lanjut tentang [GraphQL Query language.](./graphql.md) :::

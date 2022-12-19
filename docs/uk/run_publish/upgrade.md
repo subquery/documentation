@@ -77,10 +77,10 @@ If you just want to upgrade to the latest indexer ([`@subql/node`](https://www.n
 
 Після того, як ваше розгортання успішно завершиться і наші вузли індексують ваші дані з ланцюга, ви зможете підключитися до вашого проекту через відображену кінцеву точку GraphQL Query.
 
-![Проєкт розгортається і синхронізується](/assets/img/projects-deploy-sync.png)
+![Проєкт розгортається і синхронізується](/assets/img/projects_deploy_sync.png)
 
 Крім того, ви можете натиснути на три точки поруч із заголовком проєкту та переглянути його на SubQuery Explorer. There you can use the in browser playground to get started - [read more about how to use our Explorer here](../run_publish/query.md).
 
-![Проєкти в провіднику вкладених SubQuery](/assets/img/projects-explorer.png)
+![Проєкти в провіднику вкладених SubQuery](/assets/img/projects_explorer.png)
 
 ::: інформаційна записка Дізнайтеся більше про [GraphQL Query language.](./graphql.md):::

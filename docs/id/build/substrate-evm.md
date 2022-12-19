@@ -74,7 +74,7 @@ Bekerja dengan cara yang sama seperti [substrate/EventHandler](../create/mapping
 | ------ | ------------ | --------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
 | topics | String array | Transfer(address indexed from,address indexed to,uint256 value) | Filter topik mengikuti filter log Ethereum JSON-PRC, dokumentasi selengkapnya dapat ditemukan [di sini](https://docs.ethers.io/v5/concepts/events/). |
 
-<b>Catatan tentang topik:</b>
+**Catatan tentang topik:**
 Ada beberapa peningkatan dari filter log dasar:
 
 - Topik tidak perlu diisi 0
@@ -97,17 +97,17 @@ dataSources:
   - kind: substrate/Moonbeam
     startBlock: 752073
     processor:
-      file: './node_modules/@subql/contract-processors/dist/moonbeam.js'
+      file: "./node_modules/@subql/contract-processors/dist/moonbeam.js"
       options:
         # Must be a key of assets
         abi: erc20
         # Alamat kontrak (atau penerima jika transfer) untuk difilter, jika `null` seharusnya untuk pembuatan kontrak
-        address: '0x6bd193ee6d2104f14f94e2ca6efefae561a4334b'
+        address: "0x6bd193ee6d2104f14f94e2ca6efefae561a4334b"
     assets:
       erc20:
-        file: './erc20.abi.json'
+        file: "./erc20.abi.json"
     mapping:
-      file: './dist/index.js'
+      file: "./dist/index.js"
       handlers:
         - handler: handleMoonriverEvent
           kind: substrate/MoonbeamEvent
@@ -122,7 +122,7 @@ dataSources:
             # function: '0x7ff36ab500000000000000000000000000000000000000000000000000000000'
             # function: approve(address,uint256)
             function: approve(address to,uint256 value)
-            from: '0x6bd193ee6d2104f14f94e2ca6efefae561a4334b'
+            from: "0x6bd193ee6d2104f14f94e2ca6efefae561a4334b"
 ```
 
 ## Batasan yang Diketahui
