@@ -14,8 +14,10 @@ Note that we are using Juno as the example here, but SubQuery supports all the f
 - [CosmosHub](https://github.com/subquery/cosmos-subql-starter/tree/main/Cosmos/cosmos-starter)
 - [Fetch.ai](https://github.com/subquery/cosmos-subql-starter/tree/main/Fetch.ai/fetchhub-starter)
 - [Stargaze](https://github.com/subquery/cosmos-subql-starter/tree/main/Stargaze/stargaze-starter)
-- [Osmosis]
+- [Osmosis](https://github.com/subquery/cosmos-subql-starter/tree/main/Osmosis/osmosis-starter)
 - [Cronos](https://github.com/subquery/cosmos-subql-starter/tree/main/Cronos)
+- [OKC Chain (by OKX)](https://github.com/subquery/cosmos-subql-starter/tree/main/OKX/okx-starter)
+- [Thorchain](https://github.com/subquery/cosmos-subql-starter/tree/main/Thorchain/thorchain-starter)
 - and more, view the full list in [the cosmos-subql-starter repository](https://github.com/subquery/cosmos-subql-starter).
 
 ::: tip Note
