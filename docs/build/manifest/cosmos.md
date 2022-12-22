@@ -68,7 +68,7 @@ dataSources:
 
 ### Tested and Supported networks
 
-We expect that SubQuery will work with all Ethermint and CosmWasm Cosmos chains with the import of the correct protobuf definitions. We've tested this with the [chains in the cosmos-subql-starter repository](https://github.com/subquery/cosmos-subql-starter), and feel free to make a PR to not support for other chains when you are able to test and confirm them.
+We expect that SubQuery will work with all Ethermint and CosmWasm Cosmos chains with the import of the correct protobuf definitions. We have tested this with the [chains in the cosmos-subql-starter repository](https://github.com/subquery/cosmos-subql-starter). However, please feel free to make a pull request to non-supported chains when you are able to test and confirm them.
 
 ## Overview
 
@@ -101,13 +101,13 @@ The `chainId` is the network identifier of the blockchain. Examples in Cosmos mi
 
 Additionally you will need to update the `endpoint`. This defines the wss endpoint of the blockchain to be indexed - **this must be a full archive node**. Public nodes may be rate limited which can affect indexing speed. We suggest getting a private API key when developing your project. You can retrieve endpoints for all parachains for free from [OnFinality](https://app.onfinality.io).
 
-| Field            | Type   | Description                                                                                                                                                                                                |
-| ---------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| Field            | Type   |  Description                                                                                                                                                                                               |
+| ---------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | 
 | **chainId**      | String | A network identifier for the blockchain                                                                                                                                                                    |
 | **endpoint**     | String | Defines the wss or ws endpoint of the blockchain to be indexed - **This must be a full archive node**. You can retrieve endpoints for all parachains for free from [OnFinality](https://app.onfinality.io) |
 | **port**         | Number | Optional port number on the `endpoint` to connect to                                                                                                                                                       |
 | **dictionary**   | String | It is suggested to provide the HTTP endpoint of a full chain dictionary to speed up processing - read [how a SubQuery Dictionary works](../academy/tutorials_examples/dictionary.md).                      |
-| **bypassBlocks** | Array  | x                                                                                                                                                                                                          | Bypasses stated block numbers, the values can be a `range`(e.g. `"10- 50"`) or `integer`, see [Bypass Blocks](#bypass-blocks) |
+| **bypassBlocks** | Array  |   Bypasses stated block numbers, the values can be a `range`(e.g. `"10- 50"`) or `integer`, see [Bypass Blocks](#bypass-blocks)                                                                            |
 
 ### Runner Spec
 
@@ -213,7 +213,7 @@ filter:
 
 ## Chain Types
 
-We can load protobuf message definitions to allow support for specific to Cosmos chains under `network.chaintypes`. If most are just using Wasm this should be already included.
+We can load protobuf message definitions to allow support for specific Cosmos chains under `network.chaintypes`. If most are just using Wasm this should be already included.
 
 You can reference a chaintypes file for Cosmos like so (this is for Stargaze):
 
