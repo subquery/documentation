@@ -61,7 +61,7 @@ Now that you have made essential changes to the GraphQL Schema file let’s move
 
 ## 2. Updating Your Project Manifest File
 
-The Project Manifest (`project.yaml`) file works as an entry point to your project. It defines most of the details on how SubQuery will index and transform the chain data. For Humanode chain (and Substrate/Polkadot chains in general), there are three types of mapping handlers (and you can have more than one in each project):
+The Project Manifest (`project.yaml`) file works as an entry point to your project. It defines most of the details on how SubQuery will index and transform the chain data. For Humanode chains (and Substrate/Polkadot chains in general), there are three types of mapping handlers (and you can have more than one in each project):
 
 - [BlockHanders](../../build/manifest/polkadot.md#mapping-handlers-and-filters): On each and every block, run a mapping function
 - [EventHandlers](../../build/manifest/polkadot.md#mapping-handlers-and-filters): On each and every event that matches optional filter criteria, run a mapping function
