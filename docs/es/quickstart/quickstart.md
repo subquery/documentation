@@ -42,14 +42,6 @@ Ejecute el siguiente comando dentro del directorio que desea crear un proyecto S
 subql init
 ```
 
-::: warning Important
-
-**For Cosmos Users**
-
-Cosmos aún no está soportado en la CLI de SubQuery (`subql`). Hence, if you are using Cosmos, you must start with a Juno clone or fork this [starter project](https://github.com/subquery/cosmos-subql-starter).
-
-To initialise your project with Cosmos, refer to these 4 steps shown in this [link](https://github.com/subquery/juno-subql-starter#readme). Once you complete these 4 steps, **jump** to the [Make Changes to Your Project](../quickstart/quickstart.md#_3-make-changes-to-your-project) section. :::
-
 Se le harán ciertas preguntas mientras avance:
 
 - **Project name**: A project name for your SubQuery project.
