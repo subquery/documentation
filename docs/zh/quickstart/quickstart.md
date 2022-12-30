@@ -42,14 +42,6 @@ subql help
 subql init
 ```
 
-::: 警告
-
-**适合Cosmos用户**
-
-SubQuery的 CLI 尚不支持Cosmos(`subql`)。 因此，如果你正在使用Cosmos，你必须从Juno克隆开始或fork这个 [起点项目](https://github.com/subquery/cosmos-subql-starter)。
-
-要使用Cosmos初始化您的项目，请参考此 [链接](https://github.com/subquery/juno-subql-starter#readme) 中显示的这4个步骤。 一旦你完成这4个步骤，**跳转**到[对你的项目进行修改](../quickstart/quickstart.md#_3-make-changes-to-your-project)部分。 :::
-
 当你继续前进时，你会遇到一些问题：
 
 - **Project name**: 您的 SubQuery 项目的项目名称。
