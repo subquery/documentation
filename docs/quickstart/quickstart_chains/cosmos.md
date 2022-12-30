@@ -11,7 +11,7 @@ Before we begin, make sure that you have initialised your project using the prov
 Note that we are using Juno as the example here, but SubQuery supports all the following Cosmos networks and you can quickly initialise a new project in any of them using the `subql init` command:
 
 - [Juno](https://github.com/subquery/cosmos-subql-starter/tree/main/Juno/juno-starter)
-- [CosmosHub](https://github.com/subquery/cosmos-subql-starter/tree/main/Cosmos/cosmos-starter)
+- [CosmosHub](https://github.com/subquery/cosmos-subql-starter/tree/main/CosmosHub/cosmoshub-starter)
 - [Fetch.ai](https://github.com/subquery/cosmos-subql-starter/tree/main/Fetch.ai/fetchhub-starter)
 - [Stargaze](https://github.com/subquery/cosmos-subql-starter/tree/main/Stargaze/stargaze-starter)
 - [Osmosis](https://github.com/subquery/cosmos-subql-starter/tree/main/Osmosis/osmosis-starter)
