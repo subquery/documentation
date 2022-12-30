@@ -42,14 +42,6 @@ Jalankan perintah berikut di dalam direktori yang ingin Anda buat proyek SubQuer
 subql init
 ```
 
-:::: peringatan Penting
-
-**Untuk Pengguna Cosmos**
-
-Cosmos belum didukung dalam CLI SubQuery (`subql`). Oleh karena itu, jika Anda menggunakan Cosmos, Anda harus mulai dengan klon Juno atau fork [starter project](https://github.com/subquery/cosmos-subql-starter) ini.
-
-Untuk menginisialisasi proyek Anda dengan Cosmos, lihat 4 langkah yang ditunjukkan dalam [link](https://github.com/subquery/juno-subql-starter#readme) ini. Setelah anda menyelesaikan 4 langkah ini, **lompat** ke bagian [Make Changes to Your Project](../quickstart/quickstart.md#_3-make-changes-to-your-project). :::
-
 Anda akan ditanyai pertanyaan tertentu saat Anda melanjutkan perjalanan:
 
 - **Nama proyek**: Nama proyek untuk proyek SubQuery Anda.
