@@ -42,14 +42,6 @@ Führen Sie den folgenden Befehl in dem Verzeichnis aus, in dem Sie ein SubQuery
 subql init
 ```
 
-::: wichtige Warnung
-
-**Für Cosmos-Benutzer**
-
-Cosmos wird noch nicht in der Befehlszeilenschnittstelle von SubQuery (`subql`) unterstützt. Wenn Sie Cosmos verwenden, müssen Sie daher mit einem Juno-Klon beginnen oder dieses [Starterprojekt](https://github.com/subquery/cosmos-subql-starter) forken.
-
-Um Ihr Projekt mit Cosmos zu initialisieren, folgen Sie diesen 4 Schritten, die in diesem [Link](https://github.com/subquery/juno-subql-starter#readme) gezeigt werden. Sobald Sie diese 4 Schritte ausgeführt haben, **springen** Sie zum Abschnitt [Änderungen an Ihrem Projekt vornehmen](../quickstart/quickstart.md#_3-make-changes-to-your-project). :::
-
 Im weiteren Verlauf werden Ihnen bestimmte Fragen gestellt:
 
 - **Projektname**: Ein Projektname für Ihr SubQuery-Projekt.
