@@ -65,7 +65,7 @@ body .theme-default-content:not(.custom) {
   /* background: url('/assets/img/wordCycle.svg') no-repeat right top; */
 }
 .welcomeWords .welcomeTitle span {
-  color: #3eaf7c;
+  color: #4388DD;
   padding-left: 8px;
 }
 @media screen and (max-width: 419px) {
@@ -130,7 +130,7 @@ body .theme-default-content:not(.custom) {
   }
 }
 .startSection .title span {
-  color: #3eaf7c;
+  color: #4388DD;
 }
 .button {
   padding: 8px 16px;
@@ -424,7 +424,7 @@ body .theme-default-content:not(.custom) {
   font-size: 14px;
   line-height: 22px;
   height: 22px;
-  color: #3eaf7c;
+  color: #4388DD;
   padding-right: 20px;
   background: url(/assets/img/arrow.svg) no-repeat right;
 }
