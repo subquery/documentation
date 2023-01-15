@@ -118,7 +118,7 @@
 </section>
 <section class="main connectSection">
   <div class="email">
-    <span>Contact us</span>
+    <span>Contact us at&nbsp;</span>
     <a href="mailto:hello@subquery.network">hello@subquery.network</a>
   </div>
   <div>
