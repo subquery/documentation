@@ -20,68 +20,6 @@ body .theme-default-content:not(.custom) {
 .page-nav {
   display: none;
 }
-.welcomeContainer {
-  background: linear-gradient(90deg, rgba(216, 236, 255, 0.2) 0%, rgba(245, 250, 255, 0.2) 58.62%);
-}
-.layout {
-  max-width: 1440px;
-  min-width: 960px;
-  width: auto;
-  margin: 0 auto;
-}
-@media screen and (max-width: 960px) {
-  .layout {
-    max-width: 95vw;
-    min-width: auto;
-  }
-}
-.welcomeContainer h2 {
-  font-weight: 500;
-  font-size: 42px;
-  line-height: 54px;
-  color: #1A202C;
-  border: none;
-  margin: 0;
-  padding: 0;
-}
-.welcomeContainer h3 {
-  font-weight: 500;
-  font-size: 32px;
-  line-height: 48px;
-  color: #1A202C;
-  margin: 0;
-  padding: 0;
-}
-.welcomeContainer p {
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 140%;
-  color: #637381;
-  margin: 0;
-  padding: 0;
-}
-.banner {
-  padding: 80px;
-  background: linear-gradient(0deg, rgba(255, 255, 255, 0.93), rgba(255, 255, 255, 0.93)), #4388DD;
-}
-.banner > div {
-  display: flex;
-  gap: 24px;
-}
-@media screen and (max-width: 419px) {
-  .banner {
-    padding: 0;
-  }
-  .banner > div {
-    flex-direction: column;
-  }
-}
-.banner h2 {
-  margin: 0 0 24px 0;
-}
-
-
-
 .main {
   max-width: 1440px;
   min-width: 960px;
