@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="/assets/style/welcome.css" as="style" />
+<link rel="stylesheet" href="/assets/style/welcome_next.css" as="style" />
 <div class="welcomeContainer">
   <div class="banner">
     <div class="layout">
