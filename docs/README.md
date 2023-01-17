@@ -1,16 +1,16 @@
-<link rel="stylesheet" href="/assets/style/welcome_next.css" as="style" />
+<link rel="stylesheet" href="/assets/style/homepage.css" as="style" />
 <div class="welcomeContainer">
   <div class="banner">
     <div class="layout">
       <div class="ct">
-        <h2>Learn how to build with SubQuery</h2>
+        <h2>Learn How to Build with SubQuery</h2>
         <p>SubQuery is a fast, flexible, and reliable open-source data indexer that provides you with custom APIs for your web3 project across all of our supported chains. </p>
       </div>
       <img src="/assets/img/welcomeBanner.svg" />
     </div>
   </div>
   <div class="quickStart layout">
-    <h3>Get started with our quick start guides</h3>
+    <h3>Get Started with our Quick Start Guides</h3>
     <p>We have one for every supported layer 1, designed to take you from zero to hero in less than 10 minutes with intuitive example projects.</p>
     <div class="quickStartList">
       <div class="col">
@@ -51,14 +51,14 @@
     </div>
   </div>
   <div class="journey layout mt80">
-    <h3>Your journey with SubQuery</h3>
+    <h3>Your Journey with SubQuery</h3>
     <div class="journeyItem">
       <div class="icon">
         <img src="/assets/img/journeyIcon1.svg" />
       </div>
       <div class="ct">
         <h4>1. Build</h4>
-        <p>Initialise your project, define your entities using GraphQL, identify the trigger events, and write simple mapping functions that process your data - that’s it! Theres no need for pre-existing data archives, write simply in typescript and test locally with Docker. <router-link :to="{path: '/build/introduction.html'}"> Find out more</router-link></p>
+        <p>Initialise your project, define your entities using GraphQL, identify the trigger events, and write simple mapping functions that process your data - that’s it! Theres no need for pre-existing data archives, write simply in typescript and test locally with Docker. <router-link :to="{path: '/build/introduction.html'}">Read more</router-link></p>
       </div>
     </div>
     <div class="journeyItem">
@@ -67,7 +67,7 @@
       </div>
       <div class="ct">
         <h4>2. Run and Query via GraphQL</h4>
-        <p>Make advanced, flexible, but simple queries over GraphQL from any front end website or app. We even support advanced features like aggregate functions and allow you to subscribe to new data. <router-link :to="{path: '/run_publish/run.html'}"> Find out more</router-link></p>
+        <p>Make advanced, flexible, but simple queries over GraphQL from any front end website or app. We even support advanced features like aggregate functions and allow you to subscribe to new data. <router-link :to="{path: '/run_publish/run.html'}">Read more</router-link></p>
       </div>
     </div>
     <div class="journeyItem">
@@ -75,8 +75,8 @@
         <img src="/assets/img/journeyIcon3.svg" />
       </div>
       <div class="ct">
-        <h4>3. Publish to the managed service</h4>
-        <p>You don’t want to run and manage production infrastructure, use our self-service platform to publish and run a production SubQuery project in only a few minutes - you can also explore what others in the community are building. <router-link :to="{path: '/run_publish/publish.html'}"> Find out more</router-link></p>
+        <h4>3. Publish to the Managed Service</h4>
+        <p>You don’t want to run and manage production infrastructure, use our self-service platform to publish and run a production SubQuery project in only a few minutes - you can also explore what others in the community are building. <router-link :to="{path: '/run_publish/publish.html'}">Read more</router-link></p>
       </div>
     </div>
     <div class="journeyItem">
@@ -85,7 +85,7 @@
       </div>
       <div class="ct">
         <h4>4. Deploy to the SubQuery Network (Coming soon)</h4>
-        <p>Our decentralised service will be the future of web3 infrastructure. We’re building the most open, performant, reliable, and scalable data service for dApp developers which will index and serve data to the global community in an incentivised and verifiable way. <router-link :to="{path: '/subquery_network/introduction.html'}"> Find out more</router-link></p>
+        <p>Our decentralised service will be the future of web3 infrastructure. We’re building the most open, performant, reliable, and scalable data service for dApp developers which will index and serve data to the global community in an incentivised and verifiable way. <router-link :to="{path: '/subquery_network/introduction.html'}">Read more</router-link></p>
       </div>
     </div>
     <div class="journeyItem">
@@ -93,19 +93,19 @@
         <img src="/assets/img/journeyIcon5.svg" />
       </div>
       <div class="ct">
-        <h4>5. Optimise your project</h4>
-        <p>Performance is a crucial factor in each project. We’re here to give you guidance on how to optimise your SubQuery project to speed it up. <router-link :to="{path: '/build/optimisation.html'}"> Find out more</router-link></p>
+        <h4>5. Optimise your Project</h4>
+        <p>Performance is a crucial factor in each project. We’re here to give you guidance on how to optimise your SubQuery project to speed it up. <router-link :to="{path: '/build/optimisation.html'}">Read more</router-link></p>
       </div>
     </div>
   </div>
   <div class="graphGuide layout mt140">
     <img src="/assets/img/graphGuideIcon.svg" />
     <h3>Coming from the Graph?</h3>
-    <p>Welcome to the fastest and most feature rich indexer in web3. Migrating is easy and should only take a few minutes.</p>
+    <p>Welcome to the fastest and most feature rich indexer in web3, migrating is easy and should only take a few minutes.</p>
     <router-link class="button buttonRed" :to="{path: '/build/graph-migration.html'}">Migrate Now!</router-link>
   </div>
   <div class="advancedFeatures layout mt140">
-    <h3>Advanced Features from the best multi chain indexer</h3>
+    <h3>Advanced Features from the Best Multi-chain Indexer</h3>
     <p>We built the best, fully-featured indexer, so you don’t have to!</p>
     <div class="cardList">
       <router-link class="item" :to="{path: '/build/substrate-evm.html'}">
@@ -136,9 +136,9 @@
   </div>
   <div class="textImageSection layout mt140">
     <div class="ct">
-      <h3>Want a more in depth learning experience?</h3>
+      <h3>Want a More in Depth Learning Experience?</h3>
       <p>We have detailed, step by step learning course. Follow video tutorials alongside real world examples.</p>
-      <router-link class="button" :to="{path: '/academy/herocourse/welcome.htm'}">Start Course</router-link>
+      <router-link class="button" :to="{path: '/academy/herocourse/welcome.htm'}">Start your Course</router-link>
     </div>
     <img src="/assets/img/depth_learning.svg" />
   </div>
@@ -149,9 +149,8 @@
         <div class="title"><span><img src="/assets/img/faqIcon.svg" /></span>What networks do you support?</div>
         <div class="animation">
           <div class="ct">
-            <p>Aenean at ipsum mollis ex dapibus fringilla ac id nulla. Nullam augue velit, placerat at elementum ac, tincidunt at elit. Phasellus condimentum egestas urna non sodales.</p>
-            <p>Aenean nec lorem metus. Donec lacinia efficitur urna non suscipit. Fusce pretium viverra leo eget elementum. Nam tincidunt viverra dolor, eget tempus lorem vehicula a. Curabitur sollicitudin rutrum libero, ut cursus diam ultricies sit amet. Pellentesque dictum arcu sit amet augue luctus.</p>
-            <p>Ut scelerisque ligula facilisis. Nullam volutpat nisl nec consectetur aliquet. Sed posuere ipsum ipsum, et condimentum odio tincidunt eu.</p>
+            <p>We support a large number of leading layer-1 chains, including Polkadot, Cosmos, Ethereyum, Avalanche, Algorand, Near, and Flare. The list of supported layer-1 chains keeps growing every week, and it's our goal to support them all. Whever you plan to build your next dApp, we want to be there to help you index it.</p>
+            <p>If you would like us to index your new layer-1 chain, we would be happy to consider it, send us a message at <a href="mailto:hello@subquery.network">hello@subquery.network</a>.</p>
           </div>
         </div>
       </li>
@@ -159,9 +158,8 @@
         <div class="title"><span><img src="/assets/img/faqIcon.svg" /></span>How much does it cost?</div>
         <div class="animation">
           <div class="ct">
-            <p>Aenean at ipsum mollis ex dapibus fringilla ac id nulla. Nullam augue velit, placerat at elementum ac, tincidunt at elit. Phasellus condimentum egestas urna non sodales.</p>
-            <p>Aenean nec lorem metus. Donec lacinia efficitur urna non suscipit. Fusce pretium viverra leo eget elementum. Nam tincidunt viverra dolor, eget tempus lorem vehicula a. Curabitur sollicitudin rutrum libero, ut cursus diam ultricies sit amet. Pellentesque dictum arcu sit amet augue luctus.</p>
-            <p>Ut scelerisque ligula facilisis. Nullam volutpat nisl nec consectetur aliquet. Sed posuere ipsum ipsum, et condimentum odio tincidunt eu.</p>
+            <p>SubQuery is open-source, and free for all to use forever. You can write, run, and scale your SubQuery project in your own infrastructure with complete control, many of our biggest customers do just this. Since it's open source, you can even just run the parts of it that you want.</p>
+            <p>We're big believers in open source technology and really appreciate it when we <router-link :to="{path: '/miscellaneous/contributing.html'}">receive contributions</router-link>.</p>
           </div>
         </div>
       </li>
@@ -169,9 +167,10 @@
         <div class="title"><span><img src="/assets/img/faqIcon.svg" /></span>Do you provide hosting, or do I have to run it myself?</div>
         <div class="animation">
           <div class="ct">
-            <p>Aenean at ipsum mollis ex dapibus fringilla ac id nulla. Nullam augue velit, placerat at elementum ac, tincidunt at elit. Phasellus condimentum egestas urna non sodales.</p>
-            <p>Aenean nec lorem metus. Donec lacinia efficitur urna non suscipit. Fusce pretium viverra leo eget elementum. Nam tincidunt viverra dolor, eget tempus lorem vehicula a. Curabitur sollicitudin rutrum libero, ut cursus diam ultricies sit amet. Pellentesque dictum arcu sit amet augue luctus.</p>
-            <p>Ut scelerisque ligula facilisis. Nullam volutpat nisl nec consectetur aliquet. Sed posuere ipsum ipsum, et condimentum odio tincidunt eu.</p>
+            <p>We provide a <router-link :to="{path: '/run_publish/run.html'}">long guide</router-link> on how you can run SubQuery in your infrastructure, which includes both the indexer, postgres database, and query service.</p>
+            <p>Don't want to worry about running your own SubQuery infrastructure? SubQuery provides a <a href="https://explorer.subquery.network/" target="_blank">Managed Service</a> to the community. The biggest dApps depend on SubQuery's enterprise level Managed Service. With 100's of millions of daily requests and hundreds of active projects, SubQuery's Managed Service provides industry leading hosting for our customers.</p>
+            <p>We'll run your SubQuery projects for you in a high performance, scalable, and managed public service with a generous free tier! You can host your first two SubQuery projects for absolutely free!</p>
+            <p>You can also upgrade to take advantage of production ready hosting for mission critical data with zero-downtime blue/green deployments, dedicated databases, multiple geo-redundant clusters, intelligent routing, and advanced monitoring and analytics.</p>
           </div>
         </div>
       </li>
@@ -179,9 +178,7 @@
         <div class="title"><span><img src="/assets/img/faqIcon.svg" /></span>How is the data stored?</div>
         <div class="animation">
           <div class="ct">
-            <p>Aenean at ipsum mollis ex dapibus fringilla ac id nulla. Nullam augue velit, placerat at elementum ac, tincidunt at elit. Phasellus condimentum egestas urna non sodales.</p>
-            <p>Aenean nec lorem metus. Donec lacinia efficitur urna non suscipit. Fusce pretium viverra leo eget elementum. Nam tincidunt viverra dolor, eget tempus lorem vehicula a. Curabitur sollicitudin rutrum libero, ut cursus diam ultricies sit amet. Pellentesque dictum arcu sit amet augue luctus.</p>
-            <p>Ut scelerisque ligula facilisis. Nullam volutpat nisl nec consectetur aliquet. Sed posuere ipsum ipsum, et condimentum odio tincidunt eu.</p>
+            <p>SubQuery stores indexed data in a high performance PostGresQL database.</p>
           </div>
         </div>
       </li>
@@ -196,12 +193,19 @@
         </div>
       </li>
       <li>
-        <div class="title"><span><img src="/assets/img/faqIcon.svg" /></span>How are you different from other The Graph?</div>
+        <div class="title"><span><img src="/assets/img/faqIcon.svg" /></span>How are you different from The Graph?</div>
         <div class="animation">
           <div class="ct">
-            <p>Aenean at ipsum mollis ex dapibus fringilla ac id nulla. Nullam augue velit, placerat at elementum ac, tincidunt at elit. Phasellus condimentum egestas urna non sodales.</p>
-            <p>Aenean nec lorem metus. Donec lacinia efficitur urna non suscipit. Fusce pretium viverra leo eget elementum. Nam tincidunt viverra dolor, eget tempus lorem vehicula a. Curabitur sollicitudin rutrum libero, ut cursus diam ultricies sit amet. Pellentesque dictum arcu sit amet augue luctus.</p>
-            <p>Ut scelerisque ligula facilisis. Nullam volutpat nisl nec consectetur aliquet. Sed posuere ipsum ipsum, et condimentum odio tincidunt eu.</p>
+            <p>SubQuery is a flexible, cross-chain indexing service similar to the Graph. In fact, <router-link :to="{path: '/build/graph-migration.html'}">migrating from the Graph takes only a few hours</router-link>. Like the Graph, there are endless possibilities for the variety of data sources that can be analysed and served using SubQuery.</p>
+            <p>We build SubQuery with the following key competitive advantages in mind:</p>
+            <ul>
+            <li>Faster than others. We’re focusing on making SubQuery faster than other solutions with advanced indexing caches and precomputed indices saving developers time, our solution is fast to set-up, fast to manage, and fast to index.</li>
+            <li>More Flexible and Feature rich. SubQuery is a scaffold for building custom APIs and we provide additional features like GraphQL subscriptions, multi-chain indexing, automated historical tracking, and more.</li>
+            <li>Open. Customers have already extended our open source SDK to suit their own custom implementation.</li>
+            <li>Universal. A universal infrastructure stack bringing communities together, developers now have a tool to search, sort, filter and query any data for their app across multiple blockchains.</li>
+            </ul>
+            <p>Additionally, we are committed to running our Managed hosting service over the long term. We have made huge investments into it and have many customers relying on it. This provides a safe home and a reliable alternative to customers that are currently threatened by the imminent sunsetting of the Graphs hosted service.
+            </p>
           </div>
         </div>
       </li>
@@ -213,12 +217,12 @@
       <h3>The SubQuery Network</h3>
       <p>Say goodbye to relying on centralised service providers, we’re building the most open, performant, reliable, and scalable data service for dApp developers. </p>
       <p>The SubQuery Network indexes and services data to the global community in an incentivised and verifiable way. After publishing your project to the SubQuery Network, anyone can index and host it — providing data to users around the world faster and reliably.</p>
-      <router-link class="button" :to="{path: '/subquery_network/introduction.htm'}">Join Decentralised Network</router-link>
+      <router-link class="button" :to="{path: '/subquery_network/introduction.htm'}">Learn more about our Decentralised Network</router-link>
     </div>
     <img src="/assets/img/architects.png" />
   </div>
   <div class="help layout mt140 mb140">
-    <h3>Need help?</h3>
+    <h3>Need Help?</h3>
     <p>The fastest way to get support is by joining our discord and messaging us in #technical-support.</p>
     <a class="button" href="https://discord.com/invite/subquery" target="_blank"><img src="/assets/img/discord_icon.svg" />Join our Discord</a>
   </div>

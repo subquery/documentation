@@ -319,6 +319,7 @@ body .theme-default-content:not(.custom) {
   font-size: 16px;
   line-height: 24px;
   color: #637381;
+  margin-bottom: 10px;
 }
 .faqsContent .animation {
   max-height: 0;
