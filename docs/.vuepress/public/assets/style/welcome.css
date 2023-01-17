@@ -35,7 +35,7 @@ body .theme-default-content:not(.custom) {
     min-width: auto;
   }
 }
-.welcomeContainer h2 {
+.theme-default-content .welcomeContainer h2 {
   font-weight: 500;
   font-size: 42px;
   line-height: 54px;
@@ -44,7 +44,7 @@ body .theme-default-content:not(.custom) {
   margin: 0;
   padding: 0;
 }
-.welcomeContainer h3 {
+.theme-default-content .welcomeContainer h3 {
   font-weight: 500;
   font-size: 32px;
   line-height: 48px;
@@ -52,7 +52,8 @@ body .theme-default-content:not(.custom) {
   margin: 0;
   padding: 0;
 }
-.welcomeContainer p {
+.theme-default-content .welcomeContainer p,
+.theme-default-content .welcomeContainer h3:first-child + p {
   font-weight: 500;
   font-size: 20px;
   line-height: 140%;
@@ -68,6 +69,9 @@ body .theme-default-content:not(.custom) {
   display: flex;
   gap: 24px;
 }
+.banner h2 {
+  margin: 0 0 24px 0;
+}
 @media screen and (max-width: 419px) {
   .banner {
     padding: 0;
@@ -76,8 +80,58 @@ body .theme-default-content:not(.custom) {
     flex-direction: column;
   }
 }
-.banner h2 {
-  margin: 0 0 24px 0;
+
+.quickStart {
+  padding: 60px;
+}
+.quickStart h3, p {
+  margin-bottom: 24px!important;
+}
+.quickStartList {
+  display: flex;
+  gap: 24px;
+}
+.quickStartList .col {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.quickStartList .item {
+  width: 218px;
+  height: 75px;
+}
+.quickStartList .item img {
+  display: none;
+}
+.quickStartList .item img:first-child {
+  display: block;
+}
+.quickStartList .item:hover img {
+  display: block;
+}
+.quickStartList .item:hover img:first-child {
+  display: none;
+}
+.quickStartList .itemGroup {
+  box-sizing: border-box;
+  width: 450px;
+  height: 174px;
+  background: #F2F7FD;
+  border-radius: 8px;
+  padding: 24px;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+}
+.quickStartList .itemGroup .item {
+  width: 189px;
+  height: 75px;
+}
+.quickStartList .itemGroup > div {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
 }
 
 

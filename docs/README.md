@@ -9,16 +9,45 @@
       <img src="/assets/img/welcomeBanner.svg" />
     </div>
   </div>
-  <div class="quickStart main">
+  <div class="quickStart layout">
     <h3>Get started with our quick start guides</h3>
     <p>We have one for every supported layer 1, designed to take you from zero to hero in less than 10 minutes with intuitive example projects.</p>
-    <div class="list">
+    <div class="quickStartList">
       <div class="col">
-        <a href="" target="_blank"><img src="/assets/img/docsIcon.svg" /></a>
-        <a href="" target="_blank"><img src="/assets/img/docsIcon.svg" /></a>
+        <a class="item" href="https://academy.subquery.network/quickstart/quickstart_chains/algorand.html" target="_blank">
+          <img src="/assets/img/logo_algorand.svg" />
+          <img src="/assets/img/logo_algorand_blue.svg" />
+        </a>
+        <a class="item" href="https://academy.subquery.network/quickstart/quickstart_chains/polkadot.html" target="_blank">
+          <img src="/assets/img/logo_polkadot.svg" />
+          <img src="/assets/img/logo_polkadot_blue.svg" />
+        </a>
       </div>
-      <div class="col"></div>
-      <div class="col"></div>
+      <div class="col">
+        <a class="item" href="https://academy.subquery.network/quickstart/quickstart_chains/avalanche.html" target="_blank">
+          <img src="/assets/img/logo_avalanche.svg" />
+          <img src="/assets/img/logo_avalanche_blue.svg" />
+        </a>
+        <a class="item" href="https://academy.subquery.network/quickstart/quickstart_chains/terra.html" target="_blank">
+          <img src="/assets/img/logo_terra.svg" />
+          <img src="/assets/img/logo_terra_blue.svg" />
+        </a>
+      </div>
+      <div class="col">
+        <div class="itemGroup">
+          <img src="/assets/img/logo_cosmos.svg" />
+          <div>
+            <a class="item" href="https://academy.subquery.network/quickstart/quickstart_chains/cosmos-cronos.html" target="_blank">
+              <img src="/assets/img/logo_cosmos_cronos.svg" />
+              <img src="/assets/img/logo_cosmos_cronos_blue.svg" />
+            </a>
+            <a class="item" href="https://academy.subquery.network/quickstart/quickstart_chains/cosmos.html" target="_blank">
+              <img src="/assets/img/logo_cosmos_juno.svg" />
+              <img src="/assets/img/logo_cosmos_juno_blue.svg" />
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   <div class="journey main">
