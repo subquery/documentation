@@ -23,14 +23,11 @@ body .theme-default-content:not(.custom) {
 .welcomeContainer {
   background: linear-gradient(90deg, rgba(216, 236, 255, 0.2) 0%, rgba(245, 250, 255, 0.2) 58.62%);
 }
-.mt140 {
-  margin-top: 140px;
-}
 .mt80 {
   margin-top: 80px;
 }
-.mb140 {
-  margin-bottom: 140px;
+.mb80 {
+  margin-bottom: 80px;
 }
 .layout {
   /* max-width: 1440px; */
@@ -42,7 +39,7 @@ body .theme-default-content:not(.custom) {
 }
 @media screen and (max-width: 960px) {
   .layout {
-    max-width: 95vw;
+    max-width: 90vw;
     min-width: auto;
   }
 }
@@ -148,9 +145,6 @@ body .theme-default-content:not(.custom) {
   }
 }
 
-.quickStart {
-  padding: 60px;
-}
 .quickStart h3,
 .quickStart p {
   margin-bottom: 24px!important;
@@ -345,10 +339,11 @@ body .theme-default-content:not(.custom) {
   margin-top: 40px;
   display: flex;
   gap: 16px;
-  flex-wrap: wrap;
+  flex-flow: row wrap;
   align-items: center;
 }
 .advancedFeatures .cardList .item {
+  flex: 1 1 auto;
   margin-bottom: 8px;
   background: #FFFFFF;
   border: 1px solid #DFE3E8;

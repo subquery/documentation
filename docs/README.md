@@ -9,7 +9,7 @@
       <img src="/assets/img/welcomeBanner.svg" />
     </div>
   </div>
-  <div class="quickStart layout">
+  <div class="quickStart layout mt80">
     <h3>Get Started with our Quick Start Guides</h3>
     <p>We have one for every supported layer 1, designed to take you from zero to hero in less than 10 minutes with intuitive example projects.</p>
     <div class="quickStartList">
@@ -98,13 +98,13 @@
       </div>
     </div>
   </div>
-  <div class="graphGuide layout mt140">
+  <div class="graphGuide layout mt80">
     <img src="/assets/img/graphGuideIcon.svg" />
     <h3>Coming from the Graph?</h3>
     <p>Welcome to the fastest and most feature rich indexer in web3, migrating is easy and should only take a few minutes.</p>
     <router-link class="button buttonRed" :to="{path: '/build/graph-migration.html'}">Migrate Now!</router-link>
   </div>
-  <div class="advancedFeatures layout mt140">
+  <div class="advancedFeatures layout mt80">
     <h3>Advanced Features from the Best Multi-chain Indexer</h3>
     <p>We built the best, fully-featured indexer, so you don’t have to!</p>
     <div class="cardList">
@@ -134,7 +134,7 @@
       </router-link>
     </div>
   </div>
-  <div class="textImageSection layout mt140">
+  <div class="textImageSection layout mt80">
     <div class="ct">
       <h3>Want a More in Depth Learning Experience?</h3>
       <p>We have detailed, step by step learning course. Follow video tutorials alongside real world examples.</p>
@@ -142,7 +142,7 @@
     </div>
     <img src="/assets/img/depth_learning.svg" />
   </div>
-  <div class="faqs layout mgt140">
+  <div class="faqs layout mt80">
     <h3>FAQs</h3>
     <ul class="faqsContent">
       <li>
@@ -212,7 +212,7 @@
     </ul>
 
   </div>
-  <div class="textImageSection layout mt140">
+  <div class="textImageSection layout mt80">
     <div class="ct">
       <h3>The SubQuery Network</h3>
       <p>Say goodbye to relying on centralised service providers, we’re building the most open, performant, reliable, and scalable data service for dApp developers. </p>
@@ -221,7 +221,7 @@
     </div>
     <img src="/assets/img/architects.png" />
   </div>
-  <div class="help layout mt140 mb140">
+  <div class="help layout mt80 mb80">
     <h3>Need Help?</h3>
     <p>The fastest way to get support is by joining our discord and messaging us in #technical-support.</p>
     <a class="button" href="https://discord.com/invite/subquery" target="_blank"><img src="/assets/img/discord_icon.svg" />Join our Discord</a>
