@@ -26,6 +26,8 @@ export interface Store {
   bulkCreate(entity: string, data: Entity[]): Promise<void>;
   bulkUpdate(entity: string, data: Entity[], fields?: string[]): Promise<void>;
   remove(entity: string, id: string): Promise<void>;
+  count(entity: string, field?: string, value?: any, options?: {distinct?: boolean; col?: string}): Promise<number>;
+
 }
 ```
 
@@ -134,3 +136,21 @@ This allows to remove a single record of the entity with its `id`.
 const id = block.block.header.hash.toString();
 await store.remove(`StarterEntity`, id);
 ```
+
+
+## Count Record
+
+`count(entity: string, field?: string, value?: any, options?: {distinct?: boolean; col?: string}): Promise<number>;`
+
+This allows to count records of the entity with specific field and value.
+
+```typescript
+await store.count(`StarterEntity`, `field1`, field1Value);
+```
+
+Also, we can count distinct records by a column on entity.
+
+```typescript
+await store.count(`StarterEntity`, undefined,undefined,{distinct:true,col:'field1'});
+```
+
