@@ -47,7 +47,6 @@ body .theme-default-content:not(.custom) {
   font-weight: 500;
   font-size: 42px;
   line-height: 54px;
-  color: #1A202C;
   border: none;
   margin: 0;
   padding: 0;
@@ -56,7 +55,6 @@ body .theme-default-content:not(.custom) {
   font-weight: 500;
   font-size: 32px;
   line-height: 48px;
-  color: #1A202C;
   margin: 0;
   padding: 0;
 }
@@ -70,13 +68,11 @@ body .theme-default-content:not(.custom) {
   padding: 0;
   font-size: 20px;
   line-height: 140%;
-  color: #1A202C;
 }
 .welcomeContainer p {
   font-weight: 500;
-  font-size: 20px;
+  font-size: 16px;
   line-height: 140%;
-  color: #637381;
 }
 .theme-default-content .welcomeContainer p,
 .theme-default-content .welcomeContainer h3:first-child + p,
@@ -136,6 +132,9 @@ body .theme-default-content:not(.custom) {
 .banner h2 {
   margin: 0 0 24px 0;
 }
+.banner p {
+  font-size: 20px;;
+}
 @media screen and (max-width: 720px) {
   .banner {
     padding: 0;
@@ -148,6 +147,7 @@ body .theme-default-content:not(.custom) {
 .quickStart h3,
 .quickStart p {
   margin-bottom: 24px!important;
+  font-size: 20px;
 }
 .quickStartList {
   display: flex;
@@ -180,7 +180,6 @@ body .theme-default-content:not(.custom) {
   box-sizing: border-box;
   max-width: 460px;
   height: 174px;
-  background: #F2F7FD;
   border-radius: 8px;
   padding: 24px;
   flex-direction: column;
@@ -229,7 +228,6 @@ body .theme-default-content:not(.custom) {
   font-weight: 500;
   font-size: 26px;
   line-height: 36px;
-  color: #1A202C;
   margin-bottom: 16px!important;
 }
 
@@ -306,13 +304,11 @@ body .theme-default-content:not(.custom) {
 }
 .faqsContent .ct {
   padding: 24px;
-  background-color: #fff;
 }
 .faqsContent .ct p {
   font-weight: 500;
   font-size: 16px;
   line-height: 24px;
-  color: #637381;
   margin-bottom: 10px;
 }
 .faqsContent .animation {
@@ -392,5 +388,4 @@ body .theme-default-content:not(.custom) {
   font-weight: 500;
   font-size: 14px;
   line-height: 68px;
-  color: #919EAB;
 }
