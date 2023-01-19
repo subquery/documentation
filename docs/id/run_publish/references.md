@@ -21,11 +21,11 @@ PERINTAH
 
 Perintah ini menggunakan webpack untuk menghasilkan bundel proyek subquery.
 
-| Pilihan            | Deskripsi                                                                                                  |
-| ------------------ | ---------------------------------------------------------------------------------------------------------- |
-| -l, --location     | folder lokal proyek subquery (jika belum ada di folder)                                                    |
-| -o, --output       | tentukan folder keluaran build mis. membangun-folder                                                       |
-| --mode=(production | prod                                                        | development | dev) | [ default: production ] |
+| Pilihan        | Deskripsi                                               |
+| -------------- | ------------------------------------------------------- |
+| -l, --location | folder lokal proyek subquery (jika belum ada di folder) |
+| -o, --output   | tentukan folder keluaran build mis. membangun-folder    |
+| --mode         | production or development (default: production)         |
 
 - Dengan `subql build` Anda dapat menentukan titik masuk tambahan di bidang ekspor meskipun itu akan selalu dibangun `index.ts` secara otomatis.
 
@@ -96,66 +96,16 @@ Options:
                             processing blocks. Dinonaktifkan oleh Default.     [number]
 ```
 
-### --version
+### --batch-size
 
-Ini menampilkan versi saat ini.
-
-```shell
-> subql-node --version
-0.19.1
-```
-
-### reindex
-
-:::warning In order to use this command, you require `@subql/node:v1.10.0`/`@subql/node-YOURNETWORK:v1.10.0` or above. :::
-
-When using reindex command, historical must be enabled for the targeted project (`--disable-historical=false`). After starting the project, it would print out a log stating if historical is enabled or not.
-
-[Further information on Automated Historical State Tracking](./historical.md)
-
-Use `--targetHeight=<blockNumber>` with `reindex` to remove indexed data and reindex from specified block height.
-
-`-f` or `--subquery` flag must be passed in, to set path of the targeted project.
-
-If the `targetHeight` is less than the declared starting height, it will execute the `--force-clean` command.
+Bendera ini memungkinkan Anda untuk mengatur ukuran batch di baris perintah. Jika ukuran batch juga diatur dalam file konfigurasi, ini akan menjadi preseden.
 
 ```shell
-subql-node -f /example/subql-project reindex --targetHeight=30
-```
-
-::: tip Note
-Once the command is executed and the state has been rolled back the the specified height, the application will exit. You can then start up the indexer to proceed again from this height.
-:::
-
-### force-clean
-
-- In order to use this command you need to have `@subql/node` v1.10.0 or above.
-
-This command forces the project schemas and tables to be regenerated. It is helpful to use when iteratively developing graphql schemas in order to ensure a clean state when starting a project. Perhatikan bahwa tanda ini juga akan menghapus semua data yang diindeks. This will also drop all related schema and tables of the project.
-
-`-f`, `--subquery` flag must be passed in, to set path of the targeted project.
-
-::: tip Note Similar to `reindex` command, the application would exit upon completion. :::
-
-```shell
-subql-node -f /example/subql-project force-clean
-```
-
-### -f, --subquery
-
-Gunakan tanda ini untuk memulai proyek SubQuery.
-
-```shell
-subql-node -f . // ATAU
-subql-node --subquery .
-```
-
-### --subquery-name (usang)
-
-Bendera ini memungkinkan Anda untuk memberikan nama untuk proyek Anda yang bertindak seolah-olah itu membuat turunan dari proyek Anda. Setelah memberikan nama baru, skema database baru dibuat dan sinkronisasi blok dimulai dari nol. Tidak digunakan lagi karena `--db-schema`
-
-```shell
-subql-node -f . --subquery-name=test2
+> subql-node -f . --batch-size=20
+2021-08-09T23:24:43.775Z <fetch> INFO fetch block [6601,6620], total 20 blocks
+2021-08-09T23:24:45.606Z <fetch> INFO fetch block [6621,6640], total 20 blocks
+2021-08-09T23:24:47.415Z <fetch> INFO fetch block [6641,6660], total 20 blocks
+2021-08-09T23:24:49.235Z <fetch> INFO fetch block [6661,6680], total 20 blocks
 ```
 
 ### -c, --config
@@ -176,15 +126,21 @@ Tempatkan file ini di direktori yang sama dengan proyek. Kemudian di direktori p
 > subql-node -c ./subquery_config.yml
 ```
 
-### --local (usang)
+### -d, --network-dictionary
 
-Bendera ini terutama digunakan untuk tujuan debugging di mana ia membuat tabel starter_entity default dalam skema "postgres" default.
+Ini memungkinkan Anda untuk menentukan titik akhir kamus yang merupakan layanan gratis yang disediakan dan dihosting di: [https://explorer.subquery.network/](https://explorer.subquery.network/) (mencari kamus) dan menyajikan titik akhir API: https //api.subquery.network/sq/subquery/dictionary-polkadot.
+
+Biasanya ini akan diatur dalam file manifes Anda, tetapi di bawah ini menunjukkan contoh penggunaannya sebagai argumen di baris perintah.
 
 ```shell
-subql-node -f . --local
+subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot"
 ```
 
-Perhatikan bahwa setelah Anda menggunakan bendera ini, menghapusnya tidak berarti bahwa itu akan mengarah ke database lain. Untuk menunjuk kembali ke database lain, Anda harus membuat database BARU dan mengubah pengaturan env ke database baru ini. Dengan kata lain, "ekspor DB_DATABASE=<new_db_here>".
+[Baca selengkapnya tentang cara kerja Kamus SubQuery](../academy/tutorials_examples/dictionary.md).
+
+### --dictionary-timeout
+
+Changes the timeout for dictionary queries, this number is expressed in seconds. By default we use 30 seconds.
 
 ### --db-schema
 
@@ -193,51 +149,6 @@ Bendera ini memungkinkan Anda untuk memberikan nama untuk skema database proyek.
 ```shell
 subql-node -f . --db-schema=test2
 ```
-
-### --berlangganan
-
-Ini akan membuat pemicu notifikasi pada entitas, ini juga merupakan prasyarat untuk mengaktifkan fitur berlangganan di layanan kueri.
-
-### --unsafe (Node Service)
-
-Unsafe mode controls various features that compromise the determinism of a SubQuery project by making it impossible to guarantee that the data within two identical projects run independently will be absolutely consistent.
-
-One way we control this is by running all projects in a js sandbox for security to limit the scope of access the project has to your system. Kotak pasir membatasi impor javascript yang tersedia ke modul berikut:
-
-```javascript
-["assert", "buffer", "crypto", "util", "path"];
-```
-
-Although this enhances security we understand that this limits the available functionality of your SubQuery project. The `--unsafe` command allows any import which greatly increases functionality with the tradeoff of decreased security.
-
-By extension, the `--unsafe` command on the SubQuery Node also allows:
-
-- making external requests (e.g. via Fetch to an external HTTP address or fs)
-- quering block data at any height via the unsafeApi
-
-**Note that must be on a paid plan if you would like to run projects with the `--unsafe` command (on the node service) within [SubQuery's Managed Service](https://project.subquery.network). Additionally, it will prevent your project from being run in the SubQuery Network in the future.**
-
-Also review the [--unsafe command on the query service](#unsafe-query-service).
-
-### --batch-size
-
-Bendera ini memungkinkan Anda untuk mengatur ukuran batch di baris perintah. Jika ukuran batch juga diatur dalam file konfigurasi, ini akan menjadi preseden.
-
-```shell
-> subql-node -f . --batch-size=20
-2021-08-09T23:24:43.775Z <fetch> INFO fetch block [6601,6620], total 20 blocks
-2021-08-09T23:24:45.606Z <fetch> INFO fetch block [6621,6640], total 20 blocks
-2021-08-09T23:24:47.415Z <fetch> INFO fetch block [6641,6660], total 20 blocks
-2021-08-09T23:24:49.235Z <fetch> INFO fetch block [6661,6680], total 20 blocks
-```
-
-### --scale-batch-size
-
-Skala ukuran batch pengambilan blok dengan penggunaan memori.
-
-### --timeout
-
-Setel batas waktu khusus untuk kotak pasir javascript untuk menjalankan fungsi pemetaan di atas satu blok sebelum fungsi pemetaan blok mengeluarkan pengecualian batas waktu.
 
 ### --debug
 
@@ -250,17 +161,72 @@ Ini mengeluarkan informasi debug ke keluaran konsol dan secara paksa menyetel le
 2021-08-10T11:45:39.472Z <db> DEBUG Executing (1b0d0c23-d7c7-4adb-a703-e4e5c414e035): COMMIT;
 ```
 
-### --profiler
+### --disable-historical
 
-Ini menunjukkan informasi profiler.
+Menonaktifkan pelacakan status historis otomatis, [lihat Pelacakan Status Historis](./historical.md). Secara default ini diatur ke `3000`.
+
+### -f, --subquery
+
+Gunakan tanda ini untuk memulai proyek SubQuery.
 
 ```shell
-subql-node -f . --local --profiler
-2021-08-10T10:57:07.234Z <profiler> INFO FetchService, fetchMeta, 3876 ms
-2021-08-10T10:57:08.095Z <profiler> INFO FetchService, fetchMeta, 774 ms
-2021-08-10T10:57:10.361Z <profiler> INFO SubstrateUtil, fetchBlocksBatches, 2265 ms
-2021-08-10T10:57:10.361Z <fetch> INFO fetch block [3801,3900], total 100 blocks
+subql-node -f . // ATAU
+subql-node --subquery .
 ```
+
+### force-clean
+
+- In order to use this command you need to have `@subql/node` v1.10.0 or above.
+
+This command forces the project schemas and tables to be regenerated. It is helpful to use when iteratively developing graphql schemas in order to ensure a clean state when starting a project. Perhatikan bahwa tanda ini juga akan menghapus semua data yang diindeks. This will also drop all related schema and tables of the project.
+
+`-f`, `--subquery` flag must be passed in, to set path of the targeted project.
+
+::: tip Note Similar to `reindex` command, the application would exit upon completion. :::
+
+```shell
+subql-node -f /example/subql-project force-clean
+```
+
+### --local (usang)
+
+Bendera ini terutama digunakan untuk tujuan debugging di mana ia membuat tabel starter_entity default dalam skema "postgres" default.
+
+```shell
+subql-node -f . --local
+```
+
+Perhatikan bahwa setelah Anda menggunakan bendera ini, menghapusnya tidak berarti bahwa itu akan mengarah ke database lain. Untuk menunjuk kembali ke database lain, Anda harus membuat database BARU dan mengubah pengaturan env ke database baru ini. Dengan kata lain, "ekspor DB_DATABASE=<new_db_here>".
+
+### --log-level
+
+Ada 7 pilihan yang bisa dipilih. “fatal”, “error”, “warn”, “info”, “debug”, “trace”, “silent”. Contoh di bawah ini menunjukkan diam. Tidak ada yang akan dicetak di terminal sehingga satu-satunya cara untuk mengetahui apakah node berfungsi atau tidak adalah dengan menanyakan database untuk jumlah baris (pilih count(\*) dari subquery_1.starter_entities) atau kueri ketinggian blok.
+
+```shell
+> subql-node -f . --log-level=silent
+(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
+(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
+(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
+(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
+(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
+(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
+(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
+(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
+(node:24686) [DEP0152] DeprecationWarning: Custom PerformanceEntry accessors are deprecated. Silakan gunakan properti detail.
+(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
+```
+
+### --multi-chain
+
+Enables indexing multiple subquery projects into the same database schema.
+
+```shell
+> subql-node -f . --multi-chain --db-schema=SCHEMA_NAME
+```
+
+[Read more about how this feature](../build/multi-chain.md).
 
 ### --network-endpoint
 
@@ -296,27 +262,63 @@ Ada dua format keluaran terminal yang berbeda. JSON atau berwarna. Berwarna adal
 2021-08-10T11:57:51.862Z <fetch> INFO fetch block [10301,10400], total 100 blocks
 ```
 
-### --log-level
+### -p, --port
 
-Ada 7 pilihan yang bisa dipilih. “fatal”, “error”, “warn”, “info”, “debug”, “trace”, “silent”. Contoh di bawah ini menunjukkan diam. Tidak ada yang akan dicetak di terminal sehingga satu-satunya cara untuk mengetahui apakah node berfungsi atau tidak adalah dengan menanyakan database untuk jumlah baris (pilih count(\*) dari subquery_1.starter_entities) atau kueri ketinggian blok.
+Port yang diikat oleh layanan pengindeksan subquery. Secara default ini diatur ke `3000`.
+
+### --profiler
+
+Ini menunjukkan informasi profiler.
 
 ```shell
-> subql-node -f . --log-level=silent
-(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
-(Use `node --trace-warnings ...` to show where the warning was created)
-(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
-(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
-(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
-(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
-(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
-(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
-(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
-(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
-(node:24686) [DEP0152] DeprecationWarning: Custom PerformanceEntry accessors are deprecated. Silakan gunakan properti detail.
-(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
+subql-node -f . --local --profiler
+2021-08-10T10:57:07.234Z <profiler> INFO FetchService, fetchMeta, 3876 ms
+2021-08-10T10:57:08.095Z <profiler> INFO FetchService, fetchMeta, 774 ms
+2021-08-10T10:57:10.361Z <profiler> INFO SubstrateUtil, fetchBlocksBatches, 2265 ms
+2021-08-10T10:57:10.361Z <fetch> INFO fetch block [3801,3900], total 100 blocks
 ```
 
-<!-- ### --migrate TBA -->
+### reindex
+
+:::warning In order to use this command, you require `@subql/node:v1.10.0`/`@subql/node-YOURNETWORK:v1.10.0` or above. :::
+
+When using reindex command, historical must be enabled for the targeted project (`--disable-historical=false`). After starting the project, it would print out a log stating if historical is enabled or not.
+
+[Further information on Automated Historical State Tracking](./historical.md)
+
+Use `--targetHeight=<blockNumber>` with `reindex` to remove indexed data and reindex from specified block height.
+
+`-f` or `--subquery` flag must be passed in, to set path of the targeted project.
+
+If the `targetHeight` is less than the declared starting height, it will execute the `--force-clean` command.
+
+```shell
+subql-node -f /example/subql-project reindex --targetHeight=30
+```
+
+::: tip Note
+Once the command is executed and the state has been rolled back the the specified height, the application will exit. You can then start up the indexer to proceed again from this height.
+:::
+
+### --scale-batch-size
+
+Skala ukuran batch pengambilan blok dengan penggunaan memori.
+
+### --berlangganan
+
+Ini akan membuat pemicu notifikasi pada entitas, ini juga merupakan prasyarat untuk mengaktifkan fitur berlangganan di layanan kueri.
+
+### --subquery-name (usang)
+
+Bendera ini memungkinkan Anda untuk memberikan nama untuk proyek Anda yang bertindak seolah-olah itu membuat turunan dari proyek Anda. Setelah memberikan nama baru, skema database baru dibuat dan sinkronisasi blok dimulai dari nol. Tidak digunakan lagi karena `--db-schema`
+
+```shell
+subql-node -f . --subquery-name=test2
+```
+
+### --timeout
+
+Setel batas waktu khusus untuk kotak pasir javascript untuk menjalankan fungsi pemetaan di atas satu blok sebelum fungsi pemetaan blok mengeluarkan pengecualian batas waktu.
 
 ### --timestamp-field
 
@@ -342,35 +344,35 @@ This will allow you to index blocks before they become finalized. It can be very
 This feature is only available for Substrate-based blockchains; more networks will be supported in the future.
 :::
 
-### -d, --network-dictionary
+### --unsafe (Node Service)
 
-Ini memungkinkan Anda untuk menentukan titik akhir kamus yang merupakan layanan gratis yang disediakan dan dihosting di: [https://explorer.subquery.network/](https://explorer.subquery.network/) (mencari kamus) dan menyajikan titik akhir API: https //api.subquery.network/sq/subquery/dictionary-polkadot.
+Unsafe mode controls various features that compromise the determinism of a SubQuery project by making it impossible to guarantee that the data within two identical projects run independently will be absolutely consistent.
 
-Biasanya ini akan diatur dalam file manifes Anda, tetapi di bawah ini menunjukkan contoh penggunaannya sebagai argumen di baris perintah.
+One way we control this is by running all projects in a js sandbox for security to limit the scope of access the project has to your system. Kotak pasir membatasi impor javascript yang tersedia ke modul berikut:
 
-```shell
-subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot"
+```javascript
+["assert", "buffer", "crypto", "util", "path"];
 ```
 
-[Baca selengkapnya tentang cara kerja Kamus SubQuery](../academy/tutorials_examples/dictionary.md).
+Although this enhances security we understand that this limits the available functionality of your SubQuery project. The `--unsafe` command allows any import which greatly increases functionality with the tradeoff of decreased security.
 
-### -p, --port
+By extension, the `--unsafe` command on the SubQuery Node also allows:
 
-Port yang diikat oleh layanan pengindeksan subquery. Secara default ini diatur ke `3000`.
+- making external requests (e.g. via Fetch to an external HTTP address or fs)
+- quering block data at any height via the unsafeApi
 
-### --disable-historical
+**Note that must be on a paid plan if you would like to run projects with the `--unsafe` command (on the node service) within [SubQuery's Managed Service](https://project.subquery.network). Additionally, it will prevent your project from being run in the SubQuery Network in the future.**
 
-Menonaktifkan pelacakan status historis otomatis, [lihat Pelacakan Status Historis](./historical.md). Secara default ini diatur ke `3000`.
+Also review the [--unsafe command on the query service](#unsafe-query-service).
 
-### --multi-chain
+### --version
 
-Enables indexing multiple subquery projects into the same database schema.
+Ini menampilkan versi saat ini.
 
 ```shell
-> subql-node -f . --multi-chain --db-schema=SCHEMA_NAME
+> subql-node --version
+0.19.1
 ```
-
-[Read more about how this feature](../build/multi-chain.md).
 
 ### -w, --workers
 
@@ -418,14 +420,33 @@ Pilihan:
   -p, --port          The port the service will bind to                   [number]
 ```
 
-### --version
+### --aggregate
 
-Ini menampilkan versi saat ini.
+Enables or disables the GraphQL aggregation feature, [read more about this here](../run_publish/aggregate.md). By default this is set to true.
 
-```shell
-> subql-query --version
-0.7.0
-```
+### disable-hot-schema
+
+Disables the hot reload schema on project schema changes, by default this is set to false.
+
+### --indexer
+
+Tetapkan url khusus untuk lokasi titik akhir pengindeks, layanan kueri menggunakan titik akhir ini untuk kesehatan pengindeks, metadata, dan status kesiapan.
+
+### --log-level
+
+Lihat [--log-level](../run_publish/references.md#log-level).
+
+### --log-path
+
+Aktifkan logging file dengan menyediakan jalur ke file untuk login ke.
+
+### --log-rotate
+
+Aktifkan rotasi log file dengan opsi interval rotasi 1d, maksimal 7 file dan dengan ukuran file maksimal 1GB.
+
+### --max-connection
+
+The maximum simultaneous connections allowed to this GraphQL query service expressed as a positive integer. The default value is 10.
 
 ### -n, --name
 
@@ -443,29 +464,31 @@ Bendera ini digunakan untuk memulai layanan kueri. Jika flag --subquery-name tid
 > subql-query -n hiworld --playground  // namanya menunjuk ke proyek subql-helloworld tetapi dengan nama hiworld
 ```
 
-### --playground
-
-Bendera ini mengaktifkan taman bermain graphql sehingga harus selalu disertakan secara default untuk digunakan apa pun.
-
 ### --output-fmt
 
 Lihat [--output-fmt](../run_publish/references.md#output-fmt).
 
-### --log-level
+### --playground
 
-Lihat [--log-level](../run_publish/references.md#log-level).
+Bendera ini mengaktifkan taman bermain graphql sehingga harus selalu disertakan secara default untuk digunakan apa pun.
 
-### --log-path
+### --playground-settings
 
-Aktifkan logging file dengan menyediakan jalur ke file untuk login ke.
+You can use this flag to pass additional settings to the GraphQL playground (in JSON format). Additional settings can be found here https://github.com/graphql/graphql-playground#settings
 
-### --log-rotate
+### --port
 
-Aktifkan rotasi log file dengan opsi interval rotasi 1d, maksimal 7 file dan dengan ukuran file maksimal 1GB.
+The port the subquery query service binds to. By default this is set to `3000`
 
-### --indexer
+### --query-complexity
 
-Tetapkan url khusus untuk lokasi titik akhir pengindeks, layanan kueri menggunakan titik akhir ini untuk kesehatan pengindeks, metadata, dan status kesiapan.
+The level of query complexity that this service will accept expressed as a positive integer. By default this is set to 10. If a client makes a query with a query complexity higher than this level, the GraphQL query service will reject the request.
+
+We use the [graphqql-query-complexity](https://www.npmjs.com/package/graphql-query-complexity) plugin to calculate this value.
+
+### --query-timeout
+
+The timeout for long running graphql queries expressed in milliseconds, by default this value is 10000 milliseconds
 
 ### --subscription
 
@@ -481,6 +504,11 @@ These are disabled by default for database performance reasons.
 
 **Note that must be on a Partner plan if you would like to run projects with the `--unsafe` command (on the query service) within [SubQuery's Managed Service](https://project.subquery.network). Additionally, it will prevent your project from being run in the SubQuery Network in the future.**
 
-### --port
+### --version
 
-Port yang diikat oleh layanan kueri subkueri. Secara default ini diatur ke `3000`
+Ini menampilkan versi saat ini.
+
+```shell
+> subql-query --version
+0.7.0
+```
