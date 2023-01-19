@@ -14,24 +14,19 @@
     <p>We have one for every supported layer 1, designed to take you from zero to hero in less than 10 minutes with intuitive example projects.</p>
     <div class="quickStartList">
       <div class="col">
-        <router-link :to="{path: '/quickstart/quickstart_chains/algorand.html'}"> 
-          <img src="/assets/img/logo_algorand.svg" />
-          <img src="/assets/img/logo_algorand_blue.svg" />
-        </router-link>
-        <router-link :to="{path: '/quickstart/quickstart_chains/polkadot.html'}"> 
+        <div class="itemGroup">
           <img src="/assets/img/logo_polkadot.svg" />
-          <img src="/assets/img/logo_polkadot_blue.svg" />
-        </router-link>
-      </div>
-      <div class="col">
-        <router-link :to="{path: '/quickstart/quickstart_chains/avalanche.html'}"> 
-          <img src="/assets/img/logo_avalanche.svg" />
-          <img src="/assets/img/logo_avalanche_blue.svg" />
-        </router-link>
-        <router-link :to="{path: '/quickstart/quickstart_chains/terra.html'}"> 
-          <img src="/assets/img/logo_terra.svg" />
-          <img src="/assets/img/logo_terra_blue.svg" />
-        </router-link>
+          <div>
+            <router-link :to="{path: '/quickstart/quickstart_chains/polkadot.html'}"> 
+              <img src="/assets/img/logo_polkadot_polkadot.svg" />
+              <img src="/assets/img/logo_polkadot_polkadot_blue.svg" />
+            </router-link>
+            <router-link :to="{path: '/quickstart/quickstart_chains/polkadot-humanode.html'}"> 
+              <img src="/assets/img/logo_polkadot.svg" />
+              <img src="/assets/img/logo_polkadot_blue.svg" />
+            </router-link>
+          </div>
+        </div>
       </div>
       <div class="col">
         <div class="itemGroup">
@@ -48,6 +43,18 @@
           </div>
         </div>
       </div>
+      <router-link :to="{path: '/quickstart/quickstart_chains/algorand.html'}"> 
+          <img src="/assets/img/logo_algorand.svg" />
+          <img src="/assets/img/logo_algorand_blue.svg" />
+        </router-link>
+        <router-link :to="{path: '/quickstart/quickstart_chains/avalanche.html'}"> 
+          <img src="/assets/img/logo_avalanche.svg" />
+          <img src="/assets/img/logo_avalanche_blue.svg" />
+        </router-link>
+        <router-link :to="{path: '/quickstart/quickstart_chains/terra.html'}"> 
+          <img src="/assets/img/logo_terra.svg" />
+          <img src="/assets/img/logo_terra_blue.svg" />
+        </router-link>
     </div>
   </div>
   <div class="journey layout mt80">
@@ -58,7 +65,7 @@
       </div>
       <div class="ct">
         <h4>1. Build</h4>
-        <p>Initialise your project, define your entities using GraphQL, identify the trigger events, and write simple mapping functions that process your data - that’s it! Theres no need for pre-existing data archives, write simply in typescript and test locally with Docker. <router-link :to="{path: '/build/introduction.html'}">Read more</router-link></p>
+        <p>Initialise your project, define your entities using GraphQL, identify the trigger events, and write simple mapping functions that process your data &#8212; that’s it! Theres no need for pre-existing data archives, write simply in typescript and test locally with Docker. <router-link :to="{path: '/build/introduction.html'}">Read more</router-link></p>
       </div>
     </div>
     <div class="journeyItem">
@@ -76,7 +83,7 @@
       </div>
       <div class="ct">
         <h4>3. Publish to the Managed Service</h4>
-        <p>You don’t want to run and manage production infrastructure, use our self-service platform to publish and run a production SubQuery project in only a few minutes - you can also explore what others in the community are building. <router-link :to="{path: '/run_publish/publish.html'}">Read more</router-link></p>
+        <p>You don’t want to run and manage production infrastructure, use our self-service platform to publish and run a production SubQuery project in only a few minutes &#8212; you can also explore what others in the community are building. <router-link :to="{path: '/run_publish/publish.html'}">Read more</router-link></p>
       </div>
     </div>
     <div class="journeyItem">
@@ -122,7 +129,7 @@
       </router-link>
       <router-link class="item" :to="{path: '/run_publish/graphql.html'}">
         <h5>The power of GraphQL</h5>
-        <p>Filtering, subscriptions, aggregation - all the features that you need.</p>
+        <p>Filtering, subscriptions, aggregation &#8212; all the features that you need.</p>
       </router-link>
       <router-link class="item" :to="{path: '/run_publish/historical.html'}">
         <h5>Faster reindexing</h5>
