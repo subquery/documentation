@@ -21,11 +21,11 @@ COMMANDS
 
 Ця команда використовує webpack для створення пакету проєкту subquery.
 
-| Опція              | Описання                                                                                                   |
-| ------------------ | ---------------------------------------------------------------------------------------------------------- |
-| -l, --location     | локальна тека проєкту subquery (якщо вона ще не знаходиться в теці)                                        |
-| -o, --output       | вкажіть вихідну теку збірки, наприклад, build-folder                                                       |
-| --mode=(production | prod                                                        | development | dev) | [ default: production ] |
+| Опція          | Описання                                                            |
+| -------------- | ------------------------------------------------------------------- |
+| -l, --location | локальна тека проєкту subquery (якщо вона ще не знаходиться в теці) |
+| -o, --output   | вкажіть вихідну теку збірки, наприклад, build-folder                |
+| --mode         | production or development (default: production)                     |
 
 - За допомогою `subql build` ви можете вказати додаткові точки входу в поле exports, хоча він завжди буде будуватися `index.Ts` автоматично.
 
@@ -96,66 +96,16 @@ Options:
                             processing blocks. Вимкнено за замовчуванням.     [number]
 ```
 
-### --version
+### --batch-size
 
-При цьому показуватися поточна версія.
-
-```shell
-> subql-node --version
-0.19.1
-```
-
-### reindex
-
-:::warning In order to use this command, you require `@subql/node:v1.10.0`/`@subql/node-YOURNETWORK:v1.10.0` or above. :::
-
-When using reindex command, historical must be enabled for the targeted project (`--disable-historical=false`). After starting the project, it would print out a log stating if historical is enabled or not.
-
-[Further information on Automated Historical State Tracking](./historical.md)
-
-Use `--targetHeight=<blockNumber>` with `reindex` to remove indexed data and reindex from specified block height.
-
-`-f` or `--subquery` flag must be passed in, to set path of the targeted project.
-
-If the `targetHeight` is less than the declared starting height, it will execute the `--force-clean` command.
+Цей прапор дозволяє встановити розмір пакета в командному рядку. Якщо розмір пакета також заданий в конфігураційному файлі, це має прецедент.
 
 ```shell
-subql-node -f /example/subql-project reindex --targetHeight=30
-```
-
-::: tip Note
-Once the command is executed and the state has been rolled back the the specified height, the application will exit. You can then start up the indexer to proceed again from this height.
-:::
-
-### force-clean
-
-- In order to use this command you need to have `@subql/node` v1.10.0 or above.
-
-This command forces the project schemas and tables to be regenerated. It is helpful to use when iteratively developing graphql schemas in order to ensure a clean state when starting a project. Зверніть увагу, що цей прапор також призведе до видалення всіх індексованих даних. This will also drop all related schema and tables of the project.
-
-`-f`, `--subquery` flag must be passed in, to set path of the targeted project.
-
-::: tip Note Similar to `reindex` command, the application would exit upon completion. :::
-
-```shell
-subql-node -f /example/subql-project force-clean
-```
-
-### -f, --subquery
-
-Використовуйте цей прапорець, щоб запустити проєкт SubQuery.
-
-```shell
-subql-node -f . // бо
-subql-node --subquery .
-```
-
-### --subquery-name (засуджувати)
-
-Цей прапорець дозволяє вказати ім'я для вашого проєкту, яке діє так, як якби він створив екземпляр вашого проєкту. Після надання нового імені створюється нова схема бази даних, і синхронізація блоків починається з нуля. Застарів на користь `--db-schema`
-
-```shell
-subql-node -f . --subquery-name=test2
+> subql-node -f . --batch-size=20
+2021-08-09T23:24:43.775Z <fetch> INFO fetch block [6601,6620], total 20 blocks
+2021-08-09T23:24:45.606Z <fetch> INFO fetch block [6621,6640], total 20 blocks
+2021-08-09T23:24:47.415Z <fetch> INFO fetch block [6641,6660], total 20 blocks
+2021-08-09T23:24:49.235Z <fetch> INFO fetch block [6661,6680], total 20 blocks
 ```
 
 ### -c, --config
@@ -176,15 +126,21 @@ batchSize: 55 // Додаткова конфігурація
 > subql-node -c ./subquery_config.yml
 ```
 
-### --local (засуджувати)
+### -d, --network-dictionary
 
-Цей прапор в основному використовується для цілей налагодження, де він створює таблицю starter_entity за замовчуванням у схемі postgres за замовчуванням.
+Це дозволяє вказати кінцеву точку словника, яка є безплатною службою, що надається та розміщується в [Project Explorer](https://explorer.subquery.network/) SubQuery's (пошук за словником) і представляє кінцеву точку API: https://api.subquery.network/sq/subquery/dictionary-polkadot.
+
+Зазвичай це значення задається у вашому файлі маніфесту, але нижче наведено приклад його використання в якості аргументу в командному рядку.
 
 ```shell
-subql-node -f . --local
+subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot"
 ```
 
-Зверніть увагу, що як тільки ви використовуєте цей прапор, його видалення не означатиме, що він буде вказувати на іншу базу даних. Щоб вказати на іншу базу даних, вам потрібно буде створити нову базу даних та змінити налаштування env для цієї нової бази даних. Іншими словами, "export DB_DATABASE=<new_db_here>".
+[докладніше про те, як працює словник SubQuery, читайте тут](../academy/tutorials_examples/dictionary.md).
+
+### --dictionary-timeout
+
+Changes the timeout for dictionary queries, this number is expressed in seconds. By default we use 30 seconds.
 
 ### --db-schema
 
@@ -193,51 +149,6 @@ subql-node -f . --local
 ```shell
 subql-node -f . --db-schema=test2
 ```
-
-### --subscription
-
-Це створить тригер повідомлення для об'єкта, це також є необхідною умовою для включення функції підписки в службі запитів.
-
-### --unsafe (Node Service)
-
-Unsafe mode controls various features that compromise the determinism of a SubQuery project by making it impossible to guarantee that the data within two identical projects run independently will be absolutely consistent.
-
-One way we control this is by running all projects in a js sandbox for security to limit the scope of access the project has to your system. Ізольоване середовище обмежує доступний імпорт javascript наступними модулями:
-
-```javascript
-["assert", "buffer", "crypto", "util", "path"];
-```
-
-Although this enhances security we understand that this limits the available functionality of your SubQuery project. The `--unsafe` command allows any import which greatly increases functionality with the tradeoff of decreased security.
-
-By extension, the `--unsafe` command on the SubQuery Node also allows:
-
-- making external requests (e.g. via Fetch to an external HTTP address or fs)
-- quering block data at any height via the unsafeApi
-
-**Note that must be on a paid plan if you would like to run projects with the `--unsafe` command (on the node service) within [SubQuery's Managed Service](https://project.subquery.network). Additionally, it will prevent your project from being run in the SubQuery Network in the future.**
-
-Also review the [--unsafe command on the query service](#unsafe-query-service).
-
-### --batch-size
-
-Цей прапор дозволяє встановити розмір пакета в командному рядку. Якщо розмір пакета також заданий в конфігураційному файлі, це має прецедент.
-
-```shell
-> subql-node -f . --batch-size=20
-2021-08-09T23:24:43.775Z <fetch> INFO fetch block [6601,6620], total 20 blocks
-2021-08-09T23:24:45.606Z <fetch> INFO fetch block [6621,6640], total 20 blocks
-2021-08-09T23:24:47.415Z <fetch> INFO fetch block [6641,6660], total 20 blocks
-2021-08-09T23:24:49.235Z <fetch> INFO fetch block [6661,6680], total 20 blocks
-```
-
-### --scale-batch-size
-
-Масштабуйте розмір пакета вибірки блоків залежно від використання пам'яті.
-
-### --timeout
-
-Встановіть користувальницький тайм-аут для пісочниці javascript для виконання функцій зіставлення над блоком, перш ніж функція зіставлення блоків видасть виняток тайм-ауту.
 
 ### --debug
 
@@ -250,17 +161,72 @@ Also review the [--unsafe command on the query service](#unsafe-query-service).
 2021-08-10T11:45:39.472Z <db> DEBUG Executing (1b0d0c23-d7c7-4adb-a703-e4e5c414e035): COMMIT;
 ```
 
-### --profiler
+### --disable-historical
 
-Тут показуватися інформація про профілювальника.
+Вимикає автоматичне відстеження історичного стану, [див. розділ відстеження історичного стану](./historical.md). За замовчуванням для цього параметра встановлено значення `false`.
+
+### -f, --subquery
+
+Використовуйте цей прапорець, щоб запустити проєкт SubQuery.
 
 ```shell
-subql-node -f . --local --profiler
-2021-08-10T10:57:07.234Z <profiler> INFO FetchService, fetchMeta, 3876 ms
-2021-08-10T10:57:08.095Z <profiler> INFO FetchService, fetchMeta, 774 ms
-2021-08-10T10:57:10.361Z <profiler> INFO SubstrateUtil, fetchBlocksBatches, 2265 ms
-2021-08-10T10:57:10.361Z <fetch> INFO fetch block [3801,3900], total 100 blocks
+subql-node -f . // бо
+subql-node --subquery .
 ```
+
+### force-clean
+
+- In order to use this command you need to have `@subql/node` v1.10.0 or above.
+
+This command forces the project schemas and tables to be regenerated. It is helpful to use when iteratively developing graphql schemas in order to ensure a clean state when starting a project. Зверніть увагу, що цей прапор також призведе до видалення всіх індексованих даних. This will also drop all related schema and tables of the project.
+
+`-f`, `--subquery` flag must be passed in, to set path of the targeted project.
+
+::: tip Note Similar to `reindex` command, the application would exit upon completion. :::
+
+```shell
+subql-node -f /example/subql-project force-clean
+```
+
+### --local (засуджувати)
+
+Цей прапор в основному використовується для цілей налагодження, де він створює таблицю starter_entity за замовчуванням у схемі postgres за замовчуванням.
+
+```shell
+subql-node -f . --local
+```
+
+Зверніть увагу, що як тільки ви використовуєте цей прапор, його видалення не означатиме, що він буде вказувати на іншу базу даних. Щоб вказати на іншу базу даних, вам потрібно буде створити нову базу даних та змінити налаштування env для цієї нової бази даних. Іншими словами, "export DB_DATABASE=<new_db_here>".
+
+### --log-level
+
+Є 7 варіантів на вибір. “fatal”, “error”, “warn”, “info”, “debug”, “trace”, “silent”. У наведеному нижче прикладі показано мовчання. У терміналі нічого не буде надруковано, тому єдиним способом визначити, чи працює вузол чи ні, є запит на кількість рядків у базі даних (виберіть count(\*) з subquery_1.starter_entities) або запитати висоту блоку.
+
+```shell
+> subql-node -f . --log-level=silent
+(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
+(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
+(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
+(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
+(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
+(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
+(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
+(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
+(node:24686) [DEP0152] DeprecationWarning: Custom PerformanceEntry accessors are deprecated. Будь ласка, використовуйте властивість detail.
+(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
+```
+
+### --multi-chain
+
+Enables indexing multiple subquery projects into the same database schema.
+
+```shell
+> subql-node -f . --multi-chain --db-schema=SCHEMA_NAME
+```
+
+[Read more about how this feature](../build/multi-chain.md).
 
 ### --network-endpoint
 
@@ -296,27 +262,63 @@ An instance of ProjectManifestImpl has failed the validation:
 2021-08-10T11:57:51.862Z <fetch> INFO fetch block [10301,10400], total 100 blocks
 ```
 
-### --log-level
+### -p, --port
 
-Є 7 варіантів на вибір. “fatal”, “error”, “warn”, “info”, “debug”, “trace”, “silent”. У наведеному нижче прикладі показано мовчання. У терміналі нічого не буде надруковано, тому єдиним способом визначити, чи працює вузол чи ні, є запит на кількість рядків у базі даних (виберіть count(\*) з subquery_1.starter_entities) або запитати висоту блоку.
+Порт, до якого прив'язується служба індексації subquery. За замовчуванням це значення дорівнює `3000`.
+
+### --profiler
+
+Тут показуватися інформація про профілювальника.
 
 ```shell
-> subql-node -f . --log-level=silent
-(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
-(Use `node --trace-warnings ...` to show where the warning was created)
-(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
-(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
-(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
-(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
-(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
-(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
-(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
-(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
-(node:24686) [DEP0152] DeprecationWarning: Custom PerformanceEntry accessors are deprecated. Будь ласка, використовуйте властивість detail.
-(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
+subql-node -f . --local --profiler
+2021-08-10T10:57:07.234Z <profiler> INFO FetchService, fetchMeta, 3876 ms
+2021-08-10T10:57:08.095Z <profiler> INFO FetchService, fetchMeta, 774 ms
+2021-08-10T10:57:10.361Z <profiler> INFO SubstrateUtil, fetchBlocksBatches, 2265 ms
+2021-08-10T10:57:10.361Z <fetch> INFO fetch block [3801,3900], total 100 blocks
 ```
 
-<!-- ### --migrate TBA -->
+### reindex
+
+:::warning In order to use this command, you require `@subql/node:v1.10.0`/`@subql/node-YOURNETWORK:v1.10.0` or above. :::
+
+When using reindex command, historical must be enabled for the targeted project (`--disable-historical=false`). After starting the project, it would print out a log stating if historical is enabled or not.
+
+[Further information on Automated Historical State Tracking](./historical.md)
+
+Use `--targetHeight=<blockNumber>` with `reindex` to remove indexed data and reindex from specified block height.
+
+`-f` or `--subquery` flag must be passed in, to set path of the targeted project.
+
+If the `targetHeight` is less than the declared starting height, it will execute the `--force-clean` command.
+
+```shell
+subql-node -f /example/subql-project reindex --targetHeight=30
+```
+
+::: tip Note
+Once the command is executed and the state has been rolled back the the specified height, the application will exit. You can then start up the indexer to proceed again from this height.
+:::
+
+### --scale-batch-size
+
+Масштабуйте розмір пакета вибірки блоків залежно від використання пам'яті.
+
+### --subscription
+
+Це створить тригер повідомлення для об'єкта, це також є необхідною умовою для включення функції підписки в службі запитів.
+
+### --subquery-name (засуджувати)
+
+Цей прапорець дозволяє вказати ім'я для вашого проєкту, яке діє так, як якби він створив екземпляр вашого проєкту. Після надання нового імені створюється нова схема бази даних, і синхронізація блоків починається з нуля. Застарів на користь `--db-schema`
+
+```shell
+subql-node -f . --subquery-name=test2
+```
+
+### --timeout
+
+Встановіть користувальницький тайм-аут для пісочниці javascript для виконання функцій зіставлення над блоком, перш ніж функція зіставлення блоків видасть виняток тайм-ауту.
 
 ### --timestamp-field
 
@@ -342,35 +344,35 @@ This will allow you to index blocks before they become finalized. It can be very
 This feature is only available for Substrate-based blockchains; more networks will be supported in the future.
 :::
 
-### -d, --network-dictionary
+### --unsafe (Node Service)
 
-Це дозволяє вказати кінцеву точку словника, яка є безплатною службою, що надається та розміщується в [Project Explorer](https://explorer.subquery.network/) SubQuery's (пошук за словником) і представляє кінцеву точку API: https://api.subquery.network/sq/subquery/dictionary-polkadot.
+Unsafe mode controls various features that compromise the determinism of a SubQuery project by making it impossible to guarantee that the data within two identical projects run independently will be absolutely consistent.
 
-Зазвичай це значення задається у вашому файлі маніфесту, але нижче наведено приклад його використання в якості аргументу в командному рядку.
+One way we control this is by running all projects in a js sandbox for security to limit the scope of access the project has to your system. Ізольоване середовище обмежує доступний імпорт javascript наступними модулями:
 
-```shell
-subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot"
+```javascript
+["assert", "buffer", "crypto", "util", "path"];
 ```
 
-[докладніше про те, як працює словник SubQuery, читайте тут](../academy/tutorials_examples/dictionary.md).
+Although this enhances security we understand that this limits the available functionality of your SubQuery project. The `--unsafe` command allows any import which greatly increases functionality with the tradeoff of decreased security.
 
-### -p, --port
+By extension, the `--unsafe` command on the SubQuery Node also allows:
 
-Порт, до якого прив'язується служба індексації subquery. За замовчуванням це значення дорівнює `3000`.
+- making external requests (e.g. via Fetch to an external HTTP address or fs)
+- quering block data at any height via the unsafeApi
 
-### --disable-historical
+**Note that must be on a paid plan if you would like to run projects with the `--unsafe` command (on the node service) within [SubQuery's Managed Service](https://project.subquery.network). Additionally, it will prevent your project from being run in the SubQuery Network in the future.**
 
-Вимикає автоматичне відстеження історичного стану, [див. розділ відстеження історичного стану](./historical.md). За замовчуванням для цього параметра встановлено значення `false`.
+Also review the [--unsafe command on the query service](#unsafe-query-service).
 
-### --multi-chain
+### --version
 
-Enables indexing multiple subquery projects into the same database schema.
+При цьому показуватися поточна версія.
 
 ```shell
-> subql-node -f . --multi-chain --db-schema=SCHEMA_NAME
+> subql-node --version
+0.19.1
 ```
-
-[Read more about how this feature](../build/multi-chain.md).
 
 ### -w, --workers
 
@@ -418,14 +420,33 @@ Options:
   -p, --port          The port the service will bind to                   [number]
 ```
 
-### --version
+### --aggregate
 
-При цьому показуватися поточна версія.
+Enables or disables the GraphQL aggregation feature, [read more about this here](../run_publish/aggregate.md). By default this is set to true.
 
-```shell
-> subql-query --version
-0.7.0
-```
+### disable-hot-schema
+
+Disables the hot reload schema on project schema changes, by default this is set to false.
+
+### --indexer
+
+Задайте користувацьку Url-адресу для розташування кінцевих точок індексів, служба запитів використовує ці кінцеві точки для визначення працездатності індексатора, метаданих і стану готовності.
+
+### --log-level
+
+Бачачи [--log-level](../run_publish/references.md#log-level).
+
+### --log-path
+
+Увімкніть ведення журналу файлів, вказавши шлях до файлу для входу в систему.
+
+### --log-rotate
+
+Увімкніть обертання журналу файлів з параметрами інтервалу обертання 1D, максимум 7 файлів і з максимальним розміром файлу 1 Гб.
+
+### --max-connection
+
+The maximum simultaneous connections allowed to this GraphQL query service expressed as a positive integer. The default value is 10.
 
 ### -n, --name
 
@@ -443,29 +464,31 @@ Options:
 > subql-query -n hiworld --playground  // назва вказує на проєкт subql-helloworld, але з назвою hiworld
 ```
 
-### --playground
-
-Цей прапор включає ігровий майданчик graphql, тому вона завжди повинна бути включена за замовчуванням, щоб бути корисною.
-
 ### --output-fmt
 
 Бачачи [--output-fmt](../run_publish/references.md#output-fmt).
 
-### --log-level
+### --playground
 
-Бачачи [--log-level](../run_publish/references.md#log-level).
+Цей прапор включає ігровий майданчик graphql, тому вона завжди повинна бути включена за замовчуванням, щоб бути корисною.
 
-### --log-path
+### --playground-settings
 
-Увімкніть ведення журналу файлів, вказавши шлях до файлу для входу в систему.
+You can use this flag to pass additional settings to the GraphQL playground (in JSON format). Additional settings can be found here https://github.com/graphql/graphql-playground#settings
 
-### --log-rotate
+### --port
 
-Увімкніть обертання журналу файлів з параметрами інтервалу обертання 1D, максимум 7 файлів і з максимальним розміром файлу 1 Гб.
+The port the subquery query service binds to. By default this is set to `3000`
 
-### --indexer
+### --query-complexity
 
-Задайте користувацьку Url-адресу для розташування кінцевих точок індексів, служба запитів використовує ці кінцеві точки для визначення працездатності індексатора, метаданих і стану готовності.
+The level of query complexity that this service will accept expressed as a positive integer. By default this is set to 10. If a client makes a query with a query complexity higher than this level, the GraphQL query service will reject the request.
+
+We use the [graphqql-query-complexity](https://www.npmjs.com/package/graphql-query-complexity) plugin to calculate this value.
+
+### --query-timeout
+
+The timeout for long running graphql queries expressed in milliseconds, by default this value is 10000 milliseconds
 
 ### --subscription
 
@@ -481,6 +504,11 @@ These are disabled by default for database performance reasons.
 
 **Note that must be on a Partner plan if you would like to run projects with the `--unsafe` command (on the query service) within [SubQuery's Managed Service](https://project.subquery.network). Additionally, it will prevent your project from being run in the SubQuery Network in the future.**
 
-### --port
+### --version
 
-Порт, до якого прив'язується служба запитів subquery. За замовчуванням це значення дорівнює `3000`
+При цьому показуватися поточна версія.
+
+```shell
+> subql-query --version
+0.7.0
+```
