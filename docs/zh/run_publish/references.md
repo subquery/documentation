@@ -21,11 +21,11 @@ COMMANDS
 
 此命令使用 webpack 生成subquery项目的捆绑包。
 
-| 选项                 | 描述                                              |
-| ------------------ | ----------------------------------------------- |
-| -l, --location     | subquery项目的本地文件夹(如果没有在文件夹中)                     |
-| -o, --output       | 指定构建的输出文件夹，例如：build-folder                      |
-| --mode=(production | prod | development | dev) | [ 默认 ︰ production ] |
+| 选项             | 描述                                              |
+| -------------- | ----------------------------------------------- |
+| -l, --location | subquery项目的本地文件夹(如果没有在文件夹中)                     |
+| -o, --output   | 指定构建的输出文件夹，例如：build-folder                      |
+| --mode         | production or development (default: production) |
 
 - 用`subql build`命令，您可以在exports字段中指定额外的入口点，尽管它总是会自动构建 < 0 >index.ts < / 0 >
 
@@ -96,66 +96,16 @@ Options:
                             processing blocks. Disabled by default.     [number]
 ```
 
-### --version
+### --batch-size
 
-这将显示当前版本。
-
-```shell
-> subql-node --version
-0.19.1
-```
-
-### reindex
-
-:::warning In order to use this command, you require `@subql/node:v1.10.0`/`@subql/node-YOURNETWORK:v1.10.0` or above. :::
-
-When using reindex command, historical must be enabled for the targeted project (`--disable-historical=false`). After starting the project, it would print out a log stating if historical is enabled or not.
-
-[Further information on Automated Historical State Tracking](./historical.md)
-
-Use `--targetHeight=<blockNumber>` with `reindex` to remove indexed data and reindex from specified block height.
-
-`-f` or `--subquery` flag must be passed in, to set path of the targeted project.
-
-If the `targetHeight` is less than the declared starting height, it will execute the `--force-clean` command.
+此标志将允许您在命令行中设置批量大小。 如果在配置文件中也设置了批量大小，则优先。
 
 ```shell
-subql-node -f /example/subql-project reindex --targetHeight=30
-```
-
-::: tip Note
-Once the command is executed and the state has been rolled back the the specified height, the application will exit. You can then start up the indexer to proceed again from this height.
-:::
-
-### force-clean
-
-- In order to use this command you need to have `@subql/node` v1.10.0 or above.
-
-This command forces the project schemas and tables to be regenerated. It is helpful to use when iteratively developing graphql schemas in order to ensure a clean state when starting a project. 请注意，此命令行也会清除所有索引数据。 This will also drop all related schema and tables of the project.
-
-`-f`, `--subquery` flag must be passed in, to set path of the targeted project.
-
-::: tip Note Similar to `reindex` command, the application would exit upon completion. :::
-
-```shell
-subql-node -f /example/subql-project force-clean
-```
-
-### -f, --subquery
-
-使用此标志启动SubQuery项目。
-
-```shell
-subql-node -f . // 或者
-subql-node --subquery .
-```
-
-### --subquery-name (已废弃)
-
-如果您新建了一个项目的实例，这个命令行将允许您为这个项目提供一个新名称。 在提供一个新名称后，将创建一个新的数据库模式，并从零区块开始进行区块同步。 已弃用，取而代之的是 `--db-schema`
-
-```shell
-subql-node -f . --subquery-name=test2
+> subql-node -f . --batch-size=20
+2021-08-09T23:24:43.775Z <fetch> INFO fetch block [6601,6620], total 20 blocks
+2021-08-09T23:24:45.606Z <fetch> INFO fetch block [6621,6640], total 20 blocks
+2021-08-09T23:24:47.415Z <fetch> INFO fetch block [6641,6660], total 20 blocks
+2021-08-09T23:24:49.235Z <fetch> INFO fetch block [6661,6680], total 20 blocks
 ```
 
 ### -c, --config
@@ -176,15 +126,21 @@ batchSize: 55 // Optional config
 > subql-node -c ./subquery_config.yml
 ```
 
-### --local (已废弃)
+### -d, --network-dictionary
 
-这个标志主要用于调试，在默认的“postgres”模式中创建默认starter_entity 表。
+这允许您指定一个字典端点，这是一个免费的服务，其在 [https://explorer.subquery etwork/](https://explorer.subquery.network/) (搜索字典) 上提供和托管。并提供了一个 API 端口： https://api.subquery.network/sq/sq/subquery/dictiony-polkadot.
+
+通常，这将在您的清单文件中设置，但在下面显示一个在命令行中使用它作为参数的例子。
 
 ```shell
-subql-node -f . --local
+subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot"
 ```
 
-请注意，一旦您使用此命令行，删除它并不意味着它会指向另一个数据库。 要重新指向另一个数据库，您将需要创建一个新的数据库，并将环境设置更改为这个新数据库。 换言之，“export DB_DATABASE=<new_db_here>".
+[阅读更多关于 SubQuery 字典的工作原理](../academy/tutorials_examples/dictionary.md)
+
+### --dictionary-timeout
+
+Changes the timeout for dictionary queries, this number is expressed in seconds. By default we use 30 seconds.
 
 ### --db-schema
 
@@ -193,51 +149,6 @@ subql-node -f . --local
 ```shell
 subql-node -f . --db-schema=test2
 ```
-
-### --subscription
-
-这将在实体上创建一个通知触发器，这也是在查询服务中启用订阅功能的先决条件。
-
-### --unsafe (Node Service)
-
-Unsafe mode controls various features that compromise the determinism of a SubQuery project by making it impossible to guarantee that the data within two identical projects run independently will be absolutely consistent.
-
-One way we control this is by running all projects in a js sandbox for security to limit the scope of access the project has to your system. 沙盒将可用的 javascript 导入限制为以下模块：
-
-```javascript
-["assert", "buffer", "crypto", "util", "path"];
-```
-
-Although this enhances security we understand that this limits the available functionality of your SubQuery project. The `--unsafe` command allows any import which greatly increases functionality with the tradeoff of decreased security.
-
-By extension, the `--unsafe` command on the SubQuery Node also allows:
-
-- making external requests (e.g. via Fetch to an external HTTP address or fs)
-- quering block data at any height via the unsafeApi
-
-**Note that must be on a paid plan if you would like to run projects with the `--unsafe` command (on the node service) within [SubQuery's Managed Service](https://project.subquery.network). Additionally, it will prevent your project from being run in the SubQuery Network in the future.**
-
-Also review the [--unsafe command on the query service](#unsafe-query-service).
-
-### --batch-size
-
-此标志将允许您在命令行中设置批量大小。 如果在配置文件中也设置了批量大小，则优先。
-
-```shell
-> subql-node -f . --batch-size=20
-2021-08-09T23:24:43.775Z <fetch> INFO fetch block [6601,6620], total 20 blocks
-2021-08-09T23:24:45.606Z <fetch> INFO fetch block [6621,6640], total 20 blocks
-2021-08-09T23:24:47.415Z <fetch> INFO fetch block [6641,6660], total 20 blocks
-2021-08-09T23:24:49.235Z <fetch> INFO fetch block [6661,6680], total 20 blocks
-```
-
-### --scale-batch-size
-
-使用内存使用来缩放区块获取批量大小。
-
-### --timeout
-
-为 javascript 沙箱设置自定义超时以在块映射函数引发超时异常之前在块上执行映射函数。
 
 ### --debug
 
@@ -250,17 +161,72 @@ Also review the [--unsafe command on the query service](#unsafe-query-service).
 2021-08-10T11:45:39.472Z <db> DEBUG Executing (1b0d0c23-d7c7-4adb-a703-e4e5c414e035): COMMIT;
 ```
 
-### --profiler
+### --disable-history
 
-这将显示分析器信息。
+禁用自动状态跟踪， [查看历史状态跟踪](./historical.md)。 默认情况下为 `false`。
+
+### -f, --subquery
+
+使用此标志启动SubQuery项目。
 
 ```shell
-subql-node -f . --local --profiler
-2021-08-10T10:57:07.234Z <profiler> INFO FetchService, fetchMeta, 3876 ms
-2021-08-10T10:57:08.095Z <profiler> INFO FetchService, fetchMeta, 774 ms
-2021-08-10T10:57:10.361Z <profiler> INFO SubstrateUtil, fetchBlocksBatches, 2265 ms
-2021-08-10T10:57:10.361Z <fetch> INFO fetch block [3801,3900], total 100 blocks
+subql-node -f . // 或者
+subql-node --subquery .
 ```
+
+### force-clean
+
+- In order to use this command you need to have `@subql/node` v1.10.0 or above.
+
+This command forces the project schemas and tables to be regenerated. It is helpful to use when iteratively developing graphql schemas in order to ensure a clean state when starting a project. 请注意，此命令行也会清除所有索引数据。 This will also drop all related schema and tables of the project.
+
+`-f`, `--subquery` flag must be passed in, to set path of the targeted project.
+
+::: tip Note Similar to `reindex` command, the application would exit upon completion. :::
+
+```shell
+subql-node -f /example/subql-project force-clean
+```
+
+### --local (已废弃)
+
+这个标志主要用于调试，在默认的“postgres”模式中创建默认starter_entity 表。
+
+```shell
+subql-node -f . --local
+```
+
+请注意，一旦您使用此命令行，删除它并不意味着它会指向另一个数据库。 要重新指向另一个数据库，您将需要创建一个新的数据库，并将环境设置更改为这个新数据库。 换言之，“export DB_DATABASE=<new_db_here>".
+
+### --log-level
+
+有七个选项可供选择： “fatal”, “error”, “warn”, “info”, “debug”, “trace”, “silent”. 下面的示例显示silent。 终端中不会打印任何内容，所以，判断节点工作与否的唯一方法是查询数据库中的行数（从subquery_1.starter_entities选择计数（\*)）或者查询区块的高度。
+
+```shell
+> subql-node -f . --log-level=silent
+(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
+(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
+(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
+(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
+(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
+(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
+(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
+(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
+(node:24686) [DEP0152] DeprecationWarning: Custom PerformanceEntry accessors are deprecated. Please use the detail property.
+(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
+```
+
+### --multi-chain
+
+Enables indexing multiple subquery projects into the same database schema.
+
+```shell
+> subql-node -f . --multi-chain --db-schema=SCHEMA_NAME
+```
+
+[Read more about how this feature](../build/multi-chain.md).
 
 ### --network-endpoint
 
@@ -296,27 +262,63 @@ An instance of ProjectManifestImpl has failed the validation:
 2021-08-10T11:57:51.862Z <fetch> INFO fetch block [10301,10400], total 100 blocks
 ```
 
-### --log-level
+### -p, --port
 
-有七个选项可供选择： “fatal”, “error”, “warn”, “info”, “debug”, “trace”, “silent”. 下面的示例显示silent。 终端中不会打印任何内容，所以，判断节点工作与否的唯一方法是查询数据库中的行数（从subquery_1.starter_entities选择计数（\*)）或者查询区块的高度。
+Subquery索引服务绑定到的端口。 默认设置为 `3000`.
+
+### --profiler
+
+这将显示分析器信息。
 
 ```shell
-> subql-node -f . --log-level=silent
-(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
-(Use `node --trace-warnings ...` to show where the warning was created)
-(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
-(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
-(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
-(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
-(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
-(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
-(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
-(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
-(node:24686) [DEP0152] DeprecationWarning: Custom PerformanceEntry accessors are deprecated. Please use the detail property.
-(node:24686) [PINODEP007] Warning: bindings.level is deprecated, use options.level option instead
+subql-node -f . --local --profiler
+2021-08-10T10:57:07.234Z <profiler> INFO FetchService, fetchMeta, 3876 ms
+2021-08-10T10:57:08.095Z <profiler> INFO FetchService, fetchMeta, 774 ms
+2021-08-10T10:57:10.361Z <profiler> INFO SubstrateUtil, fetchBlocksBatches, 2265 ms
+2021-08-10T10:57:10.361Z <fetch> INFO fetch block [3801,3900], total 100 blocks
 ```
 
-<!-- ### --migrate TBA -->
+### reindex
+
+:::warning In order to use this command, you require `@subql/node:v1.10.0`/`@subql/node-YOURNETWORK:v1.10.0` or above. :::
+
+When using reindex command, historical must be enabled for the targeted project (`--disable-historical=false`). After starting the project, it would print out a log stating if historical is enabled or not.
+
+[Further information on Automated Historical State Tracking](./historical.md)
+
+Use `--targetHeight=<blockNumber>` with `reindex` to remove indexed data and reindex from specified block height.
+
+`-f` or `--subquery` flag must be passed in, to set path of the targeted project.
+
+If the `targetHeight` is less than the declared starting height, it will execute the `--force-clean` command.
+
+```shell
+subql-node -f /example/subql-project reindex --targetHeight=30
+```
+
+::: tip Note
+Once the command is executed and the state has been rolled back the the specified height, the application will exit. You can then start up the indexer to proceed again from this height.
+:::
+
+### --scale-batch-size
+
+使用内存使用来缩放区块获取批量大小。
+
+### --subscription
+
+这将在实体上创建一个通知触发器，这也是在查询服务中启用订阅功能的先决条件。
+
+### --subquery-name (已废弃)
+
+如果您新建了一个项目的实例，这个命令行将允许您为这个项目提供一个新名称。 在提供一个新名称后，将创建一个新的数据库模式，并从零区块开始进行区块同步。 已弃用，取而代之的是 `--db-schema`
+
+```shell
+subql-node -f . --subquery-name=test2
+```
+
+### --timeout
+
+为 javascript 沙箱设置自定义超时以在块映射函数引发超时异常之前在块上执行映射函数。
 
 ### --timestamp-field
 
@@ -342,35 +344,35 @@ This will allow you to index blocks before they become finalized. It can be very
 This feature is only available for Substrate-based blockchains; more networks will be supported in the future.
 :::
 
-### -d, --network-dictionary
+### --unsafe (Node Service)
 
-这允许您指定一个字典端点，这是一个免费的服务，其在 [https://explorer.subquery etwork/](https://explorer.subquery.network/) (搜索字典) 上提供和托管。并提供了一个 API 端口： https://api.subquery.network/sq/sq/subquery/dictiony-polkadot.
+Unsafe mode controls various features that compromise the determinism of a SubQuery project by making it impossible to guarantee that the data within two identical projects run independently will be absolutely consistent.
 
-通常，这将在您的清单文件中设置，但在下面显示一个在命令行中使用它作为参数的例子。
+One way we control this is by running all projects in a js sandbox for security to limit the scope of access the project has to your system. 沙盒将可用的 javascript 导入限制为以下模块：
 
-```shell
-subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot"
+```javascript
+["assert", "buffer", "crypto", "util", "path"];
 ```
 
-[阅读更多关于 SubQuery 字典的工作原理](../academy/tutorials_examples/dictionary.md)
+Although this enhances security we understand that this limits the available functionality of your SubQuery project. The `--unsafe` command allows any import which greatly increases functionality with the tradeoff of decreased security.
 
-### -p, --port
+By extension, the `--unsafe` command on the SubQuery Node also allows:
 
-Subquery索引服务绑定到的端口。 默认设置为 `3000`.
+- making external requests (e.g. via Fetch to an external HTTP address or fs)
+- quering block data at any height via the unsafeApi
 
-### --disable-history
+**Note that must be on a paid plan if you would like to run projects with the `--unsafe` command (on the node service) within [SubQuery's Managed Service](https://project.subquery.network). Additionally, it will prevent your project from being run in the SubQuery Network in the future.**
 
-禁用自动状态跟踪， [查看历史状态跟踪](./historical.md)。 默认情况下为 `false`。
+Also review the [--unsafe command on the query service](#unsafe-query-service).
 
-### --multi-chain
+### --version
 
-Enables indexing multiple subquery projects into the same database schema.
+这将显示当前版本。
 
 ```shell
-> subql-node -f . --multi-chain --db-schema=SCHEMA_NAME
+> subql-node --version
+0.19.1
 ```
-
-[Read more about how this feature](../build/multi-chain.md).
 
 ### -w, --workers
 
@@ -418,14 +420,33 @@ Options:
   -p, --port          The port the service will bind to                   [number]
 ```
 
-### --version
+### --aggregate
 
-这将显示当前版本。
+Enables or disables the GraphQL aggregation feature, [read more about this here](../run_publish/aggregate.md). By default this is set to true.
 
-```shell
-> subql-query --version
-0.7.0
-```
+### disable-hot-schema
+
+Disables the hot reload schema on project schema changes, by default this is set to false.
+
+### --indexer
+
+为索引器端点的位置设置自定义 url，查询服务将这些端点用于索引器运行状况、元数据和就绪状态。
+
+### --log-level
+
+查看 [--loglevel](../run_publish/references.md#log-level).
+
+### --log-path
+
+通过提供要记录到的文件的路径来启用文件记录。
+
+### --log-rotate
+
+使用 1d 轮换间隔选项启用文件日志轮换，最多 7 个文件，最大文件大小为 1GB。
+
+### --max-connection
+
+The maximum simultaneous connections allowed to this GraphQL query service expressed as a positive integer. The default value is 10.
 
 ### -n, --name
 
@@ -443,29 +464,31 @@ Options:
 > subql-query -n hiworld --playground  // the name points to the subql-helloworld project but with the name of hiworld
 ```
 
-### --playground
-
-这个标识符启用了graphql playground，所以在默认情况下，应该始终包含有任何用途。
-
 ### --output-fmt
 
 查看 [--output-fmt](../run_publish/references.md#output-fmt).
 
-### --log-level
+### --playground
 
-查看 [--loglevel](../run_publish/references.md#log-level).
+这个标识符启用了graphql playground，所以在默认情况下，应该始终包含有任何用途。
 
-### --log-path
+### --playground-settings
 
-通过提供要记录到的文件的路径来启用文件记录。
+You can use this flag to pass additional settings to the GraphQL playground (in JSON format). Additional settings can be found here https://github.com/graphql/graphql-playground#settings
 
-### --log-rotate
+### --port
 
-使用 1d 轮换间隔选项启用文件日志轮换，最多 7 个文件，最大文件大小为 1GB。
+The port the subquery query service binds to. By default this is set to `3000`
 
-### --indexer
+### --query-complexity
 
-为索引器端点的位置设置自定义 url，查询服务将这些端点用于索引器运行状况、元数据和就绪状态。
+The level of query complexity that this service will accept expressed as a positive integer. By default this is set to 10. If a client makes a query with a query complexity higher than this level, the GraphQL query service will reject the request.
+
+We use the [graphqql-query-complexity](https://www.npmjs.com/package/graphql-query-complexity) plugin to calculate this value.
+
+### --query-timeout
+
+The timeout for long running graphql queries expressed in milliseconds, by default this value is 10000 milliseconds
 
 ### --subscription
 
@@ -481,6 +504,11 @@ These are disabled by default for database performance reasons.
 
 **Note that must be on a Partner plan if you would like to run projects with the `--unsafe` command (on the query service) within [SubQuery's Managed Service](https://project.subquery.network). Additionally, it will prevent your project from being run in the SubQuery Network in the future.**
 
-### --port
+### --version
 
-Subquery索引服务绑定到的端口。 默认设置为 `3000`
+这将显示当前版本。
+
+```shell
+> subql-query --version
+0.7.0
+```
