@@ -21,11 +21,11 @@ COMMANDS
 
 This command is uses webpack to generate a bundle of a subquery project.
 
-| Options            | Description                                                 |
-| ------------------ | ----------------------------------------------------------- | ----------- | ---- | ----------------------- |
-| -l, --location     | local folder of subquery project (if not in folder already) |
-| -o, --output       | specify output folder of build e.g. build-folder            |
-| --mode=(production | prod                                                        | development | dev) | [ default: production ] |
+| Options        | Description                                                 |
+| -------------- | ----------------------------------------------------------- |
+| -l, --location | local folder of subquery project (if not in folder already) |
+| -o, --output   | specify output folder of build e.g. build-folder            |
+| --mode         | production or development (default: production)             |
 
 - With `subql build` you can specify additional entry points in exports field although it will always build
   `index.ts` automatically.
