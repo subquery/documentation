@@ -34,7 +34,7 @@ This command is uses webpack to generate a bundle of a subquery project.
 
 - Any `exports` field must map to string type (e.g. `"entry": "./src/file.ts"`), else it will be ignored from build.
 
-[Futher example](../build/introduction.md#build).
+For more info, visit [basic workflows](../build/introduction.md#build).
 
 ## subql-node
 
@@ -114,7 +114,7 @@ In order to use this command, you require `@subql/node:v1.10.0`/`@subql/node-YOU
 
 When using reindex command, historical must be enabled for the targeted project (`--disable-historical=false`). After starting the project, it would print out a log stating if historical is enabled or not.
 
-[Further information on Automated Historical State Tracking](./historical.md)
+For more info, visit [Automated Historical State Tracking](./historical.md)
 
 Use `--targetHeight=<blockNumber>` with `reindex` to remove indexed data and reindex from specified block height.
 
@@ -361,7 +361,7 @@ Typically this would be set in your manifest file but below shows an example of 
 subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot"
 ```
 
-[Read more about how a SubQuery Dictionary works](../academy/tutorials_examples/dictionary.md).
+For more info, visit [How does a SubQuery Dictionary works?](../academy/tutorials_examples/dictionary.md)
 
 ### -p, --port
 
@@ -379,7 +379,7 @@ Enables indexing multiple subquery projects into the same database schema.
 > subql-node -f . --multi-chain --db-schema=SCHEMA_NAME
 ```
 
-[Read more about how this feature](../build/multi-chain.md).
+For more info, visit [Multi-Chain Support](../build/multi-chain.md).
 
 ### -w, --workers
 
