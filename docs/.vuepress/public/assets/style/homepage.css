@@ -186,6 +186,7 @@ body .theme-default-content:not(.custom) {
   justify-content: space-between;
   align-items: center;
   display: flex;
+  background: #F2F7FD;
 }
 .quickStartList .itemGroup a {
   max-width: 189px;

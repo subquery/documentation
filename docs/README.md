@@ -22,8 +22,8 @@
               <img src="/assets/img/logo_polkadot_polkadot_blue.svg" />
             </router-link>
             <router-link :to="{path: '/quickstart/quickstart_chains/polkadot-humanode.html'}"> 
-              <img src="/assets/img/logo_polkadot.svg" />
-              <img src="/assets/img/logo_polkadot_blue.svg" />
+              <img src="/assets/img/logo_polkadot_humanode.svg" />
+              <img src="/assets/img/logo_polkadot_humanode_blue.svg" />
             </router-link>
           </div>
         </div>
@@ -193,9 +193,8 @@
         <div class="title"><span><img src="/assets/img/faqIcon.svg" /></span>Why should I use SubQuery?</div>
         <div class="animation">
           <div class="ct">
-            <p>Aenean at ipsum mollis ex dapibus fringilla ac id nulla. Nullam augue velit, placerat at elementum ac, tincidunt at elit. Phasellus condimentum egestas urna non sodales.</p>
-            <p>Aenean nec lorem metus. Donec lacinia efficitur urna non suscipit. Fusce pretium viverra leo eget elementum. Nam tincidunt viverra dolor, eget tempus lorem vehicula a. Curabitur sollicitudin rutrum libero, ut cursus diam ultricies sit amet. Pellentesque dictum arcu sit amet augue luctus.</p>
-            <p>Ut scelerisque ligula facilisis. Nullam volutpat nisl nec consectetur aliquet. Sed posuere ipsum ipsum, et condimentum odio tincidunt eu.</p>
+            <p>SubQuery is the most efficient option for web3 builders to index data from multiple chains without the hassle of building your own indexing solution.</p>
+            <p>In addition to a flexible SDK, SubQuery offers superior indexing speeds and will eventually be a decentralised solution (upon the launch of the SubQuery Network) where you can have a stake in the future of the project.</p>
           </div>
         </div>
       </li>
