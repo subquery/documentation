@@ -206,22 +206,22 @@ This will create a notification trigger on entity, this also is the prerequisite
 
 ### --unsafe (Node Service)
 
-Unsafe mode controls various features that compromise the determinism of a SubQuery project by making it impossible to guarantee that the data within two identical projects run independently will be absolutely consistent.
+Unsafe mode controls various features that compromise the determinism of a SubQuery project. It makes it impossible to guarantee that the data within two identical projects running independently, will be 100% consistent.
 
-One way we control this is by running all projects in a js sandbox for security to limit the scope of access the project has to your system. The sandbox limits the available javascript imports to the following modules:
+One way we control this is by running all projects in a JS sandbox for security to limit the scope of access the project has to your system. The sandbox limits the available javascript imports to the following modules:
 
 ```javascript
 ["assert", "buffer", "crypto", "util", "path"];
 ```
 
-Although this enhances security we understand that this limits the available functionality of your SubQuery project. The `--unsafe` command allows any import which greatly increases functionality with the tradeoff of decreased security.
+Although this enhances security, we understand that this limits the available functionality of your SubQuery project. The `--unsafe` command allows any import which greatly increases functionality with the tradeoff of decreased security.
 
 By extension, the `--unsafe` command on the SubQuery Node also allows:
 
 - making external requests (e.g. via Fetch to an external HTTP address or fs)
-- quering block data at any height via the unsafeApi
+- querying block data at any height via the unsafeApi
 
-**Note that must be on a paid plan if you would like to run projects with the `--unsafe` command (on the node service) within [SubQuery's Managed Service](https://project.subquery.network). Additionally, it will prevent your project from being run in the SubQuery Network in the future.**
+**Note that users must be on a paid plan to run projects with the `--unsafe` command (on the node service) within [SubQuery's Managed Service](https://project.subquery.network). Additionally, it will prevent your project from being run in the SubQuery Network in the future.**
 
 Also review the [--unsafe command on the query service](#unsafe-query-service).
 
