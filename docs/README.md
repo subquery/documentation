@@ -102,7 +102,7 @@ editLink: false
       <div class="ct">
         <h4>4. Deploy to the SubQuery Network (Coming soon)</h4>
         <p>Our decentralised service will be the future of web3 infrastructure. We’re building the most open, performant, reliable, and scalable data service for dApp developers which will index and serve data to the global community in an incentivised and verifiable way. <router-link :to="{path: '/subquery_network/introduction.html'}">Read more</router-link></p>      
-        </div>
+      </div>
     </div>
     <div class="journeyItem">
       <div class="icon">
