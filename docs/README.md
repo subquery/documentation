@@ -92,7 +92,7 @@ editLink: false
       </div>
       <div class="ct">
         <h4>3. Publish to the Managed Service</h4>
-          <p>You don’t want to run and manage production infrastructure, use our self-service platform to publish and run a production SubQuery project in only a few minutes &#8212; you can also explore what others in the community are building. <router-link :to="{path: '/run_publish/publish.html'}">Read more</router-link></p>
+        <p>You don’t want to run and manage production infrastructure, use our self-service platform to publish and run a production SubQuery project in only a few minutes &#8212; you can also explore what others in the community are building. <router-link :to="{path: '/run_publish/publish.html'}">Read more</router-link></p>
       </div>
     </div>
     <div class="journeyItem">
@@ -101,7 +101,8 @@ editLink: false
       </div>
       <div class="ct">
         <h4>4. Deploy to the SubQuery Network (Coming soon)</h4>
-        <p>Our decentralised service will be the future of web3 infrastructure. We’re building the most open, performant, reliable, and scalable data service for dApp developers which will index and serve data to the global community in an incentivised and verifiable way. <router-link :to="{path: '/subquery_network/introduction.html'}">Read more</router-link></p>      </div>
+        <p>Our decentralised service will be the future of web3 infrastructure. We’re building the most open, performant, reliable, and scalable data service for dApp developers which will index and serve data to the global community in an incentivised and verifiable way. <router-link :to="{path: '/subquery_network/introduction.html'}">Read more</router-link></p>      
+        </div>
     </div>
     <div class="journeyItem">
       <div class="icon">
