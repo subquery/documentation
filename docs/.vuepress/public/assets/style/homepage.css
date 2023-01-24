@@ -23,6 +23,9 @@ body .theme-default-content:not(.custom) {
 .welcomeContainer {
   background: linear-gradient(90deg, rgba(216, 236, 255, 0.2) 0%, rgba(245, 250, 255, 0.2) 58.62%);
 }
+.dark .welcomeContainer {
+  background: var(--c-bg-sidebar);
+}
 .mt80 {
   margin-top: 80px;
 }
@@ -124,6 +127,9 @@ body .theme-default-content:not(.custom) {
 .banner {
   padding: 80px;
   background: linear-gradient(0deg, rgba(255, 255, 255, 0.93), rgba(255, 255, 255, 0.93)), #4388DD;
+}
+.dark .banner {
+  background: none
 }
 .banner > div {
   display: flex;
@@ -353,6 +359,10 @@ body .theme-default-content:not(.custom) {
 }
 .advancedFeatures .cardList h5 {
   margin-bottom: 16px;
+  color: var(--c-text);
+}
+.advancedFeatures .cardList p {
+  color: var(--c-text);
 }
 .advancedFeatures .cardList .item:hover {
   border: 1px solid #4388DD;
