@@ -33,7 +33,7 @@ Perintah ini menggunakan webpack untuk menghasilkan bundel proyek subquery.
 
 - Setiap bidang `ekspor` harus dipetakan ke tipe string (mis. `"entry": "./src/file.ts"`), jika tidak, akan diabaikan dari build.
 
-[Contoh lebih lanjut](../build/introduction.md#build).
+For more info, visit [basic workflows](../build/introduction.md#build).
 
 ## subql-node
 
@@ -136,7 +136,7 @@ Biasanya ini akan diatur dalam file manifes Anda, tetapi di bawah ini menunjukka
 subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot"
 ```
 
-[Baca selengkapnya tentang cara kerja Kamus SubQuery](../academy/tutorials_examples/dictionary.md).
+For more info, visit [How does a SubQuery Dictionary works?](../academy/tutorials_examples/dictionary.md)
 
 ### --dictionary-timeout
 
@@ -226,7 +226,7 @@ Enables indexing multiple subquery projects into the same database schema.
 > subql-node -f . --multi-chain --db-schema=SCHEMA_NAME
 ```
 
-[Read more about how this feature](../build/multi-chain.md).
+For more info, visit [Multi-Chain Support](../build/multi-chain.md).
 
 ### --network-endpoint
 
@@ -284,7 +284,7 @@ subql-node -f . --local --profiler
 
 When using reindex command, historical must be enabled for the targeted project (`--disable-historical=false`). After starting the project, it would print out a log stating if historical is enabled or not.
 
-[Further information on Automated Historical State Tracking](./historical.md)
+For more info, visit [Automated Historical State Tracking](./historical.md)
 
 Use `--targetHeight=<blockNumber>` with `reindex` to remove indexed data and reindex from specified block height.
 
@@ -322,17 +322,15 @@ Setel batas waktu khusus untuk kotak pasir javascript untuk menjalankan fungsi p
 
 ### --timestamp-field
 
-Secara default ini benar. ketika disetel ke false dengan:
+Secara default ini benar. When set to false, it removes the created_at and updated_at columns in the starter_entities table.
 
 ```shell
 > subql-node -f . –timestamp-field=false
 ```
 
-Ini menghapus kolom create_at dan updated_at di tabel starter_entities.
-
 ### --unfinalized-blocks
 
-This will allow you to index blocks before they become finalized. It can be very useful if you want the most up-to-date data possible. It will detect any forks and remove any blocks that don't become finalized. By default it is set to `false`. To change it to `true` run following command:
+This allows you to index blocks before they become finalized. It can be very useful if you want the most up-to-date data possible. It will detect any forks and remove any blocks that don't become finalized. By default it is set to `false`. To change it to `true` run following command:
 
 ```shell
 > subql-node -f . --unfinalized-blocks
@@ -346,22 +344,22 @@ This feature is only available for Substrate-based blockchains; more networks wi
 
 ### --unsafe (Node Service)
 
-Unsafe mode controls various features that compromise the determinism of a SubQuery project by making it impossible to guarantee that the data within two identical projects run independently will be absolutely consistent.
+Unsafe mode controls various features that compromise the determinism of a SubQuery project. It makes it impossible to guarantee that the data within two identical projects running independently, will be 100% consistent.
 
-One way we control this is by running all projects in a js sandbox for security to limit the scope of access the project has to your system. Kotak pasir membatasi impor javascript yang tersedia ke modul berikut:
+One way we control this is by running all projects in a JS sandbox for security to limit the scope of access the project has to your system. Kotak pasir membatasi impor javascript yang tersedia ke modul berikut:
 
 ```javascript
 ["assert", "buffer", "crypto", "util", "path"];
 ```
 
-Although this enhances security we understand that this limits the available functionality of your SubQuery project. The `--unsafe` command allows any import which greatly increases functionality with the tradeoff of decreased security.
+Although this enhances security, we understand that this limits the available functionality of your SubQuery project. The `--unsafe` command allows any import which greatly increases functionality with the tradeoff of decreased security.
 
 By extension, the `--unsafe` command on the SubQuery Node also allows:
 
 - making external requests (e.g. via Fetch to an external HTTP address or fs)
-- quering block data at any height via the unsafeApi
+- querying block data at any height via the unsafeApi
 
-**Note that must be on a paid plan if you would like to run projects with the `--unsafe` command (on the node service) within [SubQuery's Managed Service](https://project.subquery.network). Additionally, it will prevent your project from being run in the SubQuery Network in the future.**
+**Note that users must be on a paid plan to run projects with the `--unsafe` command (on the node service) within [SubQuery's Managed Service](https://project.subquery.network). Additionally, it will prevent your project from being run in the SubQuery Network in the future.**
 
 Also review the [--unsafe command on the query service](#unsafe-query-service).
 
