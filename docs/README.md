@@ -74,7 +74,7 @@
       </div>
       <div class="ct">
         <h4>2. Run and Query via GraphQL</h4>
-        <p>Make advanced, flexible, but simple queries over GraphQL from any front end website or app. We even support advanced features like aggregate functions and subscriptions. <router-link :to="{path: '/run_publish/run.html'}">Read more</router-link></p>
+        <p>Make advanced, flexible, but simple queries over GraphQL from any website or app. We even support advanced features like aggregate functions and subscriptions. <router-link :to="{path: '/run_publish/run.html'}">Read more</router-link></p>
       </div>
     </div>
     <div class="journeyItem">
@@ -83,7 +83,7 @@
       </div>
       <div class="ct">
         <h4>3. Publish to the Managed Service</h4>
-        <p>Use our self-service platform to publish and run a production SubQuery project with great ease. It only take a few minutes! <router-link :to="{path: '/run_publish/publish.html'}">Read more</router-link></p>
+        <p>Use our self-service platform to publish and run a SubQuery project on production with great ease. It only take a few minutes! <router-link :to="{path: '/run_publish/publish.html'}">Read more</router-link></p>
       </div>
     </div>
     <div class="journeyItem">
