@@ -151,6 +151,6 @@ await store.count(`StarterEntity`, `field1`, field1Value);
 Also, we can count distinct records by a column on entity.
 
 ```typescript
-await store.count(`StarterEntity`, undefined,undefined,{distinct:true,col:'field1'});
+await store.count(`StarterEntity`, undefined, undefined, {distinct: true, col: 'field1'});
 ```
 
