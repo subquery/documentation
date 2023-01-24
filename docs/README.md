@@ -65,7 +65,7 @@
       </div>
       <div class="ct">
         <h4>1. Build</h4>
-        <p>Initialise your project, define your entities using GraphQL, identify the trigger events, and write simple mapping functions that process your data &#8212; that’s it! Theres no need for pre-existing data archives, write simply in typescript and test locally with Docker. <router-link :to="{path: '/build/introduction.html'}">Read more</router-link></p>
+        <p>Initialise your project, define your entities using GraphQL, identify the trigger events, and write simple mapping functions that process your data &#8212; that’s it! <router-link :to="{path: '/build/introduction.html'}">Read more</router-link></p>
       </div>
     </div>
     <div class="journeyItem">
@@ -74,7 +74,7 @@
       </div>
       <div class="ct">
         <h4>2. Run and Query via GraphQL</h4>
-        <p>Make advanced, flexible, but simple queries over GraphQL from any front end website or app. We even support advanced features like aggregate functions and allow you to subscribe to new data. <router-link :to="{path: '/run_publish/run.html'}">Read more</router-link></p>
+        <p>Make advanced, flexible, but simple queries over GraphQL from any front end website or app. We even support advanced features like aggregate functions and subscriptions. <router-link :to="{path: '/run_publish/run.html'}">Read more</router-link></p>
       </div>
     </div>
     <div class="journeyItem">
@@ -83,16 +83,7 @@
       </div>
       <div class="ct">
         <h4>3. Publish to the Managed Service</h4>
-        <p>You don’t want to run and manage production infrastructure, use our self-service platform to publish and run a production SubQuery project in only a few minutes &#8212; you can also explore what others in the community are building. <router-link :to="{path: '/run_publish/publish.html'}">Read more</router-link></p>
-      </div>
-    </div>
-    <div class="journeyItem">
-      <div class="icon">
-        <img src="/assets/img/journeyIcon4.svg" />
-      </div>
-      <div class="ct">
-        <h4>4. Deploy to the SubQuery Network (Coming soon)</h4>
-        <p>Our decentralised service will be the future of web3 infrastructure. We’re building the most open, performant, reliable, and scalable data service for dApp developers which will index and serve data to the global community in an incentivised and verifiable way. <router-link :to="{path: '/subquery_network/introduction.html'}">Read more</router-link></p>
+        <p>Use our self-service platform to publish and run a production SubQuery project with great ease. It only take a few minutes! <router-link :to="{path: '/run_publish/publish.html'}">Read more</router-link></p>
       </div>
     </div>
     <div class="journeyItem">
@@ -100,7 +91,7 @@
         <img src="/assets/img/journeyIcon5.svg" />
       </div>
       <div class="ct">
-        <h4>5. Optimise your Project</h4>
+        <h4>4. Optimise your Project</h4>
         <p>Performance is a crucial factor in each project. We’re here to give you guidance on how to optimise your SubQuery project to speed it up. <router-link :to="{path: '/build/optimisation.html'}">Read more</router-link></p>
       </div>
     </div>
