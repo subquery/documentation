@@ -5,7 +5,7 @@
 The biggest dApps depend on SubQuery's enterprise level Managed Service. With 100's of millions of daily requests and hundreds of active projects, SubQuery's Managed Service provides industry leading hosting for our customers.
 
 - Kami akan menjalankan proyek SubQuery untuk Anda dalam layanan publik berkinerja tinggi, skalabel, dan terkelola.
-- Layanan ini disediakan bagi komunitas dengan tingkat gratis yang murah hati! Anda dapat meng-host dua proyek SubQuery pertama Anda secara gratis!
+- Layanan ini disediakan bagi komunitas dengan tingkat gratis yang murah hati! You can host your first two SubQuery projects for absolutely free!
 - Anda dapat menjadikan proyek Anda publik sehingga akan dicantumkan di [SubQuery Explorer](https://explorer.subquery.network) dan siapa saja di seluruh dunia dapat melihatnya.
 
 Anda bisa meningkatkan untuk memanfaatkan layanan berbayar berikut ini:
