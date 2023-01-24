@@ -145,7 +145,7 @@
     <div class="ct">
       <h3>Want a More in Depth Learning Experience?</h3>
       <p>We have detailed, step by step learning course. Follow video tutorials alongside real world examples.</p>
-      <router-link class="button" :to="{path: '/academy/herocourse/welcome.htm'}">Start your Course</router-link>
+      <router-link class="button" :to="{path: '/academy/herocourse/welcome.html'}">Start your Course</router-link>
     </div>
     <img src="/assets/img/depth_learning.svg" />
   </div>
@@ -223,7 +223,7 @@
       <h3>The SubQuery Network</h3>
       <p>Say goodbye to relying on centralised service providers, we’re building the most open, performant, reliable, and scalable data service for dApp developers. </p>
       <p>The SubQuery Network indexes and services data to the global community in an incentivised and verifiable way. After publishing your project to the SubQuery Network, anyone can index and host it — providing data to users around the world faster and reliably.</p>
-      <router-link class="button" :to="{path: '/subquery_network/introduction.htm'}">Learn more about our Decentralised Network</router-link>
+      <router-link class="button" :to="{path: '/subquery_network/introduction.html'}">Learn more about our Decentralised Network</router-link>
     </div>
     <img src="/assets/img/architects.png" />
   </div>
