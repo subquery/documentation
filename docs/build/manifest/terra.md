@@ -91,12 +91,12 @@ The `chainId` is the network identifier of the blockchain. Examples in Terra inc
 Additionally you will need to update the `endpoint`. This defines the wss endpoint of the blockchain to be indexed - **this must be a full archive node**. Public nodes may be rate limited which can affect indexing speed, when developing your project we suggest getting a private API key.
 
 | Field            | Type   | Description                                                                                                                                                                           |
-| ---------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| ---------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **chainId**      | String | A network identifier for the blockchain                                                                                                                                               |
 | **endpoint**     | String | Defines the wss or ws endpoint of the blockchain to be indexed - **This must be a full archive node**.                                                                                |
 | **port**         | Number | Optional port number on the `endpoint` to connect to                                                                                                                                  |
 | **dictionary**   | String | It is suggested to provide the HTTP endpoint of a full chain dictionary to speed up processing - read [how a SubQuery Dictionary works](../academy/tutorials_examples/dictionary.md). |
-| **bypassBlocks** | Array  | x                                                                                                                                                                                     | Bypasses stated block numbers, the values can be a `range`(e.g. `"10- 50"`) or `integer`, see [Bypass Blocks](#bypass-blocks) |
+| **bypassBlocks** | Array  | Bypasses stated block numbers, the values can be a `range`(e.g. `"10- 50"`) or `integer`, see [Bypass Blocks](#bypass-blocks)                                                         |
 
 ### Runner Spec
 
@@ -146,7 +146,7 @@ dataSources:
       file: dist/index.js # Entry path for this mapping
 ```
 
-### Mapping handlers and Filters
+### Mapping Handlers and Filters
 
 The following table explains filters supported by different handlers.
 
@@ -154,14 +154,14 @@ The following table explains filters supported by different handlers.
 
 | Handler                                                             | Supported filter          |
 | ------------------------------------------------------------------- | ------------------------- |
-| [terra/BlockHandler](../mapping/terra.md#block-handler)             | No filters                |
+| [terra/BlockHandler](../mapping/terra.md#block-handler)             | `modulo`, `timestamp`     |
 | [terra/TransactionHandler](../mapping/terra.md#transaction-handler) | No filters                |
 | [terra/MessageHandler](../mapping/terra.md#message-handler)         | `type`, `values`\*        |
 | [terra/EventHandler](../mapping/terra.md#event-handler)             | `type`, `messageFilter`\* |
 
 Default runtime mapping filters are an extremely useful feature to decide what block, event, or extrinsic will trigger a mapping handler.
 
-Only incoming data that satisfy the filter conditions will be processed by the mapping functions. Mapping filters are optional but are highly recommended as they significantly reduce the amount of data processed by your SubQuery project and will improve indexing performance.
+Only incoming data that satisfies the filter conditions will be processed by the mapping functions. Mapping filters are optional but are highly recommended as they significantly reduce the amount of data processed by your SubQuery project and will improve indexing performance.
 
 For Cosmos and Terra message and event handlers, you can filter by all the keys that exist in the message type provided by the filter. If the call is `/terra.wasm.v1beta1.MsgExecuteContract` or `/cosmwasm.wasm.v1.MsgExecuteContract` then you can also specify the name of the called function. An example of this is below:
 
@@ -199,8 +199,10 @@ When declaring a `range` use an string in the format of `"start - end"`. Both st
 
 ```yaml
 network:
-  chainId: "0xfc41b9bd8ef8fe53d58c7ea67c794c7ec9a73daf05e6d54b14ff6342c99ba64c"
-  endpoint: wss://acala-polkadot.api.onfinality.io/public-ws
+  chainId: columbus-5
+  endpoint: https://terra-columbus-5.beta.api.onfinality.io
+  dictionary: https://api.subquery.network/sq/subquery/terra-columbus-5-dictionary
+  mantlemint: https://mantlemint.terra-columbus-5.beta.api.onfinality.io
   bypassBlocks: [1, 2, 3, "105-200", 290]
 ```
 

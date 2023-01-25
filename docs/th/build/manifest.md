@@ -99,7 +99,7 @@ dataSources:
       file: dist/index.js # เริ่มต้นการ mapping
 ```
 
-### Mapping handlers and Filters
+### Mapping Handlers and Filters
 
 จากตารางต่อไปนี้ จะอธิบาย filters ที่รองรับกับ handlers ที่หลากหลาย
 

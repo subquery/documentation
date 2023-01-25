@@ -101,13 +101,13 @@ The `chainId` is the network identifier of the blockchain. Examples in Cosmos mi
 
 Additionally you will need to update the `endpoint`. This defines the wss endpoint of the blockchain to be indexed - **this must be a full archive node**. Public nodes may be rate limited which can affect indexing speed. We suggest getting a private API key when developing your project. You can retrieve endpoints for all parachains for free from [OnFinality](https://app.onfinality.io).
 
-| Field            | Type   |  Description                                                                                                                                                                                               |
-| ---------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | 
+| Field            | Type   | Description                                                                                                                                                                                                |
+| ---------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **chainId**      | String | A network identifier for the blockchain                                                                                                                                                                    |
 | **endpoint**     | String | Defines the wss or ws endpoint of the blockchain to be indexed - **This must be a full archive node**. You can retrieve endpoints for all parachains for free from [OnFinality](https://app.onfinality.io) |
 | **port**         | Number | Optional port number on the `endpoint` to connect to                                                                                                                                                       |
 | **dictionary**   | String | It is suggested to provide the HTTP endpoint of a full chain dictionary to speed up processing - read [how a SubQuery Dictionary works](../academy/tutorials_examples/dictionary.md).                      |
-| **bypassBlocks** | Array  |   Bypasses stated block numbers, the values can be a `range`(e.g. `"10- 50"`) or `integer`, see [Bypass Blocks](#bypass-blocks)                                                                            |
+| **bypassBlocks** | Array  | Bypasses stated block numbers, the values can be a `range`(e.g. `"10- 50"`) or `integer`, see [Bypass Blocks](#bypass-blocks)                                                                              |
 
 ### Runner Spec
 
@@ -158,7 +158,7 @@ dataSources:
       file: dist/index.js # Entry path for this mapping
 ```
 
-### Mapping handlers and Filters
+### Mapping Handlers and Filters
 
 The following table explains filters supported by different handlers.
 
@@ -173,7 +173,7 @@ The following table explains filters supported by different handlers.
 
 Default runtime mapping filters are an extremely useful feature to decide what block, event, or extrinsic will trigger a mapping handler.
 
-Only incoming data that satisfy the filter conditions will be processed by the mapping functions. Mapping filters are optional but are highly recommended as they significantly reduce the amount of data processed by your SubQuery project and will improve indexing performance.
+Only incoming data that satisfies the filter conditions will be processed by the mapping functions. Mapping filters are optional but are highly recommended as they significantly reduce the amount of data processed by your SubQuery project and will improve indexing performance.
 
 ```yml
 # Example filter from EventHandler
@@ -247,8 +247,9 @@ When declaring a `range` use an string in the format of `"start - end"`. Both st
 
 ```yaml
 network:
-  chainId: "0xfc41b9bd8ef8fe53d58c7ea67c794c7ec9a73daf05e6d54b14ff6342c99ba64c"
-  endpoint: wss://acala-polkadot.api.onfinality.io/public-ws
+  chainId: juno-1
+  endpoint: https://juno.api.onfinality.io/public
+  dictionary: https://api.subquery.network/sq/subquery/cosmos-juno-dictionary
   bypassBlocks: [1, 2, 3, "105-200", 290]
 ```
 

@@ -6,22 +6,27 @@ Mapping functions define how chain data is transformed into the optimised GraphQ
 - These mappings are also exported in `src/index.ts`.
 - The mappings files are reference in `project.yaml` under the mapping handlers.
 
-There are different classes of mappings functions for Near; [Block handlers](#block-handler), [Transaction Handlers](#transaction-handler), and [Action Handlers](#action-handler).
+There are different classes of mappings functions for NEAR; [Block handlers](#block-handler), [Transaction Handlers](#transaction-handler), and [Action Handlers](#action-handler).
 
 ## Block Handler
 
 You can use block handlers to capture information each time a new block is attached to the chain, e.g. block number. To achieve this, a defined BlockHandler will be called once for every block.
+
+**Using block handlers slows your project down as they can be executed with each and every block - only use if you need to.**
 
 ```ts
 import { NearBlock } from "@subql/types-near";
 
 export async function handleBlock(block: NearBlock): Promise<void> {
   logger.info(`Handling block ${block.header.height}`);
-  const blockRecord = new NearBlockEntity(block.header.height.toString());
 
-  blockRecord.hash = block.header.hash;
-  blockRecord.author = block.author;
-  blockRecord.timestamp = BigInt(block.header.timestamp);
+  const blockRecord = NearBlockEntity.create({
+    id: block.header.height.toString(),
+    hash: block.header.hash,
+    author: block.author,
+    timestamp: BigInt(block.header.timestamp),
+  });
+
   await blockRecord.save();
 }
 ```
@@ -36,17 +41,19 @@ import { NearTransaction } from "@subql/types-near";
 export async function handleTransaction(
   transaction: NearTransaction
 ): Promise<void> {
-  const transactionRecord = new NearTxEntity(
-    `${transaction.block_hash}-${transaction.result.id}`
-  );
-  
-  transactionRecord.signer = transaction.signer_id;
-  transactionRecord.receiver = transaction.receiver_id;
+  logger.info(`Handling transaction at ${transaction.block_height}`);
+
+  const transactionRecord = NearTxEntity.create({
+    id: `${transaction.block_hash}-${transaction.result.id}`,
+    signer: transaction.signer_id,
+    receiver: transaction.receiver_id,
+  });
+
   await transactionRecord.save();
 }
 ```
 
-The `NearTransaction` encapsulates transaction info, result, the corresponding block details and the list of `NearAction` that occured in the transaction.
+The `NearTransaction` encapsulates transaction info, result, the corresponding block details and the list of `NearAction` entities that occured in the specific transaction.
 
 ## Action Handler
 
@@ -56,23 +63,28 @@ You can use action handlers to capture information from each action in a transac
 import { NearAction, Transfer } from "@subql/types-near";
 
 export async function handleAction(
-  action: NearAction
+  action: NearAction<Transfer>
 ): Promise<void> {
-  action = action as NearAction<Transfer>;
+  logger.info(`Handling action at ${action.transaction.block_height}`);
 
-  const actionRecord = new NearActionEntity(
-    `${action.transaction.result.id}-${action.id}`
-  )
-
-  actionRecord.sender = action.transaction.signer_id;
-  actionRecord.receiver = action.transaction.receiver_id;
-  actionRecord.amount = BigInt((action.action as Transfer).deposit.toString());
+  const actionRecord = NearActionEntity.create({
+    id: `${action.transaction.result.id}-${action.id}`,
+    sender: action.transaction.signer_id,
+    receiver: action.transaction.receiver_id,
+    amount: BigInt((action.action as Transfer).deposit.toString()),
+  });
 
   await actionRecord.save();
 }
 ```
 
-`NearAction` encapsulates the `action` object containing the action data, the `NearTransaction` in which the action occured in.
+`NearAction` encapsulates the `action` object containing the action data and the `NearTransaction` in which the action occured in.
+
+## RPC Calls
+
+We also support some [API RPC methods here](https://github.com/subquery/subql-near/blob/main/packages/types/src/global.ts) that are remote calls that allow the mapping function to interact with the actual node and chain state.
+
+Documents in [NEAR `JsonRpcProvider`](https://docs.near.org/tools/near-api-js/reference/classes/providers_json_rpc_provider.JsonRpcProvider.html) provide some methods to interact with the NEAR RPC API.
 
 ## The Sandbox
 
@@ -114,9 +126,3 @@ Rather than importing the whole module, we recommend only importing the required
 import { hashMessage } from "ethers/lib/utils"; // Good way
 import { utils } from "ethers"; // Bad way
 ```
-
-## RPC Calls
-
-We also support some [API RPC methods here](https://github.com/subquery/subql-near/blob/9494b2110af756d1147ecceba99fdf3c493c5762/packages/types/src/global.ts#L11) that are remote calls that allow the mapping function to interact with the actual node and chain state.
-
-Documents in [Near JsonRpcProvider](https://docs.near.org/tools/near-api-js/reference/classes/providers_json_rpc_provider.JsonRpcProvider.html) provide some methods.
