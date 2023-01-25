@@ -1,4 +1,4 @@
-# Polkadot Quick Start (Humanode)
+# Humanode Quick Start 
 
 ## Goals
 
