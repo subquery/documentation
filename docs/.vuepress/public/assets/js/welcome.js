@@ -1,21 +1,18 @@
-var faqList = document.querySelectorAll('.faqList li')
-var faqListTitle = document.querySelectorAll('.faqList .title')
-faqList.forEach(function(thisDom) {
-    thisDom.onclick = function(everyDom) {
-        faqList.forEach(function(e) {
-            e.className = ''
-        })
-        everyDom.stopPropagation();
-        thisDom.className = 'current'
+var newfaqList = document.querySelectorAll(".faqs li");
+var newFaqListTitle = document.querySelectorAll(".faqs .title");
+newFaqListTitle.forEach(function (thisDom) {
+  console.log(444);
+  thisDom.onclick = function (everyDom) {
+    everyDom.stopPropagation();
+    const isActive = thisDom.parentElement.className.includes("active");
+    if (isActive) {
+      thisDom.parentElement.className = thisDom.parentElement.className.replace(
+        "active",
+        ""
+      );
+    } else {
+      thisDom.parentElement.className = thisDom.parentElement.className +=
+        " active";
     }
-})
-faqListTitle.forEach(function(listItem) {
-    listItem.onclick = function(e) {
-        if (listItem.parentNode.className === 'current') {
-            faqList.forEach(function(dom) {
-                dom.className = ''
-            })
-            e.stopPropagation();
-        }
-    }
-})
+  };
+});

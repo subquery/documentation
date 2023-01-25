@@ -46,13 +46,13 @@ dataSources:
         - handler: handleTransaction
           kind: algorand/TransactionHandler
           filter:
-            txType: pay
+            txType: pay # From the application TransactionType enum https://github.com/algorand/js-algorand-sdk/blob/5eb7b4ffe5fcb46812785fdc79e8a7edb78b084f/src/types/transactions/base.ts#L6
             sender: "ZW3ISEHZUHPO7OZGMKLKIIMKVICOUDRCERI454I3DB2BH52HGLSO67W754"
             receiver: "ZW3ISEHZUHPO7OZGMKLKIIMKVICOUDRCERI454I3DB2BH52HGLSO67W754"
         - handler: handleTransaction
           kind: algorand/TransactionHandler
           filter:
-            txType: acfg
+            txType: acfg # From the application TransactionType enum https://github.com/algorand/js-algorand-sdk/blob/5eb7b4ffe5fcb46812785fdc79e8a7edb78b084f/src/types/transactions/base.ts#L6
             applicationId: 1
 ```
 
@@ -153,6 +153,8 @@ The following table explains filters supported by different handlers.
 | ------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
 | [algorand/BlockHandler](../mapping/algorand.md#block-handler)             | `modulo`                                                                                                 |
 | [algorand/TransactionHandler](../mapping/algorand.md#transaction-handler) | `txType`,`sender`, `receiver`, `applicationId`, `nonParticipant`, `assetId`, `newFreezeStatus` `address` |
+
+`txType` is the enum for the type of transaction. You can see a [list of valid enum values here](https://github.com/algorand/js-algorand-sdk/blob/5eb7b4ffe5fcb46812785fdc79e8a7edb78b084f/src/types/transactions/base.ts#L6).
 
 Default runtime mapping filters are an extremely useful feature to decide what block, event, or extrinsic will trigger a mapping handler.
 
