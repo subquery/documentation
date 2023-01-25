@@ -1,3 +1,9 @@
+- - -
+
+footer: false lastUpdated: false contributors: false editLink: false
+
+- - -
+
 <link rel="stylesheet" href="/assets/style/homepage.css" as="style" />
 <div class="welcomeContainer">
   <div class="banner">
