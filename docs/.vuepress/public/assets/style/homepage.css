@@ -395,8 +395,16 @@ body .theme-default-content:not(.custom) {
   text-align: center;
 }
 
+/* Styles of our footer */
+
 .footer {
   font-weight: 500;
   font-size: 14px;
   line-height: 68px;
+}
+
+/*Below was applied to hide the vue-press footer on home pgae */
+
+footer {
+  display: none;
 }
