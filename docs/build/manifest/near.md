@@ -169,9 +169,8 @@ filter:
 
 # Example filter from ActionHandler:
 filter:
-  type: Transfer
-  action:
-    deposit: '50000000000000000000000'
+  type: FunctionCall
+  methodName: 'storage_deposit'
 ```
 
 The `modulo` filter allows handling every N blocks, which is useful if you want to group or calculate data at a set interval. The following example shows how to use this filter.
