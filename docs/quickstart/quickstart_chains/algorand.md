@@ -394,7 +394,7 @@ Congratulations! You have now a locally running SubQuery project that accepts Gr
 
 ::: tip Tip
 
-Find out how to build a performant SubQuery project and avoid common mistakes in [Project Optimisation](../build/optimisation.md).
+Find out how to build a performant SubQuery project and avoid common mistakes in [Project Optimisation](../../build/optimisation.md).
 
 :::
 
