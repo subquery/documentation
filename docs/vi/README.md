@@ -57,6 +57,10 @@ footer: false lastUpdated: false contributors: false editLink: false
           <img src="/assets/img/logo_avalanche.svg" />
           <img src="/assets/img/logo_avalanche_blue.svg" />
         </router-link>
+        <router-link :to="{path: '/quickstart/quickstart_chains/near.html'}"> 
+          <img src="/assets/img/logo_near.svg" />
+          <img src="/assets/img/logo_near_blue.svg" />
+        </router-link>
         <router-link :to="{path: '/quickstart/quickstart_chains/terra.html'}"> 
           <img src="/assets/img/logo_terra.svg" />
           <img src="/assets/img/logo_terra_blue.svg" />
