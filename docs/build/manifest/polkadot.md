@@ -183,7 +183,7 @@ dataSources:
       file: dist/index.js # Entry path for this mapping
 ```
 
-### Mapping handlers and Filters
+### Mapping Handlers and Filters
 
 The following table explains filters supported by different handlers.
 
@@ -197,7 +197,7 @@ The following table explains filters supported by different handlers.
 
 Default runtime mapping filters are an extremely useful feature to decide what block, event, or extrinsic will trigger a mapping handler.
 
-Only incoming data that satisfy the filter conditions will be processed by the mapping functions. Mapping filters are optional but are highly recommended as they significantly reduce the amount of data processed by your SubQuery project and will improve indexing performance.
+Only incoming data that satisfies the filter conditions will be processed by the mapping functions. Mapping filters are optional but are highly recommended as they significantly reduce the amount of data processed by your SubQuery project and will improve indexing performance.
 
 ```yml
 # Example filter from Substrate callHandler
