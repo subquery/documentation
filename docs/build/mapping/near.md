@@ -103,7 +103,7 @@ subquery-node:
   ...
 ```
 
-By default, the [VM2](https://www.npmjs.com/package/vm2) sandbox only allows the folling:
+By default, the [VM2](https://www.npmjs.com/package/vm2) sandbox only allows the following:
 
 - only some certain built-in modules, e.g. `assert`, `buffer`, `crypto`,`util` and `path`
 - third-party libraries written by _CommonJS_.
