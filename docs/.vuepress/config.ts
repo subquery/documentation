@@ -387,6 +387,19 @@ function getSidebar(locale: string): SidebarConfigArray {
           ],
         },
         {
+          text: "SubQuery and Moonbeam Course",
+          link: `${locale}/academy/moonbeam_course/welcome`,
+          children: [
+            `${locale}/academy/moonbeam_course/welcome.md`,
+            `${locale}/academy/moonbeam_course/lesson1.md`,
+            `${locale}/academy/moonbeam_course/lesson2.md`,
+            `${locale}/academy/moonbeam_course/lesson3.md`,
+            `${locale}/academy/moonbeam_course/lesson4.md`,
+            `${locale}/academy/moonbeam_course/lesson5.md`,
+            `${locale}/academy/moonbeam_course/lesson6.md`,
+          ],
+        },
+        {
           text: "Tutorials & Examples",
           link: `${locale}/academy/tutorials_examples/introduction`,
           children: [
