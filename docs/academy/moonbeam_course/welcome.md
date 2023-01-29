@@ -17,7 +17,7 @@ In this course you will learn how to use SubQuery to index decentralised data qu
 
 Within the course, you will create a project using SubQuery CLI and tweak it to your needs. This includes indexing Moonbeam data alongside Substate Events and exploring the benefits of such integration, discussing data mutation, entities’ relationships and other advanced ideas and upcoming features.
 
-The course has 6 lessons, 1.5 hours of video materials and coding examples. Each lesson consists of video. Each video is explained by industry experts and will guide you step by step. Moreover, to make it easier for you, each video content is followed by written tutorials, and links to other docs and GitHub code repositories. 
+The course has 6 lessons, 1.5 hours of video materials and coding examples. Each lesson includes of video content. Each video is explained by industry experts and will guide you step by step. Moreover, to make it easier for you, each video content is followed by written tutorials, and links to other docs and GitHub code repositories. 
 
 ## Goal of the Course
 
