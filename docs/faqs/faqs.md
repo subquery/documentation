@@ -6,6 +6,7 @@ SubQuery is an open source blockchain data indexer for developers that provides 
 
 Our goal is to save developers' time and money by eliminating the need of building their own indexing solution. Now, they can fully focus on developing their applications. SubQuery helps developers create the decentralised products of the future.
 
+<br/>
 <figure class="video_container"> 
 <iframe src="https://www.youtube.com/embed/gCpVz_mkWdo" title="Introducing The SubQuery Network" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscree="true"></iframe>
 </figure>

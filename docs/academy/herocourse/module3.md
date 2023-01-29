@@ -10,6 +10,7 @@ Let's have a look at each relationship one-by-one.
 
 ## Lesson 1: One to Many Entities
 
+<br/>
 <figure class="video_container">
   <iframe src="https://www.youtube.com/embed/7ApycKhiPTw" frameborder="0" allowfullscreen="true"></iframe>
 </figure>
@@ -413,6 +414,7 @@ Simply put, one account links to many transfers. In other words, each unique Pol
 
 ## Lesson 2: Many to Many Entities
 
+<br/>
 <figure class="video_container">
   <iframe src="https://www.youtube.com/embed/TKsJ6FQGrEs" frameborder="0" allowfullscreen="true"></iframe>
 </figure>
@@ -910,6 +912,7 @@ Here, by adding `voteHistory_p` and `voteHistory_b`, `voteHistories` becomes `vo
 
 ## Lesson 3: Reverse Lookups
 
+<br/>
 <figure class="video_container">
   <iframe src="https://www.youtube.com/embed/4BllEtKEf9s" frameborder="0" allowfullscreen="true"></iframe>
 </figure>

@@ -2,6 +2,7 @@
 
 ## 视频教程
 
+<br/>
 <figure class="video_container">
   <iframe src="https://www.youtube.com/embed/6NlaO-YN2q4" frameborder="0" allowfullscreen="true"></iframe>
 </figure>

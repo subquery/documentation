@@ -6,6 +6,7 @@ SubQuery, önde gelen çok zincirli uygulamaları desteklemek için hızlı, esn
 
 Amacımız, kendi indeksleme çözümlerini oluşturma ihtiyacını ortadan kaldırarak geliştiricilerin zaman ve paradan tasarruf etmesini sağlamaktır. Artık tamamen uygulamalarını geliştirmeye odaklanabilirler. SubQuery, geliştiricilerin geleceğin merkezi olmayan ürünlerini oluşturmasına yardımcı olur.
 
+<br/>
 <figure class="video_container">
 <iframe src="https://www.youtube.com/embed/gCpVz_mkWdo" title="Introducing The SubQuery Network" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscree="true"></iframe>
 </figure>

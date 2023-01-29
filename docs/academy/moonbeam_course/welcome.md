@@ -8,6 +8,11 @@ This course is focused on the Moonbeam and SubQuery integration and is crafted s
 
 ## Overview of the Course Content
 
+<br/>
+<figure class="video_container">
+  <iframe src="https://www.youtube.com/embed/v3pdOM3EOOo" frameborder="0" allowfullscreen="true"></iframe>
+</figure>
+
 In this course you will learn how to use SubQuery to index decentralised data quickly and easily so that you can focus on the most important part — building your dApp. You can expect to learn how to index the data that you need to build a superior and performant application.
 
 Within the course, you will create a project using SubQuery CLI and tweak it to your needs. This includes indexing Moonbeam data alongside Substate Events and exploring the benefits of such integration, discussing data mutation, entities’ relationships and other advanced ideas and upcoming features.
@@ -23,3 +28,7 @@ The course is designed in a way that even if you are a beginner and know very li
 > *“I personally had a lot of fun building the course content and hope developers enjoy this resource as well!“* — [Marta Adamczyk](https://twitter.com/madamczyk0) (Technology Evangelist at SubQuery)
 
 Read more about our collaboration with Moonbeam [here](https://subquery.medium.com/subquery-collaborates-with-moonbeam-on-data-indexing-course-56848475e02).
+
+::: tip Note
+In case of any issues or questions reach out to us on **#technical-support** channel on our [Discord](https://discord.com/invite/subquery)
+:::

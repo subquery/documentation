@@ -2,12 +2,14 @@
 
 ## Lesson 1 - Deploying a project
 
+<br/>
 <figure class="video_container">
   <iframe src="https://www.youtube.com/embed/8QcFvd-_3YQ" frameborder="0" allowfullscreen="true"></iframe>
 </figure>
 
 ## Lesson 2 - What are SubQuery slots and how to use them?
 
+<br/>
 <figure class="video_container">
   <iframe src="https://www.youtube.com/embed/JeYa3JlxR1g" frameborder="0" allowfullscreen="true"></iframe>
 </figure>
@@ -18,6 +20,7 @@
 
 ## Lesson 3 - Exploring projects
 
+<br/>
 <figure class="video_container">
   <iframe src="https://www.youtube.com/embed/TMT00Ggs7tc" frameborder="0" allowfullscreen="true"></iframe>
 </figure>

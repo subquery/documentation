@@ -4,6 +4,7 @@
 
 ### Video guide
 
+<br/>
 <figure class="video_container">
   <iframe src="https://www.youtube.com/embed/ZiNSXDMHmBk" frameborder="0" allowfullscreen="true"></iframe>
 </figure>
@@ -54,6 +55,7 @@ No. Because you are modifying the project.yaml file, which is essentially a conf
 
 ### Video guide
 
+<br/>
 <figure class="video_container">
   <iframe src="https://www.youtube.com/embed/LO_Gea_IN_s" frameborder="0" allowfullscreen="true"></iframe>
 </figure>
