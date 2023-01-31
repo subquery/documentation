@@ -22,6 +22,11 @@
   --content-width: 740px;
   --homepage-width: 960px;
 }
+html.dark {
+  // brand colors
+  --c-brand: #4388DD;
+  --c-brand-light: #4388DD;
+}
 * {
   font-family: 'Inter',-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
 }
@@ -61,5 +66,10 @@ iframe {
 @media screen and (max-width: 719px) {
   .navbar a .can-hide {
     display: inline-block;
+  }
+}
+@media (max-width: 719px) {
+  .navbar .site-name {
+    width: calc(100vw - 13.4rem);
   }
 }
