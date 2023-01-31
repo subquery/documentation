@@ -132,7 +132,7 @@ dataSources:
 
 ### Schema GraphQl
 
-``` ts
+```graphql
 type Transaction @entity {
   id: ID! # Transaction hash
   value: BigInt!
