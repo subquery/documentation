@@ -81,7 +81,7 @@ Your files should look like this:
 
 ### Manifest
 
-``` ts
+```yaml
 specVersion: 1.0.0
 name: moonbeam-evm-starter
 version: 0.0.1
