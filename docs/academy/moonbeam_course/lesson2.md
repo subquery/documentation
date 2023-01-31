@@ -81,7 +81,7 @@ Your files should look like this:
 
 ### Manifest
 
-``` yaml
+```yaml
 specVersion: 1.0.0
 name: moonbeam-evm-starter
 version: 0.0.1
@@ -132,7 +132,7 @@ dataSources:
 
 ### Schema GraphQl
 
-``` graphql
+```graphql
 type Transaction @entity {
   id: ID! # Transaction hash
   value: BigInt!
