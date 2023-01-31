@@ -74,14 +74,14 @@ If you want to change your project and go beyond the default content of any star
 Find out more about [Manifest](../../build/manifest/polkadot.md) and [GraphQl Schema](../../build/graphql.md) and [Mapping functions](../../build/mapping/polkadot.md). 
 
 ::: tip Note
-In the first lesson there is no code alternation. 
+In this first lesson there is no code alternation. 
 ::: 
 
 Your files should look like this:
 
 ### Manifest
 
-``` ts
+``` yaml
 specVersion: 1.0.0
 name: moonbeam-evm-starter
 version: 0.0.1
@@ -132,7 +132,7 @@ dataSources:
 
 ### Schema GraphQl
 
-``` ts
+``` graphql
 type Transaction @entity {
   id: ID! # Transaction hash
   value: BigInt!
@@ -295,27 +295,6 @@ query {
             value
             to: id
             from: id
-        }
-    }
-    collators (last: 5) {
-        nodes {
-            id
-            joinedDate
-            leaveDate
-        }
-    }
-    accounts(first: 5) {
-        nodes {
-            id
-            sentTransactions {
-                nodes {
-                    id
-                    value
-                    to: id
-                    from: id
-                    contractAddress       
-                }
-            }
         }
     }
 }
