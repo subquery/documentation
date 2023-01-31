@@ -222,7 +222,7 @@ export async function collatorJoined(
 Open your browser and head to `http://localhost:3000`. Use GraphQL playground to query your data.
 Expand previous query by adding `collators` on the bottom: 
 
-``` graphql
+```graphql
 query {
     approvals (first: 5) {
         nodes {

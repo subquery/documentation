@@ -152,7 +152,7 @@ type Approval @entity {
 
 ### Mappings functions
 
-``` ts
+```ts
 import { Approval, Transaction } from "../types";
 import {
   FrontierEvmEvent,
@@ -279,7 +279,7 @@ When you are doing it for the first time, it may take some time to start.
 Open your browser and head to `http://localhost:3000.` You should see a GraphQL playground is showing in the explorer and the schemas that ready to query.
 With this project can try to query with the following code to get a taste of how it works.
 
-``` graphql
+```graphql
 query {
     approvals (first: 5) {
         nodes {
