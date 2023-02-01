@@ -233,6 +233,6 @@ footer: false lastUpdated: false contributors: false editLink: false
     <p>The fastest way to get support is by joining our discord and messaging us in #technical-support.</p>
     <a class="button" href="https://discord.com/invite/subquery" target="_blank"><img src="/assets/img/discord_icon.svg" />Join our Discord</a>
   </div>
-  <div class="footer layout">SubQuery © 2022</div>
+  <div class="footer layout">SubQuery © 2023</div>
 </div>
 <component :is="'script'" src="/assets/js/welcome.js"></component>
