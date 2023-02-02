@@ -372,7 +372,7 @@ function getSidebar(locale: string): SidebarConfigArray {
     },
     {
       text: "Courses",
-      link: `${locale}/academy/herocourse/welcome`,
+      link: `${locale}/academy/academy.md`,
       collapsible: true,
       children: [
         {
@@ -389,7 +389,7 @@ function getSidebar(locale: string): SidebarConfigArray {
           ],
         },
         {
-          text: "SubQuery and Moonbeam Course",
+          text: "SubQuery Moonbeam Course",
           link: `${locale}/academy/moonbeam_course/welcome`,
           children: [
             `${locale}/academy/moonbeam_course/welcome.md`,
