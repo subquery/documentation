@@ -6,6 +6,7 @@ SubQuery is an open source blockchain data indexer for developers that provides 
 
 Our goal is to save developers' time and money by eliminating the need of building their own indexing solution. Now, they can fully focus on developing their applications. SubQuery helps developers create the decentralised products of the future.
 
+<br/>
 <figure class="video_container">
 <iframe src="https://www.youtube.com/embed/gCpVz_mkWdo" title="Introducing The SubQuery Network" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscree="true"></iframe>
 </figure>
@@ -26,7 +27,7 @@ The best way to get started with SubQuery is to try out our [Hello World tutoria
 
 ## SubQuery에 기여하거나 피드백을 하려면 어떻게 해야하나요?
 
-우리는 언제나 커뮤니티의 기여와 피드백을 환영합니다. To contribute the code, fork the repository of your interest and make your changes. 그런 다음 PR 또는 풀 리퀘스트를 통해 제출해주세요. Don't forget to test as well. Also check out our [contributions guidelines](../miscellaneous/contributing.html).
+We love contributions and feedback from the community. To contribute the code, fork the repository of your interest and make your changes. Then submit a PR or Pull Request. Don't forget to test as well. Also check out our [contributions guidelines](../miscellaneous/contributing.html).
 
 To give feedback, contact us at hello@subquery.network or jump onto our [discord channel](https://discord.com/invite/78zg8aBSMG).
 
