@@ -17,6 +17,7 @@ SubQuery Hello World 빠른 시작에 오신 것을 환영합니다. 빠른 시�
 
 ## 비디오 가이드
 
+<br/>
 <figure class="video_container">
   <iframe src="https://www.youtube.com/embed/j034cyUYb7k" frameborder="0" allowfullscreen="true"></iframe>
 </figure>

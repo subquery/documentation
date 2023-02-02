@@ -4,6 +4,7 @@
 
 ### Video hướng dẫn
 
+<br/>
 <figure class="video_container">
   <iframe src="https://www.youtube.com/embed/ZiNSXDMHmBk" frameborder="0" allowfullscreen="true"></iframe>
 </figure>
@@ -54,6 +55,7 @@ Không. Bởi vì bạn đang sửa đổi tệp project.yaml (về cơ bản th
 
 ### Video hướng dẫn
 
+<br/>
 <figure class="video_container">
   <iframe src="https://www.youtube.com/embed/LO_Gea_IN_s" frameborder="0" allowfullscreen="true"></iframe>
 </figure>

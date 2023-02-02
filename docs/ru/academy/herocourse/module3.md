@@ -2,6 +2,7 @@
 
 ## Lesson 1: One to many entities
 
+<br/>
 <figure class="video_container">
   <iframe src="https://www.youtube.com/embed/7ApycKhiPTw" frameborder="0" allowfullscreen="true"></iframe>
 </figure>
@@ -350,6 +351,7 @@ In other words, one account links to many transfers or more verbosely stated, ea
 
 ## Lesson 2: Many to many entities
 
+<br/>
 <figure class="video_container">
   <iframe src="https://www.youtube.com/embed/TKsJ6FQGrEs" frameborder="0" allowfullscreen="true"></iframe>
 </figure>
@@ -835,6 +837,7 @@ By adding voteHistory_p and voteHistory_b, voteHistories becomes voteHistory_c
 
 ## Lesson 3: Reverse lookups
 
+br/>
 <figure class="video_container">
   <iframe src="https://www.youtube.com/embed/4BllEtKEf9s" frameborder="0" allowfullscreen="true"></iframe>
 </figure>

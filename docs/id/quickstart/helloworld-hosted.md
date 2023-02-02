@@ -19,6 +19,7 @@ Panduan ini ditujukan bagi para pengembang (developer) baru yang memiliki pengal
 
 ## Panduan video
 
+<br/>
 <figure class="video_container">
   <iframe src="https://www.youtube.com/embed/b-ba8-zPOoo" frameborder="0" allowfullscreen="true"></iframe>
 </figure>

@@ -17,6 +17,7 @@ Hướng dẫn này hướng tới các nhà phát triển mới đã có một 
 
 ## Video hướng dẫn
 
+<br/>
 <figure class="video_container">
   <iframe src="https://www.youtube.com/embed/j034cyUYb7k" frameborder="0" allowfullscreen="true"></iframe>
 </figure>

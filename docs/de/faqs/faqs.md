@@ -6,6 +6,7 @@ SubQuery ist ein Open-Source-Blockchain-Datenindexer für Entwickler, der schnel
 
 Unser Ziel ist es, Entwicklern Zeit und Geld zu sparen, indem wir die Notwendigkeit beseitigen, ihre eigene Indizierungslösung zu erstellen. Jetzt können sie sich voll und ganz auf die Entwicklung ihrer Anwendungen konzentrieren. SubQuery hilft Entwicklern, die dezentralen Produkte der Zukunft zu erstellen.
 
+<br/>
 <figure class="video_container">
 <iframe src="https://www.youtube.com/embed/gCpVz_mkWdo" title="Einführung in das SubQuery Network" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscree="true"></iframe>
 </figure>

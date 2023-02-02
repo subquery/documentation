@@ -6,6 +6,7 @@ The Academy is designed to up-skill and empower developers in the SubQuery ecosy
 
 ## The SubQuery Hero Course
 
+<br/>
 <figure class="video_container">
   <iframe src="https://www.youtube.com/embed/LgkXd4f3WKg" frameborder="0" allowfullscreen="true"></iframe>
 </figure>

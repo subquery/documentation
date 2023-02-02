@@ -372,7 +372,7 @@ function getSidebar(locale: string): SidebarConfigArray {
     },
     {
       text: "Courses",
-      link: `${locale}/academy/herocourse/welcome`,
+      link: `${locale}/academy/academy.md`,
       collapsible: true,
       children: [
         {
@@ -386,6 +386,19 @@ function getSidebar(locale: string): SidebarConfigArray {
             `${locale}/academy/herocourse/module4.md`,
             `${locale}/academy/herocourse/module5.md`,
             `${locale}/academy/herocourse/module6.md`,
+          ],
+        },
+        {
+          text: "SubQuery Moonbeam Course",
+          link: `${locale}/academy/moonbeam_course/welcome`,
+          children: [
+            `${locale}/academy/moonbeam_course/welcome.md`,
+            `${locale}/academy/moonbeam_course/lesson1.md`,
+            `${locale}/academy/moonbeam_course/lesson2.md`,
+            `${locale}/academy/moonbeam_course/lesson3.md`,
+            `${locale}/academy/moonbeam_course/lesson4.md`,
+            `${locale}/academy/moonbeam_course/lesson5.md`,
+            `${locale}/academy/moonbeam_course/lesson6.md`,
           ],
         },
         {

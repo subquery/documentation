@@ -19,6 +19,7 @@ Questa guida è orientata ai nuovi sviluppatori che hanno qualche esperienza di 
 
 ## Video guida
 
+<br/>
 <figure class="video_container">
   <iframe src="https://www.youtube.com/embed/b-ba8-zPOoo" frameborder="0" allowfullscreen="true"></iframe>
 </figure>

@@ -19,6 +19,7 @@ Dieses Handbuch richtet sich an neue Entwickler, die über einige Entwicklungser
 
 ## Videoanleitung
 
+<br/>
 <figure class="video_container">
   <iframe src="https://www.youtube.com/embed/b-ba8-zPOoo" frameborder="0" allowfullscreen="true"></iframe>
 </figure>

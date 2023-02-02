@@ -6,6 +6,7 @@ Refer to the documentation references, given at the end of the each lesson, for 
 
 ## Lesson 1: The Manifest File
 
+<br/>
 <figure class="video_container">
   <iframe src="https://www.youtube.com/embed/u84It8y4g90" frameborder="0" allowfullscreen="true"></iframe>
 </figure>
@@ -16,6 +17,7 @@ Refer to the documentation references, given at the end of the each lesson, for 
 
 ## Lesson 2: The Schema File
 
+<br/>
 <figure class="video_container">
   <iframe src="https://www.youtube.com/embed/aqje6qe1M2M" frameborder="0" allowfullscreen="true"></iframe>
 </figure>
@@ -26,6 +28,7 @@ Refer to the documentation references, given at the end of the each lesson, for 
 
 ## Lesson 3: The Mappings File - Block Handler
 
+<br/>
 <figure class="video_container">
   <iframe src="https://www.youtube.com/embed/HNbnVuWxWwA" frameborder="0" allowfullscreen="true"></iframe>
 </figure>
@@ -36,6 +39,7 @@ Refer to the documentation references, given at the end of the each lesson, for 
 
 ## Lesson 4: The Mappings File - Event Handler
 
+<br/>
 <figure class="video_container">
   <iframe src="https://www.youtube.com/embed/QbbReVvThPA" frameborder="0" allowfullscreen="true"></iframe>
 </figure>
@@ -46,6 +50,7 @@ Refer to the documentation references, given at the end of the each lesson, for 
 
 ## Lesson 5: The Mappings File - Call Handler
 
+<br/>
 <figure class="video_container">
   <iframe src="https://www.youtube.com/embed/dKmWw9kr5jc" frameborder="0" allowfullscreen="true"></iframe>
 </figure>
