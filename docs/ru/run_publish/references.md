@@ -384,7 +384,7 @@ Also review the [--unsafe command on the query service](#unsafe-query-service).
 
 На данный момент он находится на ранней стадии эксперимента, но мы планируем включить его по умолчанию. :::
 
-On initialisation, once the main thread is established, then the fetching and processing workload is disturbed across all worker threads. Each worker has their own buffer (a set of blocks that they are responsible to fetch/process). Например:
+On initialisation, once the main thread is established, then the fetching and processing workload is disturbed across all worker threads. Each worker has their own buffer (a set of blocks that they are responsible to fetch/process). For example:
 
 - Worker A: Will execute the `fetch` and `indexing` of blocks `[n,..n+10]`
 - Worker B: Will execute the `fetch` and `indexing` of blocks `[n+11,..n+20]`
