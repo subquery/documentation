@@ -102,7 +102,7 @@ footer: false lastUpdated: false contributors: false editLink: false
       </div>
       <div class="ct">
         <h4>4. Optimise your Project</h4>
-        <p>Performa merupakan faktor krusial dalam setiap proyek. We’re here to give you guidance on how to optimise your SubQuery project to speed it up. <router-link :to="{path: '/build/optimisation.html'}">Read more</router-link></p>
+        <p>Performance is a crucial factor in each project. We’re here to give you guidance on how to optimise your SubQuery project to speed it up. <router-link :to="{path: '/build/optimisation.html'}">Read more</router-link></p>
       </div>
     </div>
   </div>
@@ -221,7 +221,7 @@ footer: false lastUpdated: false contributors: false editLink: false
   </div>
   <div class="textImageSection layout mt80">
     <div class="ct">
-      <h3>SubQuery Network</h3>
+      <h3>The SubQuery Network</h3>
       <p>Say goodbye to relying on centralised service providers, we’re building the most open, performant, reliable, and scalable data service for dApp developers. </p>
       <p>Jaringan SubQuery mengindeks dan melayani data ke komunitas global dengan cara yang berinsentif dan dapat diverifikasi. After publishing your project to the SubQuery Network, anyone can index and host it — providing data to users around the world faster and reliably.</p>
       <router-link class="button" :to="{path: '/subquery_network/introduction.html'}">Learn more about our Decentralised Network</router-link>
