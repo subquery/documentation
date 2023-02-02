@@ -240,6 +240,38 @@ Remove `/.data` folder to reindex your data from beginning and adjust the whole 
 Also, remember to regerate associated typescript after any change in the `schema.grapql`.
 :::
 
+## Query
+
+Open your browser and head to `http://localhost:3000`. Use GraphQL playground to query your data. 
+Expand previous query by adding `leaveDate` property to `collators`: 
+
+```graphql
+query {
+    approvals (first: 5) {
+        nodes {
+            id
+            value
+            owner
+            spender
+        }
+    }
+    transactions (first: 5) {
+        nodes {
+            id
+            value
+            to: id
+            from: id
+        }
+    }
+    collators (last: 5) {
+        nodes {
+            id
+            joinedDate
+            leaveDate
+        }
+    }
+```
+
 ## Useful resources
 
 - [SubQuery Project Explorer](https://explorer.subquery.network/)
