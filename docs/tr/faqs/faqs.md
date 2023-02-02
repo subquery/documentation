@@ -6,6 +6,7 @@ SubQuery, önde gelen çok zincirli uygulamaları desteklemek için hızlı, esn
 
 Amacımız, kendi indeksleme çözümlerini oluşturma ihtiyacını ortadan kaldırarak geliştiricilerin zaman ve paradan tasarruf etmesini sağlamaktır. Artık tamamen uygulamalarını geliştirmeye odaklanabilirler. SubQuery, geliştiricilerin geleceğin merkezi olmayan ürünlerini oluşturmasına yardımcı olur.
 
+<br/>
 <figure class="video_container">
 <iframe src="https://www.youtube.com/embed/gCpVz_mkWdo" title="Introducing The SubQuery Network" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscree="true"></iframe>
 </figure>
@@ -26,13 +27,13 @@ The best way to get started with SubQuery is to try out our [Hello World tutoria
 
 ## SubQuery'ye nasıl katkıda bulunabilir veya geri bildirimde bulunabilirim?
 
-Topluluktan gelen katkıları ve geri bildirimleri seviyoruz. To contribute the code, fork the repository of your interest and make your changes. Ardından bir PR veya Çekme İsteği gönderin. Don't forget to test as well. Also check out our [contributions guidelines](../miscellaneous/contributing.html).
+We love contributions and feedback from the community. To contribute the code, fork the repository of your interest and make your changes. Then submit a PR or Pull Request. Don't forget to test as well. Also check out our [contributions guidelines](../miscellaneous/contributing.html).
 
 To give feedback, contact us at hello@subquery.network or jump onto our [discord channel](https://discord.com/invite/78zg8aBSMG).
 
 ## Projemi SubQuery Projelerinde barındırmanın maliyeti nedir?
 
-Bu hizmet, topluluğa cömert bir ücretsiz katmanla sunuluyor! İlk iki SubQuery projenizi tamamen ücretsiz olarak barındırabilirsiniz!
+This service is being provided to the community with a generous free tier! You can host your first two SubQuery projects for absolutely free!
 
 ## What are deployment slots?
 
