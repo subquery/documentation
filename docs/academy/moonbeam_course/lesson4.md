@@ -130,7 +130,7 @@ type Collator @entity {
 
 ### Mapping functions
 
-The last thing we need to do is to add a new function `collatorLeft()` that corresponds with the new data handler from `project.yaml` file. This function needs to be responsible for handling data when collator leaves and updating the collator's property `leaveDate` accordingly.
+The last thing we need to do is to add a new function `collatorLeft()` that corresponds with the new data handler from `project.yaml` file. This function needs to be responsible for handling data when collator leaves by updating the collator's property `leaveDate` accordingly.
 
 ```ts
 // Collator Leaves
@@ -233,6 +233,12 @@ export async function collatorLeft(
 
 }
 ```
+
+::: warning Important
+Remove `/.data` folder to reindex your data from beginning and adjust the whole database to the new  `Collator` entity's shape. Otherwise, the indexer will start indexing data from the latest block it finished last time and your project will be missing some data of collators indexed before.
+
+Also, remember to regerate associated typescript after any change in the `schema.grapql`.
+:::
 
 ## Useful resources
 
