@@ -301,7 +301,7 @@ For debugging purposes, users can run the node in local mode. Перемикан
 node --inspect-brk <path to subql-node> -f <path to subQuery project>
 ```
 
-Наприклад:
+For example:
 
 ```shell
 вузол --inspect-brk /usr/local/bin/subql-node -f ~/Code/subQuery/projects/subql-helloworld/
