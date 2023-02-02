@@ -6,76 +6,77 @@ SubQuery ist ein Open-Source-Blockchain-Datenindexer für Entwickler, der schnel
 
 Unser Ziel ist es, Entwicklern Zeit und Geld zu sparen, indem wir die Notwendigkeit beseitigen, ihre eigene Indizierungslösung zu erstellen. Jetzt können sie sich voll und ganz auf die Entwicklung ihrer Anwendungen konzentrieren. SubQuery hilft Entwicklern, die dezentralen Produkte der Zukunft zu erstellen.
 
+<br/>
 <figure class="video_container">
 <iframe src="https://www.youtube.com/embed/gCpVz_mkWdo" title="Einführung in das SubQuery Network" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscree="true"></iframe>
 </figure>
 
 **SubQuery Managed Service**
 
-SubQuery bietet Entwicklern außerdem kostenloses, produktionstaugliches Hosting von Projekten. Unser Managed Service entlastet Sie von der Verantwortung für die Verwaltung der Infrastruktur, sodass Entwickler das tun können, was sie am besten können – bauen. Weitere Informationen finden Sie [hier](/run_publish/publish.md).
+SubQuery also provides free, production grade hosting of projects for developers. Our Managed Service removes the responsiblity of managing infrastructure, so that developers do what they do best — build. Find out more [here](/run_publish/publish.md).
 
-**SubQuery-Netzwerk**
+**The SubQuery Network**
 
-Das SubQuery-Netzwerk ermöglicht Entwicklern die vollständige Dezentralisierung ihres Infrastruktur-Stacks. Es ist der offenste, leistungsfähigste, zuverlässigste und skalierbarste Datendienst für dApps. Das SubQuery-Netzwerk indiziert und stellt Daten für die globale Gemeinschaft auf eine motivierte und überprüfbare Weise bereit. Nachdem Sie Ihr Projekt im SubQuery-Netzwerk veröffentlicht haben, kann jeder es indizieren und hosten, wodurch Daten schneller und zuverlässiger für Benutzer auf der ganzen Welt bereitgestellt werden.
+The SubQuery Network allows developers to completely decentralise their infrastructure stack. It is the most open, performant, reliable, and scalable data service for dApps. Das SubQuery-Netzwerk indiziert und stellt Daten für die globale Gemeinschaft auf eine motivierte und überprüfbare Weise bereit. Nachdem Sie Ihr Projekt im SubQuery-Netzwerk veröffentlicht haben, kann jeder es indizieren und hosten, wodurch Daten schneller und zuverlässiger für Benutzer auf der ganzen Welt bereitgestellt werden.
 
-Weitere Info finden Sie [hier](/subquery_network/introduction.md).
+More information [here](/subquery_network/introduction.md).
 
 ## Was ist der beste Weg, um mit SubQuery zu beginnen?
 
-Der beste Einstieg in SubQuery ist unser [Hello World Tutorial](/assets/pdf/Hello_World_Lab.pdf). Dies ist eine einfache 5-minütige Walk-Through-Übung. Laden Sie die Startvorlage herunter, erstellen Sie das Projekt, verwenden Sie Docker, um einen Knoten auf Ihrem lokalen Host auszuführen, und führen Sie eine einfache Abfrage aus.
+The best way to get started with SubQuery is to try out our [Hello World tutorial](/assets/pdf/Hello_World_Lab.pdf). This is a simple 5 min walk through exercise. Download the starter template, build the project, use Docker to run a node on your localhost, and run a simple query.
 
 ## Wie kann ich zu SubQuery beitragen oder Feedback geben?
 
-Wir lieben Beiträge und Feedback aus der Community. Um den Code beizutragen, forken Sie das Repository Ihres Interesses und nehmen Sie Ihre Änderungen vor. Senden Sie dann einen PR- oder Pull-Request. Vergessen Sie nicht, auch zu testen. Also check out our [contributions guidelines](../miscellaneous/contributing.html).
+We love contributions and feedback from the community. To contribute the code, fork the repository of your interest and make your changes. Then submit a PR or Pull Request. Don't forget to test as well. Also check out our [contributions guidelines](../miscellaneous/contributing.html).
 
-Um Feedback zu geben, kontaktiere uns unter hello@subquery.net oder besuche unseren [Discord-Kanal](https://discord.com/invite/78zg8aBSMG).
+To give feedback, contact us at hello@subquery.network or jump onto our [discord channel](https://discord.com/invite/78zg8aBSMG).
 
 ## Wie viel kostet es, mein Projekt in SubQuery Projects zu hosten?
 
-Dieser Service wird der Community mit einem großzügigen kostenlosen Kontingent zur Verfügung gestellt! Sie können Ihre ersten beiden SubQuery-Projekte absolut kostenlos hosten!
+Dieser Service wird der Community mit einem großzügigen kostenlosen Kontingent zur Verfügung gestellt! You can host your first two SubQuery projects for absolutely free!
 
 ## Was sind Bereitstellungsslots?
 
-Bereitstellungsslots sind eine Funktion in [SubQuery-Projekten](https://project.subquery.network), die einer Entwicklungsumgebung entsprechen. Beispielsweise gibt es in jeder Softwareorganisation normalerweise mindestens eine Entwicklungsumgebung und eine Produktionsumgebung (das heißt, localhost wird ignoriert). Typischerweise sind zusätzliche Umgebungen wie Staging und Pre-Prod oder sogar QA enthalten, abhängig von den Anforderungen der Organisation und ihrer Entwicklungsumgebung.
+Deployment slots are a feature in [SubQuery Projects](https://project.subquery.network) that is the equivalent of a development environment. For example, in any software organisation there is normally a development environment and a production environment as a minimum (ignoring localhost that is). Typically additional environments such as staging and pre-prod or even QA are included depending on the needs of the organisation and their development set up.
 
-SubQuery hat derzeit zwei verfügbare Slots. Ein Bereitstellungsslot und ein Produktionsslot. Auf diese Weise können Entwickler ihre SubQuery in der Staging-Umgebung bereitstellen und alles, was gut läuft, auf Knopfdruck „in die Produktion befördern“.
+SubQuery currently has two slots available. A staging slot and a production slot. This allows developers to deploy their SubQuery to the staging environment and all going well, "promote to production" at the click of a button.
 
 ## Was ist der Vorteil eines Staging-Slots?
 
-Der Hauptvorteil der Verwendung eines Staging-Slots besteht darin, dass Sie eine neue Version Ihres SubQuery-Projekts vorbereiten können, ohne es öffentlich zugänglich zu machen. Sie können warten, bis der Staging-Slot alle Daten neu indiziert, ohne Ihre Produktionsanwendungen zu beeinträchtigen.
+The main benefit of using a staging slot is that it allows you to prepare a new release of your SubQuery project without exposing it publicly. You can wait for the staging slot to reindex all data without affecting your production applications.
 
-Der Staging-Slot wird der Öffentlichkeit im [Explorer](https://explorer.subquery.network/) nicht angezeigt und hat eine eindeutige URL, die nur für Sie sichtbar ist. Und natürlich ermöglicht Ihnen die separate Umgebung, Ihren neuen Code zu testen, ohne die Produktion zu beeinträchtigen.
+The staging slot is not shown to the public in the [Explorer](https://explorer.subquery.network/) and has a unique URL that is visible only to you. And of course, the separate environment allows you to test your new code without affecting production.
 
 ## Was sind Polkadots Extrinsics?
 
-Wenn Sie bereits mit Blockchain-Konzepten vertraut sind, können Sie sich Extrinsics als vergleichbar mit Transaktionen vorstellen. Formaler ist eine extrinsische Information jedoch eine Information, die von außerhalb der Chain kommt und in einem Block enthalten ist. Es gibt drei Kategorien von Extrinsics. Sie sind Inhärente, signierte Transaktionen und nicht signierte Transaktionen.
+If you are already familiar with blockchain concepts, you can think of extrinsics as comparable to transactions. More formally though, an extrinsic is a piece of information that comes from outside the chain and is included in a block. There are three categories of extrinsics. They are inherents, signed transactions, and unsigned transactions.
 
-Inhärente Extrinsics sind Informationen, die nicht signiert sind und nur vom Blockautor in einen Block eingefügt werden.
+Inherent extrinsics are pieces of information that are not signed and only inserted into a block by the block author.
 
-Signierte Transaktionsextrinsiken sind Transaktionen, die eine Signatur des Kontos enthalten, das die Transaktion ausgegeben hat. Sie zahlen eine Gebühr, um die Transaktion in die Chain aufzunehmen.
+Signed transaction extrinsics are transactions that contain a signature of the account that issued the transaction. They stands to pay a fee to have the transaction included on chain.
 
-Extrinsische nicht signierte Transaktionen sind Transaktionen, die keine Signatur des Kontos enthalten, das die Transaktion ausgegeben hat. Unsignierte Transaktionen sollten mit Vorsicht verwendet werden, da niemand eine Gebühr zahlt, da sie nicht signiert sind. Aus diesem Grund fehlt der Transaktionswarteschlange die ökonomische Logik, um Spam zu verhindern.
+Unsigned transactions extrinsics are transactions that do not contain a signature of the account that issued the transaction. Unsigned transactions extrinsics should be used with care because there is nobody paying a fee, becaused they are not signed. Because of this, the transaction queue lacks economic logic to prevent spam.
 
-Für weitere Info klicken Sie [hier](https://substrate.dev/docs/en/knowledgebase/learn-substrate/extrinsics).
+For more information, click [here](https://substrate.dev/docs/en/knowledgebase/learn-substrate/extrinsics).
 
 ## Was ist der Endpunkt für das Kusama-Netzwerk?
 
-Der network.endpoint für das Kusama-Netzwerk ist `wss://kusama.api.onfinality.io/public-ws`.
+The network.endpoint for the Kusama network is `wss://kusama.api.onfinality.io/public-ws`.
 
 ## Was ist der Endpunkt für das Polkadot-Mainnet-Netzwerk?
 
-Der network.endpoint für das Polkadot-Netzwerk ist `wss://polkadot.api.onfinality.io/public-ws`.
+The network.endpoint for the Polkadot network is `wss://polkadot.api.onfinality.io/public-ws`.
 
 ## Wie entwickle ich mein Projektschema iterativ?
 
-Ein bekanntes Problem bei der Entwicklung eines sich ändernden Projektschemas besteht darin, dass beim Starten Ihres Unterabfrageknotens zum Testen die zuvor indizierten Blöcke nicht mit Ihrem neuen Schema kompatibel sind. Um Schemata iterativ zu entwickeln, müssen die in der Datenbank gespeicherten indizierten Blöcke gelöscht werden. Dies kann erreicht werden, indem Sie Ihren Knoten mit dem Flag `--force-clean` starten. Zum Beispiel:
+A known issue with developing a changing project schema is that when lauching your Subquery node for testing, the previously indexed blocks will be incompatible with your new schema. In order to iteratively develop schemas the indexed blocks stored in the database must be cleared, this can be achieved by launching your node with the `--force-clean` flag. For example:
 
 ```shell
 subql-node -f . --force-clean --subquery-name=<project-name>
 ```
 
-Beachten Sie, dass empfohlen wird, `--force-clean` zu verwenden, wenn Sie den `startBlock` im Projektmanifest (`project.yaml`) ändern, um zu beginnen Neuindizierung aus dem konfigurierten Block. Wenn `startBlock` ohne `--force-clean` des Projekts geändert wird, dann wird der Indexer die Indizierung mit dem zuvor konfigurierten `startBlock` fortsetzen.
+Note that it is recommended to use `--force-clean` when changing the `startBlock` within the project manifest (`project.yaml`) in order to begin reindexing from the configured block. If `startBlock` is changed without a `--force-clean` of the project, then the indexer will continue indexing with the previously configured `startBlock`.
 
 ## Wie kann ich mein Projekt optimieren, um es zu beschleunigen?
 
-Leistung ist ein entscheidender Faktor in jedem Projekt. Glücklicherweise gibt es mehrere Dinge, die Sie tun könnten, um es zu verbessern. You can find our recommendations in the [Project Optimisation](../build/optimisation.md).
+Performance is a crucial factor in each project. Fortunately, there are several things you could do to improve it. You can find our recommendations in the [Project Optimisation](../build/optimisation.md).
