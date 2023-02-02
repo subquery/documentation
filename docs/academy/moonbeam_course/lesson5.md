@@ -15,7 +15,30 @@ In this lesson we will alter the code for the last time.
 
 Find out more about [data reliationships in SubQuery](../../academy/herocourse/module3.md). 
 
-//TODO
+## Changing the Project
+
+::: tip Note
+In this lesson we will continue changing the code. 
+::: 
+
+### Schema GraphQl
+
+```graphql
+
+```
+
+### Manifest
+
+Your entire Manifest file should look like this: 
+
+```yaml
+
+```
+
+### Mapping functions
+
+```ts
+```
 
 ## Query
 

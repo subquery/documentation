@@ -150,7 +150,7 @@ type Approval @entity {
 }
 ```
 
-### Mappings functions
+### Mapping functions
 
 ```ts
 import { Approval, Transaction } from "../types";

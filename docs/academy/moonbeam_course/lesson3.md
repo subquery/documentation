@@ -156,7 +156,7 @@ npm run-script codegen
 Next step would be to create a proper function that allow creating collators and saving all the needed data in our database.
 
 
-### Mappings functions
+### Mapping functions
 
 The final step would be to add `collatorJoined()` function to `mappingsHanderls.ts` file.
 This function is responsible for getting the data from the chain, creating an entity and saving it in the database with all the information we need.
