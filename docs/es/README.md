@@ -221,7 +221,7 @@ footer: false lastUpdated: false contributors: false editLink: false
   </div>
   <div class="textImageSection layout mt80">
     <div class="ct">
-      <h3>La red de SubQuery</h3>
+      <h3>The SubQuery Network</h3>
       <p>Say goodbye to relying on centralised service providers, we’re building the most open, performant, reliable, and scalable data service for dApp developers. </p>
       <p>SubQuery Network indexa y da servicio a la comunidad global de una manera incentivada y verificable. After publishing your project to the SubQuery Network, anyone can index and host it — providing data to users around the world faster and reliably.</p>
       <router-link class="button" :to="{path: '/subquery_network/introduction.html'}">Learn more about our Decentralised Network</router-link>
