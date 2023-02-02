@@ -1,6 +1,6 @@
 # Lesson 6: Advanced Ideas
 
-This is the last lesson. Congratulations! 
+**This is the last lesson. Congratulations!** 
 
 So far we have managed to create a SubQuery project that indexes both Moonbeam and Substrate data and also altered it by exploring data mutation and data relationships examples. 
 
@@ -27,6 +27,6 @@ This final lesson covers:
 - [Tips and tricks for Performance Improvements](../../build/optimisation.md)
 - [Information about Automated Historical State tracking](../../run_publish/historical.md) 
 
-Thank you for taking the time to complete this course.
+**Thank you for taking the time to complete this course.**
 
 [Join our Active Discord Community](https://discord.com/invite/subquery) to share your feedback, ask questions, and get technical advice. 
