@@ -4,10 +4,10 @@ It’s the high time we start coding. Let’s build our first SubQuery project w
 
 In this lesson, we will: 
 
-1. Initialise the project through SubQuery CLI
-2. Get familiar with the project structure 
-3. Index EVM events
-4. Deploy the project locally with docker
+- Initialise the project through SubQuery CLI
+- Get familiar with the project structure 
+- Index EVM events
+- Deploy the project locally with docker
 
 <br/>
 <figure class="video_container">
@@ -71,13 +71,13 @@ If you want to change your project and go beyond the default content of any star
 - The GraphQL Schema in `schema.graphql` to define shape of the data.
 - The Mapping functions in `src/mappings/ directory` to transform data coming from blockchain.
 
-Find out more about [Manifest](../../build/manifest/polkadot.md) and [GraphQl Schema](../../build/graphql.md) and [Mapping functions](../../build/mapping/polkadot.md). 
+Find out more about [Manifest](../../build/manifest/polkadot.md) and [GraphQl Schema](../../build/graphql.md) and [Mapping functions](../../build/mapping/polkadot.md) in our documentation. 
 
 ::: tip Note
 In this first lesson there is no code alternation. 
 ::: 
 
-Your files should look like this:
+After the initialisation of the starter project your files should look like this:
 
 ### Manifest
 
@@ -197,7 +197,6 @@ export async function handleFrontierEvmCall(
   await approval.save();
 }
 ```
-
 
 ## 4. Building the Project
 

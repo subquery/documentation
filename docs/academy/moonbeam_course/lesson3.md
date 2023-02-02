@@ -17,9 +17,10 @@ In this lesson we will alter the code.
 
 ### Manifest
 
-//TODO
-
-Add new data source on the bottom of `project.yaml` file:
+Let's start with adding new data source on the bottom of `project.yaml` file. 
+This will allow a new handler `collatorJoined` to be used to extract data from the chain. 
+The handler name has to match the name of corresponding function in `mappinghandlers.ts` file. 
+Pay attention to different content of `kind`, `module` and `method` specification. 
 
 ```yaml
   - kind: substrate/Runtime
@@ -34,7 +35,7 @@ Add new data source on the bottom of `project.yaml` file:
             method: JoinedCollatorCandidates
 ```
 
-Your Manifest file should look like this: 
+Your entire Manifest file should look like this: 
 
 ```yaml
 specVersion: 1.0.0
@@ -94,12 +95,14 @@ dataSources:
             module: parachainStaking
             method: JoinedCollatorCandidates
 ```
+::: tip Note
+Find more information about Polkadot specific methods in [Polkadot Explorer](https://polkadot.js.org/apps/#/explorer).
+:::
 
 ### Schema GraphQl
 
-//TODO
-
-Add new entity to your `schema.graphql`:
+Next steps would be to add a new entity — `Collator` -  to `schema.graphql` file.
+Apart from the required `id` it should also include another required property - `joinedDate` of data type `Date`. 
 
 ```graphql
 type Collator @entity {
@@ -108,7 +111,7 @@ type Collator @entity {
 }
 ```
 
-Your file should look like this: 
+The entire file should look like this: 
 
 ```graphql
 type Transaction @entity {
@@ -133,10 +136,30 @@ type Collator @entity {
 }
 ```
 
+::: warning Important
+Remember to regerate associated typescript after any change in the `schema.grapql`.
+
+::: code-tabs
+@tab:active yarn
+
+```shell
+yarn codegen
+```
+
+@tab npm
+
+```shell
+npm run-script codegen
+```
+:::
+
+Next step would be to create a proper function that allow creating collators and saving all the needed data in our database.
+
+
 ### Mappings functions
 
-//TODO
-Add `collatorJoined()` function to `mappingsHanderls.ts` file: 
+The final step would be to add `collatorJoined()` function to `mappingsHanderls.ts` file.
+This function is responsible for getting the data from the chain, creating an entity and saving it in the database with all the information we need.
 
 ```ts
 // Create Collator
