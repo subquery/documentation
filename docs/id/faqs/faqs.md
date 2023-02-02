@@ -6,76 +6,77 @@ SubQuery adalah pengindeks data blockchain open source untuk pengembang yang men
 
 Tujuan kami adalah menghemat waktu dan uang para pengembang dengan meniadakan kebutuhan untuk membangun solusi pengindeksan mereka sendiri. Sekarang, mereka bisa sepenuhnya fokus pada pengembangan aplikasi mereka. SubQuery membantu pengembang menciptakan produk masa depan yang terdesentralisasi.
 
+<br/>
 <figure class="video_container">
 <iframe src="https://www.youtube.com/embed/gCpVz_mkWdo" title="Memperkenalkan SubQuery Network" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscree="true"></iframe>
 </figure>
 
-**Layanan Terkelola SubQuery**
+**SubQuery Managed Service**
 
-SubQuery juga menyediakan hosting proyek kelas produksi gratis untuk para pengembang. Managed Service kami menghilangkan tanggung jawab mengelola infrastruktur, sehingga pengembang melakukan yang terbaik - membangun. Cari tahu lebih lanjut [di sini](/run_publish/publish.md).
+SubQuery also provides free, production grade hosting of projects for developers. Our Managed Service removes the responsiblity of managing infrastructure, so that developers do what they do best — build. Find out more [here](/run_publish/publish.md).
 
-**SubQuery Network**
+**The SubQuery Network**
 
-Jaringan SubQuery memungkinkan pengembang untuk sepenuhnya mendesentralisasi tumpukan infrastruktur mereka. Ini adalah layanan data yang paling terbuka, berkinerja, andal, dan dapat diskalakan untuk dApps. Jaringan SubQuery mengindeks dan melayani data ke komunitas global dengan cara yang berinsentif dan dapat diverifikasi. Setelah memublikasikan proyek Anda ke Jaringan SubQuery, siapa pun dapat mengindeks dan menghostingnya - menyediakan data kepada pengguna di seluruh dunia dengan lebih cepat dan andal.
+The SubQuery Network allows developers to completely decentralise their infrastructure stack. It is the most open, performant, reliable, and scalable data service for dApps. Jaringan SubQuery mengindeks dan melayani data ke komunitas global dengan cara yang berinsentif dan dapat diverifikasi. Setelah memublikasikan proyek Anda ke Jaringan SubQuery, siapa pun dapat mengindeks dan menghostingnya - menyediakan data kepada pengguna di seluruh dunia dengan lebih cepat dan andal.
 
-Informasi lebih lanjut [di sini](/subquery_network/introduction.md).
+More information [here](/subquery_network/introduction.md).
 
 ## Apa cara terbaik untuk memulai SubQuery?
 
-Cara terbaik untuk memulai SubQuery adalah mencoba [Hello World Tutorial](/assets/pdf/Hello_World_Lab.pdf) kami. Ini adalah latihan berjalan kaki selama 5 menit yang sederhana. Unduh templat pemula, bangun proyek, gunakan Docker untuk menjalankan node di localhost Anda, dan jalankan kueri sederhana.
+The best way to get started with SubQuery is to try out our [Hello World tutorial](/assets/pdf/Hello_World_Lab.pdf). This is a simple 5 min walk through exercise. Download the starter template, build the project, use Docker to run a node on your localhost, and run a simple query.
 
 ## Bagaimana saya bisa berkontribusi atau memberi masukan ke SubQuery?
 
-Kami menyukai kontribusi dan umpan balik dari komunitas. Untuk menyumbangkan kode, fork repositori yang Anda minati dan buat perubahan Anda. Kemudian kirimkan PR atau Pull Request. Jangan lupa untuk mengujinya juga. Also check out our [contributions guidelines](../miscellaneous/contributing.html).
+We love contributions and feedback from the community. To contribute the code, fork the repository of your interest and make your changes. Then submit a PR or Pull Request. Don't forget to test as well. Also check out our [contributions guidelines](../miscellaneous/contributing.html).
 
-Untuk memberi umpan balik, hubungi kami di hello@subquery.network atau buka [discord channel](https://discord.com/invite/78zg8aBSMG) kami.
+To give feedback, contact us at hello@subquery.network or jump onto our [discord channel](https://discord.com/invite/78zg8aBSMG).
 
 ## Berapa biaya untuk hosting proyek saya di SubQuery Projects?
 
-Layanan ini disediakan bagi komunitas dengan tingkat gratis yang murah hati! Anda dapat meng-host dua proyek SubQuery pertama Anda secara gratis!
+Layanan ini disediakan bagi komunitas dengan tingkat gratis yang murah hati! You can host your first two SubQuery projects for absolutely free!
 
 ## Apa itu slot deployment?
 
-Slot deployment adalah fitur di [Proyek SubQuery](https://project.subquery.network) yang setara dengan lingkungan pengembangan. Contohnya, dalam organisasi perangkat lunak apa pun biasanya ada lingkungan pengembangan dan lingkungan produksi minimal (mengabaikan localhost). Biasanya lingkungan tambahan seperti tahapan dan pra-produksi atau bahkan QA sudah termasuk tergantung pada kebutuhan organisasi dan pengaturan pengembangannya.
+Deployment slots are a feature in [SubQuery Projects](https://project.subquery.network) that is the equivalent of a development environment. For example, in any software organisation there is normally a development environment and a production environment as a minimum (ignoring localhost that is). Typically additional environments such as staging and pre-prod or even QA are included depending on the needs of the organisation and their development set up.
 
-SubQuery saat ini memiliki dua slot yang tersedia. Sebuah slot staging dan slot produksi. Ini memungkinkan pengembang untuk mendeploy SubQuery mereka ke staging environment dan semuanya berjalan dengan baik, "maju ke produksi" dengan mengklik tombol.
+SubQuery currently has two slots available. A staging slot and a production slot. This allows developers to deploy their SubQuery to the staging environment and all going well, "promote to production" at the click of a button.
 
 ## Apa keuntungan dari slot staging?
 
-Keuntungan utama menggunakan slot staging adalah memungkinkan Anda menyiapkan rilis proyek SubQuery baru Anda tanpa memaparkannya secara publik. Anda dapat menunggu slot staging untuk menyusun ulang semua data tanpa mempengaruhi aplikasi produksi Anda.
+The main benefit of using a staging slot is that it allows you to prepare a new release of your SubQuery project without exposing it publicly. You can wait for the staging slot to reindex all data without affecting your production applications.
 
-Slot staging tidak ditampilkan kepada publik di [Explorer](https://explorer.subquery.network/) dan memiliki URL unik yang hanya dapat dilihat oleh Anda. Dan tentu saja, environment terpisah memungkinkan Anda menguji kode baru tanpa mempengaruhi produksi.
+The staging slot is not shown to the public in the [Explorer](https://explorer.subquery.network/) and has a unique URL that is visible only to you. And of course, the separate environment allows you to test your new code without affecting production.
 
 ## Apa itu Ekstrinsik Polkadot?
 
-Jika Anda sudah akrab dengan konsep blockchain, Anda dapat menganggap ekstrinsik sebanding dengan transaksi. Lebih formal, ekstrinsik adalah sepotong informasi yang berasal dari luar rantai dan termasuk dalam blok. Ada tiga kategori ekstrinsik. Yaitu inherents, signed transactions, dan unsigned transactions.
+If you are already familiar with blockchain concepts, you can think of extrinsics as comparable to transactions. More formally though, an extrinsic is a piece of information that comes from outside the chain and is included in a block. There are three categories of extrinsics. They are inherents, signed transactions, and unsigned transactions.
 
-Ekstrinsik inherent adalah potongan informasi yang tidak ditandatangani dan hanya dimasukkan ke dalam blok oleh pencipta blok.
+Inherent extrinsics are pieces of information that are not signed and only inserted into a block by the block author.
 
-Ekstrinsik signed transaction adalah transaksi yang berisi tanda tangan dari rekening yang mengeluarkan transaksi. Mereka ada untuk membayar biaya agar transaksi termasuk dalam rantai.
+Signed transaction extrinsics are transactions that contain a signature of the account that issued the transaction. They stands to pay a fee to have the transaction included on chain.
 
-Ekstrinsik unsigned transactions adalah transaksi yang tidak berisi tanda tangan dari akun yang mengeluarkan transaksi. Ekstrinsik transaksi yang tidak ditandatangani harus digunakan dengan hati-hati karena tidak ada yang membayar biaya, karena tidak ditandatangani. Karena ini, antrian transaksi kekurangan logika ekonomi untuk mencegah spam.
+Unsigned transactions extrinsics are transactions that do not contain a signature of the account that issued the transaction. Unsigned transactions extrinsics should be used with care because there is nobody paying a fee, becaused they are not signed. Because of this, the transaction queue lacks economic logic to prevent spam.
 
-Untuk informasi lebih lanjut, klik [di sini](https://substrate.dev/docs/en/knowledgebase/learn-substrate/extrinsics).
+For more information, click [here](https://substrate.dev/docs/en/knowledgebase/learn-substrate/extrinsics).
 
 ## Apa endpoint untuk jaringan Kusama?
 
-Network.endpoint untuk jaringan Kusama adalah `wss://kusama.api.onfinality.io/public-ws`.
+The network.endpoint for the Kusama network is `wss://kusama.api.onfinality.io/public-ws`.
 
 ## Apa endpoint untuk jaringan mainnet Polkadot?
 
-Network.endpoint untuk jaringan Polkadot adalah `wss://polkadot.api.onfinality.io/public-ws`.
+The network.endpoint for the Polkadot network is `wss://polkadot.api.onfinality.io/public-ws`.
 
 ## Bagaimana cara saya mengembangkan skema proyek saya secara iteratif?
 
-Masalah umum dengan mengembangkan skema proyek yang berubah adalah ketika meluncurkan node Subquery Anda untuk pengujian, blok yang diindeks sebelumnya tidak akan kompatibel dengan skema baru Anda. Untuk mengembangkan skema secara iteratif, blok terindeks yang disimpan dalam database harus dihapus, ini dapat dicapai dengan meluncurkan node Anda dengan flag `--force-clean`. Sebagai contoh:
+A known issue with developing a changing project schema is that when lauching your Subquery node for testing, the previously indexed blocks will be incompatible with your new schema. In order to iteratively develop schemas the indexed blocks stored in the database must be cleared, this can be achieved by launching your node with the `--force-clean` flag. For example:
 
 ```shell
 subql-node -f . --force-clean --subquery-name=<project-name>
 ```
 
-Perhatikan bahwa disarankan untuk menggunakan `--force-clean` saat mengubah `startBlock` dalam manifes proyek (`project.yaml`) untuk memulai pengindeksan ulang dari blok yang dikonfigurasi. Jika `startBlock` diubah tanpa `--force-clean` proyek, maka pengindeks akan melanjutkan pengindeksan dengan `startBlock` yang dikonfigurasi sebelumnya.
+Note that it is recommended to use `--force-clean` when changing the `startBlock` within the project manifest (`project.yaml`) in order to begin reindexing from the configured block. If `startBlock` is changed without a `--force-clean` of the project, then the indexer will continue indexing with the previously configured `startBlock`.
 
 ## Bagaimana saya bisa mengoptimalkan proyek saya untuk mempercepatnya?
 
-Performa merupakan faktor krusial dalam setiap proyek. Untungnya, ada beberapa hal yang bisa Anda lakukan untuk memperbaikinya. You can find our recommendations in the [Project Optimisation](../build/optimisation.md).
+Performance is a crucial factor in each project. Fortunately, there are several things you could do to improve it. You can find our recommendations in the [Project Optimisation](../build/optimisation.md).
