@@ -143,9 +143,7 @@ type NewPrices = {
 
 export async function handleNewOracle(action: NearAction): Promise<void> {
   // Data is encoded in base64 in the args, so we first decode it and parse into the correct type
-  const payload: NewOracle = JSON.parse(
-    Buffer.from(action.action.args, "base64").toString()
-  );
+  const payload: NewOracle = action.action.args.toJson();
   logger.info(
     `Handling new oracle ${payload.account_id} at ${action.transaction.block_height}`
   );
@@ -154,9 +152,7 @@ export async function handleNewOracle(action: NearAction): Promise<void> {
 
 export async function handleNewPrice(action: NearAction): Promise<void> {
   // Data is encoded in base64 in the args, so we first decode it and parse into the correct type
-  const payload: NewPrices = JSON.parse(
-    Buffer.from(action.action.args, "base64").toString()
-  );
+  const payload: NewPrices = action.action.args.toJson();
   logger.info(
     `Handling new price action at ${action.transaction.block_height}`
   );
@@ -193,9 +189,9 @@ async function checkAndCreateOracle(
 
 Let’s understand how the above code works.
 
-For the `handleNewOracle` mapping function, the function receives a new `NearAction` payload. The data on this is encoded in base64 in the args, so we first decode it and parse into the correct `NewOracle` type. We then run the `checkAndCreateOracle` to ensure that we create the oracle if we don't already have it (it checks if it already exists before creating a new `Oracle` entity).
+For the `handleNewOracle` mapping function, the function receives a new `NearAction` payload. The data on this is a JSON payload, so we parse into the correct `NewOracle` type via JSON. We then run the `checkAndCreateOracle` to ensure that we create the oracle if we don't already have it (it checks if it already exists before creating a new `Oracle` entity).
 
-For the `handleNewPrice` mapping function, the function receives a new `NearAction` payload. The data on this is encoded in base64 in the args, so we first decode it and parse into the correct `NewPrices` type. We then run the `checkAndCreateOracle` to ensure that the oracle we are listing this price for is already known since it's a foreign key (it checks if it already exists before creating a new `Oracle` entity). Finally, for each price submission in the array, we create the price and save it to the store (_Note that SubQuery will automatically save this to the database_).
+For the `handleNewPrice` mapping function, the function receives a new `NearAction` payload. The data on this is a JSON payload, so we parse into the correct `NewPrices` type via JSON. We then run the `checkAndCreateOracle` to ensure that the oracle we are listing this price for is already known since it's a foreign key (it checks if it already exists before creating a new `Oracle` entity). Finally, for each price submission in the array, we create the price and save it to the store (_Note that SubQuery will automatically save this to the database_).
 
 Check out our [Mappings](../../build/mapping/near.md) documentation to get more information on mapping functions.
 

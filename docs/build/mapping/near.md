@@ -72,13 +72,14 @@ export async function handleAction(
     sender: action.transaction.signer_id,
     receiver: action.transaction.receiver_id,
     amount: BigInt((action.action as Transfer).deposit.toString()),
+    payloadString: JSON.stringify(action.action.args.toJson()),
   });
 
   await actionRecord.save();
 }
 ```
 
-`NearAction` encapsulates the `action` object containing the action data and the `NearTransaction` in which the action occured in.
+`NearAction` encapsulates the `action` object containing the action data and the `NearTransaction` in which the action occured in. The payload of the action is stored on the `args`. In many cases, `args` are base64 encoded and JSON formatted, in this case you can use `action.action.args.toJson();` to decode the arguments.
 
 ## RPC Calls
 
