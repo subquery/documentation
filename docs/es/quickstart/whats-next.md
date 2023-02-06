@@ -2,7 +2,7 @@
 
 Now that you have a clear understanding of how to build a basic SubQuery project, what are the next steps of your journey?
 
-- Ahora, puede publicar fácilmente su proyecto. SubQuery provides a managed service solution where you can deploy your new project. Puedes implementarlo en [SubQuery Proyects](https://project.subquery.network) y consultarlo usando nuestro [Explorador](https://explorer.subquery.network). Lea esta guía completa sobre cómo [publicar su nuevo proyecto en SubQuery Projects](../../run_publish/publish.md).
+- Ahora, puede publicar fácilmente su proyecto. SubQuery provides a managed service solution where you can deploy your new project. Puedes implementarlo en [SubQuery Proyects](https://project.subquery.network) y consultarlo usando nuestro [Explorador](https://explorer.subquery.network). Read this complete guide on how to [publish your new project to SubQuery Projects](../run_publish/publish.md).
 
 - Para profundizar en la documentación del desarrollador, salta a la sección [Construir ](../../build/introduction.md) y aprender más sobre los tres archivos clave: **el archivo manifiesto, el esquema GraphQL, y el archivo de mapeos.**
 
