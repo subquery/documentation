@@ -88,13 +88,13 @@ The `chainId` is the network identifier of the blockchain. In NEAR, it's either 
 
 Additionally you will need to update the `endpoint`. This defines the RPC endpoint of the blockchain to be indexed - **this must be a full archive node**. Public nodes may be rate limited which can affect indexing speed. We strongly suggest getting a private API key from a commercial provider when developing your project.
 
-| Field            | Type   | Description                                                                                                                                                                                                                                                         |
-| ---------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **chainId**      | String | A network identifier for the blockchain                                                                                                                                                                                                                             |
-| **endpoint**     | String | Defines the RPC endpoint of the blockchain to be indexed - **This must be a full archive node**. You can retrieve endpoints for all parachains for free from [OnFinality](https://app.onfinality.io)                                                                |
-| **port**         | Number | Optional port number on the `endpoint` to connect to                                                                                                                                                                                                                |
-| **dictionary**   | String | It is suggested to provide the HTTP endpoint of a full chain dictionary to speed up processing - read [how a SubQuery Dictionary works](../academy/tutorials_examples/dictionary.md). For NEAR mainnet this is provided (we don't run a dictionary for the testnet) |
-| **bypassBlocks** | Array  | Bypasses stated block numbers, the values can be a `range`(e.g. `"10- 50"`) or `integer`, see [Bypass Blocks](#bypass-blocks)                                                                                                                                       |
+| Field            | Type   | Description                                                                                                                                                                                                                                                            |
+| ---------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **chainId**      | String | A network identifier for the blockchain                                                                                                                                                                                                                                |
+| **endpoint**     | String | Defines the RPC endpoint of the blockchain to be indexed - **This must be a full archive node**. You can retrieve endpoints for all parachains for free from [OnFinality](https://app.onfinality.io)                                                                   |
+| **port**         | Number | Optional port number on the `endpoint` to connect to                                                                                                                                                                                                                   |
+| **dictionary**   | String | It is suggested to provide the HTTP endpoint of a full chain dictionary to speed up processing - read [how a SubQuery Dictionary works](../../academy/tutorials_examples/dictionary.md). For NEAR mainnet this is provided (we don't run a dictionary for the testnet) |
+| **bypassBlocks** | Array  | Bypasses stated block numbers, the values can be a `range`(e.g. `"10- 50"`) or `integer`, see [Bypass Blocks](#bypass-blocks)                                                                                                                                          |
 
 ### Runner Spec
 
@@ -151,11 +151,11 @@ The following table explains filters supported by different handlers.
 
 **Your SubQuery project will be much more efficient when you only use `TransactionHandler` or `ActionHandler` handlers with appropriate mapping filters (e.g. NOT a `BlockHandler`).**
 
-| Handler                                                           | Supported filter      |
-| ----------------------------------------------------------------- | --------------------- |
-| [near/BlockHandler](../mapping/near.md#block-handler)             | `modulo`, `timestamp` |
-| [near/TransactionHandler](../mapping/near.md#transaction-handler) | `sender`, `reciever`  |
-| [near/ActionHandler](../mapping/near.md#message-handler)          | `type`, `sender`, `receiver`, `methodName`, 'args', 'publicKey', 'accessKey', 'beneficiaryId'      |
+| Handler                                                           | Supported filter                                                                              |
+| ----------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| [near/BlockHandler](../mapping/near.md#block-handler)             | `modulo`, `timestamp`                                                                         |
+| [near/TransactionHandler](../mapping/near.md#transaction-handler) | `sender`, `reciever`                                                                          |
+| [near/ActionHandler](../mapping/near.md#message-handler)          | `type`, `sender`, `receiver`, `methodName`, 'args', 'publicKey', 'accessKey', 'beneficiaryId' |
 
 Default runtime mapping filters are an extremely useful feature to decide what block, transaction, or action will trigger a mapping handler.
 

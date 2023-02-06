@@ -6,7 +6,7 @@ If you are willing to become a SubQuery Indexer, you need to stake a minimum of 
 
 **Note**:
 
-- If you do not have any SQT, please visit [How to request for Testnet tokens](../metamask/request-token.md).
+- If you do not have any SQT, please visit [How to request for Testnet tokens](../metamask/connect-metamask.md).
 - If you still haven’t connected your application to MetaMask, visit [How to Connect to MetaMask](../metamask/connect-metamask.md).
 
 ## 1. Initial Set-Up
@@ -105,10 +105,12 @@ For a brand new project, the indexing status will be `NOT INDEXING`. Select the 
 Enter the following values for each project and select specific image versions if needed:
 
 - Staking Threshold - Polkadot
+
   - Indexing Endpoint: `wss://polkadot.api.onfinality.io/public-ws`
   - Dictionary Endpoint: `https://api.subquery.network/sq/subquery/polkadot-dictionary`
 
-- [Developer Fund Votes - Juno]((https://forum.subquery.network/t/indexing-developer-fund-votes-juno-project/148))
+- [Developer Fund Votes - Juno](<(https://forum.subquery.network/t/indexing-developer-fund-votes-juno-project/148)>)
+
   - Dictionary Endpoint: `https://api.subquery.network/sq/subquery/cosmos-juno-dictionary`
 
 - [Pangolin Approvals - Avalanche]

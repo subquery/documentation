@@ -178,7 +178,7 @@ const b1 = await api.rpc.chain.getBlock(blockhash);
 const b2 = await api.rpc.chain.getBlock();
 ```
 
-- For [Custom Substrate Chains](#custom-substrate-chains) RPC calls, see [usage](mapping.md#usage).
+- For [Custom Substrate Chains](#custom-substrate-chains) RPC calls, see [usage](#usage).
 
 ## Custom Substrate Chains
 
@@ -322,7 +322,7 @@ After the updates, the paths in the config will look like this (without the comm
 #### Usage
 
 Now in the mapping function, we can show how the metadata and types actually decorate the API. The RPC endpoint will support the modules and methods we declared above.
-And to use custom rpc call, please see section [Custom chain rpc calls](mapping.md#custom-chain-rpc-calls)
+And to use custom rpc call, please see section [Custom chain rpc calls](#custom-chain-rpc-calls)
 
 ```typescript
 export async function kittyApiHandler(): Promise<void> {

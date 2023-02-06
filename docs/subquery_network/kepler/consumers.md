@@ -6,7 +6,7 @@ This guide explains what a consumer is and includes the necessary steps to becom
 
 ## Why Become a Consumer?
 
-As a [consumer](../../consumers.md), you can get indexed data by entering into an agreement with an Indexer. In return, you can query the data you need quickly for your dApps, thereby saving you time figuring out how to get blockchain data yourself.
+As a Consumer, you can get indexed data by entering into an agreement with an Indexer. In return, you can query the data you need quickly for your dApps, thereby saving you time figuring out how to get blockchain data yourself.
 
 **Begin your journey as a consumer by creating an offer. Follow any of these two methods:**
 

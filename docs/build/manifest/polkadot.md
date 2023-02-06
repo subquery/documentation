@@ -69,14 +69,14 @@ Template are introduced from manifest v0.2.1, it allows creating datasources dyn
 This is useful when you don't know certain specific details when creating your project.
 A good example of this is when you know a contract will be deployed at a later stage but you don't know what the address will be.
 
-For a more detailed explanation head [here](../build/dynamicdatasources.md).
+For a more detailed explanation head [here](../dynamicdatasources.md).
 
 ### Change log for v0.2.0
 
 **Under `network`:**
 
 - There is a new **required** `genesisHash` field which helps to identify the chain being used.
-- For v0.2.0 and above, you are able to reference an external [chaintype file](../build/manifest/polkadot.md#custom-substrate-and-cosmos-chains) if you are referencing a custom chain.
+- For v0.2.0 and above, you are able to reference an external [chaintype file](#custom-chains) if you are referencing a custom chain.
 
 **Under `dataSources`:**
 
@@ -130,7 +130,7 @@ Additionally you will need to update the `endpoint`. This defines the wss endpoi
 | **genesisHash**  | String        | String        | The genesis hash of the network (from v1.0.0 this is an alias for `chainId` and not necessary)                                                                                                             |
 | **endpoint**     | String        | String        | Defines the wss or ws endpoint of the blockchain to be indexed - **This must be a full archive node**. You can retrieve endpoints for all parachains for free from [OnFinality](https://app.onfinality.io) |
 | **port**         | Number        | Number        | Optional port number on the `endpoint` to connect to                                                                                                                                                       |
-| **dictionary**   | String        | String        | It is suggested to provide the HTTP endpoint of a full chain dictionary to speed up processing - read [how a SubQuery Dictionary works](../academy/tutorials_examples/dictionary.md).                      |
+| **dictionary**   | String        | String        | It is suggested to provide the HTTP endpoint of a full chain dictionary to speed up processing - read [how a SubQuery Dictionary works](../../academy/tutorials_examples/dictionary.md).                   |
 | **chaintypes**   | {file:String} | {file:String} | Path to chain types file, accept `.json` or `.yaml` format                                                                                                                                                 |
 | **bypassBlocks** | Array         | x             | Bypasses stated block numbers, the values can be a `range`(e.g. `"10- 50"`) or `integer`, see [Bypass Blocks](#bypass-blocks)                                                                              |
 
@@ -361,9 +361,9 @@ Custom Data Sources can be used with normal data sources.
 
 Here is a list of supported custom datasources:
 
-| Kind                                               | Supported Handlers                                                                                                                           | Filters                         | Description                                                                                                                                           |
-| -------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [substrate/FrontierEvm](../build/substrate-evm.md) | [substrate/FrontierEvmEvent](../build/substrate-evm.md#event-handlers), [substrate/FrontierEvmCall](../build/substrate-evm.md#call-handlers) | See filters under each handlers | Provides easy interaction with EVM transactions and events on the Frontier EVM (widely used across Polkadot including in Moonbeam and Astar networks) |
+| Kind                                         | Supported Handlers                                                                                                               | Filters                         | Description                                                                                                                                           |
+| -------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [substrate/FrontierEvm](../substrate-evm.md) | [substrate/FrontierEvmEvent](../substrate-evm.md#event-handlers), [substrate/FrontierEvmCall](../substrate-evm.md#call-handlers) | See filters under each handlers | Provides easy interaction with EVM transactions and events on the Frontier EVM (widely used across Polkadot including in Moonbeam and Astar networks) |
 
 ## Validating
 

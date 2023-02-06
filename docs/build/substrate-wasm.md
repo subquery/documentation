@@ -36,7 +36,7 @@ We provide a custom data source processor for [Substrate WASM contract](https://
 | ----------------- | ---------------------------------------------------------------- | -------- | ----------------------------------------- |
 | kind              | `substrate/Wasm`                                                 | Yes      | Type of the datasource                    |
 | processor.file    | `'./node_modules/@subql/substrate-wasm-processor/dist/bundle.js` | Yes      | File reference to the data processor code |
-| processor.options | [ProcessorOptions](substrate-substrate.md#processor-options)     | No       | Options specific to the WASM Processor    |
+| processor.options | [ProcessorOptions](#processor-options)                           | No       | Options specific to the WASM Processor    |
 | assets            | `{ [key: String]: { file: String }}`                             | No       | An object of external asset files         |
 
 ### Processor Options

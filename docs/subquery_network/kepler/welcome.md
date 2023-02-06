@@ -22,18 +22,19 @@ The explorer displays a list of all the projects that are being indexed. It’s 
 
 ### Studio
 
-The studio allows developers to create, install, deploy and publish SubQuery projects. 
+The studio allows developers to create, install, deploy and publish SubQuery projects.
 
 ![Studio](/assets/img/studio.png)
 
 ---
 
-### Stake & Delegate: 
+### Stake & Delegate:
 
 This area:
-- Allows Indexers and Delegators to manage their [stake](../terminology.md#staking), [delegation](../terminology.md#delegating), rewards, and view tokens that are [locked](../terminology.md#lock-period). 
+
+- Allows Indexers and Delegators to manage their [stake](../../glossary/glossary.md#staking), [delegation](../../glossary/glossary.md#delegating), rewards, and view tokens that are [locked](../../glossary/glossary.md#lock-period).
 - Allows Delegators to select Indexers and delegate their [SQT](../token.md).
-- Allows Indexers to delegate to projects. 
+- Allows Indexers to delegate to projects.
 
 ![Stake & Delegate Dashboard](/assets/img/stake_delegate_dashboard.png) <br />
 
@@ -42,6 +43,7 @@ This area:
 ### Plans & Offers
 
 This area:
+
 - Lists [service agreements](../../glossary/glossary.md#service-agreements).
 - Allows Indexers to create and manage their plans.
 - Allows Consumers to create and manage their offers.
@@ -50,6 +52,7 @@ This area:
 ![Plan & Offer Dashboard](/assets/img/plan_offer_dashboard.png)<br/>
 
 ---
+
 ### Swap
 
 Swaps allows users to swap USDC to kSQT and vice versa.
@@ -57,16 +60,19 @@ Swaps allows users to swap USDC to kSQT and vice versa.
 ![Swaps](/assets/img/swaps.png)<br/>
 
 ---
+
 ### Governance
 
 Participate in SubQuery's [governance process](https://snapshot.org/#/subquerynetwork.eth).
 
 ---
+
 ### Documentation
 
 Learn more about the [SubQuery network](../introduction.html).
 
 ---
+
 ### Forum
 
 Join the discussion in our [forum](https://forum.subquery.network/).
