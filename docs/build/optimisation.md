@@ -74,6 +74,11 @@ type Transfer @entity {
 
 - Query only necessary fields from GraphQL.
 - For large data tables, avoid querying `totalCount` without adding conditions.
+- See also [restrict query complexity](../run_publish/run.md#restrict-query-complexity)
+
+## Running High Performance SubQuery Infrastructure
+
+There is more information focussed on the DevOps and configuration of [running high performance SubQuery projects here](../run_publish/run.md#running-high-performance-subquery-infrastructure).
 
 ## Review Project Architecture
 
