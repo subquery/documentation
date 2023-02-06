@@ -108,11 +108,17 @@ logger.debug("Debugger level message");
 logger.warn("Warning level message");
 ```
 
-To use `logger.info` or `logger.warn`, just place the line into your mapping file.
+To use `logger.info` or `logger.warn`, just place the line into any mapping file. When developing a SubQuery project, it's common to log a message with the block height at the start of each mapping function so you can easily identify that the mapping function has been triggered and is executing. In addition, you can inspect the payload of data passed through to the mapping function easily by stringifying the payload. Note that `JSON.stringify` doesn’t support native `BigInts`.
 
-![logging.info](/assets/img/logging_info.png)
+```ts
+export async function handleLog(log: EthereumLog): Promise<void> {
+  logger.info('New log found at ' + log.blockNumber.toString());
+  logger.info('New log payload ' + JSON.stringify(log.data));
+  ... // do something
+}
+```
 
-To use `logger.debug`, an additional flag is required. Add `--log-level=debug` to your command line.
+The default log level is `info` and above. To use `logger.debug`,you must add `--log-level=debug` to your command line.
 
 If you are running a docker container, add this line to your `docker-compose.yaml` file.
 
