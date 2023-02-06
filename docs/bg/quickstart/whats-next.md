@@ -2,7 +2,7 @@
 
 Сега, след като имате ясно разбиране как да изградите основен SubQuery проект, какви са следващите стъпки от вашето пътуване?
 
-- Сега можете лесно да публикувате своя проект. SubQuery provides a managed service solution where you can deploy your new project. Може да го разгърнете в [SubQuery Projects](https://project.subquery.network) и да направите запитване с помощта на нашият [Explorer](https://explorer.subquery.network). Прочетете това пълно ръководство за това как да [публикувате новия си проект в SubQuery Projects](../../run_publish/publish.md).
+- Сега можете лесно да публикувате своя проект. SubQuery provides a managed service solution where you can deploy your new project. Може да го разгърнете в [SubQuery Projects](https://project.subquery.network) и да направите запитване с помощта на нашият [Explorer](https://explorer.subquery.network). Read this complete guide on how to [publish your new project to SubQuery Projects](../run_publish/publish.md).
 
 - За да се потопите по-дълбоко в документацията за разработчици, преминете към секцията [Компилация ](../../build/introduction.md) и научете повече за трите ключови файла: **манифестния файл, схемата на GraphQL и файла за съпоставяне.**
 
