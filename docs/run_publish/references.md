@@ -515,7 +515,7 @@ These are disabled by default for database performance reasons.
 
 ### --query-limit
 
-This flag allows you to change the number of results for the query, it is default to 100.
+This flag allows you to change the number of results for the query, this flag accepts any positive integer. It is default to 100.
 
 ### --version
 
