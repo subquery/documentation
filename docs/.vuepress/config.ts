@@ -259,6 +259,7 @@ function getSidebar(locale: string): SidebarConfigArray {
             `${locale}/quickstart/quickstart_chains/algorand.md`,
             `${locale}/quickstart/quickstart_chains/avalanche.md`,
             `${locale}/quickstart/quickstart_chains/flare.md`,
+            `${locale}/quickstart/quickstart_chains/near.md`,
             `${locale}/quickstart/quickstart_chains/terra.md`,
           ],
         },
