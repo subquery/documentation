@@ -513,6 +513,10 @@ These are disabled by default for database performance reasons.
 
 **Note that must be on a Partner plan if you would like to run projects with the `--unsafe` command (on the query service) within [SubQuery's Managed Service](https://project.subquery.network). Additionally, it will prevent your project from being run in the SubQuery Network in the future.**
 
+### --query-limit
+
+This flag allows you to change the number of results for the query, it is default to 100.
+
 ### --version
 
 This displays the current version.
