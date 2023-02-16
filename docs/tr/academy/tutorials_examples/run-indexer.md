@@ -9,7 +9,7 @@
 
 ## Giriş
 
-İndeksleyici düğümü çalıştırmak, Docker kullanmanın veya [SubQuery Projects](https://project.subquery.network/)'de sizin için barındırılan bir projenin yanı sıra diğer bir alternatif seçenektir. Daha fazla zaman ve çaba gerektirir, ancak SubQuery'nin perde arkasında nasıl çalıştığını daha iyi anlamanıza yardımcı olacaktır.
+İndeksleyici düğümü çalıştırmak, Docker kullanmanın veya [SubQuery Managed Service](https://managedservice.subquery.network/)'de sizin için barındırılan bir projenin yanı sıra diğer bir alternatif seçenektir. Daha fazla zaman ve çaba gerektirir, ancak SubQuery'nin perde arkasında nasıl çalıştığını daha iyi anlamanıza yardımcı olacaktır.
 
 ## veritabanı
 

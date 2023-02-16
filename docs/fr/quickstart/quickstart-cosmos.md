@@ -191,7 +191,7 @@ You can see the final code of this project here at [https://github.com/jamesbayl
 
 ### Publiez votre projet SubQuery
 
-SubQuery fournit un service géré gratuit où vous pouvez déployer votre nouveau projet. Vous pouvez le déployer dans [SubQuery Projects](https://project.subquery.network) et l'interroger en utilisant notre [Explorer](https://explorer.subquery.network).
+SubQuery fournit un service géré gratuit où vous pouvez déployer votre nouveau projet. Vous pouvez le déployer dans [SubQuery Managed Service](https://managedservice.subquery.network) et l'interroger en utilisant notre [Explorer](https://explorer.subquery.network).
 
 [Lisez le guide pour publier votre nouveau projet dans SubQuery Projects](../run_publish/publish.md)
 

@@ -195,8 +195,8 @@ export default defineUserConfig({
         rel: "",
       },
       {
-        text: "Projects",
-        link: "https://project.subquery.network/",
+        text: "Managed Service",
+        link: "https://managedservice.subquery.network/",
         target: "_blank",
         rel: "",
       },

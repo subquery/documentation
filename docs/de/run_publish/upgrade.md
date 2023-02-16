@@ -48,9 +48,9 @@ $ subql deployment:deploy
 Mit der Einführung der Bereitstellungsfunktion für die CLI haben wir [dem Starterprojekt in GitHub](https://github.com/subquery/subql-starter/blob/main/Polkadot/Polkadot-starter/.github/workflows/cli-deploy.yml) einen **Standardaktions-Workflow** hinzugefügt, mit dem Sie Ihre Änderungen automatisch veröffentlichen und bereitstellen können :
 
 - Schritt 1: Nachdem Sie Ihr Projekt auf GitHub gepusht haben, erstellen Sie eine `DEPLOYMENT`-Umgebung auf GitHub und fügen Sie das Geheimnis [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) hinzu.
-- Schritt 2: Falls noch nicht geschehen, erstellen Sie ein Projekt in [SubQuery Projects](https://project.subquery.network). Dies kann über die [UI](#using-the-ui) oder die [CLI](#using-the-cli) erfolgen.
+- Schritt 2: Falls noch nicht geschehen, erstellen Sie ein Projekt in [SubQuery Managed Service](https://managedservice.subquery.network). Dies kann über die [UI](#using-the-ui) oder die [CLI](#using-the-cli) erfolgen.
 - Schritt 3: Navigieren Sie nach der Erstellung Ihres Projekts zur Seite „GitHub-Aktionen“ Ihres Projekts und wählen Sie den Workflow `CLI-Bereitstellung` aus.
-- Schritt 4: Sie sehen ein Eingabefeld, in das Sie den eindeutigen Code Ihres auf SubQuery Projects erstellten Projekts eingeben können. Sie können den Code aus der URL in SubQuery Projects [SubQuery Projects](https://project.subquery.network) abrufen. Der Code basiert auf dem Namen Ihres Projekts, wobei Leerzeichen durch Bindestriche `-` ersetzt werden. z.B. `my project name` wird zu `my-project-name`.
+- Schritt 4: Sie sehen ein Eingabefeld, in das Sie den eindeutigen Code Ihres auf SubQuery Projects erstellten Projekts eingeben können. Sie können den Code aus der URL in SubQuery's Managed Service [SubQuery Managed Service](https://managedservice.subquery.network) abrufen. Der Code basiert auf dem Namen Ihres Projekts, wobei Leerzeichen durch Bindestriche `-` ersetzt werden. z.B. `my project name` wird zu `my-project-name`.
 
 ::: Tipps Tipp
 Sobald der Workflow abgeschlossen ist, sollten Sie sehen können, wie Ihr Projekt in unserem Managed Service bereitgestellt wird.

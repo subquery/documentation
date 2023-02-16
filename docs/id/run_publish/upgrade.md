@@ -48,9 +48,9 @@ $ subql deployment:deploy
 Dengan diperkenalkannya fitur penyebaran untuk CLI, kami telah menambahkan **Default Action Workflow** ke [proyek starter di GitHub](https://github.com/subquery/subql-starter/blob/main/Polkadot/Polkadot-starter/.github/workflows/cli-deploy.yml) yang akan memungkinkan Anda untuk menerbitkan dan menyebarkan perubahan Anda secara otomatis:
 
 - Langkah 1: Setelah mendorong proyek Anda ke GitHub, buat lingkungan `DEPLOYMENT` di GitHub, dan tambahkan rahasia [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) ke dalamnya.
-- Langkah 2: Jika Anda belum melakukannya, buat proyek pada [Proyek SubQuery](https://project.subquery.network). Hal ini bisa dilakukan dengan menggunakan [UI](#using-the-ui) atau [CLI](#using-the-cli).
+- Langkah 2: Jika Anda belum melakukannya, buat proyek pada [Proyek SubQuery](https://managedservice.subquery.network). Hal ini bisa dilakukan dengan menggunakan [UI](#using-the-ui) atau [CLI](#using-the-cli).
 - Langkah 3: Setelah proyek Anda dibuat, navigasikan ke halaman Tindakan GitHub dari proyek Anda, dan pilih alur kerja `CLI deploy`.
-- Langkah 4: Anda akan melihat bidang input di mana Anda dapat memasukkan kode unik proyek Anda yang dibuat di SubQuery Projects. Anda bisa mendapatkan kode dari URL di Proyek SubQuery [Proyek SubQuery](https://project.subquery.network). Kode ini didasarkan pada nama proyek Anda, di mana spasi diganti dengan tanda hubung `-`. misalnya `nama proyek saya` menjadi `nama proyek saya`.
+- Langkah 4: Anda akan melihat bidang input di mana Anda dapat memasukkan kode unik proyek Anda yang dibuat di SubQuery Projects. Anda bisa mendapatkan kode dari URL di Proyek SubQuery [Proyek SubQuery](https://managedservice.subquery.network). Kode ini didasarkan pada nama proyek Anda, di mana spasi diganti dengan tanda hubung `-`. misalnya `nama proyek saya` menjadi `nama proyek saya`.
 
 ::: tips Tip
 Setelah alur kerja selesai, Anda seharusnya dapat melihat proyek Anda diterapkan ke Managed Service kami.

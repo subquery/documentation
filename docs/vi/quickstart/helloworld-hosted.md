@@ -9,7 +9,7 @@ Chúng ta sẽ sử dụng dự án khởi động đơn giản (bằng mọi th
 Khi kết thúc phần khởi động nhanh này, bạn sẽ:
 
 - hiểu các điều kiện tiên quyết cần thiết
-- có thể làm chủ một dự án trong [SubQuery Projects](https://project.subquery.network/)
+- có thể làm chủ một dự án trong [SubQuery Managed Service](https://managedservice.subquery.network/)
 - chạy một truy vấn đơn giản để lấy chiều cao khối của mạng chính Polkadot bằng cách sử dụng playground
 - chạy một truy vấn GET đơn giản để lấy chiều cao khối của mạng chính Polkadot bằng cách sử dụng cURL
 
@@ -106,7 +106,7 @@ Bây giờ bạn đã có code của mình trong GitHub, hãy xem cách chúng t
 
 ## 4. Tạo dự án của bạn
 
-Di chuyển đến [https://project.subquery.network](https://project.subquery.network) và đăng nhập bằng tài khoản GitHub của bạn.
+Di chuyển đến [https://managedservice.subquery.network](https://managedservice.subquery.network) và đăng nhập bằng tài khoản GitHub của bạn.
 
 ![Chào mừng bạn đến với Dự án SubQuery](/assets/img/welcome_to_subquery_projects.png)
 
@@ -188,4 +188,4 @@ Khả năng đọc không phải là mối quan tâm ở đây vì bạn có th�
 
 ## Tóm lược
 
-Trong phần khởi động nhanh được lưu trữ trên SubQuery này, chúng tôi đã cho thấy việc thực hiện một dự án Subql và triển khai nó cho [Dự án SubQuery](https://project.subquery.network) nhanh chóng và dễ dàng như thế nào để thuận tiện cho bạn. Có một inbuilt playground có để chạy các truy vấn khác nhau cũng như một điểm cuối API để tích hợp mã của bạn.
+Trong phần khởi động nhanh được lưu trữ trên SubQuery này, chúng tôi đã cho thấy việc thực hiện một dự án Subql và triển khai nó cho [Dự án SubQuery](https://managedservice.subquery.network) nhanh chóng và dễ dàng như thế nào để thuận tiện cho bạn. Có một inbuilt playground có để chạy các truy vấn khác nhau cũng như một điểm cuối API để tích hợp mã của bạn.

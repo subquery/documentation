@@ -204,7 +204,7 @@ Yeni bir SubQuery başlangıç ​​projesi için, nasıl çalıştığını an
 
 ### SubQuery Projenizi Yayımlama
 
-SubQuery, yeni projenizi dağıtabileceğiniz zaman ücretsiz bir yönetilen hizmet sağlar. [SubQuery Projelerine](https://project.subquery.network) dağıtabilir ve [Gezgin'i](https://explorer.subquery.network) kullanarak sorgulayabilirsiniz.
+SubQuery, yeni projenizi dağıtabileceğiniz zaman ücretsiz bir yönetilen hizmet sağlar. [SubQuery Projelerine](https://managedservice.subquery.network) dağıtabilir ve [Gezgin'i](https://explorer.subquery.network) kullanarak sorgulayabilirsiniz.
 
 [Yeni projenizi SubQuery Projelerinde yayınlama kılavuzunu okuyun](../run_publish/publish.md)
 

@@ -1,6 +1,6 @@
 # Запуск SubQuery локально
 
-В этом руководстве описано, как запустить локальный узел SubQuery на вашей инфраструктуре, который включает в себя как индексатор, так и службу запросов. Не хотите беспокоиться о создании собственной инфраструктуры SubQuery? SubQuery provides a [Managed Service](https://explorer.subquery.network) to the community for free. [Следуйте нашему руководству по публикации](../run_publish/publish.md), чтобы узнать, как загрузить свой проект в [SubQuery Projects](https://project.subquery.network).
+В этом руководстве описано, как запустить локальный узел SubQuery на вашей инфраструктуре, который включает в себя как индексатор, так и службу запросов. Не хотите беспокоиться о создании собственной инфраструктуры SubQuery? SubQuery provides a [Managed Service](https://explorer.subquery.network) to the community for free. [Следуйте нашему руководству по публикации](../run_publish/publish.md), чтобы узнать, как загрузить свой проект в [SubQuery Managed Service](https://managedservice.subquery.network).
 
 ## Использование Docker
 

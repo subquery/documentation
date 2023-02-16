@@ -9,7 +9,7 @@ Tomaremos el simple proyecto inicial (y todo lo que hemos aprendido hasta ahora)
 Al final de este inicio rápido, deberías:
 
 - entender los requisitos requeridos
-- ser capaz de alojar un proyecto en [SubQuery Projects](https://project.subquery.network/)
+- ser capaz de alojar un proyecto en [SubQuery Managed Service](https://managedservice.subquery.network/)
 - ejecuta una simple consulta para obtener la altura del bloque del mainnet Polkadot usando el patio de juego
 - ejecuta una simple consulta GET para obtener la altura del bloque del mainnet Polkadot usando cURL
 
@@ -106,7 +106,7 @@ Ahora que tienes tu código en GitHub, vamos a ver cómo podemos alojarlo en Pro
 
 ## 4. Paso 1: Creta tu proyecto
 
-Ve a [https://project.subquery.network](https://project.subquery.network) e inicia sesión con tu cuenta de GitHub.
+Ve a [https://managedservice.subquery.network](https://managedservice.subquery.network) e inicia sesión con tu cuenta de GitHub.
 
 ![Bienvenido a los proyectos de SubQuery](/assets/img/welcome_to_subquery_projects.png)
 
@@ -188,4 +188,4 @@ La capacidad de lectura no es una preocupación aquí ya que probablemente tendr
 
 ## Resúmen
 
-En este inicio rápido de SubQuery mostramos lo rápido y fácil que fue tomar un proyecto Subql y desplegarlo en [SubQuery Projects](https://project.subquery.network) donde toda la infraestructura, se proporciona para su conveniencia. Hay un patio de juego inconstruido para ejecutar varias consultas, así como un endpoint API para que tu código se integre.
+En este inicio rápido de SubQuery mostramos lo rápido y fácil que fue tomar un proyecto Subql y desplegarlo en [SubQuery Managed Service](https://managedservice.subquery.network) donde toda la infraestructura, se proporciona para su conveniencia. Hay un patio de juego inconstruido para ejecutar varias consultas, así como un endpoint API para que tu código se integre.

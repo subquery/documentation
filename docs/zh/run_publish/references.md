@@ -207,7 +207,7 @@ SubQuery 项目通常在 javascript sandbox 中运行，以保证安全，限制
 
 虽然这会增强安全性，但我们理解这会限制您的 SubQuery 可用的功能。 `--unsafe` 命令导入所有默认的 javascript 模块，这些模块大大增加了安全性降低后的沙盒功能。
 
-**Note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in [SubQuery's Managed Service](https://project.subquery.network).**
+**Note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in [SubQuery's Managed Service](https://managedservice.subquery.network).**
 
 ### --batch-size
 

@@ -204,7 +204,7 @@ export async function handleEvent(event: SubstrateEvent): Promise<void> {
 
 ### Опубликуйте свой проект SubQuery
 
-SubQuery предоставляет бесплатный управляемый сервис, в котором вы можете развернуть свой новый проект. Вы можете развернуть его в [SubQuery Projects](https://project.subquery.network) и запросить его с помощью нашего [Проводника](https://explorer.subquery.network).
+SubQuery предоставляет бесплатный управляемый сервис, в котором вы можете развернуть свой новый проект. Вы можете развернуть его в [SubQuery Managed Service](https://managedservice.subquery.network) и запросить его с помощью нашего [Проводника](https://explorer.subquery.network).
 
 Прочтите руководство по [публикации нового проекта в SubQuery Projects](../run_publish/publish.md)
 

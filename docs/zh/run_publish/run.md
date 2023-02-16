@@ -1,6 +1,6 @@
 # 本地运行 SubQuery
 
-本指南通过如何在您的基础设施上运行本地的 SubQuery 节点，其中包括索引器和查询服务。 不用担心在运行自己的 SubQuery 基础架构中所出现的问题。 SubQuery provides a [Managed Service](https://explorer.subquery.network) to the community for free. [按照我们所发布的指南](../run_publish/publish.md) 查看您如何将项目部署到 [SubQuery 项目](https://project.subquery.network)。
+本指南通过如何在您的基础设施上运行本地的 SubQuery 节点，其中包括索引器和查询服务。 不用担心在运行自己的 SubQuery 基础架构中所出现的问题。 SubQuery provides a [Managed Service](https://explorer.subquery.network) to the community for free. [按照我们所发布的指南](../run_publish/publish.md) 查看您如何将项目部署到 [SubQuery 项目](https://managedservice.subquery.network)。
 
 ## 使用 Docker
 

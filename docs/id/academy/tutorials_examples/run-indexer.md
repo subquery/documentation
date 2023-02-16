@@ -9,7 +9,7 @@
 
 ## Pengantar
 
-Menjalankan node pengindeks adalah opsi lain selain menggunakan Docker atau memiliki proyek yang dihosting untuk Anda di [Proyek SubQuery](https://project.subquery.network/). Ini membutuhkan lebih banyak waktu dan usaha tetapi akan meningkatkan pemahaman Anda tentang bagaimana SubQuery bekerja di bawah selimut.
+Menjalankan node pengindeks adalah opsi lain selain menggunakan Docker atau memiliki proyek yang dihosting untuk Anda di [Proyek SubQuery](https://managedservice.subquery.network/). Ini membutuhkan lebih banyak waktu dan usaha tetapi akan meningkatkan pemahaman Anda tentang bagaimana SubQuery bekerja di bawah selimut.
 
 ## Postgres
 

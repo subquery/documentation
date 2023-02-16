@@ -9,7 +9,7 @@
 빠른 시작이 끝나면, 다음을 수행해야 합니다.
 
 - 필요한 전제 조건을 이해
-- [SubQuery 프로젝트](https://project.subquery.network/)에서 프로젝트를 호스팅할 수 있습니다.
+- [SubQuery 프로젝트](https://managedservice.subquery.network/)에서 프로젝트를 호스팅할 수 있습니다.
 - 플레이그라운드를 사용하여 Polkadot 메인넷의 블록 높이를 가져오는 간단한 쿼리를 실행합니다.
 - cURL을 사용하여 Polkadot 메인넷의 블록 높이를 가져오기 위해 간단한 GET 쿼리를 실행합니다.
 
@@ -106,7 +106,7 @@ Push 명령은 "내 코드를 내 마스터 로컬 저장소에서 원본 저장
 
 ## 4. Step 1: 프로젝트 생성
 
-https://project.subquery.network로 이동하여 GitHub 계정으로 로그인합니다.
+https://managedservice.subquery.network로 이동하여 GitHub 계정으로 로그인합니다.
 
 ![SubQuery Projects에 오신 것을 환영합니다](/assets/img/welcome_to_subquery_projects.png)
 
@@ -188,4 +188,4 @@ curl https://api.subquery.network/sq/seandotau/subqueryhelloworld -d "query=quer
 
 ## 요약
 
-이 SubQuery에서 호스팅하는 빠른 시작에서 우리는 Subql 프로젝트를 가지고 모든 인프라가 귀하의 편의를 위해 제공되는 [SubQuery 프로젝트](https://project.subquery.network)에 배포하는 것이 얼마나 빠르고 쉬운지 보여주었습니다. 다양한 쿼리를 실행할 수 있는 내장형 플레이그라운드와 코드를 통합할 수 있는 API 엔드포인트가 있습니다.
+이 SubQuery에서 호스팅하는 빠른 시작에서 우리는 Subql 프로젝트를 가지고 모든 인프라가 귀하의 편의를 위해 제공되는 [SubQuery 프로젝트](https://managedservice.subquery.network)에 배포하는 것이 얼마나 빠르고 쉬운지 보여주었습니다. 다양한 쿼리를 실행할 수 있는 내장형 플레이그라운드와 코드를 통합할 수 있는 API 엔드포인트가 있습니다.

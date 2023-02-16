@@ -9,11 +9,11 @@
 
 ## Introduction
 
-Running an indexer node is another option outside of using Docker or having a project hosted for you at [SubQuery Projects](https://project.subquery.network/). It requires more time and effort but will enhance your understanding of how SubQuery works under the covers.
+Running an indexer node is another option outside of using Docker or having a project hosted for you at [SubQuery Managed Service](https://managedservice.subquery.network/). It requires more time and effort but will enhance your understanding of how SubQuery works under the covers.
 
 ## Postgres
 
-Running an indexer node on your infrastructure will require the setup of a Postgres database. You can install Postgres from [here]( https://www.postgresql.org/download/) and ensure the version is 12 or greater. 
+Running an indexer node on your infrastructure will require the setup of a Postgres database. You can install Postgres from [here](https://www.postgresql.org/download/) and ensure the version is 12 or greater.
 
 ## Install subql/node
 
@@ -54,7 +54,7 @@ To start indexing a project, navigate into your project folder and run the follo
 subql-node -f .
 ```
 
-If you do not have a project handy, `git clone https://github.com/subquery/subql-helloworld`. You should see the indexer node kick into life and start indexing blocks. 
+If you do not have a project handy, `git clone https://github.com/subquery/subql-helloworld`. You should see the indexer node kick into life and start indexing blocks.
 
 ## Inspecting Postgres
 

@@ -9,11 +9,11 @@
 
 ## Die Einführung
 
-Das Ausführen einer Indexer-Node ist eine weitere Option, außer Docker zu verwenden oder ein Projekt für Sie unter [SubQuery-Projekte](https://project.subquery.network/) zu hosten. Es erfordert mehr Zeit und Mühe, wird jedoch Ihr Verständnis dafür verbessern, wie SubQuery unter dem Deckmantel funktioniert.
+Das Ausführen einer Indexer-Node ist eine weitere Option, außer Docker zu verwenden oder ein Projekt für Sie unter [SubQuery-Projekte](https://managedservice.subquery.network/) zu hosten. Es erfordert mehr Zeit und Mühe, wird jedoch Ihr Verständnis dafür verbessern, wie SubQuery unter dem Deckmantel funktioniert.
 
 ## Postgres
 
-Das Ausführen einer Indexer-Node in Ihrer Infrastruktur erfordert die Einrichtung einer Postgres-Datenbank.  Sie können Postgres von [aus hier](https://www.postgresql.org/download/) installieren und sicherstellen, dass die Version 12 oder höher ist.
+Das Ausführen einer Indexer-Node in Ihrer Infrastruktur erfordert die Einrichtung einer Postgres-Datenbank. Sie können Postgres von [aus hier](https://www.postgresql.org/download/) installieren und sicherstellen, dass die Version 12 oder höher ist.
 
 ## Install subql/node
 

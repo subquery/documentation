@@ -51,7 +51,7 @@ This feature is not compatible with Historical State and will be disabled if `--
 :::
 
 ::: warning Warning
-This feature is only supported for Partner Plan Customers in the [SubQuery Managed Service](https://project.subquery.network). All others can run this locally in their own infrastructure provider.
+This feature is only supported for Partner Plan Customers in the [SubQuery Managed Service](https://managedservice.subquery.network). All others can run this locally in their own infrastructure provider.
 :::
 
 ## Example Project

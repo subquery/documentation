@@ -207,7 +207,7 @@ subql-node -f . --db-schema=test2
 
 Хотя это повышает безопасность, мы понимаем, что это ограничивает доступную функциональность вашего SubQuery. Команда `--unsafe` импортирует все модули javascript по умолчанию, что значительно увеличивает функциональность песочницы, но при этом снижает безопасность.
 
-**Note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in [SubQuery's Managed Service](https://project.subquery.network).**
+**Note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in [SubQuery's Managed Service](https://managedservice.subquery.network).**
 
 ### --размер партии
 
@@ -441,7 +441,7 @@ Options:
 
 По умолчанию они отключены из-за лимита сущностей.
 
-**Обратите внимание, что команда `--unsafe` не позволит запустить ваш проект в сети SubQuery, и вы должны обратиться в службу поддержки, если хотите, чтобы эта команда была запущена с вашим проектом в [SubQuery's Managed Services](https://project.subquery.network).**
+**Обратите внимание, что команда `--unsafe` не позволит запустить ваш проект в сети SubQuery, и вы должны обратиться в службу поддержки, если хотите, чтобы эта команда была запущена с вашим проектом в [SubQuery's Managed Services](https://managedservice.subquery.network).**
 
 ### --порт
 

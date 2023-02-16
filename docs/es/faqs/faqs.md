@@ -37,7 +37,7 @@ This service is being provided to the community with a generous free tier! You c
 
 ## ¿Qué son las ranuras de despliegue?
 
-Las ranuras de despliegue son una característica en [SubQuery Proyects](https://project.subquery.network) que es el equivalente a un entorno de desarrollo. Por ejemplo, en cualquier organización de software normalmente hay un entorno de desarrollo y un entorno de producción como mínimo (ignorando que localhost lo está). Normalmente se incluyen entornos adicionales como la puesta en escena y pre-prod o incluso el QA dependiendo de las necesidades de la organización y de su configuración de desarrollo.
+Las ranuras de despliegue son una característica en [SubQuery Proyects](https://managedservice.subquery.network) que es el equivalente a un entorno de desarrollo. Por ejemplo, en cualquier organización de software normalmente hay un entorno de desarrollo y un entorno de producción como mínimo (ignorando que localhost lo está). Normalmente se incluyen entornos adicionales como la puesta en escena y pre-prod o incluso el QA dependiendo de las necesidades de la organización y de su configuración de desarrollo.
 
 SubQuery tiene actualmente dos espacios disponibles. Una ranura de montaje y una ranura de producción. Esto permite a los desarrolladores desplegar su SubQuery en el entorno de instalación y si todo va bien, "promover a la producción" con el clic de un botón.
 

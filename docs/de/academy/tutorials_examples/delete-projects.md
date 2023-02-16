@@ -4,7 +4,7 @@
 
 Es ist wichtig, dass Ihre Projekte in SubQuery Project relevant und aktuell sind. Für alle Projekte, die zu Testzwecken in SubQuery Project hochgeladen wurden, wird empfohlen, sie anschließend zu löschen, um Ressourcen zu sparen und Kosten zu sparen.
 
-Das Ausführen einer Indexer-Node ist eine weitere Option, außer Docker zu verwenden oder ein Projekt für Sie unter [SubQuery-Projekte](https://project.subquery.network/) zu hosten. Es erfordert mehr Zeit und Mühe, wird jedoch Ihr Verständnis dafür verbessern, wie SubQuery unter dem Deckmantel funktioniert.
+Das Ausführen einer Indexer-Node ist eine weitere Option, außer Docker zu verwenden oder ein Projekt für Sie unter [SubQuery-Projekte](https://managedservice.subquery.network/) zu hosten. Es erfordert mehr Zeit und Mühe, wird jedoch Ihr Verständnis dafür verbessern, wie SubQuery unter dem Deckmantel funktioniert.
 
 ## Löschen eines Projekts aus dem Staging-Slot
 

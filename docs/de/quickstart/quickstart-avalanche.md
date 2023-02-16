@@ -215,9 +215,9 @@ query {
 
 ### Veröffentlichen Sie Ihr SubQuery-Projekt
 
-SubQuery bietet einen kostenlosen verwalteten Dienst, wenn Sie Ihr neues Projekt bereitstellen können. Sie können es in [SubQuery-Projekten](https://project.subquery.network) bereitstellen und mit unserem [Explorer](https://explorer.subquery.network) abfragen.
+SubQuery bietet einen kostenlosen verwalteten Dienst, wenn Sie Ihr neues Projekt bereitstellen können. Sie können es in [SubQuery-Projekten](https://managedservice.subquery.network) bereitstellen und mit unserem [Explorer](https://explorer.subquery.network) abfragen.
 
-[Lesen Sie den Leitfaden zur Veröffentlichung Ihres neuen Projekts in SubQuery Projects](../run_publish/publish.md), **Beachten Sie, dass Sie es über IPFS bereitstellen müssen**.
+[Lesen Sie den Leitfaden zur Veröffentlichung Ihres neuen Projekts in SubQuery's Managed Service](../run_publish/publish.md), **Beachten Sie, dass Sie es über IPFS bereitstellen müssen**.
 
 ## Weitere Schritte
 

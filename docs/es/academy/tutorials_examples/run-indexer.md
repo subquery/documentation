@@ -9,7 +9,7 @@
 
 ## Introducción
 
-Ejecutar un nodo indexador es otra opción fuera de usar Docker o tener un proyecto alojado para usted en [SubQuery Projects](https://project.subquery.network/). Requiere más tiempo y esfuerzo, pero mejorará su comprensión de cómo trabaja SubQuery bajo las cubiertas.
+Ejecutar un nodo indexador es otra opción fuera de usar Docker o tener un proyecto alojado para usted en [SubQuery Managed Service](https://managedservice.subquery.network/). Requiere más tiempo y esfuerzo, pero mejorará su comprensión de cómo trabaja SubQuery bajo las cubiertas.
 
 ## Postgres
 

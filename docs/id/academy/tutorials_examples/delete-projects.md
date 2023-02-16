@@ -4,7 +4,7 @@
 
 Penting untuk menjaga agar proyek Anda di Proyek SubQuery tetap relevan dan mutakhir. Untuk setiap proyek yang diunggah ke Proyek SubQuery untuk tujuan pengujian, disarankan untuk menghapusnya setelah itu untuk menghemat sumber daya dan menghemat biaya.
 
-Menjalankan node pengindeks adalah opsi lain selain menggunakan Docker atau memiliki proyek yang dihosting untuk Anda di [Proyek SubQuery](https://project.subquery.network/). Ini membutuhkan lebih banyak waktu dan usaha tetapi akan meningkatkan pemahaman Anda tentang bagaimana SubQuery bekerja di bawah selimut.
+Menjalankan node pengindeks adalah opsi lain selain menggunakan Docker atau memiliki proyek yang dihosting untuk Anda di [Proyek SubQuery](https://managedservice.subquery.network/). Ini membutuhkan lebih banyak waktu dan usaha tetapi akan meningkatkan pemahaman Anda tentang bagaimana SubQuery bekerja di bawah selimut.
 
 ## Menghapus project dari staging slot
 

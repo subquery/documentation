@@ -9,7 +9,7 @@
 По окончании этого краткого курса вы должны:
 
 - понимать необходимые предварительные требования
-- иметь возможность разместить проект в [SubQuery Projects](https://project.subquery.network/)
+- иметь возможность разместить проект в [SubQuery Managed Service](https://managedservice.subquery.network/)
 - выполнить простой запрос для получения высоты блока в сети Polkadot, используя игровую площадку
 - выполнить простой GET-запрос для получения высоты блока сети Polkadot с помощью cURL
 
@@ -106,7 +106,7 @@ To https://github.com/seandotau/subqlHelloWorld.git
 
 ## 4. Создание своего проекта в SubQuery Projects
 
-Перейдите по ссылке [ https://project.subquery.network ](https://project.subquery.network) и синхронизируйте со своей учетную запись GitHub.
+Перейдите по ссылке [ https://managedservice.subquery.network ](https://managedservice.subquery.network) и синхронизируйте со своей учетную запись GitHub.
 
 ![Добро пожаловать в SubQuery Projects](/assets/img/welcome_to_subquery_projects.png)
 
@@ -188,4 +188,4 @@ curl https://api.subquery.network/sq/seandotau/subqueryhelloworld -d "query=quer
 
 ## Заключение
 
-В этом кратком руководстве, размещенном в SubQuery, мы показали, насколько быстро и легко было взять проект Subql и развернуть его в [ SubQuery Projects ](https://project.subquery.network), где для вашего удобства предоставляется вся инфраструктура. Существует встроенная игровая площадка для выполнения различных запросов, а также конечная точка API для интеграции вашего кода.
+В этом кратком руководстве, размещенном в SubQuery, мы показали, насколько быстро и легко было взять проект Subql и развернуть его в [ SubQuery Projects ](https://managedservice.subquery.network), где для вашего удобства предоставляется вся инфраструктура. Существует встроенная игровая площадка для выполнения различных запросов, а также конечная точка API для интеграции вашего кода.

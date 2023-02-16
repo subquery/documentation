@@ -204,7 +204,7 @@ Whenever you create a new SubQuery Project, you should always run it locally on 
 
 ### เผยแพร่โปรเจกต์ SubQuery ของคุณ
 
-SubQuery ให้บริการ การจัดการฟรีในทุกๆที่ ที่คุณ deploy โปรเจกต์ใหม่ คุณสามารถปรับใช้บน [SubQuery Projects](https://project.subquery.network) และ Query โดยใช้ [Explorer](https://explorer.subquery.network).
+SubQuery ให้บริการ การจัดการฟรีในทุกๆที่ ที่คุณ deploy โปรเจกต์ใหม่ คุณสามารถปรับใช้บน [SubQuery Managed Service](https://managedservice.subquery.network) และ Query โดยใช้ [Explorer](https://explorer.subquery.network).
 
 อ่านคู่มือ [publish your new project to SubQuery Projects](../run_publish/publish.md)
 

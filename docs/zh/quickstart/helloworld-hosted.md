@@ -1,4 +1,4 @@
-# Hello World (由SubQuery 托管)
+# Hello World (由 SubQuery 托管)
 
 本快速入门的目的是展示如何通过几个简单的步骤让默认启动项目在 SubQuery Projects（我们的管理服务）中运行。
 
@@ -9,7 +9,7 @@
 在本快速入门结束时，您应该：
 
 - 了解所需的先决条件
-- 能够在[SubQuery Projects](https://project.subquery.network/)中托管项目
+- 能够在[SubQuery Managed Service](https://managedservice.subquery.network/)中托管项目
 - 运行一个简单的查询以使用 Playground 来获取 Polkadot 主网的块高度
 - 运行一个简单的 GET 查询以使用 cURL 来获取 Polkadot 主网的块高度
 
@@ -32,7 +32,7 @@
 
 ## 1. 4. 创建项目
 
-让我们通过运行`subql init`命令来在`Polkadot`网络构建项目来创建一个名为subqlHelloWorld 的项目，并使用`subql-starter`模板初始化该项目。 我们必须使用您最喜欢的软件包管理器来运行强制安装、生成代码和编译。
+让我们通过运行`subql init`命令来在`Polkadot`网络构建项目来创建一个名为 subqlHelloWorld 的项目，并使用`subql-starter`模板初始化该项目。 我们必须使用您最喜欢的软件包管理器来运行强制安装、生成代码和编译。
 
 ```shell
 > subql init subqlHelloWorld
@@ -118,11 +118,11 @@ push 命令的意思是“请将我的代码从我的主本地存储库推送到
 
 ![首次提交](/assets/img/first_commit.png)
 
-现在你已经将你的代码存入GitHub, 让我们来看看如何能够在 SubQuery Projects 中托管它。
+现在你已经将你的代码存入 GitHub, 让我们来看看如何能够在 SubQuery Projects 中托管它。
 
 ## 4. 4. 创建项目
 
-浏览此网址 [https://project.subquery.network](https://project.subquery.network) 并使用您的 GitHub 帐户登录。
+浏览此网址 [https://managedservice.subquery.network](https://managedservice.subquery.network) 并使用您的 GitHub 帐户登录。
 
 ![欢迎使用 SubQuery Projects](/assets/img/welcome_to_subquery_projects.png)
 
@@ -132,12 +132,12 @@ push 命令的意思是“请将我的代码从我的主本地存储库推送到
 
 并用适当的详细信息填写各个字段。
 
-- **GitHub 帐户：** 如果您有多个GitHub 帐户，请选择该项目将在哪个帐户下创建。 在GitHub 组织账户中创建的项目由该组织的成员共享。
+- **GitHub 帐户：** 如果您有多个 GitHub 帐户，请选择该项目将在哪个帐户下创建。 在 GitHub 组织账户中创建的项目由该组织的成员共享。
 - **项目名称：** 在此处为您的项目命名。
 - **副标题：** 为您的项目提供副标题。
 - **描述：** 解释您的 SubQuery 项目的用途。
 - **GitHub 存储库 URL：** 这必须是包含您的 SubQuery 项目的公共存储库的有效 GitHub URL。 schemagraphql 文件必须在您的目录的根目录中。
-- **隐藏项目：** 如果选中，如果选中，这将在公共 SubQuery 浏览器中隐藏项目。 如果您想与社区共享您的SubQuery项目，请不要选择此项！
+- **隐藏项目：** 如果选中，如果选中，这将在公共 SubQuery 浏览器中隐藏项目。 如果您想与社区共享您的 SubQuery 项目，请不要选择此项！
 
 ![创建 SubQuery 参数](/assets/img/create_subquery_project_parameters.png)
 
@@ -156,7 +156,7 @@ push 命令的意思是“请将我的代码从我的主本地存储库推送到
 ![部署到生产槽](/assets/img/deploy_production_slot.png)
 
 - **新版本的 Commit Hash：** 从 GitHub 中选择您要部署的 SubQuery 项目代码库的正确交付
-- **索引器版本：** 这是您要在其上运行此SubQuery项目的SubQuery节点服务的版本。 请登录此网址参考 [@subql/node](https://www.npmjs.com/package/@subql/node)
+- **索引器版本：** 这是您要在其上运行此 SubQuery 项目的 SubQuery 节点服务的版本。 请登录此网址参考 [@subql/node](https://www.npmjs.com/package/@subql/node)
 - **查询版本：** 这是您要在其上运行此 SubQuery 项目的 SubQuery 查询服务的版本。 请登录此网址参考 [@subql/quiry](https://www.npmjs.com/package/@subql/query)
 
 因为我们只有一个交付，所以下拉菜单中只有一个选项。 我们还将使用最新版本的索引器和查询版本，因此我们将接受默认值，然后单击“部署更新”。
@@ -171,7 +171,7 @@ push 命令的意思是“请将我的代码从我的主本地存储库推送到
 
 ## 6. 6. Step 6: Testing your project
 
-要测试您的项目，请单击省略号并选择“在SubQuery浏览器上查看”。
+要测试您的项目，请单击省略号并选择“在 SubQuery 浏览器上查看”。
 
 ![查看 Subquery project](/assets/img/view_on_subquery.png)
 
@@ -185,7 +185,7 @@ push 命令的意思是“请将我的代码从我的主本地存储库推送到
 
 ![查询结束](/assets/img/query_endpoint.png)
 
-然后您可以使用您最喜欢的客户端，例如 [Postman](https://www.postman.com/) 或 [Mockoon](https://mockoon.com/) 或通过您终端中的 cURL 将GET 请求发送到这个端点。 为了简单起见，cURL 将在下面显示。
+然后您可以使用您最喜欢的客户端，例如 [Postman](https://www.postman.com/) 或 [Mockoon](https://mockoon.com/) 或通过您终端中的 cURL 将 GET 请求发送到这个端点。 为了简单起见，cURL 将在下面显示。
 
 要运行的 curl 命令是：
 
@@ -204,4 +204,4 @@ curl https://api.subquery.network/sq/seandotau/subqueryhelloworld -d "query=quer
 
 ## 概括
 
-在这个 SubQuery 托管的快速入门中，我们展示了获取 Subql 项目并将其部署到 [SubQuery Projects](https://project.subquery.network) 是多么快速和简单，这里为您提供所以的基础设施。 并且有一个用于运行各种查询的内置playground，以及一个供您的代码集成的 API 端点。
+在这个 SubQuery 托管的快速入门中，我们展示了获取 Subql 项目并将其部署到 [SubQuery Managed Service](https://managedservice.subquery.network) 是多么快速和简单，这里为您提供所以的基础设施。 并且有一个用于运行各种查询的内置 playground，以及一个供您的代码集成的 API 端点。

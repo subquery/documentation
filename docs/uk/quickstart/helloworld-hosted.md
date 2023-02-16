@@ -9,7 +9,7 @@
 Наприкінці цього швидкого початку, ви повинен:
 
 - розуміти необхідні передреквізити
-- Ви можете спробувати самі зараз у [Проектах SubQuery ](https://project.subquery.network/)
+- Ви можете спробувати самі зараз у [Проектах SubQuery ](https://managedservice.subquery.network/)
 - виконувати простий запит щоб отримати висоту блоків Polkadot mainnet за допомогою playground
 - виконати простий запит GET, щоб отримати граничну висоту компонента Polkadot за допомогою cURL
 
@@ -106,7 +106,7 @@ To https://github.com/seandotau/subqlHelloWorld.git
 
 ## 4. Створити проект
 
-Перейдіть до [https://project.subquery.network](https://project.subquery.network) і увійдіть до свого облікового запису GitHub.
+Перейдіть до [https://managedservice.subquery.network](https://managedservice.subquery.network) і увійдіть до свого облікового запису GitHub.
 
 ![Ласкаво просимо в Sandbox Projects](/assets/img/welcome_to_subquery_projects.png)
 
@@ -188,4 +188,4 @@ curl https://api.subquery.network/sq/seandotau/subqueryhelloWorld -d "query=quer
 
 ## Підсумок
 
-У цьому вкладеному запиті ми провели швидкий старт, ми показали, як швидко і легко можна було взяти проект Subql і розгорнути його в [SubQuery Projects](https://project.subquery.network) де вся інфраструктура забезпечується для вашої зручності. Існує інпобудований ігровий майданчик для виконання різних запитів, а також кінцева точка коду для інтегрування.
+У цьому вкладеному запиті ми провели швидкий старт, ми показали, як швидко і легко можна було взяти проект Subql і розгорнути його в [SubQuery Managed Service](https://managedservice.subquery.network) де вся інфраструктура забезпечується для вашої зручності. Існує інпобудований ігровий майданчик для виконання різних запитів, а також кінцева точка коду для інтегрування.

@@ -191,7 +191,7 @@ You can see the final code of this project here at [https://github.com/jamesbayl
 
 ### Публикувайте своя SubQuery проект
 
-SubQuery предоставя безплатна управлявана услуга, с помощта който можете да разгърнете новия си проект. Може да го разгърнете в [SubQuery Projects](https://project.subquery.network) и да направите запитване с помощта на нашият [Explorer](https://explorer.subquery.network).
+SubQuery предоставя безплатна управлявана услуга, с помощта който можете да разгърнете новия си проект. Може да го разгърнете в [SubQuery Managed Service](https://managedservice.subquery.network) и да направите запитване с помощта на нашият [Explorer](https://explorer.subquery.network).
 
 [Прочетете ръководството, за да публикувате новия си проект в SubQuery Projects](../run_publish/publish.md)
 

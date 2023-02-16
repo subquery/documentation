@@ -213,7 +213,7 @@ query {
 
 ### Publish your SubQuery Project
 
-SubQuery provides a free managed service when you can deploy your new project to. You can deploy it to [SubQuery Projects](https://project.subquery.network) and query it using our [Explorer](https://explorer.subquery.network).
+SubQuery provides a free managed service when you can deploy your new project to. You can deploy it to [SubQuery Managed Service](https://managedservice.subquery.network) and query it using our [Explorer](https://explorer.subquery.network).
 
 [Read the guide to publish your new project to SubQuery Projects](../run_publish/publish.md), **Note that you must deploy via IPFS**.
 

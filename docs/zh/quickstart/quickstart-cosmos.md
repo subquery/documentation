@@ -191,7 +191,7 @@ You can see the final code of this project here at [https://github.com/jamesbayl
 
 ### 发布您的 SubQuery 项目
 
-当您可以部署新项目时，SubQuery 提供免费管理服务。 您可以将其部署到 [SubQuery 项目](https://project.subquery.network) 并使用我们的 [Explorer](https://explorer.subquery.network) 进行查询。
+当您可以部署新项目时，SubQuery 提供免费管理服务。 您可以将其部署到 [SubQuery 项目](https://managedservice.subquery.network) 并使用我们的 [Explorer](https://explorer.subquery.network) 进行查询。
 
 [阅读向 SubQuery 项目发布您的新项目](../run_publish/publish.md)
 

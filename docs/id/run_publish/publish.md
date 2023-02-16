@@ -32,7 +32,7 @@ Jika proyek Anda masih disebarkan melalui GitHub, baca panduan migrasi untuk pen
 
 ### Persiapkan SUBQL_ACCESS_TOKEN
 
-- Langkah 1: Buka [Proyek SubQuery](https://project.subquery.network/) dan masuk.
+- Langkah 1: Buka [Proyek SubQuery](https://managedservice.subquery.network/) dan masuk.
 - Langkah 2: Klik profil Anda di kanan atas menu navigasi, lalu klik **_Refresh Token_**.
 - Langkah 3: Salin token yang dihasilkan.
 - Langkah 4: Untuk menggunakan token ini:
@@ -122,7 +122,7 @@ specVersion: 0.2.0
 
 Before starting, please make sure that your SubQuery project codebase is published to IPFS.
 
-To create your first project, head to [SubQuery Projects](https://project.subquery.network). You'll need to authenticate with your GitHub account to login.
+To create your first project, head to [SubQuery Managed Service](https://managedservice.subquery.network). You'll need to authenticate with your GitHub account to login.
 
 On first login, you will be asked to authorize SubQuery. We only need your email address to identify your account, and we don't use any other data from your GitHub account for any other reasons. In this step, you can also request or grant access to your GitHub Organization account so you can post SubQuery projects under your GitHub Organization instead of your personal account.
 
@@ -226,9 +226,9 @@ $ subql deployment:deploy
 Dengan diperkenalkannya fitur penyebaran untuk CLI, kami telah menambahkan **Default Action Workflow** ke [proyek starter di GitHub](https://github.com/subquery/subql-starter/blob/main/Polkadot/Polkadot-starter/.github/workflows/cli-deploy.yml) yang akan memungkinkan Anda untuk menerbitkan dan menyebarkan perubahan Anda secara otomatis:
 
 - Langkah 1: Setelah mendorong proyek Anda ke GitHub, buat lingkungan `DEPLOYMENT` di GitHub, dan tambahkan rahasia [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) ke dalamnya.
-- Langkah 2: Buat proyek pada [Proyek SubQuery](https://project.subquery.network), ini dapat dilakukan dengan menggunakan [UI](#using-the-ui) atau [CLI](#using-the-cli).
+- Langkah 2: Buat proyek pada [Proyek SubQuery](https://managedservice.subquery.network), ini dapat dilakukan dengan menggunakan [UI](#using-the-ui) atau [CLI](#using-the-cli).
 - Langkah 3: Setelah proyek Anda dibuat, navigasikan ke halaman GitHub Actions untuk proyek Anda, dan pilih alur kerja `CLI deploy`
-- Langkah 4: Anda akan melihat kolom input di mana Anda dapat memasukkan kode unik proyek Anda yang dibuat di SubQuery Projects, Anda bisa mendapatkan kode dari URL di SubQuery Projects [SubQuery Projects](https://project.subquery.network). Kode ini didasarkan pada nama proyek Anda, di mana spasi diganti dengan tanda hubung `-`. contoh: `nama proyek saya` menjadi `nama-proyek-saya`
+- Langkah 4: Anda akan melihat kolom input di mana Anda dapat memasukkan kode unik proyek Anda yang dibuat di SubQuery Projects, Anda bisa mendapatkan kode dari URL di SubQuery Projects [SubQuery Managed Service](https://managedservice.subquery.network). Kode ini didasarkan pada nama proyek Anda, di mana spasi diganti dengan tanda hubung `-`. contoh: `nama proyek saya` menjadi `nama-proyek-saya`
 - Setelah alur kerja selesai, Anda akan melihat proyek Anda dikerahkan ke Managed Service kami
 
 A common approach is to extend the default GitHub Action to automatically deploy changes to our Managed Service when code is merged into main. Perubahan berikut pada alur kerja GitHub Action melakukan hal ini:
@@ -256,12 +256,12 @@ Atau, Anda dapat mengklik tiga titik di samping judul proyek Anda, dan melihatny
 
 ## Tambahkan Akun Organisasi GitHub ke Proyek SubQuery
 
-It is common to publish your SubQuery project under the name of your GitHub Organization account rather than your personal GitHub account. At any point your can change your currently selected account on [SubQuery Projects](https://project.subquery.network) using the account switcher.
+It is common to publish your SubQuery project under the name of your GitHub Organization account rather than your personal GitHub account. At any point your can change your currently selected account on [SubQuery Managed Service](https://managedservice.subquery.network) using the account switcher.
 
 If you can't see your GitHub Organization account listed in the switcher, the you may need to grant access to SubQuery for your GitHub Organization (or request it from an administrator). To do this, you first need to revoke permissions from your GitHub account to the SubQuery Application. Then, login to your account settings in GitHub, go to Applications, and under the Authorized OAuth Apps tab, revoke SubQuery - [you can follow the exact steps here](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/reviewing-your-authorized-applications-oauth). **Don't worry, this will not delete your SubQuery project and you will not lose any data.**
 
 ![Revoke access to GitHub account](/assets/img/project_auth_revoke.png)
 
-Once you have revoked access, log out of [SubQuery Projects](https://project.subquery.network) and log back in again. You should be redirected to a page titled _Authorize SubQuery_ where you can request or grant SubQuery access to your GitHub Organization account. If you don't have admin permissions, you must make a request for an adminstrator to enable this for you.
+Once you have revoked access, log out of [SubQuery Managed Service](https://managedservice.subquery.network) and log back in again. You should be redirected to a page titled _Authorize SubQuery_ where you can request or grant SubQuery access to your GitHub Organization account. If you don't have admin permissions, you must make a request for an adminstrator to enable this for you.
 
 Once this request has been approved by your administrator (or if are able to grant it youself), you will see the correct GitHub Organization account in the account switcher.

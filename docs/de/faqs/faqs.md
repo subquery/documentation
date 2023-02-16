@@ -31,13 +31,13 @@ Wir lieben Beiträge und Feedback aus der Community. Um den Code beizutragen, fo
 
 Um Feedback zu geben, kontaktiere uns unter hello@subquery.net oder besuche unseren [Discord-Kanal](https://discord.com/invite/78zg8aBSMG).
 
-## Wie viel kostet es, mein Projekt in SubQuery Projects zu hosten?
+## Wie viel kostet es, mein Projekt in SubQuery's Managed Service zu hosten?
 
 Dieser Service wird der Community mit einem großzügigen kostenlosen Kontingent zur Verfügung gestellt! Sie können Ihre ersten beiden SubQuery-Projekte absolut kostenlos hosten!
 
 ## Was sind Bereitstellungsslots?
 
-Bereitstellungsslots sind eine Funktion in [SubQuery-Projekten](https://project.subquery.network), die einer Entwicklungsumgebung entsprechen. Beispielsweise gibt es in jeder Softwareorganisation normalerweise mindestens eine Entwicklungsumgebung und eine Produktionsumgebung (das heißt, localhost wird ignoriert). Typischerweise sind zusätzliche Umgebungen wie Staging und Pre-Prod oder sogar QA enthalten, abhängig von den Anforderungen der Organisation und ihrer Entwicklungsumgebung.
+Bereitstellungsslots sind eine Funktion in [SubQuery-Projekten](https://managedservice.subquery.network), die einer Entwicklungsumgebung entsprechen. Beispielsweise gibt es in jeder Softwareorganisation normalerweise mindestens eine Entwicklungsumgebung und eine Produktionsumgebung (das heißt, localhost wird ignoriert). Typischerweise sind zusätzliche Umgebungen wie Staging und Pre-Prod oder sogar QA enthalten, abhängig von den Anforderungen der Organisation und ihrer Entwicklungsumgebung.
 
 SubQuery hat derzeit zwei verfügbare Slots. Ein Bereitstellungsslot und ein Produktionsslot. Auf diese Weise können Entwickler ihre SubQuery in der Staging-Umgebung bereitstellen und alles, was gut läuft, auf Knopfdruck „in die Produktion befördern“.
 

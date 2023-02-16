@@ -4,7 +4,7 @@
 
 Điều quan trọng là giữ cho các dự án của bạn trong Dự án SubQuery phù hợp và được cập nhật. Đối với bất kỳ dự án nào đã tải lên Dự án SubQuery với mục đích thử nghiệm, bạn nên xóa chúng sau đó để tiết kiệm tài nguyên và tiết kiệm chi phí.
 
-Chạy một nút chỉ mục là một tùy chọn khác ngoài việc sử dụng Docker hoặc có một dự án được lưu trữ tại [SubQuery Projects](https://project.subquery.network/). Nó đòi hỏi nhiều thời gian và nỗ lực hơn nhưng sẽ nâng cao hiểu biết của bạn về cách SubQuery hoạt động.
+Chạy một nút chỉ mục là một tùy chọn khác ngoài việc sử dụng Docker hoặc có một dự án được lưu trữ tại [SubQuery Managed Service](https://managedservice.subquery.network/). Nó đòi hỏi nhiều thời gian và nỗ lực hơn nhưng sẽ nâng cao hiểu biết của bạn về cách SubQuery hoạt động.
 
 ## Xóa một dự án khỏi vị trí dàn dựng
 

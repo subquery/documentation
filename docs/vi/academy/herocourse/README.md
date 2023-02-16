@@ -24,7 +24,7 @@ Our first course is the SubQuery Hero Course and will be available from Friday 2
 | [Module 5 — Aggregation and Event Calls](/academy/herocourse/module5)          | Friday 19th November 2021 |
 | [Module 6 — Tips & Tricks](/academy/herocourse/module6)                        | Friday 26th November 2021 |
 
-Within each module there are several 5 to 10 minute lessons which are delivered by a recorded video. The video content is accompanied by written tutorials, slides, Lab workbooks, and links to the finished GitHub code repository. The course is designed to get a developer from knowing nothing about SubQuery to becoming an expert in building a SubQuery data source for their new blockchain application. This includes developing complex SubQuery Projects and deploying them in SubQuery Projects.
+Within each module there are several 5 to 10 minute lessons which are delivered by a recorded video. The video content is accompanied by written tutorials, slides, Lab workbooks, and links to the finished GitHub code repository. The course is designed to get a developer from knowing nothing about SubQuery to becoming an expert in building a SubQuery data source for their new blockchain application. This includes developing complex SubQuery Projects and deploying them in SubQuery's Managed Service.
 
 > _“SubQuery has been designed to help developers unlock value from blockchain data easily and quickly. That’s why onboarding new developers and teaching them the skills they need to build the dApps of tomorrow is incredibly important to the success of our community. The SubQuery Hero Course is going to be the first of many courses teaching valuable skills in our new SubQuery Academy”_ — James Bayly (Head of Business Development)
 

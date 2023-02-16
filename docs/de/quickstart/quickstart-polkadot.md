@@ -206,9 +206,9 @@ Probieren Sie für ein neues SubQuery-Starterprojekt die folgende Abfrage aus, u
 
 ### Veröffentlichen Sie Ihr SubQuery-Projekt
 
-SubQuery bietet einen kostenlosen verwalteten Dienst, in dem Sie Ihr neues Projekt bereitstellen können. Sie können es in [SubQuery-Projekten](https://project.subquery.network) bereitstellen und mit unserem [Explorer](https://explorer.subquery.network) abfragen.
+SubQuery bietet einen kostenlosen verwalteten Dienst, in dem Sie Ihr neues Projekt bereitstellen können. Sie können es in [SubQuery-Projekten](https://managedservice.subquery.network) bereitstellen und mit unserem [Explorer](https://explorer.subquery.network) abfragen.
 
-Lesen Sie den Leitfaden zum [Veröffentlichen Ihres neuen Projekts in SubQuery Projects](../run_publish/publish.md)
+Lesen Sie den Leitfaden zum [Veröffentlichen Ihres neuen Projekts in SubQuery's Managed Service](../run_publish/publish.md)
 
 ## Weitere Schritte
 

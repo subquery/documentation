@@ -9,7 +9,7 @@ Basit başlangıç projesini (ve şimdiye kadar öğrendiğimiz her şeyi) alaca
 Bu hızlı başlangıcın sonunda şunları yapmalıyız:
 
 - gerekli önkoşulları anlamak
-- [SubQuery Projects](https://project.subquery.network/) bir proje barındırabilir
+- [SubQuery Managed Service](https://managedservice.subquery.network/) bir proje barındırabilir
 - oyun alanını kullanarak Polkadot mainnet'in blok yüksekliğini elde etmek için basit bir sorgu çalıştırın
 - сURL kullanarak Polkadot mainnet'in blok yüksekliğini elde etmek için basit bir GET sorgusu çalıştırın
 
@@ -106,7 +106,7 @@ Kodunuzu GitHub'a aldığınıza göre, SubQuery Projects'te nasıl barındırab
 
 ## 4. Projenizi oluşturma
 
-[https://project.subquery.network](https://project.subquery.network) gidin ve GitHub hesabınızla giriş yapın.
+[https://managedservice.subquery.network](https://managedservice.subquery.network) gidin ve GitHub hesabınızla giriş yapın.
 
 ![SubQuery Projelerine Hoş Geldiniz](/assets/img/welcome_to_subquery_projects.png)
 
@@ -188,4 +188,4 @@ Okunabilirlik burada bir endişe değildir, çünkü muhtemelen bu JSON yanıtı
 
 ## Özet
 
-Bu SubQuery ev sahipliği yaptığı hızlı başlangıçta, bir Subql projesini alıp [SubQuery Projects](https://project.subquery.network) dağıtmanın ne kadar hızlı ve kolay olduğunu gösterdik. Çeşitli sorguları çalıştırmak için dahili bir oyun alanının yanı sıra kodunuzun tümleştirilmek için bir API uç noktası vardır.
+Bu SubQuery ev sahipliği yaptığı hızlı başlangıçta, bir Subql projesini alıp [SubQuery Managed Service](https://managedservice.subquery.network) dağıtmanın ne kadar hızlı ve kolay olduğunu gösterdik. Çeşitli sorguları çalıştırmak için dahili bir oyun alanının yanı sıra kodunuzun tümleştirilmek için bir API uç noktası vardır.

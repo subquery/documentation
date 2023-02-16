@@ -9,7 +9,7 @@
 เมื่อจบจากคู่มือใช้งานสำหรับผู้ใช้งานแรกเข้า คุณจะ:
 
 - เข้าใจข้อกำหนดเบื้องต้นที่จำเป็น
-- สามารถโฮสต์โปรเจกต์ใน [SubQuery Projects](https://project.subquery.network/) ได้
+- สามารถโฮสต์โปรเจกต์ใน [SubQuery Managed Service](https://managedservice.subquery.network/) ได้
 - รัน query อย่างง่ายเพื่อรับค่า block height ของเครือข่าย Polkadot mainnet โดยใช้ Playground
 - รัน GET query อย่างง่ายเพื่อรับค่า block height ของเครือข่าย Polkadot mainnet โดยใช้ cURL
 
@@ -106,7 +106,7 @@ To https://github.com/seandotau/subqlHelloWorld.git
 
 ## 4. สร้างโปรเจกต์ของคุณ
 
-ไปที่ [https://project.subquery.network](https://project.subquery.network) และเข้าสู่ระบบด้วยบัญชี GitHub ของคุณ
+ไปที่ [https://managedservice.subquery.network](https://managedservice.subquery.network) และเข้าสู่ระบบด้วยบัญชี GitHub ของคุณ
 
 ![ยินดีต้อนรับสู่ SubQuery Projects](/assets/img/welcome_to_subquery_projects.png)
 
@@ -188,4 +188,4 @@ curl https://api.subquery.network/sq/seandotau/subqueryhelloworld -d "query=quer
 
 ## สรุป
 
-ใน SubQuery ที่โฮสต์ quick start นี้ เราแสดงให้เห็นว่าการนำ Subql มา deploy กับ [SubQuery Projects](https://project.subquery.network) นั้นง่ายและรวดเร็วเพียงใด ซึ่งมีโครงสร้างพื้นฐานทั้งหมดเพื่อความสะดวกของคุณ มี Playground ในตัวสำหรับการรัน query ต่างๆ รวมถึง API endpoint สำหรับการอินทิเกรตโค้ดของคุณ
+ใน SubQuery ที่โฮสต์ quick start นี้ เราแสดงให้เห็นว่าการนำ Subql มา deploy กับ [SubQuery Managed Service](https://managedservice.subquery.network) นั้นง่ายและรวดเร็วเพียงใด ซึ่งมีโครงสร้างพื้นฐานทั้งหมดเพื่อความสะดวกของคุณ มี Playground ในตัวสำหรับการรัน query ต่างๆ รวมถึง API endpoint สำหรับการอินทิเกรตโค้ดของคุณ

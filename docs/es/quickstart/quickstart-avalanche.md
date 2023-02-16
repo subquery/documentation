@@ -206,7 +206,7 @@ query {
 
 ### Publica tu SubQuery Project
 
-SubQuery proporciona un servicio administrado gratuito cuando puedes desplegar tu nuevo proyecto. Puedes implementarlo en [SubQuery Proyects](https://project.subquery.network) y consultarlo usando nuestro [Explorador](https://explorer.subquery.network).
+SubQuery proporciona un servicio administrado gratuito cuando puedes desplegar tu nuevo proyecto. Puedes implementarlo en [SubQuery Proyects](https://managedservice.subquery.network) y consultarlo usando nuestro [Explorador](https://explorer.subquery.network).
 
 [Lea la guía para publicar su nuevo proyecto en SubQuery Proyects](../run_publish/publish.md), **Tenga en cuenta que debe implementar IPFS**.
 

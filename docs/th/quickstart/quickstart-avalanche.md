@@ -213,7 +213,7 @@ query {
 
 ### เผยแพร่โปรเจกต์ SubQuery ของคุณ
 
-SubQuery ให้บริการที่มีการจัดการฟรีเมื่อคุณปรับใช้โปรเจ็กต์ใหม่ได้ คุณสามารถปรับใช้มัน [SubQuery Projects](https://project.subquery.network) และ query โดยใช้ [Explorer](https://explorer.subquery.network).
+SubQuery ให้บริการที่มีการจัดการฟรีเมื่อคุณปรับใช้โปรเจ็กต์ใหม่ได้ คุณสามารถปรับใช้มัน [SubQuery Managed Service](https://managedservice.subquery.network) และ query โดยใช้ [Explorer](https://explorer.subquery.network).
 
 [อ่านคำแนะนำเพื่อเผยแพร่โปรเจกต์ของคุณไปยัง SubQuery Projects](../run_publish/publish.md), **โปรดจำไว้คุณต้อง deploy โดย IPFS**.
 

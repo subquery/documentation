@@ -193,9 +193,9 @@ Den endgültigen Code dieses Projekts können Sie hier unter [https://github.com
 
 ### Veröffentlichen Sie Ihr SubQuery-Projekt
 
-SubQuery bietet einen kostenlosen verwalteten Dienst, wenn Sie Ihr neues Projekt bereitstellen können. Sie können es in [SubQuery-Projekten](https://project.subquery.network) bereitstellen und mit unserem [Explorer](https://explorer.subquery.network) abfragen.
+SubQuery bietet einen kostenlosen verwalteten Dienst, wenn Sie Ihr neues Projekt bereitstellen können. Sie können es in [SubQuery-Projekten](https://managedservice.subquery.network) bereitstellen und mit unserem [Explorer](https://explorer.subquery.network) abfragen.
 
-[Lesen Sie die Anleitung zum Veröffentlichen Ihres neuen Projekts in SubQuery Projects](../publish/publish.md)
+[Lesen Sie die Anleitung zum Veröffentlichen Ihres neuen Projekts in SubQuery's Managed Service](../publish/publish.md)
 
 ## Weitere Schritte
 

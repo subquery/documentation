@@ -213,7 +213,7 @@ query {
 
 ### Publiez votre projet SubQuery
 
-SubQuery fournit un service géré gratuit où vous pouvez déployer votre nouveau projet. Vous pouvez le déployer dans [SubQuery Projects](https://project.subquery.network) et l'interroger en utilisant notre [Explorer](https://explorer.subquery.network).
+SubQuery fournit un service géré gratuit où vous pouvez déployer votre nouveau projet. Vous pouvez le déployer dans [SubQuery Managed Service](https://managedservice.subquery.network) et l'interroger en utilisant notre [Explorer](https://explorer.subquery.network).
 
 [Lisez le guide pour publier votre nouveau projet sur les projets SubQuery](../run_publish/publish.md), **Notez que vous devez le déployer via IPFS**.
 
