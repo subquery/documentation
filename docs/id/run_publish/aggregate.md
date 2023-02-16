@@ -28,4 +28,4 @@ Implementasi fungsi agregat SubQuery didasarkan pada [pg-agregates](https://gith
 
 :::: peringatan Penting Harap dicatat bahwa anda harus mengaktifkan flag `--unsafe` pada layanan kueri untuk menggunakan fungsi-fungsi ini. [Read more](./references.md#unsafe-query-service).
 
-Juga, perhatikan bahwa perintah `--unsafe` akan mencegah proyek Anda dijalankan di Jaringan SubQuery, dan Anda harus menghubungi dukungan jika Anda ingin perintah ini dijalankan dengan proyek Anda di [ layanan terkelola SubQuery](https://project.subquery.network). :::
+Also, note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in [SubQuery's managed service](https://managedservice.subquery.network). :::
