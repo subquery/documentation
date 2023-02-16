@@ -28,4 +28,4 @@ SubQuery предоставляет следующие агрегатные фу
 
 ::: предупреждение Важно Обратите внимание, что для использования этих функций необходимо включить флаг `--unsafe` в службе запросов. [Read more](./references.md#unsafe-query-service).
 
-Также обратите внимание, что команда `--unsafe` не позволит запустить ваш проект в сети SubQuery, и вы должны обратиться в службу поддержки, если хотите, чтобы эта команда была запущена с вашим проектом в [ управляемой службе SubQuery](https://project.subquery.network). :::
+Also, note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in [SubQuery's managed service](https://managedservice.subquery.network). :::
