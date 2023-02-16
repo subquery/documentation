@@ -255,37 +255,37 @@ Learn more about the [GraphQL Query language.](./graphql.md)
 
 ## Project Alert Notifications
 
-[SubQuery Managed Service](https://managedservice.subquery.network) provides a service where you can receive alerts to your service of choice on the health status of your projects. This means you can be alerted in real-time when your project becomes unhealthy and you can quickly resolve the issue to avoid any impact to your users.
+[SubQuery Managed Service](https://managedservice.subquery.network) provides a service where you can receive alerts on the health status of your projects. This means you can be alerted in real-time when your project becomes unhealthy and you can quickly resolve the issue to avoid any impact to your users.
 
-You can easily set up a webhook endpoint to receive alert notifications on the health status of your projects on the Alerting page inside of the [Managed Service](https://managedservice.subquery.network). You must enter a URL of the endpoint that you would like us to send webhooks to.
+You can easily set up a webhook endpoint to receive alert notifications on the health status of your projects on the Alerting page inside of the [Managed Service](https://managedservice.subquery.network). All you need to do is enter the URL of the endpoint that you would like us to send webhooks to (e.g. Slack, Telegram). For example, you can easily recieve notificatons in [Slack by following this guide](https://api.slack.com/messaging/webhooks), or [Discord by following this guide](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks).
 
 OnFinality makes POST requests to send these notifications to your specified endpoint as a JSON payload. You can then use these notifications to execute actions in your backend systems. The JSON payload is in the following format
 
 ```json
 {
-  "timestamp": "2023-02-26T20:35:22.971Z", // ISO that the event was triggered
-  "event_type": "block_sync_stalled", // Event Type enum
-  "event_message": "The processingBlockHeight of the indexer for Polkadot Transactions has stopped increasing in the last 15 minutes",
+  "event_type": "indexer_unhealthy", // Event Type enum
+  "event_message": "The indexer service for [jamesbayly/transaction-list][primary] is now unhealthy",
+  "text": "The indexer service for [https://explorer.subquery.network/subquery/jamesbayly/projects/transaction-list> ][primary] is now unhealthy", // A longer version of event_message that is compatiable with Slack
   "project": "jamesbayly/transaction-list", // Project key
   "project_name": "Polkadot Transactions",
-  "project_url": "https://managedservice.subquery.network/orgs/jamesbayly/projects/transaction-list/deployments",
+  "project_url": "https://explorer.subquery.network/subquery/jamesbayly/projects/transaction-list?stage=false",
   "slot": "primary" // Either primary or stage
 }
 ```
 
-We currently support the following event types
+We currently support the following event types.
 
-| Event Type                        | What will trigger this event                                        |
-| --------------------------------- | ------------------------------------------------------------------- |
-| `block_sync_stalled`              | The block height has stalled in the last 15 mins                    |
-| `block_sync_recover`(coming soon) | The block height resumes syncing after a `block_sync_stalled` event |
-| `indexer_unhealthy`(coming soon)  | The Indexer service transitions to unhealthy                        |
-| `indexer_healthy`(coming soon)    | The Indexer service transitions to healthy status                   |
-| `query_unhealthy`(coming soon)    | The Query service transitions to unhealthy                          |
-| `query_healthy`(coming soon)      | The Query service transitions to healthy status                     |
-| `deployment_started`(coming soon) | A deployment starts                                                 |
-| `deployment_success`(coming soon) | A deployment succeeds                                               |
-| `deployment_failed`(coming soon)  | A deployment fails                                                  |
+| Event Type           | What will trigger this event                                        |
+| -------------------- | ------------------------------------------------------------------- |
+| `block_sync_stalled` | The block height has stalled in the last 15 mins                    |
+| `block_sync_recover` | The block height resumes syncing after a `block_sync_stalled` event |
+| `indexer_unhealthy`  | The Indexer service transitions to unhealthy                        |
+| `indexer_healthy`    | The Indexer service transitions to healthy status                   |
+| `query_unhealthy`    | The Query service transitions to unhealthy                          |
+| `query_healthy`      | The Query service transitions to healthy status                     |
+| `deployment_started` | A deployment starts                                                 |
+| `deployment_success` | A deployment succeeds                                               |
+| `deployment_failed`  | A deployment fails                                                  |
 
 ## Upgrade to the Latest Indexer and Query Service
 
