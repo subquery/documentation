@@ -32,7 +32,7 @@ If your project is still being deployed via GitHub, read the migration guide for
 
 ### 准备您的 SUBQL_ACCESS_TOKEN
 
-- 步骤1：去 [SubQuery Projects](https://project.subquery.network/) 并登录。
+- Step 1: Go to [SubQuery Managed Service](https://managedservice.subquery.network/) and log in.
 - Step 2: Click on your profile at the top right of the navigation menu, then click on **_Refresh Token_**.
 - 步骤3:复制生成的令牌。
 - 步骤4：使用此令牌：
@@ -118,7 +118,7 @@ specVersion: 0.2.0
 
 ## Login to SubQuery Projects
 
-To create your first project, head to [SubQuery Projects](https://project.subquery.network). You'll need to authenticate with your GitHub account to login.
+To create your first project, head to [SubQuery Managed Service](https://managedservice.subquery.network). You'll need to authenticate with your GitHub account to login.
 
 On first login, you will be asked to authorize SubQuery. We only need your email address to identify your account, and we don't use any other data from your GitHub account for any other reasons. In this step, you can also request or grant access to your GitHub Organization account so you can post SubQuery projects under your GitHub Organization instead of your personal account.
 
@@ -216,9 +216,9 @@ You can also use `@subql/cli` to create a new deployment of your project to our 
 With the introduction of the deployment feature for the CLI, we've added a **Default Action Workflow** to [the starter project in GitHub](https://github.com/subquery/subql-starter/blob/main/Polkadot/Polkadot-starter/.github/workflows/cli-deploy.yml) that will allow you to publish and deploy your changes automatically:
 
 - Step 1: After pushing your project to GitHub, create `DEPLOYMENT` environment on GitHub, and add the secret [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) and another secret with the name `ENDPOINT` which matches the RPC API endpoint that you want to connect (you can retrieve this from your `project.yaml` and include a private API key).
-- 第2步: 如果你还没有准备好，请在 [SubQuery 项目](https://project.subquery.network) 上创建一个项目。 这可以使用 [UI](#using-the-ui) 或 [CLI](#using-the-cli) 来完成。
+- Step 2: If you haven't already, create a project on [SubQuery Managed Service](https://managedservice.subquery.network). 这可以使用 [UI](#using-the-ui) 或 [CLI](#using-the-cli) 来完成。
 - 第 3 步：一旦您的项目被创建，导航到您项目的 GitHub 动作页面，并选择工作流程 `CLI 部署`。
-- 第 4 步：您将看到一个输入字段，您可以在这里输入在 SubQuery 项目上创建的项目的唯一代码。 你可以从 SubQuery 项目 [SubQuery 项目](https://project.subquery.network) 中获取代码。 代码基于您项目的名称, 其中空格被连线替换 `-`。 例如： `我的项目名称` 变成 `我的项目名称`。
+- 第 4 步：您将看到一个输入字段，您可以在这里输入在 SubQuery 项目上创建的项目的唯一代码。 You can get the code from the URL in SubQuery's Managed Service [SubQuery Managed Service](https://managedservice.subquery.network). 代码基于您项目的名称, 其中空格被连线替换 `-`。 例如： `我的项目名称` 变成 `我的项目名称`。
 
 ::: 提示
 一旦工作流完成，你应该能够看到你的项目部署到我们的管理服务。
@@ -261,12 +261,12 @@ jobs:
 
 ## Add GitHub Organization Account to SubQuery Projects
 
-It is common to publish your SubQuery project under the name of your GitHub Organization account rather than your personal GitHub account. At any point your can change your currently selected account on [SubQuery Projects](https://project.subquery.network) using the account switcher.
+It is common to publish your SubQuery project under the name of your GitHub Organization account rather than your personal GitHub account. At any point your can change your currently selected account on [SubQuery Managed Service](https://managedservice.subquery.network) using the account switcher.
 
 If you can't see your GitHub Organization account listed in the switcher, the you may need to grant access to SubQuery for your GitHub Organization (or request it from an administrator). To do this, you first need to revoke permissions from your GitHub account to the SubQuery Application. Then, login to your account settings in GitHub, go to Applications, and under the Authorized OAuth Apps tab, revoke SubQuery - [you can follow the exact steps here](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/reviewing-your-authorized-applications-oauth). **Don't worry, this will not delete your SubQuery project and you will not lose any data.**
 
 ![Revoke access to GitHub account](/assets/img/project_auth_revoke.png)
 
-Once you have revoked access, log out of [SubQuery Projects](https://project.subquery.network) and log back in again. You should be redirected to a page titled _Authorize SubQuery_ where you can request or grant SubQuery access to your GitHub Organization account. If you don't have admin permissions, you must make a request for an adminstrator to enable this for you.
+Once you have revoked access, log out of [SubQuery Managed Service](https://managedservice.subquery.network) and log back in again. You should be redirected to a page titled _Authorize SubQuery_ where you can request or grant SubQuery access to your GitHub Organization account. If you don't have admin permissions, you must make a request for an adminstrator to enable this for you.
 
 Once this request has been approved by your administrator (or if are able to grant it youself), you will see the correct GitHub Organization account in the account switcher.
