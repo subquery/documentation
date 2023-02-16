@@ -379,5 +379,5 @@ GraphQL is extremely powerful, but one of the downsides is that it allows users 
 - `--query-complexity` is a flag that controls the level of query complexity that this service will accept expressed as a positive integer, [read more here](./references.md#query-complexity).
 - `--query-timeout` is a flag that will restrict the time each query will be allowed to run for, [read more here](./references.md#query-timeout).
 - `--max-connection` is a flag that will restrict the number of simulteneous connections to the query endpoint, [read more here](./references.md#max-connection).
-- `--query-limit` ([coming soon](https://github.com/subquery/subql/issues/1507)) is a flag that will allow you to limit the number of results returned by any query and enforce pagination, [read more here](./references.md#query-limit).
+- `--query-limit` is a flag that allows you to limit the number of results returned by any query and enforce pagination, [read more here](./references.md#query-limit).
 - `--unsafe` is a flag that enables some advanced features like [GraphQL aggregations](./aggregate.md), these may have performance impacts, [read more here](./references.md#unsafe-query-service)
