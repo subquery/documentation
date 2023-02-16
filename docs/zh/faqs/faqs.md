@@ -31,13 +31,13 @@ We love contributions and feedback from the community. To contribute the code, f
 
 To give feedback, contact us at hello@subquery.network or jump onto our [discord channel](https://discord.com/invite/78zg8aBSMG).
 
-## 在SubQuery项目中托管我的项目需要多少费用？
+## How much does it cost to host my project in SubQuery's Managed Service?
 
 此服务正在免费提供给社区！ You can host your first two SubQuery projects for absolutely free!
 
 ## 什么是部署插槽？
 
-Deployment slots are a feature in [SubQuery Projects](https://project.subquery.network) that is the equivalent of a development environment. For example, in any software organisation there is normally a development environment and a production environment as a minimum (ignoring localhost that is). Typically additional environments such as staging and pre-prod or even QA are included depending on the needs of the organisation and their development set up.
+Deployment slots are a feature in [SubQuery Managed Service](https://managedservice.subquery.network) that is the equivalent of a development environment. For example, in any software organisation there is normally a development environment and a production environment as a minimum (ignoring localhost that is). Typically additional environments such as staging and pre-prod or even QA are included depending on the needs of the organisation and their development set up.
 
 SubQuery currently has two slots available. A staging slot and a production slot. This allows developers to deploy their SubQuery to the staging environment and all going well, "promote to production" at the click of a button.
 
