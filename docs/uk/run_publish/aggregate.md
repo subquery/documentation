@@ -28,4 +28,4 @@ SubQuery надає наступні агрегатні функції, коли
 
 ::: важливе попередження Будь ласка, зверніть увагу, що ви повинні включити прапор `--unsafe` в службі запитів, щоб використовувати ці функції. [Read more](./references.md#unsafe-query-service).
 
-Також зверніть увагу, що команда `--unsafe` запобігає запуску вашого проєкту в мережі SubQuery, і ви повинні звернутися в службу підтримки, якщо хочете, щоб ця команда виконувалася з вашим проєктом в [керованому сервісі SubQuery's ](https://project.subquery.network). :::
+Also, note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in [SubQuery's managed service](https://managedservice.subquery.network). :::
