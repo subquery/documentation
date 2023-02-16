@@ -361,7 +361,7 @@ By extension, the `--unsafe` command on the SubQuery Node also allows:
 - making external requests (e.g. via Fetch to an external HTTP address or fs)
 - querying block data at any height via the unsafeApi
 
-**Note that users must be on a paid plan to run projects with the `--unsafe` command (on the node service) within [SubQuery's Managed Service](https://project.subquery.network). Additionally, it will prevent your project from being run in the SubQuery Network in the future.**
+**Note that users must be on a paid plan to run projects with the `--unsafe` command (on the node service) within [SubQuery's Managed Service](https://managedservice.subquery.network). Additionally, it will prevent your project from being run in the SubQuery Network in the future.**
 
 Also review the [--unsafe command on the query service](#unsafe-query-service).
 
@@ -502,7 +502,7 @@ The timeout for long running graphql queries expressed in milliseconds, by defau
 
 These are disabled by default for database performance reasons.
 
-**Note that must be on a Partner plan if you would like to run projects with the `--unsafe` command (on the query service) within [SubQuery's Managed Service](https://project.subquery.network). Additionally, it will prevent your project from being run in the SubQuery Network in the future.**
+**Note that must be on a Partner plan if you would like to run projects with the `--unsafe` command (on the query service) within [SubQuery's Managed Service](https://managedservice.subquery.network). Additionally, it will prevent your project from being run in the SubQuery Network in the future.**
 
 ### --версия
 
