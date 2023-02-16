@@ -28,4 +28,4 @@ Việc thực hiện các hàm tổng hợp của SubQuery dựa trên [pg-aggre
 
 ::: Cảnh báo quan trọng Xin lưu ý rằng bạn phải bật cờ `--unsafe` trên dịch vụ truy vấn để sử dụng chức năng này. [Read more](./references.md#unsafe-query-service).
 
-Ngoài ra, lưu ý rằng lệnh `--unsafe` sẽ ngăn dự án của bạn được chạy trong Mạng SubQuery, và bạn sẽ phải liên hệ với bộ phận hỗ trợ nếu bạn muốn lệnh này có thể chạy trên dự án của bạn trong [Dịch vụ quản lý bởi SubQuery ](https://project.subquery.network). :::
+Also, note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in [SubQuery's managed service](https://managedservice.subquery.network). :::
