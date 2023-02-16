@@ -28,4 +28,4 @@ SubQuery对总函数的实现基于 [pg-aggregates](https://github.com/graphile/
 
 请注意，您必须在查询服务上启用 `--safe` 标志才能使用这些函数。 [Read more](./references.md#unsafe-query-service).
 
-另外，请注意， `--safe` 命令将防止您的项目在 SubQuery 网络中运行。 如果您希望此命令与您的项目一起运行在 [SubQuery管理的服务](https://project.subquery.network) 中，您必须联系客服。 :::
+Also, note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in [SubQuery's managed service](https://managedservice.subquery.network). :::
