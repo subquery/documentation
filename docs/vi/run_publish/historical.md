@@ -86,7 +86,7 @@ Khi bật Theo dõi trạng thái lịch sử tự động, bạn có thể hư�
 
 You should see the new [-- reindex command in Command Line Flags](./references.md#reindex) to learn more about how to use this new feature.
 
-You can also use the reindex feature in the [SubQuery Managed Service](https://project.subquery.network).
+You can also use the reindex feature in the [SubQuery Managed Service](https://managedservice.subquery.network).
 
 ## DB Schema
 
