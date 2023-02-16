@@ -40,7 +40,7 @@ subql help
 
 ### SUBQL_ACCESS_TOKEN'inizi hazırlayın
 
-- Step 1: Go to [SubQuery Managed Service](https://project.subquery.network/) and log in.
+- Step 1: Go to [SubQuery Managed Service](https://managedservice.subquery.network/) and log in.
 - Step 2: Click on your profile at the top right of the navigation menu, then click on **_Refresh Token_**.
 - Adım 3: Oluşturulan tokenu kopyalayın.
 - Adım 4: Bu tokenu kullanmak için:
