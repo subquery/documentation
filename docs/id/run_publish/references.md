@@ -484,6 +484,10 @@ The level of query complexity that this service will accept expressed as a posit
 
 We use the [graphqql-query-complexity](https://www.npmjs.com/package/graphql-query-complexity) plugin to calculate this value.
 
+### --query-limit
+
+The query service by default has a limit of 100 entities for to prevent unbounded GraphQL queries and encourage the use of pagination. This flag accepts a positive integer value that will change this limit (by default this is set to 100). Setting a high value may cause performance issues on the query service, it is recommended instead that queries are [paginated](https://graphql.org/learn/pagination/).
+
 ### --query-timeout
 
 The timeout for long running graphql queries expressed in milliseconds, by default this value is 10000 milliseconds
@@ -493,8 +497,6 @@ The timeout for long running graphql queries expressed in milliseconds, by defau
 Tanda ini mengaktifkan [GraphQL Langganan](./subscription.md), untuk mengaktifkan fitur ini memerlukan `subql-node` juga mengaktifkan `--langganan`.
 
 ### --unsafe (Query Service)
-
-Layanan kueri memiliki batas 100 entitas untuk kueri graphql tak terbatas. Bendera tidak aman menghapus batas ini yang dapat menyebabkan masalah kinerja pada layanan kueri. Sebagai gantinya, disarankan agar kueri [diberi halaman](https://graphql.org/learn/pagination/).
 
 Bendera ini memungkinkan fungsi agregasi tertentu termasuk jumlah, maks, rata-rata, dan lainnya. Baca selengkapnya tentang fitur ini [di sini](../run_publish/aggregate.md).
 
