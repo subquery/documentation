@@ -484,6 +484,10 @@ The level of query complexity that this service will accept expressed as a posit
 
 We use the [graphqql-query-complexity](https://www.npmjs.com/package/graphql-query-complexity) plugin to calculate this value.
 
+### --query-limit
+
+The query service by default has a limit of 100 entities for to prevent unbounded GraphQL queries and encourage the use of pagination. This flag accepts a positive integer value that will change this limit (by default this is set to 100). Setting a high value may cause performance issues on the query service, it is recommended instead that queries are [paginated](https://graphql.org/learn/pagination/).
+
 ### --query-timeout
 
 The timeout for long running graphql queries expressed in milliseconds, by default this value is 10000 milliseconds
@@ -493,8 +497,6 @@ The timeout for long running graphql queries expressed in milliseconds, by defau
 Цей прапорець включає [підписки на GraphQL](./subscription.md), для включення цієї функції потрібно `subql-node` також включити `--subscription`.
 
 ### --unsafe (Query Service)
-
-Служба запитів має обмеження в 100 об'єктів для необмежених запитів graphql. Прапор unsafe видаляє це обмеження, яке може викликати проблеми з продуктивністю служби запитів. Замість цього рекомендується, щоб запити були [розбиті на сторінки](https://graphql.org/learn/pagination/).
 
 Цей прапор включає певні функції агрегування, включаючи sum, max, avg та інші. Докладніше про цю функцію [читайте тут](../run_publish/aggregate.md).
 
