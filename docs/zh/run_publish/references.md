@@ -484,6 +484,10 @@ The level of query complexity that this service will accept expressed as a posit
 
 We use the [graphqql-query-complexity](https://www.npmjs.com/package/graphql-query-complexity) plugin to calculate this value.
 
+### --query-limit
+
+The query service by default has a limit of 100 entities for to prevent unbounded GraphQL queries and encourage the use of pagination. This flag accepts a positive integer value that will change this limit (by default this is set to 100). Setting a high value may cause performance issues on the query service, it is recommended instead that queries are [paginated](https://graphql.org/learn/pagination/).
+
 ### --query-timeout
 
 The timeout for long running graphql queries expressed in milliseconds, by default this value is 10000 milliseconds
@@ -493,8 +497,6 @@ The timeout for long running graphql queries expressed in milliseconds, by defau
 此标志启用 [GraphQL 订阅](./subscription.md), 以启用此功能需要 `subql-node` 也启用 `--subscription`.
 
 ### --unsafe (Query Service)
-
-查询服务的无界 graphql 查询限制为 100 个实体。 unsafe 标志删除了此限制，这可能会导致查询服务出现性能问题。 建议改为[分页](https://graphql.org/learn/pagination/)查询。
 
 此标志启用某些聚合函数，包括 sum、max、avg 等。 在[此处](../run_publish/aggregate.md)了解有关此功能的更多信息。
 
