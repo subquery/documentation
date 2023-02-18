@@ -167,6 +167,18 @@ subql-node -f your-project-path
 
 Depending on the configuration of your Postgres database (e.g. a different database password), please ensure also that both the indexer (`subql/node`) and the query service (`subql/query`) can establish a connection to it.
 
+##### SSL Database
+
+If your database is using SSL, you can use the following command to connect to it:
+
+subql-node -f your-project-path --pg-ca /path/to/ca.pem
+
+If your database is using SSL and requires a client certificate, you can use the following command to connect to it:
+
+subql-node -f your-project-path --pg-ca /path/to/ca.pem --pg-cert /path/to/client-cert.pem --pg-key /path/to/client-key.pem
+
+```shell
+
 #### Specify a configuration file
 
 ::: code-tabs
