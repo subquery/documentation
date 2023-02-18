@@ -1,5 +1,6 @@
 import { defineUserConfig, SidebarConfig, SidebarConfigArray } from "vuepress";
-import { defaultTheme } from "vuepress";
+//import { defaultTheme } from "vuepress";
+import { hopeTheme } from "vuepress-theme-hope";
 import { googleAnalyticsPlugin } from "@vuepress/plugin-google-analytics";
 import { sitemapPlugin } from "vuepress-plugin-sitemap2";
 import { pwaPlugin } from "vuepress-plugin-pwa2";
@@ -79,91 +80,7 @@ export default defineUserConfig({
     ],
     ["link", { rel: "manifest", href: "assets/manifest.json" }],
   ],
-  locales: {
-    "/": {
-      lang: "en-UK",
-      title: "SubQuery Academy (Documentation)",
-      description:
-        "Explore and transform your chain data to build intuitive dApps faster!",
-    },
-    "/de/": {
-      lang: "de",
-      title: "SubQuery Academy (Documentation)",
-      description:
-        "Explore and transform your chain data to build intuitive dApps faster!.",
-    },
-    // "/id/": {
-    //   lang: "id",
-    //   title: "SubQuery Academy (Documentation)",
-    //   description:
-    //     "Explore and transform your chain data to build intuitive dApps faster!.",
-    // },
-    "/ru/": {
-      lang: "ru",
-      title: "SubQuery Academy (Documentation)",
-      description:
-        "Explore and transform your chain data to build intuitive dApps faster!.",
-    },
-    // "/th/": {
-    //   lang: "th",
-    //   title: "SubQuery Academy (Documentation)",
-    //   description:
-    //     "Explore and transform your chain data to build intuitive dApps faster!.",
-    // },
-    // "/tr/": {
-    //   lang: "tr",
-    //   title: "SubQuery Academy (Documentation)",
-    //   description:
-    //     "Explore and transform your chain data to build intuitive dApps faster!.",
-    // },
-    "/uk/": {
-      lang: "uk",
-      title: "SubQuery Academy (Documentation)",
-      description:
-        "Explore and transform your chain data to build intuitive dApps faster!.",
-    },
-    "/vi/": {
-      lang: "vi",
-      title: "SubQuery Academy (Documentation)",
-      description:
-        "Explore and transform your chain data to build intuitive dApps faster!.",
-    },
-    "/zh/": {
-      lang: "zh-CN",
-      title: "SubQuery Academy (Documentation)",
-      description:
-        "Explore and transform your chain data to build intuitive dApps faster!.",
-    },
-    /*
-      "/es/": {
-        lang: "es",
-        title: "SubQuery Academy (Documentation)",
-        description:
-          "Explore and transform your chain data to build intuitive dApps faster!.",
-      },
-      */
-    /*
-      "/it/": {
-        lang: "it",
-        title: "SubQuery Academy (Documentation)",
-        description:
-          "Explore and transform your chain data to build intuitive dApps faster!.",
-      },
-      "/ja/": {
-        lang: "ja",
-        title: "SubQuery Academy (Documentation)",
-        description:
-          "Explore and transform your chain data to build intuitive dApps faster!.",
-      },
-      "/ko/": {
-        lang: "ko",
-        title: "SubQuery Academy (Documentation)",
-        description:
-          "Explore and transform your chain data to build intuitive dApps faster!.",
-      },
-      */
-  },
-  theme: defaultTheme({
+  theme: hopeTheme({
     lastUpdated: true,
     locales: {
       "/": {
