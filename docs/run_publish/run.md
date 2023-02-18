@@ -171,11 +171,15 @@ Depending on the configuration of your Postgres database (e.g. a different datab
 
 If your database is using SSL, you can use the following command to connect to it:
 
+```shell 
 subql-node -f your-project-path --pg-ca /path/to/ca.pem
+```
 
 If your database is using SSL and requires a client certificate, you can use the following command to connect to it:
 
+```shell
 subql-node -f your-project-path --pg-ca /path/to/ca.pem --pg-cert /path/to/client-cert.pem --pg-key /path/to/client-key.pem
+```
 
 ```shell
 
