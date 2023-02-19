@@ -67,6 +67,10 @@ Perhatikan bahwa filter `mutasi` dapat berupa salah satu dari `INSERT`, `UPDATE`
 
 :::: peringatan Penting Harap dicatat bahwa Anda harus mengaktifkan flag `--subscription` pada node dan layanan kueri untuk menggunakan fungsi-fungsi ini. :::
 
-::::: peringatan Penting
-Fitur subkripsi berfungsi pada Layanan Terkelola SubQuery ketika Anda langsung memanggil titik akhir GraphQL yang terdaftar. Ini tidak akan berfungsi dalam taman bermain GraphQL dalam browser.
+## Using in the Managed Service
+
+The managed service supports subscriptions for paid plans, you must enable subscription support whend deploying your project in our service under "Advanced Settings"
+
+::: warning Important
+The subcription feature works on SubQuery's Managed Service when you directly call the listed GraphQL endpoint. It will not work within the in-browser GraphQL playground.
 :::
