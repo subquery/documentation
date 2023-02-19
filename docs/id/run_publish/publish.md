@@ -237,10 +237,6 @@ jobs:
     ...
 ```
 
-## Tingkatkan ke Pengindeks dan Layanan Kueri Terbaru
-
-Jika Anda hanya ingin meng-upgrade ke indexer terbaru ([`@subql/node`](https://www.npmjs.com/package/@subql/node)) atau layanan kueri ([`@subql/query`](https://www.npmjs.com/package/@subql/query)) untuk memanfaatkan peningkatan kinerja dan stabilitas reguler kami, cukup pilih versi terbaru dari paket kami dan simpan. Ini hanya akan menyebabkan downtime beberapa menit karena layanan yang menjalankan proyek Anda dimulai ulang.
-
 ## Langkah Selanjutnya - Hubungkan ke Proyek Anda
 
 Setelah penerapan Anda berhasil diselesaikan dan node kami telah mengindeks data Anda dari chain, Anda akan dapat terhubung ke proyek Anda melalui titik akhir Kueri GraphQL yang ditampilkan.
@@ -252,6 +248,44 @@ Atau, Anda dapat mengklik tiga titik di samping judul proyek Anda, dan melihatny
 ![Projects in SubQuery Explorer](/assets/img/projects_explorer.png)
 
 ::: tip Note Learn more about the [GraphQL Query language.](./graphql.md) :::
+
+## Project Alert Notifications
+
+[SubQuery Managed Service](https://managedservice.subquery.network) provides a service where you can receive alerts on the health status of your projects. This means you can be alerted in real-time when your project becomes unhealthy and you can quickly resolve the issue to avoid any impact to your users.
+
+You can easily set up a webhook endpoint to receive alert notifications on the health status of your projects on the Alerting page inside of the [Managed Service](https://managedservice.subquery.network). All you need to do is enter the URL of the endpoint that you would like us to send webhooks to (e.g. Slack, Telegram). For example, you can easily recieve notificatons in [Slack by following this guide](https://api.slack.com/messaging/webhooks), or [Discord by following this guide](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks).
+
+OnFinality makes POST requests to send these notifications to your specified endpoint as a JSON payload. You can then use these notifications to execute actions in your backend systems. The JSON payload is in the following format
+
+```json
+{
+  "event_type": "indexer_unhealthy", // Event Type enum
+  "event_message": "The indexer service for [jamesbayly/transaction-list][primary] is now unhealthy",
+  "text": "The indexer service for [https://explorer.subquery.network/subquery/jamesbayly/projects/transaction-list> ][primary] is now unhealthy", // A longer version of event_message that is compatiable with Slack
+  "project": "jamesbayly/transaction-list", // Project key
+  "project_name": "Polkadot Transactions",
+  "project_url": "https://explorer.subquery.network/subquery/jamesbayly/projects/transaction-list?stage=false",
+  "slot": "primary" // Either primary or stage
+}
+```
+
+We currently support the following event types.
+
+| Event Type           | What will trigger this event                                        |
+| -------------------- | ------------------------------------------------------------------- |
+| `block_sync_stalled` | The block height has stalled in the last 15 mins                    |
+| `block_sync_recover` | The block height resumes syncing after a `block_sync_stalled` event |
+| `indexer_unhealthy`  | The Indexer service transitions to unhealthy                        |
+| `indexer_healthy`    | The Indexer service transitions to healthy status                   |
+| `query_unhealthy`    | The Query service transitions to unhealthy                          |
+| `query_healthy`      | The Query service transitions to healthy status                     |
+| `deployment_started` | A deployment starts                                                 |
+| `deployment_success` | A deployment succeeds                                               |
+| `deployment_failed`  | A deployment fails                                                  |
+
+## Tingkatkan ke Pengindeks dan Layanan Kueri Terbaru
+
+Jika Anda hanya ingin meng-upgrade ke indexer terbaru ([`@subql/node`](https://www.npmjs.com/package/@subql/node)) atau layanan kueri ([`@subql/query`](https://www.npmjs.com/package/@subql/query)) untuk memanfaatkan peningkatan kinerja dan stabilitas reguler kami, cukup pilih versi terbaru dari paket kami dan simpan. Ini hanya akan menyebabkan downtime beberapa menit karena layanan yang menjalankan proyek Anda dimulai ulang.
 
 ## Add GitHub Organization Account to SubQuery Projects
 
