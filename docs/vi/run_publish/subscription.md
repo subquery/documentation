@@ -67,6 +67,10 @@ Note that the `mutation` filter can be one of `INSERT`, `UPDATE` or `DELETE`.
 
 ::: warning Important Please note that you must enable the `--subscription` flag on both the node and query service in order to use these functions. :::
 
+## Using in the Managed Service
+
+The managed service supports subscriptions for paid plans, you must enable subscription support whend deploying your project in our service under "Advanced Settings"
+
 ::: warning Important
-The subcription feature works on SubQuery's Managed Service when you directly call the listed GraphQL endpoint. Nó sẽ không hoạt động trong sân chơi GraphQL trong trình duyệt.
+The subcription feature works on SubQuery's Managed Service when you directly call the listed GraphQL endpoint. It will not work within the in-browser GraphQL playground.
 :::
