@@ -67,6 +67,10 @@ subscription {
 
 ::: попередження Важливо Зауважте, що для використання цих функцій потрібно ввімкнути прапорець `--subscription` і на вузлі, і на службі запитів. :::
 
+## Using in the Managed Service
+
+The managed service supports subscriptions for paid plans, you must enable subscription support whend deploying your project in our service under "Advanced Settings"
+
 ::: warning Important
-The subcription feature works on SubQuery's Managed Service when you directly call the listed GraphQL endpoint. Він не працюватиме на ігровому майданчику GraphQL у браузері.
+The subcription feature works on SubQuery's Managed Service when you directly call the listed GraphQL endpoint. It will not work within the in-browser GraphQL playground.
 :::
