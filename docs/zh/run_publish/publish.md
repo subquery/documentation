@@ -237,14 +237,6 @@ jobs:
     ...
 ```
 
-## 升级到最新索引和查询服务
-
-如果只想升级到最新的索引器（[`@subql/node`](https://www.npmjs.com/package/@subql/node)）或查询服务（
-
-`@subql/query`</ 2>) 要利用我们常规的性能和稳定性改进，只需选择更新版本的软件包并保存即可。 当运行您的项目的服务重新启动时，这只会导致几分钟的停用。</p> 
-
-
-
 ## 下一步 - 连接到您的项目
 
 一旦您的部署成功完成并且我们的节点已经从该链中为您的数据编制了索引， 您可以通过显示的 GraphQL 查询端点连接到您的项目。
@@ -256,6 +248,46 @@ jobs:
 ![Projects in SubQuery Explorer](/assets/img/projects_explorer.png)
 
 ::: tip Note Learn more about the [GraphQL Query language.](./graphql.md) :::
+
+## Project Alert Notifications
+
+[SubQuery Managed Service](https://managedservice.subquery.network) provides a service where you can receive alerts on the health status of your projects. This means you can be alerted in real-time when your project becomes unhealthy and you can quickly resolve the issue to avoid any impact to your users.
+
+You can easily set up a webhook endpoint to receive alert notifications on the health status of your projects on the Alerting page inside of the [Managed Service](https://managedservice.subquery.network). All you need to do is enter the URL of the endpoint that you would like us to send webhooks to (e.g. Slack, Telegram). For example, you can easily recieve notificatons in [Slack by following this guide](https://api.slack.com/messaging/webhooks), or [Discord by following this guide](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks).
+
+OnFinality makes POST requests to send these notifications to your specified endpoint as a JSON payload. You can then use these notifications to execute actions in your backend systems. The JSON payload is in the following format
+
+```json
+{
+  "event_type": "indexer_unhealthy", // Event Type enum
+  "event_message": "The indexer service for [jamesbayly/transaction-list][primary] is now unhealthy",
+  "text": "The indexer service for [https://explorer.subquery.network/subquery/jamesbayly/projects/transaction-list> ][primary] is now unhealthy", // A longer version of event_message that is compatiable with Slack
+  "project": "jamesbayly/transaction-list", // Project key
+  "project_name": "Polkadot Transactions",
+  "project_url": "https://explorer.subquery.network/subquery/jamesbayly/projects/transaction-list?stage=false",
+  "slot": "primary" // Either primary or stage
+}
+```
+
+We currently support the following event types.
+
+| Event Type           | What will trigger this event                                        |
+| -------------------- | ------------------------------------------------------------------- |
+| `block_sync_stalled` | The block height has stalled in the last 15 mins                    |
+| `block_sync_recover` | The block height resumes syncing after a `block_sync_stalled` event |
+| `indexer_unhealthy`  | The Indexer service transitions to unhealthy                        |
+| `indexer_healthy`    | The Indexer service transitions to healthy status                   |
+| `query_unhealthy`    | The Query service transitions to unhealthy                          |
+| `query_healthy`      | The Query service transitions to healthy status                     |
+| `deployment_started` | A deployment starts                                                 |
+| `deployment_success` | A deployment succeeds                                               |
+| `deployment_failed`  | A deployment fails                                                  |
+
+## 升级到最新索引和查询服务
+
+如果只想升级到最新的索引器（[`@subql/node`](https://www.npmjs.com/package/@subql/node)）或查询服务（
+
+`@subql/query`</ 2>) 要利用我们常规的性能和稳定性改进，只需选择更新版本的软件包并保存即可。 当运行您的项目的服务重新启动时，这只会导致几分钟的停用。</p> 
 
 
 
