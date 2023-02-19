@@ -67,6 +67,10 @@ subscription {
 
 ::: 警告 重要 请注意，您必须在节点和查询服务上启用 `--subscription` 标志才能使用这些功能。 :::
 
+## Using in the Managed Service
+
+The managed service supports subscriptions for paid plans, you must enable subscription support whend deploying your project in our service under "Advanced Settings"
+
 ::: warning Important
-The subcription feature works on SubQuery's Managed Service when you directly call the listed GraphQL endpoint. 它不能在浏览器内的GraphQL背景中工作。
+The subcription feature works on SubQuery's Managed Service when you directly call the listed GraphQL endpoint. It will not work within the in-browser GraphQL playground.
 :::
