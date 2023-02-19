@@ -68,6 +68,10 @@ Beachten Sie, dass der Filter `Mutation` einer der Filter `INSERT`, `UPDATE` ode
 
 ::: Warnung Wichtig Bitte beachten Sie, dass Sie das `--subscription`-Flag sowohl im Knoten- als auch im Abfragedienst aktivieren müssen, um diese Funktionen nutzen zu können. :::
 
-::: wichtige Warnung
-Die Abonnementfunktion funktioniert auf SubQueries Managed Service, wenn Sie den aufgelisteten GraphQL-Endpunkt direkt aufrufen. Es funktioniert nicht innerhalb des GraphQL-Playgrounds im Browser.
+## Using in the Managed Service
+
+The managed service supports subscriptions for paid plans, you must enable subscription support whend deploying your project in our service under "Advanced Settings"
+
+::: warning Important
+The subcription feature works on SubQuery's Managed Service when you directly call the listed GraphQL endpoint. It will not work within the in-browser GraphQL playground.
 :::
