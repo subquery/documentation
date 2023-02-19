@@ -1,4 +1,4 @@
-# Polkadot Quick Start
+# Polkadot/Substrate Quick Start
 
 ## Goals
 

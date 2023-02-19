@@ -253,6 +253,17 @@ network:
   bypassBlocks: [1, 2, 3, "105-200", 290]
 ```
 
+::: tip Indexing chains that have skipped blocks
+Some Cosmos chains, like Juno, have hard forks that intentionally skip blocks. To handle this situation, you should use the bypass blocks feature and connect to different RPC endpoints as required. For example, on Juno, block 2578098 represents a hard fork, if you want to index data before this block:
+
+1. Find a RPC endpoint that provides archival data for blocks before 2578098
+2. Set bypass blocks to `bypassBlocks: []`
+3. Index data up to block 2578098, you'll notice SubQuery will stop there because most RPC endpoints only have one set of data
+4. Without clearing the database, change the RPC endpoint to a new endpoint that has blocks after 2578098
+5. Continue indexing
+
+:::
+
 ## Validating
 
 You can validate your project manifest by running `subql validate`. This will check that it has the correct structure, valid values where possible and provide useful feedback as to where any fixes should be made.

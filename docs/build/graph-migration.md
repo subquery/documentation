@@ -33,7 +33,7 @@ Notable differences include:
 
 ## Manifest File
 
-The manifest file contains the largest set of differences, but once you understand those they can be easily overcome. Most of these changes are due to the layout of this file, you can see the [full documentation of this file here](./manifest.md).
+The manifest file contains the largest set of differences, but once you understand those they can be easily overcome. Most of these changes are due to the layout of this file, you can see the [full documentation of this file here](./manifest/avalanche.md).
 
 **Notable differences include:**
 
@@ -55,7 +55,7 @@ The manifest file contains the largest set of differences, but once you understa
   - Instead of listing the blocks/events/calls as the key and then denoting the handler that processes it. In SubQuery, you define the handler as the key and then what follows is the description of how this handler is triggered.
 
   - In a SubQuery project, you can document both block handlers, call handlers, and event handlers in the same `mapping:` object, the `kind:` property notes what type we are using.
-  - SubQuery supports advanced filtering on the handler. The format of the supported filter varies amongst block/events/calls/transactions, and between the different blockchain networks. You should refer to the [documentation for a detailed description of each filter](./manifest.md#mapping-handlers-and-filters).
+  - SubQuery supports advanced filtering on the handler. The format of the supported filter varies amongst block/events/calls/transactions, and between the different blockchain networks. You should refer to the [documentation for a detailed description of each filter](./manifest/avalanche.md#mapping-handlers-and-filters).
 
 ![Difference between a SubGraph and a SubQuery project](/assets/img/subgraph-manifest-3.png)
 
@@ -250,13 +250,13 @@ The above example assumes that the user has an ABI file named `erc20.json`, so t
 
 Now that you have a clear understanding of how to build a basic SubQuery project, what are the next steps of your journey?
 
-Now, you can easily publish your project. SubQuery provides a free Managed Service where you can deploy your new project. You can deploy it to [SubQuery Managed Service](https://managedservice.subquery.network) and query it using our [Explorer](https://explorer.subquery.network). Read this complete guide on how to [publish your new project to SubQuery Projects](../../run_publish/publish.md).
+Now, you can easily publish your project. SubQuery provides a free Managed Service where you can deploy your new project. You can deploy it to [SubQuery Managed Service](https://managedservice.subquery.network) and query it using our [Explorer](https://explorer.subquery.network). Read this complete guide on how to [publish your new project to SubQuery Projects](../run_publish/publish.md).
 
-To dive deeper into the developer documentation, jump to the [Build ](../../build/introduction.md) section and learn more about the three key files: **the manifest file, the GraphQL schema, and the mappings file.**
+To dive deeper into the developer documentation, jump to the [Build ](../build/introduction.md) section and learn more about the three key files: **the manifest file, the GraphQL schema, and the mappings file.**
 
 If you want to practice with more real examples, then head to our [Courses](../academy/academy.md) section and learn important concepts with related exercises and lab workbooks. Get access to readily available and open-source projects, and get a hands-on experience with SubQuery projects.
 
-In the end, if you want to explore more ways to run and publish your project, refer to [Run & Publish section](../../run_publish/run.md). Get complete information about all the ways to run your SubQuery project, along with advanced GraphQL aggregation and subscription features.
+In the end, if you want to explore more ways to run and publish your project, refer to [Run & Publish section](../run_publish/run.md). Get complete information about all the ways to run your SubQuery project, along with advanced GraphQL aggregation and subscription features.
 
 ## Summary
 

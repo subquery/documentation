@@ -86,36 +86,66 @@ export default defineUserConfig({
       description:
         "Explore and transform your chain data to build intuitive dApps faster!",
     },
+    "/zh/": {
+      lang: "zh-CN",
+      title: "SubQuery Academy (Documentation)",
+      description:
+        "Explore and transform your chain data to build intuitive dApps faster!.",
+    },
+    "/es/": {
+      lang: "es",
+      title: "SubQuery Academy (Documentation)",
+      description:
+        "Explore and transform your chain data to build intuitive dApps faster!.",
+    },
     "/de/": {
       lang: "de",
       title: "SubQuery Academy (Documentation)",
       description:
         "Explore and transform your chain data to build intuitive dApps faster!.",
     },
-    // "/id/": {
-    //   lang: "id",
-    //   title: "SubQuery Academy (Documentation)",
-    //   description:
-    //     "Explore and transform your chain data to build intuitive dApps faster!.",
-    // },
+    "/id/": {
+      lang: "id",
+      title: "SubQuery Academy (Documentation)",
+      description:
+        "Explore and transform your chain data to build intuitive dApps faster!.",
+    },
+    "/it/": {
+      lang: "it",
+      title: "SubQuery Academy (Documentation)",
+      description:
+        "Explore and transform your chain data to build intuitive dApps faster!.",
+    },
+    "/ja/": {
+      lang: "ja",
+      title: "SubQuery Academy (Documentation)",
+      description:
+        "Explore and transform your chain data to build intuitive dApps faster!.",
+    },
+    "/ko/": {
+      lang: "ko",
+      title: "SubQuery Academy (Documentation)",
+      description:
+        "Explore and transform your chain data to build intuitive dApps faster!.",
+    },
     "/ru/": {
       lang: "ru",
       title: "SubQuery Academy (Documentation)",
       description:
         "Explore and transform your chain data to build intuitive dApps faster!.",
     },
-    // "/th/": {
-    //   lang: "th",
-    //   title: "SubQuery Academy (Documentation)",
-    //   description:
-    //     "Explore and transform your chain data to build intuitive dApps faster!.",
-    // },
-    // "/tr/": {
-    //   lang: "tr",
-    //   title: "SubQuery Academy (Documentation)",
-    //   description:
-    //     "Explore and transform your chain data to build intuitive dApps faster!.",
-    // },
+    "/th/": {
+      lang: "th",
+      title: "SubQuery Academy (Documentation)",
+      description:
+        "Explore and transform your chain data to build intuitive dApps faster!.",
+    },
+    "/tr/": {
+      lang: "tr",
+      title: "SubQuery Academy (Documentation)",
+      description:
+        "Explore and transform your chain data to build intuitive dApps faster!.",
+    },
     "/uk/": {
       lang: "uk",
       title: "SubQuery Academy (Documentation)",
@@ -128,46 +158,28 @@ export default defineUserConfig({
       description:
         "Explore and transform your chain data to build intuitive dApps faster!.",
     },
-    "/zh/": {
-      lang: "zh-CN",
-      title: "SubQuery Academy (Documentation)",
-      description:
-        "Explore and transform your chain data to build intuitive dApps faster!.",
-    },
-    /*
-      "/es/": {
-        lang: "es",
-        title: "SubQuery Academy (Documentation)",
-        description:
-          "Explore and transform your chain data to build intuitive dApps faster!.",
-      },
-      */
-    /*
-      "/it/": {
-        lang: "it",
-        title: "SubQuery Academy (Documentation)",
-        description:
-          "Explore and transform your chain data to build intuitive dApps faster!.",
-      },
-      "/ja/": {
-        lang: "ja",
-        title: "SubQuery Academy (Documentation)",
-        description:
-          "Explore and transform your chain data to build intuitive dApps faster!.",
-      },
-      "/ko/": {
-        lang: "ko",
-        title: "SubQuery Academy (Documentation)",
-        description:
-          "Explore and transform your chain data to build intuitive dApps faster!.",
-      },
-      */
   },
   theme: defaultTheme({
     lastUpdated: true,
     locales: {
       "/": {
         sidebar: getSidebar(""),
+      },
+      "/de/": {
+        selectLanguageName: "German",
+        sidebar: getSidebar("/de"),
+      },
+      "/id/": {
+        selectLanguageName: "Indoneisan",
+        sidebar: getSidebar("/id"),
+      },
+      "/th/": {
+        selectLanguageName: "Thai",
+        sidebar: getSidebar("/th"),
+      },
+      "/tr/": {
+        selectLanguageName: "Turkish",
+        sidebar: getSidebar("/tr"),
       },
       "/zh/": {
         selectLanguageName: "Chinese",
@@ -184,6 +196,22 @@ export default defineUserConfig({
       "/uk/": {
         selectLanguageName: "Ukranian",
         sidebar: getSidebar("/uk"),
+      },
+      "/es/": {
+        selectLanguageName: "Espanol",
+        sidebar: getSidebar("/es"),
+      },
+      "/it/": {
+        selectLanguageName: "Italian",
+        sidebar: getSidebar("/it"),
+      },
+      "/ja/": {
+        selectLanguageName: "Japanese",
+        sidebar: getSidebar("/js"),
+      },
+      "/ko/": {
+        selectLanguageName: "Korean",
+        sidebar: getSidebar("/ko"),
       },
     },
     logo: "/assets/img/logo.png",
