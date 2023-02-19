@@ -67,6 +67,10 @@ subscription {
 
 ::: предупреждение Важно Обратите внимание, что для использования этих функций необходимо включить флаг `--subscription` как на узле, так и на службе запросов. :::
 
+## Using in the Managed Service
+
+The managed service supports subscriptions for paid plans, you must enable subscription support whend deploying your project in our service under "Advanced Settings"
+
 ::: warning Important
-The subcription feature works on SubQuery's Managed Service when you directly call the listed GraphQL endpoint. Он не будет работать в пределах браузерной площадки GraphQL.
+The subcription feature works on SubQuery's Managed Service when you directly call the listed GraphQL endpoint. It will not work within the in-browser GraphQL playground.
 :::
