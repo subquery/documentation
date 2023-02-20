@@ -268,6 +268,18 @@ ERROR Создать проект Subquery по заданному пути не
 
 Порт, к которому привязывается служба индексирования подзапросов. По умолчанию установлено значение `3000`.
 
+### --pg-ca
+
+When connecting to a postgres database via SSL, the path to the server certificate (in `.pem` format)
+
+### --pg-cert
+
+When connecting to a postgres database via SSL, the path to the client certificate (in `.pem` format)
+
+### --pg-key
+
+When connecting to a postgres database via SSL, the path to the client key file (in `.key` format)
+
 ### профиль
 
 Здесь отображается информация о профилировщике.
