@@ -158,21 +158,19 @@ subql-node -f your-project-path
 
 根据您的 Postgres 数据库的配置（例如不同的数据库密码），请同时确保索引器 (`subql/node`) 和查询服务 (`subql/query` ) 可以建立到它的连接。
 
-##### SSL Database
+If your database is using SSL, you can use the following command to add the server certificate to it:
 
-If your database is using SSL, you can use the following command to connect to it:
-
-```shell 
+```shell
 subql-node -f your-project-path --pg-ca /path/to/ca.pem
 ```
 
 If your database is using SSL and requires a client certificate, you can use the following command to connect to it:
 
 ```shell
-subql-node -f your-project-path --pg-ca /path/to/ca.pem --pg-cert /path/to/client-cert.pem --pg-key /path/to/client-key.pem
+subql-node -f your-project-path --pg-ca /path/to/ca.pem --pg-cert /path/to/client-cert.pem --pg-key /path/to/client-key.key
 ```
 
-```shell
+````shell
 
 #### Specify a configuration file
 
@@ -181,7 +179,7 @@ subql-node -f your-project-path --pg-ca /path/to/ca.pem --pg-cert /path/to/clien
 
 ```shell
 subql-node -c your-project-config.yml
-```
+````
 
 @tab Terra
 
