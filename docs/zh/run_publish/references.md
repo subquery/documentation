@@ -266,6 +266,18 @@ An instance of ProjectManifestImpl has failed the validation:
 
 Subquery索引服务绑定到的端口。 默认设置为 `3000`.
 
+### --pg-ca
+
+When connecting to a postgres database via SSL, the path to the server certificate (in `.pem` format)
+
+### --pg-cert
+
+When connecting to a postgres database via SSL, the path to the client certificate (in `.pem` format)
+
+### --pg-key
+
+When connecting to a postgres database via SSL, the path to the client key file (in `.key` format)
+
 ### --profiler
 
 这将显示分析器信息。
