@@ -266,6 +266,18 @@ An instance of ProjectManifestImpl has failed the validation:
 
 Порт, до якого прив'язується служба індексації subquery. За замовчуванням це значення дорівнює `3000`.
 
+### --pg-ca
+
+When connecting to a postgres database via SSL, the path to the server certificate (in `.pem` format)
+
+### --pg-cert
+
+When connecting to a postgres database via SSL, the path to the client certificate (in `.pem` format)
+
+### --pg-key
+
+When connecting to a postgres database via SSL, the path to the client key file (in `.key` format)
+
 ### --profiler
 
 Тут показуватися інформація про профілювальника.
