@@ -266,6 +266,18 @@ Ada dua format keluaran terminal yang berbeda. JSON atau berwarna. Berwarna adal
 
 Port yang diikat oleh layanan pengindeksan subquery. Secara default ini diatur ke `3000`.
 
+### --pg-ca
+
+When connecting to a postgres database via SSL, the path to the server certificate (in `.pem` format)
+
+### --pg-cert
+
+When connecting to a postgres database via SSL, the path to the client certificate (in `.pem` format)
+
+### --pg-key
+
+When connecting to a postgres database via SSL, the path to the client key file (in `.key` format)
+
 ### --profiler
 
 Ini menunjukkan informasi profiler.
