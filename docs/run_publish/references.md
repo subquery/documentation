@@ -270,6 +270,18 @@ There are two different terminal output formats. JSON or colored. Colored is the
 
 The port the subquery indexing service binds to. By default this is set to `3000`.
 
+### --pg-ca
+
+When connecting to a postgres database via SSL, the path to the server certificate (in `.pem` format)
+
+### --pg-cert
+
+When connecting to a postgres database via SSL, the path to the client certificate (in `.pem` format)
+
+### --pg-key
+
+When connecting to a postgres database via SSL, the path to the client key file (in `.key` format)
+
 ### --profiler
 
 This shows profiler information.
