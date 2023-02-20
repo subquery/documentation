@@ -158,9 +158,26 @@ subql-node -f your-project-path
 
 Залежно від конфігурації вашої бази даних Postgres (наприклад, інший пароль бази даних), переконайтеся також, що індексатор (`subql/node`) і служба запитів (`subql/query`) можуть встановити з'єднання з нею.
 
-#### Вкажіть файл конфігурації
+##### SSL Database
 
-::: code-tabs @tab Substrate/Polkadot
+If your database is using SSL, you can use the following command to connect to it:
+
+```shell 
+subql-node -f your-project-path --pg-ca /path/to/ca.pem
+```
+
+If your database is using SSL and requires a client certificate, you can use the following command to connect to it:
+
+```shell
+subql-node -f your-project-path --pg-ca /path/to/ca.pem --pg-cert /path/to/client-cert.pem --pg-key /path/to/client-key.pem
+```
+
+```shell
+
+#### Specify a configuration file
+
+::: code-tabs
+@tab Substrate/Polkadot
 
 ```shell
 subql-node -c your-project-config.yml
