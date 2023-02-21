@@ -1,5 +1,5 @@
 import { defineUserConfig, SidebarConfig, SidebarConfigArray } from "vuepress";
-import { defaultTheme } from "vuepress";
+import { hopeTheme } from "vuepress-theme-hope";
 import { googleAnalyticsPlugin } from "@vuepress/plugin-google-analytics";
 import { sitemapPlugin } from "vuepress-plugin-sitemap2";
 import { pwaPlugin } from "vuepress-plugin-pwa2";
@@ -81,7 +81,7 @@ export default defineUserConfig({
   ],
   locales: {
     "/": {
-      lang: "en-UK",
+      lang: "en-US",
       title: "SubQuery Academy (Documentation)",
       description:
         "Explore and transform your chain data to build intuitive dApps faster!",
@@ -99,19 +99,7 @@ export default defineUserConfig({
         "Explore and transform your chain data to build intuitive dApps faster!.",
     },
     "/de/": {
-      lang: "de",
-      title: "SubQuery Academy (Documentation)",
-      description:
-        "Explore and transform your chain data to build intuitive dApps faster!.",
-    },
-    "/id/": {
-      lang: "id",
-      title: "SubQuery Academy (Documentation)",
-      description:
-        "Explore and transform your chain data to build intuitive dApps faster!.",
-    },
-    "/it/": {
-      lang: "it",
+      lang: "de-AT",
       title: "SubQuery Academy (Documentation)",
       description:
         "Explore and transform your chain data to build intuitive dApps faster!.",
@@ -130,12 +118,6 @@ export default defineUserConfig({
     },
     "/ru/": {
       lang: "ru",
-      title: "SubQuery Academy (Documentation)",
-      description:
-        "Explore and transform your chain data to build intuitive dApps faster!.",
-    },
-    "/th/": {
-      lang: "th",
       title: "SubQuery Academy (Documentation)",
       description:
         "Explore and transform your chain data to build intuitive dApps faster!.",
@@ -159,58 +141,46 @@ export default defineUserConfig({
         "Explore and transform your chain data to build intuitive dApps faster!.",
     },
   },
-  theme: defaultTheme({
+  theme: hopeTheme({
     lastUpdated: true,
     locales: {
       "/": {
         sidebar: getSidebar(""),
       },
       "/de/": {
-        selectLanguageName: "German",
         sidebar: getSidebar("/de"),
       },
       "/id/": {
-        selectLanguageName: "Indoneisan",
         sidebar: getSidebar("/id"),
       },
       "/th/": {
-        selectLanguageName: "Thai",
         sidebar: getSidebar("/th"),
       },
       "/tr/": {
-        selectLanguageName: "Turkish",
         sidebar: getSidebar("/tr"),
       },
       "/zh/": {
-        selectLanguageName: "Chinese",
         sidebar: getSidebar("/zh"),
       },
       "/vi/": {
-        selectLanguageName: "Vietnamese",
         sidebar: getSidebar("/vi"),
       },
       "/ru/": {
-        selectLanguageName: "Russian",
         sidebar: getSidebar("/ru"),
       },
       "/uk/": {
-        selectLanguageName: "Ukranian",
         sidebar: getSidebar("/uk"),
       },
       "/es/": {
-        selectLanguageName: "Espanol",
         sidebar: getSidebar("/es"),
       },
       "/it/": {
-        selectLanguageName: "Italian",
         sidebar: getSidebar("/it"),
       },
       "/ja/": {
-        selectLanguageName: "Japanese",
         sidebar: getSidebar("/js"),
       },
       "/ko/": {
-        selectLanguageName: "Korean",
         sidebar: getSidebar("/ko"),
       },
     },
