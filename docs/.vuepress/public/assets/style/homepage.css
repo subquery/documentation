@@ -1,4 +1,8 @@
-body .theme-default-content:not(.custom) {
+.theme-container.has-toc .page {
+  padding-right: 0;
+}
+
+body .theme-hope-content:not(.custom) {
   max-width: inherit;
   width: auto;
   padding-left: 0;
@@ -26,7 +30,7 @@ body .theme-default-content:not(.custom) {
 .dark .welcomeContainer {
   background: var(--c-bg-sidebar);
 }
-.page .theme-default-content {
+.page .theme-hope-content {
   padding-top: 0;
 }
 .mt80 {
@@ -49,7 +53,7 @@ body .theme-default-content:not(.custom) {
     min-width: auto;
   }
 }
-.theme-default-content .welcomeContainer h2 {
+.theme-hope-content .welcomeContainer h2 {
   font-weight: 500;
   font-size: 42px;
   line-height: 54px;
@@ -57,19 +61,19 @@ body .theme-default-content:not(.custom) {
   margin: 0;
   padding: 0;
 }
-.theme-default-content .welcomeContainer h3 {
+.theme-hope-content .welcomeContainer h3 {
   font-weight: 500;
   font-size: 32px;
   line-height: 48px;
   margin: 0;
   padding: 0;
 }
-.theme-default-content .welcomeContainer h4 {
+.theme-hope-content .welcomeContainer h4 {
   margin: 0;
   padding: 0;
 }
 
-.theme-default-content .welcomeContainer h5 {
+.theme-hope-content .welcomeContainer h5 {
   margin: 0;
   padding: 0;
   font-size: 20px;
@@ -80,10 +84,10 @@ body .theme-default-content:not(.custom) {
   font-size: 16px;
   line-height: 140%;
 }
-.theme-default-content .welcomeContainer p,
-.theme-default-content .welcomeContainer h3:first-child + p,
-.theme-default-content .welcomeContainer h4:first-child + p,
-.theme-default-content .welcomeContainer h5:first-child + p {
+.theme-hope-content .welcomeContainer p,
+.theme-hope-content .welcomeContainer h3:first-child + p,
+.theme-hope-content .welcomeContainer h4:first-child + p,
+.theme-hope-content .welcomeContainer h5:first-child + p {
   margin: 0;
   padding: 0;
 }

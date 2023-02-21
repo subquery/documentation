@@ -1,5 +1,5 @@
 import { defineUserConfig, SidebarConfig, SidebarConfigArray } from "vuepress";
-import { hopeTheme } from "vuepress-theme-hope";
+import { hopeTheme, SidebarOptions } from "vuepress-theme-hope";
 import { googleAnalyticsPlugin } from "@vuepress/plugin-google-analytics";
 import { sitemapPlugin } from "vuepress-plugin-sitemap2";
 import { pwaPlugin } from "vuepress-plugin-pwa2";
@@ -104,6 +104,20 @@ export default defineUserConfig({
       description:
         "Explore and transform your chain data to build intuitive dApps faster!.",
     },
+    /*
+    "/id/": {
+       lang: "id",
+       title: "SubQuery Academy (Documentation)",
+       description:
+         "Explore and transform your chain data to build intuitive dApps faster!.",
+     },
+     "/it/": {
+       lang: "it",
+       title: "SubQuery Academy (Documentation)",
+       description:
+         "Explore and transform your chain data to build intuitive dApps faster!.",
+     },
+     */
     "/ja/": {
       lang: "ja",
       title: "SubQuery Academy (Documentation)",
@@ -122,6 +136,14 @@ export default defineUserConfig({
       description:
         "Explore and transform your chain data to build intuitive dApps faster!.",
     },
+    /*
+    "/th/": {
+       lang: "th",
+       title: "SubQuery Academy (Documentation)",
+       description:
+         "Explore and transform your chain data to build intuitive dApps faster!.",
+     },
+     */
     "/tr/": {
       lang: "tr",
       title: "SubQuery Academy (Documentation)",
@@ -142,6 +164,8 @@ export default defineUserConfig({
     },
   },
   theme: hopeTheme({
+    hostname: "https://academy.subquery.network",
+    author: "SubQuery Team",
     lastUpdated: true,
     locales: {
       "/": {
@@ -149,12 +173,6 @@ export default defineUserConfig({
       },
       "/de/": {
         sidebar: getSidebar("/de"),
-      },
-      "/id/": {
-        sidebar: getSidebar("/id"),
-      },
-      "/th/": {
-        sidebar: getSidebar("/th"),
       },
       "/tr/": {
         sidebar: getSidebar("/tr"),
@@ -174,15 +192,23 @@ export default defineUserConfig({
       "/es/": {
         sidebar: getSidebar("/es"),
       },
-      "/it/": {
-        sidebar: getSidebar("/it"),
-      },
       "/ja/": {
         sidebar: getSidebar("/js"),
       },
       "/ko/": {
         sidebar: getSidebar("/ko"),
       },
+      /*
+      "/id/": {
+        sidebar: getSidebar("/id"),
+      },
+      "/it/": {
+        sidebar: getSidebar("/it"),
+      },
+      "/th/": {
+        sidebar: getSidebar("/th"),
+      },
+      */
     },
     logo: "/assets/img/logo.png",
     navbar: [
@@ -206,7 +232,8 @@ export default defineUserConfig({
         rel: "",
       },
     ],
-    sidebarDepth: 2,
+    repo: "https://github.com/subquery/documentation",
+    repoLabel: "Docs GitHub",
     docsRepo: "https://github.com/subquery/documentation",
     docsDir: "docs",
     docsBranch: "master",
@@ -234,7 +261,7 @@ chainWebpack: (config) => {
   });
 };
 
-function getSidebar(locale: string): SidebarConfigArray {
+function getSidebar(locale: string): SidebarOptions {
   return [
     {
       text: "Welcome",
