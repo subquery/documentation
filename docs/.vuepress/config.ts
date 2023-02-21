@@ -1,5 +1,5 @@
 import { defineUserConfig, SidebarConfig, SidebarConfigArray } from "vuepress";
-import { defaultTheme } from "vuepress";
+import { hopeTheme, SidebarOptions } from "vuepress-theme-hope";
 import { googleAnalyticsPlugin } from "@vuepress/plugin-google-analytics";
 import { sitemapPlugin } from "vuepress-plugin-sitemap2";
 import { pwaPlugin } from "vuepress-plugin-pwa2";
@@ -81,7 +81,7 @@ export default defineUserConfig({
   ],
   locales: {
     "/": {
-      lang: "en-UK",
+      lang: "en-US",
       title: "SubQuery Academy (Documentation)",
       description:
         "Explore and transform your chain data to build intuitive dApps faster!",
@@ -99,23 +99,25 @@ export default defineUserConfig({
         "Explore and transform your chain data to build intuitive dApps faster!.",
     },
     "/de/": {
-      lang: "de",
+      lang: "de-AT",
       title: "SubQuery Academy (Documentation)",
       description:
         "Explore and transform your chain data to build intuitive dApps faster!.",
     },
+    /*
     "/id/": {
-      lang: "id",
-      title: "SubQuery Academy (Documentation)",
-      description:
-        "Explore and transform your chain data to build intuitive dApps faster!.",
-    },
-    "/it/": {
-      lang: "it",
-      title: "SubQuery Academy (Documentation)",
-      description:
-        "Explore and transform your chain data to build intuitive dApps faster!.",
-    },
+       lang: "id",
+       title: "SubQuery Academy (Documentation)",
+       description:
+         "Explore and transform your chain data to build intuitive dApps faster!.",
+     },
+     "/it/": {
+       lang: "it",
+       title: "SubQuery Academy (Documentation)",
+       description:
+         "Explore and transform your chain data to build intuitive dApps faster!.",
+     },
+     */
     "/ja/": {
       lang: "ja",
       title: "SubQuery Academy (Documentation)",
@@ -134,12 +136,14 @@ export default defineUserConfig({
       description:
         "Explore and transform your chain data to build intuitive dApps faster!.",
     },
+    /*
     "/th/": {
-      lang: "th",
-      title: "SubQuery Academy (Documentation)",
-      description:
-        "Explore and transform your chain data to build intuitive dApps faster!.",
-    },
+       lang: "th",
+       title: "SubQuery Academy (Documentation)",
+       description:
+         "Explore and transform your chain data to build intuitive dApps faster!.",
+     },
+     */
     "/tr/": {
       lang: "tr",
       title: "SubQuery Academy (Documentation)",
@@ -159,60 +163,52 @@ export default defineUserConfig({
         "Explore and transform your chain data to build intuitive dApps faster!.",
     },
   },
-  theme: defaultTheme({
+  theme: hopeTheme({
+    hostname: "https://academy.subquery.network",
+    author: "SubQuery Team",
     lastUpdated: true,
     locales: {
       "/": {
         sidebar: getSidebar(""),
       },
       "/de/": {
-        selectLanguageName: "German",
         sidebar: getSidebar("/de"),
       },
-      "/id/": {
-        selectLanguageName: "Indoneisan",
-        sidebar: getSidebar("/id"),
-      },
-      "/th/": {
-        selectLanguageName: "Thai",
-        sidebar: getSidebar("/th"),
-      },
       "/tr/": {
-        selectLanguageName: "Turkish",
         sidebar: getSidebar("/tr"),
       },
       "/zh/": {
-        selectLanguageName: "Chinese",
         sidebar: getSidebar("/zh"),
       },
       "/vi/": {
-        selectLanguageName: "Vietnamese",
         sidebar: getSidebar("/vi"),
       },
       "/ru/": {
-        selectLanguageName: "Russian",
         sidebar: getSidebar("/ru"),
       },
       "/uk/": {
-        selectLanguageName: "Ukranian",
         sidebar: getSidebar("/uk"),
       },
       "/es/": {
-        selectLanguageName: "Espanol",
         sidebar: getSidebar("/es"),
       },
-      "/it/": {
-        selectLanguageName: "Italian",
-        sidebar: getSidebar("/it"),
-      },
       "/ja/": {
-        selectLanguageName: "Japanese",
         sidebar: getSidebar("/js"),
       },
       "/ko/": {
-        selectLanguageName: "Korean",
         sidebar: getSidebar("/ko"),
       },
+      /*
+      "/id/": {
+        sidebar: getSidebar("/id"),
+      },
+      "/it/": {
+        sidebar: getSidebar("/it"),
+      },
+      "/th/": {
+        sidebar: getSidebar("/th"),
+      },
+      */
     },
     logo: "/assets/img/logo.png",
     navbar: [
@@ -236,7 +232,8 @@ export default defineUserConfig({
         rel: "",
       },
     ],
-    sidebarDepth: 2,
+    repo: "https://github.com/subquery/documentation",
+    repoLabel: "Docs GitHub",
     docsRepo: "https://github.com/subquery/documentation",
     docsDir: "docs",
     docsBranch: "master",
@@ -264,7 +261,7 @@ chainWebpack: (config) => {
   });
 };
 
-function getSidebar(locale: string): SidebarConfigArray {
+function getSidebar(locale: string): SidebarOptions {
   return [
     {
       text: "Welcome",
