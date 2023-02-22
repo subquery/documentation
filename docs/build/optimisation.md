@@ -1,6 +1,6 @@
 # Project Optimisation
 
-Performance is a crucial factor in each project. So, how to optimise your Suproject to speed it up?
+Performance is a crucial factor in each project. So, how to optimise your SubQuery project to speed it up?
 Fortunately, there are several things you could do to improve it.
 
 ## Common Issues and Top Suggestions
