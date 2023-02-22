@@ -275,6 +275,7 @@ function getSidebar(locale: string): SidebarOptions {
         `${locale}/quickstart/quickstart.md`,
         {
           text: "2. Specific Chains",
+          collapsible: true,
           children: [
             `${locale}/quickstart/quickstart_chains/polkadot.md`,
             `${locale}/quickstart/quickstart_chains/polkadot-humanode.md`,
@@ -300,6 +301,7 @@ function getSidebar(locale: string): SidebarOptions {
         `${locale}/build/install.md`,
         {
           text: "Manifest File",
+          collapsible: true,
           children: [
             `${locale}/build/manifest/polkadot.md`,
             `${locale}/build/manifest/cosmos.md`,
@@ -313,6 +315,7 @@ function getSidebar(locale: string): SidebarOptions {
         `${locale}/build/graphql.md`,
         {
           text: "Mapping",
+          collapsible: true,
           children: [
             `${locale}/build/mapping/polkadot.md`,
             `${locale}/build/mapping/cosmos.md`,
@@ -367,11 +370,13 @@ function getSidebar(locale: string): SidebarOptions {
         {
           text: "Kepler Network",
           link: `${locale}/subquery_network/kepler/welcome`,
+          collapsible: true,
           children: [
             `${locale}/subquery_network/kepler/welcome.md`,
             {
               text: "Indexers",
               link: `${locale}/subquery_network/kepler/indexers/become-an-indexer`,
+              collapsible: true,
               children: [
                 `${locale}/subquery_network/kepler/indexers/become-an-indexer.md`,
                 `${locale}/subquery_network/kepler/indexers/install-indexer-locally.md`,
@@ -388,6 +393,7 @@ function getSidebar(locale: string): SidebarOptions {
             {
               text: "Metamask",
               link: `${locale}/subquery_network/kepler/metamask/connect-metamask`,
+              collapsible: true,
               children: [
                 `${locale}/subquery_network/kepler/metamask/connect-metamask.md`,
               ],
@@ -404,6 +410,7 @@ function getSidebar(locale: string): SidebarOptions {
         {
           text: "Hero Course",
           link: `${locale}/academy/herocourse/welcome`,
+          collapsible: true,
           children: [
             `${locale}/academy/herocourse/welcome.md`,
             `${locale}/academy/herocourse/module1.md`,
@@ -417,6 +424,7 @@ function getSidebar(locale: string): SidebarOptions {
         {
           text: "SubQuery Moonbeam Course",
           link: `${locale}/academy/moonbeam_course/welcome`,
+          collapsible: true,
           children: [
             `${locale}/academy/moonbeam_course/welcome.md`,
             `${locale}/academy/moonbeam_course/lesson1.md`,
@@ -430,6 +438,7 @@ function getSidebar(locale: string): SidebarOptions {
         {
           text: "Tutorials & Examples",
           link: `${locale}/academy/tutorials_examples/introduction`,
+          collapsible: true,
           children: [
             `${locale}/academy/tutorials_examples/introduction.md`,
             `${locale}/academy/tutorials_examples/block-height.md`,
