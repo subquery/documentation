@@ -107,7 +107,7 @@ const b2 = await api.rpc.chain.getBlock();
 
 ## Modul dan Library
 
-Untuk meningkatkan kemampuan pemrosesan data SubQuery, kami telah mengizinkan beberapa modul bawaan NodeJS untuk menjalankan fungsi pemetaan di [sandbox](#the-sandbox), dan mengizinkan pengguna untuk memanggil library pihak ketiga.
+Untuk meningkatkan kemampuan pemrosesan data SubQuery, kami telah mengizinkan beberapa modul bawaan NodeJS untuk menjalankan fungsi pemetaan di [sandbox](#third-party-library-support---the-sandbox), dan mengizinkan pengguna untuk memanggil library pihak ketiga.
 
 Harap perhatikan bahwa ini adalah **fitur eksperimental** dan Anda mungkin mengalami bug atau masalah yang dapat berdampak negatif pada fungsi pemetaan Anda. Mohon laporkan bugs apa pun yang Anda temukan dengan membuat isu di [GitHub](https://github.com/subquery/subql).
 

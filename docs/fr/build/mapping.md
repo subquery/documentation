@@ -106,7 +106,7 @@ const b2 = await api.rpc.chain.getBlock();
 
 ## Modules et bibliothèques
 
-Pour améliorer les capacités de traitement de données de SubQuery, nous avons autorisé certains des modules intégrés de NodeJS pour exécuter des fonctions de cartographie dans la [sandbox](#the-sandbox), et nous avons autorisé les utilisateurs à appeler des bibliothèques tierces.
+Pour améliorer les capacités de traitement de données de SubQuery, nous avons autorisé certains des modules intégrés de NodeJS pour exécuter des fonctions de cartographie dans la [sandbox](#third-party-library-support---the-sandbox), et nous avons autorisé les utilisateurs à appeler des bibliothèques tierces.
 
 Veuillez noter qu'il s'agit d'une **fonctionnalité expérimentale** et que vous pouvez rencontrer des bogues ou des problèmes qui peuvent avoir un impact négatif sur vos fonctions de cartographie. Veuillez signaler tout bogue que vous trouvez en créant un problème dans [GitHub](https://github.com/subquery/subql).
 

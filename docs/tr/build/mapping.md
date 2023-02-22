@@ -107,7 +107,7 @@ const b2 = await api.rpc.chain.getBlock();
 
 ## Modüller ve Kitaplıklar
 
-SubQuery'nin veri işleme yeteneklerini geliştirmek için, NodeJS'in [sandbox](#the-sandbox)’daki eşleme işlevlerini çalıştırmak için yerleşik modüllerinden bazılarına ve kullanıcıların üçüncü taraf kitaplıkları aramasına izin verdik.
+SubQuery'nin veri işleme yeteneklerini geliştirmek için, NodeJS'in [sandbox](#third-party-library-support---the-sandbox)’daki eşleme işlevlerini çalıştırmak için yerleşik modüllerinden bazılarına ve kullanıcıların üçüncü taraf kitaplıkları aramasına izin verdik.
 
 Bunun bir **experimental feature** olduğunu ve eşleme işlevlerinizi olumsuz etkileyebilecek hatalarla veya sorunlarla karşılaşabileceğinizi lütfen unutmayın. Lütfen bir sorun oluşturarak bulduğunuz hataları [GitHub](https://github.com/subquery/subql)’ta bildirin.
 

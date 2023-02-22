@@ -107,7 +107,7 @@ const b2 = await api.rpc.chain.getBlock();
 
 ## Module und Bibliotheken
 
-Um die Datenverarbeitungsfunktionen von SubQuery zu verbessern, haben wir einige der integrierten Module von NodeJS zum Ausführen von Mapping-Funktionen in der [Sandbox](#the-sandbox) zugelassen und den Benutzern erlaubt, Bibliotheken von Drittanbietern aufzurufen.
+Um die Datenverarbeitungsfunktionen von SubQuery zu verbessern, haben wir einige der integrierten Module von NodeJS zum Ausführen von Mapping-Funktionen in der [Sandbox](#third-party-library-support---the-sandbox) zugelassen und den Benutzern erlaubt, Bibliotheken von Drittanbietern aufzurufen.
 
 Beachten Sie bitte, dass dies eine **experimentelle Funktion** ist und Sie möglicherweise auf Fehler oder Probleme stoßen, die sich negativ auf Ihre Mapping-Funktionen auswirken können. Bitte melden Sie alle Fehler, die Sie finden, indem Sie ein Problem in [GitHub](https://github.com/subquery/subql) erstellen.
 

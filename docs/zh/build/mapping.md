@@ -111,7 +111,7 @@ const b2 = await api.rpc.chain.getBlock();
 
 ## 模块和库
 
-为了提高 SubQuery 的数据处理能力, 我们已经允许 NodeJS 的一些内置模块在 [沙盒](#the-sandbox)中运行映射函, 并且允许用户调用第三方库。
+为了提高 SubQuery 的数据处理能力, 我们已经允许 NodeJS 的一些内置模块在 [沙盒](#third-party-library-support---the-sandbox)中运行映射函, 并且允许用户调用第三方库。
 
 请注意这是一个 **实验性功能** ，您可能遇到可能对您的映射功能产生不利影响的 bug 或问题。 如果您发现了任何 bug, 请在 [GitHub](https://github.com/subquery/subql) 中创建一个 issue 来报告给我们。
 
