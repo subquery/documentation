@@ -107,7 +107,7 @@ const b2 = await api.rpc.chain.getBlock();
 
 ## 모듈 및 라이브러리
 
-SubQuery의 데이터 처리 기능을 개선하기 위해 [샌드박스](#the-sandbox)에서 맵핑 기능을 실행하기 위한 NodeJS의 내장 모듈 중 일부를 허용하고 사용자가 타사 라이브러리를 호출할 수 있도록 허용했습니다.
+SubQuery의 데이터 처리 기능을 개선하기 위해 [샌드박스](#third-party-library-support---the-sandbox)에서 맵핑 기능을 실행하기 위한 NodeJS의 내장 모듈 중 일부를 허용하고 사용자가 타사 라이브러리를 호출할 수 있도록 허용했습니다.
 
 이는 **실험적 기능**이며 맵핑 기능에 부정적인 영향을 줄 수 있는 버그나 문제가 발생할 수 있습니다. 발견한 버그는 [GitHub](https://github.com/subquery/subql)에서 이슈 생성을 통해 보고해 주세요.
 

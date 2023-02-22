@@ -107,7 +107,7 @@ const b2 = await api.rpc.chain.getBlock();
 
 ## Módulos y librerías
 
-Para mejorar las capacidades de procesamiento de datos de SubQuery, hemos permitido algunos de los módulos incorporados de NodeJS para ejecutar funciones de mapeo en el [sandbox](#the-sandbox), y han permitido a los usuarios llamar a bibliotecas de terceros.
+Para mejorar las capacidades de procesamiento de datos de SubQuery, hemos permitido algunos de los módulos incorporados de NodeJS para ejecutar funciones de mapeo en el [sandbox](#third-party-library-support---the-sandbox), y han permitido a los usuarios llamar a bibliotecas de terceros.
 
 Tenga en cuenta que esta es una **característica experimental** y puede encontrar errores o problemas que pueden afectar negativamente a sus funciones de mapeo. Por favor, informe de cualquier error que encuentre creando un problema en [GitHub](https://github.com/subquery/subql).
 

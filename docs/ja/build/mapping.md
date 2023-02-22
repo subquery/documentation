@@ -107,7 +107,7 @@ const b2 = await api.rpc.chain.getBlock();
 
 ## モジュールとライブラリ
 
-SubQuery のデータ処理能力を向上させるには [sandbox](#the-sandbox)でマッピング関数を実行するための NodeJS の組み込みモジュールの一部を許可しました。
+SubQuery のデータ処理能力を向上させるには [sandbox](#third-party-library-support---the-sandbox)でマッピング関数を実行するための NodeJS の組み込みモジュールの一部を許可しました。
 
 これは **実験的機能** であり、マッピング関数に悪影響を与えるバグや問題が発生する可能性があります。 Issue を [GitHub](https://github.com/subquery/subql) で作成することで、バグを報告してください。
 
