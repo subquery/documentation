@@ -24,10 +24,10 @@ export default defineUserConfig({
       container: true,
     }),
     sitemapPlugin({
-      hostname: "https://blog.subquery.network",
+      hostname: "https://academy.subquery.network",
     }),
     seoPlugin({
-      hostname: "https://blog.subquery.network",
+      hostname: "https://academy.subquery.network",
       author: "SubQuery Team",
       autoDescription: true,
       twitterID: "@SubQueryNetwork",
