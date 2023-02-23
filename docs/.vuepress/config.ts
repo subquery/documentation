@@ -31,6 +31,7 @@ export default defineUserConfig({
       author: "SubQuery Team",
       autoDescription: true,
       twitterID: "@SubQueryNetwork",
+      fallBackImage: "https://static.subquery.network/link-share.jpg"
     }),
     docsearchPlugin({
       appId: "30B5W460WL",
