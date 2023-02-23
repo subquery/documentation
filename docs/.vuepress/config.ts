@@ -279,6 +279,7 @@ function getSidebar(locale: string): SidebarOptions {
           children: [
             `${locale}/quickstart/quickstart_chains/polkadot.md`,
             `${locale}/quickstart/quickstart_chains/polkadot-humanode.md`,
+            `${locale}/quickstart/quickstart_chains/ethereum.md`,
             `${locale}/quickstart/quickstart_chains/cosmos.md`,
             `${locale}/quickstart/quickstart_chains/cosmos-cronos.md`,
             `${locale}/quickstart/quickstart_chains/cosmos-thorchain.md`,
@@ -304,6 +305,7 @@ function getSidebar(locale: string): SidebarOptions {
           collapsible: true,
           children: [
             `${locale}/build/manifest/polkadot.md`,
+            `${locale}/build/manifest/ethereum.md`,
             `${locale}/build/manifest/cosmos.md`,
             `${locale}/build/manifest/avalanche.md`,
             `${locale}/build/manifest/algorand.md`,
@@ -318,6 +320,7 @@ function getSidebar(locale: string): SidebarOptions {
           collapsible: true,
           children: [
             `${locale}/build/mapping/polkadot.md`,
+            `${locale}/build/mapping/ethereum.md`,
             `${locale}/build/mapping/cosmos.md`,
             `${locale}/build/mapping/avalanche.md`,
             `${locale}/build/mapping/algorand.md`,

@@ -99,7 +99,7 @@ If you start your project by using the `subql init` command, you'll generally re
 
 The `chainId` is the network identifier of the blockchain. Examples in Cosmos might be `juno-1`.
 
-Additionally you will need to update the `endpoint`. This defines the wss endpoint of the blockchain to be indexed - **this must be a full archive node**. Public nodes may be rate limited which can affect indexing speed. We suggest getting a private API key when developing your project. You can retrieve endpoints for all parachains for free from [OnFinality](https://app.onfinality.io).
+Additionally you will need to update the `endpoint`. This defines the wss endpoint of the blockchain to be indexed - **this must be a full archive node**. Public nodes may be rate limited which can affect indexing speed. We suggest getting a private API key when developing your project. You can retrieve endpoints for Cosmos from [OnFinality](https://app.onfinality.io).
 
 | Field            | Type   | Description                                                                                                                                                                                                |
 | ---------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

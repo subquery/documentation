@@ -95,7 +95,7 @@ SubQuery is deterministic by design, that means that each SubQuery project is gu
 
 ```yml
 subquery-node:
-  image: onfinality/subql-node:latest
+  image: onfinality/subql-node-near:latest
   ...
   command:
     - -f=/app
@@ -107,10 +107,12 @@ subquery-node:
 When run in `unsafe` mode, you can import any custom libraries into your project and make external API calls using tools like node-fetch. A simple example is given below:
 
 ```ts
-import { SubstrateEvent } from "@subql/types";
+import { NearAction, Transfer } from "@subql/types-near";
 import fetch from "node-fetch";
 
-export async function handleEvent(event: SubstrateEvent): Promise<void> {
+export async function handleAction(
+  action: NearAction<Transfer>
+): Promise<void> {
   const httpData = await fetch("https://api.github.com/users/github");
   logger.info(`httpData: ${JSON.stringify(httpData.body)}`);
   // Do something with this data
@@ -122,7 +124,7 @@ By default (when in safe mode), the [VM2](https://www.npmjs.com/package/vm2) san
 - only some certain built-in modules, e.g. `assert`, `buffer`, `crypto`,`util` and `path`
 - third-party libraries written by _CommonJS_.
 - Historical/safe queries, see [RPC Calls](#rpc-calls).
-- Note `HTTP` and `WebSocket` connections are forbidden
+- external `HTTP` and `WebSocket` connections are forbidden
 
 ## Modules and Libraries
 

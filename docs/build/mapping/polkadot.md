@@ -129,7 +129,7 @@ By default (when in safe mode), the [VM2](https://www.npmjs.com/package/vm2) san
 - third-party libraries written by _CommonJS_.
 - hybrid libraries like `@polkadot/*` that uses ESM as default. However, if any other libraries depend on any modules in _ESM_ format, the virtual machine will _NOT_ compile and return an error.
 - Historical/safe queries, see [RPC Calls](#rpc-calls).
-- Note `HTTP` and `WebSocket` connections are forbidden
+- external `HTTP` and `WebSocket` connections are forbidden
 
 ## Modules and Libraries
 

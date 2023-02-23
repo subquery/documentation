@@ -1,67 +1,67 @@
-# Flare Manifest File
+# Ethereum Manifest File
 
 The Manifest `project.yaml` file can be seen as an entry point of your project and it defines most of the details on how SubQuery will index and transform the chain data. It clearly indicates where we are indexing data from, and to what on chain events we are subscribing to.
 
 The Manifest can be in either YAML or JSON format. In this document, we will use YAML in all the examples.
 
-Below is a standard example of a basic Flare `project.yaml`.
+Below is a standard example of a basic Ethereum `project.yaml`.
 
 ```yml
 specVersion: 1.0.0
-name: flare-subql-starter
+name: ethereum-subql-starter
 version: 0.0.1
 runner:
   node:
-    name: "@subql/node-flare"
+    name: "@subql/node-ethereum"
     version: "*"
   query:
     name: "@subql/query"
     version: "*"
-description: "This project can be use as a starting point for developing your new Flare SubQuery project"
-repository: "https://github.com/subquery/flare-subql-starter"
+description: "This project can be use as a starting point for developing your new Ethereum SubQuery project"
+repository: "https://github.com/subquery/etereum-subql-starter"
 schema:
   file: ./schema.graphql
 network:
-  # chainId is the EVM Chain ID, for Flare this is 14
-  # https://chainlist.org/chain/14
-  chainId: "14"
+  # chainId is the EVM Chain ID, for Ethereum this is 14
+  # https://chainlist.org/chain/1
+  chainId: "1"
   # This endpoint must be a public non-pruned archive node
   # Public nodes may be rate limited, which can affect indexing speed
   # When developing your project we suggest getting a private API key
-  # You can get them from Flare's API Portal
-  # https://api-portal.flare.network/
-  endpoint: https://flare-api.flare.network/ext/C/rpc
+  # You can get them from OnFinality for free https://app.onfinality.io
+  # https://documentation.onfinality.io/support/the-enhanced-api-service
+  endpoint: "https://eth.api.onfinality.io/public"
   # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
-  dictionary: "https://api.subquery.network/sq/subquery/flare-dictionary"
+  dictionary: "https://api.subquery.network/sq/subquery/ethereum-dictionary"
 
 dataSources:
-  - kind: flare/Runtime
-    startBlock: 2300000
+  - kind: ethereum/Runtime
+    startBlock: 15695385
     options:
       # Must be a key of assets
-      abi: priceSubmitter
-      address: "0x1000000000000000000000000000000000000003"
+      abi: erc20
+      address: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2" # this is the contract address for wrapped ether https://etherscan.io/address/0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2
     assets:
-      priceSubmitter:
-        file: "priceSubmitter.abi.json"
+      erc20:
+        file: "erc20.abi.json"
     mapping:
       file: "./dist/index.js"
       handlers:
         # - handler: handleBlock
-        # kind: flare/BlockHander
+        # kind: ethereum/BlockHander
         - handler: handleTransaction
-          kind: flare/TransactionHandler
+          kind: ethereum/TransactionHandler
           filter:
             ## The function can either be the function fragment or signature
             # function: '0x095ea7b3'
             # function: '0x7ff36ab500000000000000000000000000000000000000000000000000000000'
-            function: submitHash(uint256 _epochId, bytes32 _hash)
+            function: approve(address spender, uint256 rawAmount)
         - handler: handleLog
-          kind: flare/LogHandler
+          kind: ethereum/LogHandler
           filter:
             topics:
               ## Follows standard log filters https://docs.ethers.io/v5/concepts/events/
-              - HashSubmitted(address indexed submitter, uint256 indexed epochId, bytes32 hash, uint256 timestamp)
+              - Transfer(address indexed from, address indexed to, uint256 amount)
 ```
 
 ## Overview
@@ -91,14 +91,14 @@ dataSources:
 
 If you start your project by using the `subql init` command, you'll generally receive a starter project with the correct network settings. If you are changing the target chain of an existing project, you'll need to edit the [Network Spec](#network-spec) section of this manifest.
 
-The `chainId` is the network identifier of the blockchain. Examples in Flare is `14` for Flare mainnet and `19` for Songbird. See https://chainlist.org/chain/14
+The `chainId` is the network identifier of the blockchain. Examples in Ethereum is `1` for mainnet, `3` for Ropsten, and `4` for Rinkeby. See https://chainlist.org/chain/1
 
-Additionally you will need to update the `endpoint`. This defines the wss endpoint of the blockchain to be indexed - **this must be a full archive node**. Public nodes may be rate limited, which can affect indexing speed, when developing your project we suggest getting a private API key. You can get them from Flare's API Portal https://api-portal.flare.network/
+Additionally you will need to update the `endpoint`. This defines the endpoint of the blockchain to be indexed - **this must be a full archive node**. Public nodes may be rate limited, which can affect indexing speed, when developing your project we suggest getting a private API key. You can get them from [OnFinality](https://onfinality.io/networks/eth) and other RPC providers.
 
 | Field            | Type   | Description                                                                                                                                                                              |
 | ---------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **chainId**      | String | A network identifier for the blockchain                                                                                                                                                  |
-| **endpoint**     | String | Defines the wss or ws endpoint of the blockchain to be indexed - **This must be a full archive node**.                                                                                   |
+| **endpoint**     | String | Defines the endpoint of the blockchain to be indexed - **This must be a full archive node**.                                                                                             |
 | **port**         | Number | Optional port number on the `endpoint` to connect to                                                                                                                                     |
 | **dictionary**   | String | It is suggested to provide the HTTP endpoint of a full chain dictionary to speed up processing - read [how a SubQuery Dictionary works](../../academy/tutorials_examples/dictionary.md). |
 | **bypassBlocks** | Array  | Bypasses stated block numbers, the values can be a `range`(e.g. `"10- 50"`) or `integer`, see [Bypass Blocks](#bypass-blocks)                                                            |
@@ -114,7 +114,7 @@ Additionally you will need to update the `endpoint`. This defines the wss endpoi
 
 | Field       | Type   | Description                                                                                                                                                                                                          |
 | ----------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **name**    | String | `@subql/node-flare`                                                                                                                                                                                                  |
+| **name**    | String | `@subql/node-ethereum`                                                                                                                                                                                               |
 | **version** | String | Version of the indexer Node service, it must follow the [SEMVER](https://semver.org/) rules or `latest`, you can also find available versions in subquery SDK [releases](https://github.com/subquery/subql/releases) |
 
 ### Runner Query Spec
@@ -130,33 +130,33 @@ Defines the data that will be filtered and extracted and the location of the map
 
 | Field          | Type         | Description                                                                                   |
 | -------------- | ------------ | --------------------------------------------------------------------------------------------- |
-| **kind**       | string       | [flare/Runtime](#data-sources-and-mapping)                                                    |
+| **kind**       | string       | [ethereum/Runtime](#data-sources-and-mapping)                                                 |
 | **startBlock** | Integer      | This changes your indexing start block, set this higher to skip initial blocks with less data |
 | **mapping**    | Mapping Spec |                                                                                               |
 
 ### Mapping Spec
 
-| Field                  | Type                         | Description                                                                                                                   |
-| ---------------------- | ---------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| **handlers & filters** | Default handlers and filters | List all the [mapping functions](../mapping/flare.md) and their corresponding handler types, with additional mapping filters. |
+| Field                  | Type                         | Description                                                                                                                      |
+| ---------------------- | ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| **handlers & filters** | Default handlers and filters | List all the [mapping functions](../mapping/ethereum.md) and their corresponding handler types, with additional mapping filters. |
 
 ## Data Sources and Mapping
 
-In this section, we will talk about the default Flare runtime and its mapping. Here is an example:
+In this section, we will talk about the default Ethereum runtime and its mapping. Here is an example:
 
 ```yml
 dataSources:
-  - kind: flare/Runtime
-    startBlock: 2300000
+  - kind: ethereum/Runtime
+    startBlock: 15695385
     options:
       # Must be a key of assets
-      abi: priceSubmitter
-      address: "0x1000000000000000000000000000000000000003"
+      abi: erc20
+      address: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2" # this is the contract address for wrapped ether https://etherscan.io/address/0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2
     assets:
-      priceSubmitter:
-        file: "priceSubmitter.abi.json"
+      erc20:
+        file: "erc20.abi.json"
     mapping:
-      file: dist/index.js # Entry path for this mapping
+      file: ./dist/index.js # Entry path for this mapping
       ...
 ```
 
@@ -166,11 +166,11 @@ The following table explains filters supported by different handlers.
 
 **Your SubQuery project will be much more efficient when you only use `TransactionHandler` or `LogHandler` handlers with appropriate mapping filters (e.g. NOT a `BlockHandler`).**
 
-| Handler                                                             | Supported filter                                                                                    |
-| ------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| [flare/BlockHandler](../mapping/flare.md#block-handler)             | `modulo`, `timestamp`                                                                               |
-| [flare/TransactionHandler](../mapping/flare.md#transaction-handler) | `function` filters (either be the function fragment or signature), `from` (address), `to` (address) |
-| [flare/LogHandler](../mapping/flare.md#log-handler)                 | `topics` filters, and `address`                                                                     |
+| Handler                                                                   | Supported filter                                                                                    |
+| ------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| [ethereum/BlockHandler](../mapping/ethereum.md#block-handler)             | `modulo`, `timestamp`                                                                               |
+| [ethereum/TransactionHandler](../mapping/ethereum.md#transaction-handler) | `function` filters (either be the function fragment or signature), `from` (address), `to` (address) |
+| [ethereum/LogHandler](../mapping/ethereum.md#log-handler)                 | `topics` filters, and `address`                                                                     |
 
 Default runtime mapping filters are an extremely useful feature to decide what block, event, or extrinsic will trigger a mapping handler.
 
@@ -191,9 +191,8 @@ When declaring a `range` use an string in the format of `"start - end"`. Both st
 
 ```yaml
 network:
-  chainId: "14"
-  endpoint: https://flare-api.flare.network/ext/C/rpc
-  dictionary: "https://api.subquery.network/sq/subquery/flare-dictionary"
+  chainId: "1"
+  endpoint: "https://eth.api.onfinality.io/public"
   bypassBlocks: [1, 2, 3, "105-200", 290]
 ```
 

@@ -1,10 +1,8 @@
 ---
-
 footer: false
 lastUpdated: false
 contributors: false
 editLink: false
-
 ---
 
 <link rel="stylesheet" href="/assets/style/homepage.css" as="style" />
@@ -52,22 +50,26 @@ editLink: false
           </div>
         </div>
       </div>
+      <router-link :to="{path: '/quickstart/quickstart_chains/ethereum.html'}"> 
+        <img src="/assets/img/logo_ethereum.svg" />
+        <img src="/assets/img/logo_ethereum_blue.svg" />
+      </router-link>
       <router-link :to="{path: '/quickstart/quickstart_chains/algorand.html'}"> 
-          <img src="/assets/img/logo_algorand.svg" />
-          <img src="/assets/img/logo_algorand_blue.svg" />
-        </router-link>
-        <router-link :to="{path: '/quickstart/quickstart_chains/avalanche.html'}"> 
-          <img src="/assets/img/logo_avalanche.svg" />
-          <img src="/assets/img/logo_avalanche_blue.svg" />
-        </router-link>
-        <router-link :to="{path: '/quickstart/quickstart_chains/near.html'}"> 
-          <img src="/assets/img/logo_near.svg" />
-          <img src="/assets/img/logo_near_blue.svg" />
-        </router-link>
-        <router-link :to="{path: '/quickstart/quickstart_chains/terra.html'}"> 
-          <img src="/assets/img/logo_terra.svg" />
-          <img src="/assets/img/logo_terra_blue.svg" />
-        </router-link>
+        <img src="/assets/img/logo_algorand.svg" />
+        <img src="/assets/img/logo_algorand_blue.svg" />
+      </router-link>
+      <router-link :to="{path: '/quickstart/quickstart_chains/avalanche.html'}"> 
+        <img src="/assets/img/logo_avalanche.svg" />
+        <img src="/assets/img/logo_avalanche_blue.svg" />
+      </router-link>
+      <router-link :to="{path: '/quickstart/quickstart_chains/near.html'}"> 
+        <img src="/assets/img/logo_near.svg" />
+        <img src="/assets/img/logo_near_blue.svg" />
+      </router-link>
+      <router-link :to="{path: '/quickstart/quickstart_chains/terra.html'}"> 
+        <img src="/assets/img/logo_terra.svg" />
+        <img src="/assets/img/logo_terra_blue.svg" />
+      </router-link>
     </div>
   </div>
   <div class="journey layout mt80">
