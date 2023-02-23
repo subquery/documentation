@@ -1,4 +1,4 @@
-import { defineUserConfig, SidebarConfig, SidebarConfigArray } from "vuepress";
+import { defineUserConfig } from "vuepress";
 import { hopeTheme, SidebarOptions } from "vuepress-theme-hope";
 import { googleAnalyticsPlugin } from "@vuepress/plugin-google-analytics";
 import { sitemapPlugin } from "vuepress-plugin-sitemap2";
@@ -21,7 +21,8 @@ export default defineUserConfig({
     mdEnhancePlugin({
       linkCheck: true,
       codetabs: true,
-    }), // TODO remove legacy mode //https://vuepress-theme-hope.github.io/v2/md-enhance/migration.html
+      container: true,
+    }),
     sitemapPlugin({
       hostname: "https://blog.subquery.network",
     }),
@@ -211,6 +212,13 @@ export default defineUserConfig({
       */
     },
     logo: "/assets/img/logo.png",
+    plugins: {
+      mdEnhance: {
+        // this is the default option, so you can use it directly
+        container: true,
+        codetabs: true,
+      },
+    },
     navbar: [
       {
         text: "Explorer",
