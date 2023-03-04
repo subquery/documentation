@@ -1,4 +1,4 @@
-# Polkadot/Substrate Quick Start (Humanode)
+# Humanode
 
 ## Goals
 
@@ -8,13 +8,13 @@ This quick guide aims to adapt the standard starter project and index all transf
 Before we begin, ensure that you have initialized your project using the steps in the [Start Here](../quickstart.md) section.
 :::
 
-Now, let's move forward and update these configurations.
-
 While Creating a [New Project](../quickstart.md), you must have noted [3 key files](../quickstart.md#_3-make-changes-to-your-project). Let's begin updating them one by one.
 
 ## 1. Updating your GraphQL Schema File
 
-The `schema.graphql` file determines the shape of your data from SubQuery due to the mechanism of the GraphQL query language. Hence, updating the GraphQL Schema file is the perfect place to start. It allows you to define your end goal right at the start.
+::: warning Important
+Please refer to [this](home.md#_1-update-the-schemagraphql-file) before proceeding
+:::
 
 Remove all existing entities and update the `schema.graphql` file as follows, here you can see we are indexing all transfers, bioauthentication events, and online validator nodes from Humanode:
 
@@ -34,40 +34,19 @@ type ImOnlineSomeOffline @entity {
 }
 ```
 
-::: warning Important
-While making any changes to the schema file, make sure to regenerate your types directory
-:::
-
-::: code-tabs
-@tab:active yarn
-
-```shell
-yarn codegen
-```
-
-@tab npm
-
-```shell
-npm run-script codegen
-```
-
-:::
-
-You will find the generated models in the `/src/types/models` directory.
-
-Check out the [GraphQL Schema](../../build/graphql.md) documentation to get in-depth information on `schema.graphql` file.
-
-Now that you have made essential changes to the GraphQL Schema file let’s move forward to the next file.
-
 ## 2. Updating Your Project Manifest File
 
-The Project Manifest (`project.yaml`) file works as an entry point to your project. It defines most of the details on how SubQuery will index and transform the chain data. For Substrate/Polkadot chains, there are three types of mapping handlers (and you can have more than one in each project):
+::: warning Important
+Please read [this](home.md#_2-update-the-project-manifest-file) first before proceeding.
+:::
+
+For Substrate/Polkadot chains, there are three types of mapping handlers:
 
 - [BlockHanders](../../build/manifest/polkadot.md#mapping-handlers-and-filters): On each and every block, run a mapping function
 - [EventHandlers](../../build/manifest/polkadot.md#mapping-handlers-and-filters): On each and every event that matches optional filter criteria, run a mapping function
 - [CallHanders](../../build/manifest/polkadot.md#mapping-handlers-and-filters): On each and every extrinsic call that matches optional filter criteria, run a mapping function
 
-Note that the manifest file has already been set up correctly and doesn’t require significant changes, but you need to change the datasource handlers. This section lists the triggers that look for on the blockchain to start indexing.
+Note that the manifest file has already been set up correctly and doesn’t require significant changes, but the datasource handlers needs to be updated. Update the `datasources` section as follows:
 
 **Since we are planning to index all transfers, bioauthentication events, and online nodes, we need to update the `datasources` section as follows:**
 
@@ -94,11 +73,12 @@ This indicates that you will be running a `handleBioauthNewAuthenticationEvent` 
 
 Check out our [documentation](../../build/manifest/polkadot.md) to get more information about the Project Manifest (`project.yaml`) file.
 
-Next, let’s proceed ahead with the Mapping Function’s configuration.
-
 ## 3. Adding a Mapping Function
 
-Mapping functions define how chain data is transformed into the optimized GraphQL entities that we previously defined in the `schema.graphql` file.
+::: warning Important
+Please read [this](home.md#_3-update-the-mapping-functions) first before proceeding.
+:::
+
 Navigate to the default mapping function in the `src/mappings` directory. You will see two exported functions: `handleBioauthNewAuthenticationEvent` and `handleImonlineSomeOfflineEvent`.
 
 The `handleBioauthNewAuthenticationEvent` and `handleImonlineSomeOfflineEvent` functions receive event data whenever an event matches the filters that you specified previously in the `project.yaml`.
@@ -148,71 +128,27 @@ export async function handleImonlineSomeOfflineEvent(
 }
 ```
 
-## 4. Building Your Project
-
-Next, build your work to run your new SubQuery project. Run the build command from the project's root directory as given here:
-
-::: code-tabs
-@tab:active yarn
-
-```shell
-yarn build
-```
-
-@tab npm
-
-```shell
-npm run-script build
-```
-
-:::
+## 4. Build Your Project
 
 ::: warning Important
-Make sure to rebuild your project when you change your mapping functions.
+Please refer to [this](home.md#_4-build-your-project).
 :::
 
-Now, you are all set to run your first SubQuery project. Let’s dig out the process of running the project in detail.
+## 5. Run Your Project Locally with Docker
 
-## 5. Running Your Project Locally with Docker
-
-When you create a new SubQuery Project, you must first run it locally on your computer and test it. Using Docker is the easiest and quickest way to do this.
-
-The `docker-compose.yml` file defines all the configurations that control how a SubQuery node runs. You won't need to change anything for a new project which you have just initialized.
-
-However, visit Running [SubQuery Locally](../../run_publish/run.html) to get more information on the file and the settings.
-
-Run the following command under the project directory:
-
-::: code-tabs
-@tab:active yarn
-
-```shell
-yarn start:docker
-```
-
-@tab npm
-
-```shell
-npm run-script start:docker
-```
-
+::: warning Important
+Please refer to [this](home.md#_5-run-your-project-locally-with-docker).
 :::
 
-::: warning Note
-It may take a few minutes to download the required images and start various nodes and Postgres databases.
+## 6. Query your Project
+
+::: warning Important
+Please refer to [this](home.md#_6-query-your-project) before proceeding
 :::
-
-## 6. Querying Your Project
-
-Next, let's query our project. Follow these simple steps to query your SubQuery project:
-
-Open your browser and head to http://localhost:3000.
-
-You will see a GraphQL playground in the browser and the schemas, which are ready to query.
 
 Try the following query to understand how it works for your new SubQuery starter project. Don’t forget to learn more about the [GraphQL Query language](../../run_publish/graphql.md).
 
-```grpahql
+```graphql
 query {
   bioauthNewAuthentications(first: 5) {
    nodes{

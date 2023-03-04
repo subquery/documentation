@@ -1,4 +1,4 @@
-# Cosmos Quick Start (Juno)
+# Juno
 
 ## Goals
 
@@ -26,8 +26,6 @@ It requires importing `protobufs definitions` for specific chain types.
 See [Custom Cosmos Chains](../../build/manifest/cosmos.md#custom-chains) for more information.
 :::
 
-Now, let's move ahead in the process and update these configurations.
-
 Previously, in the [1. Create a New Project](../quickstart.md) section, you must have noted [3 key files](../quickstart.md#_3-make-changes-to-your-project). Let's begin updating them one by one.
 
 ::: tip Note
@@ -36,9 +34,11 @@ The final code of this project can be found [here](https://github.com/jamesbayly
 
 ## 1. Update Your GraphQL Schema File
 
-The `schema.graphql` file determines the shape of your data from SubQuery due to the mechanism of the GraphQL query language. Hence, updating the GraphQL Schema file is the perfect start. It allows you to define your end goal right at the start.
+::: warning Important
+Please refer to [this](home.md#_1-update-the-schemagraphql-file) before proceeding
+:::
 
-Update the `schema.graphql` file as follows. The aim is to index all votes on the [Terra Developer Fund](https://daodao.zone/multisig/juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2).
+Remove all existing entities and update the `schema.graphql` file as shown below. The aim is to index all votes on the [Terra Developer Fund](https://daodao.zone/multisig/juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2).
 
 ```graphql
 type Vote @entity {
@@ -50,41 +50,21 @@ type Vote @entity {
 }
 ```
 
-::: warning Important
-When you make any changes to the schema file, do not forget to regenerate your types directory.
-:::
-
-::: code-tabs
-@tab:active yarn
-
-```shell
-yarn codegen
-```
-
-@tab npm
-
-```shell
-npm run-script codegen
-```
-
-:::
-
-You will find the generated models in the `/src/types/models` directory.
-
-Check out our [GraphQL Schema](../../build/graphql.md) documentation to get more information on `schema.graphql` file.
-
-Now that you have made essential changes to the GraphQL Schema file, let’s go ahead with the next configuration.
-
 ## 2. Update Your Manifest File
 
-The Project Manifest (`project.yaml`) file is an entry point to your project. It defines most of the details on how SubQuery will index and transform the chain data. For Cosmos chains, there are four types of mapping handlers (and you can have more than one in each project):
+::: warning Important
+Please read [this](home.md#_2-update-the-project-manifest-file) first before proceeding.
+:::
+
+For Cosmos chains, there are four types of mapping handlers (and you can have more than one in each project):
 
 - [BlockHanders](../../build/manifest/cosmos.md#mapping-handlers-and-filters): On each and every block, run a mapping function
 - [TransactionHandlers](../../build/manifest/cosmos.md#mapping-handlers-and-filters): On each and every transaction, run a mapping function
 - [MessageHandlers](../../build/manifest/cosmos.md#mapping-handlers-and-filters): On each and every message that matches optional filter criteria, run a mapping function
 - [EventHanders](../../build/manifest/cosmos.md#mapping-handlers-and-filters): On each and every event that matches optional filter criteria, run a mapping function
 
-Note that the manifest file has already been set up correctly and doesn’t require significant changes, but you need to change the datasource handlers. This section lists the triggers to look for on the blockchain to start indexing.
+
+Note that the manifest file has already been set up correctly and doesn’t require significant changes, but the datasource handlers needs to be updated. Update the `datasources` section as follows:
 
 ```yml
 dataSources:
@@ -107,11 +87,11 @@ The above code defines that you will be running a `handleTerraDeveloperFund` map
 
 Check out our [Manifest File](../../build/manifest/cosmos.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
 
-Next, let’s dig further into Mapping Function’s configuration.
-
 ## 3. Add a Mapping Function
 
-Mapping functions determine how chain data is transformed into the optimised GraphQL entities that you previously defined in the `schema.graphql` file.
+::: warning Important
+Please read [this](home.md#_3-update-the-mapping-functions) first before proceeding.
+:::
 
 Navigate to the default mapping function in the `src/mappings` directory. You will see four exported functions: `handleBlock`, `handleEvent`, `handleMessage`, `handleTransaction`. Delete `handleBlock`, `handleEvent`, and `handleTransaction` functions as you will only deal with the `handleMessage` function.
 
@@ -139,75 +119,27 @@ export async function handleTerraDeveloperFund(
 }
 ```
 
-Let’s understand how the above code works.
-
 Here, the function receives a `CosmosMessage` which includes message data on the payload. We extract this data and then instantiate a new `Vote` entity defined earlier in the `schema.graphql` file. After that, we add additional information and then use the `.save()` function to save the new entity (SubQuery will automatically save this to the database).
 
 Check out our [Mappings](../../build/mapping/cosmos.md) documentation and get information on the mapping functions in detail.
 
 ## 4. Build Your Project
 
-Next, build your work to run your new SubQuery project. Run the build command from the project's root directory as given here:
-
-::: code-tabs
-@tab:active yarn
-
-```shell
-yarn build
-```
-
-@tab npm
-
-```shell
-npm run-script build
-```
-
-:::
-
 ::: warning Important
-Whenever you make changes to your mapping functions, you must rebuild your project.
+Please refer to [this](home.md#_4-build-your-project).
 :::
-
-Now, you are ready to run your first SubQuery project. Let’s check out the process of running your project in detail.
 
 ## 5. Run Your Project Locally with Docker
 
-Whenever you create a new SubQuery Project, never forget to run it locally on your computer and test it. And using Docker is the most hassle-free way to do this.
-
-`docker-compose.yml` file defines all the configurations that control how a SubQuery node runs. For a new project, which you have just initialised, no major changes are needed.
-
-However, visit the [Running SubQuery Locally](../../run_publish/run.md) to get more information on the file and the settings.
-
-Run the following command under the project directory:
-
-::: code-tabs
-@tab:active yarn
-
-```shell
-yarn start:docker
-```
-
-@tab npm
-
-```shell
-npm run-script start:docker
-```
-
-:::
-
-::: tip Note
-It may take a few minutes to download the required images and start the various nodes and Postgres databases.
+::: warning Important
+Please refer to [this](home.md#_5-run-your-project-locally-with-docker).
 :::
 
 ## 6. Query your Project
 
-Next, let's query our project. Follow these three simple steps to query your SubQuery project:
-
-1. Open your browser and head to `http://localhost:3000`.
-
-2. You will see a GraphQL playground in the browser and the schemas which are ready to query.
-
-3. Find the _Docs_ tab on the right side of the playground which should open a documentation drawer. This documentation is automatically generated and it helps you find what entities and methods you can query.
+::: warning Important
+Please refer to [this](home.md#_6-query-your-project) before proceeding
+:::
 
 Try the following query to understand how it works for your new SubQuery starter project. Don’t forget to learn more about the [GraphQL Query language](../../run_publish/graphql.md).
 
