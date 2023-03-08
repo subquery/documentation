@@ -13,50 +13,10 @@ Now, let's move forward and update these configurations.
 Previously, in the [1. Create a New Project](../quickstart.md) section, you must have noted [3 key files](../quickstart.md#_3-make-changes-to-your-project). Let's begin updating them one by one.
 
 ::: tip Note
-The final code of this project can be found [here](https://github.com/subquery/eth-gravatar).
+The final code of this project can be found [here](https://github.com/subquery/subquery-example-gravatar).
 :::
 
-## 1. Update Your GraphQL Schema File
-
-The `schema.graphql` file determines the shape of your data from SubQuery due to the mechanism of the GraphQL query language. Hence, updating the GraphQL Schema file is the perfect place to start. It allows you to define your end goal right at the start.
-
-Remove all existing entities and update the `schema.graphql` file as follows, here you can see we are indexing all rewards and also addresses that those rewards go to/are claimed from:
-
-```graphql
-type Gravatar @entity {
-  id: ID!
-  owner: Bytes!
-  displayName: String!
-  imageUrl: String!
-}
-```
-
-::: warning Important
-When you make any changes to the schema file, please ensure that you regenerate your types directory.
-:::
-
-::: code-tabs
-@tab:active yarn
-
-```shell
-yarn codegen
-```
-
-@tab npm
-
-```shell
-npm run-script codegen
-```
-
-:::
-
-You will find the generated models in the `/src/types/models` directory.
-
-Check out the [GraphQL Schema](../../build/graphql.md) documentation to get in-depth information on `schema.graphql` file.
-
-Now that you have made essential changes to the GraphQL Schema file, let’s move forward to the next file.
-
-## 2. Update Your Project Manifest File
+## 1. Update Your Project Manifest File
 
 The Project Manifest (`project.yaml`) file works as an entry point to your Ethereum project. It defines most of the details on how SubQuery will index and transform the chain data. For Ethereum, there are three types of mapping handlers (and you can have more than one in each project):
 
@@ -104,7 +64,57 @@ The above code indicates that you will be running a `handleLog` mapping function
 
 Check out our [Manifest File](../../build/manifest/ethereum.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
 
-Next, let’s proceed ahead with the Mapping Function’s configuration.
+## 2. Update Your GraphQL Schema File
+
+The `schema.graphql` file determines the shape of your data from SubQuery due to the mechanism of the GraphQL query language. Hence, updating the GraphQL Schema file is the perfect place to start. It allows you to define your end goal right at the start.
+
+Remove all existing entities and update the `schema.graphql` file as follows, here you can see we are indexing all rewards and also addresses that those rewards go to/are claimed from:
+
+```graphql
+type Gravatar @entity {
+  id: ID!
+  owner: Bytes!
+  displayName: String!
+  imageUrl: String!
+}
+```
+
+::: warning Important
+When you make any changes to the schema file, please ensure that you regenerate your types directory.
+:::
+
+SubQuery makes it easy and type-safe to work with your GraphQL entities, as well as smart contracts, events, transactions, and logs. SubQuery CLI will generate types from your project's GraphQL schema and any contract ABIs included in the data sources.
+
+::: code-tabs
+@tab:active yarn
+
+```shell
+yarn codegen
+```
+
+@tab npm
+
+```shell
+npm run-script codegen
+```
+
+:::
+
+This will create a new directory (or update the existing) `src/types` which contain generated entity classes for each type you have defined previously in `schema.graphql`. These classes provide type-safe entity loading, read and write access to entity fields - see more about this process in [the GraphQL Schema](../build/graphql.md). All entites can be imported from the following directory:
+
+```ts
+import { Gravatar } from "../types";
+```
+
+If you're creating a new Etheruem based project, this command will also generate ABI types and save them into `src/types` using the `npx typechain --target=ethers-v5` command, allowing you to bind these contracts to specific addresses in the mappings and call read-only contract methods against the block being processed. It will also generate a class for every contract event to provide easy access to event parameters, as well as the block and transaction the event originated from. All of these types are written to `src/typs/**.ts`. In the example [Gravatar SubQuery project](../quickstart/quickstart_chains/ethereum-gravatar.md), you would import these types like so.
+
+```ts
+import { GraphQLEntity1, GraphQLEntity2 } from "../types";
+```
+
+Check out the [GraphQL Schema](../../build/graphql.md) documentation to get in-depth information on `schema.graphql` file.
+
+Now that you have made essential changes to the GraphQL Schema file, let’s proceed ahead with the Mapping Function’s configuration.
 
 ## 3. Add a Mapping Function
 
@@ -112,11 +122,7 @@ Mapping functions define how chain data is transformed into the optimised GraphQ
 
 Follow these steps to add a mapping function:
 
-Navigate to the default mapping function in the `src/mappings` directory. You will be able to see three exported functions: `handleBlock`, `handleLog`, and `handleTransaction`. Delete both the `handleBlock` and `handleTransaction` functions as you will only deal with the `handleLog` function.
-
-The `handleLog` function receives event data whenever an event matches the filters, which you specified previously in the `project.yaml`. Let’s make changes to it, process all `RewardClaimed` transaction logs, and save them to the GraphQL entities created earlier.
-
-Update the `handleLog` function as follows (**note the additional imports**):
+Navigate to the default mapping function in the `src/mappings` directory. You will be able to see three exported functions: `handleBlock`, `handleLog`, and `handleTransaction`. Replace these functions with the following code (**note the additional imports**):
 
 ```ts
 import {
@@ -285,7 +291,7 @@ You will see the result similar to below:
 ```
 
 ::: tip Note
-The final code of this project can be found [here](https://github.com/subquery/eth-gravatar).
+The final code of this project can be found [here](https://github.com/subquery/subquery-example-gravatar).
 :::
 
 ## What's next?
