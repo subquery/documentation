@@ -2,10 +2,10 @@
 
 ## Goals
 
-The goal of this quick start guide is to index all rewards from the Flare FTSO Reward Manager from Flare's Songbird network.
+The goal of this quick start guide is to index all ethereum Gravatars created or updated on the ethereum mainnet.
 
 ::: warning
-Before we begin, make sure that you have initialised your project using the provided steps in the [Start Here](../quickstart.md) section. **Please initialise a Flare Songbird Network, not Flare Network**
+Before we begin, make sure that you have initialised your project using the provided steps in the [Start Here](../quickstart.md) section. **Please initialise a Ethereum project**
 :::
 
 Now, let's move forward and update these configurations.
@@ -13,7 +13,7 @@ Now, let's move forward and update these configurations.
 Previously, in the [1. Create a New Project](../quickstart.md) section, you must have noted [3 key files](../quickstart.md#_3-make-changes-to-your-project). Let's begin updating them one by one.
 
 ::: tip Note
-The final code of this project can be found [here](https://github.com/jamesbayly/subql-flare-ftso-rewards).
+The final code of this project can be found [here](https://github.com/subquery/eth-gravatar).
 :::
 
 ## 1. Update Your GraphQL Schema File
@@ -23,23 +23,13 @@ The `schema.graphql` file determines the shape of your data from SubQuery due to
 Remove all existing entities and update the `schema.graphql` file as follows, here you can see we are indexing all rewards and also addresses that those rewards go to/are claimed from:
 
 ```graphql
-type Reward @entity {
-  id: ID! # Transaction has
-  recipient: Address!
-  dataProvider: String! @index
-  whoClaimed: Address!
-  rewardEpoch: BigInt! @index
-  amount: BigInt!
-}
-
-type Address @entity {
-  id: ID! # accountIDs
-  receivedRewards: [Reward] @derivedFrom(field: "recipient")
-  claimedRewards: [Reward] @derivedFrom(field: "whoClaimed")
+type Gravatar @entity {
+  id: ID!
+  owner: Bytes!
+  displayName: String!
+  imageUrl: String!
 }
 ```
-
-Since we have a [many-to-many relationship](../../build/graphql.md#many-to-many-relationships), we add the `@derivedFrom` annotation to ensure that we are mapping to the right foreign key.
 
 ::: warning Important
 When you make any changes to the schema file, please ensure that you regenerate your types directory.
@@ -68,45 +58,51 @@ Now that you have made essential changes to the GraphQL Schema file, let’s mov
 
 ## 2. Update Your Project Manifest File
 
-The Project Manifest (`project.yaml`) file works as an entry point to your Flare project. It defines most of the details on how SubQuery will index and transform the chain data. For Flare, there are three types of mapping handlers (and you can have more than one in each project):
+The Project Manifest (`project.yaml`) file works as an entry point to your Ethereum project. It defines most of the details on how SubQuery will index and transform the chain data. For Ethereum, there are three types of mapping handlers (and you can have more than one in each project):
 
-- [BlockHanders](../../build/manifest/flare.md#mapping-handlers-and-filters): On each and every block, run a mapping function
-- [TransactionHandlers](../../build/manifest/flare.md#mapping-handlers-and-filters): On each and every transaction that matches optional filter criteria, run a mapping function
-- [LogHanders](../../build/manifest/flare.md#mapping-handlers-and-filters): On each and every log that matches optional filter criteria, run a mapping function
+- [BlockHanders](../../build/manifest/ethereum.md#mapping-handlers-and-filters): On each and every block, run a mapping function
+- [TransactionHandlers](../../build/manifest/ethereum.md#mapping-handlers-and-filters): On each and every transaction that matches optional filter criteria, run a mapping function
+- [LogHanders](../../build/manifest/ethereum.md#mapping-handlers-and-filters): On each and every log that matches optional filter criteria, run a mapping function
 
 Note that the manifest file has already been set up correctly and doesn’t require significant changes, but you need to import the correct contract definitions and update the datasource handlers.
 
-We are indexing all RewardClaimed logs from the FTSORewardManager contract, first you will need to import the contract abi defintion from [here](https://songbird-explorer.flare.network/address/0xc5738334b972745067fFa666040fdeADc66Cb925/contracts#address-tabs). You can copy the entire JSON and save as a file `ftsoRewardManager.abi.json` in the root directory.
+We are indexing all Gravatars from the Gravatar contract, first you will need to import the contract abi defintion. You can copy the entire JSON and save as a file `./Gravatar.json` in the `/abis` directory.
 
 This section in the Project Manifest now imports all the correct definitions and lists the triggers that we look for on the blockchain when indexing.
 
-**Since you are going to index all RewardClaimed logs, you need to update the `datasources` section as follows:**
+**Since you are going to index all Gravatars, you need to update the `datasources` section as follows:**
 
 ```yaml
 dataSources:
-  - kind: flare/Runtime
-    startBlock: 36036 # Block that this contract was deployed
+  - kind: ethereum/Runtime
+    startBlock: 6175243 # This is when the Gravatar contract was deployed
     options:
       # Must be a key of assets
-      abi: ftsoRewardManager
-      address: "0xc5738334b972745067ffa666040fdeadc66cb925" # https://songbird-explorer.flare.network/address/0xc5738334b972745067fFa666040fdeADc66Cb925
+      abi: gravatar
+      address: "0x2E645469f354BB4F5c8a05B3b30A929361cf77eC" # The contract address of the Gravatar on Ethereum
     assets:
-      ftsoRewardManager:
-        file: "ftsoRewardManager.abi.json" # Import the correct contract file
+      gravatar:
+        file: "./abis/Gravatar.json"
     mapping:
       file: "./dist/index.js"
       handlers:
-        - handler: handleLog
-          kind: flare/LogHandler
+        - handler: handleNewGravatar
+          kind: ethereum/LogHandler
           filter:
             topics:
               ## Follows standard log filters https://docs.ethers.io/v5/concepts/events/
-              - RewardClaimed(address indexed dataProvider, address indexed whoClaimed, address indexed sentTo, uint256 rewardEpoch, uint256 amount)
+              - NewGravatar(uint256,address,string,string)
+        - handler: handleUpdatedGravatar
+          kind: ethereum/LogHandler
+          filter:
+            topics:
+              ## Follows standard log filters https://docs.ethers.io/v5/concepts/events/
+              - UpdatedGravatar(uint256,address,string,string)
 ```
 
-The above code indicates that you will be running a `handleLog` mapping function whenever there is an `RewardClaimed` log on any transaction from the [FTSO Reward Manager contract](https://songbird-explorer.flare.network/address/0xc5738334b972745067fFa666040fdeADc66Cb925).
+The above code indicates that you will be running a `handleLog` mapping function whenever there is an `NewGravatar` or `UpdatedGravatar` log on any transaction from the [Gravatar contract](https://etherscan.io/address/0x2E645469f354BB4F5c8a05B3b30A929361cf77eC).
 
-Check out our [Manifest File](../../build/manifest/flare.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
+Check out our [Manifest File](../../build/manifest/ethereum.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
 
 Next, let’s proceed ahead with the Mapping Function’s configuration.
 
@@ -123,60 +119,47 @@ The `handleLog` function receives event data whenever an event matches the filte
 Update the `handleLog` function as follows (**note the additional imports**):
 
 ```ts
-import { FlareLog } from "@subql/types-flare";
-import { BigNumber } from "@ethersproject/bignumber";
-import { Address, Reward } from "../types";
+import {
+  NewGravatarEvent,
+  UpdatedGravatarEvent,
+} from "../types/ethers-contracts/Gravatar";
+import { Gravatar } from "../types";
 
-type RewardClaimedLogArgs = [string, string, string, BigNumber, BigNumber] & {
-  dataProvider: string;
-  whoClaimed: string;
-  sentTo: string;
-  rewardEpoch: BigNumber;
-  amount: BigNumber;
-};
-
-export async function handleLog(
-  event: FlareLog<RewardClaimedLogArgs>
+export async function handleNewGravatar(
+  event: NewGravatarEvent
 ): Promise<void> {
-  // See example log in this transaction https://songbird-explorer.flare.network/tx/0xd832d0283f56acbda902066dd47147f510a68fd923296a2162cffcf10c15d8f8/logs
-  // logger.info("flare Event");
+  let gravatar = new Gravatar(event.args.id.toHexString());
+  gravatar.owner = event.args.owner;
+  gravatar.displayName = event.args.displayName;
+  gravatar.imageUrl = event.args.imageUrl;
+  await gravatar.save();
+}
 
-  // Ensure that our account entities exist
-  const whoClaimed = await Address.get(event.args.whoClaimed.toLowerCase());
-  if (!whoClaimed) {
-    // Does not exist, create new
-    await Address.create({
-      id: event.args.whoClaimed.toLowerCase(),
-    }).save();
+export async function handleUpdatedGravatar(
+  event: UpdatedGravatarEvent
+): Promise<void> {
+  let id = event.args.id.toHexString();
+
+  // We first check if the Gravatar already exists, if not we create it
+  let gravatar = await Gravatar.get(id);
+  if (gravatar == null || gravatar == undefined) {
+    gravatar = new Gravatar(id);
   }
-
-  const whoRecieved = await Address.get(event.args.sentTo.toLowerCase());
-  if (!whoRecieved) {
-    // Does not exist, create new
-    await Address.create({
-      id: event.args.sentTo.toLowerCase(),
-    }).save();
-  }
-
-  // Create the new Reward entity
-  const reward = Reward.create({
-    id: event.transactionHash,
-    recipientId: event.args.sentTo.toLowerCase(),
-    dataProvider: event.args.dataProvider,
-    whoClaimedId: event.args.whoClaimed.toLowerCase(),
-    rewardEpoch: event.args.rewardEpoch.toBigInt(),
-    amount: event.args.amount.toBigInt(),
-  });
-
-  await reward.save();
+  // Update with new data
+  gravatar.owner = event.args.owner;
+  gravatar.displayName = event.args.displayName;
+  gravatar.imageUrl = event.args.imageUrl;
+  await gravatar.save();
 }
 ```
 
 Let’s understand how the above code works.
 
-The function here receives an `FlareLog` which includes transaction log data in the payload. We extract this data and then first ensure that our account entities (foreign keys) exist. We then instantiate a new `Reward` entity defined earlier in the `schema.graphql` file. After that, we add additional information and then use the `.save()` function to save the new entity (_Note that SubQuery will automatically save this to the database_).
+For `handleNewGravatar`, the function here receives an `NewGravatarEvent` which includes transaction log data in the payload. We extract this data and then create a new Gravatar entity that we defined in our `schema.graphql` and then save this to the store using the `.save()` function (_Note that SubQuery will automatically save this to the database_).
 
-Check out our [Mappings](../../build/mapping/flare.md) documentation to get more information on mapping functions.
+For `handleUpdatedGravatar`, the function here receives an `UpdatedGravatarEvent` which includes transaction log data in the payload. We extract this data and then first check that the Gravatar already exists, if not we instantiate a new one and then update that Gravatar with the correct updated details. This is then saved to the store using the `.save()` function (_Note that SubQuery will automatically save this to the database_).
+
+Check out our [Mappings](../../build/mapping/ethereum.md) documentation to get more information on mapping functions.
 
 ## 4. Build Your Project
 
@@ -302,7 +285,7 @@ You will see the result similar to below:
 ```
 
 ::: tip Note
-The final code of this project can be found [here](https://github.com/jamesbayly/subql-flare-ftso-rewards).
+The final code of this project can be found [here](https://github.com/subquery/eth-gravatar).
 :::
 
 ## What's next?
