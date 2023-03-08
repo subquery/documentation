@@ -1,4 +1,4 @@
-# Cosmos Quick Start (Juno)
+# Juno Quick Start
 
 ## Goals
 

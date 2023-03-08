@@ -1,4 +1,4 @@
-# Cosmos Quick Start (Thorchain)
+# Thorchain Quick Start
 
 ## Goals
 

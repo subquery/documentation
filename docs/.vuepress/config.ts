@@ -286,15 +286,27 @@ function getSidebar(locale: string): SidebarOptions {
           text: "2. Specific Chains",
           collapsible: true,
           children: [
-            `${locale}/quickstart/quickstart_chains/polkadot.md`,
-            `${locale}/quickstart/quickstart_chains/polkadot-humanode.md`,
-            `${locale}/quickstart/quickstart_chains/cosmos.md`,
-            `${locale}/quickstart/quickstart_chains/cosmos-cronos.md`,
-            `${locale}/quickstart/quickstart_chains/cosmos-thorchain.md`,
             `${locale}/quickstart/quickstart_chains/algorand.md`,
             `${locale}/quickstart/quickstart_chains/avalanche.md`,
+            {
+              text: "Cosmos",
+              collapsible: true,
+              children: [
+                `${locale}/quickstart/quickstart_chains/cosmos-cronos.md`,
+                `${locale}/quickstart/quickstart_chains/cosmos-juno.md`,
+                `${locale}/quickstart/quickstart_chains/cosmos-thorchain.md`,
+              ],
+            },
             `${locale}/quickstart/quickstart_chains/flare.md`,
             `${locale}/quickstart/quickstart_chains/near.md`,
+            {
+              text: "Polkadot/Substrate",
+              collapsible: true,
+              children: [
+                `${locale}/quickstart/quickstart_chains/polkadot.md`,
+                `${locale}/quickstart/quickstart_chains/polkadot-humanode.md`,
+              ],
+            },
             `${locale}/quickstart/quickstart_chains/terra.md`,
           ],
         },
