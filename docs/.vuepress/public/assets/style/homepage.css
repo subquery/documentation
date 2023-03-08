@@ -211,6 +211,7 @@ body .theme-hope-content:not(.custom) {
   display: flex;
   width: 100%;
   justify-content: space-between;
+  align-items: center;
   gap: 16px;
 }
 @media screen and (max-width: 480px) {

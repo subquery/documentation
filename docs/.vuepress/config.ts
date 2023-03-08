@@ -1,4 +1,4 @@
-import { defineUserConfig, SidebarConfig, SidebarConfigArray } from "vuepress";
+import { defineUserConfig } from "vuepress";
 import { hopeTheme, SidebarOptions } from "vuepress-theme-hope";
 import { googleAnalyticsPlugin } from "@vuepress/plugin-google-analytics";
 import { sitemapPlugin } from "vuepress-plugin-sitemap2";
@@ -21,15 +21,17 @@ export default defineUserConfig({
     mdEnhancePlugin({
       linkCheck: true,
       codetabs: true,
-    }), // TODO remove legacy mode //https://vuepress-theme-hope.github.io/v2/md-enhance/migration.html
+      container: true,
+    }),
     sitemapPlugin({
-      hostname: "https://blog.subquery.network",
+      hostname: "https://academy.subquery.network",
     }),
     seoPlugin({
-      hostname: "https://blog.subquery.network",
+      hostname: "https://academy.subquery.network",
       author: "SubQuery Team",
       autoDescription: true,
       twitterID: "@SubQueryNetwork",
+      fallBackImage: "https://static.subquery.network/link-share.jpg",
     }),
     docsearchPlugin({
       appId: "30B5W460WL",
@@ -211,6 +213,13 @@ export default defineUserConfig({
       */
     },
     logo: "/assets/img/logo.png",
+    plugins: {
+      mdEnhance: {
+        // this is the default option, so you can use it directly
+        container: true,
+        codetabs: true,
+      },
+    },
     navbar: [
       {
         text: "Explorer",
@@ -277,16 +286,28 @@ function getSidebar(locale: string): SidebarOptions {
           text: "2. Specific Chains",
           collapsible: true,
           children: [
-            `${locale}/quickstart/quickstart_chains/polkadot.md`,
-            `${locale}/quickstart/quickstart_chains/polkadot-humanode.md`,
-            `${locale}/quickstart/quickstart_chains/ethereum.md`,
-            `${locale}/quickstart/quickstart_chains/cosmos.md`,
-            `${locale}/quickstart/quickstart_chains/cosmos-cronos.md`,
-            `${locale}/quickstart/quickstart_chains/cosmos-thorchain.md`,
             `${locale}/quickstart/quickstart_chains/algorand.md`,
             `${locale}/quickstart/quickstart_chains/avalanche.md`,
+            {
+              text: "Cosmos",
+              collapsible: true,
+              children: [
+                `${locale}/quickstart/quickstart_chains/cosmos-cronos.md`,
+                `${locale}/quickstart/quickstart_chains/cosmos-juno.md`,
+                `${locale}/quickstart/quickstart_chains/cosmos-thorchain.md`,
+              ],
+            },
+            `${locale}/quickstart/quickstart_chains/ethereum.md`,
             `${locale}/quickstart/quickstart_chains/flare.md`,
             `${locale}/quickstart/quickstart_chains/near.md`,
+            {
+              text: "Polkadot/Substrate",
+              collapsible: true,
+              children: [
+                `${locale}/quickstart/quickstart_chains/polkadot.md`,
+                `${locale}/quickstart/quickstart_chains/polkadot-humanode.md`,
+              ],
+            },
             `${locale}/quickstart/quickstart_chains/terra.md`,
           ],
         },

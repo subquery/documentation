@@ -43,9 +43,13 @@ editLink: false
               <img src="/assets/img/logo_cosmos_cronos.svg" />
               <img src="/assets/img/logo_cosmos_cronos_blue.svg" />
             </router-link>
-            <router-link :to="{path: '/quickstart/quickstart_chains/cosmos.html'}"> 
+            <router-link :to="{path: '/quickstart/quickstart_chains/cosmos-juno.html'}"> 
               <img src="/assets/img/logo_cosmos_juno.svg" />
               <img src="/assets/img/logo_cosmos_juno_blue.svg" />
+            </router-link>
+            <router-link :to="{path: '/quickstart/quickstart_chains/cosmos-thorchain.html'}"> 
+              <img src="/assets/img/logo_cosmos_thorchain.svg" />
+              <img src="/assets/img/logo_cosmos_thorchain_blue.svg" />
             </router-link>
           </div>
         </div>

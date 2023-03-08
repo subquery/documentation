@@ -59,9 +59,9 @@ The manifest file contains the largest set of differences, but once you understa
 
 ![Difference between a SubGraph and a SubQuery project](/assets/img/subgraph-manifest-3.png)
 
-::: code-group
+::: code-tabs
 
-::: code-group-item SubGraph
+@tab SubGraph
 
 ```yaml
 # ******* SubGraph *******
@@ -102,9 +102,7 @@ dataSources:
           handler: handleUnlockAttackNFTs
 ```
 
-:::
-
-::: code-group-item SubQuery
+@tab:active SubQuery
 
 ```yaml
 # ******* SubQuery *******
@@ -166,8 +164,6 @@ dataSources:
 
 :::
 
-:::
-
 ## Mapping
 
 Mapping files are also quite identical to an intentionally equivalent set of commands, which are used to access the Graph Node store and the SubQuery Project store.
@@ -178,9 +174,9 @@ The functions are defined the same way. Moreover, entities can be instantiated, 
 
 ![Difference between a SubGraph and a SubQuery project](/assets/img/subgraph-mapping.png)
 
-::: code-group
+::: code-tabs
 
-::: code-group-item SubGraph
+@tab SubGraph
 
 ```ts
 // ******* SubGraph *******
@@ -200,9 +196,7 @@ export function handleUnlockAttackNFTs(event: UnlockAttackNFTs): void {
 }
 ```
 
-:::
-
-::: code-group-item SubQuery
+@tab:active SubQuery
 
 ```ts
 // ******* SubQuery *******
@@ -224,8 +218,6 @@ export async function handleUnlockAttackNFTs(
   await campaign.save();
 }
 ```
-
-:::
 
 :::
 
