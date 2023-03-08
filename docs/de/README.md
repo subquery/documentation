@@ -1,7 +1,5 @@
 - - -
-
 footer: false lastUpdated: false contributors: false editLink: false
-
 - - -
 
 <link rel="stylesheet" href="/assets/style/homepage.css" as="style" />
@@ -42,29 +40,33 @@ footer: false lastUpdated: false contributors: false editLink: false
               <img src="/assets/img/logo_cosmos_cronos.svg" />
               <img src="/assets/img/logo_cosmos_cronos_blue.svg" />
             </router-link>
-            <router-link :to="{path: '/quickstart/quickstart_chains/cosmos.html'}"> 
+            <router-link :to="{path: '/quickstart/quickstart_chains/cosmos-juno.html'}"> 
               <img src="/assets/img/logo_cosmos_juno.svg" />
               <img src="/assets/img/logo_cosmos_juno_blue.svg" />
+            </router-link>
+            <router-link :to="{path: '/quickstart/quickstart_chains/cosmos-thorchain.html'}"> 
+              <img src="/assets/img/logo_cosmos_thorchain.svg" />
+              <img src="/assets/img/logo_cosmos_thorchain_blue.svg" />
             </router-link>
           </div>
         </div>
       </div>
       <router-link :to="{path: '/quickstart/quickstart_chains/algorand.html'}"> 
-          <img src="/assets/img/logo_algorand.svg" />
-          <img src="/assets/img/logo_algorand_blue.svg" />
-        </router-link>
-        <router-link :to="{path: '/quickstart/quickstart_chains/avalanche.html'}"> 
-          <img src="/assets/img/logo_avalanche.svg" />
-          <img src="/assets/img/logo_avalanche_blue.svg" />
-        </router-link>
-        <router-link :to="{path: '/quickstart/quickstart_chains/near.html'}"> 
-          <img src="/assets/img/logo_near.svg" />
-          <img src="/assets/img/logo_near_blue.svg" />
-        </router-link>
-        <router-link :to="{path: '/quickstart/quickstart_chains/terra.html'}"> 
-          <img src="/assets/img/logo_terra.svg" />
-          <img src="/assets/img/logo_terra_blue.svg" />
-        </router-link>
+        <img src="/assets/img/logo_algorand.svg" />
+        <img src="/assets/img/logo_algorand_blue.svg" />
+      </router-link>
+      <router-link :to="{path: '/quickstart/quickstart_chains/avalanche.html'}"> 
+        <img src="/assets/img/logo_avalanche.svg" />
+        <img src="/assets/img/logo_avalanche_blue.svg" />
+      </router-link>
+      <router-link :to="{path: '/quickstart/quickstart_chains/near.html'}"> 
+        <img src="/assets/img/logo_near.svg" />
+        <img src="/assets/img/logo_near_blue.svg" />
+      </router-link>
+      <router-link :to="{path: '/quickstart/quickstart_chains/terra.html'}"> 
+        <img src="/assets/img/logo_terra.svg" />
+        <img src="/assets/img/logo_terra_blue.svg" />
+      </router-link>
     </div>
   </div>
   <div class="journey layout mt80">
@@ -93,7 +95,7 @@ footer: false lastUpdated: false contributors: false editLink: false
       </div>
       <div class="ct">
         <h4>3. Publish to the Managed Service</h4>
-        <p>Use our self-service platform to publish and run a SubQuery project on production with great ease. It only take a few minutes! <router-link :to="{path: '/run_publish/publish.html'}">Read more</router-link></p>
+        <p>Use our self-service platform to publish and run a SubQuery project on production with great ease. It only takes a few minutes! <router-link :to="{path: '/run_publish/publish.html'}">Read more</router-link></p>
       </div>
     </div>
     <div class="journeyItem">
@@ -157,7 +159,7 @@ footer: false lastUpdated: false contributors: false editLink: false
         <div class="title"><span><img src="/assets/img/faqIcon.svg" /></span>What networks do you support?</div>
         <div class="animation">
           <div class="ct">
-            <p>We support a large number of leading layer-1 chains, including Polkadot, Cosmos, Ethereyum, Avalanche, Algorand, Near, and Flare. The list of supported layer-1 chains keeps growing every week, and it's our goal to support them all. Whever you plan to build your next dApp, we want to be there to help you index it.</p>
+            <p>We support a large number of leading layer-1 chains, including Polkadot, Cosmos, Ethereum, Avalanche, Algorand, Near and Flare. The list of supported layer-1 chains keeps growing every week, and it's our goal to support them all. Wherever you plan to build your next dApp, we want to be there to help you index it.</p>
             <p>If you would like us to index your new layer-1 chain, we would be happy to consider it, send us a message at <a href="mailto:hello@subquery.network">hello@subquery.network</a>.</p>
           </div>
         </div>
@@ -175,8 +177,8 @@ footer: false lastUpdated: false contributors: false editLink: false
         <div class="title"><span><img src="/assets/img/faqIcon.svg" /></span>Do you provide hosting, or do I have to run it myself?</div>
         <div class="animation">
           <div class="ct">
-            <p>We provide a <router-link :to="{path: '/run_publish/run.html'}">long guide</router-link> on how you can run SubQuery in your infrastructure, which includes both the indexer, postgres database, and query service.</p>
-            <p>Don't want to worry about running your own SubQuery infrastructure? SubQuery provides a <a href="https://explorer.subquery.network/" target="_blank">Managed Service</a> to the community. The biggest dApps depend on SubQuery's enterprise level Managed Service. With 100's of millions of daily requests and hundreds of active projects, SubQuery's Managed Service provides industry leading hosting for our customers.</p>
+            <p>We provide a <router-link :to="{path: '/run_publish/run.html'}">long guide</router-link> on how you can run SubQuery in your infrastructure, which includes both the indexer, Postgres database, and query service.</p>
+            <p>Don't want to worry about running your own SubQuery infrastructure? SubQuery provides a <a href="https://explorer.subquery.network/" target="_blank">Managed Service</a> to the community. The biggest dApps depend on SubQuery's enterprise level Managed Service. With 100s of millions of daily requests and hundreds of active projects, SubQuery's Managed Service provides industry leading hosting for our customers.</p>
             <p>We'll run your SubQuery projects for you in a high performance, scalable, and managed public service with a generous free tier! You can host your first two SubQuery projects for absolutely free!</p>
             <p>You can also upgrade to take advantage of production ready hosting for mission critical data with zero-downtime blue/green deployments, dedicated databases, multiple geo-redundant clusters, intelligent routing, and advanced monitoring and analytics.</p>
           </div>
@@ -186,7 +188,7 @@ footer: false lastUpdated: false contributors: false editLink: false
         <div class="title"><span><img src="/assets/img/faqIcon.svg" /></span>How is the data stored?</div>
         <div class="animation">
           <div class="ct">
-            <p>SubQuery stores indexed data in a high performance PostGresQL database.</p>
+            <p>SubQuery stores indexed data in a high performance PostgreSQL database.</p>
           </div>
         </div>
       </li>
@@ -203,15 +205,15 @@ footer: false lastUpdated: false contributors: false editLink: false
         <div class="title"><span><img src="/assets/img/faqIcon.svg" /></span>How are you different from The Graph?</div>
         <div class="animation">
           <div class="ct">
-            <p>SubQuery is a flexible, cross-chain indexing service similar to the Graph. In fact, <router-link :to="{path: '/build/graph-migration.html'}">migrating from the Graph takes only a few hours</router-link>. Like the Graph, there are endless possibilities for the variety of data sources that can be analysed and served using SubQuery.</p>
+            <p>SubQuery is a flexible, cross-chain indexing service similar to The Graph. In fact, <router-link :to="{path: '/build/graph-migration.html'}">migrating from the Graph takes only a few hours</router-link>. Like The Graph, there are endless possibilities for the variety of data sources that can be analysed and served using SubQuery.</p>
             <p>We build SubQuery with the following key competitive advantages in mind:</p>
             <ul>
-            <li>Faster than others. We’re focusing on making SubQuery faster than other solutions with advanced indexing caches and precomputed indices saving developers time, our solution is fast to set-up, fast to manage, and fast to index.</li>
-            <li>More Flexible and Feature rich. SubQuery is a scaffold for building custom APIs and we provide additional features like GraphQL subscriptions, multi-chain indexing, automated historical tracking, and more.</li>
+            <li>Faster than others. We’re focusing on making SubQuery faster than other solutions with advanced indexing caches and precomputed indices saving developers time, our solution is fast to set-up, fast to manage and fast to index.</li>
+            <li>More Flexible and Feature rich. SubQuery is a scaffold for building custom APIs and we provide additional features like GraphQL subscriptions, multi-chain indexing, automated historical tracking and more.</li>
             <li>Open. Customers have already extended our open source SDK to suit their own custom implementation.</li>
             <li>Universal. A universal infrastructure stack bringing communities together, developers now have a tool to search, sort, filter and query any data for their app across multiple blockchains.</li>
             </ul>
-            <p>Additionally, we are committed to running our Managed hosting service over the long term. We have made huge investments into it and have many customers relying on it. This provides a safe home and a reliable alternative to customers that are currently threatened by the imminent sunsetting of the Graphs hosted service.
+            <p>Additionally, we are committed to running our Managed hosting service over the long term. We have made huge investments into it and have many customers relying on it. This provides a safe home and a reliable alternative to customers that are currently threatened by the imminent sunsetting of The Graph's hosted service.
             </p>
           </div>
         </div>
@@ -222,7 +224,7 @@ footer: false lastUpdated: false contributors: false editLink: false
   <div class="textImageSection layout mt80">
     <div class="ct">
       <h3>The SubQuery Network</h3>
-      <p>Say goodbye to relying on centralised service providers, we’re building the most open, performant, reliable, and scalable data service for dApp developers. </p>
+      <p>Say goodbye to relying on centralised service providers, we’re building the most open, performant, reliable and scalable data service for dApp developers. </p>
       <p>Das SubQuery-Netzwerk indiziert und stellt Daten für die globale Gemeinschaft auf eine motivierte und überprüfbare Weise bereit. After publishing your project to the SubQuery Network, anyone can index and host it — providing data to users around the world faster and reliably.</p>
       <router-link class="button" :to="{path: '/subquery_network/introduction.html'}">Learn more about our Decentralised Network</router-link>
     </div>
