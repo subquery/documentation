@@ -1,6 +1,10 @@
 # Migrating from The Graph
 
-When we set out to build SubQuery, we always planned to make the developer experience as close as possible to other indexing solutions out there in the market, including The Graph.
+When we set out to build SubQuery, we always planned to make the developer experience as close as possible to other indexing solutions out there in the market, including The Graph. Ethereum developers can benefit from the superior SubQuery experience, including the open-source SDK, tools, documentation, and developer support that the SubQuery ecosystem provides. Additionally, Ethereum is accommodated by SubQuery’s Managed Service, which provides enterprise-level infrastructure hosting and handles over 400 million requests each day.
+
+SubQuery also brings some major improvements to existing users of The Graph, including the ability to make external API calls or import external libraries from within your mapping functions and better controls to run your projects in your own infrastructure with automated DOS (denial of service) mitigation controls. Additionally, we have no plans to sunset our managed service.
+
+![Competitor Comparison](/assets/img/competitor_comparison.jpg)
 
 The migration from a SubGraph to a SubQuery Project is (by design) easy and quick. It may take you an hour or two to complete the migration, depending on the complexity of your SubGraph.
 
