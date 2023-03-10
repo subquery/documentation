@@ -148,13 +148,32 @@ dataSources:
 
 :::
 
+## Codegen
+
+The `codegen` command is also intentionally similar between SubQuery and SubGraphs
+
+All GraphQL entities will have generated entity classes that provide type-safe entity loading, read and write access to entity fields - see more about this process in [the GraphQL Schema](../build/graphql.md). All entites can be imported from the following directory:
+
+```ts
+import { Gravatar } from "../types";
+```
+
+For ABI's registered in the `project.yaml`, similar type safe entities will be generated using `npx typechain --target=ethers-v5` command, allowing you to bind these contracts to specific addresses in the mappings and call read-only contract methods against the block being processed. It will also generate a class for every contract event to provide easy access to event parameters, as well as the block and transaction the event originated from. All of these types are written to `src/types` directory. In the example [Gravatar SubQuery project](../quickstart/quickstart_chains/ethereum-gravatar.md), you would import these types like so.
+
+```ts
+import {
+  NewGravatarLog,
+  UpdatedGravatarLog,
+} from "../types/abi-interfaces/Gravity";
+```
+
 ## Mapping
 
 Mapping files are also quite identical to an intentionally equivalent set of commands, which are used to access the Graph Node store and the SubQuery Project store.
 
 In SubQuery, all mapping handlers receive a typed parameter that depends on the chain handler that calls it. For example, an `ethereum/LogHandler` will receive a parameter of type `EthereumLog` and `avalanche/LogHandler` will receive a parameter of type `AvalancheLog`.
 
-The functions are defined the same way. Moreover, entities can be instantiated, retrieved, saved, and deleted from the SubQuery store in a similar way as well.
+The functions are defined the same way. Moreover, entities can be instantiated, retrieved, saved, and deleted from the SubQuery store in a similar way as well. The main difference is that SubQuery store operations are asynchronous.
 
 ![Difference between a SubGraph and a SubQuery project](/assets/img/subgraph-mapping.png)
 
@@ -193,14 +212,12 @@ export function handleUpdatedGravatar(event: UpdatedGravatar): void {
 ```ts
 // ******* SubQuery *******
 import {
-  NewGravatarEvent,
-  UpdatedGravatarEvent,
-} from "../types/ethers-contracts/Gravatar";
+  NewGravatarLog,
+  UpdatedGravatarLog,
+} from "../types/abi-interfaces/Gravity";
 import { Gravatar } from "../types";
 
-export async function handleNewGravatar(
-  event: NewGravatarEvent
-): Promise<void> {
+export async function handleNewGravatar(event: NewGravatarLog): Promise<void> {
   let gravatar = new Gravatar(event.args.id.toHexString());
   gravatar.owner = event.args.owner;
   gravatar.displayName = event.args.displayName;
@@ -209,7 +226,7 @@ export async function handleNewGravatar(
 }
 
 export async function handleUpdatedGravatar(
-  event: UpdatedGravatarEvent
+  event: UpdatedGravatarLog
 ): Promise<void> {
   let id = event.args.id.toHexString();
   let gravatar = await Gravatar.get(id);

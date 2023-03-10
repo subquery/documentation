@@ -64,7 +64,7 @@ This will create a new directory (or update the existing) `src/types` which cont
 import { GraphQLEntity1, GraphQLEntity2 } from "../types";
 ```
 
-If you're creating a new Etheruem based project (including Eth, Avalanche, and Substrate's Frontier EVM & Acala EVM+), this command will also generate ABI types and save them into `src/types` using the `npx typechain --target=ethers-v5` command, allowing you to bind these contracts to specific addresses in the mappings and call read-only contract methods against the block being processed. It will also generate a class for every contract event to provide easy access to event parameters, as well as the block and transaction the event originated from. All of these types are written to `src/typs/**.ts`. In the example [Gravatar SubQuery project](../quickstart/quickstart_chains/ethereum-gravatar.md), you would import these types like so.
+If you're creating a new Etheruem based project (including Eth, Avalanche, and Substrate's Frontier EVM & Acala EVM+), this command will also generate ABI types and save them into `src/types` using the `npx typechain --target=ethers-v5` command, allowing you to bind these contracts to specific addresses in the mappings and call read-only contract methods against the block being processed. It will also generate a class for every contract event to provide easy access to event parameters, as well as the block and transaction the event originated from. All of these types are written to `src/typs/abi-interfaces` and `src/typs/contracts` directories. In the example [Gravatar SubQuery project](../quickstart/quickstart_chains/ethereum-gravatar.md), you would import these types like so.
 
 ```ts
 import { GraphQLEntity1, GraphQLEntity2 } from "../types";

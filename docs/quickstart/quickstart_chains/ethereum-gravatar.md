@@ -2,7 +2,7 @@
 
 ## Goals
 
-The goal of this quick start guide is to index all ethereum Gravatars created or updated on the ethereum mainnet.
+The goal of this quick start guide is to index all Ethereum Gravatars created or updated on the Ethereum mainnet.
 
 ::: warning
 Before we begin, make sure that you have initialised your project using the provided steps in the [Start Here](../quickstart.md) section. **Please initialise a Ethereum project**
@@ -100,16 +100,19 @@ npm run-script codegen
 
 :::
 
-This will create a new directory (or update the existing) `src/types` which contain generated entity classes for each type you have defined previously in `schema.graphql`. These classes provide type-safe entity loading, read and write access to entity fields - see more about this process in [the GraphQL Schema](../build/graphql.md). All entites can be imported from the following directory:
+This will create a new directory (or update the existing) `src/types` which contain generated entity classes for each type you have defined previously in `schema.graphql`. These classes provide type-safe entity loading, read and write access to entity fields - see more about this process in [the GraphQL Schema](../../build/graphql.md). All entites can be imported from the following directory:
 
 ```ts
 import { Gravatar } from "../types";
 ```
 
-If you're creating a new Etheruem based project, this command will also generate ABI types and save them into `src/types` using the `npx typechain --target=ethers-v5` command, allowing you to bind these contracts to specific addresses in the mappings and call read-only contract methods against the block being processed. It will also generate a class for every contract event to provide easy access to event parameters, as well as the block and transaction the event originated from. All of these types are written to `src/typs/**.ts`. In the example [Gravatar SubQuery project](../quickstart/quickstart_chains/ethereum-gravatar.md), you would import these types like so.
+If you're creating a new Etheruem based project, this command will also generate ABI types and save them into `src/types` using the `npx typechain --target=ethers-v5` command, allowing you to bind these contracts to specific addresses in the mappings and call read-only contract methods against the block being processed. It will also generate a class for every contract event to provide easy access to event parameters, as well as the block and transaction the event originated from. All of these types are written to `src/typs/abi-interfaces` and `src/typs/contracts` directories. In the example Gravatar SubQuery project, you would import these types like so.
 
 ```ts
-import { GraphQLEntity1, GraphQLEntity2 } from "../types";
+import {
+  NewGravatarLog,
+  UpdatedGravatarLog,
+} from "../types/abi-interfaces/Gravity";
 ```
 
 Check out the [GraphQL Schema](../../build/graphql.md) documentation to get in-depth information on `schema.graphql` file.
@@ -126,35 +129,38 @@ Navigate to the default mapping function in the `src/mappings` directory. You wi
 
 ```ts
 import {
-  NewGravatarEvent,
-  UpdatedGravatarEvent,
-} from "../types/ethers-contracts/Gravatar";
+  NewGravatarLog,
+  UpdatedGravatarLog,
+} from "../types/abi-interfaces/Gravity";
 import { Gravatar } from "../types";
 
-export async function handleNewGravatar(
-  event: NewGravatarEvent
-): Promise<void> {
-  let gravatar = new Gravatar(event.args.id.toHexString());
-  gravatar.owner = event.args.owner;
-  gravatar.displayName = event.args.displayName;
-  gravatar.imageUrl = event.args.imageUrl;
+export async function handleNewGravatar(log: NewGravatarLog): Promise<void> {
+  const gravatar = Gravatar.create({
+    id: log.args.id.toHexString(),
+    owner: log.args.owner,
+    displayName: log.args.displayName,
+    imageUrl: log.args.imageUrl,
+    createdBlock: BigInt(log.blockNumber),
+  });
+
   await gravatar.save();
 }
 
 export async function handleUpdatedGravatar(
-  event: UpdatedGravatarEvent
+  log: UpdatedGravatarLog
 ): Promise<void> {
-  let id = event.args.id.toHexString();
+  const id = log.args.id.toHexString();
 
   // We first check if the Gravatar already exists, if not we create it
   let gravatar = await Gravatar.get(id);
   if (gravatar == null || gravatar == undefined) {
     gravatar = new Gravatar(id);
+    gravatar.createdBlock = BigInt(log.blockNumber);
   }
   // Update with new data
-  gravatar.owner = event.args.owner;
-  gravatar.displayName = event.args.displayName;
-  gravatar.imageUrl = event.args.imageUrl;
+  gravatar.owner = log.args.owner;
+  gravatar.displayName = log.args.displayName;
+  gravatar.imageUrl = log.args.imageUrl;
   await gravatar.save();
 }
 ```
@@ -235,19 +241,13 @@ Try the following query to understand how it works for your new SubQuery starter
 
 ```graphql
 query {
-  rewards(first: 5, orderBy: AMOUNT_DESC) {
+  gravatars(first: 5, orderBy: CREATED_BLOCK_DESC) {
     nodes {
       id
-      amount
-      recipientId
-      dataProvider
-      whoClaimedId
-      amount
-    }
-  }
-  addresses(first: 5, orderBy: RECEIVED_REWARDS_SUM_AMOUNT_DESC) {
-    nodes {
-      id
+      owner
+      displayName
+      imageUrl
+      createdBlock
     }
   }
 }
