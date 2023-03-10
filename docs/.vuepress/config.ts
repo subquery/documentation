@@ -297,7 +297,14 @@ function getSidebar(locale: string): SidebarOptions {
                 `${locale}/quickstart/quickstart_chains/cosmos-thorchain.md`,
               ],
             },
-            `${locale}/quickstart/quickstart_chains/ethereum.md`,
+            {
+              text: "Ethereum",
+              collapsible: true,
+              children: [
+                `${locale}/quickstart/quickstart_chains/ethereum-gravatar.md`,
+                `${locale}/quickstart/quickstart_chains/ethereum-ens.md`,
+              ],
+            },
             `${locale}/quickstart/quickstart_chains/flare.md`,
             `${locale}/quickstart/quickstart_chains/near.md`,
             {
