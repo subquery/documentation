@@ -405,7 +405,7 @@ It can increase performance by up to 4 times. Give it a try and let us know your
 It is at an early experimental stage at the moment, but we plan to enable it by default.
 :::
 
-On initialisation, once the main thread is established, then the fetching and processing workload is disturbed across all worker threads. Each worker has their own buffer (a set of blocks that they are responsible to fetch/process). For example:
+On initialisation, once the main thread is established, then the fetching and processing workload is distributed across all worker threads. Each worker has their own buffer (a set of blocks that they are responsible to fetch/process). For example:
 
 - Worker A: Will execute the `fetch` and `indexing` of blocks `[n,..n+10]`
 - Worker B: Will execute the `fetch` and `indexing` of blocks `[n+11,..n+20]`
