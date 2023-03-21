@@ -164,6 +164,25 @@ dataSources:
 
 :::
 
+## Codegen
+
+The `codegen` command is also intentionally similar between SubQuery and SubGraphs
+
+All GraphQL entities will have generated entity classes that provide type-safe entity loading, read and write access to entity fields - see more about this process in [the GraphQL Schema](../build/graphql.md). All entites can be imported from the following directory:
+
+```ts
+import { Gravatar } from "../types";
+```
+
+For ABI's registered in the `project.yaml`, similar type safe entities will be generated using `npx typechain --target=ethers-v5` command, allowing you to bind these contracts to specific addresses in the mappings and call read-only contract methods against the block being processed. It will also generate a class for every contract event to provide easy access to event parameters, as well as the block and transaction the event originated from. All of these types are written to `src/types` directory.
+
+```ts
+import {
+  NewGravatarLog,
+  UpdatedGravatarLog,
+} from "../types/abi-interfaces/Gravity";
+```
+
 ## Mapping
 
 Mapping files are also quite identical to an intentionally equivalent set of commands, which are used to access the Graph Node store and the SubQuery Project store.

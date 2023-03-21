@@ -121,6 +121,14 @@ There are a couple of improvements from basic log filters:
 - Topics don't need to be 0 padded.
 - [Event Fragment](https://docs.ethers.io/v5/api/utils/abi/fragments/#EventFragment) strings can be provided and automatically converted to their id.
 
+### Codegen
+
+If you're creating a new Substrate Frontier EVM or Acala EVM+ based project, the normal [codegen](./introduction.md#code-generation) command will also generate ABI types and save them into `src/types` using the `npx typechain --target=ethers-v5` command, allowing you to bind these contracts to specific addresses in the mappings and call read-only contract methods against the block being processed. It will also generate a class for every contract event to provide easy access to event parameters, as well as the block and transaction the event originated from. All of these types are written to `src/typs/**.ts`. In the example [Moonriver EVM Starter SubQuery project](https://github.com/subquery/subql-starter/tree/main/Moonriver/moonriver-evm-starter), you would import these types like so.
+
+```ts
+import { GraphQLEntity1, GraphQLEntity2 } from "../types";
+```
+
 ### Handler Functions
 
 Unlike a normal handler you will not get a `SubstrateEvent` as the parameter, instead you will get a `FrontierEvmEvent` or `AcalaEvmEvent` which is based on Ethers [Log](https://docs.ethers.io/v5/api/providers/types/#providers-Log) type.
