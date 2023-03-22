@@ -70,7 +70,7 @@ If you're creating a new Eth based project (including Avalanche and Substrate's 
 import { GraphQLEntity1, GraphQLEntity2 } from "../types";
 ```
 
-**ABI Codegen is not yet supported for Cosmos Ethermint EVM ([track progress here]()) or Substrate WASM**
+**ABI Codegen is not yet supported for Cosmos Ethermint EVM ([track progress here](https://github.com/subquery/subql-cosmos/issues/102)) or Substrate WASM**
 
 ### Alternative build options
 
