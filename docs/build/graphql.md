@@ -23,6 +23,12 @@ npm run-script codegen
 
 :::
 
+All entites can be imported from the following directory after codegen:
+
+```ts
+import { GraphQLEntity1, GraphQLEntity2 } from "../types";
+```
+
 ### Entities
 
 Each entity must define its required fields `id` with the type of `ID!`. It is used as the primary key and unique among all entities of the same type.
