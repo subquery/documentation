@@ -1,78 +1,33 @@
-# Welcome
+# Welcome to the Kepler Network
 
-Welcome to Kepler, SubQuery's canary network. The Kepler network is the final stage before mainnet where network participants can be part of the SubQuery network and be rewarded with kSQT tokens which have real-world value.
+SubQuery’s mission is to help developers create the decentralised products of the future. In order to realise this, we are focused on the release of the [decentralised SubQuery Network](https://subquery.network/network). The final phase before launching the SubQuery Network is deploying the Kepler Network.
 
-Learn more about our network participants [here](../introduction.md), before jumping in and learning how to become an [Indexer](../kepler/indexers/become-an-indexer.md), [Delegator](../delegators.md), or a [Consumer](../consumers.md). First though, learn more about the Kepler dashboard below.
+## What is the Kepler Network
 
-## Kepler Dashboard
+The Kepler Network is the pre-mainnet of the SubQuery Network, and will enable users to progressively bootstrap and test the decentralised features of The SubQuery Network.
 
-The Kepler dashboard is divided into several sections as can be seen below.
+Kepler will run off the same smart contracts that our mainnet will do, the key difference is that certain features will only be slowly enabled and brought online in a sustainable way. It will be deployed on <XXXXX>, the most popular L2 scaling solution for Ethereum.
 
-![Kepler dashboard](/assets/img/kepler_dashboard.png) <br />
+The first users of the Kepler Network will be [Indexers](../indexers.md) (_Phase 1_) who will test their own technical expertise against their peers, whilst indexing real data that has been migrated from SubQuery’s existing Managed Service.
 
----
+Over time we’ll introduce [Delegators](../delegators.md) (_phase 2_), followed by [Consumers](../consumers.md), who will be able to stake kSQT against their favourite indexers, receive rewards, and onboard other SubQuery projects into Kepler.
 
-### Explorer
+In return for being early adopters and providing value to existing SubQuery clients, Kepler participants will enjoy incentives via kSQT which will later be burnt in exchange for the SubQuery token (SQT) upon the mainnet launch later this year.
 
-The explorer displays a list of all the projects that are being indexed. It’s also the place where consumers can select a particular project and purchase the associated plans. If no plans are listed, this indicates that an Indexer has not yet created a plan.
+To summarise, the three main outcomes of Kepler are:
 
-![Indexer's plans](/assets/img/indexers_plans.png)
+- Provide an environment for real indexers and delegators to onboard and earn real rewards.
+- Seamlessly and progressively migrate real SubQuery project traffic from our Managed Service to the decentralised Kepler Network.
+- Allow us to continue to fine-tune parameters of the network (including reward rates).
 
----
+## Why Are We Launching Kepler?
 
-### Studio
+You can think of Kepler as a pre-mainnet, a controlled phase that will help us bootstrap the mainnet with participants and activity.
 
-The studio allows developers to create, install, deploy and publish SubQuery projects.
+In order to launch our decentralised network (The SubQuery Network), there are several technical milestones that must be met. The first significant milestone was achieved in 2022, with three successful ‘seasons’ (or phases) of our Frontier testnet which stress-tested the network in a test environment.
 
-![Studio](/assets/img/studio.png)
+After taking these learnings, we elected to take a novel approach by allowing participants in our testnet to get started on real world projects now via Kepler rather than waiting for the launching of our token.
 
----
+A further consideration is that when we survey the web3 ecosystem today, we see that many other projects that provide decentralised services have made poor progress migrating customers from their centralised services to their decentralised alternatives. Kepler is designed to migrate real projects from our managed service to the decentralised SubQuery Kepler Network in a carefully choreographed way whilst providing incentives to all.
 
-### Stake & Delegate:
-
-This area:
-
-- Allows Indexers and Delegators to manage their [stake](../../glossary/glossary.md#staking), [delegation](../../glossary/glossary.md#delegating), rewards, and view tokens that are [locked](../../glossary/glossary.md#lock-period).
-- Allows Delegators to select Indexers and delegate their [SQT](../token.md).
-- Allows Indexers to delegate to projects.
-
-![Stake & Delegate Dashboard](/assets/img/stake_delegate_dashboard.png) <br />
-
----
-
-### Plans & Offers
-
-This area:
-
-- Lists [service agreements](../../glossary/glossary.md#service-agreements).
-- Allows Indexers to create and manage their plans.
-- Allows Consumers to create and manage their offers.
-- Displays an offer marketplace where Indexers can accept an offer from Consumers.
-
-![Plan & Offer Dashboard](/assets/img/plan_offer_dashboard.png)<br/>
-
----
-
-### Swap
-
-Swaps allows users to swap USDC to kSQT and vice versa.
-
-![Swaps](/assets/img/swaps.png)<br/>
-
----
-
-### Governance
-
-Participate in SubQuery's [governance process](https://snapshot.org/#/subquerynetwork.eth).
-
----
-
-### Documentation
-
-Learn more about the [SubQuery network](../introduction.html).
-
----
-
-### Forum
-
-Join the discussion in our [forum](https://forum.subquery.network/).
+The rationale is that we can demonstrate both the technical and commercial applications of the SubQuery Network and bootstrap the mainnet with participants and activity to accelerate our growth.
