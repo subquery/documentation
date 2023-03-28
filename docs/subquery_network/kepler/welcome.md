@@ -6,7 +6,7 @@ SubQuery’s mission is to help developers create the decentralised products of 
 
 The Kepler Network is the pre-mainnet of the SubQuery Network, and will enable users to progressively bootstrap and test the decentralised features of The SubQuery Network.
 
-Kepler will run off the same smart contracts that our mainnet will do, the key difference is that certain features will only be slowly enabled and brought online in a sustainable way. It will be deployed on <XXXXX>, the most popular L2 scaling solution for Ethereum.
+Kepler will run off the same smart contracts that our mainnet will do, the key difference is that certain features will be slowly enabled and brought online in a sustainable way.
 
 The first users of the Kepler Network will be [Indexers](../indexers.md) (_Phase 1_) who will test their own technical expertise against their peers, whilst indexing real data that has been migrated from SubQuery’s existing Managed Service.
 

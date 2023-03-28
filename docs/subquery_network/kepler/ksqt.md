@@ -10,7 +10,7 @@ The supply of kSQT will be heavily restricted and will be airdropped to Indexers
 
 We have selected Kepler Airdrops in the following manner:
 
-- The main recipients will be Indexers selected from the SubQuery Frontier testnet who participated and received sufficient points (Phase 1)
+- The main recipients will be Indexers selected from the SubQuery Frontier testnet who participated and received sufficient points (Phase 1) - you can check if you are an eligible indexer on this [list here](https://docs.google.com/spreadsheets/d/1yscpQYMyaeqU6F10HC__-2o84YPrru75oDmwkcyFNa4/edit?usp=sharing).
 - Ambassadors will receive tokens to act in the role of Delegators (Phase 2)
 
 The tokens will be airdropped in two phases, with the first allocation to Indexers near Network launch. We will announce the dates for Phase 2 once we’re confident that indexers have onboarded correctly and the Kepler network is running well .
