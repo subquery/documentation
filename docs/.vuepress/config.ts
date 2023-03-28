@@ -31,7 +31,7 @@ export default defineUserConfig({
       author: "SubQuery Team",
       autoDescription: true,
       twitterID: "@SubQueryNetwork",
-      fallBackImage: "https://static.subquery.network/link-share.jpg"
+      fallBackImage: "https://static.subquery.network/link-share.jpg",
     }),
     docsearchPlugin({
       appId: "30B5W460WL",
@@ -394,29 +394,39 @@ function getSidebar(locale: string): SidebarOptions {
           collapsible: true,
           children: [
             `${locale}/subquery_network/kepler/welcome.md`,
+            `${locale}/subquery_network/kepler/ksqt.md`,
             {
-              text: "Indexers",
-              link: `${locale}/subquery_network/kepler/indexers/become-an-indexer`,
+              text: "Using Kepler Network",
+              link: `${locale}/subquery_network/kepler/using-kepler`,
               collapsible: true,
               children: [
-                `${locale}/subquery_network/kepler/indexers/become-an-indexer.md`,
-                `${locale}/subquery_network/kepler/indexers/install-indexer-locally.md`,
-                `${locale}/subquery_network/kepler/indexers/install-indexer-linux.md`,
-                `${locale}/subquery_network/kepler/indexers/install-indexer-aws.md`,
-                `${locale}/subquery_network/kepler/indexers/index-project.md`,
-                `${locale}/subquery_network/kepler/indexers/ssh-in-aws.md`,
-                `${locale}/subquery_network/kepler/indexers/troubleshooting-indexers.md`,
-                `${locale}/subquery_network/kepler/indexers/faqs-indexers.md`,
-              ],
-            },
-            `${locale}/subquery_network/kepler/delegators.md`,
-            `${locale}/subquery_network/kepler/consumers.md`,
-            {
-              text: "Metamask",
-              link: `${locale}/subquery_network/kepler/metamask/connect-metamask`,
-              collapsible: true,
-              children: [
-                `${locale}/subquery_network/kepler/metamask/connect-metamask.md`,
+                `${locale}/subquery_network/kepler/using-kepler.md`,
+                {
+                  text: "Indexers",
+                  link: `${locale}/subquery_network/kepler/indexers/become-an-indexer`,
+                  collapsible: true,
+                  children: [
+                    `${locale}/subquery_network/kepler/indexers/become-an-indexer.md`,
+                    `${locale}/subquery_network/kepler/indexers/install-indexer-locally.md`,
+                    `${locale}/subquery_network/kepler/indexers/install-indexer-linux.md`,
+                    `${locale}/subquery_network/kepler/indexers/install-indexer-aws.md`,
+                    `${locale}/subquery_network/kepler/indexers/index-project.md`,
+                    `${locale}/subquery_network/kepler/indexers/ssh-in-aws.md`,
+                    `${locale}/subquery_network/kepler/indexers/troubleshooting-indexers.md`,
+                    `${locale}/subquery_network/kepler/indexers/faqs-indexers.md`,
+                  ],
+                },
+                `${locale}/subquery_network/kepler/delegators.md`,
+                `${locale}/subquery_network/kepler/consumers.md`,
+                {
+                  text: "Metamask",
+                  link: `${locale}/subquery_network/kepler/metamask/connect-metamask`,
+                  collapsible: true,
+                  children: [
+                    `${locale}/subquery_network/kepler/metamask/connect-metamask.md`,
+                  ],
+                },
+                `${locale}/subquery_network/kepler/swap.md`,
               ],
             },
           ],
