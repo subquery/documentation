@@ -30,24 +30,16 @@ export async function handleBlock(block: EtheruemBlock): Promise<void> {
 You can use transaction handlers to capture information about each of the transactions in a block. To achieve this, a defined TransactionHandler will be called once for every transaction. You should use [Mapping Filters](../manifest/ethereum.md#mapping-handlers-and-filters) in your manifest to filter transactions to reduce the time it takes to index data and improve mapping performance.
 
 ```ts
-import { EthereumTransaction } from "@subql/types-ethereum";
-import { BigNumber } from "@ethersproject/bignumber";
 import { Approval } from "../types";
+import { ApproveTransaction } from "../types/abi-interfaces/Erc20Abi";
 
-// Setup types from ABI
-type ApproveCallArgs = [string, BigNumber] & {
-  _spender: string;
-  _value: BigNumber;
-};
-
-export async function handleTransaction(
-  tx: EthereumTransaction<ApproveCallArgs>
-): Promise<void> {
+export async function handleTransaction(tx: ApproveTransaction): Promise<void> {
+  logger.info(`New Approval transaction at block ${tx.blockNumber}`);
   const approval = Approval.create({
     id: tx.hash,
     owner: tx.from,
-    value: tx.args._value.toBigInt(),
-    spender: tx.args._spender,
+    spender: await tx.args[0],
+    value: BigInt(await tx.args[1].toString()),
     contractAddress: tx.to,
   });
 
@@ -60,20 +52,11 @@ export async function handleTransaction(
 You can use log handlers to capture information when certain logs are included on transactions. During the processing, the log handler will receive a log as an argument with the log's typed inputs and outputs. Any type of event will trigger the mapping, allowing activity with the data source to be captured. You should use [Mapping Filters](../manifest/ethereum.md#mapping-handlers-and-filters) in your manifest to filter events to reduce the time it takes to index data and improve mapping performance.
 
 ```ts
-import { EthereumLog } from "@subql/types-ethereum";
-import { BigNumber } from "@ethersproject/bignumber";
 import { Transaction } from "../types";
+import { TransferLog } from "../types/abi-interfaces/Erc20Abi";
 
-// Setup types from ABI
-type TransferEventArgs = [string, string, BigNumber] & {
-  from: string;
-  to: string;
-  value: BigNumber;
-};
-
-export async function handleLog(
-  log: EthereumLog<TransferEventArgs>
-): Promise<void> {
+export async function handleLog(log: TransferLog): Promise<void> {
+  logger.info(`New transfer transaction log at block ${log.blockNumber}`);
   const transaction = Transaction.create({
     id: log.transactionHash,
     value: log.args.value.toBigInt(),

@@ -7,9 +7,10 @@ The Manifest can be in either YAML or JSON format. In this document, we will use
 Below is a standard example of a basic Ethereum `project.yaml`.
 
 ```yml
-specVersion: 1.0.0
-name: ethereum-subql-starter
-version: 0.0.1
+specVersion: "1.0.0"
+
+name: "ethereum-subql-starter"
+version: "0.0.1"
 runner:
   node:
     name: "@subql/node-ethereum"
@@ -18,11 +19,13 @@ runner:
     name: "@subql/query"
     version: "*"
 description: "This project can be use as a starting point for developing your new Ethereum SubQuery project"
-repository: "https://github.com/subquery/etereum-subql-starter"
+repository: "https://github.com/subquery/ethereum-subql-starter"
+
 schema:
-  file: ./schema.graphql
+  file: "./schema.graphql"
+
 network:
-  # chainId is the EVM Chain ID, for Ethereum this is 14
+  # chainId is the EVM Chain ID, for Ethereum this is 1
   # https://chainlist.org/chain/1
   chainId: "1"
   # This endpoint must be a public non-pruned archive node
@@ -31,8 +34,8 @@ network:
   # You can get them from OnFinality for free https://app.onfinality.io
   # https://documentation.onfinality.io/support/the-enhanced-api-service
   endpoint: "https://eth.api.onfinality.io/public"
-  # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
-  dictionary: "https://api.subquery.network/sq/subquery/ethereum-dictionary"
+  # Recommended to provide the HTTP endpoint of a full chain dictionary to speed up processing
+  dictionary: "https://gx.api.subquery.network/sq/subquery/eth-dictionary"
 
 dataSources:
   - kind: ethereum/Runtime
@@ -47,8 +50,6 @@ dataSources:
     mapping:
       file: "./dist/index.js"
       handlers:
-        # - handler: handleBlock
-        # kind: ethereum/BlockHander
         - handler: handleTransaction
           kind: ethereum/TransactionHandler
           filter:
@@ -62,6 +63,7 @@ dataSources:
             topics:
               ## Follows standard log filters https://docs.ethers.io/v5/concepts/events/
               - Transfer(address indexed from, address indexed to, uint256 amount)
+              # address: "0x60781C2586D68229fde47564546784ab3fACA982"
 ```
 
 ## Overview
@@ -156,7 +158,8 @@ dataSources:
       erc20:
         file: "erc20.abi.json"
     mapping:
-      file: ./dist/index.js # Entry path for this mapping
+      file: "./dist/index.js"
+      handlers:
       ...
 ```
 
