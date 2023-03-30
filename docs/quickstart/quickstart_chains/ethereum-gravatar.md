@@ -38,11 +38,11 @@ dataSources:
     startBlock: 6175243 # This is when the Gravatar contract was deployed
     options:
       # Must be a key of assets
-      abi: gravatar
+      abi: gravity
       address: "0x2E645469f354BB4F5c8a05B3b30A929361cf77eC" # The contract address of the Gravatar on Ethereum
     assets:
-      gravatar:
-        file: "./abis/Gravatar.json"
+      gravity:
+        file: "./abis/Gravity.json"
     mapping:
       file: "./dist/index.js"
       handlers:
@@ -76,6 +76,7 @@ type Gravatar @entity {
   owner: Bytes!
   displayName: String!
   imageUrl: String!
+  createdBlock: BigInt!
 }
 ```
 
@@ -135,6 +136,7 @@ import {
 import { Gravatar } from "../types";
 
 export async function handleNewGravatar(log: NewGravatarLog): Promise<void> {
+  logger.info("New Gravar at block " + log.blockNumber.toString());
   const gravatar = Gravatar.create({
     id: log.args.id.toHexString(),
     owner: log.args.owner,
@@ -149,6 +151,7 @@ export async function handleNewGravatar(log: NewGravatarLog): Promise<void> {
 export async function handleUpdatedGravatar(
   log: UpdatedGravatarLog
 ): Promise<void> {
+  logger.info("Updated Gravar at block " + log.blockNumber.toString());
   const id = log.args.id.toHexString();
 
   // We first check if the Gravatar already exists, if not we create it

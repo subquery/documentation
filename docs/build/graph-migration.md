@@ -1,8 +1,10 @@
 # Migrating from The Graph
 
-When we set out to build SubQuery, we always planned to make the developer experience as close as possible to other indexing solutions out there in the market, including The Graph. Ethereum developers can benefit from the superior SubQuery experience, including the open-source SDK, tools, documentation, and developer support that the SubQuery ecosystem provides. Additionally, Ethereum is accommodated by SubQuery’s Managed Service, which provides enterprise-level infrastructure hosting and handles over 400 million requests each day.
+When we set out to build SubQuery, we always planned to make the developer experience as close as possible to other indexing solutions out there in the market, including The Graph. Ethereum developers can benefit from the superior SubQuery experience, including the open-source SDK, tools, documentation, and developer support that the SubQuery ecosystem provides. Additionally, Ethereum is accommodated by SubQuery’s Managed Service, which provides enterprise-level infrastructure hosting and handles over hundreds of millions of requests each day.
 
 SubQuery also brings some major improvements to existing users of The Graph, including the ability to make external API calls or import external libraries from within your mapping functions and better controls to run your projects in your own infrastructure with automated DOS (denial of service) mitigation controls. Additionally, we have no plans to sunset our managed service.
+
+Both SubQuery and The Graph are designed to index data fast, but analysis shows that SubQuery is 1.85x faster for common projects over The Graph (e.g the standard Ethereum Name Service project). This adds up when you’re indexing millions of blocks, and is something to consider when choosing your indexer. SubQuery achieves this by using mulit-threading and optimisation of the store to reduce costly database writes. With faster sync times, developers can iterate faster and deliver features to market quicker.
 
 ![Competitor Comparison](/assets/img/competitor_comparison.jpg)
 
@@ -42,26 +44,16 @@ The manifest file contains the largest set of differences, but once you understa
 **Notable differences include:**
 
 - SubQuery has a section in the manifest for the `network:`. This is where you define what network your SubQuery project indexes, and the RPC endpoints (non-pruned archive nodes) that it connects to in order to retrieve the data. Make sure to include the `dictionary:` endpoint in this section as it will speed up the indexing speed of your SubQuery project.
-
-![Difference between a SubGraph and a SubQuery project](/assets/img/subgraph-manifest-1.png)
-
 - Both SubGraphs and SubQuery projects use the `dataSources:` section to list the mapping files.
 - Similarly, you can define the contract ABI information for the smart contract that you are indexing.
-
   - In SubQuery, this is under the `options:` property rather than `source:`.
   - In both, SubQuery and SubGraph, you import a custom ABI spec that is used by the processor to parse arguments. For SubGraphs, this is done within the `mapping:` section under `abis:`. For a SubQuery project, this is at the same level of `options:` under `assets:` and the key is the name of the ABI.
-    ![Difference between a SubGraph and a SubQuery project](/assets/img/subgraph-manifest-2.png)
-
 - In a SubQuery project, you can document both block handlers, call handlers, and event handlers in the same `mapping:` object.
 - In a SubQuery project, you do not list all mapping entities in the project manifest.
 - Handlers and Filters - Each mapping function is defined slightly differently in a SubQuery project:
-
   - Instead of listing the blocks/events/calls as the key and then denoting the handler that processes it. In SubQuery, you define the handler as the key and then what follows is the description of how this handler is triggered.
-
   - In a SubQuery project, you can document both block handlers, call handlers, and event handlers in the same `mapping:` object, the `kind:` property notes what type we are using.
   - SubQuery supports advanced filtering on the handler. The format of the supported filter varies amongst block/events/calls/transactions, and between the different blockchain networks. You should refer to the [documentation for a detailed description of each filter](./manifest/ethereum.md#mapping-handlers-and-filters).
-
-![Difference between a SubGraph and a SubQuery project](/assets/img/subgraph-manifest-3.png)
 
 ::: code-tabs
 
@@ -178,8 +170,6 @@ Mapping files are also quite identical to an intentionally equivalent set of com
 In SubQuery, all mapping handlers receive a typed parameter that depends on the chain handler that calls it. For example, an `ethereum/LogHandler` will receive a parameter of type `EthereumLog` and `avalanche/LogHandler` will receive a parameter of type `AvalancheLog`.
 
 The functions are defined the same way. Moreover, entities can be instantiated, retrieved, saved, and deleted from the SubQuery store in a similar way as well. The main difference is that SubQuery store operations are asynchronous.
-
-![Difference between a SubGraph and a SubQuery project](/assets/img/subgraph-mapping.png)
 
 ::: code-tabs
 
