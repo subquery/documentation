@@ -286,36 +286,72 @@ function getSidebar(locale: string): SidebarOptions {
           text: "2. Specific Chains",
           collapsible: true,
           children: [
-            `${locale}/quickstart/quickstart_chains/algorand.md`,
-            `${locale}/quickstart/quickstart_chains/avalanche.md`,
+            {
+              text: "Algorand",
+              link: `${locale}/quickstart/quickstart_chains/algorand.md`,
+            },
+            {
+              text: "Avalanche",
+              link: `${locale}/quickstart/quickstart_chains/avalanche.md`,
+            },
             {
               text: "Cosmos",
               collapsible: true,
               children: [
-                `${locale}/quickstart/quickstart_chains/cosmos-cronos.md`,
-                `${locale}/quickstart/quickstart_chains/cosmos-juno.md`,
-                `${locale}/quickstart/quickstart_chains/cosmos-thorchain.md`,
+                {
+                  text: "Cronos",
+                  link: `${locale}/quickstart/quickstart_chains/cosmos-cronos.md`,
+                },
+                {
+                  text: "Juno",
+                  link: `${locale}/quickstart/quickstart_chains/cosmos-juno.md`,
+                },
+                {
+                  text: "Thorchain",
+                  link: `${locale}/quickstart/quickstart_chains/cosmos-thorchain.md`,
+                },
               ],
             },
             {
               text: "Ethereum",
               collapsible: true,
               children: [
-                `${locale}/quickstart/quickstart_chains/ethereum-gravatar.md`,
-                `${locale}/quickstart/quickstart_chains/ethereum-ens.md`,
+                {
+                  text: "Ethereum Gravatar (Simple)",
+                  link: `${locale}/quickstart/quickstart_chains/ethereum-gravatar.md`,
+                },
+                {
+                  text: "Ethereum ENS (Complex)",
+                  link: `${locale}/quickstart/quickstart_chains/ethereum-ens.md`,
+                },
               ],
             },
-            `${locale}/quickstart/quickstart_chains/flare.md`,
-            `${locale}/quickstart/quickstart_chains/near.md`,
+            {
+              text: "Flare",
+              link: `${locale}/quickstart/quickstart_chains/flare.md`,
+            },
+            {
+              text: "NEAR",
+              link: `${locale}/quickstart/quickstart_chains/near.md`,
+            },
             {
               text: "Polkadot/Substrate",
               collapsible: true,
               children: [
-                `${locale}/quickstart/quickstart_chains/polkadot.md`,
-                `${locale}/quickstart/quickstart_chains/polkadot-humanode.md`,
+                {
+                  text: "Humanode",
+                  link: `${locale}/quickstart/quickstart_chains/polkadot-humanode.md`,
+                },
+                {
+                  text: "Polkadot/Substrate",
+                  link: `${locale}/quickstart/quickstart_chains/polkadot.md`,
+                },
               ],
             },
-            `${locale}/quickstart/quickstart_chains/terra.md`,
+            {
+              text: "Terra",
+              link: `${locale}/quickstart/quickstart_chains/terra.md`,
+            },
           ],
         },
         `${locale}/quickstart/whats-next.md`,
