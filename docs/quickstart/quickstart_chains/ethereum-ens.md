@@ -215,8 +215,81 @@ query {
       id
       name
       labelName
-      labelhash
-      subdomainCount
+      subdomains(first: 5) {
+        totalCount
+        nodes {
+          id
+          name
+          labelName
+        }
+      }
+    }
+  }
+}
+```
+
+```json
+{
+  "data": {
+    "domains": {
+      "nodes": [
+        {
+          "id": "0x0000000000000000000000000000000000000000000000000000000000000000",
+          "name": null,
+          "labelName": null,
+          "subdomains": {
+            "totalCount": 2,
+            "nodes": [
+              {
+                "id": "0x825726c8cd4176035fe52b95bc1aef3c27e841545bd3a431079f38641c7ba88c",
+                "name": "0xdec08c9dbbdd0890e300eb5062089b2d4b1c40e3673bbccb5423f7b37dcf9a9c",
+                "labelName": "0xdec08c9dbbdd0890e300eb5062089b2d4b1c40e3673bbccb5423f7b37dcf9a9c"
+              },
+              {
+                "id": "0xd1b0e2eec983ad6a7fb21f6fc706af8717b12b8814d2596016750ea73e00b57f",
+                "name": "0x4f5b812789fc606be1b3b16908db13fc7a9adf7ca72641f84d75b47069d3d7f0",
+                "labelName": "0x4f5b812789fc606be1b3b16908db13fc7a9adf7ca72641f84d75b47069d3d7f0"
+              }
+            ]
+          }
+        },
+        {
+          "id": "0x352b3a53b6861a6c39477ba530d607cc922b3469121b1b1cb533c2b66805007c",
+          "name": null,
+          "labelName": "0xe5e14487b78f85faa6e1808e89246cf57dd34831548ff2e6097380d98db2504a",
+          "subdomains": {
+            "totalCount": 0,
+            "nodes": []
+          }
+        },
+        {
+          "id": "0x79700a4bad07bddf30b55c0c41297f727c853ae7ac64667e009df49a9ab68dfd",
+          "name": null,
+          "labelName": "0xc384f2a2b2ac833e2abf795bf38a38f0865833233b8f67cecd7598bd108a2859",
+          "subdomains": {
+            "totalCount": 0,
+            "nodes": []
+          }
+        },
+        {
+          "id": "0x825726c8cd4176035fe52b95bc1aef3c27e841545bd3a431079f38641c7ba88c",
+          "name": "0xdec08c9dbbdd0890e300eb5062089b2d4b1c40e3673bbccb5423f7b37dcf9a9c",
+          "labelName": "0xdec08c9dbbdd0890e300eb5062089b2d4b1c40e3673bbccb5423f7b37dcf9a9c",
+          "subdomains": {
+            "totalCount": 0,
+            "nodes": []
+          }
+        },
+        {
+          "id": "0xd1b0e2eec983ad6a7fb21f6fc706af8717b12b8814d2596016750ea73e00b57f",
+          "name": "0x4f5b812789fc606be1b3b16908db13fc7a9adf7ca72641f84d75b47069d3d7f0",
+          "labelName": "0x4f5b812789fc606be1b3b16908db13fc7a9adf7ca72641f84d75b47069d3d7f0",
+          "subdomains": {
+            "totalCount": 0,
+            "nodes": []
+          }
+        }
+      ]
     }
   }
 }
