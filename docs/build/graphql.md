@@ -23,7 +23,7 @@ npm run-script codegen
 
 :::
 
-All entites can be imported from the following directory:
+All entites can be imported from the following directory after codegen:
 
 ```ts
 import { GraphQLEntity1, GraphQLEntity2 } from "../types";

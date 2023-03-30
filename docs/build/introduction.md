@@ -70,6 +70,8 @@ If you're creating a new Etheruem based project (including Eth, Avalanche, and S
 import { GraphQLEntity1, GraphQLEntity2 } from "../types";
 ```
 
+**ABI Codegen is not yet supported for Cosmos Ethermint EVM ([track progress here](https://github.com/subquery/subql-cosmos/issues/102)) or Substrate WASM**
+
 ## Build
 
 In order to run your SubQuery Project on a locally hosted SubQuery Node, you need to first build your work.

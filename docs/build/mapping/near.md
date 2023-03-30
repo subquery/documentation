@@ -65,12 +65,31 @@ import { NearAction, Transfer } from "@subql/types-near";
 export async function handleAction(
   action: NearAction<Transfer>
 ): Promise<void> {
-  logger.info(`Handling action at ${action.transaction.block_height}`);
+  // An Action can belong to either a transaction or a receipt
+  // To check which one, we can check if action.transaction is null
+  // If it is null, then it belongs to a receipt
+  logger.info(
+    `Handling action at ${
+      action.transaction
+        ? action.transaction.block_height
+        : action.receipt.block_height
+    }`
+  );
+
+  const id = action.transaction
+    ? `${action.transaction.block_height}-${action.transaction.result.id}-${action.id}`
+    : `${action.receipt.block_height}-${action.receipt.id}-${action.id}`;
+  const sender = action.transaction
+    ? action.transaction.signer_id
+    : action.receipt.predecessor_id;
+  const receiver = action.transaction
+    ? action.transaction.receiver_id
+    : action.receipt.receiver_id;
 
   const actionRecord = NearActionEntity.create({
-    id: `${action.transaction.result.id}-${action.id}`,
-    sender: action.transaction.signer_id,
-    receiver: action.transaction.receiver_id,
+    id: id,
+    sender: sender,
+    receiver: receiver,
     amount: BigInt((action.action as Transfer).deposit.toString()),
     payloadString: JSON.stringify(action.action.args.toJson()),
   });
@@ -79,7 +98,7 @@ export async function handleAction(
 }
 ```
 
-`NearAction` encapsulates the `action` object containing the action data and the `NearTransaction` in which the action occured in. The payload of the action is stored on the `args`. In many cases, `args` are base64 encoded and JSON formatted, in this case you can use `action.action.args.toJson();` to decode the arguments.
+`NearAction` encapsulates the `action` object containing the action data and the `NearTransaction` or `NearReceipt` in which the action occured in. The payload of the action is stored on the `args`. In many cases, `args` are base64 encoded and JSON formatted, in this case you can use `action.action.args.toJson();` to decode the arguments.
 
 ## RPC Calls
 
