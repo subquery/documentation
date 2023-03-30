@@ -35,7 +35,7 @@ export default defineUserConfig({
     }),
     docsearchPlugin({
       appId: "30B5W460WL",
-      apiKey: "7f75a78b4f95cebe82c0ced1ff75235e",
+      apiKey: "244dbaeef7659f2f3ec8dcbbd72b6160",
       indexName: "subquery",
     }),
   ],
