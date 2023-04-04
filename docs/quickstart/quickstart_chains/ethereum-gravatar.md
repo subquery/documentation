@@ -1,4 +1,4 @@
-# Ethereum Quick Start - Gravatar (Simplest)
+# Ethereum Quick Start - Gravatar (Simple)
 
 ## Goals
 
