@@ -1,4 +1,4 @@
-# Flare Mapping
+# Ethereum Mapping
 
 Mapping functions define how chain data is transformed into the optimised GraphQL entities that we have previously defined in the `schema.graphql` file.
 
@@ -6,7 +6,7 @@ Mapping functions define how chain data is transformed into the optimised GraphQ
 - These mappings are also exported in `src/index.ts`.
 - The mappings files are reference in `project.yaml` under the mapping handlers.
 
-There are different classes of mappings functions for Flare; [Block handlers](#block-handler), [Transaction Handlers](#transaction-handler), and [Log Handlers](#log-handler).
+There are different classes of mappings functions for Ethereum; [Block handlers](#block-handler), [Transaction Handlers](#transaction-handler), and [Log Handlers](#log-handler).
 
 ## Block Handler
 
@@ -15,9 +15,9 @@ You can use block handlers to capture information each time a new block is attac
 **Using block handlers slows your project down as they can be executed with each and every block - only use if you need to.**
 
 ```ts
-import { FlareBlock } from "@subql/types-flare";
+import { EthereumBlock } from "@subql/types-ethereum";
 
-export async function handleBlock(block: FlareBlock): Promise<void> {
+export async function handleBlock(block: EtheruemBlock): Promise<void> {
   // Create a new BlockEntity with the block hash as it's ID
   const record = new BlockEntity(block.blockHash);
   record.height = BigInt(block.blockNumber);
@@ -27,25 +27,20 @@ export async function handleBlock(block: FlareBlock): Promise<void> {
 
 ## Transaction Handler
 
-You can use transaction handlers to capture information about each of the transactions in a block. To achieve this, a defined TransactionHandler will be called once for every transaction. You should use [Mapping Filters](../manifest/flare.md#mapping-handlers-and-filters) in your manifest to filter transactions to reduce the time it takes to index data and improve mapping performance.
+You can use transaction handlers to capture information about each of the transactions in a block. To achieve this, a defined TransactionHandler will be called once for every transaction. You should use [Mapping Filters](../manifest/ethereum.md#mapping-handlers-and-filters) in your manifest to filter transactions to reduce the time it takes to index data and improve mapping performance.
 
 ```ts
-import { FlareTransaction } from "@subql/types-flare";
+import { Approval } from "../types";
+import { ApproveTransaction } from "../types/abi-interfaces/Erc20Abi";
 
-// Setup types from ABI
-type SubmitHashCallArgs = [BigNumber, string] & {
-  epochId: BigNumber;
-  hash: string;
-};
-
-export async function handleTransaction(
-  transaction: FlareTransaction<SubmitHashCallArgs>
-): Promise<void> {
-  const approval = SubmitHash.create({
-    id: transaction.hash,
-    epochId: JSON.parse(transaction.args[0].toString()),
-    hash: transaction.args[1],
-    contractAddress: transaction.to,
+export async function handleTransaction(tx: ApproveTransaction): Promise<void> {
+  logger.info(`New Approval transaction at block ${tx.blockNumber}`);
+  const approval = Approval.create({
+    id: tx.hash,
+    owner: tx.from,
+    spender: await tx.args[0],
+    value: BigInt(await tx.args[1].toString()),
+    contractAddress: tx.to,
   });
 
   await approval.save();
@@ -54,28 +49,19 @@ export async function handleTransaction(
 
 ## Log Handler
 
-You can use log handlers to capture information when certain logs are included on transactions. During the processing, the log handler will receive a log as an argument with the log's typed inputs and outputs. Any type of event will trigger the mapping, allowing activity with the data source to be captured. You should use [Mapping Filters](../manifest/flare.md#mapping-handlers-and-filters) in your manifest to filter events to reduce the time it takes to index data and improve mapping performance.
+You can use log handlers to capture information when certain logs are included on transactions. During the processing, the log handler will receive a log as an argument with the log's typed inputs and outputs. Any type of event will trigger the mapping, allowing activity with the data source to be captured. You should use [Mapping Filters](../manifest/ethereum.md#mapping-handlers-and-filters) in your manifest to filter events to reduce the time it takes to index data and improve mapping performance.
 
 ```ts
-import { FlareLog } from "@subql/types-flare";
+import { Transaction } from "../types";
+import { TransferLog } from "../types/abi-interfaces/Erc20Abi";
 
-// Setup types from ABI
-type HashSubmittedEventArgs = [string, BigNumber, string, BigNumber] & {
-  submitter: string;
-  epochId: BigNumber;
-  hash: string;
-  timestamp: BigNumber;
-};
-
-export async function handleLog(
-  log: FlareLog<HashSubmittedEventArgs>
-): Promise<void> {
-  const transaction = HashSubmittedEvent.create({
+export async function handleLog(log: TransferLog): Promise<void> {
+  logger.info(`New transfer transaction log at block ${log.blockNumber}`);
+  const transaction = Transaction.create({
     id: log.transactionHash,
-    submitter: log.args.submitter,
-    epochId: log.args.epochId.toBigInt(),
-    hash: log.args.hash,
-    timestamp: log.args.timestamp.toBigInt(),
+    value: log.args.value.toBigInt(),
+    from: log.args.from,
+    to: log.args.to,
     contractAddress: log.address,
   });
 
@@ -108,7 +94,7 @@ SubQuery is deterministic by design, that means that each SubQuery project is gu
 
 ```yml
 subquery-node:
-  image: onfinality/subql-node-flare:latest
+  image: onfinality/subql-node-ethereum:latest
   ...
   command:
     - -f=/app
@@ -120,10 +106,12 @@ subquery-node:
 When run in `unsafe` mode, you can import any custom libraries into your project and make external API calls using tools like node-fetch. A simple example is given below:
 
 ```ts
-import { FlareTransaction } from "@subql/types-flare";
+import { EthereumTransaction } from "@subql/types-ethereum";
 import fetch from "node-fetch";
 
-export async function handleTransaction(tx: FlareTransaction): Promise<void> {
+export async function handleTransaction(
+  tx: EthereumTransaction
+): Promise<void> {
   const httpData = await fetch("https://api.github.com/users/github");
   logger.info(`httpData: ${JSON.stringify(httpData.body)}`);
   // Do something with this data

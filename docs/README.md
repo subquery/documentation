@@ -54,6 +54,10 @@ editLink: false
           </div>
         </div>
       </div>
+      <router-link :to="{path: '/quickstart/quickstart_chains/ethereum.html'}"> 
+        <img src="/assets/img/logo_ethereum.svg" />
+        <img src="/assets/img/logo_ethereum_blue.svg" />
+      </router-link>
       <router-link :to="{path: '/quickstart/quickstart_chains/algorand.html'}"> 
         <img src="/assets/img/logo_algorand.svg" />
         <img src="/assets/img/logo_algorand_blue.svg" />

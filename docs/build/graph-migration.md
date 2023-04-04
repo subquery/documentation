@@ -1,6 +1,12 @@
 # Migrating from The Graph
 
-When we set out to build SubQuery, we always planned to make the developer experience as close as possible to other indexing solutions out there in the market, including The Graph.
+When we set out to build SubQuery, we always planned to make the developer experience as close as possible to other indexing solutions out there in the market, including The Graph. Ethereum developers can benefit from the superior SubQuery experience, including the open-source SDK, tools, documentation, and developer support that the SubQuery ecosystem provides. Additionally, Ethereum is accommodated by SubQuery’s Managed Service, which provides enterprise-level infrastructure hosting and handles over hundreds of millions of requests each day.
+
+SubQuery also brings some major improvements to existing users of The Graph, including the ability to make external API calls or import external libraries from within your mapping functions and better controls to run your projects in your own infrastructure with automated DOS (denial of service) mitigation controls. Additionally, we have no plans to sunset our managed service.
+
+Both SubQuery and The Graph are designed to index data fast, but analysis shows that SubQuery is 1.85x faster for common projects over The Graph (e.g the standard Ethereum Name Service project). This adds up when you’re indexing millions of blocks, and is something to consider when choosing your indexer. SubQuery achieves this by using mulit-threading and optimisation of the store to reduce costly database writes. With faster sync times, developers can iterate faster and deliver features to market quicker.
+
+![Competitor Comparison](/assets/img/competitor_comparison.jpg)
 
 The migration from a SubGraph to a SubQuery Project is (by design) easy and quick. It may take you an hour or two to complete the migration, depending on the complexity of your SubGraph.
 
@@ -33,31 +39,21 @@ Notable differences include:
 
 ## Manifest File
 
-The manifest file contains the largest set of differences, but once you understand those they can be easily overcome. Most of these changes are due to the layout of this file, you can see the [full documentation of this file here](./manifest/avalanche.md).
+The manifest file contains the largest set of differences, but once you understand those they can be easily overcome. Most of these changes are due to the layout of this file, you can see the [full documentation of this file here](./manifest/ethereum.md).
 
 **Notable differences include:**
 
 - SubQuery has a section in the manifest for the `network:`. This is where you define what network your SubQuery project indexes, and the RPC endpoints (non-pruned archive nodes) that it connects to in order to retrieve the data. Make sure to include the `dictionary:` endpoint in this section as it will speed up the indexing speed of your SubQuery project.
-
-![Difference between a SubGraph and a SubQuery project](/assets/img/subgraph-manifest-1.png)
-
 - Both SubGraphs and SubQuery projects use the `dataSources:` section to list the mapping files.
 - Similarly, you can define the contract ABI information for the smart contract that you are indexing.
-
   - In SubQuery, this is under the `options:` property rather than `source:`.
   - In both, SubQuery and SubGraph, you import a custom ABI spec that is used by the processor to parse arguments. For SubGraphs, this is done within the `mapping:` section under `abis:`. For a SubQuery project, this is at the same level of `options:` under `assets:` and the key is the name of the ABI.
-    ![Difference between a SubGraph and a SubQuery project](/assets/img/subgraph-manifest-2.png)
-
 - In a SubQuery project, you can document both block handlers, call handlers, and event handlers in the same `mapping:` object.
 - In a SubQuery project, you do not list all mapping entities in the project manifest.
 - Handlers and Filters - Each mapping function is defined slightly differently in a SubQuery project:
-
   - Instead of listing the blocks/events/calls as the key and then denoting the handler that processes it. In SubQuery, you define the handler as the key and then what follows is the description of how this handler is triggered.
-
   - In a SubQuery project, you can document both block handlers, call handlers, and event handlers in the same `mapping:` object, the `kind:` property notes what type we are using.
-  - SubQuery supports advanced filtering on the handler. The format of the supported filter varies amongst block/events/calls/transactions, and between the different blockchain networks. You should refer to the [documentation for a detailed description of each filter](./manifest/avalanche.md#mapping-handlers-and-filters).
-
-![Difference between a SubGraph and a SubQuery project](/assets/img/subgraph-manifest-3.png)
+  - SubQuery supports advanced filtering on the handler. The format of the supported filter varies amongst block/events/calls/transactions, and between the different blockchain networks. You should refer to the [documentation for a detailed description of each filter](./manifest/ethereum.md#mapping-handlers-and-filters).
 
 ::: code-tabs
 
@@ -67,99 +63,83 @@ The manifest file contains the largest set of differences, but once you understa
 # ******* SubGraph *******
 specVersion: 0.0.2
 
+description: Gravatar for Ethereum
+repository: https://github.com/graphprotocol/example-subgraph
 schema:
   file: ./schema.graphql
 
 dataSources:
-  - kind: ethereum
-    name: Expedition
-    network: herotestnet
-
-    # Section relating to ABIs, also note abis: in mapping
+  - kind: ethereum/contract
+    name: Gravity
+    network: mainnet
     source:
-      address: "0x31DcbBc450DEAe74E73dF8988F5a8AdbE6dBaC93"
-      abi: Expedition
-
+      address: "0x2E645469f354BB4F5c8a05B3b30A929361cf77eC"
+      abi: Gravity
     mapping:
-      file: "./src/mapping.ts"
       kind: ethereum/events
       apiVersion: 0.0.5
       language: wasm/assemblyscript
       entities:
-        - ReinforceAttack
-        - ReinforceDefense
-        - UnlockAttackNFTs
+        - Gravatar
       abis:
-        - name: Expedition
-          file: ./abis/Expedition.json
-      # handlers are split up depending on type
+        - name: Gravity
+          file: ./abis/Gravity.json
       eventHandlers:
-        - event: ReinforceAttack(address,uint256,uint256,uint256)
-          handler: handleReinforceAttack
-        - event: ReinforceDefense(address,uint256,uint256,uint256)
-          handler: handleReinforceDefense
-        - event: UnlockAttackNFTs(address,uint256)
-          handler: handleUnlockAttackNFTs
+        - event: NewGravatar(uint256,address,string,string)
+          handler: handleNewGravatar
+        - event: UpdatedGravatar(uint256,address,string,string)
+          handler: handleUpdatedGravatar
+      file: ./src/mapping.ts
 ```
 
 @tab:active SubQuery
 
 ```yaml
 # ******* SubQuery *******
-specVersion: "1.0.0"
+specVersion: 1.0.0
 
-name: "avalanche-subql-starter"
+name: "subquery-example-gravatar"
 version: "0.0.1"
 runner:
   node:
-    name: "@subql/node-avalanche"
+    name: "@subql/node-ethereum"
     version: "*"
   query:
     name: "@subql/query"
     version: "*"
-description: "This project can be used as a starting point for developing your new Avalanche SubQuery project"
-repository: "https://github.com/subquery/avalanche-subql-starter"
+description: "This project can be use as a starting point for developing your new Ethereum SubQuery project, it indexes all Gravatars on Ethereum"
+repository: "https://github.com/subquery/eth-gravatar"
 
 schema:
   file: "./schema.graphql"
 
-# Network endpoint definition
 network:
-  endpoint: "http://avalanche.api.onfinality.io"
-  chainId: "mainnet"
-  subnet: "C"
+  chainId: "1"
+  endpoint: "https://eth.api.onfinality.io/public"
+  dictionary: "https://api.subquery.network/sq/subquery/ethereum-dictionary"
 
 dataSources:
-  - kind: avalanche/Runtime
-    startBlock: 5888150
-
-    # Section relating to ABIs
+  - kind: ethereum/Runtime
+    startBlock: 6175243 # This is when the Gravatar contract was deployed
     options:
-      address: "0x31DcbBc450DEAe74E73dF8988F5a8AdbE6dBaC93"
-      abi: Expedition
+      abi: gravity
+      address: "0x2E645469f354BB4F5c8a05B3b30A929361cf77eC" # The contract address of the Gravatar on Ethereum
     assets:
-      Expedition:
-        file: "./abis/Expedition.json"
-
+      gravity:
+        file: "./abis/Gravity.json"
     mapping:
       file: "./dist/index.js"
-      # handlers are all listed in one place
       handlers:
-        - handler: handleReinforceAttack
-          kind: avalanche/LogHandler
+        - handler: handleNewGravatar
+          kind: ethereum/LogHandler
           filter:
             topics:
-              - ReinforceAttack(address,uint256,uint256,uint256)
-        - handler: handleReinforceDefense
-          kind: avalanche/LogHandler
+              - NewGravatar(uint256,address,string,string)
+        - handler: handleUpdatedGravatar
+          kind: ethereum/LogHandler
           filter:
             topics:
-              - ReinforceDefense(address,uint256,uint256,uint256)
-        - handler: handleUnlockAttackNFTs
-          kind: avalanche/LogHandler
-          filter:
-            topics:
-              - UnlockAttackNFTs(address,uint256)
+              - UpdatedGravatar(uint256,address,string,string)
 ```
 
 :::
@@ -174,7 +154,7 @@ All GraphQL entities will have generated entity classes that provide type-safe e
 import { Gravatar } from "../types";
 ```
 
-For ABI's registered in the `project.yaml`, similar type safe entities will be generated using `npx typechain --target=ethers-v5` command, allowing you to bind these contracts to specific addresses in the mappings and call read-only contract methods against the block being processed. It will also generate a class for every contract event to provide easy access to event parameters, as well as the block and transaction the event originated from. All of these types are written to `src/types` directory.
+For ABI's registered in the `project.yaml`, similar type safe entities will be generated using `npx typechain --target=ethers-v5` command, allowing you to bind these contracts to specific addresses in the mappings and call read-only contract methods against the block being processed. It will also generate a class for every contract event to provide easy access to event parameters, as well as the block and transaction the event originated from. All of these types are written to `src/types` directory. In the example [Gravatar SubQuery project](../quickstart/quickstart_chains/ethereum-gravatar.md), you would import these types like so.
 
 ```ts
 import {
@@ -187,11 +167,9 @@ import {
 
 Mapping files are also quite identical to an intentionally equivalent set of commands, which are used to access the Graph Node store and the SubQuery Project store.
 
-In SubQuery, all mapping handlers receive a typed parameter that depends on the handler that calls it. For example, an `avalanche/LogHandler` will receive a parameter of type `AvalancheLog` and `substrate/EventHandler` will receive a parameter of type `SubstrateEvent`.
+In SubQuery, all mapping handlers receive a typed parameter that depends on the chain handler that calls it. For example, an `ethereum/LogHandler` will receive a parameter of type `EthereumLog` and `avalanche/LogHandler` will receive a parameter of type `AvalancheLog`.
 
-The functions are defined the same way. Moreover, entities can be instantiated, retrieved, saved, and deleted from the SubQuery store in a similar way as well.
-
-![Difference between a SubGraph and a SubQuery project](/assets/img/subgraph-mapping.png)
+The functions are defined the same way. Moreover, entities can be instantiated, retrieved, saved, and deleted from the SubQuery store in a similar way as well. The main difference is that SubQuery store operations are asynchronous.
 
 ::: code-tabs
 
@@ -199,19 +177,27 @@ The functions are defined the same way. Moreover, entities can be instantiated, 
 
 ```ts
 // ******* SubGraph *******
-export function handleUnlockAttackNFTs(event: UnlockAttackNFTs): void {
-  // Load campaign record
-  let campaign = Campaign.load(event.params._id.toString());
+import { NewGravatar, UpdatedGravatar } from "../generated/Gravity/Gravity";
+import { Gravatar } from "../generated/schema";
 
-  // If the campaign does not exist create it with the campaign id
-  if (!campaign) {
-    campaign = new Campaign(event.params._id.toString());
+export function handleNewGravatar(event: NewGravatar): void {
+  let gravatar = new Gravatar(event.params.id.toHex());
+  gravatar.owner = event.params.owner;
+  gravatar.displayName = event.params.displayName;
+  gravatar.imageUrl = event.params.imageUrl;
+  gravatar.save();
+}
+
+export function handleUpdatedGravatar(event: UpdatedGravatar): void {
+  let id = event.params.id.toHex();
+  let gravatar = Gravatar.load(id);
+  if (gravatar == null) {
+    gravatar = new Gravatar(id);
   }
-
-  // Set is claimed for the ambusher
-  campaign.isClaimedAmbusher = true;
-
-  campaign.save();
+  gravatar.owner = event.params.owner;
+  gravatar.displayName = event.params.displayName;
+  gravatar.imageUrl = event.params.imageUrl;
+  gravatar.save();
 }
 ```
 
@@ -219,22 +205,32 @@ export function handleUnlockAttackNFTs(event: UnlockAttackNFTs): void {
 
 ```ts
 // ******* SubQuery *******
-export async function handleUnlockAttackNFTs(
-  event: AvalancheLog<UnlockAttackNFTsEvent["args"]>
+import {
+  NewGravatarLog,
+  UpdatedGravatarLog,
+} from "../types/abi-interfaces/Gravity";
+import { Gravatar } from "../types";
+
+export async function handleNewGravatar(event: NewGravatarLog): Promise<void> {
+  let gravatar = new Gravatar(event.args.id.toHexString());
+  gravatar.owner = event.args.owner;
+  gravatar.displayName = event.args.displayName;
+  gravatar.imageUrl = event.args.imageUrl;
+  await gravatar.save();
+}
+
+export async function handleUpdatedGravatar(
+  event: UpdatedGravatarLog
 ): Promise<void> {
-  // Load campaign record
-  let campaign = await Campaign.get(event.args._id.toHexString());
-
-  // If the campaign does not exist create it with the campaign id
-  if (!campaign) {
-    // This will cause issues as there is missing required params
-    campaign = new Campaign(event.args._id.toHexString());
+  let id = event.args.id.toHexString();
+  let gravatar = await Gravatar.get(id);
+  if (gravatar == null || gravatar == undefined) {
+    gravatar = new Gravatar(id);
   }
-
-  // Set is claimed for the ambusher
-  campaign.isClaimedAmbusher = true;
-
-  await campaign.save();
+  gravatar.owner = event.args.owner;
+  gravatar.displayName = event.args.displayName;
+  gravatar.imageUrl = event.args.imageUrl;
+  await gravatar.save();
 }
 ```
 

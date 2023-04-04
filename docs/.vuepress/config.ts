@@ -287,11 +287,11 @@ function getSidebar(locale: string): SidebarOptions {
           collapsible: true,
           children: [
             {
-              text:'Algorand',
+              text: "Algorand",
               link: `${locale}/quickstart/quickstart_chains/algorand.md`,
             },
             {
-              text:'Avalanche',
+              text: "Avalanche",
               link: `${locale}/quickstart/quickstart_chains/avalanche.md`,
             },
             {
@@ -299,25 +299,39 @@ function getSidebar(locale: string): SidebarOptions {
               collapsible: true,
               children: [
                 {
-                  text:'Cronos',
+                  text: "Cronos",
                   link: `${locale}/quickstart/quickstart_chains/cosmos-cronos.md`,
                 },
                 {
-                  text:'Juno',
+                  text: "Juno",
                   link: `${locale}/quickstart/quickstart_chains/cosmos-juno.md`,
                 },
                 {
-                  text:'Thorchain',
+                  text: "Thorchain",
                   link: `${locale}/quickstart/quickstart_chains/cosmos-thorchain.md`,
                 },
               ],
             },
             {
-              text:'Flare',
+              text: "Ethereum",
+              collapsible: true,
+              children: [
+                {
+                  text: "Ethereum Gravatar (Simple)",
+                  link: `${locale}/quickstart/quickstart_chains/ethereum-gravatar.md`,
+                },
+                {
+                  text: "Ethereum ENS (Complex)",
+                  link: `${locale}/quickstart/quickstart_chains/ethereum-ens.md`,
+                },
+              ],
+            },
+            {
+              text: "Flare",
               link: `${locale}/quickstart/quickstart_chains/flare.md`,
             },
             {
-              text:'NEAR',
+              text: "NEAR",
               link: `${locale}/quickstart/quickstart_chains/near.md`,
             },
             {
@@ -325,17 +339,17 @@ function getSidebar(locale: string): SidebarOptions {
               collapsible: true,
               children: [
                 {
-                  text:'Humanode',
+                  text: "Humanode",
                   link: `${locale}/quickstart/quickstart_chains/polkadot-humanode.md`,
                 },
                 {
-                  text:'Polkadot/Substrate',
+                  text: "Polkadot/Substrate",
                   link: `${locale}/quickstart/quickstart_chains/polkadot.md`,
                 },
               ],
             },
             {
-              text:'Terra',
+              text: "Terra",
               link: `${locale}/quickstart/quickstart_chains/terra.md`,
             },
           ],
@@ -355,6 +369,7 @@ function getSidebar(locale: string): SidebarOptions {
           collapsible: true,
           children: [
             `${locale}/build/manifest/polkadot.md`,
+            `${locale}/build/manifest/ethereum.md`,
             `${locale}/build/manifest/cosmos.md`,
             `${locale}/build/manifest/avalanche.md`,
             `${locale}/build/manifest/algorand.md`,
@@ -369,6 +384,7 @@ function getSidebar(locale: string): SidebarOptions {
           collapsible: true,
           children: [
             `${locale}/build/mapping/polkadot.md`,
+            `${locale}/build/mapping/ethereum.md`,
             `${locale}/build/mapping/cosmos.md`,
             `${locale}/build/mapping/avalanche.md`,
             `${locale}/build/mapping/algorand.md`,
