@@ -68,7 +68,7 @@ Check out our [Manifest File](../../build/manifest/ethereum.md) documentation to
 
 The `schema.graphql` file determines the shape of your data from SubQuery due to the mechanism of the GraphQL query language. Hence, updating the GraphQL Schema file is the perfect place to start. It allows you to define your end goal right at the start.
 
-Remove all existing entities and update the `schema.graphql` file as follows, here you can see we are indexing all rewards and also addresses that those rewards go to/are claimed from:
+Remove all existing entities and update the `schema.graphql` file as follows. Here you can see we are indexing the id, owner, display name, imagine URL and the block the gravatar was created in.
 
 ```graphql
 type Gravatar @entity {
@@ -244,7 +244,7 @@ Try the following query to understand how it works for your new SubQuery starter
 
 ```graphql
 query {
-  gravatars(first: 5, orderBy: CREATED_BLOCK_DESC) {
+  gravatars(first: 2, orderBy: CREATED_BLOCK_DESC) {
     nodes {
       id
       owner
@@ -261,31 +261,21 @@ You will see the result similar to below:
 ```json
 {
   "data": {
-    "rewards": {
+    "gravatars": {
       "nodes": [
         {
-          "id": "0xd832d0283f56acbda902066dd47147f510a68fd923296a2162cffcf10c15d8f8",
-          "amount": "62306014311508310008",
-          "recipientId": "0xc2e6628b5b0277e97c68a47328f8effde9629184",
-          "dataProvider": "0x69141E890F3a79cd2CFf552c0B71508bE23712dC",
-          "whoClaimedId": "0xc2e6628b5b0277e97c68a47328f8effde9629184"
+          "id": "0x47",
+          "owner": "\\xbc8dafeaca658ae0857c80d8aa6de4d487577c63",
+          "displayName": "Victor",
+          "imageUrl": "https://ucarecdn.com/295e4ba5-ad1c-48bf-9957-093424709881/-/crop/152x152/1,0/-/preview/",
+          "createdBlock": "6469958"
         },
         {
-          "id": "0xd6e84fc6b13f5832e04c8a851a2d3e634e82b029f253000d980ec68dc59e697f",
-          "amount": "248122819100600283",
-          "recipientId": "0x665574495eb0a4a03291f2fb3f150914dc4009f3",
-          "dataProvider": "0x939789ed3D07A80da886A3E3017d665cBb5591dC",
-          "whoClaimedId": "0x665574495eb0a4a03291f2fb3f150914dc4009f3"
-        }
-      ]
-    },
-    "addresses": {
-      "nodes": [
-        {
-          "id": "0xc2e6628b5b0277e97c68a47328f8effde9629184"
-        },
-        {
-          "id": "0x665574495eb0a4a03291f2fb3f150914dc4009f3"
+          "id": "0x46",
+          "owner": "\\x0773cbc2c55cd6354a61b7bcbca52d9dccd56534",
+          "displayName": "dgogel",
+          "imageUrl": "https://ucarecdn.com/c44402a0-30f8-4c0c-bf1f-b13918903211/-/crop/512x512/0,0/-/preview/",
+          "createdBlock": "6460716"
         }
       ]
     }
