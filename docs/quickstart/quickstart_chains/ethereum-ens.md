@@ -1,4 +1,4 @@
-# Ethereum Quick Start - ENS (Simple)
+# Ethereum Quick Start - ENS (Complex)
 
 ## Goals
 
