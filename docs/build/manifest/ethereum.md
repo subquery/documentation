@@ -76,12 +76,12 @@ dataSources:
 | **name**        | String                                     | Name of your project                                |
 | **version**     | String                                     | Version of your project                             |
 | **description** | String                                     | Description of your project                         |
+| **runner**      | [Runner Spec](#runner-spec)                | Runner specs info                                   |
 | **repository**  | String                                     | Git repository address of your project              |
 | **schema**      | [Schema Spec](#schema-spec)                | The location of your GraphQL schema file            |
 | **network**     | [Network Spec](#network-spec)              | Detail of the network to be indexed                 |
 | **dataSources** | [DataSource Spec](#datasource-spec)        | The datasource to your project                      |
 | **templates**   | [Templates Spec](../dynamicdatasources.md) | Allows creating new datasources from this templates |
-| **runner**      | [Runner Spec](#runner-spec)                | Runner specs info                                   |
 
 ### Schema Spec
 
