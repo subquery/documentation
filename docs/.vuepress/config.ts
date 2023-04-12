@@ -35,8 +35,8 @@ export default defineUserConfig({
     }),
     docsearchPlugin({
       appId: "30B5W460WL",
-      apiKey: "244dbaeef7659f2f3ec8dcbbd72b6160",
-      indexName: "academy_SubQuery Academy",
+      apiKey: "fdae5afc6c3711a8b4f53a4801b43143",
+      indexName: "subquery_academy",
     }),
   ],
   title: "SubQuery Academy (Documentation)",
