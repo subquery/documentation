@@ -349,6 +349,10 @@ function getSidebar(locale: string): SidebarOptions {
               ],
             },
             {
+              text: "Polygon",
+              link: `${locale}/quickstart/quickstart_chains/polygon.md`,
+            },
+            {
               text: "Terra",
               link: `${locale}/quickstart/quickstart_chains/terra.md`,
             },

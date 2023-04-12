@@ -2,7 +2,7 @@
 
 ## Goals
 
-The goal of this quick start guide is to index all token deposits from the Polygon Plamsa Bridge.
+The goal of this quick start guide is to index all token deposits from the Polygon Plasma Bridge.
 
 ::: warning
 Before we begin, make sure that you have initialised your project using the provided steps in the [Start Here](../quickstart.md) section. **Please initialise a Polygon project**
@@ -64,7 +64,7 @@ dataSources:
               - TokenWithdrawn (address indexed rootToken, address indexed childToken, address indexed user, uint256 amount, uint256 withrawCount)
 ```
 
-The above code indicates that you will be running a `handleDeposit` mapping function whenever there is an `TokenDeposited` log on any transaction from the [Plamsa Bridge contract](https://polygonscan.com/tx/0x88e3ab569326b52e9dd8a5f72545d89d8426bbf536f3bfaf31e023fb459ca373). Simarly, you'll be running a `handleWithdrawl` mapping function whenever there is an `TokenWithdrawn` logs.
+The above code indicates that you will be running a `handleDeposit` mapping function whenever there is an `TokenDeposited` log on any transaction from the [Plasma Bridge contract](https://polygonscan.com/tx/0x88e3ab569326b52e9dd8a5f72545d89d8426bbf536f3bfaf31e023fb459ca373). Simarly, you'll be running a `handleWithdrawl` mapping function whenever there is an `TokenWithdrawn` logs.
 
 Check out our [Manifest File](../../build/manifest/polygon.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
 
