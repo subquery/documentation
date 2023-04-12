@@ -321,21 +321,131 @@ You will see the result similar to below:
 ```json
 {
   "data": {
-    "gravatars": {
+    "deposits": {
       "nodes": [
         {
-          "id": "0x47",
-          "owner": "\\xbc8dafeaca658ae0857c80d8aa6de4d487577c63",
-          "displayName": "Victor",
-          "imageUrl": "https://ucarecdn.com/295e4ba5-ad1c-48bf-9957-093424709881/-/crop/152x152/1,0/-/preview/",
-          "createdBlock": "6469958"
+          "id": "86050001",
+          "rootToken": "0x7D1AfA7B718fb893dB30A3aBc0Cfc608AaCfeBB0",
+          "childToken": "0x0000000000000000000000000000000000001010",
+          "userId": "0xa0ec2cc2f5966601284a4971205412cb0d396947",
+          "amount": "436178234282070000000000",
+          "amountFriendly": "436178234282070000000000"
         },
         {
-          "id": "0x46",
-          "owner": "\\x0773cbc2c55cd6354a61b7bcbca52d9dccd56534",
-          "displayName": "dgogel",
-          "imageUrl": "https://ucarecdn.com/c44402a0-30f8-4c0c-bf1f-b13918903211/-/crop/512x512/0,0/-/preview/",
-          "createdBlock": "6460716"
+          "id": "85970002",
+          "rootToken": "0x7D1AfA7B718fb893dB30A3aBc0Cfc608AaCfeBB0",
+          "childToken": "0x0000000000000000000000000000000000001010",
+          "userId": "0x3a542300159d084382e228ec8f54a402451e5a67",
+          "amount": "306601000000000000000000",
+          "amountFriendly": "306601000000000000000000"
+        },
+        {
+          "id": "86170001",
+          "rootToken": "0x7D1AfA7B718fb893dB30A3aBc0Cfc608AaCfeBB0",
+          "childToken": "0x0000000000000000000000000000000000001010",
+          "userId": "0x0ccf5b43857ca33df612a4f1cb671d67383bf31e",
+          "amount": "150887763821350281472596",
+          "amountFriendly": "150887763821350281472596"
+        },
+        {
+          "id": "85970001",
+          "rootToken": "0x7D1AfA7B718fb893dB30A3aBc0Cfc608AaCfeBB0",
+          "childToken": "0x0000000000000000000000000000000000001010",
+          "userId": "0x0a5ccb582c0b08c8e7704311383c2ea698840e7b",
+          "amount": "129292331999990000000000",
+          "amountFriendly": "129292331999990000000000"
+        },
+        {
+          "id": "86490001",
+          "rootToken": "0x7D1AfA7B718fb893dB30A3aBc0Cfc608AaCfeBB0",
+          "childToken": "0x0000000000000000000000000000000000001010",
+          "userId": "0x93beca36d5bcdc7be0f9ca38b1b5f5f5292aa859",
+          "amount": "109399000000000000000000",
+          "amountFriendly": "109399000000000000000000"
+        }
+      ]
+    },
+    "users": {
+      "nodes": [
+        {
+          "id": "0xa0ec2cc2f5966601284a4971205412cb0d396947",
+          "totalDeposits": "436178234282070000000000",
+          "deposits": {
+            "totalCount": 1,
+            "nodes": [
+              {
+                "id": "86050001",
+                "rootToken": "0x7D1AfA7B718fb893dB30A3aBc0Cfc608AaCfeBB0",
+                "childToken": "0x0000000000000000000000000000000000001010",
+                "amount": "436178234282070000000000",
+                "amountFriendly": "436178234282070000000000"
+              }
+            ]
+          }
+        },
+        {
+          "id": "0x3a542300159d084382e228ec8f54a402451e5a67",
+          "totalDeposits": "306601000000000000000000",
+          "deposits": {
+            "totalCount": 1,
+            "nodes": [
+              {
+                "id": "85970002",
+                "rootToken": "0x7D1AfA7B718fb893dB30A3aBc0Cfc608AaCfeBB0",
+                "childToken": "0x0000000000000000000000000000000000001010",
+                "amount": "306601000000000000000000",
+                "amountFriendly": "306601000000000000000000"
+              }
+            ]
+          }
+        },
+        {
+          "id": "0x0ccf5b43857ca33df612a4f1cb671d67383bf31e",
+          "totalDeposits": "150887763821350281472596",
+          "deposits": {
+            "totalCount": 1,
+            "nodes": [
+              {
+                "id": "86170001",
+                "rootToken": "0x7D1AfA7B718fb893dB30A3aBc0Cfc608AaCfeBB0",
+                "childToken": "0x0000000000000000000000000000000000001010",
+                "amount": "150887763821350281472596",
+                "amountFriendly": "150887763821350281472596"
+              }
+            ]
+          }
+        },
+        {
+          "id": "0x0a5ccb582c0b08c8e7704311383c2ea698840e7b",
+          "totalDeposits": "129292331999990000000000",
+          "deposits": {
+            "totalCount": 1,
+            "nodes": [
+              {
+                "id": "85970001",
+                "rootToken": "0x7D1AfA7B718fb893dB30A3aBc0Cfc608AaCfeBB0",
+                "childToken": "0x0000000000000000000000000000000000001010",
+                "amount": "129292331999990000000000",
+                "amountFriendly": "129292331999990000000000"
+              }
+            ]
+          }
+        },
+        {
+          "id": "0x93beca36d5bcdc7be0f9ca38b1b5f5f5292aa859",
+          "totalDeposits": "109399000000000000000000",
+          "deposits": {
+            "totalCount": 1,
+            "nodes": [
+              {
+                "id": "86490001",
+                "rootToken": "0x7D1AfA7B718fb893dB30A3aBc0Cfc608AaCfeBB0",
+                "childToken": "0x0000000000000000000000000000000000001010",
+                "amount": "109399000000000000000000",
+                "amountFriendly": "109399000000000000000000"
+              }
+            ]
+          }
         }
       ]
     }
