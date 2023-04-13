@@ -55,6 +55,10 @@ footer: false lastUpdated: false contributors: false editLink: false
         <img src="/assets/img/logo_ethereum.svg" />
         <img src="/assets/img/logo_ethereum_blue.svg" />
       </router-link>
+      <router-link :to="{path: '/quickstart/quickstart_chains/polygon.html'}"> 
+        <img src="/assets/img/logo_polygon.svg" />
+        <img src="/assets/img/logo_polygon_blue.svg" />
+      </router-link>
       <router-link :to="{path: '/quickstart/quickstart_chains/algorand.html'}"> 
         <img src="/assets/img/logo_algorand.svg" />
         <img src="/assets/img/logo_algorand_blue.svg" />
