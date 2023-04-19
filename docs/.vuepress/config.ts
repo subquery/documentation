@@ -295,6 +295,10 @@ function getSidebar(locale: string): SidebarOptions {
               link: `${locale}/quickstart/quickstart_chains/avalanche.md`,
             },
             {
+              text: "BNB Smart Chain (BSC)",
+              link: `${locale}/quickstart/quickstart_chains/bsc.md`,
+            },
+            {
               text: "Cosmos",
               collapsible: true,
               children: [
@@ -374,6 +378,7 @@ function getSidebar(locale: string): SidebarOptions {
           children: [
             `${locale}/build/manifest/avalanche.md`,
             `${locale}/build/manifest/algorand.md`,
+            `${locale}/build/manifest/bsc.md`,
             `${locale}/build/manifest/cosmos.md`,
             `${locale}/build/manifest/ethereum.md`,
             `${locale}/build/manifest/flare.md`,
@@ -390,6 +395,7 @@ function getSidebar(locale: string): SidebarOptions {
           children: [
             `${locale}/build/mapping/avalanche.md`,
             `${locale}/build/mapping/algorand.md`,
+            `${locale}/build/mapping/bsc.md`,
             `${locale}/build/mapping/cosmos.md`,
             `${locale}/build/mapping/ethereum.md`,
             `${locale}/build/mapping/flare.md`,
