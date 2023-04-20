@@ -416,6 +416,7 @@ function getSidebar(locale: string): SidebarOptions {
       children: [
         `${locale}/run_publish/run.md`,
         `${locale}/run_publish/publish.md`,
+        `${locale}/run_publish/monitor.md`,
         `${locale}/run_publish/cli.md`,
         `${locale}/run_publish/query.md`,
         `${locale}/run_publish/graphql.md`,
