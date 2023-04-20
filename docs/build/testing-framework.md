@@ -74,15 +74,15 @@ Example output:
 
 Passing test:
 
-![image](https://user-images.githubusercontent.com/40036742/232681495-969e28eb-6ff4-442f-b006-2e92548e9ef9.png)
+![image](../.vuepress/public/assets/img/tf-pass-test.png)
 
 Failing test:
 
-![image](https://user-images.githubusercontent.com/40036742/232679045-1571a9c0-2854-494c-a790-6e1b0c22a8b1.png)
+![image](../.vuepress/public/assets/img/tf-fail-test.png)
 
 The output will include a summary of the total tests run, passing tests, and failing tests. If any tests fail, a detailed summary of the failed tests will be displayed:
 
-![image](https://user-images.githubusercontent.com/40036742/232679166-ff681318-e619-461f-ad95-a513e48127f4.png)
+![image](../.vuepress/public/assets/img/tf-fail-summary.png)
 
 ## Example Project
 
