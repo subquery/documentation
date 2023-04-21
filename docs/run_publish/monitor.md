@@ -828,16 +828,16 @@ SubQuery Node exposes pure NodeJS Metrics. You can use this [NodeJS Application 
 
 ## Metrics
 
-| Metric                                   | Description                                                         |
-| ---------------------------------------- | ------------------------------------------------------------------- |
-| `subql_indexer_api_connected`            | The indexer api connection status                                   |
-| `subql_indexer_processed_block_count`    | The block height of processed block                                 |
-| `subql_indexer_processing_block_height`  | The current processing block height                                 |
-| `subql_indexer_target_block_height`      | The latest finalized block height                                   |
-| `subql_indexer_best_block_height`        | The latest best block height                                        |
-| `subql_indexer_block_queue_size`         | The size of fetched block queue                                     |
-| `subql_indexer_blocknumber_queue_size`   | The size of fetched block number queue                              |
-| `subql_indexer_using_dictionary`         | The status of indexer is using the dictionary                       |
-| `subql_indexer_skip_dictionary_count`    | The number of times indexer been skip use dictionary                |
-| `subql_indexer_store_cache_threshold`    | Store cache will flush once cache record size excess this threshold |
-| `subql_indexer_store_cache_records_size` | Number of records waiting to flush in store cache                   |
+| Metric                                   | Description                                                                                                                                                                                   |
+| ---------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `subql_indexer_api_connected`            | If the indexer is connected to RPC API endpoint and the connection is healthy (represented as a numerical boolean with 1=true and 0=false)                                                    |
+| `subql_indexer_processed_block_count`    | The number of blocks that have been processed by your SubQuery project                                                                                                                        |
+| `subql_indexer_processing_block_height`  | The current processing block height                                                                                                                                                           |
+| `subql_indexer_target_block_height`      | The latest finalized block height on the chain (retrieved via the RPC API endpoint)                                                                                                           |
+| `subql_indexer_best_block_height`        | The latest best block height (for networks other than Cosmos or Algorand)                                                                                                                     |
+| `subql_indexer_block_queue_size`         | The count of blocks waiting to be processed in the fetched block queue                                                                                                                        |
+| `subql_indexer_blocknumber_queue_size`   | The count of blocks waiting to be fetched from the RPC API endpoint                                                                                                                           |
+| `subql_indexer_using_dictionary`         | If the indexer is connected and using a SubQuery Dictionary (represented as a numerical boolean with 1=true and 0=false)                                                                      |
+| `subql_indexer_skip_dictionary_count`    | The number of times indexer has skipped using the dictionary. This may be due to a dictionary endpoint error, or becuase your project is indexed at a higher block height than the dictionary |
+| `subql_indexer_store_cache_threshold`    | Store cache will flush once cache record size excess this threshold                                                                                                                           |
+| `subql_indexer_store_cache_records_size` | Number of blocks currently in the store cache (that haven't been flushed)                                                                                                                     |
