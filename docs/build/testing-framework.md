@@ -1,4 +1,4 @@
-# Testing Framework Documentation
+# Testing Framework
 
 ## Overview
 

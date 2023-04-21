@@ -407,6 +407,7 @@ function getSidebar(locale: string): SidebarOptions {
         `${locale}/build/dynamicdatasources.md`,
         `${locale}/build/graph-migration.md`,
         `${locale}/build/optimisation.md`,
+        `${locale}/build/testing-framework.md`,
       ],
     },
     {
