@@ -1,16 +1,16 @@
 # Monitor your SubQuery Project with Prometheus and Grafana
 
-This guide shows you how to pull these metrics into [Prometheus](https://prometheus.io/), an open source tool for storing, aggregating, and querying time series data. It also shows you how to connect [Grafana](https://grafana.com/) to Prometheus for flexible data visualizations.
+This guide shows you how to pull metrics into [Prometheus](https://prometheus.io/), an open-source tool for storing, aggregating, and querying time series data. It also shows you how to connect [Grafana](https://grafana.com/) to Prometheus for flexible data visualizations.
 
 ## Setting Up Monitoring
 
 ### Before you begin
 
-Make sure you have started a SubQuery project and have acess to the node service running locally. To read how to run a local SubQuery node, review [running SubQuery locally](https://academy.subquery.network/run_publish/run.html).
+Make sure you have started a SubQuery project and have access to the node service running locally. To read how to run a local SubQuery node, review [running SubQuery locally](https://academy.subquery.network/run_publish/run.html).
 
 ### Step 1. Install Prometheus
 
-First, you need to install Prometheus. you can download the corresponding installation package from the official Prometheus website [Prometheus https://prometheus.io](https://prometheus.io) and follow the official guide on [how to install](https://prometheus.io/docs/prometheus/latest/installation/).
+First, you need to install Prometheus. You can download the corresponding installation package from the official [Prometheus website](https://prometheus.io) and follow the official guide on [how to install](https://prometheus.io/docs/prometheus/latest/installation/) it.
 
 ### Step 2. Configure Prometheus
 
@@ -52,7 +52,7 @@ prometheus --config.file=prometheus.yml
 
 ### Step 4. Install and Start Grafana
 
-You can download & install from the official Grafana website using the offical instructions to [install Grafana](https://grafana.com/docs/grafana/latest/setup-grafana/installation/).
+You can download & install Grafana from the official website using the official instructions to [install Grafana](https://grafana.com/docs/grafana/latest/setup-grafana/installation/).
 
 ::: tip Warning
 You must change the Grafana web port as the default SubQuery node port is 3000 which conflicts with the default Grafana port. Modify file `$WORKING_DIR/conf/defaults.ini` ([Grafana configuration file location](https://grafana.com/docs/grafana/latest/setup-grafana/configure-grafana/#configuration-file-location)) `http_port` to 3001 or other.
@@ -62,7 +62,7 @@ You must change the Grafana web port as the default SubQuery node port is 3000 w
 
 Point your browser to `http://<hostname of machine running grafana>:3001` and [log into the Grafana UI](https://grafana.com/docs/grafana/latest/setup-grafana/sign-in-to-grafana/) with the default username/password, `admin/admin` (or create your own account).
 
-You'll then need to add Prometheus as a datasource. You can [follow the official guide on how to do this](http://docs.grafana.org/datasources/prometheus/), please configure the datasource as follows:
+You'll then need to add Prometheus as a datasource. You can [follow the official guide on how to do this](http://docs.grafana.org/datasources/prometheus/). Please configure the datasource as follows:
 
 | Field   | Definition                                             |
 | ------- | ------------------------------------------------------ |
@@ -838,6 +838,6 @@ SubQuery Node exposes pure NodeJS Metrics. You can use this [NodeJS Application 
 | `subql_indexer_block_queue_size`         | The count of blocks waiting to be processed in the fetched block queue                                                                                                                        |
 | `subql_indexer_blocknumber_queue_size`   | The count of blocks waiting to be fetched from the RPC API endpoint                                                                                                                           |
 | `subql_indexer_using_dictionary`         | If the indexer is connected and using a SubQuery Dictionary (represented as a numerical boolean with 1=true and 0=false)                                                                      |
-| `subql_indexer_skip_dictionary_count`    | The number of times indexer has skipped using the dictionary. This may be due to a dictionary endpoint error, or becuase your project is indexed at a higher block height than the dictionary |
-| `subql_indexer_store_cache_threshold`    | Store cache will flush once cache record size excess this threshold                                                                                                                           |
+| `subql_indexer_skip_dictionary_count`    | The number of times indexer has skipped using the dictionary. This may be due to a dictionary endpoint error, or because your project is indexed at a higher block height than the dictionary |
+| `subql_indexer_store_cache_threshold`    | Store cache will flush once the cache record size exceeds this threshold                                                                                                                           |
 | `subql_indexer_store_cache_records_size` | Number of blocks currently in the store cache (that haven't been flushed)                                                                                                                     |
