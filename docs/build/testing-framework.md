@@ -88,9 +88,9 @@ The output will include a summary of the total tests run, passing tests, and fai
 
 An example Subquery project with test cases can be found in this repository: [acala-subql-tests](https://github.com/DeveloperInProgress/acala-subql-tests). This project demonstrates the usage of the testing framework and serves as a reference for developers who want to implement tests in their own Subquery projects.
 
-The acala-starter project within the repository includes test files following the naming convention *.test.ts and placed in the src/tests folder. These test files contain test cases for specific mapping handlers and showcase how to write and structure tests in a Subquery project.
+The acala-starter project within the repository includes test files following the naming convention *.test.ts and are placed in the src/tests folder. These test files contain test cases for specific mapping handlers and showcase how to write and structure tests in a Subquery project.
 
-To use the example project as a starting point for your own project, you can either clone the repository or use it as a reference when implementing tests in your own Subquery project. Make sure to follow the provided structure and adapt the test cases as needed to fit your project requirements.
+To use the example project as a starting point for your project, you can either clone the repository or use it as a reference when implementing tests in your Subquery project. Make sure to follow the provided structure and adapt the test cases as needed to fit your project requirements.
 
 ## Running Tests with Docker
 
