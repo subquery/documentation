@@ -268,6 +268,18 @@ type User @entity {
 }
 ```
 
+### JSON field indexes
+
+By default JSON fields will have a database index to improve querying performance. This can be disabled by specifying the `indexed` argument on the directive.
+This is useful if you are using Cockroach DB as there can be some perfomance issues with inserting JSON data with an index
+
+```graphql
+type AddressDetail @jsonField(indexed: false) {
+  street: String!
+  district: String!
+}
+```
+
 ### Querying JSON fields
 
 The drawback of using JSON types is a slight impact on query efficiency when filtering, as each time it performs a text search, it is on the entire entity.
