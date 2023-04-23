@@ -406,8 +406,8 @@ function getSidebar(locale: string): SidebarOptions {
         `${locale}/build/cosmos-evm.md`,
         `${locale}/build/dynamicdatasources.md`,
         `${locale}/build/graph-migration.md`,
+        `${locale}/build/testing.md`,
         `${locale}/build/optimisation.md`,
-        `${locale}/build/testing-framework.md`,
       ],
     },
     {
