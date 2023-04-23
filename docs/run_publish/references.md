@@ -4,18 +4,7 @@
 
 ### --help
 
-```shell
-> subql --help
-
-COMMANDS
-  build     Build this SubQuery project code
-  codegen   Generate schemas for graph node
-  help      display help for subql
-  init      Initialize a scaffold subquery project
-  migrate   Migrate Subquery project manifest v0.0.1 to v0.2.0
-  publish   Upload this SubQuery project to IPFS
-  validate  Check a folder or github repo is a validate subquery project
-```
+This shows all the current command options for your current verison of `subql-cli`.
 
 ### build
 
@@ -40,93 +29,7 @@ For more info, visit [basic workflows](../build/introduction.md#build).
 
 ### --help
 
-This shows the help options.
-
-```shell
-> subql-node --help
-Commands:
-  run test         Run tests for a SubQuery application
-  run force-clean  Clean the database dropping project schemas and tables. Once
-                   the command is executed, the application would exit upon
-                   completion.
-  run reindex      Reindex to specified block height. Historical must be enabled
-                   for the targeted project (--disable-historical=false). Once
-                   the command is executed, the application would exit upon
-                   completion.
-
-Options:
-      --help                   Show help                               [boolean]
-      --version                Show version number                     [boolean]
-      --batch-size             Batch size of blocks to fetch in one round
-                                                                        [number]
-  -c, --config                 Specify configuration file               [string]
-      --db-schema              Db schema name of the project            [string]
-      --debug                  Show debug information to console output. will
-                               forcefully set log level to debug
-                                                      [boolean] [default: false]
-      --dictionary-resolver    Use SubQuery Network dictionary resolver
-                                                      [boolean] [default: false]
-      --dictionary-timeout     Max timeout for dictionary query         [number]
-      --disable-historical     Disable storing historical state entities
-                                                      [boolean] [default: false]
-      --ipfs                   IPFS gateway endpoint                    [string]
-      --local                  Use local mode             [deprecated] [boolean]
-      --log-level              Specify log level to print. Ignored when --debug
-                               is used
-          [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
-                                                                       "silent"]
-  -m, --mmr-path               Local path of the merkle mountain range (.mmr)
-                               file                                     [string]
-      --multi-chain            Enables indexing multiple subquery projects into
-                               the same database schema
-                                                      [boolean] [default: false]
-  -d, --network-dictionary     Specify the dictionary api for this network
-                                                                        [string]
-      --network-endpoint       Blockchain network endpoint to connect   [string]
-      --output-fmt             Print log as json or plain text
-                                           [string] [choices: "json", "colored"]
-  -p, --port                   The port the service will bind to        [number]
-      --profiler               Show profiler information to console output
-                                                      [boolean] [default: false]
-      --proof-of-index         Enable/disable proof of index
-                                                      [boolean] [default: false]
-      --query-limit            The limit of items a project can query with
-                               store.getByField at once  [number] [default: 100]
-      --scale-batch-size       scale batch size based on memory usage
-                                                      [boolean] [default: false]
-      --pg-ca                  Postgres ca certificate - to enable TLS/SSL
-                               connections to your PostgreSQL, path to the
-                               server certificate file are required, e.g
-                               /path/to/server-certificates/root.crt    [string]
-      --pg-key                 Postgres client key - Path to key file e.g
-                               /path/to/client-key/postgresql.key       [string]
-      --pg-cert                Postgres client certificate - Path to client
-                               certificate e.g
-                               /path/to/client-certificates/postgresql.crt
-                                                                        [string]
-      --store-cache-threshold  Store cache will flush data to the database when
-                               number of records excess this threshold  [number]
-      --store-get-cache-size   Store get cache size for each model      [number]
-      --store-cache-async      If enabled the store cache will flush data
-                               asyncronously relative to indexing data [boolean]
-  -f, --subquery               Local path or IPFS cid of the subquery project
-                                                   [string] [required] [default:
-                             "/Users/scotttwiname/Projects/subql/packages/node"]
-      --subquery-name          Name of the subquery project[deprecated] [string]
-      --subscription           Enable subscription by create notification
-                               triggers               [boolean] [default: false]
-      --timeout                Timeout for indexer sandbox to execute the
-                               mapping functions                        [number]
-      --timestamp-field        Enable/disable created_at and updated_at in
-                               schema                 [boolean] [default: false]
-      --unfinalized-blocks     Enable to fetch and index unfinalized blocks
-                                                      [boolean] [default: false]
-      --unsafe                 Allows usage of any built-in module within the
-                               sandbox                                 [boolean]
-  -w, --workers                Number of worker threads to use for fetching and
-                               processing blocks. Disabled by default.  [number]
-
-```
+This shows all the current command options for your current verison of `subql-node`.
 
 ### --batch-size
 
@@ -139,6 +42,10 @@ This flag allows you to set the batch size in the command line. If batch size is
 2021-08-09T23:24:47.415Z <fetch> INFO fetch block [6641,6660], total 20 blocks
 2021-08-09T23:24:49.235Z <fetch> INFO fetch block [6661,6680], total 20 blocks
 ```
+
+### --block-confirmations (Ethereum only)
+
+The number of blocks behind the head to be considered finalized, this has no effect with Proof-of-Stake networks.
 
 ### -c, --config
 
@@ -170,10 +77,6 @@ subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot
 
 For more info, visit [How does a SubQuery Dictionary works?](../academy/tutorials_examples/dictionary.md)
 
-### --dictionary-timeout
-
-Changes the timeout for dictionary queries, this number is expressed in seconds. By default we use 30 seconds.
-
 ### --db-schema
 
 This flag allows you to provide a name for the project database schema. Upon providing a new name, a new database schema is created with the configured name and block indexing starts.
@@ -199,7 +102,11 @@ Disables automated historical state tracking, [see Historic State Tracking](./hi
 
 ### --dictionary-resolver
 
-Use SubQuery Network dictionary resolver to find a dictionary, this will overwrite dictionaries specified by `--network-dictionary`
+Uses the provided SubQuery Network dictionary resolver to find a dictionary, this will overwrite dictionaries specified by `--network-dictionary`
+
+### --dictionary-timeout
+
+Changes the timeout for dictionary queries, this number is expressed in seconds. By default we use 30 seconds.
 
 ### -f, --subquery
 
@@ -359,15 +266,15 @@ Scale the block fetch batch size with memory usage.
 
 ### --store-cache-threshold
 
-Store cache will flush data to the database when number of records excess this threshold
+This can be specified when `--store-cache-async=false`. Store cache will flush data to the database when number of records excess this threshold, a higher number reduces number of transactions to database in order to save time but requires more memory. The default is 1000 records.
 
 ### --store-get-cache-size
 
-The number of store items retained in a memory cache for faster retrieval of data within handlers
+This can be specified when `--store-cache-async=false`. The number of items from the store retained in a memory cache for faster retrieval of recent data within handlers. A higher number may increase indexing speed, but will require more memory. The default is 500.
 
 ### --store-cache-async
 
-If enabled the store cache will flush data asynchronously relative to indexing data
+If enabled the store cache will flush data asynchronously relative to indexing data (enabled by default)
 
 ### --subscription
 
@@ -461,64 +368,11 @@ On initialisation, once the main thread is established, then the fetching and pr
 
 In the case where Worker C completes its fetch prior to Worker A and B, it will remain in an idle state until A and B have completed, as the processing phase executes sequentially.
 
-
-### --block-confirmations (Ethereum only)
-
-The number of blocks behind the head to be considered finalized, this has no effect with Proof-of-Stake networks.
-
 ## subql-query
 
 ### --help
 
-This shows the help options.
-
-```shell
-Options:
-      --help                     Show help                             [boolean]
-      --version                  Show version number                   [boolean]
-  -n, --name                     Project name                [string] [required]
-      --playground               Enable graphql playground             [boolean]
-      --playground-settings      Pass the settings to the graphql playground
-                                 (JSON format)                          [string]
-      --output-fmt               Print log as json or plain text
-                      [string] [choices: "json", "colored"] [default: "colored"]
-      --log-level                Specify log level to print.
-          [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
-                                                     "silent"] [default: "info"]
-      --log-path                 Path to create log file e.g ./src/name.log
-                                                                        [string]
-      --log-rotate               Rotate log files in directory specified by
-                                 log-path             [boolean] [default: false]
-      --indexer                  Url that allows query to access indexer
-                                 metadata                               [string]
-      --unsafe                   Disable limits on query depth and allowable
-                                 number returned query records         [boolean]
-      --query-limit              Set limit on query depth[number] [default: 100]
-      --subscription             Enable subscription service
-                                                      [boolean] [default: false]
-  -p, --port                     The port the service will bind to      [number]
-      --query-complexity         Level of query complexity              [number]
-      --max-connection           Max connection to pg pool[number] [default: 10]
-      --query-timeout            Query timeout in milliseconds
-                                                       [number] [default: 10000]
-      --query-explain            Explain query in SQL statement        [boolean]
-      --aggregate                Enable aggregate feature
-                                                       [boolean] [default: true]
-      --disable-hot-schema       Hot reload schema on schema-changes
-                                                      [boolean] [default: false]
-      --pg-ca                    Postgres ca certificate - to enables TLS/SSL
-                                 connections to your PostgreSQL, path to the
-                                 server certificate file are required, e.g
-                                 /path/to/server-certificates/root.crt  [string]
-      --pg-key                   Postgres client key - Path to key file e.g
-                                 /path/to/client-key/postgresql.key     [string]
-      --pg-cert                  Postgres client certificate - Path to client
-                                 certificate e.g
-                                 /path/to/client-certificates/postgresql.crt
-                                                                        [string]
-      --dictionary-optimisation  Dictionary optimisation
-                                                      [boolean] [default: false]
-```
+This shows all the current command options for your current verison of `subql-query`.
 
 ### --aggregate
 
