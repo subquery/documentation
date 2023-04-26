@@ -26,7 +26,7 @@ The Project Manifest (`project.yaml`) file works as an entry point to your Ether
 
 Note that the manifest file has already been set up correctly and doesn’t require significant changes, but you need to import the correct contract definitions and update the datasource handlers.
 
-We are indexing all Gravatars from the Gravatar contract, first you will need to import the contract abi defintion. You can copy the entire JSON and save as a file `./Gravatar.json` in the `/abis` directory.
+We are indexing all Gravatars from the Gravatar contract, first you will need to import the contract abi defintion. You can copy the entire JSON and save as a file `./Gravity.json` in the `/abis` directory.
 
 This section in the Project Manifest now imports all the correct definitions and lists the triggers that we look for on the blockchain when indexing.
 
