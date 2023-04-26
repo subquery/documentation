@@ -14,10 +14,10 @@ You can use our pre-built image or build your own. Let's start with SubQuery's p
 
 **Please note that this is only available in the Asia Pacific (Sydney) region only.**
 
-| Region    | ap-southeast-2 (Sydney)               |
-| --------- | ------------------------------------- |
-| Node Type | >= t3.medium                          |
-| AMI       | Community AMIs: TBA |
+| Region    | ap-southeast-2 (Sydney) |
+| --------- | ----------------------- |
+| Node Type | >= t3.medium            |
+| AMI       | Community AMIs: TBA     |
 
 ### 1.2 Launch Instance
 
@@ -76,10 +76,30 @@ You can use our pre-built image or build your own. Let's start with SubQuery's p
 
 ### 1.10 SSH to your EC2 instance
 
-After your EC2 instance has been launched, you need to download the latest docker-compose.yml file. Visit [How to SSH into your AWS instance](../indexers/ssh-in-aws.md) if required and then visit [this section](../indexers/become-an-indexer.md#_2-1-check-indexer-version) to download the latest file. <br />
+After your EC2 instance has been launched, you need to download the latest `docker-compose.yml` file onto your ec2 machine. Click on the Instance ID and look for your Public IPv4 address.
+
+![Getting a Public Address Screen](/assets/img/public_address_running_ssh.png)
+
+We will use this address to SSH into our instance via our command line terminal.
+
+![Instance Summary Screen_Public Address](/assets/img/instance_summary_pubad_ssh.png)
+
+Run the following command:
+
+```bash
+ssh i <path_to_pem_or_cer_private_key> ec2-user@<public_address>
+
+eg:
+
+ssh -i sean.cer ec2-user@ec2-54-153-196-193.ap-southeast-2.compute.amazonaws.com
+```
+
+![Running Command Line](/assets/img/command_line_ssh.png)
+
+if required and then visit [this section](../indexers/become-an-indexer.md#_2-1-check-indexer-version) to download the latest file. <br />
 
 ::: warning Important
-Please change the default PostgreSQL password in the `POSTGRES_PASSWORD` field and in the coordinator-service's `postgres-password` field. Replace it with your own one. 
+Please change the default PostgreSQL password in the `POSTGRES_PASSWORD` field and in the coordinator-service's `postgres-password` field. Replace it with your own one.
 :::
 
 ### 1.11 Update User Group (Optional)
