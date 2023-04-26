@@ -42,7 +42,7 @@ dataSources:
       address: "0x2E645469f354BB4F5c8a05B3b30A929361cf77eC" # The contract address of the Gravatar on Ethereum
     assets:
       gravity:
-        file: "./abis/Gravity.json"
+        file: "./abis/Gravatar.json"
     mapping:
       file: "./dist/index.js"
       handlers:
