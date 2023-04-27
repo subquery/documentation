@@ -64,7 +64,7 @@ docker exec -it indexer_db pg_restore -v -j 2 -h localhost -p 5432 -U postgres -
 We use the `-j` parameter to update the number of jobs running concurrently. Depending on your machine size, you may want to increase this number to speed up the restore process. [Read more](https://www.postgresql.org/docs/current/app-pgrestore.html)
 :::
 
-The restore process will start and take quite a long time (like 2 days), please leave it to work away in the background. Here is an example of the output log.
+The restore process will start and take quite a long time (like 2 days), please make sure you run this cmd in the background (use tools like tmux/screen/nohup). Here is an example of the output log.
 
 ```
 pg_restore: creating SCHEMA "schema_qmzj9whrhrmvn2h"
