@@ -4,9 +4,7 @@
 
 The Kepler dashboard is divided into several sections as can be seen below.
 
-| Kepler Projects Explorer                               |
-| ------------------------------------------------------ | ------ |
-| ![Kepler dashboard](./assets/img/kepler_dashboard.png) | <br /> |
+![Kepler dashboard](./assets/img/kepler_dashboard.png)
 
 ---
 
@@ -14,9 +12,7 @@ The Kepler dashboard is divided into several sections as can be seen below.
 
 The explorer displays a list of all the projects that are being indexed. It’s also the place where consumers can select a particular project and purchase the associated plans. If no plans are listed, this indicates that an Indexer has not yet created a plan.
 
-| Project Explorer                                    |
-| --------------------------------------------------- |
-| ![Indexer's plans](./assets/img/indexers_plans.png) |
+![Indexer's plans](./assets/img/indexers_plans.png)
 
 ---
 
@@ -36,9 +32,13 @@ This area:
 - Allows Delegators to select Indexers and delegate their [SQT](../token.md).
 - Allows Indexers to delegate to projects.
 
-| Indexer Dashboard                            | Delegator Dashboard                            |
-| -------------------------------------------- | ---------------------------------------------- | ------ |
-| ![Stake Dashboard](./assets/img/indexer.png) | ![Stake Dashboard](./assets/img/delegator.png) | <br /> |
+The Indexer Dashboard looks like below
+
+![Indexer Dashboard](./assets/img/indexer.png)
+
+The Delegator Dashboard looks like below
+
+![Delegator Dashboard](./assets/img/delegator.png)
 
 ---
 
@@ -51,9 +51,7 @@ This area:
 - Allows Consumers to create and manage their offers.
 - Displays an offer marketplace where Indexers can accept an offer from Consumers.
 
-| Service Agreement - Consumer Dashboard                         |
-| -------------------------------------------------------------- | ----- |
-| ![Plan & Offer Dashboard](./assets/img/service_agreements.png) | <br/> |
+![Plan & Offer Dashboard](./assets/img/service_agreements.png)
 
 ---
 
@@ -61,9 +59,7 @@ This area:
 
 Swaps allows users to swap USDC to kSQT and vice versa.
 
-| Swap Dashboard                   |
-| -------------------------------- | ----- |
-| ![Swaps](./assets/img/swaps.png) | <br/> |
+![Swaps](./assets/img/swaps.png)
 
 ---
 
