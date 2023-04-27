@@ -24,9 +24,8 @@ Now, let's explore how to run the Indexing Service Locally step-by-step.
 - Clone the indexing services repository to your local machine. This repository contains a `docker-compose.yml` file, which consists of all the images to build and start the various applications.
 
 ```bash
-mkdir kepler
-cd kepler
-curl https://raw.githubusercontent.com/subquery/indexer-services/develop/docker-compose.yml -o docker-compose.yml
+mkdir subquery-indexer && cd subquery-indexer
+curl https://raw.githubusercontent.com/subquery/indexer-services/kepler/docker-compose.yml -o docker-compose.yml
 ```
 
 ::: warning Important

@@ -102,22 +102,20 @@ Select the project card to open the project details page.
 
 For a brand new project, the indexing status will be `NOT INDEXING`. Select the **`Start Indexing`** button to begin indexing the project.
 
-Enter the following values for each project and select specific image versions if needed:
+Enter the Indexing Endpoint for each project and select specific image versions if needed:
 
-- Staking Threshold - Polkadot
+- Kusama Dictionary
 
-  - Indexing Endpoint: `wss://polkadot.api.onfinality.io/public-ws`
-  - Dictionary Endpoint: `https://api.subquery.network/sq/subquery/polkadot-dictionary`
+  - Indexing Endpoint: `wss://kusama-rpc.polkadot.io`
 
-- [Developer Fund Votes - Juno](<(https://forum.subquery.network/t/indexing-developer-fund-votes-juno-project/148)>)
+- Polkadot Dictionary
 
-  - Dictionary Endpoint: `https://api.subquery.network/sq/subquery/cosmos-juno-dictionary`
+  - Dictionary Endpoint: `wss://rpc.polkadot.io`
 
-- [Pangolin Approvals - Avalanche]
-  - Indexing Endpoint: `http://avalanche.api.onfinality.io:9650`
-  - Dictionary Endpoint: `https://api.subquery.network/sq/subquery/avalanche-dictionary`
+- Moonbeam Dictionary
+  - Indexing Endpoint: `https://moonbeam.api.onfinality.io/public`
 
-Please make sure that you set “Enable POI” to `true`. Then press `Confirm` to trigger the request to start the node and query service for this project in the coordinator service.
+  Press `Subbmit` to trigger the request to start the node and query service for this project in the coordinator service.
 
 ![Restart Indexing Project Screen](/assets/img/startproject_index_project.png)
 
