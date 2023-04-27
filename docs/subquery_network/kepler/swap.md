@@ -2,7 +2,7 @@
 
 Swaps allows users to swap USDC to kSQT and vice versa.
 
-![Swaps](/assets/img/swaps.png)
+![Swaps](./assets/img/swaps.png)
 
 While kSQT will not have transfer restrictions, we do not envision it as a free-float token, hence will not provide or support liquidity. kSQT will have a controlled supply that is intended to be just enough for the minimum viable network running with limited capabilities.
 
