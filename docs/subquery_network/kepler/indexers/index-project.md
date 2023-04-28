@@ -2,12 +2,11 @@
 
 ## Introduction
 
-If you are willing to become a SubQuery Indexer, you need to stake a minimum of 1000 SQT.
+To become a SubQuery Indexer, you need to stake a minimum of 1000 SQT. If you still haven’t connected your application to MetaMask, visit [How to Connect to MetaMask](../metamask/connect-metamask.md).
 
-**Note**:
-
-- If you do not have any SQT, please visit [How to request for Testnet tokens](../metamask/connect-metamask.md).
-- If you still haven’t connected your application to MetaMask, visit [How to Connect to MetaMask](../metamask/connect-metamask.md).
+:::Note
+Only Indexers that have been airdropped kSQT will be able to join Kepler as an indexer. In the future, we may invite more indexers into the network.
+:::
 
 ## 1. Initial Set-Up
 
@@ -49,11 +48,11 @@ Now, two accounts will appear on the screen. The Indexer Account where you can u
 
 ### 1.6 Add a Controller Account
 
-The Controller is a separate account that needs to be created and it holds a small amount of DEV tokens to update configurations.
+The Controller, a distinct and seperate account that must be created, holds a small amount of MATIC tokens to facilitate Indexer configuration updates and run day to day operations.
 
-Updating a configuration is a signable event. That means, it is an on-chain update that requires transaction fees to be paid (in DEV).
+Updating a Indexer configuration is a signable event. That means it is an on-chain update that requires transaction fees to be paid (in MATIC).
 
-Click `Managed Controllers` and then select `Create an Account`. This adds an account where you will need to fund with some tokens. Then set the account to `Active`.
+Click `Managed Controllers` and then select `Create an Account`. This adds an account that you will need to fund with some tokens. Then set the account to `Active`.
 
 ![Add Controller](/assets/img/add_controller.png)
 
@@ -78,9 +77,9 @@ You have now completed the initial set-up. Next, let’s work on adding a projec
 
 ## 2. Add a Project
 
-Once the Controller Account has been added, a new Projects tab appears at the top of the page. This will allow Indexers to add projects of their choice to index.
+Once the Controller Account has been added, a new Projects tab appears at the top of the page. This enables Indexers to add projects of their choice for indexing.
 
-Before clicking **`Add Project`,** click on the SubQuery Explorer hyperlink. This will take to you a list of SubQuery projects where you will obtain the project’s Deployment ID first.
+Before clicking **`Add Project`,** click on the SubQuery Explorer hyperlink. This will take you to a list of SubQuery projects, where you can obtain the project's Deployment ID first.
 
 ![Add Project Screen](/assets/img/add_project_index_project.png)
 
@@ -102,22 +101,13 @@ Select the project card to open the project details page.
 
 For a brand new project, the indexing status will be `NOT INDEXING`. Select the **`Start Indexing`** button to begin indexing the project.
 
-Enter the following values for each project and select specific image versions if needed:
+Enter the Indexing Endpoint for each project and select specific image versions if needed:
 
-- Staking Threshold - Polkadot
+The Indexing Endpoint defines the wss endpoint of the blockchain to be indexed - this must be a full archive node.
 
-  - Indexing Endpoint: `wss://polkadot.api.onfinality.io/public-ws`
-  - Dictionary Endpoint: `https://api.subquery.network/sq/subquery/polkadot-dictionary`
+Public RPC Endpoints may be rate limited which can affect indexing speed, when indexing your project we suggest getting a private API key. You can retrieve endpoints for some networks for free from [OnFinality](https://www.onfinality.io/networks).
 
-- [Developer Fund Votes - Juno](<(https://forum.subquery.network/t/indexing-developer-fund-votes-juno-project/148)>)
-
-  - Dictionary Endpoint: `https://api.subquery.network/sq/subquery/cosmos-juno-dictionary`
-
-- [Pangolin Approvals - Avalanche]
-  - Indexing Endpoint: `http://avalanche.api.onfinality.io:9650`
-  - Dictionary Endpoint: `https://api.subquery.network/sq/subquery/avalanche-dictionary`
-
-Please make sure that you set “Enable POI” to `true`. Then press `Confirm` to trigger the request to start the node and query service for this project in the coordinator service.
+Press `Submit` to trigger the request to start the node and query service for this project in the coordinator service.
 
 ![Restart Indexing Project Screen](/assets/img/startproject_index_project.png)
 
@@ -129,7 +119,7 @@ The Indexer can then check the service log to see the indexing details:
 
 ![Indexer Service Log](/assets/img/service_log_index_project.png)
 
-You have successfully completed the indexing process. Next comes the Announcements section. Let’s dig out further.
+You have successfully completed the indexing process. Next comes the Announcements section. Let’s dig in further.
 
 ## 4. Announcements
 
@@ -149,7 +139,7 @@ After the transaction is processed, the project's status will change to `INDEXIN
 
 ### 4.2 Announcing that Indexing Service is Ready to Use
 
-Once the Indexer announces that they have started indexing the project on the network, and when the indexing progress reaches the minimum block height, the indexer can publish the project to the `ready` status. It indicates that other users can now access the indexing service.
+Once the Indexer announces that they have started indexing the project on the network, and when the indexing progress reaches the minimum block height, the indexer can publish the project to the `ready` status. This indicates that other users can now access the indexing service.
 
 ![Indexing Service Ready to Use Announcement](/assets/img/readytouse_indexer_project.png)
 
@@ -157,7 +147,7 @@ Once the Indexer announces that they have started indexing the project on the ne
 
 ### 4.3 **Stop Indexing the Project**
 
-When you stop indexing the project, the node and query service will be terminated on the coordinator service side. In addition, the status of the indexing service will need to be changed back to `NOT INDEXING`.
+When you stop indexing the project, the node and query service will be terminated on the coordinator service side. Additionally, the status of the indexing service will need to be changed back to `NOT INDEXING`.
 
 After the status changes to `TERMINATED`, remove the project directly.
 
@@ -187,12 +177,12 @@ You can remove the project from the service if a project is not required anymore
 
 ## 5. **Indexer Network Information**
 
-On the network page, the Indexer can check the era information and confirm that the reward collection is up to date. The service log component provides the logs for the coordinator service.
+On the network page, the Indexer can check the era information and confirm that the reward collection is up-to-date. The service log component provides the logs for the coordinator service.
 
 ![Indexer Network Information](/assets/img/indexer_network_info.png)
 
 Congratulations! You have successfully indexed your SubQuery Project.
 
-- If you encounter any trouble while running the indexing service, please visit [Troubleshooting](../indexers/troubleshooting-indexers.md)) and get all your solutions at one place.
+- If you encounter any trouble while running the indexing service, please visit [Troubleshooting](../indexers/troubleshooting-indexers.md)) and find all your solutions in one place.
 
 - Find the list of [FAQs](../indexers/faqs-indexers.md), and resolve your query.
