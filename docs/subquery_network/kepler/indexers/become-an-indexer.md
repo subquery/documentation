@@ -25,29 +25,31 @@ Select the appropriate link in step 1 above.
 
 Note that you may or may not need to install Docker. If you use the SubQuery community image in AWS, it comes with everything you need to set up and run quickly. If you have your own customised VM, you will need to install Docker and some command tools, and then obtain the docker-compose.yml file.
 
-### Indexer version
+### Running indexer services
 
 `Important:`
-After installing your Indexer, you must [SSH to your EC2 instance](./install-indexer-aws.md#110-ssh-to-your-ec2-instance) and download the lastest docker-compose.yml file.
+Login to your VM and create a folder, such as `kepler-indexer`
 
-1. Run cd subquery-indexer
+1. Run cd kepler-indexer
 2. Run the follow cmd to download the latest `docker-compose.yml`:
 
 ```sh
 curl https://raw.githubusercontent.com/subquery/indexer-services/kepler/docker-compose.yml -o docker-compose.yml
 ```
 
-This will overwrite the existing docker-compose.yml file.
-
-Make sure the indexer service versions are correct:
+This will overwrite the existing docker-compose.yml file. Make sure the indexer service versions are correct:
 
 | Service                        | Version   |
 | :----------------------------- | :-------- |
-| onfinality/subql-coordinator   | v0.4.1-11 |
-| onfinality/subql-indexer-proxy | latest    |
+| onfinality/subql-coordinator   | v1.0.0    |
+| onfinality/subql-indexer-proxy | v1.0.0    |
 
 ::: warning Important
-Please change the default PostgreSQL password in the `POSTGRES_PASSWORD` field and in the coordinator-service's `postgres-password` field. Replace it with your own one.
+Please go through the docker-compose file carefully, and change the following parameters to your own values:
+- POSTGRES_PASSWORD
+- postgres-password
+- secret-key
+- jwt-secret
 :::
 
 ## 2. Connect to MetaMask
@@ -62,7 +64,9 @@ At this stage, only Indexers that received kSQT tokens via the airdrop can obtai
 
 To index a project, please follow the instructions [here](../indexers/index-project.md).
 
+::: info Note
 If you are wanting to index a Dictionary, then you may be able to restore your project from our dictionary snapshots to save a lot of time. Instructions are [here](../indexers/dictionary-restore.md)
+:::
 
 ## Additional Notes
 
