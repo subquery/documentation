@@ -6,9 +6,9 @@ Let's see how to run the Indexer Service on a cloud provider.
 
 We will use a Linux EC2 instance from AWS in the following examples.
 
-```
-Note: You can use any other cloud provider, but we will be able to provide only limited support and troubleshooting help.
-```
+::: info Note
+Note: You can use any other cloud providers, we will try our best to provide support and troubleshooting help.
+:::
 
 ### Step 1 - Launch a Virtual Machine
 
