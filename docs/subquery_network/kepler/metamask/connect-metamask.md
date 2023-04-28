@@ -26,10 +26,6 @@ After connecting to MetaMask, the admin app will display the registry page.
 
 ![Stake SQT_Registry Page](/assets/img/stakeSQT_index_project.png)
 
-<!--
 ## Next Steps:
 
 Once you have connected with MetaMask, you need to fund your account with some MATIC and kSQT tokens.
-
-Please visit [How to Request for Testnet Tokens](../metamask/request-token.md) to learn more.
--->

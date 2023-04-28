@@ -2,12 +2,11 @@
 
 ## Introduction
 
-If you are interested in becoming a SubQuery Indexer, you need to stake a minimum of 1000 SQT.
+To become a SubQuery Indexer, you need to stake a minimum of 1000 SQT. If you still haven’t connected your application to MetaMask, visit [How to Connect to MetaMask](../metamask/connect-metamask.md).
 
-**Note**:
-
-- If you do not have any SQT, please visit [How to request for Testnet tokens](../metamask/connect-metamask.md).
-- If you still haven’t connected your application to MetaMask, visit [How to Connect to MetaMask](../metamask/connect-metamask.md).
+:::Note
+Only Indexers that have been airdropped kSQT will be able to join Kepler as an indexer. In the future, we may invite more indexers into the network.
+:::
 
 ## 1. Initial Set-Up
 
@@ -49,9 +48,9 @@ Now, two accounts will appear on the screen. The Indexer Account where you can u
 
 ### 1.6 Add a Controller Account
 
-The Controller, a distinct account that must be created, holds a small amount of MATIC tokens to facilitate configuration updates.
+The Controller, a distinct and seperate account that must be created, holds a small amount of MATIC tokens to facilitate Indexer configuration updates and run day to day operations.
 
-Updating a configuration is a signable event. That means it is an on-chain update that requires transaction fees to be paid (in MATIC).
+Updating a Indexer configuration is a signable event. That means it is an on-chain update that requires transaction fees to be paid (in MATIC).
 
 Click `Managed Controllers` and then select `Create an Account`. This adds an account that you will need to fund with some tokens. Then set the account to `Active`.
 
@@ -104,16 +103,9 @@ For a brand new project, the indexing status will be `NOT INDEXING`. Select the 
 
 Enter the Indexing Endpoint for each project and select specific image versions if needed:
 
-- Kusama Dictionary
+The Indexing Endpoint defines the wss endpoint of the blockchain to be indexed - this must be a full archive node.
 
-  - Indexing Endpoint: `wss://kusama-rpc.polkadot.io`
-
-- Polkadot Dictionary
-
-  - Dictionary Endpoint: `wss://rpc.polkadot.io`
-
-- Moonbeam Dictionary
-  - Indexing Endpoint: `https://moonbeam.api.onfinality.io/public`
+Public RPC Endpoints may be rate limited which can affect indexing speed, when indexing your project we suggest getting a private API key. You can retrieve endpoints for some networks for free from [OnFinality](https://www.onfinality.io/networks).
 
 Press `Submit` to trigger the request to start the node and query service for this project in the coordinator service.
 

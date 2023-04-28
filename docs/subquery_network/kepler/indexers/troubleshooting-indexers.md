@@ -114,7 +114,7 @@ Indexers may see this error in their logs:
 transaction may fail or may require manual gas limit
 ```
 
-This may occur in case your controller account is low on the operational token (MATIC). Check your controller account balance on the Account tab of your indexer. You can request more tokens at the faucet channel on Discord.
+This may occur in case your controller account is low on the operational token (MATIC). Check your controller account balance on the Account tab of your indexer.
 
 ## depends_on contains an invalid type, it should be an array
 
