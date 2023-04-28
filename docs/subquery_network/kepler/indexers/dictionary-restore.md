@@ -53,10 +53,11 @@ Then you can use the pg_restore tool to restore the indexing data to the current
 PGPASSWORD="<PG_PASSWORD>" pg_restore -v -j 4 -h localhost -p 5432 -U postgres -d postgres schema_xxxxxxx.dump > restore.log 2>&1 &
 ```
 
-If you are running your PostgresQL database in Docker, first copy the `schema_xxxxxxx.dump` to `.data/postgres/` and then use this command:
+If you are running your PostgreSQL database in Docker, don't forget to copy the `schema_xxxxxxx.dump` to your `indexer_db` container:
 
 ```bash
-docker exec -it indexer_db pg_restore -v -j 2 -h localhost -p 5432 -U postgres -d postgres /var/lib/postgresql/data/schema_xxxxxxx.dump
+docker cp ./schema_xxxxxxx.dump indexer_db:/home
+docker exec -it indexer_db pg_restore -v -j 2 -h localhost -p 5432 -U postgres -d postgres /home/schema_xxxxxxx.dump
 ```
 
 :::note
