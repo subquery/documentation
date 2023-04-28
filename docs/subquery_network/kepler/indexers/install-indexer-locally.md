@@ -19,9 +19,9 @@ Now, let's explore how to run the Indexing Service Locally step-by-step.
 
 - [Docker](https://docs.docker.com/get-docker/) - It contains all the required images to run the entire Web3 application.
 
-### Step 1 - Clone the Indexing Service Repo
+### Step 1 - Download the Indexer Service file
 
-- Clone the indexing services repository to your local machine. This repository contains a `docker-compose.yml` file, which consists of all the images to build and start the various applications.
+- Donwloand indexing services `docker-compose.yml` file to you machine, which consists of all the images to build and start the various applications.
 
 ```bash
 mkdir subquery-indexer && cd subquery-indexer
@@ -44,14 +44,13 @@ docker-compose up -d
 
 Please check that the Docker is already running. The images will be pulled from Docker and then it will start the following services:
 
-- `coordinator_db`
-- `coordinator_service`
-- `coordinator_proxy`
-- `proxy-redis`
+- `indexer_db`
+- `indexer_coordinator`
+- `indexer_proxy`
+- `indexer_cache`
 
 ![docker compose-up command line](/assets/img/docker_compose_up_commandline_installlocally.png)
 
-![docker compose-up cli result](/assets/img/commandline_result_installlocally.png)
 
 ### Step 3 - Open the Indexer Admin Page
 
