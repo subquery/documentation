@@ -16,14 +16,6 @@ The explorer displays a list of all the projects that are being indexed. It’s 
 
 ---
 
-### Studio
-
-The studio allows developers to create, install, deploy and publish SubQuery projects.
-
-![Studio](/assets/img/studio.png)
-
----
-
 ### Stake & Delegate:
 
 This area:
