@@ -19,7 +19,6 @@ You can download the snapshot either from the s3 bucket URL or the BitTorrent ma
 Downloading via Bittorrent will be faster, you can use your favourite bittorent client or install Aria2
 
 ```bash
-sudo add-apt-repository universe
 sudo apt update
 sudo apt install aria2
 
