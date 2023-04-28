@@ -2,7 +2,7 @@
 
 ## Introduction
 
-If you are willing to become a SubQuery Indexer, you need to stake a minimum of 1000 SQT.
+If you are interested in becoming a SubQuery Indexer, you need to stake a minimum of 1000 SQT.
 
 **Note**:
 
@@ -49,11 +49,11 @@ Now, two accounts will appear on the screen. The Indexer Account where you can u
 
 ### 1.6 Add a Controller Account
 
-The Controller is a separate account that needs to be created, and it holds a small amount of kSQT token to update configuration.
+The Controller is a separate account that needs to be created, and it holds a small amount of kSQT tokens to update the configuration.
 
-Updating a configuration is a signable event. That means, it is an on-chain update that requires transaction fees to be paid (in kSQT).
+Updating a configuration is a signable event. That means it is an on-chain update that requires transaction fees to be paid (in kSQT).
 
-Click `Managed Controllers` and then select `Create an Account`. This adds an account where you will need to fund with some tokens. Then set the account to `Active`.
+Click Managed Controllers and then select Create an Account. This adds an account that you will need to fund with some tokens. Then set the account to Active.
 
 ![Add Controller](/assets/img/add_controller.png)
 
