@@ -87,11 +87,11 @@ You need to enable JavaScript to run this app.
 
 ```jsx
 2022-05-16T10:19:11.162Z <api> ERROR Network chainId doesn't match expected
-genesisHash. expected="0xb0a8d493285c2df73290dfb7e61f870f17b41801197a149ca93654
-499ea3dafe" actual="0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70
+genesisHash. expected="0xb0a8d493285c2df73290dfb7e61f870f17b41801197a149ca93654"
+499ea3dafe" actual="0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70"
 ce90c3 Error: Network chainId doesn't match expected genesisHash.
 expected="0xb0a8d493285c2df73290dfb7e61f870f17b41801197a149ca93654499ea3dafe"
-actual="0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3
+actual="0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3"
 ```
 
 This error indicates that you are trying to index one network while using the endpoint of another network. eg:
@@ -114,7 +114,7 @@ Indexers may see this error in their logs:
 transaction may fail or may require manual gas limit
 ```
 
-This may occur in case your controller account is low on the operational token (DEV). Check your controller account balance on the Account tab of your indexer. You can request more tokens at the faucent channel on Discord.
+This may occur in case your controller account is low on the operational token (MATIC). Check your controller account balance on the Account tab of your indexer. You can request more tokens at the faucet channel on Discord.
 
 ## depends_on contains an invalid type, it should be an array
 

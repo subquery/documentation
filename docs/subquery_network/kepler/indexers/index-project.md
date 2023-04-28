@@ -49,9 +49,9 @@ Now, two accounts will appear on the screen. The Indexer Account where you can u
 
 ### 1.6 Add a Controller Account
 
-The Controller, a distinct account that must be created, holds a small amount of kSQT tokens to facilitate configuration updates.
+The Controller, a distinct account that must be created, holds a small amount of MATIC tokens to facilitate configuration updates.
 
-Updating a configuration is a signable event. That means it is an on-chain update that requires transaction fees to be paid (in kSQT).
+Updating a configuration is a signable event. That means it is an on-chain update that requires transaction fees to be paid (in MATIC).
 
 Click `Managed Controllers` and then select `Create an Account`. This adds an account that you will need to fund with some tokens. Then set the account to `Active`.
 
