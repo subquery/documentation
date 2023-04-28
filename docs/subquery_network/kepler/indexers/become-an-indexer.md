@@ -21,6 +21,24 @@ For those who are new to SubQuery, it is recommended to try running the Indexing
 
 Select the appropriate link in step 1 above.
 
+### Recommend resources for the machine
+
+| Category                       | vCPU      |  RAM       |  Storage   |
+| :----------------------------- | :-------- |  :-------- |  :-------- |
+| indexer_db                     | 2         |     2G     |   --       |
+| subql_node (per project)       | 2         |     2G     |   400G     |
+| indexer_proxy                  | 2         |     1G     |   --       |
+
+### Port configurations
+
+Here are the recommended port configurations for running an indexer service:
+
+- Port `8000 / TCP`: This port should be configured to only allow access from your own IP address, used by `indexer_coordinator`.
+- Port `7370 / UDP`: This port can be opened to the public and used for broadcasting data to multiple clients or nodes in a peer-to-peer network, used by `indexer_proxy`.
+- Port `80 / HTTP`: This port can be opened to the public and used by `indexer_proxy`.
+
+It's important to ensure that these ports are properly configured and secured to prevent any unauthorized access or security breaches.
+
 ### Docker
 
 Note that you may or may not need to install Docker. If you use the SubQuery community image in AWS, it comes with everything you need to set up and run quickly. If you have your own customised VM, you will need to install Docker and some command tools, and then obtain the docker-compose.yml file.
@@ -51,6 +69,7 @@ Please go through the docker-compose file carefully, and change the following pa
 - secret-key
 - jwt-secret
 :::
+
 
 ## 2. Connect to MetaMask
 

@@ -80,18 +80,19 @@ sudo docker-compose up -d
 
 It will start the following services:
 
-- `coordinator_db`
-- `coordinator_service`
-- `coordinator_proxy`
-- `proxy-redis`
+- `indexer_db`
+- `indexer_coordinator`
+- `indexer_proxy`
+- `indexer_cache`
+
 
 ::: tip Note
-Each project you start indexing will create 2 extra containers `node_qm----------` and `query_qm----------` that has the 13 first characters of the project's Qm-hash.
+Each project you start indexing will create 2 extra containers `node_qm----------` and `query_qm----------` that has the 15 first characters of the project's Qm-hash.
 :::
 
 Now, check the service status:
 
-![CLI- Check Service Status](/assets/img/cli_servicestatuss_install_on_linux.png)
+![docker compose-up command line](/assets/img/docker_compose_up_commandline_installlocally.png)
 
 ### Step 5 - Set Up Auto Start
 
