@@ -79,15 +79,13 @@ You have now completed the initial set-up. Next, let’s work on adding a projec
 
 Once the Controller Account has been added, a new Projects tab appears at the top of the page. This enables Indexers to add projects of their choice for indexing.
 
-Before clicking **`Add Project`,** click on the SubQuery Explorer hyperlink. This will take you to a list of SubQuery projects, where you can obtain the project's Deployment ID first.
+Before clicking **`Add Project`,** you will need to obtain the project's deployment ID. If the project has already been deployed and indexed by other indexers, you may be able to find it listed in the SubQuery Explorer as the obtain the project’s Deployment ID.
 
 ![Add Project Screen](/assets/img/add_project_index_project.png)
 
-Select a project of your choice to index and copy the deployment ID.
-
 ![Select a Project](/assets/img/select_project_index_project.png)
 
-Then return to the project page and add the project.
+Enter the project deployment ID when addding the new project.
 
 ![Add a New Project Using Deploy ID](/assets/img/addproject_deployid_index_project.png)
 
@@ -101,13 +99,11 @@ Select the project card to open the project details page.
 
 For a brand new project, the indexing status will be `NOT INDEXING`. Select the **`Start Indexing`** button to begin indexing the project.
 
-Enter the Indexing Endpoint for each project and select specific image versions if needed:
-
-The Indexing Endpoint defines the wss endpoint of the blockchain to be indexed - this must be a full archive node.
+You will need to provide an indexing endpoint, this endpoint must be a non-pruned archive node. Public nodes may be rate limited, which can affect indexing speed. **When indexing your project we suggest getting a private API key to avoid being rate limited.**
 
 Public RPC Endpoints may be rate limited which can affect indexing speed, when indexing your project we suggest getting a private API key. You can retrieve endpoints for some networks for free from [OnFinality](https://www.onfinality.io/networks).
 
-Press `Submit` to trigger the request to start the node and query service for this project in the coordinator service.
+Please make sure that you set “Enable POI” to `true`. Then press `Submit` to trigger the request to start the node and query service for this project in the coordinator service.
 
 ![Restart Indexing Project Screen](/assets/img/startproject_index_project.png)
 

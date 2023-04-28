@@ -6,18 +6,14 @@ Welcome to this guide of how to become an indexer. Let's take an overview of the
 
 ## Summary of Steps
 
-| Steps | Process Flow                         | Additional References |
-| ----- | ------------------------------------ | --------------------- |
-| 1     | Set Up & Start Indexing (3 Methods): |
-
-- [Locally](../indexers/install-indexer-locally.md)
-- Or [On Linux](../indexers/install-indexer-linux.md)
-- Or [On AWS](../indexers/install-indexer-aws.md) | [How to SSH on AWS](../indexers/ssh-in-aws.md) |
-  | 2 | [Connect to MetaMask](../metamask/connect-metamask.md) | - |
-  | 3 | [Obtain Kepler Tokens](#3-obtain-ksqt-tokens) | - |
-  | 4 | [How to index a project](#4-how-to-index-a-project) | - |
-  | 5 | [Troubleshooting](../indexers/troubleshooting-indexers.md) | - |
-  | 6 | [FAQs](../indexers/faqs-indexers.md) | - |
+| Steps | Process Flow                                                                                                                                                                    |
+| ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1     | Set Up & Start Indexing [Locally](../indexers/install-indexer-locally.md), or [On Linux](../indexers/install-indexer-linux.md), or [On AWS](../indexers/install-indexer-aws.md) |
+| 2     | [Connect to MetaMask](../metamask/connect-metamask.md)                                                                                                                          |
+| 3     | [Obtain Kepler Tokens](#3-obtain-ksqt-tokens)                                                                                                                                   |
+| 4     | [How to index a project](#4-how-to-index-a-project) or [restore dictionary databases](#4-how-to-index-a-project)                                                                |
+| 5     | [Troubleshooting](../indexers/troubleshooting-indexers.md)                                                                                                                      |
+| 6     | [FAQs](../indexers/faqs-indexers.md)                                                                                                                                            |
 
 ## 1. Select an environment
 
@@ -32,7 +28,7 @@ Note that you may or may not need to install Docker. If you use the SubQuery com
 ### Indexer version
 
 `Important:`
-After installing your Indexer, you must SSH to your EC2 instance and download the lastest docker-compose.yml file. Visit [How to SSH into your AWS instance](../indexers/ssh-in-aws.md) if required.
+After installing your Indexer, you must [SSH to your EC2 instance](./install-indexer-aws.md#110-ssh-to-your-ec2-instance) and download the lastest docker-compose.yml file.
 
 1. Run cd subquery-indexer
 2. Run the follow cmd to download the latest `docker-compose.yml`:
@@ -60,12 +56,14 @@ Once your Indexing Service is all set and running successfully, [connect to your
 
 ## 3. Obtain kSQT tokens
 
-TBA
+At this stage, only Indexers that received kSQT tokens via the airdrop can obtain and participate as Indexers in Kepler. This may change soon as we test and verify that aspects of the Kepler network are running smoothly.
 
 ## 4. How to index a project
 
-To index a project, please follow the instructions **[here](../indexers/index-project.md).**
+To index a project, please follow the instructions [here](../indexers/index-project.md).
+
+If you are wanting to index a Dictionary, then you may be able to restore your project from our dictionary snapshots to save a lot of time. Instructions are [here](../indexers/dictionary-restore.md)
 
 ## Additional Notes
 
-- Visit [Troubleshooting](../indexers/troubleshooting-indexers.md) or [FAQs](../indexers/faqs-indexers.md) if you run into technical issues.
+Visit [Troubleshooting](../indexers/troubleshooting-indexers.md) or [FAQs](../indexers/faqs-indexers.md) if you run into technical issues.
