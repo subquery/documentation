@@ -34,7 +34,7 @@ After installing your Indexer, you must [SSH to your EC2 instance](./install-ind
 2. Run the follow cmd to download the latest `docker-compose.yml`:
 
 ```sh
-curl https://raw.githubusercontent.com/subquery/indexer-services/develop/docker-compose.yml -o docker-compose.yml
+curl https://raw.githubusercontent.com/subquery/indexer-services/kepler/docker-compose.yml -o docker-compose.yml
 ```
 
 This will overwrite the existing docker-compose.yml file.

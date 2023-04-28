@@ -63,7 +63,7 @@ Run the following command:
 
 ```bash
 mkdir subquery-indexer && cd subquery-indexer
-curl https://raw.githubusercontent.com/subquery/indexer-services/develop/docker-compose.yml -o docker-compose.yml
+curl https://raw.githubusercontent.com/subquery/indexer-services/kepler/docker-compose.yml -o docker-compose.yml
 ```
 
 ::: warning Important
