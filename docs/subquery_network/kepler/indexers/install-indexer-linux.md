@@ -6,9 +6,9 @@ Let's see how to run the Indexer Service on a cloud provider.
 
 We will use a Linux EC2 instance from AWS in the following examples.
 
-```
-Note: You can use any other cloud provider, but we will be able to provide only limited support and troubleshooting help.
-```
+::: info Note
+Note: You can use any other cloud providers, we will try our best to provide support and troubleshooting help.
+:::
 
 ### Step 1 - Launch a Virtual Machine
 
@@ -80,18 +80,19 @@ sudo docker-compose up -d
 
 It will start the following services:
 
-- `coordinator_db`
-- `coordinator_service`
-- `coordinator_proxy`
-- `proxy-redis`
+- `indexer_db`
+- `indexer_coordinator`
+- `indexer_proxy`
+- `indexer_cache`
+
 
 ::: tip Note
-Each project you start indexing will create 2 extra containers `node_qm----------` and `query_qm----------` that has the 13 first characters of the project's Qm-hash.
+Each project you start indexing will create 2 extra containers `node_qm----------` and `query_qm----------` that has the 15 first characters of the project's Qm-hash.
 :::
 
 Now, check the service status:
 
-![CLI- Check Service Status](/assets/img/cli_servicestatuss_install_on_linux.png)
+![docker compose-up command line](/assets/img/docker_compose_up_commandline_installlocally.png)
 
 ### Step 5 - Set Up Auto Start
 

@@ -57,7 +57,7 @@ Swaps allows users to swap USDC to kSQT and vice versa.
 
 ### Governance
 
-Participate in SubQuery's [governance process](https://snapshot.org/#/subquerynetwork.eth).
+Participate in SubQuery's [governance process](https://snapshot.org/#/kepler.subquerynetwork.eth).
 
 ---
 
