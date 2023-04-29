@@ -43,8 +43,10 @@ tar -xvf dictionary.tar
 
 You can choose to use the `restore.sh` script to restore data automatically.
 
-There are 2 parameters to run this script, the first one is your `mmrPath` which config in your coordinator container, the second one is you data folder path, normally it will be `.data/postgres` folder at the same path with the `docker-compose.yml` file. For example:
-```
+There are 2 parameters to run this script, the first one is your <MMR_PATH> - note that <MMR_PATH> is the path in your `docker-compose.yml` for the indexer-coordinator container under `--mmrPath`. The second one is you data folder path, normally it will be `.data/postgres` folder at the same path with the `docker-compose.yml` file. For example:
+
+```bash
+# sh restore.sh <MMR_PATH> <DATA_FOLDER_PATH> > restore.log 2>&1 &
 sh restore.sh /home /home/ec2-user/indexer-services/.data/postgres > restore.log 2>&1 &
 ```
 
@@ -52,13 +54,9 @@ sh restore.sh /home /home/ec2-user/indexer-services/.data/postgres > restore.log
 Make sure your `indexer_db` and `indexer_coordinator` containers are running with healthy status
 :::
 
-
 Alternatively you can choose the following steps to do the data restore manually.
 
 1. Move `.mmr` to `<MMR_PATH>/poi/<Deployment_CID>`. Note that `<MMR_PATH>` is the path in your `docker-compose.yml` for the indexer-coordinator container under `--mmrPath`.
-
-
-
 
 2. Copy the `schema_xxxxxxx.dump` to `.data/postgres/` and then use this command:
 
