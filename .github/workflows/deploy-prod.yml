@@ -1,4 +1,4 @@
-name: Deploy to PROD - doc.subquery.network
+name: Deploy to PROD - academy.subquery.network
 on:
   push:
     branches:
@@ -22,7 +22,7 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ap-northeast-1
-      - run: aws s3 sync ./docs/.vuepress/dist s3://doc.subquery.network/
+      - run: aws s3 sync ./docs/.vuepress/dist s3://academy.subquery.network/
       - name: Invalidate CloudFront
         uses: chetan/invalidate-cloudfront-action@v2
         env:
