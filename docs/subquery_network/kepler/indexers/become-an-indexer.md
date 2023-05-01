@@ -6,28 +6,28 @@ Welcome to this guide of how to become an indexer. Let's take an overview of the
 
 ## Summary of Steps
 
-| Steps | Process Flow                                                                                                                                                                    |
-| ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1     | Set Up & Start Indexing [Locally](../indexers/install-indexer-locally.md), or [On Linux](../indexers/install-indexer-linux.md), or [On AWS](../indexers/install-indexer-aws.md) |
-| 2     | [Connect to MetaMask](../metamask/connect-metamask.md)                                                                                                                          |
-| 3     | [Obtain Kepler Tokens](#3-obtain-ksqt-tokens)                                                                                                                                   |
-| 4     | [How to index a project](#4-how-to-index-a-project) or [restore dictionary databases](#4-how-to-index-a-project)                                                                |
-| 5     | [Troubleshooting](../indexers/troubleshooting-indexers.md)                                                                                                                      |
-| 6     | [FAQs](../indexers/faqs-indexers.md)                                                                                                                                            |
+| Steps | Process Flow                                                                                                                  |
+| ----- | ----------------------------------------------------------------------------------------------------------------------------- |
+| 1     | Set Up & Start Indexing [Locally](../indexers/install-indexer-locally.md) or [On Linux](../indexers/install-indexer-linux.md) |
+| 2     | [Connect to MetaMask](../metamask/connect-metamask.md)                                                                        |
+| 3     | [Obtain Kepler Tokens](#3-obtain-ksqt-tokens)                                                                                 |
+| 4     | [How to index a project](#4-how-to-index-a-project) or [restore dictionary databases](#4-how-to-index-a-project)              |
+| 5     | [Troubleshooting](../indexers/troubleshooting-indexers.md)                                                                    |
+| 6     | [FAQs](../indexers/faqs-indexers.md)                                                                                          |
 
 ## 1. Select an environment
 
 For those who are new to SubQuery, it is recommended to try running the Indexing Service on your local machine first. For **intermediate to advanced users**, it is recommended to set up a VM on AWS (or similar) to host your indexing service.
 
-Select the appropriate link in step 1 above.
+**Select the appropriate link to follow the guide to setup an indexer [Locally](./install-indexer-locally.md), or on [Linux](./install-indexer-linux.md) and then return here.**
 
 ### Recommend resources for the machine
 
-| Category                       | vCPU      |  RAM       |  Storage   |
-| :----------------------------- | :-------- |  :-------- |  :-------- |
-| indexer_db                     | 2         |     2G     |   --       |
-| subql_node (per project)       | 2         |     2G     |   400G     |
-| indexer_proxy                  | 2         |     1G     |   --       |
+| Category                 | vCPU | RAM | Storage |
+| :----------------------- | :--- | :-- | :------ |
+| indexer_db               | 2    | 2G  | --      |
+| subql_node (per project) | 2    | 2G  | 400G    |
+| indexer_proxy            | 2    | 1G  | --      |
 
 ### Port configurations
 
@@ -57,19 +57,19 @@ curl https://raw.githubusercontent.com/subquery/indexer-services/kepler/docker-c
 
 This will overwrite the existing docker-compose.yml file. Make sure the indexer service versions are correct:
 
-| Service                        | Version   |
-| :----------------------------- | :-------- |
-| onfinality/subql-coordinator   | v1.0.0    |
-| onfinality/subql-indexer-proxy | v1.0.0    |
+| Service                        | Version |
+| :----------------------------- | :------ |
+| onfinality/subql-coordinator   | v1.0.0  |
+| onfinality/subql-indexer-proxy | v1.0.0  |
 
 ::: warning Important
 Please go through the docker-compose file carefully, and change the following parameters to your own values:
+
 - POSTGRES_PASSWORD
 - postgres-password
 - secret-key
 - jwt-secret
-:::
-
+  :::
 
 ## 2. Connect to MetaMask
 
