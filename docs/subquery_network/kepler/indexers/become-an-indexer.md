@@ -79,6 +79,8 @@ Once your Indexing Service is all set and running successfully, [connect to your
 
 At this stage, only Indexers that received kSQT tokens via the airdrop can obtain and participate as Indexers in Kepler. This may change soon as we test and verify that aspects of the Kepler network are running smoothly.
 
+For Kepler, you can obtain kSQT tokens from the [Kepler Airdrop App](https://airdrop.subquery.foundation). Learn more about kSQT and how to add it to your wallet in [kSQT](../ksqt.md).
+
 ## 4. How to index a project
 
 To index a project, please follow the instructions [here](../indexers/index-project.md).

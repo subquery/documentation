@@ -4,7 +4,7 @@
 
 To become a SubQuery Indexer, you need to stake a minimum of 1000 SQT. If you still haven’t connected your application to MetaMask, visit [How to Connect to MetaMask](../metamask/connect-metamask.md).
 
-:::Note
+::: info Note
 Only Indexers that have been airdropped kSQT will be able to join Kepler as an indexer. In the future, we may invite more indexers into the network.
 :::
 
@@ -92,6 +92,10 @@ Enter the project deployment ID when addding the new project.
 After finishing the process of adding your project, move forward with indexing the project.
 
 ## 3. Index a Project
+
+::: info Note
+If you are wanting to index a Dictionary, then you may be able to restore your project from our dictionary snapshots to save a lot of time. Instructions are [here](../indexers/dictionary-restore.md)
+:::
 
 Select the project card to open the project details page.
 
