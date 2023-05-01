@@ -59,7 +59,7 @@ This will overwrite the existing docker-compose.yml file. Make sure the indexer 
 
 | Service                        | Version |
 | :----------------------------- | :------ |
-| onfinality/subql-coordinator   | v1.0.0  |
+| onfinality/subql-coordinator   | v1.0.1  |
 | onfinality/subql-indexer-proxy | v1.0.0  |
 
 ::: warning Important
@@ -69,7 +69,18 @@ Please go through the docker-compose file carefully, and change the following pa
 - postgres-password
 - secret-key
 - jwt-secret
-  :::
+:::
+
+### Upgrade indexer services
+
+To upgrade a specific container in a Docker Compose file without having to restart other containers. You can run the following command:
+
+```
+docker-compose up -d --no-deps container_name
+```
+
+By running this command, only the targeted container will be updated, while the other containers will remain unchanged
+
 
 ## 2. Connect to MetaMask
 
