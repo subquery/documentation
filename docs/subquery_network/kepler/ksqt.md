@@ -4,6 +4,16 @@ kSQT is the name of the token that is used by participants who operate within th
 
 Kepler is designed to enable participants to provide value to real projects which are migrated from SubQuery’s managed service to the decentralised offering and receive incentives via the Kepler token (kSQT). The kSQT token will be issued with a very limited supply, but users can swap kSQT to USDC using our [Swap feature](./swap.md).
 
+## Adding kSQT to your Wallet
+
+kSQT is deployed on the Polygon network with the following contract address:
+
+`0xcEE50Ee839a2ab3914cF4c3cbAc78f6F11E0c937` ([PolygonScan](https://polygonscan.com/address/0xcEE50Ee839a2ab3914cF4c3cbAc78f6F11E0c937)).
+
+You can add it to your wallet from the wallet selector in the [Kepler App](https://kepler.subquery.network/explorer).
+
+![Add kSQT to Wallet](/assets/img/kSQT_add_wallet.png)
+
 ## How do I Receive kSQT?
 
 The supply of kSQT will be heavily restricted and will be airdropped to Indexers and Ambassadors to help launch the network and show our appreciation for their support.
