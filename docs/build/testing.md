@@ -10,8 +10,8 @@ The SubQuery testing framework provides an easy way to test the behavior of mapp
 
 When developing your project, if you don't want to use the SubQuery Testing Framework, the following options or approaches can be used:
 
-- For the initial development of your project, if you're indexing a specific event, transaction, or log, update your `startBlock` to the block number proceeding a known event, transaction, or log and then proceed indexing from there. This means you immediately receive data into your project for indexing and this can significantly shorten the development iteration time.
-- Generously use [logging](./introduction.md#logging) in your code, including using the debug level when developing to reduce the number of logs printed in your production code. A good practice is to log a new event, transaction, or log when you receive it in the mapping function so you know what error occurs where. When developing you can also debug the payload by stringfying it (note that `JSON.stringify` doesn’t support native `BigInts`)
+- For the initial development of your project, if you're indexing a specific event, transaction, or log, update your `startBlock` in your `project.yaml` to the block number proceeding a known event, transaction, or log and then proceed indexing from there. This means you immediately receive data into your project for indexing and this can significantly shorten the development iteration time.
+- Generously use [logging](./introduction.md#logging) in your code, including using the debug level when developing to reduce the number of logs printed in your production code. A good practice is to log a new event or transaction when you receive it in the mapping function so you know what error occurs where. When developing you can also debug the payload by stringfying it (note that `JSON.stringify` doesn’t support native `BigInts`)
 
 ```ts
 export async function handleLog(log: EthereumLog): Promise<void> {
@@ -30,14 +30,16 @@ To use the SubQuery testing framework, you need to:
 1. Create test files with the naming convention `*.test.ts` and place them in the `src/tests` folder. Each test file should contain test cases for specific mapping handlers.
 2. Run the testing service using the command: `subql-node test`.
 
+Each new starter project should have some default test boilerplate added so you can easily get started.
+
 ## Writing Test Cases
 
 Test cases should be written using the `subqlTest(name, blockHeight, dependentEntities, expectedEntities, handler)` function with the following parameters:
 
 - **name**: A string containing the name of the test.
 - **blockHeight**: The height of the block used in the test.
-- **dependentEntities**: An array of entities that are required for the test to run.
-- **expectedEntities**: An array of entities that are expected after the mapping handler has run.
+- **dependentEntities**: An array of entities that are required for the test to run. When the test case is run, a new database store will be instantiated with this array of entities already saved.
+- **expectedEntities**: An array of entities that are expected after the mapping handler has run. These are read from the store after the mapping function has finished. You can check for the presence of as many entities as you wish.
 - **handler**: The name of the mapping handler function to test.
 
 ### Example test case
@@ -82,7 +84,22 @@ subqlTest(
 
 ## Running Tests
 
-To run the tests, execute the `subql-node test` command. The testing service will discover and import test files, run the tests, and log the results.
+To run the tests, execute the `test` command (this assumes that you have `subql-node` installed). The testing service will discover and import test files, run the tests, and log the results.
+
+::: code-tabs
+@tab:active yarn
+
+```shell
+yarn test
+```
+
+@tab npm
+
+```bash
+npm run-script test
+```
+
+:::
 
 An example of a passing test:
 
@@ -98,9 +115,9 @@ The output will include a summary of the total tests run, passing tests, and fai
 
 ## Example Project
 
-An example SubQuery project with test cases can be found in this repository: [acala-subql-tests](https://github.com/DeveloperInProgress/acala-subql-tests). This project demonstrates the usage of the testing framework and serves as a reference for developers who want to implement tests in their own SubQuery projects.
+An example SubQuery project with test cases can be found in this repository: [polkadot-starter](https://github.com/subquery/subql-starter/tree/main/Polkadot/Polkadot-starter). This project demonstrates the usage of the testing framework and serves as a reference for developers who want to implement tests in their own SubQuery projects.
 
-The acala-starter project within the repository includes test files following the naming convention `*.test.ts` and are placed in the `src/tests` folder. These test files contain test cases for specific mapping handlers and showcase how to write and structure tests in a SubQuery project.
+The polkadot-starter project within the repository includes test files following the naming convention `*.test.ts` and are placed in the `src/tests` folder. These test files contain test cases for specific mapping handlers and showcase how to write and structure tests in a SubQuery project. You can also see the command for test in the `package.json` to show you how to execute the tests (requires `subql-node` to be installed):
 
 To use the example project as a starting point for your project, you can either clone the repository or use it as a reference when implementing tests in your SubQuery project. Make sure to follow the provided structure and adapt the test cases as needed to fit your project requirements.
 
@@ -121,28 +138,28 @@ subquery-node:
     DB_DATABASE: postgres
     DB_HOST: postgres
     DB_PORT: 5432
-    RUN_TESTS: "false" # Set this to "true" to run tests
   volumes:
     - ./:/app
-  command: >
-    /bin/sh -c '
-    CMD_OPTIONS="-f=/app --db-schema=app --disable-historical=false";
-    if [ "$$RUN_TESTS" = "true" ]; then
-      subql-node test $$CMD_OPTIONS;
-    else
-      subql-node $$CMD_OPTIONS;
-    fi'
+  command:
+    - ${SUB_COMMAND} # set SUB_COMMAND env variable to "test" to run tests
+    - -f=/app
+    - --db-schema=app
+  healthcheck:
+    test: ["CMD", "curl", "-f", "http://subquery-node:3000/ready"]
+    interval: 3s
+    timeout: 5s
+    retries: 10
 ```
 
-To run tests with Docker, set the RUN_TESTS environment variable to "true" in the docker-compose.yml file. Then, use the following command to start the Docker container:
+To run tests with Docker, set the Docker SUB_COMMAND environment variable to "test" in the docker-compose.yml file. Then, use the following command to start the Docker container (tests will be run on startup automatically):
 
 ```
-docker-compose pull && docker-compose up
+SUB_COMMAND=test docker-compose pull && docker-compose up
 ```
 
 ## Setting up GitHub Actions
 
-GitHub Actions can be used to automate the testing process for your SubQuery project. Here is an example workflow that runs tests whenever a new pull request is created:
+GitHub Actions can be used to automate the testing process for your SubQuery project. Here is an [example workflow from the Polkadot Starter project](https://github.com/subquery/subql-starter/blob/main/Polkadot/Polkadot-starter/.github/workflows/pr.yml) that runs tests whenever a new pull request is created:
 
 ```yml
 name: PR
@@ -173,7 +190,7 @@ jobs:
 
 This workflow checks out the repository, sets up a Node.js environment, installs the necessary dependencies, and runs the tests using the subql-node CLI.
 
-Each SubQuery starter project should have this GIitHub action already added. To set up this GitHub Actions workflow on an old project, create a file named `pr.yml` (or any other name of your choice) inside the `.github/workflows` directory in your SubQuery project and paste the above workflow configuration into the file. Once the file is saved, GitHub Actions will automatically start running the workflow whenever a new pull request is created.
+Each [SubQuery starter project](https://github.com/subquery/subql-starter/blob/main/Polkadot/Polkadot-starter/.github/workflows/pr.yml) should have this GitHub action already added. To set up this GitHub Actions workflow on an old project, create a file named `pr.yml` (or any other name of your choice) inside the `.github/workflows` directory in your SubQuery project and paste the above workflow configuration into the file. Once the file is saved, GitHub Actions will automatically start running the workflow whenever a new pull request is created.
 
 ## When not to use the SubQuery Testing Framework
 
