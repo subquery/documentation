@@ -4,18 +4,7 @@
 
 ### --help
 
-```shell
-> subql --help
-
-COMMANDS
-  build     Build this SubQuery project code
-  codegen   Generate schemas for graph node
-  help      display help for subql
-  init      Initialize a scaffold subquery project
-  migrate   Migrate Subquery project manifest v0.0.1 to v0.2.0
-  publish   Upload this SubQuery project to IPFS
-  validate  Check a folder or github repo is a validate subquery project
-```
+This shows all the current command options for your current verison of `subql-cli`.
 
 ### build
 
@@ -40,62 +29,7 @@ For more info, visit [basic workflows](../build/introduction.md#build).
 
 ### --help
 
-This shows the help options.
-
-```shell
-> subql-node --help
-Commands:
-  run force-clean  Clean the database dropping project schemas and tables. Once
-                   the command is executed, the application would exit upon
-                   completion.
-  run reindex      Reindex to specified block height. Historical must be enabled
-                   for the targeted project (--disable-historical=false). Once
-                   the command is executed, the application would exit upon
-                   completion.
-Options:
-      --help                Show help                                  [boolean]
-      --version             Show version number                        [boolean]
-  -f, --subquery            Local path of the subquery project          [string]
-      --subquery-name       Name of the subquery project   [deprecated] [string]
-  -c, --config              Specify configuration file                  [string]
-      --local               Use local mode                [deprecated] [boolean]
-      --db-schema           Db schema name of the project               [string]
-      --unsafe              Allows usage of various other features that compromise a projects determinism                    [boolean][default: false]
-      --batch-size          Batch size of blocks to fetch in one round  [number]
-      --scale-batch-size    scale batch size based on memory usage
-                                                      [boolean] [default: false]
-      --timeout             Timeout for indexer sandbox to execute the mapping
-                            functions                                   [number]
-      --debug               Show debug information to console output. will
-                            forcefully set log level to debug
-                                                      [boolean] [default: false]
-      --profiler            Show profiler information to console output
-                                                      [boolean] [default: false]
-      --subscription        Enable subscription       [boolean] [default: false]
-      --network-endpoint    Blockchain network endpoint to connect      [string]
-      --output-fmt          Print log as json or plain text
-                                           [string] [choices: "json", "colored"]
-      --log-level           Specify log level to print. Ignored when --debug is
-                            used
-          [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
-                                                                       "silent"]
-      --migrate             Migrate db schema (for management tables only)
-                                                      [boolean] [default: false]
-      --timestamp-field     Enable/disable created_at and updated_at in schema
-                                                      [boolean] [default: false]
-      --unfinalized-blocks  Enable/disable unfinalized blocks indexing
-                                                       [boolean] [default: false]
-  -d, --network-dictionary  Specify the dictionary api for this network [string]
-  -m, --mmr-path            Local path of the merkle mountain range (.mmr) file
-                                                                        [string]
-      --proof-of-index      Enable/disable proof of index
-                                                      [boolean] [default: false]
-  -p, --port                The port the service will bind to           [number]
-      --disable-historical  Disable storing historical state entities
-                                                       [boolean] [default: true]
-  -w, --workers             Number of worker threads to use for fetching and
-                            processing blocks. Disabled by default.     [number]
-```
+This shows all the current command options for your current verison of `subql-node`.
 
 ### --batch-size
 
@@ -108,6 +42,10 @@ This flag allows you to set the batch size in the command line. If batch size is
 2021-08-09T23:24:47.415Z <fetch> INFO fetch block [6641,6660], total 20 blocks
 2021-08-09T23:24:49.235Z <fetch> INFO fetch block [6661,6680], total 20 blocks
 ```
+
+### --block-confirmations
+
+(EVM only) The number of blocks behind the head to be considered finalized, this has no effect with non-EVM networks. This is by default 20.
 
 ### -c, --config
 
@@ -139,10 +77,6 @@ subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot
 
 For more info, visit [How does a SubQuery Dictionary works?](../academy/tutorials_examples/dictionary.md)
 
-### --dictionary-timeout
-
-Changes the timeout for dictionary queries, this number is expressed in seconds. By default we use 30 seconds.
-
 ### --db-schema
 
 This flag allows you to provide a name for the project database schema. Upon providing a new name, a new database schema is created with the configured name and block indexing starts.
@@ -165,6 +99,14 @@ This outputs debug information to the console output and forcefully sets the log
 ### --disable-historical
 
 Disables automated historical state tracking, [see Historic State Tracking](./historical.md). By default this is set to `false`.
+
+### --dictionary-resolver
+
+Uses the provided SubQuery Network dictionary resolver to find a dictionary, this will overwrite dictionaries specified by `--network-dictionary`
+
+### --dictionary-timeout
+
+Changes the timeout for dictionary queries, this number is expressed in seconds. By default we use 30 seconds.
 
 ### -f, --subquery
 
@@ -322,6 +264,18 @@ Once the command is executed and the state has been rolled back the the specifie
 
 Scale the block fetch batch size with memory usage.
 
+### --store-cache-threshold
+
+This can be specified when `--store-cache-async=false`. Store cache will flush data to the database when number of records excess this threshold, a higher number reduces number of transactions to database in order to save time but requires more memory. The default is 1000 records.
+
+### --store-get-cache-size
+
+This can be specified when `--store-cache-async=false`. The number of items from the store retained in a memory cache for faster retrieval of recent data within handlers. A higher number may increase indexing speed, but will require more memory. The default is 500.
+
+### --store-cache-async
+
+If enabled the store cache will flush data asynchronously relative to indexing data (enabled by default)
+
 ### --subscription
 
 This will create a notification trigger on entity, this also is the prerequisite to enable subscription feature in query service.
@@ -418,34 +372,13 @@ In the case where Worker C completes its fetch prior to Worker A and B, it will 
 
 ### --help
 
-This shows the help options.
-
-```shell
-Options:
-      --help          Show help                                          [boolean]
-      --version       Show version number                                [boolean]
-  -n, --name          Project name                             [string] [required]
-      --playground    Enable graphql playground                          [boolean]
-      --subscription  Enable subscription               [boolean] [default: false]
-      --output-fmt    Print log as json or plain text
-                        [string] [choices: "json", "colored"] [default: "colored"]
-      --log-level     Specify log level to print.
-            [string] [choices: "fatal", "error", "warn", "info", "debug", "trace",
-                                                       "silent"] [default: "info"]
-      --log-path      Path to create log file e.g ./src/name.log          [string]
-      --log-rotate    Rotate log files in directory specified by log-path
-                                                      [boolean] [default: false]
-      --indexer       Url that allows query to access indexer metadata    [string]
-      --unsafe        Disable limits on query depth and allowable number returned
-                      query records and enables aggregation functions                                          [boolean]
-  -p, --port          The port the service will bind to                   [number]
-```
+This shows all the current command options for your current verison of `subql-query`.
 
 ### --aggregate
 
 Enables or disables the GraphQL aggregation feature, [read more about this here](../run_publish/aggregate.md). By default this is set to true.
 
-### disable-hot-schema
+### --disable-hot-schema
 
 Disables the hot reload schema on project schema changes, by default this is set to false.
 
@@ -500,6 +433,18 @@ You can use this flag to pass additional settings to the GraphQL playground (in 
 ### --port
 
 The port the subquery query service binds to. By default this is set to `3000`
+
+### --pg-ca
+
+When connecting to a postgres database via SSL, the path to the server certificate (in `.pem` format)
+
+### --pg-cert
+
+When connecting to a postgres database via SSL, the path to the client certificate (in `.pem` format)
+
+### --pg-key
+
+When connecting to a postgres database via SSL, the path to the client key file (in `.key` format)
 
 ### --query-complexity
 
