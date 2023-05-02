@@ -43,9 +43,9 @@ This flag allows you to set the batch size in the command line. If batch size is
 2021-08-09T23:24:49.235Z <fetch> INFO fetch block [6661,6680], total 20 blocks
 ```
 
-### --block-confirmations (Ethereum only)
+### --block-confirmations (EVM only)
 
-The number of blocks behind the head to be considered finalized, this has no effect with Proof-of-Stake networks.
+The number of blocks behind the head to be considered finalized, this has no effect with non-EVM networks. This is by default 20.
 
 ### -c, --config
 
