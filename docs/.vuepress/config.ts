@@ -406,6 +406,7 @@ function getSidebar(locale: string): SidebarOptions {
             `${locale}/build/mapping/store.md`,
           ],
         },
+        `${locale}/build/testing.md`,
         `${locale}/build/multi-chain.md`,
         `${locale}/build/substrate-evm.md`,
         `${locale}/build/substrate-wasm.md`,
