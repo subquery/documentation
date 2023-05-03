@@ -1,5 +1,7 @@
 # SubQuery Token (SQT)
 
+:::warning Kepler Token (kSQT) Kepler has it's own token for the Kepler network with its own supply and contract address, please read more about it there under [kSQT](./kepler/ksqt.md). :::
+
 Das SubQuery-Netzwerk wird vom SubQuery-Token (SQT) unterstützt.
 
 Das SubQuery-Token (SQT) ist als Utility-Token konzipiert, das das SubQuery-Netzwerk antreibt, einen Anreiz zur Teilnahme bietet und als Tauschmittel für Transaktionen innerhalb des SubQuery-Netzwerks dient. Verbraucher von Daten werden SQT im Austausch für Daten von Indexern verpflichten und diese SQT wird basierend auf der ausgewählten Zahlungsmethode unter den Indexern verteilt.
