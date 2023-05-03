@@ -1,5 +1,7 @@
 # Mã thông báo SubQuery (SQT)
 
+:::warning Kepler Token (kSQT) Kepler has it's own token for the Kepler network with its own supply and contract address, please read more about it there under [kSQT](./kepler/ksqt.md). :::
+
 Mạng SubQuery được cung cấp năng lượng bởi Mã thông báo SubQuery (SQT).
 
 Mã thông báo SubQuery (SQT) được thiết kế như một mã thông báo tiện ích cung cấp năng lượng cho Mạng SubQuery, cung cấp động lực cho sự tham gia, cũng như phục vụ như một phương tiện trao đổi cho các giao dịch trong Mạng SubQuery. Người tiêu dùng dữ liệu sẽ cam kết SQT để đổi lấy dữ liệu từ Người lập chỉ mục và SQT này sẽ được phân phối giữa Người lập chỉ mục dựa trên phương thức thanh toán đã chọn.
