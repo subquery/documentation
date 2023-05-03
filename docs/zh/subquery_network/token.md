@@ -1,5 +1,7 @@
 # SubQuery 代币 (SQT)
 
+:::warning Kepler Token (kSQT) Kepler has it's own token for the Kepler network with its own supply and contract address, please read more about it there under [kSQT](./kepler/ksqt.md). :::
+
 SubQuery 网络由 SubQuery 代币(SQT) 提供动力。
 
 我们的目标是将SQT作为SubQuery网络的通证经济，提供参与激励，并作为SubQuery网络内交易的交换媒介。 数据消费者将提交SQT，以换取索引者提供的数据，这个SQT将根据选择的支付方法在索引者中分配。
