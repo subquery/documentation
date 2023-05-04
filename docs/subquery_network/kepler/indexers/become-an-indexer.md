@@ -59,7 +59,7 @@ This will overwrite the existing docker-compose.yml file. Make sure the indexer 
 
 | Service                        | Version |
 | :----------------------------- | :------ |
-| onfinality/subql-coordinator   | v1.0.2  |
+| onfinality/subql-coordinator   | v1.0.3  |
 | onfinality/subql-indexer-proxy | v1.0.0  |
 
 ::: warning Important
