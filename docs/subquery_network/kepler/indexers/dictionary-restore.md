@@ -8,8 +8,8 @@ In order to speed up the onboarding of Indexers, we are providing database snaps
 
 | Network   | Deployment ID                                    | Database Size | S3 Bucket URL                                                                                      | BT Magnet Link | SHA256                                                             |
 | --------- | ------------------------------------------------ | ------------- | -------------------------------------------------------------------------------------------------- | -------------- | ------------------------------------------------------------------ |
-| Pollkadot | `QmZGAZQ7e1oZgfuK4V29Fa5gveYK3G2zEwvUzTZKNvSBsm` | ~220GB        | [S3 URL](https://kepler-dictionary-projects.s3.ap-southeast-2.amazonaws.com/polkadot/polkadot.tar) | TBC            | `5725b13d70d73956289f7e0e448bc9a8b5c2146a864057572c4fa97843aa7fab` |
-| Kusama    | `QmXwfCF8858YY924VHgNLsxRQfBLosVbB31mygRLhgJbWn` | ~260GB        | [S3 URL](https://kepler-dictionary-projects.s3.ap-southeast-2.amazonaws.com/kusama/kusama.tar)     | TBC            | `a0b96c7d41cc41ed000df3958197c16ea12565510d6198d6f9518f82133dd4e9` |
+| Pollkadot | `QmZGAZQ7e1oZgfuK4V29Fa5gveYK3G2zEwvUzTZKNvSBsm` | ~220GB        | [S3 URL](https://kepler-dictionary-projects.s3.ap-southeast-2.amazonaws.com/polkadot/polkadot.tar) | TBC            | `7a069913a7062a66b90956fc03b272635297dbd511bb961ddd2e3bbe65862088` |
+| Kusama    | `QmXwfCF8858YY924VHgNLsxRQfBLosVbB31mygRLhgJbWn` | ~260GB        | [S3 URL](https://kepler-dictionary-projects.s3.ap-southeast-2.amazonaws.com/kusama/kusama.tar)     | TBC            | `87af0393ecd763c10a42cce02d22268b79baf9a6131bde1955b3f7d90c9694ab` |
 
 You can download the snapshot either from the s3 bucket URL or the BitTorrent magnet link:
 
@@ -46,7 +46,7 @@ There are 2 parameters to run this script, the first one is your <MMR_PATH> - no
 
 ```bash
 # sh restore.sh <MMR_PATH> <DATA_FOLDER_PATH> > restore.log 2>&1 &
-sh restore.sh /home /home/ec2-user/indexer-services/.data/postgres > restore.log 2>&1 &
+nohup sh restore.sh /home /home/ec2-user/indexer-services/.data/postgres/ > restore.log 2>&1 &
 ```
 
 :::note
