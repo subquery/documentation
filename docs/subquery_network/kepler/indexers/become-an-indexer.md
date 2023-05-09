@@ -22,8 +22,9 @@ In the first phase of Kepler, Indexers will be Sponsored by the SubQuery Council
 - All plans will be orientated around the length of an Era, which is currently one week but may be increased to a fortnight (two weeks).
 - Indexers should only index from a list of standardised projects that will be listed [here](./dictionary-restore.md#downloading-database-snapshots). You wont be rewarded for indexing any projects that are not on this list.
 - Towards the end of each era, we will release the suggested plan templates, recommended pricing, an and other instructions for the start of the next period. You can create plans under [step 5](#5-create-a-plan-from-a-plan-template). These will be shared on [Discord](https://discord.com/invite/subquery) in `kepler-indexer-chat`
-- We use the [Indexer Excellency programme](https://kepler.subquery.network/delegator/indexers/top) to rank indexers and plans will be allocated to indexers with a higher score and. In order to maximise your rewards, we suggest trying to maximise your score in this programme (you can hover over the column header to see how each score is calculated).
+- We use the [Indexer Excellency programme](https://kepler.subquery.network/delegator/indexers/top) to rank indexers and plans will be allocated to indexers with a higher score. In order to maximise your rewards, we suggest trying to maximise your score in this programme (you can hover over the column header to see how each score is calculated).
 - We also constantly assess uptime from our indexers, so if you have [announced that your indexing service is ready to use](../indexers/index-project.md#42-announcing-that-indexing-service-is-ready-to-use), then you will be penalised for any downtime.
+- Finally, we also assess pricing when allocating plans to indexers, so indexers with lower prices can expect a higher chance of being selected.
 
 ![Indexer Excellency](/assets/img/indexer-excellency.png)
 
