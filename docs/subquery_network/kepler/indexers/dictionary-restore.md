@@ -8,7 +8,7 @@ In order to speed up the onboarding of Indexers, we are providing database snaps
 
 | Network   | Deployment ID                                    | Database Size | S3 Bucket URL                                                                                      | BT Magnet Link | SHA256                                                             |
 | --------- | ------------------------------------------------ | ------------- | -------------------------------------------------------------------------------------------------- | -------------- | ------------------------------------------------------------------ |
-| Pollkadot | `QmZGAZQ7e1oZgfuK4V29Fa5gveYK3G2zEwvUzTZKNvSBsm` | ~220GB        | [S3 URL](https://kepler-dictionary-projects.s3.ap-southeast-2.amazonaws.com/polkadot/polkadot.tar) | TBC            | `5a7578e68646573fd28c64ec2e592f8ee7baafc9e779eec1ba969e84ebdde603` |
+| Pollkadot | `QmZGAZQ7e1oZgfuK4V29Fa5gveYK3G2zEwvUzTZKNvSBsm` | ~220GB        | [S3 URL](https://kepler-dictionary-projects.s3.ap-southeast-2.amazonaws.com/polkadot/polkadot.tar) | TBC            | `c1a1f67e2a205dc9fdd90f738686f3ee57052fcc7bc383a054574ab81e17584f` |
 | Kusama    | `QmXwfCF8858YY924VHgNLsxRQfBLosVbB31mygRLhgJbWn` | ~260GB        | [S3 URL](https://kepler-dictionary-projects.s3.ap-southeast-2.amazonaws.com/kusama/kusama.tar)     | TBC            | `65f6fc3dd0410b296f651369690fd866070dbba8781a61454fc00cc11676452c` |
 
 You can download the snapshot either from the s3 bucket URL or the BitTorrent magnet link:
