@@ -15,6 +15,18 @@ Welcome to this guide of how to become an indexer. Let's take an overview of the
 | 5     | [Troubleshooting](../indexers/troubleshooting-indexers.md)                                                                    |
 | 6     | [FAQs](../indexers/faqs-indexers.md)                                                                                          |
 
+## Understanding how Kepler will Operate for Indexers
+
+In the first phase of Kepler, Indexers will be Sponsored by the SubQuery Council to run common good sponsored projects. These will be run using standardised plans so that the SubQuery Council can easily create agreements with each Indexer and sponsor them in bulk.
+
+- All plans will be orientated around the length of an Era, which is currently one week but may be increased to a fortnight (two weeks).
+- Indexers should only index from a list of standardised projects that will be listed [here](./dictionary-restore.md#downloading-database-snapshots). You wont be rewarded for indexing any projects that are not on this list.
+- Towards the end of each era, we will release the suggested plan templates, recommended pricing, an and other instructons for the start of the next period. You can create plans under [step 5](#5-create-a-plan-from-a-plan-template). These will be shared on [Discord](https://discord.com/invite/subquery) in `kepler-indexer-chat`
+- We use the [Indexer Excellency programme](https://kepler.subquery.network/delegator/indexers/top) to rank indexers and plans will be allocated to indexers with a higher score and. In order to maximise your rewards, we suggest trying to maximise your score in this programme (you can hover over the column header to see how each score is calculated).
+- We also constantly assess uptime from our indexers, so if you have [announced that your indexing service is ready to use](../indexers/index-project.md#42-announcing-that-indexing-service-is-ready-to-use), then you will be penalised for any downtime.
+
+![Indexer Excellency](/assets/img/indexer-excellency.png)
+
 ## 1. Select an environment
 
 For those who are new to SubQuery, it is recommended to try running the Indexing Service on your local machine first. For **intermediate to advanced users**, it is recommended to set up a VM on AWS (or similar) to host your indexing service.
