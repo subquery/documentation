@@ -51,7 +51,6 @@ Please check that the Docker is already running. The images will be pulled from 
 
 ![docker compose-up command line](/assets/img/docker_compose_up_commandline_installlocally.png)
 
-
 ### Step 3 - Open the Indexer Admin Page
 
 Open `http://localhost:8000/` in your browser and you will get to see:
@@ -62,9 +61,11 @@ Open `http://localhost:8000/` in your browser and you will get to see:
 
 ## Next Steps
 
-You have successfully installed the Indexing service locally. The next step is to connect your application with MetaMask.
+**You have successfully installed and started the Indexer Service locally.**
 
-**Head to [How to Connect to MetaMask](../metamask/connect-metamask.md) guide.**
+We highly recommend setting up SSL on your new server. [Follow the guide here](./ssl-configuration.md).
+
+You can also move forward to [connect with MetaMask](../metamask/connect-metamask.md).
 
 :::tip Tip
 Having trouble running a command or setting up the service? Got stuck in the process? Find your solutions [here](../indexers/troubleshooting-indexers.md).

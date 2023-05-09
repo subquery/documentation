@@ -85,7 +85,6 @@ It will start the following services:
 - `indexer_proxy`
 - `indexer_cache`
 
-
 ::: tip Note
 Each project you start indexing will create 2 extra containers `node_qm----------` and `query_qm----------` that has the 15 first characters of the project's Qm-hash.
 :::
@@ -136,7 +135,11 @@ systemctl status subquery.service
 
 ## Next Steps
 
-**You have successfully installed and started the Indexer Service on Linux. Now, move forward to [connect with MetaMask](../metamask/connect-metamask.md).**
+**You have successfully installed and started the Indexer Service on Linux.**
+
+We highly recommend setting up SSL on your new server. [Follow the guide here](./ssl-configuration.md).
+
+You can also move forward to [connect with MetaMask](../metamask/connect-metamask.md).
 
 ::: tip Tip
 Having trouble running a command or setting up the service? Got stuck in the process? Find your solutions [here](../indexers/troubleshooting-indexers.md).
