@@ -113,7 +113,7 @@ If you are wanting to index a Dictionary, then you may be able to restore your p
 
 ## 5. Create a Plan from a Plan Template
 
-For the intial stages of Kepler, the SubQuery Council will set some default plan templates to make plan management and creation easier, and speed up the test and analysis of various parameters of the network. As a result, plan creation is very easy and just requires to you enter a price. [See the guide here](./plans.md#creating-a-plan).
+For the initial stages of Kepler, the SubQuery Council will set some default plan templates to make plan management and creation easier, and speed up the test and analysis of various parameters of the network. As a result, plan creation is very easy and just requires to you enter a price. [See the guide here](./plans.md#creating-a-plan).
 
 ## Additional Notes
 
