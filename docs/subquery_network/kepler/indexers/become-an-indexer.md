@@ -12,8 +12,9 @@ Welcome to this guide of how to become an indexer. Let's take an overview of the
 | 2     | [Connect to MetaMask](../metamask/connect-metamask.md)                                                                        |
 | 3     | [Obtain Kepler Tokens](#3-obtain-ksqt-tokens)                                                                                 |
 | 4     | [How to index a project](#4-how-to-index-a-project) or [restore dictionary databases](#4-how-to-index-a-project)              |
-| 5     | [Troubleshooting](../indexers/troubleshooting-indexers.md)                                                                    |
-| 6     | [FAQs](../indexers/faqs-indexers.md)                                                                                          |
+| 5     | [Create a Plan from a Plan Template](#5-create-a-plan-from-a-plan-template)                                                   |
+|       | [Troubleshooting](../indexers/troubleshooting-indexers.md)                                                                    |
+|       | [FAQs](../indexers/faqs-indexers.md)                                                                                          |
 
 ## Understanding how Kepler will Operate for Indexers
 
@@ -86,13 +87,17 @@ Please go through the docker-compose file carefully, and change the following pa
 
 ### Upgrade indexer services
 
-To upgrade a specific container in a Docker Compose file without having to restart other containers. You can run the following command:
+To upgrade an indexer service, you will need to update the version of the image used in the docker-compose file. This can be done by updating the image field in the service definition to the new version you want to use.
 
-```
-docker-compose up -d --no-deps container_service_name
+Once the image version has been updated in the docker-compose file, you can restart the specific container that needs to be upgraded. This can be done by running the following command in the terminal:
+
+```bash
+docker-compose up -d --no-deps container-service-name
 ```
 
-By running this command, only the targeted container will be updated, while the other containers will remain unchanged
+The `up` command starts the container in the background, while the `--no-deps` flag prevents Docker Compose from starting any linked services. Finally, the `container-service-name` argument specifies the name of the container that needs to be restarted.
+
+By following these simple steps, you can upgrade your indexer services in Docker Compose and ensure that they are running the latest version of the image.
 
 ## 2. Connect to MetaMask
 
