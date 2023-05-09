@@ -57,10 +57,10 @@ curl https://raw.githubusercontent.com/subquery/indexer-services/kepler/docker-c
 
 This will overwrite the existing docker-compose.yml file. Make sure the indexer service versions are correct:
 
-| Service                        | Version |
-| :----------------------------- | :------ |
-| onfinality/subql-coordinator   | v1.0.4  |
-| onfinality/subql-indexer-proxy | v1.0.0  |
+| Service                                                                                   | Version |
+| :---------------------------------------------------------------------------------------- | :------ |
+| [onfinality/subql-coordinator](https://hub.docker.com/r/onfinality/subql-coordinator)     | v1.0.4  |
+| [onfinality/subql-indexer-proxy](https://hub.docker.com/r/onfinality/subql-indexer-proxy) | v1.0.1  |
 
 ::: warning Important
 Please go through the docker-compose file carefully, and change the following parameters to your own values:
@@ -69,7 +69,7 @@ Please go through the docker-compose file carefully, and change the following pa
 - postgres-password
 - secret-key
 - jwt-secret
-:::
+  :::
 
 ### Upgrade indexer services
 
@@ -80,7 +80,6 @@ docker-compose up -d --no-deps container_service_name
 ```
 
 By running this command, only the targeted container will be updated, while the other containers will remain unchanged
-
 
 ## 2. Connect to MetaMask
 
@@ -99,6 +98,10 @@ To index a project, please follow the instructions [here](../indexers/index-proj
 ::: info Note
 If you are wanting to index a Dictionary, then you may be able to restore your project from our dictionary snapshots to save a lot of time. Instructions are [here](../indexers/dictionary-restore.md)
 :::
+
+## 5. Create a Plan from a Plan Template
+
+For the intial stages of Kepler, the SubQuery Council will set some default plan templates to make plan management and creation easier, and speed up the test and analysis of various parameters of the network. As a result, plan creation is very easy and just requires to you enter a price. [See the guide here](./plans.md#creating-a-plan).
 
 ## Additional Notes
 
