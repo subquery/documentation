@@ -15,6 +15,19 @@ Welcome to this guide of how to become an indexer. Let's take an overview of the
 | 5     | [Troubleshooting](../indexers/troubleshooting-indexers.md)                                                                    |
 | 6     | [FAQs](../indexers/faqs-indexers.md)                                                                                          |
 
+## Understanding how Kepler will Operate for Indexers
+
+In the first phase of Kepler, Indexers will be Sponsored by the SubQuery Council to run common good sponsored projects. These will be run using standardised plans so that the SubQuery Council can easily create agreements with each Indexer and sponsor them in bulk.
+
+- All plans will be orientated around the length of an Era, which is currently one week but may be increased to a fortnight (two weeks).
+- Indexers should only index from a list of standardised projects that will be listed [here](./dictionary-restore.md#downloading-database-snapshots). You wont be rewarded for indexing any projects that are not on this list.
+- Towards the end of each era, we will release the suggested plan templates, recommended pricing, an and other instructions for the start of the next period. You can create plans under [step 5](#5-create-a-plan-from-a-plan-template). These will be shared on [Discord](https://discord.com/invite/subquery) in `kepler-indexer-chat`
+- We use the [Indexer Excellency programme](https://kepler.subquery.network/delegator/indexers/top) to rank indexers and plans will be allocated to indexers with a higher score. In order to maximise your rewards, we suggest trying to maximise your score in this programme (you can hover over the column header to see how each score is calculated).
+- We also constantly assess uptime from our indexers, so if you have [announced that your indexing service is ready to use](../indexers/index-project.md#42-announcing-that-indexing-service-is-ready-to-use), then you will be penalised for any downtime.
+- Finally, we also assess pricing when allocating plans to indexers, so indexers with lower prices can expect a higher chance of being selected.
+
+![Indexer Excellency](/assets/img/indexer-excellency.png)
+
 ## 1. Select an environment
 
 For those who are new to SubQuery, it is recommended to try running the Indexing Service on your local machine first. For **intermediate to advanced users**, it is recommended to set up a VM on AWS (or similar) to host your indexing service.
@@ -57,10 +70,10 @@ curl https://raw.githubusercontent.com/subquery/indexer-services/kepler/docker-c
 
 This will overwrite the existing docker-compose.yml file. Make sure the indexer service versions are correct:
 
-| Service                        | Version |
-| :----------------------------- | :------ |
-| onfinality/subql-coordinator   | v1.0.4  |
-| onfinality/subql-indexer-proxy | v1.0.0  |
+| Service                                                                                   | Version |
+| :---------------------------------------------------------------------------------------- | :------ |
+| [onfinality/subql-coordinator](https://hub.docker.com/r/onfinality/subql-coordinator)     | v1.0.4  |
+| [onfinality/subql-indexer-proxy](https://hub.docker.com/r/onfinality/subql-indexer-proxy) | v1.0.1  |
 
 ::: warning Important
 Please go through the docker-compose file carefully, and change the following parameters to your own values:
@@ -69,7 +82,7 @@ Please go through the docker-compose file carefully, and change the following pa
 - postgres-password
 - secret-key
 - jwt-secret
-:::
+  :::
 
 ### Upgrade indexer services
 
@@ -80,7 +93,6 @@ docker-compose up -d --no-deps container_service_name
 ```
 
 By running this command, only the targeted container will be updated, while the other containers will remain unchanged
-
 
 ## 2. Connect to MetaMask
 
@@ -99,6 +111,10 @@ To index a project, please follow the instructions [here](../indexers/index-proj
 ::: info Note
 If you are wanting to index a Dictionary, then you may be able to restore your project from our dictionary snapshots to save a lot of time. Instructions are [here](../indexers/dictionary-restore.md)
 :::
+
+## 5. Create a Plan from a Plan Template
+
+For the initial stages of Kepler, the SubQuery Council will set some default plan templates to make plan management and creation easier, and speed up the test and analysis of various parameters of the network. As a result, plan creation is very easy and just requires to you enter a price. [See the guide here](./plans.md#creating-a-plan).
 
 ## Additional Notes
 
