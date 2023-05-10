@@ -1,5 +1,7 @@
 # 命令行标志
 
+All booleans are by default `false` unless explicity mentioned.
+
 ## subql (cli)
 
 ### --help
@@ -10,11 +12,11 @@ This shows all the current command options for your current verison of `subql-cl
 
 This command is uses webpack to generate a bundle of a subquery project.
 
-| 选项             | 描述                                              |
-| -------------- | ----------------------------------------------- |
-| -l, --location | subquery项目的本地文件夹(如果没有在文件夹中)                     |
-| -o, --output   | 指定构建的输出文件夹，例如：build-folder                      |
-| --mode         | production or development (default: production) |
+| 选项             | 描述                                                    |
+| -------------- | ----------------------------------------------------- |
+| -l, --location | subquery项目的本地文件夹(如果没有在文件夹中)                           |
+| -o, --output   | 指定构建的输出文件夹，例如：build-folder                            |
+| --mode         | `production` or `development` (default: `production`) |
 
 - 用`subql build`命令，您可以在exports字段中指定额外的入口点，尽管它总是会自动构建 < 0 >index.ts < / 0 >
 
@@ -28,11 +30,11 @@ For more info, visit [basic workflows](../build/introduction.md#build).
 
 ### --help
 
-This shows all the current command options for your current verison of `subql-node`.
+**Boolean** - This shows all the current command options for your current verison of `subql-node`.
 
 ### --batch-size
 
-此标志将允许您在命令行中设置批量大小。 如果在配置文件中也设置了批量大小，则优先。
+**Positive Integer (default: `100`)** - This flag allows you to set the batch size in the command line. 如果在配置文件中也设置了批量大小，则优先。 This setting is overidden on the Managed service to `30`.
 
 ```shell
 > subql-node -f . --batch-size=20
@@ -44,11 +46,11 @@ This shows all the current command options for your current verison of `subql-no
 
 ### --block-confirmations
 
-(EVM only) The number of blocks behind the head to be considered finalized, this has no effect with non-EVM networks. This is by default 20.
+**Positive Integer (default: `20`)** - (Only for `subql-node-ethereum`) The number of blocks behind the head to be considered finalized, this has no effect with non-EVM networks.
 
 ### -c, --config
 
-所有这些不同的配置都可以放置到 .yml 或 .json 文件中，然后用config参数进行引用。
+**String** - All these various configurations can be placed into a .yml or .json file and then referenced with the config flag.
 
 示例subquery_config.yml文件：
 
@@ -64,21 +66,9 @@ batchSize: 55 // Optional config
 > subql-node -c ./subquery_config.yml
 ```
 
-### -d, --network-dictionary
-
-这允许您指定一个字典端点，这是一个免费的服务，其在 [https://explorer.subquery etwork/](https://explorer.subquery.network/) (搜索字典) 上提供和托管。并提供了一个 API 端口： https://api.subquery.network/sq/sq/subquery/dictiony-polkadot.
-
-通常，这将在您的清单文件中设置，但在下面显示一个在命令行中使用它作为参数的例子。
-
-```shell
-subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot"
-```
-
-For more info, visit [How does a SubQuery Dictionary works?](../academy/tutorials_examples/dictionary.md)
-
 ### --db-schema
 
-此标志允许您为项目数据库方案提供一个名称。 提供新名称后，将使用配置的名称创建新的数据库模式，并开始块索引。
+**String** - This flag allows you to provide a name for the project database schema. 提供新名称后，将使用配置的名称创建新的数据库模式，并开始块索引。
 
 ```shell
 subql-node -f . --db-schema=test2
@@ -86,7 +76,7 @@ subql-node -f . --db-schema=test2
 
 ### --debug
 
-这会将调试信息输出到控制台输出并强制将日志级别设置为调试。
+**Boolean** - This outputs debug information to the console output and forcefully sets the log level to debug.
 
 ```shell
 > subql-node -f . --debug
@@ -97,19 +87,19 @@ subql-node -f . --db-schema=test2
 
 ### --disable-history
 
-禁用自动状态跟踪， [查看历史状态跟踪](./historical.md)。 默认情况下为 `false`。
+**Boolean** - Disables automated historical state tracking, [see Historic State Tracking](./historical.md).
 
 ### --dictionary-resolver
 
-Uses the provided SubQuery Network dictionary resolver to find a dictionary, this will overwrite dictionaries specified by `--network-dictionary`
+**String** - Uses the provided SubQuery Network dictionary resolver URL to find a dictionary, this will overwrite dictionaries specified by `--network-dictionary`
 
 ### --dictionary-timeout
 
-Changes the timeout for dictionary queries, this number is expressed in seconds. By default we use 30 seconds.
+**Positive Integer (default: `30`)** - Changes the timeout for dictionary queries, this number is expressed in seconds.
 
 ### -f, --subquery
 
-使用此标志启动SubQuery项目。
+**Boolean** - Use this flag to start the SubQuery project.
 
 ```shell
 subql-node -f . // 或者
@@ -118,31 +108,19 @@ subql-node --subquery .
 
 ### force-clean
 
-- In order to use this command you need to have `@subql/node` v1.10.0 or above.
-
-This command forces the project schemas and tables to be regenerated. It is helpful to use when iteratively developing graphql schemas in order to ensure a clean state when starting a project. 请注意，此命令行也会清除所有索引数据。 This will also drop all related schema and tables of the project.
+This subcommand forces the project schemas and tables to be regenerated. It is helpful to use when iteratively developing graphql schemas in order to ensure a clean state when starting a project. 请注意，此命令行也会清除所有索引数据。 This will also drop all related schema and tables of the project.
 
 `-f`, `--subquery` flag must be passed in, to set path of the targeted project.
 
 ::: tip Note Similar to `reindex` command, the application would exit upon completion. :::
 
 ```shell
-subql-node -f /example/subql-project force-clean
+subql-node force-clean -f /example/subql-project
 ```
-
-### --local (已废弃)
-
-这个标志主要用于调试，在默认的“postgres”模式中创建默认starter_entity 表。
-
-```shell
-subql-node -f . --local
-```
-
-请注意，一旦您使用此命令行，删除它并不意味着它会指向另一个数据库。 要重新指向另一个数据库，您将需要创建一个新的数据库，并将环境设置更改为这个新数据库。 换言之，“export DB_DATABASE=<new_db_here>".
 
 ### --log-level
 
-有七个选项可供选择： “fatal”, “error”, “warn”, “info”, “debug”, “trace”, “silent”. 下面的示例显示silent。 终端中不会打印任何内容，所以，判断节点工作与否的唯一方法是查询数据库中的行数（从subquery_1.starter_entities选择计数（\*)）或者查询区块的高度。
+**String (default: `info`)** - There are 7 options to choose from. `fatal`, `error`, `warn`, `info`, `debug`, `trace`, `silent`. 下面的示例显示silent。 终端中不会打印任何内容，所以，判断节点工作与否的唯一方法是查询数据库中的行数（从subquery_1.starter_entities选择计数（\*)）或者查询区块的高度。
 
 ```shell
 > subql-node -f . --log-level=silent
@@ -162,7 +140,7 @@ subql-node -f . --local
 
 ### --multi-chain
 
-Enables indexing multiple subquery projects into the same database schema.
+**Boolean** - Enables indexing multiple subquery projects into the same database schema.
 
 ```shell
 > subql-node -f . --multi-chain --db-schema=SCHEMA_NAME
@@ -170,12 +148,30 @@ Enables indexing multiple subquery projects into the same database schema.
 
 For more info, visit [Multi-Chain Support](../build/multi-chain.md).
 
+### -d, --network-dictionary
+
+**String (default: Network dictionary from your manifest)** - This allows you to specify a dictionary GraphQL endpoint which is a free service that is provided and hosted at SubQuery's [Project Explorer](https://explorer.subquery.network/). You can search for dictionary and and enter the GraphQL API endpoint (e.g. https://api.subquery.network/sq/subquery/dictionary-polkadot).
+
+通常，这将在您的清单文件中设置，但在下面显示一个在命令行中使用它作为参数的例子。
+
+```shell
+subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot"
+```
+
+For more info, visit [How does a SubQuery Dictionary works?](../academy/tutorials_examples/dictionary.md)
+
 ### --network-endpoint
 
-此命令行允许用户从清单文件覆盖网络端点配置。
+**String (default: Network endpoint from your manifest)** - This flag allows users to override the network RPC API endpoint configuration from the manifest file.
 
 ```shell
 subql-node -f . --network-endpoint="wss://polkadot.api.onfinality.io/public-ws"
+```
+
+To provide multiple network endpoints (recommended for reliability and performance), you can repeat this command:
+
+```shell
+subql-node -f . --network-endpoint="wss://polkadot.api.onfinality.io/public-ws" --network-endpoint="wss://rpc.polkadot.io"
 ```
 
 请注意，这也必须在清单文件中设置，否则您将会得到：
@@ -189,7 +185,7 @@ An instance of ProjectManifestImpl has failed the validation:
 
 ### --output-fmt
 
-有两种不同的终端输出格式。 JSON或者colored。 colored是默认的，包含着colored文本。
+**String (default: `colored`)** - There are two different terminal output formats. `JSON` or `colored`. colored是默认的，包含着colored文本。
 
 ```shell
 > subql-node -f . --output-fmt=json
@@ -206,23 +202,23 @@ An instance of ProjectManifestImpl has failed the validation:
 
 ### -p, --port
 
-Subquery索引服务绑定到的端口。 默认设置为 `3000`.
+**Positive Integer (default: `3000`)** - The port the subquery indexing service binds to. This sill find the next available port if `3000` is already in use.
 
 ### --pg-ca
 
-When connecting to a postgres database via SSL, the path to the server certificate (in `.pem` format)
+**String** - When connecting to a postgres database via SSL, the path to the server certificate (in `.pem` format)
 
 ### --pg-cert
 
-When connecting to a postgres database via SSL, the path to the client certificate (in `.pem` format)
+**String** - When connecting to a postgres database via SSL, the path to the client certificate (in `.pem` format)
 
 ### --pg-key
 
-When connecting to a postgres database via SSL, the path to the client key file (in `.key` format)
+**String** - When connecting to a postgres database via SSL, the path to the client key file (in `.key` format)
 
 ### --profiler
 
-这将显示分析器信息。
+**Boolean** - This shows profiler information.
 
 ```shell
 subql-node -f . --local --profiler
@@ -232,11 +228,17 @@ subql-node -f . --local --profiler
 2021-08-10T10:57:10.361Z <fetch> INFO fetch block [3801,3900], total 100 blocks
 ```
 
+### --proof-of-index
+
+**Boolean** - Enable or disable Proof of Indexing, this will be required for the decentralised network.
+
+### --query-limit
+
+**Positive Integer (default: `100`)** - The limit of items that can be retrieved by [store operations](../build/mapping/store.md) from within your mapping functions in each query.
+
 ### reindex
 
-:::warning In order to use this command, you require `@subql/node:v1.10.0`/`@subql/node-YOURNETWORK:v1.10.0` or above. :::
-
-When using reindex command, historical must be enabled for the targeted project (`--disable-historical=false`). After starting the project, it would print out a log stating if historical is enabled or not.
+When using reindex subcommand, historical must be enabled for the targeted project (`--disable-historical=false`). After starting the project, it would print out a log stating if historical is enabled or not.
 
 For more info, visit [Automated Historical State Tracking](./historical.md)
 
@@ -247,7 +249,7 @@ Use `--targetHeight=<blockNumber>` with `reindex` to remove indexed data and rei
 If the `targetHeight` is less than the declared starting height, it will execute the `--force-clean` command.
 
 ```shell
-subql-node -f /example/subql-project reindex --targetHeight=30
+subql-node reindex -f /example/subql-project --targetHeight=30
 ```
 
 ::: tip Note
@@ -256,39 +258,35 @@ Once the command is executed and the state has been rolled back the the specifie
 
 ### --scale-batch-size
 
-使用内存使用来缩放区块获取批量大小。
+**Boolean** - Scale the block fetch batch size with memory usage.
 
 ### --store-cache-threshold
 
-This can be specified when `--store-cache-async=false`. Store cache will flush data to the database when number of records excess this threshold, a higher number reduces number of transactions to database in order to save time but requires more memory. The default is 1000 records.
+**Positive Integer (default: `1000`)** - This can be specified when `--store-cache-async=false`. Store cache will flush data to the database when number of records excess this threshold, a higher number reduces number of transactions to database in order to save time but requires more memory.
 
 ### --store-get-cache-size
 
-This can be specified when `--store-cache-async=false`. The number of items from the store retained in a memory cache for faster retrieval of recent data within handlers. A higher number may increase indexing speed, but will require more memory. The default is 500.
+**Positive Integer: (default: `500`)** - This can be specified when `--store-cache-async=false`. The number of items from the store retained in a memory cache for faster retrieval of recent data within handlers. A higher number may increase indexing speed, but will require more memory.
 
 ### --store-cache-async
 
-If enabled the store cache will flush data asynchronously relative to indexing data (enabled by default)
+**Boolean (default: `true`)** - If enabled the store cache will flush data asynchronously relative to indexing data
+
+### --store-flush-interval
+
+**Positive Integer (default: `5`)** - The interval, in seconds, at which data is flushed from the cache. This ensures that data is persisted regularly when there is either not much data or the project is up to date.
 
 ### --subscription
 
-这将在实体上创建一个通知触发器，这也是在查询服务中启用订阅功能的先决条件。
-
-### --subquery-name (已废弃)
-
-如果您新建了一个项目的实例，这个命令行将允许您为这个项目提供一个新名称。 在提供一个新名称后，将创建一个新的数据库模式，并从零区块开始进行区块同步。 已弃用，取而代之的是 `--db-schema`
-
-```shell
-subql-node -f . --subquery-name=test2
-```
+**Boolean** - This will create a notification trigger on entity, this also is the prerequisite to enable subscription feature in query service. You should also enable [--subscription for the query service](#subscription-1).
 
 ### --timeout
 
-为 javascript 沙箱设置自定义超时以在块映射函数引发超时异常之前在块上执行映射函数。
+**Positive Integer (default: `10000`)** - Set custom timeout (in milliseconds) for the Javascript sandbox to execute mapping functions over a block before the block mapping function throws a timeout exception.
 
 ### --timestamp-field
 
-默认情况下是正确的。 When set to false, it removes the created_at and updated_at columns in the starter_entities table.
+**Boolean (default: `true`)** - When set to false, it removes the created_at and updated_at columns in the starter_entities table.
 
 ```shell
 > subql-node -f . –timestamp-field=false
@@ -296,7 +294,7 @@ subql-node -f . --subquery-name=test2
 
 ### --unfinalized-blocks
 
-This allows you to index blocks before they become finalized. It can be very useful if you want the most up-to-date data possible. It will detect any forks and remove any blocks that don't become finalized. By default it is set to `false`. To change it to `true` run following command:
+**Boolean** - This allows you to index blocks before they become finalized. It can be very useful if you want the most up-to-date data possible. It will detect any forks and remove any blocks that don't become finalized. To change it to `true` run following command:
 
 ```shell
 > subql-node -f . --unfinalized-blocks
@@ -305,12 +303,12 @@ This allows you to index blocks before they become finalized. It can be very use
 ::: tip Tip Note that this feature **requires historical indexing** to be enabled. Learn more [here](./historical.md). :::
 
 ::: tip Note
-This feature is only available for Substrate-based blockchains; more networks will be supported in the future.
+This feature is only available for Substrate-based and Ethereum blockchains; more networks will be supported in the future.
 :::
 
 ### --unsafe (Node Service)
 
-Unsafe mode controls various features that compromise the determinism of a SubQuery project. It makes it impossible to guarantee that the data within two identical projects running independently, will be 100% consistent.
+**Boolean** - Unsafe mode controls various features that compromise the determinism of a SubQuery project. It makes it impossible to guarantee that the data within two identical projects running independently, will be 100% consistent.
 
 One way we control this is by running all projects in a JS sandbox for security to limit the scope of access the project has to your system. 沙盒将可用的 javascript 导入限制为以下模块：
 
@@ -331,7 +329,7 @@ Also review the [--unsafe command on the query service](#unsafe-query-service).
 
 ### --version
 
-这将显示当前版本。
+**Boolean** - This displays the current version.
 
 ```shell
 > subql-node --version
@@ -340,13 +338,13 @@ Also review the [--unsafe command on the query service](#unsafe-query-service).
 
 ### -w, --workers
 
-这将把块提取和处理移动到一个工作者。 默认情况下，此功能是 **已禁用**。 您可以使用 `--workers=<number>` 标志启用它。
+**Positive Integer (default: `0`)** - This creates additional node workers that take over block fetching and block processing. You can increase it with the `--workers=<number>` flag. A value of 0 means all processing (block fetching and block processing) is carried out in the main thread, a value of more than 0 means that number of additional node workers that will work with the main thread.
 
-请注意，可用的 CPU 核心数严格限制了工人线程的使用。 因此，当使用 `--workers=<number>` 标志时，总是指定工人的数量。 如果没有提供标记，所有东西都将在同一线程中运行。
+请注意，可用的 CPU 核心数严格限制了工人线程的使用。 因此，当使用 `--workers=<number>` 标志时，总是指定工人的数量。 With no flag provided, everything will run in the same thread (a single worker).
 
-:::tip 提示 它可以提高性能最多4次。 试试一下，让我们知道你的反馈！
-
-目前它处于早期试验阶段，但我们计划默认启用它。 :::
+:::tip 提示
+它可以提高性能最多4次。 试试一下，让我们知道你的反馈！
+:::
 
 On initialisation, once the main thread is established, then the fetching and processing workload is distributed across all worker threads. Each worker has their own buffer (a set of blocks that they are responsible to fetch/process). For example:
 
@@ -361,39 +359,39 @@ In the case where Worker C completes its fetch prior to Worker A and B, it will 
 
 ### --help
 
-This shows all the current command options for your current verison of `subql-query`.
+**Boolean** - This shows all the current command options for your current verison of `subql-query`.
 
 ### --aggregate
 
-Enables or disables the GraphQL aggregation feature, [read more about this here](../run_publish/aggregate.md). By default this is set to true.
+**Boolean (default: `true`)** - Enables or disables the GraphQL aggregation feature, [read more about this here](../run_publish/aggregate.md).
 
 ### --disable-hot-schema
 
-Disables the hot reload schema on project schema changes, by default this is set to false.
+**Boolean** - Disables the hot reload schema on project schema changes.
 
 ### --indexer
 
-为索引器端点的位置设置自定义 url，查询服务将这些端点用于索引器运行状况、元数据和就绪状态。
+**String** - Set a custom url for the location of the endpoints of the indexer, the query service uses these endpoints for indexer health, metadata and readiness status.
 
 ### --log-level
 
-查看 [--loglevel](../run_publish/references.md#log-level).
+**String** - See [--log-level](../run_publish/references.md#log-level).
 
 ### --log-path
 
-通过提供要记录到的文件的路径来启用文件记录。
+**String** - Enable file logging by providing a path to a file to log to.
 
 ### --log-rotate
 
-使用 1d 轮换间隔选项启用文件日志轮换，最多 7 个文件，最大文件大小为 1GB。
+**Boolean** - Enable file log rotations with the options of a 1d rotation interval, a maximum of 7 files and with a max file size of 1GB.
 
 ### --max-connection
 
-The maximum simultaneous connections allowed to this GraphQL query service expressed as a positive integer. The default value is 10.
+**Positive Integer (default: `10`)** - The maximum simultaneous connections allowed to this GraphQL query service expressed as a positive integer.
 
 ### -n, --name
 
-该标志用于启动查询服务。 如果在运行索引器时未提供 --subquery-name 标志，则此处的名称将引用默认项目名称。 如果设置了 --subquery-name，那么这里的名称应该与设置的匹配。
+**String** - This flag is used to start the query service. 如果在运行索引器时未提供 --subquery-name 标志，则此处的名称将引用默认项目名称。 如果设置了 --subquery-name，那么这里的名称应该与设置的匹配。
 
 ```shell
 > subql-node -f . // --subquery-name not set
@@ -409,61 +407,59 @@ The maximum simultaneous connections allowed to this GraphQL query service expre
 
 ### --output-fmt
 
-查看 [--output-fmt](../run_publish/references.md#output-fmt).
+**String (default: `colored`)** - See [--output-fmt](../run_publish/references.md#output-fmt).
 
 ### --playground
 
-这个标识符启用了graphql playground，所以在默认情况下，应该始终包含有任何用途。
+**Boolean** - This flag enables the graphql playground so should always be included by default to be of any use.
 
 ### --playground-settings
 
-You can use this flag to pass additional settings to the GraphQL playground (in JSON format). Additional settings can be found here https://github.com/graphql/graphql-playground#settings
+**String** - You can use this flag to pass additional settings to the GraphQL playground (in JSON format). Additional settings can be found here https://github.com/graphql/graphql-playground#settings
 
 ### --port
 
-The port the subquery query service binds to. By default this is set to `3000`
+**Positive Integer (default: `3000`)** - The port the subquery query service binds to. This sill find the next available port if `3000` is already in use.
 
 ### --pg-ca
 
-When connecting to a postgres database via SSL, the path to the server certificate (in `.pem` format)
+**String** - When connecting to a postgres database via SSL, the path to the server certificate (in `.pem` format)
 
 ### --pg-cert
 
-When connecting to a postgres database via SSL, the path to the client certificate (in `.pem` format)
+**String** - When connecting to a postgres database via SSL, the path to the client certificate (in `.pem` format)
 
 ### --pg-key
 
-When connecting to a postgres database via SSL, the path to the client key file (in `.key` format)
+**String** - When connecting to a postgres database via SSL, the path to the client key file (in `.key` format)
 
 ### --query-complexity
 
-The level of query complexity that this service will accept expressed as a positive integer. By default this is set to 10. If a client makes a query with a query complexity higher than this level, the GraphQL query service will reject the request.
+**Positive Integer (default: `10`)** - The level of query complexity that this service will accept expressed as a positive integer. If a client makes a query with a query complexity higher than this level, the GraphQL query service will reject the request.
 
-We use the [graphqql-query-complexity](https://www.npmjs.com/package/graphql-query-complexity) plugin to calculate this value.
+We use the [graphql-query-complexity](https://www.npmjs.com/package/graphql-query-complexity) plugin to calculate this value.
 
 ### --query-limit
 
-The query service by default has a limit of 100 entities for to prevent unbounded GraphQL queries and encourage the use of pagination. This flag accepts a positive integer value that will change this limit (by default this is set to 100). Setting a high value may cause performance issues on the query service, it is recommended instead that queries are [paginated](https://graphql.org/learn/pagination/).
+**Positive Integer (default: `100`)** - The query service pagination size limit to prevent unbounded GraphQL queries and encourage the use of pagination. This flag accepts a positive integer value that will change this limit. Setting a high value may cause performance issues on the query service, it is recommended instead that queries are [paginated](https://graphql.org/learn/pagination/).
 
 ### --query-timeout
 
-The timeout for long running graphql queries expressed in milliseconds, by default this value is 10000 milliseconds
+**Positive Integer (default: `10000`)** - The timeout for long running graphql queries expressed in milliseconds.
 
 ### --subscription
 
-此标志启用 [GraphQL 订阅](./subscription.md), 以启用此功能需要 `subql-node` 也启用 `--subscription`.
+**Boolean** - This flag enables [GraphQL Subscriptions](./subscription.md), to enable this feature requires `subql-node` also enable `--subscription`.
 
 ### --unsafe (Query Service)
 
-此标志启用某些聚合函数，包括 sum、max、avg 等。 在[此处](../run_publish/aggregate.md)了解有关此功能的更多信息。
+**Boolean** - This flag enables certain aggregation functions including sum, max, avg and others. 在[此处](../run_publish/aggregate.md)了解有关此功能的更多信息。 These are disabled by default for database performance reasons.
 
-These are disabled by default for database performance reasons.
-
-**Note that must be on a Partner plan if you would like to run projects with the `--unsafe` command (on the query service) within [SubQuery's Managed Service](https://managedservice.subquery.network). Additionally, it will prevent your project from being run in the SubQuery Network in the future.**
+**Note that you must be on a paid plan if you would like to run projects with the `--unsafe` command (on the query service) within [SubQuery's Managed Service](https://managedservice.subquery.network). Additionally, it will prevent your project from being run in the SubQuery Network in the future.**
 
 ### --version
 
-这将显示当前版本。
+**Boolean** - This displays the current version.
 
 ```shell
 > subql-query --version
