@@ -16,7 +16,7 @@ export default defineUserConfig({
       manifest: {
         short_name: "SubQL Docs",
       },
-      favicon: "https://academy.subquery.network/assets/favicons/favicon.ico",
+      favicon: "/assets/favicons/favicon.ico",
     }),
     mdEnhancePlugin({
       linkCheck: true,
@@ -48,7 +48,7 @@ export default defineUserConfig({
       "link",
       {
         rel: "icon",
-        href: "assets/favicons/favicon.ico",
+        href: "/assets/favicons/favicon.ico",
         type: "image/x-icon",
       },
     ],
@@ -58,7 +58,7 @@ export default defineUserConfig({
         rel: "apple-touch-icon",
         type: "image/png",
         sizes: "180x180",
-        href: "assets/favicons/apple-touch-icon.png",
+        href: "/assets/favicons/apple-touch-icon.png",
       },
     ],
     [
@@ -67,7 +67,7 @@ export default defineUserConfig({
         rel: "icon",
         type: "image/png",
         sizes: "32x32",
-        href: "assets/favicons/favicon-32x32.png",
+        href: "/assets/favicons/favicon-32x32.png",
       },
     ],
     [
@@ -76,10 +76,10 @@ export default defineUserConfig({
         rel: "icon",
         type: "image/png",
         sizes: "16x16",
-        href: "assets/favicons/favicon-16x16.png",
+        href: "/assets/favicons/favicon-16x16.png",
       },
     ],
-    ["link", { rel: "manifest", href: "assets/manifest.json" }],
+    ["link", { rel: "manifest", href: "/assets/manifest.json" }],
   ],
   locales: {
     "/": {
@@ -167,6 +167,7 @@ export default defineUserConfig({
   },
   theme: hopeTheme({
     hostname: "https://academy.subquery.network",
+    favicon: "/assets/favicons/favicon.ico",
     author: "SubQuery Team",
     lastUpdated: true,
     locales: {
