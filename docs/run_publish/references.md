@@ -35,7 +35,7 @@ For more info, visit [basic workflows](../build/introduction.md#build).
 
 ### --batch-size
 
-**Positive Integer (default: `20`)** - This flag allows you to set the batch size in the command line. If batch size is also set in the config file, this takes precedent.
+**Positive Integer (default: `100`)** - This flag allows you to set the batch size in the command line. If batch size is also set in the config file, this takes precedent. This setting is overidden on the Managed service to `30`.
 
 ```shell
 > subql-node -f . --batch-size=20
@@ -109,9 +109,7 @@ subql-node --subquery .
 
 ### force-clean
 
-**Boolean** - In order to use this command you need to have `@subql/node` v1.10.0 or above.
-
-This command forces the project schemas and tables to be regenerated. It is helpful to use when iteratively developing graphql schemas in order to ensure a clean state when starting a project. Note that this flag will also wipe all indexed data.
+This subcommand forces the project schemas and tables to be regenerated. It is helpful to use when iteratively developing graphql schemas in order to ensure a clean state when starting a project. Note that this flag will also wipe all indexed data.
 This will also drop all related schema and tables of the project.
 
 `-f`, `--subquery` flag must be passed in, to set path of the targeted project.
@@ -121,18 +119,8 @@ Similar to `reindex` command, the application would exit upon completion.
 :::
 
 ```shell
-subql-node -f /example/subql-project force-clean
+subql-node force-clean -f /example/subql-project
 ```
-
-### --local (deprecated)
-
-**Boolean** - This flag is primarily used for debugging purposes where it creates the default starter_entity table in the default "postgres" schema.
-
-```shell
-subql-node -f . --local
-```
-
-Note that once you use this flag, removing it won't mean that it will point to another database. To repoint to another database you will have to create a NEW database and change the env settings to this new database. In other words, "export DB_DATABASE=<new_db_here>".
 
 ### --log-level
 
@@ -184,6 +172,12 @@ For more info, visit [How does a SubQuery Dictionary works?](../academy/tutorial
 subql-node -f . --network-endpoint="wss://polkadot.api.onfinality.io/public-ws"
 ```
 
+To provide multiple network endpoints (recommended for reliability and performance), you can repeat this command:
+
+```shell
+subql-node -f . --network-endpoint="wss://polkadot.api.onfinality.io/public-ws" --network-endpoint="wss://rpc.polkadot.io"
+```
+
 Note that this must also be set in the manifest file, otherwise you'll get:
 
 ```shell
@@ -212,7 +206,7 @@ An instance of ProjectManifestImpl has failed the validation:
 
 ### -p, --port
 
-**Positive Integer (default: `3000`)** - The port the subquery indexing service binds to.
+**Positive Integer (default: `3000`)** - The port the subquery indexing service binds to. This sill find the next available port if `3000` is already in use.
 
 ### --pg-ca
 
@@ -248,7 +242,7 @@ subql-node -f . --local --profiler
 
 ### reindex
 
-**Boolean** - When using reindex command, historical must be enabled for the targeted project (`--disable-historical=false`). After starting the project, it would print out a log stating if historical is enabled or not.
+When using reindex subcommand, historical must be enabled for the targeted project (`--disable-historical=false`). After starting the project, it would print out a log stating if historical is enabled or not.
 
 For more info, visit [Automated Historical State Tracking](./historical.md)
 
@@ -259,7 +253,7 @@ Use `--targetHeight=<blockNumber>` with `reindex` to remove indexed data and rei
 If the `targetHeight` is less than the declared starting height, it will execute the `--force-clean` command.
 
 ```shell
-subql-node -f /example/subql-project reindex --targetHeight=30
+subql-node reindex -f /example/subql-project --targetHeight=30
 ```
 
 ::: tip Note
@@ -351,7 +345,7 @@ Also review the [--unsafe command on the query service](#unsafe-query-service).
 
 ### -w, --workers
 
-**Positive Integer (default: `1`)** - This will move block fetching and processing into the specified number of workers. You can increase it with the `--workers=<number>` flag.
+**Positive Integer (default: `0`)** - This creates additional node workers that take over block fetching and block processing. You can increase it with the `--workers=<number>` flag. A value of 0 means all processing (block fetching and block processing) is carried out in the main thread, a value of more than 0 means that number of additional node workers that will work with the main thread.
 
 Note that the number of available CPU cores strictly limits the usage of worker threads. So, when using the `--workers=<number>` flag, always specify the number of workers. With no flag provided, everything will run in the same thread (a single worker).
 
@@ -432,7 +426,7 @@ In the case where Worker C completes its fetch prior to Worker A and B, it will 
 
 ### --port
 
-**Positive Integer (default: `3000`)** - The port the subquery query service binds to.
+**Positive Integer (default: `3000`)** - The port the subquery query service binds to. This sill find the next available port if `3000` is already in use.
 
 ### --pg-ca
 
