@@ -1,5 +1,7 @@
 # Bendera Baris Perintah
 
+All booleans are by default `false` unless explicity mentioned.
+
 ## subql (cli)
 
 ### --help
@@ -14,7 +16,7 @@ This command is uses webpack to generate a bundle of a subquery project.
 | -------------- | ------------------------------------------------------- |
 | -l, --location | folder lokal proyek subquery (jika belum ada di folder) |
 | -o, --output   | tentukan folder keluaran build mis. membangun-folder    |
-| --mode         | production or development (default: production)         |
+| --mode         | `production` or `development` (default: `production`)   |
 
 - Dengan `subql build` Anda dapat menentukan titik masuk tambahan di bidang ekspor meskipun itu akan selalu dibangun `index.ts` secara otomatis.
 
@@ -28,11 +30,11 @@ For more info, visit [basic workflows](../build/introduction.md#build).
 
 ### --help
 
-This shows all the current command options for your current verison of `subql-node`.
+**Boolean** - This shows all the current command options for your current verison of `subql-node`.
 
 ### --batch-size
 
-Bendera ini memungkinkan Anda untuk mengatur ukuran batch di baris perintah. Jika ukuran batch juga diatur dalam file konfigurasi, ini akan menjadi preseden.
+**Positive Integer (default: `100`)** - This flag allows you to set the batch size in the command line. Jika ukuran batch juga diatur dalam file konfigurasi, ini akan menjadi preseden. This setting is overidden on the Managed service to `30`.
 
 ```shell
 > subql-node -f . --batch-size=20
@@ -44,11 +46,11 @@ Bendera ini memungkinkan Anda untuk mengatur ukuran batch di baris perintah. Jik
 
 ### --block-confirmations
 
-(EVM only) The number of blocks behind the head to be considered finalized, this has no effect with non-EVM networks. This is by default 20.
+**Positive Integer (default: `20`)** - (Only for `subql-node-ethereum`) The number of blocks behind the head to be considered finalized, this has no effect with non-EVM networks.
 
 ### -c, --config
 
-Semua berbagai konfigurasi ini dapat ditempatkan ke dalam file .yml atau .json dan kemudian dirujuk dengan flag config.
+**String** - All these various configurations can be placed into a .yml or .json file and then referenced with the config flag.
 
 Contoh file subquery_config.yml:
 
@@ -64,21 +66,9 @@ Tempatkan file ini di direktori yang sama dengan proyek. Kemudian di direktori p
 > subql-node -c ./subquery_config.yml
 ```
 
-### -d, --network-dictionary
-
-Ini memungkinkan Anda untuk menentukan titik akhir kamus yang merupakan layanan gratis yang disediakan dan dihosting di: [https://explorer.subquery.network/](https://explorer.subquery.network/) (mencari kamus) dan menyajikan titik akhir API: https //api.subquery.network/sq/subquery/dictionary-polkadot.
-
-Biasanya ini akan diatur dalam file manifes Anda, tetapi di bawah ini menunjukkan contoh penggunaannya sebagai argumen di baris perintah.
-
-```shell
-subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot"
-```
-
-For more info, visit [How does a SubQuery Dictionary works?](../academy/tutorials_examples/dictionary.md)
-
 ### --db-schema
 
-Bendera ini memungkinkan Anda untuk memberikan nama untuk skema database proyek. Setelah memberikan nama baru, skema database baru dibuat dengan nama yang dikonfigurasi dan pengindeksan blok dimulai.
+**String** - This flag allows you to provide a name for the project database schema. Setelah memberikan nama baru, skema database baru dibuat dengan nama yang dikonfigurasi dan pengindeksan blok dimulai.
 
 ```shell
 subql-node -f . --db-schema=test2
@@ -86,7 +76,7 @@ subql-node -f . --db-schema=test2
 
 ### --debug
 
-Ini mengeluarkan informasi debug ke keluaran konsol dan secara paksa menyetel level log ke debug.
+**Boolean** - This outputs debug information to the console output and forcefully sets the log level to debug.
 
 ```shell
 > subql-node -f . --debug
@@ -97,19 +87,19 @@ Ini mengeluarkan informasi debug ke keluaran konsol dan secara paksa menyetel le
 
 ### --disable-historical
 
-Menonaktifkan pelacakan status historis otomatis, [lihat Pelacakan Status Historis](./historical.md). Secara default ini diatur ke `3000`.
+**Boolean** - Disables automated historical state tracking, [see Historic State Tracking](./historical.md).
 
 ### --dictionary-resolver
 
-Uses the provided SubQuery Network dictionary resolver to find a dictionary, this will overwrite dictionaries specified by `--network-dictionary`
+**String** - Uses the provided SubQuery Network dictionary resolver URL to find a dictionary, this will overwrite dictionaries specified by `--network-dictionary`
 
 ### --dictionary-timeout
 
-Changes the timeout for dictionary queries, this number is expressed in seconds. By default we use 30 seconds.
+**Positive Integer (default: `30`)** - Changes the timeout for dictionary queries, this number is expressed in seconds.
 
 ### -f, --subquery
 
-Gunakan tanda ini untuk memulai proyek SubQuery.
+**Boolean** - Use this flag to start the SubQuery project.
 
 ```shell
 subql-node -f . // ATAU
@@ -118,31 +108,19 @@ subql-node --subquery .
 
 ### force-clean
 
-- In order to use this command you need to have `@subql/node` v1.10.0 or above.
-
-This command forces the project schemas and tables to be regenerated. It is helpful to use when iteratively developing graphql schemas in order to ensure a clean state when starting a project. Perhatikan bahwa tanda ini juga akan menghapus semua data yang diindeks. This will also drop all related schema and tables of the project.
+This subcommand forces the project schemas and tables to be regenerated. It is helpful to use when iteratively developing graphql schemas in order to ensure a clean state when starting a project. Perhatikan bahwa tanda ini juga akan menghapus semua data yang diindeks. This will also drop all related schema and tables of the project.
 
 `-f`, `--subquery` flag must be passed in, to set path of the targeted project.
 
 ::: tip Note Similar to `reindex` command, the application would exit upon completion. :::
 
 ```shell
-subql-node -f /example/subql-project force-clean
+subql-node force-clean -f /example/subql-project
 ```
-
-### --local (usang)
-
-Bendera ini terutama digunakan untuk tujuan debugging di mana ia membuat tabel starter_entity default dalam skema "postgres" default.
-
-```shell
-subql-node -f . --local
-```
-
-Perhatikan bahwa setelah Anda menggunakan bendera ini, menghapusnya tidak berarti bahwa itu akan mengarah ke database lain. Untuk menunjuk kembali ke database lain, Anda harus membuat database BARU dan mengubah pengaturan env ke database baru ini. Dengan kata lain, "ekspor DB_DATABASE=<new_db_here>".
 
 ### --log-level
 
-Ada 7 pilihan yang bisa dipilih. “fatal”, “error”, “warn”, “info”, “debug”, “trace”, “silent”. Contoh di bawah ini menunjukkan diam. Tidak ada yang akan dicetak di terminal sehingga satu-satunya cara untuk mengetahui apakah node berfungsi atau tidak adalah dengan menanyakan database untuk jumlah baris (pilih count(\*) dari subquery_1.starter_entities) atau kueri ketinggian blok.
+**String (default: `info`)** - There are 7 options to choose from. `fatal`, `error`, `warn`, `info`, `debug`, `trace`, `silent`. Contoh di bawah ini menunjukkan diam. Tidak ada yang akan dicetak di terminal sehingga satu-satunya cara untuk mengetahui apakah node berfungsi atau tidak adalah dengan menanyakan database untuk jumlah baris (pilih count(\*) dari subquery_1.starter_entities) atau kueri ketinggian blok.
 
 ```shell
 > subql-node -f . --log-level=silent
@@ -162,7 +140,7 @@ Ada 7 pilihan yang bisa dipilih. “fatal”, “error”, “warn”, “info�
 
 ### --multi-chain
 
-Enables indexing multiple subquery projects into the same database schema.
+**Boolean** - Enables indexing multiple subquery projects into the same database schema.
 
 ```shell
 > subql-node -f . --multi-chain --db-schema=SCHEMA_NAME
@@ -170,12 +148,30 @@ Enables indexing multiple subquery projects into the same database schema.
 
 For more info, visit [Multi-Chain Support](../build/multi-chain.md).
 
+### -d, --network-dictionary
+
+**String (default: Network dictionary from your manifest)** - This allows you to specify a dictionary GraphQL endpoint which is a free service that is provided and hosted at SubQuery's [Project Explorer](https://explorer.subquery.network/). You can search for dictionary and and enter the GraphQL API endpoint (e.g. https://api.subquery.network/sq/subquery/dictionary-polkadot).
+
+Biasanya ini akan diatur dalam file manifes Anda, tetapi di bawah ini menunjukkan contoh penggunaannya sebagai argumen di baris perintah.
+
+```shell
+subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot"
+```
+
+For more info, visit [How does a SubQuery Dictionary works?](../academy/tutorials_examples/dictionary.md)
+
 ### --network-endpoint
 
-Bendera ini memungkinkan pengguna untuk mengganti konfigurasi titik akhir jaringan dari file manifes.
+**String (default: Network endpoint from your manifest)** - This flag allows users to override the network RPC API endpoint configuration from the manifest file.
 
 ```shell
 subql-node -f . --network-endpoint="wss://polkadot.api.onfinality.io/public-ws"
+```
+
+To provide multiple network endpoints (recommended for reliability and performance), you can repeat this command:
+
+```shell
+subql-node -f . --network-endpoint="wss://polkadot.api.onfinality.io/public-ws" --network-endpoint="wss://rpc.polkadot.io"
 ```
 
 Perhatikan bahwa ini juga harus diatur dalam file manifes, jika tidak, Anda akan mendapatkan:
@@ -189,7 +185,7 @@ Sebuah instance dari ProjectManifestImpl telah gagal validasi:
 
 ### --output-fmt
 
-Ada dua format keluaran terminal yang berbeda. JSON atau berwarna. Berwarna adalah default dan berisi teks berwarna.
+**String (default: `colored`)** - There are two different terminal output formats. `JSON` or `colored`. Berwarna adalah default dan berisi teks berwarna.
 
 ```shell
 > subql-node -f . --output-fmt=json
@@ -206,23 +202,23 @@ Ada dua format keluaran terminal yang berbeda. JSON atau berwarna. Berwarna adal
 
 ### -p, --port
 
-Port yang diikat oleh layanan pengindeksan subquery. Secara default ini diatur ke `3000`.
+**Positive Integer (default: `3000`)** - The port the subquery indexing service binds to. This sill find the next available port if `3000` is already in use.
 
 ### --pg-ca
 
-When connecting to a postgres database via SSL, the path to the server certificate (in `.pem` format)
+**String** - When connecting to a postgres database via SSL, the path to the server certificate (in `.pem` format)
 
 ### --pg-cert
 
-When connecting to a postgres database via SSL, the path to the client certificate (in `.pem` format)
+**String** - When connecting to a postgres database via SSL, the path to the client certificate (in `.pem` format)
 
 ### --pg-key
 
-When connecting to a postgres database via SSL, the path to the client key file (in `.key` format)
+**String** - When connecting to a postgres database via SSL, the path to the client key file (in `.key` format)
 
 ### --profiler
 
-Ini menunjukkan informasi profiler.
+**Boolean** - This shows profiler information.
 
 ```shell
 subql-node -f . --local --profiler
@@ -232,11 +228,17 @@ subql-node -f . --local --profiler
 2021-08-10T10:57:10.361Z <fetch> INFO fetch block [3801,3900], total 100 blocks
 ```
 
+### --proof-of-index
+
+**Boolean** - Enable or disable Proof of Indexing, this will be required for the decentralised network.
+
+### --query-limit
+
+**Positive Integer (default: `100`)** - The limit of items that can be retrieved by [store operations](../build/mapping/store.md) from within your mapping functions in each query.
+
 ### reindex
 
-:::warning In order to use this command, you require `@subql/node:v1.10.0`/`@subql/node-YOURNETWORK:v1.10.0` or above. :::
-
-When using reindex command, historical must be enabled for the targeted project (`--disable-historical=false`). After starting the project, it would print out a log stating if historical is enabled or not.
+When using reindex subcommand, historical must be enabled for the targeted project (`--disable-historical=false`). After starting the project, it would print out a log stating if historical is enabled or not.
 
 For more info, visit [Automated Historical State Tracking](./historical.md)
 
@@ -247,7 +249,7 @@ Use `--targetHeight=<blockNumber>` with `reindex` to remove indexed data and rei
 If the `targetHeight` is less than the declared starting height, it will execute the `--force-clean` command.
 
 ```shell
-subql-node -f /example/subql-project reindex --targetHeight=30
+subql-node reindex -f /example/subql-project --targetHeight=30
 ```
 
 ::: tip Note
@@ -256,39 +258,35 @@ Once the command is executed and the state has been rolled back the the specifie
 
 ### --scale-batch-size
 
-Skala ukuran batch pengambilan blok dengan penggunaan memori.
+**Boolean** - Scale the block fetch batch size with memory usage.
 
 ### --store-cache-threshold
 
-This can be specified when `--store-cache-async=false`. Store cache will flush data to the database when number of records excess this threshold, a higher number reduces number of transactions to database in order to save time but requires more memory. The default is 1000 records.
+**Positive Integer (default: `1000`)** - This can be specified when `--store-cache-async=false`. Store cache will flush data to the database when number of records excess this threshold, a higher number reduces number of transactions to database in order to save time but requires more memory.
 
 ### --store-get-cache-size
 
-This can be specified when `--store-cache-async=false`. The number of items from the store retained in a memory cache for faster retrieval of recent data within handlers. A higher number may increase indexing speed, but will require more memory. The default is 500.
+**Positive Integer: (default: `500`)** - This can be specified when `--store-cache-async=false`. The number of items from the store retained in a memory cache for faster retrieval of recent data within handlers. A higher number may increase indexing speed, but will require more memory.
 
 ### --store-cache-async
 
-If enabled the store cache will flush data asynchronously relative to indexing data (enabled by default)
+**Boolean (default: `true`)** - If enabled the store cache will flush data asynchronously relative to indexing data
+
+### --store-flush-interval
+
+**Positive Integer (default: `5`)** - The interval, in seconds, at which data is flushed from the cache. This ensures that data is persisted regularly when there is either not much data or the project is up to date.
 
 ### --berlangganan
 
-Ini akan membuat pemicu notifikasi pada entitas, ini juga merupakan prasyarat untuk mengaktifkan fitur berlangganan di layanan kueri.
-
-### --subquery-name (usang)
-
-Bendera ini memungkinkan Anda untuk memberikan nama untuk proyek Anda yang bertindak seolah-olah itu membuat turunan dari proyek Anda. Setelah memberikan nama baru, skema database baru dibuat dan sinkronisasi blok dimulai dari nol. Tidak digunakan lagi karena `--db-schema`
-
-```shell
-subql-node -f . --subquery-name=test2
-```
+**Boolean** - This will create a notification trigger on entity, this also is the prerequisite to enable subscription feature in query service. You should also enable [--subscription for the query service](#subscription-1).
 
 ### --timeout
 
-Setel batas waktu khusus untuk kotak pasir javascript untuk menjalankan fungsi pemetaan di atas satu blok sebelum fungsi pemetaan blok mengeluarkan pengecualian batas waktu.
+**Positive Integer (default: `10000`)** - Set custom timeout (in milliseconds) for the Javascript sandbox to execute mapping functions over a block before the block mapping function throws a timeout exception.
 
 ### --timestamp-field
 
-Secara default ini benar. When set to false, it removes the created_at and updated_at columns in the starter_entities table.
+**Boolean (default: `true`)** - When set to false, it removes the created_at and updated_at columns in the starter_entities table.
 
 ```shell
 > subql-node -f . –timestamp-field=false
@@ -296,7 +294,7 @@ Secara default ini benar. When set to false, it removes the created_at and updat
 
 ### --unfinalized-blocks
 
-This allows you to index blocks before they become finalized. It can be very useful if you want the most up-to-date data possible. It will detect any forks and remove any blocks that don't become finalized. By default it is set to `false`. To change it to `true` run following command:
+**Boolean** - This allows you to index blocks before they become finalized. It can be very useful if you want the most up-to-date data possible. It will detect any forks and remove any blocks that don't become finalized. To change it to `true` run following command:
 
 ```shell
 > subql-node -f . --unfinalized-blocks
@@ -305,12 +303,12 @@ This allows you to index blocks before they become finalized. It can be very use
 ::: tip Tip Note that this feature **requires historical indexing** to be enabled. Learn more [here](./historical.md). :::
 
 ::: tip Note
-This feature is only available for Substrate-based blockchains; more networks will be supported in the future.
+This feature is only available for Substrate-based and Ethereum blockchains; more networks will be supported in the future.
 :::
 
 ### --unsafe (Node Service)
 
-Unsafe mode controls various features that compromise the determinism of a SubQuery project. It makes it impossible to guarantee that the data within two identical projects running independently, will be 100% consistent.
+**Boolean** - Unsafe mode controls various features that compromise the determinism of a SubQuery project. It makes it impossible to guarantee that the data within two identical projects running independently, will be 100% consistent.
 
 One way we control this is by running all projects in a JS sandbox for security to limit the scope of access the project has to your system. Kotak pasir membatasi impor javascript yang tersedia ke modul berikut:
 
@@ -331,7 +329,7 @@ Also review the [--unsafe command on the query service](#unsafe-query-service).
 
 ### --version
 
-Ini menampilkan versi saat ini.
+**Boolean** - This displays the current version.
 
 ```shell
 > subql-node --version
@@ -340,13 +338,13 @@ Ini menampilkan versi saat ini.
 
 ### -w, --workers
 
-Ini akan memindahkan pengambilan dan pemrosesan blok ke dalam worker. Secara default, fitur ini **disabled**. Anda bisa mengaktifkannya dengan flag `--workers=<number>`.
+**Positive Integer (default: `0`)** - This creates additional node workers that take over block fetching and block processing. You can increase it with the `--workers=<number>` flag. A value of 0 means all processing (block fetching and block processing) is carried out in the main thread, a value of more than 0 means that number of additional node workers that will work with the main thread.
 
-Perhatikan bahwa jumlah core CPU yang tersedia sangat membatasi penggunaan thread pekerja. Jadi, ketika menggunakan flag `--workers=<number>`, selalu tentukan jumlah pekerja. Tanpa flag yang disediakan, semuanya akan berjalan dalam thread yang sama.
+Perhatikan bahwa jumlah core CPU yang tersedia sangat membatasi penggunaan thread pekerja. Jadi, ketika menggunakan flag `--workers=<number>`, selalu tentukan jumlah pekerja. With no flag provided, everything will run in the same thread (a single worker).
 
-:::tip Tip Tip Ini bisa meningkatkan performa hingga 4 kali lipat. Cobalah dan beri tahu kami tanggapan Anda!
-
-Saat ini, ini masih dalam tahap percobaan awal, tetapi kami berencana untuk mengaktifkannya secara default. :::
+:::tip Tip Tip
+Ini bisa meningkatkan performa hingga 4 kali lipat. Cobalah dan beri tahu kami tanggapan Anda!
+:::
 
 On initialisation, once the main thread is established, then the fetching and processing workload is distributed across all worker threads. Each worker has their own buffer (a set of blocks that they are responsible to fetch/process). For example:
 
@@ -361,39 +359,39 @@ In the case where Worker C completes its fetch prior to Worker A and B, it will 
 
 ### --help
 
-This shows all the current command options for your current verison of `subql-query`.
+**Boolean** - This shows all the current command options for your current verison of `subql-query`.
 
 ### --aggregate
 
-Enables or disables the GraphQL aggregation feature, [read more about this here](../run_publish/aggregate.md). By default this is set to true.
+**Boolean (default: `true`)** - Enables or disables the GraphQL aggregation feature, [read more about this here](../run_publish/aggregate.md).
 
 ### --disable-hot-schema
 
-Disables the hot reload schema on project schema changes, by default this is set to false.
+**Boolean** - Disables the hot reload schema on project schema changes.
 
 ### --indexer
 
-Tetapkan url khusus untuk lokasi titik akhir pengindeks, layanan kueri menggunakan titik akhir ini untuk kesehatan pengindeks, metadata, dan status kesiapan.
+**String** - Set a custom url for the location of the endpoints of the indexer, the query service uses these endpoints for indexer health, metadata and readiness status.
 
 ### --log-level
 
-Lihat [--log-level](../run_publish/references.md#log-level).
+**String** - See [--log-level](../run_publish/references.md#log-level).
 
 ### --log-path
 
-Aktifkan logging file dengan menyediakan jalur ke file untuk login ke.
+**String** - Enable file logging by providing a path to a file to log to.
 
 ### --log-rotate
 
-Aktifkan rotasi log file dengan opsi interval rotasi 1d, maksimal 7 file dan dengan ukuran file maksimal 1GB.
+**Boolean** - Enable file log rotations with the options of a 1d rotation interval, a maximum of 7 files and with a max file size of 1GB.
 
 ### --max-connection
 
-The maximum simultaneous connections allowed to this GraphQL query service expressed as a positive integer. The default value is 10.
+**Positive Integer (default: `10`)** - The maximum simultaneous connections allowed to this GraphQL query service expressed as a positive integer.
 
 ### -n, --name
 
-Bendera ini digunakan untuk memulai layanan kueri. Jika flag --subquery-name tidak disediakan saat menjalankan pengindeks, nama di sini akan merujuk ke nama proyek default. Jika --subquery-name disetel, maka nama di sini harus sesuai dengan yang disetel.
+**String** - This flag is used to start the query service. Jika flag --subquery-name tidak disediakan saat menjalankan pengindeks, nama di sini akan merujuk ke nama proyek default. Jika --subquery-name disetel, maka nama di sini harus sesuai dengan yang disetel.
 
 ```shell
 > subql-node -f . // --subquery-name tidak diatur
@@ -409,61 +407,59 @@ Bendera ini digunakan untuk memulai layanan kueri. Jika flag --subquery-name tid
 
 ### --output-fmt
 
-Lihat [--output-fmt](../run_publish/references.md#output-fmt).
+**String (default: `colored`)** - See [--output-fmt](../run_publish/references.md#output-fmt).
 
 ### --playground
 
-Bendera ini mengaktifkan taman bermain graphql sehingga harus selalu disertakan secara default untuk digunakan apa pun.
+**Boolean** - This flag enables the graphql playground so should always be included by default to be of any use.
 
 ### --playground-settings
 
-You can use this flag to pass additional settings to the GraphQL playground (in JSON format). Additional settings can be found here https://github.com/graphql/graphql-playground#settings
+**String** - You can use this flag to pass additional settings to the GraphQL playground (in JSON format). Additional settings can be found here https://github.com/graphql/graphql-playground#settings
 
 ### --port
 
-The port the subquery query service binds to. By default this is set to `3000`
+**Positive Integer (default: `3000`)** - The port the subquery query service binds to. This sill find the next available port if `3000` is already in use.
 
 ### --pg-ca
 
-When connecting to a postgres database via SSL, the path to the server certificate (in `.pem` format)
+**String** - When connecting to a postgres database via SSL, the path to the server certificate (in `.pem` format)
 
 ### --pg-cert
 
-When connecting to a postgres database via SSL, the path to the client certificate (in `.pem` format)
+**String** - When connecting to a postgres database via SSL, the path to the client certificate (in `.pem` format)
 
 ### --pg-key
 
-When connecting to a postgres database via SSL, the path to the client key file (in `.key` format)
+**String** - When connecting to a postgres database via SSL, the path to the client key file (in `.key` format)
 
 ### --query-complexity
 
-The level of query complexity that this service will accept expressed as a positive integer. By default this is set to 10. If a client makes a query with a query complexity higher than this level, the GraphQL query service will reject the request.
+**Positive Integer (default: `10`)** - The level of query complexity that this service will accept expressed as a positive integer. If a client makes a query with a query complexity higher than this level, the GraphQL query service will reject the request.
 
-We use the [graphqql-query-complexity](https://www.npmjs.com/package/graphql-query-complexity) plugin to calculate this value.
+We use the [graphql-query-complexity](https://www.npmjs.com/package/graphql-query-complexity) plugin to calculate this value.
 
 ### --query-limit
 
-The query service by default has a limit of 100 entities for to prevent unbounded GraphQL queries and encourage the use of pagination. This flag accepts a positive integer value that will change this limit (by default this is set to 100). Setting a high value may cause performance issues on the query service, it is recommended instead that queries are [paginated](https://graphql.org/learn/pagination/).
+**Positive Integer (default: `100`)** - The query service pagination size limit to prevent unbounded GraphQL queries and encourage the use of pagination. This flag accepts a positive integer value that will change this limit. Setting a high value may cause performance issues on the query service, it is recommended instead that queries are [paginated](https://graphql.org/learn/pagination/).
 
 ### --query-timeout
 
-The timeout for long running graphql queries expressed in milliseconds, by default this value is 10000 milliseconds
+**Positive Integer (default: `10000`)** - The timeout for long running graphql queries expressed in milliseconds.
 
 ### --subscription
 
-Tanda ini mengaktifkan [GraphQL Langganan](./subscription.md), untuk mengaktifkan fitur ini memerlukan `subql-node` juga mengaktifkan `--langganan`.
+**Boolean** - This flag enables [GraphQL Subscriptions](./subscription.md), to enable this feature requires `subql-node` also enable `--subscription`.
 
 ### --unsafe (Query Service)
 
-Bendera ini memungkinkan fungsi agregasi tertentu termasuk jumlah, maks, rata-rata, dan lainnya. Baca selengkapnya tentang fitur ini [di sini](../run_publish/aggregate.md).
+**Boolean** - This flag enables certain aggregation functions including sum, max, avg and others. Baca selengkapnya tentang fitur ini [di sini](../run_publish/aggregate.md). These are disabled by default for database performance reasons.
 
-These are disabled by default for database performance reasons.
-
-**Note that must be on a Partner plan if you would like to run projects with the `--unsafe` command (on the query service) within [SubQuery's Managed Service](https://managedservice.subquery.network). Additionally, it will prevent your project from being run in the SubQuery Network in the future.**
+**Note that you must be on a paid plan if you would like to run projects with the `--unsafe` command (on the query service) within [SubQuery's Managed Service](https://managedservice.subquery.network). Additionally, it will prevent your project from being run in the SubQuery Network in the future.**
 
 ### --version
 
-Ini menampilkan versi saat ini.
+**Boolean** - This displays the current version.
 
 ```shell
 > subql-query --version
