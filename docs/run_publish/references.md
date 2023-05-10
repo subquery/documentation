@@ -282,6 +282,10 @@ Once the command is executed and the state has been rolled back the the specifie
 
 **Boolean (default: `true`)** - If enabled the store cache will flush data asynchronously relative to indexing data
 
+### --store-flush-interval
+
+**Positive Integer (default: `5`)** - The interval, in seconds, at which data is flushed from the cache. This ensures that data is persisted regularly when there is either not much data or the project is up to date.
+
 ### --subscription
 
 **Boolean** - This will create a notification trigger on entity, this also is the prerequisite to enable subscription feature in query service. You should also enable [--subscription for the query service](#subscription-1).
