@@ -66,6 +66,8 @@ This multi-chain project can be started regularly by following the [readme](http
 
 When writing your mapping handlers you should account (or prevent) ID collision. If you think this could be a possibility, it is recommended that you prefix your IDs with the network name/ID.
 
+You can get the network through the global `chainId` value. This is the same value as specified in the project manifest.
+
 ```ts
 // We prefix the ID with the network name to prevent ID collisions across networks
 const transfer = new Transfer(
