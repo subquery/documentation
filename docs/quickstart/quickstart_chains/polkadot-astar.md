@@ -83,7 +83,7 @@ The Project Manifest (`project.yaml`) file works as an entry point to your proje
 - [EventHandlers](../../build/manifest/polkadot.md#mapping-handlers-and-filters): On each and every Event that matches optional filter criteria, run a mapping function
 - [CallHanders](../../build/manifest/polkadot.md#mapping-handlers-and-filters): On each and every extrinsic call that matches optional filter criteria, run a mapping function
 
-For [EVM](../../build/substrate-evm.md) and [WASM](../../build/substrate-wasm.md) data processors on Substrate/Polkadot chains, there are additionally two types of mapping handlers:
+For [EVM](../../build/substrate-evm.md) and [WASM](../../build/substrate-wasm.md) data processors on Substrate/Polkadot chains, there are only two types of mapping handlers:
 
 - [EventHandlers](../../build/substrate-wasm.html#event-handlers): On each and every Event that matches optional filter criteria, run a mapping function
 - [CallHanders](../../build/substrate-wasm.html#call-handlers): On each and every extrinsic call that matches optional filter criteria, run a mapping function
@@ -130,7 +130,7 @@ Check out our [Manifest File](../../build/manifest/polkadot.md) documentation to
 
 If you're not using the [WASM starter template](https://github.com/subquery/subql-starter/tree/main/Astar/astar-wasm-starter) then please add the Wasm Datasource as a dependency using `yarn add @subql/substrate-wasm-processor`.
 
-We are indexing all transfers and approve contract call events from the Astar contract `bZ2uiFGTLcYyP8F88XzXa13xu5Mmp13VLiaW1gGn7rzxktc`. First you will need to import the contract ABI defintion. You can copy the entire JSON and save as a file `./erc20Metadata.json` in the `abis` directory.
+We are indexing all transfers and approve contract call events from the Astar contract `bZ2uiFGTLcYyP8F88XzXa13xu5Mmp13VLiaW1gGn7rzxktc`. First, you will need to import the contract ABI defintion. You can copy the entire JSON and save it as a file `./erc20Metadata.json` in the `abis` directory.
 
 This section in the Project Manifest now imports all the correct definitions and lists the triggers that we look for on the blockchain when indexing. We add another section the datasource beneath the above [substrate manifest section](#substrate-manifest-section).
 
@@ -167,7 +167,7 @@ dataSources:
             method: "approve"
 ```
 
-The above code indicates that you will be running a `handleWasmEvent` mapping function whenever there is an `Transfer` event on any transaction from the Astar contract. Similarly, we will run the `handleWasmCall` mapping function whenever there is a `approve` log on the same contract
+The above code indicates that you will be running a `handleWasmEvent` mapping function whenever there is an `Transfer` event on any transaction from the Astar contract. Similarly, we will run the `handleWasmCall` mapping function whenever there is a `approve` log on the same contract.
 
 Check out our [Substrate Wasm](../../build/substrate-wasm.md) documentation to get more information about the Project Manifest (`project.yaml`) file for Substrate WASM contracts.
 
@@ -175,7 +175,7 @@ Check out our [Substrate Wasm](../../build/substrate-wasm.md) documentation to g
 
 Mapping functions define how chain data is transformed into the optimised GraphQL entities that we previously defined in the `schema.graphql` file.
 
-Navigate to the default mapping function in the `src/mappings` directory. There are multiple exported functions: `handleWasmCall`, `handleWasmEvent`, `handleNewContract`, `handleBondAndStake`, `handleUnbondAndUnstake`, and `handleReward`. We wont go into all here but you should be able to figure out what each is doing.
+Navigate to the default mapping function in the `src/mappings` directory. There are multiple other exported functions such as `handleWasmCall`, `handleWasmEvent`, `handleNewContract`, `handleBondAndStake`, `handleUnbondAndUnstake`, and `handleReward`. 
 
 ```ts
 type ApproveCallArgs = [AccountId, Balance];
@@ -226,9 +226,9 @@ export async function handleBondAndStake(event: SubstrateEvent): Promise<void> {
 }
 ```
 
-The `handleBondAndStake` function receives Substrate event data from the native Substrate environment whenever an event matches the filters that was specified previously in the `project.yaml`. It extracts the various data from the event payload (in Substrate it's stored as a array of Codecs), then checks if an existing DApp record exists. If none exists (e.g. it's a new dApp), then it instantiates a new one and then updates the total stake to reflect the new staking mount. Then the `.save()` function is used to save the new/updated entity (_SubQuery will automatically save this to the database_).
+The `handleBondAndStake` function receives Substrate event data from the native Substrate environment whenever an event matches the filters that was specified previously in the `project.yaml`. It extracts the various data from the event payload (in Substrate it's stored as an array of Codecs), then checks if an existing DApp record exists. If none exists (e.g. it's a new dApp), then it instantiates a new one and then updates the total stake to reflect the new staking mount. Then the `.save()` function is used to save the new/updated entity (_SubQuery will automatically save this to the database_).
 
-Check out our mappings documentation for [Substrate](../../build/mapping/polkadot.md) and for the [Substrate WASM data processor](../../build/substrate-wasm.md) to get detailed information on mapping functions for each type.
+Check out our mappings documentation for [Substrate](../../build/mapping/polkadot.md) and the [Substrate WASM data processor](../../build/substrate-wasm.md) to get detailed information on mapping functions for each type.
 
 ## 4. Build Your Project
 
