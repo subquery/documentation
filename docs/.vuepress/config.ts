@@ -344,6 +344,10 @@ function getSidebar(locale: string): SidebarOptions {
               collapsible: true,
               children: [
                 {
+                  text: "Astar (WASM)",
+                  link: `${locale}/quickstart/quickstart_chains/polkadot-astar.md`,
+                },
+                {
                   text: "Humanode",
                   link: `${locale}/quickstart/quickstart_chains/polkadot-humanode.md`,
                 },
