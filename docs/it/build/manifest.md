@@ -143,7 +143,7 @@ The `genesisHash` must always be the hash of the first block of the custom netwo
 
 ![Genesis Hash](/assets/img/genesis-hash.jpg)
 
-Additionally you will need to update the `endpoint`. This defines the wss endpoint of the blockchain to be indexed - **This must be a full archive node**. Puoi recuperare gli endpoint per tutte le paracatene gratuitamente da [OnFinality](https://app.onfinality.io)
+Additionally you will need to update the `endpoint`. This defines the (HTTP or WSS) endpoint of the blockchain to be indexed - **This must be a full archive node**. Puoi recuperare gli endpoint per tutte le paracatene gratuitamente da [OnFinality](https://app.onfinality.io)
 
 ### Chain Types
 
