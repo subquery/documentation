@@ -1,5 +1,17 @@
 # Avalanche Mapping
 
+:::warning Avalanche SDK is Deprecated
+We are no longer supporting `@subql/node-avalanche` and all Avalanche users should migrate their projects to use `@subql/node-ethereum` to recieve the latest updates.
+
+The new `@subql/node-ethereum` is feature equivalent, and provides some massive performance improvements and support for new features.
+
+The migration effort is easy and should only take a few minutes. You can [follow a step by step guide here](../../miscellaneous/avalanche-eth-migration.md).
+:::
+
+::: info Important
+We use Ethereum types (e.g. `EthereumBlock`, `EthereumTransaction`, and `EthereumLog`) for Avalanche. Since Avalanche's C-Chain is EVM based, we can use the core Ethereum framework to index it.
+:::
+
 Mapping functions define how chain data is transformed into the optimised GraphQL entities that we have previously defined in the `schema.graphql` file.
 
 - Mappings are defined in the `src/mappings` directory and are exported as a function.
@@ -15,54 +27,59 @@ You can use block handlers to capture information each time a new block is attac
 **Using block handlers slows your project down as they can be executed with each and every block - only use if you need to.**
 
 ```ts
-import { AvalancheBlock } from "@subql/types-avalanche";
+import { EthereumBlock } from "@subql/types-ethereum"; // We use ethereum types since Avalanche is compatible
 
-export async function handleBlock(block: AvalancheBlock): Promise<void> {
+export async function handleBlock(block: EtheruemBlock): Promise<void> {
   // Create a new BlockEntity with the block hash as it's ID
-  const record = new BlockEntity(block.hash);
-  record.height = BigInt(block.number);
+  const record = new BlockEntity(block.blockHash);
+  record.height = BigInt(block.blockNumber);
   await record.save();
 }
 ```
-
-An `AvalancheBlock` encapsulates all transactions and events in the block.
 
 ## Transaction Handler
 
-You can use transaction handlers (Avalanche and Terra only) to capture information about each of the transactions in a block. To achieve this, a defined TransactionHandler will be called once for every transaction. You should use [Mapping Filters](../manifest/avalanche.md#mapping-handlers-and-filters) in your manifest to filter transactions to reduce the time it takes to index data and improve mapping performance.
+You can use transaction handlers to capture information about each of the transactions in a block. To achieve this, a defined TransactionHandler will be called once for every transaction. You should use [Mapping Filters](../manifest/avalanche.md#mapping-handlers-and-filters) in your manifest to filter transactions to reduce the time it takes to index data and improve mapping performance.
 
 ```ts
-import { AvalancheTransaction } from "@subql/types";
+import { Approval } from "../types";
+import { ApproveTransaction } from "../types/abi-interfaces/PangolinERC20";
 
-export async function handleTransaction(
-  tx: AvalancheTransaction
-): Promise<void> {
-  const record = new TransactionEntity(
-    `${transaction.blockHash}-${transaction.hash}`
-  );
-  record.blockHeight = BigInt(tx.blockNumber);
-  record.from = tx.from;
-  record.to = tx.to;
-  record.value = tx.value;
-  await record.save();
+export async function handleTransaction(tx: ApproveTransaction): Promise<void> {
+  logger.info(`New Approval transaction at block ${tx.blockNumber}`);
+  const approval = Approval.create({
+    id: tx.hash,
+    owner: tx.from,
+    spender: await tx.args[0],
+    value: BigInt(await tx.args[1].toString()),
+    contractAddress: tx.to,
+  });
+
+  await approval.save();
 }
 ```
-
-The `AvalancheTransaction` encapsulates `TxInfo` and the corresponding block information in which the transaction occured.
 
 ## Log Handler
 
 You can use log handlers to capture information when certain logs are included on transactions. During the processing, the log handler will receive a log as an argument with the log's typed inputs and outputs. Any type of event will trigger the mapping, allowing activity with the data source to be captured. You should use [Mapping Filters](../manifest/avalanche.md#mapping-handlers-and-filters) in your manifest to filter events to reduce the time it takes to index data and improve mapping performance.
 
 ```ts
-import { AvalancheLog } from "@subql/types-avalanche";
+import { Transaction } from "../types";
+import { TransferLog } from "../types/abi-interfaces/PangolinERC20";
 
-export async function handleLog(event: AvalancheLog): Promise<void> {
-  const record = new EventEntity(`${event.blockHash}-${event.logIndex}`);
-  record.blockHeight = BigInt(event.blockNumber);
-  record.topics = event.topics; // Array of strings
-  record.data = event.data;
-  await record.save();
+export async function handleLog(log: TransferLog): Promise<void> {
+  logger.info(`New transfer transaction log at block ${log.blockNumber}`);
+  const transaction = Transaction.create({
+    id: log.transactionHash,
+    txHash: log.transactionHash,
+    blockHeight: BigInt(log.blockNumber),
+    to: log.args.to,
+    from: log.args.from,
+    value: log.args[2].toBigInt(),
+    contractAddress: log.address,
+  });
+
+  await transaction.save();
 }
 ```
 
@@ -91,7 +108,7 @@ SubQuery is deterministic by design, that means that each SubQuery project is gu
 
 ```yml
 subquery-node:
-  image: onfinality/subql-node-avalanche:latest
+  image: onfinality/subql-node-ethereum:latest
   ...
   command:
     - -f=/app
@@ -103,11 +120,11 @@ subquery-node:
 When run in `unsafe` mode, you can import any custom libraries into your project and make external API calls using tools like node-fetch. A simple example is given below:
 
 ```ts
-import { AvalancheTransaction } from "@subql/types";
+import { EthereumTransaction } from "@subql/types-ethereum"; // We use ethereum types since Avalanche is compatible
 import fetch from "node-fetch";
 
 export async function handleTransaction(
-  tx: AvalancheTransaction
+  tx: EthereumTransaction
 ): Promise<void> {
   const httpData = await fetch("https://api.github.com/users/github");
   logger.info(`httpData: ${JSON.stringify(httpData.body)}`);
