@@ -1,6 +1,14 @@
 # Avalanche Manifest File
 
-::: warning Important
+:::warning Avalanche SDK is Deprecated
+We are no longer supporting `@subql/node-avalanche` and all Avalanche users should migrate their projects to use `@subql/node-ethereum` to recieve the latest updates.
+
+The new `@subql/node-ethereum` is feature equivalent, and provides some massive performance improvements and support for new features.
+
+The migration effort is easy and should only take a few minutes. You can [follow a step by step guide here](../../miscellaneous/avalanche-eth-migration.md).
+:::
+
+::: info Important
 We use Ethereum packages, runtimes, and handlers (e.g. `@subql/node-ethereum`, `ethereum/Runtime`, and `ethereum/*Handler`) for Avalanche. Since Avalanche's C-Chain is EVM based, we can use the core Ethereum framework to index it.
 :::
 
