@@ -160,7 +160,7 @@ Defines the data that will be filtered and extracted and the location of the map
 
 | Field                  | Type                         | Description                                                                                                                       |
 | ---------------------- | ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| **handlers & filters** | Default handlers and filters | List all the [mapping functions](../mapping/Avalanche.md) and their corresponding handler types, with additional mapping filters. |
+| **handlers & filters** | Default handlers and filters | List all the [mapping functions](../mapping/avalanche.md) and their corresponding handler types, with additional mapping filters. |
 
 ## Data Sources and Mapping
 
@@ -192,9 +192,9 @@ The following table explains filters supported by different handlers.
 
 | Handler                                                                    | Supported filter                                                                                    |
 | -------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| [ethereum/BlockHandler](../mapping/Avalanche.md#block-handler)             | `modulo`, `timestamp`                                                                               |
-| [ethereum/TransactionHandler](../mapping/Avalanche.md#transaction-handler) | `function` filters (either be the function fragment or signature), `from` (address), `to` (address) |
-| [ethereum/LogHandler](../mapping/Avalanche.md#log-handler)                 | `topics` filters, and `address`                                                                     |
+| [ethereum/BlockHandler](../mapping/avalanche.md#block-handler)             | `modulo`, `timestamp`                                                                               |
+| [ethereum/TransactionHandler](../mapping/avalanche.md#transaction-handler) | `function` filters (either be the function fragment or signature), `from` (address), `to` (address) |
+| [ethereum/LogHandler](../mapping/avalanche.md#log-handler)                 | `topics` filters, and `address`                                                                     |
 
 Default runtime mapping filters are an extremely useful feature to decide what block, event, or extrinsic will trigger a mapping handler.
 
