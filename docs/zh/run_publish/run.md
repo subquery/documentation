@@ -170,27 +170,20 @@ If your database is using SSL and requires a client certificate, you can use the
 subql-node -f your-project-path --pg-ca /path/to/ca.pem --pg-cert /path/to/client-cert.pem --pg-key /path/to/client-key.key
 ```
 
-````shell
-
 #### Specify a configuration file
 
 ::: code-tabs
+
 @tab Substrate/Polkadot
 
 ```shell
 subql-node -c your-project-config.yml
-````
-
-@tab Terra
-
-```shell
-subql-node-terra -c your-project-config.yml
 ```
 
-@tab Avalanche
+@tab EVM (Ethereum, Polygon, BNB Smart Chain, Avalanche, Flare)
 
 ```shell
-subql-node-avalanche -c your-project-config.yml
+subql-node-ethereum -c your-project-config.yml
 ```
 
 @tab Cosmos
@@ -203,6 +196,12 @@ subql-node-cosmos -c your-project-config.yml
 
 ```shell
 subql-node-algorand -c your-project-config.yml
+```
+
+@tab Near
+
+```shell
+subql-node-near -c your-project-config.yml
 ```
 
 :::
@@ -220,44 +219,6 @@ Result:
 ```
 
 索引器首次对链进行索引时，获取单个区块将显著降低性能。 增加批量大小以调整获取的区块数将减少整体处理时间。 当前的默认批量大小为 100。
-
-#### 在本地模式下运行
-
-::: code-tabs @tab Substrate/Polkadot
-
-```shell
-subql-node -f your-project-path --local
-```
-
-@tab Terra
-
-```shell
-subql-node-terra -f your-project-path --local
-```
-
-@tab Avalanche
-
-```shell
-subql-node-avalanche -f your-project-path --local
-```
-
-@tab Cosmos
-
-```shell
-subql-node-cosmos -f your-project-path --local
-```
-
-@tab Algorand
-
-```shell
-subql-node-algorand -f your-project-path --local
-```
-
-:::
-
-For debugging purposes, users can run the node in local mode. 切换到本地模型将在默认架构 `public` 中创建 Postgres 表。
-
-如果不使用本地模式，将创建具有初始 `subquery_` 和相应项目表的新 Postgres 模式。
 
 #### 检查您的节点健康状况
 
@@ -354,6 +315,12 @@ subql-query --name <project_name> --playground
 ## Running High Performance SubQuery Infrastructure
 
 SubQuery is designed to provide reliable and performant indexing to production applications, we use the services that we build to run SubQuery in our own managed service which serves millions of requests each day to hundreds of customers. As such, we've added some commands that you will find useful to get the most performance out of your project and mitigate against any DDOS attacks.
+
+### Improve Indexing with Node Workers and Cache Size
+
+Use `node worker threads` to move block fetching and block processing into its own worker thread. It could speed up indexing by up to 4 times (depending on the particular project). You can easily enable it using the `-workers=<number>` flag. 请注意，可用的 CPU 核心数严格限制了工人线程的使用。 [Read more here](../run_publish/references.html#w-workers).
+
+You should also adjust and play around with the various arguments that control how SubQuery uses a store to improve indexing performance by making expensive database operations in bulk. In particular, you can review `--store-cache-threshold`, `--store-get-cache-size`, `--store-cache-async`, and `--store-flush-interval` - read more about these settings in our [references](./references.md#store-cache-threshold).
 
 ### DDOS Mitigation
 
