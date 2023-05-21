@@ -10,7 +10,7 @@ The migration effort is easy and should only take a few minutes.
 
 ## What has changed
 
-We are no longer supporting `@subql/node-avalanche` and replacing it wiht `@subql/node-ethereum`. The SDKs were largely identical and we are reducing the number of packages that we support in order to deliver new features to you faster.
+We are no longer supporting `@subql/node-avalanche` and replacing it with `@subql/node-ethereum`. The SDKs were largely identical and we are reducing the number of packages that we support in order to deliver new features to you faster.
 
 The new package is largely the same, with the following main changes:
 
