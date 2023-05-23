@@ -70,7 +70,7 @@ type StarterEntity @entity {
 
 In addition, when using GraphQL query Playground, these doc strings will automatically show up in the schema documentation panel. This makes it easier for developers to understand your API while exploring it, and can even serve as a form of live, interactive documentation for your API.
 
-
+![image](../.vuepress/public/assets/img/schema_docstring.png)
 
 ### Naming Constraints
 
