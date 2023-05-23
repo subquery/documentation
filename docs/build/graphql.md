@@ -42,6 +42,35 @@ type Example @entity {
   address: String # This is an optional field
 }
 ```
+### Adding Documentation Strings to GraphQL Schema
+
+Documentation strings (also known as "doc strings") can be added to a GraphQL schema to provide human-readable descriptions of the schema's types and fields. This can be particularly useful for maintaining and understanding the schema over time, and for auto-generating API documentation.
+
+Doc strings are added as comments to the schema, using triple-quote syntax ("""). They must appear before the type or field definition that they describe.
+
+Here's an example of a schema with doc strings:
+
+```graphql
+"""This is an example entity"""
+type StarterEntity @entity {
+  """id is a required field"""
+  id: ID!
+
+  field1: Int!
+
+  # The following field is optional
+  field2: String
+
+  field3: BigInt
+  field4: Date
+  field5: Boolean
+}
+
+```
+
+In addition, when using GraphQL query Playground, these doc strings will automatically show up in the schema documentation panel. This makes it easier for developers to understand your API while exploring it, and can even serve as a form of live, interactive documentation for your API.
+
+
 
 ### Naming Constraints
 
