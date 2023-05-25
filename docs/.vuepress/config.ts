@@ -312,6 +312,10 @@ function getSidebar(locale: string): SidebarOptions {
                   link: `${locale}/quickstart/quickstart_chains/cosmos-juno.md`,
                 },
                 {
+                  text: "Terra",
+                  link: `${locale}/quickstart/quickstart_chains/terra.md`,
+                },
+                {
                   text: "Thorchain",
                   link: `${locale}/quickstart/quickstart_chains/cosmos-thorchain.md`,
                 },
@@ -368,10 +372,6 @@ function getSidebar(locale: string): SidebarOptions {
             {
               text: "Polygon",
               link: `${locale}/quickstart/quickstart_chains/polygon.md`,
-            },
-            {
-              text: "Terra",
-              link: `${locale}/quickstart/quickstart_chains/terra.md`,
             },
           ],
         },
