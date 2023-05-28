@@ -292,6 +292,10 @@ function getSidebar(locale: string): SidebarOptions {
               link: `${locale}/quickstart/quickstart_chains/algorand.md`,
             },
             {
+              text: "Arbitrum",
+              link: `${locale}/quickstart/quickstart_chains/arbitrum.md`,
+            },
+            {
               text: "Avalanche",
               link: `${locale}/quickstart/quickstart_chains/avalanche.md`,
             },

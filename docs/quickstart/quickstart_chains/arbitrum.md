@@ -5,7 +5,7 @@
 The goal of this quick start guide is to index total claimed dividends paid to users on the WINR staking contract on Arbitrum.
 
 ::: warning
-Before we begin, make sure that you have initialised your project using the provided steps in the [Start Here](../quickstart.md) section. **Please initialise an Arbitrum project**
+Before we begin, **make sure that you have initialised your project** using the provided steps in the [Start Here](../quickstart.md) section. 
 :::
 
 In every SubQuery project, there are 3 key files [3 key files](../quickstart.md#_3-make-changes-to-your-project) to update. Let's begin updating them one by one.
