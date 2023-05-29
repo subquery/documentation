@@ -8,12 +8,12 @@ The Manifest `project.yaml` file can be seen as an entry point of your project a
 
 The Manifest can be in either YAML or JSON format. In this document, we will use YAML in all the examples.
 
-Below is a standard example of a basic Arbitrum `project.yaml`.
+Below is a standard example of a basic Arbitrum One `project.yaml`. Arbitrum Nova is essentially the same but with different settings under `network`.
 
 ```yml
 specVersion: "1.0.0"
 
-name: "arbitrum-subql-starter"
+name: "arbitrum-one-subql-starter"
 version: "0.0.1"
 runner:
   node:
@@ -22,14 +22,14 @@ runner:
   query:
     name: "@subql/query"
     version: "*"
-description: "This project can be use as a starting point for developing your new Arbitrum SubQuery project"
+description: "This project can be use as a starting point for developing your new Arbitrum One SubQuery project"
 repository: "https://github.com/subquery/ethereum-subql-starter"
 
 schema:
   file: "./schema.graphql"
 
 network:
-  # chainId is the EVM Chain ID, for Arbitrum this is 42161
+  # chainId is the EVM Chain ID, for Arbitrum One this is 42161 and Abitrum Nova is 42170
   # https://chainlist.org/chain/42161
   chainId: "42161"
   # This endpoint must be a public non-pruned archive node
@@ -40,10 +40,10 @@ network:
   # https://documentation.onfinality.io/support/the-enhanced-api-service
   endpoint: ["https://arbitrum.api.onfinality.io/public"]
   # Recommended to provide the HTTP endpoint of a full chain dictionary to speed up processing
-  dictionary: "https://gx.api.subquery.network/sq/subquery/arbitrum-dictionary-eth"
+  dictionary: "https://gx.api.subquery.network/sq/subquery/arbitrum-one-dictionary"
 
 dataSources:
-  - kind: ethereum/Runtime # We use ethereum runtime since Arbitrum is a layer-2 that is compatible
+  - kind: ethereum/Runtime # We use ethereum runtime since Arbitrum One and Nova are layer-2s that are compatible
     startBlock: 2591 # This is the block that the contract was deployed on https://arbiscan.io/tx/0x8ebe1945f039f865af8b3079df3819534340ee41a5e6b8bfefb9c36a857778c9
     options:
       # Must be a key of assets
@@ -56,14 +56,14 @@ dataSources:
       file: "./dist/index.js"
       handlers:
         - handler: handleTransaction
-          kind: ethereum/TransactionHandler # We use ethereum handlers since Arbitrum is a layer-2 that is compatible
+          kind: ethereum/TransactionHandler # We use ethereum handlers since Arbitrum One and Nova are layer-2s that are compatible
           filter:
             ## The function can either be the function fragment or signature
             # function: '0x095ea7b3'
             # function: '0x7ff36ab500000000000000000000000000000000000000000000000000000000'
             function: approve(address spender, uint256 amount)
         - handler: handleLog
-          kind: ethereum/LogHandler # We use ethereum handlers since Arbitrum is a layer-2 that is compatible
+          kind: ethereum/LogHandler # We use ethereum handlers since Arbitrum One and Nova are layer-2s that are compatible
           filter:
             topics:
               ## Follows standard log filters https://docs.ethers.io/v5/concepts/events/
@@ -98,7 +98,7 @@ dataSources:
 
 If you start your project by using the `subql init` command, you'll generally receive a starter project with the correct network settings. If you are changing the target chain of an existing project, you'll need to edit the [Network Spec](#network-spec) section of this manifest.
 
-The `chainId` is the network identifier of the blockchain. Examples in Arbitrum is `42161` for Arbitrum and `42170` for Arbitrum Nova. See https://chainlist.org/chain/42161
+The `chainId` is the network identifier of the blockchain. Examples in Arbitrum is `42161` for Arbitrum One and `42170` for Arbitrum Nova. See https://chainlist.org/chain/42161
 
 Additionally you will need to update the `endpoint`. This defines the (HTTP or WSS) endpoint of the blockchain to be indexed - **this must be a full archive node**. This property can be a string or an array of strings (e.g. `endpoint: ['rpc1.endpoint.com', 'rpc2.endpoint.com']`). We suggest providing an array of endpoints as it has the following benefits:
 
@@ -107,6 +107,8 @@ Additionally you will need to update the `endpoint`. This defines the (HTTP or W
 - Reduced load on RPC providers - Indexing is a computationally expensive process on RPC providers, by distributing requests among RPC providers you are lowering the chance that your project will be rate limited.
 
 Public nodes may be rate limited which can affect indexing speed, when developing your project we suggest getting a private API key from a professional RPC provider like [OnFinality](https://onfinality.io/networks/arbitrum).
+
+There is only a dictionary for Arbitrum One `https://gx.api.subquery.network/sq/subquery/arbitrum-one-dictionary`. For Arbitrum Nova, please omit the dictionary setting.
 
 | Field            | Type   | Description                                                                                                                                                                              |
 | ---------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
