@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Welcome to this guide of how to become an indexer. Let's take an overview of the basic steps involved in the process:
+Welcome to this guide of how to become an Indexer. Let's take an overview of the basic steps involved in the process:
 
 ## Summary of Steps
 
@@ -23,9 +23,9 @@ In the first phase of Kepler, Indexers will be Sponsored by the SubQuery Council
 - All plans will be orientated around the length of an Era, which is currently one week but may be increased to a fortnight (two weeks).
 - Indexers should only index from a list of standardised projects that will be listed [here](./dictionary-restore.md#downloading-database-snapshots). You wont be rewarded for indexing any projects that are not on this list.
 - Towards the end of each era, we will release the suggested plan templates, recommended pricing, an and other instructions for the start of the next period. You can create plans under [step 5](#5-create-a-plan-from-a-plan-template). These will be shared on [Discord](https://discord.com/invite/subquery) in `kepler-indexer-chat`
-- We use the [Indexer Excellency programme](https://kepler.subquery.network/delegator/indexers/top) to rank indexers and plans will be allocated to indexers with a higher score. In order to maximise your rewards, we suggest trying to maximise your score in this programme (you can hover over the column header to see how each score is calculated).
-- We also constantly assess uptime from our indexers, so if you have [announced that your indexing service is ready to use](../indexers/index-project.md#42-announcing-that-indexing-service-is-ready-to-use), then you will be penalised for any downtime.
-- Finally, we also assess pricing when creating agreements with indexers, so indexers with lower plan prices can expect a higher chance of being selected.
+- We use the [Indexer Excellency programme](https://kepler.subquery.network/delegator/indexers/top) to rank Indexers and plans will be allocated to Indexers with a higher score. In order to maximise your rewards, we suggest trying to maximise your score in this programme (you can hover over the column header to see how each score is calculated).
+- We also constantly assess uptime from our Indexers, so if you have [announced that your indexing service is ready to use](../indexers/index-project.md#42-announcing-that-indexing-service-is-ready-to-use), then you will be penalised for any downtime.
+- Finally, we also assess pricing when creating agreements with Indexers, so Indexers with lower plan prices can expect a higher chance of being selected.
 
 ![Indexer Excellency](/assets/img/indexer-excellency.png)
 
@@ -33,7 +33,7 @@ In the first phase of Kepler, Indexers will be Sponsored by the SubQuery Council
 
 For those who are new to SubQuery, it is recommended to try running the Indexing Service on your local machine first. For **intermediate to advanced users**, it is recommended to set up a VM on AWS (or similar) to host your indexing service.
 
-**Select the appropriate link to follow the guide to setup an indexer [Locally](./install-indexer-locally.md), or on [Linux](./install-indexer-linux.md) and then return here.**
+**Select the appropriate link to follow the guide to setup an Indexer [Locally](./install-indexer-locally.md), or on [Linux](./install-indexer-linux.md) and then return here.**
 
 ### Recommend resources for the machine
 
@@ -45,7 +45,7 @@ For those who are new to SubQuery, it is recommended to try running the Indexing
 
 ### Port configurations
 
-Here are the recommended port configurations for running an indexer service:
+Here are the recommended port configurations for running an Indexer service:
 
 - Port `8000 / TCP`: This port should be configured to only allow access from your own IP address, used by `indexer_coordinator`.
 - Port `7370 / UDP`: This port can be opened to the public and used for broadcasting data to multiple clients or nodes in a peer-to-peer network, used by `indexer_proxy`.

@@ -487,14 +487,6 @@ function getSidebar(locale: string): SidebarOptions {
             },
             `${locale}/subquery_network/kepler/delegators.md`,
             `${locale}/subquery_network/kepler/consumers.md`,
-            {
-              text: "Metamask",
-              link: `${locale}/subquery_network/kepler/metamask/connect-metamask`,
-              collapsible: true,
-              children: [
-                `${locale}/subquery_network/kepler/metamask/connect-metamask.md`,
-              ],
-            },
             `${locale}/subquery_network/kepler/swap.md`,
           ],
         },

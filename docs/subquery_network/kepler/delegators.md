@@ -1,6 +1,6 @@
 # Delegators
 
-To learn more about the role of a delegator, please visit [Delegators](../delegators). This page outlines how to perform various operations as a delegator.
+To learn more about the role of a Delegator, please visit [Delegators](../delegators). This page outlines how to perform various operations as a Delegator within SubQuery's Kepler Network.
 
 ## How to delegate to an Indexer
 
@@ -16,7 +16,7 @@ To learn more about the role of a delegator, please visit [Delegators](../delega
 
 - You will be asked to confirm your transaction with Metamask. Please wait for a while after confirming the transaction.
 
-Note that some Indexers cannot be delegated to, until they collect all the early era's rewards. You will have to contact the indexer to resolve the issue.
+Note that some Indexers cannot be delegated to, until they collect all the early era's rewards. You will have to contact the Indexer to resolve the issue.
 
 ![Cannot delegate](/assets/img/cannot_delegate.png)
 
