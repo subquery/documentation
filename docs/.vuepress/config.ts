@@ -312,8 +312,16 @@ function getSidebar(locale: string): SidebarOptions {
                   link: `${locale}/quickstart/quickstart_chains/cosmos-juno.md`,
                 },
                 {
+                  text: "Terra",
+                  link: `${locale}/quickstart/quickstart_chains/terra.md`,
+                },
+                {
                   text: "Thorchain",
                   link: `${locale}/quickstart/quickstart_chains/cosmos-thorchain.md`,
+                },
+                {
+                  text: "And more Cosmos zones",
+                  link: `${locale}/quickstart/quickstart_chains/cosmos-other.md`,
                 },
               ],
             },
@@ -355,15 +363,15 @@ function getSidebar(locale: string): SidebarOptions {
                   text: "Polkadot/Substrate",
                   link: `${locale}/quickstart/quickstart_chains/polkadot.md`,
                 },
+                {
+                  text: "And more Polkadot chains",
+                  link: `${locale}/quickstart/quickstart_chains/polkadot-other.md`,
+                },
               ],
             },
             {
               text: "Polygon",
               link: `${locale}/quickstart/quickstart_chains/polygon.md`,
-            },
-            {
-              text: "Terra",
-              link: `${locale}/quickstart/quickstart_chains/terra.md`,
             },
           ],
         },

@@ -98,7 +98,7 @@ We expect that SubQuery will work with all Ethermint and CosmWasm Cosmos chains 
 
 If you start your project by using the `subql init` command, you'll generally receive a starter project with the correct network settings. If you are changing the target chain of an existing project, you'll need to edit the [Network Spec](#network-spec) section of this manifest.
 
-The `chainId` is the network identifier of the blockchain. Examples in Cosmos might be `juno-1`.
+The `chainId` is the network identifier of the Cosmos Zone. Examples in Cosmos might be `juno-1`. You can often search for this in https://github.com/cosmos/chain-registry.
 
 Additionally you will need to update the `endpoint`. This defines the (HTTP or WSS) endpoint of the blockchain to be indexed - **this must be a full archive node**. This property can be a string or an array of strings (e.g. `endpoint: ['rpc1.endpoint.com', 'rpc2.endpoint.com']`). We suggest providing an array of endpoints as it has the following benefits:
 
@@ -220,28 +220,30 @@ filter:
 
 ## Chain Types
 
-We can load protobuf message definitions to allow support for specific Cosmos chains under `network.chaintypes`. If most are just using Wasm this should be already included.
+We can load protobuf message definitions to allow support for specific Cosmos zones under `network.chaintypes`. Any protobuf files that are required for the network (these end in `.proto`) should be imported. For example, you can find Osmosis' protobuf definitions [here](https://buf.build/osmosis-labs/osmosis/tree/main:osmosis)
 
 You can reference a chaintypes file for Cosmos like so (this is for Stargaze):
 
 ```yml
-chainTypes: # This is a beta feature that allows support for any Cosmos chain by importing the correct protobuf messages
-  cosmos.slashing.v1beta1:
-    file: "./proto/cosmos/slashing/v1beta1/tx.proto"
-    messages:
-      - "MsgUnjail"
-  cosmos.gov.v1beta1:
-    file: "./proto/cosmos/gov/v1beta1/tx.proto"
-    messages:
-      - "MsgVoteWeighted"
-  cosmos.gov.v1beta1.gov: # Key is not used, it matches the one above and is inferred from the file
-    file: "./proto/cosmos/gov/v1beta1/gov.proto"
-    messages:
-      - "WeightedVoteOption"
-  publicawesome.stargaze.claim.v1beta1: # Key is not used, it matches the one above and is inferred from the file
-    file: "./proto/stargaze/claim/v1beta1/tx.proto"
-    messages:
-      - "MsgInitialClaim"
+network:
+  ...
+  chainTypes: # This is a beta feature that allows support for any Cosmos zone by importing the correct protobuf messages
+    cosmos.slashing.v1beta1:
+      file: "./proto/cosmos/slashing/v1beta1/tx.proto"
+      messages:
+        - "MsgUnjail"
+    cosmos.gov.v1beta1:
+      file: "./proto/cosmos/gov/v1beta1/tx.proto"
+      messages:
+        - "MsgVoteWeighted"
+    cosmos.gov.v1beta1.gov: # Key is not used, it matches the one above and is inferred from the file
+      file: "./proto/cosmos/gov/v1beta1/gov.proto"
+      messages:
+        - "WeightedVoteOption"
+    publicawesome.stargaze.claim.v1beta1: # Key is not used, it matches the one above and is inferred from the file
+      file: "./proto/stargaze/claim/v1beta1/tx.proto"
+      messages:
+        - "MsgInitialClaim"
 ```
 
 Our [starter repo has chaintypes for popular Cosmos chains](https://github.com/subquery/cosmos-subql-starter/blob/stargaze-1/project.yaml#L23) already added under a branch for each chain. Additionally see [Tested and Supported networks](#tested-and-supported-networks).
