@@ -2,7 +2,7 @@
 
 ## Goals
 
-The goal of this quick start guide is to index total claimed dividends paid to users on the WINR staking contract on Arbitrum.
+The goal of this quick start guide is to index the total claimed dividends paid to users on the WINR staking contract on Arbitrum.
 
 ::: warning
 Before we begin, **make sure that you have initialised your project** using the provided steps in the [Start Here](../quickstart.md) section. 
@@ -24,7 +24,7 @@ The Project Manifest (`project.yaml`) file works as an entry point to your Arbit
 
 Note that the manifest file has already been set up correctly and doesn’t require significant changes, but you need to import the correct contract definitions and update the datasource handlers.
 
-As we are indexing all claimed dividends from the WINR contract, the first step is to import the contract abi defintion which can be obtained from [here](https://arbiscan.io/address/0xddaecf4b02a3e45b96fc2d7339c997e072b0d034#code). Copy the entire JSON and save it as a file called `winr-staking.abi.json` in the `/abis` directory.
+As we are indexing all claimed dividends from the WINR contract, the first step is to import the contract abi definition which can be obtained from [here](https://arbiscan.io/address/0xddaecf4b02a3e45b96fc2d7339c997e072b0d034#code). Copy the entire JSON and save it as a file called `winr-staking.abi.json` in the `/abis` directory.
 
 **Update the `datasources` section as follows:**
 
@@ -101,7 +101,7 @@ npm run-script codegen
 
 :::
 
-This will create a new directory (or update the existing) `src/types` which contain generated entity classes for each type you have defined previously in `schema.graphql`. These classes provide type-safe entity loading, read and write access to entity fields - see more about this process in [the GraphQL Schema](../../build/graphql.md). All entites can be imported from the following directory:
+This will create a new directory (or update the existing one) `src/types` which contains generated entity classes for each type you have defined previously in `schema.graphql`. These classes provide type-safe entity loading, and read and write access to entity fields - see more about this process in [the GraphQL Schema](../../build/graphql.md). All entities can be imported from the following directory:
 
 ```ts
 import { Dividend, User } from "../types";
@@ -190,7 +190,7 @@ Now, you are ready to run your first SubQuery project. Let’s check out the pro
 
 ## 5. Run Your Project Locally with Docker
 
-Whenever you create a new SubQuery Project, first, you must run it locally on your computer and test it and using Docker is the easiest and quickiest way to do this.
+Whenever you create a new SubQuery Project, first, you must run it locally on your computer and test it and using Docker is the easiest and quickest way to do this.
 
 The `docker-compose.yml` file defines all the configurations that control how a SubQuery node runs. For a new project, which you have just initialised, you won't need to change anything.
 
