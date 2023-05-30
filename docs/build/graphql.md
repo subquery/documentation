@@ -143,6 +143,32 @@ const captainTitle = await Title.getByName("Captain");
 const pirateLords = await User.getByTitleId(captainTitle.id); // List of all Captains
 ```
 
+## Composite Indexes by multiple fields
+
+A composite index will help improve query performance further. For example, the index is created on columns (a, b)  can be used by queries containing `WHERE a = x AND b = y`.
+Database will re-arrange the order of the filter for the query, it will find the right indexes automatically.
+
+
+You can create composite indexes though `@compositeIndexes` on an entity, and create multiple indexes too.
+Composite index fields can be any regular fields (except for `Boolean`) type, also for relation entity type too. 
+
+Here is an example: 
+
+```graphql
+
+type StarterEntity @entity @compositeIndexes(fields: [["field1", "field2"], ["field2", "relate"]]) {
+    id: ID!
+    field1: Int!
+    field2: String
+    relate: RelateEntity
+}
+type RelateEntity @entity {
+    id: ID!
+}
+```
+
+To avoid index creation impact on database performance and query complexity, **We limited each index can take maximum 3 fields.**
+
 ## Entity Relationships
 
 An entity often has nested relationships with other entities. Setting the field value to another entity name will define a relationship between these two entities. Different entity relationships (one-to-one, one-to-many, and many-to-many) can be configured using the examples below.
