@@ -5,22 +5,24 @@
 The goal of this quick start guide is to index the total claimed dividends paid to users on the WINR staking contract on Arbitrum.
 
 ::: warning
-Before we begin, **make sure that you have initialised your project** using the provided steps in the [Start Here](../quickstart.md) section. 
+Before we begin, **make sure that you have initialised your project** using the provided steps in the [Start Here](../quickstart.md) section. Please initialise an Arbitrum Nova project
 :::
 
 In every SubQuery project, there are 3 key files [3 key files](../quickstart.md#_3-make-changes-to-your-project) to update. Let's begin updating them one by one.
 
 ::: tip Note
-The final code of this project can be found [here](https://github.com/subquery/subql-example-arbitrum-winr-rewards).
+The final code of this project can be found [here](https://github.com/subquery/subql-example-arbitrum-winr-rewards). 
+
+We use Ethereum packages, runtimes, and handlers (e.g. @subql/node-ethereum, ethereum/Runtime, and ethereum/*Handler) for Arbitrum. Since Arbitrum is a layer-2 scaling solution, we can use the core Ethereum framework to index it.
 :::
 
 ## 1. Your Project Manifest File
 
 The Project Manifest (`project.yaml`) file works as an entry point to your Arbitrum project. It defines most of the details on how SubQuery will index and transform the chain data. For Arbitrum, there are three types of mapping handlers (and you can have more than one in each project):
 
-- [BlockHanders](../../build/manifest/ethereum.md#mapping-handlers-and-filters): On each and every block, run a mapping function
-- [TransactionHandlers](../../build/manifest/ethereum.md#mapping-handlers-and-filters): On each and every transaction that matches optional filter criteria, run a mapping function
-- [LogHanders](../../build/manifest/ethereum.md#mapping-handlers-and-filters): On each and every log that matches optional filter criteria, run a mapping function
+- [BlockHanders](../../build/manifest/arbitrum.md#mapping-handlers-and-filters): On each and every block, run a mapping function
+- [TransactionHandlers](../../build/manifest/arbitrum.md#mapping-handlers-and-filters): On each and every transaction that matches optional filter criteria, run a mapping function
+- [LogHanders](../../build/manifest/arbitrum.md#mapping-handlers-and-filters): On each and every log that matches optional filter criteria, run a mapping function
 
 Note that the manifest file has already been set up correctly and doesn’t require significant changes, but you need to import the correct contract definitions and update the datasource handlers.
 
@@ -54,7 +56,7 @@ dataSources:
 
 The above code indicates that you will be running a `handleDividendBatch` mapping function whenever there is a `ClaimDividendBatch` log on any transaction from the [WINR contract](https://arbiscan.io/address/0xddaecf4b02a3e45b96fc2d7339c997e072b0d034#code).
 
-Check out our [Manifest File](../../build/manifest/ethereum.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
+Check out our [Manifest File](../../build/manifest/arbitrum.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
 
 ## 2. Update Your GraphQL Schema File
 
@@ -107,7 +109,7 @@ This will create a new directory (or update the existing one) `src/types` which 
 import { Dividend, User } from "../types";
 ```
 
-If you're creating a new Etheruem based project, this command will also generate ABI types and save them into `src/types` using the `npx typechain --target=ethers-v5` command, allowing you to bind these contracts to specific addresses in the mappings and call read-only contract methods against the block being processed. It will also generate a class for every contract event to provide easy access to event parameters, as well as the block and transaction the event originated from. All of these types are written to `src/typs/abi-interfaces` and `src/typs/contracts` directories. In the example Gravatar SubQuery project, you would import these types like so.
+If you're creating a new Etheruem based project, this command will also generate ABI types and save them into `src/types` using the `npx typechain --target=ethers-v5` command, allowing you to bind these contracts to specific addresses in the mappings and call read-only contract methods against the block being processed. It will also generate a class for every contract event to provide easy access to event parameters, as well as the block and transaction the event originated from. All of these types are written to `src/types/abi-interfaces` and `src/types/contracts` directories. In this example SubQuery project, you would import these types like so.
 
 ```ts
 import { ClaimDividendBatchLog } from "../types/abi-interfaces/WinrStakingAbi";
@@ -161,7 +163,7 @@ export async function handleDividendBatch(
 
 The `handleDividendBatch` function receives a `batchDividendLog` parameter of type `ClaimDividendBatchLog` which includes transaction log data in the payload. We extract this data and then save this to the store using the `.save()` function (_Note that SubQuery will automatically save this to the database_).
 
-Check out our [Mappings](../../build/mapping/ethereum.md) documentation to get more information on mapping functions.
+Check out our [Mappings](../../build/mapping/arbitrum.md) documentation to get more information on mapping functions.
 
 ## 4. Build Your Project
 
