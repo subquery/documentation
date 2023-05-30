@@ -40,7 +40,7 @@ network:
   # https://documentation.onfinality.io/support/the-enhanced-api-service
   endpoint: ["https://arbitrum.api.onfinality.io/public"]
   # Recommended to provide the HTTP endpoint of a full chain dictionary to speed up processing
-  dictionary: "https://gx.api.subquery.network/sq/subquery/arbitrum-one-dictionary"
+  dictionary: "https://api.subquery.network/sq/subquery/arbitrum-one-dictionary"
 
 dataSources:
   - kind: ethereum/Runtime # We use ethereum runtime since Arbitrum One and Nova are layer-2s that are compatible
