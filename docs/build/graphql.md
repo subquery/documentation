@@ -42,6 +42,7 @@ type Example @entity {
   address: String # This is an optional field
 }
 ```
+
 ### Adding Documentation Strings to GraphQL Schema
 
 Documentation strings (also known as "doc strings") can be added to a GraphQL schema to provide human-readable descriptions of the schema's types and fields. This can be particularly useful for maintaining and understanding the schema over time, and for auto-generating API documentation.
@@ -51,9 +52,13 @@ Doc strings are added as comments to the schema, using triple-quote syntax (""")
 Here's an example of a schema with doc strings:
 
 ```graphql
-"""This is an example entity"""
+"""
+This is an example entity
+"""
 type StarterEntity @entity {
-  """id is a required field"""
+  """
+  id is a required field
+  """
   id: ID!
 
   field1: Int!
@@ -65,7 +70,6 @@ type StarterEntity @entity {
   field4: Date
   field5: Boolean
 }
-
 ```
 
 In addition, when using GraphQL query Playground, these doc strings will automatically show up in the schema documentation panel. This makes it easier for developers to understand your API while exploring it, and can even serve as a form of live, interactive documentation for your API.
@@ -100,7 +104,7 @@ We currently support the following scalar types:
 
 ## Indexing by non-primary-key field
 
-To improve query performance, index an entity field simply by implementing the `@index` annotation on a non-primary-key field.
+To improve query performance, index an entity field simply by implementing the `@index` annotation on a non-primary-key field (you can also use [composite indexes](#composite-indexes-by-multiple-fields)).
 
 However, we don't allow users to add `@index` annotation on any [JSON](graphql.md#json-type) object. By default, indexes are automatically added to foreign keys and for JSON fields in the database, but only to enhance query service performance.
 
@@ -143,31 +147,37 @@ const captainTitle = await Title.getByName("Captain");
 const pirateLords = await User.getByTitleId(captainTitle.id); // List of all Captains
 ```
 
-## Composite Indexes by multiple fields
+### Composite Index
 
-A composite index will help improve query performance further. For example, the index is created on columns (a, b)  can be used by queries containing `WHERE a = x AND b = y`.
-Database will re-arrange the order of the filter for the query, it will find the right indexes automatically.
+Composite indexes work just like regular indexes, except they provide even faster access to daata by utilisng multiple columns to create the index.
 
+For example, a composite index on columns `col_a` and `col_b` will significantly help when there are queries that filter across both (e.g. `WHERE col_a=x AND col_b=y`).
 
-You can create composite indexes though `@compositeIndexes` on an entity, and create multiple indexes too.
-Composite index fields can be any regular fields (except for `Boolean`) type, also for relation entity type too. 
+You can create composite indexes though the `@compositeIndexes` annotation on an entity, and you can specify as many as you want.
 
-Here is an example: 
+Composite index can include all properties of standard scalar types (except for `Boolean` or `JSON` types) and relations.
+
+Here is an example:
 
 ```graphql
-
-type StarterEntity @entity @compositeIndexes(fields: [["field1", "field2"], ["field2", "relate"]]) {
-    id: ID!
-    field1: Int!
-    field2: String
-    relate: RelateEntity
+type Account @entity {
+  id: ID! # Account address
+  balance: BigInt
 }
-type RelateEntity @entity {
-    id: ID!
+
+type Transfer
+  @entity
+  @compositeIndexes(fields: [["field1", "blockNumber"], ["field2", "from"]])
+  @compositeIndexes(fields: [["field1", "from"], ["field2", "to"]]) { # can have multiple
+  id: ID! #this primary key is the network + block number + the event id
+  amount: BigInt
+  blockNumber: BigInt
+  from: Account! #Sending Address
+  to: Account! # receiving address
 }
 ```
 
-To avoid index creation impact on database performance and query complexity, **We limited each index can take maximum 3 fields.**
+To avoid overloading the database with index creation and query complexity, composite indexes can have a maximum of 3 fields.
 
 ## Entity Relationships
 
