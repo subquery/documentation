@@ -1,5 +1,11 @@
 # 代理
 
+:::info Delegators in Kepler
+
+To read more specifically about being an Delegator in SubQuery's Kepler Network, please head to [Kepler - Delegators](./kepler/delegators.md)
+
+:::
+
 ## 什么是代理？
 
 代理是SubQuery网络中的非技术性网络角色，是开始参与SubQuery网络的一个好办法。 这种角色使代理们能够将他们的 SQT “委托”给一个或多个索引员，并获得奖励(类似于正在进行的)。
@@ -23,7 +29,7 @@
 
 为了吸引代理们支持他们的工作，索引者向代表们提供他们赚取的部分报酬。 索引者将刊登索引者委员会评分的广告。 然后将余下的收入按比例分配给人才库中的个人代表/利益攸关者。
 
-*索引者的佣金率*: 这是从向消费者服务请求所得费用中的一个百分比。 索引者可自由地将此比率设置为他们想要的任何值。 较高的百分比表明，索引者持有更多的利润。 较低的百分比表明，索引者与代理们分享更多的利润。
+_Indexer’s Commission Rate_: This is a percentage share of the fees earned from serving requests to Consumers. 索引者可自由地将此比率设置为他们想要的任何值。 较高的百分比表明，索引者持有更多的利润。 较低的百分比表明，索引者与代理们分享更多的利润。
 
 代理将仅获得在整个期间他们参与的时期的收益。 例如，如果他们在相关期间的中间加入了一个质押的时期，那么他们将不会获得该特定时代的任何查询费收入。
 
@@ -39,7 +45,7 @@
 
 ## 如何选择索引者？
 
-代表们可以根据 *信誉指数* /RI选择潜在的索引者。 RI考虑到索引者的更新时间、佣金率、清除事件和索引器参数更改频率。
+Delegators can select potential Indexers based on a _Reputation Index_ or RI. RI考虑到索引者的更新时间、佣金率、清除事件和索引器参数更改频率。
 
 SubQuery 将很快推出官方 RI，但我们希望其他代理应用程序能够计算和发布自己的。
 
