@@ -155,9 +155,25 @@ For example, a composite index on columns `col_a` and `col_b` will significantly
 
 You can create composite indexes though the `@compositeIndexes` annotation on an entity, and you can specify as many as you want.
 
+```graphql
+type Account @entity {
+  id: ID! # Account address
+  balance: BigInt
+}
+
+type Transfer @entity @compositeIndexes(fields: [["blockNumber", "from"]]) {
+  id: ID! #this primary key is the network + block number + the event id
+  amount: BigInt
+  blockNumber: BigInt
+  from: Account! #Sending Address
+  to: Account! # receiving address
+}
+```
+
 Composite index can include all properties of standard scalar types (except for `Boolean` or `JSON` types) and relations.
 
-Here is an example:
+Here is an example where you define more than one composite index on a particular entity. To avoid overloading the database with index creation and query complexity, composite indexes can have a maximum of 3 fields.
+:
 
 ```graphql
 type Account @entity {
@@ -167,8 +183,7 @@ type Account @entity {
 
 type Transfer
   @entity
-  @compositeIndexes(fields: [["field1", "blockNumber"], ["field2", "from"]])
-  @compositeIndexes(fields: [["field1", "from"], ["field2", "to"]]) { # can have multiple
+  @compositeIndexes(fields: [["blockNumber", "from"], ["from", "to"]]) { # can have multiple
   id: ID! #this primary key is the network + block number + the event id
   amount: BigInt
   blockNumber: BigInt
@@ -176,8 +191,6 @@ type Transfer
   to: Account! # receiving address
 }
 ```
-
-To avoid overloading the database with index creation and query complexity, composite indexes can have a maximum of 3 fields.
 
 ## Entity Relationships
 
