@@ -35,31 +35,25 @@ _Indexer’s Commission Rate_: This is a percentage share of the fees earned fro
 
 Якщо індексатор бажає збільшити ставку комісії індексатора, яку він пропонує своїм Делегатам, він повинен рекламувати це протягом всієї епохи розміщення ставок. Індексатор зможе в будь-який момент знизити ставку комісії за індексацію, щоб залучити більше делегованих SQT для розміщення ставок в короткостроковій перспективі. Делегати можуть відкликати або скасувати свою ставку в будь-який час, але вони позбудуться будь-яких винагород, зароблених протягом періоду розміщення ставок (оскільки вони не були частиною пулу делегування протягом усього періоду розміщення ставок).
 
-## Ризики, пов'язані з тим, щоб бути делегатом
-
-Попри те, що це не вважається ризикованою роллю, делегування містити кілька ризиків, про які слід знати.
-
-1. Ризик волатильності ринку: постійні коливання на ринку це ризик, який зачіпає не тільки SQT, але і всі токени на загальному ринку криптовалюта. Застосування довгострокового підходу може знизити цей тип ризику.
-2. Постійне коригування параметрів розміщення ставок Індексаторами й плата за делегування можуть збільшити ризик для Делегата. Наприклад, Делегат може пропустити зміну параметрів розміщення ставок, що призведе до меншого, ніж очікувалося, доходу. Щоб знизити цей ризик, коли Індексатори зменшують параметри своєї частки, це набрати чинності тільки після завершення наступної повної ери, що дає делегатам час для оцінки й внесення будь-яких змін.
-3. Низька продуктивність індексатора: можливо, делегати можуть вибирати індекси, які працюють погано і, отже, забезпечують Делегатам неякісну віддачу від інвестицій. Тому делегатам рекомендується проявляти належну обачність щодо потенційних Індексаторів. Також доступний Індекс репутації, який допомагає делегатам порівнювати індекси один з одним.
-
 ## Як вибрати індекси?
 
-Delegators can select potential Indexers based on a _Reputation Index_ or RI. Цей RI враховує час безвідмовної роботи індексатора, розмір комісії індексатора, події скорочення і частоту зміни параметрів індексатора.
+You need to assess a few things when deciding on what Indexer to choose.
 
-SubQuery скоро запустить офіційний RI, але ми очікуємо, що інші програми делегування розрахують і випустять свої власні.
+Indexers set an Indexer’s Commission Rate (ICR) which is the percentage Indexers earn. The remaining is then shared amongst the Indexer and all Delegators propotionally by staked/delegated amount. Therefore, a lower ICR will be more attractive for Delegators as a larger percentage of rewards is shared between Delegators.
 
-## Період без винагороди
+For example, Indexer A has set an ICR of 80% and has received SQT from 8 Delegators. This means that the 8 Delegators plus the Indexer itself, will be rewarded a share of the remaining 20% of what the Indexer has earned. The share will be split proportionally between them based on the amount staked/delegated. Alternatively, if Indexer A had an ICR of 30%, then the 8 delegators and indexer would share propotionally rewwards from the remaining 70% of rewards. In short, the lower the ICR - the better it is for Delegators.
 
-Крім періоду, коли делегати можуть ефективно заробляти гроші, також настає період без винагороди. Делегати отримують винагороду за те, що вони робили ставки на епохи, частиною яких вони були протягом усього терміну дії. Наприклад, якщо Делегатом приєднується до епохи ставок на півдорозі, він не отримає жодних винагород за цю конкретну еру.
+Note that Delegators must have delegated their tokens for the entire Era to be eligible for these rewards (note [Non-reward period](#non-reward-period)).
 
-Делегати можуть змінити індексатор, якому делеговано їх SQT (називається повторним делегуванням), ця зміна буде автоматично поміщена в чергу в кінці епохи, і ніякого періоду розморожування не відбудеться.
+Additionally, we've made it easier for you to see other data about all indexers in our app. Navigate to `Delegator` > `Indexers` and view the [leaderboard](https://kepler.subquery.network/delegator/indexers/top) which shows various scores and details that we think are important to you when deciding what indexer to choose. The Indexer Score takes into account an Indexer’s uptime, slashing events, and other parameters.
 
-Якщо Делегат вирішує скасувати делегування свого сержанта, починається 28-денний період відтавання. Токени не можуть бути використані протягом цього періоду, ніякі збори не можуть бути нараховані або отримано будь-яку винагороду.
+## Non-reward period
 
-## Забезпечує належну обачність делегатів
+Besides the period when Delegators can effectively earn money, a non-reward period also occurs. Delegators receive rewards for staking Eras that they were a part of for the entire duration. For example, if a Delegator joins a staking era halfway through, they will not earn any rewards for that particular era.
 
-Як тільки буде знайдений кращі індексатори, слід провести належну перевірку репутації й надійності індексатора. Оцінки можуть бути виконані для оцінки того, чи активний індексатор в товаристві, чи допомагає індексатор іншим учасникам, чи можливо зв'язатися з Індексатором і чи оновлює індексатор оновлення протоколу і проєкту.
+Delegators can change the indexer that their SQT is delegated to (called redelegating), this change will be queued to happen automatically at the end of the the Era and no thawing period will occur.
+
+If a Delegator decides to undelegate their SQT, a 28 day thawing period starts. The tokens cannot be used during this period, no fees can be accrued or any reward gained.
 
 ## Життєвий цикл делегування
 
@@ -70,3 +64,13 @@ SubQuery скоро запустить офіційний RI, але ми очі
 Делегат може скасувати (вивести) токени назад на свій гаманець. Це призведе до періоду блокування у 28 днів.
 
 Після завершення періоду розблокування токени стають доступними для виведення/отримання.
+
+## Ризики, пов'язані з тим, щоб бути делегатом
+
+Попри те, що це не вважається ризикованою роллю, делегування містити кілька ризиків, про які слід знати.
+
+1. Ризик волатильності ринку: постійні коливання на ринку це ризик, який зачіпає не тільки SQT, але і всі токени на загальному ринку криптовалюта. Застосування довгострокового підходу може знизити цей тип ризику.
+2. Постійне коригування параметрів розміщення ставок Індексаторами й плата за делегування можуть збільшити ризик для Делегата. Наприклад, Делегат може пропустити зміну параметрів розміщення ставок, що призведе до меншого, ніж очікувалося, доходу. Щоб знизити цей ризик, коли Індексатори зменшують параметри своєї частки, це набрати чинності тільки після завершення наступної повної ери, що дає делегатам час для оцінки й внесення будь-яких змін.
+3. Низька продуктивність індексатора: можливо, делегати можуть вибирати індекси, які працюють погано і, отже, забезпечують Делегатам неякісну віддачу від інвестицій. Тому делегатам рекомендується проявляти належну обачність щодо потенційних Індексаторів. Також доступний Індекс репутації, який допомагає делегатам порівнювати індекси один з одним.
+
+Як тільки буде знайдений кращі індексатори, слід провести належну перевірку репутації й надійності індексатора. Оцінки можуть бути виконані для оцінки того, чи активний індексатор в товаристві, чи допомагає індексатор іншим учасникам, чи можливо зв'язатися з Індексатором і чи оновлює індексатор оновлення протоколу і проєкту.
