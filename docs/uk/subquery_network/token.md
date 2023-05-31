@@ -12,35 +12,27 @@
 
 ## Tokenomics
 
-**Please note that the following SQT Token Allocation Plan and Token Vesting Schedule are still subject to change.**
+:::warning
+Please note that everything below is still subject to change.
+:::
 
-### Supply
+Total Supply: The total supply will be 10 Billion SQT tokens.
 
-The initial supply will be 10 Billion tokens.
-
-### Inflation
-
-The inflation will be ~2% per annum. This will be used to help the SubQuery Foundation bootstrap the network by supporting Indexers during the early launch phase where Consumers numbers will still be growing.
-
-### Allocation
-
-Token allocation is as follows:
+Inflation: The inflation is expected to be ~2% per annum. This will be used to help the SubQuery Foundation bootstrap the network by supporting Indexers during the early launch phase where Consumers numbers will still be growing.
 
 ![token allocation](/assets/img/token_allocation.png)
 
-From the start, SubQuery has been focused on building value within the community and this aim continues with the largest allocation of tokens (44%) being apportioned to the Community and SubQuery Foundation.
+From the start, SubQuery has been focused on building value within the community and this aim continues with the largest allocation of tokens (~51%) being apportioned to the Community, SubQuery Foundation, and for the public sale.
 
-The Foundation, which is expected to be established in early 2022, will administer the future governance and growth of the ecosystem and the ownership of the SubQuery Network will come under the SubQuery Foundation initially. This large allocation also includes consideration for future investment into the development and operations of the Network, and key ecosystem growth drivers. This will include tools such as grants and ecosystem incentives/events as well as other marketing activities including bug bounties and mainnet incentives.
+The Foundation, which is expected to be established in late 2023, will administer the future governance and growth of the ecosystem and the ownership of the SubQuery Network will come under the SubQuery Foundation initially. This large allocation also includes consideration for future investment into the development and operations of the Network, and key ecosystem growth drivers. This will include tools such as grants and ecosystem incentives/events as well as other marketing activities including bug bounties and mainnet incentives.
 
-Early investors in both the Seed and Series A rounds have a combined allocation of 27%. In the case of our Seed investors, SubQuery is grateful for their early vision and commitment to build the initial phase of SubQuery. Following on from this, growth was accelerated with the support of Series A investors who allowed the project to accelerate to the next level.
+Early investors in both the Seed, Series A, and Series B rounds have a combined allocation of ~29%. In the case of our seed investors, SubQuery is grateful for their early vision and commitment to build the initial phase of SubQuery. Following on from this, growth was accelerated with the support of Series A and B investors who allowed the project to accelerate to the next level.cce
 
-For the Public Sale, 9% of token supply has been allocated across at least two sequential rounds. The exact structure and timing of these rounds can be found [here](https://subquery.medium.com/subquery-publishes-the-sqt-public-sale-date-and-sale-guide-64b8aff10882).
-
-Finally, the SubQuery Team and Launch Partners have been allocated 20% of the token supply in return for their tireless dedication and contribution in building and promoting the project from the outset.
+Finally, the SubQuery Team and Launch Partners have been allocated 20% of the token supply in return for their tireless dedication and contribution in building and promoting the project over multiple years of hard work.
 
 ### Vesting schedule
 
-We have designed our vesting schedule to demonstrate the commitment of various stakeholders. The graphic below illustrates the release of the SQT tokens to each participant over time culminating in the full circulation of tokens occurring 5 years (60 months) after launch.
+We have designed our vesting schedule to demonstrate the commitment of various stakeholders. The graphic below illustrates the planned release of the SQT tokens to each participant over time culminating in the full circulation of tokens occurring 5 years (60 months) after launch.
 
 ![vesting schedule](/assets/img/vesting_schedule.png)
 
