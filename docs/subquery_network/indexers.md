@@ -86,11 +86,15 @@ There are a few risks of being an Indexer.
 
 ## How to attract Delegators?
 
-Indexers can increase their earning potential by attracting Delegators. Delegators are SQT token holders who can delegate their tokens to Indexers for additional rewards. Indexers use these additional tokens to increase the amount they allocate to projects of their choice. This allows Indexers to increase their earnings.
+**Indexers can increase the potential rewards that they receive by attracting Delegators.**
 
-Indexers set an Indexer’s Commission Rate (ICR) which is the percentage Indexers earn. The remaining is then shared amongst the Indexer and all Delegators propotionally by staked/delegated amount. Therefore, Indexers need to decide on the proportion of profits an Indexer wishes to retain versus the amount to share with their Delegators. A lower ICR will be more attractive for Delegators.
+Delegators are SQT token holders who can delegate their tokens to Indexers for additional rewards. Indexers use these additional tokens to increase the amount they allocate to projects of their choice. This allows Indexers to increase their earnings as they will have a larger total stake.
 
-For example, Indexer A has set an ICR of 80% and has received SQT from 8 Delegators. This means that the 8 Delegators plus the Indexer itself, will be rewarded a share of the remaining 20% of what the Indexer has earned. The share will be split proportionally between them. Note that Delegators must have delegated their tokens for the entire Era to be eligible for these rewards. For more information on Delegators rewards, see [Delegators](./delegators.md).
+You should read more about how Delegators will pick Indexers [here](./delegators.md#how-to-select-indexers)
+
+The main two aspects of how Delegators will pick indexers is the [Indexer Score from the Indexer Leaderboard](https://kepler.subquery.network/delegator/indexers/top), and the Indexer Commission Rate (ICR). The Indexer’s Commission Rate (ICR) is the percentage Indexers earn. The remaining is then shared amongst the Indexer and all Delegators propotionally by staked/delegated amount. Therefore, Indexers need to decide on the proportion of rewards an Indexer wishes to retain versus the amount to share with their Delegators. A lower ICR will be more attractive for Delegators.
+
+You can [change this rate at any time](./kepler/indexers/become-an-indexer.md#6-configure-an-indexer-commission-rate-icr).
 
 ## Security & Performance considerations
 

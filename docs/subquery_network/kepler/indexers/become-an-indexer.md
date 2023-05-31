@@ -13,6 +13,7 @@ Welcome to this guide of how to become an Indexer. Let's take an overview of the
 | 3     | [Obtain Kepler Tokens](#3-obtain-ksqt-tokens)                                                                                 |
 | 4     | [How to index a project](#4-how-to-index-a-project) or [restore dictionary databases](#4-how-to-index-a-project)              |
 | 5     | [Create a Plan from a Plan Template](#5-create-a-plan-from-a-plan-template)                                                   |
+| 6     | [Setting an Indexer Commission Rate](#6-configure-an-indexer-commission-rate-icr)                                             |
 |       | [Troubleshooting](../indexers/troubleshooting-indexers.md)                                                                    |
 |       | [FAQs](../indexers/faqs-indexers.md)                                                                                          |
 
@@ -120,6 +121,16 @@ If you are wanting to index a Dictionary, then you may be able to restore your p
 ## 5. Create a Plan from a Plan Template
 
 For the initial stages of Kepler, the SubQuery Council will set some default plan templates to make plan management and creation easier, and speed up the test and analysis of various parameters of the network. As a result, plan creation is very easy and just requires to you enter a price. [See the guide here](./plans.md#creating-a-plan).
+
+## 6. Configure an Indexer Commission Rate (ICR)
+
+Please update your Indexer Commission Rate (ICR) in order to attract more Delegators. You can [read more about this here](../../indexers.md#how-to-attract-delegators). You can do this by viewing your Indexer Staking page, and you can change it by clicking `Change commission rate`
+
+![Viewing your ICR](/assets/img/icr1.png)
+
+Enter a new value (in a percent) and submit via Metamask.
+
+![Changing your ICR](/assets/img/icr2.png)
 
 ## Additional Notes
 
