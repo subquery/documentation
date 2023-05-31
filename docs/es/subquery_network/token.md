@@ -12,35 +12,27 @@ No hay intención de que SQT se utilice como medio de intercambio de bienes o se
 
 ## Tokenomics
 
-**Tenga en cuenta que el siguiente Plan de Asignación de Token de SQT y el Programa de Concesión de Token todavía están sujetos a cambios.**
+:::warning
+Please note that everything below is still subject to change.
+:::
 
-### Suministro
+Total Supply: The total supply will be 10 Billion SQT tokens.
 
-El suministro inicial será de 10 billones de tokens.
-
-### Inflación
-
-The inflation will be ~2% per annum. Esto se utilizará para ayudar a la SubQuery Foundation a arrancar la red apoyando a los Indexadores durante la fase de lanzamiento temprano, donde los consumidores seguirán creciendo.
-
-### Asignación
-
-La asignación del token es la siguiente:
+Inflation: The inflation is expected to be ~2% per annum. Esto se utilizará para ayudar a la SubQuery Foundation a arrancar la red apoyando a los Indexadores durante la fase de lanzamiento temprano, donde los consumidores seguirán creciendo.
 
 ![asignación de token](/assets/img/token_allocation.png)
 
-From the start, SubQuery has been focused on building value within the community and this aim continues with the largest allocation of tokens (44%) being apportioned to the Community and SubQuery Foundation.
+From the start, SubQuery has been focused on building value within the community and this aim continues with the largest allocation of tokens (~51%) being apportioned to the Community, SubQuery Foundation, and for the public sale.
 
-La Fundación, que se espera que se establezca a principios de 2022, administrará el futuro gobierno y crecimiento del ecosistema y la propiedad de la Red de SubQuery estará bajo la Fundación SubQuery inicialmente. Esta amplia asignación también incluye la consideración de las futuras inversiones en el desarrollo y las operaciones de la Red, y los principales impulsores del crecimiento del ecosistema. Esto incluirá herramientas como subvenciones e incentivos/eventos para el ecosistema, así como otras actividades de marketing, como recompensas por errores e incentivos para la mainnet.
+The Foundation, which is expected to be established in late 2023, will administer the future governance and growth of the ecosystem and the ownership of the SubQuery Network will come under the SubQuery Foundation initially. Esta amplia asignación también incluye la consideración de las futuras inversiones en el desarrollo y las operaciones de la Red, y los principales impulsores del crecimiento del ecosistema. Esto incluirá herramientas como subvenciones e incentivos/eventos para el ecosistema, así como otras actividades de marketing, como recompensas por errores e incentivos para la mainnet.
 
-Los primeros inversores tanto en las rondas Semilla como en las Series A tienen una asignación combinada del 27%. En el caso de nuestros inversores de semillas, SubQuery agradece su temprana visión y compromiso de construir la fase inicial de SubQuery. A partir de esto, el crecimiento se aceleró con el apoyo de los inversionistas de la Serie A que permitieron que el proyecto se acelerara hasta el siguiente nivel.
+Early investors in both the Seed, Series A, and Series B rounds have a combined allocation of ~29%. In the case of our seed investors, SubQuery is grateful for their early vision and commitment to build the initial phase of SubQuery. Following on from this, growth was accelerated with the support of Series A and B investors who allowed the project to accelerate to the next level.cce
 
-For the Public Sale, 9% of token supply has been allocated across at least two sequential rounds. The exact structure and timing of these rounds can be found [here](https://subquery.medium.com/subquery-publishes-the-sqt-public-sale-date-and-sale-guide-64b8aff10882).
-
-Por último, SubQuery Team y Launch Partners han sido asignados el 20% del suministro de tokens a cambio de su incansable dedicación y contribución en la construcción y promoción del proyecto desde el principio.
+Finally, the SubQuery Team and Launch Partners have been allocated 20% of the token supply in return for their tireless dedication and contribution in building and promoting the project over multiple years of hard work.
 
 ### Horario de compra
 
-Hemos diseñado nuestro calendario de adquisiciones para demostrar el compromiso de las diversas partes interesadas. El gráfico siguiente ilustra la entrega de tokens SQT a cada participante a lo largo del tiempo, culminando con la plena circulación de fichas 5 años (60 meses) después del lanzamiento.
+Hemos diseñado nuestro calendario de adquisiciones para demostrar el compromiso de las diversas partes interesadas. The graphic below illustrates the planned release of the SQT tokens to each participant over time culminating in the full circulation of tokens occurring 5 years (60 months) after launch.
 
 ![horario de adquisición](/assets/img/vesting_schedule.png)
 
