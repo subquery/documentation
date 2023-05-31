@@ -1,5 +1,11 @@
 # Indexadores
 
+:::info Indexers in Kepler
+
+To read more specifically about being an Indexer in SubQuery's Kepler Network, please head to [Kepler - Indexers](./kepler/indexers/become-an-indexer.md)
+
+:::
+
 ## ¿Qué es un índexador?
 
 Un Indexador es un participante en la red de SubQuery que es responsable de indexar los datos de la cadena de bloques y proporcionar estos datos a sus clientes.
@@ -63,6 +69,7 @@ Pronto llegará información más detallada.
 ## ¿Cómo se recompensa a los indexadores?
 
 Los indexadores son recompensados en SQT de dos maneras:
+
 - Rewards from SQT reward pools based on distribution defined by the Cobb-Douglas Production Function.
 - Direct SQT query fee rewards from Closed Agreements that an indexer is party to.
 
@@ -73,6 +80,7 @@ Puede haber múltiples grupos de recompensas simultáneamente activos para un de
 ## Risk of being an Indexer
 
 There are a few risks of being an Indexer.
+
 - Infrastructure investment risk. An Indexer needs to invest in hardware infrastructure which is an upfront cost. However, many infrastructure provides such as AWS provide monthly payments, as opposed to yearly contracts, and the ability to scale servers up and down based on demand. This significantly reduces the risk for an Indexer.
 - Lack of customers. This risk is inherent in any business opportunity and the traditional risk mitigation methods apply here. Indexers can adjust their price to be competitive, advertise their services, and build a solid reputation within the community by contributing to forums and helping others.
 
