@@ -86,11 +86,15 @@ There are a few risks of being an Indexer.
 
 ## How to attract Delegators?
 
-Người lập chỉ mục có thể tăng tiềm năng kiếm tiền của họ bằng cách thu hút Người ủy quyền. Người ủy quyền là chủ sở hữu mã thông báo SQT có thể ủy quyền mã thông báo của họ cho Người lập chỉ mục để nhận thêm phần thưởng. Người lập chỉ mục sử dụng các mã thông báo bổ sung này để tăng số lượng họ phân bổ cho các dự án mà họ lựa chọn. Điều này cho phép Người lập chỉ mục tăng thu nhập của họ.
+**Indexers can increase the potential rewards that they receive by attracting Delegators.**
 
-Người lập chỉ mục đặt Tỷ lệ hoa hồng của Người lập chỉ mục (ICR), là tỷ lệ phần trăm mà Người lập chỉ mục kiếm được. Phần còn lại sau đó được chia sẻ giữa Người lập chỉ mục và tất cả Người ủy quyền theo tỷ lệ theo số tiền đặt cọc/ủy quyền. Do đó, Người lập chỉ mục cần quyết định tỷ lệ lợi nhuận mà Người lập chỉ mục muốn giữ lại so với số tiền chia sẻ với Người ủy quyền của họ. ICR thấp sẽ hấp dẫn hơn đối với Người ủy quyền.
+Delegators are SQT token holders who can delegate their tokens to Indexers for additional rewards. Indexers use these additional tokens to increase the amount they allocate to projects of their choice. This allows Indexers to increase their earnings as they will have a larger total stake.
 
-Ví dụ: Người lập chỉ mục A đã đặt ICR là 80% và đã nhận được SQT từ 8 Người ủy quyền. Điều này có nghĩa là 8 Người ủy quyền cộng với chính Người lập chỉ mục, sẽ được thưởng một phần trong số 20% còn lại của những gì Người lập chỉ mục đã kiếm được. Cổ phần sẽ được chia theo tỷ lệ với nhau. Lưu ý rằng Người ủy quyền phải ủy quyền mã thông báo của họ cho toàn bộ Chu kỳ để đủ điều kiện nhận những phần thưởng này. Để biết thêm thông tin về phần thưởng Người ủy quyền, hãy xem [Người ủy quyền](./delegators.md).
+You should read more about how Delegators will pick Indexers [here](./delegators.md#how-to-select-indexers)
+
+The main two aspects of how Delegators will pick indexers is the [Indexer Score from the Indexer Leaderboard](https://kepler.subquery.network/delegator/indexers/top), and the Indexer Commission Rate (ICR). The Indexer’s Commission Rate (ICR) is the percentage Indexers earn. Phần còn lại sau đó được chia sẻ giữa Người lập chỉ mục và tất cả Người ủy quyền theo tỷ lệ theo số tiền đặt cọc/ủy quyền. Therefore, Indexers need to decide on the proportion of rewards an Indexer wishes to retain versus the amount to share with their Delegators. ICR thấp sẽ hấp dẫn hơn đối với Người ủy quyền.
+
+You can [change this rate at any time](./kepler/indexers/become-an-indexer.md#6-configure-an-indexer-commission-rate-icr).
 
 ## Bảo mật & Cân nhắc về hiệu suất
 
