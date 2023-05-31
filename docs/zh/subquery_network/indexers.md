@@ -1,5 +1,11 @@
 # 索引者
 
+:::info Indexers in Kepler
+
+To read more specifically about being an Indexer in SubQuery's Kepler Network, please head to [Kepler - Indexers](./kepler/indexers/become-an-indexer.md)
+
+:::
+
 ## 什么是索引者？
 
 索引者是 SubQuery 网络参与者，负责索引区块链数据并向客户提供这种数据。
@@ -63,6 +69,7 @@ SubQuery 计划为网络添加一个约束，即索引者必须在相关奖励�
 ## 索引者如何获取奖励?
 
 索引者以两种方式在 SQT 中获得奖励：
+
 - 基于 Cobb-Douglas 生产功能定义的分布，来自SQT 奖励池的奖励。
 - 索引者从封闭协议中直接获得SQT查询费奖励。
 
@@ -73,6 +80,7 @@ SubQuery 计划为网络添加一个约束，即索引者必须在相关奖励�
 ## Risk of being an Indexer
 
 There are a few risks of being an Indexer.
+
 - Infrastructure investment risk. An Indexer needs to invest in hardware infrastructure which is an upfront cost. However, many infrastructure provides such as AWS provide monthly payments, as opposed to yearly contracts, and the ability to scale servers up and down based on demand. This significantly reduces the risk for an Indexer.
 - Lack of customers. This risk is inherent in any business opportunity and the traditional risk mitigation methods apply here. Indexers can adjust their price to be competitive, advertise their services, and build a solid reputation within the community by contributing to forums and helping others.
 
