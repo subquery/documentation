@@ -12,35 +12,27 @@
 
 ## Токеномика
 
-**Обратите внимание, что приведенные ниже План распределения токенов SQT и График распределения прав на токены могут быть изменены.**
+:::warning
+Please note that everything below is still subject to change.
+:::
 
-### Предложение
+Total Supply: The total supply will be 10 Billion SQT tokens.
 
-Первоначальный объем предложения составит 10 миллиардов токенов.
-
-### Инфляция
-
-Инфляция составит около 2% в год. Эти средства будут использованы для помощи Фонду SubQuery Foundation в создании сети путем поддержки индексаторов на начальном этапе запуска, когда число потребителей еще будет расти.
-
-### Распределение
-
-Распределение токенов будет следующим:
+Inflation: The inflation is expected to be ~2% per annum. Эти средства будут использованы для помощи Фонду SubQuery Foundation в создании сети путем поддержки индексаторов на начальном этапе запуска, когда число потребителей еще будет расти.
 
 ![Распределение токенов](/assets/img/token_allocation.png)
 
-С самого начала компания SubQuery была нацелена на создание ценности в сообществе, и эта цель сохраняется, поскольку наибольшее количество токенов (44%) распределено между сообществом и фондом SubQuery.
+From the start, SubQuery has been focused on building value within the community and this aim continues with the largest allocation of tokens (~51%) being apportioned to the Community, SubQuery Foundation, and for the public sale.
 
-Фонд, который, как ожидается, будет создан в начале 2022 года, будет управлять будущим развитием и ростом экосистемы, а право собственности на сеть SubQuery Network первоначально перейдет к SubQuery Foundation. Это значительное выделение средств также включает в себя учет будущих инвестиций в развитие и эксплуатацию Сети, а также ключевых факторов развития экосистемы. Это будет включать такие инструменты, как гранты и экосистемные стимулы/события, а также другие маркетинговые мероприятия, включая "баг баунти" и стимулы сети.
+The Foundation, which is expected to be established in late 2023, will administer the future governance and growth of the ecosystem and the ownership of the SubQuery Network will come under the SubQuery Foundation initially. Это значительное выделение средств также включает в себя учет будущих инвестиций в развитие и эксплуатацию Сети, а также ключевых факторов развития экосистемы. Это будет включать такие инструменты, как гранты и экосистемные стимулы/события, а также другие маркетинговые мероприятия, включая "баг баунти" и стимулы сети.
 
-Ранние инвесторы как в первоначальном раунде, так и в раунде серии А имеют совокупную долю в 27%. В случае с нашими первоначальными инвесторами, SubQuery выражает благодарность за их раннее видение и приверженность созданию SubQuery на начальном этапе. После этого рост ускорился благодаря поддержке инвесторов серии А, которые позволили проекту выйти на новый уровень.
+Early investors in both the Seed, Series A, and Series B rounds have a combined allocation of ~29%. In the case of our seed investors, SubQuery is grateful for their early vision and commitment to build the initial phase of SubQuery. Following on from this, growth was accelerated with the support of Series A and B investors who allowed the project to accelerate to the next level.cce
 
-Для публичной продажи 9% от общего количества токенов было распределено как минимум на два последовательных раунда. Точную инструкцию по проведению и времени проведения этих раундов можно найти [здесь](https://subquery.medium.com/subquery-publishes-the-sqt-public-sale-date-and-sale-guide-64b8aff10882).
-
-Наконец, команде SubQuery и партнерам по запуску было выделено 20% от общего количества токенов в обмен на их неустанную преданность и вклад в создание и продвижение проекта с самого начала.
+Finally, the SubQuery Team and Launch Partners have been allocated 20% of the token supply in return for their tireless dedication and contribution in building and promoting the project over multiple years of hard work.
 
 ### График распределения прав
 
-Мы разработали график распределения прав, чтобы продемонстрировать приверженность различных заинтересованных сторон. На графике ниже показан выпуск токенов SQT для каждого участника с течением времени, в результате чего полное обращение токенов произойдет через 5 лет (60 месяцев) после запуска.
+Мы разработали график распределения прав, чтобы продемонстрировать приверженность различных заинтересованных сторон. The graphic below illustrates the planned release of the SQT tokens to each participant over time culminating in the full circulation of tokens occurring 5 years (60 months) after launch.
 
 ![график распределения прав](/assets/img/vesting_schedule.png)
 
