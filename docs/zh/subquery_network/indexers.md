@@ -86,11 +86,15 @@ There are a few risks of being an Indexer.
 
 ## How to attract Delegators?
 
-指数化可以通过吸引委托者来增加他们的收入潜力。 委托者成员是 SQT 代币持有者，可以将其代币分配给索引者以获得额外奖励。 索引者使用这些额外的代币来增加分配给他们选择的项目的金额。 这使索引者能够增加收入。
+**Indexers can increase the potential rewards that they receive by attracting Delegators.**
 
-索引者设置索引者的佣金率 (ICR) 是索引者赚取的百分比。 其余部分随后由索引者和所有代表按预定/授权数额分摊。 因此，索引者需要决定索引者希望保留的利润相对于与代表分享的数额的比例。 较低的ICR对委托方更有吸引力。
+Delegators are SQT token holders who can delegate their tokens to Indexers for additional rewards. Indexers use these additional tokens to increase the amount they allocate to projects of their choice. This allows Indexers to increase their earnings as they will have a larger total stake.
 
-例如，Indexer A将ICR 设定为80%，并从8名委托者收到了SQT。 这意味着8名委托者加上索引者本身将得到索引者剩余20%收入的奖励。 份额将按比例在它们之间分配。 请注意，委托者必须已经授予他们的代币，才有资格获得这些奖励。 关于代表奖励的更多信息，请参阅 [Delegators](./delegators.md)。
+You should read more about how Delegators will pick Indexers [here](./delegators.md#how-to-select-indexers)
+
+The main two aspects of how Delegators will pick indexers is the [Indexer Score from the Indexer Leaderboard](https://kepler.subquery.network/delegator/indexers/top), and the Indexer Commission Rate (ICR). The Indexer’s Commission Rate (ICR) is the percentage Indexers earn. 其余部分随后由索引者和所有代表按预定/授权数额分摊。 Therefore, Indexers need to decide on the proportion of rewards an Indexer wishes to retain versus the amount to share with their Delegators. 较低的ICR对委托方更有吸引力。
+
+You can [change this rate at any time](./kepler/indexers/become-an-indexer.md#6-configure-an-indexer-commission-rate-icr).
 
 ## 安全 & 性能考虑
 
