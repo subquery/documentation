@@ -86,11 +86,15 @@ There are a few risks of being an Indexer.
 
 ## How to attract Delegators?
 
-Pengindeks dapat meningkatkan potensi penghasilan mereka dengan menarik Delegator. Delegator adalah pemegang token SQT yang dapat mendelegasikan token mereka ke Pengindeks untuk hadiah tambahan. Pengindeks menggunakan token tambahan ini untuk meningkatkan jumlah yang mereka alokasikan ke proyek pilihan mereka. Hal ini memungkinkan Pengindeks untuk meningkatkan penghasilan mereka.
+**Indexers can increase the potential rewards that they receive by attracting Delegators.**
 
-Pengindeks menetapkan Tingkat Komisi Pengindeks (ICR) yang merupakan persentase yang diperoleh Pengindeks. Sisanya kemudian dibagikan di antara Pengindeks dan semua Delegator secara proporsional berdasarkan jumlah yang dipertaruhkan/didelegasikan. Oleh karena itu, Pengindeks perlu memutuskan proporsi keuntungan yang ingin dipertahankan Pengindeks versus jumlah yang akan dibagikan dengan Delegator mereka. ICR yang lebih rendah akan lebih menarik bagi Delegator.
+Delegators are SQT token holders who can delegate their tokens to Indexers for additional rewards. Indexers use these additional tokens to increase the amount they allocate to projects of their choice. This allows Indexers to increase their earnings as they will have a larger total stake.
 
-Misalnya, Pengindeks A telah menetapkan ICR sebesar 80% dan telah menerima SQT dari 8 Delegator. Ini berarti bahwa 8 Delegator ditambah Pengindeks itu sendiri, akan diberikan bagian dari 20% sisa dari apa yang telah diperoleh Pengindeks. Bagian itu akan dibagi secara proporsional di antara mereka. Perhatikan bahwa Delegator harus mendelegasikan token mereka untuk seluruh Era agar memenuhi syarat untuk hadiah ini. Untuk informasi selengkapnya tentang hadiah Delegator, lihat [Delegator](./delegators.md).
+You should read more about how Delegators will pick Indexers [here](./delegators.md#how-to-select-indexers)
+
+The main two aspects of how Delegators will pick indexers is the [Indexer Score from the Indexer Leaderboard](https://kepler.subquery.network/delegator/indexers/top), and the Indexer Commission Rate (ICR). The Indexer’s Commission Rate (ICR) is the percentage Indexers earn. Sisanya kemudian dibagikan di antara Pengindeks dan semua Delegator secara proporsional berdasarkan jumlah yang dipertaruhkan/didelegasikan. Therefore, Indexers need to decide on the proportion of rewards an Indexer wishes to retain versus the amount to share with their Delegators. ICR yang lebih rendah akan lebih menarik bagi Delegator.
+
+You can [change this rate at any time](./kepler/indexers/become-an-indexer.md#6-configure-an-indexer-commission-rate-icr).
 
 ## Keamanan & Pertimbangan kinerja
 
