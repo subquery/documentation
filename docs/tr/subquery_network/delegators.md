@@ -1,5 +1,11 @@
 # Delegators
 
+:::info Delegators in Kepler
+
+To read more specifically about being an Delegator in SubQuery's Kepler Network, please head to [Kepler - Delegators](./kepler/delegators.md)
+
+:::
+
 ## What is a Delegator?
 
 A Delegator is a non-technical network role in the SubQuery Network and is a great way to start participating in the SubQuery Network. This role enables Delegators to “delegate” their SQT to one or more Indexers and earn rewards (similar to staking).
@@ -23,7 +29,7 @@ There are several benefits of becoming a Delegator:
 
 To attract Delegators to support their work, Indexers offer Delegators a share of the rewards they earn. The Indexer will advertise an Indexer Commission Rate, where the remaining revenue will then be shared within the total delegation/staking pool proportionally to the individual delegated/staked value in the pool.
 
-*Indexer’s Commission Rate*: This is a percentage share of the fees earned from serving requests to Consumers. Indexers are free to set this rate to any value they desire. A higher percentage indicates that Indexers keep more of the profits. A lower percentage indicates that the Indexers share more of their profits with their Delegators.
+_Indexer’s Commission Rate_: This is a percentage share of the fees earned from serving requests to Consumers. Indexers are free to set this rate to any value they desire. A higher percentage indicates that Indexers keep more of the profits. A lower percentage indicates that the Indexers share more of their profits with their Delegators.
 
 Delegators will only receive revenue for staking Eras that they were a part of for the entire period. For example, if they join a staking Era in the middle of the relevant period, then they will not earn any Query Fee revenue for that particular Era.
 
@@ -39,7 +45,7 @@ Even though it is not considered a risky role, being a Delegator includes a few 
 
 ## How to select Indexers?
 
-Delegators can select potential Indexers based on a *Reputation Index* or RI. This RI takes into account an Indexer’s uptime, indexer commission rate, slashing events, and Indexer parameter change frequency.
+Delegators can select potential Indexers based on a _Reputation Index_ or RI. This RI takes into account an Indexer’s uptime, indexer commission rate, slashing events, and Indexer parameter change frequency.
 
 SubQuery will launch the official RI soon, but we expect other delegation applications to calculate and release their own.
 
