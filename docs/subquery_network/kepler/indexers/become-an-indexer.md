@@ -132,6 +132,8 @@ Enter a new value (in a percent) and submit via Metamask.
 
 ![Changing your ICR](/assets/img/icr2.png)
 
+Changes will come into effect at the start of the next Era.
+
 ## Additional Notes
 
 Visit [Troubleshooting](../indexers/troubleshooting-indexers.md) or [FAQs](../indexers/faqs-indexers.md) if you run into technical issues.
