@@ -35,31 +35,25 @@ Những người ủy quyền sẽ chỉ nhận được doanh thu của Chu k�
 
 Nếu Người lập chỉ mục muốn tăng Tỷ lệ Hoa hồng Lập chỉ mục mà họ cung cấp cho Người ủy quyền, họ phải quảng cáo điều này cho toàn bộ Chu kỳ đặt cược. Người lập chỉ mục sẽ có thể giảm Tỷ lệ hoa hồng lập chỉ mục của họ bất kỳ lúc nào để nâng cao SQT được ủy quyền hơn để đặt cược trong thời gian ngắn hạn. Người ủy quyền có thể rút hoặc hủy bỏ số tiền đã đặt cược của họ bất kỳ lúc nào, nhưng họ sẽ mất bất kỳ phần thưởng nào kiếm được trong Chu kỳ đặt cược (vì họ không phải là một phần của nhóm ủy quyền trong toàn bộ thời gian của Chu kỳ đặt cược).
 
-## Rủi ro khi trở thành Người ủy quyền
-
-Mặc dù nó không được coi là một vai trò rủi ro, nhưng việc trở thành Người ủy quyền bao gồm một số rủi ro cần lưu ý.
-
-1. Rủi ro biến động thị trường: Những biến động liên tục trên thị trường là rủi ro không chỉ ảnh hưởng đến SQT mà còn ảnh hưởng đến tất cả các mã thông báo trên thị trường tiền điện tử nói chung. Thực hiện một cách tiếp cận dài hạn có thể làm giảm loại rủi ro này.
-2. Việc điều chỉnh liên tục các thông số đặt cược của Người lập chỉ mục và phí ủy quyền có thể làm tăng rủi ro cho Người ủy quyền. Ví dụ: Người ủy quyền có thể bỏ lỡ thay đổi trong các thông số đặt cược dẫn đến lợi nhuận ít hơn mong đợi. Để giảm rủi ro này, khi Người lập chỉ mục giảm các thông số cổ phần của họ, nó sẽ chỉ có hiệu lực sau khi đã hoàn thành đầy đủ Chu kỳ tiếp theo, tạo thời gian cho người được ủy quyền đánh giá và thực hiện bất kỳ thay đổi nào.
-3. Trình lập chỉ mục hoạt động kém: Có thể Người ủy quyền có thể chọn Người lập chỉ mục hoạt động kém và do đó cung cấp lợi tức đầu tư không đạt tiêu chuẩn cho Người ủy quyền. Do đó, Người ủy quyền được khuyến khích thực hiện thẩm định Người lập chỉ mục tiềm năng. Chỉ mục Danh tiếng cũng có sẵn để giúp Người ủy quyền so sánh các Người lập chỉ mục với nhau.
-
 ## Làm thế nào để chọn Người lập chỉ mục?
 
-Delegators can select potential Indexers based on a _Reputation Index_ or RI. RI này tính đến thời gian hoạt động của Người lập chỉ mục, tỷ lệ hoa hồng của người lập chỉ mục, sự kiện cắt giảm và tần suất thay đổi tham số của Người lập chỉ mục.
+You need to assess a few things when deciding on what Indexer to choose.
 
-SubQuery sẽ sớm khởi chạy RI chính thức, nhưng chúng tôi hy vọng các ứng dụng ủy quyền khác sẽ tính toán và phát hành riêng của chúng.
+Người lập chỉ mục đặt Tỷ lệ hoa hồng của Người lập chỉ mục (ICR), là tỷ lệ phần trăm mà Người lập chỉ mục kiếm được. Phần còn lại sau đó được chia sẻ giữa Người lập chỉ mục và tất cả Người ủy quyền theo tỷ lệ theo số tiền đặt cọc/ủy quyền. Therefore, a lower ICR will be more attractive for Delegators as a larger percentage of rewards is shared between Delegators.
 
-## Thời gian không thưởng
+Ví dụ: Người lập chỉ mục A đã đặt ICR là 80% và đã nhận được SQT từ 8 Người ủy quyền. Điều này có nghĩa là 8 Người ủy quyền cộng với chính Người lập chỉ mục, sẽ được thưởng một phần trong số 20% còn lại của những gì Người lập chỉ mục đã kiếm được. The share will be split proportionally between them based on the amount staked/delegated. Alternatively, if Indexer A had an ICR of 30%, then the 8 delegators and indexer would share propotionally rewwards from the remaining 70% of rewards. In short, the lower the ICR - the better it is for Delegators.
 
-Bên cạnh khoảng thời gian Người đại diện có thể kiếm tiền một cách hiệu quả, một khoảng thời gian không thưởng cũng xảy ra. Những người ủy quyền sẽ chỉ nhận được doanh thu của Chu kỳ đặt cược khi họ đã tham gia trong suốt thời gian đó. Ví dụ: nếu Người ủy quyền tham gia một Chu kỳ đặt cược giữa chừng, họ sẽ không kiếm được bất kỳ phần thưởng nào cho Chu kỳ cụ thể đó.
+Note that Delegators must have delegated their tokens for the entire Era to be eligible for these rewards (note [Non-reward period](#non-reward-period)).
 
-Người ủy quyền có thể thay đổi trình chỉ mục mà SQT của họ được ủy quyền (được gọi là điều chỉnh lại), thay đổi này sẽ được xếp hàng đợi để diễn ra tự động vào cuối Chu kỳ và không có giai đoạn tan băng nào xảy ra.
+Additionally, we've made it easier for you to see other data about all indexers in our app. Navigate to `Delegator` > `Indexers` and view the [leaderboard](https://kepler.subquery.network/delegator/indexers/top) which shows various scores and details that we think are important to you when deciding what indexer to choose. The Indexer Score takes into account an Indexer’s uptime, slashing events, and other parameters.
 
-Nếu Người ủy quyền quyết định hủy ủy thác SQT của họ, thì thời gian làm tan băng 28 ngày sẽ bắt đầu. Không thể sử dụng các mã thông báo trong thời gian này, không có phí nào có thể được tích lũy hoặc bất kỳ phần thưởng nào đạt được.
+## Non-reward period
 
-## Thẩm định của người lập chỉ mục cho Người ủy quyền
+Besides the period when Delegators can effectively earn money, a non-reward period also occurs. Delegators receive rewards for staking Eras that they were a part of for the entire duration. For example, if a Delegator joins a staking era halfway through, they will not earn any rewards for that particular era.
 
-Sau khi tìm thấy (các) Người lập chỉ mục ưa thích, nên thực hiện thẩm định để kiểm tra danh tiếng và độ tin cậy của Người lập chỉ mục. Các đánh giá có thể được thực hiện để đánh giá xem Người lập chỉ mục có hoạt động trong cộng đồng hay không, Người lập chỉ mục có giúp đỡ các thành viên khác không, nếu có thể liên lạc với Người lập chỉ mục và liệu Người lập chỉ mục có cập nhật các bản cập nhật về giao thức và dự án hay không.
+Delegators can change the indexer that their SQT is delegated to (called redelegating), this change will be queued to happen automatically at the end of the the Era and no thawing period will occur.
+
+If a Delegator decides to undelegate their SQT, a 28 day thawing period starts. The tokens cannot be used during this period, no fees can be accrued or any reward gained.
 
 ## Vòng đời ủy quyền
 
@@ -70,3 +64,13 @@ Sau đó, người ủy quyền có thể quyết định số lượng để đ
 Người ủy quyền có thể hoàn tác (rút) mã thông báo về ví của họ. Điều này sẽ kích hoạt khoảng thời gian khóa là 28 ngày.
 
 Sau khi hoàn thành giai đoạn mở khóa, các mã thông báo sẽ có sẵn để rút/yêu cầu nhận thưởng.
+
+## Rủi ro khi trở thành Người ủy quyền
+
+Mặc dù nó không được coi là một vai trò rủi ro, nhưng việc trở thành Người ủy quyền bao gồm một số rủi ro cần lưu ý.
+
+1. Rủi ro biến động thị trường: Những biến động liên tục trên thị trường là rủi ro không chỉ ảnh hưởng đến SQT mà còn ảnh hưởng đến tất cả các mã thông báo trên thị trường tiền điện tử nói chung. Thực hiện một cách tiếp cận dài hạn có thể làm giảm loại rủi ro này.
+2. Việc điều chỉnh liên tục các thông số đặt cược của Người lập chỉ mục và phí ủy quyền có thể làm tăng rủi ro cho Người ủy quyền. Ví dụ: Người ủy quyền có thể bỏ lỡ thay đổi trong các thông số đặt cược dẫn đến lợi nhuận ít hơn mong đợi. Để giảm rủi ro này, khi Người lập chỉ mục giảm các thông số cổ phần của họ, nó sẽ chỉ có hiệu lực sau khi đã hoàn thành đầy đủ Chu kỳ tiếp theo, tạo thời gian cho người được ủy quyền đánh giá và thực hiện bất kỳ thay đổi nào.
+3. Trình lập chỉ mục hoạt động kém: Có thể Người ủy quyền có thể chọn Người lập chỉ mục hoạt động kém và do đó cung cấp lợi tức đầu tư không đạt tiêu chuẩn cho Người ủy quyền. Do đó, Người ủy quyền được khuyến khích thực hiện thẩm định Người lập chỉ mục tiềm năng. Chỉ mục Danh tiếng cũng có sẵn để giúp Người ủy quyền so sánh các Người lập chỉ mục với nhau.
+
+Sau khi tìm thấy (các) Người lập chỉ mục ưa thích, nên thực hiện thẩm định để kiểm tra danh tiếng và độ tin cậy của Người lập chỉ mục. Các đánh giá có thể được thực hiện để đánh giá xem Người lập chỉ mục có hoạt động trong cộng đồng hay không, Người lập chỉ mục có giúp đỡ các thành viên khác không, nếu có thể liên lạc với Người lập chỉ mục và liệu Người lập chỉ mục có cập nhật các bản cập nhật về giao thức và dự án hay không.
