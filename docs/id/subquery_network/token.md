@@ -12,35 +12,27 @@ Tidak ada maksud agar SQT digunakan sebagai media pertukaran barang atau jasa di
 
 ## Tokenomics
 
-**Harap dicatat bahwa Rencana Alokasi Token SQT dan Jadwal Vesting Token berikut masih dapat berubah.**
+:::warning
+Please note that everything below is still subject to change.
+:::
 
-### Pasokan
+Total Supply: The total supply will be 10 Billion SQT tokens.
 
-Pasokan awal akan menjadi 10 Miliar token.
-
-### Inflasi
-
-Inflasi akan menjadi 2% per tahun. Ini akan digunakan untuk membantu SubQuery Foundation mem-bootstrap jaringan dengan mendukung Pengindeks selama fase peluncuran awal di mana jumlah Konsumen akan terus bertambah.
-
-### Alokasi
-
-Alokasi token adalah sebagai berikut:
+Inflation: The inflation is expected to be ~2% per annum. Ini akan digunakan untuk membantu SubQuery Foundation mem-bootstrap jaringan dengan mendukung Pengindeks selama fase peluncuran awal di mana jumlah Konsumen akan terus bertambah.
 
 ![alokasi Token](/assets/img/token_allocation.png)
 
-Sejak awal, SubQuery telah difokuskan untuk membangun nilai di dalam komunitas dan tujuan ini terus berlanjut dengan alokasi token terbesar (44%) yang dialokasikan ke Komunitas dan Yayasan SubQuery.
+From the start, SubQuery has been focused on building value within the community and this aim continues with the largest allocation of tokens (~51%) being apportioned to the Community, SubQuery Foundation, and for the public sale.
 
-Yayasan, yang akan didirikan pada awal 2022, akan mengelola governance dan pertumbuhan ekosistem di masa mendatang dan kepemilikan Jaringan SubQuery akan berada di bawah SubQuery Foundation pada awalnya. Alokasi besar ini juga mencakup pertimbangan untuk investasi masa depan ke dalam pengembangan dan operasi Jaringan, dan pendorong pertumbuhan ekosistem utama. Ini akan mencakup alat seperti grant dan insentif/acara ekosistem serta kegiatan marketing lainnya termasuk bug bounties dan insentif mainnet.
+The Foundation, which is expected to be established in late 2023, will administer the future governance and growth of the ecosystem and the ownership of the SubQuery Network will come under the SubQuery Foundation initially. Alokasi besar ini juga mencakup pertimbangan untuk investasi masa depan ke dalam pengembangan dan operasi Jaringan, dan pendorong pertumbuhan ekosistem utama. Ini akan mencakup alat seperti grant dan insentif/acara ekosistem serta kegiatan marketing lainnya termasuk bug bounties dan insentif mainnet.
 
-Investor awal kami di putaran Seed dan Seri A kami memiliki alokasi gabungan sebesar 27%. Dalam kasus investor Seed kami, SubQuery berterima kasih atas visi dan komitmen awal mereka untuk membangun fase awal SubQuery. Selanjutnya, pertumbuhan kami dipercepat dengan dukungan investor Seri A kami yang memungkinkan kami membawa proyek ini ke tingkat berikutnya.
+Early investors in both the Seed, Series A, and Series B rounds have a combined allocation of ~29%. In the case of our seed investors, SubQuery is grateful for their early vision and commitment to build the initial phase of SubQuery. Following on from this, growth was accelerated with the support of Series A and B investors who allowed the project to accelerate to the next level.cce
 
-Untuk Penjualan Publik, 9% dari pasokan token telah dialokasikan di setidaknya dua putaran berurutan. Struktur dan waktu yang tepat untuk putaran-putaran ini bisa ditemukan [di sini](https://subquery.medium.com/subquery-publishes-the-sqt-public-sale-date-and-sale-guide-64b8aff10882).
-
-Terakhir, Tim SubQuery dan Mitra Peluncuran telah dialokasikan 20% dari pasokan token sebagai imbalan atas kontribusi mereka dalam membangun dan mempromosikan proyek.
+Finally, the SubQuery Team and Launch Partners have been allocated 20% of the token supply in return for their tireless dedication and contribution in building and promoting the project over multiple years of hard work.
 
 ### Jadwal vesting
 
-Kami telah merancang jadwal vesting kami untuk menunjukkan komitmen dari berbagai pemangku kepentingan. Grafik di bawah ini menggambarkan pelepasan token SQT ke setiap peserta dari waktu ke waktu yang berpuncak pada sirkulasi penuh token yang terjadi 5 tahun (60 bulan) setelah peluncuran.
+Kami telah merancang jadwal vesting kami untuk menunjukkan komitmen dari berbagai pemangku kepentingan. The graphic below illustrates the planned release of the SQT tokens to each participant over time culminating in the full circulation of tokens occurring 5 years (60 months) after launch.
 
 ![vesting schedule](/assets/img/vesting_schedule.png)
 
