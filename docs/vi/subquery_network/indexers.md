@@ -1,5 +1,11 @@
 # Người lập chỉ mục
 
+:::info Indexers in Kepler
+
+To read more specifically about being an Indexer in SubQuery's Kepler Network, please head to [Kepler - Indexers](./kepler/indexers/become-an-indexer.md)
+
+:::
+
 ## Người lập chỉ mục là gì?
 
 Người lập chỉ mục là người tham gia vào mạng SubQuery, là người chịu trách nhiệm lập chỉ mục dữ liệu chuỗi khối và cung cấp dữ liệu này cho khách hàng của họ.
@@ -63,6 +69,7 @@ Thông tin chi tiết hơn sẽ sớm công bố.
 ## Người lập chỉ mục được thưởng như thế nào?
 
 Người lập chỉ mục được thưởng trong SQT theo hai cách:
+
 - Phần thưởng từ pool phần thưởng SQT dựa trên phân phối được xác định bởi Hàm Sản xuất Cobb-Douglas.
 - Phần thưởng phí truy vấn SQT trực tiếp từ các Thỏa thuận kín mà người lập chỉ mục là bên tham gia.
 
@@ -73,6 +80,7 @@ Có thể có nhiều pool phần thưởng hoạt động đồng thời cho m�
 ## Risk of being an Indexer
 
 There are a few risks of being an Indexer.
+
 - Infrastructure investment risk. An Indexer needs to invest in hardware infrastructure which is an upfront cost. However, many infrastructure provides such as AWS provide monthly payments, as opposed to yearly contracts, and the ability to scale servers up and down based on demand. This significantly reduces the risk for an Indexer.
 - Lack of customers. This risk is inherent in any business opportunity and the traditional risk mitigation methods apply here. Indexers can adjust their price to be competitive, advertise their services, and build a solid reputation within the community by contributing to forums and helping others.
 
