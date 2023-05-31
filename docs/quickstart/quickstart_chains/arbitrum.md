@@ -24,7 +24,7 @@ The Project Manifest (`project.yaml`) file works as an entry point to your Arbit
 
 Note that the manifest file has already been set up correctly and doesn’t require significant changes, but you need to import the correct contract definitions and update the datasource handlers.
 
-As we are indexing all claimed dividends from the WINR contract, the first step is to import the contract abi definition which can be obtained from [here](https://arbiscan.io/address/0xddaecf4b02a3e45b96fc2d7339c997e072b0d034#code). Copy the entire JSON and save it as a file called `winr-staking.abi.json` in the `/abis` directory.
+As we are indexing all claimed dividends from the WINR contract, the first step is to import the contract abi definition which can be obtained from [here](https://arbiscan.io/address/0xddaecf4b02a3e45b96fc2d7339c997e072b0d034#code). Copy the entire contract ABI and save it as a file called `winr-staking.abi.json` in the `/abis` directory.
 
 **Update the `datasources` section as follows:**
 
@@ -119,9 +119,7 @@ Check out the [GraphQL Schema](../../build/graphql.md) documentation to get in-d
 
 Mapping functions define how chain data is transformed into the optimised GraphQL entities that we previously defined in the `schema.graphql` file.
 
-Follow these steps to add a mapping function:
-
-Navigate to the default mapping function in the `src/mappings` directory. You will be able to see three exported functions: `handleBlock`, `handleLog`, and `handleTransaction`. Replace these functions with the following code (**note the additional imports**):
+Navigate to the default mapping function in the `src/mappings` directory. You will be able to see three exported functions: `handleBlock`, `handleLog`, and `handleTransaction`. Replace these functions with the following code:
 
 ```ts
 async function checkGetUser(userID: string): Promise<User> {
