@@ -12,35 +12,27 @@ SubQuery 网络由 SubQuery 代币(SQT) 提供动力。
 
 ## 代币经济
 
-**请注意以下SQT Token分配计划和Token Vest计划仍有可能更改。**
+:::warning
+Please note that everything below is still subject to change.
+:::
 
-### 供应
+Total Supply: The total supply will be 10 Billion SQT tokens.
 
-最初供应量将为10亿代币。
-
-### 通胀率
-
-通货膨胀将是每年2%。 这将用于帮助SubQuery基金会在消费者人数仍在增长的早期启动阶段支持索引者，从而启动网络。
-
-### 分配
-
-代币分配如下：
+Inflation: The inflation is expected to be ~2% per annum. 这将用于帮助SubQuery基金会在消费者人数仍在增长的早期启动阶段支持索引者，从而启动网络。
 
 ![分配计划](/assets/img/token_allocation.png)
 
-从一开始，SubQuery一直专注于构建我们社区内的价值，我们的目标是通过将最大的通证分配（44%）分配给社区和SubQuery创始基金会持有。
+From the start, SubQuery has been focused on building value within the community and this aim continues with the largest allocation of tokens (~51%) being apportioned to the Community, SubQuery Foundation, and for the public sale.
 
-创始基金会将于2022年初成立，将管理未来的生态系统治理和成长，而SubQuery网络的所有权将在SubQuery 创始基金会的基础之下。 这一巨大的分配还包括考虑未来对网络开发和运营的投资，以及关键的生态系统增长驱动因素。 这将包括赠款和生态系统奖励/活动，以及其他营销活动，包括bug奖金和主网激励。
+The Foundation, which is expected to be established in late 2023, will administer the future governance and growth of the ecosystem and the ownership of the SubQuery Network will come under the SubQuery Foundation initially. 这一巨大的分配还包括考虑未来对网络开发和运营的投资，以及关键的生态系统增长驱动因素。 这将包括赠款和生态系统奖励/活动，以及其他营销活动，包括bug奖金和主网激励。
 
-我们的早期投资者在种子轮和A轮投资中的总投资比例为27%。 就我们的种子投资者而言，SubQuery感谢他们对建立SubQuery初始阶段的早期远见和承诺。 此后，在A系列投资者的支持下，加速了增长，使该项目能够加速到下一个水平。
+Early investors in both the Seed, Series A, and Series B rounds have a combined allocation of ~29%. In the case of our seed investors, SubQuery is grateful for their early vision and commitment to build the initial phase of SubQuery. Following on from this, growth was accelerated with the support of Series A and B investors who allowed the project to accelerate to the next level.cce
 
-对于公共销售，9%的代币供应至少分两轮相继分配。 这些炮弹的确切结构和时间安排 [在这里](https://subquery.medium.com/subquery-publishes-the-sqt-public-sale-date-and-sale-guide-64b8aff10882)。
-
-最后，SubQuery团队和启动合伙人获得20%的通证供应，以回报他们在构建和促进项目发展方面的贡献。
+Finally, the SubQuery Team and Launch Partners have been allocated 20% of the token supply in return for their tireless dedication and contribution in building and promoting the project over multiple years of hard work.
 
 ### 行权计划
 
-我们设计了我们的授予权力时间表，以显示各利益攸关方的承诺。 下图说明了随着时间的推移，SQT通证向每个参与者的发行情况，最终在发行后5年（60个月）内实现通证的全流通。
+我们设计了我们的授予权力时间表，以显示各利益攸关方的承诺。 The graphic below illustrates the planned release of the SQT tokens to each participant over time culminating in the full circulation of tokens occurring 5 years (60 months) after launch.
 
 ![行权计划](/assets/img/vesting_schedule.png)
 
