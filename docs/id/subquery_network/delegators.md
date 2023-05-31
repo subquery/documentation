@@ -1,5 +1,11 @@
 # Delegator
 
+:::info Delegators in Kepler
+
+To read more specifically about being an Delegator in SubQuery's Kepler Network, please head to [Kepler - Delegators](./kepler/delegators.md)
+
+:::
+
 ## Apa itu Delegator?
 
 Delegator adalah peran jaringan non-teknis di Jaringan SubQuery dan merupakan cara yang bagus untuk mulai berpartisipasi dalam Jaringan SubQuery. Peran ini memungkinkan Delegator untuk “mendelegasikan” SQT mereka ke satu atau lebih Pengindeks dan mendapatkan hadiah (mirip dengan staking).
@@ -23,7 +29,7 @@ Ada beberapa keuntungan menjadi Delegator:
 
 Untuk menarik Delegator untuk mendukung pekerjaan mereka, Pengindeks menawarkan Delegator bagian dari hadiah yang mereka peroleh. Pengindeks akan mengiklankan Tarif Komisi Pengindeks, di mana pendapatan yang tersisa kemudian akan dibagi dalam total delegasi/stake pool secara proporsional dengan nilai individu yang didelegasikan/dipertaruhkan di pool.
 
-*Tarif Komisi Pengindeks*: Ini adalah persentase bagian dari biaya yang diperoleh dari melayani permintaan ke Konsumen. Pengindeks bebas mengatur tarif ini ke nilai apa pun yang mereka inginkan. Persentase yang lebih tinggi menunjukkan bahwa Pengindeks menyimpan lebih banyak keuntungan. Persentase yang lebih rendah menunjukkan bahwa Pengindeks berbagi lebih banyak keuntungan mereka dengan Delegator mereka.
+_Indexer’s Commission Rate_: This is a percentage share of the fees earned from serving requests to Consumers. Pengindeks bebas mengatur tarif ini ke nilai apa pun yang mereka inginkan. Persentase yang lebih tinggi menunjukkan bahwa Pengindeks menyimpan lebih banyak keuntungan. Persentase yang lebih rendah menunjukkan bahwa Pengindeks berbagi lebih banyak keuntungan mereka dengan Delegator mereka.
 
 Delegator hanya akan menerima pendapatan untuk mempertaruhkan Era yang mereka ikuti selama seluruh periode. Misalnya, jika mereka bergabung dengan Era yang dipertaruhkan di tengah periode yang relevan, maka mereka tidak akan memperoleh pendapatan Biaya Kueri untuk Era tersebut.
 
@@ -39,7 +45,7 @@ Meskipun tidak dianggap sebagai peran yang berisiko, menjadi Delegator mencakup 
 
 ## Bagaimana cara memilih Pengindeks?
 
-Delegator dapat memilih Pengindeks potensial berdasarkan *Indeks Reputasi* atau RI. RI ini memperhitungkan waktu aktif Pengindeks, tingkat komisi pengindeks, peristiwa pemotongan, dan frekuensi perubahan parameter Pengindeks.
+Delegators can select potential Indexers based on a _Reputation Index_ or RI. RI ini memperhitungkan waktu aktif Pengindeks, tingkat komisi pengindeks, peristiwa pemotongan, dan frekuensi perubahan parameter Pengindeks.
 
 SubQuery akan segera meluncurkan RI resmi, tetapi kami mengharapkan aplikasi delegasi lain untuk menghitung dan merilisnya sendiri.
 
