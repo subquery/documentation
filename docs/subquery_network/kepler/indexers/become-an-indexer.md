@@ -109,13 +109,13 @@ Before using the docker-compose file in the `metrics` directory, make several mo
 
 1. Open the `docker-compose-metrics.yml` file and update the `GF_SECURITY_ADMIN_PASSWORD` variable. This is the password you'll use to log in to the Grafana dashboard.
 
-2. Navigate to `./metrics/datasources/datasource.yml` and update the Authorization token. It should match the `--metrics-token` specified in the proxy container section of your `docker-compose.yml` file.
+2. Navigate to `metrics/datasources/datasource.yml` and update the Authorization token. It should match the `--metrics-token` specified in the proxy container section of your `docker-compose.yml` file.
 
-3. In the `./metrics/prometheus.yml` file, update the `bearer_token`. It should also match the `--metrics-token` value, but in the format of `Bearer [metrics-token-here]`.
+3. In the `metrics/prometheus.yml` file, update the `bearer_token`. It should also match the `--metrics-token` value, but in the format of `Bearer [metrics-token-here]`.
 
 4. If your indexer proxy runs on a non-default port, update the target under `query_count -> static_configs -> targets` in the `metrics/prometheus.yml` file.
 
-After making these adjustments, start up the docker-compose file with the foll:
+After making these adjustments, start up the docker-compose file with the following command:
 
 ```bash
 docker-compose -f ./metrics/docker-compose-metrics.yml up -d
