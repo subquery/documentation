@@ -21,7 +21,7 @@ Now, let's explore how to run the Indexing Service Locally step-by-step.
 
 ### Step 1 - Download the Indexer Service file
 
-- Download indexing services `docker-compose.yml` file to you machine, which consists of all the images to build and start the various applications.
+- Donwloand indexing services `docker-compose.yml` file to you machine, which consists of all the images to build and start the various applications.
 
 ```bash
 mkdir subquery-indexer && cd subquery-indexer
@@ -55,7 +55,7 @@ Please check that the Docker is already running. The images will be pulled from 
 
 Open `http://localhost:8000/` in your browser and you will get to see:
 
-![Indexer Admin Page - Asking to Connect with Metamask](/assets/img/admin_page_installlocally.png)
+![Indexer Admin Page - Asking to Connect with Metatask](/assets/img/admin_page_installlocally.png)
 
 ---
 
