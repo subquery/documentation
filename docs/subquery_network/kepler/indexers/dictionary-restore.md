@@ -34,9 +34,6 @@ curl -o dictionary.tar <Download_URL>
 
 This assumes that you have an indexer [running locally](../../../run_publish/run.md) with admin access to a PostgresQL database (you will be using the `pg_restore` command).
 
-First extract the dowloaded snapshot and then extract it using the following command. You will a pg dump file: `schema_xxxxxxx.dump`
-
-
 1. First extract the dowloaded snapshot and then extract it using the following command:
 
 ```bash
