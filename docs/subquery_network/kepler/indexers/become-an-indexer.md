@@ -87,7 +87,7 @@ There are several passwords you need to update in docker-compose.yml:
 - Your `--jwt-secret` and `--metrics-token` under proxy container.
 :::
 
-### Setting Up the Grafana Dashboard
+### Setting up your Grafana Dashboard
 
 This guide will walk you through setting up a preconfigured Grafana Dashboard to view metrics from the indexer-coordinator and indexer-proxy.
 
@@ -120,6 +120,13 @@ After making these adjustments, start up the docker-compose file with the follow
 ```bash
 docker-compose -f ./metrics/docker-compose-metrics.yml up -d
 ```
+
+Head to `http://localhost:3000`, your username will be `admin` and password will be whatever you set for `GF_SECURITY_ADMIN_PASSWORD`
+
+Once you have successfully logged in, look for 'dashboards' on the left-hand side of the screen. Under the 'general' section, you will find a dashboard that looks like this:
+
+![grafana_query_count](/assets/img/grafana_query_count.png)
+![grafana_query_stats](/assets/img/grafana_query_stats.png)
 
 ### Upgrade indexer services
 

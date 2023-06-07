@@ -34,37 +34,27 @@ curl -o dictionary.tar <Download_URL>
 
 This assumes that you have an indexer [running locally](../../../run_publish/run.md) with admin access to a PostgresQL database (you will be using the `pg_restore` command).
 
-First extract the dowloaded snapshot and then extract it using the following command. You will get 3 files: `.mmr` and `schema_xxxxxxx.dump` and a shell script: `restore.sh`
+First extract the dowloaded snapshot and then extract it using the following command. You will a pg dump file: `schema_xxxxxxx.dump`
+
+
+1. First extract the dowloaded snapshot and then extract it using the following command:
 
 ```bash
 tar -xvf dictionary.tar
 ```
 
-You can choose to use the `restore.sh` script to restore data automatically.
-
-There are 2 parameters to run this script, the first one is your <MMR_PATH> - note that <MMR_PATH> is the path in your `docker-compose.yml` for the indexer-coordinator container under `--mmrPath`. The second one is you data folder path, normally it will be `.data/postgres` folder at the same path with the `docker-compose.yml` file. For example:
-
-```bash
-# sh restore.sh <MMR_PATH> <DATA_FOLDER_PATH> > restore.log 2>&1 &
-nohup sh restore.sh /home /home/ec2-user/indexer-services/.data/postgres/ > restore.log 2>&1 &
-```
-
-:::note
-Make sure your `indexer_db` and `indexer_coordinator` containers are running with healthy status
-:::
-
-Alternatively you can choose the following steps to do the data restore manually.
-
-1. Move `.mmr` to `<MMR_PATH>/poi/<Deployment_CID>`. Note that `<MMR_PATH>` is the path in your `docker-compose.yml` for the indexer-coordinator container under `--mmrPath`.
+You will now have a pg dump file called: `schema_xxxxxxx.dump` 
 
 2. Copy the `schema_xxxxxxx.dump` to `.data/postgres/` and then use this command:
-
+ 
 ```bash
 docker exec -it indexer_db pg_restore -v -j 2 -h localhost -p 5432 -U postgres -d postgres /var/lib/postgresql/data/schema_xxxxxxx.dump > restore.log 2>&1 &
 ```
 
 :::note
-We use the `-j` parameter to update the number of jobs running concurrently. Depending on your machine size, you may want to increase this number to speed up the restore process. [Read more](https://www.postgresql.org/docs/current/app-pgrestore.html)
+- please Make sure your `indexer_db` container is running with healthy status before starting restore process
+
+- We use the `-j` parameter to update the number of jobs running concurrently. Depending on your machine size, you may want to increase this number to speed up the restore process. [Read more](https://www.postgresql.org/docs/current/app-pgrestore.html)
 :::
 
 The restore process will start and take quite a long time (like 2 days), please make sure you run this cmd in the background (use tools like tmux/screen/nohup). Here is an example of the output log.
