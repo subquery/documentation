@@ -352,6 +352,10 @@ function getSidebar(locale: string): SidebarOptions {
               link: `${locale}/quickstart/quickstart_chains/near.md`,
             },
             {
+              text: "Optimism",
+              link: `${locale}/quickstart/quickstart_chains/optimism.md`,
+            },
+            {
               text: "Polkadot/Substrate",
               collapsible: true,
               children: [
@@ -401,6 +405,7 @@ function getSidebar(locale: string): SidebarOptions {
             `${locale}/build/manifest/ethereum.md`,
             `${locale}/build/manifest/flare.md`,
             `${locale}/build/manifest/near.md`,
+            `${locale}/build/manifest/optimism.md`,
             `${locale}/build/manifest/polkadot.md`,
             `${locale}/build/manifest/polygon.md`,
             `${locale}/build/manifest/terra.md`,
@@ -419,6 +424,7 @@ function getSidebar(locale: string): SidebarOptions {
             `${locale}/build/mapping/ethereum.md`,
             `${locale}/build/mapping/flare.md`,
             `${locale}/build/mapping/near.md`,
+            `${locale}/build/mapping/optimism.md`,
             `${locale}/build/mapping/polkadot.md`,
             `${locale}/build/mapping/polygon.md`,
             `${locale}/build/mapping/terra.md`,
