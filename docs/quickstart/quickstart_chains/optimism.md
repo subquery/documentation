@@ -103,7 +103,7 @@ npm run-script codegen
 This will create a new directory (or update the existing one) `src/types` which contains generated entity classes for each type you have defined previously in `schema.graphql`. These classes provide type-safe entity loading, and read and write access to entity fields - see more about this process in [the GraphQL Schema](../../build/graphql.md). All entities can be imported from the following directory:
 
 ```ts
-import { Claim } from "../types/models/Claim";
+import { Claim, DailyClaimSummary  } from "../types";
 import { DailyClaimSummary } from "../types/models/DailyClaimSummary";
 ```
 
