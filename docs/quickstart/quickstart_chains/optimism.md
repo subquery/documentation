@@ -165,7 +165,7 @@ export async function handleClaim(log: ClaimedLog): Promise<void> {
 }
 ```
 
-The `handleClaim` function receives a `log` parameter of type `ClaimedLog` which includes transaction log data in the payload. We extract this data, assign it to our newClaim object, and then save this to the store using the `.save()` function (_Note that SubQuery will automatically save this to the database_). We also call the checkGetDailyClaim function which checks if it is a new day and if it is, we create a new aggregation.
+The `handleClaim` function receives a `log` parameter of type `ClaimedLog` which includes transaction log data in the payload. We extract this data, assign it to our newClaim object, and then save this to the store using the `.save()` function (_Note that SubQuery will automatically save this to the database_). We also call the `checkGetDailyClaim` function to retrieve the existing day aggregation (and create a new one if we need to), and the update the `total_claimed` on it.
 
 Check out our [Mappings](../../build/mapping/optimism.md) documentation to get more information on mapping functions.
 
