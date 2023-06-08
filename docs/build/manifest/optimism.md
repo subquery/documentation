@@ -218,7 +218,7 @@ When declaring a `range` use an string in the format of `"start - end"`. Both st
 ```yaml
 network:
   chainId: "1"
-  endpoint: "https://eth.api.onfinality.io/public"
+  endpoint: "https://optimism.api.onfinality.io/public"
   bypassBlocks: [1, 2, 3, "105-200", 290]
 ```
 
