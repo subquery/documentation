@@ -77,7 +77,6 @@ type User @entity {
   totalRewards: BigInt!
   dividends: [Dividend]! @derivedFrom(field: "user")
 }
-}
 ```
 
 ::: warning Important
