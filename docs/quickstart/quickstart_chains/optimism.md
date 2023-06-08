@@ -31,7 +31,7 @@ As we are indexing all claim events from the Optimism airdrop contract, the firs
 ```yaml
 dataSources:
   - kind: ethereum/Runtime # We use ethereum runtime since Optimism is a layer-2 that is compatible
-    # startBlock: 9277162 # When the airdrop contract was deployed https://optimistic.etherscan.io/tx/0xdd10f016092f1584912a23e544a29a638610bdd6cb42a3e8b13030fd78334eba
+    startBlock: 9277162 # When the airdrop contract was deployed https://optimistic.etherscan.io/tx/0xdd10f016092f1584912a23e544a29a638610bdd6cb42a3e8b13030fd78334eba
     options:
       # Must be a key of assets
       abi: airdrop
