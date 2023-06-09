@@ -157,9 +157,6 @@ import assert from "assert";
 import { Crab, Transfer, Address } from "../types";
 import { NewCrabLog, TransferLog } from "../types/abi-interfaces/Crabada";
 import { Crabada__factory } from "../types/contracts/factories/Crabada__factory";
-const CRABADA_DEPLOYER_ADDRESS = "0xe48b3a0Dc82bE39bBa7b895c9ff1d788a54Edc47";
-const NEW_CRAB_LOG_SIGNATURE =
-  "0x8685605608394b7362c2b08010c2f925065dada447fe050634fcddb1bdb05980";
 
 async function checkCreateAddress(id: string): Promise<Address> {
   let address = await Address.get(id.toLowerCase());
