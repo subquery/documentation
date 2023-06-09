@@ -78,14 +78,14 @@ This will overwrite the existing docker-compose.yml file. Make sure the indexer 
 | [onfinality/subql-indexer-proxy](https://hub.docker.com/r/onfinality/subql-indexer-proxy) | v1.0.1  |
 
 ::: warning Important
-There are several passwords you need to update in docker-compose.yml:
+
+Please go through the docker-compose file carefully, and change the following parameters to your own values:
 
 - Your `POSTGRES_PASSWORD` under your postgres container, as well as `--postgres-password` under coordinator container.
-
 - Your `--secret-key` under both coordinator and proxy containers.
-
 - Your `--jwt-secret` and `--metrics-token` under proxy container.
-  :::
+
+:::
 
 ### Setting up a Grafana Dashboard
 
