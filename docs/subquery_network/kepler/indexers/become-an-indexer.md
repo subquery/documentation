@@ -122,7 +122,7 @@ After making these adjustments, start up the docker-compose file with the follow
 docker-compose -f ./metrics/docker-compose-metrics.yml up -d
 ```
 
-Head to `http://localhost:3000`, your username will be `admin` and password will be whatever you set for `GF_SECURITY_ADMIN_PASSWORD`
+Head to `http://<indexer-endpoint>:3000`, your username will be `admin` and password will be whatever you set for `GF_SECURITY_ADMIN_PASSWORD`
 
 Once you have successfully logged in, look for 'dashboards' on the left-hand side of the screen. Under the 'general' section, you will find a dashboard that looks like this:
 
