@@ -28,6 +28,10 @@ editLink: false
               <img src="/assets/img/logo_polkadot_polkadot.svg" />
               <img src="/assets/img/logo_polkadot_polkadot_blue.svg" />
             </router-link>
+            <router-link :to="{path: '/quickstart/quickstart_chains/polkadot-astar.html'}"> 
+              <img src="/assets/img/logo_polkadot_astar.svg" />
+              <img src="/assets/img/logo_polkadot_astar_blue.svg" />
+            </router-link>
             <router-link :to="{path: '/quickstart/quickstart_chains/polkadot-humanode.html'}"> 
               <img src="/assets/img/logo_polkadot_humanode.svg" />
               <img src="/assets/img/logo_polkadot_humanode_blue.svg" />
@@ -65,6 +69,14 @@ editLink: false
       <router-link :to="{path: '/quickstart/quickstart_chains/bsc.html'}"> 
         <img src="/assets/img/logo_bsc.svg" />
         <img src="/assets/img/logo_bsc_blue.svg" />
+      </router-link>
+      <router-link :to="{path: '/quickstart/quickstart_chains/arbitrum.html'}"> 
+        <img src="/assets/img/logo_arbitrum.svg" />
+        <img src="/assets/img/logo_arbitrum_blue.svg" />
+      </router-link>
+      <router-link :to="{path: '/quickstart/quickstart_chains/optimism.html'}"> 
+        <img src="/assets/img/logo_optimism.svg" />
+        <img src="/assets/img/logo_optimism_blue.svg" />
       </router-link>
       <router-link :to="{path: '/quickstart/quickstart_chains/algorand.html'}"> 
         <img src="/assets/img/logo_algorand.svg" />
