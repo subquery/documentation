@@ -78,13 +78,56 @@ This will overwrite the existing docker-compose.yml file. Make sure the indexer 
 | [onfinality/subql-indexer-proxy](https://hub.docker.com/r/onfinality/subql-indexer-proxy) | v1.0.1  |
 
 ::: warning Important
+
 Please go through the docker-compose file carefully, and change the following parameters to your own values:
 
-- POSTGRES_PASSWORD
-- postgres-password
-- secret-key
-- jwt-secret
-  :::
+- Your `POSTGRES_PASSWORD` under your postgres container, as well as `--postgres-password` under coordinator container.
+- Your `--secret-key` under both coordinator and proxy containers.
+- Your `--jwt-secret` and `--metrics-token` under proxy container.
+
+:::
+
+### Setting up a Grafana Dashboard
+
+This guide will walk you through setting up a preconfigured Grafana Dashboard to view metrics from the indexer-coordinator and indexer-proxy.
+
+:::warning Backup your Docker Compose
+
+Make a backup of your existing `docker-compose.yaml` file (in the indexer services folder) before proceeding with Grafana setup.
+
+We will automatically pull and overwrite your version with the latest
+
+:::
+
+Navigate to the directory where your `docker-compose.yml` file is located (this will be referred to as `indexer-services-folder`) and run the command
+
+```bash
+cd indexer-services-folder
+# Note the next step will overwrite your existing docker-compose.yml, make sure you have a backup
+curl -L https://api.github.com/repos/subquery/indexer-services/tarball/kepler | tar -xzf - --strip-components=1 -C .
+```
+
+This will generate a folder named `metrics` containing all the necessary setup files for your Dashboard.
+
+Before using the docker-compose file in the `metrics` directory, you should port over your previous changes from your backup that you created earlier, and make several additional modifications:
+
+1. Open the `docker-compose-metrics.yml` file and update the `GF_SECURITY_ADMIN_PASSWORD` variable. This is the password you'll use to log in to the Grafana dashboard.
+2. Navigate to `metrics/datasources/datasource.yml` and update the Authorization token. It should match the `--metrics-token` specified in the proxy container section of your `docker-compose.yml` file.
+3. In the `metrics/prometheus.yml` file, update the `bearer_token`. It should also match the `--metrics-token` value, but in the format of `Bearer <metrics-token-here>`.
+4. If your indexer proxy runs on a non-default port, update the target under `query_count -> static_configs -> targets` in the `metrics/prometheus.yml` file.
+
+After making these adjustments, start up the docker-compose file with the following command:
+
+```bash
+docker-compose -f ./metrics/docker-compose-metrics.yml up -d
+```
+
+Head to `http://<indexer-endpoint>:3000`, your username will be `admin` and password will be whatever you set for `GF_SECURITY_ADMIN_PASSWORD`
+
+Once you have successfully logged in, look for 'dashboards' on the left-hand side of the screen. Under the 'general' section, you will find a dashboard that looks like this:
+
+![grafana_query_count](/assets/img/grafana_query_count.png)
+![grafana_query_stats](/assets/img/grafana_query_stats.png)
 
 ### Upgrade indexer services
 
