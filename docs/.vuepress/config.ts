@@ -297,7 +297,17 @@ function getSidebar(locale: string): SidebarOptions {
             },
             {
               text: "Avalanche",
-              link: `${locale}/quickstart/quickstart_chains/avalanche.md`,
+              collapsible: true,
+              children: [
+                {
+                  text: "Avalanche (Pangolin Rewards)",
+                  link: `${locale}/quickstart/quickstart_chains/avalanche.md`,
+                },
+                {
+                  text: "Avalanche (Crabada NFTs)",
+                  link: `${locale}/quickstart/quickstart_chains/avalanche-crabada.md`,
+                },
+              ],
             },
             {
               text: "BNB Smart Chain (BSC)",

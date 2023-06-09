@@ -1,4 +1,4 @@
-# Avalanche Quick Start
+# Avalanche Quick Start - Pangolin Rewards
 
 ## Goals
 
@@ -13,7 +13,7 @@ Now, let's move forward and update these configurations.
 Previously, in the [1. Create a New Project](../quickstart.md) section, you must have noted [3 key files](../quickstart.md#_3-make-changes-to-your-project). Let's begin updating them one by one.
 
 ::: tip Note
-The final code of this project can be found [here](https://github.com/jamesbayly/pangolin-rewards-tutorial).
+The final code of this project can be found [here](https://github.com/subquery/subquery-example-avalanche-pangolin-rewards).
 :::
 
 ## 1. Update Your Project Manifest File
@@ -174,7 +174,7 @@ Let’s understand how the above code works.
 
 The mapping function here receives an `RewardPaidLog` which includes transaction log data in the payload. We extract this data and first read and confirm that we have a `User` record via `checkGetUser`. We then create a new `PangolinRewards` entity that we defined in our `schema.graphql` and then save this to the store using the `.save()` function (_Note that SubQuery will automatically save this to the database_).
 
-Check out our [Mappings](../../build/mapping/ethereum.md) documentation to get more information on mapping functions.
+Check out our [Mappings](../../build/mapping/avalanche.md) documentation to get more information on mapping functions.
 
 ## 4. Build Your Project
 
@@ -335,7 +335,7 @@ You will see the result similar to below:
 ```
 
 ::: tip Note
-The final code of this project can be found [here](https://github.com/jamesbayly/pangolin-rewards-tutorial).
+The final code of this project can be found [here](https://github.com/subquery/subquery-example-avalanche-pangolin-rewards).
 :::
 
 ## What's next?
