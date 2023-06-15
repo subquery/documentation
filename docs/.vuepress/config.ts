@@ -367,7 +367,7 @@ function getSidebar(locale: string): SidebarOptions {
                 },
                 {
                   text: "NEAR Aurora (EVM)",
-                  link: `${locale}/quickstart/quickstart_chains/aurora.md`,
+                  link: `${locale}/quickstart/quickstart_chains/near-aurora.md`,
                 },
               ],
             },
