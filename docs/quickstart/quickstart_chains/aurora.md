@@ -1,8 +1,12 @@
-# Aurora Quick Start
+# NEAR Aurora (EVM) Quick Start
+
+[Aurora](https://aurora.dev) is a next-generation Ethereum compatible blockchain and ecosystem that runs on the NEAR Protocol, and powers the innovations behind Aurora Cloud—the fastest path for Web2 businesses to capture the value of Web3.
+
+Since SubQuery fully supports NEAR and NEAR Aurora, you can index data from both execution environments in the same SubQuery project and into the same dataset.
 
 ## Goals
 
-The goal of this quick start guide is to index transfers and approvals for the Wrapped NEAR smart contract on NEAR Aurora.
+The goal of this quick start guide is to index transfers and approvals for the [Wrapped NEAR smart contract](https://explorer.aurora.dev/address/0xC42C30aC6Cc15faC9bD938618BcaA1a1FaE8501d) on NEAR Aurora.
 
 ::: warning
 Before we begin, **make sure that you have initialised your project** using the provided steps in the [Start Here](../quickstart.md) section. Please initialise an NEAR Aurora project
@@ -11,12 +15,16 @@ Before we begin, **make sure that you have initialised your project** using the 
 In every SubQuery project, there are [3 key files](../quickstart.md#_3-make-changes-to-your-project) to update. Let's begin updating them one by one.
 
 ::: tip Note
-The final code of this project can be found [here](https://github.com/subquery/near-subql-starter/tree/main/Near/near-aurora-starter). We use Ethereum packages, runtimes, and handlers (e.g. @subql/node-ethereum, ethereum/Runtime, and ethereum/*Handler) for Aurora because it is an Ethereum compatible blockchain running on the NEAR protocol.
+The final code of this project can be found [here](https://github.com/subquery/near-subql-starter/tree/main/Near/near-aurora-starter).
 :::
 
 ## 1. Your Project Manifest File
 
-The Project Manifest (`project.yaml`) file works as an entry point to your Aurora project. It defines most of the details on how SubQuery will index and transform the chain data. For Aurora, there are three types of mapping handlers (and you can have more than one in each project):
+::: warning Important
+We use Ethereum packages, runtimes, and handlers (e.g. `@subql/node-ethereum`, `ethereum/Runtime`, and `ethereum/*Handler`) for NEAR Aurora. Since Aurora is a EVM implementation on NEAR, we can use the core Ethereum framework to index it.
+:::
+
+The Project Manifest (`project.yaml`) file works as an entry point to your Aurora project. It defines most of the details on how SubQuery will index and transform the chain data. For Aurora, there are three types of mapping handlers (and you can have more than one in each project), note that these are different mapping handlers that [traditional NEAR projects](./near.md#2-update-your-project-manifest-file):
 
 - [BlockHanders](../../build/manifest/ethereum.md#mapping-handlers-and-filters): On each and every block, run a mapping function
 - [TransactionHandlers](../../build/manifest/ethereum.md#mapping-handlers-and-filters): On each and every transaction that matches optional filter criteria, run a mapping function
@@ -26,10 +34,13 @@ Note that the manifest file has already been set up correctly and doesn’t requ
 
 As we are indexing all transfers and approvals for the Wrapped NEAR smart contract, the first step is to import the contract abi definition which can be obtained from [here](https://explorer.aurora.dev/address/0xC42C30aC6Cc15faC9bD938618BcaA1a1FaE8501d/contracts#address-tabs). Copy the entire contract ABI and save it as a file called `erc20.abi.json` in the `/abis` directory.
 
-**Update the `datasources` section as follows:**
+This section in the Project Manifest now imports all the correct definitions and lists the triggers that we look for on the blockchain when indexing.
+
+**Since we are indexing all transfers and approvals for the Wrapped NEAR smart contract, you need to update the `datasources` section as follows:**
 
 ```yaml
-- kind: ethereum/Runtime # We use ethereum runtime since NEAR Aurora is a layer-2 that is compatible
+dataSources:
+  - kind: ethereum/Runtime # We use ethereum runtime since NEAR Aurora is a layer-2 that is compatible
     startBlock: 42731897 # Block with the first interaction with NEAR https://explorer.aurora.dev/tx/0xc14305c06ef0a271817bb04b02e02d99b3f5f7b584b5ace0dab142777b0782b1
     options:
       # Must be a key of assets
@@ -58,7 +69,6 @@ As we are indexing all transfers and approvals for the Wrapped NEAR smart contra
               # address: "0x60781C2586D68229fde47564546784ab3fACA982"
 ```
 
-
 The above code indicates that you will be running a `handleTransaction` and `handlelog` mapping function whenever there is an `approve` or `Transfer` log on any transaction from the [Wrapped NEAR contract](https://explorer.aurora.dev/address/0xC42C30aC6Cc15faC9bD938618BcaA1a1FaE8501d/contracts#address-tabs).
 
 Check out our [Manifest File](../../build/manifest/ethereum.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
@@ -67,8 +77,7 @@ Check out our [Manifest File](../../build/manifest/ethereum.md) documentation to
 
 The `schema.graphql` file determines the shape of your data from SubQuery due to the mechanism of the GraphQL query language. Hence, updating the GraphQL Schema file is the perfect place to start. It allows you to define your end goal right at the start.
 
-Remove all existing entities and update the `schema.graphql` file as follows. Here you can see we are indexing block information such as the id and the blockHeight along with addresses such as to, from, owner and spender, along with the contract address and value as well. 
-
+Remove all existing entities and update the `schema.graphql` file as follows. Here you can see we are indexing block information such as the id and the blockHeight along with addresses such as to, from, owner and spender, along with the contract address and value as well.
 
 ```graphql
 type Transaction @entity {
@@ -120,10 +129,15 @@ import { Approval, Transaction } from "../types";
 If you're creating a new Etheruem based project, this command will also generate ABI types and save them into `src/types` using the `npx typechain --target=ethers-v5` command, allowing you to bind these contracts to specific addresses in the mappings and call read-only contract methods against the block being processed. It will also generate a class for every contract event to provide easy access to event parameters, as well as the block and transaction the event originated from. All of these types are written to `src/types/abi-interfaces` and `src/types/contracts` directories. In this example SubQuery project, you would import these types like so.
 
 ```ts
-import {ApproveTransaction, TransferLog} from "../types/abi-interfaces/Erc20Abi";
+import {
+  ApproveTransaction,
+  TransferLog,
+} from "../types/abi-interfaces/Erc20Abi";
 ```
 
 Check out the [GraphQL Schema](../../build/graphql.md) documentation to get in-depth information on `schema.graphql` file.
+
+Now that you have made essential changes to the GraphQL Schema file, let’s proceed ahead with the Mapping Function’s configuration.
 
 ## 3. Add a Mapping Function
 
@@ -132,9 +146,16 @@ Mapping functions define how chain data is transformed into the optimised GraphQ
 Navigate to the default mapping function in the `src/mappings` directory. You will be able to see three exported functions: `handleBlock`, `handleLog`, and `handleTransaction`. Replace these functions with the following code:
 
 ```ts
+import { Approval, Transaction } from "../types";
+import {
+  ApproveTransaction,
+  TransferLog,
+} from "../types/abi-interfaces/Erc20Abi";
+import assert from "assert";
+
 export async function handleLog(log: TransferLog): Promise<void> {
   logger.info(`New transfer transaction log at block ${log.blockNumber}`);
-  assert(log.args, "No log.args")
+  assert(log.args, "No log.args");
   const transaction = Transaction.create({
     id: log.transactionHash,
     txHash: log.transactionHash,
@@ -150,7 +171,7 @@ export async function handleLog(log: TransferLog): Promise<void> {
 
 export async function handleTransaction(tx: ApproveTransaction): Promise<void> {
   logger.info(`New Approval transaction at block ${tx.blockNumber}`);
-  assert(tx.args, "No tx.args")
+  assert(tx.args, "No tx.args");
 
   const approval = Approval.create({
     id: tx.hash,
@@ -260,25 +281,18 @@ You will see the result similar to below:
 {
   "data": {
     "query": {
-      "dividends": {
+      "transactions": {
         "totalCount": 1,
         "nodes": [
           {
             "id": "0x44e9396155f6a90daaea687cf48c309128afead3be9faf20c5de3d81f6f318a6-5",
-            "userId": "0x9fd50776f133751e8ae6abe1be124638bb917e05",
-            "reward": "12373884174795780000"
-          }
-        ]
-      },
-      "users": {
-        "totalCount": 1,
-        "nodes": [
+            "txHash": "0x9fd50776f133751e8ae6abe1be124638bb917e05",
+            "value": "12373884174795780000"
+          },
           {
-            "id": "0x9fd50776f133751e8ae6abe1be124638bb917e05",
-            "totalRewards": "12373884174795780000",
-            "dividends": {
-              "totalCount": 1
-            }
+            "id": "0x44e9396155f6a90daaea687cf48c309128afead3be9faf20c5de3d81f6f318a6-5",
+            "txHash": "0x9fd50776f133751e8ae6abe1be124638bb917e05",
+            "value": "12373884174795780000"
           }
         ]
       }
@@ -286,7 +300,6 @@ You will see the result similar to below:
   }
 }
 ```
-
 
 ## What's next?
 
