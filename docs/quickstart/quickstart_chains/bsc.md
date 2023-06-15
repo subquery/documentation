@@ -78,7 +78,7 @@ Remove all existing entities and update the `schema.graphql` file as follows. He
 type PoolEvent @entity {
   id: ID! # Transaction_hash-log_index
   user: String!
-  pool: Pool!
+  pool: Pool! # Foreign key
   type: String! # WITHDRAW or DEPOSIT
   value: BigInt!
   block: BigInt!
@@ -131,8 +131,6 @@ Now that you have made essential changes to the GraphQL Schema file, let’s pro
 ## 3. Add a Mapping Function
 
 Mapping functions define how chain data is transformed into the optimised GraphQL entities that we previously defined in the `schema.graphql` file.
-
-Follow these steps to add a mapping function:
 
 Navigate to the default mapping function in the `src/mappings` directory. You will be able to see three exported functions: `handleBlock`, `handleLog`, and `handleTransaction`. Replace these functions with the following code (**note the additional imports**):
 

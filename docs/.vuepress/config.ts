@@ -318,7 +318,7 @@ function getSidebar(locale: string): SidebarOptions {
               collapsible: true,
               children: [
                 {
-                  text: "Cronos",
+                  text: "Cronos (EVM)",
                   link: `${locale}/quickstart/quickstart_chains/cosmos-cronos.md`,
                 },
                 {
@@ -359,7 +359,17 @@ function getSidebar(locale: string): SidebarOptions {
             },
             {
               text: "NEAR",
-              link: `${locale}/quickstart/quickstart_chains/near.md`,
+              collapsible: true,
+              children: [
+                {
+                  text: "Near",
+                  link: `${locale}/quickstart/quickstart_chains/near.md`,
+                },
+                {
+                  text: "NEAR Aurora (EVM)",
+                  link: `${locale}/quickstart/quickstart_chains/aurora.md`,
+                },
+              ],
             },
             {
               text: "Optimism",
