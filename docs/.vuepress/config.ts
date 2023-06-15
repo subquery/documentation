@@ -585,6 +585,7 @@ function getSidebar(locale: string): SidebarOptions {
         `${locale}/miscellaneous/branding.md`,
         `${locale}/miscellaneous/ambassadors.md`,
         `${locale}/miscellaneous/avalanche-eth-migration.md`,
+        `${locale}/miscellaneous/vulnerability-reporting.md`,
       ],
     },
     {
