@@ -359,7 +359,17 @@ function getSidebar(locale: string): SidebarOptions {
             },
             {
               text: "NEAR",
-              link: `${locale}/quickstart/quickstart_chains/near.md`,
+               collapsible: true,
+              children: [
+                {
+                  text: "Near",
+                  link: `${locale}/quickstart/quickstart_chains/near.md`,
+                },
+                {
+                  text: "Aurora",
+                  link: `${locale}/quickstart/quickstart_chains/aurora.md`,
+                }
+              ]
             },
             {
               text: "Optimism",
