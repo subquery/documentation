@@ -63,19 +63,19 @@ Note that you may or may not need to install Docker. If you use the SubQuery com
 `Important:`
 Login to your VM and create a folder, such as `kepler-indexer`
 
-1. Run cd kepler-indexer
+1. Run `cd kepler-indexer`
 2. Run the follow cmd to download the latest `docker-compose.yml`:
 
 ```sh
 curl https://raw.githubusercontent.com/subquery/indexer-services/kepler/docker-compose.yml -o docker-compose.yml
 ```
 
-This will overwrite the existing docker-compose.yml file. Make sure the indexer service versions are correct:
+This will overwrite the existing docker-compose.yml file. Always use the latest versions (use pre-release verisons at your own risk).
 
-| Service                                                                                   | Version |
-| :---------------------------------------------------------------------------------------- | :------ |
-| [onfinality/subql-coordinator](https://hub.docker.com/r/onfinality/subql-coordinator)     | v1.0.4  |
-| [onfinality/subql-indexer-proxy](https://hub.docker.com/r/onfinality/subql-indexer-proxy) | v1.0.1  |
+| Service                                                                                   | Version Tag |
+| :---------------------------------------------------------------------------------------- | :---------- |
+| [onfinality/subql-coordinator](https://hub.docker.com/r/onfinality/subql-coordinator)     | `latest`    |
+| [onfinality/subql-indexer-proxy](https://hub.docker.com/r/onfinality/subql-indexer-proxy) | `latest`    |
 
 ::: warning Important
 
