@@ -58,6 +58,9 @@ subquery-node-newchain:
 
 Use `subql publish` command to publish all the projects listed in the multi-chain manifest to a single IPFS directory.
 
+Example output:
+![image](../.vuepress/public/assets/img/multichain_publish.png)
+
 ::: tip Requirements for multi-chain indexing
 
 1. All projects must reference the same [GraphQL schema](./graphql.md) in their `project.yaml`
