@@ -10,6 +10,54 @@ For example, you could capture XCM transaction data from all Polkadot parachains
 
 ## How it Works
 
+Creating a multi-chain project involves several steps that enable you to index multiple networks into a single database. This is achieved by configuring a multi-chain manifest file, generating required entities and datasource templates, adding new projects to the manifest, and publishing the multi-chain project.
+
+**1. Create a Multi-Chain Manifest File**
+
+Create a multi-chain manifest file (whose default name is subquery-multichain.yaml) in your project folder. This file should contain a list of the individual chain manifest files that you want to include in the multi-chain project.
+
+Example:
+```yaml
+specVersion: 1.0.0
+query:
+  name: "@subql/query"
+  version: "*"
+projects:
+  - project-acala.yaml
+  - project-astar.yaml
+  - project-moonbeam.yaml
+  - project-moonriver.yaml
+```
+
+**2. Generate Required Entities, Datasource Templates, and ABIs**
+
+Use the `subql codegen` command to generate the required entities, datasource templates, and ABIs for all the projects listed in the multi-chain manifest file. By default, the codegen command will look for `subquery-multichain.yaml` if no multichain file is explicitly mentioned through `-f` flag
+
+**3. Add a New Project to the Multi-Chain Manifest**
+
+Use the subql multi-chain:add command to add a new project to the multi-chain manifest and automatically generate a new Docker service for the project in the docker-compose.yml.
+
+Example:
+```
+subql multi-chain:add -f subquery-multichain.yaml -c project-newchain.yaml
+```
+
+This command adds project-newchain.yaml to the subquery-multichain.yaml manifest and updates docker-compose.yml with the new service:
+```
+subquery-node-newchain:
+    image: onfinality/subql-node:latest
+    ...
+    command:
+      - -f=app/project-newchain.yaml
+      - --multi-chain
+      - --db-schema=multi-transfers
+      - --disable-historical
+```
+
+**4. Publish the Multi-Chain Project**
+
+Use `subql publish` command to publish all the projects listed in the multi-chain manifest to a single IPFS directory.
+
 ::: tip Requirements for multi-chain indexing
 
 1. All projects must reference the same [GraphQL schema](./graphql.md) in their `project.yaml`
