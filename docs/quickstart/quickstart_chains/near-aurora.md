@@ -1,8 +1,8 @@
-# NEAR Aurora (EVM) Quick Start
+# Aurora Quick Start (EVM)
 
 [Aurora](https://aurora.dev) is a next-generation Ethereum compatible blockchain and ecosystem that runs on the NEAR Protocol, and powers the innovations behind Aurora Cloud—the fastest path for Web2 businesses to capture the value of Web3.
 
-Since SubQuery fully supports NEAR and NEAR Aurora, you can index data from both execution environments in the same SubQuery project and into the same dataset.
+Since SubQuery fully supports NEAR and Aurora, you can index data from both execution environments in the same SubQuery project and into the same dataset.
 
 ## Goals
 

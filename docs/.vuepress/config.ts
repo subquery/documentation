@@ -362,11 +362,11 @@ function getSidebar(locale: string): SidebarOptions {
               collapsible: true,
               children: [
                 {
-                  text: "Near",
+                  text: "NEAR",
                   link: `${locale}/quickstart/quickstart_chains/near.md`,
                 },
                 {
-                  text: "NEAR Aurora (EVM)",
+                  text: "Aurora (EVM)",
                   link: `${locale}/quickstart/quickstart_chains/near-aurora.md`,
                 },
               ],
