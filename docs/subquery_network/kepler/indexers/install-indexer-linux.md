@@ -135,8 +135,6 @@ systemctl status subquery.service
 
 We highly recommend setting up SSL on your new server. [Follow the guide here](./ssl-configuration.md).
 
-You can also move forward to [connect with MetaMask](../metamask/connect-metamask.md).
-
 ::: tip Tip
 Having trouble running a command or setting up the service? Got stuck in the process? Find your solutions [here](../indexers/troubleshooting-indexers.md).
 :::
