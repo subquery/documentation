@@ -10,63 +10,13 @@ For example, you could capture XCM transaction data from all Polkadot parachains
 
 ## How it Works
 
-Creating a multi-chain project involves several steps that enable you to index multiple networks into a single database. This is achieved by configuring a multi-chain manifest file, generating required entities and datasource templates, adding new projects to the manifest, and publishing the multi-chain project.
-
-**1. Create a Multi-Chain Manifest File**
-
-Create a multi-chain manifest file (whose default name is subquery-multichain.yaml) in your project folder. This file should contain a list of the individual chain manifest files that you want to include in the multi-chain project.
-
-Example:
-```yaml
-specVersion: 1.0.0
-query:
-  name: "@subql/query"
-  version: "*"
-projects:
-  - project-acala.yaml
-  - project-astar.yaml
-  - project-moonbeam.yaml
-  - project-moonriver.yaml
-```
-
-**2. Generate Required Entities, Datasource Templates, and ABIs**
-
-Use the `subql codegen` command to generate the required entities, datasource templates, and ABIs for all the projects listed in the multi-chain manifest file. By default, the codegen command will look for `subquery-multichain.yaml` if no multichain file is explicitly mentioned through `-f` flag
-
-**3. Add a New Project to the Multi-Chain Manifest**
-
-Use the subql multi-chain:add command to add a new project to the multi-chain manifest and automatically generate a new Docker service for the project in the docker-compose.yml.
-
-Example:
-```
-subql multi-chain:add -f subquery-multichain.yaml -c project-newchain.yaml
-```
-
-This command adds project-newchain.yaml to the subquery-multichain.yaml manifest and updates docker-compose.yml with the new service:
-```
-subquery-node-newchain:
-    image: onfinality/subql-node:latest
-    ...
-    command:
-      - -f=app/project-newchain.yaml
-      - --multi-chain
-      - --db-schema=multi-transfers
-      - --disable-historical
-```
-
-**4. Publish the Multi-Chain Project**
-
-Use `subql publish` command to publish all the projects listed in the multi-chain manifest to a single IPFS directory.
-
-Example output:
-![image](../.vuepress/public/assets/img/multichain_publish.png)
-
 ::: tip Requirements for multi-chain indexing
 
-1. All projects must reference the same [GraphQL schema](./graphql.md) in their `project.yaml`
+1. All projects must reference the same [GraphQL schema](./graphql.md) in their `project-xxxx.yaml`
 2. All projects must index to the same PostgreSQL table schema, this is set in your `docker-compose.yml`
 3. When you first start your indexing node, you must start it with the `--multi-chain` indexing argument
-   :::
+
+:::
 
 You can enable this feature by adding the `--multi-chain` [argument to the node](../run_publish/references.md#multi-chain) (you can do this in the `docker-compose.yml` or when running via command line), this must be done from the start, otherwise you will need to delete and reset your database.
 
@@ -105,13 +55,70 @@ This feature is not compatible with Historical State and will be disabled if `--
 This feature is only supported for Partner Plan Customers in the [SubQuery Managed Service](https://managedservice.subquery.network). All others can run this locally in their own infrastructure provider.
 :::
 
-## Example Project
+## Intialising and creating a multi-chain project
+
+Creating a multi-chain project involves several steps that enable you to index multiple networks into a single database. This is achieved by configuring a multi-chain manifest file, generating required entities and datasource templates, adding new projects to the manifest, and publishing the multi-chain project.
+
+:::info See a real world example
+You can see an example project with all of this correctly enabled [here](https://github.com/subquery/multi-networks-transfers)
+:::
+
+### 1. Create a Multi-Chain Manifest File
+
+Create a multi-chain manifest file (whose default name is `subquery-multichain.yaml`) in your project folder. This file should contain a list of the individual chain manifest files that you want to include in the multi-chain project. For example:
+
+```yaml
+specVersion: 1.0.0
+query:
+  name: "@subql/query"
+  version: "*"
+projects:
+  - project-acala.yaml
+  - project-astar.yaml
+  - project-moonbeam.yaml
+  - project-moonriver.yaml
+```
+
+### 2. Generate Required Entities, Datasource Templates, and ABIs
+
+Use the `subql codegen` command to generate the required entities, datasource templates, and ABIs for all the projects listed in the multi-chain manifest file. By default, the codegen command will look for `subquery-multichain.yaml` if no multichain file is explicitly mentioned through `-f` flag
+
+### 3. Add a New Network to the Multi-Chain Manifest
+
+Use the `subql multi-chain:add` command to add a new network to the multi-chain manifest and automatically generate a new manifest ()`project-newchain.yaml`) and Docker service (in `docker-compose.yml`) for the chain.
+
+Example:
+
+```bash
+subql multi-chain:add -f subquery-multichain.yaml -c project-newchain.yaml
+```
+
+This command adds `project-newchain.yaml` to the `subquery-multichain.yaml` manifest and updates `docker-compose.yml` with the new service:
+
+```yaml
+subquery-node-newchain:
+    image: onfinality/subql-node:latest
+    ...
+    command:
+      - -f=app/project-newchain.yaml
+      - --multi-chain
+      - --db-schema=multi-transfers
+      - --disable-historical
+```
+
+### 4. Publish the Multi-Chain Project
+
+Use `subql publish` command to publish all the projects listed in the `subquery-multichain.yaml` manifest to a single IPFS directory.
+
+![image](../.vuepress/public/assets/img/multichain_publish.png)
+
+### See the Example Project
 
 The repository for this example can be found [here](https://github.com/subquery/multi-networks-transfers), it is an example of a multichain project that indexes multiple networks (in this case Polkadot and Kusama) into the same database.
 
 A modified docker-compose.yaml file has been included, with two subql/node images, one for each network being indexed. You will notice that that each image maps to a seperate manifest file (see [command line references](../run_publish/references.md)).
 
-This multi-chain project can be started regularly by following the [readme](https://github.com/subquery/multi-networks-transfers/blob/main/README.md#configure-your-project)
+This multi-chain project can be started regularly by following the [Readme.md](https://github.com/subquery/multi-networks-transfers/blob/main/README.md#configure-your-project)
 
 ## Tips
 
