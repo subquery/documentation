@@ -1,6 +1,6 @@
 # Restoring Dictionary Projects
 
-The first SubQuery projects indexed on Kepler will be [Dictionary Projects](../../../academy/tutorials_examples/dictionary.md). These projects are commonly used, and are simple to index and create, but create large datasets.
+Below are the [Dictionary Projects](../../../academy/tutorials_examples/dictionary.md) Supported on Kepler. These projects are commonly used, are simple to index and create, but create large datasets.
 
 In order to speed up the onboarding of Indexers, we are providing database snapshots for most of these dictionaries
 
@@ -8,8 +8,9 @@ In order to speed up the onboarding of Indexers, we are providing database snaps
 
 | Network   | Deployment ID                                    | Database Size | S3 Bucket URL                                                                                      | BT Magnet Link | SHA256                                                             |
 | --------- | ------------------------------------------------ | ------------- | -------------------------------------------------------------------------------------------------- | -------------- | ------------------------------------------------------------------ |
-| Pollkadot | `QmZGAZQ7e1oZgfuK4V29Fa5gveYK3G2zEwvUzTZKNvSBsm` | ~220GB        | [S3 URL](https://kepler-dictionary-projects.s3.ap-southeast-2.amazonaws.com/polkadot/polkadot.tar) | TBC            | `c1a1f67e2a205dc9fdd90f738686f3ee57052fcc7bc383a054574ab81e17584f` |
-| Kusama    | `QmXwfCF8858YY924VHgNLsxRQfBLosVbB31mygRLhgJbWn` | ~260GB        | [S3 URL](https://kepler-dictionary-projects.s3.ap-southeast-2.amazonaws.com/kusama/kusama.tar)     | TBC            | `65f6fc3dd0410b296f651369690fd866070dbba8781a61454fc00cc11676452c` |
+| Pollkadot | QmZGAZQ7e1oZgfuK4V29Fa5gveYK3G2zEwvUzTZKNvSBsm | ~220GB        | [S3 URL](https://kepler-dictionary-projects.s3.ap-southeast-2.amazonaws.com/polkadot/polkadot.tar) | TBC            | c1a1f67e2a205dc9fdd90f738686f3ee57052fcc7bc383a054574ab81e17584f |
+| Kusama    | QmXwfCF8858YY924VHgNLsxRQfBLosVbB31mygRLhgJbWn | ~260GB        | [S3 URL](https://kepler-dictionary-projects.s3.ap-southeast-2.amazonaws.com/kusama/kusama.tar)     | TBC            | 65f6fc3dd0410b296f651369690fd866070dbba8781a61454fc00cc11676452c |
+| Nodle     | QmQtmsHoJEYUcxKE4tBqr9Z8kudcgkczQPfhkAxVExQX5y | -             | [S3 URL](https://kepler-dictionary-projects.s3.ap-southeast-2.amazonaws.com/nodle/nodle.tar)       | TBC            | 71b52ef798f96c86214213e26a1960477d11f0f80916914159fd2feec2ba17fe |
 
 You can download the snapshot either from the s3 bucket URL or the BitTorrent magnet link:
 
@@ -90,3 +91,11 @@ pg_restore: creating TRIGGER "schema_qmzj9whrhrmvn2h._metadata 0xc1aaf8b4176d0f0
 ```
 
 After the data restored, you can start adding the specific project to you service inside admin app, and start indexing the project, the indexing will start basing on the restored data and continue indexing the project.
+
+# Other Supported Projects
+
+This is a list of smaller projects supported on Kepler. These take less time to setup, especially if you make use of the dictionary provided.
+
+| Network                | Project Name           | Deployment ID                                    | Database Size | Dictionary Endpoint                                                                              |
+| ---------------------- | ---------------------- | ------------------------------------------------ | ------------- | ----------------------------------------------------------------------------------------------- |
+| Polygon                | Kepler Exchange Project| QmV6sbiPyTDUjcQNJs2eGcAQp2SMXL2BU6qdv5aKrRr7Hg | -             | [Subquery URL](https://gx.api.subquery.network/sq/subquery/polygon-dictionary)                    |
