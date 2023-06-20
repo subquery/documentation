@@ -116,7 +116,7 @@ Before using the docker-compose file in the `metrics` directory, you should port
 3. In the `metrics/prometheus.yml` file, update the `bearer_token`. It should also match the `--metrics-token` value, but in the format of `Bearer <metrics-token-here>`.
 4. If your indexer proxy runs on a non-default port, update the target under `query_count -> static_configs -> targets` in the `metrics/prometheus.yml` file.
 
-::: warning Info for linux
+::: warning For Linux Users
 
 If you are running your indexer on linux you need specify the exact ip instead of `host.docker.internal` inside `metrics/prometheus.yml` file.
 
