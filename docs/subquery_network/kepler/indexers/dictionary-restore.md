@@ -10,7 +10,7 @@ In order to speed up the onboarding of Indexers, we are providing database snaps
 | --------- | ---------------------------------------------- | ------------- | -------------------------------------------------------------------------------------------------- | -------------- | ---------------------------------------------------------------- |
 | Pollkadot | QmZGAZQ7e1oZgfuK4V29Fa5gveYK3G2zEwvUzTZKNvSBsm | ~220GB        | [S3 URL](https://kepler-dictionary-projects.s3.ap-southeast-2.amazonaws.com/polkadot/polkadot.tar) | TBC            | c1a1f67e2a205dc9fdd90f738686f3ee57052fcc7bc383a054574ab81e17584f |
 | Kusama    | QmXwfCF8858YY924VHgNLsxRQfBLosVbB31mygRLhgJbWn | ~260GB        | [S3 URL](https://kepler-dictionary-projects.s3.ap-southeast-2.amazonaws.com/kusama/kusama.tar)     | TBC            | 65f6fc3dd0410b296f651369690fd866070dbba8781a61454fc00cc11676452c |
-| Nodle     | QmQtmsHoJEYUcxKE4tBqr9Z8kudcgkczQPfhkAxVExQX5y | -             | [S3 URL](https://kepler-dictionary-projects.s3.ap-southeast-2.amazonaws.com/nodle/nodle.tar)       | TBC            | 71b52ef798f96c86214213e26a1960477d11f0f80916914159fd2feec2ba17fe |
+| Nodle     | QmQtmsHoJEYUcxKE4tBqr9Z8kudcgkczQPfhkAxVExQX5y | ~15GB             | [S3 URL](https://kepler-dictionary-projects.s3.ap-southeast-2.amazonaws.com/nodle/nodle.tar)       | TBC            | 71b52ef798f96c86214213e26a1960477d11f0f80916914159fd2feec2ba17fe |
 
 You can download the snapshot either from the s3 bucket URL or the BitTorrent magnet link:
 
