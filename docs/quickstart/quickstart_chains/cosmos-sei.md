@@ -2,10 +2,10 @@
 
 ## Goals
 
-The goal of this quick start guide is to index all eth-usd prices provided to the Levana Dex protocol by the Pyth price oracle.
+The goal of this quick start guide is to index all ETH-USD exchange rates provided to [Levana’s Sei DEX protocol](https://blog.levana.finance/levana-perpetual-swap-beta-now-live-on-sei-networks-testnet-a-new-era-for-decentralized-crypto-fc0930ea4b9) by the Pyth price oracle
 
 ::: info
-Sei Network is a chain based on the Cosmos SDK. Therefore you can index chain data via the standard Cosmos RPC interface. 
+Sei Network is a chain based on the Cosmos SDK. Therefore you can index chain data via the standard Cosmos RPC interface.
 
 Before we begin, make sure that you have initialised your project using the provided steps in the **[Start Here](../quickstart.md)** section. You must complete the suggested [4 steps](https://github.com/subquery/cosmos-subql-starter#readme) for Cosmos users.
 :::
@@ -20,7 +20,7 @@ The final code of this project can be found [here](https://github.com/subquery/c
 
 The `schema.graphql` file determines the shape of your data from SubQuery due to the mechanism of the GraphQL query language. Hence, updating the GraphQL Schema file is the perfect start. It allows you to define your end goal right at the start.
 
-Update the `schema.graphql` file as follows. Here we are indexing not only standard block data such as the id, blockheight, transaction hash and the timestamp, we are also indexing exchange rate data such as the notional and USD price, the long and short rate and also contract details. 
+Update the `schema.graphql` file as follows. Here we are indexing not only standard block data such as the id, blockheight, transaction hash and the timestamp, we are also indexing exchange rate data such as the notional and USD price, the long and short rate and also contract details.
 
 Daily aggregated price data such as open, close, low and high prices are also captured
 
@@ -241,17 +241,17 @@ export async function handleSpotPriceEvent(event: CosmosEvent): Promise<void> {
 
 ```
 
-Here we have three functions. Our `handleFundingRateChangeEvent` and `handleSpotPriceEvent` handler functions which were defined in the manifest file along with an extra function called `updateDailyAggregation`. 
+Here we have three functions. Our `handleFundingRateChangeEvent` and `handleSpotPriceEvent` handler functions which were defined in the manifest file along with an extra function called `updateDailyAggregation`.
 
-`handleFundingRateChangeEvent` receives an event of type CosmosEvent, logs a message to the console for debugging purposes and then attempts to obtain the contract address from the event.event.attribute. This contract address, along with the blockheight is used as a unique id. 
+`handleFundingRateChangeEvent` receives an event of type CosmosEvent, logs a message to the console for debugging purposes and then attempts to obtain the contract address from the `event.event.attributes` (Cosmos events code attributes as an array of key value pairs). This contract address, along with the block height is used as a unique id.
 
-An exchange rate object is then created, provided that it hasn't been created already, and then we look for certain event attributes to index by searching through the attribute keys. 
+An exchange rate object is then created, provided that it hasn't been created already, and then we look for certain event attributes to index by searching through the attribute keys.
 
-The `handleSpotPriceEvent` handler function works in the same way. 
+The `handleSpotPriceEvent` handler function works in the same way.
 
-The `updateDailyAggregation` function is called by the previous two functions to determine the highest and lowest price of the day along with the opening and closing price of the day.
+The `updateDailyAggregation` function is called by the previous two functions to determine the highest and lowest price of the day along with the opening and closing price of the day. It is called when each new exhanged rate object is created or update.
 
- Check out our [Mappings](../../build/mapping/cosmos.md) documentation and get information on the mapping functions in detail.
+Check out our [Mappings](../../build/mapping/cosmos.md) documentation and get information on the mapping functions in detail.
 
 ## 4. Build Your Project
 
