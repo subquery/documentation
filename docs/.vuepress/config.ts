@@ -326,6 +326,10 @@ function getSidebar(locale: string): SidebarOptions {
                   link: `${locale}/quickstart/quickstart_chains/cosmos-juno.md`,
                 },
                 {
+                  text: "Sei",
+                  link: `${locale}/quickstart/quickstart_chains/cosmos-sei.md`,
+                },
+                {
                   text: "Terra",
                   link: `${locale}/quickstart/quickstart_chains/terra.md`,
                 },
