@@ -6,26 +6,26 @@ Welcome to this guide of how to become an Indexer. Let's take an overview of the
 
 ## Summary of Steps
 
-| Steps | Process Flow                                                                                                                  |
-| ----- | ----------------------------------------------------------------------------------------------------------------------------- |
-| 1     | Set Up & Start Indexing [Locally](../indexers/install-indexer-locally.md) or [On Linux](../indexers/install-indexer-linux.md) |
-| 2     | [Connect to MetaMask](../metamask/connect-metamask.md)                                                                        |
-| 3     | [Obtain Kepler Tokens](#3-obtain-ksqt-tokens)                                                                                 |
-| 4     | [How to index a project](#4-how-to-index-a-project) or [restore dictionary databases](#4-how-to-index-a-project)              |
-| 5     | [Create a Plan from a Plan Template](#5-create-a-plan-from-a-plan-template)                                                   |
-| 6     | [Setting an Indexer Commission Rate](#6-configure-an-indexer-commission-rate-icr)                                             |
-|       | [Troubleshooting](../indexers/troubleshooting-indexers.md)                                                                    |
-|       | [FAQs](../indexers/faqs-indexers.md)                                                                                          |
+| Steps | Process Flow                                                                                                     |
+| ----- | ---------------------------------------------------------------------------------------------------------------- |
+| 1     | Set Up & Start Indexing [Locally](./install-indexer-locally.md) or [On Linux](./install-indexer-linux.md)        |
+| 2     | [Connect to MetaMask](#2-connect-to-metamask)                                                                    |
+| 3     | [Obtain Kepler Tokens](#3-obtain-ksqt-tokens)                                                                    |
+| 4     | [How to index a project](#4-how-to-index-a-project) or [restore dictionary databases](#4-how-to-index-a-project) |
+| 5     | [Create a Plan from a Plan Template](#5-create-a-plan-from-a-plan-template)                                      |
+| 6     | [Setting an Indexer Commission Rate](#6-configure-an-indexer-commission-rate-icr)                                |
+|       | [Troubleshooting](./troubleshooting-indexers.md)                                                                 |
+|       | [FAQs](./faqs-indexers.md)                                                                                       |
 
 ## Understanding how Kepler will Operate for Indexers
 
 In the first phase of Kepler, Indexers will be Sponsored by the SubQuery Council to run common good sponsored projects. These will be run using standardised plans so that the SubQuery Council can easily create agreements with each Indexer and sponsor them in bulk.
 
 - All plans will be orientated around the length of an Era, which is currently one week but may be increased to a fortnight (two weeks).
-- Indexers should only index from a list of standardised projects that will be listed [here](./dictionary-restore.md#downloading-database-snapshots). You wont be rewarded for indexing any projects that are not on this list.
+- Indexers should only index from a list of standardised projects that will be listed [here](./index-project.md#2-add-a-project). You wont be rewarded for indexing any projects that are not on this list.
 - Towards the end of each era, we will release the suggested plan templates, recommended pricing, an and other instructions for the start of the next period. You can create plans under [step 5](#5-create-a-plan-from-a-plan-template). These will be shared on [Discord](https://discord.com/invite/subquery) in `kepler-indexer-chat`
 - We use the [Indexer Excellency programme](https://kepler.subquery.network/delegator/indexers/top) to rank Indexers and plans will be allocated to Indexers with a higher score. In order to maximise your rewards, we suggest trying to maximise your score in this programme (you can hover over the column header to see how each score is calculated).
-- We also constantly assess uptime from our Indexers, so if you have [announced that your indexing service is ready to use](../indexers/index-project.md#42-announcing-that-indexing-service-is-ready-to-use), then you will be penalised for any downtime.
+- We also constantly assess uptime from our Indexers, so if you have [announced that your indexing service is ready to use](./index-project.md#42-announcing-that-indexing-service-is-ready-to-use), then you will be penalised for any downtime.
 - Finally, we also assess pricing when creating agreements with Indexers, so Indexers with lower plan prices can expect a higher chance of being selected.
 
 ![Indexer Excellency](/assets/img/indexer-excellency.png)
@@ -116,7 +116,16 @@ Before using the docker-compose file in the `metrics` directory, you should port
 3. In the `metrics/prometheus.yml` file, update the `bearer_token`. It should also match the `--metrics-token` value, but in the format of `Bearer <metrics-token-here>`.
 4. If your indexer proxy runs on a non-default port, update the target under `query_count -> static_configs -> targets` in the `metrics/prometheus.yml` file.
 
-After making these adjustments, start up the docker-compose file with the following command:
+::: warning For Linux Users
+
+If you are running your indexer on linux you need specify the exact ip instead of `host.docker.internal` inside `metrics/prometheus.yml` file.
+
+You can get this for indexer proxy and coordinator by running:
+
+`docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' <container_name>`
+:::
+
+After doing this configuration you can start up the compose file:
 
 ```bash
 docker-compose -f ./metrics/docker-compose-metrics.yml up -d
@@ -145,7 +154,7 @@ By following these simple steps, you can upgrade your indexer services in Docker
 
 ## 2. Connect to MetaMask
 
-Once your Indexing Service is all set and running successfully, [connect to your MetaMask wallet](../metamask/connect-metamask.md)
+Once your Indexing Service is all set and running successfully, connect to your MetaMask wallet.
 
 ## 3. Obtain kSQT tokens
 
@@ -155,10 +164,10 @@ For Kepler, you can obtain kSQT tokens from the [Kepler Airdrop App](https://air
 
 ## 4. How to index a project
 
-To index a project, please follow the instructions [here](../indexers/index-project.md).
+To index a project, please follow the instructions [here](./index-project.md#).
 
 ::: info Note
-If you are wanting to index a Dictionary, then you may be able to restore your project from our dictionary snapshots to save a lot of time. Instructions are [here](../indexers/dictionary-restore.md)
+If you are wanting to index a Dictionary, then you may be able to restore your project from our dictionary snapshots to save a lot of time. Instructions are [here](./dictionary-restore.md)
 :::
 
 ## 5. Create a Plan from a Plan Template
@@ -179,4 +188,4 @@ Changes will come into effect at the start of the next Era.
 
 ## Additional Notes
 
-Visit [Troubleshooting](../indexers/troubleshooting-indexers.md) or [FAQs](../indexers/faqs-indexers.md) if you run into technical issues.
+Visit [Troubleshooting](./troubleshooting-indexers.md) or [FAQs](./faqs-indexers.md) if you run into technical issues.

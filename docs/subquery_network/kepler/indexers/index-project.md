@@ -2,7 +2,7 @@
 
 ## Introduction
 
-To become a SubQuery Indexer, you need to stake a minimum of 1000 SQT. If you still haven’t connected your application to MetaMask, visit [How to Connect to MetaMask](../metamask/connect-metamask.md).
+To become a SubQuery Indexer, you need to stake a minimum of 1000 SQT.
 
 ::: info Note
 Only Indexers that have been airdropped kSQT will be able to join Kepler as an indexer. In the future, we may invite more indexers into the network.
@@ -81,6 +81,19 @@ Once the Controller Account has been added, a new Projects tab appears at the to
 
 Before clicking **`Add Project`,** you will need to obtain the project's deployment ID. If the project has already been deployed and indexed by other indexers, you may be able to find it listed in the SubQuery Explorer as the obtain the project’s Deployment ID.
 
+The following projects are available for indexing on the Kepler network. Some projects have a backup restore provided.
+
+| Network   | Project Name            | Deployment ID                                    | Database Size | Dictionary Endpoint                                                            | Has Restore File               |
+| --------- | ----------------------- | ------------------------------------------------ | ------------- | ------------------------------------------------------------------------------ | ------------------------------ |
+| Polygon   | Kepler Exchange Project | `QmV6sbiPyTDUjcQNJs2eGcAQp2SMXL2BU6qdv5aKrRr7Hg` | -             | [Subquery URL](https://gx.api.subquery.network/sq/subquery/polygon-dictionary) | No                             |
+| Pollkadot | Polkadot Dictionary     | `QmZGAZQ7e1oZgfuK4V29Fa5gveYK3G2zEwvUzTZKNvSBsm` | ~220GB        | N/A                                                                            | [Yes](./dictionary-restore.md) |
+| Kusama    | Kusama Dictionary       | `QmXwfCF8858YY924VHgNLsxRQfBLosVbB31mygRLhgJbWn` | ~260GB        | N/A                                                                            | [Yes](./dictionary-restore.md) |
+| Nodle     | Nodle Dictionary        | `QmQtmsHoJEYUcxKE4tBqr9Z8kudcgkczQPfhkAxVExQX5y` | -             | N/A                                                                            | [Yes](./dictionary-restore.md) |
+
+::: info Note
+If you are wanting to index a Dictionary, then you may be able to restore your project from our dictionary snapshots to save a lot of time. Instructions are [here](../indexers/dictionary-restore.md)
+:::
+
 ![Add Project Screen](/assets/img/add_project_index_project.png)
 
 ![Select a Project](/assets/img/select_project_index_project.png)
@@ -92,10 +105,6 @@ Enter the project deployment ID when addding the new project.
 After finishing the process of adding your project, move forward with indexing the project.
 
 ## 3. Index a Project
-
-::: info Note
-If you are wanting to index a Dictionary, then you may be able to restore your project from our dictionary snapshots to save a lot of time. Instructions are [here](../indexers/dictionary-restore.md)
-:::
 
 Select the project card to open the project details page.
 
