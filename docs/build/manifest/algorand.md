@@ -23,6 +23,8 @@ repository: "https://github.com/subquery/algorand-subql-starter"
 schema:
   file: ./schema.graphql
 network:
+  # For the testnet use the following
+  # chainId: "SGO1GKSzyE7IEPItTxCByw9x8FmnrCDexi9/cOUJOiI="
   chainId: "wGHE2Pwdvd7S12BL5FaOP20EGYesN73ktiC1qzkkit8="
   # This endpoint must be a public non-pruned archive node
   # We recommend providing more than one endpoint for improved reliability, performance, and uptime
@@ -30,12 +32,10 @@ network:
   # When developing your project we suggest getting a private API key
   # You can get them from OnFinality for free https://app.onfinality.io
   # https://documentation.onfinality.io/support/the-enhanced-api-service
-  endpoint: ["https://algoindexer.algoexplorerapi.io"]
+  endpoint: ["https://mainnet-idx.algonode.cloud"]
   # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
   dictionary: https://api.subquery.network/sq/subquery/Algorand-Dictionary
-  # For the testnet use the following
-  # chainId: "SGO1GKSzyE7IEPItTxCByw9x8FmnrCDexi9/cOUJOiI="
-  # endpoint: "https://algoindexer.testnet.algoexplorerapi.io"
+
 dataSources:
   - kind: algorand/Runtime
     startBlock: 50000 # Block to start indexing from
@@ -183,7 +183,7 @@ When declaring a `range` use an string in the format of `"start - end"`. Both st
 ```yaml
 network:
   chainId: "wGHE2Pwdvd7S12BL5FaOP20EGYesN73ktiC1qzkkit8="
-  endpoint: "https://algoindexer.algoexplorerapi.io"
+  endpoint: "https://mainnet-idx.algonode.cloud"
   dictionary: https://api.subquery.network/sq/subquery/Algorand-Dictionary
   bypassBlocks: [1, 2, 3, "105-200", 290]
 ```
