@@ -139,15 +139,103 @@ Check out our [Substrate EVM](../../build/substrate-evm.md) documentation to get
 
 ## 3. Mapping Functions
 
+Mapping functions define how chain data is transformed into the optimised GraphQL entities that we previously defined in the `schema.graphql` file.
 
+Navigate to the default mapping function in the `src/mappings` directory. There are the exported functions `handleCollatorJoined`, `handleCollatorLeft` and `handleErc20Transfer`.
+
+```ts
+export async function collatorJoined(event: SubstrateEvent): Promise<void> {
+
+    const address = event.extrinsic.extrinsic.signer.toString();
+
+    const collator = Collator.create({
+        id: address,
+        joinedDate: event.block.timestamp
+    });
+
+    await collator.save();
+
+}
+
+export async function collatorLeft(call: SubstrateExtrinsic): Promise<void> {
+
+    const address = call.extrinsic.signer.toString();
+    await Collator.remove(address);
+}
+```
+
+The `handleCollatorJoined` and `handleCollatorLeft` functions receives Substrate event/call data from the native Substrate environment whenever an event/call matches the filters that were specified previously in the `project.yaml`. It extracts the various data from the event/call payload, then checks if an existing Collator record exists. If none exists (e.g. it's a new collator), then it instantiates a new one and then updates the total stake to reflect the new collators. Then the `.save()` function is used to save the new/updated entity (_SubQuery will automatically save this to the database_).
+
+```ts
+export async function erc20Transfer(event: MoonbeamEvent<[string, string, BigNumber] & { from: string, to: string, value: BigNumber, }>): Promise<void> {
+    const transfer = Erc20Transfer.create({
+        id: event.transactionHash,
+        from: event.args.from,
+        to: event.args.to,
+        amount: event.args.value.toBigInt(),
+        contractAddress: event.address,
+    });
+
+    await transfer.save();
+}
+```
+
+The `handleWErc20Transfer` function receives event data from the EVM execution environment whenever a call matches the filters that was specified previously in the `project.yaml`. It instantiates a new `Transfer` entity and populates the fields with data from the EVM Call payload. Then the `.save()` function is used to save the new entity (_SubQuery will automatically save this to the database_).
+
+Check out our mappings documentation for [Substrate](../../build/mapping/polkadot.md) and the [Substrate WASM data processor](../../build/substrate-wasm.md) to get detailed information on mapping functions for each type.
 
 ## 4. Build Your Project
 
+Next, build your work to run your new SubQuery project. Run the build command from the project's root directory as given here:
+
+::: code-tabs
+@tab:active yarn
+
+```shell
+yarn build
+```
+
+@tab npm
+
+```shell
+npm run-script build
+```
+
+:::
+
+::: warning Important
+Whenever you make changes to your mapping functions, make sure to rebuild your project.
+:::
 
 
 ## 5. Run Your Project Locally with Docker
 
+SubQuery provides a Docker container to run projects very quickly and easily for development purposes.
 
+The docker-compose.yml file defines all the configurations that control how a SubQuery node runs. For a new project, which you have just initialised, you won't need to change anything.
+
+Run the following command under the project directory:
+
+::: code-tabs
+@tab:active yarn
+
+```shell
+yarn start:docker
+```
+
+@tab npm
+
+```shell
+npm run-script start:docker
+```
+
+:::
+
+::: tip
+It may take a few minutes to download the required images and start the various nodes and Postgres databases.
+:::
+
+Visit [Running SubQuery Locally](../../run_publish/run.md) to get more information on the file and the settings.
 
 ## 6. Query Your Project
 
