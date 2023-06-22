@@ -239,7 +239,26 @@ Visit [Running SubQuery Locally](../../run_publish/run.md) to get more informati
 
 ## 6. Query Your Project
 
+There is a _Docs_ tab on the right side of the playground which should open a documentation drawer. This documentation is automatically generated and helps you find what entities and methods you can query. To learn more about the GraphQL Query language [here](../../run_publish/graphql.md).
+:::
 
+You should see results similar to below:
+
+```json
+{
+  "data": {
+  }
+}
+```
 
 ## What's next?
 
+Congratulations! You have now a locally running SubQuery project that accepts GraphQL API requests for transfer events from the $FRAX smart contract at [`0x322E86852e492a7Ee17f28a78c663da38FB33bfb`](https://moonscan.io/token/0x322e86852e492a7ee17f28a78c663da38fb33bfb).
+
+::: tip Tip
+
+Find out how to build a performant SubQuery project and avoid common mistakes in [Project Optimisation](../../build/optimisation.md).
+
+:::
+
+Click [here](../../quickstart/whats-next.md) to learn what should be your **next step** in your SubQuery journey.
