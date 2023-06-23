@@ -110,9 +110,10 @@ dataSources:
   - kind: substrate/Runtime
     # This is the datasource for Moonbeam's Native Substrate processor
     ...
-  - kind: substrate/Wasm
+  - kind: substrate/FrontierEvm
     # This is the datasource for Moonbeam's EVM processor
-    startBlock: 3281780
+    startBlock: 189831
+    #This is the block at which $FRAX contract was deployed
     processor:
       file: ./node_modules/@subql/frontier-evm-processor/dist/bundle.js
       options:
