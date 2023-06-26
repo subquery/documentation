@@ -66,8 +66,8 @@ The Project Manifest (`project.yaml`) file works as an entry point to your proje
 
 For [EVM](../../build/substrate-evm.md) and [WASM](../../build/substrate-wasm.md) data processors on Substrate/Polkadot chains, there are only two types of mapping handlers:
 
-- [EventHandlers](../../build/substrate-wasm.html#event-handlers): On each and every Event that matches optional filter criteria, run a mapping function
-- [CallHanders](../../build/substrate-wasm.html#call-handlers): On each and every extrinsic call that matches optional filter criteria, run a mapping function
+- [EventHandlers](../../build/substrate-evm.html#event-handlers): On each and every Event that matches optional filter criteria, run a mapping function
+- [CallHanders](../../build/substrate-evm.html#call-handlers): On each and every extrinsic call that matches optional filter criteria, run a mapping function
 
 ### Substrate Manifest section
 
@@ -145,23 +145,27 @@ Mapping functions define how chain data is transformed into the optimised GraphQ
 Navigate to the default mapping function in the `src/mappings` directory. There are the exported functions `handleCollatorJoined`, `handleCollatorLeft` and `handleErc20Transfer`.
 
 ```ts
-export async function collatorJoined(event: SubstrateEvent): Promise<void> {
+export async function handleCollatorJoined(call: SubstrateExtrinsic): Promise<void> {
+  //We added a logger to the top of this function, in order to see the block number of the event we are processing.
+  logger.info(`Processing SubstrateEvent at ${call.block.block.header.number}`);
 
-    const address = event.extrinsic.extrinsic.signer.toString();
+  const address = call.extrinsic.signer.toString();
 
-    const collator = Collator.create({
-        id: address,
-        joinedDate: event.block.timestamp
-    });
+  const collator = Collator.create({
+      id: address,
+      joinedDate: call.block.timestamp
+  });
 
-    await collator.save();
+  await collator.save();
 
 }
 
-export async function collatorLeft(call: SubstrateExtrinsic): Promise<void> {
+export async function handleCollatorLeft(call: SubstrateExtrinsic): Promise<void> {
+  //We added a logger to the top of this function, in order to see the block number of the event we are processing.
+  logger.info(`Processing SubstrateCall at ${call.block.block.header.number}`);
 
-    const address = call.extrinsic.signer.toString();
-    await Collator.remove(address);
+  const address = call.extrinsic.signer.toString();
+  await Collator.remove(address);
 }
 ```
 
@@ -183,7 +187,7 @@ export async function erc20Transfer(event: MoonbeamEvent<[string, string, BigNum
 }
 ```
 
-The `handleWErc20Transfer` function receives event data from the EVM execution environment whenever a call matches the filters that was specified previously in the `project.yaml`. It instantiates a new `Transfer` entity and populates the fields with data from the EVM Call payload. Then the `.save()` function is used to save the new entity (_SubQuery will automatically save this to the database_).
+The `handleErc20Transfer` function receives event data from the EVM execution environment whenever an event matches the filters that was specified previously in the `project.yaml`. It instantiates a new `Transfer` entity and populates the fields with data from the EVM Call payload. Then the `.save()` function is used to save the new entity (_SubQuery will automatically save this to the database_).
 
 Check out our mappings documentation for [Substrate](../../build/mapping/polkadot.md) and the [Substrate WASM data processor](../../build/substrate-wasm.md) to get detailed information on mapping functions for each type.
 
