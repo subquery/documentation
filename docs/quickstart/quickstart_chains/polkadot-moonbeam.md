@@ -280,7 +280,7 @@ You should see results similar to below:
           "contractAddress": "0x322e86852e492a7ee17f28a78c663da38fb33bfb",
           "amount": "380739794849478795472"
         },
-      }
+      ]}
   }
 }
 ```
