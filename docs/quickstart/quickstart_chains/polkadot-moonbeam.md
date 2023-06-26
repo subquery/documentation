@@ -169,6 +169,8 @@ The `handleCollatorJoined` and `handleCollatorLeft` functions receives Substrate
 
 ```ts
 export async function erc20Transfer(event: MoonbeamEvent<[string, string, BigNumber] & { from: string, to: string, value: BigNumber, }>): Promise<void> {
+    //We added a logger to the top of this function, in order to see the block number of the event we are processing.
+    logger.info(`Processing MoonbeamEvent at ${event.blockNumber.toString()}`);
     const transfer = Erc20Transfer.create({
         id: event.transactionHash,
         from: event.args.from,
@@ -248,6 +250,37 @@ You should see results similar to below:
 ```json
 {
   "data": {
+    "erc20Transfers": {
+      "nodes": [
+        {
+          "id": "0x6eadc6336e57c95012a0b3fe0bbfdfe4b05870db45f54022f6f0fae99094389e",
+          "from": "0xB213A825552FBC78DcA987824F74c8a870696ede",
+          "to": "0xd3bE0E32147ae91378F035fF96f3e2cAb96aC48b",
+          "contractAddress": "0x322e86852e492a7ee17f28a78c663da38fb33bfb",
+          "amount": "421311117864349454574"
+        },
+        {
+          "id": "0x042e355370899571f0a8828e943ac794554b48c3d042a0a26cfd64e3b1107de5",
+          "from": "0xd3bE0E32147ae91378F035fF96f3e2cAb96aC48b",
+          "to": "0x1d3286A3348Fa99852d147C57A79045B41c4f713",
+          "contractAddress": "0x322e86852e492a7ee17f28a78c663da38fb33bfb",
+          "amount": "180233014368657600639"
+        },
+        {
+          "id": "0x1fcc93ee0879ade7df0bfbaaaff32b0aef31698865ede29290b5616b59683f5e",
+          "from": "0x5f68e72bF781d3927a59Ff74030b87A0F628EB91",
+          "to": "0x054Fb7D6c1E3d7771B128Eb6FA63864745284Fc5",
+          "contractAddress": "0x322e86852e492a7ee17f28a78c663da38fb33bfb",
+          "amount": "24614491694707430571"
+        },
+        {
+          "id": "0x50eecab0be3c46ff1d1aa8effcd1166bbdcb9f28582c2a5f53fd35b25b8cd021",
+          "from": "0x2974A0D3e70FDe22d44c188F770beE964205aCad",
+          "to": "0xa7A3Cb7d3f9Cf963012fdd54E6de3562A3A5f140",
+          "contractAddress": "0x322e86852e492a7ee17f28a78c663da38fb33bfb",
+          "amount": "380739794849478795472"
+        },
+      }
   }
 }
 ```
