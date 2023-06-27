@@ -22,7 +22,7 @@ The final code of this project can be found [here](https://github.com/subquery/c
 
 The `schema.graphql` file determines the shape of your data from SubQuery due to the mechanism of the GraphQL query language. Hence, updating the GraphQL Schema file is the perfect start. It allows you to define your end goal right at the start.
 
-Update the `schema.graphql` file as follows. The aim is to index all deposit messages. Since each deposit can include mulitple tokens, we need to define a [many-to-many relationship](../../build/graphql.md#man) between the Deposit and Coin - we use the DepositCoin entity to link these two entities.
+Update the `schema.graphql` file as follows. The aim is to index all deposit messages. Since each deposit can include multiple tokens, we need to define a [many-to-many relationship](../../build/graphql.md#man) between the Deposit and Coin - we use the DepositCoin entity to link these two entities.
 
 ```graphql
 type Deposit @entity {
