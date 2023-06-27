@@ -30,7 +30,7 @@ The Project Manifest (`project.yaml`) file works as an entry point to your Avala
 
 Note that the manifest file has already been set up correctly and doesn’t require significant changes, but you need to import the correct contract definitions and update the datasource handlers.
 
-We are indexing actions from the Pangolin Rewards contract, first you will need to import the contract abi defintion from [here](https://snowtrace.io/token/0x88afdae1a9f58da3e68584421937e5f564a0135b). You can copy the entire JSON and save as a file `./abis/PangolinRewards.json` in the root directory.
+We are indexing actions from the Pangolin Rewards contract, first you will need to import the contract abi defintion from [here](https://snowtrace.io/token/0x88afdae1a9f58da3e68584421937e5f564a0135b){:target="_blank"}. You can copy the entire JSON and save as a file `./abis/PangolinRewards.json` in the root directory.
 
 This section in the Project Manifest now imports all the correct definitions and lists the triggers that we look for on the blockchain when indexing.
 
