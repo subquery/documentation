@@ -20,7 +20,7 @@ The final code of this project can be found [here](https://github.com/jamesbayly
 
 The `schema.graphql` file determines the shape of your data from SubQuery due to the mechanism of the GraphQL query language. Hence, updating the GraphQL Schema file is the perfect place to start. It allows you to define your end goal right at the start.
 
-Remove all existing entities and update the `schema.graphql` file as follows, here you can see we are focussing on indexing all transactions ralated to the PLANET asset.
+Remove all existing entities and update the `schema.graphql` file as follows, here you can see we are focussing on indexing all transactions related to the PLANET asset.
 
 ```graphql
 type Transaction @entity {
@@ -59,7 +59,7 @@ Now that you have made essential changes to the GraphQL Schema file, let’s mov
 
 ## 2. Update Your Project Manifest File
 
-The Project Manifest (`project.yaml`) file works as an entry point to your Algorand project. It defines most of the details on how SubQuery will index and transform the chain data. For Algorand , there are two types of mapping handlers (and you can have more than one in each project):
+The Project Manifest (`project.yaml`) file works as an entry point to your Algorand project. It defines most of the details on how SubQuery will index and transform the chain data. For Algorand, there are two types of mapping handlers (and you can have more than one in each project):
 
 - [BlockHanders](../../build/manifest/algorand.md#mapping-handlers-and-filters): On each and every block, run a mapping function
 - [TransactionHandlers](../../build/manifest/algorand.md#mapping-handlers-and-filters): On each and every transaction that matches an optional filter, run a mapping function

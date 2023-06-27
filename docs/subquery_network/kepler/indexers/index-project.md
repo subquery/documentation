@@ -85,6 +85,8 @@ The following projects are available for indexing on the Kepler network. Some pr
 
 | Network   | Project Name            | Deployment ID                                    | Database Size | Dictionary Endpoint                                                            | Has Restore File               |
 | --------- | ----------------------- | ------------------------------------------------ | ------------- | ------------------------------------------------------------------------------ | ------------------------------ |
+| Polygon   | Kepler Network Project  | `Qma5ytpgnpqvrgxg3Da7ovUNmhEdaAuEsE7doJmVumn8Eq` | -             | [Subquery URL](https://gx.api.subquery.network/sq/subquery/polygon-dictionary) | No                             |
+| Polygon   | Kepler Airdrop Project  | `QmUwTD5dqQRRFcMCihJ4HHnMPfEvRpKpcFvGcTJjBpGg9T` | -             | [Subquery URL](https://gx.api.subquery.network/sq/subquery/polygon-dictionary) | No                             |
 | Polygon   | Kepler Exchange Project | `QmV6sbiPyTDUjcQNJs2eGcAQp2SMXL2BU6qdv5aKrRr7Hg` | -             | [Subquery URL](https://gx.api.subquery.network/sq/subquery/polygon-dictionary) | No                             |
 | Pollkadot | Polkadot Dictionary     | `QmZGAZQ7e1oZgfuK4V29Fa5gveYK3G2zEwvUzTZKNvSBsm` | ~220GB        | N/A                                                                            | [Yes](./dictionary-restore.md) |
 | Kusama    | Kusama Dictionary       | `QmXwfCF8858YY924VHgNLsxRQfBLosVbB31mygRLhgJbWn` | ~260GB        | N/A                                                                            | [Yes](./dictionary-restore.md) |
