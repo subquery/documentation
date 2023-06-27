@@ -2,7 +2,7 @@
 
 ## Goals
 
-The goal of this quick start guide is to index all ETH-USD exchange rates provided to [Levana’s Sei DEX protocol](https://blog.levana.finance/levana-perpetual-swap-beta-now-live-on-sei-networks-testnet-a-new-era-for-decentralized-crypto-fc0930ea4b9) by the Pyth price oracle
+The goal of this quick start guide is to index all ETH-USD exchange rates provided to [Levana’s Sei DEX protocol](https://blog.levana.finance/levana-perpetual-swap-beta-now-live-on-sei-networks-testnet-a-new-era-for-decentralized-crypto-fc0930ea4b9) by the Pyth price oracle.
 
 ::: info
 Sei Network is a chain based on the Cosmos SDK. Therefore you can index chain data via the standard Cosmos RPC interface.
