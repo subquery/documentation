@@ -30,7 +30,7 @@ The Project Manifest (`project.yaml`) file works as an entry point to your BSC p
 
 Note that the manifest file has already been set up correctly and doesn’t require significant changes, but you need to import the correct contract definitions and update the datasource handlers.
 
-We are indexing actions from the MOBOX Farming contract, first you will need to import the contract abi defintion from https://bscscan.com/address/0xa5f8c5dbd5f286960b9d90548680ae5ebff07652#code. You can copy the entire JSON and save as a file `mobox.abi.json` in the root directory.
+We are indexing actions from the MOBOX Farming contract, first you will need to import the contract abi defintion from[here]( https://bscscan.com/address/0xa5f8c5dbd5f286960b9d90548680ae5ebff07652#code). You can copy the entire JSON and save as a file `mobox.abi.json` in the root directory.
 
 This section in the Project Manifest now imports all the correct definitions and lists the triggers that we look for on the blockchain when indexing.
 
@@ -38,7 +38,7 @@ This section in the Project Manifest now imports all the correct definitions and
 
 ```yaml
 dataSources:
-  - kind: ethereum/Runtime # We use ethereum runtime since BSC is a layer-2 that is compatible
+  - kind: ethereum/Runtime # We use ethereum runtime since BSC is an EVM compatible blockchain
     startBlock: 17047980 # The block on which the Mobox Farming contract was deployed
     options:
       # Must be a key of assets
@@ -51,13 +51,13 @@ dataSources:
       file: "./dist/index.js"
       handlers:
         - handler: handleDeposit
-          kind: ethereum/LogHandler # We use ethereum handlers since BSC is a layer-2 that is compatible
+          kind: ethereum/LogHandler # We use ethereum handlers since BSC is an EVM-compatible blockchain
           filter:
             topics:
               ## Follows standard log filters https://docs.ethers.io/v5/concepts/events/
               - Deposit(address indexed user, uint256 indexed pid, uint256 amount)
         - handler: handleWithdraw
-          kind: ethereum/LogHandler # We use ethereum handlers since BSC is a layer-2 that is compatible
+          kind: ethereum/LogHandler # We use ethereum handlers since BSC is a EVM-compatible blockchain
           filter:
             topics:
               ## Follows standard log filters https://docs.ethers.io/v5/concepts/events/
