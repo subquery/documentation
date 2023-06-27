@@ -2,7 +2,7 @@
 
 ## Goals
 
-The goal of this quick guide is to adapt the standard starter project and start indexing all transfers from Terra.
+The goal of this quick guide is to adapt the standard starter project and start indexing all transfers from from the Terra bLuna smart contract.
 
 ::: warning Important
 Before we begin, make sure that you have initialised your project using the provided steps in the **[Start Here](../quickstart.md)** section.
