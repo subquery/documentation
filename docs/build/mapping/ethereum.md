@@ -17,7 +17,7 @@ You can use block handlers to capture information each time a new block is attac
 ```ts
 import { EthereumBlock } from "@subql/types-ethereum";
 
-export async function handleBlock(block: EtheruemBlock): Promise<void> {
+export async function handleBlock(block: EthereumBlock): Promise<void> {
   // Create a new BlockEntity with the block hash as it's ID
   const record = new BlockEntity(block.blockHash);
   record.height = BigInt(block.blockNumber);
