@@ -219,7 +219,7 @@ Whenever you make changes to your mapping functions, make sure to rebuild your p
 
 SubQuery provides a Docker container to run projects very quickly and easily for development purposes.
 
-The docker-compose.yml file defines all the configurations that control how a SubQuery node runs. For a new project, which you have just initialised, you won't need to change anything.
+The `docker-compose.yml` file defines all the configurations that control how a SubQuery node runs. For a new project, which you have just initialised, you won't need to change anything.
 
 Run the following command under the project directory:
 
