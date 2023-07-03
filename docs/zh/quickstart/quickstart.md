@@ -48,10 +48,10 @@ subql init
 - **Network family**: 此SubQuery 项目将索引的图层1 区块链网络类。 使用箭头键从可用选项中选择。 例如，Polkadot、Avalanche、Cosmos或任何其他支持的网络。
 - **Network**: 此SubQuery 项目将索引的特定网络。 使用箭头键从可用选项中选择。 例如，Polkadot, Avalanche, 或任何其他支持的网络。
 - **Template project**：选择一个SubQuery 项目模板，它将为开始开发提供起始点. 我们建议选择 _"subql-starter"_ 项目。
-- **RPC endpoint**(必填)：提供一个 wss URL给一个正在运行的 RPC 端点，该端点将默认用于此项目。 您可以快速访问不同的 Polkadot 网络的公共端点，甚至可以使用 [OnFinality](https://app.onfinality.io) 或仅使用默认的 Polkadot 端点创建您自己的专用节点。 此 RPC 节点必须是归档节点 (具有完整链状态)。 我们将使用本指南的默认值。 基于您选择的网络，默认值可以是：
-  - 对于Polkadot - _"https://polkadot.api.onfinality.io"_,
-  - 对于Avalanche - _"https://avalanche.apionfinality.io"_,
-  - 对于 Terra - _“https://terra-columbus-5.beta.api.onfinality.io”_ 等于其他网络。 <br/>
+- **RPC endpoint**: Provide an HTTP or websocket URL to a running RPC endpoint, which will be used by default for this project. 您可以快速访问不同的 Polkadot 网络的公共端点，甚至可以使用 [OnFinality](https://app.onfinality.io) 或仅使用默认的 Polkadot 端点创建您自己的专用节点。 This RPC node must have the entire state of the data that you wish to index, so we recommend an archive node. 我们将使用本指南的默认值。 基于您选择的网络，默认值可以是：
+  - For Polkadot - _"wss://polkadot.api.onfinality.io/public-ws"_,
+  - For Avalanche - _"https://avalanche.api.onfinality.io/public/ext/bc/C/rpc"_,
+  - For Ethereum - _“https://eth.api.onfinality.io/public”_ and likewise for other networks.
 - **Git repository（可选）**：提供指向此 SubQuery 项目的，并将在其中托管的存储库的 Git URL（当托管在 SubQuery Explorer 中时）
 - **Authors**：在此输入此SubQuery项目的所有者(例如您的名字!)或接受所提供的默认值。
 - **Description**：提供一个关于您项目的简短段落，描述项目包含哪些数据，用户可以做什么或接受提供的默认值。
