@@ -48,10 +48,10 @@ Bạn sẽ được hỏi một số câu hỏi nhất định khi tiếp tục:
 - **Network family**: Nhóm mạng blockchain layer-1 mà dự án SubQuery này sẽ lập chỉ mục. Sử dụng các phím mũi tên để chọn từ các tùy chọn có sẵn. Ví dụ: Polkadot, Avalanche, Cosmos, hoặc bất kỳ mạng được hỗ trợ nào khác.
 - **Network**: Mạng cụ thể mà dự án SubQuery này sẽ lập chỉ mục. Sử dụng các phím mũi tên để chọn từ các tùy chọn có sẵn. Ví dụ: Polkadot, Avalanche, hoặc bất kỳ mạng được hỗ trợ nào khác.
 - **Template project**: Chọn một dự án mẫu SubQuery sẽ cung cấp một điểm khởi đầu để bắt đầu phát triển. Chúng tôi khuyên bạn nên chọn dự án _"subql-starter"_.
-- **RPC endpoint**: Cung cấp HTTPS URL cho RPC endpoint đang chạy, sẽ được sử dụng mặc định cho dự án này. Bạn có thể nhanh chóng truy cập các điểm cuối công khai cho các mạng khác nhau, tạo node chuyên dụng riêng của mình bằng cách sử dụng [OnFinality](https://app.onfinality.io) hoặc chỉ sử dụng điểm cuối mặc định. Nút RPC này phải là một nút lưu trữ (có trạng thái chuỗi đầy đủ). Chúng tôi sẽ sử dụng giá trị mặc định cho hướng dẫn này. Dựa trên mạng bạn đã chọn, giá trị mặc định có thể là:
-  - Đối với Polkadot - _"https://polkadot.api.onfinality.io"_,
-  - Đối với Avalanche - _"https://avalanche.api.onfinality.io"_,
-  - Đối với Terra - _“https://terra-columbus-5.beta.api.onfinality.io”_ và tương tự với các mạng khác. <br/>
+- **RPC endpoint**: Provide an HTTP or websocket URL to a running RPC endpoint, which will be used by default for this project. Bạn có thể nhanh chóng truy cập các điểm cuối công khai cho các mạng khác nhau, tạo node chuyên dụng riêng của mình bằng cách sử dụng [OnFinality](https://app.onfinality.io) hoặc chỉ sử dụng điểm cuối mặc định. This RPC node must have the entire state of the data that you wish to index, so we recommend an archive node. Chúng tôi sẽ sử dụng giá trị mặc định cho hướng dẫn này. Dựa trên mạng bạn đã chọn, giá trị mặc định có thể là:
+  - For Polkadot - _"wss://polkadot.api.onfinality.io/public-ws"_,
+  - For Avalanche - _"https://avalanche.api.onfinality.io/public/ext/bc/C/rpc"_,
+  - For Ethereum - _“https://eth.api.onfinality.io/public”_ and likewise for other networks.
 - **Git repository**: Cung cấp Git URL cho repo mà dự án SubQuery này sẽ được lưu trữ (khi được lưu trữ trong SubQuery Explorer) hoặc chấp nhận giá trị mặc định được cung cấp.
 - **Authors**: Nhập chủ sở hữu của dự án SubQuery này tại đây (ví dụ: tên của bạn!) Hoặc chấp nhận giá trị mặc định đã cung cấp.
 - **Description**: Cung cấp một đoạn giới thiệu ngắn về dự án của bạn, mô tả dự án chứa dữ liệu gì và người dùng có thể làm gì với dự án đó hoặc chấp nhận giá trị mặc định đã cung cấp.
