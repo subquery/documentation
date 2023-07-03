@@ -48,10 +48,10 @@ You'll be asked certain questions as you proceed ahead:
 - **Network family**: The layer-1 blockchain network family that this SubQuery project will index. Mevcut seçenekler arasından seçim yapmak için ok tuşlarını kullanın. For example, Polkadot, Avalanche, Cosmos, or any other supported network.
 - **Network**: The specific network that this SubQuery project will index. Mevcut seçenekler arasından seçim yapmak için ok tuşlarını kullanın. For example, Polkadot, Avalanche, or any other supported network.
 - **Template project**: Select a SubQuery template project that will provide a starting point in the development. We suggest selecting the _"subql-starter"_ project.
-- **RPC endpoint**: Provide an HTTPS URL to a running RPC endpoint, which will be used by default for this project. You can quickly access public endpoints for different networks, create your own private dedicated node using [OnFinality](https://app.onfinality.io), or just use the default endpoint. Bu RPC düğümü bir arşiv düğümü olmalıdır (tam zincir durumuna sahip). We will use the default value for this guide. Based on the network you have chosen, the default value may be:
-  - For Polkadot - _"https://polkadot.api.onfinality.io"_,
-  - For Avalanche - _"https://avalanche.api.onfinality.io"_,
-  - For Terra - _“https://terra-columbus-5.beta.api.onfinality.io”_ and likewise for other networks. <br/>
+- **RPC endpoint**: Provide an HTTP or websocket URL to a running RPC endpoint, which will be used by default for this project. You can quickly access public endpoints for different networks, create your own private dedicated node using [OnFinality](https://app.onfinality.io), or just use the default endpoint. This RPC node must have the entire state of the data that you wish to index, so we recommend an archive node. We will use the default value for this guide. Based on the network you have chosen, the default value may be:
+  - For Polkadot - _"wss://polkadot.api.onfinality.io/public-ws"_,
+  - For Avalanche - _"https://avalanche.api.onfinality.io/public/ext/bc/C/rpc"_,
+  - For Ethereum - _“https://eth.api.onfinality.io/public”_ and likewise for other networks.
 - **Git repository**: Provide a Git URL to a repo that this SubQuery project will be hosted in (when hosted in SubQuery Explorer) or accept the provided default.
 - **Authors**: Enter the owner of this SubQuery project here (e.g. your name!) or accept the provided default.
 - **Description**: Provide a short paragraph about your project that describes what data it contains and what users can do with it, or accept the provided default.
