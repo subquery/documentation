@@ -2,7 +2,7 @@
 
 ## Goals
 
-The goal of this quick start guide is to index the total claimed dividends paid to users on the WINR staking contract on Arbitrum.
+The goal of this quick start guide is to index the total claimed dividends paid to users on the [WINR staking contract](https://arbiscan.io/address/0xddAEcf4B02A3e45b96FC2d7339c997E072b0d034) on Arbitrum.
 
 ::: warning
 Before we begin, **make sure that you have initialised your project** using the provided steps in the [Start Here](../quickstart.md) section. Please initialise an Arbitrum Nova project
@@ -11,7 +11,7 @@ Before we begin, **make sure that you have initialised your project** using the 
 In every SubQuery project, there are [3 key files](../quickstart.md#_3-make-changes-to-your-project) to update. Let's begin updating them one by one.
 
 ::: tip Note
-The final code of this project can be found [here](https://github.com/subquery/subql-example-arbitrum-winr-rewards). We use Ethereum packages, runtimes, and handlers (e.g. @subql/node-ethereum, ethereum/Runtime, and ethereum/*Handler) for Arbitrum. Since Arbitrum is a layer-2 scaling solution, we can use the core Ethereum framework to index it.
+The final code of this project can be found [here](https://github.com/subquery/subql-example-arbitrum-winr-rewards). We use Ethereum packages, runtimes, and handlers (e.g. @subql/node-ethereum, ethereum/Runtime, and ethereum/*Handler) for Arbitrum. Since Arbitrum is an EVM-compatible layer-2 scaling solution, we can use the core Ethereum framework to index it.
 :::
 
 ## 1. Your Project Manifest File
@@ -79,10 +79,6 @@ type User @entity {
 }
 ```
 
-::: warning Important
-When you make any changes to the schema file, please ensure that you regenerate your types directory.
-:::
-
 SubQuery makes it easy and type-safe to work with your GraphQL entities, as well as smart contracts, events, transactions, and logs. SubQuery CLI will generate types from your project's GraphQL schema and any contract ABIs included in the data sources.
 
 ::: code-tabs
@@ -111,6 +107,10 @@ If you're creating a new Etheruem based project, this command will also generate
 ```ts
 import { ClaimDividendBatchLog } from "../types/abi-interfaces/WinrStakingAbi";
 ```
+
+::: warning Important
+When you make any changes to the schema file, please ensure that you regenerate your types directory using the SubQuery CLI prompt `yarn codegen` or `npm run-script codegen`.
+:::
 
 Check out the [GraphQL Schema](../../build/graphql.md) documentation to get in-depth information on `schema.graphql` file.
 

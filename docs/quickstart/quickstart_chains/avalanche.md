@@ -2,7 +2,7 @@
 
 ## Goals
 
-The goal of this quick start guide is to index all token deposits and transfers from the Avalanche's Pangolin token.
+The goal of this quick start guide is to index all token deposits and transfers from the Avalanche's [Pangolin token](https://snowtrace.io/address/0x88afdae1a9f58da3e68584421937e5f564a0135b).
 
 ::: warning
 Before we begin, make sure that you have initialised your project using the provided steps in the [Start Here](../quickstart.md) section. **Please initialise a Avalanche project**
@@ -30,7 +30,7 @@ The Project Manifest (`project.yaml`) file works as an entry point to your Avala
 
 Note that the manifest file has already been set up correctly and doesn’t require significant changes, but you need to import the correct contract definitions and update the datasource handlers.
 
-We are indexing actions from the Pangolin Rewards contract, first you will need to import the contract abi defintion from https://snowtrace.io/token/0x88afdae1a9f58da3e68584421937e5f564a0135b. You can copy the entire JSON and save as a file `./abis/PangolinRewards.json` in the root directory.
+We are indexing actions from the Pangolin Rewards contract, first you will need to import the contract abi defintion from [here](https://snowtrace.io/token/0x88afdae1a9f58da3e68584421937e5f564a0135b). You can copy the entire JSON and save as a file `./abis/PangolinRewards.json` in the root directory.
 
 This section in the Project Manifest now imports all the correct definitions and lists the triggers that we look for on the blockchain when indexing.
 
@@ -38,7 +38,7 @@ This section in the Project Manifest now imports all the correct definitions and
 
 ```yaml
 dataSources:
-  - kind: ethereum/Runtime # We use ethereum runtime since Avalanche is compatible
+  - kind: ethereum/Runtime # We use ethereum runtime since Avalanche C-Chain is EVM compatible
     startBlock: 7906490 # Block when the first reward is made
     options:
       # Must be a key of assets
@@ -52,7 +52,7 @@ dataSources:
       file: "./dist/index.js"
       handlers:
         - handler: handleLog
-          kind: ethereum/LogHandler # We use ethereum handlers since Avalanche is compatible
+          kind: ethereum/LogHandler # We use ethereum handlers since Avalanche C-Chain is EVM compatible
           filter:
             ## Follows standard log filters https://docs.ethers.io/v5/concepts/events/
             topics:
@@ -113,7 +113,7 @@ This will create a new directory (or update the existing) `src/types` which cont
 import { PangolinRewards, User } from "../types";
 ```
 
-If you're creating a new Etheruem based project, this command will also generate ABI types and save them into `src/types` using the `npx typechain --target=ethers-v5` command, allowing you to bind these contracts to specific addresses in the mappings and call read-only contract methods against the block being processed. It will also generate a class for every contract event to provide easy access to event parameters, as well as the block and transaction the event originated from. All of these types are written to `src/typs/abi-interfaces` and `src/typs/contracts` directories. In the example Avalanche SubQuery project, you would import these types like so.
+If you're creating a new Ethereum based project, this command will also generate ABI types and save them into `src/types` using the `npx typechain --target=ethers-v5` command, allowing you to bind these contracts to specific addresses in the mappings and call read-only contract methods against the block being processed. It will also generate a class for every contract event to provide easy access to event parameters, as well as the block and transaction the event originated from. All of these types are written to `src/typs/abi-interfaces` and `src/typs/contracts` directories. In the example Avalanche SubQuery project, you would import these types like so.
 
 ```ts
 import { RewardPaidLog } from "../types/abi-interfaces/PangolinRewards";

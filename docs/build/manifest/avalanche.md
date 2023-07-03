@@ -9,7 +9,7 @@ The migration effort is easy and should only take a few minutes. You can [follow
 :::
 
 ::: info Important
-We use Ethereum packages, runtimes, and handlers (e.g. `@subql/node-ethereum`, `ethereum/Runtime`, and `ethereum/*Handler`) for Avalanche. Since Avalanche's C-Chain is EVM based, we can use the core Ethereum framework to index it.
+We use Ethereum packages, runtimes, and handlers (e.g. `@subql/node-ethereum`, `ethereum/Runtime`, and `ethereum/*Handler`) for Avalanche. Since Avalanche's C-Chain is EVM-compatible, we can use the core Ethereum framework to index it.
 :::
 
 The Manifest `project.yaml` file can be seen as an entry point of your project and it defines most of the details on how SubQuery will index and transform the chain data. It clearly indicates where we are indexing data from, and to what on chain events we are subscribing to.
@@ -107,7 +107,7 @@ dataSources:
 
 If you start your project by using the `subql init` command, you'll generally receive a starter project with the correct network settings. If you are changing the target chain of an existing project, you'll need to edit the [Network Spec](#network-spec) section of this manifest.
 
-The `chainId` is the network identifier of the blockchain, for Avalanche this is `43114`. See https://chainlist.org/chain/137
+The `chainId` is the network identifier of the blockchain, for Avalanche this is `43114`. See https://chainlist.org/chain/43114
 
 Additionally you will need to update the `endpoint`. This defines the (HTTP or WSS) endpoint of the blockchain to be indexed - **this must be a full archive node**. This property can be a string or an array of strings (e.g. `endpoint: ['rpc1.endpoint.com', 'rpc2.endpoint.com']`). We suggest providing an array of endpoints as it has the following benefits:
 
