@@ -48,10 +48,10 @@ subql init
 - **Network family**: Layer-1 блокчейн, которую этот проект SubQuery будет индексировать. Используйте клавиши со стрелками для выбора из доступных вариантов. Например, Polkadot, Avalanche, Cosmos или другая поддерживаемая сеть.
 - **Network**: Конкретная сеть, которую будет индексировать этот проект SubQuery. Используйте клавиши со стрелками для выбора из доступных вариантов. Например, Polkadot, Avalanche или другая поддерживаемая сеть.
 - **Template project**: Выберите шаблон проекта SubQuery, который станет отправной точкой в разработке. Мы предлагаем выбрать проект _"subql-starter"_ project.
-- **RPC endpoint**: Укажите URL-адрес HTTPS для эндпоинта RPC, который будет использоваться по умолчанию для этого проекта. Вы можете быстро получить доступ к общедоступным эндпоинтам для разных сетей, создать свою собственную частную выделенную ноду, используя [OnFinality](https://app.onfinality.io), или просто использовать эндпоинт по умолчанию. Этот узел RPC должен быть архивным узлом (иметь состояние полной цепочки). В этом руководстве мы будем использовать значение по умолчанию. В зависимости от выбранной вами сети значение по умолчанию может быть:
-  - Для Polkadot - _ "https://polkadot.api.onfinality.io"_,
-  - Для Avalanche - _"https://avalanche.api.onfinality.io"_,
-  - Для Terra - _“https://terra-columbus-5.beta.api.onfinality.io”_ and likewise for other networks. <br/>
+- **RPC endpoint**: Provide an HTTP or websocket URL to a running RPC endpoint, which will be used by default for this project. Вы можете быстро получить доступ к общедоступным эндпоинтам для разных сетей, создать свою собственную частную выделенную ноду, используя [OnFinality](https://app.onfinality.io), или просто использовать эндпоинт по умолчанию. This RPC node must have the entire state of the data that you wish to index, so we recommend an archive node. В этом руководстве мы будем использовать значение по умолчанию. В зависимости от выбранной вами сети значение по умолчанию может быть:
+  - For Polkadot - _"wss://polkadot.api.onfinality.io/public-ws"_,
+  - For Avalanche - _"https://avalanche.api.onfinality.io/public/ext/bc/C/rpc"_,
+  - For Ethereum - _“https://eth.api.onfinality.io/public”_ and likewise for other networks.
 - **Git repository**: Укажите URL-адрес Git для репозитория, в котором будет размещен этот проект SubQuery (при размещении в SubQuery Explorer) или примите указанное значение по умолчанию.
 - **Authors**: Введите здесь владельца этого проекта SubQuery (например, ваше имя!) или примите предоставленное значение по умолчанию.
 - **Description**: Предоставьте краткое описание вашего проекта, в котором объясняется, какие данные он содержит и что пользователи могут с ним делать, или примите предоставленное значение по умолчанию.
