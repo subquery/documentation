@@ -245,6 +245,8 @@ Visit [Running SubQuery Locally](../../run_publish/run.md) to get more informati
 
 ## 6. Query Your Project
 
+Once the container is running, navigate to http://localhost:3000 in your browser and run the sample GraphQL command provided in the README file. Below is an example query from this project.
+
 Once the container is running, navigate to http://localhost:3000 in your browser and run the sample GraphQL command provided in the README file. Below is an example query from the Astar-wasm-starter project.
 
 
