@@ -245,6 +245,23 @@ Visit [Running SubQuery Locally](../../run_publish/run.md) to get more informati
 
 ## 6. Query Your Project
 
+Once the container is running, navigate to http://localhost:3000 in your browser and run the sample GraphQL command provided in the README file. Below is an example query from the Astar-wasm-starter project.
+
+
+```graphql
+query {
+  erc20Transfers(first: 3, orderBy: BLOCK_HEIGHT_ASC) {
+    nodes {
+      id
+      from
+      to
+      contractAddress
+      amount
+    }
+  }
+}
+```
+::: tip
 There is a _Docs_ tab on the right side of the playground which should open a documentation drawer. This documentation is automatically generated and helps you find what entities and methods you can query. To learn more about the GraphQL Query language [here](../../run_publish/graphql.md).
 :::
 
