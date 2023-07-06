@@ -1,4 +1,4 @@
-# Arbitrum Quick Start
+# Base (Goerli) Quick Start
 
 ## Goals
 
@@ -18,9 +18,9 @@ The final code of this project can be found [here](https://github.com/subquery/e
 
 The Project Manifest (`project.yaml`) file works as an entry point to your Arbitrum project. It defines most of the details on how SubQuery will index and transform the chain data. For Arbitrum, there are three types of mapping handlers (and you can have more than one in each project):
 
-- [BlockHanders](../../build/manifest/base.md#mapping-handlers-and-filters): On each and every block, run a mapping function
-- [TransactionHandlers](../../build/manifest/base.md#mapping-handlers-and-filters): On each and every transaction that matches optional filter criteria, run a mapping function
-- [LogHanders](../../build/manifest/base.md#mapping-handlers-and-filters): On each and every log that matches optional filter criteria, run a mapping function
+- [BlockHanders](../../build/manifest/ethereum.md#mapping-handlers-and-filters): On each and every block, run a mapping function
+- [TransactionHandlers](../../build/manifest/ethereum.md#mapping-handlers-and-filters): On each and every transaction that matches optional filter criteria, run a mapping function
+- [LogHanders](../../build/manifest/ethereum.md#mapping-handlers-and-filters): On each and every log that matches optional filter criteria, run a mapping function
 
 Note that the manifest file has already been set up correctly and doesn’t require significant changes, but you need to import the correct contract definitions and update the datasource handlers.
 
@@ -35,7 +35,8 @@ dataSources:
     options:
       # Must be a key of assets
       abi: faucet_abi
-      address: "0x298e0B0a38fF8B99bf1a3b697B0efB2195cfE47D" # this is the contract address for USDC faucet on Base Goerli https://goerli.basescan.org/address/0x298e0b0a38ff8b99bf1a3b697b0efb2195cfe47d
+      address: "0x298e0B0a38fF8B99bf1a3b697B0efB2195cfE47D" # this is the contract address for USDC faucet on Base Goerli     
+ https://goerli.basescan.org/address/0x298e0b0a38ff8b99bf1a3b697b0efb2195cfe47d
     assets:
       faucet_abi:
         file: "./abis/faucet.abi.json"
@@ -60,30 +61,31 @@ dataSources:
 ```
 
 
-The above code indicates that you will be running a `handleDividendBatch` mapping function whenever there is a `ClaimDividendBatch` log on any transaction from the [WINR contract](https://arbiscan.io/address/0xddaecf4b02a3e45b96fc2d7339c997e072b0d034#code).
+The above code indicates that you will be running a `handleDrip` mapping function whenever there is a `drip` method being called on any transaction from the [USDC Faucet contract](https://goerli.basescan.org/address/0x298e0b0a38ff8b99bf1a3b697b0efb2195cfe47d).
 
-Check out our [Manifest File](../../build/manifest/arbitrum.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
+Check out our [Manifest File](../../build/manifest/ethereum.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
 
 ## 2. Update Your GraphQL Schema File
 
 The `schema.graphql` file determines the shape of your data from SubQuery due to the mechanism of the GraphQL query language. Hence, updating the GraphQL Schema file is the perfect place to start. It allows you to define your end goal right at the start.
 
-Remove all existing entities and update the `schema.graphql` file as follows. Here you can see we are indexing block information such as the id, blockHeight and timestamp along with the user, the total rewards and the dividends.
+Remove all existing entities and update the `schema.graphql` file as follows. Here you can see we are indexing block information such as the id, blockHeight and drip receiver along with an aggregation of the total value of the drip per day.
 
 
 ```graphql
-type Dividend @entity {
+type Drip @entity {
   id: ID! # Transaction hash
-  blockHeight: BigInt!
-  timestamp: BigInt!
-  user: User!
-  reward: BigInt!
+  blockHeight: String
+  to: String!
+  value: BigInt!
+  tokenAddress: String!
+  date: Date!
 }
 
-type User @entity {
-  id: ID! # Transaction hash
-  totalRewards: BigInt!
-  dividends: [Dividend]! @derivedFrom(field: "user")
+#The following entity allows us to aggregate daily Drips for USDC faucet only. As of JulY 4th, this contract only drips USDC faucet anyway.
+type DailyUSDCDrips @entity {
+  id: ID! # this is the format YYYY-MM-DD T HH:MM:SS
+  totalValue: BigInt!
 }
 ```
 
@@ -107,13 +109,13 @@ npm run-script codegen
 This will create a new directory (or update the existing one) `src/types` which contains generated entity classes for each type you have defined previously in `schema.graphql`. These classes provide type-safe entity loading, and read and write access to entity fields - see more about this process in [the GraphQL Schema](../../build/graphql.md). All entities can be imported from the following directory:
 
 ```ts
-import { Dividend, User } from "../types";
+import { Drip, DailyUSDCDrips } from "../types";
 ```
 
 If you're creating a new Etheruem based project, this command will also generate ABI types and save them into `src/types` using the `npx typechain --target=ethers-v5` command, allowing you to bind these contracts to specific addresses in the mappings and call read-only contract methods against the block being processed. It will also generate a class for every contract event to provide easy access to event parameters, as well as the block and transaction the event originated from. All of these types are written to `src/types/abi-interfaces` and `src/types/contracts` directories. In this example SubQuery project, you would import these types like so.
 
 ```ts
-import { ClaimDividendBatchLog } from "../types/abi-interfaces/WinrStakingAbi";
+import { DripTransaction } from "../types/abi-interfaces/FaucetAbi";
 ```
 
 ::: warning Important
