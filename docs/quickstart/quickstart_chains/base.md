@@ -128,47 +128,52 @@ Check out the [GraphQL Schema](../../build/graphql.md) documentation to get in-d
 
 Mapping functions define how chain data is transformed into the optimised GraphQL entities that we previously defined in the `schema.graphql` file.
 
-Navigate to the default mapping function in the `src/mappings` directory. You will be able to see three exported functions: `handleBlock`, `handleLog`, and `handleTransaction`. Replace these functions with the following code:
+Navigate to the default mapping function in the `src/mappings` directory. You will be able to see two exported functions `handleDrip` and `handleDailyDrips`:
 
 ```ts
-async function checkGetUser(userID: string): Promise<User> {
-  let user = await User.get(userID.toLowerCase());
-  if (!user) {
-    user = User.create({
-      id: userID.toLowerCase(),
-      totalRewards: BigInt(0),
-    });
+export async function handleDrip(tx: DripTransaction): Promise<void> {
+  //We add a logger to see the output of the script in the console.
+  logger.info(`New Drip transaction at block ${tx.blockNumber}`);
+  assert(tx.args, "No tx.args");
+  const drip = Drip.create({
+    id: tx.hash,
+    blockHeight: tx.blockNumber.toString(),
+    to: await tx.args[2], //Third argument of the method call. Index starts at 0.
+    value: BigNumber.from(await tx.args[1]).toBigInt(), //Second argument of the method call. Index starts at 0.
+    tokenAddress: await tx.args[0], //First argument of the method call. Index starts at 0.
+    date: new Date(Number(tx.blockTimestamp) * 1000),
+  });
+
+  await drip.save();
+
+  //We only want to aggregate the USDC drips
+  if (drip.tokenAddress == "0x7b4Adf64B0d60fF97D672E473420203D52562A84") {
+    await handleDailyDrips(drip.date, drip.value);
   }
-  return user;
 }
 
-export async function handleDividendBatch(
-  batchDividendLog: ClaimDividendBatchLog
-): Promise<void> {
-  if (batchDividendLog.args) {
-    logger.info(`New dividend at block ${batchDividendLog.blockNumber}`);
+export async function handleDailyDrips(date: Date, dripValue: bigint): Promise<void> {
+  const id = date.toISOString().slice(0, 10);
+  let aggregateDrips = await DailyUSDCDrips.get(id);
 
-    const user = await checkGetUser(batchDividendLog.args[0]);
-
-    const dividend = Dividend.create({
-      id: `${batchDividendLog.transactionHash}-${batchDividendLog.logIndex}`,
-      blockHeight: BigInt(batchDividendLog.blockNumber),
-      timestamp: batchDividendLog.block.timestamp,
-      userId: user.id,
-      reward: batchDividendLog.args[1].toBigInt(),
+  if (!aggregateDrips) {
+    aggregateDrips = DailyUSDCDrips.create({
+      id,
+      totalValue: dripValue,
     });
-
-    user.totalRewards += dividend.reward;
-
-    await user.save();
-    await dividend.save();
   }
+  else {
+    aggregateDrips.totalValue += dripValue;
+  }
+
+
+  await aggregateDrips.save();
 }
 ```
 
-The `handleDividendBatch` function receives a `batchDividendLog` parameter of type `ClaimDividendBatchLog` which includes transaction log data in the payload. We extract this data and then save this to the store using the `.save()` function (_Note that SubQuery will automatically save this to the database_).
+The `handleDrip` function receives a `tx` parameter of type `DripTransaction` which includes transaction data in the payload. We extract this data and then save this to the store using the `.save()` function (_Note that SubQuery will automatically save this to the database_).
 
-Check out our [Mappings](../../build/mapping/arbitrum.md) documentation to get more information on mapping functions.
+Check out our [Mappings](../../build/mapping/ethereum.md) documentation to get more information on mapping functions.
 
 ## 4. Build Your Project
 
@@ -237,28 +242,21 @@ Next, let's query our project. Follow these three simple steps to query your Sub
 Try the following query to understand how it works for your new SubQuery starter project. Don’t forget to learn more about the [GraphQL Query language](../../run_publish/graphql.md).
 
 ```graphql
-# Write your query or mutation q{here
-{
-  query {
-    dividends(first: 2, orderBy: BLOCK_HEIGHT_DESC) {
-      totalCount
-      nodes {
+# Write your query or mutation here
+query {
+    drips (first: 10, orderBy: DATE_DESC) {
+    	nodes {
         id
-        userId
-        reward
-      }
-    }
-    users(first: 5, orderBy: TOTAL_REWARDS_DESC) {
-      totalCount
-      nodes {
-        id
-        totalRewards
-        dividends(first: 5) {
-          totalCount
+        value
+        date
         }
+    }	
+  	dailyUSDCDrips(orderBy: ID_DESC){
+      nodes{
+        id
+        totalValue
       }
     }
-  }
 }
 ```
 
@@ -267,36 +265,74 @@ You will see the result similar to below:
 ```json
 {
   "data": {
-    "query": {
-      "dividends": {
-        "totalCount": 1,
-        "nodes": [
-          {
-            "id": "0x44e9396155f6a90daaea687cf48c309128afead3be9faf20c5de3d81f6f318a6-5",
-            "userId": "0x9fd50776f133751e8ae6abe1be124638bb917e05",
-            "reward": "12373884174795780000"
-          }
-        ]
-      },
-      "users": {
-        "totalCount": 1,
-        "nodes": [
-          {
-            "id": "0x9fd50776f133751e8ae6abe1be124638bb917e05",
-            "totalRewards": "12373884174795780000",
-            "dividends": {
-              "totalCount": 1
-            }
-          }
-        ]
-      }
+    "drips": {
+      "nodes": [
+        {
+          "id": "0xeb49292b455670f08f971d9c5cf48b10ecaa7053ea0cc330bd3be58f18586524",
+          "value": "1000000000",
+          "date": "2023-07-04T22:58:20"
+        },
+        {
+          "id": "0xa2757f9f16cc15b123cd78efd3eca977e8b33022a19d6c572cf09d6ef75b481e",
+          "value": "1000000000",
+          "date": "2023-07-04T22:57:58"
+        },
+        {
+          "id": "0xf40aebe48a1bf7722ba3882c3161144f477cce7920cf717297d4e3ccbb811fa7",
+          "value": "1000000000",
+          "date": "2023-07-04T22:57:34"
+        },
+        {
+          "id": "0x6286bb9fdafc68f1497bd32923e796aa310d08b65fd02af3ff4a5b8a20fb4062",
+          "value": "1000000000",
+          "date": "2023-07-04T22:57:10"
+        },
+        {
+          "id": "0x166e458cd5147ecc5a35577e3408969f489a82aee1da0f95485d1f9377927dcc",
+          "value": "1000000000",
+          "date": "2023-07-04T22:54:54"
+        },
+        {
+          "id": "0x69c42fddda0b8dc13bd1ddf361f1bd32c19518446b971d10d10d3aa7c725b603",
+          "value": "1000000000",
+          "date": "2023-07-04T22:54:18"
+        },
+        {
+          "id": "0xc34551128b82b21beb47858ea7bff87abd58eba8e863ea0fb2a1e8220977b8c6",
+          "value": "1000000000",
+          "date": "2023-07-04T22:53:56"
+        },
+        {
+          "id": "0x58e6e49cf624e809a51f732d95028ad1e4301f00356a47c4999e1df1226ebb48",
+          "value": "1000000000",
+          "date": "2023-07-04T22:53:22"
+        },
+        {
+          "id": "0x7092884802e5600a844306cb95303a3ee062d4334a01f6c651d29e692cb636d7",
+          "value": "1000000000",
+          "date": "2023-07-04T22:52:24"
+        },
+        {
+          "id": "0xe72aa8862d92c081275668113696903aafef80e0d40fe918bf0d289c603d906b",
+          "value": "1000000000",
+          "date": "2023-07-04T22:52:24"
+        }
+      ]
+    },
+    "dailyUSDCDrips": {
+      "nodes": [
+        {
+          "id": "2023-07-04",
+          "totalValue": "806000000000"
+        }
+      ]
     }
   }
 }
 ```
 
 ::: tip Note
-The final code of this project can be found [here](https://github.com/subquery/subql-example-arbitrum-winr-rewards).
+The final code of this project can be found [here](https://github.com/subquery/ethereum-subql-starter.git).
 :::
 
 ## What's next?
