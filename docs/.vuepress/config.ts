@@ -362,6 +362,10 @@ function getSidebar(locale: string): SidebarOptions {
               link: `${locale}/quickstart/quickstart_chains/flare.md`,
             },
             {
+              text: "Gnosis",
+              link: `${locale}/quickstart/quickstart_chains/gnosis.md`,
+            },
+            {
               text: "NEAR",
               collapsible: true,
               children: [
