@@ -109,4 +109,4 @@ There are 3 important files that need to be modified. Diese sind:
 2. Das Projektmanifest in `project.yaml`.
 3. Die Mapping-Funktionen im Verzeichnis `src/mappings/`.
 
-SubQuery supports various blockchain networks and provides a dedicated guide for each of them. Select your preferred blockchain under 2. Specific Chains and continue the quick start guide.
+SubQuery supports various blockchain networks and provides a dedicated guide for each of them. Select your preferred blockchain under **2. Specific Chains** and continue the quick start guide.
