@@ -109,4 +109,4 @@ There are 3 important files that need to be modified. Đó là:
 2. Tệp Kê khai dự án trong `project.yaml`.
 3. Các hàm ánh xạ trong thư mục `src/mappings/`.
 
-SubQuery hỗ trợ các mạng blockchain khác nhau và cung cấp hướng dẫn riêng cho từng mạng. Chọn blockchain ưa thích của bạn tối đa là 2. Chuỗi cụ thể và tiếp tục hướng dẫn bắt đầu nhanh.
+SubQuery hỗ trợ các mạng blockchain khác nhau và cung cấp hướng dẫn riêng cho từng mạng. Select your preferred blockchain under **2. Specific Chains** and continue the quick start guide.
