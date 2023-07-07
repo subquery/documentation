@@ -24,7 +24,7 @@ The final code of this project can be found [here](https://github.com/subquery/n
 We use Ethereum packages, runtimes, and handlers (e.g. `@subql/node-ethereum`, `ethereum/Runtime`, and `ethereum/*Handler`) for NEAR Aurora. Since Aurora is a EVM implementation on NEAR, we can use the core Ethereum framework to index it.
 :::
 
-The Project Manifest (`project.yaml`) file works as an entry point to your Aurora project. It defines most of the details on how SubQuery will index and transform the chain data. For Aurora, there are three types of mapping handlers (and you can have more than one in each project), note that these are different mapping handlers that [traditional NEAR projects](./near.md#2-update-your-project-manifest-file):
+The Project Manifest (`project.yaml`) file works as an entry point to your Aurora project. It defines most of the details on how SubQuery will index and transform the chain data. For Aurora, there are three types of mapping handlers (and you can have more than one in each project). Note that these are different mapping handlers to that of [traditional NEAR projects](./near.md#2-update-your-project-manifest-file):
 
 - [BlockHanders](../../build/manifest/ethereum.md#mapping-handlers-and-filters): On each and every block, run a mapping function
 - [TransactionHandlers](../../build/manifest/ethereum.md#mapping-handlers-and-filters): On each and every transaction that matches optional filter criteria, run a mapping function
