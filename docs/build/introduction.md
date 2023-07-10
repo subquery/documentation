@@ -216,6 +216,12 @@ In the above example, the `handleBlock` function is a block handler that saves t
 
 Remember, different types of handlers are suited to different purposes. Choose the ones that best fit your specific project requirements.
 
+::: tip
+
+The `console.log` method is **not supported**. Instead, a `logger` module has been injected in the types, which means we support a logger that can accept various logging levels. We recommend using Loggers as part of your testing and debugging strategy. For more information on Loggers, check [here](./testing.md#logging).
+
+:::
+
 ## Build
 
 In order to run your SubQuery Project on a locally hosted SubQuery Node, you need to first build your work.
@@ -266,33 +272,3 @@ Then by running `subql build` it will generate a dist folder with the following 
 Note that it will build `index.ts` whether or not it is specified in the exports field.
 
 For more information on using this including flags, see [cli reference](../run_publish/references.md).
-
-## Logging
-
-The `console.log` method is **not supported**. Instead, a `logger` module has been injected in the types, which means we support a logger that can accept various logging levels.
-
-```typescript
-logger.info("Info level message");
-logger.debug("Debugger level message");
-logger.warn("Warning level message");
-```
-
-To use `logger.info` or `logger.warn`, just place the line into any mapping file. When developing a SubQuery project, it's common to log a message with the block height at the start of each mapping function so you can easily identify that the mapping function has been triggered and is executing. In addition, you can inspect the payload of data passed through to the mapping function easily by stringifying the payload. Note that `JSON.stringify` doesn’t support native `BigInts`.
-
-```ts
-export async function handleLog(log: EthereumLog): Promise<void> {
-  logger.info('New log found at ' + log.blockNumber.toString());
-  logger.info('New log payload ' + JSON.stringify(log.data));
-  ... // do something
-}
-```
-
-The default log level is `info` and above. To use `logger.debug`,you must add `--log-level=debug` to your command line.
-
-If you are running a docker container, add this line to your `docker-compose.yaml` file.
-
-![logging.debug](/assets/img/logging_debug.png)
-
-You should now see the new logging in the terminal screen.
-
-![logging.debug](/assets/img/subquery_logging.png)
