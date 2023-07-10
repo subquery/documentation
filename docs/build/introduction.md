@@ -87,6 +87,55 @@ When setting up your own SubQuery project, you will need to update this file to 
 
 For more information, please check the full documentation about [Manifest File](./manifest).
 
+## Setting up the GraphQL Schema
+
+The schema.graphql file outlines the various GraphQL schemas. The structure of this file essentially dictates the shape of your data from SubQuery. If you're new to writing in GraphQL schema language, consider exploring resources like Schemas and Types. You should consider a few steps when setting up your GraphQL Schema:
+
+1. Defining Entities: In SubQuery, each entity should define a required id field with the type of ID!, serving as the unique primary key.
+
+2. Documentation Strings: These are useful for providing human-readable descriptions of the schema's types and fields, and can be added using triple-quote syntax (""").
+
+3. Supported Scalars and Types: SubQuery supports various scalar types like `ID`, `Int`, `String`, `BigInt`, `Float`, `Date`, `Boolean`, `<EntityName>`, `JSON`, and `<EnumName>`.
+
+4. Indexing: Enhance query performance by implementing the @index annotation on a non-primary-key field.
+
+Here's an example of what your GraphQL Here is an example of a schema which implements all of these recomendations, as well a relationship of many-to-many:
+
+
+```graphql
+"""
+User entity: Stores basic user data.
+"""
+type User @entity {
+  id: ID!
+  name: String! @index(unique: true)
+  email: String @index
+  createdDate: Date
+  isActive: Boolean
+  profile: UserProfile
+}
+
+"""
+UserProfile entity: Stores detailed user data.
+"""
+type UserProfile @entity {
+  id: ID!
+  bio: String
+  avatarUrl: String
+}
+
+"""
+Post entity: Represents user posts.
+"""
+type Post @entity {
+  id: ID!
+  title: String!
+  content: String
+  publishedDate: Date
+  author: User @index
+}
+```
+
 ## Code Generation
 
 SubQuery makes it easy and type-safe to work with your GraphQL entities, as well as smart contracts, events, transactions, and logs. SubQuery CLI will generate types from your project's GraphQL schema and any contract ABIs included in the data sources.
