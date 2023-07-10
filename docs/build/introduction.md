@@ -89,15 +89,15 @@ For more information, please check the full documentation about [Manifest File](
 
 ## Setting up the GraphQL Schema
 
-The schema.graphql file outlines the various GraphQL schemas. The structure of this file essentially dictates the shape of your data from SubQuery. If you're new to writing in GraphQL schema language, consider exploring resources like Schemas and Types. You should consider a few steps when setting up your GraphQL Schema:
+The schema.graphql file outlines the various GraphQL schemas. The structure of this file essentially dictates the shape of your data from SubQuery. If you're new to writing in GraphQL schema language, consider exploring resources like [Schemas and Types](https://graphql.org/learn/schema/). Here are a few elements to take into consideration when setting up your GraphQL Schema:
 
-1. Defining Entities: In SubQuery, each entity should define a required id field with the type of ID!, serving as the unique primary key.
+1. [Defining Entities](./graphql.md#defining-entities): In SubQuery, each entity should define a required id field with the type of ID!, serving as the unique primary key.
 
-2. Documentation Strings: These are useful for providing human-readable descriptions of the schema's types and fields, and can be added using triple-quote syntax (""").
+2. [Entity Relationships](./graphql.md#entity-relationships): An entity often has nested relationships with other entities. Setting the field value to another entity name will define a relationship between these two entities.
 
-3. Supported Scalars and Types: SubQuery supports various scalar types like `ID`, `Int`, `String`, `BigInt`, `Float`, `Date`, `Boolean`, `<EntityName>`, `JSON`, and `<EnumName>`.
+3. [Supported Scalars and Types](./graphql.md#supported-scalars-and-types): SubQuery supports various scalar types like `ID`, `Int`, `String`, `BigInt`, `Float`, `Date`, `Boolean`, `<EntityName>`, `JSON`, and `<EnumName>`.
 
-4. Indexing: Enhance query performance by implementing the @index annotation on a non-primary-key field.
+4. [Indexing](./graphql.md#indexing-by-non-primary-key-field): Enhance query performance by implementing the @index annotation on a non-primary-key field.
 
 Here's an example of what your GraphQL Here is an example of a schema which implements all of these recomendations, as well a relationship of many-to-many:
 
