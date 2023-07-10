@@ -37,6 +37,58 @@ For example:
 
 ![SubQuery directory structure](/assets/img/subQuery_directory_stucture.png)
 
+## Working with the Manifest File
+
+The Manifest `project.yaml` file acts as the entry point for your project. It holds crucial information about how SubQuery will index and transform the chain data. It specifies where the data is being indexed from, and what on-chain events are being subscribed to.
+
+The Manifest can be in either YAML or JSON format. In all [our examples](./manifest), we use YAML. Here is an [example](./manifest/polkadot.md) of what it looks like:
+
+```yml
+specVersion: 1.0.0
+name: subquery-starter
+version: 0.0.1
+runner:
+  node:
+    name: "@subql/node"
+    version: "*"
+  query:
+    name: "@subql/query"
+    version: "*"
+description: "This project can be used as a starting point for developing your Polkadot based SubQuery project"
+repository: https://github.com/subquery/subql-starter
+schema:
+  file: ./schema.graphql
+network:
+  chainId: "0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3"
+  endpoint: ["wss://polkadot.api.onfinality.io/public-ws"]
+  dictionary: "https://api.subquery.network/sq/subquery/polkadot-dictionary"
+  bypassBlocks: [1, 2, 100, "200-500"]
+dataSources:
+  - kind: substrate/Runtime
+    startBlock: 1 # Block to start indexing from
+    mapping:
+      file: ./dist/index.js
+      handlers:
+        - handler: handleBlock
+          kind: substrate/BlockHandler
+        - handler: handleEvent
+          kind: substrate/EventHandler
+          filter:
+            module: balances
+            method: Deposit
+        - handler: handleCall
+          kind: substrate/CallHandler
+
+```
+
+The project.yaml file holds the majority of the configuration settings for your SubQuery project. It includes details such as the data sources your project will be connecting to, the starting block for indexing, the specific handlers that will be used for different events, and more.
+
+When setting up your own SubQuery project, you will need to update this file to match your specific requirements.
+
+For more information, please check the full documentation about [Manifest File](./manifest).
+
+I will add the section about mapping files once you're ready.
+
 ## Code Generation
 
 SubQuery makes it easy and type-safe to work with your GraphQL entities, as well as smart contracts, events, transactions, and logs. SubQuery CLI will generate types from your project's GraphQL schema and any contract ABIs included in the data sources.
