@@ -171,6 +171,48 @@ import { GraphQLEntity1, GraphQLEntity2 } from "../types";
 
 **ABI Codegen is not yet supported for Cosmos Ethermint EVM ([track progress here](https://github.com/subquery/subql-cosmos/issues/102)) or Substrate WASM**
 
+## Mapping
+
+Mapping functions are crucial to the transformation of chain data into GraphQL entities defined in the schema file (schema.graphql). The process includes defining these mappings in the `src/mappings` directory and exporting them as a function. They are also exported in `src/index.ts` and referenced in `project.yaml` under the mapping handlers.
+
+In general (bar some exceptions), there are three primary types of mapping functions:
+
+1. [Block Handlers](mapping/polkadot.md#block-handler): These capture information each time a new block is added to the chain. They are executed for every block and are primarily used when block-specific data is needed.
+
+2. [Event Handlers](mapping/polkadot.md#event-handler): These are used to capture information when certain events occur in a new block. These events may trigger the mapping, allowing data source activity to be captured.
+
+3. [Call Handlers](mapping/polkadot.md#call-handler): These are used to capture information on certain substrate extrinsics, generally when specific, predefined operations are performed on the chain.
+
+Remember to use Mapping Filters in your manifest to filter events and calls. This improves indexing speed and mapping performance.
+
+Here's an example of how to use a block handler and an event handler:
+
+```ts
+import { SubstrateBlock, SubstrateEvent } from "@subql/types";
+
+// Block Handler
+export async function handleBlock(block: SubstrateBlock): Promise<void> {
+  const record = new BlockEntity(block.block.header.hash.toString());
+  record.blockNumber = block.block.header.number.toNumber();
+  await record.save();
+}
+
+// Event Handler
+export async function handleEvent(event: SubstrateEvent): Promise<void> {
+  const {
+    event: {
+      data: [account, balance],
+    },
+  } = event;
+  const record = new EventEntity(
+    event.extrinsic.block.block.header.hash.toString()
+  );
+  record.account = account.toString();
+  record.balance = (balance as Balance).toBigInt();
+  await record.save();
+}
+```
+
 ## Build
 
 In order to run your SubQuery Project on a locally hosted SubQuery Node, you need to first build your work.
