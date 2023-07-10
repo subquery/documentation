@@ -212,6 +212,9 @@ export async function handleEvent(event: SubstrateEvent): Promise<void> {
   await record.save();
 }
 ```
+In the above example, the `handleBlock` function is a block handler that saves the block number every time a new block is attached to the chain. The `handleEvent` function is an event handler that captures and stores the account and balance data whenever a particular event is triggered.
+
+Remember, different types of handlers are suited to different purposes. Choose the ones that best fit your specific project requirements.
 
 ## Build
 
