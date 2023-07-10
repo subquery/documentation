@@ -87,8 +87,6 @@ When setting up your own SubQuery project, you will need to update this file to 
 
 For more information, please check the full documentation about [Manifest File](./manifest).
 
-I will add the section about mapping files once you're ready.
-
 ## Code Generation
 
 SubQuery makes it easy and type-safe to work with your GraphQL entities, as well as smart contracts, events, transactions, and logs. SubQuery CLI will generate types from your project's GraphQL schema and any contract ABIs included in the data sources.
