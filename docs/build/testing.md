@@ -10,8 +10,22 @@ The SubQuery testing framework provides an easy way to test the behavior of mapp
 
 When developing your project, if you don't want to use the SubQuery Testing Framework, the following options or approaches can be used:
 
-- For the initial development of your project, if you're indexing a specific event, transaction, or log, update your `startBlock` in your `project.yaml` to the block number proceeding a known event, transaction, or log and then proceed indexing from there. This means you immediately receive data into your project for indexing and this can significantly shorten the development iteration time.
-- Generously use [logging](./introduction.md#logging) in your code, including using the debug level when developing to reduce the number of logs printed in your production code. A good practice is to log a new event or transaction when you receive it in the mapping function so you know what error occurs where. When developing you can also debug the payload by stringfying it (note that `JSON.stringify` doesn’t support native `BigInts`)
+### Choosing the starting block
+
+For the initial development of your project, if you're indexing a specific event, transaction, or log, update your `startBlock` in your `project.yaml` to the block number proceeding a known event, transaction, or log and then proceed indexing from there. This means you immediately receive data into your project for indexing and this can significantly shorten the development iteration time. This can be done on the [manifest file](./manifest), in the section 
+
+### Logging
+We recommend to generously use logging, including using the debug level when developing to reduce the number of logs printed in your production code. A good practice is to log a new event or transaction when you receive it in the mapping function so you know what error occurs where. When developing you can also debug the payload by stringfying it (note that `JSON.stringify` doesn’t support native `BigInts`).
+
+The `console.log` method is **not supported**. Instead, a `logger` module has been injected in the types, which means we support a logger that can accept various logging levels.
+
+```typescript
+logger.info("Info level message");
+logger.debug("Debugger level message");
+logger.warn("Warning level message");
+```
+
+To use `logger.info` or `logger.warn`, just place the line into any mapping file. When developing a SubQuery project, it's common to log a message with the block height at the start of each mapping function so you can easily identify that the mapping function has been triggered and is executing. In addition, you can inspect the payload of data passed through to the mapping function easily by stringifying the payload. Note that `JSON.stringify` doesn’t support native `BigInts`.
 
 ```ts
 export async function handleLog(log: EthereumLog): Promise<void> {
@@ -20,6 +34,17 @@ export async function handleLog(log: EthereumLog): Promise<void> {
   ... // do something
 }
 ```
+
+The default log level is `info` and above. To use `logger.debug`,you must add `--log-level=debug` to your command line.
+
+If you are running a docker container, add this line to your `docker-compose.yaml` file.
+
+![logging.debug](/assets/img/logging_debug.png)
+
+You should now see the new logging in the terminal screen.
+
+![logging.debug](/assets/img/subquery_logging.png)
+
 
 ## Using the SubQuery Testing Framework
 
