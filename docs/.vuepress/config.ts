@@ -392,6 +392,10 @@ function getSidebar(locale: string): SidebarOptions {
                   link: `${locale}/quickstart/quickstart_chains/polkadot-astar.md`,
                 },
                 {
+                  text: "Moonbeam (EVM)",
+                  link: `${locale}/quickstart/quickstart_chains/polkadot-moonbeam.md`,
+                },
+                {
                   text: "Humanode",
                   link: `${locale}/quickstart/quickstart_chains/polkadot-humanode.md`,
                 },
