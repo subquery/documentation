@@ -6,7 +6,7 @@
 - 闭环服务协议.
 - 开放式服务协议.
 
-## 按需付费 (PAYG)
+## Flex Plans (Pay-As-You-Go / PAYG)
 
 这是基础付款方法，也是其他付款方法的后备方法。 每位索引者将在注册提供特定 SubQuery 项目服务时公布其 PAYG 的价格。
 
@@ -22,7 +22,7 @@
 
 ## 开放式服务协议
 
-开放式市场协议类似于封闭式市场协议，但是它允许多个索引者加入并竞争向消费者提供数据。 开放式市场服务协议可以从1个消费者和1个索引者之间的合约开始，不过，更多的人也可以加入该合同，从而产生*n*个消费者和*n</n>个索引者。</p>
+开放式市场协议类似于封闭式市场协议，但是它允许多个索引者加入并竞争向消费者提供数据。 An Open Market Service Agreement may start as a contract between 1 Consumer and 1 Indexer, but more parties may join the contract resulting in _n_ consumer and _n_ indexers.
 
 每个开放式市场服务协议都会为该合约创建一个新的奖励池，其中 SQT 代币由 Cobb-Douglas 生产函数分配给参与的索引者。
 
