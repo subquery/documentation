@@ -6,7 +6,7 @@ Para flexibilidad, hay 3 opciones de pago para pagar los datos del blockchain. E
 - Closed Service Agreement.
 - Open Service Agreement.
 
-## Pay-As-You-Go (PAYG)
+## Flex Plans (Pay-As-You-Go / PAYG)
 
 Este es el método de pago básico y un recurso para los demás. Cada Indexador anunciará sus precios PAYG al registrar su capacidad de atender solicitudes de proyectos específicos de SubQuery.
 
@@ -22,7 +22,7 @@ Los planes cerrados también pueden colocarse en proyectos de subconsultas exist
 
 ## Acuerdo de Servicio Abierto
 
-Los Acuerdos de Servicios de Mercado Abierto son similares a los Acuerdos de Servicio de Mercado Cerrado, pero permiten que varios Indexadores se unan y compitan para proporcionar datos al Consumidor. Un Acuerdo de Servicio de Mercado Abierto puede comenzar como un contrato entre 1 Indice de Consumidor y 1, pero más partes pueden unirse al contrato resultando en *n* consumidores y *n* indexadores.
+Los Acuerdos de Servicios de Mercado Abierto son similares a los Acuerdos de Servicio de Mercado Cerrado, pero permiten que varios Indexadores se unan y compitan para proporcionar datos al Consumidor. An Open Market Service Agreement may start as a contract between 1 Consumer and 1 Indexer, but more parties may join the contract resulting in _n_ consumer and _n_ indexers.
 
 Cada Acuerdo de Servicio de Mercado Abierto da como resultado la creación de un nuevo fondo de recompensas para ese contrato, y SQT se distribuye entre los indicadores participantes por la función de producción Cobb-Douglas .
 
