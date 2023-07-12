@@ -149,7 +149,7 @@ const pirateLords = await User.getByTitleId(captainTitle.id); // List of all Cap
 
 ### Composite Index
 
-Composite indexes work just like regular indexes, except they provide even faster access to daata by utilisng multiple columns to create the index.
+Composite indexes work just like regular indexes, except they provide even faster access to data by utilising multiple columns to create the index.
 
 For example, a composite index on columns `col_a` and `col_b` will significantly help when there are queries that filter across both (e.g. `WHERE col_a=x AND col_b=y`).
 
