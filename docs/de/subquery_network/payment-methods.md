@@ -6,7 +6,7 @@ Aus Gründen der Flexibilität gibt es 3 Zahlungsoptionen, um Blockchain-Daten z
 - Closed Service Agreement.
 - Open Service Agreement.
 
-## Pay-As-You-Go (PAYG)
+## Flex Plans (Pay-As-You-Go / PAYG)
 
 Dies ist die grundlegende Zahlungsmethode und ein Fallback für andere. Jeder Indexer gibt seine PAYG-Preise bekannt, wenn er seine Fähigkeit registriert, Anforderungen für bestimmte SubQuery-Projekte zu bedienen.
 
@@ -22,7 +22,7 @@ Geschlossene Pläne können auch für bestehende SubQuery-Projekte platziert wer
 
 ## Servicevertrag öffnen
 
-Offenmarkt-Dienstleistungsvereinbarungen ähneln geschlossenen Marktdienstleistungsvereinbarungen, ermöglichen jedoch mehreren Indexierern, sich anzuschließen und zu konkurrieren, um dem Verbraucher Daten bereitzustellen. Eine Offenmarkt-Dienstleistungsvereinbarung kann als Vertrag zwischen 1 Verbraucher und 1 Indexierer beginnen, aber es können weitere Parteien dem Vertrag beitreten, was zu *n* Verbrauchern und *n* Indexierern führt.
+Offenmarkt-Dienstleistungsvereinbarungen ähneln geschlossenen Marktdienstleistungsvereinbarungen, ermöglichen jedoch mehreren Indexierern, sich anzuschließen und zu konkurrieren, um dem Verbraucher Daten bereitzustellen. An Open Market Service Agreement may start as a contract between 1 Consumer and 1 Indexer, but more parties may join the contract resulting in _n_ consumer and _n_ indexers.
 
 Jede Offenmarkt-Servicevereinbarung führt dazu, dass für diesen Vertrag ein neuer Belohnungspool erstellt wird, und SQT wird von der Cobb-Douglas-Produktionsfunktion unter den teilnehmenden Indexierern verteilt.
 
