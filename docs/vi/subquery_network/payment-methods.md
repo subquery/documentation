@@ -6,7 +6,7 @@
 - Thỏa thuận dịch vụ kín.
 - Thỏa thuận dịch vụ mở.
 
-## Dùng đến đâu thanh toán đến đó (PAYG)
+## Flex Plans (Pay-As-You-Go / PAYG)
 
 Đây là phương thức thanh toán cơ bản và là phương thức dự phòng cho những phương thức khác. Mỗi Người lập chỉ mục sẽ quảng cáo giá PAYG của họ khi đăng ký khả năng phục vụ yêu cầu cho các dự án SubQuery cụ thể.
 
@@ -22,7 +22,7 @@ Kế hoạch kín cũng có thể được đặt trên các Dự án SubQuery h
 
 ## Thỏa thuận dịch vụ mở
 
-Thỏa thuận dịch vụ thị trường mở tương tự như Thỏa thuận dịch vụ thị trường kín, nhưng cho phép nhiều Người lập chỉ mục tham gia và cạnh tranh để cung cấp dữ liệu cho Người tiêu dùng. Thỏa thuận dịch vụ thị trường mở có thể bắt đầu như một hợp đồng giữa 1 Người tiêu dùng và 1 Người lập chỉ mục, nhưng nhiều bên có thể tham gia hợp đồng dẫn đến *n* người tiêu dùng và *n* người lập chỉ mục.
+Thỏa thuận dịch vụ thị trường mở tương tự như Thỏa thuận dịch vụ thị trường kín, nhưng cho phép nhiều Người lập chỉ mục tham gia và cạnh tranh để cung cấp dữ liệu cho Người tiêu dùng. An Open Market Service Agreement may start as a contract between 1 Consumer and 1 Indexer, but more parties may join the contract resulting in _n_ consumer and _n_ indexers.
 
 Mỗi Thỏa thuận dịch vụ thị trường mở là kết quả của một pool phần thưởng mới được tạo ra cho hợp đồng đó và SQT được phân phối giữa các nhà lập chỉ mục tham gia bởi hàm sản xuất Cobb-Douglas.
 
