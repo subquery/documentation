@@ -6,7 +6,7 @@ For flexibility, there are 3 payment options to pay for blockchain data. ดั�
 - Closed Service Agreement.
 - Open Service Agreement.
 
-## Pay-As-You-Go (PAYG)
+## Flex Plans (Pay-As-You-Go / PAYG)
 
 This is the baseline payment method and a fallback for others. Each Indexer will advertise their PAYG prices when registering their ability to serve requests for specific SubQuery projects.
 
@@ -22,7 +22,7 @@ Closed Plans can also be placed on existing SubQuery Projects to attract additio
 
 ## ข้อตกลงการให้บริการแบบเปิด
 
-Open Market Service Agreements are similar to Closed Market Service Agreements, but allow multiple Indexers to join and compete to provide data to the Consumer. An Open Market Service Agreement may start as a contract between 1 Consumer and 1 Indexer, but more parties may join the contract resulting in *n* consumer and *n* indexers.
+Open Market Service Agreements are similar to Closed Market Service Agreements, but allow multiple Indexers to join and compete to provide data to the Consumer. An Open Market Service Agreement may start as a contract between 1 Consumer and 1 Indexer, but more parties may join the contract resulting in _n_ consumer and _n_ indexers.
 
 Each Open Market Service Agreement results in a new reward pool being created for that contract, and SQT is distributed amongst participating indexers by the Cobb-Douglas production function.
 
